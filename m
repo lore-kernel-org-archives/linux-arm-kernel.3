@@ -4,106 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18CFEC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16BFC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=; b=0oOYNimU0L6NtI8cNlOnrD4SxG
-	zca2vy5w1LY9jnSDQRf8Pfs41zsSn6+V0HfLojRBiuplqmP2AjQiAMkr23TkOI15Zk+pDg0pJ4hzS
-	X5BEltrojCl048qG8btln7svskZ5C88dtuhdNkmjxEuuLaQK0TOIScji7A0smtWtDfwSgPO+SAI2e
-	tYs1lgpfpNEvO+u1zugqOTnPIkReOHK88FfdJ+UMFOokHhkPLDBB9uZDceZccMS8wSjjWkYikKjxk
-	fFXK05xFjWbYSAkho9Lg7zXz+dh7DgwGFMFukBr7XVe3Z9TfO8ypYdsOQsxv3KmyNxASClqDI2T2A
-	vCSbxbdA==;
+	bh=PwQdpGO5V3CPOgrnb2NRsGwjwQZWnzlGvHbQpClskgY=; b=12KlXakWDbEftzzMOVmvM0ZQOm
+	os8UG1A+xxtp7GbtusH+2/QPdv/VWzgQLp6LQYHioM6NoPptTiSqISo5S4y9J3BfFumOCCZeadAYf
+	fIaLpuSmbtzjH+RWJXliiCY6MuuEcA8HGbzQULrK1CAuCHtb/xu8a8rJ+Kn1tASkvdDvAguPjYLWp
+	eXDS8AQkoh35chg/H3rwAjjUce0ca0yga7WYB99lYGuX9DZ7a+bsNmEv9jfjSGGoxPQUveYlUfP1Q
+	LbCjYmB0JU6sb//fZ5FVShthqdF72tigBR1J6pHjmi05/vI4ctGygpWs2sEaY0Ox/LzMPRVNgW1Ud
+	+oQPPAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Z3i-00000006tfE-2Cfi;
-	Mon, 07 Sep 2026 13:06:50 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Z3g-00000006tdr-1LVb
+	id 1x3ZAr-00000006uNB-2rOm;
+	Mon, 07 Sep 2026 13:14:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3ZAq-00000006uMZ-00p2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:06:49 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-382ef647e20so3517824a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:06:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788786407; x=1789391207; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=;
-        b=m1iw4UoFo9Y/Unc56h4ULpm2PLoIWSHzvzAIfNEIu98KH4nHcTsWjPNPH1H3OJWlH5
-         fKb+7GsUUrGxlVKbYt9VtjT0oVKR/2zifv394g9ydjuXaV7fZQS1emBXXmMUTzfQa5uS
-         rGqwzEVnOhaZ0useJL+qWkFsac5xZzSATuI5DeEWvgL6mr2oPDeZ0KAHeuNoqR+/FYN1
-         5h45eCAoHn1QBs1keRNDpFK6O6DNHbvjbwjS420yfnYuYSLp5CPjvUoWwKeNV9BRrGgS
-         0v1QUJQhae1wzPJzaJE2GOF8hpbamBkJdF6YtkQsbwp5830HTTcxwL8UUHwow6UxOsEF
-         ffvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788786407; x=1789391207;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=;
-        b=RgUFU9AtQ9cEVTQ5nD65efmC1Q9EaNPAo+4hz+O0BOdkK1xNDrgsA0SgBlbO7Ufzgb
-         MWcytBY45jytEuV2bfaCpZ3nPTMtitP+vUCOdt0cnnJH3RRz9qcHb+y6t3K+nAnjrAAe
-         ZgwoHRm525666nYGGi0Kcybc9pCwnByzAOej0MIQN9TVw238YJkgziIHDFKUM+KVKlTy
-         ZdxnJ7r13pwI35y1fCs1U+prNedHqXMowim9Llqu4d7iidOsy1MuuyeWKYwAEOpNlp6p
-         W4/Klu6ehRqDkAM2W/ZTKFHtuDgOrGkiQ9cgKhbmMO2GNsosWKrjgEitgVcXM14Z59lL
-         oJtA==
-X-Forwarded-Encrypted: i=1; AKwUvBwQUgwNnnCGtkfXKosZetCqPLob/WOdH1VeDPiy7K2EgxC4hNP3vpmuV+JlaNPQ02CwofW9i0iRuv7saKgFrAV5@lists.infradead.org
-X-Gm-Message-State: AFuF++mjmWQMKand5Ittq1oX33EqOv5PLQNjfPbD5J3DVN8MynkLCp97
-	RKm2UUttpVUJTbAVHrTbzPrJSm1WkXFDe6YFUzyOsH1HbpVoliD4XKI=
-X-Gm-Gg: AYBFou0pwziZf78qgmS7xahXszKCyOf0tXNOwT4zXNgXYdxkpTAXS45jyPx0ObNTgN1
-	GOHRJWFjAFNBCGenXQs3Pe7UmRu2KEbtSJrWhYa8i87bxNK4Cjn0DpwWgt0Hou7guoTDHvncuXI
-	p3oB/pdPT0oPKSpqaIt9WERdEtbHZOFmhFayTnXg1ZcjDnJ56s8jajNS5Iw5FQ1Fk6RrQ0Y9KMv
-	TRqUd3HE0jsk0Sq2qr76Z1OCqOOeAighO9NbO+kGVAV7aPM+/CKZxLZ7CP0GUstFMAOG2G0l05F
-	g7buuISxupttwp1OCd5VeihANSo4Rr7p+w6R7nYu7z4o39jj+rpQ8KSAsVcece9yB0LM0Xs05qE
-	ayqZtbYEseJjlIftFS+WpqQddRGC9fo0MzgbkiDk19Rf4A/6MIeLlUGBzIcZa22xeYYKSiE7t1a
-	yUeh8TiSJlP7B02uoapztXvwXSo0ub+IcT1Lsz88Vqn7B92tpK+Sf9aplfv0nB1eIbWhmzwWkw2
-	s0NEI50fONsgi5R
-X-Received: by 2002:a17:90b:3809:b0:381:a766:efc9 with SMTP id 98e67ed59e1d1-39b261014e2mr32056634a91.7.1788786407241;
-        Mon, 07 Sep 2026 06:06:47 -0700 (PDT)
-Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:6467:d689:c773:5f09:906c:a72b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm26742398a91.0.2026.09.07.06.06.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 06:06:46 -0700 (PDT)
-From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	donggeunyoo.kernel@gmail.com
-Subject: [PATCH bpf v3 2/2] selftests/bpf: cover the exception callback using its own BPF stack
-Date: Mon,  7 Sep 2026 22:06:24 +0900
-Message-ID: <20260907130624.611942-3-donggeunyoo.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
-References: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
+	Mon, 07 Sep 2026 13:14:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08C841476;
+	Mon,  7 Sep 2026 06:14:05 -0700 (PDT)
+Received: from [10.57.7.12] (unknown [10.57.7.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4818F3F7D8;
+	Mon,  7 Sep 2026 06:14:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788786848; bh=XWLt2OmFnj478hxlI5SLGUXw2C8SjtcuYR3m957GDEI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DlIReHo4IXFAsHTh3mJ60nbj3okusPpJbvnauJK1CVeqYxdGOUmmuK3cOSzJsIJ+g
+	 JWMitI4SSa4Cph7NPhgFStdu3qr3E1rg4bg1AweLFBfEvTJ+IfjrcZYlVKsqgol1Zx
+	 HRqnqGsUEu7yqoUCUgbhZsitwnWZSzdz7tvB72d8=
+Message-ID: <99baf0a9-e9e8-49c5-a550-78c10a3ef702@arm.com>
+Date: Mon, 7 Sep 2026 15:14:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm_mpam: resctrl: Catch and propagate error from
+ get_cpu_cacheinfo_id()
+To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Yin Li <yin.li@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260902143757.3469690-1-andre.przywara@arm.com>
+ <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <ea42f2a7-f4f7-46ab-a5e0-239c74174499@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_060648_363975_E2CA270E 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260907_061412_092341_4056A326 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,77 +74,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing exception tests do not reach a callback that materializes
-BPF_REG_FP into a register. They either throw from the main program,
-where BPF_REG_FP already holds the value the callback needs, or use a
-callback whose only stack accesses are frame pointer relative, which the
-arm64 JIT rewrites to be stack pointer relative.
+Hi Ben,
 
-Add a test that throws from a subprogram using its own BPF stack, with a
-callback that hands the address of a local variable to
-bpf_probe_read_kernel(). The helper and the callback have to name the
-same slot for the value read back to be the one the helper stored.
+thanks for having a look!
 
-Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
----
- .../selftests/bpf/prog_tests/exceptions.c     |  1 +
- .../testing/selftests/bpf/progs/exceptions.c  | 30 +++++++++++++++++++
- 2 files changed, 31 insertions(+)
+On 9/7/26 14:59, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 02/09/2026 15:37, Andre Przywara wrote:
+>> get_cpu_cacheinfo_id() can fail, in which case it returns a negative
+>> error value.
+>>
+>> Check the returned value for this error condition, before passing the
+>> value on to other code, which would hide the negative number in some high
+>> value in the unsigned type.
+>>
+>> Fixes: 36528c7681b8 ("arm_mpam: resctrl: Add support for 'MB' resource")
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> 
+> This looks good to me. Out of interest what led you to find this?
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-index 3588d6f97fd4..639866ce09a9 100644
---- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
-+++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-@@ -55,6 +55,7 @@ static void test_exceptions_success(void)
- 	RUN_SUCCESS(exception_ext, 0);
- 	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
- 	RUN_SUCCESS(exception_throw_subprog, 1);
-+	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
- 	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
-diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
-index c8d716fbd419..91c81971e58c 100644
---- a/tools/testing/selftests/bpf/progs/exceptions.c
-+++ b/tools/testing/selftests/bpf/progs/exceptions.c
-@@ -212,6 +212,36 @@ int exception_throw_subprog(struct __sk_buff *ctx)
- 	return 0;
- }
- 
-+u64 exception_cb_stack_src = 0x1234;
-+
-+/*
-+ * The address handed to the helper has to be this callback's own stack
-+ * slot, not one from a frame that is already gone.
-+ */
-+__noinline int exception_cb_stack(u64 cookie)
-+{
-+	volatile u64 val = 0xdead;
-+
-+	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
-+	return val;
-+}
-+
-+/* Throws from a subprogram that has a stack of its own. */
-+__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
-+{
-+	volatile u64 pad[4] = {};
-+
-+	bpf_throw(pad[0]);
-+	return 0;
-+}
-+
-+SEC("tc")
-+__exception_cb(exception_cb_stack)
-+int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
-+{
-+	return throwing_subprog_stack(ctx);
-+}
-+
- __noinline int assert_nz_gfunc(u64 c)
- {
- 	volatile u64 cookie = c;
--- 
-2.53.0
+For Yin Li's RFC patch [06/15], I was looking around to find the proper 
+type for cache-id, and stumbled upon this.
+
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+Thanks!
+
+Cheers,
+Andre
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>> ---
+>>   drivers/resctrl/mpam_resctrl.c | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> index 9d223057953ab..a5e661eff86d7 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -786,7 +786,10 @@ static u32 get_mba_min(struct mpam_props *cprops)
+>>   /* Find the L3 cache that has affinity with this CPU */
+>>   static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
+>>   {
+>> -	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>> +	int cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>> +
+>> +	if (cache_id < 0)
+>> +		return -ENOENT;
+>>   
+>>   	lockdep_assert_cpus_held();
+>>   
+> 
 
 
