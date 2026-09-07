@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7826DC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA406C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EdtUXRPFcuOXex6MwwCTkgFM3Iq6WJhMLb/D43pgaI=; b=1LbZyGWQfOvGii0ZWT3x9uBweH
-	GeWXmz4GWe207v9h1Ci3YGxqoOB3aPe2DF/071ulU0NSIJKQMwNElmt5j7qj+yAXCfk6iFBEQsp8x
-	3sDIo4zFkcdLb7ZUXibB6RDklElXQj4Ul3Uzw53EQqrNc9dW6uvW83Aeyd3P3aGs9EQy83FbXgx0U
-	Pa8V5OEKsr1bzz/wLq6bbK+0NUCB/iFqkJuTn6A4RQcaGwDV8l6jVZ2lKh0CWl5pRVuJxESBTwOKk
-	K5M7lINB7rO4fIgmSmo56zicBJFgsTIfEzfJkGXXGWN/HG/AppgGRbLzVEeOJVOdsRwfbKZyoGjE7
-	gHvZ+BLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gyw7lKF4Mm7V/x1A8ErrqACafyHF9HcBrt4kEjhvQQo=; b=rhA9MsWpWDjct34F6cpMU+TBMe
+	sIr6Id0kSoQ7s0TjHSUuolwf06jCLObSMFSojo4QSzM4fgblcM1tbhUwxH3uYM/mbIDjIelrbpkQV
+	XSszsapZiCYLBsRL9X0/sUlkM+IHfN01W4xfK1R0VLTkaKdtIPAPsoCOrchilCP3oInwJ0TC01ZXm
+	1Jt3hQMyv7GEKV8VYqVo0Gy8P2a3mePJpIwrAiYhvkVZQYEKArK/qInmV8oA4gMuDpamqLQ7ARucA
+	m3BIZHyBhbFPdHDBY93F3mUAXuebjvLPS2y8MbxkXw3JUNUe6CzkSjZC0k/ugQlsmUjCVY1EonRoZ
+	F5PoaXNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WiU-00000006V2N-3mxy;
-	Mon, 07 Sep 2026 10:36:46 +0000
-Received: from out-40.mta1.migadu.com ([2001:41d0:203:375::28] helo=mta1.migadu.com)
+	id 1x3WoV-00000006Vas-1aQY;
+	Mon, 07 Sep 2026 10:42:59 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WiQ-00000006V1X-0z5C
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:36:45 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=knLSy+tAiOCBjiiSkaNUjr38e019JvyDKoSRtCD7jXc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788777400; v=1; x=1789382200;
- b=iyMOof7Pvy6wg2VkzREjxcMYjNsEeclp7fWL22uIxKwu2ZHW7AR+dFw4Y65M96k7Rwpk7XTt
- x7kFoend80i3V3whXlAS5PGSJZSdHcDOT+ggdURcAhlMC4Qho1AgBJESi0h60NhJd6GEhUMkC9+
- 2OgzQPm8u3JZEny1EpE5CpOU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 2dce7dbb19c16629;
-	Mon, 07 Sep 2026 10:36:40 +0000
-X-Mizu-Trace-ID: 2dce7dbb19c16629
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so6991e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 03:36:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByDEBWVDHST6MKkzKI/azGHGeDSS+TVUlAdt/3Pe4dnmTfZeRUXTTbpmAFGiuIImsNbpIa6ndE/M2yNP2MHMox8@lists.infradead.org
-X-Gm-Message-State: AFuF++kuhH2gIfkRvFlkCcSAe6HjfrPXBFxBXp8DsASoW2/nrktI8ZkI
-	16OELxZpjKoQsJCAuNYCLGFlJnOODeFAXGiolSxR0p052eg8xDLhBX0Dl5XTVPMrpaziHTkoeQN
-	ilj/XECXd7eyi3eSHlPwFZSLaNxSmf2c4nUynxK0X
-X-Received: by 2002:a05:6512:114d:b0:5b4:9dba:7401 with SMTP id
- 2adb3069b0e04-5b74d456083mr154509e87.11.1788777394103; Mon, 07 Sep 2026
- 03:36:34 -0700 (PDT)
+	id 1x3WoS-00000006VaB-3VVN;
+	Mon, 07 Sep 2026 10:42:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788777771; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=c+ZlO0SpKY1NVAbCIVQIzfEWoPScxP28ZPi+T2jEhEj8Srh0sDmW8ApeK65voMLWBdteaXmVNB7es8U01HejvdbeGhjxFK1IpTPRi8hkqI+eAhCzcVDW8f2y2+ikusP3GbTwR+rWOjXgYKMFAwaU0R4bW2Jk2DhRERPcmJyDnxk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788777771; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gyw7lKF4Mm7V/x1A8ErrqACafyHF9HcBrt4kEjhvQQo=; 
+	b=J3fzJNkM3c7HKa1XIIYI87UiICIgouAPWeiphf+veEN9ttxuOJE0SWxLv4YvHJ8G84l4RzFZ4lTwpjSw5P0S1WuC404wi7G+qzp4vKFdbXBWr3fR//jLxTJc0NX+PQYpYeFW4ipkONRBNpJhtYU/2c9uZX4KpjYYyFIZ/UF6oAY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788777770;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=gyw7lKF4Mm7V/x1A8ErrqACafyHF9HcBrt4kEjhvQQo=;
+	b=WUg4s5D5ZwgLZXc88xZOzh43BvUfRAihCXqCVRPxyFuigN/8au2estbO4wxr1ttL
+	KC2u27i43hRwBDI5MekEKwxshXqtOBupuyqpB2Ow3kW2G101Sa7EjWT90f2KtrcxYd0
+	xxCO+kL2avUBJck2JvDvCfOl3yP+shwl+415S7iA=
+Received: by mx.zohomail.com with SMTPS id 1788777767905650.7635072531486;
+	Mon, 7 Sep 2026 03:42:47 -0700 (PDT)
+Message-ID: <0fda1cf1-8df7-4e50-be6d-dc17ca3591cf@collabora.com>
+Date: Mon, 7 Sep 2026 12:42:43 +0200
 MIME-Version: 1.0
-References: <20260904103131.627392-1-fuad.tabba@linux.dev> <966b103e-dc9e-479a-ba6c-e8e6727e1bd7@arm.com>
-In-Reply-To: <966b103e-dc9e-479a-ba6c-e8e6727e1bd7@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 7 Sep 2026 11:35:57 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy6kbVHKpW+jLHfdpMr16+OrGaCRyt_xEpP_6aQwKv5Yg@mail.gmail.com>
-X-Gm-Features: AcwNN1WVZ2rRbHW0_CvMjthG_1fXG-hc0avpc71bJuZRUt-gMT5OfwZEJAwht6A
-Message-ID: <CA+EHjTy6kbVHKpW+jLHfdpMr16+OrGaCRyt_xEpP_6aQwKv5Yg@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: mpam: Document when to set arm64.nompam
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, Marc Zyngier <maz@kernel.org>, 
-	Bradley Morgan <brads@mainlining.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] Add MIPI CSI-2 receiver support for RK3576
+To: Amin Gattout <amin.gattout@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260826-csi-2-rcv-dts-v1-0-bcd8d459684d@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260826-csi-2-rcv-dts-v1-0-bcd8d459684d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_033642_436521_940BE781 
-X-CRM114-Status: GOOD (  39.36  )
+X-CRM114-CacheID: sfid-20260907_034256_950267_8E551FDF 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +82,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Amin,
 
-On Mon, 7 Sept 2026 at 10:44, Ben Horgan <ben.horgan@arm.com> wrote:
->
-> Hi Fuad,
->
-> On 04/09/2026 11:31, Fuad Tabba wrote:
-> > arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
-> > finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
-> > firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
-> > left unwritten, at reset values that are UNKNOWN, and KVM still hides
-> > MPAM from the guest but no longer enables the traps that stop a guest
-> > from using it. KVM never saves or restores MPAM0_EL1 and MPAM1_EL1, so
-> > what one guest writes reaches the next guest and the host. Nor can the
-> > kernel make the EL2 writes unconditionally: they trap to EL3 on the
-> > firmware the option exists for, and TRAPLOWER cannot be read below EL3.
-> >
-> > Say so in mpam.rst, and add the rule and a pointer to the
-> > kernel-parameters entry.
-> >
-> > Suggested-by: Ben Horgan <ben.horgan@arm.com>
-> > Link: https://lore.kernel.org/all/CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com/
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > ---
-> >
-> > Notes:
-> >     Changes since v1, the first three from Ben Horgan's review:
-> >      - Put arm64.nompam under a new "Command line parameters" section.
-> >      - Separate MPAM3_EL3.MPAMEN from TRAPLOWER, which v1 conflated.
-> >      - Add that KVM does not save or restore MPAM0_EL1 and MPAM1_EL1.
-> >      - Drop "No functional change intended." from the commit message.
-> >
-> >     Bradley Morgan's Reviewed-by on v1 is not carried over: both
-> >     paragraphs, the section heading and the commit message changed.
-> >
-> >     v1: https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
-> >
-> >  .../admin-guide/kernel-parameters.txt         |  3 ++-
-> >  Documentation/arch/arm64/mpam.rst             | 25 +++++++++++++++++++
-> >  2 files changed, 27 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > index 68647ff4bdd24..e6d543de3cde5 100644
-> > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > @@ -575,7 +575,8 @@ Kernel parameters
-> >                       Set instructions support
-> >
-> >       arm64.nompam    [ARM64] Unconditionally disable Memory Partitioning And
-> > -                     Monitoring support
-> > +                     Monitoring support. Only for a machine that does not
-> > +                     boot without it. See Documentation/arch/arm64/mpam.rst
-> >
-> >       arm64.nomte     [ARM64] Unconditionally disable Memory Tagging Extension
-> >                       support
-> > diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
-> > index 67fe515ed501c..e66b1359d1282 100644
-> > --- a/Documentation/arch/arm64/mpam.rst
-> > +++ b/Documentation/arch/arm64/mpam.rst
-> > @@ -87,6 +87,31 @@ The supported features are:
-> >    MBWU monitors can be exposed to the user after support for more monitoring
-> >    scopes is added to resctrl.
-> >
-> > +Command line parameters
-> > +=======================
-> > +
-> > +arm64.nompam
-> > +------------
-> > +Firmware controls MPAM through two bits of MPAM3_EL3. MPAMEN enables
-> > +it: while set, the PARTID and PMG in the MPAMn_ELx registers label the
-> > +CPU's memory requests. TRAPLOWER, which resets to 1, traps accesses to
-> > +the MPAM system registers from the lower exception levels to EL3.
-> > +Firmware must clear it, or handle the trap and emulate MPAM as disabled.
-> > +Where it does neither, the CPUs still advertise MPAM in the ID registers,
-> > +the kernel's MPAM register accesses trap to EL3, and the boot fails.
-> > +``arm64.nompam`` exists for that firmware: it makes the kernel treat the
-> > +CPUs as not implementing MPAM, so no MPAM system register is accessed.
-> > +Set it only on a machine that does not boot without it.
-> > +
-> > +It is not a way to turn MPAM off. Where firmware has cleared TRAPLOWER,
-> > +the option leaves the trap controls in MPAM2_EL2 and MPAMHCR_EL2
-> > +unwritten, and their reset values are UNKNOWN. KVM still hides MPAM from
-> > +guests but no longer enables the traps that stop a guest from using it,
-> > +so a guest may be able to read and write MPAM0_EL1 and MPAM1_EL1. KVM
->
-> As you are listing registers, MPAMSM_EL1 can go here too.
+On 8/26/26 14:33, Amin Gattout wrote:
+> This series adds the device tree binding and the SoC nodes for the
+> MIPI CSI-2 receiver units of the Rockchip RK3576. The receiver is the
+> same Synopsys DesignWare IP as in the RK3568 and the register map is
+> identical, so the existing driver is used unchanged via a fallback
+> compatible.
+> 
+> Only the two receivers fed by the Innosilicon D-PHYs in full mode
+> (MIPI1 and MIPI3) are added; see patch 2 for the details.
+> 
+> This series depends on the RK3576 CSI D-PHY series [1], which provides
+> the csi_dphy0/csi_dphy1 nodes referenced here.
+> 
+> [1] https://lore.kernel.org/r/20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com
 
-I can respin a V3 with this added.
+Thanks for your work, LGTM!
 
-> Generally, I think this documentation change looks good now but holding off on a tag for the moment
-> in case anything comes up from your MPAM trapping change [1].
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20260903160819.831518-1-fuad.tabba@linux.dev/
+Just one thing: It would be great if you could describe your test setup
+a bit (HW components, test case, ...).
 
-The trapping respin doesn't reach the nompam path: the override skips
-the finalise_el2_state writes whether they clear the traps or set
-them, so nothing here needs changing.
+> 
+> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 
-Cheers,
-/fuad
+For this series:
 
->
-> Thanks,
->
-> Ben
->
-> > +does not save or restore them, so what one guest writes is still there
-> > +when the next guest runs on that CPU, and when the host does. With MPAMEN
-> > +set, EL0 and EL1 requests then carry that PARTID and PMG.
-> > +
-> >  Reporting Bugs
-> >  ==============
-> >  If you are not seeing the counters or controls you expect please share the
->
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Best regards,
+Michael
+
+> ---
+> Amin Gattout (2):
+>       media: dt-bindings: rockchip,rk3568-mipi-csi2: add rk3576 compatible
+>       arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3576
+> 
+>  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  1 +
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 52 ++++++++++++++++++++++
+>  2 files changed, 53 insertions(+)
+> ---
+> base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
+> change-id: 20260825-csi-2-rcv-dts-7712bd834de6
+> prerequisite-change-id: 20260819-rk3576-dphy-2304f848215b:v1
+> prerequisite-patch-id: fbe2d84f88709b8bf846debe6b8ce62c4392ca63
+> prerequisite-patch-id: 9bce33933ae69e8cc7f7ef2f0d9acb969620bc85
+> prerequisite-patch-id: aca697161c21e19fe3a7f62f208da0f6c3b666e1
+> prerequisite-patch-id: 8f45701f840680a35e044f43ebd3087282847990
+> 
+> Best regards,
+> --  
+> Amin Gattout <amin.gattout@gmail.com>
+> 
+
 
