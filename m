@@ -4,155 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7361C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF80DC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=; b=eENJWjjKdgN6LGsLvpMXRFpOkk
-	yNHn/pR8HGps7aJQZA5rD0Sdams8XUo1EsizdPfYsvc+ztnPwqK+fGg4zWElYuSsLGqKYCXK7jtfn
-	WFwSOUiUdGXjAXkgQjX2hFELUmvrGBzIxZ7DGvcEWs3DDxwjmaQZYKCyJCLWWPPCQ55TBiNfttZq6
-	qlfe9+bXfFng2rjYSKHwOQwTusQFWCf20oW05mSHxFmnaWngy0hOqJqMHo4wengjiGeYjeeF89n+Q
-	ZQ/doapOjaNrss0nxeq3ewMeLEkAbRBsb22KNJw3Kl6lhO0veJkfHxal8gXJcaG+kdSpSZEqdTiq0
-	nw2r49HQ==;
+	bh=otIPJu+TzkOj3mNvPJg4bU2oZNf1j9J+ix1n6UG32WI=; b=IOYXh3ggS+SDOdIMIcS+4yJ6Yh
+	AwGIE16yrMQPzXYzhuRemLj8AYR3iUnJeL9GimYmlZAmeVb83bGjuOGAw9KIMPMWiz4lPI0RWyDeL
+	HscoAw05841Wdk0uJdcni+U8ObL+ZEjbEhMvwcpzhCiiSv4i8+T7gEl2M0DwNP9rkrwX5Nz5NlJMc
+	z0+E1ZhNKsCLlpc4/Rte/K7hUVbV1GQY/dykLnRc7RTsAU7rEVFpGBCRIpXqJuWusmAXNGM1d08uJ
+	zFQ+Mybp4ZGVludfP3SSih2/UgLZYhvprQLsWiKJkWRhg1WxRK+8se2wGXe2s1EJEW56cWfjvA7/1
+	JJUsNHGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bMu-00000007Azp-19hD;
-	Mon, 07 Sep 2026 15:34:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3bOv-00000007BcM-48X9;
+	Mon, 07 Sep 2026 15:36:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bMs-00000007AyA-1sLD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 15:34:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=; b=HdJcIY9N29GPU5Ur3z7f4fsAZb
-	x9r0iQ2EaxbRaq63eRUT27DMIs03xA3fLHfi0pXPZD4cZVgjEAgFOGlHJ2XtUxi1T3HxeInjKXRaN
-	KhZjXSNdGaciK5ujTfjBWu7nxlIhdDfCA/gq5Yof6KDWrJ9Yfq+d12ghitLaCpSbNHj1eU1Y8PLeI
-	tEc2W9TC97rRtWwn2sZhGvkKE+AB6VtCRyz/044sPE2Bt2Yrw+ULMbFSQBZWZl5sCgYhhpqaw7i3D
-	T63OoVZTFXdbe5yPtBX+pgf32iGBEHo0j2SRc0Q+E6WLPPfo/PUfoDwBQ7Ys6aqKPciAzRHn8MxvY
-	I/VIvLWA==;
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3bMp-0000000GNdx-26RS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:34:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vf3crgisImaa7co2rngKAp/ubVBQUhB9Ezn4s91dKkseUk9eNgjG8qPGwLVIpo7TqsL2JDCs1NodPetQHVXaPRCcySfqfLTwWuhSl4+wJmRz32HHjYdUJBldMT/qBnVQtgR98Qp6hhuhz1drWNFp7qdBumOAeQNBWJc3O9r/cSoFtRDkRdbPvxk5B/pGy4Iz8vfrWbl6OmX6G/KehCgHTHUf89rgk3iJrKl5bx2PKGKwAgh/ut/9IKrdHRk4TCn+2f05l4ictE9vhxGfNzBRd4KyU2BkakeKVHSasibGQWkpRqkeeDpe9cyG96bQtSJ5oAyboG2MdzFWWfo2357Zeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=;
- b=r1kdEDUOH6lZq+9OpVNJbPd8XoiTSKo6CbcU2aK+mxF9HO7jvAtrEo8/VQN/+uFbQoDnwmw2njjdF5JtbLIo4HCA02hxKFWJxzMolOM7Xe1fTAKhaAE3kP56oOuUR2s88JE8d7WZ3PM0t9bv6szi8Qp9NNbsk+GOLuvX74h+08Tn38sGO3zH7Y6xMnyDJKymn4vH3vd3qkvEsiDDPklH0MYRfuaVhEZD1ogvCY8jZLDtmSwLa9RqIl5XhFNLc9MbkaZTrUG88vBP77MeJeF/x6vGKwYiGxd0KZ8gBvmU0lY6igebPL3hZejGlAw5ZbdKLVLbIAAhcpD01GRST7MYLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=;
- b=U5EObEmdVP5xfO+hg0//3fNpa3ORm8X4Jjf5z16xnIM4cHZyQY12Isq0XFZik+cBpR/m3vV02VIjIYAyjNkCWfYrpdmgNRJAHwzAh9XUF7Lrhz3H1XyT3Zh0652JfVWuDZasKl4OHVTs+dseQp9hQ0hycdGy2fQYb6g1bPACyIHlx7H0fyQ74+1qgt8pub5/2NLsc2XMw3WbrgDB7hTL8SE6y+qXT74Z1I13K4I68ZDtzEDmpU8bwP/7mb+erP1CDV675a78MsaC3RNTXbDqoZGcaJCYY07nQxO07OyL+wTDZhug5Bjq+FqOjV9IjC5Y30KgBHSsNh5c8xYgz6zwQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH2PR12MB4103.namprd12.prod.outlook.com (2603:10b6:610:7e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 7 Sep
- 2026 15:34:31 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
- 15:34:30 +0000
-Date: Mon, 7 Sep 2026 12:34:29 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v5 8/9] iommu/arm-smmu-v3: Change how the tlbi describes
- the invalidation
-Message-ID: <20260907153429.GB4157646@nvidia.com>
-References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <8-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <ap7NcebXzWC38VVo@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ap7NcebXzWC38VVo@google.com>
-X-ClientProxiedBy: YT3PR01CA0138.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:83::25) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1x3bOu-00000007Bc6-3Jve;
+	Mon, 07 Sep 2026 15:36:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2384660D89;
+	Mon,  7 Sep 2026 15:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498E41F00A3A;
+	Mon,  7 Sep 2026 15:36:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788795411;
+	bh=otIPJu+TzkOj3mNvPJg4bU2oZNf1j9J+ix1n6UG32WI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NeSlAWVsyypsF4hIil2ed2Y5sOHsUJrCS5HlU19as33dem4Pdr0UdPoHoFUbwTgKA
+	 OQdN2pZRQmlRgXnQyDdPlyXEhJk+QYiYKoX9lXeSNFl9OjhP6UCiaWZnbXSkZImlBt
+	 JmaQAktGIkLi+hKjDotKvTyfNLcsiU10gjkcszuPvXzTksdsm8nXze25H5nGg3xdxV
+	 VFLamu1kpet4ovM6g9fJhgzVrW7ma8RceLuoqDOtQ949WC8+Kjnkh5N3IJkjK9KYnm
+	 kYc87Gw+us1qpnW4rpDKRAEbsiGVkcxQmJYP9U28s5Ng+7RcYdLsSVazIJoLH3Nysr
+	 zM6jGpm6Y5g2A==
+Date: Mon, 7 Sep 2026 17:36:47 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, Frank.Li@nxp.com, lumag@kernel.org, aisheng.dong@nxp.com, 
+	agx@sigxcpu.org, u.kleine-koenig@baylibre.com, marek.vasut@mailbox.org
+Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
+ support
+Message-ID: <ap7Z3xQSavJa0toF@houat>
+References: <20250414035028.1561475-1-victor.liu@nxp.com>
+ <20260714193627.GA9616@francesco-nb>
+ <alh4a66fEro05ShA@raspi>
+ <20260716062612.GC9973@francesco-nb>
+ <alh-6sI4J7vq2drz@raspi>
+ <apl4rkHIs9QFuUTE@houat>
+ <app836E0_y8lG9T5@raspi>
+ <apqDKdcQrizwAv6U@houat>
+ <apqGD7wxP0ZiLzfF@raspi>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4103:EE_
-X-MS-Office365-Filtering-Correlation-Id: f727e61c-e1e5-45e8-e46a-08df0cf5827f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|6133799003|3023799007|4143699003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: F8pKmLbvzwQWYslfjr3ZDVtv+TAoNg4FN7HwrDDJP3sUdva0tesBt0v+6HqTPPHsOtMCDinuMMPMJomzPsGh8nyJsbbIkATQE6gHKUzlDZlKsSvNqgNftr6fFy3WbMbRYE0TQWqwC35g6AyUWl+wa+HjXDsdEK9usOvmV94xkIBn30NDsKjflFoPbVZqSQSg53nOPMPrgHZhur4A0rNTmNShrcHAZ2qwakUDtAffR+PB+JGsKhPrHh+8aqbUvD9mgs5DsemDeHA5A8tDTkqUweThtWfmrTo3f+ubRPbv5PWLIFNOsADAtbc97xyDSdydfrZjOEHwsrtp30BGn5fcbiZr3HM/3QExUrvelGDM99eNt8AhO/8WpjPjfiNT1/5NJ007QYNjfLKaf+gPM22uNspMIjKA7ZEiGWzM/OdrA5bhiNDAeT8kH5zZvZ2RmOeoBmXkjllnYsoJkk25zcMmCuQpya/lYGaCzK6pTpXkkjSfgo/OsgVOW5BxrY6+OPxatQw3MTWLNhkPs35CH4vHhRzRFA68Cy3N5L/vspGHf/l/8HV2LcYzHE7ugtrrwll8PhUmsZoVvFjj1d4y3LLW50Tabp9DuTknaSDocYubST9J2vub6xvr+p64nYA14fJ61p3HbysCwX0uBY9Hl8tHBQ2Cf08DGFT5v30AMtSQhHQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(6133799003)(3023799007)(4143699003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2XAFQVigC9xc1Qlc2qdFvFVdOZITHscW+8HWlnTloQyWfNHkFcMRq7PLTEss?=
- =?us-ascii?Q?ZYncekVXkyZ8GIirT+1AjO6AQbYkJhLb9zxjR/aHl5WdvnNc+eBaRYyPEa+U?=
- =?us-ascii?Q?viguJEmWu1jqQWqplZ4GDXchJkzmGcBi+E0o8tKs6pExLzbrQy9ehGhseFb5?=
- =?us-ascii?Q?WjUAHOis+TBR0VyUkCDaQ08o47AA3vSfUWfdoAYCkGO22iTpAfeCOPh5kCGL?=
- =?us-ascii?Q?l9wQVGGFEndDKvdpAhL13UReY3zCmlr29uelFEKUwpDkxKNozRwO7DNIj9gS?=
- =?us-ascii?Q?VwErc9KltW88eIEvDBvBMwSkwLz6owjWnbTHRPeAYBCwYMY9Y7Oye9WiEGYI?=
- =?us-ascii?Q?+oJGCynOxcPiGYXEF0BRQEIcBrquxJp9AunQ/F0cMPhMw5K1JwAte6n2p3oe?=
- =?us-ascii?Q?uHIHfHRt/XuEFXrwYdCkHCnSnKw3NX0rswkk3k1IKqMatYPT+4vhK6Uk9L2A?=
- =?us-ascii?Q?Fx4YQ4SnBGSOENPLvd5Yo1X6GofPDTuCnDUDKzZSKlZYM2HXVtKz/Lk1tc8H?=
- =?us-ascii?Q?+q/hASTpuV/r2OKh8qQt2qhQPesNk6HcvgW2r9QiCbF1FUSG+hvRWNZanyDL?=
- =?us-ascii?Q?/jnaNIYdK8lAPMrixiQLmCLJS1uT+TKIgrMByd/a0upqSyCuxtQQ5Y1JakDx?=
- =?us-ascii?Q?F46NN3UdDIxaSUIaOqbMfyYOlNp/PEPIVdr2ZWMwKQ2aZmkS84lfYtjdjjnI?=
- =?us-ascii?Q?S1PmIRe5bC8StEpmyV8DbVOWHpLrpYvsTKydaZDqGc7EP5bwF0iBFvFPrpRk?=
- =?us-ascii?Q?u7mLAY2CmPZhF3dEHVSVQLbKeF4Ek+hOxfsEXjAxMG7oGwfA0euGUbbsgCmF?=
- =?us-ascii?Q?SHSaeHjskm9Qi2l7idgpfzZaHz0mQzepWab1Dqiz1y+K5nG1qX+83SiMMrMy?=
- =?us-ascii?Q?Igf/Kv4hS7YQ90Jcbw6kOlEEwDJM5KwR1k7sjFtJ61Bc3/e2Jcyk0jX14S7Y?=
- =?us-ascii?Q?WB6j+Di1wmd0XujfufV6yIYJtqNR6Gy3A3b/0/ScYAfhiWj+KrcEf3sXc1pa?=
- =?us-ascii?Q?0PKA/qB1EGD91mVcfwiikOZec+uCznaR/HIIAoZ473Gow3Ju0abNFyQfS4nn?=
- =?us-ascii?Q?5k6i2B3SL4wRPVjEOzIJ9o6T6s8CWs+nJVM/hAFxIru7VaoEmIJlT+Tgyqks?=
- =?us-ascii?Q?SNbfASkxAkNplozQTAd7xVVCkrTBSPMvftQxFNXxiuuyHZInvIy+McUf81q8?=
- =?us-ascii?Q?Egj5YVozN8HYoFUG/UPBvgDm4Rn8mtcbqPsjun+kTz07W9F62nwzmm6onwcx?=
- =?us-ascii?Q?RfbrVDAioHYfgOXJ3WS+OE329zks+Ciltzk7R4NAB+UElGrZR7fQKnGilUK0?=
- =?us-ascii?Q?7ztckKYSKX+s1KTlYOtapxDVQgpGTBME3P08X0DjUM20CndiNiBJEKC7AdtM?=
- =?us-ascii?Q?ds2oehSEiGqehmo3vLhV0Je/3ExBJ3qKHgoU5uv3lb4u7o2dlmyFZBEEgxXG?=
- =?us-ascii?Q?8pIytBMurXeU4WlbLgw7kd6zGtD8vktKaDf6pKhvyt7T5yxzAObbJ6PmNH5d?=
- =?us-ascii?Q?nDtHo2JGOBSD3CWRIGLW36cdUfnjckUok9e0/SLFMwL3g5X/Z46ZIIknhxLi?=
- =?us-ascii?Q?MqhlFVV9hSe9n3aZGjFDzvWWNh6sOYwhap5d0S24/ma3e/YKEloN1jxo6lG+?=
- =?us-ascii?Q?xcONF7dgaZ/rcE4CU2eqiMBqTEybCHIaK3Gsc5zbT2QJwR9ETDX5TwKBOP+/?=
- =?us-ascii?Q?T4ASHeeVGy7sLxz6WoOv2xHc/GraPZaVB4t4spv6u5qpXZdD?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f727e61c-e1e5-45e8-e46a-08df0cf5827f
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 15:34:30.6781
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /oPWxkrvNgPhxsvVedzuh8Y1jF90Wl0QYM6ap4uZDkD6FtQ5+nKYRXJHxoiiCuac
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4103
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_163443_698325_192D4C49 
-X-CRM114-Status: GOOD (  50.47  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="nzpfrxwi4i53nnqx"
+Content-Disposition: inline
+In-Reply-To: <apqGD7wxP0ZiLzfF@raspi>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,161 +84,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 02:42:57PM +0000, Mostafa Saleh wrote:
-> On Tue, Sep 01, 2026 at 02:49:57PM -0300, Jason Gunthorpe wrote:
-> > The RIL logic has long had a FIXME that there is not enough
-> > information to properly compute the RIL. There is also subtly not
-> > enough information to properly compute the single stride either.
-> > 
-> > Change tlbi to use the information format that iommupt is going to
-> > use for ARM. This prepares the invalidation code to support iommupt
-> > and fixes two small limitations with the current code.
-> > 
-> > iommupt is designed to accumulate all invalidation into a single
-> > gather, then the iommu driver should issue a small number of commands
-> > to execute the gather to control invalidation latency. This is in
-> > contrast to io-pgtable-arm.c which generates many gather flushes and
-> > direct walk cache flushes as it progresses.
-> > 
-> > To accommodate this the gather will accumulate "damage" in bitmaps,
-> > one for leaf changes and one for table changes. This is enough
-> > information for SMMUv3 to compute the proper stride for single
-> > invalidation and to generate ideal hints for range invalidation.
-> 
-> I am not sure I understand that, in what situation the leaf_bitmap
-> would be used instead of a single page size?=
-> Would iommupt combine different page sizes in a single invalidation?
 
-Yes
+--nzpfrxwi4i53nnqx
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
+ support
+MIME-Version: 1.0
 
-> And then I see in this patch it has:
-> if (!is_power_of_2(leaf_bitmap))
-> 	return 0;
+On Fri, Sep 04, 2026 at 04:49:19PM +0800, Liu Ying wrote:
+> On Fri, Sep 04, 2026 at 10:38:08AM +0200, Maxime Ripard wrote:
+> > On Fri, Sep 04, 2026 at 04:10:07PM +0800, Liu Ying wrote:
+> > > Hi Maxime,
+> > >=20
+> > > On Thu, Sep 03, 2026 at 03:41:15PM +0200, Maxime Ripard wrote:
+> > > > On Thu, Jul 16, 2026 at 02:49:14PM +0800, Liu Ying wrote:
+> > > > > On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
+> > > > > > On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
+> > > > > > > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini w=
+rote:
+> > > > > > > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
+> > > > > > > > > Hi,
+> > > > > > > > >=20
+> > > > > > > > > This patch series aims to add Freescale i.MX8qxp Display =
+Controller support.
+> > > > > > > > >=20
+> > > > > > > > > The controller is comprised of three main components that=
+ include a blit
+> > > > > > > > > engine for 2D graphics accelerations, display controller =
+for display output
+> > > > > > > > > processing, as well as a command sequencer.
+> > > > > > > >=20
+> > > > > > > > ...
+> > > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > To follow up i.MX8qxp TRM, I changed the controller name =
+to "Display Controller"
+> > > > > > > > > instead of the previous "DPU".  "DPU" is only mentioned i=
+n the SoC block
+> > > > > > > > > diagram and represents the whole display subsystem which =
+includes the display
+> > > > > > > > > controller and prefech engines, etc.
+> > > > > > > > >=20
+> > > > > > > > > With an additional patch[1] for simple-pm-bus.c, this ser=
+ies facilitates
+> > > > > > > > > testing a LVDS panel on i.MX8qxp MEK.
+> > > > > > > > >=20
+> > > > > > > > > Please do NOT merge patch 14-19.  They are only used to f=
+acilitate testing
+> > > > > > > > > the LVDS panel.
+> > > > > > > >=20
+> > > > > > > > What's the plan to conclude this work? What's the latest st=
+atus?
+> > > > > > > > I am looking forward to have a way to use the i.MX8QXP disp=
+lay with
+> > > > > > > > mainline, but to my understanding some required changes on =
+the SOC dtsi
+> > > > > > > > are not merged.
+> > > > > > > >=20
+> > > > > > > > Can you help?
+> > > > > > >=20
+> > > > > > > I planned to add display controller DT node after prefetch en=
+gine support [1]
+> > > > > > > is picked up so that the prefetch engine could be enabled tog=
+ether with the
+> > > > > > > display controller.  Just want to avoid a DT that only enable=
+s the display
+> > > > > > > controller or bypasses the prefetch engine.  It makes the dis=
+play controller
+> > > > > > > driver simpler.
+> > > > > > >=20
+> > > > > > > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-=
+0-4ecb6c6d4941@nxp.com/
+> > > > > >=20
+> > > > > > That series is from October 2025, is there anything blocking to=
+ move it
+> > > > > > forward?
+> > > > >=20
+> > > > > It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-mi=
+sc committer
+> > > > > for every driver patch in that series.  Also, it seems that Marek=
+(Cc'ed) is
+> > > > > not a big fan of [1](See i.MX95 display support discussion[2]).
+> > > >=20
+> > > > I was just pointed at this series, and I'm not sure why it's blocke=
+d. It
+> > > > looks like you were waiting for a Reviewed-by by a drm-misc maintai=
+ner,
+> > > > but I gave mine already and I'm a drm-misc maintainer, sooo... :)
+> > >=20
+> > > Your Reviewed-by tags were on the initial i.MX8qxp Display Controller=
+ driver
+> > > patches.  And, those patches have already landed.
+> > >=20
+> > > Now, I'm waiting for Acked-by or Reviewed-by tags on those driver pat=
+ches
+> > > which add i.MX8qxp Display Controller *prefetch engines* support.
+> > > 'b4 trailers -u' doesn't include any Reviewed-by from you on those pa=
+tches...
+> > > I sent v6 prefetch engine patch series[1] just now.
+> > > It would be great to have your Acked-by or Reviewed-by tags on those =
+driver
+> > > patches :)
+> >=20
+> > It looks like you had a reviewed-by by someone on all these patches
+> > already, so you could have merged them.
+>=20
+> Oh, okay.  I *thought* one merge criteria is at least one Acked-by from a
+> drm-misc committer on each driver patch by reading the guildlines[1].
+> But now I've got the idea.  Thanks.
+>=20
+> [1] https://drm.pages.freedesktop.org/maintainer-tools/committer/committe=
+r-drm-misc.html
 
-Right, ARM doesn't support mixed leaves in a RIL so we can't use TTL
-if iommupt has constructed something like that.
+For a driver, it's totally enough to have a reviewed-by by someone with
+experience with the driver too.
 
-> Would that actually be better for performance than using 2 sets of
-> RILs, one for each page size?
-> As I'd imagine the HW will spend more effort on the TTL=0 case
-> otherwise it wouldn't require it.
+Maxime
 
-I have no idea, it is a hint. Since SW has no knowledge I think it
-should just issue as few commands as possible. There is no way to know
-what will work better on any particular HW.
+--nzpfrxwi4i53nnqx
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> > @@ -140,17 +140,34 @@ static void arm_smmu_mm_arch_invalidate_secondary_tlbs(struct mmu_notifier *mn,
-> >  {
-> >  	struct arm_smmu_domain *smmu_domain =
-> >  		container_of(mn, struct arm_smmu_domain, mmu_notifier);
-> > +	u8 tgsz_lg2 = smmu_domain->tgsz_lg2;
-> >  	struct arm_smmu_tlbi tlbi = {
-> >  		.tgsz_lg2 = smmu_domain->tgsz_lg2,
-> > -		.iova = start,
-> > +		.start = start,
-> > +		.last = end - 1,
-> >  		/*
-> > -		 * The mm_types defines vm_end as the first byte after the end
-> > -		 * address, different from IOMMU subsystem using the last
-> > -		 * address of an address range.
-> > +		 * No information comes from the mm, assume the worst case that
-> > +		 * it changed every table level. The way this is hooked into the
-> > +		 * mm is tricky, the range won't be expanded to include an
-> > +		 * entire table level if one was removed like the iommu gather
-> > +		 * does. Thus even if this is a 4k invalidation it may be
-> > +		 * including any table level too.
-> >  		 */
-> > -		.size = end - start,
-> > -		.iopte_size = PAGE_SIZE,
-> > +		.table_levels_bitmap = 0xfe,
-> 
-> What does that mean, won't arm have a max of 4 levels?
+-----BEGIN PGP SIGNATURE-----
 
-It is really ~1, the extra leading 1s don't matter. Just can't have
-the leaf bit set.
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCap7aDwAKCRAnX84Zoj2+
+doeCAX9T+LgYMTWQNSla28ip6yR0qM88eain+6vQBAG1kI/IdbDa9glAvdQEOOTv
+fXTYoEIBf3QACWC1uGpzItuPa9Zyaak4mtnpldIns/xtAj3bAcQXgRWbVExWIL8G
+v4gPxoV7fw==
+=8ZHA
+-----END PGP SIGNATURE-----
 
-> > +	/*
-> > +	 * If the size is small then we can infer the invalidation is PTE only
-> > +	 * and set the PTE level only. Otherwise it could be some other
-> > +	 * combination so just set them all. This allows RIL to use TTL=3 in
-> > +	 * cases of PTE only changes. The mm must not try to partially
-> > +	 * invalidate pmd/etc.
-> > +	 */
-> 
-> How does that work with splitting blocks?  I imagine that might be
-> ossible with userspace.
-
-If mm splits anything then the invalidation will not be PAGE_SIZE
-big. A split requires invalidating the original larger size.
-
-> > +static u8 arm_smmu_tlbi_calc_stride(struct arm_smmu_tlbi *tlbi)
-> > +{
-> > +	u8 combined = tlbi->table_levels_bitmap | tlbi->leaf_levels_bitmap;
-> > +	u8 tg_szlg2 = tlbi->tgsz_lg2;
-> > +
-> > +	if (WARN_ON(!combined))
-> > +		return U8_MAX;
-> 
-> When can that happen?
-
-It can't, thats why it is a WARN_ON :)
-
-> > @@ -4152,21 +4237,28 @@ static void arm_smmu_flush_iotlb_all(struct iommu_domain *domain)
-> >  		arm_smmu_tlb_inv_context(smmu_domain);
-> >  }
-> >  
-> > +/*
-> > + * Called by io-pgtable-arm.c for each run of same pgsize leaf only
-> 
-> I believe that it is called from dma-iommu.c, io-pgtable-arm.c will
-> call the tlb_add_page which builds the gather though.
-
-Sort of, for the purposes of this comment the important flush is
-initiated by io-pgtable-arm.c under tlb_add_page() when it calls
-arm_smmu_tlb_inv_page_nosync(), which calls
-iommu_iotlb_gather_add_page(), which calls iommu_iotlb_sync()
-
-That's done in a way that guarentees the same-pgsize property:
-
-	if ((gather->pgsize && gather->pgsize != size) ||
-
-Yes it is also called from dma-iommu.c, but only for the "trailing"
-gather and that doesn't do anything to change what is in the gather..
-
-I'll add a few more words here
-
-> > + * invalidation. If it has to change to a different leaf level then it flushes
-> > + * the gather and starts a fresh one. Thus this always targets only a single
-> > + * leaf level.
-> > + */
-> >  static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
-> >  				struct iommu_iotlb_gather *gather)
-> >  {
-> >  	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
-> > +	unsigned int tg = smmu_domain->tgsz_lg2;
-> >  	struct arm_smmu_tlbi tlbi = {
-> >  		.tgsz_lg2 = smmu_domain->tgsz_lg2,
-> > -		.iova = gather->start,
-> > -		.size = gather->end - gather->start + 1,
-> > -		.iopte_size = gather->pgsize,
-> > -		.leaf_only = true,
-> > +		.start = gather->start,
-> > +		.last = gather->end,
-> >  	};
-> >  
-> > -	if (!gather->pgsize)
-> > +	if (WARN_ON(gather->pgsize < BIT(tg)))
-> >  		return;
-> >  
-> > +	tlbi.leaf_levels_bitmap = BIT((ilog2(gather->pgsize) - tg) / (tg - 3));
-> 
-> Having some page table macros would be helpful (and in other places in
-> this patch)
-
-At least this one gets deleted in the next series, so I left it like
-this deliberately. Was there something else you saw that had
-duplication?
-
-Thanks,
-Jason
+--nzpfrxwi4i53nnqx--
 
