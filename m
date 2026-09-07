@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4E1C79FB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 07:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AC1C79FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 07:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oq+GoYLnpZ/bE0TXzRcsP/1JKJ3ludHjXe+6AsY+v18=; b=NL3HuuI3Igwa1tbP6irLZV/IUH
-	u42d0C6GIfAqGYpLl2FzwqmzdXrkIlK1q4T6gE8oUmrwcUkXt3YP48J1vfni14O3L70h4yYePk89b
-	JFT/9EFvb1DqUw29oD9l4g8IkG6QwqRrtSZv+2ZAJk8sfvKKQGsG/jWp/zFM3XlkY7j9KUmY76g3Q
-	OKstblmfFUOtOuh0butI0F8kcIvpwuIf94DlPa1A0dpm/uSZUnIIBr0FQfD6JRpsE778NxOLU8CrO
-	8ey3XUUfJ7NngkNgmBhHUOMnGi6uIDvCDfRqV9VKusbzAGwcfK6HjqPQYKEAYz0BC7lVbQGYGIBKx
-	uIPnmqJg==;
+	bh=2xRZRUIy/GKt48tK1as5IdgxC3RETJjk7cEBuu0M0B4=; b=dmiMm2liaTQDhF1uQM+r1KcFcq
+	2qdqOSibbZ8d+iLWkh7tBHLdQgGY4rALcCNw0qGdQ44Eqisbkb+6d3pxlPaQ4cp14kTW22281rnre
+	kBeRcUOiH5Q2rVTmGwfpS1xOI9WtOqO77oSJldSoz0RGacLCg9H9uI5ZpKvqn8xq7q67FwXZha79G
+	RGfvFrzNK7KQeYs8mAKvulXYogE+iB992eRMvmmvL5RWdwRxQxMDTxoYa62hJO4UAkP6GW/ofBNLG
+	np6/vrQWUGXlR8dRWcxoJYt2B52QRfUDwU1eYhOZ6nSXpenAqWPQZpFTmnQkGZqIlJ27+vJTE42qq
+	MQtItCSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TLj-00000006650-3JYA;
-	Mon, 07 Sep 2026 07:01:03 +0000
-Received: from out-230.mta1.migadu.com ([2001:41d0:203:375::e6] helo=mta1.migadu.com)
+	id 1x3TLb-000000065yV-0x1e;
+	Mon, 07 Sep 2026 07:00:55 +0000
+Received: from out-201.mta0.migadu.com ([2001:41d0:1004:224b::c9] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TLh-00000006619-2bmp
+	id 1x3TLX-000000065vk-1xq7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 07:01:02 +0000
+	Mon, 07 Sep 2026 07:00:54 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=dpOjaSn7mseBQ0jWTbl8Fch3O3G6DZpWo4UtyxAHxC8=;
+DKIM-Signature: a=rsa-sha256; bh=il04srBHnxBWpSw+vl62VbPSEc2pLy5hniPh6DBOpjc=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788764459; v=1; x=1789369259;
- b=Efg69yX0dG0jXLWzb4tSb0+acGJgwdi+0z/iPWqlWRc7aThgMvTO70BOpIgeJ3x8ney20f5m
- 898wD1Zc4jUkhHjx72wY3ucw7hafnOGB9y6YVXM9w5vw3TW3vpzFo9Yy/FbCJPee06uaAaxvdzY
- H3LjmYIPuJLcMoz0FZFPrnmI=
+ t=1788764449; v=1; x=1789369249;
+ b=DU23OkbVg+BWFrcaYaPkuEg/skYvME+1ormGtVmhQECUZWxHiGlfL7bBElhQ2FWrjwUMaIMS
+ krOgzrAo9mUC5clFcD1e/S13pxyxqvqO6n5yeROpnk89DwcJd+b0Lo3cEgK5sZ1/SFmQhpkrf4u
+ /6XU4W7O/BLPYOOzjwFS7R50=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 568046f6ccc9092c;
-	Mon, 07 Sep 2026 07:00:59 +0000
-X-Mizu-Trace-ID: 568046f6ccc9092c
+Received: by smtp.migadu.com with ESMTPS id 7979d0f1f2c79ca0;
+	Mon, 07 Sep 2026 07:00:49 +0000
+X-Mizu-Trace-ID: 7979d0f1f2c79ca0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 09/17] KVM: arm64: Restrict KVM_ARM_VCPU_INIT and PSCI version for protected VMs
-Date: Mon,  7 Sep 2026 07:59:54 +0100
-Message-Id: <20260907070002.3333525-10-fuad.tabba@linux.dev>
+Subject: [PATCH v2 06/17] KVM: arm64: Add system register reset framework for protected VMs
+Date: Mon,  7 Sep 2026 07:59:51 +0100
+Message-Id: <20260907070002.3333525-7-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260907070002.3333525-1-fuad.tabba@linux.dev>
 References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_000101_813195_7E4F49EE 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260907_000051_658001_81DB4ED3 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,141 +80,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EL2 masks a protected VM's vCPU features down to the set pKVM allows,
-so a KVM_ARM_VCPU_INIT that requests more succeeds and produces a
-guest without them. Reject such an init with -EINVAL. The host and
-EL2 both take the allowed set from kvm_pkvm_vcpu_allowed_features().
+Add kvm_reset_pvm_sys_regs() and the pvm_sys_reg_reset_vals[] table
+that drives it, and call it from init_pkvm_hyp_vcpu() for protected
+vCPUs. The table holds the registers sys_regs.c resets that
+__sysreg_restore_state_nvhe() loads for a protected vCPU. The rest of
+the context keeps the zero the donated hyp vCPU page is cleared to. A
+poison value stands in where sys_regs.c resets to UNKNOWN, and for
+VBAR_EL1 and CONTEXTIDR_EL1 in place of the 0 it uses. MPIDR_EL1 is
+derived from vcpu_id, as for any KVM guest. AMAIR_EL1 resets to 0
+where sys_regs.c reads the hardware: the host writes it freely before
+the hypercall, and it's loaded on every guest entry.
 
-EL2 returns 1.1 for a protected guest's PSCI_VERSION whatever the
-host is configured for, and forwards the platform calls to the host.
-Require KVM_ARM_VCPU_PSCI_0_2: without it the host dispatches the
-forwarded calls as PSCI 0.1. Reject a KVM_REG_ARM_PSCI_VERSION write
-below 1.1: below it the host rejects the SYSTEM_RESET2 that EL2
-advertises. KVM_CAP_ARM_PSCI is no longer advertised to protected VMs.
+Until the per-EC marshalling patch removes the host's full-context
+copy from flush_hyp_vcpu(), that copy overwrites these values on every
+entry, so this patch has no observable effect on its own.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 25 ++++++++++++++++++++++++-
- arch/arm64/kvm/arm.c              | 13 +++++++++++++
- arch/arm64/kvm/hyp/nvhe/pkvm.c    | 17 ++---------------
- arch/arm64/kvm/hypercalls.c       |  7 +++++++
- 4 files changed, 46 insertions(+), 16 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c         |  5 ++
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c     | 73 ++++++++++++++++++++++++--
+ 3 files changed, 75 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index beea00e693a0a..5fec511eca733 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -33,7 +33,6 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- {
- 	switch (ext) {
- 	case KVM_CAP_IRQCHIP:
--	case KVM_CAP_ARM_PSCI:
- 	case KVM_CAP_ARM_PSCI_0_2:
- 	case KVM_CAP_NR_VCPUS:
- 	case KVM_CAP_MAX_VCPUS:
-@@ -53,6 +52,30 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- 	}
- }
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 49a0a992047ba..a04b7c04d5135 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -95,6 +95,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
+ bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
+ bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
+ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
++void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu);
+ int kvm_check_pvm_sysreg_table(void);
  
-+/*
-+ * The vCPU features a protected VM may use: checked by the host at
-+ * KVM_ARM_VCPU_INIT, applied by EL2 when the hyp VM is created.
-+ */
-+static inline void kvm_pkvm_vcpu_allowed_features(struct kvm *kvm,
-+						  unsigned long *allowed)
+ #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index e85f13233da08..af334318d0a03 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -551,6 +551,11 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+ 		goto done;
+ 
+ 	ret = pkvm_vcpu_init_sve(hyp_vcpu, host_vcpu);
++	if (ret)
++		goto done;
++
++	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		kvm_reset_pvm_sys_regs(&hyp_vcpu->vcpu);
+ done:
+ 	if (ret)
+ 		unpin_host_vcpu(host_vcpu);
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 8758c68017765..03d2c2447e0fd 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -525,6 +525,66 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+ 	/* Performance Monitoring Registers are restricted. */
+ };
+ 
++struct sys_reg_desc_reset {
++	int reg;
++	void (*reset)(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *rd);
++	u64 value;
++};
++
++static void reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
 +{
-+	bitmap_zero(allowed, KVM_VCPU_MAX_FEATURES);
++	__vcpu_assign_sys_reg(vcpu, r->reg, kvm_calculate_mpidr(vcpu));
++}
 +
-+	set_bit(KVM_ARM_VCPU_PSCI_0_2, allowed);
++static void reset_value(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
++{
++	__vcpu_assign_sys_reg(vcpu, r->reg, r->value);
++}
 +
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PMU_V3))
-+		set_bit(KVM_ARM_VCPU_PMU_V3, allowed);
++#define RESET_VAL(REG, RESET_VAL) {  REG, reset_value, RESET_VAL }
 +
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_ADDRESS))
-+		set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed);
++#define RESET_ZERO(REG) RESET_VAL(REG, 0)
 +
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_GENERIC))
-+		set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed);
++#define RESET_UNKNOWN(REG) RESET_VAL(REG, 0x1de7ec7edbadc0deULL)
 +
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SVE))
-+		set_bit(KVM_ARM_VCPU_SVE, allowed);
++#define RESET_FUNC(REG, RESET_FUNC) {  REG, RESET_FUNC, 0 }
++
++/* Sorted ascending by reg; kvm_check_pvm_sysreg_table() enforces it. */
++static const struct sys_reg_desc_reset pvm_sys_reg_reset_vals[] = {
++	RESET_FUNC(MPIDR_EL1, reset_mpidr),
++	RESET_UNKNOWN(TPIDR_EL0),
++	RESET_UNKNOWN(TPIDRRO_EL0),
++	RESET_UNKNOWN(TPIDR_EL1),
++	RESET_ZERO(CNTKCTL_EL1),
++	RESET_UNKNOWN(PAR_EL1),
++	RESET_ZERO(DISR_EL1),
++	RESET_ZERO(CPACR_EL1),
++	RESET_VAL(CONTEXTIDR_EL1, 0x00000000dbadc0deULL),
++	RESET_VAL(SCTLR_EL1, 0x00C50078ULL),
++	RESET_ZERO(TCR_EL1),
++	RESET_UNKNOWN(AFSR0_EL1),
++	RESET_UNKNOWN(AFSR1_EL1),
++	RESET_UNKNOWN(ESR_EL1),
++	RESET_UNKNOWN(MAIR_EL1),
++	RESET_ZERO(AMAIR_EL1),
++	RESET_ZERO(MDSCR_EL1),
++	RESET_UNKNOWN(TTBR0_EL1),
++	RESET_UNKNOWN(TTBR1_EL1),
++	RESET_UNKNOWN(FAR_EL1),
++	RESET_VAL(VBAR_EL1, 0x1de7ec7edbadc000ULL),
++};
++
++void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu)
++{
++	unsigned long i;
++
++	for (i = 0; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
++		const struct sys_reg_desc_reset *r = &pvm_sys_reg_reset_vals[i];
++
++		r->reset(vcpu, r);
++	}
 +}
 +
  /*
-  * Check whether the KVM VM IOCTL is allowed in pKVM.
-  *
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index dbe2b6c9670a9..5c2587da815ab 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1620,6 +1620,19 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
- 	if (features & ~system_supported_vcpu_features())
- 		return -EINVAL;
+  * Initializes feature registers for protected vms.
+  */
+@@ -550,16 +610,21 @@ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
+ }
  
-+	/* Reject features EL2 would drop when it creates the hyp VM. */
-+	if (vcpu_is_protected(vcpu)) {
-+		DECLARE_BITMAP(allowed, KVM_VCPU_MAX_FEATURES);
-+
-+		kvm_pkvm_vcpu_allowed_features(vcpu->kvm, allowed);
-+		if (!bitmap_subset(&features, allowed, KVM_VCPU_MAX_FEATURES))
-+			return -EINVAL;
-+
-+		/* EL2 implements PSCI 1.1; the host must not dispatch as 0.1. */
-+		if (!test_bit(KVM_ARM_VCPU_PSCI_0_2, &features))
-+			return -EINVAL;
+ /*
+- * Checks that the sysreg table is unique and in-order.
+- *
+- * Returns 0 if the table is consistent, or 1 otherwise.
++ * Both tables must be unique and sorted ascending. pvm_sys_reg_descs.reg is the
++ * sys_reg() encoding, pvm_sys_reg_reset_vals.reg the vcpu_sysreg index, so they
++ * compare differently. BUG_ON() at __pkvm_init: fatal at boot.
+  */
+ int kvm_check_pvm_sysreg_table(void)
+ {
+ 	unsigned int i;
+ 
+ 	for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_descs); i++) {
+-		if (cmp_sys_reg(&pvm_sys_reg_descs[i-1], &pvm_sys_reg_descs[i]) >= 0)
++		if (cmp_sys_reg(&pvm_sys_reg_descs[i - 1], &pvm_sys_reg_descs[i]) >= 0)
++			return 1;
 +	}
 +
- 	/*
- 	 * For now make sure that both address/generic pointer authentication
- 	 * features are requested by the userspace together.
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 4ce79e191ff45..bd9a59dffd0b2 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -372,23 +372,10 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
- 	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_MTE))
- 		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_MTE_ENABLED);
++	for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
++		if (pvm_sys_reg_reset_vals[i - 1].reg >= pvm_sys_reg_reset_vals[i].reg)
+ 			return 1;
+ 	}
  
--	bitmap_zero(allowed_features, KVM_VCPU_MAX_FEATURES);
-+	kvm_pkvm_vcpu_allowed_features(kvm, allowed_features);
- 
--	set_bit(KVM_ARM_VCPU_PSCI_0_2, allowed_features);
--
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PMU_V3))
--		set_bit(KVM_ARM_VCPU_PMU_V3, allowed_features);
--
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_ADDRESS))
--		set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed_features);
--
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_GENERIC))
--		set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed_features);
--
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SVE)) {
--		set_bit(KVM_ARM_VCPU_SVE, allowed_features);
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SVE))
- 		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_GUEST_HAS_SVE);
--	}
- 
- 	bitmap_and(kvm->arch.vcpu_features, host_kvm->arch.vcpu_features,
- 		   allowed_features, KVM_VCPU_MAX_FEATURES);
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index b11b8821c9fbc..e43ed13c82bec 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -580,6 +580,13 @@ int kvm_arm_set_fw_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 
- 		wants_02 = vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2);
- 
-+		/*
-+		 * EL2 advertises PSCI 1.1; the host handles the forwarded calls
-+		 * by this version.
-+		 */
-+		if (vcpu_is_protected(vcpu) && val < KVM_ARM_PSCI_1_1)
-+			return -EINVAL;
-+
- 		switch (val) {
- 		case KVM_ARM_PSCI_0_1:
- 			if (wants_02)
 -- 
 2.39.5
 
