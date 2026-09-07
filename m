@@ -4,85 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA79DC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EE6C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4KswxDk/sgjZja7CZIgYQLV/ZD7lzRYlaP/OdGtOys=; b=KK0PRso8AZ/iaBW19yCp+17IQy
-	qs7ymDZTays4S5bcHmukgTiOE3xUbA21+qGBFCejj5P4THAm9i2soHeKCn+XnOsZWFrFomqpfcAOs
-	6+jgEAcWcBkk4gqe5oVpQIfkMo1kAcQP12C5VpO3ogysETIb1+CiEGME5KmD+bMZbYJa7wJ1G+HYC
-	dFfaP7IKTvaoIn1v+iktE9vVhh8o30iPXISSXqMm3qt5msVfZoddZRY2ZSPltvqTMgrTDN85bxawT
-	h87fgC6HNGB+9IwBRA1noOXbq8HBADuEWTrgSZ+7sTF+kZyizPuWqVUt2O1KNl7KVPKxpHdCOISSR
-	fbkSWf1Q==;
+	bh=eGs1EnzSeub574uPXMIe13ZFm12UfNdhxp96d4YDOjA=; b=UCM2bIQ+DPe4t4dkaCZoUebVXi
+	G5YmKcMLJh1U4KW+XzvHof2OoeF2G6N1ELobQaSF+jHvXzRiYgW8olq6c5AkgCXHM88tpGbPp605E
+	0GxCmyhklt8MF0zHImhS2pYSnje7IYmIvZIPyFNhxXTOGOtm3iqLTH9GbwCjYsVaTf+sVP6SzsY1t
+	R/unSCfFpBNHDBsVlKR3TPQQnesLkc12tfC7XBlIYqfKZINm3ShVENG1Y+6sYWfw6hOqJs+McEhvw
+	8ySjl5nds7npa8KjhARbLyr1xPTj96fNNEpFCEfrG6eVfnRZa65gMUR5wXayUl2+NG2w7mrdpDakH
+	tORupZAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YXc-00000006oIi-1iye;
-	Mon, 07 Sep 2026 12:33:41 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1x3YZJ-00000006ohR-33oC;
+	Mon, 07 Sep 2026 12:35:25 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YXY-00000006oGc-1dHZ
+	id 1x3YZC-00000006ofw-0I7H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:33:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hdmg75wb2zYQvDk
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:32:35 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 5CB6640577
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:33:25 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgCXCbcTr55qPXJXBA--.48482S2;
-	Mon, 07 Sep 2026 20:33:25 +0800 (CST)
-Message-ID: <8116d851-b52f-4b17-9ff5-45a0c5d45e07@huaweicloud.com>
-Date: Mon, 7 Sep 2026 20:33:23 +0800
+	Mon, 07 Sep 2026 12:35:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788784516;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=eGs1EnzSeub574uPXMIe13ZFm12UfNdhxp96d4YDOjA=;
+	b=V8O7F5shShFpzHOrRFONjfyXJbcog/aA+RRKsV0AONWLbmwwnrYPz9odANHPYw/PDpqWcj
+	DAXf9NchLU0+vNDtHgan3ffCSsnml5WH0eD4VL+K8YaHtoG+XmEFPHcT1uiAj8npTipWnw
+	K5vT+cJqQUJ0EC6AOabisSRnL5VRujs=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-301-N5NXZEgMO_aVxBF3d479JQ-1; Mon, 07 Sep 2026 08:35:12 -0400
+X-MC-Unique: N5NXZEgMO_aVxBF3d479JQ-1
+X-Mimecast-MFC-AGG-ID: N5NXZEgMO_aVxBF3d479JQ_1788784512
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48439ef42d8so2905003f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:35:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788784511; x=1789389311;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eGs1EnzSeub574uPXMIe13ZFm12UfNdhxp96d4YDOjA=;
+        b=r7t8mdry86dr8SH1Y3A3BCOYDHgHmd23VFOfQNdFuOHG5TIZIcvvhUZn5nMaKvgLWk
+         mDsueH7lZ4PwR8Cm7sIu+g+uFM8Zqig6EThwf5qTb0iSPtnGjdozlYV7mLocpB5rkq4i
+         HP1Quce98t2EWmK7oC0WS2Io4fPm34vM+2w5WlTBEyR82WFLuWJijwO62ngWHsQm2I1E
+         6wFVJtp5fRqsc/4mT3QDdEMzUa1rERx2YBNeRgzGG7RzSp40JV5KYEzIls3uGlZUAOI0
+         PP8vCVGg4MALy9dRovPwzqpJBCeK4t1/Q4Lo+/TTgA25QaXiUvA2kNVnQSFFOKBrKzGG
+         e4Ww==
+X-Forwarded-Encrypted: i=1; AKwUvBwofTVrhXPjMxxftunQg2w/lTl0ivFQR9bEz6akHPYupyoMyhvzFdNPGyECFrJZpAFR7cZH65Ldm95BHLYZ6H6w@lists.infradead.org
+X-Gm-Message-State: AFuF++lrDgKybptA331d69ybmkHM8BFNliQWTHh9gKR8ry7rKU2mc9/v
+	s8S3/7iX2b2GIPyw9FTA/44SnMRyu9WRQH1LxO8Y4qjYAksMktQpEygs+/qQLFs/T47J4Pknp7e
+	TlSZMKHIlzPfICCkDd628i3JhSKVowOlVsZmiTXEijcU+ihXQBmqGHW9QAzlP3SFAV7tcbyKEEZ
+	Qy
+X-Gm-Gg: AYBFou0jKsNSEWsBK3R1aRpHoNhQpeyp6dbfLoxWoMawJzSQChoqaiN5I40zKZSUkNA
+	LU8JK5IME628nXmid1VUUHoP9Hhz71zisdvxSV6LfgJtDzHc2QeeZhgyI+PQM64d/uuC/yARbTr
+	FUAiJYkUjXw+B9LNqTbz5Zpma0Tzof8oLjxRv9j0kIWehT8nBv14hxJtW45+GkJtGQlIncVdl/5
+	x3l+4GFfXOMaeDZb7jtb40V+FkOGfVTyMLETgoqzBvwGbiNxpFSKCJjn/yDx57p69wITKshgBC3
+	sqf5954kLtQ+eDS9oXtswWFz1+c+K5p429E5Y/611Bdn6Ft0lW0ocjfO2HuXa/jJU5dejZTl
+X-Received: by 2002:adf:e199:0:b0:485:8a46:7052 with SMTP id ffacd0b85a97d-4858a4671ffmr21064082f8f.36.1788784511665;
+        Mon, 07 Sep 2026 05:35:11 -0700 (PDT)
+X-Received: by 2002:adf:e199:0:b0:485:8a46:7052 with SMTP id ffacd0b85a97d-4858a4671ffmr21064046f8f.36.1788784511253;
+        Mon, 07 Sep 2026 05:35:11 -0700 (PDT)
+Received: from [192.168.0.9] ([47.64.113.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm29439360f8f.34.2026.09.07.05.35.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Sep 2026 05:35:10 -0700 (PDT)
+Message-ID: <400323d4-cdb8-40ff-b23b-d426a0d7e6e8@redhat.com>
+Date: Mon, 7 Sep 2026 14:35:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf v2 2/2] selftests/bpf: cover the exception callback
- using its own BPF stack
+Subject: Re: [PATCH] crypto: fix typos in comments
+To: Hemanth Selam <hemanth.selam@gmail.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ George Cherian <gcherian@marvell.com>, Tom Lendacky
+ <thomas.lendacky@amd.com>, John Allen <john.allen@amd.com>,
+ Gilad Ben-Yossef <gilad@benyossef.com>, Ayush Sawal
+ <ayush.sawal@chelsio.com>, Srujana Challa <schalla@marvell.com>,
+ Bharat Bhushan <bbhushan2@marvell.com>, Bartosz Golaszewski
+ <brgl@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Vladimir Zapolskiy <vz@mleia.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20260904114345.27509-1-hemanth.selam@gmail.com>
+From: Thomas Huth <thuth@redhat.com>
+Autocrypt: addr=thuth@redhat.com; keydata=
+ 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
+In-Reply-To: <20260904114345.27509-1-hemanth.selam@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: KSlP3voHXI2lkQ1GowszziGXjapQN6BdlQnzaTxiIpY_1788784512
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-To: Donggeun Yoo <donggeunyoo.kernel@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman
- <eddyz87@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Mark Rutland <mark.rutland@arm.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Puranjay Mohan <puranjay@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Song Liu <song@kernel.org>,
- Will Deacon <will@kernel.org>, Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260907054235.473103-1-donggeunyoo.kernel@gmail.com>
- <20260907054235.473103-3-donggeunyoo.kernel@gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <20260907054235.473103-3-donggeunyoo.kernel@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _Ch0CgCXCbcTr55qPXJXBA--.48482S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxur4xXw47uFW8uw1xAFWfGrg_yoW5Ar4fpF
-	yqvF9xKF95JFnFva47Jw40ga1rWrs7XF48CrWkXr1YvF1xtrn7WF1xKFZ8tw45CrWSyrn5
-	Za1Yvr93Kw45C3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	s2-5UUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_053336_812658_E9FC4C86 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260907_053518_187065_A526BE31 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +165,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/2026 1:42 PM, Donggeun Yoo wrote:
-> The existing exception tests do not reach a callback that materializes
-> BPF_REG_FP into a register. They either throw from the main program,
-> where BPF_REG_FP already holds the value the callback needs, or use a
-> callback whose only stack accesses are frame pointer relative, which the
-> arm64 JIT rewrites to be stack pointer relative.
+On 04/09/2026 13.43, Hemanth Selam wrote:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.  Only touches comments, no code
+> changes.
 > 
-> Add a test that throws from a subprogram using its own BPF stack, with a
-> callback that hands the address of a local variable to
-> bpf_probe_read_kernel(). The helper and the callback have to name the
-> same slot for the value read back to be the one the helper stored.
-> 
-> Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 > ---
->   .../selftests/bpf/prog_tests/exceptions.c     |  1 +
->   .../testing/selftests/bpf/progs/exceptions.c  | 29 +++++++++++++++++++
->   2 files changed, 30 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-> index 3588d6f97fd4..639866ce09a9 100644
-> --- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-> @@ -55,6 +55,7 @@ static void test_exceptions_success(void)
->   	RUN_SUCCESS(exception_ext, 0);
->   	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
->   	RUN_SUCCESS(exception_throw_subprog, 1);
-> +	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
->   	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
->   	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
->   	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
-> diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
-> index c8d716fbd419..2b01b45cef06 100644
-> --- a/tools/testing/selftests/bpf/progs/exceptions.c
-> +++ b/tools/testing/selftests/bpf/progs/exceptions.c
-> @@ -212,6 +212,35 @@ int exception_throw_subprog(struct __sk_buff *ctx)
->   	return 0;
->   }
->   
-> +u64 exception_cb_stack_src = 0x1234;
-> +
-> +/* The address handed to the helper has to be this callback's own stack
-> + * slot, not one from a frame that is already gone.
-> + */
-> +__noinline int exception_cb_stack(u64 cookie)
-> +{
-> +	volatile u64 val = 0xdead;
-> +
-> +	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
-> +	return val;
-> +}
-> +
-> +/* Throws from a subprogram that has a stack of its own. */
-> +__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
-> +{
-> +	volatile u64 pad[4] = {};
-> +
-> +	bpf_throw(pad[0]);
-> +	return 0;
-> +}
-> +
-> +SEC("tc")
-> +__exception_cb(exception_cb_stack)
-> +int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
-> +{
-> +	return throwing_subprog_stack(ctx);
-> +}
-> +
->   __noinline int assert_nz_gfunc(u64 c)
->   {
->   	volatile u64 cookie = c;
-
-
-Acked-by: Xu Kuohai <xukuohai@huawei.com>
+>   drivers/crypto/atmel-sha.c                       |  4 ++--
+>   drivers/crypto/cavium/cpt/cptpf_main.c           | 12 ++++++------
+>   drivers/crypto/cavium/cpt/cptvf_main.c           |  4 ++--
+>   drivers/crypto/cavium/cpt/cptvf_mbox.c           |  4 ++--
+>   drivers/crypto/cavium/nitrox/nitrox_main.c       |  2 +-
+>   drivers/crypto/ccp/ccp-dev.c                     |  2 +-
+>   drivers/crypto/ccree/cc_buffer_mgr.c             |  4 ++--
+>   drivers/crypto/chelsio/chcr_algo.c               |  2 +-
+>   drivers/crypto/hisilicon/sec/sec_algs.c          |  2 +-
+>   drivers/crypto/marvell/octeontx/otx_cptvf_mbox.c |  4 ++--
+>   drivers/crypto/omap-sham.c                       |  4 ++--
+>   drivers/crypto/qce/aead.c                        |  2 +-
+>   drivers/crypto/s5p-sss.c                         |  2 +-
+>   13 files changed, 24 insertions(+), 24 deletions(-)
+Reviewed-by: Thomas Huth <thuth@redhat.com>
 
 
