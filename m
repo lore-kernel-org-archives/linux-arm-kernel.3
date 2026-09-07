@@ -4,140 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1718BC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2F0C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5p+JmnmUw6JLGXuwIdCfdQj1Ys6Q5WmrN6cT19ja/M=; b=BgHn9hhheZTCcUn73vLuGI9Gzn
-	CA3sqmcSNKMSZAjBKF+7iiWdYZkVY3Wd9qwezPbZuNufr/X5nphdNQ4GhV9CbBsXvcPiGKoku21/9
-	dlk7dAwPKZpxwH97iZASorOAZvGDUs45DqnnzK4A2/auhFfZbMWAjRiDOm2MsSnNDtcskZpi40myp
-	1avIF+/ZbgFpI4nkAnCwmxvnGT+H0NFoiLqdJUjvACJbyKPU0JZDDmKUaldEBZVtztzu46d5JkiED
-	fu2q1zLc10oPVxFvKDWPdFWPxRurvPpU6I0PkD/ASlHFuR0/B5fGzYMhsjULhgQ5RZEZ+jwoYsdIr
-	T59gluWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+9qbfEVLVVFm/uwZkCVkuCqYtCbBr9OTbyNaynVe7qY=; b=TC7cL4pX8S+RnMdoYMflC8SvXK
+	HR7qo6xA+rVZJMhoycyMAYNFFqyyBtk7RLzU0SceU4qI0/121IEFcADsC0IG1q8HvyVrgWZuj8x5B
+	WWe+9gqU7yyH9FDMOD4q3VZ2sWjP14z+Gxmbxz3Gq4spW9sYK9CNStlvSPCs7sb1/pM7cN1g5xuoc
+	/MOgJrKgfGoWcrAt6fISnpCzdzheYrTx7cERq6ZDIMg8o/4Sfk4SWa5Jy0YJ8in9gyM7bHhT08i7t
+	EzUfcsNqe6Q91HEPxLesGS+/cEeiSHR+zdTF+WYaYRfhL64gs7KpIJsUZ87KBugu0IPpNpnnYMayo
+	uxMNJuhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bBk-00000007973-2KOG;
-	Mon, 07 Sep 2026 15:23:16 +0000
-Received: from mail-eastus2azon11011058.outbound.protection.outlook.com ([52.101.57.58] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1x3bFN-000000079PP-0SGN;
+	Mon, 07 Sep 2026 15:27:01 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bBi-0000000796N-0PGV
+	id 1x3bFJ-000000079OW-41PG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:23:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UcBbnqkpCdAPVq629MfrU1Bq8kHkMDp23efUsscSB9Ovdcwjnn7zEU+VbafKVQLYzA9AYABdJVT79ThvrZIMkdNH09UbIKJU0C1yGHLa+raShcw0VH4hgQJcCvPQlpGpRSqym4POSLlA2KZ9ZkbzT/8WjdNTQ6yM2/b84pE38OboDqhmBbke7VZsdX5FgdEQeLdR+icdm9e9PmxNsJs2Yc3bJeBErypgVCfIWHAPDmNp7hT39IARusgaAuk7mUFkUn9I/d5aeSZvpwZic01HszD334JG4tYDq0MUHFBH701pxqGXDzel3Z8Cf/jUOrSuSY64iG5fXNdmrklECnkPkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G5p+JmnmUw6JLGXuwIdCfdQj1Ys6Q5WmrN6cT19ja/M=;
- b=LG+IrvaunZzabufzGbW8fViUehc3Ef2Aq7CTfrWRuRuMKxb+9UIfuqrRaEzo85iblmHB5KFJSSG7eAD2dvI+7xkI9qWt8bxuKLJerHt4PdZ3bW5JcSIJyw8ZnJ996xJN/VumuUEjxXXIGiNB29kdURir+HMB88eq4L7EprdbUjua0wPex8KyIJIrG/VXvyoT0uIdgF1dFVILb1j5aVWGaC1nys5ISZNveVZg6IERC43/QlyZ4styRrdTA9j9o2LQiitTE1SLl+2Nri0lfwdQNvc5ZgizanRKTijOiNjstIOKoiE1A7Vn/QjcYOSyCiUtiuHbpklJcblBC5FW8fQJvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G5p+JmnmUw6JLGXuwIdCfdQj1Ys6Q5WmrN6cT19ja/M=;
- b=FEkQbqFQk6LylWzGrQ5CeywLhjxBZ7jkIyu1vxularZ8GipGzTWPtOQEP0o6dm/sJdvG/8CMl/De4KqpBiCJtO6YBtyO/YEH9lkSxvX/tBy6ny9hWE2NoyYACFZxLuZD19Z4b6beLc6kheQG+dl5h24xWBzFgugSm7kWU0x9F/0giGVNJH/kFFCL+9p+YpPqXX8Bz2Kja+3a69naHhLMY/eDwxZ4eGkC8uagVanhg8sDykojEFls+7O4nKgFAV0uf7yhPYtFPviycD0toSU92T3PwLS1FS6Gxq+KilWncyGAvKVwTBQXUA1DDxQQlZJe91GJGF4DzCDprTdpyBuiZg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DM4PR12MB6424.namprd12.prod.outlook.com (2603:10b6:8:be::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
- 2026 15:23:06 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
- 15:23:06 +0000
-Date: Mon, 7 Sep 2026 12:23:05 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v5 4/9] iommu/arm-smmu-v3: Optimize range invalidation
- for latency
-Message-ID: <20260907152305.GA4157646@nvidia.com>
-References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <4-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <ap7JiB36YSQOaV9a@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ap7JiB36YSQOaV9a@google.com>
-X-ClientProxiedBy: YT4PR01CA0027.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fe::6) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 07 Sep 2026 15:26:59 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b0d8bc2aaso46586405e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:26:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1788794816; x=1789399616; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+9qbfEVLVVFm/uwZkCVkuCqYtCbBr9OTbyNaynVe7qY=;
+        b=IH9NiTuCbCDq6cgo8eDEHxkJRdd1qdO+E3vDIw7nW9MpRlXOnZpln6a1k7D+H9OEZ/
+         BhkT9mLB6ME+6WAz6daJ+pGhKvo6ByLf+5Fbxhx+lAmJf5lfpu7ujNZBBAve7feEuybF
+         T6nl9PVQgFlhxzET9CuJ+D1Sf7S+v9lZESDGOS2lH0ik9V8jaR4qtDnER95JkYaftKBd
+         FdCRiXXgyW9f8AI6Ymi8IDkLumCvw0TMgNDSfj41fTgci18YF7nLtwXkKUlQ7rHxAQyj
+         nZ5wYWrS4prRZsHXE8pvnna+YH/i+reC44wGkq9Oq+7hDYWvDvCyQ6IYkiRjlxhkfTt0
+         a0cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788794816; x=1789399616;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+9qbfEVLVVFm/uwZkCVkuCqYtCbBr9OTbyNaynVe7qY=;
+        b=lkf5KxCsTC1eC5lrWViHbhV0MmPhpCOvK5x8Fm+t0yi5Wn955o6usOatXTUAQQhuew
+         acvf8wzjuKzagKBwdEzyYoQU6yRS9BmNAz7XjmoX7Tr/cW0f00J4GCN6gPrWremP8ct+
+         yQeMWaZghjleetQ7ZxY6PNyfHs3Li4OIdJ6nsj6myedTSuQTlqrAyY5ijdM4g2kp2rwM
+         i+vItX8XcAjdeh1/eUYnzxAQ3u0WCGx531bFMdOP6Koyqfhqjw8yTbzjrHfL1S678Iq7
+         JQudlxvt7GYTorHLJ2wmGJ8cS2O9rm228bCsj8PBpCJW9fVuBXtLZFqah8q/YO9n5YZx
+         XiqQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxoA0mLfC7HrmSA5MRqloUnLjrbo3ngV1+XR/veh5qU5dO6cvqgz5i4LQqvn/e7pGyjaHyfrafRv4utcQDAWLhY@lists.infradead.org
+X-Gm-Message-State: AFuF++lHkrf655MOKTUn0KY3PcRpcObAwKf528ZcqBDD6ugt3ueDqtaE
+	VVz7lShK+EAvmtkX4zF/pKtJvvsNB+mCApAzWI5IT7fkWjkwZaV9URKMQkROxJGHAXs=
+X-Gm-Gg: AYBFou0TW+XTJDt4Uj+tJmqUGPp7auvz1jNjgyqfm2AidCS1PBntPQOiwjE2r3Tj0Z6
+	cHjbRq2ck0GzPnhrAZOoMls4dvA0WCSwLL0zoRvF1HQcm+E/C+L4laGpmicHyu+eV8n6fonAaFH
+	7TSph6d5c+hkb0wnqQoAOz9TB/47jtYK3DGF1Xz0Sv5mUSih/NM6DzuVj99TCzTXvpbgRvoMz9N
+	rFGlUeGLgFhKSSkPC3Brnz0Hd6/SRQFC4c/ZZpJr5ye4gnrLCvfuOL4wskwxEBK/IVn3CyA/duB
+	ZiMWJX89Gllhu0Z2BPu531Wk98DVoubCpwWDTCOvNUaglLNTp9fouFwiuvwjnwZsFPIrlf4b0Zd
+	whAvcaZLmGnwq9Tcvw9I/gzm0igPm5qSGjlibJqOOSQnEfsnYrkQguJ9g4/PDoKvVjCNMHSRqQg
+	K/d+lkU7P/ANIxJAja1nwrIt3ui9RwYk7JWZn3rFQW6jqsRlcpAmPQw2pbdsSTPLTkrvmJlAd8Q
+	d3w3gbSi2AaEeZY5wZcAek=
+X-Received: by 2002:a05:600c:35c3:b0:49c:fc6c:be10 with SMTP id 5b1f17b1804b1-49cfc6cc055mr202666425e9.22.1788794815803;
+        Mon, 07 Sep 2026 08:26:55 -0700 (PDT)
+Received: from [192.168.7.218] (82-230-44-19.subs.proxad.net. [82.230.44.19])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49cee6024a8sm418419925e9.6.2026.09.07.08.26.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 08:26:55 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM4PR12MB6424:EE_
-X-MS-Office365-Filtering-Correlation-Id: 289a0583-b8a0-4052-c93c-08df0cf3ea90
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|1800799024|376014|10067099003|22082099003|18002099003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: zbZr2aBDFfW6Rye9aiMLKpILJ6CBYZAUkUYPcGWGrcMuVtpkCxt5T8uR7n2kX2gaNqKmZO17vzi86LdSFOCFCTkpGMGjUNz8FVqXhVdAyOxuB9lklMiRIPbGuUSLUx2iv+HV6Dmyiz4FHfMf47Pil8aRWoR86UbJExw69yoTLoN/7ZFHRor7Xv3HS+2m1OntE0c+WgE6sgxvrXVYUr2naFJacM/KZNUXBYaFAaLMScumkRK9JLlfjMx4yv1m/GCpcBDUdUmcXxyc0z1mtCbZCt6P7wNaEYOZ0ORQwb0FT223ziYpprXEJwyYpjTL6X/MROosgigvkp70MjE12/ULpHjzbhSovI75To5EXCvnx8HCnou/2Lf/p3dS4fZ+raiRfS2OmpSfJJMinZK+aJwOdNyBjnOftpJcTQHgrshSuzOVfRbosnL5y2DLXb0rMr/VIXd2TOX1LqNAf2JVN/FYqQRIw/hDuDzzFOo5ht19WHHwEqriHJggETUHCOKgGOeN0ki2Vl/s+Oyo//oQfVtkFKR0FjmuizkZNbyJxOaDQzqa1dNiJ/V9YaIiIs4Vo8lXvl86sJt/WIQYDN5U7Xi9PL67iLLCLS1ZjFZuMHuxyd7UBdP36WHj/Qw5WXk2kgrfaQoewXvgR5ZmH5zFnvXStF1niNifIV5Pnvb5o85sQM4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(1800799024)(376014)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jfURfVm2r46a71hgmidiavzQZD98KM1JYvJmbP3pds+4FAu2I3xwQaNgnxzJ?=
- =?us-ascii?Q?9XD5/e0wB71+5IVz/geS4+uXqzuz81BCyhhzhmhySh+UYH3FeO2jiLv49kxF?=
- =?us-ascii?Q?NyzfhcPuQJPlgoGNHvbj1rWDkQeGzPlajHWJNqG3HAuxbcOlU3F9hzk/WaUn?=
- =?us-ascii?Q?atsnZfGgWWxvxTjxGgMzj5D0aV0T5KqFJTrp1DL05t2xrlnCSoohVEgjFCzF?=
- =?us-ascii?Q?hBLyyoka43mmxo0Ns68rEcHNHvUVYD0ggKCmysB4021O2r8Ie2ZqbeK5NNUl?=
- =?us-ascii?Q?QN2VvWibtkeHizDB7z2kc2/KvRVAtP/29Yyu4d1Rfw8ErYljRke1kQiNqFNZ?=
- =?us-ascii?Q?XiNhuo2n6KIrSFlIZehmWADFGegADAxld7fYiNriF/zyRfCSc1On/uR9hLIb?=
- =?us-ascii?Q?i502kJKJJT8GR3dWU2PwN0t31FHP1WKtJtLzZe47fnithfVT56bHZrazDA7f?=
- =?us-ascii?Q?bR3HuN6uFi9sCgknK4CTRfa3BSiKXFd/61rG27l+kNx7Kr1OqXofDi83vWOj?=
- =?us-ascii?Q?RmzRZA05A7FiSLTifq2CnZOa3hPmrBvhcclYBvvj1hW0OaoIO8CeE5FuY6qc?=
- =?us-ascii?Q?mvCnaWFrMKyiz606CL8k3n1ly1Ls1ThT+GuW3mIEnsfPwxrtoCr0shCqwqgl?=
- =?us-ascii?Q?w4dk+VKAMxWH1UBNdqQtnZe4dajPvUm9eYPegmtJwMpi2wpbRubQgVKCdRXu?=
- =?us-ascii?Q?kuU1wN3U0cZoTm030qmufPCQEq+H9wJMfmYJj72zKz/SfkiCnO+88RLcMpXO?=
- =?us-ascii?Q?gsFxG9BhtmrS4J3t0AOP4R1ltPR4dPHVkKUXkwo28P5SSBWhzzkMEoxM6UCs?=
- =?us-ascii?Q?uixsNC2HU5gOXsWXv0fzoU+kjRrKOJfGLKvRqkUfDI250Jh84Xy1el/afN3B?=
- =?us-ascii?Q?hToJdmyOQNAReau1o2kO7wz+xS1LaNcv3ss/Uc5sBeA89tw6pjs4gKWn1IsF?=
- =?us-ascii?Q?NIUma0VuY1vInyZewqomFklDYVRUQkTgRj0AcxmQlfNRDuKtdfh5TgSK+NnC?=
- =?us-ascii?Q?z5ZrLcq5heCazEvImRQgVZsiGTCAHUVJYodcsE6lz23ArAjHEIQu68w0idfT?=
- =?us-ascii?Q?IOci4sksVlccHf8zf4B13kPjyxEniQintcNl2XH8NZplWNY2gVtnebaPlubO?=
- =?us-ascii?Q?2D2cIWDWLEhYa8e6UzZp3jMoBxCiwJ65u4cthmp9S7qkeX50uIs+QKcrVbny?=
- =?us-ascii?Q?5cZICuoVRtJ/hVsAQsw+MHRDBWfiQFgtm02uSVolhFF1aSv8hTjKQmI780Rp?=
- =?us-ascii?Q?TF+tQHH99N3br3x5bhE1iiEPsT/fI8GnoyUJjAA8uG0gUCDjMcAktZbtAQZh?=
- =?us-ascii?Q?B48lrvtwk2I9aEz0qaYdSglYP9Uyj2uxlV1KDBPUxa1cQUY9aMIALnoYhmc/?=
- =?us-ascii?Q?qW1XuN+3VbN65QNtTTPVLbedK7M2+5lcSogQbKpK1XAB6QegdFd/Vuvy+sZ2?=
- =?us-ascii?Q?ZoLE22RtzaHOtQUYU2/NRqfFbq1hp3MveKdw+r2a1OnjGNVokG2goN053PSY?=
- =?us-ascii?Q?uNmGfD2VjfiPf4aCa0MfFzDzlhLkL1Yu9zKV9eFroeqp1wRyFH3+ndNYZjOJ?=
- =?us-ascii?Q?OzHwu4KBrf251ja4LKSUsHLLRnGudiJmjKCKEb5fo8PpEVeznf+xBLOeHJ7e?=
- =?us-ascii?Q?aW1CWK5T5AP0rdLWpDcjYHoa46KRGkkigF8j63HxArzeFVDZDbjoa1EwqVVA?=
- =?us-ascii?Q?w42QtoEvD8h79vBNzMCH2pvUiU9Ez/Z11MZ+A0JjG08d5os8?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 289a0583-b8a0-4052-c93c-08df0cf3ea90
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 15:23:06.3454
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AksQNp8H/nC4GgyBGCfOJiIg3cOeklfXxbYMBnJ5dBm7rlB0cJLdu6WASlE8/vZB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6424
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 4/4] pwm: meson: Add support for Amlogic S7
+From: Alexandre Mergnat <amergnat@baylibre.com>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org
+In-Reply-To: <20260827-s6-s7-pwm-v4-4-d28a2015177d@amlogic.com>
+References: <20260827-s6-s7-pwm-v4-0-d28a2015177d@amlogic.com>
+ <20260827-s6-s7-pwm-v4-4-d28a2015177d@amlogic.com>
+Date: Mon, 07 Sep 2026 17:26:52 +0200
+Message-Id: <178879481206.2256446.5480566312277687897.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=431; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=sfJG45jw5W76tQOcRH7iTvkAsGP4FG7d8I2A4Io0f90=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBqntfBlpqBiszNMgSn7O9l3ii5fmAZzp08XPZnG
+ +I6/0zcor+JAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCap7XwQAKCRArRkmdfjHU
+ RSSGEACrwfFz6yD1l3vhy6F9taMF3kWSM1xVK9C38V8OvRfuo795o5cb/IMYwvp0C6+MKwhPvG1
+ EcrITVzONq66Ie2ZqiLhCqu5O9TrtHq7ajhU1sXK2ScEoT9XTURLcMi3qNi7TYKZvpUI68W8gsT
+ bDkbraol8AGgOaCX//qsj8b+KdhbkQJnw0xyAsDPFhL0WaJXcaecJQRd4qwAFgqHdZQFf8tP4a3
+ 3NirS/fUbuxQizhb7mvswX2eL7jAWNzgh0MHiZoMjuF6pEKmV/DxhkKnAIQn76bZnLDd8s8pSzL
+ pCJYhXO8AV97EG1G5oPvR2Bbi0fotGzWRNbEKBoBwxh/zLDVERZ/IkVCBklhGKKMod/CWtXjcDK
+ 9aOLNbSCrFlYbwY4uMNUddBNkAXoxb7po4O+ObGXszxbKC9ELtigt/7m52hJmqt94O6w/l48DFz
+ s6OEU/1rKjzR16dL4S75Bj8QScxgAZizzNsIfihQG+P6q/CTr0THQ+oR9ZOyc7CthJO6wJUDaf6
+ I6SeJkINTRwYCA9uUXoRrzRva08+URnqMttKryLsiQAxehiCYuuJNPUfWdQvP9q4KWVb/lAuITZ
+ zvENNu+aiL96ohbGYXbzmMeRWnwvrjI8VWtte+G7a1qKOfvdcRIwk9JWlPvf7nepYQLdmpIKmE+
+ XP9d4aPYx4YCpNQ==
+X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
+ fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_082314_137208_70388100 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20260907_082658_018662_F25A7F65 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,52 +126,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 02:26:16PM +0000, Mostafa Saleh wrote:
-
-> > +static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
-> > +					struct arm_smmu_cmdq_batch *cmds,
-> > +					struct arm_smmu_cmd *ref_cmd,
-> > +					bool leaf_only,
-> > +					const struct arm_smmu_ril_range *ril,
-> > +					u8 ttl, u8 tg_enc)
-> > +{
-> > +	struct arm_smmu_cmd cmd;
-> > +	unsigned int tgsz_lg2 = tg_enc * 2 + 10;
-> > +	u64 iova = ril->start_tg << tgsz_lg2;
-> > +	unsigned int num = ril->num - 1;
-> > +
-> > +	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
-> > +	if (WARN_ON(tgsz_lg2 == 14 && ttl == 1))
-> > +		ttl = 0;
-> > +
-> > +	/* Verify address alignment for the TTL hint */
-> > +	if (ttl && !arm_smmu_ttl_addr_aligned(iova, tgsz_lg2, ttl))
-> > +		ttl = 0;
+> Add support for Amlogic S7 PWM. Amlogic S7 different from the previous
+> SoCs, a controller includes one pwm, at the same time,the controller has
+> only one input clock source.
 > 
-> Is that a separate fix? Can this be a separate patch in that case.
-
-I don't know if it is because:
-
-> Also, in what cases can this happen? io-pgtable-arm should do the
-> right thing and SVA will use ttl=0
-
-This is more getting things setup right for iommupt in the next series
-which creates every imaginable kind of gather.
-
-> > -			/* Determine how many chunks of 2^scale size we have */
-> > -			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
-> > -
-> > -			/* Keep the pre-DS 5-bit truncation when scale > 31 */
-> > -			cmd->data[0] = orig_data0 |
-> > -				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
-> > -				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
+> Also use the kernel coding style for the empty of_device_id terminator.
 > 
-> That just deletes the DS code which was recently merged.
-> I see that is added again in the last patch, but it would make more
-> sense to do it in the same patch I guess.
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-I missed it when rebasing, I'll adjust it
+Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
 
-Thanks,
-Jason
+-- 
+Alexandre Mergnat <amergnat@baylibre.com>
 
