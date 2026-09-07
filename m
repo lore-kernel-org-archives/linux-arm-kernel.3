@@ -4,90 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7D3C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCB7C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZdWr5iB4U0Mel5njbzbHnomGSClIHf9G9kkOjT0NSU=; b=pCTWjlShYMnfzo/WIzC9F9QQUI
-	Cj4b0CljEhw6FNzrU1TqM3DcBqAQi01TQ5IUaMBSpWoBvb8svi9AWxRPRP/+CP1BdyT69gSHJzhWx
-	BknQ5zIUcuug3dWj0/rJSPwSueGsqGMHYdkiTHXHIpKgPn7P6CFmQzV4vzKglJSqSc5GJzs0K2q+z
-	MP2ZGfRs3OmDew2bOUnh7F5pLWkhgm9tUz24NdvV1hTqSiXHH5Zd6RivKrhhimCO7KuoFqT5ZSctS
-	MKOEr0LD0G5VvTGn6qNjpBMjSsrvKKOmNsEULbwLhZ/3xPlpEZWZF6bHBjFfVTHPD/fDzR/MBaMwN
-	YJE3CxqQ==;
+	bh=FixH4jhD47mlarX0tpsnXZp0i9GU1+Q4lsG4bzF6aNY=; b=QMAHIWulz9nuD0dhlK68fRgzD+
+	eohXeedd57P6kNiXAnnvWwkBxghlMTqf/a6hAbO5A5SOps4lzZ2jXHxLJkN1fw94BC756SqudVc4Y
+	Gi+i9wF733joXsp3AeF1EFcynoKPPC1H3+OD3i206zNmzpd3zQkw4SJOr6Db0nxI9GRcUe86XGIwG
+	iAcKy4iY9tpmk0YdJ5YqN2Z6BGIvlHAK4flXwkNZ8xH0EhakVuBp/T2HS614BxBCD2bKm1tzf9SC6
+	bU9x9pO7BMxoRrt5xe1faZBCx242FT0x1GCxQoJNOzldCjPqyzzbEpA1LZsiWtlKe1erzY6hlEu8Q
+	LZo1YvmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QZY-00000005pg1-3GGM;
-	Mon, 07 Sep 2026 04:03:11 +0000
-Received: from sender5-op-o12.zoho.com ([165.173.182.12])
+	id 1x3QeL-00000005pub-0oH6;
+	Mon, 07 Sep 2026 04:08:05 +0000
+Received: from mail-westus2azon11012064.outbound.protection.outlook.com ([52.101.48.64] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QZU-00000005pfQ-2QzI;
-	Mon, 07 Sep 2026 04:03:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788753687; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GmgJfMtf8nKDYhL/y5mV/4bNYFhWRjAXbiCOMeLj8n/V5CVYE3TJ1oQO588JLThSNoXs8na/h1QQiGlk8/+UkubO+Y3+TagcA/M+XKS5XW7e8UO+EERfGt+CFRN2cgOTfHGaa5y/Hz9HvV/t9Xv3/0qNiVqnzm2F0qso+Rrq5/M=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788753687; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xZdWr5iB4U0Mel5njbzbHnomGSClIHf9G9kkOjT0NSU=; 
-	b=gAyw2KHgApq0A7LXr3MDWUoBoRD3N40pFBbuVqSAkqPwV1VVR9Xr3y+abWyMyCrQhojcvppSuAKn2nCMjObobYLjsZuvyDDAp33Rrz5a9uYDI9iw8go7ImHwUgMVN9VVsUxqVZfyEffdmk+U7q3ECJMMVzlnl1J9fe7yI6m7p1o=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788753687;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=xZdWr5iB4U0Mel5njbzbHnomGSClIHf9G9kkOjT0NSU=;
-	b=Hn4zdwaHpLWdVp/Ei3bXX/qZRio3cEAZQvfZfTg6B82Ac1UI9c3R+SjyuZhHWm2z
-	KjE2ZLockaaqR0Wnk+b9aMVd5YW9a9hYslb4deN4Ix282OVlt8E/hsSV3wOWwd/gm8a
-	L6VA92ctg9YQAWWbSTeYTN7GuHu2HGlslRl93ANnPGveRb0S7XEdVXdYkl4SPFtkHFP
-	1fLCF3VScGAQ4Y4U1IsnnxD2aofdFAkVyMDRymBcTphtpwQeoSh/9GGrlg9xR2wmYIF
-	XBVoHp3k3yRADdslVz22o36V7Taaln1IDrWJLknqDvDj84p4TZKtj9Gydz37ymyiWQ1
-	hPPMnogHww==
-Received: by mx.zohomail.com with SMTPS id 1788753684704244.47592390011243;
-	Sun, 6 Sep 2026 21:01:24 -0700 (PDT)
-Message-ID: <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Dominique Belhachemi <domibel@debian.org>
-Cc: Maud Spierings <maud_spierings@murena.io>, m.wilczynski@samsung.com, 
-	Laurent.pinchart@ideasonboard.com, airlied@gmail.com, alex@ghiti.fr, 
-	andrzej.hajda@intel.com, andy.yan@rock-chips.com, andyshrk@163.com, 
-	aou@eecs.berkeley.edu, bmasney@redhat.com, conor+dt@kernel.org,
- conor@kernel.org, 	devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, 	hal.feng@starfivetech.com,
- heiko@sntech.de, hello@big-grey.co.uk, 	jernej.skrabec@gmail.com,
- jonas@kwiboo.se, kernel@esmil.dk, krzk+dt@kernel.org, 	lee@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	luca.ceresoli@bootlin.com, m.szyprowski@samsung.com, 
-	maarten.lankhorst@linux.intel.com, maudspierings@gocontroll.com, 
-	mfd@lists.linux.dev, mripard@kernel.org, mturquette@baylibre.com, 
-	neil.armstrong@linaro.org, p.zabel@pengutronix.de, palmer@dabbelt.com, 
-	pjw@kernel.org, rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org,
- simona@ffwll.ch, 	tzimmermann@suse.de, vkoul@kernel.org
-Date: Mon, 07 Sep 2026 12:01:13 +0800
-In-Reply-To: <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
-	 <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-	 <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
-	 <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
-	 <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
-	 <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
-	 <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1x3QeG-00000005puF-1YB1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 04:08:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jl0MvVl+irIreBIb9BOauP+jAozNh6dNapqiIzIjVRAQtamkVikmvm2iHZXr8kuu/IZlrz3eiWWDqx/v4bWsLsauX8OloZm8j80uf3Ib89Y9PKcgYAYeuKdd3dA0KeHyLUBPMWSxxgpXqSzoVP+XMXPzIiVV3ksijs4liTkR0wK6zwvgDqOv7c8iskeQ1ga1sxjti6UdO7iroEzmhYzDnHCjR9nOyvWzGaBzZV8VLkG7KHRVV/5066+t8sSVJnhKtirrU8+GDQESkxpE03rGTUiVo6M+ed3WldFvC/SOOqIp4v6SS4BI+gF5lQkH7FNcBVfs/fJRo/zQHDHBSMwmwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FixH4jhD47mlarX0tpsnXZp0i9GU1+Q4lsG4bzF6aNY=;
+ b=mEaO3Ro/W9qaD/IKMfHn1LHoeGjEhplsWZTYJvPIAL/rt6itXL4VL035UH9/XTCUGcySLDYw93dHoC867n373PWNQF6BpO+OUSY7zhlsBYmQS9B1b4aFj+PNWfzv4bAvbAiI/0cEEUaVzvzNwBaRSDqWxBlaXU6S/ecYG+uqfzDxo+3tT51xrLKjTrhQ6MTmdobS2aBCgt20wqWa9qfXpZ2diP0w/Nwoz2bY5TpM/n3Cr1YGYuvIA2gPZSjawHYlrsN83YgvfoV3o7AzebZ4+59N8cUO3aljZALhTmKAEZKKJHvhlb5Pcm2aaP+auI8PpEGcpU+jLQmtiUfGREWJ9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FixH4jhD47mlarX0tpsnXZp0i9GU1+Q4lsG4bzF6aNY=;
+ b=Ir+NyU+P+F4gIZeT8IQYHVk6GS6kR7/pN0zrGyj0N7z0fPANhzNrGQYqyzx7r+6vogIVbc6u/kD/nTBq0UHekT1NANhDz48iNnJ3r0ZEbe+iZY09oC11a/eDkZOQrGRi+ME2v9o7r7/NNHWdXl/DlHQGFjAAEKUmIUv2RP7J/RGekWp32SiYvB37CKDfWeLGuAf5Pv9YIS/cWrB+FAjM2WrNRadBIctoL6YPcCNbR/VRATiHWR+ehHXW6/eGRBtqtN6bxCb+jvAl0boop2rk9IY8YVBhO/b2q/QSx0h/n8dq1MVLoCTbEQ4I+d0KA/x5rBdLEs+1honnJXlqrXXKQg==
+Received: from SJ2P221CA0004.NAMP221.PROD.OUTLOOK.COM (2603:10b6:a03:5db::14)
+ by DS4PR12MB9611.namprd12.prod.outlook.com (2603:10b6:8:277::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
+ 2026 04:07:53 +0000
+Received: from SJ1PEPF0000231A.namprd03.prod.outlook.com
+ (2603:10b6:a03:5db:cafe::55) by SJ2P221CA0004.outlook.office365.com
+ (2603:10b6:a03:5db::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 04:07:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF0000231A.mail.protection.outlook.com (10.167.242.231) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Mon, 7 Sep 2026 04:07:53 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 6 Sep
+ 2026 21:07:41 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Sun, 6 Sep 2026 21:07:41 -0700
+Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Sun, 6 Sep 2026 21:07:38 -0700
+Date: Sun, 6 Sep 2026 21:07:35 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>, "Pranjal
+ Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	"Thierry Reding" <thierry.reding@kernel.org>, Krishna Reddy
+	<vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao
+	<leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, Usama Arif
+	<usama.arif@linux.dev>, <kernel-team@meta.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 1/2] iommu/arm-smmu-v3: Add a cmdq_entries module
+ parameter
+Message-ID: <ap44h0CSuwm173NO@nvidia.com>
+References: <20260902121724.3494954-1-kas@kernel.org>
+ <20260902121724.3494954-2-kas@kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260902121724.3494954-2-kas@kernel.org>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231A:EE_|DS4PR12MB9611:EE_
+X-MS-Office365-Filtering-Correlation-Id: b42698db-8e8f-4cc2-b686-08df0c959731
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|7416014|1800799024|376014|10067099003|3023799007|22082099003|18002099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: mFU7wjGgzRI1cnffVcG9qpsHGFACrYWu8+rijlj4YQQ4LbO8t5TwN8NyHqtNT6GTd8/WaTFV5dwuAiiYHURoPObrxurXeHa28jC9aquaF5yeEzFkPYjPp8DlkB0SdYD68g/8CkLbNTDF5gLA8c+Z72qXePObqz5S2mfHF7cXpwuseq4C+SjxWKQBQd8bARDCpbK2FzqQbttQ3jIS5IqeXthX6pTxGq0tPU9r/oZ7tgY3cgD5EvbC2fEfN8Qw2o+WGl5/FUw+EMMvkL1UGnJgohpdUdOoInOYfjNCy1BGI5OVMsqYGNHCIU6523Ou8sgYn3Sc8eJ+B4Y5RtqZ3R090pHvE/Crx3KsEwVm3B52qf1DnCatzBy0/3FS/BuZcGXCJfQqXLHr/IMPaHXwTVIfS6SZDA0EhpaeG7d+QqRAtaTDqEQCj2wK3oPN17ZUavWobZ7pzIA7Hs0mX2AQGO8kHZrBZnry37QFN2Zf1RvMw/f2ns+MMfbNwXmUPZr9npCYfwyDjg/GlUTEVLmlu0f/Ekbzirxjfyc53k3EpByQTcZklx+WRGpmOhffyLoQOzOwTIhMtHXyWpBbjA2ws4F8CykUL6RBg9vyRLZ65rD4PSIM7EhsJAJd5oz04lfzVk1znKHT4OauLUZE1ItjdfMgC93RSB/5CZayUalC7DTBuObziZoix34gc8J/drayhAYqSqupf6cA7/qfpo4jAROJOQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(7416014)(1800799024)(376014)(10067099003)(3023799007)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eOyYzVghoExKprLyE19S+5xwN5IP4cl6z0+YaHCoNCZFz5GH+VNR8dbJ9gyDroN/HlySKXOjulycXQdWEuKCsYEDXPqdhRUFt+2Cg1GePktU+AAsUr0fU3BHO149jnH0754CHfU7NjzuUMjyh0THUW5SV3jwY+GCCc8EiRY0H+BmzNsCiPS2qVB2+xYibGakKWXhIfdaJsT2KqLzNUZlbBIjxxSs2Hz5PAo+1SHmhlFKmJ+F8luC689PR4x1qC1LGBEkj9eUdr5OwZok8ItRLUGQ7QrAAHtEkIVA9i5zN/T0g/zG0ZHf++zQiJeM+l8Vy7R9KBeFgx1irvh23z1UYF6odDFOJfC0DcUtbP+zGu/Y4NOVsgLPxAwdymVOmEkYhDP3WXKszwgDlsv5riM57Y+7R/wMsiJzIia3VQYKTfjtDsxbxFzmwBXKU19E/Z0k
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 04:07:53.5565
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b42698db-8e8f-4cc2-b686-08df0c959731
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9611
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_210304_657764_DA61F726 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20260906_210800_434723_303BF83A 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +135,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 17:16 -0400=EF=BC=8CDominique Belhac=
-hemi=E5=86=99=E9=81=93=EF=BC=9A
-> On Sun, Sep 6, 2026 at 11:19=E2=80=AFAM Icenowy Zheng <uwu@icenowy.me> wr=
-ote:
-> >=20
-> > =E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 16:59 +0200=EF=BC=8CMaud Spierin=
-gs=E5=86=99=E9=81=93=EF=BC=9A
-> > > On 9/6/26 07:39, Dominique Belhachemi wrote:
-> > > > On Sun, Aug 30, 2026 at 10:17=E2=80=AFAM Maud Spierings
-> > > > <maud_spierings@murena.io=C2=A0<mailto:maud_spierings@murena.io>>
-> > > > wrote:
-> > > >=20
-> > > > =C2=A0=C2=A0=C2=A0 I was still having some glitching happening on t=
-he display,
-> > > > but
-> > > > I've
-> > > > =C2=A0=C2=A0=C2=A0 found the way to fix that, the question is what =
-is actually
-> > > > =C2=A0=C2=A0=C2=A0 happening here.
-> > > >=20
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x29590020 <- 0x00000005
-> > > > =C2=A0=C2=A0=C2=A0 This one I have no idea, it is 0x00000009 with t=
-his patch
-> > > > series but
-> > > > =C2=A0=C2=A0=C2=A0 with the vendor kernel I get the value above. Wh=
-en I hook
-> > > > up my
-> > > > =C2=A0=C2=A0=C2=A0 external
-> > > > =C2=A0=C2=A0=C2=A0 display (regular 1440p) this becomes 0x0000000D =
-on the
-> > > > vendor
-> > > > kernel.
-> > > >=20
-> > > > =C2=A0=C2=A0=C2=A0 But I can't find this register being written to =
-anywhere
-> > > > there?
-> > > >=20
-> > > >=20
-> > > > Maybe this needs to be swapped?
-> > > >=20
-> > > > drivers/gpu/drm/bridge/inno-hdmi.c
-> > > > =C2=A0=C2=A0 -#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
-> > > > =C2=A0=C2=A0 -#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
-> > > > =C2=A0=C2=A0 +#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
-> > > > =C2=A0=C2=A0 +#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
-> >=20
-> > Very weirdly, the original definition here matches current mainline
-> > inno-hdmi.c, but the changed definition matches JH7110 vendor
-> > inno_hdmi.h [1].
-> >=20
->=20
-> The vendor code is correct and matches the RK3128 TRM.
+Hi,
 
-Thanks for the tips on documentation, and I verified this.
+I think there can be some small cosmetic changes. I gave it a try, and
+it looks overall cleaner to me. Hope you would agree.
 
-It seems that Rockchip people made this always wrong, even with their
-pre-DRM display driver... [1]
+On Wed, Sep 02, 2026 at 01:17:23PM +0100, Kiryl Shutsemau (Meta) wrote:
+> +/**
+> + * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
+> + * @hw_shift: log2 depth the hardware allows, capped for natural alignment
 
-BTW I checked the Innosilicon dGPU driver code, and its g3_ne_hdmi.h
-source file also contains the definition of BIT(3) as VSYNC. (It's
-quite weird that most logic of that driver is in some .o_shipped blob,
-but fortunately the g3 logic might be too new to be closed down)
+We can drop "capped for natural alignment" -- evtq/priq don't cap.
 
-Thanks,
-Icenowy
+> + * @ent_sz_shift: log2 of the queue entry size in bytes
+> + * @want: number of entries asked for, or zero to use @hw_shift
 
-[1]
-https://github.com/rockchip-linux/kernel/blob/release-4.4/drivers/video/roc=
-kchip/hdmi/rockchip-hdmiv1/rockchip_hdmiv1_hw.h#L161
+Instead, rename to:
 
->=20
-> HDMI_reg08
-> =C2=A0=C2=A0=C2=A0 Bit=C2=A0 Attr=C2=A0 Reset=C2=A0 Description
-> =C2=A0=C2=A0=C2=A0 3=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=C2=A0=C2=
-=A0=C2=A0 vs_polarity=C2=A0=C2=A0 VSYNC polarity=C2=A0=C2=A0 1'b0: Negative
-> 1'b1: Positive
-> =C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=C2=A0=C2=
-=A0=C2=A0 hs_polarity=C2=A0=C2=A0 HSYNC polarity=C2=A0=C2=A0 1'b0: Negative
-> 1'b1: Positive
->=20
-> Nobody noticed this so far because in 720p/1080p both polarities are
-> positive, but Maud's 3:2 panel has differing H/V polarity.
->=20
-> Best
-> -Dominique
+@ceiling: default max_n_shift ceiling of the queue
+@ent_sz_shift: log2 of the queue entry size in bytes
+@new_ceiling: new ceiling to override; use the default if 0
+
+> + * @want is rounded down to a power of two. It never sizes a queue below one
+> + * page, because coherent DMA is page granular: a shallower queue occupies the
+> + * same memory as one that fills the page, and arm_smmu_init_one_queue() stops
+> + * shrinking at a page too.
+> + */
+> +static u32 arm_smmu_queue_max_n_shift(u32 hw_shift, u32 ent_sz_shift, u32 want)
+> +{
+> +	u32 page_shift = PAGE_SHIFT - ent_sz_shift;
+
+And let's call it "floor". It fits the comments and commit message.
+
+> +
+> +	if (!want)
+> +		return hw_shift;
+> +
+> +	return min(hw_shift, max(ilog2(want), page_shift));
+> +}
+> +
+> +/*
+> + * Command queues are also allocated by the Tegra241 CMDQV for its VCMDQs, which
+> + * need the same depth decision.
+> + */
+> +u32 arm_smmu_cmdq_max_n_shift(u32 hw_shift)
+> +{
+> +	return arm_smmu_queue_max_n_shift(hw_shift, CMDQ_ENT_SZ_SHIFT,
+> +					  cmdq_entries);
+> +}
+
+Here, move in the natural alignment cap.
+
+u32 arm_smmu_cmdq_max_n_shift(u32 ceiling)
+{
+	/* Capped to ensure natural alignment */
+	ceiling = min_t(u32, CMDQ_MAX_SZ_SHIFT, ceiling);
+
+	return arm_smmu_queue_max_n_shift(
+		ceiling, CMDQ_ENT_SZ_SHIFT,
+		cmdq_max_entries ? ilog2(cmdq_max_entries) : 0);
+}
+  
+> @@ -662,8 +663,8 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+>  
+>  	/* Cap queue size to SMMU's IDR1.CMDQS and ensure natural alignment */
+>  	regval = readl_relaxed(smmu->base + ARM_SMMU_IDR1);
+> -	q->llq.max_n_shift =
+> -		min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
+> +	hw_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
+> +	q->llq.max_n_shift = arm_smmu_cmdq_max_n_shift(hw_shift);
+
+Then, we can just use FIELD_GET() at the two call sites:
+
+	smmu->cmdq.q.llq.max_n_shift =
+		arm_smmu_cmdq_max_n_shift(FIELD_GET(IDR1_CMDQS, reg));
+
+Thanks
+Nicolin
 
