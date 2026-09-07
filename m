@@ -4,107 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DB3C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDA0C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpQaMoBy+ANddHal2PnUV9pNK1krtVdl6eHRQ/UORPQ=; b=T4RKH1SJgqwKeLooth2Wq4Xd/6
-	ScqGkOUOkBS/x313N2Z5GwEkGXZ/zEL86Fq6jUl7LuaRIYHKmq23x02AMRL3FM0S3jT6eGa404y0k
-	wg+5d3zBFwNn0HfYe2B3jbtKPHj3gFlPScGDxFa/6+QDQ5iILfr7435+WZyu1gKx3PQqPNEAUEgWZ
-	cskTw5GhOm4ydADIYO/zuUlAzyVKv+rQ2naO4gt9/j5NHzRrNj6ey56BkOWKN4jp8TYzfuyvS/l2U
-	Ze6jqHrn1Iwx36Yc49pdExq9cQeGom1eTCrF/f/2miZ/UtJCzRJpetIWoGzhyE33MeGV36AV57JpG
-	Y3Wo7lAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvKdQrCWkYxqdOjbu2Fib0GGvdK3uXcjnoDDmIYN5Pg=; b=aqb/lHcp6z/dNucLf51hYG8K44
+	kZoGX8Q9j06Uioq49+6AXyAMg727PkDapQJnmeFhankdh0Xyj/8/fPE704s/nkJCJTKPgPvntlFzE
+	sPi1nttuZqmeapdczeXil3XibOYucZ9U7ivJ/I4K4lg/qjasuVmfty0FQb5tR7D841EiPSMlB2/Ls
+	fta0obuJGE/ras9ybAP5OnyHhoQDAZ5P0mISnsDOCGDL5LttVrVFJS7peqIkO2QYXok6BZ7cKE8Fu
+	NJgMwJ51+MiCO6S4z1tMFcm3CRNV8R+AwbCNP9VPERmXqsDcNxTyPUHWoSiL1XvtvOBzXyb4wJn2z
+	xznYZUSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3b5u-000000077zo-3Dc1;
-	Mon, 07 Sep 2026 15:17:14 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x3b6v-000000078C9-0wK3;
+	Mon, 07 Sep 2026 15:18:17 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3b5r-000000077z7-43lo
+	id 1x3b6r-000000078AC-3wSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:17:13 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a613a6bcd8so13645a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:17:11 -0700 (PDT)
+	Mon, 07 Sep 2026 15:18:15 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso2606875a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:18:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788794230; x=1789399030; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rpQaMoBy+ANddHal2PnUV9pNK1krtVdl6eHRQ/UORPQ=;
-        b=dxT5ITC5DNn4nnt1NfwBrXw9Q+J2gzTr2hAjVJLRB3Am16AiBuqIw0QAUiFM6c5SNP
-         uh2huW2yOXhx2ygo5AflDAO1o/ZntOBv76sPd4zTZqtDvYWHf26ukHtYk9rUPVw5zHNv
-         GyhPpkxb45dV58V9TaWYu9kxtPqu7qeMEs4PJv7nAMQiuk/cG3lp8ZNSHRnEYX97vHh8
-         vLgZJ93kzwrnGmOf95nJTCB5zUVjbsuhSqbLVnyzQ74uUeDdioGd+SC9XUC2k8y5hNBT
-         d73/R1ILimsF6Edn31JnEhz15ByGutGgg4Llw28cy/7bnQizuEqKfGBlbD4UDXHLw8ee
-         Ij+Q==
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1788794293; x=1789399093; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nvKdQrCWkYxqdOjbu2Fib0GGvdK3uXcjnoDDmIYN5Pg=;
+        b=ZCDW5iwH5vg3hlwtGGiR18hCaROmR3HxPGw2EuldSa2RjfGdNsjqDLs/gkoQYSF5td
+         9AfgEVYFTTRebwbIuvxFNq1AQ9d/5miR/BXiJG2x0Dsnvwom/WbUMCYCjrXdrj7yJEIb
+         HhGokK9gPB5V1Fdzxtclq1TJwMSBa/1I33USDk6l79DS11mke7kT99Bg3L05voyGDCQA
+         Kue4s8dZJzPen9rzpGExF02G2gpjtZfepZuLUTn4wVdS3D+TUW4DiJst74YoSCtuUPRS
+         u4hdn8iE9VVENak3mk+CpQqQmGwM5U7oHHLymcj6/VzEZCVB79eKb7gbff8KYpm6uI93
+         Ek2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788794230; x=1789399030;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1788794293; x=1789399093;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rpQaMoBy+ANddHal2PnUV9pNK1krtVdl6eHRQ/UORPQ=;
-        b=FmB4MmaN6lfO1HkjNDJZ5LPpVg2MUo+BK6cPj0eO6Nw8qqHjmxTF23XdkJjmDekoz7
-         aabojy3qMcqKMsVr6zoekta5qq7Vke9wYDv7/zpVu0+jx1XfKiXT9mk8BnwVFj9PaKkI
-         S7HsBrjceV0Zc9zOrn2jFbVx3Cg3khAtCpnqZh0i6q/1v9nvMyDzMbU2GKgmVTNM0FaW
-         g+jvCdhJwf+iRXI/IBDTI8/IaKxto1o/Wpljp9R3dLZjS2esJLwZXwtGEY25sAt8Rg3n
-         TGe/99SUxIeEprtHDDhVdp1JSglWOTqHcE9Nv7lHU6Eq7ixKULlIS2G0jpn/gwGl5m72
-         eQmg==
-X-Forwarded-Encrypted: i=1; AKwUvByR8xxCJI+irmwgc+ciXXIjPkG+yPKI0n6FBxssQFMYn142iG/eDMygpdo/l4m0EBydNr6J+8I+y7TOxejHTeeZ@lists.infradead.org
-X-Gm-Message-State: AFuF++kjmf69PjnqCoMXn6/hudaSs0GyOgburmDx7gG1y+0xe/zMR729
-	+105fOCtDUfrqLyLEnqlcNPX7N+AbIbXrGtt7HUgo983lXQ0YdIhDw8ru15YhT2Q0g==
-X-Gm-Gg: AYBFou1NarJcJkV7QHpSu5nAjsAnUDFsqq7vL425xRyRE0tdLF209EAeAtYbhD7Ct57
-	FQlJW3nhtqJ5KmcZVRVGsAP16WqbOJOtkXx2mBD0UmbKx0jA2dDexYc6IYMYMnyuvgureFFdlEs
-	LBBliYSmnqlx+Aw77h9bFy9/ESnlz9Po/x0mT4nCezLDKLSnDRvYvQu4t/x3ymHMSatdZudmq9z
-	xC1tLJT4E9k42VG5l9SStFu8sRclS5avgh0A03mTDV+g89PQdQbmlKucvf3y+IWHSgrZWr7fkmY
-	+IC7FbvTV3mJWyuCqnioEVNt0GD+yyi4eX1mKIkdZ/BpVr/EHAW7AiCirJ5U/cnwKe37Dr/lr+3
-	YkPcoGuvHWhL6+LU5zFhKxvY8ifDimZEanphYuh1CHKMxWvSCzOEgpdDrRBmF+HUPv+tcEpxew0
-	h2O/LDhkvB5AdGj5YwxRrl3a7PQPxUp2KQdWc//ImO9V1yoD56td8KOv1lqSFdHf0Dth4yXDP9U
-	zOvkMv6YE/13RbbVD2IhlwHrOwVWw==
-X-Received: by 2002:a05:6402:a288:20b0:6a0:a317:9c47 with SMTP id 4fb4d7f45d1cf-6a7f6887515mr62121a12.3.1788794229526;
-        Mon, 07 Sep 2026 08:17:09 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d5b29f3sm482498766b.52.2026.09.07.08.17.08
+        bh=nvKdQrCWkYxqdOjbu2Fib0GGvdK3uXcjnoDDmIYN5Pg=;
+        b=OyaKdhbj+C5sdGKBRXbbAsUdxIAfJY5AM16H1VnbzLbLSioZ5fogdih/tOJ7msRBLX
+         SOPF/IHNYZNzCq1Vj8NprZQeDN4lb1ytft72LGXBqP78gbkyPMbwK3wShPUuVdwm/0T/
+         9BDBDgX5PnF3ld8ThsK1VMC2xlIzwpjs6zWIw0YfKXhhESkjpMosDuOdTFNQGtEEKDJr
+         B8GJ0czKuYEBo9B1ajcdrNqxpd3JWnt/VYu+mhptqw8sK8AY8QNV7xHfjIaSLm8XDKN+
+         kaSqXisHOkv70FUrGxOox0zqVCN8gQtJe5H9LxmI+3FmZi2urcRI/3vCAVx9hPP1xMV+
+         jmng==
+X-Forwarded-Encrypted: i=1; AKwUvByHm+AxKA4LeISK0HFTfCoN89Oc4P0/CokDoxiFRLe3zUdP94HkVW9ebdtbJmJPwycghcAgbfiohAmExXOCK0a3@lists.infradead.org
+X-Gm-Message-State: AFuF++lY+N3p5ZDy1D70VIm90y8kYFHdtnEaQVll2tfAL5R2cMH1PyEi
+	nDs0jf+pYBR2Ja3GkvhYjZoWBHW8sbKoG5SqqUkPi9j2fRTAGLImVVONEh8ZE3VM4NE=
+X-Gm-Gg: AYBFou22EuGxoqsAxdpu+Hae2ZhDEBMRbINMyyNlKx3R4wMu/diJScUB0lh51LQ1D3i
+	TL9UbELbZbbXs4WR+DNQxRl53OCiFb71PmGingC8qWT6k2xuS4lOLnnx0qCiQHOQhyVcFwVWbZ7
+	/xXnPSDv0nHjlYW8FbDb63eEySpG062gjMOsU6cTh8f97w9I4+RvQwbd72tPOg9Ag8Wx0f3Udmk
+	K2ANv/DQoNhEB8+OgJlx2g78VX0PiEpK7f9KVyCw8p0pMzyXOjfRu+xNOwkxLFZNLo/Fhj9o+GC
+	O979K3bsWWgMUiepu23Kagox8fZmFn8zYjHeGRVqMHMXQnK3UTs2oiRVFW3jcERjtTFijkUsuYg
+	fXLLfBTHRakvR2V/PKPSZx9W+++LYfV/p89OqBUYIKYMOfFdieligfTQm6qz6Y9UM3FWSwUJDy2
+	nOyB/pSLCdZW9d99N9/EPPZx0cu/jKeWcsECMCG1c/CrBK83Gu1HA/Ce8hUEcnPCdCnK5bUP/9+
+	nNBWFq3th9V3hR+
+X-Received: by 2002:a17:90b:264e:b0:398:9bd1:3215 with SMTP id 98e67ed59e1d1-39b262e28cdmr37304540a91.22.1788794292966;
+        Mon, 07 Sep 2026 08:18:12 -0700 (PDT)
+Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:9f74:2a4b:1c38:e2d8])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432435648esm33474770c88.5.2026.09.07.08.18.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 08:17:08 -0700 (PDT)
-Date: Mon, 7 Sep 2026 15:17:04 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v5 1/9] iommu/arm-smmu-v3: Handle ARM erratum for CONT
- under invalidation with SVA
-Message-ID: <ap7VcBXG0NyX6acW@google.com>
-References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <1-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <ap7IeAfVPZL3Hqt_@google.com>
- <20260907151145.GY4157646@nvidia.com>
+        Mon, 07 Sep 2026 08:18:12 -0700 (PDT)
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Date: Mon, 07 Sep 2026 16:17:45 +0100
+Subject: [PATCH v2 3/4] dma: qcom: use named initializers for
+ acpi_device_id
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907151145.GY4157646@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260907-acpi-dma-v2-3-0ffe4a007992@thegoodpenguin.co.uk>
+References: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
+In-Reply-To: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
+To: Viresh Kumar <vireshk@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Binbin Zhou <zhoubinbin@loongson.cn>, Sinan Kaya <okaya@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788794281; l=1191;
+ i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
+ bh=fh4C/z0gOMcS2SxNxy2cC8TlLYkqOtVy2+16qwp+aMQ=;
+ b=lEzBJa92p79RXBpbg9r5dR33uOutrn5E0hxQ7UxPS98ZaD2IkJ4e/zkFY35j88BW8cf9ythBf
+ J/jneLU7bDoDs7qzGYXOIFNTn627bmSfgSTZmlRaZKicK3+XFUoz2k/
+X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
+ pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_081712_051884_CDDD9807 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260907_081814_002474_C3529BAD 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,30 +113,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 12:11:45PM -0300, Jason Gunthorpe wrote:
-> On Mon, Sep 07, 2026 at 02:21:44PM +0000, Mostafa Saleh wrote:
-> > > +static bool arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
-> > > +					struct arm_smmu_cmdq_batch *cmds,
-> > > +					struct arm_smmu_cmd *cmd,
-> > > +					unsigned long iova, size_t size,
-> > > +					u8 tgsz_lg2)
-> > > +{
-> > > +	u64 cur_tg = iova >> tgsz_lg2;
-> > 
-> > Nit: tg suffix is a bit confusing, I guess pfn is more accurate, but
-> > no strong opinion.
-> 
-> I don't want to use pfn in any of this code because convention has PFN
-> as PAGE_SIZE, while this is a "translation granule", ie the base
-> granule size of the iommu domain. Which are not always the same thing..
+Use a named initializer for the acpi_device_id fields which makes the code
+more readable and consistent with how lists are initialized in the rest of
+the kernel code base.
 
-But this is an address not a granule size, not sure what that could
-be called then :)
+Unify the list terminator to have a single space between the brackets and
+no trailing comma.
 
-Thanks,
-Mostafa
+Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/dma/qcom/hidma.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
+diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
+index c939635be21d..1349066b1544 100644
+--- a/drivers/dma/qcom/hidma.c
++++ b/drivers/dma/qcom/hidma.c
+@@ -935,10 +935,10 @@ static void hidma_remove(struct platform_device *pdev)
+ 
+ #if IS_ENABLED(CONFIG_ACPI)
+ static const struct acpi_device_id hidma_acpi_ids[] = {
+-	{"QCOM8061"},
+-	{"QCOM8062", HIDMA_MSI_CAP},
+-	{"QCOM8063", (HIDMA_MSI_CAP | HIDMA_IDENTITY_CAP)},
+-	{},
++	{ .id = "QCOM8061" },
++	{ .id = "QCOM8062", .driver_data = HIDMA_MSI_CAP },
++	{ .id = "QCOM8063", .driver_data = (HIDMA_MSI_CAP | HIDMA_IDENTITY_CAP) },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, hidma_acpi_ids);
+ #endif
 
-> 
-> Jason
+-- 
+2.43.0
+
 
