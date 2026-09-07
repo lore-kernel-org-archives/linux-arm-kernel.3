@@ -4,88 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51991C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0E6C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOMJc+Y8LFdspZYjJ1TLplIIrOzasQxKAI43UPHgqhM=; b=k7jFAi/Wv79Y9hw4gdJp7O2Mt4
-	/nopbHHQDEgZcOXN7qmNLLDhLBKkupST5pS01jSr1EQ6lqZpJXKVaIMXEvbq3tah715/dtEtDrlm/
-	NeDxmLiAA7F3gaD1Pp70log1C2+56o9CGTTPY3z73xm3ol9fAAnNo/2Lh1IgpCd79nMt3gtmzCGHy
-	pEHJJYHXW4RpZUtW8V+8nyNSBL/lYkfSwYASuSY7zSB4AAeMc24PPNEW+uATpfjswtURm5gtXoEGn
-	FTETTYQWIFYMUwSkdPO8yeQEbJmBC4i0U6sSpxBrNhYXfBVpZdv/ZShmkAD4eFmW5tfAb0j8a+mab
-	eEFf+PLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtdaA6MCGQ/zR37qYxh9rhEsesea4HZqp7ohj/46mVE=; b=QI3q/Obp0o35CjTTCm/L8RWxcb
+	XCpudi4DdA4+UFHSIFMmaijjFRPrzKBxiNbXp6MWOvW7qL1AuLNvFpZJQxuVXUvr7nfIV+kkIi4n2
+	IJG/9ykAJOh73MGU1XJUuiAcEgAt5lPp1V9iMy3/TivEv0tUTQmChEulPUha2GNElaGUNZFPA7+jc
+	ez8vNfXceBeSfC6AM/5kTtPJF5QwtfYLTFRWX1JSQW3Plzl9ML8ANcyP/n+fyU/Ao5ZOXC0vwlNiD
+	znNOxv4VAA86+f59ZMWFr/yDDCX3VkAD/qMp5kf3XH6BBWMfINmBkuajGcyZzUTSgfT0rtfUgblLf
+	jIfxweuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Puq-00000005l7p-0CqF;
-	Mon, 07 Sep 2026 03:21:04 +0000
-Received: from mail-m16023653228.xmail.ntesmail.com ([160.236.53.228])
+	id 1x3Q7p-00000005m7x-25gr;
+	Mon, 07 Sep 2026 03:34:29 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Pum-00000005l6z-19zv;
-	Mon, 07 Sep 2026 03:21:01 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4cbfd4e16;
-	Mon, 7 Sep 2026 11:20:53 +0800 (GMT+08:00)
-Message-ID: <6e96691c-5d52-4e00-a15b-2a2b21f65fe3@rock-chips.com>
-Date: Mon, 7 Sep 2026 11:20:51 +0800
+	id 1x3Q7i-00000005m57-24QL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 03:34:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FgZ+6EojPejomuIgcndcGW8p6ROe8E98cldzc6Puo9kVuTevDDUg2Dw22efd90eav+YWFpkxJbNOU6cPDydhmXTAk7z5FZ3xWQg71c4Zb2c831gHErcHQJ8llpmxMsW3sAx1TKBUUdu4fwUB4YeBoTolQ9QG3qJVzyY3Bo/sc9gOEgMkuS72gr7yaDCXJUHYMB7zu8dTa/4S1EiuHBGNdWqpwXlKsEGw/2//tGIvrrrgQhJokfTrx3lb3MRZbEcSA3mBgmAgdb8DtUNgG33axIaqhnYXK0sV6yRAHOQBqePvClpt4+Eu3uzRpc9DjTYtDk+vYKvpCRvzovJzhVfTDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dtdaA6MCGQ/zR37qYxh9rhEsesea4HZqp7ohj/46mVE=;
+ b=LF4nJYdhON1IEJ++h+FXoS0Xq38oJO1LFh9mvM451u/FFKWxWN0VXNIl5R1Lr/FwW61UYMNy6+vwQ5C6EWx8QzSzMZFETzP9pyjdW3zb3AMP+qm8ODvrB8DUquI5HvX5MEOPawF64818Wdc8dqjpLjDcmHJXJu2YeUSkUhZvjJnrqai3KzwQ9QC0TQkII5oY9TBuPYnZEZUS7mU0+WZHBtZSotXQ7e8Ki/kLk6OQ/L7C2APnLG/t2bUK82YHl2A5O8l18BVYL1vvm++v2fN34f5cXQjIXDYHJHZc5wOLWRWxRkk5iqCWjmF0MVFOspcJB9DTjgKPCGx0+wyLC5FmAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from OS3P286CA0049.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:200::6)
+ by TY0PR06MB6802.apcprd06.prod.outlook.com (2603:1096:405:11::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
+ 2026 03:34:09 +0000
+Received: from OSA0EPF000000CB.apcprd02.prod.outlook.com
+ (2603:1096:604:200:cafe::70) by OS3P286CA0049.outlook.office365.com
+ (2603:1096:604:200::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 03:34:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CB.mail.protection.outlook.com (10.167.240.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Mon, 7 Sep 2026 03:34:06 +0000
+Received: from ubuntu (unknown [172.20.64.99])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C69FD4092116;
+	Mon,  7 Sep 2026 11:34:05 +0800 (CST)
+From: Jelly Jia <Jelly.Jia@cixtech.com>
+To: vkoul@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	Frank.Li@kernel.org,
+	robin.murphy@arm.com,
+	cix-kernel-upstream@cixtech.com,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jelly Jia <Jelly.Jia@cixtech.com>
+Subject: [PATCH v1 1/5] dmaengine: arm-dma350: Fix source trigger bit
+Date: Mon,  7 Sep 2026 11:34:00 +0800
+Message-ID: <20260907033404.596839-2-Jelly.Jia@cixtech.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
+References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 16/19] phy: rockchip: inno-hdmi: Use the common
- Innosilicon PHY helpers
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- Andy Yan <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>
-References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
- <CGME20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4@eucas1p2.samsung.com>
- <20260904-jh7110-clean-send-v3-16-484f9ae72715@samsung.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260904-jh7110-clean-send-v3-16-484f9ae72715@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa079e20e8103a7kunmae2afc193611e7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTEsZVh4aS0xLGBgaGkgdTlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=J+pH9aqjliwdMdP6kenDUDgsFo2GFjCulzu+UU8+Z1ovBsC62FGnk1cwrTWEL9+KGDNq4sdEgsK8gJdOHqlSNOH6d50lhGEQHf8B2L81S4cAX6catva+VVg4ikamy9CzRb2ncewysvwvV2ttkQX5ECW8n63q1jQhUmujT/P3DbQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=TOMJc+Y8LFdspZYjJ1TLplIIrOzasQxKAI43UPHgqhM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CB:EE_|TY0PR06MB6802:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 8fa26750-35e7-4488-151c-08df0c90df53
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|7416014|376014|36860700016|10067099003|6133799003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: bjkOWV6X5xhnxETaxk5NdHZiOzDbZHJiUvG77sE8iZAN/cxXw7LMZ0BlU4Z9A0YDndI52NkumN2IMZ9wHiDGrujafx7uLSDx0pNQ1IpB3UccWVKBvsmw4esNJz+hR6Gbr0i6elyT9pYvm46l89bXGEuqDUEH/UMDeECeTm76dF7dZknUAxCkyzNNubpKdGr/C2Gndmi0KV9CqEduuE81JipNS3PXk5Suc6L/OKq05YS8A4h9UQfqGA3Jj0gyIXC+pkyrYerRUrkC1He/TMPvW28jwBngh2XEkNEGsCMFMpWYld8HJhzJ1Jfssabnl2KwO/9pa6g4FvccHG6uAfDeW/ZWti8otZE2ZX9WRTsRxXFG1TNkG1sNXuxJAYYBcFGrHtsfa3RBpuUzApIg/EewK87JeXir7F5IDxuqVkC3My0XSKOzdlEL7sF4CyrESxVZJRTKNLDX7+J9OQZaECcKUKoVLQxNrpKHsJq9ebXRGrCv+1krDhmYBvgLmnCcrEPg264/rGGZt9NljyvlCSUG92VpF0nUGpGd8GOFSeO+UrZyqPmpWU5zEBpdwedsBxDd8nkZgFFKiKcvlPUXZyPpGxAl7uRbN5bUOTxlwOkC44HLfn71O6kujs3E3sbyAfFmus+Zrn5H4CR4XWYZRVRGUxX0RilR7RVxzVf7hSrgmZeWKmRF5VHr7rMbyvoIOQZR9MoRywoCGXB6I6jZao/jog==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(7416014)(376014)(36860700016)(10067099003)(6133799003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: VUSkFVPHhozdcdzHLEjd3kES2D/ABQMiF8vda2v0zB6dgsCUSPYVrqyHOc7s+F8bjE3GEOuxi2FqHeqbKjiDVGrlkOPctGvBvGX/631t8APgbAIH7aUMPClLjkKKKHD97AiIc6eW5Fca/LTksoYwoZnDKHA9oCA0GkjzHtgEPFpTPU0VoXDQ1x/jGTooiCgz4rQre3Hxt2uvF5X7W/NkAMZZYtf8zyUmSvsrA9SmAoS+pf7FzxbHGonbIxzq5u8NY1/EQO6EyfUxYwM68GvmEKWOWTBCi0N3bUWfUDJwsZ0y1ycrI+UbY5vYplOS2Tmu4KYyeZ5ycNYkKMdu8sc/5glRK+4IrYdxmo01Ev1rVoDzt/9d56gaCLavMMIlv80akPA3UWbJoKDrCiFbT911bwKiTX4xjNXu403/eHULkJsMnN/bKF+yz1XUHc12oAOe
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 03:34:06.9279
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fa26750-35e7-4488-151c-08df0c90df53
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CB.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB6802
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_202100_632167_2ADB8037 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260906_203423_507922_AE407D28 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,88 +121,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Michal,
+CH_CTRL_USESRCTRIGIN is the source trigger enable bit in CH_CTRL and
+must use bit 25, not bit 26 which is the destination trigger enable bit
+(CH_CTRL_USEDESTRIGIN).
 
-On 9/4/2026 9:27 PM, Michal Wilczynski wrote:
-> The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
-> determine_rate implementations are the generic Innosilicon ones, so drop
-> the local copies and use the shared helpers instead.
-> 
-> The RK3228 pre-PLL sits at different register addresses, so it keeps its
-> own register level code and only shares the table lookup.
-> 
-> The now unused RK3328 pre-PLL register macros go with it, as does the
-> local pre-PLL config lookup wrapper; both call sites already have the
-> TMDS clock to hand and call inno_hdmi_phy_pre_pll_lookup() directly.
-> 
-> The RK3328 recalc_rate used to log the pre-PLL output as "vco". The
-> shared helper logs it too, and reports the actual VCO frequency
-> alongside the rate, which is the value with the 1.4-3.2 GHz constraint.
-> 
-> The register writes, their order and the values written are unchanged.
-> No functional change intended.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/phy/rockchip/Kconfig                  |   1 +
->  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 165 ++++----------------------
->  2 files changed, 26 insertions(+), 140 deletions(-)
->
+The constant has no users yet, but enabling the source trigger input
+would silently enable the destination trigger input instead, breaking
+any transfer that waits for a peripheral request. Fix it before the
+first user arrives.
 
-[...]
+Fixes: 5d099706449d ("dmaengine: Add Arm DMA-350 driver")
+Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+---
+ drivers/dma/arm-dma350.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  
-> @@ -915,39 +858,11 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->  						   unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	unsigned long frac;
-> -	u8 nd, no_a, no_b, no_d;
-> -	u64 vco;
-> -	u16 nf;
-> -
-> -	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
-> -	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
-> -	nf |= inno_read(inno, 0xa3);
-> -	vco = parent_rate * nf;
-> -
-> -	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
-> -		frac = inno_read(inno, 0xd3) |
-> -		       (inno_read(inno, 0xd2) << 8) |
-> -		       (inno_read(inno, 0xd1) << 16);
-> -		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
-> -	}
-> -
-> -	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
-> -		do_div(vco, nd * 5);
-> -	} else {
-> -		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
-> -		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
-> -		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
-> -		no_b += 2;
-> -		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
-> -
-> -		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
-> -	}
->  
-> -	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
-> +	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
-> +							   parent_rate);
->  
-> -	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
-> -		__func__, inno->pixclock, vco);
-> +	dev_dbg(inno->dev, "%s rate %lu\n", __func__, inno->pixclock);
->
-
-The printing here is redundant, because it has already been handled in 
-inno_hdmi_phy_pre_pll_recalc_rate().
-
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-
->  	return inno->pixclock;
->  }
-
+diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+index 09403aca8bb0..4e17130de6c8 100644
+--- a/drivers/dma/arm-dma350.c
++++ b/drivers/dma/arm-dma350.c
+@@ -63,7 +63,7 @@
+ 
+ #define CH_CTRL			0x0c
+ #define CH_CTRL_USEDESTRIGIN	BIT(26)
+-#define CH_CTRL_USESRCTRIGIN	BIT(26)
++#define CH_CTRL_USESRCTRIGIN	BIT(25)
+ #define CH_CTRL_DONETYPE	GENMASK(23, 21)
+ #define CH_CTRL_REGRELOADTYPE	GENMASK(20, 18)
+ #define CH_CTRL_XTYPE		GENMASK(11, 9)
 -- 
-Best, 
-Chaoyi
+2.54.0
+
 
