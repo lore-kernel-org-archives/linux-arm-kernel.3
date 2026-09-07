@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53349C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA662C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lG8o7GXuxZX+JAJ5wwvlYurB2A3tztlS0yQP249B198=; b=m2qZT8VodDemT0+djcJGLiRDCZ
-	8v8malXfzZA1pjY9VTZsG49RCxL/o8R5NwfimmghiYmgnAy+DF+9N7RpWfMyPd8HDY9Ma/Xm4LaSc
-	smmagL9kYECO8V+gRWjBiQK5fYCKLlpri5rt1hjEd4vjJuADgcrolTIjTsOeAAS/NS0Ea8WBtEu6h
-	acGdbIsDNcx451bQpGxVBU4j+/fbSt0Iwqs1/lCdrG92Hc5Xnu7PKljxilXs2HnpIUrZt2x/Du5VZ
-	6JaM1t7GolIYRRa4xPDANLDSWlxDI/nw9w6yhnyVvwGnDtPv1uBt9aH9PiIx1uy/37A62oHN4Ee6F
-	RTczuLag==;
+	bh=ApNmqOPKAmvywk6QCgE58hkxGIDGVsi2dDUaD5lB3+w=; b=mL66Qy3DnQOsTl9isGRffgls+L
+	x+NX1kcyQ6L3S7Hyw8Hhe/sOsv90zrxYaR9Rb8GjDLxOszvHKdv8lM1I+ufyl0jRhpL44AHVtaGsK
+	PIwNzkhn93i16gxO3LVeiEXg62XwqRglxYqxFM5Fu4Dkuzl9ypx2Cr1+sxnPFikH2Y3wgL0NNGFWH
+	Iqqo/UOepzg4aGbwZHEPzOsh8IJuZTJ+Hv+tyDGRSSAN23DZk/BhSJLz1Tr9c+HP74ebuj2HdMA2W
+	6fPT1a1A/lmblvrpCTAUGgoi3eQZParpH2WyiXpQ2vbV8z+43j/SQ8sTWOl1BOxr8rSghY/OcpBma
+	1aq8222w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3d91-00000007UWT-0pgk;
-	Mon, 07 Sep 2026 17:28:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3dC9-00000007UkU-2SYc;
+	Mon, 07 Sep 2026 17:31:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3d8z-00000007UWN-2pO6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 17:28:33 +0000
+	id 1x3dC8-00000007UkI-1528;
+	Mon, 07 Sep 2026 17:31:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29EDE4002F;
-	Mon,  7 Sep 2026 17:28:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B093A1F00A3A;
-	Mon,  7 Sep 2026 17:28:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 87A9A601DB;
+	Mon,  7 Sep 2026 17:31:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD031F00A3A;
+	Mon,  7 Sep 2026 17:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788802113;
-	bh=lG8o7GXuxZX+JAJ5wwvlYurB2A3tztlS0yQP249B198=;
+	s=k20260515; t=1788802307;
+	bh=ApNmqOPKAmvywk6QCgE58hkxGIDGVsi2dDUaD5lB3+w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HY1KTOtQVDzcfBMo/HUr7NbDpE0BpzWUgV/gqCrf9tApeH0B1cQlH2hoZ0rzfb4Wm
-	 M8URKzs++iSeMg51nUBz5+1e4gNzRQDhx/a3igEIV++4TG2AlRfmLDbGHA7oQpM5Rg
-	 0TgVuO4hXFzBrFoO7VAG64sYp8l0RvyiyeAhP37NUUdUDg0KMzKAnoGQdJwKGpJcKe
-	 EoUSaUmtBqJ0ui/P+y5/iXHrqGG493/z0FNFxi3c6l3AAvEqE+vyl4WDd4GnoutZUx
-	 uiDnKErAucLXMydRPhFe0AykUMS8/yz3kZmGMLeQftICfrc3XU1vT9BmDoppQzEsjx
-	 ZzlPtnOPTlz3g==
-Date: Mon, 7 Sep 2026 18:28:28 +0100
+	b=l+jXklYNmg0wDcCYIEY+6nO83b2frlpb6P7pg6jBe27xHaqDhgwamiVboo5hC2tC+
+	 S5vdDg3uIhVVBUKBnVfwbLxtqUuU+TcQ9ZVhdMELiC+4BnY1R3dP1RTuUezxdR3+80
+	 1b/xvY/wz9ANHqBPJ5QbgRnBaZaVvD+5GX111T6bx8qYVqb+6G7ufp9pStuDu3EU7u
+	 GjIdpnOPqYD8fSfKUehdhi4xIrrODsVEvCDy2y7lBAxt/S8VqwjcDjE1cUlubOXJND
+	 YYqjaH4rv6p47VfSNVQUZvZIelfOlUmU4SH8AG9qUvHZiqsCffnelv5z53qwXnzmLg
+	 ymswdYzMDgvSg==
+Date: Mon, 7 Sep 2026 18:31:42 +0100
 From: Conor Dooley <conor@kernel.org>
-To: jcarlosgl96@proton.me
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: sunxi: Add SPC Glee 10.1 A64
-Message-ID: <20260907-stock-eggplant-d03a9df18a22@spud>
-References: <20260906-b4-spc-glee-a64-v1-v1-0-621df2155e31@proton.me>
- <20260906-b4-spc-glee-a64-v1-v1-1-621df2155e31@proton.me>
+To: Hongliang Yang <hongliang.yang@cixtech.com>
+Cc: peter.chen@kernel.org, vkoul@kernel.org, neil.armstrong@linaro.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	p.zabel@pengutronix.de, gregkh@linuxfoundation.org, krzk@kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: phy: Add CIX Sky1 USB3 PHY
+Message-ID: <20260907-bullhorn-charred-125d3920e51b@spud>
+References: <20260906032431.470744-1-hongliang.yang@cixtech.com>
+ <20260906032431.470744-2-hongliang.yang@cixtech.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TEVY/w6YcpsZjCWR"
+	protocol="application/pgp-signature"; boundary="KgkeIoGAnZ4PK4Ao"
 Content-Disposition: inline
-In-Reply-To: <20260906-b4-spc-glee-a64-v1-v1-1-621df2155e31@proton.me>
+In-Reply-To: <20260906032431.470744-2-hongliang.yang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---TEVY/w6YcpsZjCWR
-Content-Type: text/plain; charset=iso-8859-1
+--KgkeIoGAnZ4PK4Ao
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Sun, Sep 06, 2026 at 04:05:49PM +0000, Juan Carlos Guti=E9rrez Lavado vi=
-a B4 Relay wrote:
-> From: Juan Carlos Guti=E9rrez Lavado <jcarlosgl96@proton.me>
->=20
-> Add the Smart Products Connection vendor prefix and the board
-> compatible for the SPC Glee 10.1 tablet based on the Allwinner A64.
->=20
-> Signed-off-by: Juan Carlos Guti=E9rrez Lavado <jcarlosgl96@proton.me>
-> ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml       | 5 +++++
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  2 files changed, 7 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documenta=
-tion/devicetree/bindings/arm/sunxi.yaml
-> index f04db28c6..ce425938c 100644
-> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> @@ -902,6 +902,11 @@ properties:
->            - const: allwinner,suniv-f1c200s
->            - const: allwinner,suniv-f1c100s
-> =20
-> +      - description: SPC Glee 10.1 A64 tablet
-> +        items:
-> +          - const: spc,glee-10-1-a64
-> +          - const: allwinner,sun50i-a64
-> +
->        - description: SL631 Action Camera with IMX179
->          items:
->            - const: allwinner,sl631-imx179
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index ba2002969..ff462d6f0 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1603,6 +1603,8 @@ patternProperties:
->      description: Spansion Inc.
->    "^sparkfun,.*":
->      description: SparkFun Electronics
-> +  "^spc,.*":
-> +    description: Smart Products Connection S.A.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Typically we look for these to match the vendor's website, which I think
-in this case would be onspc?
-
->    "^spinalhdl,.*":
->      description: SpinalHDL
->    "^sprd,.*":
->=20
-> --=20
-> 2.55.0
->=20
->=20
-
---TEVY/w6YcpsZjCWR
+--KgkeIoGAnZ4PK4Ao
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap70PAAKCRB4tDGHoIJi
-0vxzAQCi0QTrA0WKec0buuvAiV6kfKTDWQ3NX8CCtz11tIHWDQD7BQ8gEclMlvB2
-r7x6V6ctZaTxbR6318OGYFCYYQr56AU=
-=KFiq
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap70/gAKCRB4tDGHoIJi
+0tcpAPsFjtkQsLkO0xQoaMnH9KnvF5DZqy2ksAPdjmNcv8D8hAEA1Tok2QAAimrH
+dmO9g5jvHqsDBlo/TUjtf9/4XM54DAI=
+=pknf
 -----END PGP SIGNATURE-----
 
---TEVY/w6YcpsZjCWR--
+--KgkeIoGAnZ4PK4Ao--
 
