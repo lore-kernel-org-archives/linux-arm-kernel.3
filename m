@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73EDC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60872C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2cfVrGf/6fhWtnLXtJ4VBUjuiuAjaAyY8FRSTVbYPg4=; b=qXs1zqK+VVYbPBX+EsxeDQpZzF
-	etdDwUgnEBygGtofHJyiV/tIiOO5HwuYs3+6jGg45E0hFWFtDK9JA3uENv149ucAbY2Vzund4w/rR
-	b9MOCSEsA02Y6gxjEmbKKiSoFK68T6OaJPgEl3AmtmsX0BlOxxTzNmiiQydiB4WYukSacOoaeHYJZ
-	369yJMVt1zcWBUbO2ba39bT9njPRie0MqKDr46/NilMMcobkOonmWokbkJyCdzfY2UDjjdo2kp1aG
-	Ea3gKQWcDG/lbJZbmo5x5XYtLj6nFD9shHswgTzbl6ST0VSbnNBcbAg26z/jKhwuix4Pw43KD/R0U
-	kRrDGYfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OZVd8AEPtHxGrM09Xmw7u8IpkGldFD91EALn5nG1tdA=; b=DLiX9sN/b8A6Q8KnAXzKeHRoqX
+	19Y6TMGlQZFJ52Sa+0mTYXVDhXUbPZ98GYu21AMB0xGjV516P8uUPWF2GquH4kiuLNiyNvEV0M3p/
+	DdhovL6pYJkNg+H3PgGPujcJbkTf51OQXtSCu7MVoWwhD9rDy/ODtPJSXOMbTNTYgc3R33nCyjsFh
+	u0g7hny/ab/kArSvZEb4hN7jR3szSOpGLzMPkozY5tzpdqXL8de913IBIJSI8lKeOJ5i50dAu2638
+	MkYWVeIh5It7EwdFP1ZKyBLoonVn2ka+Drn6GcIvSSXoBDbCKhEoh+nlAL7LP7g473qbljVQJisr6
+	rNXIXeVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Qr7-00000005qL9-3ey4;
-	Mon, 07 Sep 2026 04:21:17 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x3R8l-00000005rLS-1Fn7;
+	Mon, 07 Sep 2026 04:39:31 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Qr5-00000005qKc-1NOh
+	id 1x3R8i-00000005rKm-23j5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 04:21:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=2cfVrGf/6fhWtnLXtJ4VBUjuiuAjaAyY8FRSTVbYPg4=; b=Q
-	kjd8pGridspGjjfoRVnbq/cHltdZmFKxzqz+Rp8c+ZDYSp1tJ8S7kRhlu9hDYMRg
-	uPL/WxpTPcD7HhBk/Dek+ESHnqEoyc41nMjrdJAaGCP6d7TGraWUbJ3cPhhc6acZ
-	hp+FPS92g9V3qcvKQytkLXdFVNt4Nu/xt4sVuNtGAc=
-Date: Mon, 7 Sep 2026 12:20:03 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH v6 08/13] gpio: regmap: support write_data_after_dir
- and girq
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <apqxwRgi-uVKkOpr@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-8-e918514cb3b1@ambarella.com>
- <apqxwRgi-uVKkOpr@ashevche-desk.local>
-X-NTES-SC: AL_Qu2TCvueu0Ar5SadZukcn0wRhug/UMa4u/sm3YNXc+8EliryyzkeY0JmJHTvyeuSICCvqhG3WSVSyu1/eZZgGVw+yjmHJBRyn3VJ6zVaxQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Mon, 07 Sep 2026 04:39:29 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2d91518a63fso21887955ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 21:39:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1788755967; x=1789360767; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OZVd8AEPtHxGrM09Xmw7u8IpkGldFD91EALn5nG1tdA=;
+        b=PaVDPraB6M3UofMjk0Gr8GhvxcIuYYNKqPWpi/Z9RGnC4GDFZaNbsvr20+BmVGb1hx
+         OW7G0Y/4iClNqNU8ho4tC/OtChayKZ0yC5PlTaO7x211MY5E4LP6amrTjyrWg8bmU+YG
+         V2XI1VNwvh7ekavOHBNtcR2RJkr67VCUZLQcGjNpl4DO6KVpHvYp4zLiZs3JaNoN1Bl5
+         wVFh9qzSPTy23fbRuPGXl1HHNwELCaN9tpErkh2RBT5LfLi0BYYPJIpsnDf3r45xvrso
+         ve955Uavi02kiy+TJg7U7VJ42/oyk9g+f23PSTP7NsIAnYNrB53rcglVdPglvbrhUqq3
+         XgVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788755967; x=1789360767;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OZVd8AEPtHxGrM09Xmw7u8IpkGldFD91EALn5nG1tdA=;
+        b=QKF9lN1/uRMBgbvYZS9fCGwOm4cmavFhyiCR7JouiqRKScZrQHG8hps+TIP1xUMlu/
+         guRRvDcLOp3dadk6I56dz/a+FmXBj3EO95JID5b9Vwa3OoGXDD8134Z5OB1K21eztVR7
+         uuHdzozgujDL+OwsMkKV7MXovQTi7+dANaWhAAZnRhlzCt6lLjqj1qCvpJbRx2x7wlF0
+         t/2TWFKqUDPNzIm3krs5Joen7yJIaYt2X1xqh7ZGaraLAM29aZkWZrFmKur4MmRxpKvx
+         dCkPRa1CPUakg22R5iovOpA2qh8P4srOiVsIUsKHVlwiMo5TsqvHPWQqZ5WAAbBtfJaK
+         UJdg==
+X-Forwarded-Encrypted: i=1; AKwUvBwDiIwSdfdxiepC1FylRpqp0Yuy8an76259z41qCmF00jvr+rMRp2MR19zVY6htFxQhoryI0YjPEklvJ/2u8iA9@lists.infradead.org
+X-Gm-Message-State: AFuF++m1LfTZYJMlAAFLPmBvR+GqxusBij95i6yfom+/yp80s4puThB/
+	mM36Z0DwVCJIIPdIXyr1/b+nT7vfxW3BpEM7a5R5gOau3AcP5WB1diZ/FOzHDIKoCKg=
+X-Gm-Gg: AYBFou1Qz/MSI0eP+7BbanbgkalD+X8he43D5RUlULz+PwMTHHwe3hH/hfsl7JpaEpa
+	MsivhuS47RwTt/FFxCvmZH6VWrUgZAOVa+W48XuRNYA10unhgjL7tueOxTgD+4NS+MX0fWBWwTX
+	jIf13m6nSWBNcegxG07/IlWfx+KNOe+4BWpg35o9FDAsRJtcqqwDgBytNrEL5ExSWsoEY/ebPk+
+	NiAQb6bSP320V48D6EDr2gVWRnC5kHDzLQlbvbgoXJrW8kMF7hpI4bsbcXz3+jqJMuz43qCku2j
+	1MCQEPqdjFfwIHrnNnj39Su9ih/LVE2QPundEiK/Jr87BpJJY+TeMKug2lnSZc4d01ArdZl+RMm
+	/4E8kiWdq0/8DYG+UDZxYHxai6gaK8M/7zFrUcBxi6YALh3sT2I/ZF67RN3/F5PfCcJvxsFSQJl
+	YIs2a0ArCKNx5kSlI9/LJxRs7gA94u+QtSd41vWN7uAk3iQWZAbChNKsNI4ppkBEE=
+X-Received: by 2002:a17:903:37c8:b0:2d9:50:a91b with SMTP id d9443c01a7336-2db12667eeemr299920485ad.16.1788755966732;
+        Sun, 06 Sep 2026 21:39:26 -0700 (PDT)
+Received: from localhost ([122.172.87.224])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885d29esm26643998eec.2.2026.09.06.21.39.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 06 Sep 2026 21:39:25 -0700 (PDT)
+Date: Mon, 7 Sep 2026 10:09:23 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Sumeet Pawnikar <sumeet4linux@gmail.com>
+Cc: rafael@kernel.org, amit.kachhap@gmail.com, daniel.lezcano@kernel.org,
+	thara.gopinath@gmail.com, talel@amazon.com,
+	hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
+	mmayer@broadcom.com, sumitg@nvidia.com, krzk@kernel.org,
+	peter.griffin@linaro.org, myungjoo.ham@samsung.com,
+	kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, sven@kernel.org,
+	j@jannau.net, marcan@marcan.st, casey.connolly@linaro.org,
+	sre@kernel.org, wens@kernel.org, t.schramm@manjaro.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-samsung-soc@vger.kernel.org, kernel@pengutronix.de,
+	imx@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] cpufreq: Use %pe to print error pointers symbolically
+Message-ID: <ap4_-12ta7ThxEjc@vireshk-B250M-D3H>
+References: <20260906061755.5103-1-sumeet4linux@gmail.com>
+ <20260906061755.5103-4-sumeet4linux@gmail.com>
 MIME-Version: 1.0
-Message-ID: <27a1901.423e.1a07a183bd4.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: aCgvCgD3dzNzO55qTf9AAA--.18980W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxhMtnmqeO3OlvgAA3B
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260906061755.5103-4-sumeet4linux@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_212115_743682_06733F7A 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20260906_213928_537621_BE967CE0 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +113,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKClRoYW5rcyBmb3IgdGhlIHJldmlldy4KCj4gQXJlIHlvdSBnb2luZyB0byBmaXgg
-dGhpcyBIVyBpbiB0aGUgbmV4dCB2ZXJzaW9uIG9mIHRoZSBTb0M/Ck5vIOKAlCBBbWJhcmVsbGEg
-ZG9lcyBub3QgdXNlIHdyaXRlX2RhdGFfYWZ0ZXJfZGlyLiBJdCBvbmx5IHByZXNlcnZlcyB0aGUK
-ZXhpc3RpbmcgQVJNIFBMMDYxIHF1aXJrIGFscmVhZHkgZG9jdW1lbnRlZCBpbiBncGlvLXBsMDYx
-IChkYXRhIHdyaXRlcwppZ25vcmVkIHdoaWxlIHRoZSBwaW4gaXMgc3RpbGwgYW4gaW5wdXQpLiBP
-bmx5IHBsMDYxX2FybSBzZXRzIHRoZSBmbGFnLgoKSSB3aWxsIGFsc28gbWFrZSB0aGUgZmlyc3Qg
-Z3Bpb19yZWdtYXBfc2V0KCkgY29uZGl0aW9uYWwgc28gdGhlIHF1aXJrCnBhdGggd3JpdGVzIG9u
-Y2UgYWZ0ZXIgZGlyZWN0aW9uX291dHB1dCwgbm90IHR3aWNlLgoKPiBUaGlzIG5lZWRzIHRvIGJl
-IGluIGEgc2VwYXJhdGUgdXBkYXRlLiBBbHNvIHdlIG5lZWQgdG8gdW5kZXJzdGFuZCB3aHkKPiBp
-dCBpcyByZXF1aXJlZC4KT0ssIGdpcnEgd2lsbCBiZSBhIHNlcGFyYXRlIHBhdGNoLiBQTDA2MSBr
-ZWVwcyBhIGN1c3RvbSBjaGFpbmVkCmlycWNoaXAgKG5vdCByZWdtYXAtaXJxKTsgZ3Bpb19yZWdt
-YXAgdG9kYXkgb25seSB0YWtlcyBpcnFfZG9tYWluIG9yCnJlZ21hcF9pcnFfY2hpcCwgc28gd2Ug
-cGFzc2VkIGdpcnEgdG8ga2VlcCB0aGUgdXN1YWwgZ3Bpb19pcnFfY2hpcCArCmdwaW9jaGlwX2Fk
-ZCBmbG93LiBPcGVuIHRvIHVzaW5nIGEgY2FsbGVyLWNyZWF0ZWQgaXJxX2RvbWFpbiBpbnN0ZWFk
-IGlmCnlvdSBwcmVmZXIuCgo+IElzIHBhaG9sZSBoYXBweSB3aXRoIHRoZSBsYXlvdXQ/CldpbGwg
-Y2hlY2sgYW5kIHJlb3JkZXIgaWYgbmVlZGVkLgoKQmVzdCByZWdhcmRzLApMb25nIFpoYW8KCkF0
-IDIwMjYtMDktMDQgMTk6NTU6NDUsICJBbmR5IFNoZXZjaGVua28iIDxhbmRyaXkuc2hldmNoZW5r
-b0BsaW51eC5pbnRlbC5jb20+IHdyb3RlOgo+T24gRnJpLCBTZXAgMDQsIDIwMjYgYXQgMDI6Mzg6
-MTVQTSArMDgwMCwgTG9uZyBaaGFvIHZpYSBCNCBSZWxheSB3cm90ZToKPgo+VGhhbmtzIGZvciB0
-aGlzIGNoYW5nZSwgbXkgY29tbWVudHMgYmVsb3cuCj4KPj4gQWRkIGFuIG9wdGlvbmFsIHdyaXRl
-LWFmdGVyLWRpcmVjdGlvbi1vdXRwdXQgcXVpcmsgZm9yIGNvbnRyb2xsZXJzCj4+IHRoYXQgaWdu
-b3JlIGRhdGEtcmVnaXN0ZXIgd3JpdGVzIHdoaWxlIGEgbGluZSBpcyBzdGlsbCBjb25maWd1cmVk
-IGFzCj4+IGlucHV0LAo+Cj5UaGUgY2hpcHMgdGhhdCByZXF1aXJlIHRoaXMgYXJlIGJ1Z2d5LiBB
-cmUgeW91IGdvaW5nIHRvIGZpeCB0aGlzIEhXIGluIHRoZSBuZXh0Cj52ZXJzaW9uIG9mIHRoZSBT
-b0M/Cj4KPj4gYW5kIGFsbG93IGRyaXZlcnMgdG8gcGFzcyBhbiBleGlzdGluZyBncGlvX2lycV9j
-aGlwIHRocm91Z2gKPj4gZ3Bpb19yZWdtYXBfcmVnaXN0ZXIoKSBzbyBJUlEgc2V0dXAgY2FuIHN0
-YXkgd2l0aCB0aGUgY2FsbGVyLgo+Cj5UaGlzIG5lZWRzIHRvIGJlIGluIGEgc2VwYXJhdGUgdXBk
-YXRlLiBBbHNvIHdlIG5lZWQgdG8gdW5kZXJzdGFuZCB3aHkKPml0IGlzIHJlcXVpcmVkLiBUaGUg
-Y2FsbGVyIHNob3VsZCBiZSBhYmxlIHRvIGNyZWF0ZSB0aGUgcmVzcGVjdGl2ZSBJUlEKPmRvbWFp
-biB3aGljaCBpcyBpbXBvcnRhbnQuCj4KPi4uLgo+Cj4+IHN0cnVjdCBncGlvX3JlZ21hcCB7Cj4+
-ICAJdW5zaWduZWQgaW50IHJlZ19kaXJfb3V0X2Jhc2U7Cj4+ICAJdW5zaWduZWQgbG9uZyAqZml4
-ZWRfZGlyZWN0aW9uX21hc2s7Cj4+ICAJdW5zaWduZWQgbG9uZyAqZml4ZWRfZGlyZWN0aW9uX291
-dHB1dDsKPj4gKwlib29sIHdyaXRlX2RhdGFfYWZ0ZXJfZGlyOwo+Cj5JcyBgcGFob2xlYCBoYXBw
-eSB3aXRoIHRoZSBsYXlvdXQ/Cj4KPj4gICNpZmRlZiBDT05GSUdfUkVHTUFQX0lSUQo+PiAgCWlu
-dCByZWdtYXBfaXJxX2xpbmU7Cj4KPi4uLgo+Cj4+IHN0YXRpYyBpbnQgZ3Bpb19yZWdtYXBfZGly
-ZWN0aW9uX291dHB1dChzdHJ1Y3QgZ3Bpb19jaGlwICpjaGlwLAo+Cj4+ICAJZ3Bpb19yZWdtYXBf
-c2V0KGNoaXAsIG9mZnNldCwgdmFsdWUpOwo+Cj5eXl4gKHNlZSBiZWxvdykKPgo+PiAgCj4+IC0J
-cmV0dXJuIGdwaW9fcmVnbWFwX3NldF9kaXJlY3Rpb24oY2hpcCwgb2Zmc2V0LCB0cnVlKTsKPj4g
-KwlyZXQgPSBncGlvX3JlZ21hcF9zZXRfZGlyZWN0aW9uKGNoaXAsIG9mZnNldCwgdHJ1ZSk7Cj4+
-ICsJaWYgKHJldCkKPj4gKwkJcmV0dXJuIHJldDsKPj4gKwo+PiArCS8qIFNvbWUgY29udHJvbGxl
-cnMgaWdub3JlIGRhdGEgd3JpdGVzIHdoaWxlIHRoZSBsaW5lIGlzIHN0aWxsIGFuIGlucHV0LiAq
-Lwo+PiArCWlmIChncGlvLT53cml0ZV9kYXRhX2FmdGVyX2RpcikKPj4gKwkJZ3Bpb19yZWdtYXBf
-c2V0KGNoaXAsIG9mZnNldCwgdmFsdWUpOwo+Cj5UaGlzIGNhbiBsZWFkIHRvIHR3byB3cml0ZXMg
-dG8gdGhlIHNhbWUgcmVnaXN0ZXIsIHRoZSBhYm92ZSBuZWVkcyB0byBiZQo+Y29uZGl0aW9uYWwg
-YXMgd2VsbC4KPgo+LS0gCj5XaXRoIEJlc3QgUmVnYXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
+On 06-09-26, 11:47, Sumeet Pawnikar wrote:
+> Replace PTR_ERR() and %ld with %pe and pass the original pointer directly
+> to pr_err() and pr_warn(). The %pe format specifier prints a symbolic error
+> name (e.g. -ENOMEM) when CONFIG_SYMBOLIC_ERRNAME is enabled, otherwise it
+> falls back gracefully and prints the raw integer value. This makes messages
+> more readable without any functional change.
+> 
+> Signed-off-by: Sumeet Pawnikar <sumeet4linux@gmail.com>
+> ---
+>  drivers/cpufreq/bmips-cpufreq.c   | 4 ++--
+>  drivers/cpufreq/cppc_cpufreq.c    | 4 ++--
+>  drivers/cpufreq/qoriq-cpufreq.c   | 4 ++--
+>  drivers/cpufreq/s3c64xx-cpufreq.c | 5 ++---
+>  4 files changed, 8 insertions(+), 9 deletions(-)
 
+Applied. Thanks.
+
+-- 
+viresh
 
