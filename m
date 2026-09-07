@@ -4,45 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CF6C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA79DC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Espsjrco/55JPAZn2OfI/GTcyp7cAFpdNKPByCK+WN4=; b=KBeCRkAcd7FLWbIa04em/+RzKY
-	T6IRAtY6veo0T2KXZtKBrnrpiEIkHF504c8rtVVjlUfg4Kq43QSg+wYTMz3VA1iL5VogoCPtl1Ec9
-	YDSXHLTYc5DqvlWvQvAbvLLEZwBtGv3UgWpuUDZkop6QTWPxU40R5MsHWv8r8yFCqnJfdHk6ueUaa
-	U7uy2N7DdjBrRP2Sb8YMkj6NgrKphhwZ40W6uWb+4oIvfjtsrwovjxaXWj/ARSjhv3SAf7UMb0nvg
-	D7eYR3ffLhD97ZR7HxyS1UxURbRxi2+SjXOU6n/erEUAhqHaVo+nZaS+dBdUf5D38Zkn07wAa0dAm
-	BPdbA00g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K4KswxDk/sgjZja7CZIgYQLV/ZD7lzRYlaP/OdGtOys=; b=KK0PRso8AZ/iaBW19yCp+17IQy
+	qs7ymDZTays4S5bcHmukgTiOE3xUbA21+qGBFCejj5P4THAm9i2soHeKCn+XnOsZWFrFomqpfcAOs
+	6+jgEAcWcBkk4gqe5oVpQIfkMo1kAcQP12C5VpO3ogysETIb1+CiEGME5KmD+bMZbYJa7wJ1G+HYC
+	dFfaP7IKTvaoIn1v+iktE9vVhh8o30iPXISSXqMm3qt5msVfZoddZRY2ZSPltvqTMgrTDN85bxawT
+	h87fgC6HNGB+9IwBRA1noOXbq8HBADuEWTrgSZ+7sTF+kZyizPuWqVUt2O1KNl7KVPKxpHdCOISSR
+	fbkSWf1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YXQ-00000006oEh-0sfd;
-	Mon, 07 Sep 2026 12:33:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3YXc-00000006oIi-1iye;
+	Mon, 07 Sep 2026 12:33:41 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YXO-00000006oEQ-3AiG
+	id 1x3YXY-00000006oGc-1dHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:33:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13167417C3;
-	Mon,  7 Sep 2026 12:33:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAFF41F00A3A;
-	Mon,  7 Sep 2026 12:33:24 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] ARM: shmobile: defconfig: Refresh for v7.3-rc1
-Date: Mon,  7 Sep 2026 14:33:22 +0200
-Message-ID: <6aa72dc7c7d5f9e7a1e38b4247c202db0bd190f7.1788784378.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Mon, 07 Sep 2026 12:33:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hdmg75wb2zYQvDk
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:32:35 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id 5CB6640577
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:33:25 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgCXCbcTr55qPXJXBA--.48482S2;
+	Mon, 07 Sep 2026 20:33:25 +0800 (CST)
+Message-ID: <8116d851-b52f-4b17-9ff5-45a0c5d45e07@huaweicloud.com>
+Date: Mon, 7 Sep 2026 20:33:23 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf v2 2/2] selftests/bpf: cover the exception callback
+ using its own BPF stack
+Content-Language: en-US
+To: Donggeun Yoo <donggeunyoo.kernel@gmail.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman
+ <eddyz87@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Mark Rutland <mark.rutland@arm.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Puranjay Mohan <puranjay@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Song Liu <song@kernel.org>,
+ Will Deacon <will@kernel.org>, Yonghong Song <yonghong.song@linux.dev>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20260907054235.473103-1-donggeunyoo.kernel@gmail.com>
+ <20260907054235.473103-3-donggeunyoo.kernel@gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <20260907054235.473103-3-donggeunyoo.kernel@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _Ch0CgCXCbcTr55qPXJXBA--.48482S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxur4xXw47uFW8uw1xAFWfGrg_yoW5Ar4fpF
+	yqvF9xKF95JFnFva47Jw40ga1rWrs7XF48CrWkXr1YvF1xtrn7WF1xKFZ8tw45CrWSyrn5
+	Za1Yvr93Kw45C3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_053336_812658_E9FC4C86 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,47 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refresh the defconfig for Renesas ARM systems:
-  - Move CONFIG_EEPROM_AT24=y (moved in commit cf09b7a05618bea9
-    ("eeprom: move nvmem EEPROM drivers to drivers/nvmem/")),
-  - Disable 8250/16550 Moxa PCIe device support (not applicable).
+On 9/7/2026 1:42 PM, Donggeun Yoo wrote:
+> The existing exception tests do not reach a callback that materializes
+> BPF_REG_FP into a register. They either throw from the main program,
+> where BPF_REG_FP already holds the value the callback needs, or use a
+> callback whose only stack accesses are frame pointer relative, which the
+> arm64 JIT rewrites to be stack pointer relative.
+> 
+> Add a test that throws from a subprogram using its own BPF stack, with a
+> callback that hands the address of a local variable to
+> bpf_probe_read_kernel(). The helper and the callback have to name the
+> same slot for the value read back to be the one the helper stored.
+> 
+> Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
+> ---
+>   .../selftests/bpf/prog_tests/exceptions.c     |  1 +
+>   .../testing/selftests/bpf/progs/exceptions.c  | 29 +++++++++++++++++++
+>   2 files changed, 30 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
+> index 3588d6f97fd4..639866ce09a9 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
+> @@ -55,6 +55,7 @@ static void test_exceptions_success(void)
+>   	RUN_SUCCESS(exception_ext, 0);
+>   	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
+>   	RUN_SUCCESS(exception_throw_subprog, 1);
+> +	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
+>   	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
+>   	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
+>   	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
+> diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
+> index c8d716fbd419..2b01b45cef06 100644
+> --- a/tools/testing/selftests/bpf/progs/exceptions.c
+> +++ b/tools/testing/selftests/bpf/progs/exceptions.c
+> @@ -212,6 +212,35 @@ int exception_throw_subprog(struct __sk_buff *ctx)
+>   	return 0;
+>   }
+>   
+> +u64 exception_cb_stack_src = 0x1234;
+> +
+> +/* The address handed to the helper has to be this callback's own stack
+> + * slot, not one from a frame that is already gone.
+> + */
+> +__noinline int exception_cb_stack(u64 cookie)
+> +{
+> +	volatile u64 val = 0xdead;
+> +
+> +	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
+> +	return val;
+> +}
+> +
+> +/* Throws from a subprogram that has a stack of its own. */
+> +__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
+> +{
+> +	volatile u64 pad[4] = {};
+> +
+> +	bpf_throw(pad[0]);
+> +	return 0;
+> +}
+> +
+> +SEC("tc")
+> +__exception_cb(exception_cb_stack)
+> +int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
+> +{
+> +	return throwing_subprog_stack(ctx);
+> +}
+> +
+>   __noinline int assert_nz_gfunc(u64 c)
+>   {
+>   	volatile u64 cookie = c;
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-To be queued in renesas-devel for v7.4.
----
- arch/arm/configs/shmobile_defconfig | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
-index 6f9696e9fe17ddcc..cb7eddd4eb22f945 100644
---- a/arch/arm/configs/shmobile_defconfig
-+++ b/arch/arm/configs/shmobile_defconfig
-@@ -48,7 +48,6 @@ CONFIG_MTD_CFI_INTELEXT=y
- CONFIG_MTD_PHYSMAP=y
- CONFIG_MTD_PHYSMAP_OF=y
- CONFIG_MTD_SPI_NOR=y
--CONFIG_EEPROM_AT24=y
- CONFIG_BLK_DEV_SD=y
- CONFIG_ATA=y
- CONFIG_SATA_RCAR=y
-@@ -79,6 +78,7 @@ CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- # CONFIG_SERIAL_8250_PCI is not set
- # CONFIG_SERIAL_8250_EXAR is not set
-+# CONFIG_SERIAL_8250_MOXA_PCIE is not set
- CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_8250_EM=y
- # CONFIG_SERIAL_8250_PERICOM is not set
-@@ -209,6 +209,7 @@ CONFIG_PWM_RENESAS_RCAR=y
- CONFIG_PWM_RENESAS_TPU=y
- CONFIG_PHY_RCAR_GEN2=y
- CONFIG_PHY_RCAR_GEN3_USB2=y
-+CONFIG_EEPROM_AT24=y
- # CONFIG_DNOTIFY is not set
- CONFIG_MSDOS_FS=y
- CONFIG_VFAT_FS=y
--- 
-2.43.0
+Acked-by: Xu Kuohai <xukuohai@huawei.com>
 
 
