@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D9CC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE50DC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D49O1NeemyQmd2xxB1EDTbL7eRgYjkwJtwKVF5+rHbk=; b=Dw5oMrrHN9dQlT7z336Iub64C6
-	+5ot4v1kd5iCPizWjQK6La8dval6WCK9tW8+ZFIJddnrwwHdNz1mRa1ZKhDNZyeON8t42popgXOnR
-	PvPKRGqHYX8gdzLhmJozHG71Ypw4RSi83hg1XwyRUmj89Nc0XKldqCAGlbGc+bdMfUu1KmWRjnKbw
-	fdP6Lw9QU1IuBNwDkObERI3gxdEdpBQ1EwOZge5CAGKrVwH4Czzsih/Vzsl/9/sWB90ii2vzWblE9
-	7Hwkftm3n51MwLgabJfopfFE0wJlZ/aIWST+QqioHk5VxIZUrYZ0lWNOxg3tm7FJ7Ltx6vDWTzZqk
-	5om1BklA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kCjFhWPNIHyCCGcOUKXpSBj6qunRSHfl8V2Z8EoV8nE=; b=gZzQTcXKOXsag7xzKIxNyOKiEt
+	bgquI+uOT+g79Ng6i6Vi5P+QPLAQ/zCpby51Kl9B6oqPq1fY3jd2qkkFEeVwGqRmLhhgkTDxI+UUM
+	ZGNRgkSC7dpXDlycyPBDsEF42Hi4tUpFOsVIS2hk186dNy7bnIQw9C8PfImey0xImrVbQvY7AToRp
+	6h19Ny8rvZS26IwGP7/nSHAC1ydR5pDRTXW/SMpyrGw4BDt4vWvdVHEpvaANsm0JaxAK3tY7AigrN
+	JGK/CCno8CdeI3xcMBGldUSoPq3kxmo+LDoGD1e5mFVbdczv5w0/Zs8BSv6KmZiG2hEzxW9Xv6huA
+	swa02OnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3c72-00000007Hl2-2dlV;
-	Mon, 07 Sep 2026 16:22:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3c6y-00000007Hje-0XWN
+	id 1x3cEw-00000007Ich-2ys0;
+	Mon, 07 Sep 2026 16:30:38 +0000
+Received: from smtp6-g21.free.fr ([2a01:e0c:1:1599::15])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3cEt-00000007Ia0-2svt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:22:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F85D1477;
-	Mon,  7 Sep 2026 09:22:19 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0316C3F528;
-	Mon,  7 Sep 2026 09:22:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788798142; bh=XAeqWuHc9jnj7EF+rIUKhmu4pAbQvhgD5GDfn5hHh9I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G+J91P19HVXLKxQXd9uRL/DwKTix2YtsSCBzkyKxR8RVFksiU9e5ONFoRnN0cHFb+
-	 r7LbJ6PFOT/WA4xYbR3enBx7EemQ4YVFW9gqTSpCOKZlLAqlVh13rLfOefjg1Pb34H
-	 Rp7oau2DGEt7l8MfqiGL0PlM7uZCudjBa2uycWsM=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	maz@kernel.org,
-	pavan.kondeti@oss.qualcomm.com,
-	tabba@google.com,
-	aneesh.kumar@kernel.org,
-	mark.rutland@arm.com,
-	sdonthineni@nvidia.com,
-	steven.price@arm.com,
-	gshan@redhat.com,
-	yuzenghui@huawei.com,
-	kvmarm@lists.linux.dev,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v17 1/1] arm64: mm: Handle Granule Protection Faults (GPFs)
-Date: Mon,  7 Sep 2026 17:22:04 +0100
-Message-ID: <20260907162204.1479401-2-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260907162204.1479401-1-suzuki.poulose@arm.com>
-References: <20260907162204.1479401-1-suzuki.poulose@arm.com>
+	Mon, 07 Sep 2026 16:30:37 +0000
+Received: from L30177.local (unknown [213.36.7.12])
+	(Authenticated sender: vjardin@free.fr)
+	by smtp6-g21.free.fr (Postfix) with ESMTPSA id CBF1F780333;
+	Mon,  7 Sep 2026 18:30:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1788798627;
+	bh=WBKBczPmnFNqn4oIBcLRMTmSwk8E7CwqvkPMeqXkv/g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SrVgf5A7eKYt7GcaIfUWEc2J962GNTRiqS4oleuwDrm0Q81xaxIZ+6YgQQ1Kh5ECi
+	 8Hi3DwQR1SgbwCldFJ6RnfI9F51NAqShrz9BM7OpxWOfAPu3RWpcl+ffU59PP3hvyI
+	 Avxgz7X6z2iXrwAQkIgNa6JHNzIOr4ygSO3ac2nERcIRpc+ADW0kSnwM7RigCaRgjz
+	 OcxEUl2LkMsX7sPMJ/wkSlnEckqLCoetx+FSnDVabZmhCibG/8LO79WNf7NS6yUnbP
+	 PVad2zu6mtidc84Npf65aHE1KAZQ6Zmv7YCI2C5b4ZRJ6UBeskblftFbxlsfBgWy/1
+	 EluxjPQQ4xkrw==
+Date: Mon, 7 Sep 2026 18:30:17 +0200
+From: Vincent Jardin <vjardin@free.fr>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
+Subject: Re: [PATCH] bus: fsl-mc: register the object drivers after
+ misc_class exists
+Message-ID: <ap7mmR_4QV0k88dK@L30177.local>
+References: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
+ <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_092224_257830_DE1CB2B9 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260907_093036_143587_7DF02D9D 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Price <steven.price@arm.com>
+Hi Ioana,
 
-If the host attempts to access granules that have been delegated for use
-in a realm these accesses will be caught and will trigger a Granule
-Protection Fault (GPF).
+> Do you mean that the above error messages are triggered by an unbind and
+> bind sequence like below?
+> 
+> $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/unbind
+> $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/bind
 
-A fault during a page walk signals a bug in the kernel and is handled by
-oopsing the kernel. A non-page walk fault could be caused by user space
-having access to a page which has been delegated to the kernel and will
-trigger a SIGBUS to allow debugging why user space is trying to access a
-delegated page.
+Yes, same sequence on the root DPRC
 
-Also, until we unmap the "private" memory pages from the linear map, we could
-get spurious GPFs from within the kernel, e.g., load_unaligned_zeropad(). So,
-try to fix them up for now.
+> I am asking this because I cannot seem to trigger it myself. There is a
+> misc_deregister() which should remove the char device upon unbinding the
+> root DPRC.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
-Changes since v16:
- * Update the commit description to indicate why we try to fixup GPFs
-Changes since v10:
- * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-Changes since v2:
- * Include missing "Granule Protection Fault at level -1"
----
- arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
+It does for every normal misc device, but not for this one, because the
+root DPRC's misc device is created classless.
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 0b52557652be6..ad00997b1a873 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -910,6 +910,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
- 	return 0;
- }
- 
-+static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	const struct fault_info *inf = esr_to_fault_info(esr);
-+
-+	die_kernel_fault(inf->name, far, esr, regs);
-+	return 0;
-+}
-+
-+static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
-+		return 0;
-+
-+	return 1;
-+}
-+
- static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
-@@ -946,12 +962,12 @@ static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 32"			},
- 	{ do_alignment_fault,	SIGBUS,  BUS_ADRALN,	"alignment fault"		},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 34"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 35"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 36"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 37"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 38"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 39"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 40"			},
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level -1 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 0 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 1 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 2 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 3 granule protection fault (translation table walk)" },
-+	{ do_gpf,		SIGBUS,  SI_KERNEL,	"granule protection fault" },
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level -1 address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 42"			},
- 	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"level -1 translation fault"	},
--- 
-2.43.0
+You can check the states with:
+    grep dprc /proc/misc   # e.g. "256 dprc.1"  -> registered
+    ls /sys/class/misc/ | grep dprc
 
+If dprc.1 shows in /proc/misc but is absent from /sys/class/misc, its
+misc device is classless and the unbind/bind should collide. If it is
+present under /sys/class/misc, it was created after misc_class and the
+sequence is clean on your setup.
+
+fsl_mc_bus_driver_init() is a postcore_initcall, it registers both the
+platform and the dprc drivers.
+
+The fsl-mc DT node is populated at arch_initcall_sync, so the root DPRC
+probes synchronously.
+
+dprc_setup() -> fsl_mc_uapi_create_device_file() -> misc_register() runs
+before misc_init() does class_register(&misc_class) at subsys_initcall.
+
+misc_register() does not fail in that window: device_create_with_groups()
+with an unregistered class creates the device with no misc_class
+membership and still returns 0.
+
+-> So at unbind, misc_deregister() -> device_destroy(&misc_class, devt)
+cannot find the device within misc_class, it returns without removing it,
+and then it leaks the device + its /sys/dev/char/10:<minor> link while freeing
+the minor. The next bind reuses the minor and dies on the
+duplicate /sys/dev/char/ entry.
+
+I guess, from my setup, it happens when the root DPRC's misc device is
+created during the early probe, which needs CONFIG_FSL_MC_UAPI_SUPPORT=y,
+fsl-mc built in (not a module), and the root DPRC probe not going through
+EPROBE_DEFER.
+
+If it defers, the retry runs after subsys_initcall, misc_class exists,
+and unbind/bind is clean -> which is probably what you are seeing.
+
+I started to face this issue when I did try to restart
+the MC from Linux userland instead of uboot in order to be able to adapt
+with some DPC changes during the runtime.
+ see https://github.com/vjardin/lx2160-sdx/blob/main/src/lx2160-mc.c
+But I guess this issue should be quite generic.
+
+best regards,
+  Vincent
 
