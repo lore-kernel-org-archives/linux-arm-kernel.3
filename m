@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95531C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F0BC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucLgd70em6PYrJ1O8hh/VS12De8eeEdBSNC0MnyAy3U=; b=BKqfAqNCH3XhWsJDf3TMqEq/jE
-	2/T+f5dHOpIIun0oOBueLG40rHwIsg/jFLG2g05iEnML3Vya7irmWOS9vNarJmpT6eFB1TIaI1R2t
-	W4QbKpiMuP12oKnBrUgS14kesirFrZrHLHL96uUw/wrynMUyXLXFWFCQLcNnDBr3K+VlS7eM2Yf/f
-	vhZ3nopvEX2xWRBbx442jvTr6KtPIntkr/wffE9FICzNSh7hVyp584tQEZZvygbagtQ279TF+9q77
-	YKKfW1Vsx/XLlyypUZyLollUvwlAtzu5CEdbofkcE3sZ3af+FNNLwe1sPDmmjTIkem26XaY1TCqP1
-	Y+c7K4zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pfi+VmLbPzh+bNouxViw0HQ3ja1quvZN33GcibfmRxU=; b=xPouYo6YjlEea3yZ0vEPWPpTew
+	JOCJpBUWsa5tk4UnLolNBz1Ic592HmSoYMar1Tkdf4ceuC+A3kVNQlGQ+YmT0PjVIEUeYOYqSQR3N
+	gismLD6Jxq1HshnaUsUq3x2YRQDZ20FJTklE3s+aC/8E6G23d4oZHnlsDEmCyS9cT2c3ACL6ScZAp
+	if4titKY8NojjtIFaak76HY0AI9hfBsp3Kn0EcQIk1hQeKjkWiKqX1HLw5DBDS+KbZzhR2omu3AFQ
+	/6YbeVlOEvPTRZwMahacV897L4qNaBkcGl5K4OWFJ1qzVop6pHzg3byLbFosgNnS09Jk2mZwqQAPC
+	O0djN5OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3crj-00000007RZJ-2CXx;
-	Mon, 07 Sep 2026 17:10:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3cuj-00000007RwH-11K4;
+	Mon, 07 Sep 2026 17:13:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cri-00000007RYm-2CC2;
-	Mon, 07 Sep 2026 17:10:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED74F41776;
-	Mon,  7 Sep 2026 17:10:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D17831F00A3A;
-	Mon,  7 Sep 2026 17:10:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788801041;
-	bh=ucLgd70em6PYrJ1O8hh/VS12De8eeEdBSNC0MnyAy3U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TPArTzTt+O1Cm16+j0b2rCBLXzK4ZaP1ANY3ZQG7ifrVF5hs5BkPtnsq6q7mEbvia
-	 VMAdo/cf4SUz2mtYVOtK2Ej98GygoOGD88nyZKVUeQxmhtIzTqVH+Whea+PTwQ+AbX
-	 G2P3dX+6MYh/cViWRZER1OqvZlctLR1o2xPd4BncbdtOJxYazwCLZqLpp8CjPShqz2
-	 EG4+cMaRFd5ClTUe0aB0yV2n6P+xGVJab46ecCkftaVlrsCaYdU+PdJsrvmnzChrti
-	 GHCcUa2C65slKEQB7Nv9679dHOQH6leWh0whmokC3fVtUFPaB2LFwTRGmqSYl9Q4zD
-	 5VeiS6WbLpG/Q==
-Date: Mon, 7 Sep 2026 18:10:36 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Shashank Maurya <shashank.maurya@oss.qualcomm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	venkata.valluru@oss.qualcomm.com,
-	Jessica Zhang <jesszhan0024@gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: regulator: rpi-panel-v2: Add
- required vcc-supply property
-Message-ID: <20260907-atlantic-modular-8f3c1582635e@spud>
-References: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com>
- <20260907-rpi_reg-v2-1-0c59aa60d31f@oss.qualcomm.com>
- <CAPY8ntCF6e3FZPx0BwZKJimACwdUKwNSP+SPjNUE+1DgQC1=Qg@mail.gmail.com>
+	id 1x3cuh-00000007RvG-3Loj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 17:13:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5276D434FE;
+	Mon,  7 Sep 2026 17:13:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2CA3DC2BCF4;
+	Mon,  7 Sep 2026 17:13:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788801227;
+	bh=R6VPu7/qGU2BYSDwQ7+fgFxQjvHX8hCgZTCn+hEyGGA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=omjIZ53kIeHaikyI/7DDxfojiQ5p2RlwiEpIVOU+SnOntqFnbcluDAoRPP4mbMNgd
+	 VQ7dwaUmdBeA0FR60klB81Le50qHt/cTg7a2LLE4pIc0MncBMZnIIHsHGskUTL4BGk
+	 M1IV6jLqNTWgDOFKcZXicNv+BXaPrMyiHXopxD0I5FM1nTyP5hqOtQcevsI1ozDtE4
+	 /Gjep6Urgfi3DbpIyYhN16JEyud9crEkDzxh3FWTdy0+hwhRcxwo0hqWFgBkg+RZbV
+	 Fg21BV4Le2vC9Kgv61Tm/zIS0cNq+ssfSAGKSgaT2l1Pl0ByWICv/mJVxf5mng2gu2
+	 h3Cvz5TuWuQ3w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D183C79F99;
+	Mon,  7 Sep 2026 17:13:47 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Mon, 07 Sep 2026 19:13:40 +0200
+Subject: [PATCH v2 2/3] dt-bindings: arm: fsl: add freemobile,nbxv3 board
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="32OBddDMqQq6s58k"
-Content-Disposition: inline
-In-Reply-To: <CAPY8ntCF6e3FZPx0BwZKJimACwdUKwNSP+SPjNUE+1DgQC1=Qg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260907-for-upstream-nbxv3-dts-v2-2-6b4afd36180b@free.fr>
+References: <20260907-for-upstream-nbxv3-dts-v2-0-6b4afd36180b@free.fr>
+In-Reply-To: <20260907-for-upstream-nbxv3-dts-v2-0-6b4afd36180b@free.fr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Vincent Jardin <vjardin@free.fr>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788801225; l=1075;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=O8dCXA7+FxVb3qjlvlxUSE16nNAWYoDpG+zNdVfj+co=;
+ b=ZnPbOV+CeOOr81YAwGJxkubklSZW8BdIS3MxBjMt1PeLJJr76pW1P9j9vYkJwavOsTswtJxna
+ oNAu5u8a7NiD1agtAmgaYNJqavn6HtDKEz0rzKTuf3rYzTsh5fTaOAj
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +84,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---32OBddDMqQq6s58k
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+From: Vincent Jardin <vjardin@free.fr>
 
-On Mon, Sep 07, 2026 at 02:24:09PM +0100, Dave Stevenson wrote:
-> Hi Shashank
->=20
-> (Apologies for the earlier HTML version of this - I thought I had my
-> mail client under control)
->=20
-> On Mon, 7 Sept 2026 at 06:48, Shashank Maurya
-> <shashank.maurya@oss.qualcomm.com> wrote:
-> >
-> > Add a vcc-supply property to the Raspberry Pi 7" touchscreen panel V2
-> > regulator binding and mark it as required. The panel controller MCU
-> > needs an external power rail to be supplied before any I2C communication
-> > can take place.
-> >
-> > Signed-off-by: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
-> > ---
-> >  .../regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml  |=
- 5 +++++
-> >  1 file changed, 5 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7i=
-nch-touchscreen-panel-regulator-v2.yaml b/Documentation/devicetree/bindings=
-/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-> > index 37b9ed371b67..a6195e53be16 100644
-> > --- a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-tou=
-chscreen-panel-regulator-v2.yaml
-> > +++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-tou=
-chscreen-panel-regulator-v2.yaml
-> > @@ -35,6 +35,9 @@ properties:
-> >      const: 3
-> >      description: See ../../pwm/pwm.yaml for description of the cell fo=
-rmats.
-> >
-> > +  vcc-supply:
-> > +    description: Regulator supplying power to the panel controller.
-> > +
-> >  additionalProperties: false
-> >
-> >  required:
-> > @@ -43,6 +46,7 @@ required:
-> >    - gpio-controller
-> >    - "#gpio-cells"
-> >    - "#pwm-cells"
-> > +  - vcc-supply
->=20
-> Adding a new property as "required" breaks all existing users. Adding
-> it as optional would be reasonable.
+Add the Free Mobile Nodebox v3 CPU module to the list of
+NXP, former Freescale, LX2160A-based boards.
 
-It can be made required here, but never in the driver. If it's actually
-required that something turn this on before the device can be used,
-making it required is probably correct.
+The board's root is:
+  "freemobile,nbxv3", "fsl,lx2160a"
+and the DTS is at
+  arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts.
 
->=20
->   Dave
->=20
-> >
-> >  examples:
-> >    - |
-> > @@ -55,6 +59,7 @@ examples:
-> >          gpio-controller;
-> >          #gpio-cells =3D <2>;
-> >          #pwm-cells =3D <3>;
-> > +        vcc-supply =3D <&vcc_reg>;
-> >        };
-> >      };
-> >
-> >
-> > --
-> > 2.34.1
-> >
-> >
+It is needed for
+  make CHECK_DTBS=y
 
---32OBddDMqQq6s58k
-Content-Type: application/pgp-signature; name=signature.asc
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 656f2596e1d53..baff4f4159b29 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1937,6 +1937,12 @@ properties:
+               - fsl,lx2162a-qds
+           - const: fsl,lx2160a
+ 
++      - description: Free Mobile LX2160A based Boards
++        items:
++          - enum:
++              - freemobile,nbxv3
++          - const: fsl,lx2160a
++
+       - description: SolidRun LX2160A CEX-7 based Boards
+         items:
+           - enum:
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap7wDAAKCRB4tDGHoIJi
-0vWhAQCGzfAZab1fHmr4LYkebicDshj4RhoEc9b664Sq7qFecQD7BUQp91g+DoJF
-RmWqJEQKjHicetBNiCsgAjOA98EMhwc=
-=BfaY
------END PGP SIGNATURE-----
+-- 
+2.43.0
 
---32OBddDMqQq6s58k--
+
 
