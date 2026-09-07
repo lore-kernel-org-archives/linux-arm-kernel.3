@@ -4,117 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6FCC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277ABC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lkzdnHLNDNYqM7UpPRV6i14OmTu1unpa7gOTpfiF2qg=; b=u3StfjCUcff1EM3eAwroxGXcMq
-	6wcKQ4OHsxsEGKJkSDUxGRrgFM1g1GHN+AC4F7cpYkm5HGh897pFxnAFfUd8KNimEmX1rPP9mEShx
-	SVo7YX5riG1UBLIYbKx8mJUs2UWcUbNzlGY4cfezR+rU3cwq++Y9Dn3pHXbzO6cGbRknoRBvZMNsF
-	UCDOZYxWCtvHnAKWF+rM10Y7bVbA+z+mjYyPPK0BbYMQ452KKw3aMi+v0npVecGDz/3Pez9LwgJMA
-	NxQxrwBKjotBNSRCGPMdP1nIATR6HlKuj0+YApvjZkzBEqG6F/xAf5ypmVw39h6L2mIPhaCBWYwa8
-	8bP/hOdA==;
+	bh=MXyoR6jHxatNPB1pt4QIsjUQPWzUp0BX5xB1P8ZQ+U4=; b=u+Z2YPyr/bnwWjYDLyyMTRO9d4
+	1OCm1pgE/QWBdpvQXI6vvl+MAi29JjhBp2Bicbbo8z4dGpvwazx8+1l2sCHgJyRYDB4U5UyrR9KG/
+	pBXWwmgJX8RmOMyhVQUzH3m2lLL55XCYePTLkZINUCXthjjjwPzIOFWEYuexLiIWt1FIng6hFEwSN
+	8BDU0w7DPnLhMsHCrDLR4SH3eM6aF7QiwW98UcTnZpZiHAXGXICVh2H89s/Ay42OGozSp7YVMTqM/
+	ccnPT7UE0lJ/DYyQzRe7FHLXiqDxHqgdKg3C2K71IqNvRA60Rysxqmm6e5QRi7eExyehg9C3AfaYO
+	rtEtFVVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bIx-000000079kJ-2oDu;
-	Mon, 07 Sep 2026 15:30:43 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1x3bKQ-00000007AHz-25Db;
+	Mon, 07 Sep 2026 15:32:14 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bIu-000000079ir-33fy
+	id 1x3bKN-00000007AG6-49AI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:30:42 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-c169ae1cb26so809116966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:30:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788795038; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HtmGmIfgwoH6O3oOz4AggD7bC9zSaTTJXw14c7tVFO47fwURs5ggdr2YXrMTtx7pLX
-         tqugbJpWyk9q3OHAkHsr9ZRS419ZAJpuuIsrSCn/4W12odOwQ0nRNOG1Ahfg9J/qiUAb
-         f51inoZcqDKL5S2awRKD8eRBHipWGIA5cWwyZ720T0PeNyDqy/9OO1DufhapXF+WhZ0T
-         TKeVd++or2jBjb+VPt8ivZx8qjN0jlABdqZVifNZvMm68X1MW0Acqv8hEXXbhBqT04cI
-         j8rbiyCHGT1ovnsOE9J19Djls2gj9FvuV9sI04QbJF5ptRnHv4+F0J5a4hz1Tq4YrGuJ
-         H2xQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lkzdnHLNDNYqM7UpPRV6i14OmTu1unpa7gOTpfiF2qg=;
-        fh=o8VF0apX7pzY1DRm6kdFzYadCyyM6Uos4mqs5YI12/s=;
-        b=Rgm4ppLOw10BocSvEQ2KVbrLgwpKXZjmGlXuDosO0GfqzC1gMcKYVj4vuLYorqAS55
-         TLFU0aCfrZD5Weltcd5w2wHhanOYSM3YijAutc75SSWxYfVQC4CSKYAxstCXKX6SLSOo
-         fGDXURAbkCJwfYBVRYLqM0AhcUsfg0HTSXGRMFd723hBvou86UqV0U53c7dmYHCnxZuq
-         97Ucs0n2QwF+DydPYHRH3m4hgcmL6AQFMT+JeQitklveN64VTac93bOmpR+gnPXtZllR
-         4JQru+6wiYN4ysh1msdCAU5VxG7UsTt6QyUFxTdUJr9qLf8BTlMROGxfH/ETXrbc9ruN
-         yYhg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788795038; x=1789399838; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lkzdnHLNDNYqM7UpPRV6i14OmTu1unpa7gOTpfiF2qg=;
-        b=eXXRnu6KzW4xTtxlEjCLbDCBuIGIvNWx3BXQoFsIZErVcKbTUAlK+BhKc0aK42I0jC
-         4U/5Qp+paousPP1RGEBu2CGzhfLUu6ixfkcGCrFKFRhhCtNt8aXdHlUiBwWCsCrQ5Gnk
-         Ck/xGRFyzXGJZMzAu8NVuDj3z0Acsd7Q/YAG8XbMZt5rxLnxBFFqjvZQvOmAXBdL9Jz4
-         aBT7fymbQuDDYDQDbeMWEwyWbaYL/hs+ZaV1rTrAe/zV3boDt2HHZ8ljKbwTC98zv3Cs
-         jQT6oYAT/p/kDbOvQj7fzagG3Z1tevqtq2dkgtobDo83ffp9a5Q/lFx5CsDeQkWQOicj
-         Ij5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788795038; x=1789399838;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lkzdnHLNDNYqM7UpPRV6i14OmTu1unpa7gOTpfiF2qg=;
-        b=kd8+NF8igs1ALtkrCvRbL/vk1n6iprZNSEjAgVPqedNC38rM4n9nWQWJVXCe5p08Sz
-         +Or+gzXjSkG74L5r1CPaVcO/DfURHHn+xjRoJ2XUZ4HabprEd+KEz5WKlLhdqjzWG0W9
-         s7S6x4h3DBmzpkb1/YK6+C1vzjqdJWqW2W655mZG800LVJBelMbgAcANMl/j3kh7fann
-         VfHJ5j6MDfT2q/13HJYPvbSyLnfH9UR1v7cPgClXzap3uK/49eAgPv7mQwWG8Tal5Aaz
-         PwalNWxvhTLqnL9BlEBQ1UAUAalCx+HZgPBaNiWMjeSI4S2HkGZb/Xnmj0hi4dhMlHmP
-         iRgg==
-X-Forwarded-Encrypted: i=1; AKwUvBydSrDX0Z87bDxjq6sSLZpYEqSm+Z7ZB7OMp7RKHbKcfyd8uoh5QTwNDH8ebstBfIglB0Ucni8d+4bDs0SrYg3Y@lists.infradead.org
-X-Gm-Message-State: AFuF++kNaIUjcAmlPtKiN0fpKlIKRPTkkstLXXeB8mpEOzfEvW1yjpM4
-	8/2JVhCmir9nBfy6PCG3Jmhu5dd1oWl2QjbxNohxH4qCU0NEk0uQ7XtmuKNI8S21xZXJkP0D8HG
-	CwZxKFOWxSWnXR28LX0tR71gUx8SuT9U=
-X-Gm-Gg: AYBFou2wXKVh3H+M18iettJEMnz35AOP/Ngdhlasg7yvfILqA8fREPdi+/D0F772kS7
-	cs5NbvDOHQbVN8bn5Po/Tp7WzvCZMpamZtziPgKAfRLN0pF4qWRiPPIhzjxu0aJPX1BMMZ0MZ1R
-	dWdYBL3wF3QfzpZ6f8+V+mt638PJdmRsjivt9nIr8zoOr0/kEyYnSlyqaTpPrzZGQ04UPIjhc2U
-	+9x5Ja3FDrkvFDB2WVuJz0ofJ7BKPM7Rcv7CaSJ2/w83G1wOG0YfUFewWNJp31x3asPVSBA1wUP
-	yiw3xauvlDcMCYg10NPONOPHzYtaIAr4kvsdd/l5aSXLlqQtGIzIeHtl4A==
-X-Received: by 2002:a17:907:ea8c:b0:c25:4d9e:bb28 with SMTP id
- a640c23a62f3a-c25efb68285mr1154227766b.3.1788795038010; Mon, 07 Sep 2026
- 08:30:38 -0700 (PDT)
+	Mon, 07 Sep 2026 15:32:13 +0000
+X-PTX-Original-Recipient: samuel@sholland.org
+X-PTX-Original-Recipient: linux-sunxi@lists.linux.dev
+X-PTX-Original-Recipient: o.schinagl@ultimaker.com
+X-PTX-Original-Recipient: broonie@linaro.org
+X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
+X-PTX-Original-Recipient: linux-spi@vger.kernel.org
+X-PTX-Original-Recipient: jernej.skrabec@gmail.com
+X-PTX-Original-Recipient: mr.nuke.me@gmail.com
+X-PTX-Original-Recipient: mkl@pengutronix.de
+X-PTX-Original-Recipient: kernel@pengutronix.de
+X-PTX-Original-Recipient: jre@pengutronix.de
+X-PTX-Original-Recipient: mripard@kernel.org
+X-PTX-Original-Recipient: wens@kernel.org
+X-PTX-Original-Recipient: broonie@kernel.org
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2A5A0201A9D;
+	Mon, 07 Sep 2026 17:32:04 +0200 (CEST)
+Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <jre@pengutronix.de>)
+	id 1x3bKG-000Ym1-0B;
+	Mon, 07 Sep 2026 17:32:04 +0200
+From: Jonas Rebmann <jre@pengutronix.de>
+Date: Mon, 07 Sep 2026 17:31:40 +0200
+Subject: [PATCH v2 1/6] spi: spi-sun4i: sun4i_spi_transfer_one(): fix
+ transfers for SUN4I_FIFO_DEPTH
 MIME-Version: 1.0
-References: <20260901150111.141037-1-coiaprant@gmail.com> <20260905130002.554a167a@kernel.org>
-In-Reply-To: <20260905130002.554a167a@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Mon, 7 Sep 2026 23:30:26 +0800
-X-Gm-Features: AcwNN1Vvl2lnQu7OUmDQrL2TMEu35axYNEauRYInB38b5Eog8jJzDQ2t3ClFiz0
-Message-ID: <CALj3r0grty9-s5FoXN-SHOrLkVoWgW+Ot5nHs=1wYzxV3hbC-g@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 00/10] net: pcs: add basic support for RK3568 XPCS
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260907-spi-sun4i-fixes-v2-1-7e805662b9bd@pengutronix.de>
+References: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
+In-Reply-To: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
+To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Alexandru Gagniuc <mr.nuke.me@gmail.com>, 
+ Olliver Schinagl <o.schinagl@ultimaker.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@linaro.org>, kernel@pengutronix.de, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, Jonas Rebmann <jre@pengutronix.de>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1955; i=jre@pengutronix.de;
+ h=from:subject:message-id; bh=wfQL1QSfCbWufR3wGkkwcQx1sGdHXFdbWwqElB1tnxg=;
+ b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsiad+NjRFbFEebQs1Vu/xuTbC6/29fSFW5XYFasNTNhz
+ 0SeljlFHaUsDGJcDLJiiiyxanIKQsb+180q7WJh5rAygQxh4OIUgIm0TmNkmHxc5+FP1u0ekdpO
+ 86Xz3i2QStnwPeJcXfT95e/PJd1jv8jwT/f6n7gubdF1V6Y8n52gJcpUmOrD9oDd7Ue1/Kf1MpN
+ TeQA=
+X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
+ fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_083040_791648_CB33A43C 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260907_083212_179668_BE9D722F 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=886=E6=97=A5=
-=E5=91=A8=E6=97=A5 04:00=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Tue,  1 Sep 2026 23:01:00 +0800 Coia Prant wrote:
-> > This series adds proper SGMII support for the Rockchip RK3568 SoC
-> > using the integrated Synopsys DesignWare XPCS, along with necessary
-> > fixes and refactoring in the stmmac core and XPCS driver.
->
-> Not sure if this was already reported but FTR this series
-> breaks allmodconfig build
-> --
-> pw-bot: cr
+From: Marc Kleine-Budde <mkl@pengutronix.de>
 
-Yes, it will be resolved in today v4
+In commit 6d9fe44bd73d ("spi: sun4i: fix FIFO limit"), the TX-FIFO is
+filled max to SUN4I_FIFO_DEPTH - 1 (= 63) bytes to work around timeouts
+observed on A10s SoCs.
+
+Commit 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO
+size") added support for transfers larger than the FIFO size. But this
+commit only enabled the TX-FIFO empty interrupt for transfers larger
+than the FIFO (= 64) bytes.
+
+This breaks transfers with exactly 64 bytes: the TX-FIFO is only filled
+with 63 bytes but the interrupt to refill the FIFO is not triggered. The
+problem can be reproduced with the following command:
+
+| spidev_test -D /dev/spidev0.1 -S 64 -s 20000000 -I 1
+|
+| [ 7797.548745] spi_master spi0: spi0.1: timeout transferring 64 bytes@20000000Hz for 110(100)ms
+| [ 7797.557237] spidev spi0.1: SPI transfer failed: -110
+| [ 7797.562308] spi_master spi0: failed to transfer one message from queue
+| [ 7797.568936] spi_master spi0: noqueue transfer failed
+
+To fix the problem enable the TX-FIFO interrupt if the total TX length
+is larger than SUN4I_FIFO_DEPTH - 1 (= 63) bytes.
+
+Fixes: 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO size")
+Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
+---
+ drivers/spi/spi-sun4i.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
+index d5c16392cd4d..2e2324453905 100644
+--- a/drivers/spi/spi-sun4i.c
++++ b/drivers/spi/spi-sun4i.c
+@@ -322,7 +322,7 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
+ 	sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TC |
+ 					 SUN4I_INT_CTL_RF_F34);
+ 	/* Only enable Tx FIFO interrupt if we really need it */
+-	if (tx_len > SUN4I_FIFO_DEPTH)
++	if (tx_len > SUN4I_FIFO_DEPTH - 1)
+ 		sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TF_E34);
+ 
+ 	/* Start the transfer */
+
+-- 
+2.55.0.123.gf60db8d575
+
 
