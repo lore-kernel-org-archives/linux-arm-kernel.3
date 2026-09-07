@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44210C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FE0C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=; b=TYSzTvydGQNoggrZ417HjWa4lN
-	xZO5hjdNaVWQKyqT0CN2s2BbIMKsD5P31Z9sRJMOuJ8qa87QXq5Sifst6mlUd7HwDSHD++KQZL7o5
-	XV9U9L62Yyg42RSSXik7sxuTL1ofk6pYykWIshom8lps/pR43iF698Uko2553AfO2ATLFQH9I7ho3
-	EUfBTyDR4gsKoZandVEglo3pUAGRCmIR5NaKr4k1+/0H7xLI0ruYXDPKuz/CTplGV4SsYfafKB+Af
-	aIWOHrc4Jk7mAbiB0Cn4yvflcDw6TfmfQhgwv7ehGErEQMrPXmYzXH5r8+IQhib4YQF8JTCE0yvPn
-	+KhP+30Q==;
+	bh=rfDPZXNcg+Nl7/Ylu6hp6siIi0FsvzwquJx1kpnnIKw=; b=00DjADo/hNClc5ra2SUugXrRNB
+	/OCGZVigT7Ztt/Vdri4foPeoxIzEmAFo+Dr4neBm2NWxyNm3ZHZms3qfRhyMPxcEoumOZNChxyNwO
+	uOOgopONIpGioejtOFMH+gSHHedtyMOUtO3dX4f32ov2uZe/kX00u3MqHw6l2jtu7hUzMFuoe6Ngt
+	Q/FR4qrdLt4DAYYIb1N1sPdGYyZLExVI7jPHSW9Z/Cm8Rn1DI1tf4mWMjpKQdyEuF2zEHC92ldbQj
+	bvG247sNq6Wzyq/qD2U1iJUcsbee84ulTBbCHyCPQDSmy6CkOCMNw/2JpFSg/WnkpHGKFG2qRZSy4
+	YSz1Xc3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2S-00000006jYb-3OF7;
-	Mon, 07 Sep 2026 12:01:28 +0000
-Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
+	id 1x3Y2X-00000006jbU-3nAr;
+	Mon, 07 Sep 2026 12:01:33 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2O-00000006jWj-0VAp
+	id 1x3Y2V-00000006jaC-2h4X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:01:28 +0000
-Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-459281bc13bso2310968fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:01:23 -0700 (PDT)
+	Mon, 07 Sep 2026 12:01:32 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7f57db8b5a4so2665607a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:01:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788782482; x=1789387282; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788782491; x=1789387291; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=;
-        b=DZs4Y9GcD+G4+OWcEM7YbUUnoBtil9y8nKFNeQoJHk7L/Zq1XxaIP/xY+Wciva4Q9N
-         3Yg/miO5pj4xsFN5ZosaXbSnFtaDAvu9tig69saWG+Lic15m6EPDj4zCSgH6H/7IH4NC
-         6h6aL75HFNyA5xxVSKrvYDk/vN58/jgCec5q0w1ktkyLqbcM5DjTOW7bltiHrfHBtXbW
-         51pQ/sK+fwEWOjW38A4IRGRo175805uQRpPtuhfjoyz6hHNStnKPMSZ35acr4xcQDCWF
-         J2OupeVV/iev20sQvb/eB1Msn2BVUJdufZEc3aBcygj1BX5Aa1qO6Rb55oEmB6eA2F3t
-         ZuAA==
+        bh=rfDPZXNcg+Nl7/Ylu6hp6siIi0FsvzwquJx1kpnnIKw=;
+        b=NVcB7xQ4VlmV38VRqZLUIDpKDb/HopzRXOTaQJanW0g/YDwxT/+Ix0THRBJtJGmu/+
+         woTiCvvjRKUbCmdE/7v1yZdr5zSi8xMmGxRc6lv7mIdrP5ywutj5niD9yKTpb6Wkw1/B
+         j9D/ELFd+X23ZdBj+1D9LBqQ9fJjaigliP6KHeaIPK1v0nuZIFovWD0sUi4DV5rHUEM4
+         oAfr8XQXSxBshuXatL3phfftVj/YYi6oVnj3BESeNnwWsbzQUKs9Dg9nSXyPXrxGH1P9
+         J9cUJ2q2KMd+TxEW9+AX62oSb5PkGKN0fAa2G2KjF9yRTO+nSgrJpZWhB4DCEQyt2jOF
+         0EUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788782482; x=1789387282;
+        d=1e100.net; s=20251104; t=1788782491; x=1789387291;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=;
-        b=kHPUwHg+6c6hPEPbFN3foUYFuujsv3Km5SuHZRA+Mi/63QMID7uvJlwLonhlifmWGb
-         /YeyRUwf9yiszhES18bhy+l5CTNRAMlkFyTKHvZkYx4ARu1xM8RnEjtOuP1pqI3xhLcd
-         o2qIaSU71vp+dSJZHxuBLfR1JQvc1MK9QQGqgE3tGhQWX9wFIDkHYXeWwKULMDYVUCOx
-         BMsMHKD3zi27rs7rJp3NiivfWrPCkWs4lVvFXv7c9keWnkcGvwwVPR3W3bBi4DPLhs8N
-         Mp03vwgJhcvrFddbpr6AeD/gVcTY+wF093dM5/viXtChRkTHg3G2CZbHgTDP6Ow6JNtD
-         B42g==
-X-Forwarded-Encrypted: i=1; AKwUvBwljeMVHm2yVuhXU98ViYcCnQr72/bzhWhtukHS9hBCn2q2s+91pTV/vqxXP08MEwz/DeKWz5jePfi3a5/aUFHa@lists.infradead.org
-X-Gm-Message-State: AFuF++kZqaKVgqkdHiEtWobe2zgs1Xl2cGUREQiGscqAF4a6fdh1znA/
-	ZHLMWh3HoYL0CdjwfhgVqKsxfJIwPdsNANvFfnRq8pgZzg5pNmWATeCy
-X-Gm-Gg: AYBFou1563rfXgKLIYCNAyu0jfilQOCnDIlqa9U7yJxDs8zL6WYd17vmkDwnHxNkxzl
-	hUubEw5gSaCyapKnLgvk/7lRjoe2iYWvAi6yDKrvj5a5Qlk06ThzedlLLu3fAYondvvG7+qF14w
-	QFLeBP8UYkIL7TfQM1Zd5tcO4RXNTKCwH82l0cXzhshcZVug8/9N+sdBaiJVlnLf4vxrIVgXtWG
-	EPdY+v0zK+6gmSQQLb0aZcb7F1DvZ3m64cdz+UTjZpoTS0COUKb5ZYNok8WnA1U5V4UfUK98Q4X
-	WBCBY+ClKhCwQvQjLLwegQbb+OicnwMHO2he/zoISYhQEv4E0XzQ4DKoIrTe/H/+ROaIP0W9mGP
-	kmEhmP3dpAViIDSExrnJOMw0OujOYKNwCpRNXwKHFcvvpNojiQclktEhoZpCwp+up+w4bDo3o8p
-	n3qwbJmS/CdtaC8RiZkZYdppB1HVYRH0UXybB6fp7fRVpbJODPL+Gd60JTuhZipvk7SW2QOuXdp
-	ki/Vi/aQe6ivA==
-X-Received: by 2002:a05:6820:a0e:b0:6b6:d425:53f3 with SMTP id 006d021491bc7-6b6fddbd240mr13817787eaf.33.1788782481883;
-        Mon, 07 Sep 2026 05:01:21 -0700 (PDT)
+        bh=rfDPZXNcg+Nl7/Ylu6hp6siIi0FsvzwquJx1kpnnIKw=;
+        b=SJWlsleS6QV+YHbKEyZKpwc1+HReObm5BuIZPgMGd4Yb8XYgnGPWIxHu7dfUY52YSh
+         daX0/5Cy5Vt7MZ7G1DGvP5GowBZQ60gXISyEiAI+PowR7MdL0uYVS+0P+B7CduQtS2UD
+         izIaMfwuzJG90+um7eGbflnZZw8+6CZA0562qv0mYe6NTnjYExOHZfbbld5l0h2C6V29
+         ugu+TFOkYwt5qKNzCgZGABRnmmdQzboM9gbcdD28TYRqjcX6sXniQXzuHlzmNq9/K1DP
+         Jo39dlXQCrj/dw6uqutGWhL+Mla30gI0j6Wlfr0Hwici4NyXsmlUvFOiFnNW1hc9YLeO
+         NTWg==
+X-Forwarded-Encrypted: i=1; AKwUvBxSqGayDal5aoZtzpxq6yci/xvnT/nBJjHSsjV7iBc/xM7bLZ2xgvavGB3+wFLTZS8fWpuiewqdxtjuuL+4eS+g@lists.infradead.org
+X-Gm-Message-State: AFuF++nEcCetN46nFx4JeXp/3NC+KjN36ryz9N7u35s5DNYdq3JmtqvL
+	K8PqDrZ11FxDKI0DImocl8/zmiebyjdDDEB0o8PwD2o11/RYzNl5dAn3
+X-Gm-Gg: AYBFou0pTib7QlMASCeDlWQXiDzTK0mVye6/AjLxPCHqm6RRIQGvaFUZZTW3enoOMJ8
+	tCH5ltdfdA3tGhHknQKOLFRduqaAkprWKAxcCg7tdjLPlOBDNCMuy3GgIm+AG0bzTlGoJwfFSoo
+	rmB3lLBLbWJAGoir/vUHUmReQZktja8mDdKfgV0L1yJBNUj8lqed7g6vje9HE3FGVxwcqMOAQml
+	yKPXDs1Fv4W3trQaV4ZKlcmQTUOUNvrUlRGFjudaV/Xv/MklHwk5C0CzT1RnlkJuzJ1pBC8tEnb
+	c3Hxh6JQFGyQnCiDfQlX0AAqiFtue/JH8uW42a91AA71guysgkQlY97XJGeFnIybIM3QgrZyXhf
+	CxEjDWcKlA6takKZl8fstxHWPER6sjqYQL/VeaHcnvcPyxNFbuboIFYFE4vskrbGHoBHAnlb0Mf
+	XWxsTpF4Wox0ugt5JWg4gndIx99j+0HofvB+voezbtfG66q4Yg5nTM2aNy6vKKqZROvpQ5nOnqn
+	XpBglr4PF9g3Q==
+X-Received: by 2002:a05:6820:6ae7:b0:6aa:d13c:a709 with SMTP id 006d021491bc7-6b6fe2aeaf0mr12073907eaf.31.1788782490438;
+        Mon, 07 Sep 2026 05:01:30 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm31244462eec.1.2026.09.07.05.01.13
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm31244462eec.1.2026.09.07.05.01.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 05:01:21 -0700 (PDT)
+        Mon, 07 Sep 2026 05:01:30 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -100,17 +100,17 @@ Cc: bpf@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH bpf-next v3 3/7] powerpc: net: fix typo "upto" in comments
-Date: Mon,  7 Sep 2026 17:30:39 +0530
-Message-ID: <20260907120043.36894-4-hemanth.selam@gmail.com>
+Subject: [PATCH bpf-next v3 4/7] selftests/bpf: fix typos in comments
+Date: Mon,  7 Sep 2026 17:30:40 +0530
+Message-ID: <20260907120043.36894-5-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260907120043.36894-1-hemanth.selam@gmail.com>
 References: <20260907120043.36894-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_050124_166073_C0959576 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260907_050131_688390_E70CDBDA 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +125,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct "upto" to "up to", reported by scripts/checkpatch.pl using the
+Fix typos in comments, reported by scripts/checkpatch.pl using the
 misspelling list in scripts/spelling.txt.  Only touches comments, no code
 changes.
+
+The subject prefix changed since v1, from "selftests: bpf:" to
+"selftests/bpf:", to match the rest of the history in this directory.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- arch/powerpc/net/bpf_jit_comp32.c | 2 +-
- arch/powerpc/net/bpf_jit_comp64.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c       | 2 +-
+ tools/testing/selftests/bpf/prog_tests/task_local_data.h     | 2 +-
+ tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c | 2 +-
+ tools/testing/selftests/bpf/progs/verifier_var_off.c         | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/powerpc/net/bpf_jit_comp32.c b/arch/powerpc/net/bpf_jit_comp32.c
-index bfdc50740da8..cf8c1b49da25 100644
---- a/arch/powerpc/net/bpf_jit_comp32.c
-+++ b/arch/powerpc/net/bpf_jit_comp32.c
-@@ -23,7 +23,7 @@
+diff --git a/tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c b/tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c
+index 1b25d5c5f8fb..8b96fb861368 100644
+--- a/tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c
++++ b/tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c
+@@ -13,7 +13,7 @@
+  * IPv6 header with a Segment Routing Header, with segments :
+  *	fd00::1 -> fd00::2 -> fd00::3 -> fd00::4
   *
-  *		[	prev sp		] <-------------
-  *		[   nv gpr save area	] 16 * 4	|
-- * fp (r31) -->	[   ebpf stack space	] upto 512	|
-+ * fp (r31) -->	[   ebpf stack space	] up to 512	|
-  *		[     frame header	] 16		|
-  * sp (r1) --->	[    stack pointer	] --------------
-  */
-diff --git a/arch/powerpc/net/bpf_jit_comp64.c b/arch/powerpc/net/bpf_jit_comp64.c
-index fc9db691e820..8a1a00026c69 100644
---- a/arch/powerpc/net/bpf_jit_comp64.c
-+++ b/arch/powerpc/net/bpf_jit_comp64.c
-@@ -23,7 +23,7 @@
-  * Stack layout with frame:
-  * Layout when setting up our own stack frame.
-  * Note: r1 at bottom, component offsets positive wrt r1.
-- * Ensure the top half (upto local_tmp_var) stays consistent
-+ * Ensure the top half (up to local_tmp_var) stays consistent
-  * with our redzone usage.
+- * 3 fd00::/16 IPv6 addresses are binded to seg6local End.BPF actions :
++ * 3 fd00::/16 IPv6 addresses are bound to seg6local End.BPF actions :
+  * - fd00::1 : add a TLV, change the flags and apply a End.X action to fc42::1
+  * - fd00::2 : remove the TLV, change the flags, add a tag
+  * - fd00::3 : apply an End.T action to fd00::4, through routing table 117
+diff --git a/tools/testing/selftests/bpf/prog_tests/task_local_data.h b/tools/testing/selftests/bpf/prog_tests/task_local_data.h
+index 8ae4fb2027f7..9f2971fc7cd5 100644
+--- a/tools/testing/selftests/bpf/prog_tests/task_local_data.h
++++ b/tools/testing/selftests/bpf/prog_tests/task_local_data.h
+@@ -243,7 +243,7 @@ static tld_key_t __tld_create_key(const char *name, size_t size, bool dyn_data)
+ 		}
+ 
+ 		/*
+-		 * TLD_DEFINE_KEY() is given memory upto a page while at most
++		 * TLD_DEFINE_KEY() is given memory up to a page while at most
+ 		 * TLD_DYN_DATA_SIZE is allocated for tld_create_key()
+ 		 */
+ 		if (dyn_data) {
+diff --git a/tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c b/tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c
+index 624078abf3de..d7e30ee576c9 100644
+--- a/tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c
++++ b/tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c
+@@ -7,7 +7,7 @@
+ 
+ SEC("freplace/btf_unreliable_kprobe")
+ /* context type is what BPF verifier expects for kprobe context, but target
+- * program has `stuct whatever *ctx` argument, so freplace operation will be
++ * program has `struct whatever *ctx` argument, so freplace operation will be
+  * rejected with the following message:
   *
-  * tail_call_info - stores tailcall count value in main program's
-@@ -35,7 +35,7 @@
-  *		[   nv gpr save area	] (6 * 8)	|
-  *		[ addl. nv gpr save area] (12 * 8)	| <--- exception boundary/callback program
-  *		[    local_tmp_var	] 24		|
-- * fp (r31) -->	[   ebpf stack space	] upto 512	|
-+ * fp (r31) -->	[   ebpf stack space	] up to 512	|
-  *		[     frame header	] 32/112	|
-  * sp (r1) --->	[    stack pointer	] --------------
-  *
+  * arg0 replace_btf_unreliable_kprobe(struct pt_regs *) doesn't match btf_unreliable_kprobe(struct whatever *)
+diff --git a/tools/testing/selftests/bpf/progs/verifier_var_off.c b/tools/testing/selftests/bpf/progs/verifier_var_off.c
+index a63e33675091..227dea0da3a0 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_var_off.c
++++ b/tools/testing/selftests/bpf/progs/verifier_var_off.c
+@@ -225,7 +225,7 @@ __naked void stack_write_priv_vs_unpriv(void)
+ }
+ 
+ /* Similar to the previous test, but this time also perform a read from the
+- * address written to with a variable offet. The read is allowed, showing that,
++ * address written to with a variable offset. The read is allowed, showing that,
+  * after a variable-offset write, a privileged program can read the slots that
+  * were in the range of that write (even if the verifier doesn't actually know if
+  * the slot being read was really written to or not.
 -- 
 2.48.1
 
