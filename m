@@ -4,149 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04EB4C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09072C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79cj+O13SlG4MW2uTWvEiL3TBgbtKcjer5BWWZELJ7Q=; b=PrGiXWLVP5X4kvD7KlTmSOE8jY
-	OJ+MfoMh7rgK55ax1sisKWLjOns9MZtsi+r4h5IT9pWlM2THVhkLUXu17kMNfZv+nMKgr7TdIU5kN
-	e2Qp8JLeUNrY1khqwPDJMkWjrRR9WFECCDLTfrlhzsUI4Ubn/qZw9u8WOjG2dogdBoyrxq7k0kPky
-	dwtq3FobDTe2Sw9pmCN2bqa+7DTz6zMwzhc6lKg9SZxTFqHqAOBzTxnnAWdz7FykvpcXOofFSeDgV
-	nIjjZHNhuZ+Swr9N6s/M/0562FM9LZl87dIFr2BHJ2pNW7G7N2NI5HDQlzbHrRWy9O0FEcICYh/WQ
-	n7mC291Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WYJEI9B50jx8y5n0OiSaMev9ee6AAUQ8cjBGXLxTrng=; b=qqujX9CmNCXGeB12RcmEKZ7dqv
+	HeE4f24yrroKS8o6xO60Ltn1tg05n5QBkDaFSnObL+Dm00Y585s5mzgQoJHfzFBTc/2eh4vDvPAQ6
+	GkWWfrbf6jMneuotN9lbY2kmvJ/a9DCMaDGocAX3gvV+pPip3b34zuwoWWdqivGIw403FHLaZyCce
+	jYq2iRNNJjBZ+cUFBT+UtGxcoCHHGardUcBnrY0NnBGTI41eDIRxKupkDtsodt8nPJC5azNG6Fvks
+	nlFTNIYI0gjZ+lW52/6ELYAk3U9lzXvTsorxsvNej5UR+mAG6oyRBTBZ2hbEM2YkMhVkCxv69qSFm
+	zMe5HhvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cc4-00000007PoC-1OLE;
-	Mon, 07 Sep 2026 16:54:32 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cc0-00000007Pn3-1xJ3
+	id 1x3cik-00000007QUN-0Yb7;
+	Mon, 07 Sep 2026 17:01:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3cii-00000007QU1-1gGm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:54:31 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=tTUu8TlCCNqza6gcbn4E9shgA7pn0kf1ln0rKyOVcpIVBnTBg84DeTzVDL/7QQnCTxIQcYDTJGOC5z4wBI9dYwg2JtZExT1KM216mvrInPByjC6hvgIC+r424eUNViySEjTgGhPIfnYdTgyRVbBQ+5brzs45kN8zAxHb3WvLAywQwlZaQxEdn3p9cZejmyZ7dtf0SCQiybSZbuKJtU5HDCPmyir6H4nXqSa6OqV/bG3BZoBG9u+eTirrnzzbeiiOiZPlqxltWc2Afl48h9mXOhXEFbJprj0lkrTcFlzBwrDcGDDHpyKp5W2i2On2Y9WBdCh0kDSbczzcX+QRXO2/Rw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=79cj+O13SlG4MW2uTWvEiL3TBgbtKcjer5BWWZELJ7Q=;
- b=S0ERqnr3HVkcPbjEpYYa8lB0Lq1onEMb7r/EjaG1nw6Oqs8K3nRbXAu0RfZqavd3tLFQcP6qtwTcCWZRL0NPT2o99HJo737HzFMhKme4dAvNW7eP9f4eaHi/1MHFs78ni0VJswRs/xZE9dD7HWPHqmxZM6FzDC39s9hyqun3nMTPG3MXlnqF8+KyYQvO+eJ5TpKVwY7sV330WbHD8SLJgvfuVjM0Hh3ZziqI9iIFcDd8CM5WN/7wxgEDo1Xc2p6Grg7fM4CxIEu2UOZn6l5KV+8GdWWIXqU/gzK6WRlZ5tBdImVtmiRkMFVZfyhZYpEPZbzM2ENL3hlOsARRZBZ44Q==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=79cj+O13SlG4MW2uTWvEiL3TBgbtKcjer5BWWZELJ7Q=;
- b=NSZOOnAWX4Igz7SEGyguQH7Jydub5wVmemCUpsxQ28EB/S39YOrjgiIvXg3RAM5xc177YownOxpp4H93PbDFp22v+J8a4oH5Ykmdk54HNt/CQhv8my1PcPVuADbrbVgs/ahF7NdtMZrkPiS9zRcEH0BMdFwDvq8Gi5SfPACWIQI=
-Received: from DUZPR01CA0293.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::7) by DU0PR08MB9630.eurprd08.prod.outlook.com
- (2603:10a6:10:449::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
- 16:54:13 +0000
-Received: from DU2PEPF00028CFE.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::30) by DUZPR01CA0293.outlook.office365.com
- (2603:10a6:10:4b7::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
- Sep 2026 16:54:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028CFE.mail.protection.outlook.com (10.167.242.182) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
- via Frontend Transport; Mon, 7 Sep 2026 16:54:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F+wEbleP2p17NL/mtS+py2vFeuthP79xbbBs/ZZh2XXS+wcxg87IhUdDoh4b152fKxlB8CNXQqVCqX1rlbxbDKCz5O82/45YwVX9G34iFzF+gcQsVv0ULd3rLYxpTr1gC4koFpQ9LefoUKIXCya5+3cAma2qWphDGPYAC0Y8ttR/j/VUuLJO4xoxFkOsg4xaVNCjSlBfAMV0TulC7rB/rjP9MFmVTTdCZPBSQg3vTruwntVfRunPSB85NeOErkUhWDT2hN3bE8wF9Vq9miTKQc2eA/Bxgpm4VBi4tLYuC6tkMJthXE0vWW83kfS3qyWmcFR5YvazLZpgqarsSmTiWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=79cj+O13SlG4MW2uTWvEiL3TBgbtKcjer5BWWZELJ7Q=;
- b=C6uBaSWzlphShN5LQ5iDQ2xyN6P81uP2DzgXM4l6rXpBoLqNKbrF3M3xA8Y6azhrArvE7fdMC65VowRWUcSSvgS49VNjoa0HoquaC6KKcYU8sbkh6SzmXvikrcmsSOrD5jPYPcol0eIG9z0qXNoJxx0b89v0v98n/UORIq4deBh/jjB4onBQgaf7eKfrDSjYUeyrKWGSMCZOX9CYQPmCwUzhgP4+USctgdtoy7wy7Ieq9D3KAhj+PBeVW8vsS6wIwMsqrqCVLYHwlHegoyVtpcQDI/TcVP+LJtKoTQe1EtHVdC69M1dFMkScobiWA2veDgeoWV97Y5GY0bUg9WhxXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=79cj+O13SlG4MW2uTWvEiL3TBgbtKcjer5BWWZELJ7Q=;
- b=NSZOOnAWX4Igz7SEGyguQH7Jydub5wVmemCUpsxQ28EB/S39YOrjgiIvXg3RAM5xc177YownOxpp4H93PbDFp22v+J8a4oH5Ykmdk54HNt/CQhv8my1PcPVuADbrbVgs/ahF7NdtMZrkPiS9zRcEH0BMdFwDvq8Gi5SfPACWIQI=
-Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
- by GV2PR08MB11395.eurprd08.prod.outlook.com (2603:10a6:150:2a5::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
- 16:53:35 +0000
-Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
- ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
- ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Mon, 7 Sep 2026
- 16:53:34 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "sashiko-bot@kernel.org" <sashiko-bot@kernel.org>, Mark Rutland
-	<Mark.Rutland@arm.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, nd
-	<nd@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, "maz@kernel.org"
-	<maz@kernel.org>, "will@kernel.org" <will@kernel.org>, "tglx@kernel.org"
-	<tglx@kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: Bring up and preserve the IRI link
-Thread-Topic: [PATCH] irqchip/gic-v5: Bring up and preserve the IRI link
-Thread-Index: AQHdPJStBUU57AfeV0KphLKfP/lie7bDWayA
-Date: Mon, 7 Sep 2026 16:53:34 +0000
-Message-ID: <8ec4cec0055f9cb81c4f904b7f1f1bc21f6082ba.camel@arm.com>
-References: <20260904174150.75945-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260904174150.75945-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|GV2PR08MB11395:EE_|DU2PEPF00028CFE:EE_|DU0PR08MB9630:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08425d86-2727-4ce3-104a-08df0d00a306
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|10067099003|56012099006|11063799006|6133799003|18002099003|22082099003|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: bcicIdN+EHjjYh2kxVzqz3brEPvmhU9C34s5irlXyXfo71kVyY2vi/jCBtyWH1yAsO6LM4Eor2FwfF83NyjBHqqdQXbtab+RdPslK+Usq0/mXr7ufpz35PEaibt1i7b8/WBqv5Bi/qEmxZaV7PkQmorStKjmdKF1qhP5M5+5i8sOPmgwdzaqp2Y7vgmeer+/hj3RWO68JNyZ5oM8TK3eCwi9JMDzg0JkzblkljzDhwPjepHsWnSmUTedSySBJr9l2swzFNIFkcgvvYFWzMpwmIumv0cQPF227fsL4KEkv5qQ1xCUHcsptgwWvKkoiDOcm573khb97dKKB0brDYALCpzL5GRn0LV5jp3jqvRv/oaM0aJb5EjxG5JDlTjNrK7lgRMt81ZT1htuxZcb4nrkpZHvDz7Ek7h+n9VlqY42GpNF8nfBPUSf7uOvdV1u5lnJGvHd/yA3SxGlim+wqt1uRzhLuTSzIlEBvw3plrEg4/qR3UVC9Zm06eY1VBJ8/1zTUgxcDoRc4+R0bAxdfPcXCI91eclR6q4p4UguKZzQ9J2wA5ocGBfifkaOBv5S/uMENAtNQR+NIlKRA88FzNjtgcvLhk181N6zA+8jWHQI5hRq3kXrxhFb+8mFjFP+/hSapvzlntTA/vljSZg8fAiTmSzhEc6f9ooItHxoBky8q0+Rkphl20ZiLhWEF05QomWaGRfvs9A3nF9LuR9fi+Kcr8iPi3CCbRMR1XEZK7P4A4Y=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(10067099003)(56012099006)(11063799006)(6133799003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <DE279895C5D4F4478784219B99BA63EF@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Mon, 07 Sep 2026 17:01:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B6081476;
+	Mon,  7 Sep 2026 10:01:19 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06D933F528;
+	Mon,  7 Sep 2026 10:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788800483; bh=U1caXaGRX85QR2DKxI/9rgzCuQzuHyAFE2Xlgp+YOB4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A7ficnbAjBVG4u1+f5j2RkqXyRLvPwVM/rpcZyfqQx7tSiYHnr3CbbQDRRM0KWe/7
+	 BM1yDYWZHN41SZbA9qcyPLj/XaBdy0l21RIu+a9Ylu4jjVpTkiZ11xS76lglZwyMPO
+	 GULPawWYD+BI6kMrS+3gY/cUEWjP6Tv35fmgm5JI=
+Message-ID: <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
+Date: Mon, 7 Sep 2026 18:01:20 +0100
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: ksdwZ//R+qmd5JzJ7Y6oIYmfV/JEAU/iVWP4+zTu+XjNAr8HgFF/bZYbuOXNVQDNx2TyDxPCtB5uV7eVcxO/BvgFqGQ7N6U/WxjzOaXaxkl2fgMG+dZX3j+9BihoJXp2nV0qb5apeH0AOpvOD2fDIcgqXXcMX/O6Kl+KYdo82y0PAqAmsrwe7d8A+/hGy+zuq4J9KJ62rB0r/HJs0I6ucCnZhJzAA9TJQFAkxa7Ycbsf+xBp7EZvLyNKHh78X4ajTIrgaU8prSbeHNGiZOO81gFT5yWA8MgNSOf7qw2iwat9GjEBPsVaN8sxo0CU1Kqb7/24caHNcFuB4BZ33Ngjzw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11395
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028CFE.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 446d15bc-1ed7-4c77-555a-08df0d008e21
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|14060799003|1800799024|23010399003|376014|36860700016|10067099003|6133799003|22082099003|18002099003|11063799006|56012099006|13003099007;
-X-Microsoft-Antispam-Message-Info: 3v+yW/010cf8u5ebCML77TlgJv94jc3UJJ832l2OB2q+imf8mF5bIs2qvb8cVmuDMVh1GpNGtZTuVYNHrtO2qFXhEKnXHhzUHPvx4E6yYZFC1GC2SlVcnPYxCh/P/VhGz8+FKhSrlzqtvbVOxMNcgnfCJ2U2isouyFo8Wp+NNmOeTauYJKR2+7H2GodFBkhVJqqloILz+ZrEklO15w+Y0RaVs+QNVEbZKSekvRpCRS+fg5MJbAQiBtquOK5mrR0bF8gmTbZbQh1WSHj7Vx9QQwYcNAlFdEoITknWdxMgKVBqtG+iBIlx+AdXBEYFrieObZDibj680ZhfX9rSwteuAmcKdCkGUMyiWB73/HdsnVL3dOp3ucuC3pZl8jpdQz8L9BuxcXohPyNKX3F8b91t8oF+sJZWE8O3kEaSxCMDb7wLviuAfuLQvNc6sxx0dQbWMVxWd/ZL4X8mSKiZwmvwKHyzvW8QPmLyJjDfBixiPO2vngGU4cJQSNkGhYWT7Fkvw3TY5JfKZasXVj3tgAL+sQnO7g+6EqJCNyAP7KU32E2v05lEDfPFNJOuDa8k1jkp6+/a+S6yf10bb5FEkhgwEmfxDAkr1iivjQAxti408m4RFjAHqybwNih263x9e5uSZcuCchPboTisI3vGd75YV0EyxKxn3SX8Yko7iF31nHcvDH8IF5zVp8q0KurvTvpIWKDvCn5kNvwP6u2tPw0j2w==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(14060799003)(1800799024)(23010399003)(376014)(36860700016)(10067099003)(6133799003)(22082099003)(18002099003)(11063799006)(56012099006)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: yyOpdfXzNfRTPLxtZDEH+n4oC8C2VD1DoJswywmdUyt/yOzEh/avvaQzfjZE2LMbUFem196ir7sgov6px+gTO0PDxZRRkwsgEW7wHfEyy73aC1oJMXNO8Xu4dZIarsrD/G3MQYc6Ze7Y+mohJB4i0XL8yjUpwJSvXrpPYDt09m+4rBJU4YKDg0MfFKD48mXFs3/ud5zuqBo142TCmG31RDjsqqjKmMHUUQQfBeEOt95/MMm7VpR3BvZitzvD7BK6tkgcQJfF9pYJ49k/o7RSy4LRyTZYTyNb6MW16tjlAsbrPExyXYNAaxPZuhN/O+wmpjpiYZ02B3L0PeLSndwo+6F+IG1oUjDhMg/XLW1DCHgSdzvQ/Wcq7fHqHjR6oflWmJuf8MnY4NB7U3GstEhctk24hlXIxQdczMkcNnxFf9+JL1vq9YTPd/Y4YD6wEO6B
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 16:54:09.5060
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08425d86-2727-4ce3-104a-08df0d00a306
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFE.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9630
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com
+Cc: tony.luck@intel.com, babu.moger@amd.com, yu.c.chen@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+ <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+ <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_095428_647602_566018E8 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20260907_100124_529263_3B8B5830 
+X-CRM114-Status: GOOD (  59.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,81 +74,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI2LTA5LTA0IGF0IDE4OjQxICswMTAwLCBTYXNjaGEgQmlzY2hvZmYgd3JvdGU6
-DQo+IElDQ19DUjBfRUwxIGNvbnRyb2xzIHRoZSBsaW5rIGJldHdlZW4gdGhlIENQVSBpbnRlcmZh
-Y2UgYW5kIHRoZSBJUkkuDQo+IFRoZSBkcml2ZXIgY3VycmVudGx5IHdyaXRlcyBhYnNvbHV0ZSB2
-YWx1ZXMgd2hlbiBlbmFibGluZyBhbmQNCj4gZGlzYWJsaW5nIHRoZSBpbnRlcmZhY2UuIFdoZW4g
-RUwzIGlzIG5vdCBwcmVzZW50LCB0aGlzIGNsZWFycyBMSU5LDQo+IGFuZA0KPiBjYW4gZGlzY29u
-bmVjdCB0aGUgbGluay4gTW9yZW92ZXIsIGluIHRoaXMgc2l0dWF0aW9uIHRoZSBrZXJuZWwNCj4g
-aXRzZWxmDQo+IG1pZ2h0IG5lZWQgdG8gYnJpbmcgdGhlIGxpbmsgb25saW5lLg0KPiANCj4gRGVm
-aW5lIHRoZSBtaXNzaW5nIExJTksgYW5kIExJTktfSURMRSBmaWVsZHMuIFVzZSByZWFkLW1vZGlm
-eS13cml0ZQ0KPiBvcGVyYXRpb25zIHdoZW4gY2hhbmdpbmcgRU4gc28gdGhhdCB0aGUgZXhpc3Rp
-bmcgcmVnaXN0ZXIgc3RhdGUgaXMNCj4gcHJlc2VydmVkLg0KPiANCj4gRHVyaW5nIENQVSBpbnRl
-cmZhY2UgaW5pdGlhbGlzYXRpb24sIHNldCBMSU5LIGlmIGl0IGlzIGNsZWFyIGFuZCBwb2xsDQo+
-IExJTktfSURMRSBiZWZvcmUgcHJvY2VlZGluZyB0byBlbmFibGUgaW50ZXJydXB0DQo+IGRlbGl2
-ZXJ5LiBQcm9wYWdhdGUgYSBsaW5rIHRpbWVvdXQgdGhyb3VnaCB0aGUgQ1BVIGhvdHBsdWcgc3Rh
-cnR1cA0KPiBjYWxsYmFjay4NCj4gDQo+IEZpeGVzOiA3ZWM4MGZiM2YwMjUgKCJpcnFjaGlwL2dp
-Yy12NTogQWRkIEdJQ3Y1IFBQSSBzdXBwb3J0IikNCj4gUmVwb3J0ZWQtYnk6IFNhc2hpa28gPHNh
-c2hpa28tYm90QGtlcm5lbC5vcmc+DQo+IExpbms6DQo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L3IvMjAyNjA4MDcxMjE3MDMuRDRCN0ExRjAwQTNBQHNtdHAua2VybmVsLm9yZw0KPiBTaWduZWQt
-b2ZmLWJ5OiBTYXNjaGEgQmlzY2hvZmYgPHNhc2NoYS5iaXNjaG9mZkBhcm0uY29tPg0KPiAtLS0N
-Cj4gwqBhcmNoL2FybTY0L3Rvb2xzL3N5c3JlZ8KgwqDCoMKgwqAgfMKgIDQgKysrLQ0KPiDCoGRy
-aXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXY1LmMgfCAzMyArKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKy0tLS0NCj4gwqAyIGZpbGVzIGNoYW5nZWQsIDMyIGluc2VydGlvbnMoKyksIDUgZGVsZXRp
-b25zKC0pDQo+IA0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC90b29scy9zeXNyZWcgYi9hcmNo
-L2FybTY0L3Rvb2xzL3N5c3JlZw0KPiBpbmRleCA5NGJmMDY1YzhhYzcxLi5lMmQzN2VlMjIxYjg0
-IDEwMDY0NA0KPiAtLS0gYS9hcmNoL2FybTY0L3Rvb2xzL3N5c3JlZw0KPiArKysgYi9hcmNoL2Fy
-bTY0L3Rvb2xzL3N5c3JlZw0KPiBAQCAtMzc2MSw3ICszNzYxLDkgQEANCj4gU3lzcmVnCUlDQ19D
-UjBfRUwxCTMJMQkxMgkwCTENCj4gwqBSZXMwCTYzOjM5DQo+IMKgRmllbGQJMzgJUElEDQo+IMKg
-RmllbGQJMzc6MzIJSVBQVA0KPiAtUmVzMAkzMToxDQo+ICtSZXMwCTMxOjMNCj4gK0ZpZWxkCTIJ
-TElOS19JRExFDQo+ICtGaWVsZAkxCUxJTksNCj4gwqBGaWVsZAkwCUVODQo+IMKgRW5kU3lzcmVn
-DQo+IMKgDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLWdpYy12NS5jIGIvZHJp
-dmVycy9pcnFjaGlwL2lycS1naWMtDQo+IHY1LmMNCj4gaW5kZXggYWMyZDQyM2IxNzIzOS4uNDY2
-OWU0MDM1NmVhZiAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjUuYw0K
-PiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLWdpYy12NS5jDQo+IEBAIC04LDYgKzgsNyBAQA0K
-PiDCoCNpbmNsdWRlIDxsaW51eC9hY3BpX2lvcnQuaD4NCj4gwqAjaW5jbHVkZSA8bGludXgvY3B1
-aG90cGx1Zy5oPg0KPiDCoCNpbmNsdWRlIDxsaW51eC9pZHIuaD4NCj4gKyNpbmNsdWRlIDxsaW51
-eC9pb3BvbGwuaD4NCj4gwqAjaW5jbHVkZSA8bGludXgvaXJxZG9tYWluLmg+DQo+IMKgI2luY2x1
-ZGUgPGxpbnV4L3NsYWIuaD4NCj4gwqAjaW5jbHVkZSA8bGludXgvd29yZHBhcnQuaD4NCj4gQEAg
-LTk3NCwxNCArOTc1LDE2IEBAIHN0YXRpYyB2b2lkIGdpY3Y1X2NwdV9kaXNhYmxlX2ludGVycnVw
-dHModm9pZCkNCj4gwqB7DQo+IMKgCXU2NCBjcjA7DQo+IMKgDQo+IC0JY3IwID0gRklFTERfUFJF
-UChJQ0NfQ1IwX0VMMV9FTiwgMCk7DQo+ICsJY3IwID0gcmVhZF9zeXNyZWdfcyhTWVNfSUNDX0NS
-MF9FTDEpOw0KPiArCWNyMCAmPSB+SUNDX0NSMF9FTDFfRU5fTUFTSzsNCj4gwqAJd3JpdGVfc3lz
-cmVnX3MoY3IwLCBTWVNfSUNDX0NSMF9FTDEpOw0KPiDCoAlpc2IoKTsNCj4gwqB9DQo+IMKgDQo+
-IC1zdGF0aWMgdm9pZCBnaWN2NV9jcHVfZW5hYmxlX2ludGVycnVwdHModm9pZCkNCj4gK3N0YXRp
-YyBpbnQgZ2ljdjVfY3B1X2VuYWJsZV9pbnRlcnJ1cHRzKHZvaWQpDQo+IMKgew0KPiDCoAl1NjQg
-Y3IwLCBwY3I7DQo+ICsJaW50IHJldDsNCj4gwqANCj4gwqAJd3JpdGVfc3lzcmVnX3MoMCwgU1lT
-X0lDQ19QUElfRU5BQkxFUjBfRUwxKTsNCj4gwqAJd3JpdGVfc3lzcmVnX3MoMCwgU1lTX0lDQ19Q
-UElfRU5BQkxFUjFfRUwxKTsNCj4gQEAgLTk5MSwxOSArOTk0LDQxIEBAIHN0YXRpYyB2b2lkIGdp
-Y3Y1X2NwdV9lbmFibGVfaW50ZXJydXB0cyh2b2lkKQ0KPiDCoAlwY3IgPSBGSUVMRF9QUkVQKElD
-Q19QQ1JfRUwxX1BSSU9SSVRZLCBHSUNWNV9JUlFfUFJJX01JKTsNCj4gwqAJd3JpdGVfc3lzcmVn
-X3MocGNyLCBTWVNfSUNDX1BDUl9FTDEpOw0KPiDCoA0KPiAtCWNyMCA9IEZJRUxEX1BSRVAoSUND
-X0NSMF9FTDFfRU4sIDEpOw0KPiArCWNyMCA9IHJlYWRfc3lzcmVnX3MoU1lTX0lDQ19DUjBfRUwx
-KTsNCj4gKwlpZiAoIShjcjAgJiBJQ0NfQ1IwX0VMMV9MSU5LX01BU0spKSB7DQo+ICsJCWNyMCB8
-PSBJQ0NfQ1IwX0VMMV9MSU5LX01BU0s7DQo+ICsJCXdyaXRlX3N5c3JlZ19zKGNyMCwgU1lTX0lD
-Q19DUjBfRUwxKTsNCj4gKwl9DQo+ICsNCj4gKwlyZXQgPSByZWFkX3BvbGxfdGltZW91dF9hdG9t
-aWMocmVhZF9zeXNyZWdfcywgY3IwLA0KPiArCQkJCcKgwqDCoMKgwqDCoCBjcjAgJg0KPiBJQ0Nf
-Q1IwX0VMMV9MSU5LX0lETEVfTUFTSywNCj4gKwkJCQnCoMKgwqDCoMKgwqAgMSwgMTAgKiBVU0VD
-X1BFUl9NU0VDLCBmYWxzZSwNCj4gKwkJCQnCoMKgwqDCoMKgwqAgU1lTX0lDQ19DUjBfRUwxKTsN
-Cj4gKwlpZiAocmV0KSB7DQo+ICsJCXByX2Vycl9yYXRlbGltaXRlZCgiQ1BVIGludGVyZmFjZSBs
-aW5rIHRpbWVvdXRcbiIpOw0KPiArCQlyZXR1cm4gcmV0Ow0KPiArCX0NCj4gKw0KPiArCWNyMCA9
-IHJlYWRfc3lzcmVnX3MoU1lTX0lDQ19DUjBfRUwxKTsNCj4gKwljcjAgfD0gSUNDX0NSMF9FTDFf
-RU5fTUFTSzsNCj4gwqAJd3JpdGVfc3lzcmVnX3MoY3IwLCBTWVNfSUNDX0NSMF9FTDEpOw0KPiAr
-DQo+ICsJcmV0dXJuIDA7DQo+IMKgfQ0KPiDCoA0KPiDCoHN0YXRpYyBpbnQgYmFzZV9pcGlfdmly
-cTsNCj4gwqANCj4gwqBzdGF0aWMgaW50IGdpY3Y1X3N0YXJ0aW5nX2NwdSh1bnNpZ25lZCBpbnQg
-Y3B1KQ0KPiDCoHsNCj4gKwlpbnQgcmV0Ow0KPiArDQo+IMKgCWlmIChXQVJOKCFnaWN2NV9jcHVp
-Zl9oYXNfZ2NpZSgpLA0KPiDCoAkJICJHSUN2NSBzeXN0ZW0gY29tcG9uZW50cyBwcmVzZW50IGJ1
-dCBDUFUgZG9lcyBub3QNCj4gaGF2ZSBGRUFUX0dDSUUiKSkNCj4gwqAJCXJldHVybiAtRU5PREVW
-Ow0KPiDCoA0KPiAtCWdpY3Y1X2NwdV9lbmFibGVfaW50ZXJydXB0cygpOw0KPiArCXJldCA9IGdp
-Y3Y1X2NwdV9lbmFibGVfaW50ZXJydXB0cygpOw0KPiArCWlmIChyZXQpDQo+ICsJCXJldHVybiBy
-ZXQ7DQo+IMKgDQo+IMKgCXJldHVybiBnaWN2NV9pcnNfcmVnaXN0ZXJfY3B1KGNwdSk7DQo+IMKg
-fQ0KDQpBZnRlciBkaXNjdXNzaW5nIHRoaXMgb2ZmbGluZSB3aXRoIExvcmVuem8gYW5kIE1hcmMs
-IEkndmUgZGVjaWRlZCB0bw0KZHJvcCB0aGUgc2V0dGluZyBvZiB0aGUgTElOSyBpZiBpdCBpcyBp
-bmFjdGl2ZS4gVGhpcyBpcyBub3QgYSBjYXNlIHdlDQpleHBlY3QgdG8gc2VlLCBzbyBpdCBtYWtl
-cyBsaXR0bGUgc2Vuc2UgdG8gYWRkIGRlYWQgY29kZSB0byBoYW5kbGUgdGhlDQpjYXNlLg0KDQpJ
-bnN0ZWFkLCBJJ3ZlIHJlLXNwdW4gdGhpcyB0byBqdXN0IHByZXNlcnZlIHRoZSBvdGhlciBiaXRz
-IGluIHRoZQ0KcmVnaXN0ZXIgd2hlbiB3cml0aW5nIHRoZSBFTiBiaXQgKHNvLCBkb2luZyBhIHJl
-YWQtbW9kaWZ5LXdyaXRlKS4NCg0KdjIgaXMgaGVyZToNCmh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2xrbWwvMjAyNjA5MDcxNjQ5NDUuNzE0NTQ1LTEtc2FzY2hhLmJpc2Nob2ZmQGFybS5jb20NCg0K
-VGhhbmtzLA0KU2FzY2hhDQo=
+Hi Reinette,
+
+On 03/09/2026 16:29, Reinette Chatre wrote:
+> Hi Ben,
+> 
+> On 9/2/26 9:10 AM, Ben Horgan wrote:
+>> Hi Reinette,
+>>
+>> On 01/09/2026 00:54, Reinette Chatre wrote:
+>>> A single struct mpam_resctrl_dom instance represents both an allocation and
+>>> monitor domain. When a system supports allocation and monitoring a single
+>>> struct mpam_resctrl_dom instance is created and then added to both the
+>>> monitor and control domain lists via
+>>> mpam_resctrl_dom::rdt_ctrl_domain::rdt_domain_hdr::list_head
+>>> and mpam_resctrl_dom::rdt_l3_mon_domain::rdt_domain_hdr::list_head
+>>> respectively.
+>>>
+>>> Representing both allocation and monitoring domains with a single
+>>> architecture domain requires that allocation and monitoring be done at the
+>>> same scope and also requires a resource to have 1:1 support for an allocation
+>>> control and monitoring. The latter means that when a resource supports
+>>> multiple controls for allocation of a resource, for example a "min" bandwidth
+>>> control as well as a "max" bandwidth control for memory bandwidth allocation,
+>>> then each domain supporting each allocation control needs a matching
+>>> monitoring domain. This does not accurately represent the resource
+>>> capabilities.
+>>
+>> For MPAM, the scope of a control is determined by where the MSC are in a system. For the MSC in the
+>> L3 we collect the MSC in a cache instance and call that a component and collect those components and
+>> call them a class. Similarly for other caches. The scope of a control is based on the component it
+>> is in. Hence, we are unable to use all the flexibility that resctrl will offer.
+> 
+> Thank you very much for this insight. Although, to me the final sentence is an
+> unexpected jump from the description since in my view resctrl is catching up to
+> what MPAM is capable of :)
+> 
+>>
+>> For MSC at the memory we currently only consider them for resctrl if there is only one memory
+>> instance (a single NUMA node) and that this corresponds to the topology of the L3 in the system (i.e
+>> only one L3 instance). This will change when NUMA scope is introduced to resctrl but for now the
+>> domain associated with the MPAM component for MSC at the memory covers all the cpus and in such a
+>> system there is only one L3 domain. The idea being that memory bandwidth controls at the memory are
+>> effectively the same as those at L3 if only if there is only one of each and no other caches in
+>> between. The initial MPAM driver put up for upstream review was more lenient than this and so the
+>> tigtening up ended up leaving some complexity around that is no longer needed. I hope to simplify
+>> this in the future and hopefully allow MPAM component to be used more directly to resctrl domain.
+> 
+> For this I think this change is helpful since it makes it clear that a resctrl
+> domain is associated with an MPAM component.
+> 
+>>
+>>>
+>>> Split MPAM allocation and monitoring domain management to enable a resource
+>>> to support multiple allocation controls. As an initial and knowingly
+>>> inefficient approach, duplicate struct mpam_resctrl_dom between the
+>>> monitoring and control lists while only initializing the relevant member
+>>> structs.
+>>>
+>>> The goal of this conservative approach is to use something that can only
+>>> be compile tested by me to learn from MPAM folks on what the best approach
+>>> should be for MPAM to support multiple allocation controls.
+>>>
+>>> This patch is extracted from the "Generic schema description" PoC [1] that,
+>>> among its various goals, aim to add support for MPAM's multiple controls
+>>> to resctrl.
+>>>
+>>> This has only been compile tested by me but Fenghua's work to enable
+>>> MPAM's CPU-less NUMA nodes [2] is using it as a baseline.
+>>>
+>>> I did consider a new layout as below but there seems to be a contradiction
+>>> in mpam_resctrl_alloc_domain() where domain addition for allocation as well
+>>> as monitoring domains unconditionally fails if there is no "ctrl_comp" while
+>>> a comment when adding a monitoring domain states "there may be no ctrl_comp
+>>> for the L3".
+>>
+>> Hmmm, confusing, but there is no real contradiction. Just some bad naming.
+>>
+>> Quoting the problem area:
+>>
+>> 	ctrl_comp = NULL;
+>> 	guard(srcu)(&mpam_srcu);
+>> 	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+>> 				 srcu_read_lock_held(&mpam_srcu)) {
+>> 		if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+>> 			ctrl_comp = comp_iter;
+>> 			break;
+>> 		}
+>> 	}
+> 
+> Staring at this more above looks like an open-code of mpam_resctrl.c:find_component()?
+
+Yes, I should clean that up.
+
+> 
+>>
+>> 	/* class has no component for this CPU */
+>> 	if (WARN_ON_ONCE(!ctrl_comp))
+>> 		return ERR_PTR(-EINVAL);
+>>
+>>
+>> In mpam_resctrl_alloc_domain() this initial 'ctrl_comp' check ensures that there is for the class
+>> associated with the given resource, res, a component which includes the given cpu in its affinity
+> 
+> Why does the monitoring require that there is a component associated with the resource as
+> opposed to only relying on the component associated with the the monitoring class, specifically
+> the mpam_resctrl_mon::class? (more below)
+
+The class associated with a resource does double duty and is also used as an indication of whether
+the resource is in used at all, see also mpam_resctrl_online_cpu() and mpam_resctrl_offline_cpu().
+When a resource only supports monitoring then the class providing the monitors is used for
+res->class. As such, a check that there is a component for the given cpu, in the monitor only
+resource case, is just a way to error out early when the monitoring class has no cpu. We shouldn't
+hit this though as all monitoring classes are check that they have the same topology of the l3,
+cover all cpus and there components correspond to l3 instances.
+
+The resource supports monitoring but not controls case only occurs when there are no l3 controls and
+the condidtions for pretending the memory bandwidth counters at the memory are at the l3 are met.
+Those conditions for pretending occur when there is single l3, a single NUMA node and no
+intermediate caches.
+
+> 
+> 
+>> mask. The class is all the L3 MSC or an equivalent of the same scope, see mpam_resctrl_monitor_init().
+>>
+>> 	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+>> 	if (!dom)
+>> 		return ERR_PTR(-ENOMEM);
+>>
+>> 	if (r->alloc_capable) {
+>> 		dom->ctrl_comp = ctrl_comp;
+>>
+>> If the resource is alloc capable this component is used as the domain ctrl_comp.
+>>
+>> 		ctrl_d = &dom->resctrl_ctrl_dom;
+>> 		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
+>> 		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+>> 		err = resctrl_online_ctrl_domain(r, ctrl_d);
+>> 		if (err)
+>> 			goto free_domain;
+>>
+>> 		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+>> 	} else {
+>> 		pr_debug("Skipped control domain online - no controls\n");
+>> 	}
+>>
+>> 	if (r->mon_capable) {
+>> 		struct mpam_component *any_mon_comp = NULL;
+>> 		struct mpam_resctrl_mon *mon;
+>> 		enum resctrl_event_id eventid;
+>>
+>> 		/*
+>> 		 * Even if the monitor domain is backed by a different
+>> 		 * component, the L3 component IDs need to be used... only
+>> 		 * there may be no ctrl_comp for the L3.
+>> 		 * Search each event's class list for a component with
+>> 		 * overlapping CPUs and set up the dom->mon_comp array.
+>> 		 */
+>> The MSC at the L3 may only have monitors and so no control component.
+> 
+> The code that follows is:
+> 
+>         for_each_mpam_resctrl_mon(mon, eventid) {
+>                 struct mpam_component *mon_comp;
+> 
+>                 if (!mon->class)
+>                         continue;       // dummy resource
+> 
+>                 mon_comp = find_component(mon->class, cpu);
+> 
+> Is this find_component() perhaps sufficient by itself (without the earlier "ctrl_comp" check)
+> to determine if there is a valid component associated with this CPU to support this
+> monitoring feature? 
+
+Yes, I think is the "ctrl_comp" check is taken away but would have failed we will end up not finding
+any relevant monitoring components.
+
+Although, as written it seems that it is ok for mon_comp to be NULL?
+
+Isn't any_mon_comp the relevant thing?
+
+> 
+> It is not clear to me if a mon_comp of NULL is able to handle all scenarios since it looks
+> like mpam_resctrl_get_mon_domain_from_cpu() and mpam_resctrl_online_domain_hdr() does not
+> consider the component at all. Would that not cause monitoring features to depend on which
+> CPU of a domain comes online first?
+> 
+> Could mon_comp perhaps be required to be !NULL here as a replacement for the earlier
+> "ctrl_comp" check to ensure there is a component with the CPU in its affinity mask?
+
+Doesn't the !any_mon_comp check provide this?
+
+> 
+>                 dom->mon_comp[eventid] = mon_comp;
+>                 if (mon_comp)
+>                         any_mon_comp = mon_comp;
+>         }
+> >
+>>
+>>
+>>
+>>
+>>
+>>> 	struct mpam_resctrl_mon_dom {
+>>> 		struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
+>>> 		struct rdt_l3_mon_domain	resctrl_mon_dom;
+>>> 	}
+>>>
+>>> 	struct mpam_resctrl_ctrl_dom {
+>>> 		struct mpam_component		*ctrl_comp;
+>>> 		struct rdt_ctrl_domain		resctrl_ctrl_dom;
+>>> 	};
+>>
+>> What you have looks to work for me, with some local cmax, mbw_min, mbw_max additions but with the
+>> new layout also works. I gave it a go with this mechanical patch which uses the new layout.
+>>
+>> Thanks,
+>>
+>> Ben
+>>
+>> commit c67c624149474b96e07ccedda11a11ce968e5599
+>> Author: Ben Horgan <ben.horgan@arm.com>
+>> Date:   Tue Sep 1 17:36:29 2026 +0100
+>>
+>>     arm_mpam: resctrl: Separate monitor and control domain structure
+>>
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 3304ef64fcae..855f06657554 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -393,18 +393,14 @@ struct mpam_resctrl_ctrl {
+>>  	struct resctrl_ctrl	r_ctrl;
+>>  };
+>>
+>> -struct mpam_resctrl_dom {
+>> -	struct mpam_component		*ctrl_comp;
+>> -
+>> -	/*
+>> -	 * There is no single mon_comp because different events may be backed
+>> -	 * by different class/components. mon_comp is indexed by the event
+>> -	 * number.
+>> -	 */
+>> +struct mpam_resctrl_mon_dom {
+>>  	struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
+>> +	struct rdt_l3_mon_domain	resctrl_mon_dom;
+>> +};
+>>
+>> +struct mpam_resctrl_ctrl_dom {
+>> +	struct mpam_component		*ctrl_comp;
+>>  	struct rdt_ctrl_domain		resctrl_ctrl_dom;
+>> -	struct rdt_l3_mon_domain	resctrl_mon_dom;
+>>  };
+>>
+> 
+> Thank you very much for trying this out. I find this layout better since the
+> architecture domain structure only contains those members related to the domain. 
+> I see your snippet is based on the PoC, would you prefer I incorporate it into a new
+> version of the PoC to get some more testing or to create a new version based on
+> current upstream so that we can work on its upstream inclusion for the multiple
+> controller support to build on?
+
+In the spirit of getting the precursors for your PoC upstream I think it would make sense to work on
+this for upstream. Whatever you think is best for progressing multiple control support is ok with me
+though.
+
+Thanks,
+
+Ben
+
+> 
+> Thank you
+> 
+> Reinette
+
 
