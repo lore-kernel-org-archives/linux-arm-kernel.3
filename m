@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB1EC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4CCC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOGW6/wWy7KCmoBtQtZTuis7xY50X7nU3u2PLYPpIC8=; b=TAbek1RVFMrT1pFHL31AAkWO6O
-	tfLmRlleSkEavef6aMrvcLVRLfuOvuCT+Ot7trfTy6ZR8LLxIWy3hShsq8I0fvazeOBAdzruDudFi
-	ycn01mMLa9fw+eToP9GIlkbO93lFUamMhQWecHVZPhEfi6zY9ScBsu4ZfZ7mqjAeT2NbMy0nVgcWc
-	ReLtT+TWMrojqXqaqPCw6yOTL7gbPoHMpXQyFNQrN9E5cOBNlDdn4Yuff1x8FtVyL8q6vTGlwnnp5
-	GHC7vH7u2S0Dwnoic2n2OWM9mUVyDPhzvoEvP/qeUT4O6Rdy6CXxkFtVChnUMTCpSb7NWTNQ3IRgP
-	foNWoeoA==;
+	bh=V3C3uRSlXJAvrU8CA+JkknXP4ShUi36cTXYIJp4O8Nc=; b=UlYanvgqVeCJMjjZfifWbXeVoT
+	+VmS9hM1YY0WVTDdmL0U88SPi47p7NuRVDZ+VaAN/J9zLPHIg1rQA6Dza48A+FJ/A5zPp+2pTdujq
+	NZWQgtK06I+J4QJk74tBFfeedjhKs+FZeMVVOgo11pzsI595Kstm4+FAMpzyiN3JPS0/UjHgRnl+e
+	22RQQlGqxoRy0HuWilB2NU0Wk1fcaLaffcbkKTfmNj6R4sXPpFupgmPVAwUmrCJt7iLRpWDOCdUuW
+	KZa2yf0yGD485AG/Zlb12pHGqCcyj7n5xjMDFpycblk8TZzuqofYQSwoMKvTEFUvO4PZIQjFotGln
+	S9qpu6Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Wza-00000006ZlY-3jbq;
-	Mon, 07 Sep 2026 10:54:26 +0000
+	id 1x3Wzk-00000006Zo7-4A1Q;
+	Mon, 07 Sep 2026 10:54:36 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WzZ-00000006ZlI-3qUk
+	id 1x3Wzh-00000006Zn1-3EC7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:54:25 +0000
+	Mon, 07 Sep 2026 10:54:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A95AA42B6E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8628541476;
+	Mon,  7 Sep 2026 10:54:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14B031F00A3A;
 	Mon,  7 Sep 2026 10:54:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32EAC1F00AC4;
-	Mon,  7 Sep 2026 10:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788778465;
-	bh=NOGW6/wWy7KCmoBtQtZTuis7xY50X7nU3u2PLYPpIC8=;
+	s=k20260515; t=1788778473;
+	bh=V3C3uRSlXJAvrU8CA+JkknXP4ShUi36cTXYIJp4O8Nc=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=G7/0KQt1Skmof7ZpkUnZkQDRlafhOO12XFsIOYKQpAZmnVWs9cA5biIbNGPPuXDzW
-	 zsWIjohT+04Z7RKrQ4HzEy5BU3ZOMwvrWuBqgfNP1+E/sppYgegCHuaVVral3FOlD7
-	 E+BJ3cZ1lOKjnuBo7hq5B+GmYNIA2vRgOiSdaWPEUUmRfgH9LhJoq/xjGrXd8iQxIp
-	 0QLHHyb+1PCWt6wcujYQIYJHuxuOw+/3VdqprBCgXm18Ni37snzH3Dcs9NHuc/UdDL
-	 gPqtso0FJZynaI1csR5E/lOdWBfyYv0v+WaIOpjWESgWiFg2UzIYKaqr8ob0R4FU0r
-	 J5L9r8Wo6IEgw==
+	b=ZHbFXHXNQiOKEVicWGF68AIi3xG2x4I+cHsg8VqPlCzvv+nZFOAz8sbazJ8oBLnFB
+	 ML9MVBegMDsk51RXbXu3JMCcuJZb/ohTBVMqsW0habWrf9MSzwxJjEk/IISSR3SM5+
+	 wERS3KXe9I+Qam1+E7DPID9Er5aiyYuvlBxrpSI+Zcn1xmDosCkHdzrLvOXN6De63G
+	 qPtKHZuyqCKKa8ls2pYhHzjwY+lSjpLLKfwushmouce8WscmOiCFbQECE/0utjH1dc
+	 kk45mPSMKCcteX8yeA4ZmqvmVj241Gezp5GV3cX2trb7b17udLgCy++itmSvBAvbLI
+	 BI9MJeJODNKhw==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
+Subject: Re: [PATCH RFC v9 11/25] mm: kpkeys: Introduce
+ kpkeys_hardened_pgtables feature
 From: Mike Rapoport <rppt@kernel.org>
 To: Kevin Brodsky <kevin.brodsky@arm.com>
 Cc: linux-hardening@vger.kernel.org, 
@@ -70,11 +71,11 @@ Cc: linux-hardening@vger.kernel.org,
  Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
  linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>, 
  Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-In-Reply-To: <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+In-Reply-To: <20260818-kpkeys-v9-11-743ad31b2c8f@arm.com>
 References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-11-743ad31b2c8f@arm.com>
 Date: Mon, 07 Sep 2026 13:54:14 +0300
-Message-Id: <178877845406.3691569.6930315020588094755.b4-review@b4>
+Message-Id: <178877845406.3691569.11239630051799000768.b4-review@b4>
 X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,54 +93,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Kevin,
 
-> kpkeys is a simple framework to enable the use of protection keys
-> (pkeys) to harden the kernel itself. This patch introduces the basic
-> API in <linux/kpkeys.h>: a couple of functions to enter/leave a
-> kpkeys context and macros to define guard objects.
+> kpkeys_hardened_pgtables is a hardening feature based on kpkeys. It
+> aims to prevent the corruption of page tables by: 1. mapping all
+> page table pages, both kernel and user, with a privileged pkey
+> (KPKEYS_PKEY_PGTABLES), and 2. granting write access to that pkey
+> only when running at in a privileged kpkeys context
+> (KPKEYS_CTX_PGTABLES). This patch introduces basic infrastructure;
+> the implementation of both aspects will follow.
 > 
-> kpkeys introduces a new concept on top of pkeys: the kpkeys context.
-> Each context is associated with a set of permissions for the pkeys
-> managed by the kpkeys framework. kpkeys_enter_context(ctx) sets
-> those permissions according to ctx, and returns the original kpkeys
-> state (typically the arch-specific pkeys register) that is later
-> restored by calling kpkeys_leave_context(). To start with, only
-> KPKEYS_CTX_DEFAULT is available, which is meant to grant RW access
-> to KPKEYS_PKEY_DEFAULT (i.e. all memory since this is the only
-> available pkey for now).
+> The feature is exposed as CONFIG_KPKEYS_HARDENED_PGTABLES; it
+> requires explicit architecture opt-in by selecting
+> ARCH_HAS_KPKEYS_HARDENED_PGTABLES, since much of the page table
+> handling is arch-specific.
 > 
-> The underlying representation of each kpkeys context is entirely
-> architecture-specific. Support for kpkeys must be explicitly
-> indicated by selecting ARCH_HAS_KPKEYS and defining the following
-> functions in <asm/kpkeys.h>:
-> 
-> * arch_kpkeys_enter_context()
-> * arch_kpkeys_leave_context()
-> * arch_supports_kpkeys()
-> 
-> Additionally, <asm/kpkeys_types.h> must define struct arch_kpkeys_state,
-> which typically provides storage for the pkeys register.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->
-> diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
-> new file mode 100644
-> index 0000000000000..eac522f552141
-> --- /dev/null
-> +++ b/include/linux/kpkeys.h
-> @@ -0,0 +1,104 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef _LINUX_KPKEYS_H
-> +#define _LINUX_KPKEYS_H
-> +
-> +#include <linux/bug.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/kpkeys_types.h>
-> +
-> +/**
-> + * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
+> Because this feature relies on kpkeys being supported and modifies
+> attributes of the linear map, it must be inactive on boot.
+> kpkeys_hardened_pgtables_init() enables it by toggling a static key;
+> this function must be called by supported architectures in
+> mem_init(), before any call to pagetable_alloc() is made.
 
-Nit: I'd suggest to drop "define" from all the descriptions, they would
-read better without it IMHO.
+Presuming other architecures will use kpkeys framework it's better to
+call kpkeys_hardened_pgtables_init() from mm_core_init() rather than
+stick into each arch's mem_init().
 
 -- 
 Sincerely yours,
