@@ -4,162 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C6DC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E2CC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+B0bdJnNuDQnu1UGOYoafwDSfTYHTsN++I797lL5+sI=; b=D9iNs3ceaGNhUL9qweE8ybjcLG
-	98VTxmLj6oKzsve6ErRLdc3PjvY/aZAe3v7DLEnTh8cRsce0WzVlE5j2BQTwbopESEzNlyASQB6Ss
-	mJttS1HrQYJOe2WmbN06P6fw8r0B0+f8YJrHhEC6UZcYkj7n+BS84NDTcZzcfhxuB+5GgbNVDKkE9
-	OlAx97eJRh+2W1+xSzwPqGAF5s9Ka/rFKvCIa1+JiUB7MpfnrxWhasoFVAZpZFFdJC0avKFHu5pVZ
-	TOv1U83fwSR99p2B6qkLk77Oa78drWwD518Tiy+1Q8WDbZgScGBz2WYf5pbxtoJ3CoKiP6yW/d6k7
-	I+PpNFHQ==;
+	bh=5cHYwSkSHMkfjIFV4OzMR3BlHZoiJkoKDXpwSTj6x/E=; b=gEgGzHbdRyZr9Lf8Zvp2NiXh9j
+	r34zN2gREq5jyupmMRDQvmM579BIj/4ge8hJs52ycNF/W3QUwkGImAg10ZlFrnq+lG/CIqdpBePVm
+	A/vNaTPvUZdTVG2k/7ncWsiONlblaoFn3ansEb8htQCcvC8a5qr/dMng21ReLWNIEXcjmYQ8jtVPa
+	GXFav76XtBblyw2kbRWLw9Kd64bkaCGNIXMK4Um1c4/Bxkq9bjVUpcF3XtNsM5o1luqvKfp+aw7Wb
+	Kkw7EtvWH5hLtfx76c3BHOVSOwc9bRcj0lN8zn7kPcdZFkCT79t3DqhKWn8mEDbU/+3Ec7+ymTg5O
+	P7X/h5ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WTc-00000006TI8-2S8z;
-	Mon, 07 Sep 2026 10:21:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x3WWS-00000006TZf-067i;
+	Mon, 07 Sep 2026 10:24:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WTY-00000006THU-3qOn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:21:24 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6879bXV63702368
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 7 Sep 2026 10:21:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+B0bdJnNuDQnu1UGOYoafwDSfTYHTsN++I797lL5+sI=; b=Bcy9UktBH4oVROwE
-	RifhQdsu0OGWptbh3PQ7tg5u5T7NPqvUPO7Ns28E4AGl97CqJjSGvLHnfQLY5O11
-	Tu9n7dW47TcxMes38doT5qMKchJGt5dtpi/bF5vAaJrZgTmzD8UpalGrCtv+SQ5S
-	qa8TlPxvZ2C86iKYSAaQIkyU4DuS0cnSkS2ELj0WRF3K0hUmdFEdeRoIzyEsfIOb
-	+uMmk256TBD3SktRNSBFKCQhgFEqHAwckK1cGK9P42bhrCqBKgQltY4BcCm/tn15
-	wZwR2cRFQ4Ra9iemknbDMNpAHbMem+12NIfTEAkJ3q1IiqtG8ym172pL5Hh3Eqhi
-	0dZ8Ww==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ghq66hb6h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 10:21:18 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-85722fc5a21so4265985b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 03:21:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788776478; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sk8lXBXoUlJG7vQ76VdZUKg8al79kGG/RyirmpAO2PKTh85S6/j5KDAajVIDAspEWZ
-         NaQoX0sX8Ohw7q1pwTmYkz9LBr1K67oKsjdARtgxppwKV56wqowC+kIN8nA0tVNStQjY
-         +Ej6jiHLjXV/hbWeqXFBq91xrKbGiFZcqezgS+uSQSlXproXTR9ULNHlUBiPyunA8JFu
-         x291LGLFYGiKjIi5+qHQmYxacnRbFqwZ57bdR8RZ2ES4TMCFG9BvyvX5HUSui/V491SP
-         xT+GCyEp1r7AXse57jBOE/iwDBxuxhnOf7K1bZl9d/SvtRvnmWdcdLMZMJZ0dZXNefmQ
-         RApA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+B0bdJnNuDQnu1UGOYoafwDSfTYHTsN++I797lL5+sI=;
-        fh=lUOPlQDPpvM5F758ukRsCnxNCC/CODuaLticqcMzDTk=;
-        b=SGLfuxK9IDW92wrwALF4Hw4Hyj99aBB4lo4OXkV58UGC5M5+87+2bniVRQUU5mpXOs
-         j7Ypv458NKOwQ1xrdXCJe/8lwCsYw6d0C40IfMJMxbjpFCnnuA3rAwS4ROg0+n3cgBYM
-         SBqTD7YOE6r20qP8JhcLishbrdXMGz+ut5s9NVnNGK34vuMitpNwL6WFS4+ckVeSWrCJ
-         xtHKAKdOTeuERZM8MeX6eFnOroqabXQawV/6cCHavpehD1MRhaxZ5Ke2WzMxMFTKEUDc
-         ryan29Tu76W29m7zRcfShTYOFkeiz157SpkG5vWB0km/REme53oSQwd82USj/t7WUS3N
-         oHLg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788776478; x=1789381278; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+B0bdJnNuDQnu1UGOYoafwDSfTYHTsN++I797lL5+sI=;
-        b=bPDw8TpM7oAjBbqCCW+BDcL3g+6EMyIRHAB/1+LA61/tg81SqZwD4wWXPTps/QRmgs
-         7HmInGg5iEY65e3YL3nzmL605tx0zCCgum3jP4J1zgTGi8m5XJTTj/micI9mgDJrvGgb
-         WqVIqX4F6pHw8TY8kp4D2U86KybYa50zs8ZBZt8aW8wBzoSaFi0+8lm5ZIFmJmxqfJ3g
-         FTVar7XzR/tklwY/OW+f8ftc53Nr6jBVdKW4vRkIIupOXbsVo8LahyqCUP8J6ffPXFTC
-         IG0xGCYz4Rqkk04yvDEElcXjAd5NVKoFFDDkGJemjKJbbaRm2CV6dYPBDAhi93pZMhWu
-         S0Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788776478; x=1789381278;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+B0bdJnNuDQnu1UGOYoafwDSfTYHTsN++I797lL5+sI=;
-        b=FT6V4fDTK5RyA9lirG8M1aqYytSv1dL/rxO+r0L89nDp5eXO5AMkVZK/TllCNR8MTN
-         p+WCKyX5UKDYjU+pRJk5/wbbzb1S9llJYW2gZ0TUfx68RyEGC7XVRw2am1L4mC8e2t8k
-         ikYkeF971aa4cGE7x54ZGSCvDbiGXFkcdtYC3Jj+JtTFSqGRV8lHStSu5SoQUxbxHgOj
-         s2ixyt3lrI9Ku3H6ZpzSDUaqQmR9d5baM0IXsJ3SgWg/zZcHkCWHu80YTXt5ULL231Hk
-         notVdFma6bp9XrXMAH9BB4YaeX7IPTVYJUZ4gNuyKOu4lgsEIHP6vN+fnMrtU+yYkvRL
-         wV3A==
-X-Forwarded-Encrypted: i=1; AKwUvByliVKlGVF9Tjk8eWCpl8bg6qsnjhkqDzILrQnlDgF+hB6PmiDSh3Y8a2AWN8KC8zswh4qfHbFqhfb206KgEsZl@lists.infradead.org
-X-Gm-Message-State: AFuF++nkWxvM+Y+NiEHy8fp7u0ZHH/OqDN3t6yGSDNBsCxYktAJ942Td
-	1QCszsT88TdO7r3Fnbt4+f88wT66uiHroDvNjR0lduq/3ra+mkSwhQFTZCtSEOJa4mCnlOA2EWo
-	jhF90H4g51WqVu7WmK88o7VDDZqwM5tPPXRPCr1rR20P3jALIUWDRpxcjpMCzc+hbPGwfcGkocK
-	dGFTi9BKsEewlonikIy/3qeXOmq1nRldX0JmhijUDunctu9a50egvf
-X-Gm-Gg: AYBFou2T0wGNltGmT2sgM/xs7rKdxlDuhQBGksejof4d+3oP7K1/5RDd9mp3PtfThpQ
-	hqB0sAGhFYv+i6PhOwn8OW+ruMp3ZPVUTsRNH2lRhJ5XtCCHVUsGz0uZ/2QHr/LZ9TBY73L0xJ/
-	n3DAWgqtjVwRArJetrxVKONKwS4vnhb6Zmn+f2nDIPGCT61Ip8QJu2zTDT3A==
-X-Received: by 2002:a05:6a00:4c8f:b0:84f:5cd7:e3c6 with SMTP id d2e1a72fcca58-861662d4ce4mr30999435b3a.5.1788776477876;
-        Mon, 07 Sep 2026 03:21:17 -0700 (PDT)
-X-Received: by 2002:a05:6a00:4c8f:b0:84f:5cd7:e3c6 with SMTP id
- d2e1a72fcca58-861662d4ce4mr30999352b3a.5.1788776477149; Mon, 07 Sep 2026
- 03:21:17 -0700 (PDT)
+	id 1x3WWP-00000006TYi-07DB;
+	Mon, 07 Sep 2026 10:24:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1788776654;
+	bh=iJj2xPfUyp9ND6ZV6ApbMG2ieDY0o1ZlxtNQCd6jueo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CGHRFu/BGEiOoCyJj6X68Xuc2NkYaQjWx5RataS02sbdntcfAPd52UBtXJPlqpX9x
+	 SiL2sEENa/5pZv45SSC8LkO8i6UF3wLZ3sQ1/T22KgZSvu6VilNgf3MUaQ6aL0bsta
+	 XEWEI3zMBLO5/L5vrbXl1uMD0bmuC0ewHSeNO0EiuH7EP9X5au9ElrCzea3KAfYWey
+	 tyAWWad3bifEke6DKYE5VIIJm4PlzRyQWFOHd4sQ69oQ1z5O43JsTJ77jhSWzomtFP
+	 sHLjMkRK5+5ian2v1vJe8P9UfmRESVb9z1uLFjV6Q2X2ZW+haKLmP+rZ5Vdwt0ktY5
+	 bIvCXIHTgzS3A==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFBEB17E038D;
+	Mon, 07 Sep 2026 12:24:13 +0200 (CEST)
+Message-ID: <71522db3-69d6-4d8b-b714-65388c17de11@collabora.com>
+Date: Mon, 7 Sep 2026 12:24:13 +0200
 MIME-Version: 1.0
-References: <20260901111441.122436-1-ulf.hansson@oss.qualcomm.com>
- <20260901111441.122436-3-ulf.hansson@oss.qualcomm.com> <12268d64-08c7-421f-83e2-e6306fde9a88@gmail.com>
-In-Reply-To: <12268d64-08c7-421f-83e2-e6306fde9a88@gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Mon, 7 Sep 2026 12:21:04 +0200
-X-Gm-Features: AcwNN1XfD57hC8DPhUlZJGAy3-RlDshBPQUcpMqu3eRHVOiq1DrVi21R9DJBy6k
-Message-ID: <CAPx+jO_OWjZpt5SZpCrFUXXVsJ5izV5Ez5BuEVT+s9YHy4enCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/5] pmdomain: core: Allow a non-CPU device in a CPU PM
- domain to do power on
-To: Dhruva G <goledhruva@gmail.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Maulik Shah <maulik.shah@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=QPhYgALL c=1 sm=1 tr=0 ts=6a9e901e cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=u8BtVuMVLpZXKRMe:21 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=RK_iZM9tDnEtT-fnq2oA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-GUID: gcJ0CQsZgtTPOlBdoH7SgenyW355uUYt
-X-Proofpoint-ORIG-GUID: gcJ0CQsZgtTPOlBdoH7SgenyW355uUYt
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDExMyBTYWx0ZWRfX8mNIiC7f+N9D
- LFh8eQJfSlt42f4xaZcpSfpDwhSngLZqz1JWc9+QSTimp1mEb+J9ElJLEtwkjlQlwTur9qgcTOt
- FDGDkKqH4YptXDxTABT+0+njaoZWPvQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDExMyBTYWx0ZWRfXz7N+JxXWplD0
- NKQsube0J71jOA8l9RuMoCb43i7tE5AsB0p7RwzxjdzeXKXssdCUfHVDylZ1nFUXPsxOOdCxROy
- M2mMF5BgmbcinLOgKF8HI80AyxeyJgEkfI6DjlcBLFLWJfl6Vuim8jT3+51jiqLT72NkzeWz9Jl
- GmwK3OJCPQn8Dhsr0vxIACpf+mDgi/PrDo57v45MpmMkRPNLeo6GnVQUuae4C79/q+Lq1ShksnY
- Sv/Cgifp5BI/eJr1sWXN+dqdOPhNlTt0o65okWvjnukccSgwi/fh0DbI+OS1shC8rQS/AxMFKSg
- gNKXqajhFchHwtRjjmNXjlzB+Nfzl9NIm/Au9943E4d+N2AGyQgCcUdr+TWsQwUJiqpmsx2gwZi
- wU8BjHPpuDCLW13yTIJmjh8qh3s31i2oRhT4FBK7mwCVqyHfqWt8hu4a4IdefoyEsZ97/16j7qb
- OTYvL5mQVJLWjsGsQqA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-07_02,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 adultscore=0 spamscore=0 priorityscore=1501
- bulkscore=0 lowpriorityscore=0 impostorscore=0 malwarescore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609070113
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/27] MT8189: Add support for system and base clock
+ controllers
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, Chen-Yu Tsai
+ <wenst@chromium.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Edward-JW Yang <edward-jw.yang@mediatek.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Irving-CH Lin <irving-ch.lin@mediatek.com>, Brian Masney <bmasney@redhat.com>
+References: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_032121_096966_6335BDC1 
-X-CRM114-Status: GOOD (  45.49  )
+X-CRM114-CacheID: sfid-20260907_032417_379470_27328669 
+X-CRM114-Status: GOOD (  36.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,164 +85,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 4, 2026 at 6:26=E2=80=AFPM Dhruva G <goledhruva@gmail.com> wrot=
-e:
->
-> On 01-09-2026 16:44, Ulf Hansson wrote:
-> > A driver for a non-CPU device that is attached to a CPU PM domain (the
-> > genpd has the GENPD_FLAG_CPU_DOMAIN configuration set), is currently no=
-t
-> > able to power on the PM domain. More precisely, to power on a CPU PM do=
-main
-> > one of its corresponding CPUs needs to be woken up if they are idle.
-> >
-> > The current support for a non-CPU device is that its driver can only
-> > prevent an already powered on CPU PM domain from being powered off. Thi=
-s
-> > leads to problems for a driver while probing its device or when it need=
-s to
-> > call pm_runtime_get_sync() to turn on the power for it. From the driver
-> > point of view it looks like it all works fine, but when accessing the
-> > device it may end up with various errors as the device may not be fully
-> > powered on.
-> >
-> > To fix the behavior for these types of devices, let's adjust the behavi=
-our
-> > in genpd_power_on() to wake up an idle CPU that belongs to it, in cases
-> > when it's needed.
-> >
-> > Link: https://lore.kernel.org/all/CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZ=
-VYO=3D38R2cLV8nw@mail.gmail.com/
-> > Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> > Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-> > ---
-> >
-> > Changes in v2:
-> >       - Rename a function according to Abel's suggestion.
-> >
-> > ---
-> >  drivers/pmdomain/core.c | 80 ++++++++++++++++++++++++++++++++++++++---
-> >  1 file changed, 75 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > index 6ac1ce18fda3..97273ed2f825 100644
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -10,6 +10,7 @@
-> >  #include <linux/idr.h>
-> >  #include <linux/kernel.h>
-> >  #include <linux/io.h>
-> > +#include <linux/iopoll.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_opp.h>
-> >  #include <linux/pm_runtime.h>
-> > @@ -19,11 +20,14 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/err.h>
-> >  #include <linux/sched.h>
-> > +#include <linux/smp.h>
-> >  #include <linux/suspend.h>
-> >  #include <linux/export.h>
-> >  #include <linux/cpu.h>
-> >  #include <linux/debugfs.h>
-> >
-> > +#include <trace/events/ipi.h>
-> > +
-> >  /* Provides a unique ID for each genpd device */
-> >  static DEFINE_IDA(genpd_ida);
-> >
-> > @@ -32,7 +36,9 @@ static const struct bus_type genpd_provider_bus_type =
-=3D {
-> >       .name           =3D "genpd_provider",
-> >  };
-> >
-> > -#define GENPD_RETRY_MAX_MS   250             /* Approximate */
-> > +#define GENPD_RETRY_MAX_MS           250             /* Approximate */
-> > +#define GENPD_CPU_ON_POLL_PERIOD_US  100             /* 100us */
-> > +#define GENPD_CPU_ON_TIMEOUT_US              5000000         /* 5s */
-> >
-> >  #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)               \
-> >  ({                                                           \
-> > @@ -1027,15 +1033,75 @@ static void genpd_power_off(struct generic_pm_d=
-omain *genpd, bool one_dev_on,
-> >       }
-> >  }
-> >
-> > +static bool genpd_status_on(struct generic_pm_domain *genpd)
-> > +{
-> > +     bool is_on;
-> > +
-> > +     genpd_lock(genpd);
-> > +     is_on =3D genpd_status_on_unlocked(genpd);
-> > +     genpd_unlock(genpd);
-> > +
-> > +     return is_on;
-> > +}
-> > +
-> > +static int genpd_wakeup_cpu(struct generic_pm_domain *genpd)
-> > +{
-> > +     unsigned int cpu;
-> > +     bool is_on;
-> > +     int ret;
-> > +
-> > +     /* Find the first online CPU in the genpd's cpumask. */
-> > +     cpu =3D cpumask_first_and(genpd->cpus, cpu_online_mask);
-> > +     if (cpu >=3D nr_cpu_ids)
-> > +             return -EAGAIN;
-> > +
-> > +     genpd_unlock(genpd);
-> > +
-> > +     /* Send a IPI to wakeup the selected CPU. */
-> > +     smp_send_reschedule(cpu);
-> > +
-> > +     /* Poll to wait for it to complete the power on sequence. */
-> > +     ret =3D readx_poll_timeout(genpd_status_on, genpd, is_on, is_on,
-> > +                              GENPD_CPU_ON_POLL_PERIOD_US,
-> > +                              GENPD_CPU_ON_TIMEOUT_US);
->
-> How is sleeping here made safe for IRQ-safe consumers and child domains?
->
-> For a hypothetical example, consider an IRQ-safe SPI controller in an IRQ=
--safe child domain D,
-> whose parent P is a CPU domain. CPU A is outside P, and CPU B belongs to =
-P. Both domains are initially off.
->
-> A runtime-resume request on CPU A follows this path in drivers/pmdomain/c=
-ore.c:
->
-> genpd_runtime_resume(SPI device)
-> -> lock D
-> -> genpd_power_on(D)
-> -> lock parent P
-> -> genpd_power_on(P)
-> -> genpd_wakeup_cpu(P)
->
-> genpd_wakeup_cpu() drops P's lock and sends an IPI to CPU B, but D's spin=
-lock remains held. readx_poll_timeout()
-> can then reach usleep_range() while D=E2=80=99s spinlock is still held.
->
-> There is also a problem without the child domain: for an IRQ-safe device =
-attached directly to P, __rpm_callback()
-> leaves interrupts disabled. Dropping P=E2=80=99s lock restores the alread=
-y-disabled interrupt state, so readx_poll_timeout()
-> still cannot be used with a nonzero sleep interval and timeout.
->
-> I have not reproduced this on a board; this is a hypothetical configurati=
-on illustrating the paths.
->
-> Is there a restriction elsewhere that prevents either configuration? Othe=
-rwise, this wait cannot sleep,
-> and the parent lock needs to be reacquired with the same nesting depth us=
-ed by genpd_power_on().
+On 9/4/26 17:58, Louis-Alexis Eyraud wrote:
+> This series is a continuation by AngeloGioacchino Del Regno and I of a
+> previous series ([1]), that adds the clock controller support for
+> the Mediatek MT8189 SoC and its variants (MT8371, MT8391).
+> 
 
-Good point and thanks for catching this!
+Everything is
 
-As this path is only for CPU PM domains (has GENPD_FLAG_IRQ_SAFE and
-GENPD_FLAG_CPU_DOMAIN bits set), this is solved by converting to the
-atomic polling helpers. I am cooking a new version!
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-[...]
-
-Kind regards
-Uffe
+> The first major changes is the split of the series in two:
+> - one for all basic clock controllers including system ones (this
+> series)
+> - one for the multimedia and graphics related clock controllers (to be
+> send in the future)
+> 
+> We chose to separate the multimedia clock drivers from the base system
+> ones, as there is currently an unsolvable inter-dependency between the
+> power domains and multimedia clocks; the power domains need a
+> dual-stage bring-up, where only a part of the multimedia clocks are
+> accessible in the first power domain powerup stage, and the rest when
+> the second stage (SRAM enablement) is done.
+> The current workarounds for this issue, such as removing the is_enabled
+> operation from the impacted clock controllers clk_ops table or
+> let the multimedia power domain always on, were quickly discarded
+> for upstream.
+> 
+> The second major change is the dt-bindings patch ([2]) that got heavily
+> reworked, not only because of the split choice. We took the opportunity
+> to regroup in the MT8186 clock and system clock dt-bindings the
+> description of several other Mediatek SoC (MT8188, MT8192 and MT8195)
+> and add in them the MT8189 new ones.
+> The rationale is to ease maintainability and have common files for
+> several currently supported SoC or new future ones, that have the same
+> kind of clock controller design.
+> 
+> Finally the pending remarks from peer reviews on the v6 revision of [1]
+> were also taken into account and new fixes and cleanups were also
+> added.
+> 
+> A more detailed changelog between [1] and this series:
+> - Removed multimedia and graphics related clock controllers code and
+>    definitions from series
+> - Added new dt-bindings patches to factorise existing MT8188, MT8192
+>    and MT8195 in MT8186 clock dt-bindings
+> - Heavily modified the MT8189 dt-bindings to add new compatibles
+>    in MT8186 clock dt-bindings
+> - Created a new dt-bindings include for the MT8189 reset controller
+>    definitions (include/dt-bindings/reset/mediatek,mt8189-resets.h)
+> - Removed unnecessary `syscon` compatible fallback from MT8189 base
+>    clock controllers
+> - Added missing 'mediatek,mt8189-fhctl' compatible declaration in
+>    dt-bindings
+> - Modified Kconfig to COMMON_CLK_MT8189 be tristate (and not bool) to
+>    allow all MT8189 clock controller drivers to be built as modules (it
+>    was partial)
+> - Fix pll unregisters in clk_mt8189_apmixed_probe error case
+> - Reparent several clocks to correct 26M references in clk-mt8189-bus.c,
+>    clk-mt8189-topckgen.c and clk-mt8189-vlpckgen.c
+> - Removed CLK_SET_RATE_NO_REPARENT flag from mfg_sel_mfgpll
+> - Rename TOPCKGEN_fmipi_csi_up26m clock to fmipi_csi_up26m to remove caps usage
+> - Implemented reset controllers in clk-mt8189-ufs.c
+> - Updated all file headers to update copyrights and add all authors
+> - Added all co-developed-by trailers
+> 
+> The series is based on linux-next tree (tag: next-20260903) and has
+> been tested on Mediatek Genio 520-EVK (MT8371) and 720-EVK (MT8391)
+> boards, with hardware enablement patch series ([3]), and on Genio
+> 510-EVK (MT8370, variant of MT8188) and Genio 1200-EVK (MT8395,
+> variant of MT8195).
+> 
+> [1]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-1-irving-ch.lin@mediatek.com/
+> [2]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-2-irving-ch.lin@mediatek.com/
+> [3]: https://lore.kernel.org/linux-mediatek/20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com/
+> 
+> ---
+> Changes in v6:
+> - Rebased on next-20260903 tag
+> - Added contains keyword use in patch 5, as recommended by R. Herring
+> - Fixed typo and comment in patch 13 (B. Masney)
+> - Added patches 16 and 17 to do some code improvements suggested in
+>    B. Masney review
+> - Removed unnecessary header inclusions and reorder remaining ones in
+>    patch 18 to 27 (B. Masney)
+> - Added received Reviewed-By trailers
+> - Removed netdev mailing list from Cc
+> - Link to v5: https://lore.kernel.org/r/20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com
+> 
+> Changes in v5:
+> - Rebased on next-20260730 tag
+> - Dropped "clk: mediatek: pll: split default prepare/unprepare callbacks"
+>    patch and added  "clk: mediatek: pll: Factorise pll power on/off sequence"
+>    and "clk: mediatek: pll: Add PLL stabilization delay definition"
+>    patches in replacement.
+> - patch 13:
+>    - reworded commit message to show this new clocks ops use specific pll
+>      enablement rather powering
+>    - reworked mtk_pll_prepare_setclr and mtk_pll_unprepare_setclr
+>      sequence to handle properly specific enable/disable sequence
+>      using en_set/clr register (Sashiko)
+>    - fixed timeout management in mtk_pll_prepare_setclr and
+>      mtk_pll_unprepare_setclr (Sashiko)
+> - Link to v4: https://lore.kernel.org/r/20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com
+> 
+> Changes in v4:
+> - Rebased on next-20260728 tag
+> - Added patches 9 to 14 to add new clock ops data set for PLL and
+>    PLL-FHCTL to handle a new PLL switch logic for PLL control and BAR
+>    reset, supported by MT8189 SoC
+> - Patch 15:
+>    - Removed useless includes (B. Masney)
+>    - Fixed variable declaration order in clk_mt8189_apmixed_probe (B.
+>      Masney)
+>    - Added missing pwr_reg setting setting in PLL_SETCLR macro (B.
+>      Masney, Sashiko)
+>    - Added en_set_reg, en_clr_reg, rst_bar_reg, rst_bar_set_reg and
+>      rst_bar_clr_reg fixed offsets and new mtk_pll_setclr_ops ops
+>      setting in PLL_SETCLR macro
+>    - Added pwr_reg offset values in apmixed_plls array
+>    - Fixed rst_bar_mask for mainpll univpll, and mmpll in apmixed_plls
+>      array to match rst_bar set/clr reg settings
+> - Fixed factor ratio for mainpll_d4_d8, tvdpll1_d16, tvdpll2_d16 and
+>    osc_d16 clocks (Sashiko)
+> - Link to v3: https://lore.kernel.org/r/20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com
+> 
+> Changes in v3:
+> - Rebased on next-20260717 tag
+> - Added Fixes tags to patches 1, 2 and 3
+> - Reworded patch 8 subject and description messages
+> - Updated Reviewed-by and Acked-by trailers
+> - Link to v2: https://lore.kernel.org/r/20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com
+> 
+> Changes in v2:
+> - Rebased on next-20260708 tag
+> - Added patch 1,2 and 3 to make the #clock-cells a required property in
+>    MT8186, MT8192 and MT8195 clock controller dt-bindings
+> - Patch 5:
+>    - Removed conditional blocks to check clock-cells property presence
+>      for MT8188 clock controller compatible
+>    - Reworded commit message to remove the note (no more applicable)
+>    - Fixed incorrect property value in else block for #reset-cells
+>      property check.
+> _ Removed from patch 9 conditional blocks to check clock-cells property
+>    presence for MT8189 clock controller compatible
+> - Fixed missing MODULE_DEVICE_TABLE in patches 10, 11 and 12.
+> - Added devicetree series link in cover letter
+> - Link to v1: https://lore.kernel.org/r/20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com
+> 
+> ---
+> Louis-Alexis Eyraud (27):
+>        dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8186
+>        dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8192
+>        dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8195
+>        dt-bindings: clock: mediatek: reorder MT8186 compatibles
+>        dt-bindings: clock: mediatek: regroup MT8188 dt-bindings into MT8186
+>        dt-bindings: clock: mediatek: regroup MT8192 dt-bindings into MT8186
+>        dt-bindings: clock: mediatek: regroup MT8195 dt-bindings into MT8186
+>        dt-bindings: clock: mediatek: Add MT8189 system/base clocks and resets
+>        clk: mediatek: Harmonize mtk_pll_fenc related symbol names
+>        clk: mediatek: pll: Add BAR reset register offsets
+>        clk: mediatek: pll: Factorise pll power on/off sequences
+>        clk: mediatek: pll: Add PLL stabilization delay definition
+>        clk: mediatek: pll: Add ops for PLLs using set/clr regs
+>        clk: mediatek: pllfh: Add configurable clock ops to mtk_pllfh_data
+>        clk: mediatek: pllfh: Add ops for PLLs using set/clr regs
+>        clk: mediatek: Move fhctl_parse_dt call into mtk_clk_register_pllfhs
+>        clk: mediatek: pllfh: clear state data in mtk_clk_cleanup_pllfhs
+>        clk: mediatek: Add MT8189 apmixedsys clock support
+>        clk: mediatek: Add MT8189 topckgen clock support
+>        clk: mediatek: Add MT8189 vlpckgen clock support
+>        clk: mediatek: Add MT8189 vlpcfg clock support
+>        clk: mediatek: Add MT8189 bus clock support
+>        clk: mediatek: Add MT8189 dbgao clock support
+>        clk: mediatek: Add MT8189 dvfsrc clock support
+>        clk: mediatek: Add MT8189 i2c clock support
+>        clk: mediatek: Add MT8189 scp clock support
+>        clk: mediatek: Add MT8189 ufs clock support
+> 
+>   .../bindings/clock/mediatek,mt8186-clock.yaml      |  129 ++-
+>   .../bindings/clock/mediatek,mt8186-fhctl.yaml      |    1 +
+>   .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |   24 +-
+>   .../bindings/clock/mediatek,mt8188-clock.yaml      |   93 --
+>   .../bindings/clock/mediatek,mt8188-sys-clock.yaml  |   58 --
+>   .../bindings/clock/mediatek,mt8192-clock.yaml      |  191 ----
+>   .../bindings/clock/mediatek,mt8192-sys-clock.yaml  |   68 --
+>   .../bindings/clock/mediatek,mt8195-clock.yaml      |  238 -----
+>   .../bindings/clock/mediatek,mt8195-sys-clock.yaml  |   76 --
+>   drivers/clk/mediatek/Kconfig                       |   79 ++
+>   drivers/clk/mediatek/Makefile                      |    8 +
+>   drivers/clk/mediatek/clk-mt6795-apmixedsys.c       |    3 +-
+>   drivers/clk/mediatek/clk-mt8173-apmixedsys.c       |    5 +-
+>   drivers/clk/mediatek/clk-mt8186-apmixedsys.c       |    4 +-
+>   drivers/clk/mediatek/clk-mt8189-apmixedsys.c       |  202 ++++
+>   drivers/clk/mediatek/clk-mt8189-bus.c              |  199 ++++
+>   drivers/clk/mediatek/clk-mt8189-dbgao.c            |   97 ++
+>   drivers/clk/mediatek/clk-mt8189-dvfsrc.c           |   57 ++
+>   drivers/clk/mediatek/clk-mt8189-iic.c              |  121 +++
+>   drivers/clk/mediatek/clk-mt8189-scp.c              |   76 ++
+>   drivers/clk/mediatek/clk-mt8189-topckgen.c         | 1019 ++++++++++++++++++++
+>   drivers/clk/mediatek/clk-mt8189-ufs.c              |  132 +++
+>   drivers/clk/mediatek/clk-mt8189-vlpcfg.c           |  115 +++
+>   drivers/clk/mediatek/clk-mt8189-vlpckgen.c         |  279 ++++++
+>   drivers/clk/mediatek/clk-mt8192-apmixedsys.c       |    4 +-
+>   drivers/clk/mediatek/clk-mt8195-apmixedsys.c       |    4 +-
+>   drivers/clk/mediatek/clk-mt8196-apmixedsys.c       |    2 +-
+>   drivers/clk/mediatek/clk-mt8196-vlpckgen.c         |    2 +-
+>   drivers/clk/mediatek/clk-pll.c                     |  131 ++-
+>   drivers/clk/mediatek/clk-pll.h                     |   13 +-
+>   drivers/clk/mediatek/clk-pllfh.c                   |   33 +-
+>   drivers/clk/mediatek/clk-pllfh.h                   |    8 +-
+>   include/dt-bindings/clock/mediatek,mt8189-clk.h    |  433 +++++++++
+>   include/dt-bindings/reset/mediatek,mt8189-resets.h |   17 +
+>   34 files changed, 3139 insertions(+), 782 deletions(-)
+> ---
+> base-commit: 0abd4c5dd02744f837ade691fb214ca7cb970e4b
+> change-id: 20260630-mt8189-clocks-system-base-70714e4ff2aa
+> 
+> Best regards,
 
