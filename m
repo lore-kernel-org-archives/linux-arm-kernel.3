@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E11C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2620C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2kDcdHJk5/m7Tnc5mfqUNhIec3+WIpM8khGzPGZk/Q=; b=ZsX4wkc+W4ot6nTwpI1A4IwJV5
-	OLLbgz0LVXbe2zBl2TEG3NQGMZ03eL+UL1YRV3tHZh5IzTi/CHHDZpWivPuiQ8z1EJg0CXqeuMvkd
-	xEQn35sASIJ3nc2grvxkeBhqlpcSmpjlkZApGGwayAyn8vxjQjf8WQVJgtb1tkA8l5HYaR99DTHw8
-	23Rz9QJ5tQbSvn+UmD1gAfnn90hiblUsO6eZedbGcu/1cIyE/kC8kgaxi5mBJl/3iwll5spmr1iDY
-	xP7C7wwHPtqukYt+cFCpPtNAsHEiDaJ6pxfB9ouSnamV5kZqZ1MKl7z8PkbwYIMjkobMNu8k03hty
-	fVgcyE+g==;
+	bh=3flXNuuKJEekBsSiA7Lu0ra9BIifIZ56Gk4E4KvpWeg=; b=473lQAr/lpU2EXzePpFC1P8M7l
+	OTHQOYNgwFICbndvsqbuHLb1mLxMYz3g58QdrI5CWwSICNPrlgoLv1xgujNVhQ07hzbMbrYYnBf5E
+	5tEeybOFYT/zBTZ8kPOQeE6VA79FcnyjMyIKRJ6/KDep/Ljhor4+T8VIRSghrg6IE3Vkf2Ep0zh3N
+	3VmSdMpNFlswHN0mm/y13tBc3T3t7PC35pbQXxW6+3sLoDcNjaTQTj4n994+wemU2EIaYqESi1QD6
+	TVcYHoWc6Gf7vINBdakCQDQp5yNCUFPHxCAOQAK/Cx7IJvCi3yMeVrtcJWiaiIj6A2xRdDiWxjsdB
+	CSfbxjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Wzr-00000006ZrI-0PcW;
-	Mon, 07 Sep 2026 10:54:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Wzp-00000006ZqI-2ht3
+	id 1x3X0m-00000006a9F-1rFW;
+	Mon, 07 Sep 2026 10:55:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3X0j-00000006a8B-47sn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:54:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 676FA40DF5;
-	Mon,  7 Sep 2026 10:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6AB01F00A3D;
-	Mon,  7 Sep 2026 10:54:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788778481;
-	bh=K2kDcdHJk5/m7Tnc5mfqUNhIec3+WIpM8khGzPGZk/Q=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=SuDnVB4pyaKW01eUV/KfJVUgIhnfB3WyusYNcy3W+8WtmRXzuoXab8fluZqnpmpRW
-	 73G5CItlhRtFrjBNUQSyUvtqkaXBgXfm+ux/m/wAORo4XZNTbisvJHBuQVNbt4AUxS
-	 oD18aVTA2acfzFejjWvF+Tf42dINdkDsmL6SlQ4sgs30ldcF3bfCrbTZ4mfD2gxOjB
-	 /tg/8Az6VP3WiwfjKW6Z2Pf/GsnAAzDjcbP4VFSNTJNgAglnC0fs4Am2Z2c7NpDxsw
-	 Ub0oq2wnrrTCVy8ssp/49vxsv2gSTyZWKEEiQY40d1YNoq5wHf2rqlacXAOSScyyFF
-	 mydrx0HiHzFNw==
+	Mon, 07 Sep 2026 10:55:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5880A1476;
+	Mon,  7 Sep 2026 03:55:33 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBBDC3F7B4;
+	Mon,  7 Sep 2026 03:55:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788778537; bh=E3jYT8BbJ4w2SnMF/c5ygS3n4YeOF0/ZtH2+kO3O+tY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZWS+gxZnr2jYVFGXrj+ilBGofSnt06NhS2wsOsdAcq1JSep+u16p7gOkFuAvKkOoG
+	 SsFOx35kMy4oRX9jfcOjj1PjPBrQDnew8q6KXbFYGmBwn+NF3Ak012Z1zwLnNWeo/z
+	 8/BIDGukb9o4xSmnZX30qrlC346MeWYeaonT4+GE=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 06/14] KVM: arm64: Validate GCS exception lock when emulating ERET
+Date: Mon,  7 Sep 2026 11:55:32 +0100
+Message-ID: <ap6YJHB5JKtfjM3M@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <aps-oNeG3RjzqHQs@sirena.co.uk>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-6-f31750bdfadb@kernel.org> <apmUQETDlhTIuJIY@LeoBrasDK> <2dfd8a6c-42c2-466c-b3d6-2313466fc3d5@sirena.org.uk> <aprEsh-xogu8zFnK@LeoBrasDK> <aps-oNeG3RjzqHQs@sirena.co.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH RFC v9 12/25] mm: kpkeys: Protect regular page tables
-From: Mike Rapoport <rppt@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-hardening@vger.kernel.org, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>, 
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
- Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
- Maxwell Bland <mbland@motorola.com>, 
- "Mike Rapoport (IBM)" <rppt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, 
- Pierre Langlois <pierre.langlois@arm.com>, 
- =?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>, 
- Quentin Perret <qperret@google.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-In-Reply-To: <20260818-kpkeys-v9-12-743ad31b2c8f@arm.com>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-12-743ad31b2c8f@arm.com>
-Date: Mon, 07 Sep 2026 13:54:14 +0300
-Message-Id: <178877845406.3691569.12554855722197968629.b4-review@b4>
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_035538_307786_7ABCB05E 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,120 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
-
-> If the kpkeys_hardened_pgtables feature is enabled, page table pages
-> (PTPs) should be protected by modifying the linear mapping to map
-> them with a privileged pkey (KPKEYS_PKEY_PGTABLES). This patch
-> introduces a new page allocator for that purpose:
+On Fri, Sep 04, 2026 at 10:56:48PM +0100, Mark Brown wrote:
+> On Fri, Sep 04, 2026 at 02:16:34PM +0100, Leonardo Bras wrote:
+> > On Thu, Sep 03, 2026 at 08:22:44PM +0100, Mark Brown wrote:
+> > > On Thu, Sep 03, 2026 at 04:37:37PM +0100, Leonardo Bras wrote:
 > 
-> * kpkeys_pgtable_alloc() allocates a new PTP and sets the linear
->   mapping to KPKEYS_PKEY_PGTABLES for that page
+> > > > > +	if (kvm_check_illegal_exlock_return(vcpu, spsr))
+> > > > > +		return false;
 > 
-> * kpkeys_pgtable_free() frees such a PTP and restores the linear
->   mapping to the default pkey
+> > > > >  	/* If ERETAx fails, take the slow path */
+> > > > >  	if (esr_iss_is_eretax(esr)) {
+> > > > >  		if (!(vcpu_has_ptrauth(vcpu) && kvm_auth_eretax(vcpu, &elr)))
 > 
-> This interface is then hooked into pagetable_alloc() and
-> pagetable_free(), protecting all page tables created once the buddy
-> allocator is available. Early page tables are allocated in other
-> ways and will be protected in subsequent patches.
+> ...
 > 
-> This implementation of kpkeys_pgtable_{alloc,free}() is minimal and
-> relies on the linear map being fully PTE-mapped - otherwise
-> calling set_memory_pkey() on a single page may result in splitting a
-> block mapping, which in turn requires allocating a new PTP. A more
-> elaborate implementation could be added later to handle this
-> situation.
+> > > We need this because ERETs from vEL2 are handled in software, modulo the
+> > > NV3 fast path mentioned at the top of the function.
 > 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->
-> diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
-> index 23ae4ed512f52..288c8853eed60 100644
-> --- a/include/linux/kpkeys.h
-> +++ b/include/linux/kpkeys.h
-> @@ -116,6 +116,9 @@ static inline bool kpkeys_hardened_pgtables_early_enabled(void)
->  	return arch_supports_kpkeys_early();
->  }
->  
-> +struct page *kpkeys_pgtable_alloc(gfp_t gfp, unsigned int order);
-> +void kpkeys_pgtable_free(struct page *page, unsigned int order);
-> +
->  /*
->   * Should be called from mem_init(): as soon as the buddy allocator becomes
->   * available and before any call to pagetable_alloc().
-> @@ -134,6 +137,13 @@ static inline bool kpkeys_hardened_pgtables_early_enabled(void)
->  	return false;
->  }
->  
-> +static inline struct page *kpkeys_pgtable_alloc(gfp_t gfp, unsigned int order)
-> +{
-> +	return NULL;
-> +}
-> +
-> +static inline void kpkeys_pgtable_free(struct page *page, unsigned int order) {}
-> +
->  static inline void kpkeys_hardened_pgtables_init(void) {}
->  
->  #endif /* CONFIG_KPKEYS_HARDENED_PGTABLES */
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 485df9c2dbddb..eea3131786b35 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -37,6 +37,7 @@
->  #include <linux/bitmap.h>
->  #include <linux/bitops.h>
->  #include <linux/iommu-debug-pagealloc.h>
-> +#include <linux/kpkeys.h>
->  
->  struct mempolicy;
->  struct anon_vma;
-> @@ -3682,7 +3683,12 @@ static inline bool ptdesc_test_kernel(const struct ptdesc *ptdesc)
->   */
->  static inline struct ptdesc *pagetable_alloc_noprof(gfp_t gfp, unsigned int order)
->  {
-> -	struct page *page = alloc_pages_noprof(gfp | __GFP_COMP, order);
-> +	struct page *page;
-> +
-> +	if (kpkeys_hardened_pgtables_enabled())
-> +		page = kpkeys_pgtable_alloc(gfp | __GFP_COMP, order);
-> +	else
-> +		page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+> > Oh, and this is done in __fixup_guest_exit() because vEL2 is not a 
+> > nested guest. It would be it's guests' exit that would be dealt in 
+> > fixup_nv_guest_exit().
+> 
+> > Is this correct?
+> 
+> Well, it's as much because that is the point where we handle the EC
+> specifics.  __fixup_guest_exit() does general handling of guest exits
+> that applies to all ECs and then dispatches to an EC specific handler,
+> it is common code with nVHE.  When we have NV then fixup_nv_guest_exit()
+> is run beforehand to do extra handling that applies to all ECs in the NV
+> case, but any EC specifics for NV still go in the relevant EC specific
+> handler.
 
-Can we make it a sequence rahter than a branch?
 
-kpkeys_pgtable_alloc() does alloc_pages and then sets their pkeys, so I
-think something like this should work:
+Humm, okay.
 
-	page = alloc_pages_noprof(gfp | __GFP_COMP, order);
-	if (!page)
-		return NULL;
-	err = kpkeys_pgtable_alloc(page);
-	if (err) {
-		__free_pages(page, order);
-		return NULL;
-
-with if (kpkeys_hardened_pgtables_enabled()) folded into
-kpkeys_pgtable_alloc().
-
->  
->  	return page_ptdesc(page);
->  }
-> @@ -3691,8 +3697,12 @@ static inline struct ptdesc *pagetable_alloc_noprof(gfp_t gfp, unsigned int orde
->  static inline void __pagetable_free(struct ptdesc *pt)
->  {
->  	struct page *page = ptdesc_page(pt);
-> +	unsigned int order = compound_order(page);
->  
-> -	__free_pages(page, compound_order(page));
-> +	if (kpkeys_hardened_pgtables_enabled())
-> +		kpkeys_pgtable_free(page, order);
-> +	else
-> +		__free_pages(page, order);
-
-And the same logic seem to apply here.
-
--- 
-Sincerely yours,
-Mike.
+FWIW:
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 
 
