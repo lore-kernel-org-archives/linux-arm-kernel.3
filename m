@@ -4,77 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35A4C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8EEC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C49HkmDVZ4lVjfKu187yKcJcfrFqGDQxUYYBb3LwzE4=; b=A/KFaSNbuIv72lNZQEHZ4qc90J
-	05JlJkJlevh7gHCpKZ5CJTqi1KKJxwIGYzgcpZ6fFzO5UYDXInrEu99kD+VmUrUz1nL5lKXfp2jIT
-	+3+JTGeCIlxq29n4J8IvUN5YHxbrjxqeNxur6o2x4ZhYT7iKbN1BUTyGoVbooG+YmUb8VQDOIjpmn
-	BsqA1Zy4EwcQvnPpBbNn41kYM6yddEcecFhpS2xroZctxM13O26rLoOh66cpfTcoEjsuSXlWjIpMp
-	xtm7vgCqQi5R2c45mC+A4DbbleuuS8pLtBzuV+LQMZ/wfOdN9bclBJq0j1z89rff3lpvkAN5NmfT0
-	BnDXnptg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=toPH+1ZArk/DDhOFULiU+peDd7xkrEZ/LBY2wlar/aY=; b=iAT/e6lle/MkioTdtAZLBR97sF
+	aRW+iB9LJ7fTkG3CMXpdxRKZZRF5H6ugqMmKYI2czo9xU849jhol/QPw4pkcjXdLVOvn5q1rbLcic
+	USSQpIoJ9iTSZri0JOvQ2FccPkrLyj1eFkk2v4rJSJ6rxwSqL5DqIdv5nOJXjPL2pe3Qdu+qSCHeZ
+	IvNSPCutQvHl7pjRd55teEXLgmuhh0Xqr6SHWVLGpL56dRu21JWthqKKiAXgr8eR8bbbZ8ItrDiqJ
+	dMeYGsOT2/fO000EiWx7n1rJxUx+toqZPIvWaww8I9KxNV3VI/oAfFyCI2+UuU9Y0gVPaAIsFfovF
+	TD6m5U1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UXB-00000006FIy-2QD0;
-	Mon, 07 Sep 2026 08:16:57 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x3Uds-00000006G10-2LBM;
+	Mon, 07 Sep 2026 08:23:52 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UX5-00000006FGS-1I6x
+	id 1x3Udp-00000006FzD-0r6J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 08:16:56 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260907081643euoutp018f1b6ab2e1d798b2618aa7e9bec7f215~S__6IcXVb0125601256euoutp01E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 08:16:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260907081643euoutp018f1b6ab2e1d798b2618aa7e9bec7f215~S__6IcXVb0125601256euoutp01E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788769003;
-	bh=C49HkmDVZ4lVjfKu187yKcJcfrFqGDQxUYYBb3LwzE4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=u7Q2s1heUqMda6W5XRBhcPx+MTlXcqrDqyl2qmNV0zWDSSmMKI2HWoP4uLN9hOlvP
-	 XmXHSulGrzA4zdKuuUTjPC1zQMRUSzsgxpRcQp3nM6VrhekYpsbS0+5HfPckFaxkLm
-	 fErxQpxeu4pXfP+9s405Gr40nX1gdcKu3786lkHw=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260907081643eucas1p20588c21e5a4fc629f9ebc1f8f15c3522~S__54h-yh1075210752eucas1p2o;
-	Mon,  7 Sep 2026 08:16:43 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260907081643eusmtip2a290ef3efe626b53d73bbd7fd72e3e51~S__5ZfqCW0517005170eusmtip2N;
-	Mon,  7 Sep 2026 08:16:43 +0000 (GMT)
-Message-ID: <62afdbc4-f21a-477a-b0ab-de20c96b4b6d@samsung.com>
-Date: Mon, 7 Sep 2026 10:16:42 +0200
+	Mon, 07 Sep 2026 08:23:51 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49d05d51553so12737645e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 01:23:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1788769427; x=1789374227; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=toPH+1ZArk/DDhOFULiU+peDd7xkrEZ/LBY2wlar/aY=;
+        b=AqcT6azw3NpV0M6LDthDjv71uXMUGp8u5NPdzZGQjsRrZnaejM6iDAFl+xdExk7sSV
+         BRxRq5B7N3NE/49Am7ON9xl1rbzT5wIrLrsPNuzBFw/Rj5QEFIaCDZDs8rH25dj6AaGN
+         0s6Kq36gy+LzV88UVjsyRZpPv0NlQ9LJaCsPdHAz4ttHcuT0WMIT69JHmnR6M7tkzaYG
+         RREHGYtzZYOQzcrmBnkrx8EABPBJieCWQvrmPDP5mJH0FWrRmB5b7rYKAYXb+NGIjVaf
+         xOdCIRtFy2xi1u/mFb5AcMwWNWDPWt8NYlO7MsbTmUsOh9Ql4iiBLfqCrjMvkMmj3Ji+
+         SNUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788769427; x=1789374227;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=toPH+1ZArk/DDhOFULiU+peDd7xkrEZ/LBY2wlar/aY=;
+        b=kMMdP9f1T6Z0R7Dzw6R5hitgNzccQz8e+AstXmay6SE+BbZ2iVfS5fxpydOuqdaRJw
+         RPNLut32YWTRVYZ0tQBj/8cjB2XlAQqG9PfUe6oLWkyJrd4j1Bu4dLketYrza6lk/XYE
+         hJNDltMnjVMl/Pec5kRh3qpSKCE/owM/5HDvZepuzgmwBNfBf7J+haw7vZaQ5dkUArmM
+         l7p77HmVoQhG0Dulnc4Bs4k3cbcrCe3BdZCcK9+yC7zLfy5fa7HfVQfK6moITZ3c8ebu
+         CoE2UGI0udF5kMYfG6+QnFTxi6pZWal+tsZ4Q7svQZE6k7Fy7ieBDqh7fnnoRLuXmuo0
+         fbrA==
+X-Forwarded-Encrypted: i=1; AKwUvBwEgaRjeyvBuGsNVnlx9Jfudxin830ZY5PjcO7NB7V8I+vd8/anuz0iqpD8dqQby/SQ3tEfsO6DqcU8S0AE1Vv3@lists.infradead.org
+X-Gm-Message-State: AFuF++mNdfVtnB1rHJVhilfBKDAGRwc1O0aVvEWSikCFnj0yojXRKZr4
+	HQ3pdvOYVOEiKa8kpfhk7sdtXgi9ccGenmbVz7bvB2VVzxHlXKwbVgJmD81X3+tLYIg=
+X-Gm-Gg: AYBFou1LUKeP1+2mrqcQonoHHk1ZVZJpvZPHNVZdTsMhc/hw2RSxZZH0oWy3P2252XC
+	q8+lwQdL1DoB5San1LkeRONlXX4uVnvlQpqfmSJZsHJEwSIA4bcb/fne6DqBsWmSV9czOFo1JXu
+	0lURhEFZdej+O8z4XbKKQ/RN8gFEOpVEjYsD4h06MVI4/A4mVyrbPBULOcC1/LHLj3x5jsjrrpn
+	OtMgaf8fM2ofjDIde/7GhKXvPFxJ9897eJMxZMw9YYjlGJtAfDc2N5zrsMpY4+arlFM+VKx/Slj
+	rMpkuK4XHIdluoIn1vPARfX0MGe8DhigqB1nY2uMOaRqLxxTuOC8CzfMXAxDQasJw3raQJ46RYI
+	d4UZdLvqxddgAudJVWRhOYneplo+W/g4CCDTz38eznwQz9r7efJbhdc1EgYeW+QpC10MGkjYLYN
+	twtRd3JOzgtlZUCbj5opVfLpfWKUf5oCL1QmCJBesdx3umCm5hw4t7FXZK7seIynxb34pjibMll
+	z2hx4UgQ1jO0jAHXlCyXt/ocWb29pj4+2GrJ1jRrXXpUzyBfEKzYcT/ItEXTQ==
+X-Received: by 2002:a05:600c:348e:b0:49d:622:df25 with SMTP id 5b1f17b1804b1-49d0622dff1mr104970285e9.1.1788769427009;
+        Mon, 07 Sep 2026 01:23:47 -0700 (PDT)
+Received: from localhost (p200300f65f19a9047ae53bb37ada872a.dip0.t-ipconnect.de. [2003:f6:5f19:a904:7ae5:3bb3:7ada:872a])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-485883953cfsm22327326f8f.13.2026.09.07.01.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 01:23:46 -0700 (PDT)
+Date: Mon, 7 Sep 2026 10:23:45 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Hal Feng <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Maud Spierings <maud_spierings@murena.io>, 
+	Graham Markall <hello@big-grey.co.uk>, Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v3 11/19] soc: starfive: Add jh7110-hdmi-subsystem driver
+Message-ID: <ap50F4QOw7jbcvI6@monoceros>
+References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+ <CGME20260904132729eucas1p1bd78eb90feaf90b6265c13fc7bf43ada@eucas1p1.samsung.com>
+ <20260904-jh7110-clean-send-v3-11-484f9ae72715@samsung.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2] ARM: dts: samsung: exynos4210-i9100: Enable RTS/CTS
- in Bluetooth node
-To: Paul Cercueil <paul@crapouillou.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <1666390417d0d9b8f58a7bdad1b8ecb475ba0d4f.camel@crapouillou.net>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260907081643eucas1p20588c21e5a4fc629f9ebc1f8f15c3522
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260829101532eucas1p29f4e04d4dfd169377793c276221059a6
-X-EPHeader: CA
-X-CMS-RootMailID: 20260829101532eucas1p29f4e04d4dfd169377793c276221059a6
-References: <CGME20260829101532eucas1p29f4e04d4dfd169377793c276221059a6@eucas1p2.samsung.com>
-	<20260829101509.138284-1-paul@crapouillou.net>
-	<6e319291-72b8-4a43-b953-8a9f0a6049c8@samsung.com>
-	<1666390417d0d9b8f58a7bdad1b8ecb475ba0d4f.camel@crapouillou.net>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dohx7bkeczkqrdqr"
+Content-Disposition: inline
+In-Reply-To: <20260904-jh7110-clean-send-v3-11-484f9ae72715@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_011653_724888_108124C5 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20260907_012349_544928_A08C6701 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +123,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03.09.2026 15:29, Paul Cercueil wrote:
-> Le mercredi 02 septembre 2026 à 10:36 +0200, Marek Szyprowski a écrit :
->> On 29.08.2026 12:15, Paul Cercueil wrote:
->>> The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-
->>> rtscts'
->>> property.
->>>
->>> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
->> Indeed the CTS/RTS pins are used for BT on most of the ARM Exynos
->> boards,
->> as the "<&uartX_fctl>" property is assigned for pinctl-0. This is not
->> really
->> specific to i9100, so maybe this property should be added to other
->> dts?
-> I can add it to all exynos4 boards that use the "uartX_fctl" property.
->
->
->> However I wonder if Samsung UART driver actually use this "uart-has-
->> rtscts"
->> DT property? A quick "git grep uart-has-rtscts drivers/tty" shows
->> nothing
->> related to Samsung Exynos...
-> It looks like it does not. I still think the DT property should be here
-> but I won't fight over this.
-I also don't have strong opinion on this issue. Krzysztof: do You see
-any benefit from adding this "uart-has-rtscts" property, just to describe
-precisely the actual hardware, even if it won't be used by any driver?
+
+--dohx7bkeczkqrdqr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v3 11/19] soc: starfive: Add jh7110-hdmi-subsystem driver
+MIME-Version: 1.0
+
+Hello Michael,
+
+On Fri, Sep 04, 2026 at 03:27:12PM +0200, Michal Wilczynski wrote:
+> +#include <linux/mod_devicetable.h>
+> [...]
+> +#include <linux/platform_device.h>
+
+Please don't add includes for <linux/mod_devicetable.h> as it introduces
+many unneeded build dependencies. Either rely on
+<linux/platform_device.h> providing of_device_id (IMHO preferred), or
+include <linux/device-id/of.h> directly.
+
+The same applies to two more patches in this series.
 
 Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Uwe
 
+--dohx7bkeczkqrdqr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqedI8ACgkQj4D7WH0S
+/k4SQAf+JxaOkTt0KXEdMeiFgnBOg/VvLQ2tgwyYbYV25ymCW6f+E/Oz3WAI4IDD
+S5sDwYSMfEN2g+u3IdIzE3kZhVEAdkv+iyA6MExPzaVz9qaS/A5RwGIGRO8EtmbY
+OnW/GTowIQWQH8Fs2w7pe+ITRAhjl+9OOwdM2Y5h4x+EZD4CUz4apRozxIz62mu0
+rv5S6v/JdJiz/WNpikSdNzKKIKdq56RUI2KHXKfjqnvCkAHwAVnPfgCH+HNcpJSX
+wljKv3FOemKlAJV4uNgIjZs2QqmcGZbZ0acdyNWZ++YujYR8wLjOkQ0loi8lNg/x
+i6GGu8ylq1Jcpp7HF98D268WTb+1Fg==
+=jV7I
+-----END PGP SIGNATURE-----
+
+--dohx7bkeczkqrdqr--
 
