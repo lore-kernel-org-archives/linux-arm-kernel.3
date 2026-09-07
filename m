@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B16C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E52C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ze692xwI5jsqaKUMaqkOILgz7h+mY9HSH9sWUthU9v4=; b=Troh6JzHVHN7vNjXKQRXm5Xuhw
-	vPVceenJZ+oZRVKSsONsfm/pmQOP9tPbkt8s89Zd8ao7ozdlnJyHOSmfxgzstkbzBD/srYS9Oc9sd
-	HtrEv/rhxlNVrRRPRmOkz8vPLoeSlgkz47Q314Bl13oGYTBHlOyPuvI099yE0lTt9KsMQW/Ehj8pM
-	DX4yRjHouXnutcgjhA28g36wpUl3gd3+6dB8eZRcLl4UK1CsTgkjVjRgocyiGVafb+BX+COgKu6dz
-	D88raZvCtGr/272LVjySni4hvmO8/oVUc6Pj3/M9IX/5oEtq+8PQI7/k+gGFWWcpOb/FV3HmHUazW
-	ILvOW5YQ==;
+	bh=3wiaJ1NmJWhdrraZpEMlSTMQ/v3zrFTCeXquYFCuY5U=; b=abgBW8Sh11arsmmRRmgVhrbZQC
+	xQCLV0xpkJDwtyhQez1b7YgXicaZvoty7/UJwsoBM78Xl2VAnjW/8yoHV/g2OESkIkZlVrIaBQ2Rg
+	FADMtnULAiNVv933XZ4eVdLt/oZGaLD32GzlD4axJ2X6UvQq+E5pG+tuyuRdA7j6JqE1PLIcfUNum
+	KMCvnBp2fArc2fdD1bKIkG9pmgaJ6aiAZ9x/Ucv5H2bL3ZC//c8Ku7R3SRTN3pZC/DqBreBt9jIkR
+	KflFfWTl/gH2RrzS3w5mG7lit/mK1KgBTwlF74+oB60HBv0coCp5ErP5A+fYMZ14ECKj/QIWg34pA
+	dlIYJtMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZMu-00000006vhL-1gPk;
-	Mon, 07 Sep 2026 13:26:40 +0000
+	id 1x3ZMw-00000006vin-2RSS;
+	Mon, 07 Sep 2026 13:26:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZMs-00000006vfI-0BhX
+	id 1x3ZMt-00000006vgp-3TSA
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 13:26:38 +0000
+	Mon, 07 Sep 2026 13:26:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Ze692xwI5jsqaKUMaqkOILgz7h+mY9HSH9sWUthU9v4=; b=nFQFszQr9uoAHltga+xc4BLNd9
-	ao4cZVpt8C1JftVGZJdcZfvPMfHL6Bowuf/2IMtrr1f9GgxrdAbAszedyCqdD0kvM2DuBBV/Tsmbd
-	+126KODh2++1yCgmUI2YHYxROtD1ntJJqIAIjGVP/kr6USlLSKjf3Ddrvm8UpxKwQ5Bvv1zS8C1sY
-	GHD8kcuIHaQC9v7dtIN8wezh8gkWgVAWnNIAH62gPv0OddHyabmFwXVqs/rw6kJ5LJn4lKN4E4jtG
-	h6Uv6KrlIEJwiJ5Ub6DHNcGapzOMmXrW2LJPVgF+Gyb/+fTXdaGq3FlhXMiktXNHW6LQgG3Rt8jwI
-	gG6oPaHg==;
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	bh=3wiaJ1NmJWhdrraZpEMlSTMQ/v3zrFTCeXquYFCuY5U=; b=rDE19QCKN2cPWMf8Cq+g1v0wvv
+	5anpK1KEGHsXTsvUixgef7i/L6s+5Alnbx2TKirnep/E0wmqEgiuxG4dm2bcii/Un4/3/AsZcaqsU
+	LxTMPDPRCKWuCAIgior5mxw25BPKjbfBOWAct4MTScF9E2DgQeMGyVm4ZDEzpZvv7+qnhWLh3lDqS
+	9QkuPzQ7Xjr9uT1fJOn5wv1NEjf5a4q4a5Qfs+wmv/YcjvfN95C2kcWOyj1xp9k8XX2ycQ3ryEqH4
+	IUBU5RSgcxUHqjxJ0CZCiKIgiCoZD56autjqRLxrZEpZjp7qNC5gSzMT/mfrM4qayULvEQS0z83k5
+	Dqid/Npw==;
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3ZMo-0000000GHAp-3QGD
+	id 1x3ZMp-0000000GHB6-3wxf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:26:36 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c1677c91969so343482766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:26:33 -0700 (PDT)
+	Mon, 07 Sep 2026 13:26:38 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c2533d83e3bso593470966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:26:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1788787592; x=1789392392; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1788787594; x=1789392394; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Ze692xwI5jsqaKUMaqkOILgz7h+mY9HSH9sWUthU9v4=;
-        b=vfzZ8dkLe1yRrVSjDMRJ54RfgssdALwLxaBkM10I73EClO/bQdeTvNg/+Ud7bSjW+k
-         ceDj4ggpzJVSr7CEf/rJuom0kaCKCA4WV4KMypVE2VU5Ux8EZy4ilj3zTQncfVOmWczr
-         lALyuO46V0LrUOlvCwNsvaI1hal2nY7PyFyt9FrqZk9dBlOSwhIgiUlPptQoVY9lFECo
-         nzHGllYdgq95HM+8jFIWnajRyJHG8FXmFVuj3Zct5OOExirSwP58eQ0U8I5MZOTc55j2
-         uBpXCj85r+fmEkJWFoK9hY32nL5wex95kSyoECawui8/atCYcKFWEgKIfBTj157zITie
-         RhVg==
+        bh=3wiaJ1NmJWhdrraZpEMlSTMQ/v3zrFTCeXquYFCuY5U=;
+        b=U8cFEI/dzDS1fvt3r1RpFWxkWXjFDdX406iO3+UhvfnvhE7I+RkZKJscb3cikoE6VF
+         OvD3m8FME2f7Tqp17vto/EkLjl7d+e5NT3g2d6KjKlugMmpSHAT0DNmaaC1rVE642Q4k
+         R+ozU8TYOTWQ4O2HATTiAHOhPwRXQo38L/eDcR4mEVnEoIACzcGU7l/SXALYXtsgD66S
+         TVtjR8F0Xzyi0dD6///u1gXpxyAsLGcddy1l7kATWzsvFFUttxkYlO/g3iwMryuFzpwx
+         D5zLlO0H4bdzaETW+JUVhCKd06dYTQepZe/j7zZESQkKiswX11wJ1Rz+VKu1MWoTDi1h
+         SZPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788787592; x=1789392392;
+        d=1e100.net; s=20251104; t=1788787594; x=1789392394;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ze692xwI5jsqaKUMaqkOILgz7h+mY9HSH9sWUthU9v4=;
-        b=Texw+H3boWJ+y3ST8CHVThFnwfS2gafb5y8uinUwJAnWKGG6WyQaWrCv6cnc+CN3ti
-         Gc53DAFgLxFKqW5jw1BhMdwsZsTZP/zgzomTEV7L4irZApkYnzEHH4FG2oyDBkgwK9Wl
-         qbctWTV+HaPM+JgDTggHuohi58cAVxXRG4ybO4KDJUOPnH39JuBgZpxlRYfaD2cq/lUo
-         FlK3yynq+JNsB2bXHo11+IHJHCAkLXMlIG9/CNhy03rTpgPsrZQMKGOj/0W8ZbmPJCL+
-         2Ao0Krqh9je+GawVANaK+BQ/BxShP5WnN3E5XY74sHbMnnfR/bqhbkkhXznOdfI4Dsyf
-         /dyQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzS9vy05iU3fat9TV7zeT1qXlvQQ3UmxeoOR6HkwkOdoquG68w1wU7Mr/D+bJQjIq5DyfQpCSzh1TCgwn97DqiJ@lists.infradead.org
-X-Gm-Message-State: AFuF++l2nFRj34KYt5lS2l1UIz8oyw+WzTCIrIVvavzuEj/iqebT0oty
-	13bIG8KFbVYi8uPj5jwhdCiGAMFpZazWaicvpSW7POmWL7JCcmueyvfb9N0/44rQqQY=
-X-Gm-Gg: AYBFou1thG6fe7KFPFf+jKbSgYj3QV4ZFHrTG2Sm/MIpALfJwLw5sGWKrMWycxxKRtL
-	HWgUusrOcCXuapoN5whdj2qbHWuoHHUeTpbDxqtbfXN1shXcetYxCtR2oFbXOuLXuYTDNOl1DtC
-	AxR6C45B25Yp4Kdo2+K12YIeYem4egfj06KW/u2Vzcki7kNXDuOXfmOyfk/3v+RJY8P78OzxcL0
-	E/C+uCgFLgDhFQ4kxONQfRfOXcooYdcvhud1jFpDI/P1EL+Lo36fdhDjQg6xTrNGumVR31rvlmO
-	U7volX2W3Y/J+YLFnhxpZctPPqaN2xoUBAJM6pYimzSbnhPoi+8jtp4xgbiRcyPKPBhR4ol+ZVn
-	zag7dbMhxmTI4Vrn5Ce6nzxU5TJv8w14thSQfnHvMTgfMCoeDu3HtJsvzgWhBF0UdWqSw8+I3nd
-	FnJrkn/o/FNvP6UIV08PUX4S7qt154Q25wOEoYZkZnmTb3WOGGNis1Brq5+2fhmW6RoWJVvglfN
-	SpYaXHlHSCsvnfaF5B9hO8LtxVwwXShd8crHnCaGovygAsKVMj6WXqUDd4IvX32mwUbTcuWnhc5
-	FaDThw4szcye/Cag2liax4MRYRQ1F8KOaUDrIw==
-X-Received: by 2002:a17:907:3eaa:b0:c26:37fb:3461 with SMTP id a640c23a62f3a-c2637fb36b0mr464023066b.46.1788787592611;
-        Mon, 07 Sep 2026 06:26:32 -0700 (PDT)
+        bh=3wiaJ1NmJWhdrraZpEMlSTMQ/v3zrFTCeXquYFCuY5U=;
+        b=s9D0lLgadKpBN0f/oX0bqxy36UUc8vl7DsgCqBcix7ZGWZbZIJA1arjMGY2cCnweUL
+         VziBRK7ZELFNf4eNAuP+DTPvprkKuTUWtTwiVgOv6jrYPK9lbIfM9Y9oj5ef/v1BXUcH
+         y+sZ3ADVKRsrZgHjw93w4OIf8k4C6kuvZgvwSj+z76g0WIOtqCv23lYfZcvwiG6XUgdT
+         Z/HgHa4Zy7SFuukiPkaixpF8Rr1PUX/5dUgm/sQWW3TFUWeKmGZtvHccgS0a9BzPKnBA
+         dys/MqQSpjPRKcTSvTkGU4BjGiW1fMqy+LWy/ZGpnRrDG1VDLjJJ8XS+o5UXFhZpmatw
+         NPTQ==
+X-Forwarded-Encrypted: i=1; AKwUvByDqyUBz621CsSdcnbnc30udhiOkTs+Ad8rwtcTFMqoTnqpnCL5L3Qufx3agg0cgiPDerfPHA22KLHcSYgDfPio@lists.infradead.org
+X-Gm-Message-State: AFuF++ngXSF0Wku6wQByb6SaxOFurp5Z8O+noW/PgI/kFOiXU8qib9Ho
+	Nt6HYVkNeWD3ZaLMlNu38c9hQWgqkxQ0sI1936uN4RrdOh/fjXvA876/pAH00SMnIAQ=
+X-Gm-Gg: AYBFou1rMJ2gTbg17E1zILhFNcXeFcTumgW2nb+42xHiSwJja/IM9Mi510ueFQbg8Ey
+	bqtxbjpk7HuLYITIUdcLcyFfbD4uqQ9dcULm+4CcNkag9m1Fu72Z4KoGuNDYHCHsBrKONiGrKsM
+	fImxHUN6F0PBZ5QfFEC5spiF6f1NYcE/ZvEbdIhlZUKI2UGfVFv/DjP9BoAbw3oFyn9Z/oIaMjh
+	m3bUtWJWeEVHdRQRrK4XSLGuB1hWhQGh0j/QXxK/HKoMaUB87+w4nQYD006Br+1FZyEpZtnysA9
+	XKa0goS2KgGYDpUdGpewgJ8fOYiWlLKNeNqJLAuNWuDItzk02DdZqmZ32g7Y6Na4x2YXzPk95O6
+	/8A78SkUEXi6l3c7a+iJr3FSSvdt1CB5DPVwaeZpCoeVJ8s1p/fbvhpSM5D08geEjVZC9ESyRdq
+	D5N1+zkdaNhIH7bx0o28hpe4UZtvh3rVgErHTBxbPFtEyjqfua9auWejXadjGwDS3zC++RCd5Jo
+	N7gDsUmI40xcL6QXKsWZIQKfsf2tIHSXRx19ushkVYuHNDCB2MXtgK6KfFVqxy0EJA47u/490MT
+	VMDaYRYe40/Ox01WTczbVWPIEImV91+L+pQUrZdPKzvGGcr9
+X-Received: by 2002:a17:907:d87:b0:c25:504a:1e25 with SMTP id a640c23a62f3a-c260cbd2d02mr1532301766b.13.1788787594351;
+        Mon, 07 Sep 2026 06:26:34 -0700 (PDT)
 Received: from threadripper-fedora-workstation (cpe-94-253-164-142.zg.cable.xnet.hr. [94.253.164.142])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2622a7c677sm366362766b.9.2026.09.07.06.26.30
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2622a7c677sm366362766b.9.2026.09.07.06.26.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 06:26:31 -0700 (PDT)
+        Mon, 07 Sep 2026 06:26:33 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: ulfh@kernel.org,
 	robh@kernel.org,
@@ -103,17 +103,17 @@ To: ulfh@kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v2 2/6] mmc: sdhci-of-at91: add option to keep clocks enabled
-Date: Mon,  7 Sep 2026 15:25:30 +0200
-Message-ID: <20260907132617.1198548-3-robert.marko@sartura.hr>
+Subject: [PATCH v2 3/6] mmc: sdhci-of-at91: add LAN969x support
+Date: Mon,  7 Sep 2026 15:25:31 +0200
+Message-ID: <20260907132617.1198548-4-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260907132617.1198548-1-robert.marko@sartura.hr>
 References: <20260907132617.1198548-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_142635_152935_56F637AC 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260907_142636_074097_0A71958F 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,116 +128,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sdhci_at91_set_clks_presets() both enables the controller clocks and
-programs its capabilities and preset registers. This prevents callers from
-restoring the registers without changing the clock enable counts.
+LAN969x uses the same internally generated base clock layout as SAM9X60,
+but its SDMMC controller stops responding when runtime PM gates its clocks.
+Software resets then fail to complete and the internal SDHCI clock never
+stabilises, causing subsequent I/O requests to time out.
 
-Move clock enablement to callers and add a SoC data flag for controllers
-that must keep their clocks enabled. Use it in the runtime PM paths while
-keeping register restoration separate from clock enablement.
+Add LAN969x-specific SoC data using the SAM9X60 clock layout and select the
+option to leave its clocks enabled across runtime suspend.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 
- drivers/mmc/host/sdhci-of-at91.c | 39 +++++++++++++++++++-------------
- 1 file changed, 23 insertions(+), 16 deletions(-)
+ drivers/mmc/host/sdhci-of-at91.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
-index 7c4ac65f247d..b7e2a89da348 100644
+index b7e2a89da348..e7affca8da25 100644
 --- a/drivers/mmc/host/sdhci-of-at91.c
 +++ b/drivers/mmc/host/sdhci-of-at91.c
-@@ -38,6 +38,7 @@
- struct sdhci_at91_soc_data {
- 	const struct sdhci_pltfm_data *pdata;
- 	bool baseclk_is_generated_internally;
-+	bool keep_clks_on;
- 	unsigned int divider_for_baseclk;
+@@ -158,9 +158,17 @@ static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
+ 	.divider_for_baseclk = 2,
  };
  
-@@ -164,7 +165,7 @@ static const struct of_device_id sdhci_at91_dt_match[] = {
++static const struct sdhci_at91_soc_data soc_data_lan969x = {
++	.pdata = &sdhci_sama5d2_pdata,
++	.baseclk_is_generated_internally = true,
++	.keep_clks_on = true,
++	.divider_for_baseclk = 2,
++};
++
+ static const struct of_device_id sdhci_at91_dt_match[] = {
+ 	{ .compatible = "atmel,sama5d2-sdhci", .data = &soc_data_sama5d2 },
+ 	{ .compatible = "microchip,sam9x60-sdhci", .data = &soc_data_sam9x60 },
++	{ .compatible = "microchip,lan9691-sdhci", .data = &soc_data_lan969x },
+ 	{}
  };
  MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
- 
--static int sdhci_at91_set_clks_presets(struct device *dev)
-+static void sdhci_at91_set_clks_presets(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -174,7 +175,6 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
- 	unsigned int			gck_rate, clk_base_rate;
- 	unsigned int			preset_div;
- 
--	clk_prepare_enable(priv->hclock);
- 	caps0 = readl(host->ioaddr + SDHCI_CAPABILITIES);
- 	caps1 = readl(host->ioaddr + SDHCI_CAPABILITIES_1);
- 
-@@ -222,11 +222,6 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
- 	preset_div = DIV_ROUND_UP(gck_rate, 50000000) - 1;
- 	writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
- 	       host->ioaddr + SDHCI_PRESET_FOR_DDR50);
--
--	clk_prepare_enable(priv->mainck);
--	clk_prepare_enable(priv->gck);
--
--	return 0;
- }
- 
- static int sdhci_at91_suspend(struct device *dev)
-@@ -254,9 +249,11 @@ static int sdhci_at91_runtime_suspend(struct device *dev)
- 	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
- 		mmc_retune_needed(host->mmc);
- 
--	clk_disable_unprepare(priv->gck);
--	clk_disable_unprepare(priv->hclock);
--	clk_disable_unprepare(priv->mainck);
-+	if (!priv->soc_data->keep_clks_on) {
-+		clk_disable_unprepare(priv->gck);
-+		clk_disable_unprepare(priv->hclock);
-+		clk_disable_unprepare(priv->mainck);
-+	}
- 
- 	return 0;
- }
-@@ -269,14 +266,23 @@ static int sdhci_at91_runtime_resume(struct device *dev)
- 	int ret;
- 
- 	if (priv->restore_needed) {
--		ret = sdhci_at91_set_clks_presets(dev);
--		if (ret)
--			return ret;
-+		if (!priv->soc_data->keep_clks_on)
-+			clk_prepare_enable(priv->hclock);
-+
-+		sdhci_at91_set_clks_presets(dev);
-+
-+		if (!priv->soc_data->keep_clks_on) {
-+			clk_prepare_enable(priv->mainck);
-+			clk_prepare_enable(priv->gck);
-+		}
- 
- 		priv->restore_needed = false;
- 		goto out;
- 	}
- 
-+	if (priv->soc_data->keep_clks_on)
-+		goto out;
-+
- 	ret = clk_prepare_enable(priv->mainck);
- 	if (ret) {
- 		dev_err(dev, "can't enable mainck\n");
-@@ -344,9 +350,10 @@ static int sdhci_at91_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
- 				     "failed to get multclk\n");
- 
--	ret = sdhci_at91_set_clks_presets(&pdev->dev);
--	if (ret)
--		return ret;
-+	clk_prepare_enable(priv->hclock);
-+	sdhci_at91_set_clks_presets(&pdev->dev);
-+	clk_prepare_enable(priv->mainck);
-+	clk_prepare_enable(priv->gck);
- 
- 	priv->restore_needed = false;
- 
 -- 
 2.55.0
 
