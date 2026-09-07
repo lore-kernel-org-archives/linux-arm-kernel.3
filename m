@@ -4,150 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C8CC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C70DC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C8wmw8b3Bm/wun5cSxqODNHcPjpz3JjNO33Mag0HZBE=; b=uZG+meCVpPmf9ChAYhSzrmtaAV
-	vxsYTrZL9VasK15d8r7Awa06UBneg0lzRjwCPI7yMtkw1ddbZlbR25r9IUROtsFBxlRZXMwMGsZSs
-	w4H91GYbVMSs+oxOaBOdM3WuaKiE1Czmi5A/UOfgMSdyMlSIEfQfLbh9kARjfk6R8KoSIho93W3kr
-	trP9l0q+TaQcTfDlV89za3jPwKN1hxpX8oPGAExQnSoeM4bRpx8mr6hAygh5DWwp+baVlsG1ovXen
-	FWvU3I+SBael5tPZq5XrD+H4KUEgVptgb+sKHnz9rFssb5rYFZ3zPGawjrL4kekLuNGJ9ycqrgcXO
-	KH1UEuyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Apw2iUirqek8VKGufyLgdLjs5Rfxgc8/vl6/NyrKW8k=; b=fJenbqCsNKt7e7WQ6N5/qSq1ll
+	HFl8EOza04fml/zceH9bhkL3xT6Azlj2rWb99zei2uGe3bf+XSkNy6JAEwm9wddHGXK8n2tjXo/W1
+	kO1cN24JvPnG3K6CZ9pRS3Nsv4Mt0vZ6AIC9fsV8SmBCo2LNBf0VLOpebfoy+Fcha/04hBhsDLev6
+	ccwUiEYXV+3lF2pEK6jkZUNlOs0ZAnxGHJcWfPIp4sJ4NaWlI4b8HWNK0F/KX/tKYqhy8uyo300r0
+	hrE93xz+VqTlSn1SRHe0Oh/uRGulg6KMLJGxW9W25JY9HtlQ4y5lVq/TDYgpN6hF7KBofTgS06Sa8
+	zELE4OXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SSJ-00000005zAI-3TZQ;
-	Mon, 07 Sep 2026 06:03:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x3STU-00000005zK0-01gT;
+	Mon, 07 Sep 2026 06:05:00 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SSG-00000005z8l-0IYv
+	id 1x3STO-00000005zHu-2u5M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 06:03:45 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6873l2AK1699689
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 7 Sep 2026 06:03:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=C8wmw8b3Bm/wun5cSxqODN
-	HcPjpz3JjNO33Mag0HZBE=; b=URri57Y1JmGNjsB1h3r/99n3cw1gW4FWqWFBUc
-	E3Y0rgHwZwO54fmYstEb1RPOuai6eiuAr1sE73wE5IgbKcn0ege0LTbWcycc2Vdr
-	xzBhou5XgaiM6jiwHmXuaMGz3zvQB2IL7MQzWicc6lY9AZT2aJ0818xKvoLWB62i
-	gFrh56ykPs8m15VBEqq92GWeaRZkh4owMpiXawvKose6/jv0vePhooavIPabukso
-	lAMOHAxzlvxd2SsQ1dkvLLQJoL8L0s2PtaaloetDclxmRFgCt66hIdtcOWkYHZD9
-	PZyuObY2w7vUOtdF57lf8pGosVafkT7mFhP2sOInL9K+EjHA==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ggc8jd5wg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:03:43 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso3937759a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:03:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788761022; x=1789365822; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=C8wmw8b3Bm/wun5cSxqODNHcPjpz3JjNO33Mag0HZBE=;
-        b=AhN7Ojb4NLKt4+Zik5tjM5aa7sm7XgXqoib9J0vkFNZIi4sYdXi9Pudl0FfT1rg4CS
-         7r9tjMN91/UAJ+CXUVnDo05JMdtvh0mBZuBPWx2n5JhFTZKGeS66g6EUNp9exYwmCw9u
-         ghSErHAel8AVZK8J1zP4wZ3pbizJe+cXTqG0bH2/5zB2qtakxKLimw+FGuq1BSavQWn4
-         2OyTzRgsYQEPmus8RRRbkpMQ00w6cWGEP5IrMMavmTBjsmt0BNIr+US6hlcJgCO5yTA1
-         f8A1FxO8dzhQ3Psd9mpKfeMnOsSUCrLo+J3D3Vw42JODFm8uSjFun2kdX+8d1k9TvzF4
-         cTZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788761022; x=1789365822;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=C8wmw8b3Bm/wun5cSxqODNHcPjpz3JjNO33Mag0HZBE=;
-        b=AE8hkyDEvwPffAWtIHfPzbTD0ttf2cH7HQsHLtctZXePJeVjxpws6rMTA9x1Eo8xMM
-         UonRPK3YnRFXfobiEQChR7NJffQjsfO9TJk8sJbquOqSBIBAZmIrgLZOkQBNQ6BVSsqW
-         Wj2OQFgn2sbAnuupuTlwSPumqtvO4Qr7FhGzeppZGKErDtQjjbYKnVbx4/qDv3AB72QI
-         jqca0DRubDfbQ5mSyft27rg7ab2ZOA1IUvSMbyLsaC9O5iPvqr6GE6VmB+HFrNTdWNRD
-         5d+zeU8FY+lnteHYmcw65NuZxZX35pn1IsgKP0WPLT1v8yWbJc3wUCWkkRV9/WKpiEUx
-         uEQQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzRd5x0wtYqTO+l9RzrGsw2OjzDZ281H1/R7dztWtC13Rau4uJAVzK3yEIFzTXak9UqyNCHTQ8BHR1NIOLMDaQ1@lists.infradead.org
-X-Gm-Message-State: AFuF++nItu/BbmOc7EQWB1LMjNV4BRJW/oJbOr3XHeErB9KnvmiTduxt
-	pv2sEP5qThflxjVfwtR/JBvuM0gQP5h1g/EsmSNt+nczFSShI5RebjCW54DjKyLZ73O0pO6M8h9
-	UFAodP6SPigzvJN0y0RjmeOOqF6e9Ia4TWfPPQ6UZ7jA9LSGQxQmszXHYrYr+GSufFdzNs5PmJ+
-	qzHg==
-X-Gm-Gg: AYBFou0G+Icbg85sCk7y3voRHgzIJ1M1dZ8mY/upTJnOK20F7XK9hLlM0K1EKAJnbti
-	TNwuJm8JOqbaYd3esqmzZjaPUrEdsvK7A/nM7o3g46OuzsTEHUVj3NklT1gSt68aL84Osu7oY7I
-	ApljHE+qLw+mM2TjlNdGTuSImLBm+Lequg35z5Vtfc9nxGouxBpjKIX4/QefCPExvOTi2IHk0GL
-	0O4F8wLWaZKmazsLIwnzZzR1gIbsTbjlmBs/1fz0IOjrRrC8NBIpAcc7KBEJpMVOx4bNAuxXE2l
-	fa+GepN4Qke/hoDf3i7WGXMrrHJRSgmKiopp5wy0QFZhIyvGx9zxhZZ7EMo5hErB837ZX+u4XXg
-	Bm7BKsaN6n/OfunupN9VIc/R2N1/ZScAjGPnERk2hjYGQ7ht7FnwFAejXqeCknRo=
-X-Received: by 2002:a17:90b:4d85:b0:37d:f206:a2ac with SMTP id 98e67ed59e1d1-39b2617abf0mr32355063a91.7.1788761022120;
-        Sun, 06 Sep 2026 23:03:42 -0700 (PDT)
-X-Received: by 2002:a17:90b:4d85:b0:37d:f206:a2ac with SMTP id 98e67ed59e1d1-39b2617abf0mr32355000a91.7.1788761021530;
-        Sun, 06 Sep 2026 23:03:41 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm18750743a91.9.2026.09.06.23.03.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 23:03:40 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 07 Sep 2026 14:03:27 +0800
-Subject: [PATCH] coresight: Fix clock refcount imbalance on platform probe
- failure
+	Mon, 07 Sep 2026 06:04:58 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260907060445epoutp02700acff3a588a10c21031fccdcd9b0e2~S9LrXJiXm2150521505epoutp02a
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 06:04:45 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260907060445epoutp02700acff3a588a10c21031fccdcd9b0e2~S9LrXJiXm2150521505epoutp02a
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1788761085;
+	bh=Apw2iUirqek8VKGufyLgdLjs5Rfxgc8/vl6/NyrKW8k=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=slcRk5m+WGQ1SjbuuoGM/zupLNokbYmmpTiZPQm2hBMLwBwpJquqgA75gVj2kx5ZW
+	 qItUWlQ3NBdlpuha6fRDXLcS8npdspRdWWEJffIYY3vEAEKgK5GEG+PxQb/o/JTUWz
+	 7M6tfDOsVP0F/W1L01kCkHwkO/ot09Pv1oqCFH28=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260907060444epcas5p28eb4578f521d4d2b9e0694c18df3def2~S9LqPUohf2359923599epcas5p2F;
+	Mon,  7 Sep 2026 06:04:44 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.95]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4hdc3b0q6yz6B9m7; Mon,  7 Sep
+	2026 06:04:43 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20260907060442epcas5p309df4da89d1a3040ddcec14195fc2b3b~S9Lo4EmvD1977119771epcas5p3s;
+	Mon,  7 Sep 2026 06:04:42 +0000 (GMT)
+Received: from [107.122.5.126] (unknown [107.122.5.126]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260907060440epsmtip21f4fd38dcbbe0387455b812404e9bd80~S9LmbZNx51077310773epsmtip2O;
+	Mon,  7 Sep 2026 06:04:39 +0000 (GMT)
+Message-ID: <e4bafeea-4548-41ef-b5e2-98ade2864e74@samsung.com>
+Date: Mon, 7 Sep 2026 11:34:38 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
+To: Krzysztof Kozlowski <krzk@kernel.org>, peter.griffin@linaro.org,
+	alim.akhtar@samsung.com, gregkh@linuxfoundation.org, robh@kernel.org,
+	conor+dt@kernel.org, Thinh.Nguyen@synopsys.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
+	hongpooh.kim@samsung.com, eomji.oh@samsung.com, shijie.cai@samsung.com,
+	muhammed.ali@samsung.com, thiagu.r@samsung.com
+Content-Language: en-US
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+In-Reply-To: <ad1d8c01-a810-443a-9ad5-721d6d0b68b1@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260907060442epcas5p309df4da89d1a3040ddcec14195fc2b3b
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260907-fix-clk-issue-v1-1-efe81fa2b697@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAK9TnmoC/x2M2wpAQBBAf0XzbGovlvgVedAaTLS0E6nNv9s8n
- jrnJBCKTAJdkSDSzcJHyKDLAvw6hoWQp8xglKlVqxqc+UG/b8giF6HTVFnvrDVOQW7OSFn4f/3
- wvh+opaHHXwAAAA==
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Yeoreum Yun <yeoreum.yun@arm.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788761017; l=9099;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=qJqU34m8Z4NoF6i/4qh5n6yxeIUMc8E/efYlRGRjlII=;
- b=nsqeBI4mqI4x+pTl8w6VRmGIzthWLP9IGiRZoW6Ssch4DmVCU66VGR8tpMCrWuYVCnsFt13EP
- GIybSToGghHCDVQKUe7sM7TiShKKcQS5Az/IWIRMcc0WUmq5YnML++9
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-GUID: UJGl2182eGwMoytd5o29hkbQLg3mQ_WB
-X-Proofpoint-ORIG-GUID: UJGl2182eGwMoytd5o29hkbQLg3mQ_WB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDA2MyBTYWx0ZWRfX6bD7mROzyO29
- xsVA/UXiIh1IgYzAW6JT5Ml1IRK+f/+WdF1SQqQZP/mo9s7KbXS/BqZyMOJYXwXrtKlCJ/eWRxf
- hKIA2MC1sypTBb2FehYp+JU7lvVuCC94JvWQUl/eWdo2RihDxBwSUt7zgZlP4sxeWKGE9sg8Swb
- MV8LxSC85zSdut1CbAF2N2ZoxemL8U903IYmqyphK6XtGuEpiNuRLpM9LQL0aCR7B5k4axEEr+H
- gtLKox1WYjSruUnyWGZuHetm6KppTzhPc+9aAaRPaHEkZBNPXvxrvKx4WMog32DJf6Hr/hZq2fs
- YIJFROWCXgB143XJO1D9Rsdz04GsgiDFgaKMHKupSoYtmzRfJquOF5BkvFwn6koLnYSYvhI9rEN
- AUUwcPTID5hkv3Um6t0GTMDR6hZScLUpnI8EgP8B5nfjmVU2/aevkD637avLSdah3aEn39kWjRK
- 3MxEJ9gxsqpTYZTGBuw==
-X-Authority-Analysis: v=2.4 cv=DYgnbPtW c=1 sm=1 tr=0 ts=6a9e53bf cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=3lXbaw0bqDP-cecxZ04A:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDA2MyBTYWx0ZWRfX/E4DGZNMusev
- npmUOhg4vtACEI9W+P3Ms2exC0RQu8MdN3W0nmfHh12IMDf6Ufj43hGfYJ/0v+4sLwXxzT44N1z
- /2MqoSseazadWUs3s/o3vVW8OwZIeCI=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-07_01,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
- adultscore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609070063
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260903071318epcas5p4b804edb84554847c576d1d034b814d7a
+References: <20260903071250.3421499-1-selvarasu.g@samsung.com>
+	<CGME20260903071318epcas5p4b804edb84554847c576d1d034b814d7a@epcas5p4.samsung.com>
+	<20260903071250.3421499-3-selvarasu.g@samsung.com>
+	<ad1d8c01-a810-443a-9ad5-721d6d0b68b1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_230344_145080_81189E4C 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20260906_230455_356700_133BBF2A 
+X-CRM114-Status: GOOD (  28.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,263 +99,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each CoreSight platform_driver's probe() enables its clocks via
-coresight_get_enable_clocks() -> devm_clk_get_optional_enabled(), which
-registers a devm cleanup to run clk_disable_unprepare() on driver
-detach. The probe wrapper then unconditionally calls pm_runtime_put()
-regardless of whether the inner probe succeeded, so on failure this
-also fires runtime_suspend() and disables the same clocks a first
-time. The driver core then unwinds the failed probe and runs the devm
-cleanup, disabling them a second time and underflowing the refcount:
 
-  coresight-etm4x etm0: probe with driver coresight-etm4x failed with error -22
-  ------------[ cut here ]------------
-  qdss_clk already disabled
-  WARNING: CPU: 1 PID: 432 at drivers/clk/clk.c:1188 clk_core_disable+0x1d0/0x218
-  ...
-  ------------[ cut here ]------------
-  Unpreparing enabled qdss_clk
-  WARNING: CPU: 0 PID: 432 at drivers/clk/clk.c:1061 clk_core_unprepare+0x248/0x268
-  ...
+On 9/5/2026 12:52 PM, Krzysztof Kozlowski wrote:
+> On 03/09/2026 09:12, Selvarasu Ganesan wrote:
+>> The Samsung Exynos8855 USB glue is not separate from the Synopsys DWC3
+>> core, using a flattened model where the DWC3 controller is directly
+>> addressable rather than nested as a child node of a glue layer.
+>>
+>> Describe the Exynos USB block as a single node, referencing the split
+>> out Synopsys DWC3 core properties via snps,dwc3-common.yaml. The new
+>> binding follows the same approach as qcom,snps-dwc3.
+>>
+>> A generic fallback compatible "samsung,snps-dwc3" is introduced to
+>> describe this binding, selected by the validator based on the presence
+>> of the fallback string in the compatible list. Future Exynos SoCs
+> This is AI slop text. Over longish useless sentence describing diff
+> without actual information WHY.
+>
+> Don't send AI generated slop messages.
 
-qdss_clk is shared by every CoreSight node, so the extra disable drives
-its refcount to 0 while sibling devices still expect it enabled. The
-next funnel to probe then touches unclocked hardware and panics:
+Sorry for the misleading info on this commit message. We were trying to 
+explain why a separate flattened representation is being introduced with 
+using generic fallback string, and follow the style of some other DWC3 
+flattened refactors (like the Qualcomm : 
+https://lore.kernel.org/all/20250414-dwc3-refactor-v7-2-f015b358722d@oss.qualcomm.com) 
+to justify the separate binding, but it became too long. We'll simplify 
+it and keep only the technical reasoning.
 
-  SError Interrupt on CPU1, code 0x00000000be000000 -- SError
-  Kernel panic - not syncing: Asynchronous SError Interrupt
-  ...
-   coresight_clear_self_claim_tag+0x7c/0x1e0 [coresight] (P)
-   funnel_probe+0x114/0x2e0 [coresight_funnel]
-   dynamic_funnel_probe+0x24/0x70 [coresight_funnel]
 
-Use pm_runtime_put_noidle() instead of pm_runtime_put() on the failure
-path so it drops the usage count without invoking runtime_suspend(),
-leaving the devm cleanup as the sole disabler.
+>
+>> utilizing the same flattened model can be added by extending the
+>> compatible enum with per SoC clock and property constraints.
+>>
+>> Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
+>> Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
+>> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+>> ---
+>>
+>> Krzysztof Kozlowski is added as a maintainer of this YAML binding, as
+>> he is the ARM/Samsung SoC architecture maintainer (ARM/SAMSUNG S3C,
+>> S5P AND EXYNOS ARM ARCHITECTURES) who already maintains Samsung Exynos
+>> DT bindings (e.g. samsung,exynos-dwc3.yaml) and reviews all
+>> Samsung related binding changes. This follows the same convention used
+>> by existing Samsung Exynos DT binding schemas.
+>> ---
+>>   .../bindings/usb/samsung,snps-dwc3.yaml       | 98 +++++++++++++++++++
+>>   1 file changed, 98 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
+>> new file mode 100644
+>> index 000000000000..480308c16f37
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
+>> @@ -0,0 +1,98 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: https://protect2.fireeye.com/v1/url?k=1a7dfa9a-7bf6efdd-1a7c71d5-000babff99aa-643f51fc0561c489&q=1&e=c6c89336-1f3a-4d30-a005-615c2b8d9c6f&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fsamsung%2Csnps-dwc3.yaml%23
+>> +$schema: https://protect2.fireeye.com/v1/url?k=515f3c48-30d4290f-515eb707-000babff99aa-9a67f9f3980bd8f3&q=1&e=c6c89336-1f3a-4d30-a005-615c2b8d9c6f&u=http%3A%2F%2Fdevicetree.org%2Fmeta-schemas%2Fcore.yaml%23
+>> +
+>> +title: Samsung Exynos SoC DWC3 USB Controller
+>> +
+>> +maintainers:
+>> +  - Krzysztof Kozlowski <krzk@kernel.org>
+>> +  - Selvarasu Ganesan <selvarasu.g@samsung.com>
+>> +
+>> +description:
+>> +  Describes the DWC3 USB controller block implemented on Samsung Exynos SoCs.
+> Huh? Did you even look at existing bindings?
 
-Affects catu, ctcu, etm4x, funnel, replicator, stm, tmc, tpiu and tnoc,
-all of which share this probe skeleton.
 
-Fixes: 1abc1b212eff ("coresight: Appropriately disable programming clocks")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-catu.c       |  9 ++++++---
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |  9 ++++++---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 ++++++----
- drivers/hwtracing/coresight/coresight-funnel.c     |  9 ++++++---
- drivers/hwtracing/coresight/coresight-replicator.c |  9 ++++++---
- drivers/hwtracing/coresight/coresight-stm.c        |  9 ++++++---
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  9 ++++++---
- drivers/hwtracing/coresight/coresight-tnoc.c       |  9 ++++++---
- drivers/hwtracing/coresight/coresight-tpiu.c       |  9 ++++++---
- 9 files changed, 54 insertions(+), 28 deletions(-)
+Yes, We checked samsung,exynos-dwc3.yaml. Exynos8855 could use it, but 
+that binding uses a parent and child representation. This patch 
+introduces a flattened model where the USB vendor block and SNPS dwc3 
+block are in a single node. The goal is to use this for Exynos8855 and 
+eventually migrate the other samsung USB implementations from the old 
+parent and child model to this one. We'll make this clearer and shorter 
+in the commit message.
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index ad8dafea7d2f..9a59a1f9e7fd 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -632,11 +632,14 @@ static int catu_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = __catu_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void catu_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index 9043cad42f01..ab0232537523 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -251,11 +251,14 @@ static int ctcu_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = ctcu_probe(pdev);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void ctcu_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 2247ad55d444..ed102f6203be 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -2330,12 +2330,14 @@ static int etm4_probe_platform_dev(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = etm4_probe(&pdev->dev);
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
-+		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
- 	pm_runtime_put(&pdev->dev);
--	if (ret)
--		pm_runtime_disable(&pdev->dev);
--
--	return ret;
-+	return 0;
- }
- 
- static int etm4_probe_cpu(unsigned int cpu)
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 0abc11f0690c..d75f11fda72f 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -319,11 +319,14 @@ static int funnel_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = funnel_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void funnel_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 2f382de357ee..3fe5eb5a7a0c 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -298,11 +298,14 @@ static int replicator_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = replicator_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void replicator_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index 4e860519a73f..5de0adf1d33a 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -1011,11 +1011,14 @@ static int stm_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = __stm_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void stm_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index bc5a133ada3e..2481bae5c9f3 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -974,11 +974,14 @@ static int tmc_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = __tmc_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void tmc_platform_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index 9e8de4323d28..d06731c45a1a 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -288,11 +288,14 @@ static int itnoc_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = _tnoc_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void itnoc_remove(struct platform_device *pdev)
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index 7b029d2eb389..9ae94dc553d7 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -271,11 +271,14 @@ static int tpiu_platform_probe(struct platform_device *pdev)
- 	pm_runtime_enable(&pdev->dev);
- 
- 	ret = __tpiu_probe(&pdev->dev, res);
--	pm_runtime_put(&pdev->dev);
--	if (ret)
-+	if (ret) {
-+		pm_runtime_put_noidle(&pdev->dev);
- 		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	pm_runtime_put(&pdev->dev);
-+	return 0;
- }
- 
- static void tpiu_platform_remove(struct platform_device *pdev)
+>
+>> +
+>> +select:
+>> +  properties:
+>> +    compatible:
+>> +      contains:
+>> +        const: samsung,snps-dwc3
+>> +  required:
+>> +    - compatible
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +          - samsung,exynos8855-dwc3
+>> +      - const: samsung,snps-dwc3
+> There is no snps device from Samsung, neither DWC3. The name of device
+> is completely wrong. snps is a vendor, not a device.
+>
+> Anyway, don't use generic fallbacks.
+Understood. The fallback was intended to cover upcoming SoCs (8865, 
+9955, 9965) and the migration of older SoCs without adding a unique 
+string for every project, similar to the qcom,snps-dwc3 approach.
 
----
-base-commit: af5f12805e5cefa4fe68d6127c7e1fb78cd5535c
-change-id: 20260907-fix-clk-issue-51e43c533250
+We agree that the naming was incorrect since  "snps" is the vendor. We 
+can switch to per SoC compatible strings, but would a corrected fallback 
+name like samsung,exynos-dwc3-common or samsung,exynos-snps-dwc3 be 
+acceptable instead?
+>
+>
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    description: |
+>> +      Several clocks are used, depending on the variant. Typical ones are:
+>> +       - ref: Reference clock for SOF/ITP generation.
+>> +       - bus: Bus (APB) clock for register access.
+>> +    minItems: 1
+>> +    maxItems: 4
+>> +
+>> +  clock-names:
+>> +    minItems: 1
+>> +    maxItems: 4
+> You have only one device, why is this flexible?
 
-Best regards,
--- 
-Jie Gan <jie.gan@oss.qualcomm.com>
 
+Exynos8855 only needs two clocks, but maxItems: 4 was added to support 
+other samsung USB implementations that use up to four. Since we plan to 
+migrate those to the flattened representation later, we wanted the 
+binding to cover those requirements as well. Example required 4 clocks 
+for gs101-dwusb3 (ref: 
+Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml)
+
+
+>
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - interrupts
+>> +
+>> +allOf:
+>> +  - $ref: snps,dwc3-common.yaml#
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: samsung,exynos8855-dwc3
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +        clock-names:
+>> +          items:
+>> +            - const: ref
+>> +            - const: bus
+> Why do you need all this? Look at existing code, don't duplicate. And
+> for sure do not introduce one more DWC3 binding claiming to be for
+> Samsung devices and completely ignoring existing ones.
+
+
+We understand the concern about adding another binding. The goal is to 
+migrate all samsung USB implementations to this flattened model, and 
+then deprecate samsung,exynos-dwc3.yaml to avoid duplication.
+
+
+Thanks,
+Selva
+
+>
+> Best regards,
+> Krzysztof
 
