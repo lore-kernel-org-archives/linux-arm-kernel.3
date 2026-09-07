@@ -4,146 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27924C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EAEC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=; b=LrAOAWyXUfFNQVxbNbWeAd7czV
-	TErYGOsvOFRYGe/Rbza6D5wr9CNm2jE7pQA5l7Yrc9LiIkB7X7GGsRbU3bvH7XA6oc2LP3s8QSGEs
-	GA3z513Qxh4aJN5Gw6LsZ8gF844ij566QO/Qa0WxoWPxTpaCrAQlPEaLo5b8MuGrZ2xT6s7lgcxLO
-	b9rBzRjsjNFKLIxxYRiKnpQlfi+kx+/E2zrGC4CYK9bbbG+qLUbRWP9mckKMCtFjYQzksZOpC1KmB
-	TyuIEYe8MTI3xERYpOnEl3SoN1y1ZlT3Zhe/BYztgJsq4JRQ/wH1iguqgXMmmWWPjC2YsBK66galQ
-	0RRpq2Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ia7NSpCs0XqiU38qUXoue+Xd0beZubPFPBr422HoB3s=; b=DzrPfgUDzIU9oVklQskrw/k9Gr
+	xLBHegigOdqbvlBEGscFsZnpu5I77rY2vh4yBuPMQr2+I4cRa1QPOpN5YJRHOIgXjM/jwGcIl2tkK
+	Di5jeAS0uA4ifuz4vIIUQ7qSNL0mfgD+gNJDaxGWIT8exAR1wOXQSgfd1ApeN1oWxhjfr0SU0cPwU
+	tV0JOXHXyP7a3qsUXa25C6J6ooMvpwaE9EAFt9BAD6D97lctvBzfqAfRu2u4zJztocO+WV48NoThb
+	neIGExX24ppY5RW218QPgRquKRiR+IW8AMXo+YMCECJmZqzgMesz9CIuZwlLgQ0lR2MCj+LSsKjf5
+	UCXvSeaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cYK-00000007P7g-1da8;
-	Mon, 07 Sep 2026 16:50:40 +0000
-Received: from mail-swedencentralazon11013063.outbound.protection.outlook.com ([52.101.83.63] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cYH-00000007P6v-07nw
+	id 1x3caR-00000007POV-3BnQ;
+	Mon, 07 Sep 2026 16:52:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3caN-00000007PNx-2Bmy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:50:39 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=hZT5dfYjouXBALDMiWhqCk8IrWnWI/eeqU+iGIw0djovbUL2iOJZA73p3YvkcSL4f05NMhTs49zISWmka3ReaI79dq0YoXj6BvjcrpWw/wqaUd9iYWzGqMHqePoZZRF3DvHHQx6tC9BaJcjEKOV9BXdD2Nqas822VZvi1DP2XldcyClntHspvfizfC8cataoFYYh2BQ9lsQ0Z4IVCW2VyOFPJhYCi2rFjOyaUdjs5VhUHqdmGVZ3N/fosL4ZyS02JZECFWmMIPi7WwPy6U1dM4dNNLZekI9OwIymqZCjTrBFJy3r+JNLh7vu0ioXuqkyFt0ozme50+hFpTflmMQu7g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
- b=ahNTTOGJ2Z4ilndikVsrZMKHBmR0PgZnH1NN6JSkjoYztmUJlOghZ30SP/vP0Fn6J5C5SN0cmnNFzQsmrOBzbtP9vmnuKCcjZ/+TTB3SKbkICdVqaE1tbW//UArsVkbSY6x32z7uExNsqR3lKz88y7XMXI7scudbfygwdIJsYuTcLh7tBem3hk0ha4++lR5ynQTAb69HYWYrKT7bhUDTUlA7BIR+VyAMvExfffzUhJNkWeyNhmIP/Ju5Dx9Ruqwjhln3vVueQypLIVhxxBGOklbGAu7LmY6p7G74G0872dV5HNLvHhHO7FNVMxRUzH4XfVuORvqx0syjt5u42kCIUg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
- b=XSaTQMdzUaAiuYSl0vlhgrnM2vWntXDljcjbQkeDvkMsg2etivSOiuIsGJqAboHfzk3tiUHZHDh3q1Qh3vb+n50b0LLMNmCK7IRgjR5Jo5VEVszk+UKC+L9JVHn+2pEEP1uiE7EuBatDpVI5Z6ItMNSFyei/NWUgCMSd8Dl6bTI=
-Received: from PA7P264CA0116.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:34c::7)
- by DU0PR08MB9608.eurprd08.prod.outlook.com (2603:10a6:10:448::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
- 16:50:27 +0000
-Received: from MI3PEPF0000847E.eurprd02.prod.outlook.com
- (2603:10a6:102:34c:cafe::1d) by PA7P264CA0116.outlook.office365.com
- (2603:10a6:102:34c::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
- Sep 2026 16:50:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- MI3PEPF0000847E.mail.protection.outlook.com (10.167.240.165) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
- via Frontend Transport; Mon, 7 Sep 2026 16:50:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CcILjVYwT722HmqrxHBUVpNC2r/3Ijiv6uISWAtScmmDaQpF/4AqPQztBa5dteEco4lVcwmmTmKTmyx2gJRO5vhCZSgmz2hh2u5I9pmWRI5lIIz9rgwzEfu6qAVV00cxuJApZNgCDX/TbBczQCugYF2RrbhHhFo9bjUWf1RKPIsQY7+PwUlYCvws+StY1zdoCzlhLwH4Ch++Y7dYX8wE8ruvyePpCMhndArLnTXXInapnUulARz2vh0NjDvKC1HnyXhUtUS1CK+3DM61aKUsJQNphKQRoSlKjIqJp+WXc7oMiP3L3OpKynEuwcIzSU+Po2JL/lHLj7dNEH8doNkvpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
- b=uEW/lDq2lCJmphpKzQm6x0I8B5jiMVfNII2WbgfByNCdx89pc3+ZO/kbndXQWZp7UMAW+DLg2V6NgYOU4qs9iH/UJlnqAGz3f4zyEbhV7OKnYGN7Fb/jm3uPQguz3wZNGl4E2Wd6B2bzShntrru0pL3R7+NO1djXoWtQGKjaKboPAWMdzreLl5o0qGV3WOUhQn9xdGy9dZ4ZMERKawMjgezAuBpwPqTX9mLNwyOd7pI1vORzFo8NS3anhWncrkjLkRIaL9M7pMEwDMz+6EunrssdMrO9mNBbJNitGY2KBxZieAPUIgLCUAXEJzUnQhvpFFMmgBbYx7PWloBV/SnmbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
- b=XSaTQMdzUaAiuYSl0vlhgrnM2vWntXDljcjbQkeDvkMsg2etivSOiuIsGJqAboHfzk3tiUHZHDh3q1Qh3vb+n50b0LLMNmCK7IRgjR5Jo5VEVszk+UKC+L9JVHn+2pEEP1uiE7EuBatDpVI5Z6ItMNSFyei/NWUgCMSd8Dl6bTI=
-Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
- by GVXPR08MB11424.eurprd08.prod.outlook.com (2603:10a6:150:2e1::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
- 16:49:51 +0000
-Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
- ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
- ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Mon, 7 Sep 2026
- 16:49:50 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "tglx@kernel.org"
-	<tglx@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v2] irqchip/gic-v5: Preserve ICC_CR0_EL1 state
-Thread-Topic: [PATCH v2] irqchip/gic-v5: Preserve ICC_CR0_EL1 state
-Thread-Index: AQHdPujmqB9zMyF8YkuaTgwxXLvOXQ==
-Date: Mon, 7 Sep 2026 16:49:50 +0000
-Message-ID: <20260907164945.714545-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|GVXPR08MB11424:EE_|MI3PEPF0000847E:EE_|DU0PR08MB9608:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9eea6e59-8dc9-486b-b19a-08df0d001e7a
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|10067099003|6133799003|3023799007|18002099003|11063799006|56012099006|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: EzXwudB8pWvsKgmu3Nqb5cRsZIwrHZYOCiE1K5DTNbuVPVHOkO1kSTQwCKYI5aIOjygbGSKR+rBBI5lHRNY0QkOq0mkROQKNecAN2G4X05f/hjwGzW5lrZbKPROQI4hGgQxBtvdxQ9qWhl04bELuZY/XPyp59EbMKKiwf3NpswwMhsM8Ikfi5TGdhfzRtpzav/hCoxuOoQnJTg+8tEZ1wL1cOp6C4IvWEcJVzbrgu9Ji4oNuu+NN12mDHEylpUEarK4FQ9QoBB5qQubB5NpWbshJLMdrB4PaE5pm7K8hmDkcgqa2yxmK/gyCR0LwI88YAq1BORwpPVCW8JuxX5tPwLcNstLc65FrA5TaeXDMbbc4gAVVzV7NJmxXziv3VvLfvqjps5lEr61KVa/ba/QDX3rf7qOavSTeJESih+68spn4ZEhgcXYeq/wYK+t1hKxyuuVsMSvE6OnG1d7xxrR5SLOZ7dp53g004xysJrAwfMqTQYzHbTdyldZGSsmtcycuq9LC4t/vabLxpxbAZ5+C5jiJv0jhs8tYZGqdwPVm1Og6BBklAHjVZVy1iambUY0Elv7N/h7clwuFkpvXyVDqQHudD2mkIes2tBA5/2c6k46iKdkF91j83QKN03D86oGcTvVdU/ytik5tOXbJ6d0RdIQgw5ia29a4px8AvNMXSWkKuRa4l7ZaTtWzhmR3qCLXQ1n/9hiW7HoPFhoulYKW3emrTx+nnOtEoTTal6GjaVQ=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(10067099003)(6133799003)(3023799007)(18002099003)(11063799006)(56012099006)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 07 Sep 2026 16:52:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D47E1476;
+	Mon,  7 Sep 2026 09:52:42 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3F933F528;
+	Mon,  7 Sep 2026 09:52:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788799965; bh=9KGiycjC0t79RPzsvjfZKtPbm8KkSJBkxzKIHrahiz4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sDQVkBbAvoRk8ASr2K6Iz+RksnpaYHjgHHet/FkQGGN4vkix5fYGu7aYvNa8MHLi6
+	 4lKTZb4ak4jryOZefEYZiYh7f6WtwgQl5dbEVw4K51hqJXB6KhyLINqtY2+MHsnYkW
+	 wRLsfN3MT3QtNNJicsORgjvJOdazczlrcG3NDgc0=
+Date: Mon, 7 Sep 2026 17:52:35 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
+	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
+Subject: Re: [PATCH 12/20] KVM: arm64: Handle huge mappings in
+ __pkvm_host_force_reclaim_page_guest()
+Message-ID: <yzeb47zjrxdsfztilng7n4e22fnsm4ncqjeqzmryc7sqncuqw6@pjtshmjxwelh>
+References: <20260803100904.3563942-1-vdonnefort@google.com>
+ <20260803100904.3563942-13-vdonnefort@google.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: hmalb7RXnW+3hyup6k2859KLMeyQWnMA8mXgs7wJUq5qjITOoh4fhrPCI3RkpOYNCKCcTHLLIEZQfJmnX1N/cgvN1/YP30B/+NWFtncYseMU4pr2fyTlvnXQN/FKPG9hMz+ATmg4qpbN88tHu8DteEEdvFIY1S6bnoi2Bl/sSjKQLCgIl2nFHfE7paWqsRbNDx5i0u4vGC/nBnaQMts9+gcfzxZTBnV0gTNJuUhukI45HKNM4OmHxhZXyvY2GTIG4Kiz4wvpQ3FB7+1Qc7sUo8P+M108lA+fshUIxqvyVkzM/c1A7FcraJ+dLe9IYV6m8aZCL+lC9zgBvm+906yG8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11424
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: MI3PEPF0000847E.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d76e0fb5-b28c-4f3c-437c-08df0d0008d0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|36860700016|23010399003|1800799024|14060799003|82310400026|10067099003|6133799003|3023799007|56012099006|11063799006|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: RkV87bnbKdq8c7bqz8P539PBC3bJF4ra10BdZF8MQYyP1QN20s+IDg39N+yUSCLqFnVktWc1OdpI1oYFKduH40PcouQ1agnnfGkVv+xwy3p3SR0UDKDikV+paTZd7Vc5yTPTnAalpHL7DCPNzEmZ4IM3SUkiegQ24gwijEkyvO0NW4XMAPEHbpWXmUWnFmMQHl0uQbvPRxiDtmN7RGTDn+zE/ONcpjQU6aSaOHus3lloBu62VxLK8er/08o4x6fYIWZmZsQlAxnuvFddB+ZBinVneq+gQAX57VXlXqfOMTDibjHzfvNCNmo/uCVLoEJPxn0ARB38ZMvO7weNSGFbQUCKJ0n6707/vevCTaXZu+2dcWalmmgsZbyCmMEqXHMCAoKmi7yM5FLuByahcqYIJKiMeNtQy4c4wxTbGUgaPj3JIRL/ZdCcU+K7FvW6WghiPrDsZ+XMntDdOHJNoqygibERQuKXXYkm2STGPImtpckuWAIlFdt7TOX3FKEBumqkexoMyRgWnL+05oIyBpcJIDZiKBuEN1Fo+lPSrcRKgntIZuRT+EL5eOQBpsy/wxIK1Y5Sujsox2C4oozDPALgj+1cZQ7eREt9D0uvQ6xdAIEl2rWewTEJl5KKPXdPFmAzNSnD0msCgXAfX9Txk/amh4HceGtHpjkwCt1yn6/8nhU72c7bO2wrqD4SljCfHvTL4uTH1yA2Z3TpkznbxCLpjg==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(36860700016)(23010399003)(1800799024)(14060799003)(82310400026)(10067099003)(6133799003)(3023799007)(56012099006)(11063799006)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: pTlTIu0fZF7kZn1bJfm9xIUNw2feeY7blvjTmSb8ZeoNdNdXYrCOZ3mi2iZ7vyjeHBozKLUhnGWdIFdmdYEBPbWxbv2lahXSFdfvTYXdqQojfEeCSmnlYTIrRfeIY4msfqkqrGMaPWz2sQim6qhnLg6128F+0h9pkqbY3CPB1ZCUDR1hpfxyNP5kXckP7fpmHhPwAeQzzoTbBWmXxbPTCAtBRCjDhZfwZxtD5ozutXVARh3xPFAMZjztLhBrHMyxcpY3Od4nZFzo3IMHRMBf1A4Gq8PkyksDNqirkFrTkTthimZt5iZ4DifFTfZQuLRE9hI4xHmoUwd473Eld1m2G6DofofkcM+wPzNzERvB5FqD5uRwaZCEiKSSR0JHJK4+do2IIlKpWyOZL4zstP1RDLY69Q5f3lRCvSzQn0jeePLPzojnQitGtjqv0qTj8oOW
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 16:50:27.0803
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9eea6e59-8dc9-486b-b19a-08df0d001e7a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF0000847E.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9608
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260803100904.3563942-13-vdonnefort@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_095037_160135_29B04A12 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260907_095247_730507_4C9E6CA7 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,63 +72,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In addition to EN, ICC_CR0_EL1 contains other fields, such as LINK and
-LINK_IDLE. The driver only needs to modify EN, and must preserve the
-values of all other fields when enabling or disabling the CPU
-interface.
+On Mon, Aug 03, 2026 at 11:08:56AM +0100, Vincent Donnefort wrote:
 
-Define the missing LINK and LINK_IDLE fields, and use read-modify-write
-accesses to update EN without affecting the rest of ICC_CR0_EL1.
+[...]
 
-Fixes: 7ec80fb3f025 ("irqchip/gic-v5: Add GICv5 PPI support")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/r/20260807121703.D4B7A1F00A3A@smtp.kernel.o=
-rg
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- arch/arm64/tools/sysreg      | 4 +++-
- drivers/irqchip/irq-gic-v5.c | 6 ++++--
- 2 files changed, 7 insertions(+), 3 deletions(-)
+> -static void hyp_poison_page(phys_addr_t phys)
+> +static void __hyp_poison_page(void *addr, size_t size)
+>  {
+> -	void *addr = hyp_fixmap_map(phys);
+> -
+> -	memset(addr, 0, PAGE_SIZE);
+> +	memset(addr, 0, size);
+>  	/*
+>  	 * Prefer kvm_flush_dcache_to_poc() over __clean_dcache_guest_page()
+>  	 * here as the latter may elide the CMO under the assumption that FWB
+> @@ -1304,19 +1302,15 @@ static void hyp_poison_page(phys_addr_t phys)
+>  	 * host stage-2 and would otherwise lead to a malicious host potentially
+>  	 * being able to read the contents of newly reclaimed guest pages.
+>  	 */
+> -	kvm_flush_dcache_to_poc(addr, PAGE_SIZE);
+> -	hyp_fixmap_unmap();
+> +	kvm_flush_dcache_to_poc(addr, size);
+>  }
+>  
+>  static void hyp_poison_range(phys_addr_t phys, u64 size)
+>  {
+> -	u64 offset;
+> -
+> -	for (offset = 0; offset < size; offset += PAGE_SIZE)
+> -		hyp_poison_page(phys + offset);
+> +	__apply_guest_page(__hyp_va(phys), size, __hyp_poison_page);
+>  }
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 94bf065c8ac7..e2d37ee221b8 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3761,7 +3761,9 @@ Sysreg	ICC_CR0_EL1	3	1	12	0	1
- Res0	63:39
- Field	38	PID
- Field	37:32	IPPT
--Res0	31:1
-+Res0	31:3
-+Field	2	LINK_IDLE
-+Field	1	LINK
- Field	0	EN
- EndSysreg
-=20
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index ac2d423b1723..5f2551cf077d 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -974,7 +974,8 @@ static void gicv5_cpu_disable_interrupts(void)
- {
- 	u64 cr0;
-=20
--	cr0 =3D FIELD_PREP(ICC_CR0_EL1_EN, 0);
-+	cr0 =3D read_sysreg_s(SYS_ICC_CR0_EL1);
-+	cr0 &=3D ~ICC_CR0_EL1_EN_MASK;
- 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
- 	isb();
- }
-@@ -991,7 +992,8 @@ static void gicv5_cpu_enable_interrupts(void)
- 	pcr =3D FIELD_PREP(ICC_PCR_EL1_PRIORITY, GICV5_IRQ_PRI_MI);
- 	write_sysreg_s(pcr, SYS_ICC_PCR_EL1);
-=20
--	cr0 =3D FIELD_PREP(ICC_CR0_EL1_EN, 1);
-+	cr0 =3D read_sysreg_s(SYS_ICC_CR0_EL1);
-+	cr0 |=3D ICC_CR0_EL1_EN_MASK;
- 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
- }
-=20
---=20
-2.34.1
+Patch 8 introduces hyp_poison_range(), and it is reimplemented in
+another way here. Maybe just do it this way in the first time?
+
+>  
+> -static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
+> +static int host_stage2_get_guest_info(phys_addr_t phys, u64 *size, struct pkvm_hyp_vm **vm,
+>  				      u64 *gfn)
+>  {
+>  	enum pkvm_page_state state;
+> @@ -1344,34 +1338,43 @@ static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
+>  	if (ret)
+>  		return ret;
+>  
+> -	if (WARN_ON(level != KVM_PGTABLE_LAST_LEVEL))
+> -		return -EINVAL;
+> +	/* We only support either PAGE_SIZE or PMD_SIZE */
+> +	if (level < KVM_PGTABLE_LAST_LEVEL - 1)
+> +		return -E2BIG;
+>  
+> -	return host_stage2_decode_gfn_meta(pte, vm, gfn);
+> +	ret = host_stage2_decode_gfn_meta(pte, vm, gfn);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*size = kvm_granule_size(level);
+> +
+> +	return 0;
+
+This can also be moved into its own patch with get_valid_guest_pte(),
+hyp_poison_range() changes in my opinion.
+
+Thanks,
+Wei-Lin Chang
+
+[...]
 
