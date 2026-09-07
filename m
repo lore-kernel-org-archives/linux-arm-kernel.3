@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285AEC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 21:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF039C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 21:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JDsc9mqLSLWmK/G1yswq76Two3vz6FazKLBCHBs0HW4=; b=ipUfDl+aRBN0MSQNHK7ibnS9+a
-	dRH4WcllF7tbnWMyTNetfeGJBC4sQOTL1/fpVjh8gdXvsJGC5wTQl/DquP22ZBeYpULB4J0TOnmqJ
-	GxP4qWe23Hg1z0PyyEfDkqKjWCCOBMe+UtjpuS9GPzsRwWRgwMqHH7mNjeGz9TC1Z6C11w3c5Dn78
-	6KeInRhwECU6pQP1iqJd2CeZyghBtSo81fWXT1pNIIeguuSP/5UTYZSobaTY4Tw90z0Mhk/9VkmlX
-	ABLH6cCU3u8dVZRRBFuJCzkwSXam3PQZGX8FA0tfMabEN9C606l36xZxHAHrHB8czXorCR24bT503
-	p8fBcIRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8L6EPABepaaEWzQlwcJ+3VhVi3KudyXVVMmPe4QGKfM=; b=Mo3nA/nT/bsKS2jZvSLIAB+OSS
+	X0bG6S1Ii/qItKEpAbG71bM/MCGCzPvCALDFpuzAZxR3rDaHFcf/yAU6T2WC4NeTjxEGJ9yUspOA9
+	EnEhXWOocsaXQCvxfsfMQzHtKEHwcV8jQPlCduhxeLi9YqioCxPqo5Qh7F37xXoTDK5lXiUr8ePrU
+	EkO9j27nqMYjlfxU9kRvwonTHRyO0s/mgzGBylEmO1eP5C0ekvNpv+CfFBIsMvCoFJfiBJlroXSEK
+	jX8+5wblg2gDpPjx7+Z7ywrqlMZpFjJcABHJwGIvnNBNzlrjFGXPTnGDfCNELb5CCDqsJlqsa+B85
+	wz319now==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3gzs-00000007loF-3cmF;
-	Mon, 07 Sep 2026 21:35:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x3h4x-00000007mFc-2Feb;
+	Mon, 07 Sep 2026 21:40:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3gzm-00000007lml-0FE9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 21:35:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788816916;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JDsc9mqLSLWmK/G1yswq76Two3vz6FazKLBCHBs0HW4=;
-	b=QXcNAfgN9XibPSQiYUkcgexk38OI4QImt3N06EuGVZLmuwBSpSKjEbpP+s8ZwXVkwgTcVW
-	f9BT9naEIFpinSE31ijNdgjFKztzppLAVZW/iH5Z9e7O1c43sL7tvjB6rx6CG1UAOnJUTN
-	ZE1krQpoWjMraY56rSe9p7NYMhlPgn0=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-450-eEV7gbATOIudCBG4JSjYYw-1; Mon,
- 07 Sep 2026 17:35:11 -0400
-X-MC-Unique: eEV7gbATOIudCBG4JSjYYw-1
-X-Mimecast-MFC-AGG-ID: eEV7gbATOIudCBG4JSjYYw_1788816909
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BCCCD19540D9;
-	Mon,  7 Sep 2026 21:35:08 +0000 (UTC)
-Received: from [100.91.157.188] (headnet03.pony-001.prod.iad2.dc.redhat.com [10.2.32.114])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 66E941801AEA;
-	Mon,  7 Sep 2026 21:35:03 +0000 (UTC)
-Message-ID: <27d2c523-fbdd-4dff-8920-88432d938b22@redhat.com>
-Date: Mon, 7 Sep 2026 23:35:00 +0200
+	id 1x3h4w-00000007mFP-1ge3;
+	Mon, 07 Sep 2026 21:40:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CDCE143A02;
+	Mon,  7 Sep 2026 21:40:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E870F1F00A3A;
+	Mon,  7 Sep 2026 21:40:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788817237;
+	bh=8L6EPABepaaEWzQlwcJ+3VhVi3KudyXVVMmPe4QGKfM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=awtRz/dRwQBO+ZUnIc+DgRzgZGFcJTEmWHs7kAsR4XNCmb9Fci7by9l/3yQa/U41a
+	 siho2efoUcM+xwRTghdR3r4MMOo3uxr/rCbqgoZSn1j4eaDy/9n11wx+umFSrZ/o+/
+	 hso7fPOsBi1uUu0fe41eiGH9KH3ci1bFgVtOg2YKRzKvpCYAPcuIeSuA3wLP7xR/mS
+	 w6+bfiefT/SKEDPrfDOZqfm6IcccVTtpKjBEYWsq6PkmsgbnMA3/Uack/eECrbSMP/
+	 tfwe9GFsXx7pA8My5133lUMkNfRsmezYiaNMbArHIDQ5IPCnFov8Kp/1R85T5aGURF
+	 K96ESUuIC4cMw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>, Sangwoo Han <sangwoo.han@nearthlab.com>
+Cc: jim2101024@gmail.com, florian.fainelli@broadcom.com,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com,
+ robh@kernel.org, linux-pci@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Inochi
+ Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
+ handed out
+In-Reply-To: <20260907163452.GA2526539@bhelgaas>
+References: <20260907163452.GA2526539@bhelgaas>
+Date: Mon, 07 Sep 2026 23:40:34 +0200
+Message-ID: <87cxuo3fl9.ffs@fw13>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/14] drm/panic: Compile KUnit tests as module
-To: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
- airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, geert@linux-m68k.org, rdunlap@infradead.org
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
- linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
- sashiko-reviews@lists.linux.dev
-References: <20260902121930.597222-1-tzimmermann@suse.de>
- <20260902121930.597222-15-tzimmermann@suse.de>
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <20260902121930.597222-15-tzimmermann@suse.de>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: K8Vv9BTjYosVdGnExmF2bDdQNLEp5XShddfIOIzIpjg_1788816909
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, fr
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_143520_455770_8764E4C8 
-X-CRM114-Status: GOOD (  28.32  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,233 +72,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/2/26 14:13, Thomas Zimmermann wrote:
-> Fix dependency of the panic-helper KUnit tests on CONFIG_DRM_KUNIT_TEST=y
-> and make them build as a module. Export the necessary interfaces from the
-> panic helpers iff the KUnit framework has been enabled.
-> 
-> Select DRM_PANIC_HELPER from DRM_KUNIT_TEST to meet the dependencies of
-> the panic-helper tests.
-> 
-> It is now possible to run the tests by modprobe-ing drm_panic_helper_test
-> at runtime.
+On Mon, Sep 07 2026 at 11:34, Bjorn Helgaas wrote:
+> [+cc Thomas, Inochi for MSI expertise]
+>
+> I want to revive this thread because I think there's a real problem
+> here, and we should solve it for all the PCI controller drivers.
+>
+> There's nothing brcm-specific about the bitmap alloc/free except the
+> size of the msi->used bitmap, so I don't want to copy/paste this sort
+> of fix in all the affected drivers.
+>
+> I'd also like to avoid the extra align_mask and
+> bitmap_find_next_zero_area() followed by manual bitmap_set().
+> bitmap_find_free_region() already takes care of the alignment and
+> setting the allocated bits.
+>
+> The MSI Multiple Message Enable situation of enabling more vectors in
+> the device than the driver wants is generic to all devices that
+> advertise Multiple Message Capable, and I don't think we should have
+> to deal with this in every host controller driver.
 
-Thanks, it looks good to me.
+Correct.
 
-Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+> If a driver requests 3 vectors, we have to enable 4 because MSI only
+> supports power-of-two number of vectors.  This tells the device it is
+> allowed to use all 4 vectors, and I think the PCI MSI core should
+> assume they all *will* be used instead of relying on the driver's
+> claim that it will only use 3.
 
-> 
-> v3:
-> - clean up after each test case (Sashiko)
-> v2:
-> - fix parameter order in decl of drm_panic_helper_draw_screen_qr()
->    (Sashiko)
-> 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> ---
->   drivers/gpu/drm/Kconfig.debug                 |  1 +
->   drivers/gpu/drm/drm_panic_helper.c            | 26 ++++++++++---------
->   drivers/gpu/drm/tests/Makefile                |  1 +
->   drivers/gpu/drm/tests/drm_panic_helper_test.c | 21 ++++++++++++---
->   include/drm/drm_panic_helper.h                |  8 ++++++
->   5 files changed, 41 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/Kconfig.debug b/drivers/gpu/drm/Kconfig.debug
-> index 1f4c98cbf090..b909cd0a619f 100644
-> --- a/drivers/gpu/drm/Kconfig.debug
-> +++ b/drivers/gpu/drm/Kconfig.debug
-> @@ -69,6 +69,7 @@ config DRM_KUNIT_TEST
->   	select DRM_EXPORT_FOR_TESTS if m
->   	select DRM_GEM_SHMEM_HELPER
->   	select DRM_KUNIT_TEST_HELPERS
-> +	select DRM_PANIC_HELPER
->   	select DRM_SYSFB_HELPER
->   	select PRIME_NUMBERS
->   	default KUNIT_ALL_TESTS
-> diff --git a/drivers/gpu/drm/drm_panic_helper.c b/drivers/gpu/drm/drm_panic_helper.c
-> index f64a3ca38467..683af48de38c 100644
-> --- a/drivers/gpu/drm/drm_panic_helper.c
-> +++ b/drivers/gpu/drm/drm_panic_helper.c
-> @@ -8,6 +8,8 @@
->   #include <linux/utsname.h>
->   #include <linux/zlib.h>
->   
-> +#include <kunit/visibility.h>
-> +
->   #include <drm/drm_fourcc.h>
->   #include <drm/drm_framebuffer.h>
->   #include <drm/drm_modeset_helper_vtables.h>
-> @@ -433,8 +435,8 @@ static void drm_panic_helper_logo_draw(struct drm_scanout_buffer *sb, struct drm
->   				   fg_color);
->   }
->   
-> -static int drm_panic_helper_draw_screen_user(struct drm_scanout_buffer *sb,
-> -					     u32 fg_color, u32 bg_color)
-> +VISIBLE_IF_KUNIT int drm_panic_helper_draw_screen_user(struct drm_scanout_buffer *sb,
-> +						       u32 fg_color, u32 bg_color)
->   {
->   	const struct font_desc *font = get_default_font(sb->width, sb->height, NULL, NULL);
->   	struct drm_rect r_screen, r_logo, r_msg;
-> @@ -466,6 +468,7 @@ static int drm_panic_helper_draw_screen_user(struct drm_scanout_buffer *sb,
->   
->   	return 0;
->   }
-> +EXPORT_SYMBOL_IF_KUNIT(drm_panic_helper_draw_screen_user);
->   
->   /*
->    * Draw one line of kmsg, and handle wrapping if it won't fit in the screen width.
-> @@ -504,8 +507,8 @@ static int draw_line_with_wrap(struct drm_scanout_buffer *sb, const struct font_
->    * Draw the kmsg buffer to the screen, starting from the youngest message at the bottom,
->    * and going up until reaching the top of the screen.
->    */
-> -static int drm_panic_helper_draw_screen_kmsg(struct drm_scanout_buffer *sb,
-> -					     u32 fg_color, u32 bg_color)
-> +VISIBLE_IF_KUNIT int drm_panic_helper_draw_screen_kmsg(struct drm_scanout_buffer *sb,
-> +						       u32 fg_color, u32 bg_color)
->   {
->   	const struct font_desc *font = get_default_font(sb->width, sb->height, NULL, NULL);
->   	struct drm_rect r_screen = DRM_RECT_INIT(0, 0, sb->width, sb->height);
-> @@ -549,6 +552,7 @@ static int drm_panic_helper_draw_screen_kmsg(struct drm_scanout_buffer *sb,
->   
->   	return 0;
->   }
-> +EXPORT_SYMBOL_IF_KUNIT(drm_panic_helper_draw_screen_kmsg);
->   
->   #if defined(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
->   /*
-> @@ -691,9 +695,9 @@ static int drm_panic_helper_get_qr_code(u8 **qr_image, unsigned int qr_version)
->   /*
->    * Draw the panic message at the center of the screen, with a QR Code
->    */
-> -static int drm_panic_helper_draw_screen_qr_code(struct drm_scanout_buffer *sb,
-> -						u32 fg_color, u32 bg_color,
-> -						unsigned int qr_version)
-> +VISIBLE_IF_KUNIT int drm_panic_helper_draw_screen_qr_code(struct drm_scanout_buffer *sb,
-> +							  u32 fg_color, u32 bg_color,
-> +							  unsigned int qr_version)
->   {
->   	const struct font_desc *font = get_default_font(sb->width, sb->height, NULL, NULL);
->   	struct drm_rect r_screen, r_logo, r_msg, r_qr, r_qr_canvas;
-> @@ -763,6 +767,7 @@ static int drm_panic_helper_draw_screen_qr_code(struct drm_scanout_buffer *sb,
->   	drm_panic_helper_blit(sb, &r_qr, qr_image, qr_pitch, scale, fg_color);
->   	return 0;
->   }
-> +EXPORT_SYMBOL_IF_KUNIT(drm_panic_helper_draw_screen_qr_code);
->   #else
->   static void __init drm_panic_helper_qr_init(void) { };
->   static void __exit drm_panic_helper_qr_exit(void) { };
-> @@ -815,7 +820,7 @@ static int draw_panic_helper_dispatch(struct drm_scanout_buffer *sb,
->   	return ret;
->   }
->   
-> -static void drm_panic_helper_set_description(const char *description)
-> +VISIBLE_IF_KUNIT void drm_panic_helper_set_description(const char *description)
->   {
->   	u32 len;
->   
-> @@ -830,6 +835,7 @@ static void drm_panic_helper_set_description(const char *description)
->   		desc_line->len = len;
->   	}
->   }
-> +EXPORT_SYMBOL_IF_KUNIT(drm_panic_helper_set_description);
->   
->   static void drm_panic_helper_clear_description(void)
->   {
-> @@ -910,7 +916,3 @@ void __exit drm_panic_helper_exit(void)
->   {
->   	drm_panic_helper_qr_exit();
->   }
-> -
-> -#ifdef CONFIG_DRM_KUNIT_TEST
-> -#include "tests/drm_panic_helper_test.c"
-> -#endif
-> diff --git a/drivers/gpu/drm/tests/Makefile b/drivers/gpu/drm/tests/Makefile
-> index e7193b49cf91..42207df1d1c8 100644
-> --- a/drivers/gpu/drm/tests/Makefile
-> +++ b/drivers/gpu/drm/tests/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_DRM_KUNIT_TEST) += \
->   	drm_managed_test.o \
->   	drm_mm_test.o \
->   	drm_modes_test.o \
-> +	drm_panic_helper_test.o \
->   	drm_plane_helper_test.o \
->   	drm_probe_helper_test.o \
->   	drm_rect_test.o \
-> diff --git a/drivers/gpu/drm/tests/drm_panic_helper_test.c b/drivers/gpu/drm/tests/drm_panic_helper_test.c
-> index e6befe0f1c83..6184a6fc7eb8 100644
-> --- a/drivers/gpu/drm/tests/drm_panic_helper_test.c
-> +++ b/drivers/gpu/drm/tests/drm_panic_helper_test.c
-> @@ -6,13 +6,17 @@
->    * KUNIT tests for DRM panic helpers
->    */
->   
-> -#include <drm/drm_fourcc.h>
-> -#include <drm/drm_panic.h>
-> +#include <linux/highmem.h>
-> +#include <linux/units.h>
-> +#include <linux/vmalloc.h>
->   
->   #include <kunit/test.h>
->   
-> -#include <linux/units.h>
-> -#include <linux/vmalloc.h>
-> +#include <drm/drm_fourcc.h>
-> +#include <drm/drm_panic.h>
-> +#include <drm/drm_panic_helper.h>
-> +
-> +MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
->   
->   static void drm_panic_check_color_byte(struct kunit *test, u8 b)
->   {
-> @@ -86,6 +90,11 @@ static int drm_test_panic_init(struct kunit *test)
->   	return 0;
->   }
->   
-> +static void drm_test_panic_exit(struct kunit *test)
-> +{
-> +	drm_panic_helper_set_description(NULL);
-> +}
-> +
->   /*
->    * Test drawing the panic screen, using a memory mapped framebuffer
->    * Set the whole buffer to 0xa5, and then check that all pixels have been
-> @@ -229,7 +238,11 @@ static struct kunit_case drm_panic_screen_user_test[] = {
->   static struct kunit_suite drm_panic_helper_suite = {
->   	.name = "drm_panic_helper",
->   	.init = drm_test_panic_init,
-> +	.exit = drm_test_panic_exit,
->   	.test_cases = drm_panic_screen_user_test,
->   };
->   
->   kunit_test_suite(drm_panic_helper_suite);
-> +
-> +MODULE_DESCRIPTION("KUnit test suite for DRM panic handling");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/drm/drm_panic_helper.h b/include/drm/drm_panic_helper.h
-> index 6cc9a0eba077..6b19607e0784 100644
-> --- a/include/drm/drm_panic_helper.h
-> +++ b/include/drm/drm_panic_helper.h
-> @@ -8,6 +8,7 @@
->   enum drm_panic_type;
->   
->   struct drm_plane;
-> +struct drm_scanout_buffer;
->   
->   /* drm_panic_helper.c */
->   int drm_plane_helper_display_panic_screen(struct drm_plane *plane,
-> @@ -15,6 +16,13 @@ int drm_plane_helper_display_panic_screen(struct drm_plane *plane,
->   					  enum drm_panic_type panic_type,
->   					  u32 fg_color, u32 bg_color,
->   					  unsigned int qr_version);
-> +#if IS_ENABLED(CONFIG_KUNIT)
-> +int drm_panic_helper_draw_screen_user(struct drm_scanout_buffer *sb, u32 fg_color, u32 bg_color);
-> +int drm_panic_helper_draw_screen_kmsg(struct drm_scanout_buffer *sb, u32 fg_color, u32 bg_color);
-> +int drm_panic_helper_draw_screen_qr_code(struct drm_scanout_buffer *sb,
-> +					 u32 fg_color, u32 bg_color, unsigned int qr_version);
-> +void drm_panic_helper_set_description(const char *description);
-> +#endif
->   
->   /* drm_panic_helper_qr.rs */
->   size_t drm_panic_helper_qr_max_data_size(u8 version, size_t url_len);
+That's not really a good idea because e.g. the irq affinity stuff relies
+on the accurate number of interrupts the driver requested with the
+minvec/maxvec range. We can't magically spread more interrupts than the
+driver is able/willing to handle.
 
+But we can fix that without changing the consumer side (device drivers)
+visible behaviour and handle it solely in the core code.
+
+ 1) MSI interrupts are special because they have msi_desc::nvec_used >
+    1, so the allocation and the free path can take care of the power of
+    two requirement. That just allocates more resources than the driver
+    wants but they are just memory.
+
+ 2) All MSI parent domain implementations should be able to handle
+    domain_ops::free() with nr_irqs > 1. That's something which can be
+    trivialy audited.
+
+    I really have no memories why the bulk remove function iterates the
+    interrupts one by one instead of doing in one go, but this is also
+    used by non MSI domains, which might have issues with a bulk remove.
+
+    If we establish that all MSI parent domain implementations can
+    handle the free() callback with nr_irqs > 1, then
+    irq_domain_free_irqs_hierarchy can check whether
+    IRQ_DOMAIN_FLAG_MSI_PARENT is set in the domain_flags and avoid the
+    loop for that case.
+    
+Something like the completely untested below.
+
+Thanks,
+
+        tglx
+---
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index 4fdcb6df5306..b3f6cc6ae2ce 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -1611,6 +1611,13 @@ static void irq_domain_free_irqs_hierarchy(struct irq_domain *domain,
+ 	if (!domain->ops->free)
+ 		return;
+ 
++	/* CHECKME: Are all MSI parent domains capable ? */
++	if (domain->flags & IRQ_DOMAIN_FLAG_MSI_PARENT) {
++		if (irq_domain_get_irq_data(domain, irq_base))
++			domain->ops->free(domain, irq_base, nr_irqs);
++		return;
++	}
++
+ 	for (i = 0; i < nr_irqs; i++) {
+ 		if (irq_domain_get_irq_data(domain, irq_base + i))
+ 			domain->ops->free(domain, irq_base + i, 1);
+diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+index fb5f372215bf..2835b09899ea 100644
+--- a/kernel/irq/msi.c
++++ b/kernel/irq/msi.c
+@@ -1333,20 +1333,28 @@ static int __msi_domain_alloc_irqs(struct device *dev, struct irq_domain *domain
+ 
+ 		ops->set_desc(&arg, desc);
+ 
+-		virq = __irq_domain_alloc_irqs(domain, -1, desc->nvec_used,
++		/* Make sure a MULTI-MSI allocation is power of two */
++		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
++
++		virq = __irq_domain_alloc_irqs(domain, -1, nvec_aligned,
+ 					       dev_to_node(dev), &arg, false,
+ 					       desc->affinity);
+ 		if (virq < 0)
+ 			return msi_handle_pci_fail(domain, desc, allocated);
+ 
+-		for (i = 0; i < desc->nvec_used; i++) {
++		for (i = 0; i < nvec_aligned; i++) {
+ 			irq_set_msi_desc_off(virq, i, desc);
+ 			irq_debugfs_copy_devname(virq + i, dev);
+ 			ret = msi_init_virq(domain, virq + i, vflags);
+ 			if (ret)
+ 				return ret;
+ 		}
++
+ 		if (info->flags & MSI_FLAG_DEV_SYSFS) {
++			/*
++			 * This only exposes desc->nvec_used and ignores the
++			 * overallocated MULTI-MSI ones.
++			 */
+ 			ret = msi_sysfs_populate_desc(dev, desc);
+ 			if (ret)
+ 				return ret;
+@@ -1610,13 +1618,15 @@ static void __msi_domain_free_irqs(struct device *dev, struct irq_domain *domain
+ 			continue;
+ 
+ 		/* Make sure all interrupts are deactivated */
+-		for (i = 0; i < desc->nvec_used; i++) {
++		unsigned int nvec_aligned = roundup_pow_of_two(desc->nvec_used);
++
++		for (i = 0; i < nvec_aligned; i++) {
+ 			irqd = irq_domain_get_irq_data(domain, desc->irq + i);
+ 			if (irqd && irqd_is_activated(irqd))
+ 				irq_domain_deactivate_irq(irqd);
+ 		}
+ 
+-		irq_domain_free_irqs(desc->irq, desc->nvec_used);
++		irq_domain_free_irqs(desc->irq, nvec_aligned);
+ 		if (info->flags & MSI_FLAG_DEV_SYSFS)
+ 			msi_sysfs_remove_desc(dev, desc);
+ 		desc->irq = 0;
 
