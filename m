@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259FFC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 11:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575FEC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 11:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cC9s+xjh/N6rSZarsENmP07faEM7u9hQPQhDsNCtyb0=; b=QPoyFBLrW7XWlU6mRzTYB9wVOa
-	RZUvTl91WHxbIqhosNvnZagkxcZvQXbmYrjGJYlYuaY0g6yXyUckMfKalsX0OJcQha0/J6MlrR1jT
-	sL/zSr1hPR7QAgt61JelftVknBYcNz5OLN54Vs2CLb+OSuv+h2m9qdlJT6JzVdEu1ppk2PXHPrIUS
-	yPHwZWK7a0kJlvd7xsZTQZiCdRvcRSxtUi3QX+11+bA3htgF7a8AQAv4BDQuNeYUvHVgkWb/JhH5O
-	dtlef6hX0Uun66pmjtEk+AsX8UJlDS6XG23FV2XTKKuu6GGtmVqo7AnXq4Wfv6npTi2WMKlIKJRCk
-	MwQ5ancg==;
+	bh=1pqXwviCx9B2awGCApd7s/g7PWerui0+4iXetrEAIbk=; b=rxZ4dmXu5VzFrjneAh8+ZBrMbG
+	Ve5WRHs61EVeYz7IVnc4v81Hlz+jiVL7E5SDIYYGUYg+iU6atfc9303v4ftwcWn/N8JXmFwwuA93C
+	fOCiNbjdrzfruXerdd3mTMUKlx5P1v05QLx1Brs2Tu8LyTve9iKixjj0r0ubDgnF1jV1+dDa5SFCK
+	eMWsSLbzVJhT7qZyV/dDzILpLKy826B9VKlfbtiru+9ZjfdMwRwXvQwOwCKQ7p/k5WGKvd2s7lFH8
+	fRZ/9JFc0rISVC6aDWNloKR9rDpVLsRdk0ZKpAI8L5dxHfPWR+wMo5CCuv5gRaU1K9MBxrsQBbBnJ
+	R6yL38Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3X7I-00000006bDT-3XMe;
-	Mon, 07 Sep 2026 11:02:24 +0000
-Received: from sender6-pp-f112.zoho.com ([165.173.180.112])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3X7G-00000006bCx-1UbP;
-	Mon, 07 Sep 2026 11:02:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788778937; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cEkx9n2gZuP37kraYeyo8ckYdvOQw3Bks6OBB3ybxuaeCa9v2srFeNcZe3RspQphrarocYxCysSzUQTmaWLTO8qJyH8CHJdIAIN9mDB334Zi7RAqvL9QtWpullrdkw/FRLGnQK1iku1WExCBmy/PDM99t8s2yB+MJqlhJGjcr3Y=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788778937; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cC9s+xjh/N6rSZarsENmP07faEM7u9hQPQhDsNCtyb0=; 
-	b=nokuVz3EzgMlIDAQQD0EyZ/sgynSKqUBe1CtThToD87q8rWS1oqPeTjTeos41lM5gE58dvkaWBn2gUQUMBYHVYncglSkyxBw0j2VOFFhT2WWTlN9LPIiYToFbq2SH7uZPfWx8CdhTubspYR5Y5hoaA4/IpQXPQ2YSQU4/Yy3tCw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788778937;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=cC9s+xjh/N6rSZarsENmP07faEM7u9hQPQhDsNCtyb0=;
-	b=OfTx4OYBkz+3DmyYt2yyy3sr1yA5iGgH6LnzNJFIqlMOPD+1y9nrk0MGJ8Dvvy8E
-	2ntbXswE9cxAu1B1JMFu9iBBekfkhKsqXoQ7NlixIR89DMKl4/IqqxJDKIy8ZKzDZTN
-	UmUfVJW8XldqdvY1VzKB6OWAC5JWccpXdWCVPl48=
-Received: by mx.zohomail.com with SMTPS id 1788778934224927.534650195504;
-	Mon, 7 Sep 2026 04:02:14 -0700 (PDT)
-Message-ID: <0ab0b4f4-ab5d-413b-9446-5d747c59a32a@collabora.com>
-Date: Mon, 7 Sep 2026 13:02:09 +0200
+	id 1x3XHF-00000006c2d-06tv;
+	Mon, 07 Sep 2026 11:12:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3XHA-00000006c29-0vs9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 11:12:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D775F1476;
+	Mon,  7 Sep 2026 04:12:30 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 706083F7D8;
+	Mon,  7 Sep 2026 04:12:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788779554; bh=GF7/YPL0HWRDZcMXZJtA443hHFAhpSrxVIaylOHC8CU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=p9gZOxfMIwizXB8FqDNrdPhO3/1zTH1LN6nFTu2vMXkyjMRRdN4n1eH0vYn9yzTi2
+	 laFBHiFwZvsaoZuS4TUdjIWRdqvhsQwH9ecgj6mpjHTEXx0izLgDQiUG+mI26thVJV
+	 +3mZKGiJ5xSbhwsysjJ2OWRTQuMpmhga8ZFtyOgw=
+Message-ID: <ef9fb6b1-3c11-4169-802b-b82c8ea07849@arm.com>
+Date: Mon, 7 Sep 2026 12:12:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] phy: rockchip: phy-rockchip-inno-csidphy: add support
- for rk3576 variant
-To: Amin Gattout <amin.gattout@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com>
- <20260820-rk3576-dphy-v1-3-70e25e8d5e78@gmail.com>
+Subject: Re: [PATCH RFC v2 12/19] arm_mpam: resctrl: Add NUMA node notifier
+ for domain online/offline
+To: Fenghua Yu <fenghuay@nvidia.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Tony Luck
+ <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
+ Dave Martin <Dave.Martin@arm.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Shaopeng Tan <tan.shaopeng@fujitsu.com>, Chen Yu <yu.c.chen@intel.com>,
+ Babu Moger <babu.moger@amd.com>, Drew Fustini <fustini@kernel.org>,
+ Vikram Sethi <vsethi@nvidia.com>, Shanker Donthineni
+ <sdonthineni@nvidia.com>, Newton Liu <newtonl@nvidia.com>,
+ Richard Cheng <icheng@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260831172245.42253-1-fenghuay@nvidia.com>
+ <20260831172245.42253-13-fenghuay@nvidia.com>
 Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260820-rk3576-dphy-v1-3-70e25e8d5e78@gmail.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260831172245.42253-13-fenghuay@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_040222_430438_66C475A4 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260907_041238_642308_4046B921 
+X-CRM114-Status: GOOD (  28.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,94 +80,453 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amin,
+Hi Fenghua,
 
-Thanks for your patches!
-
-On 8/20/26 16:01, Amin Gattout wrote:
-> The two RK3576 MIPI CSI-2 DPHYs can be supported using the existing
-> phy-rockchip-inno-csidphy driver, the notable difference with the
-> RK3588 variant being that each PHY instance only has an APB reset
-> line.
+On 31/08/2026 18:22, Fenghua Yu wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
+> To expose resctrl resources that contain CPU-less NUMA domains, resctrl
+> needs to be told when a CPU-less NUMA domain comes online. This can't
+> be done with the cpuhp callbacks.
+> 
+> Add a memory hotplug notifier, and use this to create and destroy
+> resctrl domains.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 > ---
->  drivers/phy/rockchip/phy-rockchip-inno-csidphy.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
+>  drivers/resctrl/mpam_resctrl.c | 343 ++++++++++++++++++++++++++++++++-
+>  include/linux/memory.h         |   1 +
+>  2 files changed, 337 insertions(+), 7 deletions(-)
 > 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-> index c79fb53d8ee5..24aefdcd6361 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-> @@ -30,6 +30,7 @@
->  #define RK3568_GRF_VI_CON0		0x0340
->  #define RK3568_GRF_VI_CON1		0x0344
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index cd9bebf5f0c2..8bb313efc716 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -11,6 +11,8 @@
+>  #include <linux/limits.h>
+>  #include <linux/list.h>
+>  #include <linux/math.h>
+> +#include <linux/memory.h>
+> +#include <linux/node.h>
+>  #include <linux/printk.h>
+>  #include <linux/rculist.h>
+>  #include <linux/resctrl.h>
+> @@ -1775,16 +1777,25 @@ void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
+>  	mpam_reset_class_locked(res->class);
+>  }
 >  
-> +#define RK3576_CSIDPHY_GRF_CON0		0x0000
-
-This, ...
-
->  #define RK3588_CSIDPHY_GRF_CON0		0x0000
->  
->  /* PHY */
-> @@ -119,6 +120,12 @@ static const struct dphy_reg rk3568_grf_dphy_regs[] = {
->  	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3568_GRF_VI_CON0, 1, 8),
->  };
->  
-> +static const struct dphy_reg rk3576_grf_dphy_regs[] = {
-> +	[GRF_DPHY_CSIPHY_FORCERXMODE] = PHY_REG(RK3576_CSIDPHY_GRF_CON0, 4, 0),
-> +	[GRF_DPHY_CSIPHY_DATALANE_EN] = PHY_REG(RK3576_CSIDPHY_GRF_CON0, 4, 4),
-> +	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3576_CSIDPHY_GRF_CON0, 1, 8),
-> +};
+> +static void mpam_resctrl_domain_hdr_init_mask(const struct cpumask *cpus,
+> +					      int id_cpu,
+> +					      struct mpam_component *comp,
+> +					      enum resctrl_res_level rid,
+> +					      struct rdt_domain_hdr *hdr)
+> +{
+> +	INIT_LIST_HEAD(&hdr->list);
+> +	hdr->id = mpam_resctrl_pick_domain_id(id_cpu, comp);
+> +	hdr->rid = rid;
+> +	cpumask_copy(&hdr->cpu_mask, cpus);
+> +}
 > +
-
-and this look pretty identical to RK3588, can't we just drop these two
-and ...
-
->  static const struct dphy_reg rk3588_grf_dphy_regs[] = {
->  	[GRF_DPHY_CSIPHY_FORCERXMODE] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 0),
->  	[GRF_DPHY_CSIPHY_DATALANE_EN] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 4),
-> @@ -403,6 +410,17 @@ static const struct dphy_drv_data rk3568_mipidphy_drv_data = {
->  	.resets_num = ARRAY_SIZE(rk3368_reset_names),
->  };
+>  static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
+>  					 enum resctrl_res_level rid,
+>  					 struct rdt_domain_hdr *hdr)
+>  {
+>  	lockdep_assert_cpus_held();
 >  
-> +static const struct dphy_drv_data rk3576_mipidphy_drv_data = {
-> +	.pwrctl_offset = -1,
-> +	.ths_settle_offset = RK3568_CSIDPHY_CLK_WR_THS_SETTLE,
-> +	.calib_offset = RK3568_CSIDPHY_CLK_CALIB_EN,
-> +	.hsfreq_ranges = rk1808_mipidphy_hsfreq_ranges,
-> +	.num_hsfreq_ranges = ARRAY_SIZE(rk1808_mipidphy_hsfreq_ranges),
-> +	.grf_regs = rk3576_grf_dphy_regs,
-
-... use rk3588_grf_dphy_regs here?
-
-> +	.resets = rk3368_reset_names,
-
-So that the reset names are the only difference to RK3588 (which seems
-to be the case as per commit message)?
-
-> +	.resets_num = ARRAY_SIZE(rk3368_reset_names),
-> +};
+> -	INIT_LIST_HEAD(&hdr->list);
+> -	hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
+> -	hdr->rid = rid;
+> -	cpumask_set_cpu(cpu, &hdr->cpu_mask);
+> +	mpam_resctrl_domain_hdr_init_mask(cpumask_of(cpu), cpu, comp, rid, hdr);
+>  }
+>  
+>  static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+> @@ -1805,12 +1816,12 @@ static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+>   * indicating the parent structure can be freed.
+>   * If there are other CPUs in the domain, returns false.
+>   */
+> -static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+> -					    struct rdt_domain_hdr *hdr)
+> +static bool mpam_resctrl_offline_domain_hdr_mask(const struct cpumask *cpus,
+> +						 struct rdt_domain_hdr *hdr)
+>  {
+>  	lockdep_assert_held(&domain_list_lock);
+>  
+> -	cpumask_clear_cpu(cpu, &hdr->cpu_mask);
+> +	cpumask_andnot(&hdr->cpu_mask, &hdr->cpu_mask, cpus);
+>  	if (cpumask_empty(&hdr->cpu_mask)) {
+>  		list_del_rcu(&hdr->list);
+>  		synchronize_rcu();
+> @@ -1820,6 +1831,12 @@ static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+>  	return false;
+>  }
+>  
+> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+> +					    struct rdt_domain_hdr *hdr)
+> +{
+> +	return mpam_resctrl_offline_domain_hdr_mask(cpumask_of(cpu), hdr);
+> +}
 > +
->  static const struct dphy_drv_data rk3588_mipidphy_drv_data = {
->  	.pwrctl_offset = -1,
->  	.ths_settle_offset = RK3568_CSIDPHY_CLK_WR_THS_SETTLE,
-> @@ -435,6 +453,10 @@ static const struct of_device_id rockchip_inno_csidphy_match_id[] = {
->  		.compatible = "rockchip,rk3568-csi-dphy",
->  		.data = &rk3568_mipidphy_drv_data,
->  	},
-> +	{
-> +		.compatible = "rockchip,rk3576-csi-dphy",
-> +		.data = &rk3576_mipidphy_drv_data,
-> +	},
->  	{
->  		.compatible = "rockchip,rk3588-csi-dphy",
->  		.data = &rk3588_mipidphy_drv_data,
-> 
+>  static void mpam_resctrl_domain_insert(struct list_head *list,
+>  				       struct rdt_domain_hdr *new)
+>  {
+> @@ -1835,6 +1852,23 @@ static void mpam_resctrl_domain_insert(struct list_head *list,
+>  	list_add_tail_rcu(&new->list, pos);
+>  }
+>  
+> +static struct mpam_component *find_component_nid(struct mpam_class *class, int nid)
+> +{
+> +	struct mpam_component *comp;
+> +
+> +	if (!class || class->type != MPAM_CLASS_MEMORY)
+> +		return NULL;
+> +
+> +	guard(srcu)(&mpam_srcu);
+> +	list_for_each_entry_srcu(comp, &class->components, class_list,
+> +				 srcu_read_lock_held(&mpam_srcu)) {
+> +		if (comp->comp_id == nid)
+> +			return comp;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+>  static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+>  {
+>  	struct mpam_component *comp;
+> @@ -2094,6 +2128,297 @@ static void mpam_resctrl_offline_ctrls(unsigned int cpu, struct mpam_resctrl_res
+>  	}
+>  }
+>  
+> +static bool mpam_mba_uses_memory_nid(void)
+> +{
+> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
+> +
+> +	return res->class && res->class->type == MPAM_CLASS_MEMORY;
+> +}
+> +
+> +static struct mpam_resctrl_dom *
+> +mpam_get_ctrl_domain_from_nid(int nid, struct mpam_resctrl_res *res,
+> +			      struct resctrl_ctrl *ctrl)
+> +{
+> +	struct mpam_resctrl_dom *dom;
+> +
+> +	list_for_each_entry(dom, &ctrl->domains, resctrl_ctrl_dom.hdr.list) {
+> +		if (!dom->ctrl_comp || !dom->ctrl_comp->class)
+> +			continue;
+> +		if (dom->ctrl_comp->class->type != MPAM_CLASS_MEMORY)
+> +			continue;
+> +		if (dom->ctrl_comp->comp_id == nid)
+> +			return dom;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static struct mpam_resctrl_dom *
+> +mpam_get_mon_domain_from_nid(int nid, struct mpam_resctrl_res *res)
+> +{
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +
+> +	if (!r->mon_capable)
+> +		return NULL;
+> +
+> +	list_for_each_entry(dom, &r->mon_domains, resctrl_mon_dom.hdr.list) {
+> +		if (!dom->ctrl_comp || !dom->ctrl_comp->class)
+> +			continue;
+> +		if (dom->ctrl_comp->class->type != MPAM_CLASS_MEMORY)
+> +			continue;
+> +		if (dom->ctrl_comp->comp_id == nid)
+> +			return dom;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static struct mpam_resctrl_dom *
+> +mpam_resctrl_alloc_ctrl_domain_nid(int nid, struct mpam_resctrl_res *res,
+> +				   struct resctrl_ctrl *ctrl,
+> +				   struct mpam_component *comp)
+> +{
+> +	int err;
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_ctrl_domain *ctrl_d;
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +	int id_cpu = cpumask_first(cpu_possible_mask);
+> +
+> +	if (id_cpu >= nr_cpu_ids)
+> +		id_cpu = 0;
+> +
+> +	lockdep_assert_held(&domain_list_lock);
+> +
+> +	if (!r->alloc_capable)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (WARN_ON_ONCE(!comp))
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);
+> +	if (!dom)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	dom->ctrl_comp = comp;
+> +
+> +	ctrl_d = &dom->resctrl_ctrl_dom;
+> +	mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, comp,
+> +					  r->rid, &ctrl_d->hdr);
+> +	ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+> +	err = resctrl_online_ctrl_domain(r, ctrl, ctrl_d);
+> +	if (err)
+> +		goto free_domain;
+> +
+> +	mpam_resctrl_domain_insert(&ctrl->domains, &ctrl_d->hdr);
+> +
+> +	return dom;
+> +
+> +free_domain:
+> +	kfree(dom);
+> +	return ERR_PTR(err);
+> +}
+> +
+> +static struct mpam_resctrl_dom *
+> +mpam_resctrl_alloc_mon_domain_nid(int nid, struct mpam_resctrl_res *res,
+> +				  struct mpam_component *comp)
+> +{
+> +	int err;
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_l3_mon_domain *mon_d;
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +	struct mpam_component *any_mon_comp = NULL;
+> +	struct mpam_resctrl_mon *mon;
+> +	enum resctrl_event_id eventid;
+> +	int id_cpu = cpumask_first(cpu_possible_mask);
+> +
+> +	if (id_cpu >= nr_cpu_ids)
+> +		id_cpu = 0;
+> +
+> +	lockdep_assert_held(&domain_list_lock);
+> +
+> +	if (!r->mon_capable)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (WARN_ON_ONCE(!comp))
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);
+> +	if (!dom)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	dom->ctrl_comp = comp;
+> +
+> +	for_each_mpam_resctrl_mon(mon, eventid) {
+> +		struct mpam_component *mon_comp;
+> +
+> +		if (!mon->class)
+> +			continue;
+> +
+> +		mon_comp = find_component_nid(mon->class, nid);
+> +		dom->mon_comp[eventid] = mon_comp;
+> +		if (mon_comp)
+> +			any_mon_comp = mon_comp;
+> +	}
+> +	if (!any_mon_comp) {
+> +		err = -EFAULT;
+> +		goto free_domain;
+> +	}
+> +
+> +	mon_d = &dom->resctrl_mon_dom;
+> +	mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, any_mon_comp,
+> +					  r->rid, &mon_d->hdr);
+> +	mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+> +	err = resctrl_online_mon_domain(r, &mon_d->hdr);
+> +	if (err)
+> +		goto free_domain;
+> +
+> +	mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+> +
+> +	return dom;
+> +
+> +free_domain:
+> +	kfree(dom);
+> +	return ERR_PTR(err);
+> +}
+> +
+> +static int mpam_resctrl_online_node(unsigned int nid)
+> +{
+> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +	struct mpam_component *comp;
+> +	struct resctrl_ctrl *ctrl, *em_ctrl;
+> +	struct mpam_resctrl_dom *dom;
+> +
+> +	if (!res->class)
+> +		return 0;
+> +
+> +	comp = find_component_nid(res->class, nid);
+> +	if (!comp)
+> +		return 0;
+> +
+> +	guard(mutex)(&domain_list_lock);
+> +
+> +	if (r->alloc_capable) {
+> +		for_each_resource_ctrl(ctrl, r) {
+> +			dom = mpam_get_ctrl_domain_from_nid(nid, res, ctrl);
+> +			if (!dom) {
+> +				dom = mpam_resctrl_alloc_ctrl_domain_nid(nid, res,
+> +									 ctrl, comp);
+> +				if (IS_ERR(dom))
+> +					return PTR_ERR(dom);
+> +			}
+> +
+> +			list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
+> +				dom = mpam_get_ctrl_domain_from_nid(nid, res, em_ctrl);
+> +				if (!dom) {
+> +					dom = mpam_resctrl_alloc_ctrl_domain_nid(nid, res,
+> +										 em_ctrl, comp);
+> +					if (IS_ERR(dom))
+> +						return PTR_ERR(dom);
+> +				}
+> +			}
+> +		}
+> +	}
+> +
+> +	if (r->mon_capable) {
+> +		dom = mpam_get_mon_domain_from_nid(nid, res);
+> +		if (!dom) {
+> +			dom = mpam_resctrl_alloc_mon_domain_nid(nid, res, comp);
+> +			if (IS_ERR(dom))
+> +				return PTR_ERR(dom);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_resctrl_offline_node(unsigned int nid)
+> +{
+> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +	struct resctrl_ctrl *ctrl, *em_ctrl;
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_ctrl_domain *ctrl_d;
+> +	struct rdt_l3_mon_domain *mon_d;
+> +
+> +	if (!res->class)
+> +		return 0;
+> +
+> +	if (!find_component_nid(res->class, nid))
+> +		return 0;
+> +
+> +	guard(mutex)(&domain_list_lock);
+> +
+> +	if (r->alloc_capable) {
+> +		for_each_resource_ctrl(ctrl, r) {
+> +			list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
+> +				dom = mpam_get_ctrl_domain_from_nid(nid, res, em_ctrl);
+> +				if (WARN_ON_ONCE(!dom))
+> +					continue;
+> +				ctrl_d = &dom->resctrl_ctrl_dom;
+> +				if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask,
+> +									 &ctrl_d->hdr)) {
+> +					resctrl_offline_ctrl_domain(r, em_ctrl, ctrl_d);
+> +					kfree(dom);
+> +				}
+> +			}
+> +
+> +			dom = mpam_get_ctrl_domain_from_nid(nid, res, ctrl);
+> +			if (WARN_ON_ONCE(!dom))
+> +				continue;
+> +			ctrl_d = &dom->resctrl_ctrl_dom;
+> +			if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask,
+> +								 &ctrl_d->hdr)) {
+> +				resctrl_offline_ctrl_domain(r, ctrl, ctrl_d);
+> +				kfree(dom);
+> +			}
+> +		}
+> +	}
+> +
+> +	if (r->mon_capable) {
+> +		dom = mpam_get_mon_domain_from_nid(nid, res);
+> +		if (WARN_ON_ONCE(!dom))
+> +			return 0;
+> +		mon_d = &dom->resctrl_mon_dom;
+> +		if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask, &mon_d->hdr)) {
+> +			resctrl_offline_mon_domain(r, &mon_d->hdr);
+> +			kfree(dom);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_resctrl_node_notifier(struct notifier_block *self,
+> +				      unsigned long action, void *arg)
+> +{
+> +	struct node_notify *nn = arg;
+> +
+> +	if (nn->nid < 0 || !mpam_mba_uses_memory_nid())
+> +		return NOTIFY_OK;
+> +
+> +	/*
+> +	 * Ignore nids that have CPUs. Resctrl needs to see the cpu offline
+> +	 * call for each CPU to update the CPUs in control groups.
+> +	 */
+> +	if (!cpumask_empty(cpumask_of_node(nn->nid)))
+> +		return NOTIFY_OK;
 
-Apart from that LGTM!
+I was expecting the lifecycle of the resctrl MB_NODE resource to be the same as the memory
+associated with the memory node. This is discussed on Reinette's controls PoC here:
 
-Best regards,
-Michael
+https://lore.kernel.org/lkml/f5b6cec4-03d8-4a11-884d-d4579dab6b22@intel.com/
+
+This looks to be a different lifecycle?
+
+Thanks,
+
+Ben
+
+> +
+> +	switch (action) {
+> +	case NODE_ADDED_FIRST_MEMORY:
+> +		mpam_resctrl_online_node(nn->nid);
+> +		break;
+> +	case NODE_REMOVED_LAST_MEMORY:
+> +		mpam_resctrl_offline_node(nn->nid);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+>  int mpam_resctrl_online_cpu(unsigned int cpu)
+>  {
+>  	struct mpam_resctrl_res *res;
+> @@ -2229,6 +2554,10 @@ int mpam_resctrl_setup(void)
+>  		}
+>  	}
+>  
+> +	if (mpam_mba_uses_memory_nid())
+> +		hotplug_node_notifier(mpam_resctrl_node_notifier,
+> +				      RESCTRL_CALLBACK_PRI);
+> +
+>  	cpus_read_unlock();
+>  
+>  	if (!resctrl_arch_alloc_capable() && !resctrl_arch_mon_capable()) {
+> diff --git a/include/linux/memory.h b/include/linux/memory.h
+> index 463dc02f6cff..1497d4be38ee 100644
+> --- a/include/linux/memory.h
+> +++ b/include/linux/memory.h
+> @@ -120,6 +120,7 @@ struct mem_section;
+>  #define CPUSET_CALLBACK_PRI	10
+>  #define MEMTIER_HOTPLUG_PRI	100
+>  #define KSM_CALLBACK_PRI	100
+> +#define RESCTRL_CALLBACK_PRI	100
+>  
+>  #ifndef CONFIG_MEMORY_HOTPLUG
+>  static inline void memory_dev_init(void)
 
 
