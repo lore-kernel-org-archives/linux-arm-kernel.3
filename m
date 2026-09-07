@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33F2C79FA7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD796C79FA0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4LLWAmIM83hLjX1aLVltoTCp2GcYnZjpRVWo34T5DlY=; b=4kRUko9lT69ptya3NsH8F20uAJ
-	jViZg9HLjOQQxJfDe2+mS6bIGBC4SgqEPG3vQq3RxtakzowIk5H4RtVkf45zxCWY2GDmXQJnaIhPV
-	LrKy3s3hMz6TiXZ7FO/JWLKOQNnagq2Oolahiu7bG2tmcd2z/XKFFiM2XckATsLLY3IS8P0YHktbo
-	VJ6tWNEcJIcFmydPgY0qF494r5e/lyA9JYI5mUuHMrHyEdZSEwrUIPchWthH7AfahSpAj7/TiUknJ
-	vPSlSF81nz2/5+z8o3ZpmeMoVyokMR4MXv6kxHHZY1vz92RffX16BGWYlGShhP5yvwHu/vXT7XPrj
-	yLW9gnEQ==;
+	bh=FnJS5sPm/eEb7Whkt9kcxmirJFvVGPcXcBd/GmZPmro=; b=Xsmj2itf4qy/rYE6vS2uS8dhq8
+	qgsBtYz3Riqbc2rDTyGaQMZL8VBsGU+nz5nki3MDmR3Gagm8relIdx+INLpCxl1W2WkjFZz5qwX43
+	Ian32NV/6cqi2wSrfyMtlWg32VaZvEFnCGdTRfSWTmvebuJPFbivnMFuXXJdt40YZgko7C8kL+epM
+	sYDMF25G7Pa5poFQAv1L+urPm8yeExuiW71ccSTa93KOmQnmcvsXc7PHjbHs+OL+6gAAo6udMeAfX
+	aW8VbNcAjtzUa6uA5TllvvgQWkZSsvpopSCI5zAzuyxqROAwIPv/EvQaSKUDMgGD592yDcj1AWIY5
+	JderkrhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cPW-00000007M2Q-22Pj;
+	id 1x3cPW-00000007M3B-30MA;
 	Mon, 07 Sep 2026 16:41:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cPM-00000007LpY-3K19
+	id 1x3cPS-00000007LvZ-01Iv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:41:24 +0000
+	Mon, 07 Sep 2026 16:41:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 400C2601DE;
-	Mon,  7 Sep 2026 16:41:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF5D1F00A3A;
-	Mon,  7 Sep 2026 16:41:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BE27640B3C;
+	Mon,  7 Sep 2026 16:41:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5322E1F00A3A;
+	Mon,  7 Sep 2026 16:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799284;
-	bh=4LLWAmIM83hLjX1aLVltoTCp2GcYnZjpRVWo34T5DlY=;
+	s=k20260515; t=1788799289;
+	bh=FnJS5sPm/eEb7Whkt9kcxmirJFvVGPcXcBd/GmZPmro=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lqjI65UaZ6ZoomaEJnyfKR4mPJu1mjJ3kfz/X3YdtfPpUsjUc7McRrSo1m84kosvA
-	 r/CgDll1ozsnv30pGdxnWvwCBZ5X8TkN/vxZ5Cx0mjnuGErCDgZydjffe1Mu08f4Fj
-	 8+1Job54DTjducrVg/a0CGSRi4r8VCABF0jqHUysj2FnD1O2WhS1yKgq+WjWBbUeWJ
-	 RKtF1i1ITara6JsJOgt6dHz+EXlY1AQgu397dcsZcGhH5j5AddYw+45pVOsKvklkql
-	 oPnDm2tOqkYAHwYmm2ODVwQOYYpQnsdM5jFRHdCWK4eFDWEWBMq0UH+g5MP4VmXe3i
-	 RxITZRi0gXqVw==
+	b=J2uS/ZFegs2bPuppfq4q61wHXjhXSfLLRSdpBWZhH+w4+qVa8fOQW9/6o2TzJkOtQ
+	 FZT65VPKHBt+GTZ62Y2E+HYvukB6UTZNrolpdxuUCKppoYZX9aoL1jpAgd5wbXtaXf
+	 2CIjKaPMrrXBp/fONa3f3cxwVC+3HUn8odmkz/lAd+NwG9GuE/5+0TMNIwNqZolVxV
+	 4rFuseffS6u/SNKlmxqiXdtwlktQ0aYKUVl4TImp55PEb/JyceUhmIAXZ8fTyViHt1
+	 Cbie8UGD6cfA+G8Mu3rNCoMxDTxeNdiyaAYkGJPxtH7Sh5v45F+a4qygfL1WBZwQgz
+	 Zg2DoDSRIiCog==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 17/19] arm64: smp: Pass secondary CPU boot parameters via firmware if possible
-Date: Mon,  7 Sep 2026 17:40:20 +0100
-Message-ID: <20260907164024.17164-18-will@kernel.org>
+Subject: [PATCH 19/19] arm64: smp: Harden parallel CPU bringup against broken PSCI firmware
+Date: Mon,  7 Sep 2026 17:40:22 +0100
+Message-ID: <20260907164024.17164-20-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164024.17164-1-will@kernel.org>
 References: <20260907164024.17164-1-will@kernel.org>
@@ -77,142 +77,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for parallel bringup of secondary CPUs, the global
-'secondary_data' structure used for initial paramater passing must be
-localised.
+Since firmware has occasionally been known to get things wrong, harden
+our parallel CPU bringup code against a PSCI implementation that passes
+the CPU_ON argument to an incorrect CPU.
 
-Pass the idle 'task_struct' pointer for secondary CPUs directly to
-->cpu_boot() if the backend supports it.
+The primary CPU writes the MPIDR of the incoming CPU to the end of its
+task stack and this is then checked against the MPIDR_EL1 register
+during early kernel entry. A mismatch is reported via the existing
+failure reporting mechanism and the CPU is not brought online.
 
+Suggested-by: David Woodhouse <dwmw@amazon.co.uk>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/smp.h |  1 +
- arch/arm64/kernel/head.S     | 12 +++++++++++-
- arch/arm64/kernel/psci.c     |  4 ++--
- arch/arm64/kernel/smp.c      | 25 +++++++++++--------------
- 4 files changed, 25 insertions(+), 17 deletions(-)
+ arch/arm64/include/asm/smp.h    |  4 +++-
+ arch/arm64/kernel/asm-offsets.c |  1 +
+ arch/arm64/kernel/head.S        | 39 ++++++++++++++++++++++++++++-----
+ arch/arm64/kernel/smp.c         | 11 ++++++++--
+ 4 files changed, 46 insertions(+), 9 deletions(-)
 
 diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index 7b986a6a765b..7f2cd84b7785 100644
+index 3decb42164aa..1ecfa4fa4f82 100644
 --- a/arch/arm64/include/asm/smp.h
 +++ b/arch/arm64/include/asm/smp.h
-@@ -95,6 +95,7 @@ struct secondary_data {
- extern struct secondary_data secondary_data;
- extern long __early_cpu_boot_status;
- extern void secondary_entry(void);
-+extern void secondary_entry_with_arg(void);
+@@ -15,7 +15,9 @@
+ /* Offsets for late (i.e. MMU-enabled) CPU boot reasons */
+ /* Fatal system error detected by secondary CPU, crash the system */
+ #define CPU_PANIC_KERNEL			(0)
+-#define CPU_STATUS_FLAGS_MAX			(1)
++/* The PSCI v0.2+ implementation passed the wrong argument */
++#define CPU_BROKEN_PSCI_ARG			(1)
++#define CPU_STATUS_FLAGS_MAX			(2)
  
- extern void arch_send_call_function_single_ipi(int cpu);
- extern void arch_send_call_function_ipi_mask(const struct cpumask *mask);
+ #ifndef __ASSEMBLER__
+ 
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index 9c853ed3ceab..0cbd10af13ac 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -97,6 +97,7 @@ int main(void)
+   BLANK();
+ #endif
+   DEFINE(CPU_BOOT_TASK,		offsetof(struct secondary_data, task));
++  DEFINE(CPU_BOOT_STATUS_FLAGS,	offsetof(struct secondary_data, status.flags));
+   BLANK();
+   DEFINE(FTR_OVR_VAL_OFFSET,	offsetof(struct arm64_ftr_override, val));
+   DEFINE(FTR_OVR_MASK_OFFSET,	offsetof(struct arm64_ftr_override, mask));
 diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..17868b497d7c 100644
+index bec4bc1b12db..56deeb9673d6 100644
 --- a/arch/arm64/kernel/head.S
 +++ b/arch/arm64/kernel/head.S
-@@ -335,6 +335,7 @@ SYM_FUNC_END(init_kernel_el)
- 	 * cores are held until we're ready for them to initialise.
+@@ -192,11 +192,21 @@ SYM_CODE_END(preserve_boot_args)
+ 	 * its location in the task stack. We reserve the entire pt_regs space
+ 	 * for consistency with user tasks and kthreads.
  	 */
- SYM_FUNC_START(secondary_holding_pen)
-+	mov	x19, xzr
- 	mov	x0, xzr
- 	bl	init_kernel_el			// w0=cpu_boot_mode
- 	mrs	x2, mpidr_el1
-@@ -353,10 +354,16 @@ SYM_FUNC_END(secondary_holding_pen)
- 	 * be used where CPUs are brought online dynamically by the kernel.
- 	 */
- SYM_FUNC_START(secondary_entry)
-+	mov	x0, xzr
-+	b	secondary_entry_with_arg
-+SYM_FUNC_END(secondary_entry)
+-	.macro	init_cpu_task tsk, tmp1, tmp2
++	.macro	init_cpu_task tsk, tmp1, tmp2, check_mpidr=
+ 	msr	sp_el0, \tsk
+ 
+ 	ldr	\tmp1, [\tsk, #TSK_STACK]
+-	add	sp, \tmp1, #THREAD_SIZE
++	mov	sp, \tmp1
++	.ifnb	\check_mpidr
++	mov_q	\tmp1, MPIDR_HWID_BITMASK
++	mrs	\tmp2, mpidr_el1
++	and	\tmp2, \tmp2, \tmp1
++	ldr	\tmp1, [sp]
++	sub	\tmp1, \tmp1, \tmp2
++	cbnz	\tmp1, __cpu_secondary_broken_psci_arg
++	.endif
 +
-+SYM_FUNC_START(secondary_entry_with_arg)
-+	mov	x19, x0
- 	mov	x0, xzr
- 	bl	init_kernel_el			// w0=cpu_boot_mode
- 	b	secondary_startup
--SYM_FUNC_END(secondary_entry)
-+SYM_FUNC_END(secondary_entry_with_arg)
++	add	sp, sp, #THREAD_SIZE
+ 	sub	sp, sp, #PT_REGS_SIZE
  
- SYM_FUNC_START_LOCAL(secondary_startup)
- 	/*
-@@ -391,10 +398,13 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
- 	msr	vbar_el1, x5
- 	isb
- 
-+	mov	x2, x19
-+	cbnz	x2, 1f
+ 	stp	xzr, xzr, [sp, #S_STACKFRAME]
+@@ -401,11 +411,12 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+ 	cbnz	x2, 1f
  	adr_l	x0, secondary_data
  	ldr	x2, [x0, #CPU_BOOT_TASK]
- 	cbz	x2, __secondary_too_slow
- 
-+1:
+-	cbz	x2, __secondary_too_slow
+-
+-1:
  	init_cpu_task x2, x1, x3
- 
+-
++	cbnz	x2, 2f
++	b	__secondary_too_slow
++1:
++	init_cpu_task x2, x1, x3, check_mpidr=1
++2:
  #ifdef CONFIG_ARM64_PTR_AUTH
-diff --git a/arch/arm64/kernel/psci.c b/arch/arm64/kernel/psci.c
-index 3ba4fa14b9e3..c13e635e8a11 100644
---- a/arch/arm64/kernel/psci.c
-+++ b/arch/arm64/kernel/psci.c
-@@ -38,8 +38,8 @@ static int __init cpu_psci_cpu_prepare(unsigned int cpu)
+ 	ptrauth_keys_init_cpu x2, x3, x4, x5
+ #endif
+@@ -451,6 +462,22 @@ SYM_FUNC_END(set_cpu_boot_mode_flag)
+ 	dc	ivac, \tmp1			// Invalidate potentially stale cache line
+ 	.endm
  
- static int cpu_psci_cpu_boot(unsigned int cpu, unsigned long context)
- {
--	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
--	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry,
-+	void *entry_va = context ? secondary_entry_with_arg : secondary_entry;
-+	int err = psci_ops.cpu_on(cpu_logical_map(cpu), __pa_symbol(entry_va),
- 				  context);
- 	if (err && err != -EPERM)
- 		pr_err("failed to boot CPU%d (%d)\n", cpu, err);
++	.macro	update_cpu_boot_status status, tmp1, tmp2
++	adr_l	\tmp1, secondary_data
++	add	\tmp1, \tmp1, #CPU_BOOT_STATUS_FLAGS + \status
++	mov	\tmp2, #1
++	strb	w\tmp2, [\tmp1]
++	.endm
++
++SYM_FUNC_START_LOCAL(__cpu_secondary_broken_psci_arg)
++	update_cpu_boot_status CPU_BROKEN_PSCI_ARG, x0, x1
++1:
++	wfe
++	wfi
++	b	1b
++SYM_FUNC_END(__cpu_secondary_broken_psci_arg)
++
++
+ /*
+  * Enable the MMU.
+  *
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index b57f8f752f78..95d5328c3f5a 100644
+index d5da44949671..95af5384885b 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
-@@ -93,34 +93,31 @@ static inline int op_cpu_kill(unsigned int cpu)
- }
- #endif
- 
--
- /*
-  * Boot a secondary CPU, and assign it the specified idle task.
-  * This also gives us the initial stack to use for this CPU.
-  */
--static int boot_secondary(unsigned int cpu, struct task_struct *idle)
--{
--	const struct cpu_operations *ops = get_secondary_cpu_ops();
--
--	if (ops->cpu_boot)
--		return ops->cpu_boot(cpu, 0);
--
--	return -EOPNOTSUPP;
--}
--
- int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
- {
--	int ret;
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
-+	int ret = -EOPNOTSUPP;
-+	void *arg = NULL;
- 
- 	/*
+@@ -119,10 +119,12 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
  	 * We need to tell the secondary core where to find its stack and the
  	 * page tables.
  	 */
--	secondary_data.task = idle;
-+	if (ops->cpu_boot_has_arg && ops->cpu_boot_has_arg())
-+		arg = idle;
-+	else
-+		secondary_data.task = idle;
-+
- 	update_cpu_boot_status(CPU_MMU_OFF);
+-	if (smp_parallel_bringup)
++	if (smp_parallel_bringup) {
++		*((u64 *)idle->stack) = cpu_logical_map(cpu);
+ 		arg = idle;
+-	else
++	} else {
+ 		secondary_data.task = idle;
++	}
  
  	/* Now bring the CPU into our world */
--	ret = boot_secondary(cpu, idle);
-+	if (ops->cpu_boot)
-+		ret = ops->cpu_boot(cpu, (unsigned long)arg);
+ 	if (ops->cpu_boot)
+@@ -158,6 +160,11 @@ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+ 	}
+ 
+ 	status = READ_ONCE(secondary_data.status);
++	if (status.flags[CPU_BROKEN_PSCI_ARG]) {
++		pr_crit_once("CPU%u detected broken PSCI v0.2+ CPU_ON argument passing\n",
++			     cpu);
++	}
 +
- 	if (ret && ret != -EPERM)
- 		pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
- 	return ret;
+ 	if (status.flags[CPU_PANIC_KERNEL])
+ 		panic("CPU%u detected unsupported configuration\n", cpu);
+ 
 -- 
 2.55.0.979.g7e5102b832-goog
 
