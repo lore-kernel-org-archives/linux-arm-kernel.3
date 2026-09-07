@@ -4,127 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1FAC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF00BC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2srrqsfvZcRiNitfhUr7DhaIgxeXboMwTknQApvQL7A=; b=N5oSreNZVUaM521YZR1H26o+Cc
-	uKmyCkJBrHN+hcCx48SwRS1ZgcfwTXjOBzL++Hh+upc3Cbbl2RJDUywfhwpafIlK5hCtjsIFIJper
-	WlQ4uC0yotwTDrhQjajNcrXTRcageCxfJocvaEsKS+3oF4pYRrF6uxHB0S0qbF6bGXTsKupof4jZp
-	xtKSNuSV8h/WqI1+4xg0Jk3ILp9l6WhntXZuXximk/EYpD9IvSCompVJu3ArGiPcPFmVM/wdBKXpS
-	gfJkqUqBTfEqUsqDbLj+u5ZgOhp9kuWzjVkdJeKX/4294nQ5iuof4TqY223u5MAwebGKEh7Fl/Y9Y
-	Yw2NHheA==;
+	bh=wudceGLt62w3o+e3x4RUDMN4HluyPL4Ts+Eyk51ebws=; b=oCMP/5ukh02DZ7Jx2734gBeaKB
+	KPEI9Zs2JbyRf+sKAA/lHZmh/e4HsYq1lBR0diYTXdLCKWQJ1gdwuPJw5J3dz0kRXiR9xMRW/Vo3U
+	0ArMhs5c+ze4pIQID9oY4Xd1pzag1UBJfBiBomYSXSssG1TQSpynsYgdfjWwSOQdf1voilNVRk+uj
+	LjkXGKcPdiaIS4oKrx3dSVCcqP5Jfpe6T5E1wg6lai2NNySpn5yPBrvFOtuzU3B0loHgfC6BHmDUt
+	G3hoRpw2eH/i5hmNtrVTS6B7EfNKYO46wyaHHJrhXouNsN0+Spav2C6Dmp3nMRYbPF2ieq1Ht28h3
+	ev2eL4Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bRq-00000007CxB-0B7s;
-	Mon, 07 Sep 2026 15:39:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3ba6-00000007E8O-0Fgy;
+	Mon, 07 Sep 2026 15:48:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bRp-00000007Cv8-052l
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 15:39:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2srrqsfvZcRiNitfhUr7DhaIgxeXboMwTknQApvQL7A=; b=VSSPYA9fY+Kgzdoeuey+NxQkRz
-	Wk/DbZ8E0afk/9FKccd3jV+Q1dvP8l2F3g+YZLeteYeGEANAYXTbPuB5gfy+aH9B+aLno1YHq/g00
-	1cYsUJFG8n0/MwHepsw7vUg+mND5Qs8iYn/QKabu/ZPfOVOqQP6pO/tk8Vx+nLS5CoSAGt7XB2t7X
-	EAL3ZU4DGU2J4wbln+s3tmd8vcg8TKpF1cSZDyrmxiq1t4p8vkiFm1ls12OkoZSs+uorVnqiLeNV5
-	YTnO33w5oBmQKbAjfGNucvs3Y+fxkLOtaWNOiGdje0rNtJmsXMf7q7w625c184lTHF/pTI8QqXNXM
-	XkXChN8w==;
-Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3bRj-0000000GNyH-3ocx
+	id 1x3ba4-00000007E8I-1ShW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:39:50 +0000
-Received: by mail-pj2-x07.google.com with SMTP id 98e67ed59e1d1-398e10200a6so1899841a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:39:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788795585; x=1789400385; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2srrqsfvZcRiNitfhUr7DhaIgxeXboMwTknQApvQL7A=;
-        b=rRPb7/EITLHYaVHFXg4odwCBoLVfKivZzaz2vkO33AfQ0MhxCW0lJz8Ehr8tnMudcR
-         Fhwegnvyl4CdF+D8y9C3SAOz9+FEU9cU0TImmFs4FKAeog8OEHLDa6yK8pf6FXPwVNLQ
-         AzedB3erAdjnWNG8TR+nwtZw9diTqxFgbMjFmjfpLRFf6FiNZC81oHgHhZpstANJ/AYg
-         uC45VlPcPpawJ2Q/njUr7KUpKTwgXD+J4erapyr6J/dSeTz4xCuOcEFo2mDPxpcb2Om8
-         hKnanG+0ik+JgbJE6P3yTCDT62pSN+LjW0QhyEuiMqUkogILjJmNLm1cPA5prbIY9wXY
-         vpeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788795585; x=1789400385;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2srrqsfvZcRiNitfhUr7DhaIgxeXboMwTknQApvQL7A=;
-        b=Y2fFpMe4lxTOf/0+fi5jxofDcN3Monr4bf/rsaLnMh7t4agt8NnPhrxWMTVzyMcEe8
-         cBD2q4IW3f7LXOWnko9PWvyv5Moyd7GgxXsIoIT6/9bGAWb6ZTDU1bn3u+eIM1KUPw3g
-         Ldz84xG1ceyJWrqcB0q5XaKknuNRq/6NDYA95boO1iGgFjcF3ufvI/Za4xO8t6K3YV5y
-         q+bP2i/zilcpHezFv7mEV20j075hbJAAXFKYn/Lvl53xBF71qApJkmyU+iZsxdoEddTk
-         mG/J8XFvWsL4djNOWHF/WSxQwN3rBmXGYftpmZK7h4TgG3KJX3WPv/DrG5NsuDett6zn
-         ITCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxwrsNs8g1S43Pqg4hO8hiZ6eJTsCVkHQs8Dly6L6rFEb42mm38SIo6z3nmoSKrYN3/vKcnqSLcvnOHNK3gNPGI@lists.infradead.org
-X-Gm-Message-State: AFuF++n2YMbyWdd/tOi6OOaw2vs2FfvM93tK/pAKM4APRRwvJvod17Kn
-	tpVclgpEYgS5CmHknftist3mXUdeBoHEny13yBzJQdMDQfrhjzVFIMuR
-X-Gm-Gg: AYBFou1hxfH6pbI08ZDCLhd9SO5WvKdBF49SxCI6DKGOvWJyTuYqkm1PkQR9lUOw4FS
-	EI1FFBPFDysOShmDj1t7/VHUfLWQr5kT8eQ5S3LDVD/5F5Z97JA9ux+9iHq3IEIz6QQG9Edu2Rt
-	grctEZUXAd7ugI0dO4SoCrrHl+pk4uLM87fKbwv6Eh6uK7sMkXsSM/5i4l6pXmdxhBe9DzB1l7F
-	StQGdNpenjo9AIceRTVV0JWFkcHNdIzUmbFPMflOczUFYVgtxvWwA8GGXiBZg/BdwDu7Ta/jj3h
-	Ww/mmJ5D55btcuJI4WJnPtKsWp9cN0coNJZiSvRIrE8TonwEFTwHzasoxtOXCU2YitHXoSC15nt
-	R/NxMKcuRayzUGhohm6A4CCJmwTuuUaC18Rd0EnZnKKvqmjC4207XVf5aAFdjhw1Wpp5r5X3zZu
-	WhdKMxwWwnN5gCUhs128jaBIEUIJ2QuBV0udLu5kPBFneYzOiUeJdl/fEDLj+r
-X-Received: by 2002:a17:90b:3c42:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39b260d2977mr35605265a91.4.1788795584940;
-        Mon, 07 Sep 2026 08:39:44 -0700 (PDT)
-Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm21690121a91.9.2026.09.07.08.39.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 08:39:44 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v4 09/10] arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
-Date: Mon,  7 Sep 2026 23:37:12 +0800
-Message-ID: <20260907153713.2572547-11-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260907153713.2572547-2-coiaprant@gmail.com>
-References: <20260907153713.2572547-2-coiaprant@gmail.com>
+	Mon, 07 Sep 2026 15:48:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DDB9E42E7C;
+	Mon,  7 Sep 2026 15:48:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49511F00A3A;
+	Mon,  7 Sep 2026 15:48:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788796103;
+	bh=wudceGLt62w3o+e3x4RUDMN4HluyPL4Ts+Eyk51ebws=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=lvRgPSgWAAdN4XQw3S2/yhtgm0ggA1Q019dIjUOymiLlfLatsBScYcJK0x4hRnETH
+	 /X8BeaWqBDCvY6Ng491iOaK7eJxS59eif9JSxCiMe/1sgAwo1jFVyGgKzFOPPHhXOu
+	 9i6WyIW7f38b0Ddk67DZf7k+ECYL56wURose3Z6R5rjbSXl8qiCjTz0TpTKWdxOQZZ
+	 0YTgIoHyvDcO5QgY447FEjSFduoYtWOExqC8LN9WmgoqcEUbNO4o+LTQyT690uejUV
+	 WzhTf/ZzWSJkdbOIH0xq131qlWB8m3G9ePzyg/RuD1N8DMbxrFuNLZI62jZbrOUvHP
+	 V7d5MRGyYWJJQ==
+Message-ID: <a70e45cc-dbf7-40da-81e8-ee6055f2692f@kernel.org>
+Date: Mon, 7 Sep 2026 17:48:18 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_163948_090897_32FF0ECD 
-X-CRM114-Status: GOOD (  14.27  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64/mm: Move __check_safe_pte_update()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260901065454.1906343-1-anshuman.khandual@arm.com>
+ <20260901065454.1906343-2-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260901065454.1906343-2-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,142 +118,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Ariaboard Photonicat has a Motorcomm YT8521SC Gigabit Ethernet PHY
-connected to GMAC0 via XPCS SGMII.  Enable the necessary nodes to make
-this port functional.
+On 9/1/26 08:54, Anshuman Khandual wrote:
+> The page table entry print helpers and related macros which are defined in
+> <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
+> is basically caused by cycling dependency.
+> 
+> Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
+> for subsequent usage of the afore mentioned generic MM helpers.
+> 
+> This does not cause any functional change.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> Should __check_safe_pte_update() be wrapped in #ifdef CONFIG_DEBUG_VM
+> along with dropping off current IS_ENABLED() test. That would ensure
+> the function never gets called when CONFIG_DEBUG_VM is disabled. That
+> will preserve current behaviour as the inline function gets dropped
+> when CONFIG_DEBUG_VM remains disabled.
+> 
+>  arch/arm64/include/asm/pgtable.h | 47 +-------------------------------
+>  arch/arm64/mm/mmu.c              | 45 ++++++++++++++++++++++++++++++
+>  2 files changed, 46 insertions(+), 46 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index e89ec5f4787b..61fbfab3e06e 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -387,52 +387,7 @@ static inline pte_t __ptep_get(pte_t *ptep)
+>  extern void __sync_icache_dcache(pte_t pteval);
+>  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
+>  
+> -/*
+> - * PTE bits configuration in the presence of hardware Dirty Bit Management
+> - * (PTE_WRITE == PTE_DBM):
+> - *
+> - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
+> - *   0      0      |   1           0          0
+> - *   0      1      |   1           1          0
+> - *   1      0      |   1           0          1
+> - *   1      1      |   0           1          x
+> - *
+> - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
+> - * the page fault mechanism. Checking the dirty status of a pte becomes:
+> - *
+> - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
+> - */
+> -
+> -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
+> -					   pte_t pte)
+> -{
+> -	pte_t old_pte;
+> -
+> -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
+> -		return;
+> -
+> -	old_pte = __ptep_get(ptep);
+> -
+> -	if (!pte_valid(old_pte) || !pte_valid(pte))
+> -		return;
+> -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
+> -		return;
+> -
+> -	/*
+> -	 * Check for potential race with hardware updates of the pte
+> -	 * (__ptep_set_access_flags safely changes valid ptes without going
+> -	 * through an invalid entry).
+> -	 */
+> -	VM_WARN_ONCE(!pte_young(pte),
+> -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
+> -		     __func__, pte_val(old_pte), pte_val(pte));
+> -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
+> -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
+> -		     __func__, pte_val(old_pte), pte_val(pte));
+> -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
+> -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
+> -		     __func__, pte_val(old_pte), pte_val(pte));
+> -}
+> +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
+>  
 
-Enable combphy2 with rockchip,sgmii-mac-sel = <0> to route the SGMII
-interface to GMAC0.  Enable the xpcs node and its port 0 sub-node,
-referencing combphy2 as the SerDes PHY.
+That implies that any __set_ptes_anysz() will invoke another function call that
+will not be optimized out.
 
-Add the mdio0 node with the YT8521SC PHY at address 3, including its
-reset GPIO and LED configuration.  Also add LED configuration for the
-existing RGMII PHY on mdio1 for consistency.
+You should likely keep most of __check_safe_pte_update() in the header as an
+inline function (or at least the CONFIG_DEBUG_VM check), and only move the "slow
+path" code.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../boot/dts/rockchip/rk3568-photonicat.dts   | 74 ++++++++++++++++++-
- 1 file changed, 72 insertions(+), 2 deletions(-)
+Alternatively, make the whole thing #ifdef CONFIG_DEBUG_VM and provide an empty
+inline helper for !CONFIG_DEBUG_VM.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-index 58c1052ba8ef3..25caa44198843 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-@@ -3,6 +3,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3568.dtsi"
-@@ -242,6 +243,7 @@ &combphy1 {
- 
- &combphy2 {
- 	status = "okay";
-+	rockchip,sgmii-mac-sel = <0>;
- };
- 
- &cpu0 {
-@@ -260,9 +262,18 @@ &cpu3 {
- 	cpu-supply = <&vdd_cpu>;
- };
- 
--/* Motorcomm YT8521SC LAN port (require SGMII) */
-+/* Motorcomm YT8521SC LAN port */
- &gmac0 {
--	status = "disabled";
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>;
-+	assigned-clock-parents = <&xpcs_gmac0_clk>;
-+	pcs-handle = <&xpcs_mii0>;
-+	managed = "in-band-status";
-+	phy-handle = <&sgmii_phy>;
-+	phy-mode = "sgmii";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim>;
-+	status = "okay";
- };
- 
- /* Motorcomm YT8521SC WAN port */
-@@ -341,6 +352,36 @@ &i2s0_8ch {
- 	status = "okay";
- };
- 
-+&mdio0 {
-+	sgmii_phy: ethernet-phy@3 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x3>;
-+		max-speed = <1000>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+		};
-+	};
-+};
-+
- &mdio1 {
- 	rgmii_phy: ethernet-phy@3 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-@@ -350,6 +391,25 @@ rgmii_phy: ethernet-phy@3 {
- 		reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
- 		rx-internal-delay-ps = <1500>;
- 		tx-internal-delay-ps = <1500>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+		};
- 	};
- };
- 
-@@ -586,3 +646,13 @@ &xin32k {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&clk32k_out1>;
- };
-+
-+&xpcs {
-+	status = "okay";
-+	phys = <&combphy2 PHY_TYPE_SGMII>;
-+	phy-names = "serdes";
-+};
-+
-+&xpcs_mii0 {
-+	status = "okay";
-+};
+That's probably the cleanest, because performance with CONFIG_DEBUG_VM is not
+really relevant.
+
 -- 
-2.47.3
+Cheers,
 
+David
 
