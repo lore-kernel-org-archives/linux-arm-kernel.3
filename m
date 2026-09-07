@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BA1C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6107C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VuqTVRPLKoRQ9MMQfRIpr7bVrZKr95Rn2p1k6sNWEZ4=; b=mWBBSuuHKhNvSLoZxT2M15Yfzv
-	pQnxGQUcujhtCM6qJtjRFfH3RgJtkmuZ43O7HGxwE7gqppVWk+qm5FGUhx0cCwsvzr7Su57TlOy/B
-	XF4sb0us16k1FesAih5KwMAvW0Yi/A4ZXa8XvwTJUAAOwwc0VWUwBFbAGDI8Ft/fuNO7KtX2jUhi3
-	j097eAlfCyOlszfr4CFntRUUBnTqP6l2oD/eNe3M11vGJ+K1YspdU6xxCgOqRO4Jx0oTNvyPPxu6l
-	9q9rHS8nub+2BV0iVxMQCWXrIr09kFaQL/9a38WaOJg20oySnlNN/RuKL8gGOBhpOEC8lfqQ6GMXY
-	ry8uReWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+RrwGJfL3JuxaUg5J53rktsg4suPz5veslg2CafSxYM=; b=G0qU3TNQf0qK2jQ6zBfJBr2IB+
+	mqC64fxCvIofKGqi5Sx0h4SJdFPaPLjKXoikqD1h0CeOmLT/DmfA8LUfcy91UMWX1AIrB7tCO9obI
+	YMnoI09DiH7ugZK1DWaoIGti3TXS7Ky7lOwimIuFDiQaI8YYzRmIVKK0+8GeUsvPQkZgEPfrZral3
+	YzkMbbngjuffWUmAboUWRTUmF12PBt+2X7GajkIW5CXhr5R4hr2zudPhVZJWI4PSaOQ4HiAqp+NE4
+	jE6Z8GYaFlLvw3xylMklwjrUu6qwXSf4vkVB/ohev73NLYR1xtSvVXjnI0bRRvdQrZxC6SmgNyh44
+	5GzNAW8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WqJ-00000006Vpj-2ci1;
-	Mon, 07 Sep 2026 10:44:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WqE-00000006Vp7-1rle
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:44:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00AA21476;
-	Mon,  7 Sep 2026 03:44:41 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06AD63F7B4;
-	Mon,  7 Sep 2026 03:44:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788777884; bh=2hwh2AcBgKyWd0n5XC16XKeNe6QdOcojhz3vll/P+iI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JQfwqAP8b+aHItcwXjywNmynrYpqGvxro0RgNz57f9+y/bIZ2Ko+vYNdYo3Ndng7T
-	 2j045Ab8wyG23buFPl6o1j15B3heUSVyXPKJEKJ7MjPnh/ylqobglIId2D/zwxSsTb
-	 Mw0GJnuIWISSUrV9By5+UfFGN5KgyE8TUoDDF4JY=
-Message-ID: <a82061f1-bb23-403f-b772-d5adf7acb871@arm.com>
-Date: Mon, 7 Sep 2026 11:44:41 +0100
+	id 1x3Wqh-00000006Vtl-3OVo;
+	Mon, 07 Sep 2026 10:45:15 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3Wqe-00000006Vsa-2wpm;
+	Mon, 07 Sep 2026 10:45:14 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0DEB17A0125;
+	Mon,  7 Sep 2026 06:45:09 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Mon, 07 Sep 2026 06:45:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1788777908; x=1788864308; bh=+RrwGJfL3J
+	uxaUg5J53rktsg4suPz5veslg2CafSxYM=; b=RI6Izzk8a8VYevx/T7wNgrK0Gv
+	Mqm4P6KqDhbC+PamIdAnw8DbwJIfzUOj3trxOvgnzFLJk981dnPN+0+kwiUoQtGl
+	igfMZZ/o3vYnnKRlEBGje/wBKb2MfJJIhzrGdtQralJ5J5SKQxsiTqr6sdV7QLb7
+	QBrptEzumJpx5LZB6ABoJHKZYLiht72mwTk53x33QxWsx58uzA3iU2wHUMEZCGD1
+	Ger+VqEIOyMSqI3hJTCu6QmjcpdKZAeqvh+06tKz+WwwtICNz2pYWzDJfpMRII8e
+	0p0EjdUncqC2sqjXcGvi9D+TCzr8TxFu8DQXrvZE4heAGY9PBC6s6m5cE9bw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1788777908; x=1788864308; bh=+RrwGJfL3JuxaUg5J53rktsg4suPz5veslg
+	2CafSxYM=; b=gV42Ai7+rTLZJ5Ae08Ut6m4kCu5iwp6ay7muN9b4Jtk2AHd2k/B
+	OsacfRUG6H7aRwWTtrkRbbS15oZ5ddLWALDZcFF+nIRYeYFk9huZJxuvSCcU5tzn
+	fCSqFsjeZcFt4pQlX1Wsuk+UdZo9/ESLYSvUq3V/S7ggpJYm0ZQ62vxHUd+S1mVn
+	dFy88RdvdosyVfuZrfp2RWN1HsebtIL9z9S55zQ4YVMVEryClXfAIPWsrJaamBI6
+	NSqMqeK1dsXmZ+FOvP6YFBN54N209cyK5j4PSJFKibythKWzT/sdVF8RHeFzyF5M
+	Fl4aflVBobLNLN/eiqRoJNKGaiGikXXCqyw==
+X-ME-Sender: <xms:tJWeakDlcaPHZcZdvYyo3YjSVNdNngmH6lN2Q9tpQ9jvleSgBOknaw>
+    <xme:tJWeakyi7iQuia03Lnz0LZgxw76e4i4ulnMj8XAsxgvDfzSG_V8aUk_c3pq25RAMu
+    sJENICowxc6Q7j5fuPU8fcmBd7i0qAR5AkBLGcEbojv3pJj9Q8cO_8>
+X-ME-Received: <xmr:tJWeag6myZxgU6Ly4-lKvv36Ybkh6_Px38GNx_g9VaJEYpXfhPEx2qYTin9120TCVGhf6LkDY5cg6ClsnaxtoA5qvihWa9kxbCQ>
+X-ME-Proxy-Cause: dmFkZTEpZ37bV4WAbkr9w4Sjl1i+LGHCK0Z5tw4Ea6D9Stl38OBgl43DDxBEw2rl4fcZbG
+    HXqcdNArxZlhomcadAqdQKJfIjkOBSn1fPIRagr4/tpbZtNDxT6tEobXOqmKW1S+MX43Hv
+    vmud5whkkkEPpT807XSIPSoyN/NlVUzVXepHgf4EyV5Gjo3CzoYVNrL0j9jxJtUIfju3IO
+    6M3qtEB8S1Zz0OVDLyBrV/Wi+Q1YXS1czzm5+1JL5BH+faLFNWI4vPqjzAWZCh9eaj1O7P
+    yQViG8ITIkMV+ytiviEt1DOuJ0nOnYiUxttDTFqqRozLuu3eCCLc/mBpQJP+bCuz4hGTa1
+    27WAdTFhSItm4Mp9cmiQV3iRfbzlUxSqOP1C3Sk1t4v2sVE7Jzq76N4qXee3rc6RoYeXAH
+    MBH6DiiOsG3tpGfbF1bPmNo5WUQOStVo02gnbnTK+LWCh1dD16hio1F6r8WUvuCtNh2Su5
+    CYGpXxgxYpl/D/gwC5WhQz7xIsGCj76BHCUd/ydW25+V65CF5o7ldqjieWz4NhVk6c+vCH
+    5cB615ht3Byb1mbUxvn4dZPrE1dDl+fgLvgIaHpEJAOoI2QTu4eP+ixQ/S9l5NK0Sxotlm
+    9h7KPBVimfM9Rwk0SzuNo0Ut4plwgzXYBY+8vpYrMFGqr8v82aQAIH8D0mXw
+X-ME-Proxy: <xmx:tJWeatwa2RybXBWUDvxZrCDiZNmJIbZzpx16Bcns5GDk210ezQbzmQ>
+    <xmx:tJWeascyLbFdZ45Ay2VpeuhcHdibjaLg8fMhnWqq8crlIcgRZZAg6A>
+    <xmx:tJWeaqDTgirLdwnxQ3s4zbukNzuYtP2UjRgLiIbl7FH7OBwy9Vzugg>
+    <xmx:tJWeao4Up0PkgeqZv-YkQVuZRiG9_NheT807ib665Sa2c3Vg_F6sQA>
+    <xmx:tJWearN8eNZ6BsTjmBS9CCeAOuPQcCkXu4ZXuhKT5JBW-BhfEq0gpiQo>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 7 Sep 2026 06:45:07 -0400 (EDT)
+Date: Mon, 7 Sep 2026 12:45:05 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>
+Cc: Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Paul Cristian <p4ulcristian@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 0/3] phy: apple: atc: Prepare USB3-via-4 tunneling
+Message-ID: <20260907104505.GB2760037@robin.jannau.net>
+References: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-To: Borislav Petkov <bp@alien8.de>,
- Reinette Chatre <reinette.chatre@intel.com>
-Cc: x86@kernel.org, james.morse@arm.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- tglx@linutronix.de, mingo@redhat.com, dave.hansen@linux.intel.com,
- hpa@zytor.com, corbet@lwn.net, linux-doc@vger.kernel.org, dave.martin@arm.com
-References: <20260709093111.367851-1-ben.horgan@arm.com>
- <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
- <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
- <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
- <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_034446_534945_F48A46A7 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260907_034512_931646_B4449500 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Boris, Reinette,
-
-On 04/09/2026 18:36, Borislav Petkov wrote:
-> On Thu, Sep 03, 2026 at 08:37:51PM -0700, Borislav Petkov wrote:
->> Lemme have a look.
+On Fri, Aug 21, 2026 at 03:50:26PM +0200, Sven Peter wrote:
+> Hi,
 > 
-> Sashiko has comments:
+> This short series first fixes an oversight that prevents USB2 from
+> working when DP AltMode with 4 lanes is used. Then it adds the required
+> sequence to point dwc3's PIPE interface to the USB4 Native Host
+> Interface which I plan to submit soon to support USB3-via-USB4 tunnels.
 > 
-> https://sashiko.dev/#/patchset/20260709093111.367851-1-ben.horgan%40arm.com
+> Best,
 > 
-> Please address them: if valid, fix them, if not, explain why they don't need
-> to be fixed.
+> Sven
 > 
-> Thx.
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+> Sven Peter (3):
+>       phy: apple: atc: Support DUMMY PIPEHANDLER state in configure_pipehandler
+>       phy: apple: atc: Factor out the PIPE mux sequence
+>       phy: apple: atc: Implement the USB4 pipehandler state
 > 
+>  drivers/phy/apple/atc.c | 91 ++++++++++++++++++++++++++++++++-----------------
+>  1 file changed, 59 insertions(+), 32 deletions(-)
 
-Regarding the first Sashiko comment.
+Whole series
 
-The documentation change in patch 3 includes the sentence:
+Reviewed-by: Janne Grunau <j@jannau.net>
 
-"
-The allocated bandwidth percentage is rounded up to the next control step available on the
-hardware.
-"
-
-Sashiko rightly objects to the "rounded up". For MPAM systems this can be up or down and we test in
-test_mpam_resctrl.c:test_percent_to_max_rounding() that it isn't too biased to rounding one way or
-the other.
-
-How about replacing "rounded up" with "rounded up or down" so that the sentence becomes:
-
-"
-The allocated bandwidth percentage is rounded up or down to the next control step available on the
-hardware.
-"
-
-What do you think? Should I respin the series with this alteration?
-
-
-Thanks,
-
-Ben
+Janne
 
