@@ -4,81 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF3CC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CF6C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UMqE8EVxBYiDVAgwLjMfmxM93uXTjiR58AH6MC3+O4U=; b=TGG3AalKrse8+j+vGdo2TzhKdL
-	ZCDDrMh3HKGJBAGVr7tgYWogqckLKxKLL8S6TqudWHUX62LUJ6JkYwSIOWOmCr3BsZmQHVV5gh2i/
-	HKGwmw+KadPiXVeAsNqingXcw/0NvJM0qsVSKVM048Gu6FNKw2axVwYJKUa89UVGMvd/ZZ7Ar9aXw
-	9WZTOkitLL8OfZ3rRBu0+pt26xepyVeEtU+bNNydCiUn4eAcfnBm6yyJz44SGqfr2y/BGoEAopMQ0
-	vefyGOrUjKEVua9mZbBTVA4gbxlUjOu3vL8VBdCacoenCqYtrupX34oFVXygrDd1gckOZtOpfQv4H
-	DqVQfb+g==;
+	bh=Espsjrco/55JPAZn2OfI/GTcyp7cAFpdNKPByCK+WN4=; b=KBeCRkAcd7FLWbIa04em/+RzKY
+	T6IRAtY6veo0T2KXZtKBrnrpiEIkHF504c8rtVVjlUfg4Kq43QSg+wYTMz3VA1iL5VogoCPtl1Ec9
+	YDSXHLTYc5DqvlWvQvAbvLLEZwBtGv3UgWpuUDZkop6QTWPxU40R5MsHWv8r8yFCqnJfdHk6ueUaa
+	U7uy2N7DdjBrRP2Sb8YMkj6NgrKphhwZ40W6uWb+4oIvfjtsrwovjxaXWj/ARSjhv3SAf7UMb0nvg
+	D7eYR3ffLhD97ZR7HxyS1UxURbRxi2+SjXOU6n/erEUAhqHaVo+nZaS+dBdUf5D38Zkn07wAa0dAm
+	BPdbA00g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YOi-00000006n89-3t8z;
-	Mon, 07 Sep 2026 12:24:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3YXQ-00000006oEh-0sfd;
+	Mon, 07 Sep 2026 12:33:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YOh-00000006n67-0xq9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 12:24:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=UMqE8EVxBYiDVAgwLjMfmxM93uXTjiR58AH6MC3+O4U=; b=csRl68EalTzlcwy46UGpuFbx1O
-	z819yD+wKfIKT6SdESlvrOiJpn6IMiLS19k3M9nVWcxJNF0hdaAMrbxpOV37ikkyL6fyzZeJUWuUD
-	pd1dmQdpbMA7+57pUjuTCTSbuV74Xi3l4eOHmTBTRgfh47WGiBSGlutuahTwGovtXnoA3CWWKeHbN
-	2dzlvm5Zpz+coh+lJguz/6/XnvGZ9kU4c091EcOsvWUZfmNLNBLTAM4FQyZEtZyly3ZNWQcQ5DUYf
-	4+P4UTZ0hviAmZNctAOGeiZdeXGok8VyTDNyLHZy7kTiSmkQNPqEvoNYgi8G1Pk/DbhkDxdHq7oAF
-	1SRpRZVg==;
-Received: from out-156.mta0.migadu.com ([2001:41d0:1004:224b::9c] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3YOd-0000000GDB7-2P79
+	id 1x3YXO-00000006oEQ-3AiG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:24:25 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=90W3Vbe+A7EuTwCgPA1AIqMGxOjdh2ciRdVhxid1Mc0=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788783861; v=1; x=1789388661;
- b=AAZ6fEkoimQZ49kwgCPgGsy/DKH1kyQ7ppAqmysUpWTiFdLQfOAGm5EpjBkrBfnsCaMqhcRA
- 5567/83zScWinTC2HbOHmU2nGKPPMXlVoXEGZPIJXDy8E9XzSiBlhOZ0AJlBy3evz605Bs4NpeT
- q02igNHIBZfDIDCIB6o5tnt4KSa6VJhSSkrwbV7asgopLpkVhzCGe1avrOmeftsusJ6WsKS1uMa
- LQ66uiweNWDha2m2V6H5J0zq1An9dEOqPGVDyi46daHpt2yXUuYoVn351S+gzqquZE4090ziMnd
- fJH3mbyjv3/+6mCD8RMTpvwuYRA1EMQkoaIAH1PORXflg==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 253942340c5df991;
-	Mon, 07 Sep 2026 12:24:11 +0000
-X-Mizu-Trace-ID: 253942340c5df991
-X-Migadu-Flow: FLOW_OUT
-From: Diederik de Haas <diederik@cknow-tech.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Joachim Eastwood <joachim.eastwood@gmail.com>,
-	Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>,
-	Daniele Briguglio <hello@superkali.me>,
-	devicetree@vger.kernel.org,
+	Mon, 07 Sep 2026 12:33:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 13167417C3;
+	Mon,  7 Sep 2026 12:33:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAFF41F00A3A;
+	Mon,  7 Sep 2026 12:33:24 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diederik de Haas <diederik@cknow-tech.com>
-Subject: [PATCH 0/3] Add support for FriendlyElec NanoPC-T6 Plus
-Date: Mon,  7 Sep 2026 14:22:42 +0200
-Message-ID: <20260907122406.1862398-1-diederik@cknow-tech.com>
-X-Mailer: git-send-email 2.55.0
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] ARM: shmobile: defconfig: Refresh for v7.3-rc1
+Date: Mon,  7 Sep 2026 14:33:22 +0200
+Message-ID: <6aa72dc7c7d5f9e7a1e38b4247c202db0bd190f7.1788784378.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_132424_263994_7BBF3DB4 
-X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +57,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This serie adds support for the newest member in the NanoPC-T6 series,
-the NanoPC-T6 Plus:
-https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6_Plus
+Refresh the defconfig for Renesas ARM systems:
+  - Move CONFIG_EEPROM_AT24=y (moved in commit cf09b7a05618bea9
+    ("eeprom: move nvmem EEPROM drivers to drivers/nvmem/")),
+  - Disable 8250/16550 Moxa PCIe device support (not applicable).
 
-The main differences between the NanoPC-T6 Plus and the NanoPC-T6 LTS are:
-- use of LPDDR5 RAM
-- addition of an M.2 B-key connector for a 4G LTE module and a companion
-  NanoSIM card slot.
-- different audio codec (Everest ES8389)
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-devel for v7.4.
+---
+ arch/arm/configs/shmobile_defconfig | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Support for it is added as follows:
-1. Add the NanoPC-T6 Plus variant to the DT binding
-2. Move sound card definitions to board DTS files as the Plus has a
-   different audio codec
-3. Add basic support for the NanoPC-T6 Plus
-
-Diederik de Haas (3):
-  dt-bindings: arm: rockchip: Add FriendlyElec NanoPC-T6 Plus
-  arm64: dts: rockchip: Move sound cards to board files for NanoPC-T6
-  arm64: dts: rockchip: Add support for FriendlyElec NanoPC-T6 Plus
-
- .../devicetree/bindings/arm/rockchip.yaml     |  1 +
- arch/arm64/boot/dts/rockchip/Makefile         |  1 +
- .../dts/rockchip/rk3588-nanopc-t6-lts.dts     | 39 ++++++++
- .../dts/rockchip/rk3588-nanopc-t6-plus.dts    | 91 +++++++++++++++++++
- .../boot/dts/rockchip/rk3588-nanopc-t6.dts    | 39 ++++++++
- .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 36 +-------
- 6 files changed, 172 insertions(+), 35 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-plus.dts
-
+diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
+index 6f9696e9fe17ddcc..cb7eddd4eb22f945 100644
+--- a/arch/arm/configs/shmobile_defconfig
++++ b/arch/arm/configs/shmobile_defconfig
+@@ -48,7 +48,6 @@ CONFIG_MTD_CFI_INTELEXT=y
+ CONFIG_MTD_PHYSMAP=y
+ CONFIG_MTD_PHYSMAP_OF=y
+ CONFIG_MTD_SPI_NOR=y
+-CONFIG_EEPROM_AT24=y
+ CONFIG_BLK_DEV_SD=y
+ CONFIG_ATA=y
+ CONFIG_SATA_RCAR=y
+@@ -79,6 +78,7 @@ CONFIG_SERIAL_8250=y
+ CONFIG_SERIAL_8250_CONSOLE=y
+ # CONFIG_SERIAL_8250_PCI is not set
+ # CONFIG_SERIAL_8250_EXAR is not set
++# CONFIG_SERIAL_8250_MOXA_PCIE is not set
+ CONFIG_SERIAL_8250_DW=y
+ CONFIG_SERIAL_8250_EM=y
+ # CONFIG_SERIAL_8250_PERICOM is not set
+@@ -209,6 +209,7 @@ CONFIG_PWM_RENESAS_RCAR=y
+ CONFIG_PWM_RENESAS_TPU=y
+ CONFIG_PHY_RCAR_GEN2=y
+ CONFIG_PHY_RCAR_GEN3_USB2=y
++CONFIG_EEPROM_AT24=y
+ # CONFIG_DNOTIFY is not set
+ CONFIG_MSDOS_FS=y
+ CONFIG_VFAT_FS=y
 -- 
-2.55.0
+2.43.0
 
 
