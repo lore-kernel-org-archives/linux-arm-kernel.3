@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2323C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B39DC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFc3Q3n3ot5F3E+SE4+u2bsbzV+Be3EJmOfLOxeBnys=; b=xAYVOfA1tqQJ0I3RdD4UhXv57c
-	uB9j2gxLpuUYIdaBjBqYygmU2iONWHswUENbn64GnAHV6rtpsoX58xkiYbItH6iZhDAU4/JWKnRLb
-	jlLPKQgyrDZUjVL3RzNQmj+c6UZDm9kr1ev3kjSzjkPcs3MvGBXmry3vA+uRwbnDMOmKIfZ8zuRar
-	YcI/VDpXCEg090xCO6knAnLZ9iTLL7iIRn+5m4BlUeJbxiWQKfcU4uDUacKRUdT6WlIOBc7g2wnvR
-	TNJtkgvVXwKRZyLJFLd8PPIPw62ySJlLODoo5/Heo2xKziUHkw8B5iBBakk4SR+aDO1AS40iEhRoC
-	eLaH1V6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAs6cpRutX6Xy3xUaS1PXdj4b2ODwk4xwVldcIzzW7w=; b=FXJhpmgKbfWyimI0VoZCz56BnK
+	ucBOetDk/93ZjDmZluhNHzsMVLbhqz0C42RjcBIFgCYh7r7G73mgHsU+5mC7f4Phly5ejQluyjZrw
+	OnHRR2qnzKJftbEIIcFR1Uf9HqDPqJlMh1XNfOU1yYGlp6lLD85UsK0quhQeA5jPs+SZcWy1Bk8gs
+	n5B9z8G0NEJoFX7ouGg2regDjoWQI/kdcMcSfgVmkEMRe6rTn2xbzIANYSUZyY1svBQu9SDlCNs8P
+	9t6PNZy0nJ6UFqZRc2xNfsh3R3OJKjgYWe3yy7Ol7deIXfhWeSdZFzNdcu7+LX/E9EH7UA7JPq49N
+	4Mrvp6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UMB-00000006Dk6-2gnD;
-	Mon, 07 Sep 2026 08:05:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3URB-00000006EH6-3zc8;
+	Mon, 07 Sep 2026 08:10:45 +0000
+Received: from mail-m1602365242.xmail.ntesmail.com ([160.236.52.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UMB-00000006Djh-15qs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 08:05:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id AFAE943E12;
-	Mon,  7 Sep 2026 08:05:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 144241F00A3D;
-	Mon,  7 Sep 2026 08:05:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788768334;
-	bh=KFc3Q3n3ot5F3E+SE4+u2bsbzV+Be3EJmOfLOxeBnys=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hdOFqkHGZtPx7BkOVcOTWt2Sl/nVdIQdVdxgmt1zB3lahFF4JDXllC2ynvYn4zw9Q
-	 mjZmE/3kUbjazBQVc/GLRIAFMP6+OfZUx/MjpMwRFk+NYXd5wvM8+Ch8jdIqDAQiwh
-	 Z8FRN0dAmcrFQveHk47pxbL0CJkOiFTESGSDZ/lOvRyuluONHQbkAZxK5A7fZPtdGP
-	 YYdkkVSDi/lR05qKLUvdWvJP60vIOSbOUpi8yquGlQER3Q+EIGb48shl4VotcKBvCD
-	 Ppy4/I8gbTD0EtD4Do4aDPKACYFeLRyh6Ixuam871cP5tTN0wSTlum9eUCSLnOl4yH
-	 s3gaYdjNxuajg==
-Date: Mon, 7 Sep 2026 10:05:31 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Hemanth Selam <hemanth.selam@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pwm: fix typos in comments
-Message-ID: <ap5v7IBBmroh4VZC@monoceros>
-References: <20260907062659.15500-1-hemanth.selam@gmail.com>
+	id 1x3UR3-00000006EER-1clJ;
+	Mon, 07 Sep 2026 08:10:40 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4ccabc703;
+	Mon, 7 Sep 2026 16:10:29 +0800 (GMT+08:00)
+Message-ID: <745c232e-d2ff-4d32-b997-55d4d37a39fa@rock-chips.com>
+Date: Mon, 7 Sep 2026 16:10:28 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="llupe44bve4w4fvk"
-Content-Disposition: inline
-In-Reply-To: <20260907062659.15500-1-hemanth.selam@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
+To: Icenowy Zheng <uwu@icenowy.me>, Maud Spierings
+ <maud_spierings@murena.io>, Dominique Belhachemi <domibel@debian.org>
+Cc: m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com,
+ airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com,
+ andy.yan@rock-chips.com, andyshrk@163.com, aou@eecs.berkeley.edu,
+ bmasney@redhat.com, conor+dt@kernel.org, conor@kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk,
+ jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk,
+ krzk+dt@kernel.org, lee@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, luca.ceresoli@bootlin.com,
+ m.szyprowski@samsung.com, maarten.lankhorst@linux.intel.com,
+ maudspierings@gocontroll.com, mfd@lists.linux.dev, mripard@kernel.org,
+ mturquette@baylibre.com, neil.armstrong@linaro.org, p.zabel@pengutronix.de,
+ palmer@dabbelt.com, pjw@kernel.org, rfoss@kernel.org, robh@kernel.org,
+ sboyd@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, vkoul@kernel.org
+References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
+ <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
+ <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
+ <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
+ <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
+ <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
+ <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
+ <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
+ <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
+ <72f82ae67eca7b5a594d86852c8b0dafb7d02c4c.camel@icenowy.me>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <72f82ae67eca7b5a594d86852c8b0dafb7d02c4c.camel@icenowy.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa07aeb328603a7kunma6aa1bc239fa0d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGkIdVk9ITEtLGh4eHU5PHlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=R9o5yi+G+F8zZyawx3whCVV/olFPrerxkAmSHzyaoP+qbbbFH+YbmhSzuasWco4g2ROixc1HaVg3Nk57qQfVWoyw147x+rkDDlxVI/S0hnMtjX9juxpUqfyv6S//I3qqIuaSa56RUA+YvW7x4fEuPAtkPm8AgKLXPFAQYdGtlmY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=PAs6cpRutX6Xy3xUaS1PXdj4b2ODwk4xwVldcIzzW7w=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_011038_052982_7395D5A1 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,46 +94,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Icenowy, Maud, Dominique,
 
---llupe44bve4w4fvk
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: fix typos in comments
-MIME-Version: 1.0
+On 9/7/2026 2:55 PM, Icenowy Zheng wrote:
+> 在 2026-09-07一的 08:02 +0200，Maud Spierings写道：
+>> Hi Dominique and Icenowy,
+>>
+>> On 9/7/26 06:01, Icenowy Zheng wrote:
+>>> 在 2026-09-06日的 17:16 -0400，Dominique Belhachemi写道：
+>>>> On Sun, Sep 6, 2026 at 11:19 AM Icenowy Zheng <uwu@icenowy.me>
+>>>> wrote:
+>>>>>
+>>>>> 在 2026-09-06日的 16:59 +0200，Maud Spierings写道：
+>>>>>> On 9/6/26 07:39, Dominique Belhachemi wrote:
+>>>>>>> On Sun, Aug 30, 2026 at 10:17 AM Maud Spierings
+>>>>>>> <
+>>>>>>> maud_spierings@murena.io <mailto:maud_spierings@murena.io>>
+>>>>>>> wrote:
+>>>>>>>
+>>>>>>>      I was still having some glitching happening on the
+>>>>>>> display,
+>>>>>>> but
+>>>>>>> I've
+>>>>>>>      found the way to fix that, the question is what is
+>>>>>>> actually
+>>>>>>>      happening here.
+>>>>>>>
+>>>>>>>          0x29590020 <- 0x00000005
+>>>>>>>      This one I have no idea, it is 0x00000009 with this
+>>>>>>> patch
+>>>>>>> series but
+>>>>>>>      with the vendor kernel I get the value above. When I
+>>>>>>> hook
+>>>>>>> up my
+>>>>>>>      external
+>>>>>>>      display (regular 1440p) this becomes 0x0000000D on the
+>>>>>>> vendor
+>>>>>>> kernel.
+>>>>>>>
+>>>>>>>      But I can't find this register being written to
+>>>>>>> anywhere
+>>>>>>> there?
+>>>>>>>
+>>>>>>>
+>>>>>>> Maybe this needs to be swapped?
+>>>>>>>
+>>>>>>> drivers/gpu/drm/bridge/inno-hdmi.c
+>>>>>>>     -#define v_HSYNC_POLARITY(n)          ((n) << 3)
+>>>>>>>     -#define v_VSYNC_POLARITY(n)          ((n) << 2)
+>>>>>>>     +#define v_HSYNC_POLARITY(n)          ((n) << 2)
+>>>>>>>     +#define v_VSYNC_POLARITY(n)          ((n) << 3)
+>>>>>
+>>>>> Very weirdly, the original definition here matches current
+>>>>> mainline
+>>>>> inno-hdmi.c, but the changed definition matches JH7110 vendor
+>>>>> inno_hdmi.h [1].
+>>>>>
+>>>>
+>>>> The vendor code is correct and matches the RK3128 TRM.
+>>>
+>>> Thanks for the tips on documentation, and I verified this.
+>>>
+>>> It seems that Rockchip people made this always wrong, even with
+>>> their
+>>> pre-DRM display driver... [1]
+>>>
+>>> BTW I checked the Innosilicon dGPU driver code, and its
+>>> g3_ne_hdmi.h
+>>> source file also contains the definition of BIT(3) as VSYNC. (It's
+>>> quite weird that most logic of that driver is in some .o_shipped
+>>> blob,
+>>> but fortunately the g3 logic might be too new to be closed down)
+>>>
+>>> Thanks,
+>>> Icenowy
+>>>
+>>> [1]
+>>> https://github.com/rockchip-linux/kernel/blob/release-4.4/drivers/video/rockchip/hdmi/rockchip-hdmiv1/rockchip_hdmiv1_hw.h#L161
+>>>
+>>>>
+>>>> HDMI_reg08
+>>>>      Bit  Attr  Reset  Description
+>>>>      3    RW    0x0    vs_polarity   VSYNC polarity   1'b0:
+>>>> Negative
+>>>> 1'b1: Positive
+>>>>      2    RW    0x0    hs_polarity   HSYNC polarity   1'b0:
+>>>> Negative
+>>>> 1'b1: Positive
+>>>>
+>>>> Nobody noticed this so far because in 720p/1080p both polarities
+>>>> are
+>>>> positive, but Maud's 3:2 panel has differing H/V polarity.
+>>>>
+>>>> Best
+>>>> -Dominique
+>>
+>> This also solves the devmem behaviour I saw, or well, doesn't realy 
+>> explain it but does show what is actually happening. As Icenowy noted
+>> (maybe that was on telegram only?) the inno-hdmi regs are 8bit
+>> instead 
+>> of 32 bit.
+>>
+>> What is actually happening is:
+>>
+>> devmem 0x29590000 b reads 0x29590000 as expected
+>> but
+>> devmem 0x29590004 b reads 0x29590001
+>> devmem 0x29590008 b reads 0x29590002
+>> ....
+>> devmem 0x29590020 b reads 0x29590008
+>>
+>> For some reason the addressing is weird?
+>>
+>> With this change, the assigned clock change and removing the 
+>> v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS write to HDMI_SYS_CTRL, the
+>> display 
+>> comes up from the start as it should!
+> 
+> Well I checked the RK3128 TRM for these two bits, and their field
+> descriptions are -- "reserved".
+> 
+> What can I react...
+> 
 
-Hello,
+You can take a look at the TRM of the RK61X[0]. 
+I think it contains the register descriptions you're looking for :)
 
-On Mon, Sep 07, 2026 at 11:56:58AM +0530, Hemanth Selam wrote:
-> Fix typos in comments, reported by scripts/checkpatch.pl using the
-> misspelling list in scripts/spelling.txt.  Only touches comments, no code
-> changes.
->=20
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+[0]: https://dl.radxa.com/rock/docs/hw/ds/Rockchip%20RK61X%20TRM%20V1.3.1.pdf
 
-Thanks, applied to
+-- 
+Best, 
+Chaoyi
 
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-
-Best regards
-Uwe
-
---llupe44bve4w4fvk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqecEkACgkQj4D7WH0S
-/k4KKgf/QTm2WVRrQALfoV9JLBdZorixC3WKwq5wW134IKXEizGfPMsfhkdNdJ3H
-4gniCrvqedM1DLXGJD9AODV1zOYY7GOlnOxuieAScC4pfUebusv1B6r3CQWjYVwD
-FkfTprdCUmHs8/NumPSyfzZ27JdSSa4gR0P66ZwdM1SJmfksFHLK5PDbRmQ2iEgs
-u4eO9VNm4Il4wnbXGNTaPrCGknyJIdaMUZ2ghpC2GuEBg0REtDTpwErufGqk+3d3
-Ufus4k+8X08wR2x7lPPG3hyt8C+r2JYeJ04xqiWNbnfjTJbfjFn/bqOiDFMwjMP3
-0ATm0Fro1uwkd1vZ5ApMoAltUXBqgg==
-=0rB7
------END PGP SIGNATURE-----
-
---llupe44bve4w4fvk--
 
