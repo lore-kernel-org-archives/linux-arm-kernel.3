@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 153A6C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD02C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PaWEgmueo8IVck4dwZ9rseBcFsOQjJHuo9EpQo9RZ2Q=; b=IM2+vQSWpByZjoJW2pf1S6pggl
-	9+Fg5jOYTvuySSgDyfRLm0FuuJoRfyPUxOn3LwUnQ2J12HGdqJldgY68pU0YQ2WbNh43FCP9Mgayx
-	gBnlQ6CwjKId7ru4sgTOsL6KyNAC1r92m8QISGZmG610cdyvG6srLX+eCYjcRuFjRMy9MgtUY91DN
-	NjaX4l6tYENjvIHsy/BJVzHibiqNvyzYNFzfDMLwYHPchkasLdNhi02w6Onvz8fbVcPW9YWuX/eGH
-	hWA4+Xs0FOsiSF5SZjJoXbCukbaHv74VhTevhfoUAu8KQSsLLTnZy6B+1e1tUs/0bkCn/H1sfXS19
-	n9KywiPg==;
+	bh=1trb6sOqqOL4Nzv46ncJB/f9wXUiCIM1M1i+sR/0Dd4=; b=MVzRBo2Gn2t3IbgK+elTSotHCF
+	68n/QYefcnXb01UMGILsqmMCHReaXJwS1+iDBR6x3aPJxX2mEqdzldpKQtu9vUIfu7tTVLqwjoNwr
+	487K/iZvlaVa2/JIFwnC7Z8Kfekn/LRpmGIufdWHw+HJVGG5+yQDiZm5DJBbFU6PqVKDsV07dZNLN
+	uuz7YHptYPXVZtVjp8Rd3DqUPGde41TzNPlW+SZv38jnpYHiRv0Y9QINas9eISgDzxtvoNxaxu0GU
+	BbUGHqUT9iexc3Ndw1z6ub2aJ/8ImqdBwNKhSRwOhopPnZIUif2DxTjsuFerJHScaNKJ9lH5UV5zQ
+	vmiKKaIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cOl-00000007LIS-3lK9;
-	Mon, 07 Sep 2026 16:40:47 +0000
+	id 1x3cOm-00000007LIl-01NV;
+	Mon, 07 Sep 2026 16:40:48 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cOi-00000007LHG-0wo3
+	id 1x3cOl-00000007LIJ-01TL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:40:44 +0000
+	Mon, 07 Sep 2026 16:40:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E417843319;
-	Mon,  7 Sep 2026 16:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A86F1F00A3D;
-	Mon,  7 Sep 2026 16:40:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C01B643607;
+	Mon,  7 Sep 2026 16:40:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55F281F00A3A;
+	Mon,  7 Sep 2026 16:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799243;
-	bh=PaWEgmueo8IVck4dwZ9rseBcFsOQjJHuo9EpQo9RZ2Q=;
+	s=k20260515; t=1788799246;
+	bh=1trb6sOqqOL4Nzv46ncJB/f9wXUiCIM1M1i+sR/0Dd4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GqQiwLF6RV4PV/kPo9LX/Uy9wh7QegNKRRoE7fAt79YnY2JfLZFFZy60iRpZOp5WB
-	 tdjgrwZcdhoE1wd/pTZSJfNdGTo8O5ppaUQI4ffmQFR4/9ummYcWOwiO4PJ6CBotNx
-	 sHVV8Kg5d3WlkKtpMfEcyWchmhitnmtbqd/ff8eG02835Scub+c5eC+InTP87TQY75
-	 unamOUxBVHNQI1zhqs1SffAPEJF/g1zbbRegcGwI72bhowr2OPT9SgceLYEdAUYk9q
-	 vtGYxNdK6m5Fk8UumgaEWP2N9XxlKr2NLJmo4G+Ov2xx7JSi3QK25FPrFpgERLqK3a
-	 KEBuXf0R5I3dQ==
+	b=KxGmw1rDW6DoBlnXfG7919mo46pF1j91hFaT2fajfjZ52NazOaNnNUHbofkElmOn3
+	 fqTGBVt7K1L64uB7APqwaZfNer/ZAGm/BDvMd4X7uxjbOW6uFWFSdymFMTTs8K0n5o
+	 /WmUzZh16xOL7ZXO8w/aTlJY3prb0maYtHOUVe49XFZYdd9czRDctiymPdRgEviguG
+	 a4hD5vyyuaq+TCgRJBhNdEiNrrn0EY8Igb5u3NvYowm5WUotI4hHmG1ORegpovXil5
+	 WRfz1d5bd4SgcR0mnVSRyU7Md+uUa08z8Zi2Siol4TVgoV0Y20PeZXQygQDo0gC4ae
+	 GLzyKFRLDK1qA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 03/19] cpu/hotplug: Avoid busy-polling on archs where cpu_relax() is a no-op
-Date: Mon,  7 Sep 2026 17:40:06 +0100
-Message-ID: <20260907164024.17164-4-will@kernel.org>
+Subject: [PATCH 04/19] cpu/hotplug: Propagate bring-up status to arch_cpuhp_cleanup_kick_cpu()
+Date: Mon,  7 Sep 2026 17:40:07 +0100
+Message-ID: <20260907164024.17164-5-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164024.17164-1-will@kernel.org>
 References: <20260907164024.17164-1-will@kernel.org>
@@ -77,90 +77,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some architectures (such as arm64), cpu_relax() is effectively a NOP
-and so isn't particularly efficient when used in a tight polling loop
-such as the CPU state synchronisation in cpuhp_wait_for_sync_state().
-
-Once an incoming CPU has reached the SYNC_STATE_ALIVE state, we know
-that it is executing within the kernel and so we can use the more
-efficient polling mechanism provided by the atomic_cond_read* API.
-
-Extend the generic implementation of arch_cpuhp_sync_state_poll() to
-take the state details as additional parameters and polling using
-atomic_cond_read_relaxed() instead of cpu_relax() once we have reached
-the alive state. No change on x86.
+In preparation for enabling the generic CPU hotplug machinery on arm64,
+which has architecture-specific handling of early bringup failures,
+extend arch_cpuhp_cleanup_kick_cpu() to take an additional argument
+indicating whether or not the target AP reached the alive state.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/x86/kernel/smpboot.c  |  2 +-
- include/linux/cpuhotplug.h |  2 +-
- kernel/cpu.c               | 13 +++++++++----
- 3 files changed, 11 insertions(+), 6 deletions(-)
+ arch/x86/kernel/smpboot.c  | 4 ++--
+ include/linux/cpuhotplug.h | 2 +-
+ kernel/cpu.c               | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index ba01a9e919b7..362f85cbdbaf 100644
+index 362f85cbdbaf..ce4e8fba5fed 100644
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
-@@ -1138,7 +1138,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- 		pr_info("CPU %u is now offline\n", cpu);
+@@ -1074,7 +1074,7 @@ static int do_boot_cpu(u32 apicid, unsigned int cpu, struct task_struct *idle)
+ 
+ 	/* If the wakeup mechanism failed, cleanup the warm reset vector */
+ 	if (ret)
+-		arch_cpuhp_cleanup_kick_cpu(cpu);
++		arch_cpuhp_cleanup_kick_cpu(cpu, false);
+ 	return ret;
  }
  
--void arch_cpuhp_sync_state_poll(void)
-+void arch_cpuhp_sync_state_poll(atomic_t *st, int old)
+@@ -1122,7 +1122,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
+ 	return smp_ops.kick_ap_alive(cpu, tidle);
+ }
+ 
+-void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu)
++void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
  {
- 	if (smp_ops.poll_sync_state)
- 		smp_ops.poll_sync_state();
+ 	/* Cleanup possible dangling ends... */
+ 	if (smp_ops.kick_ap_alive == native_kick_ap && x86_platform.legacy.warm_reset)
 diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index feb32949aeea..bbcee650155f 100644
+index bbcee650155f..83ef0c4d8bbe 100644
 --- a/include/linux/cpuhotplug.h
 +++ b/include/linux/cpuhotplug.h
-@@ -509,7 +509,7 @@ static inline void cpuhp_online_idle(enum cpuhp_state state) { }
- struct task_struct;
+@@ -510,7 +510,7 @@ struct task_struct;
  
  void cpuhp_ap_sync_alive(void);
--void arch_cpuhp_sync_state_poll(void);
-+void arch_cpuhp_sync_state_poll(atomic_t *st, int old);
- void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
+ void arch_cpuhp_sync_state_poll(atomic_t *st, int old);
+-void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
++void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive);
  int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
  bool arch_cpuhp_init_parallel_bringup(void);
+ 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 97a9bfe4edad..d9fe204f02cb 100644
+index d9fe204f02cb..595258e2b6cc 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
-@@ -303,7 +303,13 @@ static inline void cpuhp_ap_update_sync_state(enum cpuhp_sync_state state)
- 	(void)atomic_xchg(st, state);
+@@ -432,7 +432,7 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
+ 	return true;
  }
  
--void __weak arch_cpuhp_sync_state_poll(void) { cpu_relax(); }
-+void __weak arch_cpuhp_sync_state_poll(atomic_t *st, int old)
-+{
-+	if (old < SYNC_STATE_ALIVE)
-+		cpu_relax();
-+	else
-+		atomic_cond_read_relaxed(st, VAL != old);
-+}
+-void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu) { }
++void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive) { }
  
- static bool cpuhp_wait_for_sync_state(unsigned int cpu, enum cpuhp_sync_state state,
- 				      enum cpuhp_sync_state next_state)
-@@ -328,7 +334,7 @@ static bool cpuhp_wait_for_sync_state(unsigned int cpu, enum cpuhp_sync_state st
- 			return false;
- 		} else if (now - start < NSEC_PER_MSEC) {
- 			/* Poll for one millisecond */
--			arch_cpuhp_sync_state_poll();
-+			arch_cpuhp_sync_state_poll(st, sync);
- 		} else {
- 			usleep_range(USEC_PER_MSEC, 2 * USEC_PER_MSEC);
- 		}
-@@ -395,8 +401,7 @@ void cpuhp_ap_sync_alive(void)
- 	cpuhp_ap_update_sync_state(SYNC_STATE_ALIVE);
+ /*
+  * Early CPU bringup synchronization point. Cannot use cpuhp_state::done_up
+@@ -451,7 +451,7 @@ static int cpuhp_bp_sync_alive(unsigned int cpu)
+ 	}
  
- 	/* Wait for the control CPU to release it. */
--	while (atomic_read(st) != SYNC_STATE_SHOULD_ONLINE)
--		cpu_relax();
-+	atomic_cond_read_acquire(st, VAL == SYNC_STATE_SHOULD_ONLINE);
+ 	/* Let the architecture cleanup the kick alive mechanics. */
+-	arch_cpuhp_cleanup_kick_cpu(cpu);
++	arch_cpuhp_cleanup_kick_cpu(cpu, !ret);
+ 	return ret;
  }
- 
- static bool cpuhp_can_boot_ap(unsigned int cpu)
+ #else /* CONFIG_HOTPLUG_CORE_SYNC_FULL */
 -- 
 2.55.0.979.g7e5102b832-goog
 
