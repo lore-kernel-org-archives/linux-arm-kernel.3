@@ -4,119 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F35C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B91C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h6qiSySchwLDdn88HORNI+edfDP5k4+RIZ3ev8MYNCc=; b=a/bLS+BujGHyaHyu/tdPrNNFg0
-	OdUwOypcOxXGyKpOBTu/m8copvUXOF2blIS5LCMV2S1Co8qU9z3A1YErFKzNl0dj48lClUIAsI2tJ
-	Y6YQ6t+R5sFPqO1eRNw7jE2f3wTVBTb4S+bPp3PdpVRAVTNR19pj8cbWtu2UWc2s4pwdKv5aDXuYc
-	7y5I2BDvXGwb6Pfj2xAETCMxlVxTII51VuFgrukyoN0Wce3oTr6g1RncN+Hejd8HgTsDMzWNZFYjB
-	sgZaoqkYawPlJJxraP9C3DYXTkf6FHnJEJ+lJOX7PHsM+B+4ghIJeXT5fksR+N4vQyswqx2jLpUYC
-	Lzn5Ge0w==;
+	bh=x+xArR4D4WtDjx9G9kvn2tiWJRDr4WmnsQDVe+ATmIY=; b=Bzrrb/S/WcHqaIjPnstpVQnWmY
+	Igdcnbj4t5Nf5xm0lzdB7nhfn+/A0pdXNxWm9+2t9UQKebjT/5p1oFSJRjQw+a5m4XnhF0W7Kp1jk
+	e4qEzQuZzLbTrWb7QpMNPuOpI9I4kPX6yzyDYytc3GlqmnbBprKuy8pDq5onf+STbOJPMj8LdUvH6
+	hiySgtcvvc3VJdx+zqmm7StairmYtLjpf+IfYCWDdEewSpCUEW7TCx7ansVMjEQEwAfJqqjZKdtw9
+	uT6Y+nvirrU1wAUaMo1T+tnPoEmdwpe0Dy+6u8iQDj8ghfmusm6cSQvUGElt1CE3yHVWyjE5fQRfP
+	shqZ+wKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UeA-00000006G8i-2216;
-	Mon, 07 Sep 2026 08:24:10 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1x3UgZ-00000006Ghp-1KgQ;
+	Mon, 07 Sep 2026 08:26:39 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Ue7-00000006G6j-0t3X
+	id 1x3UgU-00000006GgT-1nlg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 08:24:08 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-485888b3c3dso3401709f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 01:24:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788769445; cv=none;
-        d=google.com; s=arc-20260327;
-        b=grG2CWq/H+SZyFETMZ+sFV01ouyBfAhCxAMS62RgdxGCbBg3HlfxgP0ThVvjZvir98
-         jyVv7/j1PzyxwIwcnWR2Idyz/2SurQgfdeaNfmA2mGkMz2Ro0v7AQNimEZzkQ+HVpCI0
-         Fgxk7+GrvSD/rk38rV5K1MRD1Br8f0eyfZ8inzA3Dya4KPVZBehIEE8TyyaAilwLzP2P
-         UWaQQFLK7s/1SbV+pgv7wdnRZpUmz2fRqFtfS9BraHK5OKGLaAnLhaDvo++GfRBa6l5J
-         rTmwlfLje4WwNBXS50USd7EWtPHHg6/9MysrmSg82/fGXBajar01jSoegB+dQZdSTuMm
-         e22w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=h6qiSySchwLDdn88HORNI+edfDP5k4+RIZ3ev8MYNCc=;
-        fh=luzjbNbKobfIJAsiAmHTSfw86W6dpiRtXNWg/KddQeE=;
-        b=P/scils+8BeVDgb09iAlnsoyjJjbVt4KIttGwjDUdUmzMfYEpjH9mQ13ieQr9hbbLe
-         A2jEp/xOMV7bGvkbc7rjn4yGYDS5b9v2UrO7LD6jU0snyETw0I2TSAz373K4dZPQAOcn
-         D1EmWIuhWVU+VCxFbJw/1Iv86jtGT3dJkmHqK3uAiSWU1u6Qnpd+KrAkjnlK64OMzw/B
-         My+RQ1xBw+DZMosoEiwBKE3xYgRPAEm4yTwCFFh+SAs1errlYZdZKi2PNFrS6JYyICFJ
-         OzmdjDaEEbOEXKX9nQBvt4pmP7pLfeJLjeYKbhibYBT6fQGeX9WdIKXaqOWKn+Ko6dcv
-         ulvw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1788769445; x=1789374245; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=h6qiSySchwLDdn88HORNI+edfDP5k4+RIZ3ev8MYNCc=;
-        b=M0teZe9Dzlc0cLLpRLVcVC5P8FhsCY6tBRrF+n59FoPmufx3AcA8tZCsV2CQ4l4ewc
-         N+I9srguHiQtST7ShDEjrE49qxYv0hl9moaSRm5vGol81Xtg6dZYgg+00DSTyipP4/aT
-         X8BGw6cYM0AWb6U8kvoAxl8LGAOo8d9fPlUdVtwOGjyIcFk9z+uwJozoJH7fCuMqMXrb
-         xr6RSlYlXWt5xY81JKpFYgA5ro5sWWk4loNqMTMircj8J342WlneUYxlctjuC67bED48
-         w9wa5gahzimnDDe1dFe8ADX68YadItVgoGg8F1CWqHsZP3zlquMbE+u3XhhCh+SYDtsE
-         2bsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788769445; x=1789374245;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h6qiSySchwLDdn88HORNI+edfDP5k4+RIZ3ev8MYNCc=;
-        b=Wnu2vEF46+19Cr8eFtrvx16s8KgP6w5Pe9ZMNiFw+rFRy1MKPEl1lXLa81V5cTIYDN
-         JakmsiYdTVZ7kUREdCP1hk+8th5nfuQUdIrIIFxZLw6hs50MQ990VR1Xhn0UhzSN7b+/
-         2LLEPWgxhxcufmJuRP89K477d4AJ7NL+HaiSJOzUU8l69zd1pbQfOQTJbPA/i7v0BAml
-         nBz+M4CFkwALCkOn1dlk1wHGA1Zn3Qxhnf36w5Q2wGp8hCyESYkfnkSLy1aJsQVoYZCd
-         oIzw6vaJBVBaj3DCLfoHjaFNr9fXtOQT6/W/cOBteyKOv7G1orD8C4CwktUfywr4qex1
-         WCSA==
-X-Forwarded-Encrypted: i=1; AKwUvBz+xyarUHuthmF2MV/pbkRAk/3OJI4m35/KLOWZG+iaWI84t5ZCuLfU9cNNRXHp2wKTIc1BDxDJk+STIBkug2Qt@lists.infradead.org
-X-Gm-Message-State: AFuF++mqlrMMEpgt684FdRYTXaHsyZm1xw5n0mOKs4Iz+YCGa5zjGctH
-	eHh0ceesJAQR/TmdsuYDhyUoe/g+Ru7CFcHbU3apkOsCCElDnqZv6IGkuhClojk1rNUKKjuRC9Z
-	WUgY6uGikWn5gz3KBzOhxvCVgZTuZ09duCFWPEu3WGg==
-X-Gm-Gg: AYBFou1KnG/aOyqH1io1M5s8k/d/iQJA7VMh/WzUn1iGxP7qbbRo3xOtjFQL6WDMt4/
-	89xw4r33qWSS2xF75NiUqljUB9otp3MRrrgJ3w4pb+a9MMlby7/yC+tles2QUo7pX33lRNU/5Md
-	LaEFvyyK9TH/BC5aTLkYS/jxegmTrznp0xtCQ6XLucG9ChNA4eNV4AZs9IbBSGZwGF5DQXUmh6G
-	suocpVRRizLXiFjYvnbMNzcAC7+bkzGUprb0QsI11HzZ/zUBp+tVs6LJiGBIzUpQd72v/I9dbGm
-	rA0R73dL68NpUWxCo7jk7iC6xKislzWnEYx26HuwlQJrG9e/Vy1IEKns+eDB1UnSBg18TbJGruP
-	IlautQK/eFWdVM1SNacfSBaN/zF/pSEalP1Xh7LJNaQSY23cKfdomwqpKgxTrCJs=
-X-Received: by 2002:a05:6000:2f82:b0:485:8c16:5ef7 with SMTP id
- ffacd0b85a97d-4858c166148mr18091871f8f.49.1788769445126; Mon, 07 Sep 2026
- 01:24:05 -0700 (PDT)
+	Mon, 07 Sep 2026 08:26:35 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 687766HL2415363;
+	Mon, 7 Sep 2026 03:26:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=x+xArR4D4WtDjx9G9kvn2tiWJRDr4WmnsQDVe+ATm
+	IY=; b=HuZqvBo1Etu25DDoSmu4WhWLe+vRQPBB/zkGacbddpucOhGWnPbyjV6mN
+	UQ5XN9S9rNdWQIgC7fEXEu9g1iroBR51AiGo1GPm+l0kPbqen2JFdj9/srNmSUR+
+	NljrSVePgiXE3b/KL/tyWuleTkYkZKSjX9P3Xi2n1P24HAymJeMq3sWShVSBCzCe
+	byXdEipggwO78qNFsgWhJoMYhe76O1+Psj223r7gZEGEUynoNAGomdBwR4ajyC99
+	2CwGstVnjc6hh3bMq8Iv/IUEfhb8TFUQXOZZzC59Gwu5IdlTvpxDeyHHoFfOocv2
+	radztwpxLqJTa+6Cc7V3v/nE37Fqw==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012035.outbound.protection.outlook.com [52.101.48.35])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gh27q4tst-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 07 Sep 2026 03:26:22 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lQQlpa2+758mLWJ7Y7Kqyk6ya71DDqSQospZoLcMVpLk+FQbGCSkIXT9Lx62XduWpEXXjzwaDv8F2zr2za5Is+eMpLh2kWfYCmxiNMFQtd3c1fSt6u7ah5OS2bTrs9f5SGmCFyA2Z2x6R3spfcFqLztssVgOMDPtFyAwx8VQHFkend2JKuiOJB/huHtFDY/9mzqN4SkBkCzspO7BDFxMH+NCBusJC2aDdQWDo4SQzQtHw5oo62VDM4ddCDpfvWHyYQeu8x/pfDoCsmTDV4INrQg1Nn/7NMabfSQRusvp/RRix95GROg6gG21XhHlDyNsiUfwJK0Vv2moscKyO2B27w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x+xArR4D4WtDjx9G9kvn2tiWJRDr4WmnsQDVe+ATmIY=;
+ b=Qf+yGLPYXuZkW9qt2PjKPVdUXjQtc8TEzrUFlki1XwMbVGHrNfa9Ib6meyaEl+7MrYg9fGimZjc94H+z1s1jlSgBLs0m7slg7EfkS/rsmj3pnANA12nyGmoX6fyM8TPC+vbLEXsT5y27B2wII6yyJ0iBZWVizk2vgCAuCGVWvn5YLkFSgxkOMyPCNZ4wUW8Y4H9owUJYQx9RKRzpJ1xLYkNfjf3a4ZYiCY74r6KqZpRDdKDQcX0WvQFj9q6GW437X8GPysVU1ml6mIAKdiYhXOqQZDOF6C/g5OzAFaybCfgL5ymL4TZ+NHHNgJyhNDXwgbtZTlJnbfKGX/RFeLeZ4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x+xArR4D4WtDjx9G9kvn2tiWJRDr4WmnsQDVe+ATmIY=;
+ b=oF8jze9s5x4P6jh4r30KW2uxgE0nSdHETeCdozuCZ0Uk+P4Y6B933YsEYzE/hYI4h6rq8lkuZ24yU+Sh33l3qWbkfRVvk/LgKlQUyn2AMJuM3hkXbSg6uTvXU8SYCOXsHD6PSiUHwPKnPQKWoyPxg/wAlc9PqQmb6wevg7W4rr4=
+Received: from BY3PR03CA0020.namprd03.prod.outlook.com (2603:10b6:a03:39a::25)
+ by DM3PR10MB7970.namprd10.prod.outlook.com (2603:10b6:0:40::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
+ 08:26:19 +0000
+Received: from MWH0EPF000A672F.namprd04.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::9a) by BY3PR03CA0020.outlook.office365.com
+ (2603:10b6:a03:39a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 08:26:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ MWH0EPF000A672F.mail.protection.outlook.com (10.167.249.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Mon, 7 Sep 2026 08:26:18 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 7 Sep
+ 2026 03:25:30 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 7 Sep
+ 2026 03:25:29 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 7 Sep 2026 03:25:29 -0500
+Received: from [10.24.50.20] (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6878PPNg1150752;
+	Mon, 7 Sep 2026 03:25:26 -0500
+Message-ID: <13a120d9-39cd-4798-af92-d97c8eee80fa@ti.com>
+Date: Mon, 7 Sep 2026 13:55:24 +0530
 MIME-Version: 1.0
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-11-seanjc@google.com>
-In-Reply-To: <20260902164123.2546762-11-seanjc@google.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 7 Sep 2026 13:53:53 +0530
-X-Gm-Features: AcwNN1UOItNX8Zqa8yZNak7eVCaaP3xVxuE0lRNcn1acCna6Fm_hGPjVZ5FCvUw
-Message-ID: <CAAhSdy1zxu0cGnvpZEq_mPYRj07m7a+TA_8f0-sa=Mu7xtXvjA@mail.gmail.com>
-Subject: Re: [PATCH v2 10/20] KVM: selftests: Add a wrapper API to allocate
- multiple page table pages
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
-	David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/2] dt-bindings: ti: Update audio-refclk binding and
+ j721e system controller
+To: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
+        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
+        <mturquette@baylibre.com>, <sboyd@kernel.org>, <bmasney@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>,
+        <gehariprasath@ti.com>, <y-abhilashchandra@ti.com>, <sen@ti.com>
+References: <20260717083201.1887640-1-m-shah@ti.com>
+ <20260717083201.1887640-2-m-shah@ti.com>
+Content-Language: en-US
+From: Moteen Shah <m-shah@ti.com>
+In-Reply-To: <20260717083201.1887640-2-m-shah@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A672F:EE_|DM3PR10MB7970:EE_
+X-MS-Office365-Filtering-Correlation-Id: 502a4163-46ae-4d9e-a0b1-08df0cb9b0f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|1800799024|82310400026|376014|10067099003|6133799003|3023799007|22082099003|18002099003|56012099006|5023799004|4143699003;
+X-Microsoft-Antispam-Message-Info: JkvR23nJuwQ9itcdxipKNoaGRohBFS6DNhZRdMKhYZ+Z1X4S2+brAdlvI9lKVrIbzqdf8ERZWs8vCwYvzCDm1YdPrnaDQPBWZHhR31ZZx1N9tdzOqjKizGZZgD1uVjkOYA9CD5faTnC9rlNasQJbZyne7rAJwWEE4o/R0suaQrLgCu8sfRte0G5itD83q2KP0ByKpl4oLQhDPFrBmVSh4WZbmSC7B1EuPi5HxllyhhBGvUH4U0QmYIL1HY872r0hcW/bcovQoepqnXw1lHDYJIsZM45PKF+y+LFa8faBV2wUYHCkWp+fePB4p4kcxLkYz2o2oOMXY21gUcc1u/k1vEbBxjMvv5h0uaBu6pzOuhkEDSEW+6ZcQ6DEvwurKUGoaiPkglr2oUf4lTuZZLOnPqpHcDNhNF25tFFneTYpBztURtYo6A/D4BikIUlZ79kn2zSAijk1euOfdIsA8WdI48ql+qqTX0JJk5dIE6orjTaR0HVqFpUp17bBBhZomP0e4QENhKyvaaRd5mpNoSASWrrWKv/888zG7htADix4zLna9iFcyqB8o5n9wPCYklQvNMPiodx7RBXBnVxsFSpM2BGL9xY4G4Mw5d035XO4Xidza+2P0l2FDm0ge8Dr5iKd/jrgFOoi4zGseyzEiBynZB2jsyZ/y8VoMk1xjPHRg/uLwqANIzSTrvfZb8ec9pvs66/Opwf89n4ttWeVTq9Zjg==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(1800799024)(82310400026)(376014)(10067099003)(6133799003)(3023799007)(22082099003)(18002099003)(56012099006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 8jpwtGEcbaebMFPM96Jzatjv2kGn1uRiUTkManopkHuAQXU/o8Z/kt5Ce0DDqej6aiJv32WPqD1YuxzmNf4KRGGW2a5c9s3uha5mqYoUK2tYCyf67Rrmey59Z67eLAIrjvWBHtebAT/xnJzW3ersQh/WcYr+TipOHvH2CJ71zJY76M7v8fzh70vGK2ZcwZRVyVytZjmdXXWaJ2ttt8OgQD8idvbL183teQSlooD4HglncgjWQPJIKF6kO3pniof0OOZxOchdMocBan0PPqwjIHk4yNnPM0OgoRTdF7G6oZIPi8MdrxoTL2lLOWiPfVmGtUz1wUP/NGN0hy+4gOepltDqcc7Lh2rVOXW3B3bM49nrMblLh29Qs+rdjUCJdgsyQ7/sdZyQWS4zZlE+Jgj25qTLKfMqIhkCwRnxRFA8gK1/y7TaQn2OiGoaBR9m+mbZ
+X-Exchange-RoutingPolicyChecked: RmngjPaAFdahoWGXvHTHxAt86jQIqsgfOwRK5dikPCKQPMzjoXqdXZ9ENrY2pB2lPT5H7bbOppyVlg78VCrVQJ5g3eO9t6B9Ruw5b7Qg7d5k8/qS6Fw5rSw3pLW1TuTjC4vZylXbK9fCH4KbslfE8DAx6qQP/rvR5x9twHSekKRxBdO6Y0j/3wYF36UwVhzwSPurMT0zyncQAEkAGDr9tsebb6Z4X0mM7LXX5fp9kqTHjVhJSOzu/WRkkK+N7SQ3YU70g8rAAPbJms97wZk99vRkeitaIUE4iid5mvajgTLzO4c/K3LdlkiVUMrDdDUCaSnaBRd7RKggR6Kx6aIktw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 08:26:18.5946
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 502a4163-46ae-4d9e-a0b1-08df0cb9b0f4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A672F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR10MB7970
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDA5MSBTYWx0ZWRfX34/eD7cpbc3r
+ Pu/ycnzCg0c4BLuIWxsLuJy+YGNl7TGMBN3mDm9zdXPIsUY5H8W4i1T55+9plK3hYP5Y2aT1hC4
+ McRZ+HEFjgdtCL6Swls52VpCVr/4wvT1MyUWhnL964uS+zb47893o5Q3jtawRv+rObZ8UDsLZ/x
+ 2Y2yY5/Ylnr0aEbbjWOxMaE2c/tPZtWrFNPGbpycD7S5VpF4jHnM1NNRwZw9YgzZ+y1QlODPUbx
+ JTMbSJH8CKgoRZ7sz1svEH+j47CFNOBXd8hNb+Os7iaGz5O6eOqthyoDSNnqzrORY4KtBzUkg/o
+ D7iCtB35IV6u7j5v04quny1MjUZDpsQQXID6/bMt4rDXaL53W+dWjajD0/pyicHv9NHf3fUZnvp
+ qfptUl9VWikdLyLp1anxSnQx2yhu3N8V6eynPpJGO5onx3+aug3z54dXlTczwqYNZWB728UrXIw
+ 6a4023/IL9DJMhRF4yw==
+X-Proofpoint-GUID: U83H9UWKsnsvCNCsXDzWXDStxChBUcTp
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDA5MSBTYWx0ZWRfX7l/X4gFDsrgZ
+ I43znKgky7c9rWvwYV9Nw3KzYSYe0l+3SXiICYsRqxhoTxddBHevFGqPMbNrjOBdgSYqFvxyPc+
+ 6tIh7nee0DuX2VTEHahmea4mPCtYzcU=
+X-Authority-Analysis: v=2.4 cv=e/82j6p/ c=1 sm=1 tr=0 ts=6a9e752e cx=c_pps
+ a=SJ7/6Usf5opWGcqe47ja0w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=PA5_Jz7iE4UzxxbiXVoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: U83H9UWKsnsvCNCsXDzWXDStxChBUcTp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-07_02,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ priorityscore=1501 malwarescore=0 suspectscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609070091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_012407_291953_68357EB4 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260907_012634_587157_D35F1D7A 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,124 +179,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 2, 2026 at 10:11=E2=80=AFPM Sean Christopherson <seanjc@google.=
-com> wrote:
->
-> Add vm_alloc_page_table_pages() and use it throughout arch code to replac=
-e
-> open coded equivalents.
->
-> No functional change intended.
->
-> Reviewed-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On 17/07/26 14:02, Moteen Shah wrote:
 
-LGTM.
+> Add ti,j721s2-audio-refclk as a supported compatible string in the
+> ti,am62-audio-refclk binding. J721S2 uses the same audio reference
+> clock IP block first introduced on AM62. Per writing-bindings
+> guidelines, the J721S2-specific compatible is added as the primary
+> string with ti,am62-audio-refclk as the fallback.
+>
+> Also extend the ti,j721e-system-controller clock-controller@ child
+> pattern to accept audio-refclk schemas alongside ehrpwm-tbclk via a
+> oneOf constraint, fixing the alphanumerical ordering of $refs.
+>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Moteen Shah <m-shah@ti.com>
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+Hi Stephen, Michael, Brian,
+
+Just checking in to see if you or the DT reviewers have any feedback
+on this clock bindings patch of this series, or if it is ok to be picked 
+up?
 
 Regards,
-Anup
-
+Moteen
 
 > ---
->  tools/testing/selftests/kvm/include/kvm_util.h    | 9 +++++++--
->  tools/testing/selftests/kvm/lib/arm64/processor.c | 4 +---
->  tools/testing/selftests/kvm/lib/riscv/processor.c | 4 +---
->  tools/testing/selftests/kvm/lib/s390/processor.c  | 8 ++------
->  4 files changed, 11 insertions(+), 14 deletions(-)
+>   .../devicetree/bindings/clock/ti,am62-audio-refclk.yaml   | 8 ++++++--
+>   .../bindings/soc/ti/ti,j721e-system-controller.yaml       | 6 ++++--
+>   2 files changed, 10 insertions(+), 4 deletions(-)
 >
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testi=
-ng/selftests/kvm/include/kvm_util.h
-> index d9d39a8894e2..c56f342b16fd 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -1013,10 +1013,15 @@ static inline gpa_t vm_phy_page_alloc(struct kvm_=
-vm *vm, gpa_t min_gpa,
->         return vm_phy_pages_alloc(vm, 1, min_gpa, memslot);
->  }
->
-> +static inline gpa_t vm_alloc_page_table_pages(struct kvm_vm *vm, size_t =
-nr_pages)
-> +{
-> +       return vm_phy_pages_alloc(vm, nr_pages, KVM_GUEST_PAGE_TABLE_MIN_=
-PADDR,
-> +                                 vm->memslots[MEM_REGION_PT]);
-> +}
-> +
->  static inline gpa_t vm_alloc_page_table(struct kvm_vm *vm)
->  {
-> -       return vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -                                vm->memslots[MEM_REGION_PT]);
-> +       return vm_alloc_page_table_pages(vm, 1);
->  }
->
->  /*
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/te=
-sting/selftests/kvm/lib/arm64/processor.c
-> index 01325bf4d36f..2dcaa2c4a038 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -115,9 +115,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->         if (vm->mmu.pgd_created)
->                 return;
->
-> -       vm->mmu.pgd =3D vm_phy_pages_alloc(vm, nr_pages,
-> -                                        KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -                                        vm->memslots[MEM_REGION_PT]);
-> +       vm->mmu.pgd =3D vm_alloc_page_table_pages(vm, nr_pages);
->         vm->mmu.pgd_created =3D true;
->  }
->
-> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/te=
-sting/selftests/kvm/lib/riscv/processor.c
-> index ded5429f3448..c175dcd14114 100644
-> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> @@ -69,9 +69,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->         if (vm->mmu.pgd_created)
->                 return;
->
-> -       vm->mmu.pgd =3D vm_phy_pages_alloc(vm, nr_pages,
-> -                                        KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -                                        vm->memslots[MEM_REGION_PT]);
-> +       vm->mmu.pgd =3D vm_alloc_page_table_pages(vm, nr_pages);
->         vm->mmu.pgd_created =3D true;
->  }
->
-> diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/tes=
-ting/selftests/kvm/lib/s390/processor.c
-> index fb9dab92d4d1..33f49d743b5f 100644
-> --- a/tools/testing/selftests/kvm/lib/s390/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/s390/processor.c
-> @@ -20,9 +20,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->         if (vm->mmu.pgd_created)
->                 return;
->
-> -       gpa =3D vm_phy_pages_alloc(vm, PAGES_PER_REGION,
-> -                                  KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -                                  vm->memslots[MEM_REGION_PT]);
-> +       gpa =3D vm_alloc_page_table_pages(vm, PAGES_PER_REGION);
->         memset(addr_gpa2hva(vm, gpa), 0xff, PAGES_PER_REGION * vm->page_s=
-ize);
->
->         vm->mmu.pgd =3D gpa;
-> @@ -38,9 +36,7 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
->  {
->         u64 taddr;
->
-> -       taddr =3D vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
-> -                                  KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -                                  vm->memslots[MEM_REGION_PT]);
-> +       taddr =3D vm_alloc_page_table_pages(vm, ri < 4 ? PAGES_PER_REGION=
- : 1);
->         memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page=
-_size);
->
->         return (taddr & REGION_ENTRY_ORIGIN)
-> --
-> 2.55.0.966.g6673acef38-goog
->
+> diff --git a/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml b/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
+> index b2e40bd39a3af..6c8fb0793070d 100644
+> --- a/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
+> +++ b/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
+> @@ -11,8 +11,12 @@ maintainers:
+>   
+>   properties:
+>     compatible:
+> -    items:
+> -      - const: ti,am62-audio-refclk
+> +    oneOf:
+> +      - items:
+> +          - const: ti,am62-audio-refclk
+> +      - items:
+> +          - const: ti,j721s2-audio-refclk
+> +          - const: ti,am62-audio-refclk
+>   
+>     reg:
+>       maxItems: 1
+> diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> index f3bd0be3b279f..364be49f8c7c7 100644
+> --- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> @@ -53,9 +53,11 @@ patternProperties:
+>   
+>     "^clock-controller@[0-9a-f]+$":
+>       type: object
+> -    $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
+> +    oneOf:
+> +      - $ref: /schemas/clock/ti,am62-audio-refclk.yaml#
+> +      - $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
+>       description:
+> -      Clock provider for TI EHRPWM nodes.
+> +      Clock provider for TI EHRPWM or Audio Reference Clock nodes.
+>   
+>     "phy@[0-9a-f]+$":
+>       type: object
 
