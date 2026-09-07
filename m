@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8FBC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2CDC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 08:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bE+ezz8/1kN8C+fO/tDpjHY4MLBY7DZOCsepy+TpG5M=; b=PoJqTT4JSxd1XNGz/4qx9TY4+S
-	EDDV46tTpEjcOa1uOy2D08Uf9CYOhX0Re+edQpDzoY/dYrspMB5BsvxL10iwY794RyCgFCXMaq0NO
-	NyqtsP6nnaxhT/y9EiwH8/SDjFDWqmIJxljwXCA5897eM/1OB+sLy5ae2e8pZJZdukNxt6KCSFywy
-	n1uiwJ6WqlAcCIh//QlLYveOoA4YrTbbiCyuLdN2zx6nMgMZBImxoCSTo0+thhNHyvbM+ODN1jwn8
-	oWtMFljNb7KM+FB0G4Sml4bGheWQ5Zub2fmXFQSs78KlygImWz8t2uX8064UsPTucdEgbYiyT3hOq
-	Yuvc8rTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CfMRY6C+btqHlTiWd8OIUdZwnsYHsyWiOk41SLPto4=; b=ZcQZwdfcGq9S20mWNj7VHUbfBo
+	kUkn4ltSZmmuvsf5EwR2UYIU9y3wlmKcq1Jtsf2f5pdUmOWCmAtvPnl5DhVu4c6GUx2ICM8rHOsvM
+	uoX1fsI+n/a5um6n9/43hSZPK+AvBzK1s5IfIOh3h/PGlbX/ZMMjBdC5BmPxU3TI78R399JSQchxs
+	Lg6lj8n/KFogNR2BerWN4VREsQ8evK5tOf3IX71sSZG+4IQWrsbgdUVD+mW2SzzCzQsYBQ88kp1Hu
+	Zss6lRobaNzBY+LsR8enTEyC4qr1VwhUqxPkWDxSEJcw5vDHdMNR8DINrUep9sma/MbVDNh8q1Vxy
+	KamQVehA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Uwp-00000006IdF-0iie;
-	Mon, 07 Sep 2026 08:43:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Uwm-00000006Ic1-2uBF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 08:43:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FCFC1477;
-	Mon,  7 Sep 2026 01:43:17 -0700 (PDT)
-Received: from [10.57.7.146] (unknown [10.57.7.146])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F5CB3F7D8;
-	Mon,  7 Sep 2026 01:43:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788770601; bh=jDZRY+Lx5bEFpVHpCIz1x9CSgZ17ilNf6ybGRTwCLp4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UMoYdUxsWdugSNSpYCTIWpIWDXM2xQXWaGjgMikS3nTyyylqDtfV7Np8zfLyAeobj
-	 U9OzJZITthZTTIDifX5GjyPibwFKxuzAPHdKURQXto7G07aWEpjGb6BVl0UKgQqVaa
-	 hM5eMBd9y35CVWUJxzipqNLa9QtAPHpcJ9l2wpa0=
-Message-ID: <b7b1b199-08a6-4685-9def-d4d6eb396cdc@arm.com>
-Date: Mon, 7 Sep 2026 09:43:35 +0100
+	id 1x3Uyr-00000006IuP-2Ent;
+	Mon, 07 Sep 2026 08:45:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3Uyp-00000006Iu0-3aaS;
+	Mon, 07 Sep 2026 08:45:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D308E60052;
+	Mon,  7 Sep 2026 08:45:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9101A1F00A3A;
+	Mon,  7 Sep 2026 08:45:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788770730;
+	bh=9CfMRY6C+btqHlTiWd8OIUdZwnsYHsyWiOk41SLPto4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aWB61ri4ehlda/B8fFIjk1Hhvy6YOBKytcCVKJtzdcYF9KZU4wgPy0FohmFQhXbB9
+	 AF7/YNHVNx9cJ2R4EutlG1zfQ0rg7OfCP1X4AxDpKDiGrjTtqB1COXbbZLG65dAc1D
+	 tKFf2QisYr4UEpp0n7n+HFb3PVTepaBorQG/duRx25C+9hySII7MpiIHtwdlX9Fa03
+	 d9Km+UGTfesTFLTRefDFUkAZaokSTVlRPrEsRFff1ry8RkfVgjnP3W2eiSnhxu4r7G
+	 /dsZ/FZH9lkmC2+OQ/NDsGhz0BF+5Yvk4lI6E9v+NGG1N7Mqlz1d5NjexbZ+b20K0t
+	 ZI7X635dRgYgg==
+Date: Mon, 7 Sep 2026 10:45:26 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Marc Kleine-Budde <mkl@pengutronix.de>, Vincent Mailhol <mailhol@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Frank Li <Frank.Li@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Aswath Govindraju <a-govindraju@ti.com>, 
+	Christoph Stoidner <c.stoidner@phytec.de>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, sashiko-bot@kernel.org
+Subject: Re: [PATCH V4 1/4] dt-bindings: phy: ti,tcan104x-can: Fix property
+ constrains
+Message-ID: <20260907-debonair-whispering-mule-8eee51@quoll>
+References: <20260903080427.6103-1-wahrenst@gmx.net>
+ <20260903080427.6103-2-wahrenst@gmx.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] memory: exynos5422-dmc: handle clock enable failures
-To: Jiawen Liu <1298662399@qq.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, stable@vger.kernel.org
-References: <tencent_B0189529F550458590E3BA614EAB800FBF08@qq.com>
-Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <tencent_B0189529F550458590E3BA614EAB800FBF08@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_014324_778085_53A5EF17 
-X-CRM114-Status: GOOD (  17.28  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260903080427.6103-2-wahrenst@gmx.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/4/26 11:01, Jiawen Liu wrote:
-> Check the return values of clk_prepare_enable() for fout_bpll and
-> mout_bpll.
+On Thu, Sep 03, 2026 at 10:04:24AM +0200, Stefan Wahren wrote:
+> Microchip ATA6561 is compatible to TI TCAN1042, so the same property
+> constrains should apply. But they use a strict scalar enum match, which
+> makes Microchip ATA6561 fallthrough. So add a "contains" to cover also all
+> compatibles ones.
 > 
-> If enabling fout_bpll fails, propagate the error. If enabling mout_bpll
-> fails, disable fout_bpll before returning. This keeps the clock enable
-> count balanced on probe error paths.
-> 
-> Fixes: 6e7674c3c6df ("memory: Add DMC driver for Exynos5422")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jiawen Liu <1298662399@qq.com>
+> Reported-by: sashiko-bot@kernel.org
+> Closes: https://lore.kernel.org/linux-devicetree/20260902133525.E22DE1F000E9@smtp.kernel.org/
+> Fixes: 05ace63d0bcf ("dt-bindings: phy: ti,tcan104x-can: Document NXP TJA105X/1048")
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 > ---
-> Changes in v2:
-> - Use the full author name in From and Signed-off-by.
-> - Add Fixes and Cc stable tags.
-> - Generate the submission with git format-patch.
-> 
->   drivers/memory/samsung/exynos5422-dmc.c | 11 +++++++++--
->   1 file changed, 9 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/memory/samsung/exynos5422-dmc.c b/drivers/memory/samsung/exynos5422-dmc.c
-> index 788d49c688b1..98c319552583 100644
-> --- a/drivers/memory/samsung/exynos5422-dmc.c
-> +++ b/drivers/memory/samsung/exynos5422-dmc.c
-> @@ -1297,8 +1297,15 @@ static int exynos5_dmc_init_clks(struct exynos5_dmc *dmc)
->   	if (ret)
->   		return ret;
->   
-> -	clk_prepare_enable(dmc->fout_bpll);
-> -	clk_prepare_enable(dmc->mout_bpll);
-> +	ret = clk_prepare_enable(dmc->fout_bpll);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = clk_prepare_enable(dmc->mout_bpll);
-> +	if (ret) {
-> +		clk_disable_unprepare(dmc->fout_bpll);
-> +		return ret;
-> +	}
->   
->   	/*
->   	 * Some bootloaders do not set clock routes correctly.
+>  .../devicetree/bindings/phy/ti,tcan104x-can.yaml         | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
 
-This one looks good.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+Best regards,
+Krzysztof
+
 
