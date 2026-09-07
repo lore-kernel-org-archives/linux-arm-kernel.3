@@ -4,73 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B33C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAECC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z1vepcmj6rDsLu88edRt9asSdaVkIpI6mD9170IPz4c=; b=S+TJbAjPvZxmgUxESYdU/Xoc+3
-	1ELe/2rz3Q3LHYoMCm9bkpX063rRkgzHnS7w0N9PjYhvO8kc5fvHJi7pkoKpUo/fAR9fr+tyQ5606
-	NZB8+AWw6F5mCecVXt2GqY8EFcQegizZF9dR9UgLhDBIR4CC/xOpOzVIDRPb9Ns6Ae0ikbDovfTIa
-	JNGBrwsHWX84q+k8GgvdUsoTDxSktmEsz0kZq/lai9BKUdOf/KwHzN7hUshnCZ0nCgP1KJwRzewFJ
-	mkFKXEeAImmNwxvMIRyhN8X1hG0SivUzTo5Dmv+c2GGmgMrKYmkLBuHd8yoBdH6ZtNQ40fn6o4cuO
-	6IQGb4xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tp+6NhRzwya+Bs1pq+AN/c180uEuCsmSjexV7+aiCZY=; b=PL8m3QN1lzu1oQu/QEtt+ulquk
+	8I8hM1ekxWL7yLoYrJ8ytWYrLxtl+kAklNCnjZ6HYjnUc1d3MxZOKk3tx7+SpIYgQettZ1PIkM81z
+	fIwDmlwzR+dheHZLBMhZVIVK5IMokz1fBNiBhdWTnla21ECyJ0K6c/LIiGlY1QXnEPyvlvDT9pXzn
+	9suZS4gqRpTpcmrsd45LVOcXhpibNMYRksK5/8TAWRFg6On8f8wmDJaIf3HXA49kF6KsiD3dn+Oa8
+	exIV+bZMP1RjeiS6e4yuJP7oJ7LPl6Td1JGPt9HHji6LgFfcJSc3uITbxCKPrjetC48y+sEkP3fTy
+	KY+ZQGWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WbJ-00000006UBb-3STD;
-	Mon, 07 Sep 2026 10:29:21 +0000
-Received: from out-120.mta1.migadu.com ([2001:41d0:203:375::78] helo=mta1.migadu.com)
+	id 1x3WdN-00000006UTc-0zJ9;
+	Mon, 07 Sep 2026 10:31:29 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WbG-00000006UAp-22tO
+	id 1x3WdK-00000006USg-0xVu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:29:20 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=gr4ntL2ls1kQt9OlB8hZM5ulhfyIRqyK823Iegsl1Sk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788776955; v=1; x=1789381755;
- b=k3dAdO9l3e6VBI+y6mF2I8sx2AwMCPquqqUUSaeKE96Ab7L+bc0tmCwxAQ/TxsKbtzgfzg39
- 0gdBu07G1PyjU4ssM2aNdOTTkQK3Dr2yEZ1cSAF1y1g3JZRPcnYCxJVN/YKb+bCS2209QIbdbSW
- vUnb6NT7tfEXAhg3YiQzmXho=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 90d7772b263b108b;
-	Mon, 07 Sep 2026 10:29:15 +0000
-X-Mizu-Trace-ID: 90d7772b263b108b
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so7901e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 03:29:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy51RnbQN7OPRm2wQnnEfq8wl7i0tqQYcSNgKTRPGLsBR8MlFMpVlOiJEHBFmMo2vFgdOeUlXhZddqM+55mRSch@lists.infradead.org
-X-Gm-Message-State: AFuF++mjWHPlEUBK5xOXqdu3dsYw0wF9MwkGtyUuW+whnGyeQeJcWu5u
-	da6NJ4ahsmv0d4i47UIr6JWSPWJDdtGdFUJ0q6jBk9mBhGA/P3vyH52gWh6rlk46ZYiaOv7bTH7
-	1j+8RRw637O1cBMEg2HceQz2J6p5NRdvxnv2QK7Qm
-X-Received: by 2002:a05:6512:3d22:b0:5a8:6646:d7b4 with SMTP id
- 2adb3069b0e04-5b74d1f915cmr158049e87.1.1788776950693; Mon, 07 Sep 2026
- 03:29:10 -0700 (PDT)
+	Mon, 07 Sep 2026 10:31:27 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6879ZDYY3098677;
+	Mon, 7 Sep 2026 05:31:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=tp+6NhRzwya+Bs1pq+AN/c180uEuCsmSjexV7+aiC
+	ZY=; b=h+/6sHkdTcncNHLbJji3zmKKU+6orbCQLtZgeGwwdZyGTqzSY1A6rFZwG
+	himocqUMTYjfufp7ZvU435/4Cf/e/nhQ2LNowim6OsOCNT1DkEAV2Q2RSthwALsU
+	xrrCMfZmUlgEoGuwpjkpFkLrJOoEI3zCVi/FVt3vlg6MTuFeq+yKDAySKbOFat3v
+	Hox7yPYKwmURLOnHHMAOawh2JlOyQO8L3gaEb5bXHFeJJGZwKnG4YoL/xXtHXGC4
+	CY69WLtcyp2hk3Ol6ZZ3uUBQczert8m0e2UhYocRn5TO142PAvSMDzyVggqm/XMk
+	ThEqTy8wKy1WDbYYKgA60JLONl39A==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011045.outbound.protection.outlook.com [40.107.208.45])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gh2f6dftu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 07 Sep 2026 05:31:21 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VkixspgSvdmD5u7+AF9oU5cDl6NXDAA16BatmlmbTiU5Vm/TSM+yc+NI2WTrNXZ32masMf0glye46Gv8WlZlkm95oJ0jdqAGpuXOVQibcYbuHCovshKl59+JHsr4y3JlDKy9EsMkk8PvxL27Pk2XGZRlAgf4Je5VGBNWkOYJYK61M0mPAZ5UQRA2gVYKQSF8X1t8Z70TGh7suLzHV8f6DtOy83HBIju6G5Q8XsZja5pyJPaYmSNVCHLbeXI6/+ltXj/nahqAD78YLkD61tG6hd8yFKfxHM99uvBGIGto6DL1+GRRipSFVGMY+QEOk6rEzs6CouwsPjdSzcrGi6tBBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tp+6NhRzwya+Bs1pq+AN/c180uEuCsmSjexV7+aiCZY=;
+ b=MOSUasIUuOvyOLArbh177Jo2unvEPO5sFCkyaFGRdFxHk6m7XMEjoITtpcaC4zr2tt1bQ6Q73cLoGVoISV6qKLbvSluJrGySk0Ue0zMkKIejbZm6amhK6jhoOK5F81xujn8mV4908cQanpJuH0TP8LacUnKVaLdC4S9rSavEKjQyo4BWW9tt3QVPEFQ5ctze4o34gPNCDd4+RLQ62vwjxUfXAcHvMTHy/KsoLhGosV3WIvAYOSkW0i9nNTwnwjmdXNCb4kaLUwwFD2SnO1ZcLk8FHYqShleQSD0jnpYeBqshenLLuwv3ycvzjlIWALCDyQx7Ug//98DH0RLvB8ITig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tp+6NhRzwya+Bs1pq+AN/c180uEuCsmSjexV7+aiCZY=;
+ b=QC+n/xdL29Z4NPtzyS1NOQY3zAk7cmsuLfDnjJ6b9NOG3VpBxTHYr4e49EJAJKtM7fuQz4FiN4g2lXbYuZVCNcwsGcqWwJSFBfZYD6VLiqqbpoAgOgmV+k2Y13MstXn0+G0sigQSqIlClHd8odFRsXBy6MIwiHuCoU6QsIvNC08=
+Received: from BN9P223CA0003.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::8)
+ by DM3PPF2023FE2F7.namprd10.prod.outlook.com (2603:10b6:f:fc00::c12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
+ 10:31:19 +0000
+Received: from BN3PEPF0000B36E.namprd21.prod.outlook.com
+ (2603:10b6:408:10b:cafe::77) by BN9P223CA0003.outlook.office365.com
+ (2603:10b6:408:10b::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 10:31:18 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN3PEPF0000B36E.mail.protection.outlook.com (10.167.243.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.1 via Frontend Transport; Mon, 7 Sep 2026 10:31:16 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 7 Sep
+ 2026 05:30:34 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 7 Sep
+ 2026 05:30:34 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 7 Sep 2026 05:30:34 -0500
+Received: from [10.24.53.20] (scaria-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.53.20])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 687AUU7U353246;
+	Mon, 7 Sep 2026 05:30:31 -0500
+Message-ID: <38c8d72a-50e5-44e2-a196-fb6b9f7530b0@ti.com>
+Date: Mon, 7 Sep 2026 16:00:29 +0530
 MIME-Version: 1.0
-References: <20260903160819.831518-1-fuad.tabba@linux.dev> <dd850141-ea85-4d94-9793-393f24a2fdc2@arm.com>
-In-Reply-To: <dd850141-ea85-4d94-9793-393f24a2fdc2@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 7 Sep 2026 11:28:34 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyuLKYE1UL4XYvq4rxW7fgFNafdTY8H0=Qt6Hnjz3wYvQ@mail.gmail.com>
-X-Gm-Features: AcwNN1Wj8Xs--qUJv8B64ImQS5H8o3vx5bKORqTK09jwke8ojoQgldDdImoBrM8
-Message-ID: <CA+EHjTyuLKYE1UL4XYvq4rxW7fgFNafdTY8H0=Qt6Hnjz3wYvQ@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am625: add standby cpu idle state
+To: Kendall Willis <k-willis@ti.com>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <a-kaur@ti.com>, <s-tripathi1@ti.com>, <vishalm@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260820-upstream-standby-v1-0-6a0553b9713d@ti.com>
+ <20260820-upstream-standby-v1-1-6a0553b9713d@ti.com>
+Content-Language: en-US
+From: Scaria Kochidanadu <s-kochidanadu@ti.com>
+In-Reply-To: <20260820-upstream-standby-v1-1-6a0553b9713d@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36E:EE_|DM3PPF2023FE2F7:EE_
+X-MS-Office365-Filtering-Correlation-Id: e47813a8-72ae-4741-2e4d-08df0ccb2625
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|10067099003|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: zqU7ddnifRNABG+jUQLoEsCvHrhuOXx2/KlSv792N68dM6jsYDTZ2zXlBKVc3PbiRNgDhTqUnjb63pnLNXOBHD+Oyup8BK9WT2wXwTvOJom/OWnJGE2NA25qGU6trWMB7329vrI3VyAX2Nq47Upuz1OUvN5UXDJIWcJXjqAemQD0LSomA6OCdLMK1tvfWxMzRAuRW0XqH2x8MKYgXuQMtOH/tUs9d9bMwU+Mk4Q4Rq4BaBcxW2xaZsmHCWU2EeyQiYL2ncMXi2LgBXRN2BLAXBxS9bY+Nfq8ytQ0yNpEhso5OdL3ygGNiCg7RC+Le2qfkXBG/7A/h6I8tOuVALOfbvONCk5wXDDVxW0wuCinFNmhRGClqupuK1smqmoRvzlw6aAWkRBbKomPDW5kqxhBFdSXc7jMAHvIuJcGgXZKQbTq97R8GLhlAGzzAaUtRdbrhTRACjxlMwECrkpGXPvDyQ8V5Oeuij35wP9BIfoMUZ4teRHdWsAGzDrkZiATpmRH2U3pbS0wr/yss0L4UIpscoqy6hpRVhuXAIl3yrF8Rg4v+apE2C5tUQ90pnG+lz7uJgcgy/GfYTSvgG3o0KWHb3+D1vYRM6sqO4grscTgcEwc6eKfclh5XWT/a8H1T5eOpHcZ2Rq/7bGLAm8G9e2eZe5XqMLWs9R8Zr+jGrjqVi4OCunoVpzlOlFJbUvu0mo9+vYfe9FK3txsaafLwfIBSg==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: esUyClOXKbrbqCpU+AB4R6RCwF3/W2uYyadQBtF05z2tTYyww5I+s+FFohmh0Q/9/RHG03glWQ2xD3nKNRj7Se96EBJWsWbDLLw21G0XSzLWDuJCPjPlDwncMW9sWaprMt/cG2g95LO6EnkJlbRGtCXVqE3+YDGKjLsf13sgVNB1bAxFfXpayvP+x/W4nTzC3ku6WfZ9nIFuXQdkOjFhRvSsAuocchq3ML9GVbICcpfuF9+Kps57u6Is7m8t8XukCT1x/9e5Cy/4WnaaUn0IgaWKBunoKZAwThvaElAfq4CcoMwJDRT45DaZDsZvls0K13kGwZtgRYmXgGeZruuwwrk7LRMNo21CUGdtXXtqS8GDh78YicBS+lBvlmNpBfFdCGlyPiWuDJ0N49ZGQBBy00+tTgaEq347FALRYtyImysJQufeFNyHvGKg1ZI25ksR
+X-Exchange-RoutingPolicyChecked: mQnoG+0YM/6VtRkS+UQVAgsI+EEuOLVoJQ9CmQIQNf6TjjQ17XjJFqSXblTzAekzystJAxW0fKzK7yFxGZ1U5jJNoAj1jwwgiZqy5Ai14jXS67uzBnD7/quXl7asy1vDoYs2odM9UUdGHoapDAdG9U7Hbg+NXfRBF/wgW7EkOslArLs+8ORAoxCLMHzvB56LF8ezujZRUpivel6jhdUX6V7g29NYIIwbMLO7NRvQuO89fqCPtedMRuy+fhLj74xQh6zx8Md1oFrJAimOBXFqAFZDmo55AUwsjPCKs7VW6D4D4u48M+GHxwdqmvRc+O5MSJht50a3ME+2jzFMBmem4Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 10:31:16.6527
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e47813a8-72ae-4741-2e4d-08df0ccb2625
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36E.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF2023FE2F7
+X-Proofpoint-GUID: kbQTYfjzx81ktUZFxErddcZN4lsYtatS
+X-Authority-Analysis: v=2.4 cv=Wqkb99fv c=1 sm=1 tr=0 ts=6a9e9279 cx=c_pps
+ a=s6FLI2cSFE2dV00WXjZlDQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=be33sPGTcuLsgUYwzy4A:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: kbQTYfjzx81ktUZFxErddcZN4lsYtatS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDExNSBTYWx0ZWRfXw+ofDa5xG5xj
+ hIAiQ1W+qQZI6me5gLsCVvnNRpJYbzamr02fMfy61v8baiBli1OuSRAWk0ez0kiuI/Gb3YzxO4i
+ okp+GN+OiIKAxMfAsUMfLIm7KWSFNLUEiS3OHahUBJDhdi0AWqkaTNfozPHAxAMj48JmqZPUyu/
+ UhqOo6sqrQzWtvLd/RozhCwylmg/ABLhLX4pWTlQ/xltAu16PyoyDIFbfbB1MUp//Ct1qs/HwoI
+ 7IRrvcKBiMyaC2jkbngRYEKpTUXL80bEWx2tvL2JFqilgbGu5AxS0UsmVjeTDFHkh2RTUF8dEoQ
+ VqsO3scNHNh+EI9TvUNH65irZxHzsYcE3C18G+IEUXD0zmueWxnwS/2SAcWKk3cCGSnaJwQ8GQ/
+ mzZFuLQ5dTOZLhswNOma3tV7WJiXepd679MLVkmsvOpQerU0AoEc6qb6Knuv/VFmSzi6BO/FlRo
+ TtKWsSbhpn6aWKY2sxA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDExNSBTYWx0ZWRfX2q4gD38PCNHp
+ lNBTptIOGxA8xze0V9Q8vo9HQiYW6mZEtzJ2r52bgUCyILBov1+WNxq8r/xD5P3XEIAoJzHHBUO
+ bbmFSd+5XLSBPWEBV16jtmg3nRnqiQQ=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-07_02,2026-09-07_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 adultscore=0 malwarescore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1011 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609070115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_032919_144325_6C20534E 
-X-CRM114-Status: GOOD (  27.73  )
+X-CRM114-CacheID: sfid-20260907_033126_544419_7589E3A4 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,134 +184,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On Mon, 7 Sept 2026 at 10:12, Ben Horgan <ben.horgan@arm.com> wrote:
-...
-> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> > index 7404a6e83a930..8863ae99596bc 100644
-> > --- a/arch/arm64/include/asm/cpufeature.h
-> > +++ b/arch/arm64/include/asm/cpufeature.h
-> > @@ -873,6 +873,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
-> >       return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
-> >  }
-> >
-> > +static __always_inline bool system_supports_mpam_sysregs(void)
-> > +{
-> > +     return alternative_has_cap_unlikely(ARM64_MPAM_SYSREGS);
-> > +}
+On 21/08/26 00:58, Kendall Willis wrote:
+> Allow the A53 cores to enter standby mode on the AM62x SoC.
+> The standby idle state enables the CPU cores to enter WFI through the
+> CPUIdle framework.
 >
-> The sashiko comments reminded me about the possibility of mismatched systems. I see two cases to
-> consider here. One is if the firmware doesn't touch the MPAM system registers and leaves
-> MPAM3_EL3.TRAPLOWER set to 1. In which case the user is required to add arm64.nompam to the cmdline
-> as the MPAM registers can't be accessed from EL2. The second is if the f/w clears
-> MPAM3_EL3.TRAPLOWER, in which case arm64.nompam can't be used without making MPAM1_EL1 etc, shared
-> between guests. Perhaps for these mismatched systems we need to unconditionally enable the EL2 traps
-> for the cpus that support MPAM and not advertise any support for MPAM. Furthermore, if we, before
-> kvm gets involved, unconditionally enable the EL2 traps on systems where MPAM can't be enabled then
-> I'm not sure that we need to distinguish system_supports_mpam_sysregs() and system_supports_mpam()
-> in the kvm code. What do you think? Does that fit in with the pattern of how cpu features are
-> generally handled?
-
-This patch misses that case. check_override reads the CPU's own ID
-registers, detect_ftr_has_mpam() the sanitised ones, so
-finalise_el2_state clears the traps and neither cap is set.
-
-Not advertising MPAM already happens, since a mismatch lowers the ID
-field to 0. The trap default is the missing half, and I agree it
-belongs in finalise_el2_state, which already computes whether
-MPAM2_EL2 can be touched. KVM then needs only system_supports_mpam(),
-and the cap goes.
-
-The one host left is a forced nVHE, where test_has_mpam()'s MPAM1_EL1
-read would trap before cpu_enable_mpam(). The respin makes the caps
-false when is_hyp_nvhe(), so MPAM is off there rather than the boot
-hanging [1].
-
-I'll respin along those lines.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/apqrky27mJmUV9UA@willie-the-truck/
-
-
+> Signed-off-by: Kendall Willis <k-willis@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am625.dtsi | 17 +++++++++++++++++
+>   1 file changed, 17 insertions(+)
 >
-> Thanks,
->
-> Ben
->
->
-> > +
-> >  static inline bool system_supports_pmuv3(void)
-> >  {
-> >       return cpus_have_final_cap(ARM64_HAS_PMUV3);
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index 17b83a2518a8f..36a27692e5cf7 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2501,6 +2501,13 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
-> >       return (read_sysreg_s(SYS_MPAM1_EL1) & MPAM1_EL1_MPAMEN);
-> >  }
-> >
-> > +static bool
-> > +test_has_mpam_sysregs(const struct arm64_cpu_capabilities *entry, int __unused)
-> > +{
-> > +     /* The registers exist whether or not firmware enabled MPAM. */
-> > +     return detect_ftr_has_mpam();
-> > +}
-> > +
-> >  static void
-> >  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
-> >  {
-> > @@ -3116,6 +3123,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> >               .matches = test_has_mpam,
-> >               .cpu_enable = cpu_enable_mpam,
-> >       },
-> > +     {
-> > +             .desc = "Memory Partitioning And Monitoring system registers",
-> > +             .type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > +             .capability = ARM64_MPAM_SYSREGS,
-> > +             .matches = test_has_mpam_sysregs,
-> > +     },
-> >       {
-> >               .desc = "Memory Partitioning And Monitoring Virtualisation",
-> >               .type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > index 1ce7130e25490..8941335724f6b 100644
-> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > @@ -298,7 +298,7 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
-> >       u64 clr = MPAM2_EL2_EnMPAMSM;
-> >       u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
-> >
-> > -     if (!system_supports_mpam())
-> > +     if (!system_supports_mpam_sysregs())
-> >               return;
-> >
-> >       /* trap guest access to MPAMIDR_EL1 */
-> > @@ -317,7 +317,7 @@ static inline void __deactivate_traps_mpam(void)
-> >       u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
-> >       u64 set = MPAM2_EL2_EnMPAMSM;
-> >
-> > -     if (!system_supports_mpam())
-> > +     if (!system_supports_mpam_sysregs())
-> >               return;
-> >
-> >       sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
-> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > index 2775ba3359cfe..aa5be51385f68 100644
-> > --- a/arch/arm64/tools/cpucaps
-> > +++ b/arch/arm64/tools/cpucaps
-> > @@ -78,6 +78,7 @@ KVM_PROTECTED_MODE
-> >  MISMATCHED_CACHE_TYPE
-> >  MPAM
-> >  MPAM_HCR
-> > +MPAM_SYSREGS
-> >  MTE
-> >  MTE_ASYMM
-> >  MTE_FAR
-> >
-> > base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> diff --git a/arch/arm64/boot/dts/ti/k3-am625.dtsi b/arch/arm64/boot/dts/ti/k3-am625.dtsi
+> index c249883a8a8d846aa21092c4c341fd443cfcec15..7ba339d5875926717896fc92fb2fa6d2b8d0026a 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am625.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am625.dtsi
+> @@ -51,6 +51,7 @@ cpu0: cpu@0 {
+>   			operating-points-v2 = <&a53_opp_table>;
+>   			clocks = <&k3_clks 135 0>;
+>   			#cooling-cells = <2>;
+> +			cpu-idle-states = <&CPU_STANDBY>;
+>   		};
+>   
+>   		cpu1: cpu@1 {
+> @@ -68,6 +69,7 @@ cpu1: cpu@1 {
+>   			operating-points-v2 = <&a53_opp_table>;
+>   			clocks = <&k3_clks 136 0>;
+>   			#cooling-cells = <2>;
+> +			cpu-idle-states = <&CPU_STANDBY>;
+>   		};
+>   
+>   		cpu2: cpu@2 {
+> @@ -85,6 +87,7 @@ cpu2: cpu@2 {
+>   			operating-points-v2 = <&a53_opp_table>;
+>   			clocks = <&k3_clks 137 0>;
+>   			#cooling-cells = <2>;
+> +			cpu-idle-states = <&CPU_STANDBY>;
+>   		};
+>   
+>   		cpu3: cpu@3 {
+> @@ -102,6 +105,20 @@ cpu3: cpu@3 {
+>   			operating-points-v2 = <&a53_opp_table>;
+>   			clocks = <&k3_clks 138 0>;
+>   			#cooling-cells = <2>;
+> +			cpu-idle-states = <&CPU_STANDBY>;
+> +		};
+> +
+> +		cpu_idle_states: idle-states {
+> +			entry-method = "psci";
+> +
+> +			CPU_STANDBY: cpu-standby {
+
+nit: The property ordering looks a bit unusual. Could we move the 
+'idle-state-name' immediately after 'compatible'
+
+
+Scaria
+
+> +				compatible = "arm,idle-state";
+> +				entry-latency-us = <100>;
+> +				exit-latency-us = <50>;
+> +				idle-state-name = "standby";
+> +				min-residency-us = <500>;
+> +				arm,psci-suspend-param = <0x00000001>;
+> +			};
+>   		};
+>   	};
+>   
 >
 
