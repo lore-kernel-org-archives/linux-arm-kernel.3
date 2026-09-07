@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70AB1C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D82C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3Kg5n837DJ3J6t9BGAhbWn48bBIjiawWgKaQGRPoBU=; b=SJ+OtYw0mc90bckFsU184pyoHy
-	ld61Utlds50WucYA/rNwC3BcNaWCXcFUXdt1HL525Fzp/u/M1gy5tW8/KNuBurOGtn3MdU9LIs80b
-	FJOG9E3UWfejMdF8iZzhEYwUyhabK3muiRLpTrj2n5lBrWv6M3U7ntUc9zqsK+nl7/YCU1aUbCKPc
-	gwPANxvBmQa+wvQ2o6WLTBfO20TKz6UQrfzfJwcEFiL6kCynXPjQSgXSIspslCh+7lY4d60JWprHA
-	MKWpwu70sDd+ekeQe/kNcpbIbgMWAlH4xKP80Tp6K7buqrOUdAcKDtnG1VxvwsZeFqizeH4fP9UZY
-	iWFmp0EA==;
+	bh=dJ74uTcZ1w6H13eWlEAZANz/v1FhwMnE0af0UukasGE=; b=alTAX6s7NTOIdzKJxWD9/zSIzD
+	2Izs7vivkQANyLkDvrOwqVonIiB2vfVkh7M21VFdhvSdhniSBSW6rQGW3ZcUvWT8anLiWCYV9F3zW
+	y2SaV86+a00IocNRpvR6vVR5Ccs7emChcux9+ujrQpbwfjT8l6OW8L46lWt5oh4/8OtUDXEBUVgDK
+	8A8pvjdUQ2Lm93cFFloGQaD8SFjMlN9D/GhDHUpXxBL7IYD8AOJwkrSVdjTiS4uFMKtarV6q9lkgg
+	BQzgOVH/W55gPjBqmF3W679qojfg4oQx6/9HnUdksMuJmwPnksHJSvFZ0KWizH4IP7H/cCE5Cxes2
+	Z0gssdEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aSN-000000073nK-3Wiw;
-	Mon, 07 Sep 2026 14:36:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aSM-000000073mt-1rTR
+	id 1x3aU6-00000007448-0AM2;
+	Mon, 07 Sep 2026 14:38:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3aU2-0000000743o-3mra
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 14:36:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8818D60AB5;
-	Mon,  7 Sep 2026 14:36:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0641F00A3D;
-	Mon,  7 Sep 2026 14:36:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788791781;
-	bh=P3Kg5n837DJ3J6t9BGAhbWn48bBIjiawWgKaQGRPoBU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kwZ4Y3EAFDceBci5/+JDost4FCO6v6ExEQloPZiqRWJa6DrOpq59BDlANcRZ5W9Da
-	 0YkGiIrhMIM0Y4oA3bJVAPkVAkMh2ZDVas7JYI4vB/gxTsPFEuUMoap5+zn8l201ss
-	 vIrebluu5TiTYiThICUXUVwuBhTr2+8j6uG17pIcaC1Lj4tVaIfDE0cv0ER0HX98uz
-	 BePxSlC+haHMQiO2On7vvkPHUFeyRxeSZw75yBTaFsekJcP5eIqD1cV86KrTa3gu2b
-	 J4NCub9aTVDwfl0AlDdoa8TdACemyKWz1brmqYF2P1K9hN4ToS6wnUkW4CYRGUNcuN
-	 N3/1cVUgAH0IQ==
-Date: Mon, 7 Sep 2026 17:36:09 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
-	ljs@kernel.org, usama.arif@linux.dev, ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com, liam@infradead.org,
-	nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com,
-	baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, luto@kernel.org,
-	peterz@infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-Message-ID: <ap7L2UEriz6DJfif@kernel.org>
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
- <apk8ZRr6do_YAlzf@kernel.org>
- <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
- <ap05ue1pq3TgHOS6@kernel.org>
- <CA+qSx6y=OaMsvTKUbPP2DOan3Ym6c8L5z60512-tCYeUjLZz3w@mail.gmail.com>
- <ap5Tqu5yswJrj5UM@kernel.org>
- <69db9546-d14d-4107-96b7-30963292c2bd@kernel.org>
+	Mon, 07 Sep 2026 14:38:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DF811476;
+	Mon,  7 Sep 2026 07:38:01 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 036B73F528;
+	Mon,  7 Sep 2026 07:38:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788791885; bh=WUNSoWZpeqdDZs8W4YWQUVGB39NYxjnCgCjxLQYs5jU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IDdmMswXM7Hyaxng4ZWtOFUzjYY9W9L3t2I6wgjA2csgfHO7soIZNCWzGxwQqTROn
+	 hpcnBPqMDP9HZ0hSK7TeQxX6tNaGzjaBJxu6YvgNmXFh/RE2pcDUeW6+vqOqDgEOIT
+	 /V36J4k5vsFR4Gtb88FtWgeQKGDXugPr/ss2KbfA=
+Date: Mon, 7 Sep 2026 15:37:56 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
+	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
+Subject: Re: [PATCH 04/20] KVM: arm64: Use block-level annotations when
+ setting up the host stage-2
+Message-ID: <n2cker7zphcsacuck5ovwtj6k622ykpadg6njs2qirhqxj5keh@ub2dnnarnmmm>
+References: <20260803100904.3563942-1-vdonnefort@google.com>
+ <20260803100904.3563942-5-vdonnefort@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <69db9546-d14d-4107-96b7-30963292c2bd@kernel.org>
+In-Reply-To: <20260803100904.3563942-5-vdonnefort@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_073807_058343_78694632 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +72,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 01:18:42PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/7/26 08:03, Mike Rapoport wrote:
-> > Hi Xueyuan,
-> > 
-> > On Mon, Sep 07, 2026 at 09:11:14AM +0800, Xueyuan Chen wrote:
-> >> On Sun, Sep 6, 2026 at 6:00 PM Mike Rapoport <rppt@kernel.org> wrote:
-> >>>
-> >>>
-> >>> I believe this is an historical artifact. change_memory_common() already
-> >>> updates the linear map when a vmalloc mapping switches to RO and the system
-> >>> supports it.
-> >>
-> >> On x86, set_memory_ro() does work on direct-map addresses.
-> >>
-> >>>
-> >>> I believe arm64::set_memory_ro() can change the linear map in the general
-> >>> case as well as long as can_set_direct_map() is true.
-> >>>
-> >>
-> >> On arm64, I'm reading arch/arm64/mm/pageattr.c, and the linear-map
-> >> update in change_memory_common() is only reachable for vmalloc
-> >> addresses:
-> >>
-> >>   set_memory_ro
-> >>     change_memory_common
-> >>        area = find_vm_area((void *)addr);
-> >>        if (!area || ...)
-> >>           return -EINVAL;
-> >>
-> >> So set_memory_ro() on a linear-map address returns -EINVAL on arm64.
-> > 
-> > And I believe this is an historical artifact rather than necessity. For
-> > configurations that allow set_direct_map on arm64, change_memory_common can
-> > update direct map too, it just need to be implemented there.
-> > 
-> 
-> Are we sure the other architectures do what we want in their set_memory_ro?
+On Mon, Aug 03, 2026 at 11:08:48AM +0100, Vincent Donnefort wrote:
 
-It's a zoo right now :(
-Although most of them do.
+[...]
 
-But we need to sort it out anyway because of increasingly growing demand
-for modifications of the kernel page tables.
+> +static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+> +				     enum kvm_pgtable_walk_flags visit)
+> +{
+> +	struct fix_host_ownership_data *data = ctx->arg;
+> +	enum kvm_pgtable_prot prot = 0;
+> +	phys_addr_t phys = 0;
+> +	int ret;
+> +
+> +	if (kvm_pte_valid(ctx->old))
+> +		prot = kvm_pgtable_hyp_pte_prot(ctx->old);
+> +
+> +	if (!prot) {
+> +		/* Unchanged region */
+> +		if (!data->prot)
+> +			return 0;
+> +
+> +		goto apply_ownership;
+> +	}
+> +
+> +	phys = kvm_pte_to_phys(ctx->old);
+> +	if (!addr_is_memory(phys))
+> +		return -EINVAL;
+> +
+> +	/* We already know phys is contiguous as we walk the linear map */
+> +
+> +	if (prot != data->prot)
+> +		goto apply_ownership;
+> +
+> +	/* Accumulate in the current region */
+> +	data->size += kvm_granule_size(ctx->level);
+> +
+> +	return 0;
+> +
+> +apply_ownership:
+> +	ret = __fix_host_ownership(data);
+> +	if (ret)
+> +		return ret;
+> +
+> +	data->phys = phys;
+> +	data->size = kvm_granule_size(ctx->level);
+> +	data->prot = prot;
+> +
+> +	return 0;
+> +}
 
-I started something here:
-https://lore.kernel.org/linux-mm/20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org/
+I think this function can be simplified, if we check phys first:
 
-Now that x86 CPA is nearly fixed, I can look into the next iteration.
+static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+				     enum kvm_pgtable_walk_flags visit)
+{
+	struct fix_host_ownership_data *data = ctx->arg;
+	enum kvm_pgtable_prot prot = 0;
+	phys_addr_t phys = 0;
+	int ret;
 
-> Having a dedicated set_direct_map_ro() with clear (documented ;)) semantics does
-> not sound too crazy to me.
+	if (kvm_pte_valid(ctx->old))
+		prot = kvm_pgtable_hyp_pte_prot(ctx->old);
 
-It's not too crazy, no.
+	if (prot) {
+		phys = kvm_pte_to_phys(ctx->old);
+		if (!addr_is_memory(phys))
+			return -EINVAL;
+	}
 
-Still making arm64 more aligned with x86 and other arches that update the
-direct/linear map in the set_memory_ro() seem a good thing on it's own.
- 
-> -- 
-> Cheers,
-> 
-> David
+	if (prot != data->prot) {
+		ret = __fix_host_ownership(data);
+		if (ret)
+			return ret;
 
--- 
-Sincerely yours,
-Mike.
+		data->phys = phys;
+		data->size = kvm_granule_size(ctx->level);
+		data->prot = prot;
+	} else {
+		data->size += kvm_granule_size(ctx->level);
+	}
+	return 0;
+}
+
+Did I miss anything?
+
+Thanks,
+Wei-Lin Chang
 
