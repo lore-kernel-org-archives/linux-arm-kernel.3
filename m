@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0672FC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44210C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=; b=twv8LvGHPF9PV+uRXMAr4iT7HZ
-	vputxpuuvUejOU4Y7c5bvJqaifDZ+EEtipobfAZ70jh8hToWCI00Ui36w0Jj6+5K5WGRTs28JmPDj
-	4O2+pfDPOPxbtif7bnt/GLAd7L+z+Gfyx2FtwflirU9Lq1t/J2kbRdjOH7GLQP3H6dUGXWL2Lkyc3
-	KXcky6R1lg/WpogNcc55MzdkwLGFXHx8s5mc6cMsoN4SPhjgRf75MfwgLjrCg3ITquF9BYcgQYuNY
-	7C5BVgipOsWBX/kLsYTERcVm91z0qR5+ng2zIlA2Tuj8jC5MHvwaglrNwInSIR/mwIZtBPxmyXikT
-	bMQ4vASw==;
+	bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=; b=TYSzTvydGQNoggrZ417HjWa4lN
+	xZO5hjdNaVWQKyqT0CN2s2BbIMKsD5P31Z9sRJMOuJ8qa87QXq5Sifst6mlUd7HwDSHD++KQZL7o5
+	XV9U9L62Yyg42RSSXik7sxuTL1ofk6pYykWIshom8lps/pR43iF698Uko2553AfO2ATLFQH9I7ho3
+	EUfBTyDR4gsKoZandVEglo3pUAGRCmIR5NaKr4k1+/0H7xLI0ruYXDPKuz/CTplGV4SsYfafKB+Af
+	aIWOHrc4Jk7mAbiB0Cn4yvflcDw6TfmfQhgwv7ehGErEQMrPXmYzXH5r8+IQhib4YQF8JTCE0yvPn
+	+KhP+30Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2I-00000006jUY-3zDB;
-	Mon, 07 Sep 2026 12:01:19 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1x3Y2S-00000006jYb-3OF7;
+	Mon, 07 Sep 2026 12:01:28 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2E-00000006jSF-2sdH
+	id 1x3Y2O-00000006jWj-0VAp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:01:17 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-39647184c73so4036190a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:01:14 -0700 (PDT)
+	Mon, 07 Sep 2026 12:01:28 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-459281bc13bso2310968fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:01:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788782474; x=1789387274; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788782482; x=1789387282; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=;
-        b=DX9hIjj1wh+Ar8pHqgHLhnEhOMz28580x3gjLmI+vCAFx7Xe7xkSJ76hptPctUmaeA
-         n8zNgMiPiMsIRTISnqSU4qAOZceq2eJV7zvILCOs9i4w5TqC1J1JXT27cuXq6yhvJKoA
-         JeePkr5HKb6fV1/PEKq5UanN/KexRk5pZpuRD2ogfCFJrLq4WgpyapKgLxAvcohPdz1t
-         qCCUyiYeRTNb4MoqeylF6RkW5h3rRqxpaWbproZ6AybV0I8dJUXcCmRPynL7F5Zq0TTA
-         TNgc9YluFPDWfTU46LxF+VQf/Ar3m7psTEzWZTqPk+ddoIuHVk6xlOP/Y1z46YOclhg0
-         tqmw==
+        bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=;
+        b=DZs4Y9GcD+G4+OWcEM7YbUUnoBtil9y8nKFNeQoJHk7L/Zq1XxaIP/xY+Wciva4Q9N
+         3Yg/miO5pj4xsFN5ZosaXbSnFtaDAvu9tig69saWG+Lic15m6EPDj4zCSgH6H/7IH4NC
+         6h6aL75HFNyA5xxVSKrvYDk/vN58/jgCec5q0w1ktkyLqbcM5DjTOW7bltiHrfHBtXbW
+         51pQ/sK+fwEWOjW38A4IRGRo175805uQRpPtuhfjoyz6hHNStnKPMSZ35acr4xcQDCWF
+         J2OupeVV/iev20sQvb/eB1Msn2BVUJdufZEc3aBcygj1BX5Aa1qO6Rb55oEmB6eA2F3t
+         ZuAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788782474; x=1789387274;
+        d=1e100.net; s=20251104; t=1788782482; x=1789387282;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=;
-        b=qvdgoR2cxANr5Myjk0da5m5bUenodFf0qXPjkMWUqdKbugwID594JiYbkgNSAsoVc9
-         mWMlgkDQuvonzOBKtVwE4os2x3CKS1Qb7PlsVxqrmvpos0ulPf6EAc9okClGuqFwr91t
-         NDbC5Pb5F5x/XC3ylXCIq+O30CJJLs+EvJTTsSybBijof6lO8P7r6SXuXbu9kbaKy8aq
-         EU1dtk/8XT2nwJ+KnUVgDvkj4lm6hdt2aLcfDGrRn4nyMUfRvqfob8sARVxORcWecRR0
-         pIG1qX8zicr12KN5bRMiFSfQsWjPLg7jJmGIR0JwXqWjpW5qSG7dHtGod51hIniv07Ny
-         lKYQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxOIEwHw6+W9MxWgKCgKXfxZSrsUe/5sRAuw283kWeKq8heE1tnu+osRyahrF68hqA5BF4c3taGGyeGOKUJU2u9@lists.infradead.org
-X-Gm-Message-State: AFuF++mP6YJbcmP3MvC5s1LrPb56wXCqoA1u/WRakGhNVd8ssmPyTFE2
-	E82EL5D8xwryPJ/gmpYk2HEcvpZjSF3WHSvdAp7WYPV/UJTAR98CGWHt
-X-Gm-Gg: AYBFou2Dt+DfVHnFpJOA7ZN2xpd+R/0m1Vgs2RbS7V+WgYH879dcOEYK920ktoKAQ9z
-	MIpNgRBdsei/ggZtupz0vwKj//ksKro4/Td8UYfMNoZFYgzGyHFQntDouydKwpISBg64ILnhePy
-	bSpk3MlguHQLDXiIuxBX5fKjMXTfaqv4rIGYW8xFQc86ELludLLPE59SmFD9m+Jz6mNrJr2juc3
-	YKa7di+SlOhPxeu1LbghLlXsnt6CtB5MLcxAAzxWebPaHrdy82FgJs78TiyYPCbK3539hkpwHds
-	4x3IOBb6yx9G2KpWsHetRfFp6q8huRg1MtPksNL0vluGE5iG0CTDFlYsxkLBEf6kroxHwdlAIL8
-	Q2IDLncGp3vvl5FWYFNy1El2j/DBLbOtN0q123LiENc3LQBx0BcZafL0ie8pA6hUG2RSgFYsUVS
-	cWMHiDsKFmqMnRTEktfhJyK2uM2w1vekTEj7/hKHtu59fri9xQKHKqcKWtBjlQmp6fr1P1gr4K4
-	YQ9ZqgrS0rl6WgSSOGmu9sj
-X-Received: by 2002:a17:90b:5745:b0:396:669c:b5f6 with SMTP id 98e67ed59e1d1-39b0803accdmr31092584a91.12.1788782473281;
-        Mon, 07 Sep 2026 05:01:13 -0700 (PDT)
+        bh=gH9gg1qvejjX/sPdW+X7GvG6xfgdjVwQ/p+bz1yISpM=;
+        b=kHPUwHg+6c6hPEPbFN3foUYFuujsv3Km5SuHZRA+Mi/63QMID7uvJlwLonhlifmWGb
+         /YeyRUwf9yiszhES18bhy+l5CTNRAMlkFyTKHvZkYx4ARu1xM8RnEjtOuP1pqI3xhLcd
+         o2qIaSU71vp+dSJZHxuBLfR1JQvc1MK9QQGqgE3tGhQWX9wFIDkHYXeWwKULMDYVUCOx
+         BMsMHKD3zi27rs7rJp3NiivfWrPCkWs4lVvFXv7c9keWnkcGvwwVPR3W3bBi4DPLhs8N
+         Mp03vwgJhcvrFddbpr6AeD/gVcTY+wF093dM5/viXtChRkTHg3G2CZbHgTDP6Ow6JNtD
+         B42g==
+X-Forwarded-Encrypted: i=1; AKwUvBwljeMVHm2yVuhXU98ViYcCnQr72/bzhWhtukHS9hBCn2q2s+91pTV/vqxXP08MEwz/DeKWz5jePfi3a5/aUFHa@lists.infradead.org
+X-Gm-Message-State: AFuF++kZqaKVgqkdHiEtWobe2zgs1Xl2cGUREQiGscqAF4a6fdh1znA/
+	ZHLMWh3HoYL0CdjwfhgVqKsxfJIwPdsNANvFfnRq8pgZzg5pNmWATeCy
+X-Gm-Gg: AYBFou1563rfXgKLIYCNAyu0jfilQOCnDIlqa9U7yJxDs8zL6WYd17vmkDwnHxNkxzl
+	hUubEw5gSaCyapKnLgvk/7lRjoe2iYWvAi6yDKrvj5a5Qlk06ThzedlLLu3fAYondvvG7+qF14w
+	QFLeBP8UYkIL7TfQM1Zd5tcO4RXNTKCwH82l0cXzhshcZVug8/9N+sdBaiJVlnLf4vxrIVgXtWG
+	EPdY+v0zK+6gmSQQLb0aZcb7F1DvZ3m64cdz+UTjZpoTS0COUKb5ZYNok8WnA1U5V4UfUK98Q4X
+	WBCBY+ClKhCwQvQjLLwegQbb+OicnwMHO2he/zoISYhQEv4E0XzQ4DKoIrTe/H/+ROaIP0W9mGP
+	kmEhmP3dpAViIDSExrnJOMw0OujOYKNwCpRNXwKHFcvvpNojiQclktEhoZpCwp+up+w4bDo3o8p
+	n3qwbJmS/CdtaC8RiZkZYdppB1HVYRH0UXybB6fp7fRVpbJODPL+Gd60JTuhZipvk7SW2QOuXdp
+	ki/Vi/aQe6ivA==
+X-Received: by 2002:a05:6820:a0e:b0:6b6:d425:53f3 with SMTP id 006d021491bc7-6b6fddbd240mr13817787eaf.33.1788782481883;
+        Mon, 07 Sep 2026 05:01:21 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm31244462eec.1.2026.09.07.05.01.03
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm31244462eec.1.2026.09.07.05.01.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 05:01:11 -0700 (PDT)
+        Mon, 07 Sep 2026 05:01:21 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -100,17 +100,17 @@ Cc: bpf@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH bpf-next v3 2/7] bpf: fix typos in comments
-Date: Mon,  7 Sep 2026 17:30:38 +0530
-Message-ID: <20260907120043.36894-3-hemanth.selam@gmail.com>
+Subject: [PATCH bpf-next v3 3/7] powerpc: net: fix typo "upto" in comments
+Date: Mon,  7 Sep 2026 17:30:39 +0530
+Message-ID: <20260907120043.36894-4-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260907120043.36894-1-hemanth.selam@gmail.com>
 References: <20260907120043.36894-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_050115_965755_7F8062B9 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260907_050124_166073_C0959576 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +125,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
+Correct "upto" to "up to", reported by scripts/checkpatch.pl using the
 misspelling list in scripts/spelling.txt.  Only touches comments, no code
 changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- include/linux/filter.h       | 4 ++--
- kernel/bpf/reuseport_array.c | 2 +-
+ arch/powerpc/net/bpf_jit_comp32.c | 2 +-
+ arch/powerpc/net/bpf_jit_comp64.c | 4 ++--
  2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index 00ad8b63aa47..4eff6e601b05 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -147,7 +147,7 @@ struct ctl_table_header;
- #define BPF_ALU32_IMM(OP, DST, IMM)				\
- 	BPF_ALU32_IMM_OFF(OP, DST, IMM, 0)
- 
--/* Endianess conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
-+/* Endianness conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
- 
- #define BPF_ENDIAN(TYPE, DST, LEN)				\
- 	((struct bpf_insn) {					\
-@@ -1029,7 +1029,7 @@ static inline u8 *bpf_skb_cb(const struct sk_buff *skb)
- 	 *
- 	 * In some socket filter cases, the cb unfortunately needs to be
- 	 * saved/restored so that protocol specific skb->cb[] data won't
--	 * be lost. In any case, due to unpriviledged eBPF programs
-+	 * be lost. In any case, due to unprivileged eBPF programs
- 	 * attached to sockets, we need to clear the bpf_skb_cb() area
- 	 * to not leak previous contents to user space.
- 	 */
-diff --git a/kernel/bpf/reuseport_array.c b/kernel/bpf/reuseport_array.c
-index 49b8e5a0c6b4..4de08abfd94e 100644
---- a/kernel/bpf/reuseport_array.c
-+++ b/kernel/bpf/reuseport_array.c
-@@ -207,7 +207,7 @@ reuseport_array_update_check(const struct reuseport_array *array,
- 		return -ENOTSUPP;
- 
- 	/*
--	 * sk must be hashed (i.e. listening in the TCP case or binded
-+	 * sk must be hashed (i.e. listening in the TCP case or bound
- 	 * in the UDP case) and
- 	 * it must also be a SO_REUSEPORT sk (i.e. reuse cannot be NULL).
- 	 *
+diff --git a/arch/powerpc/net/bpf_jit_comp32.c b/arch/powerpc/net/bpf_jit_comp32.c
+index bfdc50740da8..cf8c1b49da25 100644
+--- a/arch/powerpc/net/bpf_jit_comp32.c
++++ b/arch/powerpc/net/bpf_jit_comp32.c
+@@ -23,7 +23,7 @@
+  *
+  *		[	prev sp		] <-------------
+  *		[   nv gpr save area	] 16 * 4	|
+- * fp (r31) -->	[   ebpf stack space	] upto 512	|
++ * fp (r31) -->	[   ebpf stack space	] up to 512	|
+  *		[     frame header	] 16		|
+  * sp (r1) --->	[    stack pointer	] --------------
+  */
+diff --git a/arch/powerpc/net/bpf_jit_comp64.c b/arch/powerpc/net/bpf_jit_comp64.c
+index fc9db691e820..8a1a00026c69 100644
+--- a/arch/powerpc/net/bpf_jit_comp64.c
++++ b/arch/powerpc/net/bpf_jit_comp64.c
+@@ -23,7 +23,7 @@
+  * Stack layout with frame:
+  * Layout when setting up our own stack frame.
+  * Note: r1 at bottom, component offsets positive wrt r1.
+- * Ensure the top half (upto local_tmp_var) stays consistent
++ * Ensure the top half (up to local_tmp_var) stays consistent
+  * with our redzone usage.
+  *
+  * tail_call_info - stores tailcall count value in main program's
+@@ -35,7 +35,7 @@
+  *		[   nv gpr save area	] (6 * 8)	|
+  *		[ addl. nv gpr save area] (12 * 8)	| <--- exception boundary/callback program
+  *		[    local_tmp_var	] 24		|
+- * fp (r31) -->	[   ebpf stack space	] upto 512	|
++ * fp (r31) -->	[   ebpf stack space	] up to 512	|
+  *		[     frame header	] 32/112	|
+  * sp (r1) --->	[    stack pointer	] --------------
+  *
 -- 
 2.48.1
 
