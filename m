@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA662C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E35C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApNmqOPKAmvywk6QCgE58hkxGIDGVsi2dDUaD5lB3+w=; b=mL66Qy3DnQOsTl9isGRffgls+L
-	x+NX1kcyQ6L3S7Hyw8Hhe/sOsv90zrxYaR9Rb8GjDLxOszvHKdv8lM1I+ufyl0jRhpL44AHVtaGsK
-	PIwNzkhn93i16gxO3LVeiEXg62XwqRglxYqxFM5Fu4Dkuzl9ypx2Cr1+sxnPFikH2Y3wgL0NNGFWH
-	Iqqo/UOepzg4aGbwZHEPzOsh8IJuZTJ+Hv+tyDGRSSAN23DZk/BhSJLz1Tr9c+HP74ebuj2HdMA2W
-	6fPT1a1A/lmblvrpCTAUGgoi3eQZParpH2WyiXpQ2vbV8z+43j/SQ8sTWOl1BOxr8rSghY/OcpBma
-	1aq8222w==;
+	bh=h7+6vonuTo/YtbxMNn6QXoxeFA6rMnEkdHoOHKAsPwg=; b=TbeSyzEkM/pe5fhvXp1Gr1Kdwx
+	Ap1CKg84mk1+MsOdLkgVwrszjiZQu/wRdT36DkwYE9qpAHJcb88IpN8IGsSyDUFFzl18QhyZY61r1
+	MHydKuValr0N+qRiM7hCNIkvjGHMrB0FxTe9l4nqJw2z2g6zm5Eb4PvHQv6w8mqlIBaFBFa12OphM
+	+w2ivb1sYOCNvh8NGwNYKpGwAhWFJlkCjd6wEHq1CFnt47vdY6L+LsCmwb97ZSMLhxjlBVs8DDKv2
+	RtDdu7X49XBw8mnxde47nY5Bdx5sPzzGM2lusF/j0yt546EW2XuWlqLyF3W73yAhFocDf7IBC4LIB
+	2eyPQXgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dC9-00000007UkU-2SYc;
-	Mon, 07 Sep 2026 17:31:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3dEe-00000007Uyk-1OdM;
+	Mon, 07 Sep 2026 17:34:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dC8-00000007UkI-1528;
-	Mon, 07 Sep 2026 17:31:48 +0000
+	id 1x3dEc-00000007Uxi-3HTK;
+	Mon, 07 Sep 2026 17:34:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87A9A601DB;
-	Mon,  7 Sep 2026 17:31:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD031F00A3A;
-	Mon,  7 Sep 2026 17:31:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A5AB601DE;
+	Mon,  7 Sep 2026 17:34:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1610C1F00AC4;
+	Mon,  7 Sep 2026 17:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788802307;
-	bh=ApNmqOPKAmvywk6QCgE58hkxGIDGVsi2dDUaD5lB3+w=;
+	s=k20260515; t=1788802461;
+	bh=h7+6vonuTo/YtbxMNn6QXoxeFA6rMnEkdHoOHKAsPwg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l+jXklYNmg0wDcCYIEY+6nO83b2frlpb6P7pg6jBe27xHaqDhgwamiVboo5hC2tC+
-	 S5vdDg3uIhVVBUKBnVfwbLxtqUuU+TcQ9ZVhdMELiC+4BnY1R3dP1RTuUezxdR3+80
-	 1b/xvY/wz9ANHqBPJ5QbgRnBaZaVvD+5GX111T6bx8qYVqb+6G7ufp9pStuDu3EU7u
-	 GjIdpnOPqYD8fSfKUehdhi4xIrrODsVEvCDy2y7lBAxt/S8VqwjcDjE1cUlubOXJND
-	 YYqjaH4rv6p47VfSNVQUZvZIelfOlUmU4SH8AG9qUvHZiqsCffnelv5z53qwXnzmLg
-	 ymswdYzMDgvSg==
-Date: Mon, 7 Sep 2026 18:31:42 +0100
+	b=R4N/as2ZBJAAo3a5nxIodQZ993qPWVf3Zfsb53ragSDHywYnC1pVDxeZvSMYU7HBf
+	 xX/eHzeRBhIxCdyqQLrrjiGAGB5K0obTosVd9d3wwvoRRQpYZuTbN3cjKe+vGy1kih
+	 hdOPOQQ0gs5ewfRndINWZvjS9WXp/DeChTRXdqwlxomxffOJ1B2Ww5NxFLmR3dMM4t
+	 dj2/Wi+h+1VH4QStCiResiIcxMunjIbw+wzJ3rw9mtZANVC+tbUgBdGhbockVwYLJf
+	 QaucK6IuTmd1DjbEE40FIRhcu96yD5fiSYhSK6m7uwRvyjxG/4J4QS0h7hJsFlSBVs
+	 PMwrpcezJVw2w==
+Date: Mon, 7 Sep 2026 18:34:16 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Hongliang Yang <hongliang.yang@cixtech.com>
-Cc: peter.chen@kernel.org, vkoul@kernel.org, neil.armstrong@linaro.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	p.zabel@pengutronix.de, gregkh@linuxfoundation.org, krzk@kernel.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: phy: Add CIX Sky1 USB3 PHY
-Message-ID: <20260907-bullhorn-charred-125d3920e51b@spud>
-References: <20260906032431.470744-1-hongliang.yang@cixtech.com>
- <20260906032431.470744-2-hongliang.yang@cixtech.com>
+To: Lucas Tanure <tanure@linux.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: mmc: amlogic,meson-gx-mmc: document
+ the T7 pipeline clock
+Message-ID: <20260907-commute-number-b2648457cf3b@spud>
+References: <20260905153234.133217-1-tanure@linux.com>
+ <20260905153234.133217-2-tanure@linux.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KgkeIoGAnZ4PK4Ao"
+	protocol="application/pgp-signature"; boundary="Y9wvMkw8fwCVflBn"
 Content-Disposition: inline
-In-Reply-To: <20260906032431.470744-2-hongliang.yang@cixtech.com>
+In-Reply-To: <20260905153234.133217-2-tanure@linux.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +83,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---KgkeIoGAnZ4PK4Ao
+--Y9wvMkw8fwCVflBn
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---KgkeIoGAnZ4PK4Ao
+--Y9wvMkw8fwCVflBn
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap70/gAKCRB4tDGHoIJi
-0tcpAPsFjtkQsLkO0xQoaMnH9KnvF5DZqy2ksAPdjmNcv8D8hAEA1Tok2QAAimrH
-dmO9g5jvHqsDBlo/TUjtf9/4XM54DAI=
-=pknf
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap71lwAKCRB4tDGHoIJi
+0pcLAP4ng1dRPHZcitmCBSSlCvIQwzxhMkILiN1Uhxcx5OAiGAD8Dk28O/iv7sPo
+8wsW+AsDNlaahZW9weiof6Xxs2njpAg=
+=6NKD
 -----END PGP SIGNATURE-----
 
---KgkeIoGAnZ4PK4Ao--
+--Y9wvMkw8fwCVflBn--
 
