@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D576C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C323C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fv/8WAsrrZD9Z6WoNFeiwDVhsb+FhzzkoAYrTP/tCf8=; b=ZjMKZ4ZvXUbOHVSdFlSiyoSuCm
-	kXA5rkhGqZkU0qiEyvOGorIeiuKqCBzc/eUVgDaVOZkvBh4K96WM0lDws5xFpWKArS8Fkx8nsAB+l
-	bqR+iiJm1mXvbZg2q2paOswvqm5cv1b3JZQ992j/9AVt56qOgonIgDLOnhsOONuwyOybNuZWsGQbm
-	jK3GcOddbZOkIWiyP9yG1g+K4cN3ZYMjDnan3hvdg8BElM3rxFMfT8dOGFkKrRDpcd4xI2ar3KwHD
-	+fR4p8SIAI6L/+APSseZ5+Q8kxp7pgr8suYYDid2Of40PCKCZaAOLXUSAaKF7f/AgdKyQ+CgXkiDN
-	vGWSDZxg==;
+	bh=nKUvGXFfM1WSd/D5lDioUe9VV0OdsRUwt1UqjYJjYJI=; b=MJFeij8RgbmX7dY2erfEd//r/C
+	c6DMPyl8ir3FHelMEXfU9udkokypNitZyLzgsO1aD8UzWiHxde4nphfWxGmtfp6hrxYr75Sv+3gpf
+	9wyW0WlbJu5z/1s5M4w+29tDQ4UPwXc05CZvVvUj6GalHmoEusMA0MMo6bN+lJ1plVi2vVEEP58Q7
+	4den5F6GRbmiq7y63M/VZ1VZGnYjxDyI1KOuAo+C2X4ScVqcoL1FVnVtUACPazWihbF0N5rO61eyE
+	3OJc7y5cWr1IenvmP8GuTbGgp9SVsiGQqi2TRqj1XIlrECaUnRDdGbIFefgyVqmvZkKmyOIoXjbbd
+	Ebh1cjuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3RLY-00000005t8l-26ov;
-	Mon, 07 Sep 2026 04:52:44 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1x3RLc-00000005tC8-2qaU;
+	Mon, 07 Sep 2026 04:52:48 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3RLS-00000005t5G-0Hb5
+	id 1x3RLa-00000005t9s-2gC9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 04:52:43 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-cc1cbb64a1fso3008614a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 21:52:37 -0700 (PDT)
+	Mon, 07 Sep 2026 04:52:47 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-cc1cf287ef8so2714819a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 21:52:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788756757; x=1789361557; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788756766; x=1789361566; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fv/8WAsrrZD9Z6WoNFeiwDVhsb+FhzzkoAYrTP/tCf8=;
-        b=heO6bs/ILgBGQyj94y0vc0e6MMHOwS6Eo2LH0jgqq+t1f8syyBcDhcV7w9lKmCnowg
-         Oc9PqZyFDvS9wdILfixct38G6YO1Qhz9p8gbIet5Tbl+Ga+HDacejotd6f3FLNf7+8BR
-         yZXgW9zA0jZc28i92QYtr/GklZw/c+sImGpvd6wijt6JlGgGWPYGrABMe2j5eed/ozTm
-         x3DkVtloZROeZj4reRW6smJDpr3yyX4g7MKOqla4FSognooQFQi7inVH/h4NvNw3oBYu
-         sRMBGHcZ+ve5+cKZU50CpVkYFY5ZFdU/zckB/mDsV1hwX1X0OXD7r2uAiCsweQpO21gG
-         /LzQ==
+        bh=nKUvGXFfM1WSd/D5lDioUe9VV0OdsRUwt1UqjYJjYJI=;
+        b=ZexaiaN6Ax1GDWusVDo2cSHgs8KiXUlvhYw4ii051SYlz5Jezfi5KPtuyI0bl2lCfq
+         lF535P0LJp1NbWYhoGpAXm5fbdQ6opnctalqTcb4+kJt6+o5hHsxnqAMqSGujwBczBEt
+         Oyfie8D9OK8oKdEMMM+85HmqyoKKwUy2ffGgxlhmgOFruPgCxtM9za7KDIVx+HUfcYF2
+         koPqGT6FdVAtoFcFWJunglZqybzqwpSIcYJKzc+QK1CRrPJSEIOrISZpb1BoWqGq2wSO
+         wsAWLvb00u5UoPSjGEOVSsAA/29zZ9z6eVbX/e87O8cDPa7JiQtnz2+ix9+8ikj6Y+fO
+         RAcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788756757; x=1789361557;
+        d=1e100.net; s=20251104; t=1788756766; x=1789361566;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fv/8WAsrrZD9Z6WoNFeiwDVhsb+FhzzkoAYrTP/tCf8=;
-        b=o3vRJSZISINcnGLHUabFz+sqNuucofd8foUHrAFpx0HCwcIGEMMi/JOOzkL1J6JWPW
-         80DvTsmsY5j7YXX3bldkWpAjkgxge1a0BhhddRbxfHVn5CmLlqgIVE6ml0VXhdXKMx9o
-         d4+I1ThJZ5iuyHAzPWdty6jcTZDOSjNDGk4lSu+tGdnV47FTEYYcL3692EWxYnqVh13I
-         JaVYBts6O0Qwr0E/pKamBFkIjJ0KVjtoVNlRxJNV8FlCHMKzfH1MwD/xxj0ZBw11BjFL
-         YNnysi/vGDYAD70Z6f5f0WN/KTBTWeE2bPWNass/XwibXlJmzkIJgnuhny/mmWkjxvHS
-         MCmg==
-X-Forwarded-Encrypted: i=1; AKwUvBx1QZC3QLq4hlg+h+1mRxO+GlVZJRndUB2K7CfZSfCVM46R4xP6DZk7Bpv4ZIlA3z6l7lEfRrZuD13wQ2Tt0r9z@lists.infradead.org
-X-Gm-Message-State: AFuF++njdzYtTmiyFnLCuKK82B3vYmgKdsT4GJeGLNUYgUfWPy0MlmlB
-	+rOsmzj9kgj2MnSB2vzhsWfO/ooCPhBPtC2X+qfkVIywGyZJ4dWMp+f+
-X-Gm-Gg: AYBFou1cpVfND59PEosUmV+1BmlFBDO3HGrVqPfnZIRNp8FMqQi+4qN0l12wc1/Vl26
-	r3ao1UgEWOOCTJnmTjnWb9vHvOAPcIphE/z5LfkjwVktwIeMe/TrwHgEJexAQ5eusoJEV3flBiy
-	Uljwmr1Kf+HyohsWkcNqf2+7URuYzs0lwDdClIuDVFJSfXC3ETrWzSY2w1CaGTCSYIBEVkMw55w
-	T5h+xYpR85497FOv9o9N1AXZ+zVkqmfZbyt/zfOP0C7dRBrR5LUESftKq2oQ0Tj4P5JFY1xqtQO
-	tTkNVTTWN5SbVam+7M0my5qeybUc0ctco52L+NEaQhWVLeuW54D/w22Us9sfyTHEkuTQSZSITMM
-	+KyDwJyVMiMLpFEiTGrTkT4nye4YvExEa9Ot1W5E9b6CnRRhZTlV8fzB0HOVk11Ipb7xwynxhaB
-	7lgz7tobaskjd53QoCZkuA4mDapBU01+fXTc2o9S1H1QPZUeLXowSewC8AYBlukYWVc4oIMGCn8
-	b8XV9wLQNxcwQ==
-X-Received: by 2002:a05:6a20:72a6:b0:3d1:e510:905f with SMTP id adf61e73a8af0-3da39b3a6b3mr28486268637.1.1788756757103;
-        Sun, 06 Sep 2026 21:52:37 -0700 (PDT)
+        bh=nKUvGXFfM1WSd/D5lDioUe9VV0OdsRUwt1UqjYJjYJI=;
+        b=aYjYl0UifT6O/SzwmIFrQ+UhghdBYooGQNVF+rLM+6v0RC1/sp/04hdqKSjUabPPS7
+         NgtLw6pe5gnnZJwhT0YijAYce6kyr6eKASkPTY7dDw4LS191VOCnPgqUzvSmDrzciJgW
+         MmOcQ2iqQmueorJInbHVJY9WvbK8SrMB0fkjzun3OH0Jtam6wvAKJHVlA7iGqs84Scf5
+         0rRpIsBglHa39UL/sk4SNU5FFcV1auR//RXtyfQsefux0m+ohMBb1ei45QCFtleDR0su
+         ueVvmnpqEgnw1ZzcDkzMMmaq3ZLIdj4+BYu+9mEEwADrmaooyophbFD4J27c6nBqrlI4
+         GHJw==
+X-Forwarded-Encrypted: i=1; AKwUvByZ6zd0p4gQKO6ToBl7z1+LRzMLB0tjHy6ycfx6t2RedTGOSbU1mvDex60K4WwrVUdMls1yrvGa442SMxkwChOk@lists.infradead.org
+X-Gm-Message-State: AFuF++mfRKNTOusRn/RP7SBYnqE0x2K0ClXE/FfcaOB9AjQPcNrjdZMj
+	9e5IstuGJUCXIhIRFQl0r2Zgw1cLZBLPBXOI3+Xx7OqC0m4T7DP+iHSR
+X-Gm-Gg: AYBFou0vtx9OWhBcQTt16J2HO6iCBHSbxO2MAbjzh7GbwBLIvUyJLR0xGPV13xgiWBo
+	8Qz3aPgkAJh8ElEEecCYVGaIUak0/MhjCwk3oKDil7D7YO97pDL8mvhsO0fz8nZry7EzoAvejAF
+	ce37vsQXOmsEfAQcXVVPFaOfkMlffaUZwNFXk1YzyxX2JgxNABJl7WKNaukf2uFingC6lRjCK9e
+	/mtvCRquxwlZ9IJeEAXUXJWaDGV55aWvVjhnhXQpAoIK4bJ01bL58f7q78pgecyspgq5anHU3Zb
+	qicGyo/Fabokg+ZlvrkRyE94Ht/GZF5M9GgxZi6yLMt9uaYbj4oZVxmvLN9adFumjvnC3NZfcs2
+	I1mUhDtMgpliCMsqP1AFKPySxcMOBsnmyr2aoQz0LCkcOEnD6J63j7P7GkCpCRAeE+D3tU5B5V8
+	iLV8GRirFOy/Hi94b4fcoYV00okaOEFpixXa2ld+U3bqvLij3QyoLo8u+gC0SAr5u6BAoU6BEYh
+	6bT41i896ojZg==
+X-Received: by 2002:a17:90a:1c81:b0:39b:2c00:c3f5 with SMTP id 98e67ed59e1d1-39b2c00ed40mr18971030a91.18.1788756765648;
+        Sun, 06 Sep 2026 21:52:45 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14324410092sm21979675c88.14.2026.09.06.21.52.28
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14324410092sm21979675c88.14.2026.09.06.21.52.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 21:52:36 -0700 (PDT)
+        Sun, 06 Sep 2026 21:52:45 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -100,17 +100,17 @@ Cc: bpf@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH v2 6/7] libbpf: Fix typos in comments
-Date: Mon,  7 Sep 2026 10:21:34 +0530
-Message-ID: <20260907045135.13317-7-hemanth.selam@gmail.com>
+Subject: [PATCH v2 7/7] selftests/bpf: fix repeated words in comments
+Date: Mon,  7 Sep 2026 10:21:35 +0530
+Message-ID: <20260907045135.13317-8-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260907045135.13317-1-hemanth.selam@gmail.com>
 References: <20260907045135.13317-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_215240_014367_1EDF76BD 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260906_215246_685410_14EB502B 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,54 +125,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+Drop repeated words in comments, reported by scripts/checkpatch.pl.  Only
+touches comments, no code changes.
 
-The subject changed since v1, from "tools/lib: fix typos in comments":
-both files are under tools/lib/bpf/, where the prevailing form is
-"libbpf: Fix ...".
+The subject prefix changed since v1, from "selftests: bpf:" to
+"selftests/bpf:", to match the rest of the history in this directory.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- tools/lib/bpf/btf.c  | 4 ++--
- tools/lib/bpf/usdt.c | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ tools/testing/selftests/bpf/libarena/src/asan.bpf.c | 2 +-
+ tools/testing/selftests/bpf/progs/iters.c           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/lib/bpf/btf.c b/tools/lib/bpf/btf.c
-index 8417de92d028..c1745bee37c0 100644
---- a/tools/lib/bpf/btf.c
-+++ b/tools/lib/bpf/btf.c
-@@ -3843,7 +3843,7 @@ static int btf_dedup_remap_types(struct btf_dedup *d);
-  * types, in general, can form graphs containing cycles, not just DAGs.
-  *
-  * While algorithm does deduplication, it also merges and resolves type
-- * information (unless disabled throught `struct btf_opts`), whenever possible.
-+ * information (unless disabled through `struct btf_opts`), whenever possible.
-  * E.g., in the example above with two compilation units having partial type
-  * information for structs `A` and `B`, the output of algorithm will emit
-  * a single copy of each BTF type that describes structs `A`, `B`, and `S`
-@@ -5644,7 +5644,7 @@ static int btf_dedup_resolve_fwds(struct btf_dedup *d)
-  *
-  * After we established for each type its corresponding canonical representative
-  * type, we now can eliminate types that are not canonical and leave only
-- * canonical ones layed out sequentially in memory by copying them over
-+ * canonical ones laid out sequentially in memory by copying them over
-  * duplicates. During compaction btf_dedup->hypot_map array is reused to store
-  * a map from original type ID to a new compacted type ID, which will be used
-  * during next phase to "fix up" type IDs, referenced from struct/union and
-diff --git a/tools/lib/bpf/usdt.c b/tools/lib/bpf/usdt.c
-index 2e56e3ab5b6c..c0933580930b 100644
---- a/tools/lib/bpf/usdt.c
-+++ b/tools/lib/bpf/usdt.c
-@@ -144,7 +144,7 @@
-  * about. This state has to be maintained per-BPF object and coordinate
-  * between different USDT attachments within the same BPF object.
-  *
-- * Spec ID is the key in spec BPF map, value is the actual USDT spec layed out
-+ * Spec ID is the key in spec BPF map, value is the actual USDT spec laid out
-  * as struct usdt_spec. Each invocation of BPF program at runtime needs to
-  * know its associated spec ID. It gets it either through BPF cookie, which
-  * libbpf sets to spec ID during attach time, or, if kernel is too old to
+diff --git a/tools/testing/selftests/bpf/libarena/src/asan.bpf.c b/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
+index 5135d5c72a46..158d95c2520b 100644
+--- a/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
++++ b/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
+@@ -221,7 +221,7 @@ static __always_inline bool check_asan_args(s8 __arena *addr, size_t size,
+ 		goto confirmed_valid;
+ 
+ 	/*
+-	 * Wraparound is possible for values close to the the edge of the
++	 * Wraparound is possible for values close to the edge of the
+ 	 * 4GiB boundary of the arena (last valid address is 1UL << 32 - 1).
+ 	 *
+ 	 *
+diff --git a/tools/testing/selftests/bpf/progs/iters.c b/tools/testing/selftests/bpf/progs/iters.c
+index 62d7df9e80be..340670e89ba9 100644
+--- a/tools/testing/selftests/bpf/progs/iters.c
++++ b/tools/testing/selftests/bpf/progs/iters.c
+@@ -1511,7 +1511,7 @@ __naked int checkpoint_states_deletion(void)
+ 	 * would get equal to one of the explored states and thus loop
+ 	 * exploration would be finished (at-least for a specific path).
+ 	 * Verifier evicts explored states with high miss to hit ratio
+-	 * to to avoid comparing current state with too many explored
++	 * to avoid comparing current state with too many explored
+ 	 * states per instruction.
+ 	 * This test is designed to "stress test" eviction policy defined using formula:
+ 	 *
 
