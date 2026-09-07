@@ -4,124 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09ADFC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C811C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/K8LDZYOUHw7Ya5sEO7TlPa2yHbZMv+H/IYUFcNLtkg=; b=aeA+Flm9W3kOvGrNRnZmlrQ2QN
-	gdMZ/I36ClGxHTOhEmGoqIYvrhqwLP5Ef5KESvVxJzwukKas+N+rG8H7DdTIkWpy1CGoLJqjR4dZV
-	6te7vuDiXADuiv+fjZmiJCSBMkbtamzYsvTtwqskz+PJJsE+NkTwDcoeS8fzLo26NQ/+Ao8ijr66K
-	9B5i+tsGT34QIMxrsxwEjt3xANj85vR4gU/AH32wgMJ3ZY1kYXI4YFcJQr+2MfyaSFHXpZMUW/zJV
-	kGVuIvUE6MgIn+yUCKP1kAcFHsjr2cuA0tbD34jJKBeUTXOR5AIawwwyZfBVnbxNWFxDRmIWgkgge
-	gdFmxf/Q==;
+	bh=iapkYXlIeb7+hecWmdI0rbQoSearWcjPGJwbmVo5xUM=; b=LwKwnvXyKadE6kXfmIs5P46ILp
+	YmTVbUBTy7E3TZEoeQ0AgHOxt7x4egeJ9LMVU15wBAgVIvGHHOX/fRoUY/C9E8qjEdLSg0FBoZ/Dc
+	eIRii/WgGTqLb2mKtOUmOqs0N7FxXaQRHGEH41QiMAQypST8OMp60i/iWEWywK7kc/GN9FCD42wjN
+	5ap0J9+m3RfJtftdO8PID2X39nuKEjIOZU6OBiEP//CdJ2mxGOFDKdFrn7k6g2+k6hS/MMQLtS9x3
+	kAPi+ErAhvy+6l4oeCF2OtQ4UxM5Y/utQuHo6oYH8XZQCMPPLCz6mbZrxBapwSFUYYAaNXyft3xTg
+	Yo/n9UFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YfN-00000006pfq-1qmy;
-	Mon, 07 Sep 2026 12:41:41 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x3Ypu-00000006qrm-2I6I;
+	Mon, 07 Sep 2026 12:52:34 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YfK-00000006pf9-0QHu
+	id 1x3Yps-00000006qqp-2gAY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:41:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RPrA2wKLGHY3+O0z/TKvn+YPLP9PxWski3HctRHGFrpR3u+rRyhN22v1x90s/1oF4kvWCGVVaJnw5Yvdy1/vYZZvPcXkIIYoovR0TwNasLSlxnsgTzGJD8hkst5a79JjKG+oPxtJbHS1+/ZhrExZRUOo92eFEEUAOG3Fm75xSOnjQUW+7arC5oWDVD1DrDtxYPf4YB4HY9L3hKz7lJYMHh03d1aZjs5UGKq605eWKR1Z6HsD1WTMxtQMQ87Uh5BzuFtZQ2dLAl5cfBEI3DFlP76LuaLBdlLjT6ZBaopNEvaJ+nei9TnGDNL1MtQua3bIJiwwVZxfx+auzM0asthcrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/K8LDZYOUHw7Ya5sEO7TlPa2yHbZMv+H/IYUFcNLtkg=;
- b=Fo18Mu4uv+sSnF9ziXlYH0ZO1gJ/XhOD/cRnZY7chSJ3Ww7y57D0EjWAlbuH8pp1/h+RWc2Gzl+gZgmIy5xMTd4b0B3z7cO7Gd8AZapCIk4YLHPNW6jPDbs5fEUVA/WqDgpVDcHg3MaN5C5MrAx0GjfKNyiKANZESfX0uwtsaP4AOypSzmzynedLe9aVCCMlCfRr8ZGtZSfvjGNUD57bgVKPgua4Hj+7/RWwcikFjcNJLtGXYJBYMtQq0S+htN3xX/OW7Qm9uHFIwbL96cfZCGUHVLu11S8IC6ywwRGP/OJUWmDCO61DKsG+W0GzHulyx3zF8/+mH9EkgluLa6gTPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/K8LDZYOUHw7Ya5sEO7TlPa2yHbZMv+H/IYUFcNLtkg=;
- b=nTvfwZSuW9UEBtxSiw8EdM7d1Y/6+WAFdWlQSRPK9kf+RnCqpOKAdZcSVGZooypmiY5e9k0/XY50eJQCj6OOykMX2nqfSQrryNpAm1PhmUzWi/aR0oH3uwGSkguNjllqMTqR1bdRXNKM14XveHAB5ioaAQsif1mdJLH6g0d/P7MDiABIkW4eUFCu9CgCl4Wgd9ezUFfD7Hmy5zUyQ1FwzMfK9BVq7V6wGE3rC4aAtt+MVlE7HUadp5JGu5Q7E+sHY9Ztlm9uKI7vhdhrNbkMRuL9SCqFazj+3jNe1tDPVZ7H4CE+tU7jVMWMFRwVe+do87GW47fGEL40M29uU13ysw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13) by PA4PR04MB7583.eurprd04.prod.outlook.com
- (2603:10a6:102:e2::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
- 2026 12:41:25 +0000
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd%3]) with mapi id 15.21.0382.012; Mon, 7 Sep 2026
- 12:41:25 +0000
-Date: Mon, 7 Sep 2026 15:41:21 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: vjardin@free.fr
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
-Subject: Re: [PATCH] bus: fsl-mc: register the object drivers after
- misc_class exists
-Message-ID: <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
-References: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
+	Mon, 07 Sep 2026 12:52:33 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-90cc39e06bdso42843176d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:52:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1788785551; x=1789390351; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iapkYXlIeb7+hecWmdI0rbQoSearWcjPGJwbmVo5xUM=;
+        b=IqKXOZJa1E6vowrlGik71rRgOS6lHYeqnqb1vcCxYO8Rs+MKs1EgO43RAdQ56/2IlV
+         ql/T0Q068eYL022RkutEWD6EBjJKeCFoZShm0gY9QjfbOR87Boe1SwH2xU+IGF9dZjdI
+         bTAxTVYNOjVCNgzzj8/o0vDVikAplmY2L778y9PLWAMCqGUNonXg6ZEnZSc5iirp/jsJ
+         xCCFkFtyqg2597MXmqGXSEC0lt4s/iBpb/8c/n6loOiI+xxT/ABoNyyHOq7IU30ZKwGZ
+         98uARWT57YBswXbcwJgHK8ufZzkW9xBwRdamO82r7229LPo+J6C+Zg6pS+9n0nCaNHoN
+         u9bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788785551; x=1789390351;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iapkYXlIeb7+hecWmdI0rbQoSearWcjPGJwbmVo5xUM=;
+        b=ETNJDKXdt4BxmEx503wkzzKDHL/O8DG4FkvfGCefBd27oZLE9ekpby7BwJRWrrUSnr
+         TpJdlxOpFZdGoBcE2JFH1zzbBRzazZR3r02cGTM1zPX2m3c6eJB9gYTHrQ1z1t3Q74xz
+         5QqWCrNNjYpu92ICcVT9BChhn/QCH4oQQ2lhYEWeRhcFE45bMitcFTLs/e4j8MC2WEnc
+         SNfuwv3N8Q8Y/iv/JSrgMUR2OdYd00DMWcC8oTYdUDfcnRiS5jc6fRsu6QBHDPXOoEa5
+         LFpaAgD1JdVKynwpXS3QbpoBAMF42BZFl7/U8RpXMsvm6v2DIDYZitoOO87YaNC8Nchj
+         848w==
+X-Forwarded-Encrypted: i=1; AKwUvByJAeOSHIQoIk0WHyzvkLFMiK/9OIg2jRIunuIslpVD19Nrco/NppkafWoVnLaX7MDeQkGx8BzTje/YTXXm13T0@lists.infradead.org
+X-Gm-Message-State: AFuF++lyC4N21mnh+sdRRp/myLdsLn9kUl5lMPocI7F7wJaC/X7tO37A
+	lzXucZ+bzrHgg+5NzM8aBYRMbkSTYSHn7l/UdvMlNB+360WKXCy7WhT7ioLYwjzx7gg=
+X-Gm-Gg: AYBFou13s7rBXoL/bh7Tbydckx2eCbQ1gDSfe7B5dcjLPXLsAUW2YnZA8bI+WH/0Vvq
+	vdes/qGYqz81S51K0B5S4ew2SraG4HGXro8TweX8NByQG0DcI96jTj14Mmfqh3GjAW2I5d/mrEH
+	xHjU6fVGeKEHQ7p+w4zLYwUWDOsFMiVgEYTBE0/j2+XRRTmgBpI6I3fzuKGV6igEjxPuYUR4JS6
+	sGbKAZRdJ5PLkTxenOp00TyCMi60249yxYvyNkEK+tAQYhC1uteQ/QeolP8tqGdueEXcW7bBEUE
+	BgnkdBnNIY7GTVVOt1bvfiDBO6ziGjEI68Jdhkdc97WwSU+t8nxNGs/bRfQN79FRq+hdhPDIBxV
+	3krBqZO6F3qijkYKjm1/W0AnlPhAZerNboC6+s8SjdAHQjZcJaOzXdpsJb8q6MqRFbpukR5EzyS
+	eed30cBBj/pGBbKkI9et49je6cFavItz+aZbXZcmzTNlgU6uUJuzgSIt4Kb/VNnnjiskdGbRehG
+	4SvzvrKmsmdDFamlbk/kHYh3DcuIfANUP/8XmOgkeyANw==
+X-Received: by 2002:a05:6214:3d8b:b0:910:479a:f7a7 with SMTP id 6a1803df08f44-910479af8camr173644776d6.30.1788785550029;
+        Mon, 07 Sep 2026 05:52:30 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91048476220sm62621416d6.31.2026.09.07.05.52.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 05:52:29 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x3Ypo-0000000AfMt-2MmF;
+	Mon, 07 Sep 2026 09:52:28 -0300
+Date: Mon, 7 Sep 2026 09:52:28 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+Message-ID: <20260907125228.GB667892@ziepe.ca>
+References: <yq5aecfdnv4i.fsf@kernel.org>
+ <20260901143445.GC56830@ziepe.ca>
+ <yq5a8q5kkoz3.fsf@kernel.org>
+ <20260902121700.GC2890729@ziepe.ca>
+ <yq5aik4nztdt.fsf@kernel.org>
+ <yq5aecfbzjyk.fsf@kernel.org>
+ <20260902235609.GG2890729@ziepe.ca>
+ <yq5a8q5izxz4.fsf@kernel.org>
+ <20260903171704.GK2890729@ziepe.ca>
+ <yq5acxupjsy2.fsf@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
-X-ClientProxiedBy: AS4P192CA0019.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e1::8) To GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|PA4PR04MB7583:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e95249a-13d4-4232-320d-08df0cdd544c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|1800799024|23010399003|366016|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003|41080700001|15866825006;
-X-Microsoft-Antispam-Message-Info: QqqntOa7tTc8zF4nFn67pneRvI+gCiNpUW72gYGE2396CGvg484LBIs/p34YAZneyXUh0/0Y/oF4QS4ZWehAVZafeLNo5cpsxC6Ya5e5Qo8YT4gwDgqkhpA+xKtIlv5gWAdQXe5X8YN76pga/jd7G2CJQtD6cmhKlW0LV2i341CfnWV2GURZKYXHgw1sLSWIx5XR2+FqKJ4YDVSUGLachekkuYUcQqVJsfWtIYesXGph0/QrC5KsqzMff7NRboR75YmytREKYaZk/Lo41RyUuF+5r5JpyVm9WyRc5QvYG1Eu9K0jLqc3tR/9ChvFKHFrOLw84KeucOiKZqejJmdeg+iiorQ2lzJrh66G+zJ3qbacygmpCuRT0vaJOW9pQnOqA0m8/Kw0Ve01BhWEe2fx8zxiSeCm67AsdKA9uSlzugtNF2QoYJWvOtdPcLKYUyivtWZVTXdj9OaJfyF22VFZMjX1mEisC6xsgLeQYkODoMWQRlnyeBj/4HEALSUmm+GeA72OMxydB6Tkqb9vWtDSFn+qNqP0n35Gwr4aw/0UeOJMM4RUES5OTmOMItPw9NJj8JZ50UjaLYvR25TRG0rOEKOGvO1x7aeJ05GapxGaELeIhdig+WjZeZFpKVZsO3qiZaRD7eyzDj6RlFuAjTNrmesKTlhc/bayWL2B/VdImLVRGFZu87cmoyZ/0pO88nSL2xyhGRtfxPA95NYmJIToiZsaRIKqXO3NZvc29I6uFSd8xhQ45n2QbgFmwJekbxj1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(1800799024)(23010399003)(366016)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(41080700001)(15866825006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Nu6qi5raqoqIZVpIcr2D1wir8B/wJVOkU0vhmJG8ZF4Xn5ohxcM1pfBOvOOR?=
- =?us-ascii?Q?EAxz9+RG6WwgEKUXFOSKkiNsngmpERr3lBGuRDTehYiYSerHuXEPZRzm2jIn?=
- =?us-ascii?Q?7wa1v7UoImpd+NQzBbLhdBALNjiy5bbI4beCzhF3ENKGbTD2alef3/9o51a2?=
- =?us-ascii?Q?x/RUSZCC2cOz/mPLYhxty/o4Ew7hRtZJtH1LOkxCL62IVtm/NjCds4zlZCRD?=
- =?us-ascii?Q?FDTZCuRz+x0ssoD6KbVKXWMx/hJQa5YtqNb03SXprlLCNjIZs8Uyp/Kqz2fg?=
- =?us-ascii?Q?OFgy7N7+2pOL+1l1UyUurYvTWXzdeM7nJ1dZlyUp55gtjNCtCOtenZ+2z7OF?=
- =?us-ascii?Q?ch49KvM4I7sSr9ljoU8FYpcXU0YSJStkaw91CEwwQndqxtI7gbyHP0BksGqq?=
- =?us-ascii?Q?ySuBmSHr7aVUccb4ab7wIUcjqZfJk/TziaFPfubKraOmYBNmW5URLA2tZgRU?=
- =?us-ascii?Q?Jyheh0D3Eo/qvJ5haBh4J0bDrMnmN4c0kjPUAU219HIaPLYpogrv6IjsFMig?=
- =?us-ascii?Q?lqlSsWsmtckz+gGHClvXnQUjp/TM0WRftwBD6nWwm1dMTuQu4UDS7oBeMbXM?=
- =?us-ascii?Q?tWlNgwp70I7AikWF1HR5ixSwR0cO1L0JKMF4DpTevh8agqYUzJfTs3mOhEqZ?=
- =?us-ascii?Q?MQYpFR+SKF85naIxXS2D6v+WrPHHTpGp3/WyQSvxIwKdiFfLXT9MHS9j0GrA?=
- =?us-ascii?Q?7dEw9kfAjnKn8NR4jakFzqCOErHrdFVM49oAOtrOTFtufXx9PI9xIX4/f9TJ?=
- =?us-ascii?Q?Ou6379j1KlimVhwqLFqX5UFWqAvY5aFJkaaVtbHD96veHCpnklSi6pabTFnx?=
- =?us-ascii?Q?jhbQN7sEpAo70wVcrlv9Od7afAG7QSB51oVO79Xz5utt9rMh9ADuHXVowCht?=
- =?us-ascii?Q?2f4kDDrgtylbMls3teP5j+OqlyyOFE5KJdfJqQYnfpsD3zt+AJVrJLAqg6UB?=
- =?us-ascii?Q?xiGcAaYOMYY6NJM4v9GDA0Ntq0YrhskUxQp1RybEbSuE6bHbPiU6t63rmzp/?=
- =?us-ascii?Q?dbia2yz4ZgwMjk54RgMbH5t3g6Eq7vU6TvNfvan77PjAOfcOjR/j1hYQqYyw?=
- =?us-ascii?Q?WoKXW1atUxRV+bNrmrkw5zmXqoyzYBImSy08pHANmKROnT6/HuDQllMo9VWE?=
- =?us-ascii?Q?Xvk1HIk//bF0s/T2vSGI642iQFPYaGbLgwcd3Ebc5oC9M7uYU6SCY4pnMHZu?=
- =?us-ascii?Q?2kiBWA9LsqkR5XB62VPf48XJR+WL4FIffaM34x9JhxYCqDYmWrvRTEiDB8QG?=
- =?us-ascii?Q?llDotdn3iZb7FxQAqkhxdQjZNBCyPjqWlvy/9NTfWD7PRe2AHDrRq8//RvP7?=
- =?us-ascii?Q?QUwnVFLyPl0utVmXJOZ4fCksk6MwCtXR4VkG6QFXIq2OjcASM0QUy8q38KSt?=
- =?us-ascii?Q?lAGxBICgY0+SYxMq1B8WhH9AR2CzPjnHiUoG/QU8oUU8oTILbBhCor01aztE?=
- =?us-ascii?Q?kReFPmvocSdy7IJOGl2+zZsiwtVECybGsFsXLZjIiyaouG9laQ/zdMrAJMDS?=
- =?us-ascii?Q?lNys4ppIieqWkChTyNOq2KIProthm3hghDMuC7fR9Vc+E4bBY9ENOlN7r4m2?=
- =?us-ascii?Q?5E8nkX0wZpUsTMT/L4W9ffgafIZkj7b6MkciZw7kKbTLfnQzz/K3Y5GVzSub?=
- =?us-ascii?Q?Yc+8sRDM6DFx3XSWJmZ09Nctvs/segmri1WERucnrwBDwH5xL+UHB6pB5nTc?=
- =?us-ascii?Q?NKnrKHQc5GRPeE51wip/cTdFfOGE1ZX1b25V4Z3pNg0a0HHfod/YZUTKYu33?=
- =?us-ascii?Q?4KBhXO1V4Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e95249a-13d4-4232-320d-08df0cdd544c
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 12:41:25.3127
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V99m/5C9iScC4VmybNk11Pui/Xe5X9COrd9lgfN5g2xJzxKEhszwjXcdTibvQGUQmawHHMZ04Uy4bekGPL67ww==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7583
+In-Reply-To: <yq5acxupjsy2.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_054138_153256_CC849415 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260907_055232_748980_D2C083CC 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,26 +126,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:04:37PM +0200, Vincent Jardin via B4 Relay wrote:
-> From: Vincent Jardin <vjardin@free.fr>
-> 
-> Unbinding and re-binding the root DPRC fails with:
-> 
->   sysfs: cannot create duplicate filename '/dev/char/10:256'
->     misc_register / fsl_mc_uapi_create_device_file /
->     dprc_setup / dprc_probe
-> 
+On Mon, Sep 07, 2026 at 03:15:25PM +0530, Aneesh Kumar K.V wrote:
 
-Do you mean that the above error messages are triggered by an unbind and
-bind sequence like below?
+> I looked into this, and it becomes fairly complicated. We can move all
+> vdev/TDI-related code to arm-smmu-realm-v3.c, but that would result in:
 
-$ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/unbind
-$ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/bind
+I was going for the opposite, you'd move everything out of arm-smmu-v3
+and into the arm-cca-host and obtain the viommu through tsm_ops not
+through iommu_ops.
 
-I am asking this because I cannot seem to trigger it myself. There is a
-misc_deregister() which should remove the char device upon unbinding the
-root DPRC.
+I guess I pointed to that in another email.
 
-Ioana
+The only thing arm-smmu-v3 should provide is a simple function to give
+the pdev phys and irq parameters. arm-cca-host calls that when it
+creates an viommu object.
 
+> 1. Adding more CCA-specific code to the SMMU driver.
+> 2. arm-cca-host continuing to own the TSM link setup (IDE).
+> 3. Adding callbacks from the device communication helpers back into
+>    arm-cca-host, since device communication still goes through DOE.
+> 4. Moving the device communication helpers to firmware/arm-rmm and adding
+>    something like:
+
+With the above change you don't need to do any of this.
+
+> The locking also becomes more complex. Unlocking a vdev can trigger a
+> stream key refresh, which is owned by arm-cca-host. Currently, the locking
+> is simpler, using pci_tsm_rwsem and pci_tsm_pf0::lock. With the SMMU driver
+> owning the vdev/TDI, we would have:
+
+You can't really avoid something, the vdev *IS* the TDI and the ops to
+effect it come in through the iommufd path. The ideal version is the
+tdi is never used outside the iommufd path so you don't need to mesh
+the locking quite as carefully.
+
+> - pci_tsm_rwsem protecting the lifetime and registration state of
+>   pdev->tsm.
+> - pci_tsm::tdi_lock protecting the function's pci_tdi pointer.
+
+Like here, why is there a pci_tdi linked to pci_tsm? Anything coming
+in outside the iommufd locking is very suspect.
+
+And the iommufd locking should spill over to the TSM, you should not
+be able to remove a tsm while a viommu object exists.
+
+Jason
 
