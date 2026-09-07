@@ -4,148 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C948C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B40C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyLte/efpILdTc5FfouO8wQoJcwnShv2w0I0Tjy0+D8=; b=fWHvMp9qVbkgjZuVGD653Hpc62
-	IZVxwNfANX1vEN1CmnYMSGj5JqZXgF8os2S4m7Z2FlorTEPDJkrzQ163lhKD21C2AqO/IZVsryig2
-	8X3XMK7HjqUp8tmUwTGAHGYIrAiiy+AwwC6Qr66dNIWWYlfGJ4kDzFID7YEZVS311eT76N8GJbLTy
-	pxRC3+FgWvnSZpecN9Yg4Id7oEjXSQIgBq9zCn9R4mmCCF0hRRh5zoeMtxzpT1RfhrLV0DpTUD63U
-	pB+/rwH4Byx/gNoEhlxQt0iniFAUkZWvpgcf9UDHUKiWlh8Sdkr5tAj+2UzbiZF3RB8EIPu13RfOF
-	elO+uODA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=icueMdNnM1gZRk62oei0XQENcEv7y6jrDtc+G1tDS1M=; b=dhDZbuxihn3BrI2RTupQ46VyE5
+	933qyVyosOcLVpgo69MIun3WpCrKEbuPicjySPA+3U4Z0noMAmTTr90XU92ca995YwJ0ojkh5T0G8
+	ofDHseS3rq2w/4jJM69JmzKWxSyzHVdYkNIDZpjOuidqJmJXXQ15OleApl7ZghexpVKthmFdZnNQ/
+	fwI8i1q4Cwb7wisuItwVZvr/YlIAmooP+8ezaAE/HfP858FPlOmhcKjLvkHIrpuUDobxJYOXRg1z0
+	YPvZ1EwlhXzq57kmlzRZ3VevMgBRt09N/A4ajW6z6MDMDiFi6wPC+skAUoaSAyZlhI4rLEQumXL0O
+	7p85+YzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3awq-000000077R3-0lS1;
-	Mon, 07 Sep 2026 15:07:52 +0000
-Received: from mail-westeuropeazon11010020.outbound.protection.outlook.com ([52.101.69.20] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3awn-000000077Qg-1LnM
+	id 1x3b0n-000000077eh-2QKb;
+	Mon, 07 Sep 2026 15:11:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3b0l-000000077eI-0bGB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:07:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aCuEbJMtE7sRruAVpksRCh+JFDeoSbT3AxT+h6HKq8vGOw/Sh5lLMeFZjSq6IUKnxiNyukhz692stMnTF+updVR2gI/44RAXR55VIK+ODaFWEMZuc5jds0IMaZnRVbB7udQoPjDV04IaXN9wBHXfBwDccgEd2pDdhOvMjrp4cpj8JoQvspHFHVoQhfkskoVG4oWl62slwonpa2wb2xrhaDmBG1o39dailHSh0I2zBZjY2pBvilXyfeVvu2KPqeXytuLwaqcjzhcjK1cMhk1SPu9F/Ri8MmRGGN0Y71pEBHezszEHp9pal8Aj8DOjmDYwxpXVKOxlCX2DzX9lOW62Cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kyLte/efpILdTc5FfouO8wQoJcwnShv2w0I0Tjy0+D8=;
- b=cu3aId7nMhF3TwHcymnP5QZ7fxr9KM1SAo3qpEvtfOOjUkyKqMUYVuw4ccOVW1wHz0rb6XhZbkk7MkIMxzuD9/atlPEMaSL1m0ilS5TkMVwvA/9Fi1d+SMU9fCqX2W1MpLc0gY4k8rK0jxf9ZM9i+XdUJjCYQ+52esMCZOfxUuubFJLvk2mKaN8WilgercFX6UIMiRhcF4CazOl+ppE7ggtG16iEKNX+931tvSuK6FQsE8RY34MS1fU2NM8OULy9lW/EgY3PnQfwBnyZ5vj1b9TpmHj1gyAeX121MfRG1B9aua2BC8gB76MAzWpa/ydpqclQgFX5exNek/fiinI6Fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kyLte/efpILdTc5FfouO8wQoJcwnShv2w0I0Tjy0+D8=;
- b=Ahxg2T/bvJdazUrNOfnTdR+a6cEVQZ5FK6PuEGTYe+JikyvsnN0pu498dtsMp/l13qZximW1HM+YPoFlFn4C/nkeEzfE0YyAoQRqsConIRVxB5eeZLNoXJ42rMH5opBK73MrxIMyfQ9dlMxp+RzYAa9MVD3bYrO6jN6we/lBloXkgwmVgkjiTvj5MyqdzErUYV2kKOuXVoM/Mp2GPO58SXogd1qNfGExDxBGnwvVa4OHcY+WlGS7JFc4Rb36UGOOaaL2fJEp4ygAkVScPgrp3IgEET1DwEwnaVcG4qXJzN60gU0ZRDDwyhno2gkeAOJyiT7PeUSUrceh3xGrAEC06Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
- by DU7PR04MB11236.eurprd04.prod.outlook.com (2603:10a6:10:5b4::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
- 2026 15:07:44 +0000
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6%3]) with mapi id 15.21.0382.007; Mon, 7 Sep 2026
- 15:07:44 +0000
-Message-ID: <6bdc8044-34de-4d7a-89a5-908de7f8b044@oss.nxp.com>
-Date: Mon, 7 Sep 2026 18:07:42 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] can_rx_offload keeps a lockless irq_queue that the
- IRQ handlers fill and that is later spliced under skb_queue.lock into the
- NAPI-facing skb_queue. This works as long as a single context fills the
- irq_queue. flexcan with FLEXCAN_QUIRK_SECONDARY_MB_IRQ and mcf5441x use two
- mailbox IRQ lines. When those are affined to different CPUs the two handlers
- can enqueue into the same list at the same time and corrupt it.
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Vincent Mailhol <mailhol@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>, linux-can@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>
-References: <20260907104942.17089-1-ciprianmarian.costea@oss.nxp.com>
- <20260907-lively-easygoing-groundhog-51cdd3-mkl@pengutronix.de>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <20260907-lively-easygoing-groundhog-51cdd3-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR5P281CA0045.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f3::12) To AM0PR04MB5858.eurprd04.prod.outlook.com
- (2603:10a6:208:132::23)
+	Mon, 07 Sep 2026 15:11:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B54B61476;
+	Mon,  7 Sep 2026 08:11:49 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CF313F7B4;
+	Mon,  7 Sep 2026 08:11:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788793913; bh=nSSUhkg2+GYxqN+mkRCYxS29gRUsOc4/8D4olAlF0CE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GbtOsBioJyZxF0GfsnSnGzJxwvF5IxvF1mYvzCCF2x0SPzAfq/TQzqgfKjFH6y/L8
+	 HOLnEKYPQhxQDwdg0JQ5NAFB8UuJ4qhfzwbilXq4RpnnRilS1B5vzWdr7U43zzubzM
+	 cG+HWxDVec5RkOP/CapDZFTYRmi4ZggkwHKTtkJ0=
+Message-ID: <e6b84240-0e62-4899-ac6b-5935c86c15f7@arm.com>
+Date: Mon, 7 Sep 2026 16:11:50 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|DU7PR04MB11236:EE_
-X-MS-Office365-Filtering-Correlation-Id: 010cd48c-f989-4918-54b9-08df0cf1c4c3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|7416014|19092799006|10067099003|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 7/5jttF2HJIgFt/GhUmyuHr3cD7Z/38hhooDJIB6Y58pCZwgWbUY3uqLhLCAgdTUD1CoiewVgRCvCSCKsXDcVZPV9XyebOUSAnsXjwE4jzDviqa0hQVybjp84K43k3hvvBxJQMA317D1z0To8wKW+gruijfRMlZyAmrJ66IDC3A/UVu9iBPQOFw3Pn0ippaH9H28sYDknj+lT4OmRQk9HD3YCJYf8y63cIuS7mucwRQqy1EAv5LEQIeEMP6F6fi0gGAOp9p6kp4aauReLA2bom81Dr2S67r+RMDkoTWuqGnf4RUCp3SWwk/ku7YabjBw9JPhWYEsLWML0bU5h3JybFp9DpcQ0Qm8f0AVZ7pzUmnbAYDkeZRNsXcaMp//M1tGRc/DEsHur2i1PggvP94bnlompUY7Q465jMpw+txMia3lDT9D2OL+qbPmmMIjMpf7qIqSVn1+d0j4oX+CjmnfFA51hV6JoSmWxwc8D4D8muZx9RzQBfjt7+73ISuEreSfQZe1YtDY06EnB497dHf3fnCGt9oEtcktikWgOH1O06DVrQjpfE+2nxeLQ59jN/jlu8xfe8quYTm/83XZxFzQCWfrONnFs6Tw4PeqHPHNeHTvtI4yeQKrnZIl1TbiKb5k
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(7416014)(19092799006)(10067099003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTF0VFR4Y1UyNnVpL0dFVHAzWG1pbEE1bm83RC84YXlpM0ZReWkyMURYV1Rh?=
- =?utf-8?B?QUl0TjF0M2N1SC9BeVhBeHRpaFFUUnVVUS94T1doeHJYRVg0L1l4QmhncDcw?=
- =?utf-8?B?OENHUzkwY1ZBYUNXT1Z2U25HVEhSd21VKzd5dCtZcFNQaVg0aVgxaE5NZzN4?=
- =?utf-8?B?Tnd5ZFp6SG9vOFFGelpUTyt3MzhQaEFncEQxMkt1SHB1eEhtSkxaMkpPcXFn?=
- =?utf-8?B?S3I0Sm50ck55MjJrVXg0WFpUcCsrdXYxM2ZhWkhGaGM3aHM1ZjRtTXIrVkpo?=
- =?utf-8?B?K3BERG5adkM0Q3Znd2orRWhHVVF6RUg4a3dISDJMbVZnaDNPMlBmTDROTGxq?=
- =?utf-8?B?TjMrZjJxV3Fkc2NpMlI2dElOWlRKTXRTcnVldkl0T28xUitNVVFnaGtXajRE?=
- =?utf-8?B?OG1XemxuU1dyblFEaXB1RjdObTRuU1lINHp3VFg2b1lJK05mZjRHYU1PUjJC?=
- =?utf-8?B?bmkzbXpVRTR4YklQcDAwYWo4WjhsVm5kbXlSSFY0QU0vUmRiVVpHZW5Gb0lk?=
- =?utf-8?B?MDdBdnpFa0RlWndVQ25YV2Z6VkwzTitFUlB6RDNhT29tektvTkhMYUlYNHV1?=
- =?utf-8?B?YncwWmZJTEZaOUhKZzkvRVB4MTlTVVJjTUgvN1NFY3dBYkZCT3ZnY25TMXcx?=
- =?utf-8?B?QUNIejhTRDRybEd3KzhlR1VKOHpLZ3lCbkdJTTZ4L2R6b2VxT0hDSjZBOGdl?=
- =?utf-8?B?Z0NDYlAyU2QzOHFOTFBjV0o4em1tZFEvSXc0bFNqQ1RUWUphcWJ5MkYrTmQ2?=
- =?utf-8?B?TVVzSGpCTm5SUG5LVTFWMDkvdEpNR3FudVJEeU0wL04yTlFrMDgwS3A5U1Ux?=
- =?utf-8?B?Y2FuRlBkWFFsZFRNMDhxZ2s3MVM4ZVJ0bFQ1Q0VmZHZPMGJORDBqOG1MVFZQ?=
- =?utf-8?B?M05pZmJlcGZPRjNPRTc2RStWZlhMUjRhT2JyaDQ3OTAwWE5LSkxsb2o3Z056?=
- =?utf-8?B?UXB2dUc2dHA0K1EvK2ZUamY5ODBNL0xLRUQ2RVhmNEdsR2UxN1lnQmMrcU9O?=
- =?utf-8?B?aGtWajk5TXJUdG1TN05CendhUXFDNHZVRkU3aFdsY0NpZHNoUm1KdXUxcjlk?=
- =?utf-8?B?S0RkMWxZK21yWUJET09ZajVSZ3JNRWtycC9PUnFCTDhERUxWUUcyUllMRTkz?=
- =?utf-8?B?QlNPK1RBeEhTK0xmdWFSemVGaEJDbitVWTRUOFp2VzBJUGRWdTUzWDZUVkpD?=
- =?utf-8?B?dTFzMldHSkhxM2NJUklDeFNEcXZrNHIrd21xS2tKSTgxVmVFU29EdXVFYklF?=
- =?utf-8?B?VXhkajBJK2V4TnJNclIvSTZYZEVWeGZFRFMrWTBXNUpqZDVSMWtkRFdQNWJX?=
- =?utf-8?B?NS8vbFdEYjJsaElYZkpNTzVZT0Q3QzM5TFBxZXpoNVpCVHpWU014YzJIOEEx?=
- =?utf-8?B?VlNwOExjMEJWaEZDUUw3MlFIWUI1SWhxYjA0UTkyMVRqQnhIRUpzYzRUUzdM?=
- =?utf-8?B?VXUyMVRIOTgwdGhkby9iM0cvank0RFVlZk5VbVNsazByOFpKWlQ4RmpDUGgv?=
- =?utf-8?B?U25EbG9HQVNYL3dMY1U0MURkbldPN2lQQmg4aGlNS0duYkUwd3B6M0RTREpo?=
- =?utf-8?B?T093QUVhY1pOMkZHZ3BnMVdGd2NHb3hKSjJSSVQ5UmkwTHlRcUJpZDlBb2s5?=
- =?utf-8?B?UkY5eXBVNmRYUnBMNmpHT1VqMHRlY1NGVGRQNy9uekI2RjFEVlFqcExXdDZr?=
- =?utf-8?B?djNRcnpNcjZzWCtMM3lUZUdQeUkzamkvMGppMWdIK1lMc1JPcVd1L3RMSDdu?=
- =?utf-8?B?UFRIeFE0OWdERStrM1hqZUlSd2laYld3RFV6M0VpMHZnRFJzaGVDbktPM0w2?=
- =?utf-8?B?c01iZktwYUVMWDVWUmg0QWkwOWRZYmw5cGxHWjMzYytKd3A4YVNPemkrVUZM?=
- =?utf-8?B?bklZczVWcTNuNm5XVDE3dGh1ZjMrcDFQN3l6YjF1N05aUkRPcXV2WnM1Q1Ns?=
- =?utf-8?B?SVQvLzJ2cDgyYlhCdm5BcFVvZW0vLzBRWG1veWxqK1BiSlhCaEFaTHJ3MnRR?=
- =?utf-8?B?RURNNTlMWGxnM3M2amxxOWd0cEpsajFIWWtxK21na3Y4ODNFTUdwYkRleE5O?=
- =?utf-8?B?Qkg1cTk0Q056dEkzZEpWRGcyMWE3ZElheVNLeUI1dUZkZFdudmw1RDBiQXJ1?=
- =?utf-8?B?dVdvekx2TG1nZ3EwbzhVNCtoaEVTVUl2aVlEa3l6TmtzcXdNcktEYW4xczJE?=
- =?utf-8?B?WlNIYTBoNlB0ZmdDZ01qRXdTRngxUUpEeTZHMDhITy9FKzgyTGhoeDliU0xo?=
- =?utf-8?B?R3BpQWp2czV2MFdlK3FtUSsrbkJISnUxcW9idm9XbnN5MkZocUYrRnhTRzdP?=
- =?utf-8?B?RUNPbHA2VHBlbDNTbm1TZUpHYXRIeExETUFjY3UzQk05blg2ak16VEpUbGFR?=
- =?utf-8?Q?/WDp27VpbRUgowjs=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 010cd48c-f989-4918-54b9-08df0cf1c4c3
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 15:07:44.0086
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oj3wUBwDkSFBMZbHmBAYPXU7NnrxYqgb15Jle4tJ9tlIfNX3qnGwh0LF5KsaE0VSiorib6nAHIgrGpyoRKti6YAfwJcWHeKiksJhiANfjr4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11236
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Add mpam.rst to the MPAM DRIVER entry
+To: Fuad Tabba <fuad.tabba@linux.dev>, James Morse <james.morse@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Fuad Tabba <tabba@google.com>
+References: <20260903182300.2706684-1-fuad.tabba@linux.dev>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260903182300.2706684-1-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_080749_413795_F9E8F7AC 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20260907_081155_225909_086CB8A6 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,52 +74,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/2026 4:49 PM, Marc Kleine-Budde wrote:
-> On 07.09.2026 12:49:39, Ciprian Costea wrote:
->> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>
->> This series:
->>    1. Makes the irq_queue per-CPU so the handlers no longer share a list.
-> 
-> As sashiko pointed out, using per-CPU variables in a preemptible context
-> doesn't work. When proposing to use per-CPU variables I haven't thought
-> that far. So in hindsight this approach is not good.
-> 
-> What about following what NAPI does. Have a dedicated data structure per
-> IRQ. I think these ones are needed:
-> 
-> | 	struct sk_buff_head skb_irq_queue;
-> | 	u32 skb_queue_len_max;
-> |
-> | 	unsigned int mb_first;
-> | 	unsigned int mb_last;
-> 
-> And pass them to can_rx_offload_queue_timestamp() and
-> can_rx_offload_irq_finish().
-> 
-> regards,
-> Marc
-> 
+Hi Fuad,
 
-Hello Marc,
+On 03/09/2026 19:23, Fuad Tabba wrote:
+> Documentation/arch/arm64/mpam.rst is not listed under MPAM DRIVER, so
+> get_maintainer.pl names neither MPAM maintainer on a patch to it.
 
-Thanks for replying.
-Indeed the per-CPU approach should be dropped. I've also missed the 
-PREEMPT_RT case.
-Your proposal seems better than even having a dedicated spinlock for 
-skb_irq_queue operations as I've originally thought.
+I'm ok with this if others think it makes sense.
 
-One thing to confirm before I go ahead and implement this approach for 
-V6: Having the following connected patchset in mind [1] which separates 
-the IRQ handlers, both flexcan MB IRQs currently run flexcan_do_mb() 
-over the full iflag. Therefore, to actually separate the producers I'll 
-have each IRQ drain only its own mb_first..mb_last range into its own 
-queue - is this the right approach ?
+> 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> 
+> Notes:
+>     Found this while putting together the recipient list for [1]:
+>     get_maintainer.pl names neither MPAM maintainer on a patch to mpam.rst.
+>     
+>     arch/arm64/kernel/mpam.c, arch/arm64/include/asm/mpam.h and
+>     drivers/acpi/arm64/mpam.c aren't in this entry either, but that
+>     didn't look as clear cut, so I've left them out. Happy to respin
+>     with them added.
 
+I think these can stay as is.
 
-[1] 
-https://lore.kernel.org/all/20260831143449.12828-1-ciprianmarian.costea@oss.nxp.com/T/#t
+Thanks,
 
-Regards,
-Ciprian
+Ben
+>     
+>     [1] https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
+> 
+>  MAINTAINERS | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fc320b373656f..20a6e70df83c8 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18438,6 +18438,7 @@ M:	Ben Horgan <ben.horgan@arm.com>
+>  R:	Reinette Chatre <reinette.chatre@intel.com>
+>  R:	Fenghua Yu <fenghuay@nvidia.com>
+>  S:	Maintained
+> +F:	Documentation/arch/arm64/mpam.rst
+>  F:	drivers/resctrl/mpam_*
+>  F:	drivers/resctrl/test_mpam_*
+>  F:	include/linux/arm_mpam.h
+
 
