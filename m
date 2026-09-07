@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078D0C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4516EC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KAPU1CX8Iq66BEpNVJ2vafgQDXa83ebRjQ938YJsxwo=; b=o/B4stNOHKv3BZcw7hucHw4KSG
-	SCqGzA/SFJpG9XY/byIBEyGuhi7YsB+w2tRyn+2CcVbjRNdG05+CnoEvptmht+qm+tcZ1JVNtkcN+
-	mnyvDZ0NTL6z+oXoFKhyPyzE1x6Z0d3XexS5JDzbuwUCE70plp9WXSkPFpcezUgPlfXOvZtlBTnCA
-	a/GezFaVWUvc4dPrFxhEL2lgxEt83CynX8pn6kXOwylBU9OQ+m08KQv2aEcuGj0Fk/1tGoCwtdd11
-	+RTx1l064k8PEeGFZ+XENj9umRtTl9PvGQsSFL5ulsbd4cCIpzmm9mgSVPRmJtL5AFmiBtYMTJsGl
-	QSY4352Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=; b=o8bgE4SkFcFWCZzquk/G/eXSlg
+	g7Sic3LsU8RA1mc6/zh1EFH1tuTp+VzeNUYcQwb/cL/tSTnkJl7hb4EVncg95fkHpybvJToTr32mI
+	hlC30BPWST6h7h/6tKRy2B5h4VTU0vy0nM7mlK0s/wRrr8MlfzNHDgOJfWvCo4T/LwHciSnNvGqVj
+	o/sXbE9p7sJ5ef5S0aR5C+sYYiylPrN4nxqyJr5vPtr9B/pPe75CVX3eDX6G0wm88y1Ts88QabGGX
+	ktEOgQNFAayh5Fk4WjANRSViE6fqyAxe3Rs8LQIcHki30g5HJpNPtOxeZ9IeddPHn5VV21oycDWzl
+	Mw/8kZxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3THv-000000064wq-23Or;
-	Mon, 07 Sep 2026 06:57:07 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1x3TI8-0000000651W-2sch;
+	Mon, 07 Sep 2026 06:57:20 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3THt-000000064w9-1pis
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 06:57:06 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc1cb472b76so2562927a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:57:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788764224; x=1789369024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KAPU1CX8Iq66BEpNVJ2vafgQDXa83ebRjQ938YJsxwo=;
-        b=W2/Q+SHv4BzV6iEoCFmaaNX5nG4DjRTcEKcDs+d0Act40s4c0n6KAERSWztgmt9A5/
-         6VGs8AqOD7U2KrkN8Ss11nx2zA1oAtTHivLfap/wRW04+/UuvvTaLFBzqNRIqgaeeop4
-         wlaWTcxP0Cq5Lza1lHSZj+I991jjYvDcInAgWdfbBiQYHo/9kVWxU4QkUg+V5fLRROGj
-         Y8J2m3LqKYD6YeNpHhB4hDP1+kauH6xTfYU5LThNZnh8Ed/abiuO+uGgbAsq85WZDTTW
-         9WNkXW9ts8Em8teQSN81CLNcrs0CIzKdFfaaUkxSWKJHLahvlyuHYWKAywvSu+lmmiPb
-         Ua6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788764224; x=1789369024;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KAPU1CX8Iq66BEpNVJ2vafgQDXa83ebRjQ938YJsxwo=;
-        b=HarwD+ch5uIs0REpNPqESB1SUemy57nnTzBQByBGCbtLGVP3rUoet+eq6wtwwCiArf
-         EDpnTRRGJP6PLgimzF9F4v60Km+o8P/dJA/InF8y0r2+pX9981Ttzt3UJ8oXLcsvGdgK
-         EBtc7rxXq/2Os1ZVawSDARpFu+byJN8MEpGLlMp8k6BkeoDhSJMHOq0xStEJ2g94Xrdg
-         naehn2oEYQFEImRWx3O54MKgNLlq7vyJt7DuIJ24LklggKhvjA95JcINRsQP7r2wCZoc
-         zzna+KJvu4exsJrPyuNJFL3gn5CtdUSXVGpRxfszjo4ZBRm1dcuEUjb7ht4UO1PL5dS5
-         jZyg==
-X-Forwarded-Encrypted: i=1; AKwUvByL5IqH68Z5fcJXjVBEcKHnSsozWqnc7xbNL6YLocMRyfwGQQipS6MTj2UXKZ/BF3OU1FHkn84QKd66QraoDqOX@lists.infradead.org
-X-Gm-Message-State: AFuF++mxYKbUIyKVyzb+ItYm8jqqTwU2djcffMVhB5rK0wVi2FfngDro
-	mLiUmtNnefI9hgfYjPmhdWwrcYWBS9T30sJF/hknounjHiOWZVgZ33Rw
-X-Gm-Gg: AYBFou2hfFyGg1oMlHwnlRcORLmq0w9B7FP2AU8Z1IBEgFxYzrIoMe8qjj8gNWT+pBm
-	iv+ftfcVJC6BdaVxC1y5bF//qK+58uTfdHiQy1dMEY4U/FMXZPfcPtH+/dF4nUQ5XOdGwIIaEYh
-	QGW7Bzx5wFw+NEjQic7zDHF1syR+4VZkr6gqKEHy6BANhplh7EGSKBN73yeGPdquuaFPzuAtQKd
-	npRVzeY67TWzU3QBdEw93LrD7IZBRc5ejNiMneJbNRHJwU8miZZXqU9BSF6wjPrXtFSa3/lL/yE
-	DwvpyQj4qJuCI2e/jiSljoGpHszGTfB8uCXWUcP0zrzOAdkCH2x8INY+O3vMis4xH2LMhP5rZae
-	N6g1+Z8w5RMk/NIa6t2FgazE2ph4fABQUtu5lm58Uqnmy+I8IQfK9HZnd+g0jakvMBHnGSebNMa
-	lfEmwL3a/v8KM55ULe8ZWyt8r2Ge/S5p+vAreRgrIAMNeu4za58NAfrZ+unCNzqZdTrTa3K2BQV
-	rTPJyvmUFMggg==
-X-Received: by 2002:a05:6a21:487:b0:3c4:46ca:3347 with SMTP id adf61e73a8af0-3da39b44dc9mr32709277637.2.1788764224500;
-        Sun, 06 Sep 2026 23:57:04 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432435648esm28777832c88.5.2026.09.06.23.57.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 23:57:04 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Talel Shenhar <talel@amazon.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 10/14] irqchip: fix repeated words in comments
-Date: Mon,  7 Sep 2026 12:26:59 +0530
-Message-ID: <20260907065659.12034-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	id 1x3TI6-0000000650F-1SVx;
+	Mon, 07 Sep 2026 06:57:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788764158; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZV1f7mIa5Ivl4k9y4SDseO7sHW+HXOhGOnNA3H1xRbt1/D/ksjOmLYeU+FS4cmX+Hts6lkL1r8M+mCPrf6tfIzMjJB0b2sVzMmjqPU/3RUMi+047Y294fhETDs6iReJrrgYolwkXDS2m+zCVwGlte7A50w8KcoeS+6v+/RwWTr0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788764158; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=; 
+	b=dS9L/KG15nTBt2++e5uDJMfTNVAaWzLOQuZasm1GbtlC0sCA0bB1YA6nKDHauAHHIGDtz4Q7ivxhvg0CLUMOobpIBo+BNKxHD/ubsyigThw9IO3SwiDnd0li8ZdtFILkmNvA3GExDWArpzFXprIV1qzIu4e5vjtHSjKY2gyVYVQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788764158;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=;
+	b=BMTjuTZBsLIrLLQbFYEi8z0UaWGJZJjxeSYYxBVe6/DSS+g6eYH8Pw9Pt2zTuGh1
+	TbGJxgPa/cjnW41iWvSPZTs1m7utVbmLnfyAbfxAueT2zyPpCg3RW0zQ94/VavjbTLa
+	BT486D9MNAmUPgxRieTGSu/8tMi27JGUaSFQv9cSqgbQSXgbbbRo5g0CUZ7AzmQiGIv
+	lVFA+M7C37fn+a8D09cfSBJESxToQqJg0tFdJybljjyoXRxlc8kR2Nj8pfOZ7xd/k6f
+	nuh5zp+4ma19vHlgD2e4mxkAw5n7TkeKvhRfuYzEaatVRNX9eGykxhWw4vjZjD/0S8c
+	upQLI3pL0g==
+Received: by mx.zohomail.com with SMTPS id 1788764154825847.2528940921899;
+	Sun, 6 Sep 2026 23:55:54 -0700 (PDT)
+Message-ID: <72f82ae67eca7b5a594d86852c8b0dafb7d02c4c.camel@icenowy.me>
+Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Maud Spierings <maud_spierings@murena.io>, Dominique Belhachemi
+	 <domibel@debian.org>
+Cc: m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com, 
+	airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com,
+ andy.yan@rock-chips.com, 	andyshrk@163.com, aou@eecs.berkeley.edu,
+ bmasney@redhat.com, conor+dt@kernel.org, 	conor@kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk, 
+	jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk,
+ krzk+dt@kernel.org, 	lee@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, 	linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, 	luca.ceresoli@bootlin.com,
+ m.szyprowski@samsung.com, 	maarten.lankhorst@linux.intel.com,
+ maudspierings@gocontroll.com, 	mfd@lists.linux.dev, mripard@kernel.org,
+ mturquette@baylibre.com, 	neil.armstrong@linaro.org,
+ p.zabel@pengutronix.de, palmer@dabbelt.com, 	pjw@kernel.org,
+ rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org, simona@ffwll.ch, 
+	tzimmermann@suse.de, vkoul@kernel.org
+Date: Mon, 07 Sep 2026 14:55:42 +0800
+In-Reply-To: <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
+References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
+	 <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
+	 <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
+	 <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
+	 <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
+	 <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
+	 <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
+	 <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
+	 <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_235705_480549_51080384 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20260906_235718_417359_CA22A7EB 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +105,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop words accidentally written twice, reported by checkpatch.pl as a
-possible repeated word.  Only touches comments, no code changes.
+=E5=9C=A8 2026-09-07=E4=B8=80=E7=9A=84 08:02 +0200=EF=BC=8CMaud Spierings=
+=E5=86=99=E9=81=93=EF=BC=9A
+> Hi Dominique and Icenowy,
+>=20
+> On 9/7/26 06:01, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 17:16 -0400=EF=BC=8CDominique Be=
+lhachemi=E5=86=99=E9=81=93=EF=BC=9A
+> > > On Sun, Sep 6, 2026 at 11:19=E2=80=AFAM Icenowy Zheng <uwu@icenowy.me=
+>
+> > > wrote:
+> > > >=20
+> > > > =E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 16:59 +0200=EF=BC=8CMaud Spi=
+erings=E5=86=99=E9=81=93=EF=BC=9A
+> > > > > On 9/6/26 07:39, Dominique Belhachemi wrote:
+> > > > > > On Sun, Aug 30, 2026 at 10:17=E2=80=AFAM Maud Spierings
+> > > > > > <
+> > > > > > maud_spierings@murena.io=C2=A0<mailto:maud_spierings@murena.io>=
+>
+> > > > > > wrote:
+> > > > > >=20
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 I was still having some glitching happ=
+ening on the
+> > > > > > display,
+> > > > > > but
+> > > > > > I've
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 found the way to fix that, the questio=
+n is what is
+> > > > > > actually
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 happening here.
+> > > > > >=20
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x29590020 <- =
+0x00000005
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 This one I have no idea, it is 0x00000=
+009 with this
+> > > > > > patch
+> > > > > > series but
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 with the vendor kernel I get the value=
+ above. When I
+> > > > > > hook
+> > > > > > up my
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 external
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 display (regular 1440p) this becomes 0=
+x0000000D on the
+> > > > > > vendor
+> > > > > > kernel.
+> > > > > >=20
+> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 But I can't find this register being w=
+ritten to
+> > > > > > anywhere
+> > > > > > there?
+> > > > > >=20
+> > > > > >=20
+> > > > > > Maybe this needs to be swapped?
+> > > > > >=20
+> > > > > > drivers/gpu/drm/bridge/inno-hdmi.c
+> > > > > > =C2=A0=C2=A0=C2=A0 -#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
+> > > > > > =C2=A0=C2=A0=C2=A0 -#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
+> > > > > > =C2=A0=C2=A0=C2=A0 +#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
+> > > > > > =C2=A0=C2=A0=C2=A0 +#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
+> > > >=20
+> > > > Very weirdly, the original definition here matches current
+> > > > mainline
+> > > > inno-hdmi.c, but the changed definition matches JH7110 vendor
+> > > > inno_hdmi.h [1].
+> > > >=20
+> > >=20
+> > > The vendor code is correct and matches the RK3128 TRM.
+> >=20
+> > Thanks for the tips on documentation, and I verified this.
+> >=20
+> > It seems that Rockchip people made this always wrong, even with
+> > their
+> > pre-DRM display driver... [1]
+> >=20
+> > BTW I checked the Innosilicon dGPU driver code, and its
+> > g3_ne_hdmi.h
+> > source file also contains the definition of BIT(3) as VSYNC. (It's
+> > quite weird that most logic of that driver is in some .o_shipped
+> > blob,
+> > but fortunately the g3 logic might be too new to be closed down)
+> >=20
+> > Thanks,
+> > Icenowy
+> >=20
+> > [1]
+> > https://github.com/rockchip-linux/kernel/blob/release-4.4/drivers/video=
+/rockchip/hdmi/rockchip-hdmiv1/rockchip_hdmiv1_hw.h#L161
+> >=20
+> > >=20
+> > > HDMI_reg08
+> > > =C2=A0=C2=A0=C2=A0=C2=A0 Bit=C2=A0 Attr=C2=A0 Reset=C2=A0 Description
+> > > =C2=A0=C2=A0=C2=A0=C2=A0 3=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=
+=C2=A0=C2=A0=C2=A0 vs_polarity=C2=A0=C2=A0 VSYNC polarity=C2=A0=C2=A0 1'b0:
+> > > Negative
+> > > 1'b1: Positive
+> > > =C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=
+=C2=A0=C2=A0=C2=A0 hs_polarity=C2=A0=C2=A0 HSYNC polarity=C2=A0=C2=A0 1'b0:
+> > > Negative
+> > > 1'b1: Positive
+> > >=20
+> > > Nobody noticed this so far because in 720p/1080p both polarities
+> > > are
+> > > positive, but Maud's 3:2 panel has differing H/V polarity.
+> > >=20
+> > > Best
+> > > -Dominique
+>=20
+> This also solves the devmem behaviour I saw, or well, doesn't realy=20
+> explain it but does show what is actually happening. As Icenowy noted
+> (maybe that was on telegram only?) the inno-hdmi regs are 8bit
+> instead=20
+> of 32 bit.
+>=20
+> What is actually happening is:
+>=20
+> devmem 0x29590000 b reads 0x29590000 as expected
+> but
+> devmem 0x29590004 b reads 0x29590001
+> devmem 0x29590008 b reads 0x29590002
+> ....
+> devmem 0x29590020 b reads 0x29590008
+>=20
+> For some reason the addressing is weird?
+>=20
+> With this change, the assigned clock change and removing the=20
+> v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS write to HDMI_SYS_CTRL, the
+> display=20
+> comes up from the start as it should!
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
- drivers/irqchip/irq-al-fic.c | 2 +-
- drivers/irqchip/irq-gic-v3.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Well I checked the RK3128 TRM for these two bits, and their field
+descriptions are -- "reserved".
 
-diff --git a/drivers/irqchip/irq-al-fic.c b/drivers/irqchip/irq-al-fic.c
-index d10ac9b63c99..760317db9dba 100644
---- a/drivers/irqchip/irq-al-fic.c
-+++ b/drivers/irqchip/irq-al-fic.c
-@@ -180,7 +180,7 @@ static int al_fic_register(struct device_node *node,
-  * @name: name of the fic
-  * @parent_irq: interrupt of parent
-  *
-- * This API will configure the fic hardware to to work in wire mode.
-+ * This API will configure the fic hardware to work in wire mode.
-  * In wire mode, fic hardware is generating a wire ("wired") interrupt.
-  * Interrupt can be generated based on positive edge or level - configuration is
-  * to be determined based on connected hardware to this fic.
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 6e1fa5b247fc..69ca208eeee6 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -687,7 +687,7 @@ static void gic_eoimode1_eoi_irq(struct irq_data *d)
- {
- 	/*
- 	 * No need to deactivate an LPI, or an interrupt that
--	 * is is getting forwarded to a vcpu.
-+	 * is getting forwarded to a vcpu.
- 	 */
- 	if (irqd_to_hwirq(d) >= 8192 || irqd_is_forwarded_to_vcpu(d))
- 		return;
+What can I react...
+
+Thanks,
+Icenowy
+
+>=20
+> Kind regards,
+> Maud
 
