@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA33BC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223D3C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 19:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qS+uYAlXoVgoA5y3VMmw6zK3k+dLYvW/w3xfEGuyUw=; b=L8e5EN+wpL4tNMiy7zBcww7NPx
-	W7RdwScApNlTnRZDw/5dCEhsm8fKc3lFOWWk+yFZtB4qQTYvp87+ua3nCMDnSF+vieDZYQ2dmmj8U
-	Km6MyMPLKfUKxkYc03UR8VtHjtZ/TvgTSluheyxjE2paT/g7RVKc6bnGiMtOFRP+DLZJjFEYSLXAC
-	cGH6izCu3Ph2YEBsU40sTihtinFgGRyK+tU5ABisixghBFF3Ge6wndz4WA/W5Bs+mrDmbRO2KTOaC
-	30we4667qrqC/xZi5WHKfVrPBJ2JEnolMlv6ACbsGVMu6Qhok3tjjlGrdybNPmLkg0qbI5/2ze4a4
-	63HKzNIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+y4ypMnZyhvI7tTgAJr+wK56+sIjKVxaJDzyIKwc94=; b=kp6Kwz3xSeJMTbuY2ej4vggig4
+	i5tQ8yGFgGcqQWiXuhOKvoC4Eyy3C+kZshBQIgdG+2mVITG8V9jYyY+gydaugeTOOOIb0WspEqoyf
+	ID5/5B9pso30W7E/zs2XwIjrtVZf5pnpXIPKjHVGZsfKd+phWbkv0uURVkVI8WcP4fB4oaCFjbYmO
+	nfQ9OjnLZzXkHkhIyRnfvGFTq8xF0HCRFsFgdhLeO7tnPjTxINF77piOE2FB8XbYhp8EQk18gDjoF
+	DQrFWsHah4PR1U8w4L3zLEXxaN/E6wwuMM6LL0d/eWSg3MQkRMjscKc76tgw+BdwD/eiC1lYuxWWL
+	enFV4+Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eWR-00000007cr3-4324;
-	Mon, 07 Sep 2026 18:56:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3f6f-00000007egH-10U3;
+	Mon, 07 Sep 2026 19:34:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eWN-00000007cqj-1mNK
+	id 1x3f6e-00000007eg6-1vTH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 18:56:47 +0000
+	Mon, 07 Sep 2026 19:34:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 300584183B;
-	Mon,  7 Sep 2026 18:56:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA0691F00A3A;
-	Mon,  7 Sep 2026 18:56:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9575B601DB;
+	Mon,  7 Sep 2026 19:34:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D2961F00A3A;
+	Mon,  7 Sep 2026 19:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788807405;
-	bh=5qS+uYAlXoVgoA5y3VMmw6zK3k+dLYvW/w3xfEGuyUw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=oWOZAw4qVcPyIyz31HyUKxqgWVkfl8JJHlBJziUh9ea0iOFHvs5ahLfRVsNNc9Mjc
-	 C4gE7jzD3ytTnCVSbPbimSDkzeCrU8PX6lqD7h4RmGBIIKtmRrmUIg0uAG2iQLCbqC
-	 OO/8bJaZsbFnc6Cb56LcHmwyIZq3LJEz+WYOB++MTmIY8kX3iJe2iwvkNr9x92yNS3
-	 QfpOTTzGlZ9iNaFJ4hU7NtS3Easgj8TyKgVqyapuuDcqLRpBtMe+dcveaHh1UngMJN
-	 qNbiSnZOCanuuAvL16GvKifWp2C0pABRvraLJfHIUnNggpP4jc35quvvw+C2njduzi
-	 OZhXOgOQuSa3Q==
-From: Mark Brown <broonie@kernel.org>
-To: Jonas Gorski <jonas.gorski@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Michal Simek <michal.simek@amd.com>, 
- Hemanth Selam <hemanth.selam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-sunxi@lists.linux.dev
-In-Reply-To: <20260904110420.13707-1-hemanth.selam@gmail.com>
-References: <20260904110420.13707-1-hemanth.selam@gmail.com>
-Subject: Re: [PATCH] spi: fix typos in comments
-Message-Id: <178880178905.118202.7414086624567890048.b4-ty@b4>
-Date: Mon, 07 Sep 2026 18:23:09 +0100
-MIME-Version: 1.0
+	s=k20260515; t=1788809655;
+	bh=L+y4ypMnZyhvI7tTgAJr+wK56+sIjKVxaJDzyIKwc94=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NzJ02Vtq3+bEhW2qJ5ON3NadBkY+D72g4wYWGHtTEFsVoWxy1f5OLSnnoV3DiRYgz
+	 /3vOCltUbU01Dx4SEegB1YoV/eu8cwpq13ovH3oG07FR8xN83+DrFOWOdrrfwybvcJ
+	 HkzT+lKQ3LatWjGk17/wMDv7V3cwUMUQsyPVEuRw2y0WhZNzB/uvl5HqOLRHaBFLEY
+	 8ehwWkxIZnMsiwPv6PgF47dG2nXuUzbOTZQj6EsTJsdEEe0hW92QB6EJywgUsuLToL
+	 S6ft4JUUq/4U/l9PKA4ScRqwRMk0LCVPQf8wJxKJfTLUuPv/2/ZajEvXb1D0/Q7G5m
+	 G6tdVQHo2HTYw==
+Subject: Re: [PATCH net-next v5 2/3] net: xilinx: axienet: Handle optional IRQ
+ return value correctly
+From: netdev-bot+sashiko@kernel.org
+To: phucduc.bui@gmail.com
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ horms@kernel.org, andre.przywara@arm.com, hancock@sedsystems.ca,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 07 Sep 2026 19:34:14 +0000
+Message-ID: <178880965410.219967.16945994924537630103@kernel.org>
+In-Reply-To: <20260903073252.339250-3-phucduc.bui@gmail.com>
+References: <20260903073252.339250-3-phucduc.bui@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1067; i=broonie@kernel.org;
- h=from:subject:message-id; bh=nTVRlglTD9ckzVBTIRaaAh0k1mLw5g26dmcPmA7obJQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqnwjmLMJ612y12jg5vNINZFQMuybqmkcJJARWg
- sf5MP2QFQ6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCap8I5gAKCRAk1otyXVSH
- 0KZHB/95sPFMK+ZElZYPGxiFZhS9eZvnnj+DTWdk+xxvrMzkurYYLkBL487FgiKRyWzJVwjG9mD
- 9AZr/e84CFxrfnWfQyB1GRG8i+Pi7zuNkkiPucC+gHfr0ArmCPLT7oPNWf+5FGpnFxVbsbOkNr2
- 6BXYnokYv5PgSO5LSXsuuYQfcK9TqfpEdpt2a4QpX+rxof3AROAomc4P7osQT35hl+63TtsBlG1
- qkYqzU/Ec+SKZxgAo487B5DnFLbHj2lF0c95S1zxZiKFdpic/jtOj7EWUXJv69UsOAinMHbcyGb
- cXIB24cRqik0QWmVEuiv1jAMRUi6cLtQDFEIyhPXdWi/Y6xv
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,35 +73,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 16:34:16 +0530, Hemanth Selam wrote:
-> spi: fix typos in comments
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-Applied to
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
+- [Medium] net: xilinx: axienet: Handle optional IRQ return value
+  correctly — the patch carries a `Fixes: 522856cefaf0` tag and a…
 
-Thanks!
+Pre-existing issues:
+- [Medium] DT binding vs driver interrupt indexing mismatch (pre-
+  existing, not touched by this patch).
 
-[1/1] spi: fix typos in comments
-      https://git.kernel.org/broonie/spi/c/98477036fc35
+--
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+net: xilinx: axienet: Handle optional IRQ return value correctly
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+This changes the informational check on lp->eth_irq in axienet_probe()
+from "<= 0" to "< 0", on the grounds that platform_get_irq_optional()
+never returns 0. The patch carries a Fixes tag pointing at 522856cefaf0.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+No Link: tags were present in the commit header.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 207aecb5f8b9..3927ababf833 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -3052,7 +3052,7 @@ static int axienet_probe(struct platform_device *pdev)
+>  		ndev->ethtool_ops = &axienet_ethtool_ops;
+>  	}
+>  	/* Check for Ethernet core IRQ (optional) */
+> -	if (lp->eth_irq <= 0)
+> +	if (lp->eth_irq < 0)
+>  		dev_info(&pdev->dev, "Ethernet core IRQ not defined\n");
 
-Thanks,
-Mark
+[Severity: Medium]
 
+Is this change a functional no-op, and if so, is the Fixes tag warranted?
+
+The commit message itself states:
+
+    Errors other than -ENXIO are handled before this check,
+    so -ENXIO is the only error value that can reach this point.
+
+Combined with platform_get_irq_optional() never returning 0:
+
+drivers/base/platform.c:platform_get_irq_affinity() {
+	...
+out_not_found:
+	ret = -ENXIO;
+out:
+	if (WARN(!ret, "0 is an invalid IRQ number\n"))
+		return -EINVAL;
+	...
+}
+
+the set of values lp->eth_irq can hold when reaching this dev_info() is
+{positive IRQ number, -ENXIO}. Over that set, "<= 0" and "< 0" select
+exactly the same values, so no configuration behaves differently before or
+after this patch.
+
+Would it be better to drop the Fixes tag, note that no functional change is
+intended, and avoid a stable backport of a change with no observable effect?
+
+Alternatively, writing the test as:
+
+	if (lp->eth_irq == -ENXIO)
+		dev_info(&pdev->dev, "Ethernet core IRQ not defined\n");
+
+would state the reachable condition directly.
+
+There is also a consistency question. Every other test of this field in
+the same file still uses "> 0", for example in axienet_device_reset():
+
+	axienet_iow(lp, XAE_IE_OFFSET, lp->eth_irq > 0 ?
+
+and in axienet_init_legacy_dma():
+
+	if (lp->eth_irq > 0) {
+		ret = request_irq(lp->eth_irq, axienet_eth_irq, IRQF_SHARED,
+
+If treating 0 as an undefined IRQ is the problem being addressed, why are
+the sites that actually request and enable the interrupt left using the
+complementary "> 0" form, making this the only "< 0" test of eth_irq?
+
+[Severity: Medium]
+
+This isn't a bug introduced by this patch, but while looking at where
+lp->eth_irq comes from, the interrupt indexing in axienet_probe() and the
+binding appear to disagree.
+
+Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml describes a
+fixed item order:
+
+  interrupts:
+    items:
+      - description: Ethernet core interrupt
+      - description: Tx DMA interrupt
+      - description: Rx DMA interrupt
+    ...
+    minItems: 1
+
+but the branch in axienet_probe() that reads the DMA resources from the
+Ethernet node uses:
+
+			lp->rx_irq = platform_get_irq(pdev, 1);
+			lp->tx_irq = platform_get_irq(pdev, 0);
+			lp->eth_irq = platform_get_irq_optional(pdev, 2);
+
+that is, index 0 = Tx DMA, 1 = Rx DMA, 2 = Ethernet core.
+
+For a device tree written strictly to the binding in that shape, would
+axienet_eth_irq() end up bound to a DMA line, and the DMA handlers to the
+wrong lines?
+
+The same pair also seems to disagree on minItems: 1, since this path
+requires index 1 unconditionally:
+
+		if (!lp->rx_irq || !lp->tx_irq) {
+			dev_err(&pdev->dev, "could not determine irqs\n");
+			return -EINVAL;
+		}
+
+The axistream-connected and dmas paths use platform_get_irq_optional(pdev, 0)
+for the Ethernet core interrupt and match the binding, and both yaml
+examples are consistent with the driver, so only the
+DMA-resources-on-the-Ethernet-node shape looks affected. There is no
+in-tree DTS for xlnx,axi-ethernet-* to settle which side is correct.
+Should the binding or the driver indexing be corrected in a separate patch?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260903073252.339250-1-phucduc.bui%40gmail.com
 
