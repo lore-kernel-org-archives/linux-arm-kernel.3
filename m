@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637A7C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2F0C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oI2gWduqW8IDYlY4DvzsbqijwNEwZlIBGJYKzp2JXCs=; b=ADUE2H2bbQCHSdPaSCwKQRz6zH
-	U000cYibUvL3M2pKDyO2SXF86tPw70A4Al0jbUcBkrSJNvTT8QExrpCMXJo30oij8u+uHwHWIxrvs
-	jy4xI+PhTDV3YezauZLVm96FiwPlw5hYQuHh9UkdvavSPB+moN72iHFt4avaHtKH3kg7NTBlJ71fV
-	zpReG9aSjg6g8HE4Y+Qhm3bXy7GTgAZQBP3UcwlZxgsYRrZ0kBBdSzrtXqVZ6sV8znv1LxHM23B+9
-	G3q6QnW1YkLMqLs4UxR1HiVLWnbPOI00taqT7ugKu9uoOWuLKj6kQy59d/FnLBHFVew8DkLDK6e4O
-	7NC+v/Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCaIdPFEVXXAQMVdDhO7/GgoSWyQhoZusrAuz5gCpv8=; b=kfImF2dasPQHtGxl/iGV9IHcBw
+	Z3GnScUziihzi8FfPg1VVDBP8S3wCrhn8gxpN8PvYYIr2wGmen/C7TxRlHtKUrSdlNMnhw/88JzGz
+	eMGhg/rGNtlHpDOhM2/MY1MWSfIe6/4XeB/tlJ4fAJmR9xZ/IzmihwBI/8ciOXO9x5ZUDTjOUTgRA
+	hQ0dvO8tIQDGllZSFEgTMvhuKRCwyJJ1NbIb2QhpiJzC8I24ZUazXD0Vv956+VjwCyiFcPFd9kok7
+	jyM/dk3HCEiwIoCHA3kGpOLCTlwz1dKiU3GyyvHmWb+iv0LYLvazRaqH8JyWQx47vPUldii+sFEZb
+	ii2VIOvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Zm1-00000006z8R-1o8V;
-	Mon, 07 Sep 2026 13:52:37 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x3Zrl-00000006zfP-1pwM;
+	Mon, 07 Sep 2026 13:58:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Zly-00000006z7A-2AVp
+	id 1x3Zrh-00000006zel-30Df
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:52:37 +0000
-X-PTX-Original-Recipient: alexandre.belloni@bootlin.com
-X-PTX-Original-Recipient: mailhol@kernel.org
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-PTX-Original-Recipient: imx@lists.linux.dev
-X-PTX-Original-Recipient: nicolas.ferre@microchip.com
-X-PTX-Original-Recipient: s32@nxp.com
-X-PTX-Original-Recipient: ciprianmarian.costea@oss.nxp.com
-X-PTX-Original-Recipient: claudiu.beznea@tuxon.dev
-X-PTX-Original-Recipient: dev.kurt@vandijck-laurijssen.be
-X-PTX-Original-Recipient: linux-can@vger.kernel.org
-X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B59B32018B6;
-	Mon, 07 Sep 2026 15:52:26 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1x3Zlq-000Xy5-21;
-	Mon, 07 Sep 2026 15:52:26 +0200
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id C8492596948;
-	Mon, 07 Sep 2026 13:49:24 +0000 (UTC)
-Date: Mon, 7 Sep 2026 15:49:24 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>, 
-	linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>
-Subject: Re: [PATCH v5 0/3] can_rx_offload keeps a lockless irq_queue that
- the IRQ handlers fill and that is later spliced under skb_queue.lock into
- the NAPI-facing skb_queue. This works as long as a single context fills the
- irq_queue. flexcan with FLEXCAN_QUIRK_SECONDARY_MB_IRQ and mcf5441x use two
- mailbox IRQ lines. When those are affined to different CPUs the two handlers
- can enqueue into the same list at the same time and corrupt it.
-Message-ID: <20260907-lively-easygoing-groundhog-51cdd3-mkl@pengutronix.de>
-References: <20260907104942.17089-1-ciprianmarian.costea@oss.nxp.com>
+	Mon, 07 Sep 2026 13:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1788789509; x=1820325509;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=+C1CDyK8+eil0VmXqu9ynj6BAwyOsJ/ZwQyq/Z+ba5Y=;
+  b=QsxQKQwxQe4YqM+9zpu0Lnz6y0LoEBkl9TtpBhKZWjLeifdWlN7yizmD
+   XS8yWc/vu7yxZVOrhHmtPUL5WH7YpuhjcCeTjhrOVD/Qp0f0Nwjs+Uo+U
+   IgDpGzIw2DD/bTFWUsJFieYuoZ4Jh2Wz5BW8MObPiO+ng/OIAdsk7VqEe
+   StWV6gfWQnM66xvkIh+FtWAnYY1N9Lbe+Uv+/bn+1cwl8+WLhMl0s7023
+   10LBTmnsq4IEIwzuZzxR5S+ocacKmPNzA4tUoIR887IVOls9p1FeyHN88
+   AOpNx2e6SfwZGpdi1+sZdnauh2dbglsjzvs3YGNSejKKdk5Q3Of0e/9Bt
+   Q==;
+X-CSE-ConnectionGUID: AHnXF5fBTmiIixkQbp6eiA==
+X-CSE-MsgGUID: GmtJI3NCSAqck9Dy/IW4VA==
+X-IronPort-AV: E=Sophos;i="6.25,267,1779174000"; 
+   d="scan'208";a="230362313"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2026 06:58:27 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Mon, 7 Sep 2026 06:58:27 -0700
+Received: from [10.159.227.160] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 7 Sep 2026 06:58:24 -0700
+Message-ID: <ccd8c141-96f8-47d1-99f9-ed684c569815@microchip.com>
+Date: Mon, 7 Sep 2026 15:58:26 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z3ydzlstb6mz4j6c"
-Content-Disposition: inline
-In-Reply-To: <20260907104942.17089-1-ciprianmarian.costea@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/6] arm64: dts: microchip: lan969x: add SDMMC nodes
+To: Robert Marko <robert.marko@sartura.hr>, <ulfh@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <adrian.hunter@intel.com>, <ehristev@kernel.org>,
+	<linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <luka.perkov@sartura.hr>
+References: <20260907132617.1198548-1-robert.marko@sartura.hr>
+ <20260907132617.1198548-5-robert.marko@sartura.hr>
+Content-Language: en-US, fr
+From: Aubin Constans <aubin.constans@microchip.com>
+In-Reply-To: <20260907132617.1198548-5-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_065234_707618_218B0920 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260907_065829_998706_4EE0F891 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +90,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 07/09/2026 15:25, Robert Marko wrote:
+> Add nodes for both SDMMC controllers. Connect their bus interface clock to
+> the fabric clock and their core clock to the corresponding generated clock.
+> 
+> Configure SDMMC0 with a 100 MHz generated clock for 50 MHz eMMC DDR
+> operation. Configure SDMMC1 with an exact 50 MHz generated clock so the
+> integer base clock encoded in the SDHCI capabilities remains accurate and
+> the identification clock does not exceed 400 kHz.
+> 
+> Keep both nodes ordered by unit address.
+> 
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 
---z3ydzlstb6mz4j6c
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 0/3] can_rx_offload keeps a lockless irq_queue that
- the IRQ handlers fill and that is later spliced under skb_queue.lock into
- the NAPI-facing skb_queue. This works as long as a single context fills the
- irq_queue. flexcan with FLEXCAN_QUIRK_SECONDARY_MB_IRQ and mcf5441x use two
- mailbox IRQ lines. When those are affined to different CPUs the two handlers
- can enqueue into the same list at the same time and corrupt it.
-MIME-Version: 1.0
+Reviewed-by: Aubin Constans <aubin.constans@microchip.com>
 
-On 07.09.2026 12:49:39, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->
-> This series:
->   1. Makes the irq_queue per-CPU so the handlers no longer share a list.
+> ---
+> Changes in v2:
+> * Use the fabric clock for the SDMMC bus interface clock.
+> * Configure SDMMC1 with an exact 50 MHz generated clock.
+> * Move the SDMMC1 node to preserve unit-address ordering.
+> * Explain the selected clock rates in the commit description.
+> 
+>   arch/arm64/boot/dts/microchip/lan9691.dtsi | 24 ++++++++++++++++++++++
+>   1 file changed, 24 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/microchip/lan9691.dtsi b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> index a8541c6a098d..5e330d5fab50 100644
+> --- a/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> +++ b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> @@ -414,6 +414,18 @@ qspi0: spi@e0804000 {
+>                          status = "disabled";
+>                  };
+> 
+> +               sdmmc0: mmc@e0830000 {
+> +                       compatible = "microchip,lan9691-sdhci",
+> +                                    "microchip,sam9x60-sdhci";
+> +                       reg = <0xe0830000 0x00000300>;
+> +                       interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&fabric_clk>, <&clks GCK_ID_SDMMC0>;
+> +                       clock-names = "hclock", "multclk";
+> +                       assigned-clocks = <&clks GCK_ID_SDMMC0>;
+> +                       assigned-clock-rates = <100000000>;
+> +                       status = "disabled";
+> +               };
+> +
+>                  qspi2: spi@e0834000 {
+>                          compatible = "microchip,lan9691-qspi";
+>                          reg = <0xe0834000 0x00000100>,
+> @@ -429,6 +441,18 @@ qspi2: spi@e0834000 {
+>                          status = "disabled";
+>                  };
+> 
+> +               sdmmc1: mmc@e0838000 {
+> +                       compatible = "microchip,lan9691-sdhci",
+> +                                    "microchip,sam9x60-sdhci";
+> +                       reg = <0xe0838000 0x00000300>;
+> +                       interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&fabric_clk>, <&clks GCK_ID_SDMMC1>;
+> +                       clock-names = "hclock", "multclk";
+> +                       assigned-clocks = <&clks GCK_ID_SDMMC1>;
+> +                       assigned-clock-rates = <50000000>;
+> +                       status = "disabled";
+> +               };
+> +
+>                  reset: reset-controller@e201000c {
+>                          compatible = "microchip,lan9691-switch-reset",
+>                                       "microchip,lan966x-switch-reset";
+> --
+> 2.55.0
 
-As sashiko pointed out, using per-CPU variables in a preemptible context
-doesn't work. When proposing to use per-CPU variables I haven't thought
-that far. So in hindsight this approach is not good.
-
-What about following what NAPI does. Have a dedicated data structure per
-IRQ. I think these ones are needed:
-
-| 	struct sk_buff_head skb_irq_queue;
-| 	u32 skb_queue_len_max;
-|
-| 	unsigned int mb_first;
-| 	unsigned int mb_last;
-
-And pass them to can_rx_offload_queue_timestamp() and
-can_rx_offload_irq_finish().
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---z3ydzlstb6mz4j6c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCap7A4gAKCRDMOmT6rpmt
-0tuZAQCogFQ+QoWQNO6hDtuUMx9jES7Eaf1siU6qm8CmFEtYUgEAjL4yL5o2L/jP
-fDbWTNDMHBDKnrwVfBb55SMkxq6uAA0=
-=gQZJ
------END PGP SIGNATURE-----
-
---z3ydzlstb6mz4j6c--
 
