@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B685C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE04DC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1u+6otlLYP9PUizxVuTiyaZgAtOo0g9T7ez9cTA60Y0=; b=xZb1w22UPsy0GWZoplnP2qcPHZ
-	YWIwd2RJ8KoC6xNCd19d9O0QhPDoV+3ieaxyrdaUaIT0SJQYqNQcbbNgI8dHvwUlnyttXdUD1uQ6R
-	4cnSSsK9wlLWOhbcvoa3tPaUedt9rJQo12bLXXNtZVx/FR6KH5FVeMhZzjK5cz93pORl90D5mM9K/
-	NxanUoaCxKj2VAO7XJ7QANxas/wsNlIOmynmT0071sceh/FNWKZuZ/cGn41JiPDxQKh9xsy5GUrzg
-	vghkbfrE504eUD/sJQPNQUrBoyXDmBArXEWuoYKotfxsN/aMjdktHbSOIYYpk2TypAvy5GGsPqBEY
-	JztLluTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Q2+48t1wSiZJUybl6pivADZo58b0sHhnIp8KamQgA0=; b=ep/E8Hq5tOH1vTNWGcSEw8Dybc
+	AFFmop1XtbtytkohYEJIp/S4hCvffVtgKvih11fta/bJsoTkP3B9HJMWJPYOf4zU0B9au6zC425OK
+	Dkm9kZ5XmeumzRHYJZamfPoBfuUq5to5/qhJWrjwEsYbM3D/dkA/xON3gAfgaSrGTrrV4MKbrn98p
+	7ksCz4Y8n78nRpNvmwaTA9yPKTPeXA3/NnnrRWhrcyO5tome7Nupvom7MOyRN6YSXq/25j8+mCtb9
+	qzq3CyTjENtaJ5arOQpRAxTvwEM+2eLQ+Nsmq33AqCoaQcjwJH1X8Wa4eGHdp9KcWAFOkHd3b0LzU
+	s2z2ql8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Sck-000000060Ad-3VPp;
-	Mon, 07 Sep 2026 06:14:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3Sf5-000000060Pk-1XAT;
+	Mon, 07 Sep 2026 06:16:59 +0000
+Received: from out-169.mta1.migadu.com ([2001:41d0:203:375::a9] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Scj-000000060AH-1ELL;
-	Mon, 07 Sep 2026 06:14:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1u+6otlLYP9PUizxVuTiyaZgAtOo0g9T7ez9cTA60Y0=; b=jVcqs2vmqDSfyaoWAk3DSfABhQ
-	rtPzgU1zOCifUxclxZ4k1ytX/1OJOhohb7BPqRW7m6qFWDg2ScDypOwuAw2nOfuapncCarV2bhiBN
-	FZageSOIQYMLxgvFFSkw6YONahPbS3hlaF0RzZqKRh8FNXk/2keqvgLKbKpfODrd55Rf/Opizei0a
-	MmCrcxqdZO79xychV5ZHwW9pNtG2p0qsX0ZD6U4leOpDrbay2QkUasjERsbXcuKwjGGqXubvmLhi/
-	b6F4TnzuZvanSkTcYnC/S+nRGaF7E4b3C2PumdejPOW/iAbiDb+2fsRmJjUfUap5hOHoZNgyT4XD4
-	hACwVF2g==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3Sce-0000000FqxU-3fKu;
-	Mon, 07 Sep 2026 06:14:31 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6876DfLiA2563156, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1788761621; bh=1u+6otlLYP9PUizxVuTiyaZgAtOo0g9T7ez9cTA60Y0=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=PTSp/vYDbglB0UVTkFZc1ZzYbvHwafcOjaj3QrDDaUw6RKUc81GKmE/vWUHeqUmJH
-	 G/NG8u7NjCs8aHvpTL2A7hYrR54+btVw1shNRWPQNfo0P1047gusxYrAP/0W1D+VoX
-	 AY0WUJ8/GlqJ49SSK4J5xWpas/6kaVt1Iin92X3dUFcI45PldTxW7faefPYFsPNDld
-	 WzO8BQ3DcptYdpTKgQwY7nKa7Mjw0OQW2ONcdUY6Gzk+PsZ0shT6OssP3ZiFZocslt
-	 8uclbPTHXEtShHBAoRYpzn1JQMz43wvatIn9M4pCg4M1gufKVleJJFCr9yoqN2EFR5
-	 yxAnpaI3FJKyg==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6876DfLiA2563156
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Sep 2026 14:13:41 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Mon, 7 Sep 2026 14:13:41 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::126f:59ad:658:674d%10]) with mapi id
- 15.02.2562.043; Mon, 7 Sep 2026 14:13:41 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: hpp.iscas <hppiscas@163.com>, =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
-	<james.tai@realtek.com>
-CC: =?utf-8?B?QW5kcmVhcyBGw6RyYmVy?= <afaerber@suse.com>, Linus Walleij
-	<linusw@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?=
-	<tychang@realtek.com>
-Subject: RE: [PATCH] pinctrl: realtek: rtd1619b: Publish the OF module alias
-Thread-Topic: [PATCH] pinctrl: realtek: rtd1619b: Publish the OF module alias
-Thread-Index: AQHdPTy094f4ciS4BkGSvd3QPNG9kbbCpD4A
-Date: Mon, 7 Sep 2026 06:13:41 +0000
-Message-ID: <84a7569139af472aaf704c6517b04f69@realtek.com>
-References: <20260905134418.67619-1-hppiscas@163.com>
-In-Reply-To: <20260905134418.67619-1-hppiscas@163.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1x3Sf2-000000060OX-1NvJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 06:16:58 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=um/5G4Ktg5bYB4/JmYOtP+jNUERGAJTRJYD0oR1JWK0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788761809; v=1; x=1789366609;
+ b=NjLpTG1JlRw2/g0gx8leRwJWDpdI75WLX1LsXFajbv2ihaF8Lj31ry8kzdH9QrTgbeVEr2a+
+ 0K8a1XX2CBfNsV4+zV51j37mszE0ErfPSiMrVFKmIZuCzksM8SXXPuIFiHvuiSHcknbfIkJc88F
+ 8I0/0hOSHyQhF3UdT6hazDWg=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a8b123c8c6109945;
+	Mon, 07 Sep 2026 06:16:49 +0000
+X-Mizu-Trace-ID: a8b123c8c6109945
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <55e5864b-a292-476f-a6c4-20f89412abae@linux.dev>
+Date: Mon, 7 Sep 2026 14:16:39 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530
+ PHY
+To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>,
+ netdev@vger.kernel.org
+Cc: andrew@lunn.ch, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
+ sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+From: Qingfang Deng <qingfang.deng@linux.dev>
+In-Reply-To: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_071429_751888_F6C91D72 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260906_231656_520730_FB112769 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksDQoNCj4gVGhlIFJURDE2MTlCIHBpbmN0cmwgZHJpdmVyIGlzIGEgc2VwYXJhdGUgdHJpc3Rh
-dGUgb2JqZWN0IHVzaW5nDQo+IA0KPiBydGQxNjE5Yl9waW5jdHJsX29mX21hdGNoLiBUaGUgZ2Vu
-ZXJpYyBSZWFsdGVrIHBpbmN0cmwgc3VwcG9ydCBkb2VzIG5vdA0KPiANCj4gcHVibGlzaCBhbiBh
-bGlhcyBmb3IgdGhpcyBTb0MgbW9kdWxlLg0KPiANCj4gDQo+IA0KPiBFeHBvcnQgdGhlIGV4aXN0
-aW5nIE9GIHRhYmxlIHdoaWxlIHJldGFpbmluZyB0aGUgaW5pdGlhbGl6YXRpb24gb3JkZXIuDQo+
-IA0KPiANCj4gDQo+IEZpeGVzOiBjNzkxMGY2YWNhNTYgKCJwaW5jdHJsOiByZWFsdGVrOiBBZGQg
-cGluY3RybCBkcml2ZXIgZm9yIFJURDE2MTlCIikNCj4gDQo+IFNpZ25lZC1vZmYtYnk6IGhwcC5p
-c2NhcyA8aHBwaXNjYXNAMTYzLmNvbT4NCj4gDQoNClBsZWFzZSB1c2UgeW91ciByZWFsIG5hbWUu
-DQoNCj4gLS0tDQo+IA0KPiAgZHJpdmVycy9waW5jdHJsL3JlYWx0ZWsvcGluY3RybC1ydGQxNjE5
-Yi5jIHwgMSArDQo+IA0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspDQo+IA0KPiAN
-Cj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BpbmN0cmwvcmVhbHRlay9waW5jdHJsLXJ0ZDE2
-MTliLmMNCj4gYi9kcml2ZXJzL3BpbmN0cmwvcmVhbHRlay9waW5jdHJsLXJ0ZDE2MTliLmMNCj4g
-DQo+IGluZGV4IGIwN2U1MGQuLmUwM2UxZmIgMTAwNjQ0DQo+IA0KPiAtLS0gYS9kcml2ZXJzL3Bp
-bmN0cmwvcmVhbHRlay9waW5jdHJsLXJ0ZDE2MTliLmMNCj4gDQo+ICsrKyBiL2RyaXZlcnMvcGlu
-Y3RybC9yZWFsdGVrL3BpbmN0cmwtcnRkMTYxOWIuYw0KPiANCj4gQEAgLTE1NzUsNiArMTU3NSw3
-IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkDQo+IHJ0ZDE2MTliX3BpbmN0cmxf
-b2ZfbWF0Y2hbXSA9IHsNCj4gDQo+ICAgICAgICAgeyAuY29tcGF0aWJsZSA9ICJyZWFsdGVrLHJ0
-ZDE2MTliLXBpbmN0cmwiLCB9LA0KPiANCj4gICAgICAgICB7fSwNCj4gDQo+ICB9Ow0KPiANCj4g
-K01PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIHJ0ZDE2MTliX3BpbmN0cmxfb2ZfbWF0Y2gpOw0KPiAN
-Cj4gDQo+IA0KPiAgc3RhdGljIHN0cnVjdCBwbGF0Zm9ybV9kcml2ZXIgcnRkMTYxOWJfcGluY3Ry
-bF9kcml2ZXIgPSB7DQo+IA0KPiAgICAgICAgIC5kcml2ZXIgPSB7DQo+IA0KDQpUaGUgY29kZSBs
-b29rcyBnb29kIHRvIG1lLCBidXQgJ2dpdCBhbScgZmFpbGVkIHRvIGFwcGx5IHRoZSBtYm94LiAN
-Ckkgbm90aWNlZCA9MEQgaW4geW91ciBwYXRjaCwgd2hpY2ggbWlnaHQgYmUgdGhlIHJlYXNvbiBp
-dCBmYWlsZWQuDQoNCkJlc3QgUmVnYXJkcywNCll1LUNodW4NCg==
+On 2026/9/5 4:28, Vladislav Karmanov wrote:
+> The MT7530 internal GE PHY advertises EEE by hardware default, but its
+> EEE support is defective: with EEE advertised, some link partners fail
+> to establish a stable link. On a 2-pair (4-wire) cable where both ends
+> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
+> falling back to 100 Mbps the port loops, so no link or DHCP lease is
+> ever obtained. MediaTek confirms the hardware is the root cause (Landen
+> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
+> problems, so it is recommended to disable its EEE."
+>
+> mtk_gephy_config_init() used to clear the EEE advertisement early, but
+> commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+> advertisement") removed that on the rationale that the DSA subdriver
+> already performs an early disable. That holds for MT7531, whose
+> mt7531_setup() clears MDIO_AN_EEE_ADV on each switch PHY, but not for
+> the MT7530 PHY: neither the MT7621 integrated switch nor the dedicated
+> MT7530 IC ever had such a loop, so removing it left those boards
+> without any working early EEE disable and the link flapping came back.
+>
+> Since the broken hardware is the PHY, fix it in the PHY driver so it
+> covers all users of this PHY, integrated in a switch or standalone:
+>
+>    - clear MDIO_AN_EEE_ADV in probe(), before anything can negotiate
+>      EEE with the link partner;
+>    - call phy_disable_eee() so phylib does not write the advertisement
+>      back on later renegotiations and userspace cannot re-enable EEE.
+>
+> Auto-negotiation then falls back to a stable 100 Mbps link instead of
+> looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
+> cable on the WAN port, a single clean 100 Mbps link comes up and a
+> DHCP lease is obtained, where the unpatched driver loops.
+>
+> Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+> Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+
+Acked-by: Qingfang Deng <qingfang.deng@linux.dev>
+
 
