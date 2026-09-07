@@ -4,74 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3636C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 05:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74748C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 05:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6tgaHbVtiWTh3fQBGQAiRrlbsazgMdvtDokO7aUJ4I=; b=y9wVjGvbqgB6StITHQHETIgS+j
-	uzGyNqhgomFpF2//a54UrP2m8s6ehT/SzXyBf7PpNSHBgfLpQjvABFFRKIwlb8BWp24BJ14E0O8tN
-	ccSgV8XG6bKCWBBSTElGjv2lUxe9r9UkSMzML45kGnsy4fGnEsxPEbQcV7Uch6YIYekMFgy0yAzG1
-	RqoMH8t+Ergzi6B/osRXhMbqaI7cBGHuzZdmstaBQIHUPkVPFfpjJh5cZ3uphkJGKz5v/66uJ/W++
-	BfS82Ge+cnYTM+yDjHfmFtT/AaVLG6FugDXQvKzJ4p6+tUY7eDjODfwWBalfN8y/+MWiYPJJdLOxN
-	ObRxpzyg==;
+	bh=o5qbbR1yQ4iI2orK8p1mAk+KPmFDgRJcpOZbeD4+1ts=; b=MmTwBBhKrMFFQJW28bzsuypzSE
+	DSiob3LEXpX9xiXIDc1djH6Mfd5mvxZrb0BDUOuVbFRinQhu2JS/DJpgZimuphcBX7Dy96duAvP5O
+	ECJXEt5SegI1jGnXu1I2NrQkeGX1BcXNhZYoPKM4cf6z0HQa42TBUuT5AtIgirzgnwHtQwWLEGrMz
+	efNSlYa9xNCoc5mfa1wnKsaaIBZb/xUz35DDkRtfymoI95rsfUC0/Ep/Z1aeyFwAKnHnRfIjC4VKL
+	VaG2C7U7ayMSt67uP85ttdfEGaXFLD6/P8ktWr6AGDTzdfdKiO2SslkawnvjQRJ+WEU7ZWL1qc89i
+	kZYMhxJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SAZ-00000005xTp-3N9V;
-	Mon, 07 Sep 2026 05:45:29 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1x3SAj-00000005xYd-0o1J;
+	Mon, 07 Sep 2026 05:45:37 +0000
+Received: from mail-oa2-x0a.google.com ([2607:f8b0:4864:30::a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SAS-00000005xP9-1h2n
+	id 1x3SAg-00000005xWF-2QxA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 05:45:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1788759912;
-	bh=jHaxIQ3pA1eeWIle1Pk9J90EZmpff5RsKw2PfaVnl9A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SfWSK/ahn06kZntBnbhT0gYtxboxUyXFW9sznUoNgaeOlkScL/EVWj5kKaLRsnxwj
-	 qMTCIvjn1ZFkBsUI621/mshp8jAEz3LFaTdQTx92ltJp+/r/7ijQnRwI9imYQl/R3l
-	 jWF+lfEnUxnVx74sACHqIQFXMyfW7+dmRlk0kr4s=
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Mon, 07 Sep 2026 07:45:03 +0200
-Subject: [PATCH v2 3/3] driver core: Constify the signature of
- device_show/store_*()
+	Mon, 07 Sep 2026 05:45:35 +0000
+Received: by mail-oa2-x0a.google.com with SMTP id 586e51a60fabf-46adea418f3so1086752fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 22:45:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788759933; x=1789364733; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o5qbbR1yQ4iI2orK8p1mAk+KPmFDgRJcpOZbeD4+1ts=;
+        b=sa2Van/4is9Qu1EWH5dsEescgN0LleRAYxaFluy0qzm9fgGWXFtatPNMtASUvjj5hc
+         rb7v3oY3jMyM+Otheqn5Rysj3sEk6cg+77WKpWN6R2n3n1k8MVyX1l/5jQy2h0wvINdY
+         vWJmUBzf08B3n1pJ5jEscGCdCFBblyTJfJhqy4f1SvpBU4EtEdw0Ns4+zrjTt76DvClg
+         NZlKXrCa8evH7woyDEQZX7+2SusrwvqZuCVU+kxdUhmwbia735vo3jgrI3VrZOBVTH+h
+         YF78XuiXAby1CE0NMUitb8ivxXmqFH2CpMvNK9GOwqeTfUK56PzPwGuoWZcreXYt0RhX
+         mOUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788759933; x=1789364733;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=o5qbbR1yQ4iI2orK8p1mAk+KPmFDgRJcpOZbeD4+1ts=;
+        b=b0sbgP7WPmwXOhz31baU1mp1qB0TmMt1L3XmjTJh70ZWqq5+42bhRAJ0ec/M7uh4e7
+         g6jHxUL1kRthu+8tkLZzwUwyi04xjA4PfLLm9r1MLDdYu+F9X3FKOpttEmtDgkt8TmQK
+         YJRsptlUUTJsMbZ4xgbVYAf9CE2+VStIq2RxNpDOmVFBCPke6QV7uFEajTGAcd7V78Qw
+         tuL+x5iRhWc5Nx8QlRhDEc37+O9BXsZgmOVN5kUdkgQwrCw+IvdhIjtGfIl0pnUaFHWs
+         EUq609BsgebcaEm9kMPgTLCPe8yqk7/G0Sjf1RfhkSUwiHKkDsLiZJz8aWVSgnIBpWA6
+         9eIg==
+X-Forwarded-Encrypted: i=1; AKwUvByNRQ1GbazYcQ7ujHjRrM+o+vK/R9hsA6++PcpoFpaBjEQox1I6zrp8OtpVKzWm/8Aw/3rJuhZW8OdpdOYZWWnZ@lists.infradead.org
+X-Gm-Message-State: AFuF++l33FGanzKkhd2wu2NVNMEAOvWF+QdwjNAOIDhlbwfkUPBq0Rl4
+	/YcKCGu7PTSv5pCMhYGmALjlVLejIZutCcrscb3lzmjSLNUKXwlDFtqD9yyfodckh4skNA==
+X-Gm-Gg: AYBFou0bmWjihEdTcEp4HufwRL9NKRgF3jWtiDM9tippfK+VARb147mRUjomXIM53ip
+	3DNUmlienUEPQsD1mtuyNKCHTZO4jjaoCJ0UCm7oC/FYDpKFyi1ekhs3cmFZer9MVevUj2LQBmd
+	sN/C3h2tEn25ZxZiUpgnvEYXnCpsebiQ3JpxWeY0MLPzZ9/XYhrCmnC/XZ0aLfhQ7cQ/7PaVPek
+	1o+UM0oLoaZ/5OD/cPGtX38is7emGc0svpUF2rIMT9lEWw0NtmWSHO/TMghC9VpAfsNXBLos8l0
+	ryIfVd7BkJujBZXPqjZPvHDYBH9HoSJWke89/jGUVCPuQvq7wCUSHVN9jm0J3NykGqOXPTVC9mc
+	ZgeBm70CJrBZouiJDxRhb/U92zmqCW5bKpLc3E2dk4ckwXegbifnSssaY02ULIVubfuAASAonj7
+	iaw9X3DrGxs2cWlHXHeRIvIwdltIoQKBxymcHbiVNsSKDC84obHedd65KMbotGxA==
+X-Received: by 2002:a05:6870:96a3:b0:440:67b1:b59b with SMTP id 586e51a60fabf-4754d5745e0mr13037030fac.0.1788759932942;
+        Sun, 06 Sep 2026 22:45:32 -0700 (PDT)
+Received: from ryan-dell ([2600:100b:b039:79f4:f7f:ccf7:cd6f:384])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-47989a71ebbsm204482fac.17.2026.09.06.22.45.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 06 Sep 2026 22:45:31 -0700 (PDT)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Nickolay Goppen <setotau@mainlining.org>
+Subject: Re: [PATCH 0/2] drm/panel: add Novatek NT51021 1200x1920 DSI panel driver
+Date: Mon,  7 Sep 2026 00:45:06 -0500
+Message-ID: <20260907054509.118237-1-ryanbrue.dev@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
+References: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260907-sysfs-const-attr-dev_ext_attr-v2-3-bf53afe57071@weissschuh.net>
-References: <20260907-sysfs-const-attr-dev_ext_attr-v2-0-bf53afe57071@weissschuh.net>
-In-Reply-To: <20260907-sysfs-const-attr-dev_ext_attr-v2-0-bf53afe57071@weissschuh.net>
-To: Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jic23@kernel.org>, 
- Yushan Wang <wangyushan12@huawei.com>, Jijie Shao <shaojijie@huawei.com>, 
- Khuong Dinh <khuong@os.amperecomputing.com>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>
-Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, driver-core@lists.linux.dev, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788759912; l=5954;
- i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=jHaxIQ3pA1eeWIle1Pk9J90EZmpff5RsKw2PfaVnl9A=;
- b=HSiLRH38g3xSkpGb5oIKBJaK+SOmvIEuNwqO/eqdT7KHt7JaySzEjU5t5xVPUxSbcL/2oSJ8q
- Vg+/kfFlctnBza+sS9aoCZ//ve+6Dyrc1y3gZ5QVZWXlD8L1tbcV9W2
-X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
- pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_224520_607708_FAE000A0 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260906_224534_677780_46C77648 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,158 +113,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare for the constification of 'struct dev_ext_attribute' by changing
-the signature of the standard callback functions.
+Please disregard this series.
 
-Migrate the hv-24x7 driver in the same commit. It is the only user to
-manually assign one of the standard callbacks.
+Nickolay Goppen posted an NT51021 driver a week before my patch, and I
+didn't catch it.
 
-Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
----
- arch/powerpc/perf/hv-24x7.c |  2 +-
- drivers/base/core.c         | 30 +++++++++++++++---------------
- include/linux/device.h      | 14 +++++++-------
- 3 files changed, 23 insertions(+), 23 deletions(-)
+https://lore.kernel.org/all/20260829-qcom-novatek-nt51021-panels-v1-0-cc1ca61bd261@mainlining.org/
 
-diff --git a/arch/powerpc/perf/hv-24x7.c b/arch/powerpc/perf/hv-24x7.c
-index b0eedf185960..3e094dc7d76b 100644
---- a/arch/powerpc/perf/hv-24x7.c
-+++ b/arch/powerpc/perf/hv-24x7.c
-@@ -462,7 +462,7 @@ static struct attribute *device_str_attr_create_(char *name, char *str)
- 	attr->var = str;
- 	attr->attr.attr.name = name;
- 	attr->attr.attr.mode = 0444;
--	attr->attr.show = device_show_string;
-+	attr->attr.show_const = device_show_string;
- 
- 	return &attr->attr.attr;
- }
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 4c0c373998a1..5daa88fa724a 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -2517,13 +2517,13 @@ static const struct sysfs_ops dev_sysfs_ops = {
- 	.store	= dev_attr_store,
- };
- 
--#define to_ext_attr(x) container_of(x, struct dev_ext_attribute, attr)
-+#define to_ext_attr(x) container_of_const(x, struct dev_ext_attribute, attr)
- 
- ssize_t device_store_ulong(struct device *dev,
--			   struct device_attribute *attr,
-+			   const struct device_attribute *attr,
- 			   const char *buf, size_t size)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 	int ret;
- 	unsigned long new;
- 
-@@ -2537,19 +2537,19 @@ ssize_t device_store_ulong(struct device *dev,
- EXPORT_SYMBOL_GPL(device_store_ulong);
- 
- ssize_t device_show_ulong(struct device *dev,
--			  struct device_attribute *attr,
-+			  const struct device_attribute *attr,
- 			  char *buf)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 	return sysfs_emit(buf, "%lx\n", *(unsigned long *)(ea->var));
- }
- EXPORT_SYMBOL_GPL(device_show_ulong);
- 
- ssize_t device_store_int(struct device *dev,
--			 struct device_attribute *attr,
-+			 const struct device_attribute *attr,
- 			 const char *buf, size_t size)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 	int ret;
- 	long new;
- 
-@@ -2566,19 +2566,19 @@ ssize_t device_store_int(struct device *dev,
- EXPORT_SYMBOL_GPL(device_store_int);
- 
- ssize_t device_show_int(struct device *dev,
--			struct device_attribute *attr,
-+			const struct device_attribute *attr,
- 			char *buf)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 
- 	return sysfs_emit(buf, "%d\n", *(int *)(ea->var));
- }
- EXPORT_SYMBOL_GPL(device_show_int);
- 
--ssize_t device_store_bool(struct device *dev, struct device_attribute *attr,
-+ssize_t device_store_bool(struct device *dev, const struct device_attribute *attr,
- 			  const char *buf, size_t size)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 
- 	if (kstrtobool(buf, ea->var) < 0)
- 		return -EINVAL;
-@@ -2587,19 +2587,19 @@ ssize_t device_store_bool(struct device *dev, struct device_attribute *attr,
- }
- EXPORT_SYMBOL_GPL(device_store_bool);
- 
--ssize_t device_show_bool(struct device *dev, struct device_attribute *attr,
-+ssize_t device_show_bool(struct device *dev, const struct device_attribute *attr,
- 			 char *buf)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 
- 	return sysfs_emit(buf, "%d\n", *(bool *)(ea->var));
- }
- EXPORT_SYMBOL_GPL(device_show_bool);
- 
- ssize_t device_show_string(struct device *dev,
--			   struct device_attribute *attr, char *buf)
-+			   const struct device_attribute *attr, char *buf)
- {
--	struct dev_ext_attribute *ea = to_ext_attr(attr);
-+	const struct dev_ext_attribute *ea = to_ext_attr(attr);
- 
- 	return sysfs_emit(buf, "%s\n", (char *)ea->var);
- }
-diff --git a/include/linux/device.h b/include/linux/device.h
-index aee79fd6b32b..90cdd77458bb 100644
---- a/include/linux/device.h
-+++ b/include/linux/device.h
-@@ -129,19 +129,19 @@ struct dev_ext_attribute {
- 	void *var;
- };
- 
--ssize_t device_show_ulong(struct device *dev, struct device_attribute *attr,
-+ssize_t device_show_ulong(struct device *dev, const struct device_attribute *attr,
- 			  char *buf);
--ssize_t device_store_ulong(struct device *dev, struct device_attribute *attr,
-+ssize_t device_store_ulong(struct device *dev, const struct device_attribute *attr,
- 			   const char *buf, size_t count);
--ssize_t device_show_int(struct device *dev, struct device_attribute *attr,
-+ssize_t device_show_int(struct device *dev, const struct device_attribute *attr,
- 			char *buf);
--ssize_t device_store_int(struct device *dev, struct device_attribute *attr,
-+ssize_t device_store_int(struct device *dev, const struct device_attribute *attr,
- 			 const char *buf, size_t count);
--ssize_t device_show_bool(struct device *dev, struct device_attribute *attr,
-+ssize_t device_show_bool(struct device *dev, const struct device_attribute *attr,
- 			char *buf);
--ssize_t device_store_bool(struct device *dev, struct device_attribute *attr,
-+ssize_t device_store_bool(struct device *dev, const struct device_attribute *attr,
- 			 const char *buf, size_t count);
--ssize_t device_show_string(struct device *dev, struct device_attribute *attr,
-+ssize_t device_show_string(struct device *dev, const struct device_attribute *attr,
- 			   char *buf);
- 
- typedef ssize_t __device_show_handler_const(struct device *dev, const struct device_attribute *attr,
+I checked that there were no patches on the mailing list prior to
+working on it, and then forgot to check prior to sending mine. What are
+the odds, for an 8+ year old panel? :D
 
--- 
-2.55.0
+His covers more panels, but my panel seems to be slightly different
+from his, based on the vendor kernel I referenced for my bringup. I
+tested his driver on my hardware and it works; I'm going to make a
+reply on that thread, and I will set up the Amazon Fire HD 10 panel as
+a variant on top of his series instead.
 
+Sorry for the noise, I'm new to this and I hope to learn quickly.
+
+Ryan
 
