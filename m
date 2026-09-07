@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5951C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 07:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FCDAC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 07:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EEnrarzSHszVqnDun3qqe5oGqxFwXZKFMFdkz68gO1g=; b=OVi1DqhTEGvnB/iVfbmz+ch28F
-	nIWw/S5zv4ZbkDv1nNr6ojOrAh1itG43PnE3gx9S78+zlMB3PFJMP/GZVD7/j181m8B6Rzclj3Slz
-	6qpwmcgHxMFP4NXnw6J9VyI1mdNg0yzHItRl4RyOQYq/hiQAlE+JRKmG5D70OyhC7vbbDLp/7TNAU
-	we9dB1PIWQ2NQupa4/PQCB1U7Pw2jkgHKgzH3OUcVPvt5dh48R5lIDNgA5d3LVPXflXwel8tUMvjr
-	eNuHla+JXIRQf9oESFnzue5BGh5i08rSPfun+rurt1kEqILlWx1kMW0wV+eMZyfs1mph3sXBKE8ix
-	64gVsLSg==;
+	Content-Type:Message-ID:Mime-Version:References:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=43l6s6Pgrn8yOxJeuT4TcGACuUoK6HUv620UrE/SUwQ=; b=fykdKFo6R/Ftk4CVl8Ev4w8Bcc
+	Hko5TV6GGF58uYKy8JqN6AXIXkI3eGW/0QZ7xONsE6gP88XGDqFyOx0o7gyGjCoL88QpfkElBrddM
+	kzSud/Sta3K7yaz9lkQl3d7GCYi/syjeQosge624DGanqk0Imte59zDpVfln1zvsWI5HMZ6cd/CP9
+	zUMBX13YmO5hdRNG0slKY/jq8MPugVC6kKvRzhYBUC7aq8wlfGc1tK6YC/ApBfYuln5Y7noykOcM0
+	A59PXR+gfHMt2GVQAmeP1/inO1a8Ucwp9SWt5RoIjYxN7XN6Gw+HH0SHJi51xqhCJhETXIH/vAeza
+	HqAM+DQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TMy-000000066wg-2A01;
-	Mon, 07 Sep 2026 07:02:20 +0000
-Received: from out-51.mta1.migadu.com ([2001:41d0:203:375::33] helo=mta1.migadu.com)
+	id 1x3TS0-000000067dm-0SPH;
+	Mon, 07 Sep 2026 07:07:32 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TMo-000000066pz-3a1L
+	id 1x3TRt-000000067cW-2zpm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 07:02:18 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=amYl0B6nCo9jm5nnF4QAO/icGHpe/yopO3N6zKAk7Pw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788764529; v=1; x=1789369329;
- b=R9cYXpzzQeC3MI1bgij0EDPclomDAZ+pp/gzxR8NKHFouML/+fgxnepMzeeyQle3SUmy+bdO
- 41VaiClg6GlUfsEGEk1Gq4ciBTA2jtmiHq2zMCRiLe8pERPDb9L2DuSfBZ1cZOgpFtu5t1FIzgv
- laIefMc8pcKheuj1++YNfU/g=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id e5bd89f6c8cdaee5;
-	Mon, 07 Sep 2026 07:02:08 +0000
-X-Mizu-Trace-ID: e5bd89f6c8cdaee5
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 17/17] KVM: arm64: Document the protected VM userspace API
-Date: Mon,  7 Sep 2026 08:00:02 +0100
-Message-Id: <20260907070002.3333525-18-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260907070002.3333525-1-fuad.tabba@linux.dev>
-References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 07 Sep 2026 07:07:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1788764768;
+	bh=43l6s6Pgrn8yOxJeuT4TcGACuUoK6HUv620UrE/SUwQ=;
+	h=Date:From:To:Subject:Mime-Version:Message-ID;
+	b=BYqZ0VDFl6rdjevN0GIeL1Oungpi1Ffez65Nq3Cd1Ku4TPiqpmbyL80HSoecTXq1Q
+	 7KzIY+UApegXUQaQ+luhCgnO+j7DJVSOH3spxirDZRaZsl6tQuu21bLMpjuRFntBNu
+	 3iRdUO3fel6Y4xjMhu8LYB/9tdfTbLKmEaKjuIto=
+X-QQ-mid: zesmtpgz4t1788764764tf478b456
+X-QQ-Originating-IP: /0CXJVCxXTrVWLkOYaAwZSxz5I8ztM5QAKcBZrDAjDE=
+Received: from PEN002676 ( [1.202.39.170])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 07 Sep 2026 15:06:01 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 16136033036701943877
+Date: Mon, 7 Sep 2026 15:06:02 +0800
+From: =?GB2312?B?1dS98MP3?= <zhaojinming@uniontech.com>
+To: "Lorenzo Bianconi" <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier <maxime.chevallier@bootlin.com>, 
+	andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, 
+	edumazet <edumazet@google.com>, 
+	kuba <kuba@kernel.org>, 
+	pabeni <pabeni@redhat.com>, 
+	mcoquelin.stm32 <mcoquelin.stm32@gmail.com>, 
+	alexandre.torgue <alexandre.torgue@foss.st.com>, 
+	horms <horms@kernel.org>, 
+	ansuelsmth <ansuelsmth@gmail.com>, 
+	jose.abreu <Jose.Abreu@synopsys.com>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-stm32 <linux-stm32@st-md-mailman.stormreply.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] net: stmmac: clear dma_conf in __stmmac_open error path
+References: <20260904-fix-stmmac-mtu-change-use-after-free-v2-1-91e680476921@uniontech.com>, 
+	<apqkBQJMqHKTUxEp@lore-desk>
+X-Priority: 3
+X-GUID: 3B32DCFF-6EB4-4369-948A-FAAB222D1623
+X-Has-Attach: no
+X-Mailer: Foxmail 7.2.25.375[cn]
+Mime-Version: 1.0
+Message-ID: <B2251BD5D0B36E28+202609071506015851872@uniontech.com>
+Content-Type: text/plain;
+	charset="GB2312"
+Content-Transfer-Encoding: base64
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: OX/+6nY/vs4TxPtOb2to4XL3exppPYO8LhorISTV/8sLp/E3J/Cmlg8n
+	ZnFiMmVF9eMKhN9iKXPS5jQck+vMZYa9kf5Myad0ecfmdVYjSXqPLsJk8ofVG51o1sa+n7l
+	jbt7ROFOskNmwghXXDHWzlIei4O2KEdlq4DhyFxdCEJrn7ZkCmw9H1+lISD14KNy3CPtYOo
+	tJLrkJGCHtmQFg3m/NYZSzHg6jSILOT0Hap+1nmnvN2oqOZ3cjqAofebf6TtYs3UvwXotbB
+	1z36h8zN9WQMXL7M+ULRHwQEtctBUV0Y3Ab+BLxp7fWXks9/dlD0b8g3pOdHVG0QmvAqRWQ
+	xYXLVRp4qtmC6UK/XzQDFfyxHbCIRBCNo5hq9F0IT/mJe4C8d4oPiccZHO7t6cgW8eb6Wfu
+	l9tvVVyQvJEYp7U8LHDxewMWuoyG7dnDVEEV/XRD5XESk3Byb8H6tfCftLPqSaRcfajHph2
+	EaS5TQZJBD/3bbGU8z4h68R9ZM9Uv5IiGdWHlzABNj495PA0+XAP9OVE/EX1AeHwl72TdYN
+	wLhglrb5sU0YM951FouYyLjA29LJQGWhpSCpjueRXi0pZp0GA3unm6unosDd2pmyk9kzKlK
+	tTUIoLhIFif75+RXQBNWlzUPEEd799iSzfitk/tuGaqDD8RemKReQ/CSI2k/zbqBLFhRXrE
+	cy7IQWCtB+xCJrDGVGxsYm7qfNsMoAcviNvMx+hHFsWLnBUGnbhxpchlhb3KEk9E1UNoIgf
+	16lC3wIBhJRHkdSyJTcLCkcOde5WJSlR9Nhrnhk7z4eND2sfyq3AyGlpUFPaK0UHMRHa4ks
+	0lTlxCe8ZXbJWkltVR24QBO6f69RwTuCjY+bgp2UR9qH2mHhs41Kfgxoc3C7EjLpKezBlzB
+	zhWLL4LqElirKc5Ekv/g3g+7rbEykdxZtjraylNAnvoTWMX2ajE7SaeiELVfCNd+CsyX9dm
+	05jWm2Ss7T8p6s8wlS0KDOuXgSVOaFzFPoW4I0Fmz3KM7Xy/2De+55Wt0alDPunNdGAg=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_000214_202771_182E62A2 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20260907_000726_568103_E392AD92 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,315 +108,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EL2 owns a protected vCPU's state once it has run, and the ioctls that
-would access it fail rather than silently operate on a copy that is not
-the guest's. Describe the resulting API in pkvm.rst, point api.rst at
-it from each ioctl that behaves differently, and note the errnos beside
-the PVTIME attribute in devices/vcpu.rst and the PSCI version register
-in fw-pseudo-registers.rst.
-
-No functional change intended.
-
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- Documentation/virt/kvm/api.rst                |  22 ++-
- .../virt/kvm/arm/fw-pseudo-registers.rst      |   2 +
- Documentation/virt/kvm/arm/pkvm.rst           | 141 +++++++++++++++++-
- Documentation/virt/kvm/devices/vcpu.rst       |   4 +-
- 4 files changed, 161 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index e0430cc750c9e..212ac2aa5c6bd 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1322,6 +1322,9 @@ guests, across different userspace implementations. Nevertheless, userspace
- can still emulate all Arm exceptions by manipulating individual registers
- using the KVM_SET_ONE_REG API.
- 
-+For a protected VM, setting ext_dabt_pending returns -EPERM; see
-+Documentation/virt/kvm/arm/pkvm.rst. Injecting an SError is unaffected.
-+
- See KVM_GET_VCPU_EVENTS for the data structure.
- 
- Calling this ioctl on a vCPU that hasn't been initialized will return
-@@ -1624,6 +1627,11 @@ For arm64/riscv:
- The only states that are valid are KVM_MP_STATE_STOPPED and
- KVM_MP_STATE_RUNNABLE which reflect if the vcpu should be paused or not.
- 
-+On arm64, once a protected VM's vcpu has run, KVM_MP_STATE_RUNNABLE and
-+KVM_MP_STATE_SUSPENDED return -EPERM if the guest has powered it off with
-+CPU_OFF or has not yet brought it online with CPU_ON: only the guest can
-+power it on. See Documentation/virt/kvm/arm/pkvm.rst.
-+
- On LoongArch, only the KVM_MP_STATE_RUNNABLE state is used to reflect
- whether the vcpu is runnable.
- 
-@@ -2324,7 +2332,8 @@ Errors:
-   ENOENT   no such register
-   EINVAL   invalid register ID, or no such register or used with VMs in
-            protected virtualization mode on s390
--  EPERM    (arm64) register access not allowed before vcpu finalization
-+  EPERM    (arm64) register access not allowed before vcpu
-+           finalization, or after a protected VM's vcpu has run
-   EBUSY    (riscv) changing register value not allowed after the vcpu
-            has run at least once
-   ======   ============================================================
-@@ -2949,7 +2958,8 @@ Errors include:
-   ENOENT   no such register
-   EINVAL   invalid register ID, or no such register or used with VMs in
-            protected virtualization mode on s390
--  EPERM    (arm64) register access not allowed before vcpu finalization
-+  EPERM    (arm64) register access not allowed before vcpu
-+           finalization, or after a protected VM's vcpu has run
-   ======== ============================================================
- 
- (These error codes are indicative only: do not rely on a specific error
-@@ -3484,6 +3494,7 @@ Errors:
-   ======     =================================================================
-   EINVAL     the target is unknown, or the combination of features is invalid.
-   ENOENT     a features bit specified is unknown.
-+  EPERM      the vcpu belongs to a protected VM and has already run.
-   ======     =================================================================
- 
- This tells KVM what type of CPU to present to the guest, and what
-@@ -3512,6 +3523,10 @@ after the vcpu has been run. This will reset the vcpu to its initial
- state. All calls to this function after the initial call must use the same
- target and same set of feature flags, otherwise EINVAL will be returned.
- 
-+For a protected VM this ioctl returns EPERM once the vcpu has run, and the
-+features it accepts are restricted: KVM_ARM_VCPU_PSCI_0_2 is required. See
-+Documentation/virt/kvm/arm/pkvm.rst.
-+
- Possible features:
- 
- 	- KVM_ARM_VCPU_POWER_OFF: Starts the CPU in a power-off state.
-@@ -3790,6 +3805,9 @@ can be determined by querying the KVM_CAP_GUEST_DEBUG_HW_BPS and
- KVM_CAP_GUEST_DEBUG_HW_WPS capabilities which return a positive number
- indicating the number of supported registers.
- 
-+On arm64, this ioctl returns -EPERM for a protected VM: debugging a
-+protected guest is not supported. See Documentation/virt/kvm/arm/pkvm.rst.
-+
- For ppc, the KVM_CAP_PPC_GUEST_DEBUG_SSTEP capability indicates whether
- the single-step debug event (KVM_GUESTDBG_SINGLESTEP) is supported.
- 
-diff --git a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-index d78b53b05dfcf..c07471e258ea2 100644
---- a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-+++ b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-@@ -33,6 +33,8 @@ The following registers are defined:
-     highest PSCI version implemented by KVM and compatible with v0.2)
-   - Allows any PSCI version implemented by KVM and compatible with
-     v0.2 to be set with SET_ONE_REG
-+  - Returns -EINVAL for a version below v1.1 on a protected VM (see
-+    Documentation/virt/kvm/arm/pkvm.rst)
-   - Affects the whole VM (even if the register view is per-vcpu)
- 
- * KVM_REG_ARM_SMCCC_ARCH_WORKAROUND_1:
-diff --git a/Documentation/virt/kvm/arm/pkvm.rst b/Documentation/virt/kvm/arm/pkvm.rst
-index 514992a79a833..5e88a8d10cd6b 100644
---- a/Documentation/virt/kvm/arm/pkvm.rst
-+++ b/Documentation/virt/kvm/arm/pkvm.rst
-@@ -15,7 +15,8 @@ Overview
- Booting a host kernel with '``kvm-arm.mode=protected``' enables
- "Protected KVM" (pKVM). During boot, pKVM installs a stage-2 identity
- map page-table for the host and uses it to isolate the hypervisor
--running at EL2 from the rest of the host running at EL1/0.
-+running at EL2 from the rest of the host running at EL1/0. pKVM requires
-+a GICv3 interrupt controller.
- 
- pKVM permits creation of protected virtual machines (pVMs) by passing
- the ``KVM_VM_TYPE_ARM_PROTECTED`` machine type identifier to the
-@@ -31,7 +32,7 @@ See hypercalls.rst for more details.
- Isolation mechanisms
- ====================
- 
--pKVM relies on a number of mechanisms to isolate PVMs from the host:
-+pKVM relies on a number of mechanisms to isolate pVMs from the host:
- 
- CPU memory isolation
- --------------------
-@@ -67,12 +68,20 @@ largely due to the lack of MMU notifiers:
-   then it will either return ``-EFAULT`` or forcefully reclaim the
-   memory pages. Reclaimed memory is zeroed by the hypervisor and a
-   subsequent attempt to access it in the pVM will return ``-EFAULT``
--  from the ``VCPU_RUN`` ioctl().
-+  from the ``KVM_RUN`` ioctl().
- 
- CPU state isolation
- -------------------
- 
--Status: **Unimplemented.**
-+Status: CPU register state of protected vCPUs is managed entirely at EL2.
-+
-+pKVM performs the complete context switch for protected vCPUs within the
-+hypervisor. Protected vCPU state is initialised by the hypervisor to
-+architecturally defined reset values, and only what each exit needs is
-+synchronised back to the host.
-+
-+The user-visible consequences are described under `API behaviour for
-+protected VMs`_.
- 
- DMA isolation using an IOMMU
- ----------------------------
-@@ -89,13 +98,135 @@ The FF-A proxy ensures that the host cannot share pVM or hypervisor
- memory with Trustzone as part of a "confused deputy" attack.
- 
- The PSCI proxy ensures that CPUs always have the stage-2 identity map
--installed when they are executing in the host.
-+installed when they are executing in the host. This proxy is distinct
-+from the PSCI handling provided to protected guests, which is described
-+under `API behaviour for protected VMs`_.
- 
- Protected VM firmware (pvmfw)
- -----------------------------
- 
- Status: **Unimplemented.**
- 
-+API behaviour for protected VMs
-+===============================
-+
-+Protected vCPU state is owned by EL2 (see `CPU state isolation`_). The VMM
-+configures a vCPU before its first ``KVM_RUN``; afterwards the state is
-+private to the guest and the ioctls that access it return ``-EPERM``. The
-+errors follow one rule: ``-EPERM`` means the host asked for state that the
-+guest owns, and ``-EINVAL`` means the request is not valid for a protected
-+VM. The ioctls themselves are described in Documentation/virt/kvm/api.rst.
-+
-+Boot
-+----
-+
-+A protected VM boots from a single primary vCPU. Before the first
-+``KVM_RUN``, the VMM prepares the boot state:
-+
-+* Set ``KVM_MP_STATE_RUNNABLE`` on the primary vCPU and
-+  ``KVM_MP_STATE_STOPPED`` on every other vCPU. EL2 allows only one
-+  RUNNABLE primary per protected VM. A second RUNNABLE vCPU fails at its
-+  first ``KVM_RUN``.
-+* Set the primary vCPU's boot state with ``KVM_SET_ONE_REG``: the kernel
-+  entry address in ``PC`` and the DTB pointer in ``x0``.
-+
-+``PC`` and ``x0`` are the only registers EL2 takes from the host. Other
-+pre-run writes are accepted, but the guest starts from the architectural
-+reset values.
-+
-+Secondary vCPUs are started by the guest itself through PSCI ``CPU_ON``
-+(see `Power state`_), which supplies their entry point and context ID.
-+The VMM cannot choose where they boot.
-+
-+vCPU state
-+----------
-+
-+* ``KVM_GET_ONE_REG`` and ``KVM_SET_ONE_REG`` return ``-EPERM`` once the
-+  vCPU has run. Before that, they access the host-side copy from which
-+  EL2 builds the guest's boot state (see `Boot`_).
-+* ``KVM_ARM_VCPU_INIT`` accepts only the vCPU features that a protected
-+  guest supports and returns ``-EINVAL`` otherwise.
-+  ``KVM_ARM_VCPU_PSCI_0_2`` is required, as EL2 implements PSCI 1.1 for
-+  the guest (see `Power state`_). ``KVM_ARM_VCPU_EL1_32BIT`` is not
-+  supported: protected guests run in AArch64 only and see no AArch32
-+  support in ``ID_AA64PFR0_EL1``. Once the vCPU has run,
-+  ``KVM_ARM_VCPU_INIT`` returns ``-EPERM``, as re-initialising it would
-+  reset the host-side copy alone.
-+* ``KVM_SET_VCPU_EVENTS`` returns ``-EPERM`` for external-abort injection
-+  (``ext_dabt_pending``). SError injection is unaffected.
-+* ``KVM_SET_GUEST_DEBUG`` returns ``-EPERM`` (see `Debug`_).
-+
-+Power state
-+-----------
-+
-+EL2 implements PSCI 1.1 for a protected guest. The calls that move a
-+vCPU's power state, ``CPU_ON``, ``CPU_OFF`` and ``AFFINITY_INFO``, are
-+handled at EL2, and the host cannot change the outcome: for ``CPU_ON``
-+the host only schedules the target, which EL2 has already reset to the
-+entry point the guest chose, and for ``CPU_OFF`` it only stops
-+scheduling it. A vCPU becomes a valid ``CPU_ON`` target at its first
-+``KVM_RUN``, and before that EL2 returns ``INVALID_PARAMETERS``. The
-+platform calls, ``CPU_SUSPEND``, ``SYSTEM_OFF``, ``SYSTEM_RESET`` and
-+``SYSTEM_RESET2``, are forwarded to the host and behave as for a
-+non-protected VM, with the ``SYSTEM_*`` calls exiting to the VMM as
-+``KVM_EXIT_SYSTEM_EVENT``; the ``SYSTEM_RESET2`` reset type and cookie
-+are in the guest's registers, which ``KVM_GET_ONE_REG`` rejects once
-+the vCPU has run. Any other function returns ``NOT_SUPPORTED``, and
-+``PSCI_FEATURES`` reports the same set. Because the host handles those
-+forwarded calls, ``KVM_SET_ONE_REG`` on ``KVM_REG_ARM_PSCI_VERSION``
-+returns ``-EINVAL`` for a version below 1.1.
-+
-+Once a vCPU has run, its power state follows the guest's PSCI calls, not
-+the VMM's. ``KVM_SET_MP_STATE`` with ``KVM_MP_STATE_STOPPED`` still stops
-+the vCPU, so the VMM can pause it. ``KVM_MP_STATE_RUNNABLE`` and
-+``KVM_MP_STATE_SUSPENDED`` return ``-EPERM`` for a vCPU that the guest has
-+powered off with ``CPU_OFF``, or has not yet brought online with ``CPU_ON``:
-+only an in-guest ``CPU_ON`` can power it on.
-+
-+Other interface differences
-+---------------------------
-+
-+* ``KVM_CHECK_EXTENSION`` reports only the capabilities that pKVM supports
-+  for protected guests, and ``KVM_ENABLE_CAP`` accepts only those. Query
-+  them on the VM file descriptor: the system file descriptor has no VM to
-+  filter against. The filter does not cover every interface either:
-+  device-fd configuration (for example the VGIC after
-+  ``KVM_CREATE_DEVICE``) and vCPU attributes are unfiltered, and can refuse
-+  what a capability reported as available. ``KVM_ARM_VCPU_PVTIME_CTRL``
-+  returns ``-EPERM``, for example, since steal time cannot work for a
-+  protected guest.
-+* The vGIC of a protected VM remains host-managed: device creation,
-+  configuration and interrupt injection all work as they do for a
-+  non-protected VM.
-+* ``KVM_ARM_SET_COUNTER_OFFSET`` and ``KVM_ARM_GET_REG_WRITABLE_MASKS``
-+  return ``-EINVAL``: their capabilities are not offered to a protected
-+  VM, whose counter offset and ID registers are set by EL2. A protected
-+  guest sees the physical timebase.
-+* A protected guest's first access to each page of memory exits to the
-+  host, since the hypervisor cannot tell memory from a device before the
-+  page is mapped. For a store, the host sees the value of the register
-+  the syndrome names, clamped to the access width, and nothing else from
-+  the register file.
-+* A protected guest that uses a feature it was not given, or executes an
-+  ``SMC``, takes an undefined instruction exception from the hypervisor;
-+  the host is not involved.
-+* Apart from PSCI, the hypervisor handles a protected guest's SMCCC
-+  calls itself and does not involve the host. A function it does not
-+  implement returns ``NOT_SUPPORTED``.
-+* The hypervisor can decode a trapped guest access only from the CPU's
-+  instruction syndrome, which is provided only for a load or store of a
-+  single general-purpose register. An access without one (for example a
-+  load/store pair or a SIMD/FP access) cannot be decoded. For a
-+  non-protected VM it can exit to the VMM as ``KVM_EXIT_ARM_NISV``. For a
-+  protected VM it cannot be emulated by the VMM, so the guest takes a
-+  synchronous external abort instead.
-+
-+Debug
-+-----
-+
-+Hardware-assisted debugging is not available to protected guests: their
-+debug registers are RAZ/WI.
-+
- Resources
- =========
- 
-diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-index deb5c51bc00c8..5e571d43e54ca 100644
---- a/Documentation/virt/kvm/devices/vcpu.rst
-+++ b/Documentation/virt/kvm/devices/vcpu.rst
-@@ -226,12 +226,14 @@ Returns:
- 	 -ENXIO   Stolen time not implemented
- 	 -EEXIST  Base address already set for this VCPU
- 	 -EINVAL  Base address not 64 byte aligned
-+	 -EPERM   The VCPU belongs to a protected VM
- 	 =======  ======================================
- 
- Specifies the base address of the stolen time structure for this VCPU. The
- base address must be 64 byte aligned and exist within a valid guest memory
- region. See Documentation/virt/kvm/arm/pvtime.rst for more information
--including the layout of the stolen time structure.
-+including the layout of the stolen time structure. Stolen time is not
-+supported for protected VMs (see Documentation/virt/kvm/arm/pkvm.rst).
- 
- 4. GROUP: KVM_VCPU_TSC_CTRL
- ===========================
--- 
-2.39.5
+VGhhbmtzIGZvciB0aGUgcmV2aWV3LgoKSSBhZ3JlZSB0aGF0IHVzaW5nIE5VTEwgYXMgYW4gZXhw
+bGljaXQgIm5vIGNvbmZpZ3VyYXRpb24iIHNlbnRpbmVsIGlzIGNsZWFuZXIgdGhhbiByZWx5aW5n
+IG9uIGFuIGFsbC16ZXJvIHN0cnVjdC4gSG93ZXZlciwgdGhlIHplcm9lZCBzdHJ1Y3QgaXMgY3Vy
+cmVudGx5IHNhZmUgdG8gdGVhciBkb3duLCBhbmQgdGhhdCBzYWZldHkgY29tZXMgZnJvbSBlc3Rh
+Ymxpc2hlZCBrZXJuZWwgY29udmVudGlvbnMgcmF0aGVyIHRoYW4gZnJvbSBhbnl0aGluZyBzdG1t
+YWMtc3BlY2lmaWM6CiAtIGtmcmVlKE5VTEwpIGlzIGEgbm8tb3AgYnkgZGVmaW5pdGlvbi4KIC0g
+ZG1hX2ZyZWVfY29oZXJlbnQoKSBiYWlscyBvdXQgZWFybHkgb24gYSBOVUxMIGNwdV9hZGRyIChz
+ZWUga2VybmVsL2RtYS9tYXBwaW5nLmMsIGRtYV9mcmVlX2F0dHJzKCkgLT4gImlmICghY3B1X2Fk
+ZHIpIHJldHVybjsiKS4KIC0gcGFnZV9wb29sX2Rlc3Ryb3koKSBpcyBndWFyZGVkIGJ5ICJpZiAo
+cnhfcS0+cGFnZV9wb29sKSIuCiAtIHhkcF9yeHFfaW5mb191bnJlZygpIGlzIGd1YXJkZWQgYnkg
+eGRwX3J4cV9pbmZvX2lzX3JlZygpLgogLSBUaGUgc2tiL2Rlc2NyaXB0b3IgbG9vcHMgYXJlIGJv
+dW5kZWQgYnkgZG1hX3R4X3NpemUvZG1hX3J4X3NpemUsIHdoaWNoIGFyZSB6ZXJvIGFmdGVyIHRo
+ZSBtZW1zZXQsIHNvIHRoZXkgbmV2ZXIgZGVyZWZlcmVuY2UgdGhlIChub3cgTlVMTCkgYnVmZmVy
+L2Rlc2NyaXB0b3IgcG9pbnRlcnMuClNvIHdoaWxlIG1lbXNldCgpIGRvZXMgbGVhbiBvbiB0aG9z
+ZSBndWFyZHMsIHRoZXkgYXJlIG5vdCBhY2NpZGVudGFsIGFuZCBob2xkIGZvciB0aGUgY3VycmVu
+dCBjb2RlLgoKQ29udmVydGluZyBwcml2LT5kbWFfY29uZiB0byBhIHBvaW50ZXIgaXMgYSBtdWNo
+IGxhcmdlciBjaGFuZ2UgdGhhbiBpdCBmaXJzdCBhcHBlYXJzOiBpdCBpcyByZWZlcmVuY2VkIH4x
+MjAgdGltZXMgYWNyb3NzIHNpeCBmaWxlcyAoc3RtbWFjX21haW4uYywgc3RtbWFjX3NlbGZ0ZXN0
+cy5jLCBzdG1tYWNfdGMuYywgc3RtbWFjX2V0aHRvb2wuYywgY2hhaW5fbW9kZS5jLCByaW5nX21v
+ZGUuYyksIGFuZCB3b3VsZCByZXF1aXJlIGNoYW5naW5nIHRoZSBhbGxvY2F0aW9uIGxpZmV0aW1l
+IGluIHByb2JlL3JlbW92ZSBwbHVzIE5VTEwgZ3VhcmRzIGF0IGV2ZXJ5IHRlYXJkb3duIHNpdGUu
+IFRoYXQgZmVlbHMgbGlrZSBuZXQtbmV4dCBjbGVhbnVwIG1hdGVyaWFsIHJhdGhlciB0aGFuIHNv
+bWV0aGluZyB0byBmb2xkIGludG8gYSB1c2UtYWZ0ZXItZnJlZSBmaXggdGhhdCBzaG91bGQgYmUg
+YmFja3BvcnRlZCB0byBzdGFibGUuCgpXb3VsZCB5b3UgYmUgT0sgd2l0aCBrZWVwaW5nIHRoZSBt
+ZW1zZXQoKSBoZXJlIGFzIHRoZSBtaW5pbWFsIGZpeCwgYW5kIEkgZm9sbG93IHVwIHdpdGggYSBz
+ZXBhcmF0ZSBuZXQtbmV4dCBzZXJpZXMgdG8gY29udmVydCBwcml2LT5kbWFfY29uZiB0byBhIHBv
+aW50ZXI/IElmIHlvdSdkIHN0aWxsIHByZWZlciB0aGUgcG9pbnRlciBhcHByb2FjaCBpbiB0aGlz
+IHBhdGNoLCBJIGNhbiBkbyBpdCwgYnV0IEkgd2FudGVkIHRvIGZsYWcgdGhlIHNjb3BlIGZpcnN0
+LgoKUmVnYXJkcywgClpoYW9KaW5taW5nCgoKCj4+IF9fc3RtbWFjX29wZW4oKSBjb3BpZXMgdGhl
+IGZyZXNobHkgYWxsb2NhdGVkIGRtYV9jb25mIGludG8gcHJpdi0+ZG1hX2NvbmYKCgoKPj4gdmlh
+IG1lbWNweSgpIGJlZm9yZSBpdCBjYW4gZmFpbCwgZS5nLiBpbiBzdG1tYWNfcmVxdWVzdF9pcnEo
+KS4/IFdoZW4gaXQKCgoKPj4gZG9lcyBmYWlsLCB0aGUgY2FsbGVycyBmcmVlIHRoZSBkbWFfY29u
+ZiBkZXNjcmlwdG9yIHJlc291cmNlcyBhbmQgdGhlCgoKCj4+IHN0cnVjdCBpdHNlbGYsIGJ1dCBw
+cml2LT5kbWFfY29uZiBzdGlsbCBob2xkcyBwb2ludGVycyB0byB0aG9zZSBmcmVlZAoKCgo+PiBy
+ZXNvdXJjZXMsIGEgdXNlLWFmdGVyLWZyZWUgdGhhdCB0cmlnZ2VycyB3aGVuIGEgc3Vic2VxdWVu
+dAoKCgo+PiBzdG1tYWNfcmVsZWFzZSgpIG9yIGFub3RoZXIgTVRVIGNoYW5nZSByZWxlYXNlcyB0
+aGUgcmVzb3VyY2VzIGFnYWluLgoKCgo+PiAKCgoKPj4gVW5kbyB0aGUgbWVtY3B5IGluIHRoZSBl
+cnJvciBwYXRoIGJ5IHplcm9pbmcgcHJpdi0+ZG1hX2NvbmYsIGxlYXZpbmcgdGhlCgoKCj4+IHN0
+YXRlIGNvbnNpc3RlbnQgcmVnYXJkbGVzcyBvZiB0aGUgY2FsbGVyLgoKCgo+PiAKCgoKPj4gRml4
+ZXM6IDMwMTM0YjdjNDdiZDIgKCJuZXQ6IGV0aGVybmV0OiBzdG1pY3JvOiBzdG1tYWM6IGZpeCBw
+b3NzaWJsZSBtZW1vcnkgbGVhayBpbiBfX3N0bW1hY19vcGVuIikKCgoKPj4gU2lnbmVkLW9mZi1i
+eTogWmhhb0ppbm1pbmcgPHpoYW9qaW5taW5nQHVuaW9udGVjaC5jb20+CgoKCj4KCgoKPkhpIFpo
+YW9KaW5taW5nLAoKCgo+CgoKCj5JIGFncmVlIHRoZSBpc3N1ZSBpcyByZWFsLCBidXQgYXNzdW1p
+bmcgZnJlZV9kbWFfZGVzY19yZXNvdXJjZXMoKSBhbHdheXMKCgoKPnRvbGVyYXRlcyBhIGZ1bGx5
+IHplcm9lZCBkbWFfY29uZiBzdHJ1Y3Qgc2VlbXMgYSBiaXQgZnJhZ2lsZSB0byBtZS4KCgoKPklz
+IGl0IGJldHRlciB0byB1c2UgYSBwb2ludGVyIGZvciBwcml2LT5kbWFfY29uZiB0aGF0IHdlIGNh
+biBzZXQgdG8gTlVMTCBpbgoKCgo+Y2FzZSBvZiBlcnJvcj8gV2hhdCBkbyB5b3UgdGhpbms/CgoK
+Cj4KCgoKPlJlZ2FyZHMsCgoKCj5Mb3JlbnpvCgoKCj4KCgoKPj4gLS0tCgoKCj4+IENoYW5nZXMg
+aW4gdjI6CgoKCj4+IC0gTW92ZSB0aGUgY2xlYXJpbmcgb2YgcHJpdi0+ZG1hX2NvbmYgZnJvbSBz
+dG1tYWNfY2hhbmdlX210dSgpIGludG8KCgoKPj4/PyBfX3N0bW1hY19vcGVuKCkgZXJyb3IgcGF0
+aCwgdW5kb2luZyB0aGUgbWVtY3B5KCkgYXQgdGhlIHBvaW50IHdoZXJlIGl0CgoKCj4+Pz8gd2Fz
+IG1hZGUgYW5kIGNvdmVyaW5nIGJvdGggY2FsbGVycy4KCgoKPj4gLSBMaW5rIHRvIHYxOiBodHRw
+czovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwOTAzLWZpeC1zdG1tYWMtbXR1LWNoYW5nZS11c2Ut
+YWZ0ZXItZnJlZS12MS0xLWM4MWRjN2Q2ZDE4YUB1bmlvbnRlY2guY29tCgoKCj4+IC0tLQoKCgo+
+Pj8gZHJpdmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFjX21haW4uYyB8IDEg
+KwoKCgo+Pj8gMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspCgoKCj4+IAoKCgo+PiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFjX21haW4u
+YyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL3N0bW1hY19tYWluLmMKCgoK
+Pj4gaW5kZXggMjQ2NTZiMzUzNTBiMTQ0NTRmYjEwZGVjZWQ2NTE2ZWI4OWUyYzBjOS4uNDM2OWU2
+NGZhZjlmODc4YWEyMGFjNTA3NTcwNTA0NGY1NWM1ZjhiZiAxMDA2NDQKCgoKPj4gLS0tIGEvZHJp
+dmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFjX21haW4uYwoKCgo+PiArKysg
+Yi9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9zdG1tYWNfbWFpbi5jCgoKCj4+
+IEBAIC00MTkwLDYgKzQxOTAsNyBAQCBzdGF0aWMgaW50IF9fc3RtbWFjX29wZW4oc3RydWN0IG5l
+dF9kZXZpY2UgKmRldiwKCgoKPj4/IAoKCgo+Pj8gCXN0bW1hY19yZWxlYXNlX3B0cChwcml2KTsK
+CgoKPj4/IGluaXRfZXJyb3I6CgoKCj4+ICsJbWVtc2V0KCZwcml2LT5kbWFfY29uZiwgMCwgc2l6
+ZW9mKHByaXYtPmRtYV9jb25mKSk7CgoKCj4+PyAJcmV0dXJuIHJldDsKCgoKPj4/IH0KCgoKPj4/
+IAoKCgo+PiAKCgoKPj4gLS0tCgoKCj4+IGJhc2UtY29tbWl0OiBhNTAwZGI3ODE5YzUwZGI1OWU1
+NWYxYjRmYTFjM2JhYTVhMjYxNmYzCgoKCj4+IGNoYW5nZS1pZDogMjAyNjA5MDMtZml4LXN0bW1h
+Yy1tdHUtY2hhbmdlLXVzZS1hZnRlci1mcmVlLTY5M2RhNmViNGEzMAoKCgo+PiAKCgoKPj4gQmVz
+dCByZWdhcmRzLAoKCgo+PiAtLSAKCgoKPj4gWmhhb0ppbm1pbmcgPHpoYW9qaW5taW5nQHVuaW9u
+dGVjaC5jb20+CgoKCj4+IAoKCgo+PiAKCgo=
 
 
