@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CD4C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D2DC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PloKXYxQeao5LyBqd6CNUwy0u74eRsiezTlXOqTheC8=; b=QUAzBqDJhW8dPO385Iql5UniA+
-	OlhH9TUc/l13DykpTwcf/8YVl5H/TMWSAhEw6TLELoOY2fqiO2GIJ8dAH5XbTQ509AdMU2FcISdOy
-	0pXnTlkGF7nHiDjO3N77pYS+Lsrj9d1vQOdjRRVuh9DdJe36IEwot1fkbw0pmVlxZ/wjUXMya6h8v
-	u+jg6oVyjPYpVZtU43WLBkKnnlv2l9NSQqjV7ZTF+8p1hPr6ZsnzxcmWRj73llvOlvgg+05fnZZ1H
-	gIvT49MovQDRqbFw1a8eYZu+Wc8FgG+TkJSOnD4fnV4KVlmLe4hiRNYPTb4eafI6DafGnBE/8s+ft
-	4jXRqSlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f6pfB+AHXWKtWLZqidHfQCVglH2w9FfX1NUfObO3zo8=; b=R+f18yW04B8Ds37XqqJtnp85qT
+	3bln567j02HK9NFAoI5aXWK8E5XUdad/6RqrksdBB63LqkuxHGC9UtIO+A6AnFdipsyHDgww+/SFC
+	9ZDkhHOY37BLvQLuTj0Rc13BmUG3LNx4ShVlONs8bfv3FKrQzvsrPTlPfzH4acPC9e1XzTcWlUAPe
+	vszvi7RBYvY/ep5tqorVpxmk247L6mXfFRxixA0FYehWA9X2wxbFrvnZ5vCAYU0oFxZm8B0QbV8vi
+	ws5YsydQgZANCpKTsCArq5uE4ICciFs79+3RRMK7wVHfUzStu42vkeW7TTVH7zytm3sUQ/R98Vi4F
+	dghX/gSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3T7s-000000063Fu-2Ttj;
-	Mon, 07 Sep 2026 06:46:44 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1x3T8g-000000063QE-3ONl;
+	Mon, 07 Sep 2026 06:47:34 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3T7p-000000063F7-17Hz
+	id 1x3T8c-000000063Ob-2v38
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 06:46:43 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso3478424a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:46:40 -0700 (PDT)
+	Mon, 07 Sep 2026 06:47:33 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4843f205a5bso1734513f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:47:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788763600; x=1789368400; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PloKXYxQeao5LyBqd6CNUwy0u74eRsiezTlXOqTheC8=;
-        b=dUZYFRpe88rx2D5+hjd2f9ptBjA4j6E/TgPAh3pm02O4QRQ+bJnGLEKViB6biNUXdS
-         W+GDmGDatzaNwWuYxdXDhcTGcX42PszQX+lZ9RFT/gh0aR9Dju6HcVri8xU+Cqrnjp2t
-         kMzXzvYzkvUbtiiPuBnt3+W1/YkFzDnPWUzKQn1R/1U1AiqyjTa7NB4rZmvihsHvzPxE
-         fBV+vv102eViAJH1OMoeEg631gk+bsD5kt8yjYKZmM8VEud21REmTp35UCzlupEFwnG7
-         r79GAJh4F9iDY8VX7/KYcWS+cBx7UDE4frs8uBg3LpUuqHpUQQtYxHGQMMn9LldF6HwZ
-         LEyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788763600; x=1789368400;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788763648; x=1789368448; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PloKXYxQeao5LyBqd6CNUwy0u74eRsiezTlXOqTheC8=;
-        b=kvv6teEZb0kTkUm4bBmwhXjsrBp5If0i/WQDwoKOelMF/MfbSKyJLXYoxZSh10MCJp
-         Lio4MLWfJWu701jfPwOoD6w6zRDOUVg/qcRN0vXLQY0mpZzrXw+NtROJRH+DKRbznqdx
-         ytSwr9VgkR6DlAUIUk9QR+Si3pKmchFQvXAvZOSKrYn1pDsOqqG0V1D+jKa1z04mMfnq
-         Ka9NvzJQMWuCXLtBc1tDblvFhUbiCahiLQZDIj3yJ++Z2v1xctFhgYYLXOFhk07GTKqa
-         IWUmUt9q/G0Lkco/dy6zVhVIBSGhKC3udfhpEtKGQrCRKuV9kXTwKno1zS5dEGh95QIq
-         KONA==
-X-Forwarded-Encrypted: i=1; AKwUvBz7043g6Vr39LZ2iCYMd+PUlAwwkEx77Nh7ORu78ZzNca3QZ2kowAAoFIv/yLUuE+cIj7gllz8DpEHkygea4GM6@lists.infradead.org
-X-Gm-Message-State: AFuF++lIdh3vbsa59WOMV9hxD/B6MBsDeakuHouHi7ucscrLn4jDVqwE
-	OPjSNqyH2GUiLMYKECfEmxhXtEsX7EhwiSnmwsmtWyuJSNhXCCcheuba
-X-Gm-Gg: AYBFou3drAVu94j3pUh6jgs35+6FmycRJPI3sryLyw3dPjGHBHVgUNDxXYCPV9FHrdh
-	QGNBOWUOWeDg+CLDU2RBJf+kbH+BvWlXBjrl43lYNY+jdQbrF4kvy25Gon9rHOk/Ws11HrqPjna
-	YPG9+Uswje5BWVqpk9UxyJ8sjRw/BT4Mj9DErjjGFCQ0qIIOfTuUFajiYO2IXK87IWT8feJnHkG
-	MA8A4z52kT/PhlZB83bEQ5FF2UqrLFT4fMd1s+cACWma2f3hjPjVgHkpToA7r61ELw70ROCdB3f
-	20Mmtyrhd3WRUN4YCMJ/QY/i8rs7A2edg5jAWRmFilxP5BCGQzB6BT9TBiRHYdO0VxT3+Ztc0Vi
-	6UM9Uf3Lh4Vz8iUXAzQAc84dN3AVhdfns8w3+To82MhZSNyWfT2buqzrsK2uYNUJ95MFXqVhncK
-	5SkQZOriwR7uaFU/Lcn+cnMO8NtnAxQhhcWxzD8qfNxi27PbH67cY2m9o+jqyZ+CNsWNPw9zAKP
-	c25Oscz0+keeA==
-X-Received: by 2002:a17:90b:57cd:b0:398:c150:e7b3 with SMTP id 98e67ed59e1d1-39b2609f356mr34710524a91.4.1788763600149;
-        Sun, 06 Sep 2026 23:46:40 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b314cfcsm25401130eec.19.2026.09.06.23.46.34
+        bh=f6pfB+AHXWKtWLZqidHfQCVglH2w9FfX1NUfObO3zo8=;
+        b=Kk2LuTYKeUXtaaGvypFkNx/wbkcQbioXFx4FXurnOiCWSgHQadHw2tBthXXTVrxKRh
+         MrIcbZEaVCQlZxwacpsf5CPGOr12a/r6RC0HiTIghtGf/Se1I14aXEPhjeBd8vCxdrs+
+         p0ocUN+x3VFOFvpdHzwpiCds1CaLIeaAfwI9ix6owcJykx7u3ORFDf5FWEdd4OXQD5dZ
+         6cXLwe+vieYqkAx7p3vtQIJJmdec6LmXg3ZSMxY9MyreXodTJsk08Sl49Hs+mWZmSuQx
+         Mash510JQavdLLdrsRXxih4UdKcGvaqKjuUouOCedvKCqA/6ecMDZ1LdDFn0NKTmoReJ
+         qjZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788763648; x=1789368448;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f6pfB+AHXWKtWLZqidHfQCVglH2w9FfX1NUfObO3zo8=;
+        b=aH5LG/PxdgAsVcTrJjNZanNw1CvyZEmYGMRLA5YqvTxN7KGp28u96cs2XcgVj+M7y7
+         4AWGECr3If2YobALxLVxPLTW7cXQ/qj3uJxZ42tEFcOOU08LZ407jm0Pdw3Zl0p6ze2F
+         ompVmHk+VV3vKDGLv3NsSolbjrF62uNiDOBw22c8HKVte0smoviyDZqgY47i4hFbMNBh
+         vVu9qXP/Mx52m+Xi11hT5477jz85ZIWOgL6TrPAbzxA9sJkbiU9HjJK/Hd2Owmh4f7F+
+         tUp0KjEvq1SEMFnqn/z61uevjoSLiRNbe0vNZ5N6GatQeojYdYItRA6hsNcczzmXVBxa
+         I4pg==
+X-Forwarded-Encrypted: i=1; AKwUvBwFVNTVclizFdFiR4O/4PaFDGKclJDfh++KbXeW+tUGcV3j+x9VcFlC93GWVzicGqiGEOApUdy5WdTBp+h0gvBr@lists.infradead.org
+X-Gm-Message-State: AFuF++myDaf+E4McZkUPXZVWgHzyPBRbYI2pKIjvzYidXgIEupwTmbOK
+	0RJ3EE/Ng35ZaGsmnEzCj46jGWIXtgWYHvIRVvDf0Pg7Tl7h4e6JyOsH
+X-Gm-Gg: AYBFou04HqEICjHmqv7c1wt3ZoFA5Y3B3AWh5SWUAB6QE/Fi/dZk9UUSZD7092unBgA
+	NWcX3v0upUedQQxS7dozNz/MqBJ88lKQRlZOJ1d9PNPfLG+e1b7cvNtssTFifwAXLEycG6X5BWl
+	MXj+E56pe7gxFdQg8PjuQzGl3KO7dkzu2uixXMe7FVkgsjWLBK+8OqmSuVK7t8FMwy+mqfn+qHs
+	81CawUYSpaDxYuaAvxeU0ry60O7gw1aCwY1Xp/nSy3MeE68KjtoVhEgAPSg657KSbiezxEbTdZQ
+	loGQvmO4MpddObw2WFrw1CnZK5UZuw7stiv0s+XPtxB81QjALwE69MpHhYj9bqVjEB+DA/wWnME
+	PSfvc69jLx0YBqeLyPBHoTnb1Ij/H2yYFaRTZwQYCIxG0xLqvZkLyN32fA9SOmvPiWQy++q7Z73
+	w/u170T7VeaNeR7XC/kAXO9Oj22UL12c71tsB0B440m8ZaLfOaoTNMPRMPx/bGQmJF+lhfXQ4HF
+	BLgfKqptfmT5pPuX8tTABH0lnZEyiO6OyuvAh7w0oe1DHx9IzDJqse4mdAI/7eF9jC9vhMsIfCZ
+	pjKOX2sxVNjvG/EYeXljvQ46XdJLryzveGw6YljAUiKuf3Yy
+X-Received: by 2002:a05:600c:4e45:b0:49c:f504:2af5 with SMTP id 5b1f17b1804b1-49cf81dc3ecmr232937625e9.1.1788763648275;
+        Sun, 06 Sep 2026 23:47:28 -0700 (PDT)
+Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cfd3f815bsm200573845e9.4.2026.09.06.23.47.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 23:46:39 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Maxim Levitsky <maximlevitsky@gmail.com>,
-	Alex Dubov <oakad@yahoo.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Nicolas Pitre <nico@fluxnic.net>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH] mmc: fix typos in comments
-Date: Mon,  7 Sep 2026 12:16:32 +0530
-Message-ID: <20260907064632.8926-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+        Sun, 06 Sep 2026 23:47:27 -0700 (PDT)
+From: Franz Schnyder <fra.schnyder@gmail.com>
+Date: Mon, 07 Sep 2026 08:47:20 +0200
+Subject: [PATCH v2 1/2] arm64: dts: freescale: imx95-toradex-smarc: Add
+ ENETC port 2 in SGMII mode
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260907-add-enetc-port2-v2-1-e8f1f8b000c0@toradex.com>
+References: <20260907-add-enetc-port2-v2-0-e8f1f8b000c0@toradex.com>
+In-Reply-To: <20260907-add-enetc-port2-v2-0-e8f1f8b000c0@toradex.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Franz Schnyder <franz.schnyder@toradex.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_234641_315524_E1438C69 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20260906_234730_754807_6983602A 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,184 +108,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+From: Franz Schnyder <franz.schnyder@toradex.com>
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+The SMARC ETH2 uses the ENETC port 2 as a SGMII Ethernet interface.
+Enable the required support.
+
+Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+
 ---
- drivers/memstick/core/ms_block.c  | 2 +-
- drivers/memstick/host/r592.c      | 2 +-
- drivers/mmc/core/block.c          | 2 +-
- drivers/mmc/core/core.c           | 2 +-
- drivers/mmc/core/mmc.c            | 2 +-
- drivers/mmc/host/bcm2835.c        | 2 +-
- drivers/mmc/host/dw_mmc.h         | 2 +-
- drivers/mmc/host/mvsdio.c         | 2 +-
- drivers/mmc/host/sdhci-msm.c      | 2 +-
- drivers/mmc/host/sdhci-of-esdhc.c | 2 +-
- drivers/mmc/host/sdhci-omap.c     | 2 +-
- drivers/mmc/host/sdhci.h          | 2 +-
- 12 files changed, 12 insertions(+), 12 deletions(-)
+v2: no changes
+v1: https://lore.kernel.org/all/20260903-add-enetc-port2-v1-1-2a21139d7a7c@toradex.com/
+---
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts | 8 ++++++++
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi    | 7 +++++++
+ 2 files changed, 15 insertions(+)
 
-diff --git a/drivers/memstick/core/ms_block.c b/drivers/memstick/core/ms_block.c
-index ce33907bfc24..e2bf563ccbe1 100644
---- a/drivers/memstick/core/ms_block.c
-+++ b/drivers/memstick/core/ms_block.c
-@@ -720,7 +720,7 @@ static int h_msb_parallel_switch(struct memstick_dev *card,
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+index 7437e523ff639..ffe537ccd5bd5 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+@@ -64,6 +64,14 @@ &enetc_port1 {
+ 	status = "okay";
+ };
  
- static int msb_switch_to_parallel(struct msb_data *msb);
++/* SMARC SERDES_0 - ETH2 */
++&enetc_port2 {
++	phy-handle = <&ethphy3>;
++	phy-mode = "sgmii";
++	managed = "in-band-status";
++	status = "okay";
++};
++
+ /* SMARC CAN0 */
+ &flexcan1 {
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index a6c5398a81e3c..27ac9731733ce 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -15,6 +15,7 @@ aliases {
+ 		can1 = &flexcan2;
+ 		ethernet0 = &enetc_port0;
+ 		ethernet1 = &enetc_port1;
++		ethernet2 = &enetc_port2;
+ 		mmc0 = &usdhc1;
+ 		mmc1 = &usdhc2;
+ 		mmc2 = &usdhc3;
+@@ -221,6 +222,12 @@ &enetc_port1 {
+ 	phy-mode = "rgmii-id";
+ };
  
--/* Reset the card, to guard against hw errors beeing treated as bad blocks */
-+/* Reset the card, to guard against hw errors being treated as bad blocks */
- static int msb_reset(struct msb_data *msb, bool full)
- {
- 
-diff --git a/drivers/memstick/host/r592.c b/drivers/memstick/host/r592.c
-index 605b2265536f..dc3de63901be 100644
---- a/drivers/memstick/host/r592.c
-+++ b/drivers/memstick/host/r592.c
-@@ -289,7 +289,7 @@ static int r592_transfer_fifo_dma(struct r592_device *dev)
- 	dev->dma_error = 0;
- 	reinit_completion(&dev->dma_done);
- 
--	/* TODO: hidden assumption about nenth beeing always 1 */
-+	/* TODO: hidden assumption about nenth being always 1 */
- 	sg_count = dma_map_sg(&dev->pci_dev->dev, &dev->req->sg, 1, is_write ?
- 			      DMA_TO_DEVICE : DMA_FROM_DEVICE);
- 
-diff --git a/drivers/mmc/core/block.c b/drivers/mmc/core/block.c
-index e760d13ee325..a02bb2fee874 100644
---- a/drivers/mmc/core/block.c
-+++ b/drivers/mmc/core/block.c
-@@ -86,7 +86,7 @@ MODULE_ALIAS("mmc:block");
- static DEFINE_MUTEX(block_mutex);
- 
- /*
-- * The defaults come from config options but can be overriden by module
-+ * The defaults come from config options but can be overridden by module
-  * or bootarg options.
-  */
- static int perdev_minors = CONFIG_MMC_BLOCK_MINORS;
-diff --git a/drivers/mmc/core/core.c b/drivers/mmc/core/core.c
-index 29e80e5f928e..08d41f0996de 100644
---- a/drivers/mmc/core/core.c
-+++ b/drivers/mmc/core/core.c
-@@ -2004,7 +2004,7 @@ unsigned int mmc_calc_max_discard(struct mmc_card *card)
- 
- 	/*
- 	 * Without erase_group_def set, MMC erase timeout depends on clock
--	 * frequence which can change.  In that case, the best choice is
-+	 * frequency which can change.  In that case, the best choice is
- 	 * just the preferred erase size.
- 	 */
- 	if (mmc_card_mmc(card) && !(card->ext_csd.erase_group_def & 1))
-diff --git a/drivers/mmc/core/mmc.c b/drivers/mmc/core/mmc.c
-index 05444ecf3909..a02b04938e1a 100644
---- a/drivers/mmc/core/mmc.c
-+++ b/drivers/mmc/core/mmc.c
-@@ -1015,7 +1015,7 @@ static void mmc_set_bus_speed(struct mmc_card *card)
- }
- 
- /*
-- * Select the bus width amoung 4-bit and 8-bit(SDR).
-+ * Select the bus width among 4-bit and 8-bit(SDR).
-  * If the bus width is changed successfully, return the selected width value.
-  * Zero is returned instead of error value if the wide width is not supported.
-  */
-diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
-index c949a3eaae79..efd1903c3ccd 100644
---- a/drivers/mmc/host/bcm2835.c
-+++ b/drivers/mmc/host/bcm2835.c
-@@ -1095,7 +1095,7 @@ static void bcm2835_set_clock(struct bcm2835_host *host, unsigned int clock)
- 	int div;
- 
- 	/* The SDCDIV register has 11 bits, and holds (div - 2).  But
--	 * in data mode the max is 50MHz wihout a minimum, and only
-+	 * in data mode the max is 50MHz without a minimum, and only
- 	 * the bottom 3 bits are used. Since the switch over is
- 	 * automatic (unless we have marked the card as slow...),
- 	 * chosen values have to make sense in both modes.  Ident mode
-diff --git a/drivers/mmc/host/dw_mmc.h b/drivers/mmc/host/dw_mmc.h
-index 38610c89d54a..d500a419e2cf 100644
---- a/drivers/mmc/host/dw_mmc.h
-+++ b/drivers/mmc/host/dw_mmc.h
-@@ -69,7 +69,7 @@ struct dw_mci_dma_slave {
-  * @cmd: The command currently being sent to the card, or NULL.
-  * @data: The data currently being transferred, or NULL if no data
-  *	transfer is in progress.
-- * @stop_abort: The command currently prepared for stoping transfer.
-+ * @stop_abort: The command currently prepared for stopping transfer.
-  * @prev_blksz: The former transfer blksz record.
-  * @timing: Record of current ios timing.
-  * @use_dma: Which DMA channel is in use for the current transfer, zero
-diff --git a/drivers/mmc/host/mvsdio.c b/drivers/mmc/host/mvsdio.c
-index cf705b265e21..7d86426c6001 100644
---- a/drivers/mmc/host/mvsdio.c
-+++ b/drivers/mmc/host/mvsdio.c
-@@ -717,7 +717,7 @@ static int mvsd_probe(struct platform_device *pdev)
- 	/*
- 	 * Some non-DT platforms do not pass a clock, and the clock
- 	 * frequency is passed through platform_data. On DT platforms,
--	 * a clock must always be passed, even if there is no gatable
-+	 * a clock must always be passed, even if there is no gateable
- 	 * clock associated to the SDIO interface (it can simply be a
- 	 * fixed rate clock).
- 	 */
-diff --git a/drivers/mmc/host/sdhci-msm.c b/drivers/mmc/host/sdhci-msm.c
-index 4aff965f0e2e..b229545d9db5 100644
---- a/drivers/mmc/host/sdhci-msm.c
-+++ b/drivers/mmc/host/sdhci-msm.c
-@@ -1770,7 +1770,7 @@ static void sdhci_msm_handle_pwr_irq(struct sdhci_host *host, int irq)
- 
- 	/*
- 	 * The driver has to acknowledge the interrupt, switch voltages and
--	 * report back if it succeded or not to this register. The voltage
-+	 * report back if it succeeded or not to this register. The voltage
- 	 * switches are handled by the sdhci core, so just report success.
- 	 */
- 	msm_host_writel(msm_host, irq_ack, host,
-diff --git a/drivers/mmc/host/sdhci-of-esdhc.c b/drivers/mmc/host/sdhci-of-esdhc.c
-index 8345e2c5a034..1ca3562d8f73 100644
---- a/drivers/mmc/host/sdhci-of-esdhc.c
-+++ b/drivers/mmc/host/sdhci-of-esdhc.c
-@@ -1381,7 +1381,7 @@ static void esdhc_init(struct platform_device *pdev, struct sdhci_host *host)
- 	if (!IS_ERR(clk)) {
- 		/*
- 		 * esdhc->peripheral_clock would be assigned with a value
--		 * which is eSDHC base clock when use periperal clock.
-+		 * which is eSDHC base clock when use peripheral clock.
- 		 * For some platforms, the clock value got by common clk
- 		 * API is peripheral clock while the eSDHC base clock is
- 		 * 1/2 peripheral clock.
-diff --git a/drivers/mmc/host/sdhci-omap.c b/drivers/mmc/host/sdhci-omap.c
-index b5d7c1a80a92..7a198fb26628 100644
---- a/drivers/mmc/host/sdhci-omap.c
-+++ b/drivers/mmc/host/sdhci-omap.c
-@@ -332,7 +332,7 @@ static int sdhci_omap_execute_tuning(struct mmc_host *mmc, u32 opcode)
- 	u32 reg;
- 	int i;
- 
--	/* clock tuning is not needed for upto 52MHz */
-+	/* clock tuning is not needed for up to 52MHz */
- 	if (ios->clock <= 52000000)
- 		return 0;
- 
-diff --git a/drivers/mmc/host/sdhci.h b/drivers/mmc/host/sdhci.h
-index f0fd81409a86..98c1fe20bfcd 100644
---- a/drivers/mmc/host/sdhci.h
-+++ b/drivers/mmc/host/sdhci.h
-@@ -409,7 +409,7 @@ struct sdhci_adma2_64_desc {
- #define SDHCI_MAX_MRQS		2
- 
- /*
-- * 48bit command and 136 bit response in 100KHz clock could take upto 2.48ms.
-+ * 48bit command and 136 bit response in 100KHz clock could take up to 2.48ms.
-  * However since the start time of the command, the time between
-  * command and response, and the time between response and start of data is
-  * not known, set the command transfer time to 10ms.
++/* SMARC SERDES_0 */
++&enetc_port2 {
++	clocks = <&clk_serdes_eth_ref>;
++	clock-names = "ref";
++};
++
+ /* SMARC CAN0 */
+ &flexcan1 {
+ 	pinctrl-names = "default";
+
 -- 
-2.48.1
+2.43.0
 
 
