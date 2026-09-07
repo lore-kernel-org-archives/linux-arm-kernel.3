@@ -4,140 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3F4C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 19:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE1AC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 19:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvyvCEHH4Ej6zTusJ5F2zgGYy3etkWu+F+6zU1JWlok=; b=y+lNUqKodkzkoFVnj3anNezVxU
-	jvcsXCz96oToSMqtNkPCz1/Cq8uHzytS0uCjNS82DCVMe3SokEbUZzHVyeXz9b21qQ6FTtMq0o0qR
-	ud7gkf4F9XJio8ytxPfEKHf1LpOWsA6BGX8TSZZfJZS/f+Sm+o3oXf/Dlm/wYrIH90dAYs1WuIBB0
-	Dc+gyDYl0MNuYkHzy5UQnoAn/LRtYdQ+gZosASU0sPw+qTsmTHWqgGEH/+q5mgKM6TWsla5YRb7il
-	DZsvkPw+XyGJvPF0kr+f1/LAzQcpHIQfLuzfktfXu6hYeX2UfNtixRLSfmQSxO/cuikf8aSqrdKzt
-	yEobWvOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UY5V4769IH4Ej/gBFK5P/RDOlj2xF6MyPqJ3qhvhir4=; b=qIMibJXKPfjcwe6x4/SHBiIAcQ
+	PBEvR2v3b7DWTDp457kWyDoxZ9g63QZG4gdRczW5PgD7XuYOvzOoU2aqXAGda7y+SeBjQij6DS2HG
+	0krU4LzkUXlgu+mislIFOz7FQBFcIMq6o1488GA5vl7Hm1tTyj33A9F52bl3lEkkALDwDjz1Jkp8w
+	Mk7W6c5vUkoSXZ+KI7242D2ull8BL+LI6lXP5YcEOfuHjDG4FBdflXHpB6ngK4Dys5ePi73mmDG0i
+	brIHVXtHDLalIw58z1G2uybZBQp6fMm0AM3vdb5klna25ZsDX2cAzMWYbPDmwu0ZGU6/JqNVj6V4Y
+	XrIbqzCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3fBn-00000007fGd-05zE;
-	Mon, 07 Sep 2026 19:39:35 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1x3fCn-00000007fQ1-18Jh;
+	Mon, 07 Sep 2026 19:40:37 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3fBk-00000007fGH-2d20
+	id 1x3fCl-00000007fPg-39Qx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 19:39:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Cka3Y3x9x4HQz8F/pzPlFZnK/PPcJOKskFoGZjddpQFvbKn1lcK8lUIjssJqFaDiL/z0oOop773xlr08bPySKl09lIec52zpUEYARJZEaOWWgkeLeF1V4igP0HyuuIf78ebkguGIUgcSWtr3oP831koc7fUqz3jeCvepoaV3z1WwUUngjyccW6hyIVJ2p3JBqg3VGPbR66xg5WlD8T0N9A0IsPctusBLEivJW/AJYVzzmcUPv5Cy9YMxaC3wp54XJ5WhzloUu4VQuRL+nAeLl0ormmm57Eb90KSR/sLNietTIOh1t+NML5TTvuhgVm1auQCSEjvFa3IyBbg0mZCurw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zvyvCEHH4Ej6zTusJ5F2zgGYy3etkWu+F+6zU1JWlok=;
- b=Jsk/hmzX/iZEAIN2fbq4oXdJ575sB591BpOegYFmOYMPL0NYsPPuLudxJ+2oWV/l2KOjq7oz7JTA9jWuSLP50CzJuu50KJa00x7CXC1Mreitzywnm8BsoDMV6iG2T5Z3TJBECo4KqoMjSoprOC6n4dtrEtdCdOH9nkAPkCTo3jpkNCLgBC6A4qNrvHbQvIlTvYJrqHpimqbOAHYItJH0G3ixIlG0jdAQx9PRcqM6+CmMIBDON55QM36TUl4rBd1Vw9LPRPpmATgTRQrNTu+w6rq9GN0K8RjRHn+6WDaFOO1IHtAKUipW7VXQlRAEiuzqbdgabNRf/rdo/BeaG4Cjzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zvyvCEHH4Ej6zTusJ5F2zgGYy3etkWu+F+6zU1JWlok=;
- b=GRr8/7nO77kJoUTLRgJvjvFpJ7XD6eedLY+stiPwBlFc5OXgPilpbHcAd4GbOo8MOosz0//maTTj1JIUcbKs/D1CIMUV56u60K/fHKFaW56t9oDj7EiCfm4HVu3XkxNXSQ1Uk53yGEabegBKC1jm04EHqTNGgSHjiXDWp6NlYHscX71cEr8lF8lmefABCtSVsgPdn9wwaYx0pMAGkkDRp9DMBkxWY89bJ0t9IljYrLfFFUWoGYCiEcDUuGRPIxkCYSI/fwsZOVgGY57hUAa0cmDRJoBEVaMiMYC4UDsB+FppRUAiAtiN9QUtJuW7dey5n3j44kfd4fsjo3ftD8MKDg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SAVPR12MB999169.namprd12.prod.outlook.com (2603:10b6:806:4e5::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
- 2026 19:39:27 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
- 19:39:27 +0000
-Date: Mon, 7 Sep 2026 16:39:24 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v5 9/9] iommu/arm-smmu-v3: Support the DS expansion of
- RIL's SCALE
-Message-ID: <20260907193924.GA2779763@nvidia.com>
-References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <9-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <ap7Nxijs1xq7RRs_@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ap7Nxijs1xq7RRs_@google.com>
-X-ClientProxiedBy: YT4PR01CA0155.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:ac::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 07 Sep 2026 19:40:36 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2d032846c95so42314755ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 12:40:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788810035; x=1789414835; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UY5V4769IH4Ej/gBFK5P/RDOlj2xF6MyPqJ3qhvhir4=;
+        b=MuN8+Ebl3rxLp6VOep1eMb3hOXVKbPT2a9kxDzJb2GltvHzRo7pPlQ9/RZbzbI6HPV
+         ++lbmeSbXe79fdr8mzy9M9InzFVeqL+G0c9Va6oM2mwqbGKIEiC7LpGY1cuQLxsuvp70
+         kZQXxsPzgbgpWlHkLgdqL3oF7WXmYM9kY0ZREliE4io21KYKWrZnhZcqjKfJbMJeb103
+         oEUzlLcoMxFyWgosWjFnU4fomYic7IJ84ZrLdhTdLgO35CkGwSpBSdhLCN2nvDyn8PrR
+         wojiNqTciaIJ8MeaMQTitdQj1y7FumOIu1aJWMmrOKCJdFiPqu3DWpjJqALs75nnMRVD
+         iI2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788810035; x=1789414835;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UY5V4769IH4Ej/gBFK5P/RDOlj2xF6MyPqJ3qhvhir4=;
+        b=Qh7a6xLJ/NdGjgJJRZLeJXdxhj9QAd64+EYsa2tG4wP8pA4CRnLsX/J3Q94XpfvTNT
+         pVAuquwHTLesiXkmfC1X59kqUB+RrYpModEU6yR0WDWFTFZz+BXm9Kz9dL9v4G3Ftjr+
+         6JzhqzYsuIDciJyZN8fmP5tzSqKF22hXqw8WcRr1+Ltc0x6Yyeic2Ze1RaP4rfen/uXa
+         Q9DVwawJ25TsXWPR8CDrwR1ME7SBL/1Q6OwXimWJWiMg+wYyZb/b8/3+2zmVVW3ns543
+         CBi+FjXgartv9fparK+Cps+HSTP8e0bFb149nIhWbuykNUsDJwazBoldwOlCMed8PKaj
+         pr2g==
+X-Forwarded-Encrypted: i=1; AKwUvBwNTjy1b2EBhV64VF4GaUPKuQ20B37s+EuRrbNH8pqnefMnxOwdY7ofkXiuC2ApFm7iMLbQyZbF+A9THneyETuk@lists.infradead.org
+X-Gm-Message-State: AFuF++m0Kl/L1eIQnZHj9/W/9KwGCs6J6faK503RngiD2P0ZOUAcgvba
+	c5LyushJWrbA1bp5XOpMo4J+nb/FQ2YI+qMH6mxr7z50HTnfuCsvA9LV
+X-Gm-Gg: AYBFou32kx1kB68xsY21mHpjR0u0AYSI6Cb9QW2LLSNrZWfbTAoZAg0Q1a3y/hY1taR
+	yy7qsXy5NLeCnVL1uAIaV93FNb9Gq1AE+4+4/xy6pPmim+5Q5cAaTW+le9CFUIKXqw7l41Jocu3
+	9lcKpzP6Pq7K9OCF+HaLO6LAjtZZBzQWY2kT6zE9tXtb6D9vlSvNOX2tO2VLelynU3j0X3Su/+Y
+	tyrR5Q4cs88eZgnwsLPHrlRxdSR4BoeoCW+StXQy2pwnT8bkANVPGnxDejzRSihSJSePjX/tJ+X
+	1U2arO5F2/53oHvGcAzsVmUa1BMtPdS1wXSVYcXMD3CZc0aoC7RA0Sf2ULbDxnqHqsXXkWmAYcy
+	tUmpG08IWWHi+vSV8vvoYz9X4KRSq8JYni/Zmt7qZ/oJ2rkEm/T3XbKHaqmqrJ7vikYrnYzqmS5
+	kDv4fivhu25V+lXuYzRHiEJGDHFxSaqirR8HsM2HeNi3jxxeLj97Z2XWWZyAhQunnsbCfbuI7wK
+	GrORXuNaG6diV4IOBidSnC+VwHPbGg5Ge0BRbo3qGfgz82bDUtbcu8oBUz5lzB/ctpFSPGSdrUQ
+	YVoDmU7IxAg0W8pem84gkv3EFEA+P5+g/jGOvB8=
+X-Received: by 2002:a17:903:22c6:b0:2db:7269:38ef with SMTP id d9443c01a7336-2db726939a1mr31543325ad.14.1788810034741;
+        Mon, 07 Sep 2026 12:40:34 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1497e9e5sm47901105ad.38.2026.09.07.12.40.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 12:40:34 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: BCM5301X: AC56U: add nvram node
+Date: Mon,  7 Sep 2026 12:40:32 -0700
+Message-ID: <20260907194032.20042-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SAVPR12MB999169:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88e28600-5701-46a4-fcec-08df0d17b98b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|1800799024|376014|10067099003|22082099003|18002099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: Q3NVbOQ/wd7mXAiID9ov8Aq5mR7dkHsRCmR1v225UFUlr16fb38iYGZD+e7Sqr4TgPF1iitiSUAJy5H9GGSzQOFu0CYgZQl2eQEuhY/H4Ciitn0z5WfKCFFwcKRY9IlFiTxLL7qqf9xzbk0A8dLxs6z1f/upyVCBBqXmBeDxVVqb++QsHdIEju6pBZ0zsxis5c8OdIWCIn0Z++acYANUZw2cABpQUg7U5zrSLxAQKQtUIov5DXvY42U0TdMdnCOhmUGiBFYS+0gQ40CP98AJe7qataQCo9mCsF66yimxW03cAY+AU/hC/1DX7CdtlVB5S156TsAHNuYjujL5/xk5HCNGgVYwVBl2me0oVA9oimiIqknBUQWB0ueughjJbnB+5eMHS4p5DwNvmbxBVaQTmR/igb2kuwsADiYUp2QTelvE87DzOI77D8yvhEKrqQpr+nq6avBPcPijLEBv2YrC2nJGvgwqvIGD3WX74oxo9M8fECekjgP9Yea1nfnfnwehSvwkXfakD0b1KOr2cn+YzgM6BHP8SfWf8+CYhcWDnLDDuQzWlTQa8PrNhT/zTBnFSVfefPRNwdIOUWtYnL3kbZvmTjaL38EGwCYZkFIqcnHarSymCYuO8p/bGUEWQ/ydFGl4njN/GtoNtqEIEkXoMw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(1800799024)(376014)(10067099003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B2w3HhKtZQil793PQAbb5LH4akOEI/ldnxMP2WXfVO3hXJ+rU+PNks6wGqlH?=
- =?us-ascii?Q?B5736Isu/z3rcvFzLh8hAf+gMKZxtBiSmdmsmJVkDur6IUiItriEU6ECEPuD?=
- =?us-ascii?Q?6s9UQCYwWxAI81ZxOeTEyHXW3iI9af2+i+5jhrDz3wNPpNG4X5G4Z30a4a0M?=
- =?us-ascii?Q?1ZAr4r11lxn8267X1A67uUt8jQujadwrilWK1NABSJ/9TD2sGnfHgKgiC+bS?=
- =?us-ascii?Q?gCxACTmtfOiGFaY4e1KtKWAfCW6n4+vhr9ajiXVSqB0rwnt0zAkKf+afLwFI?=
- =?us-ascii?Q?cmc+dkawXlEWWCI4rUfqTh6VPZgByFtvJyHAnsfT/y4dxRxIEPdRr7efvAg/?=
- =?us-ascii?Q?u7lSrLSjvx07UraoT5hZW3dxz0Twhhi10+mJCU1aWdYGVwZldh9isvYLBafx?=
- =?us-ascii?Q?vuGl8EEbpU7i3AWUIAWPnzope0EkZAwV7wJRKZgOV30kAvB0brVpmd4/lKrI?=
- =?us-ascii?Q?nT7rOrOtEygj+W3VTaOKJzTeUb3+k63FnT0Y+2vs6MRs1c+4R1bjRxMdEU/m?=
- =?us-ascii?Q?2XpHSi4ogmGPPOeWL5/vq/0p6EKeUiKCGXLknkBTAKJYL3RssZALhS15kyEv?=
- =?us-ascii?Q?aq1thBbi04+m5XK29on/19ojKCzwUUjyJrJBWFWwHhMM74pSW4nIoWdoaG8U?=
- =?us-ascii?Q?TL5keZrZNRmfRz8xQmEiwTCWMZhbukRXwTa69trlYRBSE4JGCZoEy/c1rig6?=
- =?us-ascii?Q?oMDyrshvsL3Wlz7BZysEPiA0LyTxOk+atayIouKo2Bvfcc2js9q4fK+olPGr?=
- =?us-ascii?Q?JwylNpHd7onMPAHqE+3Ikqa3Nl5WOQZQ5npdeydJC+z086Wu74LBbGv3ViKk?=
- =?us-ascii?Q?hqX+H+BIdQal5f5xEALodZPiNF5O+IQvKAqmsIRugHlJRn1UKIQK0eGUTS5+?=
- =?us-ascii?Q?hgAHs86tj7wIoWHNaSzoi8jL/Q/MjM2TgG+5OC6pQA4t6BtkOQOvmdGB3FFG?=
- =?us-ascii?Q?xG0TLVBzhSFtO+ioh5Nribywf8EqSepucEVSpQpb0c9R6UCzzcP+0Ndz3ahO?=
- =?us-ascii?Q?5j+heWNL/lS5Rk8hqtE7vBw+kNoHmBKebyFlHQjLkB6Q6n/m98I2+V+K2nLz?=
- =?us-ascii?Q?EorU4ryJaEwYJbI6kp24a1tN3jjR4LOQsFM3u8uVaW2fBDKRKUxht2drx5Qo?=
- =?us-ascii?Q?emS/UubmPcEp5YwRcvLZG4pJS9qbHfogKMdaM9lUh6YeCEUh467fvDbhmWtF?=
- =?us-ascii?Q?HgwMbMRnIcSRgeyPBmr15ccFTj59qWT8wYOfgAAXpCEqoJ119nWIb/hxfuZI?=
- =?us-ascii?Q?YkQl7f+GJ+kbYJitSmcFoIpRcgrdlCBE+brssq3CUmZ/aoElDm3JkR6rDzp2?=
- =?us-ascii?Q?mG4J0lGoNIY0cB8XSJHyurLQLrxr6Nvv9vnQdgLS9C2wOJCO9m4aijUFsLz2?=
- =?us-ascii?Q?7cuxcN3jQTYXj1UmbXssM5SmWWABuU/I+tWkKZcmYEf53gwC+W6S6dyoLioy?=
- =?us-ascii?Q?p/jBlZvCkb80GfEiATQKaP6hGZpFvRVhXr5JfD3NBNfJ3+f8NdEoJz5tkzNd?=
- =?us-ascii?Q?OCPkEk2Lbf+LZ4v5fNJShQQMiUhTklT5uvk2y7KXlKdNZ8vUCE5zryAi8wMz?=
- =?us-ascii?Q?9r07pmGdNyS2zKtYBu5GCvWXT9Au+pvBSVOPA37/xk/umCi6YTtwFijTcAWT?=
- =?us-ascii?Q?a/q3U5Go82GXG3+57VeuNkbWz5ULM8rwAtsPTC1iSAACygGLkA8Y0ZB4usl1?=
- =?us-ascii?Q?QiZvJwx7uu5soR7c+5/kdAbqxp3dZQFI4JPyr5cYRijVo7Z3?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88e28600-5701-46a4-fcec-08df0d17b98b
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 19:39:25.9978
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KrhnzoOZMOfKMgC4JsDRo5FY51jJYxJdKsL0eIUbcP5UoYuG+uqPrBJru3Y/QsvT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999169
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_123932_666328_D80965BD 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260907_124035_790249_BE422005 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,22 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 02:44:22PM +0000, Mostafa Saleh wrote:
-> On Tue, Sep 01, 2026 at 02:49:58PM -0300, Jason Gunthorpe wrote:
-> > If DS is supported then SCALE can go up to 39. Compute a scale max that is
-> > compatible for the entire invs list.
-> 
-> I see in some places scale is still assumed to 32 as in:
-> - arm_smmu_ril_init_end
-> - arm_smmu_tlbi_calc_range
+Add it and set for gmac0, which is the only GMAC used on this board.
 
-Neither of those are scale, they are the range of NUM:
+nvram size found from a random bootlog online.
 
-	first.scale = fls64((num_tg - 1) / 32);
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ .../boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts    | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-ie what scale do you need to fit in at most 32 NUM.
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+index c80ac16ad949..550cc67f5ba6 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+@@ -25,6 +25,15 @@ memory@0 {
+ 		      <0x88000000 0x08000000>;
+ 	};
+ 
++	nvram@1c080000 {
++		compatible = "brcm,nvram";
++		reg = <0x1c080000 0x180000>;
++
++		et0macaddr: et0macaddr {
++			#nvmem-cell-cells = <1>;
++		};
++	};
++
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -92,3 +101,8 @@ button-wps {
+ &usb3_phy {
+ 	status = "okay";
+ };
++
++gmac0 {
++	nvmem-cells = <&et0macaddr 0>;
++	nvmem-cell-names = "mac-address";
++};
+-- 
+2.55.0
 
-I will add a constant "MAX_RIL_NUM", it will be clearer.
-
-Jason
 
