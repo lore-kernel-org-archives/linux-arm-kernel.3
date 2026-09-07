@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3676DC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 05:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B374C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 05:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLA6m2ZV0veg8WJCdKpkBRm0szwwq2AWMNzI7Yue3NA=; b=K7b91j/Nn41tu/YkYq0rfg8L+F
-	WaXpXa+2sH8woNE0SPVstCGMfd4uo8FQYL3yno2wcNjtQuuZUHvc9IdMAN2+EWQFTbGkMKfchLvmd
-	M1fIsk3UMUHCJHmzCK0nG9DIsp5hecLqs8XhCW0u2yCnujtDRNbZYfoeX2loi/p9h4wtl45z1SmAE
-	eczKgE66u9hjLfwzAVow1lyw5bQw9SO/DOak9FoNCutDT64ruBQ6nhsJzv7hvhWw+qoS0ukDxqjDs
-	/8ohGmy6+Ft4RQp44zK4J97hmPaLt1/ZuHUocfJEXabSYm4/ukqiwV4YKC9yxvqsBSlQMJQoltxOR
-	ufC095Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OE+94+rxnr6JyHzVf41++W806Ur3QbjQQuslFQknClE=; b=mk/dFBOO9jJCnl
+	YQiMDbehGFxPqrU7EB9f6ncj/pU3FnsCzHoBZKb2CBTsKE41fJ/vLjA3kUm7U8LY8pwuyDdJI5zAc
+	T6LO5aW1h+M9bcATac7GSNGYRCtrcjZcYgAubwGjyjZ1mLnJ/lff8oKogRiy9SsqqRL1/U3zyZn7D
+	HohOr9KN6P+Jp3Af7eTB6qaap9mMaoZ3yApQo3hj30XhogUP+oNoKJcjsFJtqJLXug859A/wwOiOj
+	uPn2eXHMiQ954N+yHQrdH7CyD63ACLuoJJmWwGvbu0dR6HRNc6gguxfb/JUa2Bp+AhoEkD4tBhz7V
+	/te1Gaxhk0dzuY2jrKYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3S8D-00000005x5E-3EoE;
-	Mon, 07 Sep 2026 05:43:01 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1x3SAT-00000005xQl-0o5e;
+	Mon, 07 Sep 2026 05:45:21 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3S89-00000005x46-3Tzd
+	id 1x3SAQ-00000005xP6-0690
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 05:43:00 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2d715f4a587so45468575ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 22:42:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788759777; x=1789364577; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dLA6m2ZV0veg8WJCdKpkBRm0szwwq2AWMNzI7Yue3NA=;
-        b=mQqTLPksgCEn4vQW/LynyN8Tj5SqQp12Z72YBhINs7NLeI2kjSo4ARvJNh89RFrh/8
-         92U8zp2+Q1MPUpCMAGW3Qzy2yfJ6J00yfgaV09hHTKalEegL09pMM1wNq8TCBOgMK+8N
-         85c2MSAScWbgjGQnYcAX0zwFMa/I1xWPd2eX2nZzdkUa4HhHXlph1XXwov+NDAe3usRf
-         jQ5FbZ2Pr/WebGMS1yxt/4+9friQd75Sc0VPRLLoXxOMvUjnlQiEs+puZTM/+pb3C72P
-         PNPv5x/5D3jC22hC4QxFsjP2j+VmRycC5iPGfWmemW0TdtKJoMEk7AFNvhIxyXUyv1zF
-         bcEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788759777; x=1789364577;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dLA6m2ZV0veg8WJCdKpkBRm0szwwq2AWMNzI7Yue3NA=;
-        b=YGowr68ith4T6Jpj6V+TW6DMJOsT7Mm0PXfodoQPOJGBQ18WNP3kIYp+YQfzLSTXjW
-         Oirwj829ANzASwjFWtXxG2Dw4ANqh1Vn0sDR+iM4LZhCZJ9XUi91djEe1nk7NgMZBAqq
-         RGWsMTr62ETh5D8iKC8OeQhIS9hCMOO5miwU0+qMe5GpsUOyxs3sVz5UJ3oo7z0tHlef
-         V+T15yr4h1bLei5MfOMG0HnCXLgvqirXi0Svx9XkkAZc20sgzW3j98ediHv0t0gzftk2
-         eg5e36DUx+h5vRP7sVnfoMzjqB0YW3f9vFYSAr4eudRC0b+XJ/D64lGL4enJD04H8Ee1
-         cHwg==
-X-Forwarded-Encrypted: i=1; AKwUvByAvpiAKu/ZkIQNFmFqTerUvRLYG6Do2IMFy1MHwo7e5406sfx10MsxTf4PmKjXFObV8j9xwgJAcBtCA856zlMl@lists.infradead.org
-X-Gm-Message-State: AFuF++m4RU7ptyYvvmDVY+vceeBF+vTJnSiNkXS06nbbb7Lc7ulyESYe
-	SOHu9ZeKAfI0mKYa4EVyrJbbfdxY5ccP7EyWfPpL1gNc9kWXnWeAJi4=
-X-Gm-Gg: AYBFou3eznpg9LEtrZcM/XhV6goTlSIkuWqIuEqSmbAic0/Jmec0EP8nx6pxxXCBt8N
-	y3bgHn4RO3ADNArLu7uxtWMazGC3oQ4vsG7R2ZcqvHbs3Un4HXgMsfUJapTOiIF1gUPvGJadf9D
-	tCobECrzhCJ1SDRpCcXXym/BeRZJvH4l+RjbC6BOyR2j8ryLlkv+IveGpgzYPIM0SlIUyhMvbOQ
-	/k7/kz3gM9rDnipqubszziSlECTs8Chlw8XR0XvLGGCwZBsCTiBgJvPmLPlj1q1sR/ZQkqROmU3
-	lMgs30OtN7+XprRGhGsa9kaJBabSLQxnEkf2DXWCd14QdOu+8VqM0KwaEXWQJJt5sLoMbftKy09
-	UKBrMwakTBM9FCqN6SQlEQfvtRhyKNQQCdvLQwmhDFPU6h3U04eJ/zQmbWJ8kjwOxkFJEbBtS0y
-	wV0mOlgA0hazCvXzyA+MEK+q3KOY29mzl3srq1wS0Rl1Nw27UaGDdpJg2y11+o4CbKFAc4+m5Pi
-	N9SY6u6AXdgzlYJ
-X-Received: by 2002:a17:903:19cc:b0:2d7:1cee:3682 with SMTP id d9443c01a7336-2db125cd39dmr342177905ad.5.1788759777012;
-        Sun, 06 Sep 2026 22:42:57 -0700 (PDT)
-Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:6467:d689:c773:5f09:906c:a72b])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1483dbddsm39107695ad.12.2026.09.06.22.42.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 22:42:56 -0700 (PDT)
-From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	donggeunyoo.kernel@gmail.com
-Subject: [PATCH bpf v2 2/2] selftests/bpf: cover the exception callback using its own BPF stack
-Date: Mon,  7 Sep 2026 14:42:35 +0900
-Message-ID: <20260907054235.473103-3-donggeunyoo.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260907054235.473103-1-donggeunyoo.kernel@gmail.com>
-References: <20260907054235.473103-1-donggeunyoo.kernel@gmail.com>
+	Mon, 07 Sep 2026 05:45:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1788759912;
+	bh=74OyWk+S1XapnZa91tZh7QGJ8Z65Zq0I4MGM9fNJNk4=;
+	h=From:Subject:Date:To:Cc:From;
+	b=A6HY3cV701dgp4nehXyHi0uuEnDYEsK/ruMG+iGzYoQjZUV/M7TXnif6yPqj1WCHf
+	 u6SwqmxYz6xiFp1/Wb0+Xphev6GzjL+dE1p6VSs5jEWoFF42oV7/2jf4QHzK47dG/q
+	 rSXkrDVQq0zPLslfyMEAaaLBw5epZDE/IPsbgxso=
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Subject: [PATCH v2 0/3] driver core: Constify the signature of
+ device_show/store_*()
+Date: Mon, 07 Sep 2026 07:45:00 +0200
+Message-Id: <20260907-sysfs-const-attr-dev_ext_attr-v2-0-bf53afe57071@weissschuh.net>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WOyw7CIBBFf6Vh7RjAitGV/2GapoVBcEENQ7FN0
+ 3+3j7h2eZKbc+7ECKNHYrdiYhGzJ9+FBeShYNo14YngzcJMcqn4RUigkSyB7gIlaFKKYDDXOKR
+ 6h9YqdbXGmhLZ4nhHtH7Y/I9qZ+rbF+q0SteF85S6OG4Hslh3v1b5p5UFcFCt1Lw8nY2S4v5BT
+ 0Ta9e4YMLFqnucvwCtUS+EAAAA=
+X-Change-ID: 20260712-sysfs-const-attr-dev_ext_attr-dbf669fdfd4e
+To: Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jic23@kernel.org>, 
+ Yushan Wang <wangyushan12@huawei.com>, Jijie Shao <shaojijie@huawei.com>, 
+ Khuong Dinh <khuong@os.amperecomputing.com>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>
+Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, driver-core@lists.linux.dev, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788759912; l=2248;
+ i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
+ bh=74OyWk+S1XapnZa91tZh7QGJ8Z65Zq0I4MGM9fNJNk4=;
+ b=XvYmhK8g23TtkqqxN7yFFdmL3QKRYan/Vq1gOpl1Rbpx5vGwB2eFDVQ3yILkyDbE08ZBxinF5
+ wad1OfZF2tjA5gvkgXhlADqWAri64DSYcu+XOo2XcNPH3zmUHKsUZII
+X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
+ pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_224259_510286_BB995F5E 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260906_224518_321732_9DD7EB12 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,76 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing exception tests do not reach a callback that materializes
-BPF_REG_FP into a register. They either throw from the main program,
-where BPF_REG_FP already holds the value the callback needs, or use a
-callback whose only stack accesses are frame pointer relative, which the
-arm64 JIT rewrites to be stack pointer relative.
+Prepare for the constification of 'struct dev_ext_attribute' instances
+by changing the signature of the standard callback functions.
+The first two patches prepare some drivers to handle both the const and
+non-const callback variants.
 
-Add a test that throws from a subprogram using its own BPF stack, with a
-callback that hands the address of a local variable to
-bpf_probe_read_kernel(). The helper and the callback have to name the
-same slot for the value read back to be the one the helper stored.
+Intended for the driver-core tree.
 
-Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
+Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
 ---
- .../selftests/bpf/prog_tests/exceptions.c     |  1 +
- .../testing/selftests/bpf/progs/exceptions.c  | 29 +++++++++++++++++++
- 2 files changed, 30 insertions(+)
+Changes in v2:
+- Rebase on v7.3-rc1.
+- Cover a few more drivers in drivers/perf/.
+- Link to v1: https://patch.msgid.link/20260714-sysfs-const-attr-dev_ext_attr-v1-0-6b2c0435d621@weissschuh.net
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-index 3588d6f97fd4..639866ce09a9 100644
---- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
-+++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-@@ -55,6 +55,7 @@ static void test_exceptions_success(void)
- 	RUN_SUCCESS(exception_ext, 0);
- 	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
- 	RUN_SUCCESS(exception_throw_subprog, 1);
-+	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
- 	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
-diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
-index c8d716fbd419..2b01b45cef06 100644
---- a/tools/testing/selftests/bpf/progs/exceptions.c
-+++ b/tools/testing/selftests/bpf/progs/exceptions.c
-@@ -212,6 +212,35 @@ int exception_throw_subprog(struct __sk_buff *ctx)
- 	return 0;
- }
- 
-+u64 exception_cb_stack_src = 0x1234;
-+
-+/* The address handed to the helper has to be this callback's own stack
-+ * slot, not one from a frame that is already gone.
-+ */
-+__noinline int exception_cb_stack(u64 cookie)
-+{
-+	volatile u64 val = 0xdead;
-+
-+	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
-+	return val;
-+}
-+
-+/* Throws from a subprogram that has a stack of its own. */
-+__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
-+{
-+	volatile u64 pad[4] = {};
-+
-+	bpf_throw(pad[0]);
-+	return 0;
-+}
-+
-+SEC("tc")
-+__exception_cb(exception_cb_stack)
-+int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
-+{
-+	return throwing_subprog_stack(ctx);
-+}
-+
- __noinline int assert_nz_gfunc(u64 c)
- {
- 	volatile u64 cookie = c;
--- 
-2.53.0
+---
+Thomas Weißschuh (3):
+      x86/mce: Use __DEVICE_ATTR() macro to initialize dev_ext_attribute
+      drivers: perf: Use __DEVICE_ATTR() macro to initialize dev_ext_attribute
+      driver core: Constify the signature of device_show/store_*()
+
+ arch/powerpc/perf/hv-24x7.c                 |  2 +-
+ arch/x86/kernel/cpu/mce/core.c              |  6 +++---
+ drivers/base/core.c                         | 30 ++++++++++++++---------------
+ drivers/perf/alibaba_uncore_drw_pmu.c       |  2 +-
+ drivers/perf/arm-cci.c                      |  2 +-
+ drivers/perf/arm-ccn.c                      |  2 +-
+ drivers/perf/arm_cspmu/arm_cspmu.h          |  2 +-
+ drivers/perf/arm_dsu_pmu.c                  |  2 +-
+ drivers/perf/arm_spe_pmu.c                  |  6 +++---
+ drivers/perf/cxl_pmu.c                      | 10 +++++-----
+ drivers/perf/fsl_imx8_ddr_perf.c            |  2 +-
+ drivers/perf/fujitsu_uncore_pmu.c           |  2 +-
+ drivers/perf/hisilicon/hisi_pcie_pmu.c      |  2 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.h    |  6 +++---
+ drivers/perf/hisilicon/hns3_pmu.c           |  6 +++---
+ drivers/perf/nvidia_t410_c2c_pmu.c          |  2 +-
+ drivers/perf/nvidia_t410_cmem_latency_pmu.c | 12 ++++++------
+ drivers/perf/qcom_l3_pmu.c                  |  8 ++++----
+ drivers/perf/starfive_starlink_pmu.c        |  2 +-
+ drivers/perf/xgene_pmu.c                    |  2 +-
+ include/linux/device.h                      | 14 +++++++-------
+ 21 files changed, 61 insertions(+), 61 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260712-sysfs-const-attr-dev_ext_attr-dbf669fdfd4e
+
+Best regards,
+--  
+Thomas Weißschuh <linux@weissschuh.net>
 
 
