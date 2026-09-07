@@ -4,122 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41594C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036BCC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/v3Jz7xvaKh59QLJ99lH4pZEIIORIIk9YVsyFYrUK4=; b=Kmhy6fHxkXIQYnIvS9LqsjSOyU
-	eSUyWNiFTS5LbipmEsOAotviazkqgEVlQQvsiNCrXwnWf+FV6DdnI1TBO/JeIHRGa89cGd9AIkdZt
-	C07jSfkFlMQJHReQfqYxSa4XbYr0SNbEO2WuK9CX85NVggWsvl7vJpGiAWwu1WYI1DU6YGI515sud
-	X4LJi+wlMh/0Y/5zKoERVPhbqaLtk0MCVGnmP2tgODWY+XiOQmVX4oU4WPQYfZ1Qgs6ncdR7u5/ix
-	zfrU1Q+n/0nxmDNPw4WWvTFibtvw+nLmDWtK23iVD+/vvIOUZk9bv0A7zYCwIiS6V4Ns43BurRtEx
-	Dj+DYRxA==;
+	bh=OIEXEh8Wqwl1bJzwWtu4bthbnhWMS0XSiSB3GshMrlU=; b=sYEo41P1wKXm3lBFthEAUTRwnQ
+	HnBKPTIoLZu3qNGZFSRY7dOJ9aLdbCueKDeHJ3o7c34lQcoppBPMJmAtEMj5vF547NarcpLdTl8WD
+	SCclVPLJF5ahAmwa13lA0Rk5/scNk3S8FhxUyzpl3JTV2Gi9+O/mrTbKq+c7ehrvg+pDzJpFoK9vJ
+	VlXUxBXttm2tdtz5T2id5DADeuJ8me2/m5FqrIdvw50iYMzxYLefgwbk3dYwANzVyqjfYDNgwhy6M
+	AcUXY5Hp8RgNwU2KatMCc3jNyJqQm7j24nn0Nf3dbH4NxvLMuH/cH0B52PL0T8PUD/qMIMtSEHJcx
+	Fi7NtAbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Zdt-00000006yGj-1uPE;
-	Mon, 07 Sep 2026 13:44:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3Zlu-00000006z6d-1J5N;
+	Mon, 07 Sep 2026 13:52:30 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Zdr-00000006yG5-41mY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 13:44:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=D/v3Jz7xvaKh59QLJ99lH4pZEIIORIIk9YVsyFYrUK4=; b=ndGwdYsD4FN09GYR+Hoo+9Zwym
-	itE5scEWwAcg9/KfqpM3uooq7eeCenxUtLUmuXMqkOnil9GEjwWC8FOZ8GYggnV/UvlCCZF95VUKi
-	zBIvf956WMHnTXp0nKP2h6hYtBaSNvPDbzdMfRe1F1sj3RzodRvpd1QGZTT/zg6n9rO8UlhNeWVqY
-	R/q4CQNEm/UrRbhrq9OzebsMACgqySWzgDFZLv2g57rZFoxRw5GKhuEW+uCm/lPBYcj9pgwSmThHn
-	OECqsEDHpZPrHH1u1Uem1aOQYLKBc1IvUkhYCMkHhDU8YVs9DI3Kbnhgx3FS8rEKpsSK+JvDVXMlu
-	YUk3gYpw==;
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3Zdo-0000000GI9t-3eop
+	id 1x3Zlr-00000006z67-1mOE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:44:10 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-398c1101c1bso3408462a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:44:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788788646; x=1789393446; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=D/v3Jz7xvaKh59QLJ99lH4pZEIIORIIk9YVsyFYrUK4=;
-        b=jdNIb8MAzphhFMvE5cQjkFxl7yc9lCVWq8Ue0rIUcc4UVEUbGry7xY4mxP8HiD9TVn
-         Td+63Ea98VJRQ1mXLB1TqjOTB5C4YOEtgZNzRp4mQEsykx+oPynfMocBdcqcQk8nfXjm
-         6ho8kJXSf0rNKTqNEJD7tTIbDz+t5TXTMevEhanyMDkn4lPQ5dJBIjVJ1LfYuWWcu8KH
-         GICFPTK8Iomw5RqwendvTPvKHLxgu/MvsChWhfrO3acjJqWK9EjXNLargyeH6Nglcrxc
-         2BOBocjeuskUqkCQHRt8GRyy4FsUg2a12zmJuDlN2BHYoT+Hk+Vc3ts51siB1MP5ngKa
-         vTjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788788646; x=1789393446;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=D/v3Jz7xvaKh59QLJ99lH4pZEIIORIIk9YVsyFYrUK4=;
-        b=iG10h8VUFFDI+eTV7yCtzmYYHtPW8haBmmOCq73KvXlYWDAKYnn2svZPP2r99j6YXY
-         nkTn4HK8opgchjnD/YjWnhgZ0MYEne9yQ0jqQiW/EG2xjVzmlycxBK2biCMslnm95SVw
-         XsAF0wh+Or9csg6YJ9Vv47JjPZljP1i3K+B3KI0D7BsE4MTJuYdVv6yCp0Aj7/fS53cA
-         8FS/dhho7/ztIsWexxbAtcLpXTvDDFONcM5byo5ReqcBNf/5K+bicIAkk46xf/dJDRVa
-         xrvdDYEVnZWNE/+UHYBpk2DAg1pMzn9SuZRBybzIYg7ASTWVJ7sb+bvN36CvCYj4FD4i
-         HrDg==
-X-Forwarded-Encrypted: i=1; AKwUvBzPJcHyTHVyqYCJ+48aOm39N59Zphf6aLnvWBoK/wzEPSjaRtD5wf3G8m2gJo/b1dDW9CW8sqM93oHjluRGNe7z@lists.infradead.org
-X-Gm-Message-State: AFuF++k82XgXBkW+GCum3UMV/U6uoK5Z9ieewIbP6m9CpAMRdDWZDlon
-	U4e8W4whGGCemRiEdJz4xSgxgfKD9wvPevfzvAXCAoyrHxFw+PL8Yd8=
-X-Gm-Gg: AYBFou1+jBmHM1I7Hr1Xb//1O5dVI73CbuCCphyVQ2MSDFYHI39tz3JtYYckZUKXpQf
-	eCXAYNPhXxWlOTwqcdWrXLebp9XlX9V36c+79MVLHDWeLrOVss7Iz7dGRqpMKBkaBYuGgs+pqwy
-	4WyHembgAJ49A/T8SoC9wUBgfTgg+MpD/pffp3ArYk+2/N839lsvuW5WMHG4kSORbBZ0sg1NyLP
-	tVlGxqqIUFlgRxGL2EafyUN8c0NTV/tRnlsu5ITqiG/9hY8plWJUVjEZBwx0l6qSR8es8fizmPJ
-	Pmbyz2/0dK3PYk/9rKXV4EWw4H3SVhMvWdgMfiqVZMy1gwnu+CUVMokaTxXgpBhkduE1CcieUD8
-	1wQN/fYSu7RjZ9v4/UeJMdl9YLxwmvrKFO/7iXRQifeVIY0zwzx9sKrn75gVxfeS2/kONr0J/yz
-	weNCftMQeMw590b+1XTOfiZtOu7CEvuIjvQewbjbRwUljCYdYcUGtdriMR4bb9XMHFiTOrjl26c
-	VG2ZOrB9BUb5lGR
-X-Received: by 2002:a17:90a:ec8d:b0:37d:f983:7b5 with SMTP id 98e67ed59e1d1-39b26101c08mr33965509a91.9.1788788645675;
-        Mon, 07 Sep 2026 06:44:05 -0700 (PDT)
-Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:6467:d689:c773:5f09:906c:a72b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b2612d3f1sm20717513a91.13.2026.09.07.06.43.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 06:44:05 -0700 (PDT)
-From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	donggeunyoo.kernel@gmail.com
-Subject: Re: [PATCH bpf v3 0/2] bpf, arm64: fix the exception callback's frame pointer
-Date: Mon,  7 Sep 2026 22:43:55 +0900
-Message-ID: <20260907134356.616964-1-donggeunyoo.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
-References: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 07 Sep 2026 13:52:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: Subject: Cc: To: From: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1788789144;
+ bh=OIEXEh8Wqwl1bJzwWtu4bthbnhWMS0XSiSB3GshMrlU=;
+ b=bct+loYqzQ3xS4RTLO4NlP7euaVwHUUETOey2AfwqtlDXP89xwQZzrP95cwzP3LeeBZrDdVIx
+ hpkER1XtuicOdRTnrEiK2b8MyC6gnsC2yKv3TfqbaglgK5KgMq2dyWVyWm0mkESlNbxtE2rCxFp
+ krVN82f8Eg8X8Naostmnzau6lSvf0NLDaDZK3hLWche6g/t5uQcpaHMoiBWOtBpWyUoQwbB8Bg0
+ xIbnc/lwX/VxFAEnRC3OVvs1o47iV7Us1RechOeesO9ELSm3b4wxENBozSmn8kez1p2t/7fgxLT
+ baRpwJz4xPgAynqEe8v942BpMgieUg/u6MPOWLRwOIWg==
+X-Forward-Email-ID: 6a9ec19570f4b45aa0d07729
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Mon, 07 Sep 2026 09:52:19 -0400
+Message-Id: <DL94TU52KBMO.2HAKJMJXV2CPE@ubuntu.com>
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sven Peter" <sven@kernel.org>, "Heikki Krogerus"
+ <heikki.krogerus@linux.intel.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Andreas
+ Noever" <andreas.noever@gmail.com>, "Mika Westerberg" <westeri@kernel.org>,
+ "Yehezkel Bernat" <YehezkelShB@gmail.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>
+Cc: "Konrad Dybcio" <konradybcio@kernel.org>, <linux-usb@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>, "Joshua
+ Peisach" <jpeisach@ubuntu.com>
+Subject: Re: [PATCH v2 00/22] Initial USB4/Thunderbolt support for Apple
+ M1/M2/M3 SoCs
+X-Mailer: aerc 0.21.0
+References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+In-Reply-To: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_144409_168944_160BBD16 
-X-CRM114-Status: UNSURE (   6.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260907_065227_516330_C5EDF169 
+X-CRM114-Status: GOOD (  36.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,7 +85,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CI reported CONFLICT on this series. It applies cleanly as posted: git am
-of the list copy onto bpf/master, which is the base-commit above, and
-onto bpf-next/master both succeed.
+On Sun Sep 6, 2026 at 2:36 PM EDT, Sven Peter wrote:
+> Hi,
+>
+> This series adds initial USB4/Thunderbolt support for Apple Silicon
+> M1, M2 and M3 SoCs. Each USB4 capable Type-C port comes with an ACIO
+> ("Apple Converged I/O") block which contains a Cortex-M3 co-processor
+> and the hardware implementing the USB4 router.
+>
+> The NHI and DART IOMMU are part of this ACIO block as well. Instead of
+> being exposed as independent always-accessible devices the main SoC bus
+> only gets a 16 MiB window into ACIO's MMIO space while its co-processor
+> is running. It is not entirely clear whether this is ACIO's own address
+> space or a window into the co-processor's address space.
+>
+> This is why the device tree represents the NHI and DART as children of
+> ACIO with addresses relative to that window. The driver only populates
+> these children after booting the co-processor and removes them again
+> before powering ACIO down. This setup is slightly unusual but matches
+> both the MMIO layout and the lifetime of the devices.
+>
+> ACIO also has rather strict ordering requirements: it can only be
+> started after the Type-C PHY has been configured for USB4/Thunderbolt
+> (and ideally has to be stopped again before the PHY is powered down but
+> this doesn't break anything unlike getting startup wrong). It also
+> needs cable details which are only known to the Type-C port controller.
+>
+> The first two patches add synchronous Type-C alternate mode state
+> notifiers and support for representing USB4 connections on the Type-C
+> bus. USB4 uses Enter_USB instead of Enter Mode and has no SVID, so it
+> gets its own mode kind and stores the negotiated EUDO directly.
+> The next two patches register a USB4 port mode and publish
+> the negotiated Thunderbolt and USB4 partner modes on the Type-C bus,
+> along with the Thunderbolt cable mode. These modes are marked active
+> after the mux has been configured and deactivated before it is switched
+> back to its safe state.
+>
+> The following two patches add the bindings for the NHI and ACIO. The
+> Thunderbolt core patches prepare for the different NHI register layout
+> and interrupt handling, read the USB4 router DROM from the device tree,
+> unlock the host router ports and find the Apple VSE capability. They
+> also add a hook for device links to tunneled native ports, a quirk for
+> USB3 bandwidth allocation not implemented by the Apple hardware and
+> the symbol exports needed by the driver.
+>
+> The main driver registers the newly introduced notifications for the
+> negotiated Type-C modes, powers up ACIO, boots the co-processor,
+> populates the DART and NHI children once their MMIO regions are
+> accessible and registers the NHI with the software connection
+> manager. The last three patches add the device tree nodes
+> for the M1 and M2. M3 nodes will follow once the rest of the stack is
+> upstream, but the current Thunderbolt/USB4 code has already been
+> successfully tested on those.
+>
+> Right now only XDomain connections and USB3-via-USB4 tunnels are
+> supported. Both PCIe and DisplayPort tunnels will come later since those
+> require additional work and reverse engineering that is not done yet.
+> Suspend is also not supported yet and we actually have to prevent
+> suspending whenever an active connection is present because we would
+> otherwise resume into an SError.
+>
+> This series depends on the Apple CIO reset controller [1], the ATCPHY
+> USB3-via-4 pipehandler support [2], support for specifying the DART DMA
+> aperture in the device tree [3], a fix for CD321x Thunderbolt
+> altmode VDOs [4], and fixes for making the DPTX capabilities read fail
+> gracefully [5]. I couldn't split it any further since the remaining
+> patches now directly depend upon each other.
+> Except for the dts changes the series applies cleanly without these
+> dependencies though.
+>
+> For merging we'll probably need an immutable brach with the first two
+> commits after they've been reviewed which is then merged in both the usb
+> and thunderbolt tree sincethere are other tipd changes in flight as well.
+>
+> Happy to split this series in two as well if you prefer that.
+>
+> Best,
+>
+> Sven
+>
+> [1] https://patch.msgid.link/20260821-b4-cio-reset-v2-0-2d045f80a424@kern=
+el.org
+> [2] https://patch.msgid.link/20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@ke=
+rnel.org
+> [3] https://patch.msgid.link/20260819-iommu-apple-dart-aperture-v1-0-2527=
+03f381aa@jannau.net
+> [4] https://patch.msgid.link/20260813-b4-tipd-vdo-fix-v1-1-70317f2cd554@k=
+ernel.org
+> [5] https://patch.msgid.link/20260829-b4-tbt-fixes-v3-0-e1fab6ac54fe@kern=
+el.org
+>
+> ---
+> Changes in v2:
+> - Dropped thunderbolt switch in favor of the typec bus and an additional
+>   notifer
+> - Add USB4 to the Type-C bus with its own mode kind instead of an SVID
+> - Register port/partner altmodes for CD321x
+> - Replaced the struct with ring MMIO offsets with two callbacks insid
+>   tb_nhi_ops
+> - Moved port unlock sequence and finding the Apple VSE capability into
+>   core tb code
+> - Added device links for USB3 tunnels
+> - Move the USB3 BW quirk from an NHI quirk to a router quirk
+> - Added Joshua's rb to patches which didn't change
+> - Link to v1: https://patch.msgid.link/20260830-b4-apple-soc-tbt-v1-0-44b=
+c9348683c@kernel.org
+>
+>
+> ---
+> Sven Peter (22):
+>       usb: typec: Add alternate mode state notifiers
+>       usb: typec: Represent USB4 on the Type-C bus
+>       usb: typec: tipd: Register a USB4 port mode for CD321x
+>       usb: typec: tipd: Publish CD321x partner alternate modes
+>       dt-bindings: thunderbolt: Add Apple USB4/Thunderbolt NHI
+>       dt-bindings: thunderbolt: Add Apple USB4/Thunderbolt ACIO block
+>       thunderbolt: Try reading host DROM from device tree first
+>       thunderbolt: Don't read the UID if we already know it
+>       thunderbolt: Allocate ring HopID before requesting the ring interru=
+pt
+>       thunderbolt: Unlock host router ports during startup
+>       thunderbolt: Find Apple VSE capability during startup
+>       thunderbolt: Add ring_interrupt_active to tb_nhi_ops
+>       thunderbolt: Add ring register accessors to tb_nhi_ops
+>       thunderbolt: Add ring_interrupt_mask to tb_nhi_ops
+>       thunderbolt: Add ring_configure to tb_nhi_ops
+>       thunderbolt: Add add_links to tb_nhi_ops
+>       thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
+>       thunderbolt: Export symbols required by the Apple Silicon driver
+>       thunderbolt: Add Apple Silicon support
+>       arm64: dts: apple: t8103: Add USB4 ACIO and NHI
+>       arm64: dts: apple: t8112: Add USB4 ACIO and NHI
+>       arm64: dts: apple: t60xx: Add USB4 ACIO and NHI
+>
+
+For patches
+
+3: usb: typec: tipd: Register a USB4 port mode for CD321x
+4: usb: typec: tipd: Publish CD321x partner alternate modes
+10: thunderbolt: Unlock host router ports during startup
+13: thunderbolt: Add ring register accessors to tb_nhi_ops
+15: thunderbolt: Add ring_configure to tb_nhi_ops
+16: thunderbolt: Add add_links to tb_nhi_ops
+17: thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
+19: thunderbolt: Add Apple Silicon support
+
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+
+Side note: I'm probably going to stop reviewing devicetrees as I am
+not really an expert in the full hardware definitions and how it
+should work.
 
