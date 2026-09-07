@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74200C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421B1C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zll3jkAF+tLjIy1FB2YfJYKG7wnrj2w3ollIYbYKORY=; b=1bZsEiu8aifI+KeEc75LLNNwS4
-	X4p7nCs5m2UoiN0OhXnzR37zjtX0siXJT6+2dyzcdx6d16ZipPNg6GwMzC0VHRGMRtjoXWP5mlR+r
-	Ccl5F6e3aKdonzCB3jCTsy6RJgxwr3G5mDjDN/jntlJ4EC1x2RRai0G62SFjqKLJZLuAmt/yUZJVd
-	TInUEKZIpB5FOh/OXk+Boz1nVV/GeO5/wVR+YpE4mu8x4ZTR5rTee9Vh4iexJyu/wPr5NHc5h/bs1
-	b4NSQpPzsBCr7YD/iDU5e7xzMFqKklGZfdGgzt+/wxZTfiT9WOoXpMr6C7I8wHTuP8H4T3adCQmhA
-	L1oNwuNA==;
+	bh=+JfwpOYvAv8ZYnfU3oq0MU6ImzI/HXu9p9BUtiuN48U=; b=Qx0YLMxPY+64AQ7le/QtRn3/U5
+	1+QepwIB0Ohf39nqPfNInB+OjKiyNEXoxtPJLhm7wyd/vJRBpN+ETidf009ihxaHaXz5Ve5hzcP+B
+	gw+rPQTGKMqqi+Mh9JXZOtn5kKh/Knn4fqtKwwvcw+Fx32qZWOTbbHbOTxWm9CumZ5gSPKSgEfJh3
+	joyAhivLf05JziqhL2dvcK8+g1/B1Sjv3eV9iJXjUGgkOMdx+v+F4q0gy00F5jqoEzClnA/gxdW+0
+	mw22z8R+PWCbkkdmlnA0DI/lPDy1rS015zHxt7QIIY0BxLA1TKDQsizo0zeX9Owni2em5vPD6XHQE
+	vhFEuGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cM4-00000007K1k-2DmD;
-	Mon, 07 Sep 2026 16:38:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3cMC-00000007KAh-3Qrq;
+	Mon, 07 Sep 2026 16:38:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cM3-00000007K0q-2S0m
+	id 1x3cM9-00000007K6i-0Lbk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:37:59 +0000
+	Mon, 07 Sep 2026 16:38:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B1FE601DE;
-	Mon,  7 Sep 2026 16:37:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64EF41F00A3E;
-	Mon,  7 Sep 2026 16:37:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D32F5439B4;
+	Mon,  7 Sep 2026 16:38:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9F91F00A3A;
+	Mon,  7 Sep 2026 16:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799078;
-	bh=Zll3jkAF+tLjIy1FB2YfJYKG7wnrj2w3ollIYbYKORY=;
+	s=k20260515; t=1788799084;
+	bh=+JfwpOYvAv8ZYnfU3oq0MU6ImzI/HXu9p9BUtiuN48U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Jf4xvxp7r/Z8Z39ZlKwoSaMvTsC0e+lKBYm3NWf/FPYaYgKfZMTNvmcic8JgOjGxd
-	 vXb6tHu7nsCQ2xzwdo9tfZBWH4wRuj6AY2iNHfAY7OnduTVKH1wVcoQMgPYteqQAJ9
-	 trYap4SyCn0zzjlJfJG4zUM/nvdatWZinV00zEnsu0Z7DyB3yjOT16oB6rSFGi49OF
-	 JlnegUf/ULgd7lnDNOS8AqffgOpG7iFHQ5/tg/70iDMUYSAGqSW2MaRC5YRAc/5j1+
-	 tnW0QXfIY1KVRARAnik6nY6uZjbL86G2yYCTTIE5I9omzuF10KyS22fYD3PK6Uq1V+
-	 FbrQDX93yhOEA==
+	b=PwXXppz8RiCXsg/CuFuJF0bBs9LDVedC1gXhgY5HBFLvAcscR8NH11AAGkm+CkuCA
+	 hBq0lhTVQECU9NWzI5G1gy7A7cGRhhafyU/9l7NJpTFaP28H96V6eaQcN+3CLZqNDn
+	 DcNII+pNZNz/QdNTYhYnAHmGLQma0Rk17zm4Svm4m/C9ucEZ6OlgE06YD9D08Ls0Eq
+	 3xtosPAj6UlWRoIaKwnner/gYH0QdlJfmX5VNb1s6PrKLfDC45oLPfS0OJ4O7kuNOZ
+	 nu53RvlGLQ1BxVPY/yWQly0VFRbe1wQrGeyHHzXqUXUrLOhOASpnj9I7IDaDol9fvp
+	 GY+R/B89W0+zA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 06/14] arm64: assembler: Remove endianness helper macros
-Date: Mon,  7 Sep 2026 17:37:17 +0100
-Message-ID: <20260907163726.17104-7-will@kernel.org>
+Subject: [PATCH v2 08/14] arm64: vdso32: Always build compat vDSO object as little-endian
+Date: Mon,  7 Sep 2026 17:37:19 +0100
+Message-ID: <20260907163726.17104-9-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907163726.17104-1-will@kernel.org>
 References: <20260907163726.17104-1-will@kernel.org>
@@ -77,11 +77,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CPU_LE()/CPU_BE() helper macros are only used by head.S. Since
-big-endian support depends on BROKEN, remove the last users along with
-the macro definitions. The unused regs_to_64() assembly macro, which
-somewhat bizarrely behaves differently depend on the endianness, is also
-removed.
+Big-endian support on arm64 depends on BROKEN. In preparation for
+removing the dead code altogether, remove support for building a
+big-endian 32-bit vDSO.
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Acked-by: Arnd Bergmann <arnd@arndb.de>
@@ -89,66 +87,25 @@ Acked-by: Marc Zyngier <maz@kernel.org>
 Acked-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/assembler.h | 31 ------------------------------
- arch/arm64/kernel/head.S           |  3 +--
- 2 files changed, 1 insertion(+), 33 deletions(-)
+ arch/arm64/kernel/vdso32/Makefile | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 0b58b550e8dc..42a167a75486 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -129,37 +129,6 @@ lr	.req	x30		// link register
- 	b	\label
- 	.endm
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index bea3675fa668..00efdc5d2354 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -45,11 +45,7 @@ endif
+ # From arm Makefile
+ VDSO_CAFLAGS += $(call cc32-option,-fno-dwarf2-cfi-asm)
+ VDSO_CAFLAGS += -mabi=aapcs-linux -mfloat-abi=soft
+-ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
+-VDSO_CAFLAGS += -mbig-endian
+-else
+ VDSO_CAFLAGS += -mlittle-endian
+-endif
  
--/*
-- * Select code when configured for BE.
-- */
--#ifdef CONFIG_CPU_BIG_ENDIAN
--#define CPU_BE(code...) code
--#else
--#define CPU_BE(code...)
--#endif
--
--/*
-- * Select code when configured for LE.
-- */
--#ifdef CONFIG_CPU_BIG_ENDIAN
--#define CPU_LE(code...)
--#else
--#define CPU_LE(code...) code
--#endif
--
--/*
-- * Define a macro that constructs a 64-bit value by concatenating two
-- * 32-bit registers. Note that on big endian systems the order of the
-- * registers is swapped.
-- */
--#ifndef CONFIG_CPU_BIG_ENDIAN
--	.macro	regs_to_64, rd, lbits, hbits
--#else
--	.macro	regs_to_64, rd, hbits, lbits
--#endif
--	orr	\rd, \lbits, \hbits, lsl #32
--	.endm
--
- /*
-  * Pseudo-ops for PC-relative adr/ldr/str <reg>, <symbol> where
-  * <symbol> is within the range +/- 4 GB of the PC.
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..8951ce693552 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -138,8 +138,7 @@ SYM_CODE_START_LOCAL(record_mmu_state)
- 	b.ne	0f
- 	mrs	x19, sctlr_el2
- 0:
--CPU_LE( tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
--CPU_BE( tbz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
-+	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
- 	tst	x19, #SCTLR_ELx_C		// Z := (C == 0)
- 	and	x19, x19, #SCTLR_ELx_M		// isolate M bit
- 	csel	x19, xzr, x19, eq		// clear x19 if Z
+ # From arm vDSO Makefile
+ VDSO_CAFLAGS += -fPIC -fno-builtin -fno-stack-protector
 -- 
 2.55.0.979.g7e5102b832-goog
 
