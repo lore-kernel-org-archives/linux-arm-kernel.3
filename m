@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6256C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA241C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtDJpD2fxJE6IddEOBExRdVt6TIzNQJ6o5AAGWZJXas=; b=3E3rSbRQXCxGso+3l+QP2FVm7C
-	Sqwk1/4VYo41VUDhaQ+gf8sspJOI2McqwrkjO8Oe6+PKR6AcR8EkO57OchAHaH29EMxWOYuhXTfa5
-	wtjyUzW59a/59tMfPTelaIVaGvzjEIC9hxvXdJ3vn8wIisRwhFsONcugDmGYLiLQcnqxoxFz6kIUX
-	lI+OrXJnzKE1hh95RMeCiR6mNysI+GEPexrBi08cmX4RuMnR9HT7BIbithh5pINVQxOdHCnULgZCl
-	4AheLqWPB8dnVHMaoIqVvPme6ON9+J39KUkN4OfM2BJjv9yzwh9B2ZFL3q8NJowtU6qDXNgFOTwYp
-	u/9ePs/A==;
+	bh=4kL4fMGCj3SR3hY6TLqzXN2o5Y2eftf1hKQIXB63uPk=; b=ilRr5OwNF0EU8p9RtdJRt2DeAx
+	Rb3f17DejCxMvG0Dayx+46cYKxN0ELWTYB/y0TTfPVVXIo4bOtCwuRnumerur3NM6njVXVFnr/FB/
+	f2S9yarli0vrXOvBsy7dOpL7fG9oa74q5x4hvlyJKrrbCmAWvja1AwELsRC8ptWIsK9lFGM2B+e+I
+	nJoV0hLzy36O5ae5kZeaNORY3OzzSgz9M4kNCi1yOGmNdAmcQgfP0C12j7DKCDazU2cqpqsvns55y
+	ji8s7XMjI+m8awINv1ypaTGXxtk1cY9u98WkVvP9p58tMF/fpyUiRyLgYcJZRGM6mkK4AUmoHmVFu
+	ZlU43gqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eHx-00000007b4u-1NOA;
-	Mon, 07 Sep 2026 18:41:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eHu-00000007b3u-0fZ5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 18:41:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 986621476;
-	Mon,  7 Sep 2026 11:41:45 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D57603F528;
-	Mon,  7 Sep 2026 11:41:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788806509; bh=oOAJaNc8fwgBRGZou+YwG8GwcsoIvMJQ0k0a4TIZy/s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M5eaoEi/0DWd2TdnMuk/JswwJZj75WRus7Ql1q+5a2MSL7qzb/IUiyPVu96k0DJxc
-	 /UZNp1gsDy7VWFjgwh4krvW93L0Kit1sFpSeJbc3tYtwkog3asHDgLkWUJzqbcLQcs
-	 r6ju8NUwqY2QKPfOpCHSesZ/5AD1JYKFD4kynPx4=
-Date: Mon, 7 Sep 2026 19:41:30 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
-	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 00/20] Huge mapping support for protected VMs
-Message-ID: <g46hgnsj7rltrqzfmm7lgkdxteaxositebvrpasyjwesygwmq7@mcustodfb26v>
-References: <20260803100904.3563942-1-vdonnefort@google.com>
+	id 1x3eL5-00000007bUu-3D8d;
+	Mon, 07 Sep 2026 18:45:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3eKz-00000007bTU-1D1G;
+	Mon, 07 Sep 2026 18:45:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 4EBD9601DB;
+	Mon,  7 Sep 2026 18:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4F61F1F00A3D;
+	Mon,  7 Sep 2026 18:44:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788806700;
+	bh=4kL4fMGCj3SR3hY6TLqzXN2o5Y2eftf1hKQIXB63uPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EHiwNtgahfVLLxqooLJy9yugeOedCoj0u/L/QLWi7R51lB73ZwzggqX1DEeIFcqSa
+	 +StBg2yUEY7/V0YAmw2I92dUjc1TyFKqMPUfFSp9lITzCSBHjFLObwV3M3NSjtCY/Z
+	 zFTxTkty8xZEpT57ICoM/7HQI3LX810s8aS3eQjeC503tQn0mdXt9kckxMY+XF3PQ9
+	 YrJdA8sr1HAh345kVuRLc7WAS3eT1Q2sRuzjc5cVOMbVs1pb64+txToCR5TjweYVdT
+	 Nq4rccYkzphu0psyJKuIOP69hzSnkoZg4LGViZL8iFB/pMyzqNuwox+qMLm2ThDf1g
+	 80/xWvfpQtNGg==
+Date: Mon, 7 Sep 2026 20:44:56 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Alexandre Mergnat <amergnat@baylibre.com>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v4 3/4] pwm: meson: use bulk API for per-channel clocks
+Message-ID: <ap8FuWnIRVgcP98G@monoceros>
+References: <20260827-s6-s7-pwm-v4-0-d28a2015177d@amlogic.com>
+ <20260827-s6-s7-pwm-v4-3-d28a2015177d@amlogic.com>
+ <178879456435.2256446.2005394820666057840.b4-review@b4>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="t7gsagdcfeml35k4"
 Content-Disposition: inline
-In-Reply-To: <20260803100904.3563942-1-vdonnefort@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_114150_287212_E55B69E6 
-X-CRM114-Status: GOOD (  18.61  )
+In-Reply-To: <178879456435.2256446.2005394820666057840.b4-review@b4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,94 +75,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
 
-On Mon, Aug 03, 2026 at 11:08:44AM +0100, Vincent Donnefort wrote:
-> Currently, pKVM handles stage-2 mappings and ownership tracking strictly
-> at the PAGE_SIZE level. This series extends pKVM to support PMD_SIZE
-> block mappings, thereby enabling Transparent Huge Pages (THP) for
-> protected guests. hugetlbfs is currently unsupported as it does not
-> appear as swapbacked.
-> 
-> Summary of changes:
-> 
-> 1. Enable host stage-2 block-level annotations:
-> 
-> The host stage-2 being annotated with the GFN of the guest on the
-> host->guest donation transitions, we allow block-level annotations to
-> ensure the host stage-2 mapping size matches the guest stage-2.
-> 
-> 2. Expand ownership transition HVCs:
-> 
-> Enable the ownership test to work with PMD_SIZE so we can test
-> transitions supporting more than PAGE_SIZE.
-> 
-> 3. Implements the `PKVM_HYP_REQ_SPLIT` hypervisor request:
-> 
-> Allows the hypervisor to ask the host to split a mapping. This ensures
-> the guest s2, pkvm_mapping tree and host s2 are always using the same
-> mapping size.
-> 
-> 4. Wires up THP support for pKVM guests.
-> 
-> Keir Fraser (1):
->   KVM: arm64: Prefault host stage-2 entries on block split
-> 
-> Vincent Donnefort (19):
->   KVM: arm64: Propagate host stage-2 annotated entries on block split
->   KVM: arm64: Allow block-level stage-2 annotation
->   KVM: arm64: Use block-level annotations when setting up the host
->     stage-2
->   KVM: arm64: Make pKVM ownership selftest an HVC
->   KVM: arm64: Add a range to __pkvm_host_share/unshare_hyp()
->   KVM: arm64: Add a range to __pkvm_host_donate_guest()
->   KVM: arm64: Add a range to __pkvm_host_reclaim_page_guest()
->   KVM: arm64: Add a range to __pkvm_guest_share_host()
->   KVM: arm64: Add a range to __pkvm_guest_unshare_host()
->   KVM: arm64: Add a range to pKVM ownership selftest
->   KVM: arm64: Handle huge mappings in
->     __pkvm_host_force_reclaim_page_guest()
->   KVM: arm64: Handle huge mappings in __pkvm_vcpu_in_poison_fault()
->   KVM: arm64: pkvm: Warn on guest stage-2 block collapse
->   KVM: arm64: Add pkvm_hyp_req infrastructure
->   KVM: arm64: Add __pkvm_host_split_guest HVC
->   KVM: arm64: Extend pKVM page ownership selftests to cover guest block
->     split
->   KVM: arm64: Add PKVM_HYP_REQ_SPLIT
->   KVM: arm64: Raise PKVM_HYP_REQ_SPLIT on guest to host sharing
->   KVM: arm64: Stage-2 huge mappings for protected VMs
-> 
->  arch/arm64/include/asm/kvm_asm.h              |  12 +-
->  arch/arm64/include/asm/kvm_host.h             |  19 +
->  arch/arm64/include/asm/kvm_pgtable.h          |   3 +-
->  arch/arm64/include/asm/kvm_pkvm.h             |  21 +-
->  arch/arm64/kvm/arm.c                          |   2 +
->  arch/arm64/kvm/handle_exit.c                  |   3 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  25 +-
->  arch/arm64/kvm/hyp/include/nvhe/memory.h      |   5 +
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   6 +-
->  arch/arm64/kvm/hyp/nvhe/ffa.c                 |  12 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  47 +-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 545 ++++++++++++------
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  59 +-
->  arch/arm64/kvm/hyp/nvhe/setup.c               | 152 +++--
->  arch/arm64/kvm/hyp/pgtable.c                  | 113 +++-
->  arch/arm64/kvm/mmu.c                          |  72 ++-
->  arch/arm64/kvm/pkvm.c                         | 247 +++++++-
->  arch/arm64/kvm/trace_pkvm.h                   |  44 ++
->  18 files changed, 1036 insertions(+), 351 deletions(-)
->  create mode 100644 arch/arm64/kvm/trace_pkvm.h
+--t7gsagdcfeml35k4
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 3/4] pwm: meson: use bulk API for per-channel clocks
+MIME-Version: 1.0
 
-The patches in this series are missing per patch stats like this here.
-I would recommend including that to help reviewing.
+Hello,
 
-Thanks,
-Wei-Lin Chang
+On Mon, Sep 07, 2026 at 05:22:44PM +0200, Alexandre Mergnat wrote:
+> > The S4 PWM driver currently gets each channel clock individually with
+> > of_clk_get() and uses a custom cleanup action to release the clocks.
+> >=20
+> > Use devm_clk_bulk_get_all() instead to retrieve all per-channel clocks
+> > at once. Verify that the number of clocks matches the number of PWM
+> > channels and assign each clock to its corresponding channel.
+> >=20
+> > This also allows the per-channel clock initialization code to be shared
+> > by Meson PWM variants using one clock per channel.
+> >=20
+> > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> >
+> > diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+> > index 22cefc6d5dd0..6f151464d7cc 100644
+> > --- a/drivers/pwm/pwm-meson.c
+> > +++ b/drivers/pwm/pwm-meson.c
+> > @@ -497,33 +497,25 @@ static int meson_pwm_init_channels_meson8b_v2(str=
+uct pwm_chip *chip)
+> >  	return meson_pwm_init_clocks_meson8b(chip, mux_parent_data);
+> >  }
+> > =20
+> > -static void meson_pwm_s4_put_clk(void *data)
+> > -{
+> > -	struct clk *clk =3D data;
+> > -
+> > -	clk_put(clk);
+> > -}
+> > -
+> > -static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+> > +static int meson_pwm_init_channels_per_channel_clk(struct pwm_chip *ch=
+ip)
+> >  {
+> >  	struct device *dev =3D pwmchip_parent(chip);
+> > -	struct device_node *np =3D dev->of_node;
+> >  	struct meson_pwm *meson =3D to_meson_pwm(chip);
+> > -	int i, ret;
+> > +	struct clk_bulk_data *clks;
+> > +	unsigned int i;
+> > +	int num;
+> > =20
+> > -	for (i =3D 0; i < chip->npwm; i++) {
+> > -		meson->channels[i].clk =3D of_clk_get(np, i);
+> > -		if (IS_ERR(meson->channels[i].clk))
+> > -			return dev_err_probe(dev,
+> > -					     PTR_ERR(meson->channels[i].clk),
+> > -					     "Failed to get clk\n");
+> > -
+> > -		ret =3D devm_add_action_or_reset(dev, meson_pwm_s4_put_clk,
+> > -					       meson->channels[i].clk);
+> > -		if (ret)
+> > -			return dev_err_probe(dev, ret,
+> > -					     "Failed to add clk_put action\n");
+> > -	}
+> > +	num =3D devm_clk_bulk_get_all(dev, &clks);
+> > +	if (num < 0)
+> > +		return dev_err_probe(dev, num, "Failed to get clocks\n");
+> > +
+> > +	if (num !=3D chip->npwm)
+> > +		return dev_err_probe(dev, -EINVAL,
+> > +				"expected %u clocks, got %d\n",
+>=20
+> Small style nit: the continuation arguments are not aligned with the open
+> parenthesis, whereas the dev_err_probe() just above and the rest of the d=
+river
+> do align them. Can you fix it please ?
 
-> 
-> 
-> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-> -- 
-> 2.55.0.508.g3f0d502094-goog
-> 
+No need to resend for that, I can fix that up while applying (after
+checking I don't have further concerns).
+
+Thanks Alex for your review!
+
+Best regards
+Uwe
+
+--t7gsagdcfeml35k4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqfBhsACgkQj4D7WH0S
+/k4H5gf/b2Cwr+NerQlDrFtCUTp4liuubWlge5tlRlMWOcb5v+9nUeJWlgs2tQvu
+yWPt8d+Zt+e3Ro1Lltt6/0z/V2EMCeWmtbyUAUgVB509psrAZq+tEvC5dPNMJOBJ
+1NdEPZSVCMSlaPKFFd7mmxORfZRVoOq328+Ou9pKtuvxRFAV20KwWw7SpdZnYNRZ
+HKdhlu0iIXKVC20ipM5jSoOuCBjbSyxUcFdlnQIR76rsUeFxWUSt98aAzTntv3YE
+G6TZefYdA0k3oSnyd0vQ3vc8zomM9PsuRxdGiyCICdF8NasUaM3sqWgH67mote90
+ROqVOOH2Xl9Lo70ugL/zbQq89aaHzA==
+=DC7A
+-----END PGP SIGNATURE-----
+
+--t7gsagdcfeml35k4--
 
