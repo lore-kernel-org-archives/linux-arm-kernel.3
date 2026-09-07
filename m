@@ -4,107 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC5BC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7467C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5tgil3vkQ8CD1s0t9IPIfXEewAuekCe0/KDn3NFVfRk=; b=Lh8i3st/J4kkuTXCy6nNSbRhUJ
-	qrVKquVrdqW7c+ZCs2MbOP0HosuJ3WacIPiicUNRovMw8dBlmefderX2EldETF8YCo42atIVvi9gx
-	2eXjZnAPp4ArUS1vYAdOcYe+mnDsB2zb4OZTh6Gcfl10ERy3BU8AbP74JZTQG3MqZJZOnoRSgGQLJ
-	nzAKNhQ09NMTSLQN8mi7ZR9+DSTxePgKlaHPLcFB2uoee2VWO6EKMW1k0ZDJvPfQpM3lmglxSydiM
-	UOvwW4rUcZyEk7sQUWJb+HsgM4T8GRHaMea7yDV5JatNN8ZceF5LbagUwDB92acTgOceQomVexsVX
-	j/VOT2tw==;
+	bh=JxSYqjpXn9L3rh86fmrKHlYewJDED4m/ZxVyWxEHBJY=; b=ZEqZ2O+SdO5VywkmDnppRBVew2
+	QmbLHqXrjnjzIPZpRcUe8jmgfoC7TLJiO7wzL657dgpIXiwwoocEZVFhEzZK3OBPz6Hw+HetEtqUJ
+	yUHEEV8uM+HheZdCehOZtnDDzoapdKT79zEJslyhOCEtNXrye+uAdUQ9sQlJlRW6I4TF0oJCOwC8l
+	kFKkno73pLpM9VFbq0xgrcL6kDvy6Mg0oJ37/95VcGH0dFe3BzFQq1ryam/S5vXcJEDqFxFW+Jj3E
+	G3dpHDFieUJuWqBZyvXfrwZXnyYx4VlhdKNvGjM9xH2OjdteAdf+GhGawYv0htqnoGuNRsTIi370L
+	TveWccjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eMG-00000007blh-2pBb;
-	Mon, 07 Sep 2026 18:46:20 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1x3ePj-00000007cEj-15fP;
+	Mon, 07 Sep 2026 18:49:55 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eMD-00000007bl4-3ko1
+	id 1x3ePg-00000007cE8-40Xv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 18:46:19 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4957eefd361so30176975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 11:46:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788806775; cv=none;
+	Mon, 07 Sep 2026 18:49:54 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747eefae4so1108515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 11:49:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788806991; cv=none;
         d=google.com; s=arc-20260327;
-        b=ee+pFrW1ayX4oMC8EIR9Yf0D+N/0aRQQZNV5QZUccPxT/BoJDYGsMN6yNqLyQ7G51u
-         VcRZeMT9F7fxfQMKG+q17qLXCRHVMhPDIFHGRC4SB6nsKbGACxF27sNs2VHwx5YevEcA
-         GBVD0NraplXbx/hUs8ajs1/2wm2ku1xlgmlcyLZduzQS9hS9A1k8kUyTSIIcrqJ+4piy
-         ca6WGm9Thc210ebnSTVPRhjQY7HMYgQe3Q5E0Riue4492P6RE2cCCx7HaBDDosomSF00
-         cykgmS3947S3017JOMTYYNWsw15a/+GQJkj1gElhbr17P2OOMiKnuUZdebkZGwyEJcYx
-         YBhw==
+        b=e9rMGFB0BIGJapPCndyTOkmYhCqQmiacR/C2fSLH0GcyaLOQ+Csr9n9XHY4NWtWr6L
+         VsLC/qBmKPoSKjjSFXDnXCP8uEmoys0SBuDdm6VcfHYozQidDaoSLg64aocY+BX7SxUx
+         G9RBwXt4EhMTuZCpuYv7G5b49+uvkQwg9FRoKxVLl3ppnONrCCBdqNssV7W8NeKKYGEH
+         UR5klHw2kxsUertlQL32cou62LjSYH6lFV2farJyeAuijXOkSDozIZtWPgEEbMYtYQYO
+         Oo3o1AhnizsAkfyJZdMtwxFgRIqk1nmBmSmzXGq3sw8eKhX34OD5ctm7f5FhiPjVYPWH
+         UcjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=5tgil3vkQ8CD1s0t9IPIfXEewAuekCe0/KDn3NFVfRk=;
-        fh=6qVqNqYx6iaDq5i1or3SVhsnQems2oijlI3gd3IppKg=;
-        b=EodI2y7Dv8TezwNoGhmfmi0Sel/BI6l1E2ENxps9ZXeIYBQmx/OFAsZKZNxxh8Ixnb
-         6ybiEngLAhC6uIgh3omYayQ7JQKngWEbLbnd+66aZzHcyJF8RfQiMdEDE6KDCSA7udfO
-         bUodfxgApZ0ZZwfzo7wuuEgy+aYg7oQSr7ZGQHZVPb6dp74dJcdsXRKNvJ4VfBJyFYT6
-         4NyJVo4Sltf3iLV3/DfMu5LroFWaYHOKUVEVbS9TknOnljXXlSQu2RNVnt9gzAw4Rv9P
-         VdugbMpV+pGMXJPt016v1afbLpeQvEZBI0oDZGKpz2kJCyP4TkGRLOLRyKfPYhw+I2oZ
-         XGEg==;
+        bh=JxSYqjpXn9L3rh86fmrKHlYewJDED4m/ZxVyWxEHBJY=;
+        fh=uYMtK+K4GSPbRuPrrKJF4xN6YZx9hTvm9Pwe+8nL7nc=;
+        b=CVf7lVw/xB72z3BZ52ceCQ5c3ArjW3XnxKmXircOc4GAL+8I6sPvN44U7eQhZtG8hj
+         52MNmFxIlAI5lnG1Gbb812+Ddz4tZVPdyUT7Jh4GSwcY/6GZ/F8Q6D1Yt1Yp6xvU4rjh
+         epA79NTAgJHoBaNwHfRbHi2DTgQqAWFHkx8AV8bBaPJQgNZtPCIjJMMKqhzth4ylt64g
+         RxJxmjAx6zRiR+rpkNS8znhoFIWrw4bhdClRpu6kfALVQ1j2C9hBPw56OnPx40ghQtlr
+         Kc81jsM0idEK+p/t951tobXXrBAvcQBkXSs0V0f3VjfDAHPLWac3VH+KhXHb2W/mgEmX
+         KP3w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788806775; x=1789411575; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788806991; x=1789411791; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=5tgil3vkQ8CD1s0t9IPIfXEewAuekCe0/KDn3NFVfRk=;
-        b=UwAwtqlwh6iYgxi4maIS7mJr2hgpFTh8xbMeyYgFo2DOkGzcR6Hq82AbnhVutKN27m
-         /WLzHRridplh7hNYNvj7L6qGi0LBLtLmKOxWZMWU33xgZBza4N+0c14d8OjFe1GtsLI+
-         u5/4ZUQ67/IHOliU3zPsCeLuigaYnfgV2UM+xNkf42sUoG3TNOPzMPXMGFmko2LN3W0J
-         0dIB1g5HrkdyFzCUIioYEC5ZmmqPgkJFMoKnUoSsirMegQO8z7q4IFk27CRH+klV5Y5r
-         HgRx7x97alrBAo9cWioDqt/0sGvoWNxRfZT7c+lwOrByzNF17hEzynCq7pC0q8/qA8oN
-         eBsA==
+        bh=JxSYqjpXn9L3rh86fmrKHlYewJDED4m/ZxVyWxEHBJY=;
+        b=jjsA+AHK1JUnuQL40hZR0AAzo0HJloWxk7TAEw12529UqXh1DNQl0F2fBpOY9QhqvF
+         p3D2S4Ukvnsj3Sx0XNEG4H8E0wkfJ/AQsJPZHYXRV7MXqXt4fAy65lVd4BVMSbgIZlta
+         e1dPvOoS0yTk/1qJGNHmSbQqCMc+feuZWEqcZ+vt2nRUommnPsi8uDKZxct8Ebzpkwa0
+         jpJXWp650z3pb3zdij9o84iYT5UFKYUuPxa/TJ61YggTWcrGfExhEM/Ub3n5tNsyfd3g
+         +8ShlkA2e4GYxJLK3RxSlFiys1e54P8Kq6RlGGtQ5eB2QAUsYq22k35C6tj664MMxa7Q
+         wkDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788806775; x=1789411575;
+        d=1e100.net; s=20251104; t=1788806991; x=1789411791;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=5tgil3vkQ8CD1s0t9IPIfXEewAuekCe0/KDn3NFVfRk=;
-        b=LTRzAhH+n1D81hrvr7LjNHcpX2gcZC0odnAijjPxZExkFeYqVF7ijrmuUii+0wlPKR
-         tD54IS+yWLL7BcFHzrvQuHaOd/3dt1CXXP59LoGn+6WYsxInCL2Mka/6U/ULZrWJCKc6
-         k70f9kyqAVmX9LSKV0dOM1AfzZ+MWTlrkr6Hh2zFgrh2+QtSRNJT7ybY0lksNijRDOTl
-         zvabwY4lz1lwu/5+NqtGt2Dc6bAhRdkhQ9zZuIR63BRSgpjdiqAVPZh3pcRxvxesHGg1
-         zCMKxOsHzTciH/yDsKbEo6P/eDvWFLFk+dJjYjZIRLlDzVa/zF9cdF7JJJx2bZBwQzV3
-         AySA==
-X-Forwarded-Encrypted: i=1; AKwUvBzA0IC4RVhVR103Fg5ogEqGXp43mFhCi49jmUN4KFlYi6QStvLoscXDFwhe3VGYwa5Zl88zySEUBMl+5uuS4zCW@lists.infradead.org
-X-Gm-Message-State: AFuF++lukOGf1zd2QYo1Xx6W3fXou6/cbuHHeI6ENxD9DHDhq7tcI3uR
-	QdRoAgYAML1gEUu8JU8RLNWR4TfwOVpsyorBoiXwnNyDcvKxRc13lxsPi6zXz1l+gdyDotHTFv9
-	pLqB9UCld5UVG2E3VKx98t0huavh0ANE=
-X-Gm-Gg: AYBFou2YtRjcgCmWAVBqYTlJJwJMYXzsr3xcg65x/35zdaFQWZ+kTBMB9qE6TXY6Luj
-	uJJY/7+/UTjxPW28goPbjMc08WUUNtzhSGqewPc+wWUsc3iU/La8oLlDxZ11qbu2ZTfhwT/alBp
-	hST+bfgHwqWgb2bNVfDbe7LRKvz+wjqfqUX8OUxFGMexYfLqDHRYucBzVeBGMHctpIxSgFyM+Fr
-	Z7oA6xxlrBoIbR/IZPmCjFnLMFH8l3HdNKuKDt6qm1664z4QJQAV96XUOjl+y7ZFPHKlUy/Map7
-	GQk5c/jWMlfb9U4E59GXM6LoHJfHStoFB7ubeXQQvu/ccYZ6Pp/D9MIm3ctx5NttWt5XNMW1kk5
-	hYZ9PGMGIKToElljHuw6VABpOMxA75aQir7H6ddiLEp8=
-X-Received: by 2002:a05:600c:4f43:b0:49c:fc6e:a3d9 with SMTP id
- 5b1f17b1804b1-49cfc6ea7b4mr221188365e9.24.1788806775355; Mon, 07 Sep 2026
- 11:46:15 -0700 (PDT)
+        bh=JxSYqjpXn9L3rh86fmrKHlYewJDED4m/ZxVyWxEHBJY=;
+        b=DgoCtDz9fFqGcs4BM7roorPBBmDUr8/8+MaH6BJWQ0fXSkr8ifROrRqXAssIIyuCff
+         xXQEacakVl2JHJ5rmw8AQHgrDUD+oNDAmMbonycpMdTUHJQLalznjrbp7LWkym7f8Dlo
+         aJY6eFiZMQzbImjnFZPFlt1UdL0cl/2aotFcolUv7R/UMgnNVIsNW8OjzOE/MhOy48Xf
+         cl58oX6x5xDe23N/VQiNZ7NuxGcSQ7h/J6/MmUpzO3OYH0cQc7y1GqX85uAe9/sSQTbF
+         Q4EkoHVnU4xNMc2TKkPa7u0vIvupy+OBVrfTqX4nQjxStlIqQL/Hm72FBvaSduCBTNgr
+         WZzw==
+X-Gm-Message-State: AFuF++mpKYkN4YcedXPc0gqbkvjOeew7IsCGCsC21JE+t6d6xD4YXJ7O
+	sVlD1N0TURHkJHriRj4T5oTcN5PRb+2c8Isf2veRP5bBlANl95k+/39oxPOe4GodqYAfIyNxO8S
+	OFbiuVD+vRL86M78jknngKpPyVsG2mcc=
+X-Gm-Gg: AYBFou0FKcxAu/oT2GCqilfY3xbR3Is0E4tbDvLxSw28P5sS7cPPNqBIfbNRADYin9V
+	YOVUGr31iMeJUdQ2qASZNroHMxDpzi3drQKi6BIIkMxbMCQQRlOwTFGBAS2wFpnuhORpfewc57A
+	2s2TnM6EHM8+j8CsFkrtShI4Y82LAqpWIxeWYpPJgOvE3w0W4Cktx+NUHA0vZndqsSFOMcsbi8d
+	Q1mlwgnHxzCXJ/rY+qncJn+Y/bnc5b+NpYTMG+8qBUMOdhxohuzHE4NStnc05R/n8T0Wtr84gIr
+	FQqYQZXE5b1LKimFoClfsqE7fwQ7oMEjoVp/1GiGV6U2/7qpGzVKL59PPo5CDexrSqpmG5cgI6r
+	BlRPW9zQBUlnpjjpI7oWn6hmg0Bfix4DRa+f8wb4=
+X-Received: by 2002:a17:90b:5743:b0:38e:c232:9d2c with SMTP id
+ 98e67ed59e1d1-39b8bc9422emr2061387a91.2.1788806991520; Mon, 07 Sep 2026
+ 11:49:51 -0700 (PDT)
 MIME-Version: 1.0
-References: <2a759a486337e4cc8156bc94079471a6552faefc.1787669487.git.geert+renesas@glider.be>
-In-Reply-To: <2a759a486337e4cc8156bc94079471a6552faefc.1787669487.git.geert+renesas@glider.be>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 7 Sep 2026 19:45:48 +0100
-X-Gm-Features: AcwNN1XE7uW2eXf-zpDN13rtRKPngwcstajdD4PloW5l674McTr-7H6fGfJLoZs
-Message-ID: <CA+V-a8uXz6ehq3Mdgri0zT9we7kE+=-XZjahfVg3BBu4NGxh2g@mail.gmail.com>
-Subject: Re: [PATCH/RFT] arm64: dts: renesas: r9a09g047e57-smarc: Update CAN transceivers
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org
+References: <20260907163726.17104-1-will@kernel.org> <20260907163726.17104-3-will@kernel.org>
+In-Reply-To: <20260907163726.17104-3-will@kernel.org>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Mon, 7 Sep 2026 11:49:39 -0700
+X-Gm-Features: AcwNN1UCBGzNBkKYzPqBLzfBywiT6dWM48M5nh8JX2eYcmjL_a0phc-s34IGjM8
+Message-ID: <CAADnVQJN=9SMCoFyG1-hLMKyCdZ2mf0Xp63VZDNE2oddaeifFw@mail.gmail.com>
+Subject: Re: [PATCH v2 02/14] arm64: bpf: Remove big-endian support from the
+ JIT compiler
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Ard Biesheuvel <ardb@kernel.org>, Eric Biggers <ebiggers@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Marc Zyngier <maz@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_114617_996230_49EE2A91 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260907_114952_996172_AD8AAB57 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,113 +122,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 3:57=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
+On Mon, Sep 7, 2026 at 9:37=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
 >
-> The dual-channel TCAN1046V-Q1 CAN Transceiver on the RZ/G3E SMARC EVK is
-> currently modelled as two TCAN1042 instances.  Improve hardware
-> description by describing the actual transceiver.
+> Big-endian support on arm64 depends on BROKEN. In preparation for
+> removing the dead code altogether, remove the big-endian-specific
+> support from the arm64 BPF JIT backend.
 >
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Compile-tested only due to lack of hardware.
->
-> At least the TI AM68 SK DTS should be updated, too.
-> There may be others ("git grep -wc ti,tcan1042 | grep -v :1$").
-> ---
->  .../boot/dts/renesas/r9a09g047e57-smarc.dts   | 25 +++++++++++--------
->  .../boot/dts/renesas/renesas-smarc2.dtsi      | 13 +++-------
->  2 files changed, 17 insertions(+), 21 deletions(-)
->
-Apart from the sysfs file name changes everything works as expected.
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Acked-by: Marc Zyngier <maz@kernel.org>
+> Acked-by: Eric Biggers <ebiggers@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-Old path                                               New path
-/sys/class/phy/phy-can-phy0.0            /sys/class/phy/phy-can-phy.0
-/sys/class/phy/phy-can-phy1.1            /sys/class/phy/phy-can-phy.1
-
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-
-Cheers,
-Prabhakar
-
-> diff --git a/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts b/arch/ar=
-m64/boot/dts/renesas/r9a09g047e57-smarc.dts
-> index 469a6282b2a30c91..14f5834082fa500e 100644
-> --- a/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts
-> +++ b/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts
-> @@ -112,7 +112,7 @@ &canfd {
->         channel1 {
->                 status =3D "okay";
->  #if (!SW_LCD_EN) && (SW_GPIO9_CAN1_STB)
-> -               phys =3D <&can_transceiver1>;
-> +               phys =3D <&can_transceiver 1>;
->  #endif
->         };
->  #endif
-> @@ -121,22 +121,25 @@ channel1 {
->         channel4 {
->                 status =3D "okay";
->  #if (SW_GPIO8_CAN0_STB)
-> -               phys =3D <&can_transceiver0>;
-> +               phys =3D <&can_transceiver 0>;
->  #endif
->         };
->  #endif
->  };
->
-> -#if (!SW_LCD_EN) && (SW_GPIO8_CAN0_STB)
-> -&can_transceiver0 {
-> -       standby-gpios =3D <&pinctrl RZG3E_GPIO(5, 4) GPIO_ACTIVE_HIGH>;
-> -       status =3D "okay";
-> -};
-> +#if (!SW_LCD_EN) && (SW_GPIO8_CAN0_STB || SW_GPIO9_CAN1_STB)
-> +&can_transceiver {
-> +       standby-gpios =3D
-> +#if (SW_GPIO8_CAN0_STB)
-> +                       <&pinctrl RZG3E_GPIO(5, 4) GPIO_ACTIVE_HIGH>,
-> +#else
-> +                       <0>,
-> +#endif
-> +#if (SW_GPIO9_CAN1_STB)
-> +                       <&pinctrl RZG3E_GPIO(5, 5) GPIO_ACTIVE_HIGH>;
-> +#else
-> +                       <0>;
->  #endif
-> -
-> -#if (!SW_LCD_EN) && (SW_GPIO9_CAN1_STB)
-> -&can_transceiver1 {
-> -       standby-gpios =3D <&pinctrl RZG3E_GPIO(5, 5) GPIO_ACTIVE_HIGH>;
->         status =3D "okay";
->  };
->  #endif
-> diff --git a/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi b/arch/arm64=
-/boot/dts/renesas/renesas-smarc2.dtsi
-> index 696a933af808a8eb..826a11ab93c7a253 100644
-> --- a/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi
-> @@ -44,16 +44,9 @@ chosen {
->                 stdout-path =3D "serial3:115200n8";
->         };
->
-> -       can_transceiver0: can-phy0 {
-> -               compatible =3D "ti,tcan1042";
-> -               #phy-cells =3D <0>;
-> -               max-bitrate =3D <8000000>;
-> -               status =3D "disabled";
-> -       };
-> -
-> -       can_transceiver1: can-phy1 {
-> -               compatible =3D "ti,tcan1042";
-> -               #phy-cells =3D <0>;
-> +       can_transceiver: can-phy {
-> +               compatible =3D "ti,tcan1046", "nxp,tja1048";
-> +               #phy-cells =3D <1>;
->                 max-bitrate =3D <8000000>;
->                 status =3D "disabled";
->         };
-> --
-> 2.43.0
->
->
+Acked-by: Alexei Starovoitov <ast@kernel.org>
 
