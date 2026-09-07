@@ -4,44 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A0FC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FCAC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdfg7obfW7JkQiBKarLyFeZzGv6IWCWDHOBGhZOM7dQ=; b=jo+OUtiutVWZQKufSi1qbA3qne
-	tOFKW6Ya/AuowG5A5RFZT2CuIcNeNflqbkMPmAk+yl8tcN8S6J7EHk7cAOr13Xv42dAIw08PokbtN
-	V5zZDZ7To8saLHUN45PW5qPQ+Q3WOWTDn0savv/+u1RAl9wL4uv2DFZYwTL7I3JbvCm4lurBSIj1X
-	swC2+cw+WhqT9SvubHogIUwF4QtQQzy9RX7K1KdD0g+65nJ28Cz8pJSYbHKSLD0b0iIBeRzaCccVs
-	FkUrLz2F10qFfgnqaeFUTjO5t+3w2+FX/a69QuwWtO+lAVx9i9ve3Hri6txc6bvyYZmU3CfEc9lcb
-	glGMGoFA==;
+	bh=VPIix+7AnaBedj/9o6f9YRK+QLjnUUv24fnzZhVoMeY=; b=LhXhw3P6Dxhc51p0giIzpEhFn0
+	DupvcfSjSp2Wx+lgk9QwvvD0Nt7hZwhNZVhFXuoo9R0BBTm0XsBYHRraKDWk78eg1VTbqrMwtU8a3
+	HzfJN4O9MOAhiNhdd46HHyw+hV2OQOuvMdwglQ3JAmwvQa4g3OGYbXnVRViJEToTS1sedJXYXGnY6
+	fhNHGo/Dg09rtVNBc3YW6wuQ1X5+u9i691AwR5f7veQf0cVRDb50ds3nn4y2REXqnEyM1E07qyUkt
+	mrw2DjgSpozRBBBlXL4pAXjNwRHW+ItGaFE3zaqzdOlEpUB/UTtSlbzEyJje+ewbEDMFM754wPWdJ
+	p7SQyXpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3d13-00000007TOP-0Yrm;
-	Mon, 07 Sep 2026 17:20:21 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3d10-00000007TKJ-1lZZ;
-	Mon, 07 Sep 2026 17:20:18 +0000
-Message-ID: <cc61467a-761c-4f50-8355-f78360f9d1e8@infradead.org>
-Date: Mon, 7 Sep 2026 10:20:17 -0700
+	id 1x3d4Z-00000007U1m-2HuN;
+	Mon, 07 Sep 2026 17:23:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3d4X-00000007U1W-3MtC;
+	Mon, 07 Sep 2026 17:23:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 741184184A;
+	Mon,  7 Sep 2026 17:23:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 674201F00A3A;
+	Mon,  7 Sep 2026 17:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788801837;
+	bh=VPIix+7AnaBedj/9o6f9YRK+QLjnUUv24fnzZhVoMeY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AJvMuifV/ySOJl35bWcRxUaZJ5UPFD8LTnXwHqNkE8397RX+9FesEOyfk1YcJrz4n
+	 Fx0Mf1BatExxqtDFrIOyrWYHXW/WwZ717n8XtUOb34tx+X4dmXGgs6SEeWBOrza71H
+	 +WZw7XZzG7fNsl4AKsXW/wpO5I8KEq4gYw128qr3oePlvnPPyorqklx7Hdtq08lMTf
+	 oRnPazAmw1GUUeueqLoAaRWgE2amzDnP1tvVP+Q/cY0Q8bvjmINIJjyRriqt9ZjFGD
+	 cBLUpT8P0xIIH/7xVZbKOhf6MMzN34Sx/xMf1akGFfOHRsiPdug63huToARwjGSyJO
+	 yLxHrpLGPm2YA==
+Message-ID: <4c10971a-6165-49e6-b97f-978bbe6e1cb3@kernel.org>
+Date: Mon, 7 Sep 2026 19:23:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] docs: arm64: Fix typo "initalised" in booting.rst
-To: Hemanth Selam <hemanth.selam@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Weijie Yuan <wy@wyuan.org>, Shuah Khan <skhan@linuxfoundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260907114146.39715-1-hemanth.selam@gmail.com>
+Subject: Re: [PATCH v2 2/2] nvme: apple: add t8132 (M4) ANS2 NVMe support
+To: Yureka Lilian <yureka@cyberchaos.dev>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-nvme@lists.infradead.org
+References: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
+ <20260906-apple-nvme-t8132-v2-2-ac0328590823@cyberchaos.dev>
 Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260907114146.39715-1-hemanth.selam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20260906-apple-nvme-t8132-v2-2-ac0328590823@cyberchaos.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -58,53 +77,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 9/7/26 4:41 AM, Hemanth Selam wrote:
-> Add the missing "i" to "initalised" in the description of the
-> spin-table cpu-release-addr property.
-> 
-> The British spelling is deliberate.  doc-guide/contributing.rst asks
-> that both American and British spellings be left alone, so only the typo
-> is corrected, not the dialect.  checkpatch.pl suggests "initialized"
-> here because scripts/spelling.txt maps this entry to the American form;
-> that is addressed separately.
-> 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
-Thanks.
-
+On 9/6/26 22:15, Yureka Lilian wrote:
+> Add support for ANS2 NVMe on the Apple t8132 (M4) SoC.
+>
+> This variant requires the IO queues to be registered using additional
+> MMIO writes. The qsize of the create_{cq,sq} command is now ignored, and
+> instead a write to mmio_nvme+0x1210 (which was previously known as
+> APPLE_ANS_MAX_PEND_CMDS_CTRL) sets the IO queue sizes.
+>
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 > ---
-> 
-> Notes:
->     Changes since v2:
->      - the guidance lives in doc-guide/contributing.rst, not
->        doc-guide/checkpatch.rst as v2 claimed (Weijie Yuan)
->      - drop the v1 narrative and the redundant "only the documentation text
->        changes" line
->     
->     Changes since v1:
->      - keep "initialised" rather than switching the file to "initialized",
->        so the British spelling is preserved (Randy Dunlap)
-> 
->  Documentation/arch/arm64/booting.rst | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index 13ef311dace8..891fd22f7229 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -588,7 +588,7 @@ following manner:
->  
->  - CPUs with a "spin-table" enable-method must have a 'cpu-release-addr'
->    property in their cpu node.  This property identifies a
-> -  naturally-aligned 64-bit zero-initalised memory location.
-> +  naturally-aligned 64-bit zero-initialised memory location.
->  
->    These CPUs should spin outside of the kernel in a reserved area of
->    memory (communicated to the kernel by a /memreserve/ region in the
+Reviewed-by: Sven Peter <sven@kernel.org>
 
--- 
-~Randy
+
+Best,
+
+Sven
 
