@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECC4C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 09:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C01C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 09:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjLu9VrLjkkIFyZBHjXkyXbiDTKuqMsK2HnFc+wZ1js=; b=XKJT6+YjLMhROlpIt0Vw4oUK9O
-	plhzDRCV+BtxvHNAUyp+xxcGctHo7kdbnXpjdZRwtFgyxx1UrsQrZ2sxEBGLMUDmlLYlIcwChiQXc
-	F/K5PZYn3CDxBYAlHCZl9jVTz67Ti3gf6hi7WcFsMtdssnf//J+hjCvZX9swMl7vDfPcNM+3GIJOG
-	H+XUSzX4QJCwePu41f0R2Z8qSS901iObyxZoTdthqXupEQsBoR0P7OYBC2iBD8jyoiGWogeJQrNln
-	UJ2sI+1/O4W4RoUNl/X4GXfrxUUQ2G5jI3+AdfpIqp5u+kksikpFxw3lfMrYNNeSE5Snbd8gRod71
-	Ose0hbww==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tPDjSH5slQBe25Ysoz1GVKAw6+2usSTYsfQlxDFui6M=; b=inFAAz38csxSeZottu340EfiBV
+	D3Uus3p6+EcrDa/ORiIQJ4PZRmtpZzBCP4aBXT1vs3YaQ408mB4Di+GemP5SChOZyYx1JC1W4QlIU
+	df0wTs4jts2gaIS+kfbfc+U0cc7ew8C0O4QXg9Iog4RelItb9jD+RPejW8MYbsUbl1p8fPQhZaSh7
+	xMWWge/LVTLTcQvT3eUoIcG6WXFMZGVAc7pZllpTPMjAzw476jG4aqhT1XmfDUN4aSPxqetTCyvJj
+	dM0l7yVDlZd3iGAdZfi/Dw6qO6q9D2PaaT1GQbxhryigbnnbkXR1SQVf5apO5GSsdgxbGg3XQXvyo
+	hMFr+LgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3VRX-00000006Lvx-1GIz;
-	Mon, 07 Sep 2026 09:15:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3VRU-00000006LvL-3rCo;
-	Mon, 07 Sep 2026 09:15:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788772504;
-	bh=yAZBsyqAUs5mrF94dZw5BTxiKBfvU5TkPnHaBKxFCrs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oDZsHBddIrpQ1YJt7hAIxSHZzRGcMCY4t0+bAIUzbvZapgskn+gsYmxHXnr/Hbavc
-	 9SsTTSRghDCriMKvdiOkYC00DSVpkprvD3EhybYRt1cy7tUiHJIrwWYvTGl8SIuAyw
-	 Y+WXr9N5v4Aea4wAyBIPGbCt3pLOibMNkuPwtzFCMa7OCb3RoUDA0/ax1R13vadeZm
-	 gSWZxcOuo/8enX5Nk1umBVGaPZ/CmlYQHb9fXUqfDxRY5QYrUEoC8nmG7r3j7Q/fzd
-	 56YRkvm0Mkuj9JustA4wCwtaiWevDUiC0XyotMgXupiapDfKBwjKf3hqsDyWcJzwbf
-	 4J1NrWiyPegaQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4AF3717E0699;
-	Mon, 07 Sep 2026 11:15:03 +0200 (CEST)
-Message-ID: <468b57bd-6f82-4dc7-82ad-71838b6ac12b@collabora.com>
-Date: Mon, 7 Sep 2026 11:15:01 +0200
+	id 1x3VcU-00000006MLB-1GiV;
+	Mon, 07 Sep 2026 09:26:30 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3VcS-00000006MKd-1epL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 09:26:29 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1134)
+	id 55CB020B710C; Mon,  7 Sep 2026 02:25:45 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 55CB020B710C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1788773145;
+	bh=tPDjSH5slQBe25Ysoz1GVKAw6+2usSTYsfQlxDFui6M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YgXtba/Bwm+UQF9r8NTrP0nYfIB6Uy8Z9/c0Lwo1xLApYad248+m+UAV6k9Awtyox
+	 krEYZxoEoRFE/LjfefdduzF+S/fslhTgIEuDaObFZfgQeRrTWB40xxNpTGq8UGtbbd
+	 EF0cLv1y8Cbqjfp9zikTv7iEfSE+OJfn1Txoysiw=
+From: Shradha Gupta <shradhagupta@linux.microsoft.com>
+To: "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Shradha Gupta <shradhagupta@linux.microsoft.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Kelley <mikelley@microsoft.com>,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	namjain@linux.microsoft.com
+Subject: [PATCH v2] arm64: hyperv: run VMBus kexec handler via syscore shutdown
+Date: Mon,  7 Sep 2026 02:25:42 -0700
+Message-ID: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] pinctrl: mediatek: use devm_gpiochip_add_data()
- for GPIO chip
-To: Justin Yeh <justin.yeh@mediatek.com>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Chen-Yu Tsai <wenst@chromium.org>
-References: <20260723035823.2041832-1-justin.yeh@mediatek.com>
- <20260723035823.2041832-2-justin.yeh@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260723035823.2041832-2-justin.yeh@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_021509_118254_03D4E34A 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260907_022628_466745_0BA5BFE1 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +75,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/23/26 05:58, Justin Yeh wrote:
-> The gpio_chip is allocated with device-managed memory but registered with
-> the non-managed gpiochip_add_data(). This was harmless while the drivers
-> were built-in, but once they can be built as modules and unbound/rmmod'd,
-> devm frees the gpio_chip's memory while it is still registered, causing a
-> use-after-free.
-> 
-> Register it with devm_gpiochip_add_data() so it shares the same
-> device-managed lifecycle, which also lets the manual gpiochip_remove()
-> error paths go away.
-> 
-> Fixes: a6df410d420a ("pinctrl: mediatek: Add Pinctrl/GPIO driver for mt8135.")
-> Fixes: 805250982bb5 ("pinctrl: mediatek: add pinctrl-paris that implements the vendor dt-bindings")
-> Fixes: e78d57b2f87c ("pinctrl: mediatek: add pinctrl-moore that implements the generic pinctrl dt-bindings")
-> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+On ARM64, machine_shutdown() does not provide a platform hook between
+device_shutdown() and smp_shutdown_nonboot_cpus(), unlike x86's
+machine_ops.shutdown. This prevents the Hyper-V VMBus kexec handler
+from running at the correct point during kexec shutdown, causing
+kexec reboot to fail on ARM64 Hyper-V guests.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Use syscore_ops.shutdown instead: syscore_shutdown() runs in the same
+window (after device_shutdown(), before CPUs are taken offline) where
+VMBus UNLOAD and cpuhp_remove_state() must execute.
+
+Provide ARM64-specific overrides of hv_setup_kexec_handler() and
+hv_remove_kexec_handler() that register/unregister a syscore_ops
+shutdown callback, replacing the __weak no-op stubs in hv_common.c.
+On x86, the existing machine_ops.shutdown mechanism is unchanged.
+
+Fixes: 9d7cf2c96758 ("Drivers: hv: Add arch independent default functions for some Hyper-V handlers")
+Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@linux.microsoft.com/
+Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
+Reviewed-by: Naman Jain <namjain@linux.microsoft.com>
+---
+ Changes in V2
+ * Use syscore_ops.shutdown instead of a bare function pointer hook in
+   machine_shutdown(), per Catalin's suggestion.
+---
+ arch/arm64/hyperv/mshyperv.c | 40 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 4fdc26ade1d7..e608e546a395 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -15,10 +15,50 @@
+ #include <linux/errno.h>
+ #include <linux/version.h>
+ #include <linux/cpuhotplug.h>
++#include <linux/kexec.h>
++#include <linux/syscore_ops.h>
+ #include <asm/mshyperv.h>
+ 
+ static bool hyperv_initialized;
+ 
++/*
++ * Kexec handler registered by VMBus.
++ *
++ * On ARM64, machine_shutdown() does not provide a platform hook between
++ * device_shutdown() and smp_shutdown_nonboot_cpus(), unlike the
++ * machine_ops.shutdown mechanism used on x86.  Use a syscore_ops shutdown
++ * callback instead: syscore_shutdown() runs after device_shutdown() and
++ * before CPUs are taken offline, which is the same window VMBus needs to
++ * run its UNLOAD message and cpuhp_remove_state() during kexec.
++ */
++static void (*hv_kexec_handler_fn)(void);
++
++static void hv_kexec_syscore_shutdown(void *data)
++{
++	if (kexec_in_progress && hv_kexec_handler_fn)
++		hv_kexec_handler_fn();
++}
++
++static const struct syscore_ops hv_kexec_syscore_ops = {
++	.shutdown	= hv_kexec_syscore_shutdown,
++};
++
++static struct syscore hv_kexec_syscore = {
++	.ops		= &hv_kexec_syscore_ops,
++};
++
++void hv_setup_kexec_handler(void (*handler)(void))
++{
++	hv_kexec_handler_fn = handler;
++	register_syscore(&hv_kexec_syscore);
++}
++
++void hv_remove_kexec_handler(void)
++{
++	unregister_syscore(&hv_kexec_syscore);
++	hv_kexec_handler_fn = NULL;
++}
++
+ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+ {
+ 	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+-- 
+2.43.0
 
 
