@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1184C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 21:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6646FC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 21:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMLWheCelX971hf/SFgv6hTrjgSuDX5H/Y1V6KcRpwc=; b=hXAj1HJ3MJHHp+fYSpHJmh8y+o
-	eAPx5ggAUaV4ByMv1uGVCWTDRqxlEahKKXiFIurL/VUeFeEEEEJifqqwtn8yEv+XIxRH7gCXfMMEn
-	lg4uFN7NL3QS2WkeZRcUSfSZVv5gPgTZWWrNDh20RvhpGhndGzvWDYmSIoCJTekc4hjUg7ObMuFJC
-	deVqyjCVr6YgcaSsladcYtY0q97uZr3JD2AW1Ghb78F4DVSdv64mQb/AjigDw1N4xG5t4xPnrL0Ov
-	Jx8POAzmszYt/HbKfQQB2CyRkClYGFFL00yxMyNH2DDJVf6mT1naY9GQIbncTYp9wamHJuGNlxnsp
-	iuXAdmdQ==;
+	bh=FKBbhFVa059S4cyouWrgkTaUmVbQMUrd/Wmoh8VXRiI=; b=q2i5sPjbsYsAcogcd1m32YLTH2
+	qSYtCDV4FOLt55qufjTQBinghV1JkPr/poEYIfNKDiHaKFbQXsPUTlWlKrkCADfL987wAROYW7eIe
+	1tov0bctFbUAv8tQK+qZWqvQJqkh8uoDFJUIbTJWtmGsNQ9cC8B3CxA82fTGgtMs1N1yFm0hol87B
+	p++Wiwb6qwxd/MTUS5XHXg+f5JrXVTGiPMMFdLWe4n0dJiJo0UGMvC4w0yw6tBAd36BIv+zeLCq88
+	FFufeYyK+GCOqKg4J0vxE/WHTGimoD0a3HbEK+cmSplIi/mSY7CWc5eQ41tdgD8W84YdcO2Bkzo3C
+	Rwkey/Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3hBx-00000007mmo-2X7r;
-	Mon, 07 Sep 2026 21:47:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3hC3-00000007mox-2xM6;
+	Mon, 07 Sep 2026 21:47:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3hBx-00000007mme-0tF3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 21:47:53 +0000
+	id 1x3hC2-00000007moW-3MA5;
+	Mon, 07 Sep 2026 21:47:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F20B601DB;
-	Mon,  7 Sep 2026 21:47:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0F81F00A3A;
-	Mon,  7 Sep 2026 21:47:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ABC5F601FB;
+	Mon,  7 Sep 2026 21:47:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D4551F00A3A;
+	Mon,  7 Sep 2026 21:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788817672;
-	bh=IMLWheCelX971hf/SFgv6hTrjgSuDX5H/Y1V6KcRpwc=;
+	s=k20260515; t=1788817677;
+	bh=FKBbhFVa059S4cyouWrgkTaUmVbQMUrd/Wmoh8VXRiI=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Pk4Lzq+nMw55twOTYEeihcgaiKJ86Fk9QMjpZ+gzKvMJRkxG7KDKRu46vAjsnXnRW
-	 HrRBFp853B3sjBFITrMgXdPwg1F10SK/tvfl1F80S0X9EmIs8ZWos9WGaqn2dv+w5k
-	 CzXpPAbbkGVW4xQGBf5r6F5UgTE/1+bqrQRTpjPvZyQ0wLiMgivSe57txIwPfPUlXt
-	 96bJQQcnOtGiRnQLJ2AMs28zN4GhdMfKJHlp9T/dWMr1G1DyYNhWDG1FrgwHR/MV6X
-	 PGuccVk41SqQs9qpn9yEgHDC1osxgV3W1FZ6ZaksAfBaiSjYBi6Rk/VH4H5s2JuPXn
-	 jgeodIYfOlB1w==
+	b=Ixu1xORodadWwi/1XFRNAhlOiK3hz2ID/uCTSrrn1ZAQ7BM6fCzTUG2AcWv01QHRJ
+	 1hpketZND3mj0Q2DNeo9Nq07+GHiPz4GFCL1TfS6uKJ0o9U6sm+/1uGxhWVSfKJIXZ
+	 JjnE0fSO/gJla807G+WttOfNP1OnqXR/MbV89cNZ2C0oCcM8uZ0IHe8usOJJF2zW+j
+	 S1/Ilr3i+NaoHHJonBr+G7WMZLbi1uUwhCTftEFjA1x3mh7Cs6ncI5I+Uf6KOb9qVV
+	 MRnwQHMbo5GOE7ky2qJ4rMAV0OwaEZaSJ1hoDPOuMTU7CPTU94u0VdW3ovlr4K2nnp
+	 N9Owo3NOgs+Ag==
 From: Mark Brown <broonie@kernel.org>
-To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260904-perso-ma35d1-master-v1-0-b6936e8c6fa1@bootlin.com>
-References: <20260904-perso-ma35d1-master-v1-0-b6936e8c6fa1@bootlin.com>
-Subject: Re: [PATCH 0/2] spi: ma35d1-qspi: Flag the DTR capability
- correctly
-Message-Id: <178879386785.118202.2783412659972248231.b4-ty@b4>
-Date: Mon, 07 Sep 2026 16:11:07 +0100
+To: Liam Girdwood <lgirdwood@gmail.com>, "hpp.iscas" <hppiscas@163.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Kai Chieh Chuang <kaichieh.chuang@mediatek.com>
+In-Reply-To: <20260905133210.63803-1-hppiscas@163.com>
+References: <20260905133210.63803-1-hppiscas@163.com>
+Subject: Re: [PATCH] ASoC: mt6351: Publish the OF module alias
+Message-Id: <178880730290.118202.3003996533999491750.b4-ty@b4>
+Date: Mon, 07 Sep 2026 19:55:02 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1601; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ZVyqdTwyNH/8PkOQcGSbJcEKsRG8w7dGOUBzIlcRFoA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqnzEEzaooHtGMR6zzXr4exMV0CtpQsDa6HtXyd
- E1KcfxhXIWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCap8xBAAKCRAk1otyXVSH
- 0OTUB/0U12Ak0zJd7DHKfwpa4sv4hLP3Si7QEtcDdWG0ivqFy+KQKNYXaV47fU4dTdWwpPyUcJc
- pPgE/OW+lS1BnuicHsxmwznunh7ktS/uUt1LghJBersSbBziakpc9VOAz3EZzH+bnt8m1wABHji
- 0RrELLQb7zDiTATJWfcBbWxY4Ys4v1rs1jAwOPCXcdn56rlXe+fhfSEmDATRd1++hVnozC9IwJj
- 0UkJmcsh8/Q31IpW6f0TgiItDDdok74u11M8rY1gB0v86KZrpCTSZdNsWW4AWxvHeSEGDyV3wXG
- M4LRAN4io77020O+kaIBr5avFc5cTIelmAiHr0JdLTZ4yGJh
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1097; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=HXWAokHFgJeO1B9vW0w+sCrmC95999arTMjNFJAR6yI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqnzEIcuBe9d/xYsCjxZOdBv1mqeJTu7OhGl0qN
+ I7sM5tkaemJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCap8xCAAKCRAk1otyXVSH
+ 0D8FB/40FRMYjNrvXYNR3VAn93IMc/gprjYD8QYyYiJo0cIiW/1pgqKrSnb8ndluSt3Y0Xk9dhu
+ FpHO2AFUcMPrcBI28PNypbcS4nfscT0DtOpzJ1rcz2As60H7MFRItBwX+53k9wN28uW6PJMkKvt
+ F8ENYsI/3K6ZO7ViVchdMdnjuapXWKOunAu+5cjHxiD5A0j5PWzgtVe5IUbYmDz9nMgs+1jB6kE
+ 9Cw35/AIswztZRkH/9sLoeVBOE1CW/SH0JIzq9/tNBTmZoi1SV6QPzHGYbfBdjMXXkFBsojZe1g
+ SgoI3YytVb8NJXFeuCmKVBa4+igGuauMhBEinhKe8dqR4OCR
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,27 +83,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 18:15:09 +0200, Miquel Raynal wrote:
-> spi: ma35d1-qspi: Flag the DTR capability correctly
-> 
-> Mark pointed out that the DTR capability was not correctly enabled since
-> I had to set the extra ctlr->dtr_caps flag. For testing, I commented out
-> the spi-mem ops/caps and figured out DTR variants were still not picked
-> up. This was due to the spi-mem fallback implementation of ->exec_op()
-> not forwarding the DTR flag.
-> 
-> [...]
+On Sat, 05 Sep 2026 21:32:10 +0800, hpp.iscas wrote:
+> ASoC: mt6351: Publish the OF module alias
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
 Thanks!
 
-[1/2] spi: spi-mem: Enable DTR transfers using the standard API
-      https://git.kernel.org/broonie/spi/c/86f4ab98e716
-[2/2] spi: ma35d1-qspi: Allow DTR operations with the regular SPI API
-      https://git.kernel.org/broonie/spi/c/2448f25cc839
+[1/1] ASoC: mt6351: Publish the OF module alias
+      https://git.kernel.org/broonie/sound/c/9c3882ec1039
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
