@@ -4,113 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAD8C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6840C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSdhcylG8upaYgz/wmJd+JoSvai0ylGkPowyAHHfN0o=; b=WKFXUz8u2e4u3tgJlraDUsla3S
-	iq0BF8RmsNJ6vQM6gaCZXltCMwycXMJM+OIHPYlbCEW2ORfD9CvcLvNseTnpU87h42UhPVzeYLjnj
-	HYAoIoQCrfdfiLk6w0A4uDdqxaog5BA4brbpmjdhyit70nMyiNO8LwBYShXtgRwP0SHfcNsN3FbzZ
-	H0pmEq3CZDegJrqgsaCaaVzV8wx2BpjMAiCb30najmcYwTMOV83SIM24a+nVnzguxDJL7NQcJrIbJ
-	W6V4wizRY2V7zDwLK7p+DCdLR68dVMdpAqIcEQI3awO5XdGgc5EXiB6lTU/50k/r5K6URb9jIiSbS
-	6veYu6CA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1DjLmqmU48ErFE5Dn+s01Gf2tFCVAmNdh86WaQ5BH/U=; b=kOynYZXOvU2DW6ii62KB+ZFYys
+	MCfAoI5c8VyJN/ve2prb9QsyzYthe+XzqypsSZYaSzD11xVd6uDJsyL3ctZ2Lwqn8CyhDZS6xyGc2
+	nJmQOgkrgiyA0Evl7tSWh64Ryx+oWi7zBZSx2tGsGQZitoD9C54CvOEy91iaBED//53tp0XpziC9T
+	WrVtsA/ZTEx0K2zXN+ECzXrHegWZC8XptMCe8UKLiLNRaB4b1zAZCuTpxGmak7L3eqQmsGswysOPd
+	L3fgYnYiQ0iPCqzIJfjoduKmlgEY+RECc6C3DNAxIZJ5b7AqX12ud4F0qZiDAo5P2tx3YNrWPyC9M
+	WDHDg3ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2y-00000006jpE-150z;
-	Mon, 07 Sep 2026 12:02:00 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1x3Y4b-00000006kEw-2rZn;
+	Mon, 07 Sep 2026 12:03:41 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Y2v-00000006jmH-13LG
+	id 1x3Y4Y-00000006kE2-1I45
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:01:58 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2d8fd3b729dso27941825ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:01:56 -0700 (PDT)
+	Mon, 07 Sep 2026 12:03:39 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2d6fe26ef1cso34416605ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 05:03:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788782516; x=1789387316; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iSdhcylG8upaYgz/wmJd+JoSvai0ylGkPowyAHHfN0o=;
-        b=ZmW0D9lnI5jFTFmP+cKfo8FnKUMipXYdSWCXtF/bzQhFrFU3QVHXGCHSwzlszX+jh/
-         a9amOfPsRQ9nrg5MVngPAGPu3rUaFSq0nqfFfw+LkK5mxZnOonoDKb+TvKXRfW36qvYR
-         rni2M5H1GrXE6+ZBLCGYP0bTffgmKaNp2yXvs1Vf2vjLZAWQyHnm7nba4kLf7S41fBYx
-         yv89Wrw3pkdzi8XyrNEFpY1KY2F7oeVgE66lMlERlKUNl80faigxlyOydfxnnRmDyt+h
-         GiF+8uiH0CGN98Oo+VexKrVN7OPAew6dbzPIMm3yP40xEigd888FI64Cl2Mr0gIX2zq2
-         5gig==
+        d=gmail.com; s=20251104; t=1788782617; x=1789387417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1DjLmqmU48ErFE5Dn+s01Gf2tFCVAmNdh86WaQ5BH/U=;
+        b=aU/jbznuKfEhWN8MQKi822KFabZUmnIYVBwMmCb1GgKWBy+kdR8WReaO2387+lGnpG
+         eDQkfmKFiuoCJtLhl8pKS54wz7Q9qfFnwQRyw+4NtvUXsVndpxHStR5sysjliCSxO1+b
+         OAGevMvG+5R5Pm48/SiwMjMop7wK9VmH2Rev8CcJlAm+29bBm0J0asYDWP9DlF/4lCsH
+         yqlYKYO4tbVp2cx02Fws3wodbs5qX+sZtIKeyPBpfQQNCxjSaqdCWhZ7vDTk2o1i3YEr
+         HY5/otuxgG161L0BOFWPvVzlU49Eb4wTh0JjEp6Cprp6g9sMWXUoVy2bE3DGRS+h0i2l
+         9DrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788782516; x=1789387316;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iSdhcylG8upaYgz/wmJd+JoSvai0ylGkPowyAHHfN0o=;
-        b=jTy+NOITYFsoCVX92O3rvEli3q3ij0wT3xf/jEdadBHHDgU17dIuE1WIVi5AuLiDvw
-         YJZsa6JTeoLZ4hlceq4RTqanSsnE5wuNKix/9J6ffQMnlqcLZdVE+yhiWeiVB3CCvnKU
-         zcxeWNHcTbrCYoPTOOxs/bZzjlcrUmgXknXXZM6PBF2qcAwY07NazyUEQFgce8N/szRV
-         lhGLdKrtvaF8ZRh2ihAHicZzU9noiakxqHDekWACPe67K1s+LREgaCQhhQER6dODZODM
-         WTmWubkdgaF92WiW4jHKaMxVSrA6PjelizvpIRyDuHF7Uv8NF/YY9HPRSrGx7N657kMv
-         lyZA==
-X-Forwarded-Encrypted: i=1; AKwUvBw++QzkrFPAHs4BNzEzm0baLHxg/79Cxgl4bHzwy/arpQg79+24O1Vj2cdkYaKvdM8f7O3Auo+mCRUv/I59c6YD@lists.infradead.org
-X-Gm-Message-State: AFuF++nbeMrd9pw+156Skg41Gz0d8rk2JQ2KJn52FTOXjDzXZqdKFXj8
-	U48wPH0lbY5IBRXNhxMXp4T3INZDTXeSFVDe6y59YUKFSDIbxEBV04Et
-X-Gm-Gg: AYBFou2ZJ/cgTdr0UToBE9uLKFXRXDHJwC29w+5P01E9YWaEhdzHpwZa7WSnc4Koj5N
-	Qb3ScMKOF0G6ugOD4mIWpHGEjAgzZ712/TMZQvWUw6XcA5jiCV5PZaV/sM0+Mg8Ym0f0hPBdtpW
-	9zHd06UbbWoTMtHHxL/FdYmB+STrUNmfZYz2BsdsW8FD78P0mlRVC75qKo/fjQI7FUuynn1LuqP
-	IoU4l7dTHBAXTDx79GkZa5VpksJWT1TOKT/AGYru4gZ3TTBEQIompvEkbyBOTSrylKR7cHbMYEq
-	jpX+WX0YLUBW5czHx75Jul7rlnjIBg+423upTpwTgJco5jj+3A2rHMTMPzxRiE2jE/80UJ9Owjm
-	Tp/Ks3oUIrBeiQMBqQCQo8q0RwrApA9GCNRROkHnuxFFTuwz5LoW4c2Gj02Usf2omlrfXzp0nzX
-	os6KevR4n0ArwzWRJXp22pmGQzLf2leBRqIEPLUOhb+f9FILhA+XSiJWgZNlaDsjOJz0++cWwcj
-	7GPuiClREMwSw==
-X-Received: by 2002:a17:903:3810:b0:2d6:3c22:99bf with SMTP id d9443c01a7336-2db124afcefmr348302995ad.9.1788782516134;
-        Mon, 07 Sep 2026 05:01:56 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm31244462eec.1.2026.09.07.05.01.47
+        d=1e100.net; s=20251104; t=1788782617; x=1789387417;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1DjLmqmU48ErFE5Dn+s01Gf2tFCVAmNdh86WaQ5BH/U=;
+        b=Wwxlz/YvhwMnkRwti+sAW6a/P3fxbdFH2UN4VSPnAEd8VKbWxHpNtnqK0XlQqPSW9W
+         9qp6h7j5d6AwQCAWG/Y9XdsQTbEWZMxf1OrIC9edjuuqPyT8JTZ5x2rgXuouEeFAbCzg
+         uW633rHWEkI0PYbjpKRJfdz9Ep5O9cNBmkEHawLXPCr6krk4i25Tc+WtKN5Snmnqe0yr
+         fNl8dEM3GCuyDduOv5DMFXt1TbHnTtgA+1bp1Hs7+S2y7KdPgRkEKJT3x2zkWV4ztLvM
+         tkhqIP3K9jzKKSEXfLbG4D4DgP6JiAgVVCVtHULPUryi0txc8GvfqT02nw3DKnhV6Fug
+         YpRQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzZYqHC1i6thPrgbOYLD5pHWn5LsuPb4qaavGIVZDUfLz1Mod1NvPuVUqOf4cmPtUJ7lz3r02Ks1e0AOq0RNkKM@lists.infradead.org
+X-Gm-Message-State: AFuF++k0JMI7SDZ1/A99AaWJBBiAEQgC5Adg9ydzPa/fNVUWwbLdE408
+	9aGpZRFArA2/eizfKkpk5MFD6RgHSP/JrjMk+gai8jjpRY4/R5m0aV6f
+X-Gm-Gg: AYBFou3+j+uUWD2fTc3ksqDnrnzobIB8cYJBHpnxfj7v2qlT90ksbqXW5EW0jFH2Wbu
+	fmOEa4kBZKC9lMjeeoV1gMW2b2hYwaZ+LKLLPOeRbRduNNLrqwAVkeckH59Mf5iRH4zoB1dzglj
+	f/K1dMI31COw5tYFFynQOP43Rimz2vMW0UtCeXjL0IXn1Z1NEEN46bM8bUIkqTxQGTYWplsSWfJ
+	0mLQYTsl2oqY/9a83w4KGhV19aqVbvwBCEa7bQFT7MH97TVpLRmVFWdyLXQAeXv0clruOltTi4w
+	7HXR59X3piGUwRRhtY3swv94M4QYPhY96+H0Ju197My2klWNS9Kp9gHFOSJpLcppzcu8vUnZ7/E
+	MBpUpj+HJ1x5aHTNlyYHwmGEZa29YkIiS1DAA6Qc1pi06qx1svdKQyoz1EZRWw4HLEgcEnb0QKU
+	QU2UWavrkqnaPIdCO6a1hxvKtjbJD4OpNlr5TNDQluu6uS2PTcqklbzW07jqpu7lHeTNVZhvexE
+	PGyZu4oybZ3AHpcHIwUNx2lMTxWLWUBFhPALL2OcoS2GiyV8vH2GDrUYH3EV4Ddmn3FCNeEPGqa
+	wNI6
+X-Received: by 2002:a17:903:19d0:b0:2d9:2688:8be6 with SMTP id d9443c01a7336-2db126346b3mr282743715ad.19.1788782616991;
+        Mon, 07 Sep 2026 05:03:36 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14ae85eesm43064815ad.82.2026.09.07.05.03.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 05:01:55 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Russell King <linux@armlinux.org.uk>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>
-Cc: bpf@vger.kernel.org,
+        Mon, 07 Sep 2026 05:03:36 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Kees Cook <kees@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Trevor Wu <trevor.wu@mediatek.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kselftest@vger.kernel.org,
-	sparclinux@vger.kernel.org
-Subject: [PATCH bpf-next v3 7/7] selftests/bpf: fix repeated words in comments
-Date: Mon,  7 Sep 2026 17:30:43 +0530
-Message-ID: <20260907120043.36894-8-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260907120043.36894-1-hemanth.selam@gmail.com>
-References: <20260907120043.36894-1-hemanth.selam@gmail.com>
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/7] ASoC: mediatek: mt8188: Improve error handling
+Date: Mon,  7 Sep 2026 19:03:03 +0700
+Message-ID: <20260907120310.135693-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_050157_325293_5AD92064 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260907_050338_340176_2448F762 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop repeated words in comments, reported by scripts/checkpatch.pl.  Only
-touches comments, no code changes.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-The subject prefix changed since v1, from "selftests: bpf:" to
-"selftests/bpf:", to match the rest of the history in this directory.
+Hi all,
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
- tools/testing/selftests/bpf/libarena/src/asan.bpf.c | 2 +-
- tools/testing/selftests/bpf/progs/iters.c           | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+This series improves error handling in several parts of the MT8188 AFE
+driver.
+Propagate errors from clock, regmap, and runtime resume operations,
+remove redundant probe error messages, and fix clock cleanup on
+registration failure.
 
-diff --git a/tools/testing/selftests/bpf/libarena/src/asan.bpf.c b/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
-index de656b69d13a..fb50ee4ad097 100644
---- a/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
-+++ b/tools/testing/selftests/bpf/libarena/src/asan.bpf.c
-@@ -204,7 +204,7 @@ static __always_inline bool check_asan_args(s8 __arena *addr, size_t size,
- 		goto confirmed_valid;
- 
- 	/*
--	 * Wraparound is possible for values close to the the edge of the
-+	 * Wraparound is possible for values close to the edge of the
- 	 * 4GiB boundary of the arena (last valid address is 1UL << 32 - 1).
- 	 *
- 	 *
-diff --git a/tools/testing/selftests/bpf/progs/iters.c b/tools/testing/selftests/bpf/progs/iters.c
-index c6699159dacd..e44a979270ea 100644
---- a/tools/testing/selftests/bpf/progs/iters.c
-+++ b/tools/testing/selftests/bpf/progs/iters.c
-@@ -1511,7 +1511,7 @@ __naked int checkpoint_states_deletion(void)
- 	 * would get equal to one of the explored states and thus loop
- 	 * exploration would be finished (at-least for a specific path).
- 	 * Verifier evicts explored states with high miss to hit ratio
--	 * to to avoid comparing current state with too many explored
-+	 * to avoid comparing current state with too many explored
- 	 * states per instruction.
- 	 * This test is designed to "stress test" eviction policy defined using formula:
- 	 *
+Compile-tested only.
+
+Best regards,
+Phuc
+
+bui duc phuc (7):
+  ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate clock initialization
+    errors
+  ASoC: mediatek: mt8188: mt8188-afe-clk: Handle tuner clock enable
+    errors
+  ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate regmap update errors
+  ASoC: mediatek: mt8188: mt8188-afe-clk: Handle clock enable errors
+  ASoC: mediatek: mt8188: mt8188-afe-pcm: Handle runtime resume errors
+  ASoC: mediatek: mt8188: mt8188-afe-pcm: Drop redundant probe error
+    messages
+  ASoC: mediatek: mt8188: fix clk leak on error in audsys_clk_register
+
+ sound/soc/mediatek/mt8188/mt8188-afe-clk.c    | 115 +++++++++++++-----
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c    |  34 ++++--
+ sound/soc/mediatek/mt8188/mt8188-audsys-clk.c |  12 +-
+ 3 files changed, 113 insertions(+), 48 deletions(-)
+
 -- 
-2.48.1
+2.43.0
 
 
