@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD53C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C72C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MU8vTnQ4SCG40k3kEVDcMjU9vE6Mm32ui6oD0ivsqAE=; b=cqraHBXKTOsEFXtGnr65Wfn6/p
-	qMwjpg//kD5OnRnhFKdKyOnPkahqmHbxd8GHVQK4VYEwVVN8loWDf0h+1vNjZU/0DsrglXvH5dIMg
-	05YYXKDnGHCf0Z8UrjE1rjpzMCM8JeLLyNzOPgxnpfkYofRgbBKMkZojw539bqZU4V3GLHwmBcv38
-	DSNyxjf6WR3XuVMak3xEN29g4kkThpErFvKow/hIWobcq3MW4LHfSnfkHmipjW40+iJrO/S1cItig
-	AaOhBjjhwGZeJrgFLfNOPhfZltaSD44/tkT45NYfCAbcbbajFXCM+66cJaMkw6Vz9jq9jps8nqOYf
-	v27RN/8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wGPay9A9qATNnqppqo4cBmmU5rAf4n9Ajlzx3PExD4I=; b=yWQjC1fhmPH5JfCbmtOGubqp6c
+	3+pmGULVHQde4MKpKgZ3s0Q0NC1NpF/jn1TwBoQVlHEZ1bgu3BeX0AhW19aFVEqXn64dlNV+M1C+A
+	2wFd+gTvA/Osj1ivoZ6u7iDW2LlVYKLoELP3a5SNokhsagg6FrkG50I6HO2Ef5MW/pfhZUsIuc0an
+	4WCKxiTVCcRLEVRh0LG8mxrVVQhV8304NizU/Opoikw5mi8w7sopyqs1K/A0BVLq/DP9s7qPoMqs5
+	NSLenIEhnPudzv3RcIC/xmZW0SdTnwTc7mMNda3o3dDh/Tadfh1OISBqHS5u4JQQYAe4lQwGSWBcu
+	D5hDrz8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SXs-00000005zYO-4Be9;
-	Mon, 07 Sep 2026 06:09:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3Sa9-00000005zkG-1UN7;
+	Mon, 07 Sep 2026 06:11:53 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SXq-00000005zYE-1n2h
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 06:09:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 62DFE42BA0;
-	Mon,  7 Sep 2026 06:09:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B7EE1F00A3E;
-	Mon,  7 Sep 2026 06:09:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788761369;
-	bh=MU8vTnQ4SCG40k3kEVDcMjU9vE6Mm32ui6oD0ivsqAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TxJVmaxXf2/z7qqsQQ66XgHCtelNQqPDkAdBTJK1oBJM6KcFZfUqh8XvDytAy6GDh
-	 4t5KvbQnQ/1vz/nTLJRVdBpMtcH6lGLx+hXmjaAMJ/KyB6ABqapuVYEX1GPfMPA+Av
-	 OE3DJBwaT1WeG8gWjmnt7LQFsW3T1d0PFnCZYN8Ti+n6RS4/GtHB0N73Wh26H3a9by
-	 ZSXY6OjlwfXvS35EVkX8IU5qqd+dw4VADEYbD2yQHUEIYddnFJq+yoa89kyjg93MUB
-	 N8QwKL2DoT+sCpR8Z4LZg8L/YryBSWthu/pfd+dd4py+tPujqSicVAyfTLlFGc4u5e
-	 kfUSnR3JMkh7A==
-Date: Mon, 7 Sep 2026 08:09:24 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Leng Honglin <lenghonglin@axera-tech.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shi Zhicheng <shizhicheng@axera-tech.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, hlleng233@gmail.com
-Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add Axera AX650 SoC and AX650
- Demo board
-Message-ID: <20260907-portable-moth-of-passion-ecb1bf@quoll>
-References: <20260901-ax650-v1-v2-0-993bea305476@axera-tech.com>
- <20260901-ax650-v1-v2-2-993bea305476@axera-tech.com>
+	id 1x3Sa7-00000005zih-0ngF;
+	Mon, 07 Sep 2026 06:11:52 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4hdcCh18ZLzMlCM;
+	Mon, 07 Sep 2026 08:11:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788761504;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wGPay9A9qATNnqppqo4cBmmU5rAf4n9Ajlzx3PExD4I=;
+	b=n4+nhmX2YrLYMSIb6VrVETQrp1mPvyUkA4grZShT815sCyb9F7viXZqvAhM2VbXXG3To3y
+	U6IfYoTQf5LvCviVaNSsT/L1l9dZknpKg4EhxFFsYPbmWM0jQo87e7kqxM5xJdZKplbk+C
+	MpEkiftx9rTFlJmEYJueUii3KyDyk8EpZBiALcKDkzGNs4o1fi99GMvK4k7HVXJRH0w/QI
+	+SVATSHDRUrtLIx/jNGN2WBpmI5DaT5z08XWmXoDoaPuEEP+hGNDrLnjunr91UTteeaIB4
+	mQpjp55cPP9Cf8nZA4rpv9BFp26QItE65sNP/z36cdzg0RxNw/eutwaL3hCRbA==
+Message-ID: <6c47f4e0-bcd3-4349-b8d6-a3889e08370d@mailbox.org>
+Date: Mon, 7 Sep 2026 08:02:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260901-ax650-v1-v2-2-993bea305476@axera-tech.com>
+Subject: Re: [PATCH v2 2/2] regulator: rpi-panel-v2: Add required vcc-supply
+ support
+To: Shashank Maurya <shashank.maurya@oss.qualcomm.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ venkata.valluru@oss.qualcomm.com, Jessica Zhang <jesszhan0024@gmail.com>
+References: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com>
+ <20260907-rpi_reg-v2-2-0c59aa60d31f@oss.qualcomm.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20260907-rpi_reg-v2-2-0c59aa60d31f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 3rtxcznpykrpkofi3z1e1xdqpbddtpj3
+X-MBO-RS-ID: 7c43c5405db0c7d7e45
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_231151_381349_B925A94D 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +85,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 05:19:29PM +0800, Leng Honglin wrote:
-> Add devicetree bindings for the Axera AX650 SoC and AX650 Demo board.
-> 
-> Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
-> ---
->  Documentation/devicetree/bindings/arm/axera.yaml | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
-> 
-
-No replies to my comment on patch #1, so dropping this from DT Patchwork.
-
-Best regards,
-Krzysztof
-
+On 9/7/26 7:46 AM, Shashank Maurya wrote:
+> The Raspberry Pi 7" touchscreen panel V2 MCU requires an external power
+> rail to be enabled before any I2C register access is attempted. Use
+> devm_regulator_get() to obtain the vcc supply and enable it at the
+> start of probe.
+Which power rail is this ?
 
