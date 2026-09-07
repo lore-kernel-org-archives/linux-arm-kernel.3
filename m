@@ -4,115 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B245C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A67C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 07:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=; b=3xSAykEQ0Z7JQD46Z4uCPahXbY
-	8wmZZvJjsBzMSC6S8d0XyIHhab3IYSa3lJEIHFPnby2hMBlCPqLQMTKsUuaQl1cf/NkjfFxGC+y0v
-	sZyT4p5mtsLeBDLsAgYR/cUrP7enC9Zz8skXzaEtO6mIiOFp70KY0REYxNW+SBybeQrpHRtiL4oDf
-	q717Vlw1LIt9g6f8j3cg1hqpirUcqN+K8YrvDM/Q1IFba7HdYEkKqKmX3uTO0ZbchQxojsT7ovPK4
-	JRtw59rQGHC3N08aCjdmLNLn3a8zLE4sH2IwF5HkBt612ezu4HwG/+hMu464fzBf6+dZF7L0v1hhW
-	nJBrgnPw==;
+	bh=XASNgmZLqsPyycYQ/bYdMy9OFUeM2/DQAIAxLs3XEpc=; b=Pz0VTG3Z13mhUGf5vxAWDbm5qx
+	4XrMm3EtTU1P7zaSpC21DS15cTME+Y8kLjZFuYsj3QpeW9Umy0/wuap1y0KKUhtOc0oFB/JNODtf8
+	VXT1lV0gd9T4ZO4/ovWIxT+PaZmZFrNqApGNwm7qnPOg1gHIA78cbV9Oswd1tr0DggmLl05os+atM
+	lfQJcvXilT0i3Ood7k9mZ/ALuw+0b5o6aHPDrecJygnY70T4eCh7cxFRydEMJ17TclB9e+6anHR6B
+	S/bbKjsvPE1e82E33ZHjROifkkMm9aGOQAFo0lWwnQHM2EQtTmA0gCdXFMKBnpnz8MEkQiz6qzvIz
+	AL9jedQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TJV-000000065PY-1ruf;
-	Mon, 07 Sep 2026 06:58:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x3TKs-000000065ci-34Js;
+	Mon, 07 Sep 2026 07:00:10 +0000
+Received: from out-160.mta1.migadu.com ([2001:41d0:203:375::a0] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TJS-000000065OW-05gD
+	id 1x3TKo-000000065bR-0Qxl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 06:58:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788764319;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=;
-	b=aaWPfFeNuCF01og65yhNdgpQ17rzWoIQ2vYK9QLRTcH7wuWwrdMfg47WMix+QbK9Te6XLj
-	J2FKEwv9whz2Mi5H1hIYJdTGFAemY49TiHXR056JK8U5m5vhNf46kGbr0+XMfeSr2/vHwd
-	vJHMrQS+FTWVlYedI1e0vqRP7Rgwbpg=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-252-IwGj8MrDMfOKlATCsdYyyg-1; Mon, 07 Sep 2026 02:58:37 -0400
-X-MC-Unique: IwGj8MrDMfOKlATCsdYyyg-1
-X-Mimecast-MFC-AGG-ID: IwGj8MrDMfOKlATCsdYyyg_1788764316
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so6636072a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:58:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788764316; x=1789369116;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=;
-        b=SOfw1+EdZF/bgKqdpCnTtrIGkhTTschuYjrWvIcoYOzNqcgRMRThDzmLsktW8/HEPj
-         e8o44W6mG1Mu8QRCBI4HwA6l83G4iEX9Euf9vhfpU+jcnNYAs1kkWKb7meCZsZPmozaq
-         vI+IC25NW7OhSetRQlOuC3Dq/JtJFzcqsAHsP6iVZhLvQAsJ4NwpsoQ8grwFt02sm1tV
-         88svG69/YvWcWSL0TwpO5utzp/1ZsDE0LjGOBUAfU99L/eCL78Y3gfOaqrgD/EGS5Qn0
-         JBy6bCKCcgxkknKlYIzjo0orOBBd2tyld/7g4Y0Y0EW3LV43zuhwkvhtQ3oUuT9i77AQ
-         BuBQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzbEDaEJkKunljMLDtKQpJ1m+HV1Nqzxqf8BUW14XcM7CecC6UGgY6aaj8tQmUzcqICtn2ZHlhsbByhQv8gj+vC@lists.infradead.org
-X-Gm-Message-State: AFuF++kDaxwl7HUNS8eVN/avopiZbWmE9K5nds7QG07YjNkit28hEwSj
-	AGSmq6UaFxFZJarpsjuGrLJmm40dDbemyrho6jeNQf47jhEHOaPGAgvG8N+cHavgifulGoiDTOA
-	ntJaujxXR/zsd2hv4xGLGmF9FF4q80l9agK05ACYNYz7G6PkWQayOpjiFxY3vGDT48UrETxMUfu
-	G9
-X-Gm-Gg: AYBFou07lT/DlpVztk3kvIjAdxLiZ9b8v69bVxjADIf9ZaMYy2wb2wjRpvzaSe2G51z
-	7Ae5NG9Ai49s0v71Mhmu0BFQgiR11E6amfyVNdn1PllKkJ0ky04nnOnXuYimtS+fX6J+4tptTl6
-	i6Fq+sviOwcAcdM4zjSwKhjcDT15qQeVfgTbr0KVpUWWpvrlBzARuzIeOsLepz8ywUZNK+8QSVu
-	NCreT3VVRO9itgPF9kDxr9gzzStRpQP3xg6MX9Xtu2KmfI5H8ku4ZklyVUuBiHgv4XBPoYmtRlq
-	Eajh14GuDCnV4FxENd9JCzkXlE0He6y8PHsFmGR8P1PlPRD1YbpSjk8GKHpBKmXbmc3D4hzYuKy
-	jw5TC4OhxcIjkmlkGKNRh1G8bE7BPFT5ELvNMm8GOEg==
-X-Received: by 2002:a17:90b:1c8b:b0:398:9bd5:490c with SMTP id 98e67ed59e1d1-39b26214502mr29861948a91.19.1788764316099;
-        Sun, 06 Sep 2026 23:58:36 -0700 (PDT)
-X-Received: by 2002:a17:90b:1c8b:b0:398:9bd5:490c with SMTP id 98e67ed59e1d1-39b26214502mr29861874a91.19.1788764315361;
-        Sun, 06 Sep 2026 23:58:35 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08c39227sm25394782a91.9.2026.09.06.23.58.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Sep 2026 23:58:34 -0700 (PDT)
-Message-ID: <8a437df9-a591-4645-9cd8-55fc4f0ed534@redhat.com>
-Date: Mon, 7 Sep 2026 16:58:19 +1000
+	Mon, 07 Sep 2026 07:00:10 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=PJujOV+1Z+2Pic9F+Xx2wknBh2QM3e+/EoajCgxNjqc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788764404; v=1; x=1789369204;
+ b=P2TwRGyZwiXu5ajKrw9H73ln7KXvD4eJTHrwvYXY0AcqwdbDSUs64fx3HS2B72RgB/Y5GqtV
+ MbQAI9Fl/3E2mf0WYU4OIvL5Bl+gbeaaL8rKK0h1DUrgOTNAKFoAUsAtp4TxX45e7zM0ygC4m5m
+ v59ObM2zaA3a5wBMnGUialDU=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id c859b1d3d590cc6f;
+	Mon, 07 Sep 2026 07:00:03 +0000
+X-Mizu-Trace-ID: c859b1d3d590cc6f
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v2 01/17] KVM: arm64: Sync HCR_EL2.VSE back to the host vCPU under pKVM
+Date: Mon,  7 Sep 2026 07:59:46 +0100
+Message-Id: <20260907070002.3333525-2-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260907070002.3333525-1-fuad.tabba@linux.dev>
+References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 22/45] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
-To: Kohei Enju <enju.kohei@fujitsu.com>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-23-steven.price@arm.com>
- <ap49Orng5-oehc6J@FCCLS0092175.localdomain>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <ap49Orng5-oehc6J@FCCLS0092175.localdomain>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: t6cj-d34krWRa7_cl7BEkNlXKkaACcIpkpXYNZz9AcM_1788764316
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_235842_222086_B4B39571 
-X-CRM114-Status: GOOD (  39.64  )
+X-CRM114-CacheID: sfid-20260907_000007_031691_4B1CAACE 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,299 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kohei,
+flush_hyp_vcpu() copies HCR_EL2.VSE from the host vCPU into the hyp
+vCPU on every entry, and nothing copies it back. Once the guest takes
+the vSError the hyp vCPU's copy clears with the hardware bit while the
+host's stays set, so the next entry pends the same SError again,
+KVM_GET_VCPU_EVENTS keeps reporting it, and kvm_arch_vcpu_runnable()
+never lets the vCPU block in WFI.
 
-On 9/7/26 3:05 PM, Kohei Enju wrote:
-> Hi Steven,
-> 
-> On 08/03 14:43, Steven Price wrote:
->> The guest can request that a region of its protected address space is
->> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
->> RSI_IPA_STATE_SET. This causes a guest exit with the
->> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
->> protected region to unprotected (or back), exiting to the VMM to make
->> the necessary changes to the guest_memfd and memslot mappings. On the
->> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
->> calls.
->>
->> The VMM may wish to reject the RIPAS change requested by the guest. For
->> now it can only do this by no longer scheduling the VCPU as we don't
->> currently have a usecase for returning that rejection to the guest, but
->> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
->> open for adding a new ioctl in the future for this purpose.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v15:
->>   * Propagate negative error returns.
->> Changes since v14:
->>   * Use addition rather than bitwise OR for adding the shared_bit in
->>     realm_unmap_shared_range(), this handles the case where the region
->>     includes the last address (which means 'end' already has the bit
->>     set).
->> Changes since v13:
->>   * Switch to the new RMI_RTT_UNPROT_UNMAP range-based API.
->>   * Drop ugly hack for RMM bug which errored when the RIPAS was already
->>     set to the desired value.
->> Changes since v12:
->>   * Switch to the new RMM v2.0 RMI_RTT_DATA_UNMAP which can unmap an
->>     address range.
->> Changes since v11:
->>   * Combine the "Allow VMM to set RIPAS" patch into this one to avoid
->>     adding functions before they are used.
->>   * Drop the CAP for setting RIPAS and adapt to changes from previous
->>     patches.
->> Changes since v10:
->>   * Add comment explaining the assignment of rec->run->exit.ripas_base in
->>     kvm_complete_ripas_change().
->> Changes since v8:
->>   * Make use of ripas_change() from a previous patch to implement
->>     realm_set_ipa_state().
->>   * Update exit.ripas_base after a RIPAS change so that, if instead of
->>     entering the guest we exit to user space, we don't attempt to repeat
->>     the RIPAS change (triggering an error from the RMM).
->> Changes since v7:
->>   * Rework the loop in realm_set_ipa_state() to make it clear when the
->>     'next' output value of rmi_rtt_set_ripas() is used.
->> New patch for v7: The code was previously split awkwardly between two
->> other patches.
->> ---
->>   arch/arm64/include/asm/kvm_rmi.h |   6 +
->>   arch/arm64/kvm/mmu.c             |   8 +-
->>   arch/arm64/kvm/rmi.c             | 473 +++++++++++++++++++++++++++++++
->>   3 files changed, 484 insertions(+), 3 deletions(-)
->>
->> [...]
->> +
->> +static int ripas_change(struct kvm *kvm,
->> +			struct kvm_vcpu *vcpu,
->> +			unsigned long ipa,
->> +			unsigned long end,
->> +			enum ripas_action action,
->> +			unsigned long *top_ipa)
->> +{
->> +	struct realm *realm = &kvm->arch.realm;
->> +	phys_addr_t rd_phys = virt_to_phys(realm->rd);
->> +	phys_addr_t rec_phys;
->> +	struct kvm_mmu_memory_cache *memcache = NULL;
->> +	long ret = 0;
->> +
->> +	if (vcpu) {
->> +		rec_phys = vcpu->arch.rec.rec_phys;
->> +		memcache = &vcpu->arch.mmu_page_cache;
->> +
->> +		WARN_ON(action != RIPAS_SET);
->> +	} else {
->> +		WARN_ON(action != RIPAS_INIT);
->> +	}
->> +
->> +	while (ipa < end) {
->> +		unsigned long next = ~0;
->> +
->> +		switch (action) {
->> +		case RIPAS_INIT:
->> +			ret = rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
->> +			break;
->> +		case RIPAS_SET:
->> +			ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
->> +						&next);
->> +			break;
->> +		}
->> +
->> +		if (ret < 0)
->> +			goto out;
->> +
->> +		switch (RMI_RETURN_STATUS(ret)) {
->> +		case RMI_SUCCESS:
->> +			ipa = next;
->> +			break;
->> +		case RMI_ERROR_RTT: {
->> +			int err_level = RMI_RETURN_INDEX(ret);
->> +			int level = find_map_level(realm, ipa, end);
->> +
-> 
-> I have been testing this series using TF-RMM from:
->    https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_3
-> 
-> I found that Linux repeatedly issues the same SMC_RMI_RTT_SET_RIPAS call
-> [0], eventually causing a soft lockup [1].
-> 
-> The root cause appears to be an RMM bug fixed by:
->    https://git.trustedfirmware.org/plugins/gitiles/TF-RMM/tf-rmm.git/+/38c1de0adf66
-> 
-> Without this fix, RMM returns RMI_ERROR_RTT at level 3. In this case,
-> both err_level and level are 3. Since this is RIPAS_SET, the check below
-> is skipped, realm_create_rtt_levels(realm, ipa, 3, 3, ...) is a no-op,
-> and ipa does not advance. The same RMI is therefore retried
-> indefinitely.
-> 
+Reflect VSE back on every exit, which the flush-side comment already
+states.
 
-FYI. This is a known issue, reported previously [1]. Following the discussions
-in the thread will lead to the TF-RMM commit you mentioned.
+Fixes: 734dc8c01c838 ("KVM: arm64: Implement lazy vCPU state sync for non-protected guests")
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-[1] https://lore.kernel.org/linux-coco/d0ffbcb5-0cca-4d1e-9788-6b430345fa9b@redhat.com/
-
-Thanks,
-Gavin
-
->> +			/*
->> +			 * If the operation failed at deeper level than
->> +			 * what is required for the address range, this
->> +			 * implies encountering an unexpected entry,
->> +			 * (e.g., RIPAS_DESTROYED), which the RMM prevents
->> +			 * us from modifying. This is only applicable for
->> +			 * RMI_RTT_INIT_RIPAS. All the other requests
->> +			 * are generated by the Realm and thus RMM should
->> +			 * be able to allow the transition.
->> +			 */
->> +			if (action == RIPAS_INIT && WARN_ON_ONCE(err_level >= level))
->> +				return -ENXIO;
-> 
-> Although the root cause is an RMM bug, should we also guard RIPAS_SET
-> against this no-progress case?
-> 
-> Thanks,
-> Kohei
-> 
-> [0]
->    SMC_RSI_VERSION                   10000 > RSI_SUCCESS 10000 10001
->    SMC_RSI_REALM_CONFIG              830e5000 > RSI_SUCCESS
->    SMC_RSI_IPA_STATE_SET             80000000 c0000000 1 0
->    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
->    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
->    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
->    ... (the same SMC_RMI_RTT_SET_RIPAS call is logged repeatedly)
-> 
-> [1]
->    [  201.945663] CPU: 113 UID: 0 PID: 8093 Comm: kvm-vcpu-0
->    [...]
->    [  201.946291] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
->    [  201.946416] pc : arm_smccc_1_2_smc+0x34/0x70
->    [  201.946430] lr : rmi_smccc_invoke+0xc0/0x108
->    [  201.946442] sp : ffff8000b59ab5e0
->    [  201.946448] x29: ffff8000b59ab690 x28: 000000008313e000 x27: 0000000000000003
->    [  201.946510] x26: 000008241cb3c000 x25: ffffffffffffffff x24: ffff8000b59ab830
->    [  201.946569] x23: ffff8000b59ab7c0 x22: 0000082419daa000 x21: 000008241cb3c000
->    [  201.946701] x20: 00000000000000fb x19: ffff8000b59ab5f8 x18: 0000000000000000
->    [  201.946740] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
->    [  201.947097] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->    [  201.947127] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
->    [  201.947550] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
->    [  201.947783] x5 : 0000000000000000 x4 : 00000000c0000000 x3 : 0000000000000000
->    [  201.947802] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000304
->    [  201.948305] Call trace:
->    [  201.948438]  arm_smccc_1_2_smc+0x34/0x70 (P)
->    [  201.948484]  rmi_sro_execute+0x24/0xd0
->    [  201.948571]  rmi_rtt_set_ripas.constprop.0+0x6c/0xb0
->    [  201.948698]  ripas_change+0xc4/0x1e8
->    [  201.948889]  kvm_rec_handle_request+0x190/0x308
->    [  201.948943]  check_vcpu_requests+0xcc/0x4f8
->    [  201.948960]  kvm_arch_vcpu_ioctl_run+0x208/0x7c0
->    [  201.948986]  kvm_vcpu_ioctl+0x174/0xac8
->    [  201.949062]  __arm64_sys_ioctl+0xb4/0x118
->    [  201.949089]  invoke_syscall.constprop.0+0xa8/0x100
->    [  201.949147]  do_el0_svc+0xb8/0xc8
->    [  201.949159]  el0_svc+0x48/0x1f8
->    [  201.949169]  el0t_64_sync_handler+0xa0/0xe8
->    [  201.949194]  el0t_64_sync+0x1ac/0x1b0
-> 
->> +
->> +			ret = realm_create_rtt_levels(realm, ipa, err_level,
->> +						      level, memcache);
->> +			if (ret)
->> +				goto out;
->> +			/* Retry with the RTT levels in place */
->> +			break;
->> +		}
->> +		default:
->> +			WARN_ON(1);
->> +			ret = -ENXIO;
->> +			goto out;
->> +		}
->> +	}
->> +
->> +out:
->> +	if (top_ipa)
->> +		*top_ipa = ipa;
->> +
->> +	return ret;
->> +}
->> +
->> +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
->> +			       unsigned long start,
->> +			       unsigned long end,
->> +			       unsigned long ripas,
->> +			       unsigned long *top_ipa)
->> +{
->> +	struct kvm *kvm = vcpu->kvm;
->> +	int ret = ripas_change(kvm, vcpu, start, end, RIPAS_SET, top_ipa);
->> +
->> +	if (!ret && ripas == RMI_EMPTY && *top_ipa != start)
->> +		realm_unmap_private_range(kvm, start, *top_ipa, false);
->> +
->> +	return ret;
->> +}
->> +
->> +static int kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
->> +{
->> +	struct kvm *kvm = vcpu->kvm;
->> +	struct realm_rec *rec = &vcpu->arch.rec;
->> +	unsigned long base = rec->run->exit.ripas_base;
->> +	unsigned long top = rec->run->exit.ripas_top;
->> +	unsigned long ripas = rec->run->exit.ripas_value;
->> +	unsigned long top_ipa = base;
->> +	int ret;
->> +
->> +	do {
->> +		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
->> +					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
->> +		write_lock(&kvm->mmu_lock);
->> +		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
->> +		write_unlock(&kvm->mmu_lock);
->> +
->> +		if (ret == -ENOMEM) {
->> +			/* If no progress, then stop */
->> +			if (top_ipa == base)
->> +				break;
->> +			base = top_ipa;
->> +			continue;
->> +		}
->> +
->> +		if (WARN_RATELIMIT(ret,
->> +				   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
->> +				   base, top, ripas))
->> +			break;
->> +
->> +		base = top_ipa;
->> +	} while (base < top);
->> +
->> +	/*
->> +	 * If this function is called again before the REC_ENTER call then
->> +	 * avoid calling realm_set_ipa_state() again by changing to the value
->> +	 * of ripas_base for the part that has already been covered. The RMM
->> +	 * ignores the contains of the rec_exit structure so this doesn't
->> +	 * affect the RMM.
->> +	 */
->> +	rec->run->exit.ripas_base = base;
->> +
->> +	return 1;
->> +}
->> +
->>   int kvm_rec_handle_request(struct kvm_vcpu *vcpu)
->>   {
->>   	struct realm_rec *rec = &vcpu->arch.rec;
->> @@ -224,6 +695,8 @@ int kvm_rec_handle_request(struct kvm_vcpu *vcpu)
->>   					vcpu_get_reg(vcpu, rt);
->>   		}
->>   		break;
->> +	case RMI_EXIT_RIPAS_CHANGE:
->> +		return kvm_complete_ripas_change(vcpu);
->>   	default:
->>   		KVM_BUG(1, vcpu->kvm, "Unhandled realm exit_reason");
->>   		return -ENXIO;
->> -- 
->> 2.43.0
->>
-> 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 9a3b92e626adb..b6bfe502bcd04 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -276,6 +276,10 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ 	host_vcpu->arch.iflags		= hyp_vcpu->vcpu.arch.iflags;
+ 
++	/* Cleared by hardware once the guest takes the vSError. */
++	host_vcpu->arch.hcr_el2 &= ~HCR_VSE;
++	host_vcpu->arch.hcr_el2 |= hyp_vcpu->vcpu.arch.hcr_el2 & HCR_VSE;
++
+ 	sync_hyp_vgic_state(hyp_vcpu);
+ }
+ 
+-- 
+2.39.5
 
 
