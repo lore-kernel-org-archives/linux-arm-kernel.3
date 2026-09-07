@@ -4,32 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277ABC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F65C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXyoR6jHxatNPB1pt4QIsjUQPWzUp0BX5xB1P8ZQ+U4=; b=u+Z2YPyr/bnwWjYDLyyMTRO9d4
-	1OCm1pgE/QWBdpvQXI6vvl+MAi29JjhBp2Bicbbo8z4dGpvwazx8+1l2sCHgJyRYDB4U5UyrR9KG/
-	pBXWwmgJX8RmOMyhVQUzH3m2lLL55XCYePTLkZINUCXthjjjwPzIOFWEYuexLiIWt1FIng6hFEwSN
-	8BDU0w7DPnLhMsHCrDLR4SH3eM6aF7QiwW98UcTnZpZiHAXGXICVh2H89s/Ay42OGozSp7YVMTqM/
-	ccnPT7UE0lJ/DYyQzRe7FHLXiqDxHqgdKg3C2K71IqNvRA60Rysxqmm6e5QRi7eExyehg9C3AfaYO
-	rtEtFVVA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fCNyXmPiwXW5LXBwZTFyX1AqojHJR5N1B1cgBkzjqLs=; b=P7WlbhIQGPzxNz
+	JztG16HVfYsBYa4mrUb9STdRuCjOwRrmmp1kOwZ+TxmiFkJCUb+jROJCrk8Z3+FjSFNj0DR5ZBEXs
+	RK1vcfqT20ZxcAoXkfHDTog2xnT8P+XO6RNuDNuuZXEV/Su5joeR3Mr1ZyD5K9ptb/vdV5PK653Za
+	YIHErv0td07EWvZFa5FYJDhlL1t2JDXJFc4sGqe1HRXCZEiVv/J7u/YGr5Xn1JDcI4MXXXSMoAQYz
+	XQH08uBpK7IblacYN1KX/AtmlxbL8zmtaLsLyAdvMf1rBvXlYVFzvgdU4sJMGrn6Y0mU0rwbPF+n0
+	kNxa2GJi7Jw4onrO/akg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bKQ-00000007AHz-25Db;
-	Mon, 07 Sep 2026 15:32:14 +0000
+	id 1x3bKT-00000007AJP-2QUl;
+	Mon, 07 Sep 2026 15:32:18 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bKN-00000007AG6-49AI
+	id 1x3bKN-00000007AG0-49cN
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 07 Sep 2026 15:32:13 +0000
 X-PTX-Original-Recipient: samuel@sholland.org
 X-PTX-Original-Recipient: linux-sunxi@lists.linux.dev
 X-PTX-Original-Recipient: o.schinagl@ultimaker.com
+X-PTX-Original-Recipient: t.schramm@manjaro.org
 X-PTX-Original-Recipient: broonie@linaro.org
 X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
 X-PTX-Original-Recipient: linux-spi@vger.kernel.org
@@ -44,23 +45,24 @@ X-PTX-Original-Recipient: broonie@kernel.org
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2A5A0201A9D;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 143E02010BD;
 	Mon, 07 Sep 2026 17:32:04 +0200 (CEST)
 Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <jre@pengutronix.de>)
-	id 1x3bKG-000Ym1-0B;
+	id 1x3bKF-000Ym1-3C;
 	Mon, 07 Sep 2026 17:32:04 +0200
 From: Jonas Rebmann <jre@pengutronix.de>
-Date: Mon, 07 Sep 2026 17:31:40 +0200
-Subject: [PATCH v2 1/6] spi: spi-sun4i: sun4i_spi_transfer_one(): fix
- transfers for SUN4I_FIFO_DEPTH
+Subject: [PATCH v2 0/6] spi: spi-sun4i: assorted fixes
+Date: Mon, 07 Sep 2026 17:31:39 +0200
+Message-Id: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260907-spi-sun4i-fixes-v2-1-7e805662b9bd@pengutronix.de>
-References: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
-In-Reply-To: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIANvYnmoC/3WNOw6DMBBEr4K2zka2E/NJlXtEFAQvsI1BXrCIk
+ O8ehz7lm9GbOUAoMAk8igMCRRaefQZzKaCfOj8SsssMRplSNcqgLIyy+TvjwDsJ6s4qqmvl+uo
+ N2VoCnUWWXm3miWWdw+c8iPqX/t+KGhXqpqktDZUtq9tzIT9ua5g971dH0KaUvoD2SH+zAAAA
+X-Change-ID: 20260902-spi-sun4i-fixes-1a50e880dc7b
 To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
  Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
@@ -69,19 +71,21 @@ To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
 Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@linaro.org>, kernel@pengutronix.de, 
- Marc Kleine-Budde <mkl@pengutronix.de>, Jonas Rebmann <jre@pengutronix.de>
+ Marc Kleine-Budde <mkl@pengutronix.de>, Jonas Rebmann <jre@pengutronix.de>, 
+ Tobias Schramm <t.schramm@manjaro.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1955; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=wfQL1QSfCbWufR3wGkkwcQx1sGdHXFdbWwqElB1tnxg=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsiad+NjRFbFEebQs1Vu/xuTbC6/29fSFW5XYFasNTNhz
- 0SeljlFHaUsDGJcDLJiiiyxanIKQsb+180q7WJh5rAygQxh4OIUgIm0TmNkmHxc5+FP1u0ekdpO
- 86Xz3i2QStnwPeJcXfT95e/PJd1jv8jwT/f6n7gubdF1V6Y8n52gJcpUmOrD9oDd7Ue1/Kf1MpN
- TeQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1541; i=jre@pengutronix.de;
+ h=from:subject:message-id; bh=QoP8/i51F8msseuU7N8yphI/jYG+fFigP1A13afHRU0=;
+ b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsiad+P59J55xkp3oqOzjactazw8VWuGXeoZziOOuQnzP
+ HwiKj4t7ShlYRDjYpAVU2SJVZNTEDL2v25WaRcLM4eVCWQIAxenAEwkJ4nhn7LCK+249LSFr/4l
+ TDlxQnqy2qNOt49r5tRuYTp97jFvijEjw6bzIryf48P2LxBXE/W6fdGr7N63wvum8p1Ll2RPvf/
+ Znw8A
 X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
  fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_083212_179668_BE9D722F 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260907_083212_179328_F7CF5399 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Kleine-Budde <mkl@pengutronix.de>
+This is a series of patches for the spi-sun4i driver, some of which have
+been sitting around for a while.
 
-In commit 6d9fe44bd73d ("spi: sun4i: fix FIFO limit"), the TX-FIFO is
-filled max to SUN4I_FIFO_DEPTH - 1 (= 63) bytes to work around timeouts
-observed on A10s SoCs.
+1-4 are fixes and 5 is a small patch that introduces reporting of the
+effective SPI speed.
 
-Commit 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO
-size") added support for transfers larger than the FIFO size. But this
-commit only enabled the TX-FIFO empty interrupt for transfers larger
-than the FIFO (= 64) bytes.
-
-This breaks transfers with exactly 64 bytes: the TX-FIFO is only filled
-with 63 bytes but the interrupt to refill the FIFO is not triggered. The
-problem can be reproduced with the following command:
-
-| spidev_test -D /dev/spidev0.1 -S 64 -s 20000000 -I 1
-|
-| [ 7797.548745] spi_master spi0: spi0.1: timeout transferring 64 bytes@20000000Hz for 110(100)ms
-| [ 7797.557237] spidev spi0.1: SPI transfer failed: -110
-| [ 7797.562308] spi_master spi0: failed to transfer one message from queue
-| [ 7797.568936] spi_master spi0: noqueue transfer failed
-
-To fix the problem enable the TX-FIFO interrupt if the total TX length
-is larger than SUN4I_FIFO_DEPTH - 1 (= 63) bytes.
-
-Fixes: 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO size")
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
 ---
- drivers/spi/spi-sun4i.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Add Patch 5/6 to fix division by zero potential in 6/6
+- 3/6: Correctly subtract 1 to gain the register value for SUN4I_CLK_CTL_CDR1
+- Mitigate race condition potential in 4/6 by disabling and syncing
+  interrupts before sun4i_spi_drain_fifo() in the timeout path
+- Link to v1: https://patch.msgid.link/20260902-spi-sun4i-fixes-v1-0-19985ef75673@pengutronix.de
 
-diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
-index d5c16392cd4d..2e2324453905 100644
---- a/drivers/spi/spi-sun4i.c
-+++ b/drivers/spi/spi-sun4i.c
-@@ -322,7 +322,7 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
- 	sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TC |
- 					 SUN4I_INT_CTL_RF_F34);
- 	/* Only enable Tx FIFO interrupt if we really need it */
--	if (tx_len > SUN4I_FIFO_DEPTH)
-+	if (tx_len > SUN4I_FIFO_DEPTH - 1)
- 		sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TF_E34);
- 
- 	/* Start the transfer */
+---
+Jonas Rebmann (1):
+      spi: spi-sun4i: sun4i_spi_transfer_one(): add error handling at clock setup
 
--- 
-2.55.0.123.gf60db8d575
+Marc Kleine-Budde (5):
+      spi: spi-sun4i: sun4i_spi_transfer_one(): fix transfers for SUN4I_FIFO_DEPTH
+      spi: spi-sun4i: sun4i_spi_fill_fifo(): always apply A10 FIFO fill level workaround
+      spi: spi-sun4i: sun4i_spi_transfer_one(): fix setting of clock rate
+      spi: spi-sun4i: sun4i_spi_handler(): fix race condition between transfer completion and RX FIFO interrupt
+      spi: spi-sun4i: sun4i_spi_transfer_one(): report effectively used speed_hz of transfer
+
+ drivers/spi/spi-sun4i.c | 68 +++++++++++++++++++++++++++++--------------------
+ 1 file changed, 40 insertions(+), 28 deletions(-)
+---
+base-commit: 89a312991dc6e638a36adc43ccb91dbc25504c04
+change-id: 20260902-spi-sun4i-fixes-1a50e880dc7b
+
+Best regards,
+--  
+Jonas Rebmann <jre@pengutronix.de>
 
 
