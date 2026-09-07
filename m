@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421B1C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2220CC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+JfwpOYvAv8ZYnfU3oq0MU6ImzI/HXu9p9BUtiuN48U=; b=Qx0YLMxPY+64AQ7le/QtRn3/U5
-	1+QepwIB0Ohf39nqPfNInB+OjKiyNEXoxtPJLhm7wyd/vJRBpN+ETidf009ihxaHaXz5Ve5hzcP+B
-	gw+rPQTGKMqqi+Mh9JXZOtn5kKh/Knn4fqtKwwvcw+Fx32qZWOTbbHbOTxWm9CumZ5gSPKSgEfJh3
-	joyAhivLf05JziqhL2dvcK8+g1/B1Sjv3eV9iJXjUGgkOMdx+v+F4q0gy00F5jqoEzClnA/gxdW+0
-	mw22z8R+PWCbkkdmlnA0DI/lPDy1rS015zHxt7QIIY0BxLA1TKDQsizo0zeX9Owni2em5vPD6XHQE
-	vhFEuGfw==;
+	bh=cW6vuPa9TzUzmzyF3037nhED0lin8odzpcp8o8tSD7Q=; b=Pf9UWqnZ9TYoRHjYfFNpAaxL76
+	N9r9s9ATyarMMEtf1vVGwhL1eQpazNSJTDItfYqP1QfrQzUAJ0/90Gn/4vvqVLk6LMdDXpyyR1QVd
+	iwoDihFuxFC/oBKj0w7rRvr779y3ylOa2ArahAT60OOmQf3yeQxV1b33ofXR+rpW4foaSHpCmX9Pa
+	ad4h4oT1/BrKt+fUFLIdXEOmG6+XmlmMX7IWtW2ADgXXexnXEkyP0isDop3yWiTezGUhVUjNnvOvD
+	KPhBQPKFONt+Uavv+yjhhOxtyMGq0EUUQut7Gaf7LW57nQFl15QNJImNLyqYz7j8XhT9ABDsTV+3j
+	mqlWU5OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cMC-00000007KAh-3Qrq;
-	Mon, 07 Sep 2026 16:38:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3cMH-00000007KEN-0Vbr;
+	Mon, 07 Sep 2026 16:38:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cM9-00000007K6i-0Lbk
+	id 1x3cMC-00000007KA1-24kP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:38:05 +0000
+	Mon, 07 Sep 2026 16:38:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D32F5439B4;
-	Mon,  7 Sep 2026 16:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9F91F00A3A;
-	Mon,  7 Sep 2026 16:38:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EBD60601FB;
+	Mon,  7 Sep 2026 16:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F46D1F00A3D;
+	Mon,  7 Sep 2026 16:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799084;
-	bh=+JfwpOYvAv8ZYnfU3oq0MU6ImzI/HXu9p9BUtiuN48U=;
+	s=k20260515; t=1788799087;
+	bh=cW6vuPa9TzUzmzyF3037nhED0lin8odzpcp8o8tSD7Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PwXXppz8RiCXsg/CuFuJF0bBs9LDVedC1gXhgY5HBFLvAcscR8NH11AAGkm+CkuCA
-	 hBq0lhTVQECU9NWzI5G1gy7A7cGRhhafyU/9l7NJpTFaP28H96V6eaQcN+3CLZqNDn
-	 DcNII+pNZNz/QdNTYhYnAHmGLQma0Rk17zm4Svm4m/C9ucEZ6OlgE06YD9D08Ls0Eq
-	 3xtosPAj6UlWRoIaKwnner/gYH0QdlJfmX5VNb1s6PrKLfDC45oLPfS0OJ4O7kuNOZ
-	 nu53RvlGLQ1BxVPY/yWQly0VFRbe1wQrGeyHHzXqUXUrLOhOASpnj9I7IDaDol9fvp
-	 GY+R/B89W0+zA==
+	b=IHkUFoHAWoATMA9skBKckKJbiStepXVxgZlqQCyIApc8bvESREAz3EHmC8ixRVLIA
+	 /5ddaccV3CJw9u9CAMQF9S0c3nglJ2Xjm6FzHoTAx3jRy9ljbsVhj1ahzn284lqe9P
+	 BlcWMsBiCGq6JQ54fR1INvZp42VCQk8ebmWheedEH1C/WXQ+zSwEZneae0ZyXKsAm+
+	 /9wqMcALM9ld9E4ZtZtWhEnMbVGAsMFCrHwsgd5gCAJ2MERzur3eTzxpG5H1vuzmzj
+	 3igibfbDMp2YRH3rTve/RNHBPr0SReAPZ3eXY7/fXCZHy17r3Nvv3p17bXqToTEucv
+	 sdG8qa9f02vQA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 08/14] arm64: vdso32: Always build compat vDSO object as little-endian
-Date: Mon,  7 Sep 2026 17:37:19 +0100
-Message-ID: <20260907163726.17104-9-will@kernel.org>
+Subject: [PATCH v2 09/14] KVM: arm64: Remove support for a big-endian hypervisor object
+Date: Mon,  7 Sep 2026 17:37:20 +0100
+Message-ID: <20260907163726.17104-10-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907163726.17104-1-will@kernel.org>
 References: <20260907163726.17104-1-will@kernel.org>
@@ -78,8 +78,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Big-endian support on arm64 depends on BROKEN. In preparation for
-removing the dead code altogether, remove support for building a
-big-endian 32-bit vDSO.
+removing the dead code altogether, remove the support for generating
+ELF relocations for a big-endian hypervisor object and drop the unused
+big-endian spinlock definition from nVHE.
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Acked-by: Arnd Bergmann <arnd@arndb.de>
@@ -87,25 +88,59 @@ Acked-by: Marc Zyngier <maz@kernel.org>
 Acked-by: Eric Biggers <ebiggers@kernel.org>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/vdso32/Makefile | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h |  4 ----
+ arch/arm64/kvm/hyp/nvhe/gen-hyprel.c       | 16 ----------------
+ 2 files changed, 20 deletions(-)
 
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index bea3675fa668..00efdc5d2354 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -45,11 +45,7 @@ endif
- # From arm Makefile
- VDSO_CAFLAGS += $(call cc32-option,-fno-dwarf2-cfi-asm)
- VDSO_CAFLAGS += -mabi=aapcs-linux -mfloat-abi=soft
--ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
--VDSO_CAFLAGS += -mbig-endian
--else
- VDSO_CAFLAGS += -mlittle-endian
--endif
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..b6978f03e86a 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -20,11 +20,7 @@
+ typedef union hyp_spinlock {
+ 	u32	__val;
+ 	struct {
+-#ifdef __AARCH64EB__
+-		u16 next, owner;
+-#else
+ 		u16 owner, next;
+-#endif
+ 	};
+ } hyp_spinlock_t;
  
- # From arm vDSO Makefile
- VDSO_CAFLAGS += -fPIC -fno-builtin -fno-stack-protector
+diff --git a/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c b/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
+index b63f4e1c1033..99243e0fefb0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
++++ b/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
+@@ -139,28 +139,12 @@ static struct {
+ 	const char	*sh_string;
+ } elf;
+ 
+-#if defined(CONFIG_CPU_LITTLE_ENDIAN)
+-
+ #define elf16toh(x)	le16toh(x)
+ #define elf32toh(x)	le32toh(x)
+ #define elf64toh(x)	le64toh(x)
+ 
+ #define ELFENDIAN	ELFDATA2LSB
+ 
+-#elif defined(CONFIG_CPU_BIG_ENDIAN)
+-
+-#define elf16toh(x)	be16toh(x)
+-#define elf32toh(x)	be32toh(x)
+-#define elf64toh(x)	be64toh(x)
+-
+-#define ELFENDIAN	ELFDATA2MSB
+-
+-#else
+-
+-#error PDP-endian sadly unsupported...
+-
+-#endif
+-
+ #define fatal_error(fmt, ...)						\
+ 	({								\
+ 		fprintf(stderr, "error: %s: " fmt "\n",			\
 -- 
 2.55.0.979.g7e5102b832-goog
 
