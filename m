@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AEBC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E614DC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DBKjzxKqbK2knnmjzHZp2Ng5aIG6jr0Gcceu+Cipq3o=; b=nFb6MxBV0jaO23RLuDGD5brYYC
-	bXsrYRoJ4UMSFIbom8tDO3HS+MvM9fhUXHH36wTVLQds7+VauMpM/G9DvNKMwt4LDckT3zi35313Q
-	BlRPgXbTz+mpq5Op3kDELDMZzcf8zPwNhSzCxxydYo0oQ9v0Zr28jFp6TOcj6/Hmk/LWl1ENo8WcI
-	D5IDtqUifDPPNDnZf2BIJaXciI4J2gTgqHGKafHIdIwAacyAuSoyQ/D4T5jNg3V+tCFhq+/qM/3Qt
-	M57s7DlaTbUnuEWnlpy9rBfASIKpb0olLuhZ0qZwRuQCXoGRqcOT5lYmj7sU/ir7u47OnhGeMkLwx
-	Pae9Uj8Q==;
+	bh=sNftk6dAOj9MP5wzHtcUwGMPv4F8HHzi/b6fKcXGrKA=; b=4PVFA5VA08UAV7T3/XZHYiK9c0
+	04UD8XRBKZJ5dPJ7Qd6X5oKyux2krXG2GQB1y1FryyOY+Aw8I2n7AeSsch1m0ynNknEFXXd168y08
+	mM5CxLyTCyZXPOP0dljIVWXqSkl6KvTfXu3kXTl9yC8SV/xapM/tgmwY1+AQUBZdP3dCecrZCzClE
+	taHgPc8A/+W7FYKyeUMS86VO/KTcBiGTgAwfBk8cSjDyrgpzHYUOKV13F+kWwWkLUGeaJqQ7FpwXI
+	hmHJdLJIDdtsG4ZUBuCiE/9aReT5lO9JhT93hjsBB+SjahPFjjz2+O9Id2930a64o+rEuWweMSsFe
+	spyLQ/MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QOj-00000005oLH-28pe;
-	Mon, 07 Sep 2026 03:51:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3QOq-00000005oRW-0pvD;
+	Mon, 07 Sep 2026 03:52:04 +0000
+Received: from mail-m16023653245.xmail.ntesmail.com ([160.236.53.245])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QOe-00000005oIc-3nRm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 03:51:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=DBKjzxKqbK2knnmjzHZp2Ng5aIG6jr0Gcceu+Cipq3o=; b=ngETvZaR12oDBV4frZ1mdzV9Dj
-	2fw8tqffMZ1jjZAgLSSEiWicUgW9xVWAcCuX8xyxpu0nQBHdquZ60yOGI626T+93jOjwd8e/bKiuk
-	ONL0aCbq9lguV/8JkVz5cYvSL+6rdd8aLnRHiyTy4dXmrz7uy29pUyYeIwgQ8e+t28qjKnXozOtod
-	+Z3UEH1tEtjGzmS+IPjHKc7WRFaL0i5ZmDiibC+nwOCkYxIwf0vr+dTc1H/D0W4I1ByDjWBuJkPJr
-	0I0nbXFyVX0H8AgbdP3wdt11FLBimnMSHwj/ViBxR6OUc7TFD7bYSVO0WH4YKt+LTKcJ2EYHj87HJ
-	0atQE9Sw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3QO3-0000000FmNy-1mGl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 03:51:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0018B1516;
-	Sun,  6 Sep 2026 20:51:09 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBE743F7B4;
-	Sun,  6 Sep 2026 20:51:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788753072; bh=e60cWCqWvU5usBlVAuNQW11xubuWlhpocNAxI1B8G28=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GoO/h9TLo5WxQU44DjPignv1t1V1GPmlyG79AXj0rqAGEsV1VdWickcqE4TMSYxKb
-	 e0iIuExCyFmFHPnmczA8v3nVJeUJ1HA9VAXFwEGmE7WaYEZXk/vp0Prb41nDO6V5jP
-	 z3hOjL0pkiO6NZlaJ4aoiMB+agf8MRlGxZ7t6X4k=
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH V2 10/14] arm64/mm: Add an abstraction level for tlbi_op
-Date: Mon,  7 Sep 2026 09:20:25 +0530
-Message-ID: <20260907035030.2839978-11-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260907035030.2839978-1-anshuman.khandual@arm.com>
-References: <20260907035030.2839978-1-anshuman.khandual@arm.com>
+	id 1x3QOk-00000005oIr-2TcA;
+	Mon, 07 Sep 2026 03:52:02 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4cc106c1d;
+	Mon, 7 Sep 2026 11:51:52 +0800 (GMT+08:00)
+Message-ID: <15741677-7f2c-4190-b77f-a496643593c6@rock-chips.com>
+Date: Mon, 7 Sep 2026 11:51:50 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 14/19] drm/bridge: starfive: Add JH7110 HDMI controller
+ driver
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Andy Yan <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Maud Spierings <maud_spierings@murena.io>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>
+References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+ <CGME20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc@eucas1p2.samsung.com>
+ <20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa079fe6d2b03a7kunm1578719f367f00
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSU0aVk9NTk4fHh4dQkkdSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=XTf4ceYGuRf+Bea49mCirc4h09mur540oJnaxi7YtW22DeczQ/QS9Pu2+imyL5HE9X0Sni7hMr7LW88iqEnQBZBnrHflPfgVXhYoN2NjnhgPdp75SSK0Ru0ZydU9SF4zB8+2HhQErRYytmTazOix9GaPiCEcRV8gY1n+6Unb/d0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=sNftk6dAOj9MP5wzHtcUwGMPv4F8HHzi/b6fKcXGrKA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_045118_081136_DEB6BF92 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260906_205200_204838_050B6803 
+X-CRM114-Status: GOOD (  40.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,151 +100,424 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linu Cherian <linu.cherian@arm.com>
+Hello Michal,
 
-With FEAT_D128, a new instruction aka TLBIP is being introduced for the TLB
--by-range operations which has an argument size of 128 bit.
+On 9/4/2026 9:27 PM, Michal Wilczynski wrote:
+> Add the HDMI controller (bridge) driver for the StarFive JH7110.
+> 
+> This driver binds to the starfive,jh7110-inno-hdmi-controller node.
+> It gets its shared regmap from its parent and its register access,
+> module and bus clocks from voutcrg. It consumes the pixel clock and the
+> PHY from its hdmi_phy sibling.
+> 
+> The driver calls the generic inno_hdmi_probe function and passes the
+> shared regmap to it, registering as a DRM bridge. The .enable hook is
+> responsible for setting the PHY's pixel clock rate via clk_set_rate()
+> and powering on the PHY via phy_power_on().
+> 
+> The DC8200 has two panels, each exposing a DP and a DPI interface, and a
+> mux in the video output system controller picks which of them drives the
+> HDMI transmitter. Program that mux from the port graph rather than
+> relying on whatever the bootloader left behind, taking the panel from the
+> remote port number and the interface from the remote endpoint number.
+> 
+> The generic driver holds the clock it looks up as the register access
+> clock enabled for its lifetime, and derives the DDC divider from that
+> clock's rate, so point it at the system clock. Naming the pixel clock
+> there instead would keep the PHY pre-PLL powered from probe onwards and
+> size the divider from the wrong rate.
+> 
+> The PHY can only generate the discrete set of pixel clocks described by
+> its pre-PLL table, so .mode_valid rejects any mode clk_round_rate()
+> cannot satisfy. Without it such a mode would be advertised to userspace
+> and the modeset would appear to succeed while the display stayed blank.
+> 
+> .enable returns early when the rate is unsupported or the PHY fails to
+> power on, so track whether the pixel clock was actually enabled and let
+> .disable tear down only what was brought up, otherwise the clock
+> refcount underflows.
+> 
+> The clocks and the reset are torn down through devm rather than from
+> .remove, so that they outlive the bridge that inno_hdmi_probe() adds with
+> devm_drm_bridge_add(). Releasing them in .remove runs before devres
+> unwinds and would leave the bridge registered with its clocks already
+> gated.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/gpu/drm/bridge/Kconfig            |  11 ++
+>  drivers/gpu/drm/bridge/Makefile           |   1 +
+>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 318 ++++++++++++++++++++++++++++++
+>  3 files changed, 330 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+> index 4a57d49b4c6d3ab4b965228835b372d191647197..75b1cf6727d5a32310dcf9fe5734d95e14eea8fe 100644
+> --- a/drivers/gpu/drm/bridge/Kconfig
+> +++ b/drivers/gpu/drm/bridge/Kconfig
+> @@ -359,6 +359,17 @@ config DRM_SOLOMON_SSD2825
+>  	  Say M here if you want to support this hardware as a module.
+>  	  The module will be named "ssd2825".
+>  
+> +config DRM_STARFIVE_JH7110_INNO_HDMI
+> +	tristate "Starfive JH7110 Innosilicon HDMI bridge"
+> +	depends on OF
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	select DRM_INNO_HDMI
+> +	help
+> +	  Enable support for the StarFive JH7110 specific implementation
+> +	  of the Innosilicon HDMI controller.
+> +	  This driver acts as a glue layer between the JH7110 HDMI subsystem
+> +	  parent driver and the generic Innosilicon HDMI bridge driver.
+> +
+>  config DRM_THINE_THC63LVD1024
+>  	tristate "Thine THC63LVD1024 LVDS decoder bridge"
+>  	depends on OF
+> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+> index 15cc821d85b7ea6f3cdc313f3e521b028de567d7..5d843f4ad7ed50b28cb75286c5e22789d91a0836 100644
+> --- a/drivers/gpu/drm/bridge/Makefile
+> +++ b/drivers/gpu/drm/bridge/Makefile
+> @@ -30,6 +30,7 @@ obj-$(CONFIG_DRM_SIL_SII8620) += sil-sii8620.o
+>  obj-$(CONFIG_DRM_SII902X) += sii902x.o
+>  obj-$(CONFIG_DRM_SII9234) += sii9234.o
+>  obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
+> +obj-$(CONFIG_DRM_STARFIVE_JH7110_INNO_HDMI) += jh7110-inno-hdmi.o
+>  obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
+>  obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
+>  obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
+> diff --git a/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..b0bf6abaa55fb452a90021586faf5f220c150968
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
+> @@ -0,0 +1,318 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) StarFive Technology Co., Ltd.
+> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> + *
+> + * HDMI controller (bridge) driver for the StarFive JH7110 HDMI subsystem.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+> +
+> +#include <drm/bridge/inno_hdmi.h>
+> +#include <drm/drm_modes.h>
+> +
+> +/* dom_vout_syscon: HDMI pixel data mapping */
+> +#define VOUT_SYSCFG_4			0x4
+> +#define VOUT_HDMI_DP_BIT_DEPTH		BIT(25)
+> +#define VOUT_HDMI_DP_YUV_MODE		GENMASK(27, 26)
+> +#define VOUT_HDMI_DP_YUV_MODE_RGB	3
+> +#define VOUT_HDMI_DPI_BIT_DEPTH		GENMASK(29, 28)
+> +#define VOUT_HDMI_DPI_BIT_DEPTH_8BIT	0
+> +#define VOUT_HDMI_DPI_DP_SEL		BIT(30)
+> +
+> +/* u2_display_panel_mux feeds HDMI_Ctrl, see the block diagram in 5.1 */
+> +#define VOUT_SYSCFG_8			0x8
+> +#define VOUT_HDMI_PANEL_SEL		BIT(4)
+> +
+> +enum stf_hdmi_ctrl_clocks { CLK_SYS = 0, CLK_M, CLK_B, CLK_PCLK, CLK_CTRL_NUM };
+> +
+> +struct stf_inno_hdmi_controller {
+> +	struct device *dev;
+> +	struct clk_bulk_data clks[CLK_CTRL_NUM];
+> +	struct reset_control *tx_rst;
+> +	struct phy *phy;
+> +	bool enabled;
+> +};
+> +
+> +static enum drm_mode_status
+> +inno_hdmi_starfive_mode_valid(struct device *dev,
+> +			      const struct drm_display_mode *mode)
+> +{
+> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
+> +	unsigned long pixelclk = mode->clock * 1000;
+> +	long rounded;
+> +
+> +	/*
+> +	 * The PHY can only generate the discrete set of pixel clocks described
+> +	 * by its pre-PLL table, and clk_round_rate() fails for anything else.
+> +	 * Reject those modes here: without this the modeset would appear to
+> +	 * succeed while the PHY never produces a signal.
+> +	 */
+> +	rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
+> +	if (rounded < 0 || rounded != pixelclk)
+> +		return MODE_NOCLOCK;
+> +
 
-Add an abstraction level to void (*tlbi_op)(u64 arg) helpers to support the
-D128 variations when applicable.
+Using "if (rounded != pixelclk)" would be ok.
 
-No functional changes are introduced with this patch.
+> +	return MODE_OK;
+> +}
+> +
+> +static void inno_hdmi_starfive_enable(struct device *dev,
+> +				      struct drm_display_mode *mode)
+> +{
+> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	/*
+> +	 * 1. Set the pixel clock rate. This calls the PHY driver's .set_rate op.
+> +	 */
+> +	ret = clk_set_rate(ctrl->clks[CLK_PCLK].clk, mode->clock * 1000);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to set pclk rate %d: %d\n",
+> +			mode->clock * 1000, ret);
+> +		return;
+> +	}
+> +
+> +	/*
+> +	 * 2. Enable the pixel clock. This calls the PHY driver's .prepare op.
+> +	 */
+> +	ret = clk_prepare_enable(ctrl->clks[CLK_PCLK].clk);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to enable pclk: %d\n", ret);
+> +		return;
+> +	}
+> +
+> +	/*
+> +	 * 3. Power on the PHY. This calls the PHY driver's .power_on op,
+> +	 * which configures the Post-PLL and analog blocks.
+> +	 */
+> +	ret = phy_power_on(ctrl->phy);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to power on PHY: %d\n", ret);
+> +		clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
+> +		return;
+> +	}
+> +
+> +	ctrl->enabled = true;
+> +}
+> +
+> +static void inno_hdmi_starfive_disable(struct device *dev)
+> +{
+> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
+> +
+> +	/*
+> +	 * .enable bails out early if the pixel clock rate is unsupported or
+> +	 * the PHY fails to power on, leaving pclk and the PHY untouched.
+> +	 * Only tear down what was actually brought up, otherwise the clock
+> +	 * refcount underflows.
+> +	 */
+> +	if (!ctrl->enabled)
+> +		return;
+> +
+> +	phy_power_off(ctrl->phy);
+> +	clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
+> +	ctrl->enabled = false;
+> +}
+> +
+> +/*
+> + * The DC8200 has two panels, each exposing a DP and a DPI interface, and a mux
+> + * in dom_vout_syscon picks which of them drives the HDMI transmitter. Derive
+> + * the mux setting from the port graph: the remote port number selects the
+> + * DC8200 panel, and the remote endpoint number the interface on that panel
+> + * (0 for DPI, 1 for DP). Both drive 8-bit RGB, the only format this driver
+> + * currently produces.
+> + */
+> +static int stf_inno_hdmi_setup_mux(struct device *dev)
+> +{
+> +	struct device_node *ep, *remote;
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/include/asm/tlbflush.h | 70 ++++++++++++++++---------------
- 1 file changed, 37 insertions(+), 33 deletions(-)
+Using "struct device_node *ep __free(device_node)" can help you simplify
+the processing of resource release.
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 14a78ac0f800..88ae4e443ed6 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -130,49 +130,53 @@ static inline void sme_dvmsync_batch(void)
- 
- #define TLBI_TTL_UNKNOWN	INT_MAX
- 
--typedef void (*tlbi_op)(u64 arg);
-+typedef u64 tlbi_arg_t;
-+#define __tlbi_wrapper(op, arg)		__tlbi(op, arg)
-+#define __tlbi_user_wrapper(op, arg)	__tlbi_user(op, arg)
- 
--static __always_inline void vae1is(u64 arg)
-+typedef void (*tlbi_op)(tlbi_arg_t arg);
-+
-+static __always_inline void vae1is(tlbi_arg_t arg)
- {
--	__tlbi(vae1is, arg);
--	__tlbi_user(vae1is, arg);
-+	__tlbi_wrapper(vae1is, arg);
-+	__tlbi_user_wrapper(vae1is, arg);
- }
- 
--static __always_inline void vae2is(u64 arg)
-+static __always_inline void vae2is(tlbi_arg_t arg)
- {
--	__tlbi(vae2is, arg);
-+	__tlbi_wrapper(vae2is, arg);
- }
- 
--static __always_inline void vale1(u64 arg)
-+static __always_inline void vale1(tlbi_arg_t arg)
- {
--	__tlbi(vale1, arg);
--	__tlbi_user(vale1, arg);
-+	__tlbi_wrapper(vale1, arg);
-+	__tlbi_user_wrapper(vale1, arg);
- }
- 
--static __always_inline void vale1is(u64 arg)
-+static __always_inline void vale1is(tlbi_arg_t arg)
- {
--	__tlbi(vale1is, arg);
--	__tlbi_user(vale1is, arg);
-+	__tlbi_wrapper(vale1is, arg);
-+	__tlbi_user_wrapper(vale1is, arg);
- }
- 
--static __always_inline void vale2is(u64 arg)
-+static __always_inline void vale2is(tlbi_arg_t arg)
- {
--	__tlbi(vale2is, arg);
-+	__tlbi_wrapper(vale2is, arg);
- }
- 
--static __always_inline void vaale1is(u64 arg)
-+static __always_inline void vaale1is(tlbi_arg_t arg)
- {
--	__tlbi(vaale1is, arg);
-+	__tlbi_wrapper(vaale1is, arg);
- }
- 
--static __always_inline void ipas2e1(u64 arg)
-+static __always_inline void ipas2e1(tlbi_arg_t arg)
- {
--	__tlbi(ipas2e1, arg);
-+	__tlbi_wrapper(ipas2e1, arg);
- }
- 
--static __always_inline void ipas2e1is(u64 arg)
-+static __always_inline void ipas2e1is(tlbi_arg_t arg)
- {
--	__tlbi(ipas2e1is, arg);
-+	__tlbi_wrapper(ipas2e1is, arg);
- }
- 
- static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
-@@ -443,32 +447,32 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-  *    operations can only span an even number of pages. We save this for last to
-  *    ensure 64KB start alignment is maintained for the LPA2 case.
-  */
--static __always_inline void rvae1is(u64 arg)
-+static __always_inline void rvae1is(tlbi_arg_t arg)
- {
--	__tlbi(rvae1is, arg);
--	__tlbi_user(rvae1is, arg);
-+	__tlbi_wrapper(rvae1is, arg);
-+	__tlbi_user_wrapper(rvae1is, arg);
- }
- 
--static __always_inline void rvale1(u64 arg)
-+static __always_inline void rvale1(tlbi_arg_t arg)
- {
--	__tlbi(rvale1, arg);
--	__tlbi_user(rvale1, arg);
-+	__tlbi_wrapper(rvale1, arg);
-+	__tlbi_user_wrapper(rvale1, arg);
- }
- 
--static __always_inline void rvale1is(u64 arg)
-+static __always_inline void rvale1is(tlbi_arg_t arg)
- {
--	__tlbi(rvale1is, arg);
--	__tlbi_user(rvale1is, arg);
-+	__tlbi_wrapper(rvale1is, arg);
-+	__tlbi_user_wrapper(rvale1is, arg);
- }
- 
--static __always_inline void rvaale1is(u64 arg)
-+static __always_inline void rvaale1is(tlbi_arg_t arg)
- {
--	__tlbi(rvaale1is, arg);
-+	__tlbi_wrapper(rvaale1is, arg);
- }
- 
--static __always_inline void ripas2e1is(u64 arg)
-+static __always_inline void ripas2e1is(tlbi_arg_t arg)
- {
--	__tlbi(ripas2e1is, arg);
-+	__tlbi_wrapper(ripas2e1is, arg);
- }
- 
- static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+> +	struct of_endpoint endpoint;
+> +	struct regmap *syscon;
+> +	u32 mask, val;
+> +	int ret;
+> +
+> +	syscon = syscon_regmap_lookup_by_phandle(dev->of_node,
+> +						 "starfive,vout-syscon");
+> +	if (IS_ERR(syscon))
+> +		return dev_err_probe(dev, PTR_ERR(syscon),
+> +				     "Failed to get vout syscon\n");
+> +
+> +	ep = of_graph_get_endpoint_by_regs(dev->of_node, 0, -1);
+> +	if (!ep)
+> +		return dev_err_probe(dev, -ENODEV, "No input endpoint\n");
+> +
+> +	remote = of_graph_get_remote_endpoint(ep);
+> +	of_node_put(ep);
+> +	if (!remote)
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "Input endpoint is not connected\n");
+> +
+> +	ret = of_graph_parse_endpoint(remote, &endpoint);
+> +	of_node_put(remote);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to parse the remote endpoint\n");
+> +
+> +	if (endpoint.port > 1 || endpoint.id > 1)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Unsupported DC8200 output %u/%u\n",
+> +				     endpoint.port, endpoint.id);
+> +
+> +	/* Data mapping: 8-bit RGB on whichever interface is in use. */
+> +	mask = VOUT_HDMI_DPI_DP_SEL | VOUT_HDMI_DP_BIT_DEPTH |
+> +	       VOUT_HDMI_DP_YUV_MODE | VOUT_HDMI_DPI_BIT_DEPTH;
+> +	val = FIELD_PREP(VOUT_HDMI_DPI_DP_SEL, endpoint.id) |
+> +	      FIELD_PREP(VOUT_HDMI_DP_YUV_MODE, VOUT_HDMI_DP_YUV_MODE_RGB) |
+> +	      FIELD_PREP(VOUT_HDMI_DPI_BIT_DEPTH, VOUT_HDMI_DPI_BIT_DEPTH_8BIT);
+> +
+> +	ret = regmap_update_bits(syscon, VOUT_SYSCFG_4, mask, val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Which DC8200 panel drives the HDMI transmitter. */
+> +	return regmap_update_bits(syscon, VOUT_SYSCFG_8, VOUT_HDMI_PANEL_SEL,
+> +				  FIELD_PREP(VOUT_HDMI_PANEL_SEL,
+> +					     endpoint.port));
+> +}
+> +
+> +static void stf_inno_hdmi_clk_disable(void *data)
+> +{
+> +	struct stf_inno_hdmi_controller *ctrl = data;
+> +
+> +	clk_bulk_disable_unprepare(CLK_CTRL_NUM - 1, ctrl->clks);
+> +}
+> +
+> +static void stf_inno_hdmi_rst_assert(void *data)
+> +{
+> +	reset_control_assert(data);
+> +}
+> +
+> +static int starfive_inno_hdmi_controller_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device *parent = dev->parent;
+> +	struct stf_inno_hdmi_controller *ctrl;
+> +	const struct inno_hdmi_plat_data *plat_data;
+> +	struct regmap *regmap;
+> +	struct inno_hdmi *inno;
+> +	int ret;
+> +
+> +	ctrl = devm_kzalloc(dev, sizeof(*ctrl), GFP_KERNEL);
+> +	if (!ctrl)
+> +		return -ENOMEM;
+> +
+> +	ctrl->dev = dev;
+> +	platform_set_drvdata(pdev, ctrl);
+> +
+> +	/* Get the shared regmap from the parent */
+> +	regmap = dev_get_regmap(parent, NULL);
+> +	if (!regmap) {
+> +		dev_err(dev, "Failed to get parent regmap\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	ctrl->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(ctrl->phy))
+> +		return dev_err_probe(dev, PTR_ERR(ctrl->phy), "Failed to get PHY\n");
+> +
+> +	ctrl->tx_rst = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(ctrl->tx_rst))
+> +		return dev_err_probe(dev, PTR_ERR(ctrl->tx_rst), "failed to get tx reset\n");
+> +
+> +	/* Populate the clock names this controller *consumes* */
+> +	ctrl->clks[CLK_SYS].id = "pclk";
+> +	ctrl->clks[CLK_M].id = "mclk";
+> +	ctrl->clks[CLK_B].id = "bclk";
+> +	ctrl->clks[CLK_PCLK].id = "pixel"; /* Generated by the PHY */
+> +
+> +	ret = devm_clk_bulk_get(dev, CLK_CTRL_NUM, ctrl->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Unable to get controller clocks\n");
+> +
+> +	/*
+> +	 * Tear the clocks and the reset down through devm, so that they outlive
+> +	 * everything registered after them. The bridge is added with
+> +	 * devm_drm_bridge_add(), and unwinding in the wrong order would leave it
+> +	 * registered while its clocks are already gated.
+> +	 *
+> +	 * The pixel clock is enabled on demand during modeset.
+> +	 */
+> +	ret = clk_bulk_prepare_enable(CLK_CTRL_NUM - 1, ctrl->clks);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, stf_inno_hdmi_clk_disable, ctrl);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = reset_control_deassert(ctrl->tx_rst);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, stf_inno_hdmi_rst_assert,
+> +				       ctrl->tx_rst);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = stf_inno_hdmi_setup_mux(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	plat_data = of_device_get_match_data(dev);
+> +
+> +	/* Hand off to the generic library to create the bridge. */
+> +	inno = inno_hdmi_probe(pdev, plat_data);
+> +	if (IS_ERR(inno))
+> +		return PTR_ERR(inno);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * This table is now only used for the generic .mode_valid check.
+> + * The real validation happens in the PHY driver's .round_rate.
+> + */
+> +static struct inno_hdmi_phy_config stf_hdmi_phy_configs[] = {
+> +	{ 297000000, 0x00, 0x00 },
+> +	{ ~0UL, 0x00, 0x00 }, /* Sentinel */
+> +};
+> +
+> +static const struct inno_hdmi_plat_ops stf_inno_hdmi_plat_ops = {
+> +	.enable = inno_hdmi_starfive_enable,
+> +	.disable = inno_hdmi_starfive_disable,
+> +	.mode_valid = inno_hdmi_starfive_mode_valid,
+> +};
+> +
+> +static const struct inno_hdmi_plat_data stf_inno_hdmi_plat_data = {
+> +	.ops = &stf_inno_hdmi_plat_ops,
+> +	.phy_configs = stf_hdmi_phy_configs,
+> +	.default_phy_config = &stf_hdmi_phy_configs[0],
+> +};
+> +
+> +static const struct of_device_id starfive_hdmi_controller_dt_ids[] = {
+> +	{ .compatible = "starfive,jh7110-inno-hdmi-controller",
+> +	  .data = &stf_inno_hdmi_plat_data },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, starfive_hdmi_controller_dt_ids);
+> +
+> +struct platform_driver starfive_inno_hdmi_controller_driver = {
+> +	.probe = starfive_inno_hdmi_controller_probe,
+> +	.driver = {
+> +		.name = "starfive-inno-hdmi-controller",
+> +		.of_match_table = starfive_hdmi_controller_dt_ids,
+> +	},
+> +};
+> +module_platform_driver(starfive_inno_hdmi_controller_driver);
+> +
+> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
+> +MODULE_DESCRIPTION("StarFive INNO HDMI Controller Driver");
+> +MODULE_LICENSE("GPL");
+> 
+
 -- 
-2.43.0
-
+Best, 
+Chaoyi
 
