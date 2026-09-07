@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4516EC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B245C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=; b=o8bgE4SkFcFWCZzquk/G/eXSlg
-	g7Sic3LsU8RA1mc6/zh1EFH1tuTp+VzeNUYcQwb/cL/tSTnkJl7hb4EVncg95fkHpybvJToTr32mI
-	hlC30BPWST6h7h/6tKRy2B5h4VTU0vy0nM7mlK0s/wRrr8MlfzNHDgOJfWvCo4T/LwHciSnNvGqVj
-	o/sXbE9p7sJ5ef5S0aR5C+sYYiylPrN4nxqyJr5vPtr9B/pPe75CVX3eDX6G0wm88y1Ts88QabGGX
-	ktEOgQNFAayh5Fk4WjANRSViE6fqyAxe3Rs8LQIcHki30g5HJpNPtOxeZ9IeddPHn5VV21oycDWzl
-	Mw/8kZxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=; b=3xSAykEQ0Z7JQD46Z4uCPahXbY
+	8wmZZvJjsBzMSC6S8d0XyIHhab3IYSa3lJEIHFPnby2hMBlCPqLQMTKsUuaQl1cf/NkjfFxGC+y0v
+	sZyT4p5mtsLeBDLsAgYR/cUrP7enC9Zz8skXzaEtO6mIiOFp70KY0REYxNW+SBybeQrpHRtiL4oDf
+	q717Vlw1LIt9g6f8j3cg1hqpirUcqN+K8YrvDM/Q1IFba7HdYEkKqKmX3uTO0ZbchQxojsT7ovPK4
+	JRtw59rQGHC3N08aCjdmLNLn3a8zLE4sH2IwF5HkBt612ezu4HwG/+hMu464fzBf6+dZF7L0v1hhW
+	nJBrgnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TI8-0000000651W-2sch;
-	Mon, 07 Sep 2026 06:57:20 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1x3TJV-000000065PY-1ruf;
+	Mon, 07 Sep 2026 06:58:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TI6-0000000650F-1SVx;
-	Mon, 07 Sep 2026 06:57:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788764158; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZV1f7mIa5Ivl4k9y4SDseO7sHW+HXOhGOnNA3H1xRbt1/D/ksjOmLYeU+FS4cmX+Hts6lkL1r8M+mCPrf6tfIzMjJB0b2sVzMmjqPU/3RUMi+047Y294fhETDs6iReJrrgYolwkXDS2m+zCVwGlte7A50w8KcoeS+6v+/RwWTr0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788764158; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=; 
-	b=dS9L/KG15nTBt2++e5uDJMfTNVAaWzLOQuZasm1GbtlC0sCA0bB1YA6nKDHauAHHIGDtz4Q7ivxhvg0CLUMOobpIBo+BNKxHD/ubsyigThw9IO3SwiDnd0li8ZdtFILkmNvA3GExDWArpzFXprIV1qzIu4e5vjtHSjKY2gyVYVQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788764158;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=1tMnWdSZi+sjkC4f5IyBKW6FS6ZeNXijReG8GKO87DM=;
-	b=BMTjuTZBsLIrLLQbFYEi8z0UaWGJZJjxeSYYxBVe6/DSS+g6eYH8Pw9Pt2zTuGh1
-	TbGJxgPa/cjnW41iWvSPZTs1m7utVbmLnfyAbfxAueT2zyPpCg3RW0zQ94/VavjbTLa
-	BT486D9MNAmUPgxRieTGSu/8tMi27JGUaSFQv9cSqgbQSXgbbbRo5g0CUZ7AzmQiGIv
-	lVFA+M7C37fn+a8D09cfSBJESxToQqJg0tFdJybljjyoXRxlc8kR2Nj8pfOZ7xd/k6f
-	nuh5zp+4ma19vHlgD2e4mxkAw5n7TkeKvhRfuYzEaatVRNX9eGykxhWw4vjZjD/0S8c
-	upQLI3pL0g==
-Received: by mx.zohomail.com with SMTPS id 1788764154825847.2528940921899;
-	Sun, 6 Sep 2026 23:55:54 -0700 (PDT)
-Message-ID: <72f82ae67eca7b5a594d86852c8b0dafb7d02c4c.camel@icenowy.me>
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Maud Spierings <maud_spierings@murena.io>, Dominique Belhachemi
-	 <domibel@debian.org>
-Cc: m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com, 
-	airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com,
- andy.yan@rock-chips.com, 	andyshrk@163.com, aou@eecs.berkeley.edu,
- bmasney@redhat.com, conor+dt@kernel.org, 	conor@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk, 
-	jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk,
- krzk+dt@kernel.org, 	lee@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, 	linux-riscv@lists.infradead.org,
- linux-rockchip@lists.infradead.org, 	luca.ceresoli@bootlin.com,
- m.szyprowski@samsung.com, 	maarten.lankhorst@linux.intel.com,
- maudspierings@gocontroll.com, 	mfd@lists.linux.dev, mripard@kernel.org,
- mturquette@baylibre.com, 	neil.armstrong@linaro.org,
- p.zabel@pengutronix.de, palmer@dabbelt.com, 	pjw@kernel.org,
- rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org, simona@ffwll.ch, 
-	tzimmermann@suse.de, vkoul@kernel.org
-Date: Mon, 07 Sep 2026 14:55:42 +0800
-In-Reply-To: <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
-	 <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-	 <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
-	 <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
-	 <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
-	 <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
-	 <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
-	 <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
-	 <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1x3TJS-000000065OW-05gD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 06:58:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788764319;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=;
+	b=aaWPfFeNuCF01og65yhNdgpQ17rzWoIQ2vYK9QLRTcH7wuWwrdMfg47WMix+QbK9Te6XLj
+	J2FKEwv9whz2Mi5H1hIYJdTGFAemY49TiHXR056JK8U5m5vhNf46kGbr0+XMfeSr2/vHwd
+	vJHMrQS+FTWVlYedI1e0vqRP7Rgwbpg=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-252-IwGj8MrDMfOKlATCsdYyyg-1; Mon, 07 Sep 2026 02:58:37 -0400
+X-MC-Unique: IwGj8MrDMfOKlATCsdYyyg-1
+X-Mimecast-MFC-AGG-ID: IwGj8MrDMfOKlATCsdYyyg_1788764316
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so6636072a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:58:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788764316; x=1789369116;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Whb5laiS3yzXtAPrJb0uVk8gmTE/3//w7uu9lxtoyxk=;
+        b=SOfw1+EdZF/bgKqdpCnTtrIGkhTTschuYjrWvIcoYOzNqcgRMRThDzmLsktW8/HEPj
+         e8o44W6mG1Mu8QRCBI4HwA6l83G4iEX9Euf9vhfpU+jcnNYAs1kkWKb7meCZsZPmozaq
+         vI+IC25NW7OhSetRQlOuC3Dq/JtJFzcqsAHsP6iVZhLvQAsJ4NwpsoQ8grwFt02sm1tV
+         88svG69/YvWcWSL0TwpO5utzp/1ZsDE0LjGOBUAfU99L/eCL78Y3gfOaqrgD/EGS5Qn0
+         JBy6bCKCcgxkknKlYIzjo0orOBBd2tyld/7g4Y0Y0EW3LV43zuhwkvhtQ3oUuT9i77AQ
+         BuBQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzbEDaEJkKunljMLDtKQpJ1m+HV1Nqzxqf8BUW14XcM7CecC6UGgY6aaj8tQmUzcqICtn2ZHlhsbByhQv8gj+vC@lists.infradead.org
+X-Gm-Message-State: AFuF++kDaxwl7HUNS8eVN/avopiZbWmE9K5nds7QG07YjNkit28hEwSj
+	AGSmq6UaFxFZJarpsjuGrLJmm40dDbemyrho6jeNQf47jhEHOaPGAgvG8N+cHavgifulGoiDTOA
+	ntJaujxXR/zsd2hv4xGLGmF9FF4q80l9agK05ACYNYz7G6PkWQayOpjiFxY3vGDT48UrETxMUfu
+	G9
+X-Gm-Gg: AYBFou07lT/DlpVztk3kvIjAdxLiZ9b8v69bVxjADIf9ZaMYy2wb2wjRpvzaSe2G51z
+	7Ae5NG9Ai49s0v71Mhmu0BFQgiR11E6amfyVNdn1PllKkJ0ky04nnOnXuYimtS+fX6J+4tptTl6
+	i6Fq+sviOwcAcdM4zjSwKhjcDT15qQeVfgTbr0KVpUWWpvrlBzARuzIeOsLepz8ywUZNK+8QSVu
+	NCreT3VVRO9itgPF9kDxr9gzzStRpQP3xg6MX9Xtu2KmfI5H8ku4ZklyVUuBiHgv4XBPoYmtRlq
+	Eajh14GuDCnV4FxENd9JCzkXlE0He6y8PHsFmGR8P1PlPRD1YbpSjk8GKHpBKmXbmc3D4hzYuKy
+	jw5TC4OhxcIjkmlkGKNRh1G8bE7BPFT5ELvNMm8GOEg==
+X-Received: by 2002:a17:90b:1c8b:b0:398:9bd5:490c with SMTP id 98e67ed59e1d1-39b26214502mr29861948a91.19.1788764316099;
+        Sun, 06 Sep 2026 23:58:36 -0700 (PDT)
+X-Received: by 2002:a17:90b:1c8b:b0:398:9bd5:490c with SMTP id 98e67ed59e1d1-39b26214502mr29861874a91.19.1788764315361;
+        Sun, 06 Sep 2026 23:58:35 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08c39227sm25394782a91.9.2026.09.06.23.58.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 06 Sep 2026 23:58:34 -0700 (PDT)
+Message-ID: <8a437df9-a591-4645-9cd8-55fc4f0ed534@redhat.com>
+Date: Mon, 7 Sep 2026 16:58:19 +1000
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 22/45] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+To: Kohei Enju <enju.kohei@fujitsu.com>, Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-23-steven.price@arm.com>
+ <ap49Orng5-oehc6J@FCCLS0092175.localdomain>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <ap49Orng5-oehc6J@FCCLS0092175.localdomain>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: t6cj-d34krWRa7_cl7BEkNlXKkaACcIpkpXYNZz9AcM_1788764316
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_235718_417359_CA22A7EB 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20260906_235842_222086_B4B39571 
+X-CRM114-Status: GOOD (  39.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,148 +127,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-07=E4=B8=80=E7=9A=84 08:02 +0200=EF=BC=8CMaud Spierings=
-=E5=86=99=E9=81=93=EF=BC=9A
-> Hi Dominique and Icenowy,
->=20
-> On 9/7/26 06:01, Icenowy Zheng wrote:
-> > =E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 17:16 -0400=EF=BC=8CDominique Be=
-lhachemi=E5=86=99=E9=81=93=EF=BC=9A
-> > > On Sun, Sep 6, 2026 at 11:19=E2=80=AFAM Icenowy Zheng <uwu@icenowy.me=
->
-> > > wrote:
-> > > >=20
-> > > > =E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 16:59 +0200=EF=BC=8CMaud Spi=
-erings=E5=86=99=E9=81=93=EF=BC=9A
-> > > > > On 9/6/26 07:39, Dominique Belhachemi wrote:
-> > > > > > On Sun, Aug 30, 2026 at 10:17=E2=80=AFAM Maud Spierings
-> > > > > > <
-> > > > > > maud_spierings@murena.io=C2=A0<mailto:maud_spierings@murena.io>=
->
-> > > > > > wrote:
-> > > > > >=20
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 I was still having some glitching happ=
-ening on the
-> > > > > > display,
-> > > > > > but
-> > > > > > I've
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 found the way to fix that, the questio=
-n is what is
-> > > > > > actually
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 happening here.
-> > > > > >=20
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x29590020 <- =
-0x00000005
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 This one I have no idea, it is 0x00000=
-009 with this
-> > > > > > patch
-> > > > > > series but
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 with the vendor kernel I get the value=
- above. When I
-> > > > > > hook
-> > > > > > up my
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 external
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 display (regular 1440p) this becomes 0=
-x0000000D on the
-> > > > > > vendor
-> > > > > > kernel.
-> > > > > >=20
-> > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 But I can't find this register being w=
-ritten to
-> > > > > > anywhere
-> > > > > > there?
-> > > > > >=20
-> > > > > >=20
-> > > > > > Maybe this needs to be swapped?
-> > > > > >=20
-> > > > > > drivers/gpu/drm/bridge/inno-hdmi.c
-> > > > > > =C2=A0=C2=A0=C2=A0 -#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
-> > > > > > =C2=A0=C2=A0=C2=A0 -#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
-> > > > > > =C2=A0=C2=A0=C2=A0 +#define v_HSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 2)
-> > > > > > =C2=A0=C2=A0=C2=A0 +#define v_VSYNC_POLARITY(n)=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ((n) << 3)
-> > > >=20
-> > > > Very weirdly, the original definition here matches current
-> > > > mainline
-> > > > inno-hdmi.c, but the changed definition matches JH7110 vendor
-> > > > inno_hdmi.h [1].
-> > > >=20
-> > >=20
-> > > The vendor code is correct and matches the RK3128 TRM.
-> >=20
-> > Thanks for the tips on documentation, and I verified this.
-> >=20
-> > It seems that Rockchip people made this always wrong, even with
-> > their
-> > pre-DRM display driver... [1]
-> >=20
-> > BTW I checked the Innosilicon dGPU driver code, and its
-> > g3_ne_hdmi.h
-> > source file also contains the definition of BIT(3) as VSYNC. (It's
-> > quite weird that most logic of that driver is in some .o_shipped
-> > blob,
-> > but fortunately the g3 logic might be too new to be closed down)
-> >=20
-> > Thanks,
-> > Icenowy
-> >=20
-> > [1]
-> > https://github.com/rockchip-linux/kernel/blob/release-4.4/drivers/video=
-/rockchip/hdmi/rockchip-hdmiv1/rockchip_hdmiv1_hw.h#L161
-> >=20
-> > >=20
-> > > HDMI_reg08
-> > > =C2=A0=C2=A0=C2=A0=C2=A0 Bit=C2=A0 Attr=C2=A0 Reset=C2=A0 Description
-> > > =C2=A0=C2=A0=C2=A0=C2=A0 3=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=
-=C2=A0=C2=A0=C2=A0 vs_polarity=C2=A0=C2=A0 VSYNC polarity=C2=A0=C2=A0 1'b0:
-> > > Negative
-> > > 1'b1: Positive
-> > > =C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0 RW=C2=A0=C2=A0=C2=A0 0x0=
-=C2=A0=C2=A0=C2=A0 hs_polarity=C2=A0=C2=A0 HSYNC polarity=C2=A0=C2=A0 1'b0:
-> > > Negative
-> > > 1'b1: Positive
-> > >=20
-> > > Nobody noticed this so far because in 720p/1080p both polarities
-> > > are
-> > > positive, but Maud's 3:2 panel has differing H/V polarity.
-> > >=20
-> > > Best
-> > > -Dominique
->=20
-> This also solves the devmem behaviour I saw, or well, doesn't realy=20
-> explain it but does show what is actually happening. As Icenowy noted
-> (maybe that was on telegram only?) the inno-hdmi regs are 8bit
-> instead=20
-> of 32 bit.
->=20
-> What is actually happening is:
->=20
-> devmem 0x29590000 b reads 0x29590000 as expected
-> but
-> devmem 0x29590004 b reads 0x29590001
-> devmem 0x29590008 b reads 0x29590002
-> ....
-> devmem 0x29590020 b reads 0x29590008
->=20
-> For some reason the addressing is weird?
->=20
-> With this change, the assigned clock change and removing the=20
-> v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS write to HDMI_SYS_CTRL, the
-> display=20
-> comes up from the start as it should!
+Hi Kohei,
 
-Well I checked the RK3128 TRM for these two bits, and their field
-descriptions are -- "reserved".
+On 9/7/26 3:05 PM, Kohei Enju wrote:
+> Hi Steven,
+> 
+> On 08/03 14:43, Steven Price wrote:
+>> The guest can request that a region of its protected address space is
+>> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
+>> RSI_IPA_STATE_SET. This causes a guest exit with the
+>> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
+>> protected region to unprotected (or back), exiting to the VMM to make
+>> the necessary changes to the guest_memfd and memslot mappings. On the
+>> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
+>> calls.
+>>
+>> The VMM may wish to reject the RIPAS change requested by the guest. For
+>> now it can only do this by no longer scheduling the VCPU as we don't
+>> currently have a usecase for returning that rejection to the guest, but
+>> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
+>> open for adding a new ioctl in the future for this purpose.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v15:
+>>   * Propagate negative error returns.
+>> Changes since v14:
+>>   * Use addition rather than bitwise OR for adding the shared_bit in
+>>     realm_unmap_shared_range(), this handles the case where the region
+>>     includes the last address (which means 'end' already has the bit
+>>     set).
+>> Changes since v13:
+>>   * Switch to the new RMI_RTT_UNPROT_UNMAP range-based API.
+>>   * Drop ugly hack for RMM bug which errored when the RIPAS was already
+>>     set to the desired value.
+>> Changes since v12:
+>>   * Switch to the new RMM v2.0 RMI_RTT_DATA_UNMAP which can unmap an
+>>     address range.
+>> Changes since v11:
+>>   * Combine the "Allow VMM to set RIPAS" patch into this one to avoid
+>>     adding functions before they are used.
+>>   * Drop the CAP for setting RIPAS and adapt to changes from previous
+>>     patches.
+>> Changes since v10:
+>>   * Add comment explaining the assignment of rec->run->exit.ripas_base in
+>>     kvm_complete_ripas_change().
+>> Changes since v8:
+>>   * Make use of ripas_change() from a previous patch to implement
+>>     realm_set_ipa_state().
+>>   * Update exit.ripas_base after a RIPAS change so that, if instead of
+>>     entering the guest we exit to user space, we don't attempt to repeat
+>>     the RIPAS change (triggering an error from the RMM).
+>> Changes since v7:
+>>   * Rework the loop in realm_set_ipa_state() to make it clear when the
+>>     'next' output value of rmi_rtt_set_ripas() is used.
+>> New patch for v7: The code was previously split awkwardly between two
+>> other patches.
+>> ---
+>>   arch/arm64/include/asm/kvm_rmi.h |   6 +
+>>   arch/arm64/kvm/mmu.c             |   8 +-
+>>   arch/arm64/kvm/rmi.c             | 473 +++++++++++++++++++++++++++++++
+>>   3 files changed, 484 insertions(+), 3 deletions(-)
+>>
+>> [...]
+>> +
+>> +static int ripas_change(struct kvm *kvm,
+>> +			struct kvm_vcpu *vcpu,
+>> +			unsigned long ipa,
+>> +			unsigned long end,
+>> +			enum ripas_action action,
+>> +			unsigned long *top_ipa)
+>> +{
+>> +	struct realm *realm = &kvm->arch.realm;
+>> +	phys_addr_t rd_phys = virt_to_phys(realm->rd);
+>> +	phys_addr_t rec_phys;
+>> +	struct kvm_mmu_memory_cache *memcache = NULL;
+>> +	long ret = 0;
+>> +
+>> +	if (vcpu) {
+>> +		rec_phys = vcpu->arch.rec.rec_phys;
+>> +		memcache = &vcpu->arch.mmu_page_cache;
+>> +
+>> +		WARN_ON(action != RIPAS_SET);
+>> +	} else {
+>> +		WARN_ON(action != RIPAS_INIT);
+>> +	}
+>> +
+>> +	while (ipa < end) {
+>> +		unsigned long next = ~0;
+>> +
+>> +		switch (action) {
+>> +		case RIPAS_INIT:
+>> +			ret = rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
+>> +			break;
+>> +		case RIPAS_SET:
+>> +			ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
+>> +						&next);
+>> +			break;
+>> +		}
+>> +
+>> +		if (ret < 0)
+>> +			goto out;
+>> +
+>> +		switch (RMI_RETURN_STATUS(ret)) {
+>> +		case RMI_SUCCESS:
+>> +			ipa = next;
+>> +			break;
+>> +		case RMI_ERROR_RTT: {
+>> +			int err_level = RMI_RETURN_INDEX(ret);
+>> +			int level = find_map_level(realm, ipa, end);
+>> +
+> 
+> I have been testing this series using TF-RMM from:
+>    https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_3
+> 
+> I found that Linux repeatedly issues the same SMC_RMI_RTT_SET_RIPAS call
+> [0], eventually causing a soft lockup [1].
+> 
+> The root cause appears to be an RMM bug fixed by:
+>    https://git.trustedfirmware.org/plugins/gitiles/TF-RMM/tf-rmm.git/+/38c1de0adf66
+> 
+> Without this fix, RMM returns RMI_ERROR_RTT at level 3. In this case,
+> both err_level and level are 3. Since this is RIPAS_SET, the check below
+> is skipped, realm_create_rtt_levels(realm, ipa, 3, 3, ...) is a no-op,
+> and ipa does not advance. The same RMI is therefore retried
+> indefinitely.
+> 
 
-What can I react...
+FYI. This is a known issue, reported previously [1]. Following the discussions
+in the thread will lead to the TF-RMM commit you mentioned.
+
+[1] https://lore.kernel.org/linux-coco/d0ffbcb5-0cca-4d1e-9788-6b430345fa9b@redhat.com/
 
 Thanks,
-Icenowy
+Gavin
 
->=20
-> Kind regards,
-> Maud
+>> +			/*
+>> +			 * If the operation failed at deeper level than
+>> +			 * what is required for the address range, this
+>> +			 * implies encountering an unexpected entry,
+>> +			 * (e.g., RIPAS_DESTROYED), which the RMM prevents
+>> +			 * us from modifying. This is only applicable for
+>> +			 * RMI_RTT_INIT_RIPAS. All the other requests
+>> +			 * are generated by the Realm and thus RMM should
+>> +			 * be able to allow the transition.
+>> +			 */
+>> +			if (action == RIPAS_INIT && WARN_ON_ONCE(err_level >= level))
+>> +				return -ENXIO;
+> 
+> Although the root cause is an RMM bug, should we also guard RIPAS_SET
+> against this no-progress case?
+> 
+> Thanks,
+> Kohei
+> 
+> [0]
+>    SMC_RSI_VERSION                   10000 > RSI_SUCCESS 10000 10001
+>    SMC_RSI_REALM_CONFIG              830e5000 > RSI_SUCCESS
+>    SMC_RSI_IPA_STATE_SET             80000000 c0000000 1 0
+>    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
+>    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
+>    SMC_RMI_RTT_SET_RIPAS             10060182000 10056e1c000 8000c000 c0000000 > RMI_ERROR_RTT 3
+>    ... (the same SMC_RMI_RTT_SET_RIPAS call is logged repeatedly)
+> 
+> [1]
+>    [  201.945663] CPU: 113 UID: 0 PID: 8093 Comm: kvm-vcpu-0
+>    [...]
+>    [  201.946291] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+>    [  201.946416] pc : arm_smccc_1_2_smc+0x34/0x70
+>    [  201.946430] lr : rmi_smccc_invoke+0xc0/0x108
+>    [  201.946442] sp : ffff8000b59ab5e0
+>    [  201.946448] x29: ffff8000b59ab690 x28: 000000008313e000 x27: 0000000000000003
+>    [  201.946510] x26: 000008241cb3c000 x25: ffffffffffffffff x24: ffff8000b59ab830
+>    [  201.946569] x23: ffff8000b59ab7c0 x22: 0000082419daa000 x21: 000008241cb3c000
+>    [  201.946701] x20: 00000000000000fb x19: ffff8000b59ab5f8 x18: 0000000000000000
+>    [  201.946740] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+>    [  201.947097] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>    [  201.947127] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
+>    [  201.947550] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+>    [  201.947783] x5 : 0000000000000000 x4 : 00000000c0000000 x3 : 0000000000000000
+>    [  201.947802] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000304
+>    [  201.948305] Call trace:
+>    [  201.948438]  arm_smccc_1_2_smc+0x34/0x70 (P)
+>    [  201.948484]  rmi_sro_execute+0x24/0xd0
+>    [  201.948571]  rmi_rtt_set_ripas.constprop.0+0x6c/0xb0
+>    [  201.948698]  ripas_change+0xc4/0x1e8
+>    [  201.948889]  kvm_rec_handle_request+0x190/0x308
+>    [  201.948943]  check_vcpu_requests+0xcc/0x4f8
+>    [  201.948960]  kvm_arch_vcpu_ioctl_run+0x208/0x7c0
+>    [  201.948986]  kvm_vcpu_ioctl+0x174/0xac8
+>    [  201.949062]  __arm64_sys_ioctl+0xb4/0x118
+>    [  201.949089]  invoke_syscall.constprop.0+0xa8/0x100
+>    [  201.949147]  do_el0_svc+0xb8/0xc8
+>    [  201.949159]  el0_svc+0x48/0x1f8
+>    [  201.949169]  el0t_64_sync_handler+0xa0/0xe8
+>    [  201.949194]  el0t_64_sync+0x1ac/0x1b0
+> 
+>> +
+>> +			ret = realm_create_rtt_levels(realm, ipa, err_level,
+>> +						      level, memcache);
+>> +			if (ret)
+>> +				goto out;
+>> +			/* Retry with the RTT levels in place */
+>> +			break;
+>> +		}
+>> +		default:
+>> +			WARN_ON(1);
+>> +			ret = -ENXIO;
+>> +			goto out;
+>> +		}
+>> +	}
+>> +
+>> +out:
+>> +	if (top_ipa)
+>> +		*top_ipa = ipa;
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+>> +			       unsigned long start,
+>> +			       unsigned long end,
+>> +			       unsigned long ripas,
+>> +			       unsigned long *top_ipa)
+>> +{
+>> +	struct kvm *kvm = vcpu->kvm;
+>> +	int ret = ripas_change(kvm, vcpu, start, end, RIPAS_SET, top_ipa);
+>> +
+>> +	if (!ret && ripas == RMI_EMPTY && *top_ipa != start)
+>> +		realm_unmap_private_range(kvm, start, *top_ipa, false);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>> +{
+>> +	struct kvm *kvm = vcpu->kvm;
+>> +	struct realm_rec *rec = &vcpu->arch.rec;
+>> +	unsigned long base = rec->run->exit.ripas_base;
+>> +	unsigned long top = rec->run->exit.ripas_top;
+>> +	unsigned long ripas = rec->run->exit.ripas_value;
+>> +	unsigned long top_ipa = base;
+>> +	int ret;
+>> +
+>> +	do {
+>> +		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
+>> +					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+>> +		write_lock(&kvm->mmu_lock);
+>> +		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
+>> +		write_unlock(&kvm->mmu_lock);
+>> +
+>> +		if (ret == -ENOMEM) {
+>> +			/* If no progress, then stop */
+>> +			if (top_ipa == base)
+>> +				break;
+>> +			base = top_ipa;
+>> +			continue;
+>> +		}
+>> +
+>> +		if (WARN_RATELIMIT(ret,
+>> +				   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
+>> +				   base, top, ripas))
+>> +			break;
+>> +
+>> +		base = top_ipa;
+>> +	} while (base < top);
+>> +
+>> +	/*
+>> +	 * If this function is called again before the REC_ENTER call then
+>> +	 * avoid calling realm_set_ipa_state() again by changing to the value
+>> +	 * of ripas_base for the part that has already been covered. The RMM
+>> +	 * ignores the contains of the rec_exit structure so this doesn't
+>> +	 * affect the RMM.
+>> +	 */
+>> +	rec->run->exit.ripas_base = base;
+>> +
+>> +	return 1;
+>> +}
+>> +
+>>   int kvm_rec_handle_request(struct kvm_vcpu *vcpu)
+>>   {
+>>   	struct realm_rec *rec = &vcpu->arch.rec;
+>> @@ -224,6 +695,8 @@ int kvm_rec_handle_request(struct kvm_vcpu *vcpu)
+>>   					vcpu_get_reg(vcpu, rt);
+>>   		}
+>>   		break;
+>> +	case RMI_EXIT_RIPAS_CHANGE:
+>> +		return kvm_complete_ripas_change(vcpu);
+>>   	default:
+>>   		KVM_BUG(1, vcpu->kvm, "Unhandled realm exit_reason");
+>>   		return -ENXIO;
+>> -- 
+>> 2.43.0
+>>
+> 
+
 
