@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F1BC79FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48024C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32h7kaFDH9bKyGuq6yDC3cYC1YNKmY64gfPaV2O7y3I=; b=eJKPReiWsU5dQor16EMn8ckkcw
-	KBFKjOSPf1w415yZhqdRhNwGhbPth748NxYSsSnHCvousG7OZR6abxZG97cxDaRHk/JLuFMqJFDTR
-	kHf+BFvQ9+3MsQVHf82eeukFZqikHe65OkOFEUMCnQzG0y2w7x2oPw0l2GtvEXOY/3xSjx0TOsfuH
-	PrcPfJYp1KuqQ9UCwjbFewuonSiwXIz7YUnM3JPaBvHDWxlAZdk0dRWubu2z3hda46dX2WMBjYdYz
-	XA6Zey4cMDA7kV/sGfY33PsMfyP6qBz2gYAYSYgTdqf3K17Rfk6faah0hXvKFAQXKKIk7ILy2E2f8
-	aW0vNz2Q==;
+	bh=TYy9nWJoUmlzDZgMzs/GJYVBPkSBqNCJGCFigafXdj8=; b=rUO2Cj0bwUlqSEkY929vxffHAa
+	dZR3Ubtoz86+lSbxH+lXpipqvxi4dV2ioaS6IY1duuiWPkd1yLteRDnOOLPBNx3iPKAk87x6IEWH2
+	RHHJ1/9YkbHpRyd1bfSIBndfZqzZmIlnQVYb92kfyGntvnrb6OFyMj+Px5LWWoQuNj7fxRno67QfB
+	fuDrQjXutuPgSBLYOrThheD4HA+M9bqisRsGV3HXq3nTAgZI197hDeJgpjTALFAMQzi+lwRVQDk0m
+	Dr8MSvLwVuUgdIkDcJmBbvwdmhTiVRCaDyoIR4NWcNGW3lIS2zZSDdIhEMxkvZicWFGvcfgwNEPWi
+	lFRqv1BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Q7z-00000005mDc-3BJk;
-	Mon, 07 Sep 2026 03:34:39 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1x3Q87-00000005mIO-19UU;
+	Mon, 07 Sep 2026 03:34:47 +0000
+Received: from mail-japaneastazon11023116.outbound.protection.outlook.com ([52.101.127.116] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Q7q-00000005m7Q-3WhA
+	id 1x3Q82-00000005mEN-12FT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 03:34:36 +0000
+	Mon, 07 Sep 2026 03:34:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d/9M+b7LW43qbY9b6IB688cQsvtjL0x/uxb7V78Ee8ILmhg5ATuKg129UAnsNjIR6USemLtfKTWqXbjH9/kX5oq+xvwK6lnHWum89hK3KjieoHziOJ7o11rqSiw9YLd8GSxAE1dcnp2aOZLihptc3YKUKTBEtZ7Ww52pY/PS/l3Alx+ArRRTjJroFNCZXWSUJL+gwZJGImAF+wp+D7KqIyJxnuBFxxLLYN9/CeJcnAlZiVrNw78x3g5tk35YEPozJzql+GUKh+AnFswa9XYCFKGucBd1AbgDGkAZhHTZX109+CFkD+RlVe8bR+q2v4V8M4IeBdZWqGzsmpLgN6+uzA==
+ b=a1LcTKc6Qanina6hxk/2ratEeljwZ/Cv6w2reNfbgq5ekn3eIhsdL4lHGk5v0Va2JYoH+ngT67G6CDPG/HPya1VXDG0B/NyKkk7Sf2UiLH/9DEXOgSp0yIaHiL+BFwhBf1SsbQEJlgAL4Efb8pfBI4wBM6tDeQAlRlXEDof3AZPzg1TSAd1ihTVxxBkADZNSjcnsIx2J6YErLnRThedDmt1cr+R3nBanheupN2h8mffMDkl6rez4Gn+GRcOyyXipUgQFJ2g6+q06icPvQAIFbX6lt9Y4VMiQgVUgofLqV2fKUoHmVcOo1HdDydFfqqBUWrz0mBeDpAJoZqJr9PysCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=32h7kaFDH9bKyGuq6yDC3cYC1YNKmY64gfPaV2O7y3I=;
- b=WESMkWKRTPpB/xJ0Ijcq9tof5V8T78VyjggzqmNXELfNueEzQYwvGrbDIdFChNHJlOO5QT3EnSixBnX/KjtC06fwnOUM6+QcNIBp5ZKeoQxkQD1k8EiToCCKt22qoxbFMj6WJUWr5H5QOgv8CxEzQhpt9I5HxM0mi0SwwqkBgxKevUo+DhszMT27aspr7XL5c12EV8V8GL+pSODp9k6Uwy5E74NQcXI3/hGlHikWkuqeA2Sp/kKVSvjKFPbHaeVL5fnpKcPuB879WmZIpbQJcLNTD/9JceHKPvtleg3A4tzXIBuwx1c9SOoWaqJezsq3eGegaFzCuWqPDUNisk+G2Q==
+ bh=TYy9nWJoUmlzDZgMzs/GJYVBPkSBqNCJGCFigafXdj8=;
+ b=eTpsP08duOPPEc/U8BF/IWNE2KIPyrQ4aCqeugxNZmZnd4dgadfv5XsfUQ/dh0s2nQrcqCuWUJEBlepHttaubFs9XUeJqtpCMdOjS6q1sZa1fGwO4/dTH4faaZcLLHAi8W3tL21f1er3pGKh60KAQBR57JIFqQQQEaCgLFjyc6LAH/6SFh8Vz7p565idc2gm3A9GXTuw/dKSKAKr6zEojX8a6yS0AoMW8XrjztIBVMDG8ay5vESu+atVlwIXvIT5SD6m0+p7aiRE33Jhsb01vgaV9dsJ+DPIimCdrVJ7ZAsxQoh/kTFI2YCXaVSsnsYTZBqUiwJAJ7oyBCPtTRhkjQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from TYCP301CA0058.JPNP301.PROD.OUTLOOK.COM (2603:1096:400:384::7)
- by SEZPR06MB5810.apcprd06.prod.outlook.com (2603:1096:101:ab::8) with
+Received: from TY6P286CA0026.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:3b9::18)
+ by TY0PR06MB5609.apcprd06.prod.outlook.com (2603:1096:400:31e::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
  2026 03:34:10 +0000
-Received: from TY2PEPF0000AB89.apcprd03.prod.outlook.com
- (2603:1096:400:384:cafe::54) by TYCP301CA0058.outlook.office365.com
- (2603:1096:400:384::7) with Microsoft SMTP Server (version=TLS1_3,
+Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
+ (2603:1096:405:3b9:cafe::61) by TY6P286CA0026.outlook.office365.com
+ (2603:1096:405:3b9::18) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
- Sep 2026 03:34:10 +0000
+ Sep 2026 03:34:09 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,12 +55,12 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB89.mail.protection.outlook.com (10.167.253.7) with Microsoft
+ TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Mon, 7 Sep 2026 03:34:08 +0000
+ 15.21.406.5 via Frontend Transport; Mon, 7 Sep 2026 03:34:09 +0000
 Received: from ubuntu (unknown [172.20.64.99])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1C5B8409211A;
-	Mon,  7 Sep 2026 11:34:07 +0800 (CST)
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AA6494092119;
+	Mon,  7 Sep 2026 11:34:06 +0800 (CST)
 From: Jelly Jia <Jelly.Jia@cixtech.com>
 To: vkoul@kernel.org,
 	robh@kernel.org,
@@ -74,9 +74,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jelly Jia <Jelly.Jia@cixtech.com>
-Subject: [PATCH v1 4/5] dmaengine: cix-sky1-dma350: Add Sky1 integration driver
-Date: Mon,  7 Sep 2026 11:34:03 +0800
-Message-ID: <20260907033404.596839-5-Jelly.Jia@cixtech.com>
+Subject: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
+Date: Mon,  7 Sep 2026 11:34:02 +0800
+Message-ID: <20260907033404.596839-4-Jelly.Jia@cixtech.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
 References: <20260907033404.596839-1-Jelly.Jia@cixtech.com>
@@ -84,29 +84,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB89:EE_|SEZPR06MB5810:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TY0PR06MB5609:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: cc477239-43a7-49ca-6fb3-08df0c90e108
+X-MS-Office365-Filtering-Correlation-Id: d3e38639-2cc6-4659-42c4-08df0c90e0af
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|23010399003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 8PTcHV+CbaZzuyXgco4UwIEHBRj8iBUUm17HqknwTFoz+rZz80HwqEUuyZn3nqYhyzQ7GkYoEMlHDaU1BgkWqXQesHWHTNQaVLs2SL1BkCihPhyUL2duf+SpQgGTjXDYFTA0OPpRUYyWINYbvmyZhs2nku/eP8Dsq3AIX/QGu5WbnS/trI4iFXXRYC/sryYvuBhMq7TzhG8xfJ4oJWUCfkTc04QdYnecp0B33dB68P4/bLzOVQVwbzolg++e/UGWX1DZHWzlzDZ9fMB/7wiAXapUOT2NxNBCQEAB0Tg65Zg2mf+ZfwotEN4WnZgYedkbwKkDVEV+qtXiplI4htwdqf6hLq/MIEVVF+Cn+taoUqIjukIP81tVZDOkhm8D7YIt24OzAkwfJIWDJhi9Q0Vswig5keoomWF28EdZohM9zmaoK64UwfasCWhmgDJQBR7Gd40PruyApe/WuaeLvREx6jB3O17Ob8JajN3yW4CM8y8CPqDzImAwM7l8ldzgFB9pFfpjtMFbJWBQTGJn5j1qRWfarzlhOlql7ACsZlNf/IzRZWpukTqJWoUgpNrRhZkVCrtcNDHEQwYteoV4tjVhA0pwX4uDiGlsJIYmxkcJK5bE1OcbNcAyIv5Oam/iSt7gQnc2dV9bRw0nsgebycSjbVySS5B7ccZqfKsiVqo+Q6xkVhl4i03pXZz/+T8NF3yRVLbemIIj03begAYwbKC7TA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(23010399003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|23010399003|3023799007|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: b2AS0/yhDoRWfVAKomkQzMC+ERgGCu/MclkamfG8g+4ZZylDztdENGV9AayqbwQTywVRqONJhAhCFUk/3MIIv+sd/ZG5o5GXy2jbMCLE0aQW2fBeMwKyaIjoiM04mlfTqnF7cJW0HBmOUELyHdjtV2U83laQss6DzsPW3wc0EIDI3PIbf++3ydiLOI5JywP8q4oyjmRSukI3YnillXIc+qlv+NifHEjW4npXGEg3xh3S5pFGuh/pKkuHTIFnn3pQS7u1C37ev7bgg6gBNT1NQWqMh195EBl5hTS1T8sUDx4l+YbAKzA+7lyjxHIAyON9TCht9bvjbCE6S4Fh5D6QwQj26/hdmZD7aAdcGK0UuiPlNtCgfjG+5hHONzMTgy5BcQis0H5i0AOmNS07CzwbkFVgEI1sVCAYfivds1dVGAVj6wRD9FmA82Z4uQs509VUG/cuHfvu7QO4/hzqBwXD4ahTpJQTft2ZEolfzseD5DrLtNirZXlGpp6gdTq9IUqOFtdwl0Vgyl+JH8vcS5QfxsaAT9UcQ9ZaUYqGiG0UvLdzZ8xN1Z8b7o6JYtSNKMBZQyrJoFrTFlWWBTGRyZsUh3QaeVY/gQYLyy0XghX2W0lVR9vV3oQJiMd1/jZXjcg2X3oAlxKlwXLe3qm3vpGrfA==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(23010399003)(3023799007)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: //9KtMRkC2wZBt5lKgryCvjrYaSBj4aKX3O8qXCMUFu1vJn1BOSJ93spRAcUcTvieV0ICVseeJIBndikt6aMvgJ4bOP4Ym9PUulehpkrJaslXZF3dOtxDt+y6ixR5/kok0NVUsGL8D00IjXnOqt01argH826HsrvmvTRAsq1Y0S71uCloDIeLZ9vPDUDv7iej21H0BfYUMrr3nv2EGBYCKRCf8cdBSkKP8mhkMpRolX9Hhk05fCo8SJxDSMYMsEnuxUDQ/JahQLJ8gOm6VOW/GC7G8CagqHw+7nnAnwy+u0UNh1rEmnVEf5UFkHRSdZ6iZWo02iGtii6ROZvGz+CGyTcvZz92SoyVbhuyRNIb78sfBOj0YeBHJGYq9xva7mtGtvWmT5BOGqCOw6zjwWIzUQgQV325lGM34jH9w+xaEMrKpiOwF+4xKJmZ2oDBORY
+X-MS-Exchange-AntiSpam-MessageData-0: qbFg+2DeFYTXJO7oVeq0EhG7Bp/mkMrsLDzTl7sgboC4toHFYo5T52bFalxgTUjMV2ki/F2UU3S77vHBlu5btf9F5zKmlxI6ekgAuVuVxdbl4xnMrH8JYBt5VTGUCQfgYz3huQYq9Zr7XELXghWeonK21aYii4pZrIep+4AjLo49guWa3eoibjk2QBjs9EkI0W8ylD6Vr77xiAcCRM6qK+Xe7Y4CZYvu4PlGQoWV0bqrM+EMpNS7Aw4j7Bs61zsxI3qOG1/bvrmpSl/1/5/L/9mTlpNghl/5ZXsVo1Edr8xKQT+ZVqxT4y+nGtW1Z3Mrb/T15t4/x3PvolpFqKei4KgbOYLynwx0iJhw+BpPXOCbvsMNuCGcqNqHb9POftBIHvMXDCzh3/YMY9JuL6aqSByq+gMooLfGSVTZgFrksJjNkNqRFCNzOkT9vgJkh+R1
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 03:34:08.5646
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 03:34:09.2067
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc477239-43a7-49ca-6fb3-08df0c90e108
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3e38639-2cc6-4659-42c4-08df0c90e0af
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB89.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB87.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5810
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_203435_202492_F8ADE0A5 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20260906_203442_840751_145CF6F7 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,283 +121,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a CIX Sky1 integration driver for Arm DMA-350 instances.
+Document the CIX Sky1 integration wrapper around an Arm DMA-350 controller.
 
-The driver manages clocks, reset, optional interrupt routing, optional
-reserved memory attachment, and populates the child Arm DMA-350
-controller.
+The wrapper owns SoC integration resources. The child node describes the
+generic Arm DMA-350 IP.
 
 Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
 ---
- MAINTAINERS                   |   1 +
- drivers/dma/Kconfig           |  15 +++
- drivers/dma/Makefile          |   1 +
- drivers/dma/cix-sky1-dma350.c | 206 ++++++++++++++++++++++++++++++++++
- 4 files changed, 223 insertions(+)
- create mode 100644 drivers/dma/cix-sky1-dma350.c
+ .../bindings/dma/cix,sky1-dma350.yaml         | 102 ++++++++++++++++++
+ MAINTAINERS                                   |   1 +
+ 2 files changed, 103 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml
 
+diff --git a/Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml b/Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml
+new file mode 100644
+index 000000000000..e533f355d135
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml
+@@ -0,0 +1,102 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/cix,sky1-dma350.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: CIX Sky1 DMA-350 Integration
++
++maintainers:
++  - CIX Kernel Team <cix-kernel-upstream@cixtech.com>
++
++description:
++  The CIX Sky1 DMA-350 integration driver owns SoC resources around an
++  Arm DMA-350 controller, such as clocks, resets, interrupt routing, and
++  optional reserved memory. Reserved memory is described on this parent node
++  and assigned by the integration driver to the child DMA-350 device. The child
++  node describes the generic DMA-350 IP.
++
++properties:
++  $nodename:
++    pattern: "^dma@[0-9a-f]+$"
++
++  compatible:
++    const: cix,sky1-dma350
++
++  "#address-cells":
++    const: 2
++
++  "#size-cells":
++    const: 2
++
++  ranges: true
++
++  dma-ranges: true
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  cix,irq-router:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Syscon phandle for the Sky1 subsystem register block that routes
++      DMA-350 channel interrupts to the AP interrupt controller.
++
++  memory-region:
++    maxItems: 1
++    description:
++      Reserved memory pool assigned by the CIX Sky1 DMA-350 integration driver
++      to the child Arm DMA-350 device.
++
++patternProperties:
++  '^dma-controller@[0-9a-f]+$':
++    $ref: arm,dma-350.yaml#
++
++required:
++  - compatible
++  - "#address-cells"
++  - "#size-cells"
++  - ranges
++  - dma-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    / {
++        #address-cells = <2>;
++        #size-cells = <2>;
++        interrupt-parent = <&gic>;
++
++        gic: interrupt-controller {
++            #address-cells = <0>;
++            interrupt-controller;
++            #interrupt-cells = <4>;
++        };
++
++        dma@7010000 {
++            compatible = "cix,sky1-dma350";
++            #address-cells = <2>;
++            #size-cells = <2>;
++            ranges = <0x0 0x0 0x0 0x07010000 0x0 0x10000>;
++            dma-ranges = <0x0 0x20000000 0x0 0x07010000 0x0 0x00100000>;
++            clocks = <&clk 9>;
++            resets = <&rst 15>;
++            cix,irq-router = <&audss_cru>;
++
++            dma-controller@0 {
++                compatible = "arm,dma-350";
++                reg = <0x0 0x0 0x0 0x10000>;
++                interrupts = <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>;
++                #dma-cells = <1>;
++            };
++        };
++    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index feff8f9ecb2b..8d972fe2c994 100644
+index 3a19da74d00c..feff8f9ecb2b 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2828,6 +2828,7 @@ F:	Documentation/devicetree/bindings/arm/cix.yaml
- F:	Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml
+@@ -2825,6 +2825,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ T:	git https://github.com/cixtech/linux-mainline.git
+ F:	Documentation/devicetree/bindings/arm/cix.yaml
++F:	Documentation/devicetree/bindings/dma/cix,sky1-dma350.yaml
  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
  F:	arch/arm64/boot/dts/cix/
-+F:	drivers/dma/cix-sky1-dma350.c
  F:	drivers/mailbox/cix-mailbox.c
- K:	\bcix\b
- 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index ae6a682c9f76..51c881dfa6d3 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -147,6 +147,21 @@ config DMA_BCM2835
- 	select DMA_ENGINE
- 	select DMA_VIRTUAL_CHANNELS
- 
-+config CIX_SKY1_DMA350
-+	tristate "CIX Sky1 DMA-350 integration support"
-+	depends on OF && ARM_DMA350
-+	depends on OF_RESERVED_MEM
-+	depends on ARCH_CIX || COMPILE_TEST
-+	default ARCH_CIX
-+	select MFD_SYSCON
-+	help
-+	  Enable support for the CIX Sky1 integration around Arm
-+	  DMA-350 controllers.
-+
-+	  This driver owns SoC integration resources such as clocks, resets,
-+	  reserved memory attachment, and interrupt routing registers, while the
-+	  child controller is handled by the generic Arm DMA-350 driver.
-+
- config DMA_JZ4780
- 	tristate "JZ4780 DMA support"
- 	depends on MIPS || COMPILE_TEST
-diff --git a/drivers/dma/Makefile b/drivers/dma/Makefile
-index 14aa086629d5..a69964251f68 100644
---- a/drivers/dma/Makefile
-+++ b/drivers/dma/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_AT_XDMAC) += at_xdmac.o
- obj-$(CONFIG_AXI_DMAC) += dma-axi-dmac.o
- obj-$(CONFIG_BCM_SBA_RAID) += bcm-sba-raid.o
- obj-$(CONFIG_DMA_BCM2835) += bcm2835-dma.o
-+obj-$(CONFIG_CIX_SKY1_DMA350) += cix-sky1-dma350.o
- obj-$(CONFIG_DMA_JZ4780) += dma-jz4780.o
- obj-$(CONFIG_DMA_SA11X0) += sa11x0-dma.o
- obj-$(CONFIG_DMA_SUN4I) += sun4i-dma.o
-diff --git a/drivers/dma/cix-sky1-dma350.c b/drivers/dma/cix-sky1-dma350.c
-new file mode 100644
-index 000000000000..5904453f3481
---- /dev/null
-+++ b/drivers/dma/cix-sky1-dma350.c
-@@ -0,0 +1,206 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * CIX Sky1 DMA-350 integration driver
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+
-+#define SKY1_DMA350_CRU_DMAC_AP_IRQ	0x54
-+#define SKY1_DMA350_IRQ_ROUTE_MASK	0xff
-+
-+struct cix_sky1_dma350 {
-+	struct clk_bulk_data *clks;
-+	struct reset_control *reset;
-+	struct regmap *irq_router;
-+	struct device *rmem_dev;
-+	int num_clks;
-+};
-+
-+static int cix_sky1_dma350_route_irqs(struct device *dev)
-+{
-+	struct cix_sky1_dma350 *data = dev_get_drvdata(dev);
-+
-+	if (!data->irq_router)
-+		return 0;
-+
-+	return regmap_update_bits(data->irq_router,
-+				  SKY1_DMA350_CRU_DMAC_AP_IRQ,
-+				  SKY1_DMA350_IRQ_ROUTE_MASK,
-+				  SKY1_DMA350_IRQ_ROUTE_MASK);
-+}
-+
-+static int cix_sky1_dma350_enable_resources(struct device *dev)
-+{
-+	struct cix_sky1_dma350 *data = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_bulk_prepare_enable(data->num_clks, data->clks);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_reset(data->reset);
-+	if (ret)
-+		goto err_disable_clks;
-+
-+	ret = cix_sky1_dma350_route_irqs(dev);
-+	if (ret)
-+		goto err_disable_clks;
-+
-+	return 0;
-+
-+err_disable_clks:
-+	clk_bulk_disable_unprepare(data->num_clks, data->clks);
-+	return ret;
-+}
-+
-+static void cix_sky1_dma350_disable_resources(struct device *dev)
-+{
-+	struct cix_sky1_dma350 *data = dev_get_drvdata(dev);
-+
-+	reset_control_assert(data->reset);
-+	clk_bulk_disable_unprepare(data->num_clks, data->clks);
-+}
-+
-+static int cix_sky1_dma350_attach_reserved_mem(struct device *dev)
-+{
-+	struct cix_sky1_dma350 *data = dev_get_drvdata(dev);
-+	struct platform_device *child_pdev;
-+	struct device_node *child_np;
-+	int ret;
-+
-+	if (!of_property_present(dev->of_node, "memory-region"))
-+		return 0;
-+
-+	child_np = of_get_compatible_child(dev->of_node, "arm,dma-350");
-+	if (!child_np)
-+		return -ENODEV;
-+
-+	child_pdev = of_find_device_by_node(child_np);
-+	of_node_put(child_np);
-+	if (!child_pdev)
-+		return -EPROBE_DEFER;
-+
-+	/*
-+	 * Reserved memory is attached after the child has probed. This relies
-+	 * on arm-dma350 not allocating coherent command buffers in probe;
-+	 * those allocations happen per descriptor at prep time.
-+	 */
-+	ret = of_reserved_mem_device_init_by_idx(&child_pdev->dev,
-+						 dev->of_node, 0);
-+	if (ret) {
-+		put_device(&child_pdev->dev);
-+		return ret;
-+	}
-+
-+	data->rmem_dev = &child_pdev->dev;
-+
-+	return 0;
-+}
-+
-+static void cix_sky1_dma350_release_reserved_mem(struct device *dev)
-+{
-+	struct cix_sky1_dma350 *data = dev_get_drvdata(dev);
-+
-+	if (data->rmem_dev) {
-+		of_reserved_mem_device_release(data->rmem_dev);
-+		put_device(data->rmem_dev);
-+		data->rmem_dev = NULL;
-+	}
-+}
-+
-+static int cix_sky1_dma350_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cix_sky1_dma350 *data;
-+	int ret;
-+
-+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, data);
-+
-+	data->num_clks = devm_clk_bulk_get_all(dev, &data->clks);
-+	if (data->num_clks < 0)
-+		return dev_err_probe(dev, data->num_clks,
-+				     "failed to get clocks\n");
-+
-+	data->reset = devm_reset_control_get_optional_exclusive(dev, NULL);
-+	if (IS_ERR(data->reset))
-+		return dev_err_probe(dev, PTR_ERR(data->reset),
-+				     "failed to get reset\n");
-+
-+	data->irq_router = syscon_regmap_lookup_by_phandle_optional(dev->of_node,
-+								    "cix,irq-router");
-+	if (IS_ERR(data->irq_router))
-+		return dev_err_probe(dev, PTR_ERR(data->irq_router),
-+				     "failed to get IRQ router\n");
-+
-+	ret = cix_sky1_dma350_enable_resources(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable resources\n");
-+
-+	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	if (ret)
-+		goto err_disable_resources;
-+
-+	ret = cix_sky1_dma350_attach_reserved_mem(dev);
-+	if (ret)
-+		goto err_depopulate;
-+
-+	return 0;
-+
-+err_depopulate:
-+	of_platform_depopulate(dev);
-+err_disable_resources:
-+	cix_sky1_dma350_disable_resources(dev);
-+	return dev_err_probe(dev, ret, "failed to initialize child devices\n");
-+}
-+
-+static void cix_sky1_dma350_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	of_platform_depopulate(dev);
-+	cix_sky1_dma350_release_reserved_mem(dev);
-+	cix_sky1_dma350_disable_resources(dev);
-+}
-+
-+static int __maybe_unused cix_sky1_dma350_resume_noirq(struct device *dev)
-+{
-+	return cix_sky1_dma350_route_irqs(dev);
-+}
-+
-+static const struct dev_pm_ops cix_sky1_dma350_pm = {
-+	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(NULL, cix_sky1_dma350_resume_noirq)
-+};
-+
-+static const struct of_device_id cix_sky1_dma350_of_match[] = {
-+	{ .compatible = "cix,sky1-dma350" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, cix_sky1_dma350_of_match);
-+
-+static struct platform_driver cix_sky1_dma350_driver = {
-+	.probe = cix_sky1_dma350_probe,
-+	.remove = cix_sky1_dma350_remove,
-+	.driver = {
-+		.name = "cix-sky1-dma350",
-+		.of_match_table = cix_sky1_dma350_of_match,
-+		.pm = pm_sleep_ptr(&cix_sky1_dma350_pm),
-+	},
-+};
-+module_platform_driver(cix_sky1_dma350_driver);
-+
-+MODULE_AUTHOR("Jelly Jia <Jelly.Jia@cixtech.com>");
-+MODULE_DESCRIPTION("CIX Sky1 DMA-350 integration driver");
-+MODULE_LICENSE("GPL");
 -- 
 2.54.0
 
