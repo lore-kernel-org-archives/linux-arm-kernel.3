@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF2B1C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 00:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E66C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 00:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgZHADWpXS9kOhNwmKYW4eHLUxKCVK4/x85xToQp0Vk=; b=MHWivvM2J43TvPryFGNNsx9GbH
-	Lc43b7fWWywDLFlkM7nKui2kVVJ9twYZx23N/7mXHNiBdLjfkvfCHdIfx4LtHeJOtDdYo6lYr3KhZ
-	ldFhRyz91Wd9xJeV6z1cTmjBqfp42F4/BgJxMyUC6c/IRs0XfyCMWGgj06x5Gv/9qgCkaEQTk+I8w
-	p39qkIPErkA0/0VdKtztlHqgTpnY86c9vz3iI8Ocgvm+AsoM98JF1Oi9NEw1TSIz2c1kEhSFMVtiA
-	ottL9bGsh+6c4Zw7y9qj9tQzGFABq1QkaiiwXp8jQ4cAaDhm5SWKbb/GJqeKE8sSgyFRwNKKooToH
-	8XG5Aa3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3G2fpMnHxfT6KHZD6xOx0AGQFY9wvoJVYEba4PDrt34=; b=c14rlbBWmLFHkSgGiSPhzEcBdZ
+	vnncQpGGbpTPvNn9KAC7xEnQWH83mNeZsriccjyL4WnHuNo7prLKWy5sJ+LBE3tr9FNzi3VT6z36N
+	vvslUJgtgtdf6nUlE5Tiu0USkBfhEeSs/vL3Vy656uNMYBG82Ehm78UzkYrFEkgGPa9YJqUUSqsEN
+	XmkXYCvFT7Z2+5waa/G0XWgNR6KGejzw8ZQcwTtWb7Mp/hq40b8c36/HBC0zRwIjtjhumgiFig66q
+	blr88Eq+EzJezAVQDGwKct7Gg1U6UEAPD9Csr/4M+3xfVJ7b8rzXfySJ8VyY1SbKM3rPdbJlyaXx1
+	M+Ygs3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3NE6-00000005e96-1ofH;
-	Mon, 07 Sep 2026 00:28:46 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1x3Nhz-00000005ern-0xfz;
+	Mon, 07 Sep 2026 00:59:39 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3NE3-00000005e8d-45Pm
+	id 1x3Nhw-00000005erQ-3RXe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 00:28:45 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47f96c5b722so1948040f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 17:28:40 -0700 (PDT)
+	Mon, 07 Sep 2026 00:59:38 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8535a9be75eso2212135b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 17:59:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1788740919; x=1789345719; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=MgZHADWpXS9kOhNwmKYW4eHLUxKCVK4/x85xToQp0Vk=;
-        b=cUhSfY0K4UA0POZn2QRJaGixELcM1zSdhfrJ9r/KQeK8AbaiaULfTTnpjcjBTwvUJy
-         hiwe8KzgQtzUp7vU6BvdheBzQg3KYSxjYQX476EhEDdt6j5YEVfA9RBWynS3iQfQcoNH
-         ZcS7wCrVFtV20r2kZC49pOaoOYM+bBa+FijQFM/atd4sVuJFdfHXR5ZJ22nfxkQOgNwq
-         840Abj5/JZfb0e0LvJ55T44i5wvdvfOysm1J5p0w9DOgEGHnra6aEKG3WOqs/OWrTeSz
-         0mR1vJBJNPFx3BsAt/P2iTrWsptZUWdf30JW7zuARDH+d2SGLbh1Ah+R/ZCcW2uaYJV4
-         l0DA==
+        d=gmail.com; s=20251104; t=1788742776; x=1789347576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3G2fpMnHxfT6KHZD6xOx0AGQFY9wvoJVYEba4PDrt34=;
+        b=hAR7FXgrt3HWDISnCUa0EZzNwTrP4rxpVJSkvyJzA2xGs5oo4SHvfBHXLBmxjd4fHg
+         VdpdP3bMJoNemkQj9GasLgOPvh2jlnyYVw/fJwaMHhpA/Dpv6ADZ/PeG6i2DjQtd7AHY
+         o9jFg6g1zGzsoaYfxJekYgJo6uY54XZnFjtabWlGs2FZwvG61Nj05OXNBQWiQSMs1H37
+         eDxdNyOHYUh/MweHeSl/RK0NCwVBtE8mQrywg+Ie7pYXgvnxNSVE95ZSii0RTV/jn/Zn
+         8HlDRwSvumXiawsh2Rjek51R6CZaW5e6gp/okwARb2AbJ18FOZgey4ijdGbLm00uKg8Q
+         fGnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788740919; x=1789345719;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MgZHADWpXS9kOhNwmKYW4eHLUxKCVK4/x85xToQp0Vk=;
-        b=NzOu84wudDc8zz7nr0FjIl5/tsL0weVVKTLXlhKEoMokguwmTVtwT+kWYM+MCMdxHM
-         kzznEuPr33I47XjVXmnqAKL8xhm8FM6iDfT9HihqdG7WHUYiMeaYt7BxpMYFcOksasgW
-         ejlqgP4i3GWt65B7XHAY0eGU46r6b13gNNFl1Fo0oMN7B0JkGu8WM9AIg3og3nGwH/nq
-         23/hPqsjGlnzV6O9jBYVYlCfK/6j5XWna+/rm3P7YU5upjlORZ/eWB6mJjgwiYVUnD2y
-         KNNjShtBcxfYPWERpJogARECjswLzn1YyZqFfyuTd+C26izFHypsF+b4bBPG7FQrFXAZ
-         bOsw==
-X-Forwarded-Encrypted: i=1; AKwUvByz6izDLb4cZNfGxCPdwERIHH6U/E3rx9f1Y4XLJY3rBPS86W4BR4ayF/OeG5VHGCX6SUE7GYN/WU0Jwfe5Iw/T@lists.infradead.org
-X-Gm-Message-State: AFuF++mfjczPI/+mFglFg+x8BFnLqHX87shlMX2wM0ASNInlaEmZswrk
-	A+o6UpbaOGHA1I6eqPSVsmYaAEcQzfTJ5/YzbgMg1Thpu5TxtnWnFvCyS4+1/M4Xd/A=
-X-Gm-Gg: AYBFou3M6vZ8pPfIe2wqsM79UaKgqzd6Fz4reHs1St8u5Y9MLlTqDxMTe8G/anQHD90
-	AQK7NFY5kZZ/LpXeYn4SRJIpu57SLnBAaAzg80mWLSATAdHICdzZ+m3C6t4G4KTHnrM3c/fZTLY
-	7AcXpfH30tUg00id72g6M7MjvS8EXMuWKTe6RvuR3N0y+pZYeJfctcqzaNyVbqFxil7/Ku7MYPK
-	U+oNEi8YZZkVEZlqiQKKV9gcumPbZba/NzvYsyTS8EpbP1C9XlmBqVJ6O5/2j3FaoG+dZkMR6ZO
-	aL/u0DWRjC0JHsUFW1I7RzhjHtwbBPLL9KkFpDeaew1OVokvzfGJQ86nzrYIkySrboIWBI+AjFi
-	gd9UKekxsEDlYZUzbJfnJxFbucrO2hdPUvZLXZk+qotwRyW8i5iNsayKpx05VKXx8XfOYLR1dfW
-	oq8q6pYO9diuqw7odqvuAjjVMmLxIwrnsqYm6O/deAhJ8VwVNX5gfpF4LUrwNz6XYDfQUXJUXQs
-	WOv71jxTP1BvXO17YfSay9YM5togwBwrGvGF18jUDrn5+JJkjtSf3DMF2Ry
-X-Received: by 2002:a05:6000:4710:b0:485:8a47:5b83 with SMTP id ffacd0b85a97d-4858a475c60mr16910358f8f.32.1788740918931;
-        Sun, 06 Sep 2026 17:28:38 -0700 (PDT)
-Received: from localhost ([94.4.85.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4858bc74298sm21639306f8f.6.2026.09.06.17.28.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Sep 2026 17:28:37 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 07 Sep 2026 01:28:36 +0100
-Message-Id: <DL8NQGNAVSYK.18TYE03LPQSW5@linaro.org>
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Thomas Turner" <tturner@lineageos.org>, <semen.protsenko@linaro.org>,
- <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <peter.griffin@linaro.org>
-Cc: <alim.akhtar@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <thomas_turner@talktalk.net>
-Subject: Re: [PATCH v3 2/2] arm64: dts: exynos: Add GPU/Mali Bifrost node to
- Exynos850
-X-Mailer: aerc 0.21.0
-References: <20260905170914.1640-1-tturner@lineageos.org>
- <20260905170914.1640-3-tturner@lineageos.org>
-In-Reply-To: <20260905170914.1640-3-tturner@lineageos.org>
+        d=1e100.net; s=20251104; t=1788742776; x=1789347576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3G2fpMnHxfT6KHZD6xOx0AGQFY9wvoJVYEba4PDrt34=;
+        b=j/pTy0bcBp22UWTxJXys8PJnfz9p23HEZlhQgTh04sM2qDMWY8yPl9wevw8Efm/hf8
+         Xzvw0VeQ2WH9018oiVJnZ7z6au8LNC6BrJ8QuHlXatuKEuvr7SH8q5uSHTyYvKbzddIu
+         tssUfpIl/FdHeyKBSmXiIDzuhp4Ao9K9SdS8exkypgO2Bw5F0snMwM6xn0CT452B53oL
+         239bBtuIHYQpcCXrD6vDeXmTuynAAmLY8nLHnIL3iPPK8D5OI5pVv6JVTpFQqpcMslpB
+         o9ekFfu2EMXHabngZTUobHTIg85LBTvv9j8zjAHuoGaK24d3mNeA2JMepdd10e4Alt2X
+         UW0g==
+X-Forwarded-Encrypted: i=1; AKwUvBwTMsW+JStCYvbwhtplURdzqupa++bhMYZmkDGJlQDACdhvq+oYBU0cRge88AKMMiM2dbhTyelBhuhtHb81j8V5@lists.infradead.org
+X-Gm-Message-State: AFuF++k7ptOrCWhYKA3NgrApBbfJ2k84ot7joi4BSJ53bZrDvRKJ2dbi
+	u2jLOfagphQnj2E0Y6unF92gil12ozCW9YEb1dL7YDkiFsY/3HUvITLj
+X-Gm-Gg: AYBFou2dxlbQWJqMGmXctqoc28gvFnVzksDRLs1PhwG7f7H3kAS0e3B1DIie7DCvkc0
+	ubBgu5rpxVmLUq/LE+Cijp0/fJMzgTnjdz4wnmRimWhkz277xBw6TPO9FfMPI6t+b83UEiU7XKJ
+	ASwUS0/YLwtOmG0HPIl8EI61CLmCsU7PvNz4UhsQegxktqHTxpYKzydpHjxnlqm+8Xnu56XH1fp
+	1LXsJ2TonEkJTSswVa2zKGuGanrGrxunsCWa7R7FJG8w/ODoGJJj3dkQwCmyK+eiCxQFevyt8eN
+	noM+8G2HNJjgPvXZcqaWWMdqfN9CCCFOm3ybJJs5/nVjyN96S3h/WQ9n1eXvJxP7AonhTEjbqdZ
+	H9MDfmJSYYzIB0p8EUSAS7W3xu9XzE6euB8fIA9pLD6rgye+QTNu4Bf0XIQqCtF3zEcfR6dJUkK
+	ZaXkDEfOMBlQgXNXVmHKArwGaBgI4BNExeXvX0o43YsZCL4wTqjzXGqBi1h4vmdWD30W/ztoaL1
+	hUSRAGs7PWMQ+OjwH+OBpI+Jr3Jp2juYY09d2f6eHlyp4BXFpdlo9UOsrpKtPdhP0aKHXiqA0/n
+	nvS5s/MDnWaWI8P+X8CJIMtcEMHuljPwOYN2AA==
+X-Received: by 2002:a05:6a00:440f:b0:84e:b7ed:7d50 with SMTP id d2e1a72fcca58-861684928fcmr27242447b3a.16.1788742775744;
+        Sun, 06 Sep 2026 17:59:35 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-861527382f0sm3628242b3a.24.2026.09.06.17.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 06 Sep 2026 17:59:35 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCHv2] ARM: dts: marvell: armada-388: use onnn,pca9655 compatible
+Date: Sun,  6 Sep 2026 17:59:33 -0700
+Message-ID: <20260907005933.230766-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_172844_045145_16787D1F 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260906_175936_887412_10452520 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,79 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Sep 5, 2026 at 6:09 PM BST, Thomas Turner wrote:
-> Add nodes for GPU (Mali Bifrost) to Exynos850. Does not provide support
-> for temperature throttling, DVFS, power domains, governor support,
+The PCA9655s on the ClearFog and Helios4 boards are
+register-compatible with the pca9555, and the gpio-pca953x driver has
+matched "onnn,pca9655" in its OF match table since
+commit 6d49b3a0f351 ("gpio: pca953x: Add support for the On Semi
+pca9655").  OF matching is tried before the legacy I2C ID-table
+matching that the old comment alluded to, so the restriction no longer
+applies.  List the real part and drop the stale comment.
 
-One of the sensors exposed via ACPM is "linked" to the GPU/G3D as far as
-I know. The driver part was sent already and three sensors work there
-(two cpu clusters and GPU).
+The I2C client is now named "pca9655" instead of "pca9555", but the
+expander is otherwise identical.
 
-I've never tested yet the DVFS of G3D via ACPM. Maybe it is worth a try
-on A21s. But it should work the same way as clusters clocks.
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: rebase so it applies
+ arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi | 7 +------
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts   | 9 +--------
+ 2 files changed, 2 insertions(+), 14 deletions(-)
 
-> boosting and voltage control. Once PMIC is properly implemented, support
-> will hopefully increase. However, the panfrost driver probes, the
-> Mali-G52 GPU initializes and the core clock is set-up.
->
-> Testing for this patch was done on a device not currently supported by
-> linux, the Galaxy A21s. After enabling this node for that device
-> locally, I was able to test and confirm basic GPU functionality. As of
-> now, this patch has no users which have tested GPU capabilities and so
-> the node has been set to "disabled".
->
-> Here are some logs I pulled:
->
-> panfrost 11500000.gpu: clock rate =3D 377000000
-> panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
-> panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,0000=
-0400
-> panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x=
-00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> panfrost 11500000.gpu: shader_present=3D0x1 l2_present=3D0x1
-> panfrost 11500000.gpu: [drm] Using Transparent Hugepage
-> [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 0
->
-> OpenGL core profile vendor: Mesa
-> OpenGL core profile renderer: Mali-G52 MC1 (Panfrost)
-> OpenGL core profile version: 3.1 (Core Profile) Mesa 26.1.6
-> OpenGL core profile shading language version: 1.40
-> OpenGL compatibility profile vendor: Mesa
-> OpenGL compatibility profile renderer: Mali-G52 MC1 (Panfrost)
-> OpenGL compatibility profile version: 3.1 (Core Profile) Mesa 26.1.6
-> OpenGL compatibility profile shading language version: 1.40
-> OpenGL ES profile vendor: Mesa
-> OpenGL ES profile renderer: Mali-G52 MC1 (Panfrost)
-> OpenGL ES profile version: OpenGL ES 3.1 Mesa 26.1.6
-> OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.10
->
-> Signed-off-by: Thomas Turner <tturner@lineageos.org>
+diff --git a/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi b/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi
+index f8a06ae4a3c9..4a61e9d1a2c0 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi
++++ b/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi
+@@ -131,12 +131,7 @@ &i2c0 {
+ 	 * 15-SFP_MOD_DEF0
+ 	 */
+ 	expander0: gpio-expander@20 {
+-		/*
+-		 * This is how it should be:
+-		 * compatible = "onnn,pca9655", "nxp,pca9555";
+-		 * but you can't do this because of the way I2C works.
+-		 */
+-		compatible = "nxp,pca9555";
++		compatible = "onnn,pca9655";
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		reg = <0x20>;
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index 39b2d4fa742c..bf6d70e2078b 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -160,14 +160,7 @@ i2c@11000 {
+ 				 *  6-USB3 power
+ 				 */
+ 				expander0: gpio-expander@20 {
+-					/*
+-					 * This is how it should be:
+-					 * compatible = "onnn,pca9655",
+-					 *	 "nxp,pca9555";
+-					 * but you can't do this because of
+-					 * the way I2C works.
+-					 */
+-					compatible = "nxp,pca9555";
++					compatible = "onnn,pca9655";
+ 					gpio-controller;
+ 					#gpio-cells = <2>;
+ 					reg = <0x20>;
+-- 
+2.55.0
 
-So, I've got A21s and installed pmOS to test all that.
-My logs are slightly different but graphics is definitely alive:
-[    0.200787] [drm] Initialized simpledrm 1.0.0 for fa000000.framebuffer o=
-n minor 0
-[    0.215130] Console: switching to colour frame buffer device 90x100
-[    0.225540] simple-framebuffer fa000000.framebuffer: [drm] fb0: simpledr=
-mdrmfb frame buffer device
-[    0.226134] panfrost 11500000.gpu: clock rate =3D 377000000
-[    0.230960] panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x=
-0 status 0x0
-[    0.230981] panfrost 11500000.gpu: features: 00000000,00000df7, issues: =
-00000000,00000400
-[    0.230991] panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x0000=
-0000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-[    0.231002] panfrost 11500000.gpu: shader_present=3D0x1 l2_present=3D0x1
-[    0.232329] panfrost 11500000.gpu: [drm] Using Transparent Hugepage
-[    0.232726] [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 1
-
-Also, when this is applied with status=3D"okay" on Winlink board then
-panfrost itself seems to be alive and drm initialises despite missing
-regulator as indicated in my other email in v2 of this series, hence:
-
-Reviewed-and-tested-by: Alexey Klimov <alexey.klimov@linaro.org>
-
-Thanks for working on this.
-Best regareds,
-Alexey
 
