@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B091C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F324C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4q+bfoQ0ykSU1h0RBHU/7PbYSWGO+s/zeX/sLwF7l1E=; b=VSEd6BKfCxIZaDilfKvMh9B35Z
-	TCeWiw2LknFTN5mbPQ+i3ddZu3/My/DuTcc4lKuZskzad8pcz6ickWFvSspb7QRacTX9ZV486mUkK
-	T3DLz4ZUpbHtfjgjz6ZOlblTZmyGIWUXnxu0Wiu1fVB+V1/Wn7N+l01cbpa6nOIMV8qYNDHGk+Qt/
-	zJGDlxzsKfYPznQmYBaCjBkDOwDYK+WWUBv/R05JaO7866WXUuKuNHWQiAq8yupN+oq+IuJX8pKvw
-	EeiipbBIpUOcqtk5dNuFSnlOOn8Q66sfQGT/UCAIGKV4UyZGlqCQ8FTKn7P6FZwnBttM7DJffvozZ
-	AddXsEvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bZxTvo/gRHC2wbJK4+6HLO8PCJvqbqtF+gaT2PvJdE=; b=RUOj1gUs7OobIX6+wzo5mm6lsO
+	GiO48eK9SMw6ECvtqWf4lP9pQiPMVXiPmvY6L/KiDjXRZO56NefYwQLVeVd+E/RFeXE2oLAtp4anv
+	VzelB00c5PpBFu1LyN2Li7DTmd203PRFe8JbgXQrFo1xbvsXUG/3N7dgVVVOoEBqthvx2R/VNZ6uX
+	V7c+2Tr18OiSw2j9hNzwtXrMM9YrLWFrFggtS48+HeXJSV4T3D8C2kmCie8klMb1dlrtIDzxMeEEx
+	2zeV9lpeDIgqA20PFQJ7c6b7lYyyMAJ4zwcLBeVkPEMJzbAQWgWl6mZ9wk4Wi/xeceovsoALK1vCn
+	6ziaE7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aqH-000000076Zl-0rta;
-	Mon, 07 Sep 2026 15:01:05 +0000
-Received: from out-71.mta1.migadu.com ([2001:41d0:203:375::47] helo=mta1.migadu.com)
+	id 1x3ati-000000076rU-2zqQ;
+	Mon, 07 Sep 2026 15:04:38 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aqD-000000076Yx-4337
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:01:04 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=QcowYgHg1stdCSQfW5uvl342qY1YTkTKVOYG3q+X/LA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788793259; v=1; x=1789398059;
- b=Z3SPrSTYmqfZbG4TTUuL5ElJGV0u6oSPqlrtNRNmeDMKMTM8L/DGEYWSj3br97a5NKFRESpX
- 3pfeI7ZIS6LmczwJRnrKTAuoRhzpaEZYR16N1lvjNou9GEhmN8/SCTgWWAk/EBWlf3dkyuRmiBD
- 77Ut2pUdozzFA279Jd6OieGs=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 003c63f0e3a5bb8e;
-	Mon, 07 Sep 2026 15:00:59 +0000
-X-Mizu-Trace-ID: 003c63f0e3a5bb8e
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so10019e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:00:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByG3QGPls/tdhYfG1ykzd7ySTysXuUygrHU3HxT9wLSJqPPK/nGfPVZ+8sqKXtRkuXajgLcPFYkLCFA3n3pbnc5@lists.infradead.org
-X-Gm-Message-State: AFuF++lkc0ab2OUxy08vtcM3z/IkWLfSCmJOpkgn4n8okhH1F1ApqXPF
-	ZNvtBtB4KXAONS5feO7J0PCwkcnVV7oPc6eZSy9TnYouZfJLi1iCteBZKoMutY7a7Sdj4s4YwuA
-	MhSqQFdyf/zA0uO1FFH4B/iecL//447eBzPTzhR+W
-X-Received: by 2002:a05:6512:404e:b0:5b4:74e2:4171 with SMTP id
- 2adb3069b0e04-5b74d165f8dmr137113e87.4.1788793254747; Mon, 07 Sep 2026
- 08:00:54 -0700 (PDT)
+	id 1x3atf-000000076qP-2zET;
+	Mon, 07 Sep 2026 15:04:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1788793468; x=1789398268; i=wahrenst@gmx.net;
+	bh=7bZxTvo/gRHC2wbJK4+6HLO8PCJvqbqtF+gaT2PvJdE=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Nl1EEUmtp1Dge4uhy2et3y5FIcBCQQKMYUlpOA9gp6dQRx8PZGcmk6udX2oilw7j
+	 v5L9jLb5Iizkw9X/vbIJWKQ/1F2wr3YV2z8vBmEIf8uJvCq071NIpVt8SuhK4QZfG
+	 56MCyGKl2LzERJVD7ANu6mABtbV8BPH7BIYoqoItxx9BhmNascdaFonlgH+vidPvr
+	 +H1kYrqEpgORfr5/tVXGiThgbDhHGsEG3O9++QO3xQO9ekVLuYeT93SKng0kseOB0
+	 xc/pyXwT1AAZNpljdh9vb2PDEHATjSvll2mLnIO/xTrMSM7851F3ycXM7rpr6xBcW
+	 l+W4wf+8kT0NQf3i/A==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Md6Mj-1wTz1r1naF-00cRPQ; Mon, 07
+ Sep 2026 17:04:28 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aswath Govindraju <a-govindraju@ti.com>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH V5 2/4] dt-bindings: arm: fsl: Add chargebyte Charge Control Y
+Date: Mon,  7 Sep 2026 17:04:18 +0200
+Message-ID: <20260907150420.18787-3-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260907150420.18787-1-wahrenst@gmx.net>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-References: <20260903160819.831518-1-fuad.tabba@linux.dev> <dd850141-ea85-4d94-9793-393f24a2fdc2@arm.com>
- <CA+EHjTyuLKYE1UL4XYvq4rxW7fgFNafdTY8H0=Qt6Hnjz3wYvQ@mail.gmail.com>
-In-Reply-To: <CA+EHjTyuLKYE1UL4XYvq4rxW7fgFNafdTY8H0=Qt6Hnjz3wYvQ@mail.gmail.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 7 Sep 2026 16:00:18 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzZovYDUeoEryhdmP1bvqJyEDmOoPtT7PEDvS2y5puXYA@mail.gmail.com>
-X-Gm-Features: AcwNN1WaHeN-nK-ulxfreEuvGSet8O5t_UcGB-1xSv-8c4JTx1aZoVFo9X9tJwc
-Message-ID: <CA+EHjTzZovYDUeoEryhdmP1bvqJyEDmOoPtT7PEDvS2y5puXYA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:QToMMau3ybrNQks1jbLYTLC9zVXRA7mpWp8AieCg/AlC7PJhn/1
+ BsuPYEbMiG3r5OrchW3vXeoDUaggiYC6aYnUtF6A/n8HCkmdpI3ZRG9y146l9dIzSWwS1X6
+ u1CE79yLjJDXGJBRaEFk1q05STJSnaFo0Opn5aRBsUrJoY+WP6PMKXJJAHunkBTvBShU9de
+ m2UVcqIAiWrNEtjOMUV2A==
+UI-OutboundReport: notjunk:1;M01:P0:+5LKctXpbR4=;jUJnR/0Hy6Ol/nuBzyzvGOmbWBT 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_080102_763241_B21B086E 
-X-CRM114-Status: GOOD (  27.39  )
+X-CRM114-CacheID: sfid-20260907_080436_038766_DDEC6595 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Add device-tree bindings for chargebyte Charge Control Y board based on
+the PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
 
-I built the respin first, and it didn't hold up.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+=2D--
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Mon, 7 Sept 2026 at 11:28, Fuad Tabba <fuad.tabba@linux.dev> wrote:
-...
-> This patch misses that case. check_override reads the CPU's own ID
-> registers, detect_ftr_has_mpam() the sanitised ones, so
-> finalise_el2_state clears the traps and neither cap is set.
->
-> Not advertising MPAM already happens, since a mismatch lowers the ID
-> field to 0. The trap default is the missing half, and I agree it
-> belongs in finalise_el2_state, which already computes whether
-> MPAM2_EL2 can be touched. KVM then needs only system_supports_mpam(),
-> and the cap goes.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentatio=
+n/devicetree/bindings/arm/fsl.yaml
+index 338dd9eafb17..e1bea343cb8d 100644
+=2D-- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1667,6 +1667,7 @@ properties:
+       - description: PHYTEC phyCORE-i.MX93 SoM based boards
+         items:
+           - enum:
++              - chargebyte,imx93-charge-control-y # chargebyte Charge Con=
+trol Y
+               - phytec,imx93-phyboard-nash  # phyBOARD-Nash-i.MX93
+               - phytec,imx93-phyboard-segin # phyBOARD-Segin with i.MX93
+           - const: phytec,imx93-phycore-som # phyCORE-i.MX93 SoM
+=2D-=20
+2.43.0
 
-finalise_el2_state can't set that default. Under nVHE and hVHE the
-host is the trapped party, and cpufeature reads MPAMIDR_EL1 and
-MPAM1_EL1 from EL1 before KVM exists, so the only way out is to stop
-the host detecting MPAM.
-
-> The one host left is a forced nVHE, where test_has_mpam()'s MPAM1_EL1
-> read would trap before cpu_enable_mpam(). The respin makes the caps
-> false when is_hyp_nvhe(), so MPAM is off there rather than the boot
-> hanging [1].
-
-is_hyp_nvhe() is true on an hVHE host too, since
-is_kernel_in_hyp_mode() reads CurrentEL. So that turns MPAM off for
-every pKVM host on VHE hardware, not for a forced-nVHE corner. On the
-AEM FVP with MPAM, a host booted kvm-arm.mode=protected detects MPAM
-without the change and not with it.
-
-> I'll respin along those lines.
-
-Not along those lines :) I think that v2 would be v1 with a clearer
-commit message, keeping both predicates. Merging them would give
-resctrl the wrong answer, since it needs firmware to have enabled MPAM
-where KVM's trapping needs only that the registers are implemented.
-
-The mismatched machine stays uncovered, with this patch at least.
-Closing it means deciding per CPU at EL2 from the CPU's own registers
-rather than from a system-wide cap.
-
-Cheers,
-/fuad
-
-> Cheers,
-> /fuad
->
-> [1] https://lore.kernel.org/all/apqrky27mJmUV9UA@willie-the-truck/
->
->
-> >
-> > Thanks,
-> >
-> > Ben
-> >
-> >
-> > > +
-> > >  static inline bool system_supports_pmuv3(void)
-> > >  {
-> > >       return cpus_have_final_cap(ARM64_HAS_PMUV3);
-> > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > > index 17b83a2518a8f..36a27692e5cf7 100644
-> > > --- a/arch/arm64/kernel/cpufeature.c
-> > > +++ b/arch/arm64/kernel/cpufeature.c
-> > > @@ -2501,6 +2501,13 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
-> > >       return (read_sysreg_s(SYS_MPAM1_EL1) & MPAM1_EL1_MPAMEN);
-> > >  }
-> > >
-> > > +static bool
-> > > +test_has_mpam_sysregs(const struct arm64_cpu_capabilities *entry, int __unused)
-> > > +{
-> > > +     /* The registers exist whether or not firmware enabled MPAM. */
-> > > +     return detect_ftr_has_mpam();
-> > > +}
-> > > +
-> > >  static void
-> > >  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
-> > >  {
-> > > @@ -3116,6 +3123,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> > >               .matches = test_has_mpam,
-> > >               .cpu_enable = cpu_enable_mpam,
-> > >       },
-> > > +     {
-> > > +             .desc = "Memory Partitioning And Monitoring system registers",
-> > > +             .type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > > +             .capability = ARM64_MPAM_SYSREGS,
-> > > +             .matches = test_has_mpam_sysregs,
-> > > +     },
-> > >       {
-> > >               .desc = "Memory Partitioning And Monitoring Virtualisation",
-> > >               .type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > > index 1ce7130e25490..8941335724f6b 100644
-> > > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > > @@ -298,7 +298,7 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
-> > >       u64 clr = MPAM2_EL2_EnMPAMSM;
-> > >       u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
-> > >
-> > > -     if (!system_supports_mpam())
-> > > +     if (!system_supports_mpam_sysregs())
-> > >               return;
-> > >
-> > >       /* trap guest access to MPAMIDR_EL1 */
-> > > @@ -317,7 +317,7 @@ static inline void __deactivate_traps_mpam(void)
-> > >       u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
-> > >       u64 set = MPAM2_EL2_EnMPAMSM;
-> > >
-> > > -     if (!system_supports_mpam())
-> > > +     if (!system_supports_mpam_sysregs())
-> > >               return;
-> > >
-> > >       sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
-> > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > > index 2775ba3359cfe..aa5be51385f68 100644
-> > > --- a/arch/arm64/tools/cpucaps
-> > > +++ b/arch/arm64/tools/cpucaps
-> > > @@ -78,6 +78,7 @@ KVM_PROTECTED_MODE
-> > >  MISMATCHED_CACHE_TYPE
-> > >  MPAM
-> > >  MPAM_HCR
-> > > +MPAM_SYSREGS
-> > >  MTE
-> > >  MTE_ASYMM
-> > >  MTE_FAR
-> > >
-> > > base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> >
 
