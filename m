@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8D1C79FA9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74CBC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pHk/hPGGOdk5BOs4bGnqFo2AynNXfu7gPSxw1mavzc=; b=fp+pWYYFzG7Oypy7ZzdEzTJwyV
-	LGeTn+eo4PqXrL/DTMVYN4sr4ER5gOO9cxOnIuxrfFshC+ZDYAZgS8fSBTj6Y+t9MV25NAqBtu2YK
-	sFQkxRvgcBt3UKYvl3fA8iEsrDrK5wMV6tV2nmcsM4bkFHZ51Ykz7suQ+4t2+JqZq6vbWziqx9XuR
-	fCk1BvKbBcrQAhEZi8rucBfd6X3zQoGouAIEVT2QiRhc80XuU9BdEtl51ER0dX6vb7tE6QIQfAlFP
-	EFSHLg4NhpLZBPOVIpWZRKBH+YGWi2qDAcj43Dj5txLwlFOjvKsANOxnX+ShrrGM95hXeXTdxieEK
-	Xla2z2tA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gBGuo6KnqXqsFfn3QCTJl5hI5ySulmyEQsyzQJEAmYs=; b=YM16+XEWztLWWXkzGNoR6Wvj6k
+	RrmhMQ0veHJ5KNiw3Gvi/L6nJzKoYTAjMzMvtNTr9xgOBaXE50maYFCJoFXtYZQ5/j93S/b7UbMmt
+	JmzmWxTGV4ouJvtZxRtu3dliY2xeN8W0hQegBtxn2gF47vDoRQ/vka/AmTLeKcRZTuyJ0wSA8GLz9
+	mtVcM9lbEsmEzmB0yo0LmxYvZvBAVrFC/hr5h4N5SrxaRzSLW/JvBENMC28QKkSNII6htFyk0dzqV
+	ZJdaEictUV7zLF+3Hltc0WnHdFOJ2CGOziI8CXl/oxcPPyKpwq+Qf107VhPV8pI4kJc+bW24+026k
+	S3o2Wr7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cMS-00000007KSU-435b;
-	Mon, 07 Sep 2026 16:38:24 +0000
+	id 1x3cOb-00000007LEK-1xF4;
+	Mon, 07 Sep 2026 16:40:37 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cMR-00000007KPc-0Gwm
+	id 1x3cOa-00000007LE4-0B77
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:38:23 +0000
+	Mon, 07 Sep 2026 16:40:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 80139601FB;
-	Mon,  7 Sep 2026 16:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D81481F00A3A;
-	Mon,  7 Sep 2026 16:38:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C6AA601DB;
+	Mon,  7 Sep 2026 16:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9AF91F00A3A;
+	Mon,  7 Sep 2026 16:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799102;
-	bh=6pHk/hPGGOdk5BOs4bGnqFo2AynNXfu7gPSxw1mavzc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FFMGgLBda19SYh+eB9lpR3Gr82pybmSpXdCjzi4fW+gISsVPxsXUxFFOfmz9/o/nh
-	 qGgGeqkioOUKV1/VE32SZ7s1YaofJwzfMphhx5awWoawF2z4pAgMZ1yDEt4No7Q3Zy
-	 Wn+cKHWYa5+0gNZE+FKL1Jkn8RidPOM59kK1L158qLYdPWxp+4FVNQBlCrzJ44HwPm
-	 dnQ/a1Tyr5vIdTveEOMvn0RBdM6NTU474XsyjLP9T/Nzytn6DKkRW1XljcKlbEUKTW
-	 tVmKLdCB5v0DdsPB0hixaj/hb2cu5VN+gzVIctIeBOc5oSFt3u/g62i0rwAsQPwziK
-	 Hw6UVnj9JEQHw==
+	s=k20260515; t=1788799235;
+	bh=gBGuo6KnqXqsFfn3QCTJl5hI5ySulmyEQsyzQJEAmYs=;
+	h=From:To:Cc:Subject:Date;
+	b=KDV4y1v8guFhAijX8XKlKOXbsu1jybXCUHGgjBgiNH8zzx4oNNxD/reUghf/Rh7Ql
+	 Qwvl/TYEg+xQSemO0RNjr4VvwuXfQmTjW2fwMVVZc30ngiA2qi1/jyBX9hrNLzFnDf
+	 NDWSsHmJ+WrdgGyxeM0qjJsQIMIMP9KYZdyaY/3HhTnLYLuMFkCkhGIHDeZEIO+Jrl
+	 ozHo8YbAM6/qacHrG5BZgJBPe2dXvMRXHu/22cacd/NgMf2OUrBzoRj6Wvj/peVhVH
+	 h80Rv4zn1dilRK7+8EXrE1A16ktp0WHILM+ne4+Fez6n5alu5Z3Gie1Nz10IIr4+g4
+	 n6vyabo0CDGeA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
 	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
+	Thomas Gleixner <tglx@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+	Borislav Petkov <bp@alien8.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 14/14] drivers: Kconfig: Simplify dependencies on ARM64 && !CPU_BIG_ENDIAN
-Date: Mon,  7 Sep 2026 17:37:25 +0100
-Message-ID: <20260907163726.17104-15-will@kernel.org>
+Subject: [PATCH 00/19] arm64: Implement parallel CPU onlining with PSCI v0.2+
+Date: Mon,  7 Sep 2026 17:40:03 +0100
+Message-ID: <20260907164024.17164-1-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260907163726.17104-1-will@kernel.org>
-References: <20260907163726.17104-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,103 +75,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that arm64 no longer supports a big-endian kernel, simplify some
-driver Kconfig entries so that the dependency on a little-endian kernel
-no longer needs to be called out explicitly.
+Hi folks,
 
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- drivers/hv/Kconfig                     | 3 +--
- drivers/misc/vmw_vmci/Kconfig          | 2 +-
- drivers/net/ethernet/microsoft/Kconfig | 2 +-
- drivers/soc/tegra/Kconfig              | 5 -----
- 4 files changed, 3 insertions(+), 9 deletions(-)
+This series implements CONFIG_HOTPLUG_PARALLEL for arm64 by utilising
+the argument to CPU_ON introduced in PSCI v0.2. This supersedes the
+previous series from Jinjie [1], and I'm grateful to him for his support
+getting this alternative version in shape for posting.
 
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index aa11bcefddf2..36445c2619ed 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -4,8 +4,7 @@ menu "Microsoft Hyper-V guest support"
- 
- config HYPERV
- 	bool "Microsoft Hyper-V core hypervisor support"
--	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
--		|| (ARM64 && !CPU_BIG_ENDIAN)
-+	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) || ARM64
- 	select PARAVIRT
- 	select X86_HV_CALLBACK_VECTOR if X86
- 	select OF_EARLY_FLATTREE if OF
-diff --git a/drivers/misc/vmw_vmci/Kconfig b/drivers/misc/vmw_vmci/Kconfig
-index b6d4d7fd686a..ca03cbfdab1e 100644
---- a/drivers/misc/vmw_vmci/Kconfig
-+++ b/drivers/misc/vmw_vmci/Kconfig
-@@ -5,7 +5,7 @@
- 
- config VMWARE_VMCI
- 	tristate "VMware VMCI Driver"
--	depends on (X86 || ARM64) && !CPU_BIG_ENDIAN && PCI
-+	depends on (X86 || ARM64) && PCI
- 	help
- 	  This is VMware's Virtual Machine Communication Interface.  It enables
- 	  high-speed communication between host and guest in a virtual
-diff --git a/drivers/net/ethernet/microsoft/Kconfig b/drivers/net/ethernet/microsoft/Kconfig
-index e9be18c92ca5..c4ad3d85875a 100644
---- a/drivers/net/ethernet/microsoft/Kconfig
-+++ b/drivers/net/ethernet/microsoft/Kconfig
-@@ -18,7 +18,7 @@ if NET_VENDOR_MICROSOFT
- config MICROSOFT_MANA
- 	tristate "Microsoft Azure Network Adapter (MANA) support"
- 	depends on PCI_MSI
--	depends on X86_64 || (ARM64 && !CPU_BIG_ENDIAN)
-+	depends on X86_64 || ARM64
- 	depends on PCI_HYPERV
- 	select AUXILIARY_BUS
- 	select DIMLIB
-diff --git a/drivers/soc/tegra/Kconfig b/drivers/soc/tegra/Kconfig
-index 8b6fdb9ad1ea..318e7b604342 100644
---- a/drivers/soc/tegra/Kconfig
-+++ b/drivers/soc/tegra/Kconfig
-@@ -102,7 +102,6 @@ config ARCH_TEGRA_210_SOC
- config ARCH_TEGRA_186_SOC
- 	bool "NVIDIA Tegra186 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select PINCTRL_TEGRA186
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
-@@ -117,7 +116,6 @@ config ARCH_TEGRA_186_SOC
- config ARCH_TEGRA_194_SOC
- 	bool "NVIDIA Tegra194 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA194
- 	select SOC_TEGRA_PMC
-@@ -127,7 +125,6 @@ config ARCH_TEGRA_194_SOC
- config ARCH_TEGRA_234_SOC
- 	bool "NVIDIA Tegra234 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA234
- 	select SOC_TEGRA_PMC
-@@ -137,7 +134,6 @@ config ARCH_TEGRA_234_SOC
- config ARCH_TEGRA_238_SOC
- 	bool "NVIDIA Tegra238 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
- 	help
-@@ -152,7 +148,6 @@ config ARCH_TEGRA_241_SOC
- config ARCH_TEGRA_264_SOC
- 	bool "NVIDIA Tegra264 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
- 	help
+I previously spoke at KVM forum about this work last year:
+
+  https://www.youtube.com/watch?v=Q6kOshnnQuE
+
+There are three major benefits realised by these changes:
+
+1. We ditch our home-brew secondary CPU synchronisation in favour of
+   constructs in the core code.
+
+2. They offer a performance advantage on some platforms, where getting a
+   CPU into the kernel can take time. I'm hoping Jinjie can provide
+   numbers in this case.
+
+3. When used inside a confidential guest, they provide protection
+   against a malicious VMM that puts secondary CPUs into the guest
+   kernel after the onlining operation has timed out.
+
+The first four patches are small changes to the generic code to make it
+a little more "Arm-shaped" but the rest of the series is largely
+confined to the arm64 architecture and PSCI driver code.
+
+The series is based on -rc2, as it otherwise conflicts with Fuad's GMID
+fix that was recently merged upstream.
+
+All feedback welcome,
+
+Will
+
+[1] https://lore.kernel.org/all/20260624092537.2916971-1-ruanjinjie@huawei.com/
+
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: David Woodhouse <dwmw@amazon.co.uk>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>
+
+--->8
+
+Will Deacon (19):
+  cpu/hotplug: Clean up cmpxchg() logic in cpuhp_can_boot_ap()
+  cpu/hotplug: Avoid trying to bring up CPUs that are already online
+  cpu/hotplug: Avoid busy-polling on archs where cpu_relax() is a no-op
+  cpu/hotplug: Propagate bring-up status to
+    arch_cpuhp_cleanup_kick_cpu()
+  arm64: smp: Tidy up smp_prepare_cpus()
+  arm64: smp: Tidy up cpuinfo init and cpufeature updates
+  arm64: smp: Defer update of secondary CPU capabilities
+  arm64: smp: Don't bother printing the I-cache policy for each CPU
+  arm64: smp: Defer RCU registration during secondary CPU bringup
+  arm64: smp: Use generic HOTPLUG_CORE_SYNC_FULL machinery for CPU
+    onlining
+  arm64: smp: Use generic HOTPLUG_SPLIT_STARTUP machinery for CPU
+    onlining
+  arm64: cpu_ops: Make 'cpu_operations' pointer global instead of
+    per-cpu
+  arm64: cpu_ops: Introduce get_secondary_cpu_ops()
+  firmware/psci: Cache PSCI v0.2+ version number to avoid redundant SMCs
+  firmware/psci: Extend ->cpu_on() callback to take an additional
+    argument
+  arm64: cpu_ops: Expose optional argument to target cpu in ->cpu_boot()
+  arm64: smp: Pass secondary CPU boot parameters via firmware if
+    possible
+  arm64: smp: Use generic HOTPLUG_PARALLEL machinery for CPU onlining
+  arm64: smp: Harden parallel CPU bringup against broken PSCI firmware
+
+ arch/arm/kernel/psci_smp.c                |   4 +-
+ arch/arm64/Kconfig                        |   2 +-
+ arch/arm64/include/asm/cpu.h              |   7 +-
+ arch/arm64/include/asm/cpu_ops.h          |   7 +-
+ arch/arm64/include/asm/smp.h              |  40 +--
+ arch/arm64/include/asm/topology.h         |   2 +
+ arch/arm64/kernel/acpi_parking_protocol.c |   3 +-
+ arch/arm64/kernel/asm-offsets.c           |   1 +
+ arch/arm64/kernel/cpu_ops.c               |  34 ++-
+ arch/arm64/kernel/cpufeature.c            | 322 ++++++++++++----------
+ arch/arm64/kernel/cpuinfo.c               |  27 --
+ arch/arm64/kernel/head.S                  |  64 ++++-
+ arch/arm64/kernel/psci.c                  |  13 +-
+ arch/arm64/kernel/smp.c                   | 179 ++++++------
+ arch/arm64/kernel/smp_spin_table.c        |   2 +-
+ arch/arm64/mm/mmu.c                       |   2 +-
+ arch/x86/kernel/smpboot.c                 |   6 +-
+ drivers/firmware/psci/psci.c              |  27 +-
+ include/linux/cpuhotplug.h                |   4 +-
+ include/linux/psci.h                      |   3 +-
+ include/linux/rcutree.h                   |   2 +-
+ kernel/cpu.c                              |  28 +-
+ 22 files changed, 429 insertions(+), 350 deletions(-)
+
 -- 
 2.55.0.979.g7e5102b832-goog
 
