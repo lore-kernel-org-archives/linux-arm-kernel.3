@@ -4,95 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BA2C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 09:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B44C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 09:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vkgu8toociZzIJhvAE7ca3qg7cytH4ujCtgPL1CR/5A=; b=X20ct6ZaC1rr2KztwiDgoljpfI
-	EidEbFkJGVAye2CZsash7iSqw9cTkjakoF47bWRoM2OsBna4SVEc/6T9I882iDkzaZCnWihhViAmi
-	gczjWmtQmZOtn4lvD+fEt+FI36/F4TAHdzmFGuwN42XefI+XeSYYz4JQubIEJem628D0UEeq0eTQL
-	V/GIvMyNANqB1m4l09wciMQskb9L7qoKazbRRvMZlsSS589NFMN7E68bpkIhs1wbXdmN5QRvtMSCo
-	uWUpqP292HgR8ltPFg/POlLq4iaUsAbjCeEe5rss7lfLHEKyHgX/adIDDLCqPKiKexwonQxn7CILL
-	ycQusxvA==;
+	bh=XWHVT75pGnhpvj3X3lQw/eBdgSe3XynMCwLjPXFUTew=; b=B4H6DMcQi2TTIo1j44n79ekLYN
+	ff1w2vMOx+79u9NZuxzSSoJXi7yh2v5Q6M6b2Kt7oKu/z+EjxXOT2Ia+MJuuJfPZXayhj0me6Yh94
+	M1P2iJv9+Xp/twhc1oVtsmEZ+eRwaWCHZEob+u429QJ99mfMgNoOBA/BageZ0P5M5/dyqlwLXIta4
+	8BesadDBUd8jrxCLKywZm75PtEbps8hqUsemgyrlRyrrySUI2kLrSF7jsQaS2evS8paCQWsaPXCZu
+	oTPx9UPc7fQA3+lIVSIj7BYINWnOIfKaQ/cYzowtH7JHrpQZPeV2TCoCVvcSneN97ilYT7dARYrQI
+	YAv3bj9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Vza-00000006OW3-0YnS;
-	Mon, 07 Sep 2026 09:50:22 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1x3W03-00000006Oba-2kxL;
+	Mon, 07 Sep 2026 09:50:51 +0000
+Received: from mail-northcentralusazon11010070.outbound.protection.outlook.com ([52.101.193.70] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3VzX-00000006OVY-2LJt
+	id 1x3W00-00000006OaY-1wsQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 09:50:20 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-482e067e908so2765454f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 02:50:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788774617; x=1789379417; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Vkgu8toociZzIJhvAE7ca3qg7cytH4ujCtgPL1CR/5A=;
-        b=f8Xc4GqEP5HaXeBfMuG4pkA35i+OI0xTiKFWXN1y9lZglssrUnD5nnJwxTyfbdT3yb
-         7dAiWjQL4QVrF9WCqUfpU7OZoUxFJNqrRTEwEzSIpc+icfkEdZT80sOhH8ykuEBGhQUd
-         TJGW7FePMLlmG2gQ2ZACDvjLtI4EEIH/ZTo+Pjn+/p+kVu6WnbDdOCARYv3i3McIHslI
-         iT7zzMa++XbBkJ6SyiSqqnHdWKklF3Oa+wHhIFs66iPkdROHgmf7uDZAZGFT6tXX18aY
-         o5Drm324JvHsXB22B2SjCU2U5NC1MYFyiFDvXgqXJOtwnglhjgguqEsG0/a2XKT8uLeX
-         eIMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788774617; x=1789379417;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Vkgu8toociZzIJhvAE7ca3qg7cytH4ujCtgPL1CR/5A=;
-        b=WvQP2DDFG6n2l9nakMzFPr3OXhOFrzJoo1u9rdjbgizvTspNbgB+ZKt6zfpSaPUKdY
-         5tvr5pMkPCH2lGcOJwwQdNYlB3+DFuN3dFTtz0LbLaVTEx7Ije4/iPtOkZ57zvLjBIaB
-         Alf5UuPSArRy1+S+n0HYQ0bNRcal/hI56p0mMn52N8bESUyTG5hKILyjIi04ouTFrLs3
-         cwxmxrNvQNH44NfzeBEGohf/u4xeiWtNAbovcOUO9Wy8WC2c2MWRnDl7Vo/gRgFNbEF9
-         OtDh5oSHf7mjTo367yWEZWCb7LCpxnoPF0x9m/sJeaw5g8LANQv4a3RFSURYnsGxbCsm
-         8yYg==
-X-Forwarded-Encrypted: i=1; AKwUvByioCWlq+xUytmC5Lt3uf2HHRoT5QFgPvRvP6lUv5ko5Rg4NN5CMgz3hRs+ETvOuqzy4zYkCMQht+uh1vbofNkl@lists.infradead.org
-X-Gm-Message-State: AFuF++nhNrQfTz4HLhIzYmUsiFqUFqnIbY6PchUsrSKebSQFlaLZKCal
-	NRDPYoI4wWCIN/xaMFfdPAfoUxKe1UgWY2bq+5mOqfkZvoihbWqFtj5gHnYa58XsKg==
-X-Gm-Gg: AYBFou3YJHtvus9NeaX/tYP+E9msYCORttK7LcBcIDEPS/xw8v+kjehZkJXRyOryOq2
-	7yjSrEYpzal5ezRMcpK7059ZV5E86IkbtBiZ0T8OokLHd3Ga+RHFVYuQqLzyF1jqogfHb28Xu+w
-	4servgw6H/pxCxNX80F/xOlK7UaYxbLjSzkDQHndpwuczRX72Y8L6xEcgQtCdUtO6ZZI7J59m8b
-	81tFEPEizwfJs57DnHVG10O+1uaweTjg/NEweCDxQhWbRmsMXTYFtZBMz72ahNbxD6s8pl7/bY5
-	H2s8m08LjaeAzqCEeTRZiXaVAW4TtVq0rMKXVdxpB0ZsUTutf+sYgaALB3avewiGe6chFJ7zprn
-	enmyN3lnn3nRxG3S3Rt5Sd1GDSsDhWy5OVAOCfDN6hW++dIzMOFIoW8AsJ0EV5z1XBlFK0wQn44
-	5fq2yGaJXQUm4E4W0LAzxkJdb6d5GFLu8buR6Tz2n0W1frWmZRzPfnTIO4w5qWR8AR10gQaMZPL
-	QQQZz/lxyXV4k2DToHWHCyalY+QwzIs
-X-Received: by 2002:adf:e18d:0:b0:485:8a46:7060 with SMTP id ffacd0b85a97d-4858a46720amr19581670f8f.50.1788774615795;
-        Mon, 07 Sep 2026 02:50:15 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4858d312ca0sm27142034f8f.4.2026.09.07.02.50.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 02:50:15 -0700 (PDT)
-Date: Mon, 7 Sep 2026 10:50:12 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, sumit.garg@kernel.org, ardb@kernel.org,
-	thierry.reding@kernel.org, david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 01/10] memblock: Introduce MEMBLOCK_LLMAP
-Message-ID: <ap6I1FN_2ylRzFXH@google.com>
-References: <20260902104712.2399797-1-vdonnefort@google.com>
- <20260902104712.2399797-2-vdonnefort@google.com>
- <ap2_926WXr7uAYVX@kernel.org>
-MIME-Version: 1.0
+	Mon, 07 Sep 2026 09:50:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ex4zYaxEE39lduk/kmq396E50IVUPTOhegGybW1JxQMHGvjxuo6maSK0JXWz3CsjQzGr6/jOYaPU8uGOgBBqLUL9Y6hXs8tYaimxmROuOtbGjZoLqAkTXFvlG2V6gXwo/WHDGJeR71ZtFDwZ34dDe0KRsPpNcPsM2guDsCaizDwz29fIBpazwXfjGWDc4JVafavuiHJDUnauC/90ux47gbfue9Js05ckjg1cOEyn5FA2XblPDSniK1a/i6hVHYlmZ2KslBHBM51RxTiZCsw30zardkp8CFoOLIsmkM/H/CUC0QdiG4VwQxfwjVFwMzsTrxvslPhqHO8CunxjaemE3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XWHVT75pGnhpvj3X3lQw/eBdgSe3XynMCwLjPXFUTew=;
+ b=FiN/nZNzXSbOy57/cFaV7iEBxhhLLQQ5laAl+jhyKfjptVGMcm+F5VMyQQFKJhnAZMolnpbotyv/XlnpS5bZusTw6w2iLzP6WxqfNuwfnrgn8j35G1O0HuSWTHNZdXHYqL+Xt1adPe9qHTl4buFLYcwXLndW5MjQ9rzDbheCOk3RwY46h0atAkrLhPtzqBP5M4L7dDtM8py2Y0SXzGUS+6mB3/zwslunoqPIe5ngwZ1sAScVxAE0ellFWGeiJ1lXz33qKSG+kjwxiNTbwJXihCTbuFDcGgTVWDQkIbTrqp/jjlXf3Bt4O5UI7EYASfgIhC8HtHni3vkHdSPSlq/W/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XWHVT75pGnhpvj3X3lQw/eBdgSe3XynMCwLjPXFUTew=;
+ b=U7P8px7kqIc8HJ1r8dXiU8ysfh6O5qWqDLhr9sdnv0t6uZnZzm4NxqQth/wzqluyWBK+nri0Sb6unt4oDAG2tCSJsPf5/U+x3M5fbr7+kQ0uo567SdZ663SIIQCT+lxICVQHxMZNGgshbNpougwh5jkRZG/D3MkfPpPhitfV8w2t8wg0AmXFk4L8e/VkwHJbr6aUTfR1cQeCxkp/wT4MidBtrd/I+oZznTj+BXhqyq3SmLYCb3NYZoUiCJpaoA4n/GzcUTSUZGDtoWn8oVQ2ak4643J2WCqCtFFFHBF460WVUVpowa+3lb4ho5XOITT6522jnSBh08+KrrZCWxn/Mw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by CH3PR12MB8709.namprd12.prod.outlook.com (2603:10b6:610:17c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Mon, 7 Sep
+ 2026 09:50:40 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
+ 09:50:40 +0000
+Date: Mon, 7 Sep 2026 11:50:31 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
+ selection
+Message-ID: <ap6I55W7x_p0I1FE@gpd4>
+References: <20260904091838.3617894-1-arighi@nvidia.com>
+ <20260904091838.3617894-3-arighi@nvidia.com>
+ <ff6763c9-f279-47d2-a279-58c54ab37ee6@amd.com>
+ <ap5_3R2H80WsD1R5@gpd4>
+ <83b58943-f2ff-4bc5-84b7-a40f03d3c3bd@amd.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ap2_926WXr7uAYVX@kernel.org>
+In-Reply-To: <83b58943-f2ff-4bc5-84b7-a40f03d3c3bd@amd.com>
+X-ClientProxiedBy: MI2PEPF00000B86.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::408) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|CH3PR12MB8709:EE_
+X-MS-Office365-Filtering-Correlation-Id: e12a1b9f-71be-46f4-2087-08df0cc57972
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|23010399003|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Kv8diuLoHdsywn3r7l/nZqWwdb6RZ/yqFzDfhgtBTDUF36MKtwalIeNf+1+YjN3ddcHaRynjUasO3Txx919JSwuP70q7V99YgZTBbheZrMCtttXPEhqUDjd09Pows0r/Ep181MMd9Z/MRCv8T4mL/fNu9311Ay+2PYhRnTIOjOUqiVd+jQbsTXpHWdUbUWFFHmKG5FHt6GmK2vvosec51gFs3DQVqKcP27NhvWizE0nf8LF1mxqWLrFbSZhNqW6lPRyTv9rKfc0982udKTsfSxk2HNSw6nX4I7QiYntpQG8sa1MVjJAWjocolilv7YjJr7d5ZtEsrAD1TBVi8jmZryx/GyoyEP+RPcecSKVbMqCxVP6hRUjK8Bx87NN7ckGwTQ4/P7qzHy3xDzFZVGZAJODOEpCxC9+w0S4GeFiHWf2sHn6lhqI5Edchbt5t1jyq9x8Q8JGuusfsf09bwSfrJr3Bvj73l6RMEhgAVhR6DKkABfeq5skYJ6FNYgLx/96rXDBNLWdEOn6WfKgo8AgYsXBYjRxHTlI1zoEMqZf0KT42Ocvvx17SdVmIRKzkLP7Qyibim9ZgRdmc+AY3ZkkckYljAofMh6n+mBAvMJ4XIuLk5mXqigDUarqNmR+ggmlrmaOLeH8rxxFvJnDUHmQXn0ovFv6fUBflihP0A11OPyE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GlahPkYHrexxWwBSHJ8toTdvl8k+eeGT57D0HcNTlrqS0uv+yk/LIP0bP8S+?=
+ =?us-ascii?Q?eXmeUBS/lCrVYgjlM8mtwvnVa1nvBjZEiWJLppZoJTdZQHkWk2LJhe4Qn0mO?=
+ =?us-ascii?Q?ZW4yDWBHoCiUQS4e0bA9Uwwq99Y3FPWVI7Go3Q454BhIflP8VDdQm6ySBHDh?=
+ =?us-ascii?Q?uE5y0vPkAVbnm9K8HSpO0GLLnTQhBjHMIYu5nFv1IcshSrOB76/OxnRicFkL?=
+ =?us-ascii?Q?r67Dkv1kjkcCj4iPvCfwi9gZQ8NmFT+G4Jmu02L32MAx2ZXSIJwsbJIAYT33?=
+ =?us-ascii?Q?vjH3mGi52i27uVPWm9v7BrMKWI3y0HmX+k2i48GQfKyNhfzwB/paWyxho21R?=
+ =?us-ascii?Q?5QoXN9uq3DL4l77rdd4WzF+qChcSp11YtRzfIZLeS2woP0AFLV2rrrETNFMN?=
+ =?us-ascii?Q?pJZA470O2pniskpAY4Pu/8Z8iaROgu37LWM3t3UHjZ7cwNmLomqu0zpo2zna?=
+ =?us-ascii?Q?YYwobSaX3tN1D1B9m62Vx5yirVtNeyQ8isq2gOKGKeNpI00L+/GmQ5K4cUhu?=
+ =?us-ascii?Q?3dB09NEOc/WSgh8V8nrGIIrtyo7cziMGeDCqrT8l4q6enJ4N9/Oy8zUaHT7T?=
+ =?us-ascii?Q?HccO0jE7l10PoSLCgY3wMgKmXW5IjseoQrPo1D74gRMboKVNi70Bug1kRtlV?=
+ =?us-ascii?Q?gQ/27IODArFz75lJ33GvXX1ALMG3uDsm1nSdid6TcLDS5Ek1czqzvjdAeBiI?=
+ =?us-ascii?Q?Iyj9s9KJlmItjvonZBcvPAz+77M7V3K7twnm3PSIpXO013uKmVv3TNM1VVn7?=
+ =?us-ascii?Q?jf0MuxN+kH9r2xaDTIXwwMSlbSZvZ1shCoL3tjLCczgufy0gkiqdviaXzxGO?=
+ =?us-ascii?Q?VWhS4ZKM1aUyyjnV3+yPG9Za19nKGs2VtySaIMslg1c0VwCm0sl8gDSHBIuK?=
+ =?us-ascii?Q?+AnnoIwfmEohv8PAl6dbxYWOyIBgCY/AwFSTtDnNU2NOhmhowNOzX21bbq1W?=
+ =?us-ascii?Q?x8YdoFRlAb8L5ymXou7U/k+lbsUuUKupXunZ45l6xx6wDiGKVK1ttV5rEyrc?=
+ =?us-ascii?Q?XfTjTSOdlrH+ktGZeIhL7KRoa9zvaXYHIl0I1a4X0RHshFa49wxt17Nl66Ae?=
+ =?us-ascii?Q?WVhL86Xqe8GVAqRyXjmIp7w9LCUhytO9kIDRFA+WnaaAWSYHzwL3bqfHBjfr?=
+ =?us-ascii?Q?KHXm4euDrOo/KT+ClHmQInFA5yPzmaRQ6zEyH8WMQdJSh/M5s6yPTt0El5Pb?=
+ =?us-ascii?Q?tbt2SCYs/bF18MlgE27GIbEKKdHkWis1SvvRnofQebOdSly5KeeXdGl/vpPM?=
+ =?us-ascii?Q?CvQJvBWhSK2GMk0Gfdvm4UW3IDLjThixvGKsyQ3KpEoLAZm9UtKfhe3cDLW4?=
+ =?us-ascii?Q?bXDZA6eWyU+QHDFS/KhjMA2Uu47lXLGmo+q701/GZUfXXOCNIMD7UyDoHvug?=
+ =?us-ascii?Q?pgbgWTcwbIJDc4mkBZctgIHwgUtmQea7aqNTZq27e3UPxxd/DqnYTOSJ+xFQ?=
+ =?us-ascii?Q?0z40Pwl9QGSORtirf41lPP+o3Z+nk7zgInLD96iaiplHH0AMOXhp8HCjiNIO?=
+ =?us-ascii?Q?XUegtYveeI4t08R9yyoe4a7Dn5StU5UcsoM2qNxNELTQDca9pTI5Bb94H3V6?=
+ =?us-ascii?Q?yL0MISkQvXeL81uYJHpln7/thOrI3u9t3GPElPcP918Zjlstiwql+AKwRP4S?=
+ =?us-ascii?Q?UdZCszSdBGX8PaH4XTQK0Maujp4nR0hYZwy5aoK6h2oelBtIOwCWEIGJLwAY?=
+ =?us-ascii?Q?VJVIAjMU1gUQH3g7dXGGUjkHjhKvA5pbwXRu5uBWmQk93M02mZPfgYZY8D1U?=
+ =?us-ascii?Q?mq6kf5H7Hw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e12a1b9f-71be-46f4-2087-08df0cc57972
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 09:50:39.9189
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wDxscAySzWK3FEeXUlCIYfVSal+EseWPDBaW/4EKmcSHL0DcxFIgJ/ochvS7KOG126+75gnvQ0Hk//pvtj03Aw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_025019_638712_6EE014C4 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20260907_025048_507931_25206EA7 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,167 +152,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 10:33:11PM +0300, Mike Rapoport wrote:
-> On Wed, Sep 02, 2026 at 11:47:03AM +0100, Vincent Donnefort wrote:
-> > Keeping last-level mappings is interesting on some architectures as it
-> > allows mapping/unmapping pages from the kernel direct map without the
-> > risk of splitting blocks which, under the break-before-make rule, may
-> > trigger page-faults the kernel can't handle.
+On Mon, Sep 07, 2026 at 03:10:00PM +0530, K Prateek Nayak wrote:
+...
+> >> @@ -9043,27 +9049,31 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> >>  
+> >>  		if (!has_idle_core && cpus_share_cache(prev, target)) {
+> >>  			i = select_idle_smt(p, sd, prev);
+> >> -			if ((unsigned int)i < nr_cpumask_bits)
+> >> -				return i;
+> >> +			if ((unsigned int)i < nr_cpumask_bits) {
+> >> +				target = i;
+> >> +				goto out;
+> >> +			}
+> >>  		}
+> >>  	}
+> >>  
+> >>  	i = select_idle_cpu(p, sd, has_idle_core, target);
+> >>  	if ((unsigned)i < nr_cpumask_bits)
+> >> -		return i;
+> >> -
+> >> +		target = i;
 > > 
-> > However, mapping the entire direct map at PTE-level is costly. So
-> > instead, create a new memblock flag MEMBLOCK_LLMAP to enable the system
+> > Not sure about this final fallback. Is it worth doing an additional
+> > select_idle_smt_priority() after idle scan failed or stopped because the
+> > SIS_UTIL scan budget was exhausted?
 > 
-> I believe MEMBLOCK_PTE_MAP sounds more descriptive.
-
-The idea was to have something close from NOMAP, to emphasis it is one or the
-other. But PTE_MAP sounds good too.
-
+> I see what you mean! We'll end up doing a:
 > 
-> > to decide which region must be covered by mappings up to the last-level.
+>   select_idle_smt_priority(p, target)
+> 
+> at the end which might indeed be wasteful.
+
+Exactly.
+
 > > 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > It seems better to jump to out only when one of these paths has actually
+> > selected a candidate:
 > > 
-> > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > index d62db9e776cf..d40a5ded188d 100644
-> > --- a/include/linux/memblock.h
-> > +++ b/include/linux/memblock.h
-> > @@ -52,6 +52,7 @@ extern unsigned long long max_possible_pfn;
-> >   * kernel that we know is good to use. It is the only memory that
-> >   * allocations may happen from in this phase.
-> >   * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
-> > + * @MEMBLOCK_LLMAP: memory region to be mapped using last-level mapping
-> >   */
-> >  enum memblock_flags {
-> >  	MEMBLOCK_NONE		= 0x0,	/* No special request */
-> > @@ -63,6 +64,7 @@ enum memblock_flags {
-> >  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
-> >  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
-> >  	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
-> > +	MEMBLOCK_LLMAP		= 0x100,/* last-level mapping */
-> >  };
-> >  
-> >  /**
-> > @@ -160,6 +162,8 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
-> >  int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
-> >  int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
-> >  int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
-> > +int memblock_mark_llmap(phys_addr_t base, phys_addr_t size);
-> > +int memblock_clear_llmap(phys_addr_t base, phys_addr_t size);
-> >  
-> >  void memblock_free(void *ptr, size_t size);
-> >  void reset_all_zones_managed_pages(void);
-> > @@ -306,6 +310,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
-> >  	return m->flags & MEMBLOCK_KHO_SCRATCH;
-> >  }
-> >  
-> > +static inline bool memblock_is_llmap(struct memblock_region *m)
-> > +{
-> > +	return m->flags & MEMBLOCK_LLMAP;
-> > +}
-> > +
-> >  int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
-> >  			    unsigned long  *end_pfn);
-> >  void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-> > diff --git a/mm/memblock.c b/mm/memblock.c
-> > index 9ce86349a29f..1591b50503ed 100644
-> > --- a/mm/memblock.c
-> > +++ b/mm/memblock.c
-> > @@ -1119,6 +1119,16 @@ int __init_memblock memblock_mark_mirror(phys_addr_t base, phys_addr_t size)
-> >   */
-> >  int __init_memblock memblock_mark_nomap(phys_addr_t base, phys_addr_t size)
-> >  {
-> > +	struct memblock_region *r;
-> > +
-> > +	memblock_cap_size(base, &size);
-> > +
-> > +	for_each_mem_region(r) {
-> > +		if (memblock_is_llmap(r) &&
-> > +		    memblock_addrs_overlap(base, size, r->base, r->size))
-> > +			return -EINVAL;
-> > +	}
-> 
-> I'm not very fond of implicit skips here. memblock has no idea what's the
-> caller intention, maybe it actually wants to change the memory from nomap
-> to pte-mapped.
-> 
-> I'd rather warn in memblock_is_nomap() and memblock_is_llmap() if they both
-> are set and let the caller deal with making sure they are not.
-
-ack.
-
-> 
-> > +
-> >  	return memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_NOMAP);
-> >  }
-> >  
-> > @@ -1204,6 +1214,45 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
-> >  				    MEMBLOCK_KHO_SCRATCH);
-> >  }
-> >  
-> > +/**
-> > + * memblock_mark_llmap - Mark a memory region with flag MEMBLOCK_LLMAP.
-> > + * @base: the base phys addr of the region
-> > + * @size: the size of the region
-> > + *
-> > + * If supported by the architecture, such region is mapped at the last-level in
-> > + * the kernel direct map.
-> > + *
-> > + * Return: 0 on success, -errno on failure.
-> > + */
-> > +int __init_memblock memblock_mark_llmap(phys_addr_t base, phys_addr_t size)
-> > +{
-> > +	struct memblock_region *r;
-> > +
-> > +	memblock_cap_size(base, &size);
-> > +
-> > +	for_each_mem_region(r) {
-> > +		if (memblock_is_nomap(r) &&
-> > +		    memblock_addrs_overlap(base, size, r->base, r->size))
-> > +			return -EINVAL;
-> > +	}
-> 
-> same here
-
-ack
-
-> 
-> > +
-> > +	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-> > +				    MEMBLOCK_LLMAP);
-> > +}
-> > +
-> > +/**
-> > + * memblock_clear_llmap - Clear flag MEMBLOCK_LLMAP for a specified region.
-> > + * @base: the base phys addr of the region
-> > + * @size: the size of the region
-> > + *
-> > + * Return: 0 on success, -errno on failure.
-> > + */
-> > +int __init_memblock memblock_clear_llmap(phys_addr_t base, phys_addr_t size)
-> > +{
-> > +	return memblock_setclr_flag(&memblock.memory, base, size, 0,
-> > +				    MEMBLOCK_LLMAP);
-> > +}
-> > +
-> >  static bool should_skip_region(struct memblock_type *type,
-> >  			       struct memblock_region *m,
-> >  			       int nid, int flags)
-> > @@ -2886,6 +2935,7 @@ static const char * const flagname[] = {
-> >  	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
-> >  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
-> >  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
-> > +	[ilog2(MEMBLOCK_LLMAP)] = "LLMAP",
-> >  };
-> >  
-> >  static int memblock_debug_show(struct seq_file *m, void *private)
-> > -- 
-> > 2.55.0.970.g62bdec98f9-goog
+> > 	i = select_idle_cpu(p, sd, has_idle_core, target);
+> > 	if ((unsigned int)i < nr_cpumask_bits) {
+> > 		target = i;
+> > 		goto out;
+> > 	}
 > > 
+> > The prev_aff and recent_used_cpu fallbacks can jump to "out" as well, since they
+> > were already verified as suitable candidates. If none of those paths succeeds, I
+> > think the existing final "return target" should remain unchanged.
+> > 
+> > Does that make sense?
 > 
-> -- 
-> Sincerely yours,
-> Mike.
+> Correct me if I'm wrong but you are suggesting to keep the current
+> return intact and put out label after it like:
+> 
+>     /* If no suitable target was found */
+>     return target;
+> 
+> out:
+>    if (!sched_smt_asym_active())
+>        return target;
+> 
+>    return select_idle_smt_priority(p, target);
+> ---
+> 
+> That makes sense to me!
 
--- 
-Vincent
+Correct, I'm going to run some tests with this and will send a v3 later.
+
+Thanks!
+-Andrea
 
