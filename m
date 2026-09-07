@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF20C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA31C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 12:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+P9r49I1X6dZFzJ0z+/s8s8jb1j27OM83g5Ui8ggds=; b=VgJQg9iAIhIw8iqwGrsGqT9Xly
-	CYe2Np6vV2wE8fliIrB6ePhEM9yE6VNl6JNLmMCSWjhsFJvkgURKzYzXcCRbykraUNkB4pUImczYv
-	ZKUpjqL1MUSw1O+G/d3P+YIqf/6iKM699qu4HW9t8iY2dmCo17zo6iLbwq/JacQeVDEN9fflsKt+8
-	3oI1uICYyS1RJLD3K8i8pITQZMKzfxoz2AsMgvLq9PpGqjz0+LbsabOWpaz80ChsILU088x44n7xu
-	DzmChPKubjrIxK4ZmuATHmEQ3i8LZ4aS17kpDXglY+1ZmOKWQ4+rlt5xvzge3JD4voL8G73QtQEE3
-	EvUh1a6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CG+4850Uk4fD1WnOQZe5SJwg+CxIkEwWTeh7guD2S0U=; b=a3Dcp9jHVt3W9+6rmyn+L66spZ
+	HFrrhRVoZCbiNq2OdqFLBjioyBWaEtvnRpaUrncM/U/lNhFE/DHfVE+eoSEQiUq+oG7jWDp/VhdqR
+	qb0GOZC0Y9tFs8m6oExJnpIQtVFirTNWHVhAHoDS/yNi3Ej9NkDGfW1q2MkLOgTTvgK2u/wmyTXuZ
+	7hzoYwCgPPzUGCh8vX2WMB8zGQNIFjKH1ECDA8vSffyGgkVtUmzzhi3Mf3e+BH7kKO1CPhloh2TYE
+	JARMYbybgJJKztpnnvfEbykX2xrhs4Qp7IwQntBJfNvnR4eUmbrXSF3FfNjRACQ5ol2sn0BqDp/b5
+	+CF8/0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YHo-00000006mGj-0eMp;
-	Mon, 07 Sep 2026 12:17:20 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YHk-00000006mF6-1BGO
+	id 1x3YJj-00000006mVZ-24CG;
+	Mon, 07 Sep 2026 12:19:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3YJg-00000006mUn-20y8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 12:17:18 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hdmJH1421zYQv2H
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:16:15 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id D84F640574
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 20:17:04 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgBH90M_q55qxRxiBA--.20818S2;
-	Mon, 07 Sep 2026 20:17:04 +0800 (CST)
-Message-ID: <194ad587-cd4d-4ecf-89e6-74466b857d64@huaweicloud.com>
-Date: Mon, 7 Sep 2026 20:17:03 +0800
+	Mon, 07 Sep 2026 12:19:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E75F1476;
+	Mon,  7 Sep 2026 05:19:09 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77B683F7D8;
+	Mon,  7 Sep 2026 05:19:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788783553; bh=PoxmoZZTOhcE6CEga/lO9FXzLDRYEFsrRYQWv6jH4IU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jZtqBqkj3kWFKvNGbyHLWMPvyN0cEDClPlkqsGw4chhgal9iTQXY5hVzOV9lN7rif
+	 CjV90NANP1wV0RJgDpJfH1r3NO3VAzZTRcwefsHApE5L3MSEz9AXCT8pJL/QBbZ1lJ
+	 mF0CGL8A0r8/NYeRFUlvx06lB4/ue+RZSTt44NEA=
+Date: Mon, 7 Sep 2026 17:49:09 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
+Message-ID: <ap6rvQJbO8DH57v8@a079125.arm.com>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <apbgDNjQPLBdsUe0@a079125.arm.com>
+ <43382882-0e7b-4255-9c34-99cec5b0bbbc@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf v2 1/2] bpf, arm64: set up the frame pointer for the
- exception callback
-Content-Language: en-US
-To: Donggeun Yoo <donggeunyoo.kernel@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman
- <eddyz87@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Mark Rutland <mark.rutland@arm.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Puranjay Mohan <puranjay@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Song Liu <song@kernel.org>,
- Will Deacon <will@kernel.org>, Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260907054235.473103-1-donggeunyoo.kernel@gmail.com>
- <20260907054235.473103-2-donggeunyoo.kernel@gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <20260907054235.473103-2-donggeunyoo.kernel@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: Syh0CgBH90M_q55qxRxiBA--.20818S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxurWUXrykGryUur4DGF47XFb_yoW5Xr4Dpa
-	98uasIkr4vqw12yw4xJF48XF1Y9rsxJr47Gr48JrWYyr1qgrya9ryrKayjgFZ8Cwn5Wa1F
-	vFWjkr9xuan8J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
-	0PDUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <43382882-0e7b-4255-9c34-99cec5b0bbbc@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_051716_692891_598DB8A8 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20260907_051916_610339_6E92F25A 
+X-CRM114-Status: GOOD (  60.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,69 +94,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/2026 1:42 PM, Donggeun Yoo wrote:
-> A program acting as exception boundary saves all callee-saved registers,
-> so build_prologue() takes the exception_cb path and never calls
-> push_callee_regs(). That is the only place find_used_callee_regs() runs,
-> and with it the only place ctx->fp_used is set, so the callback prologue
-> does not emit the
+On Thu, Sep 03, 2026 at 06:47:50PM +0200, Kevin Brodsky wrote:
+> On 01/09/2026 16:24, Linu Cherian wrote:
+> > Hi Kevin,
+> >
+> > On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
+> >> [Sending during the merge window in case reviewers have spare
+> >> cycles; I'm not aiming to have this series merged in v7.3.]
+> >>
+> >> This is a proposal to leverage protection keys (pkeys) to harden
+> >> critical kernel data, by making it mostly read-only. The series includes
+> >> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+> >> as well as a page table hardening feature based on that framework,
+> >> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+> >> concept, but they are designed to be compatible with any architecture
+> >> that supports pkeys.
+> >>
+> >> The proposed approach is a typical use of pkeys: the data to protect is
+> >> mapped with a given pkey P, and the pkey register is initially
+> >> configured to grant read-only access to P. Where the protected data
+> >> needs to be written to, the pkey register is temporarily switched to
+> >> grant write access to P on the current CPU.
+> >>
+> >> The key fact this approach relies on is that the target data is
+> >> only written to via a limited and well-defined API. This makes it
+> >> possible to explicitly switch the pkey register where needed, without
+> >> introducing excessively invasive changes, and only for a small amount of
+> >> trusted code.
+> >>
+> >> Page tables are chosen as an initial target because of their especially
+> >> critical nature - a single write may result in arbitrary pages becoming
+> >> accessible to any context (including userspace). In order to keep the
+> >> series digestible for reviewers, this version focuses on functionality
+> >> rather than performance, making it most suitable as a debug feature. The
+> >> key trade-off is the requirement to PTE-map the linear map - see section
+> >> "Protected page table allocation" for details.
+> >>
+> >> This series has similarities with the "PKS write protected page tables"
+> >> series posted by Rick Edgecombe a few years ago [1] but it is not
+> >> specific to x86/PKS - the approach is meant to be generic.
+> >>
+> >> This proposal (as of RFC v5) was presented at Linux Security Summit
+> >> Europe 2025 [2].
+> >>
+> >> [Table of contents]
+> >>
+> >> * kpkeys
+> >>   - pkey register management
+> >>
+> >> * kpkeys_hardened_pgtables
+> >>   - Protected page table allocation
+> >>   - kpkeys context switching
+> >>   - Performance
+> >>   - Limitations
+> >>
+> >> * This series
+> >>   - Branches
+> >>
+> >> * Threat model
+> >>
+> >> * Further use-cases
+> >>
+> >> * Open questions
+> >>
+> >> kpkeys
+> >> ======
+> >>
+> >> The use of pkeys involves two separate mechanisms: assigning a pkey to
+> >> pages, and defining the pkeys -> permissions mapping via the pkey
+> >> register. This is implemented through the following interface:
+> >>
+> >> - Pages are assigned a pkey in the linear map using set_memory_pkey().
+> >>   This is sufficient for this series, but it is also plausible for
+> >>   higher-level allocators to support marking allocations with a given
+> >>   pkey.
+> >>
+> >> - The pkey register is configured based on a *kpkeys context*. kpkeys
+> >>   contexts are represented as simple integers that correspond to a given
+> >>   configuration, for instance:
+> >>
+> >>   KPKEYS_CTX_DEFAULT:
+> >>         RW access to KPKEYS_PKEY_DEFAULT
+> >>         RO access to any other KPKEYS_PKEY_*
+> >>
+> >>   KPKEYS_CTX_<FEAT>:
+> >>         RW access to KPKEYS_PKEY_DEFAULT
+> >>         RW access to KPKEYS_PKEY_<FEAT>
+> >>         RO access to any other KPKEYS_PKEY_*
+> >>
+> >>   Only pkeys that are managed by the kpkeys framework are impacted;
+> >>   permissions for other pkeys are left unchanged (this allows for other
+> >>   schemes using pkeys to be used in parallel, and arch-specific use of
+> >>   certain pkeys).
+> >
+> > - Adding some basic details on what a scheme and context is quite helpful.
+> >
+> >  - Giving some hints (may be an example) on how multiple schemes and multiple contexts
+> >   play together would be quite helpful.
 > 
->    mov x25, sp
-> 
-> that points BPF_REG_FP at the frame the callback runs on. x25 keeps
-> whatever it held when bpf_throw() was called. If the throw came from a
-> subprogram that uses its own BPF stack, that is the subprogram's frame
-> pointer, and since the subprogram never returns it never restores x25
-> either.
-> 
-> Stack accesses through BPF_REG_FP are rewritten to be stack pointer
-> relative, so those still land in the callback's own frame. Materializing
-> the register does not: a callback that passes the address of a local
-> variable to a helper hands over an address in the dead subprogram's
-> frame. That address is below the callback's stack pointer by then, and
-> the helper's own call chain covers it, so the helper can write over its
-> own return address. 0x1234 below is the value the helper was asked to
-> store:
-> 
->    pc : 0x1234
->    lr : 0x1234
->    Call trace:
->     0x1234 (P)
->     bpf_test_run+0x188/0x3e0
->     bpf_prog_test_run_skb+0x47c/0x998
->     __sys_bpf+0xbdc/0xdd8
->    Kernel panic - not syncing: Oops: Fatal exception in interrupt
-> 
-> Set ctx->fp_used on the exception callback path so that the existing code
-> further down sets x25 from the stack pointer. The epilogue restores it
-> from the main program's save area along with the other callee-saved
-> registers, as it already does. x86 sets the frame pointer for the
-> callback from the argument it is passed, and powerpc computes it from
-> the stack pointer.
-> 
-> Fixes: 5d4fa9ec5643 ("bpf, arm64: Avoid blindly saving/restoring all callee-saved registers")
-> Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-> ---
->   arch/arm64/net/bpf_jit_comp.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index c18e005a41db..c5f55d6161fe 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -600,6 +600,8 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
->   		 * 12 registers are on the stack
->   		 */
->   		emit(A64_SUB_I(1, A64_SP, A64_FP, 96), ctx);
-> +		/* The callback may use its own BPF stack, set up fp for it. */
-> +		ctx->fp_used = true;
-Right, every path in the prologue that backs x25 on the stack should also
-set fp_used=true.
+> "scheme" doesn't mean anything precise, it's only the notion that pkeys
+> that aren't reserved for kpkeys (i.e. anything but 0 or 1 in this
+> series) may be used for other purposes. Happy to reword if you have a
+> suggestion.
 
-Acked-by: Xu Kuohai <xukuohai@huawei.com>
+Got it. IMHO, adding two definitions towards the start would make it easier to follow.
 
->   	}
->   
->   	/* Stack must be multiples of 16B */
+kpkeys: Set of pkeys reserved and managed by the kpkeys framework.
+        Pkeys outside this set are left untouched.
 
+kpkeys context: A permission state that defines the permissions for each pkey owned by
+ 	kpkeys
+
+Or something better.
+
+> 
+> "kpkeys context" is what is described above this paragraph, it's really
+> just a set of permissions for the managed pkeys. Transitioning between
+> context is described below.
+
+Its clear to me now.
+
+> 
+> > Adding a documentation that covers these aspects would be much
+> > appreciated.
+> 
+> For sure, I am planning to have a documentation patch in a subsequent
+> version.
+> 
+
+That would be great.
+
+
+> > My understanding is that pkeys are being partitioned across different
+> > contexts. But then the introduction of the term "scheme" looks bit confusing to me.
+> 
+> I wouldn't say pkeys are partitioned across contexts. Every context has
+> a set of permissions for all the pkeys managed by kpkeys. Any other pkey
+> is ignored (permissions left unchanged) by this framework.
+
+Ack.
+
+
+> 
+> >>   The current kpkeys context is changed by calling
+> >>   kpkeys_enter_context(), which will set the pkey register
+> >>   accordingly and return the original state. A
+> >>   subsequent call to kpkeys_leave_context() restores the original
+> >>   state (and thus the original kpkeys context). The numeric value of
+> >>   KPKEYS_CTX_* (kpkeys context) is purely symbolic and thus generic,
+> >>   however each architecture is free to define non-default pkeys
+> >>   values (KPKEYS_PKEY_*).
+> >>
+> > ..snip
+> >
+> >> Open questions
+> >> ==============
+> >>
+> >> A few aspects in this RFC that are debatable and/or worth discussing:
+> >>
+> >> - There is currently no restriction on how kpkeys contexts map to pkeys
+> >>   permissions. A typical approach is to allocate one pkey per context and
+> >>   make it writable in that context only. As the number of contexts
+> > Probably to avoid the assumption, may be we can we have something like
+> > below 
+> >
+> > For a pkey P, we could define
+> > PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
+> > PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
+> >
+> > With the assumption of one pkey mapped for every context,
+> > the permission for the default context would look something like,
+> >
+> > PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
+> > PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
+> > PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
+> > ...(for all valid contexts)
+> >
+> > where,
+> > Permission key, PKEY_DEF is associated with context DEFAULT,
+> > Permission key, PKEY_CT0 is associated with context CT0,
+> > Permission key, PKEY_CT1 is associated with context CT1
+> 
+> This adds assumptions rather than avoiding them. *Typically* when adding
+> a context you'd allocate a pkey that's only writable by this context,
+> but it doesn't have to be this way.
+
+Okay agree. Then may be something like
+
+Define permissions:
+
+For default context,
+KPKEYS_CTX_DEFAULT_PERM_PKEY_DEF
+KPKEYS_CTX_DEFAULT_PERM_PKEY_CT0
+
+For CT0 context,
+KPKEYS_CTX_CT0_PERM_PKEY_DEF
+KPKEYS_CTX_CT0_PERM_PKEY_CT0
+
+Define POR_EL1:
+
+For default context,
+KPKEYS_POR_EL1_DEFAULT
+
+For CT0 context,
+KPKEYS_POR_EL1_CT0
+
+Finally,
+#define POR_EL1_INIT KPKEYS_POR_EL1_DEFAULT
+
+Probably using something similar would make the idea of kpkeys context 
+more evident in the code as well ?
+
+> 
+> The configuration space is more easily understood by considering the
+> other use-cases we've investigated (struct cred protection and eBPF
+> isolation, linked further down). For instance, for cred protection, we
+> had KPKEYS_LVL_UNRESTRICTED with write access to all pkeys, and for eBPF
+> isolation, we need a level that is less privileged and therefore does
+> *not* have write access to pkey 0.
+> 
+> >>   increases, we may however run out of pkeys, especially on arm64 (just
+> >>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+> >>   use the same pkey for the data associated to multiple contexts.
+> > Lets say two contexts A and B, use the same pkey P as their permission matches.
+> > But then, when we enter context A, permission for pkey P gets
+> > relaxed, then that would relax permission for pages associated with
+> > context B as well which is unintended ?
+> 
+> That may be exactly what is intended, it all depends on the use-case. C1
+> may have a private pkey P1, and C2 P2, and then P3 that is shared by C1
+> and C2 (writable by both)
+
+Got it. With each context defining permissions for each pkey owned by
+kpkeys makes sense. 
+
+Also do we need to assume that nesting of different contexts is not valid ?
+For example,
+Default context:
+	enter CTX 0
+		enter CTX 1
+		leave CTX 1
+	leave CTX 0
+Default context:
+  
+> > As the hardware supports 16 pkeys, should we consider removing the limit
+> > of 8 pkeys so that we can have unique pkeys for each context ?
+> 
+> FEAT_S1POE only supports 4-bit pkeys when using 128-bit page tables.
+
+Ack.
+
+--
+Linu Cherian
 
