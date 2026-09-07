@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25BDC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD046C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCwW6+gT3njRjgvc+5t1hsycs1+h5TBUJkyDrYO4u7I=; b=bJpHyqBNICnwsuphaaLOhoqrCk
-	6BH4Ry5BhEouXq5GO2zH6+/NqYShL8ocmGzwPwce+upvqfmts7BS6NH6TyTeyFZ46hlXAvNtKyI8L
-	GyIHrXiJCpcLyl4XKwGlK+wThePphr+ULmboxkRKNGvqY6VxC8o+XF2Xy12Jjt3qIwrt0iTKwb/Re
-	bp9ZfZ5vi6gxgNmpUU05wB+lxYzVOjnD6s0echZIAszZT2iFB9X9L6dENwTlX+xVcH3Z5r+W0Q/Ph
-	9w08p+hkEURzCjglUxGkipzewze2zJ0SaE5Qi+PwJBefGSJwxMf6RtbyUTmjNg5GYjAILqpNNzwxY
-	tMzgkkMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yduK6SZF6jBhQlUcVc4os90CzpWD83bIvXgkdQVEXxg=; b=qIYRVwNpZGh48Lwy6BYhN1vQvy
+	6w/sIgHgkZlhleoJLVKVoQ4/Xk4ZYzu/4Uvw4x33lB7FzViv9C9o+0ZzX8KIKgw6RBvyH3lrzkucS
+	xVUUSYTR2j3g5zhX0XIGNBQMzl7SyjqWqnnQ1eMIoaeDO2wqORjoCErb160MVSOsZ4Jj6uV7xl7VI
+	0AQr3QyFbUhckluKCgwpTtvS2NQpwvbwfglnqOXYu1TFNfk62Ls5SP+z54yVA29wsC5Cf8pcdhasr
+	wPfIUMWMELc0h/La/UEYYy/Icr3qSqsZdZzJ+EWDg8956L9SuoqFrocmr8Wc9aoOGxXaBN6W5GPjI
+	96UOPK8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dhl-00000007XaB-3PCd;
-	Mon, 07 Sep 2026 18:04:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3diP-00000007Xhq-0H3P;
+	Mon, 07 Sep 2026 18:05:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dhj-00000007XZh-2T9E;
-	Mon, 07 Sep 2026 18:04:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 830C7601DB;
-	Mon,  7 Sep 2026 18:04:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25C751F00A3A;
-	Mon,  7 Sep 2026 18:04:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788804266;
-	bh=uCwW6+gT3njRjgvc+5t1hsycs1+h5TBUJkyDrYO4u7I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c5ZH6r7B9rcNWDmwK9ka7TzCln2oQankfFX/ykdQqIr9OL4RsaS1rGTS10rbX5FUV
-	 7eBtFIsfa6mn6hgb6QDwA7cxiRV0jDjSftOAswhbMhTzz7T+M3XFCm8lRQQClHJQsV
-	 /kLuTFZ/dOk7R6RGjnmBporPHmA+vqcs1RkKQ7OQrMjGIZO+3/p3fvAljfcstiuqVG
-	 7jJMoq0nQafjd/0JCqJBtc0RDMACVvz4BBYsC0jib9Fec7EGhevjgcfIHbWh6DAUXQ
-	 0exSOg4sVmKLum9eI7Jf1MAd3CP7iI2V8Deu+PJ4klKuNCsDaX4Eld8cd+brsXJ3My
-	 6Yt7pRwj6bkTQ==
-Date: Mon, 7 Sep 2026 19:04:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Shashank Maurya <shashank.maurya@oss.qualcomm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	venkata.valluru@oss.qualcomm.com,
-	Jessica Zhang <jesszhan0024@gmail.com>
-Subject: Re: [PATCH v2 2/2] regulator: rpi-panel-v2: Add required vcc-supply
- support
-Message-ID: <20260907-showroom-elevation-ba1a0792b7f7@spud>
-References: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com>
- <20260907-rpi_reg-v2-2-0c59aa60d31f@oss.qualcomm.com>
- <20260907-ensnare-wanted-e86eeaf770b0@spud>
- <27fb1c11-c1eb-4494-ac38-d794baf80814@sirena.org.uk>
+	id 1x3diN-00000007XhH-46b9;
+	Mon, 07 Sep 2026 18:05:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 675D940E44;
+	Mon,  7 Sep 2026 18:05:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3D428C2BCC7;
+	Mon,  7 Sep 2026 18:05:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788804307;
+	bh=HgtayXsCIUeIjoLCd0VAVdyko3X79N+4XUCCWbHtSaE=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=ssIOWIs3VY+Ezy1O3wpHRMlZxG3e/8txzFY/pmLa0QVjGDqkDciEWruM/MR0MCjeC
+	 uYw9NRTbl4nq3FXLvFHNba6uv92UTdcFWqZ+HGMEdTZc2htOEsSWI0IHCdyUuJV3ju
+	 t/y9OLL+J3YgstRvS2HY1p644urPKZk0wluyydD0qglCcLbrlXVibgJqBAPgk1qTEe
+	 +mOLw2gG1Zh7A8qMvPzx4LDM1MsD5BEEdkL4CWEM3BRaZ6M6qkLL70OEBO9HnEMXc5
+	 V0ihQjOVvJe9mTleTtJguDE1fJpn5lVRH74MLuu9iknI8kilzhgzdHp94bju6i2Bh8
+	 81o+WbuWHvroQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D6A7C79FA0;
+	Mon,  7 Sep 2026 18:05:07 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Subject: [PATCH v2 0/3] MediaTek mt6572 GCE support
+Date: Mon, 07 Sep 2026 21:03:04 +0300
+Message-Id: <20260907-6572-gce-v2-0-412a5b037290@protonmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FBwSaQHk5R1QIosT"
-Content-Disposition: inline
-In-Reply-To: <27fb1c11-c1eb-4494-ac38-d794baf80814@sirena.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0WNwQ6CMBAFf4Xs2ZpSpQVO/ofhUOoCa6QlLRIN4
+ d9tMcbjJPPmrRDQEwaosxU8LhTI2QjikIEZtO2R0S0yCC4kV0IxWSjBeoNM6kLl2J11xyuI+uS
+ xo9eeujZfDs/2jmZO+2QMFGbn3/vXkifvly3/2SVnnKmCt60+CVlWeJm8m50dNT2Oxo3QbNv2A
+ ZzsLqW3AAAA
+X-Change-ID: 20260727-6572-gce-6a571ef4af09
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Houlong Wei <houlong.wei@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788804305; l=2164;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=HgtayXsCIUeIjoLCd0VAVdyko3X79N+4XUCCWbHtSaE=;
+ b=yayniW8Y6yLSeyUq3xZdAXuP0zHHoULMDH2Eb0J1TF6URCM2+dc94llu+rpbp5wEMXr8+eK2K
+ eeAZ43tehwhBaToqLAV+a59vmdYg8ps0G8CbjJEjI3QT+dSsuyjVLK2
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +87,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---FBwSaQHk5R1QIosT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This patch series adds support for the Global Command Engine found in
+the mt6572 SoC.
 
-On Mon, Sep 07, 2026 at 06:09:57PM +0100, Mark Brown wrote:
-> On Mon, Sep 07, 2026 at 06:06:24PM +0100, Conor Dooley wrote:
-> > On Mon, Sep 07, 2026 at 11:16:08AM +0530, Shashank Maurya wrote:
->=20
-> > > +	vcc =3D devm_regulator_get(&i2c->dev, "vcc");
-> > > +	if (IS_ERR(vcc))
-> > > +		return dev_err_probe(&i2c->dev, PTR_ERR(vcc),
-> > > +				     "Failed to get vcc supply\n");
->=20
-> > This needs to be optional, because without it you'll break existing
-> > devicetrees. Unless you can explain how all existing users are
-> > nonfunctional (e.g. nothing ever enabled the supply, which seems
-> > doubtful given this surely worked when it was added) this must remain
-> > optional.
->=20
-> The core will stub in a dummy regulator for mandatory supplies that
-> don't have anything mapped by firmware, otherwise essentially all
-> regualtors would be optional and our error handling would be a disaster
-> zone.
+Notably, the patch 2 introduces legacy ISA format, which is used on
+mt6572, 6582 and 6592 SoCs. mt6577 doesn't have the GCE at all and
+mt6595 is much more close to 6795/8173.
+Patch 3 adds mt6572 platform data and legacy_isa forwarding to the
+instruction JIT.
 
-I always forget how this works. Thanks for the reminder.
+This format was reverse engineered from the Android HAL and uses 22-bit
+offset with 2-bit subsystem ID, unlike the newer 16-bit offset and 8-bit
+subsystem ID.
+The mt6572 HAL includes workarounds for WFE and EOC instructions, emitting
+another WFE as barrier at WFE, and JUMP +8 at EOC.
+mt6582 and 6592 HAL dropped WFE barrier, but still have JUMP +8.
+
+This sounds very much like some kind of software mitigations for hardware
+bugs, but during testing on 6572 nothing bad happened so far. These
+additional instructions are not included in the patches.
+
+Note that while GCE can be used for e.g. mt6592 UFOE (which is at
+0x14013000, so outside of the u16 range), currently the driver still uses
+u16 for the offset, because I don't have any 6592 device.
+
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+Changes in v2:
+- Move dt-bindings to mailbox directory from gce (Krzysztof)
+- Clarify that only v2 and v3 GCEs support PA writes
+- Link to v1: https://patch.msgid.link/20260728-6572-gce-v1-0-750bba32689e@protonmail.com
+
+---
+Roman Vivchar (3):
+      dt-bindings: mailbox: mediatek,gce-mailbox: add mt6572
+      soc: mediatek: cmdq-helper: add legacy GCE ISA support
+      mailbox: mtk-cmdq: add mt6572 support
+
+ .../bindings/mailbox/mediatek,gce-mailbox.yaml     |  1 +
+ drivers/mailbox/mtk-cmdq-mailbox.c                 | 11 +++++
+ drivers/soc/mediatek/mtk-cmdq-helper.c             | 57 +++++++++++++++-------
+ include/dt-bindings/mailbox/mediatek,mt6572-gce.h  | 52 ++++++++++++++++++++
+ include/linux/mailbox/mtk-cmdq-mailbox.h           |  1 +
+ 5 files changed, 104 insertions(+), 18 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260727-6572-gce-6a571ef4af09
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
 
-
---FBwSaQHk5R1QIosT
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap78pQAKCRB4tDGHoIJi
-0uTBAP9evMaKmff7rJAlkiT1L5Zx4532B5L6cpV0O5jW49THDQEAx/4ZV4Z/icen
-QJ8YGia+cNCbCHFaHC2DFjOWUQ9irgA=
-=QAjk
------END PGP SIGNATURE-----
-
---FBwSaQHk5R1QIosT--
 
