@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7CEC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7826DC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 10:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izwwPFEZ2YDHlpNeAWpO9gjIXl3/uRvj1NTux/WAIB4=; b=W43qs5pirlnLxX1SnTgDqFv3XP
-	RwFmMofa62FoaMstFqp6WqGunrOT0GRUB53qn4ImJkIagT1D8qgz5FVjyWp/MTTdBnPHipLqzvqf1
-	uV0UWPUDdOmP7RkXCXCJisNtHmdixGIh+pMtmAqrLUoszetuFfJTm5WWW2nIEUFRWdX2+klN5VGYt
-	AfIqlrQvDlo2SakgVla++8cl/tdCgqoW5EKrW2W8mGS+7qTDTfXQVEHJDx+xHZvq4F4TQ3xZAkdOX
-	UKJU9QaC/gGZBdcSE4oAGHJfSlk1ZUAJk6Xzb1EO4SxX+VcCAS3xfu7ELR758RUofApp9bQ2lgIps
-	X/zT31XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+EdtUXRPFcuOXex6MwwCTkgFM3Iq6WJhMLb/D43pgaI=; b=1LbZyGWQfOvGii0ZWT3x9uBweH
+	GeWXmz4GWe207v9h1Ci3YGxqoOB3aPe2DF/071ulU0NSIJKQMwNElmt5j7qj+yAXCfk6iFBEQsp8x
+	3sDIo4zFkcdLb7ZUXibB6RDklElXQj4Ul3Uzw53EQqrNc9dW6uvW83Aeyd3P3aGs9EQy83FbXgx0U
+	Pa8V5OEKsr1bzz/wLq6bbK+0NUCB/iFqkJuTn6A4RQcaGwDV8l6jVZ2lKh0CWl5pRVuJxESBTwOKk
+	K5M7lINB7rO4fIgmSmo56zicBJFgsTIfEzfJkGXXGWN/HG/AppgGRbLzVEeOJVOdsRwfbKZyoGjE7
+	gHvZ+BLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WdP-00000006UUY-1Xa3;
-	Mon, 07 Sep 2026 10:31:31 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x3WiU-00000006V2N-3mxy;
+	Mon, 07 Sep 2026 10:36:46 +0000
+Received: from out-40.mta1.migadu.com ([2001:41d0:203:375::28] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3WdK-00000006USh-1r1o
+	id 1x3WiQ-00000006V1X-0z5C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 10:31:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=izwwPFEZ2YDHlpNeAWpO9gjIXl3/uRvj1NTux/WAIB4=; b=m
-	z9s2nX1g4LUKLmfdjmG1a2TzjIbwl9fjS8Zzru0oHZeUAVhTgNFR+KwATq79L4Fk
-	cCUPFv89OTZQN2C3/3Y3owqWbabwjWCnuFWjPlmttiAOCqb1SV5iSTO+ilfURmQA
-	JJJ5kFlAMZL8EiHr0W/BfDUxKNJ5obVNJgNP/TyEqs=
-Date: Mon, 7 Sep 2026 18:29:47 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: Re: [PATCH v6 08/13] gpio: regmap: support
- write_data_after_dir and girq
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <ap5BgWtHMAxl28wF@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-8-e918514cb3b1@ambarella.com>
- <apqxwRgi-uVKkOpr@ashevche-desk.local>
- <27a1901.423e.1a07a183bd4.Coremail.zl020895@163.com>
- <ap5BgWtHMAxl28wF@ashevche-desk.local>
-X-NTES-SC: AL_Qu2TCvucuUEj4SSaZ+kcn0wRhug/UMa4u/sm3YNXc+8GoC3f4joEek5lHXDK79C+JR6CqT2UbRFW0t1ffJNTQiBizjLGGro2SdHZZlp2GQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Mon, 07 Sep 2026 10:36:45 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=knLSy+tAiOCBjiiSkaNUjr38e019JvyDKoSRtCD7jXc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788777400; v=1; x=1789382200;
+ b=iyMOof7Pvy6wg2VkzREjxcMYjNsEeclp7fWL22uIxKwu2ZHW7AR+dFw4Y65M96k7Rwpk7XTt
+ x7kFoend80i3V3whXlAS5PGSJZSdHcDOT+ggdURcAhlMC4Qho1AgBJESi0h60NhJd6GEhUMkC9+
+ 2OgzQPm8u3JZEny1EpE5CpOU=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2dce7dbb19c16629;
+	Mon, 07 Sep 2026 10:36:40 +0000
+X-Mizu-Trace-ID: 2dce7dbb19c16629
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so6991e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 03:36:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByDEBWVDHST6MKkzKI/azGHGeDSS+TVUlAdt/3Pe4dnmTfZeRUXTTbpmAFGiuIImsNbpIa6ndE/M2yNP2MHMox8@lists.infradead.org
+X-Gm-Message-State: AFuF++kuhH2gIfkRvFlkCcSAe6HjfrPXBFxBXp8DsASoW2/nrktI8ZkI
+	16OELxZpjKoQsJCAuNYCLGFlJnOODeFAXGiolSxR0p052eg8xDLhBX0Dl5XTVPMrpaziHTkoeQN
+	ilj/XECXd7eyi3eSHlPwFZSLaNxSmf2c4nUynxK0X
+X-Received: by 2002:a05:6512:114d:b0:5b4:9dba:7401 with SMTP id
+ 2adb3069b0e04-5b74d456083mr154509e87.11.1788777394103; Mon, 07 Sep 2026
+ 03:36:34 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <6ca46138.9970.1a07b6abb25.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: kygvCgD3P+kbkp5qdBRBAA--.16072W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxhvsXmqekhuDRgAA3X
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+References: <20260904103131.627392-1-fuad.tabba@linux.dev> <966b103e-dc9e-479a-ba6c-e8e6727e1bd7@arm.com>
+In-Reply-To: <966b103e-dc9e-479a-ba6c-e8e6727e1bd7@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 7 Sep 2026 11:35:57 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy6kbVHKpW+jLHfdpMr16+OrGaCRyt_xEpP_6aQwKv5Yg@mail.gmail.com>
+X-Gm-Features: AcwNN1WVZ2rRbHW0_CvMjthG_1fXG-hc0avpc71bJuZRUt-gMT5OfwZEJAwht6A
+Message-ID: <CA+EHjTy6kbVHKpW+jLHfdpMr16+OrGaCRyt_xEpP_6aQwKv5Yg@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: mpam: Document when to set arm64.nompam
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, Marc Zyngier <maz@kernel.org>, 
+	Bradley Morgan <brads@mainlining.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_033126_911785_3CF41287 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260907_033642_436521_940BE781 
+X-CRM114-Status: GOOD (  39.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +83,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKClRoYW5rcyBmb3IgdGhlIGJ4dHdjIHBvaW50ZXIuCgpJIGxvb2tlZCBhdCBtYXBw
-aW5nIFBMMDYxIG9udG8gcmVnbWFwLWlycS4gU3RhdHVzL21hc2svYWNrIChNSVMvSUUvSUMpCmNv
-dWxkIGZpdCwgYnV0IFBMMDYxIHN0aWxsIG5lZWRzIHRoZSBjaGFpbmVkIGRlbXV4IHBsdXMgSVMv
-SUJFL0lFViB0eXBlCnByb2dyYW1taW5nIChpbmNsdWRpbmcgRURHRV9CT1RIKSBhbmQgdGhlIGV4
-aXN0aW5nIGdwaW9jaGlwIGltbXV0YWJsZQpoZWxwZXJzLiBUaGF0IGxvb2tzIGxpa2UgYSBwb29y
-IGZpdCB2ZXJzdXMgaWRpLTQ4L2J4dHdjLXN0eWxlIGNoaXBzLCBhbmQKc3dpdGNoaW5nIHRoZSBs
-b25nLXN0YW5kaW5nIEFSTSBQTDA2MSBwYXRoIGZyb20gY2hhaW5lZCB0byB0aHJlYWRlZApyZWdt
-YXAtaXJxIHNlZW1zIHJpc2t5LgoKV2hhdCBJIHBsYW4gZm9yIHRoZSBuZXh0IHJvdW5kICh3aXRo
-b3V0IGV4dGVuZGluZyBncGlvLXJlZ21hcCB3aXRoIGdpcnEpOgprZWVwIHRoZSBjdXN0b20gaXJx
-Y2hpcCArIGNoYWluZWQgaGFuZGxlciwgY3JlYXRlIHRoZSBpcnFfZG9tYWluIGluCmdwaW8tcGww
-NjEsIGFuZCBwYXNzIGl0IHZpYSBjb25maWcuaXJxX2RvbWFpbiB0byBncGlvLXJlZ21hcC4KCkRv
-ZXMgdGhhdCBtYXRjaCB3aGF0IHlvdSBoYWQgaW4gbWluZCwgb3IgZG8geW91IHN0aWxsIHByZWZl
-ciBhCnJlZ21hcC1pcnEtYmFzZWQgYXBwcm9hY2g/CgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwoK
-QXQgMjAyNi0wOS0wNyAxMjo0NTo1MywgIkFuZHkgU2hldmNoZW5rbyIgPGFuZHJpeS5zaGV2Y2hl
-bmtvQGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj5PbiBNb24sIFNlcCAwNywgMjAyNiBhdCAxMjoy
-MDowM1BNICswODAwLCB6bDAyMDg5NSB3cm90ZToKPgo+PiA+IEFyZSB5b3UgZ29pbmcgdG8gZml4
-IHRoaXMgSFcgaW4gdGhlIG5leHQgdmVyc2lvbiBvZiB0aGUgU29DPwo+PiBObyDigJQgQW1iYXJl
-bGxhIGRvZXMgbm90IHVzZSB3cml0ZV9kYXRhX2FmdGVyX2Rpci4gSXQgb25seSBwcmVzZXJ2ZXMg
-dGhlCj4+IGV4aXN0aW5nIEFSTSBQTDA2MSBxdWlyayBhbHJlYWR5IGRvY3VtZW50ZWQgaW4gZ3Bp
-by1wbDA2MSAoZGF0YSB3cml0ZXMKPj4gaWdub3JlZCB3aGlsZSB0aGUgcGluIGlzIHN0aWxsIGFu
-IGlucHV0KS4gT25seSBwbDA2MV9hcm0gc2V0cyB0aGUgZmxhZy4KPgo+QWgsIHRoaXMgaXMgYSBn
-b29kIG5ld3MhCj4KPkluIGFueSBjYXNlIHdoZW4gZG9jdW1lbnRpbmcgdGhhdCBmbGFnLCBwbGVh
-c2UgYWxzbyBtZW50aW9uIHRoYXQgYW55IG5ldyBIVwo+c2hvdWxkIG5vdCB1c2UgaXQgYXMgaXQn
-cyBjb25zaWRlcmVkIGJ1Z2d5IChnbGl0Y2hlcyBkdXJpbmcgZGlyZWN0aW9uIGNoYW5nZQo+YXJl
-IGd1YXJhbnRlZWQpLgo+Cj4+IEkgd2lsbCBhbHNvIG1ha2UgdGhlIGZpcnN0IGdwaW9fcmVnbWFw
-X3NldCgpIGNvbmRpdGlvbmFsIHNvIHRoZSBxdWlyawo+PiBwYXRoIHdyaXRlcyBvbmNlIGFmdGVy
-IGRpcmVjdGlvbl9vdXRwdXQsIG5vdCB0d2ljZS4KPgo+SSBzZWUgdGhhdCBvcmlnaW5hbCBwbDA2
-MSBhY3R1YWxseSB3cml0ZXMgdHdpY2UuIFRCSCBJIGRvbid0IGtub3cgdGhlIGJlc3QKPmVmZm9y
-dCBoZXJlIGFuZCBpZiBpdCdzIHJlYWxseSByZXF1aXJlZCB0byBkbyBzby4gUHJvYmFibHkgb3Ro
-ZXJzIGhhdmUKPmJldHRlciBpZGVhcy4uLgo+Cj4+ID4gVGhpcyBuZWVkcyB0byBiZSBpbiBhIHNl
-cGFyYXRlIHVwZGF0ZS4gQWxzbyB3ZSBuZWVkIHRvIHVuZGVyc3RhbmQgd2h5Cj4+ID4gaXQgaXMg
-cmVxdWlyZWQuCj4+IE9LLCBnaXJxIHdpbGwgYmUgYSBzZXBhcmF0ZSBwYXRjaC4gUEwwNjEga2Vl
-cHMgYSBjdXN0b20gY2hhaW5lZAo+PiBpcnFjaGlwIChub3QgcmVnbWFwLWlycSk7IGdwaW9fcmVn
-bWFwIHRvZGF5IG9ubHkgdGFrZXMgaXJxX2RvbWFpbiBvcgo+PiByZWdtYXBfaXJxX2NoaXAsIHNv
-IHdlIHBhc3NlZCBnaXJxIHRvIGtlZXAgdGhlIHVzdWFsIGdwaW9faXJxX2NoaXAgKwo+PiBncGlv
-Y2hpcF9hZGQgZmxvdy4gT3BlbiB0byB1c2luZyBhIGNhbGxlci1jcmVhdGVkIGlycV9kb21haW4g
-aW5zdGVhZCBpZgo+PiB5b3UgcHJlZmVyLgo+Cj5JZiB0aGVyZSBpcyBhIGNoYWluZWQgSVJRLCBs
-b29rIGhvdyBQTUlDIGRyaXZlcnMgdXN1YWxseSBkbyBzaW1pbGFyIHNldHVwcy4KPkZpcnN0IHdo
-YXQgY29tZXMgdG8gbXkgbWluZCBpcyBkcml2ZXJzL21mZC9pbnRlbF9zb2NfcG1pY19ieHR3Yy5j
-Lgo+Cj4tLSAKPldpdGggQmVzdCBSZWdhcmRzLAo+QW5keSBTaGV2Y2hlbmtvCj4K
+Hi Ben,
+
+On Mon, 7 Sept 2026 at 10:44, Ben Horgan <ben.horgan@arm.com> wrote:
+>
+> Hi Fuad,
+>
+> On 04/09/2026 11:31, Fuad Tabba wrote:
+> > arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
+> > finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
+> > firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
+> > left unwritten, at reset values that are UNKNOWN, and KVM still hides
+> > MPAM from the guest but no longer enables the traps that stop a guest
+> > from using it. KVM never saves or restores MPAM0_EL1 and MPAM1_EL1, so
+> > what one guest writes reaches the next guest and the host. Nor can the
+> > kernel make the EL2 writes unconditionally: they trap to EL3 on the
+> > firmware the option exists for, and TRAPLOWER cannot be read below EL3.
+> >
+> > Say so in mpam.rst, and add the rule and a pointer to the
+> > kernel-parameters entry.
+> >
+> > Suggested-by: Ben Horgan <ben.horgan@arm.com>
+> > Link: https://lore.kernel.org/all/CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com/
+> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > ---
+> >
+> > Notes:
+> >     Changes since v1, the first three from Ben Horgan's review:
+> >      - Put arm64.nompam under a new "Command line parameters" section.
+> >      - Separate MPAM3_EL3.MPAMEN from TRAPLOWER, which v1 conflated.
+> >      - Add that KVM does not save or restore MPAM0_EL1 and MPAM1_EL1.
+> >      - Drop "No functional change intended." from the commit message.
+> >
+> >     Bradley Morgan's Reviewed-by on v1 is not carried over: both
+> >     paragraphs, the section heading and the commit message changed.
+> >
+> >     v1: https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
+> >
+> >  .../admin-guide/kernel-parameters.txt         |  3 ++-
+> >  Documentation/arch/arm64/mpam.rst             | 25 +++++++++++++++++++
+> >  2 files changed, 27 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > index 68647ff4bdd24..e6d543de3cde5 100644
+> > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > @@ -575,7 +575,8 @@ Kernel parameters
+> >                       Set instructions support
+> >
+> >       arm64.nompam    [ARM64] Unconditionally disable Memory Partitioning And
+> > -                     Monitoring support
+> > +                     Monitoring support. Only for a machine that does not
+> > +                     boot without it. See Documentation/arch/arm64/mpam.rst
+> >
+> >       arm64.nomte     [ARM64] Unconditionally disable Memory Tagging Extension
+> >                       support
+> > diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
+> > index 67fe515ed501c..e66b1359d1282 100644
+> > --- a/Documentation/arch/arm64/mpam.rst
+> > +++ b/Documentation/arch/arm64/mpam.rst
+> > @@ -87,6 +87,31 @@ The supported features are:
+> >    MBWU monitors can be exposed to the user after support for more monitoring
+> >    scopes is added to resctrl.
+> >
+> > +Command line parameters
+> > +=======================
+> > +
+> > +arm64.nompam
+> > +------------
+> > +Firmware controls MPAM through two bits of MPAM3_EL3. MPAMEN enables
+> > +it: while set, the PARTID and PMG in the MPAMn_ELx registers label the
+> > +CPU's memory requests. TRAPLOWER, which resets to 1, traps accesses to
+> > +the MPAM system registers from the lower exception levels to EL3.
+> > +Firmware must clear it, or handle the trap and emulate MPAM as disabled.
+> > +Where it does neither, the CPUs still advertise MPAM in the ID registers,
+> > +the kernel's MPAM register accesses trap to EL3, and the boot fails.
+> > +``arm64.nompam`` exists for that firmware: it makes the kernel treat the
+> > +CPUs as not implementing MPAM, so no MPAM system register is accessed.
+> > +Set it only on a machine that does not boot without it.
+> > +
+> > +It is not a way to turn MPAM off. Where firmware has cleared TRAPLOWER,
+> > +the option leaves the trap controls in MPAM2_EL2 and MPAMHCR_EL2
+> > +unwritten, and their reset values are UNKNOWN. KVM still hides MPAM from
+> > +guests but no longer enables the traps that stop a guest from using it,
+> > +so a guest may be able to read and write MPAM0_EL1 and MPAM1_EL1. KVM
+>
+> As you are listing registers, MPAMSM_EL1 can go here too.
+
+I can respin a V3 with this added.
+
+> Generally, I think this documentation change looks good now but holding off on a tag for the moment
+> in case anything comes up from your MPAM trapping change [1].
+>
+> [1] https://lore.kernel.org/linux-arm-kernel/20260903160819.831518-1-fuad.tabba@linux.dev/
+
+The trapping respin doesn't reach the nompam path: the override skips
+the finalise_el2_state writes whether they clear the traps or set
+them, so nothing here needs changing.
+
+Cheers,
+/fuad
+
+>
+> Thanks,
+>
+> Ben
+>
+> > +does not save or restore them, so what one guest writes is still there
+> > +when the next guest runs on that CPU, and when the host does. With MPAMEN
+> > +set, EL0 and EL1 requests then carry that PARTID and PMG.
+> > +
+> >  Reporting Bugs
+> >  ==============
+> >  If you are not seeing the counters or controls you expect please share the
+>
 
