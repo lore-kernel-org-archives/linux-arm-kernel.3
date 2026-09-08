@@ -4,101 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB05C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3530FC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uQsElwtEAzpNfoEN+c/AniRleQq7HJPFuOxkkSunLo=; b=i8EWEs1A2jUnyQknLb5unEaSIU
-	tEdVGcAioX5/CZOuFYd7SZqjq0iP3lT/bzRGQHXN+HGMLiwLDjEjBUp8hstMDzIMpNZkxenpJtO34
-	01fiIzqI4OKNm9PzVhp0foDu11a0x6ff27snH8Ss3rCno8vyADV/jj0SHkt/4rUIUbdVN8HBvIuFG
-	VSUvqc5TZPdRqcpvFu6rgIGWOe86VyqwJMNO1/Zc2BJKyAkLPOh3kQeChlJ+UN/qMPs4Z7xXPYLfm
-	rgCNOnct9Xfw0rjF9cCOTR2hgMCGluqhWwb/eDEfRbV7J+6COmihPmv6R6rriMtzSsBqaZkGVOSH/
-	Kxtm6h9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TLWkUEbLEWlXHQeJUXl8BBsGUUfHkoKud5OicPgz49o=; b=d9Q0FYFxh6LGjtq2stHXtnW4n4
+	jyWZy+qaW2jZ7vVeZTv0C9XkIqNDnIGhwuoOJZ/cZ5O+6NMKX/DPITwcTAaEyoCmDJHrwr6nAX39r
+	Ag3xusrdRvUhga8qj2k4M3BGSUlVoNTfrVax5VpaVhgC6AYEHaVtJkAWWh7dW/Hy1WDRqYuVX3xef
+	3myppb6S76DVYK9MKdGiAV3g8YKy3UF7QR4yxfpCh6spsPIrbT+I79GNkL8k3sqTExO2GZXuarPWo
+	vSoRq4sAIoYv6kDy2ovZCf9YQnEqmtvQztUi02czeWsLYryi1/xcZL7Y9vEYY9IwaL8z9X2foNbmk
+	Y6peAybg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xmM-00000009Ut4-2iBX;
-	Tue, 08 Sep 2026 15:30:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3xrN-00000009Vgm-3R3H;
+	Tue, 08 Sep 2026 15:35:45 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xmF-00000009UrK-2ell
+	id 1x3xrK-00000009Vfu-0OrB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:30:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 615A441211;
-	Tue,  8 Sep 2026 15:30:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E76D1F00A3D;
-	Tue,  8 Sep 2026 15:30:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788881427;
-	bh=6uQsElwtEAzpNfoEN+c/AniRleQq7HJPFuOxkkSunLo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FQ6/5vjksR2EVs0RDEw/1iPtvW6SrHtllirxmVTifxrpti+/+VQe9+L9LPYsrmj/A
-	 F0KxhmJqC0oH2e6ci4zUYciXySsi7YL4zNB3syFCTgipwnbX03kusY7LZPVYRgJ8RZ
-	 wShNWLDVAr/X5qMqxNS1Ivk9hYnAlOl5bY2kI3QFuthXeodcGvdVZAK1jZj6EOT+is
-	 rm/9uU4PO7S4kL53DmlpJS6AtZ+DScuFsBnnstHFUPTvKOLITXrIaRZpFL9dnlodT7
-	 A10PWzxoAsCLXrZd1XiZ2itoq7sHCOKo4WHbb2g7u9mCnucKiGqCj8tZlYdAidMUpV
-	 6tn/1zm5M2KhQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Drew Fustini <fustini@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Stefan Agner <stefan@agner.ch>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Nicolas Pitre <npitre@baylibre.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-omap@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	linux-i2c@vger.kernel.org
-Subject: [PATCH 11/13] ARM: versatile: remove mps2 support
-Date: Tue,  8 Sep 2026 17:28:01 +0200
-Message-ID: <20260908152808.3928630-12-arnd@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260908152808.3928630-1-arnd@kernel.org>
-References: <20260908152808.3928630-1-arnd@kernel.org>
+	Tue, 08 Sep 2026 15:35:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788881742; x=1820417742;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=dqJ3X3K/upnyFAAdPZ4XIbnffcYiGuNuwKvJAm0sGRk=;
+  b=aedIr/QX4L7TEkHxauzd5e0TnbiD/snjBHxaRiW0KbEv5PjuBezjwfqu
+   CJ8D+H15EJeqRunGZ8ZxCv/wObL7+hX+EgPTLOjck6in68ssbhoCkF9oP
+   T1gyCeCZYxfIqUEVhM/XYC1ujslPFZAeDI1hV1toSnnp0lRD9uGRWeyA1
+   snfNPQ3sakCtqKmEMprQOm186qlEMkB2T3yQXaeZLcQYJ4H4d0V1mxvu7
+   OlwFZyBZt7bKEVy4NoV94WqgkcIWdxH8lT3NpTjVAs10w/PZnR2vSCob2
+   O9ptIwM6k8v1qF6XOh8vxlAltAgqY9TMPPnBhQS8/HADXpOhwBv4emtUg
+   A==;
+X-CSE-ConnectionGUID: DYXAQr3rSJOy7LsXY++uiQ==
+X-CSE-MsgGUID: kovebIDOSRyyGlyExqFnNQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="99949697"
+X-IronPort-AV: E=Sophos;i="6.25,269,1779174000"; 
+   d="scan'208";a="99949697"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 08:35:40 -0700
+X-CSE-ConnectionGUID: Nfwflql9Q9eDPqEI07sIqQ==
+X-CSE-MsgGUID: YBrmvQ2tS1KsYHxr5CUMuw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,269,1779174000"; 
+   d="scan'208";a="267798696"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 08:35:40 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 8 Sep 2026 08:35:39 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Tue, 8 Sep 2026 08:35:39 -0700
+Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.25) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 8 Sep 2026 08:35:39 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i41wdscjNvsxE0opl7Qnrt11Ubl3J7p2LCm3sumfwXmlKNacEJx5dH/U2UcjlAC5B1DccL7vz4TYn4+/2vMyCT0vcIOnjZeHd9Bu4/ys8j7O3dbFkprfwFZIBHCaqjz7oqMrerGNrUDQf6Ct4uEmDRg3yJV2Uly+DjGc2T2n+A8i4YbDpFkrq7TPlm/j7ox7YA7qcUuI9n5scLTvLBrLFHawmdo6fG0UBtcSkmUIjUZuOBaX/rr+wM7bgrsgpIrmhoOmYPvugNGWe5qpXPtyPAs0NhYqjlL6nLVWrcWJX3W5hoIp3rnFHvQyLcQcH+Rr7rBeyrz2oZRCys2FQY2dEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TLWkUEbLEWlXHQeJUXl8BBsGUUfHkoKud5OicPgz49o=;
+ b=WoR6QG928eLmAHpZJDAclcujzsR1729o5cINtCdC3wBbVrwUB3ClVWABLYobXAGbV2DAFxbkEmPCUfUWBm2Vkm993wU5koEYsUeEiXWPPlegBx6A20UAtedjKoGvRUVSDUbUUyihC5FRiIPuAyexhdHcT3u3wd0TiK+jJiwUXvpxmVs/12hv4K7upRIOnUi/aSAM2ycLQZn9EouGNUaD3vi9qZyg2sisa+Rb9pTXY+EPu3kO72FdD7zgXIF9Delji62Y2Cw75+/NpkNyVrqliGkVNWV+HZKdHMxWDDjiXsZpubn6PELaipTfwqo9rbltZ3ueaSggCx//FAKUxgL4bA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by SAWPR11MB9709.namprd11.prod.outlook.com (2603:10b6:806:4ca::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 15:35:28 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0406.005; Tue, 8 Sep 2026
+ 15:35:28 +0000
+Message-ID: <649aef0d-f915-4288-b3b0-4092adb783b0@intel.com>
+Date: Tue, 8 Sep 2026 08:35:26 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
+ conversion to be per-arch
+To: Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>
+CC: <x86@kernel.org>, <james.morse@arm.com>, <fenghuay@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<tglx@linutronix.de>, <mingo@redhat.com>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <corbet@lwn.net>, <linux-doc@vger.kernel.org>,
+	<dave.martin@arm.com>
+References: <20260709093111.367851-1-ben.horgan@arm.com>
+ <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
+ <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
+ <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
+ <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
+ <a82061f1-bb23-403f-b772-d5adf7acb871@arm.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <a82061f1-bb23-403f-b772-d5adf7acb871@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0104.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::19) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SAWPR11MB9709:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f34c893-73e7-4fa6-ad6d-08df0dbecf1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aZGuBKd8WC6yPdMofBtW6M+kCLScvCuw+KXeO9iZs701zaw7Zeo8AcO3HK2pPBvmeKBGg/2lPJmucUvxW+n8q5HvvdtbessREYQHRT7dFZTxcXQslv9JWU+pl3V7XW0GOA+EtGfMcGd08fSSpNdIqLjUD9EbH2VEo0TZutyhmx6VSYuy0YvJRGDlTCvIUgi6fTTXOTpHdPvpc6xW2qlb/sNxlFwXPuu+Nm3RJj3ace1rtM4zxP1aPKMevulTuhw08v62KA3p9Tf+gzT5OkM+9wgpRlbrN4bZH7fvc4fZWWsxV3v0lXlAbf1KXh/6bFJC5rEHskxHHpUtqJXfwdRBW+Ndww2Lgd5PuLRd07mJuXJnQt+UyCMWRcpPQ/8Ta9h33G3xmM+fT9D7YSiL/Imlhh4CKTBpfdNbgD3yStwofHNrpl0YcwIH5qa7/m/9avSBggKWLP3ihIChH/ztNkgbnhK9sqZjfdaYiIoHksID8uoLCAmYk88J9p/mYYRsUB3TK7tBRak/HD93VLBVUHPOZH39hRelORGpF+PpNdXkh1IKoIwk1JAGK7CbA2xYAdm8lXdPesuPCnANfAG3yo6S0+oIc99qDHr/qavAP4liyC0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REZtMWdGemJGaVFXbHhKUlFaTmliRmlCaVlhdUZzVmF4TTlMS1FKaVpGeG82?=
+ =?utf-8?B?bzNMWm5RZUIyQ200VnBBbCtrUWlSQ0F4SmdCTEtCZlpXWDV1QllpeWVsd0hi?=
+ =?utf-8?B?T0FXUUpRK3pnb1pLRHFRQTJLeHZ6eU9hcXA4dWZTNS9ZdFlNRFFXVUZ4ODFR?=
+ =?utf-8?B?Mzl3TGRmYWk3Zktya01JbW13aWtrY1I4bmpPcGM2SmgzN3RrclBvUGhhSFZu?=
+ =?utf-8?B?bEF3TmxjUzZYNXJ6YkxvaDB4aER5YVZMT3dWTC8rU2NRRDhCalNEY1NEaGNP?=
+ =?utf-8?B?cnpVM2l0SmZWSldQNUtnNGYzNDRsWk9NM1hMd1ZKNDZySmFpbDBwZWljaHg0?=
+ =?utf-8?B?aWlnVjVGaUcwSm1EenNSb2RFLzlvNVNYZ29neTFQYUo5c3VjUFBqSGltVHdi?=
+ =?utf-8?B?d1krVU5ISHVBWURoQVR4UVZGYkdmbzE4cmVYUEcyQlJhZlNUSldaVDlDbHpa?=
+ =?utf-8?B?ZmwreXFudUwvNXdBN3M0TDBDMlVQdndva3RzaGVNZ2k2c1Q4M0xhT1BQajFn?=
+ =?utf-8?B?N0Mrc29xYTVvWHI0eno0b0ZuQUJiNWtQWGFqbE94bjM3bGVDRTBJeDNmU2VT?=
+ =?utf-8?B?dUU2TEI3OEFIT0U2NTVCYzJWMjdVOFExcU9vWFJvb3VWUmFMaURSWFNOZHJp?=
+ =?utf-8?B?bFZMRUJCbXd6NStPeERqL3gyQWxsSU43STlYMDA2UUMwQytNRHE0TDMyQVFQ?=
+ =?utf-8?B?Z0MxcVVIL0krdjZLS2RWVUJ1ZGliUjFwdElEbmo3dTZPSUxhRUdjRlcySUEv?=
+ =?utf-8?B?QWd5TlRMNzI4Vm9sM2grS1dPZzVlSnRIbnptRnlzUlBiSFJTOHpYaitJUnZX?=
+ =?utf-8?B?WW43eEFybnB0UElBaUhleGhzaWRPSlFleTU5dXZDQnk5RmFsT3hTa0hTMFJP?=
+ =?utf-8?B?WGpRS2ZETTdEblFBVW5iVGhzdXNkOGNlNjBWVlhHc1FkZjg3TllaM1MwK2F4?=
+ =?utf-8?B?Z0RQZkZhQWM4cjlndnIzenBsYThiWUZtYlgvaVpPZDNGUFUxYitiV3lKMGYz?=
+ =?utf-8?B?bDRIL0tuREN6N1VpMW4zWmcwKzlxUU54RDdZMVBwakJXTmxiVVAvN25ZWWZi?=
+ =?utf-8?B?RGhVM3Z6OUhwMDNKb00zRmtnNXJqWWtTUGlES2lORDVFWHoxd1pBWndtZk9a?=
+ =?utf-8?B?OXVUS2paUlVYSjBUOG5KM3NrRjI3SG5hTkRrdE5ENmNyUnFtUHFSNGhIV2dR?=
+ =?utf-8?B?RHlKc3JUbG9Cb3FrSStkalNsOWlmZHcxLzF2eHdrMFRBU3lmWVQza2MrRHE2?=
+ =?utf-8?B?Q3QwbWgveTVUMmJKWklYMkRMb0NOcXFScVp4aFhTMTdPOWNIQUVLMThJWDVN?=
+ =?utf-8?B?dGd4R0I5Qkt5QXFFODd3VHozSTdWWUZYUitPZHc2QWZUeXZvSDd2dVI5UXU1?=
+ =?utf-8?B?TEgzTzIyajJ4dGxjczZVTkxUQWt2VXVaUURsVUVnbEhCbGR6R2VrVGVpSzU4?=
+ =?utf-8?B?S0JBYlpTaE1TVTdoYksxQVNEN2ptVVhBR1htMjhWdkFuQTZuQk5QczFzZDBs?=
+ =?utf-8?B?cm5Nb1FEakIrN1V3Q2FJN0p1bFBKRTh5cjVpZHZPaUxEbGUzUDRUWmR1TFBJ?=
+ =?utf-8?B?NGhtNmt2SVRHay9CRnBrRElyeW1USStlM08rNzdqWWppckZBMk8wZjVJQ2tV?=
+ =?utf-8?B?b2NIUFBPd2ZEQmZIcXZhdTcyNUFwR3IyTXVQQkRzZzhtQUMwdmdzVE9SUGgr?=
+ =?utf-8?B?dnh3Mkp4cDgwc2JIQnNzakIySkt6eEN1R0J6QUxtdDZVQldkeEhLZHZYVGpW?=
+ =?utf-8?B?WUpmUHhUNk1idjBxeUxJdnlaWU9meG5wd0ZYdFZxTUJxTWFxcnJMNGx1UCsr?=
+ =?utf-8?B?eitId3luSUF2UTlvTk5rRzZLNGE3NXZtWkd3cTVRL2R3Mk03Z3V3clpsOWhB?=
+ =?utf-8?B?RUw3djd4V0k4aG9FQlZQUExrQWxwcEwxREhlV1dSUUtEanZtRXYrUk4yMlpH?=
+ =?utf-8?B?U25jUXJ0WmxwTENKSlVGbSs0L3QvRnRJTFBuZDliaGdGNmxKbEJGVWN1QzV1?=
+ =?utf-8?B?V24rR2ZPRXBCeUFTS1JlZUJhOTBZRHplWG1lNmFmOG5zRW51aFZwNXJIRW9Y?=
+ =?utf-8?B?eWc2Nll6ODd5dk0yOVE1emt2SkZ3bUc3Um5keTBTaXNmRXI5dVVOb2trQ0ZK?=
+ =?utf-8?B?WGdqYkpSWnA2dkRvLzdpcFQ0MmVWSk52cDNMbStHWUdGTHl1RzNwd09rQldV?=
+ =?utf-8?B?NzAyV2llbWo2bEtndlY0RUFLSW1mSXMzUzVXeWthVXBUVlBQbzc5dFg5K0Mx?=
+ =?utf-8?B?eG5ZbkwrY0RLOW5XWENCRWxxdGgvbW1FVWR3NERrbjh0MzNUQmZNVmgvaFNw?=
+ =?utf-8?B?R3dvMHc5Vm1Na0xSUkpab0VZMmZzZFh5UGVkL0xxUi81bjRickp6WVE0R0pE?=
+ =?utf-8?Q?6kSHf6UGjhxTB9lM=3D?=
+X-Exchange-RoutingPolicyChecked: rj9/3/Hfg4m6DKrwJNVyypAyP4B3AsPCuGJDhVOTafuCaHo+bbNxd7yprG1givYQlOck4oDEWgw5IrqoGfd/khKLf7DQDoO1gnZdQJM+GtEgEpGEMVjHet+5fLrDjaLhuAJ7ikMcP69/gz476fEQnhHbh5E+o7XHctWd0YQtkmadqhsFThNfSxvLPsrGRp0W9Jm74YkvUs0I8WUI0TOujlnsVBB+LpFbFZBNc35KQHLm8fnxj1jASRyg0HZlKG6l6H1WOBMUrw1AfnJ8PaM0ca8ALVPagbVPtsvInD5Sn0OZteX2tipjm9UbpKbqVOd0QeIxlHO3yaqfNNZfyN8mEA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f34c893-73e7-4fa6-ad6d-08df0dbecf1c
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 15:35:28.1472
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AY4Jo8gxchuj4U088klU0z7a0zaIf/AX8LgbCXRSixRT2bHWOK9Lq0TasppHxpCTrox9yxz4vWaUufc8xVEu7SrZdh9tN7qaUQMz61lMntc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR11MB9709
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_083542_176686_BE661981 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,664 +191,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+Hi Ben,
 
-The Arm mps2 platform is the reference implementation for Arm
-microcontrollers and is useful for testing but not expected to be used
-as a production device.
+On 9/7/26 3:44 AM, Ben Horgan wrote:
+> Hi Boris, Reinette,
+> 
+> On 04/09/2026 18:36, Borislav Petkov wrote:
+>> On Thu, Sep 03, 2026 at 08:37:51PM -0700, Borislav Petkov wrote:
+>>> Lemme have a look.
+>>
+>> Sashiko has comments:
+>>
+>> https://sashiko.dev/#/patchset/20260709093111.367851-1-ben.horgan%40arm.com
+>>
+>> Please address them: if valid, fix them, if not, explain why they don't need
+>> to be fixed.
+>>
+>> Thx.
+>>
+> 
+> Regarding the first Sashiko comment.
+> 
+> The documentation change in patch 3 includes the sentence:
+> 
+> "
+> The allocated bandwidth percentage is rounded up to the next control step available on the
+> hardware.
+> "
+> 
+> Sashiko rightly objects to the "rounded up". For MPAM systems this can be up or down and we test in
+> test_mpam_resctrl.c:test_percent_to_max_rounding() that it isn't too biased to rounding one way or
+> the other.
+> 
+> How about replacing "rounded up" with "rounded up or down" so that the sentence becomes:
+> 
+> "
+> The allocated bandwidth percentage is rounded up or down to the next control step available on the
+> hardware.
+> "
+> 
+> What do you think? Should I respin the series with this alteration?
+The change looks good to me since Intel always rounds up. By itself "rounded" may thus be deceiving.
+One concern is that "next" seems to accompany "round up" to reflect forward/upward movement.
+How about also replacing "next" with "nearest" or "closest"?
 
-With all the Cortex-M based products gone, there is no longer a need
-for a reference platform either, so remove it as well.
+I think a respin would be most convenient to ensure the intended changes are made.
 
-Cc: Liviu Dudau <liviu.dudau@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Andi Shyti <andi.shyti@kernel.org>
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-i2c@vger.kernel.org
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/Kconfig                     |  14 --
- arch/arm/boot/dts/arm/Makefile       |   3 -
- arch/arm/boot/dts/arm/mps2-an385.dts |  92 -----------
- arch/arm/boot/dts/arm/mps2-an399.dts |  92 -----------
- arch/arm/boot/dts/arm/mps2.dtsi      | 220 ---------------------------
- arch/arm/configs/mps2_defconfig      | 102 -------------
- arch/arm/mach-versatile/Makefile     |   3 -
- arch/arm/mach-versatile/v2m-mps2.c   |  17 ---
- drivers/i2c/busses/Kconfig           |   2 +-
- 9 files changed, 1 insertion(+), 544 deletions(-)
- delete mode 100644 arch/arm/boot/dts/arm/mps2-an385.dts
- delete mode 100644 arch/arm/boot/dts/arm/mps2-an399.dts
- delete mode 100644 arch/arm/boot/dts/arm/mps2.dtsi
- delete mode 100644 arch/arm/configs/mps2_defconfig
- delete mode 100644 arch/arm/mach-versatile/v2m-mps2.c
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 13b38be3353a..cf380b686867 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -443,20 +443,6 @@ source "arch/arm/mach-zte/Kconfig"
- 
- source "arch/arm/mach-zynq/Kconfig"
- 
--config ARCH_MPS2
--	bool "ARM MPS2 platform (DEPRECATED)"
--	depends on ARM_SINGLE_ARMV7M
--	select ARM_AMBA
--	select CLKSRC_MPS2
--	help
--	  Support for Cortex-M Prototyping System (or V2M-MPS2) which comes
--	  with a range of available cores like Cortex-M3/M4/M7.
--
--	  Please, note that depends which Application Note is used memory map
--	  for the platform may vary, so adjustment of RAM base might be needed.
--
--	  This platform is scheduled for removal in early 2027
--
- # Definitions to make life easier
- config PLAT_ORION
- 	bool
-diff --git a/arch/arm/boot/dts/arm/Makefile b/arch/arm/boot/dts/arm/Makefile
-index 07ebb64e2cd0..c01593dd197d 100644
---- a/arch/arm/boot/dts/arm/Makefile
-+++ b/arch/arm/boot/dts/arm/Makefile
-@@ -3,9 +3,6 @@ dtb-$(CONFIG_ARCH_INTEGRATOR) += \
- 	integratorap.dtb \
- 	integratorap-im-pd1.dtb \
- 	integratorcp.dtb
--dtb-$(CONFIG_ARCH_MPS2) += \
--	mps2-an385.dtb \
--	mps2-an399.dtb
- dtb-$(CONFIG_ARCH_REALVIEW) += \
- 	arm-realview-pb1176.dtb \
- 	arm-realview-pb11mp.dtb \
-diff --git a/arch/arm/boot/dts/arm/mps2-an385.dts b/arch/arm/boot/dts/arm/mps2-an385.dts
-deleted file mode 100644
-index aebbebfc25d1..000000000000
---- a/arch/arm/boot/dts/arm/mps2-an385.dts
-+++ /dev/null
-@@ -1,92 +0,0 @@
--/*
-- * Copyright (C) 2015 ARM Limited
-- *
-- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-- */
--
--/dts-v1/;
--
--#include "mps2.dtsi"
--
--/ {
--	model = "ARM MPS2 Application Note 385/386";
--	compatible = "arm,mps2";
--
--	aliases {
--		serial0 = &uart0;
--	};
--
--	chosen {
--		bootargs = "earlycon";
--		stdout-path = "serial0:9600n8";
--	};
--
--	memory@21000000 {
--		device_type = "memory";
--		reg = <0x21000000 0x1000000>;
--	};
--
--	smb {
--		ethernet@0,0 {
--			compatible = "smsc,lan9220", "smsc,lan9115";
--			reg = <0 0x0 0x10000>;
--			interrupts = <13>;
--			interrupt-parent = <&nvic>;
--			smsc,irq-active-high;
--		};
--	};
--};
--
--&uart0 {
--	status = "okay";
--};
--
--&timer0 {
--	status = "okay";
--};
--
--&timer1 {
--	status = "okay";
--};
--
--&wdt {
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/arm/mps2-an399.dts b/arch/arm/boot/dts/arm/mps2-an399.dts
-deleted file mode 100644
-index 349abf70b2a5..000000000000
---- a/arch/arm/boot/dts/arm/mps2-an399.dts
-+++ /dev/null
-@@ -1,92 +0,0 @@
--/*
-- * Copyright (C) 2015 ARM Limited
-- *
-- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-- */
--
--/dts-v1/;
--
--#include "mps2.dtsi"
--
--/ {
--	model = "ARM MPS2 Application Note 399/400";
--	compatible = "arm,mps2";
--
--	aliases {
--		serial0 = &uart0;
--	};
--
--	chosen {
--		bootargs = "earlycon";
--		stdout-path = "serial0:9600n8";
--	};
--
--	memory@60000000 {
--		device_type = "memory";
--		reg = <0x60000000 0x1000000>;
--	};
--
--	smb {
--		ethernet@1,0 {
--			compatible = "smsc,lan9220", "smsc,lan9115";
--			reg = <1 0x0 0x10000>;
--			interrupts = <13>;
--			interrupt-parent = <&nvic>;
--			smsc,irq-active-high;
--		};
--	};
--};
--
--&uart0 {
--	status = "okay";
--};
--
--&timer0 {
--	status = "okay";
--};
--
--&timer1 {
--	status = "okay";
--};
--
--&wdt {
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/arm/mps2.dtsi b/arch/arm/boot/dts/arm/mps2.dtsi
-deleted file mode 100644
-index e240bc8aa605..000000000000
---- a/arch/arm/boot/dts/arm/mps2.dtsi
-+++ /dev/null
-@@ -1,220 +0,0 @@
--/*
-- * Copyright (C) 2015 ARM Limited
-- *
-- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-- */
--
--#include "../armv7-m.dtsi"
--
--/ {
--	#address-cells = <1>;
--	#size-cells = <1>;
--
--	oscclk0: clock-50000000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <50000000>;
--	};
--
--	oscclk1: clock-24576000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <24576000>;
--	};
--
--	oscclk2: clock-25000000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <25000000>;
--	};
--
--	cfgclk: clock-5000000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <5000000>;
--	};
--
--	spicfgclk: clock-75000000 {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <75000000>;
--	};
--
--	sysclk: spiclcd: spicon: i2cclcd: i2caud: clock-sys {
--		compatible = "fixed-factor-clock";
--		clocks = <&oscclk0>;
--		#clock-cells = <0>;
--		clock-div = <2>;
--		clock-mult = <1>;
--	};
--
--	audmclk: clk-12388000 {
--		compatible = "fixed-factor-clock";
--		clocks = <&oscclk1>;
--		#clock-cells = <0>;
--		clock-div = <2>;
--		clock-mult = <1>;
--	};
--
--	audsclk: clk-3072000 {
--		compatible = "fixed-factor-clock";
--		clocks = <&oscclk1>;
--		#clock-cells = <0>;
--		clock-div = <8>;
--		clock-mult = <1>;
--	};
--
--	soc {
--		compatible = "simple-bus";
--		ranges;
--
--		apb@40000000 {
--			compatible = "simple-bus";
--			#address-cells = <1>;
--			#size-cells = <1>;
--			ranges = <0 0x40000000 0x10000>;
--
--			timer0: mps2-timer0@0 {
--				compatible = "arm,mps2-timer";
--				reg = <0x0 0x1000>;
--				interrupts = <8>;
--				clocks = <&sysclk>;
--				status = "disabled";
--			};
--
--			timer1: mps2-timer1@1000 {
--				compatible = "arm,mps2-timer";
--				reg = <0x1000 0x1000>;
--				interrupts = <9>;
--				clocks = <&sysclk>;
--				status = "disabled";
--			};
--
--			timer2: dual-timer@2000 {
--				compatible = "arm,sp804", "arm,primecell";
--				reg = <0x2000 0x1000>;
--				clocks = <&sysclk>, <&sysclk>, <&sysclk>;
--				clock-names = "timer0clk", "timer1clk",
--					       "apb_pclk";
--				interrupts = <10>;
--				status = "disabled";
--			};
--
--			uart0: serial@4000 {
--				compatible = "arm,mps2-uart";
--				reg = <0x4000 0x1000>;
--				interrupts = <0>, <1>, <12>;
--				clocks = <&sysclk>;
--				status = "disabled";
--			};
--
--			uart1: serial@5000 {
--				compatible = "arm,mps2-uart";
--				reg = <0x5000 0x1000>;
--				interrupts = <2>, <3>, <12>;
--				clocks = <&sysclk>;
--				status = "disabled";
--			};
--
--			uart2: serial@6000 {
--				compatible = "arm,mps2-uart";
--				reg = <0x6000 0x1000>;
--				interrupts = <4>, <5>, <12>;
--				clocks = <&sysclk>;
--				status = "disabled";
--			};
--
--			wdt: watchdog@8000 {
--				compatible = "arm,sp805", "arm,primecell";
--				arm,primecell-periphid = <0x00141805>;
--				reg = <0x8000 0x1000>;
--				interrupts = <0>;
--				clocks = <&sysclk>, <&sysclk>;
--				clock-names = "wdog_clk", "apb_pclk";
--				status = "disabled";
--			};
--		};
--	};
--
--	fpga@40020000 {
--		compatible = "simple-bus";
--		#address-cells = <1>;
--		#size-cells = <1>;
--		ranges = <0 0x40020000 0x10000>;
--
--		fpgaio@8000 {
--			compatible = "syscon", "simple-mfd";
--			reg = <0x8000 0x10>;
--
--			ranges = <0x0 0x8000 0x10>;
--			#address-cells = <1>;
--			#size-cells = <1>;
--
--			led@0,0 {
--				compatible = "register-bit-led";
--				reg = <0x00 0x04>;
--				offset = <0x0>;
--				mask = <0x01>;
--				label = "userled:0";
--				linux,default-trigger = "heartbeat";
--				default-state = "on";
--			};
--
--			led@0,1 {
--				compatible = "register-bit-led";
--				reg = <0x00 0x04>;
--				offset = <0x0>;
--				mask = <0x02>;
--				label = "userled:1";
--				linux,default-trigger = "usr";
--				default-state = "off";
--			};
--		};
--	};
--
--	smb {
--		compatible = "simple-bus";
--		#address-cells = <2>;
--		#size-cells = <1>;
--		ranges = <0 0 0x40200000 0x10000>,
--			 <1 0 0xa0000000 0x10000>;
--	};
--};
-diff --git a/arch/arm/configs/mps2_defconfig b/arch/arm/configs/mps2_defconfig
-deleted file mode 100644
-index cacf3876f6e4..000000000000
---- a/arch/arm/configs/mps2_defconfig
-+++ /dev/null
-@@ -1,102 +0,0 @@
--CONFIG_NO_HZ_IDLE=y
--CONFIG_HIGH_RES_TIMERS=y
--CONFIG_PREEMPT_VOLUNTARY=y
--CONFIG_LOG_BUF_SHIFT=16
--CONFIG_CC_OPTIMIZE_FOR_SIZE=y
--CONFIG_EXPERT=y
--# CONFIG_UID16 is not set
--CONFIG_BASE_SMALL=y
--# CONFIG_FUTEX is not set
--# CONFIG_EPOLL is not set
--# CONFIG_SIGNALFD is not set
--# CONFIG_EVENTFD is not set
--# CONFIG_AIO is not set
--# CONFIG_MMU is not set
--CONFIG_ARCH_MPS2=y
--CONFIG_SET_MEM_PARAM=y
--CONFIG_DRAM_BASE=0x21000000
--CONFIG_DRAM_SIZE=0x1000000
--# CONFIG_SUSPEND is not set
--# CONFIG_BLOCK is not set
--CONFIG_BINFMT_FLAT=y
--# CONFIG_COREDUMP is not set
--# CONFIG_VM_EVENT_COUNTERS is not set
--CONFIG_NET=y
--CONFIG_PACKET=y
--CONFIG_UNIX=y
--CONFIG_INET=y
--CONFIG_IP_PNP=y
--CONFIG_IP_PNP_DHCP=y
--# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
--# CONFIG_INET_XFRM_MODE_TUNNEL is not set
--# CONFIG_INET_XFRM_MODE_BEET is not set
--# CONFIG_INET_DIAG is not set
--# CONFIG_IPV6 is not set
--# CONFIG_WIRELESS is not set
--CONFIG_DEVTMPFS=y
--CONFIG_DEVTMPFS_MOUNT=y
--# CONFIG_FW_LOADER is not set
--CONFIG_NETDEVICES=y
--# CONFIG_NET_CORE is not set
--# CONFIG_NET_VENDOR_ARC is not set
--# CONFIG_NET_CADENCE is not set
--# CONFIG_NET_VENDOR_BROADCOM is not set
--# CONFIG_NET_VENDOR_CIRRUS is not set
--# CONFIG_NET_VENDOR_EZCHIP is not set
--# CONFIG_NET_VENDOR_FARADAY is not set
--# CONFIG_NET_VENDOR_HISILICON is not set
--# CONFIG_NET_VENDOR_INTEL is not set
--# CONFIG_NET_VENDOR_MARVELL is not set
--# CONFIG_NET_VENDOR_MICREL is not set
--# CONFIG_NET_VENDOR_NATSEMI is not set
--# CONFIG_NET_VENDOR_QUALCOMM is not set
--# CONFIG_NET_VENDOR_RENESAS is not set
--# CONFIG_NET_VENDOR_ROCKER is not set
--# CONFIG_NET_VENDOR_SAMSUNG is not set
--# CONFIG_NET_VENDOR_SEEQ is not set
--CONFIG_SMSC911X=y
--# CONFIG_NET_VENDOR_STMICRO is not set
--# CONFIG_NET_VENDOR_VIA is not set
--# CONFIG_NET_VENDOR_WIZNET is not set
--# CONFIG_WLAN is not set
--# CONFIG_INPUT is not set
--# CONFIG_SERIO is not set
--# CONFIG_VT is not set
--# CONFIG_LEGACY_PTYS is not set
--CONFIG_SERIAL_MPS2_UART_CONSOLE=y
--CONFIG_SERIAL_MPS2_UART=y
--CONFIG_SERIAL_NONSTANDARD=y
--# CONFIG_HW_RANDOM is not set
--# CONFIG_HWMON is not set
--CONFIG_WATCHDOG=y
--CONFIG_ARM_SP805_WATCHDOG=y
--CONFIG_MFD_SYSCON=y
--# CONFIG_USB_SUPPORT is not set
--CONFIG_NEW_LEDS=y
--CONFIG_LEDS_CLASS=y
--CONFIG_LEDS_SYSCON=y
--CONFIG_LEDS_TRIGGERS=y
--CONFIG_LEDS_TRIGGER_TIMER=y
--CONFIG_LEDS_TRIGGER_ONESHOT=y
--CONFIG_LEDS_TRIGGER_HEARTBEAT=y
--CONFIG_LEDS_TRIGGER_BACKLIGHT=y
--CONFIG_LEDS_TRIGGER_CPU=y
--CONFIG_LEDS_TRIGGER_DEFAULT_ON=y
--CONFIG_ARM_TIMER_SP804=y
--# CONFIG_DNOTIFY is not set
--# CONFIG_INOTIFY_USER is not set
--# CONFIG_MISC_FILESYSTEMS is not set
--CONFIG_NFS_FS=y
--CONFIG_NFS_V4=y
--CONFIG_NFS_V4_1=y
--CONFIG_NFS_V4_2=y
--CONFIG_ROOT_NFS=y
--CONFIG_NLS=y
--CONFIG_PRINTK_TIME=y
--# CONFIG_ENABLE_MUST_CHECK is not set
--# CONFIG_DEBUG_BUGVERBOSE is not set
--CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
--CONFIG_DEBUG_FS=y
--# CONFIG_SLUB_DEBUG is not set
--# CONFIG_SCHED_DEBUG is not set
--CONFIG_MEMTEST=y
-diff --git a/arch/arm/mach-versatile/Makefile b/arch/arm/mach-versatile/Makefile
-index d819fb2fc450..07171ef1d6a7 100644
---- a/arch/arm/mach-versatile/Makefile
-+++ b/arch/arm/mach-versatile/Makefile
-@@ -22,9 +22,6 @@ obj-$(CONFIG_ARCH_VEXPRESS_TC2_PM)	+= tc2_pm.o
- CFLAGS_tc2_pm.o				+= -march=armv7-a
- CFLAGS_REMOVE_tc2_pm.o			= -pg
- 
--# mps2
--obj-$(CONFIG_ARCH_MPS2)			+= v2m-mps2.o
--
- ifdef CONFIG_SMP
- obj-y					+= headsmp.o platsmp.o
- obj-$(CONFIG_ARCH_REALVIEW)		+= platsmp-realview.o
-diff --git a/arch/arm/mach-versatile/v2m-mps2.c b/arch/arm/mach-versatile/v2m-mps2.c
-deleted file mode 100644
-index 5b50d8e95cd7..000000000000
---- a/arch/arm/mach-versatile/v2m-mps2.c
-+++ /dev/null
-@@ -1,17 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Copyright (C) 2015 ARM Limited
-- *
-- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
-- */
--
--#include <asm/mach/arch.h>
--
--static const char *const mps2_compat[] __initconst = {
--	"arm,mps2",
--	NULL
--};
--
--DT_MACHINE_START(MPS2DT, "MPS2 (Device Tree Support)")
--	.dt_compat = mps2_compat,
--MACHINE_END
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index d7b89508311f..9d60d4b650ec 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -1260,7 +1260,7 @@ config I2C_UNIPHIER_F
- 
- config I2C_VERSATILE
- 	tristate "ARM Versatile/Realview I2C bus support"
--	depends on ARCH_MPS2 || ARCH_VERSATILE || ARCH_REALVIEW || ARCH_VEXPRESS || COMPILE_TEST
-+	depends on ARCH_VERSATILE || ARCH_REALVIEW || ARCH_VEXPRESS || COMPILE_TEST
- 	select I2C_ALGOBIT
- 	help
- 	  Say yes if you want to support the I2C serial bus on ARMs Versatile
--- 
-2.53.0
-
+Reinette
 
