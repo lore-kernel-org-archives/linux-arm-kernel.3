@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9117C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08D1C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5EVHk0NXXIU8EHUIjtyFuKryvLqKxApr9W8JeHmHPt8=; b=eTMN7jI7sgkN853kftkR+OqisA
-	BbW/8ltX1kDibItOs7NBIf8y7gFo4/oRrDFjwhaX07qBZ2NEs6mfU/VA65e0MsOC1f2hA1wXsfGO7
-	iMTBOxXkj2L+jzc6OV/qt68eUg2cUzpuMIPu9bZorlnLjb8s8Z1t4TGhYuwHlk00IHWpeUeOqj+R7
-	DqJN1KP0fsOt7N5IuvyiSUQ28jeDSMiBz0qyO6K6yK3krxRXws4yH5dXOR6Rq9CmJp12tZRQC84Ec
-	e0uTzrapHtLQ2X2Rchh22MN4vq5kEEHXWE7+pf0XyCqQ+9u5iSibJ+PpM3rXkpnbf/F5jZ3nNSqC+
-	Dil7GTJw==;
+	bh=a0G6PBNCNI9Yj3CIpfLEh1JaSFXkOQqLFV+7Mz1Okng=; b=TETLWx/1IKYufBNUf0wMq7aXmm
+	GwN6M4nM1pH9jeDsI1kXUzCvFOkuLDp21nPI1yhlpQwumgfOxQRVYgSdl5du7k6KOTdGCGaqhZzdW
+	ac1/blWFF/qDbgpZbDMHCScTbl9raKWaptx0rgwe6B14iMy/ldHPhibrni//DipAsj4xf4/kD82Wl
+	1GeAG0pPfWcGxZ/aNKTaoACfvB+L41hL7ZvRI1q2ST0EIhQBbO+tKyt2eZMoijC5+J//ygBMGMEeN
+	iqXgRrMpld+8eC/Q4lN1MWO0TZXvLoyzgrdpXmMzeAHkKMQaA0+VgHK5PcciOiRfLqH9kNyDVoBr0
+	592US3VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oMW-000000083yV-2uYR;
-	Tue, 08 Sep 2026 05:27:18 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1x3oMi-0000000844W-3Wug;
+	Tue, 08 Sep 2026 05:27:28 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oMU-000000083x4-0yPO
+	id 1x3oMc-0000000841a-1sEc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:27:15 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso3008578a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:27:13 -0700 (PDT)
+	Tue, 08 Sep 2026 05:27:26 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-cc1b838f9b6so4549638a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:27:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788845233; x=1789450033; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788845242; x=1789450042; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5EVHk0NXXIU8EHUIjtyFuKryvLqKxApr9W8JeHmHPt8=;
-        b=TtVHGPTgQikoOQpU2kNjBkrWqM36Art58f0P/gSTXza+lN/VJ5ENGRk8u3MBsTpBPJ
-         9LXVwFdBrGsn0EriSzI2/hVf9GVS0K85qR5UPc3nKjOwFfck9rJ94VFHnN50+LqUHNo6
-         CFlps2uBwjoXxogSK16ceWZCGKQ0d4is7Llq3z6nY9eASJ+6Ux5RKvfv3myUWOE4f8BM
-         l6C1wkFZscNsMfbrgNawp7hpbuEHU6rT4qVKugyA47UJowUOfr2WRFWBLJhKPQKxKld+
-         HqVEM/Cu7O1kyRHoh76D5RiTtceXmrpo9kWSe9+zSO41S5+JIkdNJcJ7VsE/VUyD996M
-         7KiA==
+        bh=a0G6PBNCNI9Yj3CIpfLEh1JaSFXkOQqLFV+7Mz1Okng=;
+        b=rA3ZobTLb28IzpVblw6rRp/+k9ct2DE8wQ7U/hLi9Me/NuXDZovKNwHW/Io2noF8F/
+         u+j2l09u/xpUdPhcNhXUPlvWRKEBW4uj4c331DyNMLZ3hgvFI5GEn6+EpTCx/tl3dwPW
+         Vcwd14JKorbmhnkdh6ZXDjiK4hvJql6nJUuFs09p4eQWahB2HJVlyX3QnODnr/bPG2pj
+         5qheQOyWwILZ8E4Jq2LIfRK1QrchIoDXyBfyqLvhC1uNBbRLbnd+8GfCXaDN3ZEXExpF
+         +cL1XVudQSeOMLNSfKk7MKtmCssZbeWxZXPJ2PMt0/fJdzefap+jhwe6jMakCAXBIwSy
+         BjKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788845233; x=1789450033;
+        d=1e100.net; s=20251104; t=1788845242; x=1789450042;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5EVHk0NXXIU8EHUIjtyFuKryvLqKxApr9W8JeHmHPt8=;
-        b=V3kzqjOTiKe7vhlxbrdyfsVABDJUk5f+UvYr/C9Sjv6dlmL7FxM3T3C0xzMJdxYsMY
-         f/0qdRb5VUV/VY75/V4XS8gnUtDKjATuxQAqxORYqE3tjEUgLoS9L6lwI+dIlg/RMTf2
-         Z9f5A302JVTg/+rCFzQ8x1axjdpT8DfbbwpawuPZIrDSGlz2myJHeuVlMtgf8QoETRbc
-         eJhj909vEQLq2g5Hjkjd+PHxyb5F2zgxxEGC2VTnN5Lgqnd4HADq49AgeLfJunbLf50e
-         cMqonwtuLQFKri5SYD3Gm2yU0XnGXEKzQbjGhwcQEw9tUa/0ugm5w1JjB5r2KlnjDBtz
-         TV0g==
-X-Gm-Message-State: AFuF++kmrwjGpst3VfBMV21+r+HBE2ktTC1iu6aBaEKY+MqR+Znq3wdK
-	yd+I5ZcfTL9cfIEO6nEXzr4Rv5Xtyhle/4G41nKVOFVujACUTa8WuL3D
-X-Gm-Gg: AYBFou3FXPnqoaedZxy21im6f++P/WgouOo1sD7vgAtM9mqfq+b5+tfSIjrGvykWfAS
-	sMIWTgl05P01EuRVFtawaJOiCaYWljj49Hz2xMSZuNsIDnYjjWSPC/Ka7PsRIuUMShRHUZnCzWS
-	0yc1XFsaRQU2L+hbCx6d9EVWgcMguSz6FZF4zOX7xawsyUKstYYbykP2HplUezWDY+kdlqGVmpY
-	NQAIY2z53HRk4/bShexTmfxTrrJVlX/N7tnIgxto+zWHzbCYnCJoKqlkCHqElbcYuTUSJymUzA+
-	524pW/Bg5T8iOPm23pyBbaSoAU0xda3WWqw/SmFPG/Kc0Xko6dfokQuVFqphd+wMxdkxNsyUq9U
-	MLeR8t9H9Wk3vhaVUnb8dTOla2RlbkLgEQxXrjc8z1UpTerYIDRUn19Ag7Oole93HeUYOHbHa63
-	wO3G3pL1ej0tlorzUhPqClO8GEVsTIlhYHJjiEODYtjMxt44ElXZxqpnaElwPADTdnm6vi1IsIF
-	y8fQtqbUFgxeElzARBj1eKu
-X-Received: by 2002:a17:90b:4d06:b0:366:10f1:3d91 with SMTP id 98e67ed59e1d1-39b2614df74mr38607866a91.1.1788845233163;
-        Mon, 07 Sep 2026 22:27:13 -0700 (PDT)
+        bh=a0G6PBNCNI9Yj3CIpfLEh1JaSFXkOQqLFV+7Mz1Okng=;
+        b=i6IlMfsgWxaa4c3luDc1owQqCOpGlDFeoOAXt1MngKWuJG7ekqgEiFY9NZR5W08Ui3
+         Q52PE6Dbk3slzDFesOt4E+nmAuB+Qtl8G+CbxNXuoKlQiYMmyLrJVLwpedz78wvOPWxt
+         8wsW3TiBu0g9CaBLF4eryb+sfqixZr6viWMRbduzsf9EivK0P13QsQ6FIWbPh8cJ6uKJ
+         sjiadWQlgC5yNaxPXFRSPrAKq6aYvCc0X1X6TspbnXQdlI8TS882DCqY0Ce5dmYJzcnV
+         aevo9LqOzBIIqL5pECKF0kVvvCilGxIqodSQANkWJZtHTHpD8wX1LoQsZq1557aihp94
+         NZvQ==
+X-Gm-Message-State: AFuF++n/2IcS9iycRnwxjryf6sXGN6pho0ERxKiD9gOg0BaIIWGjLqdJ
+	rINCxTrOXDKTXx7AQtdLMWkMeYg6oy/Xd+DUfpcEEJmOWpfZjdsqQaDL
+X-Gm-Gg: AYBFou36KUX/V/5LFO7K8Xr4bH9thV1XE80MvTF50VJNhySVoN10FkP6+US1wr0Bdyx
+	TH1tl4b/2uaWNb9J6M2FJSf4nIAilK7hwuL+zWg1qB022bfaBhu7g14gwjQLBfOvCDmTCosll5k
+	4j09f85uYJ+0n2SuMBzSPUaHpR/IUk88eseANQcvVaMdnRhMIEFLoo9cF/ib91nU4wUSiV/6QKo
+	masTZk2hek/B1WzDU840+4Gs6njyjU25r0aycXga+0sBsK0kqwNtUpGZqf9Q4uFwFWjZ5VUH07u
+	+3117Dkj7U42rup93kzJbPbT33tgifsFqlL3kTV/Nm3mMyVzerqFq/gOqycLD+Ulvu6AfOmm5B3
+	ojKLnFirw34ocZrqj4OQMWPBFdS/aNx3cPrhFpD8cnm2D4Px0fujtxXv6OgixUQOoi4MMMUPtbx
+	w0bkxeiesNKI+BCFswpFrbCCkvPVkLwwq//T5WUFzq0iWTxIAeEQpB4TKJ8aCi8WN+mFRKAl0yo
+	f4p5rapg+xh/A==
+X-Received: by 2002:a05:6a21:a38b:b0:3d1:deec:9265 with SMTP id adf61e73a8af0-3da39b5832bmr46064670637.6.1788845241699;
+        Mon, 07 Sep 2026 22:27:21 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14340a69666sm11720586c88.9.2026.09.07.22.27.04
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14340a69666sm11720586c88.9.2026.09.07.22.27.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 22:27:12 -0700 (PDT)
+        Mon, 07 Sep 2026 22:27:21 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -99,17 +99,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-parisc@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next v3 07/10] net: marvell: fix typos in comments
-Date: Tue,  8 Sep 2026 10:55:59 +0530
-Message-ID: <20260908052602.27497-8-hemanth.selam@gmail.com>
+Subject: [PATCH net-next v3 08/10] net: hisilicon: fix typos in comments
+Date: Tue,  8 Sep 2026 10:56:00 +0530
+Message-ID: <20260908052602.27497-9-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260908052602.27497-1-hemanth.selam@gmail.com>
 References: <20260908052602.27497-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_222714_371658_A2A3ECF6 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20260907_222722_609257_A78A66D1 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,153 +129,104 @@ the misspelling list in scripts/spelling.txt.  Comments only, no code
 changes.
 
 Assisted-by: Cursor:claude-opus-5
+Reviewed-by: Jijie Shao <shaojijie@huawei.com>
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- drivers/net/ethernet/marvell/mvpp2/mvpp2.h              | 2 +-
- drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c          | 8 ++++----
- drivers/net/ethernet/marvell/octeontx2/af/npc.h         | 4 ++--
- drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c     | 2 +-
- drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c      | 2 +-
- drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c | 2 +-
- drivers/net/ethernet/marvell/pxa168_eth.c               | 4 ++--
- 7 files changed, 12 insertions(+), 12 deletions(-)
+ drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c        | 2 +-
+ drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c         | 2 +-
+ drivers/net/ethernet/hisilicon/hns/hns_enet.c             | 4 ++--
+ drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c   | 2 +-
+ drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c     | 2 +-
+ drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c | 2 +-
+ 6 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-index 061fcd444d50..3ed5670f01c2 100644
---- a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-+++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-@@ -729,7 +729,7 @@
- #define MVPP2_MAX_TXQ			8
- 
- /* MVPP2_MAX_TSO_SEGS is the maximum number of fragments to allow in the GSO
-- * skb. As we need a maxium of two descriptors per fragments (1 header, 1 data),
-+ * skb. As we need a maximum of two descriptors per fragments (1 header, 1 data),
-  * multiply this value by two to count the maximum number of skb descs needed.
-  */
- #define MVPP2_MAX_TSO_SEGS		300
-diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c b/drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c
-index 93e978bdf303..ad677cfddb4d 100644
---- a/drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c
-+++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c
-@@ -382,7 +382,7 @@ static int mvpp2_prs_flow_find(struct mvpp2 *priv, int flow)
- 	struct mvpp2_prs_entry pe;
- 	int tid;
- 
--	/* Go through the all entires with MVPP2_PRS_LU_FLOWS */
-+	/* Go through the all entries with MVPP2_PRS_LU_FLOWS */
- 	for (tid = MVPP2_PRS_TCAM_SRAM_SIZE - 1; tid >= 0; tid--) {
- 		u8 bits;
- 
-@@ -1212,7 +1212,7 @@ static void mvpp2_prs_mh_init(struct mvpp2 *priv)
- 	mvpp2_prs_hw_write(priv, &pe);
+diff --git a/drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c b/drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c
+index 91391a49fcea..a59fd280a045 100644
+--- a/drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c
++++ b/drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c
+@@ -591,7 +591,7 @@ static int hns_mac_config_sds_loopback(struct hns_mac_cb *mac_cb, bool en)
+ #define HILINK_ACCESS_SEL_CFG		0x40008
+ 			/* hilink4 & hilink3 use the same xge training and
+ 			 * xge u adaptor. There is a hilink access sel cfg
+-			 * register to select which one to be configed
++			 * register to select which one to be configured
+ 			 */
+ 			if ((!HNS_DSAF_IS_DEBUG(mac_cb->dsaf_dev)) &&
+ 			    (mac_cb->mac_id <= 3))
+diff --git a/drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c b/drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c
+index 5013beb4d282..408d36d85fb1 100644
+--- a/drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c
++++ b/drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c
+@@ -139,7 +139,7 @@ static void hns_ppe_set_vlan_strip(struct hns_ppe_cb *ppe_cb, int en)
  }
  
--/* Set default entires (place holder) for promiscuous, non-promiscuous and
-+/* Set default entries (place holder) for promiscuous, non-promiscuous and
-  * multicast MAC addresses
+ /**
+- * hns_ppe_checksum_hw - set ppe checksum caculate
++ * hns_ppe_checksum_hw - set ppe checksum calculate
+  * @ppe_cb: ppe device
+  * @value: value
   */
- static void mvpp2_prs_mac_init(struct mvpp2 *priv)
-@@ -2241,7 +2241,7 @@ mvpp2_prs_mac_da_range_find(struct mvpp2 *priv, int pmap, const u8 *da,
- 	struct mvpp2_prs_entry pe;
- 	int tid;
+diff --git a/drivers/net/ethernet/hisilicon/hns/hns_enet.c b/drivers/net/ethernet/hisilicon/hns/hns_enet.c
+index e905f10b894e..d819d2bb3450 100644
+--- a/drivers/net/ethernet/hisilicon/hns/hns_enet.c
++++ b/drivers/net/ethernet/hisilicon/hns/hns_enet.c
+@@ -1230,7 +1230,7 @@ static void hns_nic_update_stats(struct net_device *netdev)
+ 	h->dev->ops->update_stats(h, &netdev->stats);
+ }
  
--	/* Go through the all entires with MVPP2_PRS_LU_MAC */
-+	/* Go through the all entries with MVPP2_PRS_LU_MAC */
- 	for (tid = MVPP2_PE_MAC_RANGE_START;
- 	     tid <= MVPP2_PE_MAC_RANGE_END; tid++) {
- 		unsigned int entry_pmap;
-@@ -2539,7 +2539,7 @@ int mvpp2_prs_def_flow(struct mvpp2_port *port)
+-/* set mac addr if it is configed. or leave it to the AE driver */
++/* set mac addr if it is configured. or leave it to the AE driver */
+ static void hns_init_mac_addr(struct net_device *ndev)
+ {
+ 	struct hns_nic_priv *priv = netdev_priv(ndev);
+@@ -2317,7 +2317,7 @@ static int hns_nic_dev_probe(struct platform_device *pdev)
+ 		ret = device_property_read_u32(dev, "port-id", &port_id);
+ 		if (ret)
+ 			goto out_read_prop_fail;
+-		/* for old dts, we need to caculate the port offset */
++		/* for old dts, we need to calculate the port offset */
+ 		port_id = port_id < HNS_SRV_OFFSET ? port_id + HNS_DEBUG_OFFSET
+ 			: port_id - HNS_SRV_OFFSET;
+ 	}
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c b/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c
+index e6af939c1c19..bf35f55f5b8f 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c
+@@ -10527,7 +10527,7 @@ static int hclge_get_link_diagnosis_info(struct hnae3_handle *handle,
+ }
  
- 	/* Such entry not exist */
- 	if (tid < 0) {
--		/* Go through the all entires from last to first */
-+		/* Go through the all entries from last to first */
- 		tid = mvpp2_prs_tcam_first_free(port->priv,
- 						MVPP2_PE_LAST_FREE_TID,
- 					       MVPP2_PE_FIRST_FREE_TID);
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/npc.h b/drivers/net/ethernet/marvell/octeontx2/af/npc.h
-index 719b3618eeb5..309244fe8754 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/npc.h
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/npc.h
-@@ -84,7 +84,7 @@ enum npc_kpu_lc_ltype {
- 	NPC_LT_LC_CUSTOM1 = 0xF,
- };
- 
--/* Don't modify Ltypes upto SCTP, otherwise it will
-+/* Don't modify Ltypes up to SCTP, otherwise it will
-  * effect flow tag calculation and thus RSS.
+ /* After disable sriov, VF still has some config and info need clean,
+- * which configed by PF.
++ * which configured by PF.
   */
- enum npc_kpu_ld_ltype {
-@@ -140,7 +140,7 @@ enum npc_kpu_lg_ltype {
- 	NPC_LT_LG_CUSTOM1 = 0xF,
- };
- 
--/* Don't modify Ltypes upto SCTP, otherwise it will
-+/* Don't modify Ltypes up to SCTP, otherwise it will
-  * effect flow tag calculation and thus RSS.
-  */
- enum npc_kpu_lh_ltype {
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-index 153eb57bad06..d80d2c00bd84 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-@@ -4974,7 +4974,7 @@ static void rvu_nix_setup_capabilities(struct rvu *rvu, int blkaddr)
- 
- 	/* On OcteonTx2 DWRR quantum is directly configured into each of
- 	 * the transmit scheduler queues. And PF/VF drivers were free to
--	 * config any value upto 2^24.
-+	 * config any value up to 2^24.
- 	 * On CN10K, HW is modified, the quantum configuration at scheduler
- 	 * queues is in terms of weight. And SW needs to setup a base DWRR MTU
- 	 * at NIX_AF_DWRR_RPM_MTU / NIX_AF_DWRR_SDP_MTU. HW will do
-diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c b/drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c
-index 3e1bf22cba69..f98ef5431c90 100644
---- a/drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c
-@@ -301,7 +301,7 @@ static void cn10k_get_ingress_rate_cfg(u64 rate, u32 *rate_exp,
- 	 * policer timeunit * 2^rdiv ie 2 * 2^rdiv usecs, to the token bucket.
- 	 * Here policer timeunit is 2 usecs and rate is in bits per sec.
- 	 * Since floating point cannot be used below algorithm uses 1000000
--	 * scale factor to support rates upto 100Gbps.
-+	 * scale factor to support rates up to 100Gbps.
- 	 */
- 	tmp = rate * 32 * 2;
- 	if (tmp < 256000000) {
-diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c
-index f110dfa42360..91d346d114af 100644
---- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c
-@@ -67,7 +67,7 @@ static int otx2_pfc_txschq_alloc_one(struct otx2_nic *pfvf, u8 prio)
- 	if (!req)
- 		return -ENOMEM;
- 
--	/* Request one schq per level upto max level as configured
-+	/* Request one schq per level up to max level as configured
- 	 * link config level. These rest of the scheduler can be
- 	 * same as hw.txschq_list.
- 	 */
-diff --git a/drivers/net/ethernet/marvell/pxa168_eth.c b/drivers/net/ethernet/marvell/pxa168_eth.c
-index bbbbbba63e15..2370b2ddba6b 100644
---- a/drivers/net/ethernet/marvell/pxa168_eth.c
-+++ b/drivers/net/ethernet/marvell/pxa168_eth.c
-@@ -514,7 +514,7 @@ static int add_del_hash_entry(struct pxa168_eth_private *pep,
- /*
-  * ----------------------------------------------------------------------------
-  *  Create an addressTable entry from MAC address info
-- *  found in the specifed net_device struct
-+ *  found in the specified net_device struct
+ static void hclge_clear_vport_vf_info(struct hclge_vport *vport, int vfid)
+ {
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c b/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c
+index 00c3f2548bf6..bf533b8f46ae 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c
+@@ -35,7 +35,7 @@ enum hclge_shaper_level {
+  * IR(Mbps) = -------------------------  *  CLOCK(1000Mbps)
+  *		Tick * (2 ^ IR_s)
   *
-  *  Input : pointer to ethernet interface network device structure
-  *  Output : N/A
-@@ -806,7 +806,7 @@ static int rxq_process(struct net_device *dev, int budget)
- 		stats->rx_bytes += rx_desc->byte_cnt;
- 		/*
- 		 * In case received a packet without first / last bits on OR
--		 * the error summary bit is on, the packets needs to be droped.
-+		 * the error summary bit is on, the packets needs to be dropped.
- 		 */
- 		if (((cmd_sts & (RX_FIRST_DESC | RX_LAST_DESC)) !=
- 		     (RX_FIRST_DESC | RX_LAST_DESC))
+- * @return: 0: calculate sucessful, negative: fail
++ * @return: 0: calculate successful, negative: fail
+  */
+ static int hclge_shaper_para_calc(u32 ir, u8 shaper_level,
+ 				  struct hclge_shaper_ir_para *ir_para,
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c b/drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c
+index 063a692c2b41..5d14d29b0296 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c
+@@ -1880,7 +1880,7 @@ static void hclgevf_reset_service_task(struct hclgevf_dev *hdev)
+ 		 * from PF as cmdq would be in unreliable state i.e. mailbox
+ 		 * communication between PF and VF would be broken.
+ 		 *
+-		 * if we are never geting into pending state it means either:
++		 * if we are never getting into pending state it means either:
+ 		 * 1. PF is not receiving our request which could be due to IMP
+ 		 *    reset
+ 		 * 2. PF is screwed
 -- 
 2.48.1
 
