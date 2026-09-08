@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71581C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203D6C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoqTyL+G5O6+fLL3cVLfgraMEyoqxgqBpPotfBdVQqw=; b=KEOWijWo3toLOxXho4O3yuhORb
-	sZW60uqfmSqUFSIj7lOOARVPSskgyo8JaPkC2qVqFwvlaAakvXFbIH2UQ3Bj3zrav8m1B7e/dprVl
-	/M3JUsZSPVg4q1XixC9g1wPpsKghwbhfYm1Uh9edaEZXaH6XE7+sOzkuW0ucrdQyBKXBVLcyFxkFD
-	zIzc+ziE/8eFKXYoc2zdi+JQlYKLj5js+n43Mv+QhryyD/ndqdaGqWIFrFwvF8yFk68gCPCSQ+iKZ
-	OaFqy8b7PVx0gxjb2lqp4N/Dxxa1WGLkIYM7otAevyGxb/3Jqg04wDnQu51xyyFR+eQ4Mrzntn8Gs
-	sKQ5o+DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qzwfi/vRXJ/sbPtrb6nPo1rLb6V5zc5XUhtnjBMfvxU=; b=rchjOgUkiKe/Xf1pBdbb1zumlX
+	5CUmCnAdntP1/98da8TZZtXv68TjUm5I5BP2QmFLf/EgupcmMUGCO1PWUFLVePAbfcyIrg+frRcH2
+	1x+gq5S3fnukAIIKEiiaLxWoxYFvJkkHOG0UAquoyiQYSJqcEgkfHW9hoQYc2e3YEHLdoofrzjha4
+	P/jvq2vrbiFyc/ECVmwUj4kyyGsgg2b5mKek3+V7p9+mBwJ1nOCaL2b03P8P2mtJ8V1h2gux5WRls
+	xuhA22LOGdIOlc+OlIL3h71MYC5IbKN3qCiH6HrVqsPzwCwsmAZUjjpt0SvW9AvdzENMaOoYS9RNx
+	/KlFOCuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tsv-00000008sEg-3uBw;
-	Tue, 08 Sep 2026 11:21:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3ty0-00000008sgx-2NDK;
+	Tue, 08 Sep 2026 11:26:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tst-00000008sEB-49ij;
-	Tue, 08 Sep 2026 11:21:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46295404EE;
-	Tue,  8 Sep 2026 11:21:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AB5F1F00A3A;
-	Tue,  8 Sep 2026 11:20:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788866463;
-	bh=IoqTyL+G5O6+fLL3cVLfgraMEyoqxgqBpPotfBdVQqw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GrB21XYOLGrBo6gxEF8O+VDQ8P6Z7IJTIEyPD1wG1Gw99Ip3jQphLMVskjjJ/q1Ia
-	 NbKynFOkclfWFGjzL/ZGOj6A9B0MpoII6bIk2IMQMeQDRYFtKMRU9tUxJ1xQ8R6XhN
-	 wy+hJ5Tgq+0qcKo/HXlbIKH3KURAlURNS462V+YZ3LJlrToDIY9DtyC4wV64/AhYYL
-	 F15CVr74IcEypm11lfsqKgyCfH6d29iy96Wyv6dN/8FLMchUrk+YzXSYPL0GlxRixZ
-	 hhPGyoW5IRAxaXfGXElFzqrAoW5JwJ8z3PYtqX0rXQUBb6XRR5zCWyXaB9s0M98V+f
-	 qbnt/MWTQnd1Q==
-Date: Tue, 8 Sep 2026 14:20:49 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Len Brown <lenb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
- set_direct_map APIs
-Message-ID: <ap_vkSK_efv7ab90@kernel.org>
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
- <a98df077-3e97-4eea-8bfe-470bad9ff9e0@kernel.org>
+	id 1x3txy-00000008sgf-3K0A
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 11:26:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Qzwfi/vRXJ/sbPtrb6nPo1rLb6V5zc5XUhtnjBMfvxU=; b=UEQwg6Sz5CXh4OIkK+6hbRaP9Y
+	aFw6wLVVwsdEReof8+JkBV4ybXCkv8qjV+gLECChSGYY/vTs0np8vTufWW8t0rCngIATZZBl8qiKV
+	1qPr8kop/A80IdouD96CkFSFVQefZ4uRRJn2XgeoJQR+HY6tDJHf8qM3iDqKONWnxJdODP9dQNpsQ
+	ABCsHmzgMbaYHuB1n756qYsX4jGpBuihoQisH0yWIizrQDNrvL0DLkPANFffP4Ckt17JLTqziQWxr
+	shnERvoSmVY3NwL8gcJCygQFyne0VyWabGJtoLxBoUV8TLE7oLku02pzUM+BKWiIlbkX/oy7+XZec
+	Ci0P64JA==;
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3txv-0000000HL95-2bti
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 11:26:17 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Qzwfi/vRXJ/sbPtrb6nPo1rLb6V5zc5XUhtnjBMfvxU=;
+	b=X+s2RjUp4CGWb/lCsCXZNGeXilRRifMw5jErICf8jsLDnoOzU6DPP2oDiiU7LSTT4GDAT2Gmm
+	QUF3wLqybVpgcX5nbou+DpyW2p9fGThRSz4s3VMtomwz7ftaypqfn41O6xWC1V6UOv1+15UqXFR
+	Mb7UvSXiHwA4VTQ53C2iw9c=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hfLtT2rtfz1T4Fq;
+	Tue,  8 Sep 2026 19:14:25 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9903F4056E;
+	Tue,  8 Sep 2026 19:25:55 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 8 Sep 2026 19:25:55 +0800
+Message-ID: <f01fc59e-5254-484d-adf9-8dd1c2e58d91@huawei.com>
+Date: Tue, 8 Sep 2026 19:25:54 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a98df077-3e97-4eea-8bfe-470bad9ff9e0@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/19] arm64: smp: Defer RCU registration during secondary
+ CPU bringup
+To: Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-10-will@kernel.org>
+ <45c37592-f05d-4b1c-812b-0cb38d1c3e24@huawei.com>
+ <ap_hR1mntzm-TZOP@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <ap_hR1mntzm-TZOP@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_122616_258287_FCD7AC30 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,61 +99,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 12:38:44PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
-> > When set_direct_map APIs were introduced by the commit d253ca0c3865
-> > ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
-> > parameter made sense because the initial callers (vmalloc and
-> > hibernation) had sets of unsorted struct pages that required changes of
-> > their mappings in the direct map.
-> > 
-> > Since there is an increasing demand for direct map manipulation and it
-> > is also desirable to be able to update larger physically contiguous
-> > mappings, for example an entire large folio, extend set_direct_map APIs
-> > to receive number of pages parameter.
-> > 
-> > As there is still only a handful of callers, change the existing
-> > functions directly and update all the call sites rather than adding
-> > wrappers for single page case.
-> > 
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> In general, LGTM.
+
+
+在 2026/9/8 18:19, Will Deacon 写道:
+> Hi Jinjie,
 > 
-> But regarding semantics, is it well defined what happens when an update fails
-> halfway through an operation?
-
-Just like other set_memory, it bails out in the middle if anything bad
-happens.
- 
-> I'd assume such a case cannot currently get triggered, but there is no
-> documentation on what's supported and what's not. Or is there?
+> On Tue, Sep 08, 2026 at 04:55:36PM +0800, Jinjie Ruan wrote:
+>> 在 2026/9/8 0:40, Will Deacon 写道:
+>>> Calling rcutree_report_cpu_starting() early during boot can lead to
+>>> livelocks with the generic CPU hotplug mechanism if the boot CPU blocks
+>>> on an RCU grace period while the CPU being onlined is spinning in
+>>> cpuhp_ap_sync_alive().
+>>>
+>>> In preparation for enabling the generic CPU hotplug code on arm64, split
+>>> up the trace_hardirqs_off() call during secondary CPU bringup so that we
+>>> update lockdep early but defer the tracing updates until after
+>>> notify_cpu_starting() has registered the new CPU with RCU, allowing us
+>>> to drop the explicit call to rcutree_report_cpu_starting() entirely.
+>>>
+>>> Signed-off-by: Will Deacon <will@kernel.org>
+>>> ---
+>>>  arch/arm64/kernel/smp.c | 5 ++---
+>>>  include/linux/rcutree.h | 2 +-
+>>>  2 files changed, 3 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>>> index f4cabf9e19e6..ff68640d0c0b 100644
+>>> --- a/arch/arm64/kernel/smp.c
+>>> +++ b/arch/arm64/kernel/smp.c
+>>> @@ -217,8 +217,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+>>>  	if (system_uses_irq_prio_masking())
+>>>  		init_gic_priority_masking();
+>>>  
+>>> -	rcutree_report_cpu_starting(cpu);
+>>> -	trace_hardirqs_off();
+>>
+>> I think we need to handle the printk problem before this patch as we
+>> discussed earlier.
+>>
+>> Otherwise defer the rcutree_report_cpu_starting() will trigger a
+>> false-positive lockdep"suspicious RCU usage" splat during early lock
+>> acquisitions as commit ce3d31ad3cac ("arm64/smp: Move
+>> rcu_cpu_starting() earlier") pointed out.
 > 
-> Imagine someone performing an update on an area that partially spans two PMDs.
-> While splitting and updating the first PMD could succeed, splitting the second
-> PMD could fail. What would be the end result? Rollback? Does the caller have to
-> clean up?
+> Sorry, I meant to mention this in the cover letter but forgot about it.
+> I'm not sure that ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting()
+> earlier") is still relevant with the latest printk/console/lockdep code.
+> I tried quite hard to trigger lockdep splats manually, but the only way
+> I could do it was by using the "%pS" specifier to print the name of a
+> symbol in a module, which would cause an RCU walk of the module symbols
+> in the kallsyms code! Manually calling WARN() or even rcu_read_lock() /
+> spin_lock() did _not_ trigger a splat.
 
-There is no rollback in any of set_memory implementations. It's up to the
-callers to cleanup the mess afterwards.
- 
-> I'd appreciate if we could add proper documentation with expected semantics.
+Hi Will,
 
-I believe it's more in the scope of  "arch, mm: create a generic
-set_memory/change_page_attr core" [1] work than this patchset.
+Add "dyndbg="+p"" in cmdline, CONFIG_DEBUG_LOCK_ALLOC=y,
+CONFIG_PROVE_RCU_LIST=y, we can reproduce the warning as below:
 
-I can write (or maybe even slop ;) ) a doc about set_memory/set_direct_map,
-but I wouldn't want to hold this because there's not set_memory
-documentation.
+I believe there is also a problem in the RISC-V code itself here as
+store_cpu_topology() is common for RISC-V.
 
-[1] https://lore.kernel.org/all/20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org
- 
-> -- 
-> Cheers,
+[    0.335162] smp: Bringing up secondary CPUs ...
+[    0.345495]
+[    0.345513] =============================
+[    0.345523] WARNING: suspicious RCU usage
+[    0.345621] 7.3.0-rc2-00010-g2311ba2cd56f #500 Tainted: G        W
+[    0.345637] -----------------------------
+[    0.345646] kernel/locking/lockdep.c:3845 RCU-list traversed in
+non-reader section!!
+[    0.345659]
+[    0.345659] other info that might help us debug this:
+[    0.345659]
+[    0.345680]
+[    0.345680] RCU used illegally from offline CPU!
+[    0.345680] rcu_scheduler_active = 1, debug_locks = 1
+[    0.345725] locks held by swapper/1/0: 0, last CPU#1
+[    0.345743]
+[    0.345743] stack backtrace:
+[    0.345834] CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Tainted: G        W
+         7.3.0-rc2-00010-g2311ba2cd56f #500 PREEMPT(full)
+[    0.345885] Tainted: [W]=WARN
+[    0.346077] Call trace:
+[    0.346102]  show_stack+0x20/0x38 (C)
+[    0.346153]  dump_stack_lvl+0xc4/0x150
+[    0.346176]  dump_stack+0x18/0x28
+[    0.346194]  lockdep_rcu_suspicious+0x170/0x238
+[    0.346217]  __lock_acquire+0xf08/0x1818
+[    0.346237]  lock_acquire+0x1e0/0x450
+[    0.346256]  _raw_spin_lock_irqsave+0x70/0xc0
+[    0.346277]  down_trylock+0x20/0x60
+[    0.346293]  __down_trylock_console_sem+0x4c/0x118
+[    0.346316]  vprintk_emit+0x2d8/0x3f8
+[    0.346333]  vprintk_default+0x40/0x58
+[    0.346350]  vprintk+0x3c/0x80
+[    0.346366]  _printk+0x64/0x98
+[    0.346386]  __dynamic_pr_debug+0x90/0xd8
+[    0.346406]  acpi_get_cache_info+0x140/0x1a0
+[    0.346430]  init_cache_level+0xec/0x110
+[    0.346450]  detect_cache_attributes+0x74/0x7c0
+[    0.346473]  update_siblings_masks+0x30/0x300
+[    0.346495]  store_cpu_topology+0x70/0xf0
+[    0.346515]  secondary_start_kernel+0xe0/0x178
+[    0.346535]  __secondary_switched+0xc0/0xc8
+
+
 > 
-> David
+> Since that's not something I think we should be doing this early, I
+> decided to leave the code as-is unless I have a way to trigger a lockdep
+> splat with the relatively simple prints we have on the early error paths.
+> 
+> Will
 
--- 
-Sincerely yours,
-Mike.
 
