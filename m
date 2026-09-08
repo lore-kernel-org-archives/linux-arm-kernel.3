@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D74C79F82
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54EAEC79F99
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 19:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=upYXsiFbEClDPnWjVVZrsMcq6TGb5bBqXx1hRAbDXK8=; b=e6Bu1iPnQ2PvW8wrg2Adb/Eke7
-	Z9uH3xJfKVDaWrM24/wyAw1pyWAuCHwuXhX5RyXGH1f7FIljNv8waIGpzY6Rf2o+dLo6450JXmuOm
-	9h/BGEwzh8n0DNAzKXAGTaIbqXTn0Y7dQ+3gGsnhyRqUVHQV2AfFZe92dsODccsmAtcAfko/lqSNc
-	RiI6VnWwtUtYSF/sN6tyIN7wABK1SfJRSg/be1ls+s9mD9pjQsMM+JKQ6dymQUJM9jHGZQHFcgjG/
-	s8UsJx9rWD8Rr7od8PtymoMIFm5oEUMmfBO33gPyPn47tl4AskJszFoS/xpVFv7PLZjGo7M1pnqxw
-	Zf8NeSpA==;
+	bh=9azW7t9dcyG3pqsXhQh6LRCJv3RFtJYyBaRfuLvzMGY=; b=IGNdgCOY5Mvlie/D2RrSpqpV/+
+	gryP5Zz7KNPss0eeWcD3b/lgYJFu9kLGZPqinyMiYBKLvELlfCMVkib7fv3oLwHX1vLWZM+2IZ1dz
+	9rOjsViODBStVm1JjvFxe1+xMrHvAcxrfZURfBIDt6xbg4SYt7pIkpl3P71xmXu+gCpXELEHxVJFi
+	c4b/OlZJPIBIotKfd0IEgn+r2/axLMG9nxRuatLn2echiQa7Qz7uFOJKUEfQ4VS+570lUb7MTKVwY
+	HoQCa/m5p7aCim4V9l2kH0D/RvETi7emJkysJq+Q84Wu4CciNgYOUJ4MWtdWGW5Xvc3xZKaOQoS1r
+	Id4E8n3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41NA-0000000A3J4-3WvN;
+	id 1x41N9-0000000A3I4-4C3o;
 	Tue, 08 Sep 2026 19:20:48 +0000
-Received: from mail-westus2azon11010046.outbound.protection.outlook.com ([52.101.46.46] helo=CO1PR03CU002.outbound.protection.outlook.com)
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41N1-0000000A3Fe-2szC
+	id 1x41Mx-0000000A3Ef-1mIo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 19:20:45 +0000
+	Tue, 08 Sep 2026 19:20:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QclTN1DWtMzLEKV/c50lDHLdCa5eWjgPOh68HBxE9E8PpRF51y/pYipNl8OeS7D1b8SVFR2bmfImszE6QXwR7gsGL+Clo8SUbKZnsBceTf8iGZljy3cHTdF+LqfRTkB2BC8KqyEQ5U3vx2WidtbHKhiBDsqcPlPkCVsEVoAIdG88xrsmaBX+3DD1aDOpxefP3fuyqJBECPqUcF7aXiud6pZ3bokvARdvgX4+smgEqUXFGse699jXdbzuH7ADih+rKV7sUXQEErafFdyIxdQfXc2cmBgr5Uy+C1m+6dYM9xuCmniWmglCIPd97WuE5lJbiYIOoGzTnLwtDAQ4fC637w==
+ b=X58VCsp/hnMWTcstPTvkAa9JOIWndfZbY2lODtZjTu7FKHC4tUCsNoxH2Im1UWfhLuvT1bJiwmW6dOOvLtkDSjcq5aPlubckjhMWS3QQUmKSUaU170bF8BQ/QgqdMCebbroQSpMsHuAiMxeaQ1NNa23E9GaEizG/a8Ycc2iyN9LUzcf5UNpIwnpXf/v5JykuVUZnPWmcKhHdszSIZ+sk3g83BFpHQY5586bT1Mf7UyuJF2x66/b0xFIQDF6A53UL8tdBFfr15pa0xayW/S3wYS6CWOUuCq3d2WoDzT+KqC6+ngvTK9iJdVfZSEiY+YoNQQjhiAi9CGhOfAUCo8TFYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=upYXsiFbEClDPnWjVVZrsMcq6TGb5bBqXx1hRAbDXK8=;
- b=SqiV+jON7sUeqIvwmLQWKKVdM7DQJo5jUndveYoIYOyjHam/FGYTfFaKWWCQT4gUrVJLLqDYfkhkvaue8k8n3YoWOhY4E2Eo622YO5zMkywxvNLhkRUg5o8TA6qf2ED/1XEXV8u9lMs/Bi53JMzAoTybhXWBkoMlAvSn1nst0E3vS5ANyT1Kzl+R09qUw0/Nxtq4rR/nBYVuJGLekJUM9sBY9mEEvtY36IgNSA+rbM8nDBZWE5IIgGqFCV8K6d0Z+CtbFHElN6beaPcCzDaUBEPtX6iunQUun6hN8iDyaH094sk0izuofClRAXgsjjKup3SW14cEe86UmfmOaAp1VA==
+ bh=9azW7t9dcyG3pqsXhQh6LRCJv3RFtJYyBaRfuLvzMGY=;
+ b=Uy5WFHn7Zow85+DfwgSfQRTv3hkEdtJGVqAPL6anPWb0QzUjMeXUIZmYKJn6jqYgyK4M2dB2/1+t44iA/MB5iE6PWrVgyucBncUtrjGlqQI1pQD0xZieZc1uqUf7IYLv+558uAMf51DY7zpPGqt0AACM+9+Hms3fN+Xui4fA72UaSByxD9TY7ZU8jvEjp5sRAm/YDX7VwrG9UynXJTYk66frzDquaspeVWZdGJPP2YTSx7ejQ78KJze9ZFPXcwxi2APg3n+q4DyXw5aZBDwXIEOeVOnPdmz7q5DX+pw2M+8655Cl5LLNP66LlSrKiaZ3EtsXf/kNBDUdbHmtR0oJsw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=upYXsiFbEClDPnWjVVZrsMcq6TGb5bBqXx1hRAbDXK8=;
- b=QcuCqjcz8/dk6yAXRTkLtzGzJLWONWzYbhljeawouIC4XVipT7NdBYixBdLF80F4F6edolxm5fHAjzyEYB90ZJ54IW0ajHTC2CrQ4DFjYnkF7VRIWlRVT4f9sP1vZ/JoHfEQBQN4C30sU+RklZsYxBW1MXghAWpl4rL1JK+iBBA=
-Received: from SJ0P220CA0011.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::31)
- by CH8PR12MB9767.namprd12.prod.outlook.com (2603:10b6:610:275::9) with
+ bh=9azW7t9dcyG3pqsXhQh6LRCJv3RFtJYyBaRfuLvzMGY=;
+ b=dwyjQhbjBPa3238ofAwo/sYEH3flURNTVCJzGve/Nhh0pfx4THY9x8M2rhdAWPa/gtM+fv0gYfirltEXhW9z5k8WIaDBqNSe+VBc+3r6vT16XBcqbI9tZDuEZHfQ1/Uz8+oPzLnAtV4gl5WVepsMRYdsPl1xnJHy/XtktGs2GmY=
+Received: from SJ0P220CA0009.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::25)
+ by PH8PR12MB7112.namprd12.prod.outlook.com (2603:10b6:510:22c::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
- 19:20:32 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
+ 2026 19:20:26 +0000
 Received: from SN1PEPF00036F42.namprd05.prod.outlook.com
- (2603:10b6:a03:41b:cafe::8) by SJ0P220CA0011.outlook.office365.com
- (2603:10b6:a03:41b::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Tue, 8
- Sep 2026 19:20:31 +0000
+ (2603:10b6:a03:41b:cafe::36) by SJ0P220CA0009.outlook.office365.com
+ (2603:10b6:a03:41b::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
+ Sep 2026 19:20:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,22 +61,26 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  SN1PEPF00036F42.mail.protection.outlook.com (10.167.248.26) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 19:20:31 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 19:20:26 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
- 2026 14:20:30 -0500
+ 2026 14:20:25 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
+ 2026 14:20:24 -0500
 Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Tue, 8 Sep 2026 14:20:24 -0500
+ Transport; Tue, 8 Sep 2026 14:20:19 -0500
 From: Srinivas Neeli <srinivas.neeli@amd.com>
-Date: Wed, 9 Sep 2026 00:49:52 +0530
-Subject: [PATCH net-next v2 4/8] net: xilinx: tsn: parse endpoint DMA
- channel configuration
+Date: Wed, 9 Sep 2026 00:49:51 +0530
+Subject: [PATCH net-next v2 3/8] net: xilinx: tsn: add endpoint MAC driver
+ skeleton
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260909-patches_v2_external-v2-4-3a40babaff4c@amd.com>
+Message-ID: <20260909-patches_v2_external-v2-3-3a40babaff4c@amd.com>
 References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
 In-Reply-To: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
 To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
@@ -94,28 +98,28 @@ CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 X-Mailer: b4 0.16.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F42:EE_|CH8PR12MB9767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10be9b33-ad92-4392-797f-08df0dde4011
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F42:EE_|PH8PR12MB7112:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f7ee20c-1695-40fe-b4aa-08df0dde3ca1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|82310400026|1800799024|36860700016|921020|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Tg83W4S3yIU2tPS0mW853InbisZZ656NdzSkJnAlpmTgvNvggQAQQLIBcQCJPAACSTVjVkFiUCzSX56f2xQn7LhDvls3NV5lLFClqAoqFI1cxvyJqWwkg0+I+si0BbjHj3ncuTQyPhvTX4Mb5vDOeFz7hTuAgSJV6IGgBumnWJcRpGAWh9Fr7/Aa8ghfc8lcadL25BXv068aUZpdGI2Zb8oNdVWsrMDzcIxyixHec89Q7c0sDzAu/hUpAa3rWpTM7p/B3dgJL6opEX/3OxbPNJcH/mWeXoqHAFugib+isU0ym5aUxPTooKLyH2M6o6flNZ6TFvO1e8xc/LyE5YC8U8v5JYlQt3F6rysosAMUIK9vK+OTLWow/EdveKGI5G4wTxQFmf1UV9qqQdHm8eCED2l21OxRWK1+NkOUPVw/izw0pFyfwTto62kixAKKaU4kU0c2LDPi7KtwcvoNWICced1nXpBCkF9hI1r9VGMAfPoY/DGckZ29u9gCGZyNzRitxFTynWslzIXX4/aI1PvROoe/Cn5pn9D3wKcLJGNSctfJjBCR0p6t6PndSIDvmz7jHJz6JkKsYuHWJeC48gwjDGU2pJCgrc84yhTwjCExuytEQVy1SIczmct7vxYm1GeYbhFeSi2MqbbK/XBHtAMpMrHJbkVXibP0z4t9RxWOU70awVEQdbb1xJOkeKNUPNk7dlXwrhaJkt9d0XPs7180vov2D8GMkWQvoeohubCp9t/EjSdpLiijx3JEBF8UHSvx
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(82310400026)(1800799024)(36860700016)(921020)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|82310400026|36860700016|7416014|10067099003|18002099003|22082099003|11063799006|56012099006|921020;
+X-Microsoft-Antispam-Message-Info: wfdbnu3IuYoorEDe9bvvXlOVFIkUO9bD2qR9veB/ElWG/hfFTHtNi73S51aCZlt/AhdX7WCK2JdJ/6yPMe9rmEBiazhLPCh8FNDF0mLLvc4MQ9XZwNA60lpdLFa3f+udiNJWmtV66jR0iUDFmZ0aXBYXv2eytK2HBca4wNFwAfLZCDeCDA9WaMtBYEmaCNd/B4N/+tiSJaVlz3T4FW0ns9jnFaX7fPFmAUGU85NDtShEFzcqwlniqjHpP/NYL+YQX3TVABkyUaZHnujk4aRxuwcUGM3yl63oLZQtNUvznjQMFVm8btP5QglEK731+3O11QweTU00ByTz6k9NVAtHnRxYIlNisleTO1cCC+PK+do1BsqiLAswjbvKkNR2RbZkB4YTqT1UjMSUCDkgpMhFHjW9s5yaVTg9cseerwM2/ktuSJ6oh9lNARYcz2KLnBxNinykMnPqWso6hR/f5D8Bi6EUwsWKYVPrBCRjw3wh4GveeDsiDwbOOL6PK7NzSgi2ylO7xjGlaoeTUak95VEJJ+bHVjZmzTlgvYIev/ps6lVq50eSD6Oss8gL0YXy4Y+09luwJPSDWs32ZUrJrqYskqth0DDwp6ZJ2VP9hIw4JZ0YVkyKwmN7KtgA/UBfRDaNEx3fy6ZfUXcS3bcscDaGQHDCDqejHaXfl4MnLYHujeJ9r7dEb3il7jvWEvn5oQMhfa/aw+WmE+fH+1/1kxjxugtgIEdx/nzzNV3kZXm3S6ZIS/mY/CYLN/p3MtAilvwJ
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(82310400026)(36860700016)(7416014)(10067099003)(18002099003)(22082099003)(11063799006)(56012099006)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kT7o14LEM2qTvU1VpPhiUEZowA6A64OCJ0pfQfDMLjPTlANe78nXvlpSzI4cnqymcpY0MrdXrEeN/epMr+4GUrSio/3M+mDZkSSTWYyZ2E9z1SZy21HQPceGODCs9Hg5x1wyZx2exkDiv6LjLLZrzR6Es/JusOuOn4ZfQvbp0ygwNTGcBAe9AUud7+x1dBTr/iPuuJoNd2CqPUA/G9nGBwu9XrmUPIvtlo+IkKb3HyQMOgLJ30lmu3yXfrD88/35qEbxYGSCpCkfkc/MQTernVp0kIEp/7enwavppZU0RFTVDNPs2R76w0uuiujhOluTpo9juPROCBlYmRkX5IuFHw+v/rPlcOR1dlvwSk1JDfeh7nmnRSoN0tkh/o1wa3x2caQO51c62yPqOWpioJEKNfTN6esfCBpD6Jc5jhxS+e80Xn69w2dYiTJDm/0xuSAg
+X-MS-Exchange-AntiSpam-MessageData-0: SMol4o8859tYihef6aHjmGnRBi4magRf6qB/MkEhdqjxOyGjIMEvb18mMwYLB8sBrQbI1J2ZXeZWQ+izTAxL1ub5wsYSOAISFf37KhQyZPI/JlHEMRaNi7KI/xDkIC7l6yEyREq/Wb0rfvwT0P6AXuJFcB/8ysmlag0xePk77FcAziuC/hAvBz705Zab9gGWzJ4B1myBphePrrE/a43/gkDZjVImq1hKmaQuKw3lfv2Q76N1MHhhx9n+888GtqeQZoBx+MFS/pF72Ur0yYTCbcMWOS6wUyOysl2uQRJ0sYKXF05jujSlDyGhf9sr0rlSKsuE+zwnHYIRUAlOfwxB9i8aEbVFox3a3N/G6iqpYarMR0kPJXyLqZKC/oXBV117iZREZeWpZYkbMgIQVZK6FeSqhus/MYHI4jRwJajESoOpuhPKMaLLr5cDi4ofyYH3
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 19:20:31.7972
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 19:20:26.0396
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10be9b33-ad92-4392-797f-08df0dde4011
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f7ee20c-1695-40fe-b4aa-08df0dde3ca1
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F42.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9767
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_122040_625507_23B582C5 
-X-CRM114-Status: GOOD (  28.78  )
+X-CRM114-CacheID: sfid-20260908_122035_512738_EBF4638E 
+X-CRM114-Status: GOOD (  28.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,13 +134,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The endpoint has one MCDMA channel per TX queue and per RX queue, and
-the device tree lists them in "dma-names". The transmit path needs to
-know which physical DMA channel backs each logical TX queue.
+The TSN Endpoint MAC owns the IP's host-side MCDMA data path and is the
+netdev physically wired to the CPU. The DSA switch needs this netdev to
+exist as its conduit.
 
-Count the TX and RX channels in "dma-names" and allocate the conduit
-netdev with that many hardware queues. Parse the "tx-queues-config"
-child node to map each logical TX queue to its physical DMA channel.
+Add a platform driver (compatible "xlnx,tsn-ep-mac") for the endpoint.
+Register the netdev named "ep", set its MAC address, and provide minimal
+netdev and ethtool ops. ndo_open starts the queues and ndo_start_xmit
+drops frames.
 
 Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
 Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
@@ -144,267 +149,221 @@ Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 
 ---
 Changes in v2:
-- Check xlnx,dma-channel-num against the channels that dma-names actually
-  lists, using a presence bitmask. Reject duplicates and out-of-range channels,
-  and index the channel arrays by logical queue.
-- Require one queue node per tx_chan and num-priorities equal to the TX channel
-  count. This also gives xlnx,num-priorities a consumer.
-- Cap TX and RX at 8 to match the binding.
-- Error out on an unknown dma-names entry instead of skipping it.
-- Drop the unreachable TX and RX count guards. The in-loop index and duplicate
-  checks already bound the count, so the channel arrays cannot be over-indexed.
+- Name the netdev ep%d with NET_NAME_ENUM instead of a fixed "ep", so a second
+  IP instance does not clash on register_netdev(). The %d enumeration is what
+  NET_NAME_ENUM describes, and it matches the eth%d naming in net/dsa/user.c.
+- Drop the mapped but unused register window (ep->regs and its ioremap).
+  It was intended for QBV support, which is not part of this series, so the
+  endpoint driver does not use it. The mapping will be re-added when QBV
+  support lands.
+- Use dev_kfree_skb_any() on the drop path, not dev_kfree_skb().
+- Drop the mod_devicetable.h include, platform_device.h already pulls it in.
 ---
- drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c | 197 +++++++++++++++++++++++-
- 1 file changed, 196 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/xilinx/tsn/Makefile          |   2 +-
+ drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h      |  15 +++
+ drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c   | 143 ++++++++++++++++++++++
+ drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c |   3 +
+ 4 files changed, 162 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-index 089f17a126f5..24025b1f6e66 100644
---- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-+++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-@@ -5,9 +5,11 @@
-  * Copyright (C) 2026 Advanced Micro Devices, Inc.
-  */
- 
-+#include <linux/bitops.h>
- #include <linux/etherdevice.h>
- #include <linux/ethtool.h>
- #include <linux/if_ether.h>
-+#include <linux/if_vlan.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/netdevice.h>
-@@ -21,14 +23,31 @@
- 
- #define DRIVER_NAME			"xilinx_tsn_ep"
- 
-+#define TSN_DMA_CH_INVALID		0xFFU
-+#define TSN_MAX_TX_QUEUE		8
-+#define TSN_MAX_RX_QUEUE		8
-+
-+#define TSN_MAX_VLAN_FRAME_SIZE		(ETH_DATA_LEN + VLAN_ETH_HLEN + \
-+					 ETH_FCS_LEN)
-+
- /**
-  * struct xlnx_tsn_ep - EP MAC private data, embedded in net_device priv area
-  * @ndev: the conduit netdev ("ep0" for the first IP instance)
-  * @dev: backing device
-+ * @num_tx_queues: number of TX DMA channels (one per priority)
-+ * @num_rx_queues: number of RX DMA channels
-+ * @tx_dma_chan_map: logical TX queue index -> physical DMA channel number
-+ * @rx_chan_num: RX ring index -> physical DMA channel number
-+ * @max_frm_size: maximum frame size accepted on RX
-  */
- struct xlnx_tsn_ep {
- 	struct net_device *ndev;
- 	struct device *dev;
-+	u32 num_tx_queues;
-+	u32 num_rx_queues;
-+	u32 tx_dma_chan_map[TSN_MAX_TX_QUEUE];
-+	u32 rx_chan_num[TSN_MAX_RX_QUEUE];
-+	u32 max_frm_size;
- };
- 
- static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
-@@ -69,15 +88,173 @@ static const struct ethtool_ops ep_ethtool_ops = {
- 	.get_drvinfo	= ep_get_drvinfo,
- };
- 
+diff --git a/drivers/net/ethernet/xilinx/tsn/Makefile b/drivers/net/ethernet/xilinx/tsn/Makefile
+index 6f99226f3dc8..5886828b386f 100644
+--- a/drivers/net/ethernet/xilinx/tsn/Makefile
++++ b/drivers/net/ethernet/xilinx/tsn/Makefile
+@@ -1,2 +1,2 @@
+ obj-$(CONFIG_XILINX_TSN) += xilinx_tsn.o
+-xilinx_tsn-y := xilinx_tsn_main.o
++xilinx_tsn-y := xilinx_tsn_main.o xilinx_tsn_ep.o
+diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
+new file mode 100644
+index 000000000000..b0757e22d1fd
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * Parse the "tx-queues-config" child of the EP node. The logical queue
-+ * index is taken from the "queue<N>" node name, so the mapping does not
-+ * depend on the order the child nodes appear in the device tree.
++ * AMD/Xilinx TSN Endpoint Ethernet MAC driver, shared definitions.
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
 + */
-+static int ep_parse_tx_queue_config(struct xlnx_tsn_ep *ep,
-+				    struct device_node *txcfg_np, u16 tx_present)
++
++#ifndef _XILINX_TSN_H
++#define _XILINX_TSN_H
++
++#include <linux/platform_device.h>
++
++extern struct platform_driver xlnx_tsn_ep_driver;
++
++#endif /* _XILINX_TSN_H */
+diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+new file mode 100644
+index 000000000000..089f17a126f5
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+@@ -0,0 +1,143 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * AMD/Xilinx TSN Endpoint MAC driver.
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
++ */
++
++#include <linux/etherdevice.h>
++#include <linux/ethtool.h>
++#include <linux/if_ether.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/netdevice.h>
++#include <linux/of.h>
++#include <linux/of_net.h>
++#include <linux/platform_device.h>
++#include <linux/string.h>
++#include <linux/types.h>
++
++#include "xilinx_tsn.h"
++
++#define DRIVER_NAME			"xilinx_tsn_ep"
++
++/**
++ * struct xlnx_tsn_ep - EP MAC private data, embedded in net_device priv area
++ * @ndev: the conduit netdev ("ep0" for the first IP instance)
++ * @dev: backing device
++ */
++struct xlnx_tsn_ep {
++	struct net_device *ndev;
++	struct device *dev;
++};
++
++static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
 +{
-+	DECLARE_BITMAP(queue_seen, TSN_MAX_TX_QUEUE) = {};
-+	DECLARE_BITMAP(chan_seen, TSN_MAX_TX_QUEUE) = {};
-+	unsigned int count = 0;
++	dev_kfree_skb_any(skb);
++	DEV_STATS_INC(ndev, tx_dropped);
++	return NETDEV_TX_OK;
++}
++
++static int ep_open(struct net_device *ndev)
++{
++	netif_tx_start_all_queues(ndev);
++
++	return 0;
++}
++
++static int ep_stop(struct net_device *ndev)
++{
++	netif_tx_disable(ndev);
++
++	return 0;
++}
++
++static void ep_get_drvinfo(struct net_device *ndev, struct ethtool_drvinfo *ed)
++{
++	strscpy(ed->driver, DRIVER_NAME, sizeof(ed->driver));
++}
++
++static const struct net_device_ops ep_netdev_ops = {
++	.ndo_open		= ep_open,
++	.ndo_stop		= ep_stop,
++	.ndo_start_xmit		= ep_start_xmit,
++	.ndo_validate_addr	= eth_validate_addr,
++	.ndo_set_mac_address	= eth_mac_addr,
++};
++
++static const struct ethtool_ops ep_ethtool_ops = {
++	.get_drvinfo	= ep_get_drvinfo,
++};
++
++static int xlnx_tsn_ep_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct net_device *ndev;
++	struct xlnx_tsn_ep *ep;
++	u8 mac_addr[ETH_ALEN];
 +	int ret;
 +
-+	for_each_child_of_node_scoped(txcfg_np, qnode) {
-+		u32 chan, queue;
++	ndev = alloc_netdev(sizeof(*ep), "ep%d", NET_NAME_ENUM, ether_setup);
++	if (!ndev)
++		return -ENOMEM;
 +
-+		if (!str_has_prefix(qnode->name, "queue") ||
-+		    kstrtou32(qnode->name + strlen("queue"), 10, &queue) ||
-+		    queue >= ep->num_tx_queues)
-+			return dev_err_probe(ep->dev, -EINVAL,
-+					     "tx-config: invalid queue node %pOFn (have %u queues)\n",
-+					     qnode, ep->num_tx_queues);
++	SET_NETDEV_DEV(ndev, dev);
++	ndev->netdev_ops = &ep_netdev_ops;
++	ndev->ethtool_ops = &ep_ethtool_ops;
++	ndev->features = NETIF_F_SG;
 +
-+		if (test_and_set_bit(queue, queue_seen))
-+			return dev_err_probe(ep->dev, -EINVAL,
-+					     "tx-config: queue %u described twice\n",
-+					     queue);
++	ep = netdev_priv(ndev);
++	ep->ndev = ndev;
++	ep->dev = dev;
 +
-+		ret = of_property_read_u32(qnode, "xlnx,dma-channel-num", &chan);
-+		if (ret)
-+			return dev_err_probe(ep->dev, ret,
-+					     "tx-config: queue %u missing xlnx,dma-channel-num\n",
-+					     queue);
-+
-+		if (chan >= TSN_MAX_TX_QUEUE || !(tx_present & BIT(chan)))
-+			return dev_err_probe(ep->dev, -EINVAL,
-+					     "tx-config: queue %u maps to channel %u not present in dma-names\n",
-+					     queue, chan);
-+
-+		if (test_and_set_bit(chan, chan_seen))
-+			return dev_err_probe(ep->dev, -EINVAL,
-+					     "tx-config: channel %u already assigned to another queue\n",
-+					     chan);
-+
-+		ep->tx_dma_chan_map[queue] = chan;
-+		count++;
++	ret = of_get_mac_address(dev->of_node, mac_addr);
++	if (ret == -EPROBE_DEFER) {
++		goto err_free_ndev;
++	} else if (!ret && is_valid_ether_addr(mac_addr)) {
++		eth_hw_addr_set(ndev, mac_addr);
++	} else {
++		eth_hw_addr_random(ndev);
++		dev_info(dev, "no valid MAC in DT, using random address %pM\n",
++			 ndev->dev_addr);
 +	}
 +
-+	if (count != ep->num_tx_queues)
-+		return dev_err_probe(ep->dev, -EINVAL,
-+				     "tx-config: described %u queues but expected %u\n",
-+				     count, ep->num_tx_queues);
++	platform_set_drvdata(pdev, ep);
++
++	ret = register_netdev(ndev);
++	if (ret) {
++		dev_err_probe(dev, ret, "failed to register net device\n");
++		goto err_free_ndev;
++	}
 +
 +	return 0;
++
++err_free_ndev:
++	free_netdev(ndev);
++	return ret;
 +}
 +
-+static int ep_count_dma_queues(struct device *dev, u32 *out_tx, u32 *out_rx,
-+			       u16 *tx_present, u32 *rx_chan_num)
++static void xlnx_tsn_ep_remove(struct platform_device *pdev)
 +{
-+	u32 tx = 0, rx = 0;
-+	u16 rx_present = 0;
-+	int n, i, ret;
++	struct xlnx_tsn_ep *ep = platform_get_drvdata(pdev);
 +
-+	n = of_property_count_strings(dev->of_node, "dma-names");
-+	if (n < 0)
-+		return dev_err_probe(dev, n, "failed to read dma-names\n");
++	if (!ep)
++		return;
 +
-+	for (i = 0; i < n; i++) {
-+		const char *name;
-+		size_t plen;
-+		u32 idx;
-+
-+		ret = of_property_read_string_index(dev->of_node, "dma-names",
-+						    i, &name);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to read dma-names[%d]\n", i);
-+
-+		plen = str_has_prefix(name, "tx_chan");
-+		if (plen) {
-+			if (kstrtou32(name + plen, 10, &idx) ||
-+			    idx >= TSN_MAX_TX_QUEUE)
-+				return dev_err_probe(dev, -EINVAL,
-+						     "invalid TX channel name %s\n",
-+						     name);
-+
-+			if (*tx_present & BIT(idx))
-+				return dev_err_probe(dev, -EINVAL,
-+						     "duplicate TX channel %s\n",
-+						     name);
-+
-+			*tx_present |= BIT(idx);
-+			tx++;
-+			continue;
-+		}
-+
-+		plen = str_has_prefix(name, "rx_chan");
-+		if (plen) {
-+			if (kstrtou32(name + plen, 10, &idx) ||
-+			    idx >= TSN_MAX_RX_QUEUE)
-+				return dev_err_probe(dev, -EINVAL,
-+						     "invalid RX channel name %s\n",
-+						     name);
-+
-+			if (rx_present & BIT(idx))
-+				return dev_err_probe(dev, -EINVAL,
-+						     "duplicate RX channel %s\n",
-+						     name);
-+
-+			rx_present |= BIT(idx);
-+			rx_chan_num[rx] = idx;
-+			rx++;
-+			continue;
-+		}
-+
-+		return dev_err_probe(dev, -EINVAL,
-+				     "unrecognised dma-names entry %s\n", name);
-+	}
-+
-+	if (!tx)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "no TX channels in dma-names\n");
-+
-+	if (!rx)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "no RX channels in dma-names\n");
-+
-+	*out_tx = tx;
-+	*out_rx = rx;
-+
-+	return 0;
++	unregister_netdev(ep->ndev);
++	free_netdev(ep->ndev);
 +}
 +
- static int xlnx_tsn_ep_probe(struct platform_device *pdev)
- {
-+	u32 rx_chan_num[TSN_MAX_RX_QUEUE];
- 	struct device *dev = &pdev->dev;
-+	struct device_node *txcfg_np;
-+	u32 num_tx, num_rx, num_prio;
-+	struct device_node *ip_np;
- 	struct net_device *ndev;
- 	struct xlnx_tsn_ep *ep;
- 	u8 mac_addr[ETH_ALEN];
-+	u16 tx_present = 0;
- 	int ret;
-+	int i;
++static const struct of_device_id xlnx_tsn_ep_of_match[] = {
++	{ .compatible = "xlnx,tsn-ep-mac" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, xlnx_tsn_ep_of_match);
 +
-+	ret = ep_count_dma_queues(dev, &num_tx, &num_rx, &tx_present, rx_chan_num);
-+	if (ret)
-+		return ret;
-+
-+	ip_np = of_get_parent(dev->of_node);
-+	if (!ip_np)
-+		return dev_err_probe(dev, -EINVAL, "missing parent IP node\n");
-+
-+	ret = of_property_read_u32(ip_np, "xlnx,num-priorities", &num_prio);
-+	of_node_put(ip_np);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "missing xlnx,num-priorities\n");
-+
-+	if (num_tx != num_prio)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "TX channel count %u must equal num-priorities %u\n",
-+				     num_tx, num_prio);
++struct platform_driver xlnx_tsn_ep_driver = {
++	.probe	= xlnx_tsn_ep_probe,
++	.remove	= xlnx_tsn_ep_remove,
++	.driver	= {
++		.name		= DRIVER_NAME,
++		.of_match_table	= xlnx_tsn_ep_of_match,
++	},
++};
+diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+index afe7609c67fb..d33a00dd6d15 100644
+--- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
++++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+@@ -15,6 +15,8 @@
+ #include <linux/slab.h>
+ #include <linux/types.h>
  
--	ndev = alloc_netdev(sizeof(*ep), "ep%d", NET_NAME_ENUM, ether_setup);
-+	ndev = alloc_netdev_mqs(sizeof(*ep), "ep%d", NET_NAME_ENUM,
-+				ether_setup, num_tx, num_rx);
- 	if (!ndev)
- 		return -ENOMEM;
- 
-@@ -89,6 +266,24 @@ static int xlnx_tsn_ep_probe(struct platform_device *pdev)
- 	ep = netdev_priv(ndev);
- 	ep->ndev = ndev;
- 	ep->dev = dev;
-+	ep->num_tx_queues = num_tx;
-+	ep->num_rx_queues = num_rx;
-+	ep->max_frm_size = TSN_MAX_VLAN_FRAME_SIZE;
-+	memcpy(ep->rx_chan_num, rx_chan_num, num_rx * sizeof(*rx_chan_num));
++#include "xilinx_tsn.h"
 +
-+	for (i = 0; i < TSN_MAX_TX_QUEUE; i++)
-+		ep->tx_dma_chan_map[i] = TSN_DMA_CH_INVALID;
-+
-+	txcfg_np = of_get_child_by_name(dev->of_node, "tx-queues-config");
-+	if (!txcfg_np) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "missing tx-queues-config node\n");
-+		goto err_free_ndev;
-+	}
-+	ret = ep_parse_tx_queue_config(ep, txcfg_np, tx_present);
-+	of_node_put(txcfg_np);
-+	if (ret)
-+		goto err_free_ndev;
+ #define TSN_NUM_CLOCKS		6
  
- 	ret = of_get_mac_address(dev->of_node, mac_addr);
- 	if (ret == -EPROBE_DEFER) {
+ /**
+@@ -85,6 +87,7 @@ static struct platform_driver tsn_driver = {
+ 
+ static struct platform_driver * const tsn_drivers[] = {
+ 	&tsn_driver,
++	&xlnx_tsn_ep_driver,
+ };
+ 
+ static int __init xlnx_tsn_init(void)
 
 -- 
 2.43.0
