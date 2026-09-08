@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C130CC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42D4C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/kbJmlclBeIjVR1T3ghM1yG/9ADw7M7rmty2JqJur4=; b=tpp/Gfb9WL1UngXr5A1SkIGieJ
-	7aRGnQZQ5qUF/XZLOWK/z98z2/NxALat/kp/mYbRpQod5bY5Ih7wX7KDMfnIvwJLJKJ4QYQ6B9p9I
-	Tkh49vc9yCutwxgKPnhYfNTA6hjDCHb4vt7Jfn7I9PHHEeah9XTYZp0d2gCq9DKPjhwTf/F+XXea9
-	Gb06rdDyJ2Ng0C16t7gfB/rxe5EpS2z+rrKS7RyNmkwZM47KGelBpGbME+T2g03IdnpigCZNkjeS4
-	9RqciBnki/3VsQuMEkiJbATkS4NbaDANuQBB1WCTgtKc/Zxg8edYX02YhUGjPQ8Zvkx+8Py4O21JZ
-	umRA/A5A==;
+	bh=6okLRdiqhl4ZG2fHn/y2VobVZ/OBqeyek9hgtGn68Vg=; b=QVckQWMPvJBrFTrtVjxCXVcIxB
+	4xVLJOUZb3LY5eNoaoQPtCENh/cji8XawMGGa+V4Qs9NOVqm2AfzLlewHQdpEOG+WdRZ280U1Aiwm
+	OKjS5WlAMjY854KRJPT4Rzip64xs8AH4LLWid56pGY7YXwBMvB/SwGmJpRPcDrm4neRyaY2kV9P8w
+	KZScLkeAWHI0Bvfh3ct0Y42NDmzXcdY3ndjMZsbggGGk6ijs9u40ghSURTxtqlT2AaxNz/w61ColF
+	ly99Gpm6TBUIAck7PjL692uEJ5jcjefXngXU+8EobtaFqiTtM6IFSH2fKEWjTYQJtABRPzzgpg39K
+	iSMvoo7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xB7-00000009Kgv-0ARO;
-	Tue, 08 Sep 2026 14:52:05 +0000
+	id 1x3xBM-00000009KyC-1s5K;
+	Tue, 08 Sep 2026 14:52:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAt-00000009KHK-38bi;
-	Tue, 08 Sep 2026 14:51:51 +0000
+	id 1x3xAu-00000009KHh-0xM8;
+	Tue, 08 Sep 2026 14:51:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=N/kbJmlclBeIjVR1T3ghM1yG/9ADw7M7rmty2JqJur4=; b=YBt5CW4l3G6jWWL+rEmIX/7BmL
-	+t4I+yMXXVAybiUbrq//EecH3I0+SrBfGhOoyRekaXokpIyfzaaHRQbKTxSnagbVSObsXH6taM5p1
-	LRY7KvkrTMQbG3qwRreK1dllhGVolsulWGRaES7qhUug3yCNvA+1W+iHRUx2ZTL08XCf0uF3JbP6C
-	Jgfso92xtnnOC9FvJ3a6jwYQEAK1eB4j5VPSR9J+YqSgYJxIJfYBhBe09qInUOLrEpUCdriAKt2kE
-	Riohi7Z+3nTwwQsOc8B+I6tnVJ67BS+msIWB92cahuItrvgTRnrg75J1D2kDdVDAWzpRUt6g7SC+X
-	0bztoZoQ==;
+	bh=6okLRdiqhl4ZG2fHn/y2VobVZ/OBqeyek9hgtGn68Vg=; b=Pwe9bpb+WuLW3waNbmJtVppnI2
+	pT8IPyscmd0XQhlDkoHWcKSm1fmydRZqZyQ+dWdj8810g0vpNY0QEaqmC8x7spXDAN4OKwBIXb5/t
+	PNNxVW0VFosc7LGMzcaWfFfvO/JLwpPOmngs4eDqw8cet3Z5CGDff9jyetIgYQqelrL2WCLW0Wdiz
+	pOT3/FN3R0DDxEdnrv1wOpdKXd0yqGtQffOAqW8JdD3021jtB0OwTtSd1P+6R3FIu16U582FKMc/n
+	SdLiHOGwUR/2EH5jEiA3tpAKUkFSM46sdfYPri6O7q0N/IxPdlP0gsL3gAhpK5zXGXOFWlVX6FTKT
+	DzrKUgwg==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xAq-0000000HZ1q-2AXn;
-	Tue, 08 Sep 2026 14:51:50 +0000
+	id 1x3xAr-0000000HZ1s-1RUW;
+	Tue, 08 Sep 2026 14:51:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1788879101;
-	bh=ZfxhLkyDar7QOwr+Kdk2fm5x7d8U5zVs/P2O97TfAjw=;
+	bh=Z+Lzstt3geCgNqqc4sfbPOYtUjgypQ6xYnIT7nuZdGQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I8lYyIa0jegdk6hb0a5KgEp36jQFVuep5w5QMNSwxJSwbbvei3voypD/SjpgVV+PQ
-	 FekQYpH+Nb2V0PUaYtfiKJL5uUbr5ZxEFI2yPogmJQ/+ybmyhZgttpRBF65Mtq+JDl
-	 1IQIYwO5yvqjeuudSOFROf93L6sQGo70nSSUHUl+frTsZ20741C2lln9Whfuf5Dv5r
-	 dSaVkLevPHWJQFlV8oeEN9x0TDsdmnkq1G8W4icmNBRq2gsiSYXiCU3imNjn9lDffd
-	 8C6liZz8vnix6mm5Nuj4R7qt47IuuYOPyDe+LFK8f6QFYpmqPcqXB3VM97m4MxtUyf
-	 xekszrCj8uPfA==
+	b=F+EPk/5B2xyBMlHRVcf0uFe7s1um5d9n/42+dNT7XL7dkONh+jCNHIiXUgwjza0U2
+	 YA8YAEipXhaNpbQQuCbecAN6BwE80DHQ75PtNmNy1zFoeVlUDz3JtfXSnI+jRnKy54
+	 /qoKRtQ6hRdY1RD2j5qNRGWNpAeEuqKcVrc5QwDLLWDwrul9e7pPzMB6DRyXwxwr8f
+	 x/ggPVC1/urtHe+DZ1bVPFkxWPBdcq4Z+LrWRQI6RK0FAQTPuwZHUXf46GQDNttbIW
+	 pbOO5u7rPoJCBJzmRf2VHybHPD2MVICT/JwbJfzFajvd3SHmBl0B/FPFsWDtUOxVfI
+	 5qq5942DtJZlg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D84D17E0EB0;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 32F7617E0D43;
 	Tue, 08 Sep 2026 16:51:41 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 9949E48003D; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
+	id 94010480035; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 08 Sep 2026 16:51:26 +0200
-Subject: [PATCH v6 08/10] PCI: dw-rockchip: Set broken L1SS resume flag
+Date: Tue, 08 Sep 2026 16:51:23 +0200
+Subject: [PATCH v6 05/10] PCI: dw-rockchip: Add helper function for
+ controller mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-rockchip-pcie-system-suspend-v6-8-fbabcca9921b@collabora.com>
+Message-Id: <20260908-rockchip-pcie-system-suspend-v6-5-fbabcca9921b@collabora.com>
 References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
 In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -82,26 +83,26 @@ Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1793;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1964;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=ZfxhLkyDar7QOwr+Kdk2fm5x7d8U5zVs/P2O97TfAjw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqgIPxJGUR4srONtxKLTKD8iRMLzHqyacXSU
- urMkN+gYiF/WIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
- O/qa4bQP/RAVyzs6Q5cmYt9KdhW4mRITRHknDz3whcxrHmHfBVHR8lxrZjeVOY8kKCeKoKdCBlP
- Q8+d+B9u8hBwrsaUfYbUzR64z3LvmYtzFkaGCWXEjS2RSIK3xHtkaOP2dsZLzgzkU7ETC7etRmN
- KdV6I/rtKWN3wCLRWHs8HZvn9FoXv6as4FKnqBKiMIhNjWJY5fBKKrFoPrSxJMlUIkwYU6/skbJ
- lnFBE5aJt7IO0YXXfI7yJox46FidoKltTKj8rxURAeDkVORKcxzVMTOpLiBIytq5SykfP44Ax2o
- 61se21x8mhC0PQ2owE3FcF44GUDxyLqK//1Bgv9VNiNJ00Agz2TNWH/RtQwsP+VflY/ypb+kJ1L
- nki861JQYSP0sTvTmIu5yc8DvI7xJXGfOxmkaKC16+Gq1LHQhMnH95OgrHXOa++KTKxLgn7ySuV
- nXSPPqLkKEgX7lbuiacIfQkaAvEEsgDL5OmRzipsB9XmGUsIMp0gaa25zqdgRMa/NQQviC3V5G+
- v1nreo7Tt+na2cI3goYJGb9uGCKiqnOhlSxjYW0llTJeqegXj7J3yzLPo9BV2DYA8IW6bjALz4E
- cDhgCbUUD42jX0GaYCRvdcICEEpmiL/OYtc8mo34hXWdYI/AchN+++U1xKsOve9grVeUVS9XmyR
- /teDWU0A0DDvas9bAQSArTQ==
+ bh=Z+Lzstt3geCgNqqc4sfbPOYtUjgypQ6xYnIT7nuZdGQ=;
+ b=owJ4nAFsApP9kA0DAAoB2O7X88g7+poByyZiAGqgIPwgM3qXGwQtQCIgGMAprVKfcJl1XSgth
+ pPm2ueEaZ34hIkCMgQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
+ O/qaDRYP9infvMVbVZC87GDb1FHBu40+qE6n9tyX2bNz/Vc1hd4eT+k6Lyah9Lc9rrRRcPOQLLP
+ QZNDLTMXd4nesDB/ABjn1RVObkRca4RDC5UiLM3B+FdexIcm7zBbK7qxlWqqJ6CNZ7GRLP4ibGO
+ wi65WzgfH0fjVOQNRgTNzrHOQ97NUNj6wCK9oywSGcbEdbGAF8gpiX1YwCA2az4C4dWFwA9orTn
+ /1z5lwgmY6UTCpBW6PninQmgUMV7V3kwKPFCP5Q2tI5nxzbgs8PTBEyxgDdf1xyVHlyHDufGflD
+ 7fa1/9xQc8QsJfDa2DzJ3vHRyC2CGnrUltTfkgasOr/q27yunslJkZq5M1wzDvEyXuoasIRNHrl
+ VZslbeOyYbXuj2zvzcL34BuREz9Q6nf3+9xJGQENClBwc2HIUs0smAnf/Fvh5ylqRrkrle3vkOA
+ aHfoOfv8evhvnZzAyJvoFu0l3HgMx/C53UqsXrKAMyrlY79zXm6e6zCIExruFTWCSiBueAZSCdb
+ 810hrlr2wu9NaUphFvIML7AwJPYXOaJ1XGh+qppICAT/DZN5jFcvQy7lTTnw6hvaeFVPNbj93Wn
+ Lp8rpWJufLmqOn2q0DyBLiMNe/pIMI1976gnSfQx8xGyuxlBk+0weE707IEBZpDakWcmjU38BpO
+ 9UNLFf8LSCYTYsJdCWDjz
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_155148_677982_0B1C0545 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260908_155149_509609_FEF97890 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,49 +117,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setup the broken_l1ss_resume flag, so that pci_suspend_retains_context()
-returns false on the Rockchip platform allowing PCIe peripheral device
-drivers to act upon.
+Remove code duplication and improve readability by introducing a new
+function to setup the controller mode.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 17530507e41b..47d9cab909bc 100644
+index 6f84b07406d4..211776bbcb99 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -458,6 +458,21 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
- 	return 0;
+@@ -708,6 +708,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci
+ 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
  }
  
-+static void rockchip_pcie_host_post_init(struct dw_pcie_rp *pp)
++static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u32 mode)
 +{
-+	/*
-+	 * During system suspend, the Rockchip RC driver effectively powers off
-+	 * the controller. If the link is in L1SS and the endpoint asserts
-+	 * CLKREQ# to exit L1SS, the time required to wake the system and
-+	 * restore the PHY/REFCLK may exceed the L1SS exit timing
-+	 * (L10_REFCLK_ON + T_COMMONMODE), resulting in Link Down (LDn) and a
-+	 * reset of the endpoint. Set this flag to indicate this limitation to
-+	 * client drivers so that they can avoid relying on device state being
-+	 * preserved during system suspend.
-+	 */
-+	pp->bridge->broken_l1ss_resume = true;
++	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
 +}
 +
- static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+ 				      struct rockchip_pcie *rockchip)
  {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -497,6 +512,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+@@ -732,10 +737,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+ 	}
  
- static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
- 	.init = rockchip_pcie_host_init,
-+	.post_init = rockchip_pcie_host_post_init,
- 	.pme_turn_off = rockchip_pcie_pme_turn_off,
- };
+ 	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
+-
+-	rockchip_pcie_writel_apb(rockchip,
+-				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
+-				 PCIE_CLIENT_GENERAL_CON);
++	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
  
+ 	pp = &rockchip->pci.pp;
+ 	pp->ops = &rockchip_pcie_host_ops;
+@@ -776,10 +778,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 	}
+ 
+ 	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, PCIE_LTSSM_APP_DLY2_EN);
+-
+-	rockchip_pcie_writel_apb(rockchip,
+-				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_EP),
+-				 PCIE_CLIENT_GENERAL_CON);
++	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_EP);
+ 
+ 	rockchip->pci.ep.ops = &rockchip_pcie_ep_ops;
+ 	rockchip->pci.ep.page_size = SZ_64K;
 
 -- 
 2.53.0
