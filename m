@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBEBC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630FEC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=; b=zKnEw7AwROzcdpNxCz3FugXtiY
-	GprZGudxju14cqj3vKcRyK+F1S5SpD4bS1x7EXkCDpUnmCnYxfbPH5CU9VH4z9XT2XLLzvF5gR7xj
-	mZJh0NlkV7tMHWTwJ5iKKEFPRpTfgyCbA1dK5NJq+bwAarpZW7U7v9ikNjAkQtlkqlQvr7u7cO/FZ
-	VnxS8kIvFdxUTL8gXaiq4lZ84LTH8rOG8rJmGkdeYeNTsfQvSXcpHHxeFTA+wtje3WYavXPnZHrTA
-	fW91f59BZSV9KKB4RkkjDNNtGYbW7jvjCNEEgtUeXN+tn83JiPOrDKFa2MlljfksRQhqKxYw9wZQQ
-	BYmJ7gZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ayOQBPJP38Is6vE11/duZwA3mrGAIUY0/EIe7FHOUQ=; b=pQ/lp1/L4vUfgpaENCa5hUwpFH
+	H4cBJ2yb61jdQ5c1iFscR+TTM9tugYGopnvwkT4OPKCpD4xDT0TlarKwnrpoh4zbyXxIj97i0By9E
+	D5WZmUUZnRjABL1DJg8cZRtPa4r+hdPefE9pv8lFURflfssBp9XR04wh0HAnzr/diMTYHDD142tWi
+	6ZFSMoqeHRjc8DXKvhPHVpu4rMKIMAJzqi1QGFOR0M5GaWPDxtzelHf2Nrz4GApqUdCiHgjGpn7QP
+	Hxw6Ep4ybIGpyc/0pKD9IgrAkC42K6M4J9BEt74CsqsVJa+fR2ejPCwJdKAGCJ0iML/7/5yYiptmC
+	sTuVQtXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sja-00000008jHF-45WV;
-	Tue, 08 Sep 2026 10:07:22 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1x3soO-00000008jiB-1ko5;
+	Tue, 08 Sep 2026 10:12:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sjZ-00000008jGc-0Ger
+	id 1x3soN-00000008ji1-0mUx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 10:12:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/ayOQBPJP38Is6vE11/duZwA3mrGAIUY0/EIe7FHOUQ=; b=nu8VM9rlUB7HVHDk8i/RMCuoJa
+	KAz/zmWyLUlazhCRVlJ53OvBYC/YW167YC1CAJL8rdSpjXcYXYQTSe0TMzRmIP1X2B/NDRwzUt/1L
+	ohUsa29gwAljmH9hRgoa5GfbxpyjSAwuEWioAhARUI6FoGK+8tSzYURfbO0Jcsm7VZe2JEzrmHF8M
+	/OSUryW1yz1RtITozurH90LxzYJuNjRuBC782Q4ECK7k5kgc2MR2voEK0lSaoA27kz+oyspptp+n5
+	crQSaX7MN82qxLJwV0PxQEq7rG3KOMyXGJcN0aQO8stj6vtCwQw3/jG/SOP/IORnFzu/dLxDnYhsg
+	JHaQKrJQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3soJ-0000000HG3m-1AFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:07:22 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49d0b98d6d0so24627845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 03:07:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788862038; x=1789466838; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=;
-        b=ggLCbvVzPDv5wX1yzvKIzUVmXJhxVKkwTJedl42cU+t/xEcWqQD500rMpl+Bi6h72r
-         On2SOTlhh6uZJ2lTkmqn2qclWDwTPVr1+0KhPyfvoVVG7ocQAmDylBOjRYxb91G4HDhs
-         1+CWGsAqrZXZ/NjMltz9ttoNU1BhoyEXdcGGUgE9blb0xDAeQ/H18wL0r+0nK22B/mt4
-         e5NaP5NvdiVx//EXeqjtCAJp6+TUztXkTYnrY/wB3LYXBNQKiCnT1NzMpb5NKAXvihQf
-         0EJ2OAsZ5B4uidqnZl5rAXAKN9z7ia5jwCu3xexTCG+QLkIvC8VYy+wzF+mH4MDlcxCV
-         sdqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788862038; x=1789466838;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=;
-        b=HULm0aIQSEKVVEvM6uHunFfdPPH58+vAUZ7JjrZ1EknElOs3AX3El1AQ29FxDxeYul
-         r98fXHqUY5eMgj0UyFUvICPofeSvBHiJABORVeiv0OIdHizCelba477aw6Uv0i1wA+uL
-         AmfNEPxIVe/ZAJzCtCLsRVwF9ewUhCDfpF6Iih5VVQu2cs5TEOoIk/FG8STxbv6g6AmW
-         q6s288qv6fB+MFO19dZAbuYb5OZ64kurhBOKSMoxLd1GLFnzRJEJICs6jfLoUiDNzUlO
-         lHaiYOcOGHlgRe4pyBttQBAm0n1sFgbIs3pS9PEQyAbXNf3Sa51RgHSnesOzwxfXlRbz
-         nocg==
-X-Forwarded-Encrypted: i=1; AKwUvBzPLA8w2W0kcjEUZPfCAjtSFYTrA1giTXMuu2fT5/z5ZRPQ7nVZ/STquZMmZVxVS4QK/UC/IRGRzx+GKoY6wBBm@lists.infradead.org
-X-Gm-Message-State: AFuF++kqhQ6jva4kLCyaH1yZsoGp0Bfd0yFDIPTrTFI5K9nhNC2wvamu
-	8J8zq7Tpc77WAClYAaoabUJRniBnWT+pgxdbUpdE2CVpYbqW1BVwZCPFpZH6rf4UWQ==
-X-Gm-Gg: AYBFou0b08BGqCgtrxBjzvZG81qT4+UAqSrFXWx06SqFZSYtL0/z7kYMjL5bxxGY9jw
-	YA/+r6x9HjJb4o8dujgzPlcehBpORL26uRVRev/wX2hUqezkXysIxkjNTeeSBz+Ve2eryJbQStU
-	Ot6Frwd9686OT9JePu0ck3Cy3mXtRDVr3OKLvGwShIYa1wt/3RkGAVwCjOH3ljiXubOJ751lyXN
-	eAljm5L5VoZzs9Z4svdfi2x70eUh4v4FPxwuY8BZQe02XGQ24NfidG4cOWv9IXqBT/87eUEB4TE
-	ORRBYYDd2wzbyQ3KUw5eVFmj104pqc0uh64cjBuLkTNglayRv4Wa0LdkWaYDPnG23EeEmGTi6Yw
-	qfodmG6xTlF1X319d/acMJhLEG7O/2bVFkZCo4c0unTr8+5a7IhvGsAxwdOnJeHcGt52TZfO800
-	/lFE6V8+23XP0oP88wNhjart4sZ3rybEx5ipCRsT5DV0O5jBGWVsbju3iSXmCY+3aQJ/UZFmATc
-	RNoGh6KLohm6gC95ffGYZ4ZAyXo6YNrMUWXbEFzWCc=
-X-Received: by 2002:a05:600c:8b05:b0:49c:edd2:855 with SMTP id 5b1f17b1804b1-49cf823c411mr287008465e9.6.1788862036554;
-        Tue, 08 Sep 2026 03:07:16 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee7fec25sm544179385e9.13.2026.09.08.03.07.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 03:07:16 -0700 (PDT)
-Date: Tue, 8 Sep 2026 11:07:12 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 02/20] KVM: arm64: Propagate host stage-2 annotated
- entries on block split
-Message-ID: <ap_eUDk2Oo2-qIcm@google.com>
-References: <20260803100904.3563942-1-vdonnefort@google.com>
- <20260803100904.3563942-3-vdonnefort@google.com>
- <s3p6em2fovzkpyy5lpslxl7nl6ojhoilyqlydidy4unef6wnuw@mzgrpwwkbaxn>
+	Tue, 08 Sep 2026 10:12:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37FA41476;
+	Tue,  8 Sep 2026 03:12:09 -0700 (PDT)
+Received: from [10.57.7.202] (unknown [10.57.7.202])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34DD83F528;
+	Tue,  8 Sep 2026 03:12:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788862332; bh=xlZC3OEZMV0/coWQyGMwBENJjfaFGyqN0Zg0ccer2wI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bq3wzFSnLt2zEXdSnnz8U9DC9OXdPlrslLiXfJfZ/k46iOwSa29UVewNF2oShj0Vu
+	 /1YVazJsXb5vhqKLpsEUmyltbNMJhQZLlZtXH0OjNqzlNMIy0OoZofVpqolFOC9O0z
+	 RpncI49u7gtPHlIbJmwbnR1eaq8VLcUU9Xix7Sik=
+Message-ID: <00e97c75-eef1-4587-b299-ab07591a07bc@arm.com>
+Date: Tue, 8 Sep 2026 12:11:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <s3p6em2fovzkpyy5lpslxl7nl6ojhoilyqlydidy4unef6wnuw@mzgrpwwkbaxn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v9 12/25] mm: kpkeys: Protect regular page tables
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
+ Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-12-743ad31b2c8f@arm.com>
+ <178877845406.3691569.12554855722197968629.b4-review@b4>
+ <bdba5b54-8733-4d47-952d-e1bd958a1ead@arm.com> <ap-6PZqGZHhPD6u1@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <ap-6PZqGZHhPD6u1@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_030721_118631_C1D66044 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20260908_111215_667893_D299989C 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +105,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 02:58:41PM +0100, Wei-Lin Chang wrote:
-> On Mon, Aug 03, 2026 at 11:08:46AM +0100, Vincent Donnefort wrote:
-> 
-> [...]
-> 
-> >  static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t *ptep)
-> >  {
-> >  	kvm_pte_t block_pte = ctx->old;
-> > +	bool counted, valid;
-> >  	u64 pa;
-> >  	int i;
-> >  
-> > -	if (!kvm_pte_valid(block_pte))
-> > +	counted = stage2_pte_is_counted(block_pte);
-> > +	valid = kvm_pte_valid(block_pte);
-> > +
-> > +	if (!valid && !counted)
-> > +		return;
-> > +
-> > +	/*
-> > +	 * Shared walks not supported: cannot rollback refcounts on break
-> > +	 * failure.
-> > +	 */
-> > +	if (counted && WARN_ON_ONCE(kvm_pgtable_walk_shared(ctx)))
-> 
-> Doesn't patch 1 also need this shared walk check,
+On 08/09/2026 09:33, Mike Rapoport wrote:
+> On Mon, Sep 07, 2026 at 05:52:32PM +0200, Kevin Brodsky wrote:
+>> On 07/09/2026 12:54, Mike Rapoport wrote:
+>>>> [...]
+>>>>
+>>>>  static inline struct ptdesc *pagetable_alloc_noprof(gfp_t gfp, unsigned int order)
+>>>>  {
+>>>> -	struct page *page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+>>>> +	struct page *page;
+>>>> +
+>>>> +	if (kpkeys_hardened_pgtables_enabled())
+>>>> +		page = kpkeys_pgtable_alloc(gfp | __GFP_COMP, order);
+>>>> +	else
+>>>> +		page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+>>> Can we make it a sequence rahter than a branch?
+>>>
+>>> kpkeys_pgtable_alloc() does alloc_pages and then sets their pkeys, so I
+>>> think something like this should work:
+>>>
+>>> 	page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+>>> 	if (!page)
+>>> 		return NULL;
+>>> 	err = kpkeys_pgtable_alloc(page);
+>>> 	if (err) {
+>>> 		__free_pages(page, order);
+>>> 		return NULL;
+>>>
+>>> with if (kpkeys_hardened_pgtables_enabled()) folded into
+>>> kpkeys_pgtable_alloc().
+>> I agree this would be less ugly. In fact this is pretty much what this
+>> series did up to RFC v5 (albeit in the ctor/dtor instead of alloc/free).
+>> We could go back to this API, *but* the big issue is that it makes it
+>> impossible to use a smarter allocation strategy for protected pages.
+>> Patch 14 in RFC v6 [1] will give you an idea of what such an allocator
+>> (with support for large blocks and splitting) would look like.
+>>
+>> As discussed with David H we're first trying to land this feature
+>> without large block support (fully PTE-mapped direct map), but we do
+>> want to support large blocks eventually [2] and I would prefer the core
+>> API to be already compatible with that objective. Very happy to hear
+>> about suggestions as to how to avoid the explicit condition in
+>> pagetable_alloc() though!
+> We could unconditionally replace alloc_pages_noprof() with
+> kpkeys_pgtable_alloc() and make the latter choose the right allocator, but
+> that's not very nice either :/
 
-Only the host stage-2 has the IDMAP flag and will run this function.
+Yep I also thought of that but the naming would be really misleading...
 
-For the host stage-2, only non valid PTEs and non-RWX PTEs are refcounted.
-  * non-valid PTEs are skipped in PATCH 1.
-  * non-RWX PTEs are forced PTE-level.
+Maybe, maybe, introduce __pagetable_alloc() that is a simple static
+inline calling alloc_pages_noprof() if !CONFIG_KPKEYS_HARDENED_PGTABLES,
+and otherwise checks kpkeys_hardened_pgtables_enabled()? Less ugliness
+in pagetable_alloc() but even more further down, not sure this helps.
 
-So there's no risk of hitting a refcounted PTE in this function until PATCH 2.
-
--- 
-Vincent
-
-> 
-> >  		return;
-> >  
-> >  	pa = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level));
-> >  	for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep, pa += kvm_granule_size(ctx->level + 1)) {
-> > -		kvm_pte_t pte = kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1);
-> > +		kvm_pte_t pte = valid ?
-> > +			kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1) :
-> > +			block_pte;
-> >  
-> >  		/*
-> >  		 * Skip ptes in the range being modified by the caller if we're
-> > @@ -1053,8 +1066,11 @@ static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, k
-> >  		 * that should happen very infrequently.
-> >  		 */
-> >  		if ((ctx->level < (KVM_PGTABLE_LAST_LEVEL - 1)) ||
-> > -		    (pa < ctx->addr) || (pa >= ctx->end))
-> > +		    (pa < ctx->addr) || (pa >= ctx->end)) {
-> >  			*ptep = pte;
-> > +			if (counted)
-> > +				ctx->mm_ops->get_page(ptep);
-> 
-> and this get_page() ?
-> 
-> Thanks,
-> Wei-Lin Chang
-> 
-> [...]
+- Kevin
 
