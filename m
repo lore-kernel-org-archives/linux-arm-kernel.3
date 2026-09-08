@@ -4,51 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BB7C79FB0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBEAC79FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SWN1S1aR/SL8gM+eidiWKqzRizJ1TYpZGVJia38C4KQ=; b=d8SMM0dEv+pJ10
-	i3+KHtm9GLVxg17TeN96Z806Og2iFN46/xnKcq2v3oChzWflwWaN6podpHqitikCTQhjdybcX08FY
-	yDv79jPPiiA1S3Ch1vkhFvK15DNjJ/Rxa9BsF0NaZmQXJO2rRToN0tlUzDwwkSeJSoI1OMHwR9DfE
-	zvArudAafb5sz9PTbCgoepv2JvHPOSKZpPXpwyq5lzi/1olwNeeOhVlZEW/1RyBYj5m41Z+BgImpO
-	fG33pikZfcCmm21d7nKKFfCV4zSVs6cq2lWs85SxcXM7V7I/MEHtyLl5xB3l1S5kBNvWbNbg9z+j2
-	kX27JeLgU7ym23cUT8Fg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5L/XcuxQLLZLXrKN2g2/0ioV+GT9Ym5AO4xWn00BwKE=; b=KUGWloKTzMaTLluzt0X8W8b97n
+	HymgiTsOCLcsRKiCP0xjKFLtsidbFkd8EGtfgYL6ebF45+6Dxou/pfse0lRtUWfe6pUypWg8SVcMf
+	GnHUbEe2CZnp2sFc8e5AuFwKE9GNfYrIQRuBsNfDY+iwzGkKz7Z3LImop9YN6YjUeweDb+GBIbNHJ
+	8yD+vT1a2qTJ309P5FHodEybog0cOb8AJlBLyU+OUilk5ZuwEbrN3pCzMg0o8hL51LBJ1QVhjYX3w
+	eNrCMMhKdZHhr7cpC7SlbaMTMRlLM562COea22qX9ZBvEs7vvGa0xpC1iy1FYtK+GRx4QnR7L3SDe
+	YAn1jqkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGH-00000009Bce-22Be;
-	Tue, 08 Sep 2026 13:53:21 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1x3wGI-00000009BeO-0gQF;
+	Tue, 08 Sep 2026 13:53:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGA-00000009BZw-0hvI
+	id 1x3wGD-00000009BbU-1ZkN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 13:53:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=5L/XcuxQLLZLXrKN2g2/0ioV+GT9Ym5AO4xWn00BwKE=; b=f+F0DB5u124OCgFQTzqYmFjVqn
+	Wvxm4a+5THpslzxX69UtOraZj9GXX7v1RldkmWWlf8AEa9bTafEIJtbVyVjwuS0iOsadW7JnzULK8
+	Xm47hBNpOWYVyvcjfPBZigo63VGSuo44ugtZUDnjxfJr5WijGeIOwX8zp98ubM/1FmNVsae1PBRxX
+	1D4PEiAnnn+jwaeTWi6/lQs8nXOXnAbVS/zcGeH4rNzqoL1ls+OuVoDZ4H90dpnV5VQtjAJmpEIrg
+	LyCK3AkuoGeTboZi0rsrdZHmnJGhvAVQ+cNRRdhP/l40fvxAjcKkT9rEKPqajERWQXHtIrCeG8U1m
+	Zjkd1UGg==;
+Received: from mail.fris.de ([116.203.77.234])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3wGA-0000000HUfz-2M4l
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Sep 2026 13:53:16 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1788875588;
+	t=1788875589;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SWN1S1aR/SL8gM+eidiWKqzRizJ1TYpZGVJia38C4KQ=;
-	b=ZekgHt6qZvc3TbotMpRzzcDvHOV7WjRhllv75UJy7QBiUUTcVY7zbaCa+98sAxSJfWB0ub
-	I5v+nZ298lwRQHuVzYHR+dbG52A/hSmh9OrFobJifezgem/a70At5ibmZg++2LPFX7YqRC
-	jtem+JbDREb0+WH6WuQllXPoGViSuWdIEUn9qG+4bTFMZuCN0yAAL7sjTEwAgqk/AYi4sh
-	dnwFTrGNpLOQVnBIHEKZz+TqJZuOo4Agbk1hx5Pdel6guHQYSFmjD37vSk2emzO9GK+g3A
-	fUfBByixo/oA25QAZ8vRjOzLJ3UDVGiWRFxHP7o1E1oY/ez1IlbIGfhaS3IlJw==
-Subject: [PATCH 0/9] Misc Kontron i.MX DT improvements
-Date: Tue, 08 Sep 2026 15:51:47 +0200
-Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5L/XcuxQLLZLXrKN2g2/0ioV+GT9Ym5AO4xWn00BwKE=;
+	b=iaAyeTrNCJLJQ/j1QOdrJeo4ecxauVYTE6q2lNJwsWzui/TbmSEGNFzvIm4jWcoi7KwgiF
+	JSWv6zSeLZd9L+orB9++8d69scpw+fhl5Y2YSgc9TX/hQz9BFIYTOr6IyQnif09M//l0Xe
+	QyiWozek7suUN87L2D3fP8dM4FVIAg9hj4Oo0ag/aJoWDrDKP+n7vFA3abBrdD3yKaWMrp
+	nS6BvFJ3oa3bRDusZ6RfFXIyYW9LkjNJiGNwEhIpdz88hxjSYQLbl6QEB/L+2LwtG0naV2
+	Q63NMlZC5O/7FY9IuLEjQQHMSXEQFSxF7rrri42xaJEwJR6+zUM6VqshEZV+TA==
+Date: Tue, 08 Sep 2026 15:51:52 +0200
+Subject: [PATCH 5/9] arm64: dts: imx93-kontron: Make USB-C connector
+ "device-only"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQrDIBBFrxJm3QFrQGuvUrpI4iSdgkYcI4GQu
- 9e2q8+Dz3sHCGUmgXt3QKbKwmtscL10ML2GuBCybwxaaaOcuuGWpGQaAscFq0WNHHb0pU3Ka6V
- AsQi2nzZobD9r76wj00MTpkwz77/Y4/ln2cY3TeVbgPP8AHoUlUSOAAAA
-X-Change-ID: 20260908-upstreaming-v7-2-imx-dt-improvements-08-26-673f2d979e63
+Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-5-4d0e8a75db79@kontron.de>
+References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
+In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -57,20 +72,19 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Eberhard Stoll <eberhard.stoll@kontron.de>, 
  Oualid Derouiche <oualid.derouiche@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1351;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=993;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=1yrsw7EfCCl5e0HroSc21jsyrFqJNPeX7I/G6E+OrzI=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsO7vu4oNW63DXy/67W93M58n64aWubWMBuuV2+nHj
- 2zL3TW5o5SFQYyLQVZMkUWK3+K1rVmsj/yx6iiYOaxMIEMYuDgFYCJHoxgZblu9TatQu8Ao8Tkz
- MLanL2V3/pQVyq+L3m1ke7yH/+6MPYwM+52m2zu/EDtzdN36gqP7Q6dbLZhRv6tzR6Lwr6fqzw5
- LcAIA
+ bh=nBXNsn5j9wvYH8NLcZ6PDt1KYldwEPOzwtDvyon9Z9k=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsHPxhE4np20PVp2LeD3rid+cPmkx84+fm9xyhC8Kz
+ Xt1NIW3o5SFQYyLQVZMkUWK3+K1rVmsj/yx6iiYOaxMIEMYuDgFYCLOsxkZrm5dtvJziNeqI0+P
+ XP8zcdW5yd+enQzs1+Y34ftdc/LPwhJGhiNzPQ2XXLnVM7UwSufh3oauZnYtJoa0NUzZTkk1G+b
+ lMAMA
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_065314_665301_5A9F4CE9 
-X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-CacheID: sfid-20260908_145314_805706_BB64250D 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,35 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Oualid Derouiche <oualid.derouiche@kontron.de>
+
+The dual-role support was broken on early prototypes and has been
+removed in later hardware revisions. Reflect that by setting dr_mode
+to "peripheral" and removing properties related to dual-role usage.
+
+Signed-off-by: Oualid Derouiche <oualid.derouiche@kontron.de>
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
-Eberhard Stoll (1):
-      ARM: dts: imx6ul-kontron-bl-common: Replace UART3 with DIP switch GPIOs
+ arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Frieder Schrempf (2):
-      arm64: dts: imx93-kontron: Adjust GPIO4_IO29 usage
-      arm64: dts: imx8mm-kontron: Describe the ethernet PHY LEDs
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
+index 4620c070f4d7..0277640d7c4c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
+@@ -158,12 +158,8 @@ &tpm6 {
+ };
+ 
+ &usbotg1 {
+-	adp-disable;
+-	hnp-disable;
+-	srp-disable;
+ 	disable-over-current;
+-	dr_mode = "otg";
+-	usb-role-switch;
++	dr_mode = "peripheral";
+ 	status = "okay";
+ };
+ 
 
-Oualid Derouiche (6):
-      ARM: dts: imx6ul-kontron-bl-common: Add GPIO labels
-      ARM: dts: imx6ul-kontron-bl-common: Fix USB OTG1 ID pin configuration
-      arm64: dts: imx93-kontron: Make USB-C connector "device-only"
-      arm64: dts: imx8mm-kontron: Add GPIO labels and comments
-      arm64: dts: imx8mm-kontron: Add SPI EERAM on BL device
-      arm64: dts: imx8mp-kontron: Fix LVDS clock frequency for DL device
-
- .../boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi |  38 +++++---
- .../arm64/boot/dts/freescale/imx8mm-kontron-bl.dts | 107 ++++++++++++++++-----
- .../boot/dts/freescale/imx8mp-kontron-dl.dtso      |  11 +++
- .../boot/dts/freescale/imx93-kontron-bl-osm-s.dts  |   6 +-
- .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    |  32 +-----
- 5 files changed, 117 insertions(+), 77 deletions(-)
----
-base-commit: 73e3f0710014fe6d4ed98cfc02292f6121db7558
-change-id: 20260908-upstreaming-v7-2-imx-dt-improvements-08-26-673f2d979e63
-
-Best regards,
---  
-Frieder Schrempf <frieder.schrempf@kontron.de>
+-- 
+2.55.0
 
 
