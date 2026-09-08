@@ -4,123 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAE7C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2A5C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xw50zLLgfzK0DhLBEYQyVAO8zl3n/t1zccuw2hwU5ZE=; b=nnwn4MS6D7CCMqM8Uu6jfvTS1p
-	deLi95BwFY5vJm1PW2KRYfZgcPW5s33RW2w+yb+/zL2WOCXYkcMxO2EX6Bl3rgKSVUSe5g8yo4FQx
-	k4z5/kioEONBog6fmFJPDI+taqBCQWmxYPFC3MGWBKONPkwheIlND0gitIX/jc5SwYreycBm4vCIg
-	5XenmhJewxo5gYlpfNaB4QBWFGe6yn6vPtH7OKQ+vzk1YtZ9LFeR14GnzVSZ1aZQ/nW1Yc2YNFuVu
-	nIPcXsHv084271CRyriIdktXM4pwzEg/teYAcd6t0XqmouRSW4bXmZiGGB43w7353eNTuRbYRYv9R
-	i3TiEH7A==;
+	bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=y7LV/7GcU5UD4FXS/D533sqyyb
+	nbXi4OFVkW8KqPvmdaLsxmB0vQKNFXuAIUni/1MqbgaaMWMuheJwJP5/sEMwQx9VIKwRW+v2P8F31
+	jSJmOqmas9Ty0MCTn72/xgI8phqNRSxfhBRWz2GkLSM4VmhbEClQU1Fp5Iea2/jOh59LOndPAdCPW
+	OB4Wo4RDWgbPtWl/KTr2mTvVSMZDnyHEjZ+YiosbituZ4QQpyBWjTbYkAg8rhsZuHVdXRsPFQ4x92
+	e0L6ODLEhZniZqImhtuRJ6nRnO0gJyW3+y7noWfb2UU7fSb0aWE/r6v88zWhMiXvrTQzLT3Y78LJO
+	ElawGo9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x428H-0000000A96L-3TL1;
-	Tue, 08 Sep 2026 20:09:29 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1x428j-0000000A9Bs-0Tzy;
+	Tue, 08 Sep 2026 20:09:57 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x428E-0000000A95g-1OWY
+	id 1x428g-0000000A9BH-48oB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 20:09:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QY7JXnFH2G0DCKJkoAKCN5rY4VPa3vnhxWqBi2l5B/RJfIe6NrV3AsAAKy6d+rNeTiylYqOcIANxm6LmKCnfz64RRVNoRghlyrUMba+pcsZ1eEfB5eFQAuMgEx8eleUvqZk9RhX8Nw6bSUjXd36szee8pM9Jp44OgcALKxym2d83fHI/2ZXqgDEjgeC9IGkOAPcqaXuE3Nih7fNl5vSSksKx+3dLiZQEtXPB3KPNUrDUaavGo5r74VLu1lEZNKhQloPdXjYaXDhiQlsAka3dzvgQilfG/LYKbxnxubTQfFuseeLSsqb8WA9MNGvyb1Pio/aqvjpw9S0DdQOoOCck1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xw50zLLgfzK0DhLBEYQyVAO8zl3n/t1zccuw2hwU5ZE=;
- b=n4JzKOPAnAUMSDPH3oW1C6wCwpqGDJaqDVwoXyASA/igfusDK1w53zJGJPQWy6SBtwH/6CywEsbHENGak4WXt7/Cjd7dbaxcRJ7TdNyI77LcZLLswZCdCl9s0SXBlA1b5pg3y6kq4NfNy31YZfVSM7gkm+4EZaUWrvmzzR0LYDxtPIWbXe5sVkvWmrsNSi2AjigUbLv8sLkdRVdRTFMu1RJVOBtcqOpEbARrLzHJYoxJZESb2kzccgLIouAfPCuHzXfj18vi9nESeLuV3lUGLijiL4abKjDO2T3QJ8gfAksF2cfAzk57RU5Rsdz1wInluDI6zAnd+SfbT2pQ7EidcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xw50zLLgfzK0DhLBEYQyVAO8zl3n/t1zccuw2hwU5ZE=;
- b=08VZqFgbDk6KQ7Th9YroeXo4x3Ro2UR03A7IXNK/hMdc4W11tcrv0BfQN4sIiWOyP4GOp0mM6pVorfCtIf3Q97MiSd4kTD+qambcIuAZyRp8WV2Lgv7cDFOJ8Uriy25x5HZCJRbru9lvSQFYHftU0NEFb9GUGo5lbC1toa7z3lc=
-Received: from SA0PR12CA0010.namprd12.prod.outlook.com (2603:10b6:806:6f::15)
- by PH8PR12MB999319.namprd12.prod.outlook.com (2603:10b6:510:40f::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
- 2026 20:09:19 +0000
-Received: from SA2PEPF00003F67.namprd04.prod.outlook.com
- (2603:10b6:806:6f:cafe::67) by SA0PR12CA0010.outlook.office365.com
- (2603:10b6:806:6f::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
- Sep 2026 20:09:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003F67.mail.protection.outlook.com (10.167.248.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 20:09:18 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
- 2026 15:09:18 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
- 2026 15:09:18 -0500
-Received: from [192.168.0.226] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Tue, 8 Sep 2026 15:09:13 -0500
-Message-ID: <ef19ea63-a4bc-407a-bca2-40a2818a3671@amd.com>
-Date: Wed, 9 Sep 2026 01:39:07 +0530
+	Tue, 08 Sep 2026 20:09:56 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.stl.internal (Postfix) with ESMTP id 29C0A1300C52;
+	Tue,  8 Sep 2026 16:09:49 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 08 Sep 2026 16:09:54 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1788898188;
+	 x=1788905388; bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=
+	Ku2CBzv1lbwKt7FkbK1hK9z6lUhC4lyMvWVuJCDperQCrGR4/rovcYZT14+F2GRU
+	Rav/lw7wDP1LZUNHanxxKPv9TiMXrWJeF4XcFPkUtSvKXHgFfqD1zYYomxsGk/6w
+	D0ugcsY4ct992ReVcs1IUi3KQk3MwK2m0/nVfeh2El0YDoKepsDCsUsJEw2Xopqf
+	vUaW1KTQtRtXeElKC9QKtKuQIKUo2YJjj/bJt4iyEuMRznXurrxMtEOYF0Vypnae
+	hzllfDFfMF4MLpuFLIHlHRQICSgPksOWfpJUZziA6rKH7zrejjbOHOF06vLIb/zc
+	w5HH3y04fc96xLHdT/IkTQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788898188; x=
+	1788905388; bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=u
+	jMQYS0sL+Aowo4kNVDUIZ6sxKERcte19OIubGhUn842ROtFnMhzcn9nOmWNq8m7C
+	FHmwKHYgoJ/jG2pkJGkAUm7NezuYNDuHEtea2iCCY1h68vHHRw1tbwvNgBC7NsFY
+	rbLssRXRc0/8Z7/FVbSv77yvARhK4G2eGFJ9PzzEfE+9jQ1o9Hc+VoCcqrJKguIG
+	cVWq5h0ss748M5e43R0TGSageD0VACosHeHSAOqC2oKrcgC+Dywg34eoHUA61vUD
+	Om+SXPAR6IF9uWHBupFJaffqsw5yQdw56xQkgFp2LSYGh5EmlOC0wvW/IaDQZnCb
+	LMTZ1CVIosTouKpnUkAaA==
+X-ME-Sender: <xms:fmuganAtXtSwL-JpSs__4SRF0rTRt5GmxPf831izoU_erzPTWgAXSQ>
+    <xme:fmugaoXMuufuq90WbEJq3jH2RboT9th930_-cNxUKLtsWrbB1oneFf9Xz6yLhoedT
+    YqurXU9BXFFOxISdk694hhj0cpVnKQYoXn04NuD4ysdyrWwPbUYtRY>
+X-ME-Proxy-Cause: dmFkZTEOp8fHm5Y3J5V2OI0TYboevCVDMAAGYDcPknsZa+0X0RAcfHjfIunQUCrjwll0ea
+    rAQKkk63eMYO5/YsUuJodvREtVTrCuYoOIZ9cdLF4PumfhTpYgh50Lfo6o9D8QrGucOErt
+    1sYxt2QrPbopoRmAf/GENKdf06cSRGVrvjFFQcAbo5nmTHwS3A0bt3HwuabeSgvhnsObAg
+    dbPo0mT2Qbsifo2veGFIaoL0lJSdd83VAXqWQzrdwJ/OSfRVxeUmrfI9jQpSwWye6jKqFi
+    NOft3xXk0NdTzkITEAa33TJA6ix1zF0AwdpfuVEyfJmRNLBy11archzASh1BSGprZa93Ds
+    C+Sv9U/weUns6mx2nwFA2lCN3zLi/Rk8p/J83yqZM7VlcK675+DuzSxAZqfRkMJBci1i1e
+    eqsl5xkRkXCorwVc/2lQanGN1S0IbMaPI/UhcGXT2qI1gtN8VcS4pCweSc1uJ3MgWVP5Fr
+    fd6wuggi9qR2Is2m5jQDxFEcLJqjzcHUFW7JybEqzCT2wTsaTx7pu+YFjg6kopHPn0PbED
+    uooY3D/duB0e3xj8T9BQsm45luJjYM2Rz0k3B09xmHAt8V34sz5JvPIlWK2+nJkOpdV5Fl
+    Crqztnvqs4a/7+lCs3/5TbA3fZD27fPI9F+o3hImahc2L0qBOLFE1RAotMHQ
+X-ME-Proxy: <xmx:hWugatKoHMBMnZtP17UULzQB6EuGdq9y4KPlROoonj4Gm0uf8OUMXA>
+    <xmx:hWugaqqpPwtCM1AUnviPCuSqlRr2u6RRud1ajk-GboRnZDzrQIApPA>
+    <xmx:hWugauWHWoYrWzb7a2llPhn3uSnztbyj-cPoQd3ZWlwfPBa7MX2nuQ>
+    <xmx:hWugagatGK1_RhDhj2yYgoRPdRO8Qbn-tAse6dSoi-K2c4PVP9gsKg>
+    <xmx:jGugarmn9UC73Fhha86G49qnTJMPVdxBgve0N-zdSoV85HG7yX3TtBkr>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 5E56132A0078; Tue,  8 Sep 2026 16:09:34 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
- cores
-To: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
-	"Vincent Guittot" <vincent.guittot@linaro.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
-	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Mark Rutland
-	<mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>, "Breno
- Leitao" <leitao@debian.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260908082345.103087-1-arighi@nvidia.com>
- <20260908082345.103087-2-arighi@nvidia.com>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260908082345.103087-2-arighi@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AwGOxrB98c9B
+Date: Tue, 08 Sep 2026 22:09:14 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linusw@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Drew Fustini" <fustini@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Liviu Dudau" <liviu.dudau@arm.com>,
+ "Sudeep Holla" <sudeep.holla@kernel.org>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>,
+ "Vladimir Zapolskiy" <vz@mleia.com>, "Stefan Agner" <stefan@agner.ch>,
+ "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+ "Aaro Koskinen" <aaro.koskinen@iki.fi>,
+ "Andreas Kemnade" <andreas@kemnade.info>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ "Roger Quadros" <rogerq@kernel.org>, "Tony Lindgren" <tony@atomide.com>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
+ "Andrew Lunn" <andrew@lunn.ch>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Robert Jarzmik" <robert.jarzmik@free.fr>,
+ "Kristoffer Ericson" <kristoffer.ericson@gmail.com>,
+ "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "A. Sverdlin" <alexander.sverdlin@siemens.com>,
+ "Shawn Guo" <shawnguo@kernel.org>,
+ "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ "Nicolas Pitre" <npitre@baylibre.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Linux-OMAP <linux-omap@vger.kernel.org>,
+ "Guenter Roeck" <linux@roeck-us.net>
+Message-Id: <e768247f-3c29-4d36-a40f-05ec81b45db2@app.fastmail.com>
+In-Reply-To: <aqBhF5oS1A2W6dAa@gmail.com>
+References: <20260908152808.3928630-1-arnd@kernel.org>
+ <20260908152808.3928630-2-arnd@kernel.org> <aqBhF5oS1A2W6dAa@gmail.com>
+Subject: Re: [PATCH 01/13] ARM: remove sa1100 platform
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F67:EE_|PH8PR12MB999319:EE_
-X-MS-Office365-Filtering-Correlation-Id: 862ddb7a-e6e6-4e7a-f60a-08df0de510b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|7416014|56012099006|11063799006|5023799004|10067099003|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: oNFIjLlN1qTdzLmRZSYpcOli+UrdAcpeeZswkXvk4e91MD0EjE9efRF5UW4zvzGoX0vg2HFZ6DkElRBPtSghzfQujHORv1OWbHxzWNGmRfeQYak2tWYnBLR7SlTqNUe0wCJ1FnPAB3Jm9CJpEXU1B0rZ6oa3Q/ve8UsPUSpxrtdapTjOFFzmq8fCHv+4cESjvlfIdDhtwJAra6o4jF1T1x+lLY4Xn2hvZR362eho1v1gYOteZ9XiXlzLgzrOZksvn5iLCYjCkA28EbzrWBCzvAMLhN76hPLoQoiw/uk1NFylbH/pP8CZorZqo8cgjLhfR5C/X9wJhTm+/6rS5a9LzY7NOcfy3v48J3jGorRnXweovRU6C2dK+bdkxNhXzH+A/uwP0eucpEBm87AuEtGlipqLqNxWk0KPmELnT0nKcBFTnxF4RrXtmBQ4HBGLnvXDht+hg5JSZwhSZVILNfCIgj3yZZeetHCdVCezm9jasDIXtFRA/nD4+wX8IZJVAsnWgk91Enb9eggzcMvxisnjI6+d71hXNS4qCe4ABzyZ66c0fVDwvJg19xMRW+VKNEOjaNBN0AtLaXq8kMCjmb8JL/qR8XbfdpCZEGKE8t9DF5zRRanc2LPl+0rhAX/DaQxB32S4edmQaySeCrDluIKKZdwzId9taQtcVNBi8Hilxa1C2Fjgwyuti53sV0AHxz1HSlQoiRUdEj1LduFp6yz+uw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(7416014)(56012099006)(11063799006)(5023799004)(10067099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GW5ihL3g+b4tl9a3rfcNoVCdnshoeQ73xkE3Xib9pfzrVd5SxvgstaL1QGYFiivY5t7Q2xqGIYl67QCv1E753icSksTNzLqArb/2AUYTJGjAADNL/ZE801SmzugstJyWaO8APlEbEYwPmCLKOT5Ya1b31rf3AGghkM4vXZ09R+QoF7c8LOuBE7NVCBeQ0XzFQsDqWIBI05JhyIKIGw5AA3XGCiYjwCP5wHoaS+0vlb9+1hVtwIS9llKWPhfrvNkN/rMqCAkad+8TUnaeWylrbikcWSwiBsrxg4Wa3JBV2FnG7Uxx+C+aFp8v/aR2JmK9Iwo3EW1G1AIfNvBnJonpRx63+TTR6THYIAeGUB/VcLW3B5Ix2ocRATNnJWRESmHdOvZFPCyEr5bVNV17LYnlwBP2GOtp3N1ITBW0/rpGj+XaQOiWphJlN6qRNtwphhV2
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 20:09:18.8125
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 862ddb7a-e6e6-4e7a-f60a-08df0de510b2
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F67.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB999319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_130926_382730_CF8C9614 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260908_130955_075957_8001D0B7 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,75 +145,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrea,
+On Tue, Sep 8, 2026, at 21:39, Karl Mehltretter wrote:
+> On Tue, Sep 08, 2026 at 05:27:51PM +0100, Arnd Bergmann wrote:
+>>  62 files changed, 19 insertions(+), 10501 deletions(-)
+>
+> Note that Sashiko skipped reviewing this patch, because it exceeded
+> its current 10000 line limit.
+>
+>> diff --git a/drivers/rtc/rtc-sa1100.c b/drivers/rtc/rtc-sa1100.c
+>> @@ -275,18 +275,10 @@ static int sa1100_rtc_probe(struct platform_device *pdev)
+>> -	if (IS_ENABLED(CONFIG_ARCH_SA1100) ||
+>> -	    of_device_is_compatible(pdev->dev.of_node, "mrvl,sa1100-rtc")) {
+>> -		info->rcnr = base + 0x04;
+>> -		info->rtsr = base + 0x10;
+>> -		info->rtar = base + 0x00;
+>> -		info->rttr = base + 0x08;
+>> -	} else {
+>> -		info->rcnr = base + 0x0;
+>> -		info->rtsr = base + 0x8;
+>> -		info->rtar = base + 0x4;
+>> -		info->rttr = base + 0xc;
+>> -	}
+>> +	info->rcnr = base + 0x0;
+>> +	info->rtsr = base + 0x8;
+>> +	info->rtar = base + 0x4;
+>> +	info->rttr = base + 0xc;
+>
+> This drops the layout switch but keeps "mrvl,sa1100-rtc" in
+> sa1100_rtc_dt_ids[] and in bindings/rtc/sa1100-rtc.yaml, so a DT with
+> that compatible would now silently get the MMP register offsets instead
+> of the SA1100 ones.
 
-On 9/8/2026 1:53 PM, Andrea Righi wrote:
-> NVIDIA Olympus implements spatial SMT with symmetric steady-state PE
-> capacity but two different resource modes. One-Thread Active mode gives
-> one PE the full core, while waking the other PE restores Two-Thread
-> Active mode and partitions decode, issue, cache, TLB, and vector
-> resources. Returning to full-resource mode requires the sibling to
-> remain in WFI for 10 Ki cycles.
-> 
-> Measurements show that pinned workloads perform equally on either PE,
-> but freely migratable workloads lose substantial throughput when they
-> alternate between PE identities. Consistently selecting PE0 keeps PE1
-> idle, avoids repeated SMT repartitioning, and restores
-> one-thread-per-core performance.
-> 
-> Describe this scheduling preference with SD_ASYM_PACKING and give PE0,
-> identified by MPIDR_EL1.Aff0, the higher arch_asym_cpu_priority(). This
-> is independent of SD_ASYM_CPUCAPACITY: SMT siblings retain equal
-> capacity, while physical cores with different maximum frequencies are
-> handled by a higher scheduling domain.
-> 
-> Firmware currently provides no interface for describing the preferred
-> SMT sibling. Detect Olympus by MIDR until such an interface is
-> available.
-> 
-> Signed-off-by: Andrea Righi <arighi@nvidia.com>
+This one is interesting: this was already the behavior before
+my patch, as CONFIG_ARCH_SA1100 is mutually exclusive with all
+other targets. That obviously wasn't the intention of the code.
 
-Feel free to include:
+I've removed the sa1100_rtc_dt_ids[] entry now.
 
-Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
-Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+>> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+>> @@ -614,16 +614,16 @@ config S3C2410_WATCHDOG
+>>  	  be called s3c2410_wdt.
+>>  
+>>  config SA1100_WATCHDOG
+>> -	tristate "SA1100/PXA2xx watchdog"
+>> -	depends on ARCH_SA1100 || ARCH_PXA || COMPILE_TEST
+>> +	tristate "PXA2xx watchdog"
+>> +	depends on ARCH_PXA || COMPILE_TEST
+>>  	help
+>> -	  Watchdog timer embedded into SA11x0 and PXA2xx chips. This will
+>> -	  reboot your system when timeout is reached.
+>> +	  Watchdog timer embedded PXA2xx chips. This will reboot your
+>> +	  system when timeout is reached.
+>>  
+>
+> "embedded into PXA2xx chips" is better.
+>
+> The RTC_DRV_SA1100 help text a bit earlier in the patch also still says
+> "built into your SA11x0 or PXA2xx CPU".
 
-Just one nit below ...
-> +/*
-> + * Switching the active PE on an NVIDIA Olympus SMT core can keep the core in
-> + * two-thread active mode, with resources partitioned between the PEs.
-> + *
-> + * Prefer PE0 so PE1 can remain idle and the core can stay in full-resource
-> + * mode. Firmware does not currently describe this preference, so detect
-> + * Olympus by MIDR until a firmware interface is available.
-> + */
-> +static bool olympus_prefer_pe0 __ro_after_init;
+Fixed all these now, thanks for the review!
 
-nit. What is the purpose of "olympus_prefer_pe0"?
-
-> +
-> +#ifdef CONFIG_SCHED_SMT
-> +static int arm64_smt_flags(void)
-> +{
-> +	int flags = cpu_smt_flags();
-> +
-> +	if (olympus_prefer_pe0)
-> +		flags |= SD_ASYM_PACKING;
-
-If this flag function is being used, olympus_prefer_pe0 is always true,
-and the scheduler will never call into arch_asym_cpu_priority() without
-SD_ASYM_PACKING being set so olympus_prefer_pe0 is always true there
-too.
-
-Seems redundant unless you were planning to do set_sched_topology()
-unconditionally for whole of arm64.
-
-> +
-> +	return flags;
-> +}
-
--- 
-Thanks and Regards,
-Prateek
-
+      Arnd
 
