@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482F2C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E507C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYfYDdE7DspXvRN6XWjoF0oVWNG8h+aeME7zXoQ2sRk=; b=ZE7jr8z+aWf9yDrDnF+R6D1ikx
-	pVmVzFAURrKDqNJGXa+RT4womHHOVu/XDE92AZIovWYqJdFK8z6s8POUIy52hc2qbYt2y5Luu8nqV
-	jiFd9/6ibLAfsVRbOtA4V4RttXBlHq3GeG7J+v+VYt+wQEaaUBsS4iMugSVuf9XgzeEtVfydwA8tB
-	fx05adIJ/ty84kgAj7mksoXnH9ErJLkPpLtDIp1Jr7YmxQ3NWaCMW6CZhGRMmIrvI9NpQrgYJE0Dm
-	+GNdnJ5YzvG84zugc2Cphph13yWqgbycjCsYopwmM0pw9w5X9aPSkgLRJOJcQLhcjPiilxIm7RN5y
-	dHWaoqTA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=flkzUkiWLWcRUIyHVsR1WaXcCtF7WMzEBAVU0LhMkI4=; b=sUO97JfgEvwwavlepOnjMot4so
+	ZTe3BaU1EgLDo6HBkku0KMJQq0UNLI6dwW7hdVX2bBEcw4Nhd/XsLPNSDy8eBzarr6Iixl9FYbkdi
+	+aKBkmBpDbgFNX7hQumTfvBHBpzJGxc+q3NVscvIttOlaMKqm3pH9i0GX70YLfDdS3nq5i8zdM/IF
+	N8c6gIpaRF/3aiJP3jpHViyL/zZPp1py4VRgv2PVBLFmjB4Fd/M6jJ9d6lKuqCRzv0lfWAh8VAGG5
+	chbKBwkx9AKSAteum5JEWnuguqcUvrQojZk8NwfhhEsfR0ipop8Dum9ye8XgJlG60D0EG8SJMHIXI
+	1bwzhrtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ybh-00000009dci-335p;
+	id 1x3ybh-00000009ddF-3orc;
 	Tue, 08 Sep 2026 16:23:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ybd-00000009dWq-1B1l
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3ybd-00000009dTT-49c6
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Sep 2026 16:23:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 779011477;
-	Tue,  8 Sep 2026 09:23:28 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D775D3F7B4;
-	Tue,  8 Sep 2026 09:23:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788884612; bh=cQ58Yv70roVo81q8YhrC7/X6t1/ZhRn2w2WWnNS8nhw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kClYRytWqQQBGNNWIWxVmskQVHDgFyIpVPJJUOmWcU0B+eJcM90R/uSvItvNW5ufv
-	 37Ffp+qeitSORtr+HhQuh4ELTvScMnd6b7Lm0elsysioOlx/w0VCzZGeYMcRiyDI63
-	 ScAk2LSkj5PGLVJRp3pAWyoRIOX5ikoQAAyB/oxM=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4hfTl54WJYzKmsk;
+	Tue, 08 Sep 2026 18:23:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788884609;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=flkzUkiWLWcRUIyHVsR1WaXcCtF7WMzEBAVU0LhMkI4=;
+	b=APD8CwNDttg9oKIo3v4USOZYbSVrALPOmSCOHHoiVIkMuWlVoNXIwq2Ltb4OlTfRFzDgXp
+	zq64NXafpSoSF6RKKY8OjVfE7wR/Mx6K5njK5JhK8GCNItK5csBB3mAWDoK4ZGMi2R01Dy
+	SoErdqhFKdj+8wlAoIIIK64hhzDY8J+RE13kHvRgKOz0xsLUw+jh9qG9hTuOyyxx8iNTur
+	aoz/J7FQM4pnMKg7UDLJY114T/fgsp8MfhkaVPJAiBi8YwtaU1wSallB0qBtgfddWHqWC/
+	gi8EvqGrA5NscqXSVWK5Uu2Bx2XKcb6tiQNk/GUEK7ZZGiZUD2OOkQ4eww33jg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=TjwP2Zoc;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788884608;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=flkzUkiWLWcRUIyHVsR1WaXcCtF7WMzEBAVU0LhMkI4=;
+	b=TjwP2Zoc6O6R5Kpzkk14RSoK1QHbTJjL9LSBz6CrMj4LVWe9UG44E1XLG5iDqMijbsjJy8
+	y2CHGQpCCMEKWg/U7hIaDI84pn16oZVPmDFkf/Xlq9uwQdTrAVnHX0ljVRhRYP4eFFS4Wx
+	sHT8GjwIlS4VYuMX08o3ABpZLOKBCRwJqDDKpL3Pd91IuLes/ZqoX1bpvY9h+H2HRPhnRo
+	ryrlRNrI+0T2ZbtZC5AzIaBchdrf5muXsQD6NZWOTN4OzbS5DDTp18Mrp6LfYuH8Bagl/z
+	77y/K1idW06YDVl/FlX71Qr/GpN0jbjydQTQZjuQN34XY+ljRBzcU4bIbEhvGA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v17 12/20] KVM: arm64: CCA: Support timers in realm RECs
-Date: Tue,  8 Sep 2026 17:22:15 +0100
-Message-ID: <20260908162223.1683432-13-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260908162223.1683432-1-suzuki.poulose@arm.com>
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a779g0: Add MSI cells to GICv3 ITS
+Date: Tue,  8 Sep 2026 18:22:50 +0200
+Message-ID: <20260908162323.16440-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: z33uh44ze4qchqiaf9gykhaqshm67u1o
+X-MBO-RS-ID: 2225b73f969bd57e180
+X-Rspamd-Queue-Id: 4hfTl54WJYzKmsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_092333_435821_51EEDBB3 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260908_092334_172412_C6290290 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,70 +94,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Price <steven.price@arm.com>
+Fill in missing #msi-cells = <1> into the GIC ITS node, update
+its-parent phandles and fill in 1:1 msi-map .
 
-The RMM keeps track of the timer while the realm REC is running, but on
-exit to the normal world KVM is responsible for handling the timers.
-
-A later patch adds the support for propagating the timer values from the
-exit data structure and makeing sure the values are in sync for KVM.
-
-Also, RMM doesn't support injecting virtual interrupts backed by Physical
-interrupts. So, use the existing software resampling mechanims for Realm
-timer interrupts.
-
-Signed-off-by: Steven Price <steven.price@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Fixes: 7fe73a3a3f2c ("arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes")
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
- arch/arm64/kvm/arch_timer.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index eba84cab95d01..3eddf44f7b1dd 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -56,11 +56,25 @@ static unsigned long kvm_arch_timer_get_irq_flags(void)
- 	return kvm_vgic_global_state.no_hw_deactivation ? VGIC_IRQ_SW_RESAMPLE : 0;
- }
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+index ea6495261c2bb..ca17bfbf83fdf 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+@@ -809,7 +809,8 @@ pciec0: pcie@e65d0000 {
+ 			resets = <&cpg 624>;
+ 			reset-names = "pwr";
+ 			max-link-speed = <4>;
+-			msi-parent = <&its>;
++			msi-parent = <&its 0>;
++			msi-map = <0x0 &its 0x0 0x10000>;
+ 			num-lanes = <2>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -857,7 +858,8 @@ pciec1: pcie@e65d8000 {
+ 			resets = <&cpg 625>;
+ 			reset-names = "pwr";
+ 			max-link-speed = <4>;
+-			msi-parent = <&its>;
++			msi-parent = <&its 0>;
++			msi-map = <0x0 &its 0x0 0x10000>;
+ 			num-lanes = <2>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -2165,6 +2167,7 @@ its: msi-controller@40000 {
+ 				reg = <0x0 0x40000 0x0 0x20000>;
+ 				dma-noncoherent;
+ 				msi-controller;
++				#msi-cells = <1>;
+ 			};
+ 		};
  
-+static unsigned long kvm_realm_timer_get_irq_flags(void)
-+{
-+	/*
-+	 * RMI_REC_ENTER rejects LRs with the HW bit set, so use the existing
-+	 * software resampling mechanism for Realm timer interrupts.
-+	 */
-+	return VGIC_IRQ_SW_RESAMPLE;
-+}
-+
- static const struct irq_ops arch_timer_irq_ops = {
- 	.get_flags	 = kvm_arch_timer_get_irq_flags,
- 	.get_input_level = kvm_arch_timer_get_input_level,
- };
- 
-+static const struct irq_ops realm_timer_irq_ops = {
-+	.get_flags	 = kvm_realm_timer_get_irq_flags,
-+	.get_input_level = kvm_arch_timer_get_input_level,
-+};
-+
- static const struct irq_ops arch_timer_irq_ops_vgic_v5 = {
- 	.get_input_level = kvm_arch_timer_get_input_level,
- 	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
-@@ -1609,8 +1623,12 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
- 
- 	get_timer_map(vcpu, &map);
- 
--	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
--				      &arch_timer_irq_ops;
-+	if (vcpu_is_rec(vcpu))
-+		ops = &realm_timer_irq_ops;
-+	else if (vgic_is_v5(vcpu->kvm))
-+		ops = &arch_timer_irq_ops_vgic_v5;
-+	else
-+		ops = &arch_timer_irq_ops;
- 
- 	for (int i = 0; i < nr_timers(vcpu); i++)
- 		kvm_vgic_set_irq_ops(vcpu, timer_irq(vcpu_get_timer(vcpu, i)), ops);
 -- 
-2.43.0
+2.53.0
 
 
