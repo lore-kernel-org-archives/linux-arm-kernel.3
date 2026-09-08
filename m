@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF7BC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560E7C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sj8K0bKr+QZ/S9dYM6RKCNRt49IKM+zHKFTuOaeQz0M=; b=uNBFc1caI1tjKWUTOFYNtn+98q
-	2QkmeXwvLvXIhC5hCMGBO8PNa/vwQunNbyOVF2O8LNsGo37zHrtdzzVPdDPyow8Krtld1YaC1rfR6
-	ENQo5LlFV5WQj16pnIgC3NhPsXbkIho4zWRsjzTxnypL06bZdOcWInvJQniD5n1gcaEMt3dGsa6Rr
-	WOzWGntxOSYBMRZD4f1pVqRq6icl55/Y/Un9i4YuFWgx2Aqy/+azaJA10WlyIXI0ilzijV/6KMPg0
-	Wy9k1Uk1NPxcBC7kM/eKjeLGplT66UpMakSNZzgZhCfQbBVggZHXjD5PM1jRh9sSR4ZR292Yr+5+A
-	L1UXHMkA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n1HHJlfn2XcOV1TeOuj4SXDQlV5H5y36ip/NG6d64DA=; b=dj6XoaLJvmJGImc0anSKJx5IKN
+	w/D19qACC7U6GBcvU0KMfWdWNKrcAI172kQtrwx64RW2SDcMOStAQLTaf/gkDDRoBTd4R1bbxKlon
+	1OMPaf0CB+uNiwbCycTozmxC3kRcdluBT2SaPqA4fSnpzRrDtT2BmoNORiQRHzrzb7Twyq0K71N7B
+	hMDvzLLNNv4Fe9lZYVaMSfVYt3u6OACybgSiqy3RbdlF1LD8gjNqsJhZXuZaZfMKNgL7j1v0zfIq7
+	KsFtK05rzl1P2/InGYchGEzYQ+Rc8RoF+GF3cuvdQoeZOvLpfABMApou+u/8U9Uk5chbbDAcUCrZk
+	051gabYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zXr-00000009nxn-0EjM;
-	Tue, 08 Sep 2026 17:23:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3zYt-00000009oAX-0z3a;
+	Tue, 08 Sep 2026 17:24:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zXq-00000009nxd-0oU7
+	id 1x3zYr-00000009o9Q-2BxQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 17:24:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=n1HHJlfn2XcOV1TeOuj4SXDQlV5H5y36ip/NG6d64DA=; b=Rjw4aTUbXkXN2LCR0bnv1lq0Lt
+	rYVE0t3m+YKjutceOwr5iyN/IiNf6cNBWaXeeop/sqAYCFDFdA/4Y0+x8iOzQmQFfhmkoIGnbe96j
+	Hu9dWMWUxcJiZ4Z7kDVcE3oeQauHDcZvN8UgMzycyKaPQ6A7e+B+10FIHixYeS5fvNwVoedJvjT75
+	Tuxc6aMQ4MTX1732NSGPqjMdel+A5VTZMcr/CzVL+663AacY4pDWY5sOZSXubEW7dzlj0oVsQUlAF
+	W8Bef2k3Dc7Sd4O/VZth7V+5X2HBaWO6/pVV881phvV8aM8drMzkZdh2bsNCDwAvH9InQ5UWSAULa
+	D9nIThrA==;
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3zYo-000000009Yr-1GQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:23:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 279D3438EA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:23:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C62F1F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:23:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788888221;
-	bh=Sj8K0bKr+QZ/S9dYM6RKCNRt49IKM+zHKFTuOaeQz0M=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ddQrHN30nhOEvSokqtHBmBF2IZEjMngfe66I7z/xF+nIpLfQMFzhrkZstpyTC3SCV
-	 YVCXh4rNCyfy9alx3+pQF0UabMq1QP9Geu/5dOJsxjAU9iFSO6rPpTGGiy41e48re+
-	 vmBhARYlPQ25cfGK5oj7P7w1JEYaJNt2ko7ZoJnM0EuQY++WA+raK9Cen8G/MNPAMA
-	 6rE1in8zhab5s2tXfBzaWc3zIaZD+qYvlZ3pNYFsQiPDK2xEg3eTX9njnMCtFhgHKi
-	 pWs3oOdNQJM7qOTCwOxNN5ytMf9umeDqGI3grPh6+BxUhER9YiG82Aj0h0C3LkFGKv
-	 uM3fkgpb3KvEQ==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3a20f56876eso46611611fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:23:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBz7UjM8T0bP2Qqk1HWah2JHubnHt51rS/eIUK6Bii0329OiA0YvsAKU1GlHgQI2CUF6Kd7q3vIesZiEywJAbOYP@lists.infradead.org
-X-Gm-Message-State: AFuF++kJ/M6Ca/Ku2NZ8hZzlOjAF4POOfVkV63j7w7HUj3OckhMqlgnu
-	LJyDuuANHkfMei3Xkm5do8/os0rbnnbw+HmaHFvf7GEL3IbEqDwGFdurAmyoKAYeTA03NqvTVMY
-	4atU13b7E1pmbwCkNO2WyPRaAeG6Imk0=
-X-Received: by 2002:a05:6512:6c3:b0:5b6:1a7c:39 with SMTP id
- 2adb3069b0e04-5b61a7c02f1mr4244449e87.60.1788888219653; Tue, 08 Sep 2026
- 10:23:39 -0700 (PDT)
+	Tue, 08 Sep 2026 17:24:44 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-853f8c34ba4so5738297b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:24:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788888280; x=1789493080; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=n1HHJlfn2XcOV1TeOuj4SXDQlV5H5y36ip/NG6d64DA=;
+        b=dWljhlUOR5UjqeH3fujsxenD11eKcu4toVxeY8rRjByg6QGR2p6r+qRzwOrL2NUht3
+         l5eDVvt4Evgj/wn1bDGfOgJEtUEsZQBxY0JX+Ft5vUlIy4t9KuT9KOVOidByg1NU2+j2
+         Q08yxh8ZZu4MTRufISHB+ggtzbmfCU+OslNFkaeglC3UljCZ6gtgZwS1d+tEcOHQGKuE
+         ma2Hdz/qIFmG3OExoMf1hrOaSqv1Q+0MqeWn42sYvK9hGgf0BIk3Hm8doSNnvg5s7KCd
+         fHeFkMKOcoODQN76CV4YMzEJ7W9SrpOlgOnO1og5MngwtXB324C6ldulRaVopWOY9tay
+         b/0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788888280; x=1789493080;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=n1HHJlfn2XcOV1TeOuj4SXDQlV5H5y36ip/NG6d64DA=;
+        b=I8jEzLN3Qedv6tXs4sPXz1oI0+aXBuqu6UgqljikMHqSBL83MRQEnf4QHY0hOC8JK4
+         Ui50/0QH2/0a/VSXXEadQ9YO3TyCtXHCymgG+qbPypeAu28MBRY8P776EJCExz8zADKZ
+         mDrhplihUcwpm4HYMPJTRb6p3qj1GSQiTKXPkM0PpmGWqFQSYDMgYpgX5LrluEXcLDtr
+         fo56aodVwK8o0YnbWZUsQTs2aNWxuc9zBIgkv8QNwhkJmY/VxlbWQCo7BuUaIZOwysCo
+         flEsnGxVHWnn/FeolKS86gq3dT4EIKpg0cYCnJTJdfttmofWm4HYbwVTy7jQ+ni9drki
+         YK6w==
+X-Forwarded-Encrypted: i=1; AKwUvBw7zlVWpEvrFvVa/PbYybtTBP+PDiI0SedeaO9L8dTTEO/IZtmHQUTL+LQmEWg73L8qRIumlHTTgSANIc+kXX5X@lists.infradead.org
+X-Gm-Message-State: AFuF++mu+lL6C+IxjT4gdgS95kcdTcCIWjbn+FOOdhBngquzhcjJlH34
+	oqL20cMYI2/Lw87oyAnfT6ynfx7bG3b6JpEK94gcjtoXe4+SOjUZUjxi
+X-Gm-Gg: AYBFou3uYUg0poU+iw4wlbfEhNJVJ461fcsRk9wWSMKul7579AVxC4CS3BIJkf5e08Z
+	8A5jQuLnr/StZTn65AmrgmqVOdDKrHzyOGk9QDdBcgKS/zgtWKsG4UjDEUqIAR+lo2gOgtUN1Ay
+	I+/LRkNlsEiKY+fdCNq9iCRxwer4ha0Za+yupBEVawg0f4bsUi438C/UjBKSJW9fytrrx3Yeg8W
+	GMC6+ooRHl/tImtXROCGx+p86aYx++wYlyZdfoZiD/0oeBKTymxeVerq/ezGinh916mr7gZT7CH
+	1Lcoh0lUN1AYtfA1PLaXOyWuSTCpG0E2oyj2NwECdIyfwPtYykMLxsdlapECWXrgXs16ohuOiZo
+	sYKNgpeu/7XIb7P5G7savtt7DP1p7BTFv5iExbPTkX5Cfv34xIUZ2YsbTdTOGk2l7f0KGX/bo/R
+	H5vIqXdVCU3Mpo6QrBNKDdV8+QS3xxPl192Pjd872SWLrOJgbVDsezBVYVa5oC
+X-Received: by 2002:a05:6a21:6487:b0:3d2:2afa:d77 with SMTP id adf61e73a8af0-3da3a0b0a9amr44752599637.14.1788888279580;
+        Tue, 08 Sep 2026 10:24:39 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:43ae:bf76:d99a:e5ff])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33688cfc714sm19297176eec.20.2026.09.08.10.24.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 10:24:39 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH v4 0/6] iio: adc: bcm_iproc_adc: convert to devm-managed APIs
+Date: Tue,  8 Sep 2026 22:53:53 +0530
+Message-ID: <20260908172359.30003-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260908152808.3928630-1-arnd@kernel.org> <20260908152808.3928630-2-arnd@kernel.org>
-In-Reply-To: <20260908152808.3928630-2-arnd@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 8 Sep 2026 19:23:26 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=7NjsvV6_2Ea9qyi9fDvDiSASPsLH3uTrPz30_ug7BQQ@mail.gmail.com>
-X-Gm-Features: AcwNN1VilFNAiGqYj4DGWJSxsv2DtJDi9vb9QstH70LkavpX1Bq02jgwVJfqHBE
-Message-ID: <CAD++jL=7NjsvV6_2Ea9qyi9fDvDiSASPsLH3uTrPz30_ug7BQQ@mail.gmail.com>
-Subject: Re: [PATCH 01/13] ARM: remove sa1100 platform
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Russell King <linux@armlinux.org.uk>, Drew Fustini <fustini@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, 
-	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
-	Tony Lindgren <tony@atomide.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org, 
-	Guenter Roeck <linux@roeck-us.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_182442_469434_DAE05C3B 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 8, 2026 at 5:28=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
-e:
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Most sa1100 platforms were removed a few years, with the remaining
-> ones left as a starting point for a conversion to devicetree.
->
-> Nothing ever happened on that front, so remove the rest now,
-> including the sa1111 and locomo drivers that were once shared
-> with pxa but are already sa1100-exclusive now.
->
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Linus Walleij <linusw@kernel.org>
-> Cc: Kristoffer Ericson <kristoffer.ericson@gmail.com>
-> Cc: Guenter Roeck <linux@roeck-us.net>
-> Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Changes in v4:
+- Move the ADC enable error-path cleanup simplification into the
+  clock conversion patch.
+- Simplify the ADC devm cleanup action.
+- Restore the blank line after the copyright header.
 
-Acked-by: Linus Walleij <linusw@kernel.org>
+---
+Mohammad Shahid (6):
+  iio: adc: bcm_iproc_adc: sort headers alphabetically
+  iio: adc: bcm_iproc_adc: fix include dependencies
+  iio: adc: bcm_iproc_adc: use devm-managed clock
+  iio: adc: bcm_iproc_adc: use devm-managed ADC cleanup
+  iio: adc: bcm_iproc_adc: use devm-managed mutex initialization
+  iio: adc: bcm_iproc_adc: use devm-managed IIO device registration
 
-If some user really want to keep this platform around and it
-willing to invest time in testing, I do not think it is hard to
-convert it to device tree using an LLM.
+ drivers/iio/adc/bcm_iproc_adc.c | 65 +++++++++++++--------------------
+ 1 file changed, 25 insertions(+), 40 deletions(-)
 
-But if there are no users, away it goes.
+-- 
+2.43.0
 
-Yours,
-Linus Walleij
 
