@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A75C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE8DC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMXY7RVPMRlOGVUE1GxTzGvnZE4FGesxKUeRlJf9LaQ=; b=hoPnCpUPhQwjC54WxoXVaWwBfP
-	5nUPt4sQz1uHEV9PixZhOhjTx1Z9Nl7gcxpiMyV4Y1pvNt1MTQgcXXc31gFICIP/NewPhiaqrbkIl
-	QD2RDjMBmw55wKmLoRgZ8XTKT5UUsU/ISEfXWv8P4nG4y6KmrQroLFtfvuenVYNrvmYCky6wuOshU
-	5GohXSPe8bcHk4rEx5AyWFUnAUwmdoZMDOBZzx9yAX/mzR11sYMayXu53CusqkzhDUj/cV10Mtpe8
-	Iy7rWWoEfKwpDpJpgZx0Gt2rihM4lXkVl2sJSig21ER4qy3FWO9ceSyTzYHMo2u7BJ25LMurCMhKL
-	IWXAa6Ng==;
+	bh=8ThgDhRyE+Y72EBv7/U4oxOtCi6RtEmzsslCG/DRcvA=; b=CnekK+sAuMReqOncvogimfX+RW
+	rEOREseEN8KAkqUIZcU4gEaRNO4PKP2E6rm/UoLOvr9pWhL0pJvT/iUNr3lA+jnvm8NXZULRPMmHT
+	wcC2/ns8PoR6Xlne6xH/sq03NkV8abfX9/7eevV7CCjsUd7i1GBEraUqxM/d78KAGfa4DnGclvgjQ
+	Yxvb4Re4ACGATa820Krj7KJGvwS0wFkt5/Q/CyRGY86kUAsSBKtF5yH59Q9FJYRSi/W8rq8+IgWKU
+	A3KCe0MemUmr4wJXPxTr8O39bmIBgpczn9C84lyXrvFO1HqBg9/7XLd6TzRVsApQx4Qn+2P66dyca
+	Eqy0gEQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oMp-0000000849r-3yz0;
-	Tue, 08 Sep 2026 05:27:35 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1x3oMw-000000084E6-0lfv;
+	Tue, 08 Sep 2026 05:27:42 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oMl-0000000846J-0X7k
+	id 1x3oMt-000000084CG-3R4f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:27:34 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-39b24d114d4so4360726a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:27:30 -0700 (PDT)
+	Tue, 08 Sep 2026 05:27:40 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cbee846deecso4957369a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:27:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788845250; x=1789450050; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788845259; x=1789450059; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qMXY7RVPMRlOGVUE1GxTzGvnZE4FGesxKUeRlJf9LaQ=;
-        b=Io6VpAx61x9XKzLWeZ+mBuMD866F2xjwzglzifwDFNxVnFYwwwU61gl96leLjfOR2z
-         yKEfFhedB0x15DOHM5UuXw45cwud0ifRvVw7Jn0kIGDpQ8OgnFzghw4YT6JI+XpyXsob
-         UhC+GkcC7F9XjaXKOlXjeqq+c7ebnM0ZoonBKnYBWyjKTY5DXLzUeEudq6l1OhsvTqDW
-         z6gTJriY5XJ2pvTScIDp7yEpj8ALBgQN0k4U7vFzj05PWVvUZvd8EPTPdfZpcNxYRrKs
-         nHvTfNGHhTAidf/P0rifWkzF3QCmw/KpFzBxxrWPGrrb5uspgLsO5mY3DUIFKUeG1r5n
-         UNUg==
+        bh=8ThgDhRyE+Y72EBv7/U4oxOtCi6RtEmzsslCG/DRcvA=;
+        b=SBSBcpa8PfxBsqieT6YyZwF9tatMToWBJwAmrD8wK16D/cswYFxFMmylOGURroIPxq
+         2XKZeK50RNObzmp2+i58cQfAUwjD7LDY4/clWpUGks1e9QE/VpgwPUgQPJkx6bksqWa1
+         nERiOcdFdO5PYUDwtofDbeZQ/HFLhUeaMP9Fdd3rn6Xm47cz2tPSbbuC3rgwKcZwomm3
+         4MCgQ5CPfoWfwWlaZiXgpfjuDxKCmQ6nSU4PaHdcDQnxvd87SHc/TxBDABd7ysApII+k
+         wJX8WizLejdTeKPmjIHmGauXdzgb7tVFgl//ooooCsl956pqQZAj7wYXV7h7YWxXhMC8
+         vDwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788845250; x=1789450050;
+        d=1e100.net; s=20251104; t=1788845259; x=1789450059;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qMXY7RVPMRlOGVUE1GxTzGvnZE4FGesxKUeRlJf9LaQ=;
-        b=tAIA1qMvYkCEhQOyYjwTGFV6D0cO4CG/ofn5BDcpcvWj9igsgRvCnt7iSnS1Ot7FPI
-         j5qsBjosZ8E7ZG3XLa/TU5d0iEZH0/S7QQCDladJh0c4sAiHw1Jw3YFkVzYCNTfSmvs6
-         Zj+HxVQgzS7nCN6kUpndFrKIK9wmZbTq65bbZ1v3FpVo94OMFGRqe2U8Y6/G374kHOC2
-         6wPYA8p6YG+zdsyYfSz38t2Fr/bQ8JW/hFMB1V4DNFsp1h1LfabNUd0PsLCobUzPDQ/g
-         sCxJrTCv5fT7W610sd+w92cdZ65Zaztz4KOrgZd86fl31QD/DR0kH8QRnhRSdYnl/gi7
-         CpDQ==
-X-Gm-Message-State: AFuF++klUeCal4i5jOcLlP5iGWnJcCfPbfZJS50FRR7/APfNf7miGhWg
-	x7EQAzbCGxQr6pE7kbRniWbSecIxO+O/8FlrAg6hFVq/j/hcC1Drajyu
-X-Gm-Gg: AYBFou2vMWvcfuyXX4ETYwS506AbpGulU4qlCuGPHP5lyx+c2c7KTXgxZ9Pjr+PsCLm
-	6bk5mwCTtK09hsY0DK4T9ErWF18toUUgYEivmE3KFkT6krTqw944lKAnkOVPcdG43s2o7q8MsBU
-	Ayay5P4LoRUikOWnqr/5w4EQU68ASVu2PDG5vyBwZLgeBjU43kiD14U0vuNcFg6sSIB83wUvYVY
-	XCtm1h9m01N74aqwf7qVBwXYPyLN4O13dasWmqZ39j2R5/Z094giw36cq7Isnl5O0IbKnmRwqU4
-	oy++j67FcTCHfaITuEEClgAASaxKXN+Fknc6tRFZWDe5M0ycvLTUZiJqg7pTkZNjr8LbH47SIG0
-	fbJhWEa4onbo0LXE7djUTpoBcyilKYdh2c1nHL/nz5xvSkkIh5n6m3nPMcdJf0+ikQV714b4i0y
-	pvNfKosvaM4NlahhuyjCGuKDlREGffqM4cYpgkLTDJNEMcH2fIYccSnFTZpMNoyoeELjDnLrb/q
-	9z0Jwb+UrH0LQ==
-X-Received: by 2002:a17:90a:d44b:b0:396:4cbf:45bc with SMTP id 98e67ed59e1d1-39b26203f11mr43064219a91.16.1788845250288;
-        Mon, 07 Sep 2026 22:27:30 -0700 (PDT)
+        bh=8ThgDhRyE+Y72EBv7/U4oxOtCi6RtEmzsslCG/DRcvA=;
+        b=Bz4dwQxr9mVsJ/Yen/3SWkywBOrMEcREcejA9elybkACGOXf6yeLf3gG2cA0nkdfuL
+         Jvifl7IiAqOlHZ2fJ7cAkb/tseNYyfP2Bbz6p7Nktip63MMMCclPxshf9vrFnUQqk+wK
+         zGsaYx9+eWYzf9gt6+9SG3yTjB7twY4zZTLaIaoJo14RYLCVEVDPbHwXaXrBn9e2ldTo
+         +yxLZoLbKjJ4c1kemB7cFvbIcP76K1vv0q49dMtgXuZenk6tYNGT7yQ9DgP8lzF6ljKr
+         62ZloJ9HwZm87gGErUFFJE3Ko/arxGPztFETgUkl98jJJVgG5hzc/m/uyuBKVmaTEQw8
+         M7fw==
+X-Gm-Message-State: AFuF++kBFZavcpRtQvID8cO/73zccVCsGkoWrhs+GDiuiAGvW5B2ihFX
+	ag+i0cTd5wVNsPFMP35t2lVPrXSj4Qhyfa8r+X8DKxOG+qEFYhp38pq5
+X-Gm-Gg: AYBFou3VT4RDDHjVLwy1IxEBl9/kG1Auxp2ljmdaxvXAB5BxDLMiSWSVpFTC39jIvHu
+	XQJjk+xYXH4dhcX3/4Vtgnbsn/lpVhu2A1H2SmJHYoU7C5j44oDzflSPzlcxS5x/nkSj40aFyZS
+	L16K+OoFo+mWoRjqywxFPnax8vMFSVtEaRdGFWPN/OKomGgDjIGv88hR+jBqyLmF03ReHRhm6Go
+	sxDG8gdNloKoqw4/uE2dfhode9dsBJgeWEVTDxOH3E/v4K9FI9bDMGNsp0TtnQ6ZLHJOVCtuCNA
+	YOwvtqqOjLnD77bnBwplNvoiq1Cx7pw0tBbHcRkBGUQWsP6UOaLgE997jElM0BoQBhCVlJyVuxa
+	tfMse/PuYl0p8bCVe193LZbUB82dI7jZraX4U+a4Ph4CT1eL1EmtshO57j3d4Ud96+TJcdo7XmF
+	XrtQxTUPsmZxAYttz45iGv38gFEc6GFEHxYYuLiRhxOLKBjiY2vDi808pnZT5wGc522VUYOBhY2
+	74qq1UVaYvXDA==
+X-Received: by 2002:a05:6a21:3943:b0:3c4:1493:6822 with SMTP id adf61e73a8af0-3da3a0aa8cbmr44065672637.18.1788845258816;
+        Mon, 07 Sep 2026 22:27:38 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14340a69666sm11720586c88.9.2026.09.07.22.27.22
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14340a69666sm11720586c88.9.2026.09.07.22.27.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 22:27:29 -0700 (PDT)
+        Mon, 07 Sep 2026 22:27:38 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -99,17 +99,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-parisc@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next v3 09/10] net: atheros: fix typos in comments
-Date: Tue,  8 Sep 2026 10:56:01 +0530
-Message-ID: <20260908052602.27497-10-hemanth.selam@gmail.com>
+Subject: [PATCH net-next v3 10/10] net: dec: fix typos in comments
+Date: Tue,  8 Sep 2026 10:56:02 +0530
+Message-ID: <20260908052602.27497-11-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260908052602.27497-1-hemanth.selam@gmail.com>
 References: <20260908052602.27497-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_222731_210411_F30D43E6 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260907_222739_869584_F1B88A59 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,92 +131,96 @@ changes.
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- drivers/net/ethernet/atheros/atl1c/atl1c_hw.h   | 2 +-
- drivers/net/ethernet/atheros/atl1e/atl1e.h      | 2 +-
- drivers/net/ethernet/atheros/atl1e/atl1e_hw.c   | 2 +-
- drivers/net/ethernet/atheros/atl1e/atl1e_main.c | 2 +-
- drivers/net/ethernet/atheros/atlx/atl1.c        | 2 +-
- drivers/net/ethernet/atheros/atlx/atl2.c        | 2 +-
- 6 files changed, 6 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/dec/tulip/de2104x.c     | 2 +-
+ drivers/net/ethernet/dec/tulip/interrupt.c   | 4 ++--
+ drivers/net/ethernet/dec/tulip/media.c       | 2 +-
+ drivers/net/ethernet/dec/tulip/tulip.h       | 4 ++--
+ drivers/net/ethernet/dec/tulip/winbond-840.c | 2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_hw.h b/drivers/net/ethernet/atheros/atl1c/atl1c_hw.h
-index c567c920628f..8f03bb561d44 100644
---- a/drivers/net/ethernet/atheros/atl1c/atl1c_hw.h
-+++ b/drivers/net/ethernet/atheros/atl1c/atl1c_hw.h
-@@ -659,7 +659,7 @@ void atl1c_post_phy_linkchg(struct atl1c_hw *hw, u16 link_speed);
- /* INT-triggle/SMB Control Register */
- #define REG_SMB_STAT_TIMER		0x15C4	/* 2us resolution */
- #define SMB_STAT_TIMER_MASK		0xFFFFFF
--#define REG_TINT_TPD_THRESH             0x15C8 /* tpd th to trig intrrupt */
-+#define REG_TINT_TPD_THRESH             0x15C8 /* tpd th to trig interrupt */
+diff --git a/drivers/net/ethernet/dec/tulip/de2104x.c b/drivers/net/ethernet/dec/tulip/de2104x.c
+index f38a10c79907..fa52e099409c 100644
+--- a/drivers/net/ethernet/dec/tulip/de2104x.c
++++ b/drivers/net/ethernet/dec/tulip/de2104x.c
+@@ -373,7 +373,7 @@ static void de_rx_err_acct (struct de_private *de, unsigned rx_tail,
+ 		  rx_tail, status, len);
  
- /* Mail box */
- #define MB_RFDX_PROD_IDX_MASK		0xFFFF
-diff --git a/drivers/net/ethernet/atheros/atl1e/atl1e.h b/drivers/net/ethernet/atheros/atl1e/atl1e.h
-index 9fcad783c939..6b0066f47e9e 100644
---- a/drivers/net/ethernet/atheros/atl1e/atl1e.h
-+++ b/drivers/net/ethernet/atheros/atl1e/atl1e.h
-@@ -381,7 +381,7 @@ struct atl1e_rx_page {
- 	u8		*addr;   /* receive rage virtual address */
- 	dma_addr_t	write_offset_dma;  /* the DMA address which contain the
- 					      receive data offset in the page */
--	u32		*write_offset_addr; /* the virtaul address which contain
-+	u32		*write_offset_addr; /* the virtual address which contain
- 					     the receive data offset in the page */
- 	u32		read_offset;       /* the offset where we have read */
- };
-diff --git a/drivers/net/ethernet/atheros/atl1e/atl1e_hw.c b/drivers/net/ethernet/atheros/atl1e/atl1e_hw.c
-index fa89bc27f62d..25d3e7469058 100644
---- a/drivers/net/ethernet/atheros/atl1e/atl1e_hw.c
-+++ b/drivers/net/ethernet/atheros/atl1e/atl1e_hw.c
-@@ -369,7 +369,7 @@ static int atl1e_phy_setup_autoneg_adv(struct atl1e_hw *hw)
-  *
-  * hw - Struct containing variables accessed by shared code
-  *
-- * Sets bit 15 and 12 of the MII control regiser (for F001 bug)
-+ * Sets bit 15 and 12 of the MII control register (for F001 bug)
-  */
- int atl1e_phy_commit(struct atl1e_hw *hw)
- {
-diff --git a/drivers/net/ethernet/atheros/atl1e/atl1e_main.c b/drivers/net/ethernet/atheros/atl1e/atl1e_main.c
-index 40290028580b..cc6c262868a5 100644
---- a/drivers/net/ethernet/atheros/atl1e/atl1e_main.c
-+++ b/drivers/net/ethernet/atheros/atl1e/atl1e_main.c
-@@ -2117,7 +2117,7 @@ static int atl1e_suspend(struct pci_dev *pdev, pm_message_t state)
- 			wol_ctrl_data |= WOL_MAGIC_EN | WOL_MAGIC_PME_EN;
+ 	if ((status & 0x38000300) != 0x0300) {
+-		/* Ingore earlier buffers. */
++		/* Ignore earlier buffers. */
+ 		if ((status & 0xffff) != 0x7fff) {
+ 			netif_warn(de, rx_err, de->dev,
+ 				   "Oversized Ethernet frame spanned multiple buffers, status %08x!\n",
+diff --git a/drivers/net/ethernet/dec/tulip/interrupt.c b/drivers/net/ethernet/dec/tulip/interrupt.c
+index 0a12cb9b3ba7..8c02771b28e4 100644
+--- a/drivers/net/ethernet/dec/tulip/interrupt.c
++++ b/drivers/net/ethernet/dec/tulip/interrupt.c
+@@ -177,7 +177,7 @@ int tulip_poll(struct napi_struct *napi, int budget)
+ 			   pkt_len > 1518) {
+ 			       if ((status & (RxLengthOver2047 |
+ 					      RxWholePkt)) != RxWholePkt) {
+-                                /* Ingore earlier buffers. */
++                                /* Ignore earlier buffers. */
+                                        if ((status & 0xffff) != 0x7fff) {
+                                                if (tulip_debug > 1)
+                                                        dev_warn(&dev->dev,
+@@ -408,7 +408,7 @@ static int tulip_rx(struct net_device *dev)
+ 		    pkt_len > 1518) {
+ 			if ((status & (RxLengthOver2047 |
+ 			     RxWholePkt))         != RxWholePkt) {
+-				/* Ingore earlier buffers. */
++				/* Ignore earlier buffers. */
+ 				if ((status & 0xffff) != 0x7fff) {
+ 					if (tulip_debug > 1)
+ 						netdev_warn(dev,
+diff --git a/drivers/net/ethernet/dec/tulip/media.c b/drivers/net/ethernet/dec/tulip/media.c
+index 55d6fc99f40b..0c9694d2b38a 100644
+--- a/drivers/net/ethernet/dec/tulip/media.c
++++ b/drivers/net/ethernet/dec/tulip/media.c
+@@ -24,7 +24,7 @@
  
- 		if (wufc & AT_WUFC_LNKC) {
--		/* if orignal link status is link, just wait for retrive link */
-+		/* if original link status is link, just wait for retrieve link */
- 			if (mii_bmsr_data & BMSR_LSTATUS) {
- 				for (i = 0; i < AT_SUSPEND_LINK_TIMEOUT; i++) {
- 					msleep(100);
-diff --git a/drivers/net/ethernet/atheros/atlx/atl1.c b/drivers/net/ethernet/atheros/atlx/atl1.c
-index 98a4d089270e..179d74e93efd 100644
---- a/drivers/net/ethernet/atheros/atlx/atl1.c
-+++ b/drivers/net/ethernet/atheros/atlx/atl1.c
-@@ -628,7 +628,7 @@ static s32 atl1_phy_leave_power_saving(struct atl1_hw *hw)
-  * Resets the PHY and make all config validate
-  * hw - Struct containing variables accessed by shared code
-  *
-- * Sets bit 15 and 12 of the MII Control regiser (for F001 bug)
-+ * Sets bit 15 and 12 of the MII Control register (for F001 bug)
-  */
- static s32 atl1_phy_reset(struct atl1_hw *hw)
- {
-diff --git a/drivers/net/ethernet/atheros/atlx/atl2.c b/drivers/net/ethernet/atheros/atlx/atl2.c
-index 5560d5cc3169..c9aca219ec9c 100644
---- a/drivers/net/ethernet/atheros/atlx/atl2.c
-+++ b/drivers/net/ethernet/atheros/atlx/atl2.c
-@@ -2591,7 +2591,7 @@ static s32 atl2_phy_setup_autoneg_adv(struct atl2_hw *hw)
-  *
-  * hw - Struct containing variables accessed by shared code
-  *
-- * Sets bit 15 and 12 of the MII Control regiser (for F001 bug)
-+ * Sets bit 15 and 12 of the MII Control register (for F001 bug)
-  */
- static s32 atl2_phy_commit(struct atl2_hw *hw)
- {
+ /* Read and write the MII registers using software-generated serial
+    MDIO protocol.  It is just different enough from the EEPROM protocol
+-   to not share code.  The maxium data clock rate is 2.5 Mhz. */
++   to not share code.  The maximum data clock rate is 2.5 Mhz. */
+ #define MDIO_SHIFT_CLK		0x10000
+ #define MDIO_DATA_WRITE0	0x00000
+ #define MDIO_DATA_WRITE1	0x20000
+diff --git a/drivers/net/ethernet/dec/tulip/tulip.h b/drivers/net/ethernet/dec/tulip/tulip.h
+index 5e010e1fa6f7..e39e5c78d4cc 100644
+--- a/drivers/net/ethernet/dec/tulip/tulip.h
++++ b/drivers/net/ethernet/dec/tulip/tulip.h
+@@ -250,7 +250,7 @@ enum t21143_csr6_bits {
+ 	csr6_ttm = (1<<22),  /* Transmit Threshold Mode, set for 10baseT, 0 for 100BaseTX */
+ 	csr6_sf = (1<<21),   /* Store and forward. If set ignores TR bits */
+ 	csr6_hbd = (1<<19),  /* Heart beat disable. Disables SQE function in 10baseT */
+-	csr6_ps = (1<<18),   /* Port Select. 0 (defualt) = 10baseT, 1 = 100baseTX: can't be set */
++	csr6_ps = (1<<18),   /* Port Select. 0 (default) = 10baseT, 1 = 100baseTX: can't be set */
+ 	csr6_ca = (1<<17),   /* Collision Offset Enable. If set uses special algorithm in low collision situations */
+ 	csr6_trh = (1<<15),  /* Transmit Threshold high bit */
+ 	csr6_trl = (1<<14),  /* Transmit Threshold low bit */
+@@ -274,7 +274,7 @@ enum t21143_csr6_bits {
+ 	csr6_om_int_loop = (1<<10), /* internal (FIFO) loopback flag */
+ 	csr6_om_ext_loop = (1<<11), /* external (PMD) loopback flag */
+ 	/* set both and you get (PHY) loopback */
+-	csr6_fd = (1<<9),    /* Full duplex mode, disables hearbeat, no loopback */
++	csr6_fd = (1<<9),    /* Full duplex mode, disables heartbeat, no loopback */
+ 	csr6_pm = (1<<7),    /* Pass All Multicast */
+ 	csr6_pr = (1<<6),    /* Promiscuous mode */
+ 	csr6_sb = (1<<5),    /* Start(1)/Stop(0) backoff counter */
+diff --git a/drivers/net/ethernet/dec/tulip/winbond-840.c b/drivers/net/ethernet/dec/tulip/winbond-840.c
+index a5581f1d0141..be9199f55a8a 100644
+--- a/drivers/net/ethernet/dec/tulip/winbond-840.c
++++ b/drivers/net/ethernet/dec/tulip/winbond-840.c
+@@ -1188,7 +1188,7 @@ static int netdev_rx(struct net_device *dev)
+ 			break;
+ 		if ((status & 0x38008300) != 0x0300) {
+ 			if ((status & 0x38000300) != 0x0300) {
+-				/* Ingore earlier buffers. */
++				/* Ignore earlier buffers. */
+ 				if ((status & 0xffff) != 0x7fff) {
+ 					dev_warn(&dev->dev,
+ 						 "Oversized Ethernet frame spanned multiple buffers, entry %#x status %04x!\n",
 -- 
 2.48.1
 
