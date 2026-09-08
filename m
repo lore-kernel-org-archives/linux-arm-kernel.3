@@ -4,76 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5DBC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1226C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRjE+BPjF7cOEU6/jSpM7rx0de7j7s28F1L8tSrKE7w=; b=CCwI4zWYRmFy2+s1ohBLEmdyb9
-	DY+DUBC/xbtX6CUR0qj4/XzLHhh1qVXYnMlHptbFmEP1BHFmRTta2gBTjplvp6KT4XHgqazOcuFVE
-	Yh8IRkPLuq9n/grXRvNx+9Ft9Zfdwfvj3ltF3YubbiGJc6b9NSc7PrS7E53RUB2C++eSQhmcG3vwq
-	SiLtCavuo2Ctf93bfUoQCXW3kEDLuvFydxHswP+zOxDqaLfGBlCW27rMFcM0SJW/xiFjE5qiZfNh5
-	7Q5s9usEyce+xJ7ahUBoB2QuwpEDTX23xuoN3etixwoqsQ/LZepCAd93rE732ZgISEYZx/bKS00QH
-	cvMiB9yw==;
+	bh=J92dX1oYM7IY0/1ZeLhTll1RV7mRC8e5gkuzB135nxY=; b=tvEK4eJuZMl4y8lE4iRea8cXH6
+	+Yg8z/YZFB/xeQErE7GeqXeVytn5nOSz0xo/PY9btVi3Lv1xjm8GVH+z3eYEZxN67MlyQYJeTr+4v
+	q07sME1gzzLUiSDH8NWPcge0Kejij2DIjnty7tq+rUaa0IqokIzLfhFcvDmoPLZmvPX1YDyskohol
+	Qq07UnYVX5JM76zDzHr03lZqoYdKwXy8/FjcwIH9N9jbdhqIxXSDN+NJgQ8MvK1JUObsprhZ7p844
+	DVB3ZnqulP2KzwjKKAmF9cA2TOqR+dpQNk8U2mwqbkxAB5Dw0pEmW4gxVkq9bYPaO4IYV4HkVTDqO
+	TVjZhlDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rPc-00000008RQJ-1A6O;
-	Tue, 08 Sep 2026 08:42:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3rQp-00000008Rd8-1xnT;
+	Tue, 08 Sep 2026 08:43:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rPa-00000008RQC-1YYW
+	id 1x3rQn-00000008RcM-0X5k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 08:42:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DB5543667;
-	Tue,  8 Sep 2026 08:42:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2C6E1F00A3D;
-	Tue,  8 Sep 2026 08:42:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788856957;
-	bh=RRjE+BPjF7cOEU6/jSpM7rx0de7j7s28F1L8tSrKE7w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dw/zz4JeePzV3HTWE08BCXCW0PEA0riRf4KmgJbgG8s3zVALAvxZ4ndQCI6PT7Tbc
-	 b/GIDtLgXFsU15TaIFeo07lWpqWcDqEqqw45k5bwD0FTNrAMQvgoC/DH09E50ZYlYx
-	 5g5j6Bl4m9IE4YmslYUbbFYZiWs/Gt0zcqgpLqu5BHINerrjy+yhEY7h0ZCidVZj6Z
-	 Jo1aMaX2gHWFfG4jJo2NGlVZrE2J7G4eLHTc/0xvIEQn7roMdv64rSf58JthYADNny
-	 yfIjVbdfSh9gdF/85RrWFTY+w4Enwy6c+vFdAwd2UK2HafnWrkGpsb+EH/bQO2d8xh
-	 xxYt6dlR2JN0w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Tue, 08 Sep 2026 08:43:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=J92dX1oYM7IY0/1ZeLhTll1RV7mRC8e5gkuzB135nxY=; b=hR9qHFr3OSXErFC5iBesCBBeSk
+	bTfXHJaXG/zjBu1aLbz1evnNftw8yA7hRKdqggMvA9ZqlZoXdEPHmHAo+5C/EWPRODdAQ7xf3zekn
+	3i8AavI9NcH4Yfm6Bofi9lQG83RA6sloUe8nosSdGjIy2+2iVjirSgtmNScjUYe2x6Fm82XX8QYA+
+	HPutxONOfbTqouxx47VlSWVkG12y3XeRseH60frlsUB6wqf+8kOAOO7WnpCgK14XjECBH0xJ54hbm
+	QtjKh2IJeqt66MA3r6nbnc1hpr0AQj5ExsusZbNoeX+A9P2kMjdRj/OnUL8LAjfgxh1tHSLjfsQtV
+	EKKJLG0g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33722)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x3rPX-000000066KO-3oTu;
-	Tue, 08 Sep 2026 08:42:36 +0000
-Date: Tue, 08 Sep 2026 09:42:35 +0100
-Message-ID: <867bkw3zic.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH] interconnect: qcom: icc-rpmh: Add opt-out parameter for QoS settings
-In-Reply-To: <6iixty74opjqkegpdmtytffgrllcjvrmhlsv53xtackdqzvwge@6fh5onz27p6c>
-References: <20260907171729.1735641-1-maz@kernel.org>
-	<v2gxqazjoxe74q5364jucy4pjds6gx4gfdchgulekl5mwk2azk@we4ibolioibm>
-	<87ld9c4vc2.wl-maz@kernel.org>
-	<6iixty74opjqkegpdmtytffgrllcjvrmhlsv53xtackdqzvwge@6fh5onz27p6c>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: abel.vesa@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, raviteja.laggyshetty@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com, abelvesa@kernel.org, andersson@kernel.org, smostafa@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1x3rQh-0000000088V-3esd;
+	Tue, 08 Sep 2026 09:43:47 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1x3rQd-000000003ul-3w0J;
+	Tue, 08 Sep 2026 09:43:43 +0100
+Date: Tue, 8 Sep 2026 09:43:43 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
+	Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>
+Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <ap_Kv73A8exPhK-j@shell.armlinux.org.uk>
+References: <20260814085118.OPEA_Ssn@linutronix.de>
+ <20260903160710.vVf4gEL2@linutronix.de>
+ <apmknG55qFAn8EPf@shell.armlinux.org.uk>
+ <20260903133146.07095885@gandalf.local.home>
+ <20260904155404.ESPFg3zi@linutronix.de>
+ <ap7OMYBVKUrQjX9O@shell.armlinux.org.uk>
+ <20260908075455.OffmMhrB@linutronix.de>
+ <ap_AhKXlAWecV3BI@shell.armlinux.org.uk>
+ <20260908083740.0qERUBOE@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260908083740.0qERUBOE@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_014353_171728_B4FB2786 
+X-CRM114-Status: GOOD (  36.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +104,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 08:34:18 +0100,
-Abel Vesa <abel.vesa@oss.qualcomm.com> wrote:
-> 
-> On 26-09-07 22:15:09, Marc Zyngier wrote:
-> > On Mon, 07 Sep 2026 21:21:44 +0100,
-> > Abel Vesa <abel.vesa@oss.qualcomm.com> wrote:
-> > > 
-> > > On 26-09-07 18:17:29, Marc Zyngier wrote:
-> > > > Recent addition of QoS configuration to the X1 variants resulted in
-> > > > systems that spontaneously reset at boot time or under load.
+On Tue, Sep 08, 2026 at 10:37:40AM +0200, Sebastian Andrzej Siewior wrote:
+> On 2026-09-08 09:00:04 [+0100], Russell King wrote:
+> > On Tue, Sep 08, 2026 at 09:54:55AM +0200, Sebastian Andrzej Siewior wrote:
+> > > On 2026-09-07 15:46:09 [+0100], Russell King wrote:
+> > > > On Fri, Sep 04, 2026 at 05:54:04PM +0200, Sebastian Andrzej Siewior wrote:
+> > > > > On 2026-09-03 13:31:46 [-0400], Steven Rostedt wrote:
+> > > > > > On Thu, 3 Sep 2026 17:47:24 +0100
+> > > > > > Russell King <linux@armlinux.org.uk> wrote:
+> > > > > > 
+> > > > > > > What do you expect to happen with this? Which arch maintainer should
+> > > > > > > apply this patch that affects three different independently maintained
+> > > > > > > architectures?
+> > > > > 
+> > > > > Well, if you as the ARM person are fine with ARM part, an ACK would be
+> > > > > appreciated. If you have something to object, it would be nice to let me
+> > > > > know so I can adjust accordingly.
 > > > > 
-> > > > Given that this is both very unpleasant and hard to debug, give the
-> > > > affected user the option to survive such event with a module parameter.
+> > > > First, I only just looked at the email - you may have noticed I'm not
+> > > > very active with the kernel anymore, as I'm a full-time carer at the
+> > > > moment.
 > > > > 
-> > > > Passing "icc_rpmh.enable_qos=0" to the kernel command-line will skip the
-> > > > offending QoS setup.
+> > > > Second, I'm not fine with the patch as-is, because it's not clear how
+> > > > it could be merged in its current form. It would be inappropriate to
+> > > > give an Ack, because an Ack means I'm fine with it. I'm not.
 > > > > 
+> > > > Third, I haven't actually reviewed the patch itself (see first point).
+> > > > 
+> > > > Looking deeper now, I see nothing in the linked report, nor in your
+> > > > write-up that identifies what is responsible for the context being
+> > > > inappropriate to deliver the SIGTRAP. See the first point - I'm not
 > > > 
-> > > Lets not start doing this, please.
+> > > The linked report shows a backtrace by "BUG: sleeping function"
+> > > originating from el0_breakpt() -> perf_bp_event() following by sending a
+> > > signal force_sig_fault() followed by rt_spin_lock() and
+> > > __might_resched(). It also contains a reproducer.
 > > > 
-> > > Can we figure out which platform deosn't work and then maybe we can 
-> > > add a quirk in DT per platform?
+> > > The first sentence has the part
+> > > | The hardware event is
+> > > | delivered with disabled interrupts and perf intrastrucure expects
+> > > | disabled interrupts while the overflow callback is invoked.
 > > 
-> > We have at least 3 machines that are dysfunctional since [1] was
-> > merged (mini-x, sp12 and devkit). Probably some more, but I'm not
-> > going to be the one doing a survey.
-> > 
-> > What really should happen is [1] to be reversed until QC figures out a
-> > set of parameters that actually works, instead of making this platform
-> > even more unreliable than it already is.
+> > *Where* are interrupts disabled?
 > 
-> I'd rather have the patch reverted than adding a module parameter which
-> users might not know about and distros will probably never addopt.
-> 
-> > 
-> > Just like [2] should have been reverted.
-> > 
-> > Until then, we'll have to paper over this stuff.
-> 
-> But a module parameter complicates things rather than just papering over.
-> 
-> I suggest we get both reverted if they break existing platforms.
+> On exception entry point, that would el0t_64_sync() for arm64 as in the
+> report.
 
-We're in violent agreement.
+Oh FFS. So why does this need to be done on ARM? Explain it. This is
+what I'm trying to get out of you, but you're being very resistant
+to providing the technical details. I can only think you haven't
+actually done the analysis.
 
-Thanks,
-
-	M.
+So, NAK.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
