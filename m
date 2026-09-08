@@ -4,55 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA8C4C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E620C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZkBgfYvdi7Dob2Y6rXedXnGpmu4vWCYkaHTOx3aX4+8=; b=yL2wBIsndKqWyfQm+m8Ruy4h++
-	zVGjdlAkGUp0mi+2KKS05XqNvV/+bM3IsFc1AWci8YJQMNtaXOLLGClWHHiCBR3LqfZ/CcnGeKVHp
-	9r+z5qLcN3OJUtzxQqWcIdMOIY1pyw5V7ZrSFXEoZOF4AvKYO/hyGsGSTDT5pvXv/m/cZmAyFI5m1
-	Ev/umbgTMedX53HstZnUc/bdKrallQtk0HU1z5d915cIUmN06vxRCDimOHk4Bhuy1Vl5T3SPzqoif
-	WefSo3G9CTAC8TfO6dUGgPPDVeeidETQ7ZbIpEUGtFyv9G0/E8dhMqCf6KZF7cC66bFRFle6tIE1x
-	HPvneHWA==;
+	bh=pmW+XMdarb0AzUa13DRPBo4xWL/hlPBKrfPjbLiiADE=; b=H2YytChcoQMSOJihQJHIHy/9Kc
+	ZhkIQxcu/Ioivo+0w9il8e3o7jKvpYzbbGGCuez5oxfF5V9iU8LwiiqxEW7T9dqo7tTQcZyCDwv6P
+	y5wZM/3QzkFO36KU5TQNv6uguABf1owMLMCijNG+LisAPPZr1Xhr1YjymtO+VZVBMWKFQiSSxgA5u
+	otdyvdSdmy4fap+tPI1qYa56SCD3TounxqzHJ89pkz/R0J4yXV5zSC6jPo7cEAvWWEiUsJcHh/no/
+	vzHdpH0ioOtwPcoDbI9sVlBTjyi8f9XYOOT76YNcabaj+fugXNTuKd+hIJkW6ctkVu4dRsH0fxEEA
+	akW/vKkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3w0H-00000009ASa-3i4n;
-	Tue, 08 Sep 2026 13:36:50 +0000
+	id 1x3vKR-000000094Z9-1JMZ;
+	Tue, 08 Sep 2026 12:53:35 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3w0G-00000009ASO-4A6G
+	id 1x3vKQ-000000094Yv-03Dp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:36:49 +0000
+	Tue, 08 Sep 2026 12:53:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14822601DB;
-	Tue,  8 Sep 2026 13:36:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B716C1F00A3A;
-	Tue,  8 Sep 2026 13:36:45 +0000 (UTC)
-Date: Tue, 8 Sep 2026 14:36:39 +0100
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
+	by tor.source.kernel.org (Postfix) with ESMTP id 26568601F7;
+	Tue,  8 Sep 2026 12:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E57781F00A3E;
+	Tue,  8 Sep 2026 12:53:32 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x3vJs-00000006D8h-2A4L;
+	Tue, 08 Sep 2026 12:53:00 +0000
+Date: Tue, 08 Sep 2026 13:53:00 +0100
+Message-ID: <864ifz52hf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH 19/19] arm64: smp: Harden parallel CPU bringup against
- broken PSCI firmware
-Message-ID: <aqAPZ59D_tfN6wUQ@willie-the-truck>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-20-will@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907164024.17164-20-will@kernel.org>
+	Vincent Donnefort <vdonnefort@google.com>,
+	Keir Fraser <keirf@google.com>,
+	Kalesh Singh <kaleshsingh@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Hiroyuki Katsura <hk590@cam.ac.uk>,
+	Fuad Tabba <tabba@google.com>,
+	stable@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] KVM: arm64: Fix host access to the EL2 stacks
+In-Reply-To: <20260908110713.1540304-1-fuad.tabba@linux.dev>
+References: <20260908110713.1540304-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, will@kernel.org, catalin.marinas@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, mark.rutland@arm.com, vdonnefort@google.com, keirf@google.com, kaleshsingh@google.com, qperret@google.com, hk590@cam.ac.uk, tabba@google.com, stable@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,69 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:40:22PM +0100, Will Deacon wrote:
-> Since firmware has occasionally been known to get things wrong, harden
-> our parallel CPU bringup code against a PSCI implementation that passes
-> the CPU_ON argument to an incorrect CPU.
+On Tue, 08 Sep 2026 12:07:09 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> The primary CPU writes the MPIDR of the incoming CPU to the end of its
-> task stack and this is then checked against the MPIDR_EL1 register
-> during early kernel entry. A mismatch is reported via the existing
-> failure reporting mechanism and the CPU is not brought online.
+> Hi folks,
 > 
-> Suggested-by: David Woodhouse <dwmw@amazon.co.uk>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/smp.h    |  4 +++-
->  arch/arm64/kernel/asm-offsets.c |  1 +
->  arch/arm64/kernel/head.S        | 39 ++++++++++++++++++++++++++++-----
->  arch/arm64/kernel/smp.c         | 11 ++++++++--
->  4 files changed, 46 insertions(+), 9 deletions(-)
+> The per-CPU EL2 stacks are initialised as host-owned after pKVM init.
+> fix_host_ownership() walks only the linear-map alias of each memblock
+> region, and the stacks, mapped in the private VA range for their guard
+> pages, have none.
+> 
+> Patch 1 is the fix, and it needs none of the other three. Patch 4 adds
+> the check that would have caught it and would catch similar instances
+> in the future: once the transfer is done, walk the private VA range and
+> fail init unless every valid leaf is hyp-owned, or is hyp text mapped
+> without write access.
+> 
+> Patch 2 is a fix in its own right, but to a different bug.
+> fix_host_ownership_walker() matches hyp text on its stage-1 permissions,
+> and that test hasn't matched on a non-hVHE host since 7.0, so hyp text
+> is donated there rather than left read-only. Nothing crashes, but the
+> instruction dump on hyp panic reads a page the host can't access, so
+> the Code: line comes out as question marks. It matches by physical
+> address instead, which is what patch 4 needs too. Patch 3 splits the
+> start of the range from the allocation cursor, with no functional
+> change, so patch 4 knows where the range begins.
 
-[...]
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-> index bec4bc1b12db..56deeb9673d6 100644
-> --- a/arch/arm64/kernel/head.S
-> +++ b/arch/arm64/kernel/head.S
-> @@ -192,11 +192,21 @@ SYM_CODE_END(preserve_boot_args)
->  	 * its location in the task stack. We reserve the entire pt_regs space
->  	 * for consistency with user tasks and kthreads.
->  	 */
-> -	.macro	init_cpu_task tsk, tmp1, tmp2
-> +	.macro	init_cpu_task tsk, tmp1, tmp2, check_mpidr=
->  	msr	sp_el0, \tsk
->  
->  	ldr	\tmp1, [\tsk, #TSK_STACK]
-> -	add	sp, \tmp1, #THREAD_SIZE
-> +	mov	sp, \tmp1
-> +	.ifnb	\check_mpidr
-> +	mov_q	\tmp1, MPIDR_HWID_BITMASK
-> +	mrs	\tmp2, mpidr_el1
-> +	and	\tmp2, \tmp2, \tmp1
-> +	ldr	\tmp1, [sp]
-> +	sub	\tmp1, \tmp1, \tmp2
-> +	cbnz	\tmp1, __cpu_secondary_broken_psci_arg
-> +	.endif
-> +
-> +	add	sp, sp, #THREAD_SIZE
->  	sub	sp, sp, #PT_REGS_SIZE
->  
->  	stp	xzr, xzr, [sp, #S_STACKFRAME]
-> @@ -401,11 +411,12 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
->  	cbnz	x2, 1f
->  	adr_l	x0, secondary_data
->  	ldr	x2, [x0, #CPU_BOOT_TASK]
-> -	cbz	x2, __secondary_too_slow
-> -
-> -1:
->  	init_cpu_task x2, x1, x3
-> -
-> +	cbnz	x2, 2f
-> +	b	__secondary_too_slow
+	M.
 
-Bah, Sashiko points out that this is too late, as x2 has already been
-dereferenced on the non-PSCI 0.2+ path. I'll rework this for v2.
-
-Will
+-- 
+Without deviation from the norm, progress is not possible.
 
