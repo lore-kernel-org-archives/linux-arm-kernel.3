@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C8CC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E2BC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWMPfD94+i8hgSedUupwy+oBy/L05al+1UgGs2wQG3w=; b=y5bW9YlpdcxKSftCO319yt3ML9
-	iXPCMAXT/upd5G8udancyfqaj8NyIkxVvN9zhkHmLXWgSomXux+D4tLpMFAQbthKi0ccOSfRnjFJI
-	MH3OhQxGQ7rq/TU0+WTHRc8aKubB+iByn6/vDZjvqGdLkn5Qi/rkL6xXev+H+gPF+VF5bDAoES7rU
-	ibxtNbA90uJhZQqT/TpmqoZ7o0yO2kKYFUzZTUmUsmLXZHHM3311Mfw2PKdgBQP+7PF45JofPxTH6
-	hc/th81k3gpXVoRHgmha0+HfLn2hzt6brn6+uwsldUL4HdxCrb2ZxbrhZBLfDxztodvBR5ytSPWHM
-	CkFdLJLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIhXC3f2I/l0T8TXw3CQTulpCRSDEAWfXGBsU2KaO+o=; b=2DaeiDEcuAwcd1pg71z6q5EMcj
+	a0EZl7JRXkfPq2Ln+Rni8N7cmKB21UMN9aZyoMYbbFKitJYJdiioFvJbwloXaNSHfPf2+h7XRAaSe
+	9UeiXzj+KQce/gqtx8mp2FgQyQgW1MQ3HzpIkWmILpOEQqiHN4IkbCwtvU0ZHkjYv+cn+I0Estf22
+	kBfG9sT9N8BK3qkdmSNOMBAlKZSnYQRm2ebKOvQHSarhoglNM1y30e5xAb0k2kcgduwhWy7MiBdxe
+	/4EzRGw3sYXTIC3zIP+q6bft1/0F/oB+ifNslF1kSXGvRtKFdm0cf8v4QD4P4/6tSypGzjbqDMZMl
+	LsWbhSNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3y0L-00000009XWl-3ZZT;
-	Tue, 08 Sep 2026 15:45:01 +0000
+	id 1x3y1p-00000009XkV-0ThT;
+	Tue, 08 Sep 2026 15:46:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3y1n-00000009XkA-3dzx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 15:46:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bIhXC3f2I/l0T8TXw3CQTulpCRSDEAWfXGBsU2KaO+o=; b=Fk/6N6KYpGiyibNZxehZ59WOKT
+	skptOwwThgxCJFVSSmfIm9yxDmRCisQzJPKirzrcZHD3mowrWNgq1YSf1muAtw9PhxWgsnAvk5mcz
+	GSJ+IwBRjc/yi+msjW1YVfWxqnDfD6n/B+jU8OG19FViTDdc+rrWtcji0dWFF3kIILy1UU9otEQBq
+	LlMIu1YaNFOVSCj9Fz09dcKrnR07DpgDZPatheVe/eyapPk3hCAKjWlWBect40G/HTKAQWU2HFpw7
+	f4CY/fHQ/8unDLobrsuevd6+8vwEmrN5ksHEktKo205hDilvvcQw1Y+zHmXYfWz2VVj/cni5NFfHN
+	FU0ZApOg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3y0I-00000009XUu-05Y3
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3y1k-000000002ax-428E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:45:00 +0000
+	Tue, 08 Sep 2026 15:46:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FB551477;
-	Tue,  8 Sep 2026 08:44:52 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C3123F7B4;
-	Tue,  8 Sep 2026 08:44:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 849441477;
+	Tue,  8 Sep 2026 08:46:22 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10C6B3F7B4;
+	Tue,  8 Sep 2026 08:46:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788882296; bh=GxMGnXYQeONzqdK6e7ly+Ryxj5+TnaiGzWadzF9ASqg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LcW3d8Y9EnhgIb3Rlfc88EUwA1NZjt8vavC27AHR9l+iN18v85ITcyWSQsN/UPN4o
-	 OLvqyDegHcjXhNJgmbuN3xh1uOIo2IZyl07gOyc3Vx/FuMblFAjLyZXrWSOGkxnxbI
-	 JdSzw6d7rWBZnzC8KL9Vxzg9oHG/Ck26o9OgGRrM=
-Message-ID: <a2a7d988-339c-45f6-b910-5d7dd893b45c@arm.com>
-Date: Tue, 8 Sep 2026 16:44:52 +0100
+	t=1788882386; bh=IvMyBCw9IJioS6J+EGV0B1GbzdS6CwLF7mJqOTUcoJQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TJ9kcp0zqndIF+wF3zB6h8KX0bh94QB6M3GJovCr6LVEJb8ZA0IdX3OenHe/RH799
+	 1N11eQhBwZ/1+2mTzkaNmukJ+x6B6wDyDoKQJataY6uTXcHIXz+eTZAX9s92LwgZEa
+	 THhoYb/snAXY5BIQRqlk2NT4VBmRjKGj2GimmrTo=
+Date: Tue, 8 Sep 2026 16:46:22 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: rolanddreier@rivian.com
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] firmware: arm_scmi: Don't reuse raw xfers with
+ async_done still armed
+Message-ID: <aqAtziZh1BGCaP9B@pluto>
+References: <20260814-scmi-async-done-race-v1-0-335b163d77ee@rivian.com>
+ <20260814-scmi-async-done-race-v1-2-335b163d77ee@rivian.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-To: Reinette Chatre <reinette.chatre@intel.com>,
- Borislav Petkov <bp@alien8.de>
-Cc: x86@kernel.org, james.morse@arm.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- tglx@linutronix.de, mingo@redhat.com, dave.hansen@linux.intel.com,
- hpa@zytor.com, corbet@lwn.net, linux-doc@vger.kernel.org, dave.martin@arm.com
-References: <20260709093111.367851-1-ben.horgan@arm.com>
- <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
- <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
- <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
- <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
- <a82061f1-bb23-403f-b772-d5adf7acb871@arm.com>
- <649aef0d-f915-4288-b3b0-4092adb783b0@intel.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <649aef0d-f915-4288-b3b0-4092adb783b0@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260814-scmi-async-done-race-v1-2-335b163d77ee@rivian.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_084458_192574_C07E4AE9 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20260908_164629_171963_2095F3C7 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Reinette,
-
-On 08/09/2026 16:35, Reinette Chatre wrote:
-> Hi Ben,
+On Fri, Aug 14, 2026 at 08:15:34PM +0000, Roland Dreier via B4 Relay wrote:
+> From: Roland Dreier <rolanddreier@rivian.com>
 > 
-> On 9/7/26 3:44 AM, Ben Horgan wrote:
->> Hi Boris, Reinette,
->>
->> On 04/09/2026 18:36, Borislav Petkov wrote:
->>> On Thu, Sep 03, 2026 at 08:37:51PM -0700, Borislav Petkov wrote:
->>>> Lemme have a look.
->>>
->>> Sashiko has comments:
->>>
->>> https://sashiko.dev/#/patchset/20260709093111.367851-1-ben.horgan%40arm.com
->>>
->>> Please address them: if valid, fix them, if not, explain why they don't need
->>> to be fixed.
->>>
->>> Thx.
->>>
->>
->> Regarding the first Sashiko comment.
->>
->> The documentation change in patch 3 includes the sentence:
->>
->> "
->> The allocated bandwidth percentage is rounded up to the next control step available on the
->> hardware.
->> "
->>
->> Sashiko rightly objects to the "rounded up". For MPAM systems this can be up or down and we test in
->> test_mpam_resctrl.c:test_percent_to_max_rounding() that it isn't too biased to rounding one way or
->> the other.
->>
->> How about replacing "rounded up" with "rounded up or down" so that the sentence becomes:
->>
->> "
->> The allocated bandwidth percentage is rounded up or down to the next control step available on the
->> hardware.
->> "
->>
->> What do you think? Should I respin the series with this alteration?
-> The change looks good to me since Intel always rounds up. By itself "rounded" may thus be deceiving.
-> One concern is that "next" seems to accompany "round up" to reflect forward/upward movement.
-> How about also replacing "next" with "nearest" or "closest"?
-
-Ok, I'll go with "closest".
-
+> In SCMI raw mode, scmi_xfer_raw_worker() releases the xfer before
+> releasing the waiter that disarms xfer->async_done, and scmi_xfer_get()
+> does not clear async_done when it hands out a recycled xfer. A concurrent
+> transaction can therefore pick up the xfer while it still points at the
+> old waiter's completion, so:
 > 
-> I think a respin would be most convenient to ensure the intended changes are made.
+>  - a delayed response arriving for the new transaction can be signalled
+>    on the old waiter's completion, which may already be re-armed for yet
+>    another unrelated transaction, making that transaction's wait return
+>    early; and
+> 
+>  - the old waiter's disarm, which still runs after the xfer has been
+>    released, clobbers the arming just installed by the new transaction,
+>    so the new waiter times out even if its delayed response arrives.
+> 
+> Release the waiter first, while the worker still holds a reference on
+> the xfer, so that an xfer can never reach the free list still
+> armed. Track whether a delayed response is expected in the waiter
+> itself instead of peeking at xfer->async_done outside xfer->lock, and
+> wait on the waiter's own embedded completion. (The new async flag is
+> not strictly needed but it makes the logic easier to reason about)
+> 
+> Finally, harden scmi_xfer_get() to clear async_done when handing out
+> an xfer, so that no future release-ordering change can leak a stale
+> arming into a new transaction.
+> 
+> Fixes: 3c3d818a9317 ("firmware: arm_scmi: Add core raw transmission support")
+> Signed-off-by: Roland Dreier <rolanddreier@rivian.com>
 
-Will do.
+Hi,
+
+thanks for this.
+
+LGTM.
+
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Tested-by: Cristian Marussi <cristian.marussi@arm.com>
 
 Thanks,
-
-Ben
-
-> 
-> Reinette
-
+Cristian
 
