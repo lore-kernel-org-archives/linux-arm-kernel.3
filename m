@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4690C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B11C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wX/eAbNpULP9xBKBYr9JHDVZUyeTRdaUG21xU8KFsGY=; b=m+rRDc6Q9kSZ0p70LBFr701az4
-	pw2YjpWi+yTgL2La5RUPLk17usrBIxTHqojAF1qwq2ifbXY45saURddaRnEs9gaSxicGoPgwR51ah
-	FsqTuEQ1JIPNB2eOAQluFd/wNpsToYKsV7FKAZ4Tq5tZKMz9UbtewiJnhVP9RUte2c0ETIWVIS0XQ
-	82VhTi0tMkwLf1jNU0SqE23OE/UHsB7YD3o4gTJcj5fn02Nhfca6kzTTNDRKBpM2KlXqTjVtfBJ6R
-	6itY8+unJdvyN6A8FvChwr+Vq1x3gGEN30STNUlBMBpgbn1EQ5Ta8kezqubdwXuoZMkuKYXvL85OY
-	OGfzN7LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOyngVYrItRuLe3u/yuA0H/Ld3sW0yaOzRVeptexYE4=; b=cvBGVudI/Ue1z18LvcEB1CM71W
+	3/AlU0t3zqe3gOtBAVbt1uNvb7EK0h+wxwHBFuOrUED4xvdZhhZ0HTwML1qaeksQQ9cLz5LM3sZF7
+	sjL3bADGaTGGsUY8dZTiqgg8Tg2GkEkN+kHiuh0oUjuZbReVdEAQ+4vD0X3Y+R80znwZ/X9tC8mD7
+	6Fe/T9kQA4LuJ6lry/WiSVTEsYbeOsSQPGixp4hkjRcEYeKmRSa17DRqQsgeRfgMpLwjBQECtMKb7
+	THjtI/9bCOUnpTpwvyJBHv8U+G1s5HF4PDe6K71s/hMtrNc7eowyZk7NyZFpNR5rNKk+YpZgQgY7C
+	Unj97QYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sSZ-00000008fSF-0ecX;
-	Tue, 08 Sep 2026 09:49:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3sT2-00000008fuB-3YTF;
+	Tue, 08 Sep 2026 09:50:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sSY-00000008fQ3-1ElC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 09:49:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wX/eAbNpULP9xBKBYr9JHDVZUyeTRdaUG21xU8KFsGY=; b=eCYvu/uYVi8DNeMAMPqlcevIXy
-	N2RqRAL/+HyuGSBbtpoUT7IP+aI8XBQpSSAIfun5tUGMMHV1Uj75Zggdb6+H3zL/F1lgDd+qRZX1N
-	9RrI+gnogDjPEzKyqSC/G1g9qKbuzwnrom+wkUuk+MtXnDMYoDgxKnhy07uYQ2yfQRxIM4L1ecA1a
-	5348ZPCZBD6NNDi4uLzXHu/NywcpZQj+AtEYfFxenDMGQd9sUMrIJ5ePHNjDIMgJmG7aZZanK0sgw
-	50gGmWEbPjZDekwwdtAemUeOTd8QSgrDg+WI/xA/Rck+wtGPPVQil8EoewbTP2MB0Okq7JCYzLAJz
-	h9FBze4w==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3sSR-0000000HE5X-2G3i
+	id 1x3sT0-00000008fsN-2iE3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:49:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AE741476;
-	Tue,  8 Sep 2026 02:49:33 -0700 (PDT)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 685AE3F7B4;
-	Tue,  8 Sep 2026 02:49:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788860977; bh=kJteEwoT3OdITFopCoesbDyojoKuGSBp7kslVKQdQY0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bnEijS8UoORGgws4/gA0W4HiONlIvwJMlSXD8OSU/r3dg/eT6i8+aRl9HfVheUaUS
-	 jvbmdRo2tL2vQpBZlOOwEVT3bN917GE2o282Fo2hN0lkk+zG8H03BMgZ26A3d4piwM
-	 cNK8rOVVEt5zZV461cpirSw+FvdQcp6Aynp4+T4M=
-Message-ID: <7c8b3430-e233-486e-b4fd-3c1f5d05d97d@arm.com>
-Date: Tue, 8 Sep 2026 10:49:32 +0100
+	Tue, 08 Sep 2026 09:50:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A0AC860AA3;
+	Tue,  8 Sep 2026 09:50:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABC11F00A3A;
+	Tue,  8 Sep 2026 09:50:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788861013;
+	bh=pOyngVYrItRuLe3u/yuA0H/Ld3sW0yaOzRVeptexYE4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FxUwqzV9pyaNtShWLPvMjWVA5HEpu5Ub9FmlIllTLQreh6DS7qrSu8hfJciWclUVd
+	 Ad5gj8mwGP6G+4HRp+OWSfuIyQSVLgaRm23zc0vN+7VEc0nLNEjAFRiVTafVoakpfM
+	 JDpqNEt3bvhylnCF3pluCauOud2JP5unjMTvr4Orkw5/UNT+hT/v2p6ehYJIxIENiM
+	 h45pmRxWFjGH7iLSOOk7L+qZOqCZHKyKvVBJIdHSrkI7qbrDdhy27BO7wvVZO4+eyn
+	 ipvrYCjPdee0DYRtxFUQNw4GgnUSfkefWDsWfMoTq2Ciw/m/ptonV3FVA6RGV3XOYF
+	 Q18xFkcU2iSWA==
+Date: Tue, 8 Sep 2026 11:50:09 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@xs4all.nl, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-imx@nxp.com, linux-arm-kernel@lists.infradead.org, 
+	jackson.lee@chipsnmedia.com, lafley.kim@chipsnmedia.com, marek.vasut@mailbox.org
+Subject: Re: [PATCH v7 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Message-ID: <20260908-huge-shaggy-cockatoo-52b7a6@quoll>
+References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+ <d362714624fa5025db50293b1b737d3fa3ce2c49.1788496816.git.nas.chung@chipsnmedia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 2/7] firmware: arm_rmm: Check for RMI support at init
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <20260907095942.1140734-3-suzuki.poulose@arm.com>
- <25894d08-0fec-4dcd-9d5e-e8270ff9d26c@redhat.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <25894d08-0fec-4dcd-9d5e-e8270ff9d26c@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_104939_930665_AF53551B 
-X-CRM114-Status: GOOD (  21.10  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <d362714624fa5025db50293b1b737d3fa3ce2c49.1788496816.git.nas.chung@chipsnmedia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,109 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/09/2026 07:46, Gavin Shan wrote:
-> Hi Suzuki,
+On Fri, Sep 04, 2026 at 03:46:28PM +0900, Nas Chung wrote:
+> Add documentation for the Chips&Media Wave6 video codec on NXP i.MX SoCs.
 > 
-> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
->> From: Steven Price <steven.price@arm.com>
->>
->> Query the RMI version number and check if it is a compatible version.
->> The first two feature registers are read and exposed for future code to
->> use.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-...
-
->> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
->> arm_rmm/rmi.c
->> new file mode 100644
->> index 0000000000000..008a783407b4e
->> --- /dev/null
->> +++ b/drivers/firmware/arm_rmm/rmi.c
->> @@ -0,0 +1,101 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023-2026 ARM Ltd.
->> + */
->> +
->> +#include <linux/cpufeature.h>
->> +#include <linux/memblock.h>
->> +#include <linux/arm-rmi-cmds.h>
->> +#include <linux/slab.h>
->> +
->> +#include <asm/memory.h>
->> +#include <asm/pgtable-hwdef.h>
->> +
->> +/* Currently only the first 2 registers are used by Linux */
->> +#define RMI_FEAT_REG_COUNT    2
->> +static __ro_after_init unsigned long 
->> rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
->> +
+> The hardware contains one control register region and four interface
+> register regions for a shared video processing engine. The control region
+> manages shared resources such as firmware memory, while each interface
+> region has its own MMIO range and interrupt.
 > 
-> I would drop RMI_FEAT_REG_COUNT and use ARRAY_SIZE(rmi_feat_reg_cache) 
-> in the code.
-> Besides, __ro_after_init is usually put at the last the declaration.
+> The control region and each interface region are distinct DMA requesters
+> and can be associated with separate IOMMU stream IDs. Represent the
+> control region as the parent node and the interface register regions as
+> child nodes to describe these resources.
 > 
-> static unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT] 
-> __ro_after_init;
-> 
->> +unsigned long rmi_feat_reg(unsigned long id)
->> +{
->> +    if (WARN_ON(id >= RMI_FEAT_REG_COUNT))
->> +        return 0;
->> +
->> +    return rmi_feat_reg_cache[id];
->> +}
->> +EXPORT_SYMBOL_GPL(rmi_feat_reg);
->> +
-> 
-> I would suggest to rename 'id' to 'index' since it represents the feature
-> register index instead of feature register ID.
-> 
-> unsigned long rmi_feat_reg(unsigned long index)
-> {
->     :
-> }
-> EXPORT_SYMBOL_GPL(rmi_feat_reg);
-> 
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> ---
+>  .../bindings/media/nxp,imx95-vpu.yaml         | 162 ++++++++++++++++++
+>  MAINTAINERS                                   |   7 +
+>  2 files changed, 169 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
->> +/*
->> + * Note arm64_init_rmi() must be called before kvm_init_rmi() 
->> otherwise KVM
->> + * will not support realm guests. subsys_initcall() is called before
->> + * module_init() (used for KVM) so this is OK.
->> + */
->> +subsys_initcall(arm64_init_rmi);
->> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
->> new file mode 100644
->> index 0000000000000..2fb1f7f86d71e
-
->> +static inline int rmi_features(unsigned long index, unsigned long *out)
->> +{
->> +    struct arm_smccc_res res;
->> +
->> +    arm_smccc_1_1_invoke(SMC_RMI_FEATURES, index, &res);
->> +
->> +    if (res.a0 == RMI_SUCCESS && out)
->> +        *out = res.a1;
->> +
->> +    return res.a0;
->> +}
->> +
-> 
-> We needn't expose rmi_features() through include/linux/arm-rmi-cmds.h 
-> since it's
-> used for once in rmi.c::rmi_read_features(). I would suggest to drop it 
-> by combining
-> the code with that function.
-
-Thanks for the review, I will address them in the next version.
-
-Cheers
-Suzuki
-
+Best regards,
+Krzysztof
 
 
