@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0ECC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F1DC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYdCGwR2PPQ+VhuIDyakmIiYQ5Y15ZgMmXSqFF9HOCc=; b=BwvfYrSwmyOL5OdeddPfhMOwo2
-	3VceipLMUaEJtHEvfxJqvXNaJnOeQJbLJuYOkxQ99GQXibPCWS3rVvEWjYa5FYy+ADn1diNa9W1ch
-	G9fQQbIuoTApENLSZyTnHLUX95y6bUkMjvhNHLjYUUgv9sOvmPx1WeX/fUG1ABW750FaHY7+drjGl
-	VOpFBXdI8q656Frr2ZtvZdjsHtzgxg1QdVaXCBrDCjTweZH7DMh47aX180qPFRfh9PMy9OcVCuh+I
-	W+g2h3+jKqZ7oRgWbA0bSrHXwXSO5vlFSV0UoffmOLKySeguQ9ijxEiGb0jmToNpCmclnzRxNG5o0
-	IY+sZNtg==;
+	bh=Ets4uTKkXyNkTovvlm2LamMg/N1Srr9yc5R7205pmws=; b=e3TyDL3wBfibENznE2v9qCY3WQ
+	UlYW0hMd5J7eJKWdeiLVQOUd+zKavyAbvCL3ejECJNpu0Dwbo6QSKINZQ1FafowrxFztUJ0qBktbM
+	R5POYP7KzLDtIDEz0SGmYonvpcByDLOZbYWqMcaomDg7vM373zqf5fTfz1SljRRMZ3uQjaWIRuOy+
+	6krjFkscvVFmMLDW/gYdjVwwrEKZnsjepW18ROVUAocFgTcfNSQp6R/VtWQCV4CuWnQmO+77DkhiY
+	gB7YsuhPY+ttJxvwq2EWa+WuyS9hnaiaF0xPEUnhWsL2krcxDfMNhyf6PyrxjbXNvCuxkZJwp6YGe
+	rl4aqpPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zZx-00000009oat-3SFZ;
-	Tue, 08 Sep 2026 17:25:53 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1x3zc0-00000009ozc-0VCo;
+	Tue, 08 Sep 2026 17:28:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zZt-00000009oWN-3QIb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:25:52 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-cc1c8d4a959so3288964a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:25:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788888349; x=1789493149; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fYdCGwR2PPQ+VhuIDyakmIiYQ5Y15ZgMmXSqFF9HOCc=;
-        b=mBGoOlne49e0yeKP2xdg2BBMWt5dCj23KHV4AV0yYZIbHBPOZ/zCvzuizfGp9/BrgO
-         By/hmYE95vmGiLaYmUjvF4q8miQGsedyBQfDGc4UQSugJF1XG33/1yJZaT7ohHqDS396
-         gqyFraRyiPvoUoIcThMFxVcNIbYuwSHy4kTywx447YfRyZWsKRHiMGMAlX6eDdYCbwG8
-         jk4EDKmt8+PrFnlr1e4f6+ALrPZbtXn2gCK5+UfIb4evP3hlV4DyqSxvYnlmA6NjxzEi
-         C6JlRcx+dH0CnJ+r7/QqiE8cBSj9AqZOpvvgCQKauh4M8Zj0FEipTG1TLO0JzmqFr2cn
-         JWIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788888349; x=1789493149;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fYdCGwR2PPQ+VhuIDyakmIiYQ5Y15ZgMmXSqFF9HOCc=;
-        b=py7/b1HjuvfPR0Q5yOXXBJJeXBcrmWV/nbDpOuJJF1+hBO1iY7yeT0bemfXv8V6Bjb
-         O3o94VkVq4t6rD69ML2IR8MjH49xAc4GMTkRoEScH5xsETS4m/YxBR849qy77ev7o6D0
-         cdDZ/xgn6Bgr23ZsFU9j8dMq9iZLDI47IJMh1wxbalz1W9CbqIBNJ9yo6eOsyL0usi1W
-         HxUWvHjX4QKczTyVocmNe8kDOEk1kaTdNQUpgoZvf/SyA0i2V9MjW65mp91wvOPBDyuA
-         jIjYpNo8Iz95CZEcx9vYuWBii+QQIwYhFk6ZvVTZMkK/awgnbEb5cpu/t1nLIKhITzXQ
-         Gnyg==
-X-Forwarded-Encrypted: i=1; AKwUvBzCwMjk+8G7LUMKBN8iAF8U5hXqAHGRwx7wsMmUiu9lVDoY7/fl5M95Pc05+0eSyaMKTRHSQXMNPQHHjwcaa3Am@lists.infradead.org
-X-Gm-Message-State: AFuF++l22QK5mIrWvxEAwnp2JsWtfXfs+4UXWhFp1p6eKZX/KbwScFCu
-	T3xsYfThJPK/9tJdVtaY1YsyV6HZwMqv4TT9ed9sCDAKNJpYfs1y03HC
-X-Gm-Gg: AYBFou0zGxOdl4S+kD4ZwpeJXuJ+y6C2w6YEmx+Oy3+U+Utaa1Kyfn9cDzkMhiLav5x
-	GFN9egM5zIxoN+i3L0nRPnUMKwoY35I13ZfkD5vAkiV6sLrz6CUGaiG8IMRMkbptB1e6RcEFQSt
-	d9gAcjQm+8ndQk5l19kj8u1kvaec4iOy7F75Qn0M5vFed6fFjKc8IYlLZEGbgGmAXFfv5LLlP1l
-	uanYpgw4IgjniSpeYNcVx3DFNFXl+6P5y4BwQSl3cTUIpoOYmK4dTMVAMXVEBtpXIwUU1vHUupe
-	elvr1KNCwywvOr7x6rxewJ9otLnvNqIqU9Hh1DRkQHf3CLZ7GJFscHFeFr1gvW0K8GXNh2LKeJj
-	kg2xuE5xWwpE8OBRlw4S8BpBN0mlPr/fIZsN4kF+a0/dD14MfBvocqV5Yxsx937QQTLeYDkl2Ai
-	ORYa0C2koRYy6n5YNN6tXWBpdCA+e6FclOykHmGHX8msL+y76U2XM3d2KQOnc=
-X-Received: by 2002:a05:6a20:bea6:b0:3bf:7e2a:e874 with SMTP id adf61e73a8af0-3da39b5c429mr46679411637.1.1788888348747;
-        Tue, 08 Sep 2026 10:25:48 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:43ae:bf76:d99a:e5ff])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33688cfc714sm19297176eec.20.2026.09.08.10.25.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 10:25:48 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v4 6/6] iio: adc: bcm_iproc_adc: use devm-managed IIO device registration
-Date: Tue,  8 Sep 2026 22:53:59 +0530
-Message-ID: <20260908172359.30003-7-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260908172359.30003-1-mdshahid03@gmail.com>
-References: <20260908172359.30003-1-mdshahid03@gmail.com>
+	id 1x3zby-00000009ozB-1Atu;
+	Tue, 08 Sep 2026 17:27:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A834601DE;
+	Tue,  8 Sep 2026 17:27:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152711F00A3A;
+	Tue,  8 Sep 2026 17:27:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788888477;
+	bh=Ets4uTKkXyNkTovvlm2LamMg/N1Srr9yc5R7205pmws=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=gwPg89nnibBa0qHDxWh1dHkW+I16J3thSEpKBPNpx/ez1iTzaPI6GVdFP16lBGBpw
+	 RszPqfDkRF74qQnXBWAhf/Rp5CDA0AmpGbFq2BuzX+LzI2cvZa2oGXyynbyRGu7FyG
+	 SU1s1EuMLHuCwjro6hBZCUwRkajYkxgbxKrodgznp76JtkpUqoxez+BxidVjjet7V3
+	 WUiDHAbfkctmpCy9Pg7zbE4kaZhShcJ9wfFodR3OXbAc9NVsetG6h1wB0eta2wcPpd
+	 dVqWGSng9Ak+KfA9rfRq1FP6KFsUnBQRwwdBk/IN27wTSOibOCmBXMr+FDlKIttbU+
+	 J7HsmfyRN3USQ==
+From: Mark Brown <broonie@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Cezary Rojewski <cezary.rojewski@intel.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260821122840.41266-1-phucduc.bui@gmail.com>
+References: <20260821122840.41266-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v3 0/3] ASoC: mediatek: mt6797: Fix error handling
+Message-Id: <178887711876.78527.15336463917556288176.b4-ty@b4>
+Date: Tue, 08 Sep 2026 15:18:38 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_102549_931006_03A9E9B2 
-X-CRM114-Status: GOOD (  15.15  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1560; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=01dkiHqX2v4Ffp+nQXUGYU2vuj26ESgNt5a/i4S108c=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhqwFrjO85unGxDwS0zkW9XxHDuOBssZrR+z6clT6tj+9c
+ 2xKYlZrJ6MxCwMjF4OsmCLL2mcZq9LDJbbOfzT/FcwgViaQKQxcnAIwke257P/sfFKS0i67X1i8
+ QI7TUstl742dpyco8POxfNA4sdKu+k2R2Z1ptoG/Worlwh99S5tyrnyzbd18f92ItuvN9bfad52
+ KOtQU2r/Qhefg08UhDskb9/B0shsZvBPfNUOo1ay/xbUpqjP2oM22mv9PXzMK+meY8tcIKoUs+6
+ n54muPmB+HrXT8S6+c7NKE6Qk9Queeec35GqJnq7ojTWjtBePADrcKqc1VPUVVpXdqEyXrQnYJ/
+ WrYN2Px07jGmdcfVrLs1ldxmtMt/02KT2PrxTn3bER/sX1qkbzheUWwLSnk98PPdrcdlN8ExhTO
+ 5DZYHM7OHv3qX2GZ2aJ6UYX5Dw4z/UpINM6Qft5qPiMdAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+On Fri, 21 Aug 2026 19:28:37 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: mt6797: Fix error handling
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series fixes and cleans up error handling in the MT6797 ASoC driver.
+> 
+> [...]
 
-Use devm_iio_device_register() to automatically unregister the IIO
-device when the device is detached.
+Applied to
 
-This removes the manual iio_device_unregister() call and makes the
-iproc_adc_remove() callback unnecessary.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- drivers/iio/adc/bcm_iproc_adc.c | 15 +--------------
- 1 file changed, 1 insertion(+), 14 deletions(-)
+Thanks!
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index 9881a3104c26..ca81e0edd24d 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -523,7 +523,6 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	adc_priv = iio_priv(indio_dev);
--	platform_set_drvdata(pdev, indio_dev);
- 
- 	ret = devm_mutex_init(dev, &adc_priv->mutex);
- 	if (ret)
-@@ -571,18 +570,7 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 	indio_dev->channels = iproc_adc_iio_channels;
- 	indio_dev->num_channels = ARRAY_SIZE(iproc_adc_iio_channels);
- 
--	ret = iio_device_register(indio_dev);
--	if (ret)
--		return dev_err_probe(dev, ret, "iio_device_register failed\n");
--
--	return 0;
--}
--
--static void iproc_adc_remove(struct platform_device *pdev)
--{
--	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
--
--	iio_device_unregister(indio_dev);
-+	return devm_iio_device_register(dev, indio_dev);
- }
- 
- static const struct of_device_id iproc_adc_of_match[] = {
-@@ -593,7 +581,6 @@ MODULE_DEVICE_TABLE(of, iproc_adc_of_match);
- 
- static struct platform_driver iproc_adc_driver = {
- 	.probe = iproc_adc_probe,
--	.remove = iproc_adc_remove,
- 	.driver = {
- 		.name = "iproc-static-adc",
- 		.of_match_table = iproc_adc_of_match,
--- 
-2.43.0
+[1/3] ASoC: mediatek: mt6797: fix wrong unwind order and error code in enable_clock
+      https://git.kernel.org/broonie/sound/c/e967d479b65c
+[2/3] ASoC: mediatek: mt6797: Use dev_err_probe() for error handling
+      https://git.kernel.org/broonie/sound/c/2e4b0d5f52da
+[3/3] ASoC: mediatek: mt6797: Drop redundant probe error messages
+      https://git.kernel.org/broonie/sound/c/1e5e1344b36e
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
