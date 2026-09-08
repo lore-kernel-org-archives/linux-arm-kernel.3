@@ -4,126 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1552FC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA8C4C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=; b=TxHIXbxlK3DCVb7dqSYjmYWWo9
-	B5XHlBTEeRI7Bq7UKgrEaD1n/AFQbknD/Ck196SFKzINKi5soBs0u5pq5TM2Kdb5QRF4r7s546qNX
-	ZcO9VqYGlogTNoObjYEc+aXcat0y+WTTA4F/KDYno6n4Cjk9HcgJCMqf5i20xWIb8W8RKBKtyr+nx
-	i9EPeiM6U8KYYstmTsG0/VNC/eSiJHMP8qcYpLtaV5ciJqzphCD+jvkW/P5vZolCxbI4AGfIVKaPk
-	34086C3n0VgVvFIqfNklbMkxuFFbD23bilgT36fStLKLaqE+Z7YGAq+P7dcxoqFyl/m9DY7o2MLxB
-	JpbBkudQ==;
+	bh=ZkBgfYvdi7Dob2Y6rXedXnGpmu4vWCYkaHTOx3aX4+8=; b=yL2wBIsndKqWyfQm+m8Ruy4h++
+	zVGjdlAkGUp0mi+2KKS05XqNvV/+bM3IsFc1AWci8YJQMNtaXOLLGClWHHiCBR3LqfZ/CcnGeKVHp
+	9r+z5qLcN3OJUtzxQqWcIdMOIY1pyw5V7ZrSFXEoZOF4AvKYO/hyGsGSTDT5pvXv/m/cZmAyFI5m1
+	Ev/umbgTMedX53HstZnUc/bdKrallQtk0HU1z5d915cIUmN06vxRCDimOHk4Bhuy1Vl5T3SPzqoif
+	WefSo3G9CTAC8TfO6dUGgPPDVeeidETQ7ZbIpEUGtFyv9G0/E8dhMqCf6KZF7cC66bFRFle6tIE1x
+	HPvneHWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vXg-000000096d5-0ilD;
-	Tue, 08 Sep 2026 13:07:16 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x3w0H-00000009ASa-3i4n;
+	Tue, 08 Sep 2026 13:36:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vXd-000000096aE-1Cwb
+	id 1x3w0G-00000009ASO-4A6G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:07:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eVtbPGcGnk0tZ/mpLCZJighKoFT9cxaoGeV/AnV6O4sNGGhmxkNkjyyGcjmiN9xqRcPGj4LppjjmUAI+Lj2QnIkoI7QualvMhK4gBTgyEKxuhdROfOw/ioHQILfUeo0PHJNA4sNnjXfzilgBAcVE2k7LqH++O/5QJMND51v7U0+XiY5LVl4DMadYyHeaYdnVwKl8j8ayOZotxRgy3FxomoOhnsqgPfrkdfS5fwDQE1kaR/bUydOdcdcS+u3uFlHOciysWLG3xYOuOFFRwOcIUuMfUrfmy2Eq1ZItjIdJIENZMsVoh4boucm3rGvc2OjjDSkEfAoWNdK5wKlKLiOBfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=;
- b=ZFU+Hth9NZGq6jqphhzxFlY7QzhP+wJgt1Fi7rxk08cXm3H99EkCc69AY1cuxzn9DTyMGGlgATe12M14y/bCFQ8Nv4Q0ptN4Z7yV2lfszDxT7lZyaA3Ck2U87Hnjxzyycn0AheuNoukOiokZaW3G0CXsfUZmgy1j1iqxSCHnLTcIQ2+CEpQgQbCZAAa0QL2yAbllf7tX6Ew9HWL0qUyy9+5lkDMS+Sj1A2GVSuFBBncKmUI7C1LKIrUBqP3JmvsdvQXPrzRIHi9Xjgiwl1XDi0c3A/gVEWfLQ4xsZEMuoyAYaFI2P/QF2waKpVxwtyln/ecgpdw+pGc2NmjCZRzaMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=;
- b=ZOkHf4XQiWCUBL2JDhs+nXZNus81jcSKTL4Nfi/ZwIjfHoI0F4BRMZopOVIllYQCHMoBR4aeuJlN6ig5pF7+cVxLUc+YDZm26PqOExsP4MIK7Bef4PiXi/exVVo2x1LJ/4GyMaQ4/DSmEPWalaBosYvc2F051CmdxdVl5Aw5vkGvzUsKHHR1P40b3CnuiAKQ/2kn/0wlGWbRfP2vs01lDe8zHHDZrww1MqpSUcfHUl3XeqSU/Dr6c6SwxWynv9RV5+I8Q+qRaRNZpavUnHPxTL0g1qnRKZbnucHznLt2AVml9kGGISgYhFcjXGnLOtmFV/5aQvvd9PDoqoZ+f6r3zA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13) by MI3PR04MB12634.eurprd04.prod.outlook.com
- (2603:10a6:290:81::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
- 2026 13:07:06 +0000
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd%3]) with mapi id 15.21.0382.012; Tue, 8 Sep 2026
- 13:07:05 +0000
-Date: Tue, 8 Sep 2026 16:07:02 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Vincent Jardin <vjardin@free.fr>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
-Subject: Re: [PATCH] bus: fsl-mc: register the object drivers after
- misc_class exists
-Message-ID: <dvnnk7fnk57x7gf4mc25codec62xtpbe4v7omhjguqxd25ssmu@pqqjwe5xif4q>
-References: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
- <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
- <ap7mmR_4QV0k88dK@L30177.local>
+	Tue, 08 Sep 2026 13:36:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 14822601DB;
+	Tue,  8 Sep 2026 13:36:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B716C1F00A3A;
+	Tue,  8 Sep 2026 13:36:45 +0000 (UTC)
+Date: Tue, 8 Sep 2026 14:36:39 +0100
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH 19/19] arm64: smp: Harden parallel CPU bringup against
+ broken PSCI firmware
+Message-ID: <aqAPZ59D_tfN6wUQ@willie-the-truck>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-20-will@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ap7mmR_4QV0k88dK@L30177.local>
-X-ClientProxiedBy: AS4P195CA0009.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e2::17) To GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|MI3PR04MB12634:EE_
-X-MS-Office365-Filtering-Correlation-Id: 020231c5-3547-4dfa-a886-08df0daa14e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|6133799003|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info: EWyeWTWAyetuuPu+uVQvl6l1yRaW92ojPmC7Co2hrxcD90K/mUtl1OIZ5AiCvPuSV9TkIbQkZ2ORhjNqxMxoLMsXQ4zzKYmWquUWIfqzXeDLjndsrrVz7kdPG7uVZiBu907X866M3TTc7jE35M80jRlw50UC/d9M8qKaxh7BCm8bJIL0pXfBeYVM3pIihAuCqLTJpl1hnKjW6ljX3SPfMOv3QfHTyESJ0I75AFbKsWPAtJ1S+rCV/WPyb/n/jeYaPn90hKIOcv9mX5H7Ews1iEhMzLjoPJp8PQV6HYbj6D1Y5+eqygiHI1YmJOHRWaFCFe1Vx76xe0PMjlyBA55uDdpXMO04vj0zPaE7u0vP5N4E3DpWyimZfUqJ+RKqEKwSMYqk4EksrPiwNZExzk6bybNCHNjalJJGjv1OHib1DNe6XqzDZCx62X7W9nVrw5F6rs6+dOwXBgUTK68fx7SaxRKufyNJSDVnJoPKV1ecKOXXsi795zfbTxfnLrhQC8tl+7yuTS6B5sg/DWGNIFsWaCZ68pBbTNB7ujvAMgwhSWWyslWmfZFr+2tRYL/SgodVVBqwnKHvSkW+bdJvjEUAyPVssUoLBxoocnIfFs9pGiTqjo5t2min0xqRp76kHC6MR0rAzmqsp/3lEJ0Kd2Od94KiUrxzsxJUOGoqlqErRQI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(6133799003)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v5hFIu/7lXIcur34XKm+N6ZZDeP58RBirwypMTa40t66uGsEnGDhghdKxRIj?=
- =?us-ascii?Q?RK1f/fBR27zXxWgnN/GJ2mm+jY+fHCh/0WETc6qd+NNygSuQuojSq/Xn/2R/?=
- =?us-ascii?Q?60V/XZf4rHqtJEUF0Joah8JiJxdWWHW6kKuqajde3osUy1TUffdzUivzuzac?=
- =?us-ascii?Q?9bVmjUn3gWxqJK63IcWBLL7EgEGB+BuBCujWejfMzoKdZ92YYopJapv4fShz?=
- =?us-ascii?Q?UpQAGhI3j3kdnEIiLQjS13FrldfT6dcLjT2iGTts+hb+OGUZQ6SwjdpvU4an?=
- =?us-ascii?Q?6HdpkVlD2zbuUCIE5fqu2FCM4ohP1mTxpG2I48DbLPIGDfVmqFAhMbHilYsX?=
- =?us-ascii?Q?JBP6pVNNneRMcCXfSP18Db3uc5Gm0TlqQPlpPPEWzbQUYGh9BRH8/gALiWIG?=
- =?us-ascii?Q?H7j/QWEVnbf4EokMJunqtTSs5n8Z7rXpiWco/EF1GRD5ADzJ/jG5hEuJ0TjL?=
- =?us-ascii?Q?PHvDNkLPYckR2UBn4Lebg7ftBRmYFto8/srulkXUL6ayIHHuktaobDnrE1yI?=
- =?us-ascii?Q?bXsAjXT8DFf/1gK2C6++aMfw9n9hiaR8UFZ8VdbBnDI3Mmtm1uCu9CFZ17N0?=
- =?us-ascii?Q?Hkh310zTIbO2Z+H3BV1Tw7oSjKysFa26YClsreNeYjQOcgndnhK5GA6hkmUB?=
- =?us-ascii?Q?1Kf1IhTGfc9TSG8HBQ3GaBQYZfjI3nyIATmrfed9/tRK1TU3K77Kj2O9RTdE?=
- =?us-ascii?Q?tChurraZMWORSwtWd7iDFDUx93yYx+pr+98M0+p4Jw8d+2k2TqZiWHhjEFpb?=
- =?us-ascii?Q?cP2lNgP5oz6X9wicZ+66rG/RYfh3mqQ4VaL1ww+1p4Pw0hSPmd1d+z7qBM+J?=
- =?us-ascii?Q?ZmdxazJuRvjZ1Dtm7s2eNLoiOj9lR+CoNE6PslkQTJZCPdmtpj9rhfiZn1j5?=
- =?us-ascii?Q?LM6pWAVB4McXwGNDqv8AiErRog+v1z3LSEy4zp4gb74cJPGz5b3P9IMFFRA0?=
- =?us-ascii?Q?BOgckNpp0TNsNWNEEm2LKWgW1IPohjwhSPHQ0rlK3QsEOutiw+JtJ7/HSxyN?=
- =?us-ascii?Q?HyZIw+EFVT8weMZ+yXepRXHMg2ohfJTGLT4Ju1FZCEqEOxqRMIONAeJvhal3?=
- =?us-ascii?Q?eGA5Ouj1YzCK/Qm0wDP09aKbby4xaRQtx7hMcuwwe1p+ZJQ60cpiguXl2pY6?=
- =?us-ascii?Q?H9yNjY45OH3xDq+AE1gS38teJwRtg8pNyyqhMsChLgyIs7SX7K3y+IKaAGrG?=
- =?us-ascii?Q?RmTjw/Q6dBL2fUB2YrospGPCsYywIisRSexvJoriBt83Ck5mO9EU0j0QMKw5?=
- =?us-ascii?Q?jp5pnsQpMbzERdeL6RP2AozYaS7IPBL3sDaliUQdZD4m67eAoooWWLBraSt8?=
- =?us-ascii?Q?1y4MAx05xJAy6IkSdkH8q6LDyLZwmEti970cNPh6s3wMZcdUzRwibh0rRUVt?=
- =?us-ascii?Q?SUjG2HPRAQVyvUXIwb5gebFiJrr+X67/cHLpSWYGe9U5KxFcusVKlO1/vba3?=
- =?us-ascii?Q?7FPoVMwMcvmwXsf4fP+fhuWa9+7CzpUjHeVZbQvRV01YRgOs0MX0/8p8sTmo?=
- =?us-ascii?Q?jsyhtLt6dOsFnMVDicLNuy86P39Yj4wJhmkY81rVMzZe08Geso2bN9FKW8rC?=
- =?us-ascii?Q?8esgSOF5aboI09hHwspBytWGIbOv3SGc1T2uVxXFpuHhuiwu8LNnguh9bWaV?=
- =?us-ascii?Q?NJQWflu7hIQzNARN4e//6SLhvbPYQ2rWKrtXj3JJ0jP6NrQ83K4sXNNhUm77?=
- =?us-ascii?Q?rZHKXfLw3FDvROHme1sEZVoIcfpY0rWR4rh26wsVaXt1V37dOpem/bU48QyS?=
- =?us-ascii?Q?o/J+NupVRA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 020231c5-3547-4dfa-a886-08df0daa14e4
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 13:07:05.7167
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y1pzR06jUZ6X4Rre2vkF3plGGI7jv3Jsk7+usJHHwnGt3tTniMlcWng2gZkAo7awVHZTFqhvRFB2ahJ4lbzMIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB12634
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_060713_342909_DA8031A1 
-X-CRM114-Status: GOOD (  31.22  )
+In-Reply-To: <20260907164024.17164-20-will@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,84 +67,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 06:30:17PM +0200, Vincent Jardin wrote:
-> Hi Ioana,
+On Mon, Sep 07, 2026 at 05:40:22PM +0100, Will Deacon wrote:
+> Since firmware has occasionally been known to get things wrong, harden
+> our parallel CPU bringup code against a PSCI implementation that passes
+> the CPU_ON argument to an incorrect CPU.
 > 
-> > Do you mean that the above error messages are triggered by an unbind and
-> > bind sequence like below?
-> > 
-> > $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/unbind
-> > $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/bind
+> The primary CPU writes the MPIDR of the incoming CPU to the end of its
+> task stack and this is then checked against the MPIDR_EL1 register
+> during early kernel entry. A mismatch is reported via the existing
+> failure reporting mechanism and the CPU is not brought online.
 > 
-> Yes, same sequence on the root DPRC
-> 
-> > I am asking this because I cannot seem to trigger it myself. There is a
-> > misc_deregister() which should remove the char device upon unbinding the
-> > root DPRC.
-> 
-> It does for every normal misc device, but not for this one, because the
-> root DPRC's misc device is created classless.
-> 
-> You can check the states with:
->     grep dprc /proc/misc   # e.g. "256 dprc.1"  -> registered
->     ls /sys/class/misc/ | grep dprc
-> 
-> If dprc.1 shows in /proc/misc but is absent from /sys/class/misc, its
-> misc device is classless and the unbind/bind should collide. If it is
-> present under /sys/class/misc, it was created after misc_class and the
-> sequence is clean on your setup.
+> Suggested-by: David Woodhouse <dwmw@amazon.co.uk>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/smp.h    |  4 +++-
+>  arch/arm64/kernel/asm-offsets.c |  1 +
+>  arch/arm64/kernel/head.S        | 39 ++++++++++++++++++++++++++++-----
+>  arch/arm64/kernel/smp.c         | 11 ++++++++--
+>  4 files changed, 46 insertions(+), 9 deletions(-)
 
-Yes, it is present under /sys/class/misc.
+[...]
 
-	$ grep dprc /proc/misc
-	260 dprc.1
-	$ ls /sys/class/misc/ | grep dprc
-	dprc.1
-> 
-> fsl_mc_bus_driver_init() is a postcore_initcall, it registers both the
-> platform and the dprc drivers.
-> 
-> The fsl-mc DT node is populated at arch_initcall_sync, so the root DPRC
-> probes synchronously.
-> 
-> dprc_setup() -> fsl_mc_uapi_create_device_file() -> misc_register() runs
-> before misc_init() does class_register(&misc_class) at subsys_initcall.
-> 
-> misc_register() does not fail in that window: device_create_with_groups()
-> with an unregistered class creates the device with no misc_class
-> membership and still returns 0.
-> 
-> -> So at unbind, misc_deregister() -> device_destroy(&misc_class, devt)
-> cannot find the device within misc_class, it returns without removing it,
-> and then it leaks the device + its /sys/dev/char/10:<minor> link while freeing
-> the minor. The next bind reuses the minor and dies on the
-> duplicate /sys/dev/char/ entry.
-> 
-> I guess, from my setup, it happens when the root DPRC's misc device is
-> created during the early probe, which needs CONFIG_FSL_MC_UAPI_SUPPORT=y,
-> fsl-mc built in (not a module), and the root DPRC probe not going through
-> EPROBE_DEFER.
-> 
-> If it defers, the retry runs after subsys_initcall, misc_class exists,
-> and unbind/bind is clean -> which is probably what you are seeing.
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index bec4bc1b12db..56deeb9673d6 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -192,11 +192,21 @@ SYM_CODE_END(preserve_boot_args)
+>  	 * its location in the task stack. We reserve the entire pt_regs space
+>  	 * for consistency with user tasks and kthreads.
+>  	 */
+> -	.macro	init_cpu_task tsk, tmp1, tmp2
+> +	.macro	init_cpu_task tsk, tmp1, tmp2, check_mpidr=
+>  	msr	sp_el0, \tsk
+>  
+>  	ldr	\tmp1, [\tsk, #TSK_STACK]
+> -	add	sp, \tmp1, #THREAD_SIZE
+> +	mov	sp, \tmp1
+> +	.ifnb	\check_mpidr
+> +	mov_q	\tmp1, MPIDR_HWID_BITMASK
+> +	mrs	\tmp2, mpidr_el1
+> +	and	\tmp2, \tmp2, \tmp1
+> +	ldr	\tmp1, [sp]
+> +	sub	\tmp1, \tmp1, \tmp2
+> +	cbnz	\tmp1, __cpu_secondary_broken_psci_arg
+> +	.endif
+> +
+> +	add	sp, sp, #THREAD_SIZE
+>  	sub	sp, sp, #PT_REGS_SIZE
+>  
+>  	stp	xzr, xzr, [sp, #S_STACKFRAME]
+> @@ -401,11 +411,12 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+>  	cbnz	x2, 1f
+>  	adr_l	x0, secondary_data
+>  	ldr	x2, [x0, #CPU_BOOT_TASK]
+> -	cbz	x2, __secondary_too_slow
+> -
+> -1:
+>  	init_cpu_task x2, x1, x3
+> -
+> +	cbnz	x2, 2f
+> +	b	__secondary_too_slow
 
-I am indeed in the case in which the uapi support is builtin but the
-dprc.1 probing is deferred, thus it will get executed after misc_init()
-had a chance to run.
+Bah, Sashiko points out that this is too late, as x2 has already been
+dereferenced on the non-PSCI 0.2+ path. I'll rework this for v2.
 
-The deferral happens because of_dma_configure_id() returns EPROBE_DEFER
-since it waits for arm-ssmu to probe. How did you get past this
-deferral?
-
-> 
-> I started to face this issue when I did try to restart
-> the MC from Linux userland instead of uboot in order to be able to adapt
-> with some DPC changes during the runtime.
->  see https://github.com/vjardin/lx2160-sdx/blob/main/src/lx2160-mc.c
-> But I guess this issue should be quite generic.
-
-Can you reproduce it without restarting the MC: boot to prompt, echo
-dprc.1 > .../unbind, echo dprc.1 > ..../bind ?
-
-Ioana
+Will
 
