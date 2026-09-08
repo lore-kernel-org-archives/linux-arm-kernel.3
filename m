@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679BEC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 01:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6301C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 02:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+D8OGQX5ee8v+2YrsPvbA+E8GJJ+MSfRQUQGJHg5BhA=; b=RDwYBR+lT/tQ0ffe7HDEQ2lrmw
-	4k3n0UGoGOBtZ02IXvO/MYq+SaKwbQbWjlaZ4pq4F3P7Pw4Ph+ATQc4nmyttsD9PRNZ7YKoMUDvHD
-	FjSOfufxKHOvPSK6N5ALtakjWYdHRZMIuuQbJHppJjvqzcJfauuCFOqXxqPUzcqqcMvNXIDc836mq
-	zR8TnhiG+diksB7TCPpI2V7GgtvAicOi16tS7qfOOp0CUnBrxFq4o/PEh2d3I/ehTSonuLGANX24l
-	m9l1s+FxBBTI5oL8RELsto4jVnrfhUl/kKP09tsM5tjqI8rEZWG817JSZQhnjceNmNQcAKUkBgUcJ
-	yGn4pU8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=51d3Vs8bCC/bsjeJYCv0mA+w3mCSsvHFwGsrj+sCN4E=; b=PME+5Uz69m7U62paPYUtuWRJLj
+	uB94OrgS2q86sPoZi6J3mh0HvsQCLmG+sPDA/JxZ7P1YmfGIeBhKPlGKfNgc7h4fx2hg2G5b0DKTd
+	pfAPt5DphZAqEfUS4c/PxJay5COSMZjfLE49fFoVd6tu50n8xAnRfxvlJTKAbL36CC/pB19UEm3X6
+	/Y9SteqzxumNw6LLtpD+CRia8ukTMboaNeJDGUTLz16JLVF0SlFNvrFix0flZJYptmqpsDSo0IEka
+	EYQeEFNQthTUoqB1l+KBUxHWO2V7LKhm+3usi3x5ZAAbjEJ9NxFqAqO6hqXlS0iBAW5cQh3SIpVYd
+	F/9YkawA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3kwJ-00000007uDy-2ccG;
-	Tue, 08 Sep 2026 01:47:59 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1x3lQG-00000007vIr-2hbb;
+	Tue, 08 Sep 2026 02:18:56 +0000
+Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3kwH-00000007uDe-0avg
+	id 1x3lQC-00000007vIS-3S7O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 01:47:58 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-398b3c37877so3739319a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 18:47:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788832076; x=1789436876; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+D8OGQX5ee8v+2YrsPvbA+E8GJJ+MSfRQUQGJHg5BhA=;
-        b=J9CrYekEHkThlzCMoW3RhuatKoI1DqYWUgls3hywV2CcM93Gj1XI8hAyQH/g4uH2Lj
-         0QrNRAYDSovrZ5brVUsRpF1/++He5TdJa6ZbcVh76Caygs5hkh5XWP1sADocfQXK2lx7
-         P4f0s3yMIX1WXowe631TEvACUOKU5/f+C+N8E94qkcddilBmy28s2wFJkgROl8kiVefR
-         CWyeUs8pvRQwT00RJXNsNmBTq22Qy0KCKL8Jw/S8DQTNEGSlgZL51fut16gCFk+4IrGx
-         VZjb0HUC5FzE4RddVHoN40ysHEjNzJ0J2f1uuTB+ue+plfss0yAgGF3LdkDxVceQFFK8
-         X3VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788832076; x=1789436876;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+D8OGQX5ee8v+2YrsPvbA+E8GJJ+MSfRQUQGJHg5BhA=;
-        b=BoI5qDiby7fhXbOkd6MN+5DUakb/n2RrKCzhzdix7LEePhlBFdN3jNtsaCIavjmyw5
-         4/UvDa0PL5wa6B/tozBv2OsuTk8jvAfk1IgD2sfaNNOVG13PjchCr4tKjo3iDVRQ/mE1
-         pllz3xZMP5UmZEUAHRVTp6k5EoltL4dNh1JS8bhPwdaWG4CdJQ3Xf943qLUeeZpdaE+1
-         R0AAFiqjZebs/Vo49kvU/xaMuCC2U6NdjBBvL6/ovi4SOnmAa8wCnO3caVauXSAbwl/a
-         Vpy3c6bg5EFwvEa3d64oJFdoQoH3YMSZ7OJxzUzlIQ/F70EdF0WpvB5i/cPfdsTXFN9s
-         Wizg==
-X-Forwarded-Encrypted: i=1; AKwUvByPAhXB8D6l95tdlSwiwKiU6hjO+LbvxWvsOUmdgbluXy+20qKt+VVEgZkWBube5gnWlg6Oo4dqihz37yaxkPLL@lists.infradead.org
-X-Gm-Message-State: AFuF++mmnyxK6v0lRsAM6nKaHgedOkVXmWbBFkem+AMmYNlT1yN0BGaQ
-	dcPjNp6bUL9cIOc/RNQr4GYLDYozWffJ17iURMtD1EKcTaDBH+Kfh/2w
-X-Gm-Gg: AYBFou1Ex7o0yjiDSfILCzQgnR4kvkfjoMnXBMCNsJYF03VKBtdlKS2ck4uLicoM80/
-	QaAEtPD+rfYWAOdCb5FhjyeDJmrMryDESgFIcU3EtGi3IhkYYjpSj9fecWo5hSIwhV3iL9J7g10
-	vaye//iWdyPUSnZs3GUDdBXAYoEbsvJ1ZO/3UarSgHy5++IaJSNHyitSE4mr80dG/Pydp0Cm0OH
-	su1bd/+Uxvg8/chBgO6PAZdasXYiNlRHFau0eJP03OOsoW+qvV+SiGgq4S8/nVI4+hSTRhvkKyd
-	p0x+CvM9nYz/sbPWWrGgdJvxHYInq0o9u/xPAuYhKNopW0rAieYeJ2ADkFl6RRgKcOPLlEYzPGm
-	eZgQlQFm8x6kOdM8sepBLvZ8MUxeU2QsG2cwYS4rdt8X0Wkbn/1VDDfkRLQTbqHBuD3rvzTlxfy
-	TQXsn7nYCLQ9yEgdy7MtmTTr39eKsVvHmSRXjVHXISxIEHZU4klAZ/5CCapj/NBh1sl8xq9bBXi
-	IYvm/Zop7u6M3znLZQwgva4uBj3qLq6wi8d
-X-Received: by 2002:a17:90b:534e:b0:398:ba0e:96f6 with SMTP id 98e67ed59e1d1-39b2624f0f4mr37945657a91.23.1788832075923;
-        Mon, 07 Sep 2026 18:47:55 -0700 (PDT)
-Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b26123c99sm23052621a91.11.2026.09.07.18.47.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Sep 2026 18:47:55 -0700 (PDT)
-Message-ID: <3dde0b18-ba6e-466d-94f5-e5ca3ee083e8@gmail.com>
-Date: Tue, 8 Sep 2026 09:47:51 +0800
+	Tue, 08 Sep 2026 02:18:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1788833937; x=1820369937;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=H8yu5UWHpf8HMlqYH0d0maZ7HvkrMCdZ8vGMrmgBC44=;
+  b=SVz6KMdn9iskIyEcGuuh6LTBEe7iAEWZjkuooGdabmi+/qEu0p81W9Le
+   +Spc8Sma81SIPX8C+LFdSnervdi0ZbjFQJEQBlDYQ9LJZLDChRI8/u87V
+   xSlFUNILGEjUWzYoZLqITE8iuQE4S8yMIIITgWOw7gnxVOW9/GbOnvSKC
+   CQjDON2uIhDNOFUWH92yxhLkeiNdspUJd7+MxlWXEFwf7AftjwEVQh0Eo
+   d+UQnuHEzeEo7iuE5qe7NGdJ3Q+OuRsK0XhSiVEn1F/p8KIBgJ1h2z1ES
+   gUu8OZmxPkgSZPVJcn5wYnR/wZnyAd8R9ff7vl6J1cmFn21pN6pSw0l72
+   g==;
+X-CSE-ConnectionGUID: Mf9wL4/LRM+LnQ+AmNQ19w==
+X-CSE-MsgGUID: qaaq2PBwQ1SKpNA86JIsRg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="252451238"
+X-IronPort-AV: E=Sophos;i="6.25,268,1779116400"; 
+   d="scan'208";a="252451238"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 11:18:54 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 945F126596
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 02:18:49 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (unknown [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 4173B1C002E6
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 02:18:49 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with ESMTPS id BBF27823095;
+	Tue,  8 Sep 2026 02:18:43 +0000 (UTC)
+Date: Tue, 8 Sep 2026 11:18:40 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Takayuki Okamoto <tokamoto@fujitsu.com>
+Subject: Re: [PATCH 0/2] 52-bit VA guest mode ID support
+Message-ID: <ap9wgBjYEDI-27N1@sm-arm-grace07>
+References: <20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com>
+ <CA+EHjTwPmwPTMcgQB6zt47Kz6NPMr+FkGfq2Qq+Uxu+G427OEg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: arnd@arndb.de, olof@lixom.net, soc@lists.linux.dev, ychuang3@nuvoton.com,
- schung@nuvoton.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260708082457.460710-1-zychennvt@gmail.com>
- <20260824-smooth-jolly-sponge-ba4b95-mkl@pengutronix.de>
-Content-Language: en-US
-From: zychen <zychennvt@gmail.com>
-In-Reply-To: <20260824-smooth-jolly-sponge-ba4b95-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwPmwPTMcgQB6zt47Kz6NPMr+FkGfq2Qq+Uxu+G427OEg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_184757_201641_5142211B 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260907_191853_141643_4DF58D82 
+X-CRM114-Status: GOOD (  32.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,29 +103,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review.
-
-I tested the change and confirmed that an accurate 80 MHz CAN clock can be generated.
-I've uploaded v3 with this change included.
-
-regards,
-Zi-Yu
-
-Marc Kleine-Budde 於 2026/8/24 下午 06:39 寫道:
-> On 08.07.2026 16:24:57, Zi-Yu Chen wrote:
->> Add controller nodes for the four Bosch M_CAN blocks found on the
->> Nuvoton MA35D1 SoC.
->>
->> Additionally, configure pinctrl and enable CAN1 and CAN3 on the
->> MA35D1 SOM board. Also, update the APLL frequency to 200MHz to ensure
->> the CAN controllers receive the required input clock for 50MHz operation.
+Hi Fuad,
+On Fri, Sep 04, 2026 at 09:14:36AM +0100, Fuad Tabba wrote:
+> On Tue, 25 Aug 2026 at 22:18, Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+> >
+> > This patch series extends the arm64 KVM selftest framework
+> > to support 52-bit guest virtual address (VA) modes in addition to
+> > the existing 52-bit physical address (PA) configurations.
+> > The motivation is to enable validation of LPA2 guest memory-management
+> > behaviour in configurations that use a 52-bit VA space.
+> > While the selftest framework already supports testing 52-bit PA
+> > configurations, it lacks the ability to exercise guests running with
+> > 52-bit virtual addresses, leaving part of the LPA2 functionality untested.
 > 
-> 50 MHz is an unusual CAN clock frequency. Better use a multiple of 40
-> MHz. Within the limits of the m_can IP core, the higher the multiple the
-> better.
+> The series adds three 52-bit VA guest modes, but nothing in tree maps
+> a guest VA high enough to use them. The mode-iterating tests map at a
+> fixed low GVA, so pgd_index() returns 0 and only the first entry of
+> the top level is ever used.
 > 
-> regards,
-> Marc
-> 
+> What do you expect the modes to catch as they stand? The allocators
+> already take a minimum GVA, so mapping high in one of those tests
+> looks like a small change.
 
+I think at least a 4KB page is allocated for the level -1 translation table, 
+and entry 0 is populated with a Table descriptor pointing to the level 0 translation
+table. But, no it does not test a nonzero top-level index.
+
+> 
+> > To address this, the series introduces new guest modes for 52-bit VA
+> > operation, adds five-level page table support where required, and
+> > performs runtime detection of host 52-bit VA capability so that
+> > LPA2-enabled guest VA tests are executed only on supported systems.
+> >
+> > Testing:
+> >
+> > Built and tested on arm64.
+> > Verified on QEMU with a V52-capable guest configuration.
+> > Confirmed correct operation of high virtual address mappings by
+> > exercising guest memory accesses in the 52-bit VA range.
+> 
+> I could not reproduce "exercising guest memory accesses in the 52-bit
+> VA range" with anything in tree either. Could you say which test you
+> ran, which guest modes, and on what?
+
+I just in guest_code() of existing one of the kselftests, mapped and 
+accessed a page at 1ULL << 49 using virt_pg_map() and on QEMU TCG mode
+as I don't currently have access to the machines LPA and LPA2 features.
+
+Thanks,
+Itaru.
+> 
+> Thanks,
+> /fuad
+> 
+> > Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> > Reviewed-by: Takayuki Okamoto <tokamoto@fujitsu.com>
+> > ---
+> > Itaru Kitayama (2):
+> >       KVM: selftest: arm64: Support 5-level paging in stage 1 translation table
+> >       KVM: selftests: arm64: Add 52-bit VA guest modes
+> >
+> >  .../selftests/kvm/include/arm64/processor.h        |  2 +
+> >  tools/testing/selftests/kvm/include/kvm_util.h     |  3 +
+> >  tools/testing/selftests/kvm/lib/arm64/processor.c  | 87 ++++++++++++++++++++--
+> >  tools/testing/selftests/kvm/lib/guest_modes.c      |  5 ++
+> >  tools/testing/selftests/kvm/lib/kvm_util.c         | 11 +++
+> >  5 files changed, 103 insertions(+), 5 deletions(-)
+> > ---
+> > base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+> > change-id: 20260825-arm64-52bit-va-32f1f4cd050d
+> >
+> > Best regards,
+> > --
+> > Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> >
 
