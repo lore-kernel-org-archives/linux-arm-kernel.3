@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F108C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79475C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lYRpbphz5d0VWM774kHqDgOjW789EXt/riQZS0iTBI=; b=O+NMIxsrKiCcrA0EM9uMgSvuyw
-	g+6oCNdwlsFvw9EGh+AvhnDcq6ReIEF6cTvKSVy4OrCAlVDfKz47yAKBxq8Xl3XMnyKsnyFTmzlZI
-	Q9igO80XwfvKxdx9cz+0iXqmIuqnOBcl3wHe6T+A86JrCkmKh1RVm3VT3euL0OizQ5ez+GW1YbBrR
-	pSn6BoCryLpMeZ1v4E3GammOmVKIhrqt90vlE4VeML3qWK8I2o07L0H2aiFsDS8a3PK2c9x9nB+Id
-	QucyFBFNyTpwoTsF+VD4hpx/Kf731K1jUxaNA3ororGLUz34tVsUSMtJzi6b9wMsvhD0ks5XOB0jL
-	9wnUdvag==;
+	bh=I4NWzhzA7OYXJTSRs9Gx7Qnhw4JJuKAPdTa9sXEPjrQ=; b=43TL7x2hBFgPGXS62MSOq3mo6L
+	QZG/+GTkUZRx68QD/uY7V5JNntbAu28CaS6PDOi/y33Q00AKPjmgGHz2UMDkGRiP0WkFft3dzOe/6
+	8wLqIDjSuk0InX0IBtedXc6kUPQNIv/fG2HlXvSXCx4psr8xn3lkAYLnjia/w0g8Y19CYE4UWgzbQ
+	kZz38RoHnKXbZsF4Td98XOoKMKeN/oZZDnfFS8MCaFjWxjtl8h/EoLMGIyRy7Mrrol6es0p+Rr+CC
+	j7sKhiNyDFSOFjbikvX9/i6r19e2Yxin1HQvaNFT5CaBA16Wq0sFVq4WsbqCrHTcsGD6Qi/uk+FeE
+	qmACSx0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sVC-00000008gPu-0kST;
-	Tue, 08 Sep 2026 09:52:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3sVj-00000008gXg-1Yxe;
+	Tue, 08 Sep 2026 09:53:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sVA-00000008gPf-3vXW;
-	Tue, 08 Sep 2026 09:52:29 +0000
+	id 1x3sVi-00000008gXK-1PcJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 09:53:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 629B0601DB;
-	Tue,  8 Sep 2026 09:52:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 8DC0C1F00A3A;
-	Tue,  8 Sep 2026 09:52:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C390560A93;
+	Tue,  8 Sep 2026 09:53:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81E3B1F00A3D;
+	Tue,  8 Sep 2026 09:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788861148;
-	bh=/lYRpbphz5d0VWM774kHqDgOjW789EXt/riQZS0iTBI=;
+	s=k20260515; t=1788861181;
+	bh=I4NWzhzA7OYXJTSRs9Gx7Qnhw4JJuKAPdTa9sXEPjrQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Tm6zRzmXUseZ+aS9UzB1+ZLcFMe9HmnJ2BjPhrPUR1F6NMyvI5YVVA2YptyDktxRR
-	 +j183vcLquwhBFxcEVFDVhTDJSj4OV7ej/FzGuYldqHTk3d5c0/XfKWZcOkoKDqc/0
-	 nov4CiEon7xNnP+PwbULARjV8fhMS2ivrjcIJrf15ilKupZHN3OsvMiL2Hqda4lrqi
-	 ZrWrnVhFEGhjuy0Uboa7SahsKH7nJpuvzFVtqr0dd/bIOn+wjA3vgSpqI7jjxA80ga
-	 dgXBFNlEIDDmp9l5ANf9H6fqTKh8mt+aRkRloFQS4H8KjOFV188Il0g8B9IJTbt4E5
-	 yZUVnizXl54hw==
-Date: Tue, 8 Sep 2026 11:52:25 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pwm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jitao Shi <jitao.shi@mediatek.com>
-Subject: Re: [PATCH] pwm: mtk-disp: Fix period readback
-Message-ID: <ap_Zslo-dTKtsvfi@monoceros>
-References: <20260827105738.8570-1-wenst@chromium.org>
+	b=E4/PTSKnkR9pRHQxo3AaT4hnDfG2Z292EkA/WD2oLwSltUZkq5w7RfEjQehXuhRtA
+	 yM1rYs0U4qmUuOufB8w9yW9tEX6IYZP2JBr/7/4D26/A+vuRhLwlznRj+QpdT/ZsST
+	 ej9NMM90L/cfx4RfVLRTikG49quK/Ejg2PluFRRPPjyqiEHPOcAQMFrndji+YArKHO
+	 yZz6AF2gbRXOZJRncDIoi75RkBw85agB2li3Ez16dhT3hV8BmKbXsJYf5/YqPhF+zS
+	 Gu67nDIdj+Dr1+8JqcErycsql+YWHd1Fll9gS88ZFioJ8f2oZMHe4bXkME/oXRXIRX
+	 gSqR4HWTjjlsQ==
+Date: Tue, 8 Sep 2026 11:52:57 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 02/13] dt-bindings: mfd: syscon: add Ambarella CV75
+ secure scratchpad
+Message-ID: <20260908-magic-ecstatic-lemming-b1db9e@quoll>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-2-e918514cb3b1@ambarella.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="j2zvo2wdfghwgivo"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260827105738.8570-1-wenst@chromium.org>
+In-Reply-To: <20260904-cv75-v5-v6-2-e918514cb3b1@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,74 +79,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 04, 2026 at 02:38:09PM +0800, Long Zhao wrote:
+> Allow ambarella,cv75-sec-scratchpad as a syscon for the shared secure
+> scratchpad registers on CV75.
+> 
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
---j2zvo2wdfghwgivo
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: mtk-disp: Fix period readback
-MIME-Version: 1.0
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Hello,
+Best regards,
+Krzysztof
 
-On Thu, Aug 27, 2026 at 06:57:36PM +0800, Chen-Yu Tsai wrote:
-> The period value stored in the register is the number of clock cycles - 1.
->=20
-> Account for the offset when calculating the period in nanoseconds. This
-> fixes the discrepancy reported by the pwm core when CONFIG_PWM_DEBUG=3D1:
->=20
->     mediatek-disp-pwm 1100e000.pwm: .apply is not idempotent
->     	(ena=3D1 pol=3D0 281500/499875) -> (ena=3D1 pol=3D0 281500/499750)
->=20
-> Calculation discrepancy in the driver was found by AI run by a colleague
-> while debugging another PWM related issue. Check against SoC datasheet
-> and fix done by the author.
->=20
-> Fixes: 3f2b16734914 ("pwm: mtk-disp: Implement atomic API .get_state()")
-> Cc: Jitao Shi <jitao.shi@mediatek.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-
-Applied with the R-b tags by AngeloGioacchino Del Regno and Fei Shao and
-
-diff --git a/drivers/pwm/pwm-mtk-disp.c b/drivers/pwm/pwm-mtk-disp.c
-index 68a4512e821a..56d10cde5b46 100644
---- a/drivers/pwm/pwm-mtk-disp.c
-+++ b/drivers/pwm/pwm-mtk-disp.c
-@@ -210,7 +210,7 @@ static int mtk_disp_pwm_get_state(struct pwm_chip *chip,
- 	period =3D FIELD_GET(PWM_PERIOD_MASK, con1);
- 	/*
- 	 * period has 12 bits, clk_div 11 and NSEC_PER_SEC has 30,
--	 * so period * (clk_div + 1) * NSEC_PER_SEC doesn't overflow.
-+	 * so (period + 1) * (clk_div + 1) * NSEC_PER_SEC doesn't overflow.
- 	 */
- 	state->period =3D DIV64_U64_ROUND_UP((period + 1) * (clk_div + 1) * NSEC_=
-PER_SEC, rate);
- 	high_width =3D FIELD_GET(PWM_HIGH_WIDTH_MASK, con1);
-
-squashed in to
-
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-
-=2E
-
-Thanks
-Uwe
-
---j2zvo2wdfghwgivo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqf2tcACgkQj4D7WH0S
-/k7N2wgAihLhQXDL9Cax4wf5Ty8D6JUSMvcK81wXU2CWnzA7RzNxyg4Xrm7sHdTk
-V2DWl3w7pJaos4ItmlGALGe6cAZAbeHJIvw3Y7BhWJM88gZqm3ceM9nL2d3pT0Iz
-GC2O6pTdoj1VoAqcpgS1JrVn4aqdzkRU52+AH1O3GoqggwBZ9IIzlrmQcLHfqncm
-YQb9Mfgf6E9VpTusJxQJetR6Q88nzzGSVsc92jr+V5Cf7uZrSQPFupYAz8hL1eI9
-2FaEB0XW8TU3a/pgHN8YEJJ2ICXLzJQGkhLTMQ562RvLKD+aEZrou/65q7SUtjcR
-UL1sWd9q3hJZGetdK3ZnCJmpZLebzg==
-=oDez
------END PGP SIGNATURE-----
-
---j2zvo2wdfghwgivo--
 
