@@ -4,117 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05F3C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7ECAC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cX+C0EKlTTPiaWAWXp8KjGgmxL7fRLcZpTuoNyXGc1U=; b=Zd2N/+w8wCXk0oNTNNpwmrWQqk
-	YgNsXkjnaBS2ZBAh/WdnPqcZcEaNIyAzDMN9++ut21TdPaQ+TCNvfuIVe7ncvB4aQJwY0sN2onwy6
-	eLZbc7zynxGjJMOa+1nwqx2xDGEi9B2y1JDrFPjcZJvVLtsJc8bnnosME/zoFbbyqVeGiB9p+VcEM
-	WOh/CBaKqYoGjMdR7kU7NIG5NUnjxPjdpACHKpA1bAEjNjAmwTJ1yokrlmAydSjJuoTy0czPwYDLi
-	F/aNnyVaNhwn2rn1AtqY7Z9IlS7E5pQQ+/KvdgSOrgi8r+hR1Yo17gwvv9LiPKMkP5+a6JrtsvMMm
-	JMfPl0ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M7ANb8OPjIVJHlipscVgoMQ4zuRZUD8dC1mUN1Ymtt0=; b=dsu6rMOh5lin+HGEQYK37Ph523
+	l1u3AcYiWY8oEfohvvz+PLqaB90/s0Ym4we63rZdAAGbUMOwAKpp5TdTSfh42Yhh0cgaAEsqkmNIt
+	o+s5Anwrv4ibOuUWPNcph6uL5Hy+PwrqgBj+w9Edep5rVflxAoHeFbxUwXBjwmW+Q6iMHbi/YP1w9
+	D83Wlx7GKLSLSZBdEAhUkE2hZSVe7I/HHc+vUjokCgVi+vsvEBYOeK8csktBWMJy6IJ2hex3mm+hx
+	op7PTgfITLV9ccdtjyMOXGnY9ff11Nz+/EmxO9DYyZD9SyZuGozgkEvfcyD/uiqHwWF7hCcBHoFAc
+	ZKu4jr6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wXR-00000009FKQ-45nD;
-	Tue, 08 Sep 2026 14:11:05 +0000
-Received: from mail-norwayeastazon11013054.outbound.protection.outlook.com ([40.107.159.54] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x3wGH-00000009BdS-3Dmf;
+	Tue, 08 Sep 2026 13:53:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wXP-00000009FJy-0soD
+	id 1x3wGC-00000009Bb0-1106
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 13:53:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=M7ANb8OPjIVJHlipscVgoMQ4zuRZUD8dC1mUN1Ymtt0=; b=f42yP7NFLaS5KwNEbkEwNzW7YF
+	oj2+8HzyPea8V9I8aHxLdapz2Sm155gbumtCsZMcki9hdrfzjMSHjsugLyG43JAkcgFljpUKZ7Hdr
+	2JHUo9Jz7I9zrGRmq2p1a7cydlAwr8VbuuteWw5nWj51Q3ZWScoe+3joCk/AAsIlq1clGGqSnVFhe
+	2wF9JkpJLzmiyo5uMYjRlX2gCSV/Be/JDvYIfD7tbdP8PpCu/xSXxJr2gbZY3NQBunvZuHBfq9tu+
+	7SMgiFYdd83CDR1rVRiCb6g8bQCyURflXMAR5nE6hDBdlXwVXYG0QdnfJCjDxVPWx2ZLd4y5aAWEd
+	B1eZekkw==;
+Received: from mail.fris.de ([116.203.77.234])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3wG7-0000000HUeK-3wab
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 14:11:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bpiT7erk1joPaulKuPQ2VeRd6rNXmShs6BPVi1O3xTFnEijYx9kjCzfQ6jKQfQhX/KLTP9xkN4NSnbXRnDjiOK6RfBFDLFj1eoCiol7DTqj3rP0VoEuG3xfmnC3wcRNd6vG/IOX8r2N4y0Fzg2kISC8gjoqoJw5+/oBDXWDVw9gSRV8PJXWrxNZZjSvvJp4sEWj7KN4UlhAat4dzd6kurXg0rKB8IcMZMraWmP7QfVYLC8ob2A9Yd9p9iReyVf8Xl/fsLmuhHUrsUqXkZC4LMwxSgBxNSURTirIDhOutvrIWl+laeLBr7upe+UixeiQwNYqgKwuGknVBqmIL0v7fqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cX+C0EKlTTPiaWAWXp8KjGgmxL7fRLcZpTuoNyXGc1U=;
- b=F9ro+R3NI/l6SKFnaQdz1Je6H8h7QGSyAhonIozGOtzRcCZe3TIAUS3bQOErXmjMrMYKWzGZXfd+xrVcSIBB8QbE9FKirTaxfr2XYDw5YIX774XUFBHruL4UFrfZwpbPcU9Y6G0zYNF+nEN9Z5MXrK+iUoo/1bebJ2Q2wWlG9vIIbZIDYRYJIn+MBdEGSNFfg5ylt+KusGuRfR7GU3ENVQGg4qGdk4+vDKZPinJs68RdGOxxeoBN9OmtDdxdhpWEIpY/WJ1deb0npEbe+ptUVvfrXFDMXwS0EPjuwCgWGG0MaUGkp1qvxnwH+nXlPFnuXzsMEKHZ7v7PqpebjE+97w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cX+C0EKlTTPiaWAWXp8KjGgmxL7fRLcZpTuoNyXGc1U=;
- b=ICjiQrHiiLwNmhMKHU33haw5RkvNtjBFKt5+exaQOzKRDBrdW9JxYWjZLc7TwpvM0Ki22Ue34a3+J7SGMIdmuAEz7+3r5ck9bweVuTEYPcP9pd+UC+xv72dYwePsLose934EbkGNNdaNJxKMkOVbnciYjqbkeAKSUkTXGIx/wcz/dmtMwzop+BFn8IwjCeLBKokFFlgWdOF+MEU4iTGeKbCs9f7F+d6q5EPK3HIqprPQ0N6yfvUY4KMDmqTEM5Z7wb/4eIjdSCtKsegdOyk19FrT3vi1/i7BV/AUHlkRwLEvkt6KF5R1fG2JcV8F3CPDQh9jzCdUw6XSgtgpmt2sbw==
-Received: from VIUP296CA0010.AUTP296.PROD.OUTLOOK.COM (2603:10a6:800:34f::11)
- by DU0PR10MB6368.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:40c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
- 2026 14:10:57 +0000
-Received: from MI3PEPF0000855E.eurprd05.prod.outlook.com
- (2603:10a6:800:34f:cafe::8b) by VIUP296CA0010.outlook.office365.com
- (2603:10a6:800:34f::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
- Sep 2026 14:10:57 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MI3PEPF0000855E.mail.protection.outlook.com (10.167.240.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 14:10:56 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 8 Sep
- 2026 16:16:23 +0200
-Received: from [192.168.8.15] (10.48.86.45) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 8 Sep
- 2026 16:10:56 +0200
-Message-ID: <280f27a5861d4b7e34e92c66bfb8b76548920800.camel@foss.st.com>
-Subject: Re: [PATCH] pinctrl: stm32: Drop the nonexistent
- CONFIG_MACH_STM32MP25 from the STM32MP257 default
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>, Linus Walleij
-	<linusw@kernel.org>
-CC: Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <linux-gpio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Date: Tue, 8 Sep 2026 16:10:55 +0200
-In-Reply-To: <20260905080235.33785-1-kmehltretter@gmail.com>
-References: <20260905080235.33785-1-kmehltretter@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.48.4 
+	Tue, 08 Sep 2026 13:53:15 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1788875589;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M7ANb8OPjIVJHlipscVgoMQ4zuRZUD8dC1mUN1Ymtt0=;
+	b=IaaGJijRZ8HWvwmpTNPvJ3RXY1lWbsNbeAtzeoO8UMBcsiq9UgpTUTiY8TFvAOBVDxIo2t
+	WKT39/lsq7ZC1nuCxCr5y9XXTzqvxoh1HrzhIee8CO7yeg8SOkahuyU2mexDuVbdbZOjx0
+	JRbUS8KAlUDzGnC4XtpS9dIGdHkGx5hBw+F0ya867cn4+9G4dc75WLVcptSrwYwTuGZa6d
+	EPQpl1VyW5atvEhQA7mPN3BJKHteNbVAFNfu6VmfbRRrSpv35mQ1TIndmuRVKyKqtOgEFX
+	MA23by46eTRgXkcCxEBaEqRt8cgeWU1nvxI2HmYiqYTfGg2z+1LffiFqlPiq/A==
+Date: Tue, 08 Sep 2026 15:51:49 +0200
+Subject: [PATCH 2/9] ARM: dts: imx6ul-kontron-bl-common: Add GPIO labels
 MIME-Version: 1.0
-X-Originating-IP: [10.48.86.45]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF0000855E:EE_|DU0PR10MB6368:EE_
-X-MS-Office365-Filtering-Correlation-Id: a49bbad6-e231-489f-99d2-08df0db30091
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|23010399003|1800799024|6133799003|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: rXBUNjCec+zZc88rXNBhwgK4b5rLdYypbknwcCX73AmDNKAVUPpY1BrTxKoXB46Tr/RPRIfFzefQaqdrqo290Dqc33PQQuMCd4yY1+XVitYL0qyCCDuv4Y8ublvNC0D4DvK9MQX1GohYBrWNyWM5Q+qdIawEQBEiWkATQXCuQ+DnNHV70hVYBk63R7g9+Yg+B8lGpH3k2bCNfaecI+vWeVdQPhNnoYeTmKVlvEjvmoYBgvaVxXtosPVp8zWhszo/VdVTDai7/qJPPyRLoVhSUAvkvAmyDMCnmSrK/eQvU3uTCZ851vzS1aDCGO6NkQUMs1PLgEwJCuG3pCRLSv1a5NVhnvSYuSjUdxbN9Bv4xiJyeqUMSMc7v7F+qUw8bu1lWofyhrEj2onvuJtNCXlf3Z6MiJLzGmTiQYAs0h1i6KS3y+zSQDiyc9r4jBREFU8BSFPoNVQAElhYbsOPeg1U19t9N/Adl/TQrAVoTjJ3n/EGLVTbyqAd8JbQjDHjZNcxqva3AvY5VU1rM3hc9zEi1veH23Bh9eIVENKxfdAJyF/6uL4Ap+QgC7miYkfRZmoLfOixmYiRnLWTlCvr09q6o84cRHZRsTv+1qJj4Fmfpk9NxEcoGS3Gg/MTBdrtURUJZbjc4QTbYFqltUy3WaQZfMk/V1t5Rq/Zk0DVRz8q57F+JNqHghReHoSmgxEYbVd/Na/PxUQH/VeZbxZuXLfBkw==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(23010399003)(1800799024)(6133799003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SnrAR+5p3/XHVJEw9rrwTl+v8WtGrRuQVaqTqOPg/f3QKu8tEYSy1kGC24DY39X7wAmm0HuMuqEHZerv8FawkJaDWX9wJL4jPAjJKaxblRWGH3UxBpH/tTW8LQeUFrxBZDWY6lGj/vvVTZdGFMT3Z36P+1uViBw6TVQjfpld3UbRMYseEJmcJu/YmGZgwgeV1i3g5Y8PnpsbfUwRFkaii/bGS7f434qxMVcbaeYCCYQafvKFFA4T+gWZqVMyS9FpNSVlIVrC6yqj7SR/udEy3r4KQ0lrNp62rTCynZuc/KafJzrYV5uADdxezK15AvnInPQEYKSVbWyA8D1jWhGV1kH6O0vBL6ZlJXJeISydLlMQVN+2L/AgjVDsXHwWHOFr07skZQ8GuYeQbYe2QeieqP5QohoGkT5C4y4RTbJjlycvIcP3RZLlnsMpec5nGYZJ
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 14:10:56.8973
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a49bbad6-e231-489f-99d2-08df0db30091
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF0000855E.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6368
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-2-4d0e8a75db79@kontron.de>
+References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
+In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>, 
+ Oualid Derouiche <oualid.derouiche@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1140;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=+pyws9R7YxcGiBu21aWCHnox53fIOKOKZJHrE50fyaA=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsJO48J8PvrX9Khu7D9scj4rewfM8XORf3sLZf47au
+ 3g4P33fUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMJFzPxkZVr102L7s9Y8yr4ml
+ 1c+TLNd2XFHpjzh/4MaHXE/TWweL5jH8d67T+PE2Zlovf0VUk9NmfYXzAaceHDmlH5UZ8bdxsoQ
+ eEwA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_071103_560192_72284E94 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20260908_145312_247617_9B6D7AD4 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,46 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2026-09-05 at 10:02 +0200, Karl Mehltretter wrote:
-> Commit 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
-> made CONFIG_PINCTRL_STM32MP257 default to MACH_STM32MP25, following the
-> MACH_* pattern of the arm32 entries above it, but no Kconfig symbol of
-> that name exists and git log -S finds no Kconfig file that ever defined
-> one: the STM32MP25 family is arm64 only, where CONFIG_ARCH_STM32 covers
-> it. Commit dba0aff2b89b ("pinctrl: stm32: Allow compile as module for
-> stm32mp257") added "|| (ARCH_STM32 && ARM64)" next to it, so the first
-> half now evaluates to n and changes no configuration.
->=20
-> Drop the first half.
->=20
-> Fixes: 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> =C2=A0drivers/pinctrl/stm32/Kconfig | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/pinctrl/stm32/Kconfig b/drivers/pinctrl/stm32/Kconfi=
-g
-> index d6a171523012..cc425bbfc996 100644
-> --- a/drivers/pinctrl/stm32/Kconfig
-> +++ b/drivers/pinctrl/stm32/Kconfig
-> @@ -55,7 +55,7 @@ config PINCTRL_STM32MP157
-> =C2=A0config PINCTRL_STM32MP257
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0tristate "STMicroelectron=
-ics STM32MP257 pin control"
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0depends on OF && HAS_IOME=
-M
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0default MACH_STM32MP25 || (ARC=
-H_STM32 && ARM64)
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0default ARCH_STM32 && ARM64
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0select PINCTRL_STM32
-> =C2=A0
-> =C2=A0config PINCTRL_STM32_HDP
+From: Oualid Derouiche <oualid.derouiche@kontron.de>
 
-Reviewed-by: Antonio Borneo <antonio.borneo@foss.st.com>
+Describe the GPIOs and their purpose using labels.
 
-Thanks,
-Antonio
+Signed-off-by: Oualid Derouiche <oualid.derouiche@kontron.de>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+index a71669bef7d4..65c5f4450c36 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+@@ -132,6 +132,22 @@ ethphy2: ethernet-phy@2 {
+ 	};
+ };
+ 
++&gpio1 {
++	gpio-line-names = "", "", "ADC_REF", "AIN1",
++			  "", "", "ENET2_MDIO", "ENET2_MDC",
++			  "AIN2", "", "", "",
++			  "", "", "", "",
++			  "", "", "", "SD1_CD",
++			  "", "", "", "",
++			  "CAN_ADR0", "CAN_ADR1", "CAN_ADR2", "CAN_ADR3",
++			  "", "", "LED_H14";
++};
++
++&gpio5 {
++	gpio-line-names = "DIN2", "DOUT2", "LED_H16",
++			  "LED_H15", "DIN1", "DOUT1";
++};
++
+ &i2c1 {
+ 	clock-frequency = <100000>;
+ 	pinctrl-names = "default";
+
+-- 
+2.55.0
 
 
