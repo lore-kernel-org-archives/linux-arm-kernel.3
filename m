@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44283C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62621C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1A3HpbHQsHA2RB041odelGfeGNrgx5zShwsPKCjVJY=; b=hYZngMaLiKu7f/vzawAAyB5xnU
-	A1om9hSFaWzLLaq5dVDalNAgpSXwWzMDY8f6Twaps6CQF/cBi0ENUNeglfW4rNomwVcEbgj2fx1dh
-	tvlVkZ0g4uKSzui2EYkDzZ/txb52fI71tHrRRn5nXOZgXMSpX3fy6z7T69utMOYDBHy6pd46v6bLs
-	1MXrNm0+0MRfnIlLQcd+U9XYRPe2GBqmuLc5Tf/AT4Dev0P1ukfUvr7h+ihGlRQYcEr0qj5ffHcrK
-	/dxGwyP4KFfGi4ehubF/jIcu/jOnVfvrn3nQbslEATycXdYvMb35TEBNBcDHO9qr7vkarcra3an3G
-	ZZ/vrxKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=94LeUdlS06zdQ581xn0OjUHdLmoKqHyFzq7spvpdheI=; b=HkF9qy74rQm3ZsxMOwTLJPPMJn
+	aBsPAXhI6jhnbq3PldH8pxI5ItejlktG/mssDE4KJFqEnxyNdpsz69v3oPmjXD6lViHGxOste7mZ+
+	ExFDQgXRotA6/sm6j0AjfRRHTMd/lAq7YBl4Ne0veC9OyK/zSapMKtJDTXbe9EalKMxoV7nrGQoeD
+	emtCrCDIj+daFLgn9Wl7BqPrYYi/wr+LumZEN9hZFowHv3FTgeKaLG9UAkl6IbVbZNcmZcYZHti5d
+	n4XO5kgcPtGTJrlrzNu0pSYIpNDq8AfMzm1aRFbFOoXVEnqLm/jl1g8c907IFCtJtQRdIoGshjYBe
+	m82FFFMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tLU-00000008oSL-2Nzh;
-	Tue, 08 Sep 2026 10:46:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tLS-00000008oRy-36Nm
+	id 1x3tNX-00000008ogO-1BDf;
+	Tue, 08 Sep 2026 10:48:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3tNV-00000008ofg-0qQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:46:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F34D2601DB;
-	Tue,  8 Sep 2026 10:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA57D1F00A3D;
-	Tue,  8 Sep 2026 10:46:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788864389;
-	bh=r1A3HpbHQsHA2RB041odelGfeGNrgx5zShwsPKCjVJY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=FXWsEextUfrPwGyY37UbyGVfVPDoLNSY+T6wYA+fUXEjFoSus+TRyhggXZkdKA6P4
-	 Kosb4QbSEMtComqVYDUJGaLmX8W11/QckcB0vOvklC6s1c4A5pTxSLB0Ba8gVmZnOU
-	 j0k4GMbiYffA/sxT5WPOjTwlkvgIJ11SpxbMx4IjYmWA5Ukj5uzI2/Cjt0NAb6UqpJ
-	 lUi/jxAY9PDXi+xuo5eioM3/bqzPpJ+gYsxyMB5pjZka9sCAfFrdHO8TxVhpF7qT/P
-	 to8AHTuwG46xZkR15p7GQmm+Ybjr/DXRYfng0OzuZI8YRKqJ640RJaTgYERSvbfEfI
-	 CDgzw4qVC/ypg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x3tLP-00000006AAm-2Jaw;
-	Tue, 08 Sep 2026 10:46:27 +0000
-Date: Tue, 08 Sep 2026 11:46:27 +0100
-Message-ID: <865x0g3trw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>
-Cc: Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>,
-	Odelu Kukatla <odelu.kukatla@oss.qualcomm.com>
-Subject: Re: [PATCH] interconnect: qcom: icc-rpmh: Add opt-out parameter for QoS settings
-In-Reply-To: <17d7ebef-9ec7-4bf8-bf16-34e3bd3cd92e@oss.qualcomm.com>
-References: <20260907171729.1735641-1-maz@kernel.org>
-	<v2gxqazjoxe74q5364jucy4pjds6gx4gfdchgulekl5mwk2azk@we4ibolioibm>
-	<87ld9c4vc2.wl-maz@kernel.org>
-	<6iixty74opjqkegpdmtytffgrllcjvrmhlsv53xtackdqzvwge@6fh5onz27p6c>
-	<17d7ebef-9ec7-4bf8-bf16-34e3bd3cd92e@oss.qualcomm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: raviteja.laggyshetty@oss.qualcomm.com, abel.vesa@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, konrad.dybcio@oss.qualcomm.com, abelvesa@kernel.org, andersson@kernel.org, smostafa@google.com, odelu.kukatla@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 08 Sep 2026 10:48:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F29751476;
+	Tue,  8 Sep 2026 03:48:28 -0700 (PDT)
+Received: from e143943.arm.com (unknown [10.57.5.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8FD423F528;
+	Tue,  8 Sep 2026 03:48:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788864512; bh=BX5zn+rMHE7pGmzvmojlkJ67vDQGZlvBti/jycmjrKo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kbSDDCWA41+ZjWvKptj4jp8JU5m7JDGepXxYDy4LEAzy2CpxK0bwRXJoKZf5cuPKF
+	 kFiwTLRlvYChljmo26DAEUuBmlAciofl4Bge2jkAe0ZOKC5RESczeSPGYT9b8vbr/Y
+	 Sx8+ZIoR93qgcbh52d+9LiJ+9QbvcOP0luuZHQx0=
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	suzuki.poulose@arm.com,
+	James.Morse@arm.com,
+	xuewen.yan94@gmail.com,
+	seanwang1@lenovo.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: errata: Add Cortex-A725 erratum 3821522 workaround
+Date: Tue,  8 Sep 2026 12:47:08 +0200
+Message-ID: <20260908104800.3744507-1-beata.michalska@arm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_034837_330070_B4D51D80 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +71,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 09:29:44 +0100,
-Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com> wrote:
-> 
-> 
-> 
-> On 9/8/2026 1:04 PM, Abel Vesa wrote:
-> > On 26-09-07 22:15:09, Marc Zyngier wrote:
-> >> On Mon, 07 Sep 2026 21:21:44 +0100,
-> >> Abel Vesa <abel.vesa@oss.qualcomm.com> wrote:
-> >>>
-> >>> On 26-09-07 18:17:29, Marc Zyngier wrote:
-> >>>> Recent addition of QoS configuration to the X1 variants resulted in
-> >>>> systems that spontaneously reset at boot time or under load.
-> >>>>
-> >>>> Given that this is both very unpleasant and hard to debug, give the
-> >>>> affected user the option to survive such event with a module parameter.
-> >>>>
-> >>>> Passing "icc_rpmh.enable_qos=0" to the kernel command-line will skip the
-> >>>> offending QoS setup.
-> >>>>
-> >>>
-> >>> Lets not start doing this, please.
-> >>>
-> >>> Can we figure out which platform deosn't work and then maybe we can 
-> >>> add a quirk in DT per platform?
-> >>
-> >> We have at least 3 machines that are dysfunctional since [1] was
-> >> merged (mini-x, sp12 and devkit). Probably some more, but I'm not
-> >> going to be the one doing a survey.
-> >>
-> >> What really should happen is [1] to be reversed until QC figures out a
-> >> set of parameters that actually works, instead of making this platform
-> >> even more unreliable than it already is.
-> > 
-> > I'd rather have the patch reverted than adding a module parameter which
-> > users might not know about and distros will probably never addopt.
-> > 
-> >>
-> >> Just like [2] should have been reverted.
-> >>
-> >> Until then, we'll have to paper over this stuff.
-> > 
-> > But a module parameter complicates things rather than just papering over.
-> > 
-> > I suggest we get both reverted if they break existing platforms.
-> 
-> I will share a patch to add interconnect support for Purwa. 
-> Purwa is similar to Hamoa, but there are few port additions and deletions with 
-> respect to PCIe, and trying to program QoS for them can result in crash. 
+Cortex-A725 erratum 3821522 affects the CNT_CYCLES event, which can
+incur a significant increment error when a CPU enters and subsequently
+exits WFE or WFI, and may no longer track the system counter frequency.
 
-This is unfortunately not solely about Purwa, as repeatedly pointed
-out in this thread and the original one.
+The AMEVCNTR01_EL0 counter is being used as the AMU constant counter for
+frequency invariance and CPPC FFH feedback counters. Treat the affected
+AMU counter as unavailable by returning zero in the AMU counter paths,
+matching the existing convention used when the counter is disabled or
+unusable. This prevents the broken counter from being used as a reference
+source.
 
-Hamoa (at least the machine I use for a lot of my upstream work) has
-become completely unreliable since the QoS patch was merged, and
-randomly resets under IO load. Not applying the QoS configuration
-restores stability.
+The erratum can also affect PMUv3 users of the CNT_CYCLES event, but this
+workaround intentionally does not change PMU event handling. Hiding or
+rejecting the PMU event from the erratum code would change the perf-visible
+PMU event interface, including raw event selection, and would need
+separate PMU specific approach rather than being folded into the AMU
+reference-counter workaround.
 
-My conclusion is that merging this stuff was premature and has
-evidently not seen enough testing and verification.
+CC: <stable@vger.kernel.org>
+Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 21 +++++++++++++++++++++
+ arch/arm64/include/asm/topology.h           |  6 ++++++
+ arch/arm64/kernel/cpu_errata.c              | 10 ++++++++++
+ arch/arm64/kernel/cpufeature.c              |  2 +-
+ arch/arm64/kernel/topology.c                | 14 ++++++++------
+ arch/arm64/tools/cpucaps                    |  1 +
+ 7 files changed, 49 insertions(+), 7 deletions(-)
 
-	M.
-
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index ac3248b9f2f3b..99a1eb4b833dd 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -174,6 +174,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A725     | #3456106        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A725     | #3821522        | ARM64_ERRATUM_3821522       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1       | #1502854        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1       | #3324344        | ARM64_ERRATUM_3194386       |
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef9440..721173103c0d7 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1073,6 +1073,27 @@ config ARM64_ERRATUM_2645198
+ 
+ 	  If unsure, say Y.
+ 
++config ARM64_ERRATUM_3821522
++	bool "Cortex-A725: 3821522: workaround for possible CNT_CYCLES increment error due to WFE/WFI"
++	depends on ARM64_AMU_EXTN
++	default y
++	help
++	  This option adds the workaround for ARM Cortex-A725 erratum 3821522.
++
++	  On affected A725 cores, the CNT_CYCLES event may incur a significant
++	  increment error when entering and subsequently exiting WFx.
++	  As a result, the CNT_CYCLES may diverge from the system counter
++	  frequency at which it is expected to increment.
++	  This renders the AMU counter AMEVCNTR01, that implements CNT_CYCLES,
++	  being unreliable and unsuitable for use.
++
++	  Since there is no hardware workaround, reads of the affected CNT_CYCLES
++	  counter return 0 in the relevant paths. This causes users of the counter
++	  to treat it as unavailable and is functionally equivalent to firmware
++	  disabling the affected counter.
++
++	  If unsure, say Y.
++
+ config ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+ 	bool
+ 
+diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+index b9eaf4ad70850..93f33ee078638 100644
+--- a/arch/arm64/include/asm/topology.h
++++ b/arch/arm64/include/asm/topology.h
+@@ -17,6 +17,12 @@ int pcibus_to_node(struct pci_bus *bus);
+ 
+ #include <linux/arch_topology.h>
+ 
++static inline bool this_cpu_has_broken_amu_constcnt(void)
++{
++	return this_cpu_has_cap(ARM64_WORKAROUND_2457168) ||
++	       this_cpu_has_cap(ARM64_WORKAROUND_3821522);
++}
++
+ void update_freq_counters_refs(void);
+ 
+ /* Replace task scheduler's default frequency-invariant accounting */
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 5db8f0619e4bc..fb4e7cb02e458 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -926,6 +926,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
+ 	},
+ #endif
++#ifdef CONFIG_ARM64_ERRATUM_3821522
++	{
++		.desc = "ARM erratum 3821522",
++		.capability = ARM64_WORKAROUND_3821522,
++		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
++
++		/* Cortex-A725 r0p0 - r0p2 */
++		CAP_MIDR_RANGE(MIDR_CORTEX_A725, 0, 0, 0, 2)
++	},
++#endif
+ #ifdef CONFIG_ARM64_ERRATUM_2038923
+ 	{
+ 		.desc = "ARM erratum 2038923",
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 17b83a2518a8f..1c0a4671cb711 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2064,7 +2064,7 @@ static void cpu_amu_enable(struct arm64_cpu_capabilities const *cap)
+ 		cpumask_set_cpu(smp_processor_id(), &amu_cpus);
+ 
+ 		/* 0 reference values signal broken/disabled counters */
+-		if (!this_cpu_has_cap(ARM64_WORKAROUND_2457168))
++		if (!this_cpu_has_broken_amu_constcnt())
+ 			update_freq_counters_refs();
+ 	}
+ }
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index d28438f8b83f1..f288b85bf4afb 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -397,12 +397,13 @@ static void cpu_read_corecnt(void *val)
+ static void cpu_read_constcnt(void *val)
+ {
+ 	/*
+-	 * Return 0 if the current CPU is affected by erratum 2457168. A value
+-	 * of 0 is also returned if the current CPU does not support AMUs or if
+-	 * the counter is disabled. A return value of 0 at counter read is
+-	 * properly handled as an error case by the users of the counter.
++	 * Return 0 if the current CPU is affected by either erratum 2457168
++	 * or erratum 3821522. A value of 0 is also returned if the current
++	 * CPU does not support AMUs or if the counter is disabled. A return
++	 * value of 0 at counter read is properly handled as an error case
++	 * by the users of the counter.
+ 	 */
+-	*(u64 *)val = this_cpu_has_cap(ARM64_WORKAROUND_2457168) ?
++	*(u64 *)val = this_cpu_has_broken_amu_constcnt() ?
+ 		      0UL : read_constcnt();
+ }
+ 
+@@ -463,7 +464,8 @@ static void amu_read_core_const_ctrs(void *val)
+ 
+ 	/*
+ 	 * cpu_read_constcnt() incurs slight latency due to the
+-	 * ARM64_WORKAROUND_2457168 check. Read it first to minimize
++	 * ARM64_WORKAROUND_2457168/ARM64_WORKAROUND_3821522
++	 * check. Read it first to minimize
+ 	 * the sampling skew between the const and core counters.
+ 	 */
+ 	cpu_read_constcnt(&ctrs->constcnt);
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 2775ba3359cfe..2302a93452a09 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -108,6 +108,7 @@ WORKAROUND_2077057
+ WORKAROUND_2457168
+ WORKAROUND_2645198
+ WORKAROUND_2658417
++WORKAROUND_3821522
+ WORKAROUND_4193714
+ WORKAROUND_4311569
+ WORKAROUND_AMPERE_AC03_CPU_38
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
