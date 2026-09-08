@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7110C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACD1C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5XVn+IP9JYSxt++vE5Bn2naLeVaA94FGOjdJNX08aM=; b=ski8MnY7z5KzggJU1LI50vDzX6
-	+kRpclFEQwZaNGvsG6oJ1b8RG/hpG6wbQiKSrJ56qxQnr/yYFmuKl7IMJvJzt3YCRYxqQNRey3mMN
-	NMKizlwR9UdKJcyRrtPfdlvdH6LHEANdap7N2qkjFXu+N2bgm4Ux5qpoWCYy8+dobdgmD+7quyV9M
-	XI78DOWbCQHQFWqNyxaRpe25gar4ktYm/pQPmOJ+nFmqe0BlUQ0lW1vqNK+g/JV6h+VIK68y1Tzrn
-	KWVACoLAe9Be7BigNrZSjXZlFdvp3Le9NZa9zaq8ezTGq8sKK7vxEghrSGLyS3NWEJG2iwrfXzRvn
-	SDzUCl3w==;
+	bh=YquYZSBkNkCy8q5pJMQ3JTNMW8JFEnoR2bR427fPAFs=; b=d7l/UwhQMgk2dvss+D2cCOHtdW
+	nDRjWn5xMM2gRGZ+MDGvcfgmrVigu5boLhKfMRT3kDO5BfFTD/ejcmVVChV08IR16i8ao6bfAByZb
+	U7qL7g9GxlepIFe1ZmgZdlhHrkxPsNVb3IyxnUsds2rnY7wtbXYxKnnlGF+B60IuhzC9rzo6GqLzH
+	kvY4NY1y0vVQlZa1dKzViKRAw/8GknnULrOc+t5c3GZ/hmMFIhDZpCwNqkbgd8EXE4RXcftONzaxl
+	HUCCuRvol9sVLWI6HM0d/65KIKuHe8An2oYkZHOg2g1lh0KeCHWQKrwSjya0f52vN8kt2ZQf1dK41
+	Z562r3MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ua3-00000008yNe-04Ig;
-	Tue, 08 Sep 2026 12:05:39 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1x3tfw-00000008qbV-1yat;
+	Tue, 08 Sep 2026 11:07:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uZs-00000008yLy-4841
+	id 1x3tft-00000008qaD-2mMS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 11:07:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=YquYZSBkNkCy8q5pJMQ3JTNMW8JFEnoR2bR427fPAFs=; b=OJgQPSZWeZDifBvpJfK0hBaVB3
+	FOYLmzkfnyQ4PfwgWwPWzM6GAcrgnm00DK1SIEjAh6m110iju4BTue+sWGwuQ1onjavrcnGS/Dsp+
+	3DVq1ECKf3EWaWnqxYmRvUokra+h71lC4GF/dsNt4TzhIalp8qe64v0x5W/sdH0dd43mPB/ce2VLC
+	gcHDUhtErRXbfP+fz+FOD5BpI1sMCjBvh6YQPg0/cVaAxiVnZBzPVJv9TfvV8wQW5F2C28U0HvCmr
+	FBmdTTz6rhI9AR9ftwqRsjsp1pfjhiGi95/KMY1p1YsZrK512TG/mDMLi6z4h+Y+GM3NNlcK/op4o
+	cJr6fdbQ==;
+Received: from out-217.mta1.migadu.com ([2001:41d0:203:375::d9] helo=mta1.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3tfq-0000000HJqi-41xQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 12:05:33 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=J5XVn+IP9JYSxt++vE5Bn2naLeVaA94FGOjdJNX08aM=;
-	b=j+l79iC6Ga0wp9hlWjwrZ8HywTNPofAg7yfW6EsEYDaAPIDozcVE3sgD8h1Qs8DnyZsYQ6jUs
-	QazBbYKcRUMkqESQOIid8vXj0DIuRuXUIGCEf6a0gbKq91YGnPasAXNfdmbwUbYvaGpbOQVfx83
-	4vcLksJIyTiYp6Su4hHU1hg=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hfMmk4xnRzmV8f;
-	Tue,  8 Sep 2026 19:54:30 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id A05094055B;
-	Tue,  8 Sep 2026 20:05:24 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 20:05:24 +0800
-Message-ID: <1489d67c-05f5-4c41-a360-dffe2cb95687@huawei.com>
-Date: Tue, 8 Sep 2026 20:05:23 +0800
+	Tue, 08 Sep 2026 11:07:36 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=7jgjQnlj8gbwTTpqNz7Ycv0TSVqQ6IULxTwgTLGtkyI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788865653; v=1; x=1789470453;
+ b=wtVnzCoiVkA0PBUwzT44/sHHt9z9WkdVgO2X863a6VQniPD93Mg6PzVPpG9EKU5WPcsgTJrW
+ 058s4i4jkaIZz/akTDcMZ0pA1tFqPk80nSIktHhKEm29aFRND+wYBAlcNYQvwIhrtmcy4sYYmvI
+ 0j5TOsTw/lLv15j6Z3+TUVtA=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2a5986739231b1ca;
+	Tue, 08 Sep 2026 11:07:32 +0000
+X-Mizu-Trace-ID: 2a5986739231b1ca
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Keir Fraser <keirf@google.com>,
+	Kalesh Singh <kaleshsingh@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Hiroyuki Katsura <hk590@cam.ac.uk>,
+	Fuad Tabba <tabba@google.com>,
+	stable@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 3/4] KVM: arm64: Move the private VA allocation cursor to __io_map_next
+Date: Tue,  8 Sep 2026 12:07:12 +0100
+Message-Id: <20260908110713.1540304-4-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260908110713.1540304-1-fuad.tabba@linux.dev>
+References: <20260908110713.1540304-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/19] firmware/psci: Extend ->cpu_on() callback to take
- an additional argument
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-16-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-16-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_050532_351402_F7816F8A 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20260908_120735_149063_8BA0D689 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,105 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+__io_map_base is the start of the private VA range only until the first
+allocation from it, after which it is the allocation cursor. Keep it as
+the start and move the cursor to __io_map_next, for the walk of the
+range the next patch adds.
 
-在 2026/9/8 0:40, Will Deacon 写道:
-> In preparation for hooking up the 'context ID' parameter introduced by
-> PSCI v0.2 to the CPU_ON call, extend the ->cpu_on() callback to take
-> an additional argument and modify all callers to pass 0 for now.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm/kernel/psci_smp.c   |  4 ++--
->  arch/arm64/kernel/psci.c     |  2 +-
->  drivers/firmware/psci/psci.c | 20 ++++++++++++++------
->  include/linux/psci.h         |  3 ++-
->  4 files changed, 19 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm/kernel/psci_smp.c b/arch/arm/kernel/psci_smp.c
-> index 3bb0c4dcfc5c..bf05dbf433b1 100644
-> --- a/arch/arm/kernel/psci_smp.c
-> +++ b/arch/arm/kernel/psci_smp.c
-> @@ -49,10 +49,10 @@ static int psci_boot_secondary(unsigned int cpu, struct task_struct *idle)
->  		return psci_ops.cpu_on(cpu_logical_map(cpu),
->  			((phys_addr_t)(&secondary_startup)
->  			- XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
-> -			+ CONFIG_XIP_PHYS_ADDR));
-> +			+ CONFIG_XIP_PHYS_ADDR), 0);
->  #else
->  		return psci_ops.cpu_on(cpu_logical_map(cpu),
-> -					virt_to_idmap(&secondary_startup));
-> +					virt_to_idmap(&secondary_startup), 0);
->  #endif
->  	return -ENODEV;
->  }
-> diff --git a/arch/arm64/kernel/psci.c b/arch/arm64/kernel/psci.c
-> index fabd732d0a2d..6b25a12ed143 100644
-> --- a/arch/arm64/kernel/psci.c
-> +++ b/arch/arm64/kernel/psci.c
-> @@ -39,7 +39,7 @@ static int __init cpu_psci_cpu_prepare(unsigned int cpu)
->  static int cpu_psci_cpu_boot(unsigned int cpu)
->  {
->  	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
-> -	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry);
-> +	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry, 0);
->  	if (err && err != -EPERM)
->  		pr_err("failed to boot CPU%d (%d)\n", cpu, err);
->  
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index 8bb3f7c37678..95034485cb4d 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -219,22 +219,30 @@ static int psci_0_2_cpu_off(u32 state)
->  	return __psci_cpu_off(PSCI_0_2_FN_CPU_OFF, state);
->  }
->  
-> -static int __psci_cpu_on(u32 fn, unsigned long cpuid, unsigned long entry_point)
-> +static int __psci_cpu_on(u32 fn, unsigned long cpuid, unsigned long entry_point,
-> +			 unsigned long context)
->  {
->  	int err;
->  
-> -	err = invoke_psci_fn(fn, cpuid, entry_point, 0);
-> +	err = invoke_psci_fn(fn, cpuid, entry_point, context);
->  	return psci_to_linux_errno(err);
->  }
->  
-> -static int psci_0_1_cpu_on(unsigned long cpuid, unsigned long entry_point)
-> +static int psci_0_1_cpu_on(unsigned long cpuid, unsigned long entry_point,
-> +			   unsigned long mbz)
->  {
-> -	return __psci_cpu_on(psci_0_1_function_ids.cpu_on, cpuid, entry_point);
-> +	if (mbz)
-> +		return -EINVAL;
-> +
-> +	return __psci_cpu_on(psci_0_1_function_ids.cpu_on, cpuid, entry_point,
-> +			     0);
->  }
->  
-> -static int psci_0_2_cpu_on(unsigned long cpuid, unsigned long entry_point)
-> +static int psci_0_2_cpu_on(unsigned long cpuid, unsigned long entry_point,
-> +			   unsigned long context)
->  {
-> -	return __psci_cpu_on(PSCI_FN_NATIVE(0_2, CPU_ON), cpuid, entry_point);
-> +	return __psci_cpu_on(PSCI_FN_NATIVE(0_2, CPU_ON), cpuid, entry_point,
-> +			     context);
->  }
->  
->  static int __psci_migrate(u32 fn, unsigned long cpuid)
-> diff --git a/include/linux/psci.h b/include/linux/psci.h
-> index 4ca0060a3fc4..0f43868a0bee 100644
-> --- a/include/linux/psci.h
-> +++ b/include/linux/psci.h
-> @@ -25,7 +25,8 @@ struct psci_operations {
->  	u32 (*get_version)(void);
->  	int (*cpu_suspend)(u32 state, unsigned long entry_point);
->  	int (*cpu_off)(u32 state);
-> -	int (*cpu_on)(unsigned long cpuid, unsigned long entry_point);
-> +	int (*cpu_on)(unsigned long cpuid, unsigned long entry_point,
-> +		      unsigned long context);
->  	int (*migrate)(unsigned long cpuid);
->  	int (*affinity_info)(unsigned long target_affinity,
->  			unsigned long lowest_affinity_level);
+No functional change intended.
+
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/nvhe/mm.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 3b0bee496bffb..422ee57be9560 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -25,6 +25,7 @@ struct memblock_region hyp_memory[HYP_MEMBLOCK_REGIONS];
+ unsigned int hyp_memblock_nr;
+ 
+ static u64 __io_map_base;
++static u64 __io_map_next;
+ 
+ struct hyp_fixmap_slot {
+ 	u64 addr;
+@@ -50,7 +51,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
+ 
+ 	hyp_assert_lock_held(&pkvm_pgd_lock);
+ 
+-	if (!start || start < __io_map_base)
++	if (!start || start < __io_map_next)
+ 		return -EINVAL;
+ 
+ 	/* The allocated size is always a multiple of PAGE_SIZE */
+@@ -60,7 +61,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
+ 	if (cur > __hyp_vmemmap)
+ 		return -ENOMEM;
+ 
+-	__io_map_base = cur;
++	__io_map_next = cur;
+ 
+ 	return 0;
+ }
+@@ -70,7 +71,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
+  * @size:	The size of the VA range to reserve.
+  * @haddr:	The hypervisor virtual start address of the allocation.
+  *
+- * The private virtual address (VA) range is allocated above __io_map_base
++ * The private virtual address (VA) range is allocated above __io_map_next
+  * and aligned based on the order of @size.
+  *
+  * Return: 0 on success or negative error code on failure.
+@@ -81,7 +82,7 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
+ 	int ret;
+ 
+ 	hyp_spin_lock(&pkvm_pgd_lock);
+-	addr = __io_map_base;
++	addr = __io_map_next;
+ 	ret = __pkvm_alloc_private_va_range(addr, size);
+ 	hyp_spin_unlock(&pkvm_pgd_lock);
+ 
+@@ -341,7 +342,7 @@ static int create_fixblock(void)
+ 		return -EINVAL;
+ 
+ 	hyp_spin_lock(&pkvm_pgd_lock);
+-	addr = ALIGN(__io_map_base, PMD_SIZE);
++	addr = ALIGN(__io_map_next, PMD_SIZE);
+ 	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
+ 	if (ret)
+ 		goto unlock;
+@@ -426,6 +427,7 @@ int hyp_create_idmap(u32 hyp_va_bits)
+ 	 */
+ 	__io_map_base = start & BIT(hyp_va_bits - 2);
+ 	__io_map_base ^= BIT(hyp_va_bits - 2);
++	__io_map_next = __io_map_base;
+ 	__hyp_vmemmap = __io_map_base | BIT(hyp_va_bits - 3);
+ 
+ 	return __pkvm_create_mappings(start, end - start, start, PAGE_HYP_EXEC);
+@@ -433,19 +435,19 @@ int hyp_create_idmap(u32 hyp_va_bits)
+ 
+ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
+ {
+-	unsigned long addr, prev_base;
++	unsigned long addr, prev_next;
+ 	size_t size;
+ 	int ret;
+ 
+ 	hyp_spin_lock(&pkvm_pgd_lock);
+ 
+-	prev_base = __io_map_base;
++	prev_next = __io_map_next;
+ 	/*
+ 	 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
+ 	 * an alignment of our allocation on the order of the size.
+ 	 */
+ 	size = NVHE_STACK_SIZE * 2;
+-	addr = ALIGN(__io_map_base, size);
++	addr = ALIGN(__io_map_next, size);
+ 
+ 	ret = __pkvm_alloc_private_va_range(addr, size);
+ 	if (!ret) {
+@@ -461,7 +463,7 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
+ 		ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr + NVHE_STACK_SIZE,
+ 					  NVHE_STACK_SIZE, phys, PAGE_HYP);
+ 		if (ret)
+-			__io_map_base = prev_base;
++			__io_map_next = prev_next;
+ 	}
+ 	hyp_spin_unlock(&pkvm_pgd_lock);
+ 
+-- 
+2.39.5
 
 
