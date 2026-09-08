@@ -4,100 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1490CC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 23:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7DFC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 23:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=; b=Wp5ACcpsiIYpr6OmoYYrgjhghz
-	wDLw+p92SnJsJ0lvnM+61goDlU/hkwgnNuTJLClTVHL5nSDSm+/QdbnzIbXjB7oE+4REkL8PEqifV
-	NB9P7XtTVVTirMKiMKUOmKJDtgNWZGejiXO3NX23ZYW72JTE5lVmL1nbCMtSwaCEiKvMfhYaiyvN3
-	4EQijLvOIdHk13C3U3X0eYvjEbTYAnLkbMdI+7bGHjvRSna5zVbpgSZW6JPpN2FGm+kqwL+qwLZ5Q
-	3JCBpC08jHVJ5s+UJU4pgiRJ3ryfmqwxu6HUGBw8h2q6FRMRD5x3YnRD0nlV4CAe7vKgV24KUL0bm
-	9ogdDBUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7+3nLzSILAYs3qmpLkeoZcGFoXxWf/bBrMplbZ8qrRk=; b=3lt9B+lF0Xf803dfpQZaW7wETM
+	89CAdgvgIh6mpEYLHjT+8BboMSjQNj9p7hwfIzJ+g9Peza/Nbb7Sh65za3HmcUryMGNXjHIGlmt5H
+	UgGCOg0mrJTyHUPwVJAjr02WYczYXen6eBfxoNaHfHs3Z64jKsZaUUMTW8CJcxsNzWzij5p9pAGd+
+	ZuJd8m9ARFpNH2CYn9fHczYC/jtlyraY/Tvxf9Cug8c6TA0ZPcSrnBl9yFri0NT033M5iJXEe0OOn
+	uzJBGUknYweNx0HLHDdZHjDSY8XLm+8S61hpNUNs5RhtkgUw7lkgha0nTzT2/Hki4W+QI7VJ5WnjS
+	2c7gqUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44zc-0000000ARHj-3kxi;
-	Tue, 08 Sep 2026 23:12:44 +0000
-Received: from mail-oi2-x0b.google.com ([2607:f8b0:4864:32::b])
+	id 1x45IR-0000000AS0L-3mmh;
+	Tue, 08 Sep 2026 23:32:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44zZ-0000000ARHL-1hmN
+	id 1x45IQ-0000000ARzn-0CTK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 23:32:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7+3nLzSILAYs3qmpLkeoZcGFoXxWf/bBrMplbZ8qrRk=; b=hwiyxtGB3XMud7ZWFAAZmn3rH9
+	LVEK05bRqjXG3vswkOgQwtkZqyjwy+w4VW8e5Bw3+CKsdYltkOQIcoWft1sWpgyLbDYi4oJGsrvEz
+	m4Ig7hTY399G9YvsLlnB370mLHkfrIVUsZA20rsmDZAlIJQQLjnWRzeTbeWUvxQCJ7ot3dCaJAGo2
+	a8T0mysnzGmFQBYoJhI9eZ216xneZU90Qd5zhqmCGrU62n5GgylKYX9xbPYGv8ufkANJbRxctF5Dt
+	dqoWC2yYHR4jG3OSTUekFXDCHfWcyPDmEZNkaGEj9e2h0UCLnJkUKMFlYmkek1jerGk04j3+RCwAx
+	q3TyZBZQ==;
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x45IM-00000000Vxo-3DDw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 23:12:43 +0000
-Received: by mail-oi2-x0b.google.com with SMTP id 5614622812f47-4af7193adb7so1320985b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 16:12:40 -0700 (PDT)
+	Tue, 08 Sep 2026 23:32:08 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6aa9606ddadso3627522eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 16:32:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788910323; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IScpQ14Foj31YUmwfEzd+K2tmM6jdOoHxUfaUfl32Q8ueCg1IW7hkYW391sX+LS5cL
+         xx13q/QWapXYzqQLBLw9GLJ3uey6794GEzzZ9ATiEiKDrJ4HFEkmexvwShQO+tvwAGnq
+         EF9fkRF/wIoyR0jTo4aLqXbe3+PQxy7pu6VWilLK0Ru22zrEft4KAwEUzU7PH8AbnpjD
+         8mPKp5BU+3VPJwDUSstDDs28l471HK5EERY73NtHyzBBFumXSy5y0ZER5Ycrm84A+tIS
+         VeGKUqMvObuyf5LdJJ/x9g5AJAfxOrk72Xjb9bW5g35mzIPCvYpPLlzNFoGZR3CPsM9g
+         8dgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7+3nLzSILAYs3qmpLkeoZcGFoXxWf/bBrMplbZ8qrRk=;
+        fh=CnGbbwasi4ECTNx5UR/OR8HWIo5ulTonmp9S03js8tc=;
+        b=KsoMjwk9mSd1+KoguDWCQS40RF/+H3DqUUlDAYOEBdK2diaQYpynlJm6fbf68otavs
+         MCL+UDwWgn9nePdsOjxJXoaNjLb+aduYXeewEmC/CY25KKkjHIDBaeyFIEN8OtjCLHMl
+         ku/wiC/759ATksLuAj345ncTUJ1Nt9c/mT2S5I6jO+g2mCGrvD986cXBZguG0B68UINE
+         peHdBM/GYSpPVPoNfOZgv2XglCyrHoL3kieDM/pBmf88T3kco7e5VIkQcdXaDW7Cpv/z
+         wWvMF7e4p3onGjyAu6wu35CfxW6ggBuUIbKrPpzikKALACoszxVmg9tpVweBIRh5ZKRy
+         ROPw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788909159; x=1789513959; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=;
-        b=nZr0QeLWIHTrVUIWB6ErwfqruBKD5kUiwVuo0zR4dX6qE0jH6BFus9HIFSbBwemWt/
-         JZiJORgbHhNJAjw4F11/h1sfXb09GaTeKhlN/K9uNBGsyMQOoqSLBux2sScmKEtiNhXC
-         /E1xlhzO6ZeTVydV6tzZBpuv6u+2FX6rbMvWcGlK9zG4oYLYOBdJVBNcmxINCUNOWsjm
-         NK9cV01xB7E3o4/PLC8jFveZ6WxigMJMw7wVAGFbveV6ATopIjWyMYJgu6APHbniTE65
-         JRZoIVbkJDJG1/bH88YP7uB3sgt7bEKc8tEHLt86x5Q9ZDiu0Y9p9RniLzMjvIrm0+O2
-         KY8A==
+        d=google.com; s=20251104; t=1788910323; x=1789515123; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7+3nLzSILAYs3qmpLkeoZcGFoXxWf/bBrMplbZ8qrRk=;
+        b=snm2+vby6pHm29HLCZCju0YklV2H/iYM7aZMFluf715p7DA0OB9t9yoFaEprzGS2bm
+         PPmoZKxs98wERKbMGrpRiXLIjLKhseX0/xQPEnotm01OsaVBy1bTh4Wqtw9YmmGOsWx3
+         3felZQGEZkM5upFW81y4TBLsx6WV6UF8opGlcd+n9ZgMtbih6DUD96GHSxdWNn39PD4V
+         O2Jop6OgMeMzd0kZGHdG4gTsXjn5sgOTtS7Q5FfqzRH7BzyZQZQfUjqWF5JQFiJroXhl
+         2s1L/IPcdPf4t2eY3Y2xejKqaUwAEGAA/wZXPGB6UwzSDohfVlqdAX6TdBLmTB3UKiyh
+         oDMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788909159; x=1789513959;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=;
-        b=i31TeNK1Q6hOCL5QG0X3CY15UbKKzIRCaRswnZK+xnBhKUN4UvoDV8uLuxbQwTS8tJ
-         cvR77uCe5/ukJfdVwLx0KTJ5/CbgzK5uYhr7GOjjVIlA+mbW9I2N1OibHxlQoRu/IO+T
-         QRk2b8Viz6yu/yZY2Wg42j4CG7DtNKxGOR5UfZ/mk3xUG7jktebkR/9vm0HhwOmY5dwN
-         iZxEyfwJQIJqYk9XWzeqQO85pyMe8ay/c05QF9YPPiNmUxsDAcJO3IFoePprp/mRizbu
-         KGga8YgtoXxHJY3/xrJckNkcCmlDduEVamxC88rHB6cZWW9aY8uOW46WSQaKi36PnrP0
-         GvBw==
-X-Forwarded-Encrypted: i=1; AKwUvBxSOOJg9cSOqWC4Nqaphqd17Ro9quOwYxktR/cWJbcL5QwaaXC2vOCFBTFp5XD8nqKeO2NaXUXb8JkArG8JiV5L@lists.infradead.org
-X-Gm-Message-State: AFuF++lJbnjjaQoJUndzyEqd8/7HHkPujZ3TSpX/3MrngEdMp9Jh0OEI
-	LIBPT6olzCTQYheA93sTHtdVfpWyAclf+N9wsu/GZIo+8arDHemEejPKGsx2xHZ57Q5LfA==
-X-Gm-Gg: AYBFou0TGn2aNmUKQV1gUMZ4JZ2BdnedP0XY2WmYs5Txjrjsl87w+eT5L/I4QXdC+dG
-	STO95ijKjy9GFSdOybbMOYoxErSm9iinWNrg87xC7j6814MqBz2VM3hg9Em95U60joaqLBXc1rO
-	EhJAY+LYOdVdLThuaJFBlyOFZsSlGlEGKJGnWpGSc8oWISFJ1Ida9eGbSEWj4pvbejDlb/flcxs
-	0Kq36nAKufXXXoQtEqS67Tupbhpa10hVqQHQc3+cmvrpC7Sh2Tud73x+nUbTMyAr5RmrVfYANDH
-	OVIb+sVD0saNJQcyBMu0Z/Whdz4E8NesGjlFakg54iHDr3JPI2kneS2yjhDEQFnWtp405I7JMeH
-	/Z5G6SGHSIf2mwnyIZwNNXCbeiFuk6DZCtlWjD2qJril6mkox9qOsVI/N0MhOn9NC9PxSdo+OJo
-	hYiAK0SBuw5vyHkXXmdnNvH4cfdU0V1nPZupB1OgFNbLUdPT/jh8k0trValtfnNEJmmHw=
-X-Received: by 2002:a05:6808:c2bd:b0:4b9:a8ac:482 with SMTP id 5614622812f47-4b9a8bb6aa4mr15564787b6e.32.1788909159168;
-        Tue, 08 Sep 2026 16:12:39 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-475523d1dc5sm13776680fac.2.2026.09.08.16.12.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 16:12:37 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Tue, 08 Sep 2026 18:10:23 -0500
-Subject: [PATCH] usb: mtu3: fix system suspend in gadget mode after soft
- disconnect
+        d=1e100.net; s=20251104; t=1788910323; x=1789515123;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7+3nLzSILAYs3qmpLkeoZcGFoXxWf/bBrMplbZ8qrRk=;
+        b=rHmYjoiudATLpLrwM9d4WUjU9lrVCfeeuhOIhVsYb7I8X2nSqrBvHuz1EvRW6NQmFF
+         P5APoNY5fmshV0mNH3k3i3M1CpWXmmxM5roCvD8DZ4YsaRtiDUiGZ+soVoTwFsG4DAsL
+         QjrEZLQcJwgelWSGLzFc1LCk8vT1yf1zUUqFFyz0RIUzlmWi621bJQxE/9PXOsoQciYq
+         AChY6fcVwsvHBtS3aifXfegeMwx59jNKWzi09mJSkPdyXGQ6byuErPbpAiNfMTkFI46E
+         Kqwe3/joHAmbZX7FKG0MPQMmUqJr5EIxdSFRBRBPEzXI1cq30E41sjohjocJPmarnrNz
+         KC1A==
+X-Forwarded-Encrypted: i=1; AKwUvBxzx0kil4iN29kK5Y++3eNEkC32N3tWkmqmPByqKuGPdH7yP8eQXS+BsxhEqmq3k+Iam7x/ItIJvKAfgtHg1zN/@lists.infradead.org
+X-Gm-Message-State: AFuF++nduvo7IbVyZGx3E2jAy+0Vd2jNhvTOEadHieuvpdxN5r5YradT
+	YwMugfH4ct1/oo5s1G8c3lmTa8Rpi9bDB02B7dLr+OzY4Pxhmcoor2qqaR9Bv+2gHTgEmFcmoYo
+	gHxeNwGXT596naz3ohCVZgDI+9dnAa3CPjlZep163
+X-Gm-Gg: AYBFou3P7N+EndncBfSsDKgyuJr1gOLWwuMZ9twFZrb3YEE/DC93rJMFZsejXcv+Ilc
+	AQzNzn8/7igUjfL5cld4KM/sWdSMAFFudsYc6RQ3aiHSNzRGyWy9oDluTWLNLNOSGCXAwx4m8y9
+	gFhkQC8BR0vo8Q5cyBgVNhFQdi9c2DlY71bhNhbGA3ORByZPqnYDNS/H0Qon2BS52KG5liyacUt
+	bDu0CzJnF72xpnbkwMN0sbFMLrxcgJg9DnUSTmVK8pc6HFzC/Z8A6HenyysSHTOg/e5eDVwLEQ3
+	lz61cK6Obv1kBXjFzsYA8qhAXX47F4pwN4yZgRJ9U4/YtB65T+iC5e5W1QA7D2dsdVC0egiLqDr
+	ZKtZX7Asqme0=
+X-Received: by 2002:a05:6820:4b85:b0:6b8:319b:9e1f with SMTP id
+ 006d021491bc7-6b8319b9e9cmr15317381eaf.5.1788910322806; Tue, 08 Sep 2026
+ 16:32:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-v1-1-3457dcea9f48@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNywrCMBBFf6XM2oG02mL9FekijzFGSBpmEhFL/
- 92oy8O9nLOBEAcSuHQbMD2DhDU16A8d2LtOnjC4xjCoYVKzOiMbroRS6Y01S2HSMSSPsdQj3sK
- rLZIpOaxi0GvnqWBcHaGdZjv26mSG0UCzZ6Z2/5Wvy5+lmgfZ8s3Bvn8AkI/oj5sAAAA=
-X-Change-ID: 20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-c69c5104b25b
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Fei Shao <fshao@chromium.org>
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788909156; l=3498;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=+ZjLG77YKfr9IPV1oRcpyx+bGhfiK19WyzbxnAw1Dlw=;
- b=V2O6cHk26Nxt8LbULYU/sEf44lBkzKUl3wK7GAWx+IQ9lLvhe0k0Y8fzsYxUfdNDKEqL4tmi3
- 8GpBdhfJQ3hDKeuMLeV3szySlDOsdovXO/TPdutx5Dhf0d/tFSGylLR
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+References: <20260710172946.15633-2-rdbabiera@google.com> <ao3d2TlIRqxbz4WP@google.com>
+In-Reply-To: <ao3d2TlIRqxbz4WP@google.com>
+From: RD Babiera <rdbabiera@google.com>
+Date: Tue, 8 Sep 2026 16:31:51 -0700
+X-Gm-Features: AcwNN1Xw1Y5ryO3wQ35hV6_NmfuyHI7Zbl4nz0Z-Sqsiz6v2x3IDE9LAtXts248
+Message-ID: <CALzBnUF14HuRhAObW+HXbaWYpPYzqG_Tt0rrm1nF2OW1T1OSqg@mail.gmail.com>
+Subject: Re: [PATCH v6] phy: Add USB3 PHY support to Google Tensor SoC USB PHY driver
+To: Neill Kapron <nkapron@google.com>
+Cc: vkoul@kernel.org, peter.griffin@linaro.org, andre.draszik@linaro.org, 
+	tudor.ambarus@linaro.org, p.zabel@pengutronix.de, neil.armstrong@linaro.org, 
+	badhri@google.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_161241_469690_FBBF70ED 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20260909_003207_206855_76E65B82 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,89 +136,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ssusb_gadget_suspend() removes the D+ pullup for system suspend by calling
-mtu3_dev_on_off(mtu, 0) directly. That writes the hardware SOFT_CONN bit
-but leaves mtu->softconnect alone, deliberately: ssusb_gadget_resume()
-needs it to decide whether to pull up again.
+Hi Neill, thanks for taking a look. Sorry for the delay here, the feedback
+arrived right before I had left for vacation so I wanted to make sure I had
+proper time to look at it:
 
-wait_for_ip_sleep() then asks ssusb_gadget_ip_sleep_check() whether the IP
-can sleep, and that function tests mtu->softconnect -- the gadget's intent
-rather than the state of the pin. So it answers "pulled up, the IP can
-sleep" for a device that was just disconnected, and the poll for
-SSUSB_IP_SLEEP_STS runs to its 100 ms timeout:
+On Tue, Aug 25, 2026 at 11:24=E2=80=AFAM Neill Kapron <nkapron@google.com> =
+wrote:
 
-  mtu3 11271000.usb: gadget (high-speed) pullup D-
-  mtu3 11271000.usb: ip sleep failed!!!
-  mtu3 11271000.usb: gadget (high-speed) pullup D+
-  mtu3 11271000.usb: PM: dpm_run_callback(): mtu3_suspend returns -16
-  PM: Some devices failed to suspend, or early wake event detected
+> Do we really need a 2.5s timeout?
 
-and the suspend fails. The rule the hardware follows is stated in that
-same function: the IP cannot sleep while D+ is not pulled up.
+2.5s is actually the hardware default for this transaction, which I agree i=
+s
+unnecessarily long=E2=80=94I set it here for correctness. We use software p=
+olling
+instead of the hardware interrupt, and in the product's lifetime 100ms is
+more than enough time for the ACK signal to arrive. I'll update the next
+patch version to use this value. I'll also program
+TCA_CTRLSYNCMODE_CFG1.xa_timeout_val to match the SW
+poll timeout so we don't let the operation hang on the PHY when SW
+finishes its poll.
 
-On an MT8173 tablet (Amazon Fire HD 10 2017, dr_mode = "peripheral") this
-makes system suspend impossible whenever VBUS is present, which on a board
-whose only USB port is also its charging input means whenever it is
-charging. Unbinding the UDC, which clears mtu->softconnect through
-mtu3_gadget_pullup() and so makes the check agree with the pin again, is
-enough to let the same suspend succeed with the driver still bound and the
-charger still attached:
+> The dev_* calls throughout this patch should have trailing newline
+> characters.
 
-  gadget bound   (softconnect=1): suspend returns -16, "ip sleep failed!!!"
-  gadget unbound (softconnect=0): suspend completes, 20 s of 20 s
+Thanks for the heads-up, I will add them.
 
-So record what mtu3_dev_on_off() actually wrote and test that instead.
-Runtime suspend is unaffected: it does not soft disconnect, so the pullup
-is still set and the IP-sleep poll is still performed.
+> > +
+> > +     pm_runtime_put_autosuspend(gphy->dev);
+>
+> Here you are using the _autosuspend variant, but autosuspend is never
+> configured in probe(). Should this be changed to the plain
+> pm_runtime_put(), or actually enable autosuspend in the probe function?
+>
+> > +
+> > +     return ret;
+> >  }
 
-Fixes: e69027c25361 ("usb: mtu3: allow system suspend during active gadget connection")
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- drivers/usb/mtu3/mtu3.h      | 1 +
- drivers/usb/mtu3/mtu3_core.c | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+That's fair, I'll commit to pm_runtime_put() here given we don't implement
+suspend/resume on the PHY itself.
 
-diff --git a/drivers/usb/mtu3/mtu3.h b/drivers/usb/mtu3/mtu3.h
-index ba5a63669e5f..7f4fb87d8438 100644
---- a/drivers/usb/mtu3/mtu3.h
-+++ b/drivers/usb/mtu3/mtu3.h
-@@ -361,6 +361,7 @@ struct mtu3 {
- 	unsigned is_self_powered:1;
- 	unsigned test_mode:1;
- 	unsigned softconnect:1;
-+	unsigned pullup:1;
- 	unsigned u1_enable:1;
- 	unsigned u2_enable:1;
- 	unsigned u3_capable:1;
-diff --git a/drivers/usb/mtu3/mtu3_core.c b/drivers/usb/mtu3/mtu3_core.c
-index a40bf5bad2d5..5ce61240194f 100644
---- a/drivers/usb/mtu3/mtu3_core.c
-+++ b/drivers/usb/mtu3/mtu3_core.c
-@@ -346,6 +346,7 @@ void mtu3_dev_on_off(struct mtu3 *mtu, int is_on)
- 	else
- 		mtu3_hs_softconn_set(mtu, is_on);
- 
-+	mtu->pullup = !!is_on;
- 	dev_info(mtu->dev, "gadget (%s) pullup D%s\n",
- 		usb_speed_string(mtu->speed), is_on ? "+" : "-");
- }
-@@ -1023,7 +1024,7 @@ bool ssusb_gadget_ip_sleep_check(struct ssusb_mtk *ssusb)
- 		return true;
- 
- 	/* device is started and pullup D+, ip can sleep */
--	if (mtu->is_active && mtu->softconnect)
-+	if (mtu->is_active && mtu->pullup)
- 		return true;
- 
- 	/* ip can't sleep if not pullup D+ when support device mode */
+> I think prior to this we should add a check if phy_state is
+> COMBO_PHY_IDLE, return an error and change this check to phy_state =3D=3D
+> COMBO_PHY_INIT_DONE to make sure we are explicit in our state handling
+> to prevent issues with any potential refactoring.
 
----
-base-commit: df2908090cda368b01ff43709f51890076c56157
-change-id: 20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-c69c5104b25b
+Makes sense to me, this will also allow power_on to only run once in the
+PHY init/exit lifetime as well.
 
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+Best,
+RD
 
