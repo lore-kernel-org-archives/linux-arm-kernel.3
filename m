@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93313C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8952C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e1G/5FmZL4xdw+0lMQfJjEPkPMKzHU5gOio8BHsZzuA=; b=CFuFFYYQY2XrWEZwRPzk/nJgfA
-	aESydnfOQoEGs/3qATjHXQufDX0aEeuaT+nV0XQxhHzWXSRx2u1LbcryE/wjmxe3zCF/PJhmn8Nw9
-	b7uhkj0paoruUdOIMAbhsT5w2HdoZkW6eDkuKXI034w+cKjM2J2OrQlv9cFIms2RX5On3FNbr8wNh
-	/XwcuXWPFTkaUY+TBSfaBy9GpvWYiN1Wu27bnVSNoOCrH6yJTmiDwKQUhijab63SYjgTRJDVveMOR
-	5myytL0tO+pz97u5gsHQIHij7Gx5/ToB19qp4HuYii9/8bCNgKDP4wE4wqmVArvN95AQ4wTcKDZI/
-	YRyZvOrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i4Xz0mp9rb3bxPkNxDow+JBbZkBtvVDwN9ZMjpiwOik=; b=aWNucto6OHbtICE2MXCrnZpUr9
+	h9Ar2CsphdYixYNFrVfX+RLa6Euaa3Cmq1UkTeL358FvnfB2QwcMEkND4JFbLUbO1KSCFscwoVJoR
+	IRl9EAcopmJOOg6EF5l9Jtzt4V3dCtDaYNqfbU1QBrkyenTk9GE9EVnyTZvpddDmW2tR73J8Znhqw
+	gE1QONEzLBKhjb4we+WcHv6oIp71+RXyC2bf64CClCXQ1YZwKB0HBAxk5/NfaFzxq3G4zWEO59TzI
+	sQ9o8t6tGNZfzSk6y3VUh4GhXiVOHi/ZBwVT+pLm7UOgJ4C9Edh8dWQIX5C6OWVGTacrMO8f2uQkV
+	B96Pr6GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3u1z-00000008tC7-0xuG;
-	Tue, 08 Sep 2026 11:30:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3u3p-00000008tSK-1cZB;
+	Tue, 08 Sep 2026 11:32:21 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3u1t-00000008tAR-1ca9
+	id 1x3u3l-00000008tRN-2KFA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 11:30:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D451E43A75;
-	Tue,  8 Sep 2026 11:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1741F00A3D;
-	Tue,  8 Sep 2026 11:30:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788867020;
-	bh=e1G/5FmZL4xdw+0lMQfJjEPkPMKzHU5gOio8BHsZzuA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S1PzksPg3GlnN60NnS8u3KBNEe7/XQ0UakTlKP1QoSmuhUcSbgqt1k4d09k6QY5wX
-	 R/9SIIEU42bHp3YuHzLz0ykO3sWf6jDfuGfpYiTwelbaCgnyummIn86hf5NAOfSbol
-	 IFk7BLyVI+n2ug1mifLTTcagY/wvvWa5q+6a7FNja8qDXc6zMT5mWVLU5lN9i2TppZ
-	 9F0IallBAlbVkewMxKdEsSIdOUIsm7ROgvWPNx5TSc1CTZqTR2l9G8gSl4wOL2loYV
-	 ncmPQ0rIuJEO9031Qc96uD7sn5Cvhm1LV7uCB5WMPDN0Fh58t31BxrLBxuF0KY26Wn
-	 riiBYA0yJmNEw==
-Date: Tue, 8 Sep 2026 12:30:14 +0100
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 19/21] arm64: entry: The great stack switcheroo
-Message-ID: <ap_xxpoBi_x-7wF-@willie-the-truck>
-References: <20260907164247.17223-1-will@kernel.org>
- <20260907164247.17223-20-will@kernel.org>
+	Tue, 08 Sep 2026 11:32:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=i4Xz0mp9rb3bxPkNxDow+JBbZkBtvVDwN9ZMjpiwOik=;
+	b=ApyhTskmP38fVZbWCC5h7WJFp4aUqBZ7sKVyCYG7ueQyCYnwKHrlLziQe4+udmgtKGaBgT9Dc
+	wWHlgHL537zoDQ4rjU7gOaGKvMO2hc+M9VGpN2vLPFvdvaMFRQk3qyTh6lWMmSC19kR1Y7TTFcs
+	JEkIg1WngKb0+NYqDSz3djI=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hfM2H627bzcb3G;
+	Tue,  8 Sep 2026 19:21:11 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id B01B040537;
+	Tue,  8 Sep 2026 19:32:08 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 8 Sep 2026 19:32:08 +0800
+Message-ID: <ed47c328-6906-4bad-9a0e-a01f067dc812@huawei.com>
+Date: Tue, 8 Sep 2026 19:32:06 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907164247.17223-20-will@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/19] arm64: cpu_ops: Make 'cpu_operations' pointer
+ global instead of per-cpu
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
+ Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-13-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164024.17164-13-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_043217_995756_B55A02D8 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,61 +79,118 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:42:44PM +0100, Will Deacon wrote:
-> With the kernel stack pointer in SP_EL1 and the overflow stack pointer
-> in SP_EL0, it is now straightforward to switch between the two on
-> exception entry from EL1 by writing to SPSel. However, since exception
-> entry sets PSTATE.SP to 1 (selecting SP_EL1 as the stack pointer),
-> repurposing the overflow stack as a more general kernel exception stack
-> would require writing to SPSel on every exception entry from the kernel.
+
+
+在 2026/9/8 0:40, Will Deacon 写道:
+> 'cpu_ops' is an NR_CPUS-length array of 'cpu_operations' pointers, which
+> theoretically allows for different CPUs to have different bringup and
+> hotplug backends.
 > 
-> Switch things around so that the overflow stack resides in SP_EL1, with
-> the kernel stack residing in SP_EL0.
+> In reality, this complexity exists only to deal with the case where CPU0
+> is not hotpluggable, so replace the array with a single, global pointer
+> and record separately whether or not they apply to the boot CPU. Update
+> the logic in init_cpu_ops() to enforce that only a single set of
+> 'cpu_ops' is required.
 > 
 > Signed-off-by: Will Deacon <will@kernel.org>
 > ---
->  arch/arm64/include/asm/kvm_asm.h | 16 +++++++++++++++
->  arch/arm64/kernel/entry-common.c | 34 ++++++++++++++++----------------
->  arch/arm64/kernel/entry.S        | 26 +++++++++++++-----------
->  arch/arm64/kernel/head.S         |  5 ++++-
->  arch/arm64/kernel/smp.c          |  8 +++++---
->  arch/arm64/kvm/hyp/entry.S       |  3 +++
->  arch/arm64/mm/proc.S             |  3 +++
->  7 files changed, 63 insertions(+), 32 deletions(-)
+>  arch/arm64/kernel/cpu_ops.c | 29 ++++++++++++++++++++---------
+>  1 file changed, 20 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
+> index e133011f64b5..eacfb88a0c0c 100644
+> --- a/arch/arm64/kernel/cpu_ops.c
+> +++ b/arch/arm64/kernel/cpu_ops.c
+> @@ -20,7 +20,8 @@ extern const struct cpu_operations acpi_parking_protocol_ops;
+>  #endif
+>  extern const struct cpu_operations cpu_psci_ops;
+>  
+> -static const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
+> +static const struct cpu_operations *cpu_ops __ro_after_init;
+> +static bool boot_cpu_has_enable_method __ro_after_init;
+>  
+>  static const struct cpu_operations *const dt_supported_cpu_ops[] __initconst = {
+>  	&smp_spin_table_ops,
+> @@ -40,6 +41,9 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+>  {
+>  	const struct cpu_operations *const *ops;
+>  
+> +	if (!name)
+> +		return NULL;
+> +
+>  	ops = acpi_disabled ? dt_supported_cpu_ops : acpi_supported_cpu_ops;
+>  
+>  	while (*ops) {
+> @@ -49,6 +53,7 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+>  		ops++;
+>  	}
+>  
+> +	pr_warn("Unsupported enable-method: %s\n", name);
+>  	return NULL;
+>  }
+>  
+> @@ -94,25 +99,31 @@ static const char *__init cpu_read_enable_method(int cpu)
+>  	return enable_method;
+>  }
+>  /*
+> - * Read a cpu's enable method and record it in cpu_ops.
+> + * Read a cpu's enable method and update/check cpu_ops.
+>   */
+>  int __init init_cpu_ops(int cpu)
+>  {
+>  	const char *enable_method = cpu_read_enable_method(cpu);
+> +	const struct cpu_operations *ops = cpu_get_ops(enable_method);
+>  
+> -	if (!enable_method)
+> +	if (!ops)
+>  		return -ENODEV;
+>  
+> -	cpu_ops[cpu] = cpu_get_ops(enable_method);
+> -	if (!cpu_ops[cpu]) {
+> -		pr_warn("Unsupported enable-method: %s\n", enable_method);
+> -		return -EOPNOTSUPP;
+> -	}
+> +	if (!cpu_ops)
+> +		cpu_ops = ops;
+> +	else if (cpu_ops != ops)
+> +		return -EBUSY;
 
-[...]
+Should we return the original error code of init_cpu_ops() in
+smp_cpu_setup()?
 
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 12aacc74f764..0811fa569100 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -98,6 +98,7 @@ SYM_FUNC_START(cpu_do_suspend)
->  	mrs	x10, oslsr_el1
->  	mrs	x11, sctlr_el1
->  	get_this_cpu_offset x12
-> +	msr	spsel, #1
->  	mrs	x13, sp_el0
->  	stp	x2, x3, [x0]
->  	stp	x4, x5, [x0, #16]
-> @@ -156,6 +157,8 @@ alternative_else_nop_endif
->  	msr	sctlr_el1, x12
->  	set_this_cpu_offset x13
->  	msr	sp_el0, x14
-> +	msr	spsel, #0
+ 487 static int __init smp_cpu_setup(int cpu)
+ 488 {
+ 489 >-------const struct cpu_operations *ops;
+ 490
+ 491 >-------if (init_cpu_ops(cpu))
+ 492 >------->-------return -ENODEV;
+ 493
+ 494 >-------ops = get_cpu_ops(cpu);
+ 495 >-------if (ops->cpu_init(cpu))
+ 496 >------->-------return -ENODEV;
 
-Sashiko rightfully points out that I've got this slightly wrong because
-I've pushed the spsel toggle too deep in the callchain for the
-suspend/resume paths. My original rationale was that the current code
-already saves/restores SP_EL{0,1}, so we shouldn't need to change
-anything. However, that's not quite right because it's the caller (e.g.
-__cpu_suspend_enter()) which saves SP_EL1 as 'sp', so the stack toggle
-should happen there.
 
-I'll fix that in v2.
+Otherwise LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Will
+> +
+> +	if (cpu == 0)
+> +		boot_cpu_has_enable_method = true;
+>  
+>  	return 0;
+>  }
+>  
+>  const struct cpu_operations *get_cpu_ops(int cpu)
+>  {
+> -	return cpu_ops[cpu];
+> +	if (cpu || boot_cpu_has_enable_method)
+> +		return cpu_ops;
+> +
+> +	return NULL;
+
+>  }
+
 
