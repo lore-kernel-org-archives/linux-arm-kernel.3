@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3454C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A7CC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yz8mW4JJpgSrY48R8w31c3S+O31/Cf5mIhYeNRX4uOE=; b=fQT/yBGZpd0AdGkcJS2NAHjd4n
-	+MrsX53CWwlPqbXAzol50410uYfLwsfDQHb4X6FWN6uzFQqCUZSVn1DtGw+/XqYnpy1yScZUl2gLP
-	mvkn+CQO/me0HCkgvz9qk/u0dU/igH/7wVe0DlE2W2IzXhjeeT13SFkEQLw4HqSLq1ltRqQ09tDXb
-	NcdONzbokuAzJBkWsQjGYNlhe1XRqDUkSjIrOoi/br/Izea8pWBUyhxQo8S56kGsISzvdAq9TcUHA
-	Jnax8dLYLYOKlj4AZ3YLB02Ij73Ij6TA2OzJ1aTt+ot59hznsi4nrpabnJ/TWrQ9F7dzD4p574h5m
-	wl1kch1g==;
+	bh=fl3c/gikJSO45FhDePC7wJBfWWWRLg8Wl47BaYzWCTI=; b=t2kQfU9XnyqgaZpFrCv8sPfJWt
+	7x1S728B8GHEhFuPwY59go3MkAPbMrU/NUc5n+7A1t5IfRKNLyHl8u0055K69Crj82aNRELEogQQy
+	F/EkSiyMGLxTwj7H5d/P2zmqh7YrNaswH7IwBNWxFx6/6ghI+Wy0kkx2dKCMPQM5oth0NrWoeDEVG
+	BTuC990wkqriEbCcaZ/qYd5liZSn88c0ZRXeAn8NkGNUcxxWV5yjnojtcX7Ji15Gq/sBye1YZH3Qh
+	UNkG2Vvf5M/FklA7CJn3HZrodmuv1xR12WZ6kplRy2LPeOBcATKDnH6oUA87h3cthmUKqvmfQLg+G
+	iL7uHRPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3pyD-00000008F5E-2qij;
-	Tue, 08 Sep 2026 07:10:17 +0000
+	id 1x3q0c-00000008FIc-2ZJ9;
+	Tue, 08 Sep 2026 07:12:46 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3pyA-00000008F4k-1wUO;
-	Tue, 08 Sep 2026 07:10:16 +0000
+	id 1x3q0Z-00000008FGp-12iz;
+	Tue, 08 Sep 2026 07:12:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788851412;
-	bh=XYcm6/u4aPrRxtMnU6crOjHT12cC2RoaM2V5PFQ3WGo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bcSUTkTnjY746bpRxVLz5XsbQtiYhwkK1l3rnfjDBMl5EKYfEIBHaNvXMMxt76vNd
-	 SSfhWY6E7bVF8lPncqvs8UDQqyRzXZ+HmZifwXM8YnwFIQ9JZQefXf4joLloH8YNTW
-	 xAiyynpiO9MulhBIx5XJDo54dPd8/tUO5yltVTmFjHE5HYz6CfNRoRTY8EO+eRnnT/
-	 Kl2BmTyNgsPhbhE4y31nsk71eSKLjF0zu28vcMSfUrKWdsD3pFdQnsWO0oqwf2vOS+
-	 A2zJ1APW0YMa75G6RL8ScdeeUzR1hBfb6uwuS1DBigazO52U/QTslr5EtWe9ZrgGGx
-	 ItCIdJw106b6g==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	s=mail; t=1788851560;
+	bh=mbZit9u0igRW3Ez59tv3PUZpJvS2CPvENWt+oVCRU+Q=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=lH6okMJ7s6x/rWtTmAQeWehqTlVOSMQ1++DTLxkz7Ekrls89gq/eEyHxRe69kqNx9
+	 tSIPhgkVWft8/8Q6uF8zxj4cE65yuUg5ht6vO7OheXDMz3twBm3+iYlbUdMMd0GHsQ
+	 /6GHLKz8GRzC0j+bdG6sJQVkNSOzUMdBhyRG96Bafu6DFyqnJnxgSxRUOmSo11e0nx
+	 ZEuwGdx66oHrpAfxlDjicLlFdZCbOKAKj8xSbuEoESLdq9eW+Th7cd0Npw5S2QtuCh
+	 F2+WfXYawNLwGr34dUE6gWN7E8CZzz+SzztOT6oTBfWb5CrEIOdRow5Hznxi21UQck
+	 msNj4+XRR2llw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AA2B717E0945;
-	Tue, 08 Sep 2026 09:10:11 +0200 (CEST)
-Message-ID: <84dac42d-39ca-4d45-b5ba-f23e6fd4675f@collabora.com>
-Date: Tue, 8 Sep 2026 09:10:11 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts: mediatek: UFS cleanup adaptation
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260902-mediatek-ufs-cleanup-dts-v1-0-7876e7a27a9d@collabora.com>
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 52C5417E0B0B;
+	Tue, 08 Sep 2026 09:12:40 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260902-mediatek-ufs-cleanup-dts-v1-0-7876e7a27a9d@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Andrea Pesaresi <andreapesaresi82@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sam Shih <sam.shih@mediatek.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260829151955.3661893-1-andreapesaresi82@gmail.com>
+References: <20260829151955.3661893-1-andreapesaresi82@gmail.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt7986: correct timer frequency
+Message-Id: <178885156025.9724.13515391246937590450.b4-ty@b4>
+Date: Tue, 08 Sep 2026 09:12:40 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_001014_662320_20738162 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260908_001243_455055_B57DC566 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/2/26 12:32, Louis-Alexis Eyraud wrote:
-> This series goal is to adapt the Mediatek UFS dt-bindings changes
-> done by "MediaTek UFS Cleanup and MT8196 Enablement" series ([1])
+On Sat, 29 Aug 2026 17:19:55 +0200, Andrea Pesaresi wrote:
+> The MT7986 architected timer runs at 12,986,200 Hz rather than 13 MHz.
+> Firmware reports 13 MHz through CNTFRQ_EL0, causing the system clock to
+> run slow by about 1062 ppm. This exceeds the kernel's 500 ppm NTP
+> correction limit and leaves clock discipline saturated.
 > 
-> The patches were present in the v10 revision of the series ([2])
-> but it was requested to be sent in a separate series. The first patch
-> was also modified to add a valid OPP table rather than simply dropping
-> the freq-table-hz array to fix an issue detected on this patch by
-> Sashiko ([3]) during [2] review.
+> The corrected rate comes from MediaTek's downstream OpenWrt feed, where
+> it is applied to both MT7986A and MT7986B. Since upstream mt7986b.dtsi
+> includes mt7986a.dtsi, add it once to the common timer node so the
+> architected timer driver uses the actual counter rate.
 > 
-> The series is based on linux-next kernel tree (tag: next-20260901) and
-> depend on [1] with v11 or later.
-> 
-> [1]: https://lore.kernel.org/linux-mediatek/20260901-mt8196-ufs-v11-0-dbd007704490@collabora.com/
-> [2]: https://lore.kernel.org/linux-mediatek/20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com/
-> [3]: https://sashiko.dev/#/message/20260730-mt8196-ufs-v10-24-bc5ecef202dc%40collabora.com
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> [...]
 
-Whole series is
+Applied to v7.3-next/dts64, thanks!
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+[1/1] arm64: dts: mediatek: mt7986: correct timer frequency
+      commit: 1cf18e4b9815beaf0439c5b57b65b45151c82ad7
 
-...but obviously I need the bindings bindings to get picked before being able to
-do anything here.
+Cheers,
+Angelo
 
-Cheers
-
-> ---
-> Louis-Alexis Eyraud (3):
->        arm64: dts: mediatek: mt8195: Align ufshci node to dt-bindings changes
->        arm64: dts: mediatek: mt8395-genio-1200-evk-ufs: Complete UFS power supplies
->        arm64: dts: mediatek: mt8395-radxa-nio-12l: Complete UFS power supplies
-> 
->   arch/arm64/boot/dts/mediatek/mt8195.dtsi           | 35 +++++++++++++++-------
->   .../dts/mediatek/mt8395-genio-1200-evk-ufs.dts     |  3 ++
->   .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     |  3 ++
->   3 files changed, 30 insertions(+), 11 deletions(-)
-> ---
-> base-commit: a7957fd910b93155d81edcdd4472551764c8957a
-> change-id: 20260901-mediatek-ufs-cleanup-dts-6a7f7a3e1292
-> prerequisite-message-id: <20260901-mt8196-ufs-v11-0-dbd007704490@collabora.com>
-> prerequisite-patch-id: 841e7d21c8ca7e3f35741279672e23c84db3d165
-> prerequisite-patch-id: 44f254cfdbb97cdf19ab4c2ab8126a95d6e2b050
-> prerequisite-patch-id: 5176591d5737581d21ff2d045e8f16c30fb8a39f
-> prerequisite-patch-id: 54d073543d7687cdc9cea3d91025b2bae3cc8e8f
-> prerequisite-patch-id: 3c082f576efeaaecae285d6ba734463b39f2a9df
-> prerequisite-patch-id: abe5e24769fbb4dd6399bb9ac3a6c7c8567fe6ce
-> prerequisite-patch-id: 1e16da816ec429b5261e5c2145ed11646acec4b7
-> prerequisite-patch-id: 89e0e053a67aba4c8897110ba32c9ee64acf7dff
-> prerequisite-patch-id: c968b5646b227ceb339883450a5bba635033cac3
-> prerequisite-patch-id: a193861af215b41231ff22aac96e3f230881d896
-> prerequisite-patch-id: 47fd54e3799a18734587ce17776f75c823ca6e23
-> prerequisite-patch-id: 7bce272ba16fd694baa7e75c3612c48b64b70ed0
-> prerequisite-patch-id: 2623e1613e37cf92a13f5912053f216897d44e37
-> prerequisite-patch-id: a27017f12729000629e7397677468ec43d56b488
-> prerequisite-patch-id: 90be5a4db503b293b6e2aaa11b6626764f74c600
-> prerequisite-patch-id: 17987efb08b3f7882577822709ddf1b4b0a47f17
-> prerequisite-patch-id: 3a4a3de5953f1aa5adbe9d4d919d79360408bfcb
-> prerequisite-patch-id: 8c0177924a6a5ced7d097d1069de693a29bcd7fc
-> prerequisite-patch-id: 41a2390410768e2331b07b9806ccb7509828e2e5
-> prerequisite-patch-id: 847e46df5bbd0539b1324d628f601122728e025c
-> prerequisite-patch-id: e97641f63406d43924af801293e5d24ecd440ba8
-> prerequisite-patch-id: ce5a76f40d591a54631fc4caebf97bfe49d57ef8
-> prerequisite-patch-id: 74648a530be0081338cad49722eda0839c363455
-> prerequisite-patch-id: 44bcb8920c4cb56811943d0d51bf0de9fd363ac7
-> 
-> Best regards,
 
 
