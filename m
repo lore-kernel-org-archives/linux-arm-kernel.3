@@ -4,69 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D154EC79FAE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B21C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T2OcsfQB2rXyV+qEnim3LyzT5vfleOs/dQwzAKYIyC8=; b=HS+v7dav50+OYq
-	cSrgSky8kJ8fph0r+jZHkSLlnRlqwomhr8bxUsQ+qmYM30onSefveSeMFfkEL/gI2WhU3kV52VLzI
-	dWwrPwIIWWtPUSNgOCfpWvIPv6sxfoyzIvO9Eg3uUHLbvI6OsdmXklO19ct0l4N+NHm6fQwbxntYi
-	hdCjbwHitcTtUlioku3S+rn6Hu2AU5OYFzx7yCdJtuGMwSYOkzl2NLXmLPiI4Or3acKhBmE8T0fIs
-	Y5DoFlYjgfi8/D4xzGyNFjq13oA9howeCtQ9yaqGONNFLKW24y4nFJAOYDMoukx6CbDsreyELtqdn
-	ZismkvkRPNnaqZpUxNPw==;
+	List-Owner; bh=78tVDEHMcN/wIq05dXhyUqSnoyCcXNYXjHWpnw6Enmk=; b=X2QM3hR8ouEbVN
+	j/DRfbfG+Rr0C7CLzbsYmOv7jPOBIskqw++4S7yyERbf/VExZY/71GqLvuW9YYrbQoQ9P/3V2c75g
+	XRZp4wBxjdeoZJKzsCDk/OJsTbSBVm/I/iIRglsRojZUuyiAqWswDKtdy6aB4mvDFkUajg4aIAQVd
+	OM2oswyBccIa9roCysHqW6/s/Wq8DO8WslsTXv50rt585MjthA3wS7e1+TmNsj44yFuTHG85iugyZ
+	NK9SjeF1ftyg1YallbWlePnMJyIErunzYutxgSx7groeNMMl/nZOWUxCDiz57YUdCodUKyXO+E7rx
+	pLqljiWduQJSu/BCOEQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xeW-00000009SlN-1pxM;
-	Tue, 08 Sep 2026 15:22:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xeV-00000009SkV-08aN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 15:22:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=T2OcsfQB2rXyV+qEnim3LyzT5vfleOs/dQwzAKYIyC8=; b=PX4QvquRUYiA360eBIizK3sBLJ
-	YMboDCLZyJSE83JwYH1V6+bDaooDLKWucp9d1B27U3TYj/aqcyR/LtNGnF1ameqB6zwG9ndWAg9XU
-	36/5Qm5Vz6IsqJ7m6YkQVxfkEdH+gc52oItHBaYM7dtlwzC0KXsu7bWwhuUzlAkF2IjiMfzt36Xj1
-	V9DY/T4TOBYC2dJI2rBHz1F0qwwo/zcKfqoW8F0tNOlRV6I7Ea77CQlq0MN0FX9NITVWmeWMK1/74
-	fpUUNKQ+ph1pBppMerB79RABGXZ9DsI1M5ZTrrmuWvSBnFZszGn+ebtgMQRZfSimp68WQdKRmQkpT
-	UvTUrcTg==;
+	id 1x3xem-00000009Sqz-2Iba;
+	Tue, 08 Sep 2026 15:22:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xeS-000000000mH-0aXJ
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3xeh-00000009SpP-2ySH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:22:25 +0000
+	Tue, 08 Sep 2026 15:22:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 682281C14;
-	Tue,  8 Sep 2026 08:22:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 501BE1C25;
+	Tue,  8 Sep 2026 08:22:35 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 545643F7B4;
-	Tue,  8 Sep 2026 08:22:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C2B13F7B4;
+	Tue,  8 Sep 2026 08:22:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788880943; bh=pUyEkl4bH7bjN7cz2XbK3Pl6rivIm/Z5yqVzikq2V+0=;
+	t=1788880959; bh=pUGiK76B/cGSXLCAJDeQJWe6X+z6/ttgCiv66ralV/s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IsfPGzHPBxawavvaQDfuX6xD0H6IW52/osuv7hqwOc67pn/cj/YkkXtt/1jrlxNzT
-	 WVk+e6qOQgpRhPfHB7PEz36ypDnGhg4WnDYxW75Np6Cl89QR7CflKXDb2cZwbRGoQb
-	 Nj5ijfMl0b/t/WjRs6Z4b7GibxibRU68+z0zUnDY=
+	b=gskfN7qSBPy6MuEKz8Un2ZUKEgtO6KEC1SWbKnxWytEIDx8PPUQzFNihP42j5W7zq
+	 0i5+xaHppTKDOkWBkdE3YzcShsEZah45LBGq8gPRcwXFPWMDn6yUTgS1YUkHKp5aZN
+	 mKuKlcfePaufoszVXlqhc5u+uTH15SqI7kx+nm6Q=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 12/21] arm64: entry: sdei: Restore all clobberable GPRs
-Date: Tue,  8 Sep 2026 16:17:32 +0100
-Message-Id: <20260908151741.394589-13-mark.rutland@arm.com>
+Subject: [PATCH v4 13/21] arm64: entry: sdei: Make 'tsk' available
+Date: Tue,  8 Sep 2026 16:17:33 +0100
+Message-Id: <20260908151741.394589-14-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260908151741.394589-1-mark.rutland@arm.com>
 References: <20260908151741.394589-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_162224_381520_6D972539 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20260908_082239_823645_1889CA02 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,13 +67,20 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.a
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently __sdei_asm_handler() avoids restoring x20 to x27, as these are
-not be clobbered by existing code. This is correct today, but it makes
-it awkward to rework __sdei_asm_handler(). Given the rarity of SDEI
-events, restoring x20 to x27 should not have a measurable impact.
+For regular entry/exit sequences, we use 'tsk' (x28) to hold the current
+task pointer, allowing this to be used by various assembly macros. The
+SDEI entry/exit sequence uses x28 to hold the value of the interrupted
+sp_el0, and doesn't retain the current task pointer in a register.
 
-Restore x20 to x27 when returning from an SDEI event handler. This will
-free up those GPRs for usage in __sdei_asm_handler() prior to return.
+These differences makes it awkward to share assembly macros across
+regular entry/exit and SDEI entry/exit, and risk surprises.
+
+Align the SDEI entry/exit sequence with regular entry/exit, keeping the
+current task pointer in 'tsk', and preserving the interrupted sp_el0 in
+another (callee-saved) register. I've used x20 as x19 was already in
+used for the relevant sdei_registered_event, and these are the
+lowest-numbered registers above x18 (which we must preserve for shadow
+call stack).
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
@@ -103,30 +95,39 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/kernel/entry.S | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/entry.S | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index f63049ac32dc6..a6ec5c5a2d29c 100644
+index a6ec5c5a2d29c..0902c1bd9dd3d 100644
 --- a/arch/arm64/kernel/entry.S
 +++ b/arch/arm64/kernel/entry.S
-@@ -1044,10 +1044,14 @@ SYM_CODE_START(__sdei_asm_handler)
+@@ -1023,11 +1023,12 @@ SYM_CODE_START(__sdei_asm_handler)
+ 
+ 	/*
+ 	 * We may have interrupted userspace, or a guest, or exit-from or
+-	 * return-to either of these. We can't trust sp_el0, restore it.
++	 * return-to either of these. Preserve the interrupted sp_el0, and
++	 * initialize sp_el0 to the current task.
+ 	 */
+-	mrs	x28, sp_el0
+-	ldr_this_cpu	dst=x0, sym=__entry_task, tmp=x1
+-	msr	sp_el0, x0
++	mrs	x20, sp_el0
++	ldr_this_cpu    dst=tsk, sym=__entry_task, tmp=x1
++	msr	sp_el0, tsk
+ 
+ 	/* If we interrupted the kernel point to the previous stack/frame. */
+ 	and     x0, x3, #0xc
+@@ -1043,7 +1044,7 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	mov	x1, x19
  	bl	__sdei_handler
  
- 	msr	sp_el0, x28
--	/* restore regs >x17 that we clobbered */
-+	/* restore regs >x17 that firmware won't restore */
+-	msr	sp_el0, x28
++	msr	sp_el0, x20
+ 	/* restore regs >x17 that firmware won't restore */
  	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
--	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
  	ldp	x18, x19, [x4, #SDEI_EVENT_INTREGS + 16 * 9]
-+	ldp	x20, x21, [x4, #SDEI_EVENT_INTREGS + 16 * 10]
-+	ldp	x22, x23, [x4, #SDEI_EVENT_INTREGS + 16 * 11]
-+	ldp	x24, x25, [x4, #SDEI_EVENT_INTREGS + 16 * 12]
-+	ldp	x26, x27, [x4, #SDEI_EVENT_INTREGS + 16 * 13]
-+	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
- 	ldp	lr, x1, [x4, #SDEI_EVENT_INTREGS + S_LR]
- 	mov	sp, x1
- 
 -- 
 2.30.2
 
