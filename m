@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F49C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 06:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578DBC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 06:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UiMHGFhPbk7D6S9onjfcZBvfsx9CaE6NOzQzrP6JAw=; b=1bLMuZTD0nq6Z5C+PXKMluJLYR
-	5hWV+2wI//B3zvDuTbIOXKgmRyOxXnZl8PvNRXLeMzj9RTCW8CgDe8WDnTZ5ym8IXrb+gL4wjzilJ
-	1N+92FX9l/NIxwk1EZchjd5xDOCEmCMJjwQA+K+zqVPd4gE7Qr6gC44hmwu0R86fmR3dckoHADBDa
-	3he5/9kBt0LnDXe0BY5f8t0sgxjdn0quD9XyBJePCZCg0fV3HvWsYxD9NQXArq2mnVNqFk8RSevhS
-	oW20nSc01USuHPqC+mrwySvPxJfRYaqdVwxRswqe+E12yQ1blqnOMU6Ejfw8fGPixaL9eTvBaTh+Z
-	S10QeM3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tQCExSqn1W0rL2KHHjcgog6hZgpy3PJqmFXUPMAfp8c=; b=c/TCxyLzPCr2t+KNN3Yl++OafT
+	8rV5V7ZVrrbplgaADD6KO/eAFNvQJsADLFnm8spLw1aZ7l4OPAhT73JzUE2WyqMhAvEQ8OKajL5T5
+	XJSODboInl/RXWz1o4i6VtIx6S7gYrjfz25xkcG6syVkQ7CycVYnb+f/XaEQ/zqZjB+mYMlgk+0GV
+	HcbmxQqmDYVPYymi9IpLKfPfu2AmKZObj6vnXrp1/etMT5j7EMXWB8n9tKTkP19ahg+4DPUNjXwUU
+	7nSfV4bVdmM1LjMiByOMsjS9moD0nlS8VL3/MUJmAvU7l503zWrQfNexuWjganjIhiZcrhiiK05MW
+	yafCSzGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3pbu-00000008ChI-146j;
-	Tue, 08 Sep 2026 06:47:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x3pgx-00000008DWr-42aH;
+	Tue, 08 Sep 2026 06:52:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3pbs-00000008CfO-1j06
+	id 1x3pgx-00000008DWi-0GA4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 06:47:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788850031;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3UiMHGFhPbk7D6S9onjfcZBvfsx9CaE6NOzQzrP6JAw=;
-	b=YVQNgEwI5bBofq/eoVdQdEXGxRJBazMqTqmSJOZseC2LWcVMBVUfFjHN/+rbqm18RMaKy6
-	LsTLY7Q7gcOZGxQgXav86C3Lci4rnoCPkY77WDCjzB4/QSthityBsJeb9zuc04Ka5PST/o
-	X+KQYzF67LKLqppQYuvQLiVuS1ZDlaA=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-523-MAJYau-SPpul-qy7WFVdug-1; Tue, 08 Sep 2026 02:47:07 -0400
-X-MC-Unique: MAJYau-SPpul-qy7WFVdug-1
-X-Mimecast-MFC-AGG-ID: MAJYau-SPpul-qy7WFVdug_1788850026
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8645a62066dso3315084b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 23:47:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788850026; x=1789454826;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3UiMHGFhPbk7D6S9onjfcZBvfsx9CaE6NOzQzrP6JAw=;
-        b=poLJzxy/gS7WOwcx8tH5WyozWFETVGcj/nazFr6lbeCBytxfDjZSbvSY600UMHUYtf
-         gmfRZWR5liRJJTv4yfjGza/X0N8444sOBVRPMEcz7Ro/O9XvcUvB4eeyq/OP3fzxpTaG
-         XjD3vtfCoFHKev6oiKoFV+5QqE5AgFHViBZYoM9lVF6RaBVI2QekPfoAZSQhn7Yk6y+L
-         qY6YTqJ/bzvIaawgRFV9S5tghq1cLW8eJig/hOwinKHRdYW1Z6dWoTHsIi12ETqB2kox
-         qlzYkIAeCP9kpaDqPl2pbvqCUiJQBOyhErcT7EnHb4EXF5nAB78AB7vAF4gjf06Rbg+R
-         2v4A==
-X-Forwarded-Encrypted: i=1; AKwUvBy1W75p/Y+SWor67KZpuo4kNupKilj6HG8EyJKdubroTukpAovbq6BeXhK86/9HXjrmhvrIvjo9hPrwbTbWnFJt@lists.infradead.org
-X-Gm-Message-State: AFuF++kKjzWc38Pmj3jTMwuljXTnIDByj/VgSrWtkcR1Fd8Em9MO4IP7
-	Cx4Pte4AMDX0u+1zQ4DQPYTvvf9xJcIAc38PD4uRM9vBKG9uuRXuTzOlh4CLn4WYhsgoJ/uvWJ9
-	uQM6YSLBIwgmPThm0VF+cxvmrT0nmOS9n0eEsSou7xDI/rMbmks+VTRiTcAEuZHSKoQ9elYP/1v
-	Zm
-X-Gm-Gg: AYBFou2Pr34ySfIw5krcFEyCCVlW8XLQuSv2dvj8/fo4NE5OAYF3Omg8+3sfu5Rd0pQ
-	OHMHwJJBM2JdiA2ncgD1xZvL+boc/UHrVJ9SNj9hTiSwkZYwJoNm6PnaFJ80LpGJFqMBPYph67A
-	oq8x4mFEuyrrXRWDk699x/YUtmkwgcLinFM9DmydwBaKAqBJjX3Cq5JLwh6/lEho9E5pFy5iqqB
-	atGyDM/LvhWPefQoCF6DMhdLmB82M8W6J+JLwZ3BF/yqAY9dPa1v1oNpld4jU49o3fHAhfwo4wu
-	bjOjMkgQuzxpRxZxdHGBd+dCjNNphOqmVB5dC0+Ux0QDqF+RBDmY2ZM+dxnGswcFxGNr2yHZAnK
-	ZudFaWTzIcn308RxsktG7YaTedquv96cS9dEtdgIIow==
-X-Received: by 2002:a05:6a00:2e19:b0:853:50f2:9c03 with SMTP id d2e1a72fcca58-86169182795mr34477511b3a.11.1788850026312;
-        Mon, 07 Sep 2026 23:47:06 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2e19:b0:853:50f2:9c03 with SMTP id d2e1a72fcca58-86169182795mr34477437b3a.11.1788850025792;
-        Mon, 07 Sep 2026 23:47:05 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86154048df2sm5208107b3a.61.2026.09.07.23.46.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Sep 2026 23:47:05 -0700 (PDT)
-Message-ID: <25894d08-0fec-4dcd-9d5e-e8270ff9d26c@redhat.com>
-Date: Tue, 8 Sep 2026 16:46:52 +1000
+	Tue, 08 Sep 2026 06:52:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FDA742EA1;
+	Tue,  8 Sep 2026 06:52:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9921F00A3A;
+	Tue,  8 Sep 2026 06:52:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788850346;
+	bh=tQCExSqn1W0rL2KHHjcgog6hZgpy3PJqmFXUPMAfp8c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MxGHPr/o7Egzf7/M8R8Ao6xgWW828L9KjV5g84sSn7wi9vQ7ZcW0u0yYAkaDvectd
+	 mR4UMWwASyruj3B4tXUeARgiJB6uF8PJhd7Vk5pHsWytx6JL63jN1/RAI90iaZDj5v
+	 BSMATV5Tjnay2NldoJaKCaxkJf+B14z9AyDmY+MVafeEWhRzFRldWfi0CqcNr52USK
+	 953kOdfoLHavZRSp42M83cfpJ14CsK0C7vG3yQyKNcguUsP8lAJpH7cavlJCQtN9Gc
+	 1lsmIJCiWgIzHl6QoyQVlGhaNA5yh2Rs7v8dUZbABjex8SUJroXjJK4pnfLnMSZmk4
+	 hpWo7/SVN/Y7Q==
+Date: Tue, 8 Sep 2026 09:52:12 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
+Message-ID: <ap-wnHAwfdX_b39o@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+ <178877845406.3691569.6930315020588094755.b4-review@b4>
+ <3f6e7678-0784-4ac1-acb4-b128887803c5@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 2/7] firmware: arm_rmm: Check for RMI support at init
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <20260907095942.1140734-3-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260907095942.1140734-3-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MRV_qedhV3AP9czGoOR2w4d_l3XAs6u-0aWF966OFiE_1788850026
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_234712_602624_AE282F75 
-X-CRM114-Status: GOOD (  41.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3f6e7678-0784-4ac1-acb4-b128887803c5@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,301 +94,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
+On Mon, Sep 07, 2026 at 05:49:42PM +0200, Kevin Brodsky wrote:
+> On 07/09/2026 12:54, Mike Rapoport wrote:
+> >> +
+> >> +#include <linux/bug.h>
+> >> +#include <linux/cleanup.h>
+> >> +#include <linux/kpkeys_types.h>
+> >> +
+> >> +/**
+> >> + * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
+> > Nit: I'd suggest to drop "define" from all the descriptions, they would
+> > read better without it IMHO.
 > 
-> Query the RMI version number and check if it is a compatible version.
-> The first two feature registers are read and exposed for future code to
-> use.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> v17:
->   * Rename ARM_RMM to ARM_RMM_RMI to make it easier to add Guest facing RSI
->     support, which is also in progress
-> v16:
->   * Update Kconfig text to include PCIe TDISP.
->   * Export rmi_feat_reg() here rather than in a later commit.
-> v15:
->   * The code is moved again, this time into the 'firmware' directory.
-> v14:
->   * This moves the basic RMI setup into the 'kernel' directory. This is
->     because RMI will be used for some features outside of KVM so should
->     be available even if KVM isn't compiled in.
-> ---
->   arch/arm64/Kconfig                |   1 +
->   arch/arm64/kernel/cpufeature.c    |   1 +
->   drivers/firmware/Kconfig          |   1 +
->   drivers/firmware/Makefile         |   1 +
->   drivers/firmware/arm_rmm/Kconfig  |  26 ++++++++
->   drivers/firmware/arm_rmm/Makefile |   2 +
->   drivers/firmware/arm_rmm/rmi.c    | 101 ++++++++++++++++++++++++++++++
->   include/linux/arm-rmi-cmds.h      |  34 ++++++++++
->   8 files changed, 167 insertions(+)
->   create mode 100644 drivers/firmware/arm_rmm/Kconfig
->   create mode 100644 drivers/firmware/arm_rmm/Makefile
->   create mode 100644 drivers/firmware/arm_rmm/rmi.c
->   create mode 100644 include/linux/arm-rmi-cmds.h
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b5a51b0ef9440..ff9565d3ffa59 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -38,6 +38,7 @@ config ARM64
->   	select ARCH_HAS_MEMBARRIER_SYNC_CORE
->   	select ARCH_HAS_MEM_ENCRYPT
->   	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-> +	select ARCH_SUPPORTS_RMM
->   	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
->   	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
->   	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 17b83a2518a8f..db26f6b0eaf5e 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->   static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index b7cc11e4fbfa6..62660bf520a8d 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -310,5 +310,6 @@ source "drivers/firmware/samsung/Kconfig"
->   source "drivers/firmware/smccc/Kconfig"
->   source "drivers/firmware/tegra/Kconfig"
->   source "drivers/firmware/xilinx/Kconfig"
-> +source "drivers/firmware/arm_rmm/Kconfig"
->   
->   endmenu
-> diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-> index be46f1e1dc77f..196a650ccf025 100644
-> --- a/drivers/firmware/Makefile
-> +++ b/drivers/firmware/Makefile
-> @@ -39,3 +39,4 @@ obj-y				+= samsung/
->   obj-y				+= smccc/
->   obj-y				+= tegra/
->   obj-y				+= xilinx/
-> +obj-y				+= arm_rmm/
-> diff --git a/drivers/firmware/arm_rmm/Kconfig b/drivers/firmware/arm_rmm/Kconfig
-> new file mode 100644
-> index 0000000000000..82724ee23186d
-> --- /dev/null
-> +++ b/drivers/firmware/arm_rmm/Kconfig
-> @@ -0,0 +1,26 @@
-> +
-> +config ARCH_SUPPORTS_RMM
-> +	bool
-> +
-> +config ARM_RMM_RMI
-> +	bool "Realm Management Interface (RMI) Support"
-> +	depends on ARCH_SUPPORTS_RMM
-> +	default y
-> +	help
-> +	  Support the Realm Management Monitor (RMM) on Arm systems that
-> +	  implement the Realm Management Extension (RME), as defined by the
-> +	  Arm Confidential Compute Architecture.
-> +
-> +	  The RMM runs at EL2 in the Realm world and provides the Realm
-> +	  Management Interface (RMI) used by a Normal World host to create,
-> +	  manage and run protected virtual machines called Realms. The RMM can
-> +	  also act as a TSM, as defined by the PCIe TDISP and can manage the
-> +	  PCI IDE setup for securing the PCIe links.
-> +
-> +	  This option builds the host-side RMI support used by KVM to detect a
-> +	  compatible RMM, configure it, manage delegated memory and enable
-> +	  Realm guests.
-> +
-> +	  Selecting this option does not by itself make Realm guests available:
-> +	  the system must also provide RME-capable hardware and firmware with a
-> +	  compatible RMM implementation.
-> diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/arm_rmm/Makefile
-> new file mode 100644
-> index 0000000000000..65171988fdcae
-> --- /dev/null
-> +++ b/drivers/firmware/arm_rmm/Makefile
-> @@ -0,0 +1,2 @@
-> +
-> +obj-$(CONFIG_ARM_RMM_RMI)	= rmi.o
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> new file mode 100644
-> index 0000000000000..008a783407b4e
-> --- /dev/null
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -0,0 +1,101 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2026 ARM Ltd.
-> + */
-> +
-> +#include <linux/cpufeature.h>
-> +#include <linux/memblock.h>
-> +#include <linux/arm-rmi-cmds.h>
-> +#include <linux/slab.h>
-> +
-> +#include <asm/memory.h>
-> +#include <asm/pgtable-hwdef.h>
-> +
-> +/* Currently only the first 2 registers are used by Linux */
-> +#define RMI_FEAT_REG_COUNT	2
-> +static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
-> +
+> Fair enough, but if we say just "a guard type that does nothing" is it
+> clear that this is a macro defining a type, and not a type itself?
 
-I would drop RMI_FEAT_REG_COUNT and use ARRAY_SIZE(rmi_feat_reg_cache) in the code.
-Besides, __ro_after_init is usually put at the last the declaration.
+Then maybe "helper to define", like cleanup.h does?
+ 
+> - Kevin
 
-static unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT] __ro_after_init;
-
-> +unsigned long rmi_feat_reg(unsigned long id)
-> +{
-> +	if (WARN_ON(id >= RMI_FEAT_REG_COUNT))
-> +		return 0;
-> +
-> +	return rmi_feat_reg_cache[id];
-> +}
-> +EXPORT_SYMBOL_GPL(rmi_feat_reg);
-> +
-
-I would suggest to rename 'id' to 'index' since it represents the feature
-register index instead of feature register ID.
-
-unsigned long rmi_feat_reg(unsigned long index)
-{
-    :
-}
-EXPORT_SYMBOL_GPL(rmi_feat_reg);
-
-> +static int rmi_check_version(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	unsigned short version_major, version_minor;
-> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-> +						     RMI_ABI_MINOR_VERSION);
-> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-> +
-> +	/* If RME isn't supported, then RMI can't be */
-> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
-> +		return -ENXIO;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
-> +
-> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-> +		return -ENXIO;
-> +
-> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
-> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
-> +
-> +	if (res.a0 != RMI_SUCCESS) {
-> +		unsigned short high_version_major, high_version_minor;
-> +
-> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
-> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
-> +
-> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
-> +		       version_major, version_minor,
-> +		       high_version_major, high_version_minor,
-> +		       RMI_ABI_MAJOR_VERSION,
-> +		       RMI_ABI_MINOR_VERSION);
-> +		return -ENXIO;
-> +	}
-> +
-> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_read_features(void)
-> +{
-> +	/*
-> +	 * Since we've negotiated a compatible version these feature registers
-> +	 * should always be available
-> +	 */
-> +	for (int i = 0; i < RMI_FEAT_REG_COUNT; i++) {
-> +		if (WARN_ON(rmi_features(i, &rmi_feat_reg_cache[i])))
-> +			return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int __init arm64_init_rmi(void)
-> +{
-> +	int ret;
-> +
-> +	/* Continue without realm support if we can't agree on a version */
-> +	ret = rmi_check_version();
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = rmi_read_features();
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Note arm64_init_rmi() must be called before kvm_init_rmi() otherwise KVM
-> + * will not support realm guests. subsys_initcall() is called before
-> + * module_init() (used for KVM) so this is OK.
-> + */
-> +subsys_initcall(arm64_init_rmi);
-> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
-> new file mode 100644
-> index 0000000000000..2fb1f7f86d71e
-> --- /dev/null
-> +++ b/include/linux/arm-rmi-cmds.h
-> @@ -0,0 +1,34 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2026 ARM Ltd.
-> + */
-> +
-> +#ifndef __LINUX_ARM_RMI_CMDS_H_
-> +#define __LINUX_ARM_RMI_CMDS_H_
-> +
-> +#include <linux/arm-smccc-rmi.h>
-> +#include <linux/bug.h>
-> +#include <linux/types.h>
-> +
-> +unsigned long rmi_feat_reg(unsigned long id);
-> +
-> +/**
-> + * rmi_features() - Read feature register
-> + * @index: Feature register index
-> + * @out: Feature register value is written to this pointer
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_features(unsigned long index, unsigned long *out)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_FEATURES, index, &res);
-> +
-> +	if (res.a0 == RMI_SUCCESS && out)
-> +		*out = res.a1;
-> +
-> +	return res.a0;
-> +}
-> +
-
-We needn't expose rmi_features() through include/linux/arm-rmi-cmds.h since it's
-used for once in rmi.c::rmi_read_features(). I would suggest to drop it by combining
-the code with that function.
-
-> +#endif
-
-#endif /* __LINUX_ARM_RMI_CMDS_H_ */
-
-Thanks,
-Gavin
-
+-- 
+Sincerely yours,
+Mike.
 
