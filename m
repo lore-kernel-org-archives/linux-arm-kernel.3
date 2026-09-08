@@ -4,62 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7C3C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 19:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE0DC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 19:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vXhWQw22vhXAQ2gomRzDVD1jyGqiKml9QCCpuAJzC6k=; b=080SbixusTk+7bfU3OZ0tOHrsH
-	+4zMdA8upvpn8khG3xbsaKzMQZOupsI431sh9Mlt82cHCe0cSKnSTVdrJ8CZpUGA6ssBeaedfutkr
-	GqIwbKuLSqwggBUSC0jmbVIPGoYRm7LecbqIFr6sb1UxJSyEvunEeHdOKp7k7Z7J+jzybTePXLM/u
-	TC851FUaIZt3b0vblCPAQhndk1Xko7nvedA0hCgyzYlpbclWghDCY0egpaj3S48zS263dNiBQ8q3o
-	yRkH9YuX7xrDJbHy98YEVuKJNllvbpwgh9QRk1I7leUdaKU+6h3OECg9Q0cYDmG/ZFvnwnYQAgdF6
-	0MwkJvzQ==;
+	bh=7NZ4qj4y6ghNql1BBq5OgAjPl+eevtru+FCwcPmuWtk=; b=BOaSM1BgR7CdGjQssvJD+JnE3L
+	1diBOuzMfSdGXIVW2317tdXyBDjsiH9YXyJts6Ahpa0GiN+3zHH2AZEmFy6t/PAv9CCXya6HUU8GZ
+	ZkkaemyHEXZ7ueSyG5R2toXj1C/cKf5KqJfnXfDK4xtqe8x7FxcF99v12rBDa2uYG74c5vxoRCaMj
+	L7iTQe6HtVXBpXU1TdmyK/ycr5dd4MpBQZ37zzjp90uDmjSuAFBMHBHKoANU39FP7RZWIk7n+/J3F
+	ugHqBMgiJy1jHZ9LsD9ZUJgxU5HKdzQmSiUUzbKn/V7AYVPjJkQdcyew/hlffQAwkjo134xnGnsmJ
+	SsZWhaGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41vr-0000000A7HN-2Mbt;
-	Tue, 08 Sep 2026 19:56:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x41xe-0000000A7XD-1FwR;
+	Tue, 08 Sep 2026 19:58:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41vp-0000000A7HF-3gyt
+	id 1x41xd-0000000A7Wn-2Lot
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 19:56:37 +0000
+	Tue, 08 Sep 2026 19:58:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5108340A2C;
-	Tue,  8 Sep 2026 19:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7725C1F00A3A;
-	Tue,  8 Sep 2026 19:56:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B8329601DE;
+	Tue,  8 Sep 2026 19:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D225A1F00A3A;
+	Tue,  8 Sep 2026 19:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788897397;
-	bh=vXhWQw22vhXAQ2gomRzDVD1jyGqiKml9QCCpuAJzC6k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ei5MZjQhnv1BJZ4J4jb+4yGVs4QfDIeXmSd/v+LcQAbS04thRvfCeILdLXHdDOo5l
-	 cB1cEzL4ZurUh5asediffjsprVN3X6WBt7/6JezEycGc5SvgBN5ywWYRCYJAobIwGR
-	 EvwzGcSvoLr74k8E3DDlGgJ9Ys+xyEBEfTdRxVEnBoz+H5WdPhhL8ID5XsK4kGv4XS
-	 p3f1JVoI+nWUkaHlynnHrITNae9llhsy44HndAPOvYcwjMWk221vRFffnsFXDEvoG7
-	 UEgpkq7u2iC6Lhz6GkyhOJYm2R66XREDjqkp6y6YLdWa0RuKxJPfKmX2S/sK3OkxxB
-	 ggHUaEijiRGYg==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin
- Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa
- Saleh <smostafa@google.com>, Nicolin Chen <nicolinc@nvidia.com>, Daniel
- Mentz <danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, rafael@kernel.org, Danilo Krummrich
- <dakr@kernel.org>, driver-core@lists.linux.dev, Pranjal Shrivastava
- <praan@google.com>
-Subject: Re: [PATCH v10 08/15] iommu/arm-smmu-v3: Cache and restore MSI config
-In-Reply-To: <20260908171712.356645-9-praan@google.com>
-References: <20260908171712.356645-1-praan@google.com>
- <20260908171712.356645-9-praan@google.com>
-Date: Tue, 08 Sep 2026 21:56:33 +0200
-Message-ID: <87pkyn1pqm.ffs@fw13>
+	s=k20260515; t=1788897508;
+	bh=7NZ4qj4y6ghNql1BBq5OgAjPl+eevtru+FCwcPmuWtk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=O3sWU/ZmJzHn+2N6ETJ6oNqcqqmbVuWJyd8w69y2FiLoyKFPpwOd8xhXQmWtepC2m
+	 3v8BXdvB5BHlJRf3W+ok1DEqhufqOgwc4FHTzrUJUWEUzQrReCDYOVeyaE4E3NWt/J
+	 ckmMlL70nIBY37lOFcGkzb8ln0UQujCvvsm71z65kEWXTP4d6QZdsFZa0bHMptXSxK
+	 22WGC47I115WfmGf89Q3jP4BLDVvdklP9Dh0wbXkPYOHs32iGy/n9gA1jgl4FLfWL1
+	 RmAeWVOOuG4iSCavArip1qfjLmYW4fs11N0eoVIxucim1vppcrnbYlIdj4xh1BLRJa
+	 DU7Ozjcdi1ouw==
+Date: Tue, 8 Sep 2026 20:58:18 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Drew Fustini <fustini@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	"A. Sverdlin" <alexander.sverdlin@siemens.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	"David Hildenbrand (Red Hat)" <david@kernel.org>,
+	Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Linux-OMAP <linux-omap@vger.kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH 11/13] ARM: versatile: remove mps2 support
+Message-ID: <20260908-rare-dragonfly-of-variation-1d59ae@sudeepholla>
+References: <20260908152808.3928630-1-arnd@kernel.org>
+ <20260908152808.3928630-12-arnd@kernel.org>
+ <20260908-nuthatch-of-utter-peace-68ead7@sudeepholla>
+ <85c2f9d0-0e9f-4228-9275-65e731def3b1@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <85c2f9d0-0e9f-4228-9275-65e731def3b1@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +108,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08 2026 at 17:17, Pranjal Shrivastava wrote:
-> +static void __maybe_unused arm_smmu_resume_msis(struct arm_smmu_device *smmu)
-> +{
-> +	/* Clear the MSI address regs as they reset to unknown value */
-> +	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
-> +	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
-> +
-> +	if (smmu->features & ARM_SMMU_FEAT_PRI)
-> +		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
-> +
-> +	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
-> +		return;
-> +
-> +	if (!smmu->dev->msi.domain) {
-> +		dev_err(smmu->dev, "msi_domain absent during resume\n");
-> +		smmu->features &= ~ARM_SMMU_FEAT_MSI;
-> +		return;
+On Tue, Sep 08, 2026 at 09:51:22PM +0200, Arnd Bergmann wrote:
+> On Tue, Sep 8, 2026, at 21:49, Sudeep Holla wrote:
+> > On Tue, Sep 08, 2026 at 05:28:01PM +0200, Arnd Bergmann wrote:
+> >> From: Arnd Bergmann <arnd@arndb.de>
+> >> 
+> >> The Arm mps2 platform is the reference implementation for Arm
+> >> microcontrollers and is useful for testing but not expected to be used
+> >> as a production device.
+> >> 
+> >> With all the Cortex-M based products gone, there is no longer a need
+> >> for a reference platform either, so remove it as well.
+> >> 
+> >> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> >> Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> >
+> > Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+> 
+> Thanks!
+> 
+> > While at it, should we also remove
+> >
+> > drivers/tty/serial/mps2-uart.c and related Makefile/Kconfig entries ?
+> 
+> Yes, I have a patch for that in
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=board-remove-7.3 and will post that once this series has progressed enough.
+> 
 
-If dev->msi.domain == NULL then arm_smmu_setup_msis() already cleared
-the MSI feature bit. Has it magically been set again or does resume run
-before init or does dev->msi.domain magically disappear during suspend?
+Ah ok, then discard my followup message. I assume you would have the timer
+driver as well. Thanks for the deprecation.
 
-I'm all for defensive programming, but this is voodoo and not structured
-defense.
-
-Aside of that dev->msi.domain is the patently wrong condition. For
-devices which instantiate a MSI device domain dev->msi.domain points to
-the MSI parent domain and not to the actual relevant device domain.
-
-You can't query that easily by chasing pointers (for a reason), but
-there is no point to do so. See below and the patch I sent you.
-
-> +	platform_device_msi_rewrite(smmu->dev, smmu->gerr_irq, arm_smmu_write_msi_msg);
-> +	platform_device_msi_rewrite(smmu->dev, smmu->evtq.q.irq, arm_smmu_write_msi_msg);
-> +
-> +	if (smmu->features & ARM_SMMU_FEAT_PRI)
-> +		platform_device_msi_rewrite(smmu->dev, smmu->priq.q.irq, arm_smmu_write_msi_msg);
-
-And that's exactly the point I made about sprinkling this stuff all over
-the place and thereby violating all layering rules.
-
-Done correctly this whole function boils down to:
-
-static void __maybe_unused arm_smmu_resume_msis(struct arm_smmu_device *smmu)
-{
-	/* Clear the MSI address regs as they reset to unknown value */
-	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
-	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
-
-	if (smmu->features & ARM_SMMU_FEAT_PRI)
-		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
-
-        msi_device_domain_restore_msi_msgs(smmu->dev, 0);
-}
-
-It just works simply because the function returns early when there is no
-domain or the domain is not a MSI device domain, which is correct
-because there is nothing to do when nothing is set up.
-
-But that results in too comprehensible code I fear.
-
-Thanks,
-
-        tglx
+-- 
+Regards,
+Sudeep
 
