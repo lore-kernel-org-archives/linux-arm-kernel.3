@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FCBBC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4A9C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44wijPDxOs8MXYWMCES6hvBHIczTeQ5fHlAE3Ub1cRQ=; b=nWTZR1R7rKNZeP+JwXS9bkRyZh
-	Q8Z1Evs6edF/Y5BRkIrN4E8u3Us4yvJzwrnnv1tjuT7KMNmlYYrzp53NQaJfubL1bT0g060daPUxY
-	t7dZTmKNZAU+0QvAwoVjsVqlex3sW15Wo5eOHZmJ4dA/cWnsZFMM5+/n03G4fL9pwytqDZVxHQ70F
-	ttD641aP8BroFTk9+RT1+iWNrW/Q2zfQe8hVJShOLAoSFNLJz/bQhBWTiXEcAqmGhJ5f6FvM1QE+6
-	vrZwxe1llWz8UzVAaSRu7URuHHtlY8ak8YEpMAmnG0SELlc8nfMqLu+xNMOH8eUUJSZ1KTlaE5puA
-	E35dCvSg==;
+	bh=pd9x46nrmAOaC2BjKspVDuYVO1rQ3lmlYo9Ncu9f5iw=; b=Gxa/0H70pa2qS0YWREh0kkHzdq
+	P9rLZC8TRyI2V6uS/TgtFkS0c4rmZEXXN0yf/E/0XPo64SizU2xpbbkk2tg+1Kn2PNrVowmLCFei4
+	NHLEyCgVAV18eCf0+YS5xLOqJxR7CXTu0o8lTmlHDWq0l6li+eO4PiumloZhMkxgvlJby7tRgCHDh
+	y7As8MJJLazuU2cDABtVmJXisCv62XqockHwGjx29UDcRBcKdbObpNPTR3i+OtanI49kQVlZYOcZ/
+	3HyMIm7PsGLY8zljmCsuDAABMkKQdQL1ivz65XIpJpuPbDCmOYNmiOraxYY8pzo+RLfv1SXRZubbs
+	EZkMySCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x6D-00000009JXl-47iZ;
-	Tue, 08 Sep 2026 14:47:02 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1x3wSE-00000009EHZ-2N5l;
+	Tue, 08 Sep 2026 14:05:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x69-00000009JWu-3J0X
+	id 1x3wS9-00000009EDm-0Uo4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 14:05:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pd9x46nrmAOaC2BjKspVDuYVO1rQ3lmlYo9Ncu9f5iw=; b=rYVGuThXGRecN6kAdDsDYNQi9C
+	jSGF9jE7EdiCQfWjKNPDS7fmuetZtiUTuDc3q+G6nDVH393WbvZ/z8c9VVIO1azDC1qEQsGK6dApv
+	34S2JKjaF4R5rFAXHorOZKqEc2l87XuMZgxvODFhc0OjKcMqlCs2OT0R5KJKCyOeg5e6tot/FyQy8
+	++jxlVDyMIGWomhJNRLud49TSzWnphpIS6GNUa1iPY9AIUdvSJYw5Tsu0rCx9A7dF9LDqWMfwO2Lc
+	8hTg2amQWEs8ylq0Kxxs2zr8ifN9NlD3WvymQRvmELaPJYwHzTXe/rIQqwJQBtP/833yioEN07/OS
+	UgGRPSEQ==;
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3wS5-0000000HVmK-18qb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 14:47:00 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4956869750eso42281775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:46:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788878816; x=1789483616; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=44wijPDxOs8MXYWMCES6hvBHIczTeQ5fHlAE3Ub1cRQ=;
-        b=E/D3Fi0JkyaDrZNAPkIjN7whaVs2ptUn77eNqzB9N+mimOc+2Rv1VFQmwaByBToIcs
-         HPEBMcPAtKl4f/OdDP8uQrES3+THh49pD8S2AfUmY6Pbzt45ATLtE5D+APhZ/K6GGwZI
-         OG5cUzvnufD+vjf9JM5ZQ6o2yu+ZaQ62fBx8Qvvd+xEEYQismSGlnJfLlL0T/9q9QVnW
-         J4Lz+NW+gMJDYidfolOeFTvSgWP9aDBXeAX2cm7Yw1fmoCjcMhY+Zpy4B2Kyl95eJQPe
-         ztYlJ5Un6rpp3EBg2vDD+BJfoFAkg/obMyw8P2n8u8xl/3YKdXi+GEyY7RBrT2Y7eGP2
-         CP6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788878816; x=1789483616;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=44wijPDxOs8MXYWMCES6hvBHIczTeQ5fHlAE3Ub1cRQ=;
-        b=TEO+rwu4FU3Itcj5bsNbcvBq/BTKhilcvwY0kvF+NVglHzDJ768+euuTLqfmSEhna0
-         4Hp14dBoWUt6kspd3uyYLmphNErh6m0a5sch8HiTSFtWrDAceWKd9/4WY/Eql8sPer7m
-         kvb83sdwaaTF7YpDJ7gf6zHfRnDtJfxvu7GFmXLfuHabj+8duWD8RAy4TqPjixpqqrfe
-         +544w2Xm7hZo2mzSMdlMH138RZslRNEZ7pCaSTzFUe1g0expG07Wg9ATxZcbnGly9uz1
-         +wdndLIXwtBlRWch3o/2xYy7DZATYtF4Ty/H9jxNSC2cT8tUFIWf/QAGyrax4BAgGZ7l
-         I3Gw==
-X-Forwarded-Encrypted: i=1; AKwUvBwlvNe8pV3YyoyzAHtVhVPd1MHxWZqvg7lADDQWSeUqZK7tfI87ZU4stbrDNm/rH8v0ShjNLkAjRmFBNvzzZ0GW@lists.infradead.org
-X-Gm-Message-State: AFuF++mAi1JAeDI5bjAqT0WskYIUUR7ga2XElZu4NOI7zeFnGCSOIIY5
-	jQuHKXQLaVP5/a7/9TsNKmSE4LpQStMBiRKYv8szEXA2I9TqfX8XGxuVU2kVdrw1+w==
-X-Gm-Gg: AYBFou0m22xYUT2q+F+bd/l6pA7/8nbrEQiHrbqYuAyz8eCILS//BRoYH4NHAQiJfGF
-	FUkYAVBj7dfTE2UrB2xCKgV+c9XLxvv5d/4LcDQJV9Pv8mrq7PXfsXHSHCLc0JwNE7LjOlOkA/Y
-	ZImUkV5o8m1bhQoAdChUpujDVw6eoSAhJzkJdxAexbnrZsXU+NdUqZ9uxe4Q0fdwEHLXf5kzSlZ
-	RGw7f0d1qAh6AUhLndoVDC2kFIvcRsgWrd/J4dI/CbKskZ0deIp3IUAdwSOG+ajKUNhHb3R6p/p
-	IX3pb6caSLL4szq2m+99ysgEfXIoS3OaPe/11Qsa/Oboz4HEaxY+SIDI2aWMwq8Y+f6+CPv+T2l
-	mMATCrAUmsK6a1clKBe/SBwQijv75R3JQ7fHqn2o8ecK48HqMbAYMVGiuMD22dQexlTgpo5p0ZV
-	oIynwTEo4H8UwPqqcxxBBNbbwCcIo9gTGV8DsADeBJ0KIvRnIiSyJB23gdzb/DRZKUk3Ez82iB4
-	ElZSddQyzxosAwV1OeakqaqcSTOnJSJ
-X-Received: by 2002:a05:600c:620b:b0:49c:fa20:cc07 with SMTP id 5b1f17b1804b1-49cff19cbf4mr236754075e9.30.1788878815281;
-        Tue, 08 Sep 2026 07:46:55 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48594172546sm28296366f8f.15.2026.09.08.07.46.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 07:46:54 -0700 (PDT)
-Date: Tue, 8 Sep 2026 15:46:51 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 16/20] KVM: arm64: Add __pkvm_host_split_guest HVC
-Message-ID: <aqAf27qhViD-V5ao@google.com>
-References: <20260803100904.3563942-1-vdonnefort@google.com>
- <20260803100904.3563942-17-vdonnefort@google.com>
- <hrhbuwdfu625jtzm75t6wnva6odgreshchyv75ebqntlymslz7@adyxhe7oyypc>
+	Tue, 08 Sep 2026 14:05:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=pd9x46nrmAOaC2BjKspVDuYVO1rQ3lmlYo9Ncu9f5iw=;
+	b=KnNaAEdws/1ozk/JlA0HrBb4EKhznmfvIy2+XmntI8y+3YaFztipNOLb3wVX2SS9sDILDYyky
+	kKIaZlApFm125MuxT2WuB5nc03Ih055e36P7Lta7L4Z6qnH1O3E/0Q9ETWlxpm7XKXrH8rEGU0G
+	5BIKROtvtGgOI7AqBhCDutE=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hfQRB6H2pz1cyPY;
+	Tue,  8 Sep 2026 21:54:30 +0800 (CST)
+Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0BFCA40563;
+	Tue,  8 Sep 2026 22:05:24 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
+ (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
+ 2026 22:05:21 +0800
+From: Sizhe Liu <liusizhe5@huawei.com>
+To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
+	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
+	<wuzongyu1@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
+Subject: [PATCH v4 5/8] perf hisi-ptt: Add parsing of supported message types and proto length
+Date: Tue, 8 Sep 2026 22:05:06 +0800
+Message-ID: <20260908140509.2485649-6-liusizhe5@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260908140509.2485649-1-liusizhe5@huawei.com>
+References: <20260908140509.2485649-1-liusizhe5@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <hrhbuwdfu625jtzm75t6wnva6odgreshchyv75ebqntlymslz7@adyxhe7oyypc>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_074657_905475_2517672E 
-X-CRM114-Status: GOOD (  40.56  )
+X-CRM114-CacheID: sfid-20260908_150533_959467_41912AD3 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,201 +103,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 06:39:49PM +0100, Wei-Lin Chang wrote:
-> On Mon, Aug 03, 2026 at 11:09:00AM +0100, Vincent Donnefort wrote:
-> 
-> [...]
-> 
-> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > index 41a8687938eb..355573d53fed 100644
-> > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > @@ -824,8 +824,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
-> >   * kvm_pgtable_stage2_split() is best effort: it tries to break as many
-> >   * blocks in the input range as allowed by @mc_capacity.
-> 
-> Maybe also adjust the comment and remove @mc_capacity while changing
-> this, looks like it was included by mistake.
-> 
-> >   */
-> > -int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > -			     struct kvm_mmu_memory_cache *mc);
-> > +int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size, void *mc);
-> >  
-> 
-> [...]
-> 
-> > +static int host_stage2_split_gfn_meta(phys_addr_t phys, u64 ipa, u64 size, struct pkvm_hyp_vm *vm)
-> > +{
-> > +	pkvm_handle_t handle;
-> > +	kvm_pte_t pte;
-> > +	u64 gfn, end;
-> > +	s8 level;
-> > +	int ret;
-> > +
-> > +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (kvm_granule_size(level) != size)
-> > +		return -EINVAL;
-> > +
-> > +	ret = host_stage2_decode_gfn_meta(pte, &handle, &gfn);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (handle != vm->kvm.arch.pkvm.handle || gfn != (ipa >> PAGE_SHIFT))
-> > +		return -EINVAL;
-> > +
-> > +	end = phys + size;
-> > +	while (phys < end) {
-> > +		u64 meta = host_stage2_encode_gfn_meta(vm, gfn);
-> > +		kvm_pte_t annotation = FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_GUEST) |
-> > +				       FIELD_PREP(KVM_HOST_DONATION_PTE_EXTRA_MASK, meta);
-> > +
-> > +		ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
-> > +				      phys, PAGE_SIZE, &host_s2_pool,
-> > +				      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
-> > +		if (WARN_ON(ret))
-> > +			return ret;
-> > +
-> > +		phys += PAGE_SIZE;
-> > +		gfn++;
-> 
-> Annotating every PTE is required here because patch 2's
-> stage2_map_prefault_idmap() copies the same annotation to each PTE, so
-> the resulting PTEs all contain the same gfn.
-> 
-> In other words patch 2 simply leaves wrong annotations in this case, and
-> we make up for it here.
-> 
-> We can't just remove patch 2 because a HYP owned block needs to be
-> broken down with HYP owned annotations when a single page is donated
-> back to the host.
-> 
-> With this, would it be a better design to have an annotation-aware
-> helper that splits a host block properly including the annotations, and
-> call it whenever pKVM annotates or maps host stage-2?
+Classify TLP messages by Header DW0 Format field and Type field for
+both 4DW and 8DW formats, according to PCIe r6.4 sec 2.2.1.1 & 2.2.1.2.
 
-I ended-up with that solution because it is difficult to draw the line between
-pulling pKVM specific knowledge in pgtable.c and reusing pgtable.c private
-functions in mem_protect.c. So I wanted a mem_protect.c function that can split
-the annotations, but without having to touch pgtable.c. Indeed, that isn't the
-most optimal.
+Parsing packets into:
+- MRd  (Non-posted Memory Read request)
+- MWr  (Posted Memory Write request)
+- DMWr (Posted Deferrable Memory write request)
+- Msg  (Posted Message request)
+- Atom (Non-Posted AtomicOP request)
+- IO   (Non-Posted IO request)
+- CFG  (Non-Posted Configuration request)
+- CPL  (Completion request)
 
-Looking again at stage2_split_walker(), perhaps pgtable.c could export only a
-single additional function to allow implementing a pkvm version of stage2_split.
-This stage2 split can then be used for both guest and host.
+The parsed message type is stored in pkt_buf->pkt_msg_type and will
+be used by subsequent patches to select the correct field layout for
+DW1, DW2 and DW3 printing.
 
-Let me see if I can optimise that
+Classify protocol defined header length by Format field, according to PCIe
+r6.4 sec 2.2.1.1.
 
-Eventually part of the "pkvm_stage2_split()" could be reused by
-stage2_map_prefault_idmap() I'll see if that's worth it.
+Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
+Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
+---
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 89 +++++++++++++++++++
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   | 40 ++++++++-
+ tools/perf/util/hisi-ptt.c                    |  1 +
+ 3 files changed, 126 insertions(+), 4 deletions(-)
 
-> 
-> >  	}
-> >  
-> > -	*gfn = FIELD_GET(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, meta);
-> >  	return 0;
-> >  }
-> >  
-> 
-> [...]
-> 
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index c4ebae0544d4..986b5a19b07a 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -1537,9 +1537,10 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
-> >  			       enum kvm_pgtable_walk_flags visit)
-> >  {
-> >  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
-> > -	struct kvm_mmu_memory_cache *mc = ctx->arg;
-> > -	struct kvm_s2_mmu *mmu;
-> > +	struct stage2_map_data *data = ctx->arg;
-> >  	kvm_pte_t pte = ctx->old, new, *childp;
-> > +	struct kvm_s2_mmu *mmu = data->mmu;
-> > +	void *mc = data->memcache;
-> >  	enum kvm_pgtable_prot prot;
-> >  	s8 level = ctx->level;
-> >  	bool force_pte;
-> > @@ -1554,30 +1555,37 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
-> >  	if (!kvm_pte_valid(pte))
-> >  		return 0;
-> >  
-> > -	nr_pages = stage2_block_get_nr_page_tables(level);
-> > -	if (nr_pages < 0)
-> > -		return nr_pages;
-> > -
-> > -	if (mc->nobjs >= nr_pages) {
-> > -		/* Build a tree mapped down to the PTE granularity. */
-> > +	if (unlikely(is_protected_kvm_enabled())) {
-> > +		/* pKVM only supports splitting PMD-level blocks */
-> > +		if (level != KVM_PGTABLE_LAST_LEVEL - 1)
-> > +			return -EINVAL;
-> >  		force_pte = true;
-> >  	} else {
-> > -		/*
-> > -		 * Don't force PTEs, so create_unlinked() below does
-> > -		 * not populate the tree up to the PTE level. The
-> > -		 * consequence is that the call will require a single
-> > -		 * page of level 2 entries at level 1, or a single
-> > -		 * page of PTEs at level 2. If we are at level 1, the
-> > -		 * PTEs will be created recursively.
-> > -		 */
-> > -		force_pte = false;
-> > -		nr_pages = 1;
-> > +		struct kvm_mmu_memory_cache *host_mc = mc;
-> > +
-> > +		nr_pages = stage2_block_get_nr_page_tables(level);
-> > +		if (nr_pages < 0)
-> > +			return nr_pages;
-> > +
-> > +		if (host_mc->nobjs >= nr_pages) {
-> > +			/* Build a tree mapped down to the PTE granularity. */
-> > +			force_pte = true;
-> > +		} else if (host_mc->nobjs) {
-> > +			/*
-> > +			 * Don't force PTEs, so create_unlinked() below does
-> > +			 * not populate the tree up to the PTE level. The
-> > +			 * consequence is that the call will require a single
-> > +			 * page of level 2 entries at level 1, or a single
-> > +			 * page of PTEs at level 2. If we are at level 1, the
-> > +			 * PTEs will be created recursively.
-> > +			 */
-> > +			force_pte = false;
-> > +			nr_pages = 1;
-> > +		} else {
-> > +			return -ENOMEM;
-> > +		}
-> >  	}
-> >  
-> > -	if (mc->nobjs < nr_pages)
-> > -		return -ENOMEM;
-> > -
-> > -	mmu = container_of(mc, struct kvm_s2_mmu, split_page_cache);
-> >  	phys = kvm_pte_to_phys(pte);
-> >  	prot = kvm_pgtable_stage2_pte_prot(pte);
-> 
-> I feel like this change is trying too hard to make the pKVM case fit
-> in stage2_split_walker(). The assumptions differ by much: the original
-> usage assumes kvm_mmu_memory_cache, can potentially split more than one
-> level, and makes decisions base on the memcache's reserve.
-> 
-> Perhaps create another function for pKVM?
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+index 00bd9309df68..c9515676ba5c 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+@@ -79,6 +79,94 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
+ 	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
+ };
+ 
++/* TLP message parsers below according to PCIe r6.4 sec 2.2.1.1 & 2.2.1.2 */
++static bool hisi_ptt_is_mrd_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0 || format == 0x1) && (type == 0);
++}
++
++static bool hisi_ptt_is_mwr_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x2 || format == 0x3) && (type == 0);
++}
++
++static bool hisi_ptt_is_dmwr_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x2 || format == 0x3) && (type == 0x1b);
++}
++
++static bool hisi_ptt_is_msg_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x1 || format == 0x3) && ((type & 0x18) == 0x10);
++}
++
++static bool hisi_ptt_is_io_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0 || format == 0x2) && (type == 0x2);
++}
++
++static bool hisi_ptt_is_atomic_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x2 || format == 0x3) &&
++	       (type == 0xc || type == 0xd || type == 0xe);
++}
++
++static bool hisi_ptt_is_cfg_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0 || format == 0x2) && (type == 0x4 || type == 0x5);
++}
++
++static bool hisi_ptt_is_cpl_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0  || format == 0x2) && (type == 0xa || type == 0xb);
++}
++
++static int hisi_ptt_parse_pkt_msg_type(uint32_t format, uint32_t type)
++{
++	if (hisi_ptt_is_mrd_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_MRD;
++	else if (hisi_ptt_is_mwr_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_MWR;
++	else if (hisi_ptt_is_dmwr_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_DMWR;
++	else if (hisi_ptt_is_msg_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_MSG;
++	else if (hisi_ptt_is_atomic_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_ATOM;
++	else if (hisi_ptt_is_io_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_IO;
++	else if (hisi_ptt_is_cfg_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_CFG;
++	else if (hisi_ptt_is_cpl_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_CPL;
++
++	return HISI_PTT_PKT_TYPE_UNKNOWN;
++}
++
++static int hisi_ptt_parse_pkt_header_proto_len(uint32_t format)
++{
++	if (format & 0x1)
++		return HISI_PTT_4DW_HEADER_PROTO_LEN;
++
++	return HISI_PTT_3DW_HEADER_PROTO_LEN;
++}
++
++static void hisi_ptt_parse_pkt_info(struct hisi_ptt_pkt_buf *pkt_buf,
++				    uint32_t dw)
++{
++	uint32_t format, type;
++
++	format = (pkt_buf->pkt_type == HISI_PTT_4DW_PKT) ?
++		  FIELD_GET(HISI_PTT_HEAD0_4DW_FORMAT, dw) :
++		  FIELD_GET(HISI_PTT_HEAD0_8DW_FORMAT, dw);
++	type = (pkt_buf->pkt_type == HISI_PTT_4DW_PKT) ?
++		FIELD_GET(HISI_PTT_HEAD0_4DW_TYPE, dw) :
++		FIELD_GET(HISI_PTT_HEAD0_8DW_TYPE, dw);
++
++	pkt_buf->pkt_msg_type = hisi_ptt_parse_pkt_msg_type(format, type);
++	pkt_buf->proto_len = hisi_ptt_parse_pkt_header_proto_len(format);
++}
++
+ static void hisi_ptt_print_raw_record(size_t offset, uint32_t value)
+ {
+ 	const char *color = PERF_COLOR_BLUE;
+@@ -114,6 +202,7 @@ static void hisi_ptt_print_head0(struct hisi_ptt_pkt_buf *pkt_buf)
+ 	uint32_t dw;
+ 
+ 	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
++	hisi_ptt_parse_pkt_info(pkt_buf, dw);
+ 	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
+ 
+ 	if (pkt_buf->pkt_type == HISI_PTT_4DW_PKT)
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
+index 6747878b030e..f02ba29dfe00 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
+@@ -7,15 +7,18 @@
+ #ifndef INCLUDE__HISI_PTT_PKT_DECODER_H__
+ #define INCLUDE__HISI_PTT_PKT_DECODER_H__
+ 
++#include <stdbool.h>
+ #include <stddef.h>
+ #include <stdint.h>
+ #include <linux/bits.h>
+ #include <linux/bitfield.h>
+ 
+-#define HISI_PTT_8DW_CHECK_MASK		GENMASK(31, 11)
+-#define HISI_PTT_IS_8DW_PKT		GENMASK(31, 11)
+-#define HISI_PTT_MAX_SPACE_LEN		10
+-#define HISI_PTT_FIELD_LENGTH		4
++#define HISI_PTT_8DW_CHECK_MASK			GENMASK_U32(31, 11)
++#define HISI_PTT_IS_8DW_PKT			GENMASK_U32(31, 11)
++#define HISI_PTT_MAX_SPACE_LEN			10
++#define HISI_PTT_FIELD_LENGTH			4
++#define HISI_PTT_3DW_HEADER_PROTO_LEN		3
++#define HISI_PTT_4DW_HEADER_PROTO_LEN		4
+ 
+ /* Header DW0 fields for 4DW format */
+ #define HISI_PTT_HEAD0_4DW_TIME		GENMASK_U32(10, 0)
+@@ -27,6 +30,10 @@
+ #define HISI_PTT_HEAD0_4DW_TYPE		GENMASK_U32(29, 25)
+ #define HISI_PTT_HEAD0_4DW_FORMAT	GENMASK_U32(31, 30)
+ 
++/* Header DW0 fields for 8DW format */
++#define HISI_PTT_HEAD0_8DW_TYPE		GENMASK_U32(28, 24)
++#define HISI_PTT_HEAD0_8DW_FORMAT	GENMASK_U32(31, 29)
++
+ enum hisi_ptt_pkt_type {
+ 	HISI_PTT_4DW_PKT,
+ 	HISI_PTT_8DW_PKT,
+@@ -38,11 +45,36 @@ static int hisi_ptt_pkt_size[] = {
+ 	[HISI_PTT_8DW_PKT]	= 32,
+ };
+ 
++enum hisi_ptt_pkt_msg_type {
++	/* Types do not support analysis */
++	HISI_PTT_PKT_TYPE_UNKNOWN,
++	/* NP-(Memory Read requset: MRd) */
++	HISI_PTT_PKT_TYPE_MRD,
++	/* P-(Memory write request: MWr) */
++	HISI_PTT_PKT_TYPE_MWR,
++	/* P-(Deferrable Memory write request: DMWr) */
++	HISI_PTT_PKT_TYPE_DMWR,
++	/* P-(Message request: Msg, MsgD) */
++	HISI_PTT_PKT_TYPE_MSG,
++	/* NP-(AtomicOP request: FetchAdd, Swap, CAS) */
++	HISI_PTT_PKT_TYPE_ATOM,
++	/* NP-(I/O request: IORd, IOWr) */
++	HISI_PTT_PKT_TYPE_IO,
++	/* NP-(Configuration request: CfgRd0, CfgWr0, CfgRd1, CfgWr1) */
++	HISI_PTT_PKT_TYPE_CFG,
++	/* CPL-(Completion: Cpl, CplD) */
++	HISI_PTT_PKT_TYPE_CPL,
++	/* Type max in enumeration*/
++	HISI_PTT_PKT_TYPE_MAX
++};
++
+ struct hisi_ptt_pkt_buf {
+ 	const unsigned char *buf;
+ 	size_t pos;
+ 	size_t len;
+ 	enum hisi_ptt_pkt_type pkt_type;
++	enum hisi_ptt_pkt_msg_type pkt_msg_type;
++	size_t proto_len;
+ };
+ 
+ int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf);
+diff --git a/tools/perf/util/hisi-ptt.c b/tools/perf/util/hisi-ptt.c
+index ea659947c27f..78817ae7a8ea 100644
+--- a/tools/perf/util/hisi-ptt.c
++++ b/tools/perf/util/hisi-ptt.c
+@@ -63,6 +63,7 @@ static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
+ 	pkt_buf.pos = 0;
+ 	pkt_buf.pkt_type = hisi_ptt_check_packet_type(buf, len);
+ 	pkt_buf.len = round_down(len, hisi_ptt_pkt_size[pkt_buf.pkt_type]);
++	pkt_buf.pkt_msg_type = HISI_PTT_PKT_TYPE_UNKNOWN;
+ 	color_fprintf(stdout, color, ". ... HISI PTT data: size %zu bytes\n",
+ 		      pkt_buf.len);
+ 
+-- 
+2.33.0
 
-Looking at this version, the pKVM case is rather small, hence reusing the same
-function made sense to me.
-
-A completely separate function is actually what we have in Android kernels at
-the moment.
-
-Anyway, as per the discussion above, I'll probably try to create a pKVM specific
-version of the split.
-
-> 
-> Thanks,
-> Wei-Lin Chang
-> 
-> [...]
 
