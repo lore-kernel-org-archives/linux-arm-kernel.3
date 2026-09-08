@@ -4,70 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408B9C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA64C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oV5ye1wgWjHNd8tXu58PgTkZM2DHpGDoyc6w2RJVgo=; b=b8UVmEeNldw4uMpgDeHoaOVAAO
-	87qQ874mcV3HDQcPGJRyiG/CNNslzHQV9gpwtnYlfzkaHpA/lil6vl1Tzwxs4KUuANlkPHNcAXT7H
-	gs6m3lLLouxpxtqD61xszsN1feEAzGUUjbYPC6ACyN+25vaWaHuh91wxy7hihI+U5LLOQkUoARVD8
-	Vo8avMIKsLoodWrKwZYVzcsu+8D25dnlxWNbngbIhm7hq3Q4Z+py+vhODPBntJ2PJsjnyIHXLrUq9
-	5YieUbACn/kwZ7w3mrshb+DAqFzJDQ4kphJTh69dR+/7Jk1CKQ8tliIapc9XL8iH/uu6uZEyzAhhm
-	dOtgIqww==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eIZ+kUaFwJKaLRLpyngmxMQG27w+758uZsHUvhX4A7o=; b=lBA0gKKe5Gq9ZemAersT6TTS1H
+	bdi2fLKNd40e6xfvGmmbWawWO5eZk2b04+5KED+DfjOY5NnDMt8vRyEmlnixZ2aKHXb35XhwV2nY5
+	YKP0g70n3k7xpul617FxhGZ5FnBTM4q4M0gQWptqPARvjJlaXb9OcSP+m3kaMzprvtkLwWXvmvjRX
+	nkSK/BhwchVudDgcGMhOJPqU6QuwME8n6TGwMy2rVzIs+XGEHNTg76Qanh+Ulb7aZfVqXegNJ21iX
+	SwB7xZJ4S6ZkOj0uiJe2vgZ2ULmisz8kR/qaA2NavuixqrPlJ/6q0Zi5aGmda5FDl34YJ4JY12Euk
+	VjgTNFIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rhW-00000008UVB-4BX7;
-	Tue, 08 Sep 2026 09:01:11 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1x3rlE-00000008V6z-1h5E;
+	Tue, 08 Sep 2026 09:05:00 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rhT-00000008UUQ-26Yu
+	id 1x3rlC-00000008V5v-0xRi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:01:09 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=8oV5ye1wgWjHNd8tXu58PgTkZM2DHpGDoyc6w2RJVgo=;
-	b=Bi42GNvfGmpW9FSu3mshrdNpZpnDhVG9tNARiG2dNch48diDG04bYgVFUK/u/5lk1LvZYZJeA
-	WlWN1ZQo/NqoSIivdLTrfiBbF6MXzohJdbUkaAZAJ2x/ktqZYC8q9RxALGt6T02y4Q78mjzEe0C
-	fJCsq1jWGdepbc9gEwc4Z2E=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hfHgx0nHkzcb3G;
-	Tue,  8 Sep 2026 16:50:05 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id BBEAF4057D;
-	Tue,  8 Sep 2026 17:01:01 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 17:01:01 +0800
-Message-ID: <a6694c1a-6437-4173-97a0-f3c892707d7f@huawei.com>
-Date: Tue, 8 Sep 2026 17:01:00 +0800
+	Tue, 08 Sep 2026 09:04:59 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-4858303de5dso5400073f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 02:04:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788858296; x=1789463096; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eIZ+kUaFwJKaLRLpyngmxMQG27w+758uZsHUvhX4A7o=;
+        b=KkzF63N2fNoOi55ymDrHIg3ur7SCroT0/GKk0c9az5L3IA1qUds6PdwVct9WyBuW81
+         QjEAdnGc3SyUsluEAaJ+W/iypnkGyBF1ZgSjP2EBz2AmXluRd8/n5riSOxPJcIkNqhyY
+         MBUU/rTEdIWH8wM5E4xwPa6cvY+pQx0m/OProSIVkTTXrXYpLr5odQhYCwdINgbmvQJc
+         FGtBd6QXU6085zJpj+NPniI3sLRcUryCibLZ20wq1KZ17ad0KnfKORFppH4JuUeyKht/
+         DyC06NpaYdll2k4YPeF501OOPCOo/TehD/5s+7egtjRDvzOPR0145yMUbD9g8pm3JM+o
+         nhKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788858296; x=1789463096;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=eIZ+kUaFwJKaLRLpyngmxMQG27w+758uZsHUvhX4A7o=;
+        b=nNNbYZ2o6tGAoWJLUxfhNvb9UjubQi6bbNsBNHbZhmyyGWA7ekdEnw+Fiea4OUyCLc
+         LksVAdXOAZU39VRGcQSLxNluPzzEtp7sWOzdxpxWCAVVszjHWp4KeShdtepZLXEHSHMI
+         SNTvXHui+KzmkPy+iVnjv4loyc669AGjtWnKGzah+q9lQppn6nrRTjYl5n11SaR2yBkQ
+         8PR/Y8ZH9sXBvcwyhnJ8Y8ZnursnO3k6qtpe4GBAoUEEG2eCoLfRXclMZc4Y3F+uW+A6
+         l6SxZEcAiy6BrVR/QixHrHmogvvb+u3ezYYArJ0d4j20j2A1ISQjT18cZKAH/xULEvON
+         Us5g==
+X-Forwarded-Encrypted: i=1; AKwUvBwvcfuzHsm0xduudeRn6ZallHnHv+pPlCR1TgP+K+8giz+bNaeqmFmG9DaFn7LbSDxQgY8pCfq3Cf5MFrUWOOYb@lists.infradead.org
+X-Gm-Message-State: AFuF++n+k+4Hr+SLuvyVocjSqMNm5oqD9GmpXQdX+DXeyJwkFOVxw2u+
+	o0N6CjnjbZGfCcCm1sAJOR/L1HWLwU0T03uPcSbZu+xIK/LPy4oRcguK
+X-Gm-Gg: AYBFou1z9gUmrMuac2RfaQlC1HAQ8H7RpMwxZ5ldFeP2uwU9vbCC162tULAJGRvFHCY
+	Le/vL3E60jOy0dsy2qFQ6Pb2PSmWmPvpa7t0RGtko4z5Cu3bHiBrrfAlfnyoSFHjjsNGiUeNimg
+	UFnodaCE3IZdoPGKBszFL3iuW8fDCZG5EDFy96RbCjuYbsxn4YPWDjOUyJEKrqk+oV1z8OcjcP3
+	44tcns9dDwj05qla7jZDDaY95RVGXOyNWlDo6VFn3i9jOy/fHHb6lk2tdLr2dyfTON0dVy499O6
+	slYXtZxHxAvRvJQ/z6ssv0DLgku72CkRbHUNjSwrYjTPZt1VrlyqiKiSqiuFEipzkHX0rkPhsn7
+	F7qmCZFQSekMiYyai3ibodpeCJufGTh2ZTfzF+B6E8ttqSnu9v90I25GNM5iT3r1Q5Zq8Xf5MmY
+	q0K2Z89+wOs7Quf8YLkgWCK1/msk0Fo5FzRNenb/lKSC7ey013F3vQDoStWaQRaG4q7nj8nlbDI
+	p7WsTnX9KRq1r3vqmrdJz9CNfpQ2eshum2Lt05TEzHmeJQ0ynIR
+X-Received: by 2002:a05:6000:2602:b0:485:8c16:a33b with SMTP id ffacd0b85a97d-4858c16a5b3mr26273747f8f.48.1788858295822;
+        Tue, 08 Sep 2026 02:04:55 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-79-26-252-140.retail.telecomitalia.it. [79.26.252.140])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-485881353e8sm34767945f8f.1.2026.09.08.02.04.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 02:04:55 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Darren Ye <darren.ye@mediatek.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v6 0/5] ASoC: Add support for Airoha AN7581
+Date: Tue,  8 Sep 2026 11:04:42 +0200
+Message-ID: <20260908090448.3332-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/19] arm64: smp: Use generic HOTPLUG_CORE_SYNC_FULL
- machinery for CPU onlining
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-11-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-11-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_020108_345320_CB1BC4D2 
-X-CRM114-Status: GOOD (  23.31  )
+X-CRM114-CacheID: sfid-20260908_020458_285709_A676B0FF 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +114,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add all the patch and documentation to support Airoha AN7581
+sound driver.
 
+The card follows similar implementation with Mediatek with
+the codec present on i2c but with a simplified implementation
+register wise and additional frequency supported.
 
-在 2026/9/8 0:40, Will Deacon 写道:
-> Select HOTPLUG_CORE_SYNC_FULL on arm64 to replace the 'cpu_running'
-> completion with the generic code for synchronising with secondary CPUs
-> during boot.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/Kconfig           |  2 +-
->  arch/arm64/include/asm/smp.h |  1 -
->  arch/arm64/kernel/smp.c      | 39 +++++++++++++++++-------------------
->  3 files changed, 19 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b5a51b0ef944..89d1f0f2269c 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -230,7 +230,7 @@ config ARM64
->  	select HAVE_SYSCALL_TRACEPOINTS
->  	select HAVE_KPROBES
->  	select HAVE_KRETPROBES
-> -	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
-> +	select HOTPLUG_CORE_SYNC_FULL
->  	select HOTPLUG_SMT if HOTPLUG_CPU
->  	select IRQ_DOMAIN
->  	select IRQ_FORCED_THREADING
-> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-> index 10ea4f543069..fe343c30d620 100644
-> --- a/arch/arm64/include/asm/smp.h
-> +++ b/arch/arm64/include/asm/smp.h
-> @@ -12,7 +12,6 @@
->  #define CPU_BOOT_STATUS_MASK		((UL(1) << CPU_STUCK_REASON_SHIFT) - 1)
->  
->  #define CPU_MMU_OFF			(-1)
-> -#define CPU_BOOT_SUCCESS		(0)
->  /* The cpu invoked ops->cpu_die, synchronise it with cpu_kill */
->  #define CPU_KILL_ME			(1)
->  /* The cpu couldn't die gracefully and is looping in the kernel */
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index ff68640d0c0b..00362ed6e1ab 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -108,12 +108,9 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
->  	return -EOPNOTSUPP;
->  }
->  
-> -static DECLARE_COMPLETION(cpu_running);
-> -
->  int __cpu_up(unsigned int cpu, struct task_struct *idle)
->  {
->  	int ret;
-> -	long status;
->  
->  	/*
->  	 * We need to tell the secondary core where to find its stack and the
-> @@ -124,27 +121,24 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
->  
->  	/* Now bring the CPU into our world */
->  	ret = boot_secondary(cpu, idle);
-> -	if (ret) {
-> -		if (ret != -EPERM)
-> -			pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
-> -		return ret;
-> -	}
-> +	if (ret && ret != -EPERM)
-> +		pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
-> +	return ret;
-> +}
->  
-> -	/*
-> -	 * CPU was successfully started, wait for it to come online or
-> -	 * time out.
-> -	 */
-> -	wait_for_completion_timeout(&cpu_running,
-> -				    msecs_to_jiffies(5000));
-> -	if (cpu_online(cpu))
-> -		return 0;
-> +void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
-> +{
-> +	long status;
-> +
-> +	if (is_alive)
-> +		return;
->  
-> -	pr_crit("CPU%u: failed to come online\n", cpu);
->  	secondary_data.task = NULL;
->  	status = READ_ONCE(secondary_data.status);
->  	if (status == CPU_MMU_OFF)
->  		status = READ_ONCE(__early_cpu_boot_status);
->  
-> +	/* A CPU has failed to boot. Try to figure out what happened. */
->  	switch (status & CPU_BOOT_STATUS_MASK) {
->  	default:
->  		pr_err("CPU%u: failed in unknown state : 0x%lx\n",
-> @@ -171,8 +165,6 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
->  	case CPU_PANIC_KERNEL:
->  		panic("CPU%u detected unsupported configuration\n", cpu);
->  	}
-> -
-> -	return -EIO;
->  }
->  
->  static void init_gic_priority_masking(void)
-> @@ -234,6 +226,13 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	 * Log the CPU info before it is marked online and might get read.
->  	 */
->  	cpuinfo_store_cpu();
-> +
-> +	/*
-> +	 * Synchronise with the core bringing us online so that it knows
-> +	 * we made it into the kernel. We're still not 'online'.
-> +	 */
-> +	cpuhp_ap_sync_alive();
-> +
->  	update_cpu_features(cpu);
->  	store_cpu_topology(cpu);
->  
-> @@ -255,9 +254,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	pr_info("CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n",
->  					 cpu, (unsigned long)mpidr,
->  					 read_cpuid_id());
-> -	update_cpu_boot_status(CPU_BOOT_SUCCESS);
->  	set_cpu_online(cpu, true);
-> -	complete(&cpu_running);
+Changes v6:
+- Fix PCM probe allocation logic
+- Split driver patch to dedicated PCM/ETDM patch and machine driver
+Changes v5:
+- Address comments from bot
+- Better handle concurrent irq status bit
+- Protect enable etdm
+- Add Review tag for documentation patch
+- Address formal comments from Cezary
+Changes v4:
+- Improve Documentation YAML
+- Move IRQ regmap to mtk_base_afe_irq
+- Use mutex for user tracking in ETDM
+- Register IRQ after memif allocation
+- Address suggestion from bot
+Changes v3:
+- Major fix to the ETDM code
+- Add duplex support
+- Improve Kconfig setup
+- Rework and improve YAML schema
+Changes v2:
+- Fix wrong edit in MAINTAINERS file
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Christian Marangi (5):
+  ASoC: dt-bindings: Add Airoha AN7581 AFE Sound card
+  ASoC: dt-bindings: Add Airoha AN7581 AFE with WM8960 Codec schema
+  ASoC: mediatek: common: permit to provide dedicated regmap for irq
+  ASoC: airoha: Add AFE driver for Airoha AN7581
+  ASoC: airoha: Add machine driver for Airoha AN7581
 
->  
->  	/*
->  	 * Secondary CPUs enter the kernel with all DAIF exceptions masked.
+ .../bindings/sound/airoha,an7581-afe.yaml     |  41 ++
+ .../bindings/sound/airoha,an7581-wm8960.yaml  |  71 +++
+ MAINTAINERS                                   |   8 +
+ sound/soc/mediatek/Kconfig                    |  27 +-
+ sound/soc/mediatek/Makefile                   |   1 +
+ sound/soc/mediatek/an7581/Makefile            |   9 +
+ sound/soc/mediatek/an7581/an7581-afe-common.h |  49 ++
+ sound/soc/mediatek/an7581/an7581-afe-pcm.c    | 515 ++++++++++++++++++
+ sound/soc/mediatek/an7581/an7581-dai-etdm.c   | 433 +++++++++++++++
+ sound/soc/mediatek/an7581/an7581-reg.h        | 114 ++++
+ sound/soc/mediatek/an7581/an7581-wm8960.c     | 161 ++++++
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c    |  14 +-
+ sound/soc/mediatek/common/mtk-base-afe.h      |   2 +
+ 13 files changed, 1439 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-afe.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
+ create mode 100644 sound/soc/mediatek/an7581/Makefile
+ create mode 100644 sound/soc/mediatek/an7581/an7581-afe-common.h
+ create mode 100644 sound/soc/mediatek/an7581/an7581-afe-pcm.c
+ create mode 100644 sound/soc/mediatek/an7581/an7581-dai-etdm.c
+ create mode 100644 sound/soc/mediatek/an7581/an7581-reg.h
+ create mode 100644 sound/soc/mediatek/an7581/an7581-wm8960.c
+
+-- 
+2.53.0
 
 
