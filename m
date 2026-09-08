@@ -4,170 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB267C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E452C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3CXav/sbAVJSkzaQLNuwr0QSC/C42P6uyGJUGH1jMM=; b=rvsXXGnfGgd+onjgp2WpK05jsg
-	UoWa7/4Q/TzMLy+pOZQto398Wq2ypgSHvSXk738XJaA0+M08rsXAm1BhzC6oRMAWC0Kt8z68MyH86
-	zHgJCRSBsJimH+bkV6HHrOKNbW6aXIpvNbZ/rG8XbVPsr7dWOOxLiRIaz6nHcRrdDMNHSoZvHVL1s
-	UW5Q34R4Dzs33t/xnZeqMpgeOE/jHGx5Xgm/LQYaLR31BrUiEg3L26gJwCrWTUMrlomYYrHeae+op
-	ASHRT0HqLTQ/iNsURwPKHV45aVQwGRTJ1zGcUqqGmwS+xkv8RqOYiSpeUg6IeBfvdW00F9F0le+hv
-	gmyVjSlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ph49vtA2cjDAN2p47HkW8fBWdB2WAknpNAZ9XWnsUe4=; b=j2r2KFaq6zlHQzVmmmXITqlSSn
+	HO7IoOXv+T6RSdL/3xdLft7HryHgieyMZFtd1cJVTkbu2xZrGAWS7jc+pW5NVJMi40D/Pq1bEkU6l
+	u9K/vCrheAExVwsvZVbYxWCvOHYLtJv3QvtUdl007E1BzQi6PiYlopZabGwnZwfKOa0X3+cMobZ7h
+	Hn7neV4uRB4Fokr4ufYgwB2Qd+hg2i8QOBNuZCUusDbYtEHBZFI/5yXTxBcA+z9eKl6H+dL4OrqVV
+	zGKaotSBguGjiB5Kad1qiLGzmsNUMMLN/+yuOkPu5uYZ9r+KWBwJ/TgvMSdeb8PmDDU56zBenndeP
+	pj/T3iqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42RX-0000000AC0r-23ZI;
-	Tue, 08 Sep 2026 20:29:23 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x42lf-0000000ADwr-2DQK;
+	Tue, 08 Sep 2026 20:50:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42RU-0000000ABzw-0JPR
+	id 1x42le-0000000ADwb-3KNK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 20:50:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Ph49vtA2cjDAN2p47HkW8fBWdB2WAknpNAZ9XWnsUe4=; b=hdmSb9aE1eHhw1hjGjpZScSQVC
+	xHkdpp8iGqBO8m0PVMSLSO3V02nC1r5L0Fi8lM+382RGwDRt4hCpFKS1ixqDSX0wErPGVa4IGQwoc
+	pduMRekts4cbdDjyzeyq/XIv63me5TS+Gfj/DtkXlrL8jbcRJbXKK5CovjmL7A0Zz7ZCpue0AFdio
+	862OQxl363blkZGk9VWT8pxB8dpTPJHOdN5wBrRaE/wZcmu8JCLY12eQG1OSOEK2XNhgWPRneJ7Xt
+	K9CclrSuYEZag1yjhgWPB9Fn080d7666uLfpsVNwZe+4nKeIIg0E3KpBgFuWozKN80nWFkvopDxo/
+	CsInCc/A==;
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x42la-00000000MeK-1Duf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 20:29:21 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 688HNHPJ2336778;
-	Tue, 8 Sep 2026 15:29:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=p3CXav/sbAVJSkzaQLNuwr0QSC/C42P6uyGJUGH1j
-	MM=; b=glN+Tcji9foeXMpNYllZHvw8nptxO1usR8DQsj3fAFQ54pxd92Q4/5l8J
-	CoYXe54WY9RE5PgUBY8krK/H85T1pLeSgxs/KVxj8GaYMgGdBf3ZXPdLBRRPSc6R
-	7GBQHh+gIfrUf25r23jRqxUcS24RMYhro0aa19YrqglNYVw0y8VvSQLyjT2Ln2to
-	3IKg7BfcL7arudnAttNThT/0z029KlOzWLx4Bp2mHQx+GE0Jj9z40bTffS5+XFFM
-	Wnfcb/CX0r3Uv2Zp084GMhdC8rDhauZKw3uI2cXMg7pAnFxE0THAgIaOM+PI+Nvx
-	pV8RPjoYfoTzkikhp1btLQVofQAJA==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011027.outbound.protection.outlook.com [52.101.62.27])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4gjffmv47k-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 08 Sep 2026 15:29:17 -0500 (CDT)
+	Tue, 08 Sep 2026 20:50:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x0DsXWhBIVZgrinXqV7aoqrzvZUN8+5KM/RCk9XOIXy6QJTVN3K6vIS7tf68nnOrspvWnT4iLWL+St/KBzXgmLBGzRQW583rpKYFhcqTjP08t5/Grz2pn3pBtX9QCE6BiAXjk7KUV5EhEc9lpgp0/mLyEHfUfhl5W0a6cQrLO9szIoElobtEbSKoJFs3dgQJfGd5gfS0WYCyk/wmRJGeJ/nZ30JNodRWamif3G0SOjrXNfLK4QDtJtvEISZO7vwgVSo6U3iOo5j4qyUjVxb85DdnC09f3U8PW2GwtqcJHpc5mUUX4eRx3cQBSIIQWH20sGGnCn5hVSQZ7MDBlhFGzw==
+ b=cayC780zjuhDX/ONMC/VP5B6EjfjoBd3wen/1TMFfBuThVXhv2b0VbTaRAoHEZFYdrPAQ+pofqOX1ccHO0GubT2bPooFDqjFGTJC1E1MmjS/DSFcIck0TfTl7akQMyBWTK8TXj6ybB345iZmpTeKdPCkq4TlQz0JlFQvRaPWgqKn7+g3MNZlLsuIeKAaRPIynXkj4RFvL9vwEcdjtfelQMnhv5K377VRU3QSqG7amuQEFBntKQvBcRuHUAcmkMOHTUmwDUf3l++rUiv7WgaLSL3bNE7kU47uNyXiCaqFymGjqpSpAM3wpOeY0/J6aJY5mbhh0bzdQr+peL+lQrTzDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p3CXav/sbAVJSkzaQLNuwr0QSC/C42P6uyGJUGH1jMM=;
- b=Xx9Ug7hbPXtKP8NkYYscR/AsorZTs4LjKdrHWVBaiwwmB97t0BhuQ7GDIwguYB/G594b6cm+lOIPjoP8bBOx7EUbbtpgCWjbwz7NJw2SzQVm+ClmeDsWSDKc5l/6Fa6pxgICM/20Ugs/1Kvaa97pYGiTKv+k1OM/p+qPaij2MGCE03Pzu3zKEtkzHLFPRD6ZLmG+RBpoAnsbDyf49PyRP/G8dm1nCciJwHPX7fyik+3foxs1RH391wYWiOzoTgJPGKSLfa20AisdfHUSLP7SSDSK02bBvxHVS4/q9ONkFzVSPFhsNRuZUIpf0jp43p4Nw2W5x6C5hQ0WoKyCeaGS4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=Ph49vtA2cjDAN2p47HkW8fBWdB2WAknpNAZ9XWnsUe4=;
+ b=l7CF2pP1l/wzrtEcgXgwStPv4ik93NdnPh1tfWv7VPMOcfO6To2+3N7LfuqynCO2oaJ2xVRIxX9zOedeNGg0DBSyXpmKNLyBlFmBGE+QndWU6ZhSRX9MzHRDBUbUG8X6bdBpqV+A3CfX767B1pn1YS8Zcwax9U/K8RzgkS6XauR9uYPp8zOh1kTxRVQbAFGKw7ouicUHM8sgP1fjU4+L+7knlQb42xDy8fTbNrpyQaHGjlr9UYvBnE8HnWTF5xDvpkTz88DNERM5XxFMSkwCjenjs1kPQV+Wj++sUbNTXR8NMLpNsdkqv2qCUxg7nGHpO+hQd+dTrd4NG42pk1Akvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p3CXav/sbAVJSkzaQLNuwr0QSC/C42P6uyGJUGH1jMM=;
- b=tiXRtdwtwhf8MiN8v9Rw4fQ1fRaSPH4upBkU/mrzyO3iho6aIGqlV6PihuynqZBVozjjjgjJJC2g3AVWQbZMZ74s1+9M3kxmaYmriBhEASsclagbD6UXVzucQgFSowBhO7mszqygtiLoQndR0gzIHBjsSwZYDC+bqS3xmFXA0rQ=
-Received: from PH8P220CA0036.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:348::16)
- by IA4PR10MB8304.namprd10.prod.outlook.com (2603:10b6:208:566::12) with
+ bh=Ph49vtA2cjDAN2p47HkW8fBWdB2WAknpNAZ9XWnsUe4=;
+ b=Glz7NZaSiavlFyWkEudXFoVBhKYivAPtAZF4NQm3kD3pO72cHtNK6fgU3STtrzEJK94s9PrjTk5o4w2dXrZwXQ5l+vYI7mdbxo3XdBybXZ3Rvdgup3m/imOUfdk5Z+gGK3sr95ju/bj4/20Es83DL+jobOSo8KDA5nXKcOGZx5XZIRAN3j/1OJSSu/Dj6XpuVMNQ8CGS4ipG6xmN8J7luUnW9H4LZLkt53Jqyso37nO/kNcc5BBEums4DCKWoeIZ2aQpnmGtWAg7gXgTnih6kIKux26v6CV0pYy9p/mTMWNnJX/Iff53pEUz8m9LXFZsmkG2evO3TWmaY/naSVwxAA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by MN0PR12MB6320.namprd12.prod.outlook.com (2603:10b6:208:3d3::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Tue, 8 Sep 2026
- 20:29:12 +0000
-Received: from SJ5PEPF000001D4.namprd05.prod.outlook.com
- (2603:10b6:510:348:cafe::45) by PH8P220CA0036.outlook.office365.com
- (2603:10b6:510:348::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
- Sep 2026 20:29:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ5PEPF000001D4.mail.protection.outlook.com (10.167.242.56) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 20:29:12 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
- 2026 15:28:47 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
- 2026 15:28:47 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 8 Sep 2026 15:28:47 -0500
-Received: from [128.247.81.105] (hpz2.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 688KSlkC3121731;
-	Tue, 8 Sep 2026 15:28:47 -0500
-Message-ID: <9e72a269-1b19-4c60-a32d-8f93c499f205@ti.com>
-Date: Tue, 8 Sep 2026 15:28:47 -0500
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 20:49:53 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Tue, 8 Sep 2026
+ 20:49:53 +0000
+Date: Tue, 8 Sep 2026 22:49:41 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
+ selection
+Message-ID: <aqB05WpYBcZfIZYQ@gpd4>
+References: <20260908082345.103087-1-arighi@nvidia.com>
+ <20260908082345.103087-3-arighi@nvidia.com>
+ <ce287aa0-0079-4cfd-b330-6b7617f49e8a@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ce287aa0-0079-4cfd-b330-6b7617f49e8a@amd.com>
+X-ClientProxiedBy: MI1P293CA0026.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:3::10) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: nvmem: uniphier-efuse: Add
- ti,am62p-efuse compatible
-To: Conor Dooley <conor@kernel.org>
-CC: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-        Masami Hiramatsu
-	<mhiramat@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260902222759.736124-1-jm@ti.com>
- <20260902222759.736124-2-jm@ti.com>
- <20260903-sandfish-likewise-820d64daae2b@spud>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20260903-sandfish-likewise-820d64daae2b@spud>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D4:EE_|IA4PR10MB8304:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40044acb-786f-4142-d1d8-08df0de7d82c
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|MN0PR12MB6320:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3866582b-d826-41ac-52a6-08df0deabb9d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|23010399003|7416014|10067099003|56012099006|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: jfcgbTEDSFK9s027DIzIVegCZkgwL/9MkNlGX0JZ6MjzNamcIHhT7UQUlea7r9Asnj2L50tiGkFsUHTlI2P+17Iv31XdZbAun2F255BQXzrOMdXNPoisBCS8/E4McGqeL8QgjXv5hmh74x+cFBewlh9y1iEHr6kSea4NQ5cGJn3hh2mOGtjUA++WrgNDil8mzTmiLUmb0NWi10hh5FgbMyDg0jbSS25MF2hMknxkSLEWRDctRqyU/RWb4ErOwQJyKdaPqY1RhRTmiz+hZGKjn938r5E8/dfpsGcqIWmOtAtsNd7rrUjfW09eNScfPZqbt68ICVjKDnwZuWT6ZxI5/hCeGAS68552T3DL8hT1BGg0nsp3Hz+/S/YRgJOkBPI8gU/WHmN3/9wHQZXEpO03TCwMYW3GN3I3EvN0wnUFp39gQ7Ks8XCwsRfjG238tt5B9iLFq9vWjZ/JM2r/YpLQAF7aBkDGCKBLpBm2H0lXlxvw4tDVmy9qpGn8qWGuUjIIOfipUG5VR3zTEXUKS6ceIxCEM2h77gal2ZPmQd3EfhVckNEUKOL7rd4xZvxGw38hAEZoWAuQRbXxge6DA0W/LfRVauq32TsyJIGWppkLEaVbMSqxVBfcYRGexNmOXmboL0PgwI/pV5m4nQ+4TIA14NJis8vKtMRzTCpwfgQn/tsrJvN3rFYoFwCjkCkJHWlI1KC3ueTgfpkA8dm7B1dmAQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(23010399003)(7416014)(10067099003)(56012099006)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: uDaI9lKaqMToa7ozvXsx95uxwCO1zRWPh2JBRUu67DlOZz4SuNeUb4c5OmJ6ZKBqtescIX4HXdOmVNh9V6kcoaWMo6MI5KbgC/hZf/OGVq4dCPU4xcsDraa3uhF8HmIqqbRN0HK+zLxCsgxUb9v73valwwtqXDOYaFVcHf9e3+aZgCHXq4fIDJsf7/EbkrTDBmFibSvZ4LN0GX1/DtFub2+iHG4AbyZnH8nH24iJL8DIDMu752Wk6F0qqPgO9VsO2DYKLtD1dMwUZ1HOEwubrwkkCK02E8LPsSPz2mg3ChzBwpOP8ihaUoilloar0i/bRBtiEonBjzHGeqz6KSxU7QmzB4a5DtZlBZ5rrCtUinYufu4Fyqs6iqCB4Ro6pTaUZhYYsqTyrBOtBAtn+cktX4qSWPP6xcXk4nkIEWNMguMxfpnNlEMLmX9kzkG6qsyXHqSwVCcZ/5tVVImmlVjdKgPYph0g95rWZLwjrp6yPaKkQ7rQ/6Lou3zS1w7xgbTqbM/hhMZtxMUict196Y0nj8QLHcUxsGMSVCeOma3yowd8LQslwVZWEuRxsOG19Mz+RF07n2ANW/IkG44vc3MqPf7oBxaUbUgVnO2MD3v2xNOR1ufhm2iYZHOcmSuVvqEn3XpbFkNJsQQTYUSKM3sisnuOkn5+OaLdID3+xQ/Zpjc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: P5QUmTjk/UpbrchZDXeg3usZUXiX7lt6pInPnatf7xOJHUsy6OsoE4le7pH0Ip3Duq0K1FZdfoRskx0sd2kDuahozeJT1gpDilrYMpRG2cErt4aN+Hkq0L02WPWIRg22Tf7FsjKTHZYSOfph9VShc7Pp9ET/5QPk7ROpue6BGIl9YZzBgqTRKWB9hhCvbjltjxs4jhGfg2+MaUXfPvP6OJXqv6gTcs/u1zsMcHoj7DeeJEe7XRSgIieqJ4qIu5tN1DmNpAinEWkbdZvWKERFuI59jmrUIdpnldiOi3ZQ7b8F0fZTzjlcARWqfmV+hAVANLx4tA7ZpiwWqlSzc0QKfWyaaY/QpRsjdKOwDUvtBAcxarcPrGHVHovhqWNFRFPSP/UMMp0+txkbIJUklq6V+7/y882rXdlTM0mmQcYXm6Lb2blrugBB4mHiZpqGjXqX
-X-Exchange-RoutingPolicyChecked: VWF5lkt0NAA7rEjtc7IE4zerZ+GmSIZUNxWqfOn1OTYiopRgqbc75/eQNhnwHZYPg3mHsEG1be9z01WngbykHvzRNakDZ4RI4NIiIKwFcLCKJwlAq3G/13VClKWYxuWDbYKgrkuhiQj9xgxWQ8wn+3DbU/j/BYtynohB9rChTRJnCmQQncdIIVcOXHhk7zIAFpJ+aVgbj5ilALB2dvYjzolACceycNqZuM6qh1fwFuUpYd7WyKZF0zRIqoar/OyI0s98J8lNcfoFzkMZlxBwPL7vUuMUIv005nJJWzkIm1Yd7FpvofknBtewbe/aIR++s798XATJvzOft2LNkz50sw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 20:29:12.3963
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K1NEWuHcLbc82FkqM6ySyEVDkRoaOo3FOiqV2wfoJfdoZaewnijNg4AYmQDf?=
+ =?us-ascii?Q?oW+YeUtHB/Rds6RNQxE9C/Yfwa/+QyNQYjUhkbC22b9IM4uJJgsbDkJaIlEb?=
+ =?us-ascii?Q?gOj3IqmwjyFNK+dmAxXMrsI98pSfRYSEtKOKqD5+9dDrIX0wSDF5s6ZPsgym?=
+ =?us-ascii?Q?AgGlY30MjSsGuqYV7jdtyxkF9mVG6wZlBIlcrTTeNnfpDlNd5GPQBQG4eD3h?=
+ =?us-ascii?Q?zrxmbLTSmOLMoWQSlYbb532bMzAwXWDpYXzgjwxOqODAGWjwUO6zPTop4NhY?=
+ =?us-ascii?Q?st+Kosv2Y4rBUEi5bYKtx2pAcmibVcHkP1b4BcAX5nJL1Q9WJNWhCCV6aCC8?=
+ =?us-ascii?Q?RArOg6LQ9OArip5IftB6xVw3sMs1qrRbn5dIQGsjjzh9a4GrP13VQXw92nuy?=
+ =?us-ascii?Q?dXj9FzUFFcrmuu3jxJ8uHm3y50jRkXnLuNcSz46Y4Zm6Yjb4w5i34+TqCaVk?=
+ =?us-ascii?Q?1SRVURepLXES8HCi9Ivu+BaQrSiWuLewAj+O04tegfvPJMFpl08Qa+FHsFo3?=
+ =?us-ascii?Q?UBwKLA+lWv8h6Bm5OD44pdh71GnOKuWaOegDxF16qOy9KBVEhPsttUeTujPk?=
+ =?us-ascii?Q?O/Alb4XNZzTpIOI/tm4x9BHBBlQGjb3D2X1CzgB5Vp6fBg8A27QKZ9wx577o?=
+ =?us-ascii?Q?wHsRH+82JyV8ScW50e3AbQjS5cDj9JNuadXvk3DIlk8SOmAq/LFang0eocFv?=
+ =?us-ascii?Q?XBJcl+mN8to0XsBx3eokkqrTfwL5ZtZo/44y3l7/6Hlr7QOPG4TCIfrEskJQ?=
+ =?us-ascii?Q?8BZTaO5gMcvXwG7/iHutNornkF6VpB5eE1w9/u/uuopm3RmNhYmHfmbUtv4d?=
+ =?us-ascii?Q?eZVn3M7S+QbwXjgzV4MUxqgMhnfimbGHuDYA2uHeSMbsoIOYmUT64+1j0neO?=
+ =?us-ascii?Q?7V1sRdRQeLjAD4hf3Hr1hW+hg5a27Xv3pNnhRKTo71DmzlsLXHNpwDVSI1YI?=
+ =?us-ascii?Q?uWyysa1K/w9Ur2rDbxxPfHKdsyDgy6NgApOQ1vsNTmyBeuUXqIlHpBON/6o7?=
+ =?us-ascii?Q?qiXTa9VHF/t1FmCICAFQndtBk2mc7Qv+bajHdfTyLmGD+e2Ag4ONBaknAk/2?=
+ =?us-ascii?Q?UeRD3i7Mdb9VUvdBp99/ybiTxkCQLak+tH58sRRa+BdPS+QjI5mCyYurkAZo?=
+ =?us-ascii?Q?EqdtLo0PjDSxUx88oXZYZj6uW0mvRwohjFe99VuGQPfRVuJTr11JTqw2EXht?=
+ =?us-ascii?Q?kiNK04HSJP0aKu51UJifvAROOP4uiB/+uDJiUsiG2VYkWoVBWMLfQzqVIwWj?=
+ =?us-ascii?Q?f2fwSYbix4TLTcEXWxtfqUgQwX2+sj1wAQOFJycXlvPjYFoCdC3zUHtiJhTG?=
+ =?us-ascii?Q?F+6vF1Es9FpdW+3c0aujbVId4D78yFq4NA93ZHL3lJ6pw70jOS8lAiz238BF?=
+ =?us-ascii?Q?Arqbd1TC5zR1forS25tqA4pI8SHHm6BYFWx1pGlgX0TAlmPfrYOcthH689sR?=
+ =?us-ascii?Q?oO/G4QAvX7dPXRpk6ZGbRUaLcPRawdJeCsyWWxhslQG+jzvMymjYSs0Yzapy?=
+ =?us-ascii?Q?RYrmjOzH7uJPffUcUc+mdcDfAd3EQ/QLFcIiPrxiSJO4gbwyvgrCbCGHdhue?=
+ =?us-ascii?Q?u+bnhvnyZmMAYDujjYdySBPThEvVaZrNJ0NjVn225DksrJ8ueqEf03xABI8z?=
+ =?us-ascii?Q?mAov0Zltjz8oyJ0J7kupzw5697+deWDQeTx5UowzJbTKEGxXqT7BW6ryxaxu?=
+ =?us-ascii?Q?lJhZr3ZSu621cPLHAQ2wsvye7f6UebxG8g6WP5suEJuYZgtH9yteTqIvttRH?=
+ =?us-ascii?Q?tFCTZBkNvQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3866582b-d826-41ac-52a6-08df0deabb9d
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 20:49:53.2575
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40044acb-786f-4142-d1d8-08df0de7d82c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D4.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8304
-X-Authority-Analysis: v=2.4 cv=FewHAp+6 c=1 sm=1 tr=0 ts=6aa0701d cx=c_pps
- a=F5APu9G2MQgGAPAZFPwQAQ==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
- a=g_alAQRnIdwcReUzd10A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: CAKl8tQmiXziyTeRK48Zlowaa8uKgRTw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDIyMyBTYWx0ZWRfX2G4N+qwSug7S
- la/UXUyVkpKlkZK0xwyXsKghvDHPkULCttXeUozpZSph7sPgVc47gLShtHcW1Gv07rEXlnfuErQ
- KcFtOn8I8aIMhRUXquu/sPOAxCcnO0sxJK+uNRAmgW9YquP4HaauGumhgKmQcG0vnZ2hWpSgP1d
- wcaTSO3ApOFz7d3IwIaTnX5M4FFoVfw0JDwWtzUkImHNrG+r6sGP32PZ/8x5kvevpg/OYAR9pe/
- JvdvSENfS2jA9TPhfY50huR/WIyK4fJ45Nv63wSqAQcp0CItDRUmClif5dE7zi+yw1CPtQDPvYA
- rlJYQAjK+99W2RUntDk+cOrXb5Hs6x+mUG2cGC0GMvT02eq3FRljidM483jSDdOSytFt0CvhyX/
- H3NpLvfghPCf3QPhTlDviGk3+zzvR67HJifUR4Znedb+Wqyty5MU1Ok/G8d2FPWhs6FpogwfKMh
- I55HGGkU/fZXHIkpn2w==
-X-Proofpoint-GUID: CAKl8tQmiXziyTeRK48Zlowaa8uKgRTw
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDIyMyBTYWx0ZWRfX6/Egqth6Eblb
- W6Q+FmRyWU7B0yd2Mom7iUm9AIcm8hj2hsjDvFwYMR+IA9Qj+N461iaVCO7937ljdOHkpCzXX7m
- qbqiJa3iHIvQBwQuC6FgyHlz4EQi5Z0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 impostorscore=0 clxscore=1011 phishscore=0
- bulkscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080223
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 86WIE2EIogRnX4qzYCL+i8s5iIQjWJDD9Lx+XUyY1GCnT7knSQqYhgaDU3+O8WJkVg8/NLtDhAKBv6Ja94NU8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6320
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_132920_315524_2F90D100 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260908_215006_479613_178BDC59 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,30 +165,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi Prateek,
 
-On 9/3/26 13:00, Conor Dooley wrote:
-> On Wed, Sep 02, 2026 at 05:27:57PM -0500, Judith Mendez wrote:
->> Add ti,am62p-efuse as a compatible string to the uniphier-efuse binding.
->> The uniphier-efuse driver can be used to read AM62P efuse registers as
->> well for GP_SW silicon revision detection.
->>
->> Signed-off-by: Judith Mendez <jm@ti.com>
+On Wed, Sep 09, 2026 at 01:10:48AM +0530, K Prateek Nayak wrote:
+> Hello Andrea,
 > 
-> Why is a fallback compatible not suitable here?
-> Either it is, and you should add one, or you need to explain in hte
-> commit message why it is not.
+> On 9/8/2026 1:53 PM, Andrea Righi wrote:
+> > @@ -9747,8 +9796,10 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int wake_flags)
+> >  	}
+> >  
+> >  	/* Slow path */
+> > -	if (unlikely(sd))
+> > -		return sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> > +	if (unlikely(sd)) {
+> > +		new_cpu = sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> > +		return select_idle_smt_cpu(p, new_cpu);
+> 
+> nit. I personally feel this can be better integrated into the
+> sched_balance_find_dst_cpu(). Something like the following:
+> 
+>   (Only build tested)
+> 
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index b8bd308c2d5b..1012dfb33f08 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -12353,6 +12353,17 @@ static inline void update_sg_wakeup_stats(struct sched_domain *sd,
+>  
+>  	}
+>  
+> +	/*
+> +	 * If we are on a SD_SHARE_CPUCAPACITY | SD_ASYM_PACKING
+> +	 * domain, use the group_asym_packing classification to
+> +	 * decide placement based on rankings of idle siblings.
+> +	 */
+> +	if (unlikely(sched_smt_asym_active() &&
+> +		     (sd->flags & SD_SHARE_CPUCAPACITY) &&
+> +		     (sd->flags & SD_ASYM_PACKING) &&
+> +		     sgs->idle_cpus))
+> +		sgs->group_asym_packing = 1;
 
-Do you mean the following? :
+Integrating the preference in the slow-path selection sounds appealing, but I
+don't think group_asym_packing can be used as a destination classificaiton here.
 
-compatible:
-     oneOf:
-         - const: socionext,uniphier-efuse
-         - items:
-             - const: ti,am62p-efuse
-             - const: socionext,uniphier-efuse
+The intended policy is to prefer PE0 over PE1 when both siblings of the selected
+SMT core are idle. And if PE0 is busy, PE1 should remain a valid destination. It
+shouldn't make a busy PE0 preferable to an idle PE1.
 
+IIUC group_type is ordered for busiest-group selection, group_asym_packing
+describes a source group whole load should be moved to a "more preferred" CPU.
+Marking an idle SMT group as group_asym_packing could make it rank worse than a
+fully busy group.
 
+Example: a fork on SMT2 can have the busy local PE0 classified as
+group_has_spare or group_fully_busy, while the idle PE1 is forced to
+group_asym_packing, sched_balance_find_dst_group() can then consider the busy
+local group the better destination and stack the new task on PE0. That may
+preserve one-thread mode for a short task, but it can also reduce throughput for
+sustained work.
 
-~ Judith
+> +
+>  	sgs->group_capacity = group->sgc->capacity;
+>  
+>  	sgs->group_weight = group->group_weight;
+> @@ -12393,9 +12404,15 @@ static bool update_pick_idlest(struct sched_group *idlest,
+>  			return false;
+>  		break;
+>  
+> +	case group_asym_packing:
+> +		/*
+> +		 * Only possible for sched_smt_asym_active().
+> +		 * Select the idle SMT that is more preferred.
+> +		 */
+> +		return sched_asym_prefer(idlest->asym_prefer_cpu,
+> +					 group->asym_prefer_cpu);
+
+update_pick_idlest() returns true when @group should replace @idlest, so I think
+the operands would need to be reversed.
+
+But even with that, the local-versus-idlest comparison still returns NULL when
+both sides are group_asym_packing. Therefore, if the slow path initially lands
+on an idle PE1 while PE0 is also idle, it would not switch to PE0.
+
+>  	case group_llc_balance:
+>  	case group_imbalanced:
+> -	case group_asym_packing:
+>  	case group_smt_balance:
+>  		/* Those types are not used in the slow wakeup path */
+>  		return false;
+> ---
+> 
+> It leads to slightly more branches but they are super predictable when
+> iterating at a particular sched_domain level so the overhead should be
+> negligible.
+> 
+> I don't have any strong feelings either ways. Thoughts?
+
+A deeper integration could preserve the normal group_has_spare classification
+and use SMT priority only as a tie-breaker between otherwise equivalent
+available siblings. It'd also need to handle the local-versus-idlest comparison
+and preserve choose_idle_cpu() semantics I think.
+
+For now, applying select_idle_smt_cpu() after the existing slow-path selection
+seems simpler. It lets the existing load and capacity logic choose the core
+first, then applies the preference only among available siblings within that
+core.
+
+Thanks,
+-Andrea
 
