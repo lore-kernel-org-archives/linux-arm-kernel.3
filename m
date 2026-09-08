@@ -4,80 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88D2C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23380C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GD9uqjMFzVAwI3HFLeQg05MCFM41kAwYmShtqMqbL/g=; b=uKG/Hel0id9OD60RLo1pQgNzRm
-	2pcPQCHjHMEVHLzxIFDDrVIdGSDvHC5LlT+ntN1TnrvdGAYabUCx+oyixjwz7AqjWF58XEPaIFlm1
-	srJWeOxZbAgLLI2ubybIhQDuJNeCqBWGWsb9GHAiJ87Jt6SpTMK9Q2QdCgvcoioBP3+Pl4qUu+28f
-	WmnjreIoKDmjjOUkm5aVmssxGCnvP5hgEnXnnWckbq/jZTQe8ZI0mPu1MfO+VJZ7r+jePTm3MYgEh
-	KCvehM3b8HvMRXH/hK6jiLd7sKEMbc7k7UhfY/ykgPNY4hCzBuOMneJFQnad7XUZIt8g2FuJNa/bP
-	dNrXVXqA==;
+	bh=TckXPuonbCjW3ll7vU9025NMYhL42FTH72OM8FtKwpE=; b=dzatJTi5t3QE6q+hhvzCWCsaCn
+	tOPvVX6zYFwGA0otQksufHwAjy9e5IK7u5qtJSshimQ/LDu09meH3Pb+ODuWSyFeBNXMlHUonc/BV
+	VI/ljKNyqgyaKZDpsy1K8XFBhZOaNTOiKwNrTNsW035XyXsgbUo22kuvv8Rf1CUTL7vfShcVujKaQ
+	y83zkX43wIHNTfMSDu/AtIalcCun2VC38fB5oPFTxYJdcQlZhCUBYFZWnMh6gY0Efg2gnl/Rj64MF
+	f0Occ321vJnI0wHmS3JDBvyxzX9UByf8hJp8845FFfhKdpKiCn9wsjrl7mZGNdI0as0DAzTgP+z0+
+	8x7lPJhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3y9S-00000009YqZ-1RBf;
-	Tue, 08 Sep 2026 15:54:26 +0000
-Received: from extorris.mess.org ([92.243.27.206])
+	id 1x3yAr-00000009Z8h-2rVp;
+	Tue, 08 Sep 2026 15:55:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3y9Q-00000009YpD-04By;
-	Tue, 08 Sep 2026 15:54:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1788882859; bh=544WQVZJeLYU7v3G3MGtP5wW/6wUd4jsHuoiTAyywkI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xg8CIWyRctIvMnvVyP9XewMQybVqg7b0YVC9pBXSJDIIXjbCJM57nZV6iaz+upguk
-	 YNWyb1p62KeV1qLiCNAOaChsiNQs3xICig85+PgOlWRKuJfp5NN9EOqtV3pmHbt2Eq
-	 S0ohvTyhnl9tftVoH/ksQ8FoYY5jp/dHHlHX5nKslIxjffz56vzT2KI4Juniw8UN6Q
-	 JdA+183T5aKi/XOpf2SNaboyUIZYorzzfux1cwHpb3A8v6KMqHBpep2Ig1+4Hz7SDs
-	 irF3+nAxs/ccSIYQ4TumXsjc/bkariwqAHjTBcTl7TxtrZrAfsi/EY/UTnf1LJ5PKe
-	 Mw9rvycksrMgw==
-Received: by extorris.mess.org (Postfix, from userid 1004)
-	id B8B1141473; Tue, 08 Sep 2026 16:54:19 +0100 (BST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1788882859; bh=544WQVZJeLYU7v3G3MGtP5wW/6wUd4jsHuoiTAyywkI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xg8CIWyRctIvMnvVyP9XewMQybVqg7b0YVC9pBXSJDIIXjbCJM57nZV6iaz+upguk
-	 YNWyb1p62KeV1qLiCNAOaChsiNQs3xICig85+PgOlWRKuJfp5NN9EOqtV3pmHbt2Eq
-	 S0ohvTyhnl9tftVoH/ksQ8FoYY5jp/dHHlHX5nKslIxjffz56vzT2KI4Juniw8UN6Q
-	 JdA+183T5aKi/XOpf2SNaboyUIZYorzzfux1cwHpb3A8v6KMqHBpep2Ig1+4Hz7SDs
-	 irF3+nAxs/ccSIYQ4TumXsjc/bkariwqAHjTBcTl7TxtrZrAfsi/EY/UTnf1LJ5PKe
-	 Mw9rvycksrMgw==
-Received: from maru.home (host86-150-50-53.range86-150.btcentralplus.com [86.150.50.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by extorris.mess.org (Postfix) with ESMTPSA id 0EAE141448;
-	Tue, 08 Sep 2026 16:54:19 +0100 (BST)
-From: Sean Young <sean@mess.org>
-To: linux-media@vger.kernel.org,
-	Sean Young <sean@mess.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Viktor Prutyanov <viktor.prutyanov@phystech.edu>
-Cc: Rik van Riel <riel@surriel.com>,
-	stable@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 19/19] media: meson-ir-tx: Validate carrier and duty_cycle
-Date: Tue,  8 Sep 2026 16:52:07 +0100
-Message-ID: <528055c59611d6711e15b05c5ab150d4d3d338af.1788882189.git.sean@mess.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1788882189.git.sean@mess.org>
-References: <cover.1788882189.git.sean@mess.org>
+	id 1x3yAp-00000009Z89-3NlH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 15:55:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=TckXPuonbCjW3ll7vU9025NMYhL42FTH72OM8FtKwpE=; b=dmiuzeIzTpvdVQkT8TSCZZXAlS
+	JQ/TmTT04u9DfNqbAKZut+fifPzSVAvH8+3io2EVewY2mPH5F8V+auoH55AxngFJxG2ZYV9UVhokp
+	THqVn/jRNEA58Ym2Bc7bcFxWgId2z4LfKszN6NioIMjDYsD7fBS0pabBwl88RcOT/2dgFTfW8Jaxp
+	UAUgyyhrK+vnTdGV9R5UYF1VkTVWs/DhbAMc8v019iUbipNuLJVsHca6CEq3Wm9AEVeGjUdFBs7rE
+	HhyXJIHLY2GnAJKsHySnmFbuPwFtDoNMuTKazlbbVfBlUee6ZNnWiEBt124/8cp+RCa8QTkYuKvbA
+	4T+hos+A==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3yAm-000000003Fn-3VA2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 15:55:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 37F1E1A1A5A;
+	Tue,  8 Sep 2026 15:55:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0B41A6031F;
+	Tue,  8 Sep 2026 15:55:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 18B6111C7AF29;
+	Tue,  8 Sep 2026 17:55:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788882947; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=TckXPuonbCjW3ll7vU9025NMYhL42FTH72OM8FtKwpE=;
+	b=BiiqCaipRCamk0P+DqN11XxWdSy4g9gVvsyt5FfiOOlp5yNf2KIHo7imzk0DFw1h+2+CZW
+	/GhhUBzehC7Cx+qialfYsmDwJ9K2+qigt8EvXg+hj3OMtYyVWollUUprBYOv8WPpr3ZOKH
+	ilr/fRiu+9Hkqqgn1uMg3epX/WfaxgSWLcRJgbSH7YfTCLxIwrAaSjVzv7Xo4BCvR9fRH9
+	n7VPPfYD6lorWP/tTMdFLEck+0FVHA7JdBqaqEYH7Yum626QcbzsPvezTblfTvLzEcE5TB
+	R3E99OJFt0I0gK5v44auBg0T+kpbEGc3ww77arkQtiurLSnx3KlOFSiU6d633g==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,  Boris
+ Brezillon <bbrezillon@kernel.org>,  linux-mtd@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v2] mtd: rawnand: sunxi: fit maximized ECC step to page
+ size
+In-Reply-To: <CADvTj4rFxwgYZgKzcHZG738UV0_94gxG1Dhy--ET9jC=E1dgoA@mail.gmail.com>
+	(James Hilliard's message of "Tue, 8 Sep 2026 09:27:08 -0600")
+References: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
+	<87zexst5ze.fsf@bootlin.com>
+	<CADvTj4rFxwgYZgKzcHZG738UV0_94gxG1Dhy--ET9jC=E1dgoA@mail.gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 08 Sep 2026 17:55:44 +0200
+Message-ID: <87y0dbspof.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_085424_205035_CB8307A2 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260908_165548_987398_524B6F64 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,133 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is possible to set a combination of carrier and duty cycle that do
-not produce a correct signal. In addition, setting a carrier larger
-than USEC_PER_SEC will result in a divide by zero in
-meson_irtx_prepare_pulse() during transmit.
+On 08/09/2026 at 09:27:08 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
-Signed-off-by: Sean Young <sean@mess.org>
-Cc: stable@vger.kernel.org
----
- drivers/media/rc/meson-ir-tx.c | 54 +++++++++++++++++++++++++++-------
- 1 file changed, 44 insertions(+), 10 deletions(-)
+> On Tue, Sep 8, 2026 at 4:03=E2=80=AFAM Miquel Raynal <miquel.raynal@bootl=
+in.com> wrote:
+>>
+>> Hello James,
+>>
+>> On 04/09/2026 at 16:39:27 -06, James Hilliard <james.hilliard1@gmail.com=
+> wrote:
+>>
+>> > When nand-ecc-maximize is set, the driver unconditionally selects a
+>> > 1024-byte ECC step. A NAND with a 512-byte page consequently produces
+>> > zero ECC steps before the available OOB bytes are divided by the step
+>> > count.
+>> >
+>> > The older sunxi NAND controllers support 512-byte ECC blocks. Select t=
+he
+>> > smaller of the page size and the preferred 1024-byte step, using a
+>> > 512-byte step for a 512-byte page while retaining 1024-byte steps for
+>> > larger pages. Unsupported smaller steps and controllers without
+>> > 512-byte support continue to be rejected by the existing checks.
+>> >
+>> > Fixes: 4796d8655915 ("mtd: nand: sunxi: Support ECC maximization")
+>> > Cc: stable@vger.kernel.org
+>> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+>>
+>> As reported by Sashiko, there is another use of 1024 down the road which
+>> must be modified accordingly. Although, in practice, 512-byte page NANDs
+>> have disappeared for quite some time, so this is a theoretical fix more
+>> than a real problem.
+>
+> Does the v3 I sent look like it should work?:
+> https://lore.kernel.org/all/20260904-submit-sunxi-nand-ecc-step-validatio=
+n-v3-1-931cec317c10@gmail.com/
 
-diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
-index 1ab898069e67..a410464ede22 100644
---- a/drivers/media/rc/meson-ir-tx.c
-+++ b/drivers/media/rc/meson-ir-tx.c
-@@ -76,11 +76,24 @@ struct meson_irtx {
- 	unsigned long clk_rate;
- };
- 
--static void meson_irtx_set_mod(struct meson_irtx *ir)
-+static bool meson_irtx_calc_mod(unsigned long clk_rate, u32 carrier,
-+				u32 duty_cycle, unsigned int *pulse_cnt,
-+				unsigned int *space_cnt)
- {
--	unsigned int cnt = DIV_ROUND_CLOSEST(ir->clk_rate, ir->carrier);
--	unsigned int pulse_cnt = DIV_ROUND_CLOSEST(cnt * ir->duty_cycle, 100);
--	unsigned int space_cnt = cnt - pulse_cnt;
-+	unsigned int cnt;
-+
-+	cnt = DIV_ROUND_CLOSEST(clk_rate, carrier);
-+	*pulse_cnt = DIV_ROUND_CLOSEST(cnt * duty_cycle, 100);
-+	*space_cnt = cnt - *pulse_cnt;
-+
-+	return *pulse_cnt >= 1 && *pulse_cnt <= 65536 &&
-+	       *space_cnt >= 1 && *space_cnt <= 65536;
-+}
-+
-+static void meson_irtx_write_mod(struct meson_irtx *ir, unsigned int pulse_cnt,
-+				 unsigned int space_cnt)
-+{
-+	unsigned int cnt = pulse_cnt + space_cnt;
- 
- 	dev_dbg(ir->dev, "F_mod = %uHz, T_mod = %luns, duty_cycle = %u%%\n",
- 		ir->carrier, NSEC_PER_SEC / ir->clk_rate * cnt,
-@@ -90,8 +103,10 @@ static void meson_irtx_set_mod(struct meson_irtx *ir)
- 	       ir->reg_base + IRB_ADDR1);
- }
- 
--static void meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
-+static int meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
- {
-+	unsigned int pulse_cnt, space_cnt;
-+
- 	/*
- 	 * Disable the TX, set modulator clock tick and set initialize
- 	 * output to be high. Set up carrier frequency and duty cycle. Then
-@@ -100,13 +115,18 @@ static void meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
- 	 */
- 	writel(~IRB_ENABLE & (IRB_MOD_CLK(clk_nr) | IRB_INIT_HIGH),
- 	       ir->reg_base + IRB_ADDR0);
--	meson_irtx_set_mod(ir);
-+	if (!meson_irtx_calc_mod(ir->clk_rate, ir->carrier, ir->duty_cycle,
-+				 &pulse_cnt, &space_cnt))
-+		return -EINVAL;
-+	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
- 	writel(readl(ir->reg_base + IRB_ADDR0) & ~IRB_INIT_HIGH,
- 	       ir->reg_base + IRB_ADDR0);
- 	writel(IRB_FIFO_IRQ_ENABLE | MIRTX_FIFO_THD,
- 	       ir->reg_base + IRB_ADDR3);
- 	writel(readl(ir->reg_base + IRB_ADDR0) | IRB_ENABLE,
- 	       ir->reg_base + IRB_ADDR0);
-+
-+	return 0;
- }
- 
- static u32 meson_irtx_prepare_pulse(struct meson_irtx *ir, unsigned int time)
-@@ -215,12 +235,17 @@ static irqreturn_t meson_irtx_irqhandler(int irq, void *data)
- static int meson_irtx_set_carrier(struct rc_dev *rc, u32 carrier)
- {
- 	struct meson_irtx *ir = rc->priv;
-+	unsigned int pulse_cnt, space_cnt;
-+
-+	if (!carrier)
-+		return -EINVAL;
- 
--	if (carrier == 0)
-+	if (!meson_irtx_calc_mod(ir->clk_rate, carrier, ir->duty_cycle,
-+				 &pulse_cnt, &space_cnt))
- 		return -EINVAL;
- 
- 	ir->carrier = carrier;
--	meson_irtx_set_mod(ir);
-+	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
- 
- 	return 0;
- }
-@@ -228,9 +253,14 @@ static int meson_irtx_set_carrier(struct rc_dev *rc, u32 carrier)
- static int meson_irtx_set_duty_cycle(struct rc_dev *rc, u32 duty_cycle)
- {
- 	struct meson_irtx *ir = rc->priv;
-+	unsigned int pulse_cnt, space_cnt;
-+
-+	if (!meson_irtx_calc_mod(ir->clk_rate, ir->carrier, duty_cycle,
-+				 &pulse_cnt, &space_cnt))
-+		return -EINVAL;
- 
- 	ir->duty_cycle = duty_cycle;
--	meson_irtx_set_mod(ir);
-+	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
- 
- 	return 0;
- }
-@@ -337,7 +367,11 @@ static int meson_irtx_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "modulator clock setup failed\n");
- 
--	meson_irtx_setup(ir, clk_nr);
-+	ret = meson_irtx_setup(ir, clk_nr);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "carrier %u, duty_cycle %u%% not supported at clk_rate %luHz\n",
-+				     ir->carrier, ir->duty_cycle, ir->clk_rate);
- 
- 	ret = devm_request_irq(dev, irq,
- 			       meson_irtx_irqhandler,
--- 
-2.55.0
+Yes I think so.
 
 
