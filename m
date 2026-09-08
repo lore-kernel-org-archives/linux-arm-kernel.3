@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79475C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B34C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I4NWzhzA7OYXJTSRs9Gx7Qnhw4JJuKAPdTa9sXEPjrQ=; b=43TL7x2hBFgPGXS62MSOq3mo6L
-	QZG/+GTkUZRx68QD/uY7V5JNntbAu28CaS6PDOi/y33Q00AKPjmgGHz2UMDkGRiP0WkFft3dzOe/6
-	8wLqIDjSuk0InX0IBtedXc6kUPQNIv/fG2HlXvSXCx4psr8xn3lkAYLnjia/w0g8Y19CYE4UWgzbQ
-	kZz38RoHnKXbZsF4Td98XOoKMKeN/oZZDnfFS8MCaFjWxjtl8h/EoLMGIyRy7Mrrol6es0p+Rr+CC
-	j7sKhiNyDFSOFjbikvX9/i6r19e2Yxin1HQvaNFT5CaBA16Wq0sFVq4WsbqCrHTcsGD6Qi/uk+FeE
-	qmACSx0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6r6FK2ldE1DBGZWHW8Lq4ye4RQylsVurmE4OZ7oMsQ0=; b=UNLWXSN/6/GXM4mWlJBm3pu6GT
+	f8SAZztYqL2DHe1p286M2F8v44Hyihqf5G7CykciVJu1Y79K4CX88OJDrIBHsicjCRgY2yBYZaj5w
+	Veo05enB7wXYsFdD4l9C/Xlz03qUpX761acH5GqyAxc37KIyGsyWKEID7FglQ5cjC96fxKhevdrow
+	omioeAk5XeLl6UBuJ4+psjNK7Sg33Avg+0sVzry0BnPLAHgq3dr9BDPgRxTYBOh408Khv4I3Qe8KQ
+	85z5YsHKv4TCJpDgjt6bGJsBZd4KnrMHA1ifq1n2BnG3nuLqrqo73dFxDSRkdt2wmj7+nNky7efqZ
+	m8LfZgLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sVj-00000008gXg-1Yxe;
-	Tue, 08 Sep 2026 09:53:03 +0000
+	id 1x3sVy-00000008gdB-1yPp;
+	Tue, 08 Sep 2026 09:53:18 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sVi-00000008gXK-1PcJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:53:02 +0000
+	id 1x3sVw-00000008gcF-3TRG;
+	Tue, 08 Sep 2026 09:53:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C390560A93;
-	Tue,  8 Sep 2026 09:53:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81E3B1F00A3D;
-	Tue,  8 Sep 2026 09:53:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0035E601DB;
+	Tue,  8 Sep 2026 09:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4A91F00A3A;
+	Tue,  8 Sep 2026 09:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788861181;
-	bh=I4NWzhzA7OYXJTSRs9Gx7Qnhw4JJuKAPdTa9sXEPjrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E4/PTSKnkR9pRHQxo3AaT4hnDfG2Z292EkA/WD2oLwSltUZkq5w7RfEjQehXuhRtA
-	 yM1rYs0U4qmUuOufB8w9yW9tEX6IYZP2JBr/7/4D26/A+vuRhLwlznRj+QpdT/ZsST
-	 ej9NMM90L/cfx4RfVLRTikG49quK/Ejg2PluFRRPPjyqiEHPOcAQMFrndji+YArKHO
-	 yZz6AF2gbRXOZJRncDIoi75RkBw85agB2li3Ez16dhT3hV8BmKbXsJYf5/YqPhF+zS
-	 Gu67nDIdj+Dr1+8JqcErycsql+YWHd1Fll9gS88ZFioJ8f2oZMHe4bXkME/oXRXIRX
-	 gSqR4HWTjjlsQ==
-Date: Tue, 8 Sep 2026 11:52:57 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
-	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 02/13] dt-bindings: mfd: syscon: add Ambarella CV75
- secure scratchpad
-Message-ID: <20260908-magic-ecstatic-lemming-b1db9e@quoll>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-2-e918514cb3b1@ambarella.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260904-cv75-v5-v6-2-e918514cb3b1@ambarella.com>
+	s=k20260515; t=1788861194;
+	bh=6r6FK2ldE1DBGZWHW8Lq4ye4RQylsVurmE4OZ7oMsQ0=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=OQbJYS0rq9/0PwrUixs0rFOKNvMTlvZZCW23RMMNGRHPBMRueu9MZhAuDL4efqHe0
+	 hqrHWz0AajIufXy7KYlkHMH5brbbMvpOpDjPGPu/PPLhODkAFDiwh1WaGDhX3+MBhO
+	 6s3MJuwY78ik25i6qfF+dEcyA3Bly9+gQfA30IfypvbRfTWly3Fx7x964behRnKRUj
+	 1V1lscDB/WzhbkUoqcJGXqegCCXQ2M7sO7q3E+1wOnSgLtF2DVIgw6Uvp0uaX3Rh6M
+	 /Txn44sovOu2LlPxavCj5WqAashE/DLsXsRqXSSIrtv/mgRFC7NWY2ceAyoNzA7v+G
+	 IdqC8b2NwgYVw==
+Message-ID: <b906ecb04f597dcc08e7343588d14015@kernel.org>
+Date: Tue, 08 Sep 2026 09:53:11 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v11 25/74] drm/display: bridge_connector: Switch to
+ .force_ctx() connector helper
+In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-25-bc12954a0688@collabora.com>
+References: <20260901-dw-hdmi-qp-scramb-v11-25-bc12954a0688@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
+ Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
+ Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
+ Stone" <daniels@collabora.com>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
+ Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Helge Deller" <deller@gmx.de>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Phong LE" <ple@baylibre.com>, "Raphael
+ Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,18 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 02:38:09PM +0800, Long Zhao wrote:
-> Allow ambarella,cv75-sec-scratchpad as a syscon for the shared secure
-> scratchpad registers on CV75.
+On Tue, 1 Sep 2026 21:50:49 +0300, Cristian Ciocaltea wrote:
+> Turn drm_bridge_connector_force() into a .force_ctx() implementation and
+> hand the acquire context over to
+> drm_atomic_helper_connector_hdmi_force_ctx(), so that the HDMI connector
+> framework can reset the CRTC to recover the SCDC state when the sink
+> reconnects while the display pipeline is active.
 > 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> [ ... ]
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-Best regards,
-Krzysztof
-
+Thanks!
+Maxime
 
