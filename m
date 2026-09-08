@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA8CC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8CBC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=muMECbO96Q17a8vw7+GcxCDFTKIrG/mBOtBi3cQA3vw=; b=DGnCiRE8a6uEwTn/4JryaBWiUU
-	AfIfstJmOUiTT9nLi4BYXhkSzQ9RffRVfKz/86jJu/UUQA7EXXvBbARGYkMuUDo1aSdTcMW97LefU
-	uJDMnlgftwSb6P0oBUPxuRQ0H+WyfotxgSpBGEl38BN7gwrC3lByEb3nLE8VrHS4Uza+5f2WOk8Mz
-	+Dj4gcKGm0ZOl1bCRwvXG37WUVLLrW3GNBRdyMblAFiuJikSJJXX00jvhUFx1vrtUTMhRBVYgbqkz
-	BofK9zunkwBKhlMymuNblaWgEjo+EeQVAtTRQW8FYA6WKx1aY8OaOqrCkAKLqa7rJOE2qKIAme3+T
-	lDwdUvbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxn7PT+EAVFsbAjdQ2z3LbyFBgdM3inwgwbxduT95vI=; b=xDqYCh6tU7T0IjiH8QzhFg41+G
+	KrFjFLmbshfCJjCf91ERXiYk9f5s8RrW0P75OXHrJ24DF2KdUZ7kIJ0Kmlq+OiXEMkvC3ubheI6OQ
+	U9tN5FQZS72JP2E8B8tLeYTIUI3yJZHy7kuY/5awMmvKkwhS9oaLWfulwoWiY6OlCp12HQ5JhO2dC
+	sc0EDIWH/3ULtAUP35PPWECnj7JJw4IUkSepCCR/wkAaN4m5z/1ZiPLhPPbB1aqs8pwc8iD4rGMmt
+	8EzGf7+QAHy21mbnmFLCxiJCoajrjsSxkMApLVRwlvjP+IXJIMmupdZuVVxHhPg9ik5+jPVKaAkIT
+	z50pyHbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qib-00000008KVg-0O2e;
-	Tue, 08 Sep 2026 07:58:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3qkc-00000008Kjk-1axp;
+	Tue, 08 Sep 2026 08:00:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qiZ-00000008KVD-2G4s
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 07:58:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=muMECbO96Q17a8vw7+GcxCDFTKIrG/mBOtBi3cQA3vw=; b=aDbGLLE0YdURJK5qQfiCORisZl
-	8UOAwXm5fR16WFpaltJeELP6X/KR4WmzUjljXZ6TiNOOLWY7adJFdDZbvSbgo+IrCHGFP1pTuGYos
-	fK7SOYBrLNpBooFvWlC/KaRF6Og1OqZu+VZyi1ewz/KRINPNLJRphcvTL4FeZWWciWYHYsqMF/6+7
-	4atV63/oF8+LJIxz3ptlI9C1eWt0w0HXS/epWzdq9NMBa/1BL+Fgw0rcueR5yehG0X1lRbJ2/ZKeE
-	3T8qGbjUTrBWrYbmEa9We9rG7UtT1EkRnn04PeDFLWVMlhxb+v9gmp5Q0QCynr42EZOmM1R6BrZ0z
-	5ZupaKxg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3qiQ-0000000H5Ok-3YfT
+	id 1x3qkZ-00000008Kiy-25Jj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 07:58:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B40361476;
-	Tue,  8 Sep 2026 00:57:57 -0700 (PDT)
-Received: from [10.57.7.202] (unknown [10.57.7.202])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D52773F7B4;
-	Tue,  8 Sep 2026 00:57:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788854281; bh=muMECbO96Q17a8vw7+GcxCDFTKIrG/mBOtBi3cQA3vw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Wot4HfEz7L7Q1yhwW45ocjyTfVDEuEXikMJ5kqcAakvtvEBJPgf7VrrSQ+VR90R66
-	 nQTplq4uplypYc4ur9gFPAllc8RxJ18oJh2EbVsjZ0sqmY7En9vasX7BBaIfw72daz
-	 tcrAlaVBIZk7x9aCnwAAI39FOlKwEMbyjHI3frww=
-Message-ID: <df68a260-c9d0-4f5a-918f-00dd2fb8d6fb@arm.com>
-Date: Tue, 8 Sep 2026 09:57:50 +0200
+	Tue, 08 Sep 2026 08:00:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uxn7PT+EAVFsbAjdQ2z3LbyFBgdM3inwgwbxduT95vI=; b=k2pFIpeNykpDXUpgGP6rmLNoV1
+	v/gsW08BVVUZfDPnDaCOYq/EPmKDFUni7x5/8twmANTmNfp5sQYO6M5iMkWl7C/Yj8eByFi0NSjP5
+	+pKn3gZs8uXX5sMu1Rwbj/XeNHpvtcP2iheVMIB9c8X8dDZWr122N2kazWTQ16RAvx+Ca1sHX+TFH
+	ZtTLGhonByGtkYC2q3cf/86RHDlQDw9Ts/EgBNsL7k3mrWZZKvQpqmnPtBKewzJQHfSco39iq1brj
+	m7SiZUcp6mag/2vpZ39mmJo8N3iPN8A5fDIP7p9oxcTGE7fua+tmzCqrAI/TrTSDeYeaqTt9EuUlm
+	zRqHERBQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51328)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1x3qkT-00000000835-1isj;
+	Tue, 08 Sep 2026 09:00:09 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1x3qkO-000000003sU-2C7X;
+	Tue, 08 Sep 2026 09:00:04 +0100
+Date: Tue, 8 Sep 2026 09:00:04 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
+	Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>
+Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <ap_AhKXlAWecV3BI@shell.armlinux.org.uk>
+References: <20260814085118.OPEA_Ssn@linutronix.de>
+ <20260903160710.vVf4gEL2@linutronix.de>
+ <apmknG55qFAn8EPf@shell.armlinux.org.uk>
+ <20260903133146.07095885@gandalf.local.home>
+ <20260904155404.ESPFg3zi@linutronix.de>
+ <ap7OMYBVKUrQjX9O@shell.armlinux.org.uk>
+ <20260908075455.OffmMhrB@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-hardening@vger.kernel.org, Andrew Morton
- <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
- <178877845406.3691569.6930315020588094755.b4-review@b4>
- <3f6e7678-0784-4ac1-acb4-b128887803c5@arm.com> <ap-wnHAwfdX_b39o@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ap-wnHAwfdX_b39o@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260908075455.OffmMhrB@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_085808_117027_EFBC7DB6 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260908_010015_539547_A8F202B1 
+X-CRM114-Status: GOOD (  42.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +102,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/09/2026 08:52, Mike Rapoport wrote:
-> On Mon, Sep 07, 2026 at 05:49:42PM +0200, Kevin Brodsky wrote:
->> On 07/09/2026 12:54, Mike Rapoport wrote:
->>>> +
->>>> +#include <linux/bug.h>
->>>> +#include <linux/cleanup.h>
->>>> +#include <linux/kpkeys_types.h>
->>>> +
->>>> +/**
->>>> + * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
->>> Nit: I'd suggest to drop "define" from all the descriptions, they would
->>> read better without it IMHO.
->> Fair enough, but if we say just "a guard type that does nothing" is it
->> clear that this is a macro defining a type, and not a type itself?
-> Then maybe "helper to define", like cleanup.h does?
+On Tue, Sep 08, 2026 at 09:54:55AM +0200, Sebastian Andrzej Siewior wrote:
+> On 2026-09-07 15:46:09 [+0100], Russell King wrote:
+> > On Fri, Sep 04, 2026 at 05:54:04PM +0200, Sebastian Andrzej Siewior wrote:
+> > > On 2026-09-03 13:31:46 [-0400], Steven Rostedt wrote:
+> > > > On Thu, 3 Sep 2026 17:47:24 +0100
+> > > > Russell King <linux@armlinux.org.uk> wrote:
+> > > > 
+> > > > > What do you expect to happen with this? Which arch maintainer should
+> > > > > apply this patch that affects three different independently maintained
+> > > > > architectures?
+> > > 
+> > > Well, if you as the ARM person are fine with ARM part, an ACK would be
+> > > appreciated. If you have something to object, it would be nice to let me
+> > > know so I can adjust accordingly.
+> > 
+> > First, I only just looked at the email - you may have noticed I'm not
+> > very active with the kernel anymore, as I'm a full-time carer at the
+> > moment.
+> > 
+> > Second, I'm not fine with the patch as-is, because it's not clear how
+> > it could be merged in its current form. It would be inappropriate to
+> > give an Ack, because an Ack means I'm fine with it. I'm not.
+> > 
+> > Third, I haven't actually reviewed the patch itself (see first point).
+> > 
+> > Looking deeper now, I see nothing in the linked report, nor in your
+> > write-up that identifies what is responsible for the context being
+> > inappropriate to deliver the SIGTRAP. See the first point - I'm not
+> 
+> The linked report shows a backtrace by "BUG: sleeping function"
+> originating from el0_breakpt() -> perf_bp_event() following by sending a
+> signal force_sig_fault() followed by rt_spin_lock() and
+> __might_resched(). It also contains a reproducer.
+> 
+> The first sentence has the part
+> | The hardware event is
+> | delivered with disabled interrupts and perf intrastrucure expects
+> | disabled interrupts while the overflow callback is invoked.
 
-Sounds good, will do!
+*Where* are interrupts disabled?
 
-- Kevin
+> 
+> This is what happens, followed by 
+> 
+> | The callback then sends a SIGTRAP signal for which it acquires
+> | sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
+> | must not be acquired in atomic context.
+> 
+> This is not really specific to PREEMPT_RT as we enforce to not allow
+> raw_spinlock_t -> spinlock_t on !PREEMPT_RT via lockdep, too.
+> 
+> > able to read lots of code to work that out, and presumably you've
+> > already done that ground work to come up with a fix. This is *vital*
+> > information when someone looks back at why this change was made as
+> > it helps to understand how the problem occurs. This is, after all,
+> > the whole point of commit messages - to help people look back and
+> > understand why a change was made. The "what the changes are" part
+> > is already covered by the patch showing what the changes were. It's
+> > the stuff that *isn't* in the patch that needs to be in the commit
+> > message.
+> > 
+> > So... don't describe the code changes in a commit message.
+> 
+> I think both parts (describing the issue and the change) are part of the
+> commit message.
+> 
+> > So no, an Ack is not appropriate.
+> 
+> Sebastian
+> 
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
