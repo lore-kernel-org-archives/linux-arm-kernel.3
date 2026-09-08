@@ -4,78 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796DEC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6EAC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sfx91CShzrdAeYPF8QQviGdlRmGljU972NsYhPjm+hY=; b=e7j/QrT68taac4pDG3XaF3Y6ZQ
-	xTXfWlbWtQuwMtRVbZ1QmP7zUEfKYy/Rcm7zTLkTAV/vppzu5rqMvykkylfn5DyAqCJu5dUGMJBS9
-	1cHt29/Y+xJYdZutOjVAtPVrX6Nj4vwlUiWTDb+JeipeYbTFiu6U7kdiFnrJXJkCiEC7kaasw/mD1
-	nFOPAzWNC83W033eAKk6A4r7IyoslIuDZAdjevbFOJBNtw+HO6pHCAsxrYwMFVyPzSwd2WQeC/IHS
-	ofNXf6evOWX7FBHnMe7TkiPMBrHg9EPIozb/KfeOfgkuBjbGlIqKjsdPqdw2ATZVI6oiqgbp3AOfa
-	c1SVym8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NlZljgQvoon2wFCuBaa9vTlUtnEnda5rGeFFCccE+Ck=; b=5F7f4OYJqudwgBGNV+M2eekQF6
+	tYG1ZsYhUIWlazSAqxGAnzdyM9j8BQ8Cq4E/6Q4SbmV/s93leY9ndDh/6yjMYlqyp2ewu/rpg4r/f
+	78aVx05wTtFMIeeFwSF53mseCwksPKfaV3IB/fz+/1q5fDou1gRf7bDdmTPP/y/1rJZmqYSRGpbX8
+	zregNYgLPVdTmU+nk5miIsNR2rYgN2006mdAk1Ctq1pmrRaPAFDu//CYKVv2S/gGZbpFGO+9SO0Og
+	SlBA8ZAE8XP+IYMhYbQ5ML9xbYGJwEBn+8iCNWDbNpd09XhIFk9EvnBOd5mt/vH34Mv5IQUCUO9Km
+	YlgxEnWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3r4v-00000008Nai-1pRA;
-	Tue, 08 Sep 2026 08:21:17 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1x3r7e-00000008NtA-3TV4;
+	Tue, 08 Sep 2026 08:24:06 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3r4n-00000008NXo-1r8c
+	id 1x3r7c-00000008NsY-3mBy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 08:21:16 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260908082102euoutp02a06533f3811f6091b41d87b0f26f6159~TSr82FJJP0560705607euoutp02g
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 08:21:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260908082102euoutp02a06533f3811f6091b41d87b0f26f6159~TSr82FJJP0560705607euoutp02g
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788855662;
-	bh=Sfx91CShzrdAeYPF8QQviGdlRmGljU972NsYhPjm+hY=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=KmAefoZGlo4tlmfgmycp5ej0k1xg7W7ABt9FWYLRrWFZZNx9ougFH/ZmcCnWZGvya
-	 f+WAV8zZQ464ojpc5Sv21SuCvzi/f98EEKTVuIGoWrWR0y5Tp+Zg7yIH5vZMWUZgRX
-	 Pr9DllXIxRHLWDddd/tr97W6bfWXSq0Vr9Vhu5cQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260908082101eucas1p1b98597ee7866e0889bb1a853c318175c~TSr8gW6EM0711007110eucas1p1J;
-	Tue,  8 Sep 2026 08:21:01 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260908082100eusmtip2b264cdb1a3edc330096d5427b9dc35a5~TSr7mezgn3204232042eusmtip2C;
-	Tue,  8 Sep 2026 08:21:00 +0000 (GMT)
-Message-ID: <fa91f9e3-ae45-44b2-9429-348fbc73c285@samsung.com>
-Date: Tue, 8 Sep 2026 10:21:00 +0200
+	Tue, 08 Sep 2026 08:24:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DF2kDMAnnVJmvsKDFAAZlAcKgXDQhzq8Wou5E/3FObaHn3Wgma/yWLYfINtduzwIiLHPCEPHJ+SQv9YhvS3ydzWbjqx/hT69BULo4QiBq8BtISHgb0PLcLBCblPxEumaLWYso9u2RnkgqC0yz5SmOmmv6RCO6p2C4Px5VzBfwcOWBjV8VA2M5BRMG9RjPwVyLve6sji6zlfhQz2n+IVq3aMBqFeOf+N/C6wD408pUqkhax+2p3XRx8DtKHkHjpT6Y/StfGZ9KSFidOwZrHVO71JFL62nzn5VxGrntpraeAjB5Yz+WXIM4xFx7lx6XzzcNwr/cXwQsDnHhFcUOwXyRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NlZljgQvoon2wFCuBaa9vTlUtnEnda5rGeFFCccE+Ck=;
+ b=RBdBNIZJNnWkEXiegCIyV7bFem/XjuI7R7c8u7vA1iP5DMYadB71mkIbPLMeVCb6nDnZD8adPhmO2pYcXapuH1aGgFqJUoBGQ0ISGVpvxpHBynjYImoZgZsZI70IG42XaqzHF5x67k2hHtRuS1NpSZ84lNEKLKmQF4C1S/bMxU5yR4EWplZK7liNd0nfMbNdca4CRkjJQXxP6nC4cikHtQChRn27gGFLDx2K6NFwtJ10aDqtCj1q5um0jkPz8lnLnFnfhacp8QzKenumWQK9DG6WFrnS11FSJM9YcNqDYYytPIz4QVLyVmOhHSJDl++VMqfoPHMMYjbuIYSdirnZpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NlZljgQvoon2wFCuBaa9vTlUtnEnda5rGeFFCccE+Ck=;
+ b=SwsPy4ZN9u3PnVWtjdQkCje+smIiZUn+JJI++njWQMfgG4/Jgukd1CcKsXUmQ5IcIkt/I8glqORPY+QV1E6KbH9mEw6jinONcaW77Ob1oHlT/TM2E/G14DMxkMDYn0vdd47WhsyGGwMhDQNKkfsCMOhkjEO97aNrFzARfVGSlSp6Vi1hgf/4v9ceNLVyBYMTNuo/7QxTetBbi3ycwJe149whggWv9zmOOFFjre5Y01c3su8ogRJ+nk8V8tR2mDdwweZst1ZOJWmZkx8XGuuBkPbAo2EqSYRWqqyafmIUoPiY8YQl2Hzgsgi54zL1nS1g5+fEq2ijXSogq8FYIHY95g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by LV0PR12MB999069.namprd12.prod.outlook.com (2603:10b6:408:32a::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 08:23:58 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Tue, 8 Sep 2026
+ 08:23:57 +0000
+From: Andrea Righi <arighi@nvidia.com>
+To: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>,
+	Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/2] sched: Enable preferred SMT siblings on NVIDIA Olympus
+Date: Tue,  8 Sep 2026 10:23:11 +0200
+Message-ID: <20260908082345.103087-1-arighi@nvidia.com>
+X-Mailer: git-send-email 2.55.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MI2P293CA0010.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:45::20) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v6 07/12] mm/cma: Introduce cma_alloc_at() API
-To: Thierry Reding <thierry.reding@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>, devicetree@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev, linaro-mm-sig@lists.linaro.org,
-	linux-trace-kernel@vger.kernel.org, Thierry Reding <treding@nvidia.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260904-tegra-vpr-v6-7-79042cfa8de5@nvidia.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260908082101eucas1p1b98597ee7866e0889bb1a853c318175c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260904104542eucas1p15f23d1ef005ed971314ee29521fc1e9d
-X-EPHeader: CA
-X-CMS-RootMailID: 20260904104542eucas1p15f23d1ef005ed971314ee29521fc1e9d
-References: <20260904-tegra-vpr-v6-0-79042cfa8de5@nvidia.com>
-	<CGME20260904104542eucas1p15f23d1ef005ed971314ee29521fc1e9d@eucas1p1.samsung.com>
-	<20260904-tegra-vpr-v6-7-79042cfa8de5@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|LV0PR12MB999069:EE_
+X-MS-Office365-Filtering-Correlation-Id: e0b5a1c8-4eb2-427b-d120-08df0d82872b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: 5Weit9gNDAv9+jw2TSVTMunYujNYL4Ucz/Vqs5A6mXnHpO0JkcnrQzjSMSNN3+bX5Mc9GZo5wuo3BkB3Ug8W4BtVzuP1dIP5qQE6wg5mSYsPWVtDm+WaLll3g7I7ZsmVoxQxXq4sGMFVGqs+JTyOxINFTsVlOFg9lm04Es6y5r3vBNalSRzyMATxYqRCXC/uKe823QrgiFRXOWly8hgib4uLTGrY1tL4p4SiiBmKMHi/N3ARc4fipM/iTVXcNbMUDF+RNp5BronjAOG4WLZcvtDpEXw/myK34T7L3g1hhfjwFS7SxLjDjLPUf7+W2MF76Thp6LOkBWp/yRT4gK42yBqNRnIyedIo5fh1u/7ujMDfVzJLTUzUtKmWVT/W3nxFFyM87tUCeWnzSuaMSKhgkOTbIbaHscVsxSP3K80vDKK8uyQtUXzWum5EMW1DYrb7PTyfGN/scfnuQqiillWjO94ftaL/JdKaeQLLNOWj3yF9S0xJFvYQ5owOEU/OVjd2TL2vJWtGz9fKWrRqjSBmDAyWk/dSfuIsRBx7w+rhtl511SXvlvQ8FKLanVsIxgf/dQp6ENLavn6ex29l2dMe+5N5Bhdcicc6iMzRUJoLizhUTsUxF5P7iRt25cgOf5mQIwYQz+IgsuGkh1Zd+RK9tXXX9KjC500nBeyCeEbJzoo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qRrTK2/W9670dZdHtnUV7mB1X7lkBX4rpMIFloR+qQoDVsI6oGVwm9uBlDCm?=
+ =?us-ascii?Q?8iqQQrj1AbPdHGenTiod8lqImetWxaUbwbg5wKErt3RFmFD5xnNCC9iXZEni?=
+ =?us-ascii?Q?SFRSb2YWoqHWqUCnxOsR7Onw82Q1xVU4RqWY3fQ0meVyWKSBeSd+GmnnTYLm?=
+ =?us-ascii?Q?JHjTbe++Rot04dfaD0rKZfuBa2MyXN04F/qqnbT8mCwGEGHZ6uhByAYpdAiM?=
+ =?us-ascii?Q?puwAeaBfvn0u7s5+9qkQBvhvmZXflZFrztxu6hxhiMNa+lUqAH2bCgF0egmk?=
+ =?us-ascii?Q?vnR4V6VHLblUJwhMX/lyKkq1ho4HDbEtlyoiq1jLcvrVvTp69BMNrE4dna0S?=
+ =?us-ascii?Q?SV/kNx5LNZnAF2gQ/0ZXCS+7h79LAZpA8+aM4Fc5EGZQkPGzRG9KUiVQhfBg?=
+ =?us-ascii?Q?3w78OVVottA3+o49bybWiO6mb06GjH6Yid6NiMCS31fJNPcBnzZ3xGAAXbIe?=
+ =?us-ascii?Q?BzxYOA38NLrJ5XZLq8qzrvlt17h4d6PEM7rX7YIxWKbc/oM5Sk7/EJsbbkPF?=
+ =?us-ascii?Q?rJdfLyvLlOk8y/yq6MZ8Tys/wZG08kkDY9vp4sl9brnKEiovTUtidx5LFAce?=
+ =?us-ascii?Q?SKqRgVTjzkZxaCm/ID5mOe0kvdOsHiwUArs2zCwyBFRI21zyRa7h+8S1rAjk?=
+ =?us-ascii?Q?f3qd0PZ9pu9H6+J99tXl9Sa/f0MqnpXGYIWaUUdIPwaTDOGf7yEfcLMi6K6+?=
+ =?us-ascii?Q?jaUdJlSQYTNfLuh0JbI3SKaUt42YECMAFXMhZpZNmhgDTbd9oRNSi0l2+aeA?=
+ =?us-ascii?Q?pwepaHusACLDg7iodgir3T3vQVE1nIzyEiMboKHjhNEMMJh6KYW8LKIqH5Ne?=
+ =?us-ascii?Q?bfiHQJU08RaEXQhuWunFGPBL5MjMVoZFGZmpDWJKX11YY/QC6zASVjjJOSCl?=
+ =?us-ascii?Q?eUDiYeMmtIYvNXeED4HYhmqEFNKSEtzd0Bzxais01rHKC00MtPlnCxMw4rId?=
+ =?us-ascii?Q?mzIsnYiifQJRDxnV4o2pfr0xDfDN6tsow08COeNOBZ2FmhSTNJipUBtiG0Wd?=
+ =?us-ascii?Q?H9mQl6EG8WjaJqXTgUgUII1s+s6nqACPNSnuKJ8t+ln3Mpx3UhJm9/lV6Xai?=
+ =?us-ascii?Q?ueATQzAYu0ciRoQdKTPGC4TAk/EJrUji3xMaXg754wC1lXlbZjK74OiV2EXO?=
+ =?us-ascii?Q?9bvm91KcUKEfKEygNyfgUE2VBHGoZuSKqRshlTSTfbaVMOUx+h0rTfziAWxs?=
+ =?us-ascii?Q?56M2AIDbkVV2uvgrY0bbYup2bkvBAgw8ev0zJczsGYLH0IqWqOnrPgcrSfvv?=
+ =?us-ascii?Q?1bU2x6GAGjzWE+KhENhqCEAtKcuZCJxBT/Rqome2BZRbSAvfW0t373ozhLuP?=
+ =?us-ascii?Q?E9fBEWkvLHwdTDEULILDx+cpkgNuu/cN4+SQvD9RkX7Q2PGIUHy/evcd93GJ?=
+ =?us-ascii?Q?e7TRhoQAliVvwNCdbUoNCtV5rwH4Ca1660i1GBkJFxUVv8Pae3109NcoaziJ?=
+ =?us-ascii?Q?9dDNzw3On13TKzc7IGZyL07fPvIyCwoIF/VR6JXTqVx2hQhNmsX5Z3K81Oic?=
+ =?us-ascii?Q?wSTnl2o44Q94kQLQbHJPOqIVe9m0wZo7LZBKMeWct78Kd8eHoFCEWQcrszon?=
+ =?us-ascii?Q?9RcrWEesX8FHjCig8QcVd2Yd6J7OSjch427kRE9GglAdyhb9r+JukzDdnLAJ?=
+ =?us-ascii?Q?uKW5oXoTDGUkMkpY0da9vAHGok2LV+k6O7OGnIsNADLJ7O9vq2Hoi5JTIDX6?=
+ =?us-ascii?Q?n2CdnqWq5+LYWcHGE7dWzgIezHoCWY9/J+5dyh5R6IZ0FgfCUKGv2UVoN4EO?=
+ =?us-ascii?Q?4mbeRN3IPw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0b5a1c8-4eb2-427b-d120-08df0d82872b
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 08:23:57.6154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KBFT0oJwGnW58ePouh2bXA/2eptTc02+1Oo8iJ5OB/ouuXa9xvL7vEp7XBoQi6hHzR1NFzj4EV+7AJ798JB1Cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB999069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_012111_413111_88FE554A 
-X-CRM114-Status: GOOD (  38.70  )
+X-CRM114-CacheID: sfid-20260908_012404_969148_8936444B 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,356 +150,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.09.2026 12:44, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
->
-> This API can be used to allocate a number of CMA pages starting at a
-> fixed offset. This is useful, for example, if the CMA area is used as
-> backing storage for a nested allocator that has stricter requirements
-> than CMA itself.
->
-> In order to reuse most of the existing code, the cma_range_alloc()
-> function is enhanced to take as inputs a range of pages to look for a
-> free region. If this range encompasses the entire CMA range, the
-> behavior is as before, but the range can also be specified to match
-> the offset and size passed in from cma_alloc_at(), in which case that
-> is the range that will be allocated (or allocation will fail if the
-> range is not available).
->
-> Suggested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
-> Changes in v6:
-> - refactor cma_range_alloc() so it can be reused for _at() code paths
-> ---
->  include/linux/cma.h        |  4 +++
->  include/trace/events/cma.h | 77 ++++++++++++++++++++++++++++++++++++++--
->  mm/cma.c                   | 88 +++++++++++++++++++++++++++++++++++-----------
->  3 files changed, 146 insertions(+), 23 deletions(-)
->
-> diff --git a/include/linux/cma.h b/include/linux/cma.h
-> index 8555d38a97b1..844404459a42 100644
-> --- a/include/linux/cma.h
-> +++ b/include/linux/cma.h
-> @@ -49,11 +49,15 @@ extern int cma_init_reserved_mem(phys_addr_t base, phys_addr_t size,
->  					struct cma **res_cma);
->  extern struct page *cma_alloc(struct cma *cma, unsigned long count, unsigned int align,
->  			      bool no_warn);
-> +extern struct page *cma_alloc_at(struct cma *cma, unsigned long offset,
-> +				 unsigned long count, bool no_warn);
->  extern bool cma_release(struct cma *cma, const struct page *pages, unsigned long count);
->  
->  struct page *cma_alloc_frozen(struct cma *cma, unsigned long count,
->  		unsigned int align, bool no_warn);
->  struct page *cma_alloc_frozen_compound(struct cma *cma, unsigned int order);
-> +struct page *cma_alloc_at_frozen(struct cma *cma, unsigned long offset,
-> +				 unsigned long count, bool no_warn);
->  bool cma_release_frozen(struct cma *cma, const struct page *pages,
->  		unsigned long count);
->  
-> diff --git a/include/trace/events/cma.h b/include/trace/events/cma.h
-> index 37195edf2498..4e0ab63e303f 100644
-> --- a/include/trace/events/cma.h
-> +++ b/include/trace/events/cma.h
-> @@ -38,13 +38,17 @@ TRACE_EVENT(cma_release,
->  
->  TRACE_EVENT(cma_alloc_start,
->  
-> -	TP_PROTO(const char *name, unsigned long request_count, unsigned long available_count,
-> +	TP_PROTO(const char *name, unsigned long start, unsigned long end,
-> +		unsigned long request_count, unsigned long available_count,
->  		unsigned long total_count, unsigned int align),
->  
-> -	TP_ARGS(name, request_count, available_count, total_count, align),
-> +	TP_ARGS(name, start, end, request_count, available_count, total_count,
-> +		align),
->  
->  	TP_STRUCT__entry(
->  		__string(name, name)
-> +		__field(unsigned long, start)
-> +		__field(unsigned long, end)
->  		__field(unsigned long, request_count)
->  		__field(unsigned long, available_count)
->  		__field(unsigned long, total_count)
-> @@ -53,14 +57,18 @@ TRACE_EVENT(cma_alloc_start,
->  
->  	TP_fast_assign(
->  		__assign_str(name);
-> +		__entry->start = start;
-> +		__entry->end = end;
->  		__entry->request_count = request_count;
->  		__entry->available_count = available_count;
->  		__entry->total_count = total_count;
->  		__entry->align = align;
->  	),
->  
-> -	TP_printk("name=%s request_count=%lu available_count=%lu total_count=%lu align=%u",
-> +	TP_printk("name=%s start=%lu end=%lu request_count=%lu available_count=%lu total_count=%lu align=%u",
->  		  __get_str(name),
-> +		  __entry->start,
-> +		  __entry->end,
->  		  __entry->request_count,
->  		  __entry->available_count,
->  		  __entry->total_count,
-> @@ -132,6 +140,69 @@ TRACE_EVENT(cma_alloc_busy_retry,
->  		  __entry->align)
->  );
->  
-> +TRACE_EVENT(cma_alloc_at_start,
-> +
-> +	TP_PROTO(const char *name, unsigned long pfn,
-> +		 unsigned long request_count, unsigned long available_count,
-> +		 unsigned long total_count),
-> +
-> +	TP_ARGS(name, pfn, request_count, available_count, total_count),
-> +
-> +	TP_STRUCT__entry(
-> +		__string(name, name)
-> +		__field(unsigned long, pfn)
-> +		__field(unsigned long, request_count)
-> +		__field(unsigned long, available_count)
-> +		__field(unsigned long, total_count)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__assign_str(name);
-> +		__entry->pfn = pfn;
-> +		__entry->request_count = request_count;
-> +		__entry->available_count = available_count;
-> +		__entry->total_count = total_count;
-> +	),
-> +
-> +	TP_printk("name=%s pfn=%lx, request_count=%lu available_count=%lu total_count=%lu",
-> +		  __get_str(name),
-> +		  __entry->pfn,
-> +		  __entry->request_count,
-> +		  __entry->available_count,
-> +		  __entry->total_count)
-> +);
-> +
-> +TRACE_EVENT(cma_alloc_at_finish,
-> +
-> +	TP_PROTO(const char *name, unsigned long pfn, const struct page *page,
-> +		 unsigned long count, int errorno),
-> +
-> +	TP_ARGS(name, pfn, page, count, errorno),
-> +
-> +	TP_STRUCT__entry(
-> +		__string(name, name)
-> +		__field(unsigned long, pfn)
-> +		__field(const struct page *, page)
-> +		__field(unsigned long, count)
-> +		__field(int, errorno)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__assign_str(name);
-> +		__entry->pfn = pfn;
-> +		__entry->page = page;
-> +		__entry->count = count;
-> +		__entry->errorno = errorno;
-> +	),
-> +
-> +	TP_printk("name=%s pfn=0x%lx page=%p count=%lu errorno=%d",
-> +		  __get_str(name),
-> +		  __entry->pfn,
-> +		  __entry->page,
-> +		  __entry->count,
-> +		  __entry->errorno)
-> +);
-> +
->  #endif /* _TRACE_CMA_H */
->  
->  /* This part must be outside protection */
-> diff --git a/mm/cma.c b/mm/cma.c
-> index a10ea37a261d..f92d3a188209 100644
-> --- a/mm/cma.c
-> +++ b/mm/cma.c
-> @@ -783,25 +783,32 @@ static void cma_debug_show_areas(struct cma *cma)
->  	spin_unlock_irq(&cma->lock);
->  }
->  
-> +/*
-> + * Searches the CMA memrange, from @start to @end, for a free region of
-> + * @count bits. If @end is less or equal to @start, will search the entire
-> + * memrange.
-> + */
->  static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
-> -				unsigned long count, unsigned int align,
-> -				struct page **pagep, gfp_t gfp)
-> +			   unsigned long start, unsigned long end,
-> +			   unsigned long count, unsigned int align,
-> +			   struct page **pagep, gfp_t gfp)
->  {
->  	unsigned long bitmap_maxno, bitmap_no, bitmap_count;
-> -	unsigned long start, pfn, mask, offset;
-> -	int ret = -EBUSY;
-> +	unsigned long pfn, mask, offset;
->  	struct page *page = NULL;
-> +	int ret = -EBUSY;
->  
->  	mask = cma_bitmap_aligned_mask(cma, align);
->  	offset = cma_bitmap_aligned_offset(cma, cmr, align);
-> -	bitmap_maxno = cma_bitmap_maxno(cma, cmr);
-> +	bitmap_maxno = (end > start) ? end : cma_bitmap_maxno(cma, cmr);
->  	bitmap_count = cma_bitmap_pages_to_bits(cma, count);
->  
->  	if (bitmap_count > bitmap_maxno)
->  		goto out;
->  
-> -	for (start = 0; ; start = bitmap_no + mask + 1) {
-> +	while (true) {
->  		spin_lock_irq(&cma->lock);
-> +
->  		/*
->  		 * If the request is larger than the available number
->  		 * of pages, stop right away.
-> @@ -810,6 +817,7 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
->  			spin_unlock_irq(&cma->lock);
->  			break;
->  		}
-> +
->  		bitmap_no = bitmap_find_next_zero_area_off(cmr->bitmap,
->  				bitmap_maxno, start, bitmap_count, mask,
->  				offset);
-> @@ -835,10 +843,11 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
->  
->  		bitmap_set(cmr->bitmap, bitmap_no, bitmap_count);
->  		cma->available_count -= count;
-> +
->  		/*
-> -		 * It's safe to drop the lock here. We've marked this region for
-> -		 * our exclusive use. If the migration fails we will take the
-> -		 * lock again and unmark it.
-> +		 * It's safe to drop the lock here. We've marked this region
-> +		 * for our exclusive use. If the migration fails we will take
-> +		 * the lock again and unmark it.
->  		 */
->  		spin_unlock_irq(&cma->lock);
->  
-> @@ -856,37 +865,45 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
->  			 __func__, pfn, page);
->  
->  		trace_cma_alloc_busy_retry(cma->name, pfn, page, count, align);
-> +		start = bitmap_no + mask + 1;
->  	}
-> +
->  out:
->  	if (!ret)
->  		*pagep = page;
-> +
->  	return ret;
->  }
->  
-> -static struct page *__cma_alloc_frozen(struct cma *cma,
-> -		unsigned long count, unsigned int align, gfp_t gfp)
-> +static struct page *__cma_alloc_frozen(struct cma *cma, unsigned long start,
-> +				       unsigned long end, unsigned long count,
-> +				       unsigned int align, gfp_t gfp)
->  {
->  	struct page *page = NULL;
->  	int ret = -ENOMEM, r;
->  	unsigned long i;
-> -	const char *name = cma ? cma->name : NULL;
-> +
-> +	/* cma_alloc_at() and friends will only work with single-range CMA */
-> +	if (WARN_ON_ONCE(start > 0 && cma->nranges != 1))
-> +		return page;
->  
->  	if (!cma || !cma->count)
->  		return page;
->  
-> -	pr_debug("%s(cma %p, name: %s, count %lu, align %d)\n", __func__,
-> -		(void *)cma, cma->name, count, align);
-> +	pr_debug("%s(cma %p, name: %s, start %lu, end %lu, count %lu, align %d)\n",
-> +		 __func__, (void *)cma, cma->name, start, end, count, align);
->  
->  	if (!count)
->  		return page;
->  
-> -	trace_cma_alloc_start(name, count, cma->available_count, cma->count, align);
-> +	trace_cma_alloc_start(cma->name, start, end, count,
-> +			      cma->available_count, cma->count, align);
->  
->  	for (r = 0; r < cma->nranges; r++) {
->  		page = NULL;
->  
-> -		ret = cma_range_alloc(cma, &cma->ranges[r], count, align,
-> -				       &page, gfp);
-> +		ret = cma_range_alloc(cma, &cma->ranges[r], start, end,
-> +				      count, align, &page, gfp);
->  		if (ret != -EBUSY || page)
->  			break;
->  	}
-> @@ -908,7 +925,7 @@ static struct page *__cma_alloc_frozen(struct cma *cma,
->  	}
->  
->  	pr_debug("%s(): returned %p\n", __func__, page);
-> -	trace_cma_alloc_finish(name, page ? page_to_pfn(page) : 0,
-> +	trace_cma_alloc_finish(cma->name, page ? page_to_pfn(page) : 0,
->  			       page, count, align, ret);
->  	if (page) {
->  		count_vm_event(CMA_ALLOC_SUCCESS);
-> @@ -926,14 +943,22 @@ struct page *cma_alloc_frozen(struct cma *cma, unsigned long count,
->  {
->  	gfp_t gfp = GFP_KERNEL | (no_warn ? __GFP_NOWARN : 0);
->  
-> -	return __cma_alloc_frozen(cma, count, align, gfp);
-> +	return __cma_alloc_frozen(cma, 0, 0, count, align, gfp);
->  }
->  
->  struct page *cma_alloc_frozen_compound(struct cma *cma, unsigned int order)
->  {
->  	gfp_t gfp = GFP_KERNEL | __GFP_COMP | __GFP_NOWARN;
->  
-> -	return __cma_alloc_frozen(cma, 1 << order, order, gfp);
-> +	return __cma_alloc_frozen(cma, 0, 0, 1 << order, order, gfp);
-> +}
-> +
-> +struct page *cma_alloc_at_frozen(struct cma *cma, unsigned long offset,
-> +				 unsigned long count, bool no_warn)
-> +{
-> +	gfp_t gfp = GFP_KERNEL | (no_warn ? __GFP_NOWARN : 0);
-> +
-> +	return __cma_alloc_frozen(cma, offset, offset + count, count, 0, gfp);
->  }
->  
->  /**
-> @@ -959,6 +984,29 @@ struct page *cma_alloc(struct cma *cma, unsigned long count,
->  }
->  EXPORT_SYMBOL_GPL(cma_alloc);
->  
-> +/**
-> + * cma_alloc_at() - allocate pages from contiguous area at fixed offset
-> + * @cma:     Contiguous memory region for which the allocation is performed.
-> + * @offset:  Index of the first page to allocate.
-> + * @count:   Requested number of pages (in PAGE_SIZE order).
-> + * @no_warn: Avoid printing message about failed allocation.
-> + *
-> + * This function allocates a part of the contiguous memory on a specific
-> + * contiguous memory area.
-> + */
-> +struct page *cma_alloc_at(struct cma *cma, unsigned long offset,
-> +			  unsigned long count, bool no_warn)
-> +{
-> +	struct page *page;
-> +
-> +	page = cma_alloc_at_frozen(cma, offset, count, no_warn);
-> +	if (page)
-> +		set_pages_refcounted(page, count);
-> +
-> +	return page;
-> +}
-> +EXPORT_SYMBOL_GPL(cma_alloc_at);
-> +
->  static struct cma_memrange *find_cma_memrange(struct cma *cma,
->  		const struct page *pages, unsigned long count)
->  {
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
+When only one PE is active, the core operates in single-thread mode and
+that PE can use the full core resources. When both PEs are active, the core
+operates in two-thread mode and the PEs share those resources. This
+behavior is common to SMT implementations, but Olympus is particularly
+sensitive to brief sibling activations because returning from two-thread
+mode to single-thread mode after a sibling becomes idle is not immediate.
+As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
+for NOHZ balancing"):
 
+  Briefly activating an otherwise idle sibling can reduce the performance
+  available to the other sibling and this effect does not necessarily end
+  once the activated sibling becomes idle: after the ILB finishes and its
+  CPU enters WFI, full single-thread performance is restored only after the
+  sibling has remained idle for a qualification interval (10 Ki cycles on
+  the tested Vera system).
+
+That change prevents the NOHZ idle load balancer from unnecessarily waking
+a sibling of a busy PE. However, ordinary task placement can still select
+either sibling of an idle core and repeated changes of the active PE can
+keep Olympus cores in two-thread mode despite little or no useful overlap
+between the siblings.
+
+This series makes PE0 the preferred sibling of an Olympus core using
+SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
+honor asymmetric SMT priority. The scheduler first selects an idle core
+according to its existing placement and capacity rules, then chooses the
+highest-priority available sibling within that core. The generic scheduler
+behavior is enabled only when an architecture supplies an SD_ASYM_PACKING
+SMT domain.
+
+PE0 and PE1 have equal steady-state capacity, the preference does not
+identify a faster PE. PE0 is used only as a canonical choice when both
+siblings are available. Consistently selecting the same sibling avoids
+alternating the active PE across wakeups, lets PE1 remain idle for longer,
+and allows more cores to remain in, or return to, full-resource
+single-thread mode.
+
+The series was tested on a two-node Vera system using an 88-thread
+single-precision GEMM on the 88 physical cores of NUMA node 0.
+
+With the workload allowed to choose either sibling of every core, observed
+throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
+to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
+became more predictable because the workload consistently settled on PE0
+while PE1 remained quiet.
+
+Changes in v4:
+ - Honor the SMT sibling priority in the slow path (Srikar Dronamraju)
+ - Rename the consolidated helper to select_idle_smt_cpu() (Srikar Dronamraju)
+ - Link to v3: https://lore.kernel.org/r/20260907163513.4172411-1-arighi@nvidia.com
+
+Changes in v3:
+ - Consolidate the SMT-priority adjustment in select_idle_sibling() after an
+   idle candidate has been selected (K Prateek Nayak)
+ - Fold the asym SMT checks into select_idle_smt_priority() and scan the
+   scheduling-domain span directly (K Prateek Nayak)
+ - Link to v2: https://lore.kernel.org/r/20260904091838.3617894-1-arighi@nvidia.com
+
+Changes in v2:
+ - Clarify that the generic scheduler change also covers POWER7 (Dietmar
+   Eggemann)
+ - Simplify sched_smt_asym_prefer() by inspecting the lowest scheduling
+   domain directly (Dietmar Eggemann)
+ - Link to v1: https://lore.kernel.org/r/20260831181800.1668646-1-arighi@nvidia.com
+
+Andrea Righi (2):
+      arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
+      sched/fair: Honor asymmetric SMT priority in idle selection
+
+ arch/arm64/include/asm/topology.h |  1 +
+ arch/arm64/kernel/smp.c           |  1 +
+ arch/arm64/kernel/topology.c      | 62 ++++++++++++++++++++++++++++
+ kernel/sched/fair.c               | 85 +++++++++++++++++++++++++++++++--------
+ kernel/sched/sched.h              |  6 +++
+ kernel/sched/topology.c           | 36 +++++++++++++++++
+ 6 files changed, 174 insertions(+), 17 deletions(-)
 
