@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38255C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBEBC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vAQX4mLQwg3bgyjWIDegZmml35dIae71Cu53YVyKVc=; b=vnZHlgvbRG2UHXHZt21MY4LVow
-	2GOR/2I20BHYv90poyQkQ5t0/aHo5kJOlHWw0b6F3koDs0iJfA1FkfKHcau8Qy8OEOv/adCdA4Q+Y
-	+TYWy4nUS79Smsn6klb1O4LHodIDu3p4xnmAOrRhNWuHqsGGz4uCpQy6rjacv6L6Z48dyddKLjAB3
-	nXWE1IH/iDx1aSvdleQu7A9+kbq/40iBW6XDNxgVIp5vLH9HxlcD6jPmrJWDPOqIPpu2MPaylVmXq
-	zvINNDsM4fujB8HGNA/OB5tkk4UTtPBf9OmEcMEVSlH4allVMvJJIad9z+VY1VLgBu3I4iZe72/EG
-	cRCaRH5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=; b=zKnEw7AwROzcdpNxCz3FugXtiY
+	GprZGudxju14cqj3vKcRyK+F1S5SpD4bS1x7EXkCDpUnmCnYxfbPH5CU9VH4z9XT2XLLzvF5gR7xj
+	mZJh0NlkV7tMHWTwJ5iKKEFPRpTfgyCbA1dK5NJq+bwAarpZW7U7v9ikNjAkQtlkqlQvr7u7cO/FZ
+	VnxS8kIvFdxUTL8gXaiq4lZ84LTH8rOG8rJmGkdeYeNTsfQvSXcpHHxeFTA+wtje3WYavXPnZHrTA
+	fW91f59BZSV9KKB4RkkjDNNtGYbW7jvjCNEEgtUeXN+tn83JiPOrDKFa2MlljfksRQhqKxYw9wZQQ
+	BYmJ7gZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sg9-00000008imt-096i;
-	Tue, 08 Sep 2026 10:03:49 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x3sja-00000008jHF-45WV;
+	Tue, 08 Sep 2026 10:07:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sg5-00000008ilM-2Sma;
-	Tue, 08 Sep 2026 10:03:47 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A1D9A1A1A56;
-	Tue,  8 Sep 2026 10:03:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 73C25603C4;
-	Tue,  8 Sep 2026 10:03:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C87711C7AF5C;
-	Tue,  8 Sep 2026 12:03:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788861816; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=5vAQX4mLQwg3bgyjWIDegZmml35dIae71Cu53YVyKVc=;
-	b=HJxw7a5n7JiOtutr1aQa1jZOAcwYz7vUl4NtBmXInV72w47M2bbpX/gqsgpboIQx2ttkkD
-	uJhck1Odhe6MP98SkTQKScFMRfE+5rZvf2rZimWdm5MoC+P3Vt1g8SUjbHeVIGdvRCwoO3
-	ZbuzkTmBrjV6OMhxCdmzmvHQ/A6D8ohLa4PtjAqD7VLGrwY+PRcX7UZ2YBzXC3FGJ0HrxZ
-	wLeFInhRpblg7OiYJyNlVTfsWzs8Qv1eFkR+N9jQ8iDBUhTHmI+JplH6lx4pGdlSV5BA60
-	hhUYLGMmQCeKzYfHZ5VZTkgd4in2hMlAyW681J1LPsot4e024AN+k71R7E96Ew==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
- <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,  Boris
- Brezillon <bbrezillon@kernel.org>,  linux-mtd@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v2] mtd: rawnand: sunxi: fit maximized ECC step to page
- size
-In-Reply-To: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
-	(James Hilliard's message of "Fri, 04 Sep 2026 16:39:27 -0600")
-References: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Tue, 08 Sep 2026 12:03:33 +0200
-Message-ID: <87zexst5ze.fsf@bootlin.com>
+	id 1x3sjZ-00000008jGc-0Ger
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 10:07:22 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49d0b98d6d0so24627845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 03:07:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788862038; x=1789466838; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=;
+        b=ggLCbvVzPDv5wX1yzvKIzUVmXJhxVKkwTJedl42cU+t/xEcWqQD500rMpl+Bi6h72r
+         On2SOTlhh6uZJ2lTkmqn2qclWDwTPVr1+0KhPyfvoVVG7ocQAmDylBOjRYxb91G4HDhs
+         1+CWGsAqrZXZ/NjMltz9ttoNU1BhoyEXdcGGUgE9blb0xDAeQ/H18wL0r+0nK22B/mt4
+         e5NaP5NvdiVx//EXeqjtCAJp6+TUztXkTYnrY/wB3LYXBNQKiCnT1NzMpb5NKAXvihQf
+         0EJ2OAsZ5B4uidqnZl5rAXAKN9z7ia5jwCu3xexTCG+QLkIvC8VYy+wzF+mH4MDlcxCV
+         sdqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788862038; x=1789466838;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VQwFKkNHohYJqLfEiVBsi1W4lxWzuV9PCdLiSox37RE=;
+        b=HULm0aIQSEKVVEvM6uHunFfdPPH58+vAUZ7JjrZ1EknElOs3AX3El1AQ29FxDxeYul
+         r98fXHqUY5eMgj0UyFUvICPofeSvBHiJABORVeiv0OIdHizCelba477aw6Uv0i1wA+uL
+         AmfNEPxIVe/ZAJzCtCLsRVwF9ewUhCDfpF6Iih5VVQu2cs5TEOoIk/FG8STxbv6g6AmW
+         q6s288qv6fB+MFO19dZAbuYb5OZ64kurhBOKSMoxLd1GLFnzRJEJICs6jfLoUiDNzUlO
+         lHaiYOcOGHlgRe4pyBttQBAm0n1sFgbIs3pS9PEQyAbXNf3Sa51RgHSnesOzwxfXlRbz
+         nocg==
+X-Forwarded-Encrypted: i=1; AKwUvBzPLA8w2W0kcjEUZPfCAjtSFYTrA1giTXMuu2fT5/z5ZRPQ7nVZ/STquZMmZVxVS4QK/UC/IRGRzx+GKoY6wBBm@lists.infradead.org
+X-Gm-Message-State: AFuF++kqhQ6jva4kLCyaH1yZsoGp0Bfd0yFDIPTrTFI5K9nhNC2wvamu
+	8J8zq7Tpc77WAClYAaoabUJRniBnWT+pgxdbUpdE2CVpYbqW1BVwZCPFpZH6rf4UWQ==
+X-Gm-Gg: AYBFou0b08BGqCgtrxBjzvZG81qT4+UAqSrFXWx06SqFZSYtL0/z7kYMjL5bxxGY9jw
+	YA/+r6x9HjJb4o8dujgzPlcehBpORL26uRVRev/wX2hUqezkXysIxkjNTeeSBz+Ve2eryJbQStU
+	Ot6Frwd9686OT9JePu0ck3Cy3mXtRDVr3OKLvGwShIYa1wt/3RkGAVwCjOH3ljiXubOJ751lyXN
+	eAljm5L5VoZzs9Z4svdfi2x70eUh4v4FPxwuY8BZQe02XGQ24NfidG4cOWv9IXqBT/87eUEB4TE
+	ORRBYYDd2wzbyQ3KUw5eVFmj104pqc0uh64cjBuLkTNglayRv4Wa0LdkWaYDPnG23EeEmGTi6Yw
+	qfodmG6xTlF1X319d/acMJhLEG7O/2bVFkZCo4c0unTr8+5a7IhvGsAxwdOnJeHcGt52TZfO800
+	/lFE6V8+23XP0oP88wNhjart4sZ3rybEx5ipCRsT5DV0O5jBGWVsbju3iSXmCY+3aQJ/UZFmATc
+	RNoGh6KLohm6gC95ffGYZ4ZAyXo6YNrMUWXbEFzWCc=
+X-Received: by 2002:a05:600c:8b05:b0:49c:edd2:855 with SMTP id 5b1f17b1804b1-49cf823c411mr287008465e9.6.1788862036554;
+        Tue, 08 Sep 2026 03:07:16 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee7fec25sm544179385e9.13.2026.09.08.03.07.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 03:07:16 -0700 (PDT)
+Date: Tue, 8 Sep 2026 11:07:12 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
+	fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
+Subject: Re: [PATCH 02/20] KVM: arm64: Propagate host stage-2 annotated
+ entries on block split
+Message-ID: <ap_eUDk2Oo2-qIcm@google.com>
+References: <20260803100904.3563942-1-vdonnefort@google.com>
+ <20260803100904.3563942-3-vdonnefort@google.com>
+ <s3p6em2fovzkpyy5lpslxl7nl6ojhoilyqlydidy4unef6wnuw@mzgrpwwkbaxn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <s3p6em2fovzkpyy5lpslxl7nl6ojhoilyqlydidy4unef6wnuw@mzgrpwwkbaxn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_030345_763979_C7C0B046 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260908_030721_118631_C1D66044 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +106,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello James,
+On Mon, Sep 07, 2026 at 02:58:41PM +0100, Wei-Lin Chang wrote:
+> On Mon, Aug 03, 2026 at 11:08:46AM +0100, Vincent Donnefort wrote:
+> 
+> [...]
+> 
+> >  static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t *ptep)
+> >  {
+> >  	kvm_pte_t block_pte = ctx->old;
+> > +	bool counted, valid;
+> >  	u64 pa;
+> >  	int i;
+> >  
+> > -	if (!kvm_pte_valid(block_pte))
+> > +	counted = stage2_pte_is_counted(block_pte);
+> > +	valid = kvm_pte_valid(block_pte);
+> > +
+> > +	if (!valid && !counted)
+> > +		return;
+> > +
+> > +	/*
+> > +	 * Shared walks not supported: cannot rollback refcounts on break
+> > +	 * failure.
+> > +	 */
+> > +	if (counted && WARN_ON_ONCE(kvm_pgtable_walk_shared(ctx)))
+> 
+> Doesn't patch 1 also need this shared walk check,
 
-On 04/09/2026 at 16:39:27 -06, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+Only the host stage-2 has the IDMAP flag and will run this function.
 
-> When nand-ecc-maximize is set, the driver unconditionally selects a
-> 1024-byte ECC step. A NAND with a 512-byte page consequently produces
-> zero ECC steps before the available OOB bytes are divided by the step
-> count.
->
-> The older sunxi NAND controllers support 512-byte ECC blocks. Select the
-> smaller of the page size and the preferred 1024-byte step, using a
-> 512-byte step for a 512-byte page while retaining 1024-byte steps for
-> larger pages. Unsupported smaller steps and controllers without
-> 512-byte support continue to be rejected by the existing checks.
->
-> Fixes: 4796d8655915 ("mtd: nand: sunxi: Support ECC maximization")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+For the host stage-2, only non valid PTEs and non-RWX PTEs are refcounted.
+  * non-valid PTEs are skipped in PATCH 1.
+  * non-RWX PTEs are forced PTE-level.
 
-As reported by Sashiko, there is another use of 1024 down the road which
-must be modified accordingly. Although, in practice, 512-byte page NANDs
-have disappeared for quite some time, so this is a theoretical fix more
-than a real problem.
+So there's no risk of hitting a refcounted PTE in this function until PATCH 2.
 
-Thanks,
-Miqu=C3=A8l
+-- 
+Vincent
+
+> 
+> >  		return;
+> >  
+> >  	pa = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level));
+> >  	for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep, pa += kvm_granule_size(ctx->level + 1)) {
+> > -		kvm_pte_t pte = kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1);
+> > +		kvm_pte_t pte = valid ?
+> > +			kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1) :
+> > +			block_pte;
+> >  
+> >  		/*
+> >  		 * Skip ptes in the range being modified by the caller if we're
+> > @@ -1053,8 +1066,11 @@ static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, k
+> >  		 * that should happen very infrequently.
+> >  		 */
+> >  		if ((ctx->level < (KVM_PGTABLE_LAST_LEVEL - 1)) ||
+> > -		    (pa < ctx->addr) || (pa >= ctx->end))
+> > +		    (pa < ctx->addr) || (pa >= ctx->end)) {
+> >  			*ptep = pte;
+> > +			if (counted)
+> > +				ctx->mm_ops->get_page(ptep);
+> 
+> and this get_page() ?
+> 
+> Thanks,
+> Wei-Lin Chang
+> 
+> [...]
 
