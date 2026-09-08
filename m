@@ -4,102 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AC1C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC21C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=; b=3ASM2UcJvaSckKqJgw3I+sbuKz
-	RKeOat3PexIW+8ZKEe0uc2I67FKp6F85cFAdQiQHRs+JY5JUUpheFazssyum/w/QwNO3Vm+QbCNur
-	ACk1qwYVWxmBgKVhU3fLz9ZiurBfdU6xtqL43dI0ipBgUfA6v6fI4a6kZf9ilys70YMR+Pp6TaosM
-	SkzGku5DDIqHb3JSccw0d6PlwQGyQPI7F+qCpu96s9w+DTagHZM2VD7PtvTcXIvKxK0eT20Jj3Pph
-	xUeIZz1CwYU5pAoIRAzuKdccwQjHdbJ14cRGKtzeRR3ABpB4hMz3qdzguTFYMIQLu3yLj2ZcEZLZI
-	6IAD2oIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WJVyonQPf03USX4RK1at4qTPhvvjwTnMfMX3BXM7FEc=; b=lWkj+g0uSm73n3iUIcogQR3Kll
+	/+gSmKkLJSfy4wxljkc2EoxCjI5j9dHF4Vd1v6W+bK3vfLF7VNST9t3+pRykkz5kkEg9IZCBr5lmH
+	bwbxBRw+TVNcU8i1GRfkXkU4ooihhDQ47SYVQFc3WKwOPJ7D9SsqIJ4UgtJ3sWniEL6KSJN0r6A0K
+	s+gnNgqlbMPjDauk5Kh1NVMzUEH6mowTteNwvfHexKAJ0+Y+rt0ybGJDXoSaYe7U6HY6g2qondY1w
+	wguTWfB0nX/K09egMHUjxiiC4OMl246OwbgGqTI+bUpEOavM+UHzr3HJA5GR/BVa+08THdzI9MkNa
+	wSy5McWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zDq-00000009kuK-2SwY;
-	Tue, 08 Sep 2026 17:03:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3zII-00000009lL5-1KQY;
+	Tue, 08 Sep 2026 17:07:38 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zDo-00000009ku6-38ff
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 17:03:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=; b=i4FLByEEOThxOI6ywA4aLwVdyC
-	wJQd/9h8530/DelfJV8gyrziZw5HW300TNFDu6zi9rcaZJC8YB4F5DnNWO0UuajlnGs77+LLlsHDA
-	SdxcxYRuMc+rcanw0H6ZtYrzPL4Er/tE/JCGQj77nYE71EcOHX1CE5J6hlNZbgJOaMufFmGZXlUmI
-	2+WuQ+MfgI+7EbWjuAufyvmIodOjXCrvhHUO8EhrulaLhm/UvF+SYAXol5cEtCfsHsmE4kQEeHBYd
-	iEQfo3jypJ/36VWkfPJFoSMrnsPtKplnyUBI8tiVmWL7fQaOyDabBD2gqJeAkDqsbCSxRHG18fJOX
-	XRGOumgw==;
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3zDl-0000000086c-015A
+	id 1x3zIF-00000009lKP-3YB7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:02:58 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hfVcY4VJ0zKmBJ;
-	Tue, 08 Sep 2026 19:02:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1788886973;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=;
-	b=TqFlEQnkWFqKxLex8B2wSekOTQcR6ayWhtXYsy6AXiWckFa6v/RTPfD9v3pCENsy9sxZuJ
-	DAT0s4XhiDmmv+D+2W82cF37SJvOwNfNhhtVNcEoABUFMZ1s3aotqX5Wn4DDUA8ozNAd6K
-	AnAoQ7ySQykkiOfpfUB5sBezRU3AFk9SiHXUGs5ui9VfJCgnQ6xrJP8HWBRB3v9KwN8gnZ
-	6XWzY2GEScMJ7IRhrXdeMsTtuKeuTXnvlaN0gEtTJJY2MjQNAc2yD3bMyvjfESFAmovP1D
-	xmyUbmZ5h9DwtLayOTx36bsK/8wfsNItc+s7QknPT6cxBT0FcnfEiFfU5nUmag==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="btXuODU/";
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <f82ae578-fbe7-4834-bdde-d11e194a507f@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1788886972;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=;
-	b=btXuODU/rON3VYbUzoq1r4Zc2wUGnIAZyui65W4IqOP5VfNQf/z+EJL6fB6rIj8HRoE96+
-	7SHLRW7C4taIqEQaRWUGnYt257F22sFhlD4I+DlE/s0oawNnY+1XXmsxCBtsN0cbmhRq/n
-	DM+Mh4c8v/vwVlkRdjWJiyGH6dFJZx0O9OzrYRZYphhtQf1cbBsRiAyBYn/UyvdMZapKQK
-	GPTzhoi5BuAfxmAuSS+3pel2vaUucFi+ULeBEmRW1l0EREklsKoqNUp5YGuwqSjhfJ3rd0
-	fia9me7c1b3mQN+ivWz+LqEub8TSyHigXuLcYdJvmdlKdTchUye9qrvhlu2X5w==
-Date: Tue, 8 Sep 2026 19:02:48 +0200
+	Tue, 08 Sep 2026 17:07:37 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 688EkPfO173220;
+	Tue, 8 Sep 2026 12:07:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=WJVyonQPf03US
+	X4RK1at4qTPhvvjwTnMfMX3BXM7FEc=; b=pdGkXfB0jTlL4+q2U0+7pYMSHAEur
+	T/yxsHJ/q9oj2BdN8f+VsVbW0+muvfWTjI79oA5ZzIz+GMaoe7STyjKfWPpDwxxu
+	NNCy1lTopAtjTEZ7Qq8ErnadQGvq9ZsxFqqrIFkK3qAr2ivZ/YbRb05711mKpcQs
+	a1USrv3Hb8dPf4Se0a0nlr4PIC1GIOwz/fI4hVCXBwJ4rDoaRXA3JlShler266At
+	bz54JqVFif3nEeLjVAfaZHDI85k5wwxbikjTKRExzILEES4L90bBB7HX2ZTUAG2H
+	cg2VP8Rd0PCYRcrYAkrXJmNdvmk9VczI+Ru0wNV51+lDJqs27ohwBzxpg==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013016.outbound.protection.outlook.com [40.93.201.16])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gjkdmsjnr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 08 Sep 2026 12:07:32 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X87UTHjXrQK+ebvQw89GPYtTgUVdCd2sfo1EM61HFNexSVjfkOMse1tiCaGZMU8FYKONZJ42fufgj2eW/oNn2nffN7OBksdJMGNP86yRVlc2L5bREoujONgLc8L9uf+PDyrmhUiTjMu7bimY67MGH7jhRZ78bUu7hI6YX1PrwiMWChqmBq+ZunqnGtyKWjDhaHlWGrbNCZ8dZCfsYCzyfINV30VTS84AQNFadxbc+Fv1ouT35KH8DqRQmMfa7PSZw78gBN4W2C4GQcRlZ86pulICZaI08+pOy62oWbET+sA0bHEYray0IDL3enlddOVFHGyeqjGED4o/Obk9vIIRrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WJVyonQPf03USX4RK1at4qTPhvvjwTnMfMX3BXM7FEc=;
+ b=UjKWZ7gAJmUUfx+HENqePFpgtsl8Nhb1GrKv+E2HY4tLCc1TdWdzDY+G+juVz5LuHB+gh6P1fJSiw4nFl21+udr67ZSVdsUahreWNeELIdEqViaTp2zdFT+CKaOxsjDQ2ztfmmKbEO5aWbnpjGjaxtenBs2R8WiPTmoWW/ps4I4uIECG5AEeD4fofHqVZmwPTAMJVnP+sJFplt+KFdNquNQNh+EOTeqHd9PrdXEKJbVt1mIP57wsVYD5y8/rnYmqeugIqG2PhHIYS7Uc3NnAQWzOzt1/xS4Q4vd0NBDRzSBQdMCZvD18zM1+XMeXIswvBxxJLGyYHy1wQPLg04Y8zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WJVyonQPf03USX4RK1at4qTPhvvjwTnMfMX3BXM7FEc=;
+ b=a4WP7O+IKfbN9ZWYJlRWeWwjCTxCBRNt4hjS1f0vEV7/Po8l2jVosEGEkrsOXPZ5ZbAxnNi3jm0kMleocqG/PnOalXhu43JX8HvKfO1FQVTsqPS+I5Naf/82M06k5MsOGJ2UM4Cbw0F1V7CWzcmPaxhkrCUk8+wfGnkEz93Fpyo=
+Received: from CH2PR07CA0043.namprd07.prod.outlook.com (2603:10b6:610:5b::17)
+ by SABPR10MB997941.namprd10.prod.outlook.com (2603:10b6:806:50d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 17:07:30 +0000
+Received: from CH2PEPF0000013F.namprd02.prod.outlook.com
+ (2603:10b6:610:5b:cafe::35) by CH2PR07CA0043.outlook.office365.com
+ (2603:10b6:610:5b::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Tue, 8
+ Sep 2026 17:07:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CH2PEPF0000013F.mail.protection.outlook.com (10.167.244.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 17:07:28 +0000
+Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
+ 2026 12:06:36 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
+ 2026 12:06:36 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 8 Sep 2026 12:06:35 -0500
+Received: from hpz2.dhcp.ti.com (hpz2.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 688H6Zge2860316;
+	Tue, 8 Sep 2026 12:06:36 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH] mmc: dts: am654: Add 650ms power off delay for proper MMC power cycle
+Date: Tue, 8 Sep 2026 12:06:35 -0500
+Message-ID: <20260908170635.238775-1-jm@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for
- WaveShare 2CH CANFD HAT
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260808025724.131943-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 482d1e84623c9fbc314
-X-MBO-RS-META: nidfb7db56db5j1paino49m7hhpf1mit
-X-Rspamd-Queue-Id: 4hfVcY4VJ0zKmBJ
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000013F:EE_|SABPR10MB997941:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ada7a58-bdd1-4d6e-2e40-08df0dcba9c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|1800799024|18002099003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: Cpg1deoLOARZoca91uc2oWecabNfVKEdrH6tLvFUWE+/Q6o+GJi8L3PQ9Q1PblBorURdeQCYm6DfNgeKB+m5PuxQLLDyuqgtWd+Ay/nlKIpYraPz3+f12uVNjTX8TEWSbGzi5dzrAa5xCE0tWBPjrYKU3W1cQEgvO8ILd4/PUOSBiYT+HPnnucExW2bcuqXjy51BKRueD9MZctGALwN9e3wqitQt8fyclQy2wqqBoQW3hg+a7ARyikExxdl7cV0+SIGQwH3AI9UDmxC1PXR0u0/Z41s79MejmJ986UeQpv64oC3TT0TTSn9jUb4L76xJj124DhBJJQFYR/V42jF5UdHrtpnRWYKDazD8ke+IeWjoqplrN5pys7MQ+Sh52lNFCxyBRr9h2Ik9u/vdr45yRNq113rkD5Q++WAyPySReKgetmQmcYFJ4J60dXGdKIg191H8CmVHbbeqOUfeOWAuJz9T8s31fBs1gI7IS9VU6xIPqtAwbTJE/bldkGcsh4rYg1IkVd0dhVLrCod1lw/BqBFke1Z6VKz1yxQf9A54v2ThWRoj5Pn+XwBMO6Uh4oXn30Z5mhjhECqCcYtWD7Emf/IWBfh4u5+iulmjIg8+KJqV6bOEgFdQP73wiXzHzAxTcfH8fV6wAtWFl/ml7aD4wRXFPgOASXDgR0VVG1sqY4IBpDvFQ3VG7LFRs+l0yQ+F
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(1800799024)(18002099003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: DYQGsQhsS9OQ0L3t2yMdiCtms7jHrcIzJzDymYB+Li2B4B66EqmXtFxPQiRlguqgCmGsJcyJRumJJvDcZ1bZyBku8/O+0e0xeQ4vQhK8zNJ8U8XzQBDJMBajMKfVU0dMJnZ4pVS3aAE1gIFpb1x1r/fMyqULUnrbbuzBahD4Tb9e8J7FDiVF31ESUWxkS6i3e9aFNTg9R0HYnN7HCgZac6AGZgemIwYx0S/Q02pZupjiqLkFHG7z9VJfQ3keRdVMJF2nDLbjUQaBIfY3W1muM6O7zYew40cZ/Q0t6VAA8pLlNas0DV0Ge5QsbYX8SNjVOYDflehIBn7AmlYh9r2BwUjOKP7nGT8QpocMgqFRVyr7Gsgd3CJbRM3IcegWLBGEcrVEuzJAMZ10I87Dm8pKbHsH9I4V2tbXilmuYkiBrJZTbWFBikeesnyCERBIM3gY
+X-Exchange-RoutingPolicyChecked: apHKN6TvkqPacjSLu9a1WcbqhY/mujSvLFHIAUIeHbHgY6QUepwFhUqtT14RhN3sdU/trQ7MoaEFimDt8i/5OSUpedzYYF0VD8W7Tmb8bAdNSQZxLFMzI0MIr/mxH+lA/gjJbVOIckGxnXaJ5e/LuxaCVJd7VVZCWPlZZ29OqwTUSQ1VAvAdvw/w1cMgdaLFX5qTqT7qW/ju1wJ79NFhc/HzRniz6ZgsfXhwLloqPqmjmEMcJ0Ose2DCaPk3gL5ZQaHY5LuymDPJZu52W6Uxt9dAaI2N7PZkoUfTN6LGmrZZNTQDk8e9YCvdMXj/Rl1cozeLED7yi1O+vOiJzzU5sA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 17:07:28.6937
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ada7a58-bdd1-4d6e-2e40-08df0dcba9c8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SABPR10MB997941
+X-Proofpoint-ORIG-GUID: CXEZsjyKlNjpwlyvkahlkaPmE-Hh_PlH
+X-Authority-Analysis: v=2.4 cv=KpZ9H2WN c=1 sm=1 tr=0 ts=6aa040d4 cx=c_pps
+ a=YOgfsySBG6Gh3lLixmEA+w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
+ a=sozttTNsAAAA:8 a=lUCeq0Dp3Nc7E5BXnPwA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDE4NCBTYWx0ZWRfXxH2IJKbJ8uQe
+ tX42dF0mE7/r8t94iVT448geuXWr0joA4m8asXKn+5J99QgQtDrItoQY8rxdlUk1ucok8JYFf79
+ TjxQyOjQg8aExv0mg+BuIeJi2N15jvc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDE4NCBTYWx0ZWRfX1HWOrPq7YVsS
+ jTmN2nmvWDLAh2oJn7BGsjkYoYUmSyxIHqieFbjJptkjN4IhmJ2pzzd40tykguhJ5YZnIuXOARh
+ 4iRKw6P051GRtn9/eS8iLmOmeJfbpolLiYxAWlNTM9WlfOiHBN1BDGWP9rFEueyCaEhYZFYf4Yj
+ kn4UOVDPk17G8l2IhHWC9KhQ67JUVFU0XTFKmwxSAg5VMOCIpO2/7hF02oobUge1iZ0p5qMyG7h
+ W2a1QyRFrIsj73+BCdk5v3+RF2oXw5oXIq+lve666/+JiES+ffjYciMtCsDNUzL8+phj3dvfl6v
+ SR6SSZrheUiDfTn7qpQ7md+uyucpbsGwJ26vTaFWXpOyMrKM0F63KE9vm/HVpOjyv1+zgc5cAQI
+ vu56z+NFX/a9zILJT68lfSNZPH9i5Qc89F91gDOPtM/TB5jnqryqD3Z6iIKpDoQUHvEGrNhvWTZ
+ +NW8YDTg4kCV/l/3zwg==
+X-Proofpoint-GUID: CXEZsjyKlNjpwlyvkahlkaPmE-Hh_PlH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 adultscore=0 suspectscore=0 priorityscore=1501
+ bulkscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_180257_173250_87B94FD8 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260908_100736_049275_C25B6933 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,51 +176,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 2:02 PM, Geert Uytterhoeven wrote:
+The AM65x EVM MMC1 VDD rail discharges slowly through RC circuit.
+SD spec (section 6.4.1.3) requires VDD < 0.5V for minimum 1ms during
+power cycle. Measured discharge time on this board is ~632.97ms to
+reach < 0.5V threshold.
 
-Hello Geert,
+During boot, MMC power cycles between boot stages. Without power off
+delay, VDD doesn't fully discharge. Card retains 1.8V signaling state
+from previous stages. When U-Boot initializes, card no longer asserts
+S18A in ACMD41 response (already switched to 1.8V). Host misinterprets
+card state and forces 1.8V anyway, falling into a bad state and causing
+a boot failure.
 
->> +&pfc {
->> +       msiof0_pins: spi-ws-2ch-canfd0 {        /* SPI_0 */
-> 
-> Node name should be "msiof0".
+Add power-off-delay-us = 650000 (650ms) to ensure proper VDD discharge
+during power cycles, allowing card to fully reset state between boot
+stages.
 
-Do we also have to fix up 
-arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts this:
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-"
-  755         msiof1_pins: sound {
-                           ^^^^^
-"
-?
-
-But I wonder, shouldn't the DTOs contain unique pinmux node names, which 
-cannot accidentally overlap with the base DT or other DTO node names ?
-
->> +               groups = "msiof0_clk", "msiof0_txd", "msiof0_rxd";
->> +               function = "msiof0";
->> +       };
->> +};
->> +
->> +/*
->> + * PWM1 uses PWM1_B pin configuration for pin GP2_13. This conflicts
->> + * with SPI_1 CE_1 signal which is also on pin GP2_13. Disable PWM1
->> + * in case this hat is in use.
->> + */
->> +&pwm1 {
->> +       status = "disabled";
->> +};
-> 
-> Please move this node disabling pwm1 to the top, for compatibility
-> with dynamic DT overlays.
-Could you expand on that a bit ? What difference does the placement of 
-this node make within the DTSO ? Please pardon my ignorance.
-
-The rest of the review items are addressed in V2.
-
-Thank you for your help!
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+index ca1300e130936..edcf039ccfbd0 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+@@ -460,6 +460,7 @@ &sdhci0 {
+ &sdhci1 {
+ 	status = "okay";
+ 	vmmc-supply = <&vdd_mmc1_sd>;
++	power-off-delay-us = <650000>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_mmc1_pins_default>;
+ 	ti,driver-strength-ohm = <50>;
 -- 
-Best regards,
-Marek Vasut
+2.34.1
+
 
