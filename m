@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78909C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272AFC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWAD8qw5BaN/waNwxRr5RIrv8DsM0KLGkweaYwneCbg=; b=NkkgV3nH9i8ASqs4RAFurWcmb/
-	9atYAy6A3zgQDFTzc/6p+MQIQOs2fb8P2RhDXcg0BzkFsqPT5oM4rC9XWYf6X/xjM64XgGnoamRlu
-	KxQlJgpmjhh67el973VxL/zVBNIdPVT7pDH/6tObYA2ZB9JGnisQeGSI8TFdknU7lydlvywoX9tbp
-	bCUIu5gNLF98zmhNT/OyjMERPWJU4J+SdPJ44ym5ha5eK9djNgMcqWo+keCcxOlXsjv2CGOmUNG6G
-	nlEwFN4KymGT1XvWkz1k3kZU5b6oqaxxtrIBFHhR86pjfG6ROn4cF81i2fv7e2jmIO3La0mYqGGz+
-	0dEHBu9Q==;
+	bh=rAICVZ4NbDIwbfYPAkXbmJvoFZIDSnBoGcO7k7jyk9U=; b=NzWxY+SQcPiyPyW/0p0GvFn7ML
+	xegrO9kv+ZREDommBMZhK2svhrz3n58R0VfNQ3ROYY1NN65IQd6rZl5qO6alfl8n0pHJJkuic5jhd
+	5gf0+ANpX6Fj7ugAvNyNYHflqSh/F8xfjMIIO4u0GE8i7a2Erkp9ecxx4bKkrnmGzVhALnrHC0I9J
+	yMFPQWXQ6b1Zas242tUCbA5SuiuO4cnMef2TDSpUaLTFvmfKB6iNcyYWNJelpYW75N3irKRneGVn9
+	2jkWGbB4Yq1ZRH6NkMppGemBCWsK4znaKEUZa0UiB4PDC/6xMdU8x2CAv4crYGeg/UwPDxOOJ4F5w
+	/bBR+eaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yvw-00000009iYs-3Y6t;
-	Tue, 08 Sep 2026 16:44:32 +0000
-Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1x3yw2-00000009ieq-1D4s;
+	Tue, 08 Sep 2026 16:44:38 +0000
+Received: from mail-japanwestazon11010005.outbound.protection.outlook.com ([52.101.228.5] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yvl-00000009iRT-09KL
+	id 1x3yvw-00000009iY6-2Sx2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:44:24 +0000
+	Tue, 08 Sep 2026 16:44:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L1eUFVUdiGAJ8XcPfzRxOk5is4lSlAMP8Aytdp2yvafPiz4HHnO/68sAjbTGCkr5PF6AqOLbOYMrScJsBbQNciNoIwC9xHIeMwiIxGKt2vg8WBYaVcaAKWY3AKfAX6O+A33gkhlK9E7t3EZ4GxDS050tXF6vcfXepcapAkz6Qz7naZNx28keVupmizxIcAgdohgZss8oiTzo0ooEk8MROaxz8FXet0saUx+suG316zhITxInZ6aMzaRqPM24Kxjsd4VV7V20JNQ1tmXVbTVP/KheMoRk9T4zd6u4r/RwFIZ4I+dUJ4FMV1YbQGtbIHdWOGqw+S5eGy3V6+iQa1aL/w==
+ b=LyKF2ahna5YVrgPA/zZHdJJ27TCCuCwSOevqy16fY3GJmcgHH4jy3SZuSTwin1mSzQIayAbaI8IPlJSAuWRYU3xcz7ZrJegQ4oXf8MtLhZgBC+A/KzuBChHY23eYTfjnR4EBqV+stmc7AADLT4CTo4AucUmdy7laL6JImsw4LzMurc8aguQuFfjx/EU0B64MCjvUTy5WebC/cVvMCSOfSCdHETz57Zza1xOuawPjJVnEiHr8KQdk8b+ul0hFtah7KfjcwZV0RnTLOnoxryicxePdlEly18koO6NzNOHJMldqaBGsGSd9eLQ05hlz4tQmpPJB11ZjCJp/+av1W9wr4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gWAD8qw5BaN/waNwxRr5RIrv8DsM0KLGkweaYwneCbg=;
- b=aYoBTJCJdx2XDgpYRgzmvFgqQJ3MGqNi1a8AqwZYgpiszIq2uwWjTx/oSfARWyO//u5QpeWaL9kWFWaF+9P2bKsK7ON/irRQaA9telF7t4qnLu1ciz1rx8eStFDMkRGHZrEqIfoOmRqDkBWZpN6DYBLbWNFVscwiBTCgzvCC0gFelecCH+O/BroH0PcYT5K4nmdbfMkZS0JdLi+inK1faXPuZN488AuZUO8i34EQAz540JTNUC8SAmzRm1GCWBTwWL6ThHSg7rCe05UpjmqoJT3zoMbJPyRVy2PD6/E8Zzom/lNWXyCnPqLeHQGjOOXue8eQV5Fq+pFg+MwxZ3abgw==
+ bh=rAICVZ4NbDIwbfYPAkXbmJvoFZIDSnBoGcO7k7jyk9U=;
+ b=kgc+SD3BUxX5ALiHh19wrEeq6WmBSOEP174MYEx2TnI6fwWdQfoSeGYA/AxcvJemfsxZRbNt/c2Me0dvxUB/+2JIFnxagNdT8VG+59iianCBOkHq6CC8POJ51LqrgcczvHVdyhNrwuyDRbtRaV9SGoShTGgXrkl3Mia6nzd642toViNyLYPcq8kJwz9JDt+bidixhc5F1FBhca1SGGB6/bqUIT1IAXLG+Q/rXV/gdMdYiDo5edQEqfwd7nyor2hzsICw7CvFgLFcWO1tMN4gBq1dHNAGoIQDWfK37TwTKGn4jxShy/dm7Eg260rII6E42yg0RhOcMGd5x37kPr7REw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gWAD8qw5BaN/waNwxRr5RIrv8DsM0KLGkweaYwneCbg=;
- b=Zr8YpSSkZ33tj/BERxtY/LG7zVR6uhHO+zmQNXj5D8XUzxhaIZ9w354eGpiZGmY//72c9nnOqYbdbKVxektuGeEAcUiRJipsoY9PpAShhn+ZhchQfP1ECS+2FFalYh8gArfL9KPiU21NP0xi2OLA3pyry+aMYqPfn91f2R6kgfo=
-Received: from TYCP301CA0063.JPNP301.PROD.OUTLOOK.COM (2603:1096:405:7d::8) by
- OS7PR01MB17560.jpnprd01.prod.outlook.com (2603:1096:604:443::16) with
+ bh=rAICVZ4NbDIwbfYPAkXbmJvoFZIDSnBoGcO7k7jyk9U=;
+ b=HcdixOQXrelVAmviumiAr2iw7tgmwDxHbOw/HIsl71vo47lb+Ev8MUO6rURiI0iq+1vjZ/i26XdD4Ugya9lg9qsGAFaWfKzYCTqUL7XWZQeG4VuwdPm98D052LIPbUn7Ui09WN0TLgFzIBcYmz75pzQ1GKk0/y492BeMaXcDW2c=
+Received: from OS7PR01CA0280.jpnprd01.prod.outlook.com (2603:1096:604:259::14)
+ by OSCPR01MB14484.jpnprd01.prod.outlook.com (2603:1096:604:3a1::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Tue, 8 Sep 2026
- 16:44:16 +0000
-Received: from TY2PEPF00005622.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:7d:cafe::8d) by TYCP301CA0063.outlook.office365.com
- (2603:1096:405:7d::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 16:44:23 +0000
+Received: from OS3PEPF0000003C.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:259:cafe::17) by OS7PR01CA0280.outlook.office365.com
+ (2603:1096:604:259::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
- Sep 2026 16:44:16 +0000
+ Sep 2026 16:44:23 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 8.62.32.50)
  smtp.mailfrom=renesas.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=renesas.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
  8.62.32.50 as permitted sender) receiver=protection.outlook.com;
  client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
 Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
- TY2PEPF00005622.mail.protection.outlook.com (10.167.240.53) with Microsoft
+ OS3PEPF0000003C.mail.protection.outlook.com (10.167.240.5) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
- via Frontend Transport; Tue, 8 Sep 2026 16:44:15 +0000
+ via Frontend Transport; Tue, 8 Sep 2026 16:44:21 +0000
 Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.55])
-	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id B178B30001C0;
-	Wed,  9 Sep 2026 01:44:09 +0900 (JST)
+	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id E7F05300044D;
+	Wed,  9 Sep 2026 01:44:15 +0900 (JST)
 From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 To: maxime.chevallier@bootlin.com,
 	recv.jo@gmail.com,
@@ -86,9 +86,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net v4 6/7] selftests: drv-net: Move _set_ethtool_feat() into lib
-Date: Tue,  8 Sep 2026 16:43:08 +0000
-Message-ID: <20260908164309.59282-7-ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net v4 7/7] selftests: drv-net: Add VLAN test
+Date: Tue,  8 Sep 2026 16:43:09 +0000
+Message-ID: <20260908164309.59282-8-ovidiu.panait.rb@renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
 References: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
@@ -96,29 +96,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF00005622:EE_|OS7PR01MB17560:EE_
+X-MS-TrafficTypeDiagnostic: OS3PEPF0000003C:EE_|OSCPR01MB14484:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 832820ef-ad43-443c-3b56-08df0dc86b52
+X-MS-Office365-Filtering-Correlation-Id: 6c588b0e-839b-4310-f279-08df0dc86f1a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|921020|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: WXQwnaIArYSnWPaUGzZuTDsmzoCf05kh2zDFj9WRlhzAYnDtOLvtM+AurXP7mc9kU4L//tJGmMDFv71Ny8nAo4F1lsdlc85Z3fS3sPui04QYJeUDoZNE89CKpb+BiuTeDO6QCErzzdKgAsdPpSp+8q79vtbFjWn1yUXF1ogqcSqUSMQzSEBSkGa/YAXX7APILCU4ENSvotTS9Xq8IO/DVyxX9hyThE3+LvcsZuQKYP3s4WV5O9SM0tRot86cltstu4iyBbtoxVOZhw5FQlX6hKdYI2gFwr+H9t1uFqRtJZVQ1fFEE6f9KH13WeMthlUlF/gp/ShbecgBZRJ1kdTMXsNGxkWr6dd2m3DngUwj3KryjqdHxPITsHSC6IJ76QmSEVlO8jMzQglwKFw3CC3Z0jucD0AIFptTVwNRCXFlADu8jdpJ0UVbVW/K9Ak55fqbMk+LlTL9z2QOO0OIWaiGdpAsCKVQuW7ZE9HIkvEXvGtyvtfQr0yZLCAJhqV/3OGK7nvMIkyUncGH6De1htqfcRMgaf2Bnk/diS5IZh/GrYnksxlay+IUnZ8aXQI3TQoSXDbVICHcqOFHGdnJJ6qklZd28z0kevVT4rSIOxJUYNPi+8lTQ9oz/dJJY9Q49nom7ilr7athuxIeCFq01aW3OdS6yeDrN2M+8NVeP7w6F6d3PQvnFe6xJEjt9wqs//cMzsd7DChmoSRhosvyX3PBhHFcwOI1nsfzPF0WsVqOffS2YDgnHjPH69vx8VEtxYyO
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(921020)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|921020|6133799003|3023799007|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: yRV7CizHD6mG0YbmnqILp67ZM8Zi9OnWoaZvDFHUJJfu44necKYtTlFn96Wn6d8RNeIdRFY0ltvE4vGlXN+pPj6L64TaqmS4vPQAS/0DbzibBTTrH02ibHHGSHvCfBzQGsB/xyn1OjAFurQ7TY3Kj8vC3aJG7xSrSls2oy79SmBK2RaU9oGMyVHomRutudXdM1GKhLPVBbZp9EzL1BeQVun3LaUFBPynDFFK5osJrVSpYBfBUrBFbUGAz7VEr7xXqnhPexGZJ11t0CB0o+OaYgWUPxUrzRQhHKUVOph5Jcvxsyg5JSbXz1Pjp3iU3HKa4jV9SH73g+CdDVX/y4JNE8m0Noyx6wppcrdWRnd9OpnAtp/bBh09Q1qz5p7OnmkfJvUZYaPIELmTLvFtFnTZwP/RsXHzu6x3XrE3i0jA7T7ZmdZ4gqCpcN55ekHl7xL8ct8VNJW1iENPgG6hFe9tkM9qkiAWFZZmMycteRyzuFMNI3fRT6vv4OFcpNkp1ejuKFMtAu3EnKCdNhXk8HbHakj3P5UgY4m3BblpijM6dGPE5XBHutTF8TGPFC9nL5cYj2aLSLS1/JIGs8yTc+ZTdI8T4UEU/QXq1+2Y6eVVIIRvBUayfLyWeikIxJ1Z7uyerQYIkY57X6Y4EZCsSS63ti8cF778Xzra+UekBcK66OHtqItFy2ObnfCWmjADKXC/wbyvpKd9vavv0zmzPuVhtjVVFQQ8bDc1NPXl/dL6prnDmLsnRNqdzZMyqiI8YrOj
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(921020)(6133799003)(3023799007)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fDanfeSoWNgSSnsrVvigQ0+HlGiugkeAW2jG4CR/CdkXDAre/T1z/dtjIgK42VeJLUPtKmMQ7Sy7sN/Wa51XrmNf+Qi+dial5eVZr1/26erDWFFYNbYhHI55fPkKMKz8kAgRj+c7ceo1VttabZY2aryrzSawmgPbCFsr8S6n6GAM8R1LRnNHEO0XdDz6Gi7pgW0vgjCKCVR/NieN38HrL5ZNj0TdgOWSA1oF83ZEMobr/7TpwIx3ht/nBceRfvNLPX2yIZqNeBHiHDWF9yUEvfB8Kv4PS5o18KvZjmMnBWYPMr9hnPMYo115FGlZ6FdCXd7jGHLgkGD4Ozj5BNoB1eeFhNCdHHs28jnBhA/2yCLV0FYOzKknVqXaHeE1x/dSByM2BoEZOTEoMdIi3jiknd7tahL3R5wHukfAWXjCqF6fvLkkZSHPb0W4JBB4D3Wp
+X-MS-Exchange-AntiSpam-MessageData-0: odys+Z66v5DznPavNkLCNpsol97t9HMcFLE3NX1U5JhyjQbjYq1i7TnPO4SScR2oaDjqwT1vBUcJws3KQOR9rkEIVLcG9ccrZ6SvKH9VPIIK7Y/tFc84ks4YHMlC623ixoZGQ6gCgWu5b+AHKaQUX8HrFKsw9jRfQFd4N2926WcGwHc+GLpvjwZki4SYpN0GGpnD9lp8Ud5uIDcJT62ZKagtepdaw60Fr2V9mMMxuho0rMQPwbM46CJPye3Hrd0wAU0clTPRRHN4yWIwccaWCf+dmKA5hR6heYpeNfAXd7LDLRW/ZSWoV2Ar+GAXsr64oCNRbI63XxQi/8mWqJdDiSpsDDC/43UXN/o/ZZyI6yQICb132cwL1fKl7x8Ni85UxPCUjm3MceFNOOejBA81dXKHduYatOxxM0I5jOXshCYyrIsy+sugAqbDI5OHyIrF
 X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 16:44:15.4572
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 16:44:21.7934
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 832820ef-ad43-443c-3b56-08df0dc86b52
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c588b0e-839b-4310-f279-08df0dc86f1a
 X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF00005622.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthSource: OS3PEPF0000003C.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB17560
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB14484
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_094422_680172_7869F500 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20260908_094432_647385_971110F8 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,216 +133,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the _set_ethtool_feat() helper from gro.py into lib, so that it can
-be reused by the VLAN test added in the next commit. Drop the leading
-underscore, now that the helper is exported.
+Add a test that validates ping traffic over VLAN interfaces. It aims
+to catch drivers which mishandle hardware VLAN tag stripping, in
+particular QinQ.
+
+Three VLAN configurations are covered, each with hardware RX VLAN
+stripping enabled and disabled (via the rx-vlan-offload and
+rx-vlan-stag-hw-parse features):
+- a single 802.1q VLAN interface
+- a single 802.1ad VLAN interface
+- an 802.1q VLAN stacked on top of an 802.1ad interface
+
+The test is xfailed when a specific feature cannot be changed.
+
+VLAN insertion offloads are not tested for now.
+
+NETIF=end1 LOCAL_V4=172.16.0.2 REMOTE_V4=172.16.0.3 \
+REMOTE_TYPE=ssh REMOTE_ARGS=root@172.16.0.3 \
+run_kselftest.sh -t drivers/net/hw:vlan.py
+ TAP version 13
+ 1..1
+ # timeout set to 0
+ # selftests: drivers/net/hw: vlan.py
+ # # Interface: end1, driver: st_gmac
+ # TAP version 13
+ # 1..6
+ # ok 1 vlan.test.8021q_hw
+ # ok 2 vlan.test.8021q_sw
+ # ok 3 vlan.test.8021ad_hw # XFAIL Device does not support rx-vlan-stag-hw-parse
+ # ok 4 vlan.test.8021ad_sw
+ # ok 5 vlan.test.qinq_hw # XFAIL Device does not support rx-vlan-stag-hw-parse
+ # ok 6 vlan.test.qinq_sw
+ # # Totals: pass:4 fail:0 xfail:2 xpass:0 skip:0 error:0
+ ok 1 selftests: drivers/net/hw: vlan.py
+ # Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
 
 Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 ---
-v4 changes: None.
+v4 changes:
+- Toggle rx-vlan-stag-hw-parse for the 802.1ad and QinQ variants.
+- Updated the commit message and docstrings.
 
 v3 changes:
-- Fixed "ruff check" and "pylint --disable=R" warnings reported for
-  tools/testing/selftests/drivers/net/lib/py/feat.py.
+- Moved the selftest to drivers/net/hw, as the _hw variants couldn't run
+  under netdevsim.
+- Fixed "ruff check" and "pylint --disable=R" warnings.
+- Added CONFIG_VLAN_8021Q=m to configs file.
 
 v2 changes:
 - New patch.
 
- tools/testing/selftests/drivers/net/gro.py    | 65 ++++++-------------
- .../drivers/net/hw/lib/py/__init__.py         |  3 +-
- .../selftests/drivers/net/lib/py/__init__.py  |  3 +-
- .../selftests/drivers/net/lib/py/feat.py      | 35 ++++++++++
- 4 files changed, 59 insertions(+), 47 deletions(-)
- create mode 100644 tools/testing/selftests/drivers/net/lib/py/feat.py
+ .../testing/selftests/drivers/net/hw/Makefile |   1 +
+ tools/testing/selftests/drivers/net/hw/config |   1 +
+ .../testing/selftests/drivers/net/hw/vlan.py  | 112 ++++++++++++++++++
+ 3 files changed, 114 insertions(+)
+ create mode 100755 tools/testing/selftests/drivers/net/hw/vlan.py
 
-diff --git a/tools/testing/selftests/drivers/net/gro.py b/tools/testing/selftests/drivers/net/gro.py
-index 6ab8c97880d1..051a3b2d0ead 100755
---- a/tools/testing/selftests/drivers/net/gro.py
-+++ b/tools/testing/selftests/drivers/net/gro.py
-@@ -42,7 +42,7 @@ import re
- from lib.py import ksft_run, ksft_exit, ksft_pr
- from lib.py import NetDrvEpEnv, KsftFailEx, KsftXfailEx
- from lib.py import NetdevFamily, EthtoolFamily
--from lib.py import bkg, cmd, defer, ethtool, ip
-+from lib.py import bkg, cmd, defer, ethtool, ip, set_ethtool_feat
- from lib.py import ksft_variants, KsftNamedVariant
- 
- 
-@@ -96,31 +96,6 @@ def _set_mtu_restore(dev, mtu, host):
-         defer(ip, f"link set dev {dev['ifname']} mtu {dev['mtu']}", host=host)
- 
- 
--def _set_ethtool_feat(dev, current, feats, host=None):
--    s2n = {True: "on", False: "off"}
--
--    new = ["-K", dev]
--    old = ["-K", dev]
--    no_change = True
--    for name, state in feats.items():
--        new += [name, s2n[state]]
--        old += [name, s2n[current[name]["active"]]]
--
--        if current[name]["active"] != state:
--            no_change = False
--            if current[name]["fixed"]:
--                raise KsftXfailEx(f"Device does not support {name}")
--    if no_change:
--        return
--
--    eth_cmd = ethtool(" ".join(new), host=host)
--    defer(ethtool, " ".join(old), host=host)
--
--    # If ethtool printed something kernel must have modified some features
--    if eth_cmd.stdout:
--        ksft_pr(eth_cmd)
--
--
- def _get_queue_stats(cfg, queue_id):
-     """Get stats for a specific Rx queue."""
-     cfg.wait_hw_stats_settle()
-@@ -247,15 +222,15 @@ def _setup(cfg, mode, test_name):
-         _write_defer_restore(cfg, flush_path, "200000", defer_undo=True)
-         _write_defer_restore(cfg, irq_path, "10", defer_undo=True)
- 
--        _set_ethtool_feat(cfg.ifname, cfg.feat,
--                          {"generic-receive-offload": True,
--                           "rx-gro-hw": False,
--                           "large-receive-offload": False})
-+        set_ethtool_feat(cfg.ifname, cfg.feat,
-+                         {"generic-receive-offload": True,
-+                          "rx-gro-hw": False,
-+                          "large-receive-offload": False})
-     elif mode == "hw":
--        _set_ethtool_feat(cfg.ifname, cfg.feat,
--                          {"generic-receive-offload": False,
--                           "rx-gro-hw": True,
--                           "large-receive-offload": False})
-+        set_ethtool_feat(cfg.ifname, cfg.feat,
-+                         {"generic-receive-offload": False,
-+                          "rx-gro-hw": True,
-+                          "large-receive-offload": False})
- 
-         # Some NICs treat HW GRO as a GRO sub-feature so disabling GRO
-         # will also clear HW GRO. Use a hack of installing XDP generic
-@@ -270,27 +245,27 @@ def _setup(cfg, mode, test_name):
-             # Attaching XDP may change features, fetch the latest state
-             feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
- 
--            _set_ethtool_feat(cfg.ifname, feat,
--                              {"generic-receive-offload": True,
--                               "rx-gro-hw": True,
--                               "large-receive-offload": False})
-+            set_ethtool_feat(cfg.ifname, feat,
-+                             {"generic-receive-offload": True,
-+                              "rx-gro-hw": True,
-+                              "large-receive-offload": False})
-     elif mode == "lro":
-         # netdevsim advertises LRO for feature inheritance testing with
-         # bonding/team tests but it doesn't actually perform the offload
-         cfg.require_nsim(nsim_test=False)
- 
--        _set_ethtool_feat(cfg.ifname, cfg.feat,
--                          {"generic-receive-offload": False,
--                           "rx-gro-hw": False,
--                           "large-receive-offload": True})
-+        set_ethtool_feat(cfg.ifname, cfg.feat,
-+                         {"generic-receive-offload": False,
-+                          "rx-gro-hw": False,
-+                          "large-receive-offload": True})
- 
-     try:
-         # Disable TSO for local tests
-         cfg.require_nsim()  # will raise KsftXfailEx if not running on nsim
- 
--        _set_ethtool_feat(cfg.remote_ifname, cfg.remote_feat,
--                          {"tcp-segmentation-offload": False},
--                          host=cfg.remote)
-+        set_ethtool_feat(cfg.remote_ifname, cfg.remote_feat,
-+                         {"tcp-segmentation-offload": False},
-+                         host=cfg.remote)
-     except KsftXfailEx:
-         pass
- 
-diff --git a/tools/testing/selftests/drivers/net/hw/lib/py/__init__.py b/tools/testing/selftests/drivers/net/hw/lib/py/__init__.py
-index 8a58cb17cc06..eea45d01cf7b 100644
---- a/tools/testing/selftests/drivers/net/hw/lib/py/__init__.py
-+++ b/tools/testing/selftests/drivers/net/hw/lib/py/__init__.py
-@@ -31,6 +31,7 @@ try:
-         ksft_setup, ksft_variants, KsftNamedVariant
-     from net.lib.py import ksft_eq, ksft_ge, ksft_in, ksft_is, ksft_lt, \
-         ksft_ne, ksft_not_in, ksft_raises, ksft_true, ksft_gt, ksft_not_none
-+    from drivers.net.lib.py import set_ethtool_feat
-     from drivers.net.lib.py import GenerateTraffic, Remote, Iperf3Runner
-     from drivers.net.lib.py import NetDrvEnv, NetDrvEpEnv, NetDrvContEnv
- 
-@@ -49,7 +50,7 @@ try:
-                "ksft_ne", "ksft_not_in", "ksft_raises", "ksft_true", "ksft_gt",
-                "ksft_not_none", "ksft_not_none",
-                "NetDrvEnv", "NetDrvEpEnv", "NetDrvContEnv", "GenerateTraffic",
--               "Remote", "Iperf3Runner"]
-+               "Remote", "Iperf3Runner", "set_ethtool_feat"]
- except ModuleNotFoundError as e:
-     print("Failed importing `net` library from kernel sources")
-     print(str(e))
-diff --git a/tools/testing/selftests/drivers/net/lib/py/__init__.py b/tools/testing/selftests/drivers/net/lib/py/__init__.py
-index ee903bcf3207..c261aac2b976 100644
---- a/tools/testing/selftests/drivers/net/lib/py/__init__.py
-+++ b/tools/testing/selftests/drivers/net/lib/py/__init__.py
-@@ -48,11 +48,12 @@ try:
-                "ksft_not_none", "ksft_not_none"]
- 
-     from .env import NetDrvEnv, NetDrvEpEnv, NetDrvContEnv
-+    from .feat import set_ethtool_feat
-     from .load import GenerateTraffic, Iperf3Runner
-     from .remote import Remote
- 
-     __all__ += ["NetDrvEnv", "NetDrvEpEnv", "NetDrvContEnv", "GenerateTraffic",
--                "Remote", "Iperf3Runner"]
-+                "Remote", "Iperf3Runner", "set_ethtool_feat"]
- except ModuleNotFoundError as e:
-     print("Failed importing `net` library from kernel sources")
-     print(str(e))
-diff --git a/tools/testing/selftests/drivers/net/lib/py/feat.py b/tools/testing/selftests/drivers/net/lib/py/feat.py
-new file mode 100644
-index 000000000000..014971c82b4b
+diff --git a/tools/testing/selftests/drivers/net/hw/Makefile b/tools/testing/selftests/drivers/net/hw/Makefile
+index 78bb0169350b..886a4222c6cf 100644
+--- a/tools/testing/selftests/drivers/net/hw/Makefile
++++ b/tools/testing/selftests/drivers/net/hw/Makefile
+@@ -49,6 +49,7 @@ TEST_PROGS = \
+ 	tso.py \
+ 	userns_devmem.py \
+ 	uso.py \
++	vlan.py \
+ 	xdp_metadata.py \
+ 	xsk_reconfig.py \
+ 	#
+diff --git a/tools/testing/selftests/drivers/net/hw/config b/tools/testing/selftests/drivers/net/hw/config
+index d89a9ba17655..c6c2b64bb712 100644
+--- a/tools/testing/selftests/drivers/net/hw/config
++++ b/tools/testing/selftests/drivers/net/hw/config
+@@ -24,5 +24,6 @@ CONFIG_NET_SCH_INGRESS=y
+ CONFIG_SYNC_FILE=y
+ CONFIG_UDMABUF=y
+ CONFIG_USER_NS=y
++CONFIG_VLAN_8021Q=m
+ CONFIG_VXLAN=y
+ CONFIG_XFRM_USER=y
+diff --git a/tools/testing/selftests/drivers/net/hw/vlan.py b/tools/testing/selftests/drivers/net/hw/vlan.py
+new file mode 100755
+index 000000000000..61fa452b95bd
 --- /dev/null
-+++ b/tools/testing/selftests/drivers/net/lib/py/feat.py
-@@ -0,0 +1,35 @@
++++ b/tools/testing/selftests/drivers/net/hw/vlan.py
+@@ -0,0 +1,112 @@
++#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0
 +
 +"""
-+Netdev feature helper utilities for kernel selftests.
++VLAN tests.
 +
-+Provides common operations for changing device features via ethtool.
++Validates that ping traffic is sent and received correctly over 802.1q
++and 802.1ad VLAN interfaces, with hardware RX VLAN stripping enabled and
++disabled on the local interface.
++
++Test cases:
++  - 8021q_hw:  Traffic over a single 802.1q VLAN, HW stripping on
++  - 8021q_sw:  Traffic over a single 802.1q VLAN, HW stripping off
++  - 8021ad_hw: Traffic over a single 802.1ad VLAN, HW stripping on
++  - 8021ad_sw: Traffic over a single 802.1ad VLAN, HW stripping off
++  - qinq_hw:   Traffic over an 802.1q VLAN stacked on an 802.1ad VLAN,
++               HW stripping on
++  - qinq_sw:   Traffic over an 802.1q VLAN stacked on an 802.1ad VLAN,
++               HW stripping off
 +"""
 +
-+from lib.py import KsftXfailEx, defer, ethtool, ksft_pr
++import os
++
++from lib.py import (
++    KsftNamedVariant,
++    NetDrvEpEnv,
++    cmd,
++    defer,
++    ethtool,
++    ip,
++    ksft_exit,
++    ksft_run,
++    ksft_variants,
++    set_ethtool_feat,
++)
++
++OUTER_DEV = f"vlout{os.getpid()}"
++INNER_DEV = f"vlin{os.getpid()}"
++
++OUTER_VID = 100
++INNER_VID = 200
++
++LOCAL_IP = "198.51.100.1"
++REMOTE_IP = "198.51.100.2"
 +
 +
-+def set_ethtool_feat(dev, current, feats, host=None):
-+    """Set ethtool features with defer to restore original state."""
-+    s2n = {True: "on", False: "off"}
++def _vlan_add(base, name, proto, vid, host=None):
++    """Create a VLAN device on top of base and bring it up."""
 +
-+    new = ["-K", dev]
-+    old = ["-K", dev]
-+    no_change = True
-+    for name, state in feats.items():
-+        new += [name, s2n[state]]
-+        old += [name, s2n[current[name]["active"]]]
++    ip(f"link add link {base} name {name} type vlan proto {proto} id {vid}",
++       host=host)
++    defer(ip, f"link del {name}", host=host)
++    ip(f"link set {name} up", host=host)
 +
-+        if current[name]["active"] != state:
-+            no_change = False
-+            if current[name]["fixed"]:
-+                raise KsftXfailEx(f"Device does not support {name}")
-+    if no_change:
-+        return
 +
-+    eth_cmd = ethtool(" ".join(new), host=host)
-+    defer(ethtool, " ".join(old), host=host)
++def _vlan_setup(base, addr, outer_proto, inner_proto, host=None):
++    """Create VLAN interfaces on base and set an IP on the innermost one."""
 +
-+    # If ethtool printed something kernel must have modified some features
-+    if eth_cmd.stdout:
-+        ksft_pr(eth_cmd)
++    _vlan_add(base, OUTER_DEV, outer_proto, OUTER_VID, host=host)
++    if inner_proto:
++        _vlan_add(OUTER_DEV, INNER_DEV, inner_proto, INNER_VID, host=host)
++
++    dev = INNER_DEV if inner_proto else OUTER_DEV
++    ip(f"addr add {addr}/24 dev {dev}", host=host)
++
++
++def _setup(cfg, outer_proto, inner_proto, hw_strip):
++    """Configure VLAN stripping and create the VLAN interfaces."""
++
++    feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
++    feats = {"rx-vlan-offload": hw_strip}
++    if outer_proto == "802.1ad":
++        feats["rx-vlan-stag-hw-parse"] = hw_strip
++    set_ethtool_feat(cfg.ifname, feat, feats)
++
++    _vlan_setup(cfg.ifname, LOCAL_IP, outer_proto, inner_proto)
++    _vlan_setup(cfg.remote_ifname, REMOTE_IP, outer_proto, inner_proto,
++                host=cfg.remote)
++
++
++def _vlan_variants():
++    """Generator that yields the VLAN protocols and the stripping mode."""
++
++    yield KsftNamedVariant("8021q_hw", "802.1q", None, True)
++    yield KsftNamedVariant("8021q_sw", "802.1q", None, False)
++    yield KsftNamedVariant("8021ad_hw", "802.1ad", None, True)
++    yield KsftNamedVariant("8021ad_sw", "802.1ad", None, False)
++    yield KsftNamedVariant("qinq_hw", "802.1ad", "802.1q", True)
++    yield KsftNamedVariant("qinq_sw", "802.1ad", "802.1q", False)
++
++
++@ksft_variants(_vlan_variants())
++def test(cfg, outer_proto, inner_proto, hw_strip):
++    """Run a single VLAN test"""
++
++    cfg.require_ipver("4")
++
++    _setup(cfg, outer_proto, inner_proto, hw_strip)
++
++    cmd(f"ping -c 1 -W 5 {REMOTE_IP}")
++
++
++def main() -> None:
++    """ Ksft boiler plate main """
++
++    with NetDrvEpEnv(__file__) as cfg:
++        ksft_run(cases=[test], args=(cfg, ))
++    ksft_exit()
++
++
++if __name__ == "__main__":
++    main()
 -- 
 2.34.1
 
