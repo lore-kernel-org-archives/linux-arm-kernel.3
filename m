@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294E4C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7F7C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyHTawNuhcEnnxXQJgyQFb+DEMaOnkLb3lY8OQIcFHo=; b=mKZAH9xu7pfG/aMoOC1OamAIIy
-	lQvwaNb0HVyHISQPmoXazIkCkr3A7JFi/M1Yiessy+nLoUqzNBfkVDKjbHVsJhRd55KcaiMa8MfLf
-	ZFmgoVJaOH9lxgvtumVk9IODxGCndDF0SI7hx/8d2sV9eHL3XDCrv+9vxcNUmh93h0ixIvxABTsqf
-	18TfKeleK7OH0xkXeWfnotiFLoMx31Y0eCnLKL9jc8kOssl5yeCyNO1DbtFcXmnQzFlzGpkWnDUUn
-	saVYmn2XjOfQUCOPyJaoYlm5s7kXsLew/TZW45g2sx7AvKpkKVFGTISo5OejUbyZqCYEusZ+6sS8K
-	HlpGqp5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fIQFzoGrrfMp+IhfdYgiVZw4QZCQekcJOCoJnKfBZ+E=; b=lYbsIdLvOQfDELk7MXSgYPeJDi
+	B4UVKnhfEZbCa73m3mEL4Om9QbKOWsmhMAQdYVfLg1AI3XyqsU9X49DynVWn1DwgTe9q3OxNfdaNM
+	RRWdLeHkxHINuzZFxqTdtANCjXoDppAeVsotiIZO9xNAm7gMNOIMMSinFZTQdolYgGdPM3jQl05eG
+	14LeW3DzfE6A61T5vfVQYJBPs7+GK0hTL64AcNtZZnW334oXrAzARqEndScxNw/VI3v7AzTYWyiO/
+	H8XKdgCL1g+c2Ye8D45PVWVyIou8q9AG3JdORPeqjZenAve33jh8s97KGa9sKM2SlmM5XROpALpFG
+	9S0oRvsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ucH-00000008ykM-03br;
-	Tue, 08 Sep 2026 12:07:57 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1x3uhD-00000008zIW-286V;
+	Tue, 08 Sep 2026 12:13:03 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ucE-00000008yjn-23px
+	id 1x3uh9-00000008zHg-28h1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 12:07:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788869275; x=1820405275;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nY/f36e4XCBpBx5q/CWt81lKze9qX8oQl+TRB/FvkTs=;
-  b=f4qYwzptFG3yVTH/puLS31W56HsnHSGTg33uJbFz5Wdz4XQka0NLkSFp
-   gCovJsS2DDICQ3aD/N+l5UGa6p86LBwi+bGcoOjYGOAFzKop3wFxfl5wY
-   aVXPZ0rJ0GBg5meP6UR9mYt+sXZ66UN0m1Y+pl04arOR58Q0bR/iZ/D6o
-   LVZyLcR1wA8jhG0U/TFFfLhLz1EZ6FmdacQCbcnut2EHHX0VW+0XHOVBT
-   wmJa+3ZWSa5mhjm9pCUEyUSQ6mVQd/PDkcKN0h29R3Abdc+4X0Cy9OtFF
-   bysqNLO1vvI+A1HBw/Eiem9JaKRDFvaGA/fVt9LFocHiLGZfJX/V4IKNd
-   w==;
-X-CSE-ConnectionGUID: bvIUq/WLS7GAFFzm5LgQqg==
-X-CSE-MsgGUID: sRyk/hRQRom5qyW6zNwJmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="114808213"
-X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
-   d="scan'208";a="114808213"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 05:07:54 -0700
-X-CSE-ConnectionGUID: aBvCWuEhSdG7xqg4PMl2eg==
-X-CSE-MsgGUID: VDjQnp8RRumfORIpT2bbvw==
-X-ExtLoop1: 1
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa003.fm.intel.com with ESMTP; 08 Sep 2026 05:07:50 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id BC6F499; Tue, 08 Sep 2026 14:07:49 +0200 (CEST)
-Date: Tue, 8 Sep 2026 14:07:49 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 02/22] usb: typec: Represent USB4 on the Type-C bus
-Message-ID: <ap_6lY1fBb5L6VaO@black.igk.intel.com>
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-2-1f80085f93fb@kernel.org>
+	Tue, 08 Sep 2026 12:13:01 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=fIQFzoGrrfMp+IhfdYgiVZw4QZCQekcJOCoJnKfBZ+E=;
+	b=kWq7kgIrm2MjS2NeXrwj+UR1XlB/PDkiehPNbxkQXrQCMDeisKF7IQkPTzylT7VtxFiUBCKgr
+	A8Z8YO9fmSkB43NoklAEO5bV0c5o1xKe+7ThrKau/eeBZnv9NY78F9uiM7aDfGiVlnnwuzEfM4P
+	obWXMt5q2bgqdl3EO4M84I4=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hfMxL4gLhzmV8f;
+	Tue,  8 Sep 2026 20:01:58 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 98C344048B;
+	Tue,  8 Sep 2026 20:12:52 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 8 Sep 2026 20:12:51 +0800
+Message-ID: <3f18b449-390a-4611-8bcd-a3b60e37056d@huawei.com>
+Date: Tue, 8 Sep 2026 20:12:51 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260906-b4-apple-soc-tbt-v2-2-1f80085f93fb@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 16/19] arm64: cpu_ops: Expose optional argument to target
+ cpu in ->cpu_boot()
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
+ Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-17-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164024.17164-17-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_050754_542925_5F508CFC 
-X-CRM114-Status: GOOD (  28.39  )
+X-CRM114-CacheID: sfid-20260908_051300_230532_D7B7B495 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +82,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 08:36:25PM +0200, Sven Peter wrote:
-> USB4 technically isn't alternate mode and entered using the EUDO and has
-> no SVID or Discover Modes Response. We can still represent it like an
-> altmode on the Type-C bus though by adding a mode kind. Exclude the USB4
-> modes from any SVID-specific operations and driver binding, but allow
-> consumers to observe their state through notifications.
+
+
+在 2026/9/8 0:40, Will Deacon 写道:
+> Some backend implementations of 'struct cpu_ops', notably PSCI v0.2+,
+> allow an optional argument to be passed in register X0 to the target
+> CPU during boot.
 > 
-> Like for other altmodes, expose the USB4 mode to sysfs: Add a mode_kind
-> to be able to differentiate and then expose the EUDO, make the USB4
-> active state read-only since we only represent firmware-negotiated USB4
-> modes and omit anything that only applies to SVID-specific altmodes.
+> Expose this functionality by extending the ->cpu_boot() CPU operation
+> to take an additional argument which is ignored unless the new optional
+> ->cpu_boot_has_arg() callback is present and returns 'true'. For now,
+> we continue to pass zero.
 > 
-> Signed-off-by: Sven Peter <sven@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 > ---
-> Hope it's fine to add you as the contact for the sysfs documentation,
-> happy to add myself otherwise though.
-> ---
->  Documentation/ABI/testing/sysfs-bus-typec | 36 ++++++++++++++
->  drivers/usb/typec/bus.c                   | 67 ++++++++++++++++++++-----
->  drivers/usb/typec/class.c                 | 83 +++++++++++++++++++++++++++----
->  drivers/usb/typec/mode_selection.c        |  6 ++-
->  include/linux/usb/typec.h                 | 20 +++++++-
->  include/linux/usb/typec_altmode.h         | 10 +++-
->  6 files changed, 193 insertions(+), 29 deletions(-)
+>  arch/arm64/include/asm/cpu_ops.h          |  6 +++++-
+>  arch/arm64/kernel/acpi_parking_protocol.c |  3 ++-
+>  arch/arm64/kernel/psci.c                  | 11 +++++++++--
+>  arch/arm64/kernel/smp.c                   |  2 +-
+>  arch/arm64/kernel/smp_spin_table.c        |  2 +-
+>  5 files changed, 18 insertions(+), 6 deletions(-)
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
 > 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-typec b/Documentation/ABI/testing/sysfs-bus-typec
-> index 205d9c91e2e1..524bbcbadf64 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-typec
-> +++ b/Documentation/ABI/testing/sysfs-bus-typec
-> @@ -12,6 +12,35 @@ Description:
+> diff --git a/arch/arm64/include/asm/cpu_ops.h b/arch/arm64/include/asm/cpu_ops.h
+> index cd298a8710d8..e7662a1879d9 100644
+> --- a/arch/arm64/include/asm/cpu_ops.h
+> +++ b/arch/arm64/include/asm/cpu_ops.h
+> @@ -21,6 +21,9 @@
+>   *		mechanism for doing so, tests whether it is possible to boot
+>   *		the given CPU.
+>   * @cpu_boot:	Boots a cpu into the kernel.
+> + * @cpu_boot_has_arg: Optionally determines whether @cpu_boot passes its
+> + *		      (non-zero) second argument to the booting CPU in
+> + *		      register x0.
+>   * @cpu_postboot: Optionally, perform any post-boot cleanup or necessary
+>   *		synchronisation. Called from the cpu being booted.
+>   * @cpu_can_disable: Determines whether a CPU can be disabled based on
+> @@ -36,7 +39,8 @@ struct cpu_operations {
+>  	const char	*name;
+>  	int		(*cpu_init)(unsigned int);
+>  	int		(*cpu_prepare)(unsigned int);
+> -	int		(*cpu_boot)(unsigned int);
+> +	int		(*cpu_boot)(unsigned int, unsigned long);
+> +	bool		(*cpu_boot_has_arg)(void);
+>  	void		(*cpu_postboot)(void);
+>  #ifdef CONFIG_HOTPLUG_CPU
+>  	bool		(*cpu_can_disable)(unsigned int cpu);
+> diff --git a/arch/arm64/kernel/acpi_parking_protocol.c b/arch/arm64/kernel/acpi_parking_protocol.c
+> index e1be29e608b7..24ebde1241bf 100644
+> --- a/arch/arm64/kernel/acpi_parking_protocol.c
+> +++ b/arch/arm64/kernel/acpi_parking_protocol.c
+> @@ -56,7 +56,8 @@ static int acpi_parking_protocol_cpu_prepare(unsigned int cpu)
+>  	return 0;
+>  }
 >  
->  		Valid values are boolean.
+> -static int acpi_parking_protocol_cpu_boot(unsigned int cpu)
+> +static int acpi_parking_protocol_cpu_boot(unsigned int cpu,
+> +					  unsigned long ignored)
+>  {
+>  	struct cpu_mailbox_entry *cpu_entry = &cpu_mailbox_entries[cpu];
+>  	struct parking_protocol_mailbox __iomem *mailbox;
+> diff --git a/arch/arm64/kernel/psci.c b/arch/arm64/kernel/psci.c
+> index 6b25a12ed143..3ba4fa14b9e3 100644
+> --- a/arch/arm64/kernel/psci.c
+> +++ b/arch/arm64/kernel/psci.c
+> @@ -36,16 +36,22 @@ static int __init cpu_psci_cpu_prepare(unsigned int cpu)
+>  	return 0;
+>  }
 >  
-> +		For USB4 mode devices this attribute is read-only. On a port it
-> +		indicates whether USB4 support is enabled; on a partner it reports
-> +		whether USB4 is active. USB4 entry and exit are controlled by the
-> +		port controller. Partner state changes notify this attribute and
-> +		generate KOBJ_CHANGE uevents.
-> +
-> +What:		/sys/bus/typec/devices/.../mode_kind
-> +Date:		September 2026
-> +Contact:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> +Description:
-> +		Read-only protocol kind represented by this mode device:
-> +		"altmode" for an SVID-specific alternate mode, or "usb4" for
-> +		USB4 negotiated using Enter_USB.
-> +
-> +		USB4 devices do not expose svid, mode, vdo, or priority
-> +		attributes, or the legacy modeN attribute group. USB4 partner
-> +		uevents contain MODE_KIND=usb4 instead of SVID, MODE, and
-> +		MODALIAS variables.
-> +
-> +What:		/sys/bus/typec/devices/.../eudo
-> +Date:		September 2026
-> +Contact:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> +Description:
-> +		Read-only Enter_USB Data Object (EUDO), formatted as
-> +		0x followed by eight hexadecimal digits. Present only on USB4
-> +		partner mode devices, not on ports or SVID-specific alternate
-> +		modes. USB4 cable information is encoded in the EUDO; there are
-> +		no USB4 cable plug mode devices.
-> +
->  What:		/sys/bus/typec/devices/.../description
->  Date:		July 2018
->  Contact:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> @@ -36,6 +65,8 @@ Description:
->  		the mode index is not assigned, identifying the alternate mode
->  		must be done with either mode VDO or the description.
+> -static int cpu_psci_cpu_boot(unsigned int cpu)
+> +static int cpu_psci_cpu_boot(unsigned int cpu, unsigned long context)
+>  {
+>  	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
+> -	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry, 0);
+> +	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry,
+> +				  context);
+>  	if (err && err != -EPERM)
+>  		pr_err("failed to boot CPU%d (%d)\n", cpu, err);
 >  
-> +		This attribute is not present on USB4 mode devices.
-> +
->  What:		/sys/bus/typec/devices/.../svid
->  Date:		July 2018
->  Contact:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> @@ -43,9 +74,14 @@ Description:
->  		The Standard or Vendor ID (SVID) assigned by USB-IF for this
->  		alternate mode.
+>  	return err;
+>  }
 >  
-> +		This attribute is not present on USB4 mode devices.
+> +static bool cpu_psci_cpu_boot_has_context(void)
+> +{
+> +	return psci_ops.get_version() >= PSCI_VERSION(0, 2);
+> +}
 > +
->  What:		/sys/bus/typec/devices/.../vdo
->  Date:		July 2018
->  Contact:	Heikki Krogerus <heikki.krogerus@linux.intel.com>
->  Description:
->  		Shows the VDO in hexadecimal returned by Discover Modes command
->  		for this mode.
-> +
-> +		This attribute is not present on USB4 mode devices. USB4 partner
-> +		mode devices expose the EUDO in the eudo attribute.
+>  #ifdef CONFIG_HOTPLUG_CPU
+>  static bool cpu_psci_cpu_can_disable(unsigned int cpu)
+>  {
+> @@ -114,6 +120,7 @@ const struct cpu_operations cpu_psci_ops = {
+>  	.cpu_init	= cpu_psci_cpu_init,
+>  	.cpu_prepare	= cpu_psci_cpu_prepare,
+>  	.cpu_boot	= cpu_psci_cpu_boot,
+> +	.cpu_boot_has_arg = cpu_psci_cpu_boot_has_context,
+>  #ifdef CONFIG_HOTPLUG_CPU
+>  	.cpu_can_disable = cpu_psci_cpu_can_disable,
+>  	.cpu_disable	= cpu_psci_cpu_disable,
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 2e98a92eb764..b57f8f752f78 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -103,7 +103,7 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+>  	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  
+>  	if (ops->cpu_boot)
+> -		return ops->cpu_boot(cpu);
+> +		return ops->cpu_boot(cpu, 0);
+>  
+>  	return -EOPNOTSUPP;
+>  }
+> diff --git a/arch/arm64/kernel/smp_spin_table.c b/arch/arm64/kernel/smp_spin_table.c
+> index 49029eace3ad..a5e6f444c25f 100644
+> --- a/arch/arm64/kernel/smp_spin_table.c
+> +++ b/arch/arm64/kernel/smp_spin_table.c
+> @@ -104,7 +104,7 @@ static int smp_spin_table_cpu_prepare(unsigned int cpu)
+>  	return 0;
+>  }
+>  
+> -static int smp_spin_table_cpu_boot(unsigned int cpu)
+> +static int smp_spin_table_cpu_boot(unsigned int cpu, unsigned long ignored)
+>  {
+>  	/*
+>  	 * Update the pen release flag.
 
-USB4 needs to have its own device type. The USB4 mode should not
-expose things like svid and the vdo at all. And the USB4 mode
-registration should be done with a dedicated API IMO.
-
-Thanks,
-
--- 
-heikki
 
