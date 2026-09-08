@@ -4,126 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706CAC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE318C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E3fsDMUp6iZPwqWolrjkrZvy70fQS6FinWdQXIMSMow=; b=NJR5Pd3tBGS0/KAD7jPBWOH0PT
-	29Il4tR8Ps6voIw8VFQltBqZT/LEqu4+3TQsbuLqE4cjgah9SDrn2l2AjmEiP1tr0D75msIv3+MHp
-	0wH+wZ05YL//tJceyVf+HOvRUrZL3NqKHjhV2sQhog0ybhTfdw4hmvzzHxybcd5sIRJS18LOAVK5/
-	04lsa/FMdkp1eRmloNUfu8VcE8qyWJ10G9aH/QA8Lfs05eboTjXAfNIFsyc/V0weKI8Ju9HZd5vAw
-	Ru4qVq6LPtgX9i3/ya7jCuRTifcyV3HMkY5Eq1KA3hgIRfrp7ppi716CCcFSzf8jTpGqmyJqHJCjF
-	y60dYE8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=; b=cmn3opbx4rj396WNgA6BHCAMbD
+	96bvG0k3orI7pweU8SfoyJDqq1XIBgnyGFy46BRoGqwjOuXWsy43m4mZgMLUe7e2REScjG9CFYOvz
+	3JT997u+L2MaDyOUU0BqbqhLuF31PUiWcfTS6vPG0heeF6rOT3/Z9vGhy0jmNJ9R83woQhTYP5+TH
+	vd26CLDVOJDdr8LRZ+ldRwmEILSsEYvMZBvgnonPRwxDnSb19aY96AkxWcSgNkf0UUFpeQgTSmX0d
+	dgXhlk+HU5G37vbq96oNR8BlrDFmuNbrsY20UVtFyGM44iDd+ScpWiA2i5HEy7Az9ZuKmBueCjP3f
+	WI3Yy1dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uJn-00000008vjR-3nMT;
-	Tue, 08 Sep 2026 11:48:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3uK6-00000008vr9-0p2m;
+	Tue, 08 Sep 2026 11:49:10 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uJm-00000008vjG-3J1J;
-	Tue, 08 Sep 2026 11:48:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 389C44072C;
-	Tue,  8 Sep 2026 11:48:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C5B91F00A3D;
-	Tue,  8 Sep 2026 11:48:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788868130;
-	bh=E3fsDMUp6iZPwqWolrjkrZvy70fQS6FinWdQXIMSMow=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=D4yNB+iHgYWM2xH5dEAI8mPSRYWnnNFm5P6il2ewjQLawqqHvZ0iRVtiPpend37Ov
-	 BVgRiJpLfeZphjBvLOtdJquXE28iPZ5jAq9L3m73yktY98VNQiyduG1fGDmCvwVCFb
-	 OvLVA5AbLLz20lLr4HCl1/Zo5X94Rj/pLMSJKZwrZUn0ZKKRR25TKJf8kMmj58VhYa
-	 5EFv/GYUk2Cp8uy7bb9mBwcWZI3nmjTc/K2o4v2pW1t25PbkazcJ2hQMXvqOr6CMwB
-	 BUgOfOJLNEmKpyPmA+NEmQzK8n1wSEEyA1X9FSj7HVQHwoVA4qOIzR04Pl5WRk30g8
-	 HA2wuKBfwd1Vg==
-Message-ID: <d379aae2-4249-4c6a-a748-5419d4f74f34@kernel.org>
-Date: Tue, 8 Sep 2026 13:48:36 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Brendan Jackman <brendan.jackman@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
- Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- loongarch@lists.linux.dev
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
- <2b0f5877-e71a-4824-adeb-5af2dd8b0269@kernel.org>
- <ap_tjOTR48tja_8e@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <ap_tjOTR48tja_8e@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	id 1x3uK3-00000008vmJ-0nIJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 11:49:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JdnR5br28MEsR19ycZROHK5/6cSeTBAMAeZBjV8ph8Wb9KQQymhFIgcMJc2kdKmPiq4vwGt/RgJrC+ZKBkGVY4ZHWZHJ4pv3FyVUjU555GgkUB4bQLWHqkCgv2Lyik+86vrJ1zRSXu0Fc6Sh3ASi1yOBB4+Qm0Z1wo5HiMxeF5Yk8yjqFwT8F7aMnUTSPfB1HaxjNOGCxvp5x2OI0HOECdiijeTZ8MLgJzlpujqYifw271XChBD5t0DCjbvq7b/ujhdRUbNdVYOKlNpWXeYDDRn86dXU5wx/LsRA5rHr8rwgerK6v6Z1mnHR0Raw01mpeNAPG77d9sdkge3gVGdfXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=;
+ b=KNYHrWpGoAK9Cs9FYRmPYlX8QBEoPksUkP7Yf9D/cPig59dHq7UmJHDw7IIMe3RabqGeNemwlwB56X1OxfPskRd9BAfPXwfVF0J/sjv88BCGwc0gWSNH0LBh/DlOPM4nG6X/yQPbUPgLoxW5NlXqCruir5Vrfp1ZjT2KKsUY/2MIkadmT3ay+a1I0sMk7LspiXvhNJTbxfEtg2NAWA0NxYXqJc1spL4syAzyv+Nhgrz9gur5jirr5FD/EZB8HFQiZbdHloFUqd06XXuBjrbTv/4MnkJiqjOrngb7ptULNQGGE7wgAdFXjGEKO3YboG+miygpFVf+TKbz1ZX6ZANXFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=er8mkpSGysTU2AnOCiPtxLRaraSl7B9NqJnF92yeKFk=;
+ b=Tdg0Aum/k4lMO4lPqLtye+idN1hJcG7xvP1Jm6N+hTULT8LxOhMriK9unOJEvdXC6VJT5c1g+ZLctJu4fKQ3jD7IwzmkOefN7g9lUBbZaK4SDm4gXO0JJkuC/vx0O//5r+nc2BxDUR0Me+NJ6ovcUEe1ok5nxuMkirJkYC6sEEFMLDbzIGLMNTML9BIe8VXnpeAOHTjsPKIR09xTD61vI+LCBG+mqyL4bEXwFrbDxmh1XTXfWOdiChyyORYvPMNrlOYddvsC4M+2gLeWTm73LuIATXejXVJ1jmtzNX68ba6MzmvHNdhiWMR6+nSdkqg4vFfxjjKmbjGuSNMjiZ8doA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
+ by GVXPR04MB9780.eurprd04.prod.outlook.com (2603:10a6:150:114::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
+ 2026 11:48:57 +0000
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0382.014; Tue, 8 Sep 2026
+ 11:48:57 +0000
+From: pankaj.gupta@oss.nxp.com
+Date: Tue, 08 Sep 2026 22:48:11 +0530
+Subject: [PATCH v49 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260908-imx-se-if-v49-1-a59529118839@nxp.com>
+References: <20260908-imx-se-if-v49-0-a59529118839@nxp.com>
+In-Reply-To: <20260908-imx-se-if-v49-0-a59529118839@nxp.com>
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788887921; l=14442;
+ i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
+ bh=GR+UpWiKN6vQ/fD+2am73nCHpHQoukDXxfoTE0YlRxg=;
+ b=RZ+5Y1/bNqsJQCCduJFUNbsNLJbiSx2y0vD+aEv6EaC961WhtSdzlz1gDJ9BtXz3LuhpP7aCb
+ 2PA8hMm0wPfCjSmhIRp0Cx4vdkh7yaLi+N7RCWO6D0bZ0zHDAtxczI9
+X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
+ pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
+X-ClientProxiedBy: SI3PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:295::18) To AM9PR04MB8469.eurprd04.prod.outlook.com
+ (2603:10a6:20b:414::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|GVXPR04MB9780:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5dbc139c-2ddf-4549-e636-08df0d9f2a86
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|366016|1800799024|376014|10067099003|6133799003|3023799007|18002099003|22082099003|56012099006|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: iuw750MALcaWsHo0//RWTlISSIFIyGsJHfcPTROcdo9wabCjd1Mnq2+EYcqFYVMi0mD2vOvu39XFlSeeoEItPx/34cXUqsyiFWQTclepFtjiD8NluZUXKuGC2K7OQbi240pyoajdgTEKFA9LGAb+8i3hI8S2Gy7gFpB7IhSvPhhUnWg/Kg834huUIyj3VyYf/AVQKVfNH8DvY2Let3YtfKZroZZQQlBGYIWS1K5bqcIiqG753FtlIR62hYxfN8WUZrXLAv7slf2NyqyFrIkgwW+AP8BxaguBrKZvmBhnrXCuUUv91l+whU+kWdOHIKO0Oy68CpszNeWqJ7Nh3m8uS9IGhiqSBI7y0Wld/bPTyeMJT0hFkam0L3AGHmjhDmVmpfUmXQ6ymGqceAsLpsEZF/wkVIPvyCAS4TcXLMRjbDFWbmci/4sVb6iA06ga7pyHv4zQwWaJb9j39xHs/LA4EoALlZQEAUeOzc+qaCb+aAv/2AfIiLUzyBKOubQaKe1pMCUZGHuB/4MNy8+7C63c05pGbO5l4gB0HPQ+kXVouI5byDEh6Q+47OvUHtIXlk4/9z1ssfv1vmZRyv4ZQaY/P5QD7zQe+qBiVii34b06LKiLMPKpngFJTw2IiNCERlOf77QMyuAXAClpnJOGKtHACYj1PZpgK/HpEz+t0UeewbkdgFM+tGsdWFOsuheUoXPbXIwvMVBJQPRF2dMgNdqyjg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(366016)(1800799024)(376014)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(56012099006)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N3hqamgrMlovTTJQdk9sUzhTTDJLeEJQejVES3Z2WTFOSWtJekNGZmRRaU1Q?=
+ =?utf-8?B?Uy9rY3Y3eWtGcDVwSlBmTjRyWUxKT05OTjA3V2tUSHFZamZ2TW1TWlNvcHZD?=
+ =?utf-8?B?SWJ2eDJGU1lRSTB3Uyt4aW1ZWEhhbmFqRGYxR2p5T0ZqZitFd1hpaHRiWlRi?=
+ =?utf-8?B?dTZiRDJXUUUrUVhDZUhCWlZ3eGMyUjlyZXdrTWJHYzJRSkkvT0FveDgvZnVh?=
+ =?utf-8?B?WlNGVlZocjgxbUJxcFBnOGFKdVNPLytzc1FlR3QyUWhJTWszc0JpdnlSK01K?=
+ =?utf-8?B?Uk1ybEVwZ3dMU1JxNVJDdHUrbjFOanY0bEw4V0tqbDN6TzVPRW1EYjZFM0lC?=
+ =?utf-8?B?UGpUL3k1cFVDOTcreEp2TTBNdkhmT20zMWU1cnM0OHlpZ3QzLzA1NlBOa0xX?=
+ =?utf-8?B?d1M4TG1GdjEzWXc4dGRYcUZEakpmTUR3SjNhanRETzZEamZ2eVlLVUw4eE9j?=
+ =?utf-8?B?NHd4b0xZSzk3QmVnWnpyZWFaaEJmbkNCQ08vQ1pXV0NtTGppMW5Ra1pDRVNS?=
+ =?utf-8?B?YzZZUmRCeEY3L2xaaTluRFpjd3VBNVVtOUpsQmZwTWw4SWIxTy92SktIYnFo?=
+ =?utf-8?B?UWVUc04zd3hvcUF5TGNQY2dUV2dOMUJIdFpEUy90Nkkrak1NR215MnF0NVhz?=
+ =?utf-8?B?OHdVOUl2cGRWUzByZVVKb21FOC9LYXQrcXFnN3hMYlVtMmlVVGJLd05GRENo?=
+ =?utf-8?B?MlArZ3RHMWIyV0U3OXlLam1xMno1V3dwTFUvRnpKNEpNYW9GZlB1MXdneTBv?=
+ =?utf-8?B?MUsyY1NyRk9rcnRyZEpNVUU5bmU0Qm9zREZXSHpURHNYV2NPZCtKbkwzdEZ3?=
+ =?utf-8?B?TXp1SlNWbzZkazgvUTVGL0JvSDVNdEhyeXF0eFRoS2hxdGJWQXFuaDMwcm1y?=
+ =?utf-8?B?TDVxNHdheWwvdWpCUVVMcktPaXlhTHMwMXhtOW1xYlNsb2JXM2dGZFAxd3Av?=
+ =?utf-8?B?SjdXSWV5ZUkyT1FSMEtqVWdCbW02dngyUHRIWkVyZ1VDNkd4Z2s2S2tHNENX?=
+ =?utf-8?B?NjhYZUVmbEFFdEU2Y3kzY3p3Z0VKVmNsbTFlTWF0VWNtazR1UlZLOHliMXNU?=
+ =?utf-8?B?S0pORHY2eC9TbVJwMTRzR05NcGtYRmdKMjFPakhwRHhZTkh2cHZLdTVrNFRt?=
+ =?utf-8?B?aXJjRTRWK2VGSXV6aUpGcFExNmt5Y0RVTzF4ZC9Ba2sxVGFmM3ZHZDN1T3lZ?=
+ =?utf-8?B?KzRqS0lYRG5DeUNlcWdOR1JCZ2RQeGU2b09vQTc5TWFwakFtb0Z3L0htbmhL?=
+ =?utf-8?B?UENBaTlCcmpzb091MFdMcWlRdGEzWlJ5SjlEdUNuQUR6V28zdnBpM1VhMG5w?=
+ =?utf-8?B?dUNheERLV29MSHFwa3NPbnd0azdzY0NydGdVOWVKU0Ivb1VyVjM0ZEFmYytr?=
+ =?utf-8?B?RVlvYm93dkg0cVBhamlvNHVvZXY3VmFBSFE0d21JdWRVQy9pU0JWSUxkT3p1?=
+ =?utf-8?B?K1lFTTBNby93RFJhb1VQSXZ1WlA4cjZKN1d1Q3RFZ1JxQk1tVC9ybnYrVlhp?=
+ =?utf-8?B?b1Z2YXZ5Sm4xYzZMZHZRemI2dGNSWEJhS1BhZ1RMeUlLM3dHTWl4RXpKcXB0?=
+ =?utf-8?B?aGU3UVE2eDBIQVRia0ZlNERkeXdUNE02U0FQUnEvSXAvLzFPNzlEcTRCeVF5?=
+ =?utf-8?B?Y0ZLK2NWNmI2MWtqU2locEhMYy8wVU0zOWNQYmhSSlJsRE03VXhhWHFKeW1o?=
+ =?utf-8?B?WFVVVngrMWR0MVNOMzdjcVJ1aDRSSEt3YjlZV3NOaWVydC9DR2NYVjNRUm40?=
+ =?utf-8?B?cytRY29wRTkzK1Vnemorb0Z6QWZJUVlsemovTlVlNk5yYVAwajQ5aDVYenhD?=
+ =?utf-8?B?T2R5bXNtU0VYZEtjYW8zU1poRFllbGhQY1pkMkFodU8wUEZvODkwL3Q3eVB3?=
+ =?utf-8?B?SkQzWmI0bC8vck9DSDhPbWJ5NENrUU1aemN1MzlGaWtvY0Z1aWRNVy9HS3g0?=
+ =?utf-8?B?VXJHZXNpU2JRNllqc1BNUlNlMmdNaWJFbDUwbklyYkVsR01xY3AzS085Z0ds?=
+ =?utf-8?B?dEk4aHEzWHNGbFU2bGdkN3pBdUFnYmVwSnRjOUNYZG5nM2oycGZzN0kwV0ta?=
+ =?utf-8?B?ZWFaNTNCQXhJUTk2MlpQVTF3Sm12ZG1Zak1rSm5FZlVaV28rYS9yYjJQVExH?=
+ =?utf-8?B?ZGZSeXZJdldjQU1aaVlsMDYzU2tmaktRWlN3ZC9BVXVLSFprdjBhdCtIdXZT?=
+ =?utf-8?B?RUlNeDhwNUl6VzNxQkJLWXkwT3lmNkZzTFVCNnd6L21QUHM4MVFaRTBjekYx?=
+ =?utf-8?B?NWdRSFdSOTA0c1lrTmMvQ0M1UWdrSjFTR0RRUkR1bWEyR3RNYXNPVU9TZWtD?=
+ =?utf-8?B?SkNqSUF3YnZEdysrZkxsaW9uVEZ5VVFzc1FsUS9xdGZ5c1dkOEZiTzJhSHRY?=
+ =?utf-8?Q?D8LPffxJsoW2ut9cZdTZEYJm8Mt6pDQNnR4r1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5dbc139c-2ddf-4549-e636-08df0d9f2a86
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 11:48:57.8309
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fc9VrThmugyJRohx6+pzMfbslF2e1lzqfCpk9yFGNTTUU7GYhAndoNUddMt6rmQd9pE97O6CKYoheC5/fbD07NXh/dp9qmE695XKPSEwZiQm4VtzTQ9y21LopVnncjY+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9780
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_044908_107630_CAEA3EA4 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,61 +162,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 13:12, Mike Rapoport wrote:
-> On Tue, Sep 08, 2026 at 12:41:48PM +0200, David Hildenbrand (Arm) wrote:
->> On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
->>> set_area_direct_map() always updates direct map alias permissions in
->>> single page increments.
->>>
->>> For HUGE_VMAP areas it's suboptimal. Not only the loop in
->>> set_area_direct_map() needlessly has more iterations (e.g times 512 on
->>> x86), but it also causes fragmentation of the direct map that could be
->>> avoided for the HUGE_VMAP areas populated with large pages.
->>>
->>> All pages in an area are always of the same order: either same-order
->>> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
->>> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
->>> cleared or when huge pages allocation fails and fallback path is taken.
->>>
->>> Instead of updating the direct map permissions for every order-0 page in
->>> an area, use the area's page_order as the loop increment and update the
->>> large pages in one call to set_direct_map_{invalid,default}_noflush().
->>>
->>> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>> ---
->>>  mm/vmalloc.c | 13 ++++++++-----
->>>  1 file changed, 8 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index 5506b180f5c27..6ed6c160abed7 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->>>  				       int (*set_direct_map)(struct page *page,
->>>  							     unsigned int nr))
->>>  {
->>> -	unsigned long i;
->>> +	unsigned int nr = (1U << vm_area_page_order(area));
->>> +
->>> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
->>> +		if (page_address(area->pages[i])) {
->>> +			int err = set_direct_map(area->pages[i], nr);
->>
->> Do we really expect some pages to have a directmap and others not?
-> 
-> Every page in the area can be allocated separately and
-> __vmalloc_area_node() has
-> 
-> 	if (!(gfp_mask & (GFP_DMA | GFP_DMA32)))
-> 		gfp_mask |= __GFP_HIGHMEM;
-> 
-> so generally speaking yes :)
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Ah, I was thinking in terms of HUGE_VMAP, because there we sure would expect
-all-or-nothing, right?
+Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
+that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
+- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
+
+Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+----
+Changes from v46 to v47:
+
+- ELE_STORAGE_OPEN_REQ concurrency and command-receiver exclusivity:
+  Explains the three-layer protection used to serialise concurrent
+  ELE_STORAGE_OPEN_REQ ioctls: (1) an advisory early check under
+  modify_lock capturing both receiver_exists and is_cmd_receiver in a
+  single critical section; (2) se_if_cmd_lock serialising the full
+  send+receive cycle; (3) set_dev_ctx_as_command_receiver() re-checking
+  under modify_lock after the response arrives. An ASCII sequence diagram
+  shows how a racing second caller is rejected by firmware before any
+  storage handle is allocated.
+
+- Signal handling after a completed hardware operation:
+  Explains what happens when a signal arrives after firmware has already
+  executed a command and written its response into the MU receive buffer.
+  The driver validates the response, calls fw_api_specific_ops() with
+  is_cmd_interrupted=true (which closes the firmware-allocated handle via
+  se_close_session()/se_close_storage() and clears the kernel-side
+  handle), then returns -EINTR instead of -ERESTARTSYS. Returning -EINTR
+  prevents the VFS from transparently restarting the ioctl with
+  already-zeroed input buffers and lets userspace enter its signal handler
+  to decide whether to reissue the command. An ASCII sequence diagram
+  illustrates the timing.
+---
+ .../driver-api/firmware/other_interfaces.rst       | 238 +++++++++++++++++++++
+ 1 file changed, 238 insertions(+)
+
+diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
+index 06ac89adaafb..984ee3ecc8dc 100644
+--- a/Documentation/driver-api/firmware/other_interfaces.rst
++++ b/Documentation/driver-api/firmware/other_interfaces.rst
+@@ -49,3 +49,241 @@ of the requests on to a secure monitor (EL3).
+ 
+ .. kernel-doc:: drivers/firmware/stratix10-svc.c
+    :export:
++
++NXP Secure Enclave Firmware Interface
++--------------------------------------
++
++Introduction
++~~~~~~~~~~~~
++NXP i.MX hardware IPs such as EdgeLock Enclave (ELE) and V2X create an
++embedded secure enclave within the SoC boundary to enable features like:
++
++- Hardware Security Module (HSM)
++- Security Hardware Extension (SHE)
++- Vehicular to Anything (V2X)
++
++Each of the above features is enabled through a dedicated NXP hardware IP
++on the SoC. A single SoC may contain more than one such hardware IP, that
++is, more than one secure enclave can coexist.
++
++NXP SoCs with such secure enclave (SE) IPs are:
++i.MX93, i.MX8ULP
++
++To communicate with one or more coexisting SEs on the SoC, there are
++dedicated messaging units (MU) per SE. Each coexisting SE can have one or
++more exclusive MUs dedicated to itself. No MU is shared between two SEs.
++MU communication is realized using the mailbox driver. Each secure enclave
++can serve multiple clients by virtue of these exclusive MUs, and can
++distinguish transactions from different clients based on the MU used and
++the core security state. The communication between clients and secure
++enclaves uses a command/response mechanism. Each client can expose a
++specific set of secure enclave features to higher layers, based on the
++commands it supports. For example, a secure enclave can simultaneously
++serve an OP-TEE TA and a Linux middleware client. Each client exposes a
++specific set of secure enclave features based on its supported command set.
++
++NXP Secure Enclave (SE) Interface
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++MUs are not shared between SEs. For an SoC like i.MX95, which has multiple
++SEs such as HSM, V2X-HSM, and V2X-SHE, all SEs and their ``se-if``
++interfaces dedicated to a particular SE are enumerated and provisioned
++using the single compatible node ``fsl,imx95-se``.
++
++Each ``se-if`` comprises two layers:
++
++- (C_DEV Layer) User-space software-access interface.
++- (Service Layer) OS-level software-access interface.
++
++::
++
++   +--------------------------------------------+
++   |            Character Device(C_DEV)         |
++   |                                            |
++   |   +---------+ +---------+     +---------+  |
++   |   | misc #1 | | misc #2 | ... | misc #n |  |
++   |   |  dev    | |  dev    |     | dev     |  |
++   |   +---------+ +---------+     +---------+  |
++   |        +-------------------------+         |
++   |        |   Misc. Dev Sync Logic  |         |
++   |        +-------------------------+         |
++   |                                            |
++   +--------------------------------------------+
++
++::
++
++   +--------------------------------------------+
++   |               Service Layer                |
++   |                                            |
++   |      +-----------------------------+       |
++   |      | Message Serialization Logic |       |
++   |      +-----------------------------+       |
++   |          +---------------+                 |
++   |          |  imx-mailbox  |                 |
++   |          |   mailbox.c   |                 |
++   |          +---------------+                 |
++   |                                            |
++   +--------------------------------------------+
++
++- service layer:
++  This layer ensures the communication protocol defined for interaction
++  with firmware.
++
++  The firmware communication protocol provides two guarantees:
++
++  - Serializing the messages to be sent over an MU.
++  - Firmware can handle one command message at a time.
++
++- c_dev:
++  This layer offers character device contexts, created as
++  ``/dev/<se>_mux_chx``. Using multiple device contexts multiplexed over
++  a single MU, userspace applications can use file operations (fops) such
++  as ``write`` and ``read`` to send a command message and read back the
++  response to/from firmware. These fops use the service layer API to
++  communicate with firmware.
++
++  Misc-device (``/dev/<se>_mux_chn``) synchronization protocol::
++
++                                Non-Secure               +   Secure
++                                                         |
++                                                         |
++                +-----------+      +-------------+       |
++                | se_ctrl.c +<---->+imx-mailbox.c|       |
++                |           |      |  mailbox.c  +<-->+------+    +------+
++                +-----+-----+      +-------------+    | MU X +<-->+ ELE |
++                      |                               +------+    +------+
++                      +----------------+                 |
++                      |                |                 |
++                      v                v                 |
++                  logical           logical              |
++                  receiver          waiter               |
++                     +                 +                 |
++                     |                 |                 |
++                     |                 |                 |
++                     |            +----+------+          |
++                     |            |           |          |
++                     |            |           |          |
++              device_ctx     device_ctx     device_ctx   |
++                                                         |
++                User 0        User 1       User Y        |
++                +------+      +------+     +------+      |
++                |misc.c|      |misc.c|     |misc.c|      |
++   kernel space +------+      +------+     +------+      |
++                                                         |
++   +---------------------------------------------------- |
++                    |             |           |          |
++   userspace   /dev/ele_muXch0    |           |          |
++                          /dev/ele_muXch1     |          |
++                                        /dev/ele_muXchY  |
++                                                         |
++
++When a user sends a command to the firmware, it registers its
++``device_ctx`` as a waiter of a response from firmware.
++
++The secure enclave firmware manages storage over a Linux filesystem.
++For this, ``c_dev`` provisions a dedicated device context called the
++command-receiver.
++
++
++ELE_STORAGE_OPEN_REQ concurrency and command-receiver exclusivity
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A userspace-created ``dev_ctx`` becomes the storage subordinate to FW by
++being registered as the command-receiver via
++``set_dev_ctx_as_command_receiver()``. FW sends NVM callback commands to
++this ``dev_ctx`` via that priv's MU, on which the ``dev_ctx`` was created.
++Once a userspace ``dev_ctx`` on one priv is registered as the
++command-receiver, after opening the storage handle with FW, FW enforces a
++global one-storage-instance limit: a concurrent ELE_STORAGE_OPEN_REQ
++arriving over this or any other priv's MU is rejected by FW itself, before
++any storage handle is allocated. The driver uses three layers of
++protection; the sequence below shows how a concurrent race is handled
++safely::
++
++  Userspace A        Kernel (se_ctrl)          FW (ELE)        Userspace B
++      |                    |                      |                  |
++      |--ioctl(SEND_RCV)-->|                      |                  |
++      |            [advisory check under          |                  |
++      |             modify_lock: no receiver]     |                  |
++      |            [acquire se_if_cmd_lock]       |--ioctl(SEND_RCV)->
++      |                    |                      |  [advisory check  |
++      |                    |                      |   passes: TOCTOU] |
++      |                    |                      |  [blocks on       |
++      |                    |                      |   se_if_cmd_lock] |
++      |            ele_msg_send_rcv()             |                  |
++      |                    |--STORAGE_OPEN_REQ--->|                  |
++      |                    |<--STORAGE_OPEN_RSP---|                  |
++      |            fw_api_specific_ops():         |                  |
++      |            set_dev_ctx_as_command_receiver|                  |
++      |            [re-check under modify_lock]   |                  |
++      |            [release se_if_cmd_lock]       |                  |
++      |<--ioctl 0----------|                      |                  |
++      |                    |                      |  [B gets lock]   |
++      |                    |                      |--STORAGE_OPEN_REQ->
++      |                    |                      |  [FW rejects:    |
++      |                    |                      |   one storage    |
++      |                    |                      |   at a time]     |
++      |                    |                      |<--ERROR_RSP------|
++      |                    |  se_val_rsp_hdr_n_status: -EPERM        |
++      |                    |  fw_api_specific_ops not called         |
++      |                    |<--ioctl -EPERM-to B------------------->|
++
++The three protection layers are:
++
++1. Advisory early check (under modify_lock, before send): fast-path
++   rejection if a receiver is already registered. Not the final gate
++   because modify_lock is released before the MU send (TOCTOU window).
++
++2. ``se_if_cmd_lock``: held for the entire send+receive cycle, so only
++   one ioctl command is in flight on a given MU at a time.
++
++3. ``set_dev_ctx_as_command_receiver()`` re-checks under modify_lock
++   after the response arrives. If two callers race past layer 1, FW
++   itself rejects the second ELE_STORAGE_OPEN_REQ before any handle is
++   allocated.
++
++Signal handling after a completed hardware operation
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A signal may arrive after the firmware has already executed the command
++and delivered its response into the MU receive buffer. The driver detects
++this case and preserves state before returning ``-EINTR``::
++
++  Userspace            Kernel (se_ctrl)          FW (ELE)
++      |                    |                      |
++      |--ioctl(SEND_RCV)-->|                      |
++      |            ele_msg_send_rcv()             |
++      |                    |--CMD_REQ------------>|
++      |  [signal arrives]  |                      | (FW executes,
++      |                    |                      |  allocates handle,
++      |                    |                      |  writes response)
++      |                    |<--CMD_RSP------------|
++      |  wait_for_completion_interruptible()      |
++      |  wakes: signal seen -> -ERESTARTSYS       |
++      |                    |                      |
++      |            [response is in rx_msg:        |
++      |             validate with                 |
++      |             se_val_rsp_hdr_n_status()]    |
++      |            [fw_api_specific_ops()         |
++      |             (is_cmd_interrupted=true):    |
++      |             for SESSION_OPEN: record      |
++      |             handle, close session via     |
++      |             se_close_session(), clear;    |
++      |             for STORAGE_OPEN: record      |
++      |             handle, close storage via     |
++      |             se_close_storage(), return 0] |
++      |            err = -EINTR                   |
++      |            (not -ERESTARTSYS:             |
++      |             prevents VFS auto-restart)    |
++      |<--ioctl -EINTR-----|                      |
++      |                    |                      |
++      | [signal handler runs; userspace decides   |
++      |  whether to re-issue; FW handle tracked   |
++      |  or cleaned up; no firmware resource leak]|
++
++Returning ``-EINTR`` instead of ``-ERESTARTSYS`` is intentional: the VFS
++would transparently restart an ioctl on ``-ERESTARTSYS``, re-running the
++command with already-zeroed shared input buffers. ``-EINTR`` lets userspace
++enter its signal handler and decide whether to reissue the command.
++
++.. kernel-doc:: drivers/firmware/imx/se_ctrl.c
++   :export:
 
 -- 
-Cheers,
+2.43.0
 
-David
 
