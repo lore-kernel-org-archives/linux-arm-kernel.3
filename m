@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6437C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38255C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCbiA6d2rt3S8lOdzp5UrMVswALZKd4o8wNqLwS4zQI=; b=U2+JyPsTet12HSepfwvrMIPyON
-	/7kr8ea17m91rJ/w7IN34t8wC+eLRQXTqoNkWvb+X9nrcK0uFQ/c8YVGUZY8k3ZbP3h61vUd/poM+
-	2YLgbarIUP93T4KFX2m+pAkErhT5JOcFUfmmMl/vfGKclVJvsmKWAzz8dDJVhcLIub3qvbqoV5qPn
-	fln0/NMVwV3o4WXRcvKCKNJ7CxY9A87oY+rXgsmz9kdmAm+TntM4B9kk4KIUXPDJYQxcUh/6kRhF9
-	+QXG5Mfa2zfC7WriA87pyYxpfwWKliTIPxkUmTYbLTQM4zTGTHyHsXwGcAHywAy8qSxicOCbo9vOF
-	vwm+/Y+w==;
+	bh=5vAQX4mLQwg3bgyjWIDegZmml35dIae71Cu53YVyKVc=; b=vnZHlgvbRG2UHXHZt21MY4LVow
+	2GOR/2I20BHYv90poyQkQ5t0/aHo5kJOlHWw0b6F3koDs0iJfA1FkfKHcau8Qy8OEOv/adCdA4Q+Y
+	+TYWy4nUS79Smsn6klb1O4LHodIDu3p4xnmAOrRhNWuHqsGGz4uCpQy6rjacv6L6Z48dyddKLjAB3
+	nXWE1IH/iDx1aSvdleQu7A9+kbq/40iBW6XDNxgVIp5vLH9HxlcD6jPmrJWDPOqIPpu2MPaylVmXq
+	zvINNDsM4fujB8HGNA/OB5tkk4UTtPBf9OmEcMEVSlH4allVMvJJIad9z+VY1VLgBu3I4iZe72/EG
+	cRCaRH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sfG-00000008iRg-3Hs2;
-	Tue, 08 Sep 2026 10:02:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3sg9-00000008imt-096i;
+	Tue, 08 Sep 2026 10:03:49 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sfD-00000008iQI-29Pa
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 10:02:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=MCbiA6d2rt3S8lOdzp5UrMVswALZKd4o8wNqLwS4zQI=; b=Lk1ZRqrKeAqJy9Yrs5qS/Z3JLY
-	tUJghvBTK4iLfFDx5TKwQcBe+dAbansBLjZ9XZvnwSSdNXGve5U04TVl+LYwecPfwmA1kn+UFDIhw
-	0ZdwuoseQdLtB3mwFxKigT8GyhuPPy0cYvgnxHU0xTmh6yYUcDtd3/s+43LnW/63TiwZUAChh8ZAb
-	IIuJ/9OsQCigfqpkE9HXoj/I099U/NLNmQebR/Clq6a6hYLpc2JoRbUK9uW98bNCUxf4qUqrpQ9lA
-	SQOQ/RbVgWwd57Gw76TMVDBX6STQFQ4mEZ/qnjAlgi39ck3g0E2eg7TxQofZfAJYJoo9lQvtkZvfr
-	hC/ZSJqQ==;
-Received: from mail11.truemail.it ([217.194.8.81])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3sf9-0000000HFIl-0PUY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:02:50 +0000
-Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id C5CE920472;
-	Tue,  8 Sep 2026 12:02:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1788861763;
-	bh=MCbiA6d2rt3S8lOdzp5UrMVswALZKd4o8wNqLwS4zQI=; h=From:To:Subject;
-	b=RS5h5kpti2SyYd5yW2ROAgvenmgN5O/dVg9BxwIRiwseTW+g37UFGKhvaQJMQ3OGA
-	 coO3PpehTRRb//aoN4TRCWJxJ/wxobkSxiP79EhKr5uVOLs3wLTOyJhb4rUmWKMrTL
-	 st1RbLQbfy1uJ9quwNKNEFzA9UoJ+/XMV6IFd8d+gd45aq7BhW5MYfRfmCw0j1/LZx
-	 1YLpv6ynhzsiYvzM5Ypp6UmTmppohGvGjGAoOxzBEGPfWTaaXiCtN1aN7qZSZzZedx
-	 W9b2y40pXHopN6KKpovjWS7fhw78NpMmZJH2qGI+gUJiFWYmJ1dHU++nBRnxr6PeHe
-	 4/B3TMn+pUzkQ==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Francesco Dolcini <francesco@dolcini.it>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 3/3] ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 10" LVDS
-Date: Tue,  8 Sep 2026 12:02:27 +0200
-Message-ID: <20260908100230.83796-4-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260908100230.83796-1-francesco@dolcini.it>
-References: <20260908100230.83796-1-francesco@dolcini.it>
+	id 1x3sg5-00000008ilM-2Sma;
+	Tue, 08 Sep 2026 10:03:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A1D9A1A1A56;
+	Tue,  8 Sep 2026 10:03:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 73C25603C4;
+	Tue,  8 Sep 2026 10:03:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C87711C7AF5C;
+	Tue,  8 Sep 2026 12:03:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788861816; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=5vAQX4mLQwg3bgyjWIDegZmml35dIae71Cu53YVyKVc=;
+	b=HJxw7a5n7JiOtutr1aQa1jZOAcwYz7vUl4NtBmXInV72w47M2bbpX/gqsgpboIQx2ttkkD
+	uJhck1Odhe6MP98SkTQKScFMRfE+5rZvf2rZimWdm5MoC+P3Vt1g8SUjbHeVIGdvRCwoO3
+	ZbuzkTmBrjV6OMhxCdmzmvHQ/A6D8ohLa4PtjAqD7VLGrwY+PRcX7UZ2YBzXC3FGJ0HrxZ
+	wLeFInhRpblg7OiYJyNlVTfsWzs8Qv1eFkR+N9jQ8iDBUhTHmI+JplH6lx4pGdlSV5BA60
+	hhUYLGMmQCeKzYfHZ5VZTkgd4in2hMlAyW681J1LPsot4e024AN+k71R7E96Ew==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,  Boris
+ Brezillon <bbrezillon@kernel.org>,  linux-mtd@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v2] mtd: rawnand: sunxi: fit maximized ECC step to page
+ size
+In-Reply-To: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
+	(James Hilliard's message of "Fri, 04 Sep 2026 16:39:27 -0600")
+References: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 08 Sep 2026 12:03:33 +0200
+Message-ID: <87zexst5ze.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_110247_479128_00A6BB7E 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260908_030345_763979_C7C0B046 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,151 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Hello James,
 
-Add a device tree overlay for the Toradex Capacitive Touch Display 10.1"
-LVDS connected via a DPI to LVDS on Iris carrier board. The panel is a
-LogicTechno LT170410-2WHC 10.1" WXGA IPS LCD and the touch input is
-provided by an Atmel MaxTouch capacitive touch controller.
+On 04/09/2026 at 16:39:27 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-The overlay is also combined with the Iris v2 carrier board device tree
-to provide a ready-to-use DTB.
+> When nand-ecc-maximize is set, the driver unconditionally selects a
+> 1024-byte ECC step. A NAND with a 512-byte page consequently produces
+> zero ECC steps before the available OOB bytes are divided by the step
+> count.
+>
+> The older sunxi NAND controllers support 512-byte ECC blocks. Select the
+> smaller of the page size and the preferred 1024-byte step, using a
+> 512-byte step for a 512-byte page while retaining 1024-byte steps for
+> larger pages. Unsupported smaller steps and controllers without
+> 512-byte support continue to be rejected by the existing checks.
+>
+> Fixes: 4796d8655915 ("mtd: nand: sunxi: Support ECC maximization")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-this is based on https://lore.kernel.org/all/20260901124921.78635-1-francesco@dolcini.it/
----
- arch/arm/boot/dts/nxp/imx/Makefile            |  6 ++
- ...emmc-iris-panel-cap-touch-10inch-lvds.dtso | 92 +++++++++++++++++++
- 2 files changed, 98 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
+As reported by Sashiko, there is another use of 1024 down the road which
+must be modified accordingly. Although, in practice, 512-byte page NANDs
+have disappeared for quite some time, so this is a theoretical fix more
+than a real problem.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index d1272104ef27..b9456e7e5310 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -424,6 +424,10 @@ imx7d-colibri-emmc-aster-panel-cap-touch-7inch-parallel-dtbs := \
- 	imx7d-colibri-emmc-aster.dtb \
- 	imx7d-colibri-emmc-panel-cap-touch-7inch-parallel.dtbo
- 
-+imx7d-colibri-emmc-iris-v2-panel-cap-touch-10inch-lvds-dtbs := \
-+	imx7d-colibri-emmc-iris-v2.dtb \
-+	imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtbo
-+
- imx7d-colibri-emmc-iris-v2-panel-cap-touch-7inch-parallel-dtbs := \
- 	imx7d-colibri-emmc-iris-v2.dtb \
- 	imx7d-colibri-emmc-panel-cap-touch-7inch-parallel.dtbo
-@@ -459,8 +463,10 @@ dtb-$(CONFIG_SOC_IMX7D) += \
- 	imx7d-colibri-emmc-aster-panel-cap-touch-7inch-parallel.dtb \
- 	imx7d-colibri-emmc-aster-vga.dtb \
- 	imx7d-colibri-emmc-iris.dtb \
-+	imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtbo \
- 	imx7d-colibri-emmc-iris-vga.dtb \
- 	imx7d-colibri-emmc-iris-v2.dtb \
-+	imx7d-colibri-emmc-iris-v2-panel-cap-touch-10inch-lvds.dtb \
- 	imx7d-colibri-emmc-iris-v2-panel-cap-touch-7inch-parallel.dtb \
- 	imx7d-colibri-emmc-iris-v2-vga.dtb \
- 	imx7d-colibri-emmc-eval-v3.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
-new file mode 100644
-index 000000000000..ad0f37c71708
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-iris-panel-cap-touch-10inch-lvds.dtso
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex Capacitive Touch Display 10.1" LVDS
-+ *
-+ * Toradex Capacitive Touch Display 10.1" on Iris v2 carrier board X7 / X5
-+ * connectors through on-carrier LVDS transmitter
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-+ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
-+ * https://developer.toradex.com/hardware/colibri-som-family/carrier-boards/iris-carrier-board/
-+ * https://www.toradex.com/products/carrier-board/iris-carrier-board
-+ * https://docs.toradex.com/108421-colibri_arm_iris_carrier_board_datasheet.pdf
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&{/} {
-+	lvds-encoder {
-+		compatible = "thine,thc63lvd827";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_lvds_transceiver>;
-+		b6b8-gpios = <&gpio7 2 GPIO_ACTIVE_HIGH>;
-+		map-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
-+		mode-gpios = <&gpio7 3 GPIO_ACTIVE_HIGH>;
-+		powerdown-gpios = <&gpio7 11 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lvds_bridge_in: endpoint {
-+					pclk-sample = <1>;
-+					remote-endpoint = <&lcdif_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lvds_bridge_out: endpoint {
-+					remote-endpoint = <&lvds_panel_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	lvds-panel {
-+		compatible = "logictechno,lt170410-2whc";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_3v3>;
-+
-+		port {
-+			lvds_panel_in: endpoint {
-+				remote-endpoint = <&lvds_bridge_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&atmel_mxt_ts {
-+	pinctrl-0 = <&pinctrl_atmel_connector>;
-+	/* SODIMM 107 / TOUCH_INT# */
-+	interrupt-parent = <&gpio2>;
-+	interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
-+	/* SODIMM 106 / TOUCH_RST# */
-+	reset-gpios = <&gpio2 28 GPIO_ACTIVE_LOW>;
-+
-+	status = "okay";
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
-+&lcdif {
-+	status = "okay";
-+
-+	port {
-+		lcdif_out: endpoint {
-+			remote-endpoint = <&lvds_bridge_in>;
-+		};
-+	};
-+};
--- 
-2.47.3
-
+Thanks,
+Miqu=C3=A8l
 
