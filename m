@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85729C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 19:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5851CC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 19:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ThY4sqM3tnCtIq7Zxt55MKEZVmWctee2/Iw2F/FvSCI=; b=zp/QSWMjZric0m8cdi9LpdoWvT
-	Ua9dfD3GoVuo6C1ANqc7NF880KvmbNXLudRRU/QJ7Xd9WcFLPcx8HrR0SFXXVhCN/Tcd2MnLRYxls
-	fMIbHTfbAzcfznrIcRPFNYYHsA34u+uHySyqMz86/rhHFFJnSSLyfY8NM3zUBwEgIqa91LJOhwjCy
-	Sw1iRUrOH9+GxFgv28R3DJBzFYpjo497BUJbXjAeGmpF2ubd4haGmFZxugbHZ7WHCmqdNLD5aiGGy
-	w5F6fqfOA03+m7EjpxTLTcwsADyQipsuRW7Fm0OBFTOWpOu58BIAaf+e6Te9+y+carQLhT7K91Rur
-	NEHd5Xgw==;
+	bh=X+RCwtmufnkDttMm+0TQw4ZlhWBlLporL76du00bJdE=; b=u2cgIPfZm4g3gZBclqJJE+Qapx
+	quKwqdjMppJD0unbTsoTi4yqQp+YfILcOPyMQPjSu5wWtQNpYjC19p3ajeIBfcrHq4bPYRAS/TKz1
+	hr82eMwWqUgihPtm6PRmtozwGQPnlnEi7NBw70yFavY505AAFnDuS/D3NjH9QuGFyaNdpYBiGbORl
+	L8wgI57/Ent6gg9ngMT7tJwR3cZ7RXNYptUi+g1GATRj7V5nqvC3YbkbIjmeryrsgasj9CaXYVa3Z
+	2SaTF611sQM7lgwuCGY57SzN+w/1/VP9k5gPrQ9j6RqV+1W12gJjezZgyVOez69KHDdf8Z2M6umMr
+	OzU0H4cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41NA-0000000A3IP-1QnT;
-	Tue, 08 Sep 2026 19:20:48 +0000
-Received: from mail-westus2azon11012054.outbound.protection.outlook.com ([52.101.48.54] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1x41NJ-0000000A3Nz-2EMq;
+	Tue, 08 Sep 2026 19:20:57 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41My-0000000A3Ey-2yvn
+	id 1x41NG-0000000A3L5-3F9F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 19:20:40 +0000
+	Tue, 08 Sep 2026 19:20:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xB0jfODAHvNCZhYTMVsje0C6iXn8bEZLMU/ho7aA72pgzCgTepOg1o209UlxrhiDMI9f6rot91YowUhYYeq0QhPpftTs2ecMw1noGD8noVOmKuTLr2ecTe6B/i3jlXCkBAJiPp6Ryyn3cvJxLXg9GeuxnvK6XE9PZ8m+XKhEbz7KuHiAD3vr6t74TzPJwqnTsXxVSV/HbQJkkt5ZKriU5q2wVLzLqwv1qzPwbVIYqOlLn3gsu6QUkmN5sInJDp5Pbvj4ttk6zmCjjgUfnRLIMvc2pv7PGIlH1c0ckn8Sq32NKjoLObTJpAnK1JAA6MtEEz3M2fsOB79buvTEAqIbAA==
+ b=yHuV44yqFypQMN9l4UVlb9EhNzwd3SzAwNfWEeZnONGb3nrEhBg94SDuXrAMkj/domzTyfOWPWdrygZDQNWKoznrDNPhhX38FpymksQjigwrdEF+i2178wukszqi02X/cqTZ1atIblFEW1UvQIRr2nN8mSlelG8D0V9KBir0ybhekv8puJVNEyQ2JpjqVNkGpj5l4YgQ79ThIDMEFSRnnhL+j2bflIRgkrZ0ir0gqNyeFX9TLzBMqBNsd7G18M91Z9bvXuNCvMikrrJ8pW65uhxsLVrP6LXX8FWIkW7iDSVsjVYUzMDBd0EuHOBgYRObB2ywbmPzv4GHg0L+fG40wA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ThY4sqM3tnCtIq7Zxt55MKEZVmWctee2/Iw2F/FvSCI=;
- b=DZFlsQKHKJCyce0D8ocKnsyjrh2uHV1tPy0rCVFJM/y8Bqdat5V+oKbzA6NB+4CbYIlbh3ezr3Pp6F6Bw1JKTb3aGtfCJlQ1vAhiOBCpeyo4hEjXgksruZg12QbY+uHYZuFZE+V6sbeqLBg9VsNxW9CJ8hEvJcHpjqKxXzm9/1/669LS56CdzvcWm2tr/dqvHescO3Fy88zY9W1F/HZwsRXkNaf6+81ehKYrY9RxjgIT3e4fBDss+0SHWIuKCuJGsrBKyYhSUXuVDnccSZW/vFxbUx7h/a7uZR/QpjGgRGJhnwG77xf+RuGDU8716f23nSROPaAzK3U9mVywisXHxA==
+ bh=X+RCwtmufnkDttMm+0TQw4ZlhWBlLporL76du00bJdE=;
+ b=mO4pCIQsPc/9nS7vNQgfDgQYfEVZWLIoAdM0S36zItvNKlZSS6kKLjLXhs4+1LEls58is4S23SgkW07jyDKMvkolfwv0aylyXtvCNVjQAp3WReSZzTIeVn91+NZtMDphK1qbFJ/GESMc4LtnOdZPsFuHw3Km1c3mY9CqlEA77ClFLFaPJl9GJEi2JsetrWsEpb02XEwOBTHq7dpoyXeeCO7AvcHn/BdF/W8b81Ha+ew9EVPOdShMc/hdX+SzpjJ2w/S9CG8TJtJNjGIu1UZOE4Ugr6L1s5FFYwl/cDTfwxNj08GSzNTh8DLv6evvnoZJUUgstdlkAwsJS5lY0dHHiA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ThY4sqM3tnCtIq7Zxt55MKEZVmWctee2/Iw2F/FvSCI=;
- b=Ti7LzokqlKLTPUiXZ8Gba0p7fxRZj5GNIGWQ8IAc+WaM7c17Pku+IUZ/GtO8SJ+f/QsNW5HF2yaQ6svEYsnpsCyPx+iqBUmu5RhSJX8ylM/ioUgXduUXjMUE2fK0nnB2ImwH5wZ6FXzKLUPROKX2AUuclkXCM2G/5bNHP2wXZtw=
-Received: from SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::9)
- by SN7PR12MB7203.namprd12.prod.outlook.com (2603:10b6:806:2aa::8) with
+ bh=X+RCwtmufnkDttMm+0TQw4ZlhWBlLporL76du00bJdE=;
+ b=rF2QjRvrhz3+GA6zMQMWEDWAuVQSStH99GHWNoqE1uPD6cnD8XMfKMIx8PK5/xTZFUx/C5ntoE1afTrK0sYGS02O3FcWpY7S5YLNHE8RQMZ/rkvI/8ggdqPHBlqznNUyTxWqGlLdgPRc2kkrY6+4M3d57bdPU6Dmn/FCZtY9QFI=
+Received: from SN7PR04CA0077.namprd04.prod.outlook.com (2603:10b6:806:121::22)
+ by IA0PR12MB8422.namprd12.prod.outlook.com (2603:10b6:208:3de::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Tue, 8 Sep
- 2026 19:20:24 +0000
-Received: from SN1PEPF00036F42.namprd05.prod.outlook.com
- (2603:10b6:a03:41b:cafe::ae) by SJ0P220CA0004.outlook.office365.com
- (2603:10b6:a03:41b::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Tue, 8 Sep 2026
+ 19:20:47 +0000
+Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
+ (2603:10b6:806:121:cafe::a4) by SN7PR04CA0077.outlook.office365.com
+ (2603:10b6:806:121::22) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Tue, 8
- Sep 2026 19:20:24 +0000
+ Sep 2026 19:20:46 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,28 +59,28 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SN1PEPF00036F42.mail.protection.outlook.com (10.167.248.26) with Microsoft
+ SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 19:20:24 +0000
+ 15.21.406.5 via Frontend Transport; Tue, 8 Sep 2026 19:20:46 +0000
 Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
- 2026 14:20:14 -0500
+ 2026 14:20:41 -0500
 Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
  (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 8 Sep
- 2026 14:20:13 -0500
+ 2026 14:20:41 -0500
 Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Tue, 8 Sep 2026 14:20:08 -0500
+ Transport; Tue, 8 Sep 2026 14:20:36 -0500
 From: Srinivas Neeli <srinivas.neeli@amd.com>
-Date: Wed, 9 Sep 2026 00:49:49 +0530
-Subject: [PATCH net-next v2 1/8] dt-bindings: net: add Xilinx TSN Endpoint
- Ethernet MAC
+Date: Wed, 9 Sep 2026 00:49:54 +0530
+Subject: [PATCH net-next v2 6/8] net: xilinx: tsn: add the endpoint RX data
+ path
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260909-patches_v2_external-v2-1-3a40babaff4c@amd.com>
+Message-ID: <20260909-patches_v2_external-v2-6-3a40babaff4c@amd.com>
 References: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
 In-Reply-To: <20260909-patches_v2_external-v2-0-3a40babaff4c@amd.com>
 To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
@@ -98,28 +98,28 @@ CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 X-Mailer: b4 0.16.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F42:EE_|SN7PR12MB7203:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc50e3ae-cfbc-492c-36f7-08df0dde3b8b
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|IA0PR12MB8422:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd7ceb77-a6c0-41bd-bdcb-08df0dde48f8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|36860700016|1800799024|82310400026|13003099007|921020|6133799003|3023799007|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: siOCdeFkSDibUp0xIdeXjFFYhYiTFrybA5tnWiplLBHOo7OA1LbFJWQS1kGu3Csyyb04J3AlW9mFUp9jBZ81GthWLuHOPbA+Wm5HqS+1JZ6TRMO1PHJqFMwPc2qO57rge73HCSa0BdQ/JwPfstQQ5AwetujUF55TMALkdQsZdnX1xDKZsrvStZUhxF2h3dECU8/7H+fMYLtc9gWyJsuG8/clhjh7k0epPoPzsQc2ZKhdNvCxNWQJNnmCxSfcW2UmypdpiOZn2uukgLpYZshZUclIDI/48FPoLhpem5QPAJnLMj+gwebAcwdhrzUiH82ExbtYdlvLVMkLHNd1O57dxLAGx/lEDOXbR17TR7ihMZBqoHxMH6Bwy3IJPxU2gYz77ge4ho7acke46HkTMPWcgdURI3bsrzADFOBh7wsyj9fwB5MKpKxloNYEvCQHrauY083vnJpAoNQ9Toch3oR1BjtBbmwJlGxRXUU+zn1yjELdPrStDRwQCYmrTNK1M5JpeTcMvor5tk3PBK4xcIsS3/G6O3PhdL1rWHLvcSgNE029ubcTOfvddQf2AhWGaPYrIrGksa76kIOyYR1+/R5GI5oHEFiP8om/aasqxFx2luxmUuBhQC/N7/5ra98GVYjnZ4G+xijNSaXG3sKnL2JtFjAV3z48Gh4n8SOUrbIl8BwX2f0G5HWfmnJEz94gQzRP
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(36860700016)(1800799024)(82310400026)(13003099007)(921020)(6133799003)(3023799007)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|23010399003|36860700016|921020|3023799007|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: MgzPT6OFVYdIlYSyEYC2wDqTsNK8ylnnp0MbL8DVesWTdAbyi6qo2T76ADfo1ZWbVEHcF8Pq+kiOEGkKxF+Z7KHxjSRj3nwKvwYTtd89+wkgDa1J40P6LgDQWxSPp9l8R5ROZSNzE6MSQW0331+vPaRf89Y3IC4fDVz2kof8fcMmxHz2kQwxzcQLzRTqhA1jY2IzBcTQTBGg6EOJeGps0/q9mVbvt9lh71bjWgxNtZvUPtuC4S7H8wZYK+G/zJDoml09R7kWUmUau6C6FbmV/m78YaM/vAU7faFtu2Y0AuXaqeN3qcm7zgvvgaaQfq1noKDqkTNcbbEzgscMkHXxuv5/kYRFU7bXXB0Q8fZaX+s96FD6Mv9yy5F0T9G9U4X2zsZTy98gGlzb4pQbZ9feGtgZw8soNEe3Qybm/+PAmiGzDzwf4u1ImTlUBalUqOmt0O2dXSIUFTgmVmPGFYOuyQ1b7WryEn2POklXL0GdeacnLpLOCZ+XuXPGeh3t8XNrNHk7++fPtehPegMn4XlmqdA56YUNSbvFZmIIpcDIGur7tQ47Ckg9k6URfyXwBzoAGgCtd7nbkIht4RZSo922CZBW75NzUkKvOuAHT4m6gAAxdHs258hfO3GUZ5f6+ibWhWghRvEMqVSQevzmZsaIVyeRDTM/B4Fi8SErTiCVDXaAXgXrAUKlf0z0oWKjasThMCme1bmRRmPQG8QlFqIYZ2Iv53dCMpC40qpEYBhSlCLm1NGdwRmY6u+I1RW9EKdX
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(23010399003)(36860700016)(921020)(3023799007)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6K03ikTlLAiuKB0n2mkXFMvYTKPnxBZxrwd2qyE5uN7ob13hTn8IKG5p+7iDrfJlZmo5djdRX03y/pZw1QBjLtPnmrLOAtAxRUKwl4FMqKQxkVHSlfKS9ibBocVZzT94dQNz1KOno5GnOaKGrv5tGcJj/RPKIkWvfGN8OQ8SBJc0QLpa9rKKct/XaBsNzVCjoiBzmQMNrk83TVVd6b0okHuzF7btFCfVbRFDhAj/fu9h3AUoKHMoEWXgyuephxQDzdZYik0jyGPftFiPgCRqLlmkVkkFLirnZYQzN0S3uaapFD0ZAhwMWb6xoiHp1fWw1adTr3NbWew+Fbs8XnbelihQ5lovADHlmyH498kW8B+SliZlJpamnhepdxwV0YHRtskmimb84gN8g7SNTwZSSRIrQdqM0moIRjPl7Cf4YqmLgmEuKf36sdVP+owgLpWC
+X-MS-Exchange-AntiSpam-MessageData-0: KXguW69PDTsBEtZ0YgWWK5Gx5Gy1GN1NIG2HxCsXXpq65GlyF+yaI+CcA37EB6DbnmuCxGq7d+dWN1bWfp64J8lu+Rg2VoOkErjfc/oSTeNVFytvsu41OCmsAnmf2a7KPSGMwxqEbcxs6pg665ANMB3L+vXpLfOIEWobDtgeZo3TMltGI5amYzfyhgBzOBWG7k/igfN4dk+sbLwCcUnxmWpwkLxP218oFI94vAeMdUjQ6M+QKx3sdl5VHRY8z+El4CwAZdUzvyeMfDvtKAhzJEQYaC3o5dByn3kcmxXZzWbmAYnGa2JH/Eow5FClofch6218z3cp9TLAhI1W1u6DGCXgcV+oIRZdk/DN9iivll6z98mdJq8mA7NAK6NmGXs+9UJjgFPYIlZ4MWzxc4ttpxlrS98CfltxLJbm/3WwyDNhq1ce30ksN5w15RNZxsJZ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 19:20:24.2149
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 19:20:46.7399
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc50e3ae-cfbc-492c-36f7-08df0dde3b8b
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd7ceb77-a6c0-41bd-bdcb-08df0dde48f8
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F42.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7203
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8422
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_122037_718884_428C6B45 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20260908_122054_866473_A9398764 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,21 +134,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a binding for the Xilinx TSN Endpoint Ethernet MAC IP. The
-top-level node describes the IP wrapper, which owns the six shared
-IP clocks and the xlnx,num-priorities parameter, and has two
-children:
+With the RX channels armed, the endpoint can start receiving frames.
 
-  - xlnx,tsn-ep-mac: the endpoint MAC, owning the host-side DMA
-    channels (dmas / dma-names / tx-queues-config).
+Post RX buffers to every RX channel on open and reap them from the
+completion callback. Each inbound frame carries a TUSER port_id in the
+descriptor sideband. Accept frames from MAC1 (port_id 1) and MAC2
+(port_id 2) and pass them up the stack. Drop any other port_id, since
+the bridged-only model never produces it. Drop and count frames with
+bad descriptor status, an invalid length or no metadata pointer.
 
-  - xlnx,tsn-switch: the three-port Ethernet switch covering the
-    switch fabric and the two per-MAC register windows. The MDIO
-    controllers and PTP register blocks sit at fixed offsets inside
-    the per-MAC windows, accessed through the mdio-1 / mdio-2
-    children and per-MAC interrupt-names entries. Each external
-    port@N references its PHY through a phy-handle in the matching
-    mdio-<N> child.
+Refill each slot from the completion callback unless the interface is
+closing, which keeps the ring full without a separate refill worker.
+
+Serialise the RX refill against teardown. The completion callback re-arms
+the ring, so ndo_stop() sets a closing flag under the same per-channel
+lock the refill takes, and ep_free_dma_chan() takes that lock as a barrier
+before it terminates the channel. No descriptor is submitted once teardown
+has begun, so a single dmaengine_terminate_sync() is enough to quiesce the
+channel.
+
+The RX path uses __netif_rx() from the dmaengine completion callback
+rather than NAPI. dmaengine owns the RX interrupt and ring and delivers
+one descriptor per callback, so there is no poll context to run NAPI or
+GRO, and the per-packet counters use the dev->stats atomics.
 
 Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
 Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
@@ -156,425 +164,314 @@ Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 
 ---
 Changes in v2:
-- Describe only the Bridged Endpoint configuration. The IP has so far been
-  simulated only as a bridged endpoint, so the binding and driver describe
-  that configuration alone. Support for an Endpoint-only design will be added
-  once that IP variant is simulated.
-- Rename ep-mac@ to ethernet@ and mdio-mac1/mdio-mac2 to mdio-1/mdio-2, and
-  anchor the node names (^ethernet@[0-9a-f]+$, ^switch@[0-9a-f]+$), per
-  ethernet-controller.yaml and mdio.yaml.
-- Cap TX at 8 and RX at 8 channels. The IP exposes 8 priorities, so it
-  drives at most 8 TX and 8 RX MCDMA channels. dma-names lists both
-  directions, so its combined maxItems is 16 (8 TX + 8 RX). V1 allowed up
-  to 16 per direction, which the hardware cannot use.
-- Set additionalProperties: false on tx-queues-config and its queue nodes.
-- Drop reg from the wrapper node. It has no registers of its own, ranges
-  already describes the child windows.
-- Add minItems: 7 to the switch interrupts to match interrupt-names.
-- Use a ^(ethernet-)?ports$ container with additionalProperties: false and its
-  own #address-cells/#size-cells, and require either ports or ethernet-ports.
-- Require ethernet on the CPU port@0.
-- Add reg (enum [1, 2]) on the external port@[1-2] ports and require reg,
-  phy-mode and phy-handle. MAC1 and MAC2 use gmii/rgmii/rgmii-id.
-- Require port@0, port@1 and port@2. The IP is a fixed three-port bridged
-  design (port@0 CPU, port@1 MAC1, port@2 MAC2), so a device tree missing
-  any of them cannot describe working hardware.
-- Add #address-cells and #size-cells (both const 1) on the wrapper node,
-  which the child ethernet@/switch@ windows need now that reg is dropped,
-  and set unevaluatedProperties: false on the endpoint node.
+- Serialise the RX refill against teardown under a per-channel rx_lock. The
+  completion callback re-arms the ring, so ndo_stop() sets a closing flag under
+  the same lock and ep_free_dma_chan() takes it as a barrier before terminating.
+- Recover a drained ring with a refill timer instead of leaving RX dead after
+  an allocation failure.
+- Fail ndo_open if a channel cannot arm any RX descriptor.
+- Set the closing flag on the ndo_open error path too, before tearing the
+  channels down.
+- Take the ring size from the channel instead of a compile-time constant.
+- Note in the commit message why RX is not NAPI based. dmaengine owns the RX
+  interrupt and ring and delivers one descriptor per callback, so there is no
+  poll context for NAPI or GRO, and the counters use the dev->stats atomics.
+- Shut the refill timer down with timer_shutdown_sync() at teardown rather than
+  relying on timer_delete_sync() plus the closing flag.
+- Return true from ep_rx_refill() when at least one descriptor is armed, false
+  otherwise, following the usual bool convention.
+- Init the refill timer and rx_lock only for RX channels.
 ---
- .../net/xlnx,tsn-endpoint-ethernet-mac.yaml        | 364 +++++++++++++++++++++
- MAINTAINERS                                        |   7 +
- 2 files changed, 371 insertions(+)
+ drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c | 216 +++++++++++++++++++++++-
+ 1 file changed, 215 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-new file mode 100644
-index 000000000000..4e65d1710da7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-@@ -0,0 +1,364 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/xlnx,tsn-endpoint-ethernet-mac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Xilinx TSN Endpoint Ethernet MAC
-+
-+description:
-+  TSN Endpoint Ethernet MAC IP implements IEEE 802.1 Time-Sensitive
-+  Networking (TSN) standards and provides low-latency network connectivity
-+  in the Bridged Endpoint configuration. The IP integrates a three-port
-+  switch, with two ports connected to the external network and one port
-+  connected to an internal endpoint. It also supports GMII/RGMII interfaces
-+  for connection to an external PHY, enabling full-duplex operation at
-+  100 Mb/s and 1 Gb/s speeds.
-+
-+maintainers:
-+  - Srinivas Neeli <srinivas.neeli@amd.com>
-+  - Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-+
-+properties:
-+  compatible:
-+    const: xlnx,tsn-endpoint-ethernet-mac-3.0
-+
-+  clocks:
-+    items:
-+      - description: GTX clock for transmitter logic and RTC
-+      - description: GTX 90-degree phase shifted clock for RGMII
-+      - description: Host RX FIFO clock
-+      - description: Host TX FIFO clock
-+      - description: Reference clock for IDELAY control
-+      - description: AXI-Lite register interface clock
-+
-+  clock-names:
-+    items:
-+      - const: gtx
-+      - const: gtx90
-+      - const: host_rxfifo
-+      - const: host_txfifo
-+      - const: ref
-+      - const: s_axi
-+
-+  ranges: true
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 1
-+
-+  xlnx,num-priorities:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 2
-+    maximum: 8
-+    description:
-+      Number of traffic classes (priorities) configured in the IP.
-+      This is an IP configuration parameter that determines the number of
-+      priority queues available for QoS scheduling. Traffic classes map to
-+      IEEE 802.1Q priority levels (0-7).
-+
-+patternProperties:
-+  "^ethernet@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/net/ethernet-controller.yaml#
-+    unevaluatedProperties: false
-+    description:
-+      Endpoint MAC sub-node. Provides the host-side data path through the
-+      DMA channels described by its dmas / dma-names.
-+    properties:
-+      compatible:
-+        const: xlnx,tsn-ep-mac
-+
-+      reg:
-+        maxItems: 1
-+
-+      dmas:
-+        minItems: 2
-+        maxItems: 16
-+
-+      dma-names:
-+        minItems: 2
-+        maxItems: 16
-+        items:
-+          pattern: "^(tx|rx)_chan[0-7]$"
-+        description: |
-+          Names matching the entries in 'dmas', one per DMA channel and in
-+          the same order. TX channel names use "tx_chan<N>" and RX channel
-+          names use "rx_chan<N>", where N is 0..7. Example: "tx_chan0",
-+          "tx_chan1", ..., "rx_chan0", "rx_chan1", ....
-+
-+      tx-queues-config:
-+        type: object
-+        additionalProperties: false
-+        description:
-+          TX queue configuration node that maps IP priority queues to
-+          DMA TX channels. The TSN IP supports multiple priority queues for
-+          QoS scheduling, and each queue can be connected to a specific DMA
-+          channel. This mapping defines which DMA TX channel is used to
-+          transmit packets for each priority queue. For example, queue0
-+          with xlnx,dma-channel-num set to 5 means priority queue 0 uses
-+          tx_chan5 for data transfer.
-+
-+        patternProperties:
-+          "^queue[0-7]$":
-+            type: object
-+            additionalProperties: false
-+
-+            description:
-+              Each subnode represents a priority queue. The
-+              xlnx,dma-channel-num property specifies which DMA TX channel
-+              (tx_chan0 to tx_chan7) is connected to this queue for
-+              transmitting packets.
-+            properties:
-+              xlnx,dma-channel-num:
-+                $ref: /schemas/types.yaml#/definitions/uint32
-+                description:
-+                  DMA channel that transmits this priority queue, given as
-+                  the N of the tx_chanN entry in dma-names.
-+                minimum: 0
-+                maximum: 7
-+
-+            required:
-+              - xlnx,dma-channel-num
-+
-+    required:
-+      - compatible
-+      - reg
-+      - dmas
-+      - dma-names
-+      - tx-queues-config
-+
-+  "^switch@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
-+    description:
-+      Three-port Ethernet switch sub-node. Contains the switch fabric
-+      register window and the two per-MAC register windows. Each per-MAC
-+      window houses an MDIO controller and a PTP register block at fixed
-+      offsets. The IP's per-MAC and PTP-timer interrupts are exposed here.
-+
-+    properties:
-+      compatible:
-+        const: xlnx,tsn-switch
-+
-+      reg:
-+        items:
-+          - description: Switch fabric register window
-+          - description: MAC1 register window (includes MDIO and PTP)
-+          - description: MAC2 register window (includes MDIO and PTP)
-+
-+      reg-names:
-+        items:
-+          - const: switch
-+          - const: mac1
-+          - const: mac2
-+
-+      interrupts:
-+        minItems: 7
-+        maxItems: 7
-+
-+      interrupt-names:
-+        items:
-+          - const: ptp_rx_mac1
-+          - const: ptp_tx_mac1
-+          - const: mac_irq_mac1
-+          - const: ptp_timer
-+          - const: ptp_rx_mac2
-+          - const: ptp_tx_mac2
-+          - const: mac_irq_mac2
-+
-+      mdio-1:
-+        $ref: /schemas/net/mdio.yaml#
-+        description:
-+          MDIO bus controller for MAC1. Registers reside inside the mac1
-+          reg-names window.
-+        unevaluatedProperties: false
-+
-+      mdio-2:
-+        $ref: /schemas/net/mdio.yaml#
-+        description:
-+          MDIO bus controller for MAC2. Registers reside inside the mac2
-+          reg-names window.
-+        unevaluatedProperties: false
-+
-+    patternProperties:
-+      "^(ethernet-)?ports$":
-+        type: object
-+        additionalProperties: false
-+
-+        properties:
-+          '#address-cells':
-+            const: 1
-+
-+          '#size-cells':
-+            const: 0
-+
-+          port@0:
-+            type: object
-+            unevaluatedProperties: true
-+            description:
-+              CPU port. Wired internally to the endpoint MAC sibling.
-+
-+            properties:
-+              reg:
-+                const: 0
-+
-+              phy-mode:
-+                const: internal
-+
-+            required:
-+              - ethernet
-+
-+        patternProperties:
-+          "^port@[1-2]$":
-+            type: object
-+            unevaluatedProperties: true
-+            description:
-+              External Ethernet port. port@1 is wired to MAC1 and reached
-+              through the mdio-1 bus, port@2 is wired to MAC2 and reached
-+              through the mdio-2 bus.
-+
-+            properties:
-+              reg:
-+                enum: [1, 2]
-+
-+              phy-mode:
-+                enum:
-+                  - gmii
-+                  - rgmii
-+                  - rgmii-id
-+
-+            required:
-+              - reg
-+              - phy-mode
-+              - phy-handle
-+
-+        required:
-+          - port@0
-+          - port@1
-+          - port@2
-+
-+    required:
-+      - compatible
-+      - reg
-+      - reg-names
-+      - interrupts
-+      - interrupt-names
-+
-+    oneOf:
-+      - required: [ports]
-+      - required: [ethernet-ports]
-+
-+    unevaluatedProperties: false
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - clocks
-+  - clock-names
-+  - xlnx,num-priorities
-+  - ranges
-+  - '#address-cells'
-+  - '#size-cells'
-+
-+examples:
-+  - |
-+    tsn@80040000 {
-+        compatible = "xlnx,tsn-endpoint-ethernet-mac-3.0";
-+        clocks = <&misc_clk_2>, <&misc_clk_2>, <&misc_clk_1>, <&misc_clk_1>,
-+                 <&misc_clk_3>, <&misc_clk_0>;
-+        clock-names = "gtx", "gtx90", "host_rxfifo", "host_txfifo",
-+                      "ref", "s_axi";
-+        xlnx,num-priorities = <8>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges = <0x0 0x80040000 0x40000>;
-+
-+        ep_mac: ethernet@16000 {
-+            compatible = "xlnx,tsn-ep-mac";
-+            reg = <0x16000 0xa000>;
-+            dmas = <&axi_mcdma_0 0>, <&axi_mcdma_0 1>, <&axi_mcdma_0 2>,
-+                   <&axi_mcdma_0 3>, <&axi_mcdma_0 4>, <&axi_mcdma_0 5>,
-+                   <&axi_mcdma_0 6>, <&axi_mcdma_0 7>, <&axi_mcdma_0 16>,
-+                   <&axi_mcdma_0 17>, <&axi_mcdma_0 18>, <&axi_mcdma_0 19>,
-+                   <&axi_mcdma_0 20>, <&axi_mcdma_0 21>, <&axi_mcdma_0 22>,
-+                   <&axi_mcdma_0 23>;
-+            dma-names = "tx_chan0", "tx_chan1", "tx_chan2", "tx_chan3",
-+                        "tx_chan4", "tx_chan5", "tx_chan6", "tx_chan7",
-+                        "rx_chan0", "rx_chan1", "rx_chan2", "rx_chan3",
-+                        "rx_chan4", "rx_chan5", "rx_chan6", "rx_chan7";
-+            tx-queues-config {
-+                queue0 { xlnx,dma-channel-num = <0x7>; };
-+                queue1 { xlnx,dma-channel-num = <0x6>; };
-+                queue2 { xlnx,dma-channel-num = <0x5>; };
-+                queue3 { xlnx,dma-channel-num = <0x4>; };
-+                queue4 { xlnx,dma-channel-num = <0x3>; };
-+                queue5 { xlnx,dma-channel-num = <0x2>; };
-+                queue6 { xlnx,dma-channel-num = <0x1>; };
-+                queue7 { xlnx,dma-channel-num = <0x0>; };
-+            };
-+        };
-+
-+        switch@38000 {
-+            compatible = "xlnx,tsn-switch";
-+            reg = <0x38000 0x8000>,
-+                  <0x00000 0x14000>,
-+                  <0x20000 0x14000>;
-+            reg-names = "switch", "mac1", "mac2";
-+
-+            interrupt-parent = <&intc>;
-+            interrupts = <0 2>, <2 2>, <4 2>, <6 2>,
-+                         <1 2>, <3 2>, <5 2>;
-+            interrupt-names = "ptp_rx_mac1", "ptp_tx_mac1",
-+                              "mac_irq_mac1", "ptp_timer",
-+                              "ptp_rx_mac2", "ptp_tx_mac2",
-+                              "mac_irq_mac2";
-+
-+            mdio-1 {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                phy0: ethernet-phy@0 {
-+                    reg = <0>;
-+                };
-+            };
-+
-+            mdio-2 {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                phy1: ethernet-phy@1 {
-+                    reg = <1>;
-+                };
-+            };
-+
-+            ethernet-ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+                    ethernet = <&ep_mac>;
-+                    phy-mode = "internal";
-+
-+                    fixed-link {
-+                        speed = <1000>;
-+                        full-duplex;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+                    phy-handle = <&phy0>;
-+                    phy-mode = "rgmii-id";
-+                };
-+
-+                port@2 {
-+                    reg = <2>;
-+                    phy-handle = <&phy1>;
-+                    phy-mode = "rgmii-id";
-+                };
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b23fb6f2f4ef..8f93f165a744 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -29911,6 +29911,13 @@ M:	Harsh Jain <h.jain@amd.com>
- S:	Maintained
- F:	drivers/char/hw_random/xilinx-trng.c
+diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+index 23a15df71baa..9ed1170794e0 100644
+--- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
++++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2026 Advanced Micro Devices, Inc.
+  */
  
-+XILINX TSN ENDPOINT ETHERNET MAC DRIVER
-+M:	Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-+M:	Srinivas Neeli <srinivas.neeli@amd.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
++#include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/circ_buf.h>
+ #include <linux/dma/xilinx_dma.h>
+@@ -25,6 +26,7 @@
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+ #include <linux/string.h>
++#include <linux/timer.h>
+ #include <linux/types.h>
+ 
+ #include "xilinx_tsn.h"
+@@ -41,6 +43,19 @@
+ #define TX_BD_NUM_DEFAULT		64
+ #define RX_BD_NUM_DEFAULT		128
+ 
++#define EP_RX_REFILL_RETRY		msecs_to_jiffies(10)
 +
- XILINX UARTLITE SERIAL DRIVER
- M:	Peter Korsgaard <jacmet@sunsite.dk>
- L:	linux-serial@vger.kernel.org
++/*
++ * The DMA descriptor sideband status word packs TID/TDEST/TUSER together;
++ * TUSER occupies the low byte, TID/TDEST sit in the upper bits.
++ */
++#define TSN_TUSER_MASK			GENMASK(7, 0)
++/* TUSER Input Port ID field (bits [5:4] of the TUSER field) */
++#define TSN_TUSER_PORT_ID_MASK		GENMASK(5, 4)
++#define TSN_TUSER_PORT_EP		0x0
++#define TSN_TUSER_PORT_MAC1		0x1
++#define TSN_TUSER_PORT_MAC2		0x2
++
+ /**
+  * struct skbuf_dma_descriptor - skb container for each in-flight DMA descriptor
+  * @sgl: scatter-gather list backing the DMA mapping
+@@ -66,6 +81,8 @@ struct skbuf_dma_descriptor {
+  * @ring_head: producer index
+  * @ring_tail: consumer index
+  * @ring_size: number of slots in @skb_ring
++ * @rx_lock: serialises @ring_head between the RX callback and the refill timer
++ * @rx_refill_timer: retries RX refill after an allocation failure
+  * @is_tx: true for TX channels, false for RX
+  */
+ struct xlnx_tsn_ep_dma_chan {
+@@ -76,6 +93,8 @@ struct xlnx_tsn_ep_dma_chan {
+ 	u32 ring_head;
+ 	u32 ring_tail;
+ 	u32 ring_size;
++	spinlock_t rx_lock;	/* serialises @ring_head */
++	struct timer_list rx_refill_timer;
+ 	bool is_tx;
+ };
+ 
+@@ -113,6 +132,174 @@ ep_get_desc(struct xlnx_tsn_ep_dma_chan *xchan, int idx)
+ 	return xchan->skb_ring[idx];
+ }
+ 
++static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result);
++
++static int ep_rx_submit_desc(struct xlnx_tsn_ep_dma_chan *xchan)
++{
++	struct dma_async_tx_descriptor *dma_rx_desc;
++	struct skbuf_dma_descriptor *skbuf_dma;
++	struct xlnx_tsn_ep *ep = xchan->ep;
++	struct sk_buff *skb;
++	dma_addr_t addr;
++
++	skbuf_dma = ep_get_desc(xchan, xchan->ring_head & (xchan->ring_size - 1));
++	if (!skbuf_dma)
++		return -ENOSPC;
++
++	skb = dev_alloc_skb(ep->max_frm_size);
++	if (!skb)
++		return -ENOMEM;
++
++	sg_init_table(skbuf_dma->sgl, 1);
++	addr = dma_map_single(xchan->dma_dev, skb->data, ep->max_frm_size,
++			      DMA_FROM_DEVICE);
++	if (unlikely(dma_mapping_error(xchan->dma_dev, addr))) {
++		if (net_ratelimit())
++			dev_warn(ep->dev, "DMA mapping error on RX submit\n");
++
++		goto err_free_skb;
++	}
++	sg_dma_address(skbuf_dma->sgl) = addr;
++	sg_dma_len(skbuf_dma->sgl) = ep->max_frm_size;
++	dma_rx_desc = dmaengine_prep_slave_sg(xchan->chan, skbuf_dma->sgl,
++					      1, DMA_DEV_TO_MEM,
++					      DMA_PREP_INTERRUPT);
++	if (!dma_rx_desc)
++		goto err_unmap_skb;
++
++	skbuf_dma->skb = skb;
++	skbuf_dma->dma_address = sg_dma_address(skbuf_dma->sgl);
++	skbuf_dma->desc = dma_rx_desc;
++	dma_rx_desc->callback_param = xchan;
++	dma_rx_desc->callback_result = ep_dma_rx_cb;
++	xchan->ring_head++;
++	dmaengine_submit(dma_rx_desc);
++
++	return 0;
++
++err_unmap_skb:
++	dma_unmap_single(xchan->dma_dev, addr, ep->max_frm_size, DMA_FROM_DEVICE);
++err_free_skb:
++	dev_kfree_skb(skb);
++	return -ENOMEM;
++}
++
++static bool ep_rx_refill(struct xlnx_tsn_ep_dma_chan *xchan, bool arm_timer)
++{
++	int avail, i;
++
++	guard(spinlock_bh)(&xchan->rx_lock);
++
++	if (READ_ONCE(xchan->ep->closing))
++		return false;
++
++	avail = CIRC_SPACE(xchan->ring_head, READ_ONCE(xchan->ring_tail),
++			   xchan->ring_size);
++	for (i = 0; i < avail; i++) {
++		if (ep_rx_submit_desc(xchan))
++			break;
++	}
++	dma_async_issue_pending(xchan->chan);
++
++	if (xchan->ring_head != READ_ONCE(xchan->ring_tail))
++		return true;
++
++	if (arm_timer)
++		mod_timer(&xchan->rx_refill_timer, jiffies + EP_RX_REFILL_RETRY);
++
++	return false;
++}
++
++static void ep_rx_refill_timer(struct timer_list *t)
++{
++	struct xlnx_tsn_ep_dma_chan *xchan = timer_container_of(xchan, t,
++							       rx_refill_timer);
++
++	ep_rx_refill(xchan, true);
++}
++
++static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result)
++{
++	struct xlnx_tsn_ep_dma_chan *xchan = data;
++	struct skbuf_dma_descriptor *skbuf_dma;
++	size_t meta_len, meta_max_len, rx_len;
++	struct xlnx_tsn_ep *ep = xchan->ep;
++	struct net_device *ndev = ep->ndev;
++	struct sk_buff *skb;
++	u32 port_id, tuser;
++	u32 *metadata;
++
++	skbuf_dma = ep_get_desc(xchan, xchan->ring_tail & (xchan->ring_size - 1));
++	WRITE_ONCE(xchan->ring_tail, xchan->ring_tail + 1);
++	skb = skbuf_dma->skb;
++	skbuf_dma->skb = NULL;
++
++	dma_unmap_single(xchan->dma_dev, skbuf_dma->dma_address,
++			 ep->max_frm_size, DMA_FROM_DEVICE);
++
++	if (result->result != DMA_TRANS_NOERROR) {
++		if (net_ratelimit())
++			dev_warn(ep->dev, "RX DMA transfer error %d\n",
++				 result->result);
++
++		dev_kfree_skb_any(skb);
++		DEV_STATS_INC(ndev, rx_dropped);
++		DEV_STATS_INC(ndev, rx_errors);
++		goto submit_new;
++	}
++
++	metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc,
++						   &meta_len,
++						   &meta_max_len);
++	if (IS_ERR_OR_NULL(metadata)) {
++		if (net_ratelimit())
++			dev_warn(ep->dev, "Failed to get RX metadata pointer\n");
++
++		dev_kfree_skb_any(skb);
++		DEV_STATS_INC(ndev, rx_dropped);
++		DEV_STATS_INC(ndev, rx_errors);
++		goto submit_new;
++	}
++
++	/* MCDMA metadata: [0] = status, [1] = sideband (TID/TDEST/TUSER), [2..] = app */
++	tuser = metadata[1] & TSN_TUSER_MASK;
++	rx_len = ep->max_frm_size - result->residue;
++
++	if (rx_len > ep->max_frm_size || rx_len < ETH_HLEN) {
++		if (net_ratelimit())
++			dev_warn(ep->dev, "Invalid RX length %zu (max=%u, min=%u)\n",
++				 rx_len, ep->max_frm_size, ETH_HLEN);
++
++		dev_kfree_skb_any(skb);
++		DEV_STATS_INC(ndev, rx_dropped);
++		DEV_STATS_INC(ndev, rx_errors);
++		goto submit_new;
++	}
++
++	port_id = FIELD_GET(TSN_TUSER_PORT_ID_MASK, tuser);
++	if (port_id != TSN_TUSER_PORT_MAC1 && port_id != TSN_TUSER_PORT_MAC2) {
++		if (net_ratelimit())
++			dev_dbg(ep->dev, "RX dropping unexpected TUSER port_id=%u\n",
++				port_id);
++
++		dev_kfree_skb_any(skb);
++		DEV_STATS_INC(ndev, rx_dropped);
++		goto submit_new;
++	}
++
++	skb_put(skb, rx_len);
++	skb->dev = ndev;
++	skb->protocol = eth_type_trans(skb, ndev);
++	skb->ip_summed = CHECKSUM_NONE;
++	__netif_rx(skb);
++
++	DEV_STATS_INC(ndev, rx_packets);
++	DEV_STATS_ADD(ndev, rx_bytes, rx_len);
++
++submit_new:
++	ep_rx_refill(xchan, true);
++}
++
+ static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ {
+ 	dev_kfree_skb_any(skb);
+@@ -211,6 +398,10 @@ ep_alloc_dma_chan(struct xlnx_tsn_ep *ep, const char *name, bool is_tx,
+ 	chan->ep = ep;
+ 	chan->ring_size = ring_size;
+ 	chan->dma_dev = dmaengine_get_dma_device(chan->chan);
++	if (!is_tx) {
++		spin_lock_init(&chan->rx_lock);
++		timer_setup(&chan->rx_refill_timer, ep_rx_refill_timer, 0);
++	}
+ 
+ 	return chan;
+ }
+@@ -222,8 +413,21 @@ static void ep_free_dma_chan(struct xlnx_tsn_ep_dma_chan *chan)
+ 	if (!chan)
+ 		return;
+ 
+-	if (chan->chan)
++	if (chan->chan) {
++		if (!chan->is_tx) {
++			/* ep_stop() sets closing before teardown. Take rx_lock
++			 * so any refill that already passed the closing check
++			 * finishes and no later one submits or arms the timer,
++			 * then shut down the timer so it cannot be rearmed
++			 * before the channel is freed.
++			 */
++			spin_lock_bh(&chan->rx_lock);
++			spin_unlock_bh(&chan->rx_lock);
++			timer_shutdown_sync(&chan->rx_refill_timer);
++		}
++
+ 		dmaengine_terminate_sync(chan->chan);
++	}
+ 
+ 	if (chan->is_tx) {
+ 		while (chan->ring_tail != chan->ring_head) {
+@@ -322,9 +526,19 @@ static int ep_init_dmaengine(struct xlnx_tsn_ep *ep)
+ 		rx_allocated++;
+ 	}
+ 
++	for (i = 0; i < ep->num_rx_queues; i++) {
++		if (!ep_rx_refill(ep->rx_chans[i], false)) {
++			dev_err(ep->dev, "RX channel %d: no descriptors armed\n",
++				i);
++			ret = -ENOMEM;
++			goto err_free_chans;
++		}
++	}
++
+ 	return 0;
+ 
+ err_free_chans:
++	WRITE_ONCE(ep->closing, true);
+ 	while (--rx_allocated >= 0)
+ 		ep_free_dma_chan(ep->rx_chans[rx_allocated]);
+ 	while (--tx_allocated >= 0)
 
 -- 
 2.43.0
