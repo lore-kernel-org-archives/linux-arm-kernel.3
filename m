@@ -4,63 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8C1C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 22:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D1EC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 22:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TjvAglz62cqGysOs7dyk3tIIzkYqhCxUU0IB4oFccn8=; b=XVLa42QI+jpmQvfNJ+/MEaYHHf
-	Hfqz7mUogVWKd5PazK7UZPN/7HfiWuMN6772tq/u1f3tsT476IFM4XHpcd0QazTko1fn2nt2fML+J
-	ErPl5PdnuFATdXsjBbN4KfHincOk53QJCVC0XmH5PMqh1mk5M5Qny54jUPfpa/b3eF2znp8ektVuO
-	/p0h3hUzGqo09lhbsffU0ylUcjLjmI7dfe9L3tATwy7qYb9fMiK5svcWCc7D2JMZG6CHnYCtMF6yC
-	ZRz6j9jjGV8i45aDxKfo2HMwRCUYpDbkNGSCtp8HFBY6XeBdFsZn16M37w22era9LoAdGFKKKF8Jr
-	Wh8glQdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=; b=TX1/A06kPjk1yPUcKo4kVivKJz
+	uA6gep1/ja6SqPJRDnn0m2DvBMWErrVCmG7LKR4Zj/lWifBvatXsnuuiWjjrhjjslNRcwnb+98Jpe
+	r9ZrbjaCDTS+ERszqgbPEirVllXail+nhU25srWLtI5YfczoRUY9CMpcjq/kAIBbP4cG2RJC11yIb
+	sgy/Fnv11pFM9PVDdsJ2TQk7fWGJzntx8PpemsfZW/MjQOSEK8Cy1+2fSJH/fMXsM+0oUXMM+eUY0
+	316z/AidnphlbHb+3+EX7QXUJzfOB6iPquskrZswwwQUb1rS9PP2Rsggbe8OMUQ/CcrySoI8VfqQm
+	NGg4PUrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44cD-0000000AQEc-2GZr;
-	Tue, 08 Sep 2026 22:48:33 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1x44j8-0000000AQYi-1JxL;
+	Tue, 08 Sep 2026 22:55:42 +0000
+Received: from mail-southcentralusazon11011055.outbound.protection.outlook.com ([40.93.194.55] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44cA-0000000AQE6-1MDu
+	id 1x44j6-0000000AQYJ-17wa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 22:48:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD630101937;
-	Wed, 09 Sep 2026 00:48:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788907704; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=TjvAglz62cqGysOs7dyk3tIIzkYqhCxUU0IB4oFccn8=;
-	b=h21o8jm5sBLAMvQEW+Q0r99XYlMiBr6mlFw6cbv3uRKNh1hV1XUAtrgGEKAhACBWaP+Ijr
-	ifesugz5RrYcvj1bfohFTPrMqoLIiNDO64Du/TlrsKS8WjOtRTanS8klnEQe2tifB4E000
-	IIHN3tLQS8VTYLKJuDKGtn4KSZElTcWeAyYjXLN2uUg7HmCE1yJg0W2NiS/HdtekqtHRpf
-	wYnFdjA1MkS320FSyYyL4n04Pyo6btAw1/FVg3ECMHWmBzrAQAQCRk8M+8H1Nfwka4Pcs1
-	/f6h8HliMRW2ddEqDPN/FUPqv9YUn4oBrJJUBiURxisCwtel87wRN260Dy/FyQ==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Fedor Ross <fedor.ross@ifm.com>,
-	Marek Vasut <marex@nabladev.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: imx8mn: Add display DT overlays for the ifm VHIP4 EvalBoard
-Date: Wed,  9 Sep 2026 00:48:12 +0200
-Message-ID: <20260908224821.42973-1-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
+	Tue, 08 Sep 2026 22:55:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=syV/DDqM4IChDItVs+UOmcftrx+NAnoFfOXQnTptuXtdtwtCBy/dAnLKP+ATjNvxG/DCoRMR2Xq2tezo9tiRI3boMxZJ5WyRXsL7H4rpDh68ddivvQfNVh8JQ+jKJmFK6UJgg/u444Pw7nhgUfElNTyOCtnECh5P+jqXURQEWI51cAbrkejVvpur2iWbwZxaX+LE4w7crqozhl8NQC448TMWJkldNqMtTT0mIn3w+ieRwhSTACVzXm1bYgbmnupU54QJtKSgV7MK+Y0QRqB65ThCvtp+PkAYj3MGe4xtOcnXQTFGQpFL/EyIorkHepZN3/P2frmq/95fCUXNNZRMDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=;
+ b=mV5ixwCDdYy5KCCqlGt+uwCatEex1FfZ+XAEtaQfU0js9RUyqK0SCu0a2ee8x6bWz1C9CYh9xR7KGEWw52Ef7x41u/EDKe6XXps8Ta3GNyi0j/e5fgFMVMTBXdvR2G+/x6o+chKvjrq8KvxCxLN6yzJnKxJQWrWwnPI1O7WjYE8nrDOU3zhMkoaeyyizDYvA7zowUN8fBMHE2e3k/l1fQQaZN3AS/ebw/X0NwaQ84X3+ogktUpHFjDBRfPz19gpXgCYFAmyBhGbcLwQA9mfy14HQ36c61d3ni1YeKKlzo7KjGqeFMr+5YA50S9k4iDGn2a/1Gz0ORn3gHxojV/7SBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=;
+ b=a0AUJkB8BNIWDLhb7DXFRChJJzGv/G4pHpAarMkLyKwnAWO83U7AcZbdmefZ0KCYXDt3PS1VvIt1+A/NOxb/1ZYn/zArqjx6akHLIkdKpV0UAQ6H5Tnwx1oZexgEXX9pLXAMvXutxlEBam1JbrLnvS9e1gkBL1glw5iRIV+ZWX5l+mHAtQbj3KaVLmb0ILz7lPUDDJa8ShTNojlY/AfNRyAkBU4JjV4y8ic6pw1AzedRSlgpdLSHIR16zVnXIJjHSGpW3miA1VUR+7oabNIWelDcJSxeCJe2vpyR9waWlN1UCwfEJ83dAqFTuAripIY8jBOqiCxFCG3T+V44CNCJng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH0PR12MB8099.namprd12.prod.outlook.com (2603:10b6:510:29d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.13; Tue, 8 Sep
+ 2026 22:55:33 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0406.005; Tue, 8 Sep 2026
+ 22:55:32 +0000
+Date: Tue, 8 Sep 2026 19:55:31 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev,
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v10 07/15] platform-msi: Introduce
+ platform_device_msi_rewrite()
+Message-ID: <20260908225531.GD2779763@nvidia.com>
+References: <20260908171712.356645-1-praan@google.com>
+ <20260908171712.356645-8-praan@google.com>
+ <87se3j1qgu.ffs@fw13>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87se3j1qgu.ffs@fw13>
+X-ClientProxiedBy: YT4PR01CA0502.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10c::11) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB8099:EE_
+X-MS-Office365-Filtering-Correlation-Id: 10719f8c-f378-4c72-1bcc-08df0dfc498e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mE6T+Kvyd1zKdaOAuenwCz4Qw8iUWOyQ89+1BAfNvX7c60PgF/8Jv32H5XcCvdCKZBfjcgixIXDMhZinXfKtW0+mzk/J1eIkkP+Q9a7AYl+bZXuylRKoIgY+fumwLNvN3c94X23cvR19ZQJbWy50dlP17w74yq7kbpKu2jwM1bDZCm66ClX59uvDvCuMWoml0ecpIsQLCBnFrEqGjCLgVq90uQCAc+zAb71a+8puHGTdsoHk6DV5itEQCHZXzrx33DIYDr2PvCC7jkjOFO6Vv4GoR3Me0sYfKTAL6GfE4FAnqFKQR4vKvO+cOn8+v+BN5hPdOiVvfO6FkEG0aDi2KjFz9mw8c3fWYKfMj1UB96j/YQMyT9cULPHuLrjay+dXxMhOY+tDzOS+MFevabi2G5+lSOpVZF32x8iQJVoNRzNwYAm8wM8XCy0omGD1Wd3I1ADju0hQiaSqkkZ4QzW15VavaPw34829Y4wVDuZld1oHTZs15fayB07HOyW3F2TlPTK+AP85aB4xoz7B+Bc/PBGEsghDisz4sa41raV2p/ItUCjEu0ZQBmZqw2nV3m3mz/PtZddfqX+oIEy/Tj5n4muqYdflnMA+spuzhPzpcSWhkiItNJ8BZ4zEef6NkN96MuBwIeq0mwxISwSONIT8FiC2vxT7Andsjs5rBskPhi4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4p2my+vb+DcjhO+8vGD82tp4tmOVRLZ59+xJobEQbJsNUm2qguvxWeJbKHt1?=
+ =?us-ascii?Q?6kL9FPIakmJilcV8ZkhN3wf8VJCu6Ak6AuGp8JRNNiDTrMJgeDEBLnj2TZnO?=
+ =?us-ascii?Q?N/IB4ERAZRiCh7tONvFQPaJF1wG3QVPN4PQLMzuVQZQ3+pq/mTNh8XDar6Jk?=
+ =?us-ascii?Q?4FMgwzCcMM7tFNcrg3swXzj0y6V7pwQQur0BTQC1wr6QONMFHE3401iw+wpV?=
+ =?us-ascii?Q?9Hmj3cdKvn3eRiJSKMkD5MRV9fKp2Fxchbde9wZTTZwXJwN7Jvhek9T/yKvM?=
+ =?us-ascii?Q?xSEX+bwSXW3pGPhuB8G+UzhGMBJqPEouCMyWndPJuqnJM/CYApCLDlLCNgoM?=
+ =?us-ascii?Q?GrHDBmBqTi85pV4934xdewznOoC85VsEct0Q9OYlWFy4TBcc0t1IEHTpoZ0D?=
+ =?us-ascii?Q?SVZWeKR+Jj+YBz+v8QKBP/P+0YEMGE76oKViasMVmB6vrYTcqgBkDrt5HdjI?=
+ =?us-ascii?Q?wKwPUYMJusud37ddZGtF4sav71rgcfCMeRHSnhDDR1kwW7niAbAAlQ/O00LT?=
+ =?us-ascii?Q?70JQ0d9EbjHp1XjpJLh3jN8zCW+rm5AOrpSNEfXds5K+CcUPtV8bO9aSGHTM?=
+ =?us-ascii?Q?1wmhtyGjgwos9OuLBcmX+9235SrlgF4GlTl5/WUgWdKQu+SQdUqiGgurCl1M?=
+ =?us-ascii?Q?hwtNmacrquCfEnVdHbq+hVvQmuAfj7UdIKoJOhcFsST5mZyxg21j5h0biLEA?=
+ =?us-ascii?Q?Mzero9V4ktJgnhmwQcj0dr+uGnoToEWPKf70DDhxuOlyvm4i9dNhpgeHdVam?=
+ =?us-ascii?Q?Rqk9SO11lgxpFO0pxXtAXhTd+oVgQCj5723vE+cRlA0FNJ8EFoebuhmq1/wm?=
+ =?us-ascii?Q?oN1Mkx+JNW0wagz8Hmcelu1vrybSxa1yeWV0j8dAGjYtAL1uRQs3hud+y4nc?=
+ =?us-ascii?Q?0aBJ872VUS6QIGLNMPgBQF+u0cE1JrwD7U61LdX6VWwdAQ2SYlGpJR8R6xFt?=
+ =?us-ascii?Q?iqzd3CYIFplf7gaLquJGIvwGHHM+X4g8CX2SvfHmaBlXtFgAFL0dMRMsCaiY?=
+ =?us-ascii?Q?eUKVJTiW7lHTWC59GzS+4BctbMetDI97wP+daxRDWLsbW7T56S9/ahMO7qMX?=
+ =?us-ascii?Q?DfVIf8B1sJ+5sKJdSyhKgrWZFukFLSFkU6wzJwRgpYjQJTokMBzTSUcZq2Ni?=
+ =?us-ascii?Q?xj97xgs6jj62fH3WyOxRDod/1HNTxSecNsZyYRWamnb5psqFhevIlW3F9/mq?=
+ =?us-ascii?Q?LVoGuOMLd6U6NQ9BEwyB+zDG2Qa1LoQo7Wv9xsoNIRCm/wpEpDCAW7SW7O5s?=
+ =?us-ascii?Q?Z+VbKEhyWmTWnvpfjjXEOrokdvcFMqnT4lcoonfxfKGDuJzn6cpLNjgA+Lf0?=
+ =?us-ascii?Q?jJQ9TYXIOohmEbsPXuLgcwoUs2mfS7jxIVboZmGVyNdxWZbYn28x4sf6RwtJ?=
+ =?us-ascii?Q?F2vlqp14WcN3YfjqJzIAEg19hcx0xWQkwtlVBmitmKjHJtFk5NoJHw4TtK+q?=
+ =?us-ascii?Q?UUPpQcP0bltouJiE/2CLZ7LR2Zw9LDd7yKC3A/fboup/1b5ktxKI7EMDT7pe?=
+ =?us-ascii?Q?y4Ri28zgSTK+Z7l0hfpSFectuOpqRYtz4pYAfqUurn12z3RQzY46mBCqe9Wy?=
+ =?us-ascii?Q?sLoBTdfjYZlyr9pKMuVFEKvWvVI0rUkN2LbLjEOZ0TlSh7hjFjoONuOeBdtq?=
+ =?us-ascii?Q?6A3VC+/4rpmU2omgahGq774eXp1XHOMB79v7Ii9Sj5MhSi9sHDKW7BHVx+ks?=
+ =?us-ascii?Q?9/0s2Cd8t5+5f0ZyCDivzhg9htSbsYuIi3f9kX55U2AOd6U5?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10719f8c-f378-4c72-1bcc-08df0dfc498e
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 22:55:32.8514
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ag6FPEdWL7gV0dzd6B1DWBmfSnPLa4w5w+E60GOn75E3BW6LN9vb1cv1ACrRkqpt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_154830_672685_A4FA5FCA 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260908_155540_321931_2886C092 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,434 +146,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fedor Ross <fedor.ross@ifm.com>
+On Tue, Sep 08, 2026 at 09:40:49PM +0200, Thomas Gleixner wrote:
+> On Tue, Sep 08 2026 at 17:17, Pranjal Shrivastava wrote:
+> 
+> ...
+> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> Jason. You really should know better by now :(
 
-Add display DT overlays for the ifm VHIP4 EvalBoard v1. This
-includes two expansion modules, one populated with Displaytech
-DT050BTFT-PTS panel, and the NXP ADV7533 DSI-to-HDMI adapter.
-The Displaytech DT050BTFT-PTS is configured in three different
-DSI lane counts to allow testing all possible DSI lane count
-configurations of the VHIP4 EvalBoard.
+I know better enough to have pointed out that an open coded version of
+this in a driver should not be open coded in a driver and be made into
+proper helper, so you can see it :)
 
-Signed-off-by: Fedor Ross <fedor.ross@ifm.com>
-Co-developed-by: Marek Vasut <marex@nabladev.com>
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
-V2: - Fix ADV-1V8 voltage constraints
-    - Fix missing CEC clock phandle
----
- arch/arm64/boot/dts/freescale/Makefile        |  16 ++
- ...-evalboard-v1-overlay-dt050btft-1lane.dtso |  16 ++
- ...-evalboard-v1-overlay-dt050btft-2lane.dtso |  16 ++
- ...-evalboard-v1-overlay-dt050btft-4lane.dtso |  16 ++
- ...evalboard-v1-overlay-dt050btft-common.dtsi | 155 ++++++++++++++++++
- ...evalboard-v1-overlay-nxp-adv7533-hdmi.dtso | 106 ++++++++++++
- 6 files changed, 325 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtso
+> > +	desc = irq_get_msi_desc(irq);
+> > +	if (!desc) {
+> > +		dev_err(dev, "Failed to get MSI descriptor for irq %u\n", irq);
+> > +		return;
+> > +	}
+> 
+> Doing this without having the underlying interrupt descriptor locked is
+> a recipe for an undebuggable disaster waiting to happen. It might be
+> "safe" in the context you are calling it but it's absolutely not safe in
+> general.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 984642146dd91..1cbf7205d577c 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -319,6 +319,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mn-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mn-var-som-symphony-legacy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mn-venice-gw7902.dtb
- 
-+imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
-+							  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtbo
-+imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
-+							  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtbo
-+imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
-+							  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtbo
- imx8mn-vhip4-evalboard-v1-overlay-eeprom-1000-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
- 						      imx8mn-vhip4-overlay-eeprom-1000.dtbo
- imx8mn-vhip4-evalboard-v1-overlay-eeprom-1100-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
-@@ -327,6 +333,8 @@ imx8mn-vhip4-evalboard-v1-overlay-ksz8794-dtbs := imx8mn-vhip4-evalboard-v1.dtb
- 						  imx8mn-vhip4-evalboard-v1-overlay-ksz8794.dtbo
- imx8mn-vhip4-evalboard-v1-overlay-ksz9031-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
- 						  imx8mn-vhip4-evalboard-v1-overlay-ksz9031.dtbo
-+imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi-dtbs := imx8mn-vhip4-evalboard-v1.dtb \
-+							   imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtbo
- imx8mn-vhip4-evalboard-v2-overlay-adin1300-dtbs := imx8mn-vhip4-evalboard-v2.dtb \
- 						   imx8mn-vhip4-evalboard-v2-overlay-adin1300.dtbo
- imx8mn-vhip4-evalboard-v2-overlay-eeprom-1100-dtbs := imx8mn-vhip4-evalboard-v2.dtb \
-@@ -336,12 +344,20 @@ imx8mn-vhip4-evalboard-v2-overlay-eeprom-2000-dtbs := imx8mn-vhip4-evalboard-v2.
- imx8mn-vhip4-evalboard-v2-overlay-ksz8794-dtbs := imx8mn-vhip4-evalboard-v2.dtb \
- 						  imx8mn-vhip4-evalboard-v2-overlay-ksz8794.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mn-vhip4-evalboard-v1.dtb \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtb \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtbo \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtb \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtbo \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtb \
-+			  imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtbo \
- 			  imx8mn-vhip4-evalboard-v1-overlay-eeprom-1000.dtb \
- 			  imx8mn-vhip4-evalboard-v1-overlay-eeprom-1100.dtb \
- 			  imx8mn-vhip4-evalboard-v1-overlay-ksz8794.dtb \
- 			  imx8mn-vhip4-evalboard-v1-overlay-ksz8794.dtbo \
- 			  imx8mn-vhip4-evalboard-v1-overlay-ksz9031.dtb \
- 			  imx8mn-vhip4-evalboard-v1-overlay-ksz9031.dtbo \
-+			  imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtb \
-+			  imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtbo \
- 			  imx8mn-vhip4-evalboard-v2.dtb \
- 			  imx8mn-vhip4-evalboard-v2-overlay-adin1300.dtb \
- 			  imx8mn-vhip4-evalboard-v2-overlay-adin1300.dtbo \
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtso b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtso
-new file mode 100644
-index 0000000000000..4151765743265
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-1lane.dtso
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2021-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi"
-+
-+&sn65dsi83_in {
-+	data-lanes = <1>;
-+};
-+
-+&mipi_dsi_bridge1_out {
-+	data-lanes = <1>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtso b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtso
-new file mode 100644
-index 0000000000000..7b1bd925f53f6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-2lane.dtso
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2021-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi"
-+
-+&sn65dsi83_in {
-+	data-lanes = <1 2>;
-+};
-+
-+&mipi_dsi_bridge1_out {
-+	data-lanes = <1 2>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtso b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtso
-new file mode 100644
-index 0000000000000..300d5e9536102
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-4lane.dtso
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2021-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi"
-+
-+&sn65dsi83_in {
-+	data-lanes = <1 2 3 4>;
-+};
-+
-+&mipi_dsi_bridge1_out {
-+	data-lanes = <1 2 3 4>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi
-new file mode 100644
-index 0000000000000..c82cc2eef8532
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-dt050btft-common.dtsi
-@@ -0,0 +1,155 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2021-2026 Marek Vasut
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#include "imx8mn-pinfunc.h"
-+
-+&{/} {
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		/* FIXME: 200 Hz, since DT050BTFT-PTS datasheet does not say */
-+		pwms = <&pwm4 0 5000000 0>;
-+		brightness-levels = <0 100>;
-+		num-interpolated-steps = <100>;
-+		default-brightness-level = <75>;
-+	};
-+
-+	lvds-decoder {
-+		compatible = "ti,sn65lvds822", "lvds-decoder";
-+		powerdown-gpios = <&gpio5 19 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_lvds_bridge>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lvds_dpi_bridge_in: endpoint {
-+					data-mapping = "vesa-24";
-+					remote-endpoint = <&sn65dsi83_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lvds_bridge_out: endpoint {
-+					remote-endpoint = <&lvds_panel_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	panel {
-+		compatible = "displaytech,dt050btft-pts";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_panel_3v3>;
-+
-+		port {
-+			lvds_panel_in: endpoint {
-+				remote-endpoint = <&lvds_bridge_out>;
-+			};
-+		};
-+	};
-+
-+	reg_panel_3v3: regulator-panel-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "VCC_DISPL";
-+	};
-+};
-+
-+&i2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	bridge@2d {
-+		compatible = "ti,sn65dsi83";
-+		enable-gpios = <&gpio2 1 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_dsi_bridge>;
-+		reg = <0x2d>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				sn65dsi83_in: endpoint {
-+					data-lanes = <1>;
-+					remote-endpoint = <&mipi_dsi_bridge1_out>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+				sn65dsi83_out: endpoint {
-+					remote-endpoint = <&lvds_dpi_bridge_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_dsi_bridge: dsibridge-grp {
-+		fsl,pins = <
-+			/* nRESET_BRIDGE */
-+			MX8MN_IOMUXC_SD1_CMD_GPIO2_IO1                  0x100
-+		>;
-+	};
-+
-+	pinctrl_lvds_bridge: lvdsbridge-grp {
-+		fsl,pins = <
-+			/* LVDS_RGB_SHTDN_n */
-+			MX8MN_IOMUXC_I2C3_SDA_GPIO5_IO19                0x100
-+		>;
-+	};
-+
-+	pinctrl_pwm4: pwm4-grp {
-+		fsl,pins = <
-+			/* LCD PWM */
-+			MX8MN_IOMUXC_I2C3_SCL_PWM4_OUT			0x0116
-+		>;
-+	};
-+};
-+
-+&lcdif {
-+	status = "okay";
-+};
-+
-+&mipi_dsi {
-+	samsung,burst-clock-frequency = <891000000>;
-+	samsung,esc-clock-frequency = <10000000>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_dsi_bridge1_out: endpoint {
-+				data-lanes = <1>;
-+				remote-endpoint = <&sn65dsi83_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm4 {	/* LCD backlight PWM */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm4>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtso
-new file mode 100644
-index 0000000000000..ec093c3e079e2
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1-overlay-nxp-adv7533-hdmi.dtso
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2021-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	cec_clock: clk-cec-fixed {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+	};
-+
-+	hdmi-out {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con: endpoint {
-+				remote-endpoint = <&adv7513_out>;
-+			};
-+		};
-+	};
-+
-+
-+	reg_adv_1v8: regulator-adv-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-name = "ADV-1V8";
-+	};
-+
-+	reg_adv_3v3: regulator-adv-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "ADV-3V3";
-+	};
-+};
-+
-+&i2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	hdmi-transmitter@3d {
-+		compatible = "adi,adv7535";
-+		reg = <0x3d>, <0x3e>, <0x3c>, <0x3f>;
-+		reg-names = "main", "edid", "cec", "packet";
-+		clocks = <&cec_clock>;
-+		clock-names = "cec";
-+		a2vdd-supply = <&reg_adv_1v8>;
-+		adi,dsi-lanes = <4>;
-+		avdd-supply = <&reg_adv_1v8>;
-+		dvdd-supply = <&reg_adv_1v8>;
-+		pvdd-supply = <&reg_adv_1v8>;
-+		v3p3-supply = <&reg_adv_3v3>;
-+		status = "okay";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				adv7535_in: endpoint {
-+					remote-endpoint = <&mipi_dsi_bridge1_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				adv7513_out: endpoint {
-+					remote-endpoint = <&hdmi_con>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&lcdif {
-+	status = "okay";
-+};
-+
-+&mipi_dsi {
-+	samsung,burst-clock-frequency = <891000000>;
-+	samsung,esc-clock-frequency = <10000000>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_dsi_bridge1_out: endpoint {
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&adv7535_in>;
-+			};
-+		};
-+	};
-+};
--- 
-2.53.0
+Which is why we are here, I was wondering if the open coded
+implementation was even OK..
 
+> @@ -1775,3 +1775,34 @@ bool msi_device_has_isolated_msi(struct
+>  	return arch_is_isolated_msi();
+>  }
+>  EXPORT_SYMBOL_GPL(msi_device_has_isolated_msi);
+> +
+> +void msi_device_domain_restore_msi_msgs(struct device *dev, unsigned int domid)
+> +{
+
+Wonderful!
+
+Thanks,
+Jason
 
