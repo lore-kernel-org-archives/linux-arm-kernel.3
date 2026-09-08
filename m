@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A7AC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B072C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Frmlp72955YtazXAE0mB3Aosy8VTdsKnGoTC2uA9ug8=; b=zdmi/hAObTBimcNb3KRQKOcAxj
-	K8MgxnX35MrC0LiE2vhg5dT7LZnl/HIuiE3pu/EtFpwCt0rdwyZffIrS0MsaQUB7j4pSDteOiHGRU
-	QPfbil6X638Cc8S1pyTSu4lhs1M1VmUwnSlF7ct5WArJesKKOLYJhYnqO1u09bhwBJx/U1xm/S75x
-	l0iou523MXqy7v5uxTA8ScZKapo8NaWv7v63YBH2bodWPkgqvJH7Q26k95jR/b73RzJ1f55jEEulL
-	xcEFvJiI1Oo9bLXqc5mxZccVkrXKNcOsjqQ0XW6t9vj6J/XkHp9Vs2YoRPvLe+v9UG5pn8QCMqGai
-	RLPwf5GA==;
+	bh=I7AXBe2nBsZac3Ps2hZ0XISjLmnUGKdRnAnvM4vXFww=; b=wJEwjADGXnuEu3X+ZG5TFJQZ1I
+	DpcpzcHxZ/7Yynq4TnuF8pK3d84xULgfuTUtgKuqjhcOgSK8nLRunRrVnvSNrRlTXvJi38cI1WrxP
+	X24RfLRa3Uzy58iCrLUNWTDL/02Veno88Yrq5VULt3EkXzJBZ/4WFCHW6XgDc3EIcVsO80y6c8aBg
+	BeSTvKepMNwvcYX4JfSQY5XcS27qEWuTvz0bsvSAgB2D8044A4ncdx+xhxks4zpwfqlF6XapBPQrS
+	eFS8g3DB5mTfp7phO/fmDpwYTQFMXKq2lxR2VxQmbW8svcrFoPn+HjOYaXC7hue0hS5J5q3UDL57i
+	D79s0Neg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yUh-00000009c4t-0VHl;
-	Tue, 08 Sep 2026 16:16:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yUe-00000009c3v-0mT9
+	id 1x3yVx-00000009cI4-1mbi;
+	Tue, 08 Sep 2026 16:17:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3yVw-00000009cHx-0hqj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 16:17:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=I7AXBe2nBsZac3Ps2hZ0XISjLmnUGKdRnAnvM4vXFww=; b=Tpw89ndtq1vg++U6C6oY1IH/HA
+	hFjj38JkXg12Ds560z9hxnz9/LBvEvKwDOxWILci/Wcmt8YeopxuKsy4dWR2ipAJRxr8TYzL15MX+
+	cry9ufK2QCKZDctuvwwT+pDtSgSRj6h81CPPbFbxf2Okji1K1UVxXA404qvFl8TZ4tlrpzgMs43k9
+	vswpf5oiAGMR4lcUvu9EemT2gDYq0eICUa2u7orYoZci01i9ki83MM+Y2lodIVuymN3Ca7zLeulEu
+	UWqfhQZzO5eeHJiIJAzGrDqGqvLp8EAbyzUowOKFFK+fLBf1doUgIkyllsmV1rXKlP7ts4K+8Fuob
+	GjhCQWDA==;
+Received: from smtp6-g21.free.fr ([2a01:e0c:1:1599::15])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3yVt-000000004nb-0Rv3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:16:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 355081476;
-	Tue,  8 Sep 2026 09:16:13 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76E233F7B4;
-	Tue,  8 Sep 2026 09:16:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788884176; bh=W86j1xmuLlz2bk41yXWceX/GDhYI2NYm1k/krLylX4M=;
+	Tue, 08 Sep 2026 16:17:39 +0000
+Received: from L10892.iliad.local (unknown [213.36.7.12])
+	(Authenticated sender: vjardin@free.fr)
+	by smtp6-g21.free.fr (Postfix) with ESMTPSA id 7B22478050A;
+	Tue,  8 Sep 2026 18:17:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1788884253;
+	bh=g0TrRds+CsCyqh5G5x4Il7gz6nNDRLvdGFk0lOmfFKU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qh8sgSR2twbUctxTPL7/+iYnMnoN4URVKwArsPBGM/VyK9vQf92Fce8nkCqEgTUB/
-	 G9DhPh4RC259GqtINnAUa3906GZ7KK1Y2aAXUMv6Cxzua6FF23/iK06U2Rkz8n560k
-	 B/CHzhK2DuOl73avp3FjFYsFMewTAP/L28DTPpJo=
-Date: Tue, 8 Sep 2026 17:16:14 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: yingchao <dengyingchao@kylinsec.com.cn>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Miaoqian Lin <linmq006@gmail.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	qinyungao@kylinsec.com.cn
-Subject: Re: [PATCH] coresight: syscfg: fix deadlock on device registration
- failure
-Message-ID: <20260908161614.GA200420@e132581.arm.com>
-References: <604ED754D4669F40+20260825014717.2346-1-dengyingchao@kylinsec.com.cn>
+	b=OhycqMCja6XUqSTHOaKuk5pWKhkMHc9yA81KgHFBtM1o2jz/PwpjEaVCMPokgt0eG
+	 Jmcy6ETkgBZuhZZVpyigiOtajFYryciPjWD9RAQvHkYn/Ax0/AXh/IQnxfY6hTz5Jv
+	 /15XxibscZQMzz7A86oZTCEd/rT9FOb0d7hBx+XnPQ8GrnoF1s3//pAWhd6vAZJTfq
+	 jTLrip+RXI0QC6hMP0dJHIql42rRmNLLFCXLDPXk6MsAIaTugrG0IcAUvY/K+bim2T
+	 FlQhR/cDSNSg4PvNr8DnsJSKWPd/WNBqSG3u6cZlRtfyoHjIJzaaufkXsnJaZgE+Qq
+	 p+ZBK7vEkin5g==
+Date: Tue, 8 Sep 2026 18:17:24 +0200
+From: Vincent Jardin <vjardin@free.fr>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
+Subject: Re: [PATCH] bus: fsl-mc: register the object drivers after
+ misc_class exists
+Message-ID: <aqA1FKnhAA6iIuyH@L10892.iliad.local>
+References: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
+ <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
+ <ap7mmR_4QV0k88dK@L30177.local>
+ <dvnnk7fnk57x7gf4mc25codec62xtpbe4v7omhjguqxd25ssmu@pqqjwe5xif4q>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <604ED754D4669F40+20260825014717.2346-1-dengyingchao@kylinsec.com.cn>
+In-Reply-To: <dvnnk7fnk57x7gf4mc25codec62xtpbe4v7omhjguqxd25ssmu@pqqjwe5xif4q>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_091620_619115_2E1CB154 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20260908_171737_323862_CCB46D17 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +91,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 09:47:17AM +0800, yingchao wrote:
+Hi Ioana,
 
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-> index 2bfdd7b45e49..d0e7e4720e46 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-> @@ -1210,8 +1210,14 @@ static int cscfg_create_device(void)
->  	dev->init_name = "cs_system_cfg";
->  
->  	err = device_register(dev);
-> -	if (err)
-> +	if (err) {
-> +		/* put_device() triggers cscfg_dev_release() which takes
-> +		 * cscfg_mutex, so drop the lock first to avoid deadlocking.
-> +		 */
-> +		mutex_unlock(&cscfg_mutex);
->  		put_device(dev);
-> +		return err;
-> +	}
+> I am indeed in the case in which the uapi support is builtin but the
+> dprc.1 probing is deferred, thus it will get executed after misc_init()
+> had a chance to run.
+> 
+> The deferral happens because of_dma_configure_id() returns EPROBE_DEFER
+> since it waits for arm-ssmu to probe. How did you get past this
+> deferral?
 
-As module init and exit are serialized by the kernel, I don't think we
-need the mutex to protect the allocation and freeing of cscfg_mgr.
+I think I isolated the difference: I guess you have smmu enabled while I
+did disable it. I checked and when smmu is enabled back, the issue does
+not show up anymore. But it is not my goal.
 
-The mutex should only be used for exclusively access cscfg_mgr.
-So how about the change below?
+I do have with my dts,
+        &smmu {
+                status = "disabled";
+        };
 
----8<---
+for the mc to load, you need:
+        fsl_mc: fsl-mc@80c000000 {
+                compatible = "fsl,qoriq-mc";
+                ...
+                iommu-map = <0 &smmu 0 0>;
+                dma-coherent;
+        };
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 2bfdd7b45e49..2dd0b29f44e4 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -1173,27 +1173,21 @@ struct device *cscfg_device(void)
- /* Must have a release function or the kernel will complain on module unload */
- static void cscfg_dev_release(struct device *dev)
- {
--	mutex_lock(&cscfg_mutex);
- 	kfree(cscfg_mgr);
- 	cscfg_mgr = NULL;
--	mutex_unlock(&cscfg_mutex);
- }
- 
- /* a device is needed to "own" some kernel elements such as sysfs entries.  */
- static int cscfg_create_device(void)
- {
- 	struct device *dev;
--	int err = -ENOMEM;
--
--	mutex_lock(&cscfg_mutex);
--	if (cscfg_mgr) {
--		err = -EINVAL;
--		goto create_dev_exit_unlock;
--	}
-+	int err;
- 
- 	cscfg_mgr = kzalloc_obj(struct cscfg_manager);
- 	if (!cscfg_mgr)
--		goto create_dev_exit_unlock;
-+		return -ENOMEM;
-+
-+	mutex_lock(&cscfg_mutex);
- 
- 	/* initialise the cscfg_mgr structure */
- 	INIT_LIST_HEAD(&cscfg_mgr->csdev_desc_list);
-@@ -1204,6 +1198,8 @@ static int cscfg_create_device(void)
- 	cscfg_mgr->load_state = CSCFG_NONE;
- 	raw_spin_lock_init(&cscfg_mgr->sysfs_store_lock);
- 
-+	mutex_unlock(&cscfg_mutex);
-+
- 	/* setup the device */
- 	dev = cscfg_device();
- 	dev->release = cscfg_dev_release;
-@@ -1213,8 +1209,6 @@ static int cscfg_create_device(void)
- 	if (err)
- 		put_device(dev);
- 
--create_dev_exit_unlock:
--	mutex_unlock(&cscfg_mutex);
- 	return err;
- }
+it seems due to,
+of_dma_configure_id() -> of_iommu_configure() ends up with "no IOMMU" and
+it returns 0 instead of -EPROBE_DEFER.
+
+So the root DPRC, populated at arch_initcall_sync, probes now
+synchronously, before misc_init() registers misc_class at subsys_initcall
+and so dprc.1 is created classless. (I hope I did not miss something).
+
+> > I started to face this issue when I did try to restart
+> > the MC from Linux userland instead of uboot in order to be able to adapt
+> > with some DPC changes during the runtime.
+> >  see https://github.com/vjardin/lx2160-sdx/blob/main/src/lx2160-mc.c
+> > But I guess this issue should be quite generic.
+> 
+> Can you reproduce it without restarting the MC: boot to prompt, echo
+> dprc.1 > .../unbind, echo dprc.1 > ..../bind ?
+
+Yes, see below, even without restarting the MC.
+
+smmu disabled / without the patch of this serie:
+   # grep dprc /proc/misc
+   256 dprc.1
+   # ls /sys/class/misc/ | grep dprc # nothing: not in the class
+   # ls -l /sys/dev/char/10:256
+   ... /sys/dev/char/10:256 -> ../../devices/dprc.1  <- not under devices/virtual/misc
+
+Unbind: the minor is freed but the char link leaks:
+
+   # echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/unbind
+   [  201.633695] fsl_mc_dprc dprc.1: DPRC device unbound from driver
+   # grep dprc /proc/misc    <- gone (minor 256 freed)
+   # ls -l /sys/dev/char/10:256
+   ... /sys/dev/char/10:256 -> ../../devices/dprc.1  <- still here: leaked
+
+Bind:
+
+    # echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/bind
+    sh: write error: Resource temporarily unavailable
+    [  203.306315] sysfs: cannot create duplicate filename '/dev/char/10:256'
+    [  203.306356] Call trace:
+     ...
+    [  203.306440]  misc_register+0xcc/0x158
+    [  203.306449]  fsl_mc_uapi_create_device_file+0x44/0x74
+    [  203.306462]  dprc_setup+0x134/0x214
+    [  203.306471]  dprc_probe+0x18/0xec
+    [  203.306480]  fsl_mc_probe+0x1c/0x30
+      ...
+    [  203.306517]  bind_store+0xa8/0xc4
+
+With the patch applied on the same board, smmu disabled, then, it is fine.
+
+This apply patch should be ok for smmu and not smmu in order to cover any cases now.
+
+best regards,
+  Vincent
 
