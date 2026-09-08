@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB275C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E47C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NYcqD9fW2oLParj8320kOSOxI0m9dJtpaA9HezT2S8=; b=G9qy9idTDfha0l50kQ/9xTGS5P
-	3kkpDrUtLH+C3FtaUEoKjvy5tWaB9qP3Et1gX/heGOEXN08d3OiFXTeyQPnMw0f/MRmGxrkvqohJM
-	jUXKEsfke7FvKm0c/d/c/oBtecEz+5iHIyHkmlAcEOssMhhsy4/V51ISFkFICkXdJzY96i2A5t/JO
-	lY3NLB3Fj/CIz123ofARh/n1sQbbLUMQzaWugHribjffJ81puKAQDiy+LIc51xEoQ5V2KjNLmthxn
-	9aTbpa1q9kKUZQ3ZpujfwMaYgNlwj8awW2UGi0zk78U3E/v9jp4m9zqZq+aVFR6kzH0OHFWCsmI6B
-	9moLepxA==;
+	bh=Znk6y3Y6E2mnGkYb5ykJ3dOAmXvVg+um0sAoS9EacFY=; b=gJZB+IC2318ICX8qfar7WEeyC4
+	3BbuXkN3FNsxPa/MxvnLEbTQSbB7UwpQzm2iMxWWn94TZAoLMm/hTF2v0dG5BzfC2A6uCuq/WFnVW
+	sW+vZy+DsmFs5r3gL1hoQ8m1B+3S7ZovcDysvpZcO4sj4iKSsNNu4uLxsfNnV2W+WgNMxCJCxd1JX
+	FX+0bWYs3fFsT1p6/+vPIOyNB5P73MyZoD9tNqKuu3C2IaMH/UFCjmTGozrBLwZOYMUqeJpGJRkIj
+	agMYAvah6oJbLfwSaZLORcae8NruyFFx+Zh7WUE2q0c/FG7vtd3YlP20LNnaWNknSMNACLwFWl7i1
+	bzPNErWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x7f-00000009Jle-2IWs;
-	Tue, 08 Sep 2026 14:48:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3xAo-00000009KCo-1Sid;
+	Tue, 08 Sep 2026 14:51:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x7e-00000009JlA-1PHh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 14:48:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3NYcqD9fW2oLParj8320kOSOxI0m9dJtpaA9HezT2S8=; b=ZlFpaSxnGPLTPJVScNtvK5pdHi
-	vHxNJyXTv9R38llZ48k4IyigVd4pi4S/GP6TnUffPDrs3ZCEOOWxR4M+t916FY0Su642XAt7PwBZY
-	RjYL/Kcpo9Ct81jEXlcUAc1amMd6JptLSJ2WyFasi/b/cStClgO6Rg/FNxk+2kPFQh7Urp2wkmAjS
-	ePQ3dXnZ2X6YeVuqJ2X+ULMAO+e9qkH+fcU3c9bKNAVOsnRxSuEwtcsrIgxoJS+uRYDsVIvgznBFW
-	sJdq4hMHTGYwcjEWsWhN/6xOPN3z0xbR6DxPI5DKNizeLvU0voI/qy0SuJFgXD8q5uCeHnEgGtxH2
-	MOMpLM/w==;
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3x7Y-0000000HYed-41v9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 14:48:29 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843703c170so325983f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:48:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788878904; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Cw4CQG9PVA6dLsWFUob0kz7xJyH1AJqtykKkL3H8zxhL38kc5oyTcq6INIW4lPC5X3
-         bQHO4joF5FkdXMWBawKekTSZC1a2tMCPpbudOtMY83yHc0/LC3VDrmon1pyxIxuS6rxl
-         lLBfSBZniwzaly4asWDOKSDwxxBirvRlIBLcxHUah1tLmsm8Z+r7gOr9xDd4PkKBRuG+
-         VvAjp1Oqyb2qe3HMnGtc3goUsmSA6Q5det414E076nGYtx/TOWZauE4eS+4+P94oYrga
-         yiYlSsNFhfQhdYM7GigrXlaevgrDdx8Pp9mzibmnaf8MJHDTwT26YfEpk4mSySd6gJT+
-         6+jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3NYcqD9fW2oLParj8320kOSOxI0m9dJtpaA9HezT2S8=;
-        fh=DFo/O43K4cvmKUBmNYpID77WZX+Ika/RGB0OLhazYMA=;
-        b=Y2/YbCMTkdrOvDH8p1EzKPX+dWTJz8I+v1qWGlTaoXnBnsaQw87UzWB2VYEoeZIVsK
-         tRrLV+xwo/zUXsjRdM9fQwChBy+WR+8bc+z1xfIyn7w2H/rj64U0D6lJOd8dbgCQl+xo
-         RZrscWwpErVbyI8RsUqpEUF8dCf+J6uqMuYpVAUgVlkP6EaOtZ4ctCI1hBg3sI7nqvey
-         /5xIldS5XrxiEik1MkvOOD3BxRT5/CWlm9OhmhfwpVgtcDVdghDHEjarfp0b+2tIKZN7
-         jUWr1p82km1qaA+tFzqpkVEJ2GIMDEjpUVLsqRYacbH5j7R8e5yMzOXtFMlK8EItGwqm
-         4N6Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788878904; x=1789483704; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3NYcqD9fW2oLParj8320kOSOxI0m9dJtpaA9HezT2S8=;
-        b=NC7qjLuzG9ZdSwev17v7Ni9Kbh4WRi0s46CGceKcKYKeNfi8jqD0WiECrkWkqDNYqz
-         Yt1lAl4AuACS/NS7YrgcJF1XiWAEYLUJi9WPca5/TXUNoJ+N7J69JQlnGt4DUAZH2xAu
-         nDKBjDES11T5tl12GPOoYQY5RXmkKxrxlsTpUgJkqAJOHt5c4T2pZIuTMqYTYzSkYVKs
-         RvnvIJu7ZzQjrW2J89P6/tr6vvkQvXTmlunM3rrVqZc9vlHki2WhM2NjTg3ufrIfPIGu
-         awqwUTHBudxQZO7OkQte2PF95sLNfDr136dz5ThOAV9EF7ZHTujqCCeV2RAiUUjokc+n
-         KRQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788878904; x=1789483704;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3NYcqD9fW2oLParj8320kOSOxI0m9dJtpaA9HezT2S8=;
-        b=CDpylQ8opAnE77k6dBauPSsk+Ev0DUhU7O1QVEuNvOlxseGQGUHRrLqsk90fcz/FXl
-         iTLePmDSYeLe5hXSlWHVObSdWSPJ0o0nacUA3f2g5OCq0vUqKl+Rz1rAg3C6hGtoWq9w
-         Az1sFFt5AYrCgHMHJJuaMK2GnKKcEg9ilVF1tntUCecVcc7a11ph34hPv8oI8OYnE1tb
-         FUR4oxLWL0pPVpxCtFZMuTM3COLQgtoUCw2pEuXWtNu4Bg+10d2+TaV4tXYGXLz/PlRN
-         6W2UKxh3i432+/GQNXcom8qkvdCh54NgljkzVnSivQu4DQxwFk3iT1uz+ZXAYHQrh3Dc
-         0sHg==
-X-Forwarded-Encrypted: i=1; AKwUvBxZ0TIm8BtG8ycR6otmVFR5UjTGXBZfDKwHCrDmHFxuAhBCgl+lRvikPd1DSHSC6lnIYS1N1xEQJaQjUR1xZUDm@lists.infradead.org
-X-Gm-Message-State: AFuF++mPT1tyVqgsFrtKeV+4K7+7uZ790QkNrj8dOhu+GcbqskH1hS4T
-	Vwl2chLtGJg4GQl4/lzVzLqPVv4xc06fqdq/fexkcrwCNuFAPDNjJTqJualjh5lkbUJe6p7YJTz
-	DBuPuKZ0X99WMh/gX8UOw+zIrLRl/oNA=
-X-Gm-Gg: AYBFou070b860DmDHY5OplL5NgH6auo3JfYgMlTcGTjsnSNzHA0fQVAyngLujG84mZk
-	lEC8gGhCR5km9Qe4pUu9XCbyuxc25o/bXSYYvmVpq5pthXM3rcRbdR/6gIPHY/b6BkAzQciazHd
-	x63MFpiVSajb0e6INpD8ngQ9iXruRxTchhOluUo5XojXmBDulA7YXXqGYDAuq7CnIdgYSapgjxo
-	qRIKL+mk7UD0odEXe9+bD2WiefFA2x44swMu8kVyy0A+a/2SJBIHHy7zxZIcVSUAM7fhzFphJ4t
-	njwEH84+fePwuetcxFCGuyKMO0w5G0SlnbOwOVLkYqOpQKz8hc4/fJ4NmelFTj9d+TYH1nbR6Ue
-	9Fb1s5259e/k+euk8jAJX++FHmnoTiOU=
-X-Received: by 2002:a5d:5e0a:0:b0:484:3200:b7a6 with SMTP id
- ffacd0b85a97d-485907ec2c3mr20932696f8f.4.1788878903312; Tue, 08 Sep 2026
- 07:48:23 -0700 (PDT)
+	id 1x3xAl-00000009KAl-3ZfF;
+	Tue, 08 Sep 2026 14:51:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1788879101;
+	bh=kZcRY1c6StE/iaMpmxijtqbRZWber+zT7CoQUOt7B+w=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=lWtInLD7Mx+sw6LyHTAZmsnTe4uKElQZXMls+6J0T9WruF6eaGus3+dnYXWc6eZBw
+	 YnYb0b4CRdV29kNGnK3pbY0sm3ieN/8NSIqGb+NbHyztVV6x83uBp9t2F2T9aGX7fT
+	 +/5J/fqdTByNNWCAjWomgApGf3QbW0gd5ZT9IjTeXRAj0VyVwNpQ0MkNFOQ8o0beO7
+	 Fv7HCXLScWgv9CcxfbGGYpwPkYa6e5xY/V30KDRKixKIbHk5fTuLS41lfHcGL9a3Wg
+	 1SkrLaLDe/OA+Gok5MeDlND7c5LL6OEJ/tUMwWMp+scLnh2+hW0LLDqeBQtz+xkWce
+	 TGNeGUv3cSL7g==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D973817E0D02;
+	Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 8EDE748002F; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 08 Sep 2026 16:51:20 +0200
+Subject: [PATCH v6 02/10] PCI: dw-rockchip: Restore vpcie3v3 regulator
+ handle
 MIME-Version: 1.0
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
-In-Reply-To: <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Date: Tue, 8 Sep 2026 22:48:11 +0800
-X-Gm-Features: AcwNN1W4h4jJ4-flD89PVNlVIy_4xMFWj1BYld6srQf6ZceGKY-mFk9Pv3akMZI
-Message-ID: <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: akpm@linux-foundation.org, ljs@kernel.org, usama.arif@linux.dev, 
-	ziy@nvidia.com, baolin.wang@linux.alibaba.com, liam@infradead.org, 
-	nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com, 
-	baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, rppt@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com, 
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
+References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2369;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=kZcRY1c6StE/iaMpmxijtqbRZWber+zT7CoQUOt7B+w=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqgIPwdJHE0SdIZNod/yxUcsi9mnZYZi5vOp
+ gV2BaUaH13o94kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
+ O/qaUAoP/1jsU5fM8qWI7cJi8JJOag6aW+owxxRh1q9w3/2XzYTNsKsvXjczx9+1XqiiIs8HU9q
+ aBIkUH+DpIDIUA9ZCyYqwGCDleUbeGVvD5G7whCWrur9sdDsu6j3dSiNqYyOux4Epzj50+xJHcM
+ cfIXLCd++9+CQcBUqwBLj3qlPLxBxvOSHWwpO2QqBsw4r8/FWp84ab2Um4IRV60V2LsOW+ZLpRF
+ ktqnFIH8rT2UxFbp+lyC2nmWizs67+5DM8lGBR8J1cweR5lMBWPNpn5zUWnZbKh3rJij+HnufTO
+ EeTpQovIOJ2g6tL8UesKKbTb6Qj3RCvELjmAm01EPxvdExekuWgG8vYsbFLq5exEZvHk2ao/bcH
+ MaRxV1UgeLWCpt0BEnwWHpuXHYoVIidT8qtqZoBz2sxWzymHIWsei3aePTD/bMy3YdRFfakA8Gv
+ ga/12s+HXKn/QzC7PXD4xcv99GFp8oGzdP94mpjJ74cl6rBBxkbnEl8w4qFQLiyS7zKEKsb3aPk
+ Nx6Ik80z3UpGB/jHWD0L5d+gXitvs2eiA+fz+w8DmEMJFIZoLGGMX9BCpZl0pNOCTRCZJt9TuMW
+ 3zGcDEsnc9iwTn86j3EfvNe6b4xYYa0X89H/qRFHhWsKj8AWb4S9g51q1o0XI7+oOD/TZtRR6+d
+ 0MS6gmMRfM/fZzfUjoNEtgg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_154825_036247_C8FB496A 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20260908_075144_045327_EC04ECFA 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,125 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 8, 2026 at 4:30=E2=80=AFPM David Hildenbrand (Arm) <david@kerne=
-l.org> wrote:
->
-> On 9/1/26 17:18, Xueyuan Chen wrote:
-> > The persistent huge zero folio is shared globally and should stay zero
-> > after initialization. As Jann Horn pointed out [1], kernel bugs have
-> > ended up writing to pages that were meant to be read-only, including in
-> > security-sensitive cases. Making the folio read-only in the direct map
-> > turns such writes into faults instead of silent zero-page corruption.
-> >
-> > Add a page-based helper consistent with the existing direct-map interfa=
-ces.
-> > Handle TLB invalidation in the architecture implementation; unsupported
-> > architectures retain their current behavior.
-> >
-> > Protect the folio after initialization. Skip highmem folios, which have=
- no
-> > permanent direct-map mapping.
-> >
-> > Inspired by Jann Horn's read-only zero page work [1] and follow-up
-> > discussion [3] with Yang Shi.
-> >
-> > Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@=
-google.com [1]
-> > Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@ke=
-rnel.org [2]
-> > Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=3DjDx9E6dL=
-OULohnhBguvi9A@mail.gmail.com [3]
-> >
-> > Suggested-by: David Hildenbrand <david@kernel.org>
-> > Suggested-by: Usama Arif <usama.arif@linux.dev>
-> > Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> > Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > ---
-> >  include/linux/set_memory.h | 17 +++++++++++++++++
-> >  mm/huge_memory.c           | 13 ++++++++++---
-> >  2 files changed, 27 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> > index 3fe293cfed8c..ed9ce04b18a1 100644
-> > --- a/include/linux/set_memory.h
-> > +++ b/include/linux/set_memory.h
-> > @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
-> >  #endif
-> >  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
-> >
-> > +#ifndef set_direct_map_ro
-> > +/**
-> > + * set_direct_map_ro - make a direct-map range read-only
-> > + * @page: first page in the direct-map range
-> > + * @nr: number of pages in the range
-> > + *
-> > + * Make the direct-map range starting at @page read-only and invalidat=
-e stale
-> > + * writable translations before returning.
-> > + *
-> > + * Return: 0 on success, or a negative error code on failure.
-> > + */
-> > +static inline int set_direct_map_ro(struct page *page, unsigned int nr=
-)
-> > +{
-> > +     return 0;
-> > +}
-> > +#endif
-> > +
-> >  #ifdef CONFIG_X86_64
-> >  int set_mce_nospec(unsigned long pfn);
-> >  int clear_mce_nospec(unsigned long pfn);
-> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > index 54494c3fa983..742283b36d74 100644
-> > --- a/mm/huge_memory.c
-> > +++ b/mm/huge_memory.c
-> > @@ -42,6 +42,7 @@
-> >  #include <linux/pgalloc_tag.h>
-> >  #include <linux/pagewalk.h>
-> >  #include <linux/cleanup.h>
-> > +#include <linux/set_memory.h>
-> >
-> >  #include <asm/tlb.h>
-> >  #include "internal.h"
-> > @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
-> >       huge_zero_folio =3D alloc_huge_zero_folio();
-> >       if (!huge_zero_folio) {
-> >               pr_warn("Allocating persistent huge zero folio failed\n")=
-;
-> > -     } else {
-> > -             huge_zero_pfn =3D folio_pfn(huge_zero_folio);
-> > -             count_vm_event(THP_ZERO_PAGE_ALLOC);
-> > +             return 0;
-> >       }
-> > +
-> > +     huge_zero_pfn =3D folio_pfn(huge_zero_folio);
-> > +     count_vm_event(THP_ZERO_PAGE_ALLOC);
-> > +
-> > +     /* Highmem folios have no permanent direct-map mapping to protect=
-. */
-> > +     if (!folio_test_highmem(huge_zero_folio))
-> > +             set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_P=
-MD_NR);
->
-> Assuming we keep the page-based approach, can't we just move the highmem =
-test in
-> there?
+This reverts commit c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator
+setup with devm_regulator_get_enable_optional()"), which nicely cleaned
+up the code.
 
-Hi David,
+The vpcie3v3 regulator handle is needed to disable the regulator during
+system suspend (to be added in its own patch).
 
-We can move the check into set_direct_map_ro(). However, on x86,
-set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
-also expect callers to exclude highmem pages.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++++++++++++++------
+ 1 file changed, 17 insertions(+), 6 deletions(-)
 
-Would it make sense to make highmem a documented no-op for those
-helpers as well, so the direct-map APIs handle it consistently?
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index dc85564e5001..f67ad3c31c35 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -112,6 +112,7 @@ struct rockchip_pcie {
+ 	unsigned int clk_cnt;
+ 	struct reset_control *rst;
+ 	struct gpio_desc *rst_gpio;
++	struct regulator *vpcie3v3;
+ 	struct irq_domain *irq_domain;
+ 	const struct rockchip_pcie_of_data *data;
+ 	bool supports_clkreq;
+@@ -844,15 +845,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	/* DON'T MOVE ME: must be enable before PHY init */
+-	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
+-	if (ret < 0 && ret != -ENODEV)
+-		return dev_err_probe(dev, ret,
+-				     "failed to enable vpcie3v3 regulator\n");
++	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
++	if (IS_ERR(rockchip->vpcie3v3)) {
++		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
++			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
++					"failed to get vpcie3v3 regulator\n");
++		rockchip->vpcie3v3 = NULL;
++	} else {
++		ret = regulator_enable(rockchip->vpcie3v3);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "failed to enable vpcie3v3 regulator\n");
++	}
+ 
+ 	ret = rockchip_pcie_phy_init(rockchip);
+ 	if (ret)
+-		return dev_err_probe(dev, ret,
+-				     "failed to initialize the phy\n");
++		goto disable_regulator;
+ 
+ 	ret = reset_control_deassert(rockchip->rst);
+ 	if (ret)
+@@ -885,6 +893,9 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+ deinit_phy:
+ 	rockchip_pcie_phy_deinit(rockchip);
++disable_regulator:
++	if (rockchip->vpcie3v3)
++		regulator_disable(rockchip->vpcie3v3);
+ 
+ 	return ret;
+ }
 
-Thanks,
-Xueyuan
->
-> --
-> Cheers,
->
-> David
+-- 
+2.53.0
+
 
