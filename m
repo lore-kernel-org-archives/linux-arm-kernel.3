@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686AAC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88D2C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQ7tlYQD+juZcuDPbtM9CSBLnEhqYupQN8u5lqSsZ7w=; b=LAZu3dj2E7b6MWyypYdCzNJJIT
-	qDESrOGW34ayBa+r70rneLohkzLcSOryyZP7gN8coFK9OHelut0GmC0+evKBPpSyN/qYxYeC7Hhu9
-	Vm/wBRvyPTY4TCVGvFeAP5hfUjdwVgTSAPF2FLAAre+FMRVL8aGbhlKP2VKQR/iNAGnIny1xsLL8Z
-	peeVv5SMEsWasJNmJtgkJQSUHSPbIc0iWo+p+POUU8Ixxe4w65YNzLp8XdZKNG0K8dKeO2MpEIp3M
-	AIStaf7qxReYoKhJjkVtOqREhEFZDahnT6lTMvTZ06otkEFcpbkRkaN5cOPK8jQ13eA6FTzMJRf4g
-	oY5jmleQ==;
+	bh=GD9uqjMFzVAwI3HFLeQg05MCFM41kAwYmShtqMqbL/g=; b=uKG/Hel0id9OD60RLo1pQgNzRm
+	2pcPQCHjHMEVHLzxIFDDrVIdGSDvHC5LlT+ntN1TnrvdGAYabUCx+oyixjwz7AqjWF58XEPaIFlm1
+	srJWeOxZbAgLLI2ubybIhQDuJNeCqBWGWsb9GHAiJ87Jt6SpTMK9Q2QdCgvcoioBP3+Pl4qUu+28f
+	WmnjreIoKDmjjOUkm5aVmssxGCnvP5hgEnXnnWckbq/jZTQe8ZI0mPu1MfO+VJZ7r+jePTm3MYgEh
+	KCvehM3b8HvMRXH/hK6jiLd7sKEMbc7k7UhfY/ykgPNY4hCzBuOMneJFQnad7XUZIt8g2FuJNa/bP
+	dNrXVXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGI-00000009BfY-2rPh;
-	Tue, 08 Sep 2026 13:53:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3y9S-00000009YqZ-1RBf;
+	Tue, 08 Sep 2026 15:54:26 +0000
+Received: from extorris.mess.org ([92.243.27.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGE-00000009Bbj-3039
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 13:53:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=gQ7tlYQD+juZcuDPbtM9CSBLnEhqYupQN8u5lqSsZ7w=; b=a0SPH5w78DnCI0NZVWtU8vgD1H
-	mI38GPVD8F7UwonRSK+YOt/cYLvQAPw4xDJGMaS77OED7jWYbiGXRb5xBToD3Pqi3N4lD29tbkbFT
-	sfWBFnjv9nuJyPgT/nAdC5+HigmSd0ZmPPWFomefz3ZgI+jaM1mkpTk2LbQdyUqr7OS4Xu4ET/gV2
-	7f+IvanVs4iHOYKvU2K4tQJ4IzeaL32LqH8yNlojVtj+LCCl/BtPiFS9TozHcWkHL2D6yFeVAjY11
-	jJwwRtw9CQLmTVhVjTW3hjLqXs/z8o1a4ze+v/CpZNfRnv2deUdSyU8VyDuCduc+kPyN9tTxFcN/7
-	fu9uSwWw==;
-Received: from mail.fris.de ([116.203.77.234])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3wGB-0000000HUga-41lU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:53:17 +0000
-From: Frieder Schrempf <frieder@fris.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1788875589;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gQ7tlYQD+juZcuDPbtM9CSBLnEhqYupQN8u5lqSsZ7w=;
-	b=NjRa8QcrWnZMwQQAw8Fc6LZsyJgeuKd7ceRtEbWWmN9ezRrbBC2a1gTyER/2zOILOY2TkW
-	/CbygRkELVkk3kdC5MAJz7ATy8Url0NQQhLDiB82HmPadV+E/QTC21oDdGR+xxFDn3MTxv
-	dpqN0a2y26voVssePNZzOFO+8MCfNFT8v49YIKBHle31Nh03XQ5R2CfUl1W+BGF7NcFkNi
-	UcVOr6DMb3kJHpmZQxGMzQYF8o4I2yS3yfbg28gLUhA8Qp21JCmKgNBy9xpYTU5e6VyC9+
-	eSJAzNmfRIlvx87i0gAcqdQWDGgK1aEineWBlWPhyB7KTdRTcHT4nyzss94eEQ==
-Date: Tue, 08 Sep 2026 15:51:54 +0200
-Subject: [PATCH 7/9] arm64: dts: imx8mm-kontron: Add GPIO labels and
- comments
+	id 1x3y9Q-00000009YpD-04By;
+	Tue, 08 Sep 2026 15:54:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
+	t=1788882859; bh=544WQVZJeLYU7v3G3MGtP5wW/6wUd4jsHuoiTAyywkI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Xg8CIWyRctIvMnvVyP9XewMQybVqg7b0YVC9pBXSJDIIXjbCJM57nZV6iaz+upguk
+	 YNWyb1p62KeV1qLiCNAOaChsiNQs3xICig85+PgOlWRKuJfp5NN9EOqtV3pmHbt2Eq
+	 S0ohvTyhnl9tftVoH/ksQ8FoYY5jp/dHHlHX5nKslIxjffz56vzT2KI4Juniw8UN6Q
+	 JdA+183T5aKi/XOpf2SNaboyUIZYorzzfux1cwHpb3A8v6KMqHBpep2Ig1+4Hz7SDs
+	 irF3+nAxs/ccSIYQ4TumXsjc/bkariwqAHjTBcTl7TxtrZrAfsi/EY/UTnf1LJ5PKe
+	 Mw9rvycksrMgw==
+Received: by extorris.mess.org (Postfix, from userid 1004)
+	id B8B1141473; Tue, 08 Sep 2026 16:54:19 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
+	t=1788882859; bh=544WQVZJeLYU7v3G3MGtP5wW/6wUd4jsHuoiTAyywkI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Xg8CIWyRctIvMnvVyP9XewMQybVqg7b0YVC9pBXSJDIIXjbCJM57nZV6iaz+upguk
+	 YNWyb1p62KeV1qLiCNAOaChsiNQs3xICig85+PgOlWRKuJfp5NN9EOqtV3pmHbt2Eq
+	 S0ohvTyhnl9tftVoH/ksQ8FoYY5jp/dHHlHX5nKslIxjffz56vzT2KI4Juniw8UN6Q
+	 JdA+183T5aKi/XOpf2SNaboyUIZYorzzfux1cwHpb3A8v6KMqHBpep2Ig1+4Hz7SDs
+	 irF3+nAxs/ccSIYQ4TumXsjc/bkariwqAHjTBcTl7TxtrZrAfsi/EY/UTnf1LJ5PKe
+	 Mw9rvycksrMgw==
+Received: from maru.home (host86-150-50-53.range86-150.btcentralplus.com [86.150.50.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by extorris.mess.org (Postfix) with ESMTPSA id 0EAE141448;
+	Tue, 08 Sep 2026 16:54:19 +0100 (BST)
+From: Sean Young <sean@mess.org>
+To: linux-media@vger.kernel.org,
+	Sean Young <sean@mess.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Viktor Prutyanov <viktor.prutyanov@phystech.edu>
+Cc: Rik van Riel <riel@surriel.com>,
+	stable@vger.kernel.org,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 19/19] media: meson-ir-tx: Validate carrier and duty_cycle
+Date: Tue,  8 Sep 2026 16:52:07 +0100
+Message-ID: <528055c59611d6711e15b05c5ab150d4d3d338af.1788882189.git.sean@mess.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1788882189.git.sean@mess.org>
+References: <cover.1788882189.git.sean@mess.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-7-4d0e8a75db79@kontron.de>
-References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
-In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Oualid Derouiche <oualid.derouiche@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6947;
- i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=tLR/ApaxeJaUnZcSY/lBN9zmpG+rQxYFy6C/HB1ebwY=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsPOy+/5P17zQe8j0h2ttzxyx/jnn+Muj2J5HVO3ur
- go8L9PVUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMJF5kxgZLulMmTeBQ0ulJyQl
- tDb88/b6D6rOZzVF+A0SLrxeyTbxEyPD/3tucnfzvPNtu+f3HfaN2nR9SViatYDtFav4s4HhV6T
- 5AA==
-X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
- fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_145316_163046_827429D7 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260908_085424_205035_CB8307A2 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,229 +92,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Oualid Derouiche <oualid.derouiche@kontron.de>
+It is possible to set a combination of carrier and duty cycle that do
+not produce a correct signal. In addition, setting a carrier larger
+than USEC_PER_SEC will result in a divide by zero in
+meson_irtx_prepare_pulse() during transmit.
 
-Describe the GPIOs and their purpose using labels and comments.
-
-Signed-off-by: Oualid Derouiche <oualid.derouiche@kontron.de>
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
+Signed-off-by: Sean Young <sean@mess.org>
+Cc: stable@vger.kernel.org
 ---
- .../arm64/boot/dts/freescale/imx8mm-kontron-bl.dts | 81 +++++++++++++++-------
- 1 file changed, 55 insertions(+), 26 deletions(-)
+ drivers/media/rc/meson-ir-tx.c | 54 +++++++++++++++++++++++++++-------
+ 1 file changed, 44 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
-index 1f3d0577f10c..72588af057d2 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
-@@ -97,6 +97,7 @@ reg_vdd_5v: regulator-5v {
- 	};
+diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
+index 1ab898069e67..a410464ede22 100644
+--- a/drivers/media/rc/meson-ir-tx.c
++++ b/drivers/media/rc/meson-ir-tx.c
+@@ -76,11 +76,24 @@ struct meson_irtx {
+ 	unsigned long clk_rate;
  };
  
-+/* CAN */
- &ecspi2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_ecspi2>;
-@@ -124,6 +125,7 @@ &ecspi3 {
- 	status = "okay";
- };
- 
-+/* ETH0 */
- &fec1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_enet>;
-@@ -163,9 +165,24 @@ led@1 {
- 	};
- };
- 
-+/* DIO */
-+&gpio1 {
-+	gpio-line-names = "", "", "", "DOUT1",
-+			  "", "", "DIN1", "DOUT2",
-+			  "DIN2", "DOUT3", "DIN3", "DOUT4";
-+};
+-static void meson_irtx_set_mod(struct meson_irtx *ir)
++static bool meson_irtx_calc_mod(unsigned long clk_rate, u32 carrier,
++				u32 duty_cycle, unsigned int *pulse_cnt,
++				unsigned int *space_cnt)
+ {
+-	unsigned int cnt = DIV_ROUND_CLOSEST(ir->clk_rate, ir->carrier);
+-	unsigned int pulse_cnt = DIV_ROUND_CLOSEST(cnt * ir->duty_cycle, 100);
+-	unsigned int space_cnt = cnt - pulse_cnt;
++	unsigned int cnt;
 +
- &gpio4 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio4>;
-+	gpio-line-names = "", "CAN_ADR0", "", "",
-+			  "CAN_ADR1", "CAN_ADR2", "CAN_ADR3", "LED6",
-+			  "LED4", "LED5", "", "",
-+			  "", "", "DSI_MUX_SEL", "DSI_MUX_OE",
-+			  "HDMI_IRQ", "LED1", "LED3", "LED2",
-+			  "", "", "", "",
-+			  "", "ETH_IRQ", "LVDS_EN", "PHY_RST",
-+			  "CAN_IRQ", "UART2_RTS";
- 
- 	dsi_mux_sel_hdmi: dsi-mux-sel-hdmi-hog {
- 		gpio-hog;
-@@ -190,6 +207,10 @@ dsi-mux-oe-hog {
- 	};
- };
- 
-+&gpio5 {
-+	gpio-line-names = "", "", "DIN4";
-+};
++	cnt = DIV_ROUND_CLOSEST(clk_rate, carrier);
++	*pulse_cnt = DIV_ROUND_CLOSEST(cnt * duty_cycle, 100);
++	*space_cnt = cnt - *pulse_cnt;
 +
- &i2c3 {
- 	clock-frequency = <400000>;
- 	pinctrl-names = "default";
-@@ -274,6 +295,7 @@ &pwm2 {
- 	status = "okay";
- };
++	return *pulse_cnt >= 1 && *pulse_cnt <= 65536 &&
++	       *space_cnt >= 1 && *space_cnt <= 65536;
++}
++
++static void meson_irtx_write_mod(struct meson_irtx *ir, unsigned int pulse_cnt,
++				 unsigned int space_cnt)
++{
++	unsigned int cnt = pulse_cnt + space_cnt;
  
-+/* RS232 */
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-@@ -281,6 +303,7 @@ &uart1 {
- 	status = "okay";
- };
+ 	dev_dbg(ir->dev, "F_mod = %uHz, T_mod = %luns, duty_cycle = %u%%\n",
+ 		ir->carrier, NSEC_PER_SEC / ir->clk_rate * cnt,
+@@ -90,8 +103,10 @@ static void meson_irtx_set_mod(struct meson_irtx *ir)
+ 	       ir->reg_base + IRB_ADDR1);
+ }
  
-+/* RS485 */
- &uart2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart2>;
-@@ -324,6 +347,7 @@ usbnet: ethernet@1 {
- 	};
- };
+-static void meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
++static int meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
+ {
++	unsigned int pulse_cnt, space_cnt;
++
+ 	/*
+ 	 * Disable the TX, set modulator clock tick and set initialize
+ 	 * output to be high. Set up carrier frequency and duty cycle. Then
+@@ -100,13 +115,18 @@ static void meson_irtx_setup(struct meson_irtx *ir, unsigned int clk_nr)
+ 	 */
+ 	writel(~IRB_ENABLE & (IRB_MOD_CLK(clk_nr) | IRB_INIT_HIGH),
+ 	       ir->reg_base + IRB_ADDR0);
+-	meson_irtx_set_mod(ir);
++	if (!meson_irtx_calc_mod(ir->clk_rate, ir->carrier, ir->duty_cycle,
++				 &pulse_cnt, &space_cnt))
++		return -EINVAL;
++	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
+ 	writel(readl(ir->reg_base + IRB_ADDR0) & ~IRB_INIT_HIGH,
+ 	       ir->reg_base + IRB_ADDR0);
+ 	writel(IRB_FIFO_IRQ_ENABLE | MIRTX_FIFO_THD,
+ 	       ir->reg_base + IRB_ADDR3);
+ 	writel(readl(ir->reg_base + IRB_ADDR0) | IRB_ENABLE,
+ 	       ir->reg_base + IRB_ADDR0);
++
++	return 0;
+ }
  
-+/* SD-card */
- &usdhc2 {
- 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
- 	pinctrl-0 = <&pinctrl_usdhc2>;
-@@ -341,13 +365,13 @@ &iomuxc {
+ static u32 meson_irtx_prepare_pulse(struct meson_irtx *ir, unsigned int time)
+@@ -215,12 +235,17 @@ static irqreturn_t meson_irtx_irqhandler(int irq, void *data)
+ static int meson_irtx_set_carrier(struct rc_dev *rc, u32 carrier)
+ {
+ 	struct meson_irtx *ir = rc->priv;
++	unsigned int pulse_cnt, space_cnt;
++
++	if (!carrier)
++		return -EINVAL;
  
- 	pinctrl_adv7535: adv7535grp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_SAI1_TXD4_GPIO4_IO16		0x19
-+			MX8MM_IOMUXC_SAI1_TXD4_GPIO4_IO16		0x19 /* HDMI_IRQ */
- 		>;
- 	};
+-	if (carrier == 0)
++	if (!meson_irtx_calc_mod(ir->clk_rate, carrier, ir->duty_cycle,
++				 &pulse_cnt, &space_cnt))
+ 		return -EINVAL;
  
- 	pinctrl_can: cangrp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28		0x19
-+			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28		0x19 /* CAN_IRQ */
- 		>;
- 	};
+ 	ir->carrier = carrier;
+-	meson_irtx_set_mod(ir);
++	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
  
-@@ -356,7 +380,7 @@ pinctrl_ecspi2: ecspi2grp {
- 			MX8MM_IOMUXC_ECSPI2_MISO_ECSPI2_MISO		0x82
- 			MX8MM_IOMUXC_ECSPI2_MOSI_ECSPI2_MOSI		0x82
- 			MX8MM_IOMUXC_ECSPI2_SCLK_ECSPI2_SCLK		0x82
--			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13		0x19
-+			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13		0x19 /* ECSPI2_CS1 */
- 		>;
- 	};
+ 	return 0;
+ }
+@@ -228,9 +253,14 @@ static int meson_irtx_set_carrier(struct rc_dev *rc, u32 carrier)
+ static int meson_irtx_set_duty_cycle(struct rc_dev *rc, u32 duty_cycle)
+ {
+ 	struct meson_irtx *ir = rc->priv;
++	unsigned int pulse_cnt, space_cnt;
++
++	if (!meson_irtx_calc_mod(ir->clk_rate, ir->carrier, duty_cycle,
++				 &pulse_cnt, &space_cnt))
++		return -EINVAL;
  
-@@ -365,7 +389,7 @@ pinctrl_ecspi3: ecspi3grp {
- 			MX8MM_IOMUXC_UART2_RXD_ECSPI3_MISO		0x82
- 			MX8MM_IOMUXC_UART1_TXD_ECSPI3_MOSI		0x82
- 			MX8MM_IOMUXC_UART1_RXD_ECSPI3_SCLK		0x82
--			MX8MM_IOMUXC_UART2_TXD_GPIO5_IO25		0x19
-+			MX8MM_IOMUXC_UART2_TXD_GPIO5_IO25		0x19 /* ECSPI3_CS1 */
- 		>;
- 	};
+ 	ir->duty_cycle = duty_cycle;
+-	meson_irtx_set_mod(ir);
++	meson_irtx_write_mod(ir, pulse_cnt, space_cnt);
  
-@@ -385,40 +409,45 @@ MX8MM_IOMUXC_ENET_TXC_ENET1_RGMII_TXC		0x1f
- 			MX8MM_IOMUXC_ENET_RXC_ENET1_RGMII_RXC		0x91
- 			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
- 			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
--			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27		0x19 /* PHY RST */
--			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25		0x19 /* ETH IRQ */
-+			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27		0x19 /* PHY_RST */
-+			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25		0x19 /* ETH_IRQ */
- 		>;
- 	};
+ 	return 0;
+ }
+@@ -337,7 +367,11 @@ static int meson_irtx_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "modulator clock setup failed\n");
  
- 	pinctrl_gpio_led: gpioledgrp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_NAND_READY_B_GPIO3_IO16		0x19
--			MX8MM_IOMUXC_SAI1_RXD5_GPIO4_IO7		0x19
--			MX8MM_IOMUXC_SAI1_RXD6_GPIO4_IO8		0x19
--			MX8MM_IOMUXC_SAI1_RXD7_GPIO4_IO9		0x19
--			MX8MM_IOMUXC_SAI1_TXD5_GPIO4_IO17		0x19
--			MX8MM_IOMUXC_SAI1_TXD6_GPIO4_IO18		0x19
--			MX8MM_IOMUXC_SAI1_TXD7_GPIO4_IO19		0x19
-+			MX8MM_IOMUXC_SAI1_RXD5_GPIO4_IO7		0x19 /* LED6 */
-+			MX8MM_IOMUXC_SAI1_RXD6_GPIO4_IO8		0x19 /* LED4 */
-+			MX8MM_IOMUXC_SAI1_RXD7_GPIO4_IO9		0x19 /* LED5 */
-+			MX8MM_IOMUXC_SAI1_TXD5_GPIO4_IO17		0x19 /* LED1 */
-+			MX8MM_IOMUXC_SAI1_TXD6_GPIO4_IO18		0x19 /* LED3 */
-+			MX8MM_IOMUXC_SAI1_TXD7_GPIO4_IO19		0x19 /* LED2 */
- 		>;
- 	};
+-	meson_irtx_setup(ir, clk_nr);
++	ret = meson_irtx_setup(ir, clk_nr);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "carrier %u, duty_cycle %u%% not supported at clk_rate %luHz\n",
++				     ir->carrier, ir->duty_cycle, ir->clk_rate);
  
- 	pinctrl_gpio: gpiogrp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x19
--			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7		0x19
--			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x19
--			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11		0x19
--			MX8MM_IOMUXC_GPIO1_IO06_GPIO1_IO6		0x19
--			MX8MM_IOMUXC_GPIO1_IO08_GPIO1_IO8		0x19
--			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10		0x19
--			MX8MM_IOMUXC_SAI3_MCLK_GPIO5_IO2		0x19
-+			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x19 /* DOUT1 */
-+			MX8MM_IOMUXC_GPIO1_IO06_GPIO1_IO6		0x19 /* DIN1 */
-+			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7		0x19 /* DOUT2 */
-+			MX8MM_IOMUXC_GPIO1_IO08_GPIO1_IO8		0x19 /* DIN2 */
-+			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x19 /* DOUT3 */
-+			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10		0x19 /* DIN3 */
-+			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11		0x19 /* DOUT4 */
-+			MX8MM_IOMUXC_SAI3_MCLK_GPIO5_IO2		0x19 /* DIN4 */
- 		>;
- 	};
- 
- 	pinctrl_gpio4: gpio4grp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_SAI1_TXD2_GPIO4_IO14		0x19
--			MX8MM_IOMUXC_SAI1_TXD3_GPIO4_IO15		0x19
-+			/* CAN address DIP switches 1-4 */
-+			MX8MM_IOMUXC_SAI1_RXC_GPIO4_IO1			0x19 /* CAN_ADR0 */
-+			MX8MM_IOMUXC_SAI1_RXD2_GPIO4_IO4		0x19 /* CAN_ADR1 */
-+			MX8MM_IOMUXC_SAI1_RXD3_GPIO4_IO5		0x19 /* CAN_ADR2 */
-+			MX8MM_IOMUXC_SAI1_RXD4_GPIO4_IO6		0x19 /* CAN_ADR3 */
-+			MX8MM_IOMUXC_SAI1_TXD2_GPIO4_IO14		0x19 /* DSI_MUX_SEL */
-+			MX8MM_IOMUXC_SAI1_TXD3_GPIO4_IO15		0x19 /* DSI_MUX_OE */
- 		>;
- 	};
- 
-@@ -444,7 +473,7 @@ MX8MM_IOMUXC_SPDIF_RX_PWM2_OUT			0x19
- 
- 	pinctrl_sn65dsi84: sn65dsi84grp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_SAI2_TXD0_GPIO4_IO26		0x19
-+			MX8MM_IOMUXC_SAI2_TXD0_GPIO4_IO26		0x19 /* LVDS_EN */
- 			MX8MM_IOMUXC_SD2_WP_GPIO2_IO20			0x19
- 		>;
- 	};
-@@ -463,13 +492,13 @@ pinctrl_uart2: uart2grp {
- 			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX		0x0
- 			MX8MM_IOMUXC_SAI3_TXC_UART2_DCE_TX		0x0
- 			MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B		0x0
--			MX8MM_IOMUXC_SAI3_RXC_GPIO4_IO29		0x19
-+			MX8MM_IOMUXC_SAI3_RXC_GPIO4_IO29		0x19 /* UART2_RTS */
- 		>;
- 	};
- 
- 	pinctrl_usb_eth2: usbeth2grp {
- 		fsl,pins = <
--			MX8MM_IOMUXC_NAND_CE1_B_GPIO3_IO2		0x19
-+			MX8MM_IOMUXC_NAND_CE1_B_GPIO3_IO2		0x19 /* ETH_RST */
- 		>;
- 	};
- 
-@@ -481,7 +510,7 @@ MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x1d0
- 			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d0
- 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d0
- 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d0
--			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12		0x19
-+			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12		0x19 /* SD2_CD */
- 			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0xd0
- 		>;
- 	};
-
+ 	ret = devm_request_irq(dev, irq,
+ 			       meson_irtx_irqhandler,
 -- 
 2.55.0
 
