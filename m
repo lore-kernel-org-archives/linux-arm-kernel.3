@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A90F6C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703D8C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wdl8c7M+tt14LjT7PIQXzPVgW6VzTHh7LoJtKwYpFJI=; b=1AD1vl1kWuFvdRoUz0ul5InI3F
-	KStxsk3/uY3QqJeNk8cjNLMY8Nv3nG9c/wlyytcIQsm3CuROlbX+0B77MZKCr/t6EQKqj1kcmBvh4
-	MSYN0g2oc10ulzTwQBT5Pqq0FxlNvJjYF+rO1j3WtzdZNdIr1PsasFsMtIM/9M1aOftFnCEErsE96
-	lfdk5883BxTmSMhm6IJAsBIhvd6QVR2+SS0xb+2bBtdC2Utl28JY4Wp3Vw2x2cAGHqKFDnsIOpS7b
-	MnOdx9wIGWmdrOMItq/rGF75M8zhGP+hgyGeXrv13G9Z1vcRwKarycdoaulYYXM6cjsMXzd/QlyCz
-	tpyhjlFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d0RVUKGzQViRfhpTWiTrG2gQKE1cWfQApfz0Noa/nxQ=; b=YNRgbGL9L2MWgYkIKtuNSiGBHV
+	nO1xw2K8HNF1WxsLtPfoSZ+2DEdrvfegr4xTEWgZnoyoRFkQkZcZaY5snGPX0gnWa98fIEKEJMTCO
+	N09Y8oBkBx8wtSu4Qu62gRboo4NsRSJ5x4Ek4e/9TB0J1VXOFeb1Ahq3ZSrOZp1dHjDbty8bjUDT6
+	Meeru2N1fBdNf5Q1s5VKY3qBHy7/MKVkofIVWXvmbitV7uztH/Sr/ruet7Zogea+hGIVx8W2NTyJF
+	fvuV/21ITvyLJWkLq/1CbAoyFERaiVTEykUX0c97lrfTmvGfA1fuBDxipFQHydWESDYKV1SK1k8be
+	JShPy8TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3svn-00000008kZf-2XmY;
-	Tue, 08 Sep 2026 10:19:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3swx-00000008kp9-0ox8;
+	Tue, 08 Sep 2026 10:21:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3svl-00000008kZQ-3QgU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:19:58 +0000
+	id 1x3swt-00000008koK-3KXA;
+	Tue, 08 Sep 2026 10:21:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44164601DB;
-	Tue,  8 Sep 2026 10:19:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEDD31F00A3A;
-	Tue,  8 Sep 2026 10:19:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4183643408;
+	Tue,  8 Sep 2026 10:21:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22EE11F00A3A;
+	Tue,  8 Sep 2026 10:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788862797;
-	bh=Wdl8c7M+tt14LjT7PIQXzPVgW6VzTHh7LoJtKwYpFJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VmsMtaEGtzt6PqruW8ixtkXnoOgjbEhTG3VYEP2wCc/2E9HpPHq2Pu/JI80gPN15R
-	 /E/+J0RtCiZJZ6SuI03fsy1zJDXCO05pXgbXSBPF39TDkHs4BD+YQu3WxslJMbptBC
-	 NZsINOo2eYQ6TV9iYFPFQCsJM2KSaN+4hwHwjA5JzEFYzldVgw5mE2KdT0Qrohrjwx
-	 EemTmLTPUPBKCnHpsAKR9gxevstes22h/dhm5UqddCIvFtdcULq1JrItj3ApXl+IFJ
-	 K5hdDbp9tOp3d7IrEI7vDTQUgMxaKC0XYoZDeYZVIOjiBucTmCjjZiP/AIxOliu6VA
-	 DWJyC1mbvVGdw==
-Date: Tue, 8 Sep 2026 11:19:51 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH 09/19] arm64: smp: Defer RCU registration during
- secondary CPU bringup
-Message-ID: <ap_hR1mntzm-TZOP@willie-the-truck>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-10-will@kernel.org>
- <45c37592-f05d-4b1c-812b-0cb38d1c3e24@huawei.com>
+	s=k20260515; t=1788862867;
+	bh=d0RVUKGzQViRfhpTWiTrG2gQKE1cWfQApfz0Noa/nxQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=FDr4rG1jykxjH42fVaoN3noXPX3ildn87M7q7ySMDJV9Uto2rD25ishapl9v/Tp/S
+	 rcrM6B5Uf9+PXJLuvpv9rYpa6YCKVMLHfFaF1lZ4mCDxzo7DnZeMt7ZGbeNe+/Ez7S
+	 4WuEKlQZRMWMVvPDi1mb+8JkrqOadPHvtt+x2F/QaGZzkqpp9I7J+BtGRe2hMPMb5V
+	 QT2b8qFNojxEp6ZYsN5jlm4v3AYIJ2ps5m8Dwsuf8d+WoWc5FMogEEHlQjBVq1SX+Q
+	 nRcekTtBEl5Wm5PQcFkuqfsFOB/OM9Lb9E7Z9nsrbKdNKzR9zGXX19o4jEl0qZ84uu
+	 3D0Mp5QpoCqZw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1983539E9602;
+	Tue,  8 Sep 2026 10:20:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <45c37592-f05d-4b1c-812b-0cb38d1c3e24@huawei.com>
+Subject: Re: [PATCH net-next v2 0/3] net: Make sure clk_init_data is fully
+ initialized
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178886280589.3447437.8919325096369252990.git-patchwork-notify@kernel.org>
+Date: Tue, 08 Sep 2026 10:20:05 +0000
+References: <cover.1788425654.git.geert+renesas@glider.be>
+In-Reply-To: <cover.1788425654.git.geert+renesas@glider.be>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: theo.lebrun@bootlin.com, conor.dooley@microchip.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, neil.armstrong@linaro.org, khilman@baylibre.com,
+ jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+Hello:
 
-On Tue, Sep 08, 2026 at 04:55:36PM +0800, Jinjie Ruan wrote:
-> 在 2026/9/8 0:40, Will Deacon 写道:
-> > Calling rcutree_report_cpu_starting() early during boot can lead to
-> > livelocks with the generic CPU hotplug mechanism if the boot CPU blocks
-> > on an RCU grace period while the CPU being onlined is spinning in
-> > cpuhp_ap_sync_alive().
-> > 
-> > In preparation for enabling the generic CPU hotplug code on arm64, split
-> > up the trace_hardirqs_off() call during secondary CPU bringup so that we
-> > update lockdep early but defer the tracing updates until after
-> > notify_cpu_starting() has registered the new CPU with RCU, allowing us
-> > to drop the explicit call to rcutree_report_cpu_starting() entirely.
-> > 
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> >  arch/arm64/kernel/smp.c | 5 ++---
-> >  include/linux/rcutree.h | 2 +-
-> >  2 files changed, 3 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > index f4cabf9e19e6..ff68640d0c0b 100644
-> > --- a/arch/arm64/kernel/smp.c
-> > +++ b/arch/arm64/kernel/smp.c
-> > @@ -217,8 +217,7 @@ asmlinkage notrace void secondary_start_kernel(void)
-> >  	if (system_uses_irq_prio_masking())
-> >  		init_gic_priority_masking();
-> >  
-> > -	rcutree_report_cpu_starting(cpu);
-> > -	trace_hardirqs_off();
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Thu,  3 Sep 2026 11:00:38 +0200 you wrote:
+> Hi all,
 > 
-> I think we need to handle the printk problem before this patch as we
-> discussed earlier.
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
 > 
-> Otherwise defer the rcutree_report_cpu_starting() will trigger a
-> false-positive lockdep"suspicious RCU usage" splat during early lock
-> acquisitions as commit ce3d31ad3cac ("arm64/smp: Move
-> rcu_cpu_starting() earlier") pointed out.
+> [...]
 
-Sorry, I meant to mention this in the cover letter but forgot about it.
-I'm not sure that ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting()
-earlier") is still relevant with the latest printk/console/lockdep code.
-I tried quite hard to trigger lockdep splats manually, but the only way
-I could do it was by using the "%pS" specifier to print the name of a
-symbol in a module, which would cause an RCU walk of the module symbols
-in the kallsyms code! Manually calling WARN() or even rcu_read_lock() /
-spin_lock() did _not_ trigger a splat.
+Here is the summary with links:
+  - [net-next,v2,1/3] net: macb: Make sure clk_init_data is fully initialized
+    https://git.kernel.org/netdev/net-next/c/83e6bb28644a
+  - [net-next,v2,2/3] net: mdio: mux-meson-g12a: Make sure clk_init_data is fully initialized
+    https://git.kernel.org/netdev/net-next/c/4bee840c7e43
+  - [net-next,v2,3/3] net: phy: air_en8811h: Make sure clk_init_data is fully initialized
+    https://git.kernel.org/netdev/net-next/c/64adb67e4568
 
-Since that's not something I think we should be doing this early, I
-decided to leave the code as-is unless I have a way to trigger a lockdep
-splat with the relatively simple prints we have on the early error paths.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Will
+
 
