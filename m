@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21799C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254A9C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1CwHS2/nsrDKd3k/9JfKDk6PS1YMuwHbvvQdCk2wV4=; b=oN3bSQSQZHucRDLTfZ53nRauhu
-	VivU5TcGyr1LaY0Od0LNDTk0cdey0v2q4vOxkNKhRHps7LhjKznJGe1BtruKiY24zVBILWLd4IOj2
-	kIJcU52q0FCj0aEokOGxouUKEw9c8mmrCp2dNA5YZ3+ypUP2HsQRIdAmdOpwzbgPRcFZcdLVGseO4
-	1Hq93kZdv90Ny88Jy1RCrBqta05GVdthGHPbPHx+9j8RSZl+7uWkWVjgqDxCuzvK4fbAL1k4CeZxy
-	92OwHoapcbUnB0SZDaP6e8PLzEo/3sWDjauYKmr9xI4QdMGu+ch5Wd94a96/nk8ngnNf9UXoSom32
-	/gMUq3Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OTLgYKKYKXTmUouDqQirSDq61MXeCmirukVzdyfDTKw=; b=T+0S5URdZHz1yXmwiLJd13YYH9
+	7npYRAjL5zUQGBAbmpfloFrWj3JKVBWF9HFvY1EfmlxwWd+FSfw40H08NrhGCjr8S7PfLV0F/ZUSC
+	+zB97kL3cnSoE1qMs0SQWIm9/ppkL3JXgHLZTw4IEZhvayVimDlRPBWHzD0pK3cy9YXLsEUStxXyF
+	fi25Q8zFHxH37eYNULTy6jIObJ/cmlyI1R7qDlyYpSjGdheuwtzYGi30pNJviks5sFBGK4xdFMJnR
+	gRkjJTeTwYb8HWY4gJ/vUcKIlM2pdwKGbeK/hpLYRoPmgQlBmhp2KFjjEjOeCuo6dLVACrPh3APwT
+	MxCJcClg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rcP-00000008TnP-2vwv;
-	Tue, 08 Sep 2026 08:55:55 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1x3rey-00000008UCt-2U1N;
+	Tue, 08 Sep 2026 08:58:32 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rcL-00000008TmD-3D1f
+	id 1x3reu-00000008UCG-2R9m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 08:55:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=U1CwHS2/nsrDKd3k/9JfKDk6PS1YMuwHbvvQdCk2wV4=;
-	b=Und2DNUI6zsh7OPNZihKUrvzzBl+OPB7CP3Un5deGSwVqZVZEd97jWEcYpaCo+I+36tOjTZAK
-	7Ye7f2Lo6/YoSoqI8F7LMPsN3hBMfhJQ9qGjygsS7HlpHzLnIzBA1q1pX+Qo/XCSd5M/pAkL5U8
-	twPXCaF4w+UVbTy+E/0fIzI=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hfHYh6gZXzcb49;
-	Tue,  8 Sep 2026 16:44:40 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9381940537;
-	Tue,  8 Sep 2026 16:55:37 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 16:55:36 +0800
-Message-ID: <45c37592-f05d-4b1c-812b-0cb38d1c3e24@huawei.com>
-Date: Tue, 8 Sep 2026 16:55:36 +0800
+	Tue, 08 Sep 2026 08:58:30 +0000
+X-PTX-Original-Recipient: alexandre.belloni@bootlin.com
+X-PTX-Original-Recipient: mailhol@kernel.org
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-PTX-Original-Recipient: imx@lists.linux.dev
+X-PTX-Original-Recipient: nicolas.ferre@microchip.com
+X-PTX-Original-Recipient: s32@nxp.com
+X-PTX-Original-Recipient: ciprianmarian.costea@oss.nxp.com
+X-PTX-Original-Recipient: claudiu.beznea@tuxon.dev
+X-PTX-Original-Recipient: dev.kurt@vandijck-laurijssen.be
+X-PTX-Original-Recipient: linux-can@vger.kernel.org
+X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C9AEA20177F;
+	Tue, 08 Sep 2026 10:58:26 +0200 (CEST)
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1x3res-000gXD-2J;
+	Tue, 08 Sep 2026 10:58:26 +0200
+Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 616925972E3;
+	Tue, 08 Sep 2026 08:58:26 +0000 (UTC)
+Date: Tue, 8 Sep 2026 10:58:25 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>, 
+	linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>
+Subject: Re: [PATCH v5 0/3] can_rx_offload keeps a lockless irq_queue that
+ the IRQ handlers fill and that is later spliced under skb_queue.lock into
+ the NAPI-facing skb_queue. This works as long as a single context fills the
+ irq_queue. flexcan with FLEXCAN_QUIRK_SECONDARY_MB_IRQ and mcf5441x use two
+ mailbox IRQ lines. When those are affined to different CPUs the two handlers
+ can enqueue into the same list at the same time and corrupt it.
+Message-ID: <20260908-defiant-mauve-woodpecker-0e0f62-mkl@pengutronix.de>
+References: <20260907104942.17089-1-ciprianmarian.costea@oss.nxp.com>
+ <20260907-lively-easygoing-groundhog-51cdd3-mkl@pengutronix.de>
+ <6bdc8044-34de-4d7a-89a5-908de7f8b044@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/19] arm64: smp: Defer RCU registration during secondary
- CPU bringup
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-10-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-10-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2x5jigtab6tpbqlb"
+Content-Disposition: inline
+In-Reply-To: <6bdc8044-34de-4d7a-89a5-908de7f8b044@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_015550_482924_3E95DE5D 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20260908_015828_937677_5CC4F11D 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +96,91 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--2x5jigtab6tpbqlb
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 0/3] can_rx_offload keeps a lockless irq_queue that
+ the IRQ handlers fill and that is later spliced under skb_queue.lock into
+ the NAPI-facing skb_queue. This works as long as a single context fills the
+ irq_queue. flexcan with FLEXCAN_QUIRK_SECONDARY_MB_IRQ and mcf5441x use two
+ mailbox IRQ lines. When those are affined to different CPUs the two handlers
+ can enqueue into the same list at the same time and corrupt it.
+MIME-Version: 1.0
 
-在 2026/9/8 0:40, Will Deacon 写道:
-> Calling rcutree_report_cpu_starting() early during boot can lead to
-> livelocks with the generic CPU hotplug mechanism if the boot CPU blocks
-> on an RCU grace period while the CPU being onlined is spinning in
-> cpuhp_ap_sync_alive().
-> 
-> In preparation for enabling the generic CPU hotplug code on arm64, split
-> up the trace_hardirqs_off() call during secondary CPU bringup so that we
-> update lockdep early but defer the tracing updates until after
-> notify_cpu_starting() has registered the new CPU with RCU, allowing us
-> to drop the explicit call to rcutree_report_cpu_starting() entirely.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/smp.c | 5 ++---
->  include/linux/rcutree.h | 2 +-
->  2 files changed, 3 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index f4cabf9e19e6..ff68640d0c0b 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -217,8 +217,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	if (system_uses_irq_prio_masking())
->  		init_gic_priority_masking();
->  
-> -	rcutree_report_cpu_starting(cpu);
-> -	trace_hardirqs_off();
 
-Hi Will,
+FYI: somehow the series description ended up in the subject
 
-I think we need to handle the printk problem before this patch as we
-discussed earlier.
+On 07.09.2026 18:07:42, Ciprian Marian Costea wrote:
+> On 9/7/2026 4:49 PM, Marc Kleine-Budde wrote:
+> > On 07.09.2026 12:49:39, Ciprian Costea wrote:
+> > > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > >
+> > > This series:
+> > >    1. Makes the irq_queue per-CPU so the handlers no longer share a l=
+ist.
+> >
+> > As sashiko pointed out, using per-CPU variables in a preemptible context
+> > doesn't work. When proposing to use per-CPU variables I haven't thought
+> > that far. So in hindsight this approach is not good.
+> >
+> > What about following what NAPI does. Have a dedicated data structure per
+> > IRQ. I think these ones are needed:
+> >
+> > | 	struct sk_buff_head skb_irq_queue;
+> > | 	u32 skb_queue_len_max;
+> > |
+> > | 	unsigned int mb_first;
+> > | 	unsigned int mb_last;
+> >
+> > And pass them to can_rx_offload_queue_timestamp() and
+> > can_rx_offload_irq_finish().
 
-Otherwise defer the rcutree_report_cpu_starting() will trigger a
-false-positive lockdep"suspicious RCU usage" splat during early lock
-acquisitions as commit ce3d31ad3cac ("arm64/smp: Move
-rcu_cpu_starting() earlier") pointed out.
+If the RX-Offload knows the number of concurrent IRQs, you can optimize
+for the single IRQ case and keep skb_queue_splice_tail_init(), while for
+the other case you should sort the skbs into the offload->skb_queue
+list.
 
-Link:
-https://lore.kernel.org/all/483e471d-d51b-4991-98d8-c0b4a2cdf8d8@huawei.com/
+> Thanks for replying.
+> Indeed the per-CPU approach should be dropped. I've also missed the
+> PREEMPT_RT case.
+> Your proposal seems better than even having a dedicated spinlock for
+> skb_irq_queue operations as I've originally thought.
+>
+> One thing to confirm before I go ahead and implement this approach for V6:
+> Having the following connected patchset in mind [1] which separates the I=
+RQ
+> handlers, both flexcan MB IRQs currently run flexcan_do_mb() over the full
+> iflag. Therefore, to actually separate the producers I'll have each IRQ
+> drain only its own mb_first..mb_last range into its own queue - is this t=
+he
+> right approach ?
 
-Best regards,
-Jinjie
+Yes!
 
-> +	lockdep_hardirqs_off(CALLER_ADDR0);
->  
->  	/*
->  	 * If the system has established the capabilities, make sure
-> @@ -242,6 +241,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	 * Enable GIC and timers.
->  	 */
->  	notify_cpu_starting(cpu);
-> +	trace_hardirqs_off_finish();
->  
->  	ipi_setup(cpu);
->  
-> @@ -411,7 +411,6 @@ void __noreturn cpu_die_early(void)
->  
->  	/* Mark this CPU absent */
->  	set_cpu_present(cpu, 0);
-> -	rcutree_report_cpu_dead();
->  
->  	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
->  		update_cpu_boot_status(CPU_KILL_ME);
-> diff --git a/include/linux/rcutree.h b/include/linux/rcutree.h
-> index 16a04202888b..e6ad4f2a475c 100644
-> --- a/include/linux/rcutree.h
-> +++ b/include/linux/rcutree.h
-> @@ -116,7 +116,7 @@ int rcutree_offline_cpu(unsigned int cpu);
->  
->  void rcutree_migrate_callbacks(int cpu);
->  
-> -/* Called from hotplug and also arm64 early secondary boot failure */
-> +/* Called from hotplug */
->  void rcutree_report_cpu_dead(void);
->  
->  #endif /* __LINUX_RCUTREE_H */
+Please look out for shared ressources (read-modify-write registers,
+etc..) when accessing the mailboxes concurrently from 2 (or more) IRQs.
+After a quick look I haven't found any.
 
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--2x5jigtab6tpbqlb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCap/OLwAKCRDMOmT6rpmt
+0gC+AP0XJdF0jo1CfnOQqWOPjOdZRSTRYgJxQ/iIjLgdE84A3wEAyf2YhGx0Gr5s
+CMrG0nCwwLxVzMmHBw9CJ51rtQbPXAQ=
+=hr1P
+-----END PGP SIGNATURE-----
+
+--2x5jigtab6tpbqlb--
 
