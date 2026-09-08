@@ -4,109 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BBEC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 23:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1490CC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 23:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=; b=SJZiHI6d9PEmABLuqDpacuOnvB
-	hWK+hSoJqUQKswgdRY1kM5tTOJdsJwUfXwy8v759h97nMyikeaDWsdQwx+y5eVszwHTsVlm6/mcQV
-	yiR4vGK91BMHIBVZiI6+MAczOgvOgfHrgLFnbchpOrIqM7o5yL436DoPqZhLybkgN5s+Kgf4PrMuU
-	YfaB0Kb5ECqlt6mbLU4ylHAE6mVMIs63kWK/WZCcXPCbcr7sqzPV3HUOv+RUQC2+fyJqaOv0/eHqr
-	GPLjExvpRa0UCUXcqAb16g5MsFHbaHu9u3j2E40FCqU6G6mO08nPtg07dUEZMEyAGVWDKs0cOKvmZ
-	KPIyJWQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=; b=Wp5ACcpsiIYpr6OmoYYrgjhghz
+	wDLw+p92SnJsJ0lvnM+61goDlU/hkwgnNuTJLClTVHL5nSDSm+/QdbnzIbXjB7oE+4REkL8PEqifV
+	NB9P7XtTVVTirMKiMKUOmKJDtgNWZGejiXO3NX23ZYW72JTE5lVmL1nbCMtSwaCEiKvMfhYaiyvN3
+	4EQijLvOIdHk13C3U3X0eYvjEbTYAnLkbMdI+7bGHjvRSna5zVbpgSZW6JPpN2FGm+kqwL+qwLZ5Q
+	3JCBpC08jHVJ5s+UJU4pgiRJ3ryfmqwxu6HUGBw8h2q6FRMRD5x3YnRD0nlV4CAe7vKgV24KUL0bm
+	9ogdDBUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44wl-0000000AR2g-2Jcy;
-	Tue, 08 Sep 2026 23:09:47 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1x44zc-0000000ARHj-3kxi;
+	Tue, 08 Sep 2026 23:12:44 +0000
+Received: from mail-oi2-x0b.google.com ([2607:f8b0:4864:32::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44wi-0000000AR1V-2qor
+	id 1x44zZ-0000000ARHL-1hmN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 23:09:46 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49a97714f5dso51495945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 16:09:44 -0700 (PDT)
+	Tue, 08 Sep 2026 23:12:43 +0000
+Received: by mail-oi2-x0b.google.com with SMTP id 5614622812f47-4af7193adb7so1320985b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 16:12:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788908982; x=1789513782; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=;
-        b=BsFY6RjcNuBAwIOLfOqoWMj4MhRhEXsxt85M897iDgKpZCvNHmkNW9AYAaesmzg0+2
-         E+Gqeo4ureUqO2ZSNTa8Pc0fMRd5Zkxbqbuu2dqaNn8lUTY2nL67ZcUJMHdS7PgXw9Ac
-         o4xqP5x3JrEkX3+8lf8IUIVh26MU8mBITEm0VAZBtl2acZsUu9oD93kUNuriaLVjIXaT
-         PlFEt2+wSh9mCi08XY247MNpD5c4/qMuVM2tVm5PJrpak627V+a8dmECHtzr1rhZ1aNi
-         TMrjofqeP/k1/QJgepbo8/hT3CIOrJ9t+N3zeo3AB5UGLzaEkFIF900/ZcUE3SI0Rgi9
-         NFkw==
+        d=gmail.com; s=20251104; t=1788909159; x=1789513959; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=;
+        b=nZr0QeLWIHTrVUIWB6ErwfqruBKD5kUiwVuo0zR4dX6qE0jH6BFus9HIFSbBwemWt/
+         JZiJORgbHhNJAjw4F11/h1sfXb09GaTeKhlN/K9uNBGsyMQOoqSLBux2sScmKEtiNhXC
+         /E1xlhzO6ZeTVydV6tzZBpuv6u+2FX6rbMvWcGlK9zG4oYLYOBdJVBNcmxINCUNOWsjm
+         NK9cV01xB7E3o4/PLC8jFveZ6WxigMJMw7wVAGFbveV6ATopIjWyMYJgu6APHbniTE65
+         JRZoIVbkJDJG1/bH88YP7uB3sgt7bEKc8tEHLt86x5Q9ZDiu0Y9p9RniLzMjvIrm0+O2
+         KY8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788908982; x=1789513782;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=;
-        b=TeFTGDKkkIZtKfDwc9yjPimPLQcKsGj/gCcwYWj2od7liNl49Nny8HVrtotnu0HKyX
-         lG7Y8jn3Ologesnr0SIfcMoWHUYw3Ff0N04TsdtJaJl5Cd4MdU1jA0fhtlacdr1Ve2oU
-         ry5mvemvRt9AGNzrTNfHfTcQJMRMkjlucMtg3WSu8PFgy0GSIpspYJu5KINnO+4gsNoE
-         P7y+FjF7da3CxhoESuxf31NFK/epGGKbNFY79oBXuru5/j6mp6yR4vkHTKaVVCnsGkkq
-         eAZzCtQnuTE6lwz7ATIGkFQlP0VubxvcZpagMYdxybXX/xHihvJchZHDNsLthFKwa/cJ
-         5z0w==
-X-Forwarded-Encrypted: i=1; AKwUvBxvlbFXYRaVw1Xv5Wih7QD5PtCW5CU2aazNjaBOdQlBLF34V2D5tkp7ElrDoH3ITtY4lP/dwKk4CrS3F+08vzaR@lists.infradead.org
-X-Gm-Message-State: AFuF++nuHzDaQArbKkqrTdQ+vcE2gKzYWD89jB9x785mYKJ4rY/LMd9V
-	KMZyRgfZ/fnmb9tr0DlHLDgrJzDGT3uW7GEhSK3i+GCKITmQJU4XEPkg
-X-Gm-Gg: AYBFou2kvoLjMwSYKfpw5ENgQLOcmh+HjtxoHf3AWZGaJAj44lVreSF/thDoMhty5jX
-	6UYoHJkiIKe9jBJHKSEI2gl/OFA59FP20ZSJX3nfUcubxvjRj30SqO6ptbx7vROy8NYWSH8aHei
-	jgv1x8FzBRcnTfAzGtLsh7uHXy8MLs4jt+KBbUvgelj8ltLfnWHaLBKbh5Y+41jskkom8woY3nC
-	S9xRuNeH+bjZg9FLNyYK2jYgr0j+fiMp9pK4o13pGF4MnFtDOIPvsMNrF3j5rH/fwKPm0+GEA2O
-	DWbXcl5nMOZTzA+SP9eTxrSlkQfRJcC7s/mAh3Ug74CnBFkvnw/ZG1IjMZ2QJN4EVqXf0sapPGF
-	wM7ICGDpUDdNtf9Qw1joBe+K4OFF9pyHgYKXAwJobT9vDlOpj03lTHpSW0/FQpVgWtexFQPBRAc
-	F2kP2tHiIWR12NNQ6SB8SFxMCwgasaQIX5DYDWD+TyZ+acGehZHsvUNMyIhkzU2qLNTLy38MChL
-	D8NhrVl/H7qk9lYvwwWtagDwsjZ1C3y4MTsIG9iempqgMrK5mvvxN6wKISXdHzrDbWDAf3WE0/R
-	qL5MhT+ce6u5of9sjKB1HlcBfw==
-X-Received: by 2002:a05:600c:348a:b0:49c:fa20:cc03 with SMTP id 5b1f17b1804b1-49cfa20ccedmr254595975e9.26.1788908982187;
-        Tue, 08 Sep 2026 16:09:42 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-095-117-170-066.95.117.pool.telefonica.de. [95.117.170.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cfd3f8192sm385530905e9.3.2026.09.08.16.09.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 08 Sep 2026 16:09:41 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Nicolas Pitre <nico@fluxnic.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	linux-modules@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] module: reject out-of-range relocation target indices
-Date: Wed,  9 Sep 2026 01:08:15 +0200
-Message-Id: <20260908230815.78409-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        d=1e100.net; s=20251104; t=1788909159; x=1789513959;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=smnQky0ErsfDpiZznR4+kV0USKaVnCb3aDkonGaPobM=;
+        b=i31TeNK1Q6hOCL5QG0X3CY15UbKKzIRCaRswnZK+xnBhKUN4UvoDV8uLuxbQwTS8tJ
+         cvR77uCe5/ukJfdVwLx0KTJ5/CbgzK5uYhr7GOjjVIlA+mbW9I2N1OibHxlQoRu/IO+T
+         QRk2b8Viz6yu/yZY2Wg42j4CG7DtNKxGOR5UfZ/mk3xUG7jktebkR/9vm0HhwOmY5dwN
+         iZxEyfwJQIJqYk9XWzeqQO85pyMe8ay/c05QF9YPPiNmUxsDAcJO3IFoePprp/mRizbu
+         KGga8YgtoXxHJY3/xrJckNkcCmlDduEVamxC88rHB6cZWW9aY8uOW46WSQaKi36PnrP0
+         GvBw==
+X-Forwarded-Encrypted: i=1; AKwUvBxSOOJg9cSOqWC4Nqaphqd17Ro9quOwYxktR/cWJbcL5QwaaXC2vOCFBTFp5XD8nqKeO2NaXUXb8JkArG8JiV5L@lists.infradead.org
+X-Gm-Message-State: AFuF++lJbnjjaQoJUndzyEqd8/7HHkPujZ3TSpX/3MrngEdMp9Jh0OEI
+	LIBPT6olzCTQYheA93sTHtdVfpWyAclf+N9wsu/GZIo+8arDHemEejPKGsx2xHZ57Q5LfA==
+X-Gm-Gg: AYBFou0TGn2aNmUKQV1gUMZ4JZ2BdnedP0XY2WmYs5Txjrjsl87w+eT5L/I4QXdC+dG
+	STO95ijKjy9GFSdOybbMOYoxErSm9iinWNrg87xC7j6814MqBz2VM3hg9Em95U60joaqLBXc1rO
+	EhJAY+LYOdVdLThuaJFBlyOFZsSlGlEGKJGnWpGSc8oWISFJ1Ida9eGbSEWj4pvbejDlb/flcxs
+	0Kq36nAKufXXXoQtEqS67Tupbhpa10hVqQHQc3+cmvrpC7Sh2Tud73x+nUbTMyAr5RmrVfYANDH
+	OVIb+sVD0saNJQcyBMu0Z/Whdz4E8NesGjlFakg54iHDr3JPI2kneS2yjhDEQFnWtp405I7JMeH
+	/Z5G6SGHSIf2mwnyIZwNNXCbeiFuk6DZCtlWjD2qJril6mkox9qOsVI/N0MhOn9NC9PxSdo+OJo
+	hYiAK0SBuw5vyHkXXmdnNvH4cfdU0V1nPZupB1OgFNbLUdPT/jh8k0trValtfnNEJmmHw=
+X-Received: by 2002:a05:6808:c2bd:b0:4b9:a8ac:482 with SMTP id 5614622812f47-4b9a8bb6aa4mr15564787b6e.32.1788909159168;
+        Tue, 08 Sep 2026 16:12:39 -0700 (PDT)
+Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-475523d1dc5sm13776680fac.2.2026.09.08.16.12.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 16:12:37 -0700 (PDT)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Tue, 08 Sep 2026 18:10:23 -0500
+Subject: [PATCH] usb: mtu3: fix system suspend in gadget mode after soft
+ disconnect
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-v1-1-3457dcea9f48@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNywrCMBBFf6XM2oG02mL9FekijzFGSBpmEhFL/
+ 92oy8O9nLOBEAcSuHQbMD2DhDU16A8d2LtOnjC4xjCoYVKzOiMbroRS6Y01S2HSMSSPsdQj3sK
+ rLZIpOaxi0GvnqWBcHaGdZjv26mSG0UCzZ6Z2/5Wvy5+lmgfZ8s3Bvn8AkI/oj5sAAAA=
+X-Change-ID: 20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-c69c5104b25b
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Fei Shao <fshao@chromium.org>
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788909156; l=3498;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=+ZjLG77YKfr9IPV1oRcpyx+bGhfiK19WyzbxnAw1Dlw=;
+ b=V2O6cHk26Nxt8LbULYU/sEf44lBkzKUl3wK7GAWx+IQ9lLvhe0k0Y8fzsYxUfdNDKEqL4tmi3
+ 8GpBdhfJQ3hDKeuMLeV3szySlDOsdovXO/TPdutx5Dhf0d/tFSGylLR
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_160944_814750_9A4737EB 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260908_161241_469690_FBBF70ED 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,99 +112,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-apply_relocations() skips relocation sections whose sh_info target index
-is outside the section table. ARM, ARM64, LoongArch, PA-RISC and RISC-V
-use sh_info earlier in module_frob_arch_sections(), before this check.
+ssusb_gadget_suspend() removes the D+ pullup for system suspend by calling
+mtu3_dev_on_off(mtu, 0) directly. That writes the hardware SOFT_CONN bit
+but leaves mtu->softconnect alone, deliberately: ssusb_gadget_resume()
+needs it to decide whether to pull up again.
 
-ARM, ARM64, LoongArch and RISC-V use the unchecked index to read
-sh_flags outside the section header table. PA-RISC uses it to index an
-e_shnum-sized heap array for a read and an update. QEMU reproduced
-page-fault Oopses on ARM, ARM64, LoongArch and RISC-V, and a Data TLB
-miss on the PA-RISC array read.
+wait_for_ip_sleep() then asks ssusb_gadget_ip_sleep_check() whether the IP
+can sleep, and that function tests mtu->softconnect -- the gadget's intent
+rather than the state of the pin. So it answers "pulled up, the IP can
+sleep" for a device that was just disconnected, and the poll for
+SSUSB_IP_SLEEP_STS runs to its 100 ms timeout:
 
-Validate sh_info for SHT_REL and SHT_RELA sections in
-elf_validity_cache_sechdrs(). Reject the module with ENOEXEC before
-architecture code can use the index.
+  mtu3 11271000.usb: gadget (high-speed) pullup D-
+  mtu3 11271000.usb: ip sleep failed!!!
+  mtu3 11271000.usb: gadget (high-speed) pullup D+
+  mtu3 11271000.usb: PM: dpm_run_callback(): mtu3_suspend returns -16
+  PM: Some devices failed to suspend, or early wake event detected
 
-Fixes: c298be74492b ("parisc: fix module loading failure of large kernel modules")
-Fixes: 7d485f647c1f ("ARM: 8220/1: allow modules outside of bl range")
-Fixes: fd045f6cd98e ("arm64: add support for module PLTs")
-Fixes: ab1ef68e5401 ("RISC-V: Add sections of PLT and GOT for kernel module")
-Fixes: fcdfe9d22bed ("LoongArch: Add ELF and module support")
-Cc: stable@vger.kernel.org
+and the suspend fails. The rule the hardware follows is stated in that
+same function: the IP cannot sleep while D+ is not pulled up.
+
+On an MT8173 tablet (Amazon Fire HD 10 2017, dr_mode = "peripheral") this
+makes system suspend impossible whenever VBUS is present, which on a board
+whose only USB port is also its charging input means whenever it is
+charging. Unbinding the UDC, which clears mtu->softconnect through
+mtu3_gadget_pullup() and so makes the check agree with the pin again, is
+enough to let the same suspend succeed with the driver still bound and the
+charger still attached:
+
+  gadget bound   (softconnect=1): suspend returns -16, "ip sleep failed!!!"
+  gadget unbound (softconnect=0): suspend completes, 20 s of 20 s
+
+So record what mtu3_dev_on_off() actually wrote and test that instead.
+Runtime suspend is unaffected: it does not soft disconnect, so the pullup
+is still set and the IP-sleep poll is still performed.
+
+Fixes: e69027c25361 ("usb: mtu3: allow system suspend during active gadget connection")
 Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
+ drivers/usb/mtu3/mtu3.h      | 1 +
+ drivers/usb/mtu3/mtu3_core.c | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-A custom harness for upstream Frama-C 33.0 (Arsenic) Eva found the
-ARM32 instance in a source-identical ARM module_frob_arch_sections()
-slice. Eva reported the out-of-range section-table pointer and sh_flags
-access.
+diff --git a/drivers/usb/mtu3/mtu3.h b/drivers/usb/mtu3/mtu3.h
+index ba5a63669e5f..7f4fb87d8438 100644
+--- a/drivers/usb/mtu3/mtu3.h
++++ b/drivers/usb/mtu3/mtu3.h
+@@ -361,6 +361,7 @@ struct mtu3 {
+ 	unsigned is_self_powered:1;
+ 	unsigned test_mode:1;
+ 	unsigned softconnect:1;
++	unsigned pullup:1;
+ 	unsigned u1_enable:1;
+ 	unsigned u2_enable:1;
+ 	unsigned u3_capable:1;
+diff --git a/drivers/usb/mtu3/mtu3_core.c b/drivers/usb/mtu3/mtu3_core.c
+index a40bf5bad2d5..5ce61240194f 100644
+--- a/drivers/usb/mtu3/mtu3_core.c
++++ b/drivers/usb/mtu3/mtu3_core.c
+@@ -346,6 +346,7 @@ void mtu3_dev_on_off(struct mtu3 *mtu, int is_on)
+ 	else
+ 		mtu3_hs_softconn_set(mtu, is_on);
+ 
++	mtu->pullup = !!is_on;
+ 	dev_info(mtu->dev, "gadget (%s) pullup D%s\n",
+ 		usb_speed_string(mtu->speed), is_on ? "+" : "-");
+ }
+@@ -1023,7 +1024,7 @@ bool ssusb_gadget_ip_sleep_check(struct ssusb_mtk *ssusb)
+ 		return true;
+ 
+ 	/* device is started and pullup D+, ip can sleep */
+-	if (mtu->is_active && mtu->softconnect)
++	if (mtu->is_active && mtu->pullup)
+ 		return true;
+ 
+ 	/* ip can't sleep if not pullup D+ when support device mode */
 
-The analysis and ARM32 A/B test ran at Linux b9b3e33b70b7 ("Merge tag
-'trace-v7.2-rc6' of
-git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace"). The
-PA-RISC, ARM64, RISC-V, LoongArch and x86_64 A/B tests ran at the
-declared base commit, 28924df2a08f. arch/arm/kernel/module-plts.c and
-the touched loop in kernel/module/main.c are identical between the two
-commits.
-
-Each A/B test changed only a relocation section's sh_info to
-0x10000000. The same configurations and modules were used before and
-after the change. All controls loaded before and after the change. The
-fixed kernels rejected the malformed modules with ENOEXEC.
-
-Original-kernel results with QEMU 10.2.1 TCG:
-
-- ARM32, virt/Cortex-A15, GCC 15.2.0, multi_v7_defconfig plus
-  VMSPLIT_2G: page fault at module_frob_arch_sections()+0x160.
-- ARM64, virt/Cortex-A57, GCC 15.2.0, defconfig: page fault at
-  module_frob_arch_sections()+0x110.
-- PA-RISC, B160L, hppa-linux-gcc 8.1.0, binutils 2.30,
-  generic-32bit_defconfig: Data TLB miss at
-  module_frob_arch_sections()+0x11c on the stub_entries read for a
-  counted R_PARISC_PCREL17F relocation.
-- RISC-V, virt, GCC 15.2.0, defconfig plus RELOCATABLE with
-  MODULE_SECTIONS enabled: page fault at
-  module_frob_arch_sections()+0xe4.
-- LoongArch, virt/LA464, LLVM 21.1.8, loongson64_defconfig: page fault
-  at module_frob_arch_sections()+0x1b8.
-
-On x86_64, which has no vulnerable early sh_info access, the original
-kernel loaded both modules. The fixed kernel loaded the control and
-rejected the malformed module with ENOEXEC. The test used pc/qemu64,
-x86_64_defconfig and GCC 15.2.0.
 ---
- kernel/module/main.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+base-commit: df2908090cda368b01ff43709f51890076c56157
+change-id: 20260908-rbrue-suez-upstreaming-mtu3-fix-suspend-usb-gadget-mode-c69c5104b25b
 
-diff --git a/kernel/module/main.c b/kernel/module/main.c
-index d0e1e0bd2ad0..30c7a05488bc 100644
---- a/kernel/module/main.c
-+++ b/kernel/module/main.c
-@@ -1933,6 +1933,7 @@ static int elf_validity_ehdr(const struct load_info *info)
-  * * Section array fits in the user provided data
-  * * Section index 0 is NULL
-  * * Section contents are inbounds
-+ * * Relocation section target indices are inbounds
-  *
-  * Then updates @info with a &load_info->sechdrs pointer if valid.
-  *
-@@ -1983,6 +1984,12 @@ static int elf_validity_cache_sechdrs(struct load_info *info)
- 	/* Validate contents are inbounds */
- 	for (i = 1; i < info->hdr->e_shnum; i++) {
- 		shdr = &sechdrs[i];
-+		if ((shdr->sh_type == SHT_REL || shdr->sh_type == SHT_RELA) &&
-+		    shdr->sh_info >= info->hdr->e_shnum) {
-+			pr_err("Invalid ELF relocation section target index %u\n",
-+			       shdr->sh_info);
-+			return -ENOEXEC;
-+		}
- 		switch (shdr->sh_type) {
- 		case SHT_NULL:
- 		case SHT_NOBITS:
+Best regards,
+--  
+Ryan Brue <ryanbrue.dev@gmail.com>
 
-base-commit: 28924df2a08f440c73991b83028032c901de2ae4
--- 
-2.53.0
 
