@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A79C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FBEC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFmPExN49W4LxltEC5wNkCXW8bsWlpX87tLZS67TYVo=; b=tJMDVlyxleg9wSHuU52cymK4iW
-	hpUIwe0Pf7rvpvUXeCgLUoi9/Dc4KrWK48dykroakw2didXOnvMMni53PEcDfbnVz8YYVFd8Sfjzz
-	F5/No6XFNr8QBq6ZJcxxu1JCthxt0NJvgK5mV5q5c1HQOnlBugkKFiWg3vnyb1JzrnooJnT/AHwCV
-	gp/PAk2rkhVR7iZ/LBppmR0y8oUquzHTiVvj1Oq8XxFuGSGuVd02zwSERhK0MeI8j9GvnQOGkIOkt
-	ajAcBoeL9R9D2sGlL2uJ/mtUqXscQeIIlYRR9Bj0R2pqBxpL5n0TRvx7hz4MDpJ+L+XRW5llrg9V6
-	KYvP1Tvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GR+PLOaTo7otsU9ebeTCa7DS4PdH9ick+Ld4KYL7p5E=; b=HB/3tptBUbFcwvjqIKHjJiFEUs
+	9l5ZYRiODElcKfqxawJdOy2jGKgbfW5AZMml+v+61V9zhEvH+M5Ez3iCff+WYvCxknAp2QRvt9OVX
+	jbF0h5sOZNhxqDoeDRcO9jfwu1lbszLslkwhMnVdCuK++qcaRb3yiLPDX3ua0JtGtGBGaYeWs0UjK
+	dOScI6zpR2AjcxdAst3RgJuohkRdvoJr2/t80aSPXX44G+K4np4q7v+BVV0MBT8o3HwpSO0l71aa5
+	kJo4gyqyJeWMT3TCNyV1CQF5BudxIY4gztq7HjsJg4OwRE54dZxU6UBrp9b+0rIyNeG1IdptUQ/al
+	RcsZoh+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tfp-00000008qYV-1UGK;
-	Tue, 08 Sep 2026 11:07:33 +0000
-Received: from out-97.mta0.migadu.com ([2001:41d0:1004:224b::61] helo=mta0.migadu.com)
+	id 1x3tqB-00000008roe-0KYs;
+	Tue, 08 Sep 2026 11:18:15 +0000
+Received: from mail-vs2-x10.google.com ([2a00:1450:4864:3a::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tfm-00000008qWi-1CAE
+	id 1x3tq8-00000008rng-1bDo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 11:07:31 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=7bNXYL8yUcqTH70nhL/AuRr3pORuUPvFqJ6xx9nB3rY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788865648; v=1; x=1789470448;
- b=LZjw2NbugqnYGVCacADZeG65gwnpjhnxo6xTX4MLAiDbDtkzcw6shcHmuIQT2//PDYfxh6fP
- Yup2NQHhBKJzo6168eWCWjcYXng/uXtilm8kz3F7QaBc5Pv9e9iUZFNzBZwpkil9CADhrgCxwLP
- L+DHz1bzpTm6yLen09gZdN3U=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 50cb0b689ffa052e;
-	Tue, 08 Sep 2026 11:07:27 +0000
-X-Mizu-Trace-ID: 50cb0b689ffa052e
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Keir Fraser <keirf@google.com>,
-	Kalesh Singh <kaleshsingh@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Hiroyuki Katsura <hk590@cam.ac.uk>,
-	Fuad Tabba <tabba@google.com>,
-	stable@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] KVM: arm64: Match hyp text by physical address in fix_host_ownership()
-Date: Tue,  8 Sep 2026 12:07:11 +0100
-Message-Id: <20260908110713.1540304-3-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260908110713.1540304-1-fuad.tabba@linux.dev>
-References: <20260908110713.1540304-1-fuad.tabba@linux.dev>
+	Tue, 08 Sep 2026 11:18:13 +0000
+Received: by mail-vs2-x10.google.com with SMTP id 71dfb90a1353d-5c67e518329so192273e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 04:18:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788866289; x=1789471089; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GR+PLOaTo7otsU9ebeTCa7DS4PdH9ick+Ld4KYL7p5E=;
+        b=EkFKK2Z3nlm9U/0AMkkY8zfVnN4F+QnAItilqGl5hgaTKctycQuP8IJYUi4awuVBlu
+         PcYDs9ks4iI9Ylg6+w2Yp+S4UfbaH9v75WOvPAjq1Hez2dg2V82tt7hHtXbHLPpYo4tI
+         rCm0T2J5vWmM4fZSu1zp9NvT4+WumRjlB2NRa7J3wOUX07CCm6pmg5Q/lENmUmf6HbPN
+         Y38TQA5h9VJAnI1nT2wvQFTQ0I5F85OdD1SKUjmYx8U/VWCosgqQDysis17oTwqUJnsA
+         zk5uB1cNWEddZhLEu6wCXL5DD1W3oS/SBaE7UyfRgIYg7CgZUEb9S8/hJI59A7COJ2vg
+         Z9Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788866289; x=1789471089;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GR+PLOaTo7otsU9ebeTCa7DS4PdH9ick+Ld4KYL7p5E=;
+        b=mHlgYVyEq7ghtKfXtr8N0d8JzaM3lioNnZhAjd8tkorZIpRo5pFGQt7C4hGWqoptj4
+         RG/AHupHq5dC7mw3R0bcJlBzq7I7AHMB9rMzzryaRVqo/vnZxFrzsgIV0ngjAUUAFNUZ
+         RczaEVyuuHCZBV2zGTeILdib8y0dQk9upqwFE1Nyz3Oui5HcKT9G9GDAyXWAuM79ZEC2
+         KH+N1Pdwpr3eSxlIY+saBLgGRaYyLdmfbdhI14Jj9CumtULbCbFXRvWpEWdOao11VN1o
+         qF/ogJV8+IbYsKrKQql2O5E9YRrUvUitUwGQ4ZvvqeeZG/Fn64CYZQatEX3rw/PBhWcB
+         N5+w==
+X-Forwarded-Encrypted: i=1; AKwUvBzMTw4LA8GL8f0G9W7kGrv+81Ol08YIY7VBs/3hJXYgellykI2/hc5Afn+4p+Ge13X5MJayY76pyIc7UIRL5nxR@lists.infradead.org
+X-Gm-Message-State: AFuF++l7rYyXemtiFO2ojuUiol3F2YwKMLOhv9F9jA88D5M3EIJ99dFI
+	SoIIPrCetuBHF+OKnuKP8EBhi711YmM2DUToM1uYv9u//lsbWJjcmxaI
+X-Gm-Gg: AYBFou3gxWgpZThg/25JpZW7jPWX0/g/h//eA/KUgBnG5BA5Ro2hTqXCvvPpZM6OmdS
+	VO3Y9KZt2X5Bf5CFxoD3lXtBtbK/0J5WZ8sl23BhqNnLkQudFdzf3U44xef2XFSv47XXi7REUrj
+	uzi5gQ6km2CHNj/Pmi/G4GOh7aG5rxLHn3gtdO8Gj1qkD/rLJqW8ndi22M4QqdwOUbC0d9QYldv
+	JnrLDwlD88WrNfHf2m5fBovo0O3xQQuv9tDTqxUaVbc8lPuFp+E9kgd7xE6oqZ3K5JreVN2wu2G
+	BnVWvNrN8HDCsnV5Kd6DKOd29fCmojNR/YIp7LkgNffOfaH3CAxuHZrRm4+nLBrFeETJGOQV1+T
+	gHfDjh2iFNLM6eWp5rd4TYn8XVl94XMtPfKxoLAO/fEAVbH1geDTcUTcGIS57ZBFf+3rM5c25N6
+	WHu4n4xRDtFlTc0ZfhRIhlm2gB+VGWaeedHI95rQdAeqNYgZLhH+MHJAOjctonpMoVxIED5u8GF
+	jEQCg==
+X-Received: by 2002:a05:6102:c8d:b0:789:ec0f:3a03 with SMTP id ada2fe7eead31-78dd1a1cb33mr1540702137.4.1788866288632;
+        Tue, 08 Sep 2026 04:18:08 -0700 (PDT)
+Received: from leonardoc-nb ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-78a47a76487sm8467503137.5.2026.09.08.04.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 04:18:08 -0700 (PDT)
+Date: Tue, 8 Sep 2026 08:17:57 -0300
+From: Leonardo Costa <leoreis.costa@gmail.com>
+To: "Kumar, Udit" <u-kumar1@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 1/1] arm64: dts: ti: k3-am69-aquila: Add Toradex DSI to
+ LVDS adapter with the 10.1" V2 display
+Message-ID: <kumbe27i7a632rthuruthpt6z65aszivylj2u7cdkeqecx3zgd@vi27clpphsq3>
+References: <20260803173705.2268792-1-leoreis.costa@gmail.com>
+ <20260803173705.2268792-2-leoreis.costa@gmail.com>
+ <29aaa2ec-c1fe-4f60-a6d1-f8c797587986@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <29aaa2ec-c1fe-4f60-a6d1-f8c797587986@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_040730_469015_F9675529 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20260908_041812_433196_CBAB5832 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +105,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On a non-hVHE host, fix_host_ownership_walker()'s test for PAGE_HYP_EXEC
-never matches: KVM_PGTABLE_PROT_UX is cleared at map time and only PX is
-reported on read-back. Hyp text is therefore donated rather than left
-read-only in the host stage-2, and the instruction dump in
-nvhe_hyp_panic_handler() reads a page the host has no access to.
+Hi Udit,
 
-Match the text by physical address instead, in a helper a later patch
-reuses. A test on the permissions would leave any other executable
-mapping host-readable too.
+On Sun, Sep 06, 2026 at 10:49:52AM +0530, Kumar, Udit wrote:
+> Hi Leonardo
+> 
+> On 8/3/2026 11:04 PM, Leonardo Costa wrote:
+> > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > 
+> > Add a device tree overlay for the Toradex DSI to LVDS Adapter with the
+> > Toradex Capacitive Touch Display 10.1" LVDS V2. The adapter connects to the
+> > Aquila DSI_1 interface. It is based on the Texas Instruments SN65DSI84
+> > DSI-to-LVDS bridge and drives an Opto Logic SCX1001511GGC49 10.1" WXGA TFT
+> > LCD LVDS panel. Touch input is provided by an ILITEK ILI251x capacitive
+> > touch controller.
+> > 
+> > Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-lvds-adapter
+> > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+> > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > ---
+> >  arch/arm64/boot/dts/ti/Makefile               |   5 +
+> >  ...dsi-to-lvds-v2-panel-cap-touch-10inch.dtso | 153 ++++++++++++++++++
+> >  2 files changed, 158 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dsi-to-lvds-v2-panel-cap-touch-10inch.dtso
+> > 
+> > diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> > index f4d109ef6798a..8a59fc597aede 100644
+> > --- a/arch/arm64/boot/dts/ti/Makefile
+> > +++ b/arch/arm64/boot/dts/ti/Makefile
+> > @@ -218,6 +218,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev.dtb
+> > [..]
+> > +
+> > +	panel-lvds-bridge {
+> > +		compatible = "optologic,scx1001511ggc49", "panel-lvds";
+> 
+> > +		backlight = <&backlight_pwm3>;
+> > +		data-mapping = "vesa-24";
+> > +		height-mm = <136>;
+> > +		width-mm = <217>;
+> > +
+> > +		panel-timing {
+> > +			clock-frequency = <70000000>;
+> 
+> Looking at
+> https://lore.kernel.org/linux-arm-kernel/20260623195741.495734-1-leoreis.costa@gmail.com/T/#mc4ed25e5253da6dc635fd3eddc317dac8f447f3e
+> 
+> 
+> you are using three different clock-freq 69500000, 64500000 and
+> 70000000 here.
+> Could add some comment here, why freq is adjusted.
 
-Fixes: 80cbfd7174f31 ("KVM: arm64: Honor UX/PX attributes for EL2 S1 mappings")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 1 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 8 ++++++++
- arch/arm64/kvm/hyp/nvhe/setup.c               | 2 +-
- 3 files changed, 10 insertions(+), 1 deletion(-)
+It's for the same reason as the 69500000 clock frequency in the Verdin
+AM62 patch. In general the DSI to LVDS bridge requires longer horizontal
+porch and sync values than the typical values for the display, and we
+intend to use the values on this patch in the general case when the
+bridge is used. The reason why the frequency here (70000000) is
+different from the Verdin AM62 one (69500000) is because we found that
+that 70000000, along with the other timing values, work more
+consistently with the bridge across our modules, the ones on the Verdin
+AM62 ended up being a first iteration.
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 29935c7da1dec..cab27f7bd423a 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -52,6 +52,7 @@ int __pkvm_host_test_clear_young_guest(u64 gfn, u64 nr_pages, bool mkold, struct
- int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu);
- 
- bool addr_is_memory(phys_addr_t phys);
-+bool addr_is_hyp_text(phys_addr_t phys);
- int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
- int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id);
- int kvm_host_prepare_stage2(void *pgt_pool_base);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 39aa8911f62c1..d026f446bd8ef 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -450,6 +450,14 @@ bool addr_is_memory(phys_addr_t phys)
- 	return !!find_mem_range(phys, &range);
- }
- 
-+bool addr_is_hyp_text(phys_addr_t phys)
-+{
-+	phys_addr_t start = ALIGN_DOWN(__hyp_pa(__hyp_text_start), PAGE_SIZE);
-+	phys_addr_t end = PAGE_ALIGN(__hyp_pa(__hyp_text_end));
-+
-+	return phys >= start && phys < end;
-+}
-+
- static bool is_in_mem_range(u64 addr, struct kvm_mem_range *range)
- {
- 	return range->start <= addr && addr < range->end;
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 362f2891cb32e..bb667cd7080b4 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -217,7 +217,7 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	case PKVM_PAGE_OWNED:
- 		set_hyp_state(page, PKVM_PAGE_OWNED);
- 		/* hyp text is RO in the host stage-2 to be inspected on panic. */
--		if (prot == PAGE_HYP_EXEC) {
-+		if (addr_is_hyp_text(phys)) {
- 			set_host_state(page, PKVM_NOPAGE);
- 			return host_stage2_idmap_locked(phys, PAGE_SIZE, KVM_PGTABLE_PROT_R);
- 		} else {
--- 
-2.39.5
+I'll add a comment explaining the difference from the native LVDS values
+in the v2 patch.
 
+Kind regards,
+Leonardo
 
