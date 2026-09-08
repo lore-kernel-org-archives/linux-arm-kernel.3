@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0AAC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482F2C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58ncDWNhdyoDZJDt97CwoE7YzbxFs47h2dhNPh9CcNw=; b=PKE9BPq3vJEKO+Ir2+yQoIRDFC
-	orECkzBDqFiShzfQJEIYm5cr7GatRZspuJwCL1yAaWvkXxBEB6ZdP2dPaIwAYyiIKtjQ3QHQN/3gR
-	eARcxVl26I9cnWGuBKyhdyOFvsuxOyxsaLL/s2lqd6cCXictvBHO4CEZEEcj6nUod6Ndhz+t3g0e0
-	MuLKXsRzmQAn8AaEMQEWjFRfu+KxV+3nxV0XIUQr97gNL3Nz3TMcqkpvXcz9QacYB1J73FrUn7/9Q
-	75FQe5RHWiIjiNtvIQ1PrVwB6yCeir7k4ZTYqeXv7DZnRecIHFmCntza0v2Dy1GvvvdclMXfWKu+T
-	+INDWVTQ==;
+	bh=jYfYDdE7DspXvRN6XWjoF0oVWNG8h+aeME7zXoQ2sRk=; b=ZE7jr8z+aWf9yDrDnF+R6D1ikx
+	pVmVzFAURrKDqNJGXa+RT4womHHOVu/XDE92AZIovWYqJdFK8z6s8POUIy52hc2qbYt2y5Luu8nqV
+	jiFd9/6ibLAfsVRbOtA4V4RttXBlHq3GeG7J+v+VYt+wQEaaUBsS4iMugSVuf9XgzeEtVfydwA8tB
+	fx05adIJ/ty84kgAj7mksoXnH9ErJLkPpLtDIp1Jr7YmxQ3NWaCMW6CZhGRMmIrvI9NpQrgYJE0Dm
+	+GNdnJ5YzvG84zugc2Cphph13yWqgbycjCsYopwmM0pw9w5X9aPSkgLRJOJcQLhcjPiilxIm7RN5y
+	dHWaoqTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ybc-00000009dVr-23xG;
-	Tue, 08 Sep 2026 16:23:32 +0000
+	id 1x3ybh-00000009dci-335p;
+	Tue, 08 Sep 2026 16:23:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ybV-00000009dPQ-3J79
+	id 1x3ybd-00000009dWq-1B1l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:23:29 +0000
+	Tue, 08 Sep 2026 16:23:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32B571476;
-	Tue,  8 Sep 2026 09:23:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 779011477;
+	Tue,  8 Sep 2026 09:23:28 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9009E3F7B4;
-	Tue,  8 Sep 2026 09:23:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D775D3F7B4;
+	Tue,  8 Sep 2026 09:23:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788884604; bh=X91qpxlmCb+RcASVwWsSL4AP+f2WCekRe8JKe4PKM9Y=;
+	t=1788884612; bh=cQ58Yv70roVo81q8YhrC7/X6t1/ZhRn2w2WWnNS8nhw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OH674DE6RzZ1E5TLddbpKAdwRgPW35U59OH0+ZgFxiyjHnqexeWj+Ks77CBOV+pin
-	 cydpWohwNRxiQunWmrmtkKMCFzbW9949shwjmdj4SlY4utGeaBpEgF1ZLB4lag4Esc
-	 gzStEowg3HcQ76Uk2j8IHe3RHWEOJZzf4yS8VTRU=
+	b=kClYRytWqQQBGNNWIWxVmskQVHDgFyIpVPJJUOmWcU0B+eJcM90R/uSvItvNW5ufv
+	 37Ffp+qeitSORtr+HhQuh4ELTvScMnd6b7Lm0elsysioOlx/w0VCzZGeYMcRiyDI63
+	 ScAk2LSkj5PGLVJRp3pAWyoRIOX5ikoQAAyB/oxM=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -63,17 +63,17 @@ Cc: maz@kernel.org,
 	lpieralisi@kernel.org,
 	enju.kohei@fujitsu.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v17 10/20] KVM: arm64: coco: Disable Steal time accounting for coco guests
-Date: Tue,  8 Sep 2026 17:22:13 +0100
-Message-ID: <20260908162223.1683432-11-suzuki.poulose@arm.com>
+Subject: [PATCH v17 12/20] KVM: arm64: CCA: Support timers in realm RECs
+Date: Tue,  8 Sep 2026 17:22:15 +0100
+Message-ID: <20260908162223.1683432-13-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260908162223.1683432-1-suzuki.poulose@arm.com>
 References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_092325_913078_5101E289 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260908_092333_435821_51EEDBB3 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,88 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PVTIME support is advertised by KVM_CAP_STEAL_TIME, which doesn't take into
-account the kvm instance. Even with that, a VMM could skip the CAP check and
-proceed to configure the PVTIME as we don't do further check on the DEVICE_CTRL.
-Tighten this up by passing the KVM instance around wherever possible and
-catch things early
+From: Steven Price <steven.price@arm.com>
 
+The RMM keeps track of the timer while the realm REC is running, but on
+exit to the normal world KVM is responsible for handling the timers.
+
+A later patch adds the support for propagating the timer values from the
+exit data structure and makeing sure the values are in sync for KVM.
+
+Also, RMM doesn't support injecting virtual interrupts backed by Physical
+interrupts. So, use the existing software resampling mechanims for Realm
+timer interrupts.
+
+Signed-off-by: Steven Price <steven.price@arm.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/kvm/arm.c              |  2 +-
- arch/arm64/kvm/pvtime.c           | 10 +++++-----
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/arch_timer.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 020aef5a1b698..0f258f16fdf81 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1367,7 +1367,7 @@ long kvm_hypercall_pv_features(struct kvm_vcpu *vcpu);
- gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu);
- void kvm_update_stolen_time(struct kvm_vcpu *vcpu);
- 
--bool kvm_arm_pvtime_supported(void);
-+bool kvm_arm_pvtime_supported(struct kvm *kvm);
- int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
- 			    struct kvm_device_attr *attr);
- int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 2ecd92156f7cc..b5e0893ea16f1 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -473,7 +473,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		r = system_supports_mte();
- 		break;
- 	case KVM_CAP_STEAL_TIME:
--		r = kvm_arm_pvtime_supported();
-+		r = kvm_arm_pvtime_supported(kvm);
- 		break;
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
-diff --git a/arch/arm64/kvm/pvtime.c b/arch/arm64/kvm/pvtime.c
-index 4ceabaa4c30bd..41fbfd92cd292 100644
---- a/arch/arm64/kvm/pvtime.c
-+++ b/arch/arm64/kvm/pvtime.c
-@@ -67,9 +67,9 @@ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu)
- 	return base;
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index eba84cab95d01..3eddf44f7b1dd 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -56,11 +56,25 @@ static unsigned long kvm_arch_timer_get_irq_flags(void)
+ 	return kvm_vgic_global_state.no_hw_deactivation ? VGIC_IRQ_SW_RESAMPLE : 0;
  }
  
--bool kvm_arm_pvtime_supported(void)
-+bool kvm_arm_pvtime_supported(struct kvm *kvm)
- {
--	return !!sched_info_on();
-+	return !!sched_info_on() && (!kvm || !kvm_vm_is_confidential(kvm));
- }
++static unsigned long kvm_realm_timer_get_irq_flags(void)
++{
++	/*
++	 * RMI_REC_ENTER rejects LRs with the HW bit set, so use the existing
++	 * software resampling mechanism for Realm timer interrupts.
++	 */
++	return VGIC_IRQ_SW_RESAMPLE;
++}
++
+ static const struct irq_ops arch_timer_irq_ops = {
+ 	.get_flags	 = kvm_arch_timer_get_irq_flags,
+ 	.get_input_level = kvm_arch_timer_get_input_level,
+ };
  
- int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
-@@ -81,7 +81,7 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
- 	int ret = 0;
- 	int idx;
++static const struct irq_ops realm_timer_irq_ops = {
++	.get_flags	 = kvm_realm_timer_get_irq_flags,
++	.get_input_level = kvm_arch_timer_get_input_level,
++};
++
+ static const struct irq_ops arch_timer_irq_ops_vgic_v5 = {
+ 	.get_input_level = kvm_arch_timer_get_input_level,
+ 	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
+@@ -1609,8 +1623,12 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
  
--	if (!kvm_arm_pvtime_supported() ||
-+	if (!kvm_arm_pvtime_supported(kvm) ||
- 	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
- 		return -ENXIO;
+ 	get_timer_map(vcpu, &map);
  
-@@ -110,7 +110,7 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
- 	u64 __user *user = (u64 __user *)attr->addr;
- 	u64 ipa;
+-	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
+-				      &arch_timer_irq_ops;
++	if (vcpu_is_rec(vcpu))
++		ops = &realm_timer_irq_ops;
++	else if (vgic_is_v5(vcpu->kvm))
++		ops = &arch_timer_irq_ops_vgic_v5;
++	else
++		ops = &arch_timer_irq_ops;
  
--	if (!kvm_arm_pvtime_supported() ||
-+	if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
- 	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
- 		return -ENXIO;
- 
-@@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
- {
- 	switch (attr->attr) {
- 	case KVM_ARM_VCPU_PVTIME_IPA:
--		if (kvm_arm_pvtime_supported())
-+		if (kvm_arm_pvtime_supported(vcpu->kvm))
- 			return 0;
- 	}
- 	return -ENXIO;
+ 	for (int i = 0; i < nr_timers(vcpu); i++)
+ 		kvm_vgic_set_irq_ops(vcpu, timer_irq(vcpu_get_timer(vcpu, i)), ops);
 -- 
 2.43.0
 
