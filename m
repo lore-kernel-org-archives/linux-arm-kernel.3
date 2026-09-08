@@ -4,122 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BD2C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1A2C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yusK1GLJkuHtFYH9FNjx60TQgqSJBWEnCpjtMIXjOjI=; b=jBB8eEyuS4gSgxgK8zhTYzDs4N
-	voX4Ls44QcvAhf5kLf5Qia32EsqQYkM/JOCB/GWKZHGkskaqZ3olmZX7odWz4v6vRfnwNuN/Lgq3J
-	c63o7/4jnBb1cMMwccllJ8kPM+pYSFCKfrjCmRGXRB9fP3vlvs7dYKE6rLIYPnc5hJjfC+vPrMiwN
-	fmF/LpUwINyH7P4spN//Lf385Zs5ISssiLP4DjACvbKh54igP7cCPCGjHNm7WN3xqhW01+YxSfzo7
-	J7UEWUJt48Et80Y1f8SO/sLwwVMyNCO/Q56ly8MR7nE1xoGzI0ELJA5dzpUKd+x/JUesJG5VfTeYX
-	BWg2uYRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K17hjGQSHRngsa6X5ZbPw0DdqyNanly6LFsnBXF9IzY=; b=KKoNWnK1wm0k4TLeFmSmOgs8Fd
+	O7NsmTaP4mYQcxXhZ6by4DBwN9ULSG9m/iC0VPpvVaLevn6a2Y81CozYFGXP5RnOOtP4nBCJ+VZD2
+	KgGR74lsVouF5Z9HkhntQ0eGcRtsPXhlPZB3mdFYJ4iWnm0VEClmIIOJVSk91aXw7c4uASMVGFiOU
+	2PoGY556rPITwkIyLfSyCcwzQaJJddxsAkzGY1LE3B8O+MeUxOBPpQtW2tiCJcmOC+vdqk/GLeM7D
+	tJkYXF8EFUxNQXAtvqx+n5UKkKoL66ipZ1vVrGgX/K11Y70UbbXpg63TxWYnjC9n0/YX1oxK87d5L
+	pK2PpQOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oWq-000000085Gw-0nBw;
-	Tue, 08 Sep 2026 05:37:56 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oWn-000000085GA-0viA
+	id 1x3oew-0000000863l-13Tx;
+	Tue, 08 Sep 2026 05:46:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3oet-0000000863N-0Y5e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:37:54 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68801aR91497716;
-	Tue, 8 Sep 2026 05:37:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:to; s=pp1; bh=yusK1GLJkuHtFYH9FNjx6
-	0TQgqSJBWEnCpjtMIXjOjI=; b=buE+VSKbgSMD6g6f3Rdx7Jq/xCT06FUToaZX5
-	y2/qt6ZhMBWxY5ErwuSKK1tfgfQOY3m98bilWZu0KxX9D34JcyjGDjUWYtCom0j1
-	IF0rXoNb7/mIiNxE9l3NLL5Z29hE3wrn9mIwdRKEJNxc2XJtYASj+VUQ85MP1FL/
-	56/58unrC/NHo17cyJJMxES9b64lW6g8+DTvpp8HnhStTZyQTxrs9QL4eC1vaeV2
-	NMkFL5iFOWHQFR96AI0pRRsawuFuRVwKHw8eucP5LMfv3kT4NYPNz6H8CjMRBM5u
-	91dioEY1+mrrIWE/fbUf3iFvLGTwavK5HVkcl7yiRfwJWoyFw==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ggbqjvqsr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 08 Sep 2026 05:37:31 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6885WeHw007099;
-	Tue, 8 Sep 2026 05:37:30 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gh03y9ncx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 08 Sep 2026 05:37:30 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6885bQEr42008832
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 8 Sep 2026 05:37:26 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 97A2A20043;
-	Tue,  8 Sep 2026 05:37:26 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0214620040;
-	Tue,  8 Sep 2026 05:37:22 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.126.150.29])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Tue,  8 Sep 2026 05:37:21 +0000 (GMT)
-Date: Tue, 8 Sep 2026 11:07:20 +0530
-From: Srikar Dronamraju <srikar@linux.ibm.com>
-To: Andrea Righi <arighi@nvidia.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        K Prateek Nayak <kprateek.nayak@amd.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
-        Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
- selection
-Message-ID: <ap-fELvfw5w51vbG@linux.ibm.com>
-References: <20260904091838.3617894-1-arighi@nvidia.com>
- <20260904091838.3617894-3-arighi@nvidia.com>
+	Tue, 08 Sep 2026 05:46:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5DDF1476;
+	Mon,  7 Sep 2026 22:46:09 -0700 (PDT)
+Received: from [10.57.49.168] (unknown [10.57.49.168])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AF973F86C;
+	Mon,  7 Sep 2026 22:46:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788846373; bh=018JPSiwa1Esmp2GGb5fgmI7lze3gY3IgPSCqWkIVeY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uswXvC9iVmPahBQvMDKTommtwYrmYay+C0FosciqsZfG6re8SIW1nfbKsbOkEi0tR
+	 g/wH4O4enKKNcsPeqpbj5dGb+aMFg25xbipsadAjFwRtVBgbLhjuVJ6k1D8O1i/zsr
+	 P4CqKXq+SpkITHmHm8qJ1/qTpstEq0PLB4Bqht20=
+Message-ID: <f65216f6-cb7b-4b76-a7cc-79b332db2bd8@arm.com>
+Date: Tue, 8 Sep 2026 06:46:05 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-In-Reply-To: <20260904091838.3617894-3-arighi@nvidia.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: CaVTNGGxtJ0bg2J2w_nOG3SVvBRKrlWI
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDA1OCBTYWx0ZWRfX3UY1dD1FOEl6
- v0dCTtsj3vGk6AA6t06lvrSncAR1//4ktdCcgvuGxhBNluEgBrp8om6QoLsUKGD+L31129FmiQ0
- 50e4q6S1lejSDcXlpFlngUvMPO20pog=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDA1OCBTYWx0ZWRfX7x9/Eq07pS4/
- gf8/eG7UtwKDaYVEYxNBqpDAZNeZ/CkiOHur0LutwPqZTQuxw3c5GRMe2qrvIGxxWjcVfXP9Wjj
- HhznisE2ZSqggEk/WCDapHSNmtZdCIJnpr+RPR7dBNSqlp6UY26q2ar+aHIYKyzJxplXjc7NClk
- qwf/aOAtAzKzZrH8Dy26AChhC+9VzCAnjsmsO31g5roZpybGY5c4of6rQ/2k2V0st2EDKZM6SPp
- vVgAxgMyBJThJ6+kho3jr/1MvETuU+LbfjMgOgKG28lhpe3KDG7GPAuPGXf9u3nEe+580/YnWBe
- slx8Z30wuq3T1k/dIxenLNC0m3CLRxtxaREl08zM7q1qkKwljfdOFDJ8NU746u8DU7MY09VvVn4
- +VGDhoujp0duB3pteLe9iowsyLTjFKlq82zfsStnhnlgYWIFnURRDsXqYaJLqakeZY1MjwQrLCy
- qFfE+bypq9vipn8wMQw==
-X-Authority-Analysis: v=2.4 cv=JaKMa0KV c=1 sm=1 tr=0 ts=6a9f9f1c cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=8nJEP1OIZ-IA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=Ikd4Dj_1AAAA:8 a=4-HSefmEYn3nOEH63QwA:9 a=wPNLvfGTeEIA:10
-X-Proofpoint-GUID: ZjH3vp9F9iZIvdTmjp0Vfpi1ZhErps9j
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-07_07,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- adultscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080058
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Content-Language: en-GB
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org,
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_223753_269718_F09C3B9D 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20260907_224615_282731_842067CC 
+X-CRM114-Status: GOOD (  32.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,131 +75,158 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Andrea Righi <arighi@nvidia.com> [2026-09-04 11:18:05]:
+Hi Kohei-San
 
-Hi Andrea,
+Linaro is best suited to answer this. I have Cc'ed Mathieu (and
+Lorenzo), who may be able to help you here.
 
-> POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity
-> SMT level to order hardware threads. Idle CPU selection does not consult
-> that order, so a task can wake on an arbitrary sibling and remain there
-> until load balancing corrects the placement. On these systems, that
-> initial choice can prevent the core from entering its preferred
-> lower-thread resource mode and cause a large and persistent performance
-> loss.
+On 08/09/2026 05:09, Kohei Enju wrote:
+> Hi Suzuki,
 > 
-
-> When idle selection finds an available CPU in an SMT core, choose the
-> highest-priority available sibling. On SMT2 Olympus this only changes
-> selection on fully idle cores. A partially idle core has only one
-> available CPU. On wider SMT systems such as POWER7, it also fills
-> available siblings in priority order while the core is partially busy.
+> On 09/07 10:59, Suzuki K Poulose wrote:
+>> This series adds the generic firmware layer for talking to the Realm
+>> Management Monitor (RMM), as specified by the RMM v2.0-bet3
+>> specification[1]. It is the first part of the Arm CCA host support that
+>> was previously posted as part of the larger KVM series.
+>>
+>> The split allows this RMM support to be used as a base for other work,
+>> including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
+>>   without depending on the KVM Realm support that will follow as separate
+>>   series. (See more on that below)
+>>
+>> The series adds:
+>>
+>>   * The RMI SMC definitions and direct-call wrappers.
+>>
+>>   * RMM discovery and version checks during firmware init.
+>>
+>>   * RMM host configuration, including the host page size.
+>>
+>>   * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
+>>     can complete across multiple SMC calls while requesting or returning
+>>     memory to the host.
+>>
+>>   * Verification that granule tracking is available at fine granularity.
+>>     Fine-grained tracking allows each granule in the system to be tracked
+>>     independently, which is required before individual granules can be
+>>     delegated. A future series will add support for dynamically supplying
+>>     memory to the RMM for this tracking.
+>>
+>>   * Support for fully firmware-managed systems, where the Granule Protection
+>>     Tables for memory regions are allocated and managed by firmware. RMM v2.0
+>>     also allows dynamic GPT creation on demand; support for that will be added
+>>     in a later series.
+>>
+>>   * Wrappers for the RMI commands that are used for managing the "Realm VM"
+>>     lifecycle. This is added in to make it easier for the on-going KVM support
+>>     to evolve in parallel pieces.
+>>
+>> If the platform firmware cannot manage the granule tracking or the GPTs, we
+>> bail out and deactivate the RMM, reclaiming any memory that we have donated.
+>>
+>> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+>> the RMM to complete an operation over several SMC calls while requesting
+>> or returning memory to the host. This allows interrupts to be handled in
+>> the middle of an operation and lets the RMM dynamically allocate memory
+>> for internal tracking purposes. For example, RMI_REC_CREATE no longer
+>> needs auxiliary granules to be provided up front, and can instead
+>> request memory during the operation.
+>>
+>> This series applies on v7.3-rc1 and a branch is available at [2]. The KVM
+>> CCA support that builds on this series is available at [3] as an integration
+>> branch. The KVM support depends on guest-memfd-in-place conversion support v12
+>> from Ackerley [4], we plan to split that into parts, which apply cleanly on
+>> v7.3-rcx without any dependency and is in progress. This will be made available
+>> as soon as it is ready. Until then [3] shows how this base series enables KVM
+>> CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
+>>
+>> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+>> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v17
+>> [3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/kvm-integration/v17
+>> [4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v12
+>> [5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
 > 
-
-Don't we need changes in the slow path too?
-Something like this?
-https://lore.kernel.org/all/20251204175405.1511340-2-srikar@linux.ibm.com/T/#u
-
-> Apply the preference to idle-core and idle-CPU scans,
-> asymmetric-capacity scans, and the target, previous, and recently-used
-> CPU fast paths. Inspect the lowest scheduling domain directly, but
-> require both CPUs to share its span because isolcpus can split hardware
-> siblings across scheduling domains.
+> I understand that QEMU-virt is not intended to model a realistic
+> production platform and that QEMU-SBSA is generally preferred. However,
+> I sometimes use QEMU-virt to test functionality quickly because it runs
+> slightly faster than QEMU-SBSA.
 > 
-> Keep physical-core capacity selection independent from SMT sibling
-> ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
-> maximum capacities, then SD_ASYM_PACKING selects the preferred available
-> sibling inside the chosen core, whose siblings continue to share equal
-> capacity.
+> I tested this series with QEMU-virt and found that RMM initialization
+> failed during boot:
 > 
-> Signed-off-by: Andrea Righi <arighi@nvidia.com>
-> ---
->  kernel/sched/fair.c     | 79 ++++++++++++++++++++++++++++++++++++-----
->  kernel/sched/sched.h    |  6 ++++
->  kernel/sched/topology.c | 36 +++++++++++++++++++
->  3 files changed, 112 insertions(+), 9 deletions(-)
+>    [...]
+>    INFO:    BL31: Initializing RMM
+>    INFO:    RMM init start.
+>    ERROR:   RMM init failed: -8
+>    WARNING: BL31: RMM initialization failed
 > 
-> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> index b8bd308c2d5b1..ff9a7b1fcbe7f 100644
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -8587,6 +8587,63 @@ static inline bool test_idle_cores(int cpu)
->  	return false;
->  }
->  
-> +/*
-> + * Return true when @cpu has a higher asymmetric-packing priority than
-> + * @other in their shared SMT scheduling domain.
-> + */
-> +static bool sched_smt_asym_prefer(int cpu, int other)
-> +{
-> +	struct sched_domain *sd = rcu_dereference_all(cpu_rq(cpu)->sd);
-> +
-> +	if (!sd)
-> +		return false;
-> +
-> +	if (!(sd->flags & SD_SHARE_CPUCAPACITY) ||
-> +	    !(sd->flags & SD_ASYM_PACKING))
-> +		return false;
-> +
-> +	if (!cpumask_test_cpu(other, sched_domain_span(sd)))
-> +		return false;
-> +
-> +	return sched_asym_prefer(cpu, other);
-> +}
-> +
-> +/*
-> + * Return the highest-priority available CPU in @cpu's SMT core that is also in @cpus.
-> + */
-> +static int __select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
-> +{
-> +	int best = cpu;
-> +	int sibling;
-> +
-> +	for_each_cpu_and(sibling, cpu_smt_mask(cpu), cpus) {
-> +		if (sibling == best || !choose_idle_cpu(sibling, p))
-> +			continue;
-> +
-> +		if (sched_smt_asym_prefer(sibling, best))
-> +			best = sibling;
-> +	}
-> +
-> +	return best;
-> +}
-> +
-> +static inline int
-> +select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
-> +{
-> +	if (!sched_smt_asym_active())
-> +		return cpu;
-> +
-> +	return __select_idle_smt_cpu(p, cpu, cpus);
+> The following TF-A revision was used:
+>    https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git master (38269bb)
+> 
+> After investigating, I found that the failure was caused by the lack of
+> a plat_rmmd_reserve_memory() implementation for the QEMU-virt platform
+> in TF-A. Adding an implementation equivalent to the QEMU-SBSA one
+> resolved the issue:
+>      https://git.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a.git/+/9d594743aa4d4e8160cdf025ea7538041648972c
+> 
+> Is QEMU virt still intended to be supported as an RME emulation
+> platform? In particular, is this functionality simply not implemented
+> yet, or is there a reason why RME support is not planned for QEMU virt?
+> 
+> If this is not the appropriate place to discuss this, please let me
 
-Nit: I see __select_idle_smt_cpu called only here.
-Cant we fold __select_idle_smt_cpu() here itself.
+Mathieu, Lorenzo,
 
-> +}
-> +
-> +/*
-> + * Redirect an available SMT CPU to a higher-priority available sibling allowed by task affinity.
-> + */
-> +static inline int select_idle_smt_priority(struct task_struct *p, int cpu)
-> +{
-> +	return select_idle_smt_cpu(p, cpu, p->cpus_ptr);
-> +}
-> +
+Over to you folks :-)
 
-nit: Can we also replace select_idle_smt_priority with select_idle_smt_cpu()
-itself.
+Cheers
+Suzuki
 
-Otherwise looks good to me
 
-Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
+> know :)
+> 
+> Thanks,
+> Kohei
+> 
+>> [6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git cca/kvm-v17
+>>
+>> Known issues: RMMv2.0
+>>   * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
+>>    (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
+>>    may not be satisfiable by the host. Arm is aware of this defect and a spec fix
+>>    is in progress.
+>>
+>>
+>> Steven Price (7):
+>>    firmware: arm_rmm: Add SMC definitions for calling the RMM
+>>    firmware: arm_rmm: Check for RMI support at init
+>>    firmware: arm_rmm: Configure the RMM with the host's page size
+>>    firmware: arm_rmm: Add support for SRO
+>>    firmware: arm_rmm: Activate the RMM
+>>    firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+>>    firmware: arm_rmm: Add wrappers for Realm related RMI commands
+>>
+>>   arch/arm64/Kconfig                |   1 +
+>>   arch/arm64/kernel/cpufeature.c    |   1 +
+>>   drivers/firmware/Kconfig          |   1 +
+>>   drivers/firmware/Makefile         |   1 +
+>>   drivers/firmware/arm_rmm/Kconfig  |  26 +
+>>   drivers/firmware/arm_rmm/Makefile |   2 +
+>>   drivers/firmware/arm_rmm/rmi.c    | 819 ++++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h      | 678 +++++++++++++++++++++++++
+>>   include/linux/arm-smccc-rmi.h     | 494 ++++++++++++++++++
+>>   9 files changed, 2023 insertions(+)
+>>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
+>>   create mode 100644 drivers/firmware/arm_rmm/Makefile
+>>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
+>>   create mode 100644 include/linux/arm-rmi-cmds.h
+>>   create mode 100644 include/linux/arm-smccc-rmi.h
+>>
+>> -- 
+>> 2.43.0
+>>
 
--- 
-Thanks and Regards
-Srikar Dronamraju
 
