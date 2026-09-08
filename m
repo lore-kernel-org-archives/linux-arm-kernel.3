@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C010C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E155CC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHFtsegYkSXAAQ6VLTBIGRfXAcm81uMjTTor0MXHuTI=; b=Aeso2S7gxSElGPQvg6cBcRQr1A
-	/lp0W9v66xa5pDwjY+TstzSmieauPFs9Vwf6btJubyuktFguMvsf6+m+Gg63GVCernCotil2vZeoT
-	GaN7Ac0tut30h6XtvQsHnl2wZZF11+tyrmOajqDlRG49OuiDQZfyUuuG2S1lE4qnJ1l/i2JR3CFtV
-	tNXPacrn3QtlOq5N5ows4vap35TA91ESr3kdoU7KJIhcWeAjZJ8dGc4coUonzco9TWW0dPQJw5qEV
-	83knbHwz4xYZx0U1mK7y0KdTdb4IiGQ8yHmMLLKauEcneg2qKXAh0t7L4OZaObXy4+/CKpDX84tHo
-	muNEpD+Q==;
+	bh=CaouMrHf0sBpiH7oiFC52Kf32tgj7gpdzB/pLuk6TXE=; b=sk9hqT2+/zfo8KrNrJjr4G6Deq
+	TY/OzL0DXxgEkljXRUAltcKGLlJVkg5/mul1/OrQnnirF0kFyeRoWUg4V5H8sblETz25C87Lg3lOl
+	4xTCr1jniK+crZz5GBCWjkIqWRowDPDzFb0yLNj8+l6ESQrsp9msyfJH7EUJoRcUzOWSgtxIk/Ks+
+	QVGU5GeyLGFuP5rVR+TBNT+S/rK969+AHbXmd6sH09xGUibuOru5VFr83JXKHVPjUUJQMpJI1AncY
+	zNKxphUdT/d0xp09ZmR/De1afRT/qo9cZ1k06ccLVehO6S0jK/yvrCOzjI22YYFth0lrXvoh9hkIg
+	OrfF7gkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wS6-00000009EDE-42PZ;
-	Tue, 08 Sep 2026 14:05:34 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1x3wSD-00000009EFM-0ikE;
+	Tue, 08 Sep 2026 14:05:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wS0-00000009EAy-1rJd
+	id 1x3wS7-00000009ECn-0ohD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 14:05:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=CaouMrHf0sBpiH7oiFC52Kf32tgj7gpdzB/pLuk6TXE=; b=EP0HccNnjquofudR0rXpL+nNLc
+	QIhC+P7AWKW3bM/3GqWwlwqxABdnGH0bNhllauDonFOl58uHAVphNZeF8b7IjqInFtpEtAQNyfG2w
+	1V6CIzgzl7lsgUjNssRSKoaNVJi8nipGguW0ReEnlMohH09SnXK7d2guIIqYxW6dAzaV+ebXvhGwr
+	6YRndgX06ct94/EhRPotzQgFuL7L/RkKnfReASXGsYBBFW2Ylj3v24Gxz2IuQBp/Huaxg+fHfPErK
+	SVXJ13FkCO12aLkqJ5JShaCiQ23Ogch8ERj/P1tDouT8bp96rhCp/GPo403msC3JF1I59VH2qxyMt
+	ZI0VFotw==;
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3wS4-0000000HVlx-0FDF
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Sep 2026 14:05:34 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=SHFtsegYkSXAAQ6VLTBIGRfXAcm81uMjTTor0MXHuTI=;
-	b=KWuF6IC6bGKi3ranAbI8gv4Ii8gUY2i6kQGwdMJTdCvr84XKLmPVUEiqnlsqQezcuJF0YoE9V
-	n+IXuXFtWfSPpwbhu1sHzejM/vwmpPiFHKShH/JP3LT0DdkhFBdE+eZ0at7vhrFHa4xhAltw2w9
-	zzRxS6N5Gufcj4+3IEI7YS8=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hfQR204Zsz1prlJ;
+	bh=CaouMrHf0sBpiH7oiFC52Kf32tgj7gpdzB/pLuk6TXE=;
+	b=QPcdzo9LzezfooH0eCR+FqKx6wKR0nt7K5LkOl6xwr4WTy+eevZBB22JIctC741u6HVe9vl8P
+	0BKoN+OTu9GnhlXHE8vBlbMbctmmEt6UObCKvVNwve2k+xyHTL55d7A+FecuTUHTGE6yWC8JfOU
+	SKXE/X7TQMyQm0SsEeFfWAo=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hfQR244NMzcb49;
 	Tue,  8 Sep 2026 21:54:22 +0800 (CST)
 Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id 691AE4057A;
-	Tue,  8 Sep 2026 22:05:17 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 988F24056E;
+	Tue,  8 Sep 2026 22:05:19 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
  (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 8 Sep
- 2026 22:05:14 +0800
+ 2026 22:05:17 +0800
 From: Sizhe Liu <liusizhe5@huawei.com>
 To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
 	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
@@ -59,9 +74,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
-Subject: [PATCH v4 2/8] perf hisi-ptt: Complete the field names for 4DW and 8DW packets
-Date: Tue, 8 Sep 2026 22:05:03 +0800
-Message-ID: <20260908140509.2485649-3-liusizhe5@huawei.com>
+Subject: [PATCH v4 3/8] perf hisi-ptt: Extract the raw data printing part
+Date: Tue, 8 Sep 2026 22:05:04 +0800
+Message-ID: <20260908140509.2485649-4-liusizhe5@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260908140509.2485649-1-liusizhe5@huawei.com>
 References: <20260908140509.2485649-1-liusizhe5@huawei.com>
@@ -72,8 +87,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_070530_512118_C297111F 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260908_150532_665115_5D3CEAE0 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +103,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the missing HISI_PTT_4DW_HEAD0 entry to the 4DW field name table
-and add the HISI_PTT_8DW_CHK_AND_RSV0/HISI_PTT_8DW_RSV1 entries to
-the 8DW field name table so that all DW indices have corresponding
-names.
+Extract the raw data printing part of the TLP header into
+hisi_ptt_print_raw_record() for reuse by subsequent patches that
+add field-level parsing of individual DW headers.
 
 Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
 Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
 ---
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 20 +++++++++++--------
- 1 file changed, 12 insertions(+), 8 deletions(-)
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 31 +++++++++----------
+ 1 file changed, 15 insertions(+), 16 deletions(-)
 
 diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index ef72223d3854..766665414ad8 100644
+index 766665414ad8..23ae99f33c9f 100644
 --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
 +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -54,6 +54,7 @@ enum hisi_ptt_8dw_pkt_field_type {
- };
- 
- enum hisi_ptt_4dw_pkt_field_type {
-+	HISI_PTT_4DW_HEAD0,
- 	HISI_PTT_4DW_HEAD1,
- 	HISI_PTT_4DW_HEAD2,
- 	HISI_PTT_4DW_HEAD3,
-@@ -61,15 +62,18 @@ enum hisi_ptt_4dw_pkt_field_type {
- };
- 
- static const char * const hisi_ptt_8dw_pkt_field_name[] = {
--	[HISI_PTT_8DW_PREFIX]	= "Prefix",
--	[HISI_PTT_8DW_HEAD0]	= "Header DW0",
--	[HISI_PTT_8DW_HEAD1]	= "Header DW1",
--	[HISI_PTT_8DW_HEAD2]	= "Header DW2",
--	[HISI_PTT_8DW_HEAD3]	= "Header DW3",
--	[HISI_PTT_8DW_TIME]	= "Time"
-+	[HISI_PTT_8DW_CHK_AND_RSV0]	= "CHK & RSV0",
-+	[HISI_PTT_8DW_PREFIX]		= "Prefix",
-+	[HISI_PTT_8DW_HEAD0]		= "Header DW0",
-+	[HISI_PTT_8DW_HEAD1]		= "Header DW1",
-+	[HISI_PTT_8DW_HEAD2]		= "Header DW2",
-+	[HISI_PTT_8DW_HEAD3]		= "Header DW3",
-+	[HISI_PTT_8DW_RSV1]		= "RSV1",
-+	[HISI_PTT_8DW_TIME]		= "Time"
- };
- 
- static const char * const hisi_ptt_4dw_pkt_field_name[] = {
-+	[HISI_PTT_4DW_HEAD0]	= "Header DW0",
- 	[HISI_PTT_4DW_HEAD1]	= "Header DW1",
- 	[HISI_PTT_4DW_HEAD2]	= "Header DW2",
+@@ -79,23 +79,31 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
  	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
-@@ -100,7 +104,7 @@ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ };
+ 
+-static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
+-			       const char *desc)
++static void hisi_ptt_print_raw_record(size_t offset, uint32_t value)
  {
+ 	const char *color = PERF_COLOR_BLUE;
+ 	uint8_t byte;
+-	uint32_t dw;
  	int i;
  
--	for (i = 0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
-+	for (i = HISI_PTT_8DW_CHK_AND_RSV0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
- 		/* Do not show 8DW check field and reserved fields */
- 		if (i == HISI_PTT_8DW_CHK_AND_RSV0 || i == HISI_PTT_8DW_RSV1) {
- 			pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
-@@ -150,7 +154,7 @@ static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+-	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
+ 	printf(".");
+-	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
++	color_fprintf(stdout, color, "  %08zx: ", offset);
+ 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
+-		byte = (dw >> (24 - i * 8)) & 0xFF;
++		byte = (value >> (24 - i * 8)) & 0xFF;
+ 		color_fprintf(stdout, color, "%02x ", byte);
+ 	}
+ 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
+ 		color_fprintf(stdout, color, "   ");
++}
++
++static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
++			       const char *desc)
++{
++	const char *color = PERF_COLOR_BLUE;
++	uint32_t value;
++
++	value = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
++	hisi_ptt_print_raw_record(pkt_buf->pos, value);
++
+ 	color_fprintf(stdout, color, "  %s\n", desc);
+ 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+ }
+@@ -120,19 +128,10 @@ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	const char *color = PERF_COLOR_BLUE;
+-	uint8_t byte;
+ 	uint32_t dw;
+-	int i;
  
- 	hisi_ptt_4dw_print_dw0(pkt_buf);
+ 	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
+-	printf(".");
+-	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
+-	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
+-		byte = (dw >> (24 - i * 8)) & 0xFF;
+-		color_fprintf(stdout, color, "%02x ", byte);
+-	}
+-	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
+-		color_fprintf(stdout, color, "   ");
++	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
  
--	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++)
-+	for (i = HISI_PTT_4DW_HEAD1; i < HISI_PTT_4DW_TYPE_MAX; i++)
- 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
- 
- 	return hisi_ptt_pkt_size[HISI_PTT_4DW_PKT];
+ 	color_fprintf(stdout, color,
+ 		      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
 -- 
 2.33.0
 
