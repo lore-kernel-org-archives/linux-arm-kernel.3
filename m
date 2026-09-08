@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F3FC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 04:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEA7C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 04:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t49P18Ecorpa0mLiZPfpzL5d4vr5yz7SreFe0WxYpwA=; b=Lf//Y0Z5tWTxFYtspsII5Z7HJs
-	4B9sALsCLtvZcJpDQv0UDZysFjgGRY7FCg6JdzI73f5y3krKF28vorfpmWb+GmV7D4NJXA+4AjNHm
-	/6IUtPQyKrdgtGWaXcNcrkJTdeVq0PgKz3a5/6dNlJPtpVtgR+IPQYKfMemJwZbvA+RjIOgZ/O+XY
-	V+Yuqb2V5UvlN5j4U4fwlmBmA6Nf/znrf8N/vvftRCVubhqQwQmKqhRKW/8aZTmvMBspxgZhPyRQB
-	bohNGfrUmfZwe5UkCB+rLA+0q1eDzuKr5es3RqtDKZQf3DAJBByMoBdWB8d4ddmsvOHXS66rbKG+F
-	pJzO164Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=54x+ic7p5AvLCn1WaDLbC0t3N8vsMYyzJxRLU1kfPPg=; b=Z7Knbs3txfdPb1kZ2+WhKts4/i
+	zeGo1HF4yf5W+zHKJxKsWFx49/4dqFYnn+bSl10qhjy1BmGrArEajMB4+3PJDFGLItxC2ueHxvAAQ
+	PvslSKd6klrCZG2GO+B8JHycRZBZQ6S3apHZO8waePHYTL+ma5/Kk63YDMVfn4ma7xsQvXbexsT46
+	gc+BRX+aQevDaT0SO7vwVfUrAtER1xiz5vOKHBbQU38+w1QzOdNAaiWiT9Z6iUN0Wov3HizF1hCCq
+	nFxJMM+X++7gomJFU85aWaB6gF7O/UYr73I7tG4EgJV1bPfl4zJnvidqHPHVHuP83WVQiYeNWIo8R
+	BOf/k3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3nMM-0000000819g-175G;
-	Tue, 08 Sep 2026 04:23:02 +0000
-Received: from fraori-sdnproxy-3.icoremail.net ([132.226.202.154])
+	id 1x3nR3-000000081JQ-3UUd;
+	Tue, 08 Sep 2026 04:27:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3nMH-00000008198-0vlN
+	id 1x3nQx-000000081Is-1Mzd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 04:23:00 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wA3EX6DjZ9qJ0v9AA--.22841S3;
-	Tue, 08 Sep 2026 12:22:28 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app1 (Coremail) with SMTP id yy_KCgCnPKeDjZ9qvzlkBA--.62142S2;
-	Tue, 08 Sep 2026 12:22:27 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: gregkh@linuxfoundation.org,
-	linux-usb@vger.kernel.org
-Cc: joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	benh@kernel.crashing.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>,
-	Song Li <songl@zju.edu.cn>
-Subject: [PATCH] usb: gadget: aspeed-vhub: cancel wake work on device removal
-Date: Tue,  8 Sep 2026 04:17:39 +0000
-Message-Id: <20260908041740.613713-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 08 Sep 2026 04:27:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 847191476;
+	Mon,  7 Sep 2026 21:27:39 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A8713F528;
+	Mon,  7 Sep 2026 21:27:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788841663; bh=hQJkvNi3bb05p4k/wBr7hrOWhHO3OdgSFqaZH/K7Pio=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rGXTvjNfsjYZ5xTnn8tyhlFX0kFcSi6jAtuHU6+/Kt9ZQdNKwjGhAiOza7Kt7ZXc4
+	 OUH3+1Dcia4bBZrF+87mn/ntKj0rOAVUloAmgg/kSoQk1iBamIQ4a7CUcJKuhm1cqU
+	 bUgvStjtQYXc+HMvAzXwFeJ1V9ac38ruBW8clF84=
+Date: Tue, 8 Sep 2026 09:57:39 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Mike Rapoport <rppt@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [PATCH 1/2] arm64/mm: Move __check_safe_pte_update()
+Message-ID: <afwvof4qixu5rzkgnpj272ntazog4zpdm6sietwugljizmtmel@q7ldx23yngl7>
+References: <20260901065454.1906343-1-anshuman.khandual@arm.com>
+ <20260901065454.1906343-2-anshuman.khandual@arm.com>
+ <a70e45cc-dbf7-40da-81e8-ee6055f2692f@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: yy_KCgCnPKeDjZ9qvzlkBA--.62142S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?aQaxtQXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnVCjTgEH9dVomQuWcozCBBHBKz8wg5YwzVCsKXh9KORbDx6nCOS/gp/XLEQsM9WWEs6A
-	SAYFFf03ZgYa92J2mMSp9E6mavGmQbzmcFsnzP86
-X-Coremail-Antispam: 1Uk129KBj93XoWxZFW5Jw17WF1kCF4fKF4rJFc_yoW7JFW8pa
-	15JrWxAFWDtFnFgrWUJrs3XF45G393KFWUGrW7Xw4YvF93Aryvyry7tFWFqa1UAFWIyF9I
-	9F4qqr4UXFs5XrcCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
-	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
-	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
-	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s02
-	6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
-	I_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
-	6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
-	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
-	JbIYCTnIWIevJa73UjIFyTuYvjxU7gAwDUUUU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a70e45cc-dbf7-40da-81e8-ee6055f2692f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_212257_581134_D09F9B54 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260907_212747_471474_A5D6CD7F 
+X-CRM114-Status: GOOD (  32.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,119 +72,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-wake_work is armed from the gadget .wakeup callback to resume suspended
-downstream ports, and it is never cancelled in ast_vhub_remove(), so a
-work item queued before or during removal can run after devm has freed
-vhub and its ports, a use-after-free.
+On Mon, Sep 07, 2026 at 05:48:18PM +0200, David Hildenbrand (Arm) wrote:
+> On 9/1/26 08:54, Anshuman Khandual wrote:
+> > The page table entry print helpers and related macros which are defined in
+> > <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
+> > is basically caused by cycling dependency.
+> > 
+> > Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
+> > for subsequent usage of the afore mentioned generic MM helpers.
+> > 
+> > This does not cause any functional change.
+> > 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > ---
+> > Should __check_safe_pte_update() be wrapped in #ifdef CONFIG_DEBUG_VM
+> > along with dropping off current IS_ENABLED() test. That would ensure
+> > the function never gets called when CONFIG_DEBUG_VM is disabled. That
+> > will preserve current behaviour as the inline function gets dropped
+> > when CONFIG_DEBUG_VM remains disabled.
+> > 
+> >  arch/arm64/include/asm/pgtable.h | 47 +-------------------------------
+> >  arch/arm64/mm/mmu.c              | 45 ++++++++++++++++++++++++++++++
+> >  2 files changed, 46 insertions(+), 46 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > index e89ec5f4787b..61fbfab3e06e 100644
+> > --- a/arch/arm64/include/asm/pgtable.h
+> > +++ b/arch/arm64/include/asm/pgtable.h
+> > @@ -387,52 +387,7 @@ static inline pte_t __ptep_get(pte_t *ptep)
+> >  extern void __sync_icache_dcache(pte_t pteval);
+> >  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
+> >  
+> > -/*
+> > - * PTE bits configuration in the presence of hardware Dirty Bit Management
+> > - * (PTE_WRITE == PTE_DBM):
+> > - *
+> > - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
+> > - *   0      0      |   1           0          0
+> > - *   0      1      |   1           1          0
+> > - *   1      0      |   1           0          1
+> > - *   1      1      |   0           1          x
+> > - *
+> > - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
+> > - * the page fault mechanism. Checking the dirty status of a pte becomes:
+> > - *
+> > - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
+> > - */
+> > -
+> > -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
+> > -					   pte_t pte)
+> > -{
+> > -	pte_t old_pte;
+> > -
+> > -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
+> > -		return;
+> > -
+> > -	old_pte = __ptep_get(ptep);
+> > -
+> > -	if (!pte_valid(old_pte) || !pte_valid(pte))
+> > -		return;
+> > -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
+> > -		return;
+> > -
+> > -	/*
+> > -	 * Check for potential race with hardware updates of the pte
+> > -	 * (__ptep_set_access_flags safely changes valid ptes without going
+> > -	 * through an invalid entry).
+> > -	 */
+> > -	VM_WARN_ONCE(!pte_young(pte),
+> > -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> > -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
+> > -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> > -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
+> > -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> > -}
+> > +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
+> >  
+> 
+> That implies that any __set_ptes_anysz() will invoke another function call that
+> will not be optimized out.
 
-Cancelling the work alone is not sufficient: usb_gadget_wakeup() takes
-no lock and the unbind path never clears wakeup_en, so a remote-wakeup
-request in flight on another CPU can re-arm the work after the cancel
-and before vhub is freed.
+Right.
 
-ast_vhub_del_dev() already clears d->registered under vhub->lock before
-unregistering the gadget. Refuse the wakeup in ast_vhub_udc_wakeup()
-once d->registered is clear: the check and the schedule_work() are then
-atomic against the unbind, so a wakeup that passed before the flag was
-cleared is drained by the cancel_work_sync() after the del_dev loop,
-and one that arrives later returns without arming. Also move INIT_WORK()
-to the top of ast_vhub_probe(), since the probe error path reuses
-ast_vhub_remove() and would otherwise cancel a never-initialized work
-item.
+> 
+> You should likely keep most of __check_safe_pte_update() in the header as an
+> inline function (or at least the CONFIG_DEBUG_VM check), and only move the "slow
+> path" code.
+> 
+> Alternatively, make the whole thing #ifdef CONFIG_DEBUG_VM and provide an empty
+> inline helper for !CONFIG_DEBUG_VM.
+> 
+> That's probably the cleanest, because performance with CONFIG_DEBUG_VM is not
+> really relevant.
 
-This issue was found by an in-house static analysis tool.
+Agreed, I had asked exact same question earlier as well.
 
-Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:gpt-5.6
-Co-developed-by: Song Li <songl@zju.edu.cn>
-Signed-off-by: Song Li <songl@zju.edu.cn>
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- drivers/usb/gadget/udc/aspeed-vhub/core.c | 4 ++++
- drivers/usb/gadget/udc/aspeed-vhub/dev.c  | 2 +-
- drivers/usb/gadget/udc/aspeed-vhub/hub.c  | 5 +++--
- drivers/usb/gadget/udc/aspeed-vhub/vhub.h | 1 +
- 4 files changed, 9 insertions(+), 3 deletions(-)
+> > Should __check_safe_pte_update() be wrapped in #ifdef CONFIG_DEBUG_VM
+> > along with dropping off current IS_ENABLED() test. That would ensure
+> > the function never gets called when CONFIG_DEBUG_VM is disabled. That
+> > will preserve current behaviour as the inline function gets dropped
+> > when CONFIG_DEBUG_VM remains disabled.
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/core.c b/drivers/usb/gadget/udc/aspeed-vhub/core.c
-index 4a8b9ff83..069673f0d 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/core.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/core.c
-@@ -267,6 +267,9 @@ static void ast_vhub_remove(struct platform_device *pdev)
- 	for (i = 0; i < vhub->max_ports; i++)
- 		ast_vhub_del_dev(&vhub->ports[i].dev);
- 
-+	/* Final drain; the worker takes vhub->lock, so stay outside of it */
-+	cancel_work_sync(&vhub->wake_work);
-+
- 	spin_lock_irqsave(&vhub->lock, flags);
- 
- 	/* Mask & ack all interrupts  */
-@@ -328,6 +331,7 @@ static int ast_vhub_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	spin_lock_init(&vhub->lock);
-+	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
- 	vhub->pdev = pdev;
- 	vhub->port_irq_mask = GENMASK(VHUB_IRQ_DEV1_BIT + vhub->max_ports - 1,
- 				      VHUB_IRQ_DEV1_BIT);
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index 8b9449d16..4b389de0d 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -280,7 +280,7 @@ static int ast_vhub_udc_wakeup(struct usb_gadget* gadget)
- 	int rc = -EINVAL;
- 
- 	spin_lock_irqsave(&d->vhub->lock, flags);
--	if (!d->wakeup_en)
-+	if (!d->wakeup_en || !d->registered)
- 		goto err;
- 
- 	DDBG(d, "Device initiated wakeup\n");
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/hub.c b/drivers/usb/gadget/udc/aspeed-vhub/hub.c
-index 02fe1a08d..d0345f310 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/hub.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/hub.c
-@@ -558,7 +558,7 @@ void ast_vhub_device_connect(struct ast_vhub *vhub,
- 		ast_vhub_send_host_wakeup(vhub);
+Will fold in the following changes.
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 61fbfab3e06e..281a512f1fc6 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -387,7 +387,13 @@ static inline pte_t __ptep_get(pte_t *ptep)
+ extern void __sync_icache_dcache(pte_t pteval);
+ bool pgattr_change_is_safe(pteval_t old, pteval_t new);
+
++#ifdef CONFIG_DEBUG_VM
+ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
++#else
++static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
++{
++}
++#endif
+
+ static inline void __sync_cache_and_tags(pte_t pte, unsigned int nr_pages)
+ {
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b5de4095d650..26f4cf7b753e 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -2408,15 +2408,13 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+  *
+  *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
+  */
++#ifdef CONFIG_DEBUG_VM
+ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
+ {
+        char pte_str_old[PTVAL_STR_MAX];
+        char pte_str[PTVAL_STR_MAX];
+        pte_t old_pte;
+
+-       if (!IS_ENABLED(CONFIG_DEBUG_VM))
+-               return;
+-
+        old_pte = __ptep_get(ptep);
+
+        if (!pte_valid(old_pte) || !pte_valid(pte))
+@@ -2442,3 +2440,4 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
+                     __func__, pte_str_old, pte_str);
  }
- 
--static void ast_vhub_wake_work(struct work_struct *work)
-+void ast_vhub_wake_work(struct work_struct *work)
- {
- 	struct ast_vhub *vhub = container_of(work,
- 					     struct ast_vhub,
-@@ -588,6 +588,8 @@ static void ast_vhub_wake_work(struct work_struct *work)
- 
- void ast_vhub_hub_wake_all(struct ast_vhub *vhub)
- {
-+	lockdep_assert_held(&vhub->lock);
-+
- 	/*
- 	 * A device is trying to wake the world, because this
- 	 * can recurse into the device, we break the call chain
-@@ -1076,7 +1078,6 @@ static int ast_vhub_init_desc(struct ast_vhub *vhub)
- int ast_vhub_init_hub(struct ast_vhub *vhub)
- {
- 	vhub->speed = USB_SPEED_UNKNOWN;
--	INIT_WORK(&vhub->wake_work, ast_vhub_wake_work);
- 
- 	return ast_vhub_init_desc(vhub);
- }
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-index aca2050e2..96f1c3709 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-@@ -547,6 +547,7 @@ void ast_vhub_hub_suspend(struct ast_vhub *vhub);
- void ast_vhub_hub_resume(struct ast_vhub *vhub);
- void ast_vhub_hub_reset(struct ast_vhub *vhub);
- void ast_vhub_hub_wake_all(struct ast_vhub *vhub);
-+void ast_vhub_wake_work(struct work_struct *work);
- 
- /* dev.c */
- int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx);
--- 
-2.34.1
+ #endif
++#endif
 
+>
+> 
+> -- 
+> Cheers,
+> 
+> David
 
