@@ -4,104 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F2EC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745BDC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wh3m6n4ujg0xUO6NVE4ffQo0e8xmeTU3ZpGCHU+R104=; b=z/47zFhcJ8BEQdh8UuCo9F5EAr
-	/YxtpffnB2rijgYOqzmrDSgKy9q/LWyqoUJQXXvma8r6NYliEqAw4a4H2TBwYxUqkdvj4rt+uAKjv
-	GxEV0ugvbDaHDg57WvqwoUx75QPQshoRka/mBoW2NlZGi3O4fyFnD92pZV1pKA0KUtO2DpsUTX+us
-	JMHDpkOMr+di6WIx3IRn5M4QDdFC6kG06ligvgXmPNA0rJhfBbeVUEVsgZFVQMS2bQk+bOpmpuvEa
-	sUuZ3p0WvpPBVSaaHL2OWbm/ayse7wac0ejDfwaVOp2FbuUDUyIf2nUF284TraRBl9aKBkb9iwrXu
-	nU/R3OBQ==;
+	bh=DAhVo+VnvuwPf8P1BI0svmi6m7U7fXWrZ8gzfloqoPY=; b=C32Bcc/aV6EFYBMKkMpo32BpkV
+	CqcwpRUp3XJlDtlUnAAnE0W/SJMeKa7lDI/c9q13SRRT6KF55oDhjin3B7dIQ9PG9uztp1nOzRgaN
+	r73gC2xzpGCy95zSEUAnqAQtpYWI/a6m2EGlYu5IwRy++qZfUWNVz6xzoMH85lEIiSAwczfj1r9nT
+	k2UIsDwv20ApjNa51ypDxkKABGdZ99d+1mmpBor3vHyFvqfFSs1JH6QOES8SjzrwLkkGSt1wi4s3y
+	8z/g+8knOuCDjEoB/zU4+7Q7Pux5HKDBG5uIot/AMy4jedUElnyFCLfD2efOqziF0qn4zfuFmlolg
+	imE5aYMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAw-00000009KNs-1Xh5;
-	Tue, 08 Sep 2026 14:51:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3y76-00000009YOx-2x0Z;
+	Tue, 08 Sep 2026 15:52:02 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAs-00000009KGc-3jXj;
-	Tue, 08 Sep 2026 14:51:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Wh3m6n4ujg0xUO6NVE4ffQo0e8xmeTU3ZpGCHU+R104=; b=cgtu1XesThG3lyILW/ajiqKTE0
-	xP51iPGdM5kp53bcHTEAvfNAQlskC0vXT13ujL35LmeiSweEeRolTy5S/jsz2B3y4z0CM8mNN72RI
-	56RvZb923qfqsti5I164zujImgN4h/m4grdXz+vd/7FbOZ1FXtXKM0He5g6K3S8AkJeoxfRWlkiVW
-	+m6l2GCjqhyZyPUA3Xr9YlCIm+EJnsRN/H+M+PLzpnCMOouB17edSDFd8tQ8YkDe5zonZBFVRauw+
-	Kylq+ovEwZL7q9FEodAZdknGVeXNfy3ZZsmksFJl9m9UfMzoCFD6ZYbK33DM/bLo17/xlk+z5uPAF
-	a22QnI/Q==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xAp-0000000HZ1r-2Xo1;
-	Tue, 08 Sep 2026 14:51:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788879101;
-	bh=L4M7hLiRxDRX1JjACPykw3mztl3t/GK4QMLCwWFrxIo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kW0ee1qC0mWQjAr1zWej6iBHaL/pedHxs0MoPFbMbpp7UHet1M/me8w/7ikqnvwio
-	 OfFPrVq+Eb7Bce+wUGuP6RlreC5vX7HV/Hxazj4uin98eiYsZelg+EAGSdSMGG19kv
-	 MCEBdfZmGusea7/XGt7YQKccST+LYlBcWfbPOmJG1fuGvih8yf10Bll8Wd4hxEuHWG
-	 8P6AfXMxKDZ5LD5xymYcGdszsoMH0CU7gNdH+S1L5LVVWJjQ75CmAFxK5gacYkJoTz
-	 wL+gOEHyuDaS+42xwy77K5QK2UoOCz/3BsE7N1pi1nmbTp2Nhh3Lo4yr8F5ZD1SeIr
-	 PN9XAbud11iyw==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C67E17E0D81;
-	Tue, 08 Sep 2026 16:51:41 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 979CA48003A; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 08 Sep 2026 16:51:25 +0200
-Subject: [PATCH v6 07/10] PCI: dw-rockchip: Add pme_turn_off support
+	id 1x3y70-00000009YO1-32Cz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 15:51:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0DF491A1A5A;
+	Tue,  8 Sep 2026 15:51:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D37BE6031F;
+	Tue,  8 Sep 2026 15:51:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2476D11C7AF49;
+	Tue,  8 Sep 2026 17:51:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788882711; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=DAhVo+VnvuwPf8P1BI0svmi6m7U7fXWrZ8gzfloqoPY=;
+	b=C2nxzAJ/2j1JQy7Wp+D4kWMW3N7lqM5p8+HWmkRrLjB8pT4MGOshpbTVcWIHpNilkCUC8U
+	Iso2bROUUjnekiNbw0hO8//tj/RMQ307uz8DdvsbCs4Mzh9bIGXDEX2AFPezDyWozHpGQW
+	wmhlHFJ1WoxG/o0tLsAqUqJ40DGKiYqLgVHW5U0zAIlRSDyrJFpdPfI5SoPuOU3iC9vkfW
+	2V4GhxIvoYPQR9Q4TdeOx1gRFst/gW5FkfXTFghGir3fwetU1Su2gg8rpNDEFrDGPHN6DM
+	s3Sz2VwYMFMVRa29P+ymcXOSyJ64NJgAPXDeX8xIwEgsb4OZwcqPKJmjRCIdYA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
+ <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
+ Holland <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,
+  linux-mtd@lists.infradead.org,  devicetree@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] mtd: rawnand: sunxi: support randomized OOB formats
+In-Reply-To: <20260904-submit-sunxi-nand-vendor-oob-layout-v1-v2-2-b12074f4aca7@gmail.com>
+	(James Hilliard's message of "Fri, 04 Sep 2026 15:22:12 -0600")
+References: <20260904-submit-sunxi-nand-vendor-oob-layout-v1-v2-0-b12074f4aca7@gmail.com>
+	<20260904-submit-sunxi-nand-vendor-oob-layout-v1-v2-2-b12074f4aca7@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 08 Sep 2026 17:51:46 +0200
+Message-ID: <87ik4fu4fh.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-rockchip-pcie-system-suspend-v6-7-fbabcca9921b@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3022;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=L4M7hLiRxDRX1JjACPykw3mztl3t/GK4QMLCwWFrxIo=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqgIPwONPLCUoy4DvvoogqBm9II90BbJz5ht
- eejLik2EOCWKYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
- O/qaGZQP+gOurxzOFdXPQH/FppuFVPfAZBUWPfQAUq/RHhR7nlu/RavTNBh/+wmJnox+7OcVRm4
- IpCPBVCl6o0sXgL5myrdgqw8EyUIwyvcX9PSAQ0tBM+F2bdW9FOB4tDwtwI+kt/4w7j97QZdWlB
- O6Nf6na/zPD4q4V93PqLTQC07pczGYcXRo08398LQU8kTFETitEm/X3KTLl2mZSbAMsZAjKTyvA
- ZaTVaL/KBXEWLlsbC9UzhCPquLIjvhO/epJCiUc3LPNOJN1g6PFBz5llnyEIn+g+u9+j1hiLjXx
- JSV92CfOxYxiODNfSY3ZqTiPBgTwVj6BV/jlwkEXzJ+Spxi1yFnLcXi8RNfvNzYhuOaqxbsZwLI
- FiB9366KJiii4d4KNdP25wgnWhRt7ZRJAVME3Tt1RMzXSq462vWVb8c/yM4rhTITMc3abgYfjfi
- I6834iZKidFeqelUf3Z/LeYEbnzNWtM4FcJyxC8ShTvSyso+VgJir8+SHfdk5QJvhSocyNzt0RX
- AiewwJfk7FyPrGdkr13fNqRcfldOTP9TddhpnZ9aUrpCvqWVNqaOzwvH+zNtz4Ekfld7t2XtZLP
- LLRUrKEl91b2pqck+Xdh8R0W8SCTb68aGa4CwgjyqrHQQ6Qjf34PZ2kF2jGwuUpN9r7ZYKFjqlE
- WZCE/bMJ/ugNr3eB9PV4zcg==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_155147_776321_056F7C54 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20260908_085154_920562_F3A9E5B1 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,87 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare Rockchip PCIe controller for system suspend support by
-adding the PME turn off operation.
+Hi James,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 44 +++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+On 04/09/2026 at 15:22:12 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 1e48099e36e4..17530507e41b 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -45,6 +45,7 @@
- #define  PCIE_CLIENT_LD_RQ_RST_GRT	FIELD_PREP_WM16(BIT(3), 1)
- #define  PCIE_CLIENT_ENABLE_LTSSM	FIELD_PREP_WM16(BIT(2), 1)
- #define  PCIE_CLIENT_DISABLE_LTSSM	FIELD_PREP_WM16(BIT(2), 0)
-+#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
- 
- /* Interrupt Status Register Related to Legacy Interrupt */
- #define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
-@@ -64,6 +65,11 @@
- 
- /* Interrupt Mask Register Related to Miscellaneous Operation */
- #define PCIE_CLIENT_INTR_MASK_MISC	0x24
-+#define PCIE_CLIENT_POWER		0x2c
-+#define PCIE_CLIENT_MSG_GEN		0x34
-+#define PME_READY_ENTER_L23		BIT(3)
-+#define PME_TURN_OFF			FIELD_PREP_WM16(BIT(4), 1)
-+#define PME_TO_ACK			FIELD_PREP_WM16(BIT(9), 1)
- 
- /* Power Management Control Register */
- #define PCIE_CLIENT_POWER_CON		0x2c
-@@ -452,8 +458,46 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
- 	return 0;
- }
- 
-+static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
-+	struct device *dev = rockchip->pci.dev;
-+	u32 status;
-+	int ret;
-+
-+	/* 1. Broadcast PME_Turn_Off Message, bit 4 self-clear once done */
-+	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN);
-+	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN,
-+				 status, !(status & BIT(4)), PCIE_PME_TO_L2_TIMEOUT_US / 10,
-+				 PCIE_PME_TO_L2_TIMEOUT_US);
-+	if (ret) {
-+		dev_warn(dev, "Failed to send PME_Turn_Off\n");
-+		return;
-+	}
-+
-+	/* 2. Wait for PME_TO_Ack, bit 9 will be set once received */
-+	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_INTR_STATUS_MSG_RX,
-+				 status, status & BIT(9), PCIE_PME_TO_L2_TIMEOUT_US / 10,
-+				 PCIE_PME_TO_L2_TIMEOUT_US);
-+	if (ret) {
-+		dev_warn(dev, "Failed to receive PME_TO_Ack\n");
-+		return;
-+	}
-+
-+	/* 3. Clear PME_TO_Ack and Wait for ready to enter L23 message */
-+	rockchip_pcie_writel_apb(rockchip, PME_TO_ACK, PCIE_CLIENT_INTR_STATUS_MSG_RX);
-+	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER,
-+				 status, status & PME_READY_ENTER_L23,
-+				 PCIE_PME_TO_L2_TIMEOUT_US / 10,
-+				 PCIE_PME_TO_L2_TIMEOUT_US);
-+	if (ret)
-+		dev_err(dev, "Failed to get ready to enter L23 message\n");
-+}
-+
- static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
- 	.init = rockchip_pcie_host_init,
-+	.pme_turn_off = rockchip_pcie_pme_turn_off,
- };
- 
- /*
+> The controller randomizer covers the bad block marker along with the
+> rest of the OOB data. The driver currently compensates the marker bytes
+> before writes and after reads so that they remain plain on flash.
+>
+> Allwinner NAND firmware instead stores the marker through the
+> randomizer. Media using that format appears to contain bad blocks unless
+> the randomizer is enabled while reading the marker.
+>
+> Honor the allwinner,randomized-oob property by marking the NAND as
+> requiring scrambling during normal hardware-ECC transfers and leaving
+> the marker in the randomizer data stream. Keep the existing plain marker
+> behavior when the property is absent. Reject the property with software
+> or disabled ECC because those paths do not operate the controller
+> randomizer.
+>
+> MTD_OPS_RAW behavior remains unchanged: raw accesses bypass both ECC and
+> randomization and expose the physical representation. The raw-NAND
+> core's bad-block and flash-BBT paths use decoded accesses and therefore
+> continue through the hardware-ECC/randomizer path.
+>
+> This changes marker handling on all supported controllers; the H6/H616
+> protected user-data placement is handled separately.
+>
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
--- 
-2.53.0
+I believe it is still not completely working. If you look at the error
+path in the read functions, in case we face a factory bad block, there
+will be no data, we will face the "page is maybe empty" case where we
+still address columns like before. Since data is randomized with these
+accesses, I believe we would return errors which will not be interpreted
+correctly by the core. The discovery of the factory bad block markers is
+thus broken during BBT scan. But a BBT read is also broken, because even
+if errors are ignored, we perform pattern matching on data which is, if
+my understanding of your implementation is correct, not de-randomized in
+this case.
 
+Thanks,
+Miqu=C3=A8l
 
