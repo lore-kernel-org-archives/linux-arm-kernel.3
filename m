@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F89CC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4623DC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3NjIWFcEJdYq3DlGueiEK5h/c3x8imRp1UzNgnF9LE=; b=AsnQ+P9s6LrQn5PMx4Ip5O81um
-	/5CvH52heZ6nPTEOZO1kJdDSM8lz00AW70lLCI6Dvhma6opH5ui8/KCoMMJ7NxUQB7PibD6Wijbr9
-	gai+b+5DdOextEV9SOLF2VDWvIAyciG2S24cpEZhp49kmVNql3pQUZklA/HG9t2Jv1zIajHajdSu7
-	Lpb0hQ9AqH2715CFKeLOi9lobUkOC/yaGk/kBUkpEv2stj9WMHgRORSA5wtKhnTQKx5W8rdg1BDE4
-	otDNA56IpwcOXkxNLByhWb1lgKU8vG7OYyDiKYKGrQj//O4cemSjTQKk9Z9lOX9cjvwAAbehl1RWN
-	oFh3MbEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FvbhN7L/22FEvDfiZoo/Nf7w38CON9xdSVEGHayP5/4=; b=wveZBSFQC1sm6+ahA9NOrZZmYM
+	oTv/bKr0IZX6qg7uoBnAPiEgL2j7CHshPd5KrCtFJrNneZ5xbWHM4B616/6DmUHNJ1jn6Tc5baTtx
+	yEbCxXLHmVdNmRF2CFBNt6I3ZT75AQecTEsfGcsvMHJJAhmbzMMi8jZ9sJLBD6pe6ai4lSwdqux6Z
+	Zzb1wKUowNrRuQ4uTeSyoLIUHnmAXKkbwH9LWu4m1fA1Bs+v9U+U8uL7z7Wc/ZKNBqEHOSydSd/yy
+	cckSxCPtmFMmaYTN/Pb2SRlKNa5nAsSMCFFFDBeoqitLHuxD07MqvIHDAJsvsmqskBBAJIQK09Coh
+	eU8GzHAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yXy-00000009cbr-3nR5;
-	Tue, 08 Sep 2026 16:19:46 +0000
+	id 1x3yZF-00000009cqe-0SxI;
+	Tue, 08 Sep 2026 16:21:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yXx-00000009cbI-0TxV
+	id 1x3yZB-00000009cpn-1wjO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:19:46 +0000
+	Tue, 08 Sep 2026 16:21:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 903C31476;
-	Tue,  8 Sep 2026 09:19:40 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 806B63F7B4;
-	Tue,  8 Sep 2026 09:19:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1F9F1476;
+	Tue,  8 Sep 2026 09:20:54 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A3E6A3F7B4;
+	Tue,  8 Sep 2026 09:20:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788884384; bh=dR7gu87uNwDxeR+EZwq4z+4Id2o1CljMYJwUBZ26JdE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bKLA+kcpxksCOfvmdrVLpPFISwpSyiOLfwWXfXkZWOp0i7GgObZfbMEBxdGq5+bmM
-	 b5On4nUY5nFQfZ8maY6lbag/3Quj5Masczbyo6SKQCFTByuvLdWVNvwXeA/2qD1GBh
-	 /uVIQpTwW0V8APMeWVfbJlWnIXEew3lp6hPxKTyY=
-Date: Tue, 8 Sep 2026 17:19:35 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	nd <nd@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Subject: Re: [PATCH 1/2] arm64: sysreg: Make write_sysreg_s() select XZR
- without optimisation
-Message-ID: <aqA1l_86CGSeL_2B@J2N7QTR9R3>
-References: <20260904174855.76185-1-sascha.bischoff@arm.com>
- <20260904174855.76185-2-sascha.bischoff@arm.com>
+	t=1788884458; bh=FSUo7Pt8lcgEvc4rkDNallbtbDIA877OOKisYkRqqwk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=krw/EAJZgHh1NHFXD1hUij640z8F016zFh33tPvY2mScgDu7bzsUZ3BQ1TKqfMui7
+	 A66LRPt4Pu5AF1bq4J54FcFsx5NQUWi3wtXl1mip/iisbbeX07wDUQA8Vw1tUX33ic
+	 X3UV2IUbcEAoBMGgJMYJQLqwQvxF/5aj0o32qAK0=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	liulhong617@gmail.com
+Subject: [PATCH] arm64: mm: Fix pfn_is_map_memory() misreporting mapped memory
+Date: Tue,  8 Sep 2026 17:20:33 +0100
+Message-Id: <20260908162033.74509-1-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904174855.76185-2-sascha.bischoff@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_091945_199288_0E052558 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260908_092101_602334_D37EA642 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +69,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 06:49:25PM +0100, Sascha Bischoff wrote:
-> write_sysreg_s() tests whether its local __val variable is constant when
-> deciding whether to use XZR. Compilers only recognise that __val was
-> initialised with a constant zero after constant propagation.
-> 
-> With optimisation disabled, the fallback path therefore selects an
-> arbitrary general-purpose register. This is incorrect for instructions
-> such as GIC CDEOI, where Rt must be XZR rather than a register containing
-> zero.
+Commit 7ace06a01efa ("arm64: mm: fix accidental linear mapping of
+no-map reserved memory") removed sub-page no-map regions from the
+linear mapping. However, pfn_is_map_memory() can still report that
+such a region is mapped.
 
-Which CONFIG_* option needs to be selected for that to happen?
+For instance, with 64K pages, say we have
 
-I'm struggling to see how other usage of __builtin_constant_p() wouldn't
-blow up in such a configuration, so knowing that would help to
-investigate and test.
+normal:        ...–0xa2007fff
+no-map: 0xa2008000–0xa200ffff
+normal: 0xa2010000–...
 
-> Test the macro argument directly so that constant zero selects XZR
-> regardless of the optimisation level.
-> 
-> Fixes: e9ad390a4812 ("arm64/sysreg: Fix GIC CDEOI instruction encoding")
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/include/asm/sysreg.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 7aa08d59d4944..a80bede50f865 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -1204,7 +1204,7 @@
->  #define write_sysreg_s(v, r) do {					\
->  	u64 __val = (u64)(v);						\
->  	u32 __maybe_unused __check_r = (u32)(r);			\
-> -	if (__builtin_constant_p(__val) && __val == 0)			\
-> +	if (__builtin_constant_p(v) && (u64)(v) == 0)			\
+The range 0xa2000000–0xa200ffff is not linearly mapped, but
+pfn_is_map_memory(__phys_to_pfn(0xa2008000)) aligns the address to
+page granularity and passes 0xa2000000 to memblock_is_map_memory().
+That address belongs to the preceding normal memblock region, so the
+no-map region is ignored and the function returns true.
 
-It's not safe to use 'v' here, since 'v' could be an expression with
-side-effects, and we must not evaluate it multiple times.
+Fix that by checking if entire page is subset of memory block.
 
-I think we should just enxcode the GIC instructions manually. While they
-are SYS/SYSL instructions, they *aren't* MSR/MRS, and using
-write_sysreg_s() is a hack.
+Fixes: 7ace06a01efa ("arm64: mm: fix accidental linear mapping of no-map reserved memory")
+Assisted-by: LLM
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+---
+ arch/arm64/mm/init.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Mark.
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index fbf215ecc7d0..5da80e1e1727 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -172,7 +172,8 @@ int pfn_is_map_memory(unsigned long pfn)
+ 	if (PHYS_PFN(addr) != pfn)
+ 		return 0;
+ 
+-	return memblock_is_map_memory(addr);
++	return memblock_is_region_memory(addr, PAGE_SIZE) &&
++		memblock_is_map_memory(addr);
+ }
+ EXPORT_SYMBOL(pfn_is_map_memory);
+ 
+-- 
+2.34.1
 
->  		asm volatile(__msr_s(r, "xzr"));			\
->  	else								\
->  		asm volatile(__msr_s(r, "%x0") : : "r" (__val));	\
-> -- 
-> 2.34.1
 
