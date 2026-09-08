@@ -4,106 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9F7C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F6FC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7FCFgCrO8nYxa4w36rz8tfzjeCQplkAjHhgkmQ0tkA8=; b=kmC6Vl/KJKAqIgiCW/+j5CrUMU
-	uIxXPREB4z5u/xu3+aOJf38tAqpOsFeonmcIgz7a1zqOSCF6PuGHN/lChRmPp/zEvCHEuaPywM6rd
-	LwFSCt7H6ZQ16g+T2D5yDZFY8ZGa6WrPod1RgJj4q/ijj4SGSuEwnNdkMnkWNx27D7/fdlra209xS
-	H+URjjKBrXLwv4IiZfxABegIhwnNRlk0qVt/YeHg+3cilxnOSaR2rj2EMmDcaD8J6/XQBBApyApDP
-	rJEajgK2qU8yP6kya2KB3efxCMqWLyk6m8wty1Y2/EMSW49ri0+QlholxRqfoxOJenX2t2PiEvxWf
-	3iEDdrOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=okLYyER6/N2GBwBRyBPpmzsC1jZeKyrc1yuodvLQ8ts=; b=nvDR1RN7/EFL6Qr/UZCW3biiUy
+	ANO0a1TRSVitIsCxPYsguGNoRI8Hpd65R6Se+jUmREO84vCWgg02mjykwa7ofSNPtpMnt1HF+oHzL
+	XuHWNhp5u6ZXlEUU5Gp2DOqxoCqDQa7d5B2gWhf93Mxw/Oo8Sw7EMJGt6eprSqfMvwrKH5mjG7Vzg
+	yzmTW/RmTYBCJIrhsBEqsyKoSxyVMpwtnz9XHWwUG4ocJMyYXgGWAMBxvHlj4K1PiapAl7x5EQ4PS
+	sBSsc7Ia4uj8cZQa/sJnABhUwifzqEsy0QnjaE7C/ZWyUlQhSuzj8EWMFkVM6zUUxL1OG7gWUrlfJ
+	QnYOuvvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oD3-000000083Ci-3ye4;
-	Tue, 08 Sep 2026 05:17:29 +0000
-Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	id 1x3oLa-000000083Yn-1wJ6;
+	Tue, 08 Sep 2026 05:26:18 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oD0-000000083CL-2jhL
+	id 1x3oLW-000000083YP-3yD0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:17:28 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-66fc7196ca0so2389669d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:17:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788844645; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b8GDtfOQubo0rjdCF8RKiq0Qs5/231rbajI2iB4Xv1l7zsP3u14viUjk2Grjv0DS8m
-         PbWRbKTJ1HR0kYffjXxy0i1/GL9fEamgpKWW6ZcE3QGGumPtbI6JUv0TgU0aS8D2le6g
-         +KnI/Wwykat/dWXsP3Chn8zfxY8nzSYvJp+lCvNNmvXenRqr226x1ifpo8ReqcVhiLs0
-         ZceJg6HAf4HSlx0X5P/dOiTcsJgUil9qtOGVmSHLCxyGX/YU2VB0es97CuCWrQRiNtqB
-         ah9HhjjjPTyU2BaWS3MOpH/w6l0ZYQP75Vsv9+i2nojQuiUITR34X4RL4nYQK/VlxQcA
-         WoOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7FCFgCrO8nYxa4w36rz8tfzjeCQplkAjHhgkmQ0tkA8=;
-        fh=wCthHMEz3Ed5s5Q9wFte7kq14TeELclLzZNs/GdU1Do=;
-        b=CI9MAfFjBUxkI7r2jLOlSsxtIlb9YmX3PS9LbXsDuBc3oH0mse7fCh20+n4XU7gf1S
-         AqTDZJhW97hZ9JH1+ypVzCel7G1/GkiaBhgt7o5ElDZ35K2wDsAXa/AC1iMoLirUmc1t
-         w84gXA2xunD9txSFq79c2efdXGPJOeiujJFirPC9gK+ZBZESiPSBMhBIK8wUPWA3DqGO
-         gwWGcpqN6Wv9tZWa6BtYKIYvEtw9OwDHyodagxJxmsEbqGKQtl+JAtltw0NkN9366eoM
-         2QIPvEFYsqph7GFxAaEEKPw1m+5bApXRFa0TH8hAeC9eKTSvAdEsfcLiIsYTwhR+GySU
-         2/gg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 08 Sep 2026 05:26:16 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-398e9698a70so3651353a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:26:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1788844645; x=1789449445; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7FCFgCrO8nYxa4w36rz8tfzjeCQplkAjHhgkmQ0tkA8=;
-        b=hAMDMidxD6IQScEwKOAq84RTy4PR4bYLuv3oupGspd2z3nTjqo3+q08bmT1AE0v+co
-         AyQMh5EMrGM2xApEot7aqtnfiFDUSz2pS4A7P5Im/hv2f0I2Zv6JknkjCImKEqO3t8Bp
-         G6op17Y1J8ddsND1iPadmTXn1gcKiqLrR9nIE=
+        d=gmail.com; s=20251104; t=1788845173; x=1789449973; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=okLYyER6/N2GBwBRyBPpmzsC1jZeKyrc1yuodvLQ8ts=;
+        b=QxKnHsvrXIhoQ1n6670nN0sFXjnOnsXhVMaoFCuOHbyLyqCE+YOzdqzWn+g3kxUrD3
+         IgoF8wcI0CJGuV2b+ioteRs9iIlxsQVGxjshi2RfKGmCxnWaHHyfKxParJNm/WtBHnUF
+         10pcN1cMtnYROMu/zXAl+wWud2aph6088LlQmLJ1VLKpVjCVtMi7W7Se4pVA8P4f+NDT
+         5rw9zE/FILvQejSP+HpdwmAGb5aKYpNPurg0BwyWTtL1Ze1GHpeaRe90DtsXlz2BBMvE
+         COs45FBaio/taEQS0simaht+nZ96j3tSX71j/1V+ejcaVL8bLoh79usVCG/ReJPXMBKO
+         hnTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788844645; x=1789449445;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7FCFgCrO8nYxa4w36rz8tfzjeCQplkAjHhgkmQ0tkA8=;
-        b=nck2rlWtLPtQaFCcrGj2X78gtxmEtNNNydeCb7LET/03C2/o8Khd5gjeC6KjG2u9eD
-         oSiN2CGd34fYGjM7mAzAg7DLj/ZnQSXzycUjVSU4QZTB/iBoilXjeaY5ujtoAfnBCxYy
-         KWxhF0fMzjaDDsF3ez7vPmdeM5NoMfppw9P+J6ADXYTEP+X+se+GrH5LNxYoKp7jV2lQ
-         3DVqhUvvoCW5F42jI9Oymuzd62wwqiIMT5hlxVsryLUfIEEwmd8YE7yqrdNeLTxoUfVw
-         BotCENLjKidDuDpO2khx/G62qtlU1UZAnM+GNk5OSE1KJboW3MsgYjAVDDQihppNkdZb
-         /uKA==
-X-Forwarded-Encrypted: i=1; AKwUvBxeEFKRWS1kwZIPzGSJ5qJKzZN8VOLY+xVvzm4lu71B5rKfIcxui4X2EFwqjkYH+Az4mtk7oimxNwD2oGId5e8F@lists.infradead.org
-X-Gm-Message-State: AFuF++lCTr9NQRJd3Vm9yu9nfn2GcV0mEa684IDe9KN6tS5TWthkafqh
-	Bvb1IAKPdYx5uygzEjWU8zGFBTT1UDhCBgGxhxvzHTuz+Hmch0xjjIN+S0ssEqUYRItraY2GEQe
-	ClTuP/EL2MQhY4b6Sp6TM/kl4JJykTOmb3jjgoXfr
-X-Gm-Gg: AYBFou3MD9DDnMeQsqGaOqDe9qvCZIJ0S87lgQURxwSDIFcWuwPkeiBV/GcDFxXE1Rr
-	ocAoDMJJgwpAQ7AgEXPoJUUYZXq3QzTGTLmL4xA0O8Z/pf0TU9YphxQe1p0ovEWR8+NigwmzCug
-	pfeSPYaFficKiBNGXXLD6Lg9RBbnq8U/1iaML0infMGIDs/px5NgYL6za0+v//UVwMTsaRcRrBA
-	KXjnrWl82TFXLbyn/PXUvCFwz8ZRUybsT4g5YucToriVAQkowfgioRg+8A5dVjhytbzYy0ZuEme
-	/M5KP7Tf0tM3GOH3nwkd3OF3NMXi9PYXe1t5LFN6moboiou+jViLiebMd+uur4A8MvXOpnXLvHY
-	=
-X-Received: by 2002:a05:690e:d49:b0:66f:c1bc:87db with SMTP id
- 956f58d0204a3-66fc1bc8991mr4871587d50.52.1788844645029; Mon, 07 Sep 2026
- 22:17:25 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788845173; x=1789449973;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=okLYyER6/N2GBwBRyBPpmzsC1jZeKyrc1yuodvLQ8ts=;
+        b=cEqNZvbALNJ8qNKyYhuaGMJzxou89H4jFzanyJ7CqgmQAzM5pylp1SWacSxTtOY7OL
+         SeMDbAi2kgIfiXKZ9VXcJ6VmbzGNLwl0S2IdYwlB/6vfGImuGxZFho/suwBZKGHdNsPY
+         BB5qCMIYfZesOO3jOnuOaoSns2PcC3qG/eubIA2/RL57uH2xcNOaxWvBe6WSLKslMV4S
+         R0vUPM5CuE2uFrGDi05SGMGfraXpr9XZKSkVwOIBO03R4q3betafFJ5/JKkCSjXlzuxC
+         y59JO4qRFqYpy4GDplOb+nrue3Wut6IjVkYv+V0WkKkw/7rkHnbHhR9srBxDGMwBSz2G
+         3cHQ==
+X-Gm-Message-State: AFuF++lKuB0MGLKWlaGemLMhd/CZnVvOOQI0fjQ/WmP1DItePcYkQ/Nb
+	VLt1GSQddHvoIUEHrjWZLitiPPZPHT9cd7OhmWsbnSVv4E7MABVTRDv8
+X-Gm-Gg: AYBFou3YkioGwJjUDtyaBvlgayj7BOnOW+Z1AeQyB3lz/PfwxBzDkTAKNph41EhXLaM
+	SA4KClLbE8cSu6sz+ydue2uqltu7+GmbpVwDfARn1j4uXG8mqnTsEK7jrq7U4cnEUvIN6FGc6sT
+	d9BUs6Zco/x2VFp1zuXVJ2Ql9U5g97krxaTIDhQp+L/z7qn5fVrHL6sxTzIMFxpeBNDzMzfMwtk
+	7ezg89Uza3ly1dJBIXl4PEPC++kyTH1gu8/gsLLsbxA5T+Kxc/hzXTCwgVAgrJ+43+OUpMnhjZQ
+	s+zJNUC3AgNOe+KP0yoCgAydXI6+fgEYB83KT2jgILN4Eq5BmfJXGlXIpN7Kw3Lne+XsoIUn7di
+	OXrWnBNq/Vc7bMhYqIrtEw8thkUHkrvhu6UoWiJNYq2urjkpB1+2qUOt26MowKyEF3EMaP2o37j
+	6Ua5oDc2vyBp0i4+MY3zLRSLrylN49kH8ZDovOI9oj5tLs+4UsACSWI0XCT1eyA6LtuzYlJn8Jv
+	ina80BfGrxwVw==
+X-Received: by 2002:a17:90a:d2c7:b0:398:9bd1:3216 with SMTP id 98e67ed59e1d1-39b262e4e02mr39316555a91.23.1788845173328;
+        Mon, 07 Sep 2026 22:26:13 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14340a69666sm11720586c88.9.2026.09.07.22.26.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 22:26:12 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: "David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Chris Snook <chris.snook@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	GR-Linux-NIC-Dev@marvell.com,
+	Geetha sowjanya <gakula@marvell.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jian Shen <shenjian15@huawei.com>,
+	Jijie Shao <shaojijie@huawei.com>,
+	Manish Chopra <manishc@marvell.com>,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rahul Verma <rahulv@marvell.com>,
+	Ratheesh Kannoth <rkannoth@marvell.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shahed Shaikh <shshaikh@marvell.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	Sudarsana Kalluru <skalluru@marvell.com>,
+	Sunil Goutham <sgoutham@marvell.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH net-next v3 00/10] net: fix typos and repeated words in comments
+Date: Tue,  8 Sep 2026 10:55:52 +0530
+Message-ID: <20260908052602.27497-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20260908050229.754977-1-wenst@chromium.org>
-In-Reply-To: <20260908050229.754977-1-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 8 Sep 2026 13:17:13 +0800
-X-Gm-Features: AcwNN1UvbZam4KMBF7rri3O2usHHuyHcUFKj6A3hEX1XxQedM-d5CJUALYS2SIM
-Message-ID: <CAGXv+5FjHY36sHc+osF2ENjpz9Y97WDCzFEE0c+unXtyxR23Dw@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/sun4i: Align VI buffer addresses for subsampled formats
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_221726_848467_B1C82C09 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20260907_222614_999166_31D66E7C 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,76 +121,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 8, 2026 at 1:02=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> wr=
-ote:
->
-> Commit 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to
-> get display memory") dropped the code to calculate the framebuffer's DMA
-> address in favor of drm_fb_dma_get_gem_addr().
->
-> This turned out to be wrong in a couple ways. The hardware can handle
-> pixel offsets within a sub-sampling block, but the buffer address must
-> start at the beginning of the subsampled block for all planes. The
-> hardware then does the interpolation internally. However the helper
-> gives the address exact pixel for luma, which messes up the result.
->
-> Instead of reverting the commit, calculate the intra-block offset and
-> adjust the buffer address so that it points to the start of the block.
->
-> Fixes: 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to=
- get display memory")
-> Cc: <stable@vger.kernel.org> # 7.1+
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Fix misspellings and repeated words in comments across the networking
+code, found with scripts/checkpatch.pl using the misspelling list in
+scripts/spelling.txt.  Comments only, no code changes.
 
-Please ignore this one. As Sashiko pointed out, this could underflow the
-buffer address.
+Changes since v2:
+ - v2 put 184 changes in a single patch.  Andrew Lunn asked for it to be
+   split by vendor, which comes to 54 patches, so this is the first
+   batch.  maintainer-netdev.rst asks for no more than 15 patches
+   outstanding against a tree at a time and I have five in flight
+   already, so this batch is 10.  The rest will follow as these are
+   applied.
+ - patches 1 and 2 are unchanged from v2 and carry Andrew's
+   Reviewed-by.  They are resent because the v2 series was marked
+   superseded, so they would otherwise be dropped on the floor.
+ - dropped the sfc mcdi_pcol.h patch (v2 4/6) even though Andrew had
+   reviewed it.  Edward Cree pointed out that header and the Siena copy
+   are generated from the firmware definitions, so an edit here would be
+   overwritten the next time they are regenerated; he has forwarded the
+   typos to the firmware team instead.  The sfc changes outside pcol are
+   unaffected and will come in a later batch.
+ - dropped the 8390 patch, the driver is Orphan / Obsolete in
+   MAINTAINERS.
+ - dropped one octeontx2 hunk, in otx2_pf.c, because the comment holding
+   the typo has since been rewritten upstream.  The remaining octeontx2
+   typos are still fixed in the marvell patch.
+ - dropped an "amount of times" to "number of times" change in qed_dev.c.
+   That is a wording fix rather than a misspelling, so it does not belong
+   in this series.
+ - v2 6/6 (net: usb, "Medium Mode mode") is not in this batch.  Andrew
+   asked me to check the data sheet for that one, and I will answer on
+   that thread before resending it.
+ - rebased onto net-next.
 
-Instead this should be sent along with another fix I have that switches
-this back to the clipped buffer address.
+Jijie Shao's Reviewed-by is carried on the hisilicon patch only, since he
+scoped it to the hns and hns3 parts.
 
+Hemanth Selam (10):
+  net: llc: fix repeated word 'all' in comment
+  selftests: net: fix repeated word 'use' in comment
+  net: broadcom: fix typos in comments
+  net: cavium: fix typos in comments
+  net: qlogic: fix typos in comments
+  net: fddi: fix typos in comments
+  net: marvell: fix typos in comments
+  net: hisilicon: fix typos in comments
+  net: atheros: fix typos in comments
+  net: dec: fix typos in comments
 
-Sorry for the noise.
+ drivers/net/ethernet/atheros/atl1c/atl1c_hw.h             | 2 +-
+ drivers/net/ethernet/atheros/atl1e/atl1e.h                | 2 +-
+ drivers/net/ethernet/atheros/atl1e/atl1e_hw.c             | 2 +-
+ drivers/net/ethernet/atheros/atl1e/atl1e_main.c           | 2 +-
+ drivers/net/ethernet/atheros/atlx/atl1.c                  | 2 +-
+ drivers/net/ethernet/atheros/atlx/atl2.c                  | 2 +-
+ drivers/net/ethernet/broadcom/bcm63xx_enet.c              | 2 +-
+ drivers/net/ethernet/broadcom/bcm63xx_enet.h              | 2 +-
+ drivers/net/ethernet/broadcom/bcmsysport.h                | 2 +-
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x.h               | 4 ++--
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_dcb.c           | 4 ++--
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_hsi.h           | 2 +-
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_init_ops.h      | 2 +-
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_link.c          | 8 ++++----
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_main.c          | 2 +-
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_reg.h           | 4 ++--
+ drivers/net/ethernet/cavium/liquidio/cn66xx_device.c      | 2 +-
+ drivers/net/ethernet/cavium/liquidio/lio_core.c           | 2 +-
+ drivers/net/ethernet/cavium/liquidio/octeon_config.h      | 4 ++--
+ drivers/net/ethernet/cavium/liquidio/octeon_iq.h          | 2 +-
+ drivers/net/ethernet/cavium/liquidio/octeon_main.h        | 2 +-
+ drivers/net/ethernet/cavium/liquidio/octeon_nic.h         | 2 +-
+ drivers/net/ethernet/cavium/liquidio/request_manager.c    | 2 +-
+ drivers/net/ethernet/cavium/thunder/nic.h                 | 2 +-
+ drivers/net/ethernet/cavium/thunder/nic_main.c            | 2 +-
+ drivers/net/ethernet/dec/tulip/de2104x.c                  | 2 +-
+ drivers/net/ethernet/dec/tulip/interrupt.c                | 4 ++--
+ drivers/net/ethernet/dec/tulip/media.c                    | 2 +-
+ drivers/net/ethernet/dec/tulip/tulip.h                    | 4 ++--
+ drivers/net/ethernet/dec/tulip/winbond-840.c              | 2 +-
+ drivers/net/ethernet/hisilicon/hns/hns_dsaf_misc.c        | 2 +-
+ drivers/net/ethernet/hisilicon/hns/hns_dsaf_ppe.c         | 2 +-
+ drivers/net/ethernet/hisilicon/hns/hns_enet.c             | 4 ++--
+ drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c   | 2 +-
+ drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_tm.c     | 2 +-
+ drivers/net/ethernet/hisilicon/hns3/hns3vf/hclgevf_main.c | 2 +-
+ drivers/net/ethernet/marvell/mvpp2/mvpp2.h                | 2 +-
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.c            | 8 ++++----
+ drivers/net/ethernet/marvell/octeontx2/af/npc.h           | 4 ++--
+ drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c       | 2 +-
+ drivers/net/ethernet/marvell/octeontx2/nic/cn10k.c        | 2 +-
+ drivers/net/ethernet/marvell/octeontx2/nic/otx2_dcbnl.c   | 2 +-
+ drivers/net/ethernet/marvell/pxa168_eth.c                 | 4 ++--
+ drivers/net/ethernet/qlogic/netxen/netxen_nic_ctx.c       | 2 +-
+ drivers/net/ethernet/qlogic/qed/qed_cxt.c                 | 2 +-
+ drivers/net/ethernet/qlogic/qed/qed_mcp.h                 | 2 +-
+ drivers/net/ethernet/qlogic/qlcnic/qlcnic.h               | 2 +-
+ drivers/net/ethernet/qlogic/qlcnic/qlcnic_83xx_init.c     | 4 ++--
+ drivers/net/ethernet/qlogic/qlcnic/qlcnic_ctx.c           | 2 +-
+ drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c          | 4 ++--
+ drivers/net/fddi/skfp/cfm.c                               | 2 +-
+ drivers/net/fddi/skfp/ecm.c                               | 2 +-
+ drivers/net/fddi/skfp/fplustm.c                           | 4 ++--
+ drivers/net/fddi/skfp/h/hwmtm.h                           | 2 +-
+ drivers/net/fddi/skfp/h/sba.h                             | 2 +-
+ drivers/net/fddi/skfp/pcmplc.c                            | 2 +-
+ drivers/net/fddi/skfp/rmt.c                               | 2 +-
+ net/llc/llc_conn.c                                        | 2 +-
+ tools/testing/selftests/net/xfrm_policy.sh                | 2 +-
+ 59 files changed, 77 insertions(+), 77 deletions(-)
 
-> ---
-> This is an alternative to Jernej's original revert:
-> https://lore.kernel.org/all/3980ea1aeb3f7fe8b4700e36560deeba3d050664.1785=
-772659.git.jernej.skrabec@gmail.com/
-> ---
->  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_vi_layer.c
-> index 2e9cda45c04e..185e9e5211c1 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> @@ -207,6 +207,20 @@ static void sun8i_vi_layer_update_buffer(struct sun8=
-i_layer *layer,
->                 /* Get the start of the displayed memory */
->                 dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, i);
->
-> +               /*
-> +                * The mixer can handle odd offsets into sub-sampled YUV
-> +                * planes, but needs the address of the first pixel in ea=
-ch
-> +                * sub-sampled block. Adjust the luma buffer address back=
-wards.
-> +                */
-> +               if (i =3D=3D 0) {
-> +                       u32 x_diff, y_diff;
-> +
-> +                       x_diff =3D (state->src.x1 >> 16) & (format->hsub =
-- 1);
-> +                       y_diff =3D (state->src.y1 >> 16) & (format->vsub =
-- 1);
-> +                       dma_addr -=3D y_diff * fb->pitches[i];
-> +                       dma_addr -=3D x_diff * format->cpp[i];
-> +               }
-> +
->                 /* Set the line width */
->                 DRM_DEBUG_DRIVER("Layer %d. line width: %d bytes\n",
->                                  i + 1, fb->pitches[i]);
-> --
-> 2.55.0.979.g7e5102b832-goog
->
+-- 
+2.48.1
+
 
