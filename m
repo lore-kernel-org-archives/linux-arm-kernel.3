@@ -4,109 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58B7C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB89C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=; b=i3nOqpMIiQfn+9g9KkGiEm88kA
-	4Wqr+vjwzi9ivDQKT4NqJxWDAz6/yVIuxlqq4WP/l/LmcC8OgAUdlnj/p7ZEia2ZVHhse2HMVi769
-	eDoK8c2bEOcnHEzsGgrLGlo+w9MgAa3XAJ89Rci/86ud2N03uFy0gNqXbcoP9Bh2MOJtJsopdr2sY
-	BHPfZMviLgC/OX3ZFwQVRtr8/QvZa+5OfG/6sip9vyHDwzIH7mgcRSp2Cdy3D8z+JlXF7EJhnGlk4
-	2pQrWOgjnK3yUX/Tqa4C+R34XAC7S41ZGtsN0dSgSqR413JBhlCp2/B66/5ivE2+BNfRF2OFu6/G5
-	woUyR8CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KDuIAOmD9TOy7wbeKmvOrBhyXGkPda+5cVc0xJOwDR0=; b=qLDTq0j/WfpqtJwdz+d8ruFhGp
+	uaAymSsdv1RHa1zi7IgUPwggFZXeffwGYUkb0VktSCprmNpuxCmO56zNwZBqOap1HwV2lX7CKNcEg
+	d0G4zwicgkMY2nRXE67xeTf+XIwGaaxvCaB8/fO4j4KipSRgGw1BmVBpaGv+AkX79HZ1UgapJrARr
+	FkOkWeqlbHCu8kZSblJQKjg5ySiOlmSwMQExDkwKnbYqCT9Fta5fAO8HhjiaR3ua3dB4bPjkN8/2C
+	dvTd+vEsKI2fSWQAOgZ0wPz85PUopGEAfFdar6NZLbOmM/3bmWMjYtwh7CDwLKJQe7rHGuCYVSdDF
+	4mMZeLOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x0J-00000009IXw-274B;
-	Tue, 08 Sep 2026 14:40:55 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1x3x2a-00000009J7w-1dOX;
+	Tue, 08 Sep 2026 14:43:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3x0F-00000009IWz-1w6I
+	id 1x3x2Z-00000009J7P-01Ed
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 14:43:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=KDuIAOmD9TOy7wbeKmvOrBhyXGkPda+5cVc0xJOwDR0=; b=Jk9YYpkFW7EtFXnXjCCX3rd7cn
+	k9BjuH4EJU2/Xtn7gNvyP5GGJ+wnEVxDwfjH0HNa5I/gGwRdl3t8cE8Evy4qXol9IHi8pGtfI7zUf
+	6P8Yaha8m0gK6Z26aiIWYKzg4GnGm9MU4by/B7jSImqd5tnabyewN1PRYY0okZnDRewvlzs9NUVJn
+	MlXBaiH0qneDdaVEmLG+7a+EbFsJCM+1FZziZH2zMw4XowPI3y1CosHSZCThZ42mHH05mh2P1QdVu
+	6bExEQKEaGR5BHNLeULp23YH7D91Ul6W7CH1NosaHCpRZuz2IdQWBa1Wz/9XJHVrjsy4IhgBb6mXi
+	JPYRinog==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3x2W-0000000HYIW-0hGS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 14:40:52 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-482ea739de2so3221385f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:40:50 -0700 (PDT)
+	Tue, 08 Sep 2026 14:43:13 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-499db1740e4so2255635e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:43:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788878449; x=1789483249; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:to:from:date:message-id:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788878591; x=1789483391; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=;
-        b=HPycdrGtydCnceO+RPqPTRQxhckjww04rDd7Jo2vvnLy2vTkhZCIN9le9/2OUBlvSi
-         JGavPPozUIHgIRIKu4xw80oMGS73iMVbKL7+GWIt6ryXEpgGISaaBkqlAo7PBwzbMWwn
-         Hsn7zGRrAXZCy5gxH02OprMWX7UW9icV7YEMmf9nPDcT5e/hrUIQmBvIpLAWwD2c83K6
-         iNuCWr5fLFSWBq3+TZj/Wz3VYUBm+vDla7Q2pmmKm21XKIXx/Mb7r4bYh59BdciIB4Lx
-         06+Ym9TbJTIo3Y6JQJFgEnJlYTaKCocEio7uhBjW0Tig67CByQX4jwo5ejo6tvEOhHRk
-         69sg==
+        bh=KDuIAOmD9TOy7wbeKmvOrBhyXGkPda+5cVc0xJOwDR0=;
+        b=RMrMLbOBPO1IPTYo9G/rplCt9bdeCXeq/lu/k1cmA44mo/ToxfJYcfNrMFFlKppI0p
+         ADV1O3wXlN8f84WKUxNKF3UQL8Z6hGjIhp4ZBuHjeHumntVH0dRZ2e8eAxVidufwCc2G
+         7fohtvYLHx55iEModmHAtEcWJREMglHN3ge6hySwCTEk+OYQXeDeBOlVAQi6BqmAynH7
+         Fe2V5jLiS40Lr3njPvBh7jssbune5fo0TpvsXyvWStdmkl4PqSNOWY/e/dlP5qXPWaMm
+         /zZIaKtY3EbIxF2Pfr2OlQW79tAwQp0u9M6MW0HlBt5HmKS1TVSB4bHst8/NIRnwb56k
+         6eBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788878449; x=1789483249;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=;
-        b=i/Q2Hc9snI3bHHKZCrNIHHoagYJw+qDZhjuMv/wsENDu5URRVwTwrflhj942hv4pO6
-         oUlw2jo3EqX4x8AHne2qVTk9PXqvgzqU4uk7VvjFuQc9bIkfixeJ1Pd+UPqM9i4Ugp2v
-         1GquGk5g1IdDiNXxbqSsYQR4L/knT7GtPnUBZVNBV1rGf8FrNMCju6+CIW8oMdXNIFOV
-         QC9FnPj2bBIVJrw9Ty9+kiPadt+RYUx3PurF8HlWAus0RL88zM9fEsaowXj/ELQ5DzPE
-         qLAigyOKmZpp4apzwx/VzpgdtX1H5Qo1BuleL42kOmXPKrmJPP2YncVPVD2/lmrr3B8j
-         3sNw==
-X-Forwarded-Encrypted: i=1; AKwUvBxlgag3Wva7cKV2pEYYhEBCyFU5b0bEDYTxCTZgSP6EdTw1PiqdjRB5VuQaMFhwhMNzN6Rs0uySFmbIEafITS0Q@lists.infradead.org
-X-Gm-Message-State: AFuF++mAuGc1TPsyVxoSm50YGssUY8QFtzW1Z4LhBSmD1LhhlvEFBbdD
-	PvEcMF9dDxeX7jytdC3ZhXT0VrfLpjqY45bjj3kZ8OtXssYOIWMxDEPh
-X-Gm-Gg: AYBFou3zG1EVAdjYRm81aRvk7YQ/Xc0jFi1a0kc858aUpxYYVqpFRmMGK7rlIEcRMsm
-	kj10ctG2gP01E92AtUD0JDUTsj/wc6JguNl/IY8numoXm6NYBPKTi3W6a1Ayp6lHASEjTQIfDSy
-	3LctCAgHuNv9l/HmuVQ0WQmcKJp/Oc4KqDpl7y7rxzb1+O/gL+rsvi7XFIu7nJUvFMnNPfZ2YOh
-	wsq+SzDgVgnq5IBXERn+d2jIHqO6kwRd977IA2I3sVy4x9Lm6b4uPiJiHZBayOrZZpbw1EDBqeX
-	pRKW59MzDSmrb9Naxd6yRc+q9n0anSmsiuF0Fg8aFSr749d5K+1SW4qvep9TUYorEtYXJ7H4O6e
-	60hWn7FCdBcRdzcsU0l7M44PtcQLz/mp5ZyQ1FX+RDLwuoW3uxD4gL1ei1EpxW6iCrurnU3cLPF
-	6c0cEBO3rXAQtwg49h5muyJc+RIJfYjjzCbLx57hsfnCgG009760UEpwY/oEX6/TQ09CPAF7h/t
-	ZFTEoG401T2aDeu2igkclfsUDLo+cCDS6xM
-X-Received: by 2002:a05:6000:46c2:b0:484:4769:18a4 with SMTP id ffacd0b85a97d-485872cd677mr23543135f8f.14.1788878449028;
-        Tue, 08 Sep 2026 07:40:49 -0700 (PDT)
-Received: from Ansuel-XPS. (host-79-26-252-140.retail.telecomitalia.it. [79.26.252.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883959f0sm39338196f8f.10.2026.09.08.07.40.46
+        d=1e100.net; s=20251104; t=1788878591; x=1789483391;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KDuIAOmD9TOy7wbeKmvOrBhyXGkPda+5cVc0xJOwDR0=;
+        b=pTS7EBYfj5Es3xlLrve+FH6PaDo6z2blPh6/LSJhaUb30/3Ngn3ztAQn+zw/1uRCmU
+         AKYceZ2M4VLwQKGHRpAfGHnuVDpDh1XzDGrE+DVITXbNfWRccbsLG7dbuzYfKJ9fikWi
+         FHIbyH6a7rwdrBNljTAdI7ApNajC96GXdXFjo9df9yALC45Zd3ksAs2Br+8kU2ue8zUf
+         M19e+q51/bKC2XbOolqlhzdL4wKhj16j0vsXAkPHP0t0vlG/selHrvm9N32QvtS7qaOC
+         pqZrJyY6wedlGIcDhcNqhqJkOEdlvz68PFwrprybC7dMGfM7eVFIFN6LlkMF2sPqYTwm
+         aXHA==
+X-Forwarded-Encrypted: i=1; AKwUvBzUS+W6ecHafUS2RzCLWlE/RAfwXF9R7EPZ8XzkFa/hXduTEx76gPx2C4ZXLaO2eUYmcYsfyo0jRQv8w96G8uq8@lists.infradead.org
+X-Gm-Message-State: AFuF++kczud4X8vvQ0Z/rY7CbxKSR6RZGQcB4U9votonrp+RSHdz9+m0
+	UqgwPLctllMwvz0jgRJaklR0MVGJbEUfLwp8nQhJ9qene9qhsp4xEPSP
+X-Gm-Gg: AYBFou2K50JxaCrJOanlk6QwF2wRPBP+8Pa0p4I1KF6dgndxh6NIrx4ftqxmkA13SXN
+	gbQMqKj5fOa+twULCDAqFQa0dp4+Eny5N5vjf9ZEZV+9/lDHXuZ2n2FDccwjhBOt20YFZf8JRH3
+	MxDGjo4oJuWIGs6WtnobHB4IR6nEtxNQ8qVKXzD5qC5ZlYmQzs3DTQyIs5A5YkvAbtdEK3CVexe
+	MucgjdPT4nL19a/5tcknH0M6PkqFv+9YJCaz7XQEZh5v5ZBJSf4gigt0ZNDRjL1qO3CFPIndx3o
+	V+vIZ0b5QVpdCx/v5yvzX04GZlhZODCs9kMPDo+Oqb7MG7wA7lvQI7qnlKmfJTU3Mt9orx1UTSB
+	OiuLDvs8tQbQWLLEpESN1jb7YrqZvZsrqFsP7CaRNz0olZb7NuV8mytc86jSt3BHwFzUkc8CiWM
+	e9mbCJ4hyahv+Qm81IUk+QmWxYihBlU8YnGcVlg9Qh3r0YJYFcoaoMH6/Yz/dv8b8dXJHgmFAzm
+	01Hn1Lf+VJGQdCnIUmDtoUGQiq8f+USDwQxGP8I72ywZuPZV5zEBWLC8J/uUty0DjmgZA==
+X-Received: by 2002:a05:600c:4f48:b0:49d:798:67a4 with SMTP id 5b1f17b1804b1-49d079867f5mr193440325e9.0.1788878590675;
+        Tue, 08 Sep 2026 07:43:10 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B825D00A0B3828666A65C4F.dsl.pool.telekom.hu. [2001:4c4e:1b82:5d00:a0b3:8286:66a6:5c4f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee7fec25sm564356455e9.13.2026.09.08.07.43.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 07:40:48 -0700 (PDT)
-Message-ID: <6aa01e70.ebbd881c.32bd35.196e@mx.google.com>
-X-Google-Original-Message-ID: <aqAebOgm5w4VILoS@Ansuel-XPS.>
-Date: Tue, 8 Sep 2026 16:40:44 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v15 00/12] net: pcs: Introduce support for
- fwnode PCS
-References: <20260901083001.8044-1-ansuelsmth@gmail.com>
+        Tue, 08 Sep 2026 07:43:10 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-usb@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: s2idle resume hangs in ohci/ehci on RK3588: HC registers touched before the USB2 PHY is powered back on
+Date: Tue,  8 Sep 2026 16:42:44 +0200
+Message-ID: <20260908144245.10700-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260908133147.8291-1-royalnet026@gmail.com>
+References: <20260907190000.s2idle-usb2-resume-royalnet026@gmail.com> <ap__5zeUakMSLWOQ@venus> <20260908133147.8291-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901083001.8044-1-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_074051_533622_DDB20AEC 
-X-CRM114-Status: GOOD (  42.64  )
+X-CRM114-CacheID: sfid-20260908_154312_478265_EC9CA72D 
+X-CRM114-Status: GOOD (  22.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,126 +124,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:29:15AM +0200, Christian Marangi wrote:
-> This series introduce a most awaited feature that is correctly
-> provide PCS with fwnode without having to use specific export symbol
-> and additional handling of PCS in phylink.
-> 
-> At times there were 2 different implementation (this and the one
-> from Sean) but Sean agreed that this can be picked and used in favor
-> of his implementation as long as his case with race condition is
-> correctly handled.
-> 
-> ---
-> First the PCS fwnode:
-> 
-> The concept is to implement a producer-consumer API similar to other
-> subsystem like clock or PHY.
-> 
-> That seems to be the best solution to the problem as PCS driver needs
-> to be detached from phylink and implement a simple way to provide a
-> PCS while maintaining support for probe defer or driver removal.
-> 
-> To keep the implementation simple, the PCS driver devs needs some
-> collaboration to correctly implement this. This is O.K. as helper
-> to correctly implement this are provided hence it's really a matter
-> of following a pattern to correct follow removal of a PCS driver.
-> 
-> A PCS provider have to implement and call fwnode_pcs_add_provider() in
-> probe function and define an xlate function to define how the PCS
-> should be provided based on the requested interface and phandle spec
-> defined in fwnode (based on the #pcs-cells)
-> 
-> fwnode_pcs_get() is provided to provide a specific PCS declared in
-> fwnode at index.
-> 
-> A simple xlate function is provided for simple single PCS
-> implementation, fwnode_pcs_simple_xlate.
-> 
-> A PCS provider on driver removal must call fwnode_pcs_del_provider()
-> to delete itself as a provider.
-> 
-> ---
-> Second PCS handling in phylink:
-> 
-> We have the PCS problem for the only reason that in initial
-> implementation, we permitted way too much flexibility to MAC driver
-> and things started to deviate. At times we couldn't think SoC
-> would start to put PCS outside the MAC hence it was OK to assume
-> they would live in the same driver. With the introduction of
-> 10g in more consumer devices, we are observing a rapid growth
-> of this pattern with multiple PCS external to MAC.
-> 
-> To put a stop on this, the only solution is to give back to phylink
-> control on PCS handling and enforce more robust supported interface
-> definition from both MAC and PCS side.
-> 
-> It's suggested to read patch 0003 of this series for more info, here
-> a brief explaination of the idea:
-> 
-> This series introduce handling of PCS in phylink and try to deprecate
-> .mac_select_pcs.
-> 
-> Phylink now might contain a linked list of available PCS and
-> those will be used for PCS selection on phylink_major_config.
-> 
-> MAC driver needs to define pcs_interfaces mask in phylink_config
-> for every interface that needs a dedicated PCS.
-> 
-> These PCS needs to be provided to phylink at phylink_create time
-> by setting the .fill_available_pcs and .num_possible_pcs in phylink_config.
-> Helpers to parse PCS from fwnode are provided
-> fwnode_phylink_pcs_count() that will return the count of PCS entries
-> described in the firmware node and fwnode_phylink_pcs_parse() that will
-> fill a preallocated array of PCS pointer with the actual available PCS
-> (ignoring the one that still needs to be probed).
-> 
-> phylink_create() will fill the internal PCS list with the passed
-> array of PCS. phylink_major_config and other user of .mac_select_pcs
-> are adapted to make use of this new PCS list.
-> 
-> The supported interface value is also moved internally to phylink
-> struct. This is to handle late removal and addition of PCS.
-> (the bonus effect to this is giving phylink a clear idea of what
-> is actually supported by the MAC and his constraint with PCS)
-> 
-> The supported interface mask in phylink is done by OR the
-> supported_interfaces in phylink_config with every PCS in PCS list.
-> 
-> PCS removal is supported by forcing a mac_config, refresh the
-> supported interfaces and run a phy_resolve().
-> 
-> PCS late addition is supported by introducing a global notifier
-> for PCS provider. If a phylink have the pcs_interfaces mask not
-> zero, it's registered to this notifier.
-> 
-> PCS provider will emit a global PCS add event to signal any
-> interface that a new PCS might be available.
-> 
-> The function will then check if the PCS is related to the MAC
-> fwnode and add it accordingly.
-> 
-> A user for this new implementation is provided as an Airoha PCS
-> driver. This was also tested downstream with the IPQ95xx QCOM SoC
-> and with the help of Daniel also on the various Mediatek MT7988
-> SoC with both SFP cage implementation and DSA attached.
-> 
-> Lots of tests were done with driver unbind/bind and with interface
-> up/down also by adding print to make sure major_config_fail gets
-> correctly triggered and reset once the PCS comes back.
-> 
-> The dedicated commits have longer description on the implementation
-> so it's suggested to also check there for additional info.
-> 
-> It's worth to mention that OpenWrt is currently using this on
-> Mediatek SoC and QCOM ipq807x/ipq60xx/ipq50xx and Airoha are
-> already ported in staging tree for testing.
-> 
+Hello Sebastian,
 
-Any news of this? I feel this version is now very mature and wonder if an
-human review is possible or any feedback of any needed change to make any
-progress?
+I tested 53014abc on the Orange Pi 5 Plus and it fixes the hang here.
 
--- 
-	Ansuel
+Setup: same kernel (7.3.0-rc1 based), same dts, same procedure as the
+report, all four USB 2.0 hosts bound, RTC alarm as the wakeup source.
+The only change is that commit in phy-rockchip-inno-usb2.
+
+Result: 4 full s2idle cycles, all of them resumed. The controller that
+used to hang, fc840000 (the OHCI on u2phy2, the port with nothing
+plugged in whose 480 MHz clock had it as its only user), went from
+"enters ohci_platform_resume and never returns" to:
+
+  ohci-platform fc840000.usb: PM: ohci_platform_resume returned 0 after 20649 usecs
+  ohci-platform fc840000.usb: PM: ohci_platform_resume returned 0 after 20773 usecs
+  ...
+
+8 out of 8 resume passes in that boot returned 0 (4 real s2idle cycles
+plus the pm_test device/platform phases), each around 20.7 ms, and the
+same for fc8c0000. For comparison, before the patch the all-bound
+configuration hung every single time and needed a cold reset, while the
+control with the four hosts unbound completed 4 out of 4.
+
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus (RK3588)
+
+Two things about how the module was built, so the tag is not read as
+more than it is. The kernel was built with aarch64-linux-gnu-gcc 13.3.0
+and I built the module with gcc 15.2.0 on the board itself, against the
+installed linux-headers package (that package is arm64, so its host
+tools cannot run on my x86 build machine). vermagic and the modversions
+CRCs match, and as a control I first rebuilt the unmodified file from
+the same commit and got exactly the srcversion of the stock module, so
+the difference in the tested module comes from your patch and nothing
+else. The module is also unsigned, since the headers package has no
+private key, so the kernel is tainted O and E.
+
+Two log entries I do not think are related, mentioned so you know I read
+the whole log rather than only the part I was looking for. On one resume
+there is an rcu_preempt stall report, but RCU marks the CPUs
+"(false positive?)", the NMI is answered, and the backtraces show them in
+cpuidle_enter_s2idle, i.e. asleep where they should be - the opposite of
+the original failure, where the CPUs did not answer the NMI at all. And
+on one of the three resumes there is a WARNING in
+drm_crtc_wait_one_vblank ("vblank wait timed out on crtc 0"). It is
+display side, and it happened on one resume only rather than on all of
+them; one of the monitors on this board goes into its own power saving
+after a while, which would leave the CRTC with no vblank to wait for
+while keeping HPD asserted, so nothing about it appears in the log. I
+cannot prove that from the log either way, but it is not the USB path.
+
+Also, the network check right after resume fails for about a second
+before r8169 reports "Link is Up - 2.5Gbps/Full"; that is my script
+asking too early, not a regression.
+
+Happy to re-run this on the version you post this week, and to test the
+PCIe suspend series on this board as well if that is useful - it has
+NVMe, two r8169 NICs and an rtw89 card on PCIe.
+
+Igor
 
