@@ -4,90 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8CBC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281A9C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uxn7PT+EAVFsbAjdQ2z3LbyFBgdM3inwgwbxduT95vI=; b=xDqYCh6tU7T0IjiH8QzhFg41+G
-	KrFjFLmbshfCJjCf91ERXiYk9f5s8RrW0P75OXHrJ24DF2KdUZ7kIJ0Kmlq+OiXEMkvC3ubheI6OQ
-	U9tN5FQZS72JP2E8B8tLeYTIUI3yJZHy7kuY/5awMmvKkwhS9oaLWfulwoWiY6OlCp12HQ5JhO2dC
-	sc0EDIWH/3ULtAUP35PPWECnj7JJw4IUkSepCCR/wkAaN4m5z/1ZiPLhPPbB1aqs8pwc8iD4rGMmt
-	8EzGf7+QAHy21mbnmFLCxiJCoajrjsSxkMApLVRwlvjP+IXJIMmupdZuVVxHhPg9ik5+jPVKaAkIT
-	z50pyHbQ==;
+	bh=acbNWtpPknyLrCk/pNLZi+gfhUsY53AY8W5EHv28ZbE=; b=um1D+jfez2ubzf88d/oaiGbIvl
+	x8mkiGcrEgtFkXmEWeVl2MOgooioiyer5syWMVplZsy7H9VIYlu1DP5yncxpswurWE5g98BlK1iXz
+	vqGyzLVHFXzOQil8uNsA+KK6rEGo5qxPOXq7oUK2XjMFYEe2rJ0SWtdC3k37XNURXUduyMmwp1mtS
+	iaDQMuGOExvTMSqSXs7BjNKGf7akqA+kEnVD2zywRfZ/fILzO+IP9jqmGz+HKhxK+guIUd3ugJgCr
+	R2Sy8va/pMKYvWXPfACMIUekP9VxWFPppk2e2ab4/HZ6jd33O27pRomdLB+DhpXNQiH3LD/Ej3fP2
+	KhLnvk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qkc-00000008Kjk-1axp;
-	Tue, 08 Sep 2026 08:00:18 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1x3qlD-00000008KpU-3ypD;
+	Tue, 08 Sep 2026 08:00:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qkZ-00000008Kiy-25Jj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 08:00:17 +0000
+	id 1x3qlC-00000008Kp8-2Qsq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 08:00:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uxn7PT+EAVFsbAjdQ2z3LbyFBgdM3inwgwbxduT95vI=; b=k2pFIpeNykpDXUpgGP6rmLNoV1
-	v/gsW08BVVUZfDPnDaCOYq/EPmKDFUni7x5/8twmANTmNfp5sQYO6M5iMkWl7C/Yj8eByFi0NSjP5
-	+pKn3gZs8uXX5sMu1Rwbj/XeNHpvtcP2iheVMIB9c8X8dDZWr122N2kazWTQ16RAvx+Ca1sHX+TFH
-	ZtTLGhonByGtkYC2q3cf/86RHDlQDw9Ts/EgBNsL7k3mrWZZKvQpqmnPtBKewzJQHfSco39iq1brj
-	m7SiZUcp6mag/2vpZ39mmJo8N3iPN8A5fDIP7p9oxcTGE7fua+tmzCqrAI/TrTSDeYeaqTt9EuUlm
-	zRqHERBQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51328)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1x3qkT-00000000835-1isj;
-	Tue, 08 Sep 2026 09:00:09 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1x3qkO-000000003sU-2C7X;
-	Tue, 08 Sep 2026 09:00:04 +0100
-Date: Tue, 8 Sep 2026 09:00:04 +0100
-From: Russell King <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
-	Ian Rogers <irogers@google.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>
-Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
- task_work()
-Message-ID: <ap_AhKXlAWecV3BI@shell.armlinux.org.uk>
-References: <20260814085118.OPEA_Ssn@linutronix.de>
- <20260903160710.vVf4gEL2@linutronix.de>
- <apmknG55qFAn8EPf@shell.armlinux.org.uk>
- <20260903133146.07095885@gandalf.local.home>
- <20260904155404.ESPFg3zi@linutronix.de>
- <ap7OMYBVKUrQjX9O@shell.armlinux.org.uk>
- <20260908075455.OffmMhrB@linutronix.de>
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=acbNWtpPknyLrCk/pNLZi+gfhUsY53AY8W5EHv28ZbE=; b=JQil6j0dV7O3FoE8Rgmx3/r4EF
+	+fUa2rIZMfoht4zfLkAHCUCDZBGf3PNMGJiyUXja6aXSEl0kPgx+p4sZq7O20WvVUmaxaqwuTDMVO
+	Z5DWmkNpsL8jczGqH2rOVWCiGNMAHI0e0Allq+LHg2P+Lv3CQGlKiZyKwE/TlvgIzdrlYHNonbpXp
+	tNz/NIdFYWPUNEM4jr2b+GBRp9NhK29QCRy4BNxwsAFHm+4ICs5lfOXYdMH85D61mUcmJ2MhJOUAZ
+	QQqUshGxwjfk7LiL58m7vF5rgH0t14NnuD273Uky0YlcVLFdMqzbkU0kzC45QhabPa/QS2BojQG61
+	CwVvAnIA==;
+Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3ql9-0000000H5c5-23GV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 08:00:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1788854451; x=1820390451;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=d6H21zget9O+foARLFAgFZea8RUu6p9eIXmnIG1xYl8=;
+  b=jUoPDeHrF0ZdIEuBWe3QaD+Gbn7x1NRVpl8AabeO7ifiQjgaucYusfTX
+   0CgZwypEhCe/eeGkoDrXSNgG8ScgWM5FYc7x5pCuoduQAiPPCmwJasxKK
+   9x4Wt67jDvfULvPkXtnJaBsURgbID4zEOGDOghx6OnoWljlTXZ3DVU2sN
+   uywgcjLr7L8PwvUS6t0lb+1HioySZT8BSPkOr1MRUCXsRUMRhqM5DQRLu
+   z2BRjBINxnKrHCXdLQ2C3GqPGS4+Du1IHRIpfJJK26NZLctVkyClslWfL
+   ZFccnaCI+5CDPsq0nUEVkT+V63zfsTC3Wlb9yAJwwYdpWelwwtf+mpu49
+   g==;
+X-CSE-ConnectionGUID: p/d7KRAUSiS/CjYx5chapg==
+X-CSE-MsgGUID: 9Pj2NKHWQEOW+cqboE9KfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="241801641"
+X-IronPort-AV: E=Sophos;i="6.25,268,1779116400"; 
+   d="scan'208";a="241801641"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 17:00:35 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 5762C1000377
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 08:00:35 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 0A9ED1C002FA
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 08:00:35 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.15.163])
+	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id 5B31C101BB76;
+	Tue,  8 Sep 2026 08:00:27 +0000 (UTC)
+Date: Tue, 8 Sep 2026 17:00:19 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Gavin Shan <gshan@redhat.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, joey.gouly@arm.com, tabba@google.com, 
+	yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, 
+	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org
+Subject: Re: [PATCH v17 3/7] firmware: arm_rmm: Configure the RMM with the
+ host's page size
+Message-ID: <ap--9pJdD_Y_j1aY@FCCLS0092175.localdomain>
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-4-suzuki.poulose@arm.com>
+ <10893135-4757-44de-91b5-180a9774d868@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260908075455.OffmMhrB@linutronix.de>
+In-Reply-To: <10893135-4757-44de-91b5-180a9774d868@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_010015_539547_A8F202B1 
-X-CRM114-Status: GOOD (  42.66  )
+X-CRM114-CacheID: sfid-20260908_090051_745301_29B2C286 
+X-CRM114-Status: GOOD (  33.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +114,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 09:54:55AM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-09-07 15:46:09 [+0100], Russell King wrote:
-> > On Fri, Sep 04, 2026 at 05:54:04PM +0200, Sebastian Andrzej Siewior wrote:
-> > > On 2026-09-03 13:31:46 [-0400], Steven Rostedt wrote:
-> > > > On Thu, 3 Sep 2026 17:47:24 +0100
-> > > > Russell King <linux@armlinux.org.uk> wrote:
-> > > > 
-> > > > > What do you expect to happen with this? Which arch maintainer should
-> > > > > apply this patch that affects three different independently maintained
-> > > > > architectures?
-> > > 
-> > > Well, if you as the ARM person are fine with ARM part, an ACK would be
-> > > appreciated. If you have something to object, it would be nice to let me
-> > > know so I can adjust accordingly.
-> > 
-> > First, I only just looked at the email - you may have noticed I'm not
-> > very active with the kernel anymore, as I'm a full-time carer at the
-> > moment.
-> > 
-> > Second, I'm not fine with the patch as-is, because it's not clear how
-> > it could be merged in its current form. It would be inappropriate to
-> > give an Ack, because an Ack means I'm fine with it. I'm not.
-> > 
-> > Third, I haven't actually reviewed the patch itself (see first point).
-> > 
-> > Looking deeper now, I see nothing in the linked report, nor in your
-> > write-up that identifies what is responsible for the context being
-> > inappropriate to deliver the SIGTRAP. See the first point - I'm not
-> 
-> The linked report shows a backtrace by "BUG: sleeping function"
-> originating from el0_breakpt() -> perf_bp_event() following by sending a
-> signal force_sig_fault() followed by rt_spin_lock() and
-> __might_resched(). It also contains a reproducer.
-> 
-> The first sentence has the part
-> | The hardware event is
-> | delivered with disabled interrupts and perf intrastrucure expects
-> | disabled interrupts while the overflow callback is invoked.
+Hi Gavin,
 
-*Where* are interrupts disabled?
-
+On 09/08 17:04, Gavin Shan wrote:
+> Hi Suzuki,
 > 
-> This is what happens, followed by 
-> 
-> | The callback then sends a SIGTRAP signal for which it acquires
-> | sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
-> | must not be acquired in atomic context.
-> 
-> This is not really specific to PREEMPT_RT as we enforce to not allow
-> raw_spinlock_t -> spinlock_t on !PREEMPT_RT via lockdep, too.
-> 
-> > able to read lots of code to work that out, and presumably you've
-> > already done that ground work to come up with a fix. This is *vital*
-> > information when someone looks back at why this change was made as
-> > it helps to understand how the problem occurs. This is, after all,
-> > the whole point of commit messages - to help people look back and
-> > understand why a change was made. The "what the changes are" part
-> > is already covered by the patch showing what the changes were. It's
-> > the stuff that *isn't* in the patch that needs to be in the commit
-> > message.
+> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+> > From: Steven Price <steven.price@arm.com>
 > > 
-> > So... don't describe the code changes in a commit message.
+> > RMM v2.0 brings the ability to set the RMM's granule size. Check the
+> > feature registers and configure the RMM so that it matches the host's
+> > page size. This means that operations can be done with a granularity
+> > equal to PAGE_SIZE.
+> > 
+> > Signed-off-by: Steven Price <steven.price@arm.com>
+> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > ---
+> >   Changes since v15:
+> >    * Actually check the feature register for the host's page-size support.
+> >   Changes since v14:
+> >    * Move the implementation into drivers/firmware/arm_rmm.
+> >   Changes since v13:
+> >    * Moved out of KVM.
+> > ---
+> >   drivers/firmware/arm_rmm/rmi.c | 58 ++++++++++++++++++++++++++++++++++
+> >   include/linux/arm-rmi-cmds.h   | 17 ++++++++++
+> >   2 files changed, 75 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> > index 008a783407b4e..76f91c145e1fd 100644
+> > --- a/drivers/firmware/arm_rmm/rmi.c
+> > +++ b/drivers/firmware/arm_rmm/rmi.c
+> > @@ -77,6 +77,60 @@ static int rmi_read_features(void)
+> >   	return 0;
+> >   }
+> > +static int rmi_configure(void)
+> > +{
+> > +	unsigned long granule_feature;
+> > +	unsigned long granule_size;
+> > +	int ret = 0;
+> > +	struct rmm_config *config;
+> > +
+> > +	switch (PAGE_SIZE) {
+> > +	case SZ_4K:
+> > +		granule_size = RMI_GRANULE_SIZE_4KB;
+> > +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
+> > +		break;
+> > +	case SZ_16K:
+> > +		granule_size = RMI_GRANULE_SIZE_16KB;
+> > +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
+> > +		break;
+> > +	case SZ_64K:
+> > +		granule_size = RMI_GRANULE_SIZE_64KB;
+> > +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
+> > +		break;
+> > +	default:
+> > +		BUILD_BUG();
+> > +	}
+> > +
+> > +	if (!(rmi_feat_reg(1) & granule_feature)) {
+> > +		pr_err("RMM does not support %luKB granules\n",
+> > +		       PAGE_SIZE >> 10);
+> > +		return -ENXIO;
+> > +	}
+> > +
+> > +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+> > +	if (!config)
+> > +		return -ENOMEM;
 > 
-> I think both parts (describing the issue and the change) are part of the
-> commit message.
+> An error message is needed here.
 > 
-> > So no, an Ack is not appropriate.
-> 
-> Sebastian
-> 
+> 	if (!config) {
+> 		pr_err("Unable to alloc RMM config memory\n");
+> 		return -ENOMEM;
+> 	}
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+I largely agree with your suggestions, and they look reasonable to me.
+
+However, wouldn't this be redundant? Since __GFP_NOWARN is not set, the
+page allocator would normally emit an allocation failure warning with a
+stack trace anyway.
+
+I don't have a strong preference, but as per "14) Allocating memory" in
+the coding style, I believe it would be considered unnecessary.
+
+Thanks,
+Kohei
+
+> 
+> > +
+> > +	config->rmi_granule_size = granule_size;
+> > +
+> > +	/*
+> > +	 * For now we set the tracking_region_size to 0 which is the only option
+> > +	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
+> > +	 * TODO: Support other tracking sizes via Kconfig option for other
+> > +	 * PAGE_SIZES
+> > +	 */
+> > +	config->tracking_region_size = 0;
+> > +
+> > +	ret = rmi_rmm_config_set(virt_to_phys(config));
+> > +	if (ret) {
+> > +		pr_err("RMM config set failed\n");
+> > +		ret = -EINVAL;
+> > +	}
+> 
+> The error code from rmi_rmm_config_set() is indicative sometimes. Also, -ENXIO
+> would be more appropriate than -EINVAL?
+> 
+> 	if (ret) {
+> 		pr_err("RMM config set failed (%d)\n", ret);
+> 		ret = -ENXIO;
+> 	}
+> 
+> > +
+> > +	free_page((unsigned long)config);
+> > +	return ret;
+> > +}
+> > +
+> >   static int __init arm64_init_rmi(void)
+> >   {
+> >   	int ret;
+> > @@ -90,6 +144,10 @@ static int __init arm64_init_rmi(void)
+> >   	if (ret)
+> >   		return ret;
+> > +	ret = rmi_configure();
+> > +	if (ret)
+> > +		return ret;
+> > +
+> >   	return 0;
+> >   }
+> > diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+> > index 2fb1f7f86d71e..9aa27697e2377 100644
+> > --- a/include/linux/arm-rmi-cmds.h
+> > +++ b/include/linux/arm-rmi-cmds.h
+> > @@ -12,6 +12,23 @@
+> >   unsigned long rmi_feat_reg(unsigned long id);
+> > +/**
+> > + * rmi_rmm_config_set() - Configure the RMM
+> > + * @cfg_ptr: PA of a struct rmm_config
+> > + *
+> > + * Sets configuration options on the RMM.
+> > + *
+> > + * Return: RMI return code
+> > + */
+> > +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+> > +{
+> > +	struct arm_smccc_res res;
+> > +
+> > +	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
+> > +
+> > +	return res.a0;
+> > +}
+> > +
+> 
+> rmi_rmm_config_set() is used for once by rmi.c::rmi_configure(), I would not expose
+> rmi_rmm_config_set() by combining the logic to rmi.c::rmi_configure().
+> 
+> >   /**
+> >    * rmi_features() - Read feature register
+> >    * @index: Feature register index
+> 
+> Thanks,
+> Gavin
+> 
 
