@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A82AC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B5BC79FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fg33v8r0CDMBRVs9DFtJmNEUTUGaiIsk+dCr8ct6zII=; b=2qvuch+p9nrAlV5A/2r1NTn5ug
-	4yDBBAfyozNhPYKiJ1nujUy1OKabNAj3uN8uBU+TAOh1JA95P9eSwdhCgFuamF1M+5RV7y2X3cZuT
-	btWXrs+hVcDVRfCMpC9rir1hG7AD491/H7FxbXiGxcSwROMJtuTlb7jQFX/p2huk1vn9pL8od8Rmu
-	o6DpZ/ZElyNJAbBn/iiYoYWtWoTQg5o8FVNiXbYIPnJ5CVcA/qZjDlfkrH6MRMhyaqiiR4ZWaQvwC
-	bgJhb8S23hJk7KPU0pTU0KGB03MwmLkGrQ3Gwvd2fjKLELh3H89pv54tfQfrRtzhtez+bX2mUtUzA
-	Q/T0pUZA==;
+	bh=g2N8e2H1e3+6am2yu8eJ4vnbIaibzyK1PtKYM9botJA=; b=iRa1UC59rGD087Z7HCbwON7Fgq
+	2Uuw0YVMXjPsH5sSVqDrY5IqsbvukQbS/fp/rfp+vGD8NK1WKvKJBaBfPuzaaB8ivsv0xrlJ1NIne
+	0lxAKkQ8g3r4Wp/48NOlLfJ3KEiJNsxdmoXUAmJQP7/DdQfWD7TeNGAuUNmZ4+NAqnP7D+JkXAzuJ
+	rl8Vv3+0KPngM9rPIGFiyIdGXWxY8OUsi6joS1byxUgztwVn/n4JM0//yd/qFwpowC6E7LqDwKUHL
+	SmHPYVf7JgKni5L11juQymTAY/uMGDEmLfE6bPj4kOst5q8rMZn6RdcEr+EggswuDe7HKsiVImD2R
+	V/wDOptg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zSG-00000009mrF-2XmL;
+	id 1x3zSG-00000009mq4-0fOs;
 	Tue, 08 Sep 2026 17:17:56 +0000
-Received: from mail-pg1-f198.google.com ([209.85.215.198])
+Received: from mail-pf1-x447.google.com ([2607:f8b0:4864:20::447])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zSB-00000009mgO-0stp
+	id 1x3zS4-00000009mc7-3raB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:17:52 +0000
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cbb92868263so4078282a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:48 -0700 (PDT)
+	Tue, 08 Sep 2026 17:17:46 +0000
+Received: by mail-pf1-x447.google.com with SMTP id d2e1a72fcca58-862a0aa7d2aso5478510b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788887867; x=1789492667; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788887863; x=1789492663; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Fg33v8r0CDMBRVs9DFtJmNEUTUGaiIsk+dCr8ct6zII=;
-        b=ecPzuQA4RQAIKU8Yvzypijk1a6wjxZkjbhq6PLQ7IXLhApv5vVLImwyBYGVC1x7UhJ
-         fhz0WxpqOd5B0FaglT4OEunLNJZU8+C7ycQDx2u7DfPzIFdi5kZTMFym0xEjDfza5XM+
-         lEp4ssBn9K9fzXgZA+6w2KJ/BNblpLiX1cZmX/CuUOVrSW+g/IETbAWpsbI1YOHYoGm/
-         D5HQ4AsYXI/3tiM+Tj76hQ0rySsG1uVKGwFtvnABhUnDZOF9JSCc7cEPEJm+Ig2K7YYQ
-         aMBeVkKc7DYlfH0hCCfbfZSlYCv+Stbu1FiwrH7bdkwriACZQegXZbT38CMOt7Cww+tW
-         Adnw==
+        bh=g2N8e2H1e3+6am2yu8eJ4vnbIaibzyK1PtKYM9botJA=;
+        b=qf2wG0GLsePwFWrLkelYcTerbAe5Oos1d8pkx8Q3zznEZhPSZwPRJ5GxQcLNYiU/ji
+         a1B/ejYlTeW/bmRIln8vfe/s+0SsB3Clky8tfwCLBmOsH0/sWyJZyLLYfK5KVl5f+cP8
+         DV3A2kw3bpul6k85w6f/mKdT8u4rgkzDPX3WbeME3DaACyBD7H3gywklLxuGDo0eRah7
+         UUs9kulT54MwpBujpI214Z6gHoggLNpzgZAqV41+7G63Zn929n1UocF4SQVTxL2A/oz3
+         vEliK953XYu8km31y1TEkCXhgZChW/38s/bx/Mwo139v6XPokGVa/k5UDI39YKv1Q2f1
+         LqLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788887867; x=1789492667;
+        d=1e100.net; s=20251104; t=1788887863; x=1789492663;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fg33v8r0CDMBRVs9DFtJmNEUTUGaiIsk+dCr8ct6zII=;
-        b=ji+stZMkCNrGYcogex2ASECKPpgoI5Q+V4hdqG2nfJA8rLk4RlgT6pzUqL0s4czk1h
-         CwVLD4D9w96j4Po0D4wGELrZTKoEyrg2l8HTiwZKzEebJ682WasA8qsPi4lIKHnu4yEO
-         DVUJbgWsVwhgB1+QYdl05Loea+C5uWrL+fk0iqOSF/HD7knpAockcIopUY/OUgIHc5uq
-         LYaNMIqeypBolkP0cxxWctkRBrfk9YzDLqiFNU2+HV4jJGIsz5qdhaP/L6WmBnHlg5zv
-         rpuAlCRb8mrZTgCq+7bQscnc5y4dH5mGubvOLmLeiAvpJg7lZNu44xCQrGPOYutSo4ra
-         SEdQ==
-X-Forwarded-Encrypted: i=1; AKwUvBysDVlQ9UXW8BE1IVpEb9NHkp5b/XTt3O8+yaqfMAgMKrmHqehZwzYiEJ6tO7vJ5QVG5ZczR+oYKTpWNTca3WAT@lists.infradead.org
-X-Gm-Message-State: AFuF++l8J+jpccAby2HLu63wbadwxL5UCcTDGdApd9xDWrY/ZGF2FXPR
-	oJCh52/b8YldUQ/jeYA7bHkEGIGdi6HX6H3/4XpSJA5ho1iprtnR1lhTuakbyiqQh4GfAqNsgko
-	bpg==
-X-Received: from pgca12-n1.prod.google.com ([2002:a05:6a02:638c:10b0:cbe:48b9:7b3a])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:4d8b:b0:3c3:875d:7053
- with SMTP id adf61e73a8af0-3da39edb988mr51977054637.8.1788887867051; Tue, 08
- Sep 2026 10:17:47 -0700 (PDT)
-Date: Tue,  8 Sep 2026 17:17:10 +0000
+        bh=g2N8e2H1e3+6am2yu8eJ4vnbIaibzyK1PtKYM9botJA=;
+        b=axwm8HHfhHavuoHj3F+LKpRiCWJqHklGfVSNm4xYCrlPQrd724L89Ae1Oq/EVrzWcg
+         bzeXoXFGegplIRkNn7IXS0v/XikcOqMQ3cWsxtLZ2JxukFR3wfi1ac/LG2Qyso7Rjm7W
+         9dxlF0gbwFOhJAdhdsmzhthyjWJ8MvO/pv2r8/swhwNfP6LvjDy1NFxlMhmT2YWRt68k
+         vC3kHFY6oj7QB7sz2bqsyBbY7cPxBBcCpaaulw0FGBCnSghwjMmStKedcyLEzGpKZ26D
+         Bt8ZPi6Qn0/MM6hPV/0FE6Y7F4RhnbDx4uAjIyY+429V9sn9TOxaumlU+1x7xEehD+I6
+         fwBg==
+X-Forwarded-Encrypted: i=1; AKwUvBySpptsKtCTyDv7w9slye8ICjeFvy+8fAts3UVFgB9U3qR36roCmbbJw9Pi6WUgEhbNdeIYA8t+95finJqLTudc@lists.infradead.org
+X-Gm-Message-State: AFuF++kMBEgmhyuksv7LUtdv+Jc8YOF5NjHnBPYHOMCtd/I9IPae+MMI
+	sL8NQ6Mz5QTntjCGjw10UEkzu07r1qDqFknVMwHaUiKlDNQYFNsMvJGB+597r83m9XhAJ2DzSgf
+	dYg==
+X-Received: from pfblh18.prod.google.com ([2002:a05:6a00:7112:b0:863:9d90:a599])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:c490:b0:866:abd8:f112
+ with SMTP id d2e1a72fcca58-866abd8f2bcmr8703014b3a.8.1788887862674; Tue, 08
+ Sep 2026 10:17:42 -0700 (PDT)
+Date: Tue,  8 Sep 2026 17:17:08 +0000
 In-Reply-To: <20260908171712.356645-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260908171712.356645-1-praan@google.com>
 X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-Message-ID: <20260908171712.356645-15-praan@google.com>
-Subject: [PATCH v10 14/15] iommu/arm-smmu-v3: Invoke pm_runtime before hw access
+Message-ID: <20260908171712.356645-13-praan@google.com>
+Subject: [PATCH v10 12/15] iommu/arm-smmu-v3: Implement pm_runtime & system
+ sleep ops
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +80,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_101751_278814_CE492AA4 
-X-CRM114-Status: GOOD (  34.18  )
+X-CRM114-CacheID: sfid-20260908_101745_121853_932091C4 
+X-CRM114-Status: GOOD (  34.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,383 +96,377 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Invoke the pm_runtime helpers at all places before accessing the hw.
-The idea is to invoke runtime_pm helpers at common points which are used
-by exposed ops or interrupt handlers. TLB and CFG invalidations are
-elided if the SMMU is suspended by observing the CMDQ_PROD_STOP_FLAG.
+Implement pm_runtime and system sleep ops for arm-smmu-v3.
 
-In the threaded interrupt handlers (EVTQ/PRIQ), arm_smmu_rpm_get_if_active()
-is used to avoid sleeping and deadlocking against synchronize_irq() during
-suspend. Because device links guarantee client devices remain suspended
-and cannot issue DMA until the SMMU has fully transitioned to RPM_ACTIVE,
-no client-generated events can be received or dropped during transient
-states like RPM_RESUMING.
+The suspend callback configures the SMMU to abort transactions, disables
+the main translation unit and then drains the command queue. A software
+gate (STOP_FLAG) quiesces submissions before power-off. Since devlinks
+ensure client devices are suspended before the SMMU, no client DMA can
+occur, making EVTQ/PRIQ IRQ synchronization during suspend unnecessary.
+Prod indices for EVTQ/PRIQ are synchronized via queue_sync_prod_in() to
+retain unread entries across power cycles.
 
+The resume callback restores the MSI configuration and performs a full
+device reset via `arm_smmu_device_reset` to bring the SMMU back to an
+operational state. The MSIs are cached during the msi_write and are
+restored during the resume operation by using the helper. The STOP_FLAG
+is cleared only after the CMDQ is enabled in hardware.
+
+Standard SET_RUNTIME_PM_OPS() and SET_SYSTEM_SLEEP_PM_OPS() macros are
+used to define dev_pm_ops, safely evaluating to NO_OPs when CONFIG_PM is
+disabled. The new RPM helpers are marked __maybe_unused to keep
+intermediate commits clean until invoked by respective handlers in the
+subsequent patches.
+
+Suggested-by: Daniel Mentz <danielmentz@google.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  20 ++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 163 +++++++++++++++++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   3 +
- 3 files changed, 175 insertions(+), 11 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 255 +++++++++++++++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  15 ++
+ 2 files changed, 265 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 25982bdbcbd9..7150b9c497a4 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -15,17 +15,28 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
- 	struct iommu_hw_info_arm_smmuv3 *info;
- 	u32 __iomem *base_idr;
- 	unsigned int i;
-+	int ret;
-+
-+	ret = arm_smmu_rpm_get(master->smmu);
-+	if (ret < 0)
-+		return ERR_PTR(-EIO);
- 
- 	if (*type != IOMMU_HW_INFO_TYPE_DEFAULT &&
- 	    *type != IOMMU_HW_INFO_TYPE_ARM_SMMUV3) {
--		if (!impl_ops || !impl_ops->hw_info)
--			return ERR_PTR(-EOPNOTSUPP);
--		return impl_ops->hw_info(master->smmu, length, type);
-+		void *ret_ptr = ERR_PTR(-EOPNOTSUPP);
-+
-+		if (impl_ops && impl_ops->hw_info)
-+			ret_ptr = impl_ops->hw_info(master->smmu, length, type);
-+
-+		arm_smmu_rpm_put(master->smmu);
-+		return ret_ptr;
- 	}
- 
- 	info = kzalloc_obj(*info);
--	if (!info)
-+	if (!info) {
-+		arm_smmu_rpm_put(master->smmu);
- 		return ERR_PTR(-ENOMEM);
-+	}
- 
- 	base_idr = master->smmu->base + ARM_SMMU_IDR0;
- 	for (i = 0; i <= 5; i++)
-@@ -39,6 +50,7 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
- 	*length = sizeof(*info);
- 	*type = IOMMU_HW_INFO_TYPE_ARM_SMMUV3;
- 
-+	arm_smmu_rpm_put(master->smmu);
- 	return info;
- }
- 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 0a83d495d8d2..8e4ce5eb2228 100644
+index 7eb939888735..1c5d891564e4 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -121,7 +121,7 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
+@@ -29,6 +29,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/sort.h>
+ #include <linux/string_choices.h>
++#include <linux/pm_runtime.h>
+ #include <kunit/visibility.h>
+ #include <uapi/linux/iommufd.h>
+ 
+@@ -119,6 +120,45 @@ static const char * const event_class_str[] = {
+ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
  static bool arm_smmu_ats_supported(struct arm_smmu_master *master);
  
- /* Runtime PM helpers */
--__maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
-+int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
-@@ -137,7 +137,7 @@ __maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
- 	return 0;
- }
- 
--__maybe_unused static bool arm_smmu_rpm_get_if_active(struct arm_smmu_device *smmu)
-+static bool arm_smmu_rpm_get_if_active(struct arm_smmu_device *smmu)
- {
- 	if (!pm_runtime_enabled(smmu->dev))
- 		return true;
-@@ -145,7 +145,7 @@ __maybe_unused static bool arm_smmu_rpm_get_if_active(struct arm_smmu_device *sm
- 	return pm_runtime_get_if_active(smmu->dev) > 0;
- }
- 
--__maybe_unused static void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
-+void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
-@@ -1186,6 +1186,7 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 				   struct iommu_page_response *resp)
- {
- 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+	struct arm_smmu_device *smmu = master->smmu;
- 	u8 resume_resp;
- 
- 	if (WARN_ON(!master->stall_enabled))
-@@ -1204,6 +1205,23 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 		break;
- 	}
- 
-+	/*
-+	 * The SMMU is guaranteed to be active via device_link if any master is
-+	 * active. Furthermore, on suspend we set GBPA to abort, flushing any
-+	 * pending stalled transactions.
-+	 *
-+	 * Receiving a page fault while suspended or suspending implies a stale
-+	 * event when the master has already powered down. A lockless pre-check
-+	 * on STOP_FLAG avoids taking the PM lock if already suspended. If active,
-+	 * arm_smmu_rpm_get_if_active() atomically acquires a PM reference under
-+	 * power.lock, avoiding races against concurrent suspend and rejecting
-+	 * responses during transient states like RPM_SUSPENDING.
-+	 */
-+	if (!arm_smmu_is_active(smmu) || !arm_smmu_rpm_get_if_active(smmu)) {
-+		dev_err(smmu->dev, "Ignoring page fault while suspended / suspending\n");
-+		return;
-+	}
++/* Runtime PM helpers */
++__maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
++{
++	int ret;
 +
- 	arm_smmu_cmdq_issue_cmd(master->smmu,
- 				arm_smmu_make_cmd_resume(master->streams[0].id,
- 							 resp->grpid,
-@@ -1214,6 +1232,7 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 	 * terminated... at some point in the future. PRI_RESP is fire and
- 	 * forget.
- 	 */
-+	arm_smmu_rpm_put(smmu);
- }
- 
- /* Invalidation array manipulation functions */
-@@ -1739,7 +1758,6 @@ static void arm_smmu_sync_cd(struct arm_smmu_master *master,
- 			smmu, &cmds,
- 			arm_smmu_make_cmd_cfgi_cd(master->streams[i].id, ssid,
- 						  leaf));
--
- 	arm_smmu_cmdq_batch_submit(smmu, &cmds);
- }
- 
-@@ -2050,9 +2068,9 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
- {
- 	struct arm_smmu_ste_writer *ste_writer =
- 		container_of(writer, struct arm_smmu_ste_writer, writer);
-+	struct arm_smmu_device *smmu = writer->master->smmu;
- 
--	arm_smmu_cmdq_issue_cmd_with_sync(
--		writer->master->smmu,
-+	arm_smmu_cmdq_issue_cmd_with_sync(smmu,
- 		arm_smmu_make_cmd_cfgi_ste(ste_writer->sid, true));
- }
- 
-@@ -2460,6 +2478,40 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
- 				      DEFAULT_RATELIMIT_BURST);
- 
-+	/*
-+	 * Use a non-sleeping get to avoid a circular dependency deadlock
-+	 * with arm_smmu_runtime_suspend().
-+	 *
-+	 * When using a combined_irq, the suspend thread waits for pending
-+	 * threaded handlers to complete. If the IRQ thread blocks waiting
-+	 * for the PM core, it creates a deadlock:
-+	 *
-+	 *  [Suspend Thread]                  | [IRQ Thread]
-+	 *  pm_runtime_suspend()              |
-+	 *    state = RPM_SUSPENDING;         |
-+	 *                                    | IRQ fires
-+	 *                                    | arm_smmu_rpm_get()
-+	 *                                    |   sleeps (waiting for suspend)
-+	 *  arm_smmu_runtime_suspend()        |
-+	 *    ...                             |
-+	 *    synchronize_irq()               |
-+	 *      sleeps (waiting for IRQ)      |
-+	 *
-+	 *           <==== DEADLOCK ====>
-+	 *
-+	 * A non-sleeping get allows the thread to instantly drop the event
-+	 * if the device is suspending, safely bypassing the synchronize_irq()
-+	 * deadlock.
-+	 *
-+	 * Devlinks guarantee client devices cannot resume or issue DMA until
-+	 * the SMMU has fully transitioned to RPM_ACTIVE, ensuring no valid
-+	 * events can be generated during transient states like RPM_RESUMING.
-+	 */
-+	if (!arm_smmu_rpm_get_if_active(smmu)) {
-+		dev_warn_ratelimited(smmu->dev, "client device is suspended, dropping event\n");
-+		return IRQ_HANDLED;
-+	}
-+
- 	do {
- 		while (!queue_remove_raw(q, evt)) {
- 			arm_smmu_decode_event(smmu, evt, &event);
-@@ -2480,6 +2532,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 
- 	/* Sync our overflow flag, as we believe we're up to speed */
- 	queue_sync_cons_ovf(q);
-+	arm_smmu_rpm_put(smmu);
- 	return IRQ_HANDLED;
- }
- 
-@@ -2518,6 +2571,18 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
- 	struct arm_smmu_ll_queue *llq = &q->llq;
- 	u64 evt[PRIQ_ENT_DWORDS];
- 
-+	/*
-+	 * Use non-sleeping get to avoid deadlock. Devlinks prevent page
-+	 * requests from arriving during transient states like RPM_RESUMING.
-+	 * (see the detailed comment in arm_smmu_evtq_thread)
-+	 * Page requests require active client masters, which are held in
-+	 * runtime suspend until the SMMU is fully RPM_ACTIVE.
-+	 */
-+	if (!arm_smmu_rpm_get_if_active(smmu)) {
-+		dev_warn_ratelimited(smmu->dev, "client device is suspended, dropping page request\n");
-+		return IRQ_HANDLED;
-+	}
-+
- 	do {
- 		while (!queue_remove_raw(q, evt))
- 			arm_smmu_handle_ppr(smmu, evt);
-@@ -2528,6 +2593,7 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
- 
- 	/* Sync our overflow flag, as we believe we're up to speed */
- 	queue_sync_cons_ovf(q);
-+	arm_smmu_rpm_put(smmu);
- 	return IRQ_HANDLED;
- }
- 
-@@ -2582,8 +2648,40 @@ static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
- static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
- {
- 	struct arm_smmu_device *smmu = dev;
-+	irqreturn_t ret;
- 
--	return arm_smmu_handle_gerror(smmu);
-+	/*
-+	 * Global Errors are only processed if the SMMU is active.
-+	 *
-+	 * When the STOP_FLAG is set, the SMMU is disabled (CR0.SMMUEN = 0)
-+	 * Any errors captured during the quiesce/drain phase (suspend)
-+	 * will be handled by the explicit arm_smmu_handle_gerror() call at
-+	 * the end of the arm_smmu_runtime_suspend() callback before power
-+	 * down.
-+	 *
-+	 * During resume (RPM_RESUMING), the only operations that could
-+	 * trigger a gerror are the CMDQ invalidation commands which are
-+	 * only issued after the STOP_FLAG has already been cleared.
-+	 *
-+	 * Thus, no legitimate gerrors can ever occur while STOP_FLAG is
-+	 * set. Any interrupt received while !arm_smmu_is_active() is
-+	 * strictly spurious. Hence, returning IRQ_NONE correctly signals
-+	 * an unhandled IRQ without missing any valid hardware errors.
-+	 *
-+	 * A lockless check is favoured here over a dynamic PM core check
-+	 * since the runtime_pm_get_if_active would return false during
-+	 * transient states like RPM_RESUMING & ignore level-triggered
-+	 * interrupts.
-+	 */
-+	if (!arm_smmu_is_active(smmu)) {
-+		dev_err(smmu->dev,
-+			"Ignoring gerror interrupt because the SMMU is suspended\n");
-+		return IRQ_NONE;
-+	}
-+
-+	ret = arm_smmu_handle_gerror(smmu);
-+
-+	return ret;
- }
- 
- static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
-@@ -2666,6 +2764,10 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
- 	struct arm_smmu_cmd cmd;
- 	struct arm_smmu_cmdq_batch cmds;
- 
-+	/* Shouldn't hit the WARN if there's no devlink inconsistency */
-+	if (WARN_ON_ONCE(!arm_smmu_is_active(master->smmu)))
++	if (!pm_runtime_enabled(smmu->dev))
 +		return 0;
 +
- 	cmd = arm_smmu_make_cmd_atc_inv_all(0, IOMMU_NO_PASID);
- 	arm_smmu_cmdq_batch_init_cmd(master->smmu, &cmds, &cmd);
- 	for (i = 0; i < master->num_streams; i++)
-@@ -2912,7 +3014,16 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
- 
- 		if (cmds.num &&
- 		    (next == end || arm_smmu_invs_end_batch(cur, next))) {
-+
-+			/*
-+			 * Concurrent suspend races are benign: the cmdq allocation cmpxchg
-+			 * loop acts as the serialization point to safely drop the batch
-+			 * without MMIO accesses. Concurrent resume is caught by the HW
-+			 * reset cache invalidation, ensuring state consistency.
-+			 */
- 			arm_smmu_cmdq_batch_submit(smmu, &cmds);
-+
-+			/* Drop this batch to ensure the next one's fresh */
- 			cmds.num = 0;
- 		}
- 		cur = next;
-@@ -5135,14 +5246,37 @@ static int arm_smmu_device_disable(struct arm_smmu_device *smmu)
- static void arm_smmu_disable_action(void *data)
- {
- 	struct arm_smmu_device *smmu = data;
-+	int ret;
- 
- 	/* If the SMMU is already suspended, nothing to do */
- 	if (!pm_runtime_suspended(smmu->dev)) {
-+		ret = arm_smmu_rpm_get(smmu);
-+		if (ret < 0) {
-+			dev_err(smmu->dev, "failed to resume device for disable: %d\n", ret);
-+			goto disable_pm;
-+		}
-+
- 		if (smmu->impl_ops && smmu->impl_ops->device_disable)
- 			smmu->impl_ops->device_disable(smmu);
- 		arm_smmu_device_disable(smmu);
-+
-+		/*
-+		 * A PM ref was only acquired via arm_smmu_rpm_get() to
-+		 * guarantee power for the MMIO register writes in
-+		 * arm_smmu_device_disable().
-+		 *
-+		 * Drop the PM ref, we intentionally do NOT invoke a
-+		 * synchronous put/suspend here since the HW was already
-+		 * disabled above. Calling put_sync would invoke
-+		 * arm_smmu_runtime_suspend(), redundantly attempting to
-+		 * do the same. Any pending autosuspend timer is cleanly
-+		 * cancelled by pm_runtime_disable() immediately below.
-+		 * The core code ensures the power management here.
-+		 */
-+		arm_smmu_rpm_put(smmu);
- 	}
- 
-+disable_pm:
- 	if (pm_runtime_enabled(smmu->dev)) {
- 		pm_runtime_dont_use_autosuspend(smmu->dev);
- 		pm_runtime_disable(smmu->dev);
-@@ -5984,12 +6118,27 @@ static void arm_smmu_device_remove(struct platform_device *pdev)
- static void arm_smmu_device_shutdown(struct platform_device *pdev)
- {
- 	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
-+	int ret;
- 
- 	/* If the SMMU is already suspended, nothing to do */
- 	if (pm_runtime_suspended(&pdev->dev))
- 		return;
- 
-+	ret = arm_smmu_rpm_get(smmu);
++	ret = pm_runtime_resume_and_get(smmu->dev);
 +	if (ret < 0) {
-+		dev_err(&pdev->dev, "failed to resume device for shutdown: %d\n", ret);
-+		return;
++		dev_err(smmu->dev, "failed to resume device: %d\n", ret);
++		return ret;
 +	}
 +
++	return 0;
++}
++
++__maybe_unused static bool arm_smmu_rpm_get_if_active(struct arm_smmu_device *smmu)
++{
++	if (!pm_runtime_enabled(smmu->dev))
++		return true;
++
++	return pm_runtime_get_if_active(smmu->dev) > 0;
++}
++
++__maybe_unused static void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
++{
++	int ret;
++
++	if (!pm_runtime_enabled(smmu->dev))
++		return;
++
++	ret = pm_runtime_put_autosuspend(smmu->dev);
++
++	/* -EAGAIN & -EBUSY aren't failures */
++	if (ret < 0 && ret != -EAGAIN && ret != -EBUSY)
++		dev_err(smmu->dev, "failed to suspend device: %d\n", ret);
++}
++
+ static void parse_driver_options(struct arm_smmu_device *smmu)
+ {
+ 	int i = 0;
+@@ -729,10 +769,66 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 
+ 		/*
+ 		 * If the SMMU is suspended/suspending, any new CMDs are elided.
+-		 * This loop is the Point of Commitment. If we haven't cmpxchg'd
+-		 * our new indices yet, we can safely bail. Once the indices are
+-		 * committed, we MUST write valid commands to those slots to
+-		 * avoid indefinite polling in the drain function.
++		 *
++		 * Note that eliding ATC invalidations (CMDQ_OP_ATC_INV) is safe
++		 * because client PCIe endpoints are guaranteed to be suspended
++		 * (via device links) before the SMMU is suspended. With the PCIe
++		 * links in a low-power state, no new TLPs can be transmitted.
++		 * It is strictly the responsibility of the client/endpoint driver
++		 * to quiesce DMA and ensure that the ATC state is cleared across
++		 * power state transitions.
++		 *
++		 * This loop acts as the Point of Commitment.
++		 * The CMDQ_PROD_STOP_FLAG ensures that no new commands are
++		 * committed once the SMMU begins to suspend. The synchronization
++		 * relies on the following observability invariants:
++		 *
++		 * 1. Other CPUs observe the STOP_FLAG only *after* the SMMU is
++		 *    disabled. This is enforced in arm_smmu_runtime_suspend()
++		 *    by using a fully ordered atomic_fetch_or() to set the flag,
++		 *    guaranteeing that SMMUEN=0 (with ABORT set) at the time of
++		 *    observation which ensures no in-memory structures are
++		 *    accessed by the SMMU (IHI0070 spec section 6.3.9.6).
++		 *
++		 * 2. Other CPUs observe the cleared STOP_FLAG before the SMMU
++		 *    is re-enabled. During resume, arm_smmu_device_reset()
++		 *    issues CFGI_ALL and TLBI_ALL commands *after* clearing the
++		 *    STOP_FLAG and before setting SMMUEN=1. The implicit
++		 *    dma_wmb() executed while submitting these commands ensures
++		 *    the cleared STOP_FLAG is visible to all other agents.
++		 *    Thus, any transition from a set STOP_FLAG to SMMUEN=1
++		 *    involves an invalidate-all operation prior to setting SMMUEN=1.
++		 *
++		 * Hence, if a CPU observes the STOP_FLAG, it is assured that:
++		 *  (a) Txns are blocked + No in-memory structures are accessed
++		 *  (b) If the SMMU is ever re-enabled, an invalidate-all is
++		 *      performed prior to it being enabled during reset.
++		 *
++		 * Note: The smp_mb() in arm_smmu_domain_inv_range() orders the
++		 * PTE update before the STOP_FLAG read, which ensures that if
++		 * CPU1 reads the STOP_FLAG and decides to elide the command,
++		 * the PTE update is already globally visible.
++		 *
++		 *  [CPU0]                            | [CPU1]
++		 *  arm_smmu_runtime_suspend() {      | [PTE update]
++		 *    SMMUEN = 0;                     | arm_smmu_domain_inv_range() {
++		 *    // set STOP_FLAG                |   smp_mb();
++		 *    target = atomic_fetch_or();     |   arm_smmu_cmdq_issue_cmdlist() {
++		 *    while (owner != target)         |     // read STOP_FLAG
++		 *      // wait for completion        |     Q_STOP(llq.prod);
++		 *    arm_smmu_drain_cmdqs();         |     // reserve indices
++		 *  }                                 |     cmpxchg(&cmdq->q.llq.atomic.prod);
++		 *  ...                               |     queue_write();
++		 *  arm_smmu_device_reset() {         |   }
++		 *    // clear STOP_FLAG              | }
++		 *    atomic_andnot();                |
++		 *    [Invalidate all TLB & CFG]      |
++		 *    SMMUEN = 1;                     |
++		 *  }                                 |
++		 *
++		 * If CPU1 hasn't cmpxchg'd its new indices yet, it observes the STOP_FLAG
++		 * and safely bails. Once the indices are committed, CPU1 MUST write valid
++		 * commands to those slots to avoid indefinite polling in CPU0's drain path.
+ 		 */
+ 		if (Q_STOP(llq.prod)) {
+ 			local_irq_restore(flags);
+@@ -5087,7 +5183,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu, bool resume)
+ 
+ 	/* Command queue */
+ 	writeq_relaxed(smmu->cmdq.q.q_base, smmu->base + ARM_SMMU_CMDQ_BASE);
+-	writel_relaxed(smmu->cmdq.q.llq.prod, smmu->base + ARM_SMMU_CMDQ_PROD);
++	writel_relaxed(smmu->cmdq.q.llq.prod & CMDQ_PROD_IDX_MASK,
++		       smmu->base + ARM_SMMU_CMDQ_PROD);
+ 	writel_relaxed(smmu->cmdq.q.llq.cons, smmu->base + ARM_SMMU_CMDQ_CONS);
+ 
+ 	enables = CR0_CMDQEN;
+@@ -5098,6 +5195,9 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu, bool resume)
+ 		return ret;
+ 	}
+ 
++	/* Clear the STOP_FLAG to resume CMDQ submissions */
++	atomic_andnot(CMDQ_PROD_STOP_FLAG, &smmu->cmdq.q.llq.atomic.prod);
++
+ 	/* Invalidate any cached configuration */
+ 	arm_smmu_cmdq_issue_cmd_with_sync(smmu, arm_smmu_make_cmd_cfgi_all());
+ 
+@@ -5849,6 +5949,150 @@ static void arm_smmu_device_shutdown(struct platform_device *pdev)
  	arm_smmu_device_disable(smmu);
-+	/*
-+	 * Drop the PM ref acquired for the MMIO disable write.
-+	 * An asynchronous put is intentional here as the HW is already
-+	 * disabled (CR0 disabled), and the system is in the middle of
-+	 * reboot/poweroff. Initiating a synchronous runtime suspend here
-+	 * would redundantly disable SMMU and delay system powerdown.
-+	 */
-+	arm_smmu_rpm_put(smmu);
  }
  
- static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
++static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
++{
++	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
++	struct arm_smmu_cmdq *cmdq = &smmu->cmdq;
++	int timeout = ARM_SMMU_SUSPEND_TIMEOUT_US;
++	u32 enables, target;
++	int ret;
++
++	/* Abort all transactions before disable to avoid spurious bypass */
++	arm_smmu_update_gbpa(smmu, GBPA_ABORT, 0);
++
++	/*
++	 * Disable the SMMU via CR0.EN and all queues except CMDQ.
++	 *
++	 * Note on EVTQ/PRIQ: Due to device links between client devices and
++	 * the SMMU, all masters are already runtime suspended and quiescent.
++	 * As client DMA is stopped, no new translation faults (EVTQ) or
++	 * Page Requests (PRIQ) can be generated, making it safe to disable
++	 * these queues without an explicit drain.
++	 */
++	enables = CR0_CMDQEN;
++	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0, ARM_SMMU_CR0ACK);
++	if (ret) {
++		/* GBPA comes into effect when CR0.SMMUEN = 0, no rollback needed */
++		dev_err(smmu->dev, "failed to disable SMMU\n");
++		return ret;
++	}
++
++	/*
++	 * At this point the SMMU is completely disabled and won't access
++	 * any translation/config structures, even speculative accesses
++	 * aren't performed as per the IHI0070 spec (section 6.3.9.6).
++	 */
++
++	/*
++	 * Mark the primary CMDQ to stop and get the target index before the stop.
++	 *
++	 * Note that the primary CMDQ's STOP_FLAG acts as a proxy for the SMMU's
++	 * global power state. Because all queues are gated synchronously during
++	 * suspend, checking the primary queue's flag is sufficient.
++	 */
++	target = atomic_fetch_or(CMDQ_PROD_STOP_FLAG, &cmdq->q.llq.atomic.prod);
++	target &= CMDQ_PROD_IDX_MASK;
++
++
++	/* Wait for the last committed owner to reach the hardware */
++	while (atomic_read(&cmdq->owner_prod) != target && timeout) {
++		udelay(1);
++		timeout--;
++	}
++
++	/*
++	 * Entering suspend implies no active clients. A timeout here
++	 * indicates a fatal CMDQ lockup or hardware stall. We proceed
++	 * anyway to prioritize memory safety (avoiding stale TLBs)
++	 */
++	if (!timeout)
++		dev_err(smmu->dev, "cmdq owner wait timeout, (check runtime PM + devlinks)\n");
++
++	/* Wait for cmdq->lock == 0 to ensure last CMDQ_CONS_REG is written */
++	timeout = ARM_SMMU_SUSPEND_TIMEOUT_US;
++	while (atomic_read(&cmdq->lock) != 0 && timeout) {
++		udelay(1);
++		timeout--;
++	}
++
++	/* Timing out here implies misconfigured Runtime PM or broken devlinks */
++	if (!timeout)
++		dev_err(smmu->dev, "cmdq lock != 0, forcing suspend. Polling CPUs may fault.\n");
++
++	/* Drain the CMDQs */
++	ret = arm_smmu_drain_cmdqs(smmu);
++	if (ret)
++		dev_warn(smmu->dev, "failed to drain queues, forcing suspend\n");
++
++	/* Disable the SMMU */
++	arm_smmu_device_disable(smmu);
++
++	/* Disable IRQ generation */
++	arm_smmu_disable_irqs(smmu);
++
++	/* Wait for pending gerror handlers */
++	synchronize_irq(smmu->combined_irq ? smmu->combined_irq : smmu->gerr_irq);
++
++	/* Handle any pending gerrors before powering down */
++	arm_smmu_handle_gerror(smmu);
++
++	/* Sync prod pointer for EVTQ and PRIQ to avoid clobbering unread entries on resume */
++	if (queue_sync_prod_in(&smmu->evtq.q) == -EOVERFLOW)
++		dev_warn(smmu->dev, "EVTQ overflow detected during suspend\n");
++
++	if (smmu->features & ARM_SMMU_FEAT_PRI) {
++		if (queue_sync_prod_in(&smmu->priq.q) == -EOVERFLOW)
++			dev_warn(smmu->dev, "PRIQ overflow detected during suspend\n");
++	}
++
++	/* Avoid consuming stale commands on resume if we timed-out */
++	cmdq->q.llq.cons = cmdq->q.llq.prod & CMDQ_PROD_IDX_MASK;
++
++	dev_dbg(dev, "suspended smmu\n");
++
++	return 0;
++}
++
++static int __maybe_unused arm_smmu_runtime_resume(struct device *dev)
++{
++	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
++	int ret;
++
++	/* Re-configure MSIs */
++	arm_smmu_resume_msis(smmu);
++
++	/* Clears the CMDQ_PROD_STOP_FLAG as well */
++	ret = arm_smmu_device_reset(smmu, true);
++	if (ret)
++		dev_err(dev, "failed to reset during resume operation: %d\n", ret);
++
++	dev_dbg(dev, "resumed smmu\n");
++
++	return ret;
++}
++
++static int __maybe_unused arm_smmu_pm_suspend(struct device *dev)
++{
++	if (pm_runtime_suspended(dev))
++		return 0;
++
++	return arm_smmu_runtime_suspend(dev);
++}
++
++static int __maybe_unused arm_smmu_pm_resume(struct device *dev)
++{
++	if (pm_runtime_suspended(dev))
++		return 0;
++
++	return arm_smmu_runtime_resume(dev);
++}
++
++static const struct dev_pm_ops arm_smmu_pm_ops = {
++	SET_SYSTEM_SLEEP_PM_OPS(arm_smmu_pm_suspend, arm_smmu_pm_resume)
++	SET_RUNTIME_PM_OPS(arm_smmu_runtime_suspend,
++			   arm_smmu_runtime_resume, NULL)
++};
++
+ static const struct of_device_id arm_smmu_of_match[] = {
+ 	{ .compatible = "arm,smmu-v3", },
+ 	{ },
+@@ -5865,6 +6109,7 @@ static struct platform_driver arm_smmu_driver = {
+ 	.driver	= {
+ 		.name			= "arm-smmu-v3",
+ 		.of_match_table		= arm_smmu_of_match,
++		.pm                     = &arm_smmu_pm_ops,
+ 		.suppress_bind_attrs	= true,
+ 	},
+ 	.probe	= arm_smmu_device_probe,
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d0a3d497915c..a018913d3bb8 100644
+index 0a841441cc44..d0a3d497915c 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1249,6 +1249,9 @@ static inline bool arm_smmu_is_active(struct arm_smmu_device *smmu)
- 	return !Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
- }
+@@ -663,11 +663,14 @@ arm_smmu_make_cmd_tlbi(enum arm_smmu_cmdq_opcode op, u16 asid, u16 vmid)
  
-+int arm_smmu_rpm_get(struct arm_smmu_device *smmu);
-+void arm_smmu_rpm_put(struct arm_smmu_device *smmu);
+ /* High-level queue structures */
+ #define ARM_SMMU_POLL_TIMEOUT_US	1000000 /* 1s! */
++#define ARM_SMMU_SUSPEND_TIMEOUT_US	1000000	/* 1s! */
+ #define ARM_SMMU_POLL_SPIN_COUNT	10
+ 
+ #define MSI_IOVA_BASE			0x8000000
+ #define MSI_IOVA_LENGTH			0x100000
+ 
++#define RPM_AUTOSUSPEND_DELAY_MS	15
++
+ struct arm_smmu_ll_queue {
+ 	union {
+ 		u64			val;
+@@ -1234,6 +1237,18 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 				bool sync);
+ bool arm_smmu_erratum_repeat_tlbi_cfgi(void);
+ 
++/*
++ * Lockless pre-check to test if the SMMU is actively powered.
++ * Races with concurrent suspend are benign: the cmpxchg loop in
++ * arm_smmu_cmdq_issue_cmdlist() acts as the true commit point.
++ * If we lose the race, that loop observes Q_STOP == 1 and safely
++ * drops the command. If we win, the suspend thread waits for us.
++ */
++static inline bool arm_smmu_is_active(struct arm_smmu_device *smmu)
++{
++	return !Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
++}
 +
  #ifdef CONFIG_ARM_SMMU_V3_SVA
  bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
