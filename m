@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3CEC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A196C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xV9WGVUhDaM7feSHAMHRU17JK/43xAFNQC9C+0SKuzY=; b=z4j261JsxtkMypjqoc3L8uqcVc
-	Pdj51vEq9UpSEVJetgXmUygGfpnNs7J0T0lanZBaniWUc+HCfW2JAkfBhgXs7F/AvruzfPxtlgo9t
-	eCsLsem14NdiEVNi2a3cF23i1Ftcjn+dNsmIzOhoUsB7JwKPTZThIAjc9f/Lz9ZvG/SDDjEbHggF2
-	s1Uie9uupUIwmwJ0A1b7jR19HNL/xc/R0hNixaAW+ioSATIPiGWt1Rm1vSNmWeSWL+G113jhh3RbE
-	t2CBrBHm52u+YcTzC+9MdqKAu5vbVN4kAWFIvNYsLcuwvfgr0ohbS7klRAGIGT9WhuKgeR3VDC5d5
-	dIE2GFvQ==;
+	bh=qeRwoMgiYVUi/Ah3tQJF0Pa9MvRlkNB1dv59WKnnW+4=; b=N2N1/+F1wduQASkyr6X6ycfu+s
+	wZpJz0Dk6BPNPYnEfF6xF+VxDQOAzjPlyTEErAZUqVoLLtr0/fRl/T48Mx4MdmZhBaBDv5sKGTPaA
+	eTivBOxmTo8s+QsgwZyXt7bAltdmaQRllTK8sUvNPE7CL0Sh6b4WErHpwURBVGSRIM7WoMmW/5Wsl
+	d+rFIx3I+uxSp7YM/XU/ls0UV9BtaSukI/K6PLH2Nb1WyQKQJ+t+7VOy+7SUP/zZEyFzmMfmidrvo
+	WNRUi3awo3Vbcd3EUeUWIRFuOGM1x5FeXswYgcTyUFXcMl5Y75Z2nyIV1M6bpeknY5AAjKXVR8Y4F
+	tT+fUI6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zlp-00000009qog-31AT;
-	Tue, 08 Sep 2026 17:38:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3znR-00000009rIm-0UeE;
+	Tue, 08 Sep 2026 17:39:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zlo-00000009qoH-466M
+	id 1x3znP-00000009rIU-2y3E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:38:09 +0000
+	Tue, 08 Sep 2026 17:39:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB38E441F4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911161F01563
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:38:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3725C43D1D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:39:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B601F0155A
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 17:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788889088;
-	bh=xV9WGVUhDaM7feSHAMHRU17JK/43xAFNQC9C+0SKuzY=;
+	s=k20260515; t=1788889187;
+	bh=qeRwoMgiYVUi/Ah3tQJF0Pa9MvRlkNB1dv59WKnnW+4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=E/y5ZWFZ2hwHxch3L34izLg0s7LbkYAR0qYto+nyFgTySlUXkSWDGvDNVbzmJ7FJW
-	 a6wv5BA1EO1HbPuYdniyeIW/3E4n9ji2bcHyIp2qKXzdhMWwElQ8EIoDQGjoHAGsiG
-	 PAiKJGGkknYUxMCVuJkINzJ1qRO7YXy8XKlU9Hj30vkBoSWN/PZAiU4SBUx1DulzNK
-	 wWMBUbNAvivKUmhBbP42Zaar5j4cAK5jz+mIdBEr9NmTFOBw4cPpu72BFEI9s6WJrB
-	 a8/2n1Pn/echlAt0iJycONAQvMVMmP/ax9fe3zwyW9cAFCTxFEe0CcponmtfFkRvAA
-	 vp+WX0Y/4Cirw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b6188a2c0eso3942179e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:38:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwgSBqSs85gMNPRsXi8YWCwQds8FJYLgaHs+i4iveF4U3l/ZI9OuXOUopibaLAWiHWPsQllJTBgja3iqT7JtGJF@lists.infradead.org
-X-Gm-Message-State: AFuF++mRxH4NLQFYD48c2Zy6Es1IuNFD7qDF+oAVPsBq+Q2H+oK7SxQg
-	Xtj/Vxx0fBo+18yUOOL6Sng1ooHt8hNCXz+oHwCcvbnIA14LL9a6NEJQH4aDuwQWgaYh9B/LoJb
-	yFRehxvuFhgtdLAXGnqDC0Z5ZZBTrs5Q=
-X-Received: by 2002:a05:6512:2c04:b0:5b6:1a81:b960 with SMTP id
- 2adb3069b0e04-5b61a81bbd7mr4978552e87.67.1788889087269; Tue, 08 Sep 2026
- 10:38:07 -0700 (PDT)
+	b=SC8mB5rPyRTvkIZvrBlaOR0NMk3ObczsexyyqjAcxnvVlw2KWPZwVcgOTJohPKr4v
+	 lFwpA6TAjXfPrX5vVoLpEZEllzT5VjBEHLjG+/RNg4j/oF7Igi7JxJBvHPjfKTI3Mn
+	 5jwmtTmPXIzLvCDliV4B8pZz05GCd5UT7sunng5r60WkldzA+7CD3masBg7dGPOkVF
+	 TXpx52hb5VUss5MoyBD2mhEIiX3XbbyzesyYp9HYTX+K8OOyK76IUmfxC2bY7+WcIQ
+	 UVCLz8Na0Ufzp6bkonl9YeSy0WvpUjzOXn5Tl1TOVdNiZ+OyDS6tKqz9xvuPqyPa3G
+	 mozDMh9YQ8zfQ==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b4ae3e201cso4263450e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:39:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzXraKDFPmQLzbEFSIe5TrjH/SHM36E1o++qtM8kVm4atgYqeJcYTMQ1+TIsmf80jVqA4Zz3P9y7LoayLPZNUSf@lists.infradead.org
+X-Gm-Message-State: AFuF++nHEpYx9Bh1iFtSnhG996r6UKsmsoAiwNqvCDYwu8WmoRgpKHnW
+	T4EuHezCdlGEt101jwz77PzXrK0qwQyyeubKpYvot7Uw3ibpHRw36rDH6PT/gxabhVUZCLIsUBV
+	pwH/DR4ddrf7wCo2D+N731FkSXlIi+LA=
+X-Received: by 2002:a05:6512:6c8:b0:5b6:1870:268d with SMTP id
+ 2adb3069b0e04-5b6187043e1mr5134617e87.62.1788889185812; Tue, 08 Sep 2026
+ 10:39:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260908152808.3928630-1-arnd@kernel.org> <20260908152808.3928630-12-arnd@kernel.org>
-In-Reply-To: <20260908152808.3928630-12-arnd@kernel.org>
+References: <20260908152808.3928630-1-arnd@kernel.org> <20260908152808.3928630-13-arnd@kernel.org>
+In-Reply-To: <20260908152808.3928630-13-arnd@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 8 Sep 2026 19:37:55 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmoSUE9582xd9zNCEq3rN0UEyG6sivNz8SDoYy9RxXuQw@mail.gmail.com>
-X-Gm-Features: AcwNN1WWmio2Em4aKVDNeDjQ4YqA6DMZXwfzcFUzVwF968HsT49NyvahOJQzbQM
-Message-ID: <CAD++jLmoSUE9582xd9zNCEq3rN0UEyG6sivNz8SDoYy9RxXuQw@mail.gmail.com>
-Subject: Re: [PATCH 11/13] ARM: versatile: remove mps2 support
+Date: Tue, 8 Sep 2026 19:39:32 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkZqGPP5XO0FwORA=exTpMTHnw9pjEDnhDRbdGAXaE47g@mail.gmail.com>
+X-Gm-Features: AcwNN1XFd_7XP6HTCgVzAbMTQ1UQaJXktIWC_-YLfvh2SZkqTOYcmI8a_fbRBVk
+Message-ID: <CAD++jLkZqGPP5XO0FwORA=exTpMTHnw9pjEDnhDRbdGAXaE47g@mail.gmail.com>
+Subject: Re: [PATCH 12/13] ARM: at91: remove samv7 support
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
 	Russell King <linux@armlinux.org.uk>, Drew Fustini <fustini@kernel.org>, 
@@ -81,8 +81,7 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@
 	"David Hildenbrand (Arm)" <david@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org
+	linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -104,24 +103,17 @@ e:
 
 > From: Arnd Bergmann <arnd@arndb.de>
 >
-> The Arm mps2 platform is the reference implementation for Arm
-> microcontrollers and is useful for testing but not expected to be used
-> as a production device.
+> The Atmel at91 line, now known as Microchip SAM contains both
+> SoCs using ARM926 and Cortex-A CPUs as well as a number of
+> microcontrollers. Only a single one of those MCUs currently
+> has Linux support, and has no known users.
 >
-> With all the Cortex-M based products gone, there is no longer a need
-> for a reference platform either, so remove it as well.
+> The samv7 platform was deprecated in Linux-7.3LTS, which will
+> remain supported a while longer after it is gone from mainline.
 >
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Linus Walleij <linusw@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Andi Shyti <andi.shyti@kernel.org>
-> Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-i2c@vger.kernel.org
+> Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
+> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
 Acked-by: Linus Walleij <linusw@kernel.org>
