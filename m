@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD36EC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB199C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+j/MnMfgl5YfKGf8KV9trVnwU4KSAH6tcUBXA36ZRyg=; b=M3/c9zS7bgKJjZqj7osYewrVfa
-	JD2Iu87oYug9txIKMX8IqP1JCJA9h2l1n9KfVvvp4mok3tnWQHb9rNkMZtRPYZ7N6bYSCdOd35XRU
-	N3KDhvNvYV7gIUxqFRZcYJeBBxq7s++dNFF+X2fZ8f9tg4oQMTaOWIUxo781bcDwV2/pEZOvSvyHE
-	x2mj51XSEzfemX32Cig27Ar50DmNzvypqHx8X5cCLn0aGQ8gL2dOxBPzNEyDCZqIrD3yoFRegvC1S
-	j4SXiiprP7bGx4lYcxH7e22K9udLGXg/dPzhMuYOzhLbJvzzsBMKXx68Wva5Mwlz+N0Oh6zUz3jBP
-	K2mG33MA==;
+	bh=gc43alueHNjQq0WXaXpIZol5pNQHnDbpHeJQ0elMPno=; b=FG3RGE2GAjhQ8nBVGj918nmyfU
+	B+AU2g1Dx5YOMFziqa629cYDMkRrzmiJUqvJDpxFjfTnyMt1oAzWExdyuvbBck94UAh4aBxFFvQgN
+	NSM/in6DNTpH4h63O0rADlvYbgkflxApxLQEq0dFGvReczY3pTD+mxykt26eB+iNuZvvrwoMbzmZF
+	zFsCO/jNUBFE/N/caUyLtmfQZQcSr7oKlZehhHAPZqimekyPpAn+o/x9gRHLkYGSxj2tQHk4FdUhH
+	sBsvdqvk645M6V8T2ZLFeY+gem5w7MJRfCqAOiLean+g/hPTFCU9u1GYVTDralI+Vr8ILAXEtPwJr
+	wyxzJZDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uRX-00000008xDv-2y1f;
-	Tue, 08 Sep 2026 11:56:51 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1x3uSM-00000008xN1-3kjj;
+	Tue, 08 Sep 2026 11:57:42 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uRU-00000008xCY-1DDZ
+	id 1x3uSK-00000008xLw-1fMA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 11:56:50 +0000
+	Tue, 08 Sep 2026 11:57:41 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=+j/MnMfgl5YfKGf8KV9trVnwU4KSAH6tcUBXA36ZRyg=;
-	b=Tu69EZneji2bZO3n1COp941uNwvSjyaroq6xQgPPlxu4aI/h3e7PU+DNWuYKY6KSBkwcofBqb
-	y7z6uObYITH1mvO8Xp4YDvEM3uJHPg4/uGzhjQKjiJT3MWOdQ/WyE2e8JkwawBn9SFcTnIBBSxj
-	p3clmNr4SYM29rRAvijtrQg=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hfMZJ2HwFz12LHf;
-	Tue,  8 Sep 2026 19:45:28 +0800 (CST)
+	bh=gc43alueHNjQq0WXaXpIZol5pNQHnDbpHeJQ0elMPno=;
+	b=lGXJG+z+qP/9knI6Q1Chyv/DIPLN4L+ZycdyfPWLPkNPDqokYAfbRHAPv0PH8mAh9qQqRlQ6a
+	EcZbJC/Ur7G6AzVCrYdQObqHEsB/X8bMHp0IatNh5GYe0WcpJeKxDdJb4sSCnCEnPCTZ6KSrzP9
+	Ie7+hNJ9ovEbtSJ2Tp+CGdo=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hfMbk6sWlzmV8f;
+	Tue,  8 Sep 2026 19:46:42 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 15F1E40538;
-	Tue,  8 Sep 2026 19:56:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id E137640586;
+	Tue,  8 Sep 2026 19:57:36 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 19:56:40 +0800
-Message-ID: <1e5fc39a-4e32-44e4-b3d0-33504bcec6e0@huawei.com>
-Date: Tue, 8 Sep 2026 19:56:39 +0800
+ 15.2.2562.45; Tue, 8 Sep 2026 19:57:36 +0800
+Message-ID: <1f63a6fd-6e09-47a3-96cb-236eeebf8c20@huawei.com>
+Date: Tue, 8 Sep 2026 19:57:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/19] arm64: cpu_ops: Introduce get_secondary_cpu_ops()
+Subject: Re: [PATCH 14/19] firmware/psci: Cache PSCI v0.2+ version number to
+ avoid redundant SMCs
 To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
 CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
  Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
@@ -56,17 +57,17 @@ CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
  Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
  Zyngier <maz@kernel.org>
 References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-14-will@kernel.org>
+ <20260907164024.17164-15-will@kernel.org>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-14-will@kernel.org>
+In-Reply-To: <20260907164024.17164-15-will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_045649_045517_A44527A6 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20260908_045740_625796_18F97578 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,125 +85,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 在 2026/9/8 0:40, Will Deacon 写道:
-> Introduce get_secondary_cpu_ops() to retrieve a pointer to the
-> 'cpu_operations' structure for the non-boot CPUs and use it instead of
-> get_cpu_ops() where we are dealing with secondary CPUs.
-> 
-> This is a pre-requisite for enabling parallel CPU bring-up.
+> Secure monitor calls to EL3 aren't necessarily cheap, so cache the
+> PSCI version number in memory to avoid asking firmware the same question
+> over and over again.
 > 
 > Signed-off-by: Will Deacon <will@kernel.org>
 > ---
->  arch/arm64/include/asm/cpu_ops.h |  1 +
->  arch/arm64/kernel/cpu_ops.c      |  5 +++++
->  arch/arm64/kernel/smp.c          | 19 +++++++------------
->  3 files changed, 13 insertions(+), 12 deletions(-)
+>  drivers/firmware/psci/psci.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/include/asm/cpu_ops.h b/arch/arm64/include/asm/cpu_ops.h
-> index a444c8915e88..cd298a8710d8 100644
-> --- a/arch/arm64/include/asm/cpu_ops.h
-> +++ b/arch/arm64/include/asm/cpu_ops.h
-> @@ -48,6 +48,7 @@ struct cpu_operations {
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index e73bae6cb23a..8bb3f7c37678 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -155,7 +155,12 @@ static u32 psci_0_1_get_version(void)
 >  
->  int __init init_cpu_ops(int cpu);
->  extern const struct cpu_operations *get_cpu_ops(int cpu);
-> +extern const struct cpu_operations *get_secondary_cpu_ops(void);
->  
->  static inline void __init init_bootcpu_ops(void)
+>  static u32 psci_0_2_get_version(void)
 >  {
-> diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
-> index eacfb88a0c0c..7d183ca31dc8 100644
-> --- a/arch/arm64/kernel/cpu_ops.c
-> +++ b/arch/arm64/kernel/cpu_ops.c
-> @@ -127,3 +127,8 @@ const struct cpu_operations *get_cpu_ops(int cpu)
->  
->  	return NULL;
->  }
+> -	return invoke_psci_fn(PSCI_0_2_FN_PSCI_VERSION, 0, 0, 0);
+> +	static u32 version;
 > +
-> +const struct cpu_operations *get_secondary_cpu_ops(void)
-> +{
-> +	return cpu_ops;
-> +}
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index c5e9d5d5e003..2e98a92eb764 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -100,7 +100,7 @@ static inline int op_cpu_kill(unsigned int cpu)
->   */
->  static int boot_secondary(unsigned int cpu, struct task_struct *idle)
->  {
-> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
-> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
->  
->  	if (ops->cpu_boot)
->  		return ops->cpu_boot(cpu);
-> @@ -220,7 +220,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	 */
->  	check_local_cpu_capabilities();
->  
-> -	ops = get_cpu_ops(cpu);
-> +	ops = get_secondary_cpu_ops();
->  	if (ops->cpu_postboot)
->  		ops->cpu_postboot();
->  
-> @@ -327,7 +327,7 @@ int __cpu_disable(void)
->  
->  static int op_cpu_kill(unsigned int cpu)
->  {
-> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
-> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
->  
->  	/*
->  	 * If we have no means of synchronising with the dying CPU, then assume
-> @@ -368,7 +368,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
->  void __noreturn cpu_die(void)
->  {
->  	unsigned int cpu = smp_processor_id();
-> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
-> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
->  
->  	idle_task_exit();
->  
-> @@ -492,7 +492,7 @@ static int __init smp_cpu_setup(int cpu)
->  	if (init_cpu_ops(cpu))
->  		return -ENODEV;
->  
-> -	ops = get_cpu_ops(cpu);
-> +	ops = get_secondary_cpu_ops();
->  	if (ops->cpu_init(cpu))
->  		return -ENODEV;
->  
-> @@ -776,7 +776,7 @@ void __init smp_init_cpus(void)
->  
->  void __init smp_prepare_cpus(unsigned int max_cpus)
->  {
-> -	const struct cpu_operations *ops;
-> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
->  	unsigned int cpu;
->  	int err;
->  
-> @@ -802,10 +802,6 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
->  		if (cpu == 0)
->  			continue;
->  
-> -		ops = get_cpu_ops(cpu);
-> -		if (!ops)
-> -			continue;
-> -
+> +	if (unlikely(!version))
+> +		version = invoke_psci_fn(PSCI_0_2_FN_PSCI_VERSION, 0, 0, 0);
+> +
+> +	return version;
 
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
->  		err = ops->cpu_prepare(cpu);
->  		if (err)
->  			continue;
-> @@ -1341,8 +1337,7 @@ bool smp_crash_stop_failed(void)
->  static bool have_cpu_die(void)
->  {
->  #ifdef CONFIG_HOTPLUG_CPU
-> -	int any_cpu = raw_smp_processor_id();
-> -	const struct cpu_operations *ops = get_cpu_ops(any_cpu);
-> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  }
 >  
->  	if (ops && ops->cpu_die)
->  		return true;
+>  int psci_set_osi_mode(bool enable)
 
 
