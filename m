@@ -4,102 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD07C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58B7C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=; b=FDtdVvTQZXa8pIEzWkMT/uumNe
-	LK86YHgSywMoacy+wPqyvhwMxxw8S59FjmisplZgy5A6gOg3oThgc3/N8IQLsMwJEntLKi4v0qjTC
-	h3ygrmhQx/1ALolg/QGGVdGF3aR2goVIZg299YKmP1w97mou0bZAVtFXbneowYTg2vaSZTRoSs3SC
-	+FZcxvJ7eHKnXcfrDKduZuhR+Y8sMdci+Y855SZC9bFCobelIqW6Yhq0fePZ76U0uoeyLckZpfFjh
-	lRv6vnY3rva6iKG+bUr/09Tk5axxoXK7qvgwwsgf1GkafBdgmK2aKryMkyHm8emu7DdlF/v86o/GG
-	Si3Dj8hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=; b=i3nOqpMIiQfn+9g9KkGiEm88kA
+	4Wqr+vjwzi9ivDQKT4NqJxWDAz6/yVIuxlqq4WP/l/LmcC8OgAUdlnj/p7ZEia2ZVHhse2HMVi769
+	eDoK8c2bEOcnHEzsGgrLGlo+w9MgAa3XAJ89Rci/86ud2N03uFy0gNqXbcoP9Bh2MOJtJsopdr2sY
+	BHPfZMviLgC/OX3ZFwQVRtr8/QvZa+5OfG/6sip9vyHDwzIH7mgcRSp2Cdy3D8z+JlXF7EJhnGlk4
+	2pQrWOgjnK3yUX/Tqa4C+R34XAC7S41ZGtsN0dSgSqR413JBhlCp2/B66/5ivE2+BNfRF2OFu6/G5
+	woUyR8CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vWi-000000096Bf-3ZNd;
-	Tue, 08 Sep 2026 13:06:17 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x3x0J-00000009IXw-274B;
+	Tue, 08 Sep 2026 14:40:55 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vWJ-0000000961R-0kvf
+	id 1x3x0F-00000009IWz-1w6I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:05:53 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd6185db7so6647285e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 06:05:50 -0700 (PDT)
+	Tue, 08 Sep 2026 14:40:52 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-482ea739de2so3221385f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:40:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1788872749; x=1789477549; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=VU+8GGTsBDBXXQXGLfQQ/thjKLbT4U953wCTYFsudgdN+fEn5KdvHHOlGJOSazRFyD
-         LJHh45Kao/9NC4PHVa4mXf61tAVqO9vJM0iBTqMIrVYZ3N1H6NdZpB1vhTjjGPEQVINz
-         8t0RKX7rxTNKqevFxzBo7clSK3zatmxz6WQ9QnYDGqU8shrsDiQ2Q56X73nUNkjubjDd
-         99kazh0TuKi3HcAPnTG4LENUo6F/wUlGjrS9zWGQPWKnpNtkMOu+Zlazofb+P75goQmC
-         kEHOMpdpNyOmtP54HukUOUN2PGgvb/uGo+CIHzpu1gczcR7q1BduPFG931EoA1h0zDa6
-         tc9A==
+        d=gmail.com; s=20251104; t=1788878449; x=1789483249; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:subject:to:from:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=;
+        b=HPycdrGtydCnceO+RPqPTRQxhckjww04rDd7Jo2vvnLy2vTkhZCIN9le9/2OUBlvSi
+         JGavPPozUIHgIRIKu4xw80oMGS73iMVbKL7+GWIt6ryXEpgGISaaBkqlAo7PBwzbMWwn
+         Hsn7zGRrAXZCy5gxH02OprMWX7UW9icV7YEMmf9nPDcT5e/hrUIQmBvIpLAWwD2c83K6
+         iNuCWr5fLFSWBq3+TZj/Wz3VYUBm+vDla7Q2pmmKm21XKIXx/Mb7r4bYh59BdciIB4Lx
+         06+Ym9TbJTIo3Y6JQJFgEnJlYTaKCocEio7uhBjW0Tig67CByQX4jwo5ejo6tvEOhHRk
+         69sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788872749; x=1789477549;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
-        b=ekJm4r8xRq39lhaVCI1tdSm1oLwJEGSOwJO8yd+sxOpI6oXXaArXAki0/Ym381nYBV
-         o9u15Vr15N5gnxvKsLdhKN0brz4KsC0fEwXCfCD7Xn5IhVC3r9ln2JIqjd2KzSvRLQ1g
-         Y12OWPqubk/G0OgEsNyGAAehr58YUPpBtN9zExLrbUWQrw7tKckOjWjtY2BsCQ8KgPgu
-         f0j7GcGEFBA4ebX7rzUUAErSqJxH7rzwytGsxTxH0Eru6cCE7H+6tZcPa6gAqMZeJaZE
-         id+3UpjCO2W1325CUCM+pcahjVcYgo/KwKz75utigEhYi+llwANweStRPioOSejy4KuM
-         dmMQ==
-X-Forwarded-Encrypted: i=1; AKwUvBze5HWaoz+x03y0nNlfEZJxKc0Z5hfgddd1tyRkbWTvNs7lGnp8HJcpuk/9sS0Ja0jJWml9BYviCM2LVcnq3Cyt@lists.infradead.org
-X-Gm-Message-State: AFuF++n0OZD+HCCfTNfbtuHIogBLzhIoBKgtkY3dwyXb+WYGuPZ2aHL5
-	WiJf1Ko5u4dsGBUPfuuZRsttTrWTDzmBtFY8IqNYCloL4nQx1PproGw2W/Q+gtDjXfE=
-X-Gm-Gg: AYBFou04IlDB5/eGDJI5g9o5moM7WN98yzjISwx0AkJRvbTSK5DP6slxJkoz0ZZ4Nz5
-	aK6AJrEJZNp40YsudiQrf1K5DblxLBc2PgBohW73t8I1t7yVtxtIozA9lLg2tt4W9YiIl8XLLQu
-	WWhyMPkFgG7EglPjBnCVz8r2Ecaqk7BZA5BshkPkhOJw2hSEAgWwpz0zsFOkXLr+3/rERsafP+u
-	dGGolRZAijJv1NSAq1fus/jPjUEN12KO2d/nlQ/fAgghjcJSZKvqjQMOfUPDy/COEWHfHc6S/VW
-	FdC/5YF/AcALlUh54KxmAXZTyOVmXRLGLObCtuCYTJiudOpN8cxEWp0ExN9ONcbJ3icB7ozLPzt
-	Pvu8LirPZuhCWRhmJL0B17uS4TNgO6jsvZW0QcRIQ+5F3djSsdCFvHKkzb9+ifZDr5EKWIWYd/a
-	QrTDEb2xItCLpzm4PHCd/0VfvDa9xWpTMTZh8BSd+S8H8Jq36uPTCnSegtTw==
-X-Received: by 2002:a05:600c:c4b8:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49d17543be5mr74495775e9.3.1788872749175;
-        Tue, 08 Sep 2026 06:05:49 -0700 (PDT)
-Received: from localhost ([82.145.119.95])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d1e5c58a6sm2552135e9.2.2026.09.08.06.05.47
+        d=1e100.net; s=20251104; t=1788878449; x=1789483249;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:subject:to:from:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Miv8sjNJdTG6Gu0+wUlQ27sQKF6CmSEymk2ANPK2DPg=;
+        b=i/Q2Hc9snI3bHHKZCrNIHHoagYJw+qDZhjuMv/wsENDu5URRVwTwrflhj942hv4pO6
+         oUlw2jo3EqX4x8AHne2qVTk9PXqvgzqU4uk7VvjFuQc9bIkfixeJ1Pd+UPqM9i4Ugp2v
+         1GquGk5g1IdDiNXxbqSsYQR4L/knT7GtPnUBZVNBV1rGf8FrNMCju6+CIW8oMdXNIFOV
+         QC9FnPj2bBIVJrw9Ty9+kiPadt+RYUx3PurF8HlWAus0RL88zM9fEsaowXj/ELQ5DzPE
+         qLAigyOKmZpp4apzwx/VzpgdtX1H5Qo1BuleL42kOmXPKrmJPP2YncVPVD2/lmrr3B8j
+         3sNw==
+X-Forwarded-Encrypted: i=1; AKwUvBxlgag3Wva7cKV2pEYYhEBCyFU5b0bEDYTxCTZgSP6EdTw1PiqdjRB5VuQaMFhwhMNzN6Rs0uySFmbIEafITS0Q@lists.infradead.org
+X-Gm-Message-State: AFuF++mAuGc1TPsyVxoSm50YGssUY8QFtzW1Z4LhBSmD1LhhlvEFBbdD
+	PvEcMF9dDxeX7jytdC3ZhXT0VrfLpjqY45bjj3kZ8OtXssYOIWMxDEPh
+X-Gm-Gg: AYBFou3zG1EVAdjYRm81aRvk7YQ/Xc0jFi1a0kc858aUpxYYVqpFRmMGK7rlIEcRMsm
+	kj10ctG2gP01E92AtUD0JDUTsj/wc6JguNl/IY8numoXm6NYBPKTi3W6a1Ayp6lHASEjTQIfDSy
+	3LctCAgHuNv9l/HmuVQ0WQmcKJp/Oc4KqDpl7y7rxzb1+O/gL+rsvi7XFIu7nJUvFMnNPfZ2YOh
+	wsq+SzDgVgnq5IBXERn+d2jIHqO6kwRd977IA2I3sVy4x9Lm6b4uPiJiHZBayOrZZpbw1EDBqeX
+	pRKW59MzDSmrb9Naxd6yRc+q9n0anSmsiuF0Fg8aFSr749d5K+1SW4qvep9TUYorEtYXJ7H4O6e
+	60hWn7FCdBcRdzcsU0l7M44PtcQLz/mp5ZyQ1FX+RDLwuoW3uxD4gL1ei1EpxW6iCrurnU3cLPF
+	6c0cEBO3rXAQtwg49h5muyJc+RIJfYjjzCbLx57hsfnCgG009760UEpwY/oEX6/TQ09CPAF7h/t
+	ZFTEoG401T2aDeu2igkclfsUDLo+cCDS6xM
+X-Received: by 2002:a05:6000:46c2:b0:484:4769:18a4 with SMTP id ffacd0b85a97d-485872cd677mr23543135f8f.14.1788878449028;
+        Tue, 08 Sep 2026 07:40:49 -0700 (PDT)
+Received: from Ansuel-XPS. (host-79-26-252-140.retail.telecomitalia.it. [79.26.252.140])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883959f0sm39338196f8f.10.2026.09.08.07.40.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 06:05:48 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org,
+        Tue, 08 Sep 2026 07:40:48 -0700 (PDT)
+Message-ID: <6aa01e70.ebbd881c.32bd35.196e@mx.google.com>
+X-Google-Original-Message-ID: <aqAebOgm5w4VILoS@Ansuel-XPS.>
+Date: Tue, 8 Sep 2026 16:40:44 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	mbrugger@suse.com,
-	Sean Young <sean@mess.org>,
-	Julian Braha <julianbraha@gmail.com>,
-	"Gary Guo" <gary@garyguo.net>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Subject: [PATCH v8 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
-Date: Tue,  8 Sep 2026 15:09:14 +0200
-Message-ID: <946df411f5d2a127800298fba856face5cc5e8b0.1788872294.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1788872294.git.andrea.porta@suse.com>
-References: <cover.1788872294.git.andrea.porta@suse.com>
+	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH net-next v15 00/12] net: pcs: Introduce support for
+ fwnode PCS
+References: <20260901083001.8044-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901083001.8044-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_060552_298315_4D48B3D2 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260908_074051_533622_DDB20AEC 
+X-CRM114-Status: GOOD (  42.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,73 +121,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
+On Tue, Sep 01, 2026 at 10:29:15AM +0200, Christian Marangi wrote:
+> This series introduce a most awaited feature that is correctly
+> provide PCS with fwnode without having to use specific export symbol
+> and additional handling of PCS in phylink.
+> 
+> At times there were 2 different implementation (this and the one
+> from Sean) but Sean agreed that this can be picked and used in favor
+> of his implementation as long as his case with race condition is
+> correctly handled.
+> 
+> ---
+> First the PCS fwnode:
+> 
+> The concept is to implement a producer-consumer API similar to other
+> subsystem like clock or PHY.
+> 
+> That seems to be the best solution to the problem as PCS driver needs
+> to be detached from phylink and implement a simple way to provide a
+> PCS while maintaining support for probe defer or driver removal.
+> 
+> To keep the implementation simple, the PCS driver devs needs some
+> collaboration to correctly implement this. This is O.K. as helper
+> to correctly implement this are provided hence it's really a matter
+> of following a pattern to correct follow removal of a PCS driver.
+> 
+> A PCS provider have to implement and call fwnode_pcs_add_provider() in
+> probe function and define an xlate function to define how the PCS
+> should be provided based on the requested interface and phandle spec
+> defined in fwnode (based on the #pcs-cells)
+> 
+> fwnode_pcs_get() is provided to provide a specific PCS declared in
+> fwnode at index.
+> 
+> A simple xlate function is provided for simple single PCS
+> implementation, fwnode_pcs_simple_xlate.
+> 
+> A PCS provider on driver removal must call fwnode_pcs_del_provider()
+> to delete itself as a provider.
+> 
+> ---
+> Second PCS handling in phylink:
+> 
+> We have the PCS problem for the only reason that in initial
+> implementation, we permitted way too much flexibility to MAC driver
+> and things started to deviate. At times we couldn't think SoC
+> would start to put PCS outside the MAC hence it was OK to assume
+> they would live in the same driver. With the introduction of
+> 10g in more consumer devices, we are observing a rapid growth
+> of this pattern with multiple PCS external to MAC.
+> 
+> To put a stop on this, the only solution is to give back to phylink
+> control on PCS handling and enforce more robust supported interface
+> definition from both MAC and PCS side.
+> 
+> It's suggested to read patch 0003 of this series for more info, here
+> a brief explaination of the idea:
+> 
+> This series introduce handling of PCS in phylink and try to deprecate
+> .mac_select_pcs.
+> 
+> Phylink now might contain a linked list of available PCS and
+> those will be used for PCS selection on phylink_major_config.
+> 
+> MAC driver needs to define pcs_interfaces mask in phylink_config
+> for every interface that needs a dedicated PCS.
+> 
+> These PCS needs to be provided to phylink at phylink_create time
+> by setting the .fill_available_pcs and .num_possible_pcs in phylink_config.
+> Helpers to parse PCS from fwnode are provided
+> fwnode_phylink_pcs_count() that will return the count of PCS entries
+> described in the firmware node and fwnode_phylink_pcs_parse() that will
+> fill a preallocated array of PCS pointer with the actual available PCS
+> (ignoring the one that still needs to be probed).
+> 
+> phylink_create() will fill the internal PCS list with the passed
+> array of PCS. phylink_major_config and other user of .mac_select_pcs
+> are adapted to make use of this new PCS list.
+> 
+> The supported interface value is also moved internally to phylink
+> struct. This is to handle late removal and addition of PCS.
+> (the bonus effect to this is giving phylink a clear idea of what
+> is actually supported by the MAC and his constraint with PCS)
+> 
+> The supported interface mask in phylink is done by OR the
+> supported_interfaces in phylink_config with every PCS in PCS list.
+> 
+> PCS removal is supported by forcing a mac_config, refresh the
+> supported interfaces and run a phy_resolve().
+> 
+> PCS late addition is supported by introducing a global notifier
+> for PCS provider. If a phylink have the pcs_interfaces mask not
+> zero, it's registered to this notifier.
+> 
+> PCS provider will emit a global PCS add event to signal any
+> interface that a new PCS might be available.
+> 
+> The function will then check if the PCS is related to the MAC
+> fwnode and add it accordingly.
+> 
+> A user for this new implementation is provided as an Airoha PCS
+> driver. This was also tested downstream with the IPQ95xx QCOM SoC
+> and with the help of Daniel also on the various Mediatek MT7988
+> SoC with both SFP cage implementation and DSA attached.
+> 
+> Lots of tests were done with driver unbind/bind and with interface
+> up/down also by adding print to make sure major_config_fail gets
+> correctly triggered and reset once the PCS comes back.
+> 
+> The dedicated commits have longer description on the implementation
+> so it's suggested to also check there for additional info.
+> 
+> It's worth to mention that OpenWrt is currently using this on
+> Mediatek SoC and QCOM ipq807x/ipq60xx/ipq50xx and Airoha are
+> already ported in staging tree for testing.
+> 
 
-The RP1 chipset used on the Raspberry Pi 5 features an integrated
-PWM controller to drive the cooling fan.
+Any news of this? I feel this version is now very mature and wonder if an
+human review is possible or any feedback of any needed change to make any
+progress?
 
-Add the corresponding DT node for this PWM controller.
-
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi     |  9 +++++++++
- 2 files changed, 21 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 0fc57e72632ed..748be8f1ee9e2 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -64,6 +64,12 @@ phy1: ethernet-phy@1 {
- };
- 
- &rp1_gpio {
-+	fan_pwm_default_state: fan-pwm-default-state {
-+		function = "pwm1";
-+		pins = "gpio45";
-+		bias-pull-down;
-+	};
-+
- 	usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
-@@ -94,6 +100,12 @@ &rp1_i2c6 {
- 	pinctrl-names = "default";
- };
- 
-+&rp1_pwm1 {
-+	pinctrl-0 = <&fan_pwm_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 16f5359395835..df4c2d09c8d34 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -99,7 +99,16 @@ rp1_i2c6: i2c@40088000 {
- 		clocks = <&rp1_clocks RP1_CLK_SYS>;
- 		i2c-scl-rising-time-ns = <65>;
- 		i2c-scl-falling-time-ns = <100>;
-+		status = "disabled";
-+	};
- 
-+	rp1_pwm1: pwm@4009c000 {
-+		compatible = "raspberrypi,rp1-pwm";
-+		reg = <0x00 0x4009c000  0x0 0x100>;
-+		clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clock-rates = <50000000>;
-+		#pwm-cells = <3>;
- 		status = "disabled";
- 	};
- 
 -- 
-2.35.3
-
+	Ansuel
 
