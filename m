@@ -4,124 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C238C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DFBC79FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AXqs15IsRXVps+8wsgrFLas5JJDnQxYsS/CgwzQnLIQ=; b=YuKs8YQO+JRjIZhv0DqZFwoV/g
-	7KaU7jLA8z8TMUnr4TUvBRoOHpuoJvglZhRwHvW2S8k1TrKvqOEHs5Yz/br5OZeq0ozmdaysNmhVj
-	cMywMYOZX8BgPBX+DK58Qop+MpvA/nxWBSQLgfnGQ2fiEyilDnXZoBqQjKx97gWGk2tsL2m+RGyYA
-	vqbOLhuxfvnRDcdRtqOpUmW8VAlRLxqu6uUqbwU5rf49S1/l9guObrIQMxKSmoGPizqYZQPL/gPMU
-	7ZbkmlKroQQFp0BmOIOJULhqlWNQCEUMOgjPMpT7davM48Cqy0p2P8ZUPw75u2fk2WZkPWI4P5VCB
-	WAQSBudQ==;
+	bh=UPCo69d3EiR2ELT/T7blPa3t8AvotauSYJ7gsj0UBpQ=; b=DNGtn6JaR46HXDvfjjeAS2Sxc3
+	EwmLBQv76RkiXIE0x4E7UznedE8zteA94TScb4QQ1Do3AM4zb6waDq79a6flHNNCNXFv4wbXkX+mm
+	OBHf57EJo84b+FfUdy5WMM0Ld2iFQQQcBDyy58E8lK/LR6LOObTU65qEXYXAhVyXXg+075aS0cJzB
+	GdSo19dUsmGNGzk6uVP2y2p9hyj6y4eRluVtfZuuz8zkxHqXrd1crP4bpAzcgosyKIu+nJKdeGHXB
+	3F/wjN4SAilu+3V1kLSXKyXfxwEhOzn/6Jtb5uuV5BMomNblOK7nh/KeOZGidrTp29hmIpXH8r85z
+	LzLuyaHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tH9-00000008nek-2d5m;
-	Tue, 08 Sep 2026 10:42:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tH8-00000008nea-1bxR;
-	Tue, 08 Sep 2026 10:42:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24EF6432A7;
-	Tue,  8 Sep 2026 10:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 217E41F00A3D;
-	Tue,  8 Sep 2026 10:41:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788864122;
-	bh=AXqs15IsRXVps+8wsgrFLas5JJDnQxYsS/CgwzQnLIQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Ts+2oT9g4dJ8E/yRTT4+ymW5CL2YgT30NOeH0+37YvojcObvX/+LwiXW6viFmv/li
-	 Kn/t6Lg4LFnq79JAr859FgsU7XvspRgAlKzQDkHtua6XY3i7HrqNpsuI6yUjozNycM
-	 JcyhwJZEj+qrzDkXpIzT9fXTaxcF7dV3EaR4PkuYHujkwfqFjLqoMiGIDMqZrCvGzq
-	 ezFSUXNF8AWUnyxoSHcP9zcnY8PW8YHaGuA812enyhr5Vh47ituyy+VP+uj/6KSU9x
-	 yQhY1Zlg5QuRgwIkMWdo590auZy/dtyijHs98kn/Dz9CNQ1YSj3uTLFHhqSjmusAlX
-	 KK7OnJtFUhmnQ==
-Message-ID: <2b0f5877-e71a-4824-adeb-5af2dd8b0269@kernel.org>
-Date: Tue, 8 Sep 2026 12:41:48 +0200
+	id 1x3tIh-00000008o00-0Coh;
+	Tue, 08 Sep 2026 10:43:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3tIc-00000008nyx-2Lyo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 10:43:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 600F01476;
+	Tue,  8 Sep 2026 03:43:28 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 725653F528;
+	Tue,  8 Sep 2026 03:43:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788864212; bh=qWSAnx/2m4XMAWGRUdW5OZ4UAA1+skg43ZENO1oTeMw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G/vHDFqX/gKrcuszE3VshjePNe3v4uqUSjCOjN8C4AXE0ccvtSMqJKDdEcsBh8QIr
+	 4DQjNn9aFLMivvaX4bP08uncghR2Xgf+kYmaYVJ5OEX+xkdNgQTtow8PoqMjBd6urp
+	 0OOBLobpwlJVfXtrye5nKnBPb70udqw48c915/Qg=
+Message-ID: <27d26c01-f00e-4ef3-b262-63cbe06e85ff@arm.com>
+Date: Tue, 8 Sep 2026 11:43:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Brendan Jackman <brendan.jackman@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
- Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- loongarch@lists.linux.dev
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v17 3/7] firmware: arm_rmm: Configure the RMM with the
+ host's page size
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-4-suzuki.poulose@arm.com>
+ <10893135-4757-44de-91b5-180a9774d868@redhat.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <10893135-4757-44de-91b5-180a9774d868@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_034334_689745_D0E55A4E 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,48 +78,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
-> set_area_direct_map() always updates direct map alias permissions in
-> single page increments.
+On 08/09/2026 08:04, Gavin Shan wrote:
+> Hi Suzuki,
 > 
-> For HUGE_VMAP areas it's suboptimal. Not only the loop in
-> set_area_direct_map() needlessly has more iterations (e.g times 512 on
-> x86), but it also causes fragmentation of the direct map that could be
-> avoided for the HUGE_VMAP areas populated with large pages.
+> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> RMM v2.0 brings the ability to set the RMM's granule size. Check the
+>> feature registers and configure the RMM so that it matches the host's
+>> page size. This means that operations can be done with a granularity
+>> equal to PAGE_SIZE.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>>   Changes since v15:
+>>    * Actually check the feature register for the host's page-size 
+>> support.
+>>   Changes since v14:
+>>    * Move the implementation into drivers/firmware/arm_rmm.
+>>   Changes since v13:
+>>    * Moved out of KVM.
+>> ---
+>>   drivers/firmware/arm_rmm/rmi.c | 58 ++++++++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h   | 17 ++++++++++
+>>   2 files changed, 75 insertions(+)
+>>
+>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
+>> arm_rmm/rmi.c
+>> index 008a783407b4e..76f91c145e1fd 100644
+>> --- a/drivers/firmware/arm_rmm/rmi.c
+>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>> @@ -77,6 +77,60 @@ static int rmi_read_features(void)
+>>       return 0;
+>>   }
+>> +static int rmi_configure(void)
+>> +{
+>> +    unsigned long granule_feature;
+>> +    unsigned long granule_size;
+>> +    int ret = 0;
+>> +    struct rmm_config *config;
+>> +
+>> +    switch (PAGE_SIZE) {
+>> +    case SZ_4K:
+>> +        granule_size = RMI_GRANULE_SIZE_4KB;
+>> +        granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
+>> +        break;
+>> +    case SZ_16K:
+>> +        granule_size = RMI_GRANULE_SIZE_16KB;
+>> +        granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
+>> +        break;
+>> +    case SZ_64K:
+>> +        granule_size = RMI_GRANULE_SIZE_64KB;
+>> +        granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
+>> +        break;
+>> +    default:
+>> +        BUILD_BUG();
+>> +    }
+>> +
+>> +    if (!(rmi_feat_reg(1) & granule_feature)) {
+>> +        pr_err("RMM does not support %luKB granules\n",
+>> +               PAGE_SIZE >> 10);
+>> +        return -ENXIO;
+>> +    }
+>> +
+>> +    config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+>> +    if (!config)
+>> +        return -ENOMEM;
 > 
-> All pages in an area are always of the same order: either same-order
-> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
-> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
-> cleared or when huge pages allocation fails and fallback path is taken.
+> An error message is needed here.
 > 
-> Instead of updating the direct map permissions for every order-0 page in
-> an area, use the area's page_order as the loop increment and update the
-> large pages in one call to set_direct_map_{invalid,default}_noflush().
+>      if (!config) {
+>          pr_err("Unable to alloc RMM config memory\n");
+>          return -ENOMEM;
+>      }
 > 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  mm/vmalloc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5506b180f5c27..6ed6c160abed7 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->  				       int (*set_direct_map)(struct page *page,
->  							     unsigned int nr))
->  {
-> -	unsigned long i;
-> +	unsigned int nr = (1U << vm_area_page_order(area));
-> +
-> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
-> +		if (page_address(area->pages[i])) {
-> +			int err = set_direct_map(area->pages[i], nr);
 
-Do we really expect some pages to have a directmap and others not?
+I can add that, doesn't hurt.
 
--- 
-Cheers,
+>> +
+>> +    config->rmi_granule_size = granule_size;
+>> +
+>> +    /*
+>> +     * For now we set the tracking_region_size to 0 which is the only 
+>> option
+>> +     * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 
+>> 16KB/64KB).
+>> +     * TODO: Support other tracking sizes via Kconfig option for other
+>> +     * PAGE_SIZES
+>> +     */
+>> +    config->tracking_region_size = 0;
+>> +
+>> +    ret = rmi_rmm_config_set(virt_to_phys(config));
+>> +    if (ret) {
+>> +        pr_err("RMM config set failed\n");
+>> +        ret = -EINVAL;
+>> +    }
+> 
+> The error code from rmi_rmm_config_set() is indicative sometimes. Also, 
+> -ENXIO
+> would be more appropriate than -EINVAL?
+> 
+>      if (ret) {
+>          pr_err("RMM config set failed (%d)\n", ret);
+>          ret = -ENXIO;
+>      }
+> 
 
-David
+Ack
+
+>> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+>> index 2fb1f7f86d71e..9aa27697e2377 100644
+>> --- a/include/linux/arm-rmi-cmds.h
+>> +++ b/include/linux/arm-rmi-cmds.h
+>> @@ -12,6 +12,23 @@
+>>   unsigned long rmi_feat_reg(unsigned long id);
+>> +/**
+>> + * rmi_rmm_config_set() - Configure the RMM
+>> + * @cfg_ptr: PA of a struct rmm_config
+>> + *
+>> + * Sets configuration options on the RMM.
+>> + *
+>> + * Return: RMI return code
+>> + */
+>> +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+>> +{
+>> +    struct arm_smccc_res res;
+>> +
+>> +    arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
+>> +
+>> +    return res.a0;
+>> +}
+>> +
+> 
+> rmi_rmm_config_set() is used for once by rmi.c::rmi_configure(), I would 
+> not expose
+> rmi_rmm_config_set() by combining the logic to rmi.c::rmi_configure().
+
+Ack
+
+Thank you for the review
+
+Cheers
+Suzuki
+
+
 
