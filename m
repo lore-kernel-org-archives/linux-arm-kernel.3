@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED939C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F457C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 12:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dKrCoMuS/VkRK9SgbcPzXa6yS0fI5ekjQCw4D7v3J0=; b=2M3NJOMto7XMlIfa7R9cSIirdH
-	cjSoSnSeUntyKJdCy1jXGbVbRLcu7mZ+6C5PS/w4D2WXFrEgOQz/YA0WK1VYOdFfPNkbAw+2Es3av
-	bxgq5bvfv/gak9jVCNxiTYAU/IneODhUYa3OlIuEqeO32anBUYut5MG7g9sKj+nY9iwRySV2nQi2C
-	kTtnRozSrXTMqpR+SY9+H0LseQfwnfjfGQ/cQ52i6acAxsCo8jbE+W8Uqxt0qDxjK8FXlVUgIZAN8
-	3mCigyYlgP1gbl3VJE5Wc8WVixU4NdqXNaMOKjVSI4Qxd4JORd9+nsEmHXcXbXBGWtyyZbqhDIfzS
-	5ufou5JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DpGlmdPDzmDERT45bYk/MvWOr5fnNDn8zt9NAJBNisI=; b=UXI7DneEU+JCVSLoAQStXJ92r0
+	3OV4bDjQTe5A429HZaC2xqboZvlTkLkl8ptwNnRNVQnxhEba1OrS0PMh54VIvJbVi8MzbIY71Y7kt
+	qcjOZmGXzbi+vp1KfhDrQ1gdf3LJr+icJDeeaaZL8L/ue0zGymYqOfVEZUyw6TtlPQgNC0aYCF3sd
+	Hto8Zj7OefYKxdTQAiVwAwyVJ2DyVmJmHxcxeP8YiXwFKI/xP/ijSHkMppqjF7Y5Uody/SNT4YRUU
+	Y8A30Ng+DRbG0ZFknreHd5LIjdOYt3JyVH3DyIill3MnQ/Kwf1q9oIOmwu7Qo6cGrzcPJrRkMP+ni
+	URCCADYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ulE-00000008zak-0R3b;
-	Tue, 08 Sep 2026 12:17:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3uuW-0000000903h-39YF;
+	Tue, 08 Sep 2026 12:26:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ulC-00000008zaX-3cLK;
-	Tue, 08 Sep 2026 12:17:10 +0000
+	id 1x3uuU-0000000903N-2E8L;
+	Tue, 08 Sep 2026 12:26:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED1E96020A;
-	Tue,  8 Sep 2026 12:17:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E24CB1F00A3D;
-	Tue,  8 Sep 2026 12:17:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB96243CD9;
+	Tue,  8 Sep 2026 12:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B0DD1F00A3A;
+	Tue,  8 Sep 2026 12:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788869829;
-	bh=2dKrCoMuS/VkRK9SgbcPzXa6yS0fI5ekjQCw4D7v3J0=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=WdCizk8GgeFL6S4xnqYLHl8qXbPSs6ZwCcTkn2P1iLWdnhwFMHYyvHvoLq7wQLe+X
-	 c2cWgJTqLM14kDyKBC50dblaDuMSRgvZVE3iFZtSq8ciL2tZEpZxRRcQyqPZWD0hau
-	 JqfN+7pIdqDaDs3r2stj/WdvUaMSKOKoCxvKXVeUXpl/vGUBaoYP8fwueK9RzP0eOV
-	 GvMj684ThvSaykz7rdpjc7cjk4TaOdZ3oRsjafeMxqRfin2UfcnBZ5wlK3iKACfQFD
-	 FOmNteKzxAsc18KUYSPy0t+HJ4ZVGccp7PAnxytqamoC5wwFOu3+B41+OancAXa1lf
-	 YoL3MU+mhl5Xw==
-Message-ID: <379922705bfffd1db28821d192bd4970@kernel.org>
-Date: Tue, 08 Sep 2026 12:17:05 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH v11 73/74] drm/connector: Use the SPD InfoFrame field
- length defines
-In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-73-bc12954a0688@collabora.com>
-References: <20260901-dw-hdmi-qp-scramb-v11-73-bc12954a0688@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
- Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
- Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
- Stone" <daniels@collabora.com>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
- Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Helge Deller" <deller@gmx.de>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Phong LE" <ple@baylibre.com>, "Raphael
- Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
- Huang" <hjc@rock-chips.com>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1788870405;
+	bh=DpGlmdPDzmDERT45bYk/MvWOr5fnNDn8zt9NAJBNisI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y/DBZGs0UZ0cDvPlE+QW2pFUAUW1IzlkSyX4rUcqj8uEsvnpY1T5HUCBeqeTAAQMO
+	 WdtrmvkZOI7iT+wFY1urNHk1w1kfAqJatAJVKm4Pel3+JtDd4oq9K+ehXlRd2vZ8uz
+	 ahhv1zW/TCHlyUsJbBsWxIzt7KhNkwkUJRTe2YSgHf4j+MCxIhxpsYXBym1e539ZdD
+	 7s0PLDPkh0GUVqjiJJVk5RKasBXRYV0NeeibdLlWy4drG2KIKlfNPJCyV0Q8mD55A1
+	 XHqRatw95q1TcV5y5v1QYfHO6xUdYcsEt83tz6Y0pDBdbR6nDwqSfLpKWVqmsX/jhB
+	 SgR9xOK8TWj3g==
+Date: Tue, 8 Sep 2026 14:26:42 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v10 67/69] drm/connector: Drop redundant hdmi
+ vendor/product fields
+Message-ID: <ap_-wHX6nw5IbFkH@houat>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-67-294364b2cf15@collabora.com>
+ <20260820-strange-rich-tiger-78a5a4@houat>
+ <4fc2a3b6-2771-438b-ae99-5574e9c6efc9@collabora.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mw5khw3c4yqnzjnq"
+Content-Disposition: inline
+In-Reply-To: <4fc2a3b6-2771-438b-ae99-5574e9c6efc9@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,17 +84,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Sep 2026 21:51:37 +0300, Cristian Ciocaltea wrote:
-> DRM_CONNECTOR_HDMI_{VENDOR,PRODUCT}_LEN used to size the vendor and
-> product arrays in struct drm_connector_hdmi.  Those arrays are gone and
-> both names are now only validated before being copied into the SPD
-> InfoFrame, hence the limits they have to be checked against are the ones
-> of the SPD InfoFrame fields themselves.
-> 
-> [ ... ]
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+--mw5khw3c4yqnzjnq
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 67/69] drm/connector: Drop redundant hdmi
+ vendor/product fields
+MIME-Version: 1.0
 
-Thanks!
+On Fri, Aug 21, 2026 at 06:30:31PM +0300, Cristian Ciocaltea wrote:
+> On 8/20/26 1:10 PM, Maxime Ripard wrote:
+> > On Fri, Jul 31, 2026 at 07:20:14PM +0300, Cristian Ciocaltea wrote:
+> >> Now that all users migrated to the new drmm_connector_hdmi_init()
+> >> signature, vendor and product are provided through struct
+> >> drm_connector_hdmi_funcs, a reference to which is already stored in
+> >> drm_connector_hdmi.
+> >>
+> >> Drop the redundant fields from drm_connector_hdmi and point its users =
+to
+> >> hdmi.funcs->vendor and hdmi.funcs->product instead.
+> >>
+> >> This allows simplifying the related connector registration tests by
+> >> getting rid of the now unnecessary KUNIT_EXPECT_MEMEQ() checks.
+> >>
+> >> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS=
+, Rock 5B
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/display/drm_hdmi_state_helper.c |  4 +--
+> >>  drivers/gpu/drm/drm_connector.c                 |  4 ---
+> >>  drivers/gpu/drm/tests/drm_connector_test.c      | 41 +++-------------=
+---------
+> >>  include/drm/drm_connector.h                     | 14 ++-------
+> >>  4 files changed, 8 insertions(+), 55 deletions(-)
+> >>
+> [...]
+>=20
+> >>  /*
+> >>   * Test that the registration of a connector with a vendor name at the
+> >> - * maximum length succeeds, and is stored padded without the trailing
+> >> - * zero.
+> >> + * maximum length succeeds.
+> >>   */
+> >>  static void drm_test_connector_hdmi_init_vendor_length_exact(struct k=
+unit *test)
+> >>  {
+> >>  	struct drm_connector_init_priv *priv =3D test->priv;
+> >> -	const char expected_vendor[DRM_CONNECTOR_HDMI_VENDOR_LEN] =3D {
+> >> -		'V', 'e', 'n', 'd', 'o', 'r',
+> >> -		'V', 'e',
+> >> -	};
+> >>  	int ret;
+> >> =20
+> >>  	priv->hdmi_funcs =3D dummy_hdmi_funcs;
+> >> @@ -911,10 +882,6 @@ static void drm_test_connector_hdmi_init_vendor_l=
+ength_exact(struct kunit *test)
+> >>  				       DRM_MODE_CONNECTOR_HDMIA,
+> >>  				       &priv->ddc);
+> >>  	KUNIT_EXPECT_EQ(test, ret, 0);
+> >> -	KUNIT_EXPECT_MEMEQ(test,
+> >> -			   priv->connector.hdmi.vendor,
+> >> -			   expected_vendor,
+> >> -			   sizeof(priv->connector.hdmi.vendor));
+> >>  }
+> >=20
+> > Unfortunately, these tests were useful, and are there to match what the
+> > spec asks for.
+>=20
+> I've just added a new test to cover this, as well as a couple of prerequi=
+sites
+> to consolidate SPD InfoFrame handling:
+>=20
+> * video/hdmi: Define SPD InfoFrame field lengths and use strtomem_pad()
+>=20
+>   HDMI specification defines the SPD InfoFrame Vendor Name and Product
+>   Description as fixed-size fields, 8 and 16 bytes respectively, padded
+>   with zeros and left without any trailing NUL when a name spans the whole
+>   field.
+>=20
+>   Give those lengths a name and mark the fields as non-strings, so that
+>   the copies can be handed over to strtomem_pad(), which implements
+>   precisely the required semantics.  This also bounds the reads from the
+>   source strings, whereas the open-coded strlen() could run past the end
+>   of the buffer in the hdmi_spd_infoframe_unpack() path, where the names
+>   come straight from the wire and are not NUL-terminated.
+>=20
+>   While at it, replace the related magic numbers in the pack and unpack
+>   helpers with the new defines.
+>=20
+> * drm/connector: Use the SPD InfoFrame field length defines
+>=20
+>   DRM_CONNECTOR_HDMI_{VENDOR,PRODUCT}_LEN used to size the vendor and
+>   product arrays in struct drm_connector_hdmi.  Those arrays are gone and
+>   both names are now only validated before being copied into the SPD
+>   InfoFrame, hence the limits they have to be checked against are the ones
+>   of the SPD InfoFrame fields themselves.
+>=20
+>   Switch the remaining users over to
+>   HDMI_SPD_INFOFRAME_{VENDOR,PRODUCT}_LEN and drop the DRM specific
+>   defines, so that the two cannot drift apart.
+>=20
+> * drm/tests: hdmi: Add SPD InfoFrame vendor/product coverage
+>=20
+>   The vendor and product strings provided through struct
+>   drm_connector_hdmi_funcs end up in the SPD InfoFrame, whose fields are
+>   defined by the HDMI specification as fixed-size: 8 bytes for the vendor
+>   name and 16 bytes for the product description, padded with zeros and
+>   left without any trailing NUL when a name spans the whole field.
+>=20
+>   Nothing exercises that so far, since the SPD InfoFrame is only generated
+>   for connectors implementing the related hooks, which none of the
+>   existing test funcs provides.
+>=20
+>   Add a connector variant supplying those hooks, along with parametrized
+>   tests covering both the padded and the exact length cases.
+
+I'm not sure why we need to add a new test here. It's exactly what the
+test above is supposed to check. Making it a shell of what it was
+testing and then adding yet another one that tests what the former used
+to test seems suboptimal to me.
+
 Maxime
+
+--mw5khw3c4yqnzjnq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCap//AQAKCRAnX84Zoj2+
+dmV1AX9C0CCq47WAzcktH7nroGzH5jf3YfBuoDThDxYMvQUXOGArY4RKchPxzLoV
+oG7oT+ABgOd1pJGkT2rbtRLnTouxxjJ6nHnL3LXDLK8dxBzCTehVOFTXy+asT5Tq
+AmqnhwqTMQ==
+=VB2m
+-----END PGP SIGNATURE-----
+
+--mw5khw3c4yqnzjnq--
 
