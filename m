@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6966FC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611B8C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1U448sKxi8rSAuPtbiFnQUNDsFrEl/rGtpRswyX3NxU=; b=MnXKxoMNe3ZbA8NXmS+Ar0ncGg
-	01ku5cg4MxOdp5PC+fRsY3fZO4uNTbnLXwpssO+pwUXeAawjWODwJgNfy0qkiud6E6mSC3shkuHMY
-	6Hnue10zN5IVKQr3ka7SiRFw6JzBWbUHaDRdq/5kMPyK1n1edyNhxuZ/6a1BW+EV17OuSRQbpdiWb
-	Pqs00V1njT1/3Ytj4dIOy9P9Y1qQFwNzFFMbV71VEhalfrLuSh6ocVv/TLK3fV2TZ8HuK07xW7mI0
-	b0EfCWxq258iS+FNDJf2kB0mp8GrB61DFQtVSJTRL/H0HHncvUJuz5Mq5I1t/XLeLhZqd3mH84DR2
-	x6w//y0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/XWRPqU55h6uhJI7ycca8LCEXhLR71tGbYlOGOC7L08=; b=A21ZM+vQfms9bTyfzarCC9cXBm
+	l1RM7ThRnIk26jkbmptYsyampMuxlJ/4hoyX4tlPR9j5pusVqH/yRR2nWs8QUV3Q51MuAqkKppUJl
+	LePT/NZRmkIX12AimUV/vKwTlhPZrx8tnwGxpAOu/wkXyFtftDzYGJZGY6+sW4ntLDUQUB0LEEAE0
+	9BeotKH+LCGdgAahKfROhBPlwxKEtf8C/fZPBmwXr6XFkeQEwn2KtguFkWNh7wDo8Hk5Rc6xtQ0Co
+	+26LNZsA1iQF6IgU6puwVpNTNbv9X4kkOfhp9J8I2WR60lh7+xhD2gXZTULjQ7dto3AAEm2FpKG7L
+	NEao2uAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sNp-00000008eQU-17G9;
-	Tue, 08 Sep 2026 09:44:53 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1x3sRj-00000008f0k-3epr;
+	Tue, 08 Sep 2026 09:48:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sNm-00000008eOS-1g62
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:44:52 +0000
-X-UUID: ea830a7aab6911f19a56ed5b684f684d-20260908
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:1aaeb123-10e7-410a-b55b-6715d5593966,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:7db8b62,CLOUDID:b7342ac129824bbfa49c5374921c0be9,BulkI
-	D:nil,BulkQuantity:0,SF:102|136|850|865|898,TC:nil,Content:0|15|50|99,EDM:
-	-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ea830a7aab6911f19a56ed5b684f684d-20260908
-X-User: lilinmao@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <lilinmao@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1401455100; Tue, 08 Sep 2026 17:44:41 +0800
-From: Linmao Li <lilinmao@kylinos.cn>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Frank Li <Frank.Li@oss.nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Leonard Crestez <cdleonard@gmail.com>,
-	Radu Solea <radu.solea@nxp.com>,
-	Franck LENORMAND <franck.lenormand@nxp.com>,
-	linux-crypto@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linmao Li <lilinmao@kylinos.cn>
-Subject: [PATCH v2] crypto: mxs-dcp: handle zero-length skcipher requests
-Date: Tue,  8 Sep 2026 17:44:37 +0800
-Message-Id: <20260908094437.1548278-1-lilinmao@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1x3sRi-00000008f0C-1Jdo;
+	Tue, 08 Sep 2026 09:48:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9081B601DB;
+	Tue,  8 Sep 2026 09:48:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 939921F00A3A;
+	Tue,  8 Sep 2026 09:48:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788860933;
+	bh=/XWRPqU55h6uhJI7ycca8LCEXhLR71tGbYlOGOC7L08=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MzW+jsbSwh51dH7rTd8ROmhvcm+PGF0VsWj/Gt+kyOaTZ77GvtJr9hbpybetxlrwD
+	 fy22I83nYoYEUSHKNEbhi3GrZLyDvKcZUVm2CCpd7Ty469YCx9aAQ5Lkt/uyIysauR
+	 tGMzqQ61FlasC1UqiFubHA/dwjpNuDY42bgRtbayj+D8liL37/O9+f/Qh4xR0ybcb3
+	 E8bpgDsCYwds3y55p8P/i68v39oEI+JNGvNVR+w2nluFmgEJDzrUjW4wJ/qSrzWoYk
+	 vIBAAwqMcNWzIA05tgxflgfG09M5l/jyElNn92X+8+iCCpwwCpO5q+kTP4kuLTFIfH
+	 KBMadJ9RDnZ3g==
+Date: Tue, 8 Sep 2026 11:48:49 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Raphael Gallais-Pou <rgallaispou@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	linux-fbdev@vger.kernel.org, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Sashiko <sashiko-bot@kernel.org>, Diederik de Haas <diederik@cknow-tech.com>, 
+	Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP TX
+Message-ID: <ap_ZyC-XaHTUNyQ5@houat>
+References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_024450_748774_86CC5951 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="nzsbn5t5v2qw5zft"
+Content-Disposition: inline
+In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +84,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic ECB and CBC implementations return success for zero-length
-requests, but MXS-DCP queues them anyway. When such a request reaches
-the worker, last_out_len remains zero. The CBC completion path then
-subtracts AES_BLOCK_SIZE from this unsigned value when updating the IV,
-causing the offset to underflow. On decryption, the resulting source
-address precedes aes_in_buf.
 
-Return success before enqueueing zero-length requests, matching the
-generic implementations. This avoids the invalid source access and
-leaves the IV unchanged.
+--nzsbn5t5v2qw5zft
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP TX
+MIME-Version: 1.0
 
-Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
-Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
----
-v2: Clarify commit message: describe zero-length return-0 as existing
-    generic ECB/CBC behavior rather than a general API rule (Frank Li).
- drivers/crypto/mxs-dcp.c | 3 +++
- 1 file changed, 3 insertions(+)
+Hi,
 
-diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
-index 133ebc998236..60794b4d49fa 100644
---- a/drivers/crypto/mxs-dcp.c
-+++ b/drivers/crypto/mxs-dcp.c
-@@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
- 	struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
- 	int ret;
- 
-+	if (!req->cryptlen)
-+		return 0;
-+
- 	if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
- 		return mxs_dcp_block_fallback(req, enc);
- 
+On Tue, Sep 01, 2026 at 09:50:24PM +0300, Cristian Ciocaltea wrote:
+> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
+> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
+> management for high TMDS clock ratio and scrambling.  Since SCDC state
+> is lost on sink disconnects, the bridge driver needs to trigger a CRTC
+> reset during connector detection.
+>=20
+> To support this at the DRM infrastructure level, the series first
+> introduces the HDMI version enum, then prepares for changing the
+> signature of drmm_connector_hdmi_init(), i.e. dropping the vendor,
+> product, supported_formats and max_bpc arguments, which are being moved
+> into struct drm_connector_hdmi_funcs, by temporarily renaming the helper
+> to drmm_connector_hdmi_ini2().  This lets the new signature be
+> introduced under the original name while callers are converted
+> incrementally.  Note the transitional name matches the original's length
+> so continuation-line arguments stay aligned to the opening parenthesis,
+> keeping the diff to the identifier itself and avoiding re-alignment
+> churn.
+>=20
+> Appending more HDMI-specific arguments to the init function would not
+> scale well, hence the hdmi_funcs struct is extended with new fields:
+> supported_hdmi_ver, supported_tmds_char_rate.  These are used to
+> infer and/or limit the maximum TMDS character rate permitted for the
+> connector.
+>=20
+> Patches 6-11 build the connector and bridge scrambling infrastructure on
+> top: the connector scrambler callbacks/flags, the scdc-helper
+> additions (connector-prefixed debug macro and SCDC version helper), and
+> the HDMI scrambling management helpers including SCDC source-version
+> advertisement.
+>=20
+> Patches 12-25 wires this up through the hdmi-state-helper and bridge
+> connector layers: source TMDS rate validation, hotplug SCDC state sync
+> and the scrambling requirement, new source-side scrambling bridge ops,
+> the switch to a cached-status, atomic-aware .detect_ctx() connector
+> helper, and finally hooking up the HDMI 2.0 scrambler callbacks.
+>=20
+> The SCDC scrambling feature itself is implemented in the DW HDMI QP
+> bridge driver, alongside i2c error-message rate limiting,
+> .enable_hpd()/.disable_hpd() PHY ops and a dw_hdmi_qp_hpd_notify()
+> helper (patches 26-30).
+>=20
+> Patches 31-41 cover the Rockchip platform driver and HPD handling: bug
+> fixes, minor cleanups, avoiding spurious HDP IRQ wakeups, masking the
+> RK3576 HPD IRQ in io_init, implementing the .{enable|disable}_hpd() PHY
+> ops, switching HPD reports to dw_hdmi_qp_hpd_notify() to restrict events
+> to the affected connector, dropping the now-unused .setup_hpd() PHY op.
+>=20
+> Patches 42-48 convert VC4 HDMI to the common infrastructure as a proof
+> of reuse: adopting the shared TMDS char rate constants, switching to
+> drm_hdmi_mode_needs_scrambling() and force_ctx(), proper -EDEADLK
+> handling, and replacing the driver-local scrambling implementation with
+> the common SCDC scrambling helpers.
+>=20
+> Patches 50-57 advertise supported version for all HDMI
+> connectors/bridges, except the MediaTek HDMI driver (for now), as it
+> requires non-trivial changes: there's a core library shared between two
+> drivers, one being HDMI 2.0 compliant.
+>=20
+> Patches 58-67 add KUnit tests: HDMI caps-based init coverage and
+> source-side scrambler validation for the connector, conversion of
+> hdmi_state_helper to the new drmm_connector_hdmi_init() with
+> max_tmds_char_rate validation, a new 4K@60Hz 600MHz TMDS EDID,
+> source-side scrambling decision coverage, and conformity fixes for the
+> existing 1080p+4K YUV420 200MHz and 4K RGB/YUV 340MHz test EDID blobs.
+>=20
+> Patches 68-71 remove the now unused drmm_connector_hdmi_ini2() helper
+> and redundant hdmi fields from connector structs: vendor, product,
+> supported_formats and max_bpc.
+>=20
+> Eventually patches 72-74 consolidate SPD InfoFrame handling of
+> vendor/product.
+>=20
+> This has been tested on the following boards:
+>=20
+> * Radxa ROCK 5B (RK3588)
+> * Radxa ROCK 4D (RK3576)
+> * Raspberry Pi 5 Model B Rev 1.1 (BCM2712 D0)
 
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
--- 
-2.25.1
+This series is getting a bit insane. You have preliminary patches that
+have been reviewed/acked already, you should merge them, and possibly
+split the rest into preliminary series.
 
+Maxime
+
+--nzsbn5t5v2qw5zft
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCap/aAQAKCRAnX84Zoj2+
+dv9XAX9oDeI3wDy10tV+f8vak5FVVTZKMbvE8NuOWjzS5ke86rNCCg0fFOLb2Gkl
+/jYyaY0BgK6pl0RWaDlJFFeoumCaNTtVO599YwFFK/eGZbzy69V96EFdkh/2vLuY
+LCrbjebfDA==
+=+Pca
+-----END PGP SIGNATURE-----
+
+--nzsbn5t5v2qw5zft--
 
