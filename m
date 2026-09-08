@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827E7C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 18:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B8AC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 18:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7Bs54Fb9tsWkTHN/P3RBADOeSXyvgotpZR1N7Q0vuI=; b=oHZ+6pdFuj+exv8/hbWO9oYLmt
-	AC0e+JrPXTBT6ECap06wLM0woahoVZJN7CQ8//6OYQXri1qyvGVlynOhCXSL8/m+J9x3C5LbIrrd2
-	U95VnBYX6EzIdVwtdRbkGNODCFK/azI4ORQAHS0F9tszCHUkrB3UhuryHGRqiJ589VjfhOanalysN
-	d+89eIYotdFQOHWiVjGAbTLVCyG/bXVpZULs46Zn9JXLr7VmW4AoEIL20I8m/JQIRzzOg6bS5LJAe
-	RSCGZwrsm7NEjOf10JExsgRX3SXzEL95ULNpbN4Lg1h1QzAjjSbI8wjV/95dx2HM001IkPVaZU1fi
-	slisIH8A==;
+	bh=lyYYVS/FagqYOcVSDJHaTvAxjYarJ5rdqBjkTtuGY5s=; b=47k/p1xqouwUC/fVq51FwnoLI2
+	QKWboP+dvcJvR0N/7s9D6bdGeg6cnTbZ9otvlJYqPTzOz8dQ1za9iv/yxhoe3QCZ4vrelCbeFCNuE
+	8pPqzT5RRxigGFbn2lzuuY/lGyzSCrVzi7J5pVZE0eYvyItJxbrSTTbkrSPo++bqJNtMT9vrU4/O+
+	i0+WhCV5JAkBxdEDUXHOzcXcE9eOnKnfOj5p62Ujd6x9UpCYsL6GxQrm6/1qOQ6CqNyoe9OVCOy3e
+	x8AB9NU84Js0uSnObZiSNPOKXnLCghnkMQameHA6NEpFD7jT8Jlv/AaWBvPodFnCidAblkBmvvKrn
+	mTQ9Q65w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x40T0-00000009xtv-2qpE;
-	Tue, 08 Sep 2026 18:22:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x40UN-00000009y8H-07Fq;
+	Tue, 08 Sep 2026 18:24:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x40Sz-00000009xtg-1MSd;
-	Tue, 08 Sep 2026 18:22:45 +0000
+	id 1x40UM-00000009y86-19N7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 18:24:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1914B413ED;
-	Tue,  8 Sep 2026 18:22:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D511A1F00A3A;
-	Tue,  8 Sep 2026 18:22:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A771C601F7;
+	Tue,  8 Sep 2026 18:24:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 073251F00A3A;
+	Tue,  8 Sep 2026 18:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788891765;
-	bh=K7Bs54Fb9tsWkTHN/P3RBADOeSXyvgotpZR1N7Q0vuI=;
+	s=k20260515; t=1788891849;
+	bh=lyYYVS/FagqYOcVSDJHaTvAxjYarJ5rdqBjkTtuGY5s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LdxpPPlXFFT8qEGth+K5OY/ROS7EOJh+HDYSun9QWrozOZcmVAB49Ge2wL9ngN8EV
-	 /CIm6irJSg5w79vQOBUr1HBbepIyvxFkQl51kjpx6YDhpMr2c85SvE0Dp5rih7J4WR
-	 l0e4MvRhe8MyQ1gmz1mgtWbotecNTfUzSqDOWLt/W94o3tMDacF1hxsNZd3KAJ+D2T
-	 +hRfcAZHSyhYZeQwa0xAKwqP0KEsHfNsFeH92aqeVPGjd0hEp1XSOd0GMNHnicxGLJ
-	 z8f5V90hsSKdQTP+/V8BeNt+nZQFMGjm4xiYjp6Gp3qackxOvxGZfbkrcZHguByRb/
-	 u8eznZGM+xVfg==
-Message-ID: <b138e545-6d97-4cd4-bd61-9b1260e32f79@kernel.org>
-Date: Tue, 8 Sep 2026 20:22:35 +0200
+	b=A188WLYztbP23pV9lu3+YZZlCyV+qerocujjhukP+AX2f9SDGUT6Q7ryaSLGhMASz
+	 NlSf9eUz4ckF8jgICbC112SCHOrRXno3/wmsHWHjjpKI0cAKxfnWwxxNwQXPyXDknK
+	 YI5hDim3jAgYo5HwfXDgq3Ace1p8oV65ikDTTrhyoNTCkzctEd/HKhyb19/Aui8BBQ
+	 bbtt+5g8gQeDLIXPluA3taWKMUwV86dJ2GB3z1LzZzz+vYZ8ZTEfYMxq4AMuzIeM92
+	 IS8ydqe48T2A93eH0rfBslB+F3V3hfz2g4JvydoGbhulU2EENjkLiGrW/s1Uhyaviy
+	 b6SbWC5siKvBg==
+Message-ID: <4583e7ba-211c-4695-8127-c5d91f52e73c@kernel.org>
+Date: Tue, 8 Sep 2026 20:23:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 04/12] ARM: dts: zte: Declare zx297520v3 CRM device
- nodes
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+Subject: Re: [PATCH 13/13] ARM: axxia: remove entire platform
+To: Arnd Bergmann <arnd@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
+Cc: Drew Fustini <fustini@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>,
+ Stefan Agner <stefan@agner.ch>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
+ <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>,
+ Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+ Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>,
+ Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-phy@lists.infradead.org, mfd@lists.linux.dev
-References: <20260826-zx29clk-v11-0-f8ad59c6426c@gmail.com>
- <20260826-zx29clk-v11-4-f8ad59c6426c@gmail.com>
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org,
+ Anders Berg <anders.berg@lsi.com>
+References: <20260908152808.3928630-1-arnd@kernel.org>
+ <20260908152808.3928630-14-arnd@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,9 +125,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260826-zx29clk-v11-4-f8ad59c6426c@gmail.com>
+In-Reply-To: <20260908152808.3928630-14-arnd@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,15 +142,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2026 23:24, Stefan Dösinger wrote:
-> This patch adds DT nodes for the main clock and reset controllers on the
-> zx297520v3 board. It replaces the temporary placeholder UART clocks with
-> the proper clocks exported by topcrm and lspcrm.
+On 08/09/2026 17:28, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+> The initial Axxia port was contributed by LSI in 2014, but never completed
+> after the sale of the business unit to Intel, which kept supporting the
+> bulk of the drivers in their own downstream BSP.
 > 
+> The downstream work has also ended now, and there is no realistic chance
+> that anyone would rewrite it all into an upstreamable port.
+> 
+> Remove it now that the 7.3LTS release is out and can be used as the
+> base for one more downstream rebase of the downstream patches if needed.
+> 
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+> Cc: Anders Berg <anders.berg@lsi.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
