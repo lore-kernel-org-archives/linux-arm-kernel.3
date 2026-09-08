@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBA0C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E044C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBAuJhW7S3ZXQ2qvDNf9JatkhBim/pKGvLVV7RlONSg=; b=RfSMEUw28smUna8hgVC+PhMS/m
-	7CdBju7AB1VEvRSY8iW2pjhj3PV75I+AGtZuD6Yu7c6mJmrmooqeNiCJ0wwGBpPIRJ36E+k5hK0eP
-	wiax7UZLxFnzbH2v2w8qUKfFQ/1RIS+KUnfewOR9jOOXVskmAHkEyxKoBnf2j7taN3I0oOz9fum4Y
-	2V+6fXgIxkaDsC0KOa6oeFjLbHKEYe4JCmqDSra+H879KYF487FdD4va4KYg1AIWyuy3pNuK8Ix0d
-	GEv7SgUTxKHqFqwvDlBxHEhiyiNAPBjWYcW9DSToLDp3UPVGfi3pjkq4ksQ7UQ4yxoQxv59NTzUWt
-	oh0jC8qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=765idAEKKbWPuz2USlH1VcNBUvTkzIPKO0MxgkuZDTo=; b=ttXt5oZngvDqRIgDuOXwcwOZaQ
+	04lQXIvSil8IU97ELlXH2N/DbD9WKaojW8FlDXqLiPa7fUhxphEdHsGWapz6rsQzjWtlr5bQ/Irsx
+	ZxfuDau23o/rCl4070rzgBlrKX8qtwd0xcJNXR8f9iYAqlW3Xp8a7CNDeTvm/svVYOVKfoaek4s3e
+	9cf7ITks/1iqCMm5WlL4k+7WnnER1RQGTPuF3quQtCO4spzHeaAJX+sncMvIEiW9qgmOlo0AquH16
+	SRxsHPkVpZrpgXluVb7pijuoWPBZXVNfu0uUZOlOd/2NSY3s66qTMbL72f4d7XHoUkowsbyS844Kj
+	2NqvkHsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x402N-00000009uMB-3PSH;
-	Tue, 08 Sep 2026 17:55:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x402U-00000009uP0-3oop;
+	Tue, 08 Sep 2026 17:55:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x402M-00000009uLn-3ySa
+	id 1x402R-00000009uNU-0eEO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:55:15 +0000
+	Tue, 08 Sep 2026 17:55:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 76F304034B;
+	by tor.source.kernel.org (Postfix) with ESMTP id 617A5601DE;
+	Tue,  8 Sep 2026 17:55:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6ED41F00A3D;
 	Tue,  8 Sep 2026 17:55:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703FE1F00A3A;
-	Tue,  8 Sep 2026 17:55:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1788890114;
-	bh=gBAuJhW7S3ZXQ2qvDNf9JatkhBim/pKGvLVV7RlONSg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hVzMVnSWPNFrjH8TWsZOHxRl0Old2NxIqVPRlGr2uN94NqWa7kezMsS/g0wy4UcGS
-	 UtnZwWRgJJenERfATUGgoXTtmS+YyDkVLwdKouJCYBrNjcAty6d+qSlcrdxRWgLtn9
-	 ZHsMfwRfPDq+5GrIQa7o17bWgKDLvrbv6j4vVFcc=
-Date: Tue, 8 Sep 2026 10:55:12 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng
- Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He
- <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>, Youngjun Park
- <youngjun.park@lge.com>, David Hildenbrand <david@kernel.org>, Zi Yan
- <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance
- Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl
- Shutsemau <kas@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel
- <riel@surriel.com>, Vlastimil Babka <vbabka@kernel.org>, Harry Yoo
- <harry@kernel.org>, Jann Horn <jannh@google.com>, Johannes Weiner
- <hannes@cmpxchg.org>, Yosry Ahmed <yosry@kernel.org>, Chengming Zhou
- <chengming.zhou@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/8] mm: remove page_swap_entry()
-Message-Id: <20260908105512.8854d7972c82b6b6f417b0f8@linux-foundation.org>
-In-Reply-To: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
-References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788890118;
+	bh=765idAEKKbWPuz2USlH1VcNBUvTkzIPKO0MxgkuZDTo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TO4wloGHlbkHv52gHzObnN3VVqxM1a4e/M9o8fBTYihhow1bP9RJBw6jNnSBye4Ao
+	 ntvkKCjI/vSDGmv+LIgaRXNIvv9lV7tKRSvyLYrKXZ3kzqGMhlPTFk2270uQ9tENoB
+	 PWeZYkti1K+BEFDbSgGn0TrR4wUYfkknljXNTAtaFI1wjBFUa8OjOsHZ3+KTn9RSzp
+	 +qCJPDcFTFah7hzjPiNXtM9aE/MORRz3hNqkBV+y0yT3Ditbou1V3KQJQE7h1Py6/A
+	 gp/ouwO7LrmSgaxukWNxvEzu3I7rPQcOJSL3sciNtmX/oljsFGgv1izTei8qY6pC2q
+	 TYl6leeLghpDQ==
+Date: Tue, 8 Sep 2026 18:55:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: zhengxingda@iscas.ac.cn, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/6] dt-bindings: display: verisilicon,dc: add support
+ for nuvoton,ma35d1-dcu
+Message-ID: <20260908-elevating-eggnog-0d11f728f6f2@spud>
+References: <20260908092840.225220-1-a0987203069@gmail.com>
+ <20260908092840.225220-2-a0987203069@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bxAegO/MuCyNqq2e"
+Content-Disposition: inline
+In-Reply-To: <20260908092840.225220-2-a0987203069@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 11:16:30 -0400 Tal Zussman <tz2294@columbia.edu> wrote:
+--bxAegO/MuCyNqq2e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> A folio in the swap cache occupies folio_nr_pages() contiguous swap
-> entries starting at folio->swap, so a page's swap entry is just
-> folio->swap plus the page's index in the folio. The swap entry is
-> folio state, but the only helper for it is page-based:
-> page_swap_entry() takes a page and recomputes the folio its callers
-> already hold. Several callers avoid it by open-coding the arithmetic
-> on folio->swap instead.
-> 
-> Add folio_swap_entry() and folio_page_swap_entry(), convert all users,
-> and remove page_swap_entry(), with a few other cleanups along the way.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Thanks, I'll queue this for testing and further review.
+--bxAegO/MuCyNqq2e
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqBMAAAKCRB4tDGHoIJi
+0iZXAQCE8i0GV0vfMMOm3ja2XjSEnbf+JCqzgRyl/u9zngsMNgD/ZXAx3nxTMtoJ
+P39HX+WyJk4Tjo3v5hxRuaPy++cdwwo=
+=6YLb
+-----END PGP SIGNATURE-----
+
+--bxAegO/MuCyNqq2e--
 
