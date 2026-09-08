@@ -4,65 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F684C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5288C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MrLpIp1acmyTAI4L2SHOu8K6ZKZANO6L3ezTi+riST4=; b=YuQa4SGmunTyaLiTIQuHmpy6s3
-	atg5qtsB9XuCcYOSMZwPP0w2aXzMdjUzmCbfiCP9wYuwwXWc6kCxD7DIiaerdBXZ1Uo4lnDN5kaya
-	/QyWJImOVtheUMRNC00QtsR0rRSxepeOHKkynWmTcWBLrecR/i+Ow8u709mp+VZFoc58SjekzZ6W6
-	2ZI6Ym4DHJHWhkfTDgB2gPqLd7kOOGJ4hnTCKrYxkJP06fnHewlg832Py8QK6STZFb8ykQAv/S+Xg
-	VU3P+vVg+uoIaY/dWOF+CA0riQNyMmKabKQgi+DxoWXAegmZV+FIp9THPtK6MBpSfvKLVN9Qp6c22
-	4GuU5Xuw==;
+	bh=Ol8taRaXNtmTj+LU+cXQwn5fB81XYMucQnFv/vJC8fU=; b=mihK9BMlAK389/PLlngKANLGdR
+	I4jNlpxQl7s2vqZhOyIAfSmcbnOqJKdUx8jF7+G19sm8jfeO63oFyNCgA9ZuEhC4yV5vsF7azX7no
+	/gIbTedJNUH5jMfPcV0KU2EQwUXaR6KwvLavTWRYsZPbVQc6/rnY/3ad8bwiqD7wIyz7hzftKIfTE
+	5ZZLlMg1Cq6PiejuAfGg15x871Ddh/zsD5a2G0sgJgpKGTgJIYdk9JJOVIe13AhSSWjBiXp8Lr+ML
+	eCjawUcBgI8+sqxAvCcXku2fhw7WlXNApyh8DBYLhm3d1JoG8LaiaEAsXLpzze/cvXaiSyOy/VH3k
+	viaqqhBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ppV-00000008E1r-3Fvq;
-	Tue, 08 Sep 2026 07:01:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x3puA-00000008EHr-1wTN;
+	Tue, 08 Sep 2026 07:06:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ppS-00000008E1K-0SUj;
-	Tue, 08 Sep 2026 07:01:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788850871;
-	bh=HWjbQo5zlhO13u55bbJAZDvviqnOCqacnSO0CJjRVfk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O8c9EkGgt2iwa6KoH+ylDYXlyStOBc6o5crFO8lp7bwdTe9h/O4zrO9GmvyogrLgi
-	 UVbG+XwQrXs7Mzrxq+QzP2s0IFVqObF1EKB4nWlN05yjfE2sEB0KhmqmnitSDSaQ6D
-	 2rD2G5mpmY1pmo+a9mr9HxNTvSI9zvpbjsiFJsHJxM4H689oeQ/+GMjRLBduOILXUd
-	 RJ6wZdiZEGEwKzZFmKg4uA/2dEwJhCtvIoaV+bodSCkxdymTWYfyBSDw5GA3wluzpL
-	 KT4teytQYunCA+t4Ze/c5kuoRhwftyPhDYWTpjH5XFxnWrgKPagO1DMnBjyBR9fosU
-	 PYDsoc3SqXvqw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71F6917E03B6;
-	Tue, 08 Sep 2026 09:01:11 +0200 (CEST)
-Message-ID: <04cf83db-7914-47fa-8d37-baf5e925d86d@collabora.com>
-Date: Tue, 8 Sep 2026 09:01:10 +0200
+	id 1x3pu7-00000008EHS-2Pl9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 07:06:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788851161;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ol8taRaXNtmTj+LU+cXQwn5fB81XYMucQnFv/vJC8fU=;
+	b=iPHU3W9gUHp3R+BsJuwUxMG0bb8EMiFWCmuMliqiy7E1GUfAl9q4Y+j49YhAmTBsxV8o1+
+	fUQH5zuOS6jXnAWe/YwU5iIOHAM57Qu88xDsj5Cw7UkhK5R042qQ5ZrarZeXKD+Eq6K6gZ
+	SpWfur1Q9jQTD/fs6YzBIvjkdqHL9cE=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-209-VfV6zUdWOLC04lGU0OnnPA-1; Tue, 08 Sep 2026 03:04:23 -0400
+X-MC-Unique: VfV6zUdWOLC04lGU0OnnPA-1
+X-Mimecast-MFC-AGG-ID: VfV6zUdWOLC04lGU0OnnPA_1788851062
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39512608fb1so9307474a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 00:04:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788851062; x=1789455862;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ol8taRaXNtmTj+LU+cXQwn5fB81XYMucQnFv/vJC8fU=;
+        b=Es2sdl0DukkB1Y+y6bvSpBKjiZo+jPWDsuOvfKzIb0Ev6wr5LrZHPoTW63mcoO1csc
+         f0KvabqQjg4uFBiEW4ibekxaFj5AwM9BP0a3HtwyKB2/6fK/ECoF6jSIg62EoMTNwYIK
+         WMXdAiEZEI6cxLeBvCeqoQZcBTTEusqa9zwyBWdg9V+dBnG8seKof9MVVoM98POwAdy8
+         s1FpsGfNU5NjqjMxHx3zd4SH8eydKB3yJDqI4L+5qyZ+yX7GIC5a29QxkXKtulxxB57r
+         MxecgSpXcVwurq8+pjBN1nDh6w4LMzIW0qgXbidzh4MLZ+AD0V108B3TvPzCLwo9hvoA
+         9dgg==
+X-Forwarded-Encrypted: i=1; AKwUvByuS0LoC/Z2lcYYDSTuimE+Fn7XKNJhra6oYr0JPAymx4R7qBphQzKrkq1m1f9HK7bm0GpxwgJLrtKmmoDI/2aJ@lists.infradead.org
+X-Gm-Message-State: AFuF++nSTL4HAWgrrkIZhaaHse3yOXZDKnUJsbYTczBT1+JKcqa2Icvr
+	CVL9INkpkgv0oRziM1eRV0ubVvc+y5d8XMbAnPfGiOI3k+MjE96OOlbOF3BKzJGhuCEz++yqbdm
+	Lj/tWVMhjI6XV/4GJjo3Kdl6c8ErspEUw6vL+se3GGQcYEzk9EkqwN37kID9Zu5agVG/g0pjHQ1
+	dW
+X-Gm-Gg: AYBFou1Hff2oYcP0j4wStXtJcRvCj3b0bJMHSwVtwFKNI6gt4CaKNXQlSKf7TVe2Q6f
+	IAxFSf3wU7FCOIai3iQ2FFwwJ5Ph/v3mDmPsVQoOY8G2vgxaVAT7dP4ZGdAkOeNX5q4NiC8wT1A
+	kaFH/lZl0VLG6h92l4rF7Il+nIDSFQ1bfoB2ueGsLFunwtv5QPkF1maLxCwAaos/9LCkCrPGKQq
+	hjLfQ9Er++w4mJcsxhxDUwfQ794N0XY67UqsaEhN5bSdbo5W3OaQvdNYgg7rEzAibBIW0MJ9Jki
+	xa0PiMGWsGxldwWZmRjS9RhbsIbyJJfqj9kYd4ZpUKhBC9zGJE7l97S8FEyN7qRDFX+2JysKK+H
+	S/19MoEQWRNQij61faDiua59LTz/+HBx0c73da1SVZQ==
+X-Received: by 2002:a17:90b:43:b0:395:5eec:b932 with SMTP id 98e67ed59e1d1-39b26141c79mr43891698a91.11.1788851061754;
+        Tue, 08 Sep 2026 00:04:21 -0700 (PDT)
+X-Received: by 2002:a17:90b:43:b0:395:5eec:b932 with SMTP id 98e67ed59e1d1-39b26141c79mr43891602a91.11.1788851061212;
+        Tue, 08 Sep 2026 00:04:21 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08bcc081sm30955490a91.6.2026.09.08.00.04.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Sep 2026 00:04:19 -0700 (PDT)
+Message-ID: <10893135-4757-44de-91b5-180a9774d868@redhat.com>
+Date: Tue, 8 Sep 2026 17:04:08 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] MediaTek mt6572 GCE support
-To: rva333@protonmail.com, Jassi Brar <jassisinghbrar@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Houlong Wei <houlong.wei@mediatek.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260907-6572-gce-v2-0-412a5b037290@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v17 3/7] firmware: arm_rmm: Configure the RMM with the
+ host's page size
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-4-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260907095942.1140734-4-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Jbqj6ILtk9auzmcbGRjtXYdBCrUAtQpxu3yLCPYQuA0_1788851062
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <20260907-6572-gce-v2-0-412a5b037290@protonmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_000114_317662_9F5F6709 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20260908_000603_705184_C3F5E2E6 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +119,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/26 20:03, Roman Vivchar via B4 Relay wrote:
-> This patch series adds support for the Global Command Engine found in
-> the mt6572 SoC.
-> 
-> Notably, the patch 2 introduces legacy ISA format, which is used on
-> mt6572, 6582 and 6592 SoCs. mt6577 doesn't have the GCE at all and
-> mt6595 is much more close to 6795/8173.
-> Patch 3 adds mt6572 platform data and legacy_isa forwarding to the
-> instruction JIT.
-> 
-> This format was reverse engineered from the Android HAL and uses 22-bit
-> offset with 2-bit subsystem ID, unlike the newer 16-bit offset and 8-bit
-> subsystem ID.
-> The mt6572 HAL includes workarounds for WFE and EOC instructions, emitting
-> another WFE as barrier at WFE, and JUMP +8 at EOC.
-> mt6582 and 6592 HAL dropped WFE barrier, but still have JUMP +8.
-> 
-> This sounds very much like some kind of software mitigations for hardware
-> bugs, but during testing on 6572 nothing bad happened so far. These
-> additional instructions are not included in the patches.
-> 
-> Note that while GCE can be used for e.g. mt6592 UFOE (which is at
-> 0x14013000, so outside of the u16 range), currently the driver still uses
-> u16 for the offset, because I don't have any 6592 device.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+Hi Suzuki,
 
-Series is
+On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
+> 
+> RMM v2.0 brings the ability to set the RMM's granule size. Check the
+> feature registers and configure the RMM so that it matches the host's
+> page size. This means that operations can be done with a granularity
+> equal to PAGE_SIZE.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>   Changes since v15:
+>    * Actually check the feature register for the host's page-size support.
+>   Changes since v14:
+>    * Move the implementation into drivers/firmware/arm_rmm.
+>   Changes since v13:
+>    * Moved out of KVM.
+> ---
+>   drivers/firmware/arm_rmm/rmi.c | 58 ++++++++++++++++++++++++++++++++++
+>   include/linux/arm-rmi-cmds.h   | 17 ++++++++++
+>   2 files changed, 75 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index 008a783407b4e..76f91c145e1fd 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -77,6 +77,60 @@ static int rmi_read_features(void)
+>   	return 0;
+>   }
+>   
+> +static int rmi_configure(void)
+> +{
+> +	unsigned long granule_feature;
+> +	unsigned long granule_size;
+> +	int ret = 0;
+> +	struct rmm_config *config;
+> +
+> +	switch (PAGE_SIZE) {
+> +	case SZ_4K:
+> +		granule_size = RMI_GRANULE_SIZE_4KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
+> +		break;
+> +	case SZ_16K:
+> +		granule_size = RMI_GRANULE_SIZE_16KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
+> +		break;
+> +	case SZ_64K:
+> +		granule_size = RMI_GRANULE_SIZE_64KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
+> +		break;
+> +	default:
+> +		BUILD_BUG();
+> +	}
+> +
+> +	if (!(rmi_feat_reg(1) & granule_feature)) {
+> +		pr_err("RMM does not support %luKB granules\n",
+> +		       PAGE_SIZE >> 10);
+> +		return -ENXIO;
+> +	}
+> +
+> +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+> +	if (!config)
+> +		return -ENOMEM;
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+An error message is needed here.
 
-> ---
-> Changes in v2:
-> - Move dt-bindings to mailbox directory from gce (Krzysztof)
-> - Clarify that only v2 and v3 GCEs support PA writes
-> - Link to v1: https://patch.msgid.link/20260728-6572-gce-v1-0-750bba32689e@protonmail.com
-> 
-> ---
-> Roman Vivchar (3):
->        dt-bindings: mailbox: mediatek,gce-mailbox: add mt6572
->        soc: mediatek: cmdq-helper: add legacy GCE ISA support
->        mailbox: mtk-cmdq: add mt6572 support
-> 
->   .../bindings/mailbox/mediatek,gce-mailbox.yaml     |  1 +
->   drivers/mailbox/mtk-cmdq-mailbox.c                 | 11 +++++
->   drivers/soc/mediatek/mtk-cmdq-helper.c             | 57 +++++++++++++++-------
->   include/dt-bindings/mailbox/mediatek,mt6572-gce.h  | 52 ++++++++++++++++++++
->   include/linux/mailbox/mtk-cmdq-mailbox.h           |  1 +
->   5 files changed, 104 insertions(+), 18 deletions(-)
-> ---
-> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-> change-id: 20260727-6572-gce-6a571ef4af09
-> 
-> Best regards,
-> --
-> Roman Vivchar <rva333@protonmail.com>
+	if (!config) {
+		pr_err("Unable to alloc RMM config memory\n");
+		return -ENOMEM;
+	}
+
+> +
+> +	config->rmi_granule_size = granule_size;
+> +
+> +	/*
+> +	 * For now we set the tracking_region_size to 0 which is the only option
+> +	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
+> +	 * TODO: Support other tracking sizes via Kconfig option for other
+> +	 * PAGE_SIZES
+> +	 */
+> +	config->tracking_region_size = 0;
+> +
+> +	ret = rmi_rmm_config_set(virt_to_phys(config));
+> +	if (ret) {
+> +		pr_err("RMM config set failed\n");
+> +		ret = -EINVAL;
+> +	}
+
+The error code from rmi_rmm_config_set() is indicative sometimes. Also, -ENXIO
+would be more appropriate than -EINVAL?
+
+	if (ret) {
+		pr_err("RMM config set failed (%d)\n", ret);
+		ret = -ENXIO;
+	}
+
+> +
+> +	free_page((unsigned long)config);
+> +	return ret;
+> +}
+> +
+>   static int __init arm64_init_rmi(void)
+>   {
+>   	int ret;
+> @@ -90,6 +144,10 @@ static int __init arm64_init_rmi(void)
+>   	if (ret)
+>   		return ret;
+>   
+> +	ret = rmi_configure();
+> +	if (ret)
+> +		return ret;
+> +
+>   	return 0;
+>   }
+>   
+> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+> index 2fb1f7f86d71e..9aa27697e2377 100644
+> --- a/include/linux/arm-rmi-cmds.h
+> +++ b/include/linux/arm-rmi-cmds.h
+> @@ -12,6 +12,23 @@
+>   
+>   unsigned long rmi_feat_reg(unsigned long id);
+>   
+> +/**
+> + * rmi_rmm_config_set() - Configure the RMM
+> + * @cfg_ptr: PA of a struct rmm_config
+> + *
+> + * Sets configuration options on the RMM.
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
+> +
+> +	return res.a0;
+> +}
+> +
+
+rmi_rmm_config_set() is used for once by rmi.c::rmi_configure(), I would not expose
+rmi_rmm_config_set() by combining the logic to rmi.c::rmi_configure().
+
+>   /**
+>    * rmi_features() - Read feature register
+>    * @index: Feature register index
+
+Thanks,
+Gavin
 
 
