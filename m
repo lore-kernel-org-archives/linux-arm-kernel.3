@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0F5C79FA1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948F4C79FAD
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewkmN0wtoNlaLu5JPrLLA3K65oooXkyjnFY+a4rG5iA=; b=Iv1/W5he2AAVZ+eLSSin9hkziE
-	DN2VZqMRwvfzCHY1ZNhAOz7Q1Tmbg0jKUm16nnLjh5nuZCxIBkB0RI/FX2jjzMPLjRZ7vRHzVbSFk
-	T6mcgAiGGYJA6FMy7lFc3Hy6X1/7F6okxy2fiJXgqfHV4Jgfj4XtL4Z1VJHgQtcYg+EvkkR0iJBx3
-	rm4SB0fAAboBHViU6yB1jT9s+1z6g4zDY/9DerejZySH43gKVWS9td8oRCauFrHYM+tafqKf+Rnu/
-	X1j56rnpwFZ9c25MSycuZEJ4bcj/exKrSJQKNGBjZYY7n+zLMCDMQIwWqG2hal1QHikDrUUNZImqg
-	6aFDyfiA==;
+	bh=V2TCIVHLFUgANDNWEbBVnC10C0FF0MGdtrz2Vu9b1xk=; b=j6M5bauclCCaCHgdrLkYlVGhwd
+	oDZ7/PmMQKCoBHJWLOnfZwSzfwn9NTDHBY+Of80dnL3sRp4zoy9RRYJFoBv66hZFDgKT4kf5eZGmR
+	17hg6pEwhF5MoHOvYqLbVPsWrt8wz6M+VgFcGVGPRGH92VNLxApf9nWp7Pbq1iFXiY/4pj6livVIr
+	zZ8mlibFeuboAeNvA8+2h7FtnFGQaZkfslkMxTWeYMXd+oeebH7PGp4uHUWxQe+/Uvsx5DVy+ynZJ
+	xOBqGLVfbuwUhNik03VXzz2Ko50szSTnh/47C+0NaW+tDbfoYZnEcmKE4qZ+YGv/hqL6ehnmK0ehd
+	g5YBYfmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sfC-00000008iPg-24Yk;
-	Tue, 08 Sep 2026 10:02:50 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1x3sfG-00000008iRX-2rsi;
+	Tue, 08 Sep 2026 10:02:54 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sf8-00000008iNe-0T3G
+	id 1x3sf9-00000008iNO-3iGC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:02:48 +0000
+	Tue, 08 Sep 2026 10:02:50 +0000
 Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id BF20220471;
-	Tue,  8 Sep 2026 12:02:40 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id BA7DB2037E;
+	Tue,  8 Sep 2026 12:02:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1788861761;
-	bh=ewkmN0wtoNlaLu5JPrLLA3K65oooXkyjnFY+a4rG5iA=; h=From:To:Subject;
-	b=02Sl/M0NngNhdHLRfngd6jySkvEKiQquWeyrkINmuBM4Re7iFHEpwCpsJY2zJ6LDT
-	 Va+Htxk7sasIx1ZHope2kLQGVGbcGKqJiZwCFFJe+7JInQoJ6+yM1xIvuq+Dip2Y5S
-	 C984IGbkQcz7AR8OfK9VTbtEcABSsLEiwGUaF7+3bwa4dXKd37fpca0mNLxHozX+aU
-	 eZSgHLSsVd6WBJY/3EkbH/hFoiCB7KAoPVxwTzT8DIeWlCUmMS/XSroQTRwRCrABY0
-	 OSQ75uxfplM8pN0urNo/3HbnhpMHclTHteW2z8M90nMGhMHm8PJ89vAPWPWBpvRZzF
-	 2yy2GpNFbGm3g==
+	s=default; t=1788861760;
+	bh=V2TCIVHLFUgANDNWEbBVnC10C0FF0MGdtrz2Vu9b1xk=; h=From:To:Subject;
+	b=dlshf81+8dGxY9ub4RsX410QT4OdtT7VMj5lG3Hdk+ZG3o/ngm01LaFuFB826Eo2l
+	 gSa2gp1yXwYmja5f5kqtZCFkSAwzvN8kPaUyC49R5zaBp+CaRX43GjCTxhYke7qSHh
+	 TEMuepx1zoP/Rj+vTyCiJJ+7hw2T5PiZuAZX9T+LJy1uTjeaM7djGVxbWnsK/lgtut
+	 uJPZD2VgFejbZMdoAEmwSKB5B7/y8aUbm9o0hfzEKZ8uRWtmnDEkjMm58tyDuTVdny
+	 Lne8pb+GzwUQHTf4E0yEXBr1RuYIdKml7w4CvKAGWeRkTcN9ne9ucTT7W2VjtF+Fgy
+	 OAUCESzA1631Q==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Francesco Dolcini <francesco@dolcini.it>,
 	Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -66,17 +66,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 2/3] drm/bridge: Add THine THC63LVD827 LVDS encoder
-Date: Tue,  8 Sep 2026 12:02:26 +0200
-Message-ID: <20260908100230.83796-3-francesco@dolcini.it>
+Subject: [PATCH v1 1/3] dt-bindings: display: bridge: Add THine THC63LVD827
+Date: Tue,  8 Sep 2026 12:02:25 +0200
+Message-ID: <20260908100230.83796-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260908100230.83796-1-francesco@dolcini.it>
 References: <20260908100230.83796-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_030247_045672_2C66241D 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20260908_030248_250402_AFED125A 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,264 +93,167 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Add THC63LVD827 DPI to LVDS bridge driver. The driver supports
-configuring the LVDS data mapping. As of now only single link LVDS is
-supported, dual link support can be added if/when needed.
+Add THine THC63LVD827 DPI to LVDS encoder.
 
+The THC63LVD827 is a simple DPI to LVDS encoder that can be configured
+with input pins.
+
+Link: https://www.thine.co.jp/en/products/detail/THC63LVD827.html
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- MAINTAINERS                          |   1 +
- drivers/gpu/drm/bridge/Kconfig       |  11 ++
- drivers/gpu/drm/bridge/Makefile      |   1 +
- drivers/gpu/drm/bridge/thc63lvd827.c | 193 +++++++++++++++++++++++++++
- 4 files changed, 206 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/thc63lvd827.c
+ .../display/bridge/thine,thc63lvd827.yaml     | 126 ++++++++++++++++++
+ MAINTAINERS                                   |   5 +
+ 2 files changed, 131 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
 
+diff --git a/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml b/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
+new file mode 100644
+index 000000000000..ead50802e11e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
+@@ -0,0 +1,126 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/thine,thc63lvd827.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: THine THC63LVD827 DPI to LVDS encoder
++
++maintainers:
++  - Francesco Dolcini <francesco.dolcini@toradex.com>
++
++description: |
++  The THC63LVD827 converts a 24-bit parallel RGB interface plus HSYNC,
++  VSYNC and data-enable to single-link or dual-link LVDS.
++
++  The LVDS output data mapping is configured using the MAP and 6B/8B inputs,
++  that can be controlled by GPIOs.
++
++  The LVDS output link mode (single/dual) is configured using the MODE input.
++
++  The parallel interface pixel clock sample polarity is configurable with the
++  R/F input strap option.
++
++properties:
++  compatible:
++    const: thine,thc63lvd827
++
++  map-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the MAP input. A high level selects Mapping Mode 1
++      and a low level selects Mapping Mode 2.
++
++  mode-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the MODE input. A high level selects single-link
++      LVDS output and a low level selects dual-link LVDS output.
++
++  b6b8-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the 6B/8B input. A high level selects 6-bit (21-bit)
++      mode and a low level selects 8-bit (27-bit) mode.
++
++  powerdown-gpios:
++    maxItems: 1
++    description:
++      GPIO connected to the active-low /PDWN input. A high level selects
++      normal operation and a low level power down the chip.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Parallel RGB input
++
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml
++            unevaluatedProperties: false
++
++            properties:
++              pclk-sample:
++                description:
++                  Sample data on falling (0) or rising (1) edges of the pixel
++                  clock signal.
++                enum: [ 0, 1 ]
++                default: 0
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: LVDS output 1st link, used in single- and dual-link mode.
++
++      port@2:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Optional LVDS output 2nd link, for dual-link mode.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    lvds-encoder {
++        compatible = "thine,thc63lvd827";
++
++        map-gpios = <&gpio4 10 GPIO_ACTIVE_HIGH>;
++        mode-gpios = <&gpio4 11 GPIO_ACTIVE_HIGH>;
++        powerdown-gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    pclk-sample = <1>;
++                    remote-endpoint = <&dpi_out>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                endpoint {
++                    remote-endpoint = <&lvds_display_in>;
++                };
++            };
++        };
++    };
++
++...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 0b5a25a35367..ee24b15b26d3 100644
+index 6215fcb07770..0b5a25a35367 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -8584,6 +8584,7 @@ DRM DRIVER FOR THINE THC63LVD827 DPI TO LVDS BRIDGE
- M:	Francesco Dolcini <francesco@dolcini.it>
- S:	Maintained
- F:	Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
-+F:	drivers/gpu/drm/bridge/thc63lvd827.c
+@@ -8580,6 +8580,11 @@ F:	Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+ F:	drivers/gpu/drm/bridge/synopsys/dw-dp.c
+ F:	include/drm/bridge/dw_dp.h
  
++DRM DRIVER FOR THINE THC63LVD827 DPI TO LVDS BRIDGE
++M:	Francesco Dolcini <francesco@dolcini.it>
++S:	Maintained
++F:	Documentation/devicetree/bindings/display/bridge/thine,thc63lvd827.yaml
++
  DRM DRIVER FOR TI DLPC3433 MIPI DSI TO DMD BRIDGE
  M:	Jagan Teki <jagan@amarulasolutions.com>
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 4a57d49b4c6d..70ebc6b50e59 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -365,6 +365,17 @@ config DRM_THINE_THC63LVD1024
- 	help
- 	  Thine THC63LVD1024 LVDS/parallel converter driver.
- 
-+config DRM_THINE_THC63LVD827
-+	tristate "THine THC63LVD827 DPI/LVDS bridge"
-+	depends on OF
-+	select DRM_KMS_HELPER
-+	help
-+	  Enable support for the THine THC63LVD827 DPI to LVDS bridge.
-+
-+	  The device converts a parallel RGB display interface to an LVDS
-+	  output for connection to LVDS display panels.
-+	  The bridge supports configurable JEIDA and VESA LVDS data mapping.
-+
- config DRM_THEAD_TH1520_DW_HDMI
- 	tristate "T-Head TH1520 DesignWare HDMI bridge"
- 	depends on OF
-diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index 15cc821d85b7..5d578f7112c8 100644
---- a/drivers/gpu/drm/bridge/Makefile
-+++ b/drivers/gpu/drm/bridge/Makefile
-@@ -33,6 +33,7 @@ obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
- obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
- obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
- obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
-+obj-$(CONFIG_DRM_THINE_THC63LVD827) += thc63lvd827.o
- obj-$(CONFIG_DRM_TOSHIBA_TC358762) += tc358762.o
- obj-$(CONFIG_DRM_TOSHIBA_TC358764) += tc358764.o
- obj-$(CONFIG_DRM_TOSHIBA_TC358767) += tc358767.o
-diff --git a/drivers/gpu/drm/bridge/thc63lvd827.c b/drivers/gpu/drm/bridge/thc63lvd827.c
-new file mode 100644
-index 000000000000..d3c7e0fff126
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/thc63lvd827.c
-@@ -0,0 +1,193 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) Toradex
-+ * Author: Francesco Dolcini <francesco.dolcini@toradex.com>
-+ */
-+
-+#include <linux/gpio/consumer.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_of.h>
-+
-+struct thc63lvd827 {
-+	struct device *dev;
-+	struct drm_bridge bridge;
-+	struct drm_bridge *next_bridge;
-+
-+	struct gpio_desc *map_gpio;
-+	struct gpio_desc *mode_gpio;
-+	struct gpio_desc *b6b8_gpio;
-+	struct gpio_desc *pd_gpio;
-+
-+	struct drm_bridge_timings timings;
-+};
-+
-+static struct thc63lvd827 *bridge_to_thc63lvd827(struct drm_bridge *bridge)
-+{
-+	return container_of(bridge, struct thc63lvd827, bridge);
-+}
-+
-+static int thc63lvd827_attach(struct drm_bridge *bridge,
-+			      struct drm_encoder *encoder,
-+			      enum drm_bridge_attach_flags flags)
-+{
-+	struct thc63lvd827 *thc63lvd827 = bridge_to_thc63lvd827(bridge);
-+
-+	return drm_bridge_attach(encoder, thc63lvd827->next_bridge, bridge, flags);
-+}
-+
-+static u32 *
-+thc63lvd827_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+				      struct drm_bridge_state *bridge_state,
-+				      struct drm_crtc_state *crtc_state,
-+				      struct drm_connector_state *conn_state,
-+				      u32 output_fmt,
-+				      unsigned int *num_input_fmts)
-+{
-+	u32 *input_fmts;
-+
-+	*num_input_fmts = 0;
-+
-+	input_fmts = kmalloc_obj(*input_fmts);
-+	if (!input_fmts)
-+		return NULL;
-+
-+	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-+	*num_input_fmts = 1;
-+
-+	return input_fmts;
-+}
-+
-+static void thc63lvd827_atomic_pre_enable(struct drm_bridge *bridge,
-+					  struct drm_atomic_commit *state)
-+{
-+	struct thc63lvd827 *thc63lvd827 = bridge_to_thc63lvd827(bridge);
-+	const struct drm_bridge_state *bridge_state;
-+	int b6b8_val, map_val;
-+
-+	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+
-+	/*
-+	 * 6B/8B: H = 6-bit (21-bit) mode, L = 8-bit (27-bit) mode.
-+	 * MAP: H = Mapping Mode 1, L = Mapping Mode 2.
-+	 */
-+	switch (bridge_state->output_bus_cfg.format) {
-+	case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
-+		b6b8_val = 1;
-+		map_val = 1;
-+		break;
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
-+		b6b8_val = 0;
-+		map_val = 1;
-+		break;
-+	default:
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
-+		b6b8_val = 0;
-+		map_val = 0;
-+		break;
-+	}
-+
-+	gpiod_set_value_cansleep(thc63lvd827->b6b8_gpio, b6b8_val);
-+	gpiod_set_value_cansleep(thc63lvd827->map_gpio, map_val);
-+	gpiod_set_value_cansleep(thc63lvd827->pd_gpio, 0);
-+}
-+
-+static void thc63lvd827_atomic_post_disable(struct drm_bridge *bridge,
-+					    struct drm_atomic_commit *state)
-+{
-+	struct thc63lvd827 *thc63lvd827 = bridge_to_thc63lvd827(bridge);
-+
-+	gpiod_set_value_cansleep(thc63lvd827->pd_gpio, 1);
-+}
-+
-+static const struct drm_bridge_funcs thc63lvd827_bridge_funcs = {
-+	.attach = thc63lvd827_attach,
-+	.atomic_pre_enable = thc63lvd827_atomic_pre_enable,
-+	.atomic_post_disable = thc63lvd827_atomic_post_disable,
-+	.atomic_get_input_bus_fmts = thc63lvd827_atomic_get_input_bus_fmts,
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
-+};
-+
-+static int thc63lvd827_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct thc63lvd827 *thc63lvd827;
-+	struct device_node *ep;
-+	u32 pclk_sample = 0;
-+
-+	thc63lvd827 = devm_drm_bridge_alloc(dev, struct thc63lvd827, bridge,
-+					    &thc63lvd827_bridge_funcs);
-+	if (IS_ERR(thc63lvd827))
-+		return PTR_ERR(thc63lvd827);
-+
-+	thc63lvd827->dev = dev;
-+
-+	thc63lvd827->map_gpio = devm_gpiod_get_optional(dev, "map", GPIOD_OUT_LOW);
-+	if (IS_ERR(thc63lvd827->map_gpio))
-+		return dev_err_probe(dev, PTR_ERR(thc63lvd827->map_gpio),
-+				     "failed to get MAP GPIO\n");
-+
-+	thc63lvd827->mode_gpio = devm_gpiod_get_optional(dev, "mode", GPIOD_OUT_HIGH);
-+	if (IS_ERR(thc63lvd827->mode_gpio))
-+		return dev_err_probe(dev, PTR_ERR(thc63lvd827->mode_gpio),
-+				     "failed to get MODE GPIO\n");
-+
-+	thc63lvd827->b6b8_gpio = devm_gpiod_get_optional(dev, "b6b8", GPIOD_OUT_LOW);
-+	if (IS_ERR(thc63lvd827->b6b8_gpio))
-+		return dev_err_probe(dev, PTR_ERR(thc63lvd827->b6b8_gpio),
-+				     "failed to get 6B/8B GPIO\n");
-+
-+	thc63lvd827->pd_gpio = devm_gpiod_get_optional(dev, "powerdown", GPIOD_OUT_HIGH);
-+	if (IS_ERR(thc63lvd827->pd_gpio))
-+		return dev_err_probe(dev, PTR_ERR(thc63lvd827->pd_gpio),
-+				     "failed to get /PDWN GPIO\n");
-+
-+	thc63lvd827->next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-+	if (IS_ERR(thc63lvd827->next_bridge))
-+		return dev_err_probe(dev, PTR_ERR(thc63lvd827->next_bridge),
-+				     "failed to get downstream bridge\n");
-+
-+	ep = of_graph_get_endpoint_by_regs(dev->of_node, 0, 0);
-+	of_property_read_u32(ep, "pclk-sample", &pclk_sample);
-+	of_node_put(ep);
-+
-+	if (pclk_sample == 1)
-+		thc63lvd827->timings.input_bus_flags = DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE;
-+	else
-+		thc63lvd827->timings.input_bus_flags = DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE;
-+
-+	thc63lvd827->bridge.of_node = dev->of_node;
-+	thc63lvd827->bridge.timings = &thc63lvd827->timings;
-+	thc63lvd827->bridge.type = DRM_MODE_CONNECTOR_LVDS;
-+
-+	platform_set_drvdata(pdev, thc63lvd827);
-+
-+	return devm_drm_bridge_add(dev, &thc63lvd827->bridge);
-+}
-+
-+static const struct of_device_id thc63lvd827_of_match[] = {
-+	{ .compatible = "thine,thc63lvd827" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, thc63lvd827_of_match);
-+
-+static struct platform_driver thc63lvd827_driver = {
-+	.probe = thc63lvd827_probe,
-+	.driver = {
-+		.name = "thc63lvd827",
-+		.of_match_table = thc63lvd827_of_match,
-+	},
-+};
-+module_platform_driver(thc63lvd827_driver);
-+
-+MODULE_DESCRIPTION("THine THC63LVD827 DPI to LVDS bridge driver");
-+MODULE_LICENSE("GPL");
+ S:	Maintained
 -- 
 2.47.3
 
