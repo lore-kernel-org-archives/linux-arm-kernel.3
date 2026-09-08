@@ -4,161 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6E6C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58715C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWwNAX2mUWCs5FzODk/uly2iRuerdONpcs5Tz35srsM=; b=Tfh2W3hjl3IYdB2lsggxLgKEVy
-	emr3ZFqYaipDVCyPf15DBBraVRNhQOL+XYLb8gDocKPTKdcohgv1VWaGhXRwc7e4lTXJQ+RPBqsuk
-	k1ue8uok1MNX/y1Ad3AEf8RgbcJwsoDBv1Y/lxBW0MwxFbOLxurqNuU4tMTIgySqOhdoUiHjZqwBi
-	qyiR8lqjbKWtrQvo5ku6esK6Kx/2IwJY8aqGecmW46wjjD69wymfn3pyTyYQmpMuPZQikOAhQviPN
-	siq/gIOt9tsHMDfqF03paFLKk4O7P9uM7vSK931KtTTwJRKoIco8dIjtforlmMp5VOK0M6AxlFB9e
-	LS7pYJsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGuCtzGET5anBbw5Xv+CQqox4Y/n2eBMToBTWp7iiE8=; b=fQNrMWxHmaqFlW21qcKCVnNFk7
+	79bjEhDlj2viAOEV+BILJDWG+vPK4i5cDjBuzEQU51b/33hNGlwhftRq90c80FfGS8Glc1Vmtj0qr
+	ZbqkRGj5QMYyC9eWwzflrDlAcjxsWo6LjV3Mos//Nc/amQAIPCYuA+HaLXyf6NbWU9tOKNWta/6I8
+	ZwQMICDdXKq9KyKcTPXqLLUOzvNjka1PL9raRW5lhEyqmrThxAKt+K4YzOC0EuYEL3E2Tn866aD2w
+	ZVowvThuQArRNDySSQyU5e1NoUcWJa4Hhp6X3pXWl63rVUekT1/n/D3sKwlYBj1Zi8Gb+r4n9dYT1
+	X5SqG9GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rtM-00000008XEl-2RxQ;
-	Tue, 08 Sep 2026 09:13:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x3ryi-00000008Xjy-0W8R;
+	Tue, 08 Sep 2026 09:18:56 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rtJ-00000008XDr-1XNb
+	id 1x3ryc-00000008Xj2-1i6U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:13:23 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6886M98u1521630
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Sep 2026 09:13:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KWwNAX2mUWCs5FzODk/uly2iRuerdONpcs5Tz35srsM=; b=AkSJ2QlnMd5zFhSx
-	iS0uYsgDfVBP3rqbT6mRixx3ng+7k9pB3MWUSnLkfutt0Cg0vGvJoQjQTBld47tj
-	bagplflc+bng1oQpUvTS5nXy0Cz+d2xD5Yy315ZXNU79DYc9xs8BqI9P+U+cQv34
-	XkSoVvm162JJezqAVWQp8vjwnPtsOnbl1kvlb0gLYhKGrh8KQDWWhVPHBZEYqoXI
-	zvpSR8ID1gk2jpmJE8L1l2GvHzchVJSswoghmWGDVgnKSCyKPMXpt93SN/bzhxRt
-	0INkUdk+66nuJ0OY0bPB1y+/qoxg69B9MLh+FLJ3hs55FOeZedX9V5sqNjgIoLZO
-	sAh9HA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gj077jyaa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 09:13:19 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2db87f759c5so414805ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 02:13:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788858798; x=1789463598; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KWwNAX2mUWCs5FzODk/uly2iRuerdONpcs5Tz35srsM=;
-        b=hCfjs9yfLyfWhWjahxFkC9lkTkaBJI9Fy2BOvsNKdsTBuFVhIu7nknIovxvjuB7THB
-         a/p+IoxIYu5+pznmsZzV0B2rtbo45J9WJ85eDmfBgQ2W0wwCUPjpr8LGbKx2CxYy84Q0
-         HPWVNoJsYgT6f53dnZuWDJQaB3pjYyYfenNvk1YE2TdAUirKPabB0tfjmLKz6w7rfAnm
-         YNXRGi0FNZh/wMjbinSPSjhC9cTqZyMeTQDaHJReri2gS6iuLPUB2cvGakmgSqJaIU1P
-         VZx6ftVeQA600F/+ezZUzWLn4bE9/mla++m8LErVUqLG9iyyxhjofmBaHsQrQR722Zp3
-         TDgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788858798; x=1789463598;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KWwNAX2mUWCs5FzODk/uly2iRuerdONpcs5Tz35srsM=;
-        b=BKKpBSBGdOGdG+LQTrWCvCh7CuvlAFi+bhTgk9lsy6dwrMasqgt6d/c55BHgCczvKh
-         y7HrURdR8tlWuuFIYBVzm/StVDPU2YWio7NmhrzEhp7z7VwzlclLIafkf+1mdEc5Me/P
-         5LCVFu64DVP5stCUgc22Oj8LJ7HufYQjbYHkfRkXVZbbuh8Nltq+sGtiwJ1mG2f4jPUH
-         2G84yHl2JGe7o7rpN4igfi2Mglo23djRY0sgsrDckS4qjwDNZAqIPQguf8rvUBFrgemr
-         TL4HNO/0Fj5pRNMGWVpYXuysLYrYSZKBjlnvfmNTn7rpwMucwfDOFq4IcC8L1snGETpY
-         R+nA==
-X-Forwarded-Encrypted: i=1; AKwUvBziC7EXWNHYbAmm9ecCTm3KpfgQuNoZHSQ7nHSy4iTmtfHRh3+gNv8YQ5aWsTVqzCOD4VnJo3vO6o2AS9NvZy65@lists.infradead.org
-X-Gm-Message-State: AFuF++lPtveQk378iu1FPOX2ccveBbVp4BQNA4U/pIQzDeFc6y6oj0JP
-	b3yugrkT/yE28tA7fro7hy4Z3qDzqlI6TZ+NDeYWhBgWnRf9ZdPDev+YEGEvUDv78TBHWAMrIX/
-	Yx7E6EPWRiKDq5DBs+Q1AZuci5ThtOvikUu/s5hBWxigeFZUagcj+9aUfQxQNvjSuK/8qy7K7OI
-	LHxg==
-X-Gm-Gg: AYBFou0TwhSbB7AFzVt8ArC9GhYlr4boBNNAMv0F+57Vh1RF7O7xEk0DRMmRFlDnX7J
-	tUKAfIJ3Ry7gu/vOojqFkNzfDZYtXDNlwLUbvpaRANayEXlzSWxRtN4/Ug19PHbXLpEIOoxno6l
-	JyCQSR+HlIPt28pzbAmEm5til2S8vCcy807y1blM7hqc+V76ZVIQeAOqUsJfJWQ0YvtzY9b35+d
-	BOn3LKcZEMYT/D724T4t9E+tw3zKTSkWFqixO/1CxO4Saq4LS3/Tem0n51dV2bnrJPYVGQ6QU+p
-	acN8lqKzoS3mDbmMMWqib3uXzJqmwCDzmsLaYoLtL6B6tha7g+6WO5se81oSlC8t+19UtGLKMKs
-	o5TUq593lxNZHCJ+YT4hzKLrYDcD3dhgrjC3kGBUhbbxSTy1vySrcZ4sJEdpx21hAk85sb0Yn
-X-Received: by 2002:a17:903:13c8:b0:2db:56da:6a0e with SMTP id d9443c01a7336-2db56da6ea1mr164573505ad.9.1788858798184;
-        Tue, 08 Sep 2026 02:13:18 -0700 (PDT)
-X-Received: by 2002:a17:903:13c8:b0:2db:56da:6a0e with SMTP id d9443c01a7336-2db56da6ea1mr164572905ad.9.1788858797666;
-        Tue, 08 Sep 2026 02:13:17 -0700 (PDT)
-Received: from [10.133.33.226] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1497d455sm56667045ad.30.2026.09.08.02.13.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Sep 2026 02:13:17 -0700 (PDT)
-Message-ID: <3541a607-0699-4028-8a06-70a5acbdd2b7@oss.qualcomm.com>
-Date: Tue, 8 Sep 2026 17:13:07 +0800
+	Tue, 08 Sep 2026 09:18:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788859131; x=1820395131;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4XFUVkBXXWNtCrmltZWY2bfzfx++GBQY4Y4JJcHBtNU=;
+  b=oDyicgtcwSssKvJKCDpKKEKnNtsgmfLpTe6RSanbkiCwecIayJQmBmiz
+   AKnYLB7cSnu9/1E4ZXklAVOtfu73tK9BgV8vrcHBmnqXEXM0zT8nboTrk
+   2L7m0fN65bcMOZ5bgYSHduCkRsZ84vZG6ml9TmjJNgbaLq0OHC5PL0d1z
+   oIzk2ogX+1asP8TaHHInbrCFroW7/Gsnp3C289p7wzoOsaKDSRT0Otz8v
+   F94HtgJld48ZtdFxge0cZwgY5dBAee5GkS1YeYyjFxUzZW28GN+yEhOJI
+   6cA8BVgK0jF3PgnqWNvZh/Zfukvs2gEWVLeGHHWAWQJEy7x4nL28ja+GI
+   A==;
+X-CSE-ConnectionGUID: EmLRslGpQdqhUbQLW0A+Pg==
+X-CSE-MsgGUID: szUwe8HzT9unbVKiV+WC2A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="106770558"
+X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
+   d="scan'208";a="106770558"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 02:18:50 -0700
+X-CSE-ConnectionGUID: r/SOp+HQT8yhbtGrBvrTEQ==
+X-CSE-MsgGUID: Vt6yChxtRMmhxBGIChAyNg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
+   d="scan'208";a="269204293"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa006.jf.intel.com with ESMTP; 08 Sep 2026 02:18:45 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 72B2499; Tue, 08 Sep 2026 11:18:44 +0200 (CEST)
+Date: Tue, 8 Sep 2026 11:18:44 +0200
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 19/22] thunderbolt: Add Apple Silicon support
+Message-ID: <20260908091844.GD106095@black.igk.intel.com>
+References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+ <20260906-b4-apple-soc-tbt-v2-19-1f80085f93fb@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] drm/msm/dp: Add MSM Type-C MST support
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov
- <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
-Content-Language: en-US
-From: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-In-Reply-To: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDA5NiBTYWx0ZWRfX3m0yZimo84WF
- /9juipv+XEE+H4hvP4J7aViEP0YVtWZhTspZrzAh9hixCQsVVd6mO7lwi7YClttmHuF+d/iZsGH
- lJMtfJHOX668uqbzoW4YUGCLXU9jopndib+eHiCr4TOs8W0UySDpwQPjIyTtqzSA8FMo/a97opu
- oaFbAOPDlTD/zlB6hzlrEswsu75vOj5zfmSMILgLYMhxKdRuKt9wuJEjaa4X5fY73BKbf3lLxOf
- Kz5eauVWVa4nyFJHLXPlPlVWygYk8piTomnL8EMRfoPdcYYDqJ18ChDTCxDMa7g2thYZ3jp+HU1
- jumZUgGazoaOUdJRw9uBzntXVAQatuW/bWhsjp/TSKy34RYucB1i/WmhwS02trL/qq+rO1q2T/t
- LNsCC/esGuhUHoOTbxz/uusWzTLPaDcgv4K7CnlWIQ6ci/jq5rMh+qVHAJkLTzyFobU+vR5jE3C
- RvF+7nMLDldY37fOMNA==
-X-Authority-Analysis: v=2.4 cv=Xbe5Co55 c=1 sm=1 tr=0 ts=6a9fd1af cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=e5mUnYsNAAAA:8 a=daqqUZpfhLtBxDMUUs8A:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-ORIG-GUID: I7oT_KKMGyjurULwU-_2A3K7y8iw5TtC
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDA5NiBTYWx0ZWRfX8JyOMh2VL4QQ
- F47TWh3CADDt/sxuBA5WWxxDdP7agSgMu+ygRFuMd7a6wZVUsJqDjhoCbl9D303/9BCmN8rAf1A
- Wc2kHqplePBE2F4mhhunnHD+K96nHXY=
-X-Proofpoint-GUID: I7oT_KKMGyjurULwU-_2A3K7y8iw5TtC
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_01,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
- suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080096
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260906-b4-apple-soc-tbt-v2-19-1f80085f93fb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_021321_540162_4E2DDB34 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20260908_021850_550976_D23033E3 
+X-CRM114-Status: GOOD (  43.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,141 +97,1426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-
-On 6/29/2026 10:48 PM, Yongxing Mou wrote:
-> The bridge connector framework currently treats every HPD notification
-> as a connector state update and emits a userspace hotplug event.
-> Once MST is enabled, however, connector creation, removal and hotplug
-> handling are already managed by the DRM DP MST topology manager.
+On Sun, Sep 06, 2026 at 08:36:42PM +0200, Sven Peter wrote:
+> Add a platform driver for the ACIO host router complex and Native Host
+> Interface (NHI) found on Apple Silicon SoCs.
 > 
-> As a result:
+> The driver registers notifications for Thunderbolt and USB4 partner modes
+> on the Type-C bus and derives the cable details from the Thunderbolt VDOs
+> or USB4 EUDO.
 > 
->    - the SST connector may transiently transition between connected and
->      disconnected during MST initialization
+> After powering up ACIO, the driver boots its RTKit co-processor and
+> populates the DART and NHI child devices once their MMIO regions become
+> accessible. It then registers the NHI with the software connection
+> manager and forwards the cable details to the host router.
 > 
->    - MST IRQ notifications may generate duplicate userspace hotplug
->      events, once from the bridge connector layer and once from the MST
->      topology manager
+> The Apple NHI uses one interrupt per ring and overrides the generic ring
+> register accessors, interrupt handling and ring configuration. It also
+> uses the OF graph connection between the USB3 adapter and the DWC3
+> controller to create the device link required to restore tunnels before
+> USB resumes. As of this commit only XDomain connections and
+> USB3-via-USB4 tunnels are supported.
 > 
-> Introduce explicit support for IRQ-only HPD notifications in the bridge
-> connector framework and allow bridge drivers to suppress connector
-> hotplug events when those events are already handled elsewhere.
-> 
-> MSM DP uses these mechanisms to integrate Type-C MST hubs without
-> generating duplicate or spurious userspace hotplug notifications.
-> 
-> Testing
-> -------
-> Tested on Hamoa-EVK with a Type-C MST hub and dual-monitor setup.
-> Both fbcon and Weston were exercised. No duplicate hotplug events,
-> connector state oscillation or display flickering were observed after
-> hub attachment.
-> 
-> Dependencies
-> ------------
-> This patch series was made on top of:
-> 
-> [1] drm: handle IRQ_HPD events correctly (v4)
->      https://lore.kernel.org/r/20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com
-> 
-Hi, Gentle ping on the IRQ HPD series. I'd like to understand whether 
-the next version of this series is expected to separate the IRQ 
-interfaces or continue with the current design.
-> [2] drm/msm/dp: Add MST support for MSM chipsets (v5)
->      https://patchwork.freedesktop.org/series/142207/#rev5
-> 
-> [3] drm/msm/dp: Prerequisite cleanup for upcoming MST support (v7)
->      https://lore.kernel.org/r/20260609-dp_mstclean-v7-0-ea04113e8233@oss.qualcomm.com
-> 
-> Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+> Signed-off-by: Sven Peter <sven@kernel.org>
 > ---
-> Yongxing Mou (5):
->        drm/bridge: allow hpd_notify() to suppress connector hotplug events
->        drm/bridge_connector: preserve connector status for IRQ-only HPD events
->        drm/msm/dp: suppress bridge hotplug events during MST operation
->        drm/msm/dp: report IRQ_HPD as an IRQ-only notification
->        drm/msm/dp: mark the SST connector disconnected when MST is enabled
+>  MAINTAINERS                  |    1 +
+>  drivers/thunderbolt/Kconfig  |   13 +
+>  drivers/thunderbolt/Makefile |    3 +
+>  drivers/thunderbolt/apple.c  | 1277 ++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 1294 insertions(+)
 > 
->   drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 +-
->   drivers/gpu/drm/display/drm_bridge_connector.c | 31 ++++++++++++++++-----
->   drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 +-
->   drivers/gpu/drm/msm/dp/dp_display.c            | 38 +++++++++++++++-----------
->   drivers/gpu/drm/msm/dp/dp_drm.h                |  3 +-
->   drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 +-
->   drivers/soc/qcom/pmic_glink_altmode.c          | 14 ++++++----
->   include/drm/drm_bridge.h                       |  3 +-
->   8 files changed, 65 insertions(+), 33 deletions(-)
-> ---
-> base-commit: e7d700e14934e68f86338c5610cf2ae76798b663
-> change-id: 20260629-msm-dp-msttypec-b420df7da587
-> prerequisite-message-id: <20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com>
-> prerequisite-patch-id: adc6d802a2f71d23c077a5cdb9a257809e9db50e
-> prerequisite-patch-id: bbd956a3b65a90c1fe9e884bc32c49bd83fd3129
-> prerequisite-patch-id: 014460a25c380d089764ab4e1a58577ebc1b9e71
-> prerequisite-patch-id: fc03fb9435b8c60321f9ae28e396a6bff2f347ae
-> prerequisite-patch-id: cd4cd57a72c798fc95afdfdeb9b81cc7a2dbd25d
-> prerequisite-patch-id: fe431fb614383eb6444f6bfb928e7e40c2de951e
-> prerequisite-patch-id: 2a058aa8309016f424b1d4ca19a9b20e92f4d8b6
-> prerequisite-patch-id: 64c3616bb979b663a01342d1f217588b347ae8bb
-> prerequisite-change-id: 20260410-msm-dp-mst-35130b6e8b84:v5
-> prerequisite-patch-id: 1d440cb9fed2bdd66d8de0e1e20475f0fe166973
-> prerequisite-patch-id: be0f4b80697df7224c80362b161b8a9f0a542184
-> prerequisite-patch-id: eefa6e6353df301420feae1da704a9db2c2155f2
-> prerequisite-patch-id: 9e9095f82dd6c131c9f3c1de4fdb8a62bd65ca24
-> prerequisite-patch-id: 3e635f008f9b56823101abd9253905f078fcb3b5
-> prerequisite-patch-id: e39e0dc124ed043c7a419610ebe03ad105da27db
-> prerequisite-patch-id: 945af39213cd4241e1a5929fada04a9286aeb5db
-> prerequisite-patch-id: 898ae7e4582a6b31492c223e7dd167fb9ce78096
-> prerequisite-patch-id: 3887553893357c1ffbda99eb010801bc2166cbad
-> prerequisite-patch-id: 7ccd961fa3c6f925659dee7d7a5bd167c8e7331b
-> prerequisite-patch-id: be2bf918e0e87ec2ea999927f36bd172c498748e
-> prerequisite-patch-id: 6aacdabb2dd0536dc04da04f8419ae39e35f8b19
-> prerequisite-patch-id: a9f27eff8f643ff445810b17d670891928f5b416
-> prerequisite-patch-id: efd300a2b52715153b8c1c7407db696eb331594b
-> prerequisite-patch-id: 950abefc4862050ef606404977fd27c5dd2cbb2b
-> prerequisite-patch-id: c6a9aaba753b5538864f7f6e065d910833baec21
-> prerequisite-patch-id: c73c1f6eb16b2a6ff11b20495fa0981683bdaaee
-> prerequisite-patch-id: 94957394b3870ec63ab766d682df592da978dd19
-> prerequisite-patch-id: f27cba0cf5f08d21f59f29a0c9ed7f197ddfa2c7
-> prerequisite-patch-id: 683855949a9ed37bc0cc4d1899373e55eac4ddc3
-> prerequisite-patch-id: 9b3a2b526476c32c8a859824e551e23412674766
-> prerequisite-patch-id: be866cf2acd4960f31f0dbd05e21f0722dcb70ab
-> prerequisite-patch-id: 58bd115be590c0d892a72e06794f5b244dbdb7f8
-> prerequisite-patch-id: 87435a0f6827516f4e2b5d8471a2b289bb73a88c
-> prerequisite-patch-id: 1064db7111fc77377dbf246eb0fdef90c18c46ee
-> prerequisite-patch-id: e112aaf6088f2bfa90bc67feaac86a4fc1ad23ca
-> prerequisite-patch-id: fcc0f2ee6dc0358d62593c1295d26a013fa11223
-> prerequisite-patch-id: 66364b8806fc6abeabe1a0b871e4e8c841ce2aa7
-> prerequisite-patch-id: 243046f52a14b416caead3469d580ea5b029f9bb
-> prerequisite-patch-id: efd8014f647a6aa5fadc9d62a6e1920d76a6c80f
-> prerequisite-patch-id: f4dbd5ae84a01ea89c7d00ca39fd76cd247bc353
-> prerequisite-patch-id: 30a16a45edefc8769b10d90a7807b6522cd31f15
-> prerequisite-patch-id: e12fd2908ca33de1f1265fd40190eaad8637e569
-> prerequisite-patch-id: 3baac076fdda664d00aa9a83481f76ec38c07e8a
-> prerequisite-patch-id: ee6a93ffa2d5461ee7b07929ff21626a14773b7a
-> prerequisite-patch-id: c8d444e2a6512f106da2675d4a42a92208d5c6f1
-> prerequisite-patch-id: 0491a69feb036cfa2e75401e093ebad387cf2846
-> prerequisite-patch-id: 707e7a3e5114c86f5bcc0b36e7cc8beb0c957780
-> prerequisite-patch-id: b1ae90d73bd7c3d19cfe4371b5dc9a816f1316a6
-> prerequisite-patch-id: 4c183b8ffd599169c8d3c5f3aad5ecc467b150f2
-> prerequisite-message-id: <20260609-dp_mstclean-v7-0-ea04113e8233@oss.qualcomm.com>
-> prerequisite-patch-id: 1d440cb9fed2bdd66d8de0e1e20475f0fe166973
-> prerequisite-patch-id: be0f4b80697df7224c80362b161b8a9f0a542184
-> prerequisite-patch-id: eefa6e6353df301420feae1da704a9db2c2155f2
-> prerequisite-patch-id: 9e9095f82dd6c131c9f3c1de4fdb8a62bd65ca24
-> prerequisite-patch-id: 3e635f008f9b56823101abd9253905f078fcb3b5
-> prerequisite-patch-id: e39e0dc124ed043c7a419610ebe03ad105da27db
-> prerequisite-patch-id: 945af39213cd4241e1a5929fada04a9286aeb5db
-> prerequisite-patch-id: 898ae7e4582a6b31492c223e7dd167fb9ce78096
-> prerequisite-patch-id: 3887553893357c1ffbda99eb010801bc2166cbad
-> prerequisite-patch-id: 7ccd961fa3c6f925659dee7d7a5bd167c8e7331b
-> prerequisite-patch-id: be2bf918e0e87ec2ea999927f36bd172c498748e
-> prerequisite-patch-id: 6aacdabb2dd0536dc04da04f8419ae39e35f8b19
-> prerequisite-patch-id: a9f27eff8f643ff445810b17d670891928f5b416
-> prerequisite-patch-id: efd300a2b52715153b8c1c7407db696eb331594b
-> prerequisite-patch-id: 950abefc4862050ef606404977fd27c5dd2cbb2b
-> 
-> Best regards,
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 406cf664dedc..a0ddea98813c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2692,6 +2692,7 @@ F:	drivers/rtc/rtc-macsmc.c
+>  F:	drivers/soc/apple/*
+>  F:	drivers/spi/spi-apple.c
+>  F:	drivers/spmi/spmi-apple-controller.c
+> +F:	drivers/thunderbolt/apple.c
+>  F:	drivers/usb/dwc3/dwc3-apple.c
+>  F:	drivers/video/backlight/apple_dwi_bl.c
+>  F:	drivers/watchdog/apple_wdt.c
+> diff --git a/drivers/thunderbolt/Kconfig b/drivers/thunderbolt/Kconfig
+> index 294b3227a545..d9fbe3a0dc3f 100644
+> --- a/drivers/thunderbolt/Kconfig
+> +++ b/drivers/thunderbolt/Kconfig
+> @@ -75,4 +75,17 @@ config USB4_STREAM
+>  	  To compile this driver a module, choose M here. The module will be
+>  	  called thunderbolt_stream.
+>  
+> +config USB4_APPLE_SOC
+> +	tristate "Apple Silicon USB4/Thunderbolt Support"
+> +	depends on ARCH_APPLE || COMPILE_TEST
+> +	depends on OF && APPLE_RTKIT
+> +	depends on TYPEC
+> +	select APPLE_TUNABLE
+> +	help
+> +	  Say Y here to add support for the USB4 and Thunderbolt host
+> +	  routers found on Apple Silicon machines starting with the M1.
+> +
+> +	  To compile the driver as a module, choose M here. The module
+> +	  will be called thunderbolt_apple.
+> +
+>  endif # USB4
+> diff --git a/drivers/thunderbolt/Makefile b/drivers/thunderbolt/Makefile
+> index beb054c3126b..edcfe58bc8de 100644
+> --- a/drivers/thunderbolt/Makefile
+> +++ b/drivers/thunderbolt/Makefile
+> @@ -16,3 +16,6 @@ obj-$(CONFIG_USB4_DMA_TEST) += thunderbolt_dma_test.o
+>  
+>  thunderbolt_stream-${CONFIG_USB4_STREAM} += stream.o
+>  obj-$(CONFIG_USB4_STREAM) += thunderbolt_stream.o
+> +
+> +obj-$(CONFIG_USB4_APPLE_SOC) += thunderbolt_apple.o
+> +thunderbolt_apple-y := apple.o
+> diff --git a/drivers/thunderbolt/apple.c b/drivers/thunderbolt/apple.c
+> new file mode 100644
+> index 000000000000..f4b16f60701e
+> --- /dev/null
+> +++ b/drivers/thunderbolt/apple.c
+> @@ -0,0 +1,1277 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Apple Silicon USB4 and Thunderbolt driver
+> + * Copyright (c) Sven Peter <sven@kernel.org>
+> + *
+> + * This driver implements the Host Router / ACIO coprocessor as well as the
+> + * Native Host Interface (NHI) as shown in the diagram below.
+> + * The ACIO is a Cortex-M3 coprocessor which handles the Thunderbolt
+> + * protocol and exposes its own hardware blocks like the USB4 Native Host
+> + * Interface (NHI) and its IOMMU to the main SoC bus. The entire block
+> + * can only be brought up after the unified Type-C PHY has been initialized
+> + * to Thunderbolt or USB4 mode and needs an out-of-band notification from
+> + * the Type-C PD driver.
+> + *
+> + * +--------------------+
+> + * |                    |  +--------------------------------------------+
+> + * | Display Controller |  | Host Router / ACIO                         |
+> + * |       dcpext0      |  |             +----------------+             |
+> + * |                    |  |             |     Native     |             |
+> + * +--------+-----------+  |             |      Host      |             |
+> + *          |              |             |    Interface   |             |
+> + *          |              +---------+   +----------------+   +---------+     +--------+
+> + *          |   +--------->| DP IN   |                        | PCIE DN |<--->| APCIEC |
+> + *          v   |          | Adapter |   +----------------+   | Adapter |     +--------+
+> + *    +---------+-+        +---------+   |                |   +---------+
+> + *    | Display   |        |             |  IOMMU / DART  |             |
+> + *    | Crossbar  |        |             |                |   +---------+     +------+
+> + *    +---------+-+        +---------+   +----------------+   | USB3    |<--->| DWC3 |
+> + *          ^   |          | DP IN   |                        | Adapter |     +------+
+> + *          |   +--------->| Adapter |                        +---------+
+> + *          |              +---------+                                  |
+> + *          |              |                                            |
+> + *          |              |                 +----------+               |
+> + * +--------+-----------+  |                 | Type C   |               |
+> + * |                    |  |                 | Adapter  |               |
+> + * | Display Controller |  +-----------------+----------+---------------+
+> + * |       dcpext1      |                     ^       ^
+> + * |                    |                     |       |
+> + * +--------------------+                     |       |
+> + *                                            v       |
+> + *                                 +--------------+   | SBRX/TX
+> + *                                 | Apple Type-C |   |
+> + *                                 |    PHY       |   |
+> + *                                 +--------------+   |
+> + *                                       ^            |
+> + *                                       |            v
+> + *                                       |     +---------+
+> + *                                       +---->| Type C  |
+> + *                                     SSRX/TX | Port    |
+> + *                                             +---------+
+> + *
+> + * ACIO and ATCPHY have strict ordering requirements. When a USB4/Thunderbolt
+> + * connection is requested after a device has been connected the Type-C PD
+> + * driver performs the following sequence:
+> + *
+> + * 1) Configure the PHY for the negotiated mode and orientation through
+> + *    typec_mux_set()
+> + * 2) Mark the negotiated Type-C alternate mode active
+> + * 3) Power up ACIO, boot its RTKit co-processor and apply the tunables
+> + * 4) Probe the DART and NHI children now that their MMIO is accessible from
+> + *    the main SoC bus
+> + * 5) Register the USB4 domain and write the cable details to the host router
+> + *    which brings up the link and starts discovery
+> + *
+> + * ACIO must not be started before the PHY is configured. The child devices
+> + * cannot remain populated while ACIO is powered off because they are part
+> + * of the ACIO block and only exposed to the main SoC bus and will SError
+> + * once ACIO is off. Violating this ordering can panic the kernel with an
+> + * async SError at best and trigger some internal watchdog that will reset
+> + * the entire SoC at worst.
+> + *
+> + * When the cable is disconnected ACIO shutdown and PHY shutdown can happen in
+> + * either order as long as both have been shutdown before the next connection
+> + * is established.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/completion.h>
+> +#include <linux/device/bus.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/notifier.h>
+> +#include <linux/of.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/property.h>
+> +#include <linux/reset.h>
+> +#include <linux/soc/apple/rtkit.h>
+> +#include <linux/soc/apple/tunable.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/types.h>
+> +#include <linux/usb/pd.h>
+> +#include <linux/usb/typec.h>
+> +#include <linux/usb/typec_altmode.h>
+> +#include <linux/usb/typec_tbt.h>
+> +
+> +#include "nhi.h"
+> +#include "tb.h"
+> +
+> +#define APPLE_CIO_M3_CTRL				0x0c
+> +#define APPLE_CIO_M3_CTRL_START				BIT(1)
+> +#define APPLE_CIO_M3_STAT				0xa8
+> +#define APPLE_CIO_M3_STAT_STATE				GENMASK(30, 24)
+> +
+> +#define APPLE_CIO_NHI_HOP_COUNT				0x0
+> +#define APPLE_CIO_NHI_HOP_COUNT_MASK			GENMASK(9, 0)
+> +
+> +#define APPLE_CIO_NHI_TXRING_DESC_BASE			0x10000
+> +#define APPLE_CIO_NHI_RXRING_DESC_BASE			0x80000
+> +#define APPLE_CIO_NHI_RING_STRIDE			0x4000
+> +
+> +#define APPLE_CIO_NHI_PDF_STRIDE			0x4000
+> +
+> +#define APPLE_CIO_USB3_ADAPTER				4
 
+Do you really need to hard-code this? It's not possible to figure out from
+the host router adapters directly?
+
+> +
+> +#define APPLE_CIO_NHI_IRQ_STATUS			0xd0000
+> +#define APPLE_CIO_NHI_IRQ_ENABLE			0xd0010
+> +#define APPLE_CIO_NHI_IRQ_THROTTLE			0xd004c
+> +#define APPLE_CIO_NHI_IRQ_THROTTLE_INTERVAL_MASK	GENMASK(15, 0)
+> +#define APPLE_CIO_NHI_IRQ_THROTTLE_GRANULARITY_NSEC	256
+> +
+> +#define APPLE_CIO_SRAM_IOVA_BASE			0x10000000
+> +
+> +#define APPLE_CIO_NHI_BOOT_TIMEOUT			10000 /* ms */
+> +
+> +/*
+> + * The Apple vendor-specific extended capability contains a cable-information
+> + * word which has to be programmed from the USB4/Thunderbolt details reported
+> + * out-of-band by the Type-C PD controller. It must be programmed into the
+> + * host router before link discovery starts.
+> + */
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO			0x01
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_PRESENT		BIT(0)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_ORIENTATION_REVERSE	BIT(1)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_ACTIVE_CABLE	BIT(2)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_BIDIR_LSRX		BIT(3)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_20_GBPS		BIT(4)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_LEGACY_ADAPTER	BIT(9)
+> +#define TB_VSE_CAP_APPLE_CABLE_INFO_TBT2_3		BIT(10)
+> +
+> +struct apple_cio;
+
+I think you may not need the forward declaration here.
+
+> +struct apple_cio_altmode {
+> +	struct apple_cio *acio;
+> +	struct typec_altmode *altmode;
+> +	struct notifier_block notifier;
+> +};
+> +
+> +/**
+> + * struct apple_cio - Apple Converged I/O block
+> + * @dev: ACIO device
+> + * @np: ACIO device tree node
+> + * @rtk: RTKit instance for the ACIO co-processor
+> + * @rc_base: ACIO root controller registers
+> + * @rc_res: ACIO root controller MMIO resource
+> + * @rc_tunable: Tunable sequence for the ACIO root controller
+> + * @sram_res: ACIO co-processor SRAM resource
+> + * @sram_base: ACIO co-processor SRAM
+> + * @reset: ACIO reset controller
+> + * @pd_list: Power domains used by the ACIO block
+> + * @lock: Serializes cable transitions and ACIO power changes
+> + * @current_cable_info: Cable information currently programmed into ACIO
+> + * @target_cable_info: Cable information requested by the Type-C PD driver
+> + * @nhi_boot_completion: Signals completion of the NHI bringup
+> + * @nhi_boot_status: Status returned by the NHI bringup
+> + * @connector: Type-C connector firmware node linked to this ACIO
+> + * @typec_lock: Serializes Type-C alternate mode attachment and removal
+> + * @typec_notifier: Type-C bus notifier used to discover partner alternate modes
+> + * @tbt_altmode: Thunderbolt partner alternate mode subscription
+
+@tb_altmode if possible
+
+The driver uses "tb" everywhere so that's preferred for consistency.
+
+> + * @usb4_altmode: USB4 partner alternate mode subscription
+> + */
+> +struct apple_cio {
+> +	struct device *dev;
+> +	struct device_node *np;
+> +	struct apple_rtkit *rtk;
+> +	void __iomem *rc_base;
+> +	struct resource *rc_res;
+> +	struct apple_tunable *rc_tunable;
+> +	struct resource *sram_res;
+> +	void __iomem *sram_base;
+> +	struct reset_control *reset;
+> +	struct dev_pm_domain_list *pd_list;
+> +	struct mutex lock;
+> +	u32 current_cable_info;
+> +	u32 target_cable_info;
+> +	struct completion nhi_boot_completion;
+> +	int nhi_boot_status;
+> +	struct fwnode_handle *connector;
+> +	struct mutex typec_lock;
+> +	struct notifier_block typec_notifier;
+> +	struct apple_cio_altmode tbt_altmode;
+> +	struct apple_cio_altmode usb4_altmode;
+> +};
+> +
+> +/**
+> + * struct apple_nhi - Apple Native Host Interface
+> + * @dev: NHI device
+> + * @pdev: NHI platform device
+> + * @np: NHI device tree node
+> + * @acio: Parent ACIO block
+> + * @tb: USB4 domain and software connection manager
+> + * @nhi: NHI struct
+> + * @nhi_base: NHI registers
+> + * @pdf_base: PDF (Protocol Defined Field) configuration registers
+> + * @tx_irqs: Transmit ring interrupts indexed by HopID
+> + * @rx_irqs: Receive ring interrupts indexed by HopID
+> + * @tx_irq_names: Names of the transmit ring interrupts
+> + * @rx_irq_names: Names of the receive ring interrupts
+> + * @nrings: Number of rings in each direction
+> + */
+> +struct apple_nhi {
+> +	struct device *dev;
+> +	struct platform_device *pdev;
+> +	struct device_node *np;
+> +	struct apple_cio *acio;
+> +	struct tb *tb;
+> +	struct tb_nhi nhi;
+> +	void __iomem *nhi_base;
+> +	void __iomem *pdf_base;
+> +	int *tx_irqs;
+> +	int *rx_irqs;
+> +	const char **tx_irq_names;
+> +	const char **rx_irq_names;
+> +	size_t nrings;
+> +};
+> +
+> +#define nhi_to_anhi(nhi_) container_of((nhi_), struct apple_nhi, nhi)
+> +
+> +/**
+> + * apple_cio_rtkit_shmem_setup() - Map an RTKit shared memory buffer
+> + * @cookie: ACIO instance passed to RTKit
+> + * @bfr: RTKit shared memory buffer descriptor
+> + *
+> + * Translate the firmware-provided IOVA into the ACIO SRAM mapping and reject
+> + * buffers that fall outside the reserved SRAM resource.
+> + *
+> + * Return: 0 on success or a negative error code on failure.
+> + */
+> +static int apple_cio_rtkit_shmem_setup(void *cookie, struct apple_rtkit_shmem *bfr)
+> +{
+> +	struct apple_cio *acio = cookie;
+> +	struct resource res = {
+> +		.name = "acio_rtkit_buffer",
+> +		.flags = acio->sram_res->flags,
+> +	};
+> +
+> +	if (!bfr->iova)
+> +		return -EIO;
+> +
+> +	if (bfr->iova < APPLE_CIO_SRAM_IOVA_BASE) {
+> +		dev_err(acio->dev, "firmware requested invalid buffer before SRAM IOVA base 0x%llx\n",
+> +			bfr->iova);
+> +		return -EFAULT;
+> +	}
+> +
+> +	res.start = bfr->iova - APPLE_CIO_SRAM_IOVA_BASE + acio->sram_res->start;
+> +	res.end = res.start + bfr->size - 1;
+> +
+> +	if (res.end < res.start) {
+> +		dev_err(acio->dev, "firmware requested invalid buffer %pR\n", &res);
+> +		return -EFAULT;
+> +	}
+> +
+> +	if (!resource_contains(acio->sram_res, &res)) {
+> +		dev_err(acio->dev, "firmware requested buffer %pR outside SRAM %pR\n", &res,
+> +			acio->sram_res);
+> +		return -EFAULT;
+> +	}
+> +
+> +	bfr->iomem = acio->sram_base + (res.start - acio->sram_res->start);
+> +	bfr->is_mapped = true;
+> +	return 0;
+> +}
+> +
+> +static const struct apple_rtkit_ops apple_cio_rtkit_ops = {
+> +	.shmem_setup = apple_cio_rtkit_shmem_setup,
+> +};
+> +
+> +static int apple_nhi_probe_irqs(struct apple_nhi *anhi)
+> +{
+> +	char name[64];
+
+I think you can move this into the block where it's used.
+
+> +	int nirqs;
+> +
+> +	nirqs = platform_irq_count(anhi->pdev);
+> +	if (nirqs < 0)
+> +		return dev_err_probe(anhi->dev, nirqs, "platform_irq_count failed\n");
+> +	if (!nirqs)
+> +		return dev_err_probe(anhi->dev, -EINVAL, "no interrupts found\n");
+> +	if (nirqs % 2)
+> +		return dev_err_probe(anhi->dev, -EINVAL,
+> +				     "invalid number of interrupts: %d must be even\n",
+> +				     nirqs);
+> +	anhi->nrings = nirqs / 2;
+> +
+> +	anhi->rx_irqs = devm_kcalloc(anhi->dev, anhi->nrings,
+> +				     sizeof(*anhi->rx_irqs), GFP_KERNEL);
+> +	if (!anhi->rx_irqs)
+> +		return -ENOMEM;
+> +	anhi->tx_irqs = devm_kcalloc(anhi->dev, anhi->nrings,
+> +				     sizeof(*anhi->tx_irqs), GFP_KERNEL);
+> +	if (!anhi->tx_irqs)
+> +		return -ENOMEM;
+> +	anhi->rx_irq_names = devm_kcalloc(anhi->dev, anhi->nrings,
+> +					  sizeof(*anhi->rx_irq_names), GFP_KERNEL);
+> +	if (!anhi->rx_irq_names)
+> +		return -ENOMEM;
+> +	anhi->tx_irq_names = devm_kcalloc(anhi->dev, anhi->nrings,
+> +					  sizeof(*anhi->tx_irq_names), GFP_KERNEL);
+> +	if (!anhi->tx_irq_names)
+> +		return -ENOMEM;
+> +
+> +	for (int i = 0; i < anhi->nrings; ++i) {
+> +		snprintf(name, sizeof(name), "rxring%d", i);
+> +		anhi->rx_irqs[i] = platform_get_irq_byname(anhi->pdev, name);
+> +		if (anhi->rx_irqs[i] < 0)
+> +			return anhi->rx_irqs[i];
+> +		anhi->rx_irq_names[i] = devm_kasprintf(anhi->dev, GFP_KERNEL, "%s-%s",
+> +						       dev_name(anhi->dev), name);
+> +		if (!anhi->rx_irq_names[i])
+> +			return -ENOMEM;
+> +
+> +		snprintf(name, sizeof(name), "txring%d", i);
+> +		anhi->tx_irqs[i] = platform_get_irq_byname(anhi->pdev, name);
+> +		if (anhi->tx_irqs[i] < 0)
+> +			return anhi->tx_irqs[i];
+> +		anhi->tx_irq_names[i] = devm_kasprintf(anhi->dev, GFP_KERNEL, "%s-%s",
+> +						       dev_name(anhi->dev), name);
+> +		if (!anhi->tx_irq_names[i])
+> +			return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static unsigned int apple_cio_ring_index(struct tb_ring *ring)
+
+This can take const
+
+> +{
+> +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
+
+And this can be const too.
+
+> +
+> +	if (ring->is_tx)
+> +		return ring->hop;
+> +	else
+
+Drop the else here.
+
+> +		return ring->hop + anhi->nrings;
+> +}
+> +
+> +static void apple_nhi_ring_interrupt_active(struct tb_ring *ring, bool active)
+> +{
+> +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
+> +	unsigned int idx = apple_cio_ring_index(ring);
+> +	u32 reg, interval;
+> +
+> +	lockdep_assert_held(&ring->nhi->lock);
+> +
+> +	if (active && ring->interval_nsec) {
+> +		interval = min_t(u32, ring->interval_nsec,
+> +				 FIELD_MAX(APPLE_CIO_NHI_IRQ_THROTTLE_INTERVAL_MASK) *
+> +				 APPLE_CIO_NHI_IRQ_THROTTLE_GRANULARITY_NSEC);
+> +		interval = DIV_ROUND_UP(interval,
+> +					APPLE_CIO_NHI_IRQ_THROTTLE_GRANULARITY_NSEC);
+> +		writel(interval, anhi->nhi_base + APPLE_CIO_NHI_IRQ_THROTTLE +
+> +				 4 * idx);
+> +	}
+> +
+> +	reg = readl(anhi->nhi_base + APPLE_CIO_NHI_IRQ_ENABLE);
+> +
+> +	if (active)
+> +		reg |= BIT(idx);
+> +	else
+> +		reg &= ~BIT(idx);
+> +
+> +	writel(reg, anhi->nhi_base + APPLE_CIO_NHI_IRQ_ENABLE);
+> +}
+> +
+> +static void apple_nhi_ring_interrupt_mask(struct tb_ring *ring, bool mask)
+> +{
+> +	apple_nhi_ring_interrupt_active(ring, !mask);
+> +}
+> +
+> +static irqreturn_t apple_cio_ring_irq(int irq, void *data)
+> +{
+> +	struct tb_ring *ring = data;
+> +	struct apple_nhi *anhi;
+> +	unsigned int idx;
+> +
+> +	anhi = nhi_to_anhi(ring->nhi);
+> +	idx = apple_cio_ring_index(ring);
+> +
+> +	guard(spinlock)(&ring->nhi->lock);
+> +	guard(spinlock)(&ring->lock);
+> +
+> +	writel(BIT(idx), anhi->nhi_base + APPLE_CIO_NHI_IRQ_STATUS);
+> +	if (!ring->running)
+> +		return IRQ_HANDLED;
+> +
+> +	if (ring->start_poll) {
+> +		apple_nhi_ring_interrupt_mask(ring, true);
+> +		ring->start_poll(ring->poll_data);
+> +	} else {
+> +		schedule_work(&ring->work);
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int apple_nhi_request_irq(struct tb_ring *ring, bool no_suspend)
+> +{
+> +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
+> +	const char *name;
+> +
+> +	if (ring->is_tx) {
+> +		ring->irq = anhi->tx_irqs[ring->hop];
+> +		name = anhi->tx_irq_names[ring->hop];
+> +	} else {
+> +		ring->irq = anhi->rx_irqs[ring->hop];
+> +		name = anhi->rx_irq_names[ring->hop];
+> +	}
+> +
+> +	return devm_request_irq(anhi->dev, ring->irq, apple_cio_ring_irq,
+> +				no_suspend ? IRQF_NO_SUSPEND : 0, name, ring);
+> +}
+> +
+> +static void apple_nhi_release_irq(struct tb_ring *ring)
+> +{
+> +	if (ring->irq <= 0)
+> +		return;
+> +
+> +	devm_free_irq(ring->nhi->dev, ring->irq, ring);
+> +	ring->irq = 0;
+
+I think it reads better if you do
+
+	if (ring->irq > 0)
+		devm_free_irq(ring->nhi->dev, ring->irq, ring);
+	ring->irq = 0;
+
+> +}
+> +
+> +static void __iomem *apple_nhi_ring_desc_base(struct tb_ring *ring)
+> +{
+> +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
+> +	void __iomem *io = anhi->nhi_base;
+> +
+> +	io += ring->hop * APPLE_CIO_NHI_RING_STRIDE;
+> +	io += ring->is_tx ? APPLE_CIO_NHI_TXRING_DESC_BASE :
+> +			    APPLE_CIO_NHI_RXRING_DESC_BASE;
+> +	return io;
+> +}
+> +
+> +static void __iomem *apple_nhi_ring_options_base(struct tb_ring *ring)
+> +{
+> +	return apple_nhi_ring_desc_base(ring) + 0x10;
+
+Here maybe use macro for the 0x10 magic number.
+
+> +}
+> +
+> +static void apple_nhi_ring_configure(struct tb_ring *ring, u32 flags, u32 e2e_flags)
+> +{
+> +	void __iomem *options = apple_nhi_ring_options_base(ring);
+> +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
+> +	u32 sof_eof_mask;
+> +
+> +	lockdep_assert_held(&ring->lock);
+> +
+> +	if (ring->is_tx) {
+> +		/*
+> +		 * All TX rings share what macOS calls a shared buffer with 232 entries. This is how
+> +		 * macOS splits it up, ring 0 only carries control packets and gets the minimum.
+> +		 */
+> +		if (ring->hop == 0)
+> +			writel(2, options + 4);
+> +		else if (ring->hop <= 5)
+> +			writel(40, options + 4);
+> +		else
+> +			writel(5, options + 4);
+
+Any idea what's special with the ring 5? And why the numbers 40 and 5? I
+think they refer intra-domain shared buffers (which is what we are going to
+use for XDomain connections in Linux going forward too).
+
+> +	} else {
+> +		sof_eof_mask = ring->sof_mask << 16 | ring->eof_mask;
+> +		writel(sof_eof_mask, options + 4);
+> +		writel(sof_eof_mask, anhi->pdf_base + ring->hop * APPLE_CIO_NHI_PDF_STRIDE);
+> +	}
+> +
+> +	/*
+> +	 * The firmware samples the ring configuration when the valid bit is set and E2E flow
+> +	 * control never engages when configured afterwards. Write everything at once like macOS.
+> +	 */
+> +	writel(flags | e2e_flags, options);
+> +}
+> +
+> +static bool apple_nhi_add_links(struct tb_nhi *nhi)
+> +{
+> +	struct apple_nhi *anhi = nhi_to_anhi(nhi);
+> +	struct fwnode_handle *endpoint, *remote;
+> +	struct device_link *link;
+> +	struct device *consumer;
+> +
+> +	endpoint = fwnode_graph_get_endpoint_by_id(dev_fwnode(anhi->acio->dev),
+> +						   APPLE_CIO_USB3_ADAPTER, 0, 0);
+
+Okay they have the power contract as part of the DT description that's
+good. I just worry that if they change the USB3 Gen X adapter place this
+will break.
+
+Do you have a snippet what it looks like in DT description?
+
+(I'm still in progress to setup Asahi tethered boot on my m1 mac so cannot
+check it at the moment).
+
+> +	if (!endpoint)
+> +		return false;
+> +
+> +	remote = fwnode_graph_get_remote_port_parent(endpoint);
+> +	fwnode_handle_put(endpoint);
+> +	if (!remote)
+> +		return false;
+> +
+> +	consumer = bus_find_device_by_fwnode(&platform_bus_type, remote);
+> +	fwnode_handle_put(remote);
+> +	if (!consumer)
+> +		return false;
+> +
+> +	link = device_link_add(consumer, nhi->dev,
+> +			       DL_FLAG_AUTOREMOVE_SUPPLIER |
+> +			       DL_FLAG_PM_RUNTIME);
+> +	if (link)
+> +		dev_dbg(nhi->dev, "created link from %s\n", dev_name(consumer));
+> +	else
+> +		dev_warn(nhi->dev, "device link creation from %s failed\n",
+> +			 dev_name(consumer));
+> +
+> +	put_device(consumer);
+> +
+> +	return !!link;
+> +}
+> +
+> +static const struct tb_nhi_ops apple_nhi_ops = {
+> +	.request_ring_irq = apple_nhi_request_irq,
+> +	.release_ring_irq = apple_nhi_release_irq,
+> +	.ring_desc_base = apple_nhi_ring_desc_base,
+> +	.ring_options_base = apple_nhi_ring_options_base,
+> +	.ring_interrupt_active = apple_nhi_ring_interrupt_active,
+> +	.ring_interrupt_mask = apple_nhi_ring_interrupt_mask,
+> +	.ring_configure = apple_nhi_ring_configure,
+> +	.add_links = apple_nhi_add_links,
+> +};
+> +
+> +static int apple_nhi_probe(struct platform_device *pdev)
+> +{
+> +	struct apple_cio *acio = dev_get_drvdata(pdev->dev.parent);
+> +	struct apple_tunable *tunable;
+> +	struct apple_nhi *anhi;
+> +	struct resource *res;
+> +	int ret = 0;
+> +
+> +	anhi = devm_kzalloc(&pdev->dev, sizeof(*anhi), GFP_KERNEL);
+> +	if (!anhi) {
+> +		ret = -ENOMEM;
+> +		goto err;
+> +	}
+> +
+> +	anhi->pdev = pdev;
+> +	anhi->dev = &pdev->dev;
+> +	anhi->np = pdev->dev.of_node;
+> +	anhi->acio = acio;
+> +	platform_set_drvdata(pdev, anhi);
+> +
+> +	/*
+> +	 * Only 42 bits seem to be wired up for the IOVA space but this may be further
+> +	 * limited by the IOMMU's capabilities.
+> +	 */
+> +	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(42));
+> +	if (ret)
+> +		goto err;
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "nhi");
+> +	anhi->nhi_base = devm_ioremap_resource(&pdev->dev, res);
+> +	if (IS_ERR(anhi->nhi_base)) {
+> +		ret = dev_err_probe(&pdev->dev, PTR_ERR(anhi->nhi_base),
+> +				    "unable to map NHI regs\n");
+> +		goto err;
+> +	}
+> +	tunable = devm_apple_tunable_parse(&pdev->dev, anhi->np, "apple,tunable-nhi", res);
+> +	if (IS_ERR(tunable)) {
+> +		ret = dev_err_probe(&pdev->dev, PTR_ERR(tunable),
+> +				    "unable to load NHI tunable\n");
+> +		goto err;
+> +	}
+> +	apple_tunable_apply(anhi->nhi_base, tunable);
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "pdf");
+> +	anhi->pdf_base = devm_ioremap_resource(&pdev->dev, res);
+> +	if (IS_ERR(anhi->pdf_base)) {
+> +		ret = dev_err_probe(&pdev->dev, PTR_ERR(anhi->pdf_base),
+> +				    "unable to map PDF regs\n");
+> +		goto err;
+> +	}
+> +
+> +	ret = apple_nhi_probe_irqs(anhi);
+> +	if (ret)
+> +		goto err;
+> +
+> +	spin_lock_init(&anhi->nhi.lock);
+> +	/* DMA transactions on this platform always go through a DART IOMMU. */
+> +	anhi->nhi.iommu_dma_protection = true;
+> +	anhi->nhi.ops = &apple_nhi_ops;
+> +	anhi->nhi.iobase = anhi->nhi_base;
+> +	anhi->nhi.hop_count = readl(anhi->nhi_base + APPLE_CIO_NHI_HOP_COUNT) &
+> +			      APPLE_CIO_NHI_HOP_COUNT_MASK;
+> +	if (anhi->nhi.hop_count != anhi->nrings) {
+> +		ret = dev_err_probe(anhi->dev, -EINVAL,
+> +				    "ring IRQs (%zd) != HOP_COUNT (%d)\n",
+> +				    anhi->nrings, anhi->nhi.hop_count);
+> +		goto err;
+> +	}
+> +
+> +	anhi->nhi.tx_rings = devm_kcalloc(&pdev->dev, anhi->nhi.hop_count,
+> +					  sizeof(*anhi->nhi.tx_rings), GFP_KERNEL);
+> +	anhi->nhi.rx_rings = devm_kcalloc(&pdev->dev, anhi->nhi.hop_count,
+> +					  sizeof(*anhi->nhi.rx_rings), GFP_KERNEL);
+> +	if (!anhi->nhi.tx_rings || !anhi->nhi.rx_rings) {
+> +		ret = -ENOMEM;
+> +		goto err;
+> +	}
+> +
+> +	anhi->nhi.dev = &pdev->dev;
+> +	init_completion(&anhi->nhi.domain_released);
+> +	anhi->tb = tb_probe(&anhi->nhi);
+> +	if (!anhi->tb) {
+> +		ret = dev_err_probe(anhi->dev, -ENODEV,
+> +				    "failed to init software connection manager\n");
+> +		goto err;
+> +	}
+> +
+> +	ret = tb_domain_add(anhi->tb, false);
+> +	if (ret) {
+> +		dev_err_probe(anhi->dev, ret, "failed to add domain\n");
+> +		tb_domain_put(anhi->tb);
+> +		wait_for_completion(&anhi->nhi.domain_released);
+> +		goto err;
+> +	}
+> +
+> +	mutex_lock(&anhi->tb->lock);
+> +
+> +	if (!anhi->tb->root_switch->drom) {
+> +		dev_err(anhi->dev, "no valid host DROM in the device tree\n");
+> +		ret = -EINVAL;
+> +		goto err_unlock_tb_domain;
+> +	}
+> +
+> +	if (!anhi->tb->root_switch->cap_vsec_apple) {
+> +		dev_err(anhi->dev, "unable to find VSE Apple capability\n");
+
+Maybe "missing Apple VSE capability" or so because finding was already
+done.
+
+> +		ret = -ENODEV;
+> +		goto err_unlock_tb_domain;
+> +	}
+> +
+> +	ret = tb_sw_write(anhi->tb->root_switch, &acio->target_cable_info, TB_CFG_SWITCH,
+> +			  anhi->tb->root_switch->cap_vsec_apple +
+> +			  TB_VSE_CAP_APPLE_CABLE_INFO, 1);
+
+I would prefer if we could keep the USB4 stuff outside of the host
+interface. It should be fine to do this in tb.c based on the capability but
+getting the cable info there is tricky :(
+
+> +	if (ret) {
+> +		dev_warn(anhi->dev, "setting VSE Apple cable info failed: %d\n", ret);
+> +		goto err_unlock_tb_domain;
+> +	}
+> +
+> +	mutex_unlock(&anhi->tb->lock);
+> +
+> +	acio->nhi_boot_status = 0;
+> +	complete(&acio->nhi_boot_completion);
+> +	return 0;
+> +
+> +err_unlock_tb_domain:
+> +	mutex_unlock(&anhi->tb->lock);
+> +	tb_domain_remove(anhi->tb);
+> +	wait_for_completion(&anhi->nhi.domain_released);
+> +err:
+> +	acio->nhi_boot_status = ret;
+> +	complete(&acio->nhi_boot_completion);
+> +
+> +	return ret;
+> +}
+> +
+> +static void apple_nhi_remove(struct platform_device *pdev)
+> +{
+> +	struct apple_nhi *anhi = platform_get_drvdata(pdev);
+> +
+> +	tb_domain_remove(anhi->tb);
+> +	wait_for_completion(&anhi->nhi.domain_released);
+> +}
+> +
+> +static const struct of_device_id apple_nhi_match[] = {
+> +	{
+> +		.compatible = "apple,t8103-usb4-nhi",
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, apple_nhi_match);
+> +
+> +static struct platform_driver apple_nhi_driver = {
+> +	.driver = {
+> +		.name = "thunderbolt-apple-nhi",
+> +		.of_match_table = apple_nhi_match,
+> +	},
+> +	.probe = apple_nhi_probe,
+> +	.remove = apple_nhi_remove,
+> +};
+> +
+> +/**
+> + * apple_cio_stop() - Stop and power down the ACIO block
+> + * @acio: ACIO block to stop
+> + *
+> + * Remove the NHI and DART children before shutting down the co-processor and
+> + * dropping the power-domain links. The caller must hold @acio->lock.
+> + */
+> +static void apple_cio_stop(struct apple_cio *acio)
+> +{
+> +	int ret, i;
+> +
+> +	lockdep_assert_held(&acio->lock);
+> +
+> +	/*
+> +	 * First, shutdown the blocks inside the ACIO block, like the NHI and the IOMMU.
+> +	 * After we shut down the ACIO co-processor we will no longer be able to access
+> +	 * the MMIO space of these so make sure nothing tries to do just that.
+> +	 */
+> +	of_platform_depopulate(acio->dev);
+> +
+> +	/* Try to shut down and power off the co-processor gracefully */
+> +	ret = apple_rtkit_poweroff(acio->rtk);
+> +	if (ret)
+> +		dev_warn(acio->dev,
+> +			 "failed to shutdown M3 RTKit, continuing ACIO shutdown anyway\n");
+> +	apple_rtkit_free(acio->rtk);
+> +
+> +	/* Finally, remove the links to the PD domains to power everything off */
+> +	for (i = 0; i < acio->pd_list->num_pds; i++) {
+> +		if (acio->pd_list->pd_links[i])
+> +			device_link_del(acio->pd_list->pd_links[i]);
+> +		acio->pd_list->pd_links[i] = NULL;
+> +	}
+> +
+> +	acio->current_cable_info = 0;
+> +}
+> +
+> +/**
+> + * apple_cio_start() - Power up and start the ACIO block
+> + * @acio: ACIO block to start
+> + *
+> + * The Type-C PHY must already be configured for USB4 or Thunderbolt. Power up
+> + * ACIO, boot its RTKit co-processor, populate its child devices and wait for
+> + * the NHI to register the USB4 domain. The caller must hold @acio->lock.
+> + *
+> + * Return: 0 on success or a negative error code on failure.
+> + */
+> +static int apple_cio_start(struct apple_cio *acio)
+> +{
+> +	int i, ret;
+> +	u32 state;
+> +
+> +	lockdep_assert_held(&acio->lock);
+> +
+> +	/* Create device links to the power domains in order to power them on */
+> +	for (i = 0; i < acio->pd_list->num_pds; i++) {
+> +		struct device_link *link;
+> +
+> +		link = device_link_add(acio->dev, acio->pd_list->pd_devs[i],
+> +				       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME | DL_FLAG_RPM_ACTIVE);
+> +		if (!link) {
+> +			ret = -ENODEV;
+> +			goto remove_links;
+> +		}
+> +		acio->pd_list->pd_links[i] = link;
+> +	}
+> +
+> +	/*
+> +	 * After the power domains are on we need to signal and wait for the ACIO block
+> +	 * to actually start before we can bring up the co-processor.
+> +	 */
+> +	ret = reset_control_deassert(acio->reset);
+> +	if (ret) {
+> +		dev_err(acio->dev, "ACIO block failed to start: %d\n", ret);
+> +		goto remove_links;
+> +	}
+> +
+> +	/* Start and wait for the co-processor to boot */
+> +	writel(APPLE_CIO_M3_CTRL_START, acio->rc_base + APPLE_CIO_M3_CTRL);
+> +	acio->rtk = apple_rtkit_init(acio->dev, acio, NULL, 0, &apple_cio_rtkit_ops);
+> +	if (IS_ERR(acio->rtk)) {
+> +		ret = PTR_ERR(acio->rtk);
+> +		dev_err(acio->dev, "failed to initialize RTKit: %d\n", ret);
+> +		goto remove_links;
+> +	}
+> +
+> +	ret = apple_rtkit_boot(acio->rtk);
+> +	if (ret) {
+> +		dev_err(acio->dev, "M3 RTKit failed to boot: %d\n", ret);
+> +		goto err_free_rtkit;
+> +	}
+> +
+> +	ret = readl_poll_timeout(acio->rc_base + APPLE_CIO_M3_STAT, state,
+> +				 state & APPLE_CIO_M3_STAT_STATE, 100, 500000);
+> +	if (ret < 0) {
+> +		dev_err(acio->dev, "M3 firmware failed to get ready: %d\n", ret);
+> +		goto err_shutdown_rtkit;
+> +	}
+> +
+> +	apple_tunable_apply(acio->rc_base, acio->rc_tunable);
+> +
+> +	/*
+> +	 * Bring up devices which are part of ACIO and are now accessible by the main SoC
+> +	 * and specifically wait for the NHI to be up to prevent concurrent shutdowns.
+> +	 */
+> +	reinit_completion(&acio->nhi_boot_completion);
+> +	ret = of_platform_populate(acio->np, NULL, NULL, acio->dev);
+> +	if (ret) {
+> +		dev_err(acio->dev, "failed to populate children: %d\n", ret);
+> +		goto err_depopulate;
+> +	}
+> +
+> +	if (!wait_for_completion_timeout(&acio->nhi_boot_completion,
+> +					 msecs_to_jiffies(APPLE_CIO_NHI_BOOT_TIMEOUT))) {
+> +		dev_err(acio->dev, "timed out waiting for the NHI to come up\n");
+> +		ret = -ETIMEDOUT;
+> +		goto err_depopulate;
+> +	}
+> +	if (acio->nhi_boot_status) {
+> +		ret = acio->nhi_boot_status;
+> +		goto err_depopulate;
+> +	}
+> +
+> +	acio->current_cable_info = acio->target_cable_info;
+> +	return 0;
+> +
+> +err_depopulate:
+> +	of_platform_depopulate(acio->dev);
+> +err_shutdown_rtkit:
+> +	/* Ignore errors here since we're about to cut power to the entire block anyway */
+> +	apple_rtkit_poweroff(acio->rtk);
+> +err_free_rtkit:
+> +	apple_rtkit_free(acio->rtk);
+> +remove_links:
+> +	/* Cut power to reset the entire block  */
+> +	for (i = 0; i < acio->pd_list->num_pds; i++) {
+> +		if (acio->pd_list->pd_links[i])
+> +			device_link_del(acio->pd_list->pd_links[i]);
+> +		acio->pd_list->pd_links[i] = NULL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int apple_cio_set_cable_info(struct apple_cio *acio, u32 cable_info)
+> +{
+> +	guard(mutex)(&acio->lock);
+> +
+> +	acio->target_cable_info = cable_info;
+> +	if (acio->target_cable_info == acio->current_cable_info)
+> +		return 0;
+> +
+> +	/*
+> +	 * Transitions between different cables without a shutdown inbetween are invalid and can
+> +	 * only happen when there's a bug inside the Type-C PD driver. If we tried such a
+> +	 * transition, ACIO would crash and then trigger some watchdog that would reset the entire
+> +	 * SoC a few seconds later. Shutting down instead only makes the connected device not work
+> +	 * but we should be able to recover once the next cable is plugged in.
+> +	 */
+> +	if (acio->current_cable_info && acio->target_cable_info) {
+> +		dev_err(acio->dev,
+> +			"invalid cable transition from 0x%x to 0x%x, shutting down instead\n",
+> +			acio->current_cable_info, acio->target_cable_info);
+> +		acio->target_cable_info = 0;
+> +	}
+> +
+> +	/*
+> +	 * Bring up or power down the ACIO block
+> +	 * current_cable_info will be updated in the start/stop functions
+> +	 */
+> +	if (acio->target_cable_info)
+> +		return apple_cio_start(acio);
+> +
+> +	apple_cio_stop(acio);
+> +	return 0;
+> +}
+> +
+> +static int apple_cio_tbt_cable_info(struct apple_cio *acio,
+> +				    struct typec_altmode *altmode, u32 *cable_info)
+> +{
+> +	u32 info = TB_VSE_CAP_APPLE_CABLE_INFO_PRESENT |
+> +		   TB_VSE_CAP_APPLE_CABLE_INFO_TBT2_3;
+> +	enum typec_orientation orientation;
+> +	struct typec_altmode *plug;
+> +	u32 cable_mode;
+> +
+> +	plug = typec_altmode_get_plug(altmode, TYPEC_PLUG_SOP_P);
+> +	if (!plug)
+> +		return -ENODEV;
+> +
+> +	cable_mode = plug->vdo;
+> +	typec_altmode_put_plug(plug);
+> +	orientation = typec_altmode_get_orientation(altmode);
+> +
+> +	if (cable_mode & TBT_CABLE_ACTIVE_PASSIVE) {
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_ACTIVE_CABLE;
+> +		if (!(cable_mode & TBT_CABLE_LINK_TRAINING))
+> +			info |= TB_VSE_CAP_APPLE_CABLE_INFO_BIDIR_LSRX;
+> +	}
+> +	if (TBT_ADAPTER(altmode->vdo))
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_LEGACY_ADAPTER;
+> +	if (TBT_CABLE_SPEED(cable_mode) == TBT_CABLE_10_AND_20GBPS)
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_20_GBPS;
+> +	if (orientation == TYPEC_ORIENTATION_REVERSE)
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_ORIENTATION_REVERSE;
+> +
+> +	dev_dbg(acio->dev,
+> +		"TBT cable: cable mode %#x, device mode %#x, orientation %d -> cable info %#x\n",
+> +		cable_mode, altmode->vdo, orientation, info);
+> +	*cable_info = info;
+> +	return 0;
+> +}
+> +
+> +static int apple_cio_usb4_cable_info(struct apple_cio *acio,
+> +				     struct typec_altmode *altmode, u32 *cable_info)
+> +{
+> +	u32 info = TB_VSE_CAP_APPLE_CABLE_INFO_PRESENT;
+> +	enum typec_orientation orientation;
+> +	u32 eudo = altmode->eudo;
+> +
+> +	if (FIELD_GET(EUDO_USB_MODE_MASK, eudo) != EUDO_USB_MODE_USB4)
+> +		return -EINVAL;
+> +
+> +	orientation = typec_altmode_get_orientation(altmode);
+> +	if (FIELD_GET(EUDO_CABLE_TYPE_MASK, eudo) != EUDO_CABLE_TYPE_PASSIVE)
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_ACTIVE_CABLE;
+> +	if (FIELD_GET(EUDO_CABLE_SPEED_MASK, eudo) == EUDO_CABLE_SPEED_USB4_GEN3)
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_20_GBPS;
+> +	if (orientation == TYPEC_ORIENTATION_REVERSE)
+> +		info |= TB_VSE_CAP_APPLE_CABLE_INFO_ORIENTATION_REVERSE;
+> +
+> +	dev_dbg(acio->dev, "USB4 cable: EUDO %#x, orientation %d -> cable info %#x\n",
+> +		eudo, orientation, info);
+> +	*cable_info = info;
+> +	return 0;
+> +}
+> +
+> +static int apple_cio_altmode_notify(struct notifier_block *nb,
+> +				    unsigned long action, void *data)
+> +{
+> +	struct apple_cio_altmode *subscription;
+> +	struct typec_altmode *altmode = data;
+> +	struct apple_cio *acio;
+> +	u32 cable_info;
+> +	int ret;
+> +
+> +	subscription = container_of(nb, struct apple_cio_altmode, notifier);
+> +	acio = subscription->acio;
+> +
+> +	if (altmode != subscription->altmode)
+> +		return NOTIFY_DONE;
+> +
+> +	switch (action) {
+> +	case TYPEC_ALTMODE_ENTERED:
+> +		if (altmode->mode_kind == TYPEC_MODE_KIND_ALTMODE &&
+> +		    altmode->svid == USB_TYPEC_TBT_SID)
+> +			ret = apple_cio_tbt_cable_info(acio, altmode, &cable_info);
+> +		else if (altmode->mode_kind == TYPEC_MODE_KIND_USB4)
+> +			ret = apple_cio_usb4_cable_info(acio, altmode, &cable_info);
+> +		else
+> +			ret = -EINVAL;
+> +		if (ret) {
+> +			dev_err(acio->dev, "failed to read Type-C cable information: %d\n", ret);
+> +			return NOTIFY_OK;
+> +		}
+> +		break;
+> +	case TYPEC_ALTMODE_EXITED:
+> +		cable_info = 0;
+> +		break;
+> +	default:
+> +		return NOTIFY_DONE;
+> +	}
+> +
+> +	/*
+> +	 * The altmode has already been negotiated and we can't exit it anyway
+> +	 * on Apple Silicon so just warn the we couldn't start but still return
+> +	 * success.
+> +	 */
+> +	ret = apple_cio_set_cable_info(acio, cable_info);
+> +	if (ret)
+> +		dev_warn(acio->dev, "failed to start ACIO: %d\n", ret);
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static struct apple_cio_altmode *
+> +apple_cio_altmode_subscription(struct apple_cio *acio, struct typec_altmode *altmode)
+> +{
+> +	if (altmode->mode_kind == TYPEC_MODE_KIND_ALTMODE &&
+> +	    altmode->svid == USB_TYPEC_TBT_SID)
+> +		return &acio->tbt_altmode;
+> +	if (altmode->mode_kind == TYPEC_MODE_KIND_USB4)
+> +		return &acio->usb4_altmode;
+> +	return NULL;
+> +}
+> +
+> +static bool apple_cio_altmode_matches(struct apple_cio *acio,
+> +				      struct typec_altmode *altmode)
+> +{
+> +	if (!apple_cio_altmode_subscription(acio, altmode))
+> +		return false;
+> +
+> +	return dev_fwnode(altmode->dev.parent->parent) == acio->connector;
+> +}
+> +
+> +static int apple_cio_altmode_attach_locked(struct apple_cio *acio,
+> +					   struct typec_altmode *altmode)
+> +{
+> +	struct apple_cio_altmode *subscription;
+> +	int ret;
+> +
+> +	lockdep_assert_held(&acio->typec_lock);
+> +
+> +	if (!apple_cio_altmode_matches(acio, altmode))
+> +		return 0;
+> +
+> +	subscription = apple_cio_altmode_subscription(acio, altmode);
+> +
+> +	if (subscription->altmode == altmode)
+> +		return 0;
+> +	if (subscription->altmode)
+> +		return -EBUSY;
+> +
+> +	get_device(&altmode->dev);
+> +	subscription->altmode = altmode;
+> +	ret = typec_altmode_register_notifier(altmode, &subscription->notifier);
+> +	if (ret) {
+> +		subscription->altmode = NULL;
+> +		put_device(&altmode->dev);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int apple_cio_altmode_attach(struct apple_cio *acio,
+> +				    struct typec_altmode *altmode)
+> +{
+> +	guard(mutex)(&acio->typec_lock);
+> +
+> +	return apple_cio_altmode_attach_locked(acio, altmode);
+> +}
+> +
+> +static void apple_cio_altmode_detach(struct apple_cio *acio,
+> +				     struct typec_altmode *altmode)
+> +{
+> +	struct apple_cio_altmode *subscription;
+> +	bool active;
+> +
+> +	subscription = apple_cio_altmode_subscription(acio, altmode);
+> +	if (!subscription)
+> +		return;
+> +
+> +	guard(mutex)(&acio->typec_lock);
+> +	if (subscription->altmode != altmode)
+> +		return;
+> +
+> +	active = altmode->active;
+> +	typec_altmode_unregister_notifier(altmode, &subscription->notifier);
+> +	subscription->altmode = NULL;
+> +	if (active)
+> +		apple_cio_set_cable_info(acio, 0);
+> +	put_device(&altmode->dev);
+> +}
+> +
+> +static int apple_cio_typec_notify(struct notifier_block *nb,
+> +				  unsigned long action, void *data)
+> +{
+> +	struct apple_cio *acio = container_of(nb, struct apple_cio, typec_notifier);
+> +	struct typec_altmode *altmode;
+> +	struct device *dev = data;
+> +	int ret;
+> +
+> +	if (!is_typec_partner_altmode(dev))
+> +		return NOTIFY_DONE;
+> +
+> +	altmode = to_typec_altmode(dev);
+> +	switch (action) {
+> +	case BUS_NOTIFY_ADD_DEVICE:
+> +		ret = apple_cio_altmode_attach(acio, altmode);
+> +		if (ret)
+> +			dev_err(acio->dev,
+> +				"failed to register for alternate mode notifications: %d\n", ret);
+> +		break;
+> +	case BUS_NOTIFY_DEL_DEVICE:
+> +	case BUS_NOTIFY_REMOVED_DEVICE:
+> +		apple_cio_altmode_detach(acio, altmode);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static int apple_cio_scan_altmode(struct device *dev, void *data)
+> +{
+> +	if (!is_typec_partner_altmode(dev))
+> +		return 0;
+> +
+> +	return apple_cio_altmode_attach_locked(data, to_typec_altmode(dev));
+> +}
+> +
+> +static void apple_cio_unregister_typec(struct apple_cio *acio)
+> +{
+> +	bus_unregister_notifier(&typec_bus, &acio->typec_notifier);
+> +	if (acio->tbt_altmode.altmode)
+> +		apple_cio_altmode_detach(acio, acio->tbt_altmode.altmode);
+> +	if (acio->usb4_altmode.altmode)
+> +		apple_cio_altmode_detach(acio, acio->usb4_altmode.altmode);
+> +}
+> +
+> +static void apple_cio_put_connector(void *data)
+> +{
+> +	struct apple_cio *acio = data;
+> +
+> +	fwnode_handle_put(acio->connector);
+> +}
+> +
+> +static int apple_cio_probe(struct platform_device *pdev)
+> +{
+> +	struct dev_pm_domain_attach_data pd_data = {
+> +		.pd_flags = PD_FLAG_NO_DEV_LINK,
+> +	};
+> +	struct device *dev = &pdev->dev;
+> +	struct fwnode_handle *endpoint;
+> +	struct apple_cio *acio;
+> +	int ret;
+> +
+> +	acio = devm_kzalloc(dev, sizeof(*acio), GFP_KERNEL);
+> +	if (!acio)
+> +		return -ENOMEM;
+> +	platform_set_drvdata(pdev, acio);
+> +
+> +	ret = devm_mutex_init(dev, &acio->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_mutex_init(dev, &acio->typec_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	init_completion(&acio->nhi_boot_completion);
+> +	acio->dev = &pdev->dev;
+> +	acio->np = dev->of_node;
+> +	acio->typec_notifier.notifier_call = apple_cio_typec_notify;
+> +	acio->tbt_altmode.acio = acio;
+> +	acio->tbt_altmode.notifier.notifier_call = apple_cio_altmode_notify;
+> +	acio->usb4_altmode.acio = acio;
+> +	acio->usb4_altmode.notifier.notifier_call = apple_cio_altmode_notify;
+> +
+> +	endpoint = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 1, 0, 0);
+> +	if (!endpoint)
+> +		return dev_err_probe(dev, -ENODEV, "unable to find Type-C graph endpoint\n");
+> +	acio->connector = fwnode_graph_get_remote_port_parent(endpoint);
+> +	fwnode_handle_put(endpoint);
+> +	if (!acio->connector)
+> +		return dev_err_probe(dev, -ENODEV, "unable to find Type-C connector\n");
+> +	ret = devm_add_action_or_reset(dev, apple_cio_put_connector, acio);
+> +	if (ret)
+> +		return ret;
+> +
+> +	acio->sram_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sram");
+> +	if (!acio->sram_res)
+> +		return dev_err_probe(dev, -EIO, "failed to get SRAM resource\n");
+> +	acio->sram_base = devm_ioremap_resource(dev, acio->sram_res);
+> +	if (IS_ERR(acio->sram_base))
+> +		return dev_err_probe(dev, PTR_ERR(acio->sram_base), "failed to map SRAM\n");
+> +
+> +	acio->rc_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "rc");
+> +	acio->rc_base = devm_ioremap_resource(&pdev->dev, acio->rc_res);
+> +	if (IS_ERR(acio->rc_base))
+> +		return dev_err_probe(dev, PTR_ERR(acio->rc_base), "unable to map rc regs\n");
+> +	acio->rc_tunable =
+> +		devm_apple_tunable_parse(dev, acio->np, "apple,tunable-rc", acio->rc_res);
+> +	if (IS_ERR(acio->rc_tunable))
+> +		return dev_err_probe(dev, PTR_ERR(acio->rc_tunable),
+> +				     "unable to load rc tunable\n");
+> +
+> +	acio->reset = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(acio->reset))
+> +		return dev_err_probe(dev, PTR_ERR(acio->reset), "unable to get CIO reset\n");
+> +
+> +	/*
+> +	 * If there is only a single PM domain listed in the device tree the
+> +	 * platform driver framework will already attach it. Thus, if we find an
+> +	 * already attached PM domain here something's wrong in the device tree
+> +	 * because we expect at least three separate domains that we have to
+> +	 * control manually.
+> +	 */
+> +	if (dev->pm_domain) {
+> +		dev_err(dev, "PM domain already attached, check if the DT lists three domains\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * Find and attach the PM domains but don't power them on yet since we must only
+> +	 * do that after the PHY has already been configured into USB4/Thunderbolt mode.
+> +	 */
+> +	ret = devm_pm_domain_attach_list(dev, &pd_data, &acio->pd_list);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "unable to attach PM domains\n");
+> +	else if (ret < 3)
+> +		return dev_err_probe(dev, -EINVAL, "not enough PM domains\n");
+> +
+> +	ret = bus_register_notifier(&typec_bus, &acio->typec_notifier);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "unable to register Type-C notifier\n");
+> +
+> +	scoped_guard(mutex, &acio->typec_lock) {
+> +		ret = bus_for_each_dev(&typec_bus, NULL, acio, apple_cio_scan_altmode);
+> +	}
+> +	if (ret) {
+> +		apple_cio_unregister_typec(acio);
+> +		return dev_err_probe(dev, ret,
+> +				     "unable to register for alternate modes notifications\n");
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void apple_cio_remove(struct platform_device *pdev)
+> +{
+> +	struct apple_cio *acio = platform_get_drvdata(pdev);
+> +
+> +	apple_cio_unregister_typec(acio);
+> +
+> +	guard(mutex)(&acio->lock);
+> +	if (acio->current_cable_info)
+> +		apple_cio_stop(acio);
+> +}
+> +
+> +static int apple_cio_prepare(struct device *dev)
+> +{
+> +	struct apple_cio *acio = dev_get_drvdata(dev);
+> +
+> +	guard(mutex)(&acio->lock);
+> +
+> +	if (acio->current_cable_info) {
+
+This could use a comment too explaining briefly why.
+
+> +		dev_err(dev, "unable to suspend while a USB4/Thunderbolt connection is active\n");
+> +		return -EBUSY;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops apple_cio_pm_ops = {
+> +	.prepare = apple_cio_prepare,
+> +};
+> +
+> +static const struct of_device_id apple_acio_match[] = {
+> +	{
+> +		.compatible = "apple,t8103-usb4-acio",
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, apple_acio_match);
+> +
+> +static struct platform_driver apple_cio_driver = {
+> +	.driver = {
+> +		.name = "thunderbolt-apple-acio",
+> +		.of_match_table = apple_acio_match,
+> +		.pm = pm_sleep_ptr(&apple_cio_pm_ops),
+> +	},
+> +	.probe = apple_cio_probe,
+> +	.remove = apple_cio_remove,
+> +};
+> +
+> +static struct platform_driver * const apple_cio_drivers[] = {
+> +	&apple_nhi_driver,
+> +	&apple_cio_driver,
+> +};
+> +
+> +static int __init apple_cio_init(void)
+> +{
+> +	return platform_register_drivers(apple_cio_drivers,
+> +					 ARRAY_SIZE(apple_cio_drivers));
+> +}
+> +module_init(apple_cio_init);
+> +
+> +static void __exit apple_cio_exit(void)
+> +{
+> +	platform_unregister_drivers(apple_cio_drivers,
+> +				    ARRAY_SIZE(apple_cio_drivers));
+> +}
+> +module_exit(apple_cio_exit);
+> +
+> +MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Apple Silicon USB4/Thunderbolt driver");
+> 
+> -- 
+> 2.55.0
+> 
 
