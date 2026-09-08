@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF213C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C461C79FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oR8pgGLcBuIzhfz4HFcqTtNs98M/cVbocTsR9l3INVg=; b=r2ulvKWWs4lx5Hw5lvEidhaaDT
-	LXr/FSllfpztlQ4E2IWf+Es51FUP5oI3BWoOTJ6RHdeMb+/AzrfdNwBIjh/VR3KTKemutYxnZFtQP
-	fmRNbScKi2v124365DuUGRQRWWF907kx+IG3pZtPlqJRPydSd65AB5TCN58E5stdNcVDT4SdoHVEq
-	02uS74efr7QCF7qQEYjwyqV1WELiVt1iTuudLvokGDcMIgf+sC7Alc8iiW/qU6jZ3zlH/uxPRK4P0
-	U5Abv72Sb/lk/dhacjmOXJyxJ+ujJzvXaHmmyV3wYuSMeiBcVa/cpvnNZInR4NsIUqumYW/BX3Zkc
-	nnoU4Clg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sShEmy1XuzfNNWN3+4kC09Nfe5OSu2vtRKrpboDP/5I=; b=un9D+v8m575tkIvbPVx/BLcIMH
+	e/124ormjTPQHqTzddirm7cYi9zREv5lE7RjwAD1JZ68PSUAwv6ZzoQpO35vT2ZcX6YHC+olwlaPb
+	Kob6bBGLFCjwRnvep2qv0/69+exZ5ddjCe/O2eMfKvHghSs7yAIsS7hNpEIVobHQ/SF8ukh3seNTw
+	9KPmHewAvLBermZ/J82Hv2Ym8U6rrfVvMo+zOrUmsbBJlhtZfU70qDeKUiYXa9qnKhImd/o51SglI
+	jy1Jg6LqoElcAlpRWPlf48dHlMlLL4yuH71lrGzKFxxKgTbDWeLrFluZRiWBoWOUwfhn/SdQi7/5J
+	tRNw+hgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rpy-00000008WVl-143o;
-	Tue, 08 Sep 2026 09:09:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3rqv-00000008Wln-3YGw;
+	Tue, 08 Sep 2026 09:10:53 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3rpx-00000008WVX-0tRi
+	id 1x3rqr-00000008WjP-3hIX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:09:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BA4060A98;
-	Tue,  8 Sep 2026 09:09:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34EFE1F00A3E;
-	Tue,  8 Sep 2026 09:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788858592;
-	bh=oR8pgGLcBuIzhfz4HFcqTtNs98M/cVbocTsR9l3INVg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PQHiyRbV321a4gha5dyw/SXGD3hcWm+Ld/ziej8ZQDZJvLhdoTjYVbP0WSRj87cvj
-	 tGeP+dvEXt2S7vtw4Y2G0Mx+BzIVE355rYoUB1m+ASIxY15YRwpWVDaUHOSp/5x3iO
-	 cJbntWGmRjTu6PWQChl8X8U9QNHB6nZkMzntOlXtT/81Qlm/ILbegq0BKQKw0D4Enk
-	 CR3MEWnOW0Mz+FHGJVjHXrvl4524sqM9AORSh4PhoQpKoMKaiOxgLABrkTAcbkkovT
-	 RCmGcIuatvjU6yufZS0y3OctsiIVCvhW1jgotF9j9QclO+3HpJZL8ay2mE+fbpnHnD
-	 91s7XMaujeS5A==
-Subject: Re: [PATCH net] net: stmmac: preserve real_num_tx_queues on mqprio
- setup failure
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 0x1207@gmail.com,
- olteanv@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Tue, 08 Sep 2026 09:09:50 +0000
-Message-ID: <178885859069.219967.17905742130775758644@kernel.org>
-In-Reply-To: =?utf-8?q?=3C20260903-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-err?=
- =?utf-8?q?or-path-v1-1-eb171bdd340a=40oss=2Equalcomm=2Ecom=3E?=
-References: =?utf-8?q?=3C20260903-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-erro?=
- =?utf-8?q?r-path-v1-1-eb171bdd340a=40oss=2Equalcomm=2Ecom=3E?=
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 08 Sep 2026 09:10:53 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=sShEmy1XuzfNNWN3+4kC09Nfe5OSu2vtRKrpboDP/5I=;
+	b=AmEyBD5jV7g6LrGvy2qZh3W5SPD/whMxLAr7Bz1vlW98e9Ku/4oTeU37m9gDGfltTLZCDiiEH
+	rweT38ZOn7PffvjnZFeGI6cBf1ikvyEB/AQQ8PJTg/Iwd7/DqHP9u3+evIOgeT1KKEOoHSshTsd
+	js6UCb4Y5BAuAUEDENWwTUA=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hfHv81fr9zLlTC;
+	Tue,  8 Sep 2026 16:59:48 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id E825440586;
+	Tue,  8 Sep 2026 17:10:41 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 8 Sep 2026 17:10:41 +0800
+Message-ID: <a7f78676-4b01-436f-9fef-dbabae849c45@huawei.com>
+Date: Tue, 8 Sep 2026 17:10:40 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/19] arm64: smp: Use generic HOTPLUG_SPLIT_STARTUP
+ machinery for CPU onlining
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
+ Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-12-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164024.17164-12-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_021050_529965_7B0D066E 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,181 +82,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
-- [High] The patch silently changes the semantics of the shared dispatch
-  macro stmmac_fpe_map_preemption_class() in hwif.h from…
-- [Medium] The TC state that the new error path saves and restores
-  (num_tc via stmmac_set_ndev_tcs(), plus prio_tc_map) is immediately…
-
---
-
-net: stmmac: preserve real_num_tx_queues on mqprio setup failure
-
-This reworks tc_setup_dwmac510_mqprio() so that the previous num_tc,
-tc_to_txq and prio_tc_map values are saved and restored on failure instead
-of calling stmmac_reset_tc_mqprio(), and adds a stmmac_set_ndev_tcs()
-helper.  It also switches the stmmac_fpe_map_preemption_class() dispatch
-macro from stmmac_do_void_callback() to stmmac_do_callback().
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index 04dafec021b4..9314bcb85c22 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -494,7 +494,7 @@ struct stmmac_ops {
->  #define stmmac_set_arp_offload(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, mac, set_arp_offload, __args)
->  #define stmmac_fpe_map_preemption_class(__priv, __args...) \
-> -	stmmac_do_void_callback(__priv, mac, fpe_map_preemption_class, __args)
-> +	stmmac_do_callback(__priv, mac, fpe_map_preemption_class, __args)
-
-[Severity: High]
-Should this macro conversion be called out in the commit message, and
-possibly split into its own patch?  It changes the semantics of a shared
-dispatch macro for all of its users, not only for the mqprio path.
-
-stmmac_do_void_callback() forces the result to 0 whenever the op pointer is
-populated, so before this patch the FPE callback return value was discarded
-everywhere.  Two things seem to follow from that.
-
-First, does the bug premise in the commit message hold for the tree the
-Fixes: tag points at?  The message says:
-
-  "In tc_setup_dwmac510_mqprio(), if stmmac_fpe_map_preemption_class()
-   fails after the number of real TX queues has been set to
-   num_tx_queues, the error path calls stmmac_reset_tc_mqprio()"
-
-tc_setup_dwmac510_mqprio() is only reachable through dwmac510_tc_ops, and
-every hwif.c entry that installs dwmac510_tc_ops pairs it with dwmac410_ops,
-dwmac510_ops, dwxgmac210_ops or dwxlgmac2_ops, all of which populate
-.fpe_map_preemption_class.  With the old void dispatch, that call could
-therefore only evaluate to 0, so the described FPE failure path looks
-unreachable before this patch.  The latent problem actually being fixed is
-the swallowed callback error, which the message does not mention.
-
-Second, the same macro is used by tc_taprio_configure():
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:tc_taprio_configure() {
-	...
-	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
-					      qopt->mqprio.preemptible_tcs);
-	if (ret)
-		goto disable;
-	...
-}
-
-That "if (ret)" was dead code and becomes live here.  In
-dwmac5_fpe_map_preemption_class():
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c {
-	...
-		if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
-			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
-			return -EINVAL;
-		}
-	...
-}
-
-tx_sched_algorithm defaults to MTL_TX_ALGORITHM_SP for DT platforms in
-stmmac_platform.c, and the default per-queue weights differ (0x10 + queue),
-so a taprio or mqprio configuration with a preemptible TC owning more than
-one TXQ now gets -EINVAL where it previously returned success with the
-preemption-class register left unprogrammed.
-
-For taprio, the new error also takes the disable label, which clears
-priv->est->enable and reprograms EST, so the schedule that was just
-installed is torn down.  Is that intended for configurations that used to be
-accepted, for example:
-
-  tc qdisc replace dev eth0 root taprio ... queues 2@0 2@2 ... fp E P
-
-Also, the two remaining users that still ignore the now meaningful return
-value, the taprio disable path and stmmac_reset_tc_mqprio(), were not
-updated.  Should they be?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 14cabe76e53e..c99d9b7e26dc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -1250,45 +1274,61 @@ static void stmmac_reset_tc_mqprio(struct net_device *ndev,
->  	err = stmmac_fpe_map_preemption_class(priv, ndev, extack,
->  					      mqprio->preemptible_tcs);
->  	if (err)
-> -		goto err_reset_tc;
-> +		goto error_reset_num_tx_queues;
+在 2026/9/8 0:40, Will Deacon 写道:
+> In preparation for enabling parallel bringup of secondary CPUs on arm64,
+> take the baby step of moving from HOTPLUG_CORE_SYNC_FULL to
+> HOTPLUG_SPLIT_STARTUP.
+> 
+> Rework the cpu_die_early() path to use a private cpumask, otherwise
+> clearing the incoming CPU from the present mask in the 'kick' stage will
+> prevent the hotplug stage machine from progressing and
+> arch_cpuhp_cleanup_kick_cpu() will not be called.
+> 
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/Kconfig           | 2 +-
+>  arch/arm64/include/asm/smp.h | 1 +
+>  arch/arm64/kernel/smp.c      | 9 +++++----
+>  3 files changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 89d1f0f2269c..fd8cf792b7fd 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -230,7 +230,7 @@ config ARM64
+>  	select HAVE_SYSCALL_TRACEPOINTS
+>  	select HAVE_KPROBES
+>  	select HAVE_KRETPROBES
+> -	select HOTPLUG_CORE_SYNC_FULL
+> +	select HOTPLUG_SPLIT_STARTUP
+>  	select HOTPLUG_SMT if HOTPLUG_CPU
+>  	select IRQ_DOMAIN
+>  	select IRQ_FORCED_THREADING
+> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+> index fe343c30d620..7b986a6a765b 100644
+> --- a/arch/arm64/include/asm/smp.h
+> +++ b/arch/arm64/include/asm/smp.h
+> @@ -89,6 +89,7 @@ asmlinkage void secondary_start_kernel(void);
+>  struct secondary_data {
+>  	struct task_struct *task;
+>  	long status;
+> +	cpumask_t cpu_died_early_mask;
+>  };
 >  
->  	return 0;
+>  extern struct secondary_data secondary_data;
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 00362ed6e1ab..c5e9d5d5e003 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -62,7 +62,7 @@
+>   * so we need some other way of telling a new secondary core
+>   * where to place its SVC stack
+>   */
+> -struct secondary_data secondary_data;
+> +struct secondary_data secondary_data = {};
+>  /* Number of CPUs which aren't online, but looping in kernel text. */
+>  static int cpus_stuck_in_kernel;
 >  
-> -err_reset_tc:
-> -	stmmac_reset_tc_mqprio(ndev, extack);
-> +error_reset_num_tx_queues:
-> +	netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues);
-> +error_reset_tc:
-> +	stmmac_set_ndev_tcs(ndev, ndev_ntc, ndev_tc_to_txq);
-> +	for (i = 0; i < ARRAY_SIZE(ndev_prio_tc_map); i++)
-> +		netdev_set_prio_tc_map(ndev, i, ndev_prio_tc_map[i]);
->  
->  	return err;
+> @@ -108,7 +108,7 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+>  	return -EOPNOTSUPP;
 >  }
+>  
+> -int __cpu_up(unsigned int cpu, struct task_struct *idle)
+> +int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
+>  {
+>  	int ret;
+>  
+> @@ -146,6 +146,8 @@ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+>  		cpus_stuck_in_kernel++;
+>  		break;
+>  	case CPU_KILL_ME:
+> +		if (cpumask_test_cpu(cpu, &secondary_data.cpu_died_early_mask))
+> +			set_cpu_present(cpu, false);
 
-[Severity: Medium]
-Can this restore of num_tc, tc_to_txq and prio_tc_map ever be observed?
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-tc_setup_dwmac510_mqprio() with num_tc != 0 is only reached from
-mqprio_enable_offload() inside mqprio_init(), and the error is returned
-before hw_offload is recorded:
+>  		if (!op_cpu_kill(cpu)) {
+>  			pr_crit("CPU%u: died during early boot\n", cpu);
+>  			break;
+> @@ -406,8 +408,7 @@ void __noreturn cpu_die_early(void)
+>  
+>  	pr_crit("CPU%d: will not boot\n", cpu);
+>  
+> -	/* Mark this CPU absent */
+> -	set_cpu_present(cpu, 0);
+> +	cpumask_set_cpu(cpu, &secondary_data.cpu_died_early_mask);
+>  
+>  	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
+>  		update_cpu_boot_status(CPU_KILL_ME);
 
-net/sched/sch_mqprio.c:mqprio_enable_offload() {
-	err = dev->netdev_ops->ndo_setup_tc(dev, TC_SETUP_QDISC_MQPRIO,
-					    &mqprio);
-	if (err)
-		return err;
-
-	priv->hw_offload = mqprio.qopt.hw;
-}
-
-qdisc_create() then always runs ops->destroy() on init failure:
-
-net/sched/sch_api.c:qdisc_create() {
-	if (ops->init) {
-		err = ops->init(sch, tca[TCA_OPTIONS], extack);
-		if (err != 0)
-			goto err_out4;
-	}
-...
-err_out4:
-	if (ops->destroy)
-		ops->destroy(sch);
-}
-
-and with hw_offload still 0 the else branch is taken:
-
-net/sched/sch_mqprio.c:mqprio_destroy() {
-	if (priv->hw_offload && dev->netdev_ops->ndo_setup_tc)
-		mqprio_disable_offload(sch);
-	else
-		netdev_set_num_tc(dev, 0);
-}
-
-So dev->num_tc goes back to 0 immediately after the driver restored it, and
-skb_tx_hash() ignores tc_to_txq and prio_tc_map when num_tc is 0.  On a
-failing "tc qdisc replace" over an already offloaded mqprio, does the still
-grafted old qdisc lose its priority classification anyway?
-
-If so, should the commit message text
-
-  "the TC-to-queue and priority-to-TC mappings are restored to the
-   previously saved values"
-
-be adjusted, since only the real_num_tx_queues part of the rollback appears
-to survive?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260903-stmmac-tc_setup_dwmac510_mqprio-error-path-v1-1-eb171bdd340a%40oss.qualcomm.com
 
