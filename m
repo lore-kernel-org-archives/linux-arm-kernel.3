@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44881C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4847CC79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XsMPvOE3afXsZVMyFMwLpKgTSpBthouLl9Pg3MA9sM=; b=SO2WsOM/gvaFGRrfOFzsbxynic
-	5o8JACVl92R61n5PsuDda7OB84Qz03n4X1Ycb7QP1vHa71lg9O2PWrPAd3rUKEmt2NDqhNTPZkiPa
-	bKl3LrcrylwCN7Clteg1mi3d61U529o1DRXhv3ffjW3Yy+TbFy7tUG5riNahu4e6V4sfwOHTMHyBV
-	vbwZSdowr2D9OJWH2wB7G9PoIqSCIEMyE2psKmwVFnhH7UTFYucO5VevLpJmS5grvrWG49XXuVaeI
-	Ix7YQXIM16NL9MpDVW8pSwuj7brUvMlWQ47bGAs9iBIhdUWvx6PHPhxiwFlV/2dNE6riLbKgoO6J8
-	g12i3wqg==;
+	bh=+1q6wMbvWs5hyRc4lMFhdHQIXxqX9BNA101N+lgrnFo=; b=XIoN0WWSrpsKAg1ILrWeE7CvrQ
+	kiAVQE773+SNYYvjLkdfpcmA/Qk2xyIdJseKN21gJSRJrcYEiQvZtiMvCVHR4a8ovRB62h5bhl0J7
+	lo5PFBkx+dZwxau8wOUhNvkkfMildNabDnEw6jfHQNvmZ6xZlhnbWomXlZQySR10Xi0YDuIYG4kbv
+	ljcQKTKfJtKjcVVCJjtLaNAhS2rB6nwDJXnIQvTXjyt6sIWN+TRJo4dprP4tXADwTiLEGmURpv/bg
+	TM1Ixx8xq9EevYyXeCENp25eyJQF6aeX8KYMyZhOs86FjiLiEc3KHbsaWcn07aFyzrtAFio/T4M1d
+	pIDK2HBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zRz-00000009mWR-01h6;
+	id 1x3zRz-00000009mX9-12Md;
 	Tue, 08 Sep 2026 17:17:39 +0000
-Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+Received: from mail-pf1-x448.google.com ([2607:f8b0:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zRr-00000009mR0-17uH
+	id 1x3zRw-00000009mTh-3QmF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:17:32 +0000
-Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-399311947f6so8228927a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:30 -0700 (PDT)
+	Tue, 08 Sep 2026 17:17:37 +0000
+Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-8632fdf67dfso4004926b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788887849; x=1789492649; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788887854; x=1789492654; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0XsMPvOE3afXsZVMyFMwLpKgTSpBthouLl9Pg3MA9sM=;
-        b=ZdoqE0F/fgjEb7wso3QqMRnj+Df1nazJVMdeODTnI0JK41d6Ng2jwvRMCrgD7Lt80f
-         mavLG/2M5UHCEu9gO0OT+conVa70IsPQ4jUftmBfGOW9Ip1fLA9AU43uIMsyhVYi1ymK
-         fmIAqG3ytYoWjU8B5rl11mIrmgKDL+QjkdhPgNkDVhQZo2iqLLBRpscgrs7n2mEJMz9F
-         BpFC9LC1Q6CpcazsDZUobJnB0oKlE5ARTPH04hpMSL0Yorq87RXbCPfkbU4H5QdaoOMT
-         KC41rsNlRW1KYpgxJNkwZLz5gAycQCjlTVfsazwYe5lH/rYkbY4bBUFyvGU/fxoYfyyi
-         BGIQ==
+        bh=+1q6wMbvWs5hyRc4lMFhdHQIXxqX9BNA101N+lgrnFo=;
+        b=DtI7rSPvS9nOaZvjxmxUEFt27fw2viWs4K70ZywENkqM6tHTwEXtEiB4/zNtS83g3K
+         GfeWbhNj0hlg6g23COnwNXApn5/hZfUA4zKC+guNLT7kAdTxWssvlC4O3xRUC2TW7Ttq
+         nNgwBBc5Thp9xQVN0S93fO58fppCzg+oADAWehaEPNpw/5fL41sSmhw0fnh6Ntmw1LCX
+         9wu21dO/b+Rk9WyUJIrEvKRqd4uDif0RxoJwsO5O6uJH2tfcZBF5cJRzbi2HTSxgijo2
+         qaon9H64F9XxsNhCgmXFOd+NJTxttxj2FPjJqE343MAfzZ6mExubVuYTrvuTbra1m5Ow
+         NItw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788887849; x=1789492649;
+        d=1e100.net; s=20251104; t=1788887854; x=1789492654;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0XsMPvOE3afXsZVMyFMwLpKgTSpBthouLl9Pg3MA9sM=;
-        b=tRZe1N55o9pdBaYOObltIJfojdS+LYwMMEXSkGv1XgGoF63Kl+n4z9MOMeXYckkeN9
-         fYrH4nZjzMNGSaBzjv3xKe5l2b5oNnumQbavSbbcBwNTiQMkb4XCQ5nW10hdyYM+gKKJ
-         OD5R+QKnDADzH9ty9jxYUPytpI8U8DfcjkFdEb7WfPQCBMeAK7z28vAhclfSu0wf09Z7
-         IGxKNxkDT+FY9ehY5fbxjOrYY3zwSKF0pTTiQWNnHfbAJwzMg5kEkLSNinwwwrfJS6VN
-         VfagLjf8LU1gu3Sb8nybx9AwnUPgupQ6V8YjY9zKv37mk2Bl/Pc8HcIBi8E95NAsFqvU
-         HfYA==
-X-Forwarded-Encrypted: i=1; AKwUvBy0h84SkLGvjXcYPb+/IgPKtMax1e20FgZVyMlnRXrebUI/bcpHZBi9HOLnkWiN0gxyJ2GhyJhqwzqR+tLNgioH@lists.infradead.org
-X-Gm-Message-State: AFuF++kVRVMOtsmd0WZC02vH0JJ6SRvpyu2YW1NhiTmCwnxDBEvniR7c
-	Y5aM7YmJvTvLzVEh+Eun2VxM/ODlSglD524JMf9+NcUe62ZvrVJ6nKSLC6qb6mJW6fifx/KBrbG
-	Dyg==
-X-Received: from pjbmv24.prod.google.com ([2002:a17:90b:1998:b0:39b:4485:d746])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:528e:b0:38e:ad9d:1161
- with SMTP id 98e67ed59e1d1-39b25ee67f0mr45919989a91.0.1788887849350; Tue, 08
- Sep 2026 10:17:29 -0700 (PDT)
-Date: Tue,  8 Sep 2026 17:17:02 +0000
+        bh=+1q6wMbvWs5hyRc4lMFhdHQIXxqX9BNA101N+lgrnFo=;
+        b=VH1C7bENJVW87KaNmwubmIMARk8zoy0qkw1OtYqGkV3rXHNYKcaBhBXxRolTHGF0Nc
+         aLDFAa0DcwDsAsj9WbIiu4Ol9HBfLOKUWKvVKUzLnWjnXHlAax/4Sc3pE9uOj1Fn0aSV
+         VnRSS/8vYSaUz9oYhnJwb94gVJ4ccpoMNJbUMqpJg9/4Ul4T5Meum2VROgS56TOjLREy
+         zbWa3E/vg5zJm7qefTP5VtqSDv5A0Flp/M7xusgS67DA1mr6q8Bvz/Cli52GAlzZEzjR
+         Xrjx29BvcfWG89rA/wwLsph/5qTn3qC3zAc0ZkwpQE90UrXRq1mhNhWZIZ7HzISU/6xh
+         eqBw==
+X-Forwarded-Encrypted: i=1; AKwUvByWy8XcFJkp77mNyUkDslYiWbHg+e4N2Q69DRohn2LvFt8sYomGfBjlLigJUZtiJ/8l0ZxeT1K9006cTpMTFgH9@lists.infradead.org
+X-Gm-Message-State: AFuF++nHf15RI8Jh3XgPRVmR548BSn3/tFEkLJOCP4LnL6N9tmxwQJhp
+	e33zLbLnnrNZ8CZ2bodPcDM5NmhRnpg18YSPB40riUpcmgrMsXeAcCRqC5BOS1ycZLzBHnn6GwP
+	URw==
+X-Received: from pfbim24.prod.google.com ([2002:a05:6a00:8d98:b0:84b:57b7:60c5])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4506:b0:837:f111:b70
+ with SMTP id d2e1a72fcca58-85ffc18995amr33657135b3a.4.1788887853997; Tue, 08
+ Sep 2026 10:17:33 -0700 (PDT)
+Date: Tue,  8 Sep 2026 17:17:04 +0000
 In-Reply-To: <20260908171712.356645-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260908171712.356645-1-praan@google.com>
 X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-Message-ID: <20260908171712.356645-7-praan@google.com>
-Subject: [PATCH v10 06/15] iommu/tegra241-cmdqv: Restore PROD and CONS after resume
+Message-ID: <20260908171712.356645-9-praan@google.com>
+Subject: [PATCH v10 08/15] iommu/arm-smmu-v3: Cache and restore MSI config
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +79,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_101731_317116_948404EA 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260908_101736_909720_8C9049F6 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +95,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ashish Mhetre <amhetre@nvidia.com>
+The SMMU's MSI configuration registers (*_IRQ_CFGn) containing target
+address, data and memory attributes lose their state when the SMMU is
+powered down. We'll need to cache and restore their contents to ensure
+that MSIs work after the system resumes. Address this, by caching the
+original `msi_msg` within the `msi_desc` when the config is first written
+by `arm_smmu_write_msi_msg`. This primarily includes the target address
+and data since the memory attributes are fixed.
 
-PROD and CONS indices for vcmdqs are getting set to 0 after resume.
-Because of this the vcmdq is not consuming commands after resume.
-Fix this by restoring PROD and CONS indices after resume from
-saved pointers.
+Introduce a new helper `arm_smmu_resume_msis` which will later be called
+during the driver's resume callback. The helper re-configures the IRQCFG
+registers for each relevant interrupt (evtq, gerr, priq) via the new
+platform_device_msi_rewrite() helper.
+
+In addition, clear ARM_SMMU_FEAT_MSI if MSI setup fails and the driver
+falls back to wired IRQs, preventing spurious MSI resume attempts.
 
 Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 32 +++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index a394bf0f487f..c7989fcd2c62 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -567,6 +567,16 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
- 	/* Configure and enable VCMDQ */
- 	writeq_relaxed(vcmdq->cmdq.q.q_base, REG_VCMDQ_PAGE1(vcmdq, BASE));
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index dc2fc02b5163..a8166e75db0b 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4771,6 +4771,9 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
+ 	phys_addr_t *cfg = arm_smmu_msi_cfg[desc->msi_index];
  
-+	/*
-+	 * HW Registers reset to 0 when power-cycled. Restore them from their
-+	 * SW copies to prevent executing stale/ghost commands after resume.
-+	 * Note on RPM: Power-cycles can never happen when VCMDQs are assigned
-+	 * to the Guests since the relevant frameworks (IOMMUFD / VFIO) hold
-+	 * active PM references preventing suspend while VMs are active.
-+	 */
-+	writel_relaxed(vcmdq->cmdq.q.llq.prod, REG_VCMDQ_PAGE0(vcmdq, PROD));
-+	writel_relaxed(vcmdq->cmdq.q.llq.cons, REG_VCMDQ_PAGE0(vcmdq, CONS));
++	/* Cache the msi_msg for resume */
++	desc->msg = *msg;
 +
- 	ret = vcmdq_write_config(vcmdq, VCMDQ_EN);
+ 	doorbell = (((u64)msg->address_hi) << 32) | msg->address_lo;
+ 	doorbell &= MSI_CFG0_ADDR_MASK;
+ 
+@@ -4779,6 +4782,31 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	writel_relaxed(ARM_SMMU_MEMATTR_DEVICE_nGnRE, smmu->base + cfg[2]);
+ }
+ 
++static void __maybe_unused arm_smmu_resume_msis(struct arm_smmu_device *smmu)
++{
++	/* Clear the MSI address regs as they reset to unknown value */
++	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
++	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
++
++	if (smmu->features & ARM_SMMU_FEAT_PRI)
++		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
++
++	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
++		return;
++
++	if (!smmu->dev->msi.domain) {
++		dev_err(smmu->dev, "msi_domain absent during resume\n");
++		smmu->features &= ~ARM_SMMU_FEAT_MSI;
++		return;
++	}
++
++	platform_device_msi_rewrite(smmu->dev, smmu->gerr_irq, arm_smmu_write_msi_msg);
++	platform_device_msi_rewrite(smmu->dev, smmu->evtq.q.irq, arm_smmu_write_msi_msg);
++
++	if (smmu->features & ARM_SMMU_FEAT_PRI)
++		platform_device_msi_rewrite(smmu->dev, smmu->priq.q.irq, arm_smmu_write_msi_msg);
++}
++
+ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ {
+ 	int ret, nvec = ARM_SMMU_MAX_MSIS;
+@@ -4798,6 +4826,7 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ 
+ 	if (!dev->msi.domain) {
+ 		dev_info(smmu->dev, "msi_domain absent - falling back to wired irqs\n");
++		smmu->features &= ~ARM_SMMU_FEAT_MSI;
+ 		return;
+ 	}
+ 
+@@ -4805,6 +4834,7 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ 	ret = platform_device_msi_init_and_alloc_irqs(dev, nvec, arm_smmu_write_msi_msg);
  	if (ret) {
- 		dev_err(vcmdq->cmdqv->dev,
+ 		dev_warn(dev, "failed to allocate MSIs - falling back to wired irqs\n");
++		smmu->features &= ~ARM_SMMU_FEAT_MSI;
+ 		return;
+ 	}
+ 
+@@ -4918,6 +4948,8 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+ 
+ 	irq = smmu->combined_irq;
+ 	if (irq) {
++		/* MSIs are unsupported for combined irq cases */
++		smmu->features &= ~ARM_SMMU_FEAT_MSI;
+ 		/*
+ 		 * Cavium ThunderX2 implementation doesn't support unique irq
+ 		 * lines. Use a single irq line for all the SMMUv3 interrupts.
 -- 
 2.55.0.979.g7e5102b832-goog
 
