@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC102C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09A0C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=; b=1Ub7CAIzDn8KCs0lLjlEsV2oG/
-	nDsQRo3Mt9OQvuDbD9oc3fqdVlJWzCip//XLCJSU8mtnbkWfk/+DkeQL2VhQFKkqUsfsIgidZc68K
-	mAVgWY0kkiOQfQ6THK8m2nrPBHyZmcQTRo5DqkXFFIfCTY8cyft3jHYKBWMJCvHd9JnPsnHSwHQvN
-	pUHR2I6dpDjmMDt1lUgQ1FuIxY48DbAT1n7GEdQNDALuh204tm03uTCbGIsBCGHo3D1jtNeSu6aI1
-	YW5r1m7QNiYuJUFm4EGkb6t2Wx5hgUx4yDe4ur2MOhJc16AjVNIW1ttwKAlK/19aNmNUByCq9F/3I
-	7UmeBW5g==;
+	bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=; b=iU8DNiGs546sq6On+rlOVhU8mK
+	kQUjTPb2xKfIwBVE5+kmpDhvAhL9egC0wMYt3GCN3tlrGXmF7WF1DbduWlwVvvgFLwuc9UsnSVBMk
+	f22zAH1XLKILkTWVmdxwABb17hhU3aAh38q2qVPi8dkD2VTyRZdyF1Q9fl5rlTaJjY2UQw4owjugC
+	oRnJSixXMazAVjM6ooFge4vB5bbEZHoeyBczwEEKFQRNrJu0FEFU/jc6WaFQ40LppyJxXgKzAa9Ip
+	ti9aAKR9BJtMn2oBbMfq/oEQXJGHw507gRE4QvHSer4ofsrDv5YKU3+dSv0XLXuSI8OGYBlw3dSo9
+	IedPDahQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oho-000000086EZ-3IVg;
-	Tue, 08 Sep 2026 05:49:17 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1x3ohw-000000086GT-1AoG;
+	Tue, 08 Sep 2026 05:49:24 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ohm-000000086E4-1N4Z
+	id 1x3ohu-000000086Fy-3AS4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:49:15 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c9e607d81fcso2241718a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:49:14 -0700 (PDT)
+	Tue, 08 Sep 2026 05:49:23 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-cc1cc1b42b5so4235342a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:49:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788846553; x=1789451353; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788846562; x=1789451362; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=;
-        b=iE0w+Xm5HA1x77vR5giuSwOdjvDRPy6zJDajCbcKnBS+OzJYFUvBbo4psdUKapuUSd
-         w5M0lhVy5uAPmYDjrVGPkry2cjYCCPYNA8k+qiSC7y0EB1z1tyJmViaSGDJm/H7mygto
-         fyYGHklD5PeWIR2F7h8YsKE9+S3pWw9Sv3Q90jEaOu9To4RcmNecPOn4DJEA6keuQbJb
-         KoHtvi4DnVri2xtxjDQ/3uLWtj5EA582iDPzTyxEShoeRVTsCw6Edo0k+lUV8IRD0TxB
-         sSiclNDCwdzW/dqUT3hVVBi+uthU7nQ3COE0ZoiXwEZelZxzFbTZQryjg0IOrUam8CBM
-         EVaA==
+        bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=;
+        b=fIFE1cx22dLTSmsQhsq94I1EFNHkCtF6XXRoOYoBijUoObm56jLIAOXROGyltkI1hM
+         IwdBWwocAqMzno5KYw5m8Ytc7X2gHKdesClsdKVtHMj6R1HR3xSUE9rJHSFO0Kya9H+i
+         QHhUT6e8PWXVZiTiZaD5UzwV6ZqvFwpWtbTf1uNblbxSTDWSQFm0lxjExy/tWJXPwP4w
+         1bsgDJ9J4lJ2Sao9XFcdAcMG152TT/N/34CN6QsboaxlQpfcr/sZz38i3kL/Xk5jE+CS
+         zRaXupsbp4vYzdBwthE8KufPNnDHARXOi6MvFZ7+8vyD0iPWZMchE+x4uODY2zvnLHot
+         7gUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788846553; x=1789451353;
+        d=1e100.net; s=20251104; t=1788846562; x=1789451362;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=;
-        b=Vc2f65c4dS4ylAZe2FRmf14rWC/CKFB02dG55cb1uOoeOu1QlR9NCYy2fJyf8+cDIi
-         /TRsvgubTAOnTwmUSUyzc+NU+6aSxqFHq0zDS3soxLBPwOzTzC0OHX1uGc+EV1yO7wvH
-         umaKFx3UKlan5YnRGsom1NaLnn0i2LCVxmY44ycQOA6AuS5g1hMZUBJTZFeS687pL497
-         AXr6hO5kA+SoQt9izJY9m/m+oQ19ali/TmGEttStPAX5rdWHG7TsF6bkMD2K/+eWGZzf
-         UojYmOZCMgGSsddMSo/xTMzUlnUMjxdg+C2kMPN7i/3uRt7NT6FCWkQ6UU6RokTjpSDR
-         jP/A==
-X-Forwarded-Encrypted: i=1; AKwUvBy2Ds0xVDiVezOAyoS3Nk5QfAB1UYPRT0Reg6fcC+lBgmqnSHHAE5sp6U1P6Gc43HC5BQJyiLtO+NDVPCnGNpdP@lists.infradead.org
-X-Gm-Message-State: AFuF++nFxzKiH1x6aUVEf8+pbThYd2Kr7pquBxFoexrF0tgnOr14aGsw
-	hOuBiplLwKGRz85uoboxhv0BIKVggb8cQ8MID0vghLYKPB/xWPJHzGwQ
-X-Gm-Gg: AYBFou2mvFNQkb/vPfAUkSbZrIvGRaVbvwZcHgMaLD62UdvFCBLXN3O/KvYKRX1XqNL
-	ceDvDhMhvRNY9+9W/VlHXPqY8ZLc0sdWGX/GSLTxpACR+iI9vXqhRGIdIMGSg/sdDya0nxnuic+
-	p6cKRc1bF4tbrpn54FExOQTARNHA/xn+/WbX8N5GjaY6kvxzIAjn41mCZWaForkuCS05/1D0CP3
-	NNsAlKsc+twQLjkhWVxSY6mDgGqgdazRHk3V0V4+HllSb9kNAgdisj4EdI/Fv6lQLEVCCuvaNw8
-	QeyDQSGOJxv2FUgCYPuPBn5W+fdHODxE7O8uBdVjMKyh+RRsdCa+QJO+4JykWxfTaVlZtg9pO1S
-	QcVNoYAhslfrA0k3eZTGVY7gHmgA6kX0Ar6Hg4SyAOa2/utYpQF+EcOWN0x7Ms1GlamqKo/AWP1
-	YHkcAreXagmpwWtJCmoLkmGo+wp6nMYevAHTjSi/2oxHk+QHNy0JI+hM4Djmw2cOiD7z93wyQMZ
-	ZHRRH1ymGlgGg==
-X-Received: by 2002:a05:6a21:38c:b0:3d3:ae1f:d7f8 with SMTP id adf61e73a8af0-3da3a0cc91cmr42894753637.24.1788846553447;
-        Mon, 07 Sep 2026 22:49:13 -0700 (PDT)
+        bh=bC1WWh/xuFVa+YUjJaTnVEkwteG3jK4MlszJkiclU94=;
+        b=suDC9gAYQSq8fxImMC14inU2zd8kTE/D6GKQRsU6j6+XS/5YqijpINKQoFsAyP4x5P
+         VjehEql9AzyC3YPlFkPXU5RQh72HushnrDqMDP5OZ5w11wL2CBA9YkCWYNDzOHCh12uf
+         kExy1KMMNbWubys9b3VHW1Tjz6XKfxNIC0DwiySGUUv+JSjRAAfvUi7EURwsJ+JBU8we
+         7H39krzhhEJBpRUoK+xOgmyxcn437i9j9e298sSyjK0ImaHq7Ux3GZMlI5QwPt6jzPyI
+         U+F8PnEKabFEf1wEmWExh2+ooyTK3o+Xttgf76VHW2Kr3OWxalF/K1br+PTaGkLf3x5J
+         +VBQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxUxbGTfz+SjVNHFI4NcsyYD2WzGIOGkC+YANZOEcctUKF/S7lzUeZnhHSlMyK2xZIsKMUISnOgJt60tywGJmjt@lists.infradead.org
+X-Gm-Message-State: AFuF++kON/bz0rg24rw5/e/R8zbsHOJMnOw1w01kvR5lfZK1ZAa3HNjr
+	q7y83OxXiGZhXHLWfIddB7MwYwpUrZ9D5g4rhIbv95TYWKduGY+03WKm
+X-Gm-Gg: AYBFou2nUMmGsq9W5qOVd73d1k8ctlqnjjrCeHRz4rdmeU1eQ5q9JyfIcralG6Wc0B/
+	FAxPbZyMR3uLm4CL0CUBBcVg6qUYtxuzh/lzHCLVu1R1vYcjgeUleNf/5YopV4uSDhUUtO7xFon
+	nZqAv5RpDtYoTLpn75MFwk+91g4CQmk5f+Ipouz8ezRFy3bdj/JuT9fN7N2vS/2nXMMOIFUAT6s
+	yQkEoMl8vJomF3eoz1t171gcdu4z2WL7Unvh9ZMMpndyG1HiLQt28JwtgckRvQzmpINKHkzEXqe
+	Usxni4127TQi6SYAcFTVRBSB2XF/g9GFWUQNRIf8Kb9GMDCGfikJNdyzXBL5HefIDhrfe1SJCO7
+	Ik2kAZSuO3yGeL1OJRNpBfv6sjNhSHGSTWb3dGWpjz9eoA3F/PHRVcs2v7bi3+Q1RN+JmQxJ6n9
+	Uas7NYm6zZia5nG2r64fwdMfxbBLYQ+nYeGOQJF4zDhtAvoXMeJaWkB9gq7P31AwN4ynGJkxh0i
+	gccohg0Ou9wklpXJNnwK10a
+X-Received: by 2002:a05:6a20:4393:b0:3d3:af66:9f61 with SMTP id adf61e73a8af0-3da3a16b389mr43628321637.27.1788846561929;
+        Mon, 07 Sep 2026 22:49:21 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-334fbd5e6f6sm25690109eec.23.2026.09.07.22.49.05
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-334fbd5e6f6sm25690109eec.23.2026.09.07.22.49.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 22:49:13 -0700 (PDT)
+        Mon, 07 Sep 2026 22:49:21 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -100,17 +100,17 @@ Cc: bpf@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH bpf-next v4 1/7] ARM: net: fix typo "arithmatic" in comment
-Date: Tue,  8 Sep 2026 11:18:47 +0530
-Message-ID: <20260908054853.13820-2-hemanth.selam@gmail.com>
+Subject: [PATCH bpf-next v4 2/7] bpf: fix typos in comments
+Date: Tue,  8 Sep 2026 11:18:48 +0530
+Message-ID: <20260908054853.13820-3-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260908054853.13820-1-hemanth.selam@gmail.com>
 References: <20260908054853.13820-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_224914_364293_0F412092 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260907_224922_794211_7C894713 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,29 +125,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct "arithmatic" to "Arithmetic", reported by scripts/checkpatch.pl
-using the misspelling list in scripts/spelling.txt.  Only touches comments,
-no code changes.
+Fix typos in comments, reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only touches comments, no code
+changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- arch/arm/net/bpf_jit_32.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/filter.h       | 4 ++--
+ kernel/bpf/reuseport_array.c | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index 9ede81afbc50..b1c21c014c9c 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -1346,7 +1346,7 @@ static inline void emit_ldsx_r(const s8 dst[], const s8 src,
- 	arm_bpf_put_reg64(dst, rd, ctx);
- }
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index 00ad8b63aa47..4eff6e601b05 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -147,7 +147,7 @@ struct ctl_table_header;
+ #define BPF_ALU32_IMM(OP, DST, IMM)				\
+ 	BPF_ALU32_IMM_OFF(OP, DST, IMM, 0)
  
--/* Arithmatic Operation */
-+/* Arithmetic Operation */
- static inline void emit_ar_r(const u8 rd, const u8 rt, const u8 rm,
- 			     const u8 rn, struct jit_ctx *ctx, u8 op,
- 			     bool is_jmp64) {
+-/* Endianess conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
++/* Endianness conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
+ 
+ #define BPF_ENDIAN(TYPE, DST, LEN)				\
+ 	((struct bpf_insn) {					\
+@@ -1029,7 +1029,7 @@ static inline u8 *bpf_skb_cb(const struct sk_buff *skb)
+ 	 *
+ 	 * In some socket filter cases, the cb unfortunately needs to be
+ 	 * saved/restored so that protocol specific skb->cb[] data won't
+-	 * be lost. In any case, due to unpriviledged eBPF programs
++	 * be lost. In any case, due to unprivileged eBPF programs
+ 	 * attached to sockets, we need to clear the bpf_skb_cb() area
+ 	 * to not leak previous contents to user space.
+ 	 */
+diff --git a/kernel/bpf/reuseport_array.c b/kernel/bpf/reuseport_array.c
+index 49b8e5a0c6b4..4de08abfd94e 100644
+--- a/kernel/bpf/reuseport_array.c
++++ b/kernel/bpf/reuseport_array.c
+@@ -207,7 +207,7 @@ reuseport_array_update_check(const struct reuseport_array *array,
+ 		return -ENOTSUPP;
+ 
+ 	/*
+-	 * sk must be hashed (i.e. listening in the TCP case or binded
++	 * sk must be hashed (i.e. listening in the TCP case or bound
+ 	 * in the UDP case) and
+ 	 * it must also be a SO_REUSEPORT sk (i.e. reuse cannot be NULL).
+ 	 *
 -- 
 2.48.1
 
