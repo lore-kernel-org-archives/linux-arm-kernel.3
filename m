@@ -4,105 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8E7C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C7BC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JFOnH8cD4PvlLOZx4om0E7f6rgZHhO9wfe99KbcAgA=; b=CM5QICVA/L42MAVQh8x2n+1NCf
-	4Ep9XOMc2fGrhi+6w7ynJaDC9e/qQUF5FYgpfx2IgASbLCpt2M4zSdaKSYEFSLun1fJC8n0lKAzLF
-	sKLYOgPPUFHdPMFNJXqAW621GOnWQGs4NnjL16Z4RsOUY3t4GHxz9G34da+pHiJD6II8N5zEW8gFa
-	DnwDwlMt0sKl7g7MS3WvSvH/HZzJXs0LP2Qx8kjbLexKtsS/ZLa0atvVIqMFPF4PFMXbDsO8WPQ0F
-	Y3Tw8RobolSgRa6wYkGdgq6Rm0av5Fdg12xJ6WT5xlsvO725I0ru9bMvyTJWTQhVAG4e9O3fROGKe
-	Kv+UxqWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pjM9M8zfjhMn0ctktumb7mpI5xA3M5dmBM3Gvuz4qxs=; b=aHRXAM+tGLW47kR4J8SCinXz9P
+	+MO5FOBIsVj0R9DZHlKFNNzTZ5wWQvZKsTVA2trNF6+gd6ClUu3gBP3mpyy0vBtj4fCbB7fPhRw+4
+	4MrGBG6D/63s/bA87WfmSLzcII8runJMRX9A7xNAHW/rrrozAH+RNviPeOVr4irYDJy0sbOAiL1Y+
+	6CjzCnfHsL6xcghAuWTivAC6XQuwNRAgd/qAuP1askaDzXMiX3iqss5Ns3lm09pJR0BGfMgldcTUT
+	nIBDl0kHE1q94cm651xn7Ql06P8LxYdWwhSpIU0XN5QxpTHg8p1p0qS9M9A4qx8cnPF5i77tnmYex
+	a9BeFGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAu-00000009KJ9-0EH6;
-	Tue, 08 Sep 2026 14:51:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAs-00000009KFb-1LXA;
-	Tue, 08 Sep 2026 14:51:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3JFOnH8cD4PvlLOZx4om0E7f6rgZHhO9wfe99KbcAgA=; b=UxAwiUdeJ83i+UDwJnVs9DBFwr
-	p2r5ibRNW6BTiezL7oDokLbT2IKE6m/tYKRseypXWc8y6P6d2admMzhtUxQEj6ndT/QQvigAj27lN
-	3VhvhVeiD7kxXvinURADsw3odThW8vz2TymSGyJyWB1B5meRU5aMMuc8FFbcTiyV6fAxq1+q6n3Ek
-	eGfl5UZ9Tw5QIWIZ0LYQicweBXWIKggLtrqEPL1wiuOr7Fjarsk1sQy6zltMThVuUGSjikiz8aPsz
-	PoHihpeX/338UUnjSkisJxfV2d0J/e7qQCbRQBA8rl8NKHaXFzZYE8ajHexVqeQi44Gh0+1vqPWZN
-	x2nh6pDw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xAp-0000000HZ1g-0gPv;
-	Tue, 08 Sep 2026 14:51:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788879101;
-	bh=/o+l1qIsF9Zr/xYqxxnlQCMTg653lSAB0Qv1ngIO08g=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=P2GCIKL15/xCxvt7wOi42I7oiKGRF+hd++o5QvHbYSf1GChB6liobxvA2WNbaF7mq
-	 2IHZ2CQQ4TeCOZGIVLhkYeqUc0xsVMmD9ft95zB0dxnZTiqlFHq/5R1QvflwtqsBus
-	 sNAQ3GTDQSRxGLWYCe3HorG6hzRSw11B7xdIr9Ozx+BrAbv7ItUxwtE26+bAy9tSmc
-	 kd7mNCkLJzyNaPhc4kdhWpfuqbG8lduBvzUWkrl9bZfMDw7a535MNSgDKu03FAdV9b
-	 bqClAkFEkMXiac9nz4z/NGJCqtUX1DUbtP6005gZROeUYGtPpGsNSNHPt2kURg2ss9
-	 sL1XwydXArVig==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DAA1717E0D0F;
-	Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 925E4480031; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 08 Sep 2026 16:51:22 +0200
-Subject: [PATCH v6 04/10] PCI: dw-rockchip: Add helper function for
- enhanced LTSSM control mode
+	id 1x3yJA-00000009aQ1-45yz;
+	Tue, 08 Sep 2026 16:04:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3yJ7-00000009aPN-47so
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 16:04:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D914E1476;
+	Tue,  8 Sep 2026 09:04:18 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAF213F7B4;
+	Tue,  8 Sep 2026 09:04:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788883462; bh=g30wNF8YUPomQCFAbKVqZ5LyZF3pFuCn9XIHSlrPuDc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PXdtKP06sXfzoJ7L15ZVgxsxt+MZtTtMTrix2Xte3ZuKZpxleE3FvIm45WTzFTfo3
+	 sRtRmMd/YIxlFAYh53Afx4xlHa3ZQ6Rj/dr7YPkA56LSc+q9W3r87N7bAMed7vNqtW
+	 XlWeEOvefmKJGdp3D5RqSixjXPv8s2X1f1xSpJ/s=
+Date: Tue, 8 Sep 2026 21:34:19 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
+Message-ID: <aqAyAymMO5sytqtr@a079125.arm.com>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <apbgDNjQPLBdsUe0@a079125.arm.com>
+ <43382882-0e7b-4255-9c34-99cec5b0bbbc@arm.com>
+ <ap6rvQJbO8DH57v8@a079125.arm.com>
+ <ba80aecd-85a2-4036-8d53-009f476f8e61@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-rockchip-pcie-system-suspend-v6-4-fbabcca9921b@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2254;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=/o+l1qIsF9Zr/xYqxxnlQCMTg653lSAB0Qv1ngIO08g=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqgIPzG8lmf1Uh1szusvt5lHxBgi9WY2KwuF
- JSLZyp8YwB67IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
- O/qaiugP/irEE4CMxtrHvE+jLBRNAODaQtvniKHUCsg1Dui4RZeRWOrMkatpx0yQfd3m/lqzzLq
- VB/GiIvW2SjsEIws9Il5gVm7DrshhDi1zwNPtEaSeuN3i21wEF6nhWLrL1iMiMZGO4vWt6/zwJX
- Y4QWYZFnQK47VhAY7bXo0bt1HxWruTkMxFqQOgsh/lyYopXQmWr1oVeLzT+gMCJkMxB8rQrnNxz
- Ow/EuJpdK5TOVeG92Hj75E0bZQQ3WXGdSCXZBbExap5RLSAg9YAHdOWDoAzx0WrBpkMmyLYFdOq
- slS7sroO83knebfIwbQLKZEMhHKYQWhKwheooFKj2w6Nj8Ex0OKZ+0ZBNPvKEXqe5K5wRkf8rCE
- v/sG2REwrATwK4oE4V67p/mOpTDFd6sdfDOh30CagXS99K+RUK5PxiS1FLrfK4EIhm6kfs7ESW6
- WB9WHuvUWNPwW9b6elpwZPWZIdPDsd0zpDVfXAcNoMojcrQL3BK17Xv+/ixMk7FbYFYdv8SVgCV
- nrmoUyVLXv0WgZDQB8Ko9gDq9CR/Gv0gkfj+OtW1pocTaE7FkJaLLyR4NJwPiPtbCnbAGPYOiAc
- 2oRTAEDGOK7LL+JCqjDnWTFFEurtLNiZTKz+F02QslDP2ws2UVBa3OWq7MMne3rH0EoKC5vzIrJ
- 3y5hzlaLECTR4PyU5KN8tqg==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ba80aecd-85a2-4036-8d53-009f476f8e61@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_155147_416030_A7516E73 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260908_090426_140177_247DD725 
+X-CRM114-Status: GOOD (  46.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,65 +95,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove code duplication and improve readability by introducing a new
-function to setup the enhanced LTSSM mode.
+Kevin,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 24 ++++++++++++++----------
- 1 file changed, 14 insertions(+), 10 deletions(-)
+On Tue, Sep 08, 2026 at 09:56:32AM +0200, Kevin Brodsky wrote:
+> On 07/09/2026 14:19, Linu Cherian wrote:
+> > On Thu, Sep 03, 2026 at 06:47:50PM +0200, Kevin Brodsky wrote:
+> >>>> [...]
+> >>>>
+> >>>> kpkeys
+> >>>> ======
+> >>>>
+> >>>> The use of pkeys involves two separate mechanisms: assigning a pkey to
+> >>>> pages, and defining the pkeys -> permissions mapping via the pkey
+> >>>> register. This is implemented through the following interface:
+> >>>>
+> >>>> - Pages are assigned a pkey in the linear map using set_memory_pkey().
+> >>>>   This is sufficient for this series, but it is also plausible for
+> >>>>   higher-level allocators to support marking allocations with a given
+> >>>>   pkey.
+> >>>>
+> >>>> - The pkey register is configured based on a *kpkeys context*. kpkeys
+> >>>>   contexts are represented as simple integers that correspond to a given
+> >>>>   configuration, for instance:
+> >>>>
+> >>>>   KPKEYS_CTX_DEFAULT:
+> >>>>         RW access to KPKEYS_PKEY_DEFAULT
+> >>>>         RO access to any other KPKEYS_PKEY_*
+> >>>>
+> >>>>   KPKEYS_CTX_<FEAT>:
+> >>>>         RW access to KPKEYS_PKEY_DEFAULT
+> >>>>         RW access to KPKEYS_PKEY_<FEAT>
+> >>>>         RO access to any other KPKEYS_PKEY_*
+> >>>>
+> >>>>   Only pkeys that are managed by the kpkeys framework are impacted;
+> >>>>   permissions for other pkeys are left unchanged (this allows for other
+> >>>>   schemes using pkeys to be used in parallel, and arch-specific use of
+> >>>>   certain pkeys).
+> >>> - Adding some basic details on what a scheme and context is quite helpful.
+> >>>
+> >>>  - Giving some hints (may be an example) on how multiple schemes and multiple contexts
+> >>>   play together would be quite helpful.
+> >> "scheme" doesn't mean anything precise, it's only the notion that pkeys
+> >> that aren't reserved for kpkeys (i.e. anything but 0 or 1 in this
+> >> series) may be used for other purposes. Happy to reword if you have a
+> >> suggestion.
+> > Got it. IMHO, adding two definitions towards the start would make it easier to follow.
+> >
+> > kpkeys: Set of pkeys reserved and managed by the kpkeys framework.
+> >         Pkeys outside this set are left untouched.
+> >
+> > kpkeys context: A permission state that defines the permissions for each pkey owned by
+> >  	kpkeys
+> >
+> > Or something better.
+> 
+> Got it, will add something along those lines, thanks!
+> 
+> >>> [...]
+> >>>> Open questions
+> >>>> ==============
+> >>>>
+> >>>> A few aspects in this RFC that are debatable and/or worth discussing:
+> >>>>
+> >>>> - There is currently no restriction on how kpkeys contexts map to pkeys
+> >>>>   permissions. A typical approach is to allocate one pkey per context and
+> >>>>   make it writable in that context only. As the number of contexts
+> >>> Probably to avoid the assumption, may be we can we have something like
+> >>> below 
+> >>>
+> >>> For a pkey P, we could define
+> >>> PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
+> >>> PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
+> >>>
+> >>> With the assumption of one pkey mapped for every context,
+> >>> the permission for the default context would look something like,
+> >>>
+> >>> PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
+> >>> PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
+> >>> PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
+> >>> ...(for all valid contexts)
+> >>>
+> >>> where,
+> >>> Permission key, PKEY_DEF is associated with context DEFAULT,
+> >>> Permission key, PKEY_CT0 is associated with context CT0,
+> >>> Permission key, PKEY_CT1 is associated with context CT1
+> >> This adds assumptions rather than avoiding them. *Typically* when adding
+> >> a context you'd allocate a pkey that's only writable by this context,
+> >> but it doesn't have to be this way.
+> > Okay agree. Then may be something like
+> >
+> > Define permissions:
+> >
+> > For default context,
+> > KPKEYS_CTX_DEFAULT_PERM_PKEY_DEF
+> > KPKEYS_CTX_DEFAULT_PERM_PKEY_CT0
+> >
+> > For CT0 context,
+> > KPKEYS_CTX_CT0_PERM_PKEY_DEF
+> > KPKEYS_CTX_CT0_PERM_PKEY_CT0
+> >
+> > Define POR_EL1:
+> >
+> > For default context,
+> > KPKEYS_POR_EL1_DEFAULT
+> >
+> > For CT0 context,
+> > KPKEYS_POR_EL1_CT0
+> >
+> > Finally,
+> > #define POR_EL1_INIT KPKEYS_POR_EL1_DEFAULT
+> 
+> We cannot do this because POR_EL1 is arm64-specific and its format is
+> not at all the same as x86's PKRS for instance.
+> 
+> I think what you're getting at is that the permissions for each pkeys in
+> a given context could be defined at the generic level. This could be
+> done, but I'm not sure this is essential, and we may not need all archs
+> to use exactly the same permissions. There's also the issue that x86
+> only encodes RW permissions directly, not X.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 7472ec78b473..6f84b07406d4 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -696,6 +696,18 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
- 	return IRQ_HANDLED;
- }
- 
-+static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pcie *rockchip,
-+							     u32 flags)
-+{
-+	u32 val;
-+
-+	/* Enable the enhanced control mode of signal app_ltssm_enable */
-+	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
-+	if (flags)
-+		val |= FIELD_PREP_WM16(flags, 1);
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-+}
-+
- static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 				      struct rockchip_pcie *rockchip)
- {
-@@ -719,9 +731,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 		return ret;
- 	}
- 
--	/* LTSSM enable control mode */
--	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-+	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
- 
- 	rockchip_pcie_writel_apb(rockchip,
- 				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
-@@ -765,13 +775,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- 		return ret;
- 	}
- 
--	/*
--	 * LTSSM enable control mode, and automatically delay link training on
--	 * hot reset/link-down reset.
--	 */
--	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1) |
--	      FIELD_PREP_WM16(PCIE_LTSSM_APP_DLY2_EN, 1);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-+	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, PCIE_LTSSM_APP_DLY2_EN);
- 
- 	rockchip_pcie_writel_apb(rockchip,
- 				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_EP),
+Really didnt mean to keep these macros generic. Sorry for the confusion. I could
+have replied this on a arm64 specific patch.
 
--- 
-2.53.0
+The original intention was to suggest the use of macros similar to above in the arm64
+world.
 
+
+> 
+> > Probably using something similar would make the idea of kpkeys context 
+> > more evident in the code as well ?
+> >
+> >> The configuration space is more easily understood by considering the
+> >> other use-cases we've investigated (struct cred protection and eBPF
+> >> isolation, linked further down). For instance, for cred protection, we
+> >> had KPKEYS_LVL_UNRESTRICTED with write access to all pkeys, and for eBPF
+> >> isolation, we need a level that is less privileged and therefore does
+> >> *not* have write access to pkey 0.
+> >>
+> >>>>   increases, we may however run out of pkeys, especially on arm64 (just
+> >>>>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+> >>>>   use the same pkey for the data associated to multiple contexts.
+> >>> Lets say two contexts A and B, use the same pkey P as their permission matches.
+> >>> But then, when we enter context A, permission for pkey P gets
+> >>> relaxed, then that would relax permission for pages associated with
+> >>> context B as well which is unintended ?
+> >> That may be exactly what is intended, it all depends on the use-case. C1
+> >> may have a private pkey P1, and C2 P2, and then P3 that is shared by C1
+> >> and C2 (writable by both)
+> > Got it. With each context defining permissions for each pkey owned by
+> > kpkeys makes sense. 
+> >
+> > Also do we need to assume that nesting of different contexts is not valid ?
+> > For example,
+> > Default context:
+> > 	enter CTX 0
+> > 		enter CTX 1
+> > 		leave CTX 1
+> > 	leave CTX 0
+> > Default context:
+> 
+> That is a good question. The enter/leave logic does support nesting,
+> since leave() restores the pkeys register as it was on enter(), but
+> whether the inner context has sufficient permissions will depend on the
+> situation. Certainly if nesting is expected then it has to be taken into
+> account when defining the permissions for each context.
+> 
+
+Exactly. Also if nesting need to be disallowed for certain contexts,
+then it needs to be taken care as well ?  Feels like would be worth
+covering the aspect of nesting in documentation and cover letter.
+
+Thanks,
+Linu Cherian.
 
