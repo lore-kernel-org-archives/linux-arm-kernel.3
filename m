@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16570C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECB5C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BUVvKjrO5CilP0Dhdnmye4vxFJhvbGovkQ7n4BbuuAg=; b=nu6JP1Va0WMO2d2XUsPbjYpd7V
-	Bj/SbJ2yN4HzLrfYuNIPT4dcxxQzZnmNNUD9iVhWK8SmxdzRZD0OgzN0ayC5BrcecVXPLEuqKQnmm
-	5U5alWOTNWwhLqXbv4Tk7iGWouQNBwowNSDbBo+fZBuMH3bdgkbmW6wqk92Lhp7L28Kh71Duvm7iq
-	4ZPygvut3VVY5kZ5l4jkZ+6K6VH1iOl8n03bFc/wNXzcSuw2IN/Uf2FAv2Cweqcyt8tWklCgZkphV
-	yC6FCPx6qaJKXpvvLMoIpH1Sy8WgizKf4zL9omDAvZkqHFlivNMzTB8Zvufp/Dro5zGjEsQ8Zy0Uc
-	PkPwQm3g==;
+	bh=XksScMTj542HVHkyB1nI14urzyZQ1NnPrwE6pFWv+JM=; b=GyCCoV4DILCae84R9mFZOJt64K
+	vMZI3l9Fjzn2M/QzqV/95AKbAzmbDrRhvpOo4OD1e9BsJzKMQ+wtqqjTrRzvw0L0xzrIeFtb4AztM
+	5FC5NCl1BVsdClYqCQHcvA45jGTLHCNKZpA499MVPYmxwtqupo9/i6BWOXFnjB4/Gp6UeAuW68pOv
+	7anzuPUwMBrwoMV6+YJGpyD9pGt6NSdTQMOsNQx5qpvghkhZGb0QUAa0DYBtOlXkLFP831nXydA61
+	97Ku46gDN9lyF//XtpaEl8iPA1v91rXuUfV4PlpZtK0Ry3+tHkNKJOEBLqpFcRNAVU439yij/1fEL
+	qkPsUigw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qJy-00000008HJ8-1yfv;
-	Tue, 08 Sep 2026 07:32:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3qKi-00000008HSq-2v1W;
+	Tue, 08 Sep 2026 07:33:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qJw-00000008HIw-1IfE
+	id 1x3qKi-00000008HSb-1BpI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 07:32:44 +0000
+	Tue, 08 Sep 2026 07:33:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 505DE601DB
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 07:32:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09E881F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 07:32:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D270D42B6A;
+	Tue,  8 Sep 2026 07:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C6E41F00A3A;
+	Tue,  8 Sep 2026 07:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788852763;
-	bh=BUVvKjrO5CilP0Dhdnmye4vxFJhvbGovkQ7n4BbuuAg=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=LadyelDWcNtzqn2pNDPzvE2ycihraLgBZJHb2jgVLHZZXzxgABvvuAdH7JVsF0ef7
-	 hOCOsWfZgMq38Hw97bgA4s5aD6TcqNRa3uSb6utMDdvzy9wJ7f79H452uu5XmX32Lf
-	 BsVMBAce4AwFBaI6PVcKTdCAwZd/MD2v0a+Blri6jINnKmNF0uTg6eiA59HZNt0sqd
-	 pNULmwRPByHIr8/0We3MvslK0s5bWBbvgpsaV/RX8s67xpmG+NiDvPfGuJe+szXdD7
-	 eB7t0Fyd46VQ/Pt0cnLJZJaHIdNmDjg6rmuK0nZx4Ckt63GBjxffjSD/6cVwmwVvxP
-	 k4OW5NDiHLmbg==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3a1eb6fa0f4so41684401fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 00:32:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByrnf40aDv1YerZe6Q0QXjYAxhY69M6GwW0qeT3zSW+8II1GfLsctx5cPZeo9Jk+mukceAP3kb20FSL8qX4yj5L@lists.infradead.org
-X-Gm-Message-State: AFuF++k9a3vCeyq8ptw/Oikk7Dgy17qqgAefVTeZgkkEI9P2/zTQuV3S
-	aYH/BGY//MpfeO/m8xJsW6/b1bm2LNFogyXENwHOah3heweIzqLQ+zmO3Gy7FOIiC1J447D0WtH
-	Co7PNvbTyrRPpCAKz4Pold2Jp6AvyVzXBk6Ghthwx8g==
-X-Received: by 2002:a05:651c:222c:b0:39f:ef09:bc55 with SMTP id
- 38308e7fff4ca-3a371b30ee3mr58920061fa.3.1788852761641; Tue, 08 Sep 2026
- 00:32:41 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 8 Sep 2026 02:32:40 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 8 Sep 2026 02:32:40 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260902013858.130887-1-shengchao.guo@oss.qualcomm.com>
+	s=k20260515; t=1788852811;
+	bh=XksScMTj542HVHkyB1nI14urzyZQ1NnPrwE6pFWv+JM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NDf5yNABuLUHiqeaxlPBpJIkI3TK9/rc8cWI+3xEERZ7V7seyLQhxFkrAmyfltW9A
+	 YMYkHArboRJpL/my33wJQzLLWU30oaoeEJ6Ttyg6w1/hv2TEYtTysufc1I4riY7Dqe
+	 1JpKsL4Pz+cuPhrKS57RxOWMoKUh9ZXCcPFodVwYvHAdhk5Vs5zfob/oRkS22YVwvE
+	 9ctwQ1+AqKOVimiiWzAVqs/TQgZg2HOTktggOfpLZh3Suk6syCfNKi0yyOR3e83vSz
+	 TLAmts2y/e750y5m0ukDcwHblMQiyyUtAMyxQ5Byvy5FEVfYT0tz5dLmFYwRCykPWh
+	 XLK7zvj4B1Wsw==
+Date: Tue, 8 Sep 2026 10:33:17 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 12/25] mm: kpkeys: Protect regular page tables
+Message-ID: <ap-6PZqGZHhPD6u1@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-12-743ad31b2c8f@arm.com>
+ <178877845406.3691569.12554855722197968629.b4-review@b4>
+ <bdba5b54-8733-4d47-952d-e1bd958a1ead@arm.com>
 MIME-Version: 1.0
-References: <20260902013858.130887-1-shengchao.guo@oss.qualcomm.com>
-Date: Tue, 8 Sep 2026 02:32:40 -0500
-X-Gmail-Original-Message-ID: <CAMRc=Me9AcVByS64-AwW08wPyHHnL=73E5N5srPzTSqusMHMTA@mail.gmail.com>
-X-Gm-Features: AcwNN1XHgy9F2mNEObYLvFmWhv5aBUGsku_NoIXOHxOBjg8w5SFRiAiimbjLAiE
-Message-ID: <CAMRc=Me9AcVByS64-AwW08wPyHHnL=73E5N5srPzTSqusMHMTA@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: Document Adreno SMMU for Nord SoC
-To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bdba5b54-8733-4d47-952d-e1bd958a1ead@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +94,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Sep 2026 03:38:58 +0200, Shawn Guo
-<shengchao.guo@oss.qualcomm.com> said:
-> Add specific compatible string to document the GPU SMMU present on
-> Nord SoC, and constrain it to the single HLOS vote clock.
->
-> Signed-off-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-> ---
-> Changes for v2:
-> - Add the missing HLOS vote clock constraint
-> - Link to v1: https://lore.kernel.org/all/20260901140816.74200-1-shengchao.guo@oss.qualcomm.com/
->
->  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> index ffa33b7f4a96..214a9c051588 100644
-> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> @@ -102,6 +102,7 @@ properties:
->                - qcom,hawi-smmu-500
->                - qcom,kaanapali-smmu-500
->                - qcom,milos-smmu-500
-> +              - qcom,nord-smmu-500
->                - qcom,qcm2290-smmu-500
->                - qcom,qcs615-smmu-500
->                - qcom,qcs8300-smmu-500
-> @@ -579,6 +580,7 @@ allOf:
->                  - qcom,glymur-smmu-500
->                  - qcom,hawi-smmu-500
->                  - qcom,kaanapali-smmu-500
-> +                - qcom,nord-smmu-500
->                  - qcom,sm8750-smmu-500
->              - const: qcom,adreno-smmu
->              - const: qcom,smmu-500
-> --
-> 2.43.0
->
->
+On Mon, Sep 07, 2026 at 05:52:32PM +0200, Kevin Brodsky wrote:
+> On 07/09/2026 12:54, Mike Rapoport wrote:
+> >> [...]
+> >>
+> >>  static inline struct ptdesc *pagetable_alloc_noprof(gfp_t gfp, unsigned int order)
+> >>  {
+> >> -	struct page *page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+> >> +	struct page *page;
+> >> +
+> >> +	if (kpkeys_hardened_pgtables_enabled())
+> >> +		page = kpkeys_pgtable_alloc(gfp | __GFP_COMP, order);
+> >> +	else
+> >> +		page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+> > Can we make it a sequence rahter than a branch?
+> >
+> > kpkeys_pgtable_alloc() does alloc_pages and then sets their pkeys, so I
+> > think something like this should work:
+> >
+> > 	page = alloc_pages_noprof(gfp | __GFP_COMP, order);
+> > 	if (!page)
+> > 		return NULL;
+> > 	err = kpkeys_pgtable_alloc(page);
+> > 	if (err) {
+> > 		__free_pages(page, order);
+> > 		return NULL;
+> >
+> > with if (kpkeys_hardened_pgtables_enabled()) folded into
+> > kpkeys_pgtable_alloc().
+> 
+> I agree this would be less ugly. In fact this is pretty much what this
+> series did up to RFC v5 (albeit in the ctor/dtor instead of alloc/free).
+> We could go back to this API, *but* the big issue is that it makes it
+> impossible to use a smarter allocation strategy for protected pages.
+> Patch 14 in RFC v6 [1] will give you an idea of what such an allocator
+> (with support for large blocks and splitting) would look like.
+> 
+> As discussed with David H we're first trying to land this feature
+> without large block support (fully PTE-mapped direct map), but we do
+> want to support large blocks eventually [2] and I would prefer the core
+> API to be already compatible with that objective. Very happy to hear
+> about suggestions as to how to avoid the explicit condition in
+> pagetable_alloc() though!
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+We could unconditionally replace alloc_pages_noprof() with
+kpkeys_pgtable_alloc() and make the latter choose the right allocator, but
+that's not very nice either :/
+ 
+> - Kevin
+> 
+> [1]
+> https://lore.kernel.org/linux-hardening/20260227175518.3728055-15-kevin.brodsky@arm.com/
+> [2] https://lore.kernel.org/all/aMwd7IJVECEy8mzf@willie-the-truck/
+
+-- 
+Sincerely yours,
+Mike.
 
