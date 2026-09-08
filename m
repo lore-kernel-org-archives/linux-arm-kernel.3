@@ -4,167 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456F2C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28663C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XtibxPQVyAZfi7GIcCdlRshMUFB6kV6tOrHbxWFRoTM=; b=VBwyHTM9bpIiCuNEvq6uPJ+juG
-	Ue/oLCax0rHpMiuKyGaR9Y8WAgXEXx61GMr0ceaKYXisQ9VkbKNLkn55QLL+xXc1L1YMhy/LrgyUl
-	Zo4I0ls1jrvtSjzT3/ENBXrLVhjYfXTvS/6KlTMats8IXkt6ZB+sQHE9N/izixiOHoWNivYz3b3uN
-	pGOxm1UoEzaP0oHIhxcZ3mvcssKdgI04D17RFaOYcsox5iB8tRgI/DOR+0XM+NLBorG2X0KHFJezn
-	9TcTOVrIwGoJcPSs8w23dI/146OgXHkYIuNLS4h/j2QmsushPQWYn4drUOw5oJsgoU1+R5d5ZuYNx
-	KROAoAIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HApOxspSI9W/JRl0ow7TyXJYsuTv15BaZFSAzmgyWGY=; b=lvgPO1o/VxVzFwLpntenyTr5yh
+	u6e5bdMyKA6slzVpg3i1Bpyj7UMKRw97AxcactnqdnU2RczPycMT9XxjikQDyXgm71G196GoWr3kL
+	zNxy9DtksnPJ477daj6yUsbORKtTY3/P78SIpmeT55HfwU+mCTkfiL0XkHnZrhxRTWpJM2Fda6xPb
+	J4IPc2OaOAzMz4LLnn6jYKYNnOqKYRZFvl3V2nZY6Yh4UI36ST9Kzz/IO05+HnJecMeK2szPeoOEk
+	CAE0j9EferUzKvmqmM0NXp8zz3rXVG9XYaU+e8+3buIJPnhH3boeqKznUXGRJeGsTfCgTjH32VkRU
+	YR//JxyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vaT-000000097Ea-1A2u;
-	Tue, 08 Sep 2026 13:10:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vaR-000000097DD-2brR
+	id 1x3vfi-000000097z2-1FLx;
+	Tue, 08 Sep 2026 13:15:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3vff-000000097yA-2xrT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:10:08 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 688CkmAw3363910
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Sep 2026 13:10:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XtibxPQVyAZfi7GIcCdlRshMUFB6kV6tOrHbxWFRoTM=; b=FYEEsmu9Bp4RxlKr
-	bdlkDU7MM956qVwX0TH40aknbPt8f8sGAAXZ569953xVF3qWYKwmqH3MRoKTZFai
-	Np5YiUDQlpNmS04fiP2jqJAFyhgQSTYFXOcYrMvKa2NyfvdZNaV1oab0T7ZKD9fH
-	J35pDir6rCVbmXaohQRWqfEfnOvXhRtK2lq+3M+9oby/aZFToyIGfH8NLjPAnSUM
-	IETCZxEIXjKh3J6fy+Wq2QK/v8PySRCtHvQIN5iS8OtaytEq7tdZczXAM2ZOBHk0
-	lfM+L1SG8GTvnYPZP0EBQTaOp3hL4bFE+G4Rv8iax5C42AHCs2SksxywO9+dIeaY
-	0JKEig==
-Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjcv7hnnu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 13:10:06 +0000 (GMT)
-Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5c5db8b6d03so1663653e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 06:10:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788873005; x=1789477805; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XtibxPQVyAZfi7GIcCdlRshMUFB6kV6tOrHbxWFRoTM=;
-        b=bEYb88gksFNuEYvCJ6N0OMx7bT+qQN8+oyr1ma9OEkDyci2dI8otr67FFo8LDRfQwh
-         hnxVJ3Z3zw5yXQcJSNvE+NlcL9QsBTXA6ikGCLWcEuoBkbN/IPI3KUVsZD2qV1f5OwLy
-         gXfyL0Gi8k0CF3lmadM2Nd+1LIPmZsX1OVc45uTF6jprkSUlCwoVuEZ9fI1R7bhXhVwr
-         cVvwfD39xUbnH5rij/ddlD+nS7iME4DzTSurObDAqpsETPCERR4a/JdfJB/OhF9wH+Eq
-         d/eFaOx066zHY60tDBkwFplTFi7lZDbMoy1p5vJ5T+wmbfdNovDjlXhIG2+/0ih+fRwa
-         SOeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788873005; x=1789477805;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XtibxPQVyAZfi7GIcCdlRshMUFB6kV6tOrHbxWFRoTM=;
-        b=GH29e+NL2A1f+8gm86YNh+vtrCZJmOQz0ww9W1/0pcJggl7435ImojJt9zA8042UQz
-         YumphbQ5wK/NhOEyxuqu8Jevx5AG6I/1EFMIAEqRSb625wue8Xrbwe9xl9EaEoHL9mee
-         T+rd/Gc3pAqz9bcmt0THyWGFBFlo3f+xI553XrSAmKnFt3s5M8LujqBoYbLe/k9RDL95
-         FcDGko27hGU5T9f04KGnTrPcI40+znLv+A4S+uktQqZ0GH1dBf03wnkb8DQ6JDRc0lr5
-         N4JKhN4zpENXEdNZqz3vzVhYX7fGDLAzvU37t05TbbbjykBixPmeh/5mO2bKFl5gung4
-         i9cA==
-X-Forwarded-Encrypted: i=1; AKwUvBwo0cyS844pYMkJJao1ek6mnrKisLLd1HnFVM+M47lMNrJr5BL3bj2Z8gfP7/D0NPbb+xK+hPhbjbk6XfkuNNzK@lists.infradead.org
-X-Gm-Message-State: AFuF++n6cKzC8a3c6oFz5akcF8kY2UB8YL6rxmNPB190JVpuoyDyz7Wu
-	8JBSiMpjJNIU4VEkX4HyWf1kwbwuKlkddZhl/znoIOqQrQQfYyQ6SKEnrw7dFZ5MkUqTrli0Ere
-	gWy7ADb+zWa/Bwp1nuSmfJ/0QG1qDJYvgVE8eFeobIQ6pGXyk5wtf3xpKgkY1YHqO3lP/9W0hUS
-	5TtA==
-X-Gm-Gg: AYBFou37GRQyRNdxAU426uEGjuoRRtCX10jmMFj1k1jmWNeuOxct15mmzfQWA+T40GX
-	j0FYESfagNLEU0GD1iSsQozoXEKjy7QaJ7LzvJ5L99uK23Ou8KVz1d75GYtFFNQHebGSR9/FD6c
-	DAnr0h5rIX1JjqKF8IRVWZdkKbp3gnSnSwRYPxQ3VpnUxPby9zx5jiVKd3FKDrqb+i9Semuv4+b
-	JmA2yp/TTmilOMXLWGBCvQSyreSWWDV25Yf5wB0iJ4OeUbohDo8srKfK5+wvBXafMRrK+miqDKd
-	l4i1pKyLPP8YnX4iASu3f79oOtqpI+/K+15zUW2b4PZii0opPce+JsAkZhCoqBOOKudA4YGYXXg
-	Zxw3px1fDCXT9VCO9BKigve8ze5k+a33JQbbyM71WzBeyrkzTAtmKi7MaKOQeb/36/2+lJR55/l
-	Lc239JoAK8VHM3
-X-Received: by 2002:a05:6122:f18:b0:5bd:cb34:1b70 with SMTP id 71dfb90a1353d-5c7ed29d58bmr14694122e0c.1.1788873004880;
-        Tue, 08 Sep 2026 06:10:04 -0700 (PDT)
-X-Received: by 2002:a05:6122:f18:b0:5bd:cb34:1b70 with SMTP id 71dfb90a1353d-5c7ed29d58bmr14694023e0c.1.1788873004277;
-        Tue, 08 Sep 2026 06:10:04 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a3705f37f0sm34623661fa.41.2026.09.08.06.10.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 06:10:03 -0700 (PDT)
-Date: Tue, 8 Sep 2026 16:10:01 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 1/5] drm/bridge: allow hpd_notify() to suppress connector
- hotplug events
-Message-ID: <z7a7c2pe7aqpqlh7z6ep4fhctujnwaxqxukqaywjwvt3w7ahnc@j5i5f53c4fqu>
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
- <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
- <cgk2httvebzm2jnjnb437mutez66tfozzdk77mjwukfzngdioh@mu46u3pwlf2u>
- <af5f2e4f-42a2-49f3-9c6c-0f910c5f9208@oss.qualcomm.com>
- <pyqpajtjcnslk6g5ysn3ce2csrb76fhd5bif4vdb6wezomlmsg@fsl55exyufx2>
- <dd375289-0174-41ad-980f-f027fad976f6@oss.qualcomm.com>
- <fcc816d3-e3d4-4dbf-8ae5-bbbac6e2189a@oss.qualcomm.com>
+	Tue, 08 Sep 2026 13:15:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C45BE1476;
+	Tue,  8 Sep 2026 06:15:24 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A3583F7B4;
+	Tue,  8 Sep 2026 06:15:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788873328; bh=rTMz/xlUFYVRRRGd5XADHoDI6DvwfIJL1qpU/Fb0hHk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=i3lnViUlTkdIdq8vFPwdhABKk1klUY2eE8I1NZTqXzzWk4B211p8HV0G84qurtHb9
+	 kXoVE4R8/aGfp/N8pI2DRKkcpkxk1af6HmQBWmeuG4tD3xvQMICZ0t0iX7ZEdvbcSK
+	 /ksnXZcaVkQjl79ddCxU9DqKSvB5LBajCzwwicZA=
+Message-ID: <18acfcfd-93e7-4319-9a2e-4fe1ccccacfd@arm.com>
+Date: Tue, 8 Sep 2026 14:15:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fcc816d3-e3d4-4dbf-8ae5-bbbac6e2189a@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=CMEamxrD c=1 sm=1 tr=0 ts=6aa0092e cx=c_pps
- a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=5Eng7BWHuIvqA__06hIA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=hhpmQAJR8DioWGSBphRh:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDE0MCBTYWx0ZWRfX5Vtc49aQHBK4
- AdjaQwFaEo1Jc42j4t/jLZnEt26u8Yq2NmEvObL9VexP51ofl6dwofAk8VViSI0npQnlTqEVfZC
- EJgL0LNCdACfg837agPKGst19JJ0DTA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDE0MCBTYWx0ZWRfX1TGx387Dekqb
- O9OlRlsqlQkcVfe1exENQJzQf6x4WaznuBBxN9E9S0qkCuv5SM6YXqDXQxXIsOlgmOcfDoHyUzy
- yF1Z/FfljzYCzLXEuW65dexKTO5SeLSpiwNlGuxJO3V9276pknf9/hRfynXS8zz6/T8asr1xjoY
- xeuxkQBPLwDyCc+ixpJPDLjlQDaQFg7suGeL0DiYM8klOP6pNlMFbrJy9a8xUNh4oyhOrA2y4mV
- tPIhKo6E5YRFP/Ws68XLWnrSo4AScE7X1lVn3OdIjDamcCeh964Rl4ORwIZ2IfjXMjBMEyonvjX
- PBYSKUo992ECt+lZ1HIDY0+rDxJDPGwbh4gqFWfDE6+4fTsYIQ7z2Day1Qx0j18oKHNuvAAWpSA
- WFsBlOIO46atUoKQiYoUPKz/DJwGV+BfmwWdVxz6fcErU50HNva05mfxBEqB2g5f/IpWjOv9WPq
- KZfsKYKzqKkm850VYkw==
-X-Proofpoint-ORIG-GUID: 95evpk9qsr_KJhX1x0Gn6fGUeSRht_Fn
-X-Proofpoint-GUID: 95evpk9qsr_KJhX1x0Gn6fGUeSRht_Fn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_02,2026-09-08_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
- spamscore=0 suspectscore=0 adultscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080140
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
+ implemented
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>,
+ Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Gavin Shan <gshan@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260903160819.831518-1-fuad.tabba@linux.dev>
+ <dd850141-ea85-4d94-9793-393f24a2fdc2@arm.com>
+ <CA+EHjTyuLKYE1UL4XYvq4rxW7fgFNafdTY8H0=Qt6Hnjz3wYvQ@mail.gmail.com>
+ <CA+EHjTzZovYDUeoEryhdmP1bvqJyEDmOoPtT7PEDvS2y5puXYA@mail.gmail.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <CA+EHjTzZovYDUeoEryhdmP1bvqJyEDmOoPtT7PEDvS2y5puXYA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_061007_776693_1C0F737F 
-X-CRM114-Status: GOOD (  59.87  )
+X-CRM114-CacheID: sfid-20260908_061531_871598_62BD536F 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,171 +80,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 11:15:44AM +0800, Yongxing Mou wrote:
+Hi Fuad,
+
+On 07/09/2026 16:00, Fuad Tabba wrote:
+> Hi Ben,
 > 
+> I built the respin first, and it didn't hold up.
 > 
-> On 8/21/2026 3:20 PM, Yongxing Mou wrote:
-> > 
-> > 
-> > On 8/18/2026 11:01 AM, Dmitry Baryshkov wrote:
-> > > On Mon, Aug 17, 2026 at 04:01:41PM +0800, Yongxing Mou wrote:
-> > > > 
-> > > > 
-> > > > On 7/12/2026 6:21 PM, Dmitry Baryshkov wrote:
-> > > > > On Mon, Jun 29, 2026 at 10:48:03PM +0800, Yongxing Mou wrote:
-> > > > > > The bridge connector framework currently invokes all bridge
-> > > > > > hpd_notify() callbacks and unconditionally emits a connector hotplug
-> > > > > > event afterwards.
-> > > > > > 
-> > > > > > However, not every HPD notification requires a userspace
-> > > > > > hotplug event.
-> > > > > > 
-> > > > > > In particular, DP MST bridges may use hpd_notify() to
-> > > > > > propagate HPD and
-> > > > > > IRQ notifications through the bridge chain while the actual hotplug
-> > > > > > handling is performed by the DRM DP MST core. Connector creation,
-> > > > > > removal and userspace hotplug events are already managed by the MST
-> > > > > > topology framework.
-> > > > > > 
-> > > > > > Allow hpd_notify() implementations to suppress the bridge connector
-> > > > > > hotplug event by introducing a bool *send_hotplug parameter. Drivers
-> > > > > > can clear this flag when HPD processing should not result in a
-> > > > > > connector hotplug notification.
-> > > > > 
-> > > > > Why? Worst case the kernel receives another hotplug notification which
-> > > > > gets ignored by the driver.
-> > > > > 
-> > > > Hi, thanks for reviwing those patches.
-> > > > Let me try to explain the motivation.
-> > > > 
-> > > > Semantically, IRQ_HPD is just an IRQ notification, not a
-> > > > connection state
-> > > > transition, and shouldn't be turned into a userspace hotplug in
-> > > > the first
-> > > > place. However, drm_bridge_connector_handle_hpd() currently calls
-> > > > drm_kms_helper_connector_hotplug_event() unconditionally after
-> > > > processing
-> > > > the event, so every IRQ_HPD ends up reported as a hotplug.
-> > > 
-> > > What if the IRQ_HPD is delivered together with the first HPD event (for
-> > > example because of the TCPM processing those events)? See the mechanism
-> > > in the displayport.c AltMode driver.
-> > > 
-> > The DRM API should simply pass both long HPD IRQs and short HPD IRQs to
-> > the driver as they are, and let the driver decide how to handle them.
-> > Based on my review of the implementations from all three vendors, when
-> > long and short HPD IRQs occur simultaneously, the long HPD IRQ is always
-> > handled first, followed by the short HPD IRQ.
-> > 
-> > I have another thought regarding the current DRM API. Could we have the
-> > DRM layer pass only the HPD event information (long IRQ and/or short
-> > IRQ) instead of connector status, and leave all handling decisions to
-> > the driver? The DRM core would simply report LONG_HPD | SHORT_HPD, and
-> > each driver could decide how to process the event. This seems like a
-> > pattern that could be shared across different drivers.
-> > 
-> > This is just my current understanding. Please let me know if I've missed
-> > anything or got something wrong. Thanks.
-> Sorry, after thinking about it again, this idea is not fundamentally
-> different from your current approach. In the end, we still need to handle
-> HPD state transitions in the driver. It seems my previous suggestion does
-> not really simplify the problem, so I apologize if it has caused any
-> confusion or misled the discussion.
-
-No worries.
-
-I'm currently stuck between two ideas: continue pursuing the current
-"single API for both events" or implement new "two API for two events".
-I think that the second might sound more plausible, but in the end it
-would complicate drivers much more, because now they'd need to handle
-synchronisation issues on their own.
-
-If we start from the DP AltMode, we have a single state word which
-specifies exactly, 'HPD pin status' and 'was the IRQ_HPD captured'. Our
-DP controller also has about the same status word: the connected status
-and the IRQ_HPD pulse. Which (for me) points out that the single API is
-a correct way to handle the HPD/IRQ_HPD.
-
-Now, coming to the drivers/userspace side. Let's leave the MST story
-aside for a moment. For the DP branch devices connected to the USB-C the
-AltMode will always report 'connected', but the DP's detect callback
-would rightfully report 'disconnected' if there is no actual monitor.
-The kernel should do it's best in this case and report that the
-connector is disconnected without any interim states. I think we do it
-already. The compositor should do it's job and skip full scene
-evaluation of the disconnected connector gets disconnected again.
-
-Event filtering. Historically, drm_bridge_connector was trying to filter
-HPD event. We had to remove it because for the DP prefiltering doesn't
-work. This might have left the gap, which now needs to be filled. The
-bridge_connector uses drm_kms_helper_connector_hotplug_event() which
-just reports the even to the userspace. Consider reworking
-drm_bridge_connector_handle_hpd() to behave more like
-drm_connector_helper_hpd_irq_event(). Execute hpd_notify under the same
-mutex lock, capture if the status has actually changed afterwards and
-report it to userspace only if there was a change.
-
-> > > > Second, MST IRQ_HPD is level-sticky -- as long as the ACK has not been
-> > > > cleared, the IRQ keeps firing repeatedly, and MST bring-up (link
-> > > > training
-> > > > / MST enable handshake) itself generates a burst of IRQ_HPDs. So this is
-> > > > not about "one extra hotplug", but about a burst of them within a short
-> > > > window.
-> > > 
-> > > Ok, if it is level-sticky, it should be handled as such.
-> > > 
-> > > > 
-> > > > Every one of those hotplugs is delivered to userspace via udev and
-> > > > prompts the compositor to re-probe the connector. In the window before
-> > > > mst_active is set, that re-probe walks back into msm_dp_bridge_detect()
-> > > > and performs aux/DPCD accesses, racing with the MST enable flow.
-> > > 
-> > > If there is a race, the path needs to have a lock, preventing concurrent
-> > > access. Otherwise, you are just shortening the window instead of solving
-> > > the problem.
-> > > 
-> > > > 
-> > > > The amplification also isn't limited to a single connector: on Hamoa
-> > > > there are 4 connectors (3x DP + eDP), and we observe that a hotplug on
-> > > > any one connector causes the compositor to re-query all 4. So this burst
-> > > 
-> > > Please fix the compositor, it should not need to query all 4 connectors
-> > > if the HPD event came from the single one.
-> > > 
-> > > > of spurious IRQ_HPDs during MST enable ends up amplified across the
-> > > > whole card.
-> > > 
-> > > How do i915, amdgpu and nouveau respond to IRQ_HPD? When do they send
-> > > the HPD event to the userspace?
-> > > 
-> > The driver revalidates the actual connector state, and a hotplug event
-> > is triggered only when an actual connector state change or a link status
-> > change is detected.
-> > > > > > A NULL pointer indicates that hotplug suppression is not supported by
-> > > > > > the caller, such as the connector detect polling path.
-> > > > > 
-> > > > > And nothing in this patch makes any use of it. I'd say, it's
-> > > > > questionable addition. Let me check other patches...
-> > > > > 
-> > > > You are right, I will reorganize the patches in next patchset.
-> > > > > > 
-> > > > > > Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-> > > > > > ---
-> > > > > >    drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 ++-
-> > > > > >    drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++------
-> > > > > >    drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 ++-
-> > > > > >    drivers/gpu/drm/msm/dp/dp_display.c            |  3 ++-
-> > > > > >    drivers/gpu/drm/msm/dp/dp_drm.h                |  3 ++-
-> > > > > >    drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 ++-
-> > > > > >    include/drm/drm_bridge.h                       |  3 ++-
-> > > > > >    7 files changed, 21 insertions(+), 12 deletions(-)
-> > > > > 
-> > > > 
-> > > 
-> > 
+> On Mon, 7 Sept 2026 at 11:28, Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> ...
+>> This patch misses that case. check_override reads the CPU's own ID
+>> registers, detect_ftr_has_mpam() the sanitised ones, so
+>> finalise_el2_state clears the traps and neither cap is set.
+>>
+>> Not advertising MPAM already happens, since a mismatch lowers the ID
+>> field to 0. The trap default is the missing half, and I agree it
+>> belongs in finalise_el2_state, which already computes whether
+>> MPAM2_EL2 can be touched. KVM then needs only system_supports_mpam(),
+>> and the cap goes.
 > 
+> finalise_el2_state can't set that default. Under nVHE and hVHE the
+> host is the trapped party, and cpufeature reads MPAMIDR_EL1 and
+> MPAM1_EL1 from EL1 before KVM exists, so the only way out is to stop
+> the host detecting MPAM.
+> 
+>> The one host left is a forced nVHE, where test_has_mpam()'s MPAM1_EL1
+>> read would trap before cpu_enable_mpam(). The respin makes the caps
+>> false when is_hyp_nvhe(), so MPAM is off there rather than the boot
+>> hanging [1].
+> 
+> is_hyp_nvhe() is true on an hVHE host too, since
+> is_kernel_in_hyp_mode() reads CurrentEL. So that turns MPAM off for
+> every pKVM host on VHE hardware, not for a forced-nVHE corner. On the
+> AEM FVP with MPAM, a host booted kvm-arm.mode=protected detects MPAM
+> without the change and not with it.
+> 
+>> I'll respin along those lines.
+> 
+> Not along those lines :) I think that v2 would be v1 with a clearer
+> commit message, keeping both predicates. Merging them would give
+> resctrl the wrong answer, since it needs firmware to have enabled MPAM
+> where KVM's trapping needs only that the registers are implemented.
+> 
+> The mismatched machine stays uncovered, with this patch at least.
+> Closing it means deciding per CPU at EL2 from the CPU's own registers
+> rather than from a system-wide cap.
 
--- 
-With best wishes
-Dmitry
+
+Ok, there seems no way to properly handle mismatched systems anyway as CPUs can come online at any
+time. I don't know of any mismatched MPAM systems and they would be strange as the interface to the
+interconnect would on the CPUS that support MPAM require providing PARTID and PMG and the others not.
+
+Thanks,
+
+Ben
+
+> 
+> Cheers,
+> /fuad
+> 
+>> Cheers,
+>> /fuad
+>>
+>> [1] https://lore.kernel.org/all/apqrky27mJmUV9UA@willie-the-truck/
+>>
+>>
+>>>
+>>> Thanks,
+>>>
+>>> Ben
+>>>
+>>>
+>>>> +
+>>>>  static inline bool system_supports_pmuv3(void)
+>>>>  {
+>>>>       return cpus_have_final_cap(ARM64_HAS_PMUV3);
+>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>> index 17b83a2518a8f..36a27692e5cf7 100644
+>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>> @@ -2501,6 +2501,13 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
+>>>>       return (read_sysreg_s(SYS_MPAM1_EL1) & MPAM1_EL1_MPAMEN);
+>>>>  }
+>>>>
+>>>> +static bool
+>>>> +test_has_mpam_sysregs(const struct arm64_cpu_capabilities *entry, int __unused)
+>>>> +{
+>>>> +     /* The registers exist whether or not firmware enabled MPAM. */
+>>>> +     return detect_ftr_has_mpam();
+>>>> +}
+>>>> +
+>>>>  static void
+>>>>  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
+>>>>  {
+>>>> @@ -3116,6 +3123,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>>>>               .matches = test_has_mpam,
+>>>>               .cpu_enable = cpu_enable_mpam,
+>>>>       },
+>>>> +     {
+>>>> +             .desc = "Memory Partitioning And Monitoring system registers",
+>>>> +             .type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>>>> +             .capability = ARM64_MPAM_SYSREGS,
+>>>> +             .matches = test_has_mpam_sysregs,
+>>>> +     },
+>>>>       {
+>>>>               .desc = "Memory Partitioning And Monitoring Virtualisation",
+>>>>               .type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>>>> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+>>>> index 1ce7130e25490..8941335724f6b 100644
+>>>> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+>>>> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+>>>> @@ -298,7 +298,7 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>>>>       u64 clr = MPAM2_EL2_EnMPAMSM;
+>>>>       u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>>>>
+>>>> -     if (!system_supports_mpam())
+>>>> +     if (!system_supports_mpam_sysregs())
+>>>>               return;
+>>>>
+>>>>       /* trap guest access to MPAMIDR_EL1 */
+>>>> @@ -317,7 +317,7 @@ static inline void __deactivate_traps_mpam(void)
+>>>>       u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
+>>>>       u64 set = MPAM2_EL2_EnMPAMSM;
+>>>>
+>>>> -     if (!system_supports_mpam())
+>>>> +     if (!system_supports_mpam_sysregs())
+>>>>               return;
+>>>>
+>>>>       sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
+>>>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>>>> index 2775ba3359cfe..aa5be51385f68 100644
+>>>> --- a/arch/arm64/tools/cpucaps
+>>>> +++ b/arch/arm64/tools/cpucaps
+>>>> @@ -78,6 +78,7 @@ KVM_PROTECTED_MODE
+>>>>  MISMATCHED_CACHE_TYPE
+>>>>  MPAM
+>>>>  MPAM_HCR
+>>>> +MPAM_SYSREGS
+>>>>  MTE
+>>>>  MTE_ASYMM
+>>>>  MTE_FAR
+>>>>
+>>>> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+>>>
+
 
