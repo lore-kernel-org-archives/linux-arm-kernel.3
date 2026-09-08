@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D797C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D154EC79FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OaUU92Dn2FGDK8buM/Lh5FiKpTpF3RIMSQx9zRLVeME=; b=YQKjoxziFjmfSj
-	ySulvVBQU3dvbw3IiKhG9vYSDJ5e5Vu8NBuBUw4o1Ag4j/GX0dza3XQVyQCjIWoFopVDImk7eTZaQ
-	b//NyH69foRmSY8YpC9ataFjdxLxlXgKm4ftcmaeVw51Cr2igK+YBSC3sDdDFgeGlnDLvJb0VXYCw
-	/bwAzDTkJmx7nMcW+mJ9CBCrDmkix3xt0qIyFKyWmUo3Nd3E2UZ+0br0ePS2yxvjPIftb8DVbpb9g
-	jLrB2875RHr3ujamshmZLbUjCdRjDdFze/xPRJrW/fPPQoTweOUN5Q7Pw5PbB030WYpL4AFpTErpK
-	G3RNRvFaPM5lvbqo/FYg==;
+	List-Owner; bh=T2OcsfQB2rXyV+qEnim3LyzT5vfleOs/dQwzAKYIyC8=; b=HS+v7dav50+OYq
+	cSrgSky8kJ8fph0r+jZHkSLlnRlqwomhr8bxUsQ+qmYM30onSefveSeMFfkEL/gI2WhU3kV52VLzI
+	dWwrPwIIWWtPUSNgOCfpWvIPv6sxfoyzIvO9Eg3uUHLbvI6OsdmXklO19ct0l4N+NHm6fQwbxntYi
+	hdCjbwHitcTtUlioku3S+rn6Hu2AU5OYFzx7yCdJtuGMwSYOkzl2NLXmLPiI4Or3acKhBmE8T0fIs
+	Y5DoFlYjgfi8/D4xzGyNFjq13oA9howeCtQ9yaqGONNFLKW24y4nFJAOYDMoukx6CbDsreyELtqdn
+	ZismkvkRPNnaqZpUxNPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xeE-00000009Sel-0pK7;
-	Tue, 08 Sep 2026 15:22:10 +0000
+	id 1x3xeW-00000009SlN-1pxM;
+	Tue, 08 Sep 2026 15:22:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3xeV-00000009SkV-08aN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 15:22:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=T2OcsfQB2rXyV+qEnim3LyzT5vfleOs/dQwzAKYIyC8=; b=PX4QvquRUYiA360eBIizK3sBLJ
+	YMboDCLZyJSE83JwYH1V6+bDaooDLKWucp9d1B27U3TYj/aqcyR/LtNGnF1ameqB6zwG9ndWAg9XU
+	36/5Qm5Vz6IsqJ7m6YkQVxfkEdH+gc52oItHBaYM7dtlwzC0KXsu7bWwhuUzlAkF2IjiMfzt36Xj1
+	V9DY/T4TOBYC2dJI2rBHz1F0qwwo/zcKfqoW8F0tNOlRV6I7Ea77CQlq0MN0FX9NITVWmeWMK1/74
+	fpUUNKQ+ph1pBppMerB79RABGXZ9DsI1M5ZTrrmuWvSBnFZszGn+ebtgMQRZfSimp68WQdKRmQkpT
+	UvTUrcTg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xeA-00000009Sdh-0lFj
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3xeS-000000000mH-0aXJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:22:08 +0000
+	Tue, 08 Sep 2026 15:22:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C00B91C14;
-	Tue,  8 Sep 2026 08:22:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 682281C14;
+	Tue,  8 Sep 2026 08:22:19 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ACDDC3F7B4;
-	Tue,  8 Sep 2026 08:22:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 545643F7B4;
+	Tue,  8 Sep 2026 08:22:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788880925; bh=ki0awHv7wA0mCQKhq+F9Yw0sopN8F9mV84WGSkZrsjM=;
+	t=1788880943; bh=pUyEkl4bH7bjN7cz2XbK3Pl6rivIm/Z5yqVzikq2V+0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qxf0H1yD3qENk6YokROYVjrFkjFMAtaAJ3/ocjaOZsepJmz2Mc9L/QjP7J6AvqXvy
-	 9s/2CjUWg6xeLS5ewh3Arxp+9jXzAlsD2Sl2Kct05HsNT6j5Jy6BvzXys4Rg4AgG60
-	 Vnv38tuDt4FMqEDbb0BaOFxbCFrwMluQ0D3hNAOs=
+	b=IsfPGzHPBxawavvaQDfuX6xD0H6IW52/osuv7hqwOc67pn/cj/YkkXtt/1jrlxNzT
+	 WVk+e6qOQgpRhPfHB7PEz36ypDnGhg4WnDYxW75Np6Cl89QR7CflKXDb2cZwbRGoQb
+	 Nj5ijfMl0b/t/WjRs6Z4b7GibxibRU68+z0zUnDY=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 11/21] arm64: gpr-num: add __GPR_NUM() helper
-Date: Tue,  8 Sep 2026 16:17:31 +0100
-Message-Id: <20260908151741.394589-12-mark.rutland@arm.com>
+Subject: [PATCH v4 12/21] arm64: entry: sdei: Restore all clobberable GPRs
+Date: Tue,  8 Sep 2026 16:17:32 +0100
+Message-Id: <20260908151741.394589-13-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260908151741.394589-1-mark.rutland@arm.com>
 References: <20260908151741.394589-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_082207_625661_AA0722CC 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260908_162224_381520_6D972539 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,18 +82,13 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.a
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gpr-num infrastructure requires users to concatenate the register
-name with a long prefix in order to get a symbol that evaluates to a
-compile-time constant. Doing this manually is error-prone and painful to
-read.
+Currently __sdei_asm_handler() avoids restoring x20 to x27, as these are
+not be clobbered by existing code. This is correct today, but it makes
+it awkward to rework __sdei_asm_handler(). Given the rarity of SDEI
+events, restoring x20 to x27 should not have a measurable impact.
 
-Add a new __GPR_NUM() helper which wraps the concatenation.
-
-For the moment I've left existing open-coded concatenation as-is. In
-particular, the DEFINE_MRS_S() and DEFINE_MSR_S() macros have awkward
-stringification requirements and would require invasive changes that
-outweigh the benefit. I have plans to rework those in the near future to
-remove the need to use gpr-num values.
+Restore x20 to x27 when returning from an SDEI event handler. This will
+free up those GPRs for usage in __sdei_asm_handler() prior to return.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
@@ -93,31 +103,30 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/gpr-num.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/kernel/entry.S | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
-index 240cd25d55c5a..30fb8a67b19f0 100644
---- a/arch/arm64/include/asm/gpr-num.h
-+++ b/arch/arm64/include/asm/gpr-num.h
-@@ -11,6 +11,8 @@
- 	.equ	.L__gpr_num_xzr, 31
- 	.equ	.L__gpr_num_wzr, 31
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index f63049ac32dc6..a6ec5c5a2d29c 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -1044,10 +1044,14 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	bl	__sdei_handler
  
-+#define __GPR_NUM(gpr)		(.L__gpr_num_##gpr)
-+
- #else /* __ASSEMBLER__ */
+ 	msr	sp_el0, x28
+-	/* restore regs >x17 that we clobbered */
++	/* restore regs >x17 that firmware won't restore */
+ 	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+-	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	x18, x19, [x4, #SDEI_EVENT_INTREGS + 16 * 9]
++	ldp	x20, x21, [x4, #SDEI_EVENT_INTREGS + 16 * 10]
++	ldp	x22, x23, [x4, #SDEI_EVENT_INTREGS + 16 * 11]
++	ldp	x24, x25, [x4, #SDEI_EVENT_INTREGS + 16 * 12]
++	ldp	x26, x27, [x4, #SDEI_EVENT_INTREGS + 16 * 13]
++	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	lr, x1, [x4, #SDEI_EVENT_INTREGS + S_LR]
+ 	mov	sp, x1
  
- #define __DEFINE_ASM_GPR_NUMS					\
-@@ -26,6 +28,8 @@
- "	wx\\n	.req	w\\n\n"										\
- "	.endr\n"
- 
-+#define __GPR_NUM(gpr)		"(.L__gpr_num_" gpr ")"
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_GPR_NUM_H */
 -- 
 2.30.2
 
