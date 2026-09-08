@@ -4,134 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D1EC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 22:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BBEC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 23:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=; b=TX1/A06kPjk1yPUcKo4kVivKJz
-	uA6gep1/ja6SqPJRDnn0m2DvBMWErrVCmG7LKR4Zj/lWifBvatXsnuuiWjjrhjjslNRcwnb+98Jpe
-	r9ZrbjaCDTS+ERszqgbPEirVllXail+nhU25srWLtI5YfczoRUY9CMpcjq/kAIBbP4cG2RJC11yIb
-	sgy/Fnv11pFM9PVDdsJ2TQk7fWGJzntx8PpemsfZW/MjQOSEK8Cy1+2fSJH/fMXsM+0oUXMM+eUY0
-	316z/AidnphlbHb+3+EX7QXUJzfOB6iPquskrZswwwQUb1rS9PP2Rsggbe8OMUQ/CcrySoI8VfqQm
-	NGg4PUrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=; b=SJZiHI6d9PEmABLuqDpacuOnvB
+	hWK+hSoJqUQKswgdRY1kM5tTOJdsJwUfXwy8v759h97nMyikeaDWsdQwx+y5eVszwHTsVlm6/mcQV
+	yiR4vGK91BMHIBVZiI6+MAczOgvOgfHrgLFnbchpOrIqM7o5yL436DoPqZhLybkgN5s+Kgf4PrMuU
+	YfaB0Kb5ECqlt6mbLU4ylHAE6mVMIs63kWK/WZCcXPCbcr7sqzPV3HUOv+RUQC2+fyJqaOv0/eHqr
+	GPLjExvpRa0UCUXcqAb16g5MsFHbaHu9u3j2E40FCqU6G6mO08nPtg07dUEZMEyAGVWDKs0cOKvmZ
+	KPIyJWQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44j8-0000000AQYi-1JxL;
-	Tue, 08 Sep 2026 22:55:42 +0000
-Received: from mail-southcentralusazon11011055.outbound.protection.outlook.com ([40.93.194.55] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1x44wl-0000000AR2g-2Jcy;
+	Tue, 08 Sep 2026 23:09:47 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x44j6-0000000AQYJ-17wa
+	id 1x44wi-0000000AR1V-2qor
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 22:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=syV/DDqM4IChDItVs+UOmcftrx+NAnoFfOXQnTptuXtdtwtCBy/dAnLKP+ATjNvxG/DCoRMR2Xq2tezo9tiRI3boMxZJ5WyRXsL7H4rpDh68ddivvQfNVh8JQ+jKJmFK6UJgg/u444Pw7nhgUfElNTyOCtnECh5P+jqXURQEWI51cAbrkejVvpur2iWbwZxaX+LE4w7crqozhl8NQC448TMWJkldNqMtTT0mIn3w+ieRwhSTACVzXm1bYgbmnupU54QJtKSgV7MK+Y0QRqB65ThCvtp+PkAYj3MGe4xtOcnXQTFGQpFL/EyIorkHepZN3/P2frmq/95fCUXNNZRMDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=;
- b=mV5ixwCDdYy5KCCqlGt+uwCatEex1FfZ+XAEtaQfU0js9RUyqK0SCu0a2ee8x6bWz1C9CYh9xR7KGEWw52Ef7x41u/EDKe6XXps8Ta3GNyi0j/e5fgFMVMTBXdvR2G+/x6o+chKvjrq8KvxCxLN6yzJnKxJQWrWwnPI1O7WjYE8nrDOU3zhMkoaeyyizDYvA7zowUN8fBMHE2e3k/l1fQQaZN3AS/ebw/X0NwaQ84X3+ogktUpHFjDBRfPz19gpXgCYFAmyBhGbcLwQA9mfy14HQ36c61d3ni1YeKKlzo7KjGqeFMr+5YA50S9k4iDGn2a/1Gz0ORn3gHxojV/7SBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FW9cBw+Km9TQxV23acpsXgx7qKC2O7bLEhjojxcjEoQ=;
- b=a0AUJkB8BNIWDLhb7DXFRChJJzGv/G4pHpAarMkLyKwnAWO83U7AcZbdmefZ0KCYXDt3PS1VvIt1+A/NOxb/1ZYn/zArqjx6akHLIkdKpV0UAQ6H5Tnwx1oZexgEXX9pLXAMvXutxlEBam1JbrLnvS9e1gkBL1glw5iRIV+ZWX5l+mHAtQbj3KaVLmb0ILz7lPUDDJa8ShTNojlY/AfNRyAkBU4JjV4y8ic6pw1AzedRSlgpdLSHIR16zVnXIJjHSGpW3miA1VUR+7oabNIWelDcJSxeCJe2vpyR9waWlN1UCwfEJ83dAqFTuAripIY8jBOqiCxFCG3T+V44CNCJng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH0PR12MB8099.namprd12.prod.outlook.com (2603:10b6:510:29d::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.13; Tue, 8 Sep
- 2026 22:55:33 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0406.005; Tue, 8 Sep 2026
- 22:55:32 +0000
-Date: Tue, 8 Sep 2026 19:55:31 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev,
-	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
+	Tue, 08 Sep 2026 23:09:46 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49a97714f5dso51495945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 16:09:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788908982; x=1789513782; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=;
+        b=BsFY6RjcNuBAwIOLfOqoWMj4MhRhEXsxt85M897iDgKpZCvNHmkNW9AYAaesmzg0+2
+         E+Gqeo4ureUqO2ZSNTa8Pc0fMRd5Zkxbqbuu2dqaNn8lUTY2nL67ZcUJMHdS7PgXw9Ac
+         o4xqP5x3JrEkX3+8lf8IUIVh26MU8mBITEm0VAZBtl2acZsUu9oD93kUNuriaLVjIXaT
+         PlFEt2+wSh9mCi08XY247MNpD5c4/qMuVM2tVm5PJrpak627V+a8dmECHtzr1rhZ1aNi
+         TMrjofqeP/k1/QJgepbo8/hT3CIOrJ9t+N3zeo3AB5UGLzaEkFIF900/ZcUE3SI0Rgi9
+         NFkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788908982; x=1789513782;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=S1sqlRiEDMtea/68TRHJP/y7Fg6bS0f93iC/rAE6DLs=;
+        b=TeFTGDKkkIZtKfDwc9yjPimPLQcKsGj/gCcwYWj2od7liNl49Nny8HVrtotnu0HKyX
+         lG7Y8jn3Ologesnr0SIfcMoWHUYw3Ff0N04TsdtJaJl5Cd4MdU1jA0fhtlacdr1Ve2oU
+         ry5mvemvRt9AGNzrTNfHfTcQJMRMkjlucMtg3WSu8PFgy0GSIpspYJu5KINnO+4gsNoE
+         P7y+FjF7da3CxhoESuxf31NFK/epGGKbNFY79oBXuru5/j6mp6yR4vkHTKaVVCnsGkkq
+         eAZzCtQnuTE6lwz7ATIGkFQlP0VubxvcZpagMYdxybXX/xHihvJchZHDNsLthFKwa/cJ
+         5z0w==
+X-Forwarded-Encrypted: i=1; AKwUvBxvlbFXYRaVw1Xv5Wih7QD5PtCW5CU2aazNjaBOdQlBLF34V2D5tkp7ElrDoH3ITtY4lP/dwKk4CrS3F+08vzaR@lists.infradead.org
+X-Gm-Message-State: AFuF++nuHzDaQArbKkqrTdQ+vcE2gKzYWD89jB9x785mYKJ4rY/LMd9V
+	KMZyRgfZ/fnmb9tr0DlHLDgrJzDGT3uW7GEhSK3i+GCKITmQJU4XEPkg
+X-Gm-Gg: AYBFou2kvoLjMwSYKfpw5ENgQLOcmh+HjtxoHf3AWZGaJAj44lVreSF/thDoMhty5jX
+	6UYoHJkiIKe9jBJHKSEI2gl/OFA59FP20ZSJX3nfUcubxvjRj30SqO6ptbx7vROy8NYWSH8aHei
+	jgv1x8FzBRcnTfAzGtLsh7uHXy8MLs4jt+KBbUvgelj8ltLfnWHaLBKbh5Y+41jskkom8woY3nC
+	S9xRuNeH+bjZg9FLNyYK2jYgr0j+fiMp9pK4o13pGF4MnFtDOIPvsMNrF3j5rH/fwKPm0+GEA2O
+	DWbXcl5nMOZTzA+SP9eTxrSlkQfRJcC7s/mAh3Ug74CnBFkvnw/ZG1IjMZ2QJN4EVqXf0sapPGF
+	wM7ICGDpUDdNtf9Qw1joBe+K4OFF9pyHgYKXAwJobT9vDlOpj03lTHpSW0/FQpVgWtexFQPBRAc
+	F2kP2tHiIWR12NNQ6SB8SFxMCwgasaQIX5DYDWD+TyZ+acGehZHsvUNMyIhkzU2qLNTLy38MChL
+	D8NhrVl/H7qk9lYvwwWtagDwsjZ1C3y4MTsIG9iempqgMrK5mvvxN6wKISXdHzrDbWDAf3WE0/R
+	qL5MhT+ce6u5of9sjKB1HlcBfw==
+X-Received: by 2002:a05:600c:348a:b0:49c:fa20:cc03 with SMTP id 5b1f17b1804b1-49cfa20ccedmr254595975e9.26.1788908982187;
+        Tue, 08 Sep 2026 16:09:42 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-095-117-170-066.95.117.pool.telefonica.de. [95.117.170.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cfd3f8192sm385530905e9.3.2026.09.08.16.09.40
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 08 Sep 2026 16:09:41 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Aaron Tomlin <atomlin@atomlin.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	linux-modules@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
-	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v10 07/15] platform-msi: Introduce
- platform_device_msi_rewrite()
-Message-ID: <20260908225531.GD2779763@nvidia.com>
-References: <20260908171712.356645-1-praan@google.com>
- <20260908171712.356645-8-praan@google.com>
- <87se3j1qgu.ffs@fw13>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87se3j1qgu.ffs@fw13>
-X-ClientProxiedBy: YT4PR01CA0502.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10c::11) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] module: reject out-of-range relocation target indices
+Date: Wed,  9 Sep 2026 01:08:15 +0200
+Message-Id: <20260908230815.78409-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB8099:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10719f8c-f378-4c72-1bcc-08df0dfc498e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: mE6T+Kvyd1zKdaOAuenwCz4Qw8iUWOyQ89+1BAfNvX7c60PgF/8Jv32H5XcCvdCKZBfjcgixIXDMhZinXfKtW0+mzk/J1eIkkP+Q9a7AYl+bZXuylRKoIgY+fumwLNvN3c94X23cvR19ZQJbWy50dlP17w74yq7kbpKu2jwM1bDZCm66ClX59uvDvCuMWoml0ecpIsQLCBnFrEqGjCLgVq90uQCAc+zAb71a+8puHGTdsoHk6DV5itEQCHZXzrx33DIYDr2PvCC7jkjOFO6Vv4GoR3Me0sYfKTAL6GfE4FAnqFKQR4vKvO+cOn8+v+BN5hPdOiVvfO6FkEG0aDi2KjFz9mw8c3fWYKfMj1UB96j/YQMyT9cULPHuLrjay+dXxMhOY+tDzOS+MFevabi2G5+lSOpVZF32x8iQJVoNRzNwYAm8wM8XCy0omGD1Wd3I1ADju0hQiaSqkkZ4QzW15VavaPw34829Y4wVDuZld1oHTZs15fayB07HOyW3F2TlPTK+AP85aB4xoz7B+Bc/PBGEsghDisz4sa41raV2p/ItUCjEu0ZQBmZqw2nV3m3mz/PtZddfqX+oIEy/Tj5n4muqYdflnMA+spuzhPzpcSWhkiItNJ8BZ4zEef6NkN96MuBwIeq0mwxISwSONIT8FiC2vxT7Andsjs5rBskPhi4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4p2my+vb+DcjhO+8vGD82tp4tmOVRLZ59+xJobEQbJsNUm2qguvxWeJbKHt1?=
- =?us-ascii?Q?6kL9FPIakmJilcV8ZkhN3wf8VJCu6Ak6AuGp8JRNNiDTrMJgeDEBLnj2TZnO?=
- =?us-ascii?Q?N/IB4ERAZRiCh7tONvFQPaJF1wG3QVPN4PQLMzuVQZQ3+pq/mTNh8XDar6Jk?=
- =?us-ascii?Q?4FMgwzCcMM7tFNcrg3swXzj0y6V7pwQQur0BTQC1wr6QONMFHE3401iw+wpV?=
- =?us-ascii?Q?9Hmj3cdKvn3eRiJSKMkD5MRV9fKp2Fxchbde9wZTTZwXJwN7Jvhek9T/yKvM?=
- =?us-ascii?Q?xSEX+bwSXW3pGPhuB8G+UzhGMBJqPEouCMyWndPJuqnJM/CYApCLDlLCNgoM?=
- =?us-ascii?Q?GrHDBmBqTi85pV4934xdewznOoC85VsEct0Q9OYlWFy4TBcc0t1IEHTpoZ0D?=
- =?us-ascii?Q?SVZWeKR+Jj+YBz+v8QKBP/P+0YEMGE76oKViasMVmB6vrYTcqgBkDrt5HdjI?=
- =?us-ascii?Q?wKwPUYMJusud37ddZGtF4sav71rgcfCMeRHSnhDDR1kwW7niAbAAlQ/O00LT?=
- =?us-ascii?Q?70JQ0d9EbjHp1XjpJLh3jN8zCW+rm5AOrpSNEfXds5K+CcUPtV8bO9aSGHTM?=
- =?us-ascii?Q?1wmhtyGjgwos9OuLBcmX+9235SrlgF4GlTl5/WUgWdKQu+SQdUqiGgurCl1M?=
- =?us-ascii?Q?hwtNmacrquCfEnVdHbq+hVvQmuAfj7UdIKoJOhcFsST5mZyxg21j5h0biLEA?=
- =?us-ascii?Q?Mzero9V4ktJgnhmwQcj0dr+uGnoToEWPKf70DDhxuOlyvm4i9dNhpgeHdVam?=
- =?us-ascii?Q?Rqk9SO11lgxpFO0pxXtAXhTd+oVgQCj5723vE+cRlA0FNJ8EFoebuhmq1/wm?=
- =?us-ascii?Q?oN1Mkx+JNW0wagz8Hmcelu1vrybSxa1yeWV0j8dAGjYtAL1uRQs3hud+y4nc?=
- =?us-ascii?Q?0aBJ872VUS6QIGLNMPgBQF+u0cE1JrwD7U61LdX6VWwdAQ2SYlGpJR8R6xFt?=
- =?us-ascii?Q?iqzd3CYIFplf7gaLquJGIvwGHHM+X4g8CX2SvfHmaBlXtFgAFL0dMRMsCaiY?=
- =?us-ascii?Q?eUKVJTiW7lHTWC59GzS+4BctbMetDI97wP+daxRDWLsbW7T56S9/ahMO7qMX?=
- =?us-ascii?Q?DfVIf8B1sJ+5sKJdSyhKgrWZFukFLSFkU6wzJwRgpYjQJTokMBzTSUcZq2Ni?=
- =?us-ascii?Q?xj97xgs6jj62fH3WyOxRDod/1HNTxSecNsZyYRWamnb5psqFhevIlW3F9/mq?=
- =?us-ascii?Q?LVoGuOMLd6U6NQ9BEwyB+zDG2Qa1LoQo7Wv9xsoNIRCm/wpEpDCAW7SW7O5s?=
- =?us-ascii?Q?Z+VbKEhyWmTWnvpfjjXEOrokdvcFMqnT4lcoonfxfKGDuJzn6cpLNjgA+Lf0?=
- =?us-ascii?Q?jJQ9TYXIOohmEbsPXuLgcwoUs2mfS7jxIVboZmGVyNdxWZbYn28x4sf6RwtJ?=
- =?us-ascii?Q?F2vlqp14WcN3YfjqJzIAEg19hcx0xWQkwtlVBmitmKjHJtFk5NoJHw4TtK+q?=
- =?us-ascii?Q?UUPpQcP0bltouJiE/2CLZ7LR2Zw9LDd7yKC3A/fboup/1b5ktxKI7EMDT7pe?=
- =?us-ascii?Q?y4Ri28zgSTK+Z7l0hfpSFectuOpqRYtz4pYAfqUurn12z3RQzY46mBCqe9Wy?=
- =?us-ascii?Q?sLoBTdfjYZlyr9pKMuVFEKvWvVI0rUkN2LbLjEOZ0TlSh7hjFjoONuOeBdtq?=
- =?us-ascii?Q?6A3VC+/4rpmU2omgahGq774eXp1XHOMB79v7Ii9Sj5MhSi9sHDKW7BHVx+ks?=
- =?us-ascii?Q?9/0s2Cd8t5+5f0ZyCDivzhg9htSbsYuIi3f9kX55U2AOd6U5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10719f8c-f378-4c72-1bcc-08df0dfc498e
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 22:55:32.8514
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ag6FPEdWL7gV0dzd6B1DWBmfSnPLa4w5w+E60GOn75E3BW6LN9vb1cv1ACrRkqpt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8099
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_155540_321931_2886C092 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260908_160944_814750_9A4737EB 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,42 +121,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 09:40:49PM +0200, Thomas Gleixner wrote:
-> On Tue, Sep 08 2026 at 17:17, Pranjal Shrivastava wrote:
-> 
-> ...
-> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> 
-> Jason. You really should know better by now :(
+apply_relocations() skips relocation sections whose sh_info target index
+is outside the section table. ARM, ARM64, LoongArch, PA-RISC and RISC-V
+use sh_info earlier in module_frob_arch_sections(), before this check.
 
-I know better enough to have pointed out that an open coded version of
-this in a driver should not be open coded in a driver and be made into
-proper helper, so you can see it :)
+ARM, ARM64, LoongArch and RISC-V use the unchecked index to read
+sh_flags outside the section header table. PA-RISC uses it to index an
+e_shnum-sized heap array for a read and an update. QEMU reproduced
+page-fault Oopses on ARM, ARM64, LoongArch and RISC-V, and a Data TLB
+miss on the PA-RISC array read.
 
-> > +	desc = irq_get_msi_desc(irq);
-> > +	if (!desc) {
-> > +		dev_err(dev, "Failed to get MSI descriptor for irq %u\n", irq);
-> > +		return;
-> > +	}
-> 
-> Doing this without having the underlying interrupt descriptor locked is
-> a recipe for an undebuggable disaster waiting to happen. It might be
-> "safe" in the context you are calling it but it's absolutely not safe in
-> general.
+Validate sh_info for SHT_REL and SHT_RELA sections in
+elf_validity_cache_sechdrs(). Reject the module with ENOEXEC before
+architecture code can use the index.
 
-Which is why we are here, I was wondering if the open coded
-implementation was even OK..
+Fixes: c298be74492b ("parisc: fix module loading failure of large kernel modules")
+Fixes: 7d485f647c1f ("ARM: 8220/1: allow modules outside of bl range")
+Fixes: fd045f6cd98e ("arm64: add support for module PLTs")
+Fixes: ab1ef68e5401 ("RISC-V: Add sections of PLT and GOT for kernel module")
+Fixes: fcdfe9d22bed ("LoongArch: Add ELF and module support")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
 
-> @@ -1775,3 +1775,34 @@ bool msi_device_has_isolated_msi(struct
->  	return arch_is_isolated_msi();
->  }
->  EXPORT_SYMBOL_GPL(msi_device_has_isolated_msi);
-> +
-> +void msi_device_domain_restore_msi_msgs(struct device *dev, unsigned int domid)
-> +{
+A custom harness for upstream Frama-C 33.0 (Arsenic) Eva found the
+ARM32 instance in a source-identical ARM module_frob_arch_sections()
+slice. Eva reported the out-of-range section-table pointer and sh_flags
+access.
 
-Wonderful!
+The analysis and ARM32 A/B test ran at Linux b9b3e33b70b7 ("Merge tag
+'trace-v7.2-rc6' of
+git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace"). The
+PA-RISC, ARM64, RISC-V, LoongArch and x86_64 A/B tests ran at the
+declared base commit, 28924df2a08f. arch/arm/kernel/module-plts.c and
+the touched loop in kernel/module/main.c are identical between the two
+commits.
 
-Thanks,
-Jason
+Each A/B test changed only a relocation section's sh_info to
+0x10000000. The same configurations and modules were used before and
+after the change. All controls loaded before and after the change. The
+fixed kernels rejected the malformed modules with ENOEXEC.
+
+Original-kernel results with QEMU 10.2.1 TCG:
+
+- ARM32, virt/Cortex-A15, GCC 15.2.0, multi_v7_defconfig plus
+  VMSPLIT_2G: page fault at module_frob_arch_sections()+0x160.
+- ARM64, virt/Cortex-A57, GCC 15.2.0, defconfig: page fault at
+  module_frob_arch_sections()+0x110.
+- PA-RISC, B160L, hppa-linux-gcc 8.1.0, binutils 2.30,
+  generic-32bit_defconfig: Data TLB miss at
+  module_frob_arch_sections()+0x11c on the stub_entries read for a
+  counted R_PARISC_PCREL17F relocation.
+- RISC-V, virt, GCC 15.2.0, defconfig plus RELOCATABLE with
+  MODULE_SECTIONS enabled: page fault at
+  module_frob_arch_sections()+0xe4.
+- LoongArch, virt/LA464, LLVM 21.1.8, loongson64_defconfig: page fault
+  at module_frob_arch_sections()+0x1b8.
+
+On x86_64, which has no vulnerable early sh_info access, the original
+kernel loaded both modules. The fixed kernel loaded the control and
+rejected the malformed module with ENOEXEC. The test used pc/qemu64,
+x86_64_defconfig and GCC 15.2.0.
+---
+ kernel/module/main.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/kernel/module/main.c b/kernel/module/main.c
+index d0e1e0bd2ad0..30c7a05488bc 100644
+--- a/kernel/module/main.c
++++ b/kernel/module/main.c
+@@ -1933,6 +1933,7 @@ static int elf_validity_ehdr(const struct load_info *info)
+  * * Section array fits in the user provided data
+  * * Section index 0 is NULL
+  * * Section contents are inbounds
++ * * Relocation section target indices are inbounds
+  *
+  * Then updates @info with a &load_info->sechdrs pointer if valid.
+  *
+@@ -1983,6 +1984,12 @@ static int elf_validity_cache_sechdrs(struct load_info *info)
+ 	/* Validate contents are inbounds */
+ 	for (i = 1; i < info->hdr->e_shnum; i++) {
+ 		shdr = &sechdrs[i];
++		if ((shdr->sh_type == SHT_REL || shdr->sh_type == SHT_RELA) &&
++		    shdr->sh_info >= info->hdr->e_shnum) {
++			pr_err("Invalid ELF relocation section target index %u\n",
++			       shdr->sh_info);
++			return -ENOEXEC;
++		}
+ 		switch (shdr->sh_type) {
+ 		case SHT_NULL:
+ 		case SHT_NOBITS:
+
+base-commit: 28924df2a08f440c73991b83028032c901de2ae4
+-- 
+2.53.0
 
