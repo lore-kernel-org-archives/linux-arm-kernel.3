@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE3CC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF213C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 09:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZyOo+ygFnvVbouyZiGeNffeUNQ7tsTzDFqw1u+OtP0=; b=2D338zArkZ7b6IuI6qAoKkNiz+
-	uxNDUZg2u/8awoYu95vMCrZKeFeGZeRRmyQkDrmjVXBef8Am6eVmNHRzDnxi06ZwkFQa8vweog0uY
-	uEz8fpSSepXA0f6gpEEbKig+fIX2O5R1TE3CS3MspCB6r0cki8MuC2mo03rrQzCY8dWQRgrZnOXM5
-	vhseWsomV5Har1nJJuksFNW+zzyhdeaok85npz5yXTn+vx27BVJZrGx8peAodSRwNOYhBbsQhjt68
-	24Gj1MbdFJkSUDZ222U7KrLBniMuz9n7uGC9KwzVzlaoZCqk/EckKQRfGnA7DcdNudfo/Tf6k+GsE
-	3Zn473tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oR8pgGLcBuIzhfz4HFcqTtNs98M/cVbocTsR9l3INVg=; b=r2ulvKWWs4lx5Hw5lvEidhaaDT
+	LXr/FSllfpztlQ4E2IWf+Es51FUP5oI3BWoOTJ6RHdeMb+/AzrfdNwBIjh/VR3KTKemutYxnZFtQP
+	fmRNbScKi2v124365DuUGRQRWWF907kx+IG3pZtPlqJRPydSd65AB5TCN58E5stdNcVDT4SdoHVEq
+	02uS74efr7QCF7qQEYjwyqV1WELiVt1iTuudLvokGDcMIgf+sC7Alc8iiW/qU6jZ3zlH/uxPRK4P0
+	U5Abv72Sb/lk/dhacjmOXJyxJ+ujJzvXaHmmyV3wYuSMeiBcVa/cpvnNZInR4NsIUqumYW/BX3Zkc
+	nnoU4Clg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3roP-00000008W6O-1y4m;
-	Tue, 08 Sep 2026 09:08:17 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1x3rpy-00000008WVl-143o;
+	Tue, 08 Sep 2026 09:09:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3roM-00000008W4l-2nNa
+	id 1x3rpx-00000008WVX-0tRi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 09:08:15 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3964dfb5a69so5701685a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 02:08:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1788858494; x=1789463294; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KZyOo+ygFnvVbouyZiGeNffeUNQ7tsTzDFqw1u+OtP0=;
-        b=W8bRN+xzAZ9IGjGahov+XvApMNwz3od71qaqE9Y3TsmjILJR1SvYzzeF+BNJzk7B5P
-         xFrtqp8wBFuEbwavvfg+BnPChsqolsenYIx+tWR5xKGLjkHh6dQkzxXQfehX+YZvELUu
-         efwj4wk1VcVODGU5BhPVL0HoxQ+jpJb94Q2eM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788858494; x=1789463294;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KZyOo+ygFnvVbouyZiGeNffeUNQ7tsTzDFqw1u+OtP0=;
-        b=YLnSf9szj+o7aPZYjNkxpXleaUw2aXdT3Km9iG2MSURPi2E8+hpxkd4PtQ9l6XAn0m
-         zUjr5BEXOsdW1zh4bK+VhEERlnD1Z2Jnv+gbYxYuxt/iyjoACodHmET8GgHL7TBLNybv
-         AX7u9KtPAHJ32XZRANFxX/ZEqA3Q7h9W6lXcnEmlMBvWSfqJtcjEpMw3JDgxweWwhjuB
-         ovgiK8EgKpAwkdet0fkv7zN5w0NkmMKAtDgQPOX9Sc7Ido36zYQUdy8ji45YtG5uqzrm
-         vKjY3svc15H0+z5Dt2QmkApqbMpOJHDpE80CfxtJdDX4VOUw/S5bg1ufk8ijb/yTLQd4
-         yBbw==
-X-Forwarded-Encrypted: i=1; AKwUvBwoYzwlIq5ajhj4BMTbyL8tRoJc+L7rYu4ykmb+onRjpxkXdrgKtdiGOr+Zfx34kerebnY6FynWQGAgMgnXxMsO@lists.infradead.org
-X-Gm-Message-State: AFuF++kyvEuiM/PReoJm6qBOv6a6Ft1ibM2COnQCd3M145TH0v1wwZ7F
-	TkD6acWpvtWihr2CRlGCK3k67D16eE9ZkZsu5L0D7Kbmr8n59ZQ51He505RxPaIwKQ==
-X-Gm-Gg: AYBFou01LfdThoXEFgZbbz7GXs4e5E0va1oX38DWRFmGWldSHeE4KBV89tE0S8afLZg
-	mhrGJNMfsYC1eBdPfOQ/2IE7G5V9x8tMRN1TcsCy70jXICuG3S7lQbMywqf0w39wFs58vEQg72f
-	7gp/yAv+LhIjFw1EeayhqISK17W0xsFXB9GvU2AYC2OKRBweD0W/W2XMjH7axeZLTWjragdNqHe
-	W/0nOXyVcbJPuLDJlgC+B3jC8TgUN5Y2crqoFU8sLKxanrx8zzv8i+I1RP28AtHsLkTTUhwzWTh
-	VkZ4bE4QEyLjWRkFSmvDi1qDmCF1sU5+afyeVmNk4DiGNY6oIv1b5xN/WxmXoaSXghTRUxzsx4E
-	1WkoHTvCbuPkpw176AHDfQC+tIffBptm/tT+5DIHHZb+Imw8J7b4g7y/p5lTh4SQEXRKUp8sUsA
-	pLa8S/f1Bc+pVgxYRGo2QkjSbVJzEycIC0YlKUjdp6A+mqMHbmOux+ijiH38y9qyFFtuF3t8fgX
-	okRY5OCcb8EwKDJ/Do3s0wc3JJOFEbmwsNB+xG+5a8TSSA=
-X-Received: by 2002:a17:90b:586c:b0:398:a2ed:7b5c with SMTP id 98e67ed59e1d1-39b2623ef65mr47890193a91.24.1788858493952;
-        Tue, 08 Sep 2026 02:08:13 -0700 (PDT)
-Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:201d:8:e541:8c2f:4ce9:823a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b4b72f62esm19718804a91.5.2026.09.08.02.08.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 02:08:11 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Liu Ying <victor.liu@nxp.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-sunxi@lists.linux.dev,
-	imx@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] drm/imx/dcss: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
-Date: Tue,  8 Sep 2026 17:07:43 +0800
-Message-ID: <20260908090745.1089143-5-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-In-Reply-To: <20260908090745.1089143-1-wenst@chromium.org>
-References: <20260908090745.1089143-1-wenst@chromium.org>
-MIME-Version: 1.0
+	Tue, 08 Sep 2026 09:09:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4BA4060A98;
+	Tue,  8 Sep 2026 09:09:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34EFE1F00A3E;
+	Tue,  8 Sep 2026 09:09:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788858592;
+	bh=oR8pgGLcBuIzhfz4HFcqTtNs98M/cVbocTsR9l3INVg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PQHiyRbV321a4gha5dyw/SXGD3hcWm+Ld/ziej8ZQDZJvLhdoTjYVbP0WSRj87cvj
+	 tGeP+dvEXt2S7vtw4Y2G0Mx+BzIVE355rYoUB1m+ASIxY15YRwpWVDaUHOSp/5x3iO
+	 cJbntWGmRjTu6PWQChl8X8U9QNHB6nZkMzntOlXtT/81Qlm/ILbegq0BKQKw0D4Enk
+	 CR3MEWnOW0Mz+FHGJVjHXrvl4524sqM9AORSh4PhoQpKoMKaiOxgLABrkTAcbkkovT
+	 RCmGcIuatvjU6yufZS0y3OctsiIVCvhW1jgotF9j9QclO+3HpJZL8ay2mE+fbpnHnD
+	 91s7XMaujeS5A==
+Subject: Re: [PATCH net] net: stmmac: preserve real_num_tx_queues on mqprio
+ setup failure
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 0x1207@gmail.com,
+ olteanv@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Tue, 08 Sep 2026 09:09:50 +0000
+Message-ID: <178885859069.219967.17905742130775758644@kernel.org>
+In-Reply-To: =?utf-8?q?=3C20260903-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-err?=
+ =?utf-8?q?or-path-v1-1-eb171bdd340a=40oss=2Equalcomm=2Ecom=3E?=
+References: =?utf-8?q?=3C20260903-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-erro?=
+ =?utf-8?q?r-path-v1-1-eb171bdd340a=40oss=2Equalcomm=2Ecom=3E?=
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_020814_709474_BD8380A6 
-X-CRM114-Status: GOOD (  18.05  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,70 +76,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX DCSS driver is open coding drm_fb_dma_get_gem_clipped_addr(),
-with only a slight difference of rounding down the X offset for the
-first plane if the format is packed, sub-sampled YUV. This is likely
-to correct the buffer address to the first pixel of the 2-pixel group.
-Otherwise the hardware will start the scan-out from the second pixel,
-which leads to the U/V components getting swapped around, and the
-chroma component of the next pixel group being used.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider:
 
-Switch to drm_fb_dma_get_gem_clipped_addr(), and offset the address by
-a pixel if the X offset is odd.
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/gpu/drm/imx/dcss/dcss-plane.c | 34 +++++++++++----------------
- 1 file changed, 14 insertions(+), 20 deletions(-)
+- [High] The patch silently changes the semantics of the shared dispatch
+  macro stmmac_fpe_map_preemption_class() in hwif.h from…
+- [Medium] The TC state that the new error path saves and restores
+  (num_tc via stmmac_set_ndev_tcs(), plus prio_tc_map) is immediately…
 
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-index 303e93fd036c..580d9cfb4053 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-@@ -219,28 +219,22 @@ static void dcss_plane_atomic_set_base(struct dcss_plane *dcss_plane)
- 	struct dcss_dev *dcss = plane->dev->dev_private;
- 	struct drm_framebuffer *fb = state->fb;
- 	const struct drm_format_info *format = fb->format;
--	struct drm_gem_dma_object *dma_obj = drm_fb_dma_get_gem_obj(fb, 0);
- 	unsigned long p1_ba = 0, p2_ba = 0;
- 
--	if (!format->is_yuv ||
--	    format->format == DRM_FORMAT_NV12 ||
--	    format->format == DRM_FORMAT_NV21)
--		p1_ba = dma_obj->dma_addr + fb->offsets[0] +
--			fb->pitches[0] * (state->src.y1 >> 16) +
--			format->char_per_block[0] * (state->src.x1 >> 16);
--	else if (format->format == DRM_FORMAT_UYVY ||
--		 format->format == DRM_FORMAT_VYUY ||
--		 format->format == DRM_FORMAT_YUYV ||
--		 format->format == DRM_FORMAT_YVYU)
--		p1_ba = dma_obj->dma_addr + fb->offsets[0] +
--			fb->pitches[0] * (state->src.y1 >> 16) +
--			2 * format->char_per_block[0] * (state->src.x1 >> 17);
--
--	if (format->format == DRM_FORMAT_NV12 ||
--	    format->format == DRM_FORMAT_NV21)
--		p2_ba = dma_obj->dma_addr + fb->offsets[1] +
--			(((fb->pitches[1] >> 1) * (state->src.y1 >> 17) +
--			(state->src.x1 >> 17)) << 1);
-+	p1_ba = drm_fb_dma_get_gem_clipped_addr(fb, state, 0);
-+
-+	/*
-+	 * TODO fix address until helpers know packed, sub-sampled YUV format block size
-+	 *
-+	 * The buffer address for packed, sub-sampled YUV formats such as DRM_FORMAT_UYVY
-+	 * need to be on the first pixel of each pixel group or block. Otherwise the first
-+	 * pixel of the next pixel group is read and the U/V values get swapped around.
-+	 */
-+	if (drm_format_info_is_yuv_packed(format))
-+		p1_ba -= ((state->src.x1 >> 16) & 1) * format->cpp[0];
-+
-+	if (format->num_planes > 1)
-+		p2_ba = drm_fb_dma_get_gem_clipped_addr(fb, state, 1);
- 
- 	dcss_dpr_addr_set(dcss->dpr, dcss_plane->ch_num, p1_ba, p2_ba,
- 			  fb->pitches[0]);
+--
+
+net: stmmac: preserve real_num_tx_queues on mqprio setup failure
+
+This reworks tc_setup_dwmac510_mqprio() so that the previous num_tc,
+tc_to_txq and prio_tc_map values are saved and restored on failure instead
+of calling stmmac_reset_tc_mqprio(), and adds a stmmac_set_ndev_tcs()
+helper.  It also switches the stmmac_fpe_map_preemption_class() dispatch
+macro from stmmac_do_void_callback() to stmmac_do_callback().
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> index 04dafec021b4..9314bcb85c22 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> @@ -494,7 +494,7 @@ struct stmmac_ops {
+>  #define stmmac_set_arp_offload(__priv, __args...) \
+>  	stmmac_do_void_callback(__priv, mac, set_arp_offload, __args)
+>  #define stmmac_fpe_map_preemption_class(__priv, __args...) \
+> -	stmmac_do_void_callback(__priv, mac, fpe_map_preemption_class, __args)
+> +	stmmac_do_callback(__priv, mac, fpe_map_preemption_class, __args)
+
+[Severity: High]
+Should this macro conversion be called out in the commit message, and
+possibly split into its own patch?  It changes the semantics of a shared
+dispatch macro for all of its users, not only for the mqprio path.
+
+stmmac_do_void_callback() forces the result to 0 whenever the op pointer is
+populated, so before this patch the FPE callback return value was discarded
+everywhere.  Two things seem to follow from that.
+
+First, does the bug premise in the commit message hold for the tree the
+Fixes: tag points at?  The message says:
+
+  "In tc_setup_dwmac510_mqprio(), if stmmac_fpe_map_preemption_class()
+   fails after the number of real TX queues has been set to
+   num_tx_queues, the error path calls stmmac_reset_tc_mqprio()"
+
+tc_setup_dwmac510_mqprio() is only reachable through dwmac510_tc_ops, and
+every hwif.c entry that installs dwmac510_tc_ops pairs it with dwmac410_ops,
+dwmac510_ops, dwxgmac210_ops or dwxlgmac2_ops, all of which populate
+.fpe_map_preemption_class.  With the old void dispatch, that call could
+therefore only evaluate to 0, so the described FPE failure path looks
+unreachable before this patch.  The latent problem actually being fixed is
+the swallowed callback error, which the message does not mention.
+
+Second, the same macro is used by tc_taprio_configure():
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:tc_taprio_configure() {
+	...
+	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
+					      qopt->mqprio.preemptible_tcs);
+	if (ret)
+		goto disable;
+	...
+}
+
+That "if (ret)" was dead code and becomes live here.  In
+dwmac5_fpe_map_preemption_class():
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c {
+	...
+		if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
+			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
+			return -EINVAL;
+		}
+	...
+}
+
+tx_sched_algorithm defaults to MTL_TX_ALGORITHM_SP for DT platforms in
+stmmac_platform.c, and the default per-queue weights differ (0x10 + queue),
+so a taprio or mqprio configuration with a preemptible TC owning more than
+one TXQ now gets -EINVAL where it previously returned success with the
+preemption-class register left unprogrammed.
+
+For taprio, the new error also takes the disable label, which clears
+priv->est->enable and reprograms EST, so the schedule that was just
+installed is torn down.  Is that intended for configurations that used to be
+accepted, for example:
+
+  tc qdisc replace dev eth0 root taprio ... queues 2@0 2@2 ... fp E P
+
+Also, the two remaining users that still ignore the now meaningful return
+value, the taprio disable path and stmmac_reset_tc_mqprio(), were not
+updated.  Should they be?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> index 14cabe76e53e..c99d9b7e26dc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+
+[ ... ]
+
+> @@ -1250,45 +1274,61 @@ static void stmmac_reset_tc_mqprio(struct net_device *ndev,
+>  	err = stmmac_fpe_map_preemption_class(priv, ndev, extack,
+>  					      mqprio->preemptible_tcs);
+>  	if (err)
+> -		goto err_reset_tc;
+> +		goto error_reset_num_tx_queues;
+>  
+>  	return 0;
+>  
+> -err_reset_tc:
+> -	stmmac_reset_tc_mqprio(ndev, extack);
+> +error_reset_num_tx_queues:
+> +	netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues);
+> +error_reset_tc:
+> +	stmmac_set_ndev_tcs(ndev, ndev_ntc, ndev_tc_to_txq);
+> +	for (i = 0; i < ARRAY_SIZE(ndev_prio_tc_map); i++)
+> +		netdev_set_prio_tc_map(ndev, i, ndev_prio_tc_map[i]);
+>  
+>  	return err;
+>  }
+
+[Severity: Medium]
+Can this restore of num_tc, tc_to_txq and prio_tc_map ever be observed?
+
+tc_setup_dwmac510_mqprio() with num_tc != 0 is only reached from
+mqprio_enable_offload() inside mqprio_init(), and the error is returned
+before hw_offload is recorded:
+
+net/sched/sch_mqprio.c:mqprio_enable_offload() {
+	err = dev->netdev_ops->ndo_setup_tc(dev, TC_SETUP_QDISC_MQPRIO,
+					    &mqprio);
+	if (err)
+		return err;
+
+	priv->hw_offload = mqprio.qopt.hw;
+}
+
+qdisc_create() then always runs ops->destroy() on init failure:
+
+net/sched/sch_api.c:qdisc_create() {
+	if (ops->init) {
+		err = ops->init(sch, tca[TCA_OPTIONS], extack);
+		if (err != 0)
+			goto err_out4;
+	}
+...
+err_out4:
+	if (ops->destroy)
+		ops->destroy(sch);
+}
+
+and with hw_offload still 0 the else branch is taken:
+
+net/sched/sch_mqprio.c:mqprio_destroy() {
+	if (priv->hw_offload && dev->netdev_ops->ndo_setup_tc)
+		mqprio_disable_offload(sch);
+	else
+		netdev_set_num_tc(dev, 0);
+}
+
+So dev->num_tc goes back to 0 immediately after the driver restored it, and
+skb_tx_hash() ignores tc_to_txq and prio_tc_map when num_tc is 0.  On a
+failing "tc qdisc replace" over an already offloaded mqprio, does the still
+grafted old qdisc lose its priority classification anyway?
+
+If so, should the commit message text
+
+  "the TC-to-queue and priority-to-TC mappings are restored to the
+   previously saved values"
+
+be adjusted, since only the real_num_tx_queues part of the rollback appears
+to survive?
+
 -- 
-2.55.0.979.g7e5102b832-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260903-stmmac-tc_setup_dwmac510_mqprio-error-path-v1-1-eb171bdd340a%40oss.qualcomm.com
 
