@@ -4,133 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2A5C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A87C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 20:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=y7LV/7GcU5UD4FXS/D533sqyyb
-	nbXi4OFVkW8KqPvmdaLsxmB0vQKNFXuAIUni/1MqbgaaMWMuheJwJP5/sEMwQx9VIKwRW+v2P8F31
-	jSJmOqmas9Ty0MCTn72/xgI8phqNRSxfhBRWz2GkLSM4VmhbEClQU1Fp5Iea2/jOh59LOndPAdCPW
-	OB4Wo4RDWgbPtWl/KTr2mTvVSMZDnyHEjZ+YiosbituZ4QQpyBWjTbYkAg8rhsZuHVdXRsPFQ4x92
-	e0L6ODLEhZniZqImhtuRJ6nRnO0gJyW3+y7noWfb2UU7fSb0aWE/r6v88zWhMiXvrTQzLT3Y78LJO
-	ElawGo9A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gwQNucgdxcw2xaZoUzt8fjy3dhGHdMi9HJkfZPr1mCU=; b=boSWfUKhksYX1fcWAw+9AmWmpL
+	6ZK3eTB334dEFrBEt3Pge95NyKHbIFzRuclLYuJaVTM6jVGoNIavz5CjcMHPge3aa48ZstYxjacZz
+	Tk/7vOEhzt/Cxvlqy20W8J9KPuzaBKIvhefr4hgTx3cQbigxeW2BW6jSH7Sj1sVTCXip/qP3NNlqt
+	bD/1shzUjkFu92qgAv07BeF32/5QG2Pl2BVWq+rdQB/mAkbg/QP8pREMUC90Ymni2hbTo8BEyXrz6
+	lnR1XtLz867X8C0t+EIDW8wF1Q2xZngsnWDIrrniTJ6NuPlfTbb/FYwo0i2s+X00lDKu74bmLllH/
+	lOFXkX+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x428j-0000000A9Bs-0Tzy;
-	Tue, 08 Sep 2026 20:09:57 +0000
-Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
+	id 1x42B6-0000000A9cg-1KIt;
+	Tue, 08 Sep 2026 20:12:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x428g-0000000A9BH-48oB
+	id 1x42B5-0000000A9cY-2UBe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 20:09:56 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.stl.internal (Postfix) with ESMTP id 29C0A1300C52;
-	Tue,  8 Sep 2026 16:09:49 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 08 Sep 2026 16:09:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1788898188;
-	 x=1788905388; bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=
-	Ku2CBzv1lbwKt7FkbK1hK9z6lUhC4lyMvWVuJCDperQCrGR4/rovcYZT14+F2GRU
-	Rav/lw7wDP1LZUNHanxxKPv9TiMXrWJeF4XcFPkUtSvKXHgFfqD1zYYomxsGk/6w
-	D0ugcsY4ct992ReVcs1IUi3KQk3MwK2m0/nVfeh2El0YDoKepsDCsUsJEw2Xopqf
-	vUaW1KTQtRtXeElKC9QKtKuQIKUo2YJjj/bJt4iyEuMRznXurrxMtEOYF0Vypnae
-	hzllfDFfMF4MLpuFLIHlHRQICSgPksOWfpJUZziA6rKH7zrejjbOHOF06vLIb/zc
-	w5HH3y04fc96xLHdT/IkTQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788898188; x=
-	1788905388; bh=XGzc/5Eb+lr6gHxtsWUeqlpbhH2hHOwRDxbQuElICwQ=; b=u
-	jMQYS0sL+Aowo4kNVDUIZ6sxKERcte19OIubGhUn842ROtFnMhzcn9nOmWNq8m7C
-	FHmwKHYgoJ/jG2pkJGkAUm7NezuYNDuHEtea2iCCY1h68vHHRw1tbwvNgBC7NsFY
-	rbLssRXRc0/8Z7/FVbSv77yvARhK4G2eGFJ9PzzEfE+9jQ1o9Hc+VoCcqrJKguIG
-	cVWq5h0ss748M5e43R0TGSageD0VACosHeHSAOqC2oKrcgC+Dywg34eoHUA61vUD
-	Om+SXPAR6IF9uWHBupFJaffqsw5yQdw56xQkgFp2LSYGh5EmlOC0wvW/IaDQZnCb
-	LMTZ1CVIosTouKpnUkAaA==
-X-ME-Sender: <xms:fmuganAtXtSwL-JpSs__4SRF0rTRt5GmxPf831izoU_erzPTWgAXSQ>
-    <xme:fmugaoXMuufuq90WbEJq3jH2RboT9th930_-cNxUKLtsWrbB1oneFf9Xz6yLhoedT
-    YqurXU9BXFFOxISdk694hhj0cpVnKQYoXn04NuD4ysdyrWwPbUYtRY>
-X-ME-Proxy-Cause: dmFkZTEOp8fHm5Y3J5V2OI0TYboevCVDMAAGYDcPknsZa+0X0RAcfHjfIunQUCrjwll0ea
-    rAQKkk63eMYO5/YsUuJodvREtVTrCuYoOIZ9cdLF4PumfhTpYgh50Lfo6o9D8QrGucOErt
-    1sYxt2QrPbopoRmAf/GENKdf06cSRGVrvjFFQcAbo5nmTHwS3A0bt3HwuabeSgvhnsObAg
-    dbPo0mT2Qbsifo2veGFIaoL0lJSdd83VAXqWQzrdwJ/OSfRVxeUmrfI9jQpSwWye6jKqFi
-    NOft3xXk0NdTzkITEAa33TJA6ix1zF0AwdpfuVEyfJmRNLBy11archzASh1BSGprZa93Ds
-    C+Sv9U/weUns6mx2nwFA2lCN3zLi/Rk8p/J83yqZM7VlcK675+DuzSxAZqfRkMJBci1i1e
-    eqsl5xkRkXCorwVc/2lQanGN1S0IbMaPI/UhcGXT2qI1gtN8VcS4pCweSc1uJ3MgWVP5Fr
-    fd6wuggi9qR2Is2m5jQDxFEcLJqjzcHUFW7JybEqzCT2wTsaTx7pu+YFjg6kopHPn0PbED
-    uooY3D/duB0e3xj8T9BQsm45luJjYM2Rz0k3B09xmHAt8V34sz5JvPIlWK2+nJkOpdV5Fl
-    Crqztnvqs4a/7+lCs3/5TbA3fZD27fPI9F+o3hImahc2L0qBOLFE1RAotMHQ
-X-ME-Proxy: <xmx:hWugatKoHMBMnZtP17UULzQB6EuGdq9y4KPlROoonj4Gm0uf8OUMXA>
-    <xmx:hWugaqqpPwtCM1AUnviPCuSqlRr2u6RRud1ajk-GboRnZDzrQIApPA>
-    <xmx:hWugauWHWoYrWzb7a2llPhn3uSnztbyj-cPoQd3ZWlwfPBa7MX2nuQ>
-    <xmx:hWugagatGK1_RhDhj2yYgoRPdRO8Qbn-tAse6dSoi-K2c4PVP9gsKg>
-    <xmx:jGugarmn9UC73Fhha86G49qnTJMPVdxBgve0N-zdSoV85HG7yX3TtBkr>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 5E56132A0078; Tue,  8 Sep 2026 16:09:34 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 08 Sep 2026 20:12:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BC4543AB0;
+	Tue,  8 Sep 2026 20:12:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230951F00A3D;
+	Tue,  8 Sep 2026 20:12:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788898343;
+	bh=gwQNucgdxcw2xaZoUzt8fjy3dhGHdMi9HJkfZPr1mCU=;
+	h=From:To:Cc:Subject:Date;
+	b=ULmnvtvXbDj0LU0MoJUty1kIDEUyjF0WebZxLtJn+xd9gC+G4AV1T8yB2y7XjVUuu
+	 XWdux3ddf/fbY7xt0Mg+0CzHB2V+Clyd0LoRGSBzLVN9IUDYVQenLTLjX6AaW9Fzm8
+	 9vxFRrY9XS3rpT2a6MS3jaEoPhDzQcoCJRv2fhTCKMnmG8dIktrYJVGGbpAg5rWrFW
+	 AJDn2Z4SMeVdmE9GIRekxICi6bLAnPHRqxbjNMlIpWwrmwm4IcQxSnKJhwTLUlXeDZ
+	 iuRZ8J+BdNu96UlmWePMjw2LKbMv1mCHZo7xnf+MJ65GcR420QMtngExqria/ahZhE
+	 7FWTdGHiTSjcw==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: SoC Team <soc@lists.linux.dev>,
+	arm-scmi@vger.kernel.org,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi/ffa: Fixes for v7.3
+Date: Tue,  8 Sep 2026 21:12:14 +0100
+Message-ID: <20260908201216.2993544-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-ThreadId: AwGOxrB98c9B
-Date: Tue, 08 Sep 2026 22:09:14 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Drew Fustini" <fustini@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Liviu Dudau" <liviu.dudau@arm.com>,
- "Sudeep Holla" <sudeep.holla@kernel.org>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Fabio Estevam" <festevam@gmail.com>,
- "Vladimir Zapolskiy" <vz@mleia.com>, "Stefan Agner" <stefan@agner.ch>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Andreas Kemnade" <andreas@kemnade.info>,
- "Kevin Hilman" <khilman@baylibre.com>,
- "Roger Quadros" <rogerq@kernel.org>, "Tony Lindgren" <tony@atomide.com>,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Andrew Lunn" <andrew@lunn.ch>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Kristoffer Ericson" <kristoffer.ericson@gmail.com>,
- "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "A. Sverdlin" <alexander.sverdlin@siemens.com>,
- "Shawn Guo" <shawnguo@kernel.org>,
- "David Hildenbrand (Red Hat)" <david@kernel.org>,
- "Nicolas Pitre" <npitre@baylibre.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com,
- Linux-OMAP <linux-omap@vger.kernel.org>,
- "Guenter Roeck" <linux@roeck-us.net>
-Message-Id: <e768247f-3c29-4d36-a40f-05ec81b45db2@app.fastmail.com>
-In-Reply-To: <aqBhF5oS1A2W6dAa@gmail.com>
-References: <20260908152808.3928630-1-arnd@kernel.org>
- <20260908152808.3928630-2-arnd@kernel.org> <aqBhF5oS1A2W6dAa@gmail.com>
-Subject: Re: [PATCH 01/13] ARM: remove sa1100 platform
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_130955_075957_8001D0B7 
-X-CRM114-Status: GOOD (  18.41  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,65 +69,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 8, 2026, at 21:39, Karl Mehltretter wrote:
-> On Tue, Sep 08, 2026 at 05:27:51PM +0100, Arnd Bergmann wrote:
->>  62 files changed, 19 insertions(+), 10501 deletions(-)
->
-> Note that Sashiko skipped reviewing this patch, because it exceeded
-> its current 10000 line limit.
->
->> diff --git a/drivers/rtc/rtc-sa1100.c b/drivers/rtc/rtc-sa1100.c
->> @@ -275,18 +275,10 @@ static int sa1100_rtc_probe(struct platform_device *pdev)
->> -	if (IS_ENABLED(CONFIG_ARCH_SA1100) ||
->> -	    of_device_is_compatible(pdev->dev.of_node, "mrvl,sa1100-rtc")) {
->> -		info->rcnr = base + 0x04;
->> -		info->rtsr = base + 0x10;
->> -		info->rtar = base + 0x00;
->> -		info->rttr = base + 0x08;
->> -	} else {
->> -		info->rcnr = base + 0x0;
->> -		info->rtsr = base + 0x8;
->> -		info->rtar = base + 0x4;
->> -		info->rttr = base + 0xc;
->> -	}
->> +	info->rcnr = base + 0x0;
->> +	info->rtsr = base + 0x8;
->> +	info->rtar = base + 0x4;
->> +	info->rttr = base + 0xc;
->
-> This drops the layout switch but keeps "mrvl,sa1100-rtc" in
-> sa1100_rtc_dt_ids[] and in bindings/rtc/sa1100-rtc.yaml, so a DT with
-> that compatible would now silently get the MMP register offsets instead
-> of the SA1100 ones.
+Hi ARM SoC Team,
 
-This one is interesting: this was already the behavior before
-my patch, as CONFIG_ARCH_SA1100 is mutually exclusive with all
-other targets. That obviously wasn't the intention of the code.
+Please pull !
 
-I've removed the sa1100_rtc_dt_ids[] entry now.
+Regards,
+Sudeep
 
->> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
->> @@ -614,16 +614,16 @@ config S3C2410_WATCHDOG
->>  	  be called s3c2410_wdt.
->>  
->>  config SA1100_WATCHDOG
->> -	tristate "SA1100/PXA2xx watchdog"
->> -	depends on ARCH_SA1100 || ARCH_PXA || COMPILE_TEST
->> +	tristate "PXA2xx watchdog"
->> +	depends on ARCH_PXA || COMPILE_TEST
->>  	help
->> -	  Watchdog timer embedded into SA11x0 and PXA2xx chips. This will
->> -	  reboot your system when timeout is reached.
->> +	  Watchdog timer embedded PXA2xx chips. This will reboot your
->> +	  system when timeout is reached.
->>  
->
-> "embedded into PXA2xx chips" is better.
->
-> The RTC_DRV_SA1100 help text a bit earlier in the patch also still says
-> "built into your SA11x0 or PXA2xx CPU".
+-->8
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-Fixed all these now, thanks for the review!
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-      Arnd
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-ffa-fixes-7.3
+
+for you to fetch changes up to 8544e0da1a04c77b98e2e313a423a5c72e48ea32:
+
+  Merge branches 'for-next/ffa/fixes' and 'for-next/scmi/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux (2026-09-08 21:04:42 +0100)
+
+----------------------------------------------------------------
+Arm firmware fixes for v7.3
+
+SCPI fixes address resource leaks and invalid firmware responses, while
+FF-A gains shutdown cleanup needed for normal kexec.
+
+- Release the device node reference acquired during SCPI domain lookup.
+- Validate SCPI DVFS OPP counts and indices returned by firmware to
+  prevent out-of-bounds accesses and invalid clock rates.
+- Register the SCPI cpufreq device only once across DVFS providers,
+  preserving the registered device pointer for cleanup and allowing
+  retries after registration failure.
+- Run FF-A teardown during orderly shutdown so notifications, partition
+  devices and RX/TX mappings are released before a replacement kernel
+  boots through normal kexec.
+
+Also includes replacing a literal platform device ID with
+PLATFORM_DEVID_NONE and correcting an SCMI comment typo.
+
+----------------------------------------------------------------
+Hemanth Selam (1):
+      firmware: arm_scmi: Fix typo "upto" in comment
+
+Sudeep Holla (2):
+      firmware: arm_ffa: Tear down driver during shutdown
+      Merge branches 'for-next/ffa/fixes' and 'for-next/scmi/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux
+
+Xixin Liu (5):
+      firmware: arm_scpi: fix device_node leak in scpi_dev_domain_id
+      firmware: arm_scpi: reject DVFS OPP count above MAX_DVFS_OPPS
+      clk: scpi: bound-check DVFS index in scpi_dvfs_recalc_rate
+      clk: scpi: register scpi-cpufreq once and clear on failure
+      clk: scpi: use PLATFORM_DEVID_NONE for scpi-cpufreq
+
+ drivers/clk/clk-scpi.c             | 11 ++++++++---
+ drivers/firmware/arm_ffa/driver.c  |  1 +
+ drivers/firmware/arm_scmi/driver.c |  2 +-
+ drivers/firmware/arm_scpi.c        |  9 ++++++---
+ 4 files changed, 16 insertions(+), 7 deletions(-)
 
