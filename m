@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41286C79FB5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394D7C79FB1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6S6dPizeTTA5G9J/3AscJ1/w+xNcAj+7ZW10z8lG2o=; b=L4ciSU+XslbIFfyVAgp4O//zKF
-	X/Wp4aLeRtgsM1WukWPTWgVdmZEP4EJQbgSoU0tB3DSrWqWwmMb2UFetTaR8436cnyAWN63eFHtiO
-	S3cgKpZJuzvOH9zHv0SO3PC2qs22pc0AMvFb1pyhBTwv62iAPhC+BNZsfF1eJSRTcLu6aZw+g57cQ
-	kuaqo40uPVdlT40AG4ElhhACv4D0vDWNytfobBCjtRtX8fLj41otcG32FnGHwscXF8yyzK51bS2kX
-	aDuEwbM8eAy+75MHtkWL7i35bxRWipaF36DsY8+lSZDbjRbZhqR7HrJY6mEFoRDFw6HCwbCzPjtNP
-	UbJwYUUA==;
+	bh=c+qgtzY6MaCxcO3ICUhFFV0vpVhq609X5qyt6lhvn+I=; b=fNA7pGI+OYtiE+peWdeJZex3tH
+	G6mirk+fQ1/GGbTvPFUP1Lad/1kVJWRemzw3nIlDHv+mcCn2JiPrMT+e5mQPAzu92RPAleDYxgVca
+	CyYxLmwczgCx1R3dDhHMNIevzUJNbNxdtNVfm9ky3Z6rvBj81LkIb7HQpcsPDIP/ALF7Byd28CaC9
+	Z/nQGX6hm0lKTsX9x6+cI9NOko8Iyrfu6YXqd8qv3OzzXSjg4PSMdSaDKgeXVT15SBoDG2Ir5/wzQ
+	MYcMS3RzaSaONYpnn1huPIqDVhu9coROHdNvvB7SrC7czg3ABrSaCEIK3cGfJeMEp5ufbJxZjCwRJ
+	Nt5MazqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGH-00000009Bdn-3hzV;
+	id 1x3wGH-00000009Bd9-2hMQ;
 	Tue, 08 Sep 2026 13:53:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wGC-00000009Baz-0vxY
+	id 1x3wGC-00000009Bay-0uBV
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 08 Sep 2026 13:53:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=W6S6dPizeTTA5G9J/3AscJ1/w+xNcAj+7ZW10z8lG2o=; b=ZH8WuJSKhrPYso1PstgucETWWg
-	2Vs+QQcvCimq3Im/B2qy55g8DlFxdAREOFzCzHwoY9YAgb7Z7SdqLZuf/iGtX7gzQFGX0lZqjzYxw
-	Zd9DEqlQom3RFneOCR5/LMtovuuZQiV1jhRPvb+OksoULa2frSJjOtl3FX67TihcIXxOxdGirR+B2
-	qt08bEeQHYPKXeafkUkwdxYdLeymzkBWAxzhk4jX1PltD/YMqy6cKSKQnmxsJxX6fWTg5BtnXxrwh
-	YLnQSzxlauvb6uORwMw9a+cSsbTP9NxcVgzBB/+JEZE0txH9VXABxvhzPvVbL8HrgP2qa+Y+0STCU
-	Dl2qEh8w==;
+	bh=c+qgtzY6MaCxcO3ICUhFFV0vpVhq609X5qyt6lhvn+I=; b=hByVuYFnlIsJz/jVL6eZkUo0kS
+	a9/OaY/e7ftTtQOquBtWZfqBwJqMU8MZ/mx9NQN47ReQuMktxpsbBFwZoUP4+mnGFYipvV6PaAKqV
+	NJcn3fcDSlljX7rh+o3vt7bH1hnq1LnAyMJxW/AQ29TlydzS3V/CxjlW3fnMw5b/JYNvayeSo8bgM
+	kugIgIRi9KDkUQ/vL4P7Es70+uZn14Gujyj6IwyVon0LKWvx1ngOXQE7uEiZ8VPdtuSyT7um1dO/2
+	OKEkbvE8FFqyIHc/MDOE4CdPhq1u47Hk8/PFLj0TPKRCC4taZTvEXCzu6yqF9wwe1iot0alxhy6AC
+	Kgz6lK6Q==;
 Received: from mail.fris.de ([116.203.77.234])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3wG8-0000000HUeI-07yX
+	id 1x3wG7-0000000HUeL-41n9
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Sep 2026 13:53:15 +0000
 From: Frieder Schrempf <frieder@fris.de>
@@ -49,19 +49,18 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W6S6dPizeTTA5G9J/3AscJ1/w+xNcAj+7ZW10z8lG2o=;
-	b=woFMSLeAghhxAzZ6H71b75YnVKqS6FHDCQYI9AjrOOloWvDolEzuufaXfTySFCNYUd/Bdu
-	uCZjCJRGqhrXBg1wrqovDZegUuUHajFlH23pzbUAcVJBorwBSWLlVCFq3WwKJrpP1fQ9uf
-	Sk1cAKoJPHhDj4ir2Q8yvDFumDHrHU1VR/ik655D1m3rUGo+7fTtoIQaxUV90cODrizlVK
-	0iLxS28peLIOtPjb7PYZHUZ0IW3EFp58suLUS4GEYIZJ3HRNftO2PbdonneVwtDNhgWxuE
-	MvPETE+jo40AhsoIPD1vmdDdNY5IsBSe0pfmNGTQWpk+xMK+bU+N9s9dh4fb+A==
-Date: Tue, 08 Sep 2026 15:51:50 +0200
-Subject: [PATCH 3/9] ARM: dts: imx6ul-kontron-bl-common: Fix USB OTG1 ID
- pin configuration
+	bh=c+qgtzY6MaCxcO3ICUhFFV0vpVhq609X5qyt6lhvn+I=;
+	b=DROXpOLFySrkh7eL4lQh9iit7MxFoKhb71uLelpFGxy7/I5ZKe47l68H7agFYXxlQp7qMt
+	CLLgUY6xExEO3wHxvHEaRtK48ogDIc4ot86M+TYQQrQLVC74tl8A31qBseDe1dwo5ppN06
+	equkc5mzTbNaYFrG24QkcZCJklzuPqv6dxa/PDH7kQBaZBKN2CbJ+Xa1xzoDlWEyhMsJ2E
+	1y8tbUZBkxk66NiqEJo3LBypvkArloNd6VYcxdU7j00us8w5u3SBkbL6LFejXbuxJkxNfU
+	DDcxDrV2iD40jzmCF3T6K4aPAuzvLaX8J07Ju4qo2jWjfUxYNnvZontVl49JBA==
+Date: Tue, 08 Sep 2026 15:51:51 +0200
+Subject: [PATCH 4/9] arm64: dts: imx93-kontron: Adjust GPIO4_IO29 usage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-3-4d0e8a75db79@kontron.de>
+Message-Id: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-4-4d0e8a75db79@kontron.de>
 References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
 In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -71,21 +70,19 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Oualid Derouiche <oualid.derouiche@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=902;
+ Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2266;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=iCuZlno55Yjn0MkpffeLuEkr+4wHGhog/vQ/6EFeyBM=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsFOl8dqEt1/mTc+6FBC4OljVTXHnkymXRG8/Tm3r+
- JyVevtTRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwETcjBgZ7rGpqvXytFdeOPjz
- r/eqKm61R57fmn21jTRncMy5U/frOcNvlu/vPBdVidvnLHBNvGSxcWHhueUil8/z7DhTuXzXmkP
- 8XAA=
+ bh=MMVzO63V/8fkJV9PzRy2jq7KDqxZ4OTRvgqObIY0heI=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWuBsNNpM/ur9mvOcDckfzognLTk/MmLYrvdPudVfz6in
+ 8p6JuBoRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwER2/mVk+FsRZcesUFU/aXXO
+ 4VK+Kd/YG1lrgr9N4p5mU6D5uZhZiJFhr3OnrHrBqXQptvkeGXdjCx43WDZ5BYm1CRx/rfqhoJY
+ NAA==
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_145312_304352_B9E149A3 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260908_145312_223822_5AAB5ACF 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +97,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Oualid Derouiche <oualid.derouiche@kontron.de>
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Add the missing MX6UL_PAD_GPIO1_IO00__ANATOP_OTG1_ID pinmux entry so
-the USB OTG ID pin is correctly routed and OTG can be used.
+Early prototypes had GPIO4_IO29 control the CARRIER_PWR_EN signal.
+This is now controlled by hardware and the GPIO4_IO29 is routed to
+the GPIO_B_2 OSM pad.
 
-Signed-off-by: Oualid Derouiche <oualid.derouiche@kontron.de>
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    | 32 ++--------------------
+ 1 file changed, 2 insertions(+), 30 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-index 65c5f4450c36..0658584c9f11 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-@@ -357,6 +357,7 @@ MX6UL_PAD_UART4_RX_DATA__UART4_DCE_RX	0x1b0b1
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+index f881912cde46..36548d918169 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+@@ -34,29 +34,6 @@ reg_usdhc2_vcc: regulator-usdhc2-vcc {
+ 		regulator-max-microvolt = <3300000>;
+ 		regulator-name = "VCC_SDIO_A";
+ 	};
+-
+-	reg_vdd_carrier: regulator-vdd-carrier {
+-		compatible = "regulator-fixed";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_reg_vdd_carrier>;
+-		gpio = <&gpio4 29 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-		regulator-always-on;
+-		regulator-boot-on;
+-		regulator-name = "VDD_CARRIER";
+-
+-		regulator-state-standby {
+-			regulator-on-in-suspend;
+-		};
+-
+-		regulator-state-mem {
+-			regulator-off-in-suspend;
+-		};
+-
+-		regulator-state-disk {
+-			regulator-off-in-suspend;
+-		};
+-	};
+ };
  
- 	pinctrl_usbotg1: usbotg1grp {
+ &flexcan1 { /* OSM-S CAN_A */
+@@ -113,7 +90,7 @@ &gpio4 {
+ 			  "ETH_A_TXD3", "ETH_A_TXD2", "ETH_A_TXD1", "ETH_A_TXD0",
+ 			  "ETH_A_TX_EN", "ETH_A_TX_CLK", "ETH_A_RX_CTL", "ETH_A_RX_CLK",
+ 			  "ETH_A_RXD0", "ETH_A_RXD1", "ETH_A_RXD2", "ETH_A_RXD3",
+-			  "GPIO_B_0", "CARRIER_PWR_EN";
++			  "GPIO_B_0", "GPIO_B_2";
+ };
+ 
+ &lpi2c1 {
+@@ -385,6 +362,7 @@ MX93_PAD_CCM_CLKO2__GPIO3_IO27			0x31e /* GPIO_A_7 */
+ 	pinctrl_gpio4: gpio4grp {
  		fsl,pins = <
-+			MX6UL_PAD_GPIO1_IO00__ANATOP_OTG1_ID	0x17059
- 			MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0x1b0b0
+ 			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x31e /* GPIO_B_0 */
++			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x31e /* GPIO_B_2 */
  		>;
  	};
+ 
+@@ -465,12 +443,6 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07		0x31e /* SDIO_A_PWR_EN */
+ 		>;
+ 	};
+ 
+-	pinctrl_reg_vdd_carrier: regvddcarriergrp {
+-		fsl,pins = <
+-			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x31e /* CARRIER_PWR_EN */
+-		>;
+-	};
+-
+ 	pinctrl_rtc: rtcgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_VSELECT__GPIO3_IO19		0x31e
 
 -- 
 2.55.0
