@@ -4,98 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F63C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1552FC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 13:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c09duG40XUDjljTKKEnm8AMSUZjhNe4OtYQ1ssenbDY=; b=1eokET+29wZOSRmtsL+ly1Bi5R
-	zMyB0ATqPUBR0fjsqPC+/xJQeZWonft7MnrlxZ3GOSDPLZEZEulZV4gY4r9eqHYcAFNSaAhv8zP7m
-	GQgHVhaMSAnnmi4VOSW4TwUzzZt3bb1z+/H+Y0Lbgsfpu9dRkAEPLVYklW9aRIjGiHP8mAjK+9ds4
-	bvddzWOMIgN7umVIhTvyG/5jUl0KRzUwimrUqkAKoYQ/+U7KjCpJ91LGU4cpDBLMWVsKFWkH8EWHw
-	UcurfnfpjsZ4iFbyGR/pBRI5aoGqg5mrGwMhtzV+w8RlSDECB/Lw/dlpUIZDFW7vrVJA2q5MtRzjU
-	adJn/zOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=; b=TxHIXbxlK3DCVb7dqSYjmYWWo9
+	B5XHlBTEeRI7Bq7UKgrEaD1n/AFQbknD/Ck196SFKzINKi5soBs0u5pq5TM2Kdb5QRF4r7s546qNX
+	ZcO9VqYGlogTNoObjYEc+aXcat0y+WTTA4F/KDYno6n4Cjk9HcgJCMqf5i20xWIb8W8RKBKtyr+nx
+	i9EPeiM6U8KYYstmTsG0/VNC/eSiJHMP8qcYpLtaV5ciJqzphCD+jvkW/P5vZolCxbI4AGfIVKaPk
+	34086C3n0VgVvFIqfNklbMkxuFFbD23bilgT36fStLKLaqE+Z7YGAq+P7dcxoqFyl/m9DY7o2MLxB
+	JpbBkudQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vvw-000000099tW-3KBB;
-	Tue, 08 Sep 2026 13:32:20 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1x3vXg-000000096d5-0ilD;
+	Tue, 08 Sep 2026 13:07:16 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vvn-000000099pe-3HTo
+	id 1x3vXd-000000096aE-1Cwb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 13:32:19 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c25085f2422so50204566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 06:32:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788874329; x=1789479129; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c09duG40XUDjljTKKEnm8AMSUZjhNe4OtYQ1ssenbDY=;
-        b=sCLh6dbyJ6gFWlVJA3+RSlw3EGSJtsCr1dkokaYWFZJOR5xbPS2g1/Vft/1MgrcAL5
-         7hNk0U9Q6kHGR4a2xqf1zMyy2Pii41mE8DCqANtIUG+aG7A3xDomd7YQL+3nulKCCqp2
-         4uSVGDpK4cBSOdkX8ZOAzzUQv4Si2TRhEquydT7N7pzL74gD8iyObzuwi9782MYOzFHW
-         elfQKLBFcPkCmxA34uMWsUcOoZOF5D6lgqeN6dqN6LtO7pufjDEhSvG2l2GsQSfeRdpz
-         FSrq8S6h5YTVzYpMB3/iQPG84MF/ylANmTGNHkkS1QWrF1iUSv/mRGOKskhtHVY+NAW3
-         sDGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788874329; x=1789479129;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c09duG40XUDjljTKKEnm8AMSUZjhNe4OtYQ1ssenbDY=;
-        b=CDypi5G+RTnGcgSwgzO2ice8Gyz79MRYUa+Hq7SlroQcn6tTF1bOpcxxeG59u/paFY
-         z+b660j0zyiltj2ugZvsh1UlCilWKWOfd6ZH1py+TDn2ajMqgcTrdK1a2pj4pHBRwRIM
-         PHsthoC13RgPSXYMWPqMk5NaAbyAeKjNzD9QLuat3TjPRHvSHnew+KNfdbWXCks0Rip3
-         9jxJLWUwA6xycZKqlEuRmohRWRleOHLlRZ1mVjosQNtB5zFjW817HTpIGE+yovUwCFm+
-         UehcTjYliz3QwvAbmks4pHOlyoRxbHUS+y1YTVDDqzBuBofLjuaniy9dngY20YhCW9Xh
-         ywPw==
-X-Forwarded-Encrypted: i=1; AKwUvByJ2sZmnuW/GNkHN8kc+wq53KOUHodJQ1pEivaCKup4OT6Xr+ArHdZ036iMNTMKUxywS+v2m98um7BjMBirh/17@lists.infradead.org
-X-Gm-Message-State: AFuF++lIEpIXYq0mEI3B7ikRRPte17c4WSLkhiBShgMObzo6cxMs3wMm
-	mFhgcBYBR3hsLxLfcWRUm+tFOrSAVJ6kTVuXBipUTdew5TuTkFBhnmCa
-X-Gm-Gg: AYBFou1G5lzlHfqphJ1cLpdvZjhcw7XyufvcqqC9qMRbDaM9TqtJ0ryNxtgVdmD3Gkt
-	F/oKSZu3izL6queIts/FGnHkDLQL7S82XD8CgB0RXuGY+KoCfHRp6zSB03kGbEuzmjuXIVNwEwW
-	PDIBGC7jv09JgTkhGhwElxp5UPwaIcIesu1tsfDXMl6RBg7W8Pox1VrJZFBt47cBTsf95U+bkbF
-	QSut7+hrsS745WWvH2xWhcxV/9xwfnyXJxJCI3uFdEtQWTnm0Bfbsk9SgEzYPj11ZIcCNVPRbmA
-	opyoC4C5rAYV/MhX2Bje7bGpbxDESFwJO9JizWaaIz2x40upQbrGib7KmAwNd+o5vkggnrlRRe6
-	ptZUt37HitWWzjmcwM3iQq1ga804GX0AbIOqr+X9wQVNvl+y0bCgI4kTWo81padtSh/4vlSOxbp
-	0XiJD8T6V/XQqvTBpmkE6HIDD3ndzwHB67EfUVwq5AwOo1Nelc0j8YyTXHqbnoqTLPMmHzs1KCM
-	4NAnggYPmNcuaYA5kfSHFcGugM/yfY7TDajqIl8h/WSR9a+FZThGlzZfriMAVLhwr0H5JmZIhpa
-	cRGI
-X-Received: by 2002:a17:907:3f8d:b0:c25:ca8a:8e25 with SMTP id a640c23a62f3a-c2624eef698mr794013366b.1.1788874329043;
-        Tue, 08 Sep 2026 06:32:09 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B825D0079B84A36A788F67A.dsl.pool.telekom.hu. [2001:4c4e:1b82:5d00:79b8:4a36:a788:f67a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485881353e8sm36163217f8f.1.2026.09.08.06.32.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 06:32:08 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-usb@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: s2idle resume hangs in ohci/ehci on RK3588: HC registers touched before the USB2 PHY is powered back on
-Date: Tue,  8 Sep 2026 15:31:46 +0200
-Message-ID: <20260908133147.8291-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <ap__5zeUakMSLWOQ@venus>
-References: <20260907190000.s2idle-usb2-resume-royalnet026@gmail.com> <ap__5zeUakMSLWOQ@venus>
+	Tue, 08 Sep 2026 13:07:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eVtbPGcGnk0tZ/mpLCZJighKoFT9cxaoGeV/AnV6O4sNGGhmxkNkjyyGcjmiN9xqRcPGj4LppjjmUAI+Lj2QnIkoI7QualvMhK4gBTgyEKxuhdROfOw/ioHQILfUeo0PHJNA4sNnjXfzilgBAcVE2k7LqH++O/5QJMND51v7U0+XiY5LVl4DMadYyHeaYdnVwKl8j8ayOZotxRgy3FxomoOhnsqgPfrkdfS5fwDQE1kaR/bUydOdcdcS+u3uFlHOciysWLG3xYOuOFFRwOcIUuMfUrfmy2Eq1ZItjIdJIENZMsVoh4boucm3rGvc2OjjDSkEfAoWNdK5wKlKLiOBfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=;
+ b=ZFU+Hth9NZGq6jqphhzxFlY7QzhP+wJgt1Fi7rxk08cXm3H99EkCc69AY1cuxzn9DTyMGGlgATe12M14y/bCFQ8Nv4Q0ptN4Z7yV2lfszDxT7lZyaA3Ck2U87Hnjxzyycn0AheuNoukOiokZaW3G0CXsfUZmgy1j1iqxSCHnLTcIQ2+CEpQgQbCZAAa0QL2yAbllf7tX6Ew9HWL0qUyy9+5lkDMS+Sj1A2GVSuFBBncKmUI7C1LKIrUBqP3JmvsdvQXPrzRIHi9Xjgiwl1XDi0c3A/gVEWfLQ4xsZEMuoyAYaFI2P/QF2waKpVxwtyln/ecgpdw+pGc2NmjCZRzaMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MEjauvyT0w/GT73hhhlwoLtKxG4NTOTzFR4d3ry3foQ=;
+ b=ZOkHf4XQiWCUBL2JDhs+nXZNus81jcSKTL4Nfi/ZwIjfHoI0F4BRMZopOVIllYQCHMoBR4aeuJlN6ig5pF7+cVxLUc+YDZm26PqOExsP4MIK7Bef4PiXi/exVVo2x1LJ/4GyMaQ4/DSmEPWalaBosYvc2F051CmdxdVl5Aw5vkGvzUsKHHR1P40b3CnuiAKQ/2kn/0wlGWbRfP2vs01lDe8zHHDZrww1MqpSUcfHUl3XeqSU/Dr6c6SwxWynv9RV5+I8Q+qRaRNZpavUnHPxTL0g1qnRKZbnucHznLt2AVml9kGGISgYhFcjXGnLOtmFV/5aQvvd9PDoqoZ+f6r3zA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13) by MI3PR04MB12634.eurprd04.prod.outlook.com
+ (2603:10a6:290:81::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
+ 2026 13:07:06 +0000
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd%3]) with mapi id 15.21.0382.012; Tue, 8 Sep 2026
+ 13:07:05 +0000
+Date: Tue, 8 Sep 2026 16:07:02 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Vincent Jardin <vjardin@free.fr>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
+Subject: Re: [PATCH] bus: fsl-mc: register the object drivers after
+ misc_class exists
+Message-ID: <dvnnk7fnk57x7gf4mc25codec62xtpbe4v7omhjguqxd25ssmu@pqqjwe5xif4q>
+References: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
+ <fmmf72ypmmooyxszz3l47xabdhvetowgvbmbjmvj6bumuh5onh@pntmny63urbg>
+ <ap7mmR_4QV0k88dK@L30177.local>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ap7mmR_4QV0k88dK@L30177.local>
+X-ClientProxiedBy: AS4P195CA0009.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5e2::17) To GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|MI3PR04MB12634:EE_
+X-MS-Office365-Filtering-Correlation-Id: 020231c5-3547-4dfa-a886-08df0daa14e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|6133799003|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003|41080700001;
+X-Microsoft-Antispam-Message-Info: EWyeWTWAyetuuPu+uVQvl6l1yRaW92ojPmC7Co2hrxcD90K/mUtl1OIZ5AiCvPuSV9TkIbQkZ2ORhjNqxMxoLMsXQ4zzKYmWquUWIfqzXeDLjndsrrVz7kdPG7uVZiBu907X866M3TTc7jE35M80jRlw50UC/d9M8qKaxh7BCm8bJIL0pXfBeYVM3pIihAuCqLTJpl1hnKjW6ljX3SPfMOv3QfHTyESJ0I75AFbKsWPAtJ1S+rCV/WPyb/n/jeYaPn90hKIOcv9mX5H7Ews1iEhMzLjoPJp8PQV6HYbj6D1Y5+eqygiHI1YmJOHRWaFCFe1Vx76xe0PMjlyBA55uDdpXMO04vj0zPaE7u0vP5N4E3DpWyimZfUqJ+RKqEKwSMYqk4EksrPiwNZExzk6bybNCHNjalJJGjv1OHib1DNe6XqzDZCx62X7W9nVrw5F6rs6+dOwXBgUTK68fx7SaxRKufyNJSDVnJoPKV1ecKOXXsi795zfbTxfnLrhQC8tl+7yuTS6B5sg/DWGNIFsWaCZ68pBbTNB7ujvAMgwhSWWyslWmfZFr+2tRYL/SgodVVBqwnKHvSkW+bdJvjEUAyPVssUoLBxoocnIfFs9pGiTqjo5t2min0xqRp76kHC6MR0rAzmqsp/3lEJ0Kd2Od94KiUrxzsxJUOGoqlqErRQI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(6133799003)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v5hFIu/7lXIcur34XKm+N6ZZDeP58RBirwypMTa40t66uGsEnGDhghdKxRIj?=
+ =?us-ascii?Q?RK1f/fBR27zXxWgnN/GJ2mm+jY+fHCh/0WETc6qd+NNygSuQuojSq/Xn/2R/?=
+ =?us-ascii?Q?60V/XZf4rHqtJEUF0Joah8JiJxdWWHW6kKuqajde3osUy1TUffdzUivzuzac?=
+ =?us-ascii?Q?9bVmjUn3gWxqJK63IcWBLL7EgEGB+BuBCujWejfMzoKdZ92YYopJapv4fShz?=
+ =?us-ascii?Q?UpQAGhI3j3kdnEIiLQjS13FrldfT6dcLjT2iGTts+hb+OGUZQ6SwjdpvU4an?=
+ =?us-ascii?Q?6HdpkVlD2zbuUCIE5fqu2FCM4ohP1mTxpG2I48DbLPIGDfVmqFAhMbHilYsX?=
+ =?us-ascii?Q?JBP6pVNNneRMcCXfSP18Db3uc5Gm0TlqQPlpPPEWzbQUYGh9BRH8/gALiWIG?=
+ =?us-ascii?Q?H7j/QWEVnbf4EokMJunqtTSs5n8Z7rXpiWco/EF1GRD5ADzJ/jG5hEuJ0TjL?=
+ =?us-ascii?Q?PHvDNkLPYckR2UBn4Lebg7ftBRmYFto8/srulkXUL6ayIHHuktaobDnrE1yI?=
+ =?us-ascii?Q?bXsAjXT8DFf/1gK2C6++aMfw9n9hiaR8UFZ8VdbBnDI3Mmtm1uCu9CFZ17N0?=
+ =?us-ascii?Q?Hkh310zTIbO2Z+H3BV1Tw7oSjKysFa26YClsreNeYjQOcgndnhK5GA6hkmUB?=
+ =?us-ascii?Q?1Kf1IhTGfc9TSG8HBQ3GaBQYZfjI3nyIATmrfed9/tRK1TU3K77Kj2O9RTdE?=
+ =?us-ascii?Q?tChurraZMWORSwtWd7iDFDUx93yYx+pr+98M0+p4Jw8d+2k2TqZiWHhjEFpb?=
+ =?us-ascii?Q?cP2lNgP5oz6X9wicZ+66rG/RYfh3mqQ4VaL1ww+1p4Pw0hSPmd1d+z7qBM+J?=
+ =?us-ascii?Q?ZmdxazJuRvjZ1Dtm7s2eNLoiOj9lR+CoNE6PslkQTJZCPdmtpj9rhfiZn1j5?=
+ =?us-ascii?Q?LM6pWAVB4McXwGNDqv8AiErRog+v1z3LSEy4zp4gb74cJPGz5b3P9IMFFRA0?=
+ =?us-ascii?Q?BOgckNpp0TNsNWNEEm2LKWgW1IPohjwhSPHQ0rlK3QsEOutiw+JtJ7/HSxyN?=
+ =?us-ascii?Q?HyZIw+EFVT8weMZ+yXepRXHMg2ohfJTGLT4Ju1FZCEqEOxqRMIONAeJvhal3?=
+ =?us-ascii?Q?eGA5Ouj1YzCK/Qm0wDP09aKbby4xaRQtx7hMcuwwe1p+ZJQ60cpiguXl2pY6?=
+ =?us-ascii?Q?H9yNjY45OH3xDq+AE1gS38teJwRtg8pNyyqhMsChLgyIs7SX7K3y+IKaAGrG?=
+ =?us-ascii?Q?RmTjw/Q6dBL2fUB2YrospGPCsYywIisRSexvJoriBt83Ck5mO9EU0j0QMKw5?=
+ =?us-ascii?Q?jp5pnsQpMbzERdeL6RP2AozYaS7IPBL3sDaliUQdZD4m67eAoooWWLBraSt8?=
+ =?us-ascii?Q?1y4MAx05xJAy6IkSdkH8q6LDyLZwmEti970cNPh6s3wMZcdUzRwibh0rRUVt?=
+ =?us-ascii?Q?SUjG2HPRAQVyvUXIwb5gebFiJrr+X67/cHLpSWYGe9U5KxFcusVKlO1/vba3?=
+ =?us-ascii?Q?7FPoVMwMcvmwXsf4fP+fhuWa9+7CzpUjHeVZbQvRV01YRgOs0MX0/8p8sTmo?=
+ =?us-ascii?Q?jsyhtLt6dOsFnMVDicLNuy86P39Yj4wJhmkY81rVMzZe08Geso2bN9FKW8rC?=
+ =?us-ascii?Q?8esgSOF5aboI09hHwspBytWGIbOv3SGc1T2uVxXFpuHhuiwu8LNnguh9bWaV?=
+ =?us-ascii?Q?NJQWflu7hIQzNARN4e//6SLhvbPYQ2rWKrtXj3JJ0jP6NrQ83K4sXNNhUm77?=
+ =?us-ascii?Q?rZHKXfLw3FDvROHme1sEZVoIcfpY0rWR4rh26wsVaXt1V37dOpem/bU48QyS?=
+ =?us-ascii?Q?o/J+NupVRA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 020231c5-3547-4dfa-a886-08df0daa14e4
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 13:07:05.7167
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y1pzR06jUZ6X4Rre2vkF3plGGI7jv3Jsk7+usJHHwnGt3tTniMlcWng2gZkAo7awVHZTFqhvRFB2ahJ4lbzMIg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB12634
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_063211_830526_201C8D5C 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260908_060713_342909_DA8031A1 
+X-CRM114-Status: GOOD (  31.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,52 +138,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Sebastian,
+On Mon, Sep 07, 2026 at 06:30:17PM +0200, Vincent Jardin wrote:
+> Hi Ioana,
+> 
+> > Do you mean that the above error messages are triggered by an unbind and
+> > bind sequence like below?
+> > 
+> > $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/unbind
+> > $ echo dprc.1 > /sys/bus/fsl-mc/drivers/fsl_mc_dprc/bind
+> 
+> Yes, same sequence on the root DPRC
+> 
+> > I am asking this because I cannot seem to trigger it myself. There is a
+> > misc_deregister() which should remove the char device upon unbinding the
+> > root DPRC.
+> 
+> It does for every normal misc device, but not for this one, because the
+> root DPRC's misc device is created classless.
+> 
+> You can check the states with:
+>     grep dprc /proc/misc   # e.g. "256 dprc.1"  -> registered
+>     ls /sys/class/misc/ | grep dprc
+> 
+> If dprc.1 shows in /proc/misc but is absent from /sys/class/misc, its
+> misc device is classless and the unbind/bind should collide. If it is
+> present under /sys/class/misc, it was created after misc_class and the
+> sequence is clean on your setup.
 
-Thank you, that is a much better place to fix it than either of the two
-options I asked about, and it matches what the board shows: the OHCI
-that hung was the one whose 480 MHz clock had it as the only user, so
-the clock was gated on suspend and the PHY was left in suspend when the
-controller came back and touched its registers.
+Yes, it is present under /sys/class/misc.
 
-I read 53014abc in the rockchip-devel branch. One data point in case it
-is useful for the version you send: on RK3588 the early return does not
-get in the way.
+	$ grep dprc /proc/misc
+	260 dprc.1
+	$ ls /sys/class/misc/ | grep dprc
+	dprc.1
+> 
+> fsl_mc_bus_driver_init() is a postcore_initcall, it registers both the
+> platform and the dprc drivers.
+> 
+> The fsl-mc DT node is populated at arch_initcall_sync, so the root DPRC
+> probes synchronously.
+> 
+> dprc_setup() -> fsl_mc_uapi_create_device_file() -> misc_register() runs
+> before misc_init() does class_register(&misc_class) at subsys_initcall.
+> 
+> misc_register() does not fail in that window: device_create_with_groups()
+> with an unregistered class creates the device with no misc_class
+> membership and still returns 0.
+> 
+> -> So at unbind, misc_deregister() -> device_destroy(&misc_class, devt)
+> cannot find the device within misc_class, it returns without removing it,
+> and then it leaks the device + its /sys/dev/char/10:<minor> link while freeing
+> the minor. The next bind reuses the minor and dies on the
+> duplicate /sys/dev/char/ entry.
+> 
+> I guess, from my setup, it happens when the root DPRC's misc device is
+> created during the early probe, which needs CONFIG_FSL_MC_UAPI_SUPPORT=y,
+> fsl-mc built in (not a module), and the root DPRC probe not going through
+> EPROBE_DEFER.
+> 
+> If it defers, the retry runs after subsys_initcall, misc_class exists,
+> and unbind/bind is clean -> which is probably what you are seeing.
 
-    /* Limit to single port; it's unclear how multi-port should be handled */
-    if (rphy->phy_cfg->num_ports > 1)
-            return 0;
+I am indeed in the case in which the uapi support is builtin but the
+dprc.1 probing is deferred, thus it will get executed after misc_init()
+had a chance to run.
 
-All four entries in rk3588_phy_cfgs[] have num_ports = 1 (0x0000 and
-0x4000 as OTG, 0x8000 and 0xc000 as HOST), so the new code does run on
-RK3588, including u2phy2 at 0x8000, which is the port whose controller
-(fc840000, host0) hung for me. The num_ports = 2 configs are the older
-SoCs, so as far as RK3588 is concerned that guard costs nothing.
+The deferral happens because of_dma_configure_id() returns EPROBE_DEFER
+since it waits for arm-ssmu to probe. How did you get past this
+deferral?
 
-I will build the patch for my test kernel and report back. My setup
-should be a reasonable test case for it: with all four USB 2.0 hosts
-bound, s2idle resume hung every time and needed a cold reset, and with
-the four hosts unbound the same cycle completed 4 out of 4, so there is
-a clear before/after to measure rather than an intermittent one. The
-driver is a module in my configs, so this is a single module rebuild.
-If it holds up I will send a Tested-by.
+> 
+> I started to face this issue when I did try to restart
+> the MC from Linux userland instead of uboot in order to be able to adapt
+> with some DPC changes during the runtime.
+>  see https://github.com/vjardin/lx2160-sdx/blob/main/src/lx2160-mc.c
+> But I guess this issue should be quite generic.
 
-One observation on your second point. On this board s2idle is entered:
-the machine goes down, the hym8563 RTC alarm wakes it ("PM: Triggering
-wakeup from IRQ 52"), and only then does the resume stall in the USB2
-hosts. So PCIe did not block suspend here, even though the board has
-NVMe, two r8169 NICs and an rtw89 card on PCIe. I do not know why my
-case differs from yours; if that is interesting for your PCIe suspend
-series I can dump whatever state you want from before the suspend.
+Can you reproduce it without restarting the MC: boot to prompt, echo
+dprc.1 > .../unbind, echo dprc.1 > ..../bind ?
 
-The RTC pin fix I mentioned is now v2 on the list [1], with megi's
-Reviewed-by. Without it there is no wake source on this board at all,
-so it is a prerequisite for anyone else trying to reproduce this.
-
-If you would rather I wait for the version you post this week instead of
-testing the branch commit, just say so and I will wait.
-
-[1] https://lore.kernel.org/all/20260908111908.19371-1-royalnet026@gmail.com/
-
-Igor
+Ioana
 
