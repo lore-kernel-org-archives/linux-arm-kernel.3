@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00EAC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D797C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1PB93PjIFbExPYXFb562jtyWeUXbMaTixHyMSrnpUgI=; b=37248cWrJpTTK9
-	rTA9D8pG+Eq9+hfXUDM3wxWE7jqjhLe681z97h6S2fsF0o10BOmPc9+OlB0pWF/h+0t4VYH030AAF
-	cyJ079o6EzjsBYMkLgDH93P0BtbrHMpvtpEsjLeW90uKX+wdjATeq8rUlihzIIhvUyoe9JJyXYp35
-	zotnUR41HuMB8JoDft+3V8l/e34tq0kj9r7wygRcUcYoHhXsz1FUsjhkBIjAdEqJv0md3n1zf5xji
-	ankIdVuu1S4S6vzAkIDSlZlz6b4MlXdPyJ6ntln3W/UA4Nnj6Soyl5ov0h/NKaPBBqJhi20UzD77D
-	OtETHLx7nlLeedBvjlsw==;
+	List-Owner; bh=OaUU92Dn2FGDK8buM/Lh5FiKpTpF3RIMSQx9zRLVeME=; b=YQKjoxziFjmfSj
+	ySulvVBQU3dvbw3IiKhG9vYSDJ5e5Vu8NBuBUw4o1Ag4j/GX0dza3XQVyQCjIWoFopVDImk7eTZaQ
+	b//NyH69foRmSY8YpC9ataFjdxLxlXgKm4ftcmaeVw51Cr2igK+YBSC3sDdDFgeGlnDLvJb0VXYCw
+	/bwAzDTkJmx7nMcW+mJ9CBCrDmkix3xt0qIyFKyWmUo3Nd3E2UZ+0br0ePS2yxvjPIftb8DVbpb9g
+	jLrB2875RHr3ujamshmZLbUjCdRjDdFze/xPRJrW/fPPQoTweOUN5Q7Pw5PbB030WYpL4AFpTErpK
+	G3RNRvFaPM5lvbqo/FYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xde-00000009SXo-3pTd;
-	Tue, 08 Sep 2026 15:21:34 +0000
+	id 1x3xeE-00000009Sel-0pK7;
+	Tue, 08 Sep 2026 15:22:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xdb-00000009SWb-1JBB
+	id 1x3xeA-00000009Sdh-0lFj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:21:32 +0000
+	Tue, 08 Sep 2026 15:22:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5D441C14;
-	Tue,  8 Sep 2026 08:21:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C00B91C14;
+	Tue,  8 Sep 2026 08:22:01 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B18713F7B4;
-	Tue,  8 Sep 2026 08:21:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ACDDC3F7B4;
+	Tue,  8 Sep 2026 08:22:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788880889; bh=w07zAcxGPrwpKNC+UEkyQF6OePGiGiP3sL6U5wQzJsI=;
+	t=1788880925; bh=ki0awHv7wA0mCQKhq+F9Yw0sopN8F9mV84WGSkZrsjM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TRRw6m38nwxvykW9lahYiirCnNouao/4isrXVQbBjP6iETQbV4QTUQ5G7fg74kxK8
-	 +U8vQgxVPL4KUtb0kYWJwTY1W+pCMbnl5eQCqukve8gWQvaQZQ0fdow1wg19VIcI4X
-	 nxHIgWAdWcxCPJVWSHLEK1pnIh0vrphg4ykKZ1Y8=
+	b=qxf0H1yD3qENk6YokROYVjrFkjFMAtaAJ3/ocjaOZsepJmz2Mc9L/QjP7J6AvqXvy
+	 9s/2CjUWg6xeLS5ewh3Arxp+9jXzAlsD2Sl2Kct05HsNT6j5Jy6BvzXys4Rg4AgG60
+	 Vnv38tuDt4FMqEDbb0BaOFxbCFrwMluQ0D3hNAOs=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 10/21] arm64: gpr-num: Add wxN aliases for wN registers
-Date: Tue,  8 Sep 2026 16:17:30 +0100
-Message-Id: <20260908151741.394589-11-mark.rutland@arm.com>
+Subject: [PATCH v4 11/21] arm64: gpr-num: add __GPR_NUM() helper
+Date: Tue,  8 Sep 2026 16:17:31 +0100
+Message-Id: <20260908151741.394589-12-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260908151741.394589-1-mark.rutland@arm.com>
 References: <20260908151741.394589-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_082131_392054_3AAC5506 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260908_082207_625661_AA0722CC 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,25 +67,18 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.a
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some A64 instructions require a W register name for specific register
-arguments, and will not accept an X register name. For example:
+The gpr-num infrastructure requires users to concatenate the register
+name with a long prefix in order to get a symbol that evaluates to a
+compile-time constant. Doing this manually is error-prone and painful to
+read.
 
-	STRH <Wt>, [<Xn|SP>, (<Wm>|<Xm>){, <extend> {<amount>}}]
+Add a new __GPR_NUM() helper which wraps the concatenation.
 
-This is painful when writing macros for inline assembly, especially
-where a single register is used as both an X register and a W register.
-
-We solved this for plain assembly by adding a wxN alias for each xN
-register in commit:
-
-  4c4dcd3541f83d21 ("arm64: assembler: introduce wxN aliases for wN registers")
-
-Add the same facility for inline assembly, with a new
-__DEFINE_ASM_GPR_ALIASES macro.
-
-As with the other macros in gpr-num.h, different escaping is necessary
-for inline vs non-inline assembly, so we can't share a single definition
-that we stringify().
+For the moment I've left existing open-coded concatenation as-is. In
+particular, the DEFINE_MRS_S() and DEFINE_MSR_S() macros have awkward
+stringification requirements and would require invasive changes that
+outweigh the benefit. I have plans to rework those in the near future to
+remove the need to use gpr-num values.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
@@ -100,21 +93,27 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/gpr-num.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/include/asm/gpr-num.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
-index a114e4f8209b0..240cd25d55c5a 100644
+index 240cd25d55c5a..30fb8a67b19f0 100644
 --- a/arch/arm64/include/asm/gpr-num.h
 +++ b/arch/arm64/include/asm/gpr-num.h
-@@ -21,6 +21,11 @@
- "	.equ	.L__gpr_num_xzr, 31\n"				\
- "	.equ	.L__gpr_num_wzr, 31\n"
+@@ -11,6 +11,8 @@
+ 	.equ	.L__gpr_num_xzr, 31
+ 	.equ	.L__gpr_num_wzr, 31
  
-+#define __DEFINE_ASM_GPR_ALIASES									\
-+"	.irp	n,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30\n"	\
-+"	wx\\n	.req	w\\n\n"										\
-+"	.endr\n"
++#define __GPR_NUM(gpr)		(.L__gpr_num_##gpr)
++
+ #else /* __ASSEMBLER__ */
+ 
+ #define __DEFINE_ASM_GPR_NUMS					\
+@@ -26,6 +28,8 @@
+ "	wx\\n	.req	w\\n\n"										\
+ "	.endr\n"
+ 
++#define __GPR_NUM(gpr)		"(.L__gpr_num_" gpr ")"
 +
  #endif /* __ASSEMBLER__ */
  
