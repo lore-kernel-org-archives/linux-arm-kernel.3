@@ -4,124 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328FCC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD36EC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQfUobdb4z00WEwtnabznk2vNczJUBLHs2sPtjNr3cI=; b=UoWOOCHpVWDBdzqPvEd07s82Ji
-	pOWiWRLg9W7cLNrVtDa80MroA7ufFdKCTgljxR5lTrJz9yyQz3lOyIAdGrs/N8pbrcDwc56kXlHF5
-	S55gdADzjMqRbotoDggCwevYhS9hiYw70HGUgQzYSvG2Dqp+823BE/7RqwjpAEQqxT1aliH8DLLvL
-	HTSGRKs6Ah7kuk+CBiwBZigy5RdrMrumOwpxOVY+qIO15pWkeje7tM8LlJ3eaIoKTsj6Z+pneLgnr
-	C6X1btWKTTzOHJpKfkffnyHmETXD8dRJprAOp30E4Psrb0NqMI2lmqeVhBI1QIlKmhAOrdLsN69Bd
-	0614tHzg==;
+	bh=+j/MnMfgl5YfKGf8KV9trVnwU4KSAH6tcUBXA36ZRyg=; b=M3/c9zS7bgKJjZqj7osYewrVfa
+	JD2Iu87oYug9txIKMX8IqP1JCJA9h2l1n9KfVvvp4mok3tnWQHb9rNkMZtRPYZ7N6bYSCdOd35XRU
+	N3KDhvNvYV7gIUxqFRZcYJeBBxq7s++dNFF+X2fZ8f9tg4oQMTaOWIUxo781bcDwV2/pEZOvSvyHE
+	x2mj51XSEzfemX32Cig27Ar50DmNzvypqHx8X5cCLn0aGQ8gL2dOxBPzNEyDCZqIrD3yoFRegvC1S
+	j4SXiiprP7bGx4lYcxH7e22K9udLGXg/dPzhMuYOzhLbJvzzsBMKXx68Wva5Mwlz+N0Oh6zUz3jBP
+	K2mG33MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uQo-00000008x4U-0mcs;
-	Tue, 08 Sep 2026 11:56:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3uRX-00000008xDv-2y1f;
+	Tue, 08 Sep 2026 11:56:51 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uQd-00000008x3S-34KD;
-	Tue, 08 Sep 2026 11:55:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF71E60A99;
-	Tue,  8 Sep 2026 11:55:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B96B01F00A3A;
-	Tue,  8 Sep 2026 11:55:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788868554;
-	bh=YQfUobdb4z00WEwtnabznk2vNczJUBLHs2sPtjNr3cI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lpGDXF7ZqLHduzl8FnziPOy44BLBHhC2Fw4f0jqmHQkKoysL/bVzIHC+FAe7sHw7Q
-	 jkocHRdaF0XzNj4f4PhKK93kmAF0iSVIiVQBbYfZPdmZHT4alxIAbfCODf6JWSb4LO
-	 MwoTcpezTjSOf7GShhM+TnQcNElLIb67uyP0XYwKTUG+OCwygDjUkHFMZQEHcinVRQ
-	 BQebwXbqAoK2cziX/sxNuAXk6q3CSoAjS+xNfEqMEoKs1lRGDE/xicTO/J4jx762XW
-	 F9VTD3V3103VvgiKmAuvnoNaijapfyIllBeaojqtCUKnCJmwj+700uh0TqrbiauV9A
-	 cMHAnXdOJcyYQ==
-Message-ID: <29e6d0d2-cdd6-4d59-aa6f-0073ac63eace@kernel.org>
-Date: Tue, 8 Sep 2026 13:55:41 +0200
+	id 1x3uRU-00000008xCY-1DDZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 11:56:50 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+j/MnMfgl5YfKGf8KV9trVnwU4KSAH6tcUBXA36ZRyg=;
+	b=Tu69EZneji2bZO3n1COp941uNwvSjyaroq6xQgPPlxu4aI/h3e7PU+DNWuYKY6KSBkwcofBqb
+	y7z6uObYITH1mvO8Xp4YDvEM3uJHPg4/uGzhjQKjiJT3MWOdQ/WyE2e8JkwawBn9SFcTnIBBSxj
+	p3clmNr4SYM29rRAvijtrQg=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hfMZJ2HwFz12LHf;
+	Tue,  8 Sep 2026 19:45:28 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 15F1E40538;
+	Tue,  8 Sep 2026 19:56:41 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 8 Sep 2026 19:56:40 +0800
+Message-ID: <1e5fc39a-4e32-44e4-b3d0-33504bcec6e0@huawei.com>
+Date: Tue, 8 Sep 2026 19:56:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
- set_direct_map APIs
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Brendan Jackman <brendan.jackman@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
- Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- loongarch@lists.linux.dev
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 13/19] arm64: cpu_ops: Introduce get_secondary_cpu_ops()
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
+ Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-14-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164024.17164-14-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_045649_045517_A44527A6 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,29 +81,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
-> When set_direct_map APIs were introduced by the commit d253ca0c3865
-> ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
-> parameter made sense because the initial callers (vmalloc and
-> hibernation) had sets of unsorted struct pages that required changes of
-> their mappings in the direct map.
+
+
+在 2026/9/8 0:40, Will Deacon 写道:
+> Introduce get_secondary_cpu_ops() to retrieve a pointer to the
+> 'cpu_operations' structure for the non-boot CPUs and use it instead of
+> get_cpu_ops() where we are dealing with secondary CPUs.
 > 
-> Since there is an increasing demand for direct map manipulation and it
-> is also desirable to be able to update larger physically contiguous
-> mappings, for example an entire large folio, extend set_direct_map APIs
-> to receive number of pages parameter.
+> This is a pre-requisite for enabling parallel CPU bring-up.
 > 
-> As there is still only a handful of callers, change the existing
-> functions directly and update all the call sites rather than adding
-> wrappers for single page case.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 > ---
+>  arch/arm64/include/asm/cpu_ops.h |  1 +
+>  arch/arm64/kernel/cpu_ops.c      |  5 +++++
+>  arch/arm64/kernel/smp.c          | 19 +++++++------------
+>  3 files changed, 13 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpu_ops.h b/arch/arm64/include/asm/cpu_ops.h
+> index a444c8915e88..cd298a8710d8 100644
+> --- a/arch/arm64/include/asm/cpu_ops.h
+> +++ b/arch/arm64/include/asm/cpu_ops.h
+> @@ -48,6 +48,7 @@ struct cpu_operations {
+>  
+>  int __init init_cpu_ops(int cpu);
+>  extern const struct cpu_operations *get_cpu_ops(int cpu);
+> +extern const struct cpu_operations *get_secondary_cpu_ops(void);
+>  
+>  static inline void __init init_bootcpu_ops(void)
+>  {
+> diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
+> index eacfb88a0c0c..7d183ca31dc8 100644
+> --- a/arch/arm64/kernel/cpu_ops.c
+> +++ b/arch/arm64/kernel/cpu_ops.c
+> @@ -127,3 +127,8 @@ const struct cpu_operations *get_cpu_ops(int cpu)
+>  
+>  	return NULL;
+>  }
+> +
+> +const struct cpu_operations *get_secondary_cpu_ops(void)
+> +{
+> +	return cpu_ops;
+> +}
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index c5e9d5d5e003..2e98a92eb764 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -100,7 +100,7 @@ static inline int op_cpu_kill(unsigned int cpu)
+>   */
+>  static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+>  {
+> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  
+>  	if (ops->cpu_boot)
+>  		return ops->cpu_boot(cpu);
+> @@ -220,7 +220,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+>  	 */
+>  	check_local_cpu_capabilities();
+>  
+> -	ops = get_cpu_ops(cpu);
+> +	ops = get_secondary_cpu_ops();
+>  	if (ops->cpu_postboot)
+>  		ops->cpu_postboot();
+>  
+> @@ -327,7 +327,7 @@ int __cpu_disable(void)
+>  
+>  static int op_cpu_kill(unsigned int cpu)
+>  {
+> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  
+>  	/*
+>  	 * If we have no means of synchronising with the dying CPU, then assume
+> @@ -368,7 +368,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+>  void __noreturn cpu_die(void)
+>  {
+>  	unsigned int cpu = smp_processor_id();
+> -	const struct cpu_operations *ops = get_cpu_ops(cpu);
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  
+>  	idle_task_exit();
+>  
+> @@ -492,7 +492,7 @@ static int __init smp_cpu_setup(int cpu)
+>  	if (init_cpu_ops(cpu))
+>  		return -ENODEV;
+>  
+> -	ops = get_cpu_ops(cpu);
+> +	ops = get_secondary_cpu_ops();
+>  	if (ops->cpu_init(cpu))
+>  		return -ENODEV;
+>  
+> @@ -776,7 +776,7 @@ void __init smp_init_cpus(void)
+>  
+>  void __init smp_prepare_cpus(unsigned int max_cpus)
+>  {
+> -	const struct cpu_operations *ops;
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  	unsigned int cpu;
+>  	int err;
+>  
+> @@ -802,10 +802,6 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>  		if (cpu == 0)
+>  			continue;
+>  
+> -		ops = get_cpu_ops(cpu);
+> -		if (!ops)
+> -			continue;
+> -
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
--- 
-Cheers,
+>  		err = ops->cpu_prepare(cpu);
+>  		if (err)
+>  			continue;
+> @@ -1341,8 +1337,7 @@ bool smp_crash_stop_failed(void)
+>  static bool have_cpu_die(void)
+>  {
+>  #ifdef CONFIG_HOTPLUG_CPU
+> -	int any_cpu = raw_smp_processor_id();
+> -	const struct cpu_operations *ops = get_cpu_ops(any_cpu);
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+>  
+>  	if (ops && ops->cpu_die)
+>  		return true;
 
-David
 
