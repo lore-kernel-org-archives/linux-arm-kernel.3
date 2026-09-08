@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A13CC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 04:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA35DC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 04:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RHZmdRFzTl+eWGNSymg/i0mRh+qaGDd59ai74OQ/f7g=; b=ovHud9iHR25vxvorcfRlCbkUZd
-	hJ22+wu9xCFiuHA6xtngkvoj/vbERcgaJcJU88fBPFYjTI6iKzFc+QOfQb0KlpM/sXhaCnziT14po
-	++rdfZbNCvAShCmvCPXMOKnIDllIBs8HeQE82tlo2zTh73fTwFEazupVWU/zg0zYDzyB859anxa70
-	o4T+meGe+SBAos2mMn33e5dW1jP2PxKETPMS0Q/jMe36VPmjEFgZYUPkq60usTuQQf9oFaJ61Tl0t
-	uL9+1jUIbO318zLObjXUNdoSVkJs4xhErNxI/9ZgF05P5DbiXFosdKw36sI64f+J8fZyG7sB5+JoI
-	Sndb9+Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2z8OHXDLMRso/cZ9wNWBfE+5qbft9ONYZ14nMfYGWvE=; b=yd0Rk8NFbomBRjNJttTGKjhgYS
+	DeZelFHYQtJCpKXt+chGs2pF3CFrKtyzBMt+uERXbLaS4dhAP5P2wSbIFK/1V90BvRePFJF/Ldufr
+	xWd7RppdiH85EUFOmcSEF3g5ZmBmXLkb1EHWeFx0hZWBVnVtCj9UBfwycLfRusSVqLFTHV15Ic/Ea
+	/unG+1blgBdoa7xQsQDHZ5Tdllzu+O/WeVsVtTA/4ZwxvomdEuV0xLomNsbx/CO48pZCjD+xuZYyP
+	zgNfKQbcJjnFPfJ+xXwT5nQ1+v/gck8QsY9VQBe2c+Qi+Yw3JgEUo4mrDRX7HI+7IqVlmKaND5rzI
+	uvXiiIpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3n5s-000000080Tt-0wzK;
-	Tue, 08 Sep 2026 04:06:00 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1x3n9y-000000080i1-3sJ6;
+	Tue, 08 Sep 2026 04:10:14 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3n5p-000000080TY-3FHu
+	id 1x3n9p-000000080h5-1tJO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 04:05:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RHZmdRFzTl+eWGNSymg/i0mRh+qaGDd59ai74OQ/f7g=;
-	b=hNLv1gqR4ySbxtZFK2kHkYHbQ7MA9wC8uh+FwXQJb5Ho94gzc60Z7MlSETqQaB59+gEKzjhG6
-	DxzZLFMU43TTIZTyltzBCHjtIJuMNcziXRo2v2tPwKC6exJf51siZ0K0Bfqfc8NBUsgGGRN8QBY
-	zlkWKhKlBd0sS2C0syP+oB4=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hf97P0cn8z1K9BV;
-	Tue,  8 Sep 2026 11:54:57 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id CB43F4048B;
-	Tue,  8 Sep 2026 12:05:50 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 12:05:50 +0800
-Message-ID: <fa7f041f-5e30-4591-93bd-d8df3942e0ac@huawei.com>
-Date: Tue, 8 Sep 2026 12:05:49 +0800
+	Tue, 08 Sep 2026 04:10:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1788840605; x=1820376605;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1lJfLR7VTJt6Z4BK9Qx3EsC4zSeTnu2lBUv6+/ocf2I=;
+  b=tpJGGIN42g2TaqkHq9UsF+PtvTuTLY5WCSwekde+pk2P2CpcPsvu3BVL
+   JbQsPqtlmPO5FjVJb8hBOPpu+ku6glQFaZ1mztRI1xZ0tJforbvQJwYjp
+   W5L6t5vdxsS7S1Dg1I4GRXzwJIBZhoTNE8UZ52Y3LKYY6k42a/BudJ9h4
+   7oYWYbLmH57iEGFGblM94kWaruuvMx0GJgUfkI1N3FUObQ6bpYysxKo/J
+   IFFepNNtswmqM7qGrcDs4VTXnzwwvtKZ66oD9A1fa2rxMJ+GWu3UlUQPr
+   25cXUe/1U6YgvmeCDRKNw0fOwre3geh6E+v/DtYiOTRzuxLH4AuCn/mZK
+   Q==;
+X-CSE-ConnectionGUID: 6dLdsgESTFeba//c82RxVg==
+X-CSE-MsgGUID: hT61bWbpSvSYymXpkcP8GQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="253783610"
+X-IronPort-AV: E=Sophos;i="6.25,268,1779116400"; 
+   d="scan'208";a="253783610"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 13:10:03 +0900
+Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 10C6AC00541
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 04:10:03 +0000 (UTC)
+Received: from az2uksmom1.o.css.fujitsu.com (unknown [10.151.22.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id BCAD81400387
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Sep 2026 04:10:02 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.15.163])
+	by az2uksmom1.o.css.fujitsu.com (Postfix) with SMTP id 8EE4B1800BBF;
+	Tue,  8 Sep 2026 04:09:55 +0000 (UTC)
+Date: Tue, 8 Sep 2026 13:09:48 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, 
+	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, 
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org
+Subject: Re: [PATCH v17 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Message-ID: <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/19] cpu/hotplug: Propagate bring-up status to
- arch_cpuhp_cleanup_kick_cpu()
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-5-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-5-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260907095942.1140734-1-suzuki.poulose@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_210558_135410_7F7401E9 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260907_211007_216042_8FE3B6D6 
+X-CRM114-Status: GOOD (  35.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +96,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Suzuki,
 
-
-在 2026/9/8 0:40, Will Deacon 写道:
-> In preparation for enabling the generic CPU hotplug machinery on arm64,
-> which has architecture-specific handling of early bringup failures,
-> extend arch_cpuhp_cleanup_kick_cpu() to take an additional argument
-> indicating whether or not the target AP reached the alive state.
+On 09/07 10:59, Suzuki K Poulose wrote:
+> This series adds the generic firmware layer for talking to the Realm
+> Management Monitor (RMM), as specified by the RMM v2.0-bet3
+> specification[1]. It is the first part of the Arm CCA host support that
+> was previously posted as part of the larger KVM series.
 > 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/x86/kernel/smpboot.c  | 4 ++--
->  include/linux/cpuhotplug.h | 2 +-
->  kernel/cpu.c               | 4 ++--
->  3 files changed, 5 insertions(+), 5 deletions(-)
+> The split allows this RMM support to be used as a base for other work,
+> including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
+>  without depending on the KVM Realm support that will follow as separate
+>  series. (See more on that below)
 > 
-> diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-> index 362f85cbdbaf..ce4e8fba5fed 100644
-> --- a/arch/x86/kernel/smpboot.c
-> +++ b/arch/x86/kernel/smpboot.c
-> @@ -1074,7 +1074,7 @@ static int do_boot_cpu(u32 apicid, unsigned int cpu, struct task_struct *idle)
->  
->  	/* If the wakeup mechanism failed, cleanup the warm reset vector */
->  	if (ret)
-> -		arch_cpuhp_cleanup_kick_cpu(cpu);
-> +		arch_cpuhp_cleanup_kick_cpu(cpu, false);
->  	return ret;
->  }
->  
-> @@ -1122,7 +1122,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
->  	return smp_ops.kick_ap_alive(cpu, tidle);
->  }
->  
-> -void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu)
-> +void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
->  {
->  	/* Cleanup possible dangling ends... */
->  	if (smp_ops.kick_ap_alive == native_kick_ap && x86_platform.legacy.warm_reset)
-> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> index bbcee650155f..83ef0c4d8bbe 100644
-> --- a/include/linux/cpuhotplug.h
-> +++ b/include/linux/cpuhotplug.h
-> @@ -510,7 +510,7 @@ struct task_struct;
->  
->  void cpuhp_ap_sync_alive(void);
->  void arch_cpuhp_sync_state_poll(atomic_t *st, int old);
-> -void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
-> +void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive);
->  int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
->  bool arch_cpuhp_init_parallel_bringup(void);
->  
-> diff --git a/kernel/cpu.c b/kernel/cpu.c
-> index d9fe204f02cb..595258e2b6cc 100644
-> --- a/kernel/cpu.c
-> +++ b/kernel/cpu.c
-> @@ -432,7 +432,7 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
->  	return true;
->  }
->  
-> -void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu) { }
-> +void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive) { }
->  
->  /*
->   * Early CPU bringup synchronization point. Cannot use cpuhp_state::done_up
-> @@ -451,7 +451,7 @@ static int cpuhp_bp_sync_alive(unsigned int cpu)
->  	}
->  
->  	/* Let the architecture cleanup the kick alive mechanics. */
-> -	arch_cpuhp_cleanup_kick_cpu(cpu);
-> +	arch_cpuhp_cleanup_kick_cpu(cpu, !ret);
+> The series adds:
+> 
+>  * The RMI SMC definitions and direct-call wrappers.
+> 
+>  * RMM discovery and version checks during firmware init.
+> 
+>  * RMM host configuration, including the host page size.
+> 
+>  * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
+>    can complete across multiple SMC calls while requesting or returning
+>    memory to the host.
+> 
+>  * Verification that granule tracking is available at fine granularity.
+>    Fine-grained tracking allows each granule in the system to be tracked
+>    independently, which is required before individual granules can be
+>    delegated. A future series will add support for dynamically supplying
+>    memory to the RMM for this tracking.
+> 
+>  * Support for fully firmware-managed systems, where the Granule Protection
+>    Tables for memory regions are allocated and managed by firmware. RMM v2.0
+>    also allows dynamic GPT creation on demand; support for that will be added
+>    in a later series.
+> 
+>  * Wrappers for the RMI commands that are used for managing the "Realm VM"
+>    lifecycle. This is added in to make it easier for the on-going KVM support
+>    to evolve in parallel pieces.
+> 
+> If the platform firmware cannot manage the granule tracking or the GPTs, we
+> bail out and deactivate the RMM, reclaiming any memory that we have donated.
+> 
+> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+> the RMM to complete an operation over several SMC calls while requesting
+> or returning memory to the host. This allows interrupts to be handled in
+> the middle of an operation and lets the RMM dynamically allocate memory
+> for internal tracking purposes. For example, RMI_REC_CREATE no longer
+> needs auxiliary granules to be provided up front, and can instead
+> request memory during the operation.
+> 
+> This series applies on v7.3-rc1 and a branch is available at [2]. The KVM
+> CCA support that builds on this series is available at [3] as an integration
+> branch. The KVM support depends on guest-memfd-in-place conversion support v12
+> from Ackerley [4], we plan to split that into parts, which apply cleanly on
+> v7.3-rcx without any dependency and is in progress. This will be made available
+> as soon as it is ready. Until then [3] shows how this base series enables KVM
+> CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
+> 
+> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v17
+> [3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/kvm-integration/v17
+> [4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v12
+> [5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+I understand that QEMU-virt is not intended to model a realistic
+production platform and that QEMU-SBSA is generally preferred. However,
+I sometimes use QEMU-virt to test functionality quickly because it runs
+slightly faster than QEMU-SBSA.
 
->  	return ret;
->  }
->  #else /* CONFIG_HOTPLUG_CORE_SYNC_FULL */
+I tested this series with QEMU-virt and found that RMM initialization
+failed during boot:
 
+  [...]
+  INFO:    BL31: Initializing RMM
+  INFO:    RMM init start.
+  ERROR:   RMM init failed: -8
+  WARNING: BL31: RMM initialization failed
+
+The following TF-A revision was used:
+  https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git master (38269bb)
+
+After investigating, I found that the failure was caused by the lack of
+a plat_rmmd_reserve_memory() implementation for the QEMU-virt platform
+in TF-A. Adding an implementation equivalent to the QEMU-SBSA one
+resolved the issue:
+    https://git.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a.git/+/9d594743aa4d4e8160cdf025ea7538041648972c
+
+Is QEMU virt still intended to be supported as an RME emulation
+platform? In particular, is this functionality simply not implemented
+yet, or is there a reason why RME support is not planned for QEMU virt?
+
+If this is not the appropriate place to discuss this, please let me
+know :)
+
+Thanks,
+Kohei
+
+> [6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git cca/kvm-v17
+> 
+> Known issues: RMMv2.0
+>  * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
+>   (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
+>   may not be satisfiable by the host. Arm is aware of this defect and a spec fix
+>   is in progress.
+> 
+> 
+> Steven Price (7):
+>   firmware: arm_rmm: Add SMC definitions for calling the RMM
+>   firmware: arm_rmm: Check for RMI support at init
+>   firmware: arm_rmm: Configure the RMM with the host's page size
+>   firmware: arm_rmm: Add support for SRO
+>   firmware: arm_rmm: Activate the RMM
+>   firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+>   firmware: arm_rmm: Add wrappers for Realm related RMI commands
+> 
+>  arch/arm64/Kconfig                |   1 +
+>  arch/arm64/kernel/cpufeature.c    |   1 +
+>  drivers/firmware/Kconfig          |   1 +
+>  drivers/firmware/Makefile         |   1 +
+>  drivers/firmware/arm_rmm/Kconfig  |  26 +
+>  drivers/firmware/arm_rmm/Makefile |   2 +
+>  drivers/firmware/arm_rmm/rmi.c    | 819 ++++++++++++++++++++++++++++++
+>  include/linux/arm-rmi-cmds.h      | 678 +++++++++++++++++++++++++
+>  include/linux/arm-smccc-rmi.h     | 494 ++++++++++++++++++
+>  9 files changed, 2023 insertions(+)
+>  create mode 100644 drivers/firmware/arm_rmm/Kconfig
+>  create mode 100644 drivers/firmware/arm_rmm/Makefile
+>  create mode 100644 drivers/firmware/arm_rmm/rmi.c
+>  create mode 100644 include/linux/arm-rmi-cmds.h
+>  create mode 100644 include/linux/arm-smccc-rmi.h
+> 
+> -- 
+> 2.43.0
+> 
 
