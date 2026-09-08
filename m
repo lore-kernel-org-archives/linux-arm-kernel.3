@@ -4,66 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A794AC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AC1C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8UTYzyy1w+QvOOmxVeZzWPSFkM6nSrQXwku/vYTzF4=; b=ZmK6NvMAkIb+8oVFiRm+K5eyom
-	4yQa/dEBA501+4tQzo3KnFOKPFGx3mqdTxkkizL375B6jiZpoe2uv5IN/Bid/XBqOHyB6FXfDHoBW
-	PptKYbH7Lm2u5c/tvwAcDgGSq4f2x2a3LOhYFcUwxxIEZRA35/Sc6MHuCWjAMDAXFeUGLDn0Uq9Rt
-	8sTIxUc5iBGrET1/OJAAfWx+JXigT0p71qo08xAoep+IYTRQKLzCrbm1gKJtyIlK91FjMdlggT0WQ
-	FvcSd/8uwh2dWCmgwlpoVnsTLEXaT1NACpjCxjxGY0nKLlCOhI1yRnIlAHgJiG8toeYovSLl+Nda0
-	BxDYN4Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=; b=3ASM2UcJvaSckKqJgw3I+sbuKz
+	RKeOat3PexIW+8ZKEe0uc2I67FKp6F85cFAdQiQHRs+JY5JUUpheFazssyum/w/QwNO3Vm+QbCNur
+	ACk1qwYVWxmBgKVhU3fLz9ZiurBfdU6xtqL43dI0ipBgUfA6v6fI4a6kZf9ilys70YMR+Pp6TaosM
+	SkzGku5DDIqHb3JSccw0d6PlwQGyQPI7F+qCpu96s9w+DTagHZM2VD7PtvTcXIvKxK0eT20Jj3Pph
+	xUeIZz1CwYU5pAoIRAzuKdccwQjHdbJ14cRGKtzeRR3ABpB4hMz3qdzguTFYMIQLu3yLj2ZcEZLZI
+	6IAD2oIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3z9D-00000009kWi-06iQ;
-	Tue, 08 Sep 2026 16:58:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3z9A-00000009kWC-281H
+	id 1x3zDq-00000009kuK-2SwY;
+	Tue, 08 Sep 2026 17:03:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3zDo-00000009ku6-38ff
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 17:03:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=; b=i4FLByEEOThxOI6ywA4aLwVdyC
+	wJQd/9h8530/DelfJV8gyrziZw5HW300TNFDu6zi9rcaZJC8YB4F5DnNWO0UuajlnGs77+LLlsHDA
+	SdxcxYRuMc+rcanw0H6ZtYrzPL4Er/tE/JCGQj77nYE71EcOHX1CE5J6hlNZbgJOaMufFmGZXlUmI
+	2+WuQ+MfgI+7EbWjuAufyvmIodOjXCrvhHUO8EhrulaLhm/UvF+SYAXol5cEtCfsHsmE4kQEeHBYd
+	iEQfo3jypJ/36VWkfPJFoSMrnsPtKplnyUBI8tiVmWL7fQaOyDabBD2gqJeAkDqsbCSxRHG18fJOX
+	XRGOumgw==;
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3zDl-0000000086c-015A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:58:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58F8B1476;
-	Tue,  8 Sep 2026 09:58:07 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08F973F7B4;
-	Tue,  8 Sep 2026 09:58:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788886691; bh=Pjmk+weOlA9lLevJPXyR4WquqFLLwgOPnyqhfnLzH9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jX+Ba9ncbXGI0+AWvFkVjJZPabNPVu65zLNl1Gv02DeigqWMdejBzvJUdKa3BnNjd
-	 REJc4q6Pk6d4yJ4r5lPWqTNWOaAKy0BHYnc6Oy3cMVxgwdKnccGJUVDAPDbdZ7ix64
-	 VWsuSPHDesa/eOdJMB9ANZTv3S5o8CWsh3Vp1uog=
-Date: Tue, 8 Sep 2026 17:57:57 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
-	lukasz.luba@arm.com, philip.radford@arm.com, david@kernel.org,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v10 06/24] firmware: arm_scmi: Add basic Telemetry support
-Message-ID: <aqA-lRSNck82YCss@pluto>
-References: <20260815232604.3730754-1-cristian.marussi@arm.com>
- <20260815232604.3730754-7-cristian.marussi@arm.com>
- <20260824140458.000072d3@oss.qualcomm.com>
+	Tue, 08 Sep 2026 17:02:58 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hfVcY4VJ0zKmBJ;
+	Tue, 08 Sep 2026 19:02:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788886973;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=;
+	b=TqFlEQnkWFqKxLex8B2wSekOTQcR6ayWhtXYsy6AXiWckFa6v/RTPfD9v3pCENsy9sxZuJ
+	DAT0s4XhiDmmv+D+2W82cF37SJvOwNfNhhtVNcEoABUFMZ1s3aotqX5Wn4DDUA8ozNAd6K
+	AnAoQ7ySQykkiOfpfUB5sBezRU3AFk9SiHXUGs5ui9VfJCgnQ6xrJP8HWBRB3v9KwN8gnZ
+	6XWzY2GEScMJ7IRhrXdeMsTtuKeuTXnvlaN0gEtTJJY2MjQNAc2yD3bMyvjfESFAmovP1D
+	xmyUbmZ5h9DwtLayOTx36bsK/8wfsNItc+s7QknPT6cxBT0FcnfEiFfU5nUmag==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="btXuODU/";
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <f82ae578-fbe7-4834-bdde-d11e194a507f@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788886972;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AGYd+rQCgjkao3/yCaTGMnIYCgUWSxU7FIhmSF4cIF8=;
+	b=btXuODU/rON3VYbUzoq1r4Zc2wUGnIAZyui65W4IqOP5VfNQf/z+EJL6fB6rIj8HRoE96+
+	7SHLRW7C4taIqEQaRWUGnYt257F22sFhlD4I+DlE/s0oawNnY+1XXmsxCBtsN0cbmhRq/n
+	DM+Mh4c8v/vwVlkRdjWJiyGH6dFJZx0O9OzrYRZYphhtQf1cbBsRiAyBYn/UyvdMZapKQK
+	GPTzhoi5BuAfxmAuSS+3pel2vaUucFi+ULeBEmRW1l0EREklsKoqNUp5YGuwqSjhfJ3rd0
+	fia9me7c1b3mQN+ivWz+LqEub8TSyHigXuLcYdJvmdlKdTchUye9qrvhlu2X5w==
+Date: Tue, 8 Sep 2026 19:02:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824140458.000072d3@oss.qualcomm.com>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for
+ WaveShare 2CH CANFD HAT
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260808025724.131943-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 482d1e84623c9fbc314
+X-MBO-RS-META: nidfb7db56db5j1paino49m7hhpf1mit
+X-Rspamd-Queue-Id: 4hfVcY4VJ0zKmBJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_095812_643551_326DFA87 
-X-CRM114-Status: GOOD (  45.53  )
+X-CRM114-CacheID: sfid-20260908_180257_173250_87B94FD8 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,388 +114,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 02:04:58PM -0700, Jonathan Cameron wrote:
-> On Sun, 16 Aug 2026 00:25:46 +0100
-> Cristian Marussi <cristian.marussi@arm.com> wrote:
-> 
-> > Add SCMIv4.0 Telemetry basic support to enable initialization and resources
-> > enumeration: add all the telemetry messages definitions and parsing logic
-> > but only a few simple state gathering protocol operations.
-> > 
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> Obviously this is huge. I'm not going to look through it all today, but
-> some quick comments form the part I did look at.
+On 9/8/26 2:02 PM, Geert Uytterhoeven wrote:
 
-Thanks...this is the shortened split version :P
+Hello Geert,
 
+>> +&pfc {
+>> +       msiof0_pins: spi-ws-2ch-canfd0 {        /* SPI_0 */
 > 
-> Jonathan
-> 
-> ...
-> 
-> > +static void scmi_telemetry_resources_free(void *arg)
-> > +{
-> > +	struct telemetry_info *ti = arg;
-> > +	struct scmi_telemetry_res_info *rinfo = ti->rinfo;
-> > +
-> > +	/* Ensure rinfo is no more accessible upfront */
-> > +	smp_store_release(&ti->rinfo, NULL);
-> > +
-> > +	for (int i = 0; i < rinfo->num_des; i++) {
-> > +		struct telemetry_de *tde = to_tde(rinfo->des[i]);
-> > +
-> > +		scmi_telemetry_free_tde_put(ti, tde);
-> 
-> 		scmi_telemetry_free_tde_put(ti, to_tde(rinfo->des[i]));
-> Seems resonable to me and avoids the need for the local variable.
-> 
+> Node name should be "msiof0".
 
-Yes indeed...
+Do we also have to fix up 
+arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts this:
 
-> > +	}
-> > +	xa_destroy(&ti->xa_des);
-> > +	kfree(ti->tdes);
-> > +	kfree(rinfo->des);
-> > +	kfree(rinfo->dei_store);
-> > +	scmi_telemetry_groups_free(rinfo);
-> > +	kfree(rinfo->grps);
-> > +	kfree(rinfo->grps_store);
-> > +
-> > +	kfree(rinfo);
-> > +}
-> 
-> > +
-> > +/**
-> > + * scmi_telemetry_resources_enumerate  - Enumeration helper
-> > + * @ti: A reference to the telemetry info descriptor for this instance
-> > + *
-> > + * This helper is configured to be called once on the first enumeration
-> > + * attempt, when triggered by invoking ti->res_get() from somewhere else.
-> > + * Once run it substitues itself in ti->res_get() with the simple accessor
-> > + * __scmi_telemetry_resources_get, which returns a descriptor to the resources
-> > + * that were possibly discovered.
-> > + *
-> > + * Note that, while it attempts to fully enumerate Data Events and Groups, it
-> > + * does NOT fail when such enumerations fail, instead it simply gives up with
-> > + * the end result that only a partially populated, but consistent, resources
-> > + * descriptor will be returned; in such a case the incomplete descriptor will
-> > + * be marked as NOT fully_enumerated: this design enables the kernel to deal
-> > + * with badly implemented out-of-spec firmware support while keep on providing
-> > + * a minimal sane, albeit possibly incomplete, set of telemetry respources.
-> > + *
-> > + * Return: A reference to a fully or partially populated resources descriptor
-> > + */
-> > +static struct scmi_telemetry_res_info *
-> > +scmi_telemetry_resources_enumerate(struct telemetry_info *ti)
-> > +{
-> > +	struct scmi_telemetry_res_info *rinfo;
-> > +	struct device *dev = ti->ph->dev;
-> > +	int ret;
-> > +
-> > +	/* Ensure local rinfo is initialized */
-> > +	rinfo = smp_load_acquire(&ti->rinfo);
-> > +
-> > +	/*
-> > +	 * Ensure this init function can be called only once and
-> > +	 * handles properly concurrent calls.
-> > +	 */
-> > +	if (atomic_cmpxchg(&ti->rinfo_initializing, 0, 1)) {
-> > +		if (!completion_done(&ti->rinfo_initdone))
-> 
-> What's the logic here?  This waits only if others are already
-> waiting. Why?
-> 
+"
+  755         msiof1_pins: sound {
+                           ^^^^^
+"
+?
 
-Here the logic is that since res_info holds a lot of Telemetry resources data
-and descriptors that are gathered via SCMI enumeration activity and this kind
-of enumeration can be pretty much heavy in terms of SCMI message exchanges,
-while, at the same time, it is NOT always (theoretically) needed to have such
-full set of detailed data, this data is lazily filled-up asyncrhonously
-on-demand only when someone ask for it...
+But I wonder, shouldn't the DTOs contain unique pinmux node names, which 
+cannot accidentally overlap with the base DT or other DTO node names ?
 
-...so this function takes care to trigger the enumeration, gather this data
-and fill-up res_info when first invoked, while STALLING any other concurrent
-thread that happens to trigger that same enumeration at the same time....
-
-...once the enumeration is done and res_info is fully enumerated and available,
-this function subsitutes itself in the rfelated callback hook with a plain helper
-that returns the, now fully enumerated, res_info and unblocks any
-stalled concurrent thread above:
-
-	smp_store_mb(ti->res_get, __scmi_telemetry_resources_get);
-
-> > +			wait_for_completion(&ti->rinfo_initdone);
-> > +		goto out;
+>> +               groups = "msiof0_clk", "msiof0_txd", "msiof0_rxd";
+>> +               function = "msiof0";
+>> +       };
+>> +};
+>> +
+>> +/*
+>> + * PWM1 uses PWM1_B pin configuration for pin GP2_13. This conflicts
+>> + * with SPI_1 CE_1 signal which is also on pin GP2_13. Disable PWM1
+>> + * in case this hat is in use.
+>> + */
+>> +&pwm1 {
+>> +       status = "disabled";
+>> +};
 > 
-> return 0;
-> 
-> > +	}
-> > +
-> > +	ret = scmi_telemetry_de_descriptors_get(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, FW_BUG "Cannot fully enumerate DEs resources. Degraded system.\n");
-> > +		goto done;
-> > +	}
-> > +
-> > +	ret = scmi_telemetry_enumerate_groups_intervals(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, FW_BUG "Cannot fully enumerate group intervals. Degraded system.\n");
-> > +		goto done;
-> > +	}
-> > +
-> > +	/* Enumeration was fully successful, ensure this is visbile */
-> > +	smp_store_release(&rinfo->fully_enumerated, true);
-> > +done:
-> > +	/* Disable initialization permanently */
-> > +	smp_store_mb(ti->res_get, __scmi_telemetry_resources_get);
-> > +	complete_all(&ti->rinfo_initdone);
-> > +
-> > +out:
-> 
-> labels that just result in returns rarely add to readability of code.
-> I'd just return early instead.
-> 
+> Please move this node disabling pwm1 to the top, for compatibility
+> with dynamic DT overlays.
+Could you expand on that a bit ? What difference does the placement of 
+this node make within the DTSO ? Please pardon my ignorance.
 
-Yes...fixed this alreeady in V11.
+The rest of the review items are addressed in V2.
 
-> > +	return rinfo;
-> > +}
-> > +
-> > +/**
-> > + * scmi_telemetry_instance_init  - Instance initializer
-> > + * @ti: A reference to the telemetry info descriptor for this instance
-> > + *
-> > + * Note that this allocates and initialize all the resources possibly needed
-> > + * and then setups the @scmi_telemetry_resources_enumerate helper as the
-> 
-> sets up
-> 
-> > + * default method for the first call to ti->res_get(): this mechanism enables
-> > + * the possibility of optionally implementing deferred enumeration policies
-> > + * which optionally delay the discovery phase and related SCMI message exchanges
-> > + * to a later point in time.
-> > + *
-> > + * Return: 0 on Success, errno otherwise
-> > + */
-> > +static int scmi_telemetry_instance_init(struct telemetry_info *ti)
-> > +{
-> ...
-> 
-> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> > index 5ab73b1ab9aa..2850b018da0d 100644
-> > --- a/include/linux/scmi_protocol.h
-> > +++ b/include/linux/scmi_protocol.h
-> > @@ -2,16 +2,18 @@
-> >  /*
-> >   * SCMI Message Protocol driver header
-> >   *
-> > - * Copyright (C) 2018-2021 ARM Ltd.
-> > + * Copyright (C) 2018-2026 ARM Ltd.
-> >   */
-> >  
-> >  #ifndef _LINUX_SCMI_PROTOCOL_H
-> >  #define _LINUX_SCMI_PROTOCOL_H
-> >  
-> >  #include <linux/bitfield.h>
-> > +#include <linux/bitops.h>
-> >  #include <linux/device.h>
-> >  #include <linux/notifier.h>
-> >  #include <linux/types.h>
-> > +#include <linux/uuid.h>
-> >  
-> >  #define SCMI_MAX_STR_SIZE		64
-> >  #define SCMI_SHORT_NAME_MAX_SIZE	16
-> > @@ -824,6 +826,184 @@ struct scmi_pinctrl_proto_ops {
-> >  	int (*pin_free)(const struct scmi_protocol_handle *ph, u32 pin);
-> >  };
-> >  
-> > +enum scmi_telemetry_de_type {
-> 
-> There is quite a bit of stuff here. Seems only related to telemetry
-> so maybe a more specific header makes sense for just scmi_telemetry?
-> 
-> The same applies for some of the other stuff already in this header
-> like the sensors protocol elements.
+Thank you for your help!
 
-Yes indeed scmi_protocol.h grew big since the bloody SCMI is extensible
-and the standard protocols themselves have grow up in number...currently
-we have split out ONLY the Vendor protocols headers...
-
-> 
-> > +	SCMI_TLM_DE_TYPE_USPECIFIED,
-> > +	SCMI_TLM_DE_TYPE_ACCUMUL_IDLE_RESIDENCY,
-> > +	SCMI_TLM_DE_TYPE_ACCUMUL_IDLE_COUNTS,
-> > +	SCMI_TLM_DE_TYPE_ACCUMUL_OTHERS,
-> > +	SCMI_TLM_DE_TYPE_INSTA_IDLE_STATE,
-> > +	SCMI_TLM_DE_TYPE_INSTA_OTHERS,
-> > +	SCMI_TLM_DE_TYPE_AVERAGE,
-> > +	SCMI_TLM_DE_TYPE_STATUS,
-> > +	SCMI_TLM_DE_TYPE_RESERVED_START,
-> > +	SCMI_TLM_DE_TYPE_RESERVED_END = 0xef,
-> > +	SCMI_TLM_DE_TYPE_OEM_START = 0xf0,
-> > +	SCMI_TLM_DE_TYPE_OEM_END = 0xff,
-> > +};
-> > +
-> > +enum scmi_telemetry_compo_type {
-> > +	SCMI_TLM_COMPO_TYPE_USPECIFIED,
-> > +	SCMI_TLM_COMPO_TYPE_CPU,
-> > +	SCMI_TLM_COMPO_TYPE_CLUSTER,
-> > +	SCMI_TLM_COMPO_TYPE_GPU,
-> > +	SCMI_TLM_COMPO_TYPE_NPU,
-> > +	SCMI_TLM_COMPO_TYPE_INTERCONNECT,
-> > +	SCMI_TLM_COMPO_TYPE_MEM_CNTRL,
-> > +	SCMI_TLM_COMPO_TYPE_L1_CACHE,
-> > +	SCMI_TLM_COMPO_TYPE_L2_CACHE,
-> > +	SCMI_TLM_COMPO_TYPE_L3_CACHE,
-> > +	SCMI_TLM_COMPO_TYPE_LL_CACHE,
-> > +	SCMI_TLM_COMPO_TYPE_SYS_CACHE,
-> > +	SCMI_TLM_COMPO_TYPE_DISP_CNTRL,
-> > +	SCMI_TLM_COMPO_TYPE_IPU,
-> > +	SCMI_TLM_COMPO_TYPE_CHIPLET,
-> > +	SCMI_TLM_COMPO_TYPE_PACKAGE,
-> > +	SCMI_TLM_COMPO_TYPE_SOC,
-> > +	SCMI_TLM_COMPO_TYPE_SYSTEM,
-> > +	SCMI_TLM_COMPO_TYPE_SMCU,
-> > +	SCMI_TLM_COMPO_TYPE_ACCEL,
-> > +	SCMI_TLM_COMPO_TYPE_BATTERY,
-> > +	SCMI_TLM_COMPO_TYPE_CHARGER,
-> > +	SCMI_TLM_COMPO_TYPE_PMIC,
-> > +	SCMI_TLM_COMPO_TYPE_BOARD,
-> > +	SCMI_TLM_COMPO_TYPE_MEMORY,
-> > +	SCMI_TLM_COMPO_TYPE_PERIPH,
-> > +	SCMI_TLM_COMPO_TYPE_PERIPH_SUBC,
-> > +	SCMI_TLM_COMPO_TYPE_LID,
-> > +	SCMI_TLM_COMPO_TYPE_DISPLAY,
-> > +	SCMI_TLM_COMPO_TYPE_RESERVED_START = 0x1d,
-> > +	SCMI_TLM_COMPO_TYPE_RESERVED_END = 0xdf,
-> > +	SCMI_TLM_COMPO_TYPE_OEM_START = 0xe0,
-> > +	SCMI_TLM_COMPO_TYPE_OEM_END = 0xff,
-> > +};
-> > +
-> > +#define	SCMI_TLM_GET_UPDATE_INTERVAL_SECS(x)	(FIELD_GET(GENMASK(20, 5), (x)))
-> > +#define SCMI_TLM_GET_UPDATE_INTERVAL_EXP(x)	(sign_extend32((x), 4))
-> > +
-> > +#define SCMI_TLM_GET_UPDATE_INTERVAL(x)		(FIELD_GET(GENMASK(20, 0), (x)))
-> > +#define SCMI_TLM_BUILD_UPDATE_INTERVAL(s, e)				    \
-> > +	(FIELD_PREP(GENMASK(20, 5), (s)) | FIELD_PREP(GENMASK(4, 0), (e)))
-> > +
-> > +enum scmi_telemetry_collection {
-> > +	SCMI_TLM_ONDEMAND,
-> > +	SCMI_TLM_NOTIFICATION,
-> > +	SCMI_TLM_SINGLE_READ,
-> > +};
-> > +
-> > +#define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
-> > +
-> > +struct scmi_telemetry_intervals {
-> > +	unsigned int grp_id;
-> > +	bool discrete;
-> > +	unsigned int num_intervals;
-> > +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
-> > +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
-> > +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
-> > +	unsigned int update_intervals[] __counted_by(num_intervals);
-> > +};
-> > +
-> > +struct scmi_telemetry_grp_info {
-> > +	unsigned int grp_id;
-> > +	unsigned int num_des;
-> > +	unsigned int num_intervals;
-> > +};
-> > +
-> > +struct scmi_telemetry_group {
-> > +	bool enabled;
-> > +	bool tstamp_enabled;
-> > +	unsigned int *des;
-> > +	char *des_str;
-> > +	struct scmi_telemetry_grp_info *info;
-> > +	unsigned int active_update_interval;
-> > +	struct scmi_telemetry_intervals *intervals;
-> > +	enum scmi_telemetry_collection current_mode;
-> > +};
-> > +
-> > +struct scmi_telemetry_de_info {
-> > +	unsigned int id;
-> > +	unsigned int grp_id;
-> > +	unsigned int data_sz;
-> > +	unsigned int type;
-> > +	unsigned int unit;
-> > +	int unit_exp;
-> > +	unsigned int ts_rate;
-> > +	unsigned int instance_id;
-> > +	unsigned int compo_instance_id;
-> > +	unsigned int compo_type;
-> > +	bool persistent;
-> > +	char name[16];
-> > +};
-> > +
-> > +struct scmi_telemetry_de {
-> > +	bool tstamp_support;
-> > +	bool fc_support;
-> > +	bool name_support;
-> > +	struct scmi_telemetry_de_info *info;
-> > +	struct scmi_telemetry_group *grp;
-> > +	bool enabled;
-> > +	bool tstamp_enabled;
-> > +};
-> > +
-> > +struct scmi_telemetry_res_info {
-> > +	bool fully_enumerated;
-> > +	unsigned int num_des;
-> > +	struct scmi_telemetry_de **des;
-> > +	struct scmi_telemetry_de_info *dei_store;
-> > +	unsigned int num_groups;
-> > +	struct scmi_telemetry_group *grps;
-> > +	struct scmi_telemetry_grp_info *grps_store;
-> > +};
-> > +
-> > +struct scmi_telemetry_base_info {
-> > +	unsigned int version;
-> > +	uuid_t primary_revision;
-> > +	unsigned int num_des;
-> > +	unsigned int num_groups;
-> > +	unsigned int num_intervals;
-> > +	unsigned int num_shmtis;
-> > +};
-> > +
-> > +struct scmi_telemetry_shmti_info {
-> > +	unsigned int sid;
-> > +	unsigned int len;
-> > +	unsigned long offset;
-> > +	phys_addr_t phys;
-> > +};
-> > +
-> > +struct scmi_telemetry_info {
-> > +	bool single_read_support;
-> > +	bool continuos_update_support;
-> > +	bool per_group_config_support;
-> > +	bool reset_support;
-> > +	bool fc_support;
-> > +	struct scmi_telemetry_base_info base;
-> > +	unsigned int active_update_interval;
-> > +	struct scmi_telemetry_intervals *intervals;
-> > +	struct scmi_telemetry_shmti_info **shmtis;
-> > +	unsigned int num_uuids;
-> > +	uuid_t **uuids;
-> 
-> I'm going to guess a __counted_by_ptr marking makes sense here.
-> (I haven't checked!) I won't bother calling out other cases, but
-> looks like there may well be some above.
-> 
-
-I'll check
-
-> > +	bool enabled;
-> > +	bool notif_enabled;
-> > +	enum scmi_telemetry_collection current_mode;
-> > +};
->
-
-Thanks,
-
-for the review and sorry for the chronic delay in my replies but there
-is a lot of cleanup work in-progress due to Sashiko feedback too, so the
-review/reply cycle became a bit sloppy...
-
-Cristian
+-- 
+Best regards,
+Marek Vasut
 
