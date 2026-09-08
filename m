@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569D0C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D33C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 16:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKOcdk4qfPRMVDojHfBBJvOqIpO6BscH97bq+M+iybg=; b=27q8xG6NwFFudDPz28H3ny+o+G
-	dJvDcc47UzNz0UTXGrawUsUksGnSGDlbpSzTBi6aee4ATv9igc6HAXOiI4SfnDnwpREKR+BjFZkuJ
-	ZhNqwUR0N3vxhJRyE/RoF8Ja62gYC11xHD8Fz8ZJxE0DSYG3tBPAPOtlC3AptR/84bU8XSNHOWA3E
-	fwazZFr+acokeSTj1FWrEfy2l7jBCIcr8IzNDxUJwi7zZaQi5KLdb1MNPv3eyZW+Fqt8zY8VBiFZj
-	HYWVtOuckMjUUDnzrIzsemy48nrCNY1e6TpdEE5Ela25NVBla9ZbpG2lYPz/wA5c3UwrPsYwOSJ24
-	PVp+zsug==;
+	bh=ov6fQnvfOis0YFvqGAJx3mfAjOeOZHNcRy0Qvmw9kgc=; b=FBNrKtyKywB+x3V4HkYdFN91cm
+	0rGwyOTd/2MriWqGJBoHTtJ03IyqCCsabvNdbi5mI6/9gb/UbS5x3B6+RWPh1q5rOrJCuV1X3iAf6
+	O7hXI4+70U2cSvPRivp7OdR2mehoz8yL54ZOBx0qYWRt2QWGZoHzLU3Y+wf/TJ0qv8kvqp8c/bE7S
+	Mbg/as76HrS4RrzPlVNdy22/R4veKdQb9VPzl/w19IEtH5qbFIPH+SMzU38L8Re6mM54pGC2gg2iO
+	4rMpWJx9AoNXFrKvxgmX5WEIF+0MFu2B++9GKzWV3lLK5yEh+dqc8OLRt6IpfVGiBVoVSkkpGIoE0
+	oYfIV3iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yvZ-00000009iLk-0bku;
-	Tue, 08 Sep 2026 16:44:09 +0000
-Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1x3yvd-00000009iOH-1WKj;
+	Tue, 08 Sep 2026 16:44:13 +0000
+Received: from mail-japaneastazon11010069.outbound.protection.outlook.com ([52.101.229.69] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3yvW-00000009iKO-1fl9
+	id 1x3yvb-00000009iMj-1bnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 16:44:07 +0000
+	Tue, 08 Sep 2026 16:44:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DzbrfZFeaVUBM7T4ogCeuEcx3Uky3CageHKv9DJWVDvO9jbVGJXiJu65fqOs29i8QiTB/ssdv9oyyJcAwZo5DDzi1aXwxMH0ZujaSqT8QBYfpx9tettqDMklnF/ZC7mM8Z3h/ExYf0ji22SuWMeUz3dr1zTdZHR+pmy21BknaKHxhRnortunzrncAbXGza3BsCQrxiEGqtDb3ASxWu48IoUa47k1WR5B1qtKSTIZqLUMxYCZGBim/WzJ7aIU62xWP8O8W4tWfia89iMZm5yBjLNN52ZHZNR95lhhKB62ktMDsGH09zXzJi5k7Ue0m1wberblO4JWoT3xunOy6t83dA==
+ b=nwVqrWCJvRn7cuNyw2Mmhc7nolT7EhfgC/PZTYm23Vms9xlSXdd07yS/a8mNo3ioNioqXcHOkVJKpY6Lwqz85q8Ll59i/XDucYb+8IWjnLJ8oQ5f0iSCgt8ktjFWfKdTrG4e/YxmlncF7W/TBfeqkVmrlIoySygFi94c9sobVmvEBzRuOHmkvuVml73rMCWZq/TVukQDBXKBwcxMUsGmHZZpsxGoNVplL3DqnPLGu0wktRDhJT2GVtRtqae2QJuEnBWk3ah47Pa2YeQ5RwomS0rxNDcOiImBQLlBBGukozTpqvcmKc/ekFpkhHwD1USuEvigU8gZkfiYsqLVX3ttiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KKOcdk4qfPRMVDojHfBBJvOqIpO6BscH97bq+M+iybg=;
- b=mA/6B2wW3dYxZfBWx4MkFtbq5E4O5sjk9/ilXTvEM/m0GWgeW3/3rAjnREjnkC1lI3IQGPEIFVzZ03faPCb6awyoPZBrH77w6S+4FF7lC910U3p0gsyhf3ZgZgb016kU72IOlhzbtV4lpZO02kxtOzDAhiLXLMJrtQF/DtnzXnWD3MfjLcHvvIqbF+28oZ2k3fWA07VGQjqrpWfQIEw1woyjvGPgpuQwn3BY38HpeE6heFvMDMhZOk2JUnj3sLDSyNRkZbpQppinss1HyHn6zGqHmb8Nn6vjdEnYg2gL0xMXi8NqcJ0v4pyqBoOIPFsa/qhz8XBQ2s/L+7abhP6Qkw==
+ bh=ov6fQnvfOis0YFvqGAJx3mfAjOeOZHNcRy0Qvmw9kgc=;
+ b=IFEBMQvIF0UNwnjyzfS09qtZGoVKkmQDE+1Ko8o+HhgQ0j3Y39roaoF1oCpsi14hCCEXoyr0KHAu9MLyu4QaOjN7wY2lugSB/zE4HBjgjaAauIosTgSDCXQU3FpXAwJSY+sfQbcdlFrbyTtfpAcZfhG2WcZi8oJAEsSFujDWTWnIQrHyIgr/IYvWX64InYKliYnDj3umNIrpTAYrzD/dMQPDICuHHkiidO6Gi7NKVpARh/pOhR+CUwvA1QikbpUcjykti1I0yoUmOA+TTWD2NHyJc8RjaOsxxSBqX4IVsI0jbbzuz1NxZ/CwIbeXc2e4Sx2Ix2OxVXxCPtwaUouYnw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KKOcdk4qfPRMVDojHfBBJvOqIpO6BscH97bq+M+iybg=;
- b=Jqjw+6LUwLwX8Mp4+DuM/OKAheXWdZaOIG/PMegC1GDenRcfeXm0TXqcOhrbl25irae0ZP6uXE+wK1MlzL6AGkIAtY/SqBJr48qTYMG2EJwhdhJjXL2cQAz/pEYEzJP2tfGtJ+RnhG77MdoTP+tdnij00Twmj9gPBYWFZzgtBhA=
-Received: from TYCP286CA0015.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:26c::19)
- by OS7PR01MB14821.jpnprd01.prod.outlook.com (2603:1096:604:39b::12) with
+ bh=ov6fQnvfOis0YFvqGAJx3mfAjOeOZHNcRy0Qvmw9kgc=;
+ b=RTsiHcismwh208N+KYgcnWQVNsImbUUs0N38oJYj5ch6/ZtzLiWXMBZNWmvcOzcWhYPcWJZVEl7PL727in5z2NwdwkttW2xMx2LmWjXIV9jt8E+3kDKJhcnMUZTgKMXTwfXRpg1OAVIlgaq3LJZ5aHljQqcZp48g2TXidRQDmqM=
+Received: from TY4P301CA0078.JPNP301.PROD.OUTLOOK.COM (2603:1096:405:36f::16)
+ by OS9PR01MB16470.jpnprd01.prod.outlook.com (2603:1096:604:406::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Tue, 8 Sep 2026
- 16:43:59 +0000
-Received: from TY1PEPF0000BADA.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:26c:cafe::5) by TYCP286CA0015.outlook.office365.com
- (2603:1096:400:26c::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Tue, 8
- Sep 2026 16:43:58 +0000
+ 16:44:05 +0000
+Received: from TYO1EPF0000501F.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:36f:cafe::30) by TY4P301CA0078.outlook.office365.com
+ (2603:1096:405:36f::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Tue, 8
+ Sep 2026 16:44:04 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 8.62.32.50)
  smtp.mailfrom=renesas.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=renesas.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
  8.62.32.50 as permitted sender) receiver=protection.outlook.com;
  client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
 Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
- TY1PEPF0000BADA.mail.protection.outlook.com (10.167.240.39) with Microsoft
+ TYO1EPF0000501F.mail.protection.outlook.com (10.167.240.4) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
- via Frontend Transport; Tue, 8 Sep 2026 16:43:56 +0000
+ via Frontend Transport; Tue, 8 Sep 2026 16:44:03 +0000
 Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.55])
-	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 2802B300044D;
-	Wed,  9 Sep 2026 01:43:50 +0900 (JST)
+	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 5A56C30001C0;
+	Wed,  9 Sep 2026 01:43:57 +0900 (JST)
 From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 To: maxime.chevallier@bootlin.com,
 	recv.jo@gmail.com,
@@ -86,9 +86,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net v4 3/7] net: stmmac: Rework S-VLAN handling
-Date: Tue,  8 Sep 2026 16:43:05 +0000
-Message-ID: <20260908164309.59282-4-ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net v4 4/7] net: stmmac: Do not advertise S-VLAN stripping when it is disabled
+Date: Tue,  8 Sep 2026 16:43:06 +0000
+Message-ID: <20260908164309.59282-5-ovidiu.panait.rb@renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
 References: <20260908164309.59282-1-ovidiu.panait.rb@renesas.com>
@@ -96,29 +96,30 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY1PEPF0000BADA:EE_|OS7PR01MB14821:EE_
+X-MS-TrafficTypeDiagnostic: TYO1EPF0000501F:EE_|OS9PR01MB16470:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 4928c1dd-4af5-4495-7300-08df0dc8603d
+X-MS-Office365-Filtering-Correlation-Id: 441ae7c5-1d9b-470a-b401-08df0dc863e8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|376014|7416014|1800799024|56012099006|11063799006|5023799004|10067099003|921020|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: XtQdkqDh+Kopc8/o//2ig7LuiXu3RCS6qHllgT9FEZIxSsxVPx7MZFSNUDiaLPR7Lh2LWb5uneMc0PQ68w6hV0LpSkIViqQgOUg6HhPBO5DBarH45kTQwUygN/oFILJgG3TONLlRdnotWPqiWiJEobkMHc3SSC4JMSpC37xiEq6EOse6z0+G4MCWRsJvvWkh7Mae/dgUJwMjKLyyXNcL0jFNy1LprfYrl00tcu6hue4UHDcUTVrRWExU/Z9uUgeHSc+gOsm3IEAkBqlv8PA0vWDXCyHJQ1XopaDHluZHsHKty3CZPjhSIxZQBhCg6bA6CN+alrGgiDUygvq3DVel/ie3FyL9x68d+TUTFvutU3brOeKqFJV2AjZW46bdJnIAPpl3o22MXmIGKZk1pmNayVT78B5TCksjNHo5uv3GMHSkC3+P+L9wPrit78JU8ONDQiW+Oi61hXsIstg7yxvfG7m5LZwt+qyFngcOiHiKfiH5QI1omQrfT3N1+1OAau7BVdHH1Zy7mM0MWwbJMZx66cvWSDABFx3srMCxFxOyzdb5NJrxFgeUi/iFu7EYYs+VlC+3d/rfLtWQADpOKEI8MC3OOL+SXTm6R5HomFjTrfQyX/kmfSHHFtxY+LANyrZo2w16lWJ7qu+3ipl8u4TDkliryqNhKtpi+kmtBXMQXWNQp5Re9GmBC5n6FnCTCkg7oC8B6Kxx0IGjqBdpEPeDFLrs+i1m7tsH4/vkfDssOKh2mV5uxHoHnDzQkdkW4mPq
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(376014)(7416014)(1800799024)(56012099006)(11063799006)(5023799004)(10067099003)(921020)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|921020|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Y5if2dVJbgLL7OUpli4d45+m4j6PlFLJO0W/FPE+/SMg7xVl3tbsdlqUivoepFjHFFbE2uGLLErg1hzV4UzzEsHRUA2QymbppIIerWnDcxu93Uyb8ferSsNPueSqXeO/er5x1pZneCP7bH4w9ZWtzEpOokD0mtX7x+8bwKiRL/ZD1sDYqC7KEW0j/wHO81P5lDL3jRWOBql6enk3z96s2H4/ryigQYvY/Ia1T7NqLh1s43rhP6AOQdBOIW0SR2yHQWip9W36BfpB3nYbvH/xLZWcTaGS0ic2Jka3WaePnL5aIaZ3+XtLnGQEDZFnkuiIf7pE2e4RY7jatNw0E1aMJcS5RmtJCdkAhThfP2z5E5BsIqFugMd3TIpwHP8eFsYyfYPqBMa5BuAWYxLF1Hv5BX9KJLBrRsoLu80K4Ub4HYH2pbM4btiRCDjrjuT4guGgi0+WdlSePO1UWga4vmiYaiMX3/EC4fYjrl+ur+5zsYSkl0PbjkqGLMD5EtmG7tEAbauw0u9bUIIyjgLOeFunJ3E7QHyrFFywHWkZdDuu2WNIEHjaavxwhNrTeA6LOyzT0yvQnBz5MeTChoIXBNxOCoFO15wqUuCRAm0sJXtS1U2ZYgQVDjxQhiN8NbHdlcEwoiqtvV7YOB2cKk3PEd9cfpBe5YA4P6vMBcfnpdQIzHOI1E7fGr0zY3m3xu66xITEQa15wcgnacSUDI2nESTtvvE/vZxAvOnW+8Wd9FTzJpB4Tp8t6Rt5O4aSsADZdBuo
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(921020)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4jPyQXQgyKrZlJzZV4OEoZ+EZOqa6LTSbb+/pHfhL66Jrsp70omZeKm/i8G/xgtBru1S7zPEjuAuldfoySvfkgLbLSxLWNpZDzZE82Nd/YMsEgl3RBH3sol2VBS3YpkgTbZQ2iplG917dD+6qlHlyu/8ctYrazkFSCImlgefl1JzQRcqkG+/1Ead68gHvXPAOI09HGr7GG9PzEOyMZ4POT3TFF3v8fZHc80zOGITRK7jayj3ELD1QPmdI65fjdVjEVhgzy0M0jgcOpBxh1l3aEcWsqhIbfF4JzuhrW571TVGASXeFbCtK5To5pjbzBk4VcPcaFGt8sVGqqjZkpjPPMFAjkxSufQWE6hjE7lCfi2Bi+XJLDPDwmhmmZD7wrKoccjQgXt6zjG0xlfKIEeaN/PT8hlKLL0T48RrDaj1SoOAA5BuaIxHXje/MhRA43/u
+X-MS-Exchange-AntiSpam-MessageData-0: aNYAY7BIs9hj1bqfPd/uU/guS3L87yiSKuoploKhw9EpyWUJZE9v0/LRgKFd/flSzf7dJ05Z2bdVY4C9wYpzq3z6Pv2t8KaHHquoFSXwqJtw+izbUzLWG8thCB0/ihTZbYOinB9z6K+PTolibpuvZ7196itIs7+A2T5VGARwazP6SobUYXJrC1GxbqmmbZYtQD1PF4Hd3bWP2N2zUHBNM+b3Stz2sYnKfcjIM9SdvyRvRt7Ur110D8V5+kOHPNRSNS298X7LV5KbSipYKPkY3WvlRwMkulxRm0EsLv4NwnnWmrau1LAJL1XzXuxgwyi5sRZfky3peYZ1bucvywD2frmSapSq254X+sbeMpoNzbyJH5cpc1MJQYsbiFvetGfUH2GuE+I99iTD3y0O2ybADyDasIFL0LdN9UmbRw8NySfp+RzkJI69twhqsQTgCcEt
 X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 16:43:56.8664
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 16:44:03.0226
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4928c1dd-4af5-4495-7300-08df0dc8603d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 441ae7c5-1d9b-470a-b401-08df0dc863e8
 X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY1PEPF0000BADA.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthSource: TYO1EPF0000501F.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB14821
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB16470
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_094406_551118_078623E7 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260908_094411_427632_EDCA0C35 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,279 +134,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ESVL and DOVLTC bits control S-VLAN tag processing and have
-nothing to do with the double VLAN feature, which only provides a way
-to process an additional inner VLAN tag. However, the driver code
-that handles them always refers to "double VLAN", which is unrelated
-and makes the implementation confusing. The driver does not use any
-of the inner VLAN tag features, and the networking core does not
-support offloads for the inner tag anyway.
+C-VLAN and S-VLAN tag stripping are both controlled by the EVLS bit,
+so disabling rx-vlan-offload also disables S-VLAN tag stripping.
+However, rx-vlan-stag-hw-parse keeps being advertised as enabled:
 
-To simplify the logic and to reduce the confusion regarding S-Tag vs
-double VLAN handling, drop the is_double logic and add a hw_svlan_en
-flag that is set when S-Tag hardware handling is enabled.
+root@rzv2h-evk:~# ethtool -K end1 rx-vlan-offload off
+root@rzv2h-evk:~# ethtool -k end1 | grep -i vlan
+rx-vlan-offload: off
+tx-vlan-offload: off [fixed]
+rx-vlan-filter: on [fixed]
+vlan-challenged: off [fixed]
+tx-vlan-stag-hw-insert: off [fixed]
+rx-vlan-stag-hw-parse: on [fixed]
+rx-vlan-stag-filter: on [fixed]
 
-Suggested-by: Joseph Steel <recv.jo@gmail.com>
+Fix this inconsistency by making NETIF_F_HW_VLAN_STAG_RX follow
+NETIF_F_HW_VLAN_CTAG_RX.
+
+Fixes: 750011e239a5 ("net: stmmac: Add support for HW-accelerated VLAN stripping")
 Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 ---
 v4 changes:
 - New patch.
 
- drivers/net/ethernet/stmicro/stmmac/common.h  |  1 +
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  3 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 -
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 31 ++++----------
- .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 42 ++++++++-----------
- 5 files changed, 28 insertions(+), 50 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 927ea6230073..1dd4fc7e7a96 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -634,6 +634,7 @@ struct mac_device_info {
- 	bool vlan_fail_q_en;
- 	u8 vlan_fail_q;
- 	bool hw_vlan_en;
-+	bool hw_svlan_en;
- 	bool reverse_sgmii_enable;
- 
- 	/* This spinlock protects read-modify-write of the interrupt
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 6f26dbf95ce1..bfd68f8460c8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -632,8 +632,7 @@ struct stmmac_est_ops {
- 
- struct stmmac_vlan_ops {
- 	/* VLAN */
--	void (*update_vlan_hash)(struct mac_device_info *hw, u32 hash,
--				 bool is_double);
-+	void (*update_vlan_hash)(struct mac_device_info *hw, u32 hash);
- 	void (*enable_vlan)(struct mac_device_info *hw, u32 type);
- 	void (*rx_hw_vlan)(struct mac_device_info *hw, struct dma_desc *rx_desc,
- 			   struct sk_buff *skb);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..7520bdcb7c6b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -344,7 +344,6 @@ struct stmmac_priv {
- 	void __iomem *ptpaddr;
- 	void __iomem *estaddr;
- 	unsigned long active_vlans[BITS_TO_LONGS(VLAN_N_VID)];
--	unsigned int num_double_vlans;
- 	int sfty_irq;
- 	struct stmmac_msi *msi;
- 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 24d64cce1d87..cd9671493b41 100644
+index cd9671493b41..c81c5bb5b075 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6813,7 +6813,7 @@ static u32 stmmac_vid_crc32_le(__le16 vid_le)
- 	return crc;
- }
+@@ -6189,6 +6189,13 @@ static netdev_features_t stmmac_fix_features(struct net_device *dev,
+ 	if (priv->plat->bugged_jumbo && (dev->mtu > ETH_DATA_LEN))
+ 		features &= ~NETIF_F_CSUM_MASK;
  
--static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
-+static int stmmac_vlan_update(struct stmmac_priv *priv)
- {
- 	u32 crc, hash = 0;
- 	u16 vid = 0;
-@@ -6827,7 +6827,7 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
- 	if (!netif_running(priv->dev))
- 		return 0;
- 
--	return stmmac_update_vlan_hash(priv, priv->hw, hash, is_double);
-+	return stmmac_update_vlan_hash(priv, priv->hw, hash);
- }
- 
- /* FIXME: This may need RXC to be running, but it may be called with BH
-@@ -6836,20 +6836,14 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
- static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	unsigned int num_double_vlans;
--	bool is_double = false;
- 	int ret;
- 
- 	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
- 		return ret;
- 
--	if (be16_to_cpu(proto) == ETH_P_8021AD)
--		is_double = true;
--
- 	set_bit(vid, priv->active_vlans);
--	num_double_vlans = priv->num_double_vlans + is_double;
--	ret = stmmac_vlan_update(priv, num_double_vlans);
-+	ret = stmmac_vlan_update(priv);
- 	if (ret) {
- 		clear_bit(vid, priv->active_vlans);
- 		goto err_pm_put;
-@@ -6859,13 +6853,11 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- 		ret = stmmac_add_hw_vlan_rx_fltr(priv, ndev, priv->hw, proto, vid);
- 		if (ret) {
- 			clear_bit(vid, priv->active_vlans);
--			stmmac_vlan_update(priv, priv->num_double_vlans);
-+			stmmac_vlan_update(priv);
- 			goto err_pm_put;
- 		}
- 	}
- 
--	priv->num_double_vlans = num_double_vlans;
--
- err_pm_put:
- 	pm_runtime_put(priv->device);
- 
-@@ -6878,20 +6870,14 @@ static int stmmac_vlan_rx_add_vid(struct net_device *ndev, __be16 proto, u16 vid
- static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vid)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	unsigned int num_double_vlans;
--	bool is_double = false;
- 	int ret;
- 
- 	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
- 		return ret;
- 
--	if (be16_to_cpu(proto) == ETH_P_8021AD)
--		is_double = true;
--
- 	clear_bit(vid, priv->active_vlans);
--	num_double_vlans = priv->num_double_vlans - is_double;
--	ret = stmmac_vlan_update(priv, num_double_vlans);
-+	ret = stmmac_vlan_update(priv);
- 	if (ret) {
- 		set_bit(vid, priv->active_vlans);
- 		goto del_vlan_error;
-@@ -6901,13 +6887,11 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
- 		ret = stmmac_del_hw_vlan_rx_fltr(priv, ndev, priv->hw, proto, vid);
- 		if (ret) {
- 			set_bit(vid, priv->active_vlans);
--			stmmac_vlan_update(priv, priv->num_double_vlans);
-+			stmmac_vlan_update(priv);
- 			goto del_vlan_error;
- 		}
- 	}
- 
--	priv->num_double_vlans = num_double_vlans;
--
- del_vlan_error:
- 	pm_runtime_put(priv->device);
- 
-@@ -6922,7 +6906,7 @@ static void stmmac_vlan_restore(struct stmmac_priv *priv)
- 	if (priv->hw->num_vlan)
- 		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
- 
--	stmmac_vlan_update(priv, priv->num_double_vlans);
-+	stmmac_vlan_update(priv);
- }
- 
- static int stmmac_bpf(struct net_device *dev, struct netdev_bpf *bpf)
-@@ -7962,6 +7946,7 @@ static int __stmmac_dvr_probe(struct device *device,
- #ifdef STMMAC_VLAN_TAG_USED
- 	/* Both mac100 and gmac support receive VLAN tag detection */
- 	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
-+	priv->hw->hw_svlan_en = true;
- 	if (dwmac_is_xmac(priv->plat->core_type)) {
- 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
- 		priv->hw->hw_vlan_en = true;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-index 200b34588c7f..fbb99b70ac27 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-@@ -161,8 +161,7 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
- 		vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
- }
- 
--static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
--			     bool is_double)
-+static void vlan_update_hash(struct mac_device_info *hw, u32 hash)
- {
- 	void __iomem *ioaddr = hw->pcsr;
- 	u32 value;
-@@ -173,18 +172,9 @@ static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
- 
- 	if (hash) {
- 		value |= VLAN_VTHM | VLAN_ETV;
--		if (is_double) {
--			value |= VLAN_ESVL;
--			value |= VLAN_DOVLTC;
--		} else {
--			value &= ~VLAN_ESVL;
--			value &= ~VLAN_DOVLTC;
--		}
--
- 		writel(value, ioaddr + VLAN_TAG);
- 	} else {
--		value &= ~(VLAN_VTHM | VLAN_ETV | VLAN_ESVL);
--		value &= ~VLAN_DOVLTC;
-+		value &= ~(VLAN_VTHM | VLAN_ETV);
- 		value &= ~VLAN_VID;
- 
- 		writel(value, ioaddr + VLAN_TAG);
-@@ -220,6 +210,12 @@ static void vlan_set_hw_mode(struct mac_device_info *hw)
- 	u32 value = readl(ioaddr + VLAN_TAG);
- 
- 	value |= VLAN_EDVLP;
++	if (priv->hw->hw_svlan_en) {
++		if (features & NETIF_F_HW_VLAN_CTAG_RX)
++			features |= NETIF_F_HW_VLAN_STAG_RX;
++		else
++			features &= ~NETIF_F_HW_VLAN_STAG_RX;
++	}
 +
-+	if (hw->hw_svlan_en)
-+		value |= VLAN_ESVL | VLAN_DOVLTC;
-+	else
-+		value &= ~(VLAN_ESVL | VLAN_DOVLTC);
-+
- 	value &= ~VLAN_TAG_CTRL_EVLS_MASK;
- 
- 	if (hw->hw_vlan_en)
-@@ -234,8 +230,7 @@ static void vlan_set_hw_mode(struct mac_device_info *hw)
- 	writel(value, ioaddr + VLAN_TAG);
+ 	return features;
  }
  
--static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
--				      bool is_double)
-+static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash)
- {
- 	void __iomem *ioaddr = hw->pcsr;
- 
-@@ -251,13 +246,6 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
- 		value = readl(ioaddr + VLAN_TAG);
- 
- 		value |= VLAN_VTHM | VLAN_ETV;
--		if (is_double) {
--			value |= VLAN_ESVL;
--			value |= VLAN_DOVLTC;
--		} else {
--			value &= ~VLAN_ESVL;
--			value &= ~VLAN_DOVLTC;
--		}
- 
- 		value &= ~VLAN_VID;
- 		writel(value, ioaddr + VLAN_TAG);
-@@ -270,8 +258,7 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
- 
- 		value = readl(ioaddr + VLAN_TAG);
- 
--		value &= ~(VLAN_VTHM | VLAN_ETV | VLAN_ESVL);
--		value &= ~VLAN_DOVLTC;
-+		value &= ~(VLAN_VTHM | VLAN_ETV);
- 		value &= ~VLAN_VID;
- 
- 		writel(value, ioaddr + VLAN_TAG);
-@@ -283,7 +270,14 @@ static void dwxlgmac2_set_hw_vlan_mode(struct mac_device_info *hw)
- 	void __iomem *ioaddr = hw->pcsr;
- 	u32 value = readl(ioaddr + VLAN_TAG);
- 
--	writel(value | VLAN_EDVLP, ioaddr + VLAN_TAG);
-+	value |= VLAN_EDVLP;
-+
-+	if (hw->hw_svlan_en)
-+		value |= VLAN_ESVL | VLAN_DOVLTC;
-+	else
-+		value &= ~(VLAN_ESVL | VLAN_DOVLTC);
-+
-+	writel(value, ioaddr + VLAN_TAG);
- }
- 
- const struct stmmac_vlan_ops dwmac_vlan_ops = {
 -- 
 2.34.1
 
