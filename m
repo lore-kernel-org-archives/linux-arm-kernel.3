@@ -4,66 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1A2C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6825DC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 05:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K17hjGQSHRngsa6X5ZbPw0DdqyNanly6LFsnBXF9IzY=; b=KKoNWnK1wm0k4TLeFmSmOgs8Fd
-	O7NsmTaP4mYQcxXhZ6by4DBwN9ULSG9m/iC0VPpvVaLevn6a2Y81CozYFGXP5RnOOtP4nBCJ+VZD2
-	KgGR74lsVouF5Z9HkhntQ0eGcRtsPXhlPZB3mdFYJ4iWnm0VEClmIIOJVSk91aXw7c4uASMVGFiOU
-	2PoGY556rPITwkIyLfSyCcwzQaJJddxsAkzGY1LE3B8O+MeUxOBPpQtW2tiCJcmOC+vdqk/GLeM7D
-	tJkYXF8EFUxNQXAtvqx+n5UKkKoL66ipZ1vVrGgX/K11Y70UbbXpg63TxWYnjC9n0/YX1oxK87d5L
-	pK2PpQOg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Hk+XNhijnUk0JrFp3DVPvigSnryVRt/+DzNzROaqfU=; b=gRCXgUnyuXAiLC4wM5lojoA3gj
+	9Ic7Do1zJ9ZYC0mmfFJenC3/boZVnnD/KiwLfbR5PUiqUk8QSNfaIko0Y9SGj4KeVm7vaSk+S3QKC
+	AqZeThdZeh+QGa6FM9DuupCubbePicx/fMJWP0IFTgO9yBFqRbeDjus6Ju6ffUudbxS71xGExxsJQ
+	ewsamtac2/mZdzwBbX4HAmcRwj1yhUkbF2iJhhN7+6qXqNlaWsYGKw+lodFvFBNRZPu3seiBhQf6Y
+	rKXzmi+w1KGq9eIkaVs0fk49DeiCGr8MKI9yKBuPZhOGSHrHTDLRGaj5lL7TkTafkRBVQ/jecoNF8
+	gIXoTv7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oew-0000000863l-13Tx;
-	Tue, 08 Sep 2026 05:46:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3oet-0000000863N-0Y5e
+	id 1x3ohg-000000086DL-2rMr;
+	Tue, 08 Sep 2026 05:49:08 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3ohe-000000086D0-0E5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 05:46:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5DDF1476;
-	Mon,  7 Sep 2026 22:46:09 -0700 (PDT)
-Received: from [10.57.49.168] (unknown [10.57.49.168])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AF973F86C;
-	Mon,  7 Sep 2026 22:46:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788846373; bh=018JPSiwa1Esmp2GGb5fgmI7lze3gY3IgPSCqWkIVeY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uswXvC9iVmPahBQvMDKTommtwYrmYay+C0FosciqsZfG6re8SIW1nfbKsbOkEi0tR
-	 g/wH4O4enKKNcsPeqpbj5dGb+aMFg25xbipsadAjFwRtVBgbLhjuVJ6k1D8O1i/zsr
-	 P4CqKXq+SpkITHmHm8qJ1/qTpstEq0PLB4Bqht20=
-Message-ID: <f65216f6-cb7b-4b76-a7cc-79b332db2bd8@arm.com>
-Date: Tue, 8 Sep 2026 06:46:05 +0100
+	Tue, 08 Sep 2026 05:49:07 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-85590c5aeabso2756943b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 22:49:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788846545; x=1789451345; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3Hk+XNhijnUk0JrFp3DVPvigSnryVRt/+DzNzROaqfU=;
+        b=bln25NPA2vbPkV1OF4P4pDSNZvUhyp6Q3meO7aO3k6flRppkNcKjxoofBpo158z6UQ
+         9zg4SK2t+zQqlPtd9dG5OMBYS3S8vyqnM7fulJZeaRp3S1BRuFk2iJXRjGgJxaDDfeF4
+         FQt8LOX5ojsi4uXatle7benU2RzUWmOScL5twrLNnOOD9vPp9grY3EjH47JqwseIG0HF
+         +uPydhtF/Gs3uKCKJJFAkTyxhfR+sLkkA3Z2dXzfxr/aX/Mj2gJSbjpzIRx1dpm8ja0c
+         k4m4BhdsEz/947O+LRlNe34a2Rg2v0tRgkPwvOXTOLPF0dtS+CZtqJP4EaclJS3p3D+i
+         kF1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788846545; x=1789451345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3Hk+XNhijnUk0JrFp3DVPvigSnryVRt/+DzNzROaqfU=;
+        b=lvICVKjQMSPBFPeJE4QdGCJk2OtZJUeaaIS04oEo1f4J9PHDVNgnGlUGbkC9OCCeCI
+         U7dqn5C6UcODDZkiYj14sryKJdssUT8O+3lgHwxsLlQFbEb0ijKm9sjEauJHXhlmOW6T
+         xh0yS/QjvmktFzZYWBi79jbMaxXOA96XzWB6V0HwS/lo3OjstRabKH+3tpl3dpNGI+Ad
+         si1EgeRuP8a+itsdNZLtmvattP1YzLdBpFCZ163vaG/Ch9baX+Ahq3zUjbZTlUdT2qRe
+         xgcyaHu2mAFS8FKzhYlfQZT2Mu1ekLTWoiqw2mhO7JRgBdnxH2at685UePW/m82q7/jO
+         JVLg==
+X-Forwarded-Encrypted: i=1; AKwUvBxNX3xsbLOkj18+BEpwApdwsTLw4RWW9z0MbL8J1U0vS3lZH5IZMqiWUDCRET03CNENd+KU3nnfVZy4w6Adhc3m@lists.infradead.org
+X-Gm-Message-State: AFuF++naAZgEPhBwcPEePOns1Mb7ttrQlCaVn3aXJmmSfXIP9jyPgi01
+	Pe2Y8j3bmgcSF64Clfokhuatnfo1QANMKQtfwa8RrjLsR55It0wy12In
+X-Gm-Gg: AYBFou3qzKiG6GN7QydCTmOSEScAuWZvsBioqMWPUeoPhxDRVkfahSIpMCmeoq16q/q
+	djs/Fy98db1mX3CuXdmLj7I8AJvwY8tkR2U4U/gGhhYM/kIvMLJaUq/kdXtTs2fgR9tujsttr82
+	b/WQcUnBHKqLkIPXIRMW3B3P5kRbibFiiyasVZaZL9vjai5MaDrSFQhTOR6liCH7vaBygVx5Pzh
+	jn05AlOHC04/1SPxoCDyi8mvt0N9+tQppKZFOA2AXWq1oI4NSmNyH5fgyo8CtS4ooCWVPOgWWfY
+	J+jKOp+3uL1Vhy6xWxxGKTSTVaDScxvdrl3dsMBNpBLiK10mjPUS0vuDxU/f/0haiD+76YQrlsw
+	ZrvHofoRuPzVhGSFZUu1Dq05ow1QkP8oadrDJRN9KlOyFayHEAFyvr8uMEE/8QegXvIJtjf7FeR
+	opMA5CFxXLEgSValq22Ff/vlg3ubOSCzXORa8i18CkkpFCr/UqrlI/hUVSLj/fj72fNJFrrCe9r
+	nWTOSUw/05WrQ==
+X-Received: by 2002:a05:6a21:38c:b0:3d3:ae1f:d7f8 with SMTP id adf61e73a8af0-3da3a0cc91cmr42893779637.24.1788846544946;
+        Mon, 07 Sep 2026 22:49:04 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-334fbd5e6f6sm25690109eec.23.2026.09.07.22.48.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 22:49:04 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Russell King <linux@armlinux.org.uk>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Shuah Khan <shuah@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>
+Cc: bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org,
+	sparclinux@vger.kernel.org
+Subject: [PATCH bpf-next v4 0/7] bpf: fix typos and repeated words in comments
+Date: Tue,  8 Sep 2026 11:18:46 +0530
+Message-ID: <20260908054853.13820-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
-Content-Language: en-GB
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org,
- Mathieu Poirier <mathieu.poirier@linaro.org>
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_224615_282731_842067CC 
-X-CRM114-Status: GOOD (  32.39  )
+X-CRM114-CacheID: sfid-20260907_224906_098224_B906C403 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,155 +122,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kohei-San
+Fix misspellings and repeated words in comments, found with
+scripts/checkpatch.pl using the misspelling list in scripts/spelling.txt.
+Comments only, no code changes.
 
-Linaro is best suited to answer this. I have Cc'ed Mathieu (and
-Lorenzo), who may be able to help you here.
+Changes since v3:
+ - rebased onto bpf-next.  CI reported a conflict on v3 and asked for a
+   rebase and resubmit; the tree has moved on since and the series
+   applies cleanly again.  The patches are otherwise identical to v3.
 
-On 08/09/2026 05:09, Kohei Enju wrote:
-> Hi Suzuki,
-> 
-> On 09/07 10:59, Suzuki K Poulose wrote:
->> This series adds the generic firmware layer for talking to the Realm
->> Management Monitor (RMM), as specified by the RMM v2.0-bet3
->> specification[1]. It is the first part of the Arm CCA host support that
->> was previously posted as part of the larger KVM series.
->>
->> The split allows this RMM support to be used as a base for other work,
->> including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
->>   without depending on the KVM Realm support that will follow as separate
->>   series. (See more on that below)
->>
->> The series adds:
->>
->>   * The RMI SMC definitions and direct-call wrappers.
->>
->>   * RMM discovery and version checks during firmware init.
->>
->>   * RMM host configuration, including the host page size.
->>
->>   * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
->>     can complete across multiple SMC calls while requesting or returning
->>     memory to the host.
->>
->>   * Verification that granule tracking is available at fine granularity.
->>     Fine-grained tracking allows each granule in the system to be tracked
->>     independently, which is required before individual granules can be
->>     delegated. A future series will add support for dynamically supplying
->>     memory to the RMM for this tracking.
->>
->>   * Support for fully firmware-managed systems, where the Granule Protection
->>     Tables for memory regions are allocated and managed by firmware. RMM v2.0
->>     also allows dynamic GPT creation on demand; support for that will be added
->>     in a later series.
->>
->>   * Wrappers for the RMI commands that are used for managing the "Realm VM"
->>     lifecycle. This is added in to make it easier for the on-going KVM support
->>     to evolve in parallel pieces.
->>
->> If the platform firmware cannot manage the granule tracking or the GPTs, we
->> bail out and deactivate the RMM, reclaiming any memory that we have donated.
->>
->> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
->> the RMM to complete an operation over several SMC calls while requesting
->> or returning memory to the host. This allows interrupts to be handled in
->> the middle of an operation and lets the RMM dynamically allocate memory
->> for internal tracking purposes. For example, RMI_REC_CREATE no longer
->> needs auxiliary granules to be provided up front, and can instead
->> request memory during the operation.
->>
->> This series applies on v7.3-rc1 and a branch is available at [2]. The KVM
->> CCA support that builds on this series is available at [3] as an integration
->> branch. The KVM support depends on guest-memfd-in-place conversion support v12
->> from Ackerley [4], we plan to split that into parts, which apply cleanly on
->> v7.3-rcx without any dependency and is in progress. This will be made available
->> as soon as it is ready. Until then [3] shows how this base series enables KVM
->> CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
->>
->> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
->> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v17
->> [3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/kvm-integration/v17
->> [4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v12
->> [5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
-> 
-> I understand that QEMU-virt is not intended to model a realistic
-> production platform and that QEMU-SBSA is generally preferred. However,
-> I sometimes use QEMU-virt to test functionality quickly because it runs
-> slightly faster than QEMU-SBSA.
-> 
-> I tested this series with QEMU-virt and found that RMM initialization
-> failed during boot:
-> 
->    [...]
->    INFO:    BL31: Initializing RMM
->    INFO:    RMM init start.
->    ERROR:   RMM init failed: -8
->    WARNING: BL31: RMM initialization failed
-> 
-> The following TF-A revision was used:
->    https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git master (38269bb)
-> 
-> After investigating, I found that the failure was caused by the lack of
-> a plat_rmmd_reserve_memory() implementation for the QEMU-virt platform
-> in TF-A. Adding an implementation equivalent to the QEMU-SBSA one
-> resolved the issue:
->      https://git.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a.git/+/9d594743aa4d4e8160cdf025ea7538041648972c
-> 
-> Is QEMU virt still intended to be supported as an RME emulation
-> platform? In particular, is this functionality simply not implemented
-> yet, or is there a reason why RME support is not planned for QEMU virt?
-> 
-> If this is not the appropriate place to discuss this, please let me
+Changes since v2:
+ - moved from mainline to bpf-next, which resolved the earlier conflict
+   in stream.c where the typo had already been fixed upstream.
+ - renamed the selftests patches to the selftests/bpf: prefix used by the
+   rest of that directory, as CI suggested.
 
-Mathieu, Lorenzo,
+Hemanth Selam (7):
+  ARM: net: fix typo "arithmatic" in comment
+  bpf: fix typos in comments
+  powerpc: net: fix typo "upto" in comments
+  selftests/bpf: fix typos in comments
+  sparc: net: fix typo "evalute" in comment
+  libbpf: Fix typos in comments
+  selftests/bpf: fix repeated words in comments
 
-Over to you folks :-)
+ arch/arm/net/bpf_jit_32.c                                    | 2 +-
+ arch/powerpc/net/bpf_jit_comp32.c                            | 2 +-
+ arch/powerpc/net/bpf_jit_comp64.c                            | 4 ++--
+ arch/sparc/net/bpf_jit_asm_32.S                              | 2 +-
+ include/linux/filter.h                                       | 4 ++--
+ kernel/bpf/reuseport_array.c                                 | 2 +-
+ tools/lib/bpf/btf.c                                          | 4 ++--
+ tools/lib/bpf/usdt.c                                         | 2 +-
+ tools/testing/selftests/bpf/libarena/src/asan.bpf.c          | 2 +-
+ tools/testing/selftests/bpf/prog_tests/lwt_seg6local.c       | 2 +-
+ tools/testing/selftests/bpf/prog_tests/task_local_data.h     | 2 +-
+ tools/testing/selftests/bpf/progs/freplace_unreliable_prog.c | 2 +-
+ tools/testing/selftests/bpf/progs/iters.c                    | 2 +-
+ tools/testing/selftests/bpf/progs/verifier_var_off.c         | 2 +-
+ 14 files changed, 17 insertions(+), 17 deletions(-)
 
-Cheers
-Suzuki
-
-
-> know :)
-> 
-> Thanks,
-> Kohei
-> 
->> [6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git cca/kvm-v17
->>
->> Known issues: RMMv2.0
->>   * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
->>    (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
->>    may not be satisfiable by the host. Arm is aware of this defect and a spec fix
->>    is in progress.
->>
->>
->> Steven Price (7):
->>    firmware: arm_rmm: Add SMC definitions for calling the RMM
->>    firmware: arm_rmm: Check for RMI support at init
->>    firmware: arm_rmm: Configure the RMM with the host's page size
->>    firmware: arm_rmm: Add support for SRO
->>    firmware: arm_rmm: Activate the RMM
->>    firmware: arm_rmm: Ensure the RMM has GPT entries for memory
->>    firmware: arm_rmm: Add wrappers for Realm related RMI commands
->>
->>   arch/arm64/Kconfig                |   1 +
->>   arch/arm64/kernel/cpufeature.c    |   1 +
->>   drivers/firmware/Kconfig          |   1 +
->>   drivers/firmware/Makefile         |   1 +
->>   drivers/firmware/arm_rmm/Kconfig  |  26 +
->>   drivers/firmware/arm_rmm/Makefile |   2 +
->>   drivers/firmware/arm_rmm/rmi.c    | 819 ++++++++++++++++++++++++++++++
->>   include/linux/arm-rmi-cmds.h      | 678 +++++++++++++++++++++++++
->>   include/linux/arm-smccc-rmi.h     | 494 ++++++++++++++++++
->>   9 files changed, 2023 insertions(+)
->>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
->>   create mode 100644 drivers/firmware/arm_rmm/Makefile
->>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
->>   create mode 100644 include/linux/arm-rmi-cmds.h
->>   create mode 100644 include/linux/arm-smccc-rmi.h
->>
->> -- 
->> 2.43.0
->>
+-- 
+2.48.1
 
 
