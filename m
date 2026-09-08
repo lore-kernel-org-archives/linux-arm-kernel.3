@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6280C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76439C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQcP2F4emeVQ9JpkX9Int2YPn5v7ZeGN+IRcU4vsCsU=; b=IE8S6v8c0OHSOj2hkfMj993NVQ
-	wERGBqdSjGzjN6Ggf5+UfZoLAZSWrnY80T8jVM/ah2pLjBH86QQJNG/pf7h3CdaLbgw4twF5q6ky6
-	ecxLGppaRqwgcpMD9z2orhPZbH42EhLwSSup+GO6BJa5IwMQ9pGIprdEYKuVvQQnRDJ+e2Ympthsl
-	08tbASt3kv6Q3cIEdUXCDRBvweXVI9/L0+jzltawaoaRGzEA7wn0j6sOwmwegiY1lxUUAEFD3h2OK
-	m0PegDrtXqsU6XKnSk706T5Ehr4qf0SbfrPcUDUXTXNXO4kRrAsHq03m/9bQt3QDrgwGeCf75xB23
-	4qa7nIQQ==;
+	bh=Zs21gAo4QkiJe7skjL4wk3AEQvdIKI9ChNhU3Egus/E=; b=P/5uouZ/+tQVg28P2sFHOV5wp5
+	x7F3bOuAI4lBZ2ypzzXw0GDnsd6MARlpAAL/12scYQ5CSwvk9gkTDX6o17nKGG/jGyQDeorYeOwI4
+	mddrm27F9GtRL+BP6aGJ1ps9vQkLeUhF2yV+0jeHvuksTZX0Trx/kSeXWeLITbPIDUaVtnX+M0krX
+	7VTOjxLmsqAsvqX0vvP+HI1t0OH/ocitxO46zaDIttyTiSnQdE9ed6RqYL68MookPnclktzBLUJ4I
+	WUtqEeIXc6f4xFrEYLLVu2pezHFkuBrok+YOBm342vgEzo4kQsezFpTywaN/ZfrHDad/k/cfPK4qx
+	SiWueDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zZY-00000009oOk-2zhi;
-	Tue, 08 Sep 2026 17:25:28 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1x3zZg-00000009oQp-1mih;
+	Tue, 08 Sep 2026 17:25:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zZN-00000009oLI-0wUj
+	id 1x3zZa-00000009oP7-3lug
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 17:25:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Zs21gAo4QkiJe7skjL4wk3AEQvdIKI9ChNhU3Egus/E=; b=akMIPUdX76jzhiVvicnRwJ6qgi
+	/MaCVJvWfzfY/SBJysia1wP2fchJ5F+AlVGeYV98x5BBBD9NtKIx61LaOYYC9JB8qXNOJ0kmcKR2L
+	/W8DuzvxnlY1qQtJIZai/ER/pKDMX+DTro5Fkvo9fmnY5gJ6I269ofioto1ICGLLz68KtG3wcDPT1
+	xbMvGgtCgxGP3xH91+Y/i+cFcjNci/nK44BV8Bf9+c0VIKPkbaoDgsOcirJtqgVrTJ8r7/q6cnO4S
+	6hzTha7sLN1CtEtPzU27adgiRRJG3W/3RSCeZ1T46Ld9aQUhVA5kSqZdzMoY4KzqikZkqsYssaSP/
+	QE4d8XYQ==;
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3zZY-000000009fg-1MWz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:25:27 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso4056792a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:25:16 -0700 (PDT)
+	Tue, 08 Sep 2026 17:25:29 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8525efa7274so3419824b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:25:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788888316; x=1789493116; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788888326; x=1789493126; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZQcP2F4emeVQ9JpkX9Int2YPn5v7ZeGN+IRcU4vsCsU=;
-        b=DUuM3n2GOP4bipW5dLp/6y4fg/M2mEhCYhczJNm272byE7vb4VbxrIKJCV6BHqAG6W
-         vsb7le8PngXkyiVWEXUMqA1xc/llbhyBjflrJoxneMFoWwgqs/9g4HPwSo8YA/uw4u4I
-         kORPzYx1UETgermds1S5D/rH60KeJ1LwsCeJ9l7RyQeVMzLsZawNbv422JaWu3aes5Tj
-         CACi1d9W7T7yoZjrxfZ5llwnjEqbRzQSvkawfU0QQ0tkv+Fp4iZE/7dQWS/60Av8ZiKG
-         nrLCyEQXooGumipYO1jrbyFpayhyebE71QuGE0X/84dG9dW9aGn+tHzx/OPS/zPnow6P
-         q22Q==
+        bh=Zs21gAo4QkiJe7skjL4wk3AEQvdIKI9ChNhU3Egus/E=;
+        b=gKIB0WITfMNT70VJZY4aCRb0qltdQVK1clcTjoD44wkgOohQh1ulbPcEZ1v6zD0luP
+         j4CvBw/bfaXP4hZFBJEXj1Pb2njCR3bH/dQWeT4VexDt4+2szyRMMo0wwwFxKAhKdpcH
+         k8e6/+Ge1j6N7HKQAHkuBU7slC8jAysLm8ISPGVPhZLIEiEFaQ0hZA9XESepcALu7xri
+         Pt2LTa4qsO2+HrZmkLkdwhXzVhYF2x8Vv8/a/+GuvqK0U98mlfIcch/SjwQWT9nKWXNF
+         70a2cz0h8JKdtPQsAB/X3nwIu1R3Gr9iqUVpqVvrETxIMyG3cvvKIcE/BI6AB0iSMFhZ
+         dL3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788888316; x=1789493116;
+        d=1e100.net; s=20251104; t=1788888326; x=1789493126;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZQcP2F4emeVQ9JpkX9Int2YPn5v7ZeGN+IRcU4vsCsU=;
-        b=ULC5HG0Pfr0aaR+xmPPS6LiWVXaVYa4loM/5qnnBK9E64EnxvLUYsiF0bCeCraK5E4
-         OI73BySqn8KJVGX3OHOpnhpMSlIx51G9BBpKntusPoqlfKUmE/VpmqrtZq0bJ+sJeI5B
-         CJjQcARrSSJJ2Z3HHkumFH7rD3bBib7R+pfaK/Vacsr6Faji1u/iwbRNUYVhC3NRjr+R
-         +yNTJ2F58wbpdMQIOJSJeqGlqkOMNBBJSl/c4KJNK9CIZtpRyISwGloooUs2H4ZTX72L
-         EZXpAeWJUXcGrHo8Ol3oIC1KYhg2JT/qBozcWdDfRA7Lt+cGk08C1PhijtkALWoj0LTV
-         fqUQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx10Xo7vkijyn9MMRj104nldC2MxKobHS/+5KfhLcxG8pBMfbGLejtfjE8QYFB6TvhCinYdkeVEEGJX6WJeIC5l@lists.infradead.org
-X-Gm-Message-State: AFuF++m9hW5oWlIvkSyn/hx15+3x10uqKz7K8q5MmAL0leY05EDGkUfa
-	o99zUzpek1C4nj7QqBRpeOJmGQMy7r+frtr/8a9qgyxkFPHbYiGaEn3L
-X-Gm-Gg: AYBFou0u94R4/PMHcNka9aFvO9MqNdpQSnz1ap6zvgCYJPg6y+Jea2FNj4by8hEBHtI
-	SDE9Q+gziGjQxHRbVgZtw3tl/izi5AL8NDHW9KKSs+LGPcFtfAqc5ZCH5KhfJ1Lk/BaHIU23wRI
-	qaSv2fi8fj1fwSmgorcXHZ0tLkezyyYsQiRhYGHZYq/9NykSYtWgItsl4cpkHFwG7ybnFaMk2My
-	M4/+7MH0ceXC+CHu0Q5YfKY5Q54nyISwlTTQG8hEvrPkOcDhf8O5uw9QAXchNEDwEb4f2jtz6E+
-	L49+MDg1KkFFGG8tN0CRobX+jx+82KRPwHGZtfMKXR8W1oNmxgzyNNFcxvF8amKICsoSukwFfIV
-	a/nxo70B22LplsHFQuYZIYi5KlDR9V4UvcDvghv73vMoZqjnyblbm1ltkeh6SLjTrxv+dOkWrEi
-	uog+7bw8QqFK8BoiPz95yusPOte5cKxAFFLqh0fR3vrmzWdIJBYTgI8wvDlYQ=
-X-Received: by 2002:a17:90b:3a81:b0:398:c292:ac80 with SMTP id 98e67ed59e1d1-39b2612eaa4mr42334724a91.10.1788888316179;
-        Tue, 08 Sep 2026 10:25:16 -0700 (PDT)
+        bh=Zs21gAo4QkiJe7skjL4wk3AEQvdIKI9ChNhU3Egus/E=;
+        b=rvJIDUf9CJ0SbfIFqTCTJgWSxIJgesBuxrLP1BnRRqJ4lsDObP6oif5J3pZZhI+FZj
+         3cNMNp+yz/Kz0LDkxrZlXyhCBh450LjqOVX0iRtz4dg6lPQk8iLklBeBy5QFY50q6U8k
+         u4m3/2IYVbf+bE64QOEpuTyhYUAmmfZp9GiZ08b66+BQrSUDOU+jCk+Up41wdZ0HI4ex
+         sTU2nlCCaPoHMX29q+2DYgE5Oe16UJoHRj+1+rn1Aw6cXKcv83coYm2I+xcZJwWoWF6C
+         +3M3EZkM+gagnK85qBkstvJdDZdzwrPe0Tu4ppKtTh8La8DbGgWW6QaZhMIqoWlA3/00
+         X/4Q==
+X-Forwarded-Encrypted: i=1; AKwUvBytBct6SRxqzDD9niqktfHOxCpy7Q2BGF34g5tv5UvI72GdkPiPvATVs4qmmTCLRxYswktu8Wexy2LFUBUVYbEz@lists.infradead.org
+X-Gm-Message-State: AFuF++nz22SI8e5P07twxyiPtWvZgurUj0UPQtaBkwYjEsvGAVP6gFOf
+	Zi62oJegwRhVzD+mAcmVTqyuugb8WtvDZNfmFmbW5tjx4WtURcKEVBPR
+X-Gm-Gg: AYBFou1CtYGCpr4qqf0QNJMH/ahvNLog7XHr00IPJTKveK9n10uAYiKZIdNbf1oyKpD
+	OR56mgnvjjyFKJCgXvB015lXqUMdzHCvotIs3GSZZEKvR+m7qz+FnrH2BmaXb8FE25IAH/M2iFh
+	BB9FcrWtlGu0diX919nCKUQx8UOcvfeXIm0ydWyHpk4dsqaL9mcd2gUXZYgHcQpG63ZHxhiMCkH
+	c44ExTelmJDxKHyiXpVNKo13O3Py0ItWr7EMm5gsJIVRRldf+Jd+MMqmDpPW8NXD7lBdF+wNM7D
+	6s4Eio1NaqlmgucvIbvsBCqSJETqtRYU8pbw0tPK7bb1z31YtILIKfViw1YYwumKRnFg21gQs/5
+	xVw2VWU9Wr1pQMpqkbH9IP8i70bijFXrADUoC3jcZDEhmHUsVy0PsbKdKjx8r1KeEKUut29rh7u
+	+AsGZVsy2Wi0u81pxobNHVuCcqlT8RYHvkPyItw/Minfi9QVM8DWHxANE307s=
+X-Received: by 2002:a05:6a21:2291:b0:3d0:88f5:f812 with SMTP id adf61e73a8af0-3da39d147e0mr44672625637.10.1788888325834;
+        Tue, 08 Sep 2026 10:25:25 -0700 (PDT)
 Received: from ubuntu.. ([2405:201:8026:213e:43ae:bf76:d99a:e5ff])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33688cfc714sm19297176eec.20.2026.09.08.10.25.09
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33688cfc714sm19297176eec.20.2026.09.08.10.25.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 10:25:15 -0700 (PDT)
+        Tue, 08 Sep 2026 10:25:25 -0700 (PDT)
 From: mdshahid03@gmail.com
 To: Jonathan Cameron <jic23@kernel.org>
 Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
@@ -82,17 +97,17 @@ Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v4 3/6] iio: adc: bcm_iproc_adc: use devm-managed clock
-Date: Tue,  8 Sep 2026 22:53:56 +0530
-Message-ID: <20260908172359.30003-4-mdshahid03@gmail.com>
+Subject: [PATCH v4 4/6] iio: adc: bcm_iproc_adc: use devm-managed ADC cleanup
+Date: Tue,  8 Sep 2026 22:53:57 +0530
+Message-ID: <20260908172359.30003-5-mdshahid03@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260908172359.30003-1-mdshahid03@gmail.com>
 References: <20260908172359.30003-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_102517_267226_41722DE4 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260908_182528_413304_A078F4B8 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,81 +124,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Convert the ADC clock to use devm-managed APIs to simplify
-resource cleanup.
+Use devm_add_action_or_reset() to disable the ADC automatically when
+the device is detached or probe fails.
+
+This removes the manual ADC cleanup from the remove and error paths
+and ties the ADC cleanup to the device lifetime.
 
 Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
- drivers/iio/adc/bcm_iproc_adc.c | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ drivers/iio/adc/bcm_iproc_adc.c | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index 21bd51da9cd6..d6f82f8ddee1 100644
+index d6f82f8ddee1..ff271c7fb2de 100644
 --- a/drivers/iio/adc/bcm_iproc_adc.c
 +++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -110,7 +110,6 @@ do { \
+@@ -451,6 +451,11 @@ static void iproc_adc_disable(struct iio_dev *indio_dev)
+ 	}
+ }
  
- struct iproc_adc_priv {
- 	struct regmap *regmap;
--	struct clk *adc_clk;
- 	struct mutex mutex;
- 	int  irqno;
- 	int chan_val;
-@@ -511,6 +510,7 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 	struct iproc_adc_priv *adc_priv;
- 	struct iio_dev *indio_dev = NULL;
- 	struct device *dev = &pdev->dev;
-+	struct clk *adc_clk;
- 	int ret;
- 
- 	indio_dev = devm_iio_device_alloc(dev, sizeof(*adc_priv));
-@@ -530,10 +530,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(adc_priv->regmap),
- 				     "failed to get handle for tsc syscon\n");
- 
--	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
--	if (IS_ERR(adc_priv->adc_clk))
--		return dev_err_probe(dev, PTR_ERR(adc_priv->adc_clk),
--				     "failed getting clock tsc_clk\n");
-+	adc_clk = devm_clk_get_enabled(dev, "tsc_clk");
-+	if (IS_ERR(adc_clk))
-+		return dev_err_probe(dev, PTR_ERR(adc_clk), "failed to enable clock\n");
- 
- 	adc_priv->irqno = platform_get_irq(pdev, 0);
- 	if (adc_priv->irqno < 0)
-@@ -551,13 +550,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
++static void iproc_adc_disable_action(void *indio_dev)
++{
++	iproc_adc_disable(indio_dev);
++}
++
+ static int iproc_adc_read_raw(struct iio_dev *indio_dev,
+ 			  struct iio_chan_spec const *chan,
+ 			  int *val,
+@@ -554,6 +559,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
  	if (ret)
  		return ret;
  
--	ret = clk_prepare_enable(adc_priv->adc_clk);
--	if (ret)
--		return dev_err_probe(dev, ret, "failed to enable clock\n");
--
- 	ret = iproc_adc_enable(indio_dev);
- 	if (ret)
--		goto err_adc_enable;
++	ret = devm_add_action_or_reset(dev, iproc_adc_disable_action, indio_dev);
++	if (ret)
 +		return ret;
- 
++
  	indio_dev->name = "iproc-static-adc";
  	indio_dev->info = &iproc_adc_iio_info;
-@@ -575,8 +570,6 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 	indio_dev->modes = INDIO_DIRECT_MODE;
+@@ -561,17 +570,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 	indio_dev->num_channels = ARRAY_SIZE(iproc_adc_iio_channels);
  
- err_clk:
- 	iproc_adc_disable(indio_dev);
--err_adc_enable:
--	clk_disable_unprepare(adc_priv->adc_clk);
+ 	ret = iio_device_register(indio_dev);
+-	if (ret) {
+-		dev_err(&pdev->dev, "iio_device_register failed:err %d\n", ret);
+-		goto err_clk;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "iio_device_register failed\n");
  
- 	return ret;
+ 	return 0;
+-
+-err_clk:
+-	iproc_adc_disable(indio_dev);
+-
+-	return ret;
  }
-@@ -584,11 +577,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 
  static void iproc_adc_remove(struct platform_device *pdev)
- {
+@@ -579,7 +581,6 @@ static void iproc_adc_remove(struct platform_device *pdev)
  	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
--	struct iproc_adc_priv *adc_priv = iio_priv(indio_dev);
  
  	iio_device_unregister(indio_dev);
- 	iproc_adc_disable(indio_dev);
--	clk_disable_unprepare(adc_priv->adc_clk);
+-	iproc_adc_disable(indio_dev);
  }
  
  static const struct of_device_id iproc_adc_of_match[] = {
