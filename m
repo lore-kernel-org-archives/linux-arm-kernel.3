@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F05AC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328FCC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgnUvaODkORtnKYaf5ZZjujJr0av+pDqX4ZqIG/SHoI=; b=lRQ0NwubiDXkKMv/3B6uiLtg74
-	XAl29QdoKkhx1mCNYW2yTC36y94iUtYZICZkggIzg6WA8mJzoj11JxJCznxuaJfm4ePoJU2XYtIzX
-	EJILc6O73ufnycFW8zfmppgtb67TlRd1kVcAsr4cVoq93uwyoZMLuN9L2ZIuUlQ/nKTd2wa31/zP/
-	j5U7Gc5gzpcRmR/H46jbRpIzngN+5jrdETZ6/arPVrJN4uxzgERX4y9v6dF32dSd0ku2spEpOgptG
-	xZ7uBR9CHldSATwovemRGcKRTfwsfhmCZcS1ZiR3IHtnYgdFl3osNdRNBpjTMXmpErd8EKWKcI6k/
-	KZICnHgA==;
+	bh=YQfUobdb4z00WEwtnabznk2vNczJUBLHs2sPtjNr3cI=; b=UoWOOCHpVWDBdzqPvEd07s82Ji
+	pOWiWRLg9W7cLNrVtDa80MroA7ufFdKCTgljxR5lTrJz9yyQz3lOyIAdGrs/N8pbrcDwc56kXlHF5
+	S55gdADzjMqRbotoDggCwevYhS9hiYw70HGUgQzYSvG2Dqp+823BE/7RqwjpAEQqxT1aliH8DLLvL
+	HTSGRKs6Ah7kuk+CBiwBZigy5RdrMrumOwpxOVY+qIO15pWkeje7tM8LlJ3eaIoKTsj6Z+pneLgnr
+	C6X1btWKTTzOHJpKfkffnyHmETXD8dRJprAOp30E4Psrb0NqMI2lmqeVhBI1QIlKmhAOrdLsN69Bd
+	0614tHzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uON-00000008weK-0pbS;
-	Tue, 08 Sep 2026 11:53:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3uQo-00000008x4U-0mcs;
+	Tue, 08 Sep 2026 11:56:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uOL-00000008wdh-3XCb;
-	Tue, 08 Sep 2026 11:53:33 +0000
+	id 1x3uQd-00000008x3S-34KD;
+	Tue, 08 Sep 2026 11:55:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3113460A99;
-	Tue,  8 Sep 2026 11:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59A271F00A3A;
-	Tue,  8 Sep 2026 11:53:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF71E60A99;
+	Tue,  8 Sep 2026 11:55:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B96B01F00A3A;
+	Tue,  8 Sep 2026 11:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788868412;
-	bh=TgnUvaODkORtnKYaf5ZZjujJr0av+pDqX4ZqIG/SHoI=;
+	s=k20260515; t=1788868554;
+	bh=YQfUobdb4z00WEwtnabznk2vNczJUBLHs2sPtjNr3cI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FOvgWczjtpAGFlyIM04XPBgIUoYgQRRH9iQaS/fQqiEifiriUQHpKjSKDBjqk5Ie8
-	 0oOr0sP4NqKInOziq9sP+fXMPoxBG709B47qFJzEcqfb9gGfAMs4RWeAqLrYDJ2b7j
-	 1UFT48gWzZMcLwpoX4kX6BvB2PDJ55w4rNIU1dpiIbmNISjveLAaWpEGjM66hdkq1B
-	 8KwxB0pelLRjAa68tHEvtwkXApscMwxQFAfkbhtJYkgDQIL6bKVWQWpQw6PTHjHaft
-	 Xf+3/BWJ/iYReJCxPvtUDIGXjw1R+YmPTxpvghklWlpoU1JsKCOM1GmG2xHkxMD++X
-	 HQNs7u3zPqTXg==
-Message-ID: <71218174-ddc9-49e4-a920-d211c169aa50@kernel.org>
-Date: Tue, 8 Sep 2026 13:53:20 +0200
+	b=lpGDXF7ZqLHduzl8FnziPOy44BLBHhC2Fw4f0jqmHQkKoysL/bVzIHC+FAe7sHw7Q
+	 jkocHRdaF0XzNj4f4PhKK93kmAF0iSVIiVQBbYfZPdmZHT4alxIAbfCODf6JWSb4LO
+	 MwoTcpezTjSOf7GShhM+TnQcNElLIb67uyP0XYwKTUG+OCwygDjUkHFMZQEHcinVRQ
+	 BQebwXbqAoK2cziX/sxNuAXk6q3CSoAjS+xNfEqMEoKs1lRGDE/xicTO/J4jx762XW
+	 F9VTD3V3103VvgiKmAuvnoNaijapfyIllBeaojqtCUKnCJmwj+700uh0TqrbiauV9A
+	 cMHAnXdOJcyYQ==
+Message-ID: <29e6d0d2-cdd6-4d59-aa6f-0073ac63eace@kernel.org>
+Date: Tue, 8 Sep 2026 13:55:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
  set_direct_map APIs
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
  <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
  Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
@@ -73,8 +73,6 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  loongarch@lists.linux.dev
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
  <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
- <a98df077-3e97-4eea-8bfe-470bad9ff9e0@kernel.org>
- <ap_vkSK_efv7ab90@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -121,7 +119,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <ap_vkSK_efv7ab90@kernel.org>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -138,38 +136,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> I'd assume such a case cannot currently get triggered, but there is no
->> documentation on what's supported and what's not. Or is there?
->>
->> Imagine someone performing an update on an area that partially spans two PMDs.
->> While splitting and updating the first PMD could succeed, splitting the second
->> PMD could fail. What would be the end result? Rollback? Does the caller have to
->> clean up?
+On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
+> When set_direct_map APIs were introduced by the commit d253ca0c3865
+> ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
+> parameter made sense because the initial callers (vmalloc and
+> hibernation) had sets of unsorted struct pages that required changes of
+> their mappings in the direct map.
 > 
-> There is no rollback in any of set_memory implementations. It's up to the
-> callers to cleanup the mess afterwards.
-
-Good to know, let's document that ;)
-
->  
->> I'd appreciate if we could add proper documentation with expected semantics.
+> Since there is an increasing demand for direct map manipulation and it
+> is also desirable to be able to update larger physically contiguous
+> mappings, for example an entire large folio, extend set_direct_map APIs
+> to receive number of pages parameter.
 > 
-> I believe it's more in the scope of  "arch, mm: create a generic
-> set_memory/change_page_attr core" [1] work than this patchset.
+> As there is still only a handful of callers, change the existing
+> functions directly and update all the call sites rather than adding
+> wrappers for single page case.
 > 
-> I can write (or maybe even slop ;) ) a doc about set_memory/set_direct_map,
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
 
-I prefer well minimal and accurate docs ;) Who knows, maybe we'll even realize
-while writing the docs that some semantics are weird and should be changed (some
-architecture implementations adjusted to not be weird).
-
-(I'm pretty sure we'll do, so schlop is not a good idea)
-
-> but I wouldn't want to hold this because there's not set_memory
-> documentation.
-
-I'm fine with documenting it separately, but we *really* should start
-documenting the semantics as we touch+cleanup this mess.
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
