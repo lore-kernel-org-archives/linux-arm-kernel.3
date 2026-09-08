@@ -4,181 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFEBC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F79FC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfLDb6uk00EqgnIeYS1KoA6r18pwAISqghClmXRsM5A=; b=u5Ln+ixFRiisR89iSS3o7ZgpSS
-	Ca5yi8AA3whY3U4N8QabNxyuwCbP3Gu+/Biv06x8U2OgkMJcZ6lxwxAaGJhih8DXhd6aowJISnavU
-	kvN1Zb6muvgTfpgV48hvCF48IvrVW7Eru2G4xbwpYVHxlRd3pOdcjZ+ZhLL7RQJ+aG5cypHzyl8Nj
-	mgTyEZ2OTH+Mj6WVqmAjSL1P2eJTFadkUfG7rFwuSFD89I4+oqZCtwPwHhD2+uJPp6by23PnKrzwm
-	tI062CeCVnhfXtFVAmsVCZmtu0sID1EGiNhHKpVSh17gEfurb2+vyEFGmHdXMDeOgeiDt2PF5DHcM
-	tzv1qdIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c02abhHVFEdqDQiBq5z2yqG6TQE5ipoCqgc71cPZ6jg=; b=AiLmCyJ30OjwVou8f5OqA9uS33
+	/HXhy5RBVuOdQc2yYFUj6fJOjrbtYVronkdtzFEB4ewseCWBBwz3/0h1PT7ZdPLnA7oo5TWHgHLVV
+	ELbDS6uW2UcArT9pegMhGMgsnyo2QNpwoby2PEwK1W33naIAXpNtxuMNuRrfnXknhip0iqx/jPtzT
+	DvVCob+0kGaKywHT8xGJCns371cDKxaqybYOg6zJt2w5BrgPCVPUpaLxIgeV7sR+EupDZ77dWr0cY
+	9K4F4nLWqBJ16MR6rONWxQ8f6JNO+VvlQECCk36rrXsI0a0pi8cEuiYEkrHFz+kBc9W89SwBUgjOY
+	rJvTQuWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tO0-00000008onK-2lZM;
-	Tue, 08 Sep 2026 10:49:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3tYc-00000008pqR-0xNL;
+	Tue, 08 Sep 2026 11:00:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tNy-00000008omj-2C5r
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 10:49:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IfLDb6uk00EqgnIeYS1KoA6r18pwAISqghClmXRsM5A=; b=YeQQ+CGI2x+MvTKHAXDteyTrCp
-	LQAwJ+bcGGBIjBJWGNIsjnKqF4ZyMzBz2R3zf8hEdfTlIm0osh/+PFNNNXS2qnZR+OCXzux3SoEuy
-	HtnhSa2m0IjIfHG2CfXWDbet0a6es4+bhcFt/x7T0ci0i18KRD96hkwsAlpny5sBBXyIcNlLmv/vt
-	edAiZAQff06XA8woq/ieB4ysTEOWWiyTxDeragufEwzDT6JwPWUJtAUMuNBwwSiqq4zeBXspm72ZO
-	uKAy1X5JAFcretAF3PTHE7cWlPH2lLP6g6EIUPB7vSjlEYEvV+VGpaCeRQMFodulmOzCu756ARkQ+
-	zvW6R41A==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3tNv-0000000HIkA-31ue
+	id 1x3tYY-00000008pq1-3Ltb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:49:05 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 688ADTes3235952
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Sep 2026 10:48:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IfLDb6uk00EqgnIeYS1KoA6r18pwAISqghClmXRsM5A=; b=IwnuZ2wTBKXskuwd
-	isjLX9peU+oyNys7mzijYGGZcTHJVfelcLsl1sjzcbEP9LvH3qfc/kfR9viyMPfu
-	Pgpll1UJOxu/bdzl5fc6UX11+NiGF8ccF1B8ncTS4Eo4yBVCw9x6i1kK8H1EMUza
-	FBT2jnPDwh0k8j5Qz5Nia1J/OkaH7D+fyAiy7ZopkrDybBiI9j9DPVj6jLNIulw+
-	ARZxbwB2lQe4JdGG2ugaCtG+kBLgMV8G2q/4py3gwMINkeU5oZ0j9EeLuR97VHaK
-	SF3ozt3rsmeJ3c8yIZBuJiE9mg8deE9YMoY6JBdu8lVglcLt/ZlqvHi1bWXB36t0
-	xSsM1A==
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjfp48baa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:48:58 +0000 (GMT)
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-97ca6578487so3318913241.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 03:48:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788864538; x=1789469338; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IfLDb6uk00EqgnIeYS1KoA6r18pwAISqghClmXRsM5A=;
-        b=DfmzODsCUyyYcm09uDlp1uskoEmWeb8igFBLr5R3xfsgG9mEYcGlqeO4pZ6BwPmTIN
-         irvmHvMMzB5Ncb1PqBl0AGg/O21YnT6XzWNyjDwnXuv7JvceAgP0I2k3NlrF4dttXti0
-         BuNyJFLRqr2Vmt7IpJACuGQUDwnc6OhQVLE2m3wvbLmchMnYJo0NLucx8WlFaAZiyOIR
-         87RXjLbxoriPIYR3hgT4xfnjaG/ial4Vd2jQ5UVKm0HO1QDcxtGuC0KpKH2XfBgYUxDM
-         0JKGYB2ap79LPcmHMsLZK9kTOaQQ1EvJr58xZFA6ASnuAAld6ZevW4pKCuxBC5ACkkI/
-         1VVA==
+	Tue, 08 Sep 2026 11:00:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788865201;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c02abhHVFEdqDQiBq5z2yqG6TQE5ipoCqgc71cPZ6jg=;
+	b=OG2Kiw/gJJ6FU1kDXMRsoFhnaf4/3dWVX3Qge+bNL0R72R+gDDtbTKtVbWe1JGUHT5LIua
+	CFtPK8a2CFksl5ZmE9Xdgz484lvOr17FlOw6Vpn7xnQo9nZdw1KupZq8l/wSMOSikMvoEB
+	wstKwBbDQ7AiDGQ09uOrVl3E2OPtVA8=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-297-aXbg4UsPPGqNQKsXCk9Fpg-1; Tue, 08 Sep 2026 06:59:59 -0400
+X-MC-Unique: aXbg4UsPPGqNQKsXCk9Fpg-1
+X-Mimecast-MFC-AGG-ID: aXbg4UsPPGqNQKsXCk9Fpg_1788865198
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ce7dff6253so23249815ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 03:59:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788864538; x=1789469338;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=IfLDb6uk00EqgnIeYS1KoA6r18pwAISqghClmXRsM5A=;
-        b=pgLu0glIDQLfNyVnru+QoZwdgqgxTL/eYAbGayy8drgcXmscdhlkGlMpeBP0Q7tKfz
-         3w5DuDc7zevsRw1jbCmUmkhtX/b2MnurYk1T2zeEfpPUEkv0BQ9Om8Uyh725Nl33TiL8
-         /sb7EXXxGi/ELZy3SAWvZMFIm4VpKCuGXgODj9yya7UY0M6osYDAiZXyKFra2Rjy/HDU
-         4wOu2ugjGdRIKC+J4YAljPoPrcNMe7qGah7K9o84ljWxmLNO5bMJyPr0CmNjMeg9BC1v
-         qzgqE+W9J1b3h2Z4sodaV2sr/EISLDgxKzOjQ5PoG0NlAxNNLBIOLETEaKqfGmkubUFB
-         sgAA==
-X-Forwarded-Encrypted: i=1; AKwUvBzP9cfpmMIFB11XJKHwMiEHok8H7KQg0Hzq4OHTjULZKlH2IkqBKKgkLcUXGTzfVk22/LzONFiFE2pZxbKSeNE9@lists.infradead.org
-X-Gm-Message-State: AFuF++l9wtWqmUSnLGIMob9Ps3DCofYHQ57/WU5BAPEKbT9RqAPauYYa
-	3jhA+S5Dk5THZI5RUBuoW8Fh7UFpArWKd5yGiN0IR3NfE+E3P7PbVyPThZe+Nkz2b5otb4ToqGG
-	r8TrU2fNGUTvYls1f7+8pjG4HCDKyKhmQx2xK7Y0cgROGMfUlkSokgvR/mQOCPZGFUUZnfP5VW5
-	y1ZQ==
-X-Gm-Gg: AYBFou0brE+cBeLvEdZsialRvQPuDIfeLKp51sgLtzygCBLuAtDq7pGlVkKtGjs7oOQ
-	4r7431iEYDJyn1DoWP0Ry6FHHrwcJYg9NH/0UWLAdJbY/W5b+TBb/lo7D+0HbSxv0B7cT3SSdAI
-	BSFDWrIQMr+KhXDRr3HteoCX1wXYT+jlUfhr0DW36O8XazpJ5FJoKRXmkrRIEyJn5QwhnmDjwqR
-	WZUadY1L3BnMHteNcfXoJbHjWVFz4Ycph1u0URJQGqliTbq9ZDJqYsnd7NQVvwz+UpZRPVm+7Cz
-	sT08njFAU0G7XYXC1pkBvvaFlIDy4ARq0h2+ZkFIIqCxkckkDVpmQniU6CxSdhrkMZKAMNbcAD7
-	mwlCOkvxJ+b1HFO3dPh1Xm8FywD3Rbj22YtU0lVjiYFi9vQiOZ7r1QH0yLD0+kZ7gkyu4xpwjcM
-	oRxsTbYwBvEeTa
-X-Received: by 2002:a05:6102:509f:b0:785:e444:15e4 with SMTP id ada2fe7eead31-78a4a87d391mr12082406137.6.1788864537605;
-        Tue, 08 Sep 2026 03:48:57 -0700 (PDT)
-X-Received: by 2002:a05:6102:509f:b0:785:e444:15e4 with SMTP id ada2fe7eead31-78a4a87d391mr12082372137.6.1788864537092;
-        Tue, 08 Sep 2026 03:48:57 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b6166fea24sm3121617e87.48.2026.09.08.03.48.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 03:48:55 -0700 (PDT)
-Date: Tue, 8 Sep 2026 13:48:53 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 2/5] drm/bridge_connector: preserve connector status for
- IRQ-only HPD events
-Message-ID: <cwa6rmvixxmbw4ga5ujq62kzwn2rrb6ysvv5fqd3oge662ai52@dtvw4so36l2p>
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
- <20260629-msm-dp-msttypec-v1-2-646a10256233@oss.qualcomm.com>
- <famoeog5snpvj24b6izwox2gy74ywnwmybflfv2tvr4hjuix5q@cbtce5s7k7sv>
- <c36875c1-2d22-4c16-ac2f-4f4a947ed69c@oss.qualcomm.com>
- <vr7pqox5gusdyqd5jvmiu3gy7bbjm4znr3pcsivbe2loa46mff@t7atknofandt>
- <61c3f894-264f-4878-bfe0-4567f4317e9d@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1788865198; x=1789469998;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=c02abhHVFEdqDQiBq5z2yqG6TQE5ipoCqgc71cPZ6jg=;
+        b=Q96BnW60i4WKCU9Yne8GSgecZRJdQ+MUB7HkrDb2YMVAHjC7R+sVUSBAOG2B0Jk734
+         sW9v2JNye7vOcktdsRCU3kiEr+p32jkBGbCykZIO7BQdLUCLddRmBSjP2EunS4Ca2gcz
+         qeRf9oPIb2CRD5fS9Vr/XP5N8quaKNcdIlwazGjED0FoCbvsOCo/5q2S2251RVrSWxFP
+         vp5KWzpzIQ74IVx/Zt1wMLzH+Pk/m2XsYUnO4cV2MklU2xSOudMGZ7xCWM9G8DHsL2cu
+         7jodYKoxTL18Llh1ARWh4YBuDkmE7NfGLCcxzJecdDghhMausa6+nDrLyY7UAoyQRAXx
+         oIfQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzAtdtQNOoeJgTTnCD2FKYkEQ5hG0BMMeNBPIiUDD8d3Uy9e8tF8f766cLNNb2NS4oiOXU33QvrPuC2iiUE6vZF@lists.infradead.org
+X-Gm-Message-State: AFuF++ku6r8qSLZB4ntXaJmqCPrqVl9PuDwDibhCVbqqyOKFZwF+5vN/
+	UIKF6EfSC+ySPgKGkcUKSdf7giTj8sjGeSpUANFSvtAxO/Wh0Ag+UiikshOGMj3/pVdS8fT6bU2
+	w6dhdNWRMMVdDupCk1RUTIiT2tE+VVhShVBsa7sDN9ym1lRhzLXdqSj1RVWywMGo5P1vsxImtZE
+	Kz
+X-Gm-Gg: AYBFou0N4uiH7tSgGzj5EHuaGfoPu/JkdFIelaE+bsInmkGzJzROrF+je23siMBpLdj
+	prVveT26gN2IycBgAgpXnoyybU3bxvdtRPC2J8hWyVocIve2AQnicBuoihey3RjelQS344EMJvK
+	NGX2p6ENRmUpL6nY+GGswy4hs2WwmS0ioAkzHrG1h8oPDqVxt+6GWoaXgrS24yByybPbT3pTpkU
+	aaOXtEmjxBxkdBCOQ09MVoD15bPclQFPSyKlcrMY/xJAu+42OdJ7wJr35GmR7eGtUn+jNExTMOw
+	2HKYmy5U6dqS4mp1fYORVSD7GnEDhY5dhcUsegOfuGQhanEvgnEgUJ8kegmevks409ff5PnCZq5
+	0FIJmGSy3FKCFsV0iYsvJVEFhIducJ6zwf1S8lXiTzg==
+X-Received: by 2002:a17:902:e944:b0:2cf:7db9:e13e with SMTP id d9443c01a7336-2db6fe6d0f8mr58961725ad.3.1788865198165;
+        Tue, 08 Sep 2026 03:59:58 -0700 (PDT)
+X-Received: by 2002:a17:902:e944:b0:2cf:7db9:e13e with SMTP id d9443c01a7336-2db6fe6d0f8mr58961265ad.3.1788865197629;
+        Tue, 08 Sep 2026 03:59:57 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1495acf7sm57511075ad.25.2026.09.08.03.59.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Sep 2026 03:59:56 -0700 (PDT)
+Message-ID: <9706a0b9-b686-4502-bfae-08aabe05fb84@redhat.com>
+Date: Tue, 8 Sep 2026 20:59:45 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <61c3f894-264f-4878-bfe0-4567f4317e9d@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=Qu9uG1yd c=1 sm=1 tr=0 ts=6a9fe81a cx=c_pps
- a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=79fl_rtsZexB1o3ud2EA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=1WsBpfsz9X-RYQiigVTh:22
-X-Proofpoint-ORIG-GUID: eOU6p0-ZypwJ84BVdU9iYqKjOzhdYQPG
-X-Proofpoint-GUID: eOU6p0-ZypwJ84BVdU9iYqKjOzhdYQPG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDExNSBTYWx0ZWRfX5V1//jKgSYOj
- h0L9T1ZbAVrXSzyWh7PEQwtRfUzcTU44qzN/STKmh6FWRiIaxtdwr4p3AKhPq4zq2RrUBNK8MOr
- +ajxPGCNHdhr3ylvDpYyjwaq/4GaAJiJyfeqg4eY4TpTLf5eSmQDHqIu8ztfaVPEg6IFwJdN1xe
- aKdmhewMHpHCdEf0ctxoKtxl798ZcF2qwMdtar01qD71owuqf8eNG4Uy43C03PJ5vw4WIqLWOIT
- IkYa+xQuMSfr/dIwz7xM3i0gfsRywSxtjT4+jAlZ9pgNpkn4Gwyb2qhJVRb8K6zs96zw82Hoqo8
- CYgULS+q2n3IhZK+NNDOoDl64eNleVtVTff25DocPegFF3h9CMyGdPWUkp2iTdGapQidlPQCCum
- 69oux5NWqbdvhftqE7BzHNo/uvQNy4ij5X8S1lzdkGJYtD5cJuN82sZ0kK2NXUnqJEUgxQiVSF7
- Yci2YQPT3NaqakQzSMA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDExNSBTYWx0ZWRfX4u/UZ122i2T5
- V7NFlFLKHZXidX8Ne0pk2Ws+07/QwaHdLbfk13M0LQiHWiyDneeMlbbd9JOdeOHnwV55ncRr79/
- E7uv+pkHw18AeyqcmX6mH9K39xQLLjY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_02,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 adultscore=0 spamscore=0 bulkscore=0
- lowpriorityscore=0 impostorscore=0 malwarescore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080115
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 3/7] firmware: arm_rmm: Configure the RMM with the
+ host's page size
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-4-suzuki.poulose@arm.com>
+ <10893135-4757-44de-91b5-180a9774d868@redhat.com>
+ <ap--9pJdD_Y_j1aY@FCCLS0092175.localdomain>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <ap--9pJdD_Y_j1aY@FCCLS0092175.localdomain>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: vuDkidd28JuYDaT8WwfGmGZPwEjXqeV4z-qRVkjuWqo_1788865198
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_114903_989616_77CFCF18 
-X-CRM114-Status: GOOD (  62.28  )
+X-CRM114-CacheID: sfid-20260908_040002_923213_C3DA6FDF 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,178 +122,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 03:19:41PM +0800, Yongxing Mou wrote:
+Hi Kohei,
+
+On 9/8/26 6:00 PM, Kohei Enju wrote:
+> Hi Gavin,
 > 
+> On 09/08 17:04, Gavin Shan wrote:
+>> Hi Suzuki,
+>>
+>> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+>>> From: Steven Price <steven.price@arm.com>
+>>>
+>>> RMM v2.0 brings the ability to set the RMM's granule size. Check the
+>>> feature registers and configure the RMM so that it matches the host's
+>>> page size. This means that operations can be done with a granularity
+>>> equal to PAGE_SIZE.
+>>>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> ---
+>>>    Changes since v15:
+>>>     * Actually check the feature register for the host's page-size support.
+>>>    Changes since v14:
+>>>     * Move the implementation into drivers/firmware/arm_rmm.
+>>>    Changes since v13:
+>>>     * Moved out of KVM.
+>>> ---
+>>>    drivers/firmware/arm_rmm/rmi.c | 58 ++++++++++++++++++++++++++++++++++
+>>>    include/linux/arm-rmi-cmds.h   | 17 ++++++++++
+>>>    2 files changed, 75 insertions(+)
+>>>
+>>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+>>> index 008a783407b4e..76f91c145e1fd 100644
+>>> --- a/drivers/firmware/arm_rmm/rmi.c
+>>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>>> @@ -77,6 +77,60 @@ static int rmi_read_features(void)
+>>>    	return 0;
+>>>    }
+>>> +static int rmi_configure(void)
+>>> +{
+>>> +	unsigned long granule_feature;
+>>> +	unsigned long granule_size;
+>>> +	int ret = 0;
+>>> +	struct rmm_config *config;
+>>> +
+>>> +	switch (PAGE_SIZE) {
+>>> +	case SZ_4K:
+>>> +		granule_size = RMI_GRANULE_SIZE_4KB;
+>>> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
+>>> +		break;
+>>> +	case SZ_16K:
+>>> +		granule_size = RMI_GRANULE_SIZE_16KB;
+>>> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
+>>> +		break;
+>>> +	case SZ_64K:
+>>> +		granule_size = RMI_GRANULE_SIZE_64KB;
+>>> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
+>>> +		break;
+>>> +	default:
+>>> +		BUILD_BUG();
+>>> +	}
+>>> +
+>>> +	if (!(rmi_feat_reg(1) & granule_feature)) {
+>>> +		pr_err("RMM does not support %luKB granules\n",
+>>> +		       PAGE_SIZE >> 10);
+>>> +		return -ENXIO;
+>>> +	}
+>>> +
+>>> +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+>>> +	if (!config)
+>>> +		return -ENOMEM;
+>>
+>> An error message is needed here.
+>>
+>> 	if (!config) {
+>> 		pr_err("Unable to alloc RMM config memory\n");
+>> 		return -ENOMEM;
+>> 	}
 > 
-> On 8/18/2026 11:18 AM, Dmitry Baryshkov wrote:
-> > On Mon, Aug 17, 2026 at 04:02:31PM +0800, Yongxing Mou wrote:
-> > > 
-> > > 
-> > > On 7/12/2026 6:33 PM, Dmitry Baryshkov wrote:
-> > > > On Mon, Jun 29, 2026 at 10:48:04PM +0800, Yongxing Mou wrote:
-> > > > > The bridge connector HPD handling path currently updates
-> > > > > connector->status for every hpd_notify() invocation.
-> > > > > 
-> > > > > This does not work well for IRQ-only notifications where the event being
-> > > > > reported is carried by extra_status and no connector status transition is
-> > > > > associated with it.
-> > > > > 
-> > > > > One example is DP MST. HPD IRQs are propagated through
-> > > > > drm_bridge_hpd_notify_*() so that bridge drivers can process the
-> > > > > notification. During MST operation, however, the SST connector attached
-> > > > > to the bridge connector is intentionally kept disconnected while the MST
-> > > > > topology manager handles all connector creation, removal and hotplug
-> > > > > processing.
-> > > > > 
-> > > > > Updating connector->status for an IRQ-only MST notification may cause
-> > > > > the SST connector state to oscillate between connected and disconnected
-> > > > > depending on the notification path. These artificial state transitions
-> > > > > can later be detected by the polling logic and result in unnecessary
-> > > > > hotplug events being generated. Userspace then re-probes connector
-> > > > > status, potentially triggering the same sequence again.
-> > > > 
-> > > > Then the API might need to be adjusted.
-> > > > 
-> > > > Remember, we have two usecases, which we must be able to interpret
-> > > > correctly:
-> > > > - The driver gets separate HPD and IRQ_HPD events.
-> > > > - The driver gets HPD and IRQ_HPD at the same time.
-> > > > 
-> > > Ohh yes, here need to rework.
-> > > > > 
-> > > > > Treat notifications with status == connector_status_unknown and a valid
-> > > > > extra_status as IRQ-only events. Forward the notification to bridge
-> > > > > drivers without modifying connector->status.
-> > > > > 
-> > > > > This keeps IRQ delivery working while leaving connector state management
-> > > > > to the component that actually owns it, such as the DP MST topology
-> > > > > framework.
-> > > > 
-> > > > How is it handled by other drivers (i915, amd, nouveau)?
-> > > > 
-> > > i915, amdgpu, and nouveau don't go through the drm_bridge_hpd_notify()
-> > > bridge chain -- their DP controllers are integrated into the SoC, and
-> > > HPD interrupts are handled directly in their own encoder code.
-> > > 
-> > > MSM DP is different in that HPD comes from Type-C / pmic_glink altmode
-> > > via aux-hpd-bridge, so it has to go through the bridge chain, which
-> > > means this semantic needs to be extended to the bridge API.
-> > 
-> > Still, when do those drivers send the HPD event in case of IRQ_HPD? Or
-> > is it that in their case IRQ_HPD just triggers inner logic to reread the
-> > status registers and then the driver sends the HPD if there is any
-> > actual change?
-> > 
-> So my understanding is that,IRQ_HPD is primarily used to trigger internal
-> status revalidation. A hotplug event is only generated if that processing
-> concludes that there has been an actual connector or topology state change.
+> I largely agree with your suggestions, and they look reasonable to me.
+> 
+> However, wouldn't this be redundant? Since __GFP_NOWARN is not set, the
+> page allocator would normally emit an allocation failure warning with a
+> stack trace anyway.
+> 
+> I don't have a strong preference, but as per "14) Allocating memory" in
+> the coding style, I believe it would be considered unnecessary.
+> 
 
-Ok.
+You're correct that the error message is most likely redundant here and we
+needn't it. However, it's notable the allocation failure warning and stack
+trace isn't 100% raised when looking at mm/page_alloc.c::warn_alloc(). At least,
+it depends on !__ratelimit(&nopage_rs) even it's less likely to happen. Similarly,
+there are conditions to raise a warning and stack track in case of the injected
+allocation error in lib/fault-inject.c::fail_dump().
 
-> > > > > Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-> > > > > ---
-> > > > >    drivers/gpu/drm/display/drm_bridge_connector.c | 12 ++++++++++++
-> > > > >    1 file changed, 12 insertions(+)
-> > > > > 
-> > > > > diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> > > > > index 5edca47a025f..7334d6677604 100644
-> > > > > --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> > > > > +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> > > > > @@ -163,6 +163,18 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
-> > > > >    	struct drm_connector *connector = &drm_bridge_connector->base;
-> > > > >    	struct drm_device *dev = connector->dev;
-> > > > > +	/*
-> > > > > +	 * IRQ-only notification: extra_status carries the event but
-> > > > > +	 * status is unknown — do not overwrite connector->status.
-> > > > 
-> > > > But it's not unknown at this point. The connector status is reported
-> > > > following the HPD status.
-> > > > 
-> > > You are right, in the SST case the bridge_connector status does follow
-> > > HPD / link status -- because the bridge_connector itself represents
-> > > that SST connector, so its status naturally is the link status.
-> > > 
-> > > The MST case has a key difference though: the SST connector must be
-> > > explicitly marked disconnected (to prevent the DRM framework from
-> > > enabling it), consistent with what i915, amdgpu and nouveau do. In
-> > > other words, once MST is enabled, the SST connector that the
-> > > bridge_connector represents no longer equates to the link status --
-> > > the real link is managed by the MST topology, and the SST connector
-> > > is just a placeholder at that point.
-> > 
-> > This is fine.
-> > 
-> > > 
-> > > The issue is that IRQ_HPD still travels through the bridge_connector
-> > > chain and takes the old "update the SST connector's status -> emit
-> > > hotplug" path. Under MST that runs into two constraints -- and this
-> > > is exactly what this series is trying to address:
-> > > 
-> > > 1. The SST connector represented by bridge_connector no longer stands
-> > >     for the link, so its status must not be overwritten by IRQ_HPD
-> > >     events.
-> > > 2. IRQ_HPD needs a clean path that does not trigger a hotplug on the
-> > >     bridge_connector -- the MST framework already manages hotplugs
-> > >     independently.
-> > > 
-> > > Using connector_status_unknown as a sentinel here does feel a bit odd;
-> > > let me think about whether there is a cleaner approach.
-> > 
-> > The status here must represent the status reported by the corresponding
-> > layer: be it DP ALtMode, the dp-connector driver handling the HPD GPIO
-> > or the DP driver itself handling the HPD pin via the state machine.
-> > 
-> Got it.
-> > Is it still an issue if the bridge's hpd_notify() callback determines
-> > that we should not be reporting the event and drops connector->status to
-> > 'disconnected' again? Why is it an issue? Should we instead filter the
-> yes, it still an issue if each irq . The SST connector  should not be
-> reported as connected, even momentarily. When the connector status is
-> changed from connected back to disconnected, this state transition is
-> treated as a hotplug event and trigger hotplug, introducing unnecessary
-> userspace polling and re-probing.
+Thanks,
+Gavin
 
-Please correct me if I'm wrong, if the AltMode sees the HPD=on, reports
-that to the rest of the DRM subsystem via the hpd_notify or oob notify,
-then the DP driver identifies that the DP Sink is not connected (or that
-it's an MST device with attached branch devices, etc.) then there will
-be no status=connected HPD event. The userspace might still get the
-status=disconnected HPD event, but that shouldn't matter that much.
+> Thanks,
+> Kohei
+> 
+>>
+>>> +
+>>> +	config->rmi_granule_size = granule_size;
+>>> +
+>>> +	/*
+>>> +	 * For now we set the tracking_region_size to 0 which is the only option
+>>> +	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
+>>> +	 * TODO: Support other tracking sizes via Kconfig option for other
+>>> +	 * PAGE_SIZES
+>>> +	 */
+>>> +	config->tracking_region_size = 0;
+>>> +
+>>> +	ret = rmi_rmm_config_set(virt_to_phys(config));
+>>> +	if (ret) {
+>>> +		pr_err("RMM config set failed\n");
+>>> +		ret = -EINVAL;
+>>> +	}
+>>
+>> The error code from rmi_rmm_config_set() is indicative sometimes. Also, -ENXIO
+>> would be more appropriate than -EINVAL?
+>>
+>> 	if (ret) {
+>> 		pr_err("RMM config set failed (%d)\n", ret);
+>> 		ret = -ENXIO;
+>> 	}
+>>
+>>> +
+>>> +	free_page((unsigned long)config);
+>>> +	return ret;
+>>> +}
+>>> +
+>>>    static int __init arm64_init_rmi(void)
+>>>    {
+>>>    	int ret;
+>>> @@ -90,6 +144,10 @@ static int __init arm64_init_rmi(void)
+>>>    	if (ret)
+>>>    		return ret;
+>>> +	ret = rmi_configure();
+>>> +	if (ret)
+>>> +		return ret;
+>>> +
+>>>    	return 0;
+>>>    }
+>>> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+>>> index 2fb1f7f86d71e..9aa27697e2377 100644
+>>> --- a/include/linux/arm-rmi-cmds.h
+>>> +++ b/include/linux/arm-rmi-cmds.h
+>>> @@ -12,6 +12,23 @@
+>>>    unsigned long rmi_feat_reg(unsigned long id);
+>>> +/**
+>>> + * rmi_rmm_config_set() - Configure the RMM
+>>> + * @cfg_ptr: PA of a struct rmm_config
+>>> + *
+>>> + * Sets configuration options on the RMM.
+>>> + *
+>>> + * Return: RMI return code
+>>> + */
+>>> +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+>>> +{
+>>> +	struct arm_smccc_res res;
+>>> +
+>>> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
+>>> +
+>>> +	return res.a0;
+>>> +}
+>>> +
+>>
+>> rmi_rmm_config_set() is used for once by rmi.c::rmi_configure(), I would not expose
+>> rmi_rmm_config_set() by combining the logic to rmi.c::rmi_configure().
+>>
+>>>    /**
+>>>     * rmi_features() - Read feature register
+>>>     * @index: Feature register index
+>>
+>> Thanks,
+>> Gavin
+>>
+> 
 
-> > HPD events in the drm_sysfs_connector_hotplug_event(), making sure that
-> > we don't send duplicate disconnected events?
-> > 
-> I think driver should confirm it really send a hotplug when we call
-> drm_sysfs_connector_hotplug_event()
-> > What is the expected behaviour of drm_client's?
-> > 
-> - Genuine connect/disconnect: the client is woken up, re-probes and follows
-> the new state.
-> - IRQ_HPD with no actual change: the client must not be woken up at all,
-> otherwise every short pulse triggers a full re-probe of all connectors.
-
-A HPD event on one connector should not trigger a full reprobe of all
-connectors. It can be an error on the kernel side, if the kernel reports
-a device-wide HPD instead of sending a connector-specific one or it can
-be an error on the compositor side, if it doesn't handle
-connector-related HPD events in an effective way.
-
-Anyway, I really don't think that the kernel reporting a "disconnected"
-HPD event on the connector which was already marked as "disconnected"
-should be a causing a lot of troubles.
-
-> - IRQ_HPD where the driver does conclude that something changed: the driver
-> escalates it explicitly into a real status notification.
-
-Agree here.
-
-> - The SST connector while MST is active: permanently 'disconnected', and the
-> client must never select it. The real outputs are the MST port connectors
-> created by the topology manager, which get their own hotplug events from it.
-
-What is the "client" here? DRM client? Compositor?
-
--- 
-With best wishes
-Dmitry
 
