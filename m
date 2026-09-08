@@ -4,139 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45917C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48290C79FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 07:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zSUX4rmxFz9Z2gBtnlzHh970/YgCNq6kC/HDrBYmw8M=; b=h2hUdi47NBK1HIYH/xfMS7jC5h
-	iH6uYe+EYSQpQH/oKqSN/YXwRBx0jClU1VN8Rc6Tz31CMjVnJPPAO/Pz91LHCGlHwjRiRzR7LeISy
-	hOxb4j/quv2iuEa457VAjGhhebajE2HyQv9KSyb7YkLmxbwEvNIb+h7AzVLk5epBTemgwebGM5XGE
-	LUpNpe3PZvC7LThyMSArad96HO5i6biA9B5T6IvMi4DZHKs25Q0teD7i9HjXjA0aU8kBuFWcYIYdX
-	iCs8nmO4Q9Dzy3NkdYcyf7H+elbC55flf3LPffy25KTjMFjDHu5nPuGw5OAttSY4gpO3RhkjyYzJ4
-	jpWYihdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kEtwck+GhzVGnuAmeYI6QR28xLrnmqSNSlv9PEkxITQ=; b=mUONoVdIsO3Zm8eLQpQrt/KPsx
+	P14hL7ytda0Z21dXPGgBTI3IwfQl4MB1xz4loRRQGEUbZ12t2kZWgRy6ovDD4tRwzlUv5joKNsVnm
+	SK++5dKVlYt0XUTFwDfeOASILEApsr39YcUlkIxB8hONMx8PuDzoVVWQiDBtcrj+vhZjKgRpwH2yK
+	vE48RkqY/3KBXcVJhGs7nfCWqjHS8J0Fsbd9/63KaU0JOwRJ3ZlvpxfvLUGt28fb+xfqSQJw9tuku
+	yHwjQnWSYLzlakXACgPmrzX3cBhFZem/7chWXPxtS/TuDgNijObLlKs3RuUUAlrow5GDmOcFlv+lU
+	DtqpMfEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qLY-00000008Hc5-3cD5;
-	Tue, 08 Sep 2026 07:34:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x3qMo-00000008Hpz-2mwd;
+	Tue, 08 Sep 2026 07:35:42 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3qLW-00000008HbQ-3BlO
+	id 1x3qMl-00000008Hp8-2O8B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 07:34:23 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6886LmCN1645953
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Sep 2026 07:34:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zSUX4rmxFz9Z2gBtnlzHh970
-	/YgCNq6kC/HDrBYmw8M=; b=LFxI232UImGoY7CUSZ6Azl+dcEDUwQKxtpApVysh
-	xqZy4LKcKVNXaYqFGA59tnRIT7hPrkgf7lpQZbb5zFGoaHeF9zaxBUuN2pf2/MGn
-	G5Fu4F/dh+IULKrxawsg3O3/whmSgfK1CtICF8l5zwD/XIgRuR7wcOXDNpqT1J4Q
-	3owJ5mEbD7QtB9fgifkg+uVR2Pc8Q779RMbZhAUZYY3biznfU2YswSe7f88Q8tGs
-	gph3d7V0jWgdncXbNXmUTlQVLQ3dk88dy9Qb0cdmajRWbTPsQj7PD3r+wz1XfTGd
-	00oy3PRKLyKztw5UEZ1LXSUBqyuFdbXE69hccD5bwThttQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjcvugb5b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:34:22 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93917f4ccb4so511878585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 00:34:22 -0700 (PDT)
+	Tue, 08 Sep 2026 07:35:40 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482e1b30c94so261178f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 00:35:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788852937; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BWJTNz0Np/HXVl/xDJdOP+WHnwuZ6y3e/yQMTgt57HmhhwJIevm+cB9319ioUIvr5+
+         YKftuVdPW1+Dg15M+ITfEDYzEeeRF0kz96KA8Kcz2DrnpTPQgjI1v4bblq5hlc1CQCMG
+         blp9RfuLLRi+hRwwGDayukqCQ1sg8SN8+Fw+F3aXUXi3m4TKAS6mUDs0ZuzJy53tjkQe
+         LrRQg6Fe7No2sNwTUftMoELqAoz/d5UeSdNBXv5T0XivJgYvyIKndj1FvQWZ+pX5r5q3
+         VA21F9LEoqYLsLLgjcYKM+IQcLXOP2PeyHn3UT27qrQLjexvFUEKWW8kuxAcuRo3Wrpd
+         QUiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kEtwck+GhzVGnuAmeYI6QR28xLrnmqSNSlv9PEkxITQ=;
+        fh=SzfFMoTiiSZmihkVAMn/23a2GY5KBbLVq5UH6q0OZwY=;
+        b=ReIw1xIuuk0yuwof8wr1SKKZ8qU8czi4IZ8HaRLwl0qJtfR+Y67G+yFk5d9X3xylOd
+         Z91hpKpVQ3zEwJhob/dKChV2Fj1Hu28CtddMsM5RXaDws07x8Qb8Tuk8mlKKCF+YeHAW
+         iNtJrupknpr48vvAtCPggtbfU8GOfG7JOQX7ccaxvDr1MGTqCqDkWth5+jB2Mtz2ZI5g
+         ILMoOmS+e4Zfs3fNfi6LBga3579y78xxLk9nbAUU7dCBMd22sfWFbkxeeQbj5u6oDpi6
+         ODG2Y6YqtGqXBtDvG+owVtbVjon9R17g18igawZRyo1J+OAjZJY8WS9N5WAVyntmz/FV
+         WtTA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788852861; x=1789457661; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1788852937; x=1789457737; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=zSUX4rmxFz9Z2gBtnlzHh970/YgCNq6kC/HDrBYmw8M=;
-        b=iTR0yA7opIdviW7z0nGDvqySSZk3nheud45hjEbwNsOr16Uio0cHEzIXLjqnBZKtOY
-         hv5nd/wlOSPRK/v3lV3Xz+FL0LCUfiP9vU5/5Dnimv/bUH5nA0iRSEg7M6+1801AWz7V
-         XLv6zpAfCS8Wxp3Nj0fvPel4CW5le+En6LBhN/Zc2v2qZ43lxBn2fsRNOGB0aMWlWpYO
-         YmlzqDpEC3GeHRGDNCV6eSVwFov+VoTwHMTL1MDs6NiAsaCa2KkgAIwMufOwX+pGl8ZL
-         jNIay5ae9nSi/lImIGglnPtZUvZs+8ark/eBDyJkSeQn2uCwlBmAnl1Xf4PHoFnTx/sV
-         mWNg==
+        bh=kEtwck+GhzVGnuAmeYI6QR28xLrnmqSNSlv9PEkxITQ=;
+        b=DdJliAyErX+985S1IWpHsjaS/DVJ16H1soBjtmGSHG31erPJkab71pHQkWc9wRNlDM
+         8br5E29UiPtfaXpixlC6cFEZYY12qrvBpyDm0U0vRBxSFYs5+oqv5a5sqo28UYlRwv+B
+         AmfjpqMGqxcxNXzls7V1RNXSZx3KgzjTQeWyAo/bkZelMMnT5YPHbZQ5ms2zXegYfAQ3
+         uEWRSw/huuYnIWlxs4UvsvqD4SqcVjVPreutHoYdONnFFM3qiifbq20/ADLJi++J/U/Y
+         0uDB3jJ1EC++HsVGDz6lpTADXZuYgPWwAvDjE8+aO0yt4qLtPhplFSJI8+vRbHGP1ZY/
+         QMNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788852861; x=1789457661;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1788852937; x=1789457737;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zSUX4rmxFz9Z2gBtnlzHh970/YgCNq6kC/HDrBYmw8M=;
-        b=cM5M4AbZJdFl2MKppo3m+H08zjcgbSBPAVySW63c6RR0G9EAoak2w8XXBuEjqsHB2b
-         ffuKUXfo13jFyNmcgGesjqQNkzfNpsMeQQs9eEuS+hr4eKNc3ooFmRIEsuJtYBGdmxGY
-         3MUQx+7qVLNnUDqsX/lL5ycrwqxPavw293KjEKPlC58eKuf8HKK2g+Zx7XrS7384xDuh
-         v9/7IbsGxZy2zAFxVCTKXpT58cKsHL69iaukCo5YgOa4OXlsY8Y0wXV0Sz8CzK9vYxYg
-         SmVfFMLWi++XZ4UVj9ZOZ5vmWGghpeJwzE2fFN7SWkLtBcTI/xsAIxCx9XaCRgJPB149
-         /cig==
-X-Gm-Message-State: AFuF++l07nVeV0y1E9AUCDlWXABzmzm7BUEmLzDnEYteL0U7JgDnhMKe
-	sQ1n/Jys0+6WLaxmvmDjbQHp7j1e08DImJzHvXx+AC2JBxQ5ZleUSaly+0NOXE2tZuei2goHMXl
-	X9N0+T5oEhA/Sls/6i/RKLZ9gfY898sHke8wGqGT1jMyUgFGiHHnRrLx20+kIHzuVoFxXkFug7Q
-	WwWA==
-X-Gm-Gg: AYBFou3Pq4nY7NUoI16r2uHiaWCofM/ci/RoVchUGXJcJokv4cJALFcET/odTFjiap6
-	d/ZSETLIRpWOLdqCPxO1PsOLYmEkWQrK5KgCOQWDg2hMoVNwRHlIQPpHZV0bLRz/Lvdkf5vyByM
-	cg2BYVVFFoRojy4vkJ5s2Ab38rQgLzkcNhvdgVfhYZnRx7ZXMpy0RNaTV5HCb9c0TsS14oWh8g+
-	7FDqLjk573qpCGShjePriVzO3Wa1IZEee4zvKjx6lvtpRXWaNnncFPlM5pJjOam0pnIckEVrf+t
-	2EAw1g6HuC6ozp+JiyoyRXlHky0X1wf507As38GLHPzwx3DmlUKJR1kRfY148ZtOV4p5v75y+pR
-	nJ62fFjvEqpI=
-X-Received: by 2002:a05:620a:7087:b0:939:7f87:ff22 with SMTP id af79cd13be357-9398045fd75mr2956893785a.36.1788852861139;
-        Tue, 08 Sep 2026 00:34:21 -0700 (PDT)
-X-Received: by 2002:a05:620a:7087:b0:939:7f87:ff22 with SMTP id af79cd13be357-9398045fd75mr2956889485a.36.1788852860466;
-        Tue, 08 Sep 2026 00:34:20 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.7.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cf7740d44sm818612285e9.15.2026.09.08.00.34.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 00:34:19 -0700 (PDT)
-Date: Tue, 8 Sep 2026 10:34:18 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH] interconnect: qcom: icc-rpmh: Add opt-out parameter for
- QoS settings
-Message-ID: <6iixty74opjqkegpdmtytffgrllcjvrmhlsv53xtackdqzvwge@6fh5onz27p6c>
-References: <20260907171729.1735641-1-maz@kernel.org>
- <v2gxqazjoxe74q5364jucy4pjds6gx4gfdchgulekl5mwk2azk@we4ibolioibm>
- <87ld9c4vc2.wl-maz@kernel.org>
+        bh=kEtwck+GhzVGnuAmeYI6QR28xLrnmqSNSlv9PEkxITQ=;
+        b=QIv/FhAywt7iAYhA2g5xWHOSJFxXaJbWeaeHSHqXab5uhBxqXSaQk8ASCMM/EOsy4Z
+         OZPAP5fg/RygR+M7HZcrDJHPLEaUq6RnqvmFdgThNlfxSfEZaYS4VPB3W0tv0t/1Reyh
+         Qi0zyJ2WM9qvMfvzhp1RI4pCYcjEUI8SDW2aCByc3wJwLHAGCFxSEiLTHJp8a9AZwpq0
+         DwAbOzoGTHyykQ4OQBLa6N6J1yqInmT3IyLA4cEltSV7iyplSfVcgJKzt9uGblS9KFPN
+         v5IlQWTBigqjlVWtpL9Y5OLXgNVz7EVPPGULHzTT6i/YQV3s7EFEpuWBPpw8RdQL0tID
+         RVMw==
+X-Forwarded-Encrypted: i=1; AKwUvBzCOU19Xfjx778TWqnosovRLb454CqsoE9EpiC+cNVNGGmRjcdSZLj+zvlUpgoeWeDblUyt2z7n9XGE2yk0fX7c@lists.infradead.org
+X-Gm-Message-State: AFuF++kNqsDXITW8WXswweycd3s4KGfCFH7kBjnDLWxUg8MwI5LgOcjB
+	y2ED37vJPVtbYrXhZhT1+AAQq4sCDJCKJ0youy9AVUrwTtgrLRd5F5y30kdMoBy4azTaZxnhzkf
+	9dwhYjYJM2xybjD8SyyiISl2xmy68a8M=
+X-Gm-Gg: AYBFou3UU7KxupBNY1dQ+oVg8u6mPuDK7bDcpLAQAoDCV8E2lCrxaZI6CLoi5+Bez1p
+	+3J87lOC3ZsbS3tZL3ebTkl0J8CkOoFT3RFs4cT1ILojWe8UiK2EaPMc3V1EDrLAJ8dVRpRYRdR
+	yVQq97QiY2/S4cKP99DavtxLgQhPN8hJbAmRgMQqyKY3sVi1QSPbcpvh8mGE7UTwj9xkI84mn/r
+	WyHju5mIYMBXHFat+lxN/uHYQi9JtRb1pO3o/A5mUF4BFeIG89J7coh8A/jx4m8HwA7CnoJQ9D3
+	WTAqYysWhzvfW3i1RDvx+fdIC21IwSOeRnI0tEJ36ykGoIVYr9i2jI0mwdf7sOlI101SE/gvgWn
+	zPFtteg8pcT9X0j/HOG+euL6NPJieeg==
+X-Received: by 2002:a05:6000:2610:b0:482:ea38:6b80 with SMTP id
+ ffacd0b85a97d-485905b6dcamr17746950f8f.1.1788852936749; Tue, 08 Sep 2026
+ 00:35:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87ld9c4vc2.wl-maz@kernel.org>
-X-Authority-Analysis: v=2.4 cv=ePkjSnp1 c=1 sm=1 tr=0 ts=6a9fba7e cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=dePp4Gl7O00gmbwhyVsZwA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=z6oAIkbW-EU95i1wH_gA:9 a=CjuIK1q_8ugA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: 98F5qhj2OKiT1cZXitBazuAD_vSW4xVK
-X-Proofpoint-ORIG-GUID: 98F5qhj2OKiT1cZXitBazuAD_vSW4xVK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDA3NiBTYWx0ZWRfX0YhxZWnJOR6F
- IxuE8HaaaBVRiFWuLZWJ9XFHJ1tEyACL6WrNmd+YXYj1hQEDbQjcZYNQV95mt7rahWyajzf0Tys
- QTn3EbCNX1TDPrE5bwnPECZNmqo72CuOD7v8WdjvmD17OEDIz7UaB0PXYPP/9c7TG+pL0ZLjTOu
- lAupMCSxqvNhMxWuxir/+Ee4U7bFWs7HfE9e3awCp4KV+rXN5/ZrPgWQa6uiZzBs2fMmlCDbyjz
- 53mSV1qPKG+DpnJT/gECBmTo0qbv1Y2ZPckqWxAyyfsT9Scb+9lFvSUkyLO2wAgHWUfmWC510oy
- 8ONmE1ncktr0RzyDqvvM3kjoZbbCN5YE2uKxO2G3SkBRu78htgWb7aYNh9bv4idtBE87EaIyGO9
- 2Mqm6QDftna7k1qBIthuX5nqDj5KHhBh1uQp3ZMe51oK1cEN80MJSX3UrS11imI2yrKdw3SNAgn
- NpG3eXUG36XaFoGIp3A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDA3NiBTYWx0ZWRfX4MvbxI/rD46y
- s16eBxW5JMMJ7/lkP6vKqHpnL88SPhaiwG1R7rGrMy3W6A1nyng2jlfvRuT2X/y+EmCGcl1uDRf
- Lju5qHgeOmF0/6rDxBhGXB6q6Vep/ww=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_01,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 clxscore=1015 suspectscore=0 priorityscore=1501
- impostorscore=0 phishscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080076
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <apk8ZRr6do_YAlzf@kernel.org>
+ <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
+ <ap05ue1pq3TgHOS6@kernel.org> <CA+qSx6y=OaMsvTKUbPP2DOan3Ym6c8L5z60512-tCYeUjLZz3w@mail.gmail.com>
+ <ap5Tqu5yswJrj5UM@kernel.org> <69db9546-d14d-4107-96b7-30963292c2bd@kernel.org>
+ <ap7L2UEriz6DJfif@kernel.org> <2e8dae0b-d81e-4c5d-b4d5-c80bde07a314@kernel.org>
+In-Reply-To: <2e8dae0b-d81e-4c5d-b4d5-c80bde07a314@kernel.org>
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Date: Tue, 8 Sep 2026 15:35:23 +0800
+X-Gm-Features: AcwNN1WRh9Ejy1a6UjKpBEjkYuP25njGh2x0QoOc56jCCHUBW1sbsWwyKaUqbMk
+Message-ID: <CA+qSx6ybfqMMNKkAwVgcEga4uzFixXYKLZ-D8FuXmjXpQ9zExA@mail.gmail.com>
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org, ljs@kernel.org, 
+	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com, 
+	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_003422_802772_8301EB5A 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20260908_003539_639036_8B27E240 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,43 +130,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-09-07 22:15:09, Marc Zyngier wrote:
-> On Mon, 07 Sep 2026 21:21:44 +0100,
-> Abel Vesa <abel.vesa@oss.qualcomm.com> wrote:
-> > 
-> > On 26-09-07 18:17:29, Marc Zyngier wrote:
-> > > Recent addition of QoS configuration to the X1 variants resulted in
-> > > systems that spontaneously reset at boot time or under load.
-> > > 
-> > > Given that this is both very unpleasant and hard to debug, give the
-> > > affected user the option to survive such event with a module parameter.
-> > > 
-> > > Passing "icc_rpmh.enable_qos=0" to the kernel command-line will skip the
-> > > offending QoS setup.
-> > > 
-> > 
-> > Lets not start doing this, please.
-> > 
-> > Can we figure out which platform deosn't work and then maybe we can 
-> > add a quirk in DT per platform?
-> 
-> We have at least 3 machines that are dysfunctional since [1] was
-> merged (mini-x, sp12 and devkit). Probably some more, but I'm not
-> going to be the one doing a survey.
-> 
-> What really should happen is [1] to be reversed until QC figures out a
-> set of parameters that actually works, instead of making this platform
-> even more unreliable than it already is.
+On Mon, Sep 7, 2026 at 10:48=E2=80=AFPM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
+>
+> On 9/7/26 16:36, Mike Rapoport wrote:
+> > On Mon, Sep 07, 2026 at 01:18:42PM +0200, David Hildenbrand (Arm) wrote=
+:
+> >> On 9/7/26 08:03, Mike Rapoport wrote:
+> >>> Hi Xueyuan,
+> >>>
+> >>>
+> >>> And I believe this is an historical artifact rather than necessity. F=
+or
+> >>> configurations that allow set_direct_map on arm64, change_memory_comm=
+on can
+> >>> update direct map too, it just need to be implemented there.
+> >>>
+> >>
+> >> Are we sure the other architectures do what we want in their set_memor=
+y_ro?
+> >
+> > It's a zoo right now :(
+>
+> Yeah, that's why I'm asking :)
+>
+> > Although most of them do.
+> >
+> > But we need to sort it out anyway because of increasingly growing deman=
+d
+> > for modifications of the kernel page tables.
+>
+> The question really is whether we want to use a single interface for all =
+page
+> tables.
+>
+> I quite like a page-based directmap interface. Other page table areas are=
+ not
+> necessarily page-based. It also expresses which types of operations we ex=
+pect on
+> the direct map.
+>
+> One could, of course, use set_memory_ro() internally to implement
+> set_direct_map_ro() (and similarly for other variants); but at least
+> set_direct_map_*() would have clear, well documented semantics.
+>
+> >
+> > I started something here:
+> > https://lore.kernel.org/linux-mm/20260721-generic-set-memory-v0-1-v1-0-=
+2c1fc62306b3@kernel.org/
+> >
+> > Now that x86 CPA is nearly fixed, I can look into the next iteration.
+> >
+> >> Having a dedicated set_direct_map_ro() with clear (documented ;)) sema=
+ntics does
+> >> not sound too crazy to me.
+> >
+> > It's not too crazy, no.
+> >
+> > Still making arm64 more aligned with x86 and other arches that update t=
+he
+> > direct/linear map in the set_memory_ro() seem a good thing on it's own.
+>
+> Right, but I'd much rather user set_memory_ro() later to implement
+> set_direct_map_ro() [initially on architectures where we made sure that i=
+t
+> actually does what we expect? later maybe generically]
+>
 
-I'd rather have the patch reverted than adding a module parameter which
-users might not know about and distros will probably never addopt.
+Hi David, Mike,
 
-> 
-> Just like [2] should have been reverted.
-> 
-> Until then, we'll have to paper over this stuff.
+Thanks for the discussion. I'll keep the page-based set_direct_map_ro()
+interface. :)
 
-But a module parameter complicates things rather than just papering over.
+Thanks,
+Xueyuan
 
-I suggest we get both reverted if they break existing platforms.
+> --
+> Cheers,
+>
+> David
 
