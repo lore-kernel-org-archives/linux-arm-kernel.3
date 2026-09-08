@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442CBC79F9E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10938C79F99
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 17:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,77 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lc32lUSnWjeFXxJjDUKsljGGJZHXRkwsKmhRUzXFCR0=; b=sPVdzpvXlZFXePIxxm5rf8SgYY
-	8qurM/vviGiTihV405G/ya9mAxpc3j2kIkkmpbEz30WS8Ek35JVoih80qYwMPgKvCNpiKwOVuYRUR
-	CGYYtEfDRFaYBMOPh7WL4BSuX2ZxkRCoyjwVGgLvEo5rKNrfLzqJHYNUIQcALp12+r2SdE+8o/riF
-	CCyXssfBtuBjbdJ8BqGv+xTIJVpJaI2PEs/SKCESGixSvJ89qV3sHObuK/zlpkKqBbitIDsbkVMPa
-	XK5WjqiVPw9ECMdLAE9/Thk9RPmExxttVpa1dNli2b9eUd6eoA9bfjFQNsO7JMaLYd5LBAJWwm//5
-	+DidXfmA==;
+	bh=MSlHq0SmvCt51JoCh9r13XuOzmtJA9g6nMobC24S5K0=; b=ifxroe1ypgkIt1Kgy5zmiw9xpn
+	EpKpyf79+utZqW1S4Afj/sOWMTOLR9YscW4ZfY9550/5MmOw4hwSaQigblPWXs6ysL4E3wy/A4QkM
+	+QZz6ETzfdHi0Dx58S00JR/mkXfS5KLbiRO/lMJBq139wlQj/TOrFvwixX6CM1hq2V7WFEhC+czTu
+	sDTNm1Ti8ejitPfM5SwxtUTLKSyP8azqvl60x/3iAW9i3BBtqvBhCjgRocBGCYtov/Hewp4Pxc98s
+	wX/3yhA6rHZch0cByN/I6sYTqc23NQL9A/KEmXznqLGNBMhejAuGbHncdqbJ5ebAVldhkI8D14CNm
+	gAYV77Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zRo-00000009mPN-3dGv;
-	Tue, 08 Sep 2026 17:17:28 +0000
+	id 1x3zRp-00000009mQA-29sJ;
+	Tue, 08 Sep 2026 17:17:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3zRj-00000009mNi-2sbR
+	id 1x3zRo-00000009mP6-0MNp
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 17:17:25 +0000
+	Tue, 08 Sep 2026 17:17:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lc32lUSnWjeFXxJjDUKsljGGJZHXRkwsKmhRUzXFCR0=; b=FldgBvxB45ZLhLttte0bvghx/w
-	0R4namftuCHCpqFfF9m1BYWQH8a3LxorBcb3sAoMMb+T0/jkKtDd1nDCiM/ZxT5U+URtkjtdfSqhs
-	2WY7myNY67lFGAG8+rgAw7RP8BZgwp0TMoxaAV0h+OqkiLiHQHvdY41X/sD83Mv0QK3k7Vxh+feWG
-	Y+Wz7KMSknAWmnopboeAmpCbvMtj+7chJTZ6FHLeAaAuL+19BHAFdq3LoHwe3v7W22Ka6XN76BnTX
-	Sa/fsS8DeyjbH9UsNrioaMW+eP/birXWOjplYS1l5i2DY7p7/MY8f5yXALkUry9bKEOCEzMPIbyQg
-	omk/gHFw==;
-Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
+	bh=MSlHq0SmvCt51JoCh9r13XuOzmtJA9g6nMobC24S5K0=; b=Fl/ONwcv0LVBEfSlxZ4qW00DL0
+	BM3ajoVn3y9ndjLaJm2ZkGDCz40vpm/tQ3t0pe4xa3fXCcAlC7K1n0zhE7QGCN7+57cIvIAActFMU
+	MmH6ON5F1qMD9EYqB1KGKybSz2QA+QMjl1ZbNhU1/Ck/njyQxHzy2UXGhBLHW09P4etQgcLZFADzZ
+	FgH9jONbAeorVSgCdJ9ttl+LTDMgnJGm3QZy7j9x+PEDSUqnaPEQ13bKn1bx6EpD1kMEY5ccpdXwa
+	6lglaA9iXyE4ooE4qO9K6CIWQi1dfvXyOqvjECWFnBNunmsVbqFIz4jQje96JyMcCX9YtIWf16Uy/
+	YOceVjMw==;
+Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3zRg-000000008uz-3Thy
+	id 1x3zRl-000000008vp-1IbV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 17:17:22 +0000
-Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-86261e66700so706802b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:19 -0700 (PDT)
+	Tue, 08 Sep 2026 17:17:27 +0000
+Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so9272888a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 10:17:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788887838; x=1789492638; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788887842; x=1789492642; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lc32lUSnWjeFXxJjDUKsljGGJZHXRkwsKmhRUzXFCR0=;
-        b=BZfDjxNWd+NxB9WeLWAyvzjzSg8RPPZks0pibpNANSGhmgbJ1DyzyYKFdkHo1Lz6Tf
-         VlAOPmHOXbJdd3dpBkpjOvQgOvKwNlUT70MG/3NPn6TUS5+Wzh/0kQXAGqPLI7ebB7He
-         5FLFj/HAZSl6pohOJ6lDpabpGmqbqRVM8QXOK9FQvLzZaudD3gaH2D/ST5Axhs6On+1S
-         Bnqe8MYtstFp6aJoqK92LvVUvLftjgiloE8mPN8Ajpx/6bLge0QVtq61sSfXqyfx8b8Y
-         0lxRFNggr3KObcFNnjo4ZTQvbnjMRwzodl630UWB5bbI89wtw3gbCkYgfZUKoSENBEEa
-         Ybow==
+        bh=MSlHq0SmvCt51JoCh9r13XuOzmtJA9g6nMobC24S5K0=;
+        b=VbWAvMshdfyZlZcWgiLyuh3BIEM9R3pl1K16foF+9lM4Mo0yObF+xCGqqSYydzU/oB
+         wP0O2JWLa1u8dQL94sYS+tqpgPL2HJ07MA2kUrtYfhcqU9gWjVTHmRQwdvL2+CZweQkI
+         IX/oJViSV0Qz8yrck+CeJc0TVAl9gR39PqizimXWbcy1EctSaTxnuDx4Jwn8shmUy6Ao
+         yI33osm3dDI0f2zZ7OSFx8MYDJAPPFznfC2kRFCrIgl/sc/agHcb09Bfd+bRdItGBD6V
+         P/KRcGo8dujWGYjAWIgMEFJJozmrlJQFTEjMgIUk99DH7CaeNE1eIDSAUMpngTQvbbZN
+         RMEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788887838; x=1789492638;
+        d=1e100.net; s=20251104; t=1788887842; x=1789492642;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lc32lUSnWjeFXxJjDUKsljGGJZHXRkwsKmhRUzXFCR0=;
-        b=l+S4XfE2Z98UseO4CFQP1tICWVIvPv7rfDZDbF6ZFtsx8Dpp/rWW969jC9zMoFVzPi
-         zrwH1jHUz//JeeaAkU2JqWLpLTK9L5slEf3GD2LKY3+RGih6bL1jLBfPq6BVjEk3Aivb
-         BewoQqR2mGh7CD7swqcKmTaFplEEMm+f1fKpPEEE/yF4STv8897rNRacf+D8L/x9nFHU
-         QswRlSz4xynuhXbaCXFiKIc/w4ssEgWWAnTxQD1GSxdYjVe/TWcv2ZwD4v2jJw7KrX/Q
-         YoMhDHMVyzi+0rR0Zqu6ETUdBK7NBUiG/VSFcmTnYUVV5tJVOPtIlYblfux5BHp/LRXA
-         mqcQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxe5XZ86ndBXGe1mQxQ3inBCABQ8vBmByz3u088I1S8/a9zD7XwHKW7uZD+TsbriIgmkiXTmEsJ3bitEoxHcUcY@lists.infradead.org
-X-Gm-Message-State: AFuF++l0EDgVsSDn8mbxMs1vTlF5oZHdF57eKsaqfj1SnIX8nnpOQ9jR
-	nPYgDh5g37A2oIlOdmgQr/u8StkvQrV1OGixWbCXZBwmMy1Z9XOi3gqys7Q7vYJdvjkrA2SyzQk
-	b/w==
-X-Received: from pfbly3.prod.google.com ([2002:a05:6a00:7583:b0:847:9472:cf8e])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:8c3:b0:856:30dd:91ba
- with SMTP id d2e1a72fcca58-86168e8bb34mr38848578b3a.2.1788887837663; Tue, 08
- Sep 2026 10:17:17 -0700 (PDT)
-Date: Tue,  8 Sep 2026 17:16:57 +0000
+        bh=MSlHq0SmvCt51JoCh9r13XuOzmtJA9g6nMobC24S5K0=;
+        b=ffFeW0RHawXbVWZVsQDmVU9+yInTqvck6vZ9Md2W0uXta8XhiZbsfrrBYYXZcc5nwf
+         cge6Yy5r1xaiGXQ5735rcLYGrQxN10xs6r+h9usiOqI/NRLLRvocBAdspugWln4ssHSX
+         S9+UpjIyDK9aUbo22JGxsbKJ3riGmUpu0PPZfnrbB9u3CVS3fLSE31j6p3XN8FbWEYhu
+         Qk4xEU1CXXPMtzgx8jmEPgPUP1tpJzudcCfrHrbdmuopXfbYwdeLAXL64u5WvEJhdEqs
+         KRTHvATetlDWNDjR/tINkizrT0O/1YLEV5DRLVroLvj3l9m89ryFOMFvIg+rZDGH8XwM
+         qB+A==
+X-Forwarded-Encrypted: i=1; AKwUvBz2kUew/qquswWdhh+3GeVx9MeMndFAw/dF5noDnoxNuYzj/UiT+lGctLC6pGSLMMsEIYpsARDzG3zeOFQXOwl/@lists.infradead.org
+X-Gm-Message-State: AFuF++lLd6mmg900W7D9DHrldw5MlzoSPR7rnV3ngcYwJUhVOnf5k2US
+	bVVFNegef0Wn899FKCjG/L1+9rMawiA+EhGTvq2OKpKCZh0HEW7ICUcqiHzWnZD+Nc+M59MyI6P
+	Cnw==
+X-Received: from pjbfh16.prod.google.com ([2002:a17:90b:350:b0:39b:9fad:2ae7])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1c8b:b0:398:9bd5:490c
+ with SMTP id 98e67ed59e1d1-39b26214502mr42288900a91.19.1788887842174; Tue, 08
+ Sep 2026 10:17:22 -0700 (PDT)
+Date: Tue,  8 Sep 2026 17:16:59 +0000
 In-Reply-To: <20260908171712.356645-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260908171712.356645-1-praan@google.com>
 X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-Message-ID: <20260908171712.356645-2-praan@google.com>
-Subject: [PATCH v10 01/15] iommu/arm-smmu-v3: Refactor arm_smmu_setup_irqs
+Message-ID: <20260908171712.356645-4-praan@google.com>
+Subject: [PATCH v10 03/15] iommu/arm-smmu-v3: Add arm_smmu_drain_queue() helper
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -91,11 +91,11 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org, 
 	Danilo Krummrich <dakr@kernel.org>, Thomas Gleixner <tglx@kernel.org>, driver-core@lists.linux.dev, 
-	Pranjal Shrivastava <praan@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_181720_988540_7212C086 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20260908_181725_613212_5ED44C7D 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,144 +110,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor arm_smmu_setup_irqs by splitting it into two parts, one for
-registering interrupt handlers and the other one for enabling interrupt
-generation in the hardware. This refactor helps in re-initialization of
-hardware interrupts as part of a subsequent patch that enables runtime
-power management for the arm-smmu-v3 driver.
+From: Nicolin Chen <nicolinc@nvidia.com>
 
-Additionally, pass a 'resume' flag to arm_smmu_device_reset() to skip
-registering IRQ handlers again during resume. On probe, handlers are
-registered after queues are configured but before enabling translation.
+Add a counting-based arm_smmu_drain_queue() helper, to replace queue
+specific polling loops. Its until_empty mode serves the suspend and
+runtime PM routines that would drain the CMDQ. Any timed-out drain fires
+a WARN_ON as well, since reaching the timeout would take some stuck
+consumer in any realistic case.
 
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+The existing queue_poll() API is not reusable for such a drain: it is the
+atomic busy-wait for the command issuing paths, and it assumes a hardware
+consumer making progress. A drain caller is sleepable, in contrast, while
+the EVTQ/PRIQ consumer is a threaded IRQ handler that needs the CPU: such
+a busy wait would starve the handler throughout an entire timeout, whenever
+the waiter and the handler shared one CPU on a non-preemptible kernel. So,
+this new sleeping helper is marked with a might_sleep() as well, given that
+an atomic-context misuse would otherwise hide behind an empty queue.
+
+Note that a drained event is dequeued, but not necessarily handled, since
+queue_remove_raw() moves the MMIO CONS before the threaded IRQ handler gets
+to push the event onto the IOPF workqueue. A subsequent change will invoke
+synchronize_irq() and iopf_queue_flush_dev() to close that gap, and it will
+act on the errno of a timed-out drain too.
+
+Assisted-by: Claude:claude-fable-5
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 +++++++++++++++------
- 1 file changed, 56 insertions(+), 19 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 81 +++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5732f3ba0122..270e6617a19a 100644
+index 06b7de2e6e4b..84b56849f6dc 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4756,14 +4756,55 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 	}
+@@ -948,6 +948,87 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+ 					   cmds->num, true);
  }
  
-+static void arm_smmu_enable_irqs(struct arm_smmu_device *smmu)
++/**
++ * arm_smmu_drain_queue - Drain an SMMU queue
++ * @smmu: the SMMU device
++ * @q: the queue to drain
++ * @until_empty: target selection
++ *
++ * With @until_empty == true (for CMDQ), exit once the queue is observed empty:
++ *
++ *   cons0                cons                                prod
++ *     |                   |                                   |
++ *  ---+###################+=====================+=============+--->
++ *                         |<--------- undrained==0? --------->|
++ *
++ * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
++ * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
++ *
++ *   cons0                cons                 prod0         (prod)
++ *     |<---- drained ---->|                     |             |
++ *  ---+###################+=====================+=============+--->
++ *     |<--------------- pending --------------->|
++ *
++ * Note that a drained entry is dequeued, but not necessarily handled: the
++ * EVTQ/PRIQ callers must follow up with a synchronize_irq() to wait for the
++ * threaded IRQ handler to finish handling the dequeued entries.
++ *
++ * Context: Process context; may sleep.
++ * Return: 0 on success or a negative errno on timeout.
++ */
++static int __maybe_unused arm_smmu_drain_queue(struct arm_smmu_device *smmu,
++					       struct arm_smmu_queue *q,
++					       bool until_empty)
 +{
-+	int ret;
-+	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
++	ktime_t timeout = ktime_add_us(ktime_get(), ARM_SMMU_POLL_TIMEOUT_US);
++	u32 cons, prod, prev, undrained;
++	u32 drained = 0, pending;
 +
-+	if (smmu->features & ARM_SMMU_FEAT_PRI)
-+		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
++	might_sleep();
 +
-+	/*
-+	 * Enable interrupt generation on the SMMU.
-+	 * As per the ARM SMMUv3 spec section 6.3.17 (SMMU_IRQ_CTRL):
-+	 *
-+	 * Completion of an Update of x_IRQEN from 0 to 1 guarantees that the
-+	 * MSI configuration in SMMU_x_IRQ_CFG{0,1,2} will be used for all
-+	 * future MSIs generated from source x. All wired or MSI interrupts
-+	 * that are triggered from a source relate to occurrences that happened
-+	 * after the completion of the Update that enabled the source. It is
-+	 * not permitted to trigger an interrupt that relates to an occurrence
-+	 * that happened before the source was enabled, even if the source was
-+	 * previously enabled at the time of the occurrence.
-+	 */
-+	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
-+				      ARM_SMMU_IRQ_CTRL, ARM_SMMU_IRQ_CTRLACK);
-+	if (ret)
-+		dev_warn(smmu->dev, "failed to enable irqs\n");
++	cons = readl_relaxed(q->cons_reg);
++	prod = readl_relaxed(q->prod_reg);
++	/* The exit target: the number of entries in the queue at entry */
++	pending = Q_POS(&q->llq, prod - cons);
++
++	while (true) {
++		/* Accumulate the entries consumed since the last poll */
++		prev = cons;
++		cons = readl_relaxed(q->cons_reg);
++		drained += Q_POS(&q->llq, cons - prev);
++
++		prod = readl_relaxed(q->prod_reg);
++		undrained = Q_POS(&q->llq, prod - cons);
++
++		/* Exit on an empty queue, regardless of until_empty */
++		if (!undrained)
++			return 0;
++
++		/* Snapshot mode: exit once the pending entries are drained */
++		if (!until_empty && drained >= pending)
++			return 0;
++
++		/*
++		 * A timeout means the consumer might be stuck. In theory, if it
++		 * moves 2 * qsize entries or more within a single poll interval
++		 * Q_POS() would wrap and undercount drained: that could trigger
++		 * a spurious warning too, if the queue was never once observed
++		 * empty. Yet, that much consumption in such a short interval is
++		 * unrealistic. WARN it only, as a stuck consumer is a real bug.
++		 */
++		if (WARN_ON(ktime_compare(ktime_get(), timeout) > 0))
++			break;
++
++		/* The consumer might be a threaded IRQ handler. Yield to it */
++		usleep_range(100, 200);
++	}
++
++	dev_warn_ratelimited(smmu->dev,
++			     "queue drain timed out at prod=0x%x cons=0x%x\n",
++			     prod, cons);
++	return -ETIMEDOUT;
 +}
 +
-+static int arm_smmu_disable_irqs(struct arm_smmu_device *smmu)
-+{
-+	return arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
-+				       ARM_SMMU_IRQ_CTRLACK);
-+}
-+
- static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
+ 				   struct iommu_page_response *resp)
  {
- 	int ret, irq;
--	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
- 
--	/* Disable IRQs first */
--	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
--				      ARM_SMMU_IRQ_CTRLACK);
-+	/*
-+	 * Disable IRQs first as required by the Arm SMMUv3 spec.
-+	 * As per the ARM SMMUv3 spec section 6.3.17 (SMMU_IRQ_CTRL):
-+	 *
-+	 * An Update of x_IRQEN from 1 to 0 completes when all prior MSIs have
-+	 * completed. An MSI has completed when it is visible to its
-+	 * Shareability domain, or when it has aborted, and the abort is
-+	 * recorded in the appropriate SMMU_(*_)GERROR bit. Completion of this
-+	 * Update guarantees that no new MSI writes or wired edge events from
-+	 * source x become visible until the source is re-enabled.
-+	 */
-+	ret = arm_smmu_disable_irqs(smmu);
- 	if (ret) {
- 		dev_err(smmu->dev, "failed to disable irqs\n");
- 		return ret;
-@@ -4785,15 +4826,6 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- 	} else
- 		arm_smmu_setup_unique_irqs(smmu);
- 
--	if (smmu->features & ARM_SMMU_FEAT_PRI)
--		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
--
--	/* Enable interrupt generation on the SMMU */
--	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
--				      ARM_SMMU_IRQ_CTRL, ARM_SMMU_IRQ_CTRLACK);
--	if (ret)
--		dev_warn(smmu->dev, "failed to enable irqs\n");
--
- 	return 0;
- }
- 
-@@ -4841,7 +4873,7 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
- }
- 
--static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
-+static int arm_smmu_device_reset(struct arm_smmu_device *smmu, bool resume)
- {
- 	int ret;
- 	u32 reg, enables;
-@@ -4943,12 +4975,17 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		}
- 	}
- 
--	ret = arm_smmu_setup_irqs(smmu);
--	if (ret) {
--		dev_err(smmu->dev, "failed to setup irqs\n");
--		return ret;
-+	if (!resume) {
-+		ret = arm_smmu_setup_irqs(smmu);
-+		if (ret) {
-+			dev_err(smmu->dev, "failed to setup irqs\n");
-+			return ret;
-+		}
- 	}
- 
-+	/* Enable interrupt generation on the SMMU */
-+	arm_smmu_enable_irqs(smmu);
-+
- 	if (is_kdump_kernel())
- 		enables &= ~(CR0_EVTQEN | CR0_PRIQEN);
- 
-@@ -5594,7 +5631,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 	arm_smmu_rmr_install_bypass_ste(smmu);
- 
- 	/* Reset the device */
--	ret = arm_smmu_device_reset(smmu);
-+	ret = arm_smmu_device_reset(smmu, false);
- 	if (ret) {
- 		arm_smmu_device_disable(smmu);
- 		return ret;
 -- 
 2.55.0.979.g7e5102b832-goog
 
