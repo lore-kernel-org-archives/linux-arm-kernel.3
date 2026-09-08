@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEA7C79F82
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15119C79F99
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D1EUKrMISMTfqcQ/oagzdiz4Xj38k1YqAAgqN9V5jxc=; b=MP96jR1wxGPtC7IMGEmU9cgdmA
-	8e+MzN624ko1pJiaXaWPreD9RQTlvL/2i6jhjkT/2RQFwYsDMg2rb6Fni23vKt1fUZFp7+UAfpNae
-	GipYrayiQ9do9EPjdpTdIF+Ga36MVrxe3sanS3+TxiXa7Nd8BfN8s858+cI6GvhKH4QtKKl0z9hjq
-	IGewBA2QBe5tw++bAu9T5488fyQwdxz0jhaIa7vyqiqXfwR5Aj1A7CDFLg9PpvqKIZA/2tyhfLkJk
-	mBkWkCvOjs727R3ekr0nNgPPY8WvFI1jeHC3tvhmJqBIlyvrD24Kzpq0eWg1OnGcQ8s9ZpvDp6HWs
-	VSrYuplA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oGyFWGbrVk08pEuM/TwTUU420m1oJLXxdjsy/v7Xrrc=; b=mJZDzmJKkH7gbOE5ffdLYjDHuL
+	hIbtyvZKNH8QJO5w5tzHfQDa75FsMvn7xTA1RfIlzWqg1jAVKAQl5lnLE2mBktuqjsu3J8E+PM9BN
+	zgnRWW+GZxiktAS9u+0UQ53Pr0b24Ag4b2FepPdtxVs4uCbwrJsbjOWgfwjRrc283VELAJ2WYnkk0
+	wKxNS0gIgUcRski2D8yad0ARy9GIKUjpF63OA/yXSrIvW8E/Swss8/InFfXIxFqz2G9ZXt75jAj9h
+	fnabPndM6bb5xTed19iXssqDvdDxDQ4pRFvITFNXZduUdLDVCPNyFMyfALSu8mdSX7Nr8H0QIGK0n
+	DCek9Q5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wmV-00000009Gmq-10Tn;
-	Tue, 08 Sep 2026 14:26:39 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa] helo=mta0.migadu.com)
+	id 1x3wma-00000009GpH-3R5d;
+	Tue, 08 Sep 2026 14:26:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wmS-00000009Glt-02Zt
+	id 1x3wmV-00000009Gmo-3eEV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 14:26:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=oGyFWGbrVk08pEuM/TwTUU420m1oJLXxdjsy/v7Xrrc=; b=Csvp9r1S3yuEk0ZJD5xbSN4kJO
+	/7Czw5l4085xRagKa6e+xAg8+FpSYSWFnsurqtqAiU+cpT5Nc+vqjs0wmMPl1LHMNtRIP0/lslZYn
+	e+Wc/bN53lZwx5i6eubM/HnBMJVDQybgtYzC8TL4+h5um1V0icWeHKZPyq7v/n+R6ONoA+rpQMWOA
+	yJfA2qlzHveZRKoNPoUxsh+Ef3C5yOxvka1a0jmWdnHLVwbfmMRadEw0aDWGiZnVwWWeEctBs5U6G
+	Cqdmkr6Xvb3jtNucvR9L1pHU6hcLRHc5INKOgwBUMdxTwCcHzSZeRQXwbrIMnl2JB/GlgFscbwd0H
+	gVCs597A==;
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1] helo=mta0.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x3wmT-0000000HXFi-0QEd
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Sep 2026 14:26:38 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=+zAEpg0bzrJlzowQfLEjzSYuRg3JQjAXqFWQW+aQjcA=;
+DKIM-Signature: a=rsa-sha256; bh=KVsuIyiH5SB/1+xKdlUgJ1F2EW9DnV0+Qj4eqAyuRUo=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788877593; v=1; x=1789482393;
- b=QcQk897CIjxDalMXDHecXXj+jH8HtF0rW+5cYWyGn2vJLJfhH6s3d+VjvR7bALD0mNJpKB4H
- s8D4O+6S+PEamLJSWAAqpOHFPyU6eIB8EXSMtIltcWYN4HYxSgI7ZYQmvY1Cm0tvxmY7maWRuFY
- 4K6OYe7jGVZMbdy2Hnf6qltI=
+ t=1788877594; v=1; x=1789482394;
+ b=g9hqNW2LcNLLLCtn9UMeGlfa5Q4h4g98K7xEuiX+kheDKs71iCgh7uXLixB47QWqiqqCKhq9
+ gy+s+dfT1glSMFh68f7+n+PTyvclNwUCE1n29sxKGAJaez28Latuw6RPbuLeOusxg/je1Q5s2si
+ /8Qo+waJGUEWl3uhtA3vWTrE=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 6713a1d5765c73ea;
-	Tue, 08 Sep 2026 14:26:33 +0000
-X-Mizu-Trace-ID: 6713a1d5765c73ea
+Received: by smtp.migadu.com with ESMTPS id e08221fc077519c4;
+	Tue, 08 Sep 2026 14:26:34 +0000
+X-Mizu-Trace-ID: e08221fc077519c4
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -50,15 +65,17 @@ Cc: Radu Rendec <radu@rendec.net>,
 	stable@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] irqchip/gic-v3: Lifetime and range fixes in the GICv3 and ITS drivers
-Date: Tue,  8 Sep 2026 15:26:29 +0100
-Message-Id: <20260908142632.2795308-1-fuad.tabba@linux.dev>
+Subject: [PATCH 2/3] irqchip/gic-v3-its: Don't clamp nvecs to zero when id_bits is 32
+Date: Tue,  8 Sep 2026 15:26:31 +0100
+Message-Id: <20260908142632.2795308-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260908142632.2795308-1-fuad.tabba@linux.dev>
+References: <20260908142632.2795308-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_072636_329263_3B40C7FE 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260908_152637_299604_C75439D8 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+GITS_TYPER_IDBITS is five bits, so id_bits reaches 32 and
+min_t(unsigned int, ...) truncates BIT(32) to 0. nvecs becomes 0,
+its_lpi_alloc() rejects that, and its_msi_prepare() returns -ENOMEM.
+On 32-bit ARM the shift is undefined instead.
 
-Three fixes to the GICv3 and ITS drivers, from reviewing the GIC series
-floating around and chasing down Sashiko's reports.
+The clamp is correct for every value below the maximum, so only that
+one value is affected.
 
-The first releases the partition node that gic_irq_get_fwspec_info()
-takes from of_find_node_by_phandle() and never puts. Sashiko raised it
-on an of/irq patch of mine, and I said a fix was forthcoming [1].
+Fixes: ce9e40a9a5e5c ("irqchip/gic-v3-its: Limit number of per-device MSIs to the range the ITS supports")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The second widens the per-device MSI clamp, which truncates to zero when
-GITS_TYPER.ID_bits is at its maximum and then denies every MSI on that
-ITS. I couldn't find an implementation that reports that maximum, so
-this is one value at the edge rather than something anyone is hitting.
-It carries Cc: stable because the commit it fixes was itself
-backported, so drop the tag if you'd rather.
-
-The third clears vpt_page once its_vpe_teardown() has freed it, so the
-NULL guard holds if teardown runs again on the same vPE.
-
-Based on Linux 7.3-rc2 (df2908090cda3).
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/CA+EHjTx7eP_30vP47=UFk_wMAut-2uf+2DF-MZqn2SLE_k-8qg@mail.gmail.com/
-
-Fuad Tabba (3):
-  irqchip/gic-v3: Release the partition node in
-    gic_irq_get_fwspec_info()
-  irqchip/gic-v3-its: Don't clamp nvecs to zero when id_bits is 32
-  irqchip/gic-v3-its: Clear vpt_page after freeing the pending table
-
- drivers/irqchip/irq-gic-v3-its.c | 3 ++-
- drivers/irqchip/irq-gic-v3.c     | 7 ++++---
- 2 files changed, 6 insertions(+), 4 deletions(-)
-
-
-base-commit: df2908090cda368b01ff43709f51890076c56157
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index e9807af235373..81a96149f9154 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3484,7 +3484,7 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
+ 	 * Also honor the ITS's own EID limit.
+ 	 */
+ 	id_bits = FIELD_GET(GITS_TYPER_IDBITS, its->typer) + 1;
+-	nvecs = min_t(unsigned int, nvecs, BIT(id_bits));
++	nvecs = min_t(u64, nvecs, BIT_ULL(id_bits));
+ 	nr_ites = max(2, nvecs);
+ 	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
+ 	sz = max(sz, ITS_ITT_ALIGN);
 -- 
 2.39.5
 
