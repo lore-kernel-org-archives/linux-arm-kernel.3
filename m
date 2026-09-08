@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C770C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A52C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 11:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lxu+jtNFToYdLxTytr/I9mfTRhn0vf5PcvRLft8Q8pg=; b=P8QbSBLWC3L1Bu3GvJZt87sClG
-	rmL0hOTGKNBXanIrs9yFSa2slZGsf9KnCpYg9t3eyZ6m58iF7RlmtLMmZq5hF/veLat6J/1KMxobN
-	duEzqlN+baWxPOYSx3jh1KblAvU34/jdMwURkQELejIKmPBoLvRM75FZLwrOKIYtijjHcTVfGi30P
-	V2joqcubH2lXMbjZga6qRpqF7c0Z8XtIGySVG94o+M7ry7strcBiZotRY62f5SnoR5OImZsQY6BPZ
-	gLADL952qwXcIOIGxqZ2j64EfSVfBv4ROsDy7M9iFKp0MfDadR4V0DxcWtU4bvG4qqrUQNrUX1o3e
-	j6u++p9Q==;
+	bh=TvBcVAP7Xte4hXp7tFPxbcEIaY+sVDfeQbUwhJkefGo=; b=qqsFp8wcRb4RO+HOvqk1tcpPuq
+	+o+31Aw/YJWKz0LhO8nTIKqiBlnK9Obrm+QOoDGjZQogM+U9/AleGk5D3vnCEKdCoyOY+zCBtll/l
+	xnBrmA067gCydAoNf2kpSarEHZrXEUdnSt7grrM68yh+DkcagoIh2HJ9Gx+hUJqrp/R+XxD7nxXLD
+	QmAzovRF5UBzXKj0GuUOwg17LjRvhe+G0ObaJvLyHXD7bXaxZzYx+mdR4I6LFBAlSvNCTqLkor4bI
+	C8u/1sw43D+Q0YtYDsCeIewvnFDJpcf6ULALtvbYorY+DRbfbs9zN1smEyVtk4P2nJOCzp3C9i9Bu
+	kkc9PgyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3u7F-00000008trP-399q;
-	Tue, 08 Sep 2026 11:35:53 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1x3uH4-00000008um6-2xRy;
+	Tue, 08 Sep 2026 11:46:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3u7C-00000008tqO-3jHZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 11:35:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Lxu+jtNFToYdLxTytr/I9mfTRhn0vf5PcvRLft8Q8pg=;
-	b=RnEFyQj2evgRv1emXPf5fVmna1/HIRR+oFNx9asjTCtn+sTc3YgEfJBaiviv5hGFOXmDEgnVr
-	MmDt1Pq4YuNW7CKPxiuDHQsFQPr64iJO15DNyqvV3cEpTiw2C9qcwrqRH7xhrg4UsRh0Zq1mCmR
-	c4dE4c9w1oSw6RBbDnudEMc=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hfM6V6rFPzcb3G;
-	Tue,  8 Sep 2026 19:24:50 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id CA83A40561;
-	Tue,  8 Sep 2026 19:35:47 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 8 Sep 2026 19:35:47 +0800
-Message-ID: <2f75098e-bc2c-4692-8325-809983042a9d@huawei.com>
-Date: Tue, 8 Sep 2026 19:35:46 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/19] arm64: smp: Use generic HOTPLUG_SPLIT_STARTUP
- machinery for CPU onlining
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
- Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
- Zyngier <maz@kernel.org>
-References: <20260907164024.17164-1-will@kernel.org>
- <20260907164024.17164-12-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260907164024.17164-12-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_043551_310916_B5B5E0DA 
-X-CRM114-Status: GOOD (  20.76  )
+	id 1x3uH3-00000008ulf-2LVW;
+	Tue, 08 Sep 2026 11:46:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B72360A99;
+	Tue,  8 Sep 2026 11:45:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE581F00A3A;
+	Tue,  8 Sep 2026 11:45:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788867959;
+	bh=TvBcVAP7Xte4hXp7tFPxbcEIaY+sVDfeQbUwhJkefGo=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=LscrDB6yAvYsoaiCWf8QXN0O6I7bifJcbOF7U4O8uKtXUCUcqEtwJTEpYGh8z096y
+	 UZap/ZBSgwgccuCNPAANeC5d5s7JtHhfc2ufRCxyKjmdZ25ZHeSn4AN6NjSYCcGkch
+	 OPNtcHJ2IjF7ecPLyuFZDFY65+GkhGFdDt3GpnIljs+Nus3ae5bPNNSLLydzDu2ReF
+	 K+k36WA6LSvxxJ+bn91YMxCbC59qfoSIpIPaDOZ5bq04glFVLdduxU8rFvtMFjO2EC
+	 8Fa/o3Gklu+85jRk5b1r64W+WeIxXolQIxLM5SWifV4HlacWHVYeuStJlRFrCInl52
+	 daZWO5GF5faew==
+Message-ID: <d24d2bd88c66ed1b110b1035f7d09e6e@kernel.org>
+Date: Tue, 08 Sep 2026 11:45:55 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v11 53/74] drm/bridge: ite-it6263: Advertise HDMI 1.3
+ capabilities
+In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-53-bc12954a0688@collabora.com>
+References: <20260901-dw-hdmi-qp-scramb-v11-53-bc12954a0688@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
+ Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
+ Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
+ Stone" <daniels@collabora.com>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
+ Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Helge Deller" <deller@gmx.de>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Phong LE" <ple@baylibre.com>, "Raphael
+ Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2026/9/8 0:40, Will Deacon 写道:
-> In preparation for enabling parallel bringup of secondary CPUs on arm64,
-> take the baby step of moving from HOTPLUG_CORE_SYNC_FULL to
-> HOTPLUG_SPLIT_STARTUP.
+On Tue, 1 Sep 2026 21:51:17 +0300, Cristian Ciocaltea wrote:
+> Bridges using DRM_BRIDGE_OP_HDMI are expected to provide the supported
+> HDMI version.  This is not enforced yet, but will become mandatory once
+> the migration to the caps-based HDMI connector initialization API is
+> complete.
 > 
-> Rework the cpu_die_early() path to use a private cpumask, otherwise
-> clearing the incoming CPU from the present mask in the 'kick' stage will
-> prevent the hotplug stage machine from progressing and
-> arch_cpuhp_cleanup_kick_cpu() will not be called.
 > 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/Kconfig           | 2 +-
->  arch/arm64/include/asm/smp.h | 1 +
->  arch/arm64/kernel/smp.c      | 9 +++++----
->  3 files changed, 7 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 89d1f0f2269c..fd8cf792b7fd 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -230,7 +230,7 @@ config ARM64
->  	select HAVE_SYSCALL_TRACEPOINTS
->  	select HAVE_KPROBES
->  	select HAVE_KRETPROBES
-> -	select HOTPLUG_CORE_SYNC_FULL
-> +	select HOTPLUG_SPLIT_STARTUP
->  	select HOTPLUG_SMT if HOTPLUG_CPU
->  	select IRQ_DOMAIN
->  	select IRQ_FORCED_THREADING
-> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-> index fe343c30d620..7b986a6a765b 100644
-> --- a/arch/arm64/include/asm/smp.h
-> +++ b/arch/arm64/include/asm/smp.h
-> @@ -89,6 +89,7 @@ asmlinkage void secondary_start_kernel(void);
->  struct secondary_data {
->  	struct task_struct *task;
->  	long status;
-> +	cpumask_t cpu_died_early_mask;
->  };
->  
->  extern struct secondary_data secondary_data;
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 00362ed6e1ab..c5e9d5d5e003 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -62,7 +62,7 @@
->   * so we need some other way of telling a new secondary core
->   * where to place its SVC stack
->   */
-> -struct secondary_data secondary_data;
-> +struct secondary_data secondary_data = {};
->  /* Number of CPUs which aren't online, but looping in kernel text. */
->  static int cpus_stuck_in_kernel;
->  
-> @@ -108,7 +108,7 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
->  	return -EOPNOTSUPP;
->  }
->  
-> -int __cpu_up(unsigned int cpu, struct task_struct *idle)
-> +int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
->  {
->  	int ret;
->  
-> @@ -146,6 +146,8 @@ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
->  		cpus_stuck_in_kernel++;
->  		break;
->  	case CPU_KILL_ME:
-> +		if (cpumask_test_cpu(cpu, &secondary_data.cpu_died_early_mask))
-> +			set_cpu_present(cpu, false);
+> [ ... ]
 
-Should we set_cpu_present(cpu, false) in CPU_STUCK_IN_KERNEL case, as we
-do not update to CPU_KILL_ME but CPU_STUCK_IN_KERNEL if
-CONFIG_HOTPLUG_CPU is not enabled.
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
->  		if (!op_cpu_kill(cpu)) {
->  			pr_crit("CPU%u: died during early boot\n", cpu);
->  			break;
-> @@ -406,8 +408,7 @@ void __noreturn cpu_die_early(void)
->  
->  	pr_crit("CPU%d: will not boot\n", cpu);
->  
-> -	/* Mark this CPU absent */
-> -	set_cpu_present(cpu, 0);
-> +	cpumask_set_cpu(cpu, &secondary_data.cpu_died_early_mask);
->  
->  	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
->  		update_cpu_boot_status(CPU_KILL_ME);
-
+Thanks!
+Maxime
 
