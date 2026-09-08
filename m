@@ -4,105 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42D4C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63303C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 14:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6okLRdiqhl4ZG2fHn/y2VobVZ/OBqeyek9hgtGn68Vg=; b=QVckQWMPvJBrFTrtVjxCXVcIxB
-	4xVLJOUZb3LY5eNoaoQPtCENh/cji8XawMGGa+V4Qs9NOVqm2AfzLlewHQdpEOG+WdRZ280U1Aiwm
-	OKjS5WlAMjY854KRJPT4Rzip64xs8AH4LLWid56pGY7YXwBMvB/SwGmJpRPcDrm4neRyaY2kV9P8w
-	KZScLkeAWHI0Bvfh3ct0Y42NDmzXcdY3ndjMZsbggGGk6ijs9u40ghSURTxtqlT2AaxNz/w61ColF
-	ly99Gpm6TBUIAck7PjL692uEJ5jcjefXngXU+8EobtaFqiTtM6IFSH2fKEWjTYQJtABRPzzgpg39K
-	iSMvoo7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rZY078INwnXidXnS1tAhSBI29huMveMJ63auEB3fPKc=; b=gCrS4c76SsdG4ZzT+R+eu8O3yu
+	P6C7ZVez1h6W0i69i8Ll0i0ef+9QPCNe8mVZRoAW6P2A2SJdlC3KPDoDqMpHAUD9PFa/csbYx9fuJ
+	0LSBzI2zd2HERZr9YAvS5KNV61SS2YfUEY0cVOTKA3S3By38UfU3FTE9zVdM+8bsK6B7IJMCtHkoL
+	L83DPLHwV3oU/TMTfrJXKYYsxKvAPVuhseDMIUFC2I8aS4WRTcT9duXgpF73uCeLIWoM8bJ6nSuoE
+	SA4cXcKNXOlo8uZojPcIG1NsdxaaC4BbLueEqn2DmCAIxh7Y+NuopcfgKmpHxQSCkpugNgbeoLPmS
+	yyEbF1Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xBM-00000009KyC-1s5K;
-	Tue, 08 Sep 2026 14:52:20 +0000
+	id 1x3xBc-00000009LDn-0fN3;
+	Tue, 08 Sep 2026 14:52:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xAu-00000009KHh-0xM8;
-	Tue, 08 Sep 2026 14:51:52 +0000
+	id 1x3xBZ-00000009LBT-474I
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Sep 2026 14:52:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=6okLRdiqhl4ZG2fHn/y2VobVZ/OBqeyek9hgtGn68Vg=; b=Pwe9bpb+WuLW3waNbmJtVppnI2
-	pT8IPyscmd0XQhlDkoHWcKSm1fmydRZqZyQ+dWdj8810g0vpNY0QEaqmC8x7spXDAN4OKwBIXb5/t
-	PNNxVW0VFosc7LGMzcaWfFfvO/JLwpPOmngs4eDqw8cet3Z5CGDff9jyetIgYQqelrL2WCLW0Wdiz
-	pOT3/FN3R0DDxEdnrv1wOpdKXd0yqGtQffOAqW8JdD3021jtB0OwTtSd1P+6R3FIu16U582FKMc/n
-	SdLiHOGwUR/2EH5jEiA3tpAKUkFSM46sdfYPri6O7q0N/IxPdlP0gsL3gAhpK5zXGXOFWlVX6FTKT
-	DzrKUgwg==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=rZY078INwnXidXnS1tAhSBI29huMveMJ63auEB3fPKc=; b=AuN+TivO+GXybWPnCXfebw4pUR
+	fUYQY7iJMRviS4VF7/axzFtksrirbW+X1w7VwXUh3QYT/E5hF+Yci9MbQro9GEmyCvIFYDuQ6X0n7
+	krThbuOkSkvZcjI6N7ReNTs5qnyew5dsAw4MojxybAxwNlGznDHpDcQQw0NNUmh+Ps9r7jEJH+i+c
+	3sqmOAi8XHeMH48jdmnUnQTY/mqzKoLeLPqaufjWWWc0XnbOe9TWx7N4AQj3ozj2WDnXhINqv1I9D
+	HBec6w6ZoVitTHx1JV4v+ihZRo4PK7qAwXMCanl2dgPvu6+MYs2b+ODDvmNhEIRf95Nlzd2+oLqle
+	xTH0wInw==;
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xAr-0000000HZ1s-1RUW;
-	Tue, 08 Sep 2026 14:51:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788879101;
-	bh=Z+Lzstt3geCgNqqc4sfbPOYtUjgypQ6xYnIT7nuZdGQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=F+EPk/5B2xyBMlHRVcf0uFe7s1um5d9n/42+dNT7XL7dkONh+jCNHIiXUgwjza0U2
-	 YA8YAEipXhaNpbQQuCbecAN6BwE80DHQ75PtNmNy1zFoeVlUDz3JtfXSnI+jRnKy54
-	 /qoKRtQ6hRdY1RD2j5qNRGWNpAeEuqKcVrc5QwDLLWDwrul9e7pPzMB6DRyXwxwr8f
-	 x/ggPVC1/urtHe+DZ1bVPFkxWPBdcq4Z+LrWRQI6RK0FAQTPuwZHUXf46GQDNttbIW
-	 pbOO5u7rPoJCBJzmRf2VHybHPD2MVICT/JwbJfzFajvd3SHmBl0B/FPFsWDtUOxVfI
-	 5qq5942DtJZlg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 32F7617E0D43;
-	Tue, 08 Sep 2026 16:51:41 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 94010480035; Tue, 08 Sep 2026 16:51:40 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 08 Sep 2026 16:51:23 +0200
-Subject: [PATCH v6 05/10] PCI: dw-rockchip: Add helper function for
- controller mode
+	id 1x3xBW-0000000HZ7B-3iwc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Sep 2026 14:52:32 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5b4af4be667so4659169e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 07:52:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788879148; x=1789483948; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rZY078INwnXidXnS1tAhSBI29huMveMJ63auEB3fPKc=;
+        b=PqNiZzh/P7O1/D9bM/54Ijz8tGrjr+/FL46KqiQ8ekGD8lDGO0XjMGI8iVViJWYGRq
+         M36GmoH44N+7iBPY6yUADf1um3u23ral4rgmv6I/ld+KtZPs2/ZVno/gWfEmEX1QIz2j
+         J4gzwxmKw1d8Rd/CrPp1qdtTJ7lNE1/nczZyUyL+KPpnVIh0Zdbz4Y3CQr+YWC9ldN+R
+         Yg8+k03bg8XCQqoanf4sDtn68cgYSeQ2WHTpvyEvetqxlVlOLA31xl5Uj1ibuFtwTe6s
+         ww9ep0ZdnWNtNEENfytebJnbWBxy4iY94nfd7FOnUi1YhAfhVmKd1gY4drne6Pl0ZOQP
+         U+tA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788879148; x=1789483948;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rZY078INwnXidXnS1tAhSBI29huMveMJ63auEB3fPKc=;
+        b=I56EoDi7CrI5kMsBol715Ve+LO1o80AkMbChPun1N1p/SKKI1r2W1D1HHlrKvTeFYs
+         ukKGfgALGXybOejI4uNUNB/cwXWZf8Wlt2SU/hQe4kjGyJMWfWo+EW11orv+GHfZGJ3r
+         fRMAMBcpl2GN9iHaKS32ngyEI/SJbsurDzaUZZxXe30r+3mFrwwBRYHW912UcZjA6sZq
+         I+aMtFLEL7pZ3lrRWT6dnRUYwde8i/iO1X9wcEWpn/zeyAMXmZmxga+GMRoULcgvaXuk
+         bO5qKhm4ibAzWK/T3PlsD0Wjj4jMdr8bGGaqQoBWUsIS8hrNUSqWmVFUAcxQl3OM7oAs
+         pkHA==
+X-Forwarded-Encrypted: i=1; AKwUvBzzoJJI6oyVBdVuOeB4JpBBp2iZY3x8HVJb4eFHM8joHZ+aRYOdEgrgZGmBPJmzzKccx4ibTXBXYJggCr+ETG63@lists.infradead.org
+X-Gm-Message-State: AFuF++lYof5tnW4Hu8A3qt2Gsjcwbqii56eem1DxIhJNeByhzKdUAPeC
+	tQDKdel63DgWWe9mDtE4mCSy8sRapUBK/hwgp7LX341nLQ7iNDBN4sU=
+X-Gm-Gg: AYBFou3WJc+tvJ4eDQIxrJ2zYdaeAAqDog/9cUVlr/lTA50KaD48YLQicouSEIR4bRX
+	aa0sEyOwdgkOCcXsPKPGcWapre4m0d4ZVY2ytAHlcgW3JtuzbE3ihFROBZX2AUUaFiGiS1iVhbB
+	Fnyz8Q5bFPlsh1Ui8s79VEHSL12GP0uSv6SqnSGOWja8YfGxpHa0QdfjSZSJje5rOO475KpgzuX
+	5S27bcyyoB0GfqLGngvU2+tKpr8bQutdgUVXSueBvqB8BYlty58x/WEax7BNlkAxDRW345bMP5o
+	Q6WSdwEBlkUCvriFmGRO1hMEaOuEFkMYDjYmO8eUg0ICe8gXJev3rrhl9OXQDu8eAPPPMYCXdVW
+	5xUn+3SouDFLPOFCTiLSsK82aQ11aO4P7/OtqXbA37A+e+DESLC3eAAV1NdvHhwjrfsqyvYFKc9
+	gWFwGWzrbQxNjHjsRBRRAkeQWvXTHWq9X62JFAvJJZXphR0h88AXdrxxtKfpFj+BHuCe/MxvUJy
+	nrr+TWNUHGFNn1GXSV/ryipZYaq5db8vqcCXD3TV6xowv3TpfY=
+X-Received: by 2002:a05:6512:130b:b0:5b6:183c:5c90 with SMTP id 2adb3069b0e04-5b6183c5d6amr4728496e87.46.1788879146726;
+        Tue, 08 Sep 2026 07:52:26 -0700 (PDT)
+Received: from i-UX410UAR.lan (broadband-95-84-141-211.ip.moscow.rt.ru. [95.84.141.211])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b6166ecf24sm3215891e87.16.2026.09.08.07.52.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 07:52:24 -0700 (PDT)
+From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	arinc.unal@arinc9.com,
+	sean.wang@mediatek.com,
+	olteanv@gmail.com,
+	yangshiji66@outlook.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Subject: [PATCH net v4] net: phy: mediatek-ge: disable EEE on the MT7530 PHY
+Date: Tue,  8 Sep 2026 17:52:13 +0300
+Message-ID: <20260908145213.3976508-1-vladislav.karmanov.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-rockchip-pcie-system-suspend-v6-5-fbabcca9921b@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1964;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=Z+Lzstt3geCgNqqc4sfbPOYtUjgypQ6xYnIT7nuZdGQ=;
- b=owJ4nAFsApP9kA0DAAoB2O7X88g7+poByyZiAGqgIPwgM3qXGwQtQCIgGMAprVKfcJl1XSgth
- pPm2ueEaZ34hIkCMgQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqoCD8AAoJENju1/PI
- O/qaDRYP9infvMVbVZC87GDb1FHBu40+qE6n9tyX2bNz/Vc1hd4eT+k6Lyah9Lc9rrRRcPOQLLP
- QZNDLTMXd4nesDB/ABjn1RVObkRca4RDC5UiLM3B+FdexIcm7zBbK7qxlWqqJ6CNZ7GRLP4ibGO
- wi65WzgfH0fjVOQNRgTNzrHOQ97NUNj6wCK9oywSGcbEdbGAF8gpiX1YwCA2az4C4dWFwA9orTn
- /1z5lwgmY6UTCpBW6PninQmgUMV7V3kwKPFCP5Q2tI5nxzbgs8PTBEyxgDdf1xyVHlyHDufGflD
- 7fa1/9xQc8QsJfDa2DzJ3vHRyC2CGnrUltTfkgasOr/q27yunslJkZq5M1wzDvEyXuoasIRNHrl
- VZslbeOyYbXuj2zvzcL34BuREz9Q6nf3+9xJGQENClBwc2HIUs0smAnf/Fvh5ylqRrkrle3vkOA
- aHfoOfv8evhvnZzAyJvoFu0l3HgMx/C53UqsXrKAMyrlY79zXm6e6zCIExruFTWCSiBueAZSCdb
- 810hrlr2wu9NaUphFvIML7AwJPYXOaJ1XGh+qppICAT/DZN5jFcvQy7lTTnw6hvaeFVPNbj93Wn
- Lp8rpWJufLmqOn2q0DyBLiMNe/pIMI1976gnSfQx8xGyuxlBk+0weE707IEBZpDakWcmjU38BpO
- 9UNLFf8LSCYTYsJdCWDjz
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_155149_509609_FEF97890 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260908_155231_068256_EA8AABF3 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,56 +129,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove code duplication and improve readability by introducing a new
-function to setup the controller mode.
+The MT7530 internal GE PHY advertises EEE by hardware default, but its
+EEE support is defective: with EEE advertised, some link partners fail
+to establish a stable link. On a 2-pair (4-wire) cable where both ends
+advertise gigabit, 1000BASE-T training cannot succeed, and instead of
+falling back to 100 Mbps the port loops, so no link or DHCP lease is
+ever obtained. MediaTek confirms the hardware is the root cause (Landen
+Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
+problems, so it is recommended to disable its EEE."
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+mtk_gephy_config_init() used to clear the EEE advertisement early, but
+commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+advertisement") removed that on the rationale that the DSA subdriver
+already performs an early disable. That holds for MT7531, whose
+mt7531_setup() clears MDIO_AN_EEE_ADV on each switch PHY, but not for
+the MT7530 PHY: neither the MT7621 integrated switch nor the dedicated
+MT7530 IC ever had such a loop, so removing it left those boards
+without any working early EEE disable and the link flapping came back.
+
+Since the broken hardware is the PHY, fix it in the PHY driver so it
+covers all users of this PHY, integrated in a switch or standalone:
+
+  - clear MDIO_AN_EEE_ADV in probe(), as early as possible, before
+    anything can negotiate EEE with the link partner;
+  - clear it again in config_init() and call phy_disable_eee() there.
+    config_init() is what phy_init_hw() replays after a PHY reset, when
+    the register is back at its EEE-advertising hardware default, and
+    it runs after of_set_phy_eee_broken() in phy_probe(), so the
+    eee_disabled_modes mask survives and neither phylib nor userspace
+    can re-enable EEE. dp83867 disables broken EEE from config_init()
+    the same way.
+
+Auto-negotiation then falls back to a stable 100 Mbps link instead of
+looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
+cable on the WAN port, a single clean 100 Mbps link comes up and a
+DHCP lease is obtained, where the unpatched driver loops.
+
+Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+Changes in v4 (addressing the sashiko review of v3):
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 6f84b07406d4..211776bbcb99 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -708,6 +708,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci
- 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
+- phy_disable_eee() called from probe() was undone later in the same
+  phy_probe() flow for PHYs with an of_node: of_set_phy_eee_broken()
+  zeroes eee_disabled_modes after ->probe has already run, leaving
+  userspace able to re-enable EEE through ethtool.
+- The probe()-time MDIO_AN_EEE_ADV clear was not replayed by
+  phy_init_hw() after a PHY reset, leaving the register at its
+  EEE-advertising hardware default.
+- Keep the probe()-time advertisement clear -- it also feeds an empty
+  advertisement back into genphy_c45_read_eee_adv() during phy_probe()
+  -- and move the durable disable to config_init(), which runs after
+  of_set_phy_eee_broken() and is the callback phy_init_hw() replays
+  after resets. This is the placement dp83867 uses for the same kind
+  of quirk.
+- The Reviewed-by/Acked-by given for v3 are not carried over: the
+  placement is what changed, so they need a fresh look.
+
+v3: https://lore.kernel.org/netdev/20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com/
+v2: https://lore.kernel.org/netdev/20260820202844.1821687-1-vladislav.karmanov.dev@gmail.com/
+v1: https://lore.kernel.org/netdev/20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com/
+
+ drivers/net/phy/mediatek/mtk-ge.c | 29 ++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 73d9b72..96d8ac5 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -62,10 +62,38 @@ static void mtk_gephy_config_init(struct phy_device *phydev)
+ 		       FIELD_PREP(MTK_MCC_NEARECHO_OFFSET_MASK, 0x3));
  }
  
-+static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u32 mode)
++static int mt7530_phy_probe(struct phy_device *phydev)
 +{
-+	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
++	/* The MT7530 internal GE PHY has broken EEE: with EEE advertised,
++	 * some link partners fail to establish a stable link (on a 2-pair
++	 * cable, 1000BASE-T training fails and the port loops instead of
++	 * falling back). MediaTek recommends disabling EEE on this PHY.
++	 * Clear the advertisement as early as possible, before anything
++	 * can negotiate EEE with the link partner.
++	 */
++	return phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
 +}
 +
- static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 				      struct rockchip_pcie *rockchip)
+ static int mt7530_phy_config_init(struct phy_device *phydev)
  {
-@@ -732,10 +737,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 	}
++	int ret;
++
+ 	mtk_gephy_config_init(phydev);
  
- 	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
--
--	rockchip_pcie_writel_apb(rockchip,
--				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
--				 PCIE_CLIENT_GENERAL_CON);
-+	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
- 
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
-@@ -776,10 +778,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- 	}
- 
- 	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, PCIE_LTSSM_APP_DLY2_EN);
--
--	rockchip_pcie_writel_apb(rockchip,
--				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_EP),
--				 PCIE_CLIENT_GENERAL_CON);
-+	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_EP);
- 
- 	rockchip->pci.ep.ops = &rockchip_pcie_ep_ops;
- 	rockchip->pci.ep.page_size = SZ_64K;
-
++	/* The probe() clear alone is not durable: phy_init_hw() replays only
++	 * ->config_init after a PHY reset, with the register back at its
++	 * EEE-advertising hardware default, and phy_probe() zeroes
++	 * eee_disabled_modes (of_set_phy_eee_broken()) after ->probe already
++	 * ran. Clear the advertisement again and mark EEE disabled, so that
++	 * neither phylib nor userspace can re-enable it; dp83867 disables
++	 * broken EEE from config_init() the same way.
++	 */
++	ret = phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
++	if (ret)
++		return ret;
++
++	phy_disable_eee(phydev);
++
+ 	/* Increase post_update_timer */
+ 	phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_3,
+ 			MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG11, 0x4b);
+@@ -100,6 +128,7 @@ static struct phy_driver mtk_gephy_driver[] = {
+ 	{
+ 		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
+ 		.name		= "MediaTek MT7530 PHY",
++		.probe		= mt7530_phy_probe,
+ 		.config_init	= mt7530_phy_config_init,
+ 		/* Interrupts are handled by the switch, not the PHY
+ 		 * itself.
 -- 
-2.53.0
-
+2.43.0
 
