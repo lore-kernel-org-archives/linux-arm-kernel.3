@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778F2C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81BAEC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 10:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFpNp3ZqO7N2Q9SVPtLMBf2AYYHJ1sRkpIuyR1lzdHQ=; b=GFU1zBdnc/EXXHlBNDkjSJJiFH
-	QptB90P05gdKaSazp5SzMDZ9cUeR15It1c4X2Xb6fiw8A3/8ZolUvRfEZ0J0LNKtl3E+7fUJy5hBQ
-	u8y5FHbcEwsOhjs20k1VLS+9S3zPfGlKWCHJva4AAh8A7ffh97Q+g8TU+UEabPv/jkndOowoJ0u+5
-	57fEvuJzbzqmQv0UF9qEx/oqqXnVlnuhL/kVAZDhxGYO4yiFDV1wJ6IpFbJNAd+yuYKFzeuYNX9/C
-	YUAY9LMfx7v1Ja4M8Bf3WNsbuTmhMBbqCfuIN7alcjxqoRRSppxk8nTpVkKZDhkI+oO5vyNTg5siN
-	DwT/JQJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qn9bzidk+hE2ubNXQKjOBvJlF8TB7Dy9ER8c4nHmzYA=; b=xBRmY+87tnLqRC1yplPi9C3jYL
+	RLCa/DBuKbmdBcYTkaMqpp5JCVVF+yDkDWlRiDh/S5KTS8cGXaDJk//9b9YLEW2/yU2h3IkSI10C4
+	JGSSdd+RMPkgg2cUutpSufEyBDy1I3IIlu5FW4RlVwbG4qTD0/Er+GyiJIoavk1tuH2wt6MBxEhmL
+	SNyUz12/prLXYvFrX+i43FlR30F7uAECXCmxfwlVocoPoyUdIvaevKcT2S1O+e/MCqyNZMHJwwvPk
+	Wh/UNg4iP5drix97PhEjmuMSXU4sAM9FKnMbi2ZRwtI6mPGPYpHWwjmHJBoVb8S3l94v9C2QHlF+O
+	iN+oRCzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3t2a-00000008ldu-0KOv;
-	Tue, 08 Sep 2026 10:27:00 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3t2X-00000008lcd-3Uwn
+	id 1x3tCr-00000008mrQ-27Pq;
+	Tue, 08 Sep 2026 10:37:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3tCo-00000008mqm-08eC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 10:26:58 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49556f97a9dso37619485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 03:26:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788863215; x=1789468015; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TFpNp3ZqO7N2Q9SVPtLMBf2AYYHJ1sRkpIuyR1lzdHQ=;
-        b=Msk+uIJVVdAgcB5uWeytGGEcNYwhDdBhBqq6J8BzskTX7G5uzK30/rkxahTyPTwOYx
-         s8l1oEnv9IjIJfU216YBKlRoO3nAKeRcJpKZaXuQumCW2YcE0JO6VtzS3sxz8UaXiPD+
-         Y03Fvto+GRGIE1kq2RbRP1egv6tErrqCmGMvwoQ6iinp9FBWE5E//3MiUPDUfnBr+n5W
-         qUdIO/wotWf0hV7sKWGKw5vRA6tqF2VHGUEuzzHnl8iP/Q9AblgLJYu9N8l3shDhze/k
-         wjiPjBivnvrocI2ORl5pfIqVBtvP3y4kS6uyKIeP/G5N9HQBiiJXWC49nZVVpRhMlcWv
-         HEvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788863215; x=1789468015;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TFpNp3ZqO7N2Q9SVPtLMBf2AYYHJ1sRkpIuyR1lzdHQ=;
-        b=scqnfuRS1YNuJVCF/s5Tt4DD99Ltz2hDMX0+1ugSnQfgJrbS8N6mG+P1wPEZT2vdw5
-         mGBn4LGrHK0Zoo1NyYryQUdZe5atZMGznZOJ75+VcOyGQgbPqRFR59BQKx+z4GbRRsai
-         FCCHyTYOEDCwhSMTOJydpInM85llJ9gSEnig4SFmanIHX/0Un3EC5W/aBnAukS7/dqXO
-         bESTzcHjKMbxQK8E410weq+wx+6HtQoPzPMeoZHtyHK5gF6b2NdqWEd8teIbWzQbx0yr
-         m1gCIWp93KzDSIBsMsM6732/Xac2ZCEdvCyj9qVQCXkI52fREiH6KXL3DMzCmdn8QeWa
-         uAqQ==
-X-Forwarded-Encrypted: i=1; AKwUvByHo5oxjp9O6ppUWFYaL999vywL0nbUU5J3nb0MUBi0MUAZFFaCiZI0CKNKo1l9VRe2pg9eDEm9e7bdbW0Qdm2H@lists.infradead.org
-X-Gm-Message-State: AFuF++kg2yZoZlnb+QTO9yzgMuoRVKmf4RpHVAcpaOrBrqJh2YK8Xk/T
-	FwfNTIwQ+cqAgZSnCSnfesIfqoH2T1GvId5w6yBz7EWsu3VG2JAnPV266J1j8RlLtw==
-X-Gm-Gg: AYBFou2BS/NQ0FyzZ9MH0uVqq7u+9YV0BOl9Y+D8Jix1MN9cm1yKFrbUlkPtBGlwHVY
-	bpySgrgxmw03swoEq2Gx4rEndKXAb3bDJC/xcO9XkjFq1oYZ+gO3MJVT+AEQRX7oj5OMe6T/+21
-	Hda7jM6O7ZYnpLQe0ec6g9a15ElE8GPMGSeW/Eo4pb8GJvWZD0atl5TdZA8yy6oSMDpVEaCxUEc
-	MPynKajjVP9R50xW25gNTEFHVdDRvpjw2omJsdH479yJpfNZ2qvp35SrYhKEnNCHM3vcamjRG9L
-	5hKxhkzP3/KCZBC9B2MRp+NAMpHDWCUCQfwkz4+9EwpyyIgyneRHOW/XUmJJyk0DXPtVfZL0cm8
-	Q/s5hTTeo6Z3oiVRkzlfArRQTSTbtGJpaDnXlcRF01adQ27tSBsgNDToxBTUH9mXHAMmqrhj0/1
-	KGOVVrYQp2pQosdT9azWtDEUS29JrW8B/kVytDQ4BQ3XPk5E3aFTIN/9QE9nu1H1bx0oIaTbJAj
-	fYHz3EcgHVEPrgy64B/T4RyyEX+H8BzMQ==
-X-Received: by 2002:a05:600c:3e0a:b0:495:6e68:5df2 with SMTP id 5b1f17b1804b1-49cf8267a36mr365637045e9.12.1788863214324;
-        Tue, 08 Sep 2026 03:26:54 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4859162f354sm27909246f8f.20.2026.09.08.03.26.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 03:26:53 -0700 (PDT)
-Date: Tue, 8 Sep 2026 11:26:43 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 12/20] KVM: arm64: Handle huge mappings in
- __pkvm_host_force_reclaim_page_guest()
-Message-ID: <ap_i40-JQnXf4w4O@google.com>
-References: <20260803100904.3563942-1-vdonnefort@google.com>
- <20260803100904.3563942-13-vdonnefort@google.com>
- <yzeb47zjrxdsfztilng7n4e22fnsm4ncqjeqzmryc7sqncuqw6@pjtshmjxwelh>
+	Tue, 08 Sep 2026 10:37:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61CFB1476;
+	Tue,  8 Sep 2026 03:37:27 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 765AA3F528;
+	Tue,  8 Sep 2026 03:37:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788863851; bh=mPR/5rdwTgC9l9WCRpx7dI5u8fBM4ZE1OdWDZMyT26E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UegS7oEaa/SoCeqvarZ1I1F0T0OKVgqAcIvO1bQVSb4yVTpBhu4oVNhrpZxE2xOIX
+	 Lngo42gCXiGmJpTEYAwAlBjjA4WV+jHmgjFNjq+FslZQ1Foy8RQVS5UMo2fZySHa5p
+	 ImHPR4dRWJnxEdoWXrYJ4TimuA1qU+ElkANdafUk=
+Message-ID: <aca629b2-27a0-4c47-acac-87edb3b0d3d9@arm.com>
+Date: Tue, 8 Sep 2026 11:37:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yzeb47zjrxdsfztilng7n4e22fnsm4ncqjeqzmryc7sqncuqw6@pjtshmjxwelh>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 1/7] firmware: arm_rmm: Add SMC definitions for
+ calling the RMM
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-2-suzuki.poulose@arm.com>
+ <c9990440-acab-4c6c-b67f-8bde17feddce@redhat.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <c9990440-acab-4c6c-b67f-8bde17feddce@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_032657_892133_54654652 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20260908_033734_149817_D97C5144 
+X-CRM114-Status: GOOD (  29.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +78,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:52:35PM +0100, Wei-Lin Chang wrote:
-> On Mon, Aug 03, 2026 at 11:08:56AM +0100, Vincent Donnefort wrote:
+On 08/09/2026 07:19, Gavin Shan wrote:
+> Hi Suzuki,
 > 
-> [...]
-> 
-> > -static void hyp_poison_page(phys_addr_t phys)
-> > +static void __hyp_poison_page(void *addr, size_t size)
-> >  {
-> > -	void *addr = hyp_fixmap_map(phys);
-> > -
-> > -	memset(addr, 0, PAGE_SIZE);
-> > +	memset(addr, 0, size);
-> >  	/*
-> >  	 * Prefer kvm_flush_dcache_to_poc() over __clean_dcache_guest_page()
-> >  	 * here as the latter may elide the CMO under the assumption that FWB
-> > @@ -1304,19 +1302,15 @@ static void hyp_poison_page(phys_addr_t phys)
-> >  	 * host stage-2 and would otherwise lead to a malicious host potentially
-> >  	 * being able to read the contents of newly reclaimed guest pages.
-> >  	 */
-> > -	kvm_flush_dcache_to_poc(addr, PAGE_SIZE);
-> > -	hyp_fixmap_unmap();
-> > +	kvm_flush_dcache_to_poc(addr, size);
-> >  }
-> >  
-> >  static void hyp_poison_range(phys_addr_t phys, u64 size)
-> >  {
-> > -	u64 offset;
-> > -
-> > -	for (offset = 0; offset < size; offset += PAGE_SIZE)
-> > -		hyp_poison_page(phys + offset);
-> > +	__apply_guest_page(__hyp_va(phys), size, __hyp_poison_page);
-> >  }
-> 
-> Patch 8 introduces hyp_poison_range(), and it is reimplemented in
-> another way here. Maybe just do it this way in the first time?
+> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> The RMM (Realm Management Monitor) provides functionality that can be
+>> accessed by SMC calls from the host.
+>>
+>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
+>>
+>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Especially if I split it into a separate patch.
+...
+
+>> ---
+>>   include/linux/arm-smccc-rmi.h | 494 ++++++++++++++++++++++++++++++++++
+>>   1 file changed, 494 insertions(+)
+>>   create mode 100644 include/linux/arm-smccc-rmi.h
+>>
+> 
+> Some nitpicks below, please pick up the commits that look reasonable :)
+> 
+
+
+>> +
+>> +#define RMI_RETURN_STATUS_MASK        (0xFFUL)
+>> +#define RMI_RETURN_INDEX_MASK        (0xFFUL << 8)
+>> +#define RMI_RETURN_MEMREQ_MASK        (0x3UL << 8)
+>> +#define RMI_RETURN_CAN_CANCEL_MASK    (0x1UL << 10)
+>> +
+>> +#define RMI_RETURN_STATUS(ret)        
+>> FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
+>> +#define RMI_RETURN_INDEX(ret)        FIELD_GET(RMI_RETURN_INDEX_MASK, 
+>> ret)
+>> +#define RMI_RETURN_MEMREQ(ret)        
+>> FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
+>> +#define RMI_RETURN_CAN_CANCEL(ret)    
+>> FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
+>> +
+> 
+> If I'm correct enough, RMI_RETURN_{STATUS, INDEX, MEMREQ, CAN_CANEL} 
+> _MASK are used
+> for once in this header file. So we needn't explicitly expose them and 
+> combine their
+> definitions with users to fetch the corresponding fields, as below.
+> 
+> #define RMI_RETURN_STATUS(ret)        FIELD_GET(GENMASK(7, 0), ret)
+> #define RMI_RETURN_INDEX(ret)        FIELD_GET(GENMASK(15, 8), ret)
+> #define RMI_RETURN_MEMREQ(ret)        FIELD_GET(GENMASK(10, 8), ret)
+> #define RMI_RETURN_CAN_CANCEL(ret)    FIELD_GEt(GENMASK(10, 10), ret)
+
+I belive the header files were generated from a tool (by Steven) and
+these would make it easier to compare with the generated header file for
+any deviation from the spec. So, I am a bit reluctant make these
+changes.
+
+That said, I am happy to convert the mask definitions to GENMASK() for
+consistency and readability. i.e., something like:
+
+diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-rmi.h
+index 3eb88caf40964..078197284415e 100644
+--- a/include/linux/arm-smccc-rmi.h
++++ b/include/linux/arm-smccc-rmi.h
+@@ -139,10 +139,10 @@
+  #define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+  #define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+
+-#define RMI_RETURN_STATUS_MASK         (0xFFUL)
+-#define RMI_RETURN_INDEX_MASK          (0xFFUL << 8)
+-#define RMI_RETURN_MEMREQ_MASK         (0x3UL << 8)
+-#define RMI_RETURN_CAN_CANCEL_MASK     (0x1UL << 10)
++#define RMI_RETURN_STATUS_MASK         GENMASK(7, 0)
++#define RMI_RETURN_INDEX_MASK          GENMASK(15, 8)
++#define RMI_RETURN_MEMREQ_MASK         GENMASK(10, 8)
++#define RMI_RETURN_CAN_CANCEL_MASK     BIT(10)
+
 
 > 
-> >  
-> > -static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
-> > +static int host_stage2_get_guest_info(phys_addr_t phys, u64 *size, struct pkvm_hyp_vm **vm,
-> >  				      u64 *gfn)
-> >  {
-> >  	enum pkvm_page_state state;
-> > @@ -1344,34 +1338,43 @@ static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
-> >  	if (ret)
-> >  		return ret;
-> >  
-> > -	if (WARN_ON(level != KVM_PGTABLE_LAST_LEVEL))
-> > -		return -EINVAL;
-> > +	/* We only support either PAGE_SIZE or PMD_SIZE */
-> > +	if (level < KVM_PGTABLE_LAST_LEVEL - 1)
-> > +		return -E2BIG;
-> >  
-> > -	return host_stage2_decode_gfn_meta(pte, vm, gfn);
-> > +	ret = host_stage2_decode_gfn_meta(pte, vm, gfn);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	*size = kvm_granule_size(level);
-> > +
-> > +	return 0;
+>> +#define RMI_SUCCESS            0
+>> +#define RMI_ERROR_INPUT            1
+>> +#define RMI_ERROR_REALM            2
+>> +#define RMI_ERROR_REC            3
+>> +#define RMI_ERROR_RTT            4
+>> +#define RMI_ERROR_NOT_SUPPORTED        5
+>> +#define RMI_ERROR_DEVICE        6
+>> +#define RMI_ERROR_RTT_AUX        7
+>> +#define RMI_ERROR_PSMMU_ST        8
+>> +#define RMI_ERROR_DPT            9
+>> +#define RMI_BUSY            10
+>> +#define RMI_ERROR_GLOBAL        11
+>> +#define RMI_ERROR_TRACKING        12
+>> +#define RMI_INCOMPLETE            13
+>> +#define RMI_BLOCKED            14
+>> +#define RMI_ERROR_GPT            15
+>> +#define RMI_ERROR_GRANULE        16
+>> +
+>> +#define RMI_CONTINUE_KEEP_GOING        0
+>> +#define RMI_CONTINUE_STOP        1
+>> +
+>> +#define RMI_OP_MEM_REQ_NONE        0
+>> +#define RMI_OP_MEM_REQ_DONATE        1
+>> +#define RMI_OP_MEM_REQ_RECLAIM        2
+>> +
+>> +#define RMI_DONATE_SIZE_MASK        3UL
+>> +#define RMI_DONATE_COUNT_MASK        GENMASK(15, 2)
+>> +#define RMI_DONATE_CONTIG_MASK        BIT(16)
+>> +#define RMI_DONATE_STATE_MASK        GENMASK(18, 17)
+>> +
+>> +#define RMI_DONATE_SIZE(req)        FIELD_GET(RMI_DONATE_SIZE_MASK, req)
+>> +#define RMI_DONATE_COUNT(req)        FIELD_GET(RMI_DONATE_COUNT_MASK, 
+>> req)
+>> +#define RMI_DONATE_CONTIG(req)        
+>> FIELD_GET(RMI_DONATE_CONTIG_MASK, req)
+>> +#define RMI_DONATE_STATE(req)        FIELD_GET(RMI_DONATE_STATE_MASK, 
+>> req)
+>> +
 > 
-> This can also be moved into its own patch with get_valid_guest_pte(),
-> hyp_poison_range() changes in my opinion.
+> As above, RMI_DONATE_{SIZE, COUNT, CONTIG, STATE}_MASK are used for once 
+> in this
+> header file. So their definitions can be dropped by modifying the 
+> followup macros,
+> as below. Some enhancements are also applicable: (a) Use 'BLOCK' to 
+> indicate the
+> unit encoded in the request. (b) The macros are put into order from MSB 
+> to LSB.
 > 
-> Thanks,
-> Wei-Lin Chang
+> #define RMI_DONATE_STATE(req)        FIELD_GET(GENMASK(18, 17), req)
+> #define RMI_DONATE_CONTIG(req)        FIELD_GET(GENMASK(16, 16), req)
+> #define RMI_DONATE_BLOCK_COUNT(req)    FIELD_GET(GENMASK(15, 2), req)
+> #define RMI_DONATE_BLOCK_SIZE(req)    FIELD_GET(GENMASK(1, 0), req)
+
+Same as above.
+
 > 
-> [...]
+>> +#define RMI_OP_MEM_DELEGATED        0
+>> +#define RMI_OP_MEM_UNDELEGATED        1
+>> +#define RMI_OP_MEM_CONDITIONAL        2
+>> +
+> 
+> B4.6.40 RmiOpMemContig type is missed here and they should be used in 
+> the c code.
+> 
+> #define RMI_OP_MEM_NON_CONTIG    0
+> #define RMI_OP_MEM_CONTIG    1
+> 
+> In the c code, we shall have:
+> 
+> if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
+>     ...
+> } else {
+>     ...
+> }
+> 
+
+Does it make much sense though ? I prefer
+
+if (RMI_DONATE_CONTIG(req))
+
+to
+
+
+if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
+
+
+than having a field for a single bit values. I am happy to change
+this if there is strong preference to the other.
+
+
+> Similarly, B4.6.39 RmiOpCanCancel type is missed here and they should be 
+> used in
+> the c code.
+> 
+> #define RMI_OP_CANNOT_CANCEL    0
+> #define RMI_OP_CAN_CANCEL    1
+> 
+> In the c code, we shall have:
+> 
+> if (RMI_RETURN_CAN_CANCEL(ret) == RMI_OP_CAN_CANCEL) {
+>      ...
+> } else {
+>      ...
+> }
+> 
+
+Same as above.
+
+>> +#define RMI_ADDR_TYPE_NONE        0
+>> +#define RMI_ADDR_TYPE_SINGLE        1
+>> +#define RMI_ADDR_TYPE_LIST        2
+>> +
+>> +#define RMI_ADDR_RANGE_SIZE_MASK    GENMASK(1, 0)
+>> +#define RMI_ADDR_RANGE_COUNT_MASK    GENMASK(PAGE_SHIFT - 1, 2)
+>> +#define RMI_ADDR_RANGE_ADDR_MASK    (PAGE_MASK & GENMASK(51, 0))
+>> +#define RMI_ADDR_RANGE_STATE_MASK    GENMASK(63, 62)
+>> +
+>> +#define RMI_ADDR_RANGE_SIZE(ar)        
+>> (FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, \
+>> +                           (ar)))
+>> +#define RMI_ADDR_RANGE_COUNT(ar)    
+>> (FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, \
+>> +                           (ar)))
+>> +#define RMI_ADDR_RANGE_ADDR(ar)        ((ar) & RMI_ADDR_RANGE_ADDR_MASK)
+>> +#define RMI_ADDR_RANGE_STATE(ar)    
+>> (FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, \
+>> +                           (ar)))
+>> +
+> 
+> I guess it wouldn't a bad idea to explictly indicate 'BLOCK' in the 
+> definitions, as
+> below. Some improvements are applicated either: (a) 'ar' is renamed to 
+> 'r'; (b) The
+> excessive parentheses are dropped to follow the patterns we already had; 
+> (c) For
+> RMI_ADDR_RANGE_ADDR(r), FIELD_GET() is used.
+> 
+> #define RMI_ADDR_RANGE_BLOCK_SIZE_MASK        GENMASK(1, 0)
+> #define RMI_ADDR_RANGE_BLOCK_COUNT_MASK        GENMASK(PAGE_SHIFT - 1, 2)
+> #define RMI_ADDR_RANGE_ADDR_MASK        (PAGE_MASK & GENMASK(51, 0))
+> #define RMI_ADDR_RANGE_STATE_MASK        GENMASK(63, 62)
+> 
+> #define RMI_ADDR_RANGE_BLOCK_SIZE(r)        
+> FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, r)
+> #define RMI_ADDR_RANGE_BLOCK_COUNT(r)        
+> FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, r)
+> #define RMI_ADDR_RANGE_ADDR(r)                
+> FIELD_GET(RMI_ADDR_RANGE_ADDR_MASK, r)
+> #define RMI_ADDR_RANGE_STATE(r)                
+> FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, r)
+
+Ack
+
+> 
+>> +enum rmi_ripas {
+>> +    RMI_EMPTY = 0,
+>> +    RMI_RAM = 1,
+>> +    RMI_DESTROYED = 2,
+>> +    RMI_DEV = 3,
+>> +};
+
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB    BIT(0)
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB    BIT(1)
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB    BIT(2)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_256    BIT(3)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_384    BIT(4)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_512    BIT(5)
+>> +#define RMI_FEATURE_REGISTER_1_MAX_RECS_ORDER    GENMASK(9, 6)
+>> +#define RMI_FEATURE_REGISTER_1_L0GPTSZ        GENMASK(13, 10)
+>> +#define RMI_FEATURE_REGISTER_1_PPS        GENMASK(16, 14)
+>> +
+>> +#define RMI_FEATURE_REGISTER_2_DA        BIT(0)
+>> +#define RMI_FEATURE_REGISTER_2_DA_COH        BIT(1)
+>> +#define RMI_FEATURE_REGISTER_2_VSMMU        BIT(2)
+>> +#define RMI_FEATURE_REGISTER_2_ATS        BIT(3)
+>> +#define RMI_FEATURE_REGISTER_2_PDEV_MAX_VDEVS_ORDER    GENMASK(7, 4)
+>> +#define RMI_FEATURE_REGISTER_2_VDEV_KROU    BIT(8)
+>> +#define RMI_FEATURE_REGISTER_2_NON_TEE_STREAM    BIT(9)
+>> +#define RMI_FEATURE_REGISTER_2_REALM_MAX_VDEVS_ORDER    GENMASK(14, 10)
+>> +
+>> +#define RMI_FEATURE_REGISTER_3_MAX_NUM_AUX_PLANES    GENMASK(3, 0)
+>> +#define RMI_FEATURE_REGISTER_3_RTT_PLANE        GENMASK(5, 4)
+>> +#define RMI_FEATURE_REGISTER_3_RTT_S2AP_INDIRECT    BIT(6)
+>> +
+>> +#define RMI_FEATURE_REGISTER_4_MEC_COUNT        GENMASK(63, 0)
+>> +
+> 
+> We would reorder those feature register definitions from MSB ro LSB :-)
+
+Ack
+
+Thanks for your review.
+
+Cheers
+Suzuki
+
 
