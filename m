@@ -4,138 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A88C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 06:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0122EC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 06:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IXJaoGQ4WQvJw7LpO+fZwYljBOcexd/+8ETyAn7bS9I=; b=NFEf41NzQKvUVBjWjl1Ct3koTI
-	JehC97TxP/IQrzMIqStr9AipjDxJkvb5wFTeXYJnHrrKWKI3OsynngAJS+9c9dS6Tx34dEwlBk+ez
-	lSm4It4zITWU3J3RynR7JHkqUpHLn/QEpncEn3cNgQ7j9eQT0oK32vg8Fe+77aU7HV8rl25ArTpmX
-	TBDm9VRcgvga+8CxYkfqsW9vA782Ygc/yrUAlSYLUnQJFygQOI59puQr0Og0UlEhBRD3PRyvyQSqg
-	zPMbz2o5hHr4jLFs8atexFBot69ElurVCfAexV+5J1rTHjlq3p23kbJVwFgLSJZvJQdT74MtwK/EK
-	VWfvb8KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TvHLlRKWyPOiIe47iRm6K6Fedsdfto+HSuVJJGamo6c=; b=ShNngI4CG+cbPaFS32aUGJFs1s
+	fb3j3U51ROlZvR6GSx1JqH9Vyya0tttDarFhkLXlYVdR1FVixToXFUjMUvw6i53zdFlXMhideKcsz
+	k05qCbollBtmC7WvRwqPWmMNuex1UGwztY9c8dZsqXlXcrEm2w+5IlWiPZg8chkS4gw7Bneuq380p
+	Szy8Ddll2TiFEN/8D9TLur2yk0pLRuuP9R96LE8PzMp+9HY9IF6UQGp2FnvtX6cmM02CjgVAqF1rn
+	jz6f+e3Hiu4N+ni3ye6DYt+OQjL032DpIBvI+DCdeODns/xrlc9ze1TlEeAqewXvMFU3xNMD7+TRN
+	PdgjbQMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3p4O-000000087nY-3AKq;
-	Tue, 08 Sep 2026 06:12:36 +0000
-Received: from mail-westusazon11010054.outbound.protection.outlook.com ([52.101.85.54] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1x3pBq-0000000889M-3CfO;
+	Tue, 08 Sep 2026 06:20:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3p4M-000000087mh-18Qr
+	id 1x3pBm-00000008890-4Ah4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 06:12:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FeyzsqbPds5k6pR5UB7VMChvVB78K2zniDQQv3f2omGpfvjrKkldb8eATsNqcwXulI7+i5gnpMFJR7Sv9Vi5QAMmou07vnXCVLmeClWdTafKuisQCqQEXnBRe49DXYir0383HVWAcsNjd2dNmgA+xZemWOq0U/2IanLB9AyX9dn2BLSc99rqG3xNOe1kHooOnHKaPfhnPLMrL0ZXTlqxrqBbUcw3t+o+2K1WU12yLIJf8YCdob+ub45zqh3fCQocHfzWu6KPPf+oeOtBHaIZVslW2Vz/K3CdCi0lmylrC3ymdjiAYNtsEwO9EueNs86BldUaQ+hE/BMqv4Os7MiX4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IXJaoGQ4WQvJw7LpO+fZwYljBOcexd/+8ETyAn7bS9I=;
- b=OQ1FveU3tAxZ8SY6UyaMXUOf845JRK6WSPNnihS0UHCBcBauG2Cy4K7mbDiBEnjWijtGeFY/ZqDj7i5rNJ6NdshqknZoVHMasorMn9IqmwdzQyKNRflCpbj9XNKSX35Ds6g/crHA/r/bZQfnC/aHTumB34Q0JBam+MspdKn5cOr9+8r1vnOjwx4wFfXi0zoN3ie+Af0OQT+IUbIRBFj66/EbHIuLzTPQtsT6VTq916xI7MpvhPNS9/f2EiEzcyjYGFpHw5s7DDQSH/eC8ubjZ/s44FjhhKjg5YnJcErpFW0BNhd5hkyJxdKo8twhaSCGMUn68BCV1W7YnR9Bqx2Jbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IXJaoGQ4WQvJw7LpO+fZwYljBOcexd/+8ETyAn7bS9I=;
- b=SsibEp8vWXiWy6S62OhA38JNqZgNOHrNBjTazYLWBkh3TQc5moQxXWdqT4RQ2Nr1OOqIEupcwQIDwAmGS+VyBJtPpHIQfFFBrGYZ6N4pzqRVArp5uSdGTVuuaOlZIBxzwyX7ZTb5ydUccnHX06gs3m9fdaQk3vDvy3xW/gVi8ZG7X9lNPEoCRG1+HVefMT3CCAA3cCSE9QTu316L/68DF556e6gHqkGI+CAHaoqNpCwJOVgy0up+knHsQ/5vVSm/tH3RI0S+kmI+7TplhoTmrxVEqkD9616rclyzPyyInk9Mnw4LWPos59onhytGTObbrom/vUiqCQOVRRMjodDU+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by MW4PR12MB7467.namprd12.prod.outlook.com (2603:10b6:303:212::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
- 2026 06:12:25 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Tue, 8 Sep 2026
- 06:12:25 +0000
-Date: Tue, 8 Sep 2026 08:12:18 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Srikar Dronamraju <srikar@linux.ibm.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
- selection
-Message-ID: <ap-nQp-8zrOJQY4-@gpd4>
-References: <20260904091838.3617894-1-arighi@nvidia.com>
- <20260904091838.3617894-3-arighi@nvidia.com>
- <ap-fELvfw5w51vbG@linux.ibm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ap-fELvfw5w51vbG@linux.ibm.com>
-X-ClientProxiedBy: MI1PEPF000008D1.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::42f) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Tue, 08 Sep 2026 06:20:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788848413;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TvHLlRKWyPOiIe47iRm6K6Fedsdfto+HSuVJJGamo6c=;
+	b=JsmWJoWkLQxjGcnRLb2CJ9UKTjmiiANvS3CvPXbtG+/x2yrG9qUaDcc05xTmRfm3zLZlk1
+	GzOg2N4KaWRmg92wsgHs/0TA0eedKkMTQzb+B0b6bk4kuovBh4iWoOjYK1LT/kPbEM5V8C
+	4ASkL8tMb8MIPmnbk3rsBDpdJ8ml42w=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-215-o9rR4JcXO26Y6qbJgXus1A-1; Tue, 08 Sep 2026 02:20:11 -0400
+X-MC-Unique: o9rR4JcXO26Y6qbJgXus1A-1
+X-Mimecast-MFC-AGG-ID: o9rR4JcXO26Y6qbJgXus1A_1788848410
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d7293f13c6so52112785ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 23:20:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788848410; x=1789453210;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TvHLlRKWyPOiIe47iRm6K6Fedsdfto+HSuVJJGamo6c=;
+        b=PdphHyvFeJKarNOolLyjDdPlb9ik7YYRLsraVlib9f2bk4wv4IbZ8HyTClZzIsdjIV
+         v58D7j4KTLaYjFkFckPHNqJlecpULY+gtzGtJFi95ois+uN58752LDsjviN/Bkd0CF7F
+         wufBt1Tlwvxww87DJap1htbjA0shfGsls/R9GtcHJeuXxGP2/CO9g3TTJG4QbdWw3T8Q
+         17UoYSWdOKw7w5AJNdvpUpMxGfTXU5dy1nPPzGnoeYTXZj0jyBXM5nl/F0C5/RIT1pba
+         TqIj5DogXd61WXDgTnbzaeFRIZhiek10HUJerHMWee27i1noQQAGTrmVOA4XEpbDQ0Nr
+         tDvQ==
+X-Forwarded-Encrypted: i=1; AKwUvBygYQtx8KckAPikg7saS6fxzI2ZzicpLMktpL63dJ1TmN2eBqdphPW0l/T0Zzt7xs33DGDowCRhP6CpxJWaHNR6@lists.infradead.org
+X-Gm-Message-State: AFuF++mMsYd9mdgcOr89fXgtlQ2ckeJwU9X4FqwK5zfdhz87WwRfpFIA
+	rwXG2J/FD+YKc/CVFUcqjMwiah2jy/fWLPxB1fKcPG/UTLWF8yRAJ8LRmKOJBKjU96bDaSnMMys
+	WQuCHTZgRSkK4MOYxM6jJMfGu/o6neYYs4OmTaly5upjNPoCvNYNtJyOm8PcrVT9hLm/4cl2g4n
+	K9
+X-Gm-Gg: AYBFou3XoMM4HwB0MWb2JW7dAy/NzjqLtOE+PKbh5evPtnZ9rmNCR/JVALE2MHGQjuM
+	3iYXuH+b6Uji//k7OqqzxBOcdka+K55eSpmKwANERS1nU+OEELaj7E8IIxu6yw+wI05VBDlZG1P
+	hwugQO8/+Kc1h3/tp0CGXop9E8F/e34yVAHoZMjIkyRXDjfijHC00BSKH1P8CAKEaFHewfwg/91
+	HxkqiJQySgh/RIwtVp2FXH5nt0KERCxWzvsEv8G36nRpyICfaoZhCZjajYbe7yA1ScUfkNhPLwf
+	QdeHsRVpS1TCJlnOxEI7XKhR3OCbkBiSUv5XpHnzPCHLn4Ehjdp7HFcax/COj93C1DAgbeKZ9SK
+	J8plyCuy0i6E8iKS4Bg8vnXhVmT9twD1Td2Ikb+/5ZA==
+X-Received: by 2002:a17:902:cf42:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2db125c3108mr433701405ad.11.1788848409868;
+        Mon, 07 Sep 2026 23:20:09 -0700 (PDT)
+X-Received: by 2002:a17:902:cf42:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2db125c3108mr433700565ad.11.1788848409291;
+        Mon, 07 Sep 2026 23:20:09 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14aeaf74sm53567715ad.81.2026.09.07.23.19.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Sep 2026 23:20:08 -0700 (PDT)
+Message-ID: <c9990440-acab-4c6c-b67f-8bde17feddce@redhat.com>
+Date: Tue, 8 Sep 2026 16:19:54 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|MW4PR12MB7467:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14b6f87c-c79f-4aca-c307-08df0d7026fc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: YlB7HR+aIt/p4b1AYKdu9nZIrq5+yJA3LqV/aqdn6jnDe7U73Q1VHBquiQX0Gf3CXICEqXzeMwD6dOQs2UAAbjNs/2SsisHxqP0l6fvcHajy7AumMKha5cxmPe0YgBnsShmDYWo7yQKUhSupOoHyr2v26cUihklaVnJ+dcrCMvisdJyRuacekBr4XsF1ziT4p2cOURIEVl/+uKFuRs5HwDthynIf9QB5doVFy36qinSvmbzp+Yh3q26YM31yIjgu1gZFAOiw5JnkkUErXeCv4O7k5dMZgES2z7TwYlgEQ2LTyNHKONXysz4NCyW1H7ZKhHCAKEnJTfOHQ2lOj3bMO1eLgoVRIYIS6lTAG3ewH9/V4T4An/reUAcw3E52PiscvX/TwBKNNz9dgEhfvHA3qdv+mTgtFg5wDt1uOKRE9U49i3UdUssaX/Ef33XouYT+gZc3P5N+QZL4BUHUTv0fLTbCcD4LQ08tGJZ9OR2iLQM6AxGxpE1nJv1wPWB6bTwu/rO2gUnAgJ0pK0Ku1HJFxEbmZy6A4OJNx4sEL0zKaAqxKHy27bhQL698YYXe6KBShrR8A8YaTrEGLFD74fbZAdYrL9F8/zzKhIiIMvaTndXsfnah5lc+r/oS/77Lz2GNZ8vDelCx5miN6Sm37/6NeGm0Hy+gaC8Gha0vwnQeoL4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?445LxAPURM4DyHRIXiiIbtZQ9LuXmfMBrerBksWaAoymlnrhpblljc3pqQ5/?=
- =?us-ascii?Q?ASnS0oVpu2EEamWAC50jSpphQ8oytVvUHEYvT3lwkoJY4D8grBnuxNj64CMu?=
- =?us-ascii?Q?S3sLHWxrTfprCLVz4hi5Y/VqNw8aowW8XeeKVPFWTqZvhkwvffR1sAPjBW1/?=
- =?us-ascii?Q?/UDNRHOsHbIUIWUB3chxCKGN8PRrXoScZGfNetoM8bGbwvgRaQ6D580/pko/?=
- =?us-ascii?Q?f/zuD6LgQjTZnm/6dauQFhoTVHnqqCp2sAPmRNJ9s+CFvGpsMu1dWyh5ie95?=
- =?us-ascii?Q?yCcjWowk2nzSIJYH5l4sn9rytVE1eAaCWA95Z3XF9B80VX4VIeZmHlFpg68C?=
- =?us-ascii?Q?jNQ/0YmgFX6qUls80VYJ0iUuPl/xaQuLn4FmmInCGuh7FyDuIJAxx06nQNnd?=
- =?us-ascii?Q?VPI6PhW8PNHuslRyfF7ZJBaTbTO0gebwpL4DrH9+Mda8N9WTXeZWS01biGfR?=
- =?us-ascii?Q?OGv69QETbQJv8FibWXVgNQ1bsopgytMuHAtsufesx6Be/oZaUgjFOwZ2QEvm?=
- =?us-ascii?Q?RwJ/fEdyiwAJjyWK2cgG6LFrv8I27WVOKbivZhkWzfVcIntYHzu7f0OLsLPV?=
- =?us-ascii?Q?E9Op32zH8Q6M8tB2rRRcVMIInKF5Na9BhDGQxckPLmSteKa4PYnyxzycgC8j?=
- =?us-ascii?Q?SnhpoqzROsJ5Vzd51Vf8H6hUWW/4CUYn0Elh95faj+3K6mRQzGVJSiPnsm8q?=
- =?us-ascii?Q?1oS+Uv48yU3Xq5ETlHyCF113Zu1CwMXH+tDNa7yzMUA/Y1UwJoboGKeFZWeq?=
- =?us-ascii?Q?RRwMh2GQkI0uFexihqorjgFg4/gzQ+jiitKW63QZCxKjxBUQisWOfxHBEMV7?=
- =?us-ascii?Q?vOavF1D9XPdDnp1ZG1Z3HOrPkybn8wj+d9U1X+KQM1MsYfheoVQb+vV/SG38?=
- =?us-ascii?Q?Ot8Od/8DSLJqgCGNO9Ljyv7ySh46amjuZqN66iZy1OWO4PW5OLyeXdt1rqrY?=
- =?us-ascii?Q?6+3b2czoupuUDqHEB8zR3mViC+pXzvbsVrk4gRJRVL4nOElhoyvtsINaMY6X?=
- =?us-ascii?Q?/4SkyIlibLjsHRZNvjWevfEZK1CqZr2OgBX1fEvaFFHUXNz0X4wIjjNvFN4n?=
- =?us-ascii?Q?AbpEsW3Lve81HApEs6eAwnwZPk6BWjHauwUgdE6XO6pJFkJs2/UCKuho2fwO?=
- =?us-ascii?Q?jJfVlzaQ+snk67bd39PvRrbrI/+JRMfKkXZaLPTEBP1wWJtR19oz1rXGAz4A?=
- =?us-ascii?Q?+mz1aYT9xsVj8NrSKisOUIzsO37CiClM57uNo5mhlKOxtaPkTQFiADAr+n0q?=
- =?us-ascii?Q?ENq9usTTQ4mJfFMdKu3yhqh8RTG9vnwfjlU+ntWA8xQ7QMU/w26eAZR7cYX3?=
- =?us-ascii?Q?KJfgufKsB4bbRVl0MbyvFXPhzCNQmf03BMglAgKe+Kzw4fnbFDFNeoYE49vr?=
- =?us-ascii?Q?tmL102+5iO30/g5eqhWcPSGLkV/BEVNnLn2+sEc6sf33ZSNBgoS7jzCUyYA1?=
- =?us-ascii?Q?xoJD71yaAIXeun+Sxkg/eyysSHxejsWciQ49GNGcFLUwzHK9U6Sbg7wcdPws?=
- =?us-ascii?Q?f/64BhsddJN1dxIQ8AQDJtPajyGRLaF977RWBS5MvKW/FkQ2pkV7qfRfsKqD?=
- =?us-ascii?Q?d5COQNnr5p6B7rBFn9QuoBjMLQgjJUfu+rOs+a9rmm27zGBMjymFsAtKYa1O?=
- =?us-ascii?Q?PkVk/IgFOsmKrpXMxEroDx0wm81lBpPPVf7DlVn2KVGlwQsFHON8bNHqOqNQ?=
- =?us-ascii?Q?+WTw0z9JXD9T3HcInmXcDQjjQLAfd+IcjTbz43XhwjrksAk7?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14b6f87c-c79f-4aca-c307-08df0d7026fc
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 06:12:25.4667
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xxBNnFW9fDqYSMOy6gOc2Ejmh7haoxx0oMv/QsjaNTKevbrOiZgutgmjEhq7ckQhrJyLy0mzt0lZDT8rx6/Z+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7467
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 1/7] firmware: arm_rmm: Add SMC definitions for
+ calling the RMM
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-2-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260907095942.1140734-2-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: f13JEBwTAZP-AfT3TJMMARAboJf2dUNznEuByWvoWJs_1788848410
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_231234_323953_D1B94C4A 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20260907_232015_200931_6DECF757 
+X-CRM114-Status: GOOD (  26.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,143 +119,638 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Srikar,
+Hi Suzuki,
 
-On Tue, Sep 08, 2026 at 11:07:20AM +0530, Srikar Dronamraju wrote:
-> * Andrea Righi <arighi@nvidia.com> [2026-09-04 11:18:05]:
+On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
 > 
-> Hi Andrea,
+> The RMM (Realm Management Monitor) provides functionality that can be
+> accessed by SMC calls from the host.
 > 
-> > POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity
-> > SMT level to order hardware threads. Idle CPU selection does not consult
-> > that order, so a task can wake on an arbitrary sibling and remain there
-> > until load balancing corrects the placement. On these systems, that
-> > initial choice can prevent the core from entering its preferred
-> > lower-thread resource mode and cause a large and persistent performance
-> > loss.
-> > 
+> The SMC definitions are based on DEN0137[1] version 2.0-bet3
 > 
-> > When idle selection finds an available CPU in an SMT core, choose the
-> > highest-priority available sibling. On SMT2 Olympus this only changes
-> > selection on fully idle cores. A partially idle core has only one
-> > available CPU. On wider SMT systems such as POWER7, it also fills
-> > available siblings in priority order while the core is partially busy.
-> > 
+> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
 > 
-> Don't we need changes in the slow path too?
-> Something like this?
-> https://lore.kernel.org/all/20251204175405.1511340-2-srikar@linux.ibm.com/T/#u
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>   Changes since v16:
+>    * Updated definitions to RMM specification v2.0-bet3.
+>   Changes since v15:
+>    * Dropped unused symbols REC_MAX_GIC_NUM_LRS and RMI_PERMITTED_GICV3_HCR_BITS.
+>    * Output is now (partially) generated from the spec source.
+>   Changes since v14:
+>    * Updated to RMM spec v2.0-bet2 but without the changes to move
+>      metadata out of individual address range descriptors as this is
+>      expected to be reverted in a future spec release.
+>   Changes since v13:
+>    * Updated to RMM spec v2.0-bet1
+>   Changes since v12:
+>    * Updated to RMM spec v2.0-bet0
+>   Changes since v9:
+>    * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>      this is an 8-bit type with padding afterwards (rather than a u64).
+>   Changes since v8:
+>    * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>      permits to be modified.
+>   Changes since v6:
+>    * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>      these are flag values.
+>   Changes since v5:
+>    * Sorted the SMC #defines by value.
+>    * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>      RMI calls.
+>    * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>      number of available list registers could be lower.
+>    * Provided a define for the reserved fields of FeatureRegister0.
+>    * Fix inconsistent names for padding fields.
+>   Changes since v4:
+>    * Update to point to final released RMM spec.
+>    * Minor rearrangements.
+>   Changes since v3:
+>    * Update to match RMM spec v1.0-rel0-rc1.
+>   Changes since v2:
+>    * Fix specification link.
+>    * Rename rec_entry->rec_enter to match spec.
+>    * Fix size of pmu_ovf_status to match spec.
+> ---
+>   include/linux/arm-smccc-rmi.h | 494 ++++++++++++++++++++++++++++++++++
+>   1 file changed, 494 insertions(+)
+>   create mode 100644 include/linux/arm-smccc-rmi.h
+> 
 
-Ah yes, good catch! I'll include the WF_FORK / WF_EXEC slow-path as well.
+Some nitpicks below, please pick up the commits that look reasonable :)
 
-> 
-> > Apply the preference to idle-core and idle-CPU scans,
-> > asymmetric-capacity scans, and the target, previous, and recently-used
-> > CPU fast paths. Inspect the lowest scheduling domain directly, but
-> > require both CPUs to share its span because isolcpus can split hardware
-> > siblings across scheduling domains.
-> > 
-> > Keep physical-core capacity selection independent from SMT sibling
-> > ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
-> > maximum capacities, then SD_ASYM_PACKING selects the preferred available
-> > sibling inside the chosen core, whose siblings continue to share equal
-> > capacity.
-> > 
-> > Signed-off-by: Andrea Righi <arighi@nvidia.com>
-> > ---
-> >  kernel/sched/fair.c     | 79 ++++++++++++++++++++++++++++++++++++-----
-> >  kernel/sched/sched.h    |  6 ++++
-> >  kernel/sched/topology.c | 36 +++++++++++++++++++
-> >  3 files changed, 112 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> > index b8bd308c2d5b1..ff9a7b1fcbe7f 100644
-> > --- a/kernel/sched/fair.c
-> > +++ b/kernel/sched/fair.c
-> > @@ -8587,6 +8587,63 @@ static inline bool test_idle_cores(int cpu)
-> >  	return false;
-> >  }
-> >  
-> > +/*
-> > + * Return true when @cpu has a higher asymmetric-packing priority than
-> > + * @other in their shared SMT scheduling domain.
-> > + */
-> > +static bool sched_smt_asym_prefer(int cpu, int other)
-> > +{
-> > +	struct sched_domain *sd = rcu_dereference_all(cpu_rq(cpu)->sd);
-> > +
-> > +	if (!sd)
-> > +		return false;
-> > +
-> > +	if (!(sd->flags & SD_SHARE_CPUCAPACITY) ||
-> > +	    !(sd->flags & SD_ASYM_PACKING))
-> > +		return false;
-> > +
-> > +	if (!cpumask_test_cpu(other, sched_domain_span(sd)))
-> > +		return false;
-> > +
-> > +	return sched_asym_prefer(cpu, other);
-> > +}
-> > +
-> > +/*
-> > + * Return the highest-priority available CPU in @cpu's SMT core that is also in @cpus.
-> > + */
-> > +static int __select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
-> > +{
-> > +	int best = cpu;
-> > +	int sibling;
-> > +
-> > +	for_each_cpu_and(sibling, cpu_smt_mask(cpu), cpus) {
-> > +		if (sibling == best || !choose_idle_cpu(sibling, p))
-> > +			continue;
-> > +
-> > +		if (sched_smt_asym_prefer(sibling, best))
-> > +			best = sibling;
-> > +	}
-> > +
-> > +	return best;
-> > +}
-> > +
-> > +static inline int
-> > +select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
-> > +{
-> > +	if (!sched_smt_asym_active())
-> > +		return cpu;
-> > +
-> > +	return __select_idle_smt_cpu(p, cpu, cpus);
-> 
-> Nit: I see __select_idle_smt_cpu called only here.
-> Cant we fold __select_idle_smt_cpu() here itself.
+> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-rmi.h
+> new file mode 100644
+> index 0000000000000..3eb88caf40964
+> --- /dev/null
+> +++ b/include/linux/arm-smccc-rmi.h
+> @@ -0,0 +1,494 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023-2026 ARM Ltd.
+> + *
+> + * The values and structures in this file are from the Realm Management Monitor
+> + * specification (DEN0137) version 2.0-bet3:
+> + * https://developer.arm.com/documentation/den0137/2-0bet3/
+> + */
+> +
+> +#ifndef __LINUX_ARM_SMCCC_RMI_H_
+> +#define __LINUX_ARM_SMCCC_RMI_H_
+> +
+> +#include <linux/arm-smccc.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/build_bug.h>
+> +#include <linux/sizes.h>
+> +
+> +#include <asm/page.h>
+> +
+> +#define SMC_RMI_CALL(func)				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+> +			   ARM_SMCCC_SMC_64,		\
+> +			   ARM_SMCCC_OWNER_STANDARD,	\
+> +			   (func))
+> +
+> +#define SMC_RMI_VERSION				SMC_RMI_CALL(0x0150)
+> +
+> +#define SMC_RMI_RTT_DATA_MAP_INIT		SMC_RMI_CALL(0x0153)
+> +
+> +#define SMC_RMI_REALM_ACTIVATE			SMC_RMI_CALL(0x0157)
+> +#define SMC_RMI_REALM_CREATE			SMC_RMI_CALL(0x0158)
+> +#define SMC_RMI_REALM_DESTROY			SMC_RMI_CALL(0x0159)
+> +#define SMC_RMI_REC_CREATE			SMC_RMI_CALL(0x015a)
+> +#define SMC_RMI_REC_DESTROY			SMC_RMI_CALL(0x015b)
+> +#define SMC_RMI_REC_ENTER			SMC_RMI_CALL(0x015c)
+> +#define SMC_RMI_RTT_CREATE			SMC_RMI_CALL(0x015d)
+> +#define SMC_RMI_RTT_DESTROY			SMC_RMI_CALL(0x015e)
+> +
+> +#define SMC_RMI_RTT_READ_ENTRY			SMC_RMI_CALL(0x0161)
+> +
+> +#define SMC_RMI_RTT_DEV_VALIDATE		SMC_RMI_CALL(0x0163)
+> +#define SMC_RMI_PSCI_COMPLETE			SMC_RMI_CALL(0x0164)
+> +#define SMC_RMI_FEATURES			SMC_RMI_CALL(0x0165)
+> +#define SMC_RMI_RTT_FOLD			SMC_RMI_CALL(0x0166)
+> +
+> +#define SMC_RMI_RTT_INIT_RIPAS			SMC_RMI_CALL(0x0168)
+> +#define SMC_RMI_RTT_SET_RIPAS			SMC_RMI_CALL(0x0169)
+> +#define SMC_RMI_VSMMU_CREATE			SMC_RMI_CALL(0x016a)
+> +#define SMC_RMI_VSMMU_DESTROY			SMC_RMI_CALL(0x016b)
+> +
+> +#define SMC_RMI_RMM_CONFIG_SET			SMC_RMI_CALL(0x016e)
+> +#define SMC_RMI_PSMMU_IRQ_NOTIFY		SMC_RMI_CALL(0x016f)
+> +#define SMC_RMI_ATTEST_PLAT_TOKEN_REFRESH	SMC_RMI_CALL(0x0170)
+> +
+> +#define SMC_RMI_PDEV_ABORT			SMC_RMI_CALL(0x0174)
+> +#define SMC_RMI_PDEV_COMMUNICATE		SMC_RMI_CALL(0x0175)
+> +#define SMC_RMI_PDEV_CREATE			SMC_RMI_CALL(0x0176)
+> +#define SMC_RMI_PDEV_DESTROY			SMC_RMI_CALL(0x0177)
+> +#define SMC_RMI_PDEV_GET_STATE			SMC_RMI_CALL(0x0178)
+> +
+> +#define SMC_RMI_PDEV_STREAM_KEY_REFRESH		SMC_RMI_CALL(0x017a)
+> +#define SMC_RMI_PDEV_SET_PUBKEY			SMC_RMI_CALL(0x017b)
+> +#define SMC_RMI_PDEV_STOP			SMC_RMI_CALL(0x017c)
+> +#define SMC_RMI_RTT_AUX_CREATE			SMC_RMI_CALL(0x017d)
+> +#define SMC_RMI_RTT_AUX_DESTROY			SMC_RMI_CALL(0x017e)
+> +#define SMC_RMI_RTT_AUX_FOLD			SMC_RMI_CALL(0x017f)
+> +
+> +#define SMC_RMI_VDEV_ABORT			SMC_RMI_CALL(0x0185)
+> +#define SMC_RMI_VDEV_COMMUNICATE		SMC_RMI_CALL(0x0186)
+> +#define SMC_RMI_VDEV_CREATE			SMC_RMI_CALL(0x0187)
+> +#define SMC_RMI_VDEV_DESTROY			SMC_RMI_CALL(0x0188)
+> +#define SMC_RMI_VDEV_GET_STATE			SMC_RMI_CALL(0x0189)
+> +#define SMC_RMI_VDEV_UNLOCK			SMC_RMI_CALL(0x018a)
+> +#define SMC_RMI_RTT_SET_S2AP			SMC_RMI_CALL(0x018b)
+> +
+> +#define SMC_RMI_VDEV_GET_INTERFACE_REPORT	SMC_RMI_CALL(0x01d0)
+> +#define SMC_RMI_VDEV_GET_MEASUREMENTS		SMC_RMI_CALL(0x01d1)
+> +#define SMC_RMI_VDEV_LOCK			SMC_RMI_CALL(0x01d2)
+> +#define SMC_RMI_VDEV_START			SMC_RMI_CALL(0x01d3)
+> +
+> +#define SMC_RMI_VSMMU_EVENT_HANDLE		SMC_RMI_CALL(0x01d6)
+> +#define SMC_RMI_PSMMU_ACTIVATE			SMC_RMI_CALL(0x01d7)
+> +#define SMC_RMI_PSMMU_DEACTIVATE		SMC_RMI_CALL(0x01d8)
+> +
+> +#define SMC_RMI_PSMMU_ST_L2_CREATE		SMC_RMI_CALL(0x01db)
+> +#define SMC_RMI_PSMMU_ST_L2_DESTROY		SMC_RMI_CALL(0x01dc)
+> +#define SMC_RMI_DPT_L0_CREATE			SMC_RMI_CALL(0x01dd)
+> +#define SMC_RMI_DPT_L0_DESTROY			SMC_RMI_CALL(0x01de)
+> +#define SMC_RMI_DPT_L1_CREATE			SMC_RMI_CALL(0x01df)
+> +#define SMC_RMI_DPT_L1_DESTROY			SMC_RMI_CALL(0x01e0)
+> +#define SMC_RMI_GRANULE_TRACKING_GET		SMC_RMI_CALL(0x01e1)
+> +
+> +#define SMC_RMI_GRANULE_TRACKING_SET		SMC_RMI_CALL(0x01e3)
+> +
+> +#define SMC_RMI_RMM_CONFIG_GET			SMC_RMI_CALL(0x01ec)
+> +
+> +#define SMC_RMI_RMM_STATE_GET			SMC_RMI_CALL(0x01ee)
+> +
+> +#define SMC_RMI_PSMMU_EVENT_CONSUME		SMC_RMI_CALL(0x01f0)
+> +#define SMC_RMI_GRANULE_RANGE_DELEGATE		SMC_RMI_CALL(0x01f1)
+> +#define SMC_RMI_GRANULE_RANGE_UNDELEGATE	SMC_RMI_CALL(0x01f2)
+> +#define SMC_RMI_GPT_L1_CREATE			SMC_RMI_CALL(0x01f3)
+> +#define SMC_RMI_GPT_L1_DESTROY			SMC_RMI_CALL(0x01f4)
+> +#define SMC_RMI_RTT_DATA_MAP			SMC_RMI_CALL(0x01f5)
+> +#define SMC_RMI_RTT_DATA_UNMAP			SMC_RMI_CALL(0x01f6)
+> +#define SMC_RMI_RTT_DEV_MAP			SMC_RMI_CALL(0x01f7)
+> +#define SMC_RMI_RTT_DEV_UNMAP			SMC_RMI_CALL(0x01f8)
+> +#define SMC_RMI_RTT_ARCH_DEV_MAP		SMC_RMI_CALL(0x01f9)
+> +#define SMC_RMI_RTT_ARCH_DEV_UNMAP		SMC_RMI_CALL(0x01fa)
+> +#define SMC_RMI_RTT_UNPROT_MAP			SMC_RMI_CALL(0x01fb)
+> +#define SMC_RMI_RTT_UNPROT_UNMAP		SMC_RMI_CALL(0x01fc)
+> +#define SMC_RMI_RTT_AUX_PROT_MAP		SMC_RMI_CALL(0x01fd)
+> +#define SMC_RMI_RTT_AUX_PROT_UNMAP		SMC_RMI_CALL(0x01fe)
+> +#define SMC_RMI_RTT_AUX_UNPROT_MAP		SMC_RMI_CALL(0x01ff)
+> +#define SMC_RMI_RTT_AUX_UNPROT_UNMAP		SMC_RMI_CALL(0x0200)
+> +#define SMC_RMI_REALM_TERMINATE			SMC_RMI_CALL(0x0201)
+> +#define SMC_RMI_RMM_ACTIVATE			SMC_RMI_CALL(0x0202)
+> +#define SMC_RMI_OP_CONTINUE			SMC_RMI_CALL(0x0203)
+> +#define SMC_RMI_PDEV_STREAM_CONNECT		SMC_RMI_CALL(0x0204)
+> +#define SMC_RMI_PDEV_STREAM_DISCONNECT		SMC_RMI_CALL(0x0205)
+> +#define SMC_RMI_PDEV_STREAM_COMPLETE		SMC_RMI_CALL(0x0206)
+> +#define SMC_RMI_PDEV_STREAM_KEY_PURGE		SMC_RMI_CALL(0x0207)
+> +#define SMC_RMI_OP_MEM_DONATE			SMC_RMI_CALL(0x0208)
+> +#define SMC_RMI_OP_MEM_RECLAIM			SMC_RMI_CALL(0x0209)
+> +#define SMC_RMI_OP_CANCEL			SMC_RMI_CALL(0x020a)
+> +#define SMC_RMI_VSMMU_FEATURES			SMC_RMI_CALL(0x020b)
+> +#define SMC_RMI_VSMMU_CMD_GET			SMC_RMI_CALL(0x020c)
+> +#define SMC_RMI_VSMMU_CMD_COMPLETE		SMC_RMI_CALL(0x020d)
+> +#define SMC_RMI_PSMMU_INFO			SMC_RMI_CALL(0x020e)
+> +#define SMC_RMI_RMM_DEACTIVATE			SMC_RMI_CALL(0x020f)
+> +#define SMC_RMI_PDEV_STREAM_INFO		SMC_RMI_CALL(0x0210)
+> +#define SMC_RMI_GPT_INFO			SMC_RMI_CALL(0x0211)
+> +
+> +#define RMI_ABI_MAJOR_VERSION	2
+> +#define RMI_ABI_MINOR_VERSION	0
+> +
+> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
+> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+> +
+> +#define RMI_RETURN_STATUS_MASK		(0xFFUL)
+> +#define RMI_RETURN_INDEX_MASK		(0xFFUL << 8)
+> +#define RMI_RETURN_MEMREQ_MASK		(0x3UL << 8)
+> +#define RMI_RETURN_CAN_CANCEL_MASK	(0x1UL << 10)
+> +
+> +#define RMI_RETURN_STATUS(ret)		FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
+> +#define RMI_RETURN_INDEX(ret)		FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
+> +#define RMI_RETURN_MEMREQ(ret)		FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
+> +#define RMI_RETURN_CAN_CANCEL(ret)	FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
+> +
 
-Agreed, will fold in v4.
+If I'm correct enough, RMI_RETURN_{STATUS, INDEX, MEMREQ, CAN_CANEL}_MASK are used
+for once in this header file. So we needn't explicitly expose them and combine their
+definitions with users to fetch the corresponding fields, as below.
 
-> 
-> > +}
-> > +
-> > +/*
-> > + * Redirect an available SMT CPU to a higher-priority available sibling allowed by task affinity.
-> > + */
-> > +static inline int select_idle_smt_priority(struct task_struct *p, int cpu)
-> > +{
-> > +	return select_idle_smt_cpu(p, cpu, p->cpus_ptr);
-> > +}
-> > +
-> 
-> nit: Can we also replace select_idle_smt_priority with select_idle_smt_cpu()
-> itself.
+#define RMI_RETURN_STATUS(ret)		FIELD_GET(GENMASK(7, 0), ret)
+#define RMI_RETURN_INDEX(ret)		FIELD_GET(GENMASK(15, 8), ret)
+#define RMI_RETURN_MEMREQ(ret)		FIELD_GET(GENMASK(10, 8), ret)
+#define RMI_RETURN_CAN_CANCEL(ret)	FIELD_GEt(GENMASK(10, 10), ret)
 
-Ack, we can use select_idle_smt_cpu() directly.
+> +#define RMI_SUCCESS			0
+> +#define RMI_ERROR_INPUT			1
+> +#define RMI_ERROR_REALM			2
+> +#define RMI_ERROR_REC			3
+> +#define RMI_ERROR_RTT			4
+> +#define RMI_ERROR_NOT_SUPPORTED		5
+> +#define RMI_ERROR_DEVICE		6
+> +#define RMI_ERROR_RTT_AUX		7
+> +#define RMI_ERROR_PSMMU_ST		8
+> +#define RMI_ERROR_DPT			9
+> +#define RMI_BUSY			10
+> +#define RMI_ERROR_GLOBAL		11
+> +#define RMI_ERROR_TRACKING		12
+> +#define RMI_INCOMPLETE			13
+> +#define RMI_BLOCKED			14
+> +#define RMI_ERROR_GPT			15
+> +#define RMI_ERROR_GRANULE		16
+> +
+> +#define RMI_CONTINUE_KEEP_GOING		0
+> +#define RMI_CONTINUE_STOP		1
+> +
+> +#define RMI_OP_MEM_REQ_NONE		0
+> +#define RMI_OP_MEM_REQ_DONATE		1
+> +#define RMI_OP_MEM_REQ_RECLAIM		2
+> +
+> +#define RMI_DONATE_SIZE_MASK		3UL
+> +#define RMI_DONATE_COUNT_MASK		GENMASK(15, 2)
+> +#define RMI_DONATE_CONTIG_MASK		BIT(16)
+> +#define RMI_DONATE_STATE_MASK		GENMASK(18, 17)
+> +
+> +#define RMI_DONATE_SIZE(req)		FIELD_GET(RMI_DONATE_SIZE_MASK, req)
+> +#define RMI_DONATE_COUNT(req)		FIELD_GET(RMI_DONATE_COUNT_MASK, req)
+> +#define RMI_DONATE_CONTIG(req)		FIELD_GET(RMI_DONATE_CONTIG_MASK, req)
+> +#define RMI_DONATE_STATE(req)		FIELD_GET(RMI_DONATE_STATE_MASK, req)
+> +
 
-> 
-> Otherwise looks good to me
-> 
-> Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
+As above, RMI_DONATE_{SIZE, COUNT, CONTIG, STATE}_MASK are used for once in this
+header file. So their definitions can be dropped by modifying the followup macros,
+as below. Some enhancements are also applicable: (a) Use 'BLOCK' to indicate the
+unit encoded in the request. (b) The macros are put into order from MSB to LSB.
 
-Thanks for taking a look at this!
--Andrea
+#define RMI_DONATE_STATE(req)		FIELD_GET(GENMASK(18, 17), req)
+#define RMI_DONATE_CONTIG(req)		FIELD_GET(GENMASK(16, 16), req)
+#define RMI_DONATE_BLOCK_COUNT(req)	FIELD_GET(GENMASK(15, 2), req)
+#define RMI_DONATE_BLOCK_SIZE(req)	FIELD_GET(GENMASK(1, 0), req)
 
-> 
-> -- 
-> Thanks and Regards
-> Srikar Dronamraju
+> +#define RMI_OP_MEM_DELEGATED		0
+> +#define RMI_OP_MEM_UNDELEGATED		1
+> +#define RMI_OP_MEM_CONDITIONAL		2
+> +
+
+B4.6.40 RmiOpMemContig type is missed here and they should be used in the c code.
+
+#define RMI_OP_MEM_NON_CONTIG	0
+#define RMI_OP_MEM_CONTIG	1
+
+In the c code, we shall have:
+
+if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
+    ...
+} else {
+    ...
+}
+
+Similarly, B4.6.39 RmiOpCanCancel type is missed here and they should be used in
+the c code.
+
+#define RMI_OP_CANNOT_CANCEL	0
+#define RMI_OP_CAN_CANCEL	1
+
+In the c code, we shall have:
+
+if (RMI_RETURN_CAN_CANCEL(ret) == RMI_OP_CAN_CANCEL) {
+     ...
+} else {
+     ...
+}
+
+> +#define RMI_ADDR_TYPE_NONE		0
+> +#define RMI_ADDR_TYPE_SINGLE		1
+> +#define RMI_ADDR_TYPE_LIST		2
+> +
+> +#define RMI_ADDR_RANGE_SIZE_MASK	GENMASK(1, 0)
+> +#define RMI_ADDR_RANGE_COUNT_MASK	GENMASK(PAGE_SHIFT - 1, 2)
+> +#define RMI_ADDR_RANGE_ADDR_MASK	(PAGE_MASK & GENMASK(51, 0))
+> +#define RMI_ADDR_RANGE_STATE_MASK	GENMASK(63, 62)
+> +
+> +#define RMI_ADDR_RANGE_SIZE(ar)		(FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, \
+> +						   (ar)))
+> +#define RMI_ADDR_RANGE_COUNT(ar)	(FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, \
+> +						   (ar)))
+> +#define RMI_ADDR_RANGE_ADDR(ar)		((ar) & RMI_ADDR_RANGE_ADDR_MASK)
+> +#define RMI_ADDR_RANGE_STATE(ar)	(FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, \
+> +						   (ar)))
+> +
+
+I guess it wouldn't a bad idea to explictly indicate 'BLOCK' in the definitions, as
+below. Some improvements are applicated either: (a) 'ar' is renamed to 'r'; (b) The
+excessive parentheses are dropped to follow the patterns we already had; (c) For
+RMI_ADDR_RANGE_ADDR(r), FIELD_GET() is used.
+
+#define RMI_ADDR_RANGE_BLOCK_SIZE_MASK		GENMASK(1, 0)
+#define RMI_ADDR_RANGE_BLOCK_COUNT_MASK		GENMASK(PAGE_SHIFT - 1, 2)
+#define RMI_ADDR_RANGE_ADDR_MASK		(PAGE_MASK & GENMASK(51, 0))
+#define RMI_ADDR_RANGE_STATE_MASK		GENMASK(63, 62)
+
+#define RMI_ADDR_RANGE_BLOCK_SIZE(r)		FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, r)
+#define RMI_ADDR_RANGE_BLOCK_COUNT(r)		FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, r)
+#define RMI_ADDR_RANGE_ADDR(r)		        FIELD_GET(RMI_ADDR_RANGE_ADDR_MASK, r)
+#define RMI_ADDR_RANGE_STATE(r)		        FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, r)
+
+> +enum rmi_ripas {
+> +	RMI_EMPTY = 0,
+> +	RMI_RAM = 1,
+> +	RMI_DESTROYED = 2,
+> +	RMI_DEV = 3,
+> +};
+> +
+> +#define RMI_NO_MEASURE_CONTENT	0
+> +#define RMI_MEASURE_CONTENT	1
+> +
+> +#define RMI_FEATURE_REGISTER_0_S2SZ		GENMASK(7, 0)
+> +#define RMI_FEATURE_REGISTER_0_LPA2		BIT(8)
+> +#define RMI_FEATURE_REGISTER_0_SVE		BIT(9)
+> +#define RMI_FEATURE_REGISTER_0_SVE_VL		GENMASK(13, 10)
+> +#define RMI_FEATURE_REGISTER_0_NUM_BPS		GENMASK(19, 14)
+> +#define RMI_FEATURE_REGISTER_0_NUM_WPS		GENMASK(25, 20)
+> +#define RMI_FEATURE_REGISTER_0_PMU		BIT(26)
+> +#define RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS	GENMASK(31, 27)
+> +#define RMI_FEATURE_REGISTER_0_L0GPT_BLOCK_DELEGATE	BIT(32)
+> +#define RMI_FEATURE_REGISTER_0_S2OASZ		GENMASK(40, 33)
+> +
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB	BIT(0)
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB	BIT(1)
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB	BIT(2)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_256	BIT(3)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_384	BIT(4)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_512	BIT(5)
+> +#define RMI_FEATURE_REGISTER_1_MAX_RECS_ORDER	GENMASK(9, 6)
+> +#define RMI_FEATURE_REGISTER_1_L0GPTSZ		GENMASK(13, 10)
+> +#define RMI_FEATURE_REGISTER_1_PPS		GENMASK(16, 14)
+> +
+> +#define RMI_FEATURE_REGISTER_2_DA		BIT(0)
+> +#define RMI_FEATURE_REGISTER_2_DA_COH		BIT(1)
+> +#define RMI_FEATURE_REGISTER_2_VSMMU		BIT(2)
+> +#define RMI_FEATURE_REGISTER_2_ATS		BIT(3)
+> +#define RMI_FEATURE_REGISTER_2_PDEV_MAX_VDEVS_ORDER	GENMASK(7, 4)
+> +#define RMI_FEATURE_REGISTER_2_VDEV_KROU	BIT(8)
+> +#define RMI_FEATURE_REGISTER_2_NON_TEE_STREAM	BIT(9)
+> +#define RMI_FEATURE_REGISTER_2_REALM_MAX_VDEVS_ORDER	GENMASK(14, 10)
+> +
+> +#define RMI_FEATURE_REGISTER_3_MAX_NUM_AUX_PLANES	GENMASK(3, 0)
+> +#define RMI_FEATURE_REGISTER_3_RTT_PLANE		GENMASK(5, 4)
+> +#define RMI_FEATURE_REGISTER_3_RTT_S2AP_INDIRECT	BIT(6)
+> +
+> +#define RMI_FEATURE_REGISTER_4_MEC_COUNT		GENMASK(63, 0)
+> +
+
+We would reorder those feature register definitions from MSB ro LSB :-)
+
+> +#define RMI_MEM_CATEGORY_CONVENTIONAL		0
+> +#define RMI_MEM_CATEGORY_DEV_NCOH		1
+> +#define RMI_MEM_CATEGORY_DEV_COH		2
+> +#define RMI_MEM_CATEGORY_NONE			3
+> +
+> +#define RMI_TRACKING_RESERVED			0
+> +#define RMI_TRACKING_NONE			1
+> +#define RMI_TRACKING_FINE			2
+> +#define RMI_TRACKING_COARSE			3
+> +#define RMI_TRACKING_INTERMEDIATE		4
+> +
+> +#define RMI_GRANULE_SIZE_4KB	0
+> +#define RMI_GRANULE_SIZE_16KB	1
+> +#define RMI_GRANULE_SIZE_64KB	2
+> +
+> +#define RMI_GPT_PAR_RESERVED           0U
+> +#define RMI_GPT_PAR_PLAT               1U
+> +#define RMI_GPT_PAR_HOST_NOT_CREATED   2U
+> +#define RMI_GPT_PAR_HOST_CREATED       3U
+> +
+> +/*
+> + * Note many of these fields are smaller than u64 but all fields have u64
+> + * alignment, so use u64 to ensure correct alignment.
+> + */
+> +struct rmm_config {
+> +	union { /* 0x0 */
+> +		struct {
+> +			u64 tracking_region_size;
+> +			u64 rmi_granule_size;
+> +		};
+> +		u8 sizer[SZ_4K];
+> +	};
+> +};
+> +
+> +static_assert(sizeof(struct rmm_config) == SZ_4K);
+> +
+> +#define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+> +#define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
+> +#define RMI_REALM_PARAM_FLAG_DA			BIT(3)
+> +#define RMI_REALM_PARAM_FLAG_LFA_POLICY		GENMASK(6, 5)
+> +#define RMI_REALM_PARAM_FLAG_MEC_POLICY		GENMASK(8, 7)
+> +
+> +#define RMI_HASH_SHA_256			0
+> +#define RMI_HASH_SHA_512			1
+> +#define RMI_HASH_SHA_384			2
+> +
+> +struct realm_params {
+> +	union { /* 0x0 */
+> +		struct {
+> +			u64 flags0;
+> +			u64 s2sz;
+> +			u64 sve_vl;
+> +			u64 num_bps;
+> +			u64 num_wps;
+> +			u64 pmu_num_ctrs;
+> +			u64 hash_algo;
+> +			u64 num_aux_planes;
+> +		};
+> +		u8 padding0[0x400];
+> +	};
+> +	union { /* 0x400 */
+> +		struct {
+> +			u8 rpv[64];
+> +			u64 ats_plane;
+> +		};
+> +		u8 padding1[0x400];
+> +	};
+> +	union { /* 0x800 */
+> +		struct {
+> +			u64 padding2;
+> +			u64 rtt_base;
+> +			s64 rtt_level_start;
+> +			u64 rtt_num_start;
+> +			u64 flags1;
+> +			u64 max_num_vdevs;
+> +		};
+> +		u8 padding3[0x700];
+> +	};
+> +	union { /* 0xf00 */
+> +		struct {
+> +			u8 padding4[0x80];
+> +			u64 aux_rtt_base[3];
+> +		};
+> +		u8 padding5[0x100];
+> +	};
+> +};
+> +
+> +static_assert(sizeof(struct realm_params) == SZ_4K);
+> +
+> +/*
+> + * The number of GPRs (starting from X0) that are
+> + * configured by the host when a REC is created.
+> + */
+> +#define REC_CREATE_NR_GPRS		8
+> +
+> +#define REC_PARAMS_FLAG_RUNNABLE	BIT(0)
+> +
+> +struct rec_params {
+> +	union { /* 0x0 */
+> +		u64 flags;
+> +		u8 padding0[0x100];
+> +	};
+> +	union { /* 0x100 */
+> +		u64 mpidr;
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 pc;
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		u64 gprs[REC_CREATE_NR_GPRS];
+> +		u8 padding3[0xd00];
+> +	};
+> +};
+> +
+> +static_assert(sizeof(struct rec_params) == SZ_4K);
+> +
+> +#define REC_ENTER_FLAG_EMULATED_MMIO	BIT(0)
+> +#define REC_ENTER_FLAG_INJECT_SEA	BIT(1)
+> +#define REC_ENTER_FLAG_TRAP_WFI		BIT(2)
+> +#define REC_ENTER_FLAG_TRAP_WFE		BIT(3)
+> +#define REC_ENTER_FLAG_RIPAS_RESPONSE	BIT(4)
+> +#define REC_ENTER_FLAG_S2AP_RESPONSE	BIT(5)
+> +#define REC_ENTER_FLAG_DEV_MEM_RESPONSE	BIT(6)
+> +#define REC_ENTER_FLAG_FORCE_P0		BIT(7)
+> +
+> +#define REC_RUN_GPRS			31
+> +
+> +struct rec_enter {
+> +	union { /* 0x000 */
+> +		u64 flags;
+> +		u8 padding0[0x200];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding1[0x600];
+> +	};
+> +};
+> +
+> +static_assert(sizeof(struct rec_enter) == SZ_2K);
+> +
+> +#define RMI_EXIT_SYNC			0x00
+> +#define RMI_EXIT_IRQ			0x01
+> +#define RMI_EXIT_FIQ			0x02
+> +#define RMI_EXIT_PSCI			0x03
+> +#define RMI_EXIT_RIPAS_CHANGE		0x04
+> +#define RMI_EXIT_HOST_CALL		0x05
+> +#define RMI_EXIT_SERROR			0x06
+> +#define RMI_EXIT_S2AP_CHANGE		0x07
+> +#define RMI_EXIT_VDEV_VALIDATE_MAPPING	0x08
+> +#define RMI_EXIT_VSMMU_COMMAND		0x0a
+> +
+> +struct rec_exit {
+> +	union { /* 0x000 */
+> +		u8 exit_reason;
+> +		u8 padding0[0x100];
+> +	};
+> +	union { /* 0x100 */
+> +		struct {
+> +			u64 esr;
+> +			u64 far;
+> +			u64 hpfar;
+> +			u64 rtt_tree;
+> +		};
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		u8 padding3[0x100];
+> +	};
+> +	union { /* 0x400 */
+> +		struct {
+> +			u64 cntp_ctl;
+> +			u64 cntp_cval;
+> +			u64 cntv_ctl;
+> +			u64 cntv_cval;
+> +		};
+> +		u8 padding4[0x100];
+> +	};
+> +	union { /* 0x500 */
+> +		struct {
+> +			u64 ripas_base;
+> +			u64 ripas_top;
+> +			u8 ripas_value;
+> +			u8 padding5[0xf];
+> +			u64 s2ap_base;
+> +			u64 s2ap_top;
+> +			u64 vdev_id_1;
+> +			u64 vdev_id_2;
+> +			u64 dev_mem_base;
+> +			u64 dev_mem_top;
+> +			u64 dev_mem_pa;
+> +		};
+> +		u8 padding6[0x100];
+> +	};
+> +	union { /* 0x600 */
+> +		struct {
+> +			u16 imm;
+> +			u8 padding7[0x6];
+> +			u64 plane;
+> +		};
+> +		u8 padding8[0x100];
+> +	};
+> +	union { /* 0x700 */
+> +		struct {
+> +			u8 pmu_ovf_status;
+> +			u8 padding9[0xf];
+> +			u64 vsmmu;
+> +		};
+> +		u8 padding10[0x100];
+> +	};
+> +};
+> +
+> +static_assert(sizeof(struct rec_exit) == SZ_2K);
+> +
+> +struct rec_run {
+> +	struct rec_enter enter;
+> +	struct rec_exit exit;
+> +};
+> +
+> +static_assert(sizeof(struct rec_run) == SZ_4K);
+> +
+> +/* RMI_RTT_UNPROT_MAP_FLAGS definitions */
+> +#define RMI_RTT_UNPROT_MAP_FLAGS_OADDR_TYPE	GENMASK(1, 0)
+> +#define RMI_RTT_UNPROT_MAP_FLAGS_LIST_COUNT	GENMASK(15, 2)
+> +#define RMI_RTT_UNPROT_MAP_FLAGS_MEMATTR	GENMASK(18, 16)
+> +#define RMI_RTT_UNPROT_MAP_FLAGS_S2AP		GENMASK(22, 19)
+> +
+> +/* RMI_RTT_PROT_MAP_FLAGS definitions */
+> +#define RMI_RTT_PROT_MAP_FLAGS_OADDR_TYPE	GENMASK(1, 0)
+> +#define RMI_RTT_PROT_MAP_FLAGS_LIST_COUNT	GENMASK(15, 2)
+> +
+> +/* S2AP Direct Encodings, used in RMI_RTT_UNPROT_MAP_FLAGS_S2AP */
+> +#define RMI_S2AP_DIRECT_WRITE			BIT(0)
+> +#define RMI_S2AP_DIRECT_READ			BIT(1)
+> +
+> +#endif /* __LINUX_ARM_SMCCC_RMI_H_ */
+
+Thanks,
+Gavin
+
 
