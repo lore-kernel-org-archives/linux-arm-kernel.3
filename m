@@ -4,173 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E52C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB05C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 15:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZDBZEDHHg8SYIZt8YZAuqtQEWKDYqBFdIUGpOfM1ng=; b=FqMnbHNPQhW+vCKtJmhjAqhhib
-	LnkwViMVYzmc1agB3i6DkOPIDNBt2QrQIbxkY61Vgsd2MWAoOadv6vGpWMcaw/OoMgB945dayVSJm
-	Ybtm2xS30KgLs8OFkq9VdwLdjGQ8uMy+ur7TQRJwnQMyGkW6Dwr2p9lWmU5fnZEWDmf4X46milbBz
-	+gKrzSmo4PgsOsQnFDKiCSZgPKjnHpPDbzZJ4XXeAmZd12CBrRjR06BHSqkMEfwg0gARXPY6LY7s7
-	birrazrunJ0rkBZWxpbFe5ak4Xh2WXS4kfSOY6GA4/BNHbZn0hMlagrDSLO/zYXbqHvD0siWAajHb
-	N3JMyWSA==;
+	bh=6uQsElwtEAzpNfoEN+c/AniRleQq7HJPFuOxkkSunLo=; b=i8EWEs1A2jUnyQknLb5unEaSIU
+	tEdVGcAioX5/CZOuFYd7SZqjq0iP3lT/bzRGQHXN+HGMLiwLDjEjBUp8hstMDzIMpNZkxenpJtO34
+	01fiIzqI4OKNm9PzVhp0foDu11a0x6ff27snH8Ss3rCno8vyADV/jj0SHkt/4rUIUbdVN8HBvIuFG
+	VSUvqc5TZPdRqcpvFu6rgIGWOe86VyqwJMNO1/Zc2BJKyAkLPOh3kQeChlJ+UN/qMPs4Z7xXPYLfm
+	rgCNOnct9Xfw0rjF9cCOTR2hgMCGluqhWwb/eDEfRbV7J+6COmihPmv6R6rriMtzSsBqaZkGVOSH/
+	Kxtm6h9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xZ6-00000009QoM-377E;
-	Tue, 08 Sep 2026 15:16:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3xmM-00000009Ut4-2iBX;
+	Tue, 08 Sep 2026 15:30:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3xZ5-00000009Qnb-0Hid
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Sep 2026 15:16:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=jZDBZEDHHg8SYIZt8YZAuqtQEWKDYqBFdIUGpOfM1ng=; b=Q5o+3IVKjWLtpxMVYHBz7hmc5K
-	ianHOwi5adTJcalNW/ty+WNCFTFxZD594pzJ3TAjnsVA30L0yAokdvyKU8TrV7yv5NvNqiL+bbUmN
-	AVWPsoLSVMDXsjQc1mMPQgGHgg3gnFNwhlC4VkOfAGk/2ppf1tE02E7uPWyRlU8WFBITef8PLoDwl
-	QBAb6w7tjHDX/8Kfs9D7D3VDIV3ky1tpmFi322VQxd2Hk25wneLPragZpTMcDqtK3N6wUWJvNi7aH
-	vHvnCLep7E0eIL9JIWXVYbEwTyHQoCdpBCHJQ294h/oFKx5HvYb1rdCUBTsJq+ba33uk++jEiZVod
-	qGR/Ho3w==;
-Received: from mx0a-00364e01.pphosted.com ([148.163.135.74])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3xZ1-000000000AX-0KA3
+	id 1x3xmF-00000009UrK-2ell
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 15:16:50 +0000
-Received: from pps.filterd (m0499199.ppops.net [127.0.0.1])
-	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 688EYqqE1082297
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Sep 2026 11:16:45 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=jZDB
-	ZEDHHg8SYIZt8YZAuqtQEWKDYqBFdIUGpOfM1ng=; b=pi2SEGTTQ3BGzxs7ah1L
-	v2Q4FGn8fd1y6BTX/hVySPBNMfu34Pyg5I6AczMna0PydZJ4KnwOJSdvqZFzekd6
-	LR1vfVFEhSaCiJc6KFf59RB8DZnxJnp2yE8cxGnja/jLGmZGR82PEtLSZyvTL0og
-	5lFxuBd1ByPKYHK6FuUe393kiyB7OUywBvAWrXvCdA4BVroFPPdubZLE0iaSr0cX
-	dlw6PArfthab3j8BNdMqq5hChipn6lO821E5zA1Zs3h9gTXGv+hrurQtCoTRmtFa
-	FGLYkf7t9pGA0/C4o/xGnblYVaoStnvEy3iQ3LpScPxzsOzwtbeeiLQzcFejHqx+
-	Cw==
-Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com [74.125.224.71])
-	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4gjhqktawa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 11:16:44 -0400 (EDT)
-Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-66f8a19cf9cso5124268d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 08:16:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1788880604; x=1789485404; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jZDBZEDHHg8SYIZt8YZAuqtQEWKDYqBFdIUGpOfM1ng=;
-        b=vot710CT26XLvDPtTBGvfhr85xQN5ZyUqkutQlXarM2ofXFdiq4B52APowqL5LM5zm
-         bXE23dd3UpOasfiXxNvI4WCh4ovbN3OFuzKyVLYCWUDFRHuNZUxbUXHVr+RYm3kyC1Ce
-         bcE9jqmfMQa8dogF/yRZHK2OnZbZe8EmZtfKmSaKvYn6dMl/bzKuKujxLMBwQc/zLgwT
-         2SWJ/T54vHULtceRRACiaReBnA5zVP82k6pv7l+a3YUadlPg5CccvRKUW/5m6HnZRa5/
-         2RLo3KyPNP4VIGi3gcXSpffSFb+2/rkchYsATWj0daf1d2GU+PH9In59fA13Q9ZO4GxP
-         ZljQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788880604; x=1789485404;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jZDBZEDHHg8SYIZt8YZAuqtQEWKDYqBFdIUGpOfM1ng=;
-        b=tJu1GzmK0e1uIBQXEecTyXn8mn+QJbc11j564oWMTqunrllTs0lmksfbP7BMOQmyjU
-         nV4S5IK1nUe2wUuN+aIYw3No1isdGmeJWn62b5wAZb+rYBlsxuYkljoua9Eg1eRBMG1c
-         xQKvitfXd9yuHacH66q3D0pi+3Wtg+SRD+t+c4+1srp5Em1KZzsEn3fJpvFtlCRIAmW/
-         1IYdlGNGWxHBpoJx132zwbadbldgrD54uBygBypo5UOA/i5+89lLobI/t6zGpyY4zjtK
-         KuRujGmYQzKCmeTMkt1T11XD0q9sx1/SD2LtMptuopLYO905Q91hHjfw3E2EF0yVYGnJ
-         fD+w==
-X-Forwarded-Encrypted: i=1; AKwUvBy5Ff4D+cJ2P5z9JMy0Ujo3DsEjoYmChxZYIOMxzgLoZqF5DQU9WwKbQlGQSQzaKR2uEABTk7wLv6sylygS2SGC@lists.infradead.org
-X-Gm-Message-State: AFuF++kXSK0ViizURYTernabjN7+iL68+WgquE9ka5AQE1mKg98ygxo2
-	basW4keBSfaMJJlNCS3nM2o8HSGiicxB0yYgHmvoHQetDvjWfJJ9Cm9xCfiuvgfuH6Dv+tQdVER
-	VbamM96JsNR52bn1iOqJpoQTHna9Fv2JkBUW3d6EOGdS0iXVBH2PChL8MScD/HdNw7iRqIFOe
-X-Gm-Gg: AYBFou0wT4SRPmFs3ImTnziOvdIZLphp3DaNMIo6pGjCDmEs6T3TlP/AZJsqxxQPx4m
-	Q+0nJYFfnuku901HywgE/vKFFdEbHR7AXKt2LWehiPiBIP1a4HEm7HwFDNQLYi9dryjFBjJejYh
-	9qz/C2HMoiwVdVLRHxjI2dXTYlK9iUQzSP2GtXVEc2jFk+KJeZ/MdyBTBIC1eZjYt202wO5rSTp
-	PG945CRyHEayGMLcW4EPowW/EUJQUPOzlOTW2Oz7PN5IsMWrCCy0om0l0cM14y3uY5KFx5ZojnT
-	cW+1CaPCZNtQ4cEck5tC4fxenmPKCJqGh3PtdKelQtwnjDae+TRBCfzOgqQ2lUFb1Zpy3A86fEc
-	y9Uo3p/82ZvAVyi3Bv5XNZ26y9eT3V1ercl3drzcE7MQq9aOWcUdfIg==
-X-Received: by 2002:a53:a0c7:0:b0:66f:c1bc:87ed with SMTP id 956f58d0204a3-66fc1bc8c18mr5315810d50.70.1788880603838;
-        Tue, 08 Sep 2026 08:16:43 -0700 (PDT)
-X-Received: by 2002:a53:a0c7:0:b0:66f:c1bc:87ed with SMTP id 956f58d0204a3-66fc1bc8c18mr5315741d50.70.1788880603125;
-        Tue, 08 Sep 2026 08:16:43 -0700 (PDT)
-Received: from [127.0.1.1] (nat-128-59-177-174.net.columbia.edu. [128.59.177.174])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91040673ce0sm122105496d6.25.2026.09.08.08.16.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 08:16:42 -0700 (PDT)
-From: Tal Zussman <tz2294@columbia.edu>
-Date: Tue, 08 Sep 2026 11:16:31 -0400
-Subject: [PATCH v2 1/8] mm/swap: add folio_swap_entry() and
- folio_page_swap_entry()
+	Tue, 08 Sep 2026 15:30:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 615A441211;
+	Tue,  8 Sep 2026 15:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E76D1F00A3D;
+	Tue,  8 Sep 2026 15:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788881427;
+	bh=6uQsElwtEAzpNfoEN+c/AniRleQq7HJPFuOxkkSunLo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FQ6/5vjksR2EVs0RDEw/1iPtvW6SrHtllirxmVTifxrpti+/+VQe9+L9LPYsrmj/A
+	 F0KxhmJqC0oH2e6ci4zUYciXySsi7YL4zNB3syFCTgipwnbX03kusY7LZPVYRgJ8RZ
+	 wShNWLDVAr/X5qMqxNS1Ivk9hYnAlOl5bY2kI3QFuthXeodcGvdVZAK1jZj6EOT+is
+	 rm/9uU4PO7S4kL53DmlpJS6AtZ+DScuFsBnnstHFUPTvKOLITXrIaRZpFL9dnlodT7
+	 A10PWzxoAsCLXrZd1XiZ2itoq7sHCOKo4WHbb2g7u9mCnucKiGqCj8tZlYdAidMUpV
+	 6tn/1zm5M2KhQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Drew Fustini <fustini@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Stefan Agner <stefan@agner.ch>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Nicolas Pitre <npitre@baylibre.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-omap@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	linux-i2c@vger.kernel.org
+Subject: [PATCH 11/13] ARM: versatile: remove mps2 support
+Date: Tue,  8 Sep 2026 17:28:01 +0200
+Message-ID: <20260908152808.3928630-12-arnd@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260908152808.3928630-1-arnd@kernel.org>
+References: <20260908152808.3928630-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260908-folio_swap_entry-v2-1-ee6d01dfa5e1@columbia.edu>
-References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
-In-Reply-To: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
-To: Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
-        Kairui Song <kasong@tencent.com>,
-        Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
-        Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
-        Youngjun Park <youngjun.park@lge.com>,
-        David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        "Liam R. Howlett" <liam@infradead.org>,
-        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
-        Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>,
-        Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-        Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
-        Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
-        Jann Horn <jannh@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
-        Yosry Ahmed <yosry@kernel.org>,
-        Chengming Zhou <chengming.zhou@linux.dev>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Tal Zussman <tz2294@columbia.edu>
-X-Mailer: b4 0.17-dev-db0b7
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788880600; l=2036;
- i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=1JS3V+JXyWaTrz9bNNi6UKDOHKnZIpXXTUnttstZ0Is=;
- b=w9CAxnD5RZ/nskXa7WUspsk5TqZ4u0clJSlm+62svGyMiXevHQW2C9NobE10fXR3pxRsqiJna
- uE3QKWw5vWDAR4klvdmTEM6ALzGzAN5N5NtTGukn08tXaIj2hcLErkj
-X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
- pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA4MDE2NSBTYWx0ZWRfX9jMuIkp8EbBf
- MXr+eYeQAUUrRiL76LBq0vO5NIr+nEgNpSQshgxMwp8DFnhqRP+87PSTg0PN2rtQSgvFs1B320w
- 2i0LRUz07U+u8kAyXmW7i9nstZ+d/fQmIgwLAsZqhhsKdWOWtWPHjUJTHkF92zvAzUgkXwUVzTk
- 01KvPG+PawpmdciqKMOYWaxGBZv8miKOw9gD80OOy4egNBT/YdUabrDwOlHbtTkbs9wyXJ4LY4x
- OJsEuoYj9M4YkaxtOJO6pscVZzEWSLgxSDLF3yP+6qGHeiD/L+n5wsHvwo2MAQXAJ9rxzTAkWe+
- nJfi0JWj55SbEicTle8LGJ6SfZcwmO2MUVbQBCCoowOMtYK/1JZtF1swmPTjN+t4MY+WTHaC0DE
- KpF2tv5RfsNq7d3NNif364YSBqBj9XPene7tYyVNH8BX8SWOSc5i4rJshfTTJKEh0BN6e5iRgmS
- GyhVQ2wKScBzHf4DFAQ==
-X-Proofpoint-ORIG-GUID: nZHP1S1AkJTAHxfwG72mBW3K2dBUFlQf
-X-Authority-Analysis: v=2.4 cv=CuOPtH4D c=1 sm=1 tr=0 ts=6aa026dc cx=c_pps
- a=ngMg22mHWrP7m7pwYf9JkA==:117 a=HBUb3goEnnz3w2smY6d+Hw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=G--0XuH5328wxK7v7Suf:22
- a=wCX1QjJdxvQAooojgaYA:9 a=QEXdDO2ut3YA:10 a=yHXA93iunegOHmWoMUFd:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA4MDE2NSBTYWx0ZWRfX8KLIsIgTpKio
- rMr35xMc1OZ9GLPjR3hCJgd9t2bZJoQ8jT3AkPMcMNDkx6mJ5mvopoZW0sgzmS40V0ueFvWtHtD
- Cd/aLujJ7OQMm3F8BnLU8qoFeFSnzE0gTV085QZMbDGyYhD31sAc
-X-Proofpoint-GUID: nZHP1S1AkJTAHxfwG72mBW3K2dBUFlQf
-X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11899
- signatures=596817
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 lowpriorityscore=10 spamscore=0 bulkscore=10
- clxscore=1015 impostorscore=10 adultscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609080165
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_161647_552661_2A26026D 
-X-CRM114-Status: GOOD (  16.40  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,66 +113,664 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A folio in the swap cache occupies folio_nr_pages() contiguous swap
-entries starting at folio->swap, so a page's swap entry is just
-folio->swap plus the page's index in the folio. page_swap_entry() hides
-this behind a compound_head() call, and callers that already have the
-folio sometimes open-code the arithmetic instead.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Add folio_swap_entry(), which takes a folio and a page index, and
-folio_page_swap_entry() for callers that have the page.
+The Arm mps2 platform is the reference implementation for Arm
+microcontrollers and is useful for testing but not expected to be used
+as a production device.
 
-Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+With all the Cortex-M based products gone, there is no longer a need
+for a reference platform either, so remove it as well.
+
+Cc: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>
+Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-i2c@vger.kernel.org
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- include/linux/swap.h | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ arch/arm/Kconfig                     |  14 --
+ arch/arm/boot/dts/arm/Makefile       |   3 -
+ arch/arm/boot/dts/arm/mps2-an385.dts |  92 -----------
+ arch/arm/boot/dts/arm/mps2-an399.dts |  92 -----------
+ arch/arm/boot/dts/arm/mps2.dtsi      | 220 ---------------------------
+ arch/arm/configs/mps2_defconfig      | 102 -------------
+ arch/arm/mach-versatile/Makefile     |   3 -
+ arch/arm/mach-versatile/v2m-mps2.c   |  17 ---
+ drivers/i2c/busses/Kconfig           |   2 +-
+ 9 files changed, 1 insertion(+), 544 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/arm/mps2-an385.dts
+ delete mode 100644 arch/arm/boot/dts/arm/mps2-an399.dts
+ delete mode 100644 arch/arm/boot/dts/arm/mps2.dtsi
+ delete mode 100644 arch/arm/configs/mps2_defconfig
+ delete mode 100644 arch/arm/mach-versatile/v2m-mps2.c
 
-diff --git a/include/linux/swap.h b/include/linux/swap.h
-index fc290e29e4a9..1d979e76e78a 100644
---- a/include/linux/swap.h
-+++ b/include/linux/swap.h
-@@ -272,6 +272,39 @@ struct swap_info_struct {
- 	const struct swap_ops *ops;
- };
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 13b38be3353a..cf380b686867 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -443,20 +443,6 @@ source "arch/arm/mach-zte/Kconfig"
  
-+/**
-+ * folio_swap_entry - Return the swap entry for a page within a folio.
-+ * @folio: The folio.
-+ * @idx: The index of the page within the folio.
-+ *
-+ * A folio in the swap cache occupies folio_nr_pages() contiguous swap
-+ * entries starting at folio->swap. The caller must ensure the folio is
-+ * in the swap cache and that @idx is within the folio.
-+ */
-+static inline
-+swp_entry_t folio_swap_entry(const struct folio *folio, unsigned long idx)
-+{
-+	swp_entry_t entry = folio->swap;
-+
-+	VM_WARN_ON_ONCE_FOLIO(idx >= folio_nr_pages(folio), folio);
-+	entry.val += idx;
-+	return entry;
-+}
-+
-+/**
-+ * folio_page_swap_entry - Return the swap entry of a page in a folio.
-+ * @folio: The folio containing @page.
-+ * @page: A page within @folio.
-+ *
-+ * The caller must ensure the folio is in the swap cache and that @page
-+ * is part of @folio.
-+ */
-+static inline swp_entry_t folio_page_swap_entry(const struct folio *folio,
-+		const struct page *page)
-+{
-+	return folio_swap_entry(folio, folio_page_idx(folio, page));
-+}
-+
- static inline swp_entry_t page_swap_entry(struct page *page)
- {
- 	struct folio *folio = page_folio(page);
-
+ source "arch/arm/mach-zynq/Kconfig"
+ 
+-config ARCH_MPS2
+-	bool "ARM MPS2 platform (DEPRECATED)"
+-	depends on ARM_SINGLE_ARMV7M
+-	select ARM_AMBA
+-	select CLKSRC_MPS2
+-	help
+-	  Support for Cortex-M Prototyping System (or V2M-MPS2) which comes
+-	  with a range of available cores like Cortex-M3/M4/M7.
+-
+-	  Please, note that depends which Application Note is used memory map
+-	  for the platform may vary, so adjustment of RAM base might be needed.
+-
+-	  This platform is scheduled for removal in early 2027
+-
+ # Definitions to make life easier
+ config PLAT_ORION
+ 	bool
+diff --git a/arch/arm/boot/dts/arm/Makefile b/arch/arm/boot/dts/arm/Makefile
+index 07ebb64e2cd0..c01593dd197d 100644
+--- a/arch/arm/boot/dts/arm/Makefile
++++ b/arch/arm/boot/dts/arm/Makefile
+@@ -3,9 +3,6 @@ dtb-$(CONFIG_ARCH_INTEGRATOR) += \
+ 	integratorap.dtb \
+ 	integratorap-im-pd1.dtb \
+ 	integratorcp.dtb
+-dtb-$(CONFIG_ARCH_MPS2) += \
+-	mps2-an385.dtb \
+-	mps2-an399.dtb
+ dtb-$(CONFIG_ARCH_REALVIEW) += \
+ 	arm-realview-pb1176.dtb \
+ 	arm-realview-pb11mp.dtb \
+diff --git a/arch/arm/boot/dts/arm/mps2-an385.dts b/arch/arm/boot/dts/arm/mps2-an385.dts
+deleted file mode 100644
+index aebbebfc25d1..000000000000
+--- a/arch/arm/boot/dts/arm/mps2-an385.dts
++++ /dev/null
+@@ -1,92 +0,0 @@
+-/*
+- * Copyright (C) 2015 ARM Limited
+- *
+- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License as
+- *     published by the Free Software Foundation; either version 2 of the
+- *     License, or (at your option) any later version.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+- */
+-
+-/dts-v1/;
+-
+-#include "mps2.dtsi"
+-
+-/ {
+-	model = "ARM MPS2 Application Note 385/386";
+-	compatible = "arm,mps2";
+-
+-	aliases {
+-		serial0 = &uart0;
+-	};
+-
+-	chosen {
+-		bootargs = "earlycon";
+-		stdout-path = "serial0:9600n8";
+-	};
+-
+-	memory@21000000 {
+-		device_type = "memory";
+-		reg = <0x21000000 0x1000000>;
+-	};
+-
+-	smb {
+-		ethernet@0,0 {
+-			compatible = "smsc,lan9220", "smsc,lan9115";
+-			reg = <0 0x0 0x10000>;
+-			interrupts = <13>;
+-			interrupt-parent = <&nvic>;
+-			smsc,irq-active-high;
+-		};
+-	};
+-};
+-
+-&uart0 {
+-	status = "okay";
+-};
+-
+-&timer0 {
+-	status = "okay";
+-};
+-
+-&timer1 {
+-	status = "okay";
+-};
+-
+-&wdt {
+-	status = "okay";
+-};
+diff --git a/arch/arm/boot/dts/arm/mps2-an399.dts b/arch/arm/boot/dts/arm/mps2-an399.dts
+deleted file mode 100644
+index 349abf70b2a5..000000000000
+--- a/arch/arm/boot/dts/arm/mps2-an399.dts
++++ /dev/null
+@@ -1,92 +0,0 @@
+-/*
+- * Copyright (C) 2015 ARM Limited
+- *
+- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License as
+- *     published by the Free Software Foundation; either version 2 of the
+- *     License, or (at your option) any later version.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+- */
+-
+-/dts-v1/;
+-
+-#include "mps2.dtsi"
+-
+-/ {
+-	model = "ARM MPS2 Application Note 399/400";
+-	compatible = "arm,mps2";
+-
+-	aliases {
+-		serial0 = &uart0;
+-	};
+-
+-	chosen {
+-		bootargs = "earlycon";
+-		stdout-path = "serial0:9600n8";
+-	};
+-
+-	memory@60000000 {
+-		device_type = "memory";
+-		reg = <0x60000000 0x1000000>;
+-	};
+-
+-	smb {
+-		ethernet@1,0 {
+-			compatible = "smsc,lan9220", "smsc,lan9115";
+-			reg = <1 0x0 0x10000>;
+-			interrupts = <13>;
+-			interrupt-parent = <&nvic>;
+-			smsc,irq-active-high;
+-		};
+-	};
+-};
+-
+-&uart0 {
+-	status = "okay";
+-};
+-
+-&timer0 {
+-	status = "okay";
+-};
+-
+-&timer1 {
+-	status = "okay";
+-};
+-
+-&wdt {
+-	status = "okay";
+-};
+diff --git a/arch/arm/boot/dts/arm/mps2.dtsi b/arch/arm/boot/dts/arm/mps2.dtsi
+deleted file mode 100644
+index e240bc8aa605..000000000000
+--- a/arch/arm/boot/dts/arm/mps2.dtsi
++++ /dev/null
+@@ -1,220 +0,0 @@
+-/*
+- * Copyright (C) 2015 ARM Limited
+- *
+- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License as
+- *     published by the Free Software Foundation; either version 2 of the
+- *     License, or (at your option) any later version.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+- */
+-
+-#include "../armv7-m.dtsi"
+-
+-/ {
+-	#address-cells = <1>;
+-	#size-cells = <1>;
+-
+-	oscclk0: clock-50000000 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <50000000>;
+-	};
+-
+-	oscclk1: clock-24576000 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <24576000>;
+-	};
+-
+-	oscclk2: clock-25000000 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <25000000>;
+-	};
+-
+-	cfgclk: clock-5000000 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <5000000>;
+-	};
+-
+-	spicfgclk: clock-75000000 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <75000000>;
+-	};
+-
+-	sysclk: spiclcd: spicon: i2cclcd: i2caud: clock-sys {
+-		compatible = "fixed-factor-clock";
+-		clocks = <&oscclk0>;
+-		#clock-cells = <0>;
+-		clock-div = <2>;
+-		clock-mult = <1>;
+-	};
+-
+-	audmclk: clk-12388000 {
+-		compatible = "fixed-factor-clock";
+-		clocks = <&oscclk1>;
+-		#clock-cells = <0>;
+-		clock-div = <2>;
+-		clock-mult = <1>;
+-	};
+-
+-	audsclk: clk-3072000 {
+-		compatible = "fixed-factor-clock";
+-		clocks = <&oscclk1>;
+-		#clock-cells = <0>;
+-		clock-div = <8>;
+-		clock-mult = <1>;
+-	};
+-
+-	soc {
+-		compatible = "simple-bus";
+-		ranges;
+-
+-		apb@40000000 {
+-			compatible = "simple-bus";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-			ranges = <0 0x40000000 0x10000>;
+-
+-			timer0: mps2-timer0@0 {
+-				compatible = "arm,mps2-timer";
+-				reg = <0x0 0x1000>;
+-				interrupts = <8>;
+-				clocks = <&sysclk>;
+-				status = "disabled";
+-			};
+-
+-			timer1: mps2-timer1@1000 {
+-				compatible = "arm,mps2-timer";
+-				reg = <0x1000 0x1000>;
+-				interrupts = <9>;
+-				clocks = <&sysclk>;
+-				status = "disabled";
+-			};
+-
+-			timer2: dual-timer@2000 {
+-				compatible = "arm,sp804", "arm,primecell";
+-				reg = <0x2000 0x1000>;
+-				clocks = <&sysclk>, <&sysclk>, <&sysclk>;
+-				clock-names = "timer0clk", "timer1clk",
+-					       "apb_pclk";
+-				interrupts = <10>;
+-				status = "disabled";
+-			};
+-
+-			uart0: serial@4000 {
+-				compatible = "arm,mps2-uart";
+-				reg = <0x4000 0x1000>;
+-				interrupts = <0>, <1>, <12>;
+-				clocks = <&sysclk>;
+-				status = "disabled";
+-			};
+-
+-			uart1: serial@5000 {
+-				compatible = "arm,mps2-uart";
+-				reg = <0x5000 0x1000>;
+-				interrupts = <2>, <3>, <12>;
+-				clocks = <&sysclk>;
+-				status = "disabled";
+-			};
+-
+-			uart2: serial@6000 {
+-				compatible = "arm,mps2-uart";
+-				reg = <0x6000 0x1000>;
+-				interrupts = <4>, <5>, <12>;
+-				clocks = <&sysclk>;
+-				status = "disabled";
+-			};
+-
+-			wdt: watchdog@8000 {
+-				compatible = "arm,sp805", "arm,primecell";
+-				arm,primecell-periphid = <0x00141805>;
+-				reg = <0x8000 0x1000>;
+-				interrupts = <0>;
+-				clocks = <&sysclk>, <&sysclk>;
+-				clock-names = "wdog_clk", "apb_pclk";
+-				status = "disabled";
+-			};
+-		};
+-	};
+-
+-	fpga@40020000 {
+-		compatible = "simple-bus";
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+-		ranges = <0 0x40020000 0x10000>;
+-
+-		fpgaio@8000 {
+-			compatible = "syscon", "simple-mfd";
+-			reg = <0x8000 0x10>;
+-
+-			ranges = <0x0 0x8000 0x10>;
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			led@0,0 {
+-				compatible = "register-bit-led";
+-				reg = <0x00 0x04>;
+-				offset = <0x0>;
+-				mask = <0x01>;
+-				label = "userled:0";
+-				linux,default-trigger = "heartbeat";
+-				default-state = "on";
+-			};
+-
+-			led@0,1 {
+-				compatible = "register-bit-led";
+-				reg = <0x00 0x04>;
+-				offset = <0x0>;
+-				mask = <0x02>;
+-				label = "userled:1";
+-				linux,default-trigger = "usr";
+-				default-state = "off";
+-			};
+-		};
+-	};
+-
+-	smb {
+-		compatible = "simple-bus";
+-		#address-cells = <2>;
+-		#size-cells = <1>;
+-		ranges = <0 0 0x40200000 0x10000>,
+-			 <1 0 0xa0000000 0x10000>;
+-	};
+-};
+diff --git a/arch/arm/configs/mps2_defconfig b/arch/arm/configs/mps2_defconfig
+deleted file mode 100644
+index cacf3876f6e4..000000000000
+--- a/arch/arm/configs/mps2_defconfig
++++ /dev/null
+@@ -1,102 +0,0 @@
+-CONFIG_NO_HZ_IDLE=y
+-CONFIG_HIGH_RES_TIMERS=y
+-CONFIG_PREEMPT_VOLUNTARY=y
+-CONFIG_LOG_BUF_SHIFT=16
+-CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+-CONFIG_EXPERT=y
+-# CONFIG_UID16 is not set
+-CONFIG_BASE_SMALL=y
+-# CONFIG_FUTEX is not set
+-# CONFIG_EPOLL is not set
+-# CONFIG_SIGNALFD is not set
+-# CONFIG_EVENTFD is not set
+-# CONFIG_AIO is not set
+-# CONFIG_MMU is not set
+-CONFIG_ARCH_MPS2=y
+-CONFIG_SET_MEM_PARAM=y
+-CONFIG_DRAM_BASE=0x21000000
+-CONFIG_DRAM_SIZE=0x1000000
+-# CONFIG_SUSPEND is not set
+-# CONFIG_BLOCK is not set
+-CONFIG_BINFMT_FLAT=y
+-# CONFIG_COREDUMP is not set
+-# CONFIG_VM_EVENT_COUNTERS is not set
+-CONFIG_NET=y
+-CONFIG_PACKET=y
+-CONFIG_UNIX=y
+-CONFIG_INET=y
+-CONFIG_IP_PNP=y
+-CONFIG_IP_PNP_DHCP=y
+-# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET_XFRM_MODE_BEET is not set
+-# CONFIG_INET_DIAG is not set
+-# CONFIG_IPV6 is not set
+-# CONFIG_WIRELESS is not set
+-CONFIG_DEVTMPFS=y
+-CONFIG_DEVTMPFS_MOUNT=y
+-# CONFIG_FW_LOADER is not set
+-CONFIG_NETDEVICES=y
+-# CONFIG_NET_CORE is not set
+-# CONFIG_NET_VENDOR_ARC is not set
+-# CONFIG_NET_CADENCE is not set
+-# CONFIG_NET_VENDOR_BROADCOM is not set
+-# CONFIG_NET_VENDOR_CIRRUS is not set
+-# CONFIG_NET_VENDOR_EZCHIP is not set
+-# CONFIG_NET_VENDOR_FARADAY is not set
+-# CONFIG_NET_VENDOR_HISILICON is not set
+-# CONFIG_NET_VENDOR_INTEL is not set
+-# CONFIG_NET_VENDOR_MARVELL is not set
+-# CONFIG_NET_VENDOR_MICREL is not set
+-# CONFIG_NET_VENDOR_NATSEMI is not set
+-# CONFIG_NET_VENDOR_QUALCOMM is not set
+-# CONFIG_NET_VENDOR_RENESAS is not set
+-# CONFIG_NET_VENDOR_ROCKER is not set
+-# CONFIG_NET_VENDOR_SAMSUNG is not set
+-# CONFIG_NET_VENDOR_SEEQ is not set
+-CONFIG_SMSC911X=y
+-# CONFIG_NET_VENDOR_STMICRO is not set
+-# CONFIG_NET_VENDOR_VIA is not set
+-# CONFIG_NET_VENDOR_WIZNET is not set
+-# CONFIG_WLAN is not set
+-# CONFIG_INPUT is not set
+-# CONFIG_SERIO is not set
+-# CONFIG_VT is not set
+-# CONFIG_LEGACY_PTYS is not set
+-CONFIG_SERIAL_MPS2_UART_CONSOLE=y
+-CONFIG_SERIAL_MPS2_UART=y
+-CONFIG_SERIAL_NONSTANDARD=y
+-# CONFIG_HW_RANDOM is not set
+-# CONFIG_HWMON is not set
+-CONFIG_WATCHDOG=y
+-CONFIG_ARM_SP805_WATCHDOG=y
+-CONFIG_MFD_SYSCON=y
+-# CONFIG_USB_SUPPORT is not set
+-CONFIG_NEW_LEDS=y
+-CONFIG_LEDS_CLASS=y
+-CONFIG_LEDS_SYSCON=y
+-CONFIG_LEDS_TRIGGERS=y
+-CONFIG_LEDS_TRIGGER_TIMER=y
+-CONFIG_LEDS_TRIGGER_ONESHOT=y
+-CONFIG_LEDS_TRIGGER_HEARTBEAT=y
+-CONFIG_LEDS_TRIGGER_BACKLIGHT=y
+-CONFIG_LEDS_TRIGGER_CPU=y
+-CONFIG_LEDS_TRIGGER_DEFAULT_ON=y
+-CONFIG_ARM_TIMER_SP804=y
+-# CONFIG_DNOTIFY is not set
+-# CONFIG_INOTIFY_USER is not set
+-# CONFIG_MISC_FILESYSTEMS is not set
+-CONFIG_NFS_FS=y
+-CONFIG_NFS_V4=y
+-CONFIG_NFS_V4_1=y
+-CONFIG_NFS_V4_2=y
+-CONFIG_ROOT_NFS=y
+-CONFIG_NLS=y
+-CONFIG_PRINTK_TIME=y
+-# CONFIG_ENABLE_MUST_CHECK is not set
+-# CONFIG_DEBUG_BUGVERBOSE is not set
+-CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+-CONFIG_DEBUG_FS=y
+-# CONFIG_SLUB_DEBUG is not set
+-# CONFIG_SCHED_DEBUG is not set
+-CONFIG_MEMTEST=y
+diff --git a/arch/arm/mach-versatile/Makefile b/arch/arm/mach-versatile/Makefile
+index d819fb2fc450..07171ef1d6a7 100644
+--- a/arch/arm/mach-versatile/Makefile
++++ b/arch/arm/mach-versatile/Makefile
+@@ -22,9 +22,6 @@ obj-$(CONFIG_ARCH_VEXPRESS_TC2_PM)	+= tc2_pm.o
+ CFLAGS_tc2_pm.o				+= -march=armv7-a
+ CFLAGS_REMOVE_tc2_pm.o			= -pg
+ 
+-# mps2
+-obj-$(CONFIG_ARCH_MPS2)			+= v2m-mps2.o
+-
+ ifdef CONFIG_SMP
+ obj-y					+= headsmp.o platsmp.o
+ obj-$(CONFIG_ARCH_REALVIEW)		+= platsmp-realview.o
+diff --git a/arch/arm/mach-versatile/v2m-mps2.c b/arch/arm/mach-versatile/v2m-mps2.c
+deleted file mode 100644
+index 5b50d8e95cd7..000000000000
+--- a/arch/arm/mach-versatile/v2m-mps2.c
++++ /dev/null
+@@ -1,17 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * Copyright (C) 2015 ARM Limited
+- *
+- * Author: Vladimir Murzin <vladimir.murzin@arm.com>
+- */
+-
+-#include <asm/mach/arch.h>
+-
+-static const char *const mps2_compat[] __initconst = {
+-	"arm,mps2",
+-	NULL
+-};
+-
+-DT_MACHINE_START(MPS2DT, "MPS2 (Device Tree Support)")
+-	.dt_compat = mps2_compat,
+-MACHINE_END
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index d7b89508311f..9d60d4b650ec 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -1260,7 +1260,7 @@ config I2C_UNIPHIER_F
+ 
+ config I2C_VERSATILE
+ 	tristate "ARM Versatile/Realview I2C bus support"
+-	depends on ARCH_MPS2 || ARCH_VERSATILE || ARCH_REALVIEW || ARCH_VEXPRESS || COMPILE_TEST
++	depends on ARCH_VERSATILE || ARCH_REALVIEW || ARCH_VEXPRESS || COMPILE_TEST
+ 	select I2C_ALGOBIT
+ 	help
+ 	  Say yes if you want to support the I2C serial bus on ARMs Versatile
 -- 
-2.39.5
+2.53.0
 
 
