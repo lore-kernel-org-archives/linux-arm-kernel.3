@@ -4,86 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB21C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFD1C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Sep 2026 08:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXneAIUNGJegxe+7TT6326qIQdc44HdWTzL48112N7M=; b=TXVaadQ6ZCf93C4sWFm7X2q0qM
-	kMhyHWA0WkVEqvQar6gBGnUu9UqSR6q5w0vfQnd+bjNHL3HZM1D6q88u7j6NbX+N6ApRNUpjSFsRv
-	t5flLTS4SnDB9dkQ+hoJgwBuEtBcwsUcPlT0ZF8y7B2rqJKHU28SKPWDI+k38lXGRv768PGAtTXnF
-	O/qna3jLJPwAi4UlaxKR9sb7LAGC4HMsvxY/wXcChyps0Bt31vx2t1RlRdxV/eF4Y9mqsaWzmEhs9
-	1BZodL3Sa/VTEjgIHIW8juXrezpuOrCL7IrlE2gK8faA2gGhNbx4bGkN9iwmzjaHPOdsPv9N8Uk21
-	ka1zm9lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eNKB0qvsMCjr+ibrMp9Y1VW6wlLfG2e8zCw4E9cQBPE=; b=hMJT3Dx5L3iQ3Z8U8Mr8rQrM04
+	GlYkhvlBkDBeM5PDP0K9Tyk8KBlIZ0Vn5HC64XBNYtRSxZhg2M0GdqegoP4CPfuRlhWFpgjOkGQUs
+	bm6YVZ50ybS/iii/45/GisRJKY3HC4MuAqnRAkIINwLQmm5uVyEDFz1SWO57s3avfHIMVmZnQsYeZ
+	OCmTgY4OLAC58G94NBU1F/dE91knqV3nhBaICCJU+FgrhkWcGobZ6mDoIHAAKK+N7YiyJED5jRmHW
+	fnim74ps9KGeTXKaoObC99EKu10pSxxH9Dxbow33i2YCQcr3Swn6kJHZIoYSzP0wyZUGf4ow+cKY/
+	lQbBwQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3r93-00000008OK3-1qTD;
-	Tue, 08 Sep 2026 08:25:33 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1x3rCG-00000008Omb-3lLf;
+	Tue, 08 Sep 2026 08:28:52 +0000
+Received: from mail-westusazon11020127.outbound.protection.outlook.com ([52.101.85.127] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3r8z-00000008OI1-0blL
+	id 1x3rCE-00000008Olk-1jPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Sep 2026 08:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788855929; x=1820391929;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MNBOqjbiFY5cvbGJa0db+s9GIphlrm1cbRc2huUpNRk=;
-  b=mq91t3T8Re4VAJdEozTAyhliaM9PDE5R5Gk4dxsWprSRv1Mvf2eD9UKW
-   NljhPYkDSLVGhTVBrEnJkHGzQZha1ZFcn2g47nvLlg0aKx5qlr5EPlhAd
-   cVIKD+uZGVf2cHRXK91swtq63ISEZu17F/x0bj4VsgY7rn78GzAnQ9siq
-   qXR1ZQr6XyvVgAWNnCqmvI6gbEgpuOdGrWDGne+u5PiMkSaJAtZVhe4FM
-   a/4o4vddKzDbnCB9CewHR8VuCG+SQim+RtVIk0ypRcXCbZf3aqdXMzagD
-   2qp88kuoWCrwmu04kO5fIAB7KYpLwgxuveAMs/l97y40HzOoz06pUmBvG
-   w==;
-X-CSE-ConnectionGUID: 2YB6XBPpR3i37FZrr28yKw==
-X-CSE-MsgGUID: xbv5OgdBTiar1L03Aks3xQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="93114669"
-X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
-   d="scan'208";a="93114669"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 01:25:25 -0700
-X-CSE-ConnectionGUID: FvNg+61LQ+2F8JqhAbC94Q==
-X-CSE-MsgGUID: kH58JbXiSn2WhYPwc39J2g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
-   d="scan'208";a="269196840"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa006.jf.intel.com with ESMTP; 08 Sep 2026 01:22:19 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 08F8E99; Tue, 08 Sep 2026 10:22:18 +0200 (CEST)
-Date: Tue, 8 Sep 2026 10:22:18 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 10/22] thunderbolt: Unlock host router ports during
- startup
-Message-ID: <20260908082218.GA106095@black.igk.intel.com>
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-10-1f80085f93fb@kernel.org>
+	Tue, 08 Sep 2026 08:28:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tDsRLYE3lQhm9yw6vfU6bIfUXiWDz1UZQqx0/6p19/OZ06GNiwMZJIq9QVFnUB/c+aXYTlss96ApdZtXcRM+mcOFIJj8qLJCQhaKJjFB+b5NHes4YPrKQz1ToqMSoWtD6epeBTp4mj30vBCQ9G97mbVge8dWZmOyIwb+ESXc3QQd5ZTxgY5WeSfIBEheLDy1r3dETAsyNAY905j9SmkVJt3O2ZJJNmNt3/mHsFaMeMdpoeLRr8EBqYEUbUOb0fT36ISwB9Q5laVNlaRNGuqLcTLrRu+h9PiYGVhFQ+KPBWMZ7DxBuwJoSvYrUilKKcZeVtpw/oRKLsfqNcadfZVluA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eNKB0qvsMCjr+ibrMp9Y1VW6wlLfG2e8zCw4E9cQBPE=;
+ b=EGt8bQ6Yl3UqHWa9Ob0gw8gMZ9IrrRPTI5tTjJvviU8HWLWf4RLRoRr6W/KACCVLuhS3LiG5YC9qtu8M8FClg4S4e6jpTxnshn7Zq7wSNzV6CwhyCngI6FVPtjreD4DCn5hS6o6LYv/HmEzN0mR50HoYrZg36ouYOMASwS+hdyDe/TDnjBjPyl/uxT5s4BPOhIAe2J9S74iu79Ai68eJVcJ+9uYpK8wC9ifLd/bRL2psemqFEAKSd8BiupdjlGTgLoa+yznyK4PfkRCuj7Fx9DIyAnOP5Rgcp837RBvCkUHID/zeZPfKHoTShpUcDx1r++UREC6TkdnH5NJ2dD9ZmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eNKB0qvsMCjr+ibrMp9Y1VW6wlLfG2e8zCw4E9cQBPE=;
+ b=jyhLthcb110uaPepxmHwEh8EsK+E1yv5u5p/a8ijvof3+xl1S7YDOLaqqghNf4zU8az/sIg8bIoXDDpwQxl/4gTOF+uvThvpkbkks/BPidv8QmEhFp9X2GCGjkMCNutWwl/zOuSEcOlwIrKhC36HMO6Fzn0Lmen7W36X/y8Yfw/9P3j4DJuvCMC44ULgbBpuQbYny0oLPbEkU6lpnOWl1T5SidFnaE3dXXg/J3Y2FtT3PgittUjeXAABjcD33Lb02mq7fMt+XPHMfIyfLlSav+/hqAYbt/+LriCuSh+GZpit2xPkQtG5HUArEYzgn0fPWeAIn43sstL4ePadOrpZyQ==
+Received: from SJ0PR05CA0188.namprd05.prod.outlook.com (2603:10b6:a03:330::13)
+ by SA3PR18MB235022.namprd18.prod.outlook.com (2603:10b6:806:510::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Tue, 8 Sep
+ 2026 08:28:43 +0000
+Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
+ (2603:10b6:a03:330:cafe::8) by SJ0PR05CA0188.outlook.office365.com
+ (2603:10b6:a03:330::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Tue, 8
+ Sep 2026 08:28:43 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
+ via Frontend Transport; Tue, 8 Sep 2026 08:28:43 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 3CA1C4186B5D;
+	Tue,  8 Sep 2026 01:28:43 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Tue, 08 Sep 2026 01:28:34 -0700
+Subject: [PATCH v4 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260906-b4-apple-soc-tbt-v2-10-1f80085f93fb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260908-axiado-ax3000-pwm-v4-1-19a03671cd5b@axiado.com>
+References: <20260908-axiado-ax3000-pwm-v4-0-19a03671cd5b@axiado.com>
+In-Reply-To: <20260908-axiado-ax3000-pwm-v4-0-19a03671cd5b@axiado.com>
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Petar Stepanovic <pstepanovic@axiado.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788856122; l=2395;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=6pfwkUarUCb3gzJ63Zcspm+3oWHggZhK8WjqgQjx8fU=;
+ b=OKcIof9UtYiAnxr+tzOGMtK342ArbfnAO5gmYi0lKRUUVStoea6LXoKsgDW0tQO4vqpm6mkJ/
+ EgjXSHB4dkICekd9PvY/JnG8c6uHTCf+MN/e4paZ2jIVR1guYv1cHZZ
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|SA3PR18MB235022:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b0320a6-8bdf-4578-4191-08df0d8331af
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|10067099003|3023799007|56012099006|22082099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: lovVl1ohG0xT3npvhdXUQVOZksoD8q9LkKFbQV/5+b3v7li4qWDXmabzqOLchmp/UqXlENm2CA3XTKRM5hGxhLgpJLO4f4vNJ1TD8DOyxJ829xDnc0pGYXV8Q5w6bH7zGm0aZLj5lBrspK/k7Smts/dB6bXC1wzgyxwmD8uE2VAXX0CWbuJn/VKZ0a+sEuCby6mVGHSZ9McMLaCTcSql2mNkXJcFi0aibbcR4oywH/KwkEwj84MYzCwU3nfWuXa+EJIFI8JaV0klZYXz8yfwUIzQvdmPZf4AwR+MStHdkVzE/kxgZNQ/oWuJL7Yco8jytV9aQsY12jTmFWuLGmBvX1biqlV1fGQPS3E7L2y2w7jFDfidi54GT2oCElqIR4XKnUVWtaF+WT2k3u0pC5bgusru2RquqngXDrduVFwl4dYAApANKqQIKpjUEtraaLj6A3tHceBzAp6hGwO3yyI96n4sOe5ILQiHoDsz1Rt5Tobv3idzao/hwr4/8TxvOU7qOK+hwJ0L7trp7EHKRw+FQHbD+nluWiKWISXFT1HOip+p3uei+ZVv/cbjekyVg4U6+hlK8xV2spEPKQJdrjntWH90RWDbe0a0GLT6FWgQhSY3M6al97KLnjHdeEEqqfBj2CHim8hXZz0A9y88U51XUg==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(10067099003)(3023799007)(56012099006)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: pSpQ1MgeV3sSoeLsIRnSA065t2Cbp2iVfJ/XQQM4JxfkASIyefs36py5HIkMTm1j5ZUDlDKUtAlfZJoMZnQIoo4xzJunqfFnqolpLmECC59m0ku8DXx/rvTSW2rHH0Tw1D79mpxhJXe/1fZK6ExwqmxYEVHp6bUv4QrH1Ds12zERv5SDNJqigPwh0uHi1NNVq1M4A3YIUaluKuwxByUAANlvoidBjLtPtjlLBBwLVfewdNtsYZEy+KYqf6YOZ6soECgcLccA+oaO1wrUtdUP531xOfk97IwsNPNOOtysogBhqG41WAADmpA1W8bELLddQTUqkWoco20qNqReQVGHc1hRxQXKU9i6v2hM3Gw6UkwLYt6UMgeJRiTTwmwKDNcwBik00IcsXRE6Mh6OGqWxK5JFnrPoVDxDRugEnkTF3pNItT8ZDt6zAxTn5+vJlmYE
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Sep 2026 08:28:43.4394
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b0320a6-8bdf-4578-4191-08df0d8331af
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR18MB235022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_012529_230031_D13CA36D 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20260908_012850_467565_AD00F065 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +129,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 08:36:33PM +0200, Sven Peter wrote:
-> The downstream ports of the host router may still be locked after a
-> reset. Unlock them when the software connection manager starts before
-> scanning for any connected devices.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/thunderbolt/tb.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-> index 47753a5c0f2e..bf1c192ec10a 100644
-> --- a/drivers/thunderbolt/tb.c
-> +++ b/drivers/thunderbolt/tb.c
-> @@ -3016,6 +3016,7 @@ static int tb_scan_finalize_switch(struct device *dev, void *data)
->  static int tb_start(struct tb *tb, bool reset)
->  {
->  	struct tb_cm *tcm = tb_priv(tb);
-> +	struct tb_port *port;
->  	bool discover = true;
->  	int ret;
->  
-> @@ -3049,6 +3050,14 @@ static int tb_start(struct tb *tb, bool reset)
->  		return dev_err_probe(tb->nhi->dev, ret, "failed to add host router\n");
->  	}
->  
-> +	/* Make all host router downstream ports accessible to the CM. */
+The Axiado AX3000 and AX3005 SoCs include PWM controllers that can be
+used to generate configurable PWM output signals.
 
-Nit: Drop the . from single line comments
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+---
+ .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml | 53 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 ++++
+ 2 files changed, 61 insertions(+)
 
-	/* Make all host router downstream ports accessible to the CM */
+diff --git a/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+new file mode 100644
+index 000000000000..3b73b233da86
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+@@ -0,0 +1,53 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/axiado,ax3000-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado AX3000 PWM controller
++
++maintainers:
++  - Petar Stepanovic <pstepanovic@axiado.com>
++  - Akhila Kavi <akavi@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++description:
++  The Axiado PWM controller found on the AX3000 and AX3005 SoCs.
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - const: axiado,ax3000-pwm
++      - items:
++          - const: axiado,ax3005-pwm
++          - const: axiado,ax3000-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#pwm-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    pwm@80801c00 {
++      compatible = "axiado,ax3000-pwm";
++      reg = <0x80801c00 0x1000>;
++      #pwm-cells = <2>;
++      clocks = <&clk>;
++    };
++
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b2040011a386..9999480376cc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4312,6 +4312,14 @@ S:	Orphan
+ F:	Documentation/devicetree/bindings/sound/axentia,*
+ F:	sound/soc/atmel/tse850-pcm5142.c
+ 
++AXIADO AX3000 PWM DRIVER
++M:	Petar Stepanovic <pstepanovic@axiado.com>
++M:	Akhila Kavi <akavi@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-pwm@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
++
+ AXIS ARTPEC ARM64 SoC SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+ M:	Lars Persson <lars.persson@axis.com>
 
-> +	tb_switch_for_each_port(tb->root_switch, port) {
+-- 
+2.34.1
 
-We should introduce tb_switch_for_each_null_port() at some point, not the
-job of this series though.
-
-> +		if (!tb_port_is_null(port))
-> +			continue;
-> +		if (tb_port_unlock(port))
-> +			tb_port_warn(port, "failed to unlock port\n");
-> +	}
-> +
->  	/*
->  	 * To support highest CLx state, we set host router's TMU to
->  	 * Normal mode.
-> 
-> -- 
-> 2.55.0
-> 
 
