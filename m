@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5361C79FB5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E9CC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Psx5izFz/CT47tzHifey69nrknoh0GX9iQboe2Wpy28=; b=Gl54ppvKSbBUQwXErnx81wLY/4
-	meKypxj/HhwFU1n1lxrz1S/HrrEnlV+sCKoaa/vf4d2k9c3miceOjtD2xm2BHtAS8tW52wUisIkvj
-	HwFhzkHDI0tdeLnNIuQnUSziICVtxh+NDCPRYv0e4lFCepuOLjPoxmeKmsEwksNUXXf6Qb0wg/2dn
-	d02vcsLu5ruBTnS0x+JPtIiof+Sq0Rx6nupiP+B44NLOvNlacOGR4udO9G8OO5eVl7JLEXvm1xBNI
-	UXqyDo2+3WNUVCy19y86NH5kinLcapWSdaDCS75X6DS1s0OeL8hjQIYaz+CtNbGyuROzCrImh8z2C
-	WyPiFP4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fUYca7abhZpRRXyQpq5f0A4w+RCfpQDFro+1XnmDa3U=; b=Ub/AW8xfYmTaDPtvtvbhUyAjmB
+	oMHGWgxEScmnytrpTHyHj3XyODfcsvjr4UafkZ5p674gN2X4yjCd9PZ6myMDm+FZMZEKuqsBDn+tW
+	Tm3D2s3dtGgeb/LhWNuJHf6nGTVgTp2uEiaIzLFLiwz2iOPaz3c20b114LG7leuePuHEeKj3hMkkT
+	uTwkLmnug/BEECMiE/TNQvclkho0sB3gEIkcPzqczAKE9lcTZ+YLS3JtZ+IkH8RqJfEX/W5r8SP/9
+	frnnwD7/eDADBYQ81H3GHZMw+JXWVXr53q0O/55XhiiyyVvQOd1XCqw1xlinCb3Sxy2jEMZW4w/DP
+	oP3ehyPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Cck-0000000AxyF-3RWj;
-	Wed, 09 Sep 2026 07:21:38 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1x4Ce1-0000000AyD1-2tir;
+	Wed, 09 Sep 2026 07:22:57 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Cch-0000000Axwm-3Ikv
+	id 1x4Cdx-0000000AyBE-1YhG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 07:21:36 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49b392ccaacso80222945e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 00:21:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788938494; x=1789543294; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Psx5izFz/CT47tzHifey69nrknoh0GX9iQboe2Wpy28=;
-        b=d0K6YDsWwEd5CeS1V9sfzwjtxULtOq7OckN1BLFdpUmsdzJtqTPRfiFx3D/ZSrHbFe
-         0GE+h0NNaLfq68eE0Qk9XdlDgPJstqO/3FDS/qX+nFwHnQX5QUGrUgGHUH/Oi5zjoDBV
-         hXjL49U3apw6lsYkPg4aUQaFffPb9d6urFxCOJyzWbR0njdwAh/sYRPWAN5wDffEn8d5
-         bIaWL/xlWV6PWSjLYsJ2klQWuyBv53ooarKE1nHucCqQsOINLYxD4t+Lq6dG7jHRXClK
-         fkt8umACyu37eJA3wT5SC7NqqVKM67vbUC37EfKsf12Lc8g59jzGtDKcCkPJbwyneTzc
-         4D8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788938494; x=1789543294;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Psx5izFz/CT47tzHifey69nrknoh0GX9iQboe2Wpy28=;
-        b=gZY3SP84hWBFBcxAglN7JuATXf4YNjvBXNPTk/nKaLiVfWmoC+pdCQeJBXCcvhFwaN
-         U74fKRZXmliTbEbValUZ1ps7le6ZibdDO2bBvF/ISXTuLo2eFoElJILbcK0cS7+/LCtQ
-         7Teg00g6PUir4q35SjRIWxH4tkmwpYTZBQN+JaahSf7XmAphh/1BpGyJREzszgHrxCRE
-         VqjXw0JJpJj29B/i5P9nKpspg+Q+crJ3LOvy7Jwi/UJWOofPRUASkia6Ue2fA9Nqlj9Y
-         y2Pc0IMXe5h+JKR4uVIP2EvRnv5qc4pqnT0LrK+xXsRYoCP7rss409fuHxO4rSWaUEEg
-         7DVw==
-X-Forwarded-Encrypted: i=1; AKwUvBzpy2IvWeyt2sjRXIbr5IhjNoSz7cMrF/itJHcmOX4P1R/s1rK7VVJb1XN6x79Ep12Xn+cc4C+N6j12NrhwedR1@lists.infradead.org
-X-Gm-Message-State: AFuF++kBoUcGaV6l5lwBkY4lEOzLd3e5aYbEbREd3tT5i6b6Hx4NXi7u
-	guh0bPOxFq12kDIwSaUvodSB1eXBf7w9PuXBpdIBFtOqmqu0mGEsUVxyI+whjgVl
-X-Gm-Gg: AYBFou3/hddstP1IDaTWL4kxsACdHnMJYg+0mUmzxZga9mP6R//5gek+leYYx/PdEHd
-	mACXiUPI/l4kUHjbytdT5Beuk4peZRno0zAlNelR9bhUyojbHr1PnzhSkOwcacTUXlYP6i8Nsh8
-	GuYE8/1dBD9RMb6A4FHMJ56pE/l/IEnrhvQYG35qXfboUnqrqNII5slBHUFugU3LENxoyaoBwvi
-	CG73OGb3lgknjXZ7tUVOhQv3RODbgXzuEWJSYBoI1JkIqmPm9LivX9oSzfKof/IwRi3M6HapNVg
-	5ywHspDQlmnf5xr4Y/1LUa7sRCES6ZtpsHbFLtR+mbhBeQGxBdqM42EeCL9SQnNdwhMPO9FAyVp
-	9CxIN8knkDPuBIT/092VhixtdAeP1f/HPR0DbKqBLbA+WXqrlBhcpeVMf/jQ6igwaUE11YaiCPY
-	Q1eKzM++4Vr4+0ZDcfwXSvJK346ocX0Qu3LWKlMGZeOXP1r57mZgVccti7laWPp5oAkPw=
-X-Received: by 2002:a05:600c:3511:b0:49c:fa21:1c86 with SMTP id 5b1f17b1804b1-49cfa211cd7mr325233275e9.27.1788938493693;
-        Wed, 09 Sep 2026 00:21:33 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm46703902f8f.25.2026.09.09.00.21.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 00:21:33 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Fabien Parent <fparent@baylibre.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RESEND] arm64: dts: mediatek: mt8516: remove cpu3 armpll clock-name
-Date: Wed,  9 Sep 2026 09:20:14 +0200
-Message-ID: <20260909072051.4627-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 09 Sep 2026 07:22:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=fUYca7abhZpRRXyQpq5f0A4w+RCfpQDFro+1XnmDa3U=;
+	b=lhvwHOI9jghIPBpJvn28k9KSMrl3jtx22BNrianbg9D30D0a9FMCOqX3fOdKmM/ZBEMkDh7nf
+	HNnSGc+5PzEWe1+vHFn/axR/vzjEgCjLeruKYQVvpsKnvOKDRMYmU135wq2/qYQDRDt1HyMIduv
+	oyi48oWhX/8L8zXfikvWKs4=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hfsRM2fFKz1T4LY;
+	Wed,  9 Sep 2026 15:11:11 +0800 (CST)
+Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
+	by mail.maildlp.com (Postfix) with ESMTPS id BC78440537;
+	Wed,  9 Sep 2026 15:22:42 +0800 (CST)
+Received: from localhost.huawei.com (10.90.31.46) by
+ whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Wed, 9 Sep 2026 15:22:41 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <u.kleine-koenig@baylibre.com>, <linuxarm@huawei.com>,
+	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangzhou1@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [PATCH v5 0/3] drivers/perf: hisi: Updates for HiSilicon uncore PMUs
+Date: Wed, 9 Sep 2026 15:22:37 +0800
+Message-ID: <20260909072240.2308808-1-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemo500002.china.huawei.com (7.152.185.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_002135_853394_9ABF14FD 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260909_002254_060928_17D67BB6 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +77,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The armpll clock in cpu3 clock-names property comes from MediaTek sources,
-but it's unused in the kernel and not populated in the clocks property.
-Let's remove it and align the node with other cpu nodes of the same SoC.
+This patchset adds support for the ITS PMU and a new version of MN PMU.
 
-Fixes: 5236347bde42 ("arm64: dts: mediatek: add dtsi for MT8516")
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt8516.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The ITS (Interrupt Translation Service) PMU counts the number and
+latency of interrupts routed to the ITS by category (LPI/SGI/PPI), and
+collects micro-op statistics for the ITS itself. It supports filtering
+counters by a 32-bit interrupt id (int_id).
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8516.dtsi b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-index b5e753759465..596f673a0d88 100644
---- a/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-@@ -95,7 +95,7 @@ cpu3: cpu@3 {
- 				<&CPU_SLEEP_0_0 &CPU_SLEEP_0_0 &CPU_SLEEP_0_0>;
- 			clocks = <&infracfg CLK_IFR_MUX1_SEL>,
- 				 <&topckgen CLK_TOP_MAINPLL_D2>;
--			clock-names = "cpu", "intermediate", "armpll";
-+			clock-names = "cpu", "intermediate";
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
+The new MN PMU version (HIP13) adds a cycles event, used for MN metric
+computation.
+
+Changes:
+
+v5:
+- Reworked the ITS PMU global INT_ID filter handling per Sashiko review.
+  Implement a get_event_idx() override that returns -EAGAIN when a
+  newcomer disagrees with the currently-scheduled events on the filter,
+  so perf time-multiplexes them instead of running them together.
+- Reset the global INT_ID filter to disabled at probe, so unfiltered
+  events do not inherit a stale filter left by prior state.
+- Dropped the now-unused struct hisi_its_pmu wrapper, filter_lock and
+  event->destroy callback.
+Link to v4: https://lore.kernel.org/all/20260724025238.3411328-1-wangyushan12@huawei.com/
+Link to Sashiko review report: https://sashiko.dev/#/patchset/20260724025238.3411328-1-wangyushan12%40huawei.com
+
+v4:
+- Moved unnecessary cpuhp states for each PMU drivers to hisi_uncore_pmu
+  framework as suggested by Robin.
+Link to v3: https://lore.kernel.org/all/20260713125647.2958626-1-wangyushan12@huawei.com/
+Link to Sashiko review report: https://sashiko.dev/#/patchset/20260713125647.2958626-1-wangyushan12%40huawei.com
+
+v3:
+- Added check_filter callback to refuse new filtered events when there
+  are already filtered ones running as per Sashiko.
+Link to v2: https://lore.kernel.org/all/20260612093812.1249049-1-wangyushan12@huawei.com/
+Link to Sashiko review report: https://sashiko.dev/#/message/20260612093812.1249049-1-wangyushan12%40huawei.com
+
+v2:
+- Added int_en filter to tell if int_id is used, enabling filtering
+  interrupt with 0 int_id per Sashiko.
+- Changed event format width to align with register width per Sashiko.
+Link to v1: https://lore.kernel.org/all/20260423152959.1458563-1-wangyushan12@huawei.com/
+Link to Sashiko review report: https://sashiko.dev/#/patchset/20260423152959.1458563-1-wangyushan12%40huawei.com
+
+Yifan Wu (1):
+  drivers/perf: hisi: Add cycle event for HIP13 MN PMU
+
+Yushan Wang (2):
+  drivers/perf: hisi: Consolidate uncore PMU cpuhp states
+  drivers/perf: hisi: Add support for uncore ITS PMU
+
+ Documentation/admin-guide/perf/hisi-pmu.rst   |  16 +
+ drivers/perf/hisilicon/Makefile               |   2 +-
+ drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  |  34 +-
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c |  34 +-
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |  34 +-
+ drivers/perf/hisilicon/hisi_uncore_its_pmu.c  | 379 ++++++++++++++++++
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  21 +-
+ drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   |  98 +++--
+ drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  |  35 +-
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |  34 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.c      |  25 ++
+ drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c |  34 +-
+ drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   |  36 +-
+ include/linux/cpuhotplug.h                    |   6 -
+ 15 files changed, 519 insertions(+), 271 deletions(-)
+ create mode 100644 drivers/perf/hisilicon/hisi_uncore_its_pmu.c
+
 -- 
-2.43.0
+2.33.0
 
 
