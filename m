@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E222C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 12:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7885C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 12:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wjDBD4eTQIvB0n0DbUPkYQj15kwWSjuBDp4QqdtW1U=; b=d8qHDAsN3Gdpfy4MxlGu7jh02V
-	NIBy5hq4ORpPlWlwukrcqVxTiJrmOykCuBjGEBgQVQT4jQQnJ+e1shBfar4iyj7Kau5vSP3bNzjgo
-	3D00YAdC93j6wIMoMLu9S19DvpLpAw8LAldvpgcwwO0PfYhj5CSCxR0dgiSFcH+ZAh2T4YPChuFET
-	eiY1MxpBEjExfmieaLK942WjI3myTOfMwpbUPnDKiloO6Wc3ebvJooqx5C+/yHIWh5aJ8jU/l+aZ7
-	7GgAwKddn8OTsBUEujjPvCRZKLCDaIl87zU+RGJDAHeDnJXlS897CEm63THOcA4qQJuYU7twIN/Ar
-	Tu+eu/og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tBGWJLf4lbE7tDmFqi5pL+JxqX8pm53QFWV7OPw4FYs=; b=pZNvoTCfl4imx9hLybewfYNgxQ
+	5OYflVSzTo/bFEeQ0DD2adMbFGkL089+ZNAxeiQNghj+W9Z9BkOEtvUf04re/6i82gU1S9bhCFkwZ
+	o+jzvDdKnAB0Z3csJn5IQ1R7e9g/WGt8iyylA8w8/mY0xJiuAbtTKkYoXNJ3zwuCJ5IDgY7/2sCKM
+	iMn7LbTX/Kn0RvNn9b7S/qW1p0l+HqHydyWivQbll272fV98yD6VXcD7BcesZs2v8q7jyd2y/7pkA
+	nu9ENqc4BocMjpqDYNQM0nrNFJdlp0/4e0w3LBw/Ge0Y5uC1b5/3Yu627LW81E4sFIY5QgCcZB6zt
+	IEc1j36w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Har-0000000BgOx-0Xo8;
-	Wed, 09 Sep 2026 12:40:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4HbB-0000000BgTV-1mAf;
+	Wed, 09 Sep 2026 12:40:21 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Hap-0000000BgOX-1zW1;
-	Wed, 09 Sep 2026 12:39:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E366E60211;
-	Wed,  9 Sep 2026 12:39:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 780A31F00A3A;
-	Wed,  9 Sep 2026 12:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788957598;
-	bh=4wjDBD4eTQIvB0n0DbUPkYQj15kwWSjuBDp4QqdtW1U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Rj1IrIP44mOF3Q6zyOQy+1mwdi2cS/MrkriYAymLSDMvvPBZjd2BSJywkaPirWg8+
-	 jv/pq79HZ+t8lNaivmIEMURx7xVM9uZRHBtyl4CZpzxBScOgkPil862x8VRJkZQ8yw
-	 vzXO0wfO/FidAIalJo0eqfh/4Ta6rD6cqcF/nQN2DB91B/G/QVs7KEZaIaVmSft2A6
-	 tYZ4I43+QPYvVgApIkob6jsUrdpDLGK+t9Fq+CdwgOTVg0a++n811WNpc6Z9csJTwe
-	 ppUYxVQ62KkGkRjhIUVlKTSDS0Ho258mO1pXA2cLr1XatH7NSfmBlCr9xQZXP4MaiG
-	 6/OplGs7fuUMQ==
-Date: Wed, 9 Sep 2026 18:09:54 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: Frank.Li@oss.nxp.com, Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>, Frank Li <Frank.Li@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Binbin Zhou <zhoubinbin@loongson.cn>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Kelvin Cao <kelvin.cao@microchip.com>,
-	Logan Gunthorpe <logang@deltatee.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 3/4] dmaengine: add (dmaengine|vchan)_chan_dev() helper
-Message-ID: <aqFTmjUCysJWmy-P@parshuram>
-References: <20260904-dma-chan_dev-rename-v3-0-685601b0b788@nxp.com>
- <20260904-dma-chan_dev-rename-v3-3-685601b0b788@nxp.com>
- <c79f42cf-43c4-4b5a-a6da-217052d40284@foss.st.com>
+	id 1x4Hb8-0000000BgSq-3Jeh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 12:40:20 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 466FC1A1A7B;
+	Wed,  9 Sep 2026 12:40:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1928960448;
+	Wed,  9 Sep 2026 12:40:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E8DC211C7AF79;
+	Wed,  9 Sep 2026 14:40:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788957615; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=tBGWJLf4lbE7tDmFqi5pL+JxqX8pm53QFWV7OPw4FYs=;
+	b=jPu/fFVj4ys/46RddOEnm44/WEbxSWiW4MBVKahqN6QKlKH10rmmcan6Ks69hoyT93S91j
+	vqmwprD8lgnaYuLNv9x9GsWDs0xwTw9JsDChxbfG7V9wn4ZsnSlV53YFOWmb5TCtdRMiKf
+	Vm4mKWTw4fTxR0Fiupo6X04Qvkbsev7RJtOmsQO8PNz4s2Fwp6ofrUpd+fbTPJll0cWEda
+	qnLuLBjG1dYGZUaVOLW1IxR3LJY3NoiTo5F752U7u4v0q0t9oweyeM/WTNpXr7xqXsnAwA
+	B0OF4cdWetxhxaao4c8eODe5xl6EO6X1eAHTR6RuNz2j7hZFJTAYIG/799mMHQ==
+Message-ID: <b7c7b6d0-b41e-4f27-b6f1-2500046c6d2a@bootlin.com>
+Date: Wed, 9 Sep 2026 14:40:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c79f42cf-43c4-4b5a-a6da-217052d40284@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 2/6] net: stmmac: selftests: Validate EEE based on the
+ actual LPI timer value
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
+ <20260909074740.1247762-3-maxime.chevallier@bootlin.com>
+ <2f268c9ff187ba59f69d37dd4e4ba99b@tipi-net.de>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <2f268c9ff187ba59f69d37dd4e4ba99b@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_054019_105735_0C35C231 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-09-26, 10:55, Amelie Delaunay wrote:
-> Hi Frank,
-> 
-> On 9/4/26 23:49, Frank.Li@oss.nxp.com wrote:
-> [...]
-> 
-> I don't think removing chan2dev() function from the STM32 DMA drivers is an
-> improvement, since the parameter is a `stm32` chan, not a `dma_chan`.
-> chan2dev() was meant to expose the channel device behind the `stm32` wrapper
-> and keep logging concise.
-> 
-> > diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
-> > index 3e8151e2ad75a..4688cebaf7f7a 100644
-> > --- a/drivers/dma/stm32/stm32-dma.c
-> > +++ b/drivers/dma/stm32/stm32-dma.c
-> > @@ -248,11 +248,6 @@ static struct stm32_dma_desc *to_stm32_dma_desc(struct virt_dma_desc *vdesc)
-> >   	return container_of(vdesc, struct stm32_dma_desc, vdesc);
-> >   }
-> > -static struct device *chan2dev(struct stm32_dma_chan *chan)
-> > -{
-> > -	return &chan->vchan.chan.dev->device;
-> > -}
-> > -
-> 
-> I would rather keep it as:
-> 
-> static struct device *chan2dev(struct stm32_dma_chan *chan)
-> {
-> 	return vchan_chan_dev(&chan->vchan);
-> }
-> 
-> and then drop all further updates.
+Hi,
 
-I would say better to use a common macro than keep one for yours
+On 9/9/26 13:32, Nicolai Buchwitz wrote:
+> Hi Maxime
+> 
+> On 9.9.2026 09:47, Maxime Chevallier wrote:
+>> The EEE selftest is a 2-step test :
+>>  - It validates that we enter in LPI mode with the
+>>    irq_tx_path_in_lpi_mode_n counter
+>>  - It then validates that we exit LPI when sending a frame, with the
+>>    irq_tx_path_exit_lpi_mode_n counter.
+>>
+>> The current state of the test lacks 2 main things :
+>>
+>>  - We don't know exactly when was the previous frame sent (it's from the
+>>    previous selftest)
+>>
+>>  - The timeout is hardcoded, while the LPI is entered after a
+>>    user-configurable delay. On top of that, the timeout loop uses a
+>>    pre-decrement iterator (--retries) that actually only iterate nine
+>>    times, so 900ms while the default LPI value is 1 second.
+>>
+>> Let's therefore make it more deterministic :
+>>
+>>  - Send a frame at the beginning of the test
+>>  - Wait for more than the lpi timer value, we timeout after about twice
+>>    the value,
+>>  - Then send another frame, and verify that we do go out of LPI, also
+>>    with a timeout.
+>>
+>> Note that the test's goal isn't to validate the LPI timer value itself,
+>> only that we enter/leave LPI mode.
+>>
+>> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>>  .../stmicro/stmmac/stmmac_selftests.c         | 33 ++++++++++++++-----
+>>  1 file changed, 25 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+>> index 6503678b646e..4564b9f29194 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> 
+>> [...]
+> 
+>> -    memcpy(initial, &priv->xstats, sizeof(*initial));
+>> -
+>> +    /* Send a frame, then wait to enter LPI */
+>>      ret = stmmac_test_mac_loopback(priv);
+>>      if (ret)
+>>          goto out_free_final;
+>>
+>> +    max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
+>> +
+>> +    memcpy(initial, &priv->xstats, sizeof(*initial));
+> 
+> Is the LPI entry already counted here? AFAIU with tx-lpi-timer=0 on dwmac4 the
+> MAC goes directly into LPI after the frame, before stmmac_test_mac_loopback()
+> returns. The loop below would time out although LPI is working.
 
--- 
-~Vinod
+hmmm this is a good point ! I'll test and send a V2 :)
+
+> 
+> Snapshot before the first frame, and take a second snapshot right before
+> the second loopback for the exit check?
+> 
+>> [...]
+> 
+>> +    memcpy(final, &priv->xstats, sizeof(*final));
+>>      if (final->irq_tx_path_exit_lpi_mode_n <=
+>>          initial->irq_tx_path_exit_lpi_mode_n) {
+>>          ret = -EINVAL;
+> 
+> nit: -ETIMEDOUT here as well, to match the entry check?
+
+This is the old behaviour, if we don't entry we timeout, if we did enter but
+don't record an exit event this is an error, it kinda makes sense to me no ?
+
+Thanks for looking at this,
+
+Maxime
 
