@@ -4,51 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C248C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 05:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2BBC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 05:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBM06s4g0kz7WS7W0WwfUM/yQZv7aEJIy1mSj1Suf2A=; b=rXpdtYYpakPqRh3IpVvrGMHKXL
-	8NAPTj2qHD0hbtB/hPUlXuCoIZFA1YRwJZGYXpjx54K0JXW/p/8HqPFruME5ZL7Wpa1oEUc8L9XKl
-	/jt+t/Yo5RquWpkxOXMplZWCLdLqorWfCUEZFkEgC1bes+OZk3ZUrqxbuEb/JpZfyC6pJXIJjyRXY
-	GfM0L2LTKC+Tfb/H+f5l/giz1LkmPFprXknqDlL2PLJqJSMLrHNTNH8pZnrthvsR06vcWEZWw67Mc
-	dBXEC9c3lOokFRpeF8HtRs30lUW3qyV/DUstpKJazcLLNROKFwwsuqENt1BtcMl2BL9Hy3AIROpcL
-	t0hwl/OA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QXi4CxIsKcFvAvcPGZXQs2Kbt4qOqbHhroxMBzzNvgY=; b=eut8Kb6QJFgEtgYesgQ/GjIZfP
+	30jSBIsDQlV3O6Wt07z9E7AKN48OQmPnwRl+Kvs2O6SqHCIz18DPilRen6YcQ8UIl+Km9QYmhMT1Q
+	VFCAGN4O/qX93n1nASlvPXZ61dJCbfRJ0y/vHV9tDfHN74KdQxnVlgDh/1ANWBUdJ6umgOGqzSAu/
+	phmT+55f8Q8Bm0TUIrWskadasRwB59I4SFlqGY7rAvTg8CI4b8I7nTVWAZskqPI17awRBpRz+Ag4p
+	4XGYhfguLimsBPBfVuztdMT8FRYnFnwWz41i9NoOmpIEtE8eCvtVQc+Dyf9WWtrYw3PxhGv8d/Zgg
+	gatOpAxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4B8I-0000000Aoeh-2zhF;
-	Wed, 09 Sep 2026 05:46:06 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4B8H-0000000AoeL-15Wq;
-	Wed, 09 Sep 2026 05:46:05 +0000
-Message-ID: <c0d5f2e9-9bd1-46fb-8111-d3af6b6c9e66@infradead.org>
-Date: Tue, 8 Sep 2026 22:46:03 -0700
+	id 1x4BA2-0000000AopB-03SW;
+	Wed, 09 Sep 2026 05:47:54 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4B9y-0000000Aooc-1ujV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 05:47:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1788932854;
+	bh=QXi4CxIsKcFvAvcPGZXQs2Kbt4qOqbHhroxMBzzNvgY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BdAPqQCSCLiA3BLGFkoi4pwfXq9Nciain3C0UiJ88sQo+oW+A4mOuJChPKVJaJc4J
+	 rnXAnGPsmYvz/9jgM002rlvpKsBUBR272pNPj6pHGpyGQDuuoOP20KDlkjHsovyElr
+	 KLokXclSXQ6v7PbgDLoZkzogzFQdzsBSlquAU/6lnWJadkrPuVM7FRyw5U5KgA5Cdk
+	 QeJKkyQdhvsl7yn3TaXTOa79fEqYl1i06fYjRAlgDA1XWKpcv+EYy+cSUREnLNtX8s
+	 UAi1XgTxIQkN+tCDDik9p2VeJSGyovPjNU9+DKxxqqNKEpvUUiCtUJli2lWFGRLH3t
+	 /0sdbSsI4Bbiw==
+Received: from [192.168.68.117] (unknown [180.150.113.112])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2604A60917;
+	Wed,  9 Sep 2026 13:47:33 +0800 (AWST)
+Message-ID: <f9d084200f79269c02e96cb165fcd3ba67be5271.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 0/8] Add Aspeed AST2700 SDRAM EDAC support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Borislav Petkov <bp@alien8.de>
+Cc: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Tony Luck
+ <tony.luck@intel.com>, "devicetree@vger.kernel.org"	
+ <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"	
+ <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"	
+ <linux-kernel@vger.kernel.org>, "linux-edac@vger.kernel.org"	
+ <linux-edac@vger.kernel.org>, Krzysztof Kozlowski	
+ <krzysztof.kozlowski@oss.qualcomm.com>, "stable@vger.kernel.org"	
+ <stable@vger.kernel.org>
+Date: Wed, 09 Sep 2026 15:17:32 +0930
+In-Reply-To: <TY2PPF5CB9A1BE6E8F9A377C5FB805E6D9DF2B12@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260824-edac-v2-0-c8d8bb693586@aspeedtech.com>
+	 <20260902160843.GCaphKC-y8HpkiAIWh@fat_crate.local>
+	 <TY2PPF5CB9A1BE6E8F9A377C5FB805E6D9DF2B12@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/9] crash_dump: Disallow
- configfs/crash_dm_crypt_key/reuse if crash hotplug supported
-To: Coiby Xu <coiby.xu@gmail.com>, kexec@lists.infradead.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Sourabh Jain <sourabhjain@linux.ibm.com>, Baoquan He <baoquan.he@linux.dev>,
- Dave Young <ruirui.yang@linux.dev>, Pratyush Yadav <pratyush@kernel.org>,
- Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Jinjie Ruan <ruanjinjie@huawei.com>, Mike Rapoport <rppt@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260909003657.1570544-1-coiby.xu@gmail.com>
- <20260909003657.1570544-9-coiby.xu@gmail.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260909003657.1570544-9-coiby.xu@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_224750_851922_7D3493D1 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,70 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 2026-09-08 at 07:13 +0000, Ryan Chen wrote:
+>=20
+> > Subject: Re: [PATCH v2 0/8] Add Aspeed AST2700 SDRAM EDAC support
+> >=20
+> > On Mon, Aug 24, 2026 at 10:42:27AM +0800, Ryan Chen wrote:
+> > > Add ECC error reporting for the Aspeed AST2700 SoC to the existing
+> > > aspeed_edac driver.
+> > >=20
+> > > The AST2700 memory controller keeps the same overall EDAC programming
+> > > model as the earlier Aspeed BMC SoCs, but uses a different register
+> > > layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memo=
+ry.
+> > > Rather than fork the driver, the existing code is first tidied and
+> > > generalised, then the AST2700 is added as one more per-SoC variant.
+> > >=20
+> > > Patches 2-5 are bug fixes and cleanups to the existing driver. Patche=
+s
+> > > 6 and 7 rework the implementation to accommodate the AST2700. Patch 8
+> > > adds the AST2700 support itself.
+> >=20
+> > Sashiko has comments:
+> >=20
+> > https://sashiko.dev/#/patchset/20260824-edac-v2-0-c8d8bb693586%40aspeed
+> > tech.com
+> >=20
+> > Please address them: if valid, fix them, if not, explain why they don't=
+ need to
+> > be fixed.
+> >=20
+> > Btw, I don't see Stefan reviewing this driver and his last mail on LKML=
+ is from
+> > 2025 so it looks like we'll orphan this driver too.
+> >=20
+> > Thx.
+> >=20
+> > --
+> > Regards/Gruss,
+> > =C2=A0=C2=A0=C2=A0 Boris.
+> >=20
+> > https://people.kernel.org/tglx/notes-about-netiquette
+>=20
+> Hello Boris,
+> 	Thanks your review.
+>=20
+> I've already replied to both of Sashiko's findings on their respective
+> threads:
+> 6/8: https://sashiko.dev/#/message/TY2PPF5CB9A1BE61E82EEE55F3F725362CCF2A=
+D2%40TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+> 8/8: https://sashiko.dev/#/message/TY2PPF5CB9A1BE62172BCC358347C4836CCF2A=
+D2%40TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+>=20
+> Short version: neither needs a code change. On 8/8 the premise doesn't
+> hold - u-boot masks every implemented DRAMC interrupt source
+> (INT_MASK reads GENMASK(16, 0), bits 31:17 are not implemented), so no
+> non-ECC source can raise the line and the spurious detector cannot
+> kick in.=20
 
+I feel this is a fragile analysis given multiple components involved. I
+think it would be easier and safer (both in terms of kernel behaviour
+and guarding against change in u-boot behaviour) if we have the kernel
+driver take complete ownership of the interrupt configuration.
 
-On 9/8/26 5:36 PM, Coiby Xu wrote:
-> If crash hotplug is supported, dm-crypt keys saved to reserved memory
-> will be taken care of automatically. Thus it doesn't make sense to use
-> configfs/crash_dm_crypt_key/reuse. Not reserving
-> image->dm_crypt_keys_addr makes it implicitly to disallow using this
-> API. Currently x86_64 and ppc64le have implemented crash hotplug
-> feature.
-> 
-> Also update the doc accordingly. Note two doc issues are fixed as well.
-> 
-> Fixes: 9ebfa8dcaea7 ("crash_dump: reuse saved dm crypt keys for CPU/memory hot-plugging")
-> Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-> Signed-off-by: Coiby Xu <coiby.xu@gmail.com>
-> ---
->  Documentation/admin-guide/kdump/kdump.rst | 16 ++++++++++------
->  kernel/crash_dump_dm_crypt.c              | 12 ++++++++----
->  2 files changed, 18 insertions(+), 10 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kdump/kdump.rst b/Documentation/admin-guide/kdump/kdump.rst
-> index 7587caadbae1..0bf2eb100a05 100644
-> --- a/Documentation/admin-guide/kdump/kdump.rst
-> +++ b/Documentation/admin-guide/kdump/kdump.rst
-> @@ -577,9 +577,10 @@ with /sys/kernel/config/crash_dm_crypt_keys for setup,
->  
->  1. Tell the first kernel what logon keys are needed to unlock the disk volumes,
->      # Add key #1
-> -    mkdir /sys/kernel/config/crash_dm_crypt_keys/7d26b7b4-e342-4d2d-b660-7426b0996720
-> +    VOL1_UUID=7d26b7b4-e342-4d2d-b660-7426b0996720
-> +    mkdir /sys/kernel/config/crash_dm_crypt_keys/$VOL1_UUID
->      # Add key #1's description
-> -    echo cryptsetup:7d26b7b4-e342-4d2d-b660-7426b0996720 > /sys/kernel/config/crash_dm_crypt_keys/description
-> +    echo cryptsetup:$VOL1_UUID > /sys/kernel/config/crash_dm_crypt_keys/$VOL1_UUID/description
->  
->      # how many keys do we have now?
->      cat /sys/kernel/config/crash_dm_crypt_keys/count
-> @@ -591,15 +592,18 @@ with /sys/kernel/config/crash_dm_crypt_keys for setup,
->      cat /sys/kernel/config/crash_dm_crypt_keys/count
->      2
->  
-> -    # To support CPU/memory hot-plugging, reuse keys already saved to reserved
-> -    # memory
-> -    echo true > /sys/kernel/config/crash_dm_crypt_key/reuse
-> -
->  2. Load the dump-capture kernel
->  
->  3. After the dump-capture kerne get booted, restore the keys to user keyring
-
-                             kernel is booted,
-
->     echo yes > /sys/kernel/crash_dm_crypt_keys/restore
->  
-> +For CPU/memory hot-plugging, you can reuse keys already saved to reserved
-> +memory before reloading the kdump image,
-> +    echo true > /sys/kernel/config/crash_dm_crypt_keys/reuse
-> +
-> +Note if crash hotplug is supported, this API is totally unnecessary thus will
-> +be disabled automatically.
-> +
->  Contact
->  =======
->  
--- 
-~Randy
-
+Andrew
 
