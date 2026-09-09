@@ -4,70 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C671C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3A0C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xL4GWNyZy2EEYdBhSmnDddwtNaFG49DB7p0/uhH7nuA=; b=pYOCCzX8LrGswVl3z+RhyQM1+E
-	/cavmAodVYhm7HT/Olelu3J4skkVnLoyw6lBwZeFVxssbZK2F1QZM+maGuMM0/eDD3aWzRo3tYgRG
-	A/gKqjqhUMxvaZ9UXCE8x3tV86YH5yWZBay+k4ASC/TY7KfyRISC61La+dWlbt4GWux/fksRwfYl8
-	07QPNL/NVU0+cYLaNP+NJGpSwpyimpN7PORqvL9hjyIEyDrjo5HJ5fkeQEt10+Z6mc/vLs5OXzRKB
-	0xxJClolE+hhfJYyPRYlNpyom+0Y8TCx8if9NfoL37FdyzNmf11B0Og8Z7AcCtTRiHC7NYaJ1C1pE
-	k26h85Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=; b=yRzD1q9hYMG7wwHOsHx/j5t05s
+	B0Nalb+EjzzzoKfDZcXlO7DW3XG1+K3a1TJJ+RAKkaDO7YrV9QvOaqO0/s5MicJpRm2EyMtt8gyxJ
+	gYzb6BCyuWbusLKr0VvV96/JAS1GU+as2FP0aaUNcnXN1WkxGRkMGYJdaoDe9hADpaRjiDpgZMPi8
+	GxnSSxC+i35wWsgLnVWX5Nvsu/Ttt3zf4QU6MO4+ZKnLhidmiMDSaAVtN3uKVezogWLKlQHSPa/h9
+	hoYb+4K60MXvVW2+PpOq6338fkwctqRNqbFV5TC3eQVVTRDkVAjOE7trqqbHdwrXnPyy8t81TgxGJ
+	ddgniOPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KLL-0000000CBjT-0oF4;
-	Wed, 09 Sep 2026 15:36:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4KMG-0000000CBtI-1aMU;
+	Wed, 09 Sep 2026 15:37:08 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KLJ-0000000CBj3-1EgO
+	id 1x4KMD-0000000CBsW-0cOU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:36:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97825600CB;
-	Wed,  9 Sep 2026 15:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7527A1F00A3A;
-	Wed,  9 Sep 2026 15:36:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788968168;
-	bh=xL4GWNyZy2EEYdBhSmnDddwtNaFG49DB7p0/uhH7nuA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Md1ebTiocQTMrxL598KX8+yXuKfpi2/4t9URltTQztmgYTDkmpXWohsCheUd6M8n+
-	 TCetYdf3jyIRwqDonImBJt7CVh5ix1jItm4hWLEABmfRVyHia67NHfxc3dPm8PzzHZ
-	 hoYnMJ2FwHjDldUl1z76houFfC/n+zftd1Uyl1CpBQFdfmDmb+1NtURXUEphvDTQkt
-	 7YJzDYM5A2MdQND27l1lUalH+9VMWGz08GLswndGMgSSqOlZXwsb8oI/vnfrrvGJOw
-	 yIE86kDbAhAUhhV9YzXvX8nlh1ewMBtNYFg0k+nXikV05lrhFPE0Ydbt7L1GU9w66Y
-	 s0Auah+XgnIEg==
-Date: Wed, 9 Sep 2026 16:36:01 +0100
-From: Will Deacon <will@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
- Olympus
-Message-ID: <aqF84So9WUQCDgsz@willie-the-truck>
-References: <20260909062649.469633-1-arighi@nvidia.com>
- <20260909131415.GB4120091@noisy.programming.kicks-ass.net>
+	Wed, 09 Sep 2026 15:37:06 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689AogiM389524;
+	Wed, 9 Sep 2026 10:37:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7
+	Os=; b=kQLZIBBGS7wV0L6BnQHQqRuIM8TcE5aAZbAvr5+9pzx18S3E/zQ6ytS33
+	Wn0g6lybZHOpVdzrhLvWiAb5cthBdkU9PH1MIZe1D279H7enDoD3rbCpahrnldhQ
+	mhuwr2HOohuZ86yoM6C4/fVMixRG/cvxmMDO0Kv44oreqtBy0oaKZmROLxqYQotv
+	frEkOhtxPKvKCpI0788mQQLDxoLPfc45NXXQzr/lPlQ3qyd5qfuzPfbWMsg/dGhf
+	8FfqSxckQq4sCnmjf3ERXN9CtE1jktt4IVYF0ba+eek+RCFmM+MnzjhcBlAUX7Ic
+	4xX0ZoFT44wY69TGB4g9IUi+B1aQw==
+Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11012060.outbound.protection.outlook.com [52.101.53.60])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gk4aat706-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 09 Sep 2026 10:37:02 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IbxUHkORnkzULS2m3VUuDc9HorOQN3iUP07SsNfmE2/CUtSa1qFKeIYal/rewcqeVf3mzUQqUz1g7b1znyYYz08yUCKdVzPRgPvlB5ajyGEtsoQsVLpYIq0Txpekb4EL2Q0QFgBdT+d9QTqQA3O4U5FfqIb7TqAup4ZM+Lx2onoJ1NEm43C80gIpwMtDavxG13Z17ApKx97QrEaPDn2I7jRqPAedenKa5pP1XhSfV6meed5xTTJCxT19rSmB+TRElKWPlvJu/C1+2VZLSELYOo0IhYrH5GddyYYJcQ0bLtDhWfHWPRaGOM3iSoV1kVttK7HQJle/9JE+bqh7pySxcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=;
+ b=NrBJhHzDGoNt6RevpZz1Juy2dBA22uCqXsopKEauuWlPdUc4cuiuAJkLeUutOihO7sBT51vE6Ae2mlTnckjfUpWGCu5E6EWR3LcvseGzt7mIe5Kkj7hbge7rPWjauHY5zJ9KkMPry1GzjLQ5NG85XMwJgDr4O85Vx+WGP3CM+aq6Vs3JFVaE4y3f5IKvbrcqxFjHDQJqUTS4DAenfDxq2zXF+P3RFN+jMDPhQVOUHGvlKzKHjPcuKe50hATIaDRWgkwg7dqJAB+A+Q1EhjM/sTQSC1ZxQWn95OSrk3zZoJe0HbIckNH4uZoY+wKG2qXQl6e7b51VDplG/Rz1HrtD9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=;
+ b=RIhn0dHD9uNaMLUqoHKyOmevD6USCyL+KfcW1kJLCvvOGqJF+iSMo0iyZszjbbbYXiMiSCUneMDsQIhTZGh17BhfWQpy+6VfKKNpL37UvYEpDciKPlIzZDkxRHRsQgOsrPT7g08m57VN8gsvv5QQEPMZlW4SZsK2Ai0dPGYgnhc=
+Received: from BN1PR14CA0013.namprd14.prod.outlook.com (2603:10b6:408:e3::18)
+ by CH4PR10MB8194.namprd10.prod.outlook.com (2603:10b6:610:23a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.4; Wed, 9 Sep 2026
+ 15:36:54 +0000
+Received: from BN7PEPF000000A4.namprd05.prod.outlook.com
+ (2603:10b6:408:e3:cafe::61) by BN1PR14CA0013.outlook.office365.com
+ (2603:10b6:408:e3::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Wed, 9
+ Sep 2026 15:36:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN7PEPF000000A4.mail.protection.outlook.com (10.167.245.228) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 15:36:53 +0000
+Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
+ 2026 10:36:10 -0500
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
+ 2026 10:36:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 9 Sep 2026 10:36:09 -0500
+Received: from [128.247.81.105] (hpz2.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 689Fa91Y1536891;
+	Wed, 9 Sep 2026 10:36:09 -0500
+Message-ID: <3079f9bc-5a15-40bc-bf8d-1b53c32ffccb@ti.com>
+Date: Wed, 9 Sep 2026 10:36:09 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909131415.GB4120091@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: dts: am654: Add 650ms power off delay for proper MMC
+ power cycle
+To: Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260908170635.238775-1-jm@ti.com>
+ <20260908171613.bpd6eo53cjtlrztr@macaw>
+ <e8abc328-578e-48cb-a469-1e3edec6780a@ti.com>
+ <20260908174934.pbbvtrfhlnjinipu@constable>
+ <f99dff87-6fcb-4a19-ba3b-4d31e3835726@ti.com>
+ <20260909103646.7jk5vwvyc7tku5yv@kennel>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20260909103646.7jk5vwvyc7tku5yv@kennel>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A4:EE_|CH4PR10MB8194:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8f2c3578-1aa6-4792-12a5-08df0e882c57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|4143699003|10067099003|56012099006|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: gw0u5kgAPumenQXEBGrMKAqLHBB1Pxz2ZdY0RrxPO4UPCGteiBkN8jKwQ+IN75h0KPR1V/Il49MN94H6ZtbwaK64o9kgYNkKQZ6IxUXai+WG7LwrY64OGY4FL7ASRslBtWeZD4pe2gyOysaCUZ1AJTxnlI2+zPmud9pJ4HtIksMr1XsCETiaZ89qVearfzqO607efERdxgVezYCsqgIQCvYXRmXhDIqDT+ND8ViWbMffEILBIJl5a//OEu3ZWDb2Tscqw2KF6LgU3Av0y/KKFnZmpQFjALvBFQk+egH1w9loV/VnePWbjVGo+EH+5ilcCPdFQakrXJQIXvhuR8iOW534dbKSjSDA+P0TAAzRcm+EVU1y2QnbtaNrs18DCaW7hXFfMFHvaLdsraNKv+yULFAS8U8P8B22DjYHKMozpCDERzMNFcgwXroMdkc+QRg8mryOX9JP8pmUGgEdmlb97DHaOOyYye7sypmUEsm1sYNzLuAqj6wLsu04ZM6U6yAFgbUn9Zz25nKiIEpehc4vheiMhX05YIWpDaRFfXUZai1wjJGaZrGTc8BEgxoJPFSBD2OIlMFiacwUtElYXYKuEpfQDhsnuDlRn6hIb5yXWaAxIN8fW5e8EyZybfHOorNRvK/AUQqdPLF17/NhKufSK2SZKojLBuKxmEOPgrhg9agUKIvBaRmRUq1JCkVdygkhWr3HJ/oJQXIyeoYfyDsEZw==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(4143699003)(10067099003)(56012099006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vCFbhaVBX+c0135jiNnPOZEdVB/mmMPl1gKA54Piy3vnBKJcIipkW6r+9YfB5bsU9w31POW0bSXFM3dFppXM4tAMTWH2ZcWY93JPA6X55DOadku7QG2RCfD3+IzaNslndoRIrXj4Ekdzz+PmSBuryPGsOMOOqA5B2ltXCWYELZd+KFkLAYnSBu6In38A+8/H/WHhDZxt3GJ7zBZbXeTWdXSq8S0Gu/qCVjRBCYTQg/Y9ZinlraVpn7QXS/1YU9dS7SEgoPTUQ/1f6BxA+/fCcu2523yLVwl7hzvld44WYu94XsKxCDaTtGUsUd8tyS82TjqJWEYIorNpzL9OR4LCeuZJj6QRslFTcV/4kWXf8GkR5XmAj/ptBDBt+s7ecRISHaSIkGRD9ZyIHsw9A/f+dGWqDuPrKU+kArDQoT3bFvBVnoueXMnFGkXWA8bgyten
+X-Exchange-RoutingPolicyChecked: rDYsNDmKFOKNxiE1cU4sCOTDi8UZDi41JKbhdFymUDgO/GvtK7L5dZMQ3uDvtOfXjp7syleK4bA9nJoG1KmRGrbrVQ0v/1W1+nJQiIeGQbA5+X07RjtH8gp2/Q3/NT7dZe82FO5n7GiqOyQpPU9X+CZd2XLXTdk+Id72nCKaOGL9ngtFNIFTc8NgWKuHl+1X9Sz/VDqu7IxhdNZnxPLO31Oo9Aor45sPFkAiN0ybPId4RXcDFaMUscOV8s4o/BENaYqRiT8eltL12z1cKkmtx63G0KhNt7rawpEYXa0DEkO/Y3pBvUlod2HZs3lea0A2ZGTgxnco+14i904ufcOhiQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 15:36:53.1037
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f2c3578-1aa6-4792-12a5-08df0e882c57
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000A4.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8194
+X-Proofpoint-GUID: AFmtPlx86NlgM7VXE-0zeVq8r1e4-gHj
+X-Proofpoint-ORIG-GUID: AFmtPlx86NlgM7VXE-0zeVq8r1e4-gHj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE3MyBTYWx0ZWRfXxrr+EV84MFb0
+ mk2rBAWC69gp/3zPFDZBZrkEVZMzkPSk/SVA+kOj5kXGpaqPN9Xsnq9sXdzzFVn1S0NRDfvUprJ
+ xpSilRDBIXF8Q7VwyVAGV6cLQozGC2NzZFsOqGAKdMfq8JN/8v50fTIruYbM1SVOVdG1a2AXdnE
+ EufF82d2AaPH8tGGyeXj2yEb6fhshbt88ZnW+3VyBIg8e9DfzT6tqqCp3wQXq/a1V0PaxH4itZY
+ b3ZOeGEZOB7DlsCRBLmBqnSZDo/aTUIhjLB+dF4CwHYjm15TJ/6TG47J5UPS2KPWG6Kmg4sA97M
+ iDWXl8Wvmoh1hp4sdDt7PQD5AWZr+7FrC4xC4wXTOLDj+1AeMyymlQQE1rE8Ev6wdG8N16cLEiB
+ ZVY80/Bn2l5Vfmg+u0Cn+XPatbeir4s9y3X+MfBnQpGq1B+ZUQ5n66BNxBQzE2fAsDFyoy0VFuh
+ /9X2E/vdkkFO1lFr0rg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE3MyBTYWx0ZWRfX/emQNTE3d5rq
+ SHivpuY45RuD7S4yjTSiQDhP2Hdhn+cSGWe3FhUr6mP76HnWyljFOVapNGBCAkG5mI80LFtlj5F
+ dNEA7trhxEh/W2m7zdDUUsrdVFwhRZU=
+X-Authority-Analysis: v=2.4 cv=DfEnbPtW c=1 sm=1 tr=0 ts=6aa17d1e cx=c_pps
+ a=yaJUXpcFNTkE3gTvo4ZtIQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=MsbBCBBioWvCGMzGvfkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 clxscore=1015 bulkscore=0 suspectscore=0
+ priorityscore=1501 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609090173
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_083705_448685_9A64BE76 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +185,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 03:14:15PM +0200, Peter Zijlstra wrote:
-> On Wed, Sep 09, 2026 at 08:26:07AM +0200, Andrea Righi wrote:
-> 
-> > Andrea Righi (2):
-> >       arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
-> >       sched/fair: Honor asymmetric SMT priority in idle selection
-> > 
-> >  arch/arm64/include/asm/topology.h |  1 +
-> >  arch/arm64/kernel/smp.c           |  1 +
-> >  arch/arm64/kernel/topology.c      | 51 +++++++++++++++++++++++
-> >  kernel/sched/fair.c               | 85 +++++++++++++++++++++++++++++++--------
-> >  kernel/sched/sched.h              |  6 +++
-> >  kernel/sched/topology.c           | 36 +++++++++++++++++
-> >  6 files changed, 163 insertions(+), 17 deletions(-)
-> 
-> I tentatively picked these up, but I need an arm64 ack before I can
-> merge them, and ideally vingu will bless them too :-)
+Hi Nishanth,
 
-We've had five versions of this in five minutes, but the arch code is
-pretty filthy tbh. Detecting topology based on MIDR is a non-starter,
-sorry.
+On 9/9/26 05:36, Nishanth Menon wrote:
+> On 13:13-20260908, Judith Mendez wrote:
+>> Hi Nishanth,
+>>
+>> On 9/8/26 12:49, Nishanth Menon wrote:
+>>> On 12:29-20260908, Judith Mendez wrote:
+>>>> Hi Nishanth,
+>>>>
+>>>> On 9/8/26 12:16, Nishanth Menon wrote:
+>>>>> On 12:06-20260908, Judith Mendez wrote:
+>>>>>> The AM65x EVM MMC1 VDD rail discharges slowly through RC circuit.
+>>>>>> SD spec (section 6.4.1.3) requires VDD < 0.5V for minimum 1ms during
+>>>>>> power cycle. Measured discharge time on this board is ~632.97ms to
+>>>>>> reach < 0.5V threshold.
+>>>>>>
+>>>>>> During boot, MMC power cycles between boot stages. Without power off
+>>>>>> delay, VDD doesn't fully discharge. Card retains 1.8V signaling state
+>>>>>> from previous stages. When U-Boot initializes, card no longer asserts
+>>>>>> S18A in ACMD41 response (already switched to 1.8V). Host misinterprets
+>>>>>> card state and forces 1.8V anyway, falling into a bad state and causing
+>>>>>> a boot failure.
+>>>>>>
+>>>>>> Add power-off-delay-us = 650000 (650ms) to ensure proper VDD discharge
+>>>>>> during power cycles, allowing card to fully reset state between boot
+>>>>>> stages.
+>>>>>>
+>>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>>>>
+>>>>> Fixes ?
+>>>>
+>>>> Fix is really for u-boot, don't think I can point to a u-boot
+>>>> commit here can I?
+>>>
+>>> You'd face the same problem if you are starting from a different boot
+>>> media and then enable MMC in linux kernel, right? what was described in
+>>> the patch sounds like a discharge latency of the evm. This was missed in
+>>> the original commit?
+>>>
+>>
+>> Not exactly. The failure is only seen at u-boot specifically with
+>> SD card boot. Very specifically due to the MMC driver in u-boot and
+>> commit [0] which is not reverted since it is technically correct.
+>> The commit just happened to expose our EVM's issue first. According to
+>> the discussion, mirror Linux patch may be coming soon, which we are
+>> now prepared for with this patch and [1].
+>>
+>> [0]
+>> https://lore.kernel.org/u-boot/d17a810c-e2db-4a24-a37d-2d7e02466ce9@ti.com/
+>> [1] https://lore.kernel.org/linux-mmc/20260806162202.657512-1-jm@ti.com/
+> 
+> This context is useful in diffstat. I see the driver fix in kernel which
+> can use this property not present in previous kernels, hence no fixes.
+> 
+> That said, please fix $subject for v2 and repost. I suggest:
+> arm64: dts: ti: k3-am654-base-board: Add power off delay for proper MMC power cycle
+> 
 
-Will
+Ok, will fixup coverletter and subject for v2.
+
+Thanks.
+~ Judith
+
+
+
 
