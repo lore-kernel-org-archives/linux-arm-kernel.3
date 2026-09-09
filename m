@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE925C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8A5C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8BHp18JK7JZ2Mrw0ZrUESo0RJu+yED+tqkK5PcwM6KM=; b=N4AeLy2y9ZfMe6RLQR0nbP4T5U
-	zUR3uIk4XetG/uj5epr14qWzY6XBnzmw22wappAPIrK/mOjlODCWJMp9aDjGPw4fVszf5jQJRAeDO
-	Z/x0Rbd/3RYd5M8UR2+IBNkgSrAt17VrsseEr3kHv6yKy1gCbeS+CPRk7Iq0K+l4yzt6hi+8ge1G/
-	OBqqVXSBJ90BIlosM5GST0vhZ22NVE6OxAt16HDnaAp01B7CaUc7REAZRzCDXcKtgLyUNGkSyCbg6
-	KOzKUv2+OIQrVHC3/QaaXzp4YR0CTg0RwkgLEjJnxgB2m/SiIq/4eY/yH1jq7HDLX+henLz+a+AtX
-	m4LfRizg==;
+	bh=oI9yUTRZpy5Q5+OvZos8ZCyIS7fJ/x1ZjGcs3opQbDY=; b=Y7CYSGtqk3kgWWGBBBvXgXBVTR
+	T+8m778ESPfXBFLNEsx4OanPCBRXV/khxA25G9iEUN+2K3ppmpAVX/uRHnnklUReKYSprW08dj0uU
+	sW67tFiZUNdhrpL/h0y+yz+bnpNWJ8qMMHBcFy47g6uA+OVzr+OPk5FwsxlpkiMgEp6LT5MSdHDRM
+	DZewUjfBayDUGURFXV8es2yGguN4lVIM98C8vFCBcH4o3KSdGe4sDQ0n7lmzdB7p5jXCYsqG4X263
+	Tm9OSsHDPLAxF3bN84DBAwkYE4L5WS/umeeZEepeJ8xoGi8Rm3DF/Dhduh1AEcMMH2NLVAfdrxbDf
+	FyStJHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Qp-0000000AWvO-0eDa;
-	Wed, 09 Sep 2026 00:44:55 +0000
-Received: from mail-m160236524.xmail.ntesmail.com ([160.236.52.4])
+	id 1x46RW-0000000AX2S-1bST;
+	Wed, 09 Sep 2026 00:45:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Qm-0000000AWuV-1hFs;
-	Wed, 09 Sep 2026 00:44:54 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d08c1d9d;
-	Wed, 9 Sep 2026 08:44:48 +0800 (GMT+08:00)
-Message-ID: <4d441232-6ab5-4865-a70c-f868e8128f7e@rock-chips.com>
-Date: Wed, 9 Sep 2026 08:44:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com
-Subject: Re: [PATCH v6 02/10] PCI: dw-rockchip: Restore vpcie3v3 regulator
- handle
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0839fe00403a4kunm50f3116743e785
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCH0IdVk9MGkseSUJOQ01JTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=e9NTEEIWqkh7Z68AwWcaKw2n1Tx+hNYucPDaLw/joe2dmc0eusuvJC9uTUS6/osiyrEz/1iXmbi+GcbCQzY84/xyRH5OnH7Tt91mMMAwTo4iuryxRApYrm6MvmZOQZqAOV2qJg2ROIsA16acFLY3yXJ/KzvONULKiDLcOGWCgEw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=8BHp18JK7JZ2Mrw0ZrUESo0RJu+yED+tqkK5PcwM6KM=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_174452_715723_70787559 
-X-CRM114-Status: GOOD (  19.95  )
+	id 1x46RU-0000000AX27-3y2A;
+	Wed, 09 Sep 2026 00:45:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E50AE601FE;
+	Wed,  9 Sep 2026 00:45:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2660B1F00A3A;
+	Wed,  9 Sep 2026 00:45:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788914735;
+	bh=oI9yUTRZpy5Q5+OvZos8ZCyIS7fJ/x1ZjGcs3opQbDY=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=mJ/EKFl5RuO6OP8Tmk56KeDA+Z91o4v5KrM4HsNxMvRftsKt2BnPwNG5b4LAhr2zP
+	 nj0/EN3N4DYwNZlgcwsrwNzzsGg2J/7Ef6idz7nONGKxegPCQREbl8N7MEEptB0B8p
+	 Ptf3i+4g+i85xX7IYa3Y+PWwJIpA/UUY6Tk73GIcQLBFGvSsa5vCgznum0kOBnkn2W
+	 tI31l7xj9CVjuBQ2VpduiRM7LelpeiqGupeWMORun4rlPBn1qFTp1iUTKViL0d1PYv
+	 A789LVjBYtA4K4XwmoX06F8bxehEhGOozzrq0BcaveeiWXdGaZu6brpl8zWiCCXR6p
+	 W8omxwWHNyHBQ==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v5 6/9] crash_dump: Improve readability of
+ config_keys_restore_store
+To: "Coiby Xu" <coiby.xu@gmail.com>
+Cc: "Dave Young" <ruirui.yang@linux.dev>, "Mike Rapoport" <rppt@kernel.org>, kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, "Sourabh
+ Jain" <sourabhjain@linux.ibm.com>, "Baoquan He" <baoquan.he@linux.dev>, "Pratyush
+ Yadav" <pratyush@kernel.org>, "Andrew Morton" <akpm@linux-foundation.org>, "Jinjie
+ Ruan" <ruanjinjie@huawei.com>, "Pasha Tatashin" <pasha.tatashin@soleen.com>, "open
+ list" <linux-kernel@vger.kernel.org>, "Will Deacon" <will@kernel.org>
+In-Reply-To: <20260909003657.1570544-7-coiby.xu@gmail.com>
+References: <20260909003657.1570544-1-coiby.xu@gmail.com>
+ <20260909003657.1570544-7-coiby.xu@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 09 Sep 2026 00:45:34 +0000
+Message-Id: <20260909004535.2660B1F00A3A@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +68,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/09/08 星期二 22:51, Sebastian Reichel 写道:
-> This reverts commit c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator
-> setup with devm_regulator_get_enable_optional()"), which nicely cleaned
-> up the code.
-> 
-> The vpcie3v3 regulator handle is needed to disable the regulator during
-> system suspend (to be added in its own patch).
-> 
+Thank you for your contribution! Sashiko AI review found 1 potential issue(=
+s) to consider:
+- [High] The local variable `r` is returned uninitialized when the user wri=
+tes a value evaluating to false.
+--
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+commit 22a99a886bc0e01618cd42c5f2b503de86fa5a10
+Author: Coiby Xu <coiby.xu@gmail.com>
 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++++++++++++++------
->   1 file changed, 17 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index dc85564e5001..f67ad3c31c35 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -112,6 +112,7 @@ struct rockchip_pcie {
->   	unsigned int clk_cnt;
->   	struct reset_control *rst;
->   	struct gpio_desc *rst_gpio;
-> +	struct regulator *vpcie3v3;
->   	struct irq_domain *irq_domain;
->   	const struct rockchip_pcie_of_data *data;
->   	bool supports_clkreq;
-> @@ -844,15 +845,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->   		return ret;
->   
->   	/* DON'T MOVE ME: must be enable before PHY init */
-> -	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
-> -	if (ret < 0 && ret != -ENODEV)
-> -		return dev_err_probe(dev, ret,
-> -				     "failed to enable vpcie3v3 regulator\n");
-> +	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
-> +	if (IS_ERR(rockchip->vpcie3v3)) {
-> +		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
-> +			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
-> +					"failed to get vpcie3v3 regulator\n");
-> +		rockchip->vpcie3v3 = NULL;
-> +	} else {
-> +		ret = regulator_enable(rockchip->vpcie3v3);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "failed to enable vpcie3v3 regulator\n");
+crash_dump: Improve readability of config_keys_restore_store
+
+This commit introduces user input validation to config_keys_restore_store
+before restoring dm-crypt keys. It ensures the restore function's return
+code is verified and improves overall code readability.
+
+> diff --git a/kernel/crash_dump_dm_crypt.c b/kernel/crash_dump_dm_crypt.c
+> index 9ad50ac54866a..b8fe630462cfa 100644
+> --- a/kernel/crash_dump_dm_crypt.c
+> +++ b/kernel/crash_dump_dm_crypt.c
+> @@ -371,13 +371,25 @@ static ssize_t config_keys_restore_show(struct conf=
+ig_item *item, char *page)
+>  static ssize_t config_keys_restore_store(struct config_item *item,
+>  					  const char *page, size_t count)
+>  {
+> -	if (!restore)
+> -		restore_dm_crypt_keys_to_thread_keyring();
+> +	bool val;
+> +	int r;
+> =20
+> -	if (kstrtobool(page, &restore))
+> +	if (kstrtobool(page, &val))
+>  		return -EINVAL;
+> =20
+> -	return count;
+> +	if (val) {
+> +		if (restore) {
+> +			pr_warn("dm-crypt keys already restored!\n");
+> +			return count;
+> +		}
+> +		r =3D restore_dm_crypt_keys_to_thread_keyring();
+> +		if (!r) {
+> +			restore =3D true;
+> +			r =3D count;
+> +		}
 > +	}
->   
->   	ret = rockchip_pcie_phy_init(rockchip);
->   	if (ret)
-> -		return dev_err_probe(dev, ret,
-> -				     "failed to initialize the phy\n");
-> +		goto disable_regulator;
->   
->   	ret = reset_control_deassert(rockchip->rst);
->   	if (ret)
-> @@ -885,6 +893,9 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->   	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
->   deinit_phy:
->   	rockchip_pcie_phy_deinit(rockchip);
-> +disable_regulator:
-> +	if (rockchip->vpcie3v3)
-> +		regulator_disable(rockchip->vpcie3v3);
->   
->   	return ret;
->   }
-> 
+> +
 
+[Severity: High]
+If a user writes a value evaluating to false (e.g., '0' or 'n') to this
+configfs attribute, kstrtobool() will succeed and set val to false.
+
+This causes the if (val) block to be bypassed entirely, resulting in the
+uninitialized variable r being returned here. Could this leak uninitialized
+kernel stack memory to userspace or cause undefined behavior?
+
+> +	return r;
+>  }
+> =20
+>  CONFIGFS_ATTR(config_keys_, restore);
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260909003657.1570=
+544-1-coiby.xu@gmail.com?part=3D6
 
