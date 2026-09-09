@@ -4,140 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C8C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119F2C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=; b=Cq1otfFCerai3aRNN2uHd5+0/b
-	p2n3GxLMcqs8KoQ86xGeKW6GyVRKw8WE5bf9f9hEvf74oAV8ARa9zjRwZF+s2EWaGdtyEwbHrUl0i
-	4GmsOJClfeaZBIR51QMsT17OVoyBtcZLOJ8DgDWCrL0uMfgvi6GwCgl2M8ZQi6ag/ojCjEagNANWk
-	a+HsR0yYUUhSPPri5YiFazZDxSl95p7adn51cn4tn8cx2s5ufzTtHt1Sfixv5XiLs+E+DUix9QyGU
-	OYzSWCylHJnCMWehWgFM313UJt9kX8WxBWHpwUcbwNyJERLL/A876d9uReDvPaopHO1NP7J5fRnt2
-	fiiXserA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Oo8RomRSAKyfRy1FZeDtz2uQY6X/cSMNb0cISk3DsQ=; b=L9hQtNjVMB/lKQ1f3uNB1FsSMM
+	ZCatFG6SKTPpJTZ2h6Iw6gklyYPvSG7NqiBkuVUdmxjmTS4xpbrqT5K2lOnni5UkUW2XSzAdAXso/
+	G2Hi6wopA5AtyhmZrxvdpHUi4PBvTF0K7Y5ote2WnWdmFvL4mElCPydiQ5dmCfaLs3Nb0B09FlESC
+	knsMdB9PDLTS+XE47ZxP6hkzAApq/IueuZGSwOAHNV4eM2G8q3UazMfyS6V6N85Q6g+3ZVePg+K0v
+	VNAzyDiS/QUB++ttXIWQSSpgqeBFVIPOlH7w0VLFkzamrIZndY7171ucYkygHrxAVjgSJ7CP4Yt0I
+	2d/hc8Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FLk-0000000BOZx-2nrd;
-	Wed, 09 Sep 2026 10:16:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x4FUG-0000000BPK0-2nac;
+	Wed, 09 Sep 2026 10:25:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FLh-0000000BOZ6-1ENk
+	id 1x4FUF-0000000BPJS-0Nc8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:16:15 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6896SVcp1274431
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 10:16:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=88BiZAGnU1hEzYoS7eZr1V/C
-	eQRL3wzzrwguAq0PNIk=; b=B4cwy4D2o/+zWG2OaYwF8Kg406ofGMnRr02qxXwY
-	Y3RcK0sOYfyt/oQe/5KSbHrMKA9LWIcP+TXGbZ6dp6IaAoVbBrYAPUjXJRSugpWA
-	2rOEgMsU7mmlCMPtM5BDNRCSRk3Lqt42TxnBx8WewGWsW5prdaETjNUuo8axKWTE
-	cl4EQuMoT+9ehEh3NTkGk3MMSeQammi7HIShDQYouuFOUq7mdYPChVmMA+Thr6vG
-	HILmpQF7KLzCAZL1KJ8uqq2EA8ieMp2xxRSFkY8hkyeRqnKe5PLzx95UT8r99Nkt
-	clxnotqYiuk/pTf5obfKyuOuvJzJ/y3Z02HCOU7URS7IPA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjqdw3jgc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:16:12 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-930b571432fso881358985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 03:16:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788948971; x=1789553771; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=;
-        b=j5adFUO0ocFYG/Id0/oger45GHHjo5Xe9z8aYHgRqS4K+mu4tD55njF/tMIHJG8QhS
-         8pCkiCA4r/MUI2ZCRRS/XQJvsc+sPKw6zctDlek/I6lgQ4RG4JPGppbCBs9CPZ1QqN6q
-         SCZtvNz17M0fj8wPVIV/PML+Klu6J3tLzzHLG3Bsehh/W0D2pgBrcOwynGSVYW11cyGF
-         FGHGZEmJstY6IdBQ9gNOIr5YhLTIu0r91gYbqQe1E6yCjp+tw7GpnyVv/kDUHB7glGFL
-         zrQGGn4fp5tqrsz957C0c3DeTV8lxCz/X5RhqhptCKZWtCdWmMiwfLahzsrIrHn9o5Qm
-         Ms2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788948971; x=1789553771;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=;
-        b=RgmVefiTCGYmkLL8VC3ywN7uNv6TqECF/gSR8PeTc3UrbTDgn7gU3CLv+EqElYIzG/
-         BJ163Lx0UkL+a3kZX+s6zbQkU+bX7bA/Jt5lPQnmFaO9FHS1ZaEE+gzaZ0EMKU44PPok
-         p/EXpFnkIHjwXSuxdpVTpy7waGFqKqmqSP7Jw42PaGC25HUgNXsQJJOOW26uv/ijlWcC
-         GB1ddYNQnGom35Xt6o2Q7qtLJJr0Bls65YPvK3EwDXYqFhT9bf/oHTRB6TuTwZieewLe
-         azOKis0lT1xOPaNCLjjnwgFYx8U2IOHnAWAGY5fmLD3durV48CdnIKkfEvnoFYKVSWq4
-         RZ9Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzpPew+WHMgHeTJQyeUDFKwkjpg3ASUr9KqLqKVqLcE5AsJUyaMzZza3Y9FOi3g6qVTnT9PXc7tba+fizQhhtgq@lists.infradead.org
-X-Gm-Message-State: AFuF++kbKtG0axOnWHLDbLkGrzGRM2QWXUnDDunef1W7r66U65JEJ7z7
-	jWFZikqWIvFhwXNqZ144GGl5LFEVo4lnDy4OOHLvQrse4Zy1NkIN8Mp7BK5qF8heajhxgf4DV+J
-	VsvpwkcCjdCw6/9AEn67hFQh8BTswfhjcTHyAtUq2C5twu/UhheYIIuUrNShFvaPkLSxYmnjwiJ
-	GSkw==
-X-Gm-Gg: AYBFou2KXxWiNcdHtvL5zVZlC5p5WsR1bUSmqggYLqvsVSrEqDpqMrEkK4JFTvjySiP
-	M36MJenwrArxliDnK6BteXJdvqGJEKSumjMOivwGBlYCo7wsGpZC91GJyS2yj2CiIcaMUhnLp/M
-	gY6po4ZBkTh7IuwLaZp9gKkGjFpDjQ0XnZk+vZcpW1IbHmI3Z6TIOZOc9jBKtN4omSlO2HI5fAb
-	qsgFgCqnKbCxoQelAYIAiTd44T6bghgcYb9SvP3ZHaZ1ensjM83JqLBptIQ+hDU1yxumRwacD4I
-	a53CNLQVj+BcxMj7slUQdpoEygjbQJphD/EWUPKPYQkwWG8wExgvX00v70pbhlA4vlLkRmyUXSt
-	0vawVrAZFYeXeiQ==
-X-Received: by 2002:a05:620a:711c:b0:939:a8b1:3696 with SMTP id af79cd13be357-939a8b13b38mr1595143985a.27.1788948970600;
-        Wed, 09 Sep 2026 03:16:10 -0700 (PDT)
-X-Received: by 2002:a05:620a:711c:b0:939:a8b1:3696 with SMTP id af79cd13be357-939a8b13b38mr1595140485a.27.1788948969913;
-        Wed, 09 Sep 2026 03:16:09 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20db6e76sm52797735e9.3.2026.09.09.03.16.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 03:16:08 -0700 (PDT)
-Date: Wed, 9 Sep 2026 12:16:08 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        richardcochran@gmail.com, rayagond@vayavyalabs.com, treding@nvidia.com,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net] net: stmmac: propagate PTP init failures in
- __stmmac_open() and stmmac_resume()
-Message-ID: <aqEx6OTMleffeODV@lore-desk>
-References: <20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa@oss.qualcomm.com>
- <178894478282.219967.9123750287154631714@kernel.org>
+	Wed, 09 Sep 2026 10:25:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 406D143877;
+	Wed,  9 Sep 2026 10:25:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E061E1F00A3A;
+	Wed,  9 Sep 2026 10:24:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788949501;
+	bh=6Oo8RomRSAKyfRy1FZeDtz2uQY6X/cSMNb0cISk3DsQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=fpMCJhe5Bv9trGWnNlO4KnLJBp2H9xjzui7I1epfqOHOJzc1T5/kV4l4X2TuK3GNL
+	 xOXCC4MFnfkWoclyvO4woNuwDTD0dQUHacH7WARP2RuGKN7zses/IbQN+//HmulpWG
+	 Q45gxIXLAgDs1Kn4pJrqy+CAts28kJUZ1/3irGYFTHEeWk278ZXOrLOD7Fb9VfQDca
+	 dTVaCS4JJvL6XULjgw2ax5OmwuAX9FtD7vbGom5hbD7QTPQoo/VtS/eOg6NrPB0f0Y
+	 7whzNNPUWqdG8LqnXmMi7WCts/pd7tdrMJHKkFoPh8FtHJ9DwDM24FFMquDl6dtVOJ
+	 fRcedjV/qi2SA==
+Message-ID: <6fb6b2b8-daae-4707-aa98-c2c447782a44@kernel.org>
+Date: Wed, 9 Sep 2026 12:24:56 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5hYik/OtwsiKgIbw"
-Content-Disposition: inline
-In-Reply-To: <178894478282.219967.9123750287154631714@kernel.org>
-X-Proofpoint-ORIG-GUID: fcJ-qUtdIkCKmIEoNW7jlw0FdnLqzRB8
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDExMyBTYWx0ZWRfX9SaJRZguGmua
- iU8MIwlEHQ3LpBA+CxD/OYOgOP0iEBLZsEeE6qjEB1+FVVToqVnSI7LTyL80GEMTmfVoYi4xR+p
- TkCDy6EEAFTdpJ3A/n+tj2VToHkjouI=
-X-Proofpoint-GUID: fcJ-qUtdIkCKmIEoNW7jlw0FdnLqzRB8
-X-Authority-Analysis: v=2.4 cv=Bo2tB4X5 c=1 sm=1 tr=0 ts=6aa131ec cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=9R54UkLUAAAA:8 a=P1KT4AghTBEP7EdPzwwA:9 a=QEXdDO2ut3YA:10
- a=nLVQ_eJ5mUh1pCUzEw4A:9 a=PEH46H7Ffwr30OY-TuGO:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDExMyBTYWx0ZWRfX8kUB7nXdD6ph
- HOsCGrN0Va1ZnOLwCWci/I15lVCVoYE9aZObal8Ha+jldHKBeaXlpCK5/TEDjUN6iojdW5gyUhX
- GmOqFn4gmUxYN7p8p6k7yOEuSIW6LfpUJGTlojhn+n/PVU1O/PVv7+84chl6M8PFqHweOiZxdB6
- jwlgwt3NcQ874G8LYDvY5+dEq3trbMrwxVe1S0NTFKJBq6PRdKODyOGOQUoFz1X8uCwldPkSpwy
- pQyuGJFfpOvm/RF7mt1L0+fnyiPdaP+V8xnH6b8g2jfFldI1CGrpQpSFyfU9H6k68RmGeIgvwwd
- 8M9NB7McnAqrQNvlK6mot+xCFPs8HYmzSKi1s0zCnbWJ9Rpew9xcloLOrowRTrOTUaihfCTYdUC
- mU7geojAhBhtDbMOU/vbfQuaY4HmDv5r/hS5cskQrJZyPTDo2oEhsuVdu0Ek4UE4RF7YZGoDUsA
- ZvSVAwsYH2dc5MybE1Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-08_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0
- malwarescore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090113
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_031613_846920_4BE65556 
-X-CRM114-Status: GOOD (  47.42  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] mm: define generic pudp_invalidate() implementation
+To: Jinjiang Tu <tujinjiang@huawei.com>, akpm@linux-foundation.org,
+ ljs@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ mark.rutland@arm.com, ryan.roberts@arm.com, peterx@redhat.com,
+ dave.jiang@intel.com, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Cc: wangkefeng.wang@huawei.com, sunnanyong@huawei.com
+References: <20260909090018.1991485-1-tujinjiang@huawei.com>
+ <20260909090018.1991485-2-tujinjiang@huawei.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260909090018.1991485-2-tujinjiang@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,367 +118,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---5hYik/OtwsiKgIbw
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 9/9/26 11:00, Jinjiang Tu wrote:
+> x86 and riscv have identical pudp_invalidate() implementations. Move it to
+> mm/pgtable-generic.c with the __HAVE_ARCH_PUDP_INVALIDATE override guard.
+> PowerPC keeps its own implementation. In the later patch, arm64 will use
+> the generic implementation too.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+> ---
+>  arch/powerpc/include/asm/book3s/64/pgtable.h |  1 +
+>  arch/riscv/include/asm/pgtable.h             |  3 ---
+>  arch/riscv/mm/pgtable.c                      |  9 ---------
+>  arch/x86/include/asm/pgtable.h               |  3 ---
+>  arch/x86/mm/pgtable.c                        | 12 ------------
+>  include/linux/pgtable.h                      |  7 +++++++
+>  mm/pgtable-generic.c                         | 14 ++++++++++++++
+>  7 files changed, 22 insertions(+), 27 deletions(-)
+> 
+> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+> index f4db7d7fbd5c..55d33c5537f1 100644
+> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
+> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+> @@ -1419,6 +1419,7 @@ static inline pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm,
+>  #define __HAVE_ARCH_PMDP_INVALIDATE
+>  extern pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
+>  			     pmd_t *pmdp);
+> +#define __HAVE_ARCH_PUDP_INVALIDATE
+>  extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+>  			     pud_t *pudp);
+>  
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 40b1ed4f3ea8..327fa378032b 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -1159,9 +1159,6 @@ static inline pud_t pud_mkinvalid(pud_t pud)
+>  	return __pud(pud_val(pud) & ~(_PAGE_PRESENT | _PAGE_PROT_NONE));
+>  }
+>  
+> -extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+> -			     pud_t *pudp);
+> -
+>  static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
+>  {
+>  	return pte_pud(pte_modify(pud_pte(pud), newprot));
+> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+> index 9c4427d0b187..156e385e7db4 100644
+> --- a/arch/riscv/mm/pgtable.c
+> +++ b/arch/riscv/mm/pgtable.c
+> @@ -154,15 +154,6 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+>  	return pmd;
+>  }
+>  
+> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+> -		      pud_t *pudp)
+> -{
+> -	VM_WARN_ON_ONCE(!pud_present(*pudp));
+> -	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
+> -
+> -	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
+> -	return old;
+> -}
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+>  pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index d5f4917c1edc..97051c02385e 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -1387,9 +1387,6 @@ static inline pud_t pudp_establish(struct vm_area_struct *vma,
+>  extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
+>  				unsigned long address, pmd_t *pmdp);
+>  
+> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+> -		      pud_t *pudp);
+> -
+>  /*
+>   * Page table pages are page-aligned.  The lower half of the top
+>   * level is used for userspace and the top half for the kernel.
+> diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
+> index cb03f5a2b243..0945908631dc 100644
+> --- a/arch/x86/mm/pgtable.c
+> +++ b/arch/x86/mm/pgtable.c
+> @@ -519,18 +519,6 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
+>  }
+>  #endif
+>  
+> -#if defined(CONFIG_TRANSPARENT_HUGEPAGE) && \
+> -	defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
+> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+> -		     pud_t *pudp)
+> -{
+> -	VM_WARN_ON_ONCE(!pud_present(*pudp));
+> -	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
+> -	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
+> -	return old;
+> -}
+> -#endif
+> -
+>  /**
+>   * reserve_top_address - Reserve a hole in the top of the kernel address space
+>   * @reserve: Size of hole to reserve
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 8c093c119e5a..32173005b087 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1318,6 +1318,13 @@ extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
+>  				unsigned long address, pmd_t *pmdp);
+>  #endif
+>  
+> +#ifndef __HAVE_ARCH_PUDP_INVALIDATE
+> +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+> +extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+> +			     pud_t *pudp);
 
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider:
->=20
-> Critical: 0 =C2=B7 High: 1 (1) =C2=B7 Medium: 1 =C2=B7 Low: 2
->=20
-> - [High] Undisclosed functional regression: PTP setup failures are now
->   fatal to `ndo_open()` and to system resume.
-> - [Medium] Unbalanced clk_ptp_ref enable/disable against the platform
->   noirq PM callbacks.
-> - [Low] The kernel-doc block above `stmmac_init_timestamping()`
->   (stmmac_main.c:893-899) still states 'this is to verify if the HW=E2=80=
-=A6
-> - [Low] Both new unwind paths halt the DMA but never undo
->   `stmmac_hw_setup()`'s `stmmac_mac_set(priv, priv->ioaddr, true)`=E2=80=
-=A6
->=20
-> Pre-existing issues:
-> - [High] Pre-existing double free / use-after-free of the DMA descriptor
->   rings, whose trigger set this patch widens.
->=20
-> --
->=20
-> net: stmmac: propagate PTP init failures in __stmmac_open() and stmmac_re=
-sume()
+No "extern" please.
 
-I think I have already posted a v2 for this series:
-https://patchwork.kernel.org/project/netdevbpf/patch/20260907-stmmac-ptp-er=
-ror-propagate-v2-1-4a2e8e41e860@oss.qualcomm.com/
+Staring at this file, I do wonder why we are not smarter about combining blocks. E.g., here simply:
 
-This one is marked as Superseded in patchwork.
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index e3c8ab96941c5..8c9fe3bf580d4 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1229,9 +1229,9 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ #endif
+-#ifndef __HAVE_ARCH_PUDP_SET_WRPROTECT
+-#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
++#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
++#ifndef __HAVE_ARCH_PUDP_SET_WRPROTECT
+ static inline void pudp_set_wrprotect(struct mm_struct *mm,
+                                      unsigned long address, pud_t *pudp)
+ {
+@@ -1245,9 +1245,13 @@ static inline void pudp_set_wrprotect(struct mm_struct *mm,
+ {
+        BUILD_BUG();
+ }
+-#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+-#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
+ #endif
++#ifndef __HAVE_ARCH_PUDP_INVALIDATE
++pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
++               pud_t *pudp);
++#endif
++#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
++#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
 
-Regards,
-Lorenzo
+> +#endif
+> +#endif
+> +
+>  #ifndef __HAVE_ARCH_PTE_SAME
+>  static inline int pte_same(pte_t pte_a, pte_t pte_b)
+>  {
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index b91b1a98029c..ac1175d9a59a 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -217,6 +217,20 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
+>  }
+>  #endif
+>  
+> +#ifndef __HAVE_ARCH_PUDP_INVALIDATE
+> +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
 
->=20
-> This converts stmmac_setup_ptp() from void to int so that the PTP
-> reference clock enable and stmmac_init_timestamping() failures are
-> propagated, and adds unwind paths in __stmmac_open() and stmmac_resume()
-> for those failures.  The HW timestamp capability check moves out of
-> stmmac_init_timestamping() into the new stmmac_check_timestamp_cap()
-> helper.
->=20
-> A few questions below.
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 24656b35350b1..d33c82bd3ee46 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -885,6 +885,11 @@ static int stmmac_init_tstamp_counter(struct stmma=
-c_priv *priv,
-> >  	return 0;
-> >  }
-> > =20
-> > +static bool stmmac_check_timestamp_cap(struct stmmac_priv *priv)
-> > +{
-> > +	return priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp;
-> > +}
-> > +
-> >  /**
-> >   * stmmac_init_timestamping - initialise timestamping
-> >   * @priv: driver private structure
-> > @@ -900,11 +905,6 @@ static int stmmac_init_timestamping(struct stmmac_=
-priv *priv)
-> >  	if (priv->plat->ptp_clk_freq_config)
-> >  		priv->plat->ptp_clk_freq_config(priv);
-> > =20
-> > -	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
-> > -		netdev_info(priv->dev, "PTP not supported by HW\n");
-> > -		return -EOPNOTSUPP;
-> > -	}
-> > -
->=20
-> [Severity: Low]
-> Should the kernel-doc block just above stmmac_init_timestamping() be upda=
-ted
-> in the same patch?  It still says:
->=20
-> 	 * Description: this is to verify if the HW supports the PTPv1 or PTPv2.
-> 	 * This is done by looking at the HW cap. register.
-> 	 * This function also registers the ptp driver.
->=20
-> After this hunk the HW cap. register check lives in
-> stmmac_check_timestamp_cap()/stmmac_setup_ptp(), which is also why
-> stmmac_resume() now has to open-code "if (stmmac_check_timestamp_cap(priv=
-))",
-> and stmmac_ptp_register() is only called from stmmac_setup_ptp().  The
-> -EOPNOTSUPP return the description implies is no longer produced by any
-> path here, and the function's new error returns are not described.
->=20
-> >  	ret =3D stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
-> >  					       PTP_TCR_TSCFUPDT);
-> >  	if (ret) {
-> > @@ -937,22 +937,39 @@ static int stmmac_init_timestamping(struct stmmac=
-_priv *priv)
-> >  	return 0;
-> >  }
-> > =20
-> > -static void stmmac_setup_ptp(struct stmmac_priv *priv)
-> > +static int stmmac_setup_ptp(struct stmmac_priv *priv)
-> >  {
-> >  	int ret;
-> > =20
-> > +	if (!stmmac_check_timestamp_cap(priv)) {
-> > +		netdev_info(priv->dev, "PTP not supported by HW\n");
-> > +		return 0;
-> > +	}
-> > +
-> >  	ret =3D clk_prepare_enable(priv->plat->clk_ptp_ref);
->=20
-> [Severity: Medium]
-> Does this early return unbalance clk_ptp_ref against the platform noirq PM
-> callbacks?
->=20
-> Before this patch stmmac_setup_ptp() always did clk_prepare_enable() on o=
-pen
-> and stmmac_release_ptp() always did clk_disable_unprepare() on close, so a
-> running interface always held one enable/prepare reference.  With the new
-> capability gate in both functions, hardware whose dma_cap.time_stamp and
-> dma_cap.atime_stamp are clear never gets the clock enabled.  Note
-> stmmac_hw_init() leaves priv->dma_cap all-zero when there is no HW feature
-> register ("No HW DMA feature register supported").
->=20
-> stmmac_pltfr_noirq_suspend() in stmmac_platform.c still does this
-> unconditionally for any running non-WoL interface:
->=20
-> 	if (!priv->wolopts) {
-> 		/* Disable clock in case of PWM is off */
-> 		clk_disable_unprepare(priv->plat->clk_ptp_ref);
->=20
-> With the enable/prepare counts at zero, does that hit the clk core
-> enable_count/prepare_count underflow warning?  And after
-> stmmac_pltfr_noirq_resume() re-enables it unconditionally, the close path
-> stmmac_release_ptp() now returns early for the same hardware, so does that
-> reference stay held for good?
->=20
-> These four sites appear to be the only clk_ptp_ref enable/disable users, =
-and
-> stmmac_pltfr_pm_ops installs those noirq callbacks for a large number of
-> platform glue drivers.
->=20
-> > -	if (ret < 0)
-> > +	if (ret < 0) {
-> >  		netdev_warn(priv->dev,
-> >  			    "failed to enable PTP reference clock: %pe\n",
-> >  			    ERR_PTR(ret));
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret =3D stmmac_init_timestamping(priv);
-> > +	if (ret) {
-> > +		clk_disable_unprepare(priv->plat->clk_ptp_ref);
-> > +		return ret;
-> > +	}
-> > =20
-> > -	if (stmmac_init_timestamping(priv) =3D=3D 0)
-> > -		stmmac_ptp_register(priv);
-> > +	stmmac_ptp_register(priv);
-> > +
-> > +	return 0;
-> >  }
-> > =20
-> >  static void stmmac_release_ptp(struct stmmac_priv *priv)
-> >  {
-> > +	if (!stmmac_check_timestamp_cap(priv))
-> > +		return;
-> > +
-> >  	stmmac_ptp_unregister(priv);
-> >  	clk_disable_unprepare(priv->plat->clk_ptp_ref);
-> >  }
-> > @@ -4161,10 +4178,12 @@ static int __stmmac_open(struct net_device *dev,
-> >  	ret =3D stmmac_hw_setup(dev);
-> >  	if (ret < 0) {
-> >  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-> > -		goto init_error;
-> > +		return ret;
-> >  	}
-> > =20
-> > -	stmmac_setup_ptp(priv);
-> > +	ret =3D stmmac_setup_ptp(priv);
-> > +	if (ret)
-> > +		goto ptp_error;
->=20
-> [Severity: High]
-> Can this make "ip link set dev ethX up" fail on configurations that work
-> today?
->=20
-> stmmac_setup_ptp() -> stmmac_init_timestamping() -> stmmac_init_tstamp_co=
-unter()
-> returns -EINVAL for a zero PTP rate:
->=20
-> 	if (!priv->plat->clk_ptp_rate) {
-> 		netdev_err(priv->dev, "Invalid PTP clock rate");
-> 		return -EINVAL;
-> 	}
->=20
-> Before this patch that only produced the "PTP init failed" warning and the
-> interface still came up without timestamping.
->=20
-> Is "timestamp capable but clk_ptp_rate =3D=3D 0" a real configuration?
-> stmmac_register_devlink() already tolerates exactly that combination:
->=20
-> 	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp) ||
-> 	    !priv->plat->clk_ptp_rate)
-> 		return 0;
->=20
-> and stmmac_probe_config_dt() derives the rate from a clock that may be NU=
-LL:
->=20
-> 	if (IS_ERR(plat->clk_ptp_ref)) {
-> 		plat->clk_ptp_rate =3D clk_get_rate(plat->stmmac_clk);
-> 		plat->clk_ptp_ref =3D NULL;
->=20
-> with clk_get_rate(NULL) returning 0 (plat->stmmac_clk is left NULL on the
-> "Cannot get CSR clock" path, and is not fetched at all for
-> snps,dwc-qos-ethernet-4.10).
->=20
-> On such a board, would the interface become permanently un-openable for
-> users who never touch PTP or TAPRIO?  The same question applies to
-> stmmac_resume() below, where the new goto skips netif_device_attach() and
-> leaves a previously working link down.  Since there are two Fixes: tags t=
-his
-> will be picked up for stable, so it may be worth spelling the behaviour
-> change out in the changelog, or keeping the failure non-fatal for the
-> datapath and only refusing the PTP/EST-dependent features.
->=20
-> >  	stmmac_init_coalesce(priv);
-> > =20
-> > @@ -4187,9 +4206,10 @@ static int __stmmac_open(struct net_device *dev,
-> > =20
-> >  	for (chan =3D 0; chan < priv->plat->tx_queues_to_use; chan++)
-> >  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
-> > -
-> >  	stmmac_release_ptp(priv);
-> > -init_error:
-> > +ptp_error:
-> > +	stmmac_stop_all_dma(priv);
-> > +
-> >  	return ret;
-> >  }
->=20
-> [Severity: High]
-> This isn't a bug introduced by this patch, but the new ptp_error exit wid=
-ens
-> the set of ways __stmmac_open() can fail after it has already done:
->=20
-> 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
->=20
-> so priv->dma_conf holds its own copy of every pointer in the caller's
-> dma_conf.  On the MTU reopen path the caller reacts to failure like this:
->=20
-> stmmac_change_mtu()
-> 	ret =3D __stmmac_open(dev, dma_conf);
-> 	if (ret) {
-> 		free_dma_desc_resources(priv, dma_conf);
-> 		kfree(dma_conf);
->=20
-> The interface is left administratively up, and priv->dma_conf still points
-> at the freed dma_alloc_coherent() buffers and the freed tx_skbuff/rx_skbu=
-ff
-> arrays, since nulling pointers inside the caller's copy cannot clear the
-> memcpy'd copy.  A later "ip link set dev ethX down" then runs:
->=20
-> __stmmac_release()
-> 	stmmac_stop_all_dma(priv);
-> 	/* Release and free the Rx/Tx resources */
-> 	free_dma_desc_resources(priv, &priv->dma_conf);
->=20
-> Does that free the same rings a second time?  The pre-existing trigger was
-> an stmmac_request_irq() failure via irq_error; with this patch a PTP
-> reference clock enable failure reaches the same state.
->=20
-> [Severity: Low]
-> Should this unwind also clear the MAC Rx/Tx enable that stmmac_hw_setup()
-> set?
->=20
-> stmmac_hw_setup() does:
->=20
-> 	/* Enable the MAC Rx/Tx */
-> 	stmmac_mac_set(priv, priv->ioaddr, true);
->=20
-> stmmac_stop_all_dma() only clears the DMA channel start bits and deinits =
-the
-> channels.  The MAC enable is cleared in the mac_link_down callback, in the
-> reset path and in stmmac_suspend(), and on the ptp_error path
-> phylink_start() was never reached, so mac_link_down() cannot run.
-> stmmac_open() then frees the descriptor rings and drops the runtime-PM
-> reference, leaving the MAC clock-gated with its Rx/Tx still armed.  All
-> stmmac_hw_setup() failure returns happen before the stmmac_mac_set() call,
-> so this residue is specific to the new post-setup failure exits.
->=20
-> > @@ -8326,13 +8346,14 @@ int stmmac_resume(struct device *dev)
-> >  	ret =3D stmmac_hw_setup(ndev);
-> >  	if (ret < 0) {
-> >  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-> > -		stmmac_legacy_serdes_power_down(priv);
-> > -		mutex_unlock(&priv->lock);
-> > -		rtnl_unlock();
-> > -		return ret;
-> > +		goto error_unlock;
-> >  	}
-> > =20
-> > -	stmmac_init_timestamping(priv);
-> > +	if (stmmac_check_timestamp_cap(priv)) {
-> > +		ret =3D stmmac_init_timestamping(priv);
-> > +		if (ret)
-> > +			goto error_stop_dma;
-> > +	}
-> > =20
-> >  	stmmac_init_coalesce(priv);
-> >  	phylink_rx_clk_stop_block(priv->phylink);
-> > @@ -8356,6 +8377,15 @@ int stmmac_resume(struct device *dev)
-> >  	netif_device_attach(ndev);
-> > =20
-> >  	return 0;
-> > +
-> > +error_stop_dma:
-> > +	stmmac_stop_all_dma(priv);
-> > +error_unlock:
-> > +	stmmac_legacy_serdes_power_down(priv);
-> > +	mutex_unlock(&priv->lock);
-> > +	rtnl_unlock();
-> > +
-> > +	return ret;
-> >  }
->=20
-> [Severity: Low]
-> Same question on the resume side: stmmac_suspend() explicitly did
->=20
-> 	stmmac_mac_set(priv, priv->ioaddr, false);
->=20
-> but error_stop_dma/error_unlock stops the DMA and calls
-> stmmac_legacy_serdes_power_down() while the MAC Rx/Tx enabled by
-> stmmac_hw_setup() is still set, so the SerDes is removed under an enabled
-> MAC.  Would adding stmmac_mac_set(priv, priv->ioaddr, false) to this unwi=
-nd
-> restore the state that stmmac_suspend() had established?
->=20
-> Also, on this path netif_device_attach() is never reached while
-> netif_running() is still true, so the netdev stays detached after a resume
-> failure.  Is that the intended outcome for a PTP init error?
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa%40oss.qualcomm.com
+I'd revert these and similarly see if they can be combined somehow (likely combining with
+pudp_huge_clear_flush is harder as we are quite inconsistent with it, gluing it to
+__HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH).
 
---5hYik/OtwsiKgIbw
-Content-Type: application/pgp-signature; name=signature.asc
+Which raises the question whether we could also piggy-back on __HAVE_ARCH_PMDP_SET_WRPROTECT
+(I suspect no without a closer look.)
 
------BEGIN PGP SIGNATURE-----
+-- 
+Cheers,
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqEx6AAKCRA6cBh0uS2t
-rE4WAPsH+53zamQMSb8+l3vjOhc245hJ9HSqv18qQgtD6j/aUAD8DaNU1/QNLSWI
-qhHSumkyTUk3cgGFC/HQwrelHiC1ggg=
-=eerw
------END PGP SIGNATURE-----
-
---5hYik/OtwsiKgIbw--
+David
 
