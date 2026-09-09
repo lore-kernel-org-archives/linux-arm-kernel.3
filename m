@@ -4,173 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3A0C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFA1C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=; b=yRzD1q9hYMG7wwHOsHx/j5t05s
-	B0Nalb+EjzzzoKfDZcXlO7DW3XG1+K3a1TJJ+RAKkaDO7YrV9QvOaqO0/s5MicJpRm2EyMtt8gyxJ
-	gYzb6BCyuWbusLKr0VvV96/JAS1GU+as2FP0aaUNcnXN1WkxGRkMGYJdaoDe9hADpaRjiDpgZMPi8
-	GxnSSxC+i35wWsgLnVWX5Nvsu/Ttt3zf4QU6MO4+ZKnLhidmiMDSaAVtN3uKVezogWLKlQHSPa/h9
-	hoYb+4K60MXvVW2+PpOq6338fkwctqRNqbFV5TC3eQVVTRDkVAjOE7trqqbHdwrXnPyy8t81TgxGJ
-	ddgniOPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PSmhmMwSHeb/AFuavXUtAAJUBEhwOGfF4EtmeF2L3kI=; b=nMrr5h2IstvGUNLs/j1k1mkgsb
+	e7rQUWvkLx2s10aOP2V6AVKm7G/wUvrNQDIExcV+51ZUXPSyfyCJOrD084RP2OZpQwEaVr/9BIxds
+	CSxGs0H7MvxqwqwPnq/4qVPl8ohMcKHbNkjR8VSvMGiz3v3NqRoIHoMkq1QoQX8W+8FPtD1s/e+aU
+	AHwfHOhgWYiEO9NzkPVKrSd46UcKZqdTnseQv20GIK8VJ4FzTrXcTiSUefOvcUF8ISHRzfVLiYrsJ
+	ZKzxFd3RcF26GwL9Hnc9cjyoou1M/Li9ndw/gpIadcE1ApQhLxsnUbIejGmhQSBicft5K68HUQRJH
+	GeZvw4mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KMG-0000000CBtI-1aMU;
-	Wed, 09 Sep 2026 15:37:08 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1x4KOu-0000000CCJy-3ffp;
+	Wed, 09 Sep 2026 15:39:52 +0000
+Received: from out-100.mta1.migadu.com ([95.215.58.100] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KMD-0000000CBsW-0cOU
+	id 1x4KOm-0000000CCJ7-3n3m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:37:06 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689AogiM389524;
-	Wed, 9 Sep 2026 10:37:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7
-	Os=; b=kQLZIBBGS7wV0L6BnQHQqRuIM8TcE5aAZbAvr5+9pzx18S3E/zQ6ytS33
-	Wn0g6lybZHOpVdzrhLvWiAb5cthBdkU9PH1MIZe1D279H7enDoD3rbCpahrnldhQ
-	mhuwr2HOohuZ86yoM6C4/fVMixRG/cvxmMDO0Kv44oreqtBy0oaKZmROLxqYQotv
-	frEkOhtxPKvKCpI0788mQQLDxoLPfc45NXXQzr/lPlQ3qyd5qfuzPfbWMsg/dGhf
-	8FfqSxckQq4sCnmjf3ERXN9CtE1jktt4IVYF0ba+eek+RCFmM+MnzjhcBlAUX7Ic
-	4xX0ZoFT44wY69TGB4g9IUi+B1aQw==
-Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11012060.outbound.protection.outlook.com [52.101.53.60])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gk4aat706-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 09 Sep 2026 10:37:02 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IbxUHkORnkzULS2m3VUuDc9HorOQN3iUP07SsNfmE2/CUtSa1qFKeIYal/rewcqeVf3mzUQqUz1g7b1znyYYz08yUCKdVzPRgPvlB5ajyGEtsoQsVLpYIq0Txpekb4EL2Q0QFgBdT+d9QTqQA3O4U5FfqIb7TqAup4ZM+Lx2onoJ1NEm43C80gIpwMtDavxG13Z17ApKx97QrEaPDn2I7jRqPAedenKa5pP1XhSfV6meed5xTTJCxT19rSmB+TRElKWPlvJu/C1+2VZLSELYOo0IhYrH5GddyYYJcQ0bLtDhWfHWPRaGOM3iSoV1kVttK7HQJle/9JE+bqh7pySxcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=;
- b=NrBJhHzDGoNt6RevpZz1Juy2dBA22uCqXsopKEauuWlPdUc4cuiuAJkLeUutOihO7sBT51vE6Ae2mlTnckjfUpWGCu5E6EWR3LcvseGzt7mIe5Kkj7hbge7rPWjauHY5zJ9KkMPry1GzjLQ5NG85XMwJgDr4O85Vx+WGP3CM+aq6Vs3JFVaE4y3f5IKvbrcqxFjHDQJqUTS4DAenfDxq2zXF+P3RFN+jMDPhQVOUHGvlKzKHjPcuKe50hATIaDRWgkwg7dqJAB+A+Q1EhjM/sTQSC1ZxQWn95OSrk3zZoJe0HbIckNH4uZoY+wKG2qXQl6e7b51VDplG/Rz1HrtD9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9DnX7mOqve94uhCla89+JPI60ZKLoaNj6YvTLGUH7Os=;
- b=RIhn0dHD9uNaMLUqoHKyOmevD6USCyL+KfcW1kJLCvvOGqJF+iSMo0iyZszjbbbYXiMiSCUneMDsQIhTZGh17BhfWQpy+6VfKKNpL37UvYEpDciKPlIzZDkxRHRsQgOsrPT7g08m57VN8gsvv5QQEPMZlW4SZsK2Ai0dPGYgnhc=
-Received: from BN1PR14CA0013.namprd14.prod.outlook.com (2603:10b6:408:e3::18)
- by CH4PR10MB8194.namprd10.prod.outlook.com (2603:10b6:610:23a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.4; Wed, 9 Sep 2026
- 15:36:54 +0000
-Received: from BN7PEPF000000A4.namprd05.prod.outlook.com
- (2603:10b6:408:e3:cafe::61) by BN1PR14CA0013.outlook.office365.com
- (2603:10b6:408:e3::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Wed, 9
- Sep 2026 15:36:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN7PEPF000000A4.mail.protection.outlook.com (10.167.245.228) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 15:36:53 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 10:36:10 -0500
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 10:36:09 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 9 Sep 2026 10:36:09 -0500
-Received: from [128.247.81.105] (hpz2.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 689Fa91Y1536891;
-	Wed, 9 Sep 2026 10:36:09 -0500
-Message-ID: <3079f9bc-5a15-40bc-bf8d-1b53c32ffccb@ti.com>
-Date: Wed, 9 Sep 2026 10:36:09 -0500
+	Wed, 09 Sep 2026 15:39:51 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=fzj4Ws8lKIWrjEiyGIpoIDsUvXAXaL99aEWk2VGWV7s=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788968381; v=1; x=1789573181;
+ b=k+X7BK/h2/0tNxgOBonwd/AlrjDRoqknyp6eIhgvZLPGI4Sf5KB+br97xvVmVbl1cMsy0IC7
+ Gp8nvoIMN+jBlAJioNVQZAIQ96pTPpNmCO4BYip3egNgW3Xcqg0SsgIPiyyY+eEYx+0vd0gpCIA
+ eaPuUmF9XD2ftoLI+1nUZ+8w=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id fc101b41483c5a63;
+	Wed, 09 Sep 2026 15:39:41 +0000
+X-Mizu-Trace-ID: fc101b41483c5a63
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so8774e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 08:39:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxVCnIhzUXCSmSlZpkhQRL5pZGVeMU7sUDkW7S+yK9t5SVSQPxvAJrBJ9RTk4QdNWxZPcO8GVwneOyjIfCWO4ZU@lists.infradead.org
+X-Gm-Message-State: AFuF++mATq8DS7KxX3OtL2giY+yG8y2gtwtWA6dKAIFeki9QpCjGEZvA
+	QG4ZGEZnihoxOU69ZwPEDPxrMCllnFEcTYoaDoV83TF8tYMMg10BMUnwSRan0hLn8qqhwdthw0v
+	wY7ts5soEWk3y3IaVWBSp+y1NSqabgmuQT7Aj6sJn
+X-Received: by 2002:a05:6512:1296:b0:5ae:cf5f:4a88 with SMTP id
+ 2adb3069b0e04-5b764bb8a14mr142455e87.8.1788968380386; Wed, 09 Sep 2026
+ 08:39:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: dts: am654: Add 650ms power off delay for proper MMC
- power cycle
-To: Nishanth Menon <nm@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20260908170635.238775-1-jm@ti.com>
- <20260908171613.bpd6eo53cjtlrztr@macaw>
- <e8abc328-578e-48cb-a469-1e3edec6780a@ti.com>
- <20260908174934.pbbvtrfhlnjinipu@constable>
- <f99dff87-6fcb-4a19-ba3b-4d31e3835726@ti.com>
- <20260909103646.7jk5vwvyc7tku5yv@kennel>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20260909103646.7jk5vwvyc7tku5yv@kennel>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF000000A4:EE_|CH4PR10MB8194:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f2c3578-1aa6-4792-12a5-08df0e882c57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|4143699003|10067099003|56012099006|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: gw0u5kgAPumenQXEBGrMKAqLHBB1Pxz2ZdY0RrxPO4UPCGteiBkN8jKwQ+IN75h0KPR1V/Il49MN94H6ZtbwaK64o9kgYNkKQZ6IxUXai+WG7LwrY64OGY4FL7ASRslBtWeZD4pe2gyOysaCUZ1AJTxnlI2+zPmud9pJ4HtIksMr1XsCETiaZ89qVearfzqO607efERdxgVezYCsqgIQCvYXRmXhDIqDT+ND8ViWbMffEILBIJl5a//OEu3ZWDb2Tscqw2KF6LgU3Av0y/KKFnZmpQFjALvBFQk+egH1w9loV/VnePWbjVGo+EH+5ilcCPdFQakrXJQIXvhuR8iOW534dbKSjSDA+P0TAAzRcm+EVU1y2QnbtaNrs18DCaW7hXFfMFHvaLdsraNKv+yULFAS8U8P8B22DjYHKMozpCDERzMNFcgwXroMdkc+QRg8mryOX9JP8pmUGgEdmlb97DHaOOyYye7sypmUEsm1sYNzLuAqj6wLsu04ZM6U6yAFgbUn9Zz25nKiIEpehc4vheiMhX05YIWpDaRFfXUZai1wjJGaZrGTc8BEgxoJPFSBD2OIlMFiacwUtElYXYKuEpfQDhsnuDlRn6hIb5yXWaAxIN8fW5e8EyZybfHOorNRvK/AUQqdPLF17/NhKufSK2SZKojLBuKxmEOPgrhg9agUKIvBaRmRUq1JCkVdygkhWr3HJ/oJQXIyeoYfyDsEZw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(4143699003)(10067099003)(56012099006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vCFbhaVBX+c0135jiNnPOZEdVB/mmMPl1gKA54Piy3vnBKJcIipkW6r+9YfB5bsU9w31POW0bSXFM3dFppXM4tAMTWH2ZcWY93JPA6X55DOadku7QG2RCfD3+IzaNslndoRIrXj4Ekdzz+PmSBuryPGsOMOOqA5B2ltXCWYELZd+KFkLAYnSBu6In38A+8/H/WHhDZxt3GJ7zBZbXeTWdXSq8S0Gu/qCVjRBCYTQg/Y9ZinlraVpn7QXS/1YU9dS7SEgoPTUQ/1f6BxA+/fCcu2523yLVwl7hzvld44WYu94XsKxCDaTtGUsUd8tyS82TjqJWEYIorNpzL9OR4LCeuZJj6QRslFTcV/4kWXf8GkR5XmAj/ptBDBt+s7ecRISHaSIkGRD9ZyIHsw9A/f+dGWqDuPrKU+kArDQoT3bFvBVnoueXMnFGkXWA8bgyten
-X-Exchange-RoutingPolicyChecked: rDYsNDmKFOKNxiE1cU4sCOTDi8UZDi41JKbhdFymUDgO/GvtK7L5dZMQ3uDvtOfXjp7syleK4bA9nJoG1KmRGrbrVQ0v/1W1+nJQiIeGQbA5+X07RjtH8gp2/Q3/NT7dZe82FO5n7GiqOyQpPU9X+CZd2XLXTdk+Id72nCKaOGL9ngtFNIFTc8NgWKuHl+1X9Sz/VDqu7IxhdNZnxPLO31Oo9Aor45sPFkAiN0ybPId4RXcDFaMUscOV8s4o/BENaYqRiT8eltL12z1cKkmtx63G0KhNt7rawpEYXa0DEkO/Y3pBvUlod2HZs3lea0A2ZGTgxnco+14i904ufcOhiQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 15:36:53.1037
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f2c3578-1aa6-4792-12a5-08df0e882c57
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000A4.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8194
-X-Proofpoint-GUID: AFmtPlx86NlgM7VXE-0zeVq8r1e4-gHj
-X-Proofpoint-ORIG-GUID: AFmtPlx86NlgM7VXE-0zeVq8r1e4-gHj
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE3MyBTYWx0ZWRfXxrr+EV84MFb0
- mk2rBAWC69gp/3zPFDZBZrkEVZMzkPSk/SVA+kOj5kXGpaqPN9Xsnq9sXdzzFVn1S0NRDfvUprJ
- xpSilRDBIXF8Q7VwyVAGV6cLQozGC2NzZFsOqGAKdMfq8JN/8v50fTIruYbM1SVOVdG1a2AXdnE
- EufF82d2AaPH8tGGyeXj2yEb6fhshbt88ZnW+3VyBIg8e9DfzT6tqqCp3wQXq/a1V0PaxH4itZY
- b3ZOeGEZOB7DlsCRBLmBqnSZDo/aTUIhjLB+dF4CwHYjm15TJ/6TG47J5UPS2KPWG6Kmg4sA97M
- iDWXl8Wvmoh1hp4sdDt7PQD5AWZr+7FrC4xC4wXTOLDj+1AeMyymlQQE1rE8Ev6wdG8N16cLEiB
- ZVY80/Bn2l5Vfmg+u0Cn+XPatbeir4s9y3X+MfBnQpGq1B+ZUQ5n66BNxBQzE2fAsDFyoy0VFuh
- /9X2E/vdkkFO1lFr0rg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE3MyBTYWx0ZWRfX/emQNTE3d5rq
- SHivpuY45RuD7S4yjTSiQDhP2Hdhn+cSGWe3FhUr6mP76HnWyljFOVapNGBCAkG5mI80LFtlj5F
- dNEA7trhxEh/W2m7zdDUUsrdVFwhRZU=
-X-Authority-Analysis: v=2.4 cv=DfEnbPtW c=1 sm=1 tr=0 ts=6aa17d1e cx=c_pps
- a=yaJUXpcFNTkE3gTvo4ZtIQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
- a=MsbBCBBioWvCGMzGvfkA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 clxscore=1015 bulkscore=0 suspectscore=0
- priorityscore=1501 impostorscore=0 lowpriorityscore=0 malwarescore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609090173
+References: <20260807164322.2970811-2-sebastianene@google.com> <20260807164322.2970811-3-sebastianene@google.com>
+In-Reply-To: <20260807164322.2970811-3-sebastianene@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 9 Sep 2026 16:39:03 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw8H90YZmwbVu6gwe+2+D6QsDLybKcncLcCFSsK4kT+gw@mail.gmail.com>
+X-Gm-Features: AcwNN1Xn11LM3S-N1a2DBr7wA2T25hY8d1olPDXuf0s4eEIGVNgdvX4H2BSTCmw
+Message-ID: <CA+EHjTw8H90YZmwbVu6gwe+2+D6QsDLybKcncLcCFSsK4kT+gw@mail.gmail.com>
+Subject: Re: [PATCH v2 01/13] KVM: arm64: Donate MMIO to the hypervisor
+To: Sebastian Ene <sebastianene@google.com>, Mostafa Saleh <smostafa@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, 
+	maz@kernel.org, oupton@kernel.org, rananta@google.com, 
+	Sascha.Bischoff@arm.com, suzuki.poulose@arm.com, will@kernel.org, 
+	kvmarm@lists.linux.dev, android-kvm@google.com, bgrzesik@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nathan@kernel.org, perlarsen@google.com, seiden@linux.ibm.com, 
+	tglx@kernel.org, vdonnefort@google.com, vladimir.murzin@arm.com, 
+	yuzenghui@huawei.com, zenghui.yu@linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_083705_448685_9A64BE76 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260909_083947_290487_B0BADE87 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,70 +85,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
+Hi Mostaf, Seb,
 
-On 9/9/26 05:36, Nishanth Menon wrote:
-> On 13:13-20260908, Judith Mendez wrote:
->> Hi Nishanth,
->>
->> On 9/8/26 12:49, Nishanth Menon wrote:
->>> On 12:29-20260908, Judith Mendez wrote:
->>>> Hi Nishanth,
->>>>
->>>> On 9/8/26 12:16, Nishanth Menon wrote:
->>>>> On 12:06-20260908, Judith Mendez wrote:
->>>>>> The AM65x EVM MMC1 VDD rail discharges slowly through RC circuit.
->>>>>> SD spec (section 6.4.1.3) requires VDD < 0.5V for minimum 1ms during
->>>>>> power cycle. Measured discharge time on this board is ~632.97ms to
->>>>>> reach < 0.5V threshold.
->>>>>>
->>>>>> During boot, MMC power cycles between boot stages. Without power off
->>>>>> delay, VDD doesn't fully discharge. Card retains 1.8V signaling state
->>>>>> from previous stages. When U-Boot initializes, card no longer asserts
->>>>>> S18A in ACMD41 response (already switched to 1.8V). Host misinterprets
->>>>>> card state and forces 1.8V anyway, falling into a bad state and causing
->>>>>> a boot failure.
->>>>>>
->>>>>> Add power-off-delay-us = 650000 (650ms) to ensure proper VDD discharge
->>>>>> during power cycles, allowing card to fully reset state between boot
->>>>>> stages.
->>>>>>
->>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>>>
->>>>> Fixes ?
->>>>
->>>> Fix is really for u-boot, don't think I can point to a u-boot
->>>> commit here can I?
->>>
->>> You'd face the same problem if you are starting from a different boot
->>> media and then enable MMC in linux kernel, right? what was described in
->>> the patch sounds like a discharge latency of the evm. This was missed in
->>> the original commit?
->>>
->>
->> Not exactly. The failure is only seen at u-boot specifically with
->> SD card boot. Very specifically due to the MMC driver in u-boot and
->> commit [0] which is not reverted since it is technically correct.
->> The commit just happened to expose our EVM's issue first. According to
->> the discussion, mirror Linux patch may be coming soon, which we are
->> now prepared for with this patch and [1].
->>
->> [0]
->> https://lore.kernel.org/u-boot/d17a810c-e2db-4a24-a37d-2d7e02466ce9@ti.com/
->> [1] https://lore.kernel.org/linux-mmc/20260806162202.657512-1-jm@ti.com/
-> 
-> This context is useful in diffstat. I see the driver fix in kernel which
-> can use this property not present in previous kernels, hence no fixes.
-> 
-> That said, please fix $subject for v2 and repost. I suggest:
-> arm64: dts: ti: k3-am654-base-board: Add power off delay for proper MMC power cycle
-> 
+On Fri, 7 Aug 2026 at 17:43, Sebastian Ene <sebastianene@google.com> wrote:
+>
+> From: Mostafa Saleh <smostafa@google.com>
+...
+> +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size)
+> +{
+...
+> +       /*
+> +        * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> +        * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> +        * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> +        *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> +        * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> +        */
+> +       ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+> +                             addr, size, &host_s2_pool,
+> +                             KVM_HOST_INVALID_PTE_TYPE_DONATION,
+> +                             FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
 
-Ok, will fixup coverletter and subject for v2.
+Before this patch the hyp linear map held nothing but memory, and this
+adds the first device mapping to it. That places it outside
+`fix_host_ownership()`, whose scope is the memblock list, so nothing
+at init verifies the ownership. It's correct as written: the donation
+writes the host stage-2 annotation itself.
 
-Thanks.
-~ Judith
+This has already gone wrong once with the hyp stacks. The fix [1] adds
+`pkvm_check_host_ownership()` over the private range, which fails init
+on a leaf that isn't hyp-owned. I'd move this mapping there rather
+than leave it outside any ownership walk.
 
+...
 
+> +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
+> +{
+...
+> +               virt = __hyp_va(addr + offset);
+> +               if (kvm_pgtable_hyp_unmap(&pkvm_pgtable, (u64)virt, PAGE_SIZE) != PAGE_SIZE)
+> +                       goto err_with_unmap;
 
+Sashiko is right, even though this is benign for now. `ret` is still 0
+from the `kvm_pgtable_get_leaf()` above, so a short unmap runs the
+rollback and returns success. Could it set an error before the goto?
+
+...
+
+> @@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>         kvm_pte_t *childp = NULL;
+>         bool need_flush = false;
+>
+> -       if (!kvm_pte_valid(ctx->old)) {
+> -               if (stage2_pte_is_counted(ctx->old)) {
+> -                       kvm_clear_pte(ctx->ptep);
+> -                       mm_ops->put_page(ctx->ptep);
+> -               }
+> +       /*
+> +        * That also ignores stage2_pte_is_counted() instead of clearing
+> +        * the PTE as the MMIO can be owned by the hypervisor.
+> +        */
+> +       if (!kvm_pte_valid(ctx->old))
+>                 return 0;
+> -       }
+
+This changes `kvm_pgtable_stage2_unmap()` for every caller, for a
+reason specific to `host_stage2_unmap_dev_all()`. The others are
+`__unmap_stage2_range()` and the two guest unmaps in `mem_protect.c`;
+as far as I can tell none is affected today, but
+`stage2_pte_is_counted()`'s comment still describes the old behaviour.
+
+What's changing isn't what the walk does, it's what counts as a
+counted entry, and that isn't the same question for the host stage-2
+as for a guest's. Could that be stated at the call site instead?
+
+I couldn't work out what "That" refers to in the new comment.
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260908110713.1540304-1-fuad.tabba@linux.dev/
+
+>
+>         if (kvm_pte_table(ctx->old, ctx->level)) {
+>                 childp = kvm_pte_follow(ctx->old, mm_ops);
+> --
+> 2.55.0.654.g21b8a5bc05-goog
+>
 
