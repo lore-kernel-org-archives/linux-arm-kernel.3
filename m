@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5FDC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9321AC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ENgg144+K/LFoBOMAkxQ/vRCNIFP/WT7XCgMLXS8a+Y=; b=fhKSHr44n3yBeNlwsJvGqqYs5P
-	dF1UeIUxvgD5FzeRfsnI4hp6HJYPWNVkQyRyI4Ec8/wwMaj/BRq6yJOZJBpmQNbntPftHigxRMkJS
-	sC1mFkicYQuQ4wbJvoNq9m0kpmQeD7QUKyHIhYXyvfcymkBl6n0oggPclgzlQJXjCBNsmmhPdkG89
-	dzYuHCZbuF0G6IbZ9zaxUOF3h6P7tKM+w8GOeRhVg/DAeTHLHnESNAdqR0TBjqPTYY8YH+4fc5reT
-	R+PLzUX6EOhpYEfFi9nGhhPqCcPafI+gChP6dFwGtucP7OAzSYZWgjX5ZneiO2oy1WOB0Tu0R/3RU
-	djZ8Ec+g==;
+	bh=CUawfQC7/LAyZY4Kl0/s6vNzD4v3nyDgqcXc32WNi3g=; b=y7/6tUYuG/3nCjzj6En2czdbH3
+	16YK2Gu4AxqqQcgXf6VAJ6rM+EI4BWFW1hnI88MVcQwx5T6JjTG9BizULHCQ/SL1sefMU2Q6zoeIO
+	kTaNBFpznuJBxLWL7Bm5QunhAXN93mdozuwTama+En0IGamqU4f8CjlCoUbSv5MfYn3GxqLqSVSZd
+	VNAJRjTvkQLZ3QUJgYUDry/+EW/Fd86JFiw0MfZWNmBdAaZU9O3zBdrSLePK70RukXcb+o46zER4b
+	sDCn26+AFWkobhjUS8RbU/L+lU9kTZEKH51m8NECW90E80tqKQLHg7/5+z74NxrbT/y58iUthUBPj
+	Ej2J66/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Efo-0000000BJ7o-11NV;
-	Wed, 09 Sep 2026 09:32:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4EhY-0000000BJTx-43Ic;
+	Wed, 09 Sep 2026 09:34:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Efm-0000000BJ7a-1Msv
+	id 1x4EhX-0000000BJT8-3JbG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 09:32:54 +0000
+	Wed, 09 Sep 2026 09:34:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDD4043476;
-	Wed,  9 Sep 2026 09:32:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B77841F00A3E;
-	Wed,  9 Sep 2026 09:32:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6972442DCD;
+	Wed,  9 Sep 2026 09:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B531F00A3A;
+	Wed,  9 Sep 2026 09:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788946373;
-	bh=ENgg144+K/LFoBOMAkxQ/vRCNIFP/WT7XCgMLXS8a+Y=;
+	s=k20260515; t=1788946483;
+	bh=CUawfQC7/LAyZY4Kl0/s6vNzD4v3nyDgqcXc32WNi3g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n3wGIwqQrnMdX2cCwOPhDa1Na7aLFlcNAymviUj2y8gXlRAjPSJVot59ygcg9ymkM
-	 V3OKmePVMfM4a7OFuxN6mkG807GjhjzsmIi6TufRNu3lnrNbYuWngzMSV80lSWHdZo
-	 vMZ7rzWg+MacSolN7WPbyVpDU5qOQ1kM1EO+FvHNSLPFbWnl9ZRcwjKNEtRHg66oDH
-	 z2t/2Pcwl25eQ3EQhObI15zDiEzMx/x6T4CQRfMZD4OLiXBwEMoYVibIrSXQrdsVAD
-	 X7bF1xNia1Xymf+FdA6YbQlP8r6xj/iWsFKh3BINwwfQGrIRRgIgHvkhK+CeHjiOOG
-	 pjppWwhsJGW5w==
-Date: Wed, 9 Sep 2026 11:32:49 +0200
+	b=HDYVlr3mUzQGleKqudyysbR/48OBE8zzBOeawhJ82l7JW5dNT1jCUZxJJZxpNai7l
+	 OumP9ELkK1UyL55vxMA7MzfY8cA8fWHWI6Y6vUJK3YOKhLpb0GJbheqGRJCKXp2fP1
+	 ykbmoeKUe8HbJFjGFtW2v+0BmjLvmLXf8T34+20238ziGxmVeOPN7z84m8JZgVKuf0
+	 y75HOm2Kb3frdYLS/ABauAwFishuuHHKNqsuEZUQUF6VRuANWofSL0ou47gdZ1QRlD
+	 8jwlNlrG8hn6q4pJkMzzRcze+q/DSkxaM5VdSQeBjd0CqpZu2otRYzMguPbABKUKy4
+	 dv0ZsV8vU2BNg==
+Date: Wed, 9 Sep 2026 11:34:40 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Vincent Jardin <vjardin@free.fr>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -51,14 +51,14 @@ Cc: Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
 	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] dt-bindings: arm: fsl: add freemobile,nbxv3 board
-Message-ID: <20260909-notorious-hog-of-rain-8bdc19@quoll>
+Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: add Free Mobile
+Message-ID: <20260909-hilarious-ant-of-success-580f24@quoll>
 References: <20260908-for-upstream-nbxv3-dts-v3-0-1d88b2c11680@free.fr>
- <20260908-for-upstream-nbxv3-dts-v3-2-1d88b2c11680@free.fr>
+ <20260908-for-upstream-nbxv3-dts-v3-1-1d88b2c11680@free.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260908-for-upstream-nbxv3-dts-v3-2-1d88b2c11680@free.fr>
+In-Reply-To: <20260908-for-upstream-nbxv3-dts-v3-1-1d88b2c11680@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 04:12:44AM +0200, Vincent Jardin wrote:
-> Add the Free Mobile Nodebox v3 CPU module to the list of
-> NXP, former Freescale, LX2160A-based boards.
+On Tue, Sep 08, 2026 at 04:12:43AM +0200, Vincent Jardin wrote:
+> Free Mobile is a French mobile network operator. Add its vendor
+> prefix, used by the Nodebox v3 CPU Module (freemobile,nbxv3).
 > 
-> The board's root is:
->   "freemobile,nbxv3", "fsl,lx2160a"
-> and the DTS is at
->   arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts.
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-This paragraph is irrelevant.
-
-> 
-> It is needed for
->   make CHECK_DTBS=y
-
-So is this. Also not really correct, ABI needs to be documented
-regardless.
-
-Please use `git log` to understand how such commits can be written.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
