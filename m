@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C77C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39ED3C79FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csWZa+FXPkZtKlamZnzOe5wDFOkHxV9+VSViUYlt1Zs=; b=xop3o8aQdbWAKWUIaeUFTfuwZN
-	QgOpiTVEYvl3+ZR7oTdRT0QCtEdADNCbBCy4jk1moGsz5OxxxUuZUanV197rw1+528LKYyJB23Xbt
-	c/H8obbXSgWS81zcqeoVcHTgpztq+VQeZcqUtrMk3bhDIVhB+2mzmC7ZF5i0bDFpG2KIirDhEKmwQ
-	6SyaMRQBwoZPVAjqn5BednCUhswWJn4n03zambO94JhlEiQeqrdUsJNHUozFN0BqlCUvgRg36RT9Y
-	zuOQHenFg0jSIsVwYYpHiTGd8G4irsLTxnay1Wz8PPVIBxdGzI6ivd2nictQWT+jaXXqfsKcyAk0w
-	MQw2MBQg==;
+	bh=Q2Fb4eCjj+zAUQPiYalGdgIWLIgi0C9tMG4Wk6//rL0=; b=3MaQcTwZ8CHx3EV+c11+r9xqoa
+	RUpMQ1thsAcRJSaXNRa86x816DjkV7C3P4Q6XN8DOYJ1JgSRV95r2DOQtE8aTsw8cLlCBrHjUSZys
+	/gbqDwSqhsMrnCMeoCMfeJGMy1jgjomzkIC3lRFCI4ygSGeFVoYWh9+W6qN8aOmKIMYkhct+f9PBh
+	dPawh9f/YOcdSmWoSdWiKVp4Ngle/3ezSBuunZwEYwk46e+ry4kjjuabEkXYpno84A1OFskcNggEa
+	zqJthMAm/vzEmJ3tvYQo3hjAMHDd/6tInqF68t/dSTcVtfuBe+NHleFA7visETjnMlL9Y74CQO7Ci
+	rOxh0b3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E1x-0000000BARE-2K82;
-	Wed, 09 Sep 2026 08:51:45 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x4E1y-0000000BASW-1xOY;
+	Wed, 09 Sep 2026 08:51:46 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E1e-0000000BAAd-38Cb;
-	Wed, 09 Sep 2026 08:51:29 +0000
+	id 1x4E1h-0000000BACN-0kdq;
+	Wed, 09 Sep 2026 08:51:30 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788943882;
+	s=2020; t=1788943884;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=csWZa+FXPkZtKlamZnzOe5wDFOkHxV9+VSViUYlt1Zs=;
-	b=zLyb9Fwu7jbI0CwCPLxrGbMAjONAtXhsvd2aOXrsZeTIM+Vd6cAkXeT/9cSCtBgc6rUvND
-	gGL505R+4si2jE3aeqnbSbLIG8k98l5iRxrDYXFAKQOWMVSkZxKFlP21c6TSMA2i/iy116
-	/ylwRK8HcPiR9PgT8J7h2y8C76UQ6h/hhfKtVfvGj6xJZzmOon5VHgnFpIj7kux2X934+R
-	88gvKVckykd4QMY7I4EvAl22PfX5GKMA8NcVnV99WfoKqT9h3DM3L6nfOz4IF1LXAzPclD
-	t74OiDujJWbszZsh0qrw62upWw14+r6iyZ4jcroh7b+1fqc9tncGYHc7XAbHiw==
+	bh=Q2Fb4eCjj+zAUQPiYalGdgIWLIgi0C9tMG4Wk6//rL0=;
+	b=eqP8ughIWhO/zWHJqIcpnE1zH5Z6Uff68ylB3fNburq8lG10nepXJX4mazfWoFN07g/dX7
+	5wWpfbwXq9syptiaqVr3s9+qB4IaIQrVCTAykoJ3QyyS89SBjIELA0HirxAHeEao/1LMrn
+	mYJ99pvmZ+Cf8lKwtDGgAIK2wgT6AyFSHcC68XUyJBj3+gzEtXFKKntUgyQqG8N1vRRiPb
+	DHx18kQ5moP+Qf8QI/7uM00WxhtbVuhIFqEZJMDAJy9seLj+k7Uvfcn2IZ5FrBhRjdrWpp
+	6RfkROg5QYm6c7U22E17G5cR6V1fJGvzVdEn0cSjxT4h2w+oBW9Z6HQZd5kfkQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788943882;
+	s=2020e; t=1788943884;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=csWZa+FXPkZtKlamZnzOe5wDFOkHxV9+VSViUYlt1Zs=;
-	b=N/A0UM8L3DUA6/r4Ux30sANcZeIqXCYs4ZXEjCKOONRgT4pANRJ15Uu4BotsUrawfjPr6e
-	4wH9FEacXhaQoNBg==
-Date: Wed, 09 Sep 2026 10:51:16 +0200
-Subject: [PATCH 03/15] vdso/getrandom: Define fallback
- __arch_get_vdso_u_rng_data() in getrandom.c
+	bh=Q2Fb4eCjj+zAUQPiYalGdgIWLIgi0C9tMG4Wk6//rL0=;
+	b=jVX4AN8Oo8E9jDY7LdgbDqTks4Y9ztR5jIkatGeWIeYHKeeAd8NyDi0CnbjzwTRgsKH/kz
+	dZEpI1oJQvAAeWCQ==
+Date: Wed, 09 Sep 2026 10:51:19 +0200
+Subject: [PATCH 06/15] x86/vdso: Move vDSO page definitions to asm/vdso.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260909-vdso-asm-generic-vsyscall-h-v1-3-63ae856cc659@linutronix.de>
+Message-Id: <20260909-vdso-asm-generic-vsyscall-h-v1-6-63ae856cc659@linutronix.de>
 References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
 In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -65,16 +64,16 @@ Cc: linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
  sparclinux@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788943875; l=1595;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788943875; l=1480;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=Inx1GMMAL9hTofIIG5CeNr2zKHZu0vdSWjUErNB5P+Q=;
- b=S5UXcl0xftPFhFxyzIYGTlv2hiN5xVRt8TcojCGkIIJlfpcJoQYHo8t1Vw1w+qVFkJDkfU+DX
- KiIc9K+4lvbCboRLbKhU8xLm4rTxtAlsgsM1YN6LzOWh2SHeS6QsfsX
+ bh=9yrup1COiXMcfGgNW5FQUG/LXYB+NuTSGZ1TprnDeUQ=;
+ b=8lsoI5rYTpgQdz12XqHek0bQOa8lDAtlAIBJKnJGQxBA5RZp/X59vjJa3XzdUUOBGktVHG8Xt
+ hROTC4EoOEOABpAp1sl+WEhhmKISJWSG/lG/6la5vX3KZWy9RTginJR
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_015126_953957_EB55A35E 
-X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-CacheID: sfid-20260909_015129_369171_C55331F9 
+X-CRM114-Status: UNSURE (   6.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,54 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__arch_get_vdso_u_rng_data() is only used in getrandom.c. vsyscall.h
-has become a dumping ground for different kinds of fallbacks.
+Most architectures define the vDSO page macros in asm/vdso.h.
 
-Move the fallback function definition into getrandom.c,
-similar to other fallbacks.
+Align the x86 headers.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/asm-generic/vdso/vsyscall.h | 7 -------
- lib/vdso/getrandom.c                | 7 +++++++
+ arch/x86/include/asm/vdso.h          | 7 +++++++
+ arch/x86/include/asm/vdso/vsyscall.h | 7 -------
  2 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/include/asm-generic/vdso/vsyscall.h b/include/asm-generic/vdso/vsyscall.h
-index fe12fb1fb442..cdf7b39cd349 100644
---- a/include/asm-generic/vdso/vsyscall.h
-+++ b/include/asm-generic/vdso/vsyscall.h
-@@ -4,13 +4,6 @@
+diff --git a/arch/x86/include/asm/vdso.h b/arch/x86/include/asm/vdso.h
+index 4e735158c1b2..071e4a262b50 100644
+--- a/arch/x86/include/asm/vdso.h
++++ b/arch/x86/include/asm/vdso.h
+@@ -6,6 +6,13 @@
+ #include <linux/linkage.h>
+ #include <linux/init.h>
  
++#define __VDSO_PAGES	6
++
++#define VDSO_NR_VCLOCK_PAGES	2
++#define VDSO_VCLOCK_PAGES_START(_b)	((_b) + (__VDSO_PAGES - VDSO_NR_VCLOCK_PAGES) * PAGE_SIZE)
++#define VDSO_PAGE_PVCLOCK_OFFSET	0
++#define VDSO_PAGE_HVCLOCK_OFFSET	1
++
  #ifndef __ASSEMBLER__
  
--#ifndef __arch_get_vdso_u_rng_data
--static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
--{
--	return &vdso_u_rng_data;
--}
--#endif
--
- #ifndef __arch_update_vdso_clock
- static __always_inline void __arch_update_vdso_clock(struct vdso_clock *vc)
- {
-diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
-index 2851afa9154f..6ff46549281c 100644
---- a/lib/vdso/getrandom.c
-+++ b/lib/vdso/getrandom.c
-@@ -19,6 +19,13 @@
- /* Bring in default accessors */
- #include <vdso/vsyscall.h>
+ #include <linux/mm_types.h>
+diff --git a/arch/x86/include/asm/vdso/vsyscall.h b/arch/x86/include/asm/vdso/vsyscall.h
+index 57598db8763b..65d10f4cc718 100644
+--- a/arch/x86/include/asm/vdso/vsyscall.h
++++ b/arch/x86/include/asm/vdso/vsyscall.h
+@@ -2,13 +2,6 @@
+ #ifndef __ASM_VDSO_VSYSCALL_H
+ #define __ASM_VDSO_VSYSCALL_H
  
-+#ifndef __arch_get_vdso_u_rng_data
-+static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
-+{
-+	return &vdso_u_rng_data;
-+}
-+#endif
-+
- #define MEMCPY_AND_ZERO_SRC(type, dst, src, len) do {				\
- 	while (len >= sizeof(type)) {						\
- 		__put_unaligned_t(type, __get_unaligned_t(type, src), dst);	\
+-#define __VDSO_PAGES	6
+-
+-#define VDSO_NR_VCLOCK_PAGES	2
+-#define VDSO_VCLOCK_PAGES_START(_b)	((_b) + (__VDSO_PAGES - VDSO_NR_VCLOCK_PAGES) * PAGE_SIZE)
+-#define VDSO_PAGE_PVCLOCK_OFFSET	0
+-#define VDSO_PAGE_HVCLOCK_OFFSET	1
+-
+ #ifndef __ASSEMBLER__
+ 
+ #include <vdso/datapage.h>
 
 -- 
 2.55.0
