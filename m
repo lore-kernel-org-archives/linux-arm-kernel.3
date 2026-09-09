@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45699C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F85EC79FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=; b=A8LfZhphCdua/fQrr63srxybvN
-	aNhvzwJEcO7z3YmZEQoRgFtsyjn2hJ0njJyyLis1ashV3giDxm5U4/5pvb157MSk04tDUhmoA7fgD
-	jMdK/MDuR3+vm0jCx3g341eGEyBWtNWVBAQLRoyuh0mZxey3zsJgsef9dW89VyvAMJEtkKCNHq0TW
-	A9tQOO/e1bNOuOqOwausMYVRawd3CH0CA3s5CsdLiQR1tHwUzpehYzkuVPyZJN3i/w5JmJP0H9ZPy
-	Yzj9+eBPRFW1pBspCN3UhvV1+IZmi/2pFy2H0YfZ1pHlsbOhpvJEIFzW6CU31y1+YJJn4W+dVHjCO
-	fDW1OoSg==;
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=; b=oVmlzHWD3b97pTW/f+PvZbvfaI
+	8TkExA42Un3y+WfkCe5HzN3zj/2ftImYp30M4NoVR7TBhvFPwEZDOhKNEWNzp5YiFAi308qYDNyoC
+	8evX2eEqzFLgqd2aBS3RDBCvr6DPW/AZ4nyxB31/qQsHm2dGSuMqS9efYC9HuYACGFD/5x0WAHA0s
+	9m5b+T8pIbJnrXu/eOUmZl9jM+rtUqwbaKVEbvYhxsBLLFLgduSLEpRwJN8gRjeqllybgt07bY7Z0
+	PpyrKOJGIyDq4tBHkrMjC2kEOLhMeiTIE4brAgRDBDZAqeeRdR5gQegfHPRyK+7TFzMHSrg4mx+eE
+	8fFx9IEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E9S-0000000BDwx-0SQz;
-	Wed, 09 Sep 2026 08:59:30 +0000
+	id 1x4E9Y-0000000BE3e-25GS;
+	Wed, 09 Sep 2026 08:59:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E9Q-0000000BDuz-3NdH
+	id 1x4E9X-0000000BE2B-1BZ5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 08:59:29 +0000
+	Wed, 09 Sep 2026 08:59:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=; b=m3lPwbpmld3YNZ8k+5sxVEA9Vp
-	QsCs4iusWK85Xh9EEZayJKIxjPcEHR2b4Y5b3EBH/MjWEqoZyFTj1rVWsBYdC/UbD+0ZJQSkepyyB
-	sQsYkfUw1iuezpmt9P+GneZORQzLbHZFqRwIXr5hcs5z/bDQK87ryboqxyALdR9Qy4O52RV+Tag6d
-	DPvam0PI8dNcwn1XuTSSUPC3w0NOAFXHt8ecxuA1RsmjP5oy63eS/HSvwRQZKcSyxUOsUWlF3UQR/
-	el/1K60eE0eIG0l2wNIOgMXKOATa3KMtw3n2wYBv6fJebaAxbmvt8Dfr+HvNdonaz8WomxoP6fScD
-	mQre5ing==;
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=; b=S9+FMIkbmxLbgJmJ8piqGApB8l
+	BWekRp4fATLyGaWI4Mvujoek8pUqa7Werfzh28KKd0nkhQd9PTMSKhd1sT0hnjP97a39bSF5es6Oc
+	Luc8q/NKyafuEHn1uCWpfjLBT78Fiok2S5XZD4u1DjLV06JPyd8L0FnIWpWNkpck+OGgVSbfktwrG
+	Mc7FD1EzEHMSngE8Hoq652LtC5ylELENT6Piv6+sFRSsrUICwP4J92kcRAnZZB9a6wHD8YEwGJD6Y
+	cclxlXyGLA4b0Oautah6ynJtPxkIwa144XsKMvBgxOtDb4d7Ur2q5Cr5WcWfoKjp7aybEsSfaoOUr
+	QZBNISyA==;
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4E9O-00000000xNb-04Ws
+	id 1x4E9T-00000000xQv-2wfE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 08:59:27 +0000
+	Wed, 09 Sep 2026 08:59:34 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 2F45721A7E;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 0D4601F867;
 	Wed,  9 Sep 2026 08:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1788944326; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=1dm1xO1x3hLqRrsmVizHSExZ08U5t0vJ59xO7zwq3xHt3LAATOhHEKpTiL3uxciWMvCbPs
-	8w8e73ZsrNlOZYbGexGKNE0XJ6vF2JSxro+4Mv7aIYB6kKF4dXPO9haQJ+7MYSBpnUd6fg
-	RtLDXwUfhBCScXS5cO3Wj+3HTtn8gDE=
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=;
+	b=aSziHAkRb5piAJLxkwgpHw1HhSDZcPFqyItrBIbej47ZcBP9bSRJhcuFQHywEOovYy426R
+	r+li74NbGhzg+qYQOQwyHETiidk3O7SZsGSDzWKiY8kKUZfL5Eo6C+AGK0/4nIcrtU5sN6
+	WEa7DWogHdJvmXrM1RYLd7Bv4abeUmk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1788944326;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=AyB9DOLf/MsVeP4truED/BqsipN0gXwRUM8uKJpuTrrmkz5mQZmznl1nmIH1JzbnP0Nso1
-	14PP0j3oCMA5z3DQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=U4OeGi32;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=AorCwKKY
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=;
+	b=LWafGJkOWWL9t72TH/GL70N2vTYhlEC+4h1mnimNzXnEMHB686TtE9/b6BI/0LqTwhd1rR
+	tvH/rXCjFICQQLBQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=x8z7j4cP;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="/rZ/tfq7"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1788944322; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=U4OeGi32J/zKC0WnRfvdYuh7OGEVPH8zZWZh1n+7OguBQEayIbkmI4H4kQpxze9qi5rHl9
-	iZm2xO0v47xQyvBGKKryLTD6hR7MwdEXAe5WSvPmM9PfnnpOkw4tP8HdChhqpRl9cdBTYw
-	KXCtnJQA3+rTp4o+rMZCr12GwMqQzic=
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=;
+	b=x8z7j4cP/eUsu6nnkUN6kr8bRho84NvW/ezUiaz9euuIOy8hvLYd+qC2QDxMDMk5KKYGnZ
+	ae8cO45v6XgzWctQItW9LELKCED874JxAX/1zEYaKIWFcewvJRZWytpA87jOvzGUBTLmvX
+	feV5fA7YXLqISAKI8Xb6TtpNwAxfilY=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1788944322;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=AorCwKKY3gSBU8990Mrshvx+tOznGvCi8rGQl7B4okGlFGOFBgRPOaKyYhMk9K0qi2ufkH
-	ZFdu/y6iH8gQ/TAg==
+	bh=W6OQbTiGH9vzNm4zuJ/xs76Vvn/TIePcgZTE52GlKWo=;
+	b=/rZ/tfq7g1vW4WFAbFeaWxPvSlpU8ppNMMwog1z33zDu7pdzYu2dXtYDj9ENH+vbzgSNfY
+	v0U1/zoqwPYfecCQ==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 670BB1396B;
-	Wed,  9 Sep 2026 08:58:37 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D1A5B13964;
+	Wed,  9 Sep 2026 08:58:36 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id wE3GF70foWoVUQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 09 Sep 2026 08:58:37 +0000
+	id WGnBMbwfoWoVUQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 09 Sep 2026 08:58:36 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: jfalempe@redhat.com,
 	javierm@redhat.com,
@@ -119,17 +119,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	virtualization@lists.linux.dev,
 	sashiko-reviews@lists.linux.dev,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v4 10/14] drm/panic: Restrict to primary planes
-Date: Wed,  9 Sep 2026 10:55:25 +0200
-Message-ID: <20260909085826.64529-11-tzimmermann@suse.de>
+Subject: [PATCH v4 09/14] drm/panic: Split draw_panic_plane()
+Date: Wed,  9 Sep 2026 10:55:24 +0200
+Message-ID: <20260909085826.64529-10-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260909085826.64529-1-tzimmermann@suse.de>
 References: <20260909085826.64529-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 2F45721A7E
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 0D4601F867
 X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	MID_CONTAINS_FROM(1.00)[];
@@ -139,7 +139,7 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
 	MX_GOOD(-0.01)[];
-	URIBL_BLOCKED(0.00)[suse.de:dkim,suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email,suse.de:mid];
 	MIME_TRACE(0.00)[0:+];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
 	ARC_NA(0.00)[];
@@ -150,15 +150,15 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	RCVD_TLS_ALL(0.00)[];
 	FROM_HAS_DN(0.00)[];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:email,suse.de:mid];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
 	FREEMAIL_TO(0.00)[redhat.com,gmail.com,linux.intel.com,kernel.org,linux-m68k.org,infradead.org];
 	RCVD_COUNT_TWO(0.00)[2];
 	FROM_EQ_ENVFROM(0.00)[];
 	R_RATELIMIT(0.00)[to_ip_from(RLo585esf9b7txaosbn5shab9z)];
 	DKIM_TRACE(0.00)[suse.de:+]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_095926_227886_339F2FD3 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260909_095932_011637_EA2A3168 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,59 +173,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restrict panic handling to primary displays. Overlays and cursors
-should not display panic output. If there are exceptions, they can
-be registered by the driver itself.
+Move locking and parameters from draw_panic_plane() into the new
+helper drm_panic_display_panic_screen(). Call draw_panic_plane() from
+there.
 
-v3:
-- also update drm_panic_is_enabled() (Sashiko)
-- still do some testing when unregistering (Sashiko)
+The new helper drm_panic_display_panic_screen() is now the DRM core's
+interface for displaying a panic screen. The code remaining in
+draw_panic_plane() still does all the heavy lifting. It will become a
+plane helper for DRM drivers.
+
+v2:
+- use panic_type argument in draw_panic_plane() (Sashiko)
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
 ---
- drivers/gpu/drm/drm_panic.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/drm_panic.c | 62 ++++++++++++++++++++-----------------
+ 1 file changed, 34 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 809d51ad78a8..522ea990a2e9 100644
+index ce4606cac7e2..809d51ad78a8 100644
 --- a/drivers/gpu/drm/drm_panic.c
 +++ b/drivers/gpu/drm/drm_panic.c
-@@ -1059,9 +1059,13 @@ bool drm_panic_is_enabled(struct drm_device *dev)
- 	if (!dev->mode_config.num_total_plane)
- 		return false;
- 
--	drm_for_each_plane(plane, dev)
--		if (plane->helper_private && plane->helper_private->get_scanout_buffer)
--			return true;
-+	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
-+		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
-+			continue;
-+		return true;
-+	}
- 	return false;
+@@ -936,42 +936,25 @@ static void drm_panic_clear_description(void)
+ 	desc_line->txt = NULL;
  }
- EXPORT_SYMBOL(drm_panic_is_enabled);
-@@ -1079,6 +1083,8 @@ void drm_panic_register(struct drm_device *dev)
- 		return;
  
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		plane->kmsg_panic.dump = drm_panic;
-@@ -1106,6 +1112,8 @@ void drm_panic_unregister(struct drm_device *dev)
- 		return;
+-static void draw_panic_plane(struct drm_plane *plane, const char *description)
++static void draw_panic_plane(struct drm_plane *plane, const char *description,
++			     enum drm_panic_type panic_type, u32 fg_color, u32 bg_color,
++			     unsigned int qr_version)
+ {
+ 	struct drm_scanout_buffer sb = { };
+ 	int ret;
+-	unsigned long flags;
+-#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
+-	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
+-#else
+-	u32 fg_color = 0x00ffffff;
+-#endif
+-#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
+-	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
+-#else
+-	u32 bg_color = 0x00000000;
+-#endif
+-#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
+-	unsigned int qr_version = panic_qr_version;
+-#else
+-	unsigned int qr_version = 0;
+-#endif
+-
+-	if (!drm_panic_trylock(plane->dev, flags))
+-		return;
  
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		kmsg_dump_unregister(&plane->kmsg_panic);
+ 	ret = plane->helper_private->get_scanout_buffer(plane, &sb);
+ 
+ 	if (ret || !drm_panic_is_format_supported(sb.format))
+-		goto unlock;
++		return;
+ 
+ 	/* One of these should be set, or it can't draw pixels */
+ 	if (!sb.set_pixel && !sb.pages && iosys_map_is_null(&sb.map[0]))
+-		goto unlock;
++		return;
+ 
+ 	drm_panic_set_description(description);
+ 
+-	ret = draw_panic_dispatch(&sb, drm_panic_type, fg_color, bg_color, qr_version);
++	ret = draw_panic_dispatch(&sb, panic_type, fg_color, bg_color, qr_version);
+ 	if (!ret) {
+ 		/*
+ 		 * Only flush if we have a panic screen to display. Otherwise
+@@ -982,9 +965,33 @@ static void draw_panic_plane(struct drm_plane *plane, const char *description)
+ 	}
+ 
+ 	drm_panic_clear_description();
++}
+ 
+-unlock:
+-	drm_panic_unlock(plane->dev, flags);
++static void drm_panic_display_panic_screen(struct drm_plane *plane, const char *description)
++{
++#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
++	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
++#else
++	u32 fg_color = 0x00ffffff;
++#endif
++#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
++	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
++#else
++	u32 bg_color = 0x00000000;
++#endif
++#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
++	unsigned int qr_version = panic_qr_version;
++#else
++	unsigned int qr_version = 0;
++#endif
++	struct drm_device *dev = plane->dev;
++	unsigned long flags;
++
++	if (drm_panic_trylock(dev, flags)) {
++		draw_panic_plane(plane, description, drm_panic_type,
++				 fg_color, bg_color, qr_version);
++		drm_panic_unlock(dev, flags);
++	}
+ }
+ 
+ static struct drm_plane *to_drm_plane(struct kmsg_dumper *kd)
+@@ -997,10 +1004,9 @@ static void drm_panic(struct kmsg_dumper *dumper, struct kmsg_dump_detail *detai
+ 	struct drm_plane *plane = to_drm_plane(dumper);
+ 
+ 	if (detail->reason == KMSG_DUMP_PANIC)
+-		draw_panic_plane(plane, detail->description);
++		drm_panic_display_panic_screen(plane, detail->description);
+ }
+ 
+-
+ /*
+  * DEBUG FS, This is currently unsafe.
+  * Create one file per plane, so it's possible to debug one plane at a time.
+@@ -1017,7 +1023,7 @@ static ssize_t debugfs_trigger_write(struct file *file, const char __user *user_
+ 	if (kstrtobool_from_user(user_buf, count, &run) == 0 && run) {
+ 		struct drm_plane *plane = file->private_data;
+ 
+-		draw_panic_plane(plane, "Test from debugfs");
++		drm_panic_display_panic_screen(plane, "Test from debugfs");
+ 	}
+ 	return count;
+ }
 -- 
 2.55.0
 
