@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C30C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3884BC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vq7c/Hvo/1Zm+J68rStWCQQNc5Z7oKaUjk4qiUyJp1Y=; b=nOJ5JcO8Zg7Opcf7tBGeQUM4yY
-	3mO17BwAPZvGECJGDt+gWfsfedKvZxdNToFJPAzCN+NlZlEgECB+a15/xSLaHc5sIEWToeGpyMqiP
-	n4b4d+pTdH9znRwaAxKAo94KNdJvrJHohRGDwB/S7GmwCsXDQiVnw120ZfPBhoNcqdmpQ7ROs6kGC
-	1Ee/WcSMrwJ0aWhSbUoE0idAvYJSSnfmS+X7XTM8fDmAit1XjlSgQj+1lX+/tXzAkVHi6CCVmj/Om
-	7Eleh+14rsqzz1zwPOQxm5XjcOxjaaq38j7W/Z1OKfZhZtWSKmZ3kHCqpQcdozGRD++rm4HlQ7mMw
-	50xX8kCQ==;
+	bh=mLP+Qen/7FlMgfeGn+GCMV7hbDA0yzybp+V1qh81JEw=; b=eW5F4X2g2/2IPutwQ7no1eqdi3
+	PELfTcbIINVxrxiC5NMEYtMs+QiHJgAKQ1HaTUdbFBScNRNZxcuzx6ymPgrBMP9wmBt78NqP5THtJ
+	OGgFflJoX6Tlk3EHUE42aeZIrG5pAXmfHYqHVJ12bFlCQNmJ6STpOFKWuaPBA410OI+FA0vFsdxAi
+	4tz/F5YZPxwvc6I52CohfjbjLb0/KBdLiJe89PCdokWxAuZWXnEiWLc9gZWfbFB8ZHU2TtxWGFOVJ
+	xD/o4LPrrMrfDVB3F40FqIi9jmi813Hk+eyxH7/R1fK6bUKuy7OxcjPqTgZNDcGPJu33Xwu+qx+Af
+	AAgjNjRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ebo-0000000BIHv-2iiH;
+	id 1x4Ebo-0000000BIHa-1KWB;
 	Wed, 09 Sep 2026 09:28:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ebk-0000000BIDa-2fHp
+	id 1x4Ebk-0000000BIDZ-2cP4
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 09:28:45 +0000
+	Wed, 09 Sep 2026 09:28:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Vq7c/Hvo/1Zm+J68rStWCQQNc5Z7oKaUjk4qiUyJp1Y=; b=Gi1q24T8ZfOTFcvEoHDJII4SKc
-	WXTWTJgKjQeylFBt0yavYaTwOsNBOPu5GOyt36sHqPlhlhuXDNCav4T7hSCHHyaUEirvAWGIYI1RF
-	JNF97jtUW202vDMSolOhkeTwMpPne/88nVNYfV85c5+RJ7s0JGPdLPRHfviDCEEpuEIQ7nbNCt+2o
-	pQmlaOdrWvXJjgWBqrL/wTaNMqhCapg7OEaHGFnQnt9FFlDrowp0mpFWOLtXBvvTOSYsuNK54i83K
-	CJS51K4tSk0t1Fd2VMs2U1f+7ufgiHtqsS9aBN+jIXOXgiAzLgsCub6lQUX5Z+KUuGqxgUj6oseMW
-	dBxtZRYw==;
+	bh=mLP+Qen/7FlMgfeGn+GCMV7hbDA0yzybp+V1qh81JEw=; b=eG7ThVhzpVl1zEcrJhXYzJjybg
+	Lx2rysqz4oLGaVkzwcTbAyTLbHQwG+0HpIxc+0R2O5Lbz8q2a3kEeW2R+uH3wNRQ/44O2sXFq6JAl
+	5Vwcz6yvdjxjsV+mCIgiKsC/XcTxRAWiDjnNq1Xy7ay+YsWv3MLNRS9IPZIdop6Rf3272bWXQ4hW5
+	Wnw0AQBQ43CHiEZjGHQwIQYtiAxbkTud54p/AskFy2UkmTnB6jPQMqkSkhp1tAbYFB9ornXU/oNEt
+	1dxXEmD0cCLzMhzm4rpw5gYJ5gz4tm/7GtumSvQcWbPLfKm0PRueRykbwlO2zYPO+taXTXkGEUpqP
+	mnys8SKw==;
 Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4Ebg-00000000zoM-0iPZ
+	id 1x4Ebg-00000000zoN-1U5w
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Sep 2026 09:28:43 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Vq7c/Hvo/1Zm+J68rStWCQQNc5Z7oKaUjk4qiUyJp1Y=;
-	b=6gk98iMQGo1gYBiiYU1dJBNw/Pj4RPpuBoLrnCud96ixy2LzEuPNHyX5ExdD+1MWqOMQazx+a
-	wDmZqNjofk4sDgLF9E/t0cZgC4EpqbL0RHb85jIguPzGJC3wRlxmRRDyGKrMY8+jtkO/fDhJ8QQ
-	skPTxlhKqpoKzNZKWSU3VQk=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hfwF536cLz1cyTS;
-	Wed,  9 Sep 2026 17:17:29 +0800 (CST)
+	bh=mLP+Qen/7FlMgfeGn+GCMV7hbDA0yzybp+V1qh81JEw=;
+	b=KVQRbP2aFPXjxwfsj9GMdflbK+s019Q2giB4YC/g5p0t9AZhWxNAjrZnqrQrp3K3c/wXj1OGC
+	yMHnrpul7XhXqWhalRxkOp5OrdAq5gYfqyw7mry8+asaIHbm1XhMih/s8hXTWoiicVokE5/Le8N
+	Ui/pncGx645fpiK+JicPQw8=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hfwF63RkPz1cyTS;
+	Wed,  9 Sep 2026 17:17:30 +0800 (CST)
 Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1CE5D4048B;
-	Wed,  9 Sep 2026 17:28:23 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2BE7F40573;
+	Wed,  9 Sep 2026 17:28:24 +0800 (CST)
 Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
  (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 17:28:22 +0800
+ 2026 17:28:23 +0800
 From: Jinjiang Tu <tujinjiang@huawei.com>
 To: <akpm@linux-foundation.org>, <david@kernel.org>, <ljs@kernel.org>,
 	<catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
@@ -66,9 +66,9 @@ To: <akpm@linux-foundation.org>, <david@kernel.org>, <ljs@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>
 CC: <wangkefeng.wang@huawei.com>, <sunnanyong@huawei.com>,
 	<tujinjiang@huawei.com>
-Subject: [PATCH 1/3] mm: define generic pudp_invalidate() implementation
-Date: Wed, 9 Sep 2026 17:00:16 +0800
-Message-ID: <20260909090018.1991485-2-tujinjiang@huawei.com>
+Subject: [PATCH 3/3] arm64: Add support for PUD THP
+Date: Wed, 9 Sep 2026 17:00:18 +0800
+Message-ID: <20260909090018.1991485-4-tujinjiang@huawei.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260909090018.1991485-1-tujinjiang@huawei.com>
 References: <20260909090018.1991485-1-tujinjiang@huawei.com>
@@ -79,8 +79,8 @@ X-Originating-IP: [10.50.85.135]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_102840_822334_A608D0AF 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260909_102840_993931_19C177B4 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,150 +95,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-x86 and riscv have identical pudp_invalidate() implementations. Move it to
-mm/pgtable-generic.c with the __HAVE_ARCH_PUDP_INVALIDATE override guard.
-PowerPC keeps its own implementation. In the later patch, arm64 will use
-the generic implementation too.
+Add the necessary page table functions to deal with PUD THP, this enables
+PUD THP for DAX and pfnmap.
 
-No functional change intended.
+I tested with CONFIG_DEBUG_VM_PGTABLE and CONFIG_PAGE_TABLE_CHECK
+enabled.  I wrote a test driver that invokes vmf_insert_pfn_pud() in
+the huge_fault callback.  Page table setup works as expected with no
+errors, and userspace read/write access to the PUD-sized mapping is
+verified correct.
 
 Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
 ---
- arch/powerpc/include/asm/book3s/64/pgtable.h |  1 +
- arch/riscv/include/asm/pgtable.h             |  3 ---
- arch/riscv/mm/pgtable.c                      |  9 ---------
- arch/x86/include/asm/pgtable.h               |  3 ---
- arch/x86/mm/pgtable.c                        | 12 ------------
- include/linux/pgtable.h                      |  7 +++++++
- mm/pgtable-generic.c                         | 14 ++++++++++++++
- 7 files changed, 22 insertions(+), 27 deletions(-)
+ arch/arm64/Kconfig               |  1 +
+ arch/arm64/include/asm/pgtable.h | 52 ++++++++++++++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index f4db7d7fbd5c..55d33c5537f1 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -1419,6 +1419,7 @@ static inline pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm,
- #define __HAVE_ARCH_PMDP_INVALIDATE
- extern pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 			     pmd_t *pmdp);
-+#define __HAVE_ARCH_PUDP_INVALIDATE
- extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 			     pud_t *pudp);
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 40b1ed4f3ea8..327fa378032b 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -1159,9 +1159,6 @@ static inline pud_t pud_mkinvalid(pud_t pud)
- 	return __pud(pud_val(pud) & ~(_PAGE_PRESENT | _PAGE_PROT_NONE));
- }
- 
--extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
--			     pud_t *pudp);
--
- static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
- {
- 	return pte_pud(pte_modify(pud_pte(pud), newprot));
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 9c4427d0b187..156e385e7db4 100644
---- a/arch/riscv/mm/pgtable.c
-+++ b/arch/riscv/mm/pgtable.c
-@@ -154,15 +154,6 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
- 	return pmd;
- }
- 
--pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
--		      pud_t *pudp)
--{
--	VM_WARN_ON_ONCE(!pud_present(*pudp));
--	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
--
--	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
--	return old;
--}
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
- pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index d5f4917c1edc..97051c02385e 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1387,9 +1387,6 @@ static inline pud_t pudp_establish(struct vm_area_struct *vma,
- extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
- 				unsigned long address, pmd_t *pmdp);
- 
--pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
--		      pud_t *pudp);
--
- /*
-  * Page table pages are page-aligned.  The lower half of the top
-  * level is used for userspace and the top half for the kernel.
-diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-index cb03f5a2b243..0945908631dc 100644
---- a/arch/x86/mm/pgtable.c
-+++ b/arch/x86/mm/pgtable.c
-@@ -519,18 +519,6 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
- }
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef944..8a7ca1863595 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -173,6 +173,7 @@ config ARM64
+ 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE
++	select HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD if PAGE_SIZE_4KB
+ 	select HAVE_ARCH_VMAP_STACK
+ 	select HAVE_ARM_SMCCC
+ 	select HAVE_ASM_MODVERSIONS
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 427ea3d2bac7..fdc338970934 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -611,6 +611,11 @@ static inline pmd_t pmd_mkhuge(pmd_t pmd)
+ #define pmd_mkspecial(pmd)	pte_pmd(pte_mkspecial(pmd_pte(pmd)))
  #endif
  
--#if defined(CONFIG_TRANSPARENT_HUGEPAGE) && \
--	defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
--pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
--		     pud_t *pudp)
--{
--	VM_WARN_ON_ONCE(!pud_present(*pudp));
--	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
--	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
--	return old;
--}
--#endif
--
- /**
-  * reserve_top_address - Reserve a hole in the top of the kernel address space
-  * @reserve: Size of hole to reserve
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 8c093c119e5a..32173005b087 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1318,6 +1318,13 @@ extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
- 				unsigned long address, pmd_t *pmdp);
- #endif
- 
-+#ifndef __HAVE_ARCH_PUDP_INVALIDATE
-+#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-+extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
-+			     pud_t *pudp);
-+#endif
++#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
++#define pud_special(pud)	pte_special(pud_pte(pud))
++#define pud_mkspecial(pud)	pte_pud(pte_mkspecial(pud_pte(pud)))
 +#endif
 +
- #ifndef __HAVE_ARCH_PTE_SAME
- static inline int pte_same(pte_t pte_a, pte_t pte_b)
- {
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index b91b1a98029c..ac1175d9a59a 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -217,6 +217,20 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
- }
- #endif
+ #define __pmd_to_phys(pmd)	__pte_to_phys(pmd_pte(pmd))
+ #define __phys_to_pmd_val(phys)	__phys_to_pte_val(phys)
+ #define pmd_pfn(pmd)		((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT)
+@@ -619,8 +624,15 @@ static inline pmd_t pmd_mkhuge(pmd_t pmd)
+ #define pud_young(pud)		pte_young(pud_pte(pud))
+ #define pud_mkyoung(pud)	pte_pud(pte_mkyoung(pud_pte(pud)))
+ #define pud_mkwrite_novma(pud)	pte_pud(pte_mkwrite_novma(pud_pte(pud)))
++#define pud_mkwrite(pud)	pud_mkwrite_novma(pud)
+ #define pud_mkvalid_k(pud)	pte_pud(pte_mkvalid_k(pud_pte(pud)))
+ #define pud_write(pud)		pte_write(pud_pte(pud))
++#define pud_dirty(pud)		pte_dirty(pud_pte(pud))
++#define pud_wrprotect(pud)	pte_pud(pte_wrprotect(pud_pte(pud)))
++#define pud_mkdirty(pud)	pte_pud(pte_mkdirty(pud_pte(pud)))
++#define pud_mkold(pud)		pte_pud(pte_mkold(pud_pte(pud)))
++#define pud_mkinvalid(pud)	pte_pud(pte_mkinvalid(pud_pte(pud)))
++#define pud_mkclean(pud)	pte_pud(pte_mkclean(pud_pte(pud)))
  
-+#ifndef __HAVE_ARCH_PUDP_INVALIDATE
+ static inline pud_t pud_mkhuge(pud_t pud)
+ {
+@@ -871,6 +883,13 @@ static inline bool pud_leaf(pud_t pud)
+ #define pud_user(pud)		pte_user(pud_pte(pud))
+ #define pud_user_exec(pud)	pte_user_exec(pud_pte(pud))
+ 
 +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-+pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
-+		      pud_t *pudp)
++static inline int pud_trans_huge(pud_t pud)
 +{
-+	VM_WARN_ON_ONCE(!pud_present(*pudp));
-+	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
-+
-+	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
-+	return old;
++	return pud_present(pud) && !pud_table(__pud(pud_val(pud) | PTE_VALID));
 +}
 +#endif
++
+ static inline bool pgtable_l4_enabled(void);
+ 
+ static inline void set_pud(pud_t *pudp, pud_t pud)
+@@ -1237,6 +1256,11 @@ static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
+ 	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
+ }
+ 
++static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
++{
++	return pte_pud(pte_modify(pud_pte(pud), newprot));
++}
++
+ extern int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+ 					 unsigned long address, pte_t *ptep,
+ 					 pte_t entry, int dirty,
+@@ -1261,6 +1285,16 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
+ }
+ #endif
+ 
++#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
++static inline int pudp_set_access_flags(struct vm_area_struct *vma,
++					unsigned long address, pud_t *pudp,
++					pud_t entry, int dirty)
++{
++	return __ptep_set_access_flags_anysz(vma, address, (pte_t *)pudp,
++					     pud_pte(entry), dirty, PUD_SIZE);
++}
 +#endif
 +
- #ifndef pmdp_collapse_flush
- pmd_t pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long address,
- 			  pmd_t *pmdp)
+ #ifdef CONFIG_PAGE_TABLE_CHECK
+ static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
+ {
+@@ -1335,6 +1369,14 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+ 
++#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
++static inline bool pudp_test_and_clear_young(struct vm_area_struct *vma,
++		unsigned long address, pud_t *pudp)
++{
++	return __ptep_test_and_clear_young(vma, address, (pte_t *)pudp);
++}
++#endif
++
+ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+ 					       unsigned long address,
+ 					       pte_t *ptep,
+@@ -1497,6 +1539,15 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ }
+ #endif
+ 
++#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
++static inline pud_t pudp_establish(struct vm_area_struct *vma,
++		unsigned long address, pud_t *pudp, pud_t pud)
++{
++	page_table_check_pud_set(vma->vm_mm, address, pudp, pud);
++	return __pud(xchg_relaxed(&pud_val(*pudp), pud_val(pud)));
++}
++#endif
++
+ /*
+  * Encode and decode a swap entry:
+  *	bits 0-1:	present (must be zero)
+@@ -1571,6 +1622,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ #define update_mmu_cache(vma, addr, ptep) \
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ #define update_mmu_cache_pmd(vma, address, pmd) do { } while (0)
++#define update_mmu_cache_pud(vma, address, pud) do { } while (0)
+ 
+ #ifdef CONFIG_ARM64_PA_BITS_52
+ #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
 -- 
 2.43.0
 
