@@ -4,187 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFADC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247B2C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h+UzB3FVrp7Ua1G/o27VlkWZaNaXKqdLPTkPzj/oD10=; b=1JpjN9SEUlFoptzOgQ0vxPZ/On
-	PaiKm5yXXJesfjC573eyhaWz8Gz0HAUOe3z7ywB5URwooHvhvtZvSfPhHzFspzhgZ3l2rp3hFDg4O
-	AsvEQPgRsy9rn8/j1q1YIgDO1b/6brq8ErHT4pry1mRusZxHbasnoTFgPPxxHHgOyTY8QlhIQCcrG
-	VhPPSXMC2qr8OHhS4Cl8y3KYQSKU6JgV/SAnnGqzVHCjIO+sao2SmiSPhFF8YOMDgO/KKf/EvIWY8
-	HahfhOJeClPZ5oTzOlPNalMyHVb0rj4tB9QT9QwNiPFcixeXUeU7kzUBpvR443DX5Yotl5dBh3rul
-	784jFUDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBgTT3VIWig+VgekORUqrYlktN0bs73d9DwAiyf9MpQ=; b=OzhagtmqZiV9X3ClJb+I+BdxkR
+	Plzjj1/abjA4a3YvNs2RPHQR+4ZD3xK5GVtwA2Zh/3378zWpPgG148CaFPpeR7tsZK7OroPGu8nII
+	i+vJRKdV2VMiYYeoX3Mm5EvTFv7TYzYx67pVP3n54L6oa7sy1rsLTJ39lLndBHcwJ9pfT3XD2CUV4
+	4J4NY5SvJFWrLZ8C8AC1Pdct6r64gdulprmQRazO7FPRg8Zume3szWY2BdP4Cg/0j+eU5wHlFu/3n
+	aC259iY5e17SayKUV+xfjN1Ha46pcFdff5+cDVR+/FySqkkeW/gM5ygHIqMnwV5oqRACGJGPbinUe
+	IRchQe8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4QA2-0000000CvlV-3Md1;
-	Wed, 09 Sep 2026 21:48:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4QBt-0000000Cwg3-2okn;
+	Wed, 09 Sep 2026 21:50:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Q9u-0000000Cvca-1f0d
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 21:48:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=h+UzB3FVrp7Ua1G/o27VlkWZaNaXKqdLPTkPzj/oD10=; b=NFGS0l6DJMlOztUZ0tYTXHA5/J
-	3Q4IME0vptmjVpoeL2Ubt5bXqV2n7PC6NLUSqUExyk4InAYy6jqD7QffabI7tq+yF1DpvR0VSxJTi
-	8EDHJPAI/xW6FXtvRYfryAuq9FMAWOeGLJiHyk0vXavkvHMic892vYkzzM5D8DoHrmc/7SJJxvzKj
-	B8NI0mV+CCS29Y+El7ZPD+uMmnR7eG+9PKmA30e+grIgiqhTzxrIZ4ChttIjY3jdupKZw6FAOlq61
-	Ool4PDJ3sa50n6dpIhTGSz7aqYEkoZbVSOg3q9RiLri74HYwCgqO0jG/I2Zlv9zTPeWuyysgFuWPC
-	Eam/wm8w==;
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4Q9o-00000001iih-0Zwe
+	id 1x4QBs-0000000Cwfo-27cG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 21:48:45 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 689JG7us1158970;
-	Wed, 9 Sep 2026 16:48:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=h+UzB3FVrp7Ua
-	1G/o27VlkWZaNaXKqdLPTkPzj/oD10=; b=euli8bjqwWudcKh5Rv7RKJLHcuTpc
-	NWjVHjGseiDxYufTPuk3U1yFd9t2JD1ID7KOB9TH/WNNFePN4MScA2qBvIM9g9gL
-	ySo7Es6Ezqu5XES4/b+xlfQb54gaEgpjcK02JpIXY0KuOIj/KZu15lVlPPeg9TpA
-	LURn8n5LjWNAZ6F546YLLZjFrPp+vWMUI2Y3nZk54BJvt4q68s3D1PCNEf8OiYHw
-	RpPcw2LEs94ZWBcVCEjTNR935YDPlOHik9lAh1yJOONR4fuoNIsfQIE+aLFDeQUP
-	y2VnvpF/qFhWEBl/pLJGNJMtnBWXLuyDg+uzXnBGryJHNMvfktqz8edRw==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010067.outbound.protection.outlook.com [52.101.193.67])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4gkcxes314-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 09 Sep 2026 16:48:21 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OdszUoXFatdQNEuGGPTszskPhHZhsy9rRLVXvcGKOSF3+S38b5FsAaGagOzo6pJQ1fWMzNHOMI5gtPE7p3b7cw2j3xDlIwymOzYG5dA7iRzFwdZugIcCDkjrZCieREg6baMbDRUKv3D8Y2WtgTsN9fmx2yAMgv/DVlkgL5IDnSkuzbXxlNbqkmQaqHt6bQl8dNjAmjnKm43VPplf5KY7dKrZQwKgaT8/42Y2Kpp1KH4zC2g2is4srd3WA4UK+Pb9SBdBcRCS/vVdCBpGWBSuGTx0iO/Y/a6C42YKRfN6a8miVPh3Lktj41J5Nu8Y4NnW+0IsQhv7P/a7xW+Vrb/goQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h+UzB3FVrp7Ua1G/o27VlkWZaNaXKqdLPTkPzj/oD10=;
- b=Edipz2bGxIRY+uJ9EZf/APfdPJ8IgHhu9XL2fCtYNgly+PtS/TOE3qK6/3/bGw5kQEPzFMaG4neNtqZ+3UF/llvf5/CpNNBc6Dc1xAjO322+Hwe11O/O9zWk8oZ9xtZWUzQFwknSXyp7Wy7n5qraKqiNrMQSUzxQMmjla0YbsM2FVuzZvg1Ka3KfgzoWQxJT9oDuToz8UUKLCP7Gs/bO5c3Azb3Rb/LIedh8ZjVKOA7cWRfJYEyUVC3WxYzsChrmZcp1Oy3Z+7vFVn6zhE5XdLGa0IHYNZO/Qd8x5WTS1lUyKYWtk+fEBpFtCLuXby8vPnFfkwv4OYViV/apdmkjbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h+UzB3FVrp7Ua1G/o27VlkWZaNaXKqdLPTkPzj/oD10=;
- b=PWxMpXNMsyOFG1E3fUEF6zvXg76rD/dKhPkS1+2XyalZIuY/WAJyPOTb3qat4s9cpDa/OBx7DPIwH9OZJzU2qIZsGYXVzuNa/UQGoXgwEvllZntBAYExYwgy75ewtHEmkYpDGkPCxS0gNXdvrMabHXZXvMa7HpXdBN5GzCpnDo0=
-Received: from DS1PR04CA0019.namprd04.prod.outlook.com (2603:10b6:8:243::6) by
- CYYPR10MB7569.namprd10.prod.outlook.com (2603:10b6:930:bb::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.4; Wed, 9 Sep 2026 21:48:17 +0000
-Received: from DS3PEPF0000C37A.namprd04.prod.outlook.com
- (2603:10b6:8:243:cafe::5c) by DS1PR04CA0019.outlook.office365.com
- (2603:10b6:8:243::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Wed, 9
- Sep 2026 21:48:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS3PEPF0000C37A.mail.protection.outlook.com (10.167.23.4) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 21:48:15 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 16:47:44 -0500
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 16:47:44 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 9 Sep 2026 16:47:44 -0500
-Received: from hpz2.dhcp.ti.com (hpz2.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 689Lli0D1072162;
-	Wed, 9 Sep 2026 16:47:44 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Garrett
- Giordano" <ggiordano@phytec.com>,
-        Wadim Egorov <w.egorov@phytec.de>,
-        "Robert
- Nelson" <robertcnelson@gmail.com>,
-        Tony Lindgren <tony@atomide.com>,
-        "Nora
- Schiffer" <nora.schiffer@ew.tq-group.com>,
-        Stefano Radaelli
-	<stefano.r@variscite.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Moteen Shah
-	<m-shah@ti.com>
-Subject: [PATCH v4 00/15] MMC pinmux configuration fixes
-Date: Wed, 9 Sep 2026 16:47:28 -0500
-Message-ID: <20260909214743.899477-1-jm@ti.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Wed, 09 Sep 2026 21:50:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A80B43B28;
+	Wed,  9 Sep 2026 21:50:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5613E1F000FF;
+	Wed,  9 Sep 2026 21:50:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788990648;
+	bh=SBgTT3VIWig+VgekORUqrYlktN0bs73d9DwAiyf9MpQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=IKXBB2OXUFUgcjdpMoqQuDCznorx5HEjNfzuxwg9G7zxBN/vvAtnxrGii/tp1m0iM
+	 Szz0AQgsCXLF6PAA9fWdr13BTpGnWc/g5mS06ztymMdfyiz0F5wop/yVjPELhmxSPA
+	 prdC2qlgVw6ykcasFwrYpVeF9k0qCJYOJEGzuxFoY+nCrTj5f/SnIovAElGXxS2bIe
+	 YMBaS+7Eumu63/XbChQY1wSHGBf/deJVcHNtFHFEIyTNcPpLrblGa21mLlZPxmWfev
+	 Z168gTCHoNwscwDgQ+70FTj4azjPfVNLNuOQW3OfmVW3SCxdZkYR7InFHKnkCxCBdq
+	 5j8E2PVPkf95g==
+Subject: Re: [PATCH v2] net: stmmac: clear dma_conf in __stmmac_open error path
+From: netdev-bot+sashiko@kernel.org
+To: zhaojinming@uniontech.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, horms@kernel.org,
+ ansuelsmth@gmail.com, Jose.Abreu@synopsys.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 09 Sep 2026 21:50:46 +0000
+Message-ID: <178899064691.219967.12835853245703806626@kernel.org>
+In-Reply-To: =?utf-8?q?=3C20260904-fix-stmmac-mtu-change-use-after-free-v2-1?=
+ =?utf-8?q?-91e680476921=40uniontech=2Ecom=3E?=
+References: =?utf-8?q?=3C20260904-fix-stmmac-mtu-change-use-after-free-v2-1-?=
+ =?utf-8?q?91e680476921=40uniontech=2Ecom=3E?=
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37A:EE_|CYYPR10MB7569:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08a939c4-6c53-4684-4b22-08df0ebc0d90
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|7416014|1800799024|10067099003|3023799007|18002099003|56012099006|13003099007;
-X-Microsoft-Antispam-Message-Info: 1ZhKV8JTiej60wuWinvbD9wB6pOFiBupTsQ8aw6KGyzG4X2P0ZnHVZCGMgM3N2qOooHGYXK2GmYltge9E1ThjdXywT5VId2LyKvphH9/gIgoUh/tbWR9/pjBiDgaeB31oO2VBl27z+C/HFrjMopVzFE8pAy+8CGfzmPnjSTmjwnbTIru6IoMKcIkiFUB6ZA1Shh6sqlloMlhbNQZq9nkyybmEabvPUgtjTTixof+kAU8wXhs2gSRDHB7B/mu7PZj4gkAq2cnm0lKeJx53jxjC+pfFW1N/y8PgUCSCiq6SvmtDZ9/oCnRvBXk/PZ5QhNIPCbKCET/QiW8EOrazpfkiFBKnu20R9YhWIygfYkio2qQxgKMdAc2uWQ6zh1/Jn7QHNaO1aZGq+ijbiXcAj/jBYsJA5Z/tevZ2zN7s19ceu9Mv62WYL+3lQqWRNrlsp5Kjo3qzis0xT9W247a7RgZivRGe4nWUzDvzC3zEj1n5wMnt6wZB0T6M8BBPX+xdSRqjaI5/7oWR2KLtFRkL1smfp23czl0UwrxKccfALh2nXv1B1Wv/PrL8IfXxWUcNmftG6p0U3CuIJDV1Fi9+ri3KEQjK+GE04Cj/8uJQoHNzc/rhCcY9uvHmuFc5ZWQdDvXIB6iQc0fUFJYh9nTCk58ZCSJU/E+tMnvptWFO9bpXFwluagjEZrfXCko5ZEHwvni7lfFYlgwysGudJADDwc5Aw==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(7416014)(1800799024)(10067099003)(3023799007)(18002099003)(56012099006)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MubLQ/jsEISiIAGf+viCF14uTRSfF22E/Lg7+DKk/fXmeilU0tBj8tKA7N5SsfsWldSFCxIC3hj/Jg/h6MZYdslw/xjgEuhkOrwud0HRqxqTQYm9KXDKOon2XREVbjaWDfXOeMc6BkzL/PC9oHuHzvhyfrGF9wz8i4mNOYvU6y3890tmOWaCZ4AOfnE60IYrUB+UdheM/IS7JZkh7qnfawCTp2i4FqC4B9doxxq0pNnTmHiLdIUWljiv3saHsvGmZEp/Jw9QzACqMpFj9NWBdk772lrH+sJX67xWJh9fdNbIrOWCo/nHGrBXCfPn8HPW4cTVv7z9JyOPlTubPTM8HGOHakC3Iyo8h/QKa9dByZqscmigWzfDbpnTafwzSELwKcaHnDl+W/0jNN5roAlj23aM7F4mQ3c9/SnjTEa/FxvyuNCBtqXr35NWWM7rNjjp
-X-Exchange-RoutingPolicyChecked: illwADwzlhsmJQaPa4GquZz69KpcQJqEZVHVcCUSa7ysuNi9esnn72TWUtoBZcIN93eos1VMdYc+PR+LfAuMYWqqkU3UnsHfk+2rWciMEH3hMGyscHkI9BhkLYSBETWvPJhs1plBw5lBep+RmPTvBIuXql16vW8fzrk5jAT30sSezmT8FmIK2D5dn+Yp0u93hjRDfUf8b3fCxiirRHJlwPztb0vVbwMjtptBUNF6CUozRhqlpomfTkh+fzwCZhODn3bw+X63uR6NB8I4iPO04l3n2WzsVT5VozF2Qpu/TISAS1Fcs9xsf0U+AZZHKudcMShQsE3GfWCVpGCP5n/0Bw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 21:48:15.3143
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08a939c4-6c53-4684-4b22-08df0ebc0d90
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7569
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDI0NCBTYWx0ZWRfXx434QQLV0TQe
- lvbDaOvisnwiLepRPmiEYYyWqR4/bptzGL7SDMasd3lhR3+D2N5HNpnLqmg0XzsUu5qAV4bXid4
- Rd00JSCBdu0RtL/4M+rQW1mfFp6Wm1I=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDI0NCBTYWx0ZWRfXxVGQZHxoAMIR
- 1ELb1EYPWhPSbc/h/10Yd9+GpDDMQFWB9kat6VBtiQMN6Hhr6OALd7uC3FlrmXy+XVKyNC7wjt/
- rw6dVO0yPsQjXLwnVPdpFs1kgOmv1T4U1lUII/sUBMAzWjCPsPlMW691F6xpWFlkgmubf4KDAAQ
- H2iHmbGKNAG/DnjhxXTOmcxmsWs/O9FxLaZAwm0Z+aqOeUi5IsoHNjXG+g9e+7uaYnWNfqrH7VS
- 8RTsQ4TOMowU4NaTbKDOdEa83bRS2h9bxBE22l3XHQxz4WK1lNXkBUcLRRinOZMj4VQd8XJ8Qm4
- pnZ9tRsT4tgavr5pWYF9WWUBnrxUhs8UcCs9MVWyCYP0QcMvqva8DmG24OXAC3owEQBGZe2n/kk
- geGBSI8bK9iAdIJIDZ03AmZ2uyppX1ku0d51Eh4oBDxayg7UVpnjQVp/Ca61QtVPhPFBb81oJne
- iw/xAFQgLxPZTpwu5vw==
-X-Proofpoint-GUID: VI25UcP0T0WBPwylJ-ZdOIKMCHtdBu_i
-X-Authority-Analysis: v=2.4 cv=F8fC5ahN c=1 sm=1 tr=0 ts=6aa1d425 cx=c_pps
- a=4Gx/Bq66bxzCWlClXrtOjA==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=8Z4x4moB9FiuHzkoptUA:9
-X-Proofpoint-ORIG-GUID: VI25UcP0T0WBPwylJ-ZdOIKMCHtdBu_i
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-09_01,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 clxscore=1015 phishscore=0 bulkscore=0
- impostorscore=0 malwarescore=0 priorityscore=1501 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609090244
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_224841_979628_B2121536 
-X-CRM114-Status: GOOD (  10.16  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,64 +75,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes MMC pin input/output and pullup/pulldown settings
-across AM62*, AM62AX, and AM62LX boards.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider:
 
-All patches have been tested on their appropriate SK & EVM boards.
-BeaglePlay and Pocketbeagle boards have also been tested.
+Critical: 0 · High: 2 (1) · Medium: 2 · Low: 0
 
-Changes since v3:
-- Include PIN_OUTPUT fixes for missing third-party boards as per Sashiko
-  review [0]
-- Split out squashed patches into separate commits as per Nishanth's
-  review [1]
+- [High] The new `memset(&priv->dma_conf, 0, sizeof(priv->dma_conf))` at
+  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:4193 also zeroes the…
+- [High] On the `irq_error` path the MAC and all DMA channels are already
+  running, but the unwind never stops them, so the descriptor rings the…
+- [Medium] The new memset() at stmmac_main.c:4193 also wipes the per-TX-
+  queue TBS state in `priv->dma_conf.tx_queue[].tbs` (STMMAC_TBS_EN /…
+- [Medium] The whole-struct clear at stmmac_main.c:4193 also erases
+  persistent user configuration held in `priv->dma_conf.dma_rx_size` /…
 
-[0] https://lore.kernel.org/linux-devicetree/20260805230256.41AA61F000E9@smtp.kernel.org/
-    & https://lore.kernel.org/linux-devicetree/20260805230614.521AC1F000E9@smtp.kernel.org/
-[1] https://lore.kernel.org/linux-devicetree/20260904151335.fi5mvjpvziw2g3r2@exemption/
+Pre-existing issues:
+- [High] After a failed reopen the driver leaves every NAPI instance
+  disabled while the netdevice stays logically running, and the next…
 
-Link to v1:
-https://lore.kernel.org/linux-devicetree/20260729195958.671147-1-jm@ti.com/
-Link to v2:
-https://lore.kernel.org/linux-devicetree/20260805004821.416613-1-jm@ti.com/
-Link to v3:
-https://lore.kernel.org/linux-devicetree/20260805225438.464184-1-jm@ti.com/
+--
 
-Judith Mendez (15):
-  arm64: dts: ti: k3-am62a: Fix MMC0_CLK register address
-  arm64: dts: ti: k3-am62l-evm: Remove unnecessary internal pullups for
-    MMC0
-  arm64: dts: ti: k3-am62a7-sk: Set eMMC clock pin as OUTPUT
-  arm64: dts: ti: k3-am62a7-sk: Set SD clock pin as OUTPUT
-  arm64: dts: ti: k3-am62a-phycore-som: Set eMMC clock pin as OUTPUT
-  arm64: dts: ti: k3-am62-lp-sk: Set eMMC clock pins as OUTPUT
-  arm64: dts: ti: k3-am62-pocketbeagle2: Set SD clock pin as OUTPUT
-  arm64: dts: ti: k3-am625-beagleplay: Set MMC clock pins as OUTPUT
-  arm64: dts: ti: k3-am62x-sk-common: Set SD clock pin as OUTPUT
-  arm64: dts: ti: k3-am625-sk-common: Set eMMC clock pin as OUTPUT
-  arm64: dts: ti: k3-am62-phycore-som: Set eMMC clock pin as OUTPUT
-  arm64: dts: ti: k3-am625-tqma62xx: Set MMC clock pins as OUTPUT
-  arm64: dts: ti: k3-am625-var-som-symphony: Set SD clock pins as OUTPUT
-  arm64: dts: ti: k3-am625-var-som: Set MMC clock pins as OUTPUT
-  arm64: dts: ti: k3-am62x-phyboard-lyra: Set SD clock pin as OUTPUT
+net: stmmac: clear dma_conf in __stmmac_open error path
 
- arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts             | 2 +-
- arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi      | 2 +-
- arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts     | 2 +-
- arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts       | 6 +++---
- arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi       | 2 +-
- arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 4 ++--
- arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi        | 2 +-
- arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts | 2 +-
- arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi         | 4 ++--
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi     | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts              | 5 ++---
- arch/arm64/boot/dts/ti/k3-am62l3-evm.dts             | 4 ++--
- arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi   | 2 +-
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi       | 2 +-
- 14 files changed, 20 insertions(+), 21 deletions(-)
+This adds a memset of priv->dma_conf on the error paths of
+__stmmac_open(), so that the struct no longer points at the descriptor
+resources the callers free after a failed open.  A few questions about
+what else that whole-struct clear erases, and about the state the failed
+open leaves behind.
+
+Link to v1: https://lore.kernel.org/r/20260903-fix-stmmac-mtu-change-use-after-free-v1-1-c81dc7d6d18a@uniontech.com
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 24656b35350b1..4369e64faf9f8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4190,6 +4190,7 @@ static int __stmmac_open(struct net_device *dev,
+>  
+>  	stmmac_release_ptp(priv);
+>  init_error:
+> +	memset(&priv->dma_conf, 0, sizeof(priv->dma_conf));
+       ^^^^^^
+
+[Severity: High]
+Can this memset turn the per-queue txtimer hrtimers into invalid ones?
+
+The struct hrtimer txtimer lives inside priv->dma_conf.tx_queue[], and on
+the irq_error path stmmac_init_coalesce() has already initialized them:
+
+  struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[chan];
+  ...
+  hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC,
+                HRTIMER_MODE_REL);
+
+After the memset those timers are all-zero, so timer->base is NULL.  Every
+teardown path walks them unconditionally, in __stmmac_release(),
+stmmac_suspend() and stmmac_xdp_release():
+
+  for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+          hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+
+and hrtimer_cancel() -> hrtimer_try_to_cancel() -> hrtimer_active() has no
+NULL check:
+
+  base = READ_ONCE(timer->base);
+  seq = raw_read_seqcount_begin(&base->seq);
+
+A failed reopen in stmmac_change_mtu() just returns the error, so the
+interface stays IFF_UP and the next ip link set down, suspend or XDP
+attach reaches those zeroed timers.
+
+The commit message says the memset leaves "the state consistent regardless
+of the caller" - but priv->dma_conf is the live object all of those paths
+dereference.  Would it be better to invalidate only the freed resource
+pointers, or to leave the timers alone, rather than clearing the whole
+struct?
+
+[Severity: Medium]
+Does this also drop the per-queue TBS state?
+
+tc_setup_etf() in stmmac_tc.c keeps the ETF/launch-time offload state
+only in priv->dma_conf:
+
+  if (!(priv->dma_conf.tx_queue[qopt->queue].tbs & STMMAC_TBS_AVAIL))
+          return -EINVAL;
+
+  if (qopt->enable)
+          priv->dma_conf.tx_queue[qopt->queue].tbs |= STMMAC_TBS_EN;
+
+and the loop at the top of __stmmac_open() exists to carry that bit across
+a reopen:
+
+  for (int i = 0; i < priv->plat->tx_queues_to_use; i++)
+          if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
+                  dma_conf->tx_queue[i].tbs = priv->dma_conf.tx_queue[i].tbs;
+
+After the memset both STMMAC_TBS_EN and STMMAC_TBS_AVAIL are gone while
+the etf qdisc is still installed, so a following tc ... etf call returns
+-EINVAL.
+
+On the next successful open stmmac_setup_dma_desc() re-derives only AVAIL
+from plat->tx_queues_cfg[].tbs_en and stmmac_hw_setup() re-arms the
+hardware:
+
+  int enable = tx_q->tbs & STMMAC_TBS_AVAIL;
+
+  stmmac_enable_tbs(priv, priv->ioaddr, enable, chan);
+
+but stmmac_xmit() only programs the launch time when tx_q->tbs &
+STMMAC_TBS_EN.  Does that mean launch times are silently ignored from
+then on, with no error reported anywhere?
+
+[Severity: Medium]
+The same clear erases the ring geometry the user configured through
+ethtool -G.  stmmac_reinit_ringparam() stores it directly in the struct
+being zeroed:
+
+  priv->dma_conf.dma_rx_size = rx_size;
+  priv->dma_conf.dma_tx_size = tx_size;
+
+  if (netif_running(dev))
+          ret = stmmac_open(dev);
+
+and stmmac_setup_dma_desc() reads it back, treating 0 as "never
+configured":
+
+  dma_conf->dma_tx_size = priv->dma_conf.dma_tx_size;
+  dma_conf->dma_rx_size = priv->dma_conf.dma_rx_size;
+
+  if (!dma_conf->dma_tx_size)
+          dma_conf->dma_tx_size = DMA_DEFAULT_TX_SIZE;
+  if (!dma_conf->dma_rx_size)
+          dma_conf->dma_rx_size = DMA_DEFAULT_RX_SIZE;
+
+So after ethtool -G followed by a failed ip link set up,
+stmmac_get_ringparam() reports rx_pending 0 / tx_pending 0 - a value
+stmmac_set_ringparam() itself rejects as below DMA_MIN_RX_SIZE /
+DMA_MIN_TX_SIZE - and the next successful open quietly allocates default
+sized rings.  Is losing the configured sizes intended here?
+
+There is a second consumer: stmmac_xdp_open() uses priv->dma_conf in
+place without recomputing the sizes or dma_buf_sz:
+
+  ret = alloc_dma_desc_resources(priv, &priv->dma_conf);
+  ...
+  ret = init_dma_desc_rings(dev, &priv->dma_conf, GFP_KERNEL);
+
+Would a zeroed conf describe zero-length rings to the hardware there?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but it affects the same
+failure path the commit message says it makes consistent, so it seems
+worth raising here: after a failed reopen, NAPI is left disabled while
+netif_running() is still true, and the next teardown calls napi_disable()
+on it again.
+
+stmmac_change_mtu() calls __stmmac_release() (which runs
+stmmac_disable_all_queues() -> __stmmac_disable_all_queues() ->
+napi_disable() per queue) and then __stmmac_open().  NAPI is re-enabled
+only on the success path:
+
+  stmmac_enable_all_queues(priv);
+  netif_tx_start_all_queues(priv->dev);
+
+so both error labels return with NAPI disabled.  napi_disable_locked()
+in net/core/dev.c leaves the state bits set and a second call waits on
+them:
+
+  while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+          usleep_range(20, 200);
+          val = READ_ONCE(n->state);
+  }
+
+Nothing clears those bits because napi_enable() is never called, so does
+the following ip link set down, suspend, stmmac_xdp_release(),
+stmmac_reinit_ringparam() or stmmac_reset_subtask() hang there while
+holding rtnl_lock?
+
+If that is the case, the release-side unwind never reaches the
+free_dma_desc_resources() the commit message describes, so does the
+memset on its own actually make the post-failure state safe?
+
+>  	return ret;
+>  }
+>  
+
+[Severity: High]
+One more question about the same error path: are the DMA engines still
+running when the callers free the rings?
+
+stmmac_hw_setup() programs every channel with the new dma_conf ring
+addresses, enables MAC Rx/Tx, and ends with:
+
+  /* Start the ball rolling... */
+  stmmac_start_all_dma(priv);
+
+If stmmac_request_irq() then fails, the irq_error path only does
+phylink_stop(), the per-queue hrtimer_cancel() loop and
+stmmac_release_ptp() - there is no stmmac_stop_all_dma().  Compare
+__stmmac_release(), which stops the engines first:
+
+  /* Stop TX/RX DMA and clear the descriptors */
+  stmmac_stop_all_dma(priv);
+
+  /* Release and free the Rx/Tx resources */
+  free_dma_desc_resources(priv, &priv->dma_conf);
+
+Both callers of __stmmac_open() free immediately after the failure, for
+example in stmmac_change_mtu():
+
+  free_dma_desc_resources(priv, dma_conf);
+  kfree(dma_conf);
+
+Can the Rx DMA engine keep writing incoming frames into those unmapped
+and freed descriptors and buffers?  After a failed MTU change the
+interface stays IFF_UP, so nothing else stops the engines.  Should the
+error path stop the DMA and disable the MAC instead of (or in addition
+to) clearing priv->dma_conf?
 
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260904-fix-stmmac-mtu-change-use-after-free-v2-1-91e680476921%40uniontech.com
 
