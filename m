@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72391C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00376C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tG+qsYvwUg5H9p3q8+ljYcyZsUYM5TME2kqTwMXFGY=; b=v+QreawBYh8ycOrhwkCsyBkoV+
-	XdX2HrOLYRP0+7nsZKqQbFcrQs7lBBuNKed8KXx3/FjtU9xRDmOa+bUWENmMNP+GHNf7mmrl/qHeG
-	KembhRa2uohlrcHiXLYhWt/mlRF5Ha4Xl/OvUn6cEX4KPei7mVBvv0i1yfz4/QWbO1m07XR81/npE
-	8uf/qdG9xJvcvbKWfuoINcHGd4pZyWbu5Dg/SqyWZK/OOQy3yl96+c4kmCfdKnxHAgpHX4U5djATR
-	ae+7GsDXAUplnIzT5Jr/XJRpE/bHcjIXRQDLkylxEZYsteSrGK6J/Pfyn+epN8trdK9r4nBdvU/NB
-	v0qbcjgg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GoU7d3l+LWD0+DIHxWwPqcU7TANMuZU7cVdbP5k2yI0=; b=phaQtTqk19gYx+Iwf/SZQIwzQ5
+	5EHEhWG8vMKHojtRAvybCChUQtRc1SMVSi8x3+hSPDJHjWA7AvNoyBHZ7jHxKcUT4V3QbmBAF4dme
+	eSQQYM8l2rgG5Ty5bQiVSwchJOxcInClRFYehjXi46ERcIQletrRrH7xZ0uvgTR19FmnqM1yath69
+	X3W0VwjwhYcnx8Dn121s2EDueV2bku8SVGv2Pv2/MQ5qu8UBgsONvgo0MZHDGB/Oj3+S6d67njDKK
+	kKEZpR9kuXCoGa1FYHEU2b1WFO2GJwW4eZBap1DHa71yYgip7+ynSzHJ6NgCL89aioUVf2es6Hijs
+	dq6s1AIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J4D-0000000BvSg-2WYD;
-	Wed, 09 Sep 2026 14:14:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4J4J-0000000BvWy-07Fo;
+	Wed, 09 Sep 2026 14:14:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J4C-0000000BvR3-0KM7;
+	id 1x4J4C-0000000BvR6-1UFE;
 	Wed, 09 Sep 2026 14:14:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9321944000;
+	by tor.source.kernel.org (Postfix) with ESMTP id 872E460218;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 68D94C2BCF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BDE4C2BCF4;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788963263;
-	bh=gx+oIcs0P6H8PbwV9ZJxkS0GLSxCT6o0xFPNtdzRzAQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=IgBhc+fvT6IZTgQqnCNeyD7NNmsT/If/5WATYEguG+Cs4fK+I9AK7J7+NTj+d+aA2
-	 4dDif4toDKlYIe1AGfhrw+hcmwCnXvZZZMUsnrm7lCMfyJPNK9ookZLGmbZt4C9Hk7
-	 qnNERlrEI793k/O227tWLjQAO4WWYFQ+Xvc9Isiu4z+5K38fAIIYidMABJI/Bd1gi/
-	 Iwbz0KuBI5McRGpGlO0/Dluc0UNA6MgVtdgXN0hOmbKy4liSw5nBJ86bc02SlTebRw
-	 uNaERM8oFzRftCDp/5rjMQW4pQFHPdTHeyXV4YeKNhe5oNyfynnMaXow0I5eCFyoIC
-	 DRrpvpNAsp2Bw==
+	bh=uOvO7Uzwwoe+4sbG4xOBTQfvrDD2qD2yTL1O7zXzwnA=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=cldoZ0+Pddf03c+LoY8QiT/xygNIojZxyh/GWSqBk/xNVRl4zlyQ9r6eSdFrHmjzc
+	 vD1h24w13vhlgzpyvz30f7TwljokUtF8thBRG1nA36FPwbkewbWzApRLJyWRTpO74r
+	 i0/OizuDDryXBV9c+ff3bzNJjvMjNqj422Ja74fUN7bQYIjb3F6zrm7G/VrG1bvwmW
+	 iS5nSl52yoGonsHCAw0YIcb6BnVAztyYTwJhLBRVse6L1Bs6p6PfTVXIA9XHuyiKG8
+	 glyDA2evfuhwEoOlSghEGCX+iEWkaelwHfk9X6+rWZIxZyaSd1m1rR+e+LeqqjVLOY
+	 +JlxYE4gIbS3g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52E63C79FBB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02E8AC79FBF;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 09 Sep 2026 17:14:07 +0300
-Subject: [PATCH 3/3] iommu/mediatek-v1: add mt6572 support
+Subject: [PATCH 0/3] iommu/mediatek-v1: fix the driver + mt6572 support
+Date: Wed, 09 Sep 2026 17:14:04 +0300
+Message-Id: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-6572-iommu-v1-3-de261da09fb2@protonmail.com>
-References: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
-In-Reply-To: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5AMBBA4avIrDWhoRVXEYvRDkbiJ62KRNxds
+ fwW713gyTF5qJMLHB3seV0i8jQBM+IykGAbDTKTKtOyEKrUUvA6z0FYJF2hRVSlgRhsjno+v1n
+ T/vahm8js7wHu+wGvI8UlbgAAAA==
+X-Change-ID: 20260724-6572-iommu-dae78adaa65c
 To: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
  Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,13 +63,14 @@ To: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: iommu@lists.linux.dev, linux-mediatek@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>
+ linux-arm-kernel@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
+ stable@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788963261; l=5880;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788963261; l=1496;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=Q9DENazAgwi3T2qykCPLy9Ktvy2jjfeMJUql9cSW4PY=;
- b=8+P8cpShisgwoJq0VZRjZTKZLtcBmRIMxKVIDut/OQ5H+DuS0IRCr8OkGmuFQBBntJL5u+eAM
- gSO9ctW66BlAB6sGh2wQRaETyPAsSTIhioXn1Gf/IaQj0ZaS0FCL5+k
+ bh=uOvO7Uzwwoe+4sbG4xOBTQfvrDD2qD2yTL1O7zXzwnA=;
+ b=i0i1FiCTJpC+cIW9dxpYnEDhoPKkkIOIjFygBYU4F309XWXCI9cmMfZ1jrIWHFPCUslryK9Ut
+ AV1kpB08YqGA78ZvP3n0xfS1XDtxBw7CPzbjyAHi27A+9Ls0LDEO6in
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -88,182 +91,49 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+This patch series fixes silently broken IOMMU v1 driver and adds mt6572
+SoC support.
 
-mt6572 SoC utilizes an earlier version of the IOMMU, that shares the
-same v1 architecture, but has minor hardware differences compared to
-mt2701.
+It appears that currently the driver is not working at all... IOMMU core
+will silently reject the component bind unless there's of_xlate callback.
+The fix is pretty straightforward - provide of_xlate callback (based on
+mtk_iommu gen 2 driver) to let IOMMU attach devices.
 
-Introduce mtk_iommu_type to distinguish between mt2701 and mt6572
-variant and apply the necessary logic.
+This makes DRM subsystem use IOMMU like all gen 2 SoCs do.
+It can be verified by reading overlay engine input address.
+Before:
+~ # devmem 0x14007040 32
+0xBB900000
 
-Finally, add a platform data for the mt6572 SoC.
+After:
+~ # devmem 0x14007040 32
+0x00000000
+
+Note the changes weren't tested on mt2701, because I don't have such
+hardware.
+
+It's worth mentioning that some bits may apply to mt6582 and 6589,
+however, they seem to have L2 cache for IOMMU, therefore patch 3 has
+MT6572 IOMMU type, and not MT65XX.
 
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
-Based on my downstream findings, this change may also support mt6582 SoC,
-but I don't have the hardware to test if it actually works.
+Roman Vivchar (3):
+      dt-bindings: iommu: mediatek: add mt6572
+      iommu/mediatek-v1: fix IOMMU device binding
+      iommu/mediatek-v1: add mt6572 support
+
+ .../devicetree/bindings/iommu/mediatek,iommu.yaml  |   3 +
+ drivers/iommu/mtk_iommu_v1.c                       | 158 ++++++++++++---------
+ .../memory/mediatek,mt6572-memory-port.h           |  26 ++++
+ 3 files changed, 123 insertions(+), 64 deletions(-)
 ---
- drivers/iommu/mtk_iommu_v1.c | 72 +++++++++++++++++++++++++++++++++-----------
- 1 file changed, 55 insertions(+), 17 deletions(-)
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260724-6572-iommu-dae78adaa65c
 
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index 72355f41c36a..b6f547b100d1 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -7,6 +7,7 @@
-  *
-  * Based on driver/iommu/mtk_iommu.c
-  */
-+#include <linux/bitfield.h>
- #include <linux/bug.h>
- #include <linux/clk.h>
- #include <linux/component.h>
-@@ -85,6 +86,13 @@ struct dma_iommu_mapping {
- #define F_DESC_NONSEC				BIT(3)
- #define MT2701_M4U_TF_LARB(TF)			(6 - (((TF) >> 13) & 0x7))
- #define MT2701_M4U_TF_PORT(TF)			(((TF) >> 8) & 0xF)
-+
-+#define MT6572_MMU_INT_ID_PORT_ID		GENMASK(12, 8)
-+#define MT6572_MMU_INT_ID_LARB_ID		GENMASK(14, 13)
-+
-+#define MT6572_M4U_TF_PORT(TF)			FIELD_GET(MT6572_MMU_INT_ID_PORT_ID, TF)
-+#define MT6572_M4U_TF_LARB(TF)			(FIELD_GET(MT6572_MMU_INT_ID_LARB_ID, TF) - 1)
-+
- /* MTK generation one iommu HW only support 4K size mapping */
- #define MT2701_IOMMU_PAGE_SHIFT			12
- #define MT2701_IOMMU_PAGE_SIZE			(1UL << MT2701_IOMMU_PAGE_SHIFT)
-@@ -96,6 +104,11 @@ struct dma_iommu_mapping {
-  */
- #define M2701_IOMMU_PGT_SIZE			SZ_4M
- 
-+enum mtk_iommu_type {
-+	MTK_IOMMU_MT6572,
-+	MTK_IOMMU_V1,
-+};
-+
- struct mtk_iommu_v1_suspend_reg {
- 	u32			standard_axi_mode;
- 	u32			dcm_dis;
-@@ -116,6 +129,8 @@ struct mtk_iommu_v1_data {
- 	struct mtk_smi_larb_iommu	larb_imu[MTK_LARB_NR_MAX];
- 
- 	struct mtk_iommu_v1_suspend_reg	reg;
-+
-+	enum mtk_iommu_type type;
- };
- 
- struct mtk_iommu_v1_domain {
-@@ -170,8 +185,12 @@ static inline int mt2701_m4u_to_port(int id)
- 
- static void mtk_iommu_v1_tlb_flush_all(struct mtk_iommu_v1_data *data)
- {
--	writel_relaxed(F_INVLD_EN1 | F_INVLD_EN0,
--			data->base + REG_MMU_INV_SEL);
-+	u32 val = F_INVLD_EN0;
-+
-+	if (data->type == MTK_IOMMU_V1)
-+		val |= F_INVLD_EN1;
-+
-+	writel_relaxed(val, data->base + REG_MMU_INV_SEL);
- 	writel_relaxed(F_ALL_INVLD, data->base + REG_MMU_INVALIDATE);
- 	wmb(); /* Make sure the tlb flush all done */
- }
-@@ -180,25 +199,33 @@ static void mtk_iommu_v1_tlb_flush_range(struct mtk_iommu_v1_data *data,
- 					 unsigned long iova, size_t size)
- {
- 	int ret;
--	u32 tmp;
-+	u32 tmp, val = F_INVLD_EN0;
- 
--	writel_relaxed(F_INVLD_EN1 | F_INVLD_EN0,
--		data->base + REG_MMU_INV_SEL);
-+	if (data->type == MTK_IOMMU_V1)
-+		val |= F_INVLD_EN1;
-+
-+	writel_relaxed(val, data->base + REG_MMU_INV_SEL);
- 	writel_relaxed(iova & F_MMU_FAULT_VA_MSK,
- 		data->base + REG_MMU_INVLD_START_A);
- 	writel_relaxed((iova + size - 1) & F_MMU_FAULT_VA_MSK,
- 		data->base + REG_MMU_INVLD_END_A);
- 	writel_relaxed(F_MMU_INV_RANGE, data->base + REG_MMU_INVALIDATE);
- 
--	ret = readl_poll_timeout_atomic(data->base + REG_MMU_CPE_DONE,
--				tmp, tmp != 0, 10, 100000);
--	if (ret) {
--		dev_warn(data->dev,
--			 "Partial TLB flush timed out, falling back to full flush\n");
--		mtk_iommu_v1_tlb_flush_all(data);
-+	if (data->type == MTK_IOMMU_V1) {
-+		ret = readl_poll_timeout_atomic(data->base + REG_MMU_CPE_DONE,
-+						tmp, tmp != 0, 10, 100000);
-+		if (ret) {
-+			dev_warn(data->dev,
-+				 "Partial TLB flush timed out, falling back to full flush\n");
-+			mtk_iommu_v1_tlb_flush_all(data);
-+		}
-+
-+		/* Clear the CPE status */
-+		writel_relaxed(0, data->base + REG_MMU_CPE_DONE);
-+	} else {
-+		/* Make sure the TLB flush is done */
-+		wmb();
- 	}
--	/* Clear the CPE status */
--	writel_relaxed(0, data->base + REG_MMU_CPE_DONE);
- }
- 
- static irqreturn_t mtk_iommu_v1_isr(int irq, void *dev_id)
-@@ -215,8 +242,14 @@ static irqreturn_t mtk_iommu_v1_isr(int irq, void *dev_id)
- 	fault_iova &= F_MMU_FAULT_VA_MSK;
- 	fault_pa = readl_relaxed(data->base + REG_MMU_INVLD_PA);
- 	regval = readl_relaxed(data->base + REG_MMU_INT_ID);
--	fault_larb = MT2701_M4U_TF_LARB(regval);
--	fault_port = MT2701_M4U_TF_PORT(regval);
-+
-+	if (data->type == MTK_IOMMU_V1) {
-+		fault_larb = MT2701_M4U_TF_LARB(regval);
-+		fault_port = MT2701_M4U_TF_PORT(regval);
-+	} else {
-+		fault_larb = MT6572_M4U_TF_LARB(regval);
-+		fault_port = MT6572_M4U_TF_PORT(regval);
-+	}
- 
- 	/*
- 	 * MTK v1 iommu HW could not determine whether the fault is read or
-@@ -539,7 +572,10 @@ static int mtk_iommu_v1_hw_init(const struct mtk_iommu_v1_data *data)
- 		return ret;
- 	}
- 
--	regval = F_MMU_CTRL_COHERENT_EN | F_MMU_TF_PROTECT_SEL(2);
-+	regval = F_MMU_TF_PROTECT_SEL(2);
-+	if (data->type == MTK_IOMMU_V1)
-+		regval |= F_MMU_CTRL_COHERENT_EN;
-+
- 	writel_relaxed(regval, data->base + REG_MMU_CTRL_REG);
- 
- 	regval = F_INT_TRANSLATION_FAULT |
-@@ -588,7 +624,8 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
- };
- 
- static const struct of_device_id mtk_iommu_v1_of_ids[] = {
--	{ .compatible = "mediatek,mt2701-m4u", },
-+	{ .compatible = "mediatek,mt2701-m4u", .data = (void *)MTK_IOMMU_V1 },
-+	{ .compatible = "mediatek,mt6572-m4u", .data = (void *)MTK_IOMMU_MT6572 },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, mtk_iommu_v1_of_ids);
-@@ -612,6 +649,7 @@ static int mtk_iommu_v1_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	data->dev = dev;
-+	data->type = (enum mtk_iommu_type)(uintptr_t)of_device_get_match_data(dev);
- 
- 	/* Protect memory. HW will access here while translation fault.*/
- 	protect = devm_kcalloc(dev, 2, MTK_PROTECT_PA_ALIGN,
-
--- 
-2.55.0
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
 
 
