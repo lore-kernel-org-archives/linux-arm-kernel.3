@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDA4C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E4BC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FR+7pa9LwLkwiguZhNawLcP+YYzJNH9nHx9g6zcIIqo=; b=jJa77Ag5geUGoj3Y8YseLANYT4
-	YPGTiOxkU2MyPypgdsnhp6+eseT5mJzhBl3f4wBRNOIZcUIRWGmblpdnEzpmiEcouYnI6V7IscIzl
-	CXqfLLQ3Y6g6f+slao/JOYbkoRKYKfitv7qghM/JcKuUWfvDioMAgkin/jSHBh3FMAb7hUOzdNcNQ
-	HnWzOShfH9u6at56AByQOdOhDD69smHxZ01jSmiV/SBM9Y7ZW85069B4Y2BcoAAs8rMP0k3HrnZsz
-	p+zt1uyWH6U4iYxu/YhvhOpPEl2qToC3RwroFKV4fSUIXW+gGTTumapc/7X4GWBOVe3rsOFmUB7Fz
-	ImH7MtTQ==;
+	bh=COu9YXS5z+3bJ5HpL8E7btRECMkkRv1d0ERtft6U7Fs=; b=Ygtp5oowCT/GHyO9lvH1AYINLd
+	VWTExZwaYRo1KX2lT1CuYwE4t+rWEQa8Pw6QYsa1FmBKrJMK+TD1jRzZLnXmaBT3lTG0BMkrgL3KN
+	3VGpjISWV1TFCJfHD4Ia++Y7jFQi6mkiTcVAfJFivkV1g0eMkoN2p2A9YO3qH1s7ogZLKe9p5y4Z0
+	udITnTKRY0eJN2RcWyT2zKcjrT9aIGdgQGp6bcB/OxvptpCm+c3HkjNPcXY+w72P+PufPfEAkFvGF
+	wkWDWilgITcCiGRyWMfVBXRTEzavWHbKlOJZ9b+RU8IvBNZswHtKYPHuISJkCEI1EenykPi3vLtmx
+	TZes6OFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Iwu-0000000Btaa-2usW;
-	Wed, 09 Sep 2026 14:06:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4Ix7-0000000Btf5-3TbD;
+	Wed, 09 Sep 2026 14:07:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Iwt-0000000Bta8-38CR
+	id 1x4Ix6-0000000Btec-3WG1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:06:51 +0000
+	Wed, 09 Sep 2026 14:07:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 098D96020C;
-	Wed,  9 Sep 2026 14:06:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4ED1F00A3D;
-	Wed,  9 Sep 2026 14:06:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 21F4060218;
+	Wed,  9 Sep 2026 14:07:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DD51F00A3A;
+	Wed,  9 Sep 2026 14:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788962810;
-	bh=FR+7pa9LwLkwiguZhNawLcP+YYzJNH9nHx9g6zcIIqo=;
+	s=k20260515; t=1788962823;
+	bh=COu9YXS5z+3bJ5HpL8E7btRECMkkRv1d0ERtft6U7Fs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jy5PQ6A4YSE1RykG0zJz9SnpqYHGFZ5nvPFmy74Kav172ISEdr2CjmR4Vqf0EaJU6
-	 zRB8gEpXGfNksV4pslTnCRt0LEXWd7O3iaLyNVpNqLhD7F6HGcbgZ3fM7zqdR2QckS
-	 67N+0aci8ikzhdqbt4KQG/u4QljVLEihCPdEv5gy1MA1cN/GWy++ou2t6Ucv4un+vc
-	 d+ZGU5LBZ4B9FKLf0cULE/80gPf5O9Qax2H3iCV8gvOuyYFTXsD9JUkTqbtGRINnYE
-	 sowzc7rpdDCrgvJ03vWm8uvTlZxIM89KSC9AmCRP49qvlyHNYjb9ScTUw+SqTiVHgf
-	 8q8ht0UFxWYag==
-Message-ID: <95b88b81-c970-41db-90ee-1efaae7420b8@kernel.org>
-Date: Wed, 9 Sep 2026 16:06:39 +0200
+	b=ZX+G/b3LxH3nXQffSaa9JMsaQS0gjIJ02uJISyRP0cZLQNBGxyIRDGZrns8jkWzN/
+	 gabIeV/0jMZF2bPMFRPMJrRfEmzW3m2/cePne404tI2mA+deOk+AzkvUlcVbinkIDV
+	 1xjmuzmsa5tFay60gdwZS49E/lnIjV+BbwxU4W83tWTJQucaxEQgd1bWnd9Vp7N9RN
+	 lAmhZsEwFcJHpDxDkvrpoGhkjAFfqCeBWPWugzkHC0RDAcnkdRCsxdKUgfWmZ0AshM
+	 Gf+mBjy0u34/cgjbY6MOSdT34Ybf25cjj160Ok0Dw2UJGILtTpyQP0PG0jvvseoi6e
+	 Pe439DbOCIADA==
+Message-ID: <4e0bec21-4f09-439a-ae65-66a95c1b4c45@kernel.org>
+Date: Wed, 9 Sep 2026 16:06:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] arm64: mte: pass the swap entry to mte_save_tags()
+Subject: Re: [PATCH v2 8/8] mm/swap: remove page_swap_entry()
 To: Tal Zussman <tz2294@columbia.edu>,
  Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
  Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
@@ -66,7 +66,7 @@ To: Tal Zussman <tz2294@columbia.edu>,
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
- <20260908-folio_swap_entry-v2-7-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-8-ee6d01dfa5e1@columbia.edu>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -113,7 +113,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260908-folio_swap_entry-v2-7-ee6d01dfa5e1@columbia.edu>
+In-Reply-To: <20260908-folio_swap_entry-v2-8-ee6d01dfa5e1@columbia.edu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -131,20 +131,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 17:16, Tal Zussman wrote:
-> arch_prepare_to_swap() derives a page from the folio only for
-> mte_save_tags() to recompute the folio's swap entry from that page.
-> Pass the entry in directly with folio_swap_entry(), matching
-> mte_restore_tags(), and move the page_mte_tagged() check into the
-> caller so we only compute the entry for tagged pages.
-> 
-> __mte_invalidate_tags() loses its only user, so remove it and call
-> mte_invalidate_tags() directly in the error path. This removes two
-> calls to compound_head().
-> 
-> No functional change.
+> All callers have been converted to folio_swap_entry() and
+> folio_page_swap_entry(), so remove it.
 > 
 > Signed-off-by: Tal Zussman <tz2294@columbia.edu>
-> ---
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
