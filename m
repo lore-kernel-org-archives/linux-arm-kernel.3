@@ -4,97 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808F1C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 11:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B440C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 11:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BDAFJuDlghFFa//FTOTLPnlGuO3PdxiOtfn+DAJGPPw=; b=id7vMZ+L0HD0euOXcX5K5vVU/X
-	S4WeEQhKYP+yCOZmG9ClWeTkRyrVl7z06yehUtGFYEH1MvGOsrOJ2yobaJl1/JyTxLGhzBmVo3NS7
-	g+swltnQBwPO+iWO0NB+NlWcOSsvMILTVrlW/A50bOhCSgEU6VGZI+1uGeIANNbhgHywBRecyDPRp
-	b7kDxaLnPvJ0SPSpJzwogKMdoUCVjMOB1ki8DYOyXsLnUJU+1SODaTxxSXK9xq9burKUBkuFo3p2X
-	cNwAX0u/IuFXW2McF3/gqTekZ5QWEFiHikpljIh3XNQvDwcJAf6+0lyd4KVm+/05qZ+FmdIRJHP7l
-	/MvW75iQ==;
+	bh=JrsvsllbvSUt2DfXnM+jtnBFIl/c0reDOSoqjac217Q=; b=3C7XF2h/s4cbtnMLYmb4GTU2Oh
+	4Bht3axFfciNddh5TPPmCr5gTPgSOIPAdko/yC9loVOhKT+PEO1CDyorFnmxmurm/NVYjYyaRKXb4
+	T4/Gj/HdUEsSjhVewKhr4H6wl5E7sMMbbbgCezFmAl7IjPoGLBe44tIPCvmsCtFO0JR23S6tcbshY
+	by1CLImnGlJj3dEbt9+iNcRaQ6AfCPIQYAR7QCPoJAL7Hhz93hZ84ZHm7w98Lf/B0344uXtZbg1Ls
+	yzUWrl6qnVRg8LjAhZ+rx1l1IFE4QCRIVlqy15yWKNUnKUdyePjAsByXTns53JiaCvuu2BXC9PhFX
+	23i8qapQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GZW-0000000BahR-3wao;
-	Wed, 09 Sep 2026 11:34:35 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4Ga8-0000000Bauj-2cpN;
+	Wed, 09 Sep 2026 11:35:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GZL-0000000Bacb-2wcZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 11:34:25 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49d1ddd5d0aso897705e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 04:34:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788953662; x=1789558462; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BDAFJuDlghFFa//FTOTLPnlGuO3PdxiOtfn+DAJGPPw=;
-        b=KeHBwie7MNX8OE9rcQPE2F3ExuQi+nkJousQuIH6QxT9tHBAVURGxkyqZi05ZsUd2L
-         9uBtL8I4MXwcKXWyHTN4NwO5iZii64IxGYtjMA42vloHlaO/CRZJalS+2dt4RzpSsx0S
-         G+aZDBkc4UBnAuR3f2RrKE8FRCi5KxNp7xWyM9r0VudaUNmwgDsMnrRFBA4aSN47Hmdt
-         8fqnr/HNDy0UZ5IlFkcPeHc4riZrtAIGpuFejSExdfp/hGF2QN/dFRcIMu1TDrOzO9Rj
-         n2NOueBxe8gue7fzA9nuip/P26hKRK/gIQ5cDWb07g9OC1Sz0ZfqSlOyHrAcAW3Ubw27
-         rojw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788953662; x=1789558462;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BDAFJuDlghFFa//FTOTLPnlGuO3PdxiOtfn+DAJGPPw=;
-        b=kBtJs6by2mIJeiYPxbxbc9GVAJsHdwDSbgOW0ygxbcbdImnXg7ZK/KjQIYBllLgRa9
-         A2YNKwEAvDYlmUdsJm732dTWRRTxnkS4EFEfX9wMEeK1rwSxQ1HukgG2gvjYXAS4yNtE
-         BB9lVyfrhSQr20ty2aYW2G5zpyU1QDW50uCcuUF25ACKuQ6lenjA4Fgt5OcUynYXDeME
-         0CawYTzEkFlxhVvkdaGaKpcJD2jtOATFgu5VWbDTjbHtOlWvYUAJnAQ47qHBe21d/dYV
-         RVCFdABwAvSV1JNm66c+QiwskD8RvLRjgU+Cu5MnxRHXDyRkRr+rAvXIANCgu2rBpAVm
-         EMdg==
-X-Forwarded-Encrypted: i=1; AKwUvBzHPw95Hg4tMtwwlPnEHxwBzhCeHOZl8w0Rd4JXKTaycRXK07HvOFh7vkMgJKGDPy0BIkJS4fN2p4I2Nh12Tsyz@lists.infradead.org
-X-Gm-Message-State: AFuF++nrFVhCwnq9Jr/4RKELYle/Nj2h80QEG4KR905G0GAvkZLChsYZ
-	rSCAmpFMlfueOIXFMLSrMSEF7hrJNxG1kcBkDttIhjGf1LqNPGoGuL9+
-X-Gm-Gg: AYBFou2djBxIyD3j1jEE2k1LKyWI+07Hm3RqYYU+iQlmH9enxF7L9/1+JUm0zg+b8rJ
-	PWTe5furGCgc8z+V+fTtvUiaZV+mpk18sA81nPu/XEwqMyll/Uv3NqswDAhWIJ6EQ7gUz8wg/C1
-	SysFi6fdZh5ycVa0gvdJkTOeqDhFhkuHiEvCgsxxInVZbxkaEp81NOP5nntGdj8JuL+Mdgk4Od3
-	lSPq70MU47tDZJdOITw5wFhRINtt7VYuf/s7ekKd3P5EY1k3HHHKNls1JXATmIsrO8G6XzeEE7l
-	uxzdkAoUE7TEO9klg2J4kn3huMvollXsoIUoKvxHdWerzB6akKK/uoZttPxfEMkmLfy38lcszKW
-	7uj4sqTsXZMM95z4HAikUYxrxE/fCJ8mhmLuSmnDzQcVurW3GcZyN0WvDwQbzT2IqGd6/4OrD1k
-	wx5LNPNAs/zFdwxdINmjotkKx9C/PnQNcTTA7bH3mfROzvLbAyfPNzF4nN2/do0uCsVZz6ujHJS
-	7z16KzpE+pw3FiOiP0JmM4vxj/WvrJJ4gLwkHP9Zfs/HVSklcIYKElLbSFEMLfj1O1+8B+MIOEi
-	PH4aRW+jmkLRTg==
-X-Received: by 2002:a05:600c:8485:b0:499:5b0f:72b with SMTP id 5b1f17b1804b1-49d01dcc32cmr238211625e9.1.1788953661666;
-        Wed, 09 Sep 2026 04:34:21 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B836900E58FC5516AABB3E4.dsl.pool.telekom.hu. [2001:4c4e:1b83:6900:e58f:c551:6aab:b3e4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d057f4778sm364624455e9.8.2026.09.09.04.34.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 04:34:21 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/rockchip: vop2: add COLOR_ENCODING and COLOR_RANGE plane properties
-Date: Wed,  9 Sep 2026 13:33:59 +0200
-Message-ID: <20260909113400.8295-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260716113024.15357-1-royalnet026@gmail.com>
-References: <20260716113024.15357-1-royalnet026@gmail.com>
+	id 1x4Ga6-0000000BatY-1Is4;
+	Wed, 09 Sep 2026 11:35:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1788953706;
+	bh=vWtYzgFoGyDW55i1EvWYaGwYdE+b+139zE1xcTgIGLg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hDZ/cSx0bzccFpphdPKKNtfp6k0jlDQ1n23WXH3eE8oCcTUe/6KRHEt6rQC8pSJJZ
+	 10Shmt7hi2kahfuAmSUfXa7VNc2TN3DUfB5SlCo5s3+YqyYUfee8bdf0cDgKEfmniS
+	 vrPtpgIJATczURXsqnfmQKIBE95ehYnJozWK3RNRjguiZPDGZqqdVfjSxdGLWKMlks
+	 1dMsp+ZBWQo7DC+h/WQOCVAlgpzrZJ2Eiw3wGypOa44P9/GF61uvy3Q6jvQIvb3QmE
+	 FNL736Ore/nnmdh6QheYCK0gCxI3ZZJ4LhqGO8Mw3itzK984Q5Yna3nSLCIJzCusRH
+	 t7/vTN9j8OSkQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0E53017E0917;
+	Wed, 09 Sep 2026 13:35:06 +0200 (CEST)
+Message-ID: <6800d4bc-cb1e-4807-a302-3f5d7a3a53e8@collabora.com>
+Date: Wed, 9 Sep 2026 13:35:05 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/12] drm/mediatek: mtk_dp: Rework register offsets
+ for proper PHY usage
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ Alexandre Mergnat <amergnat@baylibre.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "dmitry.osipenko@collabora.com" <dmitry.osipenko@collabora.com>,
+ =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?= <jitao.shi@mediatek.com>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "granquet@baylibre.com" <granquet@baylibre.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?UmV4LUJDIENoZW4gKOmZs+afj+i+sCk=?= <Rex-BC.Chen@mediatek.com>
+References: <20260709113148.49090-1-angelogioacchino.delregno@collabora.com>
+ <20260709113148.49090-7-angelogioacchino.delregno@collabora.com>
+ <ad5343f93cc992dca96b42f6cb81868de0458f70.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <ad5343f93cc992dca96b42f6cb81868de0458f70.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_043423_790906_86609DF7 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260909_043510_526735_9C4A3CC8 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +100,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 8/28/26 05:32, CK Hu (胡俊光) wrote:
+> On Thu, 2026-07-09 at 13:31 +0200, AngeloGioacchino Del Regno wrote:
+>> Rework all of the register offsets to subtract the DP PHY register
+>> range from the MediaTek DisplayPort IP register range which starts
+>> from TOP_OFFSET instead.
+>>
+>> This is done in preparation for adding support for registering the
+>> PHY from devicetree, and also for properly handling PHY registers
+>> in the PHY driver (instead of half and half...), which is also one
+>> prerogative to add support for new IP versions in the future.
+>>
+>> Note that the current regmap_config was renamed to make sure that
+>> it being legacy is mentioned, as a new config will be required in
+>> future changes.
+>>
+>> Of course, with the TOP offset being related to hardware registers
+>> this will never change for the currently supported SoCs, hence for
+>> simplifying code, the MTK_DP_TOP_OFFSET_LEGACY is added statically
+>> to the legacy regmap configuration while, on the other hand, it is
+>> added dynamically to the mtk_dp structure, as the latter is used
+>> to add an offset to every register write in the mtk_dp driver.
+>>
+>> The regmap_config provided reg_base (which does exactly the same)
+>> cannot be used here, because the PHY driver is using the very same
+>> regmap pointer, and the offset shall not be taken into account in
+>> writes performed by the PHY driver (only ones performed by mtk_dp!).
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_dp.c     | 101 +++++-----
+>>   drivers/gpu/drm/mediatek/mtk_dp_reg.h | 255 ++++++++++++--------------
+>>   2 files changed, 179 insertions(+), 177 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+>> index b50264ca1f31..b2e5fa0914bc 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_dp.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+>> @@ -35,6 +35,27 @@
+>>   
+>>   #include "mtk_dp_reg.h"
+>>   
+>> +/* PHY Registers - for legacy only */
+>> +#define DP_PHY_GLB_BIAS_GEN_00		0x0
+>> +#  define RG_XTP_GLB_BIAS_INTR_CTRL	GENMASK(20, 16)
+> 
+> Align the register definition indent to other mtk dp register definition.
+> 
 
-Gentle ping on this one - it has had no review since July.
+The plan is to make cosmetic changes later to align all register definitions
+in the entire mediatek-drm to follow that, because this indent style is a bit
+more readable, especially when definitions get a bit more complex.
 
-I re-checked it against the tree today rather than assuming it still
-stands. On drm-misc-next (8ce26b09f652) all five hunks still apply at
-their original line numbers, with no offset and no fuzz, and nothing
-merged since exposes these properties. So the gap the patch describes is
-unchanged: every YUV plane is still converted with the BT.709 limited
-range matrix, which is wrong for BT.601 (SD) and BT.2020 content.
+#define REGISTER
+#  define REG_BITMASK0
+#    define BITMASK_RELATIVE_VALUE
+#  define REG_BITMASK1
 
-One thing worth flagging, since it decides the merge order rather than
-the content. Cristian's "drm/rockchip: vop2: Switch to enum
-vop_csc_format" (10/14 of the VOP2 series) touches the same two lines of
-vop2_setup_csc_mode() that this patch touches. The two changes are
-complementary rather than conflicting: that patch tightens the type of
-csc_mode and replaces the "csc_mode = false" assignment, while this one
-replaces where the value comes from - the hardcoded input_csc is dropped
-in favour of the plane's COLOR_ENCODING and COLOR_RANGE. Whichever lands
-second needs a small rebase.
+>> +#define DP_PHY_GLB_DPAUX_TX		0x8
+>> +#  define RG_CKM_PT0_CKTX_IMPSEL	GENMASK(23, 20)
+>> +#define MTK_DP_0034			0x34
+>> +#  define DA_CKM_CKTX0_EN_FORCE_EN	BIT(10)
+>> +#define DP_PHY_LANE_TX_0		0x104
+>> +#define DP_PHY_LANE_TX_1		0x204
+>> +#define DP_PHY_LANE_TX_2		0x304
+>> +#define DP_PHY_LANE_TX_3		0x404
+>> +#  define RG_XTP_LNx_TX_IMPSEL_PMOS	GENMASK(15, 12)
+>> +#  define RG_XTP_LNx_TX_IMPSEL_NMOS	GENMASK(19, 16)
+>> +#define DP_PHY_AUX_RX_CTL		0x1040
+>> +#  define RG_DPAUX_RX_VALID_DEGLITCH_EN	BIT(2)
+>> +#  define RG_XTP_GLB_CKDET_EN		BIT(1)
+>> +#  define RG_DPAUX_RX_EN		BIT(0)
+>> +
+> 
+> [snip]
+> 
+>>   static int mtk_dp_write(struct mtk_dp *mtk_dp, u32 offset, u32 val)
+>>   {
+>> -	int ret = regmap_write(mtk_dp->regs, offset, val);
+>> +	int ret = regmap_write(mtk_dp->regs, offset + mtk_dp->legacy_regoff, val);
+>>   
+>>   	if (ret)
+>>   		dev_err(mtk_dp->dev,
+>> @@ -436,7 +460,7 @@ static int mtk_dp_write(struct mtk_dp *mtk_dp, u32 offset, u32 val)
+>>   static int mtk_dp_update_bits(struct mtk_dp *mtk_dp, u32 offset,
+>>   			      u32 val, u32 mask)
+>>   {
+>> -	int ret = regmap_update_bits(mtk_dp->regs, offset, mask, val);
+>> +	int ret = regmap_update_bits(mtk_dp->regs, offset + mtk_dp->legacy_regoff, mask, val);
+>>   
+>>   	if (ret)
+>>   		dev_err(mtk_dp->dev,
+>> @@ -566,7 +590,8 @@ static int mtk_dp_set_color_format(struct mtk_dp *mtk_dp,
+>>   			   DP_TEST_COLOR_FORMAT_MASK);
+>>   
+>>   	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_303C,
+>> -			   val, PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK);
+>> +			   FIELD_PREP(PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK, val),
+> 
+> This is not related to register offset, so move to other patch.
+> 
+>> +			   PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK);
+>>   	return 0;
+>>   }
+>>   
+> 
+> [snip]
+> 
+>>   static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
+>> @@ -1401,21 +1414,21 @@ static void mtk_dp_power_enable(struct mtk_dp *mtk_dp)
+>>   			   SW_RST_B_PHYD, SW_RST_B_PHYD);
+>>   	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
+>>   			   DP_PWR_STATE_BANDGAP_TPLL, DP_PWR_STATE_MASK);
+>> -	mtk_dp_write(mtk_dp, MTK_DP_1040,
+>> +	regmap_write(mtk_dp->regs, DP_PHY_AUX_RX_CTL,
+>>   		     RG_DPAUX_RX_VALID_DEGLITCH_EN | RG_XTP_GLB_CKDET_EN |
+>>   		     RG_DPAUX_RX_EN);
+>> -	mtk_dp_update_bits(mtk_dp, MTK_DP_0034, 0, DA_CKM_CKTX0_EN_FORCE_EN);
+>> +	regmap_clear_bits(mtk_dp->regs, MTK_DP_0034, DA_CKM_CKTX0_EN_FORCE_EN);
+> 
+> How do you know MTK_DP_1040 has a meaningful name DP_PHY_AUX_RX_CTL?
 
-I am happy to do that rebase in either direction. If you would rather
-have this on top of the VOP2 series, say so and I will send a v2 once it
-lands, with vop2_convert_color_encoding() returning enum vop_csc_format
-so the two fit together properly.
+Datasheet states the name.
 
-Thanks,
-Igor
+> Why don't you know MTK_DP_0034 has a meaningful name?
+
+...datasheet doesn't state the name :-)
+
+> 
+>>   }
+>>   
+>>
+> 
+> [snip]
+> 
+> 
+>> @@ -69,43 +29,59 @@
+>>   #define DP_TX2_PRE_EMPH_MASK			GENMASK(19, 18)
+>>   #define DP_TX3_VOLT_SWING_MASK			GENMASK(25, 24)
+>>   #define DP_TX3_PRE_EMPH_MASK			GENMASK(27, 26)
+>> -#define MTK_DP_TOP_RESET_AND_PROBE	0x2020
+>> +#define MTK_DP_TOP_RESET_AND_PROBE	0x20
+>>   #define SW_RST_B_PHYD				BIT(4)
+>> -#define MTK_DP_TOP_IRQ_MASK		0x202c
+>> +#define RG_SW_RST_MASK				GENMASK(7, 0)
+>> +#define RG_SW_RST				0xff
+>> +#define RG_PROBE_LOW_SEL_MASK			GENMASK(18, 16)
+>> +#define RG_PROBE_LOW_SEL			BIT(16)
+>> +#define RG_PROBE_LOW_HIGH_SWAP_MASK		BIT(23)
+>> +#define RG_PROBE_LOW_HIGH_SWAP			BIT(23)
+> 
+> These new definition is not related to this patch, so move to other patch.
+> 
+>> +
+>> +#define MTK_DP_TOP_IRQ_MASK		0x2c
+>> +#define ENCODER_IRQ_MSK				BIT(0)
+>> +#define TRANS_IRQ_MSK				BIT(1)
+> 
+> Ditto.
+> 
+>>   #define IRQ_MASK_AUX_TOP_IRQ			BIT(2)
+>> -#define MTK_DP_TOP_MEM_PD		0x2038
+>> +
+>> +#define MTK_DP_TOP_MEM_PD		0x38
+>>   #define MEM_ISO_EN				BIT(0)
+>>   #define FUSE_SEL				BIT(2)
+>>   
+>> -/* offset: ENC0_OFFSET (0x3000) */
+>> -#define MTK_DP_ENC0_P0_3000			0x3000
+>> +#define EDP_TX_TOP_CLKGEN_0		0x74
+>> +#define EDP_TX_TOP_CLKGEN_REST_MASK		0xf
+>> +#define EDP_TX_TOP_CLKGEN_REST_VALUE		0xf
+> 
+> Ditto.
+> 
+>> +
+>> +/* offset: ENC0_OFFSET (0x1000) */
+>> +#define MTK_DP_ENC0_P0_3000			0x1000
+>>   #define LANE_NUM_DP_ENC0_P0_MASK			GENMASK(1, 0)
+>>   #define VIDEO_MUTE_SW_DP_ENC0_P0			BIT(2)
+>>   #define VIDEO_MUTE_SEL_DP_ENC0_P0			BIT(3)
+>>   #define ENHANCED_FRAME_EN_DP_ENC0_P0			BIT(4)
+>> -#define MTK_DP_ENC0_P0_3004			0x3004
+>> +#define DP_I_MODE_ENABLE				BIT(6)
+>> +#define REG_BS_SYMBOL_CNT_RESET				BIT(7)
+> 
+> Ditto.
+
+Ok
+
+> 
+>> +#define MTK_DP_ENC0_P0_3004			0x1004
+>>   #define VIDEO_M_CODE_SEL_DP_ENC0_P0_MASK		BIT(8)
+>>   #define DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0		BIT(9)
+>>   #define SDP_RESET_SW_DP_ENC0_P0				BIT(13)
+>>
+> 
+> [snip]
+> 
+>>   #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_8BIT		(3 << 8)
+>>   #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_6BIT		(4 << 8)
+>>   #define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK		GENMASK(14, 12)
+>> -#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RGB		(0 << 12)
+>> -#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR422		(1 << 12)
+>> -#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR420		(2 << 12)
+>> +#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RGB		0
+>> +#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR422	1
+>> +#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR420	2
+> 
+> You change the value. Why?
+> 
+
+That's done in order to use the FIELD_PREP macro.
+
+Cheers,
+Angelo
+
+> Regards,
+> CK
+> 
+>> +#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YONLY		3
+>> +#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RAW		4
+>>   #define VIDEO_MN_GEN_EN_DP_ENC0_P0			BIT(15)
+>> -#define MTK_DP_ENC0_P0_3040			0x3040
+>> +#define MTK_DP_ENC0_P0_3040			0x1040
+>>   #define SDP_DOWN_CNT_DP_ENC0_P0_VAL			0x20
+>>   #define SDP_DOWN_CNT_INIT_DP_ENC0_P0_MASK		GENMASK(11, 0)
+>>
+> 
+
 
