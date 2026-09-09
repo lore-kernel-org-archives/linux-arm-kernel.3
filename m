@@ -4,99 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B448CC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3E7C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwk+UvMmOOejItPrHExIYRYfS6weoy0GKqdtweJZ4dQ=; b=m/m62ZQvOZ2MaAJg1Js7INDh4e
-	YoCMtxcleErh7Bfe7sW9Tr/DIuubOgv7VRCY0o3axzh+vSOdZ/+l0Yg8UUEFkFvjM4BqNAk0LqqNe
-	Z7oR/gabn6PKgySYkSTAA1kQZ7UWJtU7R9/AdTmC9rueLY83/UXgQnVGn6tZCtn19mMgTLMuj4yp6
-	yoIfdRYb5h5nqlvvgxDCPR1yyS+lxOgon84B1Ha0XNJ8RAf+66aDsG2UYWKDmOManhHoqOTzygznc
-	cztHzwcvZDk7T8uBisEygVAH4ptOz16sb3GybAiGeFSLhjCoWph6ToVAerDQNi55+h3UJRZWFeUTa
-	qPqB8rCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yA6CuRicjjgsNVONC8XoJBBZSSNo90szOTe69EAFcy4=; b=DrkI3pc3LcWZA11OeM2EK3N2fJ
+	bVWyx6jS9wgvZGeH9QWXvW/yKWXB/zbBNGtLmsDrXmaQeRlVk+DjxKeC09ZytGEyyWwu/UGSWRuuq
+	RS3y+u26wpAJdtfoFkqpZtPshXei+SEQXK8vkQ5xaSWo08FllLeUDG/ZqrDIDN456HViSdT9jL5UX
+	j/Gsr6oypczRCc+GZVwUhgqxxerIScSKHRbIBblenIp9+W8LTIH6zIlm9hARaRL1DvOuVRz2R6BAn
+	HmTTij15ER9xqvdIPUNzJQv7c5mMdujx0sHYxHHXpJ7/clIHi888LlBiB6T+1SwoXlsvN6LfoFtW6
+	wOnPLF0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Dfj-0000000B60C-2z6d;
-	Wed, 09 Sep 2026 08:28:47 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1x4Cs4-0000000B0F2-2WiJ;
+	Wed, 09 Sep 2026 07:37:28 +0000
+Received: from out-148.mta1.migadu.com ([95.215.58.148] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Dfg-0000000B5za-04wV
+	id 1x4Cs0-0000000B0EP-2Fiv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 08:28:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1788942522; bh=vfmBXnNeJ1NpJUYwZFwgJkc9eQg51DMt/p2K4/oDTL8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qqEpXggU4ubFz3BdyK7idq/XNCa9aAcHQqo7lhT76xOJNC7ccNJhvHdErYC6cfABu
-	 Jdb1nrLOCxV3O4Cz1gxNl7W1wzgGhZksuon3cL2G0AhvEKS+OIB1HQFKW/XZSDs5Lh
-	 hHq+bQ2PC7Bm2dhOcnzz2PpL8W9VCnQKBioGu+dVhXmDC9AddP8NhmyLrmwjXldIQp
-	 GH6i2ZzRIonII5i5Bmc/xNm9XGVIoeqgHT5iDc1QaklfxXtQVv0kkzLrvU7YTQvnSQ
-	 +zArK/yKsOUzbQNUl/oudEqwUl9lvsL5NhDs7DtF+TH0tCa3gU0qYKbxv6aClPKfzw
-	 OzKhYbo0+5vMA==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id ED4BF8702D;
-	Wed,  9 Sep 2026 08:28:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1788942521; bh=vfmBXnNeJ1NpJUYwZFwgJkc9eQg51DMt/p2K4/oDTL8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lQbPuJHCUF/s9EUzhJLEsR+4+s06seWE3oYsgcMgjs7C7Cg4K89e/aTL512M8/9JL
-	 Ld2oHt8S6ReEbbZdT9EVFhCrYvZloID0MBZWZZMAp5JCKuF2X2YkJIrzYb5B3GYJyg
-	 cjm0WpR+pOaRQtL6arz9uUdgVnRNlxdp1lM2L/233opCRL4UxR2lA/HJfAnGGQ4ytv
-	 uQjfhU57uJyGaNcKikBKBtP0+I3/4antgAEVE1rRSB9s2PWYMAagDPnit2c7H0Cm/e
-	 KgVxSAum7CmJwrBQ8JU8KM05k/gnNxZNUyvTWXrS6l2EGD+UD8Iy+v61GRa0/ReVaV
-	 HkNxXw1xvOxeg==
-Message-ID: <96ef0d36-51b2-4efe-9f6f-5e4ce6d6046d@mleia.com>
-Date: Wed, 9 Sep 2026 11:28:39 +0300
+	Wed, 09 Sep 2026 07:37:26 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=W3MflD4KvxfjlYvuaglkAbbfr+JQGM3DGNPD2OgqTvE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788939442; v=1; x=1789544242;
+ b=VTvcqYdhVw3BqZqMxgPpKlFNdTMGCqaNX+v3SI1pjhnWlwFt8J2wq8qBXZ0TyU+7oPTcOho5
+ yVqKq0Ohrj0WjKq4uE6PTaspkXo6j/KAwQIdKn+CFh005L5Oa84VOwn7wRvvLb6bzTUEhM99GXk
+ unnTcI/PF1p+i8dSLrMidkq8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9aca0a55722310a2;
+	Wed, 09 Sep 2026 07:37:22 +0000
+X-Mizu-Trace-ID: 9aca0a55722310a2
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so4638e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 00:37:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzHXEtujyCDBJsdSm5SuqCjsu4Ibt2spV7tz86cZdh18Tf7Fi26eMKuEpZWMX4lMG0msUnssBsZrb9eeb5hns3M@lists.infradead.org
+X-Gm-Message-State: AFuF++lPSdN5sqbOqdPj4xAz1OA2mcekPIe5N+C/kkejdh3bdWgfkTRi
+	1VjheXfHxoMr+FdxxKtOtlnWKqbr9ccCworpMQKK/AAfMim07YORjTMukvuH7XM5IKrh0YsORht
+	2VXKIBNq7ZB8KAB/8MIKUVvjVIhcAMP/IBYKr2NZq
+X-Received: by 2002:a05:6512:288:b0:5b7:78bc:ec07 with SMTP id
+ 2adb3069b0e04-5b778bcee15mr17247e87.14.1788939437032; Wed, 09 Sep 2026
+ 00:37:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/13] ARM: lpc18xx: remove entire platform
-To: Arnd Bergmann <arnd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: Drew Fustini <fustini@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
- <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>,
- Kristoffer Ericson <kristoffer.ericson@gmail.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Alexander Sverdlin <alexander.sverdlin@siemens.com>,
- Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>,
- Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20260908152808.3928630-1-arnd@kernel.org>
- <20260908152808.3928630-10-arnd@kernel.org>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20260908152808.3928630-10-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260909_082842_007818_F2240E9C 
-X-CRM114-Status: GOOD (  15.50  )
-ln: failed to access 'reaver_cache/texts/20260909_082842_007818_F2240E9C': No such file or directory
+References: <20260909063156.89636-1-kmehltretter@gmail.com>
+In-Reply-To: <20260909063156.89636-1-kmehltretter@gmail.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 9 Sep 2026 08:36:40 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
+X-Gm-Features: AcwNN1X7nBSrvOxVUlaJ6opTCQ7kc3b4t69IqzHQ2RwkJ6z5rM4K_pY4NvS2qiE
+Message-ID: <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Fix kvm_get_vtcr() kernel-doc
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Quentin Perret <qperret@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_082842_007818_F2240E9C 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260909_003724_864864_527B7673 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 18:27, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The NXP LPC18xx and LPC43xx microcontrollers are the more modern
-> version of the classic LPC32xx line, but they lack memory management
-> units.
-> 
-> These microcontrollers all remain in production as of 2026, but
-> there are no known users running Linux on them.
-> 
-> The platform was marked deprecated in the 7.3-LTS release, which
-> will remain supported for a few more years.
-> 
-> Remove support for both LPC18xx and LPC43xx.
-> 
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Vladimir Zapolskiy <vz@mleia.com>
-> Cc: imx@lists.linux.dev
-> Cc: devicetree@vger.kernel.org
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Hi Karl,
 
-Acked-by: Vladimir Zapolskiy <vz@mleia.com>
+...
 
-Since there is no known users of these pretty old NOMMU platforms in
-the Linux kernel, it should be safe to drop them from maintenance.
+Good catch, I'm a fan of documentation fixes :)
 
--- 
-Best wishes,
-Vladimir
+While you're on that line, the description is also inaccurate, so you
+could fix both in one go and save a follow-up touching the same line:
+
+> - * @phys_shfit:        Value to set in VTCR_EL2.T0SZ.
+> + * @phys_shift:        Value to set in VTCR_EL2.T0SZ.
+
+kvm_get_vtcr() sets T0SZ to 64 - phys_shift, so phys_shift isn't the
+value written to the field, it's the IPA size in bits. Something like:
+
+     * @phys_shift:    IPA size, in bits.
+
+Cheers,
+/fuad
+
+>
+> base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+> --
+> 2.53.0
 
