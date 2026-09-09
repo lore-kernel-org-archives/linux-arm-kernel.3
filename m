@@ -4,68 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1C5C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A983C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slnjdRzKX3tkjReOK7vLXvPibZZqXgwez0wFvrkE3vA=; b=Xkqwy8t6I1AaFYN0E28ewBIXSi
-	mdJ48MwLfnKCSFJTInI5lLjRyqZKe3q2Kgz6r7UNwQlL8952GJ+YasHlW0bI9p/tPVP71jneX09RC
-	sA2z3VBKQFtgjLzCUVqbMSBeIccQTpBhkSEOTj/Tf4YZl2Nr/bjFvPIV1OdvsB7Id2JAZkM4cEplk
-	DrBw7ZADjK8tpz6UqwCj9Z7tdBwQP/SIdrKOJJLSC9t3vz/08OWRRlxucUY+AwafEoj+6Db4NzB/9
-	eaC0w6SX5ljf7KykfavlEWuc5aN/7e1Roobo5k4M+/k9/2ulhxkZYHGMvmoXraiP7KsNtZlmutrYF
-	+svqi5TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eA4tusOFXfhcaiHuyadK4PeOPJJDlwnqDawxa472IaM=; b=Nw3RgMXmrUV2l/9j3yqFdR2YDT
+	CzEQOBm19TiNkJNqdmNW130kpfq+O9HHA1o1dGdrOxdsUlwWbNL+Z1j6iu0Lz6cNnXg04Wwac+YdQ
+	ikDIUH04YC3q5hYcUS+tbhMQ13Oga/UO8GGK4zOM2ZoSqgP34fNNpO673pYgYkfLuQW5abkQQhXZ+
+	n0ka0I9gRPY0VvCGAf/nEk+OGdiUovaAHsR/ukkYZD/3GHhgnuetELQUXq3krwfcieGoi8luAO44I
+	56pYAoIxGqfMngRPfA2As0O0/v0zyw5KL027io6dddUnY29CkKrlG2Xc9tGIBaqWxf6PzdpT2ZvbR
+	30eChvHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4DqU-0000000B9DL-2nzU;
-	Wed, 09 Sep 2026 08:39:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4DqR-0000000B9CE-1bud
+	id 1x4DYV-0000000B5Ew-1N15;
+	Wed, 09 Sep 2026 08:21:19 +0000
+Received: from mail-southcentralusazon11011037.outbound.protection.outlook.com ([40.93.194.37] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4DYR-0000000B5EO-41p2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 08:39:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 550F91576;
-	Wed,  9 Sep 2026 01:39:46 -0700 (PDT)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA4CB3F7B4;
-	Wed,  9 Sep 2026 01:39:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788943190; bh=4AbRZtzIP0uW3AJ/+JRlRVpE4lXeH9HEYiTBXBQIq3Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NMyI6wZw/NCEboJ0abFf86U+oE5eeHU5OnDFOA34ZhcJmQgj2tu+TMkY/Jqa6vCAH
-	 5WbTkaag4OZl2gI9STO3lNgNnp5ZZ0eiePe9zoh6YBfoHF4xNy4fOkfQeSMvbhWkJi
-	 IXP4CYnGuUCfaiQU5p/mFXtnkEceufCppARjFk50=
-Message-ID: <44f02c8c-db52-4f3e-b5d9-f25c1c8c5f0b@arm.com>
-Date: Wed, 9 Sep 2026 09:39:45 +0100
+	Wed, 09 Sep 2026 08:21:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dq4M2IzvyFcjuUnDkf/MhbZ4PbkiS4jRlxxsLBG11qaljngWFMYbZemPFMrmbnFwsRVxCNcSp90BSs6num110vZAtSRN43jgitYb6U46DpSqrxWFku9fSRsxSQuH3/tiT+EsAgVJzbvuejb27ew77yVUvMNm31eO9izWpaGH0igbVmHTwIvZtdpLnSJFPJR8X140I+aQIl/RAg17I8s+Vg4SreNKW35lq4DxViOgpypcaq2TRMBO6RruX5jGVhK2act7EsyubX5ODmKhUuN82WZS3X1yDCZijm/dZ+GKP5enqTdHMEte6xF8apzxL00cAMWxPtjbevEi+WZJtfjmcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eA4tusOFXfhcaiHuyadK4PeOPJJDlwnqDawxa472IaM=;
+ b=Gf15pgGEjbabTAC6ionl3ILSdsRPK3s+MpmqLAN1ujLf87JwxNCBPI+AGc/dEIQP7EgfU85V3O1SN0fF0omrU6yxre/yWlEIelkOJnWgLBId0jyG8b08Dkb99Ys3h+1plWkHU2NV/xJ9Y0YmUyzvdPJVPia4XXZxOhYMxw4pGAKjw9KerpxU6hqbuSrPEX5YiaZTq54htRp7NiQvaqDSy5mCs1wHGojUNf1uf1biJZN7fWDox5+tyk67Aa/lbEgRhvfTUC0HmgYT5Wun9fHDvXvvXuTx1yQlQAqa+0MNaRwKv4CggHBYBPsuXNWMnEVAxzGkv1q/OUdiuexbrtzudg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eA4tusOFXfhcaiHuyadK4PeOPJJDlwnqDawxa472IaM=;
+ b=C8nRttIzO7qhbM+OSpOmvjtmmyJkOfg5tIN56FY5ALm7iFbxbC2oBRAaZRodueGmobH2qWRtgaiLBVokFrSbfjkBmgzUHcN6k+IFqTW8Z+q8ppNCySEtSWsVr5Se4BX7NtnTiYEzCQt0gvg1zqnweAA/KBMxJMqKYPRkJ3ZUN24=
+Received: from MW4P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:303:115::29)
+ by LV3PR12MB9167.namprd12.prod.outlook.com (2603:10b6:408:196::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
+ 08:21:07 +0000
+Received: from BY1PEPF0001AE16.namprd04.prod.outlook.com
+ (2603:10b6:303:115:cafe::a6) by MW4P220CA0024.outlook.office365.com
+ (2603:10b6:303:115::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Wed, 9
+ Sep 2026 08:21:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BY1PEPF0001AE16.mail.protection.outlook.com (10.167.242.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 08:21:07 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 03:21:06 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 03:21:06 -0500
+Received: from [127.0.1.1] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
+ Transport; Wed, 9 Sep 2026 03:21:03 -0500
+From: Carl Lee <carl.lee@amd.com>
+Date: Wed, 9 Sep 2026 16:25:02 +0800
+Subject: [PATCH] ARM: dts: aspeed: anacapa: add NCT7363 fan controllers
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 1/7] firmware: arm_rmm: Add SMC definitions for
- calling the RMM
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <20260907095942.1140734-2-suzuki.poulose@arm.com>
- <c9990440-acab-4c6c-b67f-8bde17feddce@redhat.com>
- <aca629b2-27a0-4c47-acac-87edb3b0d3d9@arm.com>
- <52e58930-8fa4-4c75-981c-25be42d83f2d@redhat.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <52e58930-8fa4-4c75-981c-25be42d83f2d@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260909-arm-dts-aspeed-anacapa-add-nct7363-fan-controllers-v1-1-f84ba4254db6@amd.com>
+X-B4-Tracking: v=1; b=H4sIAN0XoWoC/x3NQQoCMQxA0asMWRuoU62MVxEXsUm1MKalKSIMc
+ 3eLy7f5fwOTlsXgOm3Q5JMtFx04HiaIL9KnYOZhmN0c3OIWpPZG7oZkVYSRlCJVQmJGjf3ig8d
+ EirFob2VdpRk6TsGf5RElnGCEa5OUv//p7b7vPyYjzECEAAAA
+X-Change-ID: 20260909-arm-dts-aspeed-anacapa-add-nct7363-fan-controllers-0df635ebce64
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<carl.lee@amd.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788942304; l=3094;
+ i=carl.lee@amd.com; s=20260203; h=from:subject:message-id;
+ bh=Q0Tlo+7/FNd4dAozajRjGWzL8Oacu73LQ8s1SIcPens=;
+ b=/O63VCPm+8eAY+T49Fw4k6ECeRcM8FZ3murHr2VyY4HgGut+LN5vyyNpnkulHDv7MOe0r9umx
+ LnXYEXEe6oIArapev95y4RGX4cQYVCSi8rGPKNXIBbCcnBsAor+CeLJ
+X-Developer-Key: i=carl.lee@amd.com; a=ed25519;
+ pk=pyq7QaQvoxMg806KVkRwpCbiah+7ncWr4MBpK1AEyjA=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE16:EE_|LV3PR12MB9167:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3ece34f-a09a-40ed-bf4f-08df0e4b4c45
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|23010399003|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: ebjYRuDM4nzmfUdbyIcZNtLl/ba3wGS0Ab222ET2hcD6hRaapU0+BXsidF98YTDxU6co6E9wzDhykV/KSYVJZ2FqY9UPSJ7CggdnEknqw8YU9KqiEGkwRFnNAHhnMVtta3dFN+XConoWPOTWUX53UHLiKYyv1iOVDRS77DqdtsdrzTZHDiFZOQAgyLUNqaL8zjU/czu+KkVUCctJo9Y8+1DpzmX5u0+dFcWFG8Vg5/Y0hP7jV+Q1S9UjKd8NNxvA+sz9/Oi3l5fG1FJ+xpiFqkcSl8omyfEgu1kgWBaqxHJz3lIkXbdbcHVISVlpAI/XhQSRTdjjC6mZLjJE+FCSKrMoY+Y8cPLQ3lqVGGn9/W4jwP9oHzFuEuY/MN5caMFCZedphXkwSV8Ai5u6rGLKIS96vak/FcNTniCwq44/Xf5Tbl41JsXBHqibeE3JPMFV2uWDPHmvpggJI8Wk0NcwsowVznIOHRmvB9ynS20U53Eaa+8w3Hl85jhc/CmXDAiXDb3BFO1YNzUC/AdRWS0Qo3d0Z7bARKHc0OWTOAoIal3Bki1zxvBfqXz4tYqvMgXIHM47sKUgWX/cRo2FohOt21YGx8RdmhEyV3w3NXbmoH+AZFhCQj5eB2p3mcKogTRSc3jggZ5vejMvGWeqVYjMRFvr13brlxBgj/GwYL/2/E47wt9//1V3eowLZM9+SAFlIVEWmRgdC+cjahyzDSGp6A==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(23010399003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: D9GWRG9co8BwiyjS38oFxj8YdjIcV9ZFSvm9ezAGRAW+Xim87bZsQXz6HremtQ3PNJYZy8yh6StD8+NyF12z1pgJQzjhF9twm0mfGPc4ybxeohjTumv8A67n7ZZuAeXddLA5jl5eGu7Wt9xznxIjKkn5aIfyTrKODzrx3t5GnotohhTJpAa2tj8Bt4U5Wg0W6T/RNSvnPy9gafWWZPUq6IXZw+lZ2PBv98gKKnV2edrK239MgipwaNaE5+rWqSKHIS6XBRJnWzyQz9NLgr9eBhpUzK9XuUGrggrmZl8vQjv/xeC7z4Gt8wxxHdC7Pv1d/xkUlwqIPFhZfFGSLcCcbejzzUgMVgegpZG8MA1AJv/n9eXDY/fX9XuuMl/xedymcKwe2+cTf45cJW+QNDgZ3D8iBgm9wqcVk1A1Za6eKzODfXaKrdeYlYXzNv3VIMb+
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 08:21:07.3611
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3ece34f-a09a-40ed-bf4f-08df0e4b4c45
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE16.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_013951_506178_DA3A13A1 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20260909_012116_862787_FCCA8AB8 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,201 +137,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/09/2026 23:41, Gavin Shan wrote:
-> On 9/8/26 8:37 PM, Suzuki K Poulose wrote:
->> On 08/09/2026 07:19, Gavin Shan wrote:
->>> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
->>>> From: Steven Price <steven.price@arm.com>
->>>>
->>>> The RMM (Realm Management Monitor) provides functionality that can be
->>>> accessed by SMC calls from the host.
->>>>
->>>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
->>>>
->>>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
->>>>
->>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>
->> ...
->>
->>>> ---
->>>>   include/linux/arm-smccc-rmi.h | 494 ++++++++++++++++++++++++++++++ 
->>>> ++++
->>>>   1 file changed, 494 insertions(+)
->>>>   create mode 100644 include/linux/arm-smccc-rmi.h
->>>>
->>>
->>> Some nitpicks below, please pick up the commits that look reasonable :)
->>>
->>
->>
->>>> +
->>>> +#define RMI_RETURN_STATUS_MASK        (0xFFUL)
->>>> +#define RMI_RETURN_INDEX_MASK        (0xFFUL << 8)
->>>> +#define RMI_RETURN_MEMREQ_MASK        (0x3UL << 8)
->>>> +#define RMI_RETURN_CAN_CANCEL_MASK    (0x1UL << 10)
->>>> +
->>>> +#define RMI_RETURN_STATUS(ret) FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
->>>> +#define RMI_RETURN_INDEX(ret)        
->>>> FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
->>>> +#define RMI_RETURN_MEMREQ(ret) FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
->>>> +#define RMI_RETURN_CAN_CANCEL(ret) 
->>>> FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
->>>> +
->>>
->>> If I'm correct enough, RMI_RETURN_{STATUS, INDEX, MEMREQ, CAN_CANEL} 
->>> _MASK are used
->>> for once in this header file. So we needn't explicitly expose them 
->>> and combine their
->>> definitions with users to fetch the corresponding fields, as below.
->>>
->>> #define RMI_RETURN_STATUS(ret)        FIELD_GET(GENMASK(7, 0), ret)
->>> #define RMI_RETURN_INDEX(ret)        FIELD_GET(GENMASK(15, 8), ret)
->>> #define RMI_RETURN_MEMREQ(ret)        FIELD_GET(GENMASK(10, 8), ret)
->>> #define RMI_RETURN_CAN_CANCEL(ret)    FIELD_GEt(GENMASK(10, 10), ret)
->>
->> I belive the header files were generated from a tool (by Steven) and
->> these would make it easier to compare with the generated header file for
->> any deviation from the spec. So, I am a bit reluctant make these
->> changes.
->>
->> That said, I am happy to convert the mask definitions to GENMASK() for
->> consistency and readability. i.e., something like:
->>
->> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc- 
->> rmi.h
->> index 3eb88caf40964..078197284415e 100644
->> --- a/include/linux/arm-smccc-rmi.h
->> +++ b/include/linux/arm-smccc-rmi.h
->> @@ -139,10 +139,10 @@
->>   #define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
->>   #define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
->>
->> -#define RMI_RETURN_STATUS_MASK         (0xFFUL)
->> -#define RMI_RETURN_INDEX_MASK          (0xFFUL << 8)
->> -#define RMI_RETURN_MEMREQ_MASK         (0x3UL << 8)
->> -#define RMI_RETURN_CAN_CANCEL_MASK     (0x1UL << 10)
->> +#define RMI_RETURN_STATUS_MASK         GENMASK(7, 0)
->> +#define RMI_RETURN_INDEX_MASK          GENMASK(15, 8)
->> +#define RMI_RETURN_MEMREQ_MASK         GENMASK(10, 8)
->> +#define RMI_RETURN_CAN_CANCEL_MASK     BIT(10)
->>
-> 
-> Ok.
-> 
->>>
->>>> +#define RMI_SUCCESS            0
->>>> +#define RMI_ERROR_INPUT            1
->>>> +#define RMI_ERROR_REALM            2
->>>> +#define RMI_ERROR_REC            3
->>>> +#define RMI_ERROR_RTT            4
->>>> +#define RMI_ERROR_NOT_SUPPORTED        5
->>>> +#define RMI_ERROR_DEVICE        6
->>>> +#define RMI_ERROR_RTT_AUX        7
->>>> +#define RMI_ERROR_PSMMU_ST        8
->>>> +#define RMI_ERROR_DPT            9
->>>> +#define RMI_BUSY            10
->>>> +#define RMI_ERROR_GLOBAL        11
->>>> +#define RMI_ERROR_TRACKING        12
->>>> +#define RMI_INCOMPLETE            13
->>>> +#define RMI_BLOCKED            14
->>>> +#define RMI_ERROR_GPT            15
->>>> +#define RMI_ERROR_GRANULE        16
->>>> +
->>>> +#define RMI_CONTINUE_KEEP_GOING        0
->>>> +#define RMI_CONTINUE_STOP        1
->>>> +
->>>> +#define RMI_OP_MEM_REQ_NONE        0
->>>> +#define RMI_OP_MEM_REQ_DONATE        1
->>>> +#define RMI_OP_MEM_REQ_RECLAIM        2
->>>> +
->>>> +#define RMI_DONATE_SIZE_MASK        3UL
->>>> +#define RMI_DONATE_COUNT_MASK        GENMASK(15, 2)
->>>> +#define RMI_DONATE_CONTIG_MASK        BIT(16)
->>>> +#define RMI_DONATE_STATE_MASK        GENMASK(18, 17)
->>>> +
->>>> +#define RMI_DONATE_SIZE(req)        FIELD_GET(RMI_DONATE_SIZE_MASK, 
->>>> req)
->>>> +#define RMI_DONATE_COUNT(req)        
->>>> FIELD_GET(RMI_DONATE_COUNT_MASK, req)
->>>> +#define RMI_DONATE_CONTIG(req) FIELD_GET(RMI_DONATE_CONTIG_MASK, req)
->>>> +#define RMI_DONATE_STATE(req)        
->>>> FIELD_GET(RMI_DONATE_STATE_MASK, req)
->>>> +
->>>
->>> As above, RMI_DONATE_{SIZE, COUNT, CONTIG, STATE}_MASK are used for 
->>> once in this
->>> header file. So their definitions can be dropped by modifying the 
->>> followup macros,
->>> as below. Some enhancements are also applicable: (a) Use 'BLOCK' to 
->>> indicate the
->>> unit encoded in the request. (b) The macros are put into order from 
->>> MSB to LSB.
->>>
->>> #define RMI_DONATE_STATE(req)        FIELD_GET(GENMASK(18, 17), req)
->>> #define RMI_DONATE_CONTIG(req)        FIELD_GET(GENMASK(16, 16), req)
->>> #define RMI_DONATE_BLOCK_COUNT(req)    FIELD_GET(GENMASK(15, 2), req)
->>> #define RMI_DONATE_BLOCK_SIZE(req)    FIELD_GET(GENMASK(1, 0), req)
->>
->> Same as above.
->>
-> 
-> Please rename RMI_DONATE_{SIZE, COUNT} to RMI_DONATE_BLOCK_{SIZE, COUNT} 
-> if possible.
+Add two NCT7363 fan-controller nodes on Anacapa I2C mux
+channels and define their PWM/tach channel mappings.
 
-Sorry, forgot to add that, I have renamed RMI_{DONATE,ADDR_RANGE}_SIZE
-=> RMI_{*}_BLOCK_SIZE, left  the _COUNT as it is.
+This matches the fan-control hardware layout and allows the
+kernel to probe the correct fan-controller devices.
 
-> 
->>>
->>>> +#define RMI_OP_MEM_DELEGATED        0
->>>> +#define RMI_OP_MEM_UNDELEGATED        1
->>>> +#define RMI_OP_MEM_CONDITIONAL        2
->>>> +
->>>
->>> B4.6.40 RmiOpMemContig type is missed here and they should be used in 
->>> the c code.
->>>
->>> #define RMI_OP_MEM_NON_CONTIG    0
->>> #define RMI_OP_MEM_CONTIG    1
->>>
->>> In the c code, we shall have:
->>>
->>> if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
->>>     ...
->>> } else {
->>>     ...
->>> }
->>>
->>
->> Does it make much sense though ? I prefer
->>
->> if (RMI_DONATE_CONTIG(req))
->>
->> to
->>
->>
->> if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
->>
->>
->> than having a field for a single bit values. I am happy to change
->> this if there is strong preference to the other.
->>
-> 
-> The point is RMM-v2.0-bet3 expose RMI_OP_{MEM, MEM_NON}_CONTIG instead 
-> of true/false
-> to indicate if the requested memory blocks are physically contiguous or 
-> not. So the
-> expression 'if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)' is 
-> consistent to the
-> RMM-v2.0-bet3 spec.
+Signed-off-by: Carl Lee <carl.lee@amd.com>
+---
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 86 ++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-Agree, but the values are intuitively assigned to indicate whether it is
-1/0. I personally think if (RMI_DONATE_CONTIG(req)) is good enough. But
-to be consistent with the spec, I will change them.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 1fddf3a5d138..281e226fa2d0 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -475,6 +475,45 @@ adc@1f {
+ 				ti,mode = /bits/ 8 <1>;
+ 			};
+ 
++			fanctl1: fan-controller@21 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x21>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&fanctl1 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-10 {
++					pwms = <&fanctl1 0 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-15 {
++					pwms = <&fanctl1 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-0 {
++					pwms = <&fanctl1 6 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-2 {
++					pwms = <&fanctl1 9 40000>;
++					tach-ch = /bits/ 8 <0x02>;
++				};
++				fan-3 {
++					pwms = <&fanctl1 9 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++				fan-5 {
++					pwms = <&fanctl1 12 40000>;
++					tach-ch = /bits/ 8 <0x05>;
++				};
++				fan-6 {
++					pwms = <&fanctl1 12 40000>;
++					tach-ch = /bits/ 8 <0x06>;
++				};
++			};
++
+ 			gpio@22 {
+ 				compatible = "nxp,pca9555";
+ 				reg = <0x22>;
+@@ -549,6 +588,53 @@ gpio@22 {
+ 					"LPDB_PWRGD_P50V_HSC5_SYS_R","";
+ 			};
+ 
++			fanctl0: fan-controller@23 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x23>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&fanctl0 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-10 {
++					pwms = <&fanctl0 0 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-12 {
++					pwms = <&fanctl0 3 40000>;
++					tach-ch = /bits/ 8 <0x0c>;
++				};
++				fan-13 {
++					pwms = <&fanctl0 3 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&fanctl0 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-0 {
++					pwms = <&fanctl0 6 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-2 {
++					pwms = <&fanctl0 9 40000>;
++					tach-ch = /bits/ 8 <0x02>;
++				};
++				fan-3 {
++					pwms = <&fanctl0 9 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++				fan-5 {
++					pwms = <&fanctl0 12 40000>;
++					tach-ch = /bits/ 8 <0x05>;
++				};
++				fan-6 {
++					pwms = <&fanctl0 12 40000>;
++					tach-ch = /bits/ 8 <0x06>;
++				};
++			};
++
+ 			gpio@24 {
+ 				compatible = "nxp,pca9555";
+ 				reg = <0x24>;
 
+---
+base-commit: 32b6ef9a5d0eca44f9cd91f52f4faa89f145a0de
+change-id: 20260909-arm-dts-aspeed-anacapa-add-nct7363-fan-controllers-0df635ebce64
 
-Cheers
-Suzuki
+Best regards,
+-- 
+Carl Lee <carl.lee@amd.com>
+
 
