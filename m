@@ -4,82 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D98FC79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B25C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYAaJ/nstk18ZP+Irwr92KPlz26fv0Oh5+iqsnRCB4U=; b=jcCP2c/LAX2NXH70DisIHN1NH1
-	YLR/64Ek4Yrf3SG15oskd/cYf5V9mFjF+t2MnEqQv+4ifQDLP2tKR7sOFHsgg7Dik7kZGjN21anMT
-	C8CVNIaPZjhjMiSHSV+WRh3R77TfMG+vicoUqXZVM9Q2Tg9KhgcJUEJXp5bJjbojksJ4WEAVn/Gq3
-	GCLE4Eq7I8OREhMiM3AM4GIY+PysXbmVF6PiurTS0GG8PVqvr/Yea9FmpzCX6AH7Go3MJlURnzWi2
-	SHtOpOpiAEPnVGcuvd+B4M04dNbNNPsXJLTf0JH3jLmc6JjuNTHpuB//u+WZV3KOXRr2mhnWtgsfx
-	tOnP25JA==;
+	bh=/IjnlF14QSJXc+Vtbw4l/86WJd4sHZQjiu2xjb1UvnU=; b=akfnkk8mMGTlc4E231G62sb52Y
+	bI8CZ5BjuEKnEw2rrd4fqp6ALVZGVDNTpQqX+f0IGr7QImIG/mWmdObODQ5Hxc7olK0vV1nIi6pyk
+	AyfHrx4lpIbJ6ipQO1jciSefKHhCFX4mKzTBlVd/4TjXF+X5uPafPsHBogbcvkQIvWBpMiROJOQUB
+	VQbUx0AeGX1+LmEyhlXTApi/7lab/lS7EakEPsM8QSPrbvpVKfD46rAF5BThY663jty7WkoBCYIyL
+	PHSHY/qXG0Orj7dQlthw4kRQZKxELPgiff2qDbuJ1xu67lNitxCjiRK8Rb8AacrgJPs4amA6A80zK
+	Dbpcqapg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4CgM-0000000AycK-2fey;
-	Wed, 09 Sep 2026 07:25:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4ChE-0000000AyqP-04NU;
+	Wed, 09 Sep 2026 07:26:16 +0000
+Received: from mail-westus3azon11012024.outbound.protection.outlook.com ([40.107.209.24] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4CgM-0000000Aybm-0UYu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 07:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=FYAaJ/nstk18ZP+Irwr92KPlz26fv0Oh5+iqsnRCB4U=; b=JnE2jG/Xfd6FEGltCfvP7B5xff
-	5VL2yL8rREEIxq8M83inUqC2MIzuX/mOo4WOHTstudYRu1qPrgIEv/grQAWWq1R8e+Rx6jVUlUj+p
-	XsVCxZ0LREW7scFe1eTIcHbbJiULBLdk1+jnEsUDKzWvsFrcLcm6tWqZi1IPvjVye+2y3e46vZQdV
-	AsTWAQVN8bQ4knn3VxdMKQYMZVtBIpD4UauET362cAT2TDTtQPzvP5/nw1mKfKQwim/ybVm2gXAm6
-	Hw7s8Juie+TKTmfk6LWqJcrIddO0KR9QBCmVxuQJmO3RcL6zIvq9/veVTjE5zMuPSz8EPfaBNs6nk
-	0mwjHaNg==;
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4Cg7-00000000qQf-0ETb
+	id 1x4ChB-0000000Aype-3iUM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 07:25:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=FYAaJ/nstk18ZP+Irwr92KPlz26fv0Oh5+iqsnRCB4U=;
-	b=3jJRz0A8YI8rCByIrw0v18w2KtrXcTmS6tpw8lCycDJ0pLP/urlLzCB6ifjAT1bQsAbwS9zm6
-	B+e+3AWsR+VAbq3PZJ/fSveQ2C70DWkaHsPVy1g77R77C6+AnOvMUlUqC5cfXov2ckXiLL19FoS
-	8wMvrSfdBGd/wtBTwJlt0d0=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hfsS71fhdz1K96s;
-	Wed,  9 Sep 2026 15:11:51 +0800 (CST)
-Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
-	by mail.maildlp.com (Postfix) with ESMTPS id A57724058D;
-	Wed,  9 Sep 2026 15:22:45 +0800 (CST)
-Received: from localhost.huawei.com (10.90.31.46) by
- whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 15:22:44 +0800
-From: Yushan Wang <wangyushan12@huawei.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <u.kleine-koenig@baylibre.com>, <linuxarm@huawei.com>,
-	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>,
-	<wangzhou1@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: [PATCH v5 3/3] drivers/perf: hisi: Add cycle event for HIP13 MN PMU
-Date: Wed, 9 Sep 2026 15:22:40 +0800
-Message-ID: <20260909072240.2308808-4-wangyushan12@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260909072240.2308808-1-wangyushan12@huawei.com>
-References: <20260909072240.2308808-1-wangyushan12@huawei.com>
+	Wed, 09 Sep 2026 07:26:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s4GWh1TPOzC6P0XWBw4Nn1dDIt4pRoZ1Z77723PEEXOHbsSIwoBo02075FQw2swty9R86nDR/t1R89iPjOPoY8dxRxoKIGUW624Jp7cZyFD2dq0udhZwsn7P9qRNjmaMHTcFaV/iurva7l4bXDPB9fS05l8B/IX3WH1+uM28jiMKMwg3bKMUHOUah6MNKHc66d34cj5swI8kqT6KJoy7Vq4/DdMTik1MGslWNvQehsintSMilsrlg1axBLFZifMKpnzN8S5SIN+Mp5oh5jImLhAWFIUPG1AEe9p8trifvHiCh8hcGqTum0/0GfdhJy+tdKHWF8V30H2JDbYyI5K8Ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/IjnlF14QSJXc+Vtbw4l/86WJd4sHZQjiu2xjb1UvnU=;
+ b=XhurZ6Rocclb8RVz3Cw06cBEXbDM0stzOb4BbQIQNuzEVKcGOvfEtdgvbuCPXrA9XEASIMkrZfMt/pBTslz9ktGjn4ZmBO2r2VoRpzwtwsFERUQYtR4ggI6QE7hp2r2wio8369z7Zpjd+FQAcPOAqZdQeuVkqlSiHfao4WCfG5mLTElzSTeDSEf74HTL37CTEKhClicH1uKpPquO8zfNgAiVpjBX9RYQ5gL5gdThpk6S9dfujB8yca/QmPjOkWirrvnXD4kM91Y3Jll7piezv2N2dL+/d86NIMZU9ictzFF3FDJXePsnPYnIwZ8rMTwxW4OWvA2x0o+ao6tom45KPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/IjnlF14QSJXc+Vtbw4l/86WJd4sHZQjiu2xjb1UvnU=;
+ b=Up8K9ISJgUI30oawBye7LIzLBkWE7X5CsTHywDgs8MCOPoSf+ObS6rmcuGtqShLyrgMUqCFTbkGRcGibwq2FM/2r2kVLsW0Sz3sthv1Hs8qLp+06iE2w1LpuLVIfEsA0VwjvUR30kxc+xB4UB1SHiy2hFfxZo5W+p9iGQ3j8lhaMTC9KGExRoMuKgU2llXe7IcK0iLy7CeDVAzME2HLLMPLKNfP1teL3ac9m38UzOkL8F/wbu0CIOIhosZUyfAvrmRec8/7zohGKYXaZW4Nb6pqGPdaqzJI+TRvOPDsucOWJPXjgjn2mm1Ra6O9l2OY0+wQIsmOH5Fzk1+NMKa80Ug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by DS0PR12MB999314.namprd12.prod.outlook.com (2603:10b6:8:42d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Wed, 9 Sep
+ 2026 07:26:09 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Wed, 9 Sep 2026
+ 07:26:08 +0000
+Date: Wed, 9 Sep 2026 09:26:00 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] sched: Enable preferred SMT siblings on NVIDIA
+ Olympus
+Message-ID: <aqEKCCSY6QetqOCB@gpd4>
+References: <20260908082345.103087-1-arighi@nvidia.com>
+ <c92baaa9-1c1a-4f1e-903e-7b98ec9f694c@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c92baaa9-1c1a-4f1e-903e-7b98ec9f694c@arm.com>
+X-ClientProxiedBy: MI0P293CA0008.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:44::13) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- whupemo500002.china.huawei.com (7.152.185.250)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|DS0PR12MB999314:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9d42700-e165-4cd8-08f3-08df0e439ddb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|22082099003|10067099003|4143699003|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: MEPM1USNBP94C6Jbpk1EjQrSNc6st7TCZOntnmPOupDt84OU7RMYXWwjTBmikybk4E1auUaKQHZn023ARRrvJ5QAiELDfzAuaNnmcNU6aWc0+CTEihF4UQdkYolJonXt8bLBptBFqwLS7EqdLFEBrTpYQVlRn0gYWUcmpuAQtT233Y7KElBpDV9a0XynisIoclQUzKw48/9T3S7LmcQWzT72LYHW33Lsy2eVKVszugqnGhVeCIhO5ixvqDcFNhb4+e3Dumle1w6IJxrhaDXJ6PAg7lBeWsSeSTVFg0hy0Yv7KyZN/icpPKet6a2essVt9GFsLdaYSjxebbxSkmEwv/xtoSKeF27gG0Ort3D8IoByoQcJzh++JFZ2T759I7zu9czZ/RQuw+BrWQIcAkwy7tp3SJBF7y/4cfPinmo961oYzPo+1M2DVeVOZG8REqOEK0T6W1Zt8Z2BdQ9yE43+DpuymAQz76aHLudUvsYaUozXtHUxs7cqBSZmDq80KG1tCdpYjAYbjqZjvsge8D76aUBxwcDVlXbKRYE1h3eMNnrkVC4BVXWXx5ZFPGZWzLdKdcXTD8dQuJWfTY1wq63a/HvwE3Ho1DfSOzWRQhxm1EZawNs4f6gBLtTBRh6TP9wPcbY04xFQQrWXXrzJzxBQXd40Dp1e1RnwIozoIIjGZug=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(22082099003)(10067099003)(4143699003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?x8VxxfBSHP8Tf27s4fRwxG+kKyuv7IsGb3fqfy/X/F8phkj9vaE8U6EFjAmt?=
+ =?us-ascii?Q?Y+jvHp7XdTeve2abCX2UVyBjayZlPKfcYx7g772oRwm4gcQ6Fe8cKMcPs07u?=
+ =?us-ascii?Q?tJjafuMwhQD7gKo25dXfsyzqs3UV0mTTDVHT4PXsyDBGr0C3IM0QzH8RRg1K?=
+ =?us-ascii?Q?bWiTrZR5mX3u8JvCu1xrbHlRhIbLP/cyDM5rJsDGM26XELCnHwzXlygO/01S?=
+ =?us-ascii?Q?56fbBtVL7fjQtd0KPk8IBSp4ma3SbznZCUhNlkFDI0OWMIrU/DVhNZyejBpr?=
+ =?us-ascii?Q?+2f2286KCDZr4KDu2GXlZkEDP+ue/n9Kq2GUFbemUykHlHdSWijdD1fL7N/7?=
+ =?us-ascii?Q?XMMPwpyf8bfSR7oGvPgtZXfUcTwjH2uWIq36054bJv86Lc5s3QOMyWAuTmF1?=
+ =?us-ascii?Q?Sm5hTqIPqFm5wUTqzruKaPc6CyPcyfunQh8//H7l2U63+WNfyiuWU4QKtL+h?=
+ =?us-ascii?Q?7hudnQY60R6nr1tQopQnxtM0JSsBBtDYdB4J7AhwWh9Em5fzgj59FDT65gru?=
+ =?us-ascii?Q?rL81DuO5FcsjU7E+QWWSMYLhYs3RyEiVhCUUOk7NsZyx1k4tm7pjuVtk+boT?=
+ =?us-ascii?Q?keVl6uq43NLdJ/AKkDKsjqquvHofhAAT07bZb4s9Q8BzUIj0oivipMlkm1HT?=
+ =?us-ascii?Q?H69sXqOESQga8Qg2dnD1qFLfmc/Yjo1GYrBPDa55m2H8HPXFiS5VqgHoCJkf?=
+ =?us-ascii?Q?s8n/a5lqzEjhXbLoIp6VpCvREqfBOdk9yeDIMerntXiVdVCsNFWkrZNdn91P?=
+ =?us-ascii?Q?MagrqhCk5FKiTKAbHh1VhI8GaDnr3FeH0m0VAgozXCkNUgnynGH7UDAqM3ji?=
+ =?us-ascii?Q?mCHxzzRrXP37lFaTwJiyqL2t2QaSZaNSP2tsPOGXr7xkt3Ns5EbYsxSoIpUp?=
+ =?us-ascii?Q?tRhLNcQn2lbodI7kkh+dw75ix27XEA1MGCUaUSbozBZKAqMvUdT9ucQOVWLl?=
+ =?us-ascii?Q?WMyZLnxMIyf4mGZY4zbD36dTha8ltdYHtHC1LZo491fXs0JL0z+BOSxy9T4Q?=
+ =?us-ascii?Q?P3L5eM9Acw21RKw023MXGR7llCFaMDxCmGoTgPgSCiMjcXjyY/BOAHv28bek?=
+ =?us-ascii?Q?aPrybUKZEKH2Gd0+iudO2ye7YYLoY8G+ohkqBNpaNnNJKT+hknzZtVpnTIX+?=
+ =?us-ascii?Q?r0MDXIf32zmq7jMTaDlCG22RgILFn62LnwWs9a9p6leAAd0EcrOqD1LsbhSP?=
+ =?us-ascii?Q?oPwcNkv+jSsQxCVcjVT1hAqtGqfbHdvC/b9HETZCJxJnPyOgi3qzsbPmi5mo?=
+ =?us-ascii?Q?aSp733mCxnAMO42x3pxcdHpV7xQuIVuE2lwBzqYYuID2ol7e4Zc6KrYFEO1X?=
+ =?us-ascii?Q?5af9cZYdGaOP6J7p/X7i/W7w+389t13I3RZXd524O7efhlS3YrcSB0b6vYrZ?=
+ =?us-ascii?Q?FOoKWwy+fj3kDjohBZkUXZKZ7NhzTKZxImZrPnkBSGa7BqEuw6XzQNV1yac/?=
+ =?us-ascii?Q?gr35zbqNjYPt+th5slb86/Uz0fuoSPUX93PiZM+yjAmx73p7R+VYQsOnDdeb?=
+ =?us-ascii?Q?ifi14tlNYmeGyX4xWT6zF2JwkSepAUeOden4xEQly1cS7BpPNdX6VvxGg5GO?=
+ =?us-ascii?Q?CtTnAq+q75J1cm27UgrY86HmF9MIHRotDj0cHRkV/7vnaaEP9YT+rBTXJ1WU?=
+ =?us-ascii?Q?JFXTfopBfibMYOPUo8xS0O55BvcexqcLxswG0DcaaH8k3P6XFY6DAHO9ZomR?=
+ =?us-ascii?Q?xrQzaQVv9HNE1Ip2QbAupJsDt7aORNB3AU6DnzRmJXNPjl5Qq9xreigoDjH+?=
+ =?us-ascii?Q?q57ZZrfGFg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9d42700-e165-4cd8-08f3-08df0e439ddb
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 07:26:08.5447
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 01U3BILWDtqRF+1w4/6ozE4VEjLjSM1PpG+nPz3QhCTvGaNJT5kq0ZGEjj0SYycLUJAidFLdoHaXHJzTuIX+bg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB999314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_082517_318734_FAF2F51C 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260909_002613_930237_D96C8311 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,121 +148,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yifan Wu <wuyifan50@huawei.com>
+Hi Dietmar,
 
-The MN (Miscellaneous Node) PMU on HiSilicon HIP13 exposes a cycle
-counter in addition to the existing event set. Add a v2 event list
-that includes the cycles event (0x0F) and a new hisi_mn_v2 dev_info
-matched by the new ACPI id HISI0224.
+On Wed, Sep 09, 2026 at 09:20:35AM +0200, Dietmar Eggemann wrote:
+> On 08.09.26 10:23, Andrea Righi wrote:
+> 
+> [...]
+> 
+> > The series was tested on a two-node Vera system using an 88-thread
+> > single-precision GEMM on the 88 physical cores of NUMA node 0.
+> 
+> Can we use 'OpenBLAS benchmark/sgemm.goto' as an open alternative for
+> your NVIDIA internal single-precision GEMM benchmark?
+> 
+> IIUC, you used it for the 'Prefer fully idle cores for NOHZ balancing'
+> work: https://lore.kernel.org/r/anIq6pU5KXTTFCDN@gpd4
+> 
+> If yes, I assume you would run something like:
+> 
+> export OMP_NUM_THREADS=88
+> numactl -C XXX --membind=0 ./benchmark/sgemm.goto 16384 16384 16384
+> 
+> Essentially you want to show that those 88 compute intensive tasks each
+> runs on his own core alone and so you get a higher TFLOPS value.
+> 
+> [...]
 
-Rename the existing event list, attribute group and attr_groups array
-to *_v1 so the two MN PMU versions can coexist.
+Yes, sure! I'll re-run some tests with that and share the results in a bit.
 
-Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
-Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
----
- drivers/perf/hisilicon/hisi_uncore_mn_pmu.c | 63 ++++++++++++++++++---
- 1 file changed, 56 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
-index ad898153ff49..1ded8a6b2358 100644
---- a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
-@@ -188,7 +188,7 @@ static const struct attribute_group hisi_mn_pmu_format_group = {
- 	.attrs = hisi_mn_pmu_format_attr,
- };
- 
--static struct attribute *hisi_mn_pmu_events_attr[] = {
-+static struct attribute *hisi_mn_pmu_events_attr_v1[] = {
- 	HISI_PMU_EVENT_ATTR(req_eobarrier_num,		0x00),
- 	HISI_PMU_EVENT_ATTR(req_ecbarrier_num,		0x01),
- 	HISI_PMU_EVENT_ATTR(req_dvmop_num,		0x02),
-@@ -215,14 +215,55 @@ static struct attribute *hisi_mn_pmu_events_attr[] = {
- 	NULL
- };
- 
--static const struct attribute_group hisi_mn_pmu_events_group = {
-+static const struct attribute_group hisi_mn_pmu_events_group_v1 = {
- 	.name = "events",
--	.attrs = hisi_mn_pmu_events_attr,
-+	.attrs = hisi_mn_pmu_events_attr_v1,
- };
- 
--static const struct attribute_group *hisi_mn_pmu_attr_groups[] = {
-+static const struct attribute_group *hisi_mn_pmu_attr_groups_v1[] = {
- 	&hisi_mn_pmu_format_group,
--	&hisi_mn_pmu_events_group,
-+	&hisi_mn_pmu_events_group_v1,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
-+	NULL
-+};
-+
-+static struct attribute *hisi_mn_pmu_events_attr_v2[] = {
-+	HISI_PMU_EVENT_ATTR(req_eobarrier_num,		0x00),
-+	HISI_PMU_EVENT_ATTR(req_ecbarrier_num,		0x01),
-+	HISI_PMU_EVENT_ATTR(req_dvmop_num,		0x02),
-+	HISI_PMU_EVENT_ATTR(req_dvmsync_num,		0x03),
-+	HISI_PMU_EVENT_ATTR(req_retry_num,		0x04),
-+	HISI_PMU_EVENT_ATTR(req_writenosnp_num,		0x05),
-+	HISI_PMU_EVENT_ATTR(req_readnosnp_num,		0x06),
-+	HISI_PMU_EVENT_ATTR(snp_dvm_num,		0x07),
-+	HISI_PMU_EVENT_ATTR(snp_dvmsync_num,		0x08),
-+	HISI_PMU_EVENT_ATTR(l3t_req_dvm_num,		0x09),
-+	HISI_PMU_EVENT_ATTR(l3t_req_dvmsync_num,	0x0A),
-+	HISI_PMU_EVENT_ATTR(mn_req_dvm_num,		0x0B),
-+	HISI_PMU_EVENT_ATTR(mn_req_dvmsync_num,		0x0C),
-+	HISI_PMU_EVENT_ATTR(pa_req_dvm_num,		0x0D),
-+	HISI_PMU_EVENT_ATTR(pa_req_dvmsync_num,		0x0E),
-+	HISI_PMU_EVENT_ATTR(cycles,					0x0F),
-+	HISI_PMU_EVENT_ATTR(snp_dvm_latency,		0x80),
-+	HISI_PMU_EVENT_ATTR(snp_dvmsync_latency,	0x81),
-+	HISI_PMU_EVENT_ATTR(l3t_req_dvm_latency,	0x82),
-+	HISI_PMU_EVENT_ATTR(l3t_req_dvmsync_latency,	0x83),
-+	HISI_PMU_EVENT_ATTR(mn_req_dvm_latency,		0x84),
-+	HISI_PMU_EVENT_ATTR(mn_req_dvmsync_latency,	0x85),
-+	HISI_PMU_EVENT_ATTR(pa_req_dvm_latency,		0x86),
-+	HISI_PMU_EVENT_ATTR(pa_req_dvmsync_latency,	0x87),
-+	NULL
-+};
-+
-+static const struct attribute_group hisi_mn_pmu_events_group_v2 = {
-+	.name = "events",
-+	.attrs = hisi_mn_pmu_events_attr_v2,
-+};
-+
-+static const struct attribute_group *hisi_mn_pmu_attr_groups_v2[] = {
-+	&hisi_mn_pmu_format_group,
-+	&hisi_mn_pmu_events_group_v2,
- 	&hisi_pmu_cpumask_attr_group,
- 	&hisi_pmu_identifier_group,
- 	NULL
-@@ -347,14 +388,22 @@ static struct hisi_mn_pmu_regs hisi_mn_v1_pmu_regs = {
- };
- 
- static const struct hisi_pmu_dev_info hisi_mn_v1 = {
--	.attr_groups = hisi_mn_pmu_attr_groups,
-+	.attr_groups = hisi_mn_pmu_attr_groups_v1,
-+	.counter_bits = 48,
-+	.check_event = HISI_MN_EVTYPE_MASK,
-+	.private = &hisi_mn_v1_pmu_regs,
-+};
-+
-+static const struct hisi_pmu_dev_info hisi_mn_v2 = {
-+	.attr_groups = hisi_mn_pmu_attr_groups_v2,
- 	.counter_bits = 48,
- 	.check_event = HISI_MN_EVTYPE_MASK,
- 	.private = &hisi_mn_v1_pmu_regs,
- };
- 
- static const struct acpi_device_id hisi_mn_pmu_acpi_match[] = {
--	{ "HISI0222", (kernel_ulong_t) &hisi_mn_v1 },
-+	{ "HISI0222", (kernel_ulong_t)&hisi_mn_v1 },
-+	{ "HISI0224", (kernel_ulong_t)&hisi_mn_v2 },
- 	{ }
- };
- MODULE_DEVICE_TABLE(acpi, hisi_mn_pmu_acpi_match);
--- 
-2.33.0
-
+Thanks,
+-Andrea
 
