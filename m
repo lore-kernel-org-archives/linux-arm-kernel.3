@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D19C79FB6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DFBC79FBE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGGdfJqGLxmL+l/+Zw0i9CDtRwIkFkCEgtvhfab4zQI=; b=3QzZuRkNe39bvhit/mWVUdnMAr
-	tdTTsonsT2IKcyNHFUfNAbeiCuwqb7+BfFGN+FoKB3wqIt5F3mG91SEGDlDMCoJBmQ1ZI6SbTdbrU
-	62H8xZ9SCtY3CqA2ARKc8cPE1MIAPa/RiUmJgDISxua8tTOYIPfBzQmTuVYYazqqLOeKInq12sp0c
-	pl/4x5tIzC4lydindekIUejA6wAuMygqFIbLuKO+aVJnVyUC2tWz6Eh3fBsRY6z56Z908Dlg8nb+m
-	25Hb5JjHR2MuBzP/rrNuq+IWy40mPYCr8pN+ZBzT8Nf3U4bbVwIqxVtvTjDN2K2JO3Di1AgXHHkD1
-	O+CvPY3A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RXPMM+ztbpXmlsc9kFco5HGn/tAEB/xZMxsbpBbwi04=; b=2YQFknQpvOwR5j+d10SmASiZ8u
+	0cQqcxCEEABcI8bjgLT0LmV858b4+Emym4WdZ/bbcnUFhBBZg/GxsRtqGVOH1HlFV1bk6M5uEo7Tk
+	aWTyGpWIgnmvTEKfuciZ/rqjePY/xoeUWfmOrkGqHM98iX4zVzIANgtCMjEpJYqjGTNSQZ40f4kVI
+	etKEvV+inTpi5+21JFNUddhiehpFbZgthjjv4l4sIcbhCfRuWR7dCwc+M7oSMJ0LSuJF3I78wlWap
+	emQhaJpEIylQqN9ZI0g7B9Xw2VG/3CInH0Y+smGFXpBH77qmiXGP+TuRq5USiE+2828jE1VwH86qX
+	LpGFJHMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FsB-0000000BTg8-1V9P;
-	Wed, 09 Sep 2026 10:49:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Fs8-0000000BTeT-0DoY;
+	id 1x4Fs9-0000000BTf6-3yzV;
 	Wed, 09 Sep 2026 10:49:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4Fs7-0000000BTeE-1oBR;
+	Wed, 09 Sep 2026 10:49:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CA2C60219;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3416E40B37;
 	Wed,  9 Sep 2026 10:49:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 11957C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 06E08C2BCF4;
 	Wed,  9 Sep 2026 10:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788950983;
-	bh=OselYV9Z79ga+Tc9lAyWGhBokVgW3jNj53PuyfqBRz8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=pVFabxpeuid4J1XDLcZ8yOhWwD1/XLnDCbhlC1MT9qAQ0FDMHgtQK8OivDatQ1q4j
-	 NEbabWkF9dm9tePDd8VGGhdOiR8MZRwQdCr7ECWY31IrxIEFYeBTl3kKgLCMSgn5at
-	 GcCqvwCfTUw27Cl0H1c343pAHSacObNy8RE7t2t1clzxn4qEifslrCx89mG10ZSW8Z
-	 BDQsImbM3oKZvtjDm5slSClAkSdGnd0h6qF0Fk7KarnNIZiqAg612d2qo8KwKiTzSB
-	 DddMCr+843lxBv4591jU66WKAMZ9WpyvE6jOL4IFWjAG8n1nJPSP//KGxEwUTyw7Nd
-	 mDf2LMookHh2g==
+	bh=bAFFu2lBNOlTbT2Cs9DCFFwV99YLoyXfDsHSUYG7+/8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=E2zcqXxUNKESsNFmwxsfiDggNrxfvkK40MY2efvvIQ2HDsDPX7jnv4Dg8CwPwcmJ/
+	 ymftslRVmNk7+m81vie0mUcos2F74oMm4IM4aaSBzzNhU4XCLYoqUxprkQiPvuLVsx
+	 vKBKk5aYPaI0AITMH1fKXK7wZFjy9AttD6BU3Zc0Lz/MilBNqlnyxzjU+NyHXwkOuO
+	 +0NihDKuGQZfTG7KujWtc7BVGimihVpenjxH0Jdel0BqWK0C2patQH1dRpHLb09rDH
+	 Ya+MaZIzUQ1VvvTDtTEj20Vv0eIxyY7N+bQbII4+WcLpyKHuwzw+QcDSdztig4WUyC
+	 +gqvSMR0SZU5g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E69FFC79FB6;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D793AC79FB9;
 	Wed,  9 Sep 2026 10:49:42 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 09 Sep 2026 13:48:50 +0300
-Subject: [PATCH v3 1/3] dt-bindings: nvmem: mediatek: efuse: add mt6572
+Subject: [PATCH v3 0/3] nvmem: mtk-efuse: mt6572 support
+Date: Wed, 09 Sep 2026 13:48:49 +0300
+Message-Id: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-6572-nvmem-v3-1-c0c441656431@protonmail.com>
-References: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
-In-Reply-To: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNQQ7CIBQFr2JYi4GPQHHlPYyLln4txpYGKtE0v
+ bulxqTG5SRv5o0kYnAYyWEzkoDJRee7GcR2Q2xTdlekrp6ZAAPFNGdUSQ20Sy22FCtTWF1qISQ
+ ns9AHvLjnEjudPxwf1Q3tkAt50bg4+PBa3hLPu29YrsOJU0aN5aJCY2qm9bEPfvBdW7r7zvqW5
+ HqClQ/7Hx9mH2VRc1WCUcD//Gma3t4UNWT7AAAA
+X-Change-ID: 20260710-6572-nvmem-eb98c7a73351
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -64,11 +67,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788950981; l=1057;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788950981; l=1949;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=t4yY7jNJW5Ruu7MkWUJRRcVwM0ArbnLdvtu2KDe4Mvo=;
- b=YvUkqieMw0zQ/HK0FnVLCruW13b9WxcWXKDU9gpaJfUQTM6+gZ3se4/2+kmSWJdnOxUpBsjmE
- 3JB1XTr2O8jB/Sa4+zik77Z6vLNrvdJYig0Nn9s0keEaoE4wiavkAGH
+ bh=bAFFu2lBNOlTbT2Cs9DCFFwV99YLoyXfDsHSUYG7+/8=;
+ b=LT1uhMHdEWOLytvMICqV04VZncZUHk8ekM5vbA+pQw7giELrWWp3JLnNl4rrZRBgByoR/H81n
+ 50/V0jdMJwrBzDw3kckJJre9a6rgCMLmdK/KL2XvOAcQS/awwQ2lG+l
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -89,41 +92,67 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+This patch series adds MediaTek mt6572 efuse support. Unlike newer SoCs,
+its efuse controller doesn't work properly with 8-bit reads, leading to
+invalid data with current mtk-efuse driver implementation.
 
-Add a compatible string for the mt6572 SoC efuse controller.
+This behavior can be observed with devmem (0x10009174 and 0x10009178 are
+thermal calibration cells):
+~ # devmem 0x10009174 32
+0x00CDD4CD
+~ # devmem 0x10009178 32
+0x0F76865D
+~ # devmem 0x10009174 8
+0xCD
+~ # devmem 0x10009175 8
+0x00
+~ # devmem 0x10009176 8
+0x00
+~ # devmem 0x10009177 8
+0x00
+~ # devmem 0x10009178 8
+0x5D
+~ # devmem 0x10009179 8
+0x00
+~ # devmem 0x1000917a 8
+0x00
+~ # devmem 0x1000917b 8
+0x00
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Patch 1 adds dt-bindings compatible for the mt6572,
+Patch 2 adds platform data option to use aligned 32-bit reads instead
+of plain readb().
+Patch 3 adds platform data for mt6572 SoC.
+
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Changes in v3:
+- Pick up Rob's r-b tag for dt-bindings
+- Patch 2 and 3 unchanged, for some reason cover letter and patch 1 were
+missing on the web mirror...
+- Link to v2: https://patch.msgid.link/20260724-6572-nvmem-v2-0-e58d16a29621@protonmail.com
 
-diff --git a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-index f9323b3ecfc8..e10947164941 100644
---- a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
-@@ -24,13 +24,16 @@ properties:
- 
-   compatible:
-     oneOf:
-+      - enum:
-+          - mediatek,mt6572-efuse
-+          - mediatek,mt8186-efuse
-+
-       - items:
-           - enum:
-               - mediatek,mt8188-efuse
-               - mediatek,mt8189-efuse
-               - mediatek,mt8196-efuse
-           - const: mediatek,mt8186-efuse
--      - const: mediatek,mt8186-efuse
- 
-       - items:
-           - enum:
+Changes in v2:
+- dt-bindings: make mediatek,mt6572-efuse standalone compatible
+- Driver: add 'mtk_reg_read_aligned' helper instead of modifying 'mtk_reg_read'
+- Link to v1: https://patch.msgid.link/20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com
 
--- 
-2.55.0
+---
+Roman Vivchar (3):
+      dt-bindings: nvmem: mediatek: efuse: add mt6572
+      nvmem: mtk-efuse: add support for 32-bit aligned reads
+      nvmem: mtk-efuse: add mt6572 support
+
+ .../devicetree/bindings/nvmem/mediatek,efuse.yaml  |  5 ++-
+ drivers/nvmem/mtk-efuse.c                          | 41 +++++++++++++++++++++-
+ 2 files changed, 44 insertions(+), 2 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260710-6572-nvmem-eb98c7a73351
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
 
 
