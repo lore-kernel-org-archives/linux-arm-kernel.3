@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CEEC79FB7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72391C79FB6
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7aLdzSztXk8d1tscwaKKy8S5ER0yzOYoze2MjbQGHY=; b=DsXvX9+v0apJ82X+x7AWwcaxdv
-	w1pzZyRBfExWfXpbMpSp6H9ODX5TwQ/atybwFg5lVbX9xeGMQ+x6hvasq5lapxCpx6IeT3I58pu6U
-	Hcy822Do61ymeB1/TLjy8/mshdgTTvbUYXnWNmObW/LSHd33vV31UURsW3b7vFSINm1tgAMP4gb5+
-	Pi+JruEDgYEx49FY4P/nOTf4HuhS03jZ4Nrbbqq4Azt+n/uS3he3UT+Ht7Uyus5nLVMZoY90+kNfi
-	Xh6Lgm1RujeK/niDsOUw/rfXycDVJ9Z4qdKm4dTjvziEiu0YeuZrv2jPGUiaEk/oxFNessOkS/XWP
-	LWadZxRQ==;
+	bh=3tG+qsYvwUg5H9p3q8+ljYcyZsUYM5TME2kqTwMXFGY=; b=v+QreawBYh8ycOrhwkCsyBkoV+
+	XdX2HrOLYRP0+7nsZKqQbFcrQs7lBBuNKed8KXx3/FjtU9xRDmOa+bUWENmMNP+GHNf7mmrl/qHeG
+	KembhRa2uohlrcHiXLYhWt/mlRF5Ha4Xl/OvUn6cEX4KPei7mVBvv0i1yfz4/QWbO1m07XR81/npE
+	8uf/qdG9xJvcvbKWfuoINcHGd4pZyWbu5Dg/SqyWZK/OOQy3yl96+c4kmCfdKnxHAgpHX4U5djATR
+	ae+7GsDXAUplnIzT5Jr/XJRpE/bHcjIXRQDLkylxEZYsteSrGK6J/Pfyn+epN8trdK9r4nBdvU/NB
+	v0qbcjgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J4D-0000000BvSE-0kDB;
+	id 1x4J4D-0000000BvSg-2WYD;
 	Wed, 09 Sep 2026 14:14:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J4B-0000000BvR2-42R7;
+	id 1x4J4C-0000000BvR3-0KM7;
 	Wed, 09 Sep 2026 14:14:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 848BE43D45;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9321944000;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5972FC2BCFD;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 68D94C2BCF6;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788963263;
-	bh=UOy3RLR6CRtSVXcPk+TROu7qwHZMTjKJX4eKolUbKy4=;
+	bh=gx+oIcs0P6H8PbwV9ZJxkS0GLSxCT6o0xFPNtdzRzAQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=I+Lu6d82/7QlPdwrhPDbCxAqzJLyBcigs7FETHX0rrfU1Hc9ygphTie2bYSeHzR4F
-	 JruipS5QFwBnpU4OQaCEVUzhY3G3xc9hRWrWQRQyQbRYDC3RdIr0lfZ76CvR1f/J0v
-	 Rx4nk6y3hlx09A4iDCCWQ6sITp8Bnt6c5F+03TEyo2CPhN/S7CrW93DMCkEkfNCpp3
-	 KDzvQJ9Gda47QbxXZvMCM1tEWDTbwLldOmyM2glf0sMem0uuPGctNmPiICQWvITV9N
-	 MjZXTb89gE40w3ie0NxuLwPAWl3yL5MeIJyc0FutyUNEEZtoe49jPMWizU0Rq0BE7N
-	 uvsY84yW73How==
+	b=IgBhc+fvT6IZTgQqnCNeyD7NNmsT/If/5WATYEguG+Cs4fK+I9AK7J7+NTj+d+aA2
+	 4dDif4toDKlYIe1AGfhrw+hcmwCnXvZZZMUsnrm7lCMfyJPNK9ookZLGmbZt4C9Hk7
+	 qnNERlrEI793k/O227tWLjQAO4WWYFQ+Xvc9Isiu4z+5K38fAIIYidMABJI/Bd1gi/
+	 Iwbz0KuBI5McRGpGlO0/Dluc0UNA6MgVtdgXN0hOmbKy4liSw5nBJ86bc02SlTebRw
+	 uNaERM8oFzRftCDp/5rjMQW4pQFHPdTHeyXV4YeKNhe5oNyfynnMaXow0I5eCFyoIC
+	 DRrpvpNAsp2Bw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C6CCC88E40;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52E63C79FBB;
 	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 09 Sep 2026 17:14:06 +0300
-Subject: [PATCH 2/3] iommu/mediatek-v1: fix IOMMU device binding
+Date: Wed, 09 Sep 2026 17:14:07 +0300
+Subject: [PATCH 3/3] iommu/mediatek-v1: add mt6572 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-6572-iommu-v1-2-de261da09fb2@protonmail.com>
+Message-Id: <20260909-6572-iommu-v1-3-de261da09fb2@protonmail.com>
 References: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
 In-Reply-To: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
 To: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
@@ -61,14 +61,13 @@ To: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: iommu@lists.linux.dev, linux-mediatek@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
- stable@vger.kernel.org
+ linux-arm-kernel@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788963261; l=4888;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788963261; l=5880;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=EcGIcOox9foAPPSzCZAPzZ4As2FunuolmFilHRQ5qcg=;
- b=soNtO8zKf8oyMiaDfTmWSrvH5R6+Rzyfb/MHjpHC1PLcyTcvCY4+RsyYiRV/GmHNQ5XuEQcZL
- 2eh4Z8weCS2AwlTxK5SzzdxX4aW+pOYoocewtcaUIK+KIP3UxUMNLTs
+ bh=Q9DENazAgwi3T2qykCPLy9Ktvy2jjfeMJUql9cSW4PY=;
+ b=8+P8cpShisgwoJq0VZRjZTKZLtcBmRIMxKVIDut/OQ5H+DuS0IRCr8OkGmuFQBBntJL5u+eAM
+ gSO9ctW66BlAB6sGh2wQRaETyPAsSTIhioXn1Gf/IaQj0ZaS0FCL5+k
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -91,164 +90,177 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Currently the driver silently fails to bind devices and DRM subsystem
-(which is the primary IOMMU user on MediaTek SoCs) falls back to PA mode.
+mt6572 SoC utilizes an earlier version of the IOMMU, that shares the
+same v1 architecture, but has minor hardware differences compared to
+mt2701.
 
-Fix this by providing of_xlate callback, which lets the driver actually
-bind devices and use VA mode.
+Introduce mtk_iommu_type to distinguish between mt2701 and mt6572
+variant and apply the necessary logic.
 
-The fix can be verified by reading overlay engine input address.
-Before:
-~ # devmem 0x14007040 32
-0xBB900000
+Finally, add a platform data for the mt6572 SoC.
 
-After:
-~ # devmem 0x14007040 32
-0x00000000
-
-Fixes: b17336c55d89 ("iommu/mediatek: add support for mtk iommu generation one HW")
-Cc: stable@vger.kernel.org
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
-Untested on mt2701.
+Based on my downstream findings, this change may also support mt6582 SoC,
+but I don't have the hardware to test if it actually works.
 ---
- drivers/iommu/mtk_iommu_v1.c | 86 ++++++++++++++++++++------------------------
- 1 file changed, 39 insertions(+), 47 deletions(-)
+ drivers/iommu/mtk_iommu_v1.c | 72 +++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 55 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index ac97dd2868d4..72355f41c36a 100644
+index 72355f41c36a..b6f547b100d1 100644
 --- a/drivers/iommu/mtk_iommu_v1.c
 +++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -413,38 +413,10 @@ static const struct iommu_ops mtk_iommu_v1_ops;
-  * MTK generation one iommu HW only support one iommu domain, and all the client
-  * sharing the same iova address space.
+@@ -7,6 +7,7 @@
+  *
+  * Based on driver/iommu/mtk_iommu.c
   */
--static int mtk_iommu_v1_create_mapping(struct device *dev,
--				       const struct of_phandle_args *args)
-+static int mtk_iommu_v1_create_mapping(struct device *dev)
- {
- 	struct mtk_iommu_v1_data *data;
--	struct platform_device *m4updev;
- 	struct dma_iommu_mapping *mtk_mapping;
--	int ret;
--
--	if (args->args_count != 1) {
--		dev_err(dev, "invalid #iommu-cells(%d) property for IOMMU\n",
--			args->args_count);
--		return -EINVAL;
--	}
--
--	ret = iommu_fwspec_init(dev, of_fwnode_handle(args->np));
--	if (ret)
--		return ret;
--
--	if (!dev_iommu_priv_get(dev)) {
--		/* Get the m4u device */
--		m4updev = of_find_device_by_node(args->np);
--		if (WARN_ON(!m4updev))
--			return -EINVAL;
--
--		dev_iommu_priv_set(dev, platform_get_drvdata(m4updev));
--
--		put_device(&m4updev->dev);
--	}
--
--	ret = iommu_fwspec_add_ids(dev, args->args, 1);
--	if (ret)
--		return ret;
- 
- 	data = dev_iommu_priv_get(dev);
- 	mtk_mapping = data->mapping;
-@@ -462,27 +434,12 @@ static int mtk_iommu_v1_create_mapping(struct device *dev,
- 
- static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
- {
--	struct iommu_fwspec *fwspec = NULL;
--	struct of_phandle_args iommu_spec;
-+	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
- 	struct mtk_iommu_v1_data *data;
--	int err, idx = 0, larbid, larbidx;
-+	int idx, larbid, larbidx;
- 	struct device_link *link;
- 	struct device *larbdev;
- 
--	while (!of_parse_phandle_with_args(dev->of_node, "iommus",
--					   "#iommu-cells",
--					   idx, &iommu_spec)) {
--
--		err = mtk_iommu_v1_create_mapping(dev, &iommu_spec);
--		of_node_put(iommu_spec.np);
--		if (err)
--			return ERR_PTR(err);
--
--		/* dev->iommu_fwspec might have changed */
--		fwspec = dev_iommu_fwspec_get(dev);
--		idx++;
--	}
--
- 	if (!fwspec)
- 		return ERR_PTR(-ENODEV);
- 
-@@ -519,9 +476,15 @@ static void mtk_iommu_v1_probe_finalize(struct device *dev)
- 	__maybe_unused struct mtk_iommu_v1_data *data = dev_iommu_priv_get(dev);
- 	int err;
- 
-+	err = mtk_iommu_v1_create_mapping(dev);
-+	if (err) {
-+		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
-+		return;
-+	}
++#include <linux/bitfield.h>
+ #include <linux/bug.h>
+ #include <linux/clk.h>
+ #include <linux/component.h>
+@@ -85,6 +86,13 @@ struct dma_iommu_mapping {
+ #define F_DESC_NONSEC				BIT(3)
+ #define MT2701_M4U_TF_LARB(TF)			(6 - (((TF) >> 13) & 0x7))
+ #define MT2701_M4U_TF_PORT(TF)			(((TF) >> 8) & 0xF)
 +
- 	err = arm_iommu_attach_device(dev, data->mapping);
- 	if (err)
--		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
-+		dev_err(dev, "Can't attach to IOMMU mapping - DMA-OPS will not work\n");
++#define MT6572_MMU_INT_ID_PORT_ID		GENMASK(12, 8)
++#define MT6572_MMU_INT_ID_LARB_ID		GENMASK(14, 13)
++
++#define MT6572_M4U_TF_PORT(TF)			FIELD_GET(MT6572_MMU_INT_ID_PORT_ID, TF)
++#define MT6572_M4U_TF_LARB(TF)			(FIELD_GET(MT6572_MMU_INT_ID_LARB_ID, TF) - 1)
++
+ /* MTK generation one iommu HW only support 4K size mapping */
+ #define MT2701_IOMMU_PAGE_SHIFT			12
+ #define MT2701_IOMMU_PAGE_SIZE			(1UL << MT2701_IOMMU_PAGE_SHIFT)
+@@ -96,6 +104,11 @@ struct dma_iommu_mapping {
+  */
+ #define M2701_IOMMU_PGT_SIZE			SZ_4M
+ 
++enum mtk_iommu_type {
++	MTK_IOMMU_MT6572,
++	MTK_IOMMU_V1,
++};
++
+ struct mtk_iommu_v1_suspend_reg {
+ 	u32			standard_axi_mode;
+ 	u32			dcm_dis;
+@@ -116,6 +129,8 @@ struct mtk_iommu_v1_data {
+ 	struct mtk_smi_larb_iommu	larb_imu[MTK_LARB_NR_MAX];
+ 
+ 	struct mtk_iommu_v1_suspend_reg	reg;
++
++	enum mtk_iommu_type type;
+ };
+ 
+ struct mtk_iommu_v1_domain {
+@@ -170,8 +185,12 @@ static inline int mt2701_m4u_to_port(int id)
+ 
+ static void mtk_iommu_v1_tlb_flush_all(struct mtk_iommu_v1_data *data)
+ {
+-	writel_relaxed(F_INVLD_EN1 | F_INVLD_EN0,
+-			data->base + REG_MMU_INV_SEL);
++	u32 val = F_INVLD_EN0;
++
++	if (data->type == MTK_IOMMU_V1)
++		val |= F_INVLD_EN1;
++
++	writel_relaxed(val, data->base + REG_MMU_INV_SEL);
+ 	writel_relaxed(F_ALL_INVLD, data->base + REG_MMU_INVALIDATE);
+ 	wmb(); /* Make sure the tlb flush all done */
+ }
+@@ -180,25 +199,33 @@ static void mtk_iommu_v1_tlb_flush_range(struct mtk_iommu_v1_data *data,
+ 					 unsigned long iova, size_t size)
+ {
+ 	int ret;
+-	u32 tmp;
++	u32 tmp, val = F_INVLD_EN0;
+ 
+-	writel_relaxed(F_INVLD_EN1 | F_INVLD_EN0,
+-		data->base + REG_MMU_INV_SEL);
++	if (data->type == MTK_IOMMU_V1)
++		val |= F_INVLD_EN1;
++
++	writel_relaxed(val, data->base + REG_MMU_INV_SEL);
+ 	writel_relaxed(iova & F_MMU_FAULT_VA_MSK,
+ 		data->base + REG_MMU_INVLD_START_A);
+ 	writel_relaxed((iova + size - 1) & F_MMU_FAULT_VA_MSK,
+ 		data->base + REG_MMU_INVLD_END_A);
+ 	writel_relaxed(F_MMU_INV_RANGE, data->base + REG_MMU_INVALIDATE);
+ 
+-	ret = readl_poll_timeout_atomic(data->base + REG_MMU_CPE_DONE,
+-				tmp, tmp != 0, 10, 100000);
+-	if (ret) {
+-		dev_warn(data->dev,
+-			 "Partial TLB flush timed out, falling back to full flush\n");
+-		mtk_iommu_v1_tlb_flush_all(data);
++	if (data->type == MTK_IOMMU_V1) {
++		ret = readl_poll_timeout_atomic(data->base + REG_MMU_CPE_DONE,
++						tmp, tmp != 0, 10, 100000);
++		if (ret) {
++			dev_warn(data->dev,
++				 "Partial TLB flush timed out, falling back to full flush\n");
++			mtk_iommu_v1_tlb_flush_all(data);
++		}
++
++		/* Clear the CPE status */
++		writel_relaxed(0, data->base + REG_MMU_CPE_DONE);
++	} else {
++		/* Make sure the TLB flush is done */
++		wmb();
+ 	}
+-	/* Clear the CPE status */
+-	writel_relaxed(0, data->base + REG_MMU_CPE_DONE);
  }
  
- static void mtk_iommu_v1_release_device(struct device *dev)
-@@ -537,6 +500,34 @@ static void mtk_iommu_v1_release_device(struct device *dev)
- 	device_link_remove(dev, larbdev);
- }
+ static irqreturn_t mtk_iommu_v1_isr(int irq, void *dev_id)
+@@ -215,8 +242,14 @@ static irqreturn_t mtk_iommu_v1_isr(int irq, void *dev_id)
+ 	fault_iova &= F_MMU_FAULT_VA_MSK;
+ 	fault_pa = readl_relaxed(data->base + REG_MMU_INVLD_PA);
+ 	regval = readl_relaxed(data->base + REG_MMU_INT_ID);
+-	fault_larb = MT2701_M4U_TF_LARB(regval);
+-	fault_port = MT2701_M4U_TF_PORT(regval);
++
++	if (data->type == MTK_IOMMU_V1) {
++		fault_larb = MT2701_M4U_TF_LARB(regval);
++		fault_port = MT2701_M4U_TF_PORT(regval);
++	} else {
++		fault_larb = MT6572_M4U_TF_LARB(regval);
++		fault_port = MT6572_M4U_TF_PORT(regval);
++	}
  
-+static int mtk_iommu_v1_of_xlate(struct device *dev,
-+				 const struct of_phandle_args *args)
-+{
-+	struct platform_device *m4updev;
-+	int ret;
+ 	/*
+ 	 * MTK v1 iommu HW could not determine whether the fault is read or
+@@ -539,7 +572,10 @@ static int mtk_iommu_v1_hw_init(const struct mtk_iommu_v1_data *data)
+ 		return ret;
+ 	}
+ 
+-	regval = F_MMU_CTRL_COHERENT_EN | F_MMU_TF_PROTECT_SEL(2);
++	regval = F_MMU_TF_PROTECT_SEL(2);
++	if (data->type == MTK_IOMMU_V1)
++		regval |= F_MMU_CTRL_COHERENT_EN;
 +
-+	if (args->args_count != 1) {
-+		dev_err(dev, "invalid #iommu-cells(%d) property for IOMMU\n",
-+			args->args_count);
-+		return -EINVAL;
-+	}
-+
-+	ret = iommu_fwspec_init(dev, of_fwnode_handle(args->np));
-+	if (ret)
-+		return ret;
-+
-+	if (!dev_iommu_priv_get(dev)) {
-+		m4updev = of_find_device_by_node(args->np);
-+		if (WARN_ON(!m4updev))
-+			return -EINVAL;
-+
-+		dev_iommu_priv_set(dev, platform_get_drvdata(m4updev));
-+		put_device(&m4updev->dev);
-+	}
-+
-+	return iommu_fwspec_add_ids(dev, args->args, 1);
-+}
-+
- static int mtk_iommu_v1_hw_init(const struct mtk_iommu_v1_data *data)
- {
- 	u32 regval;
-@@ -585,6 +576,7 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
- 	.probe_finalize = mtk_iommu_v1_probe_finalize,
- 	.release_device	= mtk_iommu_v1_release_device,
- 	.device_group	= generic_device_group,
-+	.of_xlate	= mtk_iommu_v1_of_xlate,
- 	.owner          = THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= mtk_iommu_v1_attach_device,
+ 	writel_relaxed(regval, data->base + REG_MMU_CTRL_REG);
+ 
+ 	regval = F_INT_TRANSLATION_FAULT |
+@@ -588,7 +624,8 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
+ };
+ 
+ static const struct of_device_id mtk_iommu_v1_of_ids[] = {
+-	{ .compatible = "mediatek,mt2701-m4u", },
++	{ .compatible = "mediatek,mt2701-m4u", .data = (void *)MTK_IOMMU_V1 },
++	{ .compatible = "mediatek,mt6572-m4u", .data = (void *)MTK_IOMMU_MT6572 },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, mtk_iommu_v1_of_ids);
+@@ -612,6 +649,7 @@ static int mtk_iommu_v1_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	data->dev = dev;
++	data->type = (enum mtk_iommu_type)(uintptr_t)of_device_get_match_data(dev);
+ 
+ 	/* Protect memory. HW will access here while translation fault.*/
+ 	protect = devm_kcalloc(dev, 2, MTK_PROTECT_PA_ALIGN,
 
 -- 
 2.55.0
