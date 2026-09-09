@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D25C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0520C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IF7gGSnNHvzeRxMeQJEXPfnNoiV1RgOi8xQaXNAluos=; b=3g77xY77a/hWJYr3MeyEVEGwYy
-	URzZ1bop6BrWqbv0k/Zg6jtK+ApJ4dycMs2Tr4Vs1HeKmzNOBxoi8gz2z05B11W7Dhn7/E6n3Wy6u
-	eRJUj5AIzKa86m8j7GUvonZr837OsLlEe7yCh8norjoAHJsbV072+BJMBlUHaWMzUtADArn35bpOa
-	fE7WlZuL4i6xjJMaX8jpY/GScAPj99Ut/5PZ7q9mv75VhwPumO7DEq4YpMA4GqSr3h4571CXGcFU8
-	dmrsCBldce/W08pV3o+s3OYvsLE98lm79AAG8DZACmSKAPJpO/yIdTFROdWnYrsAm80TrdyZxAoGC
-	sHE6hyRQ==;
+	bh=wQbDye0Ug6lK7AwcUFZhsBEDnI1W9xjGfK//bEWCpeM=; b=33OhXOHHkfCByw8Yn8uf1LkMqk
+	7+nuPHoN49yviH/mZ16ODf+vSZvAjZI3Z016E3Yg3megTYbJzvfHG22Go5XQcHmYOyrWqzM05PEfb
+	BQoxjvrdwnrKIyGlMRy21GHLG87FGXlcLVG0VELx8pK+SZ1Yig8PP/TBy7Wei9aMvQgMcdOs1pTpv
+	H3e5LmgJd8Y3/zo+inpAqA+ytIfYKpA+cDOLbHJx+CIhpEMgeqlWv+rKDBbXNmsZRkTamXkyBRtWo
+	MVnqshTHlm7I2PtTgnRwbquhGWJnXfVy/ohvVic/ltGClGV30xaHRgWZ3l1+J49d40/cRbXj4tHLD
+	SZ2CoNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ISO-0000000Boo4-1HG1;
-	Wed, 09 Sep 2026 13:35:20 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1x4ISU-0000000Bore-2o7n;
+	Wed, 09 Sep 2026 13:35:26 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ISL-0000000Bomi-2Cqw
+	id 1x4ISQ-0000000BopM-2Ec7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 13:35:18 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-85a50f6a7f7so81657757b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:35:17 -0700 (PDT)
+	Wed, 09 Sep 2026 13:35:25 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-85d46e4cdcdso12047627b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:35:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788960916; x=1789565716; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788960921; x=1789565721; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:date:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=IF7gGSnNHvzeRxMeQJEXPfnNoiV1RgOi8xQaXNAluos=;
-        b=LstI6DJvNaCspImSb/CHQJWSVOlh3BXKFA2HXXQQuHply0IUjQmPlS5wL52Q8u14xv
-         ncaMdvihtuLK20jUjP33WgzpDAB2j1x3iMjrL26e+m9W/m8h2vU7xUJz6QwQ24WrL8ow
-         Nu6vnVJtzbev+lRXtkbukd1DatAhvwyXzyLeNQm8CCydI3e/s+Tbin1mVKfc2hJy9Lmh
-         MxQaLdwCQO+qGRe5i5hw7Zfsns1B8ppoPj8RAnTBJ6yt3tMr4t5pm+hYgW7wGuJlK8tE
-         B4JBpV5LmmyKdebgqeNM/cUpyPvbee0InD1ZDzk6efPaCSlksSjvehDRtXM3xNcD9DuO
-         ngEw==
+        bh=wQbDye0Ug6lK7AwcUFZhsBEDnI1W9xjGfK//bEWCpeM=;
+        b=Wfks5BZyjRTcJVBuY3t0+DXMu83C1Dw5lrK8dwoXfDx7LAFVaQbh1hnY+w0Z5dHYe/
+         /jBaYQnpp3+uy/bx2bPbw7rtXpovH3+IEtgFQ98dzqJUU6d/eTt0d9q01w0O/K1vladw
+         x4DUzm8EUdzYnwRyfkyDpNlCFmT96/LqG2BuchxApoLhqVdqACi1yVP/qFYxBsaUlPmr
+         TQRjATklZbt4M2olHneTnPtLIqKnU0d8NfOw4eZRMJXNLRLHSrbHFEERonCHgGftxnjb
+         01CTkHl1PzjFHr1eBLvjOlr2aVnA3QoojV8QwUW7VSWqoRhUpzcXkxJboAVRGnvzxxCG
+         OJ2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788960916; x=1789565716;
+        d=1e100.net; s=20251104; t=1788960921; x=1789565721;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=IF7gGSnNHvzeRxMeQJEXPfnNoiV1RgOi8xQaXNAluos=;
-        b=Rk3J7oY8D3Y86hRcl+ss5qpFwzx4lRsSG5ISiGzvFleS/4mROQWXu7oYawTd08jJhR
-         ns9RVWYIk44FulszC3MRQNGFRTuDWtEtu4koiXZNjrl38ppraXwfupNNm3VKF2Phd+42
-         xXtsD06dP64r/3lFhJVU8T1yEdHP+p/7Qj26uyco30V9rP4wJ46GtuXwfxUljmz0w//r
-         r3xqJu85C2sk4xl2o1kiyBGVQiU5jgqQ+oXz51NAD0qaiW33+sDPnszSw+Cy1kqi67EB
-         S5mQMQpK8LoUly99o9DuqPwhsBr0X2qnNp+kHV+5Xc0G+Sso8D1No7ASnsYycTwF/yF7
-         zPhw==
-X-Forwarded-Encrypted: i=1; AKwUvBwR3PLWzOsF/+j2PDZKS8TeC9enxs2hFJsW5GGvSr5bKQ8uE337I5K+XBNVIMrkXuzMUK5r7++EvGNabDtaqXjG@lists.infradead.org
-X-Gm-Message-State: AFuF++muxGnYdHYyXlmgktXLPWAuPARmrYZHtm5ucXKzWknQGDqdbQHk
-	6wO4x4HAL+k2Q9XUkeeooKJ+t+/KNZ1q1eA3BJdbjk7DtZE0Mi64PXLP
-X-Gm-Gg: AYBFou0MQn/Ih+RIM7phDobwsxPFcwQuFYEdMAIRV0UzHS4dEkXg7mNGdCP4GPmIHF+
-	t8nZlQiecICRpa/UkahY6GsWmGmoEHUIYTwhEe6p3vstgD8wkkOM/WVBAMqMH45Xa6yCChq5jaF
-	5+1iesgc6Vo/dfyFdNARtyVZFmfvnmROBG3zn/YyENBYA1U/bVHrYinyyBWDBsZ3AIpCJzuF3th
-	5Jmi+fEh8qcxW+ko98p2xSAgbke+WF42AVXcUfr83oG72pTfWKQwCj10EnCXrVGr7FJ9RAqVZ7Y
-	IbVJoS8n6j6d0bDTveKA70QBcI7vxiFDgzdQh1vV1ktPsZeOKMfc7qve6kScTTNtvGs4yrqO6KM
-	L1UgYIgSPrjjdciPjN2EP7A98bbgPYcN7HXIoYASA5kAeJFcYhcfPGxqhEVmyAJxt8fBujnKwml
-	6cLkXELj24LH2K3iYS8fyd9Jy+7b/dxw6VDIuXDpAUIBrRZgeSQuEdLG7b4u7o1/pEgQ==
-X-Received: by 2002:a05:690c:ed6:b0:816:b469:cd12 with SMTP id 00721157ae682-87122f5564bmr131074277b3.8.1788960916082;
-        Wed, 09 Sep 2026 06:35:16 -0700 (PDT)
+        bh=wQbDye0Ug6lK7AwcUFZhsBEDnI1W9xjGfK//bEWCpeM=;
+        b=OIqOSDDD0HrbPU6slbuKXmHEqOvQhd3IU4oVn6vr+zXnQE2Zo71uhXf04ZWk4karUV
+         EnNwa0hc1ueSzvbG54KGVsFRb2byhjgUpvjxJi+37gABklLFiEj27kizQDL7HVhJJ8p7
+         /qXl3tbsRuIG68oURxpxuxXAUn7noVItwy/8f+WYFn8JmZgwT8P90OfsGCdbggC8OXHq
+         DfavOFlejsoekHDv5xwegobnXUq5JGF9rc7jy8Hrc/rxqwK7blAp7XqrdQYtQPRTaGgT
+         CjFN6e3tVHh2AH4ft3pfEL/mzmjpDtM2AjhFkI2Lewlcy6KdQwzRHoyy0bP1yAjtB2xv
+         Q67Q==
+X-Forwarded-Encrypted: i=1; AKwUvBx2Xl+6tsSR7JU3PK5qjULZL6FmtYhS5EXzchKty//5h1c0n4BjJFGY0uVMZWYDe5gc8WTsEuwjaX4gCPe6VikN@lists.infradead.org
+X-Gm-Message-State: AFuF++lB7ayIBYWdOM3LPVWgfmrxeC6BUaSctRyAPH4+7nipzO5Zd7h0
+	CDkghoc/4FlG3YrajZiTnn0VA1a6H2RNJeL5AzOFcH36o83YZ7RkD2Mw
+X-Gm-Gg: AYBFou0RNmkW1y2pfnJV+MWSjIB3fHFbZf9YR1dbUrqt3s3yrHDBwHlL647l52nnZ7N
+	N0l7SBzCE8Sfqpfmj+ZPwA0sXbhimP5n5Pl/srQ/wU2MrrTVSTTAPna0pyCsO31yr0Crq+Ch6kS
+	UuwM+uJiDAeua62uBaBaKHFcxTDT0olBkmA20V6JMQkY+3zMJUlJZGzcANmw9K3VIp7eIZ68ySH
+	M1S7okTAz/oQcLqYWVE2IBZPD9w1lSdHh5KUm6TGR/2k6Aa1QWzvB2s8+Lum61wct0fyu7YVeBL
+	oXlSss64SpTxBxv5cH2BwhQOWwzf6kL0dATRnuvjx/GGkXqKTaqwAG1mjPb340nhXibAU6BOBMH
+	LSbBBnUXceSiYUWZU6B2Uck+UttB0+7oVHxxsXR+ZL3wLm8jF3BF1EABkpgMDDU9q0bYWL7xfFv
+	0pLOczx7WM9Wh5RPtbP60pJ+yWTKmOwRiAvF2kTxXGqV1szrn95lLr9m4cs8T7tUNXQQ==
+X-Received: by 2002:a05:690c:650c:b0:85b:35f6:bc5d with SMTP id 00721157ae682-87f23fe7a98mr29962947b3.13.1788960920937;
+        Wed, 09 Sep 2026 06:35:20 -0700 (PDT)
 Received: from localhost ([45.112.44.120])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-881575de059sm2427287b3.18.2026.09.09.06.35.15
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8714c0e5c6fsm111191177b3.48.2026.09.09.06.35.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 06:35:15 -0700 (PDT)
+        Wed, 09 Sep 2026 06:35:20 -0700 (PDT)
 From: Coiby Xu <coiby.xu@gmail.com>
 X-Google-Original-From: Coiby Xu <Coiby.Xu@gmail.com>
-Date: Wed, 9 Sep 2026 21:33:02 +0800
+Date: Wed, 9 Sep 2026 21:34:58 +0800
 To: Randy Dunlap <rdunlap@infradead.org>
 Cc: kexec@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>, 
 	Sourabh Jain <sourabhjain@linux.ibm.com>, Baoquan He <baoquan.he@linux.dev>, 
@@ -80,21 +80,21 @@ Cc: kexec@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
 	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
 	Jinjie Ruan <ruanjinjie@huawei.com>, Mike Rapoport <rppt@kernel.org>, 
 	Pasha Tatashin <pasha.tatashin@soleen.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 8/9] crash_dump: Disallow
- configfs/crash_dm_crypt_key/reuse if crash hotplug supported
-Message-ID: <aqFfvCpcrbN-8qcs@Rk>
+	Shuah Khan <skhan@linuxfoundation.org>, "Rob Herring (Arm)" <robh@kernel.org>, 
+	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 9/9] Documentation: kdump: Add arm64 and ppc64le to
+ encrypted dump target support list
+Message-ID: <aqFgNFBdwoS2okjR@Rk>
 References: <20260909003657.1570544-1-coiby.xu@gmail.com>
- <20260909003657.1570544-9-coiby.xu@gmail.com>
- <c0d5f2e9-9bd1-46fb-8111-d3af6b6c9e66@infradead.org>
+ <20260909003657.1570544-10-coiby.xu@gmail.com>
+ <83b9fd96-d0dc-4ced-97cd-287c82cdacbe@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <c0d5f2e9-9bd1-46fb-8111-d3af6b6c9e66@infradead.org>
+In-Reply-To: <83b9fd96-d0dc-4ced-97cd-287c82cdacbe@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_063517_591008_5C0256F6 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20260909_063523_709679_10DE46E3 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,60 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 10:46:03PM -0700, Randy Dunlap wrote:
+On Tue, Sep 08, 2026 at 10:48:11PM -0700, Randy Dunlap wrote:
 >
 >
 >On 9/8/26 5:36 PM, Coiby Xu wrote:
->> If crash hotplug is supported, dm-crypt keys saved to reserved memory
->> will be taken care of automatically. Thus it doesn't make sense to use
->> configfs/crash_dm_crypt_key/reuse. Not reserving
->> image->dm_crypt_keys_addr makes it implicitly to disallow using this
->> API. Currently x86_64 and ppc64le have implemented crash hotplug
->> feature.
+>> The encrypted dump target support is now extended to arm64 and ppc64le.
 >>
->> Also update the doc accordingly. Note two doc issues are fixed as well.
->>
->> Fixes: 9ebfa8dcaea7 ("crash_dump: reuse saved dm crypt keys for CPU/memory hot-plugging")
+>> Fixes: e3a84be1ec2f ("arm64,ppc64le/kdump: pass dm-crypt keys to kdump kernel")
+>> Reported-by: Sourabh Jain <sourabhjain@linux.ibm.com>
 >> Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
 >> Signed-off-by: Coiby Xu <coiby.xu@gmail.com>
 >> ---
->>  Documentation/admin-guide/kdump/kdump.rst | 16 ++++++++++------
->>  kernel/crash_dump_dm_crypt.c              | 12 ++++++++----
->>  2 files changed, 18 insertions(+), 10 deletions(-)
+>>  Documentation/admin-guide/kdump/kdump.rst | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
 >>
 >> diff --git a/Documentation/admin-guide/kdump/kdump.rst b/Documentation/admin-guide/kdump/kdump.rst
->> index 7587caadbae1..0bf2eb100a05 100644
+>> index 0bf2eb100a05..36ad6125c670 100644
 >> --- a/Documentation/admin-guide/kdump/kdump.rst
 >> +++ b/Documentation/admin-guide/kdump/kdump.rst
->> @@ -577,9 +577,10 @@ with /sys/kernel/config/crash_dm_crypt_keys for setup,
+>> @@ -572,8 +572,8 @@ Write the dump file to encrypted disk volume
+>>  ============================================
 >>
->>  1. Tell the first kernel what logon keys are needed to unlock the disk volumes,
->>      # Add key #1
->> -    mkdir /sys/kernel/config/crash_dm_crypt_keys/7d26b7b4-e342-4d2d-b660-7426b0996720
->> +    VOL1_UUID=7d26b7b4-e342-4d2d-b660-7426b0996720
->> +    mkdir /sys/kernel/config/crash_dm_crypt_keys/$VOL1_UUID
->>      # Add key #1's description
->> -    echo cryptsetup:7d26b7b4-e342-4d2d-b660-7426b0996720 > /sys/kernel/config/crash_dm_crypt_keys/description
->> +    echo cryptsetup:$VOL1_UUID > /sys/kernel/config/crash_dm_crypt_keys/$VOL1_UUID/description
->>
->>      # how many keys do we have now?
->>      cat /sys/kernel/config/crash_dm_crypt_keys/count
->> @@ -591,15 +592,18 @@ with /sys/kernel/config/crash_dm_crypt_keys for setup,
->>      cat /sys/kernel/config/crash_dm_crypt_keys/count
->>      2
->>
->> -    # To support CPU/memory hot-plugging, reuse keys already saved to reserved
->> -    # memory
->> -    echo true > /sys/kernel/config/crash_dm_crypt_key/reuse
->> -
->>  2. Load the dump-capture kernel
->>
->>  3. After the dump-capture kerne get booted, restore the keys to user keyring
+>>  CONFIG_CRASH_DM_CRYPT can be enabled to support saving the dump file to an
+>> -encrypted disk volume (only x86_64 supported for now). User space can interact
+>> -with /sys/kernel/config/crash_dm_crypt_keys for setup,
+>> +encrypted disk volume (only x86_64, arm64, ppc64le supported for now). User
+>> +space can interact with /sys/kernel/config/crash_dm_crypt_keys for setup,
 >
->                             kernel is booted,
+>                                                                  for setup.
 
-Thanks for catching this typo! I'll apply your suggestion to next
-version!
+I'll apply the suggestion, thanks!
 
 [...]
 
