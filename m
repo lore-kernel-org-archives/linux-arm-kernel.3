@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92F7C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 01:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC901C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 01:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXrG2bOu/f4zoy6afuZMtxAka40yrLWjvBxcUj894m8=; b=2Z3ZcMK+o/B9Imcvc8k+XmEujC
-	naHxlQkOcF6qFQSwf4B1RZ+On9kCeiac7UFePW1d22jbaqvLt488EqGmNEIGjjgy5UzdPv6VFB2Lh
-	uYA5ln6N8a+g/hSDUKCk3fKZw5nl9SH6Dia+dYfDyeX4+LXcupA30V+uM94H08BTvgjLz4mLwUZK5
-	lKePdE30FCKnXw+WKFOPx7MnBcAiIt/tjeJeUz03B9vqpirTWesXU4rYMVFz/+6UYHPGXSTIH6abg
-	2DcNpx77w/rtkAqkwtKL2h34+azQILviyliqmeVUxFb7mBzVdjNq10prV/3ptSFjVMuLWlk5K+RYo
-	3VlD9RQA==;
+	bh=s9uYx/37ho+cFtcOGygmvTcxEv9p065hqpHDOll9q+U=; b=th1KhOb1VQriI4ZZZuvDUs7/zU
+	jpIoRuGe8hgsbKoPvLv3QdOA4siUeKuUQi3V6CGnX67Ok5kkZEe0NWb6oFC4ldC3kRMq/XSvghgcJ
+	eR4MkuKsdI7Kxdcf5HsaXa4Q0YnVNOQjB2M3XUfUavvYdYuofgZXU4FV2RiZM5IYy8PjaCv2szo6Z
+	VCGMVnRazqM00SrJ4AXhn/8tiGElXc8+fBZNtTHEjfSw6Ns58JeAeWlcC8Ur24UfC8EMwt0oKnLrW
+	D8iQaoy3xTEWwzxRnv2MOzcS+x33UK30pYe4aGAfrUzv/leTpj/pX/ItFfhYvnxh2JX5nMOcEvCOb
+	6USSf7jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46tI-0000000AaPC-29Mq;
-	Wed, 09 Sep 2026 01:14:20 +0000
-Received: from mail-m9366.xmail.ntesmail.com ([103.126.93.66])
+	id 1x47EE-0000000Absm-1dpP;
+	Wed, 09 Sep 2026 01:35:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46tF-0000000AaOA-1wsS;
-	Wed, 09 Sep 2026 01:14:19 +0000
-Received: from [172.16.12.48] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d09c3d85;
-	Wed, 9 Sep 2026 09:14:13 +0800 (GMT+08:00)
-Message-ID: <8c2dd6a7-d733-4d78-9b92-c7e4c7e6b7d8@rock-chips.com>
-Date: Wed, 9 Sep 2026 09:14:12 +0800
+	id 1x47EC-0000000AbsL-0y0k
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 01:35:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DD24601FB;
+	Wed,  9 Sep 2026 01:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F67E1F00A3D;
+	Wed,  9 Sep 2026 01:35:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788917755;
+	bh=s9uYx/37ho+cFtcOGygmvTcxEv9p065hqpHDOll9q+U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nitcr9Ce2oKpPvjWbKlDUICtbcxBPgWi+AN9UTkIpb0+HD99EVpHzbT8wByXcgh5J
+	 i+SGY/THaXtCHTjFsU8XssU/CCVt1/xYABBoE0f9OYTmLu0UPRclX7U84HBYvd+AuE
+	 G08Ut5NaBnY6i7alzzERADzerBJv6gxlaiAJWEarV+DPHwr69kr+30Dtcrvyq0HI0O
+	 AOayYzuSur7IiBU7mTTJLtuwtY9i+94tyJ2VKcOG38rsJpdCtjWAFpE8AlOXDdJEnN
+	 JW9hBev2c1W4t/JUlr7jcy+7Z0zvVIVUJTbmC0iYc3eg5ZfnwML0+Y8irfFnd0HwSX
+	 TWwOJSfXQWYIQ==
+Date: Tue, 8 Sep 2026 18:35:53 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: netdev-bot+sashiko@kernel.org, maxime.chevallier@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ 0x1207@gmail.com, olteanv@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: preserve real_num_tx_queues on mqprio
+ setup failure
+Message-ID: <20260908183553.7a204e81@kernel.org>
+In-Reply-To: <ap_fm9S7zSAbGSKq@lore-desk>
+References: <178885859069.219967.17905742130775758644@kernel.org>
+	<ap_fm9S7zSAbGSKq@lore-desk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com
-Subject: Re: [PATCH v6 10/10] PCI: dw-rockchip: Clear debug buffer before
- entering L2
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa083bacfc303a4kunm71968669442fc6
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGUNKH1ZMTx0aGkoZSE
-	1OQklWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=XLw0Z5PjC40FLlLjEeuPsxjJH3DNpHn6kqQucBi89rQtQ8GMBSnyGCS+lCxIbo2P2qivwbPYZlABvOGQrBf82i3IwcXCABKIgffePviEmryW6oO28rIG3M4VeRzHFsA3wxL/eBxr+z3nGQf3BWcNsbOPpN5p8bCy37YLmRlBboI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=nXrG2bOu/f4zoy6afuZMtxAka40yrLWjvBxcUj894m8=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_181417_745184_2DFAFDAD 
-X-CRM114-Status: GOOD (  16.01  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/09/08 星期二 22:51, Sebastian Reichel 写道:
-> Clear the debug buffer before entering the L2 state to ease debugging
-> link training issues on resume.
+On Tue, 8 Sep 2026 12:12:43 +0200 Lorenzo Bianconi wrote:
+> > So dev->num_tc goes back to 0 immediately after the driver restored it, and
+> > skb_tx_hash() ignores tc_to_txq and prio_tc_map when num_tc is 0.  On a
+> > failing "tc qdisc replace" over an already offloaded mqprio, does the still
+> > grafted old qdisc lose its priority classification anyway?  
 > 
+> I think in a error condition, the driver is supposed to restore the previous
+> overwritten values, then it is up to qdisc layer to manage the error condition.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+I'd translate all the AI complaints to a basic confusion about what
+exactly is the problem you're fixing and how it can be triggered.
+A better commit message may be sufficient. An example of sequence of
+tc commands which used to lead to loss of config / broken device and
+now does not would go a long way.
 
-> Cc: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index e675918ba184..a508f4fffd2a 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -77,6 +77,9 @@
->   #define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
->   #define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
->   
-> +/* General Debug Register */
-> +#define PCIE_CLIENT_GENERAL_DEBUG	0x104
-> +
->   /* RASDES TBA information */
->   #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
->   #define  PCIE_CLIENT_CDM_RASDES_TBA_L1_1	BIT(4)
-> @@ -1043,6 +1046,11 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
->   	return ret;
->   }
->   
-> +static inline void rockchip_pcie_link_status_clear(struct rockchip_pcie *rockchip)
-> +{
-> +	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_GENERAL_DEBUG, 0x0);
-> +}
-> +
->   static int rockchip_pcie_suspend(struct device *dev)
->   {
->   	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> @@ -1056,6 +1064,11 @@ static int rockchip_pcie_suspend(struct device *dev)
->   
->   	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
->   
-> +	/* All sub-devices are in D3hot by PCIe stack */
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +
-> +	rockchip_pcie_link_status_clear(rockchip);
-> +
->   	ret = dw_pcie_suspend_noirq(pci);
->   	if (ret)
->   		return ret;
-> 
+> > For taprio, the new error also takes the disable label, which clears
+> > priv->est->enable and reprograms EST, so the schedule that was just
+> > installed is torn down.  Is that intended for configurations that used to be
+> > accepted, for example:
+> > 
+> >   tc qdisc replace dev eth0 root taprio ... queues 2@0 2@2 ... fp E P
+> > 
+> > Also, the two remaining users that still ignore the now meaningful return
+> > value, the taprio disable path and stmmac_reset_tc_mqprio(), were not
+> > updated.  Should they be?
 
+This sounds relevant as well.
 
