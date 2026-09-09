@@ -4,105 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4799C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F143C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xU/TVU9R6QqVQBU8DMj4Dr025QCTEz1Y5w5z0voxEUA=; b=Z3r2wLZh1c7T2pswnTZ5TG3AfU
-	9+1uKvNBlVUCZuAj8zA8R8FFTgjy0Kv2AYZMrsRO7i6KPUnaTvwUpfTBRlssOdQS6bogvtb8K5Q3S
-	O6yeg7/uVCGNxaM78FmINUy7p+F1ceL7v8dCQNxTYZ8i9xc9b17wlEfFYmWk2lfsLdo5HN+XAwfVv
-	zklLccCofbcXWVAaWOI+HFOTFDPNdFXz5z3pnEReKgH5w4m1OGPKi/PiiOrhdN5IMhAbMnZ2gd4fX
-	Um2tlgH09m11gz3Cu++vzSjmlAifpW31DswirSE9Eqx9AWDeFfgNtHZGlKL/4nUGFYt4Z7l3Ei3ZD
-	axk5LitQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g0uOGw37DdE82nU6QUlJPa/gKDAK3HdlyhewoX5a9k8=; b=Ka/FRPnZLPXlFb2MBsNm5zgO3Q
+	9y5qa0k8fX68IixDX+U9AEtXY3b8t/Gd17Qhu01oOQlH92THLl10hNKLXjd7TUHYG9EAmp8bA9VH1
+	byU5mFV+X9d+OCUfq+ezD/TpJH7hpjK4BDwhV1xSS+tjeY9gYMHrby3xk6ietw0eqgiivHUYmZ2MT
+	vhVClkuw1ieEA54a+60GnFrZ4agz7LGaQN86UnkSpi9lbfVAJxas+2RwxkqXGzY67pTiud+2mQA3b
+	eR3Jtgzhvv04bg4Muu0QmlSgrDNkzHkkbU1iJfqY1TZ+63qjRZN73urCEVBHeD9NxzgydyBclTdbg
+	G0xG0rqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Nu7-0000000ChSm-31dH;
-	Wed, 09 Sep 2026 19:24:19 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1x4O6s-0000000Cj9a-48aB;
+	Wed, 09 Sep 2026 19:37:30 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Nu4-0000000ChQ8-0d5W
+	id 1x4O6q-0000000Cj8n-2RQL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 19:24:17 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so73008825e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 12:24:15 -0700 (PDT)
+	Wed, 09 Sep 2026 19:37:30 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e2406so11191955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 12:37:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788981854; x=1789586654; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xU/TVU9R6QqVQBU8DMj4Dr025QCTEz1Y5w5z0voxEUA=;
-        b=O6OfxAYkZeQiDcxTfZ/IcqEz6ZI4a2OmBHJlfTOAvDVvc8Z9zNgafMe9KcG6UNtkkp
-         6fAbhqcYssVKmEbdVKfqLH1ebymI2XKL+tni9g8tQOdaI1LE8IEfpCFzEhbbYU/hGldv
-         kpR34DJhwVXKw25Dfj+xt9EY9gGwjE4tjo3ovaecVbWF5R+oQVRiioelJ1twzd+sCN7d
-         sk53TleHw9RvMx9uiJ9OUiSSt1pHsqUL9T0VfKt683Pg7uaCB51EGVi6BN/eDduis/7o
-         aQcGo5vim9EmH5WmwIGcT7gto8klG4Dh6Fj3s1miHHzFCGToEC+3kWI+/OzLXfLcIcO4
-         3BEw==
+        d=gmail.com; s=20251104; t=1788982646; x=1789587446; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g0uOGw37DdE82nU6QUlJPa/gKDAK3HdlyhewoX5a9k8=;
+        b=H288xaugix0mUGbPIQhAkQ2vs6xZHNIXCP5kh6coqxvoZ7GinjbutG5Tdc2m0RU4X3
+         KYtlewRMb0Mxh+LlMbKHptyQuFJbePHNQOwN3BriHYOsVWuIaqKPTUrwxisk3hUV9HqR
+         sf8zjG934pCrRRNKRdkeT9FrfS6ISjHvJfHRWW3/BW4DK6nuY0zvapFkqNcqSzx3lCD+
+         Lv6RSi+nzasIr1j7qOpEvJfSw6zELED5vdaF7utfki9cHFL0dsiX3+PTzjLKt0ueHbuv
+         RuPv/AHbQjJoZL1LmmgsSL3x8NpO3tKYeuQ/rbNhCdq1VIGRExU5+ogduB1loS3Et8LN
+         ZtZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788981854; x=1789586654;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xU/TVU9R6QqVQBU8DMj4Dr025QCTEz1Y5w5z0voxEUA=;
-        b=IRw+v8Mze6iXx9gtImx/0UPwkCa5vNyJxurPyjXhPBTqEavJR4Qi2niIpK9GuAZm+R
-         8jUDHqtxgDrGq8MxlqQAcyAAwjvEdLAHWt3D63IKjmTFrUnfaX2sNgjM7ra/1XD9FFjK
-         zrmRZCsgYU5BJmqyrp9H0hEat3rijR4jRpIJNqeLdcvZi8MYq1mrT6X/1NnxFXUF+4cP
-         eW7vKsBvN3MW3TMea0YfJpZ9dSIQHH6Lis13aCZifK9pB1RljUty+5BvqOrfyN8YopFD
-         jc4wvAILDKmmUDuYHAThihQ3QNcN4GrVl7BSXEBGkovCiY3vko1Lf5VRo5Rcdz8QHNVE
-         LQ8Q==
-X-Gm-Message-State: AFuF++ncCup5FAkSRZRrAks24Uq3w9e4qjhL5wr7zpLYULmMCVcbY89e
-	9znTpyFJY3ZZIToLRRFAGgGNt8PsRJ9/gVnwFZNvHhJiC4w8UWjI45lQ
-X-Gm-Gg: AYBFou2CjCunw43+sfTuG5NQSCqv5qltbpLDcI+EXcmV9pKveuajeL7mrbvh9GqSBL2
-	lij8tT6Mank24r70mYLBqRYmtNuHGA84vGihofHrw1VJ27c28BdyuN8yxSwfA78EEeTYVg3ACFi
-	g3pGEgXL1Cljv2kmZckRSbvtDGafqn1gBURrvKlYvSVDAyyrh3THJ8zlBz6Hrr3JVNvZfMRw5nu
-	L161IaNdz9JkgbSSKhovyKnb3ugF/6A6D3/xAJ+wP0r/IbXJrGNBHg5IlDndRKCEhmfYrX1C9RU
-	d74ID7g3ZV9WKRGyNXduHX3ZDieiSxIJOE85A2DnJPB03eB1wYZrbQF1ASnmdKoV+/R/S6YEFvF
-	BdLIVANxY1CHTIEUrJBGTHzG8ffLhElars0TWLlHFYIapIk7f1nOCmXLoPTVrdGvZlYo+0MgpAN
-	O1tG2pOGjinLqJctf1lnQVG6UfVJG9Fo/H163SlGCuUH7CpgHeeIKfT9hpa2121rHsWmKHGUsCd
-	4BzPgoZ6IpkBxhFn9VN8IjIlnCj8fiTVvWicPRTpy0pxF6pjuLoY9Y=
-X-Received: by 2002:a05:600c:c173:b0:49c:cedc:3c36 with SMTP id 5b1f17b1804b1-49cf82a514cmr391436765e9.16.1788981854243;
-        Wed, 09 Sep 2026 12:24:14 -0700 (PDT)
-Received: from localhost.localdomain (mob-31-26-103-238.net.vodafone.it. [31.26.103.238])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49d26bf9490sm10925625e9.9.2026.09.09.12.24.10
+        d=1e100.net; s=20251104; t=1788982646; x=1789587446;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g0uOGw37DdE82nU6QUlJPa/gKDAK3HdlyhewoX5a9k8=;
+        b=SZZZ3uRszLypKAYP9ISIAcDeYXYprZ0dZCmdFRnQwdZPK4xN38dQEX9nn/gTfZfFQi
+         SYLGFve/j14FXr3nC5M1Pangwpd6KUT62yUd4rKWKYml5jAfNG3xvg+Gsb10FiMtMu+I
+         Y80oaCyHw6UJSzsMd1f43QYAZk/+kdPO4UHwRFZwlbUWG1x4LD7eFp5uvLBtF+UYerO/
+         ZdeJyw3gCqBQCspaW1yQFHb+10rWGYn6RPvgGdO7XGg2ewWodKY9Vl+9JRaGOMOPbcrJ
+         YblNBjaNYzIoGi0ok4ld9vk3tkEoDFErYZHxDwluTbH4HwAG27iqlxmMSuMy3mx9Ro/4
+         qKZg==
+X-Forwarded-Encrypted: i=1; AKwUvBzi6smKf+abdVOA5eV6UlqRM9p0p6VQz2Z/iZ04vIapGm4toKX8CN5R7wuQphX+RWS+p/T7jdaAPRo+I2nSz60l@lists.infradead.org
+X-Gm-Message-State: AFuF++kYu55m9QNbPTH/QOZnmEI+8j6Yyedeam33dBC1uCWbjRWkz+Sz
+	AY8KwbnNRcKnlgtjUZSMsCjxl3vpUaMTOeYTjGVisJj85Q0rG/oDH4r3
+X-Gm-Gg: AYBFou3EinFuxeh50Uu2pQeRFstM8ieSktTDpKdzM5DLs/I/BNt73r0BhzyCil25iIF
+	GX5l7fJLuqW9GA1EZx5pHD5GjU/hAIT9fD2QSTs65/3kAw9bMT1B5fDH+6S/IgRxT/y+tDaZzt8
+	y3NKMcVRtK9GMRQOlwiBLdAUcYni2leX2l4sQV+plxoLxtoMe/tKS2OEGZJQemB9rguAIJTbFhA
+	Yn8e5+Euy1ID+y6aE6BmCRi7AUwenIFF/7ltE2Rt7ATaTXYb7BkrXqesPNBvjYcpsFDlcCBO6Ry
+	yvb5FsUX1I0vQUKn22N0iVZp695GD6z3vyj6bcZeMmAPgk82jT2N3WFatSzJgH9GJBDu8oLYWyi
+	fTVphcm6cUZFHCKVg/JnIicMTTw3u1y+a8B8wJ+FwcV6/mwaClq+ZUWujVp4HELcS0G29uB6CsX
+	CSoLz+pnmjnvDyvTxMVtu8uEHbekMeNaN2tdN2eiwC26sDdNEmVGPhaMogLqOsiERpnkE41O8Lf
+	SVOaHrfpqmPxnmrR817WK13KdrAzze0xZqS/yOA3UyEdWlleVIrum+PL8HroknRegI1AEmwWiZo
+	DQb7+UegtQ==
+X-Received: by 2002:a05:600c:c4b8:b0:49c:f13e:e52 with SMTP id 5b1f17b1804b1-49d26dcbc5emr9770855e9.15.1788982645812;
+        Wed, 09 Sep 2026 12:37:25 -0700 (PDT)
+Received: from iku.Home ([2a06:5906:61b:2d00:d357:e592:d56c:d3b5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26be64a5sm13123995e9.6.2026.09.09.12.37.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 12:24:12 -0700 (PDT)
-From: Oleg Keri <okerixx@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Beata Michalska <beata.michalska@arm.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org,
+        Wed, 09 Sep 2026 12:37:25 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v2 2/2] cpufreq: update capacity_freq_ref when the boost state changes
-Date: Wed,  9 Sep 2026 21:23:51 +0200
-Message-ID: <20260909192351.33910-3-okerixx@gmail.com>
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC PATCH 0/3] soc: renesas: Add address extension support for RZ/V2H
+Date: Wed,  9 Sep 2026 20:36:36 +0100
+Message-ID: <20260909193640.8069-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260909192351.33910-1-okerixx@gmail.com>
-References: <20260909192351.33910-1-okerixx@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_122416_224177_4F4C3D18 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260909_123728_661537_67232396 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,168 +109,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-capacity_freq_ref is latched from policy->cpuinfo.max_freq by
-init_cpu_capacity_callback() on CPUFREQ_CREATE_POLICY, and never
-updated afterwards.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-cpufreq_frequency_table_cpuinfo() excludes CPUFREQ_BOOST_FREQ entries
-while boost is disabled, so on a system that boots with boost off the
-latched value is the non-boost maximum.  Enabling boost later raises
-policy->cpuinfo.max_freq but leaves capacity_freq_ref behind.
+Hi all,
 
-Two things then go wrong on arm64, where the AMU drives frequency
-invariance.  amu_scale_freq_tick() caps the computed scale at
-SCHED_CAPACITY_SCALE, so a CPU running above capacity_freq_ref
-saturates at 1024: the scheduler cannot tell a boosted CPU from one at
-the sustained maximum, and utilisation is underestimated.  And
-arch_freq_get_on_cpu(), which reverses that computation, cannot report
-more than capacity_freq_ref, so cpuinfo_avg_freq is pinned to the
-non-boost maximum.
+This series adds support for the SYS_AOF (Address Offset Function)
+address extension mechanism on RZ/V2H, and enables it for the SDHI
+internal DMAC so SD/eMMC DMA buffers are no longer confined to the
+low 4 GiB of physical memory.
 
-On a Snapdragon X2 Elite (Glymur) laptop with a 4032000 kHz sustained
-and a 4723200 kHz boost OPP, cpuinfo_avg_freq reads exactly 4032000
-while the CPU runs at 4723200; a fixed workload completes in 1.72 s
-rather than the 2.01 s that frequency would imply.
+Background
+==========
 
-Factor the update out of init_cpu_capacity_callback() into
-topology_update_freq_ref() and call it from policy_set_boost(), which
-is the common path for the global boost knob, the per-policy one, and
-the CPU online path.
+RZ/V2H contains bus masters (SDHI, USB, GBETH, VCD, DSI, LCDC, ISP,
+DMAC, ...) that can only generate a 32-bit address on their own
+bus. The SYS controller's SYS_AOFn registers let bits [31:30] of the
+address such a master issues select one of four independently
+configurable 6-bit fields; the selected field supplies the
+corresponding upper bits ([34:30] or [35:30]) actually driven onto
+the AXI interconnect, with bits [29:0] passed straight through. This
+splits each master's native 4 GiB space into four relocatable 1 GiB
+windows, letting it reach a 35-bit (DDR0/DDR1) or 36-bit (+PCIe0/
+PCIe1) physical address space. See RZ/V2H Group Hardware User's
+Manual, Figure 1.7-2 and Sections 1.7.3.2 and 4.3.3.2.88-90,
+reproduced here in text form:
 
-Signed-off-by: Oleg Keri <okerixx@gmail.com>
----
- arch/arm/include/asm/topology.h   |  1 +
- arch/arm64/include/asm/topology.h |  1 +
- arch/riscv/include/asm/topology.h |  1 +
- drivers/base/arch_topology.c      | 19 +++++++++++++------
- drivers/cpufreq/cpufreq.c         |  2 ++
- include/linux/arch_topology.h     |  1 +
- include/linux/cpufreq.h           |  7 +++++++
- 7 files changed, 26 insertions(+), 6 deletions(-)
+                     +--------------------+
+                     |       Master       |
+                     |  32-bit address    |
+                     |      [31:0]        |
+                     +----------+---------+
+                                |
+              +-----------------+-------------------+
+              | bits [31:30]                        | bits [29:0]
+              | select field                        | passed through
+              v                                     |
+    +---------------------------------+             |
+    |         SYS_AOFn register       |             |
+    |  +------+------+------+------+  |             |
+    |  | Reg3 | Reg2 | Reg1 | Reg0 |  |             |
+    |  |  11  |  10  |  01  |  00  |  |             |
+    |  +--+---+--+---+--+---+--+---+  |             |
+    +-----|------|------|------|------+             |
+          +------+------+------+ supplies           |
+                     |    [35:30] or [34:30]        |
+                     v                              v
+              +-------------------------------------+
+              |          AXI interconnect           |
+              |        35- or 36-bit address        |
+              +--------------------+----------------+
+                                   |
+                                   v
+     +-----------------------------------------------------+
+     |               Physical address space                |
+     |  F_FFFF_FFFFh +-----------------------------------+ |
+     |               |          PCIe1 - 23 GiB           | |
+     |  A_4000_0000h +-----------------------------------+ |
+     |               |          PCIe0 - 24 GiB           | |
+     |  4_4000_0000h +-----------------------------------+ |
+     |               |           DDR1 - 8 GiB            | |
+     |  2_4000_0000h +-----------------------------------+ |
+     |               |           DDR0 - 8 GiB            | |
+     |  0_4000_0000h +-----------------------------------+ |
+     |               |  SRAM, peripheral, xSPI - 1 GiB   | |
+     |  0_0000_0000h +-----------------------------------+ |
+     +-----------------------------------------------------+
 
-diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
-index ad36b6570067..a776a79885ee 100644
---- a/arch/arm/include/asm/topology.h
-+++ b/arch/arm/include/asm/topology.h
-@@ -11,6 +11,7 @@
- #ifndef CONFIG_BL_SWITCHER
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_set_freq_scale topology_set_freq_scale
-+#define arch_update_freq_ref topology_update_freq_ref
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
- #define arch_scale_freq_ref topology_get_freq_ref
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index b9eaf4ad7085..a4b96a7ee4a5 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -22,6 +22,7 @@ void update_freq_counters_refs(void);
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_scale_freq_tick topology_scale_freq_tick
- #define arch_set_freq_scale topology_set_freq_scale
-+#define arch_update_freq_ref topology_update_freq_ref
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
- #define arch_scale_freq_ref topology_get_freq_ref
-diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-index fe1a8bf6902d..a363d72c174f 100644
---- a/arch/riscv/include/asm/topology.h
-+++ b/arch/riscv/include/asm/topology.h
-@@ -11,6 +11,7 @@
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_scale_freq_tick		topology_scale_freq_tick
- #define arch_set_freq_scale		topology_set_freq_scale
-+#define arch_update_freq_ref		topology_update_freq_ref
- #define arch_scale_freq_capacity	topology_get_freq_scale
- #define arch_scale_freq_invariant	topology_scale_freq_invariant
- #define arch_scale_freq_ref		topology_get_freq_ref
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 8c5e47c28d9a..79eb1681065d 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -317,6 +317,18 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
- 	return !ret;
- }
- 
-+void topology_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq)
-+{
-+	int cpu;
-+
-+	for_each_cpu(cpu, cpus) {
-+		per_cpu(capacity_freq_ref, cpu) = max_freq;
-+		freq_inv_set_max_ratio(cpu,
-+				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(topology_update_freq_ref);
-+
- void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
- {
- }
-@@ -392,7 +404,6 @@ init_cpu_capacity_callback(struct notifier_block *nb,
- 			   void *data)
- {
- 	struct cpufreq_policy *policy = data;
--	int cpu;
- 
- 	if (val != CPUFREQ_CREATE_POLICY)
- 		return 0;
-@@ -403,11 +414,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
- 
- 	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
- 
--	for_each_cpu(cpu, policy->related_cpus) {
--		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
--		freq_inv_set_max_ratio(cpu,
--				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
--	}
-+	topology_update_freq_ref(policy->related_cpus, policy->cpuinfo.max_freq);
- 
- 	if (cpumask_empty(cpus_to_visit)) {
- 		if (raw_capacity) {
-diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-index 96515880b4ac..a70805a1d9d3 100644
---- a/drivers/cpufreq/cpufreq.c
-+++ b/drivers/cpufreq/cpufreq.c
-@@ -594,6 +594,8 @@ static int policy_set_boost(struct cpufreq_policy *policy, bool enable)
- 		return ret;
- 	}
- 
-+	arch_update_freq_ref(policy->related_cpus, policy->cpuinfo.max_freq);
-+
- 	return 0;
- }
- 
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index ebd7f8935f96..4974f5e1a7fe 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -31,6 +31,7 @@ static inline unsigned long topology_get_freq_scale(int cpu)
- 
- void topology_set_freq_scale(const struct cpumask *cpus, unsigned long cur_freq,
- 			     unsigned long max_freq);
-+void topology_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq);
- bool topology_scale_freq_invariant(void);
- 
- enum scale_freq_source {
-diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-index 35ce665edfd8..5b904e13eb21 100644
---- a/include/linux/cpufreq.h
-+++ b/include/linux/cpufreq.h
-@@ -1235,6 +1235,13 @@ void arch_set_freq_scale(const struct cpumask *cpus,
- }
- #endif
- 
-+#ifndef arch_update_freq_ref
-+static __always_inline
-+void arch_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq)
-+{
-+}
-+#endif
-+
- /* the following are really really optional */
- extern struct freq_attr cpufreq_freq_attr_scaling_available_freqs;
- extern struct freq_attr cpufreq_freq_attr_scaling_boost_freqs;
+     Four 1 GiB windows, each independently redirectable to
+     any 1 GiB-aligned target above; 35-bit-limited masters
+     must keep bit [5] of every field clear (1.7.3.2.1).
+
+In case the image isnt formatted correctly please refer the link
+https://raw.githubusercontent.com/prabhakarlad/img/refs/heads/main/Screenshot%202026-08-12%20162004.png
+
+Without this, SDHI (and other masters in the same category) are
+limited to buffers in the low 4 GiB.
+
+Approach
+========
+
+Rather than hardcoding SYS_AOFn programming per board, this series
+derives it from the devicetree dma-ranges property already used to
+describe DMA address translation:
+
+ - Patch 1 adds generic AOF parsing/programming infrastructure to
+   the rz-sysc driver. Each SoC lists its AOF-capable masters as
+   (MMIO base, SYS_AOFn index, address width) tuples; at probe time,
+   the driver walks "simple-bus" wrapper nodes carrying a dma-ranges
+   property, matches the wrapped device against that table by MMIO
+   base, and programs the corresponding SYS_AOFn fields directly
+   from the dma-ranges translation. Devices with status = "disabled"
+   are skipped. Malformed or out-of-range entries (misaligned,
+   exceeding the master's own 4 GiB space, or requiring bit [5] on a
+   35-bit-limited master) are rejected.
+
+ - Patch 2 moves the SDHI nodes in r9a09g057.dtsi into per-instance
+   simple-bus wrapper nodes with a default, no-op (DDR0-targeting)
+   dma-ranges -- no functional change for boards that don't further
+   override it.
+
+ - Patch 3 demonstrates a non-default window on the RZ/V2H EVK:
+   SDHI1's dma-ranges is pointed at an 8-12 GiB DDR1 window, backed
+   by a restricted-dma-pool reserved-memory region so buffers handed
+   to SDHI1 are guaranteed to physically land inside the range the
+   programmed SYS_AOF17 fields can actually reach.
+
+Boards that do not override an SDHI instance's dma-ranges see no
+functional change: the default wrapper mapping added in patch 3 is
+an identity remap onto DDR0's native address.
+
+Trade-offs
+==========
+
+- Attaching a restricted-dma-pool to a device makes every DMA transfer
+for that device bounce unconditionally (is_swiotlb_force_bounce()),
+regardless of whether the buffer's physical address would otherwise
+have been directly usable.
+- Each master will require a restricted-dma-pool.
+
+Testing
+=======
+
+Tested on the RZ/V2H EVK (r9a09g057h44-rzv2h-evk) with SDHI1 remapped
+to an 8-12 GiB DDR1 window, running repeated large-file dd read/write
+and mmc_test against an SD card, with no functional errors observed.
+While running mmc_test a loss of ~4% was seen for read/write tests as
+the mmc_test module allocated the memory using GFP_DMA flag.
+
+This series does not yet cover the remaining AOF-capable masters
+(USB, GBETH, VCD/DSI/LCDC/ISP, DMAC channels).
+
+Request for feedback
+=====================
+The ~4% loss above comes from restricted-dma-pool's unconditional
+bounce policy (is_swiotlb_force_bounce()): every SDHI transfer is
+copied through the pool, even when the source buffer's physical
+address would already have been usable without any copy at all.
+This is a direct consequence of using restricted-dma-pool as the
+correctness mechanism for a device whose real addressing constraint
+doesn't map onto the flat dma_mask/dma-ranges model the generic DMA
+layer otherwise assumes.
+
+Before optimizing this further, I'd like inputs on whether
+restricted-dma-pool is the right tool here. Suggestions and pointers
+to prior art for similar SoC address-extension/aperture hardware would
+be very welcome.
+
+Thanks for reviewing.
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (3):
+  soc: renesas: rz-sysc: Configure AOF registers from dma-ranges
+  arm64: dts: renesas: r9a09g057: Move SDHI nodes into bus nodes
+  arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Move SDHI1 dma range from
+    8-12 GiB
+
+ arch/arm64/boot/dts/renesas/r9a09g057.dtsi    | 123 +++++++++++-------
+ .../dts/renesas/r9a09g057h44-rzv2h-evk.dts    |  16 +++
+ drivers/soc/renesas/r9a09g057-sys.c           |   9 ++
+ drivers/soc/renesas/rz-sysc.c                 | 118 +++++++++++++++++
+ drivers/soc/renesas/rz-sysc.h                 |  22 ++++
+ 5 files changed, 240 insertions(+), 48 deletions(-)
+
 -- 
 2.55.0
 
