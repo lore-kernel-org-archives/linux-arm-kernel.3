@@ -4,115 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD865C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED79C79FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EqyOJwWDc9siUyUIf9HLEiRZ/UBmYkZ2bG5NW9K2GYU=; b=iz50EmWpwHsr5lt7hBUYWm74mH
-	KH4kaJkUJUdY7O4cQ8No8OfkORvHF8HGPABq6F4/DNfn83Wzbj1Vuc8SHXVAECROwmcDrkdLovgn2
-	5nAPwQgXwiUnEKBBOCjsjpw3xteKhAXCrnOvi/szo/PdFOaQjl9qVlJ7nxnY2fz5UDwvGXgAZC9ur
-	evvZlyV8cCOUOBWuRGHOE/RtKOH+0z6CLiaiDoPuOmWWF5j+Z159yvPRWSqTvWmZXowxwK0KbJQvR
-	xcrW2iObEAQgg/nCVI/IYDZ27WSf3MAutGxoYw9S130QpFuiUN4+H1wL4ocsjWTkCTmQ+Vmwai9jn
-	o9Rp9puA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=czxb1UaEs1JKALiLUU4ufSqRyxAzLoH70Q2c+3CQisg=; b=uLzno1gom6lGDBRurto+iWb7qX
+	kNPijIHlYTmWLz5WQWyY3oJ/d6yHZpyiKNRXOJLBPlm2Ch7SrpvhBqRU4JrYsWjPG9Ju2EYiggHKb
+	JWO3wJHRqcsQ/M00q9m9cplQoA9xWLrCKBM2dfe2+t0FDLBXo0FJXmci4B7KI819hhMQpVLXJToFO
+	3Kbe1wB7naJnNgdoOqSlgb/eUQlXG6tcMw5js+Ybp1AWfHCWQJa+bjgIYWN+Nkm2ToTLcCBE4QPyn
+	B5lwKQpsnrq3YXzbDt0NidPvyeglrwDAgRSFT3D3rJR2W2WzUK8yPirFtR9Q0jMTjYIzUvUjzIUqm
+	kismZ2Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4MDc-0000000CVVU-1bBy;
-	Wed, 09 Sep 2026 17:36:20 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x4MHN-0000000CWHZ-41BC;
+	Wed, 09 Sep 2026 17:40:13 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4MDY-0000000CVQV-16H3
+	id 1x4MGp-0000000CWDX-2b2I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 17:36:17 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48435bcf9d9so580360f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:36:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788975375; x=1789580175; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EqyOJwWDc9siUyUIf9HLEiRZ/UBmYkZ2bG5NW9K2GYU=;
-        b=CGd0UBrnJV9Or0UH/W44ts/yFKQXWWs4R8u630TJRHUUUamqZ5X9HevJIUpKmy5VWf
-         n6uPC5qUhNld0q/QQXSbF1tuAI48VqJH8GIvTP3og40Ajjh+Y5OZTra5K43YG4V32ORs
-         kB3+iH///PT6DxiIrEnqbSHIPf+S9NPTBPUqV/SMFOngLDn09rfVD5zNVOhmsc7nti2b
-         mZxogqHYBNe+gAGqYlm0nB33a7i1rbcgJbRRHrZBHYgTt+itJoZqQHjZqRxtkUbLD9l1
-         o/zEeNMethdw/LfgfLan37T+Y9MlSTlc3Bg8NSLJN6El0Ny2feBdK13PXJPD7USWlIpf
-         0n1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788975375; x=1789580175;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EqyOJwWDc9siUyUIf9HLEiRZ/UBmYkZ2bG5NW9K2GYU=;
-        b=sPtyAI5uq9P0DI/7IfMgizaVXNVjWh8CK0oDMtzbS4L0QBaV3f6IyBgkxmq6/eg+ek
-         iss603z4/KUl+DRz1s7pA0El9Cfx5D7uSVx4DJMQtum38sNkA51AtHBfK5wmTeFwt6XN
-         vfwKIqjvh/GlIznBHZjwcWBttUG0kjySbgB5QRmnSQbVMUPrBfyyBKqP5B4dcQoWxdKj
-         6R8aMyoGnA/eUsaEyIMRbDuhmiu4eYhNiI6Zk3edxziG7LkFZtC4qGpYjgNvXHQE0GFd
-         g4U3a3frr5etSNKMxCloo8MzrTr0xp5Xlzqwlyv6Ki8WRmVlPB0d5DgTx2dATS5Zg/WE
-         LP+A==
-X-Forwarded-Encrypted: i=1; AKwUvBzEH3Gh8T79BHcIp52Z4FJ42x3d5ci3BTlEVtzZQIdBbBLe4GtfB4HvP9TdBeC0GbW+eKqSVbNw0KFO45aFtanX@lists.infradead.org
-X-Gm-Message-State: AFuF++lzhM5hfx2J52j8kJDEM1t+gObGUObZzhLY9bA2kMQOBPpqA4TP
-	btXN65c8m9zye5pvMN2DD9Z8Wngew+XzXH4AopOSky12SvqKWNlxDe3a
-X-Gm-Gg: AYBFou2Vchoum3c2B46CKbRkARhZfJH9WxCTRQB1C2RFaaQ9HWChKXmM/4M5v81xi5b
-	Prb3iuTN3olr9ZbLKxSM65sIhht4HiMDXyeBXbqzIkpIguhxTh4zgg8W5ZMt/zRG9dw31AI/BaM
-	Q0NdibHHEDUEaaswlfiLrQ0/iwNcli5e0cObfG9idAQSR+71qB3HyGVYy9pefG5WPXm5Mtl22JV
-	0V2MZg4LJ7TlJlRwQThcp9TDWkq8Y59ZyzVwdQwQFvNl4YKnRv2p3GbkTe/cKBz47e++83XhQf7
-	9ehk31oHQbuT7fg7uThxz2OIBz1JnFOdqy/RByCxmfrC2uM1JKs5E7znVH7flYOedRvGov3AS2i
-	lD+DN0wjUsXeJj/uJMthZs0K23uev6cM7k7ss3R2SZpbIKHEHGCzufeQ2CHsdcWHO3QGIUyhiGT
-	WHf8cuV4uudAZ172c/U17Q/D4z6koqWniGQ7iHbu9M4UBesfKtImkvIHBhi+rQ5sHzI32V0TE01
-	11SiKE3UDaH3lp1lddqtX5kze+/X0Zd6r8ia29NWdTyXFnUR3a8iPi6a0RZvvKFK1l60FDQh5OY
-	mA==
-X-Received: by 2002:a05:600c:620f:b0:49c:eac2:ddad with SMTP id 5b1f17b1804b1-49d2570acaemr24678895e9.1.1788975374390;
-        Wed, 09 Sep 2026 10:36:14 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B836900B0110705BF092680.dsl.pool.telekom.hu. [2001:4c4e:1b83:6900:b011:705:bf09:2680])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26c06f04sm6876575e9.13.2026.09.09.10.36.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 10:36:14 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: dri-devel@lists.freedesktop.org
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Ville Syrjala <ville.syrjala@linux.intel.com>,
-	Imre Deak <imre.deak@intel.com>,
-	Ankit Nautiyal <ankit.k.nautiyal@intel.com>
-Subject: [PATCH v2 3/3] drm/rockchip: dw_dp: Attach "max bpc" connector property
-Date: Wed,  9 Sep 2026 19:35:40 +0200
-Message-ID: <20260909173542.14030-4-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260909163206.36409-1-royalnet026@gmail.com>
-References: <20260909163206.36409-1-royalnet026@gmail.com>
+	Wed, 09 Sep 2026 17:40:13 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689HAwvK861906;
+	Wed, 9 Sep 2026 12:39:36 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=czxb1UaEs1JKA
+	LiLUU4ufSqRyxAzLoH70Q2c+3CQisg=; b=Z6r59WbC43ah6EcXH6f6QucI+19Wy
+	eYsXh8TXaY1LmwvNtUF2/LGP+zf2afYCxssYYFtoQ6/3JrtnbxkwsIdzs5XHcbal
+	eNoHfL782N97AywTwE6dpscrM2v3UinE4Pl8KCURgpJgWAZqZtYn38o/98mgiNNC
+	yVrdQycxCZvA/zRKfwh42ImXKBbsl6+XquaZ44UzAx6uyrlqwmC4fUDlMWDoEqJX
+	at4Qxt0qkNrZa4M+2nl3/ClVWiDdUP/uguaCeVsC4MbvfokMFP6SBqDVz6bk1pTH
+	WkrVSH2GRG+i9DQYqSoO7uV2sG27BWo0ChecYbuyvY30SAQzqu0IJNdfg==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012011.outbound.protection.outlook.com [40.93.195.11])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gk4a8kadh-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 09 Sep 2026 12:39:36 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mUzDwuv6htQcq4cEPL24+Pw3PWCleXiGBxrE5qzi8w3jj1NoqJ2CqkWRfIXWEMjKV96unQCI1WvkCRa+wuMhB5VvJaJ6LACNYVCiINBbTGgM6Edihyjn4OMEQcqqI3qk3IR9AZ8cto6vR4SwUHVx0pEW4oRUoT+kfgKKiwVJ7TfIJU0goQrrQh2w/Y5B0OJ2OY997MMvdvdg2nfk25GaceTFKNjkPZ6j6Z/QGGjhvkCpYn4uZ5ZjNfxKVOmw4j6mbUUNd0EirhyR8UOqXTCVL2XjVgntrppk7EDX/6GMOhZEF2Y+13d/rBQNDg75p7OTV0F2M80MlgKdu1j/64yhMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=czxb1UaEs1JKALiLUU4ufSqRyxAzLoH70Q2c+3CQisg=;
+ b=hZrIeuY8v61RzZ8N4gyuwjIVKlJ6oPTCe4XNZzoYAqUBDYz9za0lGilMvPO2kqebsx9ZfqXpEHMoU3c6kuLs5R2/5atGZkGCYKH3+YrAN10rq1d+bfIzOu/1pNx6dm80fnIXYocrIAP03EG5IuMqTaUaEuqQHKq0ZdKzhH05xQxb0ph4ySQKVDtpirRuoEB+DTuXdlv/1kfTMGDwsj8LGPAF8biYyGbfulXKXmwVNHPyaGPbxyj1tDg9/EwcgXNy0bswJOgLCA+Kq1ATmJFpEAJRDemvAMgn3TPK9TBpRdtMZkmz59Dds/96w9zdrFmjRrhNEhtW9QMTbczE6ZB/Rg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=czxb1UaEs1JKALiLUU4ufSqRyxAzLoH70Q2c+3CQisg=;
+ b=utNdFZc5g5hC1WHTfuF9COeJhPO7wSAKBrxJ2yczxzkVr1vyZPuQfzZYnmwA7jj8d8vRa69WBsluyEhbt2D6YVOTFOr5ztaGTaevh65DaAS7TdpPnKPjVUprVwDqHAaO87NJvILCBxtp8g/yWY2x+JG+t6iycsBnxgN1Ez/gFm0=
+Received: from CY8PR10CA0004.namprd10.prod.outlook.com (2603:10b6:930:4f::25)
+ by DS4PPF18D5A7206.namprd10.prod.outlook.com (2603:10b6:f:fc00::d0d) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
+ 17:39:28 +0000
+Received: from CY4PEPF0000EE37.namprd05.prod.outlook.com
+ (2603:10b6:930:4f:cafe::36) by CY8PR10CA0004.outlook.office365.com
+ (2603:10b6:930:4f::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Wed, 9
+ Sep 2026 17:39:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000EE37.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 17:39:27 +0000
+Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
+ 2026 12:38:33 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
+ 2026 12:38:33 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 9 Sep 2026 12:38:33 -0500
+Received: from hpz2.dhcp.ti.com (hpz2.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 689HcXU1736131;
+	Wed, 9 Sep 2026 12:38:33 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 0/1] AM65x MMC power-off delay fix
+Date: Wed, 9 Sep 2026 12:38:32 -0500
+Message-ID: <20260909173833.764103-1-jm@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE37:EE_|DS4PPF18D5A7206:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24abd97e-04d0-4152-50da-08df0e994bc5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|23010399003|82310400026|3023799007|56012099006|10067099003|13003099007|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: gYK8u6nss7UP5/Gk53A5ecXzmFXBJGF7CEejfpHhkTeYYtTMvlnyvGp5eehgwnVNHsS7hYZxf2IJTelooTK9pxaBOryB/UJV77ttWmFqmxzXRDYYen/+geR9wV+TEsAqfq1OBiu1bX61Hw53s7SGvAzmKD9xZtwnr3Veeuax/g5jSc1xLwVVHb1qCvpigbefzl8cGHiniXTHETq44MnrR2sK2zX1gNyiSskBPhXhdOqr5CUiDgEameG4c3QQaRG4mCglE26pAwpUlm5aQPOPxPmDAgI1+AftRn1yQmEEeYLXBMLMJghdenC1v4IHRNJmixIC/8VlDzOr6zhd/vRydFlCMLaHIpIK3L7SSgz9BSwN/G86E/NRvuOc8gv/3lvFf6/Ho0628lE5uoLZyRmoj5txf2FHn7CMTsVn9+lQmv+v36icWLoEt3YOhdNvsB/Wx7xRIssUrSiHNfb/HOimbcc5T2f3wrbIZWXfKrAo+/KfiI/pS1P/byfeCGzCZJZFIfQEcNe5ephIJJPFv+G58ZL69Yc793a44NTQlt723nOKU2m2pdQG12DvAtx/FYQ8/vomdsnurQUCb6gUEpjosJvSD1SqXvs8iIZ1F0Iv3QZBQZR5Vbzdgj50lAh25gZS+k8ljrYN1J8doeeROqca4gg8GxkktpzAZ434ZOMX7y9KI1CPmyJ8kx/zMc9hxj7oHMJGAHY8F5bSyLvE1WDOUw==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(23010399003)(82310400026)(3023799007)(56012099006)(10067099003)(13003099007)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: qV9X19SQisD9yTwhFIcprQ0EtpTLg6SYivNVs0vgc3hqHeOb8oRWHNMiNtJMECf1Ro48UQLW0f4DipQHo/zc+rRjeq7nO+DIeaGdxzp9o25MOwfM4ulLXdQD5iBMb67xNdSI5nhNsld46vxLVMk9BaIOB3UNtYmW2KBo3zUJBmORYGcbBs3QyYL0fAol6Tctvsf+Uq3n1bqBPy7+ZMY7HnwL4jfGWci7CCPfpW28MbszEibQ97Xq21c+xjPBoLokfj2BppH/M4ZkroE2iKTxMFdVwQ7qjOoVIlhddtJnaz+3FcZiR9uOnj6DnAVzxR0ZYO1vXeRjiZ2t+mQK/5ZYHZn+Ycv5hGzseDiU+S3SGhbsYzqkIgHHdhOe9TPoNKMH+BBsxWNg668e7fjrmiE64OliEPkzbFHDbr+UEDZz0IrShUwAv2W3GmrWJW6QbtR0
+X-Exchange-RoutingPolicyChecked: bAo0Z9Ra2G4khUuZDPorVXPLryVIro8Ye7YZlAWPIe4UWFJ7/M2T89pba0g9+C1Fp5jqClauTCY553wXLmfewW2LJEfswmKz/oVW+nI8fzluQ+MfbVGWSMuOnajrWIi7cjGODPD1rKRl/k74rK1UVkhpfKjOPzHNUgnv1I3ZwTjPc7dhTY4FbBcx9oQAiTFztY22rtaFzcHyHt9Cd7H5ZV9wYU7K8sT4EQGgLaiVfn5+l2DPelV2LxeSZC3wCpp0hHYJgDLBYqxK6iBlWReY3epfF5l62qSadtDylP47JOlO7ec1gLvS4O6wMpie/l/7WCKxks6szSaKFAgO0UxwdQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 17:39:27.3058
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24abd97e-04d0-4152-50da-08df0e994bc5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE37.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF18D5A7206
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE5NiBTYWx0ZWRfX13w/R7o6Ouz3
+ y/CJcG75PWVbAps7laJRgLKb3Ji9kQjxIHflaRLu2ZaYB5nQroa4nTmZAQWFmfAixsUFA/wJ8A1
+ EjF1m5/t7BX8z8VII5JVV31p505HG3Fh6JGJ+D9BnuPJ5M6u8YqabH35TqkfTtpuHFycbEfF3MZ
+ 89UnPBRBvKWftiTeCtiF/1+WrUZEBenXU83H+8rCgLVGt+nvCGa7FarCDgoJXfJD/DmOzrcJ9Nl
+ gve3+uOLcO33RojzfHYuNHZwLn5x2zIZuf02yKkM+66wb+pt0wpT+GL5I3TOh8CRSVtaUTvyvHY
+ k/z/DLbu7N5GCDln7Oor7KmYJ4r5VLrsT06C1KjHuESNNQdod66LPTfHLk6UD1jYntrrIu0Dlcd
+ PhCaR63SNPMQW3nrJpErCK7QuJ1JRoWjhWFf2n/KP5eCsEmPReNwEo2FRgfEU4F6yHpbgFap/OO
+ NgZ9Pf3wofou0uH8Ynw==
+X-Authority-Analysis: v=2.4 cv=cObQdFeN c=1 sm=1 tr=0 ts=6aa199d8 cx=c_pps
+ a=ekzRQQX7ZilozLPATeYkEg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=I1O76cIU5TdbMCoLbL0A:9
+X-Proofpoint-ORIG-GUID: QRYYErk7JPng32EHBOvu54Kb5FWra1Pr
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE5NiBTYWx0ZWRfXwwinjTb7C+QY
+ tN1psV8aMtsoSgkK6YMfKQjEghYIIkHSlhafipL2J8mTWh/aPemgySWLyyjwt+edWFfi+h5dMie
+ TG5rUrCy4ofyyEqvxWUa+JD80Biw4J4=
+X-Proofpoint-GUID: QRYYErk7JPng32EHBOvu54Kb5FWra1Pr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0
+ priorityscore=1501 phishscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_103616_326634_32A70DD4 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20260909_103939_774029_29BFA009 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,74 +176,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dw-dp bridge already filters candidate output formats on
-conn_state->max_bpc in dw_dp_bridge_atomic_get_output_bus_fmts() and
-validates the result against the link bandwidth, but the connector
-never exposes the "max bpc" property, so userspace cannot limit the
-bit depth. Attach the property with a range of 6 to 10, matching
-dw_dp_output_formats[]: the smallest entry is 6 bpc RGB and the
-deepest entries are 10 bpc.
+This series adds power-off-delay-us in AM65x EVM DT to ensure proper MMC
+card power cycling during boot.
 
-drm_connector_attach_max_bpc_property() initializes
-connector->state->max_requested_bpc and therefore requires the
-connector to have a state. Rockchip binds its components before
-drm_mode_config_reset() runs, so the freshly created bridge connector
-does not have one yet - create the connector state before attaching
-the property, exactly like drmm_connector_hdmi_init() does for HDMI
-bridge connectors. The later drm_mode_config_reset() then re-creates
-the connector state, and the preceding patch makes
-drm_bridge_connector_create_state() restore max_requested_bpc from
-connector->max_bpc, so clients that never set the property (fbcon in
-particular) keep the full range instead of ending up with 0.
+AM65x EVM VDD rail discharges slowly (~632.97ms) through RC circuit.
+Without sufficient power-off delay, SD card boot fails in bootloader stage.
 
-With the property attached, compositors such as KWin write "max bpc"
-on every atomic modeset; any in-range value is handled by the existing
-format filter and bandwidth checks.
+AM65x SD boot failure was initially exposed by U-Boot MMC driver patch [0],
+which was correct but revealed EVM hardware limitation. There is no SD card
+boot failure in Linux yet, but proper power cycling is required regardless.
+Additionally, equivalent Linux kernel discussions for similar fix [0] are
+ongoing. Linux MMC driver now supports delay after MMC power-off [1] and
+this patch adds power-off-delay-us=650ms to AM65x EVM DT.
 
-Assisted-by: LLM checkpatch
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
----
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 26 +++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Links:
+[0] U-Boot patch & debug discussion:
+https://lore.kernel.org/u-boot/d17a810c-e2db-4a24-a37d-2d7e02466ce9@ti.com/
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index b23efb153c9e6..8ff27353b1417 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -112,6 +112,32 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
- 				     "Failed to init bridge connector\n");
- 	}
- 
-+	/*
-+	 * The components are bound before drm_mode_config_reset() runs, so
-+	 * the connector has no state yet, but
-+	 * drm_connector_attach_max_bpc_property() requires one. Create the
-+	 * connector state first, like drmm_connector_hdmi_init() does.
-+	 */
-+	if (connector->funcs->atomic_create_state) {
-+		struct drm_connector_state *state;
-+
-+		state = connector->funcs->atomic_create_state(connector);
-+		if (IS_ERR(state)) {
-+			dw_dp_unbind(dp->base);
-+			return PTR_ERR(state);
-+		}
-+
-+		connector->state = state;
-+	} else if (connector->funcs->reset) {
-+		connector->funcs->reset(connector);
-+	}
-+
-+	ret = drm_connector_attach_max_bpc_property(connector, 6, 10);
-+	if (ret) {
-+		dw_dp_unbind(dp->base);
-+		return ret;
-+	}
-+
- 	return 0;
- }
- 
+[1] Merged power_off_delay_us support in Linux MMC:
+https://lore.kernel.org/linux-mmc/20260806162202.657512-1-jm@ti.com/
+
+V1: https://lore.kernel.org/linux-devicetree/20260908170635.238775-1-jm@ti.com/
+
+Changes since v1:
+- Fix commit subject and description
+- Add cover letter to provide full context of implementation & history
+
+Judith Mendez (1):
+  arm64: dts: ti: k3-am654-base-board: Add power-off delay for proper
+    MMC power cycle
+
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
 -- 
-2.43.0
+2.34.1
 
 
