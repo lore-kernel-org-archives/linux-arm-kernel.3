@@ -4,38 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F92C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D85C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xLi0wt5EgiuhG354z8EC8PK2vbC5Ize9fBnpPsOtAkc=; b=Yj4b7vcknLPdh2Fzkaa533xaPt
-	PEsgbvMS8KG90gdYRyj904Xcw1oynJcY6GVtcODHHmot59Lb7gNkcjaJytGrwky3cTkK5aTFbujNx
-	7Fh4TeZuKrEDEga925bN+67G/lBf4C4BDJTOMeP0WEqJo7EO3I8Y/E4d0t8PFufZ/Q8B48UByzHFt
-	urBcfTAEVSGMr+2yUh/Vz8pHrkBYRXQQfnURYijDF6dWZr/owYnqHBQ9LNVKPFfDDeBgLSKU1scoo
-	Pd/zSh1k6iNLRyP+ywwT02Kqx/aik5bI1W6NgfZ0Qs6FJvHzAgdRfzQGwufCMvZQKGUyzSWExr/ck
-	UTf+35lw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+LSfF6WeN65ydsS+fKszA1mpUfPTI0QyNbajR7Gplk=; b=mwETn7JoosKqCgk6O2792+if0C
+	6zEHn15/nhjncGl4yRvaFS0D5pOjpoADUHYeJTAD1XSEUrEVyK63coHArcnAMWfQutugcSd8pgphb
+	6+owt+iX7yBpZ/oI/iGEUGGNZITo3l0Dq32c5ioTRjarm/cwGtZ6CyiljPXYHtwbOe1iVQtY6U/IU
+	IkfxLE6V2hhC5pVKJT7RJUc+QlqbmUHgqknNvaz7CtYd+/BJEDtWyqSZjddkbxVzl18vMToIUsDsz
+	7NWiaRv3BbEEjkjyY8U7rvbOztphtVP4T1GjHz/I8W99O63pTCNSXDK1GhXWorAFcNg+vdOUi83X3
+	KkL5eVpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IuK-0000000BsPN-0cmV;
-	Wed, 09 Sep 2026 14:04:12 +0000
+	id 1x4IuQ-0000000BsVD-2pGm;
+	Wed, 09 Sep 2026 14:04:18 +0000
 Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IuH-0000000BsMv-1sbW;
-	Wed, 09 Sep 2026 14:04:10 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2E5023F4CFF;
-	Wed,  9 Sep 2026 16:03:56 +0200 (CEST)
+	id 1x4IuM-0000000BsQK-2GiZ;
+	Wed, 09 Sep 2026 14:04:15 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 816FD3F6541;
+	Wed,  9 Sep 2026 16:04:08 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1788962643; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=xLi0wt5EgiuhG354z8EC8PK2vbC5Ize9fBnpPsOtAkc=;
-	b=V0Bl0Pynw325ad30OOqtsTgd1yy+X9jSaAEch0YTYZ+H/IqpjOLcVkvGjn5vlvzjYG0Twp
-	322UmHarUlALPu8E3kVfVPMrfbyAIpKBxegkb/jPhDalfwID+SMImaFC/aJVgrDK90qb+z
-	MgNZYpZ1DJmU44bxby8v0DBpww2hinmM2ilAy2ToniI7xCSqS/L4TwjKMXN3TVep1s4L+l
-	hw8IBhFHsTVVXmywRbcr4bKY8QTSu/wiD0w8QiE1RYBPE4Y2OnZROBSSgDAva18/149yAc
-	HESXKlEaH4dpQ3puhNxjqTaPcmvM4fMwBpMelP4SL9UtDBKFAV6hM5AYL+h80w==
+	t=1788962652; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9+LSfF6WeN65ydsS+fKszA1mpUfPTI0QyNbajR7Gplk=;
+	b=nrBrNkWsqrh66nD0BCrdcjtORe4Wb5aAWoTZoPzY+cBWn+xeFxQESe7ab13tKoNH9CdG2a
+	8u+cwOAFL9ZdWY3p5dEGBLi7T6Iqi7RAChpkYiNtra/0K2NJ/BArzNBsH9zKj3yvcApDVE
+	WUY0r0E6TcHvnNbQ+2WdpE9/N+Ek8WoPVqTERguR119evKRSmdlBcR7QWAPaMWmfmDRxC+
+	kzyLRMe6Lq9BOBv0rBEnGd3mSxZxJ82EyAWKAZcTe8hJb/FMOjKjLW+VAIMNJYxrmeoaxf
+	X4EGdMdpNnxe3Hq8EUMv1/L3eg5uUiPLzU7R8eX+ixC5p14qVsZ1lSPuIsYzBw==
 From: Caleb James DeLisle <cjd@cjdns.fr>
 To: netdev@vger.kernel.org
 Cc: andrew@lunn.ch,
@@ -63,15 +64,18 @@ Cc: andrew@lunn.ch,
 	naseefkm@gmail.com,
 	b.larsson@gmx.com,
 	Caleb James DeLisle <cjd@cjdns.fr>
-Subject: [PATCH net-next 0/7] net: dsa: mt7530: support EcoNet EN751221
-Date: Wed,  9 Sep 2026 14:03:39 +0000
-Message-Id: <20260909140346.2861572-1-cjd@cjdns.fr>
+Subject: [PATCH net-next 2/7] dt-bindings: net: dsa: mediatek,mt7530: add passthrough mode
+Date: Wed,  9 Sep 2026 14:03:41 +0000
+Message-Id: <20260909140346.2861572-3-cjd@cjdns.fr>
+In-Reply-To: <20260909140346.2861572-1-cjd@cjdns.fr>
+References: <20260909140346.2861572-1-cjd@cjdns.fr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_070409_673814_7ED79C1E 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260909_070414_842829_D3A49E39 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,55 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EcoNet EN751221 has a unique switch configuration. Every chip made
-with an EN751221 die has at least one on-die MT7530 that is MMIO based.
-This switch has 3x 10/100 ports and 1x gigabit port.
+MT7530 switches can be configured to blindly pass packets between their
+CPU/upstream port and a downstream DSA port, in particular, without
+altering the MediaTek DSA Tag on the packets. This mode is used in some
+integrations where an SoC integrated switch exists, but a more capable
+MCM switch is added to effectively replace it.
 
-Some popular chip packages such as the EN7513G and EN7526G have another
-MT7530 implemented as a multi-chip-module that connects to port 5 of
-the on-die switch and is controlled via the MDIO controller integrated
-in the on-die MT7530.
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml       | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-In this configurations, the upstream switch is put into a "passthrough"
-mode in which all traffic is forwarded between port 5 and port 6
-without altering its DSA tags.
-
-Furthermore, since the DSA core does not call mt753x_setup until all
-switches are present, and the downstream switch only becomes available
-when the upstream switch has configured its MDIO controller, the MDIO
-controller setup on MMIO implementations must be done before
-mt753x_setup, or else it will never complete.
-
-Finally, the on-die switch and the MCM switch connect via a TRGMII link
-which requires calibration. In order to calibrate this, PLL adjustment
-must be possible on the on-die switch, necessitating changes to the
-core_(set|clear|write|rmw) functions to support MMIO implementations.
-
-Solve all of these issues, add the TRGMII calibration, and add support
-for both switches.
-
-Since this patchset will probably be subject to some discussion, please
-consider accepting any patches that are non-controversial since it will
-make future re-submissions easier.
-
-Thanks!
-
-Caleb James DeLisle (7):
-  net: dsa: mt7530: get ctrl phy addr using a function
-  dt-bindings: net: dsa: mediatek,mt7530: add passthrough mode
-  net: dsa: mediatek: add support for passthrough mode
-  net: dsa: mediatek: support PLL setup on MMIO MT7530
-  net: dsa: mediatek: support MDIO switch downstream of MMIO switch
-  dt-bindings: net: dsa: mediatek,mt7530: add econet,en751221
-  net: dsa: mediatek: support EN751221 switch
-
- .../bindings/net/dsa/mediatek,mt7530.yaml     |  50 +-
- drivers/net/dsa/mt7530-mdio.c                 |   1 +
- drivers/net/dsa/mt7530-mmio.c                 |   8 +-
- drivers/net/dsa/mt7530.c                      | 575 ++++++++++++++++--
- drivers/net/dsa/mt7530.h                      |  46 +-
- 5 files changed, 628 insertions(+), 52 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index 90b3582b7619..e29fb8693498 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -73,6 +73,13 @@ description: |
+ 
+       Check out example 7.
+ 
++  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
++  mode. In this mode, traffic is unconditionally passed between the CPU port
++  and the DSA port which links to a second switch. To use passthrough mode, the
++  upstream switch is configured with a DSA link to the downstream switch. In
++  passthrough mode the upstream switch is restricted, with no other ports or
++  switch configuration allowed.
++
+ properties:
+   compatible:
+     oneOf:
 -- 
 2.39.5
 
