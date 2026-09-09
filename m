@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33203C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5462C79FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rN/co/MiO63+I4OwBOH7CBrIhRmyKBo1K8jSxxz7cd0=; b=apXfFttbgxdXa6zEft7f0mtBvJ
-	pKYGBcdeQuTsL/bF6WHBwl9njeWTfERGEi3pP2saj8zI+2SXURy+poBwpuImBE8s3huAmK+J8+9kW
-	ylev6O8D6H3ZADRkHfoWhLMSgcF3iAAwILEWAbQOnMiG32LgCqsmTGplAwOMG7rKo4dF8ZYw4ELnp
-	U/0oRigRvSFmH/tOX60SSLEHesaBuvbez1OTwb9uoWxnkTFiKHQDt4Ap5X+rr6XtnMyBbvt/Ub+MP
-	RSD/hUrURYnZZxBQCOEynFaCrnoJa631m0Vfwdj/KTS2/DkhgLxgGblxY/la1Kd0fbN0fTvI8EBT6
-	Wh6EfLxw==;
+	bh=Oi1B5SovbX07FFLvzdNpIPpwtrKOTqPfPy81gDmX7YI=; b=AI/Q/ic3y2kO3NWNA/TvaH2CC4
+	E91AWwNDXbuswCStyynnxXf5s2AuAiV4BQZLl6n2fMy1Fkw0qVPVVKqM9pFrnXGH1bmm+3GxtKM4q
+	G5kFNbySnzn3+oYAwycSGq5MMw0qg+uqACTl7fXg1Ou2SGqLXLLbOdkSpQxRXSdVhh2MYxeQ83ic2
+	CrYNbcur8/ndXOC9naTBcbQ/8oqx6O0nHpLzlpvgPewK1/c6E4ve7nTT64x+kRPDsMJYWe29NuoWQ
+	UMgxF+vRiTAoCNcdCUUI5DrQjwBhtm9gVV9UnC3RVyIdc8aW1KONumXeh+axq3RLgHUHlX/iGaeU1
+	YgqvTTlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O6w-0000000CjB4-0kvO;
+	id 1x4O6w-0000000CjAl-0HZz;
 	Wed, 09 Sep 2026 19:37:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O6u-0000000Cj9s-2NKA
+	id 1x4O6u-0000000Cj9t-2MgA
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 09 Sep 2026 19:37:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=rN/co/MiO63+I4OwBOH7CBrIhRmyKBo1K8jSxxz7cd0=; b=XG4CbCM6O8Fx1fMTMW+JxLDoxo
-	PMY4Vo+2gD+E/AyZrXSNNe79Bcze7fJOtlAd+xAttoihJ+kxOEBxDjRBYkMfY1iKp81cziP0qsLDU
-	j4mJ8jcPImQLxs2yMW7OCNPNJhKLRb/OvtWNrrh+gxhmUz/QW0pjTePMd2Sww9B1uFeijEirNzKA+
-	M9p2UXiIq4Hxy4TgVAz8+aFlGhIUFcslUHnxfHozHEjGFFGga7hGNpDfh66yZXpJyHalDSq3zLFFs
-	thbzj+r3WJxHpF/DTPzPTwGhyMfIcjO7BfQeMHtL9V9AFgMJceqYEIyM82EY66sH+XZqI0Nofgqzs
-	V82Q9E8Q==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	bh=Oi1B5SovbX07FFLvzdNpIPpwtrKOTqPfPy81gDmX7YI=; b=YxGTuV3nupulLqCNltmrVVO1J2
+	QofWFsH9lGCQuHqSKT0WD8R2Wxut7Gt+E9mKQga1nrRwjolkSgzMrzOvKLgBebImRsPJQK05wRoB2
+	PiD/XjfbONfYCP+3xaCYiZ5wbC9+QmwybbFWsWOwRCsgXb/ec7yNwpLj/oWiB6LXKBeNCZqOfUMib
+	h2NZHu+eV9P72KqLFmkYBn34dIzW3cE8ch/sJ8WcUkNYQ+kJtCqyHrEQjIjTT94XTXsYH5iubSJj8
+	DgG+IASRUEYoM/GxC5tk2/0Sfh3baYB5e+mtliqMxYMWjI4kKR6CFk5eoqKlM/CT/dXOkBKBvndFw
+	oaf01eww==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4O6r-00000001bhy-011F
+	id 1x4O6r-00000001bi1-01Qh
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Sep 2026 19:37:30 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b96837ca3so48858265e9.3
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd38e0e5dso7185585e9.2
         for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 12:37:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20251104; t=1788982647; x=1789587447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rN/co/MiO63+I4OwBOH7CBrIhRmyKBo1K8jSxxz7cd0=;
-        b=DNuQo06SJO/SvWY298YeFlQ0SGZ5nlnLwUJPsMvVqucTKn+eWZdfR1b1adWV6ZSFs1
-         Y0CotOK+M+W71sxPc/FgyOIp3UbDftnJ5W0qiJNKzwvTrJxY5ksi0g+CgkFa+jS+q3pg
-         7NDybgBKrCzv2rtRRjFJvD56fNIbbjvO09FlPXmKVg749edlBpIi6grTBs0yvU8gRVtI
-         p1EarX08IYuRgbR6jrBnXMoxKwGiN0ohoBitWX5D4mPECWIW4JQ92hLgkhv6BpkmWoJ5
-         U3bmH0rnbOhRirCwJYyAq1SxJH+ZgxLT7N/VnbNjss8TDcw3Ng+Bv6Stic5z+XJYV9K6
-         ExLg==
+        bh=Oi1B5SovbX07FFLvzdNpIPpwtrKOTqPfPy81gDmX7YI=;
+        b=QcPglm8ZWxgNIvbfVV+mESMuSuSLTJM0xne/PdwEfi+YI4GLIplT3icejHzzs2OTxa
+         8hgVMcxQ1ZOaYU4G8lIzn9a/VjL7FjlTvAtqwooZfYR1iIk3PkxeQykGCA7ruztTe+z5
+         QoMjAJN35R1WGJpYv5C1bt7QBeT0h4aoTPFjP0kQISXXCikBl5PxLg6Dcg0z0dH6BvRt
+         Xr1RbDSSTdLIO6EPq1mOHGymPpYWiC4Jbg1ZnCvshlaIeVl4zWMRVyeC9UI6YNI8DF50
+         gaj8dQ3xdyyTRb1/WnT/2PwrKT+OI2EPeNgZ76ZHE15fxi2+0d09NmR3Su5EGdBTDM2O
+         tJqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20251104; t=1788982647; x=1789587447;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rN/co/MiO63+I4OwBOH7CBrIhRmyKBo1K8jSxxz7cd0=;
-        b=FdMhAk3vbgxPvPg17ltkVg/iSeToVO7COifsy41tBmyUNOl6sm819D4t6tztRGLBSM
-         IeBzsNov153s5fjFbi8RFMr92zA3pRhrexcSssrQxyb3NJ34xRRRIlN8hRtw33FxGNug
-         OyfejS7XkM0MoNErdNB60VOYfog5ZHfYuZerqsAA1euT0tPWp4/ESIZ2VEsf0oJg33BI
-         TJhpLVmfkzy7ke9WPKe1s0g3AEKQxSj3XWNGj4+p4ML3zcoIGEYcAEx9VmQQcGYGQQOW
-         qG+Nx/yFZl4y4k6SIu116y91Q7K/G10POfqJiujlaGWnBek1CJgAV7mweC8Cr7jLII5L
-         U6cg==
-X-Forwarded-Encrypted: i=1; AKwUvBzE5gJx7Fk7vcXyqo606X7WkkXz2/PGooF/ofT6y+o/DewVX6ePxmhCnu/MNsKwiL6xyAUw5TmDXJG5QQHAfkPv@lists.infradead.org
-X-Gm-Message-State: AFuF++mAXYAT3QdxzZFnzBRuiv26orjTX7loWGDikxPgz19h2bTl+8LC
-	4h5NbRKZgDRbHN7doEBIL/cBXJHQAB9UxjfX/tRHcOgPcHFm9vtH3iJ8
-X-Gm-Gg: AYBFou2XhE+agAczCHCp3p/OS5OkUSlhoG6o74jV7lu8Yx2dcPn1nkq0JXWzUO6KGrN
-	5rw+NmgA/H7l0ZND9roVApVg1WGfBlSA+kqdCm7JR9oqzkdF00bhDkf0i7iaEWDVl0mFRQSIeWc
-	uwqlWsGlYFKeqPM+5Ysuk5r85B4gKnLaasDZ2chJeTsdrRlNsajd0AY5pZaceFHyvmlnr5BzKSE
-	UQaLJ7pIMWjbpv8Nvj1Y0DS4LWBg/9gomBO6eKNPGFvFeRwly4WdnBN56y9df05/Gsi3JhcYoTv
-	xXqBq4BpT9MSGwPR5hqROgjJ8aRGPtDOKkIcQeA4n1Vnt1spAW7ZZKzdQI3GwRW70nnUg6X6eG3
-	RdX1PgU7gFgx9/EOzZq0zOruGpvmQkUVzuU2crTX53wck4uJN5zKWlZ2vdX2dljCvjLtvKq2PU/
-	VYMCRzXrnapeSoZL7BbdvsS9U4jTQa/cbUhgmLwuG5E2ZePswjncXOlRA7jF561JVDRXa4MZq3j
-	5aqIw9LoJ3+/EMkt0oE00mxFSuUil0gdeSKjjZohyQRj2IEl/M0yrdGfojLr1ZNT9NGWzdOKmFW
-	O+l4A7Rwew==
-X-Received: by 2002:a05:600c:474a:b0:49c:e42b:a4ac with SMTP id 5b1f17b1804b1-49cf823f60amr335765905e9.11.1788982646565;
-        Wed, 09 Sep 2026 12:37:26 -0700 (PDT)
+        bh=Oi1B5SovbX07FFLvzdNpIPpwtrKOTqPfPy81gDmX7YI=;
+        b=lRuqLQ3PAbtqgBn7X2t+3yOqxb5wc5RIcEp5Z+AGvEDeaeMIj82ROlns3K6tyGSfzK
+         q1ggZwtmNBcWCFdCc+h1sFzGQjncHFqyQPzfPYC2YeqpCE64di0vStOJATxbuXxSA7K8
+         pVW3V1POV1b2nqA3S8znfe7VfKclFBQzz4IxiThxD4pWj1OnoEeShUSljuroAZu5e8aw
+         riFhPrtBbV1GlBPbCd+fDtQ0ZmWy0L+b4I2G/cdxH4lAJhdTQFynXJmDdoOl/IvOjthh
+         Y2nyWGVsgj+9macCqICMU9w1pOYiwaR5Bw8FBCeAWpSDemtyuTaTCSPOOTmGiRB5RMWa
+         CKdg==
+X-Forwarded-Encrypted: i=1; AKwUvBzIwNBEuBGM+pvDAKRXf3rNPYhwjocke82a49+BeLYre3aaoXwUHa87vdoRhQ1IJByDQ4cxGXMqdKfUzIA+Xmav@lists.infradead.org
+X-Gm-Message-State: AFuF++kpZewz2+z0UoDmWW935bswsNzmx7xh64S5gYwZmH1AqzPjSyw8
+	zef+1Gn70JdOXhW9TjDzwGzwDpZunapLlBqQEoSAgPp8i7x5ezYCrLKz
+X-Gm-Gg: AYBFou34wKZ9TYfxjPel2wRv2H7Uy33q3O6Q7dazvEV5dBc/62iifApj2/FzIid+I+U
+	jCBeJ+mqKw2/OnhkSS9iFP+dDs1WHwMyUCkq+o5wdnLR03qyvT15m0SHHjorbrL2GNUneyA+my3
+	eSVv74ZZwQlUQI2ze0XD0xxHsARNF5N0oV8MvopRioMBgbexfOiICdDZHHIuApb6sdPnMnxJ9Wi
+	vsvFMC7zUwJcfIlScSTGVJJNB6f3Ft77CvzV9XKBIszfO3iPwX7XCKmBcHXSB9vMxKxxNI7A7lN
+	s24PY/FkeyfCraO0Z2kGXbDDQn4hFOa5FKVYMzOZypFLXRs9xJHtT8chJXUTEp3Hu2egdPrAfE7
+	TY3fK5p09f14d5CcnjHYPIfDiEBcWLVVYpMvQ1pqo0j/DsowEhevbPsuTaSS6KUAwc5fAdZZp/a
+	CMRYdfnBodiMfvjhKtk1SMx/T9v5duHLtK4qCKHmRuxY28O/H+LRN67WLQ6qus4ykyQ/PgqfmA1
+	2+nBKjatQH7Z7urKtcPw1ubFLyzdls386FKjpquz50JAudLCdw98OwS5B6U4x9b8cHGwKwDEsgF
+	BgV1eewvU6Sm4AbeEI+Lcw==
+X-Received: by 2002:a05:600c:1d9a:b0:498:943:ccc0 with SMTP id 5b1f17b1804b1-49d258ef83amr68465945e9.6.1788982647257;
+        Wed, 09 Sep 2026 12:37:27 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:d357:e592:d56c:d3b5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26be64a5sm13123995e9.6.2026.09.09.12.37.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26be64a5sm13123995e9.6.2026.09.09.12.37.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 09 Sep 2026 12:37:26 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
@@ -102,17 +102,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC PATCH 1/3] soc: renesas: rz-sysc: Configure AOF registers from dma-ranges
-Date: Wed,  9 Sep 2026 20:36:37 +0100
-Message-ID: <20260909193640.8069-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC PATCH 2/3] arm64: dts: renesas: r9a09g057: Move SDHI nodes into bus nodes
+Date: Wed,  9 Sep 2026 20:36:38 +0100
+Message-ID: <20260909193640.8069-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260909193640.8069-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20260909193640.8069-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203729_160570_4B2088F0 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260909_203729_160544_7A03663A 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,271 +129,184 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Some RZ SoCs contain bus masters that can only generate 32-bit addresses
-but need to access memory located above the 4 GiB boundary. The System
-Controller (SYSC) provides Address Offset Function (AOF) registers that
-translate the upper address bits on a per-master basis to extend the
-accessible physical address range.
+Wrap sdhi0, sdhi1, and sdhi2 in dedicated "simple-bus" wrapper nodes
+(aof_sdhi0_bus, aof_sdhi1_bus, aof_sdhi2_bus), each carrying a dma-ranges
+property.
 
-Each such master only ever places bits [29:0] of its own address
-directly onto the interconnect. Bits [31:30] of that same 32-bit
-address are not used as address bits at all -- instead they select
-one of four 6-bit fields (Reg0-Reg3) in the master's SYS_AOFn
-register. The selected field supplies the corresponding bits [34:30]
-or [35:30] of the actual bus transaction, effectively splitting the
-master's native 4 GiB address space into four independently
-relocatable 1 GiB windows and letting each be redirected anywhere in
-a 35-bit (masters limited to DDR0/DDR1 access) or 36-bit (masters
-that can also reach PCIe0/PCIe1) physical address space.
+Add dma-ranges to the enclosing bus node instead of the SDHI node itself,
+since of_dma_configure() applies a dma-ranges property found on a device's
+parent bus node, not one placed directly on the device. Wrapping each SDHI
+instance in its own simple-bus node lets each one carry an independent
+dma-ranges without affecting its siblings.
 
-Add generic infrastructure to configure the AOF registers from the
-firmware-provided dma-ranges property instead of relying on hardcoded
-register programming. Each supported bus master is described by its MMIO
-base address, corresponding SYS_AOF register index, and address width.
-At probe time, the driver matches the bus master against this
-description -- via the addressable child node of a devicetree
-"simple-bus" wrapper carrying dma-ranges -- and programs the appropriate
-AOF register by decomposing each dma-ranges entry into the 1 GiB-aligned
-segments it maps to, translating the child (device-side) address into
-the field it selects and the parent (physical) address into the value
-written to that field.
+The same dma-ranges also let the rz-sysc driver derive the SYS_AOFn address
+extension register programming for each SDHI instance, identified by its
+MMIO base, per the SoC's address space extension mechanism.
 
-Validate the dma-ranges entries before programming the hardware by
-checking 1 GiB alignment on both the child and parent addresses,
-ensuring the described child range does not exceed the master's own
-4 GiB address space (i.e. does not require more than the four available
-1 GiB translation windows), and verifying that the requested physical
-target is representable within the bus master's address width.
+Set each wrapper's dma-ranges to:
 
-Populate the AOF description table for the RZ/V2H SDHI controllers,
-which use SYS_AOF16-18.
+    dma-ranges = <0x0 0x40000000  0x0 0x40000000  0x0 0xc0000000>;
+
+Leave the corresponding SDHI's low 1 GiB device-side segment
+(0x0 - 0x3fffffff, SRAM/peripheral/xSPI/PCIe space) at its
+identity-mapped reset default, and remap its remaining 3 GiB device-side
+space (0x40000000-0xffffffff) 1:1 onto the same physical range. DDR on
+this SoC spans up to 16 GiB starting at 0x40000000 (DDR0 and DDR1
+combined), so this 3 GiB range stays entirely within DDR0's native base
+and changes nothing for any of the three SDHI instances.
+
+Allow boards that need a different target window (e.g. DDR1, or a
+dedicated reserved-memory pool) to override dma-ranges per instance, as
+done for SDHI1 on the RZ/V2H EVK in a subsequent commit.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- drivers/soc/renesas/r9a09g057-sys.c |   9 +++
- drivers/soc/renesas/rz-sysc.c       | 118 ++++++++++++++++++++++++++++
- drivers/soc/renesas/rz-sysc.h       |  22 ++++++
- 3 files changed, 149 insertions(+)
+ arch/arm64/boot/dts/renesas/r9a09g057.dtsi | 123 +++++++++++++--------
+ 1 file changed, 75 insertions(+), 48 deletions(-)
 
-diff --git a/drivers/soc/renesas/r9a09g057-sys.c b/drivers/soc/renesas/r9a09g057-sys.c
-index 308492c31acb..960fcba668b3 100644
---- a/drivers/soc/renesas/r9a09g057-sys.c
-+++ b/drivers/soc/renesas/r9a09g057-sys.c
-@@ -82,6 +82,12 @@ static void rzv2h_sys_print_id(struct device *dev,
- 		dev_warn(dev, "CA55 PLL is not set to 1.7GHz\n");
- }
+diff --git a/arch/arm64/boot/dts/renesas/r9a09g057.dtsi b/arch/arm64/boot/dts/renesas/r9a09g057.dtsi
+index bbaab75681c2..34639106d2cc 100644
+--- a/arch/arm64/boot/dts/renesas/r9a09g057.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a09g057.dtsi
+@@ -1577,63 +1577,90 @@ usb3_phy1: usb-phy@15880000 {
+ 			status = "disabled";
+ 		};
  
-+static const struct rz_aof_unit rzv2h_aof_units[] = {
-+	{ .base = 0x15c00000, .index = 16, .addr_bits = 35 }, /* SDHI0 -> SYS_AOF16 */
-+	{ .base = 0x15c10000, .index = 17, .addr_bits = 35 }, /* SDHI1 -> SYS_AOF17 */
-+	{ .base = 0x15c20000, .index = 18, .addr_bits = 35 }, /* SDHI2 -> SYS_AOF18 */
-+};
+-		sdhi0: mmc@15c00000 {
+-			compatible = "renesas,sdhi-r9a09g057";
+-			reg = <0x0 0x15c00000 0 0x10000>;
+-			interrupts = <GIC_SPI 735 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 736 IRQ_TYPE_LEVEL_HIGH>;
+-			clocks = <&cpg CPG_MOD 0xa3>, <&cpg CPG_MOD 0xa5>,
+-				 <&cpg CPG_MOD 0xa4>, <&cpg CPG_MOD 0xa6>;
+-			clock-names = "core", "clkh", "cd", "aclk";
+-			resets = <&cpg 0xa7>;
+-			power-domains = <&cpg>;
+-			status = "disabled";
+-
+-			sdhi0_vqmmc: vqmmc-regulator {
+-				regulator-name = "SDHI0-VQMMC";
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <3300000>;
++		aof_sdhi0_bus: sdhi0-bus {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
 +
- static const struct rz_sysc_soc_id_init_data rzv2h_sys_soc_id_init_data __initconst = {
- 	.family = "RZ/V2H",
- 	.id = 0x847a447,
-@@ -89,6 +95,9 @@ static const struct rz_sysc_soc_id_init_data rzv2h_sys_soc_id_init_data __initco
- 	.revision_mask = GENMASK(31, 28),
- 	.specific_id_mask = GENMASK(27, 0),
- 	.print_id = rzv2h_sys_print_id,
-+	.aof_units = rzv2h_aof_units,
-+	.num_aof_units = ARRAY_SIZE(rzv2h_aof_units),
-+	.aof_base = 0x0500,
- };
++			dma-ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0xc0000000>;
++
++			sdhi0: mmc@15c00000 {
++				compatible = "renesas,sdhi-r9a09g057";
++				reg = <0x0 0x15c00000 0 0x10000>;
++				interrupts = <GIC_SPI 735 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 736 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&cpg CPG_MOD 0xa3>, <&cpg CPG_MOD 0xa5>,
++					<&cpg CPG_MOD 0xa4>, <&cpg CPG_MOD 0xa6>;
++				clock-names = "core", "clkh", "cd", "aclk";
++				resets = <&cpg 0xa7>;
++				power-domains = <&cpg>;
+ 				status = "disabled";
++
++				sdhi0_vqmmc: vqmmc-regulator {
++					regulator-name = "SDHI0-VQMMC";
++					regulator-min-microvolt = <1800000>;
++					regulator-max-microvolt = <3300000>;
++					status = "disabled";
++				};
+ 			};
+ 		};
  
- static bool rzv2h_regmap_readable_writeable_reg(unsigned int reg)
-diff --git a/drivers/soc/renesas/rz-sysc.c b/drivers/soc/renesas/rz-sysc.c
-index 0e92c415d4be..2dae4a0de99b 100644
---- a/drivers/soc/renesas/rz-sysc.c
-+++ b/drivers/soc/renesas/rz-sysc.c
-@@ -11,6 +11,7 @@
- #include <linux/io.h>
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/slab.h>
-@@ -28,6 +29,121 @@ struct rz_sysc {
- 	struct device *dev;
- };
+-		sdhi1: mmc@15c10000 {
+-			compatible = "renesas,sdhi-r9a09g057";
+-			reg = <0x0 0x15c10000 0 0x10000>;
+-			interrupts = <GIC_SPI 737 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 738 IRQ_TYPE_LEVEL_HIGH>;
+-			clocks = <&cpg CPG_MOD 0xa7>, <&cpg CPG_MOD 0xa9>,
+-				 <&cpg CPG_MOD 0xa8>, <&cpg CPG_MOD 0xaa>;
+-			clock-names = "core", "clkh", "cd", "aclk";
+-			resets = <&cpg 0xa8>;
+-			power-domains = <&cpg>;
+-			status = "disabled";
+-
+-			sdhi1_vqmmc: vqmmc-regulator {
+-				regulator-name = "SDHI1-VQMMC";
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <3300000>;
++		aof_sdhi1_bus: sdhi1-bus {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
++
++			dma-ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0xc0000000>;
++
++			sdhi1: mmc@15c10000 {
++				compatible = "renesas,sdhi-r9a09g057";
++				reg = <0x0 0x15c10000 0 0x10000>;
++				interrupts = <GIC_SPI 737 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 738 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&cpg CPG_MOD 0xa7>, <&cpg CPG_MOD 0xa9>,
++					<&cpg CPG_MOD 0xa8>, <&cpg CPG_MOD 0xaa>;
++				clock-names = "core", "clkh", "cd", "aclk";
++				resets = <&cpg 0xa8>;
++				power-domains = <&cpg>;
+ 				status = "disabled";
++
++				sdhi1_vqmmc: vqmmc-regulator {
++					regulator-name = "SDHI1-VQMMC";
++					regulator-min-microvolt = <1800000>;
++					regulator-max-microvolt = <3300000>;
++					status = "disabled";
++				};
+ 			};
+ 		};
  
-+static const struct rz_aof_unit *
-+rz_aof_lookup(const struct rz_sysc_soc_id_init_data *soc_data, u32 base)
-+{
-+	unsigned int i;
+-		sdhi2: mmc@15c20000 {
+-			compatible = "renesas,sdhi-r9a09g057";
+-			reg = <0x0 0x15c20000 0 0x10000>;
+-			interrupts = <GIC_SPI 739 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 740 IRQ_TYPE_LEVEL_HIGH>;
+-			clocks = <&cpg CPG_MOD 0xab>, <&cpg CPG_MOD 0xad>,
+-				 <&cpg CPG_MOD 0xac>, <&cpg CPG_MOD 0xae>;
+-			clock-names = "core", "clkh", "cd", "aclk";
+-			resets = <&cpg 0xa9>;
+-			power-domains = <&cpg>;
+-			status = "disabled";
+-
+-			sdhi2_vqmmc: vqmmc-regulator {
+-				regulator-name = "SDHI2-VQMMC";
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <3300000>;
++		aof_sdhi2_bus: sdhi2-bus {
++			compatible = "simple-bus";
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
 +
-+	for (i = 0; i < soc_data->num_aof_units; i++)
-+		if (soc_data->aof_units[i].base == base)
-+			return &soc_data->aof_units[i];
++			dma-ranges = <0x0 0x40000000 0x0 0x40000000 0x0 0xc0000000>;
 +
-+	return NULL;
-+}
++			sdhi2: mmc@15c20000 {
++				compatible = "renesas,sdhi-r9a09g057";
++				reg = <0x0 0x15c20000 0 0x10000>;
++				interrupts = <GIC_SPI 739 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 740 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&cpg CPG_MOD 0xab>, <&cpg CPG_MOD 0xad>,
++					<&cpg CPG_MOD 0xac>, <&cpg CPG_MOD 0xae>;
++				clock-names = "core", "clkh", "cd", "aclk";
++				resets = <&cpg 0xa9>;
++				power-domains = <&cpg>;
+ 				status = "disabled";
 +
-+static int rz_aof_parse_bus(struct rz_sysc *sysc,
-+			    const struct rz_sysc_soc_id_init_data *soc_data,
-+			    struct device_node *bus_np)
-+{
-+	const struct rz_aof_unit *unit;
-+	struct device_node *child;
-+	struct resource res;
-+	const __be32 *ranges;
-+	int naddr, nsize, cell_sz, len, nentries, i;
-+	u32 reg_val = 0;
-+
-+	child = NULL;
-+	for_each_child_of_node(bus_np, child) {
-+		if (of_address_to_resource(child, 0, &res) == 0)
-+			break;
-+	}
-+	if (!child) {
-+		dev_warn(sysc->dev, "%pOF: no addressable child found\n", bus_np);
-+		return -EINVAL;
-+	}
-+
-+	if (!of_device_is_available(child)) {
-+		dev_dbg(sysc->dev, "%pOF: %pOF is disabled, skipping AOF setup\n",
-+			bus_np, child);
-+		of_node_put(child);
-+		return 0;
-+	}
-+
-+	unit = rz_aof_lookup(soc_data, (u32)res.start);
-+	of_node_put(child);
-+	if (!unit) {
-+		dev_warn(sysc->dev, "%pOF: no AOF unit for base %pa\n", bus_np, &res.start);
-+		return -ENODEV;
-+	}
-+
-+	naddr = of_n_addr_cells(bus_np);
-+	nsize = of_n_size_cells(bus_np);
-+	cell_sz = (naddr * 2 + nsize) * sizeof(u32);
-+
-+	ranges = of_get_property(bus_np, "dma-ranges", &len);
-+	if (!ranges || !cell_sz || len % cell_sz) {
-+		dev_err(sysc->dev, "%pOF: malformed dma-ranges\n", bus_np);
-+		return -EINVAL;
-+	}
-+	nentries = len / cell_sz;
-+
-+	for (i = 0; i < nentries; i++) {
-+		const __be32 *p = ranges + i * (naddr * 2 + nsize);
-+		u64 child_addr = of_read_number(p, naddr);
-+		u64 parent_addr = of_read_number(p + naddr, naddr);
-+		u64 size = of_read_number(p + 2 * naddr, nsize);
-+		unsigned int nseg = DIV_ROUND_UP_ULL(size, SZ_1G);
-+		unsigned int sel0 = (child_addr >> 30) & 0x3;
-+		u64 tgt0 = parent_addr >> 30;
-+		unsigned int s;
-+
-+		if (child_addr & (SZ_1G - 1) || parent_addr & (SZ_1G - 1)) {
-+			dev_err(sysc->dev, "%pOF: entry %d not 1GiB aligned\n", bus_np, i);
-+			return -EINVAL;
-+		}
-+
-+		for (s = 0; s < nseg; s++) {
-+			unsigned int sel = sel0 + s;
-+			u64 tgt = tgt0 + s;
-+
-+			if (sel > 3) {
-+				dev_err(sysc->dev, "%pOF: entry %d overflows the 4 fields\n",
-+					bus_np, i);
-+				return -EINVAL;
-+			}
-+			if (unit->addr_bits == 35 && (tgt & BIT(5))) {
-+				dev_err(sysc->dev,
-+					"%pOF: target 0x%llx needs bit[5], unit is 35-bit only\n",
-+					bus_np, tgt << 30);
-+				return -EINVAL;
-+			}
-+			reg_val &= ~(0x3fu << (sel * 8));
-+			reg_val |= (tgt & 0x3f) << (sel * 8);
-+		}
-+	}
-+
-+	writel(reg_val, sysc->base + SYS_AOF_OFFSET(soc_data->aof_base, unit->index));
-+
-+	return 0;
-+}
-+
-+static void rz_sysc_setup_aof(struct rz_sysc *sysc,
-+			      const struct rz_sysc_soc_id_init_data *soc_data)
-+{
-+	struct device_node *np;
-+
-+	if (!soc_data->aof_units || !soc_data->num_aof_units)
-+		return;
-+
-+	for_each_node_with_property(np, "dma-ranges") {
-+		if (!of_device_is_compatible(np, "simple-bus"))
-+			continue;
-+
-+		if (rz_aof_parse_bus(sysc, soc_data, np))
-+			dev_warn(sysc->dev, "AOF setup failed for %pOF\n", np);
-+	}
-+}
-+
- static int rz_sysc_soc_init(struct rz_sysc *sysc, const struct of_device_id *match)
- {
- 	const struct rz_sysc_init_data *sysc_data = match->data;
-@@ -137,6 +253,8 @@ static int rz_sysc_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
++				sdhi2_vqmmc: vqmmc-regulator {
++					regulator-name = "SDHI2-VQMMC";
++					regulator-min-microvolt = <1800000>;
++					regulator-max-microvolt = <3300000>;
++					status = "disabled";
++				};
+ 			};
+ 		};
  
-+	rz_sysc_setup_aof(sysc, data->soc_id_init_data);
-+
- 	regmap_cfg->name = "rz_sysc_regs";
- 	regmap_cfg->reg_bits = 32;
- 	regmap_cfg->reg_stride = 4;
-diff --git a/drivers/soc/renesas/rz-sysc.h b/drivers/soc/renesas/rz-sysc.h
-index e55f3258d703..481d5d5a0577 100644
---- a/drivers/soc/renesas/rz-sysc.h
-+++ b/drivers/soc/renesas/rz-sysc.h
-@@ -12,6 +12,18 @@
- #include <linux/sys_soc.h>
- #include <linux/types.h>
- 
-+/**
-+ * struct rz_aof_unit - RZ AOF unit description
-+ * @base: MMIO base of the master IP (low 32 bits; all < 4G)
-+ * @index: index of SYS_AOFn (0-based)
-+ * @addr_bits: address width of the master IP (35 or 36 bits)
-+ */
-+struct rz_aof_unit {
-+	u32 base;
-+	u8 index;
-+	u8 addr_bits;
-+};
-+
- /**
-  * struct rz_syc_soc_id_init_data - RZ SYSC SoC identification initialization data
-  * @family: RZ SoC family
-@@ -21,6 +33,10 @@
-  * @specific_id_mask: SYSC SoC ID specific ID mask
-  * @print_id: print SoC-specific extended device identification
-  * @pwrrdy_pwrseq: has pwrrdy register controlled through power sequencer
-+ * @aof_units: array of AOF units for this SoC, or NULL if it has none
-+ * @num_aof_units: number of entries in @aof_units
-+ * @aof_base: offset of SYS_AOF0 from the SYSC base; ignored if @aof_units is NULL
-+ *            (this offset is SoC-specific, unlike the fixed inter-register stride)
-  */
- struct rz_sysc_soc_id_init_data {
- 	const char * const family;
-@@ -31,8 +47,14 @@ struct rz_sysc_soc_id_init_data {
- 	void (*print_id)(struct device *dev, void __iomem *sysc_base,
- 			 struct soc_device_attribute *soc_dev_attr);
- 	bool pwrrdy_pwrseq;
-+	const struct rz_aof_unit *aof_units;
-+	unsigned int num_aof_units;
-+	u32 aof_base;
- };
- 
-+#define SYS_AOF_STRIDE			0x0004
-+#define SYS_AOF_OFFSET(aof_base, n)	((aof_base) + ((n) * SYS_AOF_STRIDE))
-+
- /**
-  * struct rz_sysc_init_data - RZ SYSC initialization data
-  * @soc_id_init_data: RZ SYSC SoC ID initialization data
 -- 
 2.55.0
 
