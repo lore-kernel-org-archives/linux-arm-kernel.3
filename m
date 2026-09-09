@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2869BC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D0EC79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Se2xxe/a85TgX4HpduI7NMXMmiSfdyKReYm83RyVZEQ=; b=j8D+X1BK2u7hsrYXqwqpixyohT
-	CleJCfOZZbcyIXHmHqMNYpHpwwXWuX+DDw02Xv5Fp88D/S0C9A/Nn7r6g5JOWUSP+E92f6KHoe7xV
-	ZWqFO+sNTejwCVQ85sn49itk7x9Lq1yW9hZ0HRW7xXAeKJqQEiPBwVUrB6NFk8Xh5jSu9lekjiR7z
-	YbJ726fvy4kVHNo0RqFSqRxCjUXwLsr9w0ebFCEb5FlUEVRPIkskuJoxMc5jyC43JmOW4cW/SroJk
-	vNcaoMXoQZNEFE1PfJmppiwaPs3/FpIMu84Z2KsMAhiZeguhtpGIqkoyvzMKwdPOa97GmP2aujsqG
-	rzsdv49w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VcMFxiVz2lqIZ2Zs4wwq0LphW9NkjO8ysHuKadNkzJQ=; b=veupujdFYlnIeb+26xOpkTZu0F
+	TjvKGafsT24pPqKJbW8KrXWC4+O3iXKPDOh2F3NFVFay3zruU9OFz6d0fAREgU04WsvVwlOZXdjKH
+	c/u0cqg+hlAZeieBLBlh8f8GyWiZQsR7queoRWjKx1FQgF18FV+QUlkPTNzG7U+NwXU4QIuZsU/eG
+	wSgRyuLIgOD4kNrGAwGJRx+eeCL5FtPvRXJRsW7Ed9H/03WXe0Ot30JV7eqUUjFymlpWqC414UMT4
+	Q26GvRKs7IbtRy07xZmooTKhjHi2DT3gBBmwVltqgVFaFTF2q23qtuFfG2PDo4XbDDuoHC7eIszba
+	/II7CA8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JIw-0000000BybA-3i4x;
-	Wed, 09 Sep 2026 14:29:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4JN7-0000000BzIn-2xpI;
+	Wed, 09 Sep 2026 14:33:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JIv-0000000Byaw-0ilr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:29:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C89D042BB1;
-	Wed,  9 Sep 2026 14:29:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAAF51F00A3D;
-	Wed,  9 Sep 2026 14:29:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788964176;
-	bh=Se2xxe/a85TgX4HpduI7NMXMmiSfdyKReYm83RyVZEQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mp3Gp/ISYu0vSbDYm62I7Ze2c9HBeBzaxBegbj7Cl4LJvu2Cx3R6+UlQwruZjt7+m
-	 nbe2ijWJ7BVOVYQIahZ2RFFG5QxULySNYH9SM7TRKwVIj5K4ueimVojMtsRljmJHs0
-	 EjeFE/7bZQFanQIMoanZftO80yY+hcueMbxpeMYbPYzq97Ge8z3zcavsjAQt5jh7h7
-	 qBkR6cKZiFwCGD4emGSIg3Fc2lbBn/IDdWNAAHpyT2tom3krouV/+GC1Omj1QX6K8W
-	 32cchiGfWPaaU0DzqsB5qpgof+r6+e/bm2qjoUJTY1GM7f1hKNl4afbeUeVz9+L0rG
-	 uWTOrfen2DUfg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4JIs-00000006jPD-2fdc;
-	Wed, 09 Sep 2026 14:29:34 +0000
-Date: Wed, 09 Sep 2026 15:29:29 +0100
-Message-ID: <86zexq7b1y.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Enable S1PIE for hVHE
-In-Reply-To: <e3c716c2-66ef-4dd0-bcae-6df4ff814e48@sirena.org.uk>
-References: <20260908-kvm-arm64-nvhe-pie-v2-1-79e42d28cc08@kernel.org>
-	<861pb24v45.wl-maz@kernel.org>
-	<e3c716c2-66ef-4dd0-bcae-6df4ff814e48@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1x4JN6-0000000BzHW-0WxP;
+	Wed, 09 Sep 2026 14:33:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ADCE643C39;
+	Wed,  9 Sep 2026 14:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B167C2BCF4;
+	Wed,  9 Sep 2026 14:33:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788964435;
+	bh=P0YPesrumASY2chPhCTF+pggK8fjgG4J+tY6vpB+8us=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=MIexx9cVy7xGow76/SZeKfZHD0bZaN92Lz8u260VU6kk5oGWWDNAQnZhgm6zCFj0U
+	 KKcSy/HzsepwFMAPe2quls+aFTsqYUCvQ3pk2MPezEdIsc0Kn7ZFzXSR5yBPDtwlnn
+	 4bDowvWTrzDLypaHuKE4Gbmb/yyLnrxNHXB9zk6n+fIM/ex56taQFs+1cd40pm3Qq0
+	 R9rV8B2U/GrwkoxPaQibv0W2X8akOUWnaY+WDNMwtJIjDM/To3YS65QZ9+53YEuW7Z
+	 3INbK1cFqr59EvzY2Mk7CT/lr/bGORH2oGtiPGaCGYZjxep6oOuHJNumFruWYtaDB/
+	 Vtg1jVLXSrRWg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65563C79FBF;
+	Wed,  9 Sep 2026 14:33:55 +0000 (UTC)
+From: =?utf-8?q?=E5=AE=89=E5=AE=B9_via_B4_Relay?= <devnull+HystericalDragons.proton.me@kernel.org>
+Date: Wed, 09 Sep 2026 22:33:23 +0800
+Subject: [PATCH v3 2/5] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi
+ R28S
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260909-r28s-upstream-v3-2-ee3e1a34a353@proton.me>
+References: <20260909-r28s-upstream-v3-0-ee3e1a34a353@proton.me>
+In-Reply-To: <20260909-r28s-upstream-v3-0-ee3e1a34a353@proton.me>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chukun Pan <amadeus@jmu.edu.cn>, jensen <jensenhuang@friendlyarm.com>, 
+ Andrey Korshunov <razor1702@gmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=973;
+ i=HystericalDragons@proton.me; h=from:subject:message-id;
+ bh=Al+UNS9q6dX1IoEkQ1GzieWtXOTRL+F7n2qKNKypKz8=;
+ b=owGbwMvMwCUmepz3XUtTHjvjabUkhqyFeYE5T7cwyzTMcrwvk2Sezah6Lip800b/L6Kr+bnf3
+ 7nNLSPSUcrCIMbFICumyCK7qTpSaFX0zCIWqeMwc1iZQIYwcHEKwEROnWP4H6twYqnoMdddQmfv
+ aKlp969MMC13FGA5qhoUGNr0ZcZeI4Z/ljdSjjY0PS35WK54XC3eoqmv7vEj5pd3DlyVENrkc30
+ 5DwA=
+X-Developer-Key: i=HystericalDragons@proton.me; a=openpgp;
+ fpr=1DB27B5912AA5B9972041AC715C70DEE84826E07
+X-Endpoint-Received: by B4 Relay for HystericalDragons@proton.me/default
+ with auth_id=1004
+X-Original-From: =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +87,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: HystericalDragons@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Sep 2026 13:17:33 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> > > +alternative_if ARM64_HAS_TCR2
-> > > +	ldr	x1, [x0, #NVHE_INIT_TCR2_EL2]
-> > > +	msr	REG_TCR2_EL2, x1
-> > > +alternative_else_nop_endif
-> 
-> > S1PIE implies TCR2. Why the additional alternatives?
-> 
-> That is true but TCR2 does not imply S1PIE, I wrote things this way so
-> that TCR2 is initialised even if we end up on a system where that is
-> present but S1PIE is not (or S1PIE is present but has been disabled by a
-> command line override).  This is during startup so it seemed reasonable
-> to write things in a straightforward and easy to read fashion.
+From: 安容 <HystericalDragons@proton.me>
 
-Fair enough.
+The NanoPi R28S is a dual gigabit Ethernet router board based on the
+Rockchip RK3528 SoC.
 
-> > TBH, I think this is completely going the wrong way. Why can't we
-> > write this as a discrete enumeration of the permission combination we
-> > support (all 3 of them), and map that to the correct index?
-> 
-> I was deliberately following a similar pattern to that used for the host
-> kernel, intended to minimise code changes.  I will rework so we have an
-> alternative path for S1PIE rather than trying to share.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: 安容 <HystericalDragons@proton.me>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-I think it is fine to keep the same indices as the kernel for
-permissions that map to something that can be expressed with direct
-permissions.
-
-But indirect permissions are not additive, and therefore shouldn't be
-constructed as such. They are also more expressive, and there will
-be a point where we will want to have other permissions that cannot be
-expressed by "emulating" direct permissions (Execute-Only springs to
-mind).
-
-At this stage, this is not churn. This is an investment.
-
-	M.
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 81744fbee9..709e2cc44d 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -347,6 +347,11 @@ properties:
+               - friendlyarm,nanopi-r2s-plus
+           - const: rockchip,rk3328
+ 
++      - description: FriendlyElec NanoPi R28S
++        items:
++          - const: friendlyarm,nanopi-r28s
++          - const: rockchip,rk3528
++
+       - description: FriendlyElec NanoPi R3S
+         items:
+           - const: friendlyarm,nanopi-r3s
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.55.0
+
+
 
