@@ -4,92 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BFDC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 20:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160CAC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 20:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMpeLqTNXDRpS+r+jORTF862uDqb/CqEpFeuPMT9TQY=; b=awgoCmdBUz7mrIpSpEleZMpUHZ
-	G8Ig9owupT0HGNw2cjKXujnEWyoJd0ehTgk/W9GjS44LzARdsgvewCI+zxmdLkUEODWW1iFg5AhwX
-	ViuTyxqyKMJAQa216kbcU9BgA16S9T/cHC3MaD+m1s1E5NVdhe7kPYkOqBm9XgbMHfD6P7wSPQdlt
-	GdlyweWc+WVVVSolKimW581HlPyTTJwHkk47xWmwe0EUWlkTYz9xOAzZx3uJ49DKsN4EH4tzviQXm
-	ybReLPx5XOBZv2EkuzGvR/JvUm/0k6l7/YfuJbL+7fkoiDvuTW1bwux5E6sZGc7W/GTrY4VwWvBna
-	a4knt//g==;
+	bh=rU/edVWvN0al2QuqioTnSDLV4+asJJGA8jcDggwnG3A=; b=aAhY6z82PVeoUQZauaIxJEakKA
+	dfMmu/lyp1vWuTbRgCOni3YMr1gtiVwirDEmLKG7M0Peeys2+Pxnb3xFgiKF36fDRgo7F1n3lIshc
+	g90SnvGOljXRHTcO61QdURrPkbX5SBr0cGG7p8RI9yxJWE88SI9StbmDOeFJCCEii1SBz1cX9+YH+
+	z4C5inlhA1WPfl6Svo1wLo2+ZXAgfqTLJSYOFRsxvM33wfIbGzC6jxi2OMmYBA79Fa3vJlIyadoHs
+	C0CrswwYs7srjXs3QRuzdtkXYIE9HyOxHiXNTyt96bBkKUeLNyrVVXKXRxGCx3cRN/Pb4hRIzVyPQ
+	dFHezkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OdG-0000000Cn9O-027I;
-	Wed, 09 Sep 2026 20:10:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4Ok8-0000000CnWD-3OvR;
+	Wed, 09 Sep 2026 20:18:04 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OdE-0000000Cn96-16Xr
+	id 1x4Ok5-0000000CnVr-1qcE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 20:10:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B304643E32;
-	Wed,  9 Sep 2026 20:10:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06ADC1F00893;
-	Wed,  9 Sep 2026 20:10:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788984655;
-	bh=dMpeLqTNXDRpS+r+jORTF862uDqb/CqEpFeuPMT9TQY=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=Y7ak+DteDAyaPCk16KIM3ABbCFWIdaOUPtP3CA84IcjaDKB56nEBmNI3LT9hwEqis
-	 43S4ORpDR/gwIJALm1llpMxHjDUTN7c8CCcDn3FR1t+Y3LgXo1iiUUqE8Wzg9CPk0T
-	 J2oZvHCitZ6pIxXsdhRabrf3sNvioO4u5DVp8BjvWOeKAVHS7h0QHTW9G2SztdKKjP
-	 J7/noU1s4AtqITJZSMRwc/wDLPNfKpEvlV6a2rsOikazDEXnqlyCOVhoLy3HH9twCx
-	 Gl69U48p9UaYrvuO90k86iIqlGhqqRyBrfA0EX5tJ89AELqJ8BWnFgFulWVbKl9Rvm
-	 9AJga9OEM2Qmw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 48EF31980052;
-	Wed,  9 Sep 2026 16:10:53 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 09 Sep 2026 16:10:53 -0400
-X-ME-Sender: <xms:Sr2hajWlva4lVEbm2EzQ1s3udRWO4ikQFFFPxDegsKQ3CTjZB3r-uA>
-    <xme:Sr2hambJl-c3e1UrZYMfqYiLxCHTOQsPkJ8JLd0z0j-CmEmZZXevEai-Q5MqU57rC
-    ZZC53tEJfuu9jLPODK6QXBLSGBNaUsNCeOiE3yoJfwKabbHa6Xe7xPZ>
-X-ME-Proxy-Cause: dmFkZTGP2bhb/XYhsNLB9S53X9rzoPN54qfE/KjrIQ+39ezusymjgkFG9cet+423ozVpDR
-    QFvnmTNBMcgGscLcMMj7nBUY31hzJeOaGY2jSrT3p2YxejgdAUzrKdVOR8lCRBS16Gn88X
-    /+XGMDl8CSXVYCQsr0wErwVPc+V6zmpd4d51AzTQO8MWr89uCO460fbix+l7zmvoJuzkvE
-    RaO6/PdGwEVTqYIezlus3lDCEAnry2C8vj8V499E/dlZoQ4ScXku67uqDjBlKaXI4HB2gC
-    KacujXVdDoEwzQ2dyYPEUzaZ7+e2mOEhOGj1Fetuz0MEj4OcAAwjVvsFr0sHvhPpz277Gf
-    eKzGoSn6iqanxzNgqqMPsXCY76vQD+ea58iHSG5APtokUDPToSvfELosscq5Qt4yP2Q9+t
-    y1tk8mh/YV6JND1qNbS+O2favpqJYSFmbwPFawNlshEMNgXzINZxwKWiewG0SxhFiQFIL9
-    4DpI0upYjn0k3v2eBM7Iml4anYd8gF3WPX86kKH7R0o4H64FA7zDDSXAF3jY5QkB0ZSiW6
-    sIKc9JmLSD+i8R4Jef0OcLMUt1jMXi6faA5jYE6vH5UfgYoDR3/ZIP9Q6vSw4pAYMA/Nxa
-    V2SShKsn+8CcVH/XBZJ+tLKfo4Kqs/CxHjYl1vrrgz/DIr30WA6FviGoSjxg
-X-ME-Proxy: <xmx:Tb2hapOSEggtAzw0YPolcJShgHipiCEz32yrnlma3o-FVpqo5DDtLw>
-    <xmx:Tb2hampTwttRtE3MK5w7nObKR1veqSPqSuzHl5qP3-u6Rq2T0fLYYA>
-    <xmx:Tb2hau5yJgf9foM2D7YQh1VswYDLBi8VWRuYGaVJdHhtOWFLOMS4ZQ>
-    <xmx:Tb2hagpfMYsdVStUsBhPHlcE5fczSNlUCNGOAGT9WGdLMRXUiDZ7qw>
-    <xmx:Tb2hasKSPzPUsbdSIk5XCLjXxVPXAZU5O6viFS2qHLW3A3TqPNR5T1ZS>
-Feedback-ID: i36794607:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 78FB232A007B; Wed,  9 Sep 2026 16:10:50 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 09 Sep 2026 20:18:04 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5b4afc8465eso437818e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 13:18:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788985078; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cavXnnAcXSo4x8vx9+p1tUwcGnhag2WdsJ9eLrbMbQnjHbQSJkpo2TMkLeTr7TsE+a
+         f56ueiAXgv8TgCW6yZpLhVGOuk1WQSzDB3/JwKeIzQy2KxUChtKjB+1t6z4gsnWpSOjD
+         Iff7jOUTRXCv6anK3+EGLK6Z5wxkcFC3BXl5ALQ2asH/fdtuZ0CGW+OEoJCseDlEXoVd
+         axJ5iSjliA4BdZelbepmlDgP7X8ue6hZMlw9NRfzDl39/lsPn3fsBaOaDmjXw+lus3Sl
+         cjnFf9Ea7szGz+rUnYs7USUbH+nxSJf6d+yX28vSxvdAG0NPJqmd3lNGDzzQShOntoD8
+         vHhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rU/edVWvN0al2QuqioTnSDLV4+asJJGA8jcDggwnG3A=;
+        fh=7d3gjO5zsrTys3ZozEN1m0EAKK3klKP2ao9D8fS7tcc=;
+        b=MO1mlrrgnQPtXGHDNZoER2iIH7cbeQ3YEs2xCB50rbd2btivz2ZW8LAyDfmPs3bxu2
+         rzdNUvkF+GTUrxd7kUGtU3XfuK9NJxyDFhiyg0MkCDAsnyQZSwWSPBUca6PyK0Weznf3
+         55noR8W7tnxswfZVzA9g/s3MIj1O3/gErj7SEtJ0UByGWN7OFCUgbbWRjfruf3aD0xwo
+         +M3Fx48IFDKBcw0SzbEw+w69humcc3gALUbctPuAVdEKvk+b5mSxGI00Ir3W3Pej+Hpk
+         OZnbWL8RpqaJDQ1+97fusavECe69GpLi9ETwClpqkxXgod/fT6TaGYjaAOcAukMvDyh2
+         bPtA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788985078; x=1789589878; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rU/edVWvN0al2QuqioTnSDLV4+asJJGA8jcDggwnG3A=;
+        b=rm15VFa2Onm6PKh+0QFqzN1RftxcXdzNUU27YNuEJVkktkuq13m0jBtsO9UIfsxm3w
+         T8t5zMIXBdLKez3tAG439TvJWq7PFpHwmEi35mklIxjw6J0TwrjdWSSeZOKAcVnd4tQA
+         gLDecaYZouZ8bEy9BL3QawtYIc7ioaAPRflGxKhwTr6rfD7gFzL82+2zVA7amNABjlP3
+         or6wLFHm8DXK03mdF9Xr1BtqzNfF9WHO58kHfayNSpGA5fNYYtZdSjvCaLOp6cF2Ide9
+         OR4/zx/6+bONvJUEm5W9dHEIaMIn6Hda21i2nDZMDkzrOfvEPZU88PoGnvO8hHEXtuGk
+         Ll0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788985078; x=1789589878;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rU/edVWvN0al2QuqioTnSDLV4+asJJGA8jcDggwnG3A=;
+        b=jc/5gu6139Aivsz29s5EonmtK3n4D37oC5g/avCo/PwWvGbtkl0PLnHR44Lf4xV9B2
+         TY8XYtLcAL5nsSnK9U0478wRVthfZ/3rsswG3KDlC/aGXR1KvXx8khF2tRfksvHJ3no2
+         drhXvE/S4jXU9oY9jwZTfIFpB2Xvcuq7OeN+XeZYWUZj4ObSmo442YwFZtBB1WU2b3na
+         OmLm76lGwJJtG2bZDcrrliaNzL59h+FS2Tumr/2ZNKHvtfxQBvQyPwucoqjHhg40pURN
+         LRuOrPgpen6GbxAwOfE75XwAylA+QlEYViXFUldVTxEWC/LKi7auk5tVyqzQ1idd678t
+         JuQw==
+X-Forwarded-Encrypted: i=1; AKwUvBxR1q8JgC52JqyAzw5pmi6IgMrNqy6KJuG2xePoJwIHV5zvMCEpoPoAzqbiOHnrA1z5w6n3ehoYccTpviwjB4p1@lists.infradead.org
+X-Gm-Message-State: AFuF++lBGGmC+xWiDZEIU52P6MX2/k9rJb0E3q7o3HEZdaEh482ue49s
+	Tw8gsTC7reK5Wqyf1W3tj/QGnKFpfo4EukLxbOgf0Xnu0ePHiWVSDocv/fVGrIiSdfUn7wCuYcT
+	/vHHZf7g4IDRArkLxrH19M0p+3eCjZko=
+X-Gm-Gg: AYBFou2/li3a+XoCbfP9F5tm4chIDUbWJ+ElDDq5APaplQFjXvZoBjd9415KBnS4rYU
+	2Ow/W1gxpjaL/J2q6O0YvFd/Ej/k9HQxWwcncqgVV93/HMgP8QD9AzSHRITLOaW2TU2l5zpFLSH
+	mUXow61Joyx8d4pc2Yr3NOO/+LQjArrIz0LlrKz3RNGET5iV08IMswwbUMgP7YvDEQ6/DL9DvPa
+	35zUlDK2cLx+PCUW2KLdNMiSoLyXXTbQx3NvL0Q5N883jN/poCfItPZgkZ8R1CtF95MMXBglVIn
+	Zp+t/JwoBGLwhrahEFZiVsMJLGAYGtYJGQoYVKLR03lhxHoegfFqklGfki49Z0q/i/bf0TFVkrd
+	IddIe4K4Prp8SxwkOtA925ZCHpROetE4vH1nQ14xFdLpP
+X-Received: by 2002:a05:6512:acd:b0:5b6:1a7c:fd86 with SMTP id
+ 2adb3069b0e04-5b61a7cfdb9mr6159278e87.44.1788985077633; Wed, 09 Sep 2026
+ 13:17:57 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AGTXWeH1PU47
-Date: Wed, 09 Sep 2026 22:09:43 +0200
-From: "Arnd Bergmann" <arnd@kernel.org>
-To: "Bart Van Assche" <bvanassche@acm.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>, "Russell King" <linux@armlinux.org.uk>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- Linux-OMAP <linux-omap@vger.kernel.org>, linux-block@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-fbdev@vger.kernel.org
-Message-Id: <b0705a8d-1b85-44e0-917d-19ba760e8c12@app.fastmail.com>
-In-Reply-To: <2da174ef-1d5a-425d-b885-be9482b0be90@acm.org>
-References: <20260908152808.3928630-1-arnd@kernel.org>
- <20260908152808.3928630-4-arnd@kernel.org>
- <2da174ef-1d5a-425d-b885-be9482b0be90@acm.org>
-Subject: Re: [PATCH 03/13] ARM: remove riscpc
-Content-Type: text/plain; charset=utf-8
+References: <20260908152808.3928630-1-arnd@kernel.org> <20260908152808.3928630-9-arnd@kernel.org>
+In-Reply-To: <20260908152808.3928630-9-arnd@kernel.org>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 9 Sep 2026 17:17:46 -0300
+X-Gm-Features: AcwNN1WKZQyaGADU6lkE-GsXnisq5MVghkNUlNC3CqrQiDAXJmgIgXPSi_5sivU
+Message-ID: <CAOMZO5B4q01XRGRfK_LoR1SWkvdP-_fbSHrE4BYq7gVf7k0Xwg@mail.gmail.com>
+Subject: Re: [PATCH 08/13] ARM: imx: remove nommu support
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Drew Fustini <fustini@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, 
+	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
+	Tony Lindgren <tony@atomide.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Giulio Benetti <giulio.benetti@benettiengineering.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_131801_512369_4F96B238 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +138,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 9, 2026, at 18:42, Bart Van Assche wrote:
-> On 9/8/26 8:27 AM, Arnd Bergmann wrote:
->> The Acorn Risc PC is the oldest still support Arm machine in the kern=
-el,
->> originally shipped with an ARMv3 ARM610 support in 1994, it later all=
-owed
->> faster StrongARM CPUs.
->>=20
->> The main limitation here is the CPU bus that does not allow 16-bit
->> wide data transfers and hence requires the kernel to be built with the
->> -march=3Darmv3 compiler option that was discontinued in gcc-9.
->>=20
->> As gcc-8 is barely supported for compiling the kernel, this one
->> will not see another LTS kernel release, so remove it now.
+On Tue, Sep 8, 2026 at 12:29=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+te:
 >
-> If this patch has to be reposted, here is the feedback of my AI coding
-> assistant (based on an LLM and hence may be wrong):
-
-Most of this was already discussed, but there are two additional
-changes that I made based on it.
-
-> Issues & Observations
-> ---------------------
-> 1. Missed arch/arm/Makefile cleanup
-> Patch 03 deletes the entire directory arch/arm/mach-rpc/, but does not=20
-> touch arch/arm/Makefile. As a result, two orphaned entries remain:
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> machine-$(CONFIG_ARCH_RPC)		+=3D rpc
-> machdirs-$(CONFIG_ARCH_RPC)		+=3D arch/arm/mach-rpc
-> Furthermore, machdirs-$(CONFIG_ARCH_RPC) was the very last user of=20
-> machdirs- in arch/arm/Makefile (after Footbridge and SA-1100 are remov=
-ed=20
-> in patches 1 & 2):
-
-Fixed already after sashiko-bot found the same thing.
-
-> kconfig
+> The i.MX platform has grown support for three separate product
+> lines using Cortex-M based microcontrollers over the years:
 >
+>  - i.MX RT1050, a high-end microcontroller
+>  - Vybrid vf610 suppors running Linux on either the Cortex-A5
+>    CPU or the Cortex-M4 MCU
+>  - i.MX7D similarly can run Linux on the Cortex-A7 or the
+>    Cortex-M4
 >
-> config FONT_ACORN_8x8
-> 	bool "Acorn console 8x8 font" if FONTS
-> 	depends on FRAMEBUFFER_CONSOLE || DRM_PANIC
-> 	default y if !SPARC && !FONTS && ARM && ARCH_ACORN
-> Because ARCH_ACORN is removed, this default can never trigger and the=20
-> reference should be cleaned up.
-
-I have this in the patch that removes acornfb. It could go into
-either one, but I felt it fits better there
-
-> kconfig
+> There are no known upstream users of any of those three, so
+> drop support and simplify the platform to assume that an MMU
+> is present.
 >
->
-> config CPU_SA110
-> 	bool
-> 	select CPU_32v3 if ARCH_RPC
-> 	select CPU_32v4 if !ARCH_RPC
-> Since ARCH_RPC is removed, select CPU_32v3 if ARCH_RPC references a=20
-> non-existent symbol. If CPU_SA110 remains temporarily (before the=20
-> architectural cleanup in 7.5), this should be simplified to select CPU=
-_32v4.
-
-Also explained already that I preferred removing CPU_32v3 along
-with CPU_SA110 in a later patch, not together with ARCH_RPC.
-
-> 4. Dead code in arch/arm/kernel/atags_compat.c
-> With CONFIG_ARCH_ACORN removed from arch/arm/Kconfig, two blocks in
-> arch/arm/kernel/atags_compat.c
->   are now dead code:
->
-> Lines 150=E2=80=93157: #ifdef CONFIG_ARCH_ACORN / if (machine_is_riscp=
-c())=20
-> memory bank tagging.
-> Lines 186=E2=80=93194: #ifdef CONFIG_ARCH_ACORN ATAG_ACORN translation.
-> These blocks should be removed as part of this patch.
-
-I have a patch to remove that file.
-
->
-> /*
->   * Now, pick up the machine-defined IO definitions
->   */
-> #if IS_ENABLED(CONFIG_PCMCIA) || defined(CONFIG_PCI)
-> CONFIG_NEED_MACH_IO_H and #include <mach/io.h> were removed, leaving=20
-> this comment describing generic PCI/PCMCIA I/O limits.
-
-Fixed now.
-
-> arch/arm/boot/bootp/Makefile:21
-> : # guess an initrd location if possible is left dangling right before=20
-> ifdef INITRD_OFFSET after all initrd_offset-$(CONFIG_...) logic has be=
-en=20
-> stripped out.
-
-Removed that entire block now:
-
---- a/arch/arm/boot/bootp/Makefile
-+++ b/arch/arm/boot/bootp/Makefile
-@@ -17,12 +17,6 @@ add_hex =3D $(shell printf 0x%x $$(( $(1) + $(2) )) )
- #   INITRD_PHYS must be in RAM
-=20
- PARAMS_PHYS :=3D $(call add_hex, $(PHYS_OFFSET), 0x100)
--
--# guess an initrd location if possible
--ifdef INITRD_OFFSET
--INITRD_PHYS :=3D $(call add_hex, $(PHYS_OFFSET), $(INITRD_OFFSET))
--endif
--
- endif
-=20
- PHONY +=3D initrd
-@@ -30,7 +24,7 @@ initrd:
-        @test "$(PARAMS_PHYS)" !=3D "" || \
-        (echo bootpImage: You must specify PHYS_OFFSET of PARAMS_PHYS ; =
-exit -1)
-        @test "$(INITRD_PHYS)" !=3D "" || \
--       (echo bootpImage: You must specify INITRD_OFFSET or INITRD_PHYS =
-; exit -1)
-+       (echo bootpImage: You must specify INITRD_PHYS ; exit -1)
-        @test "$(INITRD)" !=3D "" || \
-        (echo bootpImage: You must specify INITRD; exit -1)
-=20
-
-> 6. Floppy driver & arch/arm/include/asm/floppy.h status
-> The patch removes the ARM MFM AND FLOPPY DRIVERS entry from MAINTAINER=
-S:
-
-commented already that this is removed along with CONFIG_ISA in a later
-patch.
-
-      Arnd
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Stefan Agner <stefan@agner.ch>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Vladimir Zapolskiy <vz@mleia.com>
+> Cc: Giulio Benetti <giulio.benetti@benettiengineering.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/arm/boot/dts/nxp/imx/Makefile            |    2 -
+>  arch/arm/boot/dts/nxp/imx/imxrt1050-evk.dts   |   72 -
+>  arch/arm/boot/dts/nxp/imx/imxrt1050-pinfunc.h |  993 -----------
+>  arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi      |  160 --
+>  arch/arm/boot/dts/nxp/imx/imxrt1170-pinfunc.h | 1561 -----------------
 
