@@ -4,61 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8890EC79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DBAC79FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SP6jmQqIOLrkVvQFwD6N9WK9kKibbvJko54SPU9/I58=; b=Oi9KfHKodkiOQnRSF9j2+R1w1L
-	P8JKBUJgpTUjAiabz4fv4T5c3Cqwvv8ikCDj/ITs0Qad2kT3wXMUfPWxABPolzrfvmQuNqY8Zp6oZ
-	cTWktNHuMcsavBPt82/UAF1sdrfDFdTf8KONkRd+uxEWgTv2co3n6FA45o9n+MuGAfyMtF/Wjygnc
-	9YU2sSBHf6Vd4XYPP/IANYMbLbuuhAwWKJqhlkd9Nl4KsStkU3pJsHitSwZ6dxt833UfvtOfGuiEI
-	XqGOlJ+/mGcNklXVx7jBIe94wM7jTSKeAOpFDXAUNIq+AHI1J5PRVuTnmxIZOdFyk7HgtovYuWO/G
-	3OBJKBKw==;
+	bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=; b=t6mIpDWcjDXM+TrNHxWhbgDvlk
+	Ny3LA7fkqZqQrk+66+mmsarHPTTEl1aoQy9CdbWzc/3g9n8PmSN362VR1IcSjf3jKY7bmKAtHGawO
+	C0nuXUxDMZ+UiGJynjDMWWTh/1M8qdWyySpvxTcth2dB/KMISEqnPhP1MdVk5+qMg8sJFaPL/+du+
+	A4YyRggtQykixARYJxVLPaCcDDJuZr/cNp2h1ssJDvC1YFs+Ie0EeA1QxO/9NMXZAVsLWbhNF+fob
+	4zA1tEQzuFdJcQdhArfISloMCcppcHw0pXAkPMJ8QKczKqAgRQNBox+qFBAkofcbz3/VdUrka4LQ4
+	kMD8hH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4M3h-0000000CTts-18Bb;
-	Wed, 09 Sep 2026 17:26:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4M4e-0000000CUFw-2ZC3;
+	Wed, 09 Sep 2026 17:27:04 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4M3g-0000000CTtJ-1g8z;
-	Wed, 09 Sep 2026 17:26:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DD6640A38;
-	Wed,  9 Sep 2026 17:26:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2301F000FF;
-	Wed,  9 Sep 2026 17:25:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788974764;
-	bh=SP6jmQqIOLrkVvQFwD6N9WK9kKibbvJko54SPU9/I58=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nl4q23VJ5Bm5v7pAPhT0FU5OXL0bq5WJU1l32a55XGKzfUR69tUcrge+B6lV3RU2B
-	 3AHjhFmXm5sK4D1zu5dK3s99hvKvhjKA/G6fmJfI87yA1aTqkCej67GTeeLLrTALCo
-	 LRAdzsW2J+2SCJv3PNJKPckBndFwi5KB1e3jziA98+cwrcQhr3nGD9z1haUZLF1+0n
-	 pzvj/U1vA65Oy20ntN4HC+ejsMV3qALbI96pD0duvwY8Eot2EgTa/JEWli3gc18o0r
-	 rikvNe+39scM4J9j8AgFo5OQ9f3FBzJdzyor8NvfNHP2PSR/4XemWgNdFA77J4t+5l
-	 CneQU4HMOtzaw==
-Date: Wed, 9 Sep 2026 19:25:54 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	chunkuang.hu@kernel.org, p.zabel@pengutronix.de, justin.yeh@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 12/12] phy: phy-mtk-dp: Add support for MT8196 eDP PHY
-Message-ID: <nz5vqejravxuaxdodfjb5mdmdndevwe75rtbfi7ndow3qlqdim@xuo2awaygbv2>
-References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
- <20260707154245.198361-13-angelogioacchino.delregno@collabora.com>
+	id 1x4M4c-0000000CUEm-25xd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 17:27:03 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-86959a6f7f6so411007b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:27:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788974821; x=1789579621; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=;
+        b=OrNG6AKTL28hjShyf/BXCWLbbKmGRVvv5O0s+ZlVcgNvXS7cstsUDnGEvztaguoDy/
+         WMYMUtcS12aWZP+FyqgT1e1gq2PQFtBTX6rXgmcq4kgdZu7LgJ3WtRMNDm/yXp2xMf6o
+         gTHuobXf14om7ZCmSC8BO8T6VQtQz+Z81vEQbsq2PYpun7O7cr6iBLBZvMhQmEiBPAzr
+         27I4jF8Su+eOtpLQ5QUW5kjvt0v34iPrY1HXz/xieeauTlZ7bK10MwY1T9fidVHtJuiV
+         SaMXcEWRESozAHxDzagGbMIPMexwtAmDmaIuKp/ws9SapZ/Ij/5aGkp0SwwUelbhbMFh
+         UeEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788974821; x=1789579621;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=;
+        b=PUHXHZoaSDg/04hV3KPoflEdJDpiqWoWrGoHu61vOcph8GCmNl6VkAsjG89IXu15WP
+         qbG6R5AvP40GPmX7iw6qRfxldFQlaZIpfqVNuylgDt8JDYKmZ7/BF4LzEITB0dQ09x92
+         5katcCtfnaut/vsZuSzMV1h5cqOePrdrezi+jxJiXlM1VyWQ+6Wn9ghRWF4xWR8fwx/A
+         yWlKf85WU+GisWhy2lAc5SbVpqoTRadmSCRdE3MMenyZ72kBT7yRl4Uqdjy9IfNGG7S2
+         XylvUolcx4xCIJtF3Q6tqe6h8jMIzAEG9gF/LLECzlDhYo5cKzfQbwFq2yyvLEIiVwiy
+         /LDA==
+X-Forwarded-Encrypted: i=1; AKwUvByC12M11Rbl+L3/a2pNH6vK1vmYgwbjby97LagGQ6KFOpmjlHqx39qxw5lerWrW5sGlz2KeQV4O4ntYptVl2TvZ@lists.infradead.org
+X-Gm-Message-State: AFuF++kWumpIg/e5PsqlF1KRQ/SRyp7gk0r3M2nsRg35b/meJQm9JhGP
+	ugaJ5DmMA2X/4bzTQXSTliH6IptPZ9VxsKRIoyruZyddX0/Xu0aJDizd
+X-Gm-Gg: AYBFou38xBpOviLbrSCQIGCaoUvpj7eZE2vlwrb42k7uL7LZm3fdLAJZDHqUvZ309LP
+	5q4KUEBKQdKUdclwD2u0J5XJjdzZKEI/cE4bXoXjv9Rj7yxTISSRg683jDmA9mdWJ1IzaoxPT5C
+	9TtIhxcyrJNMixphTOEO5piN5SvvXJtCvNEvnB9s1rWUBy462msHxRL0MaXPRhphhGwBGp0oP8j
+	oJcifcCmXx/FRdr7OIwCadzsEaa7rYlzsKQScB4WtGTS3WmG+SB+AFbIIzo1YdOlrJ6XPxV3LC+
+	9+3PfNxGCpD6I7vUiItx9HosnL4imfbF6hJKPCv3iUUWf7ZTUwQq41bkoZFFLrABsmiHfhH1xE2
+	iWZkmvrKSxj4PEZHkf1VRZOqepOrLiJVWz9UjsqRUm2YuHVmJI4a2kpuNsnwSAewWkAOosrKYo0
+	hWtC4PEAAB+hJ07oInwlaETPOF7aD6OBS0Ttcw9WGZ09BS06moxH44z2yTVAAr+O/0BPW3tP5jz
+	7Ip9L6xaXkczZA11uwl2CruuMPhkvHUVkIlMC3MyRMwr5g7ulgH
+X-Received: by 2002:a05:6a21:9d84:b0:3d3:af85:eb98 with SMTP id adf61e73a8af0-3da3a16a579mr57975715637.26.1788974820346;
+        Wed, 09 Sep 2026 10:27:00 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:2d43:5153:5c50:643e])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534df1sm52422943eec.7.2026.09.09.10.26.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 10:26:59 -0700 (PDT)
+Date: Wed, 9 Sep 2026 10:26:55 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Arnd Bergmann <arnd@arndb.de>, Daniel Thompson <danielt@kernel.org>, 
+	Jingoo Han <jingoohan1@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	Pavel Machek <pavel@kernel.org>, Michael Hennerich <michael.hennerich@analog.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Sebastian Reichel <sre@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Helge Deller <deller@gmx.de>, dri-devel@lists.freedesktop.org, 
+	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-hwmon@vger.kernel.org, patches@opensource.cirrus.com, linux-watchdog@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-leds@vger.kernel.org, linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org, 
+	linux-fbdev@vger.kernel.org, linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	llvm@lists.linux.dev
+Subject: Re: [PATCH 00/14] mfd: unused driver purge
+Message-ID: <aqGWjAuGXq_JHvxk@google.com>
+References: <20260909132153.1596191-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260707154245.198361-13-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260909132153.1596191-1-arnd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_102702_538232_49A8097A 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +115,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 05:42:45PM +0200, AngeloGioacchino Del Regno wrote:
-> The MT8196 SoC features an updated PHY IP compared to the older
-> ones, and there is one that is specific to Embedded DisplayPort.
+On Wed, Sep 09, 2026 at 03:21:37PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Add support for the eDP PHY found in the MediaTek MT8196 SoC and
-> all of its variants.
+> As part of my cleanup of old platforms, I had a look at all drivers that
+> may have become unused because the last platform_data or DT definition
+> was removed, or because of unmet Kconfig dependencies.
 > 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> These are all the mfd drivers I found. The first ten in the list
+> actually turned out to have been unusable long before my series, and
+> I have added explanations on how I determined this in each patch. The
+> last four patches are still in use in linux-7.3 but become unused after
+> my series [1] that I hope to get merged for 7.4.
+> 
+> Somewhat unorthodox, I took a shortcut here and remove both the mfd drivers
+> and the corresponding subsystem drivers (gpio, hwmon, iio, input, led,
+> media, power, regulator, rtc, video, watchdog, asoc) in a combined patch,
+> to simplify the interdependencies: removing just the mfd driver would
+> leave unselectable or broken drivers in other subsystems.  I also have
+> additional patches for each of the other subsystems, currently a total
+> of 300 patches, many of which still need better testing or proper
+> changelog texts.
+> 
+> Please let me know if you all think this approach is ok, or if I should
+> explode this further and turn these 14 patches into 70 individual ones
+> by splitting them per subsystem.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Sounds good to me, especially if Lee makes an immutable branch from this
+pull so we can all pull it in...
 
-- Mani
+Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com> # for input
+
+Thanks.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Dmitry
 
