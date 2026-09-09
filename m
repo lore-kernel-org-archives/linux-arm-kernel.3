@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E335C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC68C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2ShFLz2yJCKPxXXZobT4YdME5qB9wl46Ue1Mjyxi/g=; b=pYoQ3LH7zDfAPySBqf6Qwn1+lW
-	cyCgqF86C4blk9X/Nu0J29GOApetOOpiM2BqDBHIol4ZdM0hlGfqxp75RaFzfCx0xeR9L1OaEhml6
-	7O7LrhSdDvXu7ZAnGpR8C0maoBNDYpufc0vQtdikqVeRILrwIlsb0qduHssBx1Fkk3DDqion473qV
-	KHw5uZwX7y1qy/K5hFS9o3SMCgLwxGYIjtjLmxwsdK6VaTX/7FoOx10Da25ByDXKtNahhniJfXwSk
-	K4rp/TxmpwWT6oK1PVwMrmfLPW7leoeQ3LgjzMYsmVrYdZixR958x9fqmeGDEvrTXKZMCo4Sa1PA3
-	f+dDebvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4dN3Vm+A/q/0AWxfXoTAWqWfFbdTmy4SeL1/3qbxIyk=; b=RHTMB2GVBhd/eVKRpdMkYWMLRS
+	H51nx3yAjuwm4uUGgFKRPVZb7GWtdvQrt2o3Efg/oonQz3DPtP+vExwDZKcGxWDL35caFPkuS/I+2
+	zhKXmaPyGxuyHVqtEBnqnQz0oQS7c+m5cnfes1kRoVmyZ0cfNGB1qswC8qAZM4ryu8KDpgy4UPvWf
+	44KYTMGRFxyTAxY4g9jbv8kvCf6i3HWrEz0gih6zsTp70Pz22lsEZoTf1wUpifmVMapgL+2ora4p9
+	3l+SJ7WdVefOmN7eG3ESp0YoQzD98lXpnwXUG7DtSvAUUxRyBJ/G6o/dncaU0yU6ysUR6Csno2lhO
+	micg3Cow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Eom-0000000BKJA-2rBJ;
-	Wed, 09 Sep 2026 09:42:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x4Er3-0000000BKiE-1itk;
+	Wed, 09 Sep 2026 09:44:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Eoj-0000000BKIc-1YNJ;
-	Wed, 09 Sep 2026 09:42:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788946927;
-	bh=RlquV2qEWjV+inAs1mB0hDuB0wfVFPu3WzBSbEbDSP4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jnOJ3Xo9TUxGgqRwcdLIyZ6ln+F4/SN/xIoK8efS/zB+lcAcCqY7BxfY1ew6r7Vrr
-	 ytlTtrzrTIE8NHHm3tAX5uIgvBthOQH548iAjYlDTY91jX3yZUGy7a5v7a8zDOHWNF
-	 l2TUceV4RBarZ8UXG0Vo5TGYK/eMqMjddCkJCnL1Dw1YSsNuNdjC8W4we2647Zm0+E
-	 N7TeOVKYM6y1uh28q5D+K7tdzapc84R/cDJEJoPMgFQAYFiixA+/0yHl5kp4FlXj7D
-	 heJQ+K7sQYxq0+1Hdksa5YduKxqEMnA5JfIDi3cH5+m/2WqCmcBRVxwiPV3J16JfO2
-	 AX43Jork0HVYQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8998C17E0260;
-	Wed, 09 Sep 2026 11:42:06 +0200 (CEST)
-Message-ID: <f57e326d-50f1-4ca3-a61d-d7de4723f7cf@collabora.com>
-Date: Wed, 9 Sep 2026 11:42:06 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/8] Add support for mt8167 toprgu and mmsys resets
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260908174259.9009-1-l.scorcia@gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260908174259.9009-1-l.scorcia@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_024209_600845_EC0000FC 
-X-CRM114-Status: GOOD (  24.69  )
+	id 1x4Er0-0000000BKhb-14Da
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 09:44:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3813A60232;
+	Wed,  9 Sep 2026 09:44:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0CB1F00A3D;
+	Wed,  9 Sep 2026 09:44:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788947069;
+	bh=4dN3Vm+A/q/0AWxfXoTAWqWfFbdTmy4SeL1/3qbxIyk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=S45tUg7LyI5EaKXJwuZ1sMfOExEKes0ouThD/mYbuZnoKFsV0K4EkDHgy4XUvJ5/E
+	 c+LiZ6EZdMXM0TmHwvM9Ka/ObBZNW91+wSkw1vw4QmCDxpVqpoO9zB1KKtuBwEiRDF
+	 SSzmd23RYV9ghTjF5FzjAfaNCTqQTtwOm3COlvpqOWKE07/2W0iystfe0sW+e3NYYX
+	 QZYIGlXlxQAFnEIvgWFVbVSiaqy7oRc1/P7PXalPY9sZ6jhJ4UwhuQEmaoX+TdLIRB
+	 psq66e8OBLS2J9IsYpxryC0DR/LzE/4O4u6nuYz1BoAqSmwD1vkA/J0gnx85thPTIe
+	 +ubcPZSrZC4nw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x4Eqw-00000006cE9-2rlW;
+	Wed, 09 Sep 2026 09:44:26 +0000
+Date: Wed, 09 Sep 2026 10:44:26 +0100
+Message-ID: <861pb24v45.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Enable S1PIE for hVHE
+In-Reply-To: <20260908-kvm-arm64-nvhe-pie-v2-1-79e42d28cc08@kernel.org>
+References: <20260908-kvm-arm64-nvhe-pie-v2-1-79e42d28cc08@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,90 +90,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 19:38, Luca Leonardo Scorcia wrote:
-> Currently mt8167 inherits its watchdog from the included mt8516 dtsi,
-> which in turn falls back on mt6589-wdt, which does not support toprgu
-> resets yet. In the first two patches we add support for the 12 mt6589
-> toprgu resets.
+On Tue, 08 Sep 2026 20:40:47 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> However, according to its data sheet, mt8167 has 14 sw resets instead of
-> 12, and its reset bits are non-contiguous. This is currently unsupported
-> by the mtk-wdt driver and it caused confusion between reset IDs and reset
-> bits in other mtk SoCs device tree includes.
-> 
-> Therefore we introduce a dedicated mediatek,mt8167-wdt compatible for the
-> watchdog driver that describes correctly this SoC's resets. Since its
-> reset bits are non-contiguous, we add support for a watchdog reset table
-> to accommodate the distinction between device tree reset IDs and the
-> actual bits in the registers. Code is inspired by the reset table
-> currently implemented in the mmsys driver. There should be no effect
-> on existing sequential wdt resets.
-> 
-> In the last three patches we describe the mmsys reset table for the SoC.
-> According to the datasheet there are 28 mmsys reset bits divided across
-> two adjacent registers.
-> 
-> The series has been tested on a Sony PlayStation Classic Mini, on a Xiaomi
-> Mi Smart Clock and on a Lenovo Smart Clock 2.
-> 
+> When FEAT_S1PIE (stage 1 permission indirection) is supported we
+> currently enable and use it in the hypervisor when running in VHE mode
+> but not when running in nVHE or hVHE mode.  While systems with
+> FEAT_S1PIE would normally use VHE users can configure them for nVHE or
 
-Whole series is
+Missing comma after VHE.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> hVHE.  Enable FEAT_S1PIE with hVHE only, hVHE is used for protected VMs
+> but there is no real use case for nVHE mode on hardware with this
+> feature.
 
+That's not the reason. The reason is that there is no nVHE-only
+hardware with PIE, and that on VHE-capable HW, nVHE and hVHE are
+strictly equivalent. Therefore there is no need to add support for HW
+that does not exist.
 
-> Changes in v5:
-> - Dropped the binding header for mt6589 reset IDs;
-> - Moved the definition of the number of resets for mt6589 inside
->    mtk-wdt driver;
-> - Separated the mmsys related changes to the last three commits.
 > 
-> Changes in v4 [4]:
-> - Squashed the reset IDs includes together with the bindings change;
-> - Added support for a reset table to the mtk-wdt driver. This allows us
->    to decouple reset IDs from device trees from reset bits and lets us
->    describe correctly the non-contiguous reset bits of mt8167;
-> - Improved explanations in commit messages.
+> AP[1] is one of the bits used to encode the indirected permissions.
+> Since for hVHE this is always 0 we only configure the subset of
+> indirected permissions that the system is expected to use.
 > 
-> Changes in v3 [3]:
-> - Improved explanations in the commit messages;
-> - Added the #reset-cells property to mt6589 watchdog node;
-> - Included the mediatek,mt6589-resets.h file in mt6589.dtsi;
-> - Included the mediatek,mt8167-resets.h file in mt8167.dtsi;
-> - Moved the mmsys reset table from the mt8167-mmsys.h header file to
->    the mmsys driver implementation.
+> With permission indirection read and write permissions must be encoded
+> in the bits used by S1PIE, set DBM for writable mappings.  Only do this
+> when using S1PIE, the hypervisor does not otherwise use DBM so no
+> existing hypervisor code sets that bit.  Since the meaning is assigned
+> via S1PIE this does not actually enable DBM, the mappings we configure
+> just grant write permission.
 > 
-> Changes in v2 [2]:
-> - Sashiko pointed out correctly a missing entry in the mmsys reset table
->    in the last patch.
+> In order to enable S1PIE we also need to configure TCR2_EL2 which is
+> currently only done in __finalise_el2 which is VHE only, do so when the
+> register is present.  When running in nVHE we leave TCR2_EL2.PIE
+> disabled.  This ensures we have an explicit configuration for TCR2_EL2
+> when it is present in the system.
+>
+> For simplicity we unconditionally initialise PIR_EL2 and PIRE0_EL2 if
+> FEAT_S1PIE is present, this will have no effect in nVHE mode since we
+> set TCR2_EL2.PIE to 0.
 > 
-> Initial version: [1]
+> This should have no practical impact other than causing any unexpected
+> encodings to map to no permissions instead of their default
+> meanings.
+
+What default meanings?
+
+> It will mean that the configuration is closer to that in VHE mode, and
+> will be required for future work enabling features like D128 and GCS
+> which are only available via indirection.
 > 
-> [1] https://lore.kernel.org/linux-mediatek/20260717151134.678839-1-l.scorcia@gmail.com/
-> [2] https://lore.kernel.org/linux-mediatek/20260717163959.714561-1-l.scorcia@gmail.com/
-> [3] https://lore.kernel.org/linux-mediatek/20260809160643.33991-1-l.scorcia@gmail.com/
-> [4] https://lore.kernel.org/linux-mediatek/20260819101853.44681-1-l.scorcia@gmail.com/
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+> Changes in v2:
+> - Rebase onto v7.3-rc2.
+> - Don't bother cleaning up TCR2_EL2 on hypervisor exit, and squash the
+>   handling into the S1PIE patch.
+> - Remove support for nVHE mode.
+> - Link to v1: https://patch.msgid.link/20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org
+> ---
+>  arch/arm64/include/asm/kvm_arm.h     | 19 +++++++++++++++++++
+>  arch/arm64/include/asm/kvm_asm.h     |  1 +
+>  arch/arm64/include/asm/kvm_pgtable.h |  1 +
+>  arch/arm64/kernel/asm-offsets.c      |  1 +
+>  arch/arm64/kvm/arm.c                 |  8 +++++++-
+>  arch/arm64/kvm/hyp/nvhe/hyp-init.S   | 16 ++++++++++++++--
+>  arch/arm64/kvm/hyp/pgtable.c         |  8 ++++++++
+>  7 files changed, 51 insertions(+), 3 deletions(-)
 > 
-> Luca Leonardo Scorcia (8):
->    watchdog: mediatek: Add wdt/toprgu resets for mt6589
->    arm: dts: mediatek: mt6589: Enable toprgu reset controller
->    dt-bindings: watchdog: Add compatible for MediaTek mt8167
->    watchdog: mediatek: Add support for mt8167 toprgu/watchdog
->    arm64: dts: mt8167: Properly describe the SoC watchdog resets
->    dt-bindings: reset: Add mmsys reset ids for mt8167
->    soc: mediatek: mtk-mmsys: Add resets for mt8167
->    arm64: dts: mt8167: Add support for mmsys resets
-> 
->   .../bindings/watchdog/mediatek,mtk-wdt.yaml   |  1 +
->   arch/arm/boot/dts/mediatek/mt6589.dtsi        |  1 +
->   arch/arm64/boot/dts/mediatek/mt8167.dtsi      |  9 ++++
->   drivers/soc/mediatek/mt8167-mmsys.h           |  3 ++
->   drivers/soc/mediatek/mtk-mmsys.c              | 38 +++++++++++++
->   drivers/watchdog/mtk_wdt.c                    | 54 +++++++++++++++++--
->   .../dt-bindings/reset/mediatek,mt8167-mmsys.h | 35 ++++++++++++
->   .../dt-bindings/reset/mediatek,mt8167-wdt.h   | 21 ++++++++
->   8 files changed, 157 insertions(+), 5 deletions(-)
->   create mode 100644 include/dt-bindings/reset/mediatek,mt8167-mmsys.h
->   create mode 100644 include/dt-bindings/reset/mediatek,mt8167-wdt.h
-> 
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 4bfbd827c5aa..eecac91d41e4 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -345,4 +345,23 @@
+>  #define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+>  				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+>  
+> +/*
+> + * Permission indirection configuration for the hVHE hypervisor when
+> + * we have FEAT_S1PIE. Like the host kernel we configure a mapping
+> + * mostly equivalent to the non-PIE meanings of the bits so the
+> + * page table manipulation code needs minimal updates for PIE.
+> + *
+> + * These mappings are minimal with only things used from the
+> + * hVHE hypervisor, nVHE is not supported.  Write permission is
+> + * controlled via DBM.
+
+They are controlled by PIIndex[1]. Yes, this is the same bit. No, this
+doesn't mean the same thing. When PIE is enabled, DBM is in the PIE
+register.
+
+> + */
+> +
+> +#define KVM_HYP_PIR_IDX(uxn, pxn, dbm, ap1) (((uxn) << 3) | ((pxn) << 2) | \
+> +					     ((dbm) << 1) | (ap1))
+> +
+
+This is not what these bits are called. They are just PIIndex[] bits.
+
+> +#define KVM_HVHE_PIR_EL2 (						\
+> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(0, 0, 0, 0), PIE_RX)	|	\
+> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(1, 1, 0, 0), PIE_R)	|	\
+> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(1, 1, 1, 0), PIE_RW))
+> +
+>  #endif /* __ARM64_KVM_ARM_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index e5b92ac09e69..eb796436d6eb 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -208,6 +208,7 @@ extern void *__vhe_undefined_symbol;
+>  struct kvm_nvhe_init_params {
+>  	unsigned long mair_el2;
+>  	unsigned long tcr_el2;
+> +	unsigned long tcr2_el2;
+>  	unsigned long tpidr_el2;
+>  	unsigned long stack_hyp_va;
+>  	unsigned long stack_pa;
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 41a8687938eb..7b1b7ab3e88e 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -93,6 +93,7 @@ typedef u64 kvm_pte_t;
+>  
+>  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+>  
+> +#define KVM_PTE_LEAF_ATTR_HI_S1_DBM	BIT(51)
+>  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+>  
+>  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+> index 9c853ed3ceab..baffe58015d6 100644
+> --- a/arch/arm64/kernel/asm-offsets.c
+> +++ b/arch/arm64/kernel/asm-offsets.c
+> @@ -118,6 +118,7 @@ int main(void)
+>    DEFINE(HOST_DATA_CONTEXT,	offsetof(struct kvm_host_data, host_ctxt));
+>    DEFINE(NVHE_INIT_MAIR_EL2,	offsetof(struct kvm_nvhe_init_params, mair_el2));
+>    DEFINE(NVHE_INIT_TCR_EL2,	offsetof(struct kvm_nvhe_init_params, tcr_el2));
+> +  DEFINE(NVHE_INIT_TCR2_EL2,	offsetof(struct kvm_nvhe_init_params, tcr2_el2));
+>    DEFINE(NVHE_INIT_TPIDR_EL2,	offsetof(struct kvm_nvhe_init_params, tpidr_el2));
+>    DEFINE(NVHE_INIT_STACK_HYP_VA,	offsetof(struct kvm_nvhe_init_params, stack_hyp_va));
+>    DEFINE(NVHE_INIT_PGD_PA,	offsetof(struct kvm_nvhe_init_params, pgd_pa));
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8b080804bc90..607a6f808b1c 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2158,7 +2158,7 @@ static int kvm_init_vector_slots(void)
+>  static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+>  {
+>  	struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
+> -	unsigned long tcr;
+> +	unsigned long tcr, tcr2;
+>  
+>  	/*
+>  	 * Calculate the raw per-cpu offset without a translation from the
+> @@ -2186,6 +2186,12 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+>  	tcr |= TCR_T0SZ(hyp_va_bits);
+>  	params->tcr_el2 = tcr;
+>  
+> +	tcr2 = 0;
+> +	if (cpus_have_final_cap(ARM64_HAS_S1PIE) &&
+> +	    cpus_have_final_cap(ARM64_KVM_HVHE))
+> +		tcr2 |= TCR2_EL2_PIE;
+> +	params->tcr2_el2 = tcr2;
+> +
+>  	params->pgd_pa = kvm_mmu_get_httbr();
+>  	if (is_protected_kvm_enabled())
+>  		params->hcr_el2 = HCR_HOST_NVHE_PROTECTED_FLAGS;
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> index 0b3e0b28dfc7..cd5b75c8776f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> @@ -137,8 +137,20 @@ alternative_if ARM64_HAS_CNP
+>  alternative_else_nop_endif
+>  	msr	ttbr0_el2, x2
+>  
+> -	ldr	x0, [x0, #NVHE_INIT_TCR_EL2]
+> -	msr	tcr_el2, x0
+> +	ldr	x1, [x0, #NVHE_INIT_TCR_EL2]
+> +	msr	tcr_el2, x1
+> +
+> +alternative_if ARM64_HAS_S1PIE
+> +	/* S1PIE is only enabled with TCR2_EL2.PIE if we are running hVHE */
+> +	mov_q	x1, KVM_HVHE_PIR_EL2
+> +	msr	REG_PIR_EL2, x1
+> +	msr	REG_PIRE0_EL2, xzr
+> +alternative_else_nop_endif
+> +
+> +alternative_if ARM64_HAS_TCR2
+> +	ldr	x1, [x0, #NVHE_INIT_TCR2_EL2]
+> +	msr	REG_TCR2_EL2, x1
+> +alternative_else_nop_endif
+
+S1PIE implies TCR2. Why the additional alternatives?
+
+>  
+>  	isb
+>  
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index b74dd5ce1efd..5276c2874fe0 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -349,6 +349,14 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
+>  
+>  		if (system_supports_bti_kernel())
+>  			attr |= KVM_PTE_LEAF_ATTR_HI_S1_GP;
+> +	} else if (cpus_have_final_cap(ARM64_HAS_S1PIE) &&
+> +		   cpus_have_final_cap(ARM64_KVM_HVHE) &&
+> +		   (prot & KVM_PGTABLE_PROT_W)) {
+> +		/*
+> +		 * When using S1PIE for hVHE set DBM for writable
+> +		 * mappings since AP[2] is ineffective.
+
+It's not ineffective. It doesn't exist! See R_JJNHR.
+
+This is totally obfuscating what is really going on, which is really
+simple. We have 4 permission index bits in the PTE, and the both the
+code and comments should reflect that.
+
+> +		 */
+> +		attr |= KVM_PTE_LEAF_ATTR_HI_S1_DBM;
+
+So this sets PIIndex[1]. But It isn't obvious how this takes us from
+R(0x8) to RW(0xC). Where is PIIndex[3] coming from? It is supplied by
+the code following through the UXN/PXN bbits, but it is mind-boggling
+that we should rely on something deals with non-execution to control
+the *READ* permission.
+
+TBH, I think this is completely going the wrong way. Why can't we
+write this as a discrete enumeration of the permission combination we
+support (all 3 of them), and map that to the correct index?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
