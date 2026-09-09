@@ -4,179 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A3DC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F60AC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d11XfEQvgY45SsNFB70TXQ0CCgmUwSOx7F/402TuTSE=; b=n/hELM4TuN6QG/b0uGt0lUDSA5
-	lQ58GaqkpeWXJbrp4jTHfruwuWhMtKDGjoOZaltNT9dQs3duGaEPWKhYB0bIACGmsW286It61g5VY
-	pnTmCn661uchIcpWLIxwKIrpb0qOVSzKbbi6hKiiqyIgL8YS0Ss0y4sqHDuQ66Zi1YHQCKjOET+7D
-	PKNZz1PvlKXTGHYOkMW00tCqmPlAsIzLukW+aBEM5j3hVJ0+tIxgNNlwPGEN60jPEg4CQ2vvIV1i4
-	HokNXss5S7q4lEw2c9cSEddm3FaENz5b+LzKOKwZKtjeazoO8MNied9BfXTE8QR1Tfh7LQeSnZREw
-	j/DxYecA==;
+	bh=zU/6Na4dqA0J2BYOCLRIkJqexaaO4GxOSZKrPedaYjk=; b=PZlyqi9KZOa1YpatNgNqFkAtdX
+	ARMa2C7gnqAHJb5zyLhtpsRAiyeBI56IYo8/GjfPKxA4UBwnVKljd88fWG8mzMOIkA+6tPesua8M0
+	ZrYyV/G+3T8Azs6WyvRUbW2o2OoT3KCVsNk3R8YAGwP0Nmk9w6OQVkLfS3LN1om6ZvDUaUUIRvwTd
+	YQoAbaONAtYXKKMmJCJN81OJxKfJig277fVD4Izf4eASJueoXYBVPO0aarcDxG3Y6wvAcmK9eoAUu
+	yJ9CBilvMYv5sqAMbSdyB8gBeP7YkTCM8P0MEPAHBzxUIfmt21FyfbuH654Z4WhgbNSmf6Z5RdzOC
+	K9JFwLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Fki-0000000BSdM-22bQ;
-	Wed, 09 Sep 2026 10:42:04 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1x4FoT-0000000BT9J-1OxN;
+	Wed, 09 Sep 2026 10:45:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Fkf-0000000BScX-2XIu
+	id 1x4FoR-0000000BT8i-42LI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:42:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788950521; x=1820486521;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=cD7G4KwWbgwE/BdlOWxi6aypz9mE+GkNpMEbkBsserY=;
-  b=gY1gmS+2LSpCs4CsEfEZ2JtBPDnxiBc2mAd3s80kgHXoBe9nNmOQn3bS
-   TFXFQJYXkaHCwEnYuhm0UX75JfN4N6PaKdhuGIX/YvdAml3b1x3RQmMqL
-   hG3Cie5dl+RllOKxWXi8H9HaWhNwXNJ4yEPFWiUWG8gbqTjoGCNxAl+oo
-   L6yJfEHxEm/Za4S5U7uYCR9f5StbKozJ7n7I1Dup5N0OWM40NEZB/IAhL
-   sjMby43xYrzv8P8KpYp240Qfkz6Y/8ZHfOEkO8FVbdcoNxA6LV5X553yU
-   RqZiOsbx6EklfheU5s9Gv53Tn4iNvGveUgwnp5NVSuSoMGglP8ycV//bv
-   g==;
-X-CSE-ConnectionGUID: H5T1o3AeSji5QFLF9WZbow==
-X-CSE-MsgGUID: HxXxeiWqSM+LUd10xnr6Yw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="88518748"
-X-IronPort-AV: E=Sophos;i="6.25,270,1779174000"; 
-   d="scan'208";a="88518748"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2026 03:36:30 -0700
-X-CSE-ConnectionGUID: L+c5/jK/S06FbU5ObWCZ9g==
-X-CSE-MsgGUID: bFe+K2FQTbqzlXPa5fPW/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,270,1779174000"; 
-   d="scan'208";a="266996899"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2026 03:36:23 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 03:36:22 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Wed, 9 Sep 2026 03:36:22 -0700
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.62)
- by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 03:36:22 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nFUL9Z8tw625bXl+9me7om3bBEfmpysCNB+1s7xop820CQt0oicV3g0UBB4+dMM7JyyCi8o3jLeBM0n5w6S6aJXyoAfSCymIqv+TtC+qckMlTBHEznqToOAC6FnNzrnodD4+sGJizuMfKExA8KnfNbfbDc27QuAIcWozL8C2FfL/1Pme0AzlbGwlBsu02cIp7oV8CDaKTYonTbnOmwBQL2ispl7eZ/n/Vcn6il8Oy7vGTZuTpCEXLIDzvC1RhowiQqBLeYXezNwDtqdZisSVm/goYI/i/lfLPODscYBmLgewL7XH1ynWud93wdjW4z5j2j4s9WzRZJzo1bM/Rdmi8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d11XfEQvgY45SsNFB70TXQ0CCgmUwSOx7F/402TuTSE=;
- b=AKMkOYBZNZ7/ksfw3rQAGOvuPVe+jN6ZYWn3JfGE8K+UffKtBPa5ANbWkAaWuCzZvPUz5cnDNOTeaPwtc1GYAjwY0xZMS2DDTIe7c6SVZkC5dQcvLE0ZlsBW/pRAVO57xU7FMWe6ASQ0pB3uTlk1ZgWd6vDsF5MJ/wSh2fxpUzKpFZXpEV5a1Sts/LUSmO3HykAg0uMZLa8Uea3f29M9NllJdQsbV7jgS5hr723Y1zg1Qrk0+EJPdQK6K3meoQL0sJBRuqBfZ8oKskEGzQOICY7W4539wTWOo8rOV9K1KsExBcjtTrOSKEgCicKirviTFoDprMrB2KfkPnHzawLjng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by MN2PR11MB4632.namprd11.prod.outlook.com (2603:10b6:208:24f::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
- 10:36:20 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
- 10:36:19 +0000
-Message-ID: <2d7a6e8b-029a-4b9e-b7d4-8b7e96ea6aa0@intel.com>
-Date: Wed, 9 Sep 2026 13:36:14 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] mmc: sdhci-of-at91: add LAN969x support
-To: Robert Marko <robert.marko@sartura.hr>, <ulfh@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <aubin.constans@microchip.com>,
-	<ehristev@kernel.org>, <linux-mmc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <luka.perkov@sartura.hr>
-References: <20260907132617.1198548-1-robert.marko@sartura.hr>
- <20260907132617.1198548-4-robert.marko@sartura.hr>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20260907132617.1198548-4-robert.marko@sartura.hr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DB9PR06CA0011.eurprd06.prod.outlook.com
- (2603:10a6:10:1db::16) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Wed, 09 Sep 2026 10:45:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B6576020C;
+	Wed,  9 Sep 2026 10:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 016461F00A3A;
+	Wed,  9 Sep 2026 10:45:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788950754;
+	bh=zU/6Na4dqA0J2BYOCLRIkJqexaaO4GxOSZKrPedaYjk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hIkjTtUO5cFe3pq3/3ludV47z1AdJSEyKwsTrj4d+cY669joSijwpJsaNSE/ONJTh
+	 C+MoAhZmn2dceL8rxbzoNw4pbmFOZx9UmxiRM6+EUQifV+57wWqxfbPDiro9+fty8k
+	 7uwjbtvdWfxEZflWsxJc+uor9byX8RlATyZa0tTh+E35jcRMdhFFvoXPawl5zqvYH2
+	 JSciQvP3+DGEuTpKp8MJYY6u48f+hP85JJhr1hhSIg8zPhi3fqo6TSt632CCQWUM8r
+	 Jt+Tm/t8ymVHtsD21LpcLyfW4CprpZ9XJj32QpBfEqtL9z1/Eb3WmDKeboygFxVIN7
+	 1bzEOShfKSPVQ==
+Date: Wed, 9 Sep 2026 11:45:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	Frank.Li@kernel.org, robin.murphy@arm.com,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
+Message-ID: <aqE42NzerAiD2U1E@squawk>
+References: <20260907-retorted-unfasten-e985a6d4f26f@spud>
+ <20260909060512.3524983-1-Jelly.Jia@cixtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MN2PR11MB4632:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a63572b-cd65-4ccc-7705-08df0e5e2f83
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|23010399003|376014|1800799024|921020|22082099003|18002099003|11063799006|4143699003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: gQEsIhKxcjt/pF5ziFeW+sYPQzOsPGqbMUyCNATnl2nM+RRb7qhir9ECsijzKsNFKxdTVvnK6w16s5rwUHevazAQY4MZhvAmx+qkNdlGcX6b9GyFAbvPxUmnbVs/HIIewx7lYiAGRuF1iOfdwUvJWnui/vEY15VnUuqrCE/IotAzGWAf6rWketCobO19lFnvxXgrTwIe1P3PTPBfqnJ8Zb1vYVVRsxBlfGDQkgSRKodGjN6zpoPRjVe64cnfZHBVY9aWdcMSbn0Yi1+lNmlBr6ybDq57BlrE1piRjbTT4ptImPch6n1O3RUMz0ahfTnwePOU++pZJ0WhAH0/foghkb1IGtGrBpOcFrXwz4hBDJIjwN8XgUZQ6cyUiLqQx8cTFFGN6cKPzAtzEWzG7Af1DSm6ZVfLTFaTCseXEy0dEsVi3iAWoUeiPqLMMiZbBxI0sPm/2dRqT+ghz6LxrbTNpjWFReastxU61eamdZUFNnbfoTiIeO0rLIz7R2XFXfaJzu8TJN5zJ+4+J3I8Wkb7y0I+zoP6i6pDa1JkTaQFRqOYiZfAM0aVvtrWWT8ZEVaEcBFo4XYLjApmL2rdXrhbdb0a3HMTwkTD24sJXkAE7hoPIutJmWq6ThfZ1hdBk1qRHS6qEHn+jL5pqmDc0VqUgfvYOAFzAU11rjj0olHp9x97R6Cs7uqdEq9m3A0YNw9XpgzMvPjPGFceS0grcD8nzA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(23010399003)(376014)(1800799024)(921020)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q01ETTFJOW5hM2JqV0FUcFF2VDhhSU5jN1o2YzRQRGZaRElyVkVNYVBMTklF?=
- =?utf-8?B?LzkrWW9DODhjUHArelh3VWlNT25TTmkyaDE0UmVvbHNHQi9BUU8zRkpqZWh3?=
- =?utf-8?B?RnFBWDE3K1J5T3VINWlycW1EZmtGUnNlSXhQc3hPY2dKTHZFcmw3RDM1SDdT?=
- =?utf-8?B?bWN6SDdlUWxvT1NzZDAyZ0J0eGhVeXhQT1RRN2RUNnFNeDN4SzZ5UkxVS0dn?=
- =?utf-8?B?WUpjN3RUeXZqOVA0YzgwR3NpRjlIRHh6VWRLOWhab0RaazF2cS95UTNxcUtn?=
- =?utf-8?B?Mm5aNGJ1OEkyM29GdVA4UU1vbklkb2huSGhOOFgyb3IvVWduenh3Zy9ocStN?=
- =?utf-8?B?a0hqY2JTTmRWVFlFZlVYcHFIVzQ4RzdpQ0NjaEQ0NFVHUFVuNE9neC95b2Mx?=
- =?utf-8?B?ZE9uSGR5L25zS1NRN0t1NHd2UTZxZ29QUjVaOU45QjVTUUhoUzkwYmVxdXlH?=
- =?utf-8?B?SW0zaWxsRm5WUDNhMStCWlZCbGE0WUtTTVZKdmFKQUFNTmtyY0l6MTJvSmhB?=
- =?utf-8?B?ZWwxVmlKbHlsV3JNV0I4R2RFUmJWeTJtU0tRVkVpb2ZPQkFmZnFiSzFGenZz?=
- =?utf-8?B?cFBRNGM5L2lXeFVNOE4vZXlHL1pxM3ZPdVM4d0hmUndWMGpsSlhPMnNwZGNH?=
- =?utf-8?B?ZzU3Qm1OZkZETFVYQmlaN0toMmY0QkVwd0FTUGc3N2Nsc1o0VHlnQzBwZ1RP?=
- =?utf-8?B?alkzOTF2NlpYc0RSVENSbmIyMEt1a1N6NlZlb0FBWWZBcTV6cERuWHpPMXoz?=
- =?utf-8?B?MTRjK0hFZHdhbFdvQjFhTHprbFNueENac0xzZnJiSTFza29wNFlxZ1lNNEND?=
- =?utf-8?B?K1Y4UVplRlN5a1pzNGJvRXFPQWRsQWxaMCthVmpJaUVxYWtlNmxSaDZxV2Fv?=
- =?utf-8?B?ZXVWaFZOMjFZejJneVlJT2RYcUlESWJCOTk1azJoSzBiVHVRWW5TL3FBV1hl?=
- =?utf-8?B?L3NOMXpWZFAxWkpFN1dBdGZmbDg3NFBZUjl5eTlPTS9FcHpvVXN5dnZ1WFBW?=
- =?utf-8?B?a0NLaFIvWFc2amhUcE1YWlZCWWZpV3J0bGNwcVJmekYzSzhQbkc0c2JIMlpS?=
- =?utf-8?B?d0M2U0c0azJWL1ROck43UEJ5Z2dtZUdqRTA1N1h6UFp5MzYxUWhEMHNrMkZ6?=
- =?utf-8?B?T0g3K0p4UDJYMmxkVndqbkJGdmYrcmlzRFE0SVVIM01saHR4KzJVK1BrTFl4?=
- =?utf-8?B?WkUrcFFTdlBLdzBndGtGNFVlZC9oQzZtVnVySDRveHRMaUhqRUZ5elRyTHlP?=
- =?utf-8?B?dXpGWlVxbnhpRHZqOFlQVHVGTUFoZ1M2aWdERXBZS1pWamNxWnBTTi9MRldz?=
- =?utf-8?B?VHArSU14S3VaVm9oKzBFR0MweitiWmk0dHBoTFk0QVJtUEl1TXVSZW9iZmZh?=
- =?utf-8?B?dlJzYlcrVlFONHJZbGZjd1E1M0Rlc1JNaWFqcHRjcENmck1TN3dtKzdhQUxh?=
- =?utf-8?B?UkEydkwzMVBMTVBHdDN1Z1ZQK1plWVpRNyswWXNzelJyRHpMdExXcnIxa3Vn?=
- =?utf-8?B?RWRTWW5EemF2NCtrRjcvaDJ5V3NiNEVoaWFXdlZMeFNURVZyL0l6azNSYXNq?=
- =?utf-8?B?OFNCS0dhOFZaRTdmajNEcXh5TkFlQS9Hb3AvT0l1V2lKVXBWQWRKdlF1bmFC?=
- =?utf-8?B?RWlNU2UxSlBPRFNFcjl0Umd2ejBCRVNHbmVQT2RtcFFyeXh6aHNyeFhGNTBT?=
- =?utf-8?B?ZkRHMXNHekJvd0VSY1UxUWYzVEZYaFRoZmVKSUlkZ2diSUU5dGd5V08xQXVJ?=
- =?utf-8?B?bDFwbDBrL3dyZDhLWkd5ZWpOaUt4Sk1yQ1lYYmpKcTJGOVluTXF5MlNJMTlR?=
- =?utf-8?B?bjZoWmFlUGhISjJjRkp4TXhTMWdERnB3NzZWZVV2Q2lMOTM5TDRvV3R0Rjhz?=
- =?utf-8?B?RDJzNUk0UXBldHJ0bFZlZmFvbFNEL2xsazBxNTkwb2RERW5KR1pkcklIMEs3?=
- =?utf-8?B?SDQ5QncwdFZVN2RHd3g1QzZScnQwZFAyMDZ6dkh4WVJHdnpkMzI2aEVPc2pS?=
- =?utf-8?B?UFF0RDRaVmtpRlZ2NEdmZ2NqSmtBWHBYaG1rb1ZmZEJqZDB1QmhsODVtL3lj?=
- =?utf-8?B?ZHBPdlZsQUN3S0szVlBCUGFXVWRVZGk2dmJGYzVtekhiQlpPSkFvYmN6QS90?=
- =?utf-8?B?WUo1UEZCbjQ4N1FKMGV4QXZtczFXUlVPV1RNc2ZubE1SUkF3MnIvTlJiSytn?=
- =?utf-8?B?WVgrclN4aHVOREJJN01LazlUYXhpdGJscXVmaEVZTUczT0RVNmlGcDJJendI?=
- =?utf-8?B?aUV1ZytnK3NQam0rSFVBbkg5UGptWjNhMDFkUWV4bHJMN2F3a2dscXFLb0Ew?=
- =?utf-8?B?ZzNSWldBSlh4eEtCb0VBVE9KckI2ejNsaW5YSW1lQThVZ2NsRVgrZkpoVU5z?=
- =?utf-8?Q?kwGeDW6Wo06r4wk0=3D?=
-X-Exchange-RoutingPolicyChecked: m0N6/APghA1e+YXrDZPuDw25MkEzd1LWEjlptmnU57AhO+tJVzdwptdcK0ruqi19Pl6cMFHLJSD1D+TaP1cq34McoFxJ/AeBYcIHRI0PP9X8v6+AI7kRdBSfDCoKQEWHMWrJGVPjMvKB9cRmbft/wt56xCxAI79ozsN1fJOOmlcNhZZMTC8EDQSC1fq1N62F4+VpKn4wVBLGXRku6i1S9FJ+rvEaiu8l3bZk+3dd61TbaH9q5I0+TV3Io/69Cwvjp6gyL5MZJc8EiaqmI+guq0A82KYBvueIWVg6P+BzW4uUgUsvrSVdaBXnLcVSvd+3eMUync1yHbT2I5woUUvKBw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a63572b-cd65-4ccc-7705-08df0e5e2f83
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 10:36:19.8749
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OiStR0QdXZH4GIrhd4IlCs6lLkyao/2pzEHZEWYg6/SMtyJbs9qYC3gw2ZJrLhMA3i0IxTlcgw27D+MhLqQKLA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4632
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_034201_694763_B30ECDD5 
-X-CRM114-Status: GOOD (  19.53  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iS2/TDiTYr3NoP2p"
+Content-Disposition: inline
+In-Reply-To: <20260909060512.3524983-1-Jelly.Jia@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,52 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/09/2026 16:25, Robert Marko wrote:
-> LAN969x uses the same internally generated base clock layout as SAM9X60,
-> but its SDMMC controller stops responding when runtime PM gates its clocks.
-> Software resets then fail to complete and the internal SDHCI clock never
-> stabilises, causing subsequent I/O requests to time out.
+--iS2/TDiTYr3NoP2p
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Is this a known issue of the SoC?  Is there perhaps a hardware reset
-for the controller that would bring it back to life?
+On Wed, Sep 09, 2026 at 02:05:12PM +0800, Jelly Jia wrote:
+> Hi Conor,
+>=20
+> Thanks for the review.
+>=20
+> > I cannot really speak to whether this is a correct thing to do with a
+> > dma-350, but it seems to me like something that should be resolved with
+> > a device specific comaptible in the dma-350 node. Someone more familar
+> > with the IP will have to comment on that.
+>=20
+> The wrapper is there to keep the platform integration bits (clocks,
+> resets, interrupt routing) out of the generic driver: the arm-dma-350
+> child stays plain so the existing driver binds to it unchanged. I don't
+> know whether other dma350 integrations need the same resources, so I
+> did not want to push them into the generic node.
 
-Does that mean unbind and rebind of the device from the driver
-also does not work?
+Don't worry about this, given the limited extent of the wrapper driver,
+at worst you will end up with a different probe function. The specific
+compatible that you'll use will prevent the code relating to these
+resources running on other platforms.
 
-> 
-> Add LAN969x-specific SoC data using the SAM9X60 clock layout and select the
-> option to leave its clocks enabled across runtime suspend.
-> 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> 
->  drivers/mmc/host/sdhci-of-at91.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
-> index b7e2a89da348..e7affca8da25 100644
-> --- a/drivers/mmc/host/sdhci-of-at91.c
-> +++ b/drivers/mmc/host/sdhci-of-at91.c
-> @@ -158,9 +158,17 @@ static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
->  	.divider_for_baseclk = 2,
->  };
->  
-> +static const struct sdhci_at91_soc_data soc_data_lan969x = {
-> +	.pdata = &sdhci_sama5d2_pdata,
-> +	.baseclk_is_generated_internally = true,
+Thanks,
+Conor.
 
-Should be a comment here explaining the issue that needs
-keep_clks_on = true
+>=20
+> > However I would like to know how this impacts the existing dma-350 in he
+> > sky1 devicetree.
+>=20
+> Patch 5 converts the existing FCH node to this form: the register window
+> and the eight GIC interrupts are unchanged, the arm-dma-350 controller
+> becomes the dma-controller@0 child, and the SCMI clock feeding the
+> instance is added. The AUDSS instance is new. I'll describe this
+> conversion in the patch 5 commit message in v2.
+>=20
+> Best regards,
+> Jelly
 
-> +	.keep_clks_on = true,
-> +	.divider_for_baseclk = 2,
-> +};
-> +
->  static const struct of_device_id sdhci_at91_dt_match[] = {
->  	{ .compatible = "atmel,sama5d2-sdhci", .data = &soc_data_sama5d2 },
->  	{ .compatible = "microchip,sam9x60-sdhci", .data = &soc_data_sam9x60 },
-> +	{ .compatible = "microchip,lan9691-sdhci", .data = &soc_data_lan969x },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
+--iS2/TDiTYr3NoP2p
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqE42AAKCRB4tDGHoIJi
+0mo0AP4kPtLTFrpjSRLG2RYgU/IfafjOKjTpdvgvhwgA249n0AD/TYV6bJ1cMdC8
+IDbJBAKvwxNQmda76KdU7osiKS364Q4=
+=o2Gy
+-----END PGP SIGNATURE-----
+
+--iS2/TDiTYr3NoP2p--
 
