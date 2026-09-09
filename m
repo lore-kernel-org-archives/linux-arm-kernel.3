@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AA0C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E03C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/GozqjNS+nZPh3bi2McJn9aAUjQnsCr44GxKeRYmsw=; b=Jc1RoZ3G4BXMSx3FtdF/7ULld7
-	uZXdnH7dpRmS8soIaMN2IxziBKbVH7x8K/DG20Ojob3cCInnFlIOIvjqpRyDhGUVSblAxf8lmhz0i
-	i0PnKopzxr/GV8F5oaHxSRdjhPrDsnVoBPYFzUIsLjyJa8122bibC6ENXqFFe9Db1f8lZdAAxCpfv
-	dHHYfsgKPDy440nuy0uQ1tz9Jt1mgB1lDf3es1n0jBaKITu122wLR1fwjnkozSXaxHU5Qv73tCRKC
-	Pht8aRp56AjNSgfG1iJAFBT3/F4liU84upZIaOD3aupSu5GgYWxaJMeF6Gw3X/MTgdFBcs5s2VZYc
-	+76P1wzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CtmdG6WXQsfL+iqlX99cR+kUk06H7B+pqUNW8uqAW5c=; b=Ys2/rT1N4uYP4e5wDR1tM504eO
+	YUzFXY4f0ysm/FBieTv0jvN9v9FBxaUbkDuv1JKFzmC77XWH4LE05HND3e+y0+dHCa1tsQ3m0Q63N
+	IXFN3sBe4XTZbxW4p6R3WY+lE8MU5xSwaUSuivz7ptvN7mAeFknG4vsha/x6NP9dtzX0gJLL/Br8/
+	j0w/W8lLK1peesVsNAKq+zVsKVOkmwPsaSeSDCaiqxUuL9im+tLgXGjzj6x8McSOs6iWEIGYC4Q/T
+	cP2ZyHGGtfvTsz6MIoYAageRqQbU9xqvUcarllEnp/UDjF+XXJk2xX7QeS13uUnPHqnrttxZk4kBy
+	DvvaHB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LRj-0000000CNap-2XDX;
-	Wed, 09 Sep 2026 16:46:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LRh-0000000CNa9-2ENA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 16:46:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93B001576;
-	Wed,  9 Sep 2026 09:46:44 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B4E13F7B4;
-	Wed,  9 Sep 2026 09:46:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788972408; bh=4TndDloq+AItaLXnNBU8qh1Mw2UhLyfnZXaiWE4jPS4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V1AFUPNbuhEBKiobjWPCp0b95i41n6A+WoUJXxXvM++FWfL4/j3EOHDrJGD+SPn3c
-	 20IMLCfCHD+cyIdQz7CdP9HkJfcWRYNjApsYOoa8Xt0TTcnmYISnSwqro8mN85mAdJ
-	 QC80g7Yd0j9M/g9UPcA6bRQiiAJ/2suPHIZKPp34=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Subject: Re: [PATCH v20 10/14] KVM: selftests: arm64: Add GCS registers to get-reg-list
-Date: Wed,  9 Sep 2026 17:46:43 +0100
-Message-ID: <aqGNc5zg0iRWNU_j@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901-arm64-gcs-v20-10-f31750bdfadb@kernel.org>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-10-f31750bdfadb@kernel.org>
+	id 1x4LUa-0000000CO3Q-45vB;
+	Wed, 09 Sep 2026 16:49:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4LUV-0000000CO2s-15CB;
+	Wed, 09 Sep 2026 16:49:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A12B6600CB;
+	Wed,  9 Sep 2026 16:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5152E1F000FF;
+	Wed,  9 Sep 2026 16:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788972582;
+	bh=CtmdG6WXQsfL+iqlX99cR+kUk06H7B+pqUNW8uqAW5c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BDdimfjC4kJnh2nelU1CQ87s2cKn5KwuSGaFlUT8TuCSMQzYokvf+LtOMEvQUEJWP
+	 sJlkaFF2WM8ocTVMTycl/89Ej7MkFfAgRO3h1+jhPeAXMVy3E2kPACtmZsDulf8HrF
+	 R6l+0vE+M3sfXKNSGZtXxMb97JoFsiqtknCNNxOWxYmsKI1rNK2W8UD869cAQ4N7Ds
+	 jy9GvYpnUsqi0jKPlNrNqTN9/LOaEbFnmXKa8eoP5UY7jXCey7kyZrfa7vc5NLdnAJ
+	 WH9dWyjEEaeNOQTmaF9JVMqCTPDVPtTncEbha3YfI4w2a/sZsdJoKXa/VCX9cgW304
+	 IG1iAcKx5xwIQ==
+Date: Wed, 9 Sep 2026 18:49:31 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Jonas Karlman <jonas@kwiboo.se>, Frank Wang <frank.wang@rock-chips.com>, 
+	Louis Chauvet <louis.chauvet@bootlin.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v1 0/2] phy: rockchip: inno-usb2: fix USB gadget
+ hot-plug on peripheral-only OTG ports
+Message-ID: <6ly7ywoptz5ipixy65mh4bibf6cqj237nxa6ujuy23o3rvql3l@zxceopmephl3>
+References: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_094649_659630_E824A34B 
-X-CRM114-Status: GOOD (  15.25  )
+In-Reply-To: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +75,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:47:08PM +0100, Mark Brown wrote:
-> GCS adds new registers GCSCR_ELx, GCSCRE0_EL1 and GCSPR_ELx. Add
-> these to those validated by get-reg-list.
+On Tue, Jul 07, 2026 at 12:36:25AM +0200, Andreas Zdziarstek wrote:
+> Hi All,
 > 
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  tools/testing/selftests/kvm/arm64/get-reg-list.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+> I had an interesting time trying out the USB OTG micro-USB port on the
+> Odroid-M1S (Rockchip RK3566) on the mainline Kernel. My intention was to
+> set up a cdc_ncm+cdc_acm peripheral gadget as a hot-pluggable debug
+> port.
 > 
-> diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> index 533994687b5d..5c1469153b6c 100644
-> --- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> @@ -42,6 +42,12 @@ struct feature_id_reg {
->  static struct feature_id_reg feat_id_regs[] = {
->  	REG_FEAT(TCR2_EL1,	ID_AA64MMFR3_EL1, TCRX, IMP),
->  	REG_FEAT(TCR2_EL2,	ID_AA64MMFR3_EL1, TCRX, IMP),
-> +	REG_FEAT(GCSPR_EL0,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSPR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSPR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCRE0_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCR_EL1,	ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FEAT(GCSCR_EL2,	ID_AA64PFR1_EL1, GCS, IMP),
->  	REG_FEAT(PIRE0_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
->  	REG_FEAT(PIRE0_EL2,	ID_AA64MMFR3_EL1, S1PIE, IMP),
->  	REG_FEAT(PIR_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
-> @@ -503,6 +509,9 @@ static __u64 base_regs[] = {
->  	ARM64_SYS_REG(3, 0, 2, 0, 1),	/* TTBR1_EL1 */
->  	ARM64_SYS_REG(3, 0, 2, 0, 2),	/* TCR_EL1 */
->  	ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 0),	/* GCSCR_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 1),	/* GCSPR_EL1 */
-> +	ARM64_SYS_REG(3, 0, 2, 5, 2),	/* GCSCRE0_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 1, 0),	/* AFSR0_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 1, 1),	/* AFSR1_EL1 */
->  	ARM64_SYS_REG(3, 0, 5, 2, 0),	/* ESR_EL1 */
-> @@ -519,6 +528,7 @@ static __u64 base_regs[] = {
->  	ARM64_SYS_REG(3, 0, 13, 0, 4),	/* TPIDR_EL1 */
->  	ARM64_SYS_REG(3, 0, 14, 1, 0),	/* CNTKCTL_EL1 */
->  	ARM64_SYS_REG(3, 2, 0, 0, 0),	/* CSSELR_EL1 */
-> +	ARM64_SYS_REG(3, 3, 2, 5, 1),	/* GCSPR_EL0 */
->  	ARM64_SYS_REG(3, 3, 10, 2, 4),	/* POR_EL0 */
->  	ARM64_SYS_REG(3, 3, 13, 0, 2),	/* TPIDR_EL0 */
->  	ARM64_SYS_REG(3, 3, 13, 0, 3),	/* TPIDRRO_EL0 */
-> @@ -740,6 +750,8 @@ static __u64 el2_regs[] = {
->  	SYS_REG(VTTBR_EL2),
->  	SYS_REG(VTCR_EL2),
->  	SYS_REG(VNCR_EL2),
-> +	SYS_REG(GCSPR_EL2),
-> +	SYS_REG(GCSCR_EL2),
->  	SYS_REG(HDFGRTR2_EL2),
->  	SYS_REG(HDFGWTR2_EL2),
->  	SYS_REG(HFGRTR2_EL2),
+> For the most part that went swimmingly. Just not quite with the
+> hot-plugging. The apparent first problem was that peripheral mode only
+> works if the host is connected at boot time of the RK3566 Kernel,
+> regardless if the dr_mode settings is "otg" or "peripheral". When no
+> connection is present at boot, gadget setup fails with a
+> "failed to enable ep0out" error and the port seems to end up in an
+> unrecoverable state afterwards.
+> 
+> I investigated a little as to why. With my very limited understanding
+> of the subsystems involved, I think I have identified some problems.
+> All seem largely related to each other.
+> 
+> * The M1S references its 5V OTG VBUS switch as phy-supply of the OTG
+>   port in its DT. The phy core unconditionally enables that on phy
+>   power_on. From then on it powers its own VBUSDET input, making further
+>   cable VBUS detection impossible. Also, apparently, after reading the
+>   schematic, that means even with a cable connected at boot (and
+>   peripheral mode therefore working), the board will try to back-power
+>   the host. Seems my host port is pretty robust, luckily.
+> * The inno-usb2 driver seems to generally lack DRP power supply VBUS
+>   switching support? At least PHY and VBUS supply are semantically
+>   treated the same.
+> * The inno-usb2 driver's state machine powers off the Phy in several
+>   places: on an initial no-VBUS sample, on DCP detection and on
+>   disconnect. That seems to happen unrelated to controller-initiated
+>   phy_power_on/off calls and looks like the main cause the gadget setup
+>   fails and then borks the controller state.
+> 
+> My proposed fixes are in two places:
+> 
+> * set the micro-USB M1S port to "peripheral" in DTS and remove the
+>   supply node. The board has two USB-A host ports, so device mode is the
+>   most likely usage scenario for the microUSB and real compliant DRP
+>   does not seem to be in the cards in the current state. Also, this
+>   fixes the potentially harmful back-powering issue. (2nd patch)
+> * keep the inno-usb2 phy driver from autonomously powering off when in
+>   peripheral mode. This makes hot-plugging and gadget-setup without a
+>   connected cable work. (1st patch)
 > 
 
-Checked the IDs, everything seems correct.
+I'm not an USB expert, but your proposed fix does cause high power consumption
+by keeping PHY always ON even when the cable is not connected.
 
-Thanks!
-Leo
+To fix this issue properly, first I would investigate whether
+rockchip_usb2phy_power_on() is called during cable connect or not and also at
+the right time i.e., before the DWC3 gadget driver starts to drive the
+interface. If there is a race here, it would still cause the interface to be not
+up.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
