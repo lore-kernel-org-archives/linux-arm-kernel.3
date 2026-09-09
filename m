@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52321C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81A8C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWWl36l+kSSIfXjjs43bn9G6WA3Ypw8Y0smzTmvKDFk=; b=S4SmWT+4RbkWw9YlOH6F8Lw2dq
-	gAjK8OSPl8POfWr8TAWHYat47D2gX7T8GE+po0RJkS2R9Gx9oY3A3vSWkHX4k96Q2U2AF54uKTjbe
-	UpMGuzjxae3a0x+RkZB2pJg5z2XWBLUW6lM7+BAZO4sysEFiK92kWuhWxp/EGlUxtPPX78MsogNQ6
-	M90zgaQ5XLmUzXpFYvHZEC5rLofIKQyA/YOn5IYFkVQ4XCXxjzuuAgUZZK+NPE1oHNGkxEwwYHYlQ
-	Gp6Fw3ckd17qR/YDEaGsnp3cHX9DDyxZQmjqk75Loat0EtcV8r92bIuf/3D0F3c+6yooTKc84N8r3
-	7oITFhIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jiAuFX2yhbVwIrEUDOjZptkJ10gfAcRfLWBSK+Ulw8s=; b=XX0+tCjfg4JdYVY0/WK/5Le28z
+	UQi1nIhrlXKbqRpQ9Whu3JoAuWboBlsN7loEsxW6uo8iEzwGGG93MmzO1hahbJiCX0xrThTu9t4J6
+	LniEhxaeJV0NND/dPUWFNyfN7ViAl3ohwuffzZfINZUXrpebcRkiP0ecGX1YfTTQNwzWwHcS7JF+M
+	4JfZ8Bong7MoZgG6gC8PIQ7w13pbbsgb2Xldpa5J36btt4AcTeKVrsy5O+MU4zkcjTfEyVM3jTsOd
+	Wdu8JLWUtRr7+odWCVZzYlGRjGYCDDY8E8o12PJkdT98bL+x+wMptXvVYMmgPh7O+Hc4BiC5QLomE
+	rPMIESNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4K0Z-0000000C6h1-1c3f;
-	Wed, 09 Sep 2026 15:14:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4K2H-0000000C75c-08sd;
+	Wed, 09 Sep 2026 15:16:29 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4K0X-0000000C6g5-1Xmg;
-	Wed, 09 Sep 2026 15:14:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8FC9601EF;
-	Wed,  9 Sep 2026 15:14:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F1311F00A3A;
-	Wed,  9 Sep 2026 15:14:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788966880;
-	bh=SWWl36l+kSSIfXjjs43bn9G6WA3Ypw8Y0smzTmvKDFk=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=fvP3xlxOqrifu76NmZO+YiYlUB2RhQulCVFW4MwwwwErLJsE20TGGcMoSMbDRT4et
-	 hfsOTdOwuCswBL9oBjrqq5eTZwmtrWp1IwbKLxz/zeu48S6zSBwyVfFJd6H/SZfhoY
-	 SdwAeLboV3BtSWW8L+xSH6SvdXBGeFIBAhyqTRNVDEwd1tj2QBC2tgLEveywRhxunQ
-	 c6wSgnawqWxr0A1QOofuXLNbBRw6g+f/xbGyOc/OlKceDnw5nDxyJSEgmMPlyMta2T
-	 Hyb5vfiER9UdQrZDRMeojskYlF0SVYQRAC7zuaEUQMegi86Pn7l/aArvLIr88/3c3i
-	 hSD3V62ornSOw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 4ED71CE0850; Wed,  9 Sep 2026 08:14:40 -0700 (PDT)
-Date: Wed, 9 Sep 2026 08:14:40 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [BUG/PATCH] drivers/usb/mtu3: Work around mtu3_log_ep
- double-indirection issue
-Message-ID: <0e929dba-7ff9-4d3e-800e-4a77dbd84c8b@paulmck-laptop>
-References: <a3ee0655-d818-48e0-84d1-475e6c16c991@paulmck-laptop>
- <d7bb2cf4-11c3-468c-8749-99cc408299c7@arm.com>
- <b6c621eb-6d20-4e00-ac05-af122b630ca5@paulmck-laptop>
- <20260909093417.4880999e@gandalf.local.home>
+	id 1x4K2E-0000000C74s-2yem
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 15:16:28 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4hg4CC4vN5zMlBf;
+	Wed, 09 Sep 2026 17:16:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788966983;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jiAuFX2yhbVwIrEUDOjZptkJ10gfAcRfLWBSK+Ulw8s=;
+	b=oHcGB58PEAY/eEODVUCOsfVRTJnW1I9HX6A3MoE/KJeN/ZmBVbQ8bA0IzGAcVvUZPevYaE
+	Eky9UDQPE5GKe6hb8RcOWAJm1KjwmpRYw5wvwCi4VoEk5fQdf2/hTrVXQoXA96Iob42dmp
+	g41jXMpQyzrA88r9qZwlrZd6uM1Y4f/mgtILMJa8wqtexLnBEQh/yuD8HUbS0jslls54uA
+	dW51cgs5oX3ICW8H4AmygyrlnHYP41rz0aR1/aooKWTVEUiJ4+7RZvmn7FTgAvMjo2zRKz
+	BcfUmOMlYHDN5u6sfSAOiSaOlmYF7TPSfkAbKMS6M0lQ9ledeviikUbZuqyjWw==
+Message-ID: <c784aab5-c0c9-424f-9f9d-a0330f60a0ef@mailbox.org>
+Date: Wed, 9 Sep 2026 17:16:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909093417.4880999e@gandalf.local.home>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for
+ WaveShare 2CH CANFD HAT
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260808025724.131943-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
+ <f82ae578-fbe7-4834-bdde-d11e194a507f@mailbox.org>
+ <CAMuHMdXQKL_srr80mUmsnznqJ_qxAoh0TdwyvJ41=CN=2pDjCQ@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdXQKL_srr80mUmsnznqJ_qxAoh0TdwyvJ41=CN=2pDjCQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: yt4hfwetehfwg91nxg36oikoca5amr3u
+X-MBO-RS-ID: 18cd9288ed520fa562f
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_081626_905866_7882CC06 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +81,74 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 09:34:17AM -0400, Steven Rostedt wrote:
-> On Tue, 8 Sep 2026 11:08:33 -0700
-> "Paul E. McKenney" <paulmck@kernel.org> wrote:
-> 
-> > > > Apparently, the code should instead create another entry in
-> > > > TP_STRUCT__entry(), and do the double-indirection TP_fast_assign() instead
-> > > > of TP_printk().  But simply removing the offending double indirection
-> > > > in TP_printk() gets this splat out of the way of other debugging.  
-> > > 
-> > > Indeed, splat has gone after applying the patch.
-> > > 
-> > > Thanks
-> > > Vladimir  
-> > 
-> > Does this less hacky patch do the trick?
-> 
-> Nope!
-> 
-> 
-> > diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
-> > index 89870175d63561..6477ad3ddc66f6 100644
-> > --- a/drivers/usb/mtu3/mtu3_trace.h
-> > +++ b/drivers/usb/mtu3/mtu3_trace.h
-> > @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
-> >  		__field(unsigned int, flags)
-> >  		__field(unsigned int, direction)
-> >  		__field(struct mtu3_gpd_ring *, gpd_ring)
-> > +		__field(dma_addr_t *, gpd_ring_dma)
-> >  	),
-> >  	TP_fast_assign(
-> >  		__assign_str(name);
-> > @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
-> >  		__entry->flags = mep->flags;
-> >  		__entry->direction = mep->is_in;
-> >  		__entry->gpd_ring = &mep->gpd_ring;
-> > +		__entry->gpd_ring_dma = &mep->gpd_ring->dma;
-> 
-> You are still saving the address of some memory into the ring buffer.
-> 
-> 
-> >  	),
-> >  	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
->                                                                         ^^^^
-> 
-> That %pad dereferences the pointer passed to it.
-> 
-> >  		__get_str(name), usb_ep_type_string(__entry->type),
-> >  		__entry->maxp, __entry->slot,
-> >  		__entry->mult, __entry->maxburst,
-> > -		__entry->gpd_ring, &__entry->gpd_ring->dma,
-> > +		__entry->gpd_ring, __entry->gpd_ring_dma,
-> 
-> That will read the address saved in the ring buffer and dereference it.
-> 
-> Remember, the above TP_fast_assign() logic gets executed when the
-> tracepoint is triggered. The TP_printk() is executed when the user reads
-> the trace buffer. That could be seconds, minutes, hours, days, even months
-> later!
-> 
-> You can't trust that the memory you are dereferencing will not be freed
-> when the user reads the trace.
-> 
-> The original patch is not hacky. It is actually the correct way of handling
-> this.
+On 9/9/26 9:56 AM, Geert Uytterhoeven wrote:
 
-Very well, "git revert" followed by "git cherry-pick" of the original.
-Or someone can feel free to pull in the original from earlier in this
-thread.
+Hello Geert,
 
-Either way, thank you!
+> On Tue, 8 Sept 2026 at 19:02, Marek Vasut <marek.vasut@mailbox.org> wrote:
+>> On 9/8/26 2:02 PM, Geert Uytterhoeven wrote:
+>>>> +&pfc {
+>>>> +       msiof0_pins: spi-ws-2ch-canfd0 {        /* SPI_0 */
+>>>
+>>> Node name should be "msiof0".
+>>
+>> Do we also have to fix up
+>> arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts this:
+>>
+>> "
+>>    755         msiof1_pins: sound {
+>>                             ^^^^^
+>> "
+>> ?
+> 
+> Might be a good idea, to increase consistency.
 
-							Thanx, Paul
+Submitted as
 
-> -- Steve
+[PATCH] arm64: dts: renesas: sparrow-hawk: Align MSIOF1 PFC node name 
+with label
+
+>> But I wonder, shouldn't the DTOs contain unique pinmux node names, which
+>> cannot accidentally overlap with the base DT or other DTO node names ?
 > 
+> In general, the answer is yes.
+> In this case it is about pin control subnodes. If the base DTS already
+> uses msiof0, its original user needs to be disabled by the overlay
+> anyway.
+
+The original DTS does not use MSIOF0 .
+
+I think the proper solution here would be DT connector ?
+
+>>>> +               groups = "msiof0_clk", "msiof0_txd", "msiof0_rxd";
+>>>> +               function = "msiof0";
+>>>> +       };
+>>>> +};
+>>>> +
+>>>> +/*
+>>>> + * PWM1 uses PWM1_B pin configuration for pin GP2_13. This conflicts
+>>>> + * with SPI_1 CE_1 signal which is also on pin GP2_13. Disable PWM1
+>>>> + * in case this hat is in use.
+>>>> + */
+>>>> +&pwm1 {
+>>>> +       status = "disabled";
+>>>> +};
+>>>
+>>> Please move this node disabling pwm1 to the top, for compatibility
+>>> with dynamic DT overlays.
+>> Could you expand on that a bit ? What difference does the placement of
+>> this node make within the DTSO ? Please pardon my ignorance.
 > 
-> >  		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
-> >  		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
-> >  		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
-> 
+> In case of a dynamic overlay, pwm1 must be disabled before SPI_1 is
+> probed.  Otherwise the latter will fail with -EBUSY due to the
+> conflicting pin being still in use.
+
+TIL, thank you.
+
+-- 
+Best regards,
+Marek Vasut
 
