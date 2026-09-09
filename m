@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF68C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FE0C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZDvF9mi528xRDbkT0RZ9EfBD5t2cfkdz03k0WhiM1U=; b=YXxww7jLKhTFKoCvsAsehrUz7/
-	rG2h5HUWL0NpG1be52WT5i2Do8ropGvMsEp4kzIkzkkgyhC3h+K9XdLyYpWxaaX0Ab0VEl9WO7nrW
-	Rmp+O22U2dGznbBwaKYikTL0eIaYXihLttVK4o33VE8WBD7oZ1H1NpDSBR2gtAR0NF2m1nG64tbMI
-	+ZlOipDOerBk3aQDMFTjMhmqmroqn92ZZTJ26gCUnAaRXtTV0Ob7qmfOoMjwvhytIMnJnJZLrzYA/
-	Ow3ro6zMv7d2AaCB5vy7k61Rbb/ccZQ+HATbfK7mZlnd1ls6Vc0OYz3mFTfRP6xFYonYzGPlw9Zyr
-	qtj8chuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TdxIn0BZ6mG5tW5oexMUWl9FnSMl6rOPl062FM+q3lY=; b=KYdW/zL3LHbrDE2ysCvQM/JZAM
+	L/14poKYzB5KfezSpcGQ7m6Z+SHGOOav9Naf50Qfr6SyV4r54cGyQrqwQEyv4UOQywl8v9kiwta+z
+	yU88/V++RNmYl40XavQpjfJeEDPNtgaLWUeRiVDXg1l+bfpU3REMA88KZ6BH+avSWOkdEWVXu7dEj
+	9QsRqLoeoxxJUQBMT6O27fH5qZf5BbqJesh2SMqMywDj8S2Vhd+xuAf+f1RjbZ/9tx180i59aDDYO
+	Abhb6a1OwqzoS4PzSX+3soXcATBMb5zFpch3qkzQApXhsyJhqXsUqr3W0+Z9MAbAf29yXBnJG2e4N
+	Ss27dryw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4I87-0000000BlNS-0x4j;
-	Wed, 09 Sep 2026 13:14:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x4I8C-0000000BlOv-2YZd;
+	Wed, 09 Sep 2026 13:14:28 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4I85-0000000BlMo-2kP5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 13:14:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hZDvF9mi528xRDbkT0RZ9EfBD5t2cfkdz03k0WhiM1U=; b=ihU8Daeub9rsgC1qoX+WTtPoIy
-	fGW9+56Jy0DAiYbKW589aYu0OIa8wTURggq0eNPMRoX8muggfbLlyQlrrWnA0AutBp41VzdycKmya
-	p5KekcJHKana4W7F0pztyJ/xLJquUhIZOs2eoyCK8f6qgL6f5U5O8AAH7fhBjQTXvcwA/9QJh4sbP
-	ZKr1fIVcF3l2vKVVzhnrB7Dl6Y5CH9hiDua1q0T3OmOsa4uka9s+SEmDDrtJ2AzLLcynG+dkXYthQ
-	cKe13jtbaMTSWiHQHnWtckUCozHf+m8GSKgOjYdZ7kleKAwnm2Qmf2D/Jhyjsw1RvS8LJOuDQ8VAz
-	8NV7IfcQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4I80-00000005gw5-13Hn;
-	Wed, 09 Sep 2026 13:14:18 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id C8588300A9A; Wed, 09 Sep 2026 15:14:15 +0200 (CEST)
-Date: Wed, 9 Sep 2026 15:14:15 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Andrea Righi <arighi@nvidia.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
- Olympus
-Message-ID: <20260909131415.GB4120091@noisy.programming.kicks-ass.net>
-References: <20260909062649.469633-1-arighi@nvidia.com>
+	id 1x4I86-0000000BlMs-1WqA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 13:14:23 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cfbbdfa60bso50909855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:14:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788959661; x=1789564461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TdxIn0BZ6mG5tW5oexMUWl9FnSMl6rOPl062FM+q3lY=;
+        b=WhjpqvWakJYRFFdItsul4Aam1bLk94uyUbD6zZmUt0DFAZMquT8b5SMwBeSsqzj1j1
+         OUObVAYOmfZ72uhgfO0oaCx+9Ri4kvgB+8rKouGx50JmnObUZYl9Cj3gV59hKrkIvqTr
+         ecbj9v9TdzgfMOKycPKuKhLrYUYmMqeIkLTZd6IvYbNk5/K+Pihld7/eE6vpqsdQZ7R4
+         5b+tkwIVF39vYET11eNhfC6zgJ5b6TWElVtDlVBN6kCMUrUIrmSkmrO/CwocPmiBvDTF
+         NkiDmPqTH48AAlZNVnQj3HOhuCVHL5gCKKhJItMyaiOOMjOfzg++qdtoPinSQfN5MBXb
+         un2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788959661; x=1789564461;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TdxIn0BZ6mG5tW5oexMUWl9FnSMl6rOPl062FM+q3lY=;
+        b=mhcGykm7zb+5X2lR7suHyfrqgGT8gIuiMjjVrfd7wDNh/SA3aefXaRNjmqMktME7/m
+         eJAEBc+RK8WdPYJutGn2mtY9qH6sPP6blDMHzIksqlnblKk+jkiUxU+FeW2dITOwuErb
+         EsfmVrBsBKIdMtBVpKwdSCYQmZYUOeBEViCXBrDLwu+cgCIfhNRVl7I/3bGfQyFBGLQl
+         EorP9JQm8RY3VrSn3Th4GLHHvLx8HMwevu0YlcBZRjWGQzl+J7S1Jlr1XxZ9vl1uO5xk
+         TcR/7rn62GvdfdDAOqp/XBNQ/lUJJPiFyCPtB1D2IXoC6GWoRzzSZM5UAcFnMVJ2KxAT
+         esjw==
+X-Forwarded-Encrypted: i=1; AKwUvBwwcbDb0mxlgWMihvDELX3ePn6DuV6hHiIF6RE2n2BzzIbt6ACo5aE+ut4uypEfxgISWlG5ilNEbcxoY5Iry9gR@lists.infradead.org
+X-Gm-Message-State: AFuF++mscgVKNeydduLPJw4AafZNr1Vd24mOsOVQ51jt0d2vrnkNk9Q5
+	GNAf+D5hhHXgPMz7tHnYoL4OQ4oxbUOonKfpcki5gSNppPBtaKUFabo5
+X-Gm-Gg: AYBFou1cWcPvkvNLUUrK/Cmby3GXVC2wKS0X+IQy98Pj3WG4/xRfrufUBmk9hEhwhE5
+	51HJTFDcyKYrAhCyYPvOLcrXS5plN4pgH0apcVzxHuqm5N1keaL/6b4Xj1533EFtf2Hn8i478Uy
+	5QpJcPljk84ndEDTMbxZhlMydLBq4P59UwDJ0PZjWg8WRwX0AAMy7h+Kp3vb8ECcXC4nCnl2tDZ
+	qnb7zGNPxnbeDrnf0ff7DDI201NTVRz/Wfcgno9LFykKzryePeeHx8B5V4j1vEKuR7BYxbiZ/XA
+	RssTPb5022CnhWvPF9WF98WSnsie8PKN2miHMjZich2u+ncR+RIlvUYwPF6zcq4hkumPRjQ3VmV
+	CmPJVQTA4InIWWROvZsPDwGk3w/r2m55KU0Zx47Sb+dzIgpUPTJdWQKbUvfE0pO1OgtD+U6e+Pn
+	rncb5aa36XlXwob8qK/MQg8pkDt11R4i4MwYxzliHjLtPF5aKU6zxMBJofi88CpylyhS0=
+X-Received: by 2002:a17:903:2c9:b0:2c9:e846:a57e with SMTP id d9443c01a7336-2db12147668mr533464705ad.0.1788959660640;
+        Wed, 09 Sep 2026 06:14:20 -0700 (PDT)
+Received: from zynq-vm.. ([101.71.232.51])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14ae8af3sm72283255ad.80.2026.09.09.06.14.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 06:14:20 -0700 (PDT)
+From: shaopeijie@gmail.com
+To: sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	michal.simek@amd.com
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Peijie Shao <shaopeijie@gmail.com>
+Subject: [PATCH] clk: clocking-wizard: Fix overflow in clockout0 divisor calculation
+Date: Wed,  9 Sep 2026 21:14:12 +0800
+Message-Id: <20260909131412.3051635-1-shaopeijie@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909062649.469633-1-arighi@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_061422_425826_CBDCADD9 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 08:26:07AM +0200, Andrea Righi wrote:
+From: Peijie Shao <shaopeijie@gmail.com>
 
-> Andrea Righi (2):
->       arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
->       sched/fair: Honor asymmetric SMT priority in idle selection
-> 
->  arch/arm64/include/asm/topology.h |  1 +
->  arch/arm64/kernel/smp.c           |  1 +
->  arch/arm64/kernel/topology.c      | 51 +++++++++++++++++++++++
->  kernel/sched/fair.c               | 85 +++++++++++++++++++++++++++++++--------
->  kernel/sched/sched.h              |  6 +++
->  kernel/sched/topology.c           | 36 +++++++++++++++++
->  6 files changed, 163 insertions(+), 17 deletions(-)
+On 32-bit platforms (e.g., Zynq 7000 series), parent_rate * 1000
+may overflow, leading to incorrect divisor calculation.
 
-I tentatively picked these up, but I need an arm64 ack before I can
-merge them, and ideally vingu will bless them too :-)
+The issue was first found on Zynq7020 with "parent_rate=1GHz"
+and "xlnx,nr-outputs=2".
+
+Cast parent_rate to u64 and use the ULL version of DIV_ROUND*
+instead.
+
+Signed-off-by: Peijie Shao <shaopeijie@gmail.com>
+---
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+index edf8c0eaca27..5abbc6b83b72 100644
+--- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
++++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+@@ -881,10 +881,10 @@ static int clk_wzrd_dynamic_reconfig_f(struct clk_hw *hw, unsigned long rate,
+ 	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
+ 	void __iomem *div_addr = divider->base + divider->offset;
+ 
+-	rate_div = DIV_ROUND_DOWN_ULL(parent_rate * 1000, rate);
++	rate_div = DIV_ROUND_DOWN_ULL((u64)parent_rate * 1000, rate);
+ 	clockout0_div = rate_div / 1000;
+ 
+-	pre = DIV_ROUND_CLOSEST((parent_rate * 1000), rate);
++	pre = DIV_ROUND_CLOSEST_ULL((u64)parent_rate * 1000, rate);
+ 	f = (u32)(pre - (clockout0_div * 1000));
+ 	f = f & WZRD_CLKOUT_FRAC_MASK;
+ 	f = f << WZRD_CLKOUT_DIVIDE_WIDTH;
+-- 
+2.43.5
+
 
