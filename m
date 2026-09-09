@@ -4,172 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8EBC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6937AC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6z0vb7jFmVZwRL61UmhAH1J2R42fJJdVb15beRTLwfM=; b=bfgjAapVWKd8a/L4VAlFktOvUV
-	/ZSB+wpFxTbo0yS+2TMlCgot8PIp+Dsf7686iWlPQMz7OLcidC6JX4CRuDrZPTy/cdX7sCZ5Lk+jz
-	0+KNtsLy/lXgJQ+8zZJEKvgGH8FX8+WIkWpO3xJj5e+lyXU8gTodMwE13SS7o4S+LEObzMbwf8pwQ
-	RNrQ+OoPwwpzzsvd2rNVzKdV7advetzp0Vcju3fJ2javS4+RbmTjDzTDd1lcz41DF714l8W0I36rR
-	Zn6K31c6nYAF48X41XgXo99MI0JByUNAbB8QyYT0fk0cNHt4A4l6v5qYfkMEdXsJX12W3UM9eAVpy
-	vRcXh5AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iLxABrejSUqDTt1/QHDrlHY0R8rI0yqLu3zIX8J+ing=; b=4PalL0SegbaBLbh1WUfCL99RTy
+	Dos7cSNyJErh2ocD3+f9rI0H3oxUgPKltLv9Wg1bKVpjDJ+2dF26Q6NmuE7OLEbpAOECb5uEM+jEE
+	9fb4qIIiZhMmeRASLj+6YB4U+XR4t6WZUMzj2Xc8114QTKElToOyJNJkzu6AP5M2hafBLg4G4EMlc
+	upifXrZx1Ra0cClf7+meCpp7R0VGpphwrZhQRuoA3l7nlz8rnczgLs4Znp96SuqoWQvk48mySKvuG
+	IEpQWXNmKHI0i9fro4UY06aaTdA4yaf9/+wkZbCy26CMWyXldUQsxsVF7H3iMipJPUYwxw0lv3Oop
+	JsybZb/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JQD-0000000C0ar-0BmM;
-	Wed, 09 Sep 2026 14:37:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4JST-0000000C0zS-1tyh;
+	Wed, 09 Sep 2026 14:39:29 +0000
+Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JQB-0000000C0ag-3qXw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 14:37:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6z0vb7jFmVZwRL61UmhAH1J2R42fJJdVb15beRTLwfM=; b=BqZPq+T4D6FL2jaGRulPQDMFlG
-	HVbspUdUv4d6vgCUVMh7Gol3229SUDj4sg/KmydtDG0ZzZx65816PFxkQx1i/5XGzqBxfq5WaDHoO
-	oMvuPoEM40CcmCbKXj8bt6+qtZM5oEONp/T+jkxWPTg520T5hHyvOYe4UT0DG6B1kEaugjfUYEGP2
-	Em99XbBHaDfv3O2g7EKS5asUDT+RHcgUg7tgLYgGVvYONAgape+myF+W8YSf6CAPgt7B0qxtjPqEV
-	QrIsdwdxHL5wWGN+0sZ/He1WsmGWAzMp2qDzvo3VmN2m4v5W4n3aQTGiAlVMKXU/wizssiohmEs26
-	7+CD7Zpg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4JQ8-00000001J7l-3d48
+	id 1x4JSR-0000000C0yu-2Iwo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:37:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788964622;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=6z0vb7jFmVZwRL61UmhAH1J2R42fJJdVb15beRTLwfM=;
-	b=UjmRnded83ikLDdM0IDvfjIoNCOC/t/pvTR1SCv2DbGQ4wSJtT7av/9cONQjPyXkxbcXjY
-	x18/uNhZSDnafsHydzCwjFVDf7j5R5nwjvuTAXfbRieiozCdJIjEEWCeV+xawAKS4WRU8j
-	pFN9jkdIJv2XcpHd6wAU2pO+kLcWR1Y=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788964623;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=6z0vb7jFmVZwRL61UmhAH1J2R42fJJdVb15beRTLwfM=;
-	b=F1z9iintEuvyhM/OYjZGu4Kbq2Hn4lniV7Cxi4jvvCacVyCBKw0qLgo40hwWzLcr4Hbzc2
-	YjHQYZ/vN8o6ObdrKGzxcMw1uh4NzzsGXIP7MiHWqCpzzZ5t3MrSnLV5XWDpS6sfuvnljB
-	KHkJGtRy9YHFGDT0CjWHwc8mKWmK+8Y=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-260-MWk9VvKdOdWQjxQMkuHRJA-1; Wed, 09 Sep 2026 10:37:01 -0400
-X-MC-Unique: MWk9VvKdOdWQjxQMkuHRJA-1
-X-Mimecast-MFC-AGG-ID: MWk9VvKdOdWQjxQMkuHRJA_1788964620
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-49d0ae342b9so29950015e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:37:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788964620; x=1789569420;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6z0vb7jFmVZwRL61UmhAH1J2R42fJJdVb15beRTLwfM=;
-        b=Pmhxp1ofAB1KTV9WNgdnDj6wR+pgMYoXz+mBYLx99OqxMvGjqTLP+x+GsD1pdHRp7b
-         8LaorGczmbxcMwcsG9a5rtUW0IVOf3D+6SWzddZP0GsXqnp6Mxh54WgLlRQRWIitzkk8
-         cR09wT04vbW6yrf8v+c6higdCw00zndl/qrZ9orT7trGGAjQYo4MdLsNqCAu0uXzfv6U
-         u9y4LQnAp/QMLcYDRELFCMb6DktAX/JbKBjjGy0BiM06VvppDz6jTij2DB6o6ZadE2v1
-         +nEkfUUTxMfIucdAvg7SPDAGvydQPFTx7aKP41bO8lZZtAPeA0LP1GPzupIDxl2RIwUf
-         8AeA==
-X-Forwarded-Encrypted: i=1; AKwUvBzv306+b3T1rkyQDjBm5rNuUzj7vnGFntC+PcEPWFTixpseSIcvjchqdS7/9nWmwnasCafnPCgXW4nGIfaGVYeX@lists.infradead.org
-X-Gm-Message-State: AFuF++nQ2I7I87/jdZEMXQyJflJJVgXByVpDR/MtOk3ghYZ0TQbHOSUX
-	CyT4sNGLjlamQ1f0JCC6UkRQZFCp3qu+wdyvNwpF2FSXFulq5kDIEhk06iTeEePQ7lkfA/smWGk
-	9pY830Ju3G00aEISNcMnS8tqEb2GdtV5kP+ujQSxiuLsqq/cx7xGyJiH4Hv2e0oaVne28pzRI1v
-	1l
-X-Gm-Gg: AYBFou3vq0SvM8Ksj/extY6a1c7q8dBbnqqSjHyd8rWq8/K28MUPiXOCbxXnbFrq4Ko
-	gayhdjKfEVjAwxuM5qFe3CfE1KK47a3rkJx+wCpEnsy4YemNHLOwmbXq7bdg5xDULo45aM1i4mf
-	7k7sS8BytxjlK86KbcgDZQNd0RcZe+1UThdLEGLcPLgwSI4AQ0cT5yEqC9k4detGorwnRLLQZBh
-	zJCalpDeQ6k8KzcN+r+Xn7wORNfF/DOXtx1Ca8y/yeXFjQLmdDjnJPygUsmtP92XNeG9rHt3F8I
-	g6uJTJ/WPAnItIvOp24vE0vcZLAIFq4JwqhNPos40VAEXUJ/m5pNglnQMs0LIAs89UH9R7Ahzw=
-	=
-X-Received: by 2002:a05:600c:3588:b0:49c:fc6e:a3d7 with SMTP id 5b1f17b1804b1-49cfc6ea7d5mr340867405e9.22.1788964619789;
-        Wed, 09 Sep 2026 07:36:59 -0700 (PDT)
-X-Received: by 2002:a05:600c:3588:b0:49c:fc6e:a3d7 with SMTP id 5b1f17b1804b1-49cfc6ea7d5mr340867045e9.22.1788964619344;
-        Wed, 09 Sep 2026 07:36:59 -0700 (PDT)
-Received: from [192.168.0.9] ([47.64.114.243])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee80eda4sm559571965e9.15.2026.09.09.07.36.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 07:36:58 -0700 (PDT)
-Message-ID: <9926908a-5f08-43ba-99dd-b83c7067d52b@redhat.com>
-Date: Wed, 9 Sep 2026 16:36:57 +0200
+	Wed, 09 Sep 2026 14:39:28 +0000
+Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
+	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6893npgp1578475;
+	Wed, 9 Sep 2026 09:39:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=iLxABrejSUqDTt1/QH
+	DrlHY0R8rI0yqLu3zIX8J+ing=; b=TtGGPJ5I0/tPslm98C45xdSDDX/dh1/rcB
+	pw3p5/lg35GZ9vBnb7zGn4rqv/biZVYRNEcqWZMUl69bpug9HqiwXoZl8kJfLMOC
+	HK6z/SC+bc5cNuk3NFyhaHhSYlGP6E25W0jVz2raaeEOKOGD0X4ex2+lZ4f481II
+	Q6SzgKpFm4lcRdDxCQELcqGrHYoHLBGLAIlJM+te+d1hWkH18yQZuzopmECdNA0m
+	cl1Ts4zbYmCmAwqa5dc3X0xLASUd8cx86cky56sOBHJd8Q+V2u5m19Oe0Fm3E18X
+	bbnQPnIwhEzsdj/MEm/LSVgazVsEGuqf6bGzgDjKoGLkVzycQzsA==
+Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11020110.outbound.protection.outlook.com [52.101.85.110])
+	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4gggfwn796-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 09 Sep 2026 09:38:59 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GpD7cObPJDqnGtvmuWP964XJzEzwsVY0y0WXrUS4H2+U1cDIqPRJVilJj1LIGEjogh+zZR5gE5GEBOSvBiK79Gtr9uOKbpBiNzJ9iAmZchHlSUTmjatHAOMHLbiDTJ7rajWt9KNAcfTn6mTJFWJertUZcwiZJB3GarTqNgPFDZiMKCgXqMKuM0zmC88xW2tiPhyajY7umO7i2RhpEQvpbLtSiVOfHildYZb0QjWtqnW76+rC1469F0YnFuND74eQNN4U9nadO36fgIvU0wUw7n4EYdqOfGH0Po563YjGt4SlVfe1CJA/9w/pXbuA7iR7+cicnFD5yHmN81mA0SHXqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iLxABrejSUqDTt1/QHDrlHY0R8rI0yqLu3zIX8J+ing=;
+ b=lmDGFUjF3uYe7h9+K/15lCfvlvezMBk9wlrslgJgoTFcb9StZtZKADvvBWfetKXh8YqIgjBtFzB1tS5Jp//LmtenWjAf4pg317RDi5zLt5j28M2ySMhJN+vye/9eMCvsVq2HORziDy2C6cmQu7y8HRocfCJCIiKmQ7r9aqA1nyAK6/IoLiscXS9vdzUYqmgndj9khuBEceHXsUdBnB+KvUsP3J+hPnP2BlnsszMKKg/6bYxr1iqWQByxl9eYhcRlctY+v6iGMKOSdkZAR3KOKhXg4SC43I6cvA2BIT4XxumPGkMzJmYkO/NPohnnG0QVke7JmNVwGG6Try36kM4wwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=analog.com
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iLxABrejSUqDTt1/QHDrlHY0R8rI0yqLu3zIX8J+ing=;
+ b=FDUp0acaoiGa5YHU1dS686D9x1BxMdrgL8Bc4OOrtg2kNN5h/0OS+d8COpbSQ9SBhQgTHuyF3qFc81MotVwGe0smw/Q3oQl0tfmMoUI0YLS3kkV6Kx0TbyjOwIjYc3CCp7aUhHRP1hMultmL6i5F+o0uTuEJ/TaE2bdBNMgqOLU=
+Received: from PH5P220CA0011.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::11)
+ by AT6PR19MB679231.namprd19.prod.outlook.com (2603:10b6:170:10f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
+ 14:38:55 +0000
+Received: from SA2PEPF00003AE4.namprd02.prod.outlook.com
+ (2603:10b6:510:34a:cafe::71) by PH5P220CA0011.outlook.office365.com
+ (2603:10b6:510:34a::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Wed, 9
+ Sep 2026 14:38:55 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
+ smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ SA2PEPF00003AE4.mail.protection.outlook.com (10.167.248.4) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
+ via Frontend Transport; Wed, 9 Sep 2026 14:38:54 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id AF99B406543;
+	Wed,  9 Sep 2026 14:38:53 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 8F5E782024B;
+	Wed,  9 Sep 2026 14:38:53 +0000 (UTC)
+Date: Wed, 9 Sep 2026 15:38:52 +0100
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Arnd Bergmann <arnd@arndb.de>, Daniel Thompson <danielt@kernel.org>,
+        Jingoo Han <jingoohan1@gmail.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
+        Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Jonathan Cameron <jic23@kernel.org>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Pavel Machek <pavel@kernel.org>,
+        Michael Hennerich <michael.hennerich@analog.com>,
+        Support Opensource <support.opensource@diasemi.com>,
+        Sebastian Reichel <sre@kernel.org>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Helge Deller <deller@gmx.de>, dri-devel@lists.freedesktop.org,
+        linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-hwmon@vger.kernel.org,
+        patches@opensource.cirrus.com, linux-watchdog@vger.kernel.org,
+        linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
+        linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org,
+        linux-fbdev@vger.kernel.org, linux-sound@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 04/14] mfd: remove unused wm8400 driver
+Message-ID: <aqFvfMcocLR4qU7s@opensource.cirrus.com>
+References: <20260909132153.1596191-1-arnd@kernel.org>
+ <20260909132153.1596191-5-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
-To: Joachim Vandersmissen <git@jvdsn.com>,
- Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260303060509.246038-1-git@jvdsn.com>
- <abTuFto8Tc3mhRRe@gondor.apana.org.au>
- <64592fee-1956-4a70-a751-9ac3335cfc27@jvdsn.com>
-From: Thomas Huth <thuth@redhat.com>
-Autocrypt: addr=thuth@redhat.com; keydata=
- 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
-In-Reply-To: <64592fee-1956-4a70-a751-9ac3335cfc27@jvdsn.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: tjvoHZFpBlMiqGsSImyZUDWjz3p1YUxuoaKClV_U7cg_1788964620
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909132153.1596191-5-arnd@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE4:EE_|AT6PR19MB679231:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec7fac24-9101-4f11-927f-08df0e80133e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|7416014|376014|61400799027|4143699003|11063799006|56012099006|10067099003|16102099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: umTZJUeE244Ysy4jKRn57ca4h2aKB79jfm6ciPHGP5leBO5wHA28Nmy4JqBwfF9Uqh/ff5J7lbX0RWtuKdvsocfkylpRPGFX2Hw8HDYfF7W3yO+TYcGVL+Fajd+ognL01CmM+mNXv0RU9r+3AQ/7KSfLkyGEX8+Z0ElE1dreBCydVrKcIcoSaLP0s9UYt/qib1T9V0sOz+C784u/S1RcGzm+UpoGYqYiVEs/XGI+yKGvv16siiWoVVgNkiFWbhwCDc51eahMh+86LQWy3ZAxv00JvmWVGvgFAv09HVHb6TPT7HK5qMqijQI/D6wotW2/kygS//+vc9vgeld/oN6u+TNyQcZtjcA01cwLyraBl6BLIbU7w8rEophz/quN8zNRf3TSZGVZwxx7+lzHpVwYkyKgF9zKOTZjHGgMxV4Levsyb7BNSIELadD/OlxeGNBCygS7IP/duFM6ErzAw5fuCdw+6LS/8a7aLdZfXAeQ7hXvEU/O+KEjGeKL3QMA2DsxBrgQEx/jQ+0DluRtJuEbs7gHZ8xA2O0uCf+eUu41mVXa0saQlAXOPZKGd3zGe42owMIb4HH+nNA6uL176FOEk6+/dLhFZbTuAdjhdSqZd/O26c71x7CQmMgPfUW/WKbX4KQYjkYv6x8wNUjkCQ+l4efMhCfHSAiFAvOUwann9b1hyrhhgj/b9J9+Nutl98yQcOFhsLy270njZPvi7O44FQ==
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(7416014)(376014)(61400799027)(4143699003)(11063799006)(56012099006)(10067099003)(16102099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: W73cWf+nadA/TjwpKvQt3TuJx5pVAdLs1N5g52ywoVzP6/7gOfiBYcQDqfh/PBmEkBxKDq0NFwUrFM0OGDW3GtFzH355tgzjie/rX2UBmqj2yNRj6u505FSVRH0fToHeF5QsEYK+SMy4sF1IzYS6k9WdxoDImnQWGe9zIMN1OisW9qXBDA/0CwOB2sxE/1zLLbhiYHFZ+crj20416vGmLtm2C+O5M0BFjxkvKnp4kGTnzijDNDottAnTJfp+wF3o5wzBR/LuT5Fn92fEpIrXcxyD4b8/77QK+FDcfr2axvHkkrQGOfOZrkiEIKuE9g/fCyR3KMS7O6OSifpBKf5k7hqwxw5uvBGxEjHrqrqeadULKth63TLASklIvtdRGuJXTF+CMmt/vq9PBsXxAjmrxqSGiH+r8tVivEvhVrs2lN5WbYMoGOeiRJspmTJ2C2BD
+X-Exchange-RoutingPolicyChecked: eWFOBkeid2X4h02brkV7H0m+IyHpFtaCXGSSavq0O+VCN7eNoKFNvudS6UcGSqBnBt3ZlynMScvrmdPGau5d0T+AFZIq8Dxa7DNmn7Kh1e0v6rXQnYdgvrtyinlixbX7MuBIKesS64DVXi3o904xhFj0wMycYWKTppSdvpcx5qtLE6pGpEuQljf4kd9gSGbhbsGBbatP2mH0NuSFHL5ej1CluEp+rN+0jRvdFZKEIDWQe4mGLNnD4nDzcXAupNOsSCpspan+qqJoT8bSbkwAHwOF53pGmS1k3YgkAtVfDWFEyzD3wLqJyuF1S8tFbR1bdsWL07S/ChbIWQdQEOJO5w==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 14:38:54.8916
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec7fac24-9101-4f11-927f-08df0e80133e
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SA2PEPF00003AE4.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AT6PR19MB679231
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE2MyBTYWx0ZWRfXynIz4HG4D4sQ
+ MAOkhMS5r/Buiuc5nK6CHoF/KLLcibYq2FV8rnJ/OxmvXnKrVAZFGhUqS3JpzAjm7VorTzHDIgs
+ MgAH9215NzY/uPRmL/N0rnhtcLhcbuk=
+X-Proofpoint-ORIG-GUID: cQQGe3MGS0BJVNfkCGMGTzoPm8s29Xry
+X-Proofpoint-GUID: cQQGe3MGS0BJVNfkCGMGTzoPm8s29Xry
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE2MyBTYWx0ZWRfX43Pxx/TTOfCS
+ IhixKPi8xIbQpapsUfIpYMmbOObdn1D2rgvoLtG5wnECczjS8n34rJY/HXMTtjwnvC3MKz9EaY4
+ ujTyqv+iOV1lIUNWUJg9wZipVlSmB6Y8U9IxE3XVcz2TlPAKhTNJkmNxu0EXyFLeu3KhAZ999Bc
+ RsowwrOMMSL6Id/i+N3NINgR926EaGziIyk74HRGslz/q60npQVRz0V6LNt8zWQ91XenZ01a3ZY
+ HhsYn2Aobf8bZAB0va8b6r0F1pm11NicCMhYJvzWs2nlPomlJVi0TZVPDm6CIiEU3so23RNz1S1
+ p4Eu7TflpKaI0RMzavJQYyfZZwYEI4mj3iQVRGebaBE9IdWgE/LzZiNtBQe4jI9NSByGK6rLabj
+ yhFM16nAsobUDGhRe+2pc2GM47wskz5VydWQKw3kpQ8ucPXvCLsGMPg6v7VZQqFRLTeq376zUyl
+ qGOjXybQ+Z07ETUdWjA==
+X-Authority-Analysis: v=2.4 cv=fK4JG5ae c=1 sm=1 tr=0 ts=6aa16f83 cx=c_pps
+ a=54yuESksmrMaP3RwvbuPCA==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
+ a=w1d2syhTAAAA:8 a=3CKuFnzYrga0DEbIuDIA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_153705_092488_AF41E170 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260909_073927_607188_208C00ED 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,39 +182,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2026 01.43, Joachim Vandersmissen wrote:
-> Hi Herbert,
+On Wed, Sep 09, 2026 at 03:21:41PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> I don't think this one can be applied yet since dm-integrity still uses 
-> xxhash64 through the crypto API. This would break fips=1 systems that use it.
-
-Out of curiosity: Wouldn't such a system be FIPS-incompliant anyway? If 
-xxhash64 isn't FIPS-compliant, nobody should use it for dm-integrity there, 
-right? So I doubt that there are any systems out there that use fips=1 and 
-use xxhash64 at the same time?
-
-  Thomas
-
+> This driver requires a platform_data definition, which does not exist
+> in the kernel.
 > 
-> On 3/14/26 12:11 AM, Herbert Xu wrote:
->> On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
->>> xxhash64 is not a cryptographic hash algorithm, but is offered in the
->>> same API (shash) as actual cryptographic hash algorithms such as
->>> SHA-256. The Cryptographic Module Validation Program (CMVP), managing
->>> FIPS certification, believes that this could cause confusion. xxhash64
->>> must therefore be blocked in FIPS mode.
->>>
->>> The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
->>> ("btrfs: switch to library APIs for checksums") recently modified the
->>> btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
->>> API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
->>> mode should now have no impact on btrfs usage.
->>>
->>> Signed-off-by: Joachim Vandersmissen <git@jvdsn.com>
->>> ---
->>>   crypto/testmgr.c | 1 -
->>>   1 file changed, 1 deletion(-)
->> Patch applied.  Thanks.
+> According to Mark Brown, the hardware supported by this driver was never
+> shipped in production.
 > 
+> Since this is clearly unused, remove it.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
+Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+
+Thanks,
+Charles
 
