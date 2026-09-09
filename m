@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D8FC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C67C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eDa29l8MMaO9ypybeVRSRc5/JD7r0AQ1OrapMHcmZ2g=; b=xuqogXAtjfCz3gPhEija47JEHv
-	mSloNbwgBEwyW9edgav+NIDJNmzJ/5XAsMvP4sz3+SmLFew8EWH15qXK9oiJMMs15CnkNOr+SrnfO
-	MENnqUIvaBiyiOssGlWXQNuRkS7xGHxHYhW7dLG6n+POFghEoLwpU6V/6v7S5lX0I7zR6GWNJLrpL
-	cubSHFcJ2bgmJgybBxurNWX7hy4r/PFffNuFu9AOjZ4JhZKb2Hm19jqtglexMdfl1P+R9iIGs0kmZ
-	RcML2wF4owpqqT0tyFEqquv7UhD5PuoddAofX1vRbJ8x9zidF+4YXIU5TWnADwxao6viC9o6WTn59
-	84GB5P0Q==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=; b=jxeI8CnF9CZgApR6yTO83Vrp2S
+	syAWtaudMFuSLIu0ueaORX5nfvtQWYuAQCJBgJ1+v+4tjWHNUjePujxKti8r+2rqa3B7SiF1n99r8
+	VECsIRduEiiphkEhBBjnkXl2GjY9jaIXrJji7akaj4XCjGop7Ie2jqYvvz4QekeYdQYZeUemv+FXu
+	1esFFlGUV32/7A1dXT3VIZs6yXc334A7QH2w7DoMCJzuEjOXu2QZ633ANojSRPd0kN8ifTJcrepnE
+	TnZZsF6rJRUREenahADsF377Ii0cGY3OcqlWhBfpVrNzb08LkishMTqyCjLomfcd+X8+ybrZ/F8nC
+	GjtyPzqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bs3-0000000AtRk-2ifg;
-	Wed, 09 Sep 2026 06:33:23 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1x4Bv1-0000000Atjp-0OEY;
+	Wed, 09 Sep 2026 06:36:27 +0000
+Received: from mail-westusazon11010021.outbound.protection.outlook.com ([52.101.85.21] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bs1-0000000AtQp-0B9E
+	id 1x4Buy-0000000AtjL-28SG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:33:22 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48441fa5c37so3987320f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 23:33:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788935599; x=1789540399; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eDa29l8MMaO9ypybeVRSRc5/JD7r0AQ1OrapMHcmZ2g=;
-        b=KOiIwUkiKdWTG+yOG9gbP/9aeIrcd7Mxfs28o2nqDn1HAgtSFCX9EZUv19/rxtGqS2
-         wEu7shwPHrn+gV/SD1yMURyZeu8oc6S2NEY/P85NHbn/pOtCRLRPGn99ZCE9hQWqyNas
-         b3KiuR3RCoMV4GwJzNSUjPOX4Jnmz/9ag0Req1wvqS+aN82i4RYIEJGz0N8N8GCnRHbo
-         Hh2MgH6MOo4jQq4RW0s6s4xbX2uFpZzUKYPirxfSbQlvyuHYVKDiZGhdoWvUVyjNIYTF
-         Vd2XImSpWmB+Iapk7g4AMkzKp8gLsFi6HayrArihSFDlpw8jn4SMvXbNGGAoKuCrNsIP
-         M7Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788935599; x=1789540399;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eDa29l8MMaO9ypybeVRSRc5/JD7r0AQ1OrapMHcmZ2g=;
-        b=aetzlLJwXWZuEEtlvDW9S4NxLldNXPcTRzXf5KN2EiRV+8kZxlf3xcM4P73RAM3yk1
-         s2QUJPWSWcjaRyAXLKoYeRukr8jm2PfoCREbk+MMTpJRK/CapzNsm5pB8vAUPXlE0DXi
-         e/2GysL4epJByMjFugFw82WpcezAahAhOHijwE4fBsgMdSiL3OUrNmxJRnfBMwwfZ6nJ
-         UfG8hPAtfHECyJcBAEB0IVRI43yjFWepGZZGCm/Sdcgr9Pxej5+Lh16+mxo82fpAsgFv
-         xKYW/r1ylFxGqlMwRN5clVSLCXNZs1ivx4ZXvUTAWQWRodU9gbMf8BVDzXa85C2TbydQ
-         GvCg==
-X-Forwarded-Encrypted: i=1; AKwUvByY5AMrm20IdR/kMDH7QmAJeRawfL3zaiM9YY7uOlL4J/GslV9XaewIjw8aVkAxEb20S7CPsr4Lvz1j7R0i7zNN@lists.infradead.org
-X-Gm-Message-State: AFuF++leajorpdJoV2S6U1TOTHkhR5r/6OI9hCDV+BnGwQy/tjRmDWCy
-	BPZpF772KBpdEPg1sb20G90OASBfKn88RJR4l1OE+0eND7AEt/jJ00oh
-X-Gm-Gg: AYBFou0jsSI53cCvjqu0cnmC1W0fv8A+t/1px2gqdWRpOkPDNT9MjwmHHew4raBhhLe
-	LZDUkPSoaCwtEnHQj6RHXYugniZJWpC8KSptwXgG5ukiEj60HQ193Fbqa2wJ56JCsofB//8fymz
-	yfeCBG4pSA1f0DrurkX3+NyOiKTjcjZ997TQ7r1WM//LFaGEw8/UcCHyL0xnzkFrnsNQUPPtg0l
-	qUFN8QT2GKcC26/pxdTYu/FpXQ+br3cABGdAWx/hLEQKoc2Cuu+PotaMaMeNSbe22i3Eyk+28gW
-	L+JlG6zRySIPaaVTD7OWTERIXMW9OxPGSuf5wBa+xQNRAEBdhkcr820fgqgQTk3mf1p0N6nYqPC
-	eO39lZMkIsaWk3uDTFPWsOibYO+YQpX7nZFHYr+opAsY3W0gt5Ycf2c4Qu1IqOrW5xOHWoJTOa5
-	kXBtuOthRVMhXX/kWwPrRLnKYEz9MWoNu0L9jDWK7M5HCLU9ZGcvCkNHhK+wVITVvr7dXoFxg8D
-	1NUp2Q12Mf0x0MeifaZz79IoWGs3RmZzOykcYFEcoiJqO5eJ8QHIE7xD+R6Q4d/aRqcf08qjfWL
-	cioPMSjUav8JPJ3EJkqPf+d8ASdsbJE2HkCagoiLFs/8SRT5yVFY
-X-Received: by 2002:a05:6000:2885:b0:485:ac55:dca1 with SMTP id ffacd0b85a97d-485ac55dddamr2682301f8f.50.1788935598707;
-        Tue, 08 Sep 2026 23:33:18 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-095-114-212-219.95.114.pool.telefonica.de. [95.114.212.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4858ab73c2bsm39734495f8f.22.2026.09.08.23.33.17
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 08 Sep 2026 23:33:18 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Fix kvm_get_vtcr() kernel-doc
-Date: Wed,  9 Sep 2026 08:31:56 +0200
-Message-Id: <20260909063156.89636-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Wed, 09 Sep 2026 06:36:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f/rbbjOarF/VQOUnZSQ4QG/8fSy+YQW7EasNbs1eGERuTQn4SLTXRlKJXu7AmnbIOYnj9DXJTqn6Ybwt7TSvn0grPyvoAmN3pUk9TKWtr/mxKvHAS2ZTYgFBvxN6dxy+AsPIvmcFYgHE4WRHM/FVSxORl+CvY8NhItrCE1GNH4rNEnZq205Gwq+eL/o9f91HXo6Gn6wHGoOMrSZc85O0LmcJPW1gq4XLDmJs7KuBCf6TiZLo60MqbRqatDxOGkDw+YQ8CuO5hzb9yqonH66RmgzqmDFtSjMESurqFg9aw5V6SLn11KluiVGlFIrKdoN8bSIEvR/3yjSmriKdvErtAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=;
+ b=ql2iNaSl4de24Om8fGc9JYmd9Go7XcuVgz5LvO77YkUY4lFlG4d18HREq1VzkFIXgK7P2yV65UwS8lAxxvAUdAw2UdcbQBIrCGqE+2V4Ih2pDTns7rBV+gNxcL7SoE2hP9dwdrBBsfELZXp4YfNSjXZOnESWGs71YAodHgoe8MULuTjabcwE2mMaT3cRFi+8erx/o1ljFlWaCJMjb7hGxmmsXt8UJD7hK+RwTKjpc1A6ECtMEFg1Z78BU1vvEJ/GstEp0mZ9wy0LKw0Rk4JBbnAjvp+K3EXGq53GOK2ngHavteKa78LF27HZVhK+fmSgoH325ZWwVzJ2I6tbtv1qtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=;
+ b=2/uT6m3EXslCw+GaDeW+E0M04UBRDhD04b5p5EwRn2Y2WoTpayioiSRyn7uZmx4sjif0Pn8Ewk8w88tjCA3Chj3cdRJDV/bsDVm6OkG/C0Sha9bGrgpFa5r02LvkL0Olfx13WGWKCepLELiLnIhE9jktCScJWGJ8SyiVG2phyeU=
+Received: from CYZPR11CA0004.namprd11.prod.outlook.com (2603:10b6:930:8d::15)
+ by BL1PR12MB5779.namprd12.prod.outlook.com (2603:10b6:208:392::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Wed, 9 Sep
+ 2026 06:36:19 +0000
+Received: from CY4PEPF0000EE34.namprd05.prod.outlook.com
+ (2603:10b6:930:8d:cafe::97) by CYZPR11CA0004.outlook.office365.com
+ (2603:10b6:930:8d::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Wed, 9
+ Sep 2026 06:36:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CY4PEPF0000EE34.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 06:36:18 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 01:36:18 -0500
+Received: from [10.136.42.177] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
+ Transport; Wed, 9 Sep 2026 01:36:12 -0500
+Message-ID: <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
+Date: Wed, 9 Sep 2026 12:06:06 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
+ Olympus
+To: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>, Peter
+ Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent
+ Guittot <vincent.guittot@linaro.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Mark Rutland
+	<mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>, Breno
+ Leitao <leitao@debian.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260909062649.469633-1-arighi@nvidia.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20260909062649.469633-1-arighi@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE34:EE_|BL1PR12MB5779:EE_
+X-MS-Office365-Filtering-Correlation-Id: e94822c9-0a72-4cc5-9bf1-08df0e3ca7d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|23010399003|1800799024|82310400026|13003099007|10067099003|56012099006|18002099003|11063799006|22082099003;
+X-Microsoft-Antispam-Message-Info: DqxMaK9Bo4TtqpiopVUvtcXbJu1Xqegd8vVHdGIzeD6z6EavOJp/FhE9eQXvvhGx3WVseumOwS8rV+x4KmxfoVyZfJcZ419Uy3dGQDWDu8VQ5FjPtgglrxz1Cg48M+BJH60MEnEzlO3WB2RfAjgzqOGefN/PJ9k+KpRQRNWMyhmG0WlWVKfv0ls6R8SIZy5WsNcoGMnUaFkaWO+aHnTuOJ2va1VKBMWiRn74bScJOwuyrukP/3+JKgUrIBlFb72j6P7V4k5vt8zDWdyRE24uhgM7YB7Vy618eXCfR1q9i7+f4CFmenWhu8vyI8ojOUFeJqf3dYTzuGNe4+2ewyrDPIXNHRzj1lzBWSQ8TYtUN+qH32XA7RfuD3onuQIHsDtg6Y+RgWD8jfUVg+dtRSAbQc5TBBlFAggj1LGX8oTvpFre66icRjUXpTPcxf+WqZbCfS72f4GLwrCZYbIVnkvskty5/b0w2Aaqw4BuWt4hYLl0nbZkhrcUoYi1y5ZWh8NEBwxcHrV8lOuqXl3hi8Ow444QpE64XkHV8utAzjaqXAbb3/5oWDxbMV8lAe7rPvObS+/uWgWvRBnRHECX+ftKcKGVmDgrH2pexhf+2b5v98CC72Gc4PlNjbTXyHJzW5TBZyDEuUqs37TIxK9RiHJH/Pex+FpQt8MV9IIbIF1I4kEqvqwLG2DKk3K7QJ9MbCV/fS1oKwp4brfmQkdx/L9+Kw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(23010399003)(1800799024)(82310400026)(13003099007)(10067099003)(56012099006)(18002099003)(11063799006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: YbzXZ6OYrS43p+bKHDnuePfErvrpPFZHbDg6cbQuAKrYhldxrR9vDtNbFIk7EKnWuEJGDIRmCyop1lT8ZwHBU4U0qdVq/gX/iXDFzw8hb5PC0LwAMFw+4CAzUUURuwoWRGbk+MBDdqWxpaKDadyBqU690xjGepGDmsVnDOIx/44zVpvutcgDjLc1vGytQ4wyKkQKXTXOWvbnXpOZ476YO7eiVkliozET+zSy909fyqND31dpFEtzC2Oek0TzYIAs19JdnXbUS3oexidg5FfItjnv1y12qN5hULEa7t52G6t46BE4xLtPtbGOSh+ZvAp7wtkIbvW5I5+OKKFoJY7KY437eOOGVHhe/Cj21wNhBfL8ij3DhaRdOKi+dfHVxiVQpmsAEP8HXa4WD4KHx9QmFyV/kmfSYsHYAF+17QEPxAZUsdHyD28b+qF50+IsPYfn
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:36:18.5398
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e94822c9-0a72-4cc5-9bf1-08df0e3ca7d1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE34.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5779
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_233321_102428_17A686BF 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260908_233624_579646_DF4ADFA5 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +130,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_get_vtcr() takes a parameter named phys_shift, but its kernel-doc
-describes phys_shfit. This leaves the real parameter undescribed and
-adds an excess parameter description to the generated documentation.
+Hello Andrea,
 
-Correct the spelling.
+On 9/9/2026 11:56 AM, Andrea Righi wrote:
+> NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
+> When only one PE is active, the core operates in single-thread mode and
+> that PE can use the full core resources. When both PEs are active, the core
+> operates in two-thread mode and the PEs share those resources. This
+> behavior is common to SMT implementations, but Olympus is particularly
+> sensitive to brief sibling activations because returning from two-thread
+> mode to single-thread mode after a sibling becomes idle is not immediate.
+> As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
+> for NOHZ balancing"):
+> 
+>   Briefly activating an otherwise idle sibling can reduce the performance
+>   available to the other sibling and this effect does not necessarily end
+>   once the activated sibling becomes idle: after the ILB finishes and its
+>   CPU enters WFI, full single-thread performance is restored only after the
+>   sibling has remained idle for a qualification interval (10 Ki cycles on
+>   the tested Vera system).
+> 
+> That change prevents the NOHZ idle load balancer from unnecessarily waking
+> a sibling of a busy PE. However, ordinary task placement can still select
+> either sibling of an idle core and repeated changes of the active PE can
+> keep Olympus cores in two-thread mode despite little or no useful overlap
+> between the siblings.
+> 
+> This series makes PE0 the preferred sibling of an Olympus core using
+> SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
+> honor asymmetric SMT priority. The scheduler first selects a candidate CPU
+> and core according to its existing placement and capacity rules, then
+> chooses the highest-priority available sibling within that core. The
+> generic scheduler behavior is enabled only when an architecture supplies
+> an SD_ASYM_PACKING SMT domain.
+> 
+> PE0 and PE1 have equal steady-state capacity, the preference does not
+> identify a faster PE. PE0 is used only as a canonical choice when both
+> siblings are available. Consistently selecting the same sibling avoids
+> alternating the active PE across wakeups, lets PE1 remain idle for longer,
+> and allows more cores to remain in, or return to, full-resource
+> single-thread mode.
+> 
+> The series was tested on a two-node Vera system using an 88-thread
+> single-precision GEMM on the 88 physical cores of NUMA node 0.
+> 
+> With the workload allowed to choose either sibling of every core, observed
+> throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
+> to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
+> became more predictable because the workload consistently settled on PE0
+> while PE1 remained quiet.
+> 
+> Changes in v5:
+>  - Remove the redundant olympus_prefer_pe0 state (K Prateek Nayak)
+>  - Link to v4: https://lore.kernel.org/r/20260908082345.103087-1-arighi@nvidia.com
 
-Fixes: bcb25a2b86b4 ("KVM: arm64: Refactor kvm_arm_setup_stage2()")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- arch/arm64/include/asm/kvm_pgtable.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+My replies failed to keep up with your speed on iterations :-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..c078cfedce19 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -532,7 +532,7 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  * kvm_get_vtcr() - Helper to construct VTCR_EL2
-  * @mmfr0:	Sanitized value of SYS_ID_AA64MMFR0_EL1 register.
-  * @mmfr1:	Sanitized value of SYS_ID_AA64MMFR1_EL1 register.
-- * @phys_shfit:	Value to set in VTCR_EL2.T0SZ.
-+ * @phys_shift:	Value to set in VTCR_EL2.T0SZ.
-  *
-  * The VTCR value is common across all the physical CPUs on the system.
-  * We use system wide sanitised values to fill in different fields,
+Since this is same as v4 and I had taken it for a spin on a
+x86 and an ARM64 server, feel free to include:
 
-base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+
 -- 
-2.53.0
+Thanks and Regards,
+Prateek
+
 
