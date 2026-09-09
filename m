@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AC4C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC407C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E9ytG7kb5dbrGiKhe0oxqCTTvFC6jYjdhibOnVV1Go8=; b=eowucBP9NvkBStykPGX9Uk0Xh7
-	rbzs0eqieVpmV4PzEpeNuzYydSb4UZIVh/rEhmo+1q8Zms3IuEY98px2TanPe5901WNBTM9AE7rUF
-	bwONH42jBlC59j0KaB4P/VWqu+Vv7ioWxaYoe/lGYIH+wYJUjH/yiAGi80Q5xsqARFnplpmGAQDbk
-	bP05i+GuyzIxT/dZLo7HcLLl9Hi/fVWE3rOxvKI3i5jfMnKzFXpf8kW2CcTsiRhviALBp000nyZep
-	KioNDBbkkZqoDO1sVy0F7wRa3MfwLgv9/TZMr+tkjQHd4wVQZf79+A8rq4NbiDbBTfK95DM/ddX3V
-	9iyvHOuQ==;
+	bh=1CM/Ie7i+HqydojhG/4KklP2dQRzr4P2XxxuR9fLATg=; b=f6yUa9D3EEfwBGE4D0sMALn1rC
+	/xLsAJQjJqxl5pqtJfgmJgfyjnEMWveb0bxQs9UMIst/Pw3P9uo+uHTiMF8GU83O/phtnTfbkiC0M
+	cxD/q8z8WSImavtN03ucTP9t2Svun6QAb6oxYxT3bXwXmJfObP9xyX+u7wIL+j50YWaUVPY7PPV4q
+	GQI/ZwA/V37g0Eo3w7nQntCcz58oj5+1OK8BzA1x3j566NrYLFqRVHmHjyMwLIxaUzZye9xwKnUt9
+	orkfAvqMKVzjY/I7LyM0iRUyRryS8pUB7X7J+mWbEa41nSjMt/AaTQ8Klgt4QvD4wGi9Y3zqP5zva
+	LL5bThZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jsh-0000000C5VZ-1z2C;
-	Wed, 09 Sep 2026 15:06:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4Jvk-0000000C5v8-03d1;
+	Wed, 09 Sep 2026 15:09:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jsg-0000000C5VM-2I7L;
-	Wed, 09 Sep 2026 15:06:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A55B26020C;
-	Wed,  9 Sep 2026 15:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3D81F00A3A;
-	Wed,  9 Sep 2026 15:06:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788966392;
-	bh=E9ytG7kb5dbrGiKhe0oxqCTTvFC6jYjdhibOnVV1Go8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mQ8HP/RaMQKuI/HcIUaifGof6tg3xWV3kT6LI8eYb9rgbpsVWzV+ByXU0riskHILH
-	 i0JmeE6OALfZX8nSlHLj3RT5ls0hI/TW0WkTL7/grJm0KzHlKvABBvZlGU9NKbXRQi
-	 AKpwJXKS2VMOXoeUdMgfSQwVPg7wyMfjHnv4RQYP8tuY1y9LTvmb/iNrGa+cDvMeVh
-	 WlidRBgitZb7XcL/ODNZi9TqIoC5WWTzvN62bsZwe2rcG4qUsETYMI9E0ITvSOPhYc
-	 MJP0B5yuO6qm/JyAD8dBlT1mETJEfIRbjxpVnD93WpIpLh8HojMepFQPLK0RpbXtlM
-	 nJtyhY/CYFlow==
-Date: Wed, 9 Sep 2026 17:06:23 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, p.zabel@pengutronix.de, 
-	chunkuang.hu@kernel.org, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	matthias.bgg@gmail.com, granquet@baylibre.com, justin.yeh@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com
-Subject: Re: [PATCH 2/2] phy: mediatek: phy-mtk-hdmi-mt8195: Fix TMDS clk bit
- ratio setting
-Message-ID: <5bmxa4pcwkiemubwfjun3dti4szu66gnxe6yw2pudq3wplpc23@inyswc2bdlhw>
-References: <20260701121936.19407-1-angelogioacchino.delregno@collabora.com>
- <20260701121936.19407-3-angelogioacchino.delregno@collabora.com>
+	id 1x4Jvi-0000000C5uu-3pIa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 15:09:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=1CM/Ie7i+HqydojhG/4KklP2dQRzr4P2XxxuR9fLATg=; b=fkQl6LBG6LJrHcZTamZCq1ChtO
+	JMh4Fm5pOxL5mwqSv5oXi20cu528tNwpvEqr4R49C/edMeJXImXCtAjtRerBWydxBCWyo/C2z5U/b
+	gP2XR2Oo/inXe3bxpoD0+pjl0Fza+w0/xOCDn1V+rpiE47urZlHQtwx/7mxePkwwXvDuoxTaj7xER
+	6LE/nepCtDYxq5S5wP3dD9k0G5k5KjVSybh0bhlNF7qEJWp/R05L4yvMr4ETJjCv0AhWvc0R4g9Xg
+	8xF+Z6eMddN+PI0NjKVPPurEo0gdxEVIFlMUocUOry3anZCEE/fkgoDtE6uFdx6SPnAmnL0yBBMlE
+	cyo2yEmQ==;
+Received: from [66.129.139.8] (helo=rfs.netwinder.org)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4Jvb-00000006qdh-48tP;
+	Wed, 09 Sep 2026 15:09:36 +0000
+Date: Wed, 9 Sep 2026 11:09:31 -0400
+From: Ralph Siemsen <ralphs@netwinder.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Drew Fustini <fustini@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-omap@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 02/13] ARM: remove footbridge
+Message-ID: <aqF2q32M8iQ6qhAr@rfs.lan>
+References: <20260908152808.3928630-1-arnd@kernel.org>
+ <20260908152808.3928630-3-arnd@kernel.org>
+ <CAD++jLkzrp4hsOERqOt6Zc75p-+KoWj0Tvu6VQk=ma2kgDH=Qw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260701121936.19407-3-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <CAD++jLkzrp4hsOERqOt6Zc75p-+KoWj0Tvu6VQk=ma2kgDH=Qw@mail.gmail.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <ralphs@netwinder.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +106,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 02:19:36PM +0200, AngeloGioacchino Del Regno wrote:
-> The comment in the mtk_phy_tmds_clk_ratio() function clearly and
-> correctly explains that the TMDS ratio has to be 1/10 for data
-> rates under 3.4Gbps, and 1/40 over that.
-> 
-> Unfortunately though, the TXC_DIV register setting was wrong, as
-> in value 3 means to divide by 8 and, in order to achieve the in
-> spec 1/40 (tmds) data rate, this has to divide by 4 instead!
-> In order to achieve the correct 1/40 (tmds) data rate, this has
+On Tue, Sep 08, 2026 at 07:27:48PM +0200, Linus Walleij wrote:
+>On Tue, Sep 8, 2026 at 5:28 PM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+>> From: Arnd Bergmann <arnd@arndb.de>
+>>
+>> Footbridge was deprecated in 7.3 to be removed along with the other
+>> StrongARM platforms and most remaining board files.
+>>
+>> The main machine here is the NetWinder, which was a popular Arm based
+>> desktop PC in the late 1990s and contributed to Arm's later success as
+>> an embedded Linux platform, but was discontinued over 25 years ago and
+>> is no longer all that useful.
+>>
+>> I previously tried to convert this to devicetree in a sensible way but
+>> gave up due to the platform being too different from modern SoC based
+>> targets.
+>>
+>> Cc: Russell King <linux@armlinux.org.uk>
+>> Cc: Ralph Siemsen <ralphs@netwinder.org>
+>> Cc: Helge Deller <deller@gmx.de>
+>> Cc: dri-devel@lists.freedesktop.org
+>> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>
+>Acked-by: Linus Walleij <linusw@kernel.org>
+>
+>I have one of those machines and it boot mainline but I
+>certainly consider it a paperweight at this point, I can't use
+>it for anything useful.
 
-This statement is cut-off!
+Likewise, I have a NetWinder machine which has occasionally booted a
+mainline kernel, along with fairly current buildroot initramfs. It has 
+been surprisingly smooth sailing, even the bx/bl compiler troubles seem 
+to have been sorted out these days.
 
-> 
-> Add definitions for the TXC_DIV register values clearly explaining
-> the meanings (DIV2, DIV4, DIV8), and program the correct, DIV 4,
-> value to the register in mtk_phy_tmds_clk_ratio().
-> 
-> This fixes out of spec clocking and, with this change, SoCs using
-> the MT8195 class HDMI PHYs can now successfully be configured to
-> output 3840x2160@60Hz over HDMI.
-> 
-> Fixes: 45810d486bb4 ("phy: mediatek: add support for phy-mtk-hdmi-mt8195")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+It's a bit sad to see it go, in particular since it all works. But the 
+reality is that nobody seems to be running this hardware anymore, and 
+there is no community of active users anymore.
 
-With above comment addressed,
+Acked-by: Ralph Siemsen <ralphs@netwinder.org>
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+-Ralph
 
