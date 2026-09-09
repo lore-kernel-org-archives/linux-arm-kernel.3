@@ -4,107 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C214BC79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B84C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=; b=ocmSvVMMXK8EYExW6tgGoPN3lE
-	9GbRlc3D3i8n7J+K1JTBIG+19Pt79yKmH11Dq3/7pkZ2u0FqH6OE5DwxuJgEYa/VCDIPN9uOSsabS
-	Cj0/RgN6TKnNcEhA3bPHTMJudTVZfJZ456JGBAke+jcDos2/FMnQ8AlaDfJYRDdhBh9NpH/OxVY/9
-	z4+iw/dShNSwibaSUAnM4I4nt3Qu/ei5oh8/19ADyemasYPFH7XCuokadXVbe0oAdquJhkSh8Igkj
-	MoeS9/4Ak1I3ZF1eAQhrsji6T0GDE/bOrLhE/MMkqSppIfw4UZTt+GbaNq18OAHJsXQEybM+d4SkM
-	hjCwzY2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=; b=tkhICRbT19getjDrbHdFwTubdk
+	onL+qIpF1DAMue9m/laOdbCStGJMQu8ZrwOQT2Exly6zmDvscCscKLKJeL295TMlUdMRqYk2QvmAs
+	HVNG9hlEzRD6yp2aYNC1ZwQbkaPaLNmqwGHCwTd7rew6cYtvXA/f/SvZXw9EkRYbdEYjaIyvA7R/g
+	4C7euxQvjkHrZmAm6njLwP1oEwK3Kdv0YvARTA157dpOXvvI7c2NsTsYoxy5Sxq+kJ/X2wswyXRIh
+	S/5swFXSHjj+EUHWm4YBTr0XxT8x6fBqVkLlf48mh53t0rzNfCRnNrY5VwYEuQFX+xKB19B29O4Sj
+	ythTEJNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bys-0000000AuL0-1VWq;
-	Wed, 09 Sep 2026 06:40:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x4Bzn-0000000AuYZ-1s3E;
+	Wed, 09 Sep 2026 06:41:23 +0000
+Received: from mail-northcentralusazon11013007.outbound.protection.outlook.com ([40.107.201.7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Byo-0000000AuJx-3fB3
+	id 1x4Bzk-0000000AuY1-3E0p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:40:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788936021;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=;
-	b=cl0gk/RWCQ9zKM9BdYy8Kj5L6BMnftkIMMnI2/8v2lCEOeKqyakySwI75tqaUqlvU7ZJuN
-	VWvPtH2y2LG3MJMOFR/sseRSvALybQtO+ZREYN3p5ZaQYEnvG+8iU4DuW3gqwc7ZjzDcgd
-	t1vFP+8Tte9WPHu/rVtQAdBuiL1KSxM=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-681-dgTdEoP1PT6FEu-Opk0fqA-1; Wed, 09 Sep 2026 02:40:20 -0400
-X-MC-Unique: dgTdEoP1PT6FEu-Opk0fqA-1
-X-Mimecast-MFC-AGG-ID: dgTdEoP1PT6FEu-Opk0fqA_1788936019
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8627258ef12so4093819b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 23:40:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788936019; x=1789540819;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=;
-        b=pH1PDKoa48JWMQAsV6w1XaBryIES2WjJ5OlQ2IWbpK/vxXjz5UsQUCyk1HPtPyzHtY
-         ALeLylS340f19i5tWnuRq1TdgupThjOQU/bhTiQZU5gTibtLVoG/Vkgh104Q2MVvVV+j
-         VMokVNCzi3itoq4/RAePqg8E8B0tEPei8KC0Bd2GdgpB+IdrZvcj7D9R/4M+2SWZUbSM
-         4yo9MGvq31B7rYhWIAGUg5BZw6gqwT8G4pS/TwF+bGzrJI4y120dGk4sUdgAijW52fjk
-         4UvR8PHU3Kvxm0/GfrHeJIYRvoWIKPX124YeOKxonhnblkC2mOqnJ5OvMk9baNOfdgsW
-         OoFw==
-X-Forwarded-Encrypted: i=1; AKwUvByOVXKuRH+jVTVtEiv2bN8cGrpZKtujs+goIcBVNtaPtIaMSeUQyhF38SjjkMiSDTlS7491WzZvDgokjHVFcfER@lists.infradead.org
-X-Gm-Message-State: AFuF++kzgnKSdU3oT62PatjKRe/+X6xLQVxTdrt1G2/ImQ0z/h86QCLb
-	NcvGHEbAvygMaTPN09QZSivpLmEKmQ9454/bjBsDZV440j20QpUV69TubfQbQ2aMON1JAFsI0oI
-	TzICR6Tkv2Ox45nTDoAFSIiV+ACsnZucczb6dD+R8zmxBYful7CfQdH8sGLofq55oYtJc3M04Jd
-	M1
-X-Gm-Gg: AYBFou05uUbQH5W4620qXXg7QmoG8/BsdsOseBNMZstA3U9vT7/Y47UDtdkDmtIyw9t
-	cB3Cxv+absHWa+EZCGWAaPaoHGFf7R79eHKX32iE4A532Bl1I4dhjqQLvfGQUE/Qt6zNihAvxWD
-	CiVwsXFwChMgSNOURL4PYy5Y9f9PbgT6uRCvuqGea0rho+BNucc9JaYqnUJjg12u0FupIwqqgjD
-	oEdJpeKzGIWSA+NPSTEfDid1u1FhTnH+VQS1yM/7bTsOSjnKO6nP5p1GdO0E2HowLy66sI6eJFX
-	yIcqjmdjsEVElDs+MF+6njjfYhJKu5ZJmKVYrKoDlYryrd3gVJ5fjS6Cn+0rVHctC7qyUt0HXYv
-	Neg8qz52AfMRI51ATSHpqJIF2slaPAbB+Bba2XnIf1w==
-X-Received: by 2002:a05:6a00:1702:b0:857:726d:270c with SMTP id d2e1a72fcca58-8616dd51063mr47210160b3a.24.1788936018857;
-        Tue, 08 Sep 2026 23:40:18 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1702:b0:857:726d:270c with SMTP id d2e1a72fcca58-8616dd51063mr47210112b3a.24.1788936018206;
-        Tue, 08 Sep 2026 23:40:18 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8633cc0f7e2sm4760580b3a.37.2026.09.08.23.40.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Sep 2026 23:40:17 -0700 (PDT)
-Message-ID: <5d2aa6a0-61a3-4b0c-8866-58c4a7888de3@redhat.com>
-Date: Wed, 9 Sep 2026 16:40:04 +1000
+	Wed, 09 Sep 2026 06:41:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WRa2sLw9l7qff4yOMX180YxxKbpT3O8zQ8lNNwVgDKlq3S8O/3VoqswjV7iYjnfhL6c2RWKW7BT+sG8S/5TUnGyuuR1Ba7FV1YipXOaNmg4+lmT2UVFS4NItG1zUrqF68l+p/gVKTrOj6PM5lzzAfjVUuw9A6To8fwvkc9RdFqjTh2l8AE9DAPKjO/V9dTqmo1UQfEqLT+cu4ompxZHOiyAofG8RxOEQ8YJ8X5q79IW4z0AzTRPYuUQDg7MtP+vxGx02MCegslFv7VtzKAXrIlbB+lS68nUQS4nWDGjfrln8PEsy19vrbaxHwfxCyhfK3+qRMGZBo1VqzzD7xV6vag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=;
+ b=UdMXxXh+DjA41rky/3PJgjGDGZ5E+gMsjtQ05HhQUDR4HUqempqSPT36S/EnIXzYKXM7HfSJuhxWCcJXCHbGUi0+ZWHYLEDR7nIXdW3UGAaI92xBQmcKO3Ro3cNpIG54fmiXIPK7aNwp+a+GidQMEimiEgHqWWS8efBx6ULVIQ9uheLuiBOfqj2oPnjImIapyM8rLxIRPZSvUFIBITf/4LrbzGmFVOSWwowtOLRG4hH21saQyLA6byhT3MIBpahEvonn96dWnS8iyYAf+9tKWE8AkHf/6LPfEpM+Pbo46t2oFi8Skf6ShNJ2Ja6B2ChCdXS46tYTFmoRZIp9xdzkaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=;
+ b=q8BeeCtwqR+vAG9DqnpoXR/pOHR8uJvxxEeTDWbgJmCfhChfuvFr3KNUQE0p4JZvJOmq0PUJz6hUFqPuxv2xprajiMYoKCUekBRJawVDsFtHOiHydcs9FT4ndTMbfW+PYuVbzVn4zW4sQ1YROVh/v53e6rn2be4yWDdYH2g5o4OZYrESFPpekBItje8FBYLQU/cGSav7lT9Mk3bvNANH9BFix2gvznFMvAQdq11gOHVggwhgYWikzCwfYPoyeOUGzEt8hh+1487HXWvfYHbNOqFk4HASY/BnjAEsb6eytjlPVm9SoCOri4KFjwSnDAkgVbylBjjRzml4v9rSxc4j8A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by PH7PR12MB5654.namprd12.prod.outlook.com (2603:10b6:510:137::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Wed, 9 Sep
+ 2026 06:41:14 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Wed, 9 Sep 2026
+ 06:41:14 +0000
+Date: Wed, 9 Sep 2026 08:41:06 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
+ Olympus
+Message-ID: <aqD_gpvJOFqcmlmg@gpd4>
+References: <20260909062649.469633-1-arighi@nvidia.com>
+ <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
+X-ClientProxiedBy: ZR0P278CA0200.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:6a::11) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
- for memory
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <20260907095942.1140734-7-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260907095942.1140734-7-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zYlC1gHS1q-6-qGZ6THZCVdNJXyH2bfqM4EVHt6Xwyc_1788936019
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|PH7PR12MB5654:EE_
+X-MS-Office365-Filtering-Correlation-Id: 532a9c61-47af-4935-9ea2-08df0e3d5849
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|1800799024|376014|10067099003|18002099003|22082099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: tqaDF+kCmshCT4wCugxa+kYTUo2c3O6yvdIfghsRBFUci1xy5B7PiTppEvADiT5PNf/yOu1oRpSdH9IkbY8xO5JZYTnRHb7q5Kj7jZ5k3v39yGBhBdr3m+mRT6f4ZOpSVf/1dYn2hBXGZvp7C+Du8JyD/1I4iKqP1hyk0irG/VTKRmBIgZ1Y056vz2UVya8/OEESN6FsVUcDMbOQNxcINV+o0cFSOnHfBLjPv0PlyDc90SM2J7bzubiGV5463cTRlwUBUkStxK7DF+SApVDR16Me+vq8OVMZDmwxULYJ6za+1RU4GjAZtn5ACOK9RFXiCCh+iJ4IZACCKqqQvrA2XELrPxqZPAwW73PUW0RM6qvZ1V402jhtwGhk9u1pCV74zNZvbPoNhpXGLlZZh1YXoMT1QmiOyENaiCTV/WmHH/RVYF5PW88MZOOIHfYsieMGwYUEQP6+AO8JTDwxUPefl+JwQUL4C56IYFl6TMOpElKsO39r8V+UkHpZbsPaDpyNbW1kZpOtsJHeeHZ/sHnUumnQh+sdBvgmDcajcmJKvHHfcnNNzI+ll3DCAh5NJCJfKL11R8MzHbEOYkuDe3CYB/LlxpiGn64UFAUZH8mDy3ejl6HmOpbfmFfg87yNGvpT3TId1YQaxKrCWzkFbQijkc6Q0ztlwbzuOAbkLWmKzY8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(1800799024)(376014)(10067099003)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZPagcBUEfbUTpxkKrsL7OFWpSFCMkd8ORvxktv+65RtmPzX1KjW3aH0PO3D?=
+ =?us-ascii?Q?pTpk6PPbfRM+E8c/ImxDyrWEljYR1G1aR3y6NcG6gvJjRERLx9jRyq6/fHZr?=
+ =?us-ascii?Q?hWqdvQ5AWEDY+P5liNbXZpKoZZbplnvqRly40ALxMyjpeVHzysvxaHOWOpcu?=
+ =?us-ascii?Q?WHIAneiiGqmfP/b+z+g1umMPFqCEU3hoNjA+y8y4QYo7BgzfSDmKH20rmiSI?=
+ =?us-ascii?Q?nXnEN5taHdAfILKlWiM8aBgHY3dPQ48vgoyQ3gfNOLMVPx0/Ufy8qUJw1cET?=
+ =?us-ascii?Q?HV9zpugVWq3RIvrdV3yaOH28SiBW4r2xt9FuUmbReH20L9lKmuK1t2bp4+3p?=
+ =?us-ascii?Q?tTuhLyzCHVeh3/xFVMyRIoAKBWPhsAdrqCxuAaANqwg1XVjoxdHVUWNTXjUG?=
+ =?us-ascii?Q?Qjk0+Tum+CMhTvm8lJpArHxAoXlBBZF3EIbtEqt2VwJxtH/D2mM+0TZ74wJO?=
+ =?us-ascii?Q?TAmO9+QuuZtCWVvPiXQHRayoi/H9OElSfCRIVQm0w3LerovW+EBRL3PNrEch?=
+ =?us-ascii?Q?y05iaAwt3vCJqfAdGGMI+DyTmZe9S6RaHfXSvr+bZ8/A+BEIL924gBFQsuj1?=
+ =?us-ascii?Q?z6Z2uWGwg0vUa7hQ0zapGEYV28AoP3w7ck5aDnWdnhrylc2bSLb/ZnBxwtN2?=
+ =?us-ascii?Q?Phrk04ir7W3354XLA0KsOJdnOSC/1bgaUJNP6vFbx6NndfZZMLG2fzI8mZYi?=
+ =?us-ascii?Q?3mMUIIx+PHuk33ZPhQRxi4YloME2q5wOHezi5QJ8+uHYaiES1XxekoChgkNF?=
+ =?us-ascii?Q?T4uW/oAjHnfEoQieTUAXgHVXLvkV7kOcLtZ4e7ZPat3SUQ2Q/r+vUR6zTXgb?=
+ =?us-ascii?Q?yjksJi7A24NF+9Uax5qmHZeWTQ9RBmN+9H28igkBpT4kCrflBh6nMacpiBif?=
+ =?us-ascii?Q?Nfg2BCD/Qp/zq6ViN+t7HAiVrSwO/iEr8+I2JhpZYeHMEqVNak7oxkraKNgI?=
+ =?us-ascii?Q?+SlZCF4CMeSCH25tOlSXYPdokpLStSA2imQrlMHKhAaUefMYEBXxJ48gZNw1?=
+ =?us-ascii?Q?/S2VHQ/BIt/aSCwgQ08O9at0j/4RXSvf2pO5Pta+d30t1EKojVugfYnZ43Fg?=
+ =?us-ascii?Q?NoSRaFRYYSIVuCkRPf2LnRZSFRUYcALEpwUlYmsL5g9HhLJ477UDTGmsVjUj?=
+ =?us-ascii?Q?c9d84IHSs+f60g7cYqHcB09A/ZApFp/S08h+upcp4QVHVCzF74SegZQPUN8z?=
+ =?us-ascii?Q?STwWTAaSTFWKttYl1rDGlG/czPQ20VvlGnCuxiefGg4gKNEk0OXS6NyAopRX?=
+ =?us-ascii?Q?NraVP7WrhhrMMUmpvRHNXdUi+vTM/X31v7u0nf+UDZd0vlLlLllEg560vN0p?=
+ =?us-ascii?Q?sU8igOsRrCtbrBjCuCJL5hLbZdHjlcjrIq6oHkPT/cPT6g4kH69VK7+AbVMh?=
+ =?us-ascii?Q?CBp3nHpSG6Y1WCFymSCDpKOg1UcjoHtZsw7UByGpiiBIxLqnV8W0zEMdXfDd?=
+ =?us-ascii?Q?3d7zVi8/jjc7Viakdg80NfthP1GMdh5U0DjWk+2mAqSlTzOlHrnaR+EM0oI5?=
+ =?us-ascii?Q?Yyh1cHud2R+Egg4lJw2wzzneIL6LTD4N93cSsiv1JJfTJylBS1XXONqTSyfq?=
+ =?us-ascii?Q?S4tVfB5RAMZGEu2RjUQZTafAA7o6IkL+k1+K8rYitif+f3lIwMJT4udFjqWi?=
+ =?us-ascii?Q?Xb9ZCEtsKDH+F/LkYcm67riBCtNSNgTVV2zl47Fs+E6oUEykkIrCX/CIM6ng?=
+ =?us-ascii?Q?6cBWjFXm4i9WqH1xzYakght5RGoPx16A1+X1IiYU8xYJfolMKGNDeyMn0lPx?=
+ =?us-ascii?Q?0w8DTKXh8g=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 532a9c61-47af-4935-9ea2-08df0e3d5849
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:41:14.8414
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qzNpvE41RcpXYHXO/rKXNTlGd4EW+AwnP0cCNsUhzLc0J00AGptx6zsSy53wy9mO443S1WRKwv4DLQyMXJy7/g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_234023_902401_E33FB7A3 
-X-CRM114-Status: GOOD (  42.42  )
+X-CRM114-CacheID: sfid-20260908_234120_809959_FD558013 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,358 +149,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
+On Wed, Sep 09, 2026 at 12:06:06PM +0530, K Prateek Nayak wrote:
+> Hello Andrea,
 > 
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
-> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region, all pages
-> in the region must be of the same state, this implies we need to have "fine"
-> tracking for DRAM, so that we can delegate individual pages.
+> On 9/9/2026 11:56 AM, Andrea Righi wrote:
+> > NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
+> > When only one PE is active, the core operates in single-thread mode and
+> > that PE can use the full core resources. When both PEs are active, the core
+> > operates in two-thread mode and the PEs share those resources. This
+> > behavior is common to SMT implementations, but Olympus is particularly
+> > sensitive to brief sibling activations because returning from two-thread
+> > mode to single-thread mode after a sibling becomes idle is not immediate.
+> > As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
+> > for NOHZ balancing"):
+> > 
+> >   Briefly activating an otherwise idle sibling can reduce the performance
+> >   available to the other sibling and this effect does not necessarily end
+> >   once the activated sibling becomes idle: after the ILB finishes and its
+> >   CPU enters WFI, full single-thread performance is restored only after the
+> >   sibling has remained idle for a qualification interval (10 Ki cycles on
+> >   the tested Vera system).
+> > 
+> > That change prevents the NOHZ idle load balancer from unnecessarily waking
+> > a sibling of a busy PE. However, ordinary task placement can still select
+> > either sibling of an idle core and repeated changes of the active PE can
+> > keep Olympus cores in two-thread mode despite little or no useful overlap
+> > between the siblings.
+> > 
+> > This series makes PE0 the preferred sibling of an Olympus core using
+> > SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
+> > honor asymmetric SMT priority. The scheduler first selects a candidate CPU
+> > and core according to its existing placement and capacity rules, then
+> > chooses the highest-priority available sibling within that core. The
+> > generic scheduler behavior is enabled only when an architecture supplies
+> > an SD_ASYM_PACKING SMT domain.
+> > 
+> > PE0 and PE1 have equal steady-state capacity, the preference does not
+> > identify a faster PE. PE0 is used only as a canonical choice when both
+> > siblings are available. Consistently selecting the same sibling avoids
+> > alternating the active PE across wakeups, lets PE1 remain idle for longer,
+> > and allows more cores to remain in, or return to, full-resource
+> > single-thread mode.
+> > 
+> > The series was tested on a two-node Vera system using an 88-thread
+> > single-precision GEMM on the 88 physical cores of NUMA node 0.
+> > 
+> > With the workload allowed to choose either sibling of every core, observed
+> > throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
+> > to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
+> > became more predictable because the workload consistently settled on PE0
+> > while PE1 remained quiet.
+> > 
+> > Changes in v5:
+> >  - Remove the redundant olympus_prefer_pe0 state (K Prateek Nayak)
+> >  - Link to v4: https://lore.kernel.org/r/20260908082345.103087-1-arighi@nvidia.com
 > 
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation by the firmware.
+> My replies failed to keep up with your speed on iterations :-)
+
+Haha, sorry about that! :D
+
 > 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule, then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity. Linux therefore checks if the platform firmware manages
-> the PAR region. i.e., the firmware is in charge of managing the L1 GPTs
-> (creation and the required memory for the GPT tables - via static carveouts)
-> without host intervention. Support for dynamic GPT creation by the host will be
-> added later.
+> Since this is same as v4 and I had taken it for a spin on a
+> x86 and an ARM64 server, feel free to include:
 > 
-> If the firmware requires us to manage the tracking or GPT memory, Deactivate
-> the RMM and reclaim any memory donated at RMM activation.
-> 
-> Apply the same checks when hotplugged memory is brought online.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
-> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   Changes since v16:
->       * Check fine tracking and create L1 GPTs for hotplug-added memory.
->       * Clarify the L1 GPT setup and move the explanatory comment.
->       * Switch to using RMI_GPT_INFO command for checking the GPTs.
->       * Deactivate the RMM and reclaim the memory if we can't proceed.
->   Changes since v15:
->       * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
->       * Handle negative error codes from wrappers.
->   Changes since v14:
->       * Move the implementation into drivers/firmware/arm_rmm.
->   Changes since v13:
->       * Moved out of KVM
-> ---
->   drivers/firmware/arm_rmm/rmi.c | 139 +++++++++++++++++++++++++++++++++
->   include/linux/arm-rmi-cmds.h   |  75 ++++++++++++++++++
->   2 files changed, 214 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index d969c8738efde..34058e34188d3 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/cpufeature.h>
->   #include <linux/memblock.h>
-> +#include <linux/memory.h>
->   #include <linux/arm-rmi-cmds.h>
->   #include <linux/processor.h>
->   #include <linux/slab.h>
-> @@ -12,6 +13,8 @@
->   #include <asm/memory.h>
->   #include <asm/pgtable-hwdef.h>
->   
-> +static bool arm64_rmi_is_available;
-> +
->   /* Currently only the first 2 registers are used by Linux */
->   #define RMI_FEAT_REG_COUNT	2
->   static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
-> @@ -639,6 +642,124 @@ static int rmi_configure(void)
->   	return ret;
->   }
->   
-> +/*
-> + * Make sure the area is tracked by RMM at FINE granularity.
-> + * We do not support changing the tracking yet.
-> + */
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +	while (start < end) {
-> +		unsigned long ret, category, state, next;
-> +
-> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
-> +		if (ret != RMI_SUCCESS)
-> +			return -ENOMEM;
-> +
-> +		if (state != RMI_TRACKING_FINE ||
-> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +			/* TODO: Set granule tracking in this case */
-> +			pr_err("Granule tracking for region isn't fine/conventional: %llx-%lx\n",
-> +			       start, next);
-> +			return -ENODEV;
-> +		}
-> +		start = next;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * We do not support creating L1 GPTs yet. So, make sure that
-> + * all the regions are managed by the firmware.
-> + */
-> +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, phys_addr_t end)
-> +{
-> +	unsigned long l0gpt_sz;
-> +	unsigned long next, par_state;
-> +
-> +	l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +					  rmi_feat_reg(1)));
-> +	start = ALIGN_DOWN(start, l0gpt_sz);
-> +	end = ALIGN(end, l0gpt_sz);
-> +
-> +	while (start < end) {
-> +		long ret = rmi_gpt_info(start, end, &next, &par_state);
-> +
-> +		if (ret != RMI_SUCCESS)
-> +			return -ENOMEM;
-> +
-> +		if (par_state != RMI_GPT_PAR_PLAT) {
-> +			pr_err("GPT for the region is not managed by firmware %llx-%lx\n",
-> +				start, next);
-> +			return -ENOMEM;
+> Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
+> Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
 
-I guess -ENODEV is more appropriate:
+And thanks!
 
-			return -ENODEV
-
-> +		}
-> +		start = next;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_prepare_memory(phys_addr_t start, phys_addr_t end)
-> +{
-> +	int ret;
-> +
-> +	ret = rmi_verify_memory_tracking(start, end);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return rmi_verify_gpt_firmware_managed(start, end);
-> +}
-> +
-> +static int rmi_init_metadata(void)
-> +{
-> +	phys_addr_t start, end;
-> +	struct memblock_region *r;
-> +
-> +	for_each_mem_region(r) {
-> +		int ret;
-> +
-> +		/* Firmware-reserved NOMAP regions are not usable system RAM */
-> +		if (memblock_is_nomap(r))
-> +			continue;
-> +
-> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
-> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
-> +
-> +		ret = rmi_prepare_memory(start, end);
-> +		if (ret)
-> +			return ret;
-
-The local variable 'start' and 'end' can be dropped:
-
-		ret = rmi_prepare_memory(PFN_PHYS(memblock_region_memory_base_pfn(r)),
-					 PFN_PHYS(memblock_region_memory_end_pfn(r)));
-		if (ret)
-			return ret;
-
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_memory_notifier(struct notifier_block *nb,
-> +			       unsigned long action, void *data)
-> +{
-> +	struct memory_notify *arg = data;
-> +	phys_addr_t start, end;
-> +	int ret;
-> +
-> +	if (action != MEM_GOING_ONLINE)
-> +		return NOTIFY_DONE;
-> +
-> +	start = PFN_PHYS(arg->start_pfn);
-> +	end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
-> +	ret = rmi_prepare_memory(start, end);
-> +
-> +	return notifier_from_errno(ret);
-> +}
-> +
-> +static struct notifier_block rmi_memory_nb = {
-> +	.notifier_call = rmi_memory_notifier,
-> +};
-> +
-> +bool is_rmi_available(void)
-> +{
-> +	return arm64_rmi_is_available;
-> +}
-> +EXPORT_SYMBOL_GPL(is_rmi_available);
-> +
->   static int __init arm64_init_rmi(void)
->   {
->   	int ret = 0;
-> @@ -666,8 +787,26 @@ static int __init arm64_init_rmi(void)
->   	if (ret) {
->   		pr_err("RMM activate failed\n");
->   		ret = ret < 0 ? ret : -ENXIO;
-> +		goto out_free_sro;
->   	}
->   
-> +	ret = rmi_init_metadata();
-> +	if (ret)
-> +		goto out_deactivate;
-> +
-> +	ret = register_memory_notifier(&rmi_memory_nb);
-> +	if (ret)
-> +		goto out_deactivate;
-> +
-> +	arm64_rmi_is_available = true;
-> +	pr_info("RMI configured\n");
-> +	kfree(sro);
-> +
-> +	return 0;
-> +
-> +out_deactivate:
-> +	rmi_rmm_deactivate(sro);
-> +out_free_sro:
->   	kfree(sro);
->   	return ret;
->   }
-> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
-> index dea7c7004d35f..79e2c1f165112 100644
-> --- a/include/linux/arm-rmi-cmds.h
-> +++ b/include/linux/arm-rmi-cmds.h
-> @@ -35,6 +35,8 @@ static inline int rmi_undelegate_page(phys_addr_t phys)
->   	return rmi_undelegate_range(phys, PAGE_SIZE);
->   }
->   
-> +bool is_rmi_available(void);
-> +
->   long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp);
->   void rmi_sro_free(struct rmi_sro_state *sro);
->   long rmi_sro_execute(struct arm_smccc_1_2_regs *regs);
-> @@ -64,6 +66,19 @@ static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
->   	return res.a0;
->   }
->   
-> +/**
-> + * rmi_rmm_deactivate() - Deactivate the RMM and reclaim any memory donated at
-> + * rmi_rmm_activate()
-> + *
-> + * @sro: Preallocated SRO context to be used
-> + *
-> + * Return: 0 on success, positive RMI result code or negative Linux error code
-> + */
-> +static inline long rmi_rmm_deactivate(struct rmi_sro_state *sro)
-> +{
-> +	return rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE);
-> +}
-> +
-
-It seems rmi_rmm_deactivate() is used for once by rmi.c::arm64_init_rmi(). If so,
-we needn't to expose this function and just combine the logics to rmi.c::arm64_init_rmi().
-
->   /**
->    * rmi_rmm_activate() - Activate the RMM
->    * @sro: Preallocated SRO context to be used
-> @@ -75,6 +90,66 @@ static inline long rmi_rmm_activate(struct rmi_sro_state *sro)
->   	return rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_ACTIVATE);
->   }
->   
-> +/**
-> + * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
-> + * @start: Base PA of the tracking region
-> + * @end: End of the PA region
-> + * @out_category: Memory category
-> + * @out_state: Tracking region state
-> + * @out_top: Top of the memory region
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_granule_tracking_get(unsigned long start,
-> +					   unsigned long end,
-> +					   unsigned long *out_category,
-> +					   unsigned long *out_state,
-> +					   unsigned long *out_top)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_TRACKING_GET, start, end, &res);
-> +
-> +	if (res.a0 == RMI_SUCCESS) {
-> +		if (out_category)
-> +			*out_category = res.a1;
-> +		if (out_state)
-> +			*out_state = res.a2;
-> +		if (out_top)
-> +			*out_top = res.a3;
-> +	}
-> +
-> +	return res.a0;
-> +}
-> +
-
-rmi_granule_tracking_get() is used for once by rmi.c::rmi_verify_memory_tracking(). We needn't
-expose rmi_granule_tracking_get() and combine its logic into rmi.c::rmi_verify_memory_tracking().
-
-> +/*
-> + * rmi_gpt_info - Query the GPT info for the given PAR.
-> + * @base: Base of the physical address region
-> + * @top: Top of the physical address region
-> + * @out_top: Top of the phyiscal address region for which
-> + *		the GPT @out_gpt_par_state is valid
-> + * @out_gpt_par_state: State of the GPT covered by [base, out_top)
-> + */
-> +static inline long rmi_gpt_info(unsigned long base, unsigned long end,
-> +			       unsigned long *out_top,
-> +			       unsigned long *out_gpt_par_state)
-> +{
-> +	struct arm_smccc_1_2_regs regs = {
-> +		SMC_RMI_GPT_INFO, base, end,
-> +	};
-> +
-> +	long ret = rmi_sro_execute(&regs);
-> +
-> +	if (ret == RMI_SUCCESS) {
-> +		if (out_top)
-> +			*out_top = regs.a1;
-> +		if (out_gpt_par_state)
-> +			*out_gpt_par_state = regs.a2;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-
-Similarly, rmi_gpt_info() is used for once by rmi.c::rmi_verify_gpt_firmware_managed(). We
-needn't expose this function and can combine the logic to rmi.c::rmi_verify_gpt_firmware_managed().
-
->   /**
->    * rmi_features() - Read feature register
->    * @index: Feature register index
-
-Thanks,
-Gavin
-
+-Andrea
 
