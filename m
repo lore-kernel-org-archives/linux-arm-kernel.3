@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABA1C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1725C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrjvOixqiCFATqeFkPccyskHJoKEDy+lHz7VLzXFwdI=; b=YETpwyqLH2m1bUlaNJElVQPC9G
-	DuniTPTaZ6XLR/TIaTsqHiYDEY5geUHHw3DwoSBCNrpj3PcJ3vu+976gCSvHpOk3gSbEfoMRj39Tq
-	VazZn/HJdmVN1dRLphjZQ3NElNpYooDeIEONt2PhDAlbjX1MBhPYtXz0NA9Ei1f40IfPgSJwPgZG9
-	bGzPdi6opk66p3OQtijWnPH2S8yfO9Tv/PDqYjsyJTxfHTylbVIB6oxu8OWzu1bCj72xNWAKEnquQ
-	s3Pf/feP+IniuKT6qTM9AosvRhYMV28R31XUJSDS3/E+234jimd/TIPXs++MyV3nRHZVB+xbeSpwU
-	pygZyLbg==;
+	bh=1vSmlUZNoD842yAgOOnJ5dfY6tdwXPa3MRt5dvciHVg=; b=2IDGWhJ10THrF5u+ApWCTlJCzP
+	KIhOog7uY8riZFmXj2D5A3VX1ZAS1nCjOcdBu2uEnMDo3bNczgvCc80sPJnB4n14Ixkk0QoXvwNsp
+	95GfVfxdLoEug1drzgOwA0LCT4znTCxjwgsHtXPlCVwZ6la3SIAZJQIpx2v0XznlRhnSTmrWt6T3Z
+	b9CFpOd1mCcG2dW3+dNKPGUMu3BMhvqGn4WF9N9MKJ1BQwOjW90gsHxg0c+ASu8dhhSPidiUIBCmb
+	uHC865HwpGQsRnzLEPQROBI3QqOdmJuDbfXEUyxTHHtK93uFl99UZGXxYo09BazXW5B09maMfxtDM
+	cCsSownA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ClV-0000000AzJV-0Ifp;
-	Wed, 09 Sep 2026 07:30:41 +0000
+	id 1x4Cmp-0000000AzXo-1ea1;
+	Wed, 09 Sep 2026 07:32:03 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ClU-0000000AzJ4-1kCH
+	id 1x4Cmo-0000000AzXb-1Out
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 07:30:40 +0000
+	Wed, 09 Sep 2026 07:32:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7BF860207;
-	Wed,  9 Sep 2026 07:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DDC51F00A3D;
-	Wed,  9 Sep 2026 07:30:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C3A76601FE;
+	Wed,  9 Sep 2026 07:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F52A1F00A3A;
+	Wed,  9 Sep 2026 07:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788939039;
-	bh=FrjvOixqiCFATqeFkPccyskHJoKEDy+lHz7VLzXFwdI=;
+	s=k20260515; t=1788939121;
+	bh=1vSmlUZNoD842yAgOOnJ5dfY6tdwXPa3MRt5dvciHVg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jLMaZVencp37Q1r8uUJTA/hlRecDZicUGWymfaHerZW7Q3Jy30jR7nn8Dk/nfwSId
-	 Wm2HwOhmq+DK7uTUtJ/KhiIZw/IcXXUtXhY+fE6WQKE7IuSnjV9y6R1mbCJs/MhhHO
-	 wiMSNVFj4fx2irXWPk2hvvWDIIfg7hinF2yAfKZABadnsrBSa+qAzb5St4ORzNEKRS
-	 wEl7/W7t5Xkx0uBkPVEV27xfjpOxU3W0757hUmMsYPjs2/fHaGU3WB3vasXbryAuQW
-	 BbpKftBOW9XZQ4RU6Tc/A3tr+viPY/DeW1fjOqvVTn+mPoynsW96nh9mFBG3YavarH
-	 K2uIGllLdIPkA==
-Date: Wed, 9 Sep 2026 09:30:35 +0200
+	b=VeKxFVIt+DF7mFO51IB+xdzSa94T+4yM7OeehXzAJyo8fuJZ6GgWa8sEdHGA/owkR
+	 12LZipugyJTsnbISBrT+I2JNoUiiGlBdFBzX6oSy3lpV/dJxvE/EsLHQ8m9gT3vR2z
+	 M8XXTVoAUd9Ef/cAaaS4BMHfCOIvIQSMPWFDoAkZilwALLFRM5Bzd67pbHblOLwSzr
+	 u6MNpSijUQ2TVQ56gPlmczPuE8IgBIY7nEmgPMjH6alefnlep2UZy9RoxVhssOR6h1
+	 ip3qZyPEascUmGAM4KXOPpBg6p0EXmtLdBB3UH12YiQ3ct2RTUpPFevmUQwfz9g9V5
+	 Q2VmSm/1ZCc6A==
+Date: Wed, 9 Sep 2026 09:31:57 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Rob Herring <robh@kernel.org>, 
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
 	Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
@@ -53,15 +53,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: arm: cpus: Add Apple A18 Pro CPU core
- compatibles
-Message-ID: <20260909-camouflaged-weightless-chameleon-caa088@quoll>
+Subject: Re: [PATCH 4/6] dt-bindings: interrupt-controller: apple,aic2: Add
+ apple,t8140 compatible
+Message-ID: <20260909-advanced-marble-lorikeet-eebeef@quoll>
 References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-1-0c25401d165d@cyberchaos.dev>
+ <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
+ <4e65ef39-cf1b-49d4-a899-da36acb442c2@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-1-0c25401d165d@cyberchaos.dev>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <4e65ef39-cf1b-49d4-a899-da36acb442c2@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 09:49:34PM +0200, Yureka Lilian wrote:
-> Add "apple,tahiti-e" and "apple,tahiti-p" compatibles for the A18 Pro
-> efficiency and performance CPU cores respectively. As with the M4 cores,
-> there is no longer a generational codename, so we assign the core
-> compatible based on SoC codename ("Tahiti") plus core type (E-Core /
-> P-Core).
-> 
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
->  Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+On Sat, Sep 05, 2026 at 04:25:36PM +0800, Nick Chan wrote:
+>=20
+> Yureka Lilian =E6=96=BC 2026/9/5 =E5=87=8C=E6=99=A83:49 =E5=AF=AB=E9=81=
+=93:
+> > The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, sam=
+e as
+> > the M1-M4 SoCs.
+> >
+> > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> > ---
+> >  Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml=
+ | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/app=
+le,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple=
+,aic2.yaml
+> > index 1cb886785173..e3cadc5ad39d 100644
+> > --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2=
+=2Eyaml
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2=
+=2Eyaml
+> > @@ -46,6 +46,7 @@ properties:
+> >                - apple,t6030-aic3
+> >                - apple,t6031-aic3
+> >                - apple,t8132-aic3
+> > +              - apple,t8140-aic3
+>=20
+> the title should be "... Add t8140 compatible" describing the hardware co=
+rresponding
+> to the added compatible since the compatible being added is not "apple,t8=
+140".
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Commit msg is correct, it does exactly what you wrote, no?
+
+>=20
+> (Alternatively, if you mention the compatible in title, say "...Add apple=
+,t8140-aic3" as
+> "compatible" is already implied)
+
+That would be repeating diff, so not really helpful.
 
 Best regards,
 Krzysztof
