@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02AF8C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E84DC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=da8Hbv3HviqmJ9T7cSFKFabYHW62tTClS0GobnwfGcI=; b=Vs8+GwI7ZbE2nHOxJZR5KdsCrg
-	iGLQpaNIQcuiDh7HnMaQLmu9LsZ7/NUbjpHYyT/FXE4s2pLkeM9avYOCUGYR9HRu7iHDsC4FFLcIR
-	zRTwTA74UM50dsUvGmlF79dPofoLWy9Xtsbd1hVna4Zt8nDZfucYWnjeVH6RJfrAu1PCVfDnJTWYR
-	/Rkj1nU4bjQh2EfBK3qpD7UcnVh9PC1BPwvGhhgxKlsdpkzYoGmrXlx9fB++8jh3BhhDbXxvDdFJt
-	UJFOkGqlT/UNAtJ/9/iCLEK0Rdlo0aG9Qs+n5Z+CtQ6ew0hJRWuOXtV2KHVU3B7a/+gOgBkF0g3LA
-	fznRPRnw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cOkne/n6INtFZS586Y3Cuyh8nThElvqcPBII8NtloFQ=; b=kdQsgQVs3RGDWuBbCQg7jlohWB
+	2bHcu6zvg3R2jF6RJM+3Fhh8sqMiWV6A+QtGcigIe8jiFNC4foGfSYibHGadK+uusU0c+tJ5RYyQn
+	x6wIBa1l1hEAfnRREuSbC2vHA7QC+qfJa9DtWokY2GbCsUUnSPZnA07vA4PJWSGor2V+/gUNAl4ni
+	GEkjRARP+DbcEh5ErzF55dPNSfe50HR0Orr8kCLbi2gfDHH0BnajBPPdMSpi3Rd0APj4KLj04EaXv
+	1EbyT72SomyztCUuQCoA/l0whkg8i/ofl5z26gnO2LRBUMrSKRDeEXlmAUqi5RIzn1eKRUBNTK1uY
+	2pcdSuww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FrU-0000000BTY7-2udz;
-	Wed, 09 Sep 2026 10:49:04 +0000
+	id 1x4FsA-0000000BTfP-1WYt;
+	Wed, 09 Sep 2026 10:49:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FrS-0000000BTXw-1VPm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:49:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC67B4322D;
-	Wed,  9 Sep 2026 10:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C930C1F00A3A;
-	Wed,  9 Sep 2026 10:49:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788950941;
-	bh=da8Hbv3HviqmJ9T7cSFKFabYHW62tTClS0GobnwfGcI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PZSuHxkKFO7ggcmK3I1z8YELYgZEcp910adYB1oLiU21I9eAnNoQALMw9c+AG3QaL
-	 4MkKytGdy/Rn0rP0L7wGnaRnDOdebbTbGxVd8DevtyCV3m/lIhIjCeqYzsL7qoX0Qf
-	 n5hTXSZ1KvCWKxZqToXyY95Z/1ie69rcvJtNmATBuP6BnTXH6HXwz3MPLvABwjVXia
-	 blFLwPIUx/x6NMy59YU9dJ4Cm4NEc50fdN7KysP7Ox30xaLW/KhFgohKxBE/SPtzkt
-	 a++w0iO9pMP8KLrHxBy/79J+OHy4ilpPHgeKFbjVh0UbMSwcpWVt1sxfAOzqB4JaNh
-	 3+ZtKMJuLR6Qg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4FrP-00000006dmG-1oSc;
-	Wed, 09 Sep 2026 10:48:59 +0000
-Date: Wed, 09 Sep 2026 11:48:58 +0100
-Message-ID: <86zexq3dk5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org
-Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting Realm guests
-In-Reply-To: <aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
-	<20260908162223.1683432-7-suzuki.poulose@arm.com>
-	<aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: enju.kohei@fujitsu.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1x4Fs7-0000000BTeF-2A6F;
+	Wed, 09 Sep 2026 10:49:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 498B74395C;
+	Wed,  9 Sep 2026 10:49:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 23454C2BCFB;
+	Wed,  9 Sep 2026 10:49:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788950983;
+	bh=sSaHce3/qZzCbrOudBOCyhDSZYi1NxJWO36thRGVzKA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=T3x18ENGagWDsM6r/NMWuGwlT0S4XHvcH+KbNnuvFycRk6F+qWpRmI62cy0KP9fBa
+	 W8XD6AP8isiSG3wSw4fx4Uo7eiNQWknlxT8sUQqZEAz8gtlvsH8wKnMU55hDewKMPq
+	 3WnWcJMGjTxBO7gZiDGPuuzCKN54Xnjw99KFs27u3NNh6EziOSubeKfsxUDWEglt31
+	 Rq1uotdc6FkiVzvSHMcLSkirsPbTKo+m3vihfZdKNVpN742ZTeE0oii+tDkv5gODej
+	 Z2iYHQlNglqqC0+AAcEp5xUG8qHE2viSwP007CwWL+ibOUfdOpbj+182R1wZuH0S0c
+	 kuYF5lN7J7W9g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 027EAC79FAD;
+	Wed,  9 Sep 2026 10:49:43 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Wed, 09 Sep 2026 13:48:51 +0300
+Subject: [PATCH v3 2/3] nvmem: mtk-efuse: add support for 32-bit aligned
+ reads
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260909-6572-nvmem-v3-2-c0c441656431@protonmail.com>
+References: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
+In-Reply-To: <20260909-6572-nvmem-v3-0-c0c441656431@protonmail.com>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Lala Lin <lala.lin@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788950981; l=2506;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=XhoHgsfcc5OEe7HZ0qvJcNLLqZAnK9nL4IMC1zVANXE=;
+ b=KyhS1lFLzJ4JQxSLs/7UgLqXwsNsVrgbAoyJT4edsudSB2Wkf0BJRXPzJMnQEZjps1u0kCQ3A
+ QURiR1R0x7lBosdOILwyLYVSDe1SlX+pP52AUCC8rIU5/E9RFh91oz1
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,78 +86,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Sep 2026 04:26:41 +0100,
-Kohei Enju <enju.kohei@fujitsu.com> wrote:
-> 
-> Hi Suzuki,
-> 
-> On 09/08 17:22, Suzuki K Poulose wrote:
-> > Add an explicit mode to support Arm CCA guests.
-> > 
-> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > ---
-> >  Documentation/admin-guide/kernel-parameters.txt | 3 +++
-> >  arch/arm64/include/asm/kvm_host.h               | 1 +
-> >  arch/arm64/kvm/arm.c                            | 5 +++++
-> >  3 files changed, 9 insertions(+)
-> > 
-> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > index 68647ff4bdd24..1afe3df3b923e 100644
-> > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > @@ -3256,6 +3256,9 @@ Kernel parameters
-> >  			nested: VHE-based mode with support for nested
-> >  				virtualization. Requires at least ARMv8.4
-> >  				hardware (with FEAT_NV2).
-> > +			rmm: Support for running confidential guests in Realm
-> > +			     world using RMM, as defined by Arm Confidential
-> > +			     Compute Architecture (CCA)
-> >  
-> >  			Defaults to VHE/nVHE based on hardware support. Setting
-> >  			mode to "protected" will disable kexec and hibernation
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index b2e99c5cb1cd3..31ae9d8d8e92f 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -69,6 +69,7 @@ enum kvm_mode {
-> >  	KVM_MODE_DEFAULT,
-> >  	KVM_MODE_PROTECTED,
-> >  	KVM_MODE_NV,
-> > +	KVM_MODE_RMM,
-> >  	KVM_MODE_NONE,
-> >  };
-> >  #ifdef CONFIG_KVM
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 9af3bbb2f8c24..50f0adfadab38 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -3264,6 +3264,11 @@ static int __init early_kvm_mode_cfg(char *arg)
-> >  		return 0;
-> >  	}
-> >  
-> > +	if (strcmp(arg, "rmm") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
-> > +		kvm_mode = KVM_MODE_RMM;
-> > +		return 0;
-> > +	}
-> 
-> Does this make NV support and CCA Realm VM support mutually exclusive?
-> 
-> Until the v16 series, we could run Realm VMs with:
->   'kvm-arm.mode=nested'
-> 
-> As far as the AArch64 architecture is concerned, there does not seem to
-> be a reason to make them mutually exclusive. I am therefore wondering
-> whether this restriction is intentional.
+From: Roman Vivchar <rva333@protonmail.com>
 
-I have a hack somewhere that will allow this, but this requires to
-change the above to be a capability mask rather than a simple
-enumeration. I'll see if I can spin that as a separate series.
+Some MediaTek SoCs, such as mt6572, don't support 8-bit reads, leading
+to zeroes or garbage data. 32-bit aligned reads must be used instead.
 
-	M.
+Introduce a 'mtk_reg_read_aligned' helper to enforce 32-bit aligned
+register access. All reads will be performed by reading 4-byte words
+and masking them.
+
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ drivers/nvmem/mtk-efuse.c | 35 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
+index af953e1d9230..178b9d85f813 100644
+--- a/drivers/nvmem/mtk-efuse.c
++++ b/drivers/nvmem/mtk-efuse.c
+@@ -4,6 +4,7 @@
+  * Author: Andrew-CT Chen <andrew-ct.chen@mediatek.com>
+  */
+ 
++#include <linux/align.h>
+ #include <linux/device.h>
+ #include <linux/module.h>
+ #include <linux/mod_devicetable.h>
+@@ -14,12 +15,37 @@
+ 
+ struct mtk_efuse_pdata {
+ 	bool uses_post_processing;
++	bool needs_aligned_read;
+ };
+ 
+ struct mtk_efuse_priv {
+ 	void __iomem *base;
+ };
+ 
++static int mtk_reg_read_aligned(void *context,
++				unsigned int reg, void *_val, size_t bytes)
++{
++	struct mtk_efuse_priv *priv = context;
++	u8 *val = _val;
++	u32 i, pos, shift, val32;
++
++	for (i = 0; i < bytes; i++, val++) {
++		pos = reg + i;
++
++		/*
++		 * Read on 32-bit word boundary or if it's the first
++		 * iteration
++		 */
++		if (i == 0 || IS_ALIGNED(pos, 4))
++			val32 = readl(priv->base + (pos & ~3));
++
++		shift = (pos & 3) * 8;
++		*val = (val32 >> shift) & 0xff;
++	}
++
++	return 0;
++}
++
+ static int mtk_reg_read(void *context,
+ 			unsigned int reg, void *_val, size_t bytes)
+ {
+@@ -82,7 +108,12 @@ static int mtk_efuse_probe(struct platform_device *pdev)
+ 	econfig.add_legacy_fixed_of_cells = true;
+ 	econfig.stride = 1;
+ 	econfig.word_size = 1;
+-	econfig.reg_read = mtk_reg_read;
++
++	if (pdata->needs_aligned_read)
++		econfig.reg_read = mtk_reg_read_aligned;
++	else
++		econfig.reg_read = mtk_reg_read;
++
+ 	econfig.size = resource_size(res);
+ 	econfig.priv = priv;
+ 	econfig.dev = dev;
+@@ -103,10 +134,12 @@ static int mtk_efuse_probe(struct platform_device *pdev)
+ 
+ static const struct mtk_efuse_pdata mtk_mt8186_efuse_pdata = {
+ 	.uses_post_processing = true,
++	.needs_aligned_read = false,
+ };
+ 
+ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+ 	.uses_post_processing = false,
++	.needs_aligned_read = false,
+ };
+ 
+ static const struct of_device_id mtk_efuse_of_match[] = {
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.55.0
+
+
 
