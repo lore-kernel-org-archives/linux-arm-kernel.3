@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E42C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B950C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HI6oCWAggKVgjHHUXtpNDIwKg2A2M537aYICfyDxn1k=; b=vz1s7VttIMjLsRfwZPpTt1PhGB
-	xvfT5lzgRC859A+f28OlCaLMok4yJ834MhJjItu4VvO1Meh4B8422IIdcxJE4PDnqECHkrjPKu8kv
-	MENGx/uxIXqdoAl1S9UQOTRC/ze53AhP+lA2VQ+qdSxyuDqdGwRSBbuqprYZG178P46ndMximo8if
-	7NMjx1r5TRZSwNfsD9GAQUDoDphpp0OpfATfNgxu+bj2LjFrqVZaxKt3QJrF2Z3j387JpB685QYTT
-	DbnG4lmqoG/YLO+GvviKgeDNjKfpe+bCaRyxuWhvXnz2zbEVrU3AjYE19ybJWBYUhk+kQGpTlAkOP
-	mmeRt4zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D70P5bBP7rJfC/wD9nHjID+dIb3h0sckQlDoFdS+bEI=; b=lmKL4XHIIijcjt
+	vrQCudK1yzbuTeXRm5C57scjWgu2k1rDiGP6+ADbhBtllxL1NalRlYo/HkEYR3smwdTWHeiNnn4eP
+	KvGIvOx926/sai7n6xyhdXCWbY0MggxXOWs7tJDg8k5dolRRIe3zMQxsoy37otFx7GfYhf1n0Ppiy
+	cQ1gO42umL+Uf/yJZQNfbO5wGmLKINIKEEG/4AE2yFg+NtofoZ5EE06RNogzwImVugbmMnn00Uly4
+	jk5W9bZkLKkDRTMo68SNLwHOtv6pLULbvPn/p7vi8W098iitgez2WhV17yUpDKTYHyWIlOjb6I7jb
+	i+M5PEkstgxfX4RwLUJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FVE-0000000BPRm-3wUd;
-	Wed, 09 Sep 2026 10:26:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4FWO-0000000BPdK-3sa7;
+	Wed, 09 Sep 2026 10:27:16 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FVC-0000000BPRd-47AI
+	id 1x4FWL-0000000BPbG-3QX3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:26:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 7347143D29;
-	Wed,  9 Sep 2026 10:26:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A700E1F00A3A;
-	Wed,  9 Sep 2026 10:26:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788949562;
-	bh=HI6oCWAggKVgjHHUXtpNDIwKg2A2M537aYICfyDxn1k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iVwe3CBq8/usNlhm35flLzb5fcpMR0UuH9N8wIWgci28WA6myoHXIM/lscjeAAoMD
-	 TChl7PyzhxkxwnkH2DHdVJqn0PLM52FDyhhIJzT/XhvY32Iyz3s3k5NBICZupZfG2o
-	 1k0ryL2mUkvHWqDeXg/JLu9RDKYGFSidYg+iy6fGFC8J6bbqnnsXp5O3xJk55b3FsC
-	 t0vu0Suk9CXQiPf3qPX/H875UajC9g868mjqqS8IVnI3XCg4NTsEfoGMfcTBbWUl+N
-	 JU5mrxU5MrF9ExQN/Mb9Tc71prr0wEOIfdSTOsLcrDeALaC6tx1lj5Lwnc3alwNQLM
-	 +LFDUWjK5so3A==
-Date: Wed, 9 Sep 2026 12:25:59 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Harshit Shah <hshah@axiado.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v4 2/2] pwm: add Axiado AX3000 PWM driver
-Message-ID: <aqElQj-H80PEXY0U@monoceros>
-References: <20260908-axiado-ax3000-pwm-v4-0-19a03671cd5b@axiado.com>
- <20260908-axiado-ax3000-pwm-v4-2-19a03671cd5b@axiado.com>
+	Wed, 09 Sep 2026 10:27:15 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id DD1CF1D00064;
+	Wed,  9 Sep 2026 06:27:08 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Wed, 09 Sep 2026 06:27:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1788949628; x=1789036028; bh=D7
+	0P5bBP7rJfC/wD9nHjID+dIb3h0sckQlDoFdS+bEI=; b=Px7tzLuh5KjvlGa5Gu
+	KbeFo/yNzIfN38aYA8viwGgy2SWI4hJ/z4Z2QZna/CbsNmPDC2iVQjYqhNaUywR4
+	QnXKmNy8PWBS7ex3j6c6haev83NLnB9Y73K3ndONxWTbBtv5eaWRz2xxBkv/PFqX
+	JPVkLjO1z0JZu1mf4tfj8OCOzhcbrLFA71N9tHB/ZGhObjxOoy8SGWGqV5BoEJKf
+	zYU9tHeuM3O8A3mqrakXTNt/jsp9k0U9Rj85As96CcHUo+yJ5TpRdC4UdKLDWRI9
+	UHFJ1iY0USZKdz8kzuX1qf14qq0qPxQi7B60j5m8m7Asrzo1tYcrMQOF4nDoT10l
+	CSqA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1788949628; x=1789036028; bh=D70P5bBP7rJfC/wD9nHjID+dIb3h
+	0sckQlDoFdS+bEI=; b=LGDh2m6jPvBSaidnHogBtFO+3bMyGlCSocgfmKwEJdEJ
+	pobfgdizmB2TReo+CMK4jXINfGJOV5RslTpijBWDwESDYnM9lmpYBHMsS9w9BC0d
+	l9IS4a/ztcxypmkB4IyMnOEA+wBbEwLjyKKnQdLraBMPY8kieWz0xF2YGz3wPwTy
+	4OgLSt1bvUOi/nLeplNSuWyZf/iJzeehNYAj/Li+zHUWEXavA4rdGxYDMpyw3Buc
+	QlaHKJL1xewCDE4HL/jZ8UiglFdSZA05HSNLMRusstalJyQgUEmYCivhOgeaeOWb
+	HjGPLxHS7cd7LbOHJjbSEZJSCryFoobhAWA27elDxQ==
+X-ME-Sender: <xms:fDShapPcOHOqosI9IR0TvyhU1XnIgn0ClSycfMz-6OFQRXvA1xxAfg>
+    <xme:fDSharq-YIBxhrG-0ehWyOyprXehXUseuMLllXHYwlRL__m0C6vv2goOJbdMpBWXk
+    AnAQ_pHmXKJZrQgJuydOYC3t7UBb9v4VX9-JkLvi6CEziTnQzbju39Stw>
+X-ME-Received: <xmr:fDShaj7XfBYKRFOnCOy-Al78kxTsCWKdAyE2R0EO2nt4jjb5dGWQ7L0tG1PaU0la5C0YK9rhP83TUUzyFK10IDkBqLtkqWXOsQ3Cjw>
+X-ME-Proxy-Cause: dmFkZTEf4elS+wM/oH1d+m2RM29yelr5k28FlgAMFpXVnOmPLs/wmBFdIa1odYJsNDDKoo
+    fG24n5KC5Q7+pkltWM2DlWzke2+LarQxLyUIH/nNcGJJcOwbN1i5IEwV15FA2077BdCJur
+    mYAjt8UdNBh9VaR+pLpELIcspaKwuO+M1AmBa/LfiDOqMGBwmbhHkRWFRwjvEN2VlDCseG
+    8WW2eMEX4p423JGSmCMl79aK1yeMbD0jFviYopJvy+FqEP3X5jPxbSFHhp8v49GwH9NLXc
+    5JTE3imxs5DByzPYxSmgGoxY4ztOom+x3R9s8nrHgHGENKPsd0KH1umbYiKeQezDJu5hBI
+    4mZUSKnBA2gR3+aEFeCBeXIoX8m9KjWTJGmRyoFporsJ3/tYTLQPYJ4uVXB05FO7gr0tZU
+    fQgsE/o7f0f7NuyO1Xpk8jZrBbIPINRGc5e/S+0t+7VNFbL5FyyG3XL4xQIte2O6Zziq5P
+    RJ0FMedD3ngABRC1S0JKp1F0pazo5ECGIxaiYH5QTCJE6NeAs146PWcYmmxUYO6v95HL4j
+    GXwaK0b5c2iW3kBfefMy9/8p38mgZJdZVI6YvazQrmR6k8jwVuxjbdm4aF/x5DNXtSBYQ6
+    0SHP6uE0UdbhMeTZgBi2aWtcdHsXAi7fOWLquzLEgNXYFa/E0ZzidwFnQ70w
+X-ME-Proxy: <xmx:fDShahid_-T_UJDhNP8WvQhsT7T67-bLwbhffQsSAUeEUVQ8k615Cw>
+    <xmx:fDShah5G_sDlX8owIb5BX_JyEX-kbR2Cg3q4VX2RvzAWx1w9m-1tfg>
+    <xmx:fDShauHptRblPWyLpKUh5eP71iNWkHXW1U14Tjpm6cRN244HV69eiw>
+    <xmx:fDSharIlMpKBlLyugUSxFb_wOYZUkzZxUZLeTdzk835jijZkZrnVLQ>
+    <xmx:fDShagIHMoDBo6Gog-nEAATz9QSDgxYIA_H5bFw1ed2qwByjzWr8NvTr>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 9 Sep 2026 06:27:08 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH 00/13] dt-style-check strict fixes for Apple M3, M3
+ Pro/Max/Ultra
+Date: Wed, 09 Sep 2026 12:26:56 +0200
+Message-Id: <20260909-apple-dts-m3-dt-style-check-v1-0-4c546e2d9d51@jannau.net>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d2hth543vljjdczy"
-Content-Disposition: inline
-In-Reply-To: <20260908-axiado-ax3000-pwm-v4-2-19a03671cd5b@axiado.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAxA0atI1gbaCs7Uq4iL0sYxzIyWRkQR7
+ 25w9Xmbf4JQYRLoqhMKbSy8zApbVxCnMH8IOanBGdcabzyGnH+EaRX8NxqU9VDHieIXjYv+ZW1
+ 4+5RAD7nQyPtz74frugEM2PGvbQAAAA==
+X-Change-ID: 20260909-apple-dts-m3-dt-style-check-02c9711a89dd
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3432; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=ml4ZBju4B1tq+rmMxB/b+E1KZR7TEWBug3bye3R6QM0=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqyFJhUTpl2WXHdrtyWTe+3OmSFTFVS0579TXiM25YHoi
+ svVxh7+HaUsDGJcDLJiiixJ2i87GFbXKMbUPgiDmcPKBDKEgYtTACZi4crwvyi7Q0tZM1r8QOS2
+ i/aNe9zZX8rN99rRqvbU5uy74NdBGYwM+9dtOMG94pyAzcPwKIuAhUs+c6+5qaQ826Ql+2xf5pV
+ N/AA=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_032714_103952_0A310AF1 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,366 +122,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hej,
 
---d2hth543vljjdczy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/2] pwm: add Axiado AX3000 PWM driver
-MIME-Version: 1.0
+this series fixes most dt-style-check issues in strict strict mode for
+Apple M3 and M3 Pro, Max and Ultra device trees. These device trees are
+small so fixing most of the issues helps to check that new additions do
+not introduce new dt-style-check issues.
 
-Hello,
+Not handled in this series are property-order and line-length issues in
+t*-pmgr.dtsi. I don't expect those files to be touched often and the
+diffs would be huge.
+In addition it leaves line-length issues for lines with up to 82
+columns.
 
-On Tue, Sep 08, 2026 at 01:28:35AM -0700, Petar Stepanovic wrote:
-> The Axiado AX3000 and AX3005 SoCs include a single-channel PWM
-> controller.
->=20
-> Add a driver supporting period, duty-cycle, and enable-state
-> configuration through the Linux PWM framework.
->=20
-> Disabling the hardware controller drives its output high. Implement a
-> logically disabled PWM using the controller's constant-low encoding
-> instead. The same encoding is used for an enabled PWM with a 0% duty
-> cycle, so cache the logical state and requested period for readback.
+Cache related properties for CPU nodes unfortunately do not share a
+prefix so strict property-order would decrease human readability. This
+series does not address property-order order for "d-cache-size" and adds
+a blank line before it to keep all cache related properties grouped
+together.
 
-The purpose of disabling the hardware is to save power. If the result is
-that the output goes to the high state that's mildly strange, but not
-unseen. Still disable the hardware in that case. (And any consumer
-driver that relies on a low output on disable is wrong and needs
-fixing.)
+I verified that the series does not introduce functional changes by
+comparing the preprocessed device trees with dtdiff. The diff shows only
+phandle changes caused by reordering nodes.
 
-> diff --git a/drivers/pwm/pwm-axiado.c b/drivers/pwm/pwm-axiado.c
-> new file mode 100644
-> index 000000000000..e1d408809694
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-axiado.c
-> @@ -0,0 +1,332 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (c) 2021-2026 Axiado Corporation.
+Series based on apple-soc/dt-7.4 (commit f3f2d38a606e ("arm64: dts:
+apple: Fix style issues for t6031 multi die .dtsi")).
 
-It's not universally done in the kernel, but I'd be happy to see this
-formalized as:
+Janne
 
-	SPDX-FileCopyrightText: 2021-2026 Axiado Corporation.
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+Janne Grunau (13):
+      arm64: dts: apple: t603x: Fix all blank line dt-style-check issues
+      arm64: dts: apple: t8122: Fix blank line related dt-style-check issues
+      arm64: dts: apple: t603x: Fix child-name-order dt-style-check issues
+      arm64: dts: apple: t8122: Fix child-name-order dt-style-check issues
+      arm64: dts: apple: t8122: Fix child-address-order dt-style-check issues
+      arm64: dts: apple: t6031: Fix continuation alignment
+      arm64: dts: apple: t8122: Fix continuation alignment
+      arm64: dts: apple: t6030: Fix most property-order dt-style-check issues
+      arm64: dts: apple: t603[12]: Fix most property-order dt-style-check issues
+      arm64: dts: apple: t8122: Fix most property-order dt-style-check issues
+      arm64: dts: apple: t6032-j575d: Remove unused "framebuffer0" label
+      arm64: dts: apple: t603x: Break overly long lines
+      arm64: dts: apple: t8122: Break overly long lines
 
-> + */
-> +
-> +/*
+ arch/arm64/boot/dts/apple/t6030-pmgr.dtsi      |   1 -
+ arch/arm64/boot/dts/apple/t6030.dtsi           | 277 ++++++++++++++-----------
+ arch/arm64/boot/dts/apple/t6031-base.dtsi      | 191 +++++++++--------
+ arch/arm64/boot/dts/apple/t6031-die0.dtsi      |  61 +++---
+ arch/arm64/boot/dts/apple/t6031-dieX.dtsi      |  92 ++++----
+ arch/arm64/boot/dts/apple/t6031-gpio-pins.dtsi |  18 +-
+ arch/arm64/boot/dts/apple/t6031-pmgr.dtsi      |   6 +
+ arch/arm64/boot/dts/apple/t6031.dtsi           |   7 +-
+ arch/arm64/boot/dts/apple/t6032-j575d.dts      |  10 +-
+ arch/arm64/boot/dts/apple/t6032.dtsi           | 175 +++++++++-------
+ arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi |  15 +-
+ arch/arm64/boot/dts/apple/t8122-j504.dts       |  10 +-
+ arch/arm64/boot/dts/apple/t8122-j613.dts       |   9 +-
+ arch/arm64/boot/dts/apple/t8122-j615.dts       |   9 +-
+ arch/arm64/boot/dts/apple/t8122-jxxx.dtsi      |   5 +-
+ arch/arm64/boot/dts/apple/t8122-pmgr.dtsi      |   1 -
+ arch/arm64/boot/dts/apple/t8122.dtsi           | 256 +++++++++++++----------
+ 17 files changed, 640 insertions(+), 503 deletions(-)
+---
+base-commit: f3f2d38a606edf92259aa5e57e083484798d7ea8
+change-id: 20260909-apple-dts-m3-dt-style-check-02c9711a89dd
 
-Please put "Limitations:" here such that
+Best regards,
+-- 
+Janne Grunau <j@jannau.net>
 
-	sed -rn '/Limitations:/,/\*\/?$/p' drivers/pwm/*.c
-
-
-gives the details.
-
-> + * - Supports normal polarity. Configuration changes take effect immedia=
-tely
-> + *   without waiting for the current period to complete.
-> + * - The hardware output remains high when the controller is disabled.
-> + *   Therefore, a logically disabled PWM is implemented using the hardwa=
-re
-> + *   constant-low representation.
-> + * - Supported period range: 2 through 0xfffffffe PWM input clock cycles;
-> + *   0xffffffff is reserved by the hardware for a constant-low output.
-> + *   Longer periods are clamped to the maximum.
-> + * - 0% duty cycle: Programmed as a constant-low period because the
-> + *   hardware interprets a zero high time as a constant-high output.
-> + *   Consequently, the requested period cannot be read back while the
-> + *   duty cycle is 0%.
-> + * - 100% duty cycle: Fully supported and produces a constant-high outpu=
-t.
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/math64.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +
-> +/* Register offsets */
-> +#define AXIADO_PWM_CTRL_REG	0x0000
-> +#define AXIADO_PWM_PERIOD_REG	0x0004
-> +#define AXIADO_PWM_HIGH_REG	0x0008
-> +
-> +/* Period and duty cycle limits */
-> +#define AXIADO_PWM_PERIOD_MIN	2
-> +#define AXIADO_PWM_PERIOD_MAX	0xfffffffe
-> +#define AXIADO_PWM_PERIOD_CONST_LOW	0xffffffff
-> +#define AXIADO_PWM_DUTY_MIN	1
-> +
-> +/* Control register bits */
-> +#define AXIADO_PWM_CTRL_ENABLE	BIT(0)
-> +
-> +struct axiado_pwm_chip {
-> +	void __iomem *base;
-> +	unsigned long rate;
-> +	u32 cached_period;
-> +	bool logically_disabled;
-> +};
-> +
-> +struct axiado_pwm_waveform {
-> +	u32 period;
-> +	u32 duty;
-> +	bool enabled;
-> +};
-> +
-> +static int
-> +axiado_pwm_round_waveform_tohw(struct pwm_chip *chip,
-> +			       struct pwm_device *pwm,
-> +			       const struct pwm_waveform *wf,
-> +			       void *_wfhw)
-> +{
-> +	struct axiado_pwm_chip *axpwm =3D pwmchip_get_drvdata(chip);
-> +	struct axiado_pwm_waveform *wfhw =3D _wfhw;
-> +	u64 period;
-> +	u64 duty;
-> +	int ret =3D 0;
-> +
-> +	/* Encode a disabled request as a zeroed hardware waveform. */
-> +	if (!wf->period_length_ns) {
-> +		*wfhw =3D (struct axiado_pwm_waveform) {};
-
-{ } please (i.e. a space in the empty initializer).
-
-> +		return 0;
-> +	}
-> +
-> +	/* Only an edge-aligned waveform starting at offset zero is supported. =
-*/
-> +	if (wf->duty_offset_ns)
-> +		return -EINVAL;
-
-That is wrong. You're supposed to implement the biggest duty_offset_ns
-not bigger than the requested value. That's 0 and should happen
-successfully (and silently).
-
-> +	if (wf->duty_length_ns > wf->period_length_ns)
-> +		return -EINVAL;
-
-No need to check that. If you see this happen, that's a bug in the pwm
-core.
-
-> +	period =3D mul_u64_u64_div_u64(wf->period_length_ns, axpwm->rate,
-> +				     NSEC_PER_SEC);
-> +
-> +	if (period < AXIADO_PWM_PERIOD_MIN) {
-> +		period =3D AXIADO_PWM_PERIOD_MIN;
-> +		ret =3D 1;
-> +	} else if (period > AXIADO_PWM_PERIOD_MAX) {
-> +		period =3D AXIADO_PWM_PERIOD_MAX;
-> +	}
-> +
-> +	/*
-> +	 * Keep the rounded period for a 0% duty cycle. .write_waveform()
-> +	 * translates it to the hardware constant-low representation.
-> +	 */
-> +	if (!wf->duty_length_ns) {
-> +		*wfhw =3D (struct axiado_pwm_waveform) {
-> +			.period =3D period,
-> +			.duty =3D 0,
-> +			.enabled =3D true,
-> +		};
-
-This happens also without the special handling, right? So the if could
-be dropped.
-
-> +		return ret;
-> +	}
-> +
-> +	duty =3D mul_u64_u64_div_u64(wf->duty_length_ns, axpwm->rate,
-> +				   NSEC_PER_SEC);
-> +
-> +	/*
-> +	 * Preserve an exact 100% duty request when the hardware period has
-> +	 * been clamped.
-> +	 */
-> +	if (wf->duty_length_ns =3D=3D wf->period_length_ns)
-> +		duty =3D period;
-
-With the check below for duty > period this isn't needed.
-
-> +	/*
-> +	 * Period clamping can leave the converted duty greater than the
-> +	 * final hardware period. In that case, clamp it to 100% duty.
-> +	 */
-> +	if (duty > period)
-> +		duty =3D period;
-> +
-> +	*wfhw =3D (struct axiado_pwm_waveform) {
-> +		.period =3D period,
-> +		.duty =3D duty,
-> +		.enabled =3D true,
-> +	};
-> +
-> +	return ret;
-> +}
-> +
-> +static int
-> +axiado_pwm_round_waveform_fromhw(struct pwm_chip *chip,
-> +				 struct pwm_device *pwm,
-> +				 const void *_wfhw,
-> +				 struct pwm_waveform *wf)
-> +{
-> +	struct axiado_pwm_chip *axpwm =3D pwmchip_get_drvdata(chip);
-> +	const struct axiado_pwm_waveform *wfhw =3D _wfhw;
-> +
-> +	if (!wfhw->enabled) {
-> +		*wf =3D (struct pwm_waveform) {
-> +			.period_length_ns =3D 0,
-> +			.duty_length_ns =3D 0,
-> +			.duty_offset_ns =3D 0,
-> +		};
-
-nitpick: setting .period_length_ns =3D 0 is sufficient here and that's
-what other drivers do.
-
-> +		return 0;
-> +	}
-> +
-> +	*wf =3D (struct pwm_waveform) {
-> +		.period_length_ns =3D
-> +			mul_u64_u64_div_u64_roundup(wfhw->period, NSEC_PER_SEC,
-> +						    axpwm->rate),
-> +		.duty_length_ns =3D
-> +			mul_u64_u64_div_u64_roundup(wfhw->duty, NSEC_PER_SEC,
-> +						    axpwm->rate),
-> +		.duty_offset_ns =3D 0,
-> +	};
-> +
-> +	return 0;
-> +}
-> +
-> +static int axiado_pwm_read_waveform(struct pwm_chip *chip,
-> +				    struct pwm_device *pwm,
-> +				    void *_wfhw)
-> +{
-> +	struct axiado_pwm_chip *axpwm =3D pwmchip_get_drvdata(chip);
-> +	struct axiado_pwm_waveform *wfhw =3D _wfhw;
-> +	u32 period;
-> +	u32 duty;
-> +	u32 ctrl;
-> +
-> +	/*
-> +	 * A logically disabled request is implemented as a constant-low
-> +	 * hardware waveform because disabling the controller drives the
-> +	 * output high.
-> +	 */
-> +	if (axpwm->logically_disabled) {
-> +		*wfhw =3D (struct axiado_pwm_waveform) {};
-> +		return 0;
-
-that looks wrong. At least the first readout before .write_waveform()
-was called might be bogus then.
-
-> +	}
-> +
-> +	ctrl =3D readl(axpwm->base + AXIADO_PWM_CTRL_REG);
-> +	period =3D readl(axpwm->base + AXIADO_PWM_PERIOD_REG);
-> +	duty =3D readl(axpwm->base + AXIADO_PWM_HIGH_REG);
-> +
-> +	/* The constant-low encoding doesn't hold the period, so restore it. */
-
-This isn't needed. If the output is constant low, just report period =3D
-1 and drop .cached_period.
-
-> +	if (period =3D=3D AXIADO_PWM_PERIOD_CONST_LOW) {
-> +		period =3D axpwm->cached_period;
-> +		duty =3D 0;
-> +	} else if (duty > period) {
-> +		duty =3D period;
-> +	}
-> +
-> +	*wfhw =3D (struct axiado_pwm_waveform) {
-> +		.period =3D period,
-> +		.duty =3D duty,
-> +		.enabled =3D !!(ctrl & AXIADO_PWM_CTRL_ENABLE),
-> +	};
-> +
-> +	return 0;
-> +}
-> +
-> +static int axiado_pwm_write_waveform(struct pwm_chip *chip,
-> +				     struct pwm_device *pwm,
-> +				     const void *_wfhw)
-> +{
-> +	struct axiado_pwm_chip *axpwm =3D pwmchip_get_drvdata(chip);
-> +	const struct axiado_pwm_waveform *wfhw =3D _wfhw;
-> +	u32 period =3D wfhw->period;
-> +	u32 duty =3D wfhw->duty;
-> +
-> +	if (!wfhw->enabled) {
-> +		/*
-> +		 * Disabling the controller drives its output high. Implement
-> +		 * the logically disabled state using the constant-low hardware
-> +		 * representation instead.
-> +		 */
-> +		writel(AXIADO_PWM_PERIOD_CONST_LOW,
-> +		       axpwm->base + AXIADO_PWM_PERIOD_REG);
-> +		writel(AXIADO_PWM_DUTY_MIN,
-> +		       axpwm->base + AXIADO_PWM_HIGH_REG);
-> +		writel(AXIADO_PWM_CTRL_ENABLE,
-> +		       axpwm->base + AXIADO_PWM_CTRL_REG);
-> +		axpwm->logically_disabled =3D true;
-> +
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * A zero high time produces a constant high output, so use the
-> +	 * constant-low period encoding for a 0% duty cycle. Keep the high time
-> +	 * non-zero because a zero value takes precedence over that encoding.
-> +	 * Cache the requested period for .read_waveform().
-> +	 */
-> +	if (!duty) {
-> +		axpwm->cached_period =3D period;
-> +		period =3D AXIADO_PWM_PERIOD_CONST_LOW;
-> +		duty =3D AXIADO_PWM_DUTY_MIN;
-> +	}
-> +
-> +	/*
-> +	 * The hardware has no shadow registers. These writes may alter the
-> +	 * active waveform before the current period has completed.
-> +	 */
-> +	writel(period, axpwm->base + AXIADO_PWM_PERIOD_REG);
-> +	writel(duty, axpwm->base + AXIADO_PWM_HIGH_REG);
-> +	writel(AXIADO_PWM_CTRL_ENABLE, axpwm->base + AXIADO_PWM_CTRL_REG);
-> +	axpwm->logically_disabled =3D false;
-
-Ideally all the special case handling happens in the
-=2Eround_waveform_tohw() callback such that .write_waveform() is as quick
-as possible and just writes the content of axiado_pwm_waveform to the
-registers.
-
-> +
-> +	return 0;
-> +}
-
-I was about to write something else, but was interrupted and don't
-remember. :-\ So I might still find something when I look at your next
-revision.
-
-Best regards
-Uwe
-
---d2hth543vljjdczy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqhNDQACgkQj4D7WH0S
-/k5KzAgAr9O1wuud8O2wU6xGCBdGpB75kvETqBK50abgti5xxWRWRRNVzTSQUALQ
-A8XcMT7WT35vg57EUiz0INaWeXutiPCc2YZoGviqLCk9F+RGW5kJiEys5BtfOlQ+
-ExA1tMY5byCi/jFnn579OnKlgtTcFp7e6i0NXiw50dbTxacoHFW2Vit+WZ6SeNC2
-pO+iJvTbBqJhb4JMgHPawAQxB5x4DsBBiWIZZYzjwifaS4y2mQLiZCcXcP6sMc55
-fyLIjPOXdFH6pMQohOS0v/Khcvbm5ntzvyLXMIt71MfXP+iob0+xrZTde+qlt+P5
-AliXnbSX4oDOxyC7bOGceHol4Qobxg==
-=HTm2
------END PGP SIGNATURE-----
-
---d2hth543vljjdczy--
 
