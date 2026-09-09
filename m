@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984FFC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00448C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DyJDRtyrOiFKO4N22eNPlSOSoe7akPPD8qIhnTft0HE=; b=cGMyjxTNP89gtBac5NzFPN0v+N
-	kfW0ye9hcUlUT1rPOTAOGuuyIAvxpptIfg179srLhuP7w2bVpq4yGXyf3sW9Wg2v+FNRv4jMVoYGU
-	Mpl5UjOEwgnmjJDm7dNZE++R29jwZtBovTB519/avNygmSJ6Z8qeKn6sBEmHJ8+4b+eND2O5x/ezn
-	u79KZIP62QQRSsuwsES4/MCAmyQuN+SGpoq+jUrU+gmDtVd4EvEnfcoPs5ow0fKeUPhrdBCznrVCx
-	zkUm6tFb4RIAR3uxNgwOFjIWVT4+Rs3/DDXKCxFSW3/3MVpnB7J5kajgdFANhAD9ccDiyjL6IfGTT
-	B9aVZR6A==;
+	bh=/hlzJNzei2knOn1RYcaTNkb4UoqZbwgVsH5KNit1MHs=; b=I1aOgS8KM2Ca4cSrZtDuLu5K2N
+	xkk6hadbRw9vbC4Tl3tBIsx4t3QaBYs0vuhACkLzvK6jUWuXYGdatsBW5LFue0jsLoViF5/M5zMHP
+	YmoX5Cp2VnFaOtfq1PD194OmRfylb0dVYXJ9dcP0Gl3+yrWk5sH8yQBTfV0MZdzNHKm8El7g3+Ax8
+	eYk3J/pRjw707aX5mJKQY8Twppqk2QW85zjVeu9Vhj9wCFD5QxGkYLZthU6MsH9WUsHWxRA2ABIDI
+	iZNz6g5/USex5Zx00qP9307XVrzB96wZrP24S6e6fgKsADwTdyabPGtfsQs5WeWhpcHHbr2C7tS0I
+	nmxfd2bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IKT-0000000BnUO-2SR0;
-	Wed, 09 Sep 2026 13:27:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4ILQ-0000000Bnce-3HXu;
+	Wed, 09 Sep 2026 13:28:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IKR-0000000BnUI-0uO1
+	id 1x4ILP-0000000BncO-3GDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 13:27:07 +0000
+	Wed, 09 Sep 2026 13:28:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5B03408EE;
-	Wed,  9 Sep 2026 13:27:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46EEA1F00A3D;
-	Wed,  9 Sep 2026 13:26:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1193D60216;
+	Wed,  9 Sep 2026 13:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5C301F00A3A;
+	Wed,  9 Sep 2026 13:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788960426;
-	bh=DyJDRtyrOiFKO4N22eNPlSOSoe7akPPD8qIhnTft0HE=;
+	s=k20260515; t=1788960486;
+	bh=/hlzJNzei2knOn1RYcaTNkb4UoqZbwgVsH5KNit1MHs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d3V76u8HnL5Z9pp4wy3RQNKchXYH8Otyy77S95DJ9zdGw4fkY3ln7i9VyqIQNPugH
-	 67vnvr1VdyHiYUE16sqA1edVX0+5p1B+4leYRShc4bGimTF16H6SwlccQVeQ9P1GaV
-	 79EujtWYDBCd57UQY4UJO3hFLhuOu829nBfyeDhoNfF00lIbpzQsToP5DhNQk/Jl2f
-	 e9rRo2eqj7UX/Uo4GA8Ug5R43G7wtrinEnnQS89I6mVMsoASHk07UlMMBfRq+INx0E
-	 OV/UNTkewM0lYvKt1pPC5ua5XkuZk5vuX+YrEydfVZXlcoT+fZ98HTlxzyhVI0RNwe
-	 +DGHfUWQ6orHQ==
-Date: Wed, 9 Sep 2026 14:26:56 +0100
+	b=eR5D3nm1CPgbjmHPZ0Vv7T4vdNRF/43OgybS94gl2A9fsyrl4gGmKe6vwaT3jfTzX
+	 +jD4I9IGrYtGuGXb5/A7jnHJvsDKGHllhymRTLq9kCq/SQi87n+n9y8sD4xk8HYc4W
+	 1FMZTsqHXMX6M3yTH47nD27tyCXLTKlR5oFEGKYxbRLJ27lUqEnoIOljlrumgyldGk
+	 vQ0EiMkovKU1SvLxEK2ji2FQp/hgc7rRh1M5u3fknsEg1fK7g7esz94rpEqvklnBCa
+	 BYmZFTXxMbawW0CHZITqBgDveaise1uxWGeZVkrhXq8mgPMzdHFvBAlr06emaY0HNc
+	 eC2FsYwPx3u3A==
+Date: Wed, 9 Sep 2026 14:27:57 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
@@ -72,15 +72,15 @@ Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
 	linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org,
 	linux-fbdev@vger.kernel.org, linux-sound@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 11/14] mfd: remove unused wm8350 driver
-Message-ID: <64ddded6-e140-4bdd-9a66-ebaed56e000a@sirena.org.uk>
+Subject: Re: [PATCH 04/14] mfd: remove unused wm8400 driver
+Message-ID: <76d70b0a-a3c1-4051-84c9-77afb715c4a8@sirena.org.uk>
 References: <20260909132153.1596191-1-arnd@kernel.org>
- <20260909132153.1596191-12-arnd@kernel.org>
+ <20260909132153.1596191-5-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OTZg4QPdZD4DW1fD"
+	protocol="application/pgp-signature"; boundary="E7vTznbJl/k8Ppdd"
 Content-Disposition: inline
-In-Reply-To: <20260909132153.1596191-12-arnd@kernel.org>
+In-Reply-To: <20260909132153.1596191-5-arnd@kernel.org>
 X-Cookie: Postage will be paid by addressee.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,39 +97,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---OTZg4QPdZD4DW1fD
+--E7vTznbJl/k8Ppdd
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Sep 09, 2026 at 03:21:48PM +0200, Arnd Bergmann wrote:
+On Wed, Sep 09, 2026 at 03:21:41PM +0200, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 >=20
-> This driver was used on the i.MX31 ADS reference board from Freescale
-> and the smdk6410 reference board from Samsung. Both used platform_data
-> based driver probing and are now gone from the kernel.
+> This driver requires a platform_data definition, which does not exist
+> in the kernel.
 >=20
-> Since probing with devicetree has never been supported by wm8350,
-> it is clear that nothing can use the driver on an upstream kernel,
-> and it is unlikely that anyone is still interested in a devicetree
-> conversion, so remove it.
+> According to Mark Brown, the hardware supported by this driver was never
+> shipped in production.
 
 Acked-by: Mark Brown <broonie@kernel.org>
 
---OTZg4QPdZD4DW1fD
+--E7vTznbJl/k8Ppdd
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqhXp8ACgkQJNaLcl1U
-h9A07Af+LjyYi8M0LVR+2guh7aV8ps1LJA/pBB1O0OjpYy1QtH9cEK6q9ImsQnRT
-0OPXYfJXJnrnuoai+hsB2yjzWOVjtPoJx6g9H4vKQTyS2Od6ZegQLMuRIVgMXBiq
-7Q9Wi/uOmPQmoVG3JpsWWCbl1HIHHaT/bzPDUIRW+DfdETAzm41UjqD7/+q+M/oW
-sZ01BjqHwsbUixQGGxH5ZHxohPrcBx/q87mgegdQ3LOXXFdIblVJEBC7bYcolvyo
-h/HDLlK7wy4//jPZ0Q40odTi4mfgG994PZSxCT/8HJQgcyCHVjOV0F+12N+zKyTd
-Im9GhJ9X2G4I9k7BipiAnpgrzM3Ohg==
-=v3Pm
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqhXtwACgkQJNaLcl1U
+h9DKkgf/RLbTE5UB6RL3Q66U8VBY9ivEji//LxLXmZDVRMWW85M/tZkuimYXhr1H
+qRZzWzsDpkIZhMa5DFLZxJGgVhSyRq9lmv40QYt8TboWu0+dKRy4nuB95+RSTNWh
+fjmkSjHkD/A3ELOP2Q/9B/cCFXsbGXHwS8eXeJVkuaDa1BSP3E7o1l338kofZy5F
+KyFWqJgxYKL/U82xSTvj04+NKj++SorlCIGShW9hgF11hhNTRHMwW8uF2pksnopN
+W8URlMgbSAEsELUabpsbzCFqwtnOJZU2y2vWAICyNt491Nctuj5oUx6D3c0HFsnZ
+z8z8A5SciRK3sUB/+Uh4thfPneAMHA==
+=lTKT
 -----END PGP SIGNATURE-----
 
---OTZg4QPdZD4DW1fD--
+--E7vTznbJl/k8Ppdd--
 
