@@ -4,105 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646E7C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9188C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kl+bPaD4PaQFBmaUCjR6vm4GXg7ogX+Oac8DkWGxKR8=; b=U4MmnzQDkHm5RYuvlwBV1CwtTs
-	c+W5tX3Ewd0ZOF6V3U2ISonWYqXP+aIvBrSJI7OXlefj2b9/kkXuJZ9YGqr4+9fRDIDWa660wsAEq
-	kOvf94Ey8i0neaCjukZM1yZqh87zuvRPpquIAb4I+wv5nKtsg3INRWsXn3n/OAzChElnWFLlsYXTl
-	jypbzsjg06D7W6WteAgzMcQCl/F35XRMLsvsjHCl5bTny1sHjzJ7VAI8OmUAnMKXRWcv/PJtRNMg3
-	lqyKroxmK6NxdXGcSZ+1oFJLFi40MyZGQo5qKty2VXOo2+trStppl1E/LG4PgtFuchJGLUYtQnce1
-	DSuD1n7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=klkamjWO7ZdrH09EL+Tq+b+/1eABCR7Hx6lvFcqVLyY=; b=aNueHXQO5gXugacnFSerFnedDj
+	1QEIvcO30ZhxxPAGXrFcO7nuEANwauii2ASiupHqam/2oyAmE+xjSy9I+CC/k8K744h5F2/lj5f/7
+	PzguabRaioOxCriNBsyOXQBqyTpA0d+anuELitMZXwsTwCgIRsWDMZF5RaimlzpWpGy68hz2Hmm0w
+	oPjB/TDscYsxPbHLucXSr25VIGz6MaHcU7ZiHRtxYUVs2xZXsFNcYyO64mlvdeWO8FZSpXWghSM7h
+	TvrSfX3C9FPmEtWMA1PnvLi1H3nxTS9RiuPkmEut0XU4y3BAPZBODgDj5STpDfiXPCDqFFCr9BqOD
+	4Pwj8bTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FvG-0000000BUMc-3t3J;
-	Wed, 09 Sep 2026 10:52:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x4Fvf-0000000BUSd-1rkd;
+	Wed, 09 Sep 2026 10:53:23 +0000
+Received: from out-239.mta1.migadu.com ([95.215.58.239] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FvC-0000000BULo-2QX9
+	id 1x4Fvb-0000000BUQT-1IWb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:52:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788951172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Kl+bPaD4PaQFBmaUCjR6vm4GXg7ogX+Oac8DkWGxKR8=;
-	b=KEvWgeWz6yUVfnsVVOTpg1WJ8GJprO0e71kZGkv6mYUzdC0Uy1NAqYgWncsEEXsVpUH4Se
-	BH19A5ow2af9MzMmT944rewan77KJdZvTsxwbA9J5A3kgm9itBjGvu2o2H1+HkIoqRuRRw
-	+j6c5h38bD4A4DGmQC4PLnrzA5E+VCA=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-122-Ebo--eEaMLyCKuE-ewwEIA-1; Wed, 09 Sep 2026 06:52:48 -0400
-X-MC-Unique: Ebo--eEaMLyCKuE-ewwEIA-1
-X-Mimecast-MFC-AGG-ID: Ebo--eEaMLyCKuE-ewwEIA_1788951168
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so10966895a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 03:52:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788951167; x=1789555967;
-        h=in-reply-to:from:content-language:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jlII6PmLS6Fy2IEhFtMVBBXGY0oZneRlW8U4Qxok/SY=;
-        b=fzhJex2IcwN6G9ICML7ZmzMVz8sXvhGnfQzv1XbGcu2dEPrJwFCyxUDu8YJjYQpbRj
-         AVgD5jKXnXRjbeO8XXQd5EXkgF7SNRqYaa4mWh3yOzzACfiY9KrQz7VpaP7AUt62amIW
-         MmuLll6xVNErldXfD3jXvZDqmq0MsMsiYlut3ruLs1FO640kzEMnVY11AEsCxieAXI1i
-         R282YlKYz0ojDnhxCi1lhwYMOeMNKLoAhlN427xFfunCpp9FGJ/oeCviePioCQj1WBqX
-         0s/LgbhMQcq/C5XNQP7Egxhs8dbVZBYwHzNC9IwBOAMEqYEypQG3/ThDg/BpQI3CiFId
-         1pMA==
-X-Forwarded-Encrypted: i=1; AKwUvBzAZ8i0tpENFnhbz3GBwObJarH1dQ+8GjxRsR6X1XJ54Pnop8qLNtc+1onaLDoZPs6gXdMHD7aH0ox1p9EALgrd@lists.infradead.org
-X-Gm-Message-State: AFuF++lv9JqS9M21N5VQLpr9VeEv/6y4UtaKs2Oa+9DTs6FC4/hHQhvA
-	+EZm/rDKMq4QJLcXBwBbpUpoPQLZ4JWM9o8TvD/Lp2WFxuh/uzZ2bCE4tUGznp7FQlEKQBoMyp8
-	fJPyCEMiBt1PPaleEpuMRUrt+lRAWEHs7kk4JTEmy6zQtjjXq6BQBgWqcY0dT2F9Xtem1nLHJE2
-	gq
-X-Gm-Gg: AYBFou3knnjOgBC7me6pH6jdCGx/yyAcpYXKVYIjqEhHDD7k2mTtqjSJueanTW0SrjF
-	Rjy9ssjZMBdGXJALfZZRxMnKSVfCkHcpv8hWEQSIHA20YQkdyBsorefBAigp83UgMnyGRasXruE
-	QtmLP+bWzGsg0IOv91B0yOCrPU7x3217emUG8EH9iGgKFQPLdOawAwtDsG+dXkbxhyVgQPG6Z6e
-	xb6jtFGmBkr8cGgeycvZpuuGB80HKLGDN8rmp0/aXGu3M71/s8tGE0n0L7LzxcpMjoQDaRhXMAD
-	QPHGssI9alyVlNOyMyJCC/BbulAu4pH4htkPmAZcAaC5RPhY+jzfqZuNhIv1lblVLKOPVy8FuR9
-	nmutlKdgLrN7m54huOUiyE6RWojIdMbwkG5fqeSkFJg==
-X-Received: by 2002:a17:90b:5844:b0:38f:5869:387b with SMTP id 98e67ed59e1d1-39b26101c20mr51714290a91.9.1788951167279;
-        Wed, 09 Sep 2026 03:52:47 -0700 (PDT)
-X-Received: by 2002:a17:90b:5844:b0:38f:5869:387b with SMTP id 98e67ed59e1d1-39b26101c20mr51714221a91.9.1788951166708;
-        Wed, 09 Sep 2026 03:52:46 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fe843sm31417683a91.10.2026.09.09.03.52.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 03:52:45 -0700 (PDT)
-Message-ID: <9086ca6a-5dce-493f-ac76-487dedc60758@redhat.com>
-Date: Wed, 9 Sep 2026 20:52:33 +1000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
-To: Kohei Enju <enju.kohei@fujitsu.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
- tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
- gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
- alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
- lpieralisi@kernel.org
-References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
- <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <ap-C6NLnxuWWTMzi@FCCLS0092175.localdomain>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 0yZUT4C9zw5FT0Oy6oZ2emUhtrHap9YsBrHpxoYnW1c_1788951168
-X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="------------ARHmqz6kmyRmg021RcSq0ymY"
-Content-Language: en-US
+	Wed, 09 Sep 2026 10:53:21 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ut1UAXDx2kgEZTQBPOYbxfS9ZaWvfArbNUvkXw4DAXs=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788951195; v=1; x=1789555995;
+ b=ZFOn4/Ve548OUpVoEXY1A6leJIscWg5Up+GNEKYBXqTlYOLTMqadaRubzC44SJ8DEJNkp0KP
+ 8xHDQdwMkcGLvE3yYrI71nz/R5LdJ4m1LVm/pHhdQvEaD2aegHFBNroLf/Bn3pwt/v+e28PmoRC
+ Xan8IOEZ7SfsaaC/eHbl1bPvsPapKwEobbEOhi3iFHTSaR7NATo4Q5sLd87nIqmOHZu8kC2mM4F
+ vhhJQMlpe6QJxGNDljfZl9L1j0eZCByrIwUc6gxjmlmhkrfD1tbUW5Pc6iVUxX01FTCJW6Xuk9L
+ sMOP+PYLczf0PyoewkdZXQVwpnEwEg5DElSjWKND+AbjQ==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7dc79fa296131603;
+	Wed, 09 Sep 2026 10:53:15 +0000
+X-Mizu-Trace-ID: 7dc79fa296131603
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 09 Sep 2026 12:53:14 +0200
+Message-Id: <DLAQ9T5TJQQP.KL6V9LP6E2N0@cknow-tech.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: Add devicetree for the
+ FriendlyElec NanoPi R28S
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: <HystericalDragons@proton.me>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Chukun Pan" <amadeus@jmu.edu.cn>, "jensen" <jensenhuang@friendlyarm.com>
+X-Mailer: aerc 0.22.0-9-ge948bb7230f4
+References: <20260907-r28s-upstream-v2-0-21ab570fc91c@proton.me>
+ <20260907-r28s-upstream-v2-3-21ab570fc91c@proton.me>
+In-Reply-To: <20260907-r28s-upstream-v2-3-21ab570fc91c@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_035254_891130_957B91B9 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20260909_035319_498134_375C2E09 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,97 +77,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a multi-part message in MIME format.
---------------ARHmqz6kmyRmg021RcSq0ymY
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+On Mon Sep 7, 2026 at 4:13 PM CEST, =E5=AE=89=E5=AE=B9 via B4 Relay wrote:
+> From: =E5=AE=89=E5=AE=B9 <HystericalDragons@proton.me>
+>
+> The NanoPi R28S is a dual gigabit Ethernet router board based on the
+> Rockchip RK3528 SoC, designed and developed by FriendlyElec. It shares
+> most of its design with the NanoPi Zero2, so it builds on the common
+> rk3528-nanopi.dtsi.
+>
+> Specification:
+> - Rockchip RK3528
+> - 1GB RAM
+> - eMMC socket (optional)
+> - MicroSD slot
+> - 1x 1000Base-T (GMAC1, Realtek RTL8211F)
+> - 1x 1000Base-T (PCIe, Realtek RTL8111H)
+> - AICSemi AIC8800D80 SDIO WiFi
+> - 3x LEDs (SYS, LAN, WAN)
+> - 1x USB 2.0 Type-C, peripheral only, shared with the 5V power input
+> - User and MaskROM buttons
+> - Haoyu HYM8563 RTC
+> - 1x USB Type-C debug UART (onboard WCH CH340E)
+>
+> Assisted-by: LLM
+> Signed-off-by: =E5=AE=89=E5=AE=B9 <HystericalDragons@proton.me>
+> ---
+>  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+>  .../arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts | 142 +++++++++++++++=
+++++++
+>  2 files changed, 143 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
+rockchip/Makefile
+> index b677914cd3..51a9889088 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -94,6 +94,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-vicharak-vaaman=
+.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399pro-rock-pi-n10.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-armsom-sige1.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-hinlink-h28k.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-nanopi-r28s.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-nanopi-zero2.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-radxa-e20c.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3528-rock-2a.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts b/arch/a=
+rm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
 
-Hi Kohei,
+If you run
+``scripts/dtc/dt-check-style --mode=3Dstrict arch/arm64/boot/dts/rockchip/r=
+k3528-nanopi-r28s.dts``
 
-On 9/8/26 2:09 PM, Kohei Enju wrote:
+it will find a few (IMO) false-positives, but the property order of
+pinctrl-0/pinctrl-names is valid and a blank line preceeding ``status`` too=
+.
 
-[...]
+Cheers,
+  Diederik
 
->>
->> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
->> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v17
->> [3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/kvm-integration/v17
->> [4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v12
->> [5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
-> 
-> I understand that QEMU-virt is not intended to model a realistic
-> production platform and that QEMU-SBSA is generally preferred. However,
-> I sometimes use QEMU-virt to test functionality quickly because it runs
-> slightly faster than QEMU-SBSA.
-> 
-> I tested this series with QEMU-virt and found that RMM initialization
-> failed during boot:
-> 
->    [...]
->    INFO:    BL31: Initializing RMM
->    INFO:    RMM init start.
->    ERROR:   RMM init failed: -8
->    WARNING: BL31: RMM initialization failed
-> 
-I also ran into same issue and attached TF-A patch leads to a successful
-RMM initialization, please have a try to see if it can resolve your issue.
+> new file mode 100644
+> index 0000000000..b9e9f5af4e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
+> @@ -0,0 +1,142 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
+> + * Copyright (c) 2026 FriendlyElec Computer Tech. Co., Ltd.
+> + * Copyright (c) 2026 =E5=AE=89=E5=AE=B9 <HystericalDragons@proton.me>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/leds/common.h>
+> +#include "rk3528-nanopi.dtsi"
+> +
+> +/ {
+> +	model =3D "FriendlyElec NanoPi R28S";
+> +	compatible =3D "friendlyarm,nanopi-r28s", "rockchip,rk3528";
+> +
+> +	aliases {
+> +		mmc2 =3D &sdio0;
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible =3D "gpio-keys";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&usr_btn>;
+> +
+> +		button-user {
+> +			debounce-interval =3D <50>;
+> +			gpios =3D <&gpio4 RK_PB2 GPIO_ACTIVE_LOW>;
+> +			label =3D "USER";
+> +			linux,code =3D <KEY_RESTART>;
+> +			wakeup-source;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible =3D "gpio-leds";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&led1>, <&led2>, <&led_sys>;
+> +
+> +		led-lan {
+> +			color =3D <LED_COLOR_ID_GREEN>;
+> +			default-state =3D "off";
+> +			function =3D LED_FUNCTION_LAN;
+> +			gpios =3D <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger =3D "netdev";
+> +		};
+> +
+> +		led-sys {
+> +			color =3D <LED_COLOR_ID_RED>;
+> +			default-state =3D "on";
+> +			function =3D LED_FUNCTION_HEARTBEAT;
+> +			gpios =3D <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger =3D "heartbeat";
+> +		};
+> +
+> +		led-wan {
+> +			color =3D <LED_COLOR_ID_GREEN>;
+> +			default-state =3D "off";
+> +			function =3D LED_FUNCTION_WAN;
+> +			gpios =3D <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger =3D "netdev";
+> +		};
+> +	};
+> +
+> +	sdio_pwrseq: sdio-pwrseq {
+> +		compatible =3D "mmc-pwrseq-simple";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&pwr_wf>;
+> +		post-power-on-delay-ms =3D <100>;
+> +		reset-gpios =3D <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&combphy {
+> +	status =3D "okay";
+> +};
+> +
+> +&pcie {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie_eth_perstb>;
+> +	reset-gpios =3D <&gpio4 RK_PC0 GPIO_ACTIVE_HIGH>;
+> +	vpcie3v3-supply =3D <&vcc_3v3>;
+> +	status =3D "okay";
+> +};
+> +
+> +&pinctrl {
+> +	gpio-keys {
+> +		usr_btn: usr-btn {
+> +			rockchip,pins =3D <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		led1: led1 {
+> +			rockchip,pins =3D <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		led2: led2 {
+> +			rockchip,pins =3D <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		led_sys: led-sys {
+> +			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	pcie {
+> +		pcie_eth_perstb: pcie-eth-perstb {
+> +			rockchip,pins =3D <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+> +	wifi {
+> +		pwr_wf: pwr-wf {
+> +			rockchip,pins =3D <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +};
+> +
+> +&sdio0 {
+> +	bus-width =3D <4>;
+> +	cap-sd-highspeed;
+> +	cap-sdio-irq;
+> +	keep-power-in-suspend;
+> +	mmc-pwrseq =3D <&sdio_pwrseq>;
+> +	non-removable;
+> +	sd-uhs-sdr104;
+> +	vqmmc-supply =3D <&vcc_1v8>;
+> +	status =3D "okay";
+> +};
+> +
+> +&uart2 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
+> +	uart-has-rtscts;
+> +	status =3D "okay";
+> +};
+> +
+> +&usb_host0_xhci {
+> +	/* Type-C port, shared with the 5V power input */
+> +	dr_mode =3D "peripheral";
+> +};
 
-
-Thanks,
-Gavin
-
---------------ARHmqz6kmyRmg021RcSq0ymY
-Content-Type: text/x-patch; charset=UTF-8; name="tf-a.patch"
-Content-Disposition: attachment; filename="tf-a.patch"
-Content-Transfer-Encoding: base64
-
-RnJvbSBjMjJkZGM0MzY4NjUwNTUwODQ1Zjg2MmZjMDdjYjM1Yjk5OGZiYjIzIE1vbiBTZXAgMTcg
-MDA6MDA6MDAgMjAwMQpGcm9tOiBHYXZpbiBTaGFuIDxnc2hhbkByZWRoYXQuY29tPgpEYXRlOiBX
-ZWQsIDkgU2VwIDIwMjYgMTk6NTg6MzcgKzEwMDAKU3ViamVjdDogW1BBVENIXSBwbGF0L3FlbXU6
-IGFkZCBwbGF0X3JtbWRfcmVzZXJ2ZV9tZW1vcnkoKSBmb3IgVklSVCBwbGF0Zm9ybQpNSU1FLVZl
-cnNpb246IDEuMApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKQ29udGVu
-dC1UcmFuc2Zlci1FbmNvZGluZzogOGJpdAoKU2lnbmVkLW9mZi1ieTogR2F2aW4gU2hhbiA8Z3No
-YW5AcmVkaGF0LmNvbT4KLS0tCiBwbGF0L3FlbXUvcWVtdS9pbmNsdWRlL3BsYXRmb3JtX2RlZi5o
-ICB8ICAzICsrKwogcGxhdC9xZW11L3FlbXUvcGxhdF9ybW1fbWVtX2NhcnZlb3V0LmMgfCAyOCAr
-KysrKysrKysrKysrKysrKysrKysrKysrKwogcGxhdC9xZW11L3FlbXUvcGxhdGZvcm0ubWsgICAg
-ICAgICAgICAgfCAgNCArKysrCiAzIGZpbGVzIGNoYW5nZWQsIDM1IGluc2VydGlvbnMoKykKIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCBwbGF0L3FlbXUvcWVtdS9wbGF0X3JtbV9tZW1fY2FydmVvdXQuYwoK
-ZGlmZiAtLWdpdCBhL3BsYXQvcWVtdS9xZW11L2luY2x1ZGUvcGxhdGZvcm1fZGVmLmggYi9wbGF0
-L3FlbXUvcWVtdS9pbmNsdWRlL3BsYXRmb3JtX2RlZi5oCmluZGV4IDA2MDE4ZTdiMi4uYzNlZDk4
-NmNmIDEwMDY0NAotLS0gYS9wbGF0L3FlbXUvcWVtdS9pbmNsdWRlL3BsYXRmb3JtX2RlZi5oCisr
-KyBiL3BsYXQvcWVtdS9xZW11L2luY2x1ZGUvcGxhdGZvcm1fZGVmLmgKQEAgLTM2OCw2ICszNjgs
-OSBAQCBDQVNTRVJUKChQTEFUX1FFTVVfTDBfR1BUX0JBU0UgJiAoUExBVF9RRU1VX0wwX0dQVF9T
-SVpFIC0gMSkpID09IDAsCiAjZGVmaW5lIFJNTV9TSEFSRURfQkFTRQkJCShSTU1fTElNSVQpCiAj
-ZGVmaW5lIFJNTV9TSEFSRURfU0laRQkJCVBMQVRfUUVNVV9STU1fU0hBUkVEX1NJWkUKIAorI2Rl
-ZmluZSBQTEFUX0FSTV9STU1fUEFZTE9BRF9TSVpFCVVMKDB4NjAwMDAwKSAgICAvKiAyICogM01C
-ICovCisjZGVmaW5lIFJNTV9QQVlMT0FEX0xJTUlUCQkoUk1NX0JBU0UgKyBQTEFUX0FSTV9STU1f
-UEFZTE9BRF9TSVpFKQorCiAvKgogICogV2UgYWRkIHRoZSBSTU1fU0hBUkVEIHNpemUgdG8gUk1N
-IG1hcHBpbmcgdG8gbWFwIHRoZSByZWdpb24gYXMgYSBibG9jay4KICAqIEVsc2Ugd2UgZW5kIHVw
-IHJlcXVpcmluZyBtb3JlIHBhZ2V0YWJsZXMgaW4gQkwyIGZvciBST01MSUIgYnVpbGQuCmRpZmYg
-LS1naXQgYS9wbGF0L3FlbXUvcWVtdS9wbGF0X3JtbV9tZW1fY2FydmVvdXQuYyBiL3BsYXQvcWVt
-dS9xZW11L3BsYXRfcm1tX21lbV9jYXJ2ZW91dC5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4
-IDAwMDAwMDAwMC4uYzY4Y2EyNDNkCi0tLSAvZGV2L251bGwKKysrIGIvcGxhdC9xZW11L3FlbXUv
-cGxhdF9ybW1fbWVtX2NhcnZlb3V0LmMKQEAgLTAsMCArMSwyOCBAQAorLyoKKyAqIENvcHlyaWdo
-dCAoYykgMjAyNiwgQXJtIExpbWl0ZWQgYW5kIENvbnRyaWJ1dG9ycy4gQWxsIHJpZ2h0cyByZXNl
-cnZlZC4KKyAqCisgKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogQlNELTMtQ2xhdXNlCisgKi8K
-KworI2luY2x1ZGUgPGxpYi9zcGlubG9jay5oPgorI2luY2x1ZGUgPHBsYXQvY29tbW9uL3BsYXRm
-b3JtLmg+CisKK3N0YXRpYyBzcGlubG9ja190IG1lbV9yZXNlcnZlX2xvY2s7CitzdGF0aWMgdWlu
-dHB0cl90IHRvcF9tZW0gPSBSTU1fTElNSVQ7CisKK3VpbnRwdHJfdCBwbGF0X3JtbWRfcmVzZXJ2
-ZV9tZW1vcnkoc2l6ZV90IHNpemUsIHVuc2lnbmVkIGxvbmcgYWxpZ25tZW50KQoreworCXVpbnQ2
-NF90IGFsaWduX21hc2sgPSBhbGlnbm1lbnQgLSAxOworCXVpbnRwdHJfdCBhZGRyOworCisJc3Bp
-bl9sb2NrKCZtZW1fcmVzZXJ2ZV9sb2NrKTsKKwlhZGRyID0gKHRvcF9tZW0gLSBzaXplKSAmIH5h
-bGlnbl9tYXNrOworCWlmIChhZGRyID49IFJNTV9QQVlMT0FEX0xJTUlUKSB7CisJCXRvcF9tZW0g
-PSBhZGRyOworCX0gZWxzZSB7CisJCWFkZHIgPSAwOworCX0KKwlzcGluX3VubG9jaygmbWVtX3Jl
-c2VydmVfbG9jayk7CisKKwlyZXR1cm4gYWRkcjsKK30KZGlmZiAtLWdpdCBhL3BsYXQvcWVtdS9x
-ZW11L3BsYXRmb3JtLm1rIGIvcGxhdC9xZW11L3FlbXUvcGxhdGZvcm0ubWsKaW5kZXggMmUxMmY2
-YmNhLi42NTVjYzY4M2EgMTAwNjQ0Ci0tLSBhL3BsYXQvcWVtdS9xZW11L3BsYXRmb3JtLm1rCisr
-KyBiL3BsYXQvcWVtdS9xZW11L3BsYXRmb3JtLm1rCkBAIC0xNzUsNiArMTc1LDEwIEBAIEJMMzFf
-U09VUkNFUwkJKz0JcGxhdC9jb21tb24vcGxhdF9zcG1kX21hbmlmZXN0LmMJXAogCQkJCSR7RkRU
-X1dSQVBQRVJTX1NPVVJDRVN9CiBlbmRpZgogCitpZmVxICgke0VOQUJMRV9STU19LDEpCitCTDMx
-X1NPVVJDRVMJCSs9CSR7UExBVF9RRU1VX1BBVEh9L3BsYXRfcm1tX21lbV9jYXJ2ZW91dC5jCitl
-bmRpZgorCiBpZm5lcSAoJHtFTkFCTEVfRkVBVF9STkdfVFJBUH0sMCkKIEJMMzFfU09VUkNFUwkJ
-Kz0JcGxhdC9xZW11L3FlbXUvcWVtdV9zeW5jX3RyYXBzLmMKIGVuZGlmCi0tIAoyLjU1LjAKCg==
-
---------------ARHmqz6kmyRmg021RcSq0ymY--
 
 
