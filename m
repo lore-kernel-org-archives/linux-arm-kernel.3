@@ -4,62 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E118CC79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D2BC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHUuBnyUaSwfKrnxOSInuWeO2hJJ9M/RR2BNd5uQGac=; b=gV4NkLsvNub+ZB01oXQrPJDbDs
-	EUa1LhmG8x4GcQg8mOng2r2xqzLcSKOMxMyhhgPqPmUqua3MxpLvoTKmDE/447F8zrYh1hP9QIc7H
-	zVwW4ATXyNOfFQTWqcJILExDMbilp7dQX/nVRoCKb63EG63shnfmZDKM9c6LfsdUgLtEjTSc/GJh7
-	WJgWcmfaOt6mIN9Ikn49Ttsd2k/jav02G4w7apt+wsmwOnioUYqgpWDrH2kGksdA6VyCUWBrXV0Bq
-	GS1i+GI3eZ9CGwxpCJhVc4/wFgwrIOGzW+nXbHiP0gJ1GHCwRcvGBKbAbZMdOoDyrlKRnNWiGVQ2/
-	FB9XpWAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iW6sRnR+oQYWv1NkGkTa8AIJzqy44SrJn9mDEbTMddw=; b=jPMfnUAWQLwYBkKCSIttzYnuhe
+	MMKG7B38/2khuGaPsRbj0915rBtQuxcnS8+PB32pQ4Tiq2i04nFUiJWj3IYlQWZq4rPsNIKVvnSdl
+	itJfDXE0gAGTWA9mSynEANcTUdGCnUQSOqhJHvBlhYbwxYeyOJi9EIXZBfL6kG5M94SXKJXkZeh9+
+	GVlNBY07FJNynUL/zEZtJsOn0jgpfQGhK8Dew2cJl5OQjywAttKmfPkmfRG7jfOXIH5yGTmflQZ3A
+	9vIWTsfcpyv7ns+ZEVlvr9AI05wm9cgE4uvNtDbnMJPm0Tgvw3CjacN33HpGWzpay3Z53PmTeiCVf
+	2BpOQd9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LzN-0000000CSvq-155n;
-	Wed, 09 Sep 2026 17:21:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4Lzh-0000000CT1F-3XRY;
+	Wed, 09 Sep 2026 17:21:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LzL-0000000CSvd-1CfF;
-	Wed, 09 Sep 2026 17:21:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE68142A02;
-	Wed,  9 Sep 2026 17:21:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 547DD1F000FF;
-	Wed,  9 Sep 2026 17:21:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788974494;
-	bh=YHUuBnyUaSwfKrnxOSInuWeO2hJJ9M/RR2BNd5uQGac=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i44gsg9/CF45X9rmX877ONOtC+vD0OlhBiCJ8MZVu2gmvWgdMuHakp19E7u0nsUoQ
-	 kpJ+mjOAjC+/f/NaSxVQKLyyVz/t9yaeDELN4y3xTRvE1G9BSPd7xtEL1CJ7KCSuow
-	 SxLwthywqbe/CNpc08H/BUEnIIgmIcMHYzJXl1maI53aHpwgQ1/xifd46SnpO13akT
-	 SZpTPnVERYXbW6ZsZPl3h4CV3T4krcHXYg6byxNweWiMsATx3EadE+5CeMJG0zLWLz
-	 DezzdMiTWAAv5hp6G+961U4uxsnenEUEYTrd39yFYtRo2eTS9GE9Au1/AkuWmmS4AB
-	 xr3rPc3aru3gw==
-Date: Wed, 9 Sep 2026 19:21:25 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	chunkuang.hu@kernel.org, p.zabel@pengutronix.de, justin.yeh@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 08/12] phy: phy-mtk-dp: Add support for digital and
- analog calibration
-Message-ID: <4keeuuv5flzhbyasse2mbljd2rog5yxgwlv5vobo3yvvdje3yb@42hey7suwm64>
-References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
- <20260707154245.198361-9-angelogioacchino.delregno@collabora.com>
+	id 1x4Lzh-0000000CT0y-10Pp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 17:21:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=iW6sRnR+oQYWv1NkGkTa8AIJzqy44SrJn9mDEbTMddw=; b=DA8yHoaWNUPzH7nZLkD1zw34Y5
+	gtZJExLcv62fzf7s8SVqcnAwX2/AfR9CGJ1uOkR2HwTlaEbaX/PKRGejoCHoFhtIzruOPRYXk+JXZ
+	GIQGQwnuvGRq4New+KKZmzxRgZvIm7hvbLLDqq0rS0Ki0g4FXl/HSsLUJicr3v5LUS31/ynHyUbsi
+	t+1DYw4QUp1a58dOtGxZZ+HqQ2eXvbuY4jRDav1vZefKJA9FF9KKYFaZpfS42fKY5NFTTj64QZkLN
+	hfnNHrVX9eWLzxMwBGydb2GwD49zrKpO3zX8mgdSSHyReI9N4v9wYops+hLvAUuCEPg6wfJ4IpFjR
+	6fZFEd/w==;
+Received: from mx0a-00364e01.pphosted.com ([148.163.135.74])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4Lzd-00000001UEh-1BS9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 17:21:55 +0000
+Received: from pps.filterd (m0167070.ppops.net [127.0.0.1])
+	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689GZAJt134575
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 13:21:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=iW6s
+	RnR+oQYWv1NkGkTa8AIJzqy44SrJn9mDEbTMddw=; b=lnF+tDfLDLC8zKGeJ7sI
+	xJRtIeZcNmXG67Zr5UNCF1jcUSs7Md6RqW3R8kY6eZrCG9TVNI1Yv+yWlQZkoyxq
+	FcVfcIdTqnVbLEFqBdLQcYGzf6a1eOJTGf33c0PEH1gsXdMHLOHa1fHresCicD6U
+	hWzWNsR+qVSKFpg8DA1Uztk5Wmyg55jb58Dpt55AgxlYchc2hPL34WEb0ZPRmGk4
+	XcZR1lxgEWXDmw54cBX0Qlv5FwHZl9d67dFz3cHGXK7XORSdN7F0Lk0MBhtmFY1J
+	swFKU15gKmi9tUGWNQi7gR3DCAA9XUsgQi0wveu/pG3xI4T1h8cnoKKJ2VkVBlEt
+	/w==
+Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com [209.85.128.198])
+	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4gjy91cst4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 13:21:43 -0400 (EDT)
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-836c9f68dcbso118696877b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:21:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=columbia.edu; s=lionmail; t=1788974502; x=1789579302; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iW6sRnR+oQYWv1NkGkTa8AIJzqy44SrJn9mDEbTMddw=;
+        b=patzePuXRLqP9teWajTVEtqCVAby2X4m9ypJKhhdSPcqGCXaS97hDKmCX2qjiHHQKH
+         4GH5cpyfEY8sqZIEMl+8NozWrznq/0/DMb6oPxPOVoI+joCKA3P/Wa1SyYv4nSzBvKPr
+         mBs2TmFXPfQZTwq+Hn+kAZveHAJEGUXlb1TzUQfmg9i83a3lEcNJUpe5swYeOb2x2Dta
+         5vMjqhUB7cYekME6kGpH6g/gQkbUi97Y/uv9KjE6FKN8qGnpw2xUfIb0U1u/0wNTaTRk
+         49Ib3MUrqPmb9ll8bmxc2KTSq0/aVkvk+upsW0EZn+d07XGXb87Y5PkR+oypaN0Lcryb
+         JtAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788974502; x=1789579302;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iW6sRnR+oQYWv1NkGkTa8AIJzqy44SrJn9mDEbTMddw=;
+        b=K+UZMtlPC9mXx23FAHMVFAAxBSbr7AyikwpRyxtCgJ0vwPnRIGsbgew4WJGFyZCqTt
+         FGQKv0na/DHOhsze3jTcLIRg4/D2eNkdqAV9aimbmZtEAQe5w9OKTDRA1mx00hT1zVID
+         KpoYUZojKeCyrEtDqjDCgR/5RBCnsOs5M8yPFt6telhd+N2bfDOKH4MzkmNL5NKQQs/a
+         6FITCe9lGXxw/1xy3qwoh2rfjTJ4FxGgzyAyci3mQwS5wfhqQsFGd4q6S6cMkZS2DJ3p
+         teYsySNCxnXW4C5tkRYJCPXsAAfU88EY0hhiGq4Msy+X1AlHEXmQRs3iDDjuy6Ss/xHO
+         6Keg==
+X-Forwarded-Encrypted: i=1; AKwUvBxF51e0EXu4MIjPXhHd8EFqfC220AbbnwRgHtsn1CpAxoMNWzx1hLHMNH4nrgNMbTDagjJ77TEF37sNYr0V2Hv8@lists.infradead.org
+X-Gm-Message-State: AFuF++nja6bHXPTonhmpJv/oE+mXLRZhufEwRorj1NoIC0r9xui+zJUq
+	v6aJ0QpTegGlQZjxKHcxi8WxsLgmcaQjiP23EoNdHdYCbW+KFOCBWIgCqyiC+sVocPxqFNzyN40
+	LW0ewuN9YuNAegEpvchHVWszq3ucoj7HQx45Lk0M4sn1JAfBQKOmu8wQi4NND4OvjtSQsZtUW
+X-Gm-Gg: AYBFou1buBRGlMyDHqTfDjuSZJlGy8rWHl2eDlZObc6BXusLEetKbyI5lDk5VhoRsnm
+	c1QyV/dmo0hIpl+p6DVV7qwrkNoRuJQreQCL4ExvRX6wxDauxANLhQhJjqqgRUkSK7qdRHdpAdA
+	Ypx4w3xjDthrwZBDFJfuP44OFDg8APEMDfCSU5soOFgx3gei9XAucrnS+f6SZhcS/59O9KEqBqZ
+	FjkevLsOQBcrXFymFJ86nVCE1l3pYaPlHOkTGd+/2ICq8qdGNA5a2i3rhlOam7KnIzKFQDKZbag
+	CgFuGOPQ7KgRn75+4GchelKZVNEKCc9CcnBrwKYkYe5mQEooemZWEEv+/ItnvHQdXxO7p3KEqvt
+	fCIvDaqSVjnW2QR06I5LQOGXUJVcnv7QnoSLAm1fE288H/oDHN5O3
+X-Received: by 2002:a05:690e:4141:b0:66f:bca8:78d6 with SMTP id 956f58d0204a3-66fbca8b1d4mr11506178d50.18.1788974502322;
+        Wed, 09 Sep 2026 10:21:42 -0700 (PDT)
+X-Received: by 2002:a05:690e:4141:b0:66f:bca8:78d6 with SMTP id 956f58d0204a3-66fbca8b1d4mr11506121d50.18.1788974501815;
+        Wed, 09 Sep 2026 10:21:41 -0700 (PDT)
+Received: from [10.207.49.22] (nat-128-59-176-193.net.columbia.edu. [128.59.176.193])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9106702d8f3sm43456006d6.23.2026.09.09.10.21.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Sep 2026 10:21:41 -0700 (PDT)
+Message-ID: <cf9a0873-5ef1-4a5d-ba16-8ba3583ac8ba@columbia.edu>
+Date: Wed, 9 Sep 2026 13:21:40 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260707154245.198361-9-angelogioacchino.delregno@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/8] mm/swap: add folio_swap_entry() and
+ folio_page_swap_entry()
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
+        Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+        Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+        Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        "Liam R. Howlett" <liam@infradead.org>,
+        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+        Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>,
+        Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+        Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
+        Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
+        Jann Horn <jannh@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
+        Yosry Ahmed <yosry@kernel.org>,
+        Chengming Zhou <chengming.zhou@linux.dev>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-1-ee6d01dfa5e1@columbia.edu>
+ <d0aa1ccd-d99f-4fa5-98c2-21cea0f413c7@kernel.org>
+Content-Language: en-US
+From: Tal Zussman <tz2294@columbia.edu>
+In-Reply-To: <d0aa1ccd-d99f-4fa5-98c2-21cea0f413c7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=M8V97Sws c=1 sm=1 tr=0 ts=6aa195a7 cx=c_pps
+ a=g1v0Z557R90hA0UpD/5Yag==:117 a=fJxgZNdXt3opHMdyAp+FXA==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=svvvyxlR1OQQkelhaPoB:22
+ a=umqIAqnQUIpxI_lDA3YA:9 a=QEXdDO2ut3YA:10 a=MFSWADHSvvjO3QEy5MdX:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE5MyBTYWx0ZWRfX+qfDgzHhgMP4
+ VO6xePv8tpTJs+G+9NL9M5ismQcnuRKZf0yCf8V9KDXIZrqKAmJ4eIqqBmsPhyltUAgRT16J+YG
+ JH52stlsADF2LovTW8v6S9MImP9PBJ6WvXadhYdOgEJQ4GCaPsSW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE5MyBTYWx0ZWRfX+NIvwbBVG3G0
+ 2w+iJfdw5FzEvmH0u7/llctptPTsTH3LKdBKn3r4T9vWzVphgbXiMTW9ojVLNTqgU9GiBd/S94B
+ hvweao2TlJnFy0cUhBItwxztukIxwwnx3YHJdhtU2wmMIrHNqizKSs7GA5zLRBc+kj/zsJNlLpx
+ 0XNK0zTQpZQ/U1qlbLCfNvKHhbRJP8aSAayWnt3Btd65POXGW7Tnx/ZVk6SU0u0wTNZEd2IZrKV
+ 1cnMJxvJU0O/9F+c7xrwgA7I61UUxMjRKf0l0G4CzUk3i7MHY2F2CGzp09llFNtAbuQRSaDI8nw
+ Wiuok0kYjj9y0/v7q+wkQE8C60lWWedzIlDgXLWWc2U+q0823HfYsQdabOssheCFzg7xXWOIQoL
+ n7mlJjmWnq5Wn0Yo62HFh/d5LM8PIQwIaPGx8IM08hn22+i4ugNxkACBUHz7ArZcjVLB3+MnIAw
+ sKIYEb5lTOn0SrBGujA==
+X-Proofpoint-ORIG-GUID: -ps3O3mJcP3ysQ99_EG4oXIMtqc2rlJc
+X-Proofpoint-GUID: -ps3O3mJcP3ysQ99_EG4oXIMtqc2rlJc
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11900
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=10 spamscore=0 bulkscore=10 impostorscore=10
+ clxscore=1015 adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090193
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_182153_685265_104D39B5 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,356 +181,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 05:42:41PM +0200, AngeloGioacchino Del Regno wrote:
-> Add support for reading the calibration values from eFuse: if
-> present, write those - otherwise, rely on the defaults from
-> SoC-specific data.
-> This also adds support for writing the calibration values for
-> the analog part of the PHY.
+On 9/9/26 5:00 PM, David Hildenbrand (Arm) wrote:
+> On 9/8/26 17:16, Tal Zussman wrote:
+>> A folio in the swap cache occupies folio_nr_pages() contiguous swap
+>> entries starting at folio->swap, so a page's swap entry is just
+>> folio->swap plus the page's index in the folio. page_swap_entry() hides
+>> this behind a compound_head() call, and callers that already have the
+>> folio sometimes open-code the arithmetic instead.
+>> 
+>> Add folio_swap_entry(), which takes a folio and a page index, and
+>> folio_page_swap_entry() for callers that have the page.
+>> 
+>> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+>> ---
+>>  include/linux/swap.h | 33 +++++++++++++++++++++++++++++++++
+>>  1 file changed, 33 insertions(+)
+>> 
+>> diff --git a/include/linux/swap.h b/include/linux/swap.h
+>> index fc290e29e4a9..1d979e76e78a 100644
+>> --- a/include/linux/swap.h
+>> +++ b/include/linux/swap.h
+>> @@ -272,6 +272,39 @@ struct swap_info_struct {
+>>  	const struct swap_ops *ops;
+>>  };
+>>  
+>> +/**
+>> + * folio_swap_entry - Return the swap entry for a page within a folio.
+>> + * @folio: The folio.
+>> + * @idx: The index of the page within the folio.
+>> + *
+>> + * A folio in the swap cache occupies folio_nr_pages() contiguous swap
+>> + * entries starting at folio->swap. The caller must ensure the folio is
+>> + * in the swap cache and that @idx is within the folio.
+>> + */
+>> +static inline
+>> +swp_entry_t folio_swap_entry(const struct folio *folio, unsigned long idx)
+>> +{
+>> +	swp_entry_t entry = folio->swap;
+>> +
+>> +	VM_WARN_ON_ONCE_FOLIO(idx >= folio_nr_pages(folio), folio);
+>> +	entry.val += idx;
+>> +	return entry;
+>> +}
+>> +
+>> +/**
+>> + * folio_page_swap_entry - Return the swap entry of a page in a folio.
+>> + * @folio: The folio containing @page.
+>> + * @page: A page within @folio.
+>> + *
+>> + * The caller must ensure the folio is in the swap cache and that @page
+>> + * is part of @folio.
+>> + */
+>> +static inline swp_entry_t folio_page_swap_entry(const struct folio *folio,
+>> +		const struct page *page)
+>> +{
+>> +	return folio_swap_entry(folio, folio_page_idx(folio, page));
+>> +}
+>> +
+>>  static inline swp_entry_t page_swap_entry(struct page *page)
+>>  {
+>>  	struct folio *folio = page_folio(page);
+>> 
 > 
-> Note that before this change, only default hardcoded calibration
-> values were supported for the digital driving parameters.
+> "Return the swap entry for a page within a folio" vs. "Return the swap entry of
+> a page in a folio."
 > 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/phy/mediatek/phy-mtk-dp.c | 303 +++++++++++++++++++++++++++---
->  1 file changed, 281 insertions(+), 22 deletions(-)
+> yet only of the variants has a "page" in the name :)
 > 
-> diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-> index c87e9fa710a4..f59a415b401c 100644
-> --- a/drivers/phy/mediatek/phy-mtk-dp.c
-> +++ b/drivers/phy/mediatek/phy-mtk-dp.c
-> @@ -14,6 +14,7 @@
->  #include <linux/delay.h>
->  #include <linux/io.h>
->  #include <linux/mfd/syscon.h>
-> +#include <linux/nvmem-consumer.h>
->  #include <linux/of.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> @@ -22,6 +23,19 @@
->  
->  #define MTK_DP_PHY_MAX_LANES		4
->  
-> +/* DP_PHYA_GLB_BIAS_GEN_0 (PHYA - Analog) */
-> +#define XTP_GLB_BIAS_INT_R_CTRL		GENMASK(20, 16)
-> +
-> +/* DP_PHYA_GLB_FORCE_CTRL_1 */
-> +#define CKM_CKTX0_EN_FORCE_MODE		BIT(10)
-> +
-> +/* DP_PHYA_GLB_DPAUX_TX */
-> +#define CKM_PT0_CKTX_IMPSEL		GENMASK(23, 20)
-> +
-> +/* DP_PHYA_LAN_LANE_TX_0 */
-> +#define XTP_LN_TX_IMPSEL_PMOS		GENMASK(15, 12)
-> +#define XTP_LN_TX_IMPSEL_NMOS		GENMASK(19, 16)
-> +
->  /* DP_PHYA_GLB_FORCE_CTRL_1 */
->  #define CKM_CKTX0_EN_FORCE_MODE		BIT(10)
->  
-> @@ -59,11 +73,29 @@
->  #define PHYD_DP_TX_FORCE_VOLT_SWING_VAL	GENMASK(2, 1)
->  #define PHYD_DP_TX_FORCE_PRE_EMPH_VAL	GENMASK(4, 3)
->  
-> +/*
-> + * DRIVING_PARAM_X (PHYD - Digital)
-> + *
-> + * Driving param registers are split in three sets, all containing settings
-> + * for Voltage Swing and Pre-Emphasis for each lane's differential pair.
-> + *
-> + * All three sets share the same layout, but for different physical signals;
-> + * In particular:
-> + * [0-2]: LC TX CM (Minus / Negative Edge)
-> + * [3-5]: LC TX C  (Logic State Change Point)
-> + * [6-8]: LC TX CP (Plus / Positive Edge)
-> + *
-> + * And they contain values for:
-> + * [0,3,6]: Swing 0 Pre[0-3]
-> + * [1,4,7]: Swing 1 Pre[0-2] and Swing 2 Pre0
-> + * [2,5,8]: Swing 2 Pre1 and Swing 3 Pre0
-> + */
-> +#define PHYD_DIG_NUM_DRV_PARA_REGS	9
->  #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
->  #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
->  #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
->  #define XTP_LN_TX_LCTXC0_SW0_PRE3_DEFAULT	GENMASK(29, 29)
-> -#define DRIVING_PARAM_3_DEFAULT	(XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_3_DEFAULT	(XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW0_PRE3_DEFAULT)
-> @@ -72,21 +104,21 @@
->  #define XTP_LN_TX_LCTXC0_SW1_PRE1_DEFAULT	GENMASK(12, 9)
->  #define XTP_LN_TX_LCTXC0_SW1_PRE2_DEFAULT	(BIT(18) | BIT(21))
->  #define XTP_LN_TX_LCTXC0_SW2_PRE0_DEFAULT	GENMASK(29, 29)
-> -#define DRIVING_PARAM_4_DEFAULT	(XTP_LN_TX_LCTXC0_SW1_PRE0_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_4_DEFAULT	(XTP_LN_TX_LCTXC0_SW1_PRE0_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW1_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW1_PRE2_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW2_PRE0_DEFAULT)
->  
->  #define XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT	(BIT(3) | BIT(5))
->  #define XTP_LN_TX_LCTXC0_SW3_PRE0_DEFAULT	GENMASK(13, 12)
-> -#define DRIVING_PARAM_5_DEFAULT	(XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_5_DEFAULT	(XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXC0_SW3_PRE0_DEFAULT)
->  
->  #define XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT	0
->  #define XTP_LN_TX_LCTXCP1_SW0_PRE1_DEFAULT	GENMASK(10, 10)
->  #define XTP_LN_TX_LCTXCP1_SW0_PRE2_DEFAULT	GENMASK(19, 19)
->  #define XTP_LN_TX_LCTXCP1_SW0_PRE3_DEFAULT	GENMASK(28, 28)
-> -#define DRIVING_PARAM_6_DEFAULT	(XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_6_DEFAULT	(XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW0_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW0_PRE2_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW0_PRE3_DEFAULT)
-> @@ -95,22 +127,30 @@
->  #define XTP_LN_TX_LCTXCP1_SW1_PRE1_DEFAULT	GENMASK(10, 9)
->  #define XTP_LN_TX_LCTXCP1_SW1_PRE2_DEFAULT	GENMASK(19, 18)
->  #define XTP_LN_TX_LCTXCP1_SW2_PRE0_DEFAULT	0
-> -#define DRIVING_PARAM_7_DEFAULT	(XTP_LN_TX_LCTXCP1_SW1_PRE0_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_7_DEFAULT	(XTP_LN_TX_LCTXCP1_SW1_PRE0_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW1_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW1_PRE2_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW2_PRE0_DEFAULT)
->  
->  #define XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT	GENMASK(3, 3)
->  #define XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT	0
-> -#define DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
-> +#define MT8195_DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
->  				 XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT)
->  
->  enum mtk_dp_phya_ana_glb_regidx {
-> +	DP_PHYA_GLB_BIAS_GEN_0,
-> +	DP_PHYA_GLB_BIAS_GEN_1,
-> +	DP_PHYA_GLB_DPAUX_TX,
->  	DP_PHYA_GLB_FORCE_CTRL_0,
->  	DP_PHYA_GLB_FORCE_CTRL_1,
->  	DP_PHYA_GLOBAL_MAX
->  };
->  
-> +enum mtk_dp_phya_ana_lane_regidx {
-> +	DP_PHYA_LAN_LANE_TX_0,
-> +	DP_PHYA_LAN_MAX
-> +};
-> +
->  enum mtk_dp_phyd_dig_lane_regidx {
->  	DP_PHYD_LAN_DRIVING_FORCE,
->  	DP_PHYD_LAN_DRIVING_PARAM_0,
-> @@ -128,10 +168,17 @@ enum mtk_dp_phyd_dig_glb_regidx {
->  };
->  
->  static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
-> +	[DP_PHYA_GLB_BIAS_GEN_0] = 0x0,
-> +	[DP_PHYA_GLB_BIAS_GEN_1] = 0x4,
-> +	[DP_PHYA_GLB_DPAUX_TX] = 0x8,
->  	[DP_PHYA_GLB_FORCE_CTRL_0] = 0x30,
->  	[DP_PHYA_GLB_FORCE_CTRL_1] = 0x34,
->  };
->  
-> +static const u8 mt8195_phy_ana_lane_regs[DP_PHYA_LAN_MAX] = {
-> +	[DP_PHYA_LAN_LANE_TX_0] = 0x4,
-> +};
-> +
->  static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
->  	[DP_PHYD_LAN_DRIVING_FORCE] = 0x18,
->  	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
-> @@ -146,49 +193,101 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
->  	[DP_PHYD_TX_CTL_0] = 0x44,
->  };
->  
-> +/**
-> + * struct mtk_dp_phya_imp_sel - Per-Lane Impedance Selection
-> + * @pmos: Impedance selection for P-Channel MOSFET
-> + * @nmos: Impedance selection for N-Channel MOSFET
-> + */
-> +struct mtk_dp_phya_imp_sel {
-> +	u8 pmos : 4;
-> +	u8 nmos : 4;
-> +};
-> +
->  /**
->   * struct mtk_dp_phy_pdata - Platform data and defaults for MediaTek DP/eDP PHY
->   * @off_ana_glb:    Base offset for dptx_phyd_sifslv_ana_glb
-> + * @off_ana_lane:   Base offsets for dptx_phyd_sifslv_ana_lan (for each lane)
->   * @off_dig_glb:    Base offset for dptx_phyd_sifslv_dig_glb
->   * @off_dig_lane:   Base offsets for dptx_phyd_sifslv_dig_lan (for each lane)
->   * @regs_ana_glb:   Register (layout) offsets for ana_glb
-> + * @regs_ana_lane:  Register (layout) offsets for ana_lan
->   * @regs_dig_glb:   Register (layout) offsets for dig_glb
->   * @regs_dig_lane:  Register (layout) offsets for dig_lan
-> + * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
-> + * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
-> + * @ana_lanes_imp:  TX Impedance Selection Settings (for all lanes)
-> + * @driving_params: Voltage Swing and Pre-Emphasis settings (for all lanes)
->   */
->  struct mtk_dp_phy_pdata {
->  	/* Register offsets */
->  	u16 off_ana_glb;
-> +	u16 off_ana_lane[MTK_DP_PHY_MAX_LANES];
->  	u16 off_dig_glb;
->  	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
->  
->  	/* Register maps */
->  	const u8 *regs_ana_glb;
-> +	const u8 *regs_ana_lane;
->  	const u8 *regs_dig_glb;
->  	const u8 *regs_dig_lane;
-> +
-> +	/* Calibration defaults */
-> +	u8 ana_bias_r;
-> +	u8 ana_cktx_imp;
-> +	struct mtk_dp_phya_imp_sel ana_lanes_imp;
-> +	u32 driving_params[PHYD_DIG_NUM_DRV_PARA_REGS];
->  };
->  
->  struct mtk_dp_phy {
->  	struct device *dev;
->  	struct regmap *regmap;
->  	const struct mtk_dp_phy_pdata *pdata;
-> +
-> +	u8 ana_bias_r;
-> +	u8 ana_cktx_imp;
-> +	struct mtk_dp_phya_imp_sel ana_impsel[MTK_DP_PHY_MAX_LANES];
->  };
->  
-> -static int mtk_dp_phy_init(struct phy *phy)
-> +static int mtk_dp_phy_set_analog_calibration_params(struct mtk_dp_phy *dp_phy)
-> +{
-> +	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-> +	const u8 *regs_ana_glb = pdata->regs_ana_glb;
-> +	const u8 *regs_ana_lane = pdata->regs_ana_lane;
-> +	int i, ret;
-> +
-> +	ret = regmap_update_bits(dp_phy->regmap,
-> +				 pdata->off_ana_glb + regs_ana_glb[DP_PHYA_GLB_BIAS_GEN_0],
-> +				 XTP_GLB_BIAS_INT_R_CTRL,
-> +				 FIELD_PREP(XTP_GLB_BIAS_INT_R_CTRL, dp_phy->ana_bias_r));
-> +	if (ret)
-> +		return ret;
+> A bit confusing.
+> 
+> Not immediately sure how it could be done cleaner. The minority of cases seem to
+> use folio_swap_entry.
+> 
 
-Same comment on error checks.
+Yeah... I considered naming them folio_swap_entry() and folio_swap_entry_idx()
+(or a variant of that) but I liked the page version more. I can update the
+comments to try to differentiate between the two a little more if that would
+help. How's "Return the swap entry at an index within a folio"?
 
-> +
-> +	ret = regmap_update_bits(dp_phy->regmap,
-> +				 pdata->off_ana_glb + regs_ana_glb[DP_PHYA_GLB_DPAUX_TX],
-> +				 CKM_PT0_CKTX_IMPSEL,
-> +				 FIELD_PREP(CKM_PT0_CKTX_IMPSEL, dp_phy->ana_cktx_imp));
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
-> +		struct mtk_dp_phya_imp_sel *ana_imp = &dp_phy->ana_impsel[i];
-> +		u32 val = FIELD_PREP(XTP_LN_TX_IMPSEL_PMOS, ana_imp->pmos) |
-> +			  FIELD_PREP(XTP_LN_TX_IMPSEL_NMOS, ana_imp->nmos);
-> +		u32 off_ana_lane = pdata->off_ana_lane[i];
-> +
-> +		ret = regmap_update_bits(dp_phy->regmap,
-> +					 off_ana_lane + regs_ana_lane[DP_PHYA_LAN_LANE_TX_0],
-> +					 XTP_LN_TX_IMPSEL_PMOS | XTP_LN_TX_IMPSEL_NMOS, val);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +	return 0;
-> +}
-> +
-> +static int mtk_dp_phy_set_digital_drv_params(struct mtk_dp_phy *dp_phy)
->  {
-> -	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
->  	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
->  	const u32 reg = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_PARAM_0];
-> -	static const u32 driving_params[] = {
-> -		DRIVING_PARAM_0_DEFAULT,
-> -		DRIVING_PARAM_1_DEFAULT,
-> -		DRIVING_PARAM_2_DEFAULT,
-> -		DRIVING_PARAM_3_DEFAULT,
-> -		DRIVING_PARAM_4_DEFAULT,
-> -		DRIVING_PARAM_5_DEFAULT,
-> -		DRIVING_PARAM_6_DEFAULT,
-> -		DRIVING_PARAM_7_DEFAULT,
-> -		DRIVING_PARAM_8_DEFAULT
-> -	};
->  	int i, ret;
->  
->  	/*
-> @@ -199,11 +298,31 @@ static int mtk_dp_phy_init(struct phy *phy)
->  	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
->  		ret = regmap_bulk_write(dp_phy->regmap,
->  					pdata->off_dig_lane[i] + reg,
-> -					driving_params,
-> -					ARRAY_SIZE(driving_params));
-> +					pdata->driving_params,
-> +					ARRAY_SIZE(pdata->driving_params));
->  		if (ret)
->  			return ret;
->  	};
-> +	return 0;
-> +}
-> +
-> +static int mtk_dp_phy_init(struct phy *phy)
-> +{
-> +	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-> +	struct device *dev = &phy->dev;
-> +	int ret;
-> +
-> +	ret = mtk_dp_phy_set_digital_drv_params(dp_phy);
-> +	if (ret) {
-> +		dev_err(dev, "Cannot set driving params\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = mtk_dp_phy_set_analog_calibration_params(dp_phy);
-> +	if (ret) {
-> +		dev_err(dev, "Cannot set analog calibration\n");
-> +		return ret;
-> +	}
->  
->  	return 0;
->  }
-> @@ -422,6 +541,111 @@ static const struct phy_ops mtk_dp_phy_dev_ops = {
->  	.owner = THIS_MODULE,
->  };
->  
-> +static void mtk_dp_phy_get_default_cal_data(struct mtk_dp_phy *dp_phy)
-> +{
-> +	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-> +	int i;
-> +
-> +	dp_phy->ana_bias_r = pdata->ana_bias_r;
-> +	dp_phy->ana_cktx_imp = pdata->ana_cktx_imp;
-> +
-> +	/* Copy the default lane impedance settings to all lanes */
-> +	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++)
-> +		memcpy(&dp_phy->ana_impsel[i], &pdata->ana_lanes_imp,
-> +		       sizeof(dp_phy->ana_impsel[0]));
-> +
-> +	return;
-> +}
-> +
-> +static int mtk_dp_phy_get_one_cal_para(struct device *dev, const char *name, u8 max_val)
-> +{
-> +	u8 buf_byte;
-> +	u16 buf;
-> +	int ret;
-> +
-> +	/*
-> +	 * All of the calibrations are always max 8 bits long, but some may
-> +	 * be split between two different 8-bits cells: handle this corner
-> +	 * case by retrying reading as u16.
-> +	 */
-> +	ret = nvmem_cell_read_u8(dev, name, &buf_byte);
-> +	if (ret)
-> +		ret = nvmem_cell_read_u16(dev, name, &buf);
-> +	else
-> +		buf = buf_byte;
-> +
-> +	if (ret) {
-> +		dev_err(dev, "Cannot get calibration data for %s: %d\n", name, ret);
+> -- 
+> Cheers,
+> 
+> David
+> 
 
-As Sashiko noted, this should be dev_err_probe().
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
