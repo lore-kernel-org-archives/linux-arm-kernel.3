@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD9FC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD39C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxSG+xnLXoNNs2ROuIVkq4UavUfbd24H5I1YkUmDyag=; b=nypF1moPz07gszwdw+4R34QNnE
-	aOQ2KvWjkWxim/iT1aioDe78okkI3FdgQTUh3iVuRuotIEuwxSWFtryh1rLAwVFEhlGliPDt7FEbk
-	nQ8flwaKk6k/Pm1p6UKV9IHLutlixE218cgU7SnK7YlAYBWUQwJdNpDw1t/FeI1/yGUk/9aD+K557
-	SZ3AvYujRghgD3Z2CAi5PFqTRy1Ahsg3WaeBilEJJ1z8HOQPGQmKjRMw3jVXvfhH0JXzmLGH3YF/v
-	atjsGZ5K5fBEASa7hWfXyV5AWrIHdT6/ZscDdaxAffpkOPdsVG5CTDjy6Me3ui5eegHwoCR8M4bWv
-	aNfK2wDQ==;
+	bh=CdGQNBbV5rgyR6AC1v+rMzMBWuTn1mX6O2sJk9ZzEuI=; b=Y/kgxvnm6vOHSC1XJk5d+0XQRh
+	KUenSoxiLJ7L+XBNRza7lLZDuZTIdoPlHZ7qbNykMaYS0McconqkUllqusixB/J1uYUDeuAqDiak3
+	98ipESs+By20GVNk4WhgGNPp8+ORN6XTqCwktu6Ru4PxhA7xZx8P1tigVMN5UQpnoVRLeuQS7XVTe
+	2Y+qPQ4qfM86vDfi2qFnnbSy/S04d69Dx8gYw9VnoseshlRqoJmWL+Y+3TF4qQMKI5Z1f3zGLp5yg
+	2Q6YdMlIlS7cu5yojWVNHLMaqbIlLFjTorb/Bjsm6QS84Rf26j4njQKjsmqVyHTcrnGGywbszt5ir
+	gV5H7fsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IrI-0000000BrnC-0WLK;
-	Wed, 09 Sep 2026 14:01:04 +0000
+	id 1x4Irn-0000000Brv0-1E35;
+	Wed, 09 Sep 2026 14:01:35 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IrG-0000000Brmt-49X4
+	id 1x4Irl-0000000Brum-1LOS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:01:03 +0000
+	Wed, 09 Sep 2026 14:01:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 726D54136C;
-	Wed,  9 Sep 2026 14:01:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E005F1F00A3A;
-	Wed,  9 Sep 2026 14:00:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16540401AC;
+	Wed,  9 Sep 2026 14:01:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 348811F00A3A;
+	Wed,  9 Sep 2026 14:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788962462;
-	bh=kxSG+xnLXoNNs2ROuIVkq4UavUfbd24H5I1YkUmDyag=;
+	s=k20260515; t=1788962493;
+	bh=CdGQNBbV5rgyR6AC1v+rMzMBWuTn1mX6O2sJk9ZzEuI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gUeB99/0UlLzaRF7SPfQ8niZ46JmUJdooO+eWrzk4rurvmM7nTlxx1/b9B5SvRez1
-	 zuHchEgCxQmzbwSd7VMaiijCYsQ05CBVgugrgLZ3sWSg/rfyDpsLbZeoocnDj2Sq9E
-	 7VG2A86oz21V2HLABAKToMY2tj8l5fQEOmlON1Q4mC4VECBSrLr0A41pSBtaAu9ziL
-	 5fbWZD/qcj6z7f+Ryyua2qwOE/bV8VFuMu/tnUB/J+08QEDtFKVFuxSbAnz2h6/1Qz
-	 XVV6i0wSp+zw8pVdmjMpjQNFIAiWN303sExXHHxVsSnS3q6UWLU6ytiWzgYi0aXF5d
-	 +58gmOP9EgaRA==
-Message-ID: <60ac97b9-8da3-491d-8d1c-dcd83c7232fb@kernel.org>
-Date: Wed, 9 Sep 2026 16:00:53 +0200
+	b=VDD4HS0bFNN/fUrWGwry9H610uhD3sA91TeA2++WjM0PWm+SEvctvTbSwinGPBAqt
+	 6CIYzwKk19mN5tLGwhYdyiYErv/wNsG2DdcHKhsu5tjypdIN6ZIyn7zhhliqKylFcm
+	 P1wdNHWUBfWUHHFShC0uSMl7Z5/Rm3xMdixXzRJfhGVBlqGngEHoJw1eMd0dtAvGLP
+	 tCKQ82vPwy6gbGbgrLOt9FrNauHmAuIwM3BWyOttGSagdd1BgTbs1gEuUKoBYOfp5g
+	 cincbrs7xqsl5bROa6us9e3np8OHmlsRbqad2nzkagOha1kq4NOO7SuvrVNWJLNIQj
+	 OrAXaf8UfthYQ==
+Message-ID: <c33cbd18-a506-4301-91d4-7cee033d2536@kernel.org>
+Date: Wed, 9 Sep 2026 16:01:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/8] mm/zswap: use folio_swap_entry() in
- zswap_store_page()
+Subject: Re: [PATCH v2 5/8] mm/swapfile: use folio_page_swap_entry()
 To: Tal Zussman <tz2294@columbia.edu>,
  Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
  Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
@@ -67,7 +66,7 @@ To: Tal Zussman <tz2294@columbia.edu>,
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
- <20260908-folio_swap_entry-v2-4-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-5-ee6d01dfa5e1@columbia.edu>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -114,7 +113,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260908-folio_swap_entry-v2-4-ee6d01dfa5e1@columbia.edu>
+In-Reply-To: <20260908-folio_swap_entry-v2-5-ee6d01dfa5e1@columbia.edu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -132,31 +131,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 17:16, Tal Zussman wrote:
-> zswap_store_page() open-codes the swap entry computation from
-> folio->swap and the page index. Use folio_swap_entry() instead.
+> folio_dup_swap() and folio_put_swap() open-code the swap entry
+> computation from folio->swap and folio_page_idx(). Use
+> folio_page_swap_entry() instead.
 > 
 > No functional change.
 > 
 > Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 > ---
->  mm/zswap.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/mm/zswap.c b/mm/zswap.c
-> index 5d0d8bd72193..c27e22d067e3 100644
-> --- a/mm/zswap.c
-> +++ b/mm/zswap.c
-> @@ -1398,8 +1398,7 @@ static bool zswap_store_page(struct folio *folio, long index,
->  			     struct obj_cgroup *objcg,
->  			     struct zswap_pool *pool)
->  {
-> -	swp_entry_t page_swpentry = swp_entry(swp_type(folio->swap),
-> -					      swp_offset(folio->swap) + index);
-> +	swp_entry_t page_swpentry = folio_swap_entry(folio, index);
->  	struct zswap_entry *entry, *old;
->  
->  	/* allocate entry */
-> 
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
