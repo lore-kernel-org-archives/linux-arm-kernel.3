@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F60AC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02AF8C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zU/6Na4dqA0J2BYOCLRIkJqexaaO4GxOSZKrPedaYjk=; b=PZlyqi9KZOa1YpatNgNqFkAtdX
-	ARMa2C7gnqAHJb5zyLhtpsRAiyeBI56IYo8/GjfPKxA4UBwnVKljd88fWG8mzMOIkA+6tPesua8M0
-	ZrYyV/G+3T8Azs6WyvRUbW2o2OoT3KCVsNk3R8YAGwP0Nmk9w6OQVkLfS3LN1om6ZvDUaUUIRvwTd
-	YQoAbaONAtYXKKMmJCJN81OJxKfJig277fVD4Izf4eASJueoXYBVPO0aarcDxG3Y6wvAcmK9eoAUu
-	yJ9CBilvMYv5sqAMbSdyB8gBeP7YkTCM8P0MEPAHBzxUIfmt21FyfbuH654Z4WhgbNSmf6Z5RdzOC
-	K9JFwLpQ==;
+	bh=da8Hbv3HviqmJ9T7cSFKFabYHW62tTClS0GobnwfGcI=; b=Vs8+GwI7ZbE2nHOxJZR5KdsCrg
+	iGLQpaNIQcuiDh7HnMaQLmu9LsZ7/NUbjpHYyT/FXE4s2pLkeM9avYOCUGYR9HRu7iHDsC4FFLcIR
+	zRTwTA74UM50dsUvGmlF79dPofoLWy9Xtsbd1hVna4Zt8nDZfucYWnjeVH6RJfrAu1PCVfDnJTWYR
+	/Rkj1nU4bjQh2EfBK3qpD7UcnVh9PC1BPwvGhhgxKlsdpkzYoGmrXlx9fB++8jh3BhhDbXxvDdFJt
+	UJFOkGqlT/UNAtJ/9/iCLEK0Rdlo0aG9Qs+n5Z+CtQ6ew0hJRWuOXtV2KHVU3B7a/+gOgBkF0g3LA
+	fznRPRnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FoT-0000000BT9J-1OxN;
-	Wed, 09 Sep 2026 10:45:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4FrU-0000000BTY7-2udz;
+	Wed, 09 Sep 2026 10:49:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FoR-0000000BT8i-42LI
+	id 1x4FrS-0000000BTXw-1VPm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:45:56 +0000
+	Wed, 09 Sep 2026 10:49:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B6576020C;
-	Wed,  9 Sep 2026 10:45:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 016461F00A3A;
-	Wed,  9 Sep 2026 10:45:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC67B4322D;
+	Wed,  9 Sep 2026 10:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C930C1F00A3A;
+	Wed,  9 Sep 2026 10:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788950754;
-	bh=zU/6Na4dqA0J2BYOCLRIkJqexaaO4GxOSZKrPedaYjk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hIkjTtUO5cFe3pq3/3ludV47z1AdJSEyKwsTrj4d+cY669joSijwpJsaNSE/ONJTh
-	 C+MoAhZmn2dceL8rxbzoNw4pbmFOZx9UmxiRM6+EUQifV+57wWqxfbPDiro9+fty8k
-	 7uwjbtvdWfxEZflWsxJc+uor9byX8RlATyZa0tTh+E35jcRMdhFFvoXPawl5zqvYH2
-	 JSciQvP3+DGEuTpKp8MJYY6u48f+hP85JJhr1hhSIg8zPhi3fqo6TSt632CCQWUM8r
-	 Jt+Tm/t8ymVHtsD21LpcLyfW4CprpZ9XJj32QpBfEqtL9z1/Eb3WmDKeboygFxVIN7
-	 1bzEOShfKSPVQ==
-Date: Wed, 9 Sep 2026 11:45:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	Frank.Li@kernel.org, robin.murphy@arm.com,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
-Message-ID: <aqE42NzerAiD2U1E@squawk>
-References: <20260907-retorted-unfasten-e985a6d4f26f@spud>
- <20260909060512.3524983-1-Jelly.Jia@cixtech.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iS2/TDiTYr3NoP2p"
-Content-Disposition: inline
-In-Reply-To: <20260909060512.3524983-1-Jelly.Jia@cixtech.com>
+	s=k20260515; t=1788950941;
+	bh=da8Hbv3HviqmJ9T7cSFKFabYHW62tTClS0GobnwfGcI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=PZSuHxkKFO7ggcmK3I1z8YELYgZEcp910adYB1oLiU21I9eAnNoQALMw9c+AG3QaL
+	 4MkKytGdy/Rn0rP0L7wGnaRnDOdebbTbGxVd8DevtyCV3m/lIhIjCeqYzsL7qoX0Qf
+	 n5hTXSZ1KvCWKxZqToXyY95Z/1ie69rcvJtNmATBuP6BnTXH6HXwz3MPLvABwjVXia
+	 blFLwPIUx/x6NMy59YU9dJ4Cm4NEc50fdN7KysP7Ox30xaLW/KhFgohKxBE/SPtzkt
+	 a++w0iO9pMP8KLrHxBy/79J+OHy4ilpPHgeKFbjVh0UbMSwcpWVt1sxfAOzqB4JaNh
+	 3+ZtKMJuLR6Qg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x4FrP-00000006dmG-1oSc;
+	Wed, 09 Sep 2026 10:48:59 +0000
+Date: Wed, 09 Sep 2026 11:48:58 +0100
+Message-ID: <86zexq3dk5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org
+Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting Realm guests
+In-Reply-To: <aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+	<20260908162223.1683432-7-suzuki.poulose@arm.com>
+	<aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: enju.kohei@fujitsu.com, suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +101,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---iS2/TDiTYr3NoP2p
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, 09 Sep 2026 04:26:41 +0100,
+Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> 
+> Hi Suzuki,
+> 
+> On 09/08 17:22, Suzuki K Poulose wrote:
+> > Add an explicit mode to support Arm CCA guests.
+> > 
+> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > ---
+> >  Documentation/admin-guide/kernel-parameters.txt | 3 +++
+> >  arch/arm64/include/asm/kvm_host.h               | 1 +
+> >  arch/arm64/kvm/arm.c                            | 5 +++++
+> >  3 files changed, 9 insertions(+)
+> > 
+> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > index 68647ff4bdd24..1afe3df3b923e 100644
+> > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > @@ -3256,6 +3256,9 @@ Kernel parameters
+> >  			nested: VHE-based mode with support for nested
+> >  				virtualization. Requires at least ARMv8.4
+> >  				hardware (with FEAT_NV2).
+> > +			rmm: Support for running confidential guests in Realm
+> > +			     world using RMM, as defined by Arm Confidential
+> > +			     Compute Architecture (CCA)
+> >  
+> >  			Defaults to VHE/nVHE based on hardware support. Setting
+> >  			mode to "protected" will disable kexec and hibernation
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index b2e99c5cb1cd3..31ae9d8d8e92f 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -69,6 +69,7 @@ enum kvm_mode {
+> >  	KVM_MODE_DEFAULT,
+> >  	KVM_MODE_PROTECTED,
+> >  	KVM_MODE_NV,
+> > +	KVM_MODE_RMM,
+> >  	KVM_MODE_NONE,
+> >  };
+> >  #ifdef CONFIG_KVM
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 9af3bbb2f8c24..50f0adfadab38 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -3264,6 +3264,11 @@ static int __init early_kvm_mode_cfg(char *arg)
+> >  		return 0;
+> >  	}
+> >  
+> > +	if (strcmp(arg, "rmm") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
+> > +		kvm_mode = KVM_MODE_RMM;
+> > +		return 0;
+> > +	}
+> 
+> Does this make NV support and CCA Realm VM support mutually exclusive?
+> 
+> Until the v16 series, we could run Realm VMs with:
+>   'kvm-arm.mode=nested'
+> 
+> As far as the AArch64 architecture is concerned, there does not seem to
+> be a reason to make them mutually exclusive. I am therefore wondering
+> whether this restriction is intentional.
 
-On Wed, Sep 09, 2026 at 02:05:12PM +0800, Jelly Jia wrote:
-> Hi Conor,
->=20
-> Thanks for the review.
->=20
-> > I cannot really speak to whether this is a correct thing to do with a
-> > dma-350, but it seems to me like something that should be resolved with
-> > a device specific comaptible in the dma-350 node. Someone more familar
-> > with the IP will have to comment on that.
->=20
-> The wrapper is there to keep the platform integration bits (clocks,
-> resets, interrupt routing) out of the generic driver: the arm-dma-350
-> child stays plain so the existing driver binds to it unchanged. I don't
-> know whether other dma350 integrations need the same resources, so I
-> did not want to push them into the generic node.
+I have a hack somewhere that will allow this, but this requires to
+change the above to be a capability mask rather than a simple
+enumeration. I'll see if I can spin that as a separate series.
 
-Don't worry about this, given the limited extent of the wrapper driver,
-at worst you will end up with a different probe function. The specific
-compatible that you'll use will prevent the code relating to these
-resources running on other platforms.
+	M.
 
-Thanks,
-Conor.
-
->=20
-> > However I would like to know how this impacts the existing dma-350 in he
-> > sky1 devicetree.
->=20
-> Patch 5 converts the existing FCH node to this form: the register window
-> and the eight GIC interrupts are unchanged, the arm-dma-350 controller
-> becomes the dma-controller@0 child, and the SCMI clock feeding the
-> instance is added. The AUDSS instance is new. I'll describe this
-> conversion in the patch 5 commit message in v2.
->=20
-> Best regards,
-> Jelly
-
---iS2/TDiTYr3NoP2p
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqE42AAKCRB4tDGHoIJi
-0mo0AP4kPtLTFrpjSRLG2RYgU/IfafjOKjTpdvgvhwgA249n0AD/TYV6bJ1cMdC8
-IDbJBAKvwxNQmda76KdU7osiKS364Q4=
-=o2Gy
------END PGP SIGNATURE-----
-
---iS2/TDiTYr3NoP2p--
+-- 
+Without deviation from the norm, progress is not possible.
 
