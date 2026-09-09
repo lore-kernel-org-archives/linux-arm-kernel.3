@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07A9C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9101C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d1nAZDQT/TA+H2inuB0ViZceos9GynQ0h9nJpR7hJ4I=; b=AZOzp7eiHk9tJd/NUaifbGTRve
-	UFbaTMXgBjCcwWoZCFI7pfD6LVUa77tjkkMsfXCuX1PZAkeOfWsXZ4YnJEE/uFMdnOGRKUo9JdEwD
-	6w44F5jfZFJK6DeVYGbXREKHGH0x664YE3kTYxYGE/aryS/qOlmpqTCszHCkMnsPxaL8hpwdiR6LF
-	iKl/X8vfRi1zMvwXOO3Kc9GsnjMbfAgx8r6yBZq2xQuvhWpxNair1F0uazgNYNn5bWtgedqsH48vH
-	t+C5fqD0tkJRKrsC29LPjz9wcT0/xtn4hLz1RwbImgDXgs0FcfDbUtC22bfdjXVet0ALdVuVl4MHQ
-	eKuu2eDw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNfPfVxE7TyoGk4owPMHBVxj0S8J8FrPyxLkQ78bxNY=; b=QDDiQ4U5DJ6sB9nYI0QbXL+HZE
+	LgyeaY634GNzbSnpYfD0oKY8CoEe4c3IO83VLqCZOSAGy4OD/1vVb1zEyp6td9HbXIbPFVBgz+sim
+	thz4l2+uySsWCOg5tdx6XSd32OM52g/5alvcIDUpbZWyGl2bfJvabDA8ARs2DV1EI61iFZqn96Aaq
+	q+BUl1wv9IQS9K6r/sJVMVlw38GW1wyrMWBEuU/aUKBXhb7EUpdpr/qouGNAfHQxgeWp9hfYnYpts
+	le6X5xAluOPtLuaLWd4m0KD1L4XuUh1I3jIeo+e8wKG9qApZfYAJ+vtrps8TGxt6oyY/MW00yeNr/
+	R67sq/qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4D2H-0000000B1Iz-3ote;
-	Wed, 09 Sep 2026 07:48:01 +0000
+	id 1x4D2d-0000000B1Mo-0B5m;
+	Wed, 09 Sep 2026 07:48:23 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4D2E-0000000B1Hh-2oh4
+	id 1x4D2a-0000000B1LW-1tpO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 07:48:00 +0000
+	Wed, 09 Sep 2026 07:48:21 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1FEE24E415AD;
-	Wed,  9 Sep 2026 07:47:56 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E9CB64E415AD;
+	Wed,  9 Sep 2026 07:48:18 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DA76A60448;
-	Wed,  9 Sep 2026 07:47:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 827AA11C7AF4F;
-	Wed,  9 Sep 2026 09:47:41 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BBBB560448;
+	Wed,  9 Sep 2026 07:48:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 16FA611C7AF65;
+	Wed,  9 Sep 2026 09:48:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788940074; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=d1nAZDQT/TA+H2inuB0ViZceos9GynQ0h9nJpR7hJ4I=;
-	b=EvIGIL8CWA+u36nsng+YyqHSm9Dljq7Xz3bf3BHaXMVJjE8cNgcFhk7k+RV3472MsQMr5n
-	1t2f5nNMu7CpBvUIvtFSUmTye93FIWs+t7pdxb8egLoCnPT0DZvYBOgZxg6k0r6dBdbkQJ
-	2UW8cfI9CimyMj7RGgb1ruDN3uvxqYfTlGbvDPAy3akfhstn/WGEcL7TicxTx1wR2cWIaS
-	S0Y7f2BfBoW1qnn1y4NsVBRRaJJ3rJ9+JfwSFv1YY+maODan/3Z1L1JfhAmkGxY4p8if+7
-	lLo42qNrikL50OPObVlyMgHLd+/ru9DxuBMEdfsn2/978k4xWZp+VmAFVopeuA==
+	t=1788940096; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LNfPfVxE7TyoGk4owPMHBVxj0S8J8FrPyxLkQ78bxNY=;
+	b=xpEPJXvsrZtm58HaHjF/2UmevoVvxuSrtclLVRnua6XHwvqdSuZYhPiTU2423gaScnaUYH
+	fUBMgyz5d+kvFTs7OfHPQlLXHe4Pe/4fjJNcWUpS9+tg8KiPpAq+U0bmt6aGa876emyR10
+	BPHhFSs57IsYxbKT7A70Rx+LLqruZVlPHgDqmfNeCAvHmosySxcXh0Xr51OYH9WZTWeqQz
+	qPh9VDO7iZHCHJWYxaSjVh6cbiCw4dYkK5DN7z6ZNCQJgzgUL42NTufgjwSnj7f6OGCK57
+	RX5yx6sO4xlVzBdtBkLgLpnZJVTB30+qVVf1M+gn1VOEkiF0daF7MktQt0WrSw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -71,16 +72,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	PKneuper@dspace.de,
 	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net 0/6] net: stmmac: More selftest-related fixes
-Date: Wed,  9 Sep 2026 09:47:33 +0200
-Message-ID: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net 6/6] net: stmmac: selftests: Account for alignment shift on dwmac1000 for Jumbo test
+Date: Wed,  9 Sep 2026 09:47:39 +0200
+Message-ID: <20260909074740.1247762-7-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
+References: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_004759_028007_EECBA694 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260909_004820_693898_57A45ED3 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,136 +98,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+On dwmac1000, we currently only support single-descriptor frames. The
+Jumbo test started failing when NET_IP_ALIGN was added to align the IP
+header, as this tests tries to send the biggest possible frame.
 
-This is another round of stmmac selftest fixes, mostly about the selftests
-themselves but a few things were discovered w.r.t MTU and buffer size
-handling, see patch 5.
+On dwmac1000 the DMA transfer is aligned on 4-bytes, so adding a 2-byte
+shift at the start-of-buffer address means it takes a whole extra 4-byte
+DMA burst to receive the Jumbo packet, causing it to spill over the next
+descriptor.
 
-I've continued expanding the test devices I'm running this on, more devices
-should come in the future. With this series, _almost_ everything is
-green, except for some flow control stuff that is either a false positive
-or a real thing that needs investigating.
+This doesn't seem to happen on dwmac4 and xgmac that appear to correctly
+handle unaligned xfers (only tested on dwmac4)
 
-After this is merged, I consider the selftests to be now reliable enough
-to run them nightly on every stmmac series that's sent, and I'll be requiring
-clean selftests for new glue drivers.
+Let's account for that in the Jumbo test, reduce the size of our big
+packet by the align size.
 
-I've been running this on :
+Fixes: 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- - Altera CycloneV (dwmac-socfpga, dwmac1000 IP, v3.70a)
- - NXP imx8mp (dwmac-imx, dwmac4, v5.10a)
- - Allwinner H2S (dwmac-sun8i, dwmac1000)
- - Amlogic S905X3 (dwmac-meson8b, dwmac1000, v3.70a)
- - STM32mp157a (dwmac-stm32, dwmac4, v4.20a)
- - SiFive JH7110 (dwmac-starfive, dwmac4, v5.20)
- - Motorcomm YT8061 (PCIe, dwmac-motorcomm, dwmac4)
- - Qualcomm IPQ8064 (dwmac-ipq806x, dwmac1000)
-
-Tests are OK if return is 0 or -95 (-EOPNOTSUPP), tests are KO otherwise
-
-Before the series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0     0      0     0       0     0     0    -110
-MMC Counters              0     0      -95   0       0     0     0    -110
-EEE                       -95   -95    -95   -110    -110  -95   -95  -95
-Hash Filter MC            0     0      -95   0       0     0     0    -95
-Perfect Filter UC         -95   0      0     -95     -95   -95   -95  -95
-MC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-UC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-Flow Control              -95   0      -110  0       -110  -95   -110 -110
-RSS                       -95   -95    -95   -95     -95   -95   -95  -95
-VLAN Filtering            -110  -95    -95   -95     -110  -110  -95  -95
-VLAN Filtering (perf)     -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter        -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter (perf) -110  -95    -95   -95     -110  -110  -95  -95
-Flexible RX Parser        0     -95    -95   -95     -95   -95   -95  -95
-SA Insertion (desc)       0     -95    -95   -95     0     0     0    -95
-SA Replacement (desc)     0     -95    -95   -95     0     0     0    -95
-SA Insertion (reg         0     -95    -95   -95     0     0     0    -95
-SA Replacement (reg)      0     -95    -95   -95     0     0     0    -95
-VLAN TX Insertion         -110  -95    -95   -95     -110  -110  -110 -95
-SVLAN TX Insertion        -110  -95    -95   -95     -110  -95   -110 -95
-L3 DA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L3 SA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L4 DA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 DA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-ARP Offload               -95   -95    -95   -95     -110  -110  -110 -95
-Jumbo Frame               0     -110   -110  0       0     0     0    -110
-Multichannel Jumbo        0     -95    -95   -95     -95   -95   -95  -95
-Split Header             --95   -95    -95   -95     -95   -95   0    -95
-TBS (ETF Scheduler)      --95   -95    -95   -95     -95   -95   -95  -95
-
-ARP offload's still there as this was a net-next patch and I've ran these
-checks on the net tree.
-
-Jumbo frame tests on dwmac1000 started failing after :
-
-commit 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
-
-This commit is OK though, it just made the selftest reveal the cracks
-hiding beneath the surface of MTU/bufsz handling.
-
-After this series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0      0     0       0     0     0     0    0
-MMC Counters              0      0     -95     0     0     0     0    0
-EEE                       -95    -95   -95     0     0     -95   -95  -95
-Hash Filter MC            0      0     -95     0     0     0     0    -95
-Perfect Filter UC         -95    0     0       -95   -95   -95   -95  -95
-MC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-UC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-Flow Control              -95    0     -110    0     -110  -95   -110 -110
-RSS                       -95    -95   -95     -95   -95   -95   -95  -95
-VLAN Filtering            0      -95   -95     -95   0     0     -95  -95
-VLAN Filtering (perf)     0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter        0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter (perf) 0      -95   -95     -95   0     0     -95  -95
-Flexible RX Parser        0      -95   -95     -95   -95   -95   -95  -95
-SA Insertion (desc)       0      -95   -95     -95   0     0     0    -95
-SA Replacement (desc)     0      -95   -95     -95   0     0     0    -95
-SA Insertion (reg         0      -95   -95     -95   0     0     0    -95
-SA Replacement (reg)      0      -95   -95     -95   0     0     0    -95
-VLAN TX Insertion         0      -95   -95     -95   0     0     0    -95
-SVLAN TX Insertion        -95    -95   -95     -95   -95   -95   -95  -95
-L3 DA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L3 SA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L4 DA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 DA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-ARP Offload               -95    -95   -95     -95   -110  -110  -110 -95
-Jumbo Frame               0      0     0       0     0     0     0    0
-Multichannel Jumbo        0      -95   -95     -95   -95   -95   -95  -95
-Split Header              -95    -95   -95     -95   -95   -95   0    -95
-TBS (ETF Scheduler)       -95    -95   -95     -95   -95   -95   -95  -95
-
-ARP can be ignored, and Flow control needs some more attention, but
-we're getting there :)
-
-Thanks,
-
-Maxime
-
-Maxime Chevallier (6):
-  net: stmmac: selftests: Support running selftests on DSA conduits
-  net: stmmac: selftests: Validate EEE based on the actual LPI timer
-    value
-  net: stmmac: selftests: Check the dev->features for S-TAG offload
-    testing
-  net: stmmac: selftests: Capture all packets for vlan checks
-  net: stmmac: size the RX buffers from the frame length, not the MTU
-  net: stmmac: selftests: Account for alignment shift on dwmac1000 for
-    Jumbo test
-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  20 ++--
- .../stmicro/stmmac/stmmac_selftests.c         | 110 +++++++++++++++---
- 2 files changed, 102 insertions(+), 28 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index 2fc0badb65a7..ffc58c210d0d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -1768,6 +1768,9 @@ static int __stmmac_test_jumbo(struct stmmac_priv *priv, u16 queue)
+ 	struct stmmac_packet_attrs attr = { };
+ 	int size = priv->dma_conf.dma_buf_sz;
+ 
++	if (!dwmac_is_xmac(priv->plat->core_type))
++		size -= NET_IP_ALIGN;
++
+ 	attr.dst = priv->dev->dev_addr;
+ 	attr.max_size = size - ETH_FCS_LEN;
+ 	attr.queue_mapping = queue;
 -- 
 2.55.0
 
