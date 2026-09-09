@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7F4C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401A9C88E42
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QpWyJTYIhbVracld8cQF0mcNxtfIdKPzFYWE/IbkTrI=; b=lvkefmK/C0hn/KGvnx6uQl/u4/
-	rHY8OwFCNEzenU/NqzIxMnCwHTIjdybvLaL5NCS6V6EHkBq95yZxegQQKJzqz4GUHcCxQvyCtoNNO
-	jF+ZLRGYEBfIqZ575BCXWbSiCmbusRC0WpJR0ndQZDlIlMTh94iu5WKSWmwn52XggPb7tVpyb85DP
-	Jx8z7pYi5aXeqIhg3PwweoGK3Lvn24pLinM4g0XOibM8e0zEoRHppPm93Npj7qAmRiXx+2LqFGjLG
-	M/W+9A34g9WQmLeurZ+MThTJGs9kaPWDkuIBF5gu6xO09ymxOxZhFchnDDmkGyAa0/K6ptp6g7UaE
-	a2DcRQ5w==;
+	bh=ubFHADmlLVKqs5BslICeZs6JKqKqZm5q7u7Y8+hXSOE=; b=dCpv7ewc7H79wGHGyQ0mERWt3U
+	HhOZLSmgDRBdJ/aMIvCdzC3HLyAw1ZuLPXqq0T45PSEJe+xAPMQt/hfKsnTzMKcOzgHiDEU8PQrht
+	9N7i1oOVaQpdOo4BVmBsc6Fb+szzrbhuh2RJ7DHRxNvgqUjU7LYEsSomQkd7w0KnMDHGtyYAHYpsD
+	vHeP0HGJzNMeSFhkPn7xhT9jQBYtZXoSCloFhoP2fIucghrprxLvq37QdYCu3PezmmxxfFOIVvqvZ
+	PltR4WZMZketvV8bDIHTv+XhcgM21dGVqeOYJDHMeZ4Scyg14M1Q0mqIHqQJQuexw3jieckROixyw
+	swlVWQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O7Y-0000000CjPJ-2bpQ;
+	id 1x4O7Y-0000000CjPu-3Pct;
 	Wed, 09 Sep 2026 19:38:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O7X-0000000CjOH-43QU;
-	Wed, 09 Sep 2026 19:38:11 +0000
+	id 1x4O7X-0000000CjOI-43Tr;
+	Wed, 09 Sep 2026 19:38:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 112F344792;
+	by sea.source.kernel.org (Postfix) with ESMTP id 191334479C;
 	Wed,  9 Sep 2026 19:38:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CDCCDC2BCF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3A15C2BCFF;
 	Wed,  9 Sep 2026 19:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788982690;
-	bh=P0qNZiLTQV7gn0UuncV6cdn6iEieMHPrHFYC39KFYEM=;
+	bh=OmLxNhwIEeGHYJj3Y2qiAiLAo8DjCGsOiITKuTiyw48=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Wc799gg8FqMwlc1yZbvQ9bj+97QFPi+iXk803jluNlnO0qKkM0YGbsNBFpWZp01ZR
-	 lkHUVW3BQT2PY8dtpB8hlW3/hATWVKZZuN+mZi/Z74g/O0Zn6hnlIbMzZA5HzyiQNc
-	 5sOGazJhU9gh65elRXtY0DyqDbLEjsuCPPWhV6WSPP5GGgBbWHgkxyN1iVHn85ffWN
-	 02qPCVxCxTsVYoLNzVlKe3vlscMe6aPwhX+yxWaX4hBKWWu0mMcwiqC0y7T/LTC/UI
-	 /8SibVrVNaqgofS2pZ5Ht6iW7rbvnMNMrSnnlFrMpAWy1Yi2jt1G7G566KUI1MLe9G
-	 mWaLxDodTrRpQ==
+	b=ruwBtuB08FvUpDWjmLZHBPIjeCFnETC4h7L4QFwMacWp/FSVNUCx+qaIhsDlH7I5I
+	 boir9XRUHidOLMY4GL8CrAQg6OoKnfNMdsxCS+L4x9x+O18gykVE6GtDOZtFYjhD1r
+	 WeC2TpRjzWvKD9WH9Vgs+JpLEav+4v0Rf6VQy1hY7Ot6cglnBmjgYMFYCFAhdi3sd2
+	 q6n9WdVkER0n0JYl0el9aWDzp+fTyUHP4sgxdke6YFdVutuUPRYoHCDYXPNYrLGbws
+	 ZaIyuNbMnFJnww6CUUAkJ3FZOr5iLzhfsoJgF25lW9Zr8khRfdcVjOCSF4MWy6xTGh
+	 xFoM0uStMH6Dw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A74F8C79FBD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CA4D0C88E41;
 	Wed,  9 Sep 2026 19:38:10 +0000 (UTC)
 From: Zakariya Hadrami via B4 Relay <devnull+zkh.mailbox.org@kernel.org>
-Date: Wed, 09 Sep 2026 21:38:01 +0200
-Subject: [PATCH v4 2/4] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
+Date: Wed, 09 Sep 2026 21:38:03 +0200
+Subject: [PATCH v4 4/4] ARM: dts: mediatek: Add basic support for Amazon
+ ford board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-mt8127-amazon-ford-basic-v4-2-e9af5c420ab1@mailbox.org>
+Message-Id: <20260909-mt8127-amazon-ford-basic-v4-4-e9af5c420ab1@mailbox.org>
 References: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
 In-Reply-To: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -62,14 +63,13 @@ To: Matthias Brugger <matthias.bgg@gmail.com>,
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-watchdog@vger.kernel.org, zkh1@proton.me, 
- Zakariya Hadrami <zkh@mailbox.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Zakariya Hadrami <zkh@mailbox.org>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788982689; l=801;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788982689; l=2117;
  i=zkh@mailbox.org; s=20260908; h=from:subject:message-id;
- bh=6yb/XWefb2wuZDPOBmfMPSdJsXYrkjPox9GtsLygo8Q=;
- b=5LffDZHmyNBAclDIcnlkhY1WJo3bKSUx98Ij5Kr3xlAwsWWLtksy5ZX/y2KUMOhsuNjLVaCPJ
- XyeIZo04YroDql575Ijfy+wvDgQN8yZLKhQoYzBtHaMhTPJ/WrBflL+
+ bh=ArzZhvqbaHzkwMRg8G+mxS9/RyxJ5FW/7LRvsjsHapo=;
+ b=GLHETlbpi5XIYO5QxABxqgKWx4PFuSTFhmt6Oyla2JeDqArgYfJ4Jzy/6UZPNy3TTgT8Z5D9j
+ HHjkqdWyeIBBP2EZtQFQZSvXX4vK0efzQFHYK3qZtMuidLgqks4qiAs
 X-Developer-Key: i=zkh@mailbox.org; a=ed25519;
  pk=up24Xn4ScFKugfT4EJru/UQAS7JOIN+DSQqro+a05T4=
 X-Endpoint-Received: by B4 Relay for zkh@mailbox.org/20260908 with
@@ -92,26 +92,87 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Zakariya Hadrami <zkh@mailbox.org>
 
-Add entry for the MT8127 based Amazon ford tablet.
+This tablet uses a MediaTek MT8127 system-on-chip with 1GB of RAM.
+It can currently boot into initramfs with a working UART and
+Simple Framebuffer using already initialized panel by the bootloader.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
 ---
- Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/mediatek/Makefile               |  1 +
+ arch/arm/boot/dts/mediatek/mt8127-amazon-ford.dts | 54 +++++++++++++++++++++++
+ 2 files changed, 55 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index cd4040ad3437..180e6e4948e7 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -122,6 +122,7 @@ properties:
-           - const: mediatek,mt7988a
-       - items:
-           - enum:
-+              - amazon,ford
-               - mediatek,mt8127-moose
-           - const: mediatek,mt8127
-       - items:
+diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
+index 37c4cded0eae..a610bc75c7d9 100644
+--- a/arch/arm/boot/dts/mediatek/Makefile
++++ b/arch/arm/boot/dts/mediatek/Makefile
+@@ -14,5 +14,6 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += \
+ 	mt7623n-rfb-emmc.dtb \
+ 	mt7623n-bananapi-bpi-r2.dtb \
+ 	mt7629-rfb.dtb \
++	mt8127-amazon-ford.dtb \
+ 	mt8127-moose.dtb \
+ 	mt8135-evbp1.dtb
+diff --git a/arch/arm/boot/dts/mediatek/mt8127-amazon-ford.dts b/arch/arm/boot/dts/mediatek/mt8127-amazon-ford.dts
+new file mode 100644
+index 000000000000..8edad5482de2
+--- /dev/null
++++ b/arch/arm/boot/dts/mediatek/mt8127-amazon-ford.dts
+@@ -0,0 +1,54 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/dts-v1/;
++#include "mt8127.dtsi"
++
++/ {
++	model = "MediaTek MT8127 Amazon Ford";
++	compatible = "amazon,ford", "mediatek,mt8127";
++	chassis-type = "tablet";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++		stdout-path = "serial0:921600n8";
++
++		framebuffer0: framebuffer@b7a00000 {
++			compatible = "simple-framebuffer";
++			memory-region = <&framebuffer_reserved>;
++			width = <1024>;
++			height = <600>;
++			stride = <(1024 * 2)>;
++			format = "r5g6b5";
++		};
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0 0x80000000 0 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		framebuffer_reserved: framebuffer@b7a00000 {
++			reg = <0 0xb7a00000 0 0x1000000>;
++			no-map;
++		};
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&watchdog {
++	status = "okay";
++};
 
 -- 
 2.54.0
