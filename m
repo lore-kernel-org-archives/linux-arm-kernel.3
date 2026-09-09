@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6D9C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8582DC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OzrULavoTQ/WrRZCjul3h8BodEA1weXd5o8Qt80OpqA=; b=pSjakb/eZ/JUqOHueeg/Dpj6QJ
-	ZtkPwhvjiDDGJHLzixxoKN0vukDqDJfGc8nTvXSYMR9dETiuhM1OEq77OADJTKiCvpeq+TgcJuzkJ
-	WHdo5r56kbovYAOpXp/Xo7eg6motOrHgt2WhBZ2PTwifvQaXs7PDewW5x32goNU/FhBFXnI9JU7+t
-	iYW3lOAX61yOdeMXdEDM8xlcDxGUlxZcCSs2xBWH5CX17eiKJLLXLF8OOPWJD6Jsg+J5eQPQEAlSz
-	gRit0UPo4xA9aIuy/WjbZx4vsXymxvKX3AKWr5YkS9YAvV46QfbVueHNHW9zixe4oAPwlJ6e54mYt
-	0yoccyrA==;
+	bh=isREWlkrvnlxZCPIqgPqJKLa/Uh0ECKdmBKtggNVbac=; b=b4goVm2ESQ8/8nCeTB6Ed7acAy
+	iJzhMPa1br/x8Hb/yMN+ciB7NOvQX3i/yftWLAxKgppYF4EL7Q2Y0BMOPHEcExVf86P8hL+cxJ/4a
+	At45h2M09oGC4JwFnmMrlvaP+H+z7HU0msrIWe2e+BK3fUa2M0ZHhFImgh05sSOp8umUKxGp2V3Qj
+	HfXkNwZP4lJ6P02u0qfQq3dRRXSyR8DIg/+ghNjrv+ZauXsTJ/kNmdPXNP3YwO0ysL8YKb0YNYatw
+	zBIPeEQ6guSoXF8WoV6M3PjH88j+HvDn90A+gU3dnj9RpgwKfHt4uShWmuLPuoz09aHfYiakKHGQW
+	HZmf2LyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4HuZ-0000000BieD-0SRc;
-	Wed, 09 Sep 2026 13:00:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4HuW-0000000Bic7-2cg5
+	id 1x4Hul-0000000BijH-05PV;
+	Wed, 09 Sep 2026 13:00:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4Huc-0000000Bifl-2LiG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 13:00:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52BEA1691;
-	Wed,  9 Sep 2026 06:00:11 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 545113F7B4;
-	Wed,  9 Sep 2026 06:00:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788958815; bh=COoomdSG2FlqAOqhScp/Ic2bx4OeDuloT0b59UMRbdY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s58mQgbnP66N0tSsR0ISNWZsvL2/PwI5BHGINryKYJdKCuLFiMKLHOvStA5xDsP4h
-	 HqJj8VAURT88yoH+vmDsR5Yo4Ea99qNf7dbdm+V55Qia3YuxFhOXOL8gqZ/CPX+7VP
-	 LVy3xukrI30eMDBzoMp9lI45Uq4J0Wnq6ZUaoJPQ=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v20 07/14] KVM: arm64: Forward GCS exceptions to nested guests
-Date: Wed,  9 Sep 2026 14:00:06 +0100
-Message-ID: <aqFYVnIgvXGXzHk7@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901-arm64-gcs-v20-7-f31750bdfadb@kernel.org>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-7-f31750bdfadb@kernel.org>
+	Wed, 09 Sep 2026 13:00:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1788958826; x=1820494826;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=LhixG2fCAUNCT+8en6PrRgF6aAtHhOutp8kzJk8cL28=;
+  b=dcyW9I/Kma41aACx98MisThHLJCjnJn+jz9+6s2TE3jyxTC9+l6FNLvr
+   VlfaTQUJcHtByR5X1Mkv5GzVIZsc5EY7xM+Xkbr2GPE5wyo5mJUan6SoB
+   I7XFxwBnRoyVaCiCfBGKIAiBjDxNBJh157/HWePt75ZPdPc7g+kssN/ID
+   E5kiBQLZxluI53ArWd4c1EgYiGXb6RFajlw0M/BLy7djblgKGWJmWtuZf
+   ua4c9NAjvL+i9J+PL6jpQZBNl5FTMwovbbkGgtwku9VykZYnlkJ9aaoNd
+   +Ah6fi1CxDbpeOHDbFhdVYITpgJT6Ph/aJ6giKF8xNTgN5EDGZfIxQLb6
+   w==;
+X-CSE-ConnectionGUID: /e9uF4MCR3+eDjpTL/objg==
+X-CSE-MsgGUID: R3uDSJ5sSAClYKRzW4QWbQ==
+X-IronPort-AV: E=Sophos;i="6.25,270,1779174000"; 
+   d="scan'208";a="230464537"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Sep 2026 06:00:25 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 9 Sep 2026 06:00:25 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 9 Sep 2026 06:00:21 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Wed, 9 Sep 2026 15:00:03 +0200
+Subject: [PATCH net-next v6 01/14] MAINTAINERS: add FDMA library to Sparx5
+ SoC entry
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260909-lan966x-pci-fdma-v6-1-6f48dab9d671@microchip.com>
+References: <20260909-lan966x-pci-fdma-v6-0-6f48dab9d671@microchip.com>
+In-Reply-To: <20260909-lan966x-pci-fdma-v6-0-6f48dab9d671@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, Steen Hegelund
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
+ Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
+	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
+ Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
+	<mohsin.bashr@gmail.com>
+CC: Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_060020_745177_E75FE2BF 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260909_060026_886759_6814E104 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:47:05PM +0100, Mark Brown wrote:
-> For nested guests where HFGITR_EL2.nGCSSTR_EL1 is clear or when there are
-> L2 GCS data check exceptions we need to forward the exception to the guest.
-> Add handling to do so.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kvm/handle_exit.c | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index db37678dcb05..a8198e96fcb4 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -304,12 +304,24 @@ static int handle_svc(struct kvm_vcpu *vcpu)
->  	return 1;
->  }
->  
-> +/*
-> + * We might get GCS exceptions that need to be forwarded to the
-> + * hypervisor when a nested guest has HFGITR_EL2.nGCSSTR_EL1 clear, or
-> + * for a GCS data check exception for a L2 guest.
-> + */
->  static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
->  {
-> -	/* We don't expect GCS, so treat it with contempt */
-> -	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
-> -		WARN_ON_ONCE(1);
-> +	if (!kvm_has_gcs(vcpu->kvm)) {
-> +		kvm_inject_undefined(vcpu);
-> +		return 1;
-> +	}
->  
-> +	if (vcpu_has_nv(vcpu)) {
-> +		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-> +		return 1;
-> +	}
-> +
-> +	WARN_ON_ONCE(1);
->  	kvm_inject_undefined(vcpu);
->  	return 1;
->  }
+The FDMA library under drivers/net/ethernet/microchip/fdma/ is shared by
+the lan966x, sparx5 and lan969x drivers, but is not covered by an entry
+in the MAINTAINERS file. A subsequent patch will add new files to the
+FDMA library, so let's make sure it's covered.
 
-Oh handle_gcs, if kvm_has_gcs() && kvm_has_nv() -> Inject synchronous 
-exception. Makes sense.
+Add drivers/net/ethernet/microchip/fdma/ to the Sparx5 SoC entry, since
+I am already listed there.
 
-(it kept bothering me that the !gcs and the gcs case do the same thing, 
-except for a warn_once. So I thougt on suggesting:
+Tested-by: Herve Codina <herve.codina@bootlin.com>
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-+	if (!kvm_has_gcs(vcpu->kvm))
-+		goto inject_undef;
-[...]
-+	WARN_ON_ONCE(1);
-+inject_undef:
->       kvm_inject_undefined(vcpu);
->       return 1;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b23fb6f2f4ef..e41d4337136d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3214,6 +3214,7 @@ M:	UNGLinuxDriver@microchip.com
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Supported
+ F:	arch/arm64/boot/dts/microchip/sparx*
++F:	drivers/net/ethernet/microchip/fdma/
+ F:	drivers/net/ethernet/microchip/vcap/
+ F:	drivers/pinctrl/pinctrl-microchip-sgpio.c
+ N:	sparx5
 
-But after it was done it did not look better.)
+-- 
+2.34.1
 
-
-So, FWIW:
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-
-Thanks!
-Leo
 
