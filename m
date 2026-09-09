@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BFBC79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173B4C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUuW0uVZnmmFYfzlADyUpYwUcDsqPHnRtqJHTrYOEMA=; b=VUSRYoXZAjCRSXcw9lOC+rwr9b
-	fod+06zf7DJpGS0SBfdk5YANGdLWBSQUHshxXnc0zdS5TG8kyZBPwJSqZQ54TzY9orafv1Cw00maA
-	6XM2Lv9n6rfMtNop/7AedKVb8GqQYUaHhcS9TR6K9MugOJd0jX6m+SV4pabC8T2lkyOk3FWgOHoFL
-	A6l+Ao3s7NhntXKyrQltHdIyAuMVP5X0+kFgQjJeT2aQ5LS+pUL8Go2ipdQ5DrM7Q09WbxNIq4lCB
-	kFCf8WfyqZ5AkF3udNxu+2hBRFSoAERfVMwAM3pz1EJdKmjT1dZgXfTfficxoByo3r3Z4oXtU+kk1
-	n5962L3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5ENYo56kYOoaOL7ZeChMo/ToS0E03eRMjgDAeWj53nw=; b=yvPU0hd+JOmAaCC0gCtmmdlvr3
+	9ANDAcr76zV96o6read5dF4EGwrPs2N4oHas/JIlwNGpp/AOvDbHYxgyPPBYaMYtSHNEyWZ4CbmWs
+	X60fxxiR+q3IxeDVR1k1KJ/meJ/vKwrWAWEyE9Qdlj9r1zoHAVF7iFAEq+F6W0eenqzw6unmyA1Wk
+	vFWNAONKfgBNLpdouU0ePbTTPC3kcf4tPtiYhflUd+KKaECpIbUkN3wGLWRzo0Z+fop3P2B3YJrTY
+	zImql3fDNPiCeXioTtSDNRFyhzBNXI05yD+zz28gni0lM0Y5kou4O5eIL38JoelPptwQr0QP2jclg
+	xXKN3C5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O7Y-0000000CjPc-2zV5;
-	Wed, 09 Sep 2026 19:38:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4OEC-0000000Ckh5-3Dmb;
+	Wed, 09 Sep 2026 19:45:04 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4O7X-0000000CjOG-43ex;
-	Wed, 09 Sep 2026 19:38:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E17B443D1B;
-	Wed,  9 Sep 2026 19:38:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BBFFBC2BCF5;
-	Wed,  9 Sep 2026 19:38:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788982690;
-	bh=XNvMPjZX0+WXpT4mWFJChE+oCnrBaMYSvQo6qFGzXNw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KljriqbOZ9h6iBKiEI5uUOhHf1aXYEQauA9cpkNln+QyTSsu6owH1kLK23Y0rAOdG
-	 dq4I0+uMo6wPAIjl3J7SwXqUd+w1WwMZwTaAK/RgH7p5EB2ftUdLoeFXFApa5BZnTH
-	 ADDZeskYEpwMm3nbVFwPyT77gUD268/nTnLvBbKBr7chk+I7x3oAh1RzCHVc1Tc7e0
-	 yZokg4dyx31bn03VzedB8+iLxhcky1xxd/sjIepZR+AHlEawl4CwwTlc+ZrCeFJnrk
-	 VIDkYmEx5ERYvbO27AiIL7IU49zjJ2yLdgnkzjCrdr4N/t6YyPiFtRun4x06XgoXdw
-	 zfago7OqBobOQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 97760C79FB6;
-	Wed,  9 Sep 2026 19:38:10 +0000 (UTC)
-From: Zakariya Hadrami via B4 Relay <devnull+zkh.mailbox.org@kernel.org>
-Date: Wed, 09 Sep 2026 21:38:00 +0200
-Subject: [PATCH v4 1/4] dt-bindings: watchdog: mediatek: Add MT8127
+	id 1x4OEA-0000000CkgL-2pCY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 19:45:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-2eefaa527c; t=1788983101;
+ bh=5ENYo56kYOoaOL7ZeChMo/ToS0E03eRMjgDAeWj53nw=;
+ b=kPCYlq4QFFsWgl2/vPxglOHfZ6sF/TCthjTr/ncpVcXs9fSL4+hcnMgBPviNk+r6yAsSxCrzI
+ Vj4dEwhs2pF9E3CYXzdm140Df6WCSl4vkTzd0Nxv6zTCthm0QC9CipAQUjS/WYCjoXzEWBl8KBF
+ 3d2YbuR3vRdzIaRiu10SOCs=
+X-Forward-Email-ID: 6aa1b7365382f19eb5d6c7ab
+X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
+ smtp.forwardemail.net, 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Thomas Turner <tturner@lineageos.org>
+To: semen.protsenko@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	peter.griffin@linaro.org
+Cc: alim.akhtar@samsung.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas_turner@talktalk.net
+Subject: [PATCH v4 0/2] Exynos850 GPU support
+Date: Wed,  9 Sep 2026 20:44:48 +0100
+Message-ID: <20260909194450.183693-1-tturner@lineageos.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-mt8127-amazon-ford-basic-v4-1-e9af5c420ab1@mailbox.org>
-References: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
-In-Reply-To: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-watchdog@vger.kernel.org, zkh1@proton.me, 
- Zakariya Hadrami <zkh@mailbox.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788982689; l=1002;
- i=zkh@mailbox.org; s=20260908; h=from:subject:message-id;
- bh=W+fYT6FEZ+BsGX4xaHNPJY7m/vM9qOAG6TkfJVwh8eg=;
- b=RO0NOexUOQYrZNLa23zzQi2txgyiSv65tHeLLA4wRx8ItAsbTC49OnXWOb+MlWL+Ux6G9DNOx
- ztGz/sAG2e8AzaFPAc2pqzxQbvLgLX/GAhzoggVEj1Q2iYvlc8rgPQy
-X-Developer-Key: i=zkh@mailbox.org; a=ed25519;
- pk=up24Xn4ScFKugfT4EJru/UQAS7JOIN+DSQqro+a05T4=
-X-Endpoint-Received: by B4 Relay for zkh@mailbox.org/20260908 with
- auth_id=1015
-X-Original-From: Zakariya Hadrami <zkh@mailbox.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_124502_727913_F12EBECE 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +75,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: zkh@mailbox.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zakariya Hadrami <zkh@mailbox.org>
+This patch series documents and provides basic GPU support for the
+Exynos850 SoC, making use of the Mali G52 GPU through the panfrost
+driver. Only basic support is provided here and as such lots of features
+are missing. This series only adds the GPU node for the Exynos850 SoC
+dtsi, but keeps it disabled, so it stays disabled currently on E850-96
+board (The only user of the Exynos850 SoC dtsi upstream).
 
-Add entry for MT8127 SoC's watchdog which is compatible with MT6589's
-one.
+Thomas Turner (2):
+  dt-bindings: gpu: arm,mali-bifrost: add exynos850-mali compatible
+  arm64: dts: exynos: Add GPU/Mali Bifrost node to Exynos850
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Acked-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
----
- Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-index 953629cb9558..e6e4546da0aa 100644
---- a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-@@ -40,6 +40,7 @@ properties:
-               - mediatek,mt7622-wdt
-               - mediatek,mt7623-wdt
-               - mediatek,mt7629-wdt
-+              - mediatek,mt8127-wdt
-               - mediatek,mt8173-wdt
-               - mediatek,mt8188-wdt
-               - mediatek,mt8189-wdt
+ .../devicetree/bindings/gpu/arm,mali-bifrost.yaml   |  1 +
+ arch/arm64/boot/dts/exynos/exynos850.dtsi           | 13 +++++++++++++
+ 2 files changed, 14 insertions(+)
 
 -- 
-2.54.0
-
+2.47.3
 
 
