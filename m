@@ -4,137 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B84C79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DD4C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=; b=tkhICRbT19getjDrbHdFwTubdk
-	onL+qIpF1DAMue9m/laOdbCStGJMQu8ZrwOQT2Exly6zmDvscCscKLKJeL295TMlUdMRqYk2QvmAs
-	HVNG9hlEzRD6yp2aYNC1ZwQbkaPaLNmqwGHCwTd7rew6cYtvXA/f/SvZXw9EkRYbdEYjaIyvA7R/g
-	4C7euxQvjkHrZmAm6njLwP1oEwK3Kdv0YvARTA157dpOXvvI7c2NsTsYoxy5Sxq+kJ/X2wswyXRIh
-	S/5swFXSHjj+EUHWm4YBTr0XxT8x6fBqVkLlf48mh53t0rzNfCRnNrY5VwYEuQFX+xKB19B29O4Sj
-	ythTEJNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0gSncg/waZOalwozhN7BaaqXJIs1BmymYB48sb8DdCY=; b=HZO664IXxRbm7JlZEX5stwiCwJ
+	x5o+lMjRSlfRXD8zfJTpqOr3/dVnvP4hwh2IKsBhlK9hjNoURM0xkZAZ4eQv6LOU6OXsMdcisDVmu
+	/VV2OwpJWfYR6MzFB2PuNWPW1hOEHmcWki2gW/W4iMFk3ctOqoukXtgGqeyf5Us+Nu3AoBd/iUT+w
+	YmUKxrwEi54nIkGiry+IW1R/5NASpSv/muaRZ9JLLTUa2NsiJ1SW1gtVp340z2sP33wXjmYkZ4bJw
+	L2t3vYmOlCw2YwnsuKb2hRw8nfpzovRu5fr97tluaWooCE5vtWBOy16NDOB7zM8p1/yw73lBGdyip
+	CW0bYqGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bzn-0000000AuYZ-1s3E;
-	Wed, 09 Sep 2026 06:41:23 +0000
-Received: from mail-northcentralusazon11013007.outbound.protection.outlook.com ([40.107.201.7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1x4C1i-0000000AunR-3rvW;
+	Wed, 09 Sep 2026 06:43:22 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bzk-0000000AuY1-3E0p
+	id 1x4C1f-0000000Aumu-2uPc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:41:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WRa2sLw9l7qff4yOMX180YxxKbpT3O8zQ8lNNwVgDKlq3S8O/3VoqswjV7iYjnfhL6c2RWKW7BT+sG8S/5TUnGyuuR1Ba7FV1YipXOaNmg4+lmT2UVFS4NItG1zUrqF68l+p/gVKTrOj6PM5lzzAfjVUuw9A6To8fwvkc9RdFqjTh2l8AE9DAPKjO/V9dTqmo1UQfEqLT+cu4ompxZHOiyAofG8RxOEQ8YJ8X5q79IW4z0AzTRPYuUQDg7MtP+vxGx02MCegslFv7VtzKAXrIlbB+lS68nUQS4nWDGjfrln8PEsy19vrbaxHwfxCyhfK3+qRMGZBo1VqzzD7xV6vag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=;
- b=UdMXxXh+DjA41rky/3PJgjGDGZ5E+gMsjtQ05HhQUDR4HUqempqSPT36S/EnIXzYKXM7HfSJuhxWCcJXCHbGUi0+ZWHYLEDR7nIXdW3UGAaI92xBQmcKO3Ro3cNpIG54fmiXIPK7aNwp+a+GidQMEimiEgHqWWS8efBx6ULVIQ9uheLuiBOfqj2oPnjImIapyM8rLxIRPZSvUFIBITf/4LrbzGmFVOSWwowtOLRG4hH21saQyLA6byhT3MIBpahEvonn96dWnS8iyYAf+9tKWE8AkHf/6LPfEpM+Pbo46t2oFi8Skf6ShNJ2Ja6B2ChCdXS46tYTFmoRZIp9xdzkaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yn8S3sK6fk973DN0z8O9L55uE5FRGNKuKW1RUhUM9yU=;
- b=q8BeeCtwqR+vAG9DqnpoXR/pOHR8uJvxxEeTDWbgJmCfhChfuvFr3KNUQE0p4JZvJOmq0PUJz6hUFqPuxv2xprajiMYoKCUekBRJawVDsFtHOiHydcs9FT4ndTMbfW+PYuVbzVn4zW4sQ1YROVh/v53e6rn2be4yWDdYH2g5o4OZYrESFPpekBItje8FBYLQU/cGSav7lT9Mk3bvNANH9BFix2gvznFMvAQdq11gOHVggwhgYWikzCwfYPoyeOUGzEt8hh+1487HXWvfYHbNOqFk4HASY/BnjAEsb6eytjlPVm9SoCOri4KFjwSnDAkgVbylBjjRzml4v9rSxc4j8A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by PH7PR12MB5654.namprd12.prod.outlook.com (2603:10b6:510:137::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Wed, 9 Sep
- 2026 06:41:14 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Wed, 9 Sep 2026
- 06:41:14 +0000
-Date: Wed, 9 Sep 2026 08:41:06 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
- Olympus
-Message-ID: <aqD_gpvJOFqcmlmg@gpd4>
-References: <20260909062649.469633-1-arighi@nvidia.com>
- <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
-X-ClientProxiedBy: ZR0P278CA0200.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:6a::11) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Wed, 09 Sep 2026 06:43:21 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 688MgAHu129691
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 06:43:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0gSncg/waZOalwozhN7BaaqXJIs1BmymYB48sb8DdCY=; b=AwrWLGVP94aUuV3K
+	Hdare4o4nEt5w3hZb7m0fFUhfo8DINdyHhP9UvThc2mu1L+0VljvKVP6hqw92ubx
+	pyI/YyWWSm8IKhGDQmHnfQSppP7H7KMD0eJwzWaGD7AhRYt1ehn9CYRbe9qo+Fjz
+	R9NInUrtLnrHrQtx80Mjwun+LeIyQQpAsBRkQPt1F/qfJWLMq+saFbja4lSZ0f3T
+	gkx9Xtu00KRlC4/Gk+vXPkFLkeoewwC/3uV1u+cexSj2frXS4QK7JJzXm4X4WZdN
+	5qoeFcF6SSqAfqU4WTkcVmUcKTpvno4sbtm3bxPobXCEe4ZMm9Ex3v/2zVnEnhgN
+	/7uPLA==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjntpk4d4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:43:17 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c85798977dcso8101062a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 23:43:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788936197; x=1789540997; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0gSncg/waZOalwozhN7BaaqXJIs1BmymYB48sb8DdCY=;
+        b=jb+0XEQ5fdlDxEq/plA79wqD7lrUud/xEko2LN3lrILd77MVD3GINkazIJFz2B3mJz
+         3CaRb5199JQfyZVxMNBaeGbZCy1UHd5ebN6aXZIIkC60zf6Nf0kkhdQiNwb7GJY+Y9mB
+         fe1Tvr4NdtGyzRBEeI8qcV9Gw4T6kO9DUWasjeJE/JVLjYuXE+nJx9k3lqYu3ie/+ona
+         SBhuu7X303O69CcGk4ESujqVIJmqF2Eajt0iljIVUN1ov9fqO2gjI9RqpqkfAHZNKMr9
+         3PK8Sdu1JhqoykHgDrnojk/9hTto6TkJ7wA7W6VkoTBRXKcjvBjx5uCY73fkNNMdw/Wd
+         TTJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788936197; x=1789540997;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0gSncg/waZOalwozhN7BaaqXJIs1BmymYB48sb8DdCY=;
+        b=FfBBrVcnbBWMki0K00XS9Z3NPoBvEZjfSnhnxDCsAiYo//KXNEnBSay4DPT7nuARwY
+         lnisYW6mc+sn70QrY+gkcATE5Kw5WAQL2Sv7CyaTY2lq+W0yNe/5gQJJlSLocHnFe0r8
+         F0ZTcBbbpEPaLLy0bS6h/vRKcGDOAIcVbwQpm1qv1+53dnAaQI2ew1hh7L2lolW7FoHc
+         AF8Lj635WQH6lMSFh+eAgVIxWljUlUZKJtvsnKSHqHlJIXS8sF70jPnN04UNZ8x2TL7P
+         xGLazqo7+MRNuFjLgPU75mJDyqaWnzn5T5GJeKx+Q4ESeGBKcl8nLwHTSwxKeF/nfRDG
+         A8qg==
+X-Forwarded-Encrypted: i=1; AKwUvByVFvKygMmXjBTzCJmuQ7vzPgFD4trTeT7nAJsDGobj9M4X76cwhSl6iTnufNZXXTpz0ZNmh+dhERLvn+9vE2ps@lists.infradead.org
+X-Gm-Message-State: AFuF++mk7Yl8CJTt4+IkyzsOxGKRz4ueqYsffojCBvbXM0a6VX/ntRyW
+	86NDJuyGxCCml1nv3OSgPxaxFqIU3jqoTLO/5zEPewR2VjRa92bPLp3SUVRPRlP7w2M1sh2aXRX
+	Fp8RWT2a3eoxgXOpxxAgisd7jS9kHGITIMnepsroOTZJWEUvjbw8S8E5N8lKOCLUWmDVz2WxJfz
+	fxrePi6/JT7Q==
+X-Gm-Gg: AYBFou34jP1V2PbvaUx8LUymGgDo9xQoUa/pEjNJtyUlaSAcr2lCzOIQwA4pgd1fMfp
+	ZmZVokfXZScnfkBS5p32aGtfG/ZRhBESk4ulO1jUH8LgrHVwYMw13NFWH51Dtko+hw6rmIyMoUk
+	37PDQfrGfA4BrRI1pMBo6Y4KrLvGwAz0EVWTvlaq3n4SwDu1GDe70J422SAMYxZY5745znBd6ti
+	jl0i+JFhqPD7UDuc056tN0l3FmRz803tR0xhaGzu//8nfOdvvnAmS700ItLccxSnE95RUTB/Fi9
+	elmv3EghaKhPUks9HplNc7/If5lfxFA2ckHWPHneZZVVjFTHnnpi9QEHhvKxyYlJ9BpDYi62R/i
+	EIbMx/ucR3k57s7zWJNBWNo/7XmDwZTEeNKGVFPfPNoK0YlOltfwV+CnlxyLZpsRU4HV9lX54jX
+	vZzPul8nf+n238XyLDGz/cFw==
+X-Received: by 2002:a17:90b:3c42:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39b260d2977mr49609290a91.4.1788936196531;
+        Tue, 08 Sep 2026 23:43:16 -0700 (PDT)
+X-Received: by 2002:a17:90b:3c42:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39b260d2977mr49609246a91.4.1788936195929;
+        Tue, 08 Sep 2026 23:43:15 -0700 (PDT)
+Received: from [10.149.102.240] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-333959d5f69sm39523941eec.0.2026.09.08.23.43.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Sep 2026 23:43:15 -0700 (PDT)
+Message-ID: <ac236a52-1293-4a70-b5ea-ec6118cb02e1@oss.qualcomm.com>
+Date: Wed, 9 Sep 2026 12:13:04 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|PH7PR12MB5654:EE_
-X-MS-Office365-Filtering-Correlation-Id: 532a9c61-47af-4935-9ea2-08df0e3d5849
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|1800799024|376014|10067099003|18002099003|22082099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: tqaDF+kCmshCT4wCugxa+kYTUo2c3O6yvdIfghsRBFUci1xy5B7PiTppEvADiT5PNf/yOu1oRpSdH9IkbY8xO5JZYTnRHb7q5Kj7jZ5k3v39yGBhBdr3m+mRT6f4ZOpSVf/1dYn2hBXGZvp7C+Du8JyD/1I4iKqP1hyk0irG/VTKRmBIgZ1Y056vz2UVya8/OEESN6FsVUcDMbOQNxcINV+o0cFSOnHfBLjPv0PlyDc90SM2J7bzubiGV5463cTRlwUBUkStxK7DF+SApVDR16Me+vq8OVMZDmwxULYJ6za+1RU4GjAZtn5ACOK9RFXiCCh+iJ4IZACCKqqQvrA2XELrPxqZPAwW73PUW0RM6qvZ1V402jhtwGhk9u1pCV74zNZvbPoNhpXGLlZZh1YXoMT1QmiOyENaiCTV/WmHH/RVYF5PW88MZOOIHfYsieMGwYUEQP6+AO8JTDwxUPefl+JwQUL4C56IYFl6TMOpElKsO39r8V+UkHpZbsPaDpyNbW1kZpOtsJHeeHZ/sHnUumnQh+sdBvgmDcajcmJKvHHfcnNNzI+ll3DCAh5NJCJfKL11R8MzHbEOYkuDe3CYB/LlxpiGn64UFAUZH8mDy3ejl6HmOpbfmFfg87yNGvpT3TId1YQaxKrCWzkFbQijkc6Q0ztlwbzuOAbkLWmKzY8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(1800799024)(376014)(10067099003)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZPagcBUEfbUTpxkKrsL7OFWpSFCMkd8ORvxktv+65RtmPzX1KjW3aH0PO3D?=
- =?us-ascii?Q?pTpk6PPbfRM+E8c/ImxDyrWEljYR1G1aR3y6NcG6gvJjRERLx9jRyq6/fHZr?=
- =?us-ascii?Q?hWqdvQ5AWEDY+P5liNbXZpKoZZbplnvqRly40ALxMyjpeVHzysvxaHOWOpcu?=
- =?us-ascii?Q?WHIAneiiGqmfP/b+z+g1umMPFqCEU3hoNjA+y8y4QYo7BgzfSDmKH20rmiSI?=
- =?us-ascii?Q?nXnEN5taHdAfILKlWiM8aBgHY3dPQ48vgoyQ3gfNOLMVPx0/Ufy8qUJw1cET?=
- =?us-ascii?Q?HV9zpugVWq3RIvrdV3yaOH28SiBW4r2xt9FuUmbReH20L9lKmuK1t2bp4+3p?=
- =?us-ascii?Q?tTuhLyzCHVeh3/xFVMyRIoAKBWPhsAdrqCxuAaANqwg1XVjoxdHVUWNTXjUG?=
- =?us-ascii?Q?Qjk0+Tum+CMhTvm8lJpArHxAoXlBBZF3EIbtEqt2VwJxtH/D2mM+0TZ74wJO?=
- =?us-ascii?Q?TAmO9+QuuZtCWVvPiXQHRayoi/H9OElSfCRIVQm0w3LerovW+EBRL3PNrEch?=
- =?us-ascii?Q?y05iaAwt3vCJqfAdGGMI+DyTmZe9S6RaHfXSvr+bZ8/A+BEIL924gBFQsuj1?=
- =?us-ascii?Q?z6Z2uWGwg0vUa7hQ0zapGEYV28AoP3w7ck5aDnWdnhrylc2bSLb/ZnBxwtN2?=
- =?us-ascii?Q?Phrk04ir7W3354XLA0KsOJdnOSC/1bgaUJNP6vFbx6NndfZZMLG2fzI8mZYi?=
- =?us-ascii?Q?3mMUIIx+PHuk33ZPhQRxi4YloME2q5wOHezi5QJ8+uHYaiES1XxekoChgkNF?=
- =?us-ascii?Q?T4uW/oAjHnfEoQieTUAXgHVXLvkV7kOcLtZ4e7ZPat3SUQ2Q/r+vUR6zTXgb?=
- =?us-ascii?Q?yjksJi7A24NF+9Uax5qmHZeWTQ9RBmN+9H28igkBpT4kCrflBh6nMacpiBif?=
- =?us-ascii?Q?Nfg2BCD/Qp/zq6ViN+t7HAiVrSwO/iEr8+I2JhpZYeHMEqVNak7oxkraKNgI?=
- =?us-ascii?Q?+SlZCF4CMeSCH25tOlSXYPdokpLStSA2imQrlMHKhAaUefMYEBXxJ48gZNw1?=
- =?us-ascii?Q?/S2VHQ/BIt/aSCwgQ08O9at0j/4RXSvf2pO5Pta+d30t1EKojVugfYnZ43Fg?=
- =?us-ascii?Q?NoSRaFRYYSIVuCkRPf2LnRZSFRUYcALEpwUlYmsL5g9HhLJ477UDTGmsVjUj?=
- =?us-ascii?Q?c9d84IHSs+f60g7cYqHcB09A/ZApFp/S08h+upcp4QVHVCzF74SegZQPUN8z?=
- =?us-ascii?Q?STwWTAaSTFWKttYl1rDGlG/czPQ20VvlGnCuxiefGg4gKNEk0OXS6NyAopRX?=
- =?us-ascii?Q?NraVP7WrhhrMMUmpvRHNXdUi+vTM/X31v7u0nf+UDZd0vlLlLllEg560vN0p?=
- =?us-ascii?Q?sU8igOsRrCtbrBjCuCJL5hLbZdHjlcjrIq6oHkPT/cPT6g4kH69VK7+AbVMh?=
- =?us-ascii?Q?CBp3nHpSG6Y1WCFymSCDpKOg1UcjoHtZsw7UByGpiiBIxLqnV8W0zEMdXfDd?=
- =?us-ascii?Q?3d7zVi8/jjc7Viakdg80NfthP1GMdh5U0DjWk+2mAqSlTzOlHrnaR+EM0oI5?=
- =?us-ascii?Q?Yyh1cHud2R+Egg4lJw2wzzneIL6LTD4N93cSsiv1JJfTJylBS1XXONqTSyfq?=
- =?us-ascii?Q?S4tVfB5RAMZGEu2RjUQZTafAA7o6IkL+k1+K8rYitif+f3lIwMJT4udFjqWi?=
- =?us-ascii?Q?Xb9ZCEtsKDH+F/LkYcm67riBCtNSNgTVV2zl47Fs+E6oUEykkIrCX/CIM6ng?=
- =?us-ascii?Q?6cBWjFXm4i9WqH1xzYakght5RGoPx16A1+X1IiYU8xYJfolMKGNDeyMn0lPx?=
- =?us-ascii?Q?0w8DTKXh8g=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 532a9c61-47af-4935-9ea2-08df0e3d5849
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:41:14.8414
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qzNpvE41RcpXYHXO/rKXNTlGd4EW+AwnP0cCNsUhzLc0J00AGptx6zsSy53wy9mO443S1WRKwv4DLQyMXJy7/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5654
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/15] Add initial support for Qualcomm Kuno SoC
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>,
+        Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-gpio@vger.kernel.org,
+        Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+Content-Language: en-US
+From: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+In-Reply-To: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDA3NCBTYWx0ZWRfX7BkRFTBfdaxf
+ zOvc3BnWvK2byRwdVy8oiSic4fBO7cQ/oiT2HRaOwfIs4FVP/5zZ17AuNmZoLnn53D2w56OW0aR
+ boZaDbHLFylOC1BHBBNW1P+Pb72W5LETjK1wW7aXscuyXMbH3OuZwK6GcWgs0YMFQM6+ZiRakBC
+ trBDj+UKFr6MaO5aEc3Y/4uK3SHrTO6ziNdaHfRTBwW6c+CXlB4+9lyxRwlauh9hWht+qxrWFd0
+ VD5ocD/75fa2Mn7mlg/rVdbJczkM6Da/JxTyjxKeNMEBhzamefYLSYiKNEX7yEY8OjD+ZwZ0+WF
+ np0mOVPm+ioAoEtlGrDQeCQbnCve6paDVoQr4btvJTjOAgeX6Py0HX52rWcWQGZgHfuBE+33AV7
+ ZH3xCNBG+fhvXbuNFBr1ynfT9co8AghxDOSlkNY+w00o+0usBYpdU+CB9ClfCvBzWoEbMsTcURj
+ 4MsRsOonOHNA7zz9/9A==
+X-Authority-Analysis: v=2.4 cv=N+AZ0W9B c=1 sm=1 tr=0 ts=6aa10005 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Sism7-CWozsur6xqZRkA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
+ a=zY0JdQc1-4EAyPf5TuXT:22
+X-Proofpoint-ORIG-GUID: tzc02nhryUMSoWlrRGMbYLRYOrgHWiU7
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDA3NCBTYWx0ZWRfX5PJuBdIhCUU5
+ 2iK0lc53L4a8oN4W23ye+cThdPniybdR+H+QJIJ5D7K7webO5OtyvZqU6J+2u+cm343C8R0Mfdg
+ L4ItP1ahyS+xzJKl/5rVM2fhqr9ARmM=
+X-Proofpoint-GUID: tzc02nhryUMSoWlrRGMbYLRYOrgHWiU7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-08_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 suspectscore=0
+ clxscore=1015 impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609090074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_234120_809959_FD558013 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20260908_234319_856168_E9C571A3 
+X-CRM114-Status: GOOD (  30.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,73 +173,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 12:06:06PM +0530, K Prateek Nayak wrote:
-> Hello Andrea,
-> 
-> On 9/9/2026 11:56 AM, Andrea Righi wrote:
-> > NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
-> > When only one PE is active, the core operates in single-thread mode and
-> > that PE can use the full core resources. When both PEs are active, the core
-> > operates in two-thread mode and the PEs share those resources. This
-> > behavior is common to SMT implementations, but Olympus is particularly
-> > sensitive to brief sibling activations because returning from two-thread
-> > mode to single-thread mode after a sibling becomes idle is not immediate.
-> > As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
-> > for NOHZ balancing"):
-> > 
-> >   Briefly activating an otherwise idle sibling can reduce the performance
-> >   available to the other sibling and this effect does not necessarily end
-> >   once the activated sibling becomes idle: after the ILB finishes and its
-> >   CPU enters WFI, full single-thread performance is restored only after the
-> >   sibling has remained idle for a qualification interval (10 Ki cycles on
-> >   the tested Vera system).
-> > 
-> > That change prevents the NOHZ idle load balancer from unnecessarily waking
-> > a sibling of a busy PE. However, ordinary task placement can still select
-> > either sibling of an idle core and repeated changes of the active PE can
-> > keep Olympus cores in two-thread mode despite little or no useful overlap
-> > between the siblings.
-> > 
-> > This series makes PE0 the preferred sibling of an Olympus core using
-> > SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
-> > honor asymmetric SMT priority. The scheduler first selects a candidate CPU
-> > and core according to its existing placement and capacity rules, then
-> > chooses the highest-priority available sibling within that core. The
-> > generic scheduler behavior is enabled only when an architecture supplies
-> > an SD_ASYM_PACKING SMT domain.
-> > 
-> > PE0 and PE1 have equal steady-state capacity, the preference does not
-> > identify a faster PE. PE0 is used only as a canonical choice when both
-> > siblings are available. Consistently selecting the same sibling avoids
-> > alternating the active PE across wakeups, lets PE1 remain idle for longer,
-> > and allows more cores to remain in, or return to, full-resource
-> > single-thread mode.
-> > 
-> > The series was tested on a two-node Vera system using an 88-thread
-> > single-precision GEMM on the 88 physical cores of NUMA node 0.
-> > 
-> > With the workload allowed to choose either sibling of every core, observed
-> > throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
-> > to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
-> > became more predictable because the workload consistently settled on PE0
-> > while PE1 remained quiet.
-> > 
-> > Changes in v5:
-> >  - Remove the redundant olympus_prefer_pe0 state (K Prateek Nayak)
-> >  - Link to v4: https://lore.kernel.org/r/20260908082345.103087-1-arighi@nvidia.com
-> 
-> My replies failed to keep up with your speed on iterations :-)
 
-Haha, sorry about that! :D
+On 8/27/2026 11:21 PM, Hardeep Sharma wrote:
+> This series adds initial support for the Qualcomm Kuno SoC and the Kuno
+> IDP reference board.
+>
+> Kuno is a 32-bit ARM (Cortex-A7) Qualcomm platform. This series brings up
+> the essential SoC infrastructure required to boot to a serial console:
+>
+>    - Global Clock Controller (GCC) and RPMh clock controller
+>    - RPMh power domains
+>    - Interconnect (NoC) provider
+>    - TLMM pin controller
+>    - PDC interrupt controller and SCM firmware interface
+>    - Devicetree for the SoC and the Kuno IDP board
+>
+> The soc: qcom: geni-se patch allows the GENI serial engine driver to be
+> selected on 32-bit ARM Qualcomm SoCs, which the debug UART console
+> depends on.
+>
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
+> Changes in v5:
+> - Selected QCOM_GDSC from the Kuno GCC config. The driver registers GDSCs
+>    (added in v4), so like the other Qualcomm GCC drivers it must select
+>    QCOM_GDSC; otherwise, in a configuration where nothing else enables it
+>    (e.g. COMPILE_TEST or a minimal Kuno-only build), gdsc_register() returns
+>    -ENOSYS and the clock controller fails to probe.
+> - Link to v4: https://lore.kernel.org/all/20260827-kuno-soc-support-v4-0-dd34f235fc1a@oss.qualcomm.com/
+>
+> Changes in v4:
+> - Addressed v3 review feedback:
+>    - Registered the interconnect NoC provider from an explicit
+>      core_initcall() instead of module_platform_driver(), matching the
+>      established qcom interconnect driver convention.
+>    - Replaced the NA mux-slot placeholder with _ across the pinctrl
+>      PINGROUP table, matching the upstream qcom pinctrl convention.
+>    - Added minItems: 1 to the interconnect binding clocks property so a
+>      single clock is valid (system-noc), and aligned the binding
+>      examples with the sdx75 labelled-node style.
+>    - Added GDSC power-domain support to the Kuno GCC: the binding now
+>      defines GDSC macros and the driver registers the EMAC0, PCIe and
+>      USB20 GDSCs, so #power-domain-cells has real backing providers.
+>    - Split the cpu-idle-states phandle list so each phandle is on its
+>      own line.
+>    - Collected Acked-by / Reviewed-by tags from v3.
+> - Link to v3: https://lore.kernel.org/all/20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com/
+>
+> Changes in v3:
+> - Addressed v2 review feedback:
+>    - Reworked the interconnect binding clocks: dropped clock-names and
+>      replaced the flexible min/maxItems list with fixed per-compatible
+>      clocks (aggre-noc: 2, system-noc: 1), required where present and
+>      disallowed otherwise, matching the sdx75/glymur shape.
+>    - Made #power-domain-cells required on the Kuno GCC binding and
+>      declared it on the SoC gcc node, since the Kuno GCC hosts GDSCs and
+>      is a power-domain provider (following qcom,sdx75-gcc); the driver's
+>      GDSC support will follow separately.
+>    - Made the GPIO65/66 QDSS CTI trig1 funcsel-3 route selectable: added
+>      a distinct qdss_cti_trig1_mire pin function (and allowed it in the
+>      TLMM binding enum), as the duplicate funcsel-2/3 entry left
+>      funcsel-3 unreachable.
+>    - Collected Acked-by / Reviewed-by tags from v2.
+> - Link to v2: https://lore.kernel.org/all/20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com/
+>
+> Changes in v2:
+> - Addressed v1 review feedback:
+>    - Reworked soc: qcom: geni-se commit message; dropped the Fixes: tag.
+>    - Reworded dt-bindings commit messages to the "Document X for the
+>      Qualcomm Kuno SoC" one-liner form.
+>    - Canonicalized copyright headers on interconnect binding / driver /
+>      NoC ID header to the single-line Qualcomm Technologies form.
+>    - Dropped unused <linux/mod_devicetable.h> from the interconnect
+>      driver.
+>    - Fixed MODULE_DESCRIPTION casing "KUNO" -> "Kuno" in the interconnect
+>      driver.
+>    - Extended interconnect binding to optionally allow up to four QoS AHB
+>      clocks (matches sdx75/glymur shape).
+>    - Cleaned up brace/space style in gcc-kuno.c to match peer clock
+>      drivers.
+>    - Reworked initial DTS: moved idle-states / domain-idle-states inside
+>      cpus{}, wrapped fixed clocks in a clocks{} container with peer node
+>      names (xo-board, sleep-clk), dropped the pcie_pipe_clk fixed-clock
+>      stub (the GCC 4th clock now uses <0> in DTS to match the sdx75
+>      idiom; the YAML example uses a named placeholder), dropped the
+>      RPMHPD_CX power-domain reference on GCC (Kuno GCC has no GDSCs /
+>      no corner votes / no pm_runtime, so the reference was inert), and
+>      added a bootloader hand-off comment on the memory node.
+>    - Collected Acked-by / Reviewed-by tags from v1.
+> - Link to v1: https://lore.kernel.org/all/20260809-kuno-soc-support-v1-0-5e0ede4a0c72@oss.qualcomm.com/
+>
+> ---
+> Hardeep Sharma (15):
+>        soc: qcom: geni-se: allow selection on 32-bit ARM Qualcomm SoCs
+>        dt-bindings: power: rpmpd: Document Kuno RPMh power domains
+>        pmdomain: qcom: rpmhpd: Add power domains for Kuno
+>        dt-bindings: clock: qcom,rpmhcc: Add Kuno RPMh clock controller
+>        clk: qcom: clk-rpmh: Add support for Kuno RPMh clocks
+>        dt-bindings: interconnect: Add Qualcomm Kuno NoC
+>        interconnect: qcom: Add Kuno interconnect provider driver
+>        dt-bindings: pinctrl: qcom: Add Kuno TLMM
+>        pinctrl: qcom: Add Kuno pinctrl driver
+>        dt-bindings: clock: qcom: Add Kuno Global Clock Controller
+>        clk: qcom: Add Global Clock Controller driver for Kuno
+>        dt-bindings: interrupt-controller: qcom,pdc: Add Kuno compatible string
+>        dt-bindings: firmware: qcom,scm: Document SCM on Kuno SoC
+>        dt-bindings: arm: qcom: Document Kuno IDP board
+>        ARM: dts: qcom: Add initial device tree for Kuno SoC
+>
+>   .../devicetree/bindings/arm/qcom-soc.yaml          |    4 +-
+>   Documentation/devicetree/bindings/arm/qcom.yaml    |    5 +
+>   .../devicetree/bindings/clock/qcom,kuno-gcc.yaml   |   52 +
+>   .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |    1 +
+>   .../devicetree/bindings/firmware/qcom,scm.yaml     |    1 +
+>   .../bindings/interconnect/qcom,kuno-rpmh.yaml      |  118 ++
+>   .../bindings/interrupt-controller/qcom,pdc.yaml    |    1 +
+>   .../bindings/pinctrl/qcom,kuno-tlmm.yaml           |  110 ++
+>   .../devicetree/bindings/power/qcom,rpmpd.yaml      |    1 +
+>   arch/arm/boot/dts/qcom/Makefile                    |    1 +
+>   arch/arm/boot/dts/qcom/qcom-kuno-idp.dts           |   25 +
+>   arch/arm/boot/dts/qcom/qcom-kuno.dtsi              |  423 ++++++
+>   drivers/clk/qcom/Kconfig                           |   11 +
+>   drivers/clk/qcom/Makefile                          |    1 +
+>   drivers/clk/qcom/clk-rpmh.c                        |   15 +
+>   drivers/clk/qcom/gcc-kuno.c                        | 1483 ++++++++++++++++++++
+>   drivers/interconnect/qcom/Kconfig                  |   13 +
+>   drivers/interconnect/qcom/Makefile                 |    2 +
+>   drivers/interconnect/qcom/kuno.c                   |  988 +++++++++++++
+>   drivers/pinctrl/qcom/Kconfig.msm                   |   11 +
+>   drivers/pinctrl/qcom/Makefile                      |    1 +
+>   drivers/pinctrl/qcom/pinctrl-kuno.c                |  801 +++++++++++
+>   drivers/pmdomain/qcom/rpmhpd.c                     |   16 +
+>   drivers/soc/qcom/Kconfig                           |    1 -
+>   include/dt-bindings/clock/qcom,kuno-gcc.h          |  100 ++
+>   include/dt-bindings/interconnect/qcom,kuno.h       |   89 ++
+>   26 files changed, 4271 insertions(+), 3 deletions(-)
+> ---
+> base-commit: f82a5da2f04960df9fb57489992d03dd5e64ec6f
+> change-id: 20260809-kuno-soc-support-1dab826de0bf
+>
+> Best regards,
+> --
+> Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 
-> 
-> Since this is same as v4 and I had taken it for a spin on a
-> x86 and an ARM64 server, feel free to include:
-> 
-> Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
-> Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Hello All,
 
-And thanks!
+Several patches from the series have already been picked up and applied
+through their respective subsystem trees.
 
--Andrea
+The remaining patches listed below are ready to be picked up as well:
+
+  [PATCH v5 06/15] dt-bindings: interconnect: Add Qualcomm Kuno NoC
+  [PATCH v5 07/15] interconnect: qcom: Add Kuno interconnect provider driver
+  [PATCH v5 14/15] dt-bindings: arm: qcom: Document Kuno IDP board
+
+Since the majority of the series has already been applied, I would
+appreciate it if the remaining patches could also be considered for
+inclusion.
+
+Please let me know if there are any outstanding concerns or additional
+changes required from my side.
+
+Thank you for your time and review.
+
+Best Wishes,
+Hardeep Sharma
+
 
