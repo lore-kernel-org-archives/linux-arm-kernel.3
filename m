@@ -4,104 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 474C2C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DF6C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYNhQ6Yi/iRYbkVUGBJRb8uet/bvchjSmRRTPBWP7EA=; b=LC5nOnMkjbKAPqoaHtaEat2fDB
-	LNhWo6hNmc5DcsmfAmkA7Nju/tD1F8a1eSEVWfel7eMv9Vme61LTo9nLc4o1WgSDiAPbw2DHQhnFB
-	EViOLNwQP5Rry7ehgHgNEsDbQf5A/T6N6lrSf7Uqlt5M5ff7Tf79oWIS9YiyeMdSwowgLuvUi/1PA
-	TZIj72iLAEQx3q/okbYSRot9E/BOlLdaW94IKiJ7pe6ZURIk+BKrQU3gt8Q5mlxRmNVDG81lyDmWn
-	szMRWsgH1EV88NS9I432qAT+wA8ia2NGXcHVzKBAbQTFA2j3FKVxx0JyqXwZGWk4ytS/nDhxw2q6g
-	vS/3/02Q==;
+	bh=2bgojeFeUpvXitpM/OgDxaX8mLFSNcZ2WBsJ3E6rjeI=; b=f6HHIDNV26+PUrmO6zVDqCgly+
+	lA7m3xIoTNR+edarRBwxQpqvKIJUfodwv9ZK/kiOmgE+oKa/GVkecy8vueYIjVwbl2zpWJyrv/qNb
+	VepcVAX4Woe2TiU5v7EaAj+DWnJs57Ci+6N8zRRHVZFOivH3Y7zxeR9zNCrFbpFR/sVmlxBEWIDjA
+	EYw49i45PULPdOXiFNzzIrhGzKVDAiiikTRauTqPPNe5RYJuIpD0EA5siPqnwLQbXYfTzByQYFV/1
+	Y/KilVLRuIup4RUCR/R0Qhkkp5T1oWAei4ChdEDquQmH9CSBNjUHYrYZ4qi+vLU4jmSXoQllx+U9K
+	n5J+wVIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IzE-0000000BuSh-3X0T;
-	Wed, 09 Sep 2026 14:09:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4J2j-0000000Buv3-3Wv8;
+	Wed, 09 Sep 2026 14:12:53 +0000
+Received: from mail-pl1-f179.google.com ([209.85.214.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IzD-0000000BuRg-01vL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 14:09:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QYNhQ6Yi/iRYbkVUGBJRb8uet/bvchjSmRRTPBWP7EA=; b=GkTfZlk22oInUjIj0KwN5T2ip3
-	SLHqDuPyV+4ASVGSZc1FOr3kBECJ1fRC6GNIVJmVKsdhBr13XwEohdZPH+IVEoFxt4i6syaP9f8Z8
-	4sV08Nit6ac7lvJfNUrZAgsVr47hRkfUDDbXcHKKv3aaH1qL0IWQZmi0xn/fyB62QBFcwl2jLiH94
-	2vz+2ZlQtDKojG5gJKsrWT2ofGfJa2CGNT1baClPVzmCpyWO+TCKIFkFUA3Uvuo/2NZYYviarlQOr
-	2kOLrA33v5Si8+S64OzWrA5n1kpDdBWEByMKvlmU2SF8PFPZ4hmpdopLi84CyVLDDJBV8fTFPywKQ
-	WI3RJNPw==;
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4Iz9-00000001HN0-3RED
+	id 1x4J2h-0000000BuuK-1u6T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:09:13 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-398a5aad413so4849526a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:09:10 -0700 (PDT)
+	Wed, 09 Sep 2026 14:12:52 +0000
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2ceab75934dso56973095ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:12:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788962949; x=1789567749; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788963170; x=1789567970; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QYNhQ6Yi/iRYbkVUGBJRb8uet/bvchjSmRRTPBWP7EA=;
-        b=ADkNu+E8YICLU7kGyzGD8dB4zC+7us2mn/fwjkye8TdAU+SKY1dK4WIjaN3TLnQzx1
-         jxWRJi3QS+o1lP1vqkVecF4igdjraRADlWvCI3FSWTywZeX+S/IENz7BpZc0fZjQRNQK
-         bubcgxzzUzQ2iZaswaIgZ0zbtRJEGVpX9pRBOIVLPuKMNOFVD53VNtNk71BZyRIoC8V0
-         BxhTg7PX1iG7xfWkCZXjsEstK/ybHssKQsxi4pmQZZmDBfnTIt14LnBJbW2nwM+Ko4o8
-         IOxtvmgVrZyuRRlXVxfeEPls9+NSCbvvce5Ma1ATPD0DWMeiU9RSR+7YU3p3kIQWQmOo
-         mIiQ==
+        bh=2bgojeFeUpvXitpM/OgDxaX8mLFSNcZ2WBsJ3E6rjeI=;
+        b=Zhd0NtTEy2nu0KF1rnYApillxwEjENRykXx7iRwiCqWCcEEbKcWJUfZZgQpSX9BG/U
+         yYn32hEkaZ9zitlIRtw9XyBgC59y8CDwoyGaXIwAscfRLGmjOYnNEmhUmPY8IdZNZymc
+         0980YXx5f7odTiWRPuXAVwma8EZA/UJj1I/cTPK9vreA+5GanKXURtJlbtdbk9lrMcMX
+         MMeLQOyJsEVj6QV0ysGlwl3M8K0lx8fGssnGju0hZ4GmikTC29t8zaSbSy7ug8YzIgVF
+         ei7xi4QHk15zktEIz6orjkk130GTzVZ35Ka0l3d/atirxDze/KfWmZ86Lc1mDHTnrfEp
+         YkuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788962949; x=1789567749;
+        d=1e100.net; s=20251104; t=1788963170; x=1789567970;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=QYNhQ6Yi/iRYbkVUGBJRb8uet/bvchjSmRRTPBWP7EA=;
-        b=EjzJvkyIKtZR5yEbsvjTj3e/aI9p5EujAVVL3hCIE6BGHG83BekqIavaDXQ2PEkS2K
-         ZQjZmaBZGwZAPzbeo85cLGUGN+U0X5u49iI92A6xhUJMEGKDpA+JE8f64JuB7h5YP3TB
-         NPlt+ltg4BOvAurSPIc5HytKGOoMHzC//BzvxUydk74T3Zs0dRhGegIPEO42R/seuV8X
-         oueMjz3HRd2IZqcZQnLqBgLauq+hAr+VvlwvI9mlNfs1TJsbWkTv4Bn6jyRXELGSShm8
-         gMUXvNDGmqB8XZ5h1hZ5Jaca1/Fzptd0JkA6rSaCpjrvVFaszoN22wQDtUAMytZ8DJgy
-         qs+Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwws8+1+YkJIwLUBon/w/kPZ19H16jIAKZkLQZ50KPvGmGEBot62TE2nd6wDY2qqewopmwTYqDrw3VOfokJqlB3@lists.infradead.org
-X-Gm-Message-State: AFuF++lo94q0/8dmMlUiHxhcYvLY3Rp+BsBqV9Q8Ax3IKIWC+6DtoFvc
-	z+uhkVMizXuK6py0XBMpzQNB0zLWm8h0ao0xsrhDxBU6X+3tULQpL5MD
-X-Gm-Gg: AYBFou3pOwjgM3G2Vlc3mk1imY4FwmK0LQ+T1hczYphFISXTx1fqymVsnj996cQ8o+I
-	YzNIHE24htwVmWSeHaH9JDYYIusSzJuX9erqZhrJDtJv0CbJkDrP56b3ufSbmCnHcBORMR/Zv+V
-	2waZryjnyoZ5IlHJ7Wj1yJgVHjx8YQaD7mpd4T8LqLQsXugg/mYfoaZodx4LsqbX3Em02Ys2VWD
-	GyITK4TylBxM9vg+XmJZvNiIqoWe6DBPUWcM+AFmcKfYjK4Il8aQIzm84ff+fsgv9eZ2ECJIUXz
-	JdHvPNiEWYdSpejFNpH7cbVeKBJqPzyjLruJsT4lRUYe4fclqmzrYgCXyxDurKO9sciY6EDO43K
-	BNAJA7j/TfaUbt4/vUnIpEVGx3x4Hm5kb3M7PV4TdToiD5YQVkjqYVuyKAjNu8+FT8cIjzfPe5p
-	zPSdR5mXgvgWbBye2A8LtlhZSWaq7Ry6fUd74xc866amTDZaBuQuvJvKbWsAqvLIWnOE+uLN0++
-	Z+AXF9GTlOvrlzp3Qd+WgP3W0B8QsNSu2UCU7ZJ0GriRZxI
-X-Received: by 2002:a17:90b:2b8b:b0:398:c0ad:711c with SMTP id 98e67ed59e1d1-39b26272f0fmr55218364a91.15.1788962948995;
-        Wed, 09 Sep 2026 07:09:08 -0700 (PDT)
+        bh=2bgojeFeUpvXitpM/OgDxaX8mLFSNcZ2WBsJ3E6rjeI=;
+        b=JyaPKIuJrxsdnyV8uQ5aZX4Yy0f24Qlv59P0KkHWwCU2TPaGe4xaOQtz5JnoCH85/Z
+         gLDKHMolanL5W+naFujLQ4tLK6HUD63JoXktBcDD9rES6FvIWOkojnt6Tx5mGWSMTw40
+         hbC/lOR7IRlE9JVVXDh1wqDBlLWC8IyLcS/bWrglK1itq2FHlDxXLLhcAdCGVrBNGPmR
+         yRvQJZL72QaeHoGYIwSz5jAJomXbIut8coIrBAbPvfsWngxI8WDXPFDXJKLjdpLcc9EK
+         1Wk7oQcmK+TWMyoIBtfD2pvX50BfychHMUPNVstNmTSjTGZDZRaRM97/Mmcu8IdX2HdH
+         zlOg==
+X-Forwarded-Encrypted: i=1; AKwUvBz4Ld1r6IrqWMfGAFgvaKIc5tNBUuQeYvSMMelgJda/GBp54lFkF7MAzBwRlOB53CJNMsDHic6KPXFROhliX+3m@lists.infradead.org
+X-Gm-Message-State: AFuF++laYS0ErAJlMsvyrXJQX89TIeK310mPaj/Rle+VU1x6cQhuBsdO
+	19nuZtael+6Dd08HsURTZEujsevYXSuscm2mCWuxcYvf0PYVO9ug3BW8
+X-Gm-Gg: AYBFou3ePKgwPWGmAhVr9iROEjQYIGT7jqjDU6nTHPBW+y3W8QaEk8VlW82mnDDzlQ0
+	/emrty0teviepybPIXPrrkMnaUMz/K+muLcPxoZMe/u5eDZLof28UjhU2SJnYrCdAbHEeYYLuLf
+	ezoBGWctAAABTryRKGulga/0FrDSoTiGU2JbyY47F/xi5VOLRbEca7rEovOxN1mIarV9Je1I2gJ
+	TcPv19bkMUAUCjxpaXobHvnxB/oBaCLmcgsYslLkqcLqTJT9B3Kv5SslbDXCeprZhV9EM0zKOBi
+	Qg945pXmhjxArpeh8E+NfN81K9Zt+mFR/NNQvF3c3CKbIhdCexbEPJNfAxGqK5D0q56nUkUF8SZ
+	XrsLdK46+jtLfui2UAH+XdmRZpmpNm6ghWoI3zZVrSnfEA9L+g5p73RlUZq+hYTyr1yR5+uyQb4
+	YsgpgBpekVqoVJz6fZXcX1gIFqT7dTpN9YBf41poHMMOKWqWPuQrHfV+ObRe/DQi55iMJHlYSXH
+	snqHErQYDKa993xBdQk/TYIDwIB4ja1NECSdsg5LD3USUSb
+X-Received: by 2002:a17:902:8203:b0:2d8:d4d0:792c with SMTP id d9443c01a7336-2db1287779cmr388670795ad.16.1788963170238;
+        Wed, 09 Sep 2026 07:12:50 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08bcd243sm39687906a91.5.2026.09.09.07.09.07
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14ae7637sm74597655ad.79.2026.09.09.07.12.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 07:09:08 -0700 (PDT)
-Message-ID: <f54c391e-5152-4c60-a52e-9c997c16f706@roeck-us.net>
-Date: Wed, 9 Sep 2026 07:09:06 -0700
+        Wed, 09 Sep 2026 07:12:49 -0700 (PDT)
+Message-ID: <43a1bbe0-0012-44b1-ab0d-0dea1136869a@roeck-us.net>
+Date: Wed, 9 Sep 2026 07:12:48 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/14] mfd: remove unused rdc321x southbridge support
+Subject: Re: [PATCH 11/14] mfd: remove unused wm8350 driver
 To: Arnd Bergmann <arnd@kernel.org>, Lee Jones <lee@kernel.org>,
  mfd@lists.linux.dev
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Arnd Bergmann <arnd@arndb.de>,
- Support Opensource <support.opensource@diasemi.com>,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, patches@opensource.cirrus.com,
- linux-watchdog@vger.kernel.org, linux-fbdev@vger.kernel.org
+ Arnd Bergmann <arnd@arndb.de>, linux-hwmon@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
 References: <20260909132153.1596191-1-arnd@kernel.org>
- <20260909132153.1596191-3-arnd@kernel.org>
+ <20260909132153.1596191-12-arnd@kernel.org>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -147,12 +129,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
  FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
  np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260909132153.1596191-3-arnd@kernel.org>
+In-Reply-To: <20260909132153.1596191-12-arnd@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_150912_006431_2E5D56EE 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260909_071251_498848_63D2AA76 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,13 +152,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 9/9/26 06:21, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
-> The rdc321x was a 486-class SoC developed by RDC. While RDC's later
-> products closely resemble the DM&P Vortex86 product line and are still
-> sold under both names, I checked the datasheets for those and found that
-> the GPIO and WDT blocks on them are incompatible with the rtc321x.
+> This driver was used on the i.MX31 ADS reference board from Freescale
+> and the smdk6410 reference board from Samsung. Both used platform_data
+> based driver probing and are now gone from the kernel.
 > 
-> Remove this driver, as there is no way to run Linux any more on the
-> older chips after i486 support has been removed.
+> Since probing with devicetree has never been supported by wm8350,
+> it is clear that nothing can use the driver on an upstream kernel,
+> and it is unlikely that anyone is still interested in a devicetree
+> conversion, so remove it.
 > 
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
