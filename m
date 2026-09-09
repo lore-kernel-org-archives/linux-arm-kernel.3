@@ -4,95 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BB7C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D89CC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 08:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W64OfXJBTXrdEHn01dbecqbXkdcTLtQbrrsQRWJQMCY=; b=J2moSnVghtjLeprqCDoc8NgQ2c
-	Asp+G22A01ZNKOI05I/XMq/L/u6X1QcPOFPNBrmwwNR8D/OKLPTmzdWSvOw6xIZW4P978UjVDOm+N
-	E82O/7Xv6X9Lm+zTFDAlFUa7YbR3wvTpTyrpRxTfg3ujUfBw4eeOdw8ORUcNOXtUlG9xpw331qbor
-	swt0Sv8wdrEsEc9Ms6Sp5P3jggu8GXaYeRqOEW2o8dh4vEfMORUtK7h7duCENNdrpYiEgBjWOHZIR
-	dkObQOGYTAd+wMLMm/xjVoPwMSnmx+TmkyBrPYPyL4PIjXGxZGqPwnbZx92grttM5CdHXa9lWjRr8
-	8l1gw14Q==;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=; b=UcMJI8OAaZw6tu49RmfYkratRk
+	KvEwIrBeAglV+dAxQQZVUJeAnWFBVwpqXitqUPXeLkuir14fL3pldtLEW2A8DmYaCNI3Lh+BZMry0
+	OzbUJxm1eaY8YjkDTPLfLrH690iPSlMQ4/BoO7BThCM0urI6/9/3PvihIBNsxCkEj+Ewzy8gPcj2F
+	6MYzbZPjrlkgsxvuNj6dMLBSDW4iYuZdA9337OOKdVJZmh4LRzthSjm+fMlxMjaEtn6LKynDWDTgW
+	CsArXNznLL9uYYONkyD3l3Hdq92rYHeYssqRU4b+fiELz0L4hcAQZmYJqmu2RPjIES+QY8pfeK10D
+	eh3FhqxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E7l-0000000BDNX-2aWk;
-	Wed, 09 Sep 2026 08:57:45 +0000
-Received: from mail2.dspace.de ([80.228.58.149] helo=mail.dspace.de)
+	id 1x4E8t-0000000BDXj-0vH4;
+	Wed, 09 Sep 2026 08:58:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E7g-0000000BDJK-2Mwg
+	id 1x4E8r-0000000BDXD-0tpN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 08:58:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=; b=p10YPN7AJOj/Z53lrD4sEJvIUK
+	u6Ir3HhU3tlAw6IBNDrtKH/GjKGV4ESOZbXGjJ5ypIT0ST7UwG3/KZRDEvsDs0Gm+Au2+9xW5Is2b
+	q/FnwxEgaXq/vrbi8r0Am42jPQIiwvvIZVO+mzSohrBMHvO1aPtOnS56jjbIKvdJRy9TTR9c9bvMk
+	68qtQe78GuhWnWv9NJCWr+rw0/X4mehPU/ZLFQ4XG5xzZzJISN7T/OJ8LPf5feKHg7idrxxx1cwFE
+	damiDEHPoTgQLbFsycMrzlf7QsdAwH6Cdy4XcoYPKCNZv/1mGR2MH0iTFmhNKBdCYPIZP0ipwwURp
+	w22pIgXQ==;
+Received: from smtp-out1.suse.de ([195.135.223.130])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4E8g-00000000xBw-3oJK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 08:57:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=dspace.de; i=@dspace.de; q=dns/txt; s=dkim1;
-  t=1788944260;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=W64OfXJBTXrdEHn01dbecqbXkdcTLtQbrrsQRWJQMCY=;
-  b=MizYj5PBsBF4gMt1zXuT4svGWYV8uq40o213X6UfCKzLuwDfPBTNjCqC
-   ipSfZHMemEg+IhaeELP33Mdow/6Fx3WNwcEzsynoC6z2DPnG1DEZDyrCO
-   ZGZmxve6k5K54m2S1lQzNiV9AXe7N+h07dAJjGRf5zeUAWFZxlDLnD4UN
-   s=;
-X-CSE-ConnectionGUID: lesFjaISRZmDooY3588RlQ==
-X-CSE-MsgGUID: WwlpYq3GRcO/083IRCND2A==
-X-IronPort-AV: E=Sophos;i="6.25,270,1779141600"; 
-   d="scan'208";a="5430986"
-Received: from unknown (HELO Z1-1000) ([10.1.1.222])
-  by mail.dspace.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Sep 2026 10:57:16 +0200
-Received: from VM-Z1-1000-LIVE.dspace.de (localhost [127.0.0.1])
-	by Z1-1000 (Postfix) with ESMTP id 50DDB60038;
-	Wed,  9 Sep 2026 10:57:16 +0200 (CEST)
-Received: from exchange.dspace.de (EX-DE-PAD-SE.dspace.de [10.100.196.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	Wed, 09 Sep 2026 08:58:48 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by Z1-1000 (Postfix) with ESMTPS id 41CED60036;
-	Wed,  9 Sep 2026 10:57:16 +0200 (CEST)
-Received: from PascalKW11-NB.dspace.de (10.71.5.241) by EX-DE-PAD-SE.dspace.de
- (10.100.196.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 10:57:15 +0200
-From: Pascal Kneuper <PKneuper@dspace.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-CC: kuba@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	0x1207@gmail.com, si.yanteng@linux.dev, larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	DBaldin@dspace.de
-Subject: Re: [PATCH net v2] net: stmmac: restore NET_IP_ALIGN in the RX DMA
- offset
-Date: Wed, 9 Sep 2026 10:57:29 +0200 (CEST)
-Message-ID: <20260909085731.108922-1-PKneuper@dspace.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <5aeb6fd1-f1c3-426d-a2c4-1ad45ddc8572@bootlin.com>
-References: <20260813092923.284285-1-PKneuper@dspace.de>  <20260824125014.47862-1-PKneuper@dspace.de>  <09e7cd4b-b79c-47ea-95b6-1c1a96fe7657@bootlin.com>  <5aeb6fd1-f1c3-426d-a2c4-1ad45ddc8572@bootlin.com>
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 06D0F21A97;
+	Wed,  9 Sep 2026 08:58:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1788944317; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=;
+	b=eHI8rs+776GMDBzJ34a5bdZlnsjvjcs0lF+5ZVLctnLggWCfDZ+ex0AxwTy138kvqWwLgr
+	CqoxgqtR2L5T5MPUr2VlB0siOZFDJAjOErY3S7X3qi+oDvTbfXXitidyeFXRRtNZMi/IS5
+	ZzoIqlPQidms3WVns+WL/909+IsdDbc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1788944317;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=;
+	b=kmjkCeN0ruu7nPIN6juiaryA4ErrW7Vm+oIFm23UsKil7+/vqH8wSxUaodYNa42l7WVP+5
+	V7bB5GPOFrXQC2Cg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1788944313; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=;
+	b=Lj87H7LDBVZ2NsyWCPLpoy96i+bQJ3cWgQujlaWN+It6Q1lPrxe1e4zKP45rVJqwpc15t0
+	Jg4BB5B3i8U9oAnvQapXao0AH5Gc+PupGE3htySCpHs61h+EDCSgNfXMAkIi9qS7PGfXxa
+	mqxtYW7bjSQ37KOW/sDBpZlT+hXIe5Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1788944313;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tzsC2VzdToDvjyu2bKo4kXLJkrMvANfsE4sUyvOrhy8=;
+	b=CpSLXLHbGRLPeTML/GpXxwz56/9Wbv/Y6VvySDrUq7EnJTdeIi+8f4XVPJyjdRAfrrD4gv
+	NWW8c+Gj2Z3AFJAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 376751365E;
+	Wed,  9 Sep 2026 08:58:32 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 6DhBDLgfoWoVUQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 09 Sep 2026 08:58:32 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	javierm@redhat.com,
+	airlied@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	geert@linux-m68k.org,
+	rdunlap@infradead.org
+Cc: dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	nouveau@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	sashiko-reviews@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	stable@vger.kernel.org
+Subject: [PATCH v4 01/14] drm/panic: Do not use un-escaped URL as format string
+Date: Wed,  9 Sep 2026 10:55:16 +0200
+Message-ID: <20260909085826.64529-2-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260909085826.64529-1-tzimmermann@suse.de>
+References: <20260909085826.64529-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.71.5.241]
-X-ClientProxiedBy: EX-DE-PAD-SE.dspace.de (10.100.196.14) To
- EX-DE-PAD-SE.dspace.de (10.100.196.14)
-X-C2ProcessedOrg: 563f5800-21cf-4d8d-8aed-fddd1469e4ee
-X-TBoneOriginalFrom: Pascal Kneuper <PKneuper@dspace.de>
-X-TBoneOriginalTo: Maxime Chevallier <maxime.chevallier@bootlin.com>
-X-TBoneOriginalCC: kuba@kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, 0x1207@gmail.com, si.yanteng@linux.dev,
-	larysa.zaremba@intel.com, aleksander.lobakin@intel.com,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	DBaldin@dspace.de
-X-TBoneDomainSigned: false
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[redhat.com,gmail.com,linux.intel.com,kernel.org,linux-m68k.org,infradead.org];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email,lists.freedesktop.org:email];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLhthb38qh1ntkuzcrgoc19dwi)];
+	RCVD_TLS_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_015742_860763_CC12F0FD 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260909_095843_137725_630366CA 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +167,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 22:58:05 +0200, Maxime Chevallier wrote:=0D
-> Hi again,=0D
->=0D
-> On 9/8/26 10:16, Maxime Chevallier wrote:=0D
-> > Hi,=0D
-> >=0D
-> > On 8/24/26 14:50, Pascal Kneuper wrote:=0D
-> >> Since the RX path was converted to zero-copy, the page pool page is ha=
-nded=0D
-> >> to the stack directly as the skb head, and the offset the DMA engine w=
-rites=0D
-> >> at is what determines the alignment of the packet headers.=0D
-> >>=0D
-> >> Before the conversion the payload was copied into an skb obtained from=
-=0D
-> >> napi_alloc_skb(), which reserves NET_SKB_PAD + NET_IP_ALIGN. The=0D
-> >> conversion moved the headroom into stmmac_rx_offset() but did not carr=
-y=0D
-> >> over NET_IP_ALIGN, so on architectures where NET_IP_ALIGN is 2 the IP=
-=0D
-> >> header now lands misaligned:=0D
-> >>=0D
-> >>   64 (NET_SKB_PAD) + 14 (ethernet) + 20 (IP) =3D 98=0D
-> >>=0D
-> >> Same for the XDP branch:=0D
-> >>=0D
-> >>   256 (XDP_PACKET_HEADROOM) + 14 (ethernet) + 20 (IP) =3D 290=0D
-> >>=0D
-> >> On ARM32 this is fatal, because ldm and ldrd trap on unaligned address=
-es=0D
-> >> even when CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is set.=0D
->=0D
-> > This patch breaks the stmmac selftests for Jumbo Frames on dwmac1000 :(=
-=0D
-> So looks like the problem isn't this patch, but rather both the way we se=
-lect=0D
-> the bufsize, and the Jumbo test itself :)=0D
->=0D
-> This merely surfaces existing problems, I have some fixes that I'll send =
-shortly.=0D
->=0D
-> Maxime=0D
->=0D
-=0D
-Great! Thanks for testing and keeping us posted :)=0D
-=0D
-Best=0D
-Pascal=0D
+Replace the direct use of DRM_PANIC_SCREEN_QR_CODE_URL in snprintf()
+with a %s conversion specifier. Avoids a possible vulnerabilty from
+a crafted URL string.
+
+As the attacker needs to control the kernel at the Kconfig level, the
+potential for an exploit is likely low.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+Fixes: cb5164ac43d0 ("drm/panic: Add a QR code panic screen")
+Cc: Javier Martinez Canillas <javierm@redhat.com>
+Cc: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: <stable@vger.kernel.org> # v6.12+
+---
+ drivers/gpu/drm/drm_panic.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
+index e576c4791861..ba21df4be338 100644
+--- a/drivers/gpu/drm/drm_panic.c
++++ b/drivers/gpu/drm/drm_panic.c
+@@ -658,7 +658,8 @@ static int drm_panic_get_qr_code_url(u8 **qr_image)
+ 	char *kmsg;
+ 	int max_qr_data_size, url_len;
+ 
+-	url_len = snprintf(url, sizeof(url), CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL "?a=%s&v=%s&z=",
++	url_len = snprintf(url, sizeof(url), "%s?a=%s&v=%s&z=",
++			   CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL,
+ 			   utsname()->machine, utsname()->release);
+ 
+ 	max_qr_data_size = drm_panic_qr_max_data_size(panic_qr_version, url_len);
+-- 
+2.55.0
+
 
