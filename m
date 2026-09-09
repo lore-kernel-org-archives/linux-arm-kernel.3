@@ -4,58 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F432C79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9761C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQqBI6ejBvDRlBhzvGR9su9GPpCHzF1qILQIojgm5Mw=; b=Gj60h/b57d2fQeZMqHS4ZayCNh
-	/OPsj4iwtPOsX9SdXvxCN/gdEJ62YPYrowKnREPPNfDoWMKMHWeXNY6xwP7uWAkQlKG/7SLKg/J9X
-	PAgH27JA9lzmeZM1UiDY6pdtqBpiU0s1g/NhoRjJ/LvXRaddjaX4iYYmUU+jD/VeHFj5lwoQr1oN7
-	xzv0JgrASYCcU5AlsRO1bCzxS2cRGdsUENpwDmQBWU8PPBrrXPXRYQqSyyIwmg6NMZZeXzprLJz/Y
-	jtwLpqu5/54BS/rljxJEf3LHDWwMKQ76XkZJFhoa/Ft2/eX/qXLJT7Xw4LQ00upK1K7WE6GyQi4X2
-	VBd0e60g==;
+	bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=; b=lYzBVBH+Z3PhQ1nukrY3b8f2c7
+	4QkRocdSlekdctha41SV6mJOnakWFUD+UnMo9IqU8BdigDMMXvJA9ruCCBSpMYuTWW9G2QazkbhZc
+	qQR69L7H1BVDQ0e0RhjD24EjRYOaLDnrNb9MRD5OL8Wzcj5yRHEJteRUbOz0kPfZPH5KowFmgN5wZ
+	xGK9N54d54xfBDYYx9a0s64HhIQNKj3xidZvIIi56jLGxXzxI7Yz0Fiyxq5rkWhgk6PSF5PNWyaq/
+	qypcCX7twsmuBjRLxupaOwv2ZmZ7x4ZnGqJ17ctSffW2U6a3vtLfcL3wE4x2vKJ5HyvUt0wjSII2W
+	JwzUoFvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BvG-0000000AtmR-0oTh;
-	Wed, 09 Sep 2026 06:36:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4Byf-0000000AuHn-12Vj;
+	Wed, 09 Sep 2026 06:40:13 +0000
+Received: from mail-northeuropeazon11011008.outbound.protection.outlook.com ([52.101.65.8] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BvE-0000000Atm8-2axK;
-	Wed, 09 Sep 2026 06:36:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52D9F40C39;
-	Wed,  9 Sep 2026 06:36:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBF81F00A3A;
-	Wed,  9 Sep 2026 06:36:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788935798;
-	bh=LQqBI6ejBvDRlBhzvGR9su9GPpCHzF1qILQIojgm5Mw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jS1LRARqld8kZtl5I+TQJdUBa1Z2QlN+Nc+u3Mdd/oFYDN//Eozw1kpqPRG214O5Q
-	 U+WFPBFrC7Vzs6w6F5wp803eZSRPfMAkgQU0xjW88EgmdHGTFaix86H+YTnCtQANVZ
-	 99d68lIQd/mG+P+uN+QvkrZ7617CBdyYgKeDgNl5MK4mLENSOwx0kKDQ2LlADOMutZ
-	 zVMkqDmj/6F++hTwiNMtUIdEXB8svcAZ26anNMsK+eG8S65YS29ObspgrRD3O1YeCy
-	 bLSVze/K2UCpZUu0ZNEDZZMwfaZ2P2A/lmDHyITiNmd9iwdbb+Z1llsCIci1C216IT
-	 HKUiFQ1z6dK5w==
-Subject: Re: [PATCH net-next v6] net: airoha: add LRO offload support
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, madhur.agrawal@airoha.com, horms@kernel.org
-Date: Wed, 09 Sep 2026 06:36:37 +0000
-Message-ID: <178893579710.219967.7015031895402367364@kernel.org>
-In-Reply-To: <20260906-airoha-eth-lro-v6-1-a6cc5179a8c5@kernel.org>
-References: <20260906-airoha-eth-lro-v6-1-a6cc5179a8c5@kernel.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x4Byc-0000000AuH7-2YId
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 06:40:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bdbz5gCG+1x1KoF7nQT3cinuJsBezRfAZ4YZO2/z6mUctaXNbngX/zVQrpBwJF66QGfCAX03GgwCL0g1GqoMVTYoq7IYGifIUZIJ2NemxMK+eu3DSUt9c3kGLKL/cL7AH0lP3veiSLk8fqPGrhyTip9Y1MEoHR7sGqVULhUdPwZqMQjG1Oj3wngh83J0q1yuwnMStvWZcZy76WbWBC5Nj79yzkC+4ZEiQ191oWIOiV8we2SjkIvuEI3ZR6xf0vRhfla7pstYPZYi9iD3i6q5Ph47V+C/0Fi0OBemBUmfTIqk32zqteYcOtQtiPyJ/zRnxNKhIgxvHR9tkmfEU97ylg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=;
+ b=wQsTRsq4H2z9BXfHKs1I+9gFWi7hxW0+YU+UB4oZX10rIxyYTkuFVYehQlFyEmnrBMNtnalEcFeSznAvY8B2py9+Ug5CA4y2OwPHrmpU2XEmf1s/VUZ9WZ2XSKUsGEbmnSx8cImxgjtjYHkMozyN1D0dqD/cnTlwSmDYU8QeBLqf8jlxX+SdkcXLKHHi/pNuQ+7aVJUGgwSNvgcPNfSOSYZI/89EwP+N3JketL1klxDqwyt3jA+IAEnbzkwTN0XGujtSYSdjmc7mbbIxXo0DUWN/cYfLbDPXPz/f4ODn5ZnA1mT1/4bzrZs3/8vsr0L1m6egYVim1U+6kKe1VUnfmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=;
+ b=vSrp2oXHqwzHO8rB+2cww0JsMnQxQFR2rtrxNScq7vcCzxsSch/XtkZPAccKYi/WTMBaeQQKOa1KsTZzGMG5BEvBKhQwrW4H+cyxstGmBY6iQgZf+PvUvjTUirG0DSVuYpMKuCa+6aVF6oy7thWg545FmMWX6MZds+6qrW4xlF3eHBIADvsMshIQNLjgkrQ0aP7i79HuVSl5U09uY+3GHHymu73YEAXx8P9IXaaxxxJqbQz4kl4ssHZjdWWoUux8wHTGEN6rS3DQHhvSgPPTn509nZVtfeqO8O3VZkJi64oc2+vsBVWkQ90FzLhtZCXPoAukSbHB5H3iPJ9q29uZjg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22) by VI1PR04MB6831.eurprd04.prod.outlook.com
+ (2603:10a6:803:135::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 9 Sep
+ 2026 06:40:03 +0000
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
+ 06:40:02 +0000
+Date: Wed, 9 Sep 2026 14:44:15 +0800
+From: Bough Chen <haibo.chen@oss.nxp.com>
+To: Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: Re: [PATCH v5 3/3] gpio: mmio: track the direction of chips without
+ direction registers
+Message-ID: <20260909064415.pel5dilh7nrkxz6u@shlinux89>
+References: <20260903075940.2089367-1-mehmet.fide@gmail.com>
+ <20260903075940.2089367-4-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903075940.2089367-4-mehmet.fide@gmail.com>
+X-ClientProxiedBy: SG2PR02CA0123.apcprd02.prod.outlook.com
+ (2603:1096:4:188::22) To PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|VI1PR04MB6831:EE_
+X-MS-Office365-Filtering-Correlation-Id: 13fe79b5-78e8-4c40-27b1-08df0e3d2d56
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|19092799006|366016|3023799007|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: yAFXmj1QQoogqfLKKldTXgr5zZLMZLt1KQ0f4SP5P305KuMYhHSsQvPzT+aALVcQ1eZZJCKUBu3kuv2xRGv2Z7ry1ceqVcAiWRMHjpKJf2VtVdZzyvkV3FoDCcJ87WLffK2oQjJeFQyXVhLhiZ2ptyTb45dDIJfLqbO1mpMkBtqBnyryF0ilpo8dbnGVkD/iQntmM5eh0/i412YY7e4C75/jsOCMmYOvM5scf4o9IuHwF5Z2+7NU9Jb/o/nwHo+tNanLtzxtuD6sKarNw1KUiz3/cXneDzZaBq1WYIam29fINNabxxuR/EzRu7xb9X3W5U70lE/6czlFoA0YXuXQSp6WPCy0jjGBJ9am8pd1pr+LbV1qytGZjae7aoDzydZ+gw6+CVo3SN2cglhSrrgMndq8jra9RNOydCdXMkHfJVTwK/oNkXG4VHJMrjoAV385DINNMe4MrcLCgE5RMXvRm5T7xXS9jazHBwU/Q8MGA+BBeHNLwzHikn/ITm+Zg28Ey3UKoqW3dEEX/O0NFlPc2RApooqpilw03+ohtD6EFxYfrzEWkxuzq31mpRZlTLAM0VKIAfQBLId4zlQY1Y9kVLsJrjNEGd5Vu7M4/bwjWlHH23f4rT//3Ba+esg/2Jj9JAKDcuKfxd315IAJlK0xacrr284QG+jAbrsn/Eod63U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(19092799006)(366016)(3023799007)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JaMbAWJajvtTWi6vZHMSjmSID9sxAB5Dv2IjVQkg85BAta6x/kP99x38Ftbg?=
+ =?us-ascii?Q?o3JifF1xBSgUnKBwREGDkejUSum8XSfmHCMWj48AGzrkwN2JaNY+w/P81qKz?=
+ =?us-ascii?Q?FJWZSUNL6f3Pbmw6QFWQQ0o9os5DmTqVRdpHiWhsTULWxWUmcjTAzCunc0jI?=
+ =?us-ascii?Q?Mxp4yELSSmuiP7CjWFkS9yjafkgCivSQ5E3g3HcpptxbFh14G4F2WYOvn5VG?=
+ =?us-ascii?Q?m0ptuTV5rpE9QlQGBrFKIfWtwehd6ppx0MC9k94j24PP2gcBsDK8Kz5bvxSV?=
+ =?us-ascii?Q?liRCmqT5+13W+Ssh6gH3xJa7T09BNG01nVqfkCvDuMg0jHbbHbABIqMl0Dqv?=
+ =?us-ascii?Q?A4cckGIY8r3QTN3l4SLo8pQ7FiEXOM4GiL61lmTkFNpII7rNoznOjimNE55q?=
+ =?us-ascii?Q?lsNf48xM+vQ8nQhRXrP41H6BLl+e5zAwc+2RXJVpYvmm7xUwpLpPCZ3waKDR?=
+ =?us-ascii?Q?LG83x/msKtHPyCCODCyf9RT5JXnO/oCXAjdkIqqSVtZLZU9+FE0WkBYiOB79?=
+ =?us-ascii?Q?A0AVbAA7Jvz0LU2RV+WiIFCy2lQN4fWsemfwit31eEJiMyKP3vlfruMePSSh?=
+ =?us-ascii?Q?2YTe+vf9pK/SEyVgKMvuC4NoqTsjDGv3c72ZUFO5cLulI2hYVFnGujSsNRlm?=
+ =?us-ascii?Q?K5on8hplf5uoFXg17u7rh8j0dtc/k1V1O23CAsRaeiAvXa6HFIal2K2iSz4p?=
+ =?us-ascii?Q?evS7l/8n3zlFAHy/iHcjzAPWQ3K2yRn1nvCdg9Emj7bdcVc1AaysnTtMJB9d?=
+ =?us-ascii?Q?0MGZR80IRZ754w98xlHaqsGJU3BIVRmX6yfIfKReFn4Ndp/QPNcctaD+DMvK?=
+ =?us-ascii?Q?kpj8KMXres4noc9P1k8ZMZbLr934ibTRFYy0goSp2gQLH1oeNXqlQ+ZUrFoU?=
+ =?us-ascii?Q?lZeOpT0WSzn03hkurFkGRqMCc7Xp5kF0Mm9OBvF1KHAESp6+oa0hCcrBQIup?=
+ =?us-ascii?Q?IpUJDe3L9dBzT8AIj44KIh8PWZQfULdHj7YDt2ifx4abnWVzriX1jM5jCv3v?=
+ =?us-ascii?Q?ELeIP76lPeYCe4bkZ73eHj6a8ADp6ySVSj9f/s5DDgNn2f980O7F1OsQgJoI?=
+ =?us-ascii?Q?G5w/3CP375Bt3ZlhHOduOvfiopMl7D3v/r458NI/8UHeFcs3jZKHxf/fietq?=
+ =?us-ascii?Q?tSHM8CHxZjfD29OmjBSbMOeVo6QQKk1CEv4mYjemRYwTrSkO0t2zqZpb+w3m?=
+ =?us-ascii?Q?tC96mkbhHhouj1TbqfynSRnnL0q66aaj2oqsyo2Sq02sHKIFhMOwMEzWWHLA?=
+ =?us-ascii?Q?2ei6HBrjJVLFvvJIlZkwflMcR+3BhPZ0ZZlwa9am9gJtKX8bVZEtG5OlIl0q?=
+ =?us-ascii?Q?nwafq+nR8/1VqwtFdEwSTdIm+QPQGzRJ1/IL+deyrHSADdV+00FClVDhCmAU?=
+ =?us-ascii?Q?ZCg6GfP+PMh+sR/CaoBhYr4llFYkPywPzd7gwBueecb1OOYGzZ1fRB2yB+GQ?=
+ =?us-ascii?Q?cBYVJDelDBl2op67zg6/1vztKfRsDlTARyzNpsCZi5w/bIDp6cnRscAeFRBn?=
+ =?us-ascii?Q?XxipSbGRfRPEG6wd6lZIWpoMw7MK6Iyc3ha1UABPpIVu8h6AKrwB41MVamDW?=
+ =?us-ascii?Q?APzC/+qCrvN6eedfn++GzyotsukYxFw/BMjKlOtQId+iAXbCSPCVG9xpFw7f?=
+ =?us-ascii?Q?YJj0bGr1pqtHKQHmnIEvcl62EzTLgGFg1EZmtT5yhhCTWx5rvPGZw8+Ewbhl?=
+ =?us-ascii?Q?GNZBYhbG0T8Xqqu6lxidBvmuwBJtaTDCG/V6R51o0SlbDxRyW1IbOS5wpvzu?=
+ =?us-ascii?Q?KQnr515KQMkbOv3sszXMfcJUNzYpXPKEOV+WbzeE6Ipd7XhyyREJ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13fe79b5-78e8-4c40-27b1-08df0e3d2d56
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:40:02.8372
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AbH6rl4jEnLD2pQnJPGt1MwQ42/Qpi+HoOT7v7UI1HrULje/0P79hpEFw45fTOxjrIu1U8pcy/KmbD6Dqn2grnNCIiFP3fBMWyuu/DelsIN1KsJVHcvzUPcu5e8KvUte
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6831
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_234010_654222_98DEDF7E 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,203 +144,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider:
+On Thu, Sep 03, 2026 at 09:59:40AM +0200, Mehmet Fide wrote:
+> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+> 
+> A generic chip with GPIO_GENERIC_PINCTRL_BACKEND and no direction
+> registers sets the direction through pinctrl but has no get_direction
+> callback, so every gpiod_get_direction() call trips the WARN in gpiolib
+> and the direction gpiolib reports is whatever it assumed. On a Vybrid
+> Colibri module that is 21 backtraces per boot.
+> 
+> Keep the direction of such a chip in the existing shadow: the direction
+> setters update sdir under the chip lock, and get_direction() is the
+> shadow-reading path already used for unreadable direction registers.
+> That keeps the callback usable in atomic context, which it has to be:
+> gpiochip_lock_as_irq() calls it for !can_sleep chips from
+> gpiochip_irq_domain_activate(), under the irq descriptor lock.
+> 
+> The pad's actual state is read once, in process context, when a line is
+> requested: gpiolib calls request() right before get_direction() for a
+> new line, so the shadow is seeded there from PIN_CONFIG_OUTPUT_ENABLE
+> through the chip's get_config(), which is gpiochip_generic_get_config()
+> for the pinctrl backend, and the line reports what the pin controller
+> says. Lines pinctrl cannot answer for keep the input default, which is
+> what gpiolib assumed before.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+dir_unreadable is now set from a second source (PINCTRL_BACKEND with no
+direction register, in addition to GPIO_GENERIC_UNREADABLE_REG_DIR);
+worth a line in the commit message.
 
-- [Medium] The new LRO drop path in `airoha_qdma_rx_process()` increments
-  `netdev->stats.rx_dropped` (the legacy `struct net_device_stats`…
-- [Low] The commit message claims "aggregated skbs are marked
-  SKB_GSO_DODGY so that the stack does not rely on gso_size and does not…
-- [Low] Teardown asymmetry for the shared FE/CDM LRO state:
-  `airoha_dev_set_features()` arms the per-QDMA LRO block via…
-- [Low] The new LRO error path performs a plain, non-atomic read-modify-
-  write of the shared per-netdev counter `netdev->stats.rx_dropped++`…
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
 
---
+Regards
+Haibo Chen
 
-net: airoha: add LRO offload support
-
-This adds LRO offload to airoha_eth using the 8 dedicated LRO hardware
-queues mapped to RX queues 24-31, bumping those queues' page_pool order
-since LRO cannot use scatter-gather.  Aggregated skbs get GSO metadata
-and a pseudo-header checksum so forwarded traffic can be re-segmented,
-and NETIF_F_LRO is only offered while a single device uses the QDMA.
-
-Link: https://lore.kernel.org/r/20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org
-
-A few questions below.
-
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 64619e9a704dd..7035b269a7c34 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-
-[ ... ]
-
-> @@ -657,13 +742,146 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
->  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
->  }
+> 
+> Suggested-by: Bartosz Golaszewski <brgl@kernel.org>
+> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+> ---
+>  drivers/gpio/gpio-mmio.c | 60 +++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 56 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+> index 7e4b3e8d609f..0709ffaab4de 100644
+> --- a/drivers/gpio/gpio-mmio.c
+> +++ b/drivers/gpio/gpio-mmio.c
+> @@ -49,6 +49,7 @@ o        `                     ~~~~\___/~~~~    ` controller in FPGA is ,.`
+>  #include <linux/log2.h>
+>  #include <linux/module.h>
+>  #include <linux/pinctrl/consumer.h>
+> +#include <linux/pinctrl/pinconf-generic.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/property.h>
+>  #include <linux/spinlock.h>
+> @@ -372,7 +373,17 @@ static int gpio_mmio_dir_in_err(struct gpio_chip *gc, unsigned int gpio)
 >  
-> +static int airoha_qdma_lro_rx_skb(struct airoha_queue *q,
-> +				  struct airoha_qdma_desc *desc,
-> +				  u32 msg1, u32 len)
-> +{
-
-[ ... ]
-
-> +	shinfo = skb_shinfo(skb);
-> +	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
-> +	shinfo->gso_type |= SKB_GSO_DODGY;
-> +	shinfo->gso_size = DIV_ROUND_UP(len - data_off, agg_count);
-> +	shinfo->gso_segs = agg_count;
-
-[Severity: Low]
-Is the commit message description of SKB_GSO_DODGY the right way round?
-It says:
-
-    "aggregated skbs are marked SKB_GSO_DODGY so that the stack does not
-     rely on gso_size and does not merge the aggregate into the GRO
-     engine"
-
-SKB_GSO_DODGY means the opposite for gso_segs: it tells the stack that
-gso_segs is untrusted and must be recomputed from gso_size.  In
-qdisc_pkt_len_segs_init() in net/core/dev.c:
-
-	if (unlikely(shinfo->gso_type & SKB_GSO_DODGY)) {
-		int payload = skb->len - hdr_len;
-		...
-		gso_segs = DIV_ROUND_UP(payload, shinfo->gso_size);
-
-and the TCP GSO output path uses gso_size as the MSS when re-segmenting,
-so the approximated gso_size is authoritative rather than advisory.
-
-The scheme still looks workable, since DIV_ROUND_UP(sum, agg_count) can
-never exceed the largest merged segment and the re-segmented packets only
-come out smaller.  Could the commit message state that rationale instead
-of saying the stack does not rely on gso_size?
-
-[ ... ]
-
-> @@ -707,9 +927,17 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
->  			__skb_put(q->skb, len);
->  			skb_mark_for_recycle(q->skb);
->  			q->skb->dev = netdev;
-> -			q->skb->protocol = eth_type_trans(q->skb, netdev);
->  			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
->  			skb_record_rx_queue(q->skb, qid);
+>  static int gpio_mmio_simple_dir_in(struct gpio_chip *gc, unsigned int gpio)
+>  {
+> -	return gpio_mmio_dir_return(gc, gpio, false);
+> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+> +	int ret;
 > +
-> +			if (airoha_qdma_lro_rx_skb(q, desc, msg1, len)) {
-> +				netdev->stats.rx_dropped++;
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-[Severity: Medium]
-Does this counter ever reach userspace?  This driver registers
-.ndo_get_stats64 = airoha_dev_get_stats64, and that callback assigns
-rx_dropped from its own MIB-derived stats:
-
-	storage->rx_dropped = dev->stats.rx_drops;
-
-dev_get_stats() in net/core/dev.c memsets storage and calls
-ndo_get_stats64 when it exists, only falling back to
-netdev_stats_to_stats64(storage, &dev->stats) when there is no
-ndo_get_stats64/ndo_get_stats, and afterwards only adds dev->core_stats.
-
-So every packet dropped here (agg_count above
-AIROHA_RXQ_LRO_MAX_AGG_COUNT, IPv6 with extension headers so nexthdr is
-not NEXTHDR_TCP, iph->ihl below 5, th->doff below 5, or a frame shorter
-than the headers) appears nowhere in ip -s link or rtnetlink.
-
-Would dev_core_stats_rx_dropped_inc(netdev), or the driver's own
-dev->stats.rx_drops under its u64_stats syncp, be the better sink here?
-
-[Severity: Low]
-Separately, can this increment lose counts?  netdev->stats.rx_dropped is
-a plain unsigned long shared per netdev, and this is a non-atomic
-read-modify-write from NAPI context.
-
-Each RX ring has its own NAPI instance (q->napi, 32 rings across the IRQ
-banks) and the target netdev is resolved per descriptor by
-airoha_qdma_get_gdm_dev(), so two pollers on different CPUs, for example
-LRO rings 24 and 31 both resolving to the same airoha_gdm_dev, can reach:
-
-	airoha_qdma_rx_napi_poll()
-	  airoha_qdma_rx_process()
-	    netdev->stats.rx_dropped++;
-
-concurrently with no lock and no per-CPU separation, which also tears on
-32-bit.
-
-> +				dev_kfree_skb(q->skb);
-> +				q->skb = NULL;
-> +				continue;
-> +			}
+> +	ret = gpio_mmio_dir_return(gc, gpio, false);
+> +	if (ret)
+> +		return ret;
 > +
-> +			q->skb->protocol = eth_type_trans(q->skb, netdev);
->  		} else { /* scattered frame */
->  			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
->  			int nr_frags = shinfo->nr_frags;
-
-[ ... ]
-
-> @@ -2288,6 +2582,32 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev)
->  	}
->  }
->  
-> +static netdev_features_t airoha_dev_fix_features(struct net_device *netdev,
-> +						 netdev_features_t features)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +	struct airoha_qdma *qdma;
-> +
-> +	qdma = airoha_qdma_deref(dev);
-> +	if (qdma->users > 1)
-> +		features &= ~NETIF_F_LRO;
-> +
-> +	return features;
-> +}
-> +
-> +static int airoha_dev_set_features(struct net_device *netdev,
-> +				   netdev_features_t features)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +
-> +	if (features & NETIF_F_LRO)
-> +		airoha_dev_lro_enable(dev);
-> +	else
-> +		airoha_dev_lro_disable(dev);
+> +	guard(raw_spinlock_irqsave)(&chip->lock);
+> +	chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
 > +
 > +	return 0;
+>  }
+>  
+>  static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
+> @@ -384,9 +395,19 @@ static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
+>  static int gpio_mmio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
+>  				    int val)
+>  {
+> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+> +	int ret;
+> +
+>  	gc->set(gc, gpio, val);
+>  
+> -	return gpio_mmio_dir_return(gc, gpio, true);
+> +	ret = gpio_mmio_dir_return(gc, gpio, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	guard(raw_spinlock_irqsave)(&chip->lock);
+> +	chip->sdir |= gpio_mmio_line2mask(gc, gpio);
+> +
+> +	return 0;
+>  }
+>  
+>  static int gpio_mmio_dir_in(struct gpio_chip *gc, unsigned int gpio)
+> @@ -601,20 +622,51 @@ static int gpio_mmio_setup_direction(struct gpio_generic_chip *chip,
+>  			gc->direction_input = gpio_mmio_dir_in_err;
+>  		else
+>  			gc->direction_input = gpio_mmio_simple_dir_in;
+> +
+> +		if (cfg->flags & GPIO_GENERIC_PINCTRL_BACKEND) {
+> +			chip->dir_unreadable = true;
+> +			gc->get_direction = gpio_mmio_get_dir;
+> +			gc->get_config = gpiochip_generic_get_config;
+> +		}
+>  	}
+>  
+>  	return 0;
+>  }
+>  
+> +static void gpio_mmio_seed_dir_from_pinctrl(struct gpio_chip *gc,
+> +					    unsigned int gpio)
+> +{
+> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+> +	unsigned long config;
+> +
+> +	if (!gc->get_config || chip->reg_dir_out || chip->reg_dir_in)
+> +		return;
+> +
+> +	config = pinconf_to_config_packed(PIN_CONFIG_OUTPUT_ENABLE, 0);
+> +	if (gc->get_config(gc, gpio, &config))
+> +		return;
+> +
+> +	guard(raw_spinlock_irqsave)(&chip->lock);
+> +	if (config)
+> +		chip->sdir |= gpio_mmio_line2mask(gc, gpio);
+> +	else
+> +		chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
 > +}
-
-[Severity: Low]
-Should the enable path here be gated on netif_running()?  There is no
-admin-state check, so ethtool -K ethX lro on arms the shared FE/CDM LRO
-block of the QDMA while the interface is still down.
-
-The only teardown sites for that hardware state are ndo_stop and a later
-ndo_set_features.  unregister_netdev() does not call ndo_stop for an
-already-closed device, and neither airoha_qdma_cleanup() nor
-airoha_hw_cleanup() touches REG_CDM_LRO_EN, REG_CDM_LRO_RXQ or
-REG_CDM_LRO_LIMIT, so after this sequence:
-
-	ethtool -K ethX lro on      # link down, LRO armed anyway
-	rmmod airoha_eth
-
-the CDM LRO engine stays enabled and mapped to RX queues 24-31 after
-those rings, descriptors and page pools are gone.
-
-This looks like leftover hardware state rather than something worse:
-airoha_qdma_cleanup() clears GLOBAL_CFG_RX_DMA_EN_MASK and polls
-GLOBAL_CFG_RX_DMA_BUSY_MASK before the RX buffers are released, so no DMA
-into freed pages, and airoha_hw_init() asserts and deasserts the fe reset
-on the next probe before airoha_fe_init(), so the stale enable bits do not
-survive a rebind and cannot make airoha_dev_open() return -EBUSY forever.
-
-Would it make sense to call airoha_dev_lro_disable() from the remove path
-as well, so enable and disable are symmetric?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260906-airoha-eth-lro-v6-1-a6cc5179a8c5%40kernel.org
+> +
+>  static int gpio_mmio_request(struct gpio_chip *gc, unsigned int gpio_pin)
+>  {
+>  	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+> +	int ret;
+>  
+>  	if (gpio_pin >= gc->ngpio)
+>  		return -EINVAL;
+>  
+> -	if (chip->pinctrl)
+> -		return gpiochip_generic_request(gc, gpio_pin);
+> +	if (chip->pinctrl) {
+> +		ret = gpiochip_generic_request(gc, gpio_pin);
+> +		if (ret)
+> +			return ret;
+> +		gpio_mmio_seed_dir_from_pinctrl(gc, gpio_pin);
+> +	}
+>  
+>  	return 0;
+>  }
+> -- 
+> 2.54.0
+> 
 
