@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DE9C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C0DC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l+Zr7ZH/3uj/Y31eE4ONXsO32kJg+iEv0h43imtrhVA=; b=NyLBWNC3ha9WxkQPAX3MZm8KUA
-	D8xAZ1dTneBwtcQA5Bm2PhZgW4Zt5zXeSnwV7zNSO4VxsYmP6M0cxDkaytqvu4pZCzknJmDslRIEx
-	Q4dhh0iObwdb7NnDpYx7l+SV5cDcYTZwBZ0FdlDpMfCpZTd3/0+gFbWctgy4LBWhDsfmkqb3XUiVl
-	hjt95py9dNf4mMYzAgj3N3AJc4/IHevvOA+aBYaUD6vt+6tiWUmKjUg3sUxhNSbc+ZIkfoJw9DTCU
-	olvc4Mn8UhPkmBKWAIP6lDegslFdfixkIUaoHVDTF0cWqjHkN881MZ0rUUqgNrJeb6pB1xeynZhHY
-	7qTAr+Gw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kv/OdspUGtQWo1tas4EUrtKin7DPE1EY1vQkzcPdvtI=; b=P1HO9Ga+gIADeRLBMP0tuQMY8/
+	SC8mP6wi/yD88s3XqPzbqkDDSQqDgbH1w0Qm/6Gg1ZEi09pjdvvDS8cZ4bt5yp3svVGjzYP2HCoDt
+	S48G2xL549qc0V43Ilji6zhLjlyakOaQNG6WbSayRtxxGsgsb0fz6IQ/+yOrP7Qh5cf4EdQsEibty
+	OM68eXtO/WbRd+iJFrRkKRWpZoJ2canZmDof2wqN/FIj50uU+ddYulHMvt116Fea6zPJ9C+f85Vy4
+	TGlM+BgvaOQD6fDRNhHIw81f4rF4svjSNf1he0ebZdssBFheDJ5V9sPrL3C73eOkTHdf0+RZuFkB3
+	TCYV761w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jzl-0000000C6Ut-46RT;
-	Wed, 09 Sep 2026 15:13:53 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1x4K0O-0000000C6cV-0Spy;
+	Wed, 09 Sep 2026 15:14:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jzj-0000000C6UE-0PhI
+	id 1x4K0M-0000000C6cA-3A7l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:13:52 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4hg48F01nqz8sdx;
-	Wed, 09 Sep 2026 17:13:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1788966829;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=l+Zr7ZH/3uj/Y31eE4ONXsO32kJg+iEv0h43imtrhVA=;
-	b=Gav6f28FwdptAziLY82ADN0vdmsrkDPYlFlviD/5ei6lMPSfzczQY3CMTBcEY6NSVW2oFm
-	letVWebuREF7RlBxMTaTNSO4H/t7dhtXtaGQ0JmajSI+F67S5sXEeH0S4WKajgL5yOn0/l
-	7vu03VvXbrwtr8YQN7R25zOaXocBfqi8PNDX/e7DwdjFru3vq7btQqXMgKL2s3NxjOYOIm
-	4qqgthWXEE3DjFXQ5HZTB5TljW3SYSGqum5OnKOG9Nouy53OPtiCHOYf7/tMNLR8RfGUzt
-	Vv5o3EkFJcvJDRxJQr6I72Kv9r8JrJ2M8Sh71+PD5CKIxEFTWmusYrbrCBMrRg==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1788966826;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=l+Zr7ZH/3uj/Y31eE4ONXsO32kJg+iEv0h43imtrhVA=;
-	b=R8qONZ/TD7rKNF3I+ETMBdQGOXlb1p/XfJrzoAj+9MAe0DQ7PjPbpZlfIC0Mw13HxyRDIQ
-	AWMgzezBif9hb2da9UpPG/7HPzutfiaCjd7yPAlyCYzjUYP60LG0SmnCkbuhI+WH4/jLc0
-	2P1AznxCL+IuSolQ6tS6qFyO6wfDEAbWJqIzhtcO0sTcj1Lhql+nr0jsij8Ksq1ax973qs
-	y3Je7fRtz7rQpk2MjwFmbfvrRkRfgjtImH9O2NJCy8tm+txQKlUl7GNv0K2OLi+fHMfJi1
-	8bNvDMiupFbo266FtQ0pqyI5tFZA68n6phk8e1e5XBFwZOc8pHklkYd0Q9k8EA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: sparrow-hawk: Align MSIOF1 PFC node name with label
-Date: Wed,  9 Sep 2026 17:13:12 +0200
-Message-ID: <20260909151341.28322-1-marek.vasut+renesas@mailbox.org>
+	Wed, 09 Sep 2026 15:14:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FCE54019B;
+	Wed,  9 Sep 2026 15:14:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA221F00A3A;
+	Wed,  9 Sep 2026 15:14:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788966870;
+	bh=Kv/OdspUGtQWo1tas4EUrtKin7DPE1EY1vQkzcPdvtI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=L/gq2E7S2ygrCzOjjfrwr2/GUgw2QA8h6flKLJ2Ed6zKRBUvibImsO4f0zm1Cv/o5
+	 wu2fstLod+x2eQRi5BkACBCFuZs1LTAab9jQ0fKAt6VKNbbEUAYlKsGmQTOAMnXSxr
+	 ZLlaQAFpiI9zSRjDaKXFo2voDCSapC8Fqe8da4P18MLlxscCWsq70cr4kjKj/q2Ck+
+	 qfHDyRvdDds/u94zuJxLZ5Un9zDx/Nv7YJsD+tzjRCwiM1QQGUiA+Om23dMuH6FU1h
+	 pQk/9ir8ZD/jbALU9VH2F//0i8UO9PECjhQVwsMEQA+scrPmKkVNB/OOe2GUVZTbOg
+	 3WfXfTIqzMo2w==
+Message-ID: <b058dbec-060b-4f19-8048-3951a32965a1@kernel.org>
+Date: Wed, 9 Sep 2026 17:14:25 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: y1izspzudz5mcjqp53uq1e7u5ezqy9hj
-X-MBO-RS-ID: 950bc9a4690d73fbaa9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_081351_297934_708B05F8 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 2/2] arm64/mm: Standardize printing for pgtable entries
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260909040005.4148136-1-anshuman.khandual@arm.com>
+ <20260909040005.4148136-3-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260909040005.4148136-3-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align MSIOF1 PFC node name with label to improve consistency.
-No functional change.
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 0b2d190d62c3..26f4cf7b753e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2411,6 +2411,8 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+>  #ifdef CONFIG_DEBUG_VM
+>  void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
+>  {
+> +	char pte_str_old[PTVAL_STR_MAX];
+> +	char pte_str[PTVAL_STR_MAX];
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-index a6294fd32daee..c6848a364098e 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-@@ -700,6 +700,12 @@ irq4_pins: irq4 {
- 		function = "intc_ex";
- 	};
- 
-+	/* Page 30 / Audio_Codec */
-+	msiof1_pins: msiof1 {
-+		groups = "msiof1_clk", "msiof1_sync", "msiof1_txd", "msiof1_rxd";
-+		function = "msiof1";
-+	};
-+
- 	/* Page 31 / FAN */
- 	pwm0_pins: pwm0 {
- 		groups = "pwm0";
-@@ -751,12 +757,6 @@ sd_uhs_pins: sd-uhs {
- 		power-source = <1800>;
- 	};
- 
--	/* Page 30 / Audio_Codec */
--	msiof1_pins: sound {
--		groups = "msiof1_clk", "msiof1_sync", "msiof1_txd", "msiof1_rxd";
--		function = "msiof1";
--	};
--
- 	/* Page 30 / Audio_Codec */
- 	sound_clk_pins: sound-clk {
- 		groups = "audio_clkin", "audio_clkout";
+Nothing jumped at me; once the stack usage does become a problem (I strongly
+assume we don't care for now) we can revisit the approach of moving printing
+into printk.
+
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
 -- 
-2.53.0
+Cheers,
 
+David
 
