@@ -4,146 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B488C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B57C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gm+9IjBE9cdQ/0pMBuXgvhCeHwdA9Cjik6T73NaZKR8=; b=TsM3hfsPwE5MX5HGjMPr99Br8I
-	QJMPfutou5qa+nwLQJrpHoY+HCqGEY/D1U9g9Wnc5n0ousIBlk+BO8oSQg8God+ZAjOHQcc9D76UB
-	Np9DhSsOAxn4tA4f2PrYReTF2kNPZgeFAAwCb5LX0eG91kCHgMfKOgsGO4YTAi+g0lvR4MQZINLLV
-	TI5eCLRT0e9dopgJDbv4iTvbSGL2uucaGszJGx10SkMBDYTWe6+iZ8pQte8V4TdEzEZTxu0b2+cAl
-	FjzTF59ogqzeLJWnqK5/Ts/etKOzlJTjky/AINKAzgkHrQh52sN4NkSJhAOoJKyxA2VlGFcdbvPw0
-	PJvwgMvw==;
+	bh=W1u4isHAY9FR5rPW9RRCXL4X5BSB1AJKJjDnU2w1M2Q=; b=LkH/vd7oIO5jrn2LPHAs6VdLEf
+	lMY4wFLo8eLF+XMxE8PAVQ0HJBTlGjhZkddalPRb8vtnMxQY/IC3r8qN9Hh/rkm6fQYr/MD0znPeK
+	8CfXcfW1FFK5dReHVO50ph/8QicTdwTeKpckfPkwjnWyeFm+yPAuqA5vpLHmKi0H/ckHzdRIcndm3
+	w69EfzL0vCrxZ3YblmP53NqpKV4aiRs3SvpHHbc4IOjXn6cxz7tXL3j9pv2M0cyVa+bjFBtV5th/u
+	ms1vAJcNAuk22zG9Juo7Dkxwdy1LeyzNuaMrW7oVuR4a5S7E7mKQaRcMuIALCCIs89P522BP6D2bn
+	hetT2U2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4MVF-0000000CXxD-3cLd;
-	Wed, 09 Sep 2026 17:54:33 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x4MYn-0000000CYjL-4Af1;
+	Wed, 09 Sep 2026 17:58:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4MVD-0000000CXwa-0ubu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 17:54:32 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689H7TDf2771661
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 17:54:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gm+9IjBE9cdQ/0pMBuXgvhCeHwdA9Cjik6T73NaZKR8=; b=cfSmyUPWCvHVtyLu
-	rz3IstZAvuTT/9o3NMA2V7wpZlhnhTyDMkensAM702lydzjPUNY/5MnMyBn+m+lU
-	4do4aN1R7NvndsOueLhOgi7L9Jqun10CqXzzuVfslinBDtV+HM19c+g/CM5jHlNi
-	oz4ZgsYrj3fkko46TF43drgpkXBXLE3MQCE/9H3Ared3JU+EgiveZOx6fOcSEzCt
-	tE9Zd1gwdEV7s48UWJ3h34zi4OjNH9HsSn0Dmdd5cf8t9lsPyyDFtfsu/dcTTtsJ
-	LfUuBFznsJ86c39+lHrRtGVMtUqpU8E7FgBoIALMcsi4QRbjVbL/Gk73ElfjxzZo
-	hv410Q==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gk62x9wu4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 17:54:29 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-ca8aee88725so9662830a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:54:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788976468; x=1789581268; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=gm+9IjBE9cdQ/0pMBuXgvhCeHwdA9Cjik6T73NaZKR8=;
-        b=Bu8Y3fbZFrLn93or9LbkXG175NlrZRCHOh3UXqILR0F7Ld+TVIU8wTOQSCEwV4EEtA
-         XUZRP+Rwbyh5rew6mxHK+vy7A6S4xliM/1DBSRC5q1/E2C2gyos+nqxlFXDY3eC0RwFw
-         pgqjfXo1o9LZt8D5RpOBXA9QSRYagesbXTZlxdfPVChKyct3ELoSec+H+mVl8YJeR3cP
-         8JWHKU8V4YtaO7zwUhctpBdZGYZ27y2MlrMtQPHF+sWyJM18kJ80yX86Oeb/TgIPKEcb
-         UIORQXduPWT+rIWHJzVYRYUrcws2JgLiN3DR+N3Fdgx5+TX4201hrLaP+7ii5y6BfAub
-         pH9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788976468; x=1789581268;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gm+9IjBE9cdQ/0pMBuXgvhCeHwdA9Cjik6T73NaZKR8=;
-        b=pgthdkhchnPgAw9MoDZMvyJyyVOF7lF2w2wv1XbPS2CEDHijyB52fliSA2KBRbEg2f
-         dd9VVwGZGrPLFNJMTnWLRM18YO2eqVRZ/gsVFSD2b4aCFDaGMEqA9f/HXTmjVevGcX4R
-         tby9g51VVV340d33qS6uiVEGj2w3ZHlrsBHk39UejI10wezQycME/us+WIrviUl6sBwL
-         jQTjTU7rm2wYGK927H0oNtkDmceFSVhbBIYVBVjqkOtefzuNzkj1eoh7nF9iTKS98IMa
-         fUgndiSqbes/FGFiyy2B/qfiLVNmC+wS09R2Sp13FvCD0tCFSCtF57Ff+KZyqhZ1cs/p
-         1dYA==
-X-Forwarded-Encrypted: i=1; AKwUvBwo90yzCIr9qnaOtN2zQNXQsScew9/xfd8x8rqLOHIoaFlIPwcP3x/MUbHFc0nu66wjWGnPbPYrs5X6N1JPrNy0@lists.infradead.org
-X-Gm-Message-State: AFuF++nyB5A7rYOVV3an4q8eeIX1HxoSgWcsCmhnx4rxlO8vk83xjqCE
-	XRL5wUX85YR2gYqelqy6xAWfM7bpI0EIC7xGI3+IgmNxcnulYh3C3mmCaY/VyvyyOfmsXauk3es
-	Ew9nLyudgr2m/qKeqRAguSnmWw3056j00/8RrY9whWBrt9wiaaLpyCJ2UiHt4H6Fx/gYZmJqd45
-	//OA==
-X-Gm-Gg: AYBFou3wy5DxDh9Zgzl5OWconEdcKiNHmDY8hB0RyAowkeoMAJSL1dkqDoujiNE/aHr
-	x9OlT4cvmCxhIIMRbQ+ylf65uAWmUmlTZkIGsAiQzIUHPZ/Wk7NVMH5Xx5M7bv2YkOBKPhUYz+C
-	opN0zoklKQe/+wAJ5Qv5xuvv9BcX6Y0lejhMRESDAOuLs8ojJ5x1md0ZXV5rsH5Boa+7bcZSYyz
-	TojR9wyuAKkd4ubsVHX5rphkpBYVQixwCUJhpytrnO6/fJpWTdmhFLgiPKgph/XU3qFj8e8Bb73
-	oBtxL/QZbpsZ2VvlLqiwXq2BLCr8vEtFGwSMHsAvbJS36OywsB147/5KntnMkFhwMUAXY6scCyj
-	QPJK9VjvPGKc27yvSFC/q/GmaeBs=
-X-Received: by 2002:a05:6a20:2d2c:b0:3d3:adad:f173 with SMTP id adf61e73a8af0-3dabb270ed0mr12635172637.21.1788976467964;
-        Wed, 09 Sep 2026 10:54:27 -0700 (PDT)
-X-Received: by 2002:a05:6a20:2d2c:b0:3d3:adad:f173 with SMTP id adf61e73a8af0-3dabb270ed0mr12635021637.21.1788976466966;
-        Wed, 09 Sep 2026 10:54:26 -0700 (PDT)
-Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339ac24d7esm72009935eec.15.2026.09.09.10.54.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 10:54:26 -0700 (PDT)
-Date: Wed, 9 Sep 2026 10:54:20 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-        <joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-        <kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-        <baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-        <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <linux-pci@vger.kernel.org>, <skaestle@nvidia.com>,
-        <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>, <bbiber@nvidia.com>,
-        <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v3 06/13] iommu/arm-smmu-v3: Submit CMDQ_OP_PRI_RESP for
- IOPF event
-Message-ID: <20260909105420.00000abe@oss.qualcomm.com>
-In-Reply-To: <apttObDR6jf0rvt+@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
-	<9280aea7ae7197eca3f223ef5b998aa25afb29d6.1788222485.git.nicolinc@nvidia.com>
-	<178846311317.1308030.4335813024474016483.b4-review@b4>
-	<apttObDR6jf0rvt+@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1x4MYm-0000000CYgK-0EKP;
+	Wed, 09 Sep 2026 17:58:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=W1u4isHAY9FR5rPW9RRCXL4X5BSB1AJKJjDnU2w1M2Q=; b=RZfgcSvfKU/UbKLlEgr9nyReMU
+	PYMdCxU6Ww3NM49d97yfo3ToM1HSWNpbtLQ3axynZjcqFXq9POHCvoh/FEJzMzjPBjjgISh0zYiDi
+	DsqNAWHlO7RKhqCsSulAmlVOGN/FqzkAYqf7GGg/0Lu7ODlElP49acsaf4wXiuoQ8zwn8ljzBAawo
+	/Nmog9ICCV6KuigtIWRh05rhAV+a9RnG1zDVI7SpD+0VJSsMBSUI3a1lvvxd8Db/MOc9bSVvV3n8Y
+	AYz/xO4qtC17dauM6pFmPPMwV8+qSrY1aA5L4fS1F5IkPFtjcdl6kncNPEI5Q2QZIlS8a+ZvsyN7Y
+	ve9JD+ag==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4MYe-00000001WBd-1ilY;
+	Wed, 09 Sep 2026 17:58:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60E561576;
+	Wed,  9 Sep 2026 10:57:55 -0700 (PDT)
+Received: from [10.211.55.7] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B7053F528;
+	Wed,  9 Sep 2026 10:57:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=foss.arm.com; s=main;
+	t=1788976679; bh=j8s/pkdPWtkxGrVAkD2rab4CbgigKfGGO1TTpT60Ytc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RPs4/Neb/y37OUPUAPtmTMK+coFcLiQBrF3yVred7gBeaz/MeVjBz12tCr7F47QPm
+	 ABzvTt3YlvzFcd7TnQG0PSz8uyeNCufAq99j1K3rmmTkkA378Od8fbwEHJ6LKmH70i
+	 MWzZAmfduRv183pVWxmOljB8e4xFyytHY7XinDH4=
+Message-ID: <0ef9f4ab-4c9f-4089-bed3-f7726ec97804@foss.arm.com>
+Date: Wed, 9 Sep 2026 12:57:57 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE5OSBTYWx0ZWRfX9Wx9WFs1Z54x
- jNersPM0NwNUxrmoClF+qs2cTJKYpdT0GJmiI+xzBqOfjpBGIKdOU4tMORrnA3RvPqQ5iyxiIs0
- 9BUjLPLsFKHfzwEFWukZ2VhGkwOf8lQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE5OSBTYWx0ZWRfXwPhWRrxkulu3
- pizlxZO4xf3kmth7PpE4/FCC6UoJkIvFWHLOLbzYj26KOgmnImodnhrktlS3UchMRacIZldzXeP
- 7KrOtkm8N13/GbcvXSJxa24/wXEdiNlYfQvAMQfaiLRG33zvKVYPbBQ0OOAh2Z4JxRb8MfrXjkx
- EhIEvkBOfSwHa/JYkzs7WKHEXhboGUQw/2NJvQ7iWgo7T8TlQTb3Omg7v/JxicjVGqkqoHmglgQ
- MJyijynJ6YeDpSuY6kkKc36EgUpnfNC1ngslXysF06I3O8rQ3k8s+2vdA1UsbTa7IpQgJpz1V+4
- ItWi2EHOeA/9rXaYvDpCgGKcUL6yX7xiJ9ue47VUphlvTskTjf8Subvfv0cxrZtv3YTu4yZ9igO
- 5VMXc0XiNPBUMIM+oeXpEthvw2pIPYUd5aEy/c2kXpA+CU/aEBBBASQdgiAuvvw43uaj5V07Nv5
- Sc7MSdMbpseQ/+GY+jQ==
-X-Authority-Analysis: v=2.4 cv=UeFhjqSN c=1 sm=1 tr=0 ts=6aa19d55 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=Ikd4Dj_1AAAA:8 a=9koHXFDKl-DiS4GoSb4A:9 a=CjuIK1q_8ugA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-ORIG-GUID: LTuidf2F0qb_LjcXJlg9Yn17hldzkT-q
-X-Proofpoint-GUID: LTuidf2F0qb_LjcXJlg9Yn17hldzkT-q
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0 bulkscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090199
+User-Agent: Mozilla Thunderbird
+Subject: Re: Shadow Stack Locking Semantics between arch's
+To: Mark Brown <broonie@kernel.org>, Jesse Huang <jesse.huang@sifive.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ linux-arm-kernel@lists.infradead.org,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ linux-hardening@vger.kernel.org, linux-api@vger.kernel.org,
+ dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com, debug@rivosinc.com,
+ andrew@sifive.com, kito.cheng@sifive.com
+References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+ <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+Content-Language: en-US
+From: Bill Roberts <bill.roberts@foss.arm.com>
+In-Reply-To: <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_105431_396365_411811DC 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260909_185804_864454_890E5128 
+X-CRM114-Status: GOOD (  34.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,36 +89,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Sep 2026 18:15:37 -0700
-Nicolin Chen <nicolinc@nvidia.com> wrote:
+<snip> + Jesse, he is working on the glibc side + CC a few others on 
+that thread as submitted on the glibc side from sifive. Sorry for the 
+delay, I was away on vacation.
 
-> On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > > To handle IOMMU_FAULT_PAGE_REQ from the PRI queue, arm_smmu_page_response()
-> > > must issue a CMDQ_OP_PRI_RESP back to the SMMU.
-> > > 
-> > > A stall event in the EVTQ and a PRI request in the PRIQ both surface to the
-> > > IOPF infrastructure with fault.type == IOMMU_FAULT_PAGE_REQ. SMMUv3 forbids
-> > > the Stall model on PCIe streams (PCIe must use Terminate), and PRI is only  
-> > 
-> > There are those systems that annoy some because they smell like PCIe
-> > (present PCIe software interfaces) but aren't and use stall mode. However, it
-> > is nonsense to use PRI with stall mode. So, instead I'd just argue that for
-> > stall the fault handling is done synchronously from a device point of
-> > view so a PRI request makes no sense rather htan associating this with
-> > PCIe as such.  
-> 
-> I changed the paragraph to:
-> 
-> A stall event in the EVTQ and a PRI request in the PRIQ both surface to the
-> IOPF infrastructure with fault.type == IOMMU_FAULT_PAGE_REQ. Yet, both two
-> models are alternatives: a stalling master resolves a fault synchronously,
-> holding the transaction until a CMDQ_OP_RESUME, so it has no reason to also
-> issue a page request. A later change refuses PRI on a stall_enabled master,
-> so the two will never co-occur. arm_smmu_page_response() can therefore key
-> on the master state: CMDQ_OP_RESUME for stall_enabled, CMDQ_OP_PRI_RESP for
-> pri_enabled, mapping IOMMU_PAGE_RESP_* to the PRI response codes.
-> 
-Nice.
+>> unsigned long locked = 0x2; // Kernel Task State -> LOCK WRITE
+>> unsigned long cur_val = 0x3; // Kernel Task State -> WRITE and SHADOWSTACK
+>> ENABLED
+>> unsigned long new_val = 0x0; // Userspace Feature Change via syscall ->
+>> DISABLE
+>> | x86-64 | risc-v | arm64 |
+>> | ---------- | -------- | --------- |
+>> | Works  | Fails  | Fails     |
+> I would not have expected that combination to work at all with the
+> prctl() (as opposed to arch_prctl()) interface TBH, if you've locked
+> write on you shouldn't be able to disable it.  The reason that works on
+> x86 at the minute is that for x86 you can only change one bit at a time
+> so the new value when disabling is effectively 0x2, not 0x0.
+Yes, this is exactly what I am pointing out. Implementation aside, is that
+the behavior we want?
+>
+>> I am proposing and have questions over the following:
+>> 1. What should the behavior be if you had write locked and disable the
+>> shadow stack?
+>>    - I can argue both ways here, -EPERM or success. I think I and most arches
+>> lead to failure.
+> Given that RISC-V doesn't support control of writes it's moot there
+> at the minute, and x86 currently uses arch_prctl() so will need an
+> additional API, it seems the path of least resistance is to allow it.
+> This also avoids locking writes (or pushes, for arm64) on effectively
+> also locking enable which seems neater.
+>
+>> 2. riscv should check that the low bit is set in locking not just that its
+>> 0, it should be 1
+> I think for ABI compatibility RISC-V will have to continue accepting 0
+> as being equivalent to locking PR_SHADOW_STACK_ENABLE (or everything,
+> but it only supports that one bit right now).
 
+TL;DR - No users, lets fix it before risc-v lands the userspace side IIUC
 
+I can't find any libc's that support this for risc-v. It appears the glibc
+patches were not merged and I commented on those patches just now
+that the interface is wrong:
+   - 
+https://inbox.sourceware.org/libc-alpha/8a5e21d0-0628-4910-9ad8-165c829e9680@foss.arm.com/
+
+Additionally, stress-ng does it "generically", and it would be broken on 
+a riscv system:
+   - 
+https://sources.debian.org/src/stress-ng/0.22.00-2/stress-prctl.c?hl=1144#L1144
+
+This is a bug and never followed the convention to begin with. So risc-v is
+non-compliant to the spec and this effectively prevents the a true 
+unification
+of a generic prctl interface. The behavior on riscv doesn't adhere to 
+there own docs:
+
+   - 
+https://cdn.kernel.org/doc/html/latest/arch/riscv/zicfiss.html#prctl-enabling
+
+>
+>> 3. riscv should return -EPERM vs -EINVAL
+> If you mean for arch_lock_shadow_stack_status() I think -EINVAL is a
+> sensible error code when the system or task does not support shadow
+> stacks, I'm not sure we should return -EPERM at all.  On arm64 we
+> support locking any bit, not just the ones that we currently know about.
+> This is for future proofing, userspace can lock unknown flags.
+
+No, I mean when setting a locked bit via prctl 
+and PR_SET_SHADOW_STACK_STATUS.
+Currently, the error codes for changing a locked bit:
+x86: EPERM
+arm64: EBUSY (Which we discussed offline about changing to EPERM)
+risc-v:
+
+>> If we can all agree on item 1, that locked bits check can be refactored and
+>> shared in one of
+>> two ways:
+>> 1. within prctl itself, before the arch hook is called, we would need
+>> helpers per-arch to extract the thread features and lock bits
+>> 2. as a helper where folks just pass the unsigned long of the bits to get
+>> the result
+> For me option 1 seems a bit nicer, and moves more of the implementation
+> into generic code which is something we should really be doing in
+> general with the shadow stack support - there's a lot of cross arch
+> duplication at the minute.  It has been on my list to look at this
+> repitition at some point, it had been held up by the clone3() stuff but
+> that seems to have died a death for now.
+Agreed, it's more work, but I like it better.
 
