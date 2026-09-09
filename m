@@ -4,129 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514CDC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39302C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3jNPCE1h/aS0Wnsnn/o7UByl5DghCcbq9/4rQPVu9c=; b=EHNsnUjMJnfbAT/I+3p2APFTai
-	pa0FfKbAZZvvPx4fXm48qrsH3b7StPEvhWMPzH179EU1crCEiSq9VwCy4xDFSIoH0CnZJh1nHa/a3
-	QLWG0j4ZfnioujKBUidI/ckTQMOaDfcuxGt4D5tl639f2OmWi8TK06PdZ0mxp0YJYhA71FyB7kPnW
-	uAOntVJtUQl45HDSW5NaJL1RjEZJc/JTbFr1C+n07OuQRAVyecXoZLSzGDE59UnHFS8o2AnM5+PQa
-	M7sKWzudaL1FdMNsS6jt5yYrVKOYSs8u7ZmdDfFjFhX8Y+vq0GQz4t6WxMZ9NUwDu2qFVjEq/i6Fb
-	FaHHMxPw==;
+	bh=NEpc/1/47AsHfaTxY/tAR9B9xl8xB58wnw6vmMA8FEI=; b=ZGa4yQDw1MS3yRup5y8FtLY41+
+	moyXnna4MOqkiRWKMH6iR37hV38CPWdoI+x4kc0bC+vYdbXfsYLDVqwge9PUrHJkrCktfFVACiztc
+	bd3T+nXsHvGyrmyf/p1zM+DdmSQ6KxReY7c/ank3L4i0OF94M9u7NViLhmECdTJpor0B+/eY2owyu
+	vKLpTh66lnWniwsgZVhqpHabyA8f7nxCHlh96bcnwwkA3xPoIiRlLGsAwwXjyYxazkfp9nPa6oBw9
+	vEZIeqG/RefNT0V6oQuJyiNV7Wi9TzSrmEJdTthd1jZGKUcVijCAQeDTfPsMey4QTEjGHlrVpv5dR
+	mQSIlvCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KGQ-0000000CAd2-3Z8a;
-	Wed, 09 Sep 2026 15:31:06 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x4KGm-0000000CAl0-0QHT;
+	Wed, 09 Sep 2026 15:31:28 +0000
+Received: from mail-vs2-f12.google.com ([74.125.227.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KGK-0000000CAbR-2jFv
+	id 1x4KGj-0000000CAjb-0uT6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:31:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yhwhq2KBJgdLrgMSYtfPo0u+D9ZmEQW5UuRuyw7W80djFXDHfRewDKZAQ/uL7F4jLgaqtQFzbv8ipsK49nxG5UZWhQAePljTlfIH0XXapuhj1gWv9xAlApG8Qk9/l8Yr4p69gUWn6ys0MPlLyAzr2OGlXQr1Fgo/NSGdvC8iI4vo7HVfp9DoBpHZbLbbCwc99bxF2NAngUsG+i8OqHkKj+VIgYdiTDb6uSzQB2MCLr1Zc5KS2NLavHsMkLHaaAdgLfeP+aPSKfVEYVLW22/hHsjVluRMk0XDLSvLSx1sGw00QQPV6c4eKwYuEUgLXOQXeiw9zbx2k3ReI7FUpe1eew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B3jNPCE1h/aS0Wnsnn/o7UByl5DghCcbq9/4rQPVu9c=;
- b=FSGpJJUYIzoUKAL9RnFaJR4adqYoA+Ib+zED9UuipOApYtL8LbE7eNOx/LYdXD5+wwmWfipj2j5Lr0uARVr61lmFzgAJAf5dIGS5r7FKZCoguqALLT7UUwVOId/lpU2aGCsTc49GjDU2P2gA1ZZa/f6mQ1RxO9ODqdw7mhTlYVNTiBG3jgOtHpqrinKbw6evK32ZfyS7M2sUfTWWCyhYDzTY37WjykIFuuvR8Pjiz8RO3tLWQP4O8Z8weHS8O9HNQyvDhnp6Duni5OFlPv1eAkfwsIMBDYoqFIJtdVJ93lo9mCuPf21VLdWSZFsvDgNQV1meJ0PiPrUzU9yffrs5lQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B3jNPCE1h/aS0Wnsnn/o7UByl5DghCcbq9/4rQPVu9c=;
- b=pFRpy9x0aCsq6406jZrXnxQNnuejSn9QtkQg5azNEspIf3bx4SnrMVKqZr+sHkqOuuQKvSzRYXjCHPpWG/Qkpl+BN56apms2NwZ5nggAzMBaqKZ4+mNdICVXVN/lEkX5i2sBHpMzS42herxc+wicPb2zRPoDaB68p1Ai143njpLqLim+EdNrryhDe/FqGmRdH4QnRd2yF7tQj82iFttEEPdNkBNzSbSgNGjmf4HT1NlktCqhTcQPMDHg0LxbqfF+mCoKMgBAIFviEEXGnFmHbv/eQkgpVfHVQkMPeBd7K741nyr/VwC62zBQ2XOicY1fYz/ZAuQZS02hBj6w3dllXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB7493.eurprd04.prod.outlook.com (2603:10a6:20b:293::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
- 15:30:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
- 15:30:53 +0000
-Date: Wed, 9 Sep 2026 10:30:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: vjardin@free.fr
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: freescale: add Nodebox v3 CPU Module
-Message-ID: <aqF7o9EYfwlfpYof@SMW015318>
-References: <20260908-for-upstream-nbxv3-dts-v3-0-1d88b2c11680@free.fr>
- <20260908-for-upstream-nbxv3-dts-v3-3-1d88b2c11680@free.fr>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908-for-upstream-nbxv3-dts-v3-3-1d88b2c11680@free.fr>
-X-ClientProxiedBy: PH8P223CA0011.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 09 Sep 2026 15:31:26 +0000
+Received: by mail-vs2-f12.google.com with SMTP id 71dfb90a1353d-5c67e5292fdso420360e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 08:31:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788967884; x=1789572684;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NEpc/1/47AsHfaTxY/tAR9B9xl8xB58wnw6vmMA8FEI=;
+        b=CDPRo/rwOdd6mvAXL/Af5Rw62/h1czE2qhWcUZDm1UDDX/enUhkgzUmnFDscy2XlHv
+         86g2ps55ldPZqlkGOjN6zO3NtMjDkNoV+8XLwx6SUWEdsjptEOlxTnfWbB/rK+yuzq+6
+         MnbDJERsZwFi7JCqxam+hGPlJNC6FLHNT6TzocKUX6RlGOe84ZYm6qPrMdmQ73P8HpHt
+         9EfyJ3+TYpRX1RP+ZYWOnFW7JKUFaO43VyOvM8xCxztR31e09pkTvGOrOOQK7fiLGmq+
+         fJJQdu4YdxGAByz5GJFK370cQHJK6A7VVACOsJeYPJnuoeH6N9H49JPreeXqM2ntvngS
+         fNgA==
+X-Gm-Message-State: AFuF++l9qkEdcQoX+HDmTIo2CoW7TXnTwKQtq/dv65OpdkAQcsaGkXYr
+	lax0nSHhBqOWicHdwxxuEKyyOVwaSvvR3i+KrUvFoXG+j5r7TXWYxtZbJQb4TO+zzBf9qA==
+X-Gm-Gg: AYBFou0dEHSkOrLFb54FC4BAiZMu1tDwkmgO9gheiFvkCw635Xacic8dUwyrPE7WMM+
+	t8JhZP3pY4luaM2VB/bkCZyL8RfIOl3nAb/2IreQvOKGSu1UyfE3w/PzlOPlxrICp5Llqnw3DR8
+	M1MDnjoRCtTcjC1jR8h/HJsfyNucdmeKdVv8aS2oWQRC/bhFB9YAIGTPoiMwvyjp865Yy5h3zuq
+	YQyoqJHQpMdN5oZG6F1qOfyXdPiC1IL5MjEvBDnpMCUHgB/KXVee/1amV43hW1X65f5qwelSmMA
+	0J4p9uGFKjwweC+Uy1FEbk3kyvV7zjJIJCRntPDAf4h+537pkEFz+spRuwmV2sG9yW8BC+lH6+p
+	4bMcHJdY3gZCsLM2SN97bU0vHZQWPf6mY7Fp1FJkS0gLhoYvI2KJpYjVBH04zd17sVyArf1S7tb
+	TpI5SwOpc7YlyWUzJyBANqQ1px4Vd7IAS0dyh/Y4JquQSP92QNYJL5eLi0TPyqL7fIFmEUYbDRZ
+	1ZLiOCrdO/ogt1jbUSCHpPAMBshcx6bOeZe
+X-Received: by 2002:a05:6122:130d:b0:5c7:fa77:f291 with SMTP id 71dfb90a1353d-5c8287bf22cmr3595200e0c.5.1788967883747;
+        Wed, 09 Sep 2026 08:31:23 -0700 (PDT)
+Received: from mail-vs2-f12.google.com (mail-vs2-f12.google.com. [74.125.227.12])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c7ec1ef798sm12903138e0c.4.2026.09.09.08.31.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Sep 2026 08:31:20 -0700 (PDT)
+Received: by mail-vs2-f12.google.com with SMTP id 71dfb90a1353d-5c67e5292faso470840e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 08:31:20 -0700 (PDT)
+X-Received: by 2002:a05:6102:8095:b0:783:f3bf:f9aa with SMTP id
+ ada2fe7eead31-78f757d562emr2534584137.8.1788967879800; Wed, 09 Sep 2026
+ 08:31:19 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7493:EE_
-X-MS-Office365-Filtering-Correlation-Id: 82808c77-f64c-4268-77bf-08df0e8755e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|19092799006|4143699003|11063799006|56012099006|3023799007|10067099003|6133799003|18002099003|22082099003|15866825006|41080700001;
-X-Microsoft-Antispam-Message-Info: RgqZzNre0NgdeZ+txpHuXf8JVmoScaszzBu+27NSbieVizSzTUrwv2oZ7Tb7j19fQQWTqmk2vaZtknoLcgfwje8eVjLoxs0FJDc9BXSxYnsoPqtgXTDjMO+/EPqGrOfXBGx+9ods2FXp+yjWtbnidWDHCDA2TcoENjJWKxAXV/rVaqEedf8z7Rqog3F9CRL/5nyfNegA0MZzlOsf83L2v8srWy25EHJ1VZtG0I9elOhIZ3aLnNkwdPvIGwnk5boTCQAuO96qrmkxD86xxi2YvTv+Iizm7KrieasTnbWa3HyyiZs5uHYFA9No8t4sfu5J4BT9LmhB3NdhdBNEZwvSZoAzaN3LKLASsWVtfzcEbqc5E1L8u75ZrGCQX70Fo7U7X/3pN4mUNA0lbnHgocW75HNaIABxgurqliiDjTg0FPhrp9S2r2OwqbjH1Z74a2QX7aHOT5qeYwMMzqEG8hTG9HPzK1MohkzHZnXdGVX2hirxYKmN9Bs3zf7JINFBtkvqEmI6NLe9xfjkOHtWyniua95ZDJHYB+T29kf2BopfEdlgyPP/U11dLHeQCoxYGKAo7skflutjGe0Xa2jAFD/63i/dDwpvOnd2XIjorTOwJjZydTu1x5iMEtwttVCeP1/ZGWK1cc6ut5AjzhxGcDLHx8jYnl+k0SppBPH8UpBWoJF5hnpCk35sbA/9MItFIEmD6jEsGXAOQp3MTAGqRnAuGSCyZg0P5CRHXqUfMHLbLOKXpZpmV+w5O5DCHAFLxFCS
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(19092799006)(4143699003)(11063799006)(56012099006)(3023799007)(10067099003)(6133799003)(18002099003)(22082099003)(15866825006)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9cn8aPQCst7ZcQCe7G4q63SyMpVNvoTzZ2iEUQXDDfUHpUXwXXuUOQIrOOm7?=
- =?us-ascii?Q?9yKwPuPqKo6UBrvUTr0spAHm/+ZfPtbBSoXRo75pAlhKU/pKmJy1QmEBa+Zj?=
- =?us-ascii?Q?2TYw5PpTIh6tbUZ5EcY3N55D7qnwsZCvvH27LsMr0OJyQ2Iu+eJ1ArRNVO8u?=
- =?us-ascii?Q?OskxWpNe+f/ERY+opwVTrlMFQO6mfslLqlxycGC+R82G1WS5nPGk8TEJBoUV?=
- =?us-ascii?Q?kr4K1YdHJatE97ozamTqMCqki4VwxIcpwYba2pD5FUJZlUqc02/3YjhyVyJX?=
- =?us-ascii?Q?OTm71ZqphheQp6z1KVKoXSDVpxH51cSoDWZM1RAEZ+TBPjmwei0iHktY8mOh?=
- =?us-ascii?Q?9NENFdhrM4xtcbKECnnIlAZ+AxM0meXaotA4FGaafmbPdNSJgmI6UHNWme5S?=
- =?us-ascii?Q?8uPR80XpdjS6kPLHZwul0Iyuz16uLu+rPvaXTpdz3T5llYE235Z9my/tVcMM?=
- =?us-ascii?Q?MQAojyBv6A1EJI4aiVEvkikBR2XrURmDQ0Acq59mn/N3RBcQkXVyHUtz2QYO?=
- =?us-ascii?Q?htBD3s2rhc8lfTarCwwkZlBmELF+Be+b6hJ6XDYbKg3rO86aqCsRZhln1Hm+?=
- =?us-ascii?Q?a0eq9QAP085drJeXpMxENshNn1mYI8iWEsCat6SpXoshHW20wQXAHLSDc1rQ?=
- =?us-ascii?Q?Cn3WeEi6UuviUUl+TGgq+juB0HCj09Qnpd8Wiuo6KDbaWTNADeBIgml8aCdz?=
- =?us-ascii?Q?/eERT6darNtIhpKGMF8+zNqRyrhmQKU5dxZwjqdGnknrK0glEslcMfMyMFcR?=
- =?us-ascii?Q?l4SMdUFsqjncxZpL00OcsUrm4AE/kSmxgd6UDzbsgJtWFtWETiBq6F1TkSwY?=
- =?us-ascii?Q?zD2Ll0v0NhskcCg9vyC5EBx+5JEcH86ReWMf+smZGflfw2O/ovPnIm4qRz7f?=
- =?us-ascii?Q?ExdLO7803IUb3DdXOomPa9M3Xdajq+GNN8YT2a/Ui9zhYAo/R6atPSpy0FAZ?=
- =?us-ascii?Q?Hn/j4dd8rYlTNQLAnAhHQ2SYqEjD9+4JF3BPlOhCbx8aCMYtsCvT0EEsyzNq?=
- =?us-ascii?Q?DkaZqmfColARwoMn6x2rAW3vly54EzolA4yEqFMU09E3jxXjS4uKaBx7FVvZ?=
- =?us-ascii?Q?np1bjTszazv9cXWUpLpMmPOQmnGMtK4I0dSAn/qDr3E4fOXo/THRz1vjnEc5?=
- =?us-ascii?Q?HSJmXzeQb1M05RYqcjHwESqrLo/CTiZBnZs3pWzCwAwFuOC5/3K4f8QnW34S?=
- =?us-ascii?Q?ZnOZ3sUuovS5ELGcZKEBjbiwIR4T7v4rnuTraGzXwn/ox9tj2c1A1qNzC/ld?=
- =?us-ascii?Q?rkNPSaAHcafFdeGQ2eOvcTeLVJBuzNkwJU/McTsW2/U+U9XXs4sDttH4C0Rl?=
- =?us-ascii?Q?6PnWmtdcKCkyMLcPg1/CpW7KCP+FzapwWb16BBXTYCSJyd4g6jnFHBp+G6PS?=
- =?us-ascii?Q?ERPWQGPZJifouF1EubGX0rk2OUv1mQIZn/rbPibYdGqkwcU73dn6qQnbnvpm?=
- =?us-ascii?Q?Uucrt6G8D9HRbvlfNb9IQ2H279qaOR2E70MIfXl4mZP0xsjFCofUAwOsTF42?=
- =?us-ascii?Q?S1wBb6osGSiQUZ48Oz4yYSw7MV24CqvKDVD84vZlVgbQv/Qdoc4Gz0ZyxFtO?=
- =?us-ascii?Q?x5dp90v1IC3cI/qnkJ0s8bvfJAM4CvpCK0aGywpkBuaAFJuxb57Q4KFzLAmW?=
- =?us-ascii?Q?OC9J2FD+kIKhQRpt9NazGNGgcoGQ2Y2yFniqU1Cx1Wx2Cgpc+G0lvx2YZ70a?=
- =?us-ascii?Q?kBKia7M83Pvj+bR8nvtYtntX5e6B3kAeO2Ck2+DJO9ksRxQn833UyONEA9WM?=
- =?us-ascii?Q?ktUxjWGypulMkB9CNrtuScGBfDJGLnoC8DGeDJcAniKIbSV49zlf?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82808c77-f64c-4268-77bf-08df0e8755e7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 15:30:53.8179
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LplpRn0BqrT2C7se+oCVpMJ2g0McdWwTw6KdK7DzzVgc0/cFRpFYsxIAS1/alOeJzggUdPmlPR/HeyZyOZj1uOzRD88wx4Ic2s0Xt706TKZslaBnC7AtPZtVb0uTMHlD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7493
+References: <20260909151423.28358-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260909151423.28358-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 9 Sep 2026 17:31:08 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVVcbwz1OK9tL9zn5RR_4YyML6++OUVUgmswPpaxdmRSA@mail.gmail.com>
+X-Gm-Features: AcwNN1U9fr4mtgt5B_Ox8jzqkFHdJzcqPtQLtvvJUBaj2_brnmaTf7bMLwSgx_8
+Message-ID: <CAMuHMdVVcbwz1OK9tL9zn5RR_4YyML6++OUVUgmswPpaxdmRSA@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: renesas: sparrow-hawk: Add overlay for
+ WaveShare 2CH CANFD HAT
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_083100_691133_D144E8CC 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260909_083125_274182_BF5A7554 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,120 +96,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 04:12:45AM +0200, Vincent Jardin via B4 Relay wrote:
-> From: Vincent Jardin <vjardin@free.fr>
+Hi Marek,
+
+On Wed, 9 Sept 2026 at 17:14, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add a DT overlay to bind the WaveShare 2-Channel Isolated CAN FD
+> Expansion HAT on the Retronix R-Car V4H Sparrow Hawk board.
 >
-> The Nodebox v3 is a Free Mobile CPU module built around the NXP
-> LX2160A (16x Cortex-A72, DPAA2).
+> Current device link is at https://www.waveshare.com/2-ch-can-fd-hat.htm
 >
-> The same .dtsi is used by the U-Boot port, so both Linux and
-> u-boot should not drift.
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Needn't this paragraph.
+> V2: - Drop the unique spi controller node identifier
+>     - Switch IRQ to active low
+>     - Sort compatible and reg properties
+>     - Add "CN7 pin 22" comment
+>     - Move pwm1 node to the top and add comment
+>     - Rename MSIOF0 PFC node
 
->
-> Signed-off-by: Vincent Jardin <vjardin@free.fr>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile             |   2 +
->  .../arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts |  34 +++
->  .../boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi      | 335 +++++++++++++++++++++
->  3 files changed, 371 insertions(+)
->
-...
-> +
-> +&gpio1 {
-> +	status = "okay";
-> +	gpio-line-names =
-> +		"", "", "", "", "", "",
-> +		"cfg-rcw-src2", "cfg-rcw-src3",
-> +		"reset-req-b",
-> +		"altfn:sdhc2-clk", "altfn:sdhc2-ds",
-> +		"altfn:sdhc2-dat0", "altfn:sdhc2-dat1",
-> +		"altfn:sdhc2-dat2", "altfn:sdhc2-dat3",
-> +		"altfn:sdhc2-dat4", "altfn:sdhc2-dat5",
-> +		"altfn:sdhc2-dat6", "altfn:sdhc2-dat7",
-> +		"altfn:sdhc2-cmd",
-> +		"cfg-svr1",
-> +		"altfn:xspi1-cs0", "altfn:xspi1-sck",
-> +		"altfn:xspi1-dqs",
-> +		"altfn:xspi1-data0", "altfn:xspi1-data1",
-> +		"", "",
-> +		"flash-reset#", "pltrst#", "", "ethsw-reset#";
-> +
-> +	pltrst-hog {
-> +		gpio-hog;
-> +		gpios = <29 GPIO_ACTIVE_LOW>;
-> +		output-low;
-> +		line-name = "pltrst#";
-> +	};
-> +
-> +	/* Boot NOR reset, released: electrical high */
-> +	flash-reset-hog {
-> +		gpio-hog;
-> +		gpios = <28 GPIO_ACTIVE_LOW>;
-> +		output-low;
-> +		line-name = "flash-reset#";
-> +	};
-> +
-> +	/* Ethernet switch reset, released: electrical high */
-> +	ethsw-reset-hog {
-> +		gpio-hog;
-> +		gpios = <31 GPIO_ACTIVE_LOW>;
-> +		output-low;
-> +		line-name = "ethsw-reset#";
-> +	};
+Thanks for the update!
 
-Does related devices have "reset" property to descript reset?
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-ws-2ch-canfd.dtso
 
-> +};
+> +&{/} {
+> +       /* Fixed clock dedicated to SPI CAN on 2-CH CAN FD HAT */
+> +       clk_can0: clk-ws-2ch-canfd0 {
+> +               compatible = "fixed-clock";
+> +               #clock-cells = <0>;
+> +               clock-frequency = <40000000>;
+> +       };
 > +
-> +&gpio2 {
-> +	status = "okay";
-> +	gpio-line-names =
-> +		"lan8023-mdint",
-> +		"i2c2-alert#", "i2c4-alert#", "i2c6-alert#",
-> +		"u800-tca9539-int#",
-> +		"spi3-alert#",
-> +		"wake0", "wake1",
-> +		"carrier-hot#",
-> +		"u1300-rtl8211fd-int#",
-> +		"ethsw-int#",
-> +		"", "",
-> +		"u1700-zl30733-clk-gpio0", "u1700-zl30733-clk-gpio1",
-> +		"u1700-zl30733-clk-gpio2", "u1700-zl30733-clk-gpio3",
-> +		"", "", "", "", "", "", "", "",
-> +		"", "", "", "", "", "", "";
-> +};
+> +       clk_can1: clk-ws-2ch-canfd1 {
+> +               compatible = "fixed-clock";
+> +               #clock-cells = <0>;
+> +               clock-frequency = <40000000>;
+> +       };
 > +
-> +&gpio3 {
-> +	status = "okay";
-> +	gpio-line-names =
-> +		"altfn:ec1-txd3", "altfn:ec1-txd2",
-> +		"altfn:ec1-txd1", "altfn:ec1-txd0",
-> +		"altfn:ec1-tx-en", "altfn:ec1-gtx-clk",
-> +		"altfn:ec1-rxd3", "altfn:ec1-rxd2",
-> +		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
-> +		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
-> +		"", "",
-> +		"ptp-refclk-in",
-> +		"", "", "", "", "", "", "", "",
-> +		"u1700-zl30733-pps-out",
-> +		"",
-> +		"ethsw-mdio-en",
-> +		"usb01-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT share one net */
-> +		"",
-> +		"usb01-oc#",
-> +		"altfn:spi3-sck",
-> +		"", "";
-> +
-> +	/* Low enables the carrier-side EMDIO2 level translator */
-> +	ethsw-mdio-en-hog {
-> +		gpio-hog;
-> +		gpios = <25 GPIO_ACTIVE_LOW>;
-> +		output-high;
-> +		line-name = "ethsw-mdio-en";
+> +       /*
+> +        * SPI_1 is operated as GPIO SPI, because MSIOF5 can not be
+> +        * muxed on the pins allocated for SPI_1 on this CANFD HAT.
+> +        */
+> +       spi {   /* SPI_1 */
 
-The same here, most EN module as regualtor.
+As this lives at the root node, I'd rather change it back to
+spi-ws-2ch-canfd while applying, if you don't mind?
 
-Frank
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.4, with the above fixed.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
