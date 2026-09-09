@@ -4,97 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16383C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760C0C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v/AMO1xY4JP5kH64PX2GgDemefdP3ZI3LO1e7DC60jI=; b=MP+r5Phv5WJnteqdsWjdtBvQWt
-	dqre+DPMTZ6LLXsyZxD0lqK6U/lj7TU0RtZN6mM5qegV3IY2WersDhvdjDgSuCjQQ8XJsrYC6IWkz
-	nA9X4bZLLDZzHfVIqRPV8NPkbL1o1KN5csVzKJo+htTRocvliSDP7Ovs1GsU3bmW/PduGp/AOPCvc
-	8ffPr2Pch/2g1Lti83QdxfyBal745aCJu/ffh06YOmNF5PyUFjS+vh48niAUoN3JBREIbKKescbxK
-	AyqcVjf6G9SPqPhHL8JKq8id6kLpcHySDPvUjDss2xRhBvAZLx51MFZlSKprltCFqxFA12rQn6/eA
-	K8TjO8yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S2m1QvsK2UVPVTQ9fA20HFfbroOfurxqiB9XG3yA/pw=; b=HjmYwngi2y7FnpDRfsK88jHZ5B
+	+hD6Pbg3LsZ6FN/usiGA4qg7sk8QNX+qCe8lKdWhtsIyOUA8Fl33Sw4xO/OwvIFgCY4v5Y/fvtuZL
+	qfeqi6l0rmvLpCEMinkPWT/utrzLoQ9ZLgEStPHbPttmLoXgY8PoeS6dny77P5fD7ZNKVcj8nlfiB
+	bFNRzc6/VyRcd2SAqF+83EtK+7RvUA/rtDv9qPomXN0O5MSo4lr/BDNJQB3cXZFYW6iuVijLSzfqj
+	9fWZl5r9qZ1kv9hWq0r2cCwQ9+fmI+iM1V0ZmABH41jmcCv7byB9O5p/mFYRhGXu11nESG26H9Wsh
+	IHL3Iz4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KPz-0000000CCYH-1U9v;
-	Wed, 09 Sep 2026 15:40:59 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4KRw-0000000CD3O-3nSg;
+	Wed, 09 Sep 2026 15:43:00 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4KPx-0000000CCWk-28DB
+	id 1x4KRu-0000000CD2A-01nn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:40:58 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e2406so10180675e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 08:40:56 -0700 (PDT)
+	Wed, 09 Sep 2026 15:42:59 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa663c1so47620866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 08:42:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788968576; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BVlGvQOYaMiQqDJr6Il2pAlwzDnxEGwdGjhhm0Sbgjg6B3IX2mk/MvhEZxfHOiNNON
+         KXqVRENj4RS8n4XZRBXvhKaL3qL+yzkzQgLCksJJ3teVbUu9a6Dj0z/MJjvbbq1sKAIy
+         ZvmoMFhvppt96hNfER1vNeTV6uqQytqjPjWstBPscAuXFOZ8mMavw8HhxYkfVqf3NW4Q
+         SoHoj4CQsvIDaTqIXHl6bAP/cXzwpYsB2FhBDdKksqdNG3Ts8SHRfolbDRCEQ3F9NkE2
+         SRcHYeIDUVtm++8c4sL2AYANNwqyNl9lpBffIP17ER8iUYY11YywJE60MRCLf/WlWl8W
+         uIIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=S2m1QvsK2UVPVTQ9fA20HFfbroOfurxqiB9XG3yA/pw=;
+        fh=BQ5V3JDi0NRjHYv56jjdUzUiQhaa9G6M92E9TRQ8Kwg=;
+        b=Ocu2rm0rxYlk+TYX15EEQL+lsBTg4tTNU1kcTqvrHOjMcW2ZZRLw7xVjIfKZ3APIMJ
+         Qr+GfjGZk9H/+VtTem/aGEn69nnVhLDAU2+S2oe0hfW2g5toW3PBZlu4HVbHQZvz0kia
+         LAzxwY3nqdw+14uL8VoZkDuxxI8OqZ1zeR0cvjGKE+/2F9Yv4uzhd0/SB8dEgojBN8KY
+         P/dABpJxGF+R9G0GoGSfuOAL/KtxcVCAjLWSBbWiPn+b9TOPqqLxlTSwX0U8cGBQBPRg
+         ww+kqaAVIgKnKdN6ZOx5goNFRIN9WjjfbqxgvNAJe+l7VHkYNI+rm8ozEXzriW5oXf6m
+         Yn7A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788968455; x=1789573255; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v/AMO1xY4JP5kH64PX2GgDemefdP3ZI3LO1e7DC60jI=;
-        b=V08uI3xKEMLpnrxo8+6SYEyCVP6nW0qllpj8eQPdiBz038EoS25ZQjwWcbUsxPSGIV
-         Xv0IuD5Gp3LQC7yKBSzHK7dHeXxzOLUnomt6jMWTlzLyKnw6gimT6bPLdix3V9ad5riI
-         HsJCvQENorHlbiQRXfCQ7mA7beEmHXITdmA4imRPQS8c3dfncPAwCQZk0irMs6/QdYJe
-         ynaVEbVYHgV2i+/pMK/YYOa50qPREXsBW8OYXvlu16E/Co5qQV8rNmqehxo/j0m0e469
-         kFUmBICuriKv8V345ruqfcBwFIufw37uxSBS+2wMQwep2NGbBlsfpg4SJGaayxnV3snK
-         T++w==
+        d=linaro.org; s=google; t=1788968576; x=1789573376; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=S2m1QvsK2UVPVTQ9fA20HFfbroOfurxqiB9XG3yA/pw=;
+        b=RCtsnuhi0uKYz4Vr/c0GITOAa66T966/z/1NQ8p4g6FjQyvasmOIiBDnGoitfi3Xz9
+         8aHJVxQ9z5jE1LBBvYofWUJGX4s0/14M2T2DG/zEEoF+7lNbxrgV2z7JqPFJsSHjmH0x
+         zqWS1lJjdmAJMKczuQrPll9O4P3kQu5H5GqDq5R/hJQ2A3mG2KJuKoCNEamXrvprNbIx
+         zi8oSotMdks1vDvsKI69RBn1DzfafRIrdyuSI4LzCtWidTkdb/velgmbM6KlVEgAPeY1
+         oGjvvAoKESd9IwU2Lemir7X4w/qzGp69j0P1Szo6ZykLuv1VKGMq2RiPTQq//+RfTNdO
+         m37Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788968455; x=1789573255;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v/AMO1xY4JP5kH64PX2GgDemefdP3ZI3LO1e7DC60jI=;
-        b=sGc5AchE8UJxBwal3vxF+dtEy12yqW7tK9ckmPhvS/tko72fvFLpkMZb1Z0/ZMR1T4
-         l+gtOnbRECMmEwD6kGh49wSSyH+kRT/7ggKapv/vNZtB14fG1tBDv0nMUgOX/wg0cKDd
-         ouD2eTAxa89TVfhReV1HJOquxoAaugsa7I5qBx1hYgcXL0rua3U6I4TsInUcGmu3Q6Zz
-         CW4rkG8Ut9haHHNwtQE9NEFypxX6J8NDZmnk76oW2HF/xNrHzKbE51oEEb4I1HER2OFf
-         2oQ0bN4OyduShSJJvuk0xCQh2uI7DfLzizPhmSRWowHptEzWYrX74QsXFIdGj8mMtSQf
-         sfCg==
-X-Forwarded-Encrypted: i=1; AKwUvBwGtk8mLscnCuvJS6ja6QQe0STwjyCtbtR1lLfoTv526LtRWNl9tV37w/vyTcKfz/X9ivxXEVQd+C1MCWApwPcD@lists.infradead.org
-X-Gm-Message-State: AFuF++mp7eRzdZCCFHqE63Nk6FxZSDSQYNV4qlzunrMNWIfX5E2+FMSJ
-	l03n7CmTIpO8xTdbfNg9KGHdU9UybWxRPoYOA1OpioGbmnW0tjz32spL
-X-Gm-Gg: AYBFou332WmazolIYvwB3D2NCsODflLFLV3FiPHzi9WsWVNE6xVATiYDa5cGpYStIIg
-	LiRK3I3Sgh2scxhSlMDsjgr0Z2dFSr2xCAKAvjn18UY1PLnO5wts4yZH1QhCS4n+4YdLXXc99GD
-	MC6bICvHiJiuQkdFC4+PXkg1xPiawbjP1BYeK5OHjS6ncjyx8s5n551Ag3hZIiPOfP/zqbDgBUW
-	dcdPOSkknWuIYQxCphF50Af9295XLGf+JNSdsbllAEjZoGHfA1yuCvj7TTV6xctBYu0T8V1qG7Y
-	I+XV9UZoNXuf5CBkBpbYZM+uYsBxMpFj0HmUciigyLvzOHeW1ulWgUADLM9e750przbfthmvkDC
-	AOtmEcp3vPiNQQhlxk+xQF/gyB7Kc31GxmKlBmA6y8UQC6vXmpr9CuqHzzaauyfRYJk75owYXmx
-	4Ba/AezL6Yi3e2NSqS3R5lLOhYJXPwsDf9TlijYyKWeQh89Tf80jW7/tGN6nrS+g/vHclxVpZuo
-	OFvShkyudkFn28myc5u6TUETQ==
-X-Received: by 2002:a05:600c:6216:b0:49c:799a:177b with SMTP id 5b1f17b1804b1-49d1754394emr171816965e9.2.1788968455450;
-        Wed, 09 Sep 2026 08:40:55 -0700 (PDT)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885be1c1sm43810943f8f.32.2026.09.09.08.40.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 08:40:55 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	elena.popa@nxp.com,
-	consmin.stoica@nxp.com
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board support
-Date: Wed,  9 Sep 2026 08:39:43 -0700
-Message-ID: <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
-References: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
+        d=1e100.net; s=20251104; t=1788968576; x=1789573376;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=S2m1QvsK2UVPVTQ9fA20HFfbroOfurxqiB9XG3yA/pw=;
+        b=Mp4Z19ExTOyJKtOXLVU6UZbzXDyumnJ/9Hm38zdigruIKvFBX/7USJjutsqbBG9IJ+
+         +jH1LU9qLF/c5N1v91IxfhMLEVGxedT+4kcCC9G/kl8t9bJQoIppsbSaaWeUIJ94qyjm
+         ezxe7iZtkBHv9psrggpA9v76B6qnODwMlaajNBcawdFYf4fqtRe+KKvyNewByRXX/45+
+         Oat+KBuS23Wk0/wBreU4Y0E7qTeAf/Cr9fPj/Z15caYTzX9oa5uKcigSiLbJZ1P7oP6w
+         GP9hcvSNR2aRQ4TrzSO7BRPxzl9cZWcvAORYhJx7unx1aejcxCwLAy4T+dsr6dgIdXbS
+         qIng==
+X-Forwarded-Encrypted: i=1; AKwUvBzrIG4sf0o62f8lF4D/agEEH3ClTAwuGuBfEjSB5nyk5eI0omITIdL3Ba4QCyEuxLUNcvuInKVe0qPVzSWven9D@lists.infradead.org
+X-Gm-Message-State: AFuF++nXV99D6wn4odT5biZY5HDblVafEPahfofm9+tKNiu7K1r+3MvZ
+	SxomtnRJCqSHZvTWgh563+VE++7Z5piMfIpH9jzGjNt3ITkqVA0gD1gGHlwhZz6UCtHQ/LHuhbG
+	7srh890QcG3vozSi+fs+Yv6mxgcMOltK1L0qYsUEEcA==
+X-Gm-Gg: AYBFou1gz+YB7uPc+JuBZuLoOyLhm5U4OFK7+ggwJTDgakNz/r3I1R7Rb3UWsMiJxz4
+	vS1rqPm9r8NUDYO6wus3OIjvTVqHcoYIU2ATWCrwXK3cMI/Z6HqYRnrpMvAlyAR48nnoIAbTB+j
+	xVsRtq8HfMMANOio0jn3WbCsTZv+fUF/ygB9LWfRqx9XR6oVb5GHd6IxBRZooJOS5x+0Ocpo8yF
+	LeRktAwa4YCJ1k9xDOLLSXfEIpiotk5SqEOpkbhQ9/Jd5cYq2akZ2MLvg+ufTbhCQ7eDyB1FN9d
+	jEKfIRgPxa+nmmEeZcIl/fg/8SYPFavvLdMB93aWffANz7Fa0KOLa4+4VKHL4GlADwyqeJBlwum
+	c7zKPKBwRzGem
+X-Received: by 2002:a17:906:f5aa:b0:c16:84dc:9607 with SMTP id
+ a640c23a62f3a-c2941b4be10mr141897166b.19.1788968575694; Wed, 09 Sep 2026
+ 08:42:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260908082345.103087-1-arighi@nvidia.com> <20260908082345.103087-3-arighi@nvidia.com>
+ <CAKfTPtAQh6ZndkHC+njYvX0hoDafaC+PX2EBfafDumTHvvgFcg@mail.gmail.com> <aqF4sqhjpYjIPgQF@gpd4>
+In-Reply-To: <aqF4sqhjpYjIPgQF@gpd4>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 9 Sep 2026 17:42:43 +0200
+X-Gm-Features: AcwNN1UV05JQkcUWg6uO4db95fK2YGtk8j3YGV2sIr2FYSgIHdwjsvNp_LI-72M
+Message-ID: <CAKfTPtASXty5hOOgmXokCh95w0idU0y12UDua1_vg9m8teF9Rg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle selection
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>, 
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>, 
+	Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_084057_604864_65D98520 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260909_084258_195755_ED8CF084 
+X-CRM114-Status: GOOD (  44.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,275 +124,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Wed, 9 Sept 2026 at 17:18, Andrea Righi <arighi@nvidia.com> wrote:
+>
+> Hi Vincent,
+>
+> On Wed, Sep 09, 2026 at 04:42:44PM +0200, Vincent Guittot wrote:
+> > On Tue, 8 Sept 2026 at 10:24, Andrea Righi <arighi@nvidia.com> wrote:
+> > >
+> > > POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity SMT
+> > > level to order hardware threads. Idle CPU selection does not consult
+> > > that order, so a task can wake on an arbitrary sibling and remain there
+> > > until load balancing corrects the placement. On these systems, that
+> > > initial choice can prevent the core from entering its preferred
+> > > lower-thread resource mode and cause a large and persistent performance
+> > > loss.
+> > >
+> > > When idle selection finds an available CPU in an SMT core, choose the
+> > > highest-priority available sibling. On SMT2 Olympus this only changes
+> > > selection on fully idle cores. A partially idle core has only one
+> > > available CPU. On wider SMT systems such as POWER7, it also fills
+> > > available siblings in priority order while the core is partially busy.
+> > >
+> > > Apply the preference to idle-core and idle-CPU scans,
+> > > asymmetric-capacity scans, target, previous, recently-used CPU fast
+> > > paths and the slow path. Inspect the lowest scheduling domain directly,
+> > > but require both CPUs to share its span because isolcpus can split
+> > > hardware siblings across scheduling domains.
+> > >
+> > > Keep physical-core capacity selection independent from SMT sibling
+> > > ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
+> > > maximum capacities, then SD_ASYM_PACKING selects the preferred available
+> > > sibling inside the chosen core, whose siblings continue to share equal
+> > > capacity.
+> > >
+> > > Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
+> > > Signed-off-by: Andrea Righi <arighi@nvidia.com>
+> > > ---
+> > >  kernel/sched/fair.c     | 85 ++++++++++++++++++++++++++++++++---------
+> > >  kernel/sched/sched.h    |  6 +++
+> > >  kernel/sched/topology.c | 36 +++++++++++++++++
+> > >  3 files changed, 110 insertions(+), 17 deletions(-)
+> > >
+> > > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > > index b8bd308c2d5b1..37837c36288a0 100644
+> > > --- a/kernel/sched/fair.c
+> > > +++ b/kernel/sched/fair.c
+> > > @@ -8587,6 +8587,35 @@ static inline bool test_idle_cores(int cpu)
+> > >         return false;
+> > >  }
+> > >
+> > > +/*
+> > > + * Redirect a CPU to a higher-priority available sibling in its SMT domain,
+> > > + * subject to task affinity.
+> > > + */
+> > > +static inline int select_idle_smt_cpu(struct task_struct *p, int cpu)
+> > > +{
+> > > +       struct sched_domain *sd;
+> > > +       int best = cpu;
+> > > +       int sibling;
+> > > +
+> > > +       if (!sched_smt_asym_active())
+> >
+> > I wonder if it's worth creating a new static key. All other pieces
+> > related to asym packing use sched_smt_active() to opt out the related
+> > code
+>
+> The intent was to keep the additional sd dereference and flag checks out of the
+> wakeup path for the more common symmetric SMT systems; sched_smt_active()
+> remains enabled on those systems, the new key lets them return immediately.
+>
+> Without it, the additional cost should be small when everything is cache-hot
+> (roughly a couple of dependent loads, flag tests and branches), but this is a
+> hot path and a cache miss could make it more noticeable. I haven't measured
+> whether the saving is significant, though. If the extra key and its topology
+> accounting are not considered worth the potential saving, we can remove it and
+> use sched_smt_active() instead.
 
-Add basic support for NXP's MR-NAVQ95 board. This board is designed for
-robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
-following hardware feats (list is not exhaustive):
+If we start having a static key per sub part of a feature like the
+asym packing, that can quickly become unmanageable. In this case we
+should better have a a static key for whole asym_packing feature
+instead
 
-* based on i.MX95 19x19 SoC
-* 64GB eMMC
-* up to 16GB of LPDDR5 memory
-* 1 x USB 2.0 TypeC
-* 1 x USB 3.0 TypeC
-* 1 x RJ45 port with RTL8211 PHY
+Vincent
 
-The support targets revision B of the board.
-
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile       |   1 +
- arch/arm64/boot/dts/freescale/imx95-navq.dts | 228 +++++++++++++++++++
- 2 files changed, 229 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-navq.dts
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 984642146dd9..b6dd7040c385 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -947,6 +947,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-frdm-pro.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-clover.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-dev.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-navq.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596la-mba95xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx95-navq.dts b/arch/arm64/boot/dts/freescale/imx95-navq.dts
-new file mode 100644
-index 000000000000..ab206fb726b5
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-navq.dts
-@@ -0,0 +1,228 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95.dtsi"
-+
-+/ {
-+	model = "NXP MR-NAVQ95";
-+	compatible = "fsl,imx95-navq", "fsl,imx95";
-+
-+	aliases {
-+		ethernet0 = &enetc_port0;
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+	};
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* actual size filled in by the bootloader */
-+		reg = <0x0 0x80000000 0 0x80000000>;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		bootph-pre-ram;
-+		enable-active-high;
-+		gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		off-on-delay-us = <12000>;
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VDD_SD2_3V3";
-+	};
-+};
-+
-+&edma1 {
-+	/* owned by M7 */
-+	status = "reserved";
-+};
-+
-+&edma2 {
-+	/* channels 30-63 owned by M7 */
-+	dma-channels = <30>;
-+};
-+
-+&enetc_port0 {
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&pinctrl_enetc0>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&lpi2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_lpi2c3>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	i2c3_gpio_expander_21: gpio-expander@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-controller;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_i2c3_gpio_expander_21>;
-+		pinctrl-names = "default";
-+	};
-+};
-+
-+&lpuart1 {
-+	bootph-pre-ram;
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&netc_blk_ctrl {
-+	status = "okay";
-+};
-+
-+&netc_emdio {
-+	pinctrl-0 = <&pinctrl_emdio>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <1>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+		reset-gpios = <&i2c3_gpio_expander_21 1 GPIO_ACTIVE_LOW>;
-+		realtek,clkout-disable;
-+	};
-+};
-+
-+&scmi_iomuxc {
-+	pinctrl_emdio: emdiogrp {
-+		fsl,pins = <IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC			0x57e>,
-+			   <IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO			0x97e>;
-+	};
-+
-+	pinctrl_enetc0: enetc0grp {
-+		fsl,pins = <IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x57e>,
-+			   <IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x57e>,
-+			   <IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x57e>,
-+			   <IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x57e>,
-+			   <IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK		0x58e>,
-+			   <IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET1_RXC__NETCMIX_TOP_ETH0_RGMII_RX_CLK		0x58e>,
-+			   <IMX95_PAD_ENET1_RD0__NETCMIX_TOP_ETH0_RGMII_RD0		0x57e>,
-+			   <IMX95_PAD_ENET1_RD1__NETCMIX_TOP_ETH0_RGMII_RD1		0x57e>,
-+			   <IMX95_PAD_ENET1_RD2__NETCMIX_TOP_ETH0_RGMII_RD2		0x57e>,
-+			   <IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3		0x57e>;
-+	};
-+
-+	pinctrl_i2c3_gpio_expander_21: i2c3gpioexpander21grp {
-+		fsl,pins = <IMX95_PAD_ENET2_RD3__GPIO4_IO_BIT27				0x31e>;
-+	};
-+
-+	pinctrl_lpi2c3: lpi2c3grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO28__LPI2C3_SDA				0x40000b9e>,
-+			   <IMX95_PAD_GPIO_IO29__LPI2C3_SCL				0x40000b9e>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7			0x31e>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX			0x31e>,
-+			   <IMX95_PAD_UART1_TXD__AONMIX_TOP_LPUART1_TX			0x31e>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK				0x15fe>,
-+			   <IMX95_PAD_SD1_CMD__USDHC1_CMD				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA0__USDHC1_DATA0				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA1__USDHC1_DATA1				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA2__USDHC1_DATA2				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA3__USDHC1_DATA3				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA4__USDHC1_DATA4				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA5__USDHC1_DATA5				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA6__USDHC1_DATA6				0x13fe>,
-+			   <IMX95_PAD_SD1_DATA7__USDHC1_DATA7				0x13fe>,
-+			   <IMX95_PAD_SD1_STROBE__USDHC1_STROBE				0x15fe>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK				0x158e>,
-+			   <IMX95_PAD_SD1_CMD__USDHC1_CMD				0x138e>,
-+			   <IMX95_PAD_SD1_DATA0__USDHC1_DATA0				0x138e>,
-+			   <IMX95_PAD_SD1_DATA1__USDHC1_DATA1				0x138e>,
-+			   <IMX95_PAD_SD1_DATA2__USDHC1_DATA2				0x138e>,
-+			   <IMX95_PAD_SD1_DATA3__USDHC1_DATA3				0x138e>,
-+			   <IMX95_PAD_SD1_DATA4__USDHC1_DATA4				0x138e>,
-+			   <IMX95_PAD_SD1_DATA5__USDHC1_DATA5				0x138e>,
-+			   <IMX95_PAD_SD1_DATA6__USDHC1_DATA6				0x138e>,
-+			   <IMX95_PAD_SD1_DATA7__USDHC1_DATA7				0x138e>,
-+			   <IMX95_PAD_SD1_STROBE__USDHC1_STROBE				0x158e>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CD_B__GPIO3_IO_BIT0				0x31e>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e>,
-+			   <IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e>,
-+			   <IMX95_PAD_SD2_DATA0__USDHC2_DATA0				0x138e>,
-+			   <IMX95_PAD_SD2_DATA1__USDHC2_DATA1				0x138e>,
-+			   <IMX95_PAD_SD2_DATA2__USDHC2_DATA2				0x138e>,
-+			   <IMX95_PAD_SD2_DATA3__USDHC2_DATA3				0x138e>,
-+			   <IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e>;
-+	};
-+};
-+
-+&usdhc1 {
-+	bootph-pre-ram;
-+	bus-width = <8>;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc1>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	bootph-pre-ram;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+
-+	status = "okay";
-+};
--- 
-2.53.0
-
+>
+> Thanks for looking at this!
+> -Andrea
+>
+> >
+> > Other than that looks good to me
+> >
+> > > +               return cpu;
+> > > +
+> > > +       sd = rcu_dereference_all(cpu_rq(cpu)->sd);
+> > > +       if (!sd || !(sd->flags & SD_SHARE_CPUCAPACITY) ||
+> > > +           !(sd->flags & SD_ASYM_PACKING))
+> > > +               return cpu;
+> > > +
+> > > +       for_each_cpu_and(sibling, sched_domain_span(sd), p->cpus_ptr) {
+> > > +               if (sibling == best || !choose_idle_cpu(sibling, p))
+> > > +                       continue;
+> > > +
+> > > +               if (sched_asym_prefer(sibling, best))
+> > > +                       best = sibling;
+> > > +       }
+> > > +
+> > > +       return best;
+> > > +}
+> > > +
+> > >  /*
+> > >   * Scans the local SMT mask to see if the entire core is idle, and records this
+> > >   * information in sd_balance_shared->has_idle_cores.
+> > > @@ -8971,7 +9000,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >
+> > >         if (choose_idle_cpu(target, p) &&
+> > >             asym_fits_cpu(task_util, util_min, util_max, target))
+> > > -               return target;
+> > > +               goto select_smt_priority;
+> > >
+> > >         /*
+> > >          * If the previous CPU is cache affine and idle, don't be stupid:
+> > > @@ -8981,8 +9010,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >             asym_fits_cpu(task_util, util_min, util_max, prev)) {
+> > >
+> > >                 if (!static_branch_unlikely(&sched_cluster_active) ||
+> > > -                   cpus_share_resources(prev, target))
+> > > -                       return prev;
+> > > +                   cpus_share_resources(prev, target)) {
+> > > +                       target = prev;
+> > > +                       goto select_smt_priority;
+> > > +               }
+> > >
+> > >                 prev_aff = prev;
+> > >         }
+> > > @@ -9000,7 +9031,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >             prev == smp_processor_id() &&
+> > >             this_rq()->nr_running <= 1 &&
+> > >             asym_fits_cpu(task_util, util_min, util_max, prev)) {
+> > > -               return prev;
+> > > +               target = prev;
+> > > +               goto select_smt_priority;
+> > >         }
+> > >
+> > >         /* Check a recently used CPU as a potential idle candidate: */
+> > > @@ -9014,8 +9046,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >             asym_fits_cpu(task_util, util_min, util_max, recent_used_cpu)) {
+> > >
+> > >                 if (!static_branch_unlikely(&sched_cluster_active) ||
+> > > -                   cpus_share_resources(recent_used_cpu, target))
+> > > -                       return recent_used_cpu;
+> > > +                   cpus_share_resources(recent_used_cpu, target)) {
+> > > +                       target = recent_used_cpu;
+> > > +                       goto select_smt_priority;
+> > > +               }
+> > >
+> > >         } else {
+> > >                 recent_used_cpu = -1;
+> > > @@ -9037,7 +9071,11 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >                  */
+> > >                 if (sd) {
+> > >                         i = select_idle_capacity(p, sd, target);
+> > > -                       return ((unsigned)i < nr_cpumask_bits) ? i : target;
+> > > +                       if ((unsigned int)i < nr_cpumask_bits) {
+> > > +                               target = i;
+> > > +                               goto select_smt_priority;
+> > > +                       }
+> > > +                       return target;
+> > >                 }
+> > >         }
+> > >
+> > > @@ -9050,14 +9088,18 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >
+> > >                 if (!has_idle_core && cpus_share_cache(prev, target)) {
+> > >                         i = select_idle_smt(p, sd, prev);
+> > > -                       if ((unsigned int)i < nr_cpumask_bits)
+> > > -                               return i;
+> > > +                       if ((unsigned int)i < nr_cpumask_bits) {
+> > > +                               target = i;
+> > > +                               goto select_smt_priority;
+> > > +                       }
+> > >                 }
+> > >         }
+> > >
+> > >         i = select_idle_cpu(p, sd, has_idle_core, target);
+> > > -       if ((unsigned)i < nr_cpumask_bits)
+> > > -               return i;
+> > > +       if ((unsigned int)i < nr_cpumask_bits) {
+> > > +               target = i;
+> > > +               goto select_smt_priority;
+> > > +       }
+> > >
+> > >         /*
+> > >          * For cluster machines which have lower sharing cache like L2 or
+> > > @@ -9065,12 +9107,19 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+> > >          * first. But prev_cpu or recent_used_cpu may also be a good candidate,
+> > >          * use them if possible when no idle CPU found in select_idle_cpu().
+> > >          */
+> > > -       if ((unsigned int)prev_aff < nr_cpumask_bits)
+> > > -               return prev_aff;
+> > > -       if ((unsigned int)recent_used_cpu < nr_cpumask_bits)
+> > > -               return recent_used_cpu;
+> > > +       if ((unsigned int)prev_aff < nr_cpumask_bits) {
+> > > +               target = prev_aff;
+> > > +               goto select_smt_priority;
+> > > +       }
+> > > +       if ((unsigned int)recent_used_cpu < nr_cpumask_bits) {
+> > > +               target = recent_used_cpu;
+> > > +               goto select_smt_priority;
+> > > +       }
+> > >
+> > >         return target;
+> > > +
+> > > +select_smt_priority:
+> > > +       return select_idle_smt_cpu(p, target);
+> > >  }
+> > >
+> > >  /**
+> > > @@ -9747,8 +9796,10 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int wake_flags)
+> > >         }
+> > >
+> > >         /* Slow path */
+> > > -       if (unlikely(sd))
+> > > -               return sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> > > +       if (unlikely(sd)) {
+> > > +               new_cpu = sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> > > +               return select_idle_smt_cpu(p, new_cpu);
+> > > +       }
+> > >
+> > >         /* Fast path */
+> > >         if (wake_flags & WF_TTWU)
+> > > diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> > > index 6c3ad70e58b8e..568cb1ed2dd6b 100644
+> > > --- a/kernel/sched/sched.h
+> > > +++ b/kernel/sched/sched.h
+> > > @@ -2240,6 +2240,7 @@ DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
+> > >  DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
+> > >
+> > >  extern struct static_key_false sched_asym_cpucapacity;
+> > > +extern struct static_key_false sched_smt_asym_packing;
+> > >  extern struct static_key_false sched_cluster_active;
+> > >
+> > >  static __always_inline bool sched_asym_cpucap_active(void)
+> > > @@ -2247,6 +2248,11 @@ static __always_inline bool sched_asym_cpucap_active(void)
+> > >         return static_branch_unlikely(&sched_asym_cpucapacity);
+> > >  }
+> > >
+> > > +static __always_inline bool sched_smt_asym_active(void)
+> > > +{
+> > > +       return static_branch_unlikely(&sched_smt_asym_packing);
+> > > +}
+> > > +
+> > >  struct sched_group_capacity {
+> > >         atomic_t                ref;
+> > >         /*
+> > > diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+> > > index 0248227d983a7..06c40eb5932af 100644
+> > > --- a/kernel/sched/topology.c
+> > > +++ b/kernel/sched/topology.c
+> > > @@ -683,8 +683,24 @@ DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
+> > >  DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
+> > >
+> > >  DEFINE_STATIC_KEY_FALSE(sched_asym_cpucapacity);
+> > > +DEFINE_STATIC_KEY_FALSE(sched_smt_asym_packing);
+> > >  DEFINE_STATIC_KEY_FALSE(sched_cluster_active);
+> > >
+> > > +static bool has_asym_smt_domain(int cpu)
+> > > +{
+> > > +       struct sched_domain *sd;
+> > > +
+> > > +       for_each_domain(cpu, sd) {
+> > > +               if (!(sd->flags & SD_SHARE_CPUCAPACITY))
+> > > +                       break;
+> > > +
+> > > +               if (sd->flags & SD_ASYM_PACKING)
+> > > +                       return true;
+> > > +       }
+> > > +
+> > > +       return false;
+> > > +}
+> > > +
+> > >  static void update_top_cache_domain(int cpu)
+> > >  {
+> > >         struct sched_domain_shared *sds = NULL;
+> > > @@ -3084,6 +3100,7 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+> > >         struct rq *rq = NULL;
+> > >         int i, ret = -ENOMEM;
+> > >         bool has_asym = false;
+> > > +       bool has_asym_smt = false;
+> > >         bool has_cluster = false;
+> > >
+> > >         if (WARN_ON(cpumask_empty(cpu_map)))
+> > > @@ -3202,6 +3219,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+> > >
+> > >                 cpu_attach_domain(sd, d.rd, i);
+> > >
+> > > +               if (has_asym_smt_domain(i))
+> > > +                       has_asym_smt = true;
+> > > +
+> > >                 if (lowest_flag_domain(i, SD_CLUSTER))
+> > >                         has_cluster = true;
+> > >         }
+> > > @@ -3210,6 +3230,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+> > >         if (has_asym)
+> > >                 static_branch_inc_cpuslocked(&sched_asym_cpucapacity);
+> > >
+> > > +       if (has_asym_smt)
+> > > +               static_branch_inc_cpuslocked(&sched_smt_asym_packing);
+> > > +
+> > >         if (has_cluster)
+> > >                 static_branch_inc_cpuslocked(&sched_cluster_active);
+> > >
+> > > @@ -3310,11 +3333,24 @@ int __init sched_init_domains(const struct cpumask *cpu_map)
+> > >  static void detach_destroy_domains(const struct cpumask *cpu_map)
+> > >  {
+> > >         unsigned int cpu = cpumask_any(cpu_map);
+> > > +       bool has_asym_smt = false;
+> > >         int i;
+> > >
+> > > +       rcu_read_lock();
+> > > +       for_each_cpu(i, cpu_map) {
+> > > +               if (has_asym_smt_domain(i)) {
+> > > +                       has_asym_smt = true;
+> > > +                       break;
+> > > +               }
+> > > +       }
+> > > +       rcu_read_unlock();
+> > > +
+> > >         if (rcu_access_pointer(per_cpu(sd_asym_cpucapacity, cpu)))
+> > >                 static_branch_dec_cpuslocked(&sched_asym_cpucapacity);
+> > >
+> > > +       if (has_asym_smt)
+> > > +               static_branch_dec_cpuslocked(&sched_smt_asym_packing);
+> > > +
+> > >         if (static_branch_unlikely(&sched_cluster_active))
+> > >                 static_branch_dec_cpuslocked(&sched_cluster_active);
+> > >
+> > > --
+> > > 2.55.0
+> > >
 
