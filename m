@@ -4,103 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DBAC79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA5AC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=; b=t6mIpDWcjDXM+TrNHxWhbgDvlk
-	Ny3LA7fkqZqQrk+66+mmsarHPTTEl1aoQy9CdbWzc/3g9n8PmSN362VR1IcSjf3jKY7bmKAtHGawO
-	C0nuXUxDMZ+UiGJynjDMWWTh/1M8qdWyySpvxTcth2dB/KMISEqnPhP1MdVk5+qMg8sJFaPL/+du+
-	A4YyRggtQykixARYJxVLPaCcDDJuZr/cNp2h1ssJDvC1YFs+Ie0EeA1QxO/9NMXZAVsLWbhNF+fob
-	4zA1tEQzuFdJcQdhArfISloMCcppcHw0pXAkPMJ8QKczKqAgRQNBox+qFBAkofcbz3/VdUrka4LQ4
-	kMD8hH5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K5xZwe6BB14FgiUoJeEDcecfAKoT6SnPT8CWcokGDbQ=; b=VrjR15XO4b3UP7iHO9+GpuU4os
+	Qu54NB6uQlg7Wp+J0KIqHPg2Redj3pL84mJr7nyLClR1UhnLSIzg+BLYXIOkq0/Zp8vBK0O6KXlrQ
+	+5Jmm7uNIEVmd3osNoc79jsFpz/J1d0EV570YBg4+zIyDOMMLST1VyF0ahfJ5uHQtRFzbRdtClWZh
+	W92bQPNNxY4Ycbp7SMAz6qTNEti7ImjxAz/EpJWszAzVDzbbnUyDfnjK67DDdTwHYKyXpmcEE/5Mc
+	YXwvmhWqnIfbo1gWMTsnK0VZgtVVlvTE3BiSALot8OLVgk/fWSkqr34dkK3Ccg0QYuVM/3DBcWWKc
+	naZcgmTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4M4e-0000000CUFw-2ZC3;
-	Wed, 09 Sep 2026 17:27:04 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1x4MDV-0000000CVOi-362i;
+	Wed, 09 Sep 2026 17:36:13 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4M4c-0000000CUEm-25xd
+	id 1x4MDS-0000000CVMq-1doG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 17:27:03 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-86959a6f7f6so411007b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:27:01 -0700 (PDT)
+	Wed, 09 Sep 2026 17:36:12 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-499db17b40eso2293705e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:36:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788974821; x=1789579621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=;
-        b=OrNG6AKTL28hjShyf/BXCWLbbKmGRVvv5O0s+ZlVcgNvXS7cstsUDnGEvztaguoDy/
-         WMYMUtcS12aWZP+FyqgT1e1gq2PQFtBTX6rXgmcq4kgdZu7LgJ3WtRMNDm/yXp2xMf6o
-         gTHuobXf14om7ZCmSC8BO8T6VQtQz+Z81vEQbsq2PYpun7O7cr6iBLBZvMhQmEiBPAzr
-         27I4jF8Su+eOtpLQ5QUW5kjvt0v34iPrY1HXz/xieeauTlZ7bK10MwY1T9fidVHtJuiV
-         SaMXcEWRESozAHxDzagGbMIPMexwtAmDmaIuKp/ws9SapZ/Ij/5aGkp0SwwUelbhbMFh
-         UeEQ==
+        d=gmail.com; s=20251104; t=1788975368; x=1789580168; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=K5xZwe6BB14FgiUoJeEDcecfAKoT6SnPT8CWcokGDbQ=;
+        b=gWgUbP3cr1cg+wOoSQa/cB00ZQ48MrgdKdI0lGtXesZZGbsZ48wBmkuqembfLUO21v
+         HnQ7oMdR9jP7MbFA4RLwg4Gs9KsQQ0TCG18aulr6TzmQuHeKblgd6E0Hfu0qJMgO/LCh
+         IN6LEH2NOu9V5hPgfkONUIHNm/xLvK13acJSLwvahco+VAM2LYiMJjR6mh8HIJ5/WIH8
+         YSxsUwiM/Y9C40KBJRy8ecG8Z3O9ysg7NTp8tuvOtP2ayY8idXYaPd4KAxuxM0vGMhDT
+         3XXZoJ18q+X9MmrAquUU+/AHbOpQA2YZSWe3sGmzJA+zRYia+6yfQ74+txM2IeTaXzuh
+         r4Ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788974821; x=1789579621;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BxkJmMQiuFGLIVhYvP7iekSRoJyyqxrT2LFSLJP0a4Q=;
-        b=PUHXHZoaSDg/04hV3KPoflEdJDpiqWoWrGoHu61vOcph8GCmNl6VkAsjG89IXu15WP
-         qbG6R5AvP40GPmX7iw6qRfxldFQlaZIpfqVNuylgDt8JDYKmZ7/BF4LzEITB0dQ09x92
-         5katcCtfnaut/vsZuSzMV1h5cqOePrdrezi+jxJiXlM1VyWQ+6Wn9ghRWF4xWR8fwx/A
-         yWlKf85WU+GisWhy2lAc5SbVpqoTRadmSCRdE3MMenyZ72kBT7yRl4Uqdjy9IfNGG7S2
-         XylvUolcx4xCIJtF3Q6tqe6h8jMIzAEG9gF/LLECzlDhYo5cKzfQbwFq2yyvLEIiVwiy
-         /LDA==
-X-Forwarded-Encrypted: i=1; AKwUvByC12M11Rbl+L3/a2pNH6vK1vmYgwbjby97LagGQ6KFOpmjlHqx39qxw5lerWrW5sGlz2KeQV4O4ntYptVl2TvZ@lists.infradead.org
-X-Gm-Message-State: AFuF++kWumpIg/e5PsqlF1KRQ/SRyp7gk0r3M2nsRg35b/meJQm9JhGP
-	ugaJ5DmMA2X/4bzTQXSTliH6IptPZ9VxsKRIoyruZyddX0/Xu0aJDizd
-X-Gm-Gg: AYBFou38xBpOviLbrSCQIGCaoUvpj7eZE2vlwrb42k7uL7LZm3fdLAJZDHqUvZ309LP
-	5q4KUEBKQdKUdclwD2u0J5XJjdzZKEI/cE4bXoXjv9Rj7yxTISSRg683jDmA9mdWJ1IzaoxPT5C
-	9TtIhxcyrJNMixphTOEO5piN5SvvXJtCvNEvnB9s1rWUBy462msHxRL0MaXPRhphhGwBGp0oP8j
-	oJcifcCmXx/FRdr7OIwCadzsEaa7rYlzsKQScB4WtGTS3WmG+SB+AFbIIzo1YdOlrJ6XPxV3LC+
-	9+3PfNxGCpD6I7vUiItx9HosnL4imfbF6hJKPCv3iUUWf7ZTUwQq41bkoZFFLrABsmiHfhH1xE2
-	iWZkmvrKSxj4PEZHkf1VRZOqepOrLiJVWz9UjsqRUm2YuHVmJI4a2kpuNsnwSAewWkAOosrKYo0
-	hWtC4PEAAB+hJ07oInwlaETPOF7aD6OBS0Ttcw9WGZ09BS06moxH44z2yTVAAr+O/0BPW3tP5jz
-	7Ip9L6xaXkczZA11uwl2CruuMPhkvHUVkIlMC3MyRMwr5g7ulgH
-X-Received: by 2002:a05:6a21:9d84:b0:3d3:af85:eb98 with SMTP id adf61e73a8af0-3da3a16a579mr57975715637.26.1788974820346;
-        Wed, 09 Sep 2026 10:27:00 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:2d43:5153:5c50:643e])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534df1sm52422943eec.7.2026.09.09.10.26.57
+        d=1e100.net; s=20251104; t=1788975368; x=1789580168;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=K5xZwe6BB14FgiUoJeEDcecfAKoT6SnPT8CWcokGDbQ=;
+        b=sCjv+I7LlyNylXPiwgIxTymxrKQ4qK7dzuBv61cyqSFlzgDfXLIbNRswLJEEzMm3VI
+         ZCBdGK7Spfv4ZIE9zheqzZoCP9CVKbuKvCRl1hD+zx0w0qKyuivTDOlQRZMvSamIh9A/
+         oi8buGfBk7Rd1ud1tx3a9IYq2yAL+Ge2zq/k7HtrS7JW/svsyaOjSaL+02rF/maMJV+8
+         /i9jZGOcYoqzNXgKsiQdr98bE0B3ZmKLy8wgwTi7KD0fZ5I+NeCXD/bZP8lnHxlhO0gg
+         pNsuGZTyzGj3E97eIJyfxG3IT4M6hWjbxSg10qcZFQ/nrKP6MZU03a5r5YcHsvZeSVzv
+         B/sg==
+X-Forwarded-Encrypted: i=1; AKwUvBzM8OHLxijSNXlcl1JMcBrxo6uKj3+ubTOzzjRJJEQRTOz948aVzI/Wh8t5lAoPuLjLQ54M7h/3opH8A1bAIhrR@lists.infradead.org
+X-Gm-Message-State: AFuF++kGw2MpeAVf1XzXzdpIkQx7RiXhuX2yyEa3fVi37erAclR9zrFa
+	6mTW8/fhxxwA6JFdBUuYhyWnmUl7NtwsOi9HBsOV+MjQOuiUciSPitYc
+X-Gm-Gg: AYBFou3/l+GFywCwsdwdbs9vxHrJmxG6kcu25DgRyfxVZrjlNm/UNOizBAik4O6Vra/
+	axbE0aquu8vZBuMqbQTgRaxBgYjgnfZnE+gEvmGnOxWQCxYQd4nCrYMOGZN3n4yTMP2htIH31hH
+	2ZbhJRgNRTVn7RX4G6Lhtn87zq35VknrGudrv/ZpEyMRUIJr+rlRj52kKJCsvw26dMtdqFtsD6c
+	ny/c2T5UtJwnhPip/UYWgCFGGKyRo5gmGoRVmpBarxEVytxvs2mgP3n4LZs7aWnCPBqn/QyBEAN
+	ABpPrQlprKjhnQt5gKC0VI4ddfkzTnree2S1w8AL+2fcNVSPEu6TZl97rijls9zihosHLKjVerQ
+	CWVfS3W2rajl5F0Kk6Vcu5CgPGPRkEOGgqzD1Q34IdFUg5JSe4pbx5+bAaln4fM09hGnJoMliVd
+	idy9VGbL7BI/8QFjAZBK8WUywfQ1L0irTne7ui2rVt4SKe/4KZaeLCvH2X7BgK/BNJDtukXuSfI
+	ZVFeWTRkLI7hRG5oVNU8rKaGEiBGZQ8FlrLTpFP6zs9mUv2zN23mGs1Yj//EjJEmVAAzE7GrI5S
+	Cw==
+X-Received: by 2002:a05:600c:8485:b0:499:5b0f:72b with SMTP id 5b1f17b1804b1-49d01dcc32cmr256409415e9.1.1788975368210;
+        Wed, 09 Sep 2026 10:36:08 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B836900B0110705BF092680.dsl.pool.telekom.hu. [2001:4c4e:1b83:6900:b011:705:bf09:2680])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26c06f04sm6876575e9.13.2026.09.09.10.36.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 10:26:59 -0700 (PDT)
-Date: Wed, 9 Sep 2026 10:26:55 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Arnd Bergmann <arnd@arndb.de>, Daniel Thompson <danielt@kernel.org>, 
-	Jingoo Han <jingoohan1@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Michael Hennerich <michael.hennerich@analog.com>, 
-	Support Opensource <support.opensource@diasemi.com>, Sebastian Reichel <sre@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Helge Deller <deller@gmx.de>, dri-devel@lists.freedesktop.org, 
-	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-hwmon@vger.kernel.org, patches@opensource.cirrus.com, linux-watchdog@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-leds@vger.kernel.org, linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org, linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	llvm@lists.linux.dev
-Subject: Re: [PATCH 00/14] mfd: unused driver purge
-Message-ID: <aqGWjAuGXq_JHvxk@google.com>
-References: <20260909132153.1596191-1-arnd@kernel.org>
+        Wed, 09 Sep 2026 10:36:07 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: dri-devel@lists.freedesktop.org
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Ville Syrjala <ville.syrjala@linux.intel.com>,
+	Imre Deak <imre.deak@intel.com>,
+	Ankit Nautiyal <ankit.k.nautiyal@intel.com>
+Subject: Re: [PATCH v2 0/3] drm/dp: shared HDR metadata SDP helper, and max bpc for dw-dp
+Date: Wed,  9 Sep 2026 19:35:37 +0200
+Message-ID: <20260909173542.14030-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260909163206.36409-1-royalnet026@gmail.com>
+References: <20260909163206.36409-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909132153.1596191-1-arnd@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_102702_538232_49A8097A 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20260909_103610_447048_060A42AF 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,39 +128,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 03:21:37PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> As part of my cleanup of old platforms, I had a look at all drivers that
-> may have become unused because the last platform_data or DT definition
-> was removed, or because of unmet Kconfig dependencies.
-> 
-> These are all the mfd drivers I found. The first ten in the list
-> actually turned out to have been unusable long before my series, and
-> I have added explanations on how I determined this in each patch. The
-> last four patches are still in use in linux-7.3 but become unused after
-> my series [1] that I hope to get merged for 7.4.
-> 
-> Somewhat unorthodox, I took a shortcut here and remove both the mfd drivers
-> and the corresponding subsystem drivers (gpio, hwmon, iio, input, led,
-> media, power, regulator, rtc, video, watchdog, asoc) in a combined patch,
-> to simplify the interdependencies: removing just the mfd driver would
-> leave unselectable or broken drivers in other subsystems.  I also have
-> additional patches for each of the other subsystems, currently a total
-> of 300 patches, many of which still need better testing or proper
-> changelog texts.
-> 
-> Please let me know if you all think this approach is ok, or if I should
-> explode this further and turn these 14 patches into 70 individual ones
-> by splitting them per subsystem.
+The three patches of this series never reached the lists. The mistake
+is mine: when sending, only the cover letter carried the recipients,
+so the patches went to nobody but my own inbox. I noticed while
+checking the archive after the fact.
 
-Sounds good to me, especially if Lee makes an immutable branch from this
-pull so we can all pull it in...
+Resent below as replies to this cover, byte-identical to what should
+have arrived with it. Sorry for the noise.
 
-Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com> # for input
-
-Thanks.
-
--- 
-Dmitry
+Igor
 
