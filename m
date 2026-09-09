@@ -4,63 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E2CC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 04:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E84EC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 04:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EnBk09dXkcIcLsLMll4dE1qy96qjlCl4Bw9XNV8GeNc=; b=bQX/mXZMbfy1cC1t+3NuLUyieT
-	5Bs2IeRjcFrt7swlRB9rL1nkAs49vrGh8ykbSWsUTnrMWfPmq9b+IHGeEjSR8pjQGbdv8HuPDF0Or
-	Q0YShefRbxC/53aUdFSskOsPGRcIIRgNxPpn+dQKiTwrt/CXSczbDjGdrdVyJ/zppNvWfTKIpWvDO
-	oUXC6t6htnkHo0E7Gmwvn3usfuuD0Vq5PdEmUAqFfcmO9NG/ARJPd3WQlyxqz0JO8pL7BHKKzAYY2
-	Zyggerafte9PQ1XQ+dbBTQ+eYiDrEVawDAcO0FUpV4AVa/VEGt32J4A/SU0RDslGwLsxsxtcdXQPv
-	rstPZvbQ==;
+	bh=d1+atJR6FDQQspxnJlEifDjkb7d3prg4wHIrPk7shYw=; b=f+iUz9rtB6YpwSBkofLFAaqqZa
+	ARVMnNxnyHx01TKVissmojEa3fN7J6gJdn+WZla9Sb/uFR/5WLiPvT/A9A487DLoZnGM0dr5kJUnU
+	lshuEPCPJssu8GqlLRPOISLiIvnbpa95tXCP1t3zrYN7e99hswUH/ySt+2A4K7QcnAasYaI2lxxk4
+	sPMabGzOpYmVXFY0XOrOGQyM3lhQY+WEUtqOFCZAWgoAI4EF0d1AoQp6q/IZi3MHMWoReHa6Aw2yj
+	534go0FEl1irFFcxT4o1cYWABeYdKIQoilb5U5Z5jWijvJB1jc8KMvHyxA+gv3hxVMNeghcEGIAqH
+	LP6oF9Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x49UC-0000000AjSU-43V2;
-	Wed, 09 Sep 2026 04:00:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x49Tv-0000000AjPy-0hY0
+	id 1x49ZX-0000000AjrA-3xUy;
+	Wed, 09 Sep 2026 04:06:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x49ZU-0000000AjqV-3e9d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 04:00:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EC1D1477;
-	Tue,  8 Sep 2026 21:00:14 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0382A3F528;
-	Tue,  8 Sep 2026 21:00:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788926417; bh=U8t03BH95uIReM5gGaLf+aJqwm/RpI+Qj5wFNcim6XA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ug+EtDLPJOfYjPOWsAmFFj9LTsUzGcUTlKj5w2+XZfk95JRIYfU2PaZcCUb8/j/cp
-	 FTk88wBGOJpq/uW/ersOaw782hG69BZfGZCvQppHf/hhjgkTTQazRsn4wTM6CwCf5P
-	 VTxYPV2buK/Cg+Tgtkge2y4SP+GHXDKVMk5c0y6g=
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH V2 2/2] arm64/mm: Standardize printing for pgtable entries
-Date: Wed,  9 Sep 2026 09:30:05 +0530
-Message-ID: <20260909040005.4148136-3-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260909040005.4148136-1-anshuman.khandual@arm.com>
-References: <20260909040005.4148136-1-anshuman.khandual@arm.com>
+	Wed, 09 Sep 2026 04:06:06 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 688Mg2uA965220
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 04:06:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	d1+atJR6FDQQspxnJlEifDjkb7d3prg4wHIrPk7shYw=; b=KMmpulumqUHxy974
+	LfPhlTuVkXLjKQydr+Jk37/5pYuE/aYqT4tC0rtx0xep6Z5Zc5hGXyE6V9uyi5mI
+	L/V60lpVH2wyw0p2Mlpo4yQ1GB03B1HDEsfLxPszNNFMi7DZk1e9HUT7emg9Z9+U
+	eF4pf8YDJaolfMdnwLk2Ob1sp2FIqKSbWnKarkKJyWBWmndlFso0JGU1WEB8FdBd
+	XQVtgWOwao48Xfz+/PMa8Wz8mhMsX0OMm7QVNVEgUiSagatS+4lNxS8npn2CZD6j
+	2tPNYbq0BQEv+Gkv8oI6hdQcVuQmAs33AnuBsN8FisVBXZ1s3GOeUYeNVpULDJZQ
+	QvTgpA==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjqha22k0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 04:06:03 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38e8fee6af3so7127655a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 21:06:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788926763; x=1789531563; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=d1+atJR6FDQQspxnJlEifDjkb7d3prg4wHIrPk7shYw=;
+        b=if0qJ1QpACgQzLVodsOsGjO5VTaM+3KnvbnjiQmoNU0mZU+8HN4oBccaVQBWzueduh
+         9SZEJusdrAueyzx6I41CIsVNG04LY3V+HntxPvbjXAbYEUz/tf6PpC0ZHF96M+2k5EZd
+         yLxUEz+KC7dMJG45GN29we+Hd+kNjiuSkfs9MR3CwrK8R5u3siuXw6+/Up+MVCcD1Q2v
+         2MoXAlTzjW1u3e/ehYwd5MS3RhaAi+X+Q1aEIxHjhI/vfXKYHwFEpeGFImVBA53f9YCX
+         O0oSrpkEjGwT3FUXmNl46uTUYxe4gBN3Ne05zLLRQUzY7hDhuaKsfxBY6n+OCzyY32aJ
+         lZrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788926763; x=1789531563;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=d1+atJR6FDQQspxnJlEifDjkb7d3prg4wHIrPk7shYw=;
+        b=kr8m+VSSiDyj1n/7CnzySdSvVTv4PDiCc5etoTca2eIVnDwksqLFh5XNZSo5yyh3f9
+         DS9gRV1CFrhoPp7KxReQt9x8Bu2zYZM3fhTYfqr814psIgvcpj3XL0HfKuvZj6RP7M08
+         jC/kL6lI2fWQlQQhWmf3EybvnavYMRLZ5yZ76c4UUBKymczw35kf4+SK3Pag48UypD09
+         gvEBSS5sVqoLYadidnCZ+2fTHEMp6r0AhZ1BgB3+D0zO/6ffGNmRNuGIoRayjX1qif+q
+         r+QVtLFJSAh94zbrVhysx8y2uDutIjUodp75Ojshl6yDdEtyci0Qr1LKsI9UBjRgEc/E
+         Rx8Q==
+X-Forwarded-Encrypted: i=1; AKwUvBz5hcn7fRagRl3KhV5s2871yb1JDhJMZ0N3+cxDjWcNUQrzFOMhjdo9rtgKLjr0cBXS+aQzhcHy1tmSbQVj9qRT@lists.infradead.org
+X-Gm-Message-State: AFuF++mlZ4tGhPvpgwkb1g7dnQyqXub5crRh/0SlzfUjZOwwbnmzF8Nn
+	AIc35wUVi4PYmHb0Os49FYWnE+WjCzODpvomMIwd0Rk4e01kmxkWteU6LMwA3HdcBCGnj9gBM7h
+	798t57JmVOhcfhWJhUJgElHhqny7rdPUUzJDx8VKodYZp4hCs3GI4Vin4AdywoAwunRIp+oZOAh
+	m+l6/x+u8Z1w==
+X-Gm-Gg: AYBFou1UwQuJZTMMYzgb7B0BwnmbnWcwZdzWxflbHK8N+lQxtNsNeAs3DsfvS27eItU
+	sgz4ag/yKcIzgN9rh67Do+/aN6P7PH2XBJvwCHgH/A3fSOFRRptYfGvHHRFDzvYeCZx/8tpkpvW
+	3RhE+JWVapbX1wquLUZ4f/TrI4r6fEZsveBY8osrqNhzuLC/7fBkE0xIBdS9/Vw3RLMA8X2+YuA
+	ekr9WOjdetUScC3fL6/3dSaWnudnfBc979YavZG9KyTDYLK/z3Yjs5UBl2Ej0mNKrz3GNB8G5Aq
+	HMaLUQWgv/Pu/jF8MBc6nNrLg30JIFm9semmZuekAqbXT/0SRgmyVDXtD98CHQgsolFbXccZay1
+	rPcLA95EY6jqiEHnsyhLNF3hoZxg5JqXnSQ==
+X-Received: by 2002:a17:90b:2749:b0:398:d292:e6d5 with SMTP id 98e67ed59e1d1-39b26304385mr50410115a91.24.1788926763183;
+        Tue, 08 Sep 2026 21:06:03 -0700 (PDT)
+X-Received: by 2002:a17:90b:2749:b0:398:d292:e6d5 with SMTP id 98e67ed59e1d1-39b26304385mr50410062a91.24.1788926762690;
+        Tue, 08 Sep 2026 21:06:02 -0700 (PDT)
+Received: from [10.218.39.50] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534df1sm46654957eec.7.2026.09.08.21.05.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Sep 2026 21:06:02 -0700 (PDT)
+Message-ID: <dfcecd58-d6ec-4694-81b6-fe6d45d4a7d4@oss.qualcomm.com>
+Date: Wed, 9 Sep 2026 09:35:57 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] iommu/io-pgtable-arm: Add support for contiguous hint
+ bit
+To: Jason Gunthorpe <jgg@ziepe.ca>, Daniel Mentz <danielmentz@google.com>
+Cc: Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org
+References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
+ <CAE2F3rBQQEHsksOyE2ojQPbMd_vvFqaFMC2RzT0B6KkxMB5YgQ@mail.gmail.com>
+ <c84e61b1-785e-4a47-9082-c5111bf35fd4@oss.qualcomm.com>
+ <CAE2F3rC80=ZpiHVtmRDU6f8g4AwV_RrJ-Zqr0Xi7zbUc0fsQog@mail.gmail.com>
+ <9c28300b-a17f-4324-b9d5-8fc800e4d794@oss.qualcomm.com>
+ <CAE2F3rDdogf1jGsD2ekGqT7X692fFyqv=H-8iM5OTu8AdHHoJg@mail.gmail.com>
+ <CAE2F3rAeq_CPeaDxuh40v41v2f=68oD2TqK9DYSPKz9F74kqeg@mail.gmail.com>
+ <20260908164746.GC2543240@ziepe.ca>
+Content-Language: en-US
+From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+In-Reply-To: <20260908164746.GC2543240@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDA0MyBTYWx0ZWRfX/qqYGhUFbdsN
+ kHo0ZtE/2rHuhO9FEYka3YOqMd4K5Gf+S016PejO5S3WBDWhRM3sdccUx4jU5+NUknovcID4Gs6
+ kkWV2USShn6U4SU05DqNPmyK47BB7wrhWIJkJYf0rjAxvSMppFVw0MNxyE+rrSdfN3RU84S/8eC
+ mnG7Zrt99HetcN+QVk/pNijfZXmChPeiWUSVMueeZI2oZH71chT2Hpd0MXiLm5zAL0ji0kpqpKN
+ YFcj54QlA/E/qxEr/NRkBDaucHjXcRRw7QAwDNfld854GP0r1okqE9YKsNDsrNHc2IIx/MTlLQU
+ MELcld/5gMd6WFKBmRdncbVNAkL0NY/l2Ni0mRGljp6PtZtKbRzVI7VZZfyzFv0Tv7nzfE7qZl6
+ j2jqoCF6giRiiYuLDl10QuuIFGee479LcavpUkV1iY/VRsT26WNYa5M+7NuvfRRWxumnu5AJuLM
+ B63pk/VcM0mgUXwFaEw==
+X-Authority-Analysis: v=2.4 cv=Z5Xc2nRA c=1 sm=1 tr=0 ts=6aa0db2b cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8 a=zcW-mOqCcEHC3mfLxN4A:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-GUID: RzHZmL2AwWDtGFOIpseQnSkoQSmbX7Vx
+X-Proofpoint-ORIG-GUID: RzHZmL2AwWDtGFOIpseQnSkoQSmbX7Vx
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDA0MyBTYWx0ZWRfX8G1MY4mKc0cJ
+ tnJdBpvw1J2cd5x3j3WwsdkR/1zvIDfmyTzTXdaNYCIvt3FpakIx5uwyohhu7rqjwexewQt9w1J
+ ovxQCIw/16ZFmmiWL+u91SFc1pIJGbI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-08_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
+ adultscore=0 phishscore=0 priorityscore=1501 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_210019_558037_7111C157 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260908_210605_697183_332A1347 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,120 +160,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Standardize printing for pgtable entries using recently introduced generic
-helper ptval_bytes_to_hex_str() in core MM which automatically enables 128
-bits entries when added later.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-Changes in V2:
 
-- Replaced pgtable level specific strings with pxd_str[] in show_pte()
+On 9/8/2026 10:17 PM, Jason Gunthorpe wrote:
+> On Tue, Sep 08, 2026 at 09:36:35AM -0700, Daniel Mentz wrote:
+>>>> That said, install_leaf() is shared by other callers that reach it through
+>>>> ops->map_pages() directly, without going through iommu_pgsize(). panthor_vm_map_pages()
+>>>> (drivers/gpu/drm/panthor/panthor_mmu.c) is one -- it allocates its io_pgtable_ops via
+>>>> alloc_io_pgtable_ops(ARM_64_LPAE_S1, ...), same as any other LPAE consumer, but does its
+>>>> own chunking with a local get_pgsize() that only ever returns SZ_4K or SZ_2M, with no
+>>>> notion of the 64K/32M CONT boundaries. That can hand install_leaf() exactly the mixed
+>>>> iova=paddr=0x1000, pgcount=34 shape in a single call (panfrost's map loop uses the same
+>>>> get_pgsize() and hits the same case). So the prefix/aligned-group/suffix handling in
+>>>> install_leaf() is still needed for that path.
+>>>
+>>> Maybe other people can chime in here, but I feel, from an API
+>>> perspective, we should have only one way to make of use iopgtable. I
+>>> think we should just mandate that users honor the updated value for
+>>> pgtbl_cfg.pgsize_bitmap (and pgtbl_cfg.ias) after the
+>>> alloc_io_pgtable_ops() call and then choose page sizes appropriately.
+>>> Otherwise, we end up with two pieces of code in the kernel solving the
+>>> same problem. panthor_mmu won't be able to take advantage of the
+>>> contiguous bit until it gets updated accordingly, and that's ok.
+>>
+>> On this note, I want to point out that I tried something similar in
+>> 2025 (see https://lore.kernel.org/linux-iommu/20250430231924.1481493-1-danielmentz@google.com/).
+>> The feedback I received from Jason at the time was:
+>>
+>> "Wouldn't it be better to use the pgsize_bitmap and rely on the core
+>> code to indicate that a contiguous page size is being used, so it can
+>> trivially set the PTE bit without doing all this extra work?"
+> 
+> Still think this is right, Panthor is not using it well if it doesn't
+> jump through all the hoops. Probably there should be an general entry
+> point for map/unmap that does the right stuff for the DRM drivers to
+> call.
+> 
+> Jason
 
- arch/arm64/mm/fault.c | 16 +++++++++++-----
- arch/arm64/mm/mmu.c   | 16 ++++++++++------
- 2 files changed, 21 insertions(+), 11 deletions(-)
+Thanks Daniel and Jason for the detailed feedback.
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 75c3e463df2e..2cecf6ba6df7 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -131,6 +131,7 @@ static inline unsigned long mm_to_pgd_phys(struct mm_struct *mm)
-  */
- static void show_pte(unsigned long addr)
- {
-+	char pxd_str[PTVAL_STR_MAX];
- 	struct mm_struct *mm;
- 	pgd_t *pgdp;
- 	pgd_t pgd;
-@@ -160,7 +161,8 @@ static void show_pte(unsigned long addr)
- 
- 	pgdp = pgd_offset(mm, addr);
- 	pgd = READ_ONCE(*pgdp);
--	pr_alert("[%016lx] pgd=%016llx", addr, pgd_val(pgd));
-+	ptval_to_str(pxd_str, pgd_val(pgd));
-+	pr_alert("[%016lx] pgd=%s", addr, pxd_str);
- 
- 	do {
- 		p4d_t *p4dp, p4d;
-@@ -173,19 +175,22 @@ static void show_pte(unsigned long addr)
- 
- 		p4dp = p4d_offset_lockless(pgdp, pgd, addr);
- 		p4d = READ_ONCE(*p4dp);
--		pr_cont(", p4d=%016llx", p4d_val(p4d));
-+		ptval_to_str(pxd_str, p4d_val(p4d));
-+		pr_cont(", p4d=%s", pxd_str);
- 		if (p4d_none(p4d) || p4d_bad(p4d))
- 			break;
- 
- 		pudp = pud_offset_lockless(p4dp, p4d, addr);
- 		pud = READ_ONCE(*pudp);
--		pr_cont(", pud=%016llx", pud_val(pud));
-+		ptval_to_str(pxd_str, pud_val(pud));
-+		pr_cont(", pud=%s", pxd_str);
- 		if (pud_none(pud) || pud_bad(pud))
- 			break;
- 
- 		pmdp = pmd_offset_lockless(pudp, pud, addr);
- 		pmd = READ_ONCE(*pmdp);
--		pr_cont(", pmd=%016llx", pmd_val(pmd));
-+		ptval_to_str(pxd_str, pmd_val(pmd));
-+		pr_cont(", pmd=%s", pxd_str);
- 		if (pmd_none(pmd) || pmd_bad(pmd))
- 			break;
- 
-@@ -194,7 +199,8 @@ static void show_pte(unsigned long addr)
- 			break;
- 
- 		pte = __ptep_get(ptep);
--		pr_cont(", pte=%016llx", pte_val(pte));
-+		ptval_to_str(pxd_str, pte_val(pte));
-+		pr_cont(", pte=%s", pxd_str);
- 		pte_unmap(ptep);
- 	} while(0);
- 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 0b2d190d62c3..26f4cf7b753e 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2411,6 +2411,8 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
- #ifdef CONFIG_DEBUG_VM
- void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
- {
-+	char pte_str_old[PTVAL_STR_MAX];
-+	char pte_str[PTVAL_STR_MAX];
- 	pte_t old_pte;
- 
- 	old_pte = __ptep_get(ptep);
-@@ -2425,15 +2427,17 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
- 	 * (__ptep_set_access_flags safely changes valid ptes without going
- 	 * through an invalid entry).
- 	 */
-+	ptval_to_str(pte_str, pte_val(pte));
-+	ptval_to_str(pte_str_old, pte_val(old_pte));
- 	VM_WARN_ONCE(!pte_young(pte),
--		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: racy access flag clearing: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- 	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
--		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: racy dirty state clearing: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- 	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
--		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: unsafe attribute change: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- }
- #endif
- #endif
--- 
-2.43.0
+I agree that CONT-sized mappings should be selected by the caller using the
+effective pgtbl_cfg.pgsize_bitmap, rather than having io-pgtable-arm perform a
+second round of prefix/group/suffix splitting.
 
+Based on this, I will remove that logic from arm_lpae_install_leaf(). The only
+effect is that direct io_pgtable_ops users such as Panthor and Panfrost will not
+benefit from the contiguous hint.
+
+Updating Panthor/Panfrost and adding a common map/unmap entry point for direct
+io_pgtable_ops users are separate API changes, I think this can be taken up
+as a separate follow-up series.
+
+Thanks,
+Vijay
 
