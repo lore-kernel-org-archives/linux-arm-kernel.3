@@ -4,103 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B3DC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7284C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h0zpzqKm0CENhJXld+VQVeUDZwNbcVF1oV5qUJFkK9A=; b=rYXdxJJlTN8l+tPnOA/qqZskOE
-	yDVwK5W24lnE17WvX020Bo7r0sDSwhDf6j4nWqoyH5E2SMgWwzel+gnIPPs4/y/m/KmVfyg3ubVB2
-	dAq8jp8vXoAj9Tyd0G9vtyZtzjJ0H2Vf/2ODvhLk2M43S7vTjuc4KPsCQXduixhXJEZGQvdBocjXC
-	Y/oG8IpRY+1Ysp9qx0Wots6bST0AcCGscI6LZhor3eppDypIX0yXZO8cIIuQlgT0KhWYibB0Gwnnm
-	2k5va1Y+KKluVnME3zVcpgHmgDcIKyLwigNnyy0uMxmQMc3os8eql0QQ9TWUNTi9PZUa2gikZkMqh
-	sVTQEFNg==;
+	bh=t7/dCfxNJRvWHhtV0pq4mJPMTtGBRxNXo1El/nz3lNQ=; b=33eEroTXhr4v7h/yfWvZoWChrm
+	euGLSAwzvvJg8chUgaktLBeHzwbTHaVYS2wPrutOW4Xlw7+8iiF0ptTJwAq6JFZULO41Spvrfy141
+	WFozYlFQL9qn84WkXTFmMM+HWg56Iz/NuZiAvBGQllOM7yVaKbIGW5f71vPNWY/xDyQVzDGyxHSTv
+	L79nwlvhUFF8+Y9DEZS/C5RLRmWGzdOo86S2MIzKQ4t1CUsrSyISto78SG0Ax0+437JbnflC/MQcQ
+	QO+2XiNbEVAF8d8gYKaclZCfaYV+NytwpMQhm3AktAFUYNKIIwuvayQKUOUUY6iKnfYdBM6vho9nW
+	xo10/u3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BSD-0000000AqKt-1U6C;
-	Wed, 09 Sep 2026 06:06:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4Bbz-0000000ArXg-0RRg;
+	Wed, 09 Sep 2026 06:16:47 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BS7-0000000AqKC-408E
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 06:06:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=h0zpzqKm0CENhJXld+VQVeUDZwNbcVF1oV5qUJFkK9A=; b=Mo2HhW3od3qPTOOLrKD0GjjryB
-	XwE4E8Os0xYI6JwyaY7yIxZRuddwDzgiAFC+HEP2IaEglykf1lqiHt/aXvIP5WcIxRaE1CWaOHdAh
-	jvBHKFp6avnduig5nHao7cNvp8oI77rtfBbHpYHnO4LEcBA9vr7MfgECBSYylyR5sA8tNMK5CAPRH
-	GsMMTr5EuR2rmjNLcFqluQeXMWvcvXDjiplxocpRrZQTuMdu5eUZ5s+WVjTkp5uwgzsVnXgQ8cF9+
-	CmNl31k8SNRuBR1Yoh3Bc+D8SDYFDazrLW7QdleNAqStR0tp/u1AgS0d6eloiEPlafMd0IJqvQPre
-	66v/9BjA==;
-Received: from mgamail.intel.com ([198.175.65.18])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4BRz-00000000lmV-2C0a
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:06:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788933988; x=1820469988;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Bw4j1B4E4V2fQ1bWgeT0bLMh8TzMXvVi2QiCeZxF208=;
-  b=g8vox0z87Z9rDIx6cYtyi0MMQ44J4hYbyMy74sgrW9a4ip0XFtEGPLAx
-   MUOAGi2GIAlR+5DQpbeGSLnYiBg2XYFtMsDoc8IvIgbDhQXA5Mvx362Ji
-   +7G0mhQBCBhWohCewPwu9TZADlDRtvV4C/v6rlPLvSZbt0G5lDmDo8oim
-   7A3si+fTDWlAYJmNSA3DcxWhb1biWs9ha/l6ceCtyJBSObWWvYZ3ZhIPt
-   ZTsYuPAbK3B/0Lxq0jyZN7njIHaNrl20Ex+Aazf/oaCcQ3BdgKyioTHZl
-   LKA2qT49rpX6WUzMPCM3GaL2JD1Hm5g6sZsSvWKjoHqxwz7r24jL9HTNm
-   A==;
-X-CSE-ConnectionGUID: OzhFvwyWTZqaKYgiiIRXGQ==
-X-CSE-MsgGUID: IQ4PQ2mmSK+ndbSF+Xwz+A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="89388100"
-X-IronPort-AV: E=Sophos;i="6.25,270,1779174000"; 
-   d="scan'208";a="89388100"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 23:06:20 -0700
-X-CSE-ConnectionGUID: Xp3J1TRXQfqDkwg+IlzWWA==
-X-CSE-MsgGUID: 4ikTEY7yS/CBczOstZe2tQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,270,1779174000"; 
-   d="scan'208";a="274751945"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa003.jf.intel.com with ESMTP; 08 Sep 2026 23:06:16 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 42C2899; Wed, 09 Sep 2026 08:06:15 +0200 (CEST)
-Date: Wed, 9 Sep 2026 08:06:15 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 19/22] thunderbolt: Add Apple Silicon support
-Message-ID: <20260909060615.GJ106095@black.igk.intel.com>
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-19-1f80085f93fb@kernel.org>
- <20260908091844.GD106095@black.igk.intel.com>
- <22808191-5310-4d90-9fac-68d0d85b4c54@kernel.org>
+	id 1x4Bbw-0000000ArX1-2GrF;
+	Wed, 09 Sep 2026 06:16:45 +0000
+X-UUID: 03adee8cac1611f1acbe4559397dec65-20260908
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=t7/dCfxNJRvWHhtV0pq4mJPMTtGBRxNXo1El/nz3lNQ=;
+	b=dcR7tgdA3MLCGgC33R1Ik031yhDBppquQPhaI2tusSkBAb4wFMKddJkGsUNt4BUpw33WUnBXTAcm3DKEBE7KniCVAp9d5dxV29Xx6GYyb+exZ0d6D0dwF8fhmuZzSz/C+2HvcREMVqwtrn6OsZWkAJNHEZPT2dwziwAtn+zYfgE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:9392b897-c473-4ea6-a907-cc12d4b2cb94,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:c6101428-9ebf-4787-bb42-3cd26eee85aa,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|136|836|865|888|898,TC
+	:-5,Content:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:
+	nil,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC
+	:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 03adee8cac1611f1acbe4559397dec65-20260908
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
+	(envelope-from <yong.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 332227898; Tue, 08 Sep 2026 23:16:37 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 9 Sep 2026 14:16:35 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 9 Sep 2026 14:16:35 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vOw10F618WPjV1Db+Atb8ePlSd4s8um+fSa9JsLOgK1DyKPt/FhdQXaz9v8d6wElaeOkYzetKAw971wiPgdvckyneFNqcaFtbLbyR4eHhTA25tyFUgfLkUHtmJwIsKsQaaoFXoZnY7HvLG98JQUA7NfSLDjvovJgTyHpBZ4avERHypZRJqv/ZkuTxiYelvYK2I+oIvWxqvl+uMAF/4gCQAZxVpqcsVmCFEZXYfn2atGgDdMe7i50Q4smeJl9fzu9EECJ+hyvmlDtK74e5n4ch/hDsNP6nvHnP8JbSliYOjdr5x06Qz0C/GgiA9+NpKpAYRqG2e7eS4v+d2YrvnXYHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t7/dCfxNJRvWHhtV0pq4mJPMTtGBRxNXo1El/nz3lNQ=;
+ b=FDTF8jktMrOFFaRduJJBlxqeqJuIdXIFlE6nGL4WyQoC47Qimf/PTU1NQSHfnCadZx2kWOj/ZDbr0jyKE4+NbOmTX6kHPEfJfN3NsK+O+3kURukg/MkvCaxbCaVA2A4d3QBRz4E43oFubEDKi3QKn4iufbfpLGYE9hlxv9FE/BV34cNJZTYkUgB3SfVtzSIw5LldLx7hZDZzMmw6aj0Sh8g/aJEJC8FXUBDcyLuZ+v/yg2bpmcblGGEpcUlckfAQ0KSj/WyBFWrX1dMWSEGkayr6EPma9Awiy59WooJ/wvrtG9BL9WBK5Smkh06phKoFEjqAh07dZ9WagDey4o1tAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t7/dCfxNJRvWHhtV0pq4mJPMTtGBRxNXo1El/nz3lNQ=;
+ b=MwlbN/NKO3n27qJUVrgj20o5EfAEjYOXEGZqqFvyBpErO2NerayNWkdOcaQWlZtToIX1kthCAmHVp9ba7HvXcmehJIwgWa8YEgzRKv94kVg78W2fyrpverHH/io54yhbXf8SkbPCBjX1GwigiEFIB0LiG6Jdh31n2OKhccvWv1w=
+Received: from SI2PR03MB5885.apcprd03.prod.outlook.com (2603:1096:4:142::7) by
+ SE3PR03MB9436.apcprd03.prod.outlook.com (2603:1096:101:2e8::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.7; Wed, 9 Sep 2026 06:16:32 +0000
+Received: from SI2PR03MB5885.apcprd03.prod.outlook.com
+ ([fe80::3dee:7e1:7d2:c310]) by SI2PR03MB5885.apcprd03.prod.outlook.com
+ ([fe80::3dee:7e1:7d2:c310%6]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
+ 06:16:32 +0000
+From: =?utf-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>
+To: "robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?Q29uZ2NvbmcgWWFvICjlp5rogarogaop?= <Congcong.Yao@mediatek.com>,
+	"krzk@kernel.org" <krzk@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>,
+	=?utf-8?B?WmhlbmduYW4gQ2hlbiAo6ZmI5b6B5Y2XKQ==?=
+	<Zhengnan.Chen@mediatek.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH v4 2/2] memory: mtk-smi: Add MT8189 support
+Thread-Topic: [PATCH v4 2/2] memory: mtk-smi: Add MT8189 support
+Thread-Index: AQHdORVOS4wXb4yeqke3OIiD/MSeb7bF01iA
+Date: Wed, 9 Sep 2026 06:16:32 +0000
+Message-ID: <e7f1eef29e6ce08f87b9bc82389a4a51f5d2e9ae.camel@mediatek.com>
+References: <20260831-8189-smi-support-v4-0-8ae66dd3eeed@mediatek.com>
+	 <20260831-8189-smi-support-v4-2-8ae66dd3eeed@mediatek.com>
+In-Reply-To: <20260831-8189-smi-support-v4-2-8ae66dd3eeed@mediatek.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: Evolution 3.28.5-0ubuntu0.18.04.2 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SI2PR03MB5885:EE_|SE3PR03MB9436:EE_
+x-ms-office365-filtering-correlation-id: c3f68a59-2338-4f6a-cf58-08df0e39e4a5
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|4143699003|56012099006|11063799006|38070700021|10067099003|6133799003|22082099003|18002099003;
+x-microsoft-antispam-message-info: drFAgMFlS1zWOmBzxHr8fDNmjoYoPpKzc5Wc3gAjq8oADdFnbxf2n9xU8bmNV3i7EZoG2B1+z0NPa8mcC9QsBbgE0GunM1lJYsblHBhgh5LKHbQwyBqIfSoqc48fOJaI8soqFVpSfgbuWFiMW3KxRfnKt/NK2b5WpM9H9jtOSTKRejzyvWqrBaVR9Om+QqrS0yUXZJGY65oTezD5BE+jD51Yth3RFR4c47gu5MhiFThm0kOke7DPObhE3XWyZiBUBTHFpPdSxXnxR/3cTkLEivW0v/h2XhGkTxON4bhA//WCMNZ7PjTSIMJWG35Pz41iCZkSjHzHgZWaZbNG+QK+XiZ7lq5TbkjJOtTh0296TSFDXWEEZEeU3WPJ6xWZ4Hznq7p2dLn1Pv1pg7/71F8qLwzalCscft5ZAE22PFjJAy83nyPMmEUR3IazEDgwcnTojC3CaOcPEcL9XRq1LYiS5tWsWyA7mJYgZNsiY+c29lo/PC+qMB1BHrwIRYfbTt/ZNFqtSS3qS/eY52jB9dPuVF4JGOLI0nlpSs0Fwdap56A5qfDSwyYypttlPnIKF2WRJRqXNUqPD+ZoPMII/l8Jtp6Lc15wzDx/Q1L4irvsajn51VNmUOZ/1ioAQjiqdStGQU2wWPiC/0n8NhopfdNDjuzpa8ini/F3vkg6RyvcHV3Ru6H5Rw5DI4d3oT3ZUzKAP9iQWmd7vRQ2BQ9Qu/FlAuh4kQ5NUSO19V1vExwUwz8=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR03MB5885.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(4143699003)(56012099006)(11063799006)(38070700021)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0JpU2RqQ3BuY1NUVG91RXVsTkh3Y3F1bGwvWU1rK2toRXgvVVVJcXpZZUVB?=
+ =?utf-8?B?a1d5MWFDU25NKzluU2thcm93OXF2ZmJtbjdiZDdkK1Q3OXJXdWdubHVHU20x?=
+ =?utf-8?B?VVV3cDdxc25CNUpZOUVHbmJVTUJQWi9WQTdvdVhLZ0YrNFFrbWNrNHRxOFhT?=
+ =?utf-8?B?d09waUdKRUJZc2VqMURQcjJ0ODYwSE9nYlpMOWN6YThUamtEcUdHelAzZWEz?=
+ =?utf-8?B?SUpmZW9oY2FVU0pxKzJySEMzNGlsU1N3TUowclhzaTNlbXpkVTIyQ3ZvTHlr?=
+ =?utf-8?B?VHVEQS9YdW5tb3RmNDJpc3NCVXRwNzZzMlNvbUhkK0pLUzlEODFtQUxkVDhD?=
+ =?utf-8?B?TFFSKzI5NGhjR1AxMDU0SzAyZ3N1YWV4VFRDM3RnNENyZ3RralBGdkx6TjVn?=
+ =?utf-8?B?LzZFZm84Qi9EM01wcVFEWkhZVGl3ZHRDR1R5dC85MXZvR2VmWkxnZkFEak50?=
+ =?utf-8?B?NVhxeDJoYXhvY3NJc1dWeXpRQUo2MnRTR25zeHYrYlJsQ2dxejlnRkYyOEg1?=
+ =?utf-8?B?ZGlTT3pXeVFNT2NEMU9HRDZrc2Mrclgza1ozeENERCt3dEdlNDg4MHB5UEs1?=
+ =?utf-8?B?TkFVbVNJcHBBVFA0M1RWSis2K3Y1NWNBZlRaVFp6TU0rUHh2V2owM3djTTZ3?=
+ =?utf-8?B?TjN0NTBUNzQ0K1BhMGNINDBuTVlNUHdEUk1uVVRQOSs4eWltcDVXVWNlN1Yz?=
+ =?utf-8?B?NitQTVlvQW9nc2pKR2M4a2Z3YmozT1FxeXkydStadzlUa3VMdmhJejZ4b3VB?=
+ =?utf-8?B?bEdHT1ArdlJ6QXZTUDhDY29qMkQwQUtKeDNZSVVXQ2x5ZXVNQzJPUXBMNHA1?=
+ =?utf-8?B?NmhOc1dZN1doT2d3eldGQ2tSUjJtdU9obzVWTzF6b0VLeGZ0bnhldkEzN2h2?=
+ =?utf-8?B?Rnl2eE81a2ZhdTVCaGwwZnJCYjhCRmhhYmVxc1MvbURsVGc2a0NKY01GdmdW?=
+ =?utf-8?B?cDJFT2JyTDJwUXZYcUd3UUJPN3lBZWoyUTJuRFFFbXFRY0kwb2ZqQmJXc1VK?=
+ =?utf-8?B?VldwYTJaVklkandKT0ZlcjBGb2FJYXVtajJNa3A5cmh1dnZDTHVkWnFXNStY?=
+ =?utf-8?B?cFhEbUVtc2Izck9kM1UrKzJtOEowODN0YjlpUVhDbkVMTFJkcGd0T3hkcXU4?=
+ =?utf-8?B?WFprUmx3bTdMK1ZadDhxZ1ZQRnA4WlVVR095NjhTK1dWUVYrbVFwQmV0ai9k?=
+ =?utf-8?B?SFh3WTRVOTR0WkFoTFRPMTdYSDRYNFJ1QkQ5WE5xemtidmJacEc0b2RhZEd1?=
+ =?utf-8?B?WE9aTXNDTm54b1BiQjdMZSt2ZHl0U2tYNkdRNUVBckkwWTQrY05IcU05UFRs?=
+ =?utf-8?B?N0UxK3QvS0d2dlNOOWZJL0tTTWtXendDL1NZbFE3YitJSWE5MzdaQkpRRm9E?=
+ =?utf-8?B?Nk9idWNiTG1uVUp2R1pzUjgwTXlnWlpZWWtLV2ZuRk4xTjFaZmVLMk9yRXh5?=
+ =?utf-8?B?bHQ3NmQvZTluL0JzQU1yKzExWjJhQ3FHWnpLUFBVbFNGaU1RdGJYNS8vMEtt?=
+ =?utf-8?B?N2ZQN1RpVUxRQ05maU5UUks0MWVvY0svV0h4RW1ScHlySXZiQTNQYXhHSis4?=
+ =?utf-8?B?VkpabXJjTkloQlVwYllqelRxT094NW4xRTZTbWlPTmRrL0t4dXo1a3RSQXow?=
+ =?utf-8?B?dXBOLzNIZUtnTHl1a05nRFVERDhwTERIT1YrMzRJMWNBUm4rOVp3aE9ZQlE2?=
+ =?utf-8?B?QWROU2xvTHhOQkNsbDhMbEQxVy9GT1hoSkJqV1FWZ0Vpd3VmOHFJOTZXbnVq?=
+ =?utf-8?B?M3JDc0hoc2tsZEFLWFU0a0dLOFl3aXBYV2FFV21pTkFiWlhnOVB5eXliTGZu?=
+ =?utf-8?B?Zno1b0NsR3NpaGgwaUFMUVFBaHFDcFBOZHB0SElUR0RYN2RSM240TVBNTTY5?=
+ =?utf-8?B?Rks2MzB0T1FPNjBJVUxONlRMYWtsMkZQSjc1dzRXL2RzZVFpRUhQVG1na25p?=
+ =?utf-8?B?ZGswN1piYXBweEdZVHFqSU1wSDVIaTdCc1RZNVVHWHByTFBzNU1WaytGZWZD?=
+ =?utf-8?B?NUU1Qm16WTdhcHJiQkswSnYvVHV5SmZNanlJVGFQK3JWdFF4dEFsblk3K3A3?=
+ =?utf-8?B?aUJWd0oxdUFleTVCMTNpeEYxaHdvcVhJTEExQld5ZW5YR3FEdUZBdC9JZzFC?=
+ =?utf-8?B?ckpCSFU0aVRZamk1RGdxcEQxYkUrcnF3eml2VTRXQmFUYWxJT0FpeVpzSit6?=
+ =?utf-8?B?ay9KczBxSitabTBNTzlyc3FORW5JdGQ3QlE2dnRuSVdKY0FybEFZMjdGUEVk?=
+ =?utf-8?B?bVpKT1I2c3FsN3pkUzY3V29xRGRmS1pzL0Q4NGJESUhkMzZPOW5HeTlrVmox?=
+ =?utf-8?B?T1Nkb09sY2paNjNtY21HU2RpMjdNMmF3NkJRbGhMNDV5aDJEOHdidz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1DB65B51765A28469202A2890C3C1220@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <22808191-5310-4d90-9fac-68d0d85b4c54@kernel.org>
+X-Exchange-RoutingPolicyChecked: 0YXgRZIMAjMNf/ME8fONRY0NNtuZHgCUJgOBnuAh1cvLY5NYtrX4Q5fXB7TZQ18quzopToWFocbFgzLQZPO3c5+J00gXTPZroVwGgLabGE9QZMJYnVXb1P5Tj8rXlocNsGiwYw6/QhVAeJH7x5r3KEAuwwJWzS+AfAKrEfDxsAq3nq9rYHEYyuplHfD2I587fEHm5/570fng3aEQu1s0bf7Z9XEHT4cK7S4vjZ1NHGMUhupESURIHi0svLMZx4UD1uOgv89tAzrNWjibGvE3jVNU4gqGoI5p630XV2IRBehiNrQ26RNHF+ItpibjIjh10lnrGKKk5DO34mBe2IkkGA==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SI2PR03MB5885.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3f68a59-2338-4f6a-cf58-08df0e39e4a5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2026 06:16:32.1343
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hIwmZD51OG/6OMgscwpZMYbhL13D4z1f4Tam/x7Y5/lSQqGtphVLGBpad3GZwNP2cw8HlQ0EkjhauLIgFeQcng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR03MB9436
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_070628_595280_222B8D8B 
-X-CRM114-Status: GOOD (  64.17  )
+X-CRM114-CacheID: sfid-20260908_231644_604469_371669E0 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,434 +189,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Sep 08, 2026 at 09:02:09PM +0200, Sven Peter wrote:
-> Hi Mika,
-> 
-> thanks again for the quick review!
-> 
-> On 9/8/26 11:18, Mika Westerberg wrote:
-> > Hi,
-> > 
-> > On Sun, Sep 06, 2026 at 08:36:42PM +0200, Sven Peter wrote:
-> > > Add a platform driver for the ACIO host router complex and Native Host
-> > > Interface (NHI) found on Apple Silicon SoCs.
-> > > 
-> > > The driver registers notifications for Thunderbolt and USB4 partner modes
-> > > on the Type-C bus and derives the cable details from the Thunderbolt VDOs
-> > > or USB4 EUDO.
-> > > 
-> > > After powering up ACIO, the driver boots its RTKit co-processor and
-> > > populates the DART and NHI child devices once their MMIO regions become
-> > > accessible. It then registers the NHI with the software connection
-> > > manager and forwards the cable details to the host router.
-> > > 
-> > > The Apple NHI uses one interrupt per ring and overrides the generic ring
-> > > register accessors, interrupt handling and ring configuration. It also
-> > > uses the OF graph connection between the USB3 adapter and the DWC3
-> > > controller to create the device link required to restore tunnels before
-> > > USB resumes. As of this commit only XDomain connections and
-> > > USB3-via-USB4 tunnels are supported.
-> > > 
-> > > Signed-off-by: Sven Peter<sven@kernel.org>
-> [...]
-> 
-> > > +
-> > > +#define APPLE_CIO_NHI_PDF_STRIDE			0x4000
-> > > +
-> > > +#define APPLE_CIO_USB3_ADAPTER				4
-> > Do you really need to hard-code this? It's not possible to figure out from
-> > the host router adapters directly?
-> 
-> It's possible I think but the host router isn't up yet by the time I need it
-> to add the links in tb_probe.
-> > 
-> > > +
-> > > +#define APPLE_CIO_NHI_IRQ_STATUS			0xd0000
-> > > +#define APPLE_CIO_NHI_IRQ_ENABLE			0xd0010
-> > > +#define APPLE_CIO_NHI_IRQ_THROTTLE			0xd004c
-> > > +#define APPLE_CIO_NHI_IRQ_THROTTLE_INTERVAL_MASK	GENMASK(15, 0)
-> > > +#define APPLE_CIO_NHI_IRQ_THROTTLE_GRANULARITY_NSEC	256
-> > > +
-> > > +#define APPLE_CIO_SRAM_IOVA_BASE			0x10000000
-> > > +
-> > > +#define APPLE_CIO_NHI_BOOT_TIMEOUT			10000 /* ms */
-> > > +
-> > > +/*
-> > > + * The Apple vendor-specific extended capability contains a cable-information
-> > > + * word which has to be programmed from the USB4/Thunderbolt details reported
-> > > + * out-of-band by the Type-C PD controller. It must be programmed into the
-> > > + * host router before link discovery starts.
-> > > + */
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO			0x01
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_PRESENT		BIT(0)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_ORIENTATION_REVERSE	BIT(1)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_ACTIVE_CABLE	BIT(2)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_BIDIR_LSRX		BIT(3)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_20_GBPS		BIT(4)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_LEGACY_ADAPTER	BIT(9)
-> > > +#define TB_VSE_CAP_APPLE_CABLE_INFO_TBT2_3		BIT(10)
-> > > +
-> > > +struct apple_cio;
-> > I think you may not need the forward declaration here.
-> 
-> Yup, I think that's just a leftover. Will drop it.
-> > 
-> > > +struct apple_cio_altmode {
-> > > +	struct apple_cio *acio;
-> > > +	struct typec_altmode *altmode;
-> > > +	struct notifier_block notifier;
-> > > +};
-> > > +
-> > > +/**
-> > > + * struct apple_cio - Apple Converged I/O block
-> > > + * @dev: ACIO device
-> > > + * @np: ACIO device tree node
-> > > + * @rtk: RTKit instance for the ACIO co-processor
-> > > + * @rc_base: ACIO root controller registers
-> > > + * @rc_res: ACIO root controller MMIO resource
-> > > + * @rc_tunable: Tunable sequence for the ACIO root controller
-> > > + * @sram_res: ACIO co-processor SRAM resource
-> > > + * @sram_base: ACIO co-processor SRAM
-> > > + * @reset: ACIO reset controller
-> > > + * @pd_list: Power domains used by the ACIO block
-> > > + * @lock: Serializes cable transitions and ACIO power changes
-> > > + * @current_cable_info: Cable information currently programmed into ACIO
-> > > + * @target_cable_info: Cable information requested by the Type-C PD driver
-> > > + * @nhi_boot_completion: Signals completion of the NHI bringup
-> > > + * @nhi_boot_status: Status returned by the NHI bringup
-> > > + * @connector: Type-C connector firmware node linked to this ACIO
-> > > + * @typec_lock: Serializes Type-C alternate mode attachment and removal
-> > > + * @typec_notifier: Type-C bus notifier used to discover partner alternate modes
-> > > + * @tbt_altmode: Thunderbolt partner alternate mode subscription
-> > @tb_altmode if possible
-> > 
-> > The driver uses "tb" everywhere so that's preferred for consistency.
-> 
-> And I thought I got them all! Fixed that one (and another one below) as
-> well!
-> 
-> [....]
-> 
-> > > +static const struct apple_rtkit_ops apple_cio_rtkit_ops = {
-> > > +	.shmem_setup = apple_cio_rtkit_shmem_setup,
-> > > +};
-> > > +
-> > > +static int apple_nhi_probe_irqs(struct apple_nhi *anhi)
-> > > +{
-> > > +	char name[64];
-> > I think you can move this into the block where it's used.
-> 
-> Yup, will move it.
-> 
-> > 
-> > > +	int nirqs;
-> > > +
-> > > +	nirqs = platform_irq_count(anhi->pdev);
-> > > +	if (nirqs < 0)
-> > > +		return dev_err_probe(anhi->dev, nirqs, "platform_irq_count failed\n");
-> > > +	if (!nirqs)
-> > > +		return dev_err_probe(anhi->dev, -EINVAL, "no interrupts found\n");
-> > > +	if (nirqs % 2)
-> > > +		return dev_err_probe(anhi->dev, -EINVAL,
-> > > +				     "invalid number of interrupts: %d must be even\n",
-> > > +				     nirqs);
-> > > +	anhi->nrings = nirqs / 2;
-> > > +
-> > > +	anhi->rx_irqs = devm_kcalloc(anhi->dev, anhi->nrings,
-> > > +				     sizeof(*anhi->rx_irqs), GFP_KERNEL);
-> > > +	if (!anhi->rx_irqs)
-> > > +		return -ENOMEM;
-> > > +	anhi->tx_irqs = devm_kcalloc(anhi->dev, anhi->nrings,
-> > > +				     sizeof(*anhi->tx_irqs), GFP_KERNEL);
-> > > +	if (!anhi->tx_irqs)
-> > > +		return -ENOMEM;
-> > > +	anhi->rx_irq_names = devm_kcalloc(anhi->dev, anhi->nrings,
-> > > +					  sizeof(*anhi->rx_irq_names), GFP_KERNEL);
-> > > +	if (!anhi->rx_irq_names)
-> > > +		return -ENOMEM;
-> > > +	anhi->tx_irq_names = devm_kcalloc(anhi->dev, anhi->nrings,
-> > > +					  sizeof(*anhi->tx_irq_names), GFP_KERNEL);
-> > > +	if (!anhi->tx_irq_names)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	for (int i = 0; i < anhi->nrings; ++i) {
-> > > +		snprintf(name, sizeof(name), "rxring%d", i);
-> > > +		anhi->rx_irqs[i] = platform_get_irq_byname(anhi->pdev, name);
-> > > +		if (anhi->rx_irqs[i] < 0)
-> > > +			return anhi->rx_irqs[i];
-> > > +		anhi->rx_irq_names[i] = devm_kasprintf(anhi->dev, GFP_KERNEL, "%s-%s",
-> > > +						       dev_name(anhi->dev), name);
-> > > +		if (!anhi->rx_irq_names[i])
-> > > +			return -ENOMEM;
-> > > +
-> > > +		snprintf(name, sizeof(name), "txring%d", i);
-> > > +		anhi->tx_irqs[i] = platform_get_irq_byname(anhi->pdev, name);
-> > > +		if (anhi->tx_irqs[i] < 0)
-> > > +			return anhi->tx_irqs[i];
-> > > +		anhi->tx_irq_names[i] = devm_kasprintf(anhi->dev, GFP_KERNEL, "%s-%s",
-> > > +						       dev_name(anhi->dev), name);
-> > > +		if (!anhi->tx_irq_names[i])
-> > > +			return -ENOMEM;
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static unsigned int apple_cio_ring_index(struct tb_ring *ring)
-> > This can take const
-> Ack
-> > 
-> > > +{
-> > > +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
-> > And this can be const too.
-> Ack
-> > 
-> > > +
-> > > +	if (ring->is_tx)
-> > > +		return ring->hop;
-> > > +	else
-> > Drop the else here.
-> Ack.
-> 
-> > > +		return ring->hop + anhi->nrings;
-> > > +}
-> > > +
-> > > +static void apple_nhi_ring_interrupt_active(struct tb_ring *ring, bool active)
-> > > +{
-> > > +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
-> > > +	unsigned int idx = apple_cio_ring_index(ring);
-> > > +	u32 reg, interval;
-> > > +
-> [...]
-> > > +static void apple_nhi_release_irq(struct tb_ring *ring)
-> > > +{
-> > > +	if (ring->irq <= 0)
-> > > +		return;
-> > > +
-> > > +	devm_free_irq(ring->nhi->dev, ring->irq, ring);
-> > > +	ring->irq = 0;
-> > I think it reads better if you do
-> > 
-> > 	if (ring->irq > 0)
-> > 		devm_free_irq(ring->nhi->dev, ring->irq, ring);
-> > 	ring->irq = 0;
-> 
-> Agreed, will change it to that.
-> 
-> > 
-> > > +}
-> > > +
-> > > +static void __iomem *apple_nhi_ring_desc_base(struct tb_ring *ring)
-> > > +{
-> > > +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
-> > > +	void __iomem *io = anhi->nhi_base;
-> > > +
-> > > +	io += ring->hop * APPLE_CIO_NHI_RING_STRIDE;
-> > > +	io += ring->is_tx ? APPLE_CIO_NHI_TXRING_DESC_BASE :
-> > > +			    APPLE_CIO_NHI_RXRING_DESC_BASE;
-> > > +	return io;
-> > > +}
-> > > +
-> > > +static void __iomem *apple_nhi_ring_options_base(struct tb_ring *ring)
-> > > +{
-> > > +	return apple_nhi_ring_desc_base(ring) + 0x10;
-> > Here maybe use macro for the 0x10 magic number.
-> 
-> Ack.
-> 
-> > 
-> > > +}
-> > > +
-> > > +static void apple_nhi_ring_configure(struct tb_ring *ring, u32 flags, u32 e2e_flags)
-> > > +{
-> > > +	void __iomem *options = apple_nhi_ring_options_base(ring);
-> > > +	struct apple_nhi *anhi = nhi_to_anhi(ring->nhi);
-> > > +	u32 sof_eof_mask;
-> > > +
-> > > +	lockdep_assert_held(&ring->lock);
-> > > +
-> > > +	if (ring->is_tx) {
-> > > +		/*
-> > > +		 * All TX rings share what macOS calls a shared buffer with 232 entries. This is how
-> > > +		 * macOS splits it up, ring 0 only carries control packets and gets the minimum.
-> > > +		 */
-> > > +		if (ring->hop == 0)
-> > > +			writel(2, options + 4);
-> > > +		else if (ring->hop <= 5)
-> > > +			writel(40, options + 4);
-> > > +		else
-> > > +			writel(5, options + 4);
-> > Any idea what's special with the ring 5? And why the numbers 40 and 5? I
-> > think they refer intra-domain shared buffers (which is what we are going to
-> > use for XDomain connections in Linux going forward too).
-> 
-> No idea really. All I know is that there's some string calling these "shared
-> buffers" and that there are 232 in total.
-> macOS assigns two to the first ring (probably because it only has
-> configuration traffic and doesn't need more), then 40 to the next 5 rings
-> (which are presumably used for xdomains most of the time) and then 5 to the
-> rest (which I guess are rarely used) so that it ends up at 232 spread across
-> 12 rings. I think the setup is arbitrary but I have to write something >0
-> here or otherwise the ring won't work IIRC.
-
-Okay thanks. It makes sense for now to mimic what Apple is doing although
-we are currently using dedicated buffering for all XDomain links but you
-program these to the rings itself and the CM takes care of the rest so that
-should be okay.
-
-> > > +	} else {
-> > > +		sof_eof_mask = ring->sof_mask << 16 | ring->eof_mask;
-> > > +		writel(sof_eof_mask, options + 4);
-> > > +		writel(sof_eof_mask, anhi->pdf_base + ring->hop * APPLE_CIO_NHI_PDF_STRIDE);
-> > > +	}
-> > > +
-> > > +	/*
-> > > +	 * The firmware samples the ring configuration when the valid bit is set and E2E flow
-> > > +	 * control never engages when configured afterwards. Write everything at once like macOS.
-> > > +	 */
-> > > +	writel(flags | e2e_flags, options);
-> > > +}
-> > > +
-> > > +static bool apple_nhi_add_links(struct tb_nhi *nhi)
-> > > +{
-> > > +	struct apple_nhi *anhi = nhi_to_anhi(nhi);
-> > > +	struct fwnode_handle *endpoint, *remote;
-> > > +	struct device_link *link;
-> > > +	struct device *consumer;
-> > > +
-> > > +	endpoint = fwnode_graph_get_endpoint_by_id(dev_fwnode(anhi->acio->dev),
-> > > +						   APPLE_CIO_USB3_ADAPTER, 0, 0);
-> > Okay they have the power contract as part of the DT description that's
-> > good. I just worry that if they change the USB3 Gen X adapter place this
-> > will break.
-> > 
-> > Do you have a snippet what it looks like in DT description?
-> 
-> We don't use Apple's Device Tree at all, we make up our own representation
-> for Linux device tree and supply that in our bootloader m1n1 to the kernel.
-
-Ah right forgot that ;-)
-
-> See the dt-binding commits and the later dts commits.
-> If the adapter place changes the new hardware will get a new compatible and
-> we can determine it from that one then. The other alternative would be to
-> just walk through all ports (except for the type-c lanes) defined in the DT
-> and just add all links here. It's a bit moot right now since we can't do
-> runtime or proper suspend anyway yet.
-
-Understood.
-
-> I'll need those graph connections later on for PCIe and DP tunnels as well
-> since they need a software notification whenever a tunnel is brought up or
-> torn down. Here's how the connection looks like right now though. It's a
-> graph connection that's also used to e.g. connect dwc3 to the Type-C
-> controller. This hasn't been reviewed by the devicetree maintainers yet:
-> 
->  &dwc3_0 {
-> ports {
-> #address-cells = <1>;
-> #size-cells = <0>;
-> 
-> port@1 {
-> #address-cells = <1>;
-> #size-cells = <0>;
-> reg = <1>;
-> 
-> dwc3_0_ss: endpoint@0 {
-> reg = <0>;
-> remote-endpoint = <&atcphy0_usb3>;
-> };
-> 
-> dwc3_0_usb4: endpoint@1 {
-> reg = <1>;
-> remote-endpoint = <&usb4_0_acio_usb3>;
-> };
-> };
-> };
->  };
-> 
->  &usb4_0_acio {
-> ports {
-> #address-cells = <1>;
-> #size-cells = <0>;
-> 
-> port@4 {
-> reg = <4>;
-> usb4_0_acio_usb3: endpoint {
-> remote-endpoint = <&dwc3_0_usb4>;
-> };
-> };
-> };
->  };
-
-If it is possible, I suggest to use the same way we do in ACPI side here:
-
-https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-for-pcie-root-ports#map-native-protocols-pcie-displayport-tunneled-through-usb4-to-usb4-host-routers
-
-It was specifically designed so that it should support DT as well (that's
-why it uses the device properties _DSD).
-
-> 
-> 
-> 
-> > (I'm still in progress to setup Asahi tethered boot on my m1 mac so cannot
-> > check it at the moment).
-> 
-> You've probably found it already, but we have a guide here:
-> https://asahilinux.org/docs/sw/tethered-boot/
-> Let me know if you run into any issues!
-
-Sure thanks!
-
-> > 
-> > > +	if (!endpoint)
-> > > +		return false;
-> > > +
-> > > +	remote = fwnode_graph_get_remote_port_parent(endpoint);
-> > > +	fwnode_handle_put(endpoint);
-> > > +	if (!remote)
-> > > +		return false;
-> [....]
-> > > +
-> > > +	mutex_lock(&anhi->tb->lock);
-> > > +
-> > > +	if (!anhi->tb->root_switch->drom) {
-> > > +		dev_err(anhi->dev, "no valid host DROM in the device tree\n");
-> > > +		ret = -EINVAL;
-> > > +		goto err_unlock_tb_domain;
-> > > +	}
-> > > +
-> > > +	if (!anhi->tb->root_switch->cap_vsec_apple) {
-> > > +		dev_err(anhi->dev, "unable to find VSE Apple capability\n");
-> > Maybe "missing Apple VSE capability" or so because finding was already
-> > done.
-> 
-> Ack.
-> 
-> > 
-> > > +		ret = -ENODEV;
-> > > +		goto err_unlock_tb_domain;
-> > > +	}
-> > > +
-> > > +	ret = tb_sw_write(anhi->tb->root_switch, &acio->target_cable_info, TB_CFG_SWITCH,
-> > > +			  anhi->tb->root_switch->cap_vsec_apple +
-> > > +			  TB_VSE_CAP_APPLE_CABLE_INFO, 1);
-> > I would prefer if we could keep the USB4 stuff outside of the host
-> > interface. It should be fine to do this in tb.c based on the capability but
-> > getting the cable info there is tricky :(
-> 
-> Hm... I wonder if adding apple_cable_info to struct tb and then something
-> like this would work
-> 
-> anhi->tb = tb_probe(...);
-> anhi->tb->apple_cable_info = acio->target_cable_info;
-> ret = tb_domain_add(anhi->tb, false);
-> 
-> since I have to call tb_domain_add for each new cable that's connected
-> anyway. I'll give it a try and maybe move the VSE cable bit #defines to
-> tb_regs.h as well then.
-
-Yes that could work.
+T24gTW9uLCAyMDI2LTA4LTMxIGF0IDE0OjUyICswODAwLCBDb25nY29uZyBZYW8gdmlhIEI0IFJl
+bGF5IHdyb3RlOg0KPiBGcm9tOiBaaGVuZ25hbiBDaGVuIDx6aGVuZ25hbi5jaGVuQG1lZGlhdGVr
+LmNvbT4NCj4gDQo+IEFkZCB0aGUgTVQ4MTg5IFNNSSBjb21tb24sIHN1Yi1jb21tb24gYW5kIExB
+UkIgcGxhdGZvcm0gZGF0YS4NCj4gDQo+IEVuYWJsZSB0aGUgR0FMUyBjbG9jayBmb3IgdGhlIE1U
+ODE4OSBTTUkgc3ViLWNvbW1vbi4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IFpoZW5nbmFuIENoZW4g
+PHpoZW5nbmFuLmNoZW5AbWVkaWF0ZWsuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBDb25nY29uZyBZ
+YW8gPGNvbmdjb25nLnlhb0BtZWRpYXRlay5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9tZW1vcnkv
+bXRrLXNtaS5jIHwgNDUNCj4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrDQo+ICAxIGZpbGUgY2hhbmdlZCwgNDUgaW5zZXJ0aW9ucygrKQ0KDQpSZXZpZXdlZC1i
+eTogWW9uZyBXdSA8eW9uZy53dUBtZWRpYXRlay5jb20+DQoNCg0K
 
