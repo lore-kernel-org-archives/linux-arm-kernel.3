@@ -4,185 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FFBC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B659C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pJrEqWo0mLWRGOdSDClNeDqWhy1UIfKpehsrdXbgOE=; b=I+2VNIPijzMKLkmMixfS0UeW2/
-	goYDQme+38IJ1OWPXFY2FVQ2hE9cm39QAF27gB6t22AyO7/0bpL39wyS5eBaWadhNWyhE/BuV3vbZ
-	ub9fqlBF3rCsCNsyeoV3X1zSUkgt3g4/WfnXZxlJXjq6JwSVxLk+9yOba0bvr8H07v44tNE9Pozgv
-	EscXhY9tZ2jeWGYAjK4jsV0DTnVW3Qi/8d/BPASmW7WCjpA0v0/z2pIfQLvddJhsKjqceNkWEVIXB
-	hjrWzBd3rEJabAtKMLNhFTB5E79UmYtrXnbXm3ZVC9FgQw/T70hiSc4K39ztTqvRvf7fbX59gDlQz
-	l0+Yg+ig==;
+	bh=zX6oE4JMTzNjx3EDIF+YBoN0OI0vIMt2+Gqe1CNAmzU=; b=3+K0pS3AlOzk+fnOGdzjb/+MS/
+	xmDOyE61L/6/MejrVbyRQXnuOTVze6z6TRk9idjXb7NZvll6EwfUEyXYmZwXqJ1Mw46tTM1YbeuuC
+	gvzy/7AufAWMtcNfB+GekVCR5Xs9l5DAwQOFLjEhvn6p+CKfVzrs3swnV5f0MUDDwkXfYHbUAk0y5
+	M0CLDjrphqZFoJ+vq0S/JPPSU/vifvzzZzfSXzI+jMC6Ey8o3rPpAbyCE6Hf18FrJfncI/kbj+GNv
+	gliUhuPY7sw3cF/pafwB72LvyJ9LmOdHDX/OwrKNI7Bf2Rp8nMmBDWDa78f7VsO7HeQSNtWkLcxMe
+	QBJRd+3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JSy-0000000C181-2qP4;
-	Wed, 09 Sep 2026 14:40:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4JVs-0000000C1nc-1jGz;
+	Wed, 09 Sep 2026 14:43:00 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JSx-0000000C17a-1M2v
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 14:39:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6pJrEqWo0mLWRGOdSDClNeDqWhy1UIfKpehsrdXbgOE=; b=BItYd7ny5SN7VdU8ZQlRIkYsY+
-	tLh/CWOeDzb57fOdXhiCoSruKwVKiSX1cEPWdsZwnjAC3TDgb/UR9xHsqo1G2U6WTQd6ckyRwV/dv
-	uYwj8Fcff+GJ84LSDcp6pv7/Rxw+bZPdKWtk6jzkqfGVzgyMR1oYklzAIfoqPvehjulsDq7uTtXnF
-	gRyx39tB05n0sMR8/ZJ78MYyBm0o0KkfPH2iWfjuCbA9NjeXtjCvHzR4zroWDfJSIz27J90mvIuBp
-	eak08xIvDHF4/8tvWrqKQaarMagCUGLwceIWqlMSIVIL8UxrCy+Tl3aTXIQoyLO9KqAXFpL+JffT9
-	rqC6wpCw==;
-Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4JSu-00000001JIK-006t
+	id 1x4JVq-0000000C1mX-1YGt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:39:58 +0000
-Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
-	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6893mxEb584136;
-	Wed, 9 Sep 2026 09:39:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=6pJrEqWo0mLWRGOdSD
-	ClNeDqWhy1UIfKpehsrdXbgOE=; b=MBRgwD4fapZQR4S7b9YTf+nki+lUjkYRsU
-	wYeIEeVnltZ7jAAjgQyIDrss6P086PdowhWkQgHIEncArkeqdqeSr2LDLfjnf+eR
-	yUV73uN0WK9UANczrqo9cercWFcxLxKIrvvJilYuDbMNtsYc5tqyeGcnDTxsp6q3
-	P1vjHf6HJi8a9EcQJFrPHhnf4qCPmZfS6z+CRdZIeNjaJ2NPfbp8450MJK6RY5x1
-	hVL3j57sk8b3OYcWN8n9pEZTC6LKOHkF44etu4b7tf+QhiCmSb5T9aA00FjphK00
-	tgqRnfhv9adAyQPJdRJObFuls57V7B8f2KgxMtV12Tmlm4y8JuwA==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11021118.outbound.protection.outlook.com [40.107.208.118])
-	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4ggfgjw5pq-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 09 Sep 2026 09:39:16 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ms88K2otvIGb++fGCc/6FWWZXjIV7gy8uBdy6OQIKrIZ9jgK8g13tuyLi1lDgDn0T9JWF9c2ipvwsP+S+2GArwuZ1fkEGcLFyp3OuhyApeaNK+/D3y9lPD0YHyQTa+de9vPc2w077WVSIhuGKPaNuYgIO+5CYDXvkQmMnHSTxbl+Cv6ojYXlFWwEokUGEJD/y4evLYQMGhky41BsrmTggJOwohxAINSF0fz95xJSyE340BvAo1N8xAoH+Kn7AtT1INGPhhfqlUiI6al7Loxsv8RowLxh8QXgf6NOVTTUMwwIz758SsMAN6+00GIWwlIGHUAMf/De6PDAIj5z4d/bXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6pJrEqWo0mLWRGOdSDClNeDqWhy1UIfKpehsrdXbgOE=;
- b=ffaGmWBxnIKE2GGuGuthLW3ERNrQvMGUQmeqG7QvKFr6qOed+VOIkmutNuwMWhqpzM4LlkLggNJyuGd8cTVbUQSEls9dUvfu1i31mcqhqKIoJf7VLFg2apMtjS2VMUh0lAzQd65gXNiFU2ReeNSTzQpixaNkdKhtbmi9nVAS9xmVTecHoLQ4ObjmUxjpcIx7fQC6DgoA+KpOEQSMi4HUGcRwJAT/AbKjZ1EjS8GrXnFdx5nEAUC0ev9LiM/GTOFOZs6tPodKUS/WDjlCfwiRsa5+S9iCQrYgv5v6sBf01VgrWL8VZzHV3ByoWO7ZP10QSe/W/E+uXBzN7vJD3YFr4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=analog.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
+	Wed, 09 Sep 2026 14:42:59 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-c253425b253so898942366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:42:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788964976; cv=none;
+        d=google.com; s=arc-20260327;
+        b=apwnerL+nSbV1PIVlCRQqRQ0pF7ZZLQc3BY79Ej8q5a9IpgsBuRS4GKQZGDMvUTzQk
+         M+9hQOcOFsk25xDmNaYOKAyS+kyzFy9Q2fhbmikK1Z6GJNhTpvauG2h5FO1NkV5g2vPF
+         GI+zj3PRtmbSzX+Q5DROngrUYqZ6rSYfxY1Rjjuj7c7S9vgJunOXfIH08oisHJQ4r8ox
+         3Viazqhe/PqzXMnAchGNPVuSRSLsYrZSR85fMyXwAwTXvNKbmz8Z3Jr7Qc409zKY0Tt/
+         6/w3XUJxv37nDD5LrqIMM8vDRzayu8EcPDGakV5IWaNxFIlym5FqhvsQUafCx1Ue13CH
+         LGwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zX6oE4JMTzNjx3EDIF+YBoN0OI0vIMt2+Gqe1CNAmzU=;
+        fh=5QXXbkp2jt5CDTTlpsKsYJB63rS4wXUNPgzOL8q9+xc=;
+        b=sfStvLu6OXz6QpWz4VdPuD6CNZMo0iI+FJd0fkVef7pk9L/sV15q2cbCiJbpqgHYHD
+         LbOhuyF1a2zFaeGcnZyqTiBURkIWB3cAPuoBnWlZstdorpWZUDd7eJZ3XJddQMceudme
+         aiXzfZWmSSfbkhD7rg+t9ACQJLTGm2RwIrzeEOShhXGKwM9QLM5Ko8k2g7SSBeRun95x
+         w5ZT45LYWu8blHWVLQAOfIP6pUUO5HzwyuBrwSDkct0KhIiOf2Wu+Vjf49B7KRT64rTs
+         TBRrvds8B4kVu+ocn2ER/tDCtvs7iQNLWqJ+Ip8oDaOC4QKv/BrhP44DPFWZGptWNR9R
+         F5Xw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6pJrEqWo0mLWRGOdSDClNeDqWhy1UIfKpehsrdXbgOE=;
- b=KtGaRaXx/vJnfbpCkjIQ/2VO6GcVbQMdMLvqXe7S0Zzed8rMIhQVzeCGUPj22fYPbs06Ao/s2X3X/5HBHuskc9Gg7JV7mesBH3krys9UJ4MBnHYhsxu+BgCEOMfM2cm1xQAqY/JFETLDD7VmsTbArzUi13t4sQuY959bQxyyyYM=
-Received: from SJ0PR13CA0029.namprd13.prod.outlook.com (2603:10b6:a03:2c0::34)
- by DS2PR19MB059743.namprd19.prod.outlook.com (2603:10b6:8:401::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
- 14:39:12 +0000
-Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
- (2603:10b6:a03:2c0:cafe::50) by SJ0PR13CA0029.outlook.office365.com
- (2603:10b6:a03:2c0::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Wed, 9
- Sep 2026 14:39:11 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
- via Frontend Transport; Wed, 9 Sep 2026 14:39:10 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 96C1A406557;
-	Wed,  9 Sep 2026 14:39:09 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 82F0A82024B;
-	Wed,  9 Sep 2026 14:39:09 +0000 (UTC)
-Date: Wed, 9 Sep 2026 15:39:08 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Arnd Bergmann <arnd@arndb.de>, Daniel Thompson <danielt@kernel.org>,
-        Jingoo Han <jingoohan1@gmail.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>,
-        Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Jonathan Cameron <jic23@kernel.org>,
-        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-        Pavel Machek <pavel@kernel.org>,
-        Michael Hennerich <michael.hennerich@analog.com>,
-        Support Opensource <support.opensource@diasemi.com>,
-        Sebastian Reichel <sre@kernel.org>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Helge Deller <deller@gmx.de>, dri-devel@lists.freedesktop.org,
-        linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-hwmon@vger.kernel.org,
-        patches@opensource.cirrus.com, linux-watchdog@vger.kernel.org,
-        linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
-        linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org,
-        linux-fbdev@vger.kernel.org, linux-sound@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 11/14] mfd: remove unused wm8350 driver
-Message-ID: <aqFvjLMp+NpH8Ixa@opensource.cirrus.com>
-References: <20260909132153.1596191-1-arnd@kernel.org>
- <20260909132153.1596191-12-arnd@kernel.org>
+        d=linaro.org; s=google; t=1788964976; x=1789569776; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zX6oE4JMTzNjx3EDIF+YBoN0OI0vIMt2+Gqe1CNAmzU=;
+        b=xmoGLVhZ3Vlt4zzTynYvzVUFA5mgBMFMv5XDkWyO1eTeJi8Z88h9e6tbEJFeXOiVUo
+         QYgXU68yOZmUSZYJNzFfYELpXyzsiuciKGJ3G5Dep89KlaKOuzSo+tvly+4oEaWfXMyM
+         qQeF8eXIbWHHT9B56xvE1m8rn7+YFu7uPt7dkqwzZJaKabjUjvkUNGWPSwkiJJJQbF2v
+         9LkyOKKojWAFrJyzoxBMEI4qpC8CV7KrejiQ4rRyXS0v3N3iqHtkPD5qy80BXcEGkrNo
+         vpkLdindtQBMo+PV9PXw2FqNXtSVqeX4oUM3jA81BeCg0UyTJ726JdIxv8/ycGlxsIxB
+         A8Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788964976; x=1789569776;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zX6oE4JMTzNjx3EDIF+YBoN0OI0vIMt2+Gqe1CNAmzU=;
+        b=she0V7nB72MxonC4hbFd2UZgUUydHXoOPGlyWPmr+NLjbPOQoNFbFad20Z3UB9PCDd
+         jB6HbRdF1aC7wMIufC2XVOk4MhzpNHzkYDwC2peJGzbPPJaK1AGTWBX7PD0of8K+US2v
+         ELeVQ+qMv/HXlq0ZAS9+uVdKyqCmi2EvZAF5okx7884XlBDs8o6BElRe1R562dTQnUnp
+         9H6HG5b3iDaHyucPnYFxRN5lM+lTpK7DqmIJLA7DkwdzMPsRCZd/b65ZS3ldDxCoQjbr
+         Opd5dUE5YRcN99dZ6vHa/oTaIs+f9nCloimPYc31EJCcqGzGPLE6JUeTqgf1qtee9f5a
+         A3Ug==
+X-Forwarded-Encrypted: i=1; AKwUvBx9U888XXV2qfobsVAapQ6Vu03XsTUDZyrk1UMX1HMHkko5ik9f/t5VfaMbBuuEQHjqi/OuFe15hXgP9WBgC8AM@lists.infradead.org
+X-Gm-Message-State: AFuF++lOnO3pLG/2NEvE8ZK52V573PQ1oby/NjSrzZCWM8xYCDQNF0RZ
+	LJRBYleEhGVS9vAl1hv7Z7+JmxQOBxwvMMd8lt7cISVThXx86+adTcTq9LSZpNFQ524wrPXhvEj
+	0JSYqEO1vb0jCXE1BlF6VRwhUE44DYcSf1ju8VXOmTg==
+X-Gm-Gg: AYBFou0K/JkMJLVyqGFsmkkAMtqhdKfMr010E4gXOedq6gqhCpbKJZ+gILzg2xwDui2
+	pyZjHwOcivUMWRWCqlN3cOviUPpmcvOG8GnS4nD5FAlDxARdr34JfWGihQ+9UEGJbbsSLnNl8Ni
+	SBvaCCRKGUskv2kHiTIxFgZEZYi5Q65/Ia30p+Zx+R/eDkx5dOaxoqzWtdVxMh//T3rA3eXB3yE
+	J7lJG1gDaP2naJMo5kGyU37Zi9MJgmoqAPJWC96IElRQmEbQ0dtcyrByHnhgt1nFj0YIq1eOQrV
+	6Ts/6baRGfUxHMUiwaQjLqzv2WRvORtT6ZepPQbPM5Cfm/p2/bYPTywEDJGaVf7JSgw2U31RD+V
+	ZaNDRiC3vQQqk
+X-Received: by 2002:a17:907:805:b0:c25:2c70:50ed with SMTP id
+ a640c23a62f3a-c260c6ab6c4mr1433834966b.5.1788964975840; Wed, 09 Sep 2026
+ 07:42:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909132153.1596191-12-arnd@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|DS2PR19MB059743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8abe4302-c6e7-4934-04ca-08df0e801cde
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|30052699003|61400799027|36860700016|23010399003|7416014|376014|22082099003|16102099003|18002099003|5023799004|11063799006|4143699003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: CjnWSTDnaPoG2LIh/5k9rzeVss2Qh8ANuWh+uPKVLInPXWloWtD5+VfZsMb1xIezrDPPR52oYzFpX5qU0Pa6zL/aOOh9n857KXUD8qmqXCxlll6zmLNg/6k8X5yijcy/JqzwGiTZ7Oyeory69q0sLN5OyvVf5BWRTWESv0GShAeVDZqSBVyKJcr7UI3EDY7a4IcrqKrvvrTjsj48zw292hH/gRxkQtMEt1SkcDhNmxOOEn8RjxS05tc5xYt50PzkVaNSZpOerRIV8FrAqnP9G+qIZdqx2wMb+0I8wBa2Y/NgCREtpNsgG2jKRPdbSW/Vp1bbZlN0vhQf1k0JaASOI/d8LxF3RljsrxOpD1Ey6puefN2jHDbQKL1la7/DivZJ6ZqM1XmkYItWoO8+p3U7dfUmaLFXo+kv3fz2EO1Ef1TGLCcLnHRYEofhLBVu/E6j2cZgFcBUxzNxKK5op8clIO+VNopHLOKjOCZWQm1zp+OkAV5nsPokarmvCov+jN0Wh4QLBlIW6WYdAq2O9AWCQxeBtJR5bNNXO8cILAnj7ZcRGnJqkU/rHnMwikooXoXUigLE3kGHYkyPoc2FNfyqNolICPZ3hgoSlesfKRoFzvOs7HlKn1CiU+VnYkTqZIdlGAVwesBo1KrMRoPvhV7xXEAv+4DlIMRXg3xfujo1keLYAI0Za1bjUijtALFGAnL5dYoK03tV7//A0l2i95ZY1Q==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(30052699003)(61400799027)(36860700016)(23010399003)(7416014)(376014)(22082099003)(16102099003)(18002099003)(5023799004)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Dp6J0K8V8bwzYsrX6EtjW1JexDgYuzmoByCf4ADwn8D4ry6cFUAr0NJZ8NFIhbggTx0o+aNhQxQ/fIRDK/0CPesGojhk6fsf199yF36ZiLb9JHZFLyxkqi9c9KV3PqedsIgDFP9uHu1nN5yYFGeC09FDHyEA3+y0WpmwGBFsx7RWKJmGwzXkoG9W4V7U8lOWtgIw6yTL7UajI9gG5smLrYGH9lboPyJRqbZax8M9Qo5bG4FgZnuD7D68lKmcPYIeerSVTi2L5LIL/xNQdwgui8NGhgU3CaUTmgkvqASbBzd8/kGvRKkV1x7lsOJUTK471ci8BGG2hAKgw+kwLKCkv6NzrJ3TAQHlC6tOZ9S9qqG2RfDCOZmJsm5LmLyKT/tg9au/4D8SEhYhJz1Qfk0JWXmoI/0of7o2vQHP9wW6VXPJVAScLlt12JwyzPnF9Wgx
-X-Exchange-RoutingPolicyChecked: OO7BmBkMvypYphj2ThprKYnqyZdH1kCjE+qYhXPte/N51DTCLeqniWsHQ1csDhrC+EzVytjg0ycvCvSoPkRtKFYyGN6OVW1WcKhD6XYYCM4pt/k6D+cCfU8AkV75zv9t5gmrO2xhcwKKfUVugt2dhn1srYReseaZ6HYTTceaVKKeyD/Rt27uvfulO0fEjMYmINh8gNkY9GaJ3euXULcUMTu6xhbpkSMh5vt0sH9ADRz7Z6qlqRt5dkEYahvYZVVlX02zgnM7umQa83NowziBwIfyx9OHM7KbubXKil4TuNGdp1uUj8zrkpcN66+pua0N8l1Zjklrep5SF8dCgE/J1Q==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 14:39:10.9901
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8abe4302-c6e7-4934-04ca-08df0e801cde
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CO1PEPF00012E64.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR19MB059743
-X-Authority-Analysis: v=2.4 cv=bpd8wkai c=1 sm=1 tr=0 ts=6aa16f94 cx=c_pps
- a=M/tNFvKf9qcYTEXzCPs7dA==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
- a=w1d2syhTAAAA:8 a=xo24t3wAf2OcpJBrjYsA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE2MyBTYWx0ZWRfXxpr6vtb38lrz
- JHQh8AsZCrBA2Zzw6SbeOlctGrzgQihsOUvP5DEbyeSqDQQkjSVYgo5KULdka0D6fIv7eH9ISgB
- 4g7a69XlgolKUVLUc6bm5i0q/jPBXsIMFQn8F3xTpMp8XrzSs8bJkHRg+kyqkgeBgT2/rFqAPre
- vu8G35ZX3Btr2r4Jv0rf1pON9s6ARTtSM56ndpJNf8kgKUx/44wuQbqqOAFXxyEDY4LmdAZKKo9
- mbPnkHV1WB61iZBQZn+ZOrF8wQw6vDC2b6PBcC/1ecPgu5UXA0KyfCr0Pkye/HtOYPoIO9FyDAJ
- aPz57uYx/LadBz0qHfQX+ydVkCcbFa6FojLVNNaMcdVA0UmHZkPm5uxXJdCyGYpe7Dt9R5FUT+u
- +NTeeiklKQWKjQfYidxj59jtRCdE5AJYJ6p+1RSzrPlYTIGAVvLsup8knaLelCHYKZjHKBkwuY9
- o8Bc67rcqnmeuvo5Tlw==
-X-Proofpoint-ORIG-GUID: xGGMELUOrrSqA-l5XsinEeHFr4DsjBiD
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE2MyBTYWx0ZWRfX2yQ34r3LFjpL
- a2K/xG1Z/tvgptxD3XKM8ovGE5nCPN2h0w2UMXgrRH37Bi/nBMfbdta1ctXI0k6OSxsXx/R8LBz
- RG9IJ1GoVJ/ma+Vyi75id/7jgzQIWqk=
-X-Proofpoint-GUID: xGGMELUOrrSqA-l5XsinEeHFr4DsjBiD
-X-Proofpoint-Spam-Reason: safe
+References: <20260908082345.103087-1-arighi@nvidia.com> <20260908082345.103087-3-arighi@nvidia.com>
+In-Reply-To: <20260908082345.103087-3-arighi@nvidia.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 9 Sep 2026 16:42:44 +0200
+X-Gm-Features: AcwNN1WUvcq4choY-C1_blVRgCRrlhEispGupqnG6SrJ3Mcc_nmksOnFuJ0lc98
+Message-ID: <CAKfTPtAQh6ZndkHC+njYvX0hoDafaC+PX2EBfafDumTHvvgFcg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle selection
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>, 
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>, 
+	Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_153956_400126_DE70AD56 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260909_074258_499294_9410DE28 
+X-CRM114-Status: GOOD (  33.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,23 +123,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 03:21:48PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> This driver was used on the i.MX31 ADS reference board from Freescale
-> and the smdk6410 reference board from Samsung. Both used platform_data
-> based driver probing and are now gone from the kernel.
-> 
-> Since probing with devicetree has never been supported by wm8350,
-> it is clear that nothing can use the driver on an upstream kernel,
-> and it is unlikely that anyone is still interested in a devicetree
-> conversion, so remove it.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Tue, 8 Sept 2026 at 10:24, Andrea Righi <arighi@nvidia.com> wrote:
+>
+> POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity SMT
+> level to order hardware threads. Idle CPU selection does not consult
+> that order, so a task can wake on an arbitrary sibling and remain there
+> until load balancing corrects the placement. On these systems, that
+> initial choice can prevent the core from entering its preferred
+> lower-thread resource mode and cause a large and persistent performance
+> loss.
+>
+> When idle selection finds an available CPU in an SMT core, choose the
+> highest-priority available sibling. On SMT2 Olympus this only changes
+> selection on fully idle cores. A partially idle core has only one
+> available CPU. On wider SMT systems such as POWER7, it also fills
+> available siblings in priority order while the core is partially busy.
+>
+> Apply the preference to idle-core and idle-CPU scans,
+> asymmetric-capacity scans, target, previous, recently-used CPU fast
+> paths and the slow path. Inspect the lowest scheduling domain directly,
+> but require both CPUs to share its span because isolcpus can split
+> hardware siblings across scheduling domains.
+>
+> Keep physical-core capacity selection independent from SMT sibling
+> ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
+> maximum capacities, then SD_ASYM_PACKING selects the preferred available
+> sibling inside the chosen core, whose siblings continue to share equal
+> capacity.
+>
+> Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
+> Signed-off-by: Andrea Righi <arighi@nvidia.com>
 > ---
+>  kernel/sched/fair.c     | 85 ++++++++++++++++++++++++++++++++---------
+>  kernel/sched/sched.h    |  6 +++
+>  kernel/sched/topology.c | 36 +++++++++++++++++
+>  3 files changed, 110 insertions(+), 17 deletions(-)
+>
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index b8bd308c2d5b1..37837c36288a0 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -8587,6 +8587,35 @@ static inline bool test_idle_cores(int cpu)
+>         return false;
+>  }
+>
+> +/*
+> + * Redirect a CPU to a higher-priority available sibling in its SMT domain,
+> + * subject to task affinity.
+> + */
+> +static inline int select_idle_smt_cpu(struct task_struct *p, int cpu)
+> +{
+> +       struct sched_domain *sd;
+> +       int best = cpu;
+> +       int sibling;
+> +
+> +       if (!sched_smt_asym_active())
 
-Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+I wonder if it's worth creating a new static key. All other pieces
+related to asym packing use sched_smt_active() to opt out the related
+code
 
-Thanks,
-Charles
+Other than that looks good to me
+
+> +               return cpu;
+> +
+> +       sd = rcu_dereference_all(cpu_rq(cpu)->sd);
+> +       if (!sd || !(sd->flags & SD_SHARE_CPUCAPACITY) ||
+> +           !(sd->flags & SD_ASYM_PACKING))
+> +               return cpu;
+> +
+> +       for_each_cpu_and(sibling, sched_domain_span(sd), p->cpus_ptr) {
+> +               if (sibling == best || !choose_idle_cpu(sibling, p))
+> +                       continue;
+> +
+> +               if (sched_asym_prefer(sibling, best))
+> +                       best = sibling;
+> +       }
+> +
+> +       return best;
+> +}
+> +
+>  /*
+>   * Scans the local SMT mask to see if the entire core is idle, and records this
+>   * information in sd_balance_shared->has_idle_cores.
+> @@ -8971,7 +9000,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>
+>         if (choose_idle_cpu(target, p) &&
+>             asym_fits_cpu(task_util, util_min, util_max, target))
+> -               return target;
+> +               goto select_smt_priority;
+>
+>         /*
+>          * If the previous CPU is cache affine and idle, don't be stupid:
+> @@ -8981,8 +9010,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>             asym_fits_cpu(task_util, util_min, util_max, prev)) {
+>
+>                 if (!static_branch_unlikely(&sched_cluster_active) ||
+> -                   cpus_share_resources(prev, target))
+> -                       return prev;
+> +                   cpus_share_resources(prev, target)) {
+> +                       target = prev;
+> +                       goto select_smt_priority;
+> +               }
+>
+>                 prev_aff = prev;
+>         }
+> @@ -9000,7 +9031,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>             prev == smp_processor_id() &&
+>             this_rq()->nr_running <= 1 &&
+>             asym_fits_cpu(task_util, util_min, util_max, prev)) {
+> -               return prev;
+> +               target = prev;
+> +               goto select_smt_priority;
+>         }
+>
+>         /* Check a recently used CPU as a potential idle candidate: */
+> @@ -9014,8 +9046,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>             asym_fits_cpu(task_util, util_min, util_max, recent_used_cpu)) {
+>
+>                 if (!static_branch_unlikely(&sched_cluster_active) ||
+> -                   cpus_share_resources(recent_used_cpu, target))
+> -                       return recent_used_cpu;
+> +                   cpus_share_resources(recent_used_cpu, target)) {
+> +                       target = recent_used_cpu;
+> +                       goto select_smt_priority;
+> +               }
+>
+>         } else {
+>                 recent_used_cpu = -1;
+> @@ -9037,7 +9071,11 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>                  */
+>                 if (sd) {
+>                         i = select_idle_capacity(p, sd, target);
+> -                       return ((unsigned)i < nr_cpumask_bits) ? i : target;
+> +                       if ((unsigned int)i < nr_cpumask_bits) {
+> +                               target = i;
+> +                               goto select_smt_priority;
+> +                       }
+> +                       return target;
+>                 }
+>         }
+>
+> @@ -9050,14 +9088,18 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>
+>                 if (!has_idle_core && cpus_share_cache(prev, target)) {
+>                         i = select_idle_smt(p, sd, prev);
+> -                       if ((unsigned int)i < nr_cpumask_bits)
+> -                               return i;
+> +                       if ((unsigned int)i < nr_cpumask_bits) {
+> +                               target = i;
+> +                               goto select_smt_priority;
+> +                       }
+>                 }
+>         }
+>
+>         i = select_idle_cpu(p, sd, has_idle_core, target);
+> -       if ((unsigned)i < nr_cpumask_bits)
+> -               return i;
+> +       if ((unsigned int)i < nr_cpumask_bits) {
+> +               target = i;
+> +               goto select_smt_priority;
+> +       }
+>
+>         /*
+>          * For cluster machines which have lower sharing cache like L2 or
+> @@ -9065,12 +9107,19 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
+>          * first. But prev_cpu or recent_used_cpu may also be a good candidate,
+>          * use them if possible when no idle CPU found in select_idle_cpu().
+>          */
+> -       if ((unsigned int)prev_aff < nr_cpumask_bits)
+> -               return prev_aff;
+> -       if ((unsigned int)recent_used_cpu < nr_cpumask_bits)
+> -               return recent_used_cpu;
+> +       if ((unsigned int)prev_aff < nr_cpumask_bits) {
+> +               target = prev_aff;
+> +               goto select_smt_priority;
+> +       }
+> +       if ((unsigned int)recent_used_cpu < nr_cpumask_bits) {
+> +               target = recent_used_cpu;
+> +               goto select_smt_priority;
+> +       }
+>
+>         return target;
+> +
+> +select_smt_priority:
+> +       return select_idle_smt_cpu(p, target);
+>  }
+>
+>  /**
+> @@ -9747,8 +9796,10 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int wake_flags)
+>         }
+>
+>         /* Slow path */
+> -       if (unlikely(sd))
+> -               return sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> +       if (unlikely(sd)) {
+> +               new_cpu = sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> +               return select_idle_smt_cpu(p, new_cpu);
+> +       }
+>
+>         /* Fast path */
+>         if (wake_flags & WF_TTWU)
+> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> index 6c3ad70e58b8e..568cb1ed2dd6b 100644
+> --- a/kernel/sched/sched.h
+> +++ b/kernel/sched/sched.h
+> @@ -2240,6 +2240,7 @@ DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
+>  DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
+>
+>  extern struct static_key_false sched_asym_cpucapacity;
+> +extern struct static_key_false sched_smt_asym_packing;
+>  extern struct static_key_false sched_cluster_active;
+>
+>  static __always_inline bool sched_asym_cpucap_active(void)
+> @@ -2247,6 +2248,11 @@ static __always_inline bool sched_asym_cpucap_active(void)
+>         return static_branch_unlikely(&sched_asym_cpucapacity);
+>  }
+>
+> +static __always_inline bool sched_smt_asym_active(void)
+> +{
+> +       return static_branch_unlikely(&sched_smt_asym_packing);
+> +}
+> +
+>  struct sched_group_capacity {
+>         atomic_t                ref;
+>         /*
+> diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+> index 0248227d983a7..06c40eb5932af 100644
+> --- a/kernel/sched/topology.c
+> +++ b/kernel/sched/topology.c
+> @@ -683,8 +683,24 @@ DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
+>  DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
+>
+>  DEFINE_STATIC_KEY_FALSE(sched_asym_cpucapacity);
+> +DEFINE_STATIC_KEY_FALSE(sched_smt_asym_packing);
+>  DEFINE_STATIC_KEY_FALSE(sched_cluster_active);
+>
+> +static bool has_asym_smt_domain(int cpu)
+> +{
+> +       struct sched_domain *sd;
+> +
+> +       for_each_domain(cpu, sd) {
+> +               if (!(sd->flags & SD_SHARE_CPUCAPACITY))
+> +                       break;
+> +
+> +               if (sd->flags & SD_ASYM_PACKING)
+> +                       return true;
+> +       }
+> +
+> +       return false;
+> +}
+> +
+>  static void update_top_cache_domain(int cpu)
+>  {
+>         struct sched_domain_shared *sds = NULL;
+> @@ -3084,6 +3100,7 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+>         struct rq *rq = NULL;
+>         int i, ret = -ENOMEM;
+>         bool has_asym = false;
+> +       bool has_asym_smt = false;
+>         bool has_cluster = false;
+>
+>         if (WARN_ON(cpumask_empty(cpu_map)))
+> @@ -3202,6 +3219,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+>
+>                 cpu_attach_domain(sd, d.rd, i);
+>
+> +               if (has_asym_smt_domain(i))
+> +                       has_asym_smt = true;
+> +
+>                 if (lowest_flag_domain(i, SD_CLUSTER))
+>                         has_cluster = true;
+>         }
+> @@ -3210,6 +3230,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+>         if (has_asym)
+>                 static_branch_inc_cpuslocked(&sched_asym_cpucapacity);
+>
+> +       if (has_asym_smt)
+> +               static_branch_inc_cpuslocked(&sched_smt_asym_packing);
+> +
+>         if (has_cluster)
+>                 static_branch_inc_cpuslocked(&sched_cluster_active);
+>
+> @@ -3310,11 +3333,24 @@ int __init sched_init_domains(const struct cpumask *cpu_map)
+>  static void detach_destroy_domains(const struct cpumask *cpu_map)
+>  {
+>         unsigned int cpu = cpumask_any(cpu_map);
+> +       bool has_asym_smt = false;
+>         int i;
+>
+> +       rcu_read_lock();
+> +       for_each_cpu(i, cpu_map) {
+> +               if (has_asym_smt_domain(i)) {
+> +                       has_asym_smt = true;
+> +                       break;
+> +               }
+> +       }
+> +       rcu_read_unlock();
+> +
+>         if (rcu_access_pointer(per_cpu(sd_asym_cpucapacity, cpu)))
+>                 static_branch_dec_cpuslocked(&sched_asym_cpucapacity);
+>
+> +       if (has_asym_smt)
+> +               static_branch_dec_cpuslocked(&sched_smt_asym_packing);
+> +
+>         if (static_branch_unlikely(&sched_cluster_active))
+>                 static_branch_dec_cpuslocked(&sched_cluster_active);
+>
+> --
+> 2.55.0
+>
 
