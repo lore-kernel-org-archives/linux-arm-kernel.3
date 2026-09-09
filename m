@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339B2C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25020C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u51wIMseDkxpNxShtMSfkG0JWTpwrhqNHA6Dm1oZaNs=; b=eh5uKsImggw3TMAiwDTaWTehS4
-	HKe3SS4k8PfwBiEzaRPDnhxK8hb7xgvlzcOTqRyzNxsJgSZQibl8xYSjpCBk0pW4opn0U8CNQSZou
-	yas/m7ekpGAJ9guc6QryfgarrFq2o0q1j2I+fRazs1bly4R+Dlp6gx1vT1gUGpteYYdfy+lZXYPr2
-	UGu6345ujpAJVjKhF1NPuZbuwpd+e4+4s97UY4jPELhr2varJM6QsQdxXT+lkVVb8UUdLsZB6+OE6
-	rfBmshKx1rj2dUm8mszXUL2siN1/1xOWqkm0nRXaymqGeklzjJy9hKF/nnBm7F6h3Rz8HfgTdUnEV
-	fB7i2YYQ==;
+	bh=b2bY2Hub+SpZQObKGH18+rjbZSyIPstkqYWfKls+4LU=; b=ZtXQpmey37Yh3YIUOuRK7D5Mw5
+	hdLS0FWRENr7t5zeZlgUWSV5Vt5TvjEGIsPRdaTHjpbQ1bG30Gwmaux2Z/EPncXNno1XSu8F8EpF7
+	jN8/4yx58AfACnDrfZbTejFrHd8Mdsrv5vQ8kGKZbFLLU+ySgghwZlvYuRxC5h22Qws4+SSw0pSeX
+	Fth7r/yvJVmLtQIhlTFvefaP3ZL7Yohd/FVGFSUpXPBSjpzbo71zOVGxNKVlcKZYU4eIa+qKN1HQK
+	BX7jbXjaHVOCpb2SCSqpEtGpiiFHDtwprLxD7jbBZa1Fr0ncj2qfTfJBPDD3HV0SIziaFnwag3VkR
+	eB4Jx5MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Q8r-0000000Cuum-0hHC;
+	id 1x4Q8r-0000000CuvG-1umO;
 	Wed, 09 Sep 2026 21:47:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Q8R-0000000Cuh8-2Otj
+	id 1x4Q8U-0000000CujA-47yS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 21:47:15 +0000
+	Wed, 09 Sep 2026 21:47:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 590AD601EF;
-	Wed,  9 Sep 2026 21:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87AE01F0089C;
-	Wed,  9 Sep 2026 21:47:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BA23343D9C;
+	Wed,  9 Sep 2026 21:47:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDDDC1F0089B;
+	Wed,  9 Sep 2026 21:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788990434;
-	bh=u51wIMseDkxpNxShtMSfkG0JWTpwrhqNHA6Dm1oZaNs=;
+	s=k20260515; t=1788990438;
+	bh=b2bY2Hub+SpZQObKGH18+rjbZSyIPstkqYWfKls+4LU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lAfLYe8b5+GZyzAOdsogQyUui5DYNZtHMauM++5n5SYZIvnjSvFlrPgCAk8DWRAtC
-	 kgmeghX6HGJXg1S6C41pAGl5nq02nykLw1QpAdh3UjcTN73X3hiSQUr57Otm/c5Yr+
-	 a7Ujx/KqjQzU40XFi6d9znR7UE1/v1yCYRSXCKT/CZNYiE7Y0bG8NdaKVVPlts8L0P
-	 ljtbA3hIo8lLhyHr0YIMf+5Q2wKRG13oFMzfxTuW8sz6w2r1JPfUtZQ5d8UerpI7PI
-	 OTUmIe/KZXtRwMLAM/+tWbiYbPpRid7NQyZlp0LqiBq5yqB4FbYI99n/WhadzHPvyD
-	 WKAkq9qJW9knA==
-Subject: Re: [PATCH net-next 6/9] net: stmmac: qcom-ethqos: warn about legacy
- RGMII PHY modes
+	b=RVXjXBUV4HlAflLQ3q+oqew72NDkWjHS6Oc3IIUlF9KwXQkYJ+a6HY3Bo4hUzrvo1
+	 pMzRyCoKA4dJPVOxBOuvIxxkmy4f/UH+nY0YQFcnPI3eNPZxQzUOAiEqwtF/woQbUM
+	 MG9XLE8yVgCyvjG5rFmIJt2wJqTQ4GPs1LTB8PuDxprCKeqvCZeKtAOZORd+EaKWu3
+	 f1GJ0RxyVeuWGlYYv6sU3kRMnq2fdgZZ+EvQwJYXksh+rJxu8C0i6dc46nNpzydAIK
+	 6i+6Myui6K3iraBSZ2hbE5Fda6S20JElabb97S9n9CsIr2a9EMLBvrwzOVYCmOTx1D
+	 tjGaagutFVtxw==
+Subject: Re: [PATCH net-next 8/9] net: stmmac: qcom-ethqos: add per-platform
+ NOC clock voting
 From: netdev-bot+sashiko@kernel.org
 To: mohd.anwar@oss.qualcomm.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
-Date: Wed, 09 Sep 2026 21:47:12 +0000
-Message-ID: <178899043209.219967.1138402258618527467@kernel.org>
-In-Reply-To: <20260904-shikra_ethernet-v1-6-a50765996035@oss.qualcomm.com>
-References: <20260904-shikra_ethernet-v1-6-a50765996035@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Wed, 09 Sep 2026 21:47:16 +0000
+Message-ID: <178899043644.219967.16301993674109894726@kernel.org>
+In-Reply-To: <20260904-shikra_ethernet-v1-8-a50765996035@oss.qualcomm.com>
+References: <20260904-shikra_ethernet-v1-8-a50765996035@oss.qualcomm.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,93 +78,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Critical: 0 · High: 1 · Medium: 2 · Low: 2 (1)
 
-- [Medium] Unbounded log spam: the new dev_warn("legacy RGMII phy-mode
-  detected; consider upgrading to a newer DTB") is placed in the body of…
-- [Medium] The warning fires for a PHY mode the commit message never
-  mentions.
+- [High] Incorrect power sequencing order in ethqos_clks_config() error
+  path drops OPP performance state before disabling dependent clock.
+- [Medium] Missing PM_OPP Kconfig dependency and undisclosed OPP/DT
+  requirement: qcom_ethqos_init_noc_clks()…
+- [Medium] Probe-time OPP/performance-state vote is never withdrawn on
+  later probe failures.
+- [Low] ETHQOS_MAX_NOC_CLKS is introduced but never enforced:
+  qcom_ethqos_init_noc_clks() (dwmac-qcom-ethqos.c:809-815) copies…
+- [Low] Concern that the added NOC-clock/OPP infrastructure (struct
+  ethqos_noc_clk_cfg, the new driver-data and runtime fields,…
+
+Pre-existing issues:
+- [Low] Concern that
+  Documentation/devicetree/bindings/net/qcom,ethqos.yaml documents…
 
 --
 
-net: stmmac: qcom-ethqos: warn about legacy RGMII PHY modes
+net: stmmac: qcom-ethqos: add per-platform NOC clock voting
 
-This adds a dev_warn() in ethqos_fix_mac_speed_rgmii() for the RGMII
-configuration paths that are not rgmii-id, to encourage migration to
-DTBs using "rgmii-id" with PHY-provided delays.
+Adds struct ethqos_noc_clk_cfg plus driver-data and runtime fields so each
+compatible can declare its own set of System NOC clocks with per-clock
+rates.  The clocks are acquired in probe via qcom_ethqos_init_noc_clks()
+and enabled/disabled next to the link clock in ethqos_clks_config(), with
+the OPP framework used to carry the VDD_CX performance state.
+
+A few questions below.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 67738c1598c50..2ca2f03de3017 100644
+> index 4f9bef662c579..a31541506a4c9 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -554,6 +554,8 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
->  		return;
->  	}
+> @@ -7,6 +7,7 @@
+>  #include <linux/platform_device.h>
+>  #include <linux/phy.h>
+>  #include <linux/phy/phy.h>
+> +#include <linux/pm_opp.h>
 >  
-> +	dev_warn(dev, "legacy RGMII phy-mode detected; consider upgrading to a newer DTB\n");
+>  #include "stmmac.h"
+>  #include "stmmac_platform.h"
+> @@ -84,11 +85,18 @@
+>  
+>  #define SGMII_10M_RX_CLK_DVDR			0x31
+>  
+> +#define ETHQOS_MAX_NOC_CLKS			3
+> +
+>  struct ethqos_emac_por {
+>  	unsigned int offset;
+>  	unsigned int value;
+>  };
+>  
+> +struct ethqos_noc_clk_cfg {
+> +	const char *id;
+> +	unsigned long rate;
+> +};
+> +
+>  struct ethqos_emac_driver_data {
+>  	const struct ethqos_emac_por *rgmii_por;
+>  	unsigned int num_rgmii_por;
+> @@ -98,6 +106,8 @@ struct ethqos_emac_driver_data {
+>  	const char *link_clk_name;
+>  	struct dwmac4_addrs dwmac4_addrs;
+>  	bool needs_sgmii_loopback;
+> +	const struct ethqos_noc_clk_cfg *noc_clk_cfg;
+> +	unsigned int num_noc_clks;
+>  };
+>  
+>  struct qcom_ethqos {
+> @@ -112,6 +122,10 @@ struct qcom_ethqos {
+>  	bool rgmii_config_loopback_en;
+>  	bool has_emac_ge_3;
+>  	bool needs_sgmii_loopback;
+> +
+> +	struct clk_bulk_data noc_clks[ETHQOS_MAX_NOC_CLKS];
+> +	unsigned long noc_clk_rates[ETHQOS_MAX_NOC_CLKS];
+> +	int num_noc_clks;
+>  };
+>  
+>  static u32 rgmii_readl(struct qcom_ethqos *ethqos, unsigned int offset)
+> @@ -691,15 +705,51 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
+>  static int ethqos_clks_config(void *priv, bool enabled)
+>  {
+>  	struct qcom_ethqos *ethqos = priv;
+> +	unsigned int i;
+>  	int ret = 0;
+>  
+>  	if (enabled) {
+> +		if (ethqos->num_noc_clks) {
+
+[Severity: Low]
+This isn't a bug, but as submitted every new block here and in
+qcom_ethqos_init_noc_clks() is gated on ethqos->num_noc_clks, and no
+ethqos_emac_driver_data entry in this commit sets .noc_clk_cfg or
+.num_noc_clks, so none of the new code runs yet.  The consumer arrives
+later in the series with "net: stmmac: qcom-ethqos: add Shikra EMAC
+support", which adds shikra_noc_clks[] and
+{ .compatible = "qcom,shikra-ethqos", .data = &shikra_data }, so the
+infrastructure does get exercised by the end of the series.  Was the split
+intentional?
+
+> +			ret = dev_pm_opp_set_rate(&ethqos->pdev->dev,
+> +						  ethqos->noc_clk_rates[0]);
+> +			if (ret) {
+> +				dev_err(&ethqos->pdev->dev,
+> +					"NOC OPP rate set failed: %d\n", ret);
+> +				return ret;
+> +			}
+> +
+
+[Severity: High]
+The unwind order here looks inverted with respect to the disable
+path added a few lines below.  When clk_bulk_prepare_enable() on
+ethqos->noc_clks fails, this drops the performance state with
+dev_pm_opp_set_rate(&ethqos->pdev->dev, 0) first and only then calls
+clk_disable_unprepare(ethqos->link_clk), so between the two calls the
+link clock is still running while the VDD_CX vote taken by the earlier
+dev_pm_opp_set_rate(dev, ethqos->noc_clk_rates[0]) has already been
+released.  The !enabled branch of the same function does it the other
+way around - clk_bulk_disable_unprepare(), clk_disable_unprepare(link_clk),
+then dev_pm_opp_set_rate(dev, 0) - which is the sequence I would expect
+if the clocks require the vote to be held while they are ungated.
+
+The same concern applies to the clk_prepare_enable(ethqos->link_clk)
+failure just above, although there nothing else is enabled yet so the
+ordering is moot.
+
+Is the ordering in the error path deliberate, or should these two calls
+be swapped so that every unwind mirrors the disable sequence?  If the
+hardware genuinely does not care about the relative order of the vote
+and the link clock, it would still be worth keeping the error path and
+the disable path identical so the intended sequencing is obvious to the
+next reader.
+
+[ ... ]
+
+> @@ -736,6 +791,46 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
+>  	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
+>  }
+>  
+> +/* Some SoCs gate NOC access behind dedicated clocks. Acquire them here
+> + * so ethqos_clks_config() can enable/disable them at runtime. The OPP
+> + * table is used to propagate the required VDD_CX performance state via
+> + * dev_pm_opp_set_rate().
+> + */
+> +static int qcom_ethqos_init_noc_clks(struct qcom_ethqos *ethqos,
+> +				     const struct ethqos_emac_driver_data *data)
+> +{
+> +	struct device *dev = &ethqos->pdev->dev;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	if (!data->num_noc_clks)
+> +		return 0;
+> +
+> +	for (i = 0; i < data->num_noc_clks; i++) {
+> +		ethqos->noc_clks[i].id = data->noc_clk_cfg[i].id;
+> +		ethqos->noc_clk_rates[i] = data->noc_clk_cfg[i].rate;
+> +	}
+> +	ethqos->num_noc_clks = data->num_noc_clks;
+
+[Severity: Low]
+Should this loop check data->num_noc_clks against ETHQOS_MAX_NOC_CLKS?
+The macro is added by this patch but never enforced anywhere, while the
+destinations are fixed-size members of the devm_kzalloc'd struct:
+
+	struct clk_bulk_data noc_clks[ETHQOS_MAX_NOC_CLKS];
+	unsigned long noc_clk_rates[ETHQOS_MAX_NOC_CLKS];
+
+Today the only table added by the series (shikra_noc_clks[]) has exactly
+three entries, so nothing overflows noc_clks[] or noc_clk_rates[] right
+now.  A future driver-data entry with four clocks would write past both
+arrays, and a table that sets .num_noc_clks without .noc_clk_cfg would
+dereference NULL at data->noc_clk_cfg[i].  Would a static_assert() on each
+table, or an explicit
+
+	if (data->num_noc_clks > ETHQOS_MAX_NOC_CLKS)
+		return -EINVAL;
+
+be worth adding here?
+
+> +
+> +	ret = devm_clk_bulk_get(dev, ethqos->num_noc_clks, ethqos->noc_clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get NOC clocks\n");
+> +
+> +	ret = devm_pm_opp_set_clkname(dev, data->noc_clk_cfg[0].id);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to set OPP clock name\n");
+> +
+> +	ret = devm_pm_opp_of_add_table(dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to add OPP table\n");
 
 [Severity: Medium]
-Can this print repeat without bound?  ethqos_fix_mac_speed_rgmii() is
-installed as plat_dat->fix_mac_speed in qcom_ethqos_probe():
+Does this need a Kconfig dependency on PM_OPP?
 
-  ethqos->phy_mode = plat_dat->phy_interface;
-  switch (ethqos->phy_mode) {
-  case PHY_INTERFACE_MODE_RGMII:
-  case PHY_INTERFACE_MODE_RGMII_ID:
-  case PHY_INTERFACE_MODE_RGMII_RXID:
-  case PHY_INTERFACE_MODE_RGMII_TXID:
-          plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
+With CONFIG_PM_OPP=n, include/linux/pm_opp.h provides stubs that return
+-EOPNOTSUPP for devm_pm_opp_set_clkname() (via devm_pm_opp_set_config()),
+devm_pm_opp_of_add_table() and dev_pm_opp_set_rate(), and each call here
+is turned into a probe failure by dev_err_probe().
 
-and stmmac_mac_link_up() calls it on every resolved link:
+config DWMAC_QCOM_ETHQOS in drivers/net/ethernet/stmicro/stmmac/Kconfig
+currently has only:
 
-  if (priv->plat->fix_mac_speed)
-          priv->plat->fix_mac_speed(priv->plat->bsp_priv, interface,
-                                    speed, mode);
+	depends on OF && (ARCH_QCOM || COMPILE_TEST)
 
-The only early return before the new print is the
-phy_mode == PHY_INTERFACE_MODE_RGMII_ID branch, so for the other RGMII
-modes every link-up, cable re-plug, link flap, autoneg speed change,
-ifdown/ifup and resume emits another identical warning.  The condition
-being reported is the static DT phy-mode, which is already known at probe
-time and does not change afterwards.
+and config PM_OPP in drivers/opp/Kconfig is a promptless "bool", i.e.
+select-only, so PM_OPP=n is a legal configuration for this driver.  In
+that build, any compatible declaring NOC clocks would fail to probe and
+no netdev would be created.  Should DWMAC_QCOM_ETHQOS select PM_OPP, or
+should these calls be made conditional?
 
-Would dev_warn_once(), or a single check in qcom_ethqos_probe() where the
-phy_mode switch already exists, be preferable here?  dev_warn_ratelimited()
-would at least bound the output.
+Also, devm_pm_opp_of_add_table() makes an operating-points-v2 node a hard
+requirement for such compatibles.  The commit message says:
+
+  "The clocks are acquired during probe and enabled/disabled alongside
+   the existing link clock in ethqos_clks_config()."
+
+Could the new mandatory OPP table / device tree requirement be mentioned
+there too?
+
+> +
+> +	ret = dev_pm_opp_set_rate(dev, data->noc_clk_cfg[0].rate);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to set initial NOC OPP rate\n");
+> +
+> +	return 0;
+> +}
+> +
+>  static int qcom_ethqos_probe(struct platform_device *pdev)
+>  {
+>  	struct device_node *np = pdev->dev.of_node;
+> @@ -795,6 +890,12 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  	ethqos->has_emac_ge_3 = data->has_emac_ge_3;
+>  	ethqos->needs_sgmii_loopback = data->needs_sgmii_loopback;
+>  
+> +	if (data->num_noc_clks) {
+> +		ret = qcom_ethqos_init_noc_clks(ethqos, data);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	ethqos->link_clk = devm_clk_get(dev, data->link_clk_name ?: "rgmii");
+>  	if (IS_ERR(ethqos->link_clk))
+>  		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
 
 [Severity: Medium]
-The commit message says:
+Can the performance-state vote taken by the dev_pm_opp_set_rate() at the
+end of qcom_ethqos_init_noc_clks() leak if probe fails right after?
 
-  "However, existing DTBs use "rgmii" and "rgmii-txid" and must remain
-   supported for backwards compatibility."
+The only code that drops it is ethqos_clks_config(priv, false) with its
+dev_pm_opp_set_rate(dev, 0), and that path is installed only later in
+probe:
 
-  "Warn when either of these legacy PHY modes is used [...]"
+qcom_ethqos_probe()
+	qcom_ethqos_init_noc_clks()	/* dev_pm_opp_set_rate(dev, rate) */
+	devm_clk_get(dev, "rgmii")	/* can return -EPROBE_DEFER */
+	ethqos_clks_config(ethqos, true)
+	devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos)
 
-but the code warns for anything reaching ethqos_fix_mac_speed_rgmii()
-that is not PHY_INTERFACE_MODE_RGMII_ID, which also covers
-PHY_INTERFACE_MODE_RGMII_RXID, dispatched to this callback by the switch
-in qcom_ethqos_probe().
+If devm_clk_get() defers or ethqos_clks_config(true) fails, probe returns
+before ethqos_clks_disable is registered.  Devres teardown does not appear
+to compensate: _opp_table_kref_release() and _opp_clear_config() in
+drivers/opp/core.c do not call _set_opp_level(dev, NULL) or
+_set_required_opps(..., NULL), and on the genpd side only the default
+pstate is dropped:
 
-Documentation/devicetree/bindings/net/ethernet-controller.yaml lists
-rgmii-rxid as the correct description when the TX delay is provided by the
-PCB:
+drivers/pmdomain/core.c:genpd_dev_pm_detach() {
+	...
+	/* Drop the default performance state */
+	if (dev_gpd_data(dev)->default_pstate) {
+		dev_pm_genpd_set_performance_state(dev, 0);
+		dev_gpd_data(dev)->default_pstate = 0;
+	}
+	...
+}
 
-      # TX delay is provided by the PCB. See below
-      - rgmii-rxid
+so the VDD_CX vote requested through the OPP would stay in place for a
+device that never bound, and genpd_remove_device() unlinks the device
+without re-evaluating genpd->performance_state.
 
-So a board that legitimately describes itself as rgmii-rxid is now told to
-move to "rgmii-id", which would misdescribe the hardware.
+Is this initial dev_pm_opp_set_rate() needed at all?
+ethqos_clks_config(ethqos, true) applies the same rate a few lines later
+and _set_opp() early-returns when the OPP is unchanged, so dropping it (or
+pairing it with its own devm action) would close the window.
 
-Should the condition be narrowed to the two modes named in the commit
-message, or should the commit message explain why rgmii-rxid is deprecated
-too?
-
->  	/* Initialize the DLL first */
->  
->  	/* Set DLL_RST */
+[Severity: Low]
+This isn't a bug introduced by this patch, but at this point in the series
+Documentation/devicetree/bindings/net/qcom,ethqos.yaml already documents
+qcom,shikra-ethqos with the axi-noc / pcie-tile-axi-noc clocks and a
+required operating-points-v2 property, while qcom_ethqos_match[] has no
+matching entry and no driver data setting .noc_clk_cfg / .num_noc_clks.
+The pair becomes consistent with the later commit "net: stmmac:
+qcom-ethqos: add Shikra EMAC support", which adds both the compatible and
+shikra_data, so this is only a transient mismatch inside the series.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260904-shikra_ethernet-v1-0-a50765996035%40oss.qualcomm.com
