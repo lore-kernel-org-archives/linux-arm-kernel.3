@@ -4,97 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCECC79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1D7C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nl/aBnK5PFHcg41MgSw1Z+yHeAR93xAdwKOpAL4NF7c=; b=VOAWRc8JSZEdvEBIRaRa9th/J9
-	uiWNp+XAdIYOxHjPII2Rylydb0/c70PxwyZSwfgB4Uywr+95HfbiadVifqP5AzTLpU+HSo54ZgSKl
-	uEI3d9kvXTK7dkOCIe5GQT9aKvjAL4COKH/o325b0bgnQaV11N/eyZ0Q/k2XpHsgV0bdu1NwboQHm
-	Bs2Iy0/EweVe3Ky8IRZYXIwgzUjMhxIvdHVjcU18G7jzlRec1wb1N5+twVBhrXWIiPpDyNGBRcsOJ
-	PLITtir+X1wDlpjvhenawYk+Kf99jsp9dqM5nhPuI/xOMnoIcKShX3uDT+WR5TBH/AuHWyfSP4geO
-	SJeyQE+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=; b=qRVm4xlmPVvm2fxyNwkGRbrIC4
+	LTyh7Q5aev69AmWuRUDw8MtTTj/WVK+qmPbE52tXSpdV02/8KIjHeN1a5eESsXCaEC6MIngWGdWdX
+	hfj0YZ8DRp4VKD0CG61eVvS0Xnknx9f/XpoHJjHUaZSGO3vxyYaHDuvoQ3pNbCDko3BESTJcVSWhF
+	QLonCIfmX4+JldTPQ9TvXAk825MccM+scI6A5i4D+olOUINI46ZL2e34Zz+7OJT+feEictTs8XYPy
+	PCZobWTm/Cgnvj2h/9bWB+lJvqO5dmNg+O6750BRpjkPYDpAugvu5Qlc3NhWWHwBvve+6rWV2Cozs
+	8vpMElgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Eb8-0000000BHlW-2z48;
-	Wed, 09 Sep 2026 09:28:06 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x4EbD-0000000BHok-31Hw;
+	Wed, 09 Sep 2026 09:28:11 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Eb4-0000000BHiz-1NJU
+	id 1x4Eb5-0000000BHj1-3XPi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 09:28:04 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea4bfd1so4400a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 02:28:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788946081; x=1789550881; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Nl/aBnK5PFHcg41MgSw1Z+yHeAR93xAdwKOpAL4NF7c=;
-        b=dCtEu0a6+5lz0tsu0tW3eO7FbY2LEc3/bDS0PDePrrOvsRYhTmN0Vl/zI6+L7LXk0s
-         /HgSA1rMyLkO4y7DGsXyad54SvQGPcmh9wExMvvZizzm7UK4Jzq4h/DKgg6zYi4gWwDg
-         eHSKGiR0CilOTLsG7RKpXnmtgDhYFZlhUC8xF9KhCNaMbzF8HlRBohmiqbs8M1a1YAxh
-         BgUENDrBpNk8QMqZ6chN/hp+Wgi4U+xcLc25M5SLD/le69Za8Q8U0Cyl6x/uDQNCT/05
-         IszAwKxNnN5jqs8WDtlsxchqabfg4DcnumWD/FRot3SHHx7JJU4norg9gJnF1D79p6D2
-         AIkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788946081; x=1789550881;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Nl/aBnK5PFHcg41MgSw1Z+yHeAR93xAdwKOpAL4NF7c=;
-        b=EKneUpq/JhjK5Au2C/KLWVHKgD6wyh1P0MMkJD5+mbxkXAVR9qYKbklpacqmrETZTd
-         AlG89dLW+hR8h14wnQU5qUjh2I21mFndeoLPis6RPw5YrYVoa16C07UuF7bCq+TyXCDS
-         zsGGsoFUlxfUALE00DA7z1qLLEv59arH1CABlgEVNo1zKKdMJqt1nV5pGLK2TfXVuSVb
-         uw05wTQY8ypmN+BFbuHWy0pXnn6N/AE7BdFiW7GJ3oSmO7cYeCFByXc5E6hQYnNv0Jte
-         b2KKIdacrkCmweX/zk15W4iXyNZ5GWQu6DsRfc8DPw0qYgvrK0RVUmSZe+HeDbYxhho8
-         jS0g==
-X-Forwarded-Encrypted: i=1; AKwUvByYxPoaqnY0+bB/E9ONULqiulD3wGY+YKyKjNqvLTjDoIPD5O+chfSQTFtGTHbvmmekFQ8mbqYLllLRJ5Fa7qyG@lists.infradead.org
-X-Gm-Message-State: AFuF++m3LAjlYdnt8VfqsTPWwgVoqiPREu57TpwwKjvGSZNXDTodxUyz
-	UySj4MsQ4/eF5DXVveY/5oIa3zXceTN9rYLgDuUfK45EidMvqQMULnOJ
-X-Gm-Gg: AYBFou0M75Va6IaBfPCFdeqopRKLrxaMl0SmdWX9/1UfCIsOMeCddSawd5EQ+57SGy8
-	1kS7ud6JG+0NUwT1XZaXaGHtB4w4yV1n0iACH0Zn+mxCJnLWBLeEacFP55Pg0FbijKrxQtTBflw
-	1pycHXcjrKR8jY7eu6H9ifVgvH8P/FiQzgcwj0/mM01umQPvp6bEHvZ2MaB/kDvSWt87GE9Fic7
-	0ixfaMNc6VJIWLvq/2Sdnhw027PXUEk4gcA0VVOJ3q3uIfp+fw42UGoZcDA3572f73c2IZp9Wo1
-	WnCG6VoyCIk38lByyi9yg2fbSgFgoYnw/hq+qjmd8VgwhF2yWFLQSYq9PYZoE5zj/uk89ZXXbLO
-	S6wWXAPP9g23g3kLjTqyOzZtF9+WUqoiEm3CIGy3R8+2B96gT/re9Mc9Xoe/s0wkG9YmTCvespz
-	TUjt80wTXmUGRxb+Z2WA5E7PGlMKyBYxFWmFq+YrAZaW1GHWBfB5WiVSkP2KAlRuDNdoYLo9bsQ
-	rliA7wKAdAw
-X-Received: by 2002:a05:6a00:b82:b0:857:4dea:e20e with SMTP id d2e1a72fcca58-86942f3f103mr305995b3a.0.1788946081268;
-        Wed, 09 Sep 2026 02:28:01 -0700 (PDT)
-Received: from Aaron-M6 ([188.253.120.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-868e3aaab85sm484904b3a.22.2026.09.09.02.27.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 02:28:00 -0700 (PDT)
-From: Yaozhong Li <yaozhonguwl@gmail.com>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>
-Cc: mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yaozhong Li <yaozhonguwl@gmail.com>
-Subject: [RFC PATCH 1/3] dt-bindings: mfd: rk808: add board level power hold GPIOs
-Date: Wed,  9 Sep 2026 17:27:26 +0800
-Message-ID: <20260909092728.1859-2-yaozhonguwl@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
-In-Reply-To: <20260909092728.1859-1-yaozhonguwl@gmail.com>
-References: <20260909092728.1859-1-yaozhonguwl@gmail.com>
+	Wed, 09 Sep 2026 09:28:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CClp8yixucsrIV4N/xPiodX1XX2aLm7RH+guO2BL7oyXuOPQIU1ki2ZIgZCm1oY2V7mOjmODQKsa/cQK8NVhJdfKe1d3xy1xv9l6IK11Vwddtu4R2e4LwOtHZHtcPKLj7tpV+LRNCtLyxbZep3msUOnATfpMgu5dcKOxt/30KsIWbSSM8jKVJxGYQyJCKbOKvnU6m/sdI1pDTVFZaztfS4/ncd3F3AueeXBwfMtGugHXw0HjmdNfsiGAAxSoQAc/+vHmFxspWc9aQxczr4/uncspkJH0Ah34N1+Ej6bUDtI7eANpUnLbp6GFHYB0kvrqw1/obtZKNjmOIp5G5ZJHPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=;
+ b=bnalmuj+mm0wP4b8+UhJedB/xY7aCfYbGlOz7nEZ3CnEGEl0Uli9rY8fHSNp2l/EMMURIOt/070uisH7+KHpJHBtNbY9hTK2apuho1kWBU0bBR6Zdx/rusyV9ClISHstHul72cjlKpaEmIlafpWYvbtfv5WW9jikSV0H0IJSY46X2I/rPPn5byyTZNP+CM4CYGWUhHcY3XGd/ofZOKmAf/kAp/aEmRS3EEK+ZtYHpfP1uCjCihloCcSFin6jDsImQ3XQIYN+eBsAKpndtJy4LqH8X+hupJS3Kp1Zh27voUjlg6P5yrn5Tq5IN+ecZ6QobNge27sMAtG3ih43SIU4NA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=;
+ b=jewK0qZRn6DVpLrzLZ1EtpLCWsOc1TtNch9mkKyFusb6e4lXeD4AwRM4/J3wSOdLMqP2FvcDZ3KyR9ZTbAX35lJpYfjiWgSdIRPlUW7ns4pcCW4VG8CCfP4Ps6SEGp6uLxhJPOTnuJ84yljFz1gd5wzNYAeuyeaEk7ptKI9vysk=
+Received: from DS7PR12MB9549.namprd12.prod.outlook.com (2603:10b6:8:24e::7) by
+ CH3PR12MB8332.namprd12.prod.outlook.com (2603:10b6:610:131::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
+ 09:27:57 +0000
+Received: from DS7PR12MB9549.namprd12.prod.outlook.com
+ ([fe80::bace:1330:9ab2:acc6]) by DS7PR12MB9549.namprd12.prod.outlook.com
+ ([fe80::bace:1330:9ab2:acc6%4]) with mapi id 15.21.0406.007; Wed, 9 Sep 2026
+ 09:27:57 +0000
+From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
+To: Thorsten Blum <blum@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>, "Simek, Michal"
+	<michal.simek@amd.com>,
+	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig_=28The_Capable_Hub=29?=
+	<u.kleine-koenig@baylibre.com>, Danilo Krummrich <dakr@kernel.org>, Takashi
+ Sakamoto <o-takashi@sakamocchi.jp>
+CC: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
+Thread-Topic: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
+Thread-Index: AQHdP8RKUx3fE5nF40K+eDw6Pqwf5LbF+yoA
+Date: Wed, 9 Sep 2026 09:27:57 +0000
+Message-ID: <DS7PR12MB9549DD2EFA3B199CE0F6523F97B02@DS7PR12MB9549.namprd12.prod.outlook.com>
+References: <20260908190002.403337-2-blum@kernel.org>
+In-Reply-To: <20260908190002.403337-2-blum@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-09-09T09:26:52.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
+ General
+ v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS7PR12MB9549:EE_|CH3PR12MB8332:EE_
+x-ms-office365-filtering-correlation-id: eb44296a-dac6-4f57-5501-08df0e54a268
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|10067099003|22082099003|18002099003|5023799004|11063799006|56012099006|38070700021;
+x-microsoft-antispam-message-info: Azag9HrePlA0+hMToTh/+3y4r9KhhXQ9rnJaxbVWbsLvSuKXiivXUGa1nD4TFmXlzdTgZZHY4J8yQSJADg9eXqNpTEbP/wJSOO15fBfEYPbtHg1R0vDAAYrLg+xlhJQtN9mRmjwxysQtjMKBSgjwm41it9uGblWQ+axz509zPyE/D+FQ8+hqBk3/zzfZ04V/PiJn6WlOZtDMCMpq4c/jPDPzxeTq/yoBbcprMPdDZADDAO/kTEL99JHtMLf+4dIMM/aJL/Q4fWeOGgOGuAfv0nZFKsHH8YwLuWfFphbszh8Bs3tOicObWtgDPT7I2u3Rm85Mejl3yoWssDeInYGUJHsELIaxEXYs4DhK6rqjUHl3l4sRu74Ec0/Cqsg5rf5uPAwbChCwl2+L+KfkMih9N4LZntzO4znS7oeld9eYLYBELObIkWRsAEbIyyQqTtBDALcVdTqhRkz0c/3qagmvTI6MRoeFRTH7ZTPCje69eRLdD4spkbuZ5WJWBaOZi6EBw7k9hL++a6vWCofwp6gKUiHJkQzWZrbOOljSlNrVonhh0ke4/pqQJVNJJk2wpfg0SaWOtv9Wk/J7YLQWunq56kQJaUP7QlAG8JCdCYfqWlUJ8UKYoCw8W9lSAfB0sLK+at9Uw7XB1A48jpAkBNMxHADoK/MOsMJ7GmI1kOlhxIodB+1yzD73tTAZRTBAPZQDWce4rMe+QlhchU57kuon6YJ0V/Xgborldx+XLZRnWrU=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9549.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(10067099003)(22082099003)(18002099003)(5023799004)(11063799006)(56012099006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?mfOFyzgnUMKfNmqBsncEjdmeP1iuOQ8ZGkoKdVDWLgrSVwYIVDbWf9SFWd?=
+ =?iso-8859-1?Q?qDxX7GQ/RArqwQRYIUMfINx4OohZkFtCK2PSKRO6+ZhJCm/k40I9zK0FGt?=
+ =?iso-8859-1?Q?+RtM0EWS6GCggUOa/AQ2umaUJntC/6bDZFzCBMzOwicA4vJbECny/C+OXO?=
+ =?iso-8859-1?Q?qSZHrru1yAckSqlwJ5vzHlDg7+B0U1h3Y5957LQfnzaokVdsdqtQeqCmty?=
+ =?iso-8859-1?Q?9tBb5ZHL475E0PJkFsfwWbUxqULU79Lf3k15XzfJnO9GyYzHT2kh01lXzc?=
+ =?iso-8859-1?Q?gIMMlLj0geL8POzHZ/6vWvIXrCfJ343bWn19Ou9a17FUYyrUqL5TMazsUv?=
+ =?iso-8859-1?Q?2wa6vPTEKPy55XZgs6/t5AwQ/dcpMkFlLA8E4qnqHyvF2KuM7YU1byyKE/?=
+ =?iso-8859-1?Q?vVWa7ReUttjuz4ll22gVKYnRqvrPuovyVTa+Pq/tl8ixEF/fpqSjtdozWs?=
+ =?iso-8859-1?Q?BW3j6qXhwMjKQXvmQZkpvfluwt+EWR6YqwHbZ4veBprrmrbkuCDG+waJ6Q?=
+ =?iso-8859-1?Q?g/K3/tN00v0mYcxKho5dLQKPPUKtNwvCUZ/vScCCED670jNmbsMBVQ93pj?=
+ =?iso-8859-1?Q?zh5n0wbWocH9upNKMAe3+L5NHur96EC9XiBNJPXFuvKvC/0VEzABFGJIln?=
+ =?iso-8859-1?Q?zuTKLZKFqj+umPp86MC7lqKB5dnKsiq92rXsalU3MvRLha8MCasP27uLef?=
+ =?iso-8859-1?Q?BEHFgotYiXiF+0jHNTh3+MvcvAfZ14cR5ofBqotAI97cru2HuQOHEsA5rr?=
+ =?iso-8859-1?Q?m0PHjpbsTE9lF+yl6F7CvqUgGQLIXZkpxquBnjTm3Ao+N4GiAPFShXqCmI?=
+ =?iso-8859-1?Q?qjkuGo7MetCCWD2HCSDyfQuRVe+v/93/kc/N63XrhuAhXoftzRUGzQwl1N?=
+ =?iso-8859-1?Q?gIWgmUoCu6/X2+fssHugn/Ld8KXMHkKEpmq/seukcxK+xQpfYFhercibW4?=
+ =?iso-8859-1?Q?e8m1rfYnxN7xbM6gvyPnvwZUiOOOLjlDTA0CktmrcGk748DVA5T2PHzFYF?=
+ =?iso-8859-1?Q?8VAILPOjhGMtcFaEj1DbIlbvr5Z5GlAD0/zkm7+vJ1J6fYyv2dFtbg4vye?=
+ =?iso-8859-1?Q?TC5yYHNeidKSkJdekkJxSgeWqw1R4GV2iiuULiq5O8T9zQhrjOW486aFjr?=
+ =?iso-8859-1?Q?qGzzFjRmSzmtI3T7i7uynmVLxxKOl0jOmjCIxR9iWmJ+L+rGk6xrv9uS1G?=
+ =?iso-8859-1?Q?lWtEIn4b60878WqKcOwjJFvX80BIDEk6yhpWVXnDxksiIYGq9Rk8hbIWEA?=
+ =?iso-8859-1?Q?AIcGX8aG2nlGw+wTM7q5pPmx2GOGn0/Hf7KZdq/jKrcJs038fFztOfNB1z?=
+ =?iso-8859-1?Q?5WxoK4tf47CRF8JBXugT3gkGSIFiZwO8fHJBmftZJwVy8ARFtvIrTdE9Qd?=
+ =?iso-8859-1?Q?EuI0YAvz0u507eTVcs+hsNUSAreEhp/k7NWlO2LSgiqTuFLElf2g55G7l4?=
+ =?iso-8859-1?Q?Sigo+jQwBYgtOfwYn9TsU+ajm1bDW+iuUwhl7Q7+y+Gs+/jZlApJlTaf00?=
+ =?iso-8859-1?Q?6uyeJv6hAFZIz1H6d7OnCgnCdvgCoez0hcxVF1i1sgJHvNKZMdv68MbXQ+?=
+ =?iso-8859-1?Q?Kavg4C4K5rLJf0XrdiLN6Tpc4Eqeflzp1Y/tKihNy9Oe65WcewuT8fHcpA?=
+ =?iso-8859-1?Q?IbNyJ92iz7IUtXMLvvRv2t0FHAwplzafhK45m6HN6fs9WXhC6Dncl8TCat?=
+ =?iso-8859-1?Q?h4dHMymrbwN87+W52MknfcXSUWhjnnaQ8gxi3EURaUJyysmR7PavrMQ2vZ?=
+ =?iso-8859-1?Q?B6H2BRSun4oqGG8efwtDN28Fp1t0MhMzIru3TqCgJcM2Uz?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9549.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb44296a-dac6-4f57-5501-08df0e54a268
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2026 09:27:57.4483
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: x9MPyQ8ilyQwj7hVNJthKLF3ft/cEA9iVyxMaFP7T7xMSacnPDZuDjwnwxKTgQ4Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_022802_689384_8322CA8D 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260909_022804_239955_CD9440C7 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,58 +147,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some boards route "power hold" lines from the SoC into the board's power
-circuitry. Those lines have to be held asserted while the system is
-running and released before the PMIC shutdown request is written; with any
-of them left asserted the rails drop and then come back up.
+AMD General
 
-Add power-hold-gpios to describe those lines and power-hold-delay-ms for
-the settle time.
+> -----Original Message-----
+> From: Thorsten Blum <blum@kernel.org>
+> Sent: Wednesday, September 9, 2026 12:30 AM
+> To: Herbert Xu <herbert@gondor.apana.org.au>; David S. Miller
+> <davem@davemloft.net>; Simek, Michal <michal.simek@amd.com>; Jain,
+> Harsh (AECG-SSW) <h.jain@amd.com>; Uwe Kleine-K=F6nig (The Capable Hub)
+> <u.kleine-koenig@baylibre.com>; Danilo Krummrich <dakr@kernel.org>;
+> Takashi Sakamoto <o-takashi@sakamocchi.jp>
+> Cc: Thorsten Blum <blum@kernel.org>; linux-crypto@vger.kernel.org; linux-
+> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
+>
+>
+>
+> In zynqmp_aes_aead_cipher() and versal_aes_aead_cipher(), replace
+> memzero_explicit() followed by kfree() with kfree_sensitive() to
+> simplify the code.
+>
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
+> ---
+>  drivers/crypto/xilinx/zynqmp-aes-gcm.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+> b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+> index ebee37dddb1f..d9bd6dcd23a6 100644
+> --- a/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+> +++ b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
+> @@ -230,10 +230,8 @@ static int zynqmp_aes_aead_cipher(struct
+> aead_request *req)
+>         }
+>
+>  freemem:
+> -       memzero_explicit(kbuf, dma_size);
+> -       kfree(kbuf);
+> -       memzero_explicit(dmabuf, sizeof(struct zynqmp_aead_hw_req) +
+> GCM_AES_IV_SIZE);
+> -       kfree(dmabuf);
+> +       kfree_sensitive(kbuf);
+> +       kfree_sensitive(dmabuf);
+>
+>         return ret;
+>  }
+> @@ -364,11 +362,9 @@ static int versal_aes_aead_cipher(struct aead_reques=
+t
+> *req)
+>         if (unlikely(dma_addr_hw_req))
+>                 dma_unmap_single(dev, dma_addr_hw_req, dmabuf_size,
+> DMA_BIDIRECTIONAL);
+>  buf2_free:
+> -       memzero_explicit(dmabuf, dmabuf_size);
+> -       kfree(dmabuf);
+> +       kfree_sensitive(dmabuf);
+>  buf1_free:
+> -       memzero_explicit(kbuf, kbuf_size);
+> -       kfree(kbuf);
+> +       kfree_sensitive(kbuf);
+>  err:
+>         return ret;
+>  }
 
-Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
----
- .../bindings/mfd/rockchip,rk808.yaml          | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+Reviewed-by: Harsh Jain <h.jain@amd.com>
 
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-index 50dfffa..00cbb27 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-@@ -43,6 +43,23 @@ properties:
- 
-   system-power-controller: true
- 
-+  power-hold-gpios:
-+    minItems: 1
-+    maxItems: 2
-+    description:
-+      Board level power hold lines driven by the SoC. They have to be held
-+      asserted while the system is running and released before the PMIC
-+      shutdown request is written; with any of them left asserted the rails
-+      drop and then come back up. A line left asserted by another consumer
-+      therefore defeats the sequence, so every line involved must be listed
-+      here.
-+
-+  power-hold-delay-ms:
-+    default: 0
-+    description:
-+      Time to wait after releasing power-hold-gpios before the shutdown
-+      request is written, to let the lines settle.
-+
-   wakeup-source:
-     type: boolean
-     description:
-@@ -113,6 +130,9 @@ properties:
-         unevaluatedProperties: false
-     unevaluatedProperties: false
- 
-+dependencies:
-+  power-hold-delay-ms: [ power-hold-gpios ]
-+
- required:
-   - compatible
-   - reg
--- 
-2.55.0.windows.3
 
 
