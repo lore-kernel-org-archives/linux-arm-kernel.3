@@ -4,140 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7526C79FB5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACBCC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5M+hM3+vBkrrGz+pKZWRXDRidaH6HiblK4ACIn9CTYA=; b=ZLqML39ha/WaO2OY9OF0378e9l
-	Po6py+26iVwjVbw9LQNaWccvF4x5bA5HQEuetpleaL0GIasPQdhrcujkpnKlKo6iUhoIHE6F0w01O
-	IiSfo3mhwMldTFXci+cM10zaU4/thSqHpyJczMw89tBMLunv3bxsTIVvLrlGEcN1JPzIz8QmWu4FF
-	8aOzA54x0kykjIp+96N7ULwXSuiRWFsebp0NQn8u69hFBx/KHUehJpjoFUrUNgia74RSbfTF3beYU
-	mRZgqk+UTuOoDUSQr8swnbf8j6ChBlx/sT+10U0mSLl3rhZlf2ousfVaNVBb6N4txD67mrfcbEijt
-	hLGB/lhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UuVzlSB31qLhxRy93vlak5xkhcEfOZHHWWOiuFWT7KI=; b=2m/shbE4giqxP0Xl3r1Xy/OJix
+	d0/JxaOTrC+MgRC5v5EeTutv+8aOyjUY+RjSxVy4cIAwCL4S70pCK6r8r18q/ob/dSxowZwryGCYJ
+	MYxPwRCJl1StTpZautdGKNkxWjuIX7iT5AZ/d0JvDV5ZNz37YY9iFsbPuIS1P46W8oOFJpxlgMtMu
+	ErvsWAaICNUxPWWKktZux0MR+L2qsuIU1eGz/hEOfWBvyKqQVwTVvmcPAosYDRv3nP1ypDe3MerBP
+	KM4nH/2ioC5ARlB0OI2L0O4I/e1SeR1ngtx0iJSyqKWfygCyLDQfbRnvqzpKBwvT62MjPxuYEMhsf
+	r1u2X+Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BmN-0000000AsBA-20Za;
-	Wed, 09 Sep 2026 06:27:31 +0000
-Received: from mail-eastus2azon11010032.outbound.protection.outlook.com ([52.101.56.32] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1x4BoB-0000000AsTo-3ddg;
+	Wed, 09 Sep 2026 06:29:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BmK-0000000AsA4-4AuN
+	id 1x4Bo6-0000000AsSo-2i8d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:27:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ADVS5jhTEEHBjvZiiVm0buHK/ZOqQgNO/CLzpo7jAiEz1byvs2LL/AjCYxwDTnhAfRgKXpeXzsafOeXjDZKeZB0J2z2QeJ5PFzlVHzHEVRp+9wQzAsFElW/8qKfGevngwI2oHg5VQUc2PrbnzwbEClV8szbFT4KtEV+Uhi2CfnVzdIKIE+I+tJe/h1YJ4Vunn5hg0x+gb0rqouFJqwbOpMs9u9fCDExR0wT7XKjnWsvYVpr64r9vWe5xoaAzi68RKbw8jGB+f46HQLX5WCInZe10EvBM3/NsZuI7zoqEfsHSMsO+xDrIpEW3aeqIIBZTNa2t/N1YmCc2t2KoZMbPyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5M+hM3+vBkrrGz+pKZWRXDRidaH6HiblK4ACIn9CTYA=;
- b=k0f3uzC6t6dAnFUKTHEb+rTw9CCfZlOVtzxHTPj8v7Sb7Fr6hntNX5WiJ6HiqDXHaSsORUrlBmUK/JwTsOTjWe+VnUEmGGxjl2ts3XmV9Or5Nr9oEZthJDJz3XhMnV0ED0HGFOwqF6QKEFaM3dWR0JzSvTzkIwmorsQpxn6E7ut/sn59OsE+a1E8vQu2CiSZZ6urFzl3Fq65QxopXEoEpDqZ6cOBBR+JHbUV35Ro2QV6PYsMTn8quAg5F//pcgzKS/8R1+YOqDPZMxkSlWjs8ORPdCUcLXoY6LW7wF+MWrrXwwrnSAnYPC0YlProMrZA1IupOrZMZk2xWE5Nj3Ugbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5M+hM3+vBkrrGz+pKZWRXDRidaH6HiblK4ACIn9CTYA=;
- b=P109xUpMPXBHvmSkb7obE9ZdnWOgP4m1MmHsxBcKsJ8Q9KDehRK3u1MNJYShXgCbgLJ8cnSldlCjcrPFUn/unUmLttCUMyvSDIUUa5JYABPQ7eKdYqmymWMyBehrRoiqjK/nWN7HBVuinjK0gu7iasjv6AeFVdAoa8h857hsyXf4frqzPCPwBR4oNnvnsrJDSNTCGI0Lzq8rCPVucaEVaHxZ/P4YpYOtiqdUpIlpsGMMrJsMAevIqnLwjvqGSz/Of8RvjCRWnnVnNEXuOMDZWGHHgmSoWAFvQfZkQsMFlOcbTM4kuT6Cq6vOM6MsOTaK11rq9GAD2uayZUhc4U3Rlg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by SJ0PR12MB6829.namprd12.prod.outlook.com (2603:10b6:a03:47b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
- 06:27:21 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Wed, 9 Sep 2026
- 06:27:20 +0000
-From: Andrea Righi <arighi@nvidia.com>
-To: Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>,
-	Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle selection
-Date: Wed,  9 Sep 2026 08:26:09 +0200
-Message-ID: <20260909062649.469633-3-arighi@nvidia.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260909062649.469633-1-arighi@nvidia.com>
-References: <20260909062649.469633-1-arighi@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MI1P293CA0013.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:290:2::15) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Wed, 09 Sep 2026 06:29:22 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6896PpU6130682
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 06:29:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=UuVzlSB31qLhxRy93vlak5xk
+	hcEfOZHHWWOiuFWT7KI=; b=LNkndGI+F2sVu3y5Jk29Y6qr8RzZHDbUDldUWiet
+	jDNwQBuB1w53SE5u7S6smxLJvGwsbmuQizXPBfXnrHsCJMLMzvmSs1Z8V5d+Ex2q
+	QYYjDQps+IxT4+nUEawE6bDduSv+xQrhJF5ccgaQ84bjKaz786cGcUOYA8y1YED8
+	InVhv7bYQnLFb4v36zcGVO9EOLrmPRUZ1z8XCGHuFrToVlGpcg4tpUnRhJA75NbV
+	G4Tpge1Axdb1PhY5KFtXcJYoUi6Zbgw1uVVAdnxYAOj9yB8+lQiDzlJ/5SN0oqou
+	8IOwNIEBYCNoYFRKYzTR2OlIEAiBOXaFQfyLtkEWEP+A6Q==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjntpk2pm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:29:16 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8627258ef12so4065295b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 23:29:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788935356; x=1789540156; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UuVzlSB31qLhxRy93vlak5xkhcEfOZHHWWOiuFWT7KI=;
+        b=Q6DQcQpg2TkjysdXXF/sB/UYppnUNC73h8YhTCjRj5aOVnu6UDFVTYX7gQrw6GxPKK
+         gby8jY/LAptVEK8XbK5vH/oW2J+3vy+eO7zE+or/zQVcmljyhyDy99AGEoI/JnGFWPin
+         iSV9/EGNAUVsJSAWjyyeBfr8DJnXO9klaJDxJqyUOVSrw7moz4IBDb1zaglnAuDFSrD9
+         zlFV8DbVOf7/+FpWP1rUWKU4NwIr+THgTSiuLxp0j8fm8d884BIa5MpQwUGzS0P2uL/c
+         ddxWa8jbi/VxRZMehk0+3+3bmKz98LuBpHS+rRXWC/udje7fZuOGcnqlzC+jBNIybL6Y
+         qK3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788935356; x=1789540156;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UuVzlSB31qLhxRy93vlak5xkhcEfOZHHWWOiuFWT7KI=;
+        b=ifln/zxy0Vc18PRLMCqRa/sMi3d6xERUCKcBRXCaehQGOVwfU9byc+MeO2rGpKUmpB
+         V8uNwe9KTD8ZzzEu3/UPbspzSOHOGBWBLdRzT0U5+4G/KSwjFBJMjcOL6wZwhiC3k9LV
+         2CL2fYcQZ3MScIYIMeXdbrXd4F39WzFQLoYob1Duq3Ziz5WG4tj/BN9+iAEIN/TVzrxH
+         BHMJnqZV8MX6X4DSY6Wfn8eh9/8Yi63yw+/AHNL+nO7bd4ER67b+MzwxF/FKxWGYrKq5
+         dZV4djWQmyETBe02pR12fl6zXfqZEnqiZPw/Gw+9N8vL4qM2ju3hgZyrC6JPJ/Xgoo+8
+         ROyg==
+X-Forwarded-Encrypted: i=1; AKwUvBxuyUOx/Wk+WXXdj5fIuM41CQmeyqYzjulUBIXBFmUDbD0K2AGn9txZtmF/Bb2HJV7lBK0oR4vx2SLX3pzIFvdf@lists.infradead.org
+X-Gm-Message-State: AFuF++myccuug/Jpol8pXFIMm3Epb6MuzBpBiZIGHKZlQ5M7BFkxNlFc
+	H0hajnZ+1bHWHfLG8m4qil5Eip9q55rySFfwvegiZj8E4/JW6aGWMkLzQ4Jf9kBJz0Z2l6bzy+r
+	ImFakxkU4nXunb6A0QsoQsEzveet+07PiNH7V5GBMWrj7RLM3E9ZxsR15KVw0BfSQKNLSCju2jG
+	CXSQ==
+X-Gm-Gg: AYBFou0VLVpZL2zb6sdhWJS9e3j7nrW9WCAa5KPDJuQ6ebz5OQn+KImCTBKomsrRh+x
+	h+MW03c7QokfSm5vJsxJsaSqjdef3NFoONceOSZkVbhPKQt+dA/BxwTxjTOFlAKNYetNDjwGp9i
+	fq6Z0q+VA8RoagCnvw6w6pd35s399R5RcjzNdgoq5TbiTRlsa3HUTU/MDwXxiMOTmhh45BtG5Xv
+	jY4z0oTyT/yTR1/5e00E5puwONB1wRXnlalttuXU62ngZRMyM+tgZ3vLCcfk7JAYjkwKo9MIfPs
+	mzcdskGI4z9Hpj15LTaViXepP5uG4K6l6HypNf8suYQRU83cBdb5hq21un1OMMVbGi/JS4HvKP6
+	UhLvlyvSrgiIspLUmI0SvttYr94U=
+X-Received: by 2002:a05:6a20:9630:b0:3cc:ebeb:3efe with SMTP id adf61e73a8af0-3da39ee18ecmr51556882637.9.1788935355838;
+        Tue, 08 Sep 2026 23:29:15 -0700 (PDT)
+X-Received: by 2002:a05:6a20:9630:b0:3cc:ebeb:3efe with SMTP id adf61e73a8af0-3da39ee18ecmr51556828637.9.1788935355402;
+        Tue, 08 Sep 2026 23:29:15 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534df1sm47823081eec.7.2026.09.08.23.29.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2026 23:29:14 -0700 (PDT)
+Date: Wed, 9 Sep 2026 11:59:07 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Georgi Djakov <djakov@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/3] interconnect: qcom: Some defconfig/defaults
+ cleanups and improvements
+Message-ID: <20260909062907.f43ahkic5bnv6qja@hu-mojha-hyd.qualcomm.com>
+References: <20260515-interconnect-qcom-clean-arm64-v2-0-adeebc73596d@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SJ0PR12MB6829:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0d3ef94-47af-4f4f-9905-08df0e3b6736
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|10067099003|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: A2u1G27em2wfqsg8LrdgB4DECvkUs5QN9LKKaB3C1vM2aQp6a5lKcxP32M245B/hKTZ7Chzf02SNDVAqzGvnyx+x/4+2g3jPjC7tWsRsOPf0Qe0d7gMAmm9qEgCuKyIk4b/hgC4vGUy5r9jlgAX2n7DTgVSpr8PxuObvXkrRj+9IL62beyZkKnOPENj3+k/WQKe54+sV3Cy/sg5yAnItSMh/BYrg78IX420m1Li68AAcT1m9DkRSQu9Bg5yzJcPyGDGXnBt38wXSUZXlsdLDmwxvI2IyuyyR0ozU3uzU54E+N0jhfUriAS5jKav+Z5uBeqK6VretHMShfGe47AlcuRO9WVuNhum7LAFAWpviOiXse7brAkmwb/rX6+nrzHC2HWE9pocwaNyDY8rxFSOxyfyzGbdlncNmGPQpfijIrcRFRPU8PkMXYysAJdEs94sw1C8lpUjOdFnm416CO70o+OHvUcbjsJAata9sSuYzqcv7UCPX3Ne2ps2SxIsWhqrEn/XiD2cSgKwsGWgBICd4QndxeM3VPDeicZHgMFNmJll0uXQTeCPm+LRDzwii6kS283NdRWsoFQRyQQIoliriq1tvZ5hmOSV3eXt2qQnZ6jWkFMagAO/i32J2tMeMp8yNPDXmAwgbyq7M0iKphImTrbnoXp2WJHYyfPc01KgrdAE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(10067099003)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bLntILgszHMARs5ZG8jgI1BI8bYMNFi1YWYmCvsaPqZTGpcWUI+qLkQ6+11V?=
- =?us-ascii?Q?ytv6VLKiF47JlYewpXa9gjtcon0vKpD/wC1gBU0kP2A8b1LRvk3UIDYjmtz7?=
- =?us-ascii?Q?Ld4m1j9C0qCvv0h1E75GYQ0YbYkSIVe7HjLpnrv1daO3gM4Aw4NkuiNyiK6A?=
- =?us-ascii?Q?2d3uVjx961o/F/w+ayMgeUQ2BvdXx+kNJzn03Ie2lNNFn5jPYpLwbv74j91T?=
- =?us-ascii?Q?8IY7hSF3Vk4qMtgLwhx3Rxu1Zw9Q0JIYOzvG1L4v1hUJ3TQPvLUpkz+uhnHG?=
- =?us-ascii?Q?tmLXPAU3f/q92zMJGyz67Ix7ySb/z/7kgEHAKqJjRdXRqpzUlqa7/CizceWi?=
- =?us-ascii?Q?JCmJJvnsIjqbIwGmziCbTVcqt13AOa4wyAzubREnns3KfoClFYCmCk3Yl6mn?=
- =?us-ascii?Q?cO8/wJqo/ilpBQmUlY2zTF3wsKLxfOwyZpBIYdA6omyeRScR9kyRlKPsHw7H?=
- =?us-ascii?Q?5jKwJwq735Icre5LuplXe6zZnyGgT2S3ZzphSgXnS9Cy6tR2adwZLut6nV8e?=
- =?us-ascii?Q?Tm8a/lo5aGbVocHwfnl0mpvtdKlMjsOT0dexdYyaG6v+WjAiyB7ujlQCe6IR?=
- =?us-ascii?Q?xp8BsLE1RLdda4x5sDg8r2TRSu6JHTbCFsXmf5Sx4l0Y1x3kiIJQt42Of2cl?=
- =?us-ascii?Q?nAloOCl8HfgDJKjKBgE4qS+esHDQgwKkcaUmYIEWslG/jM4PNqABWWmxEFeN?=
- =?us-ascii?Q?zFW5LCxLWbX15oRgksgT33WDRZ8ptyC3ClAjHUpnnUG+Cb7AfHe8jxfCvqwJ?=
- =?us-ascii?Q?JX+8VhKpqTCgeWczV2Vkk0IZv8Pd8YXUJm95A6QH+7DxM0xxU3ESZQTsPNLB?=
- =?us-ascii?Q?hFSnNmLeMBIUYBsQfx1XRLOe8qgsxgGwsQ83BYJXEtB2ngRYbGi7od4iO5Ey?=
- =?us-ascii?Q?4PWEshrAwCDyKBMdu3yKhygGoTUFsAXUOrDfO304bKP154Rf16jk9tXR4tk7?=
- =?us-ascii?Q?hnCj+8Blvk1eSABME0hquDD5S3i/IsRAXKX9PUmufqvMq7xO0IFtt+alqX6E?=
- =?us-ascii?Q?Bxe/zyNcbcinPNIBWAvOIRiyv1j31h7RsWVd2nYocAImGtoq5ibVeVKUAXTm?=
- =?us-ascii?Q?6QszaUChgHqrxQwsiRfq2UjUhPry3S+16I986s3wVggE+bdRGw7J3lc5Lyk1?=
- =?us-ascii?Q?chfgTnol2aHFYDuIFQ4u1ezVQFCkuC5FzFWsiqiwwW+2Zi1YXPEP8HZaBmJX?=
- =?us-ascii?Q?CN7DHj6LvEjufG4r8SWKe9AsF/kFpK5v/hwEjS4wR3+ADqTz9ZOsWrlTRn6z?=
- =?us-ascii?Q?ayKCgQ/txzO52HzOMHbAeJQKpOX7JrON3FWEBfr03v5CU+K5a/gaiNKo6Ici?=
- =?us-ascii?Q?JTf6BunYeV5FReE3GkFFGZtgOz6+z41hXI1e5k8OVOMQ7jY32DrGz1fCUbMV?=
- =?us-ascii?Q?USoTwCo7FJG/aFRuEZ0qGfKfnHu4vrS0x6Az8BhjSdd+SiT6p7qIUV6NWAZI?=
- =?us-ascii?Q?FKbzeTvGD9tEdrcJtu98/cOPkYvRV4gaIA7mLjpz4PAf3qlFSoA1qmJ2zPMF?=
- =?us-ascii?Q?mu7EGXekBBbjJgy82e4U7SAvIXfbWaMq4Oaf3F2tTg4MhU98OWhxklp8MNHr?=
- =?us-ascii?Q?dbfiCCc92K2zLqMirYLcK9pt1m17T3/xfQXYQ8Ukf1psZIZjLW/txGTfvZis?=
- =?us-ascii?Q?HbaforBpEIzyQ2GZtd606K4NMZwWBvdd38WL5JDYi77wbSLjTB80YIniwnIq?=
- =?us-ascii?Q?2aHENjwQ9HzDgq+phqYzwR2IEvSTrl9lCX41xo+fTriTGiMQrU/Y6AVgNoyC?=
- =?us-ascii?Q?hfIIk1g/LQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0d3ef94-47af-4f4f-9905-08df0e3b6736
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:27:20.9534
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ynGSmJwqEFGclsubcsVCyt1OV3lHbVI3bE7wVJshPEilXn1vMHj44oV4GRNihQ0+28LQoctydAMWzkiAVHFI+Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6829
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260515-interconnect-qcom-clean-arm64-v2-0-adeebc73596d@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDA3MSBTYWx0ZWRfX/a/Eh4hjNqSW
+ X6LUI5+UnyBbN8LdItMGG+6ojfIuIJpS3W3LnpS1U7dnhR8Unu06GOS9BdcExHHhU/4MuyIzrr1
+ W1EuvcI+dVzTlJLv0RmZH70nsYPj82pwHFQVrQvnrsIpIKgkx2VkB1aY7//zkOWfw0NxH0CaY+r
+ bccIUiJhS1N5wmUZZYSzpK8zbQLtDL5n+wTmrxHrAz62YtCpK6xIfZiLifN5hPH0uHZwR871z89
+ UHuz4QJmpzoByXaFhaO/8/KQTp6Hn9eR1CF4TYIXnGBNIMx0VUsbcCwOq0ThXH7JwKY9XENjm0r
+ F4yxc9sjUB+4H1USXg24JTrcjxkoGaBaWokpEm3GYZqsMOxHb91L6YvPmWHq3FdSLqM0pqUi0Ow
+ PXqIc6WkHVxr/HLu1v1UG/jUMZinlFFY+AzKneAjq3x/xsrp5pA5EqBbzpij9CU5/zXByBx9eO9
+ lkRwc+0qADrdOBGWAZg==
+X-Authority-Analysis: v=2.4 cv=N+AZ0W9B c=1 sm=1 tr=0 ts=6aa0fcbc cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=K9csx1bNu7bmPCVkKm4A:9 a=CjuIK1q_8ugA:10
+ a=OpyuDcXvxspvyRM73sMx:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-ORIG-GUID: o9ZpemvMdAk7ywI-dzb4epvRXcfReVvu
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDA3MSBTYWx0ZWRfX0sdS231pTUdi
+ e6z5kA4bc+feWASXNrQfvUOco6+8zLLR424U1NK6lxyrBeu5Y/rrh33kd0ll3kGTaYGeC1xS+H6
+ h/0BGkpVmme3HcmLw1A55di+iPtEnas=
+X-Proofpoint-GUID: o9ZpemvMdAk7ywI-dzb4epvRXcfReVvu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-08_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 suspectscore=0
+ clxscore=1015 impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609090071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_232729_107933_B3BC58A2 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260908_232918_822261_BBA41350 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,305 +150,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity SMT
-level to order hardware threads. Idle CPU selection does not consult
-that order, so a task can wake on an arbitrary sibling and remain there
-until load balancing corrects the placement. On these systems, that
-initial choice can prevent the core from entering its preferred
-lower-thread resource mode and cause a large and persistent performance
-loss.
+On Fri, May 15, 2026 at 02:11:05PM +0200, Krzysztof Kozlowski wrote:
+> Changes in v2:
+> - Patch #3: Switch to built-in for everything, with explanation in
+>   commit msg.
+> - Tags
+> - Link to v1: https://patch.msgid.link/20260428-interconnect-qcom-clean-arm64-v1-0-e6bc3f7832db@oss.qualcomm.com
+> 
+> Similarly to clocks and pinctrl, interconnects should not be a user
+> visible choice.
 
-When idle selection finds an available CPU in an SMT core, choose the
-highest-priority available sibling. On SMT2 Olympus this only changes
-selection on fully idle cores. A partially idle core has only one
-available CPU. On wider SMT systems such as POWER7, it also fills
-available siblings in priority order while the core is partially busy.
+Is there a conclusion on this series? As I was depending on this series for
+Hawi interconnect config enablement.
 
-Apply the preference to idle-core and idle-CPU scans,
-asymmetric-capacity scans, target, previous, recently-used CPU fast
-paths and the slow path. Inspect the lowest scheduling domain directly,
-but require both CPUs to share its span because isolcpus can split
-hardware siblings across scheduling domains.
-
-Keep physical-core capacity selection independent from SMT sibling
-ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
-maximum capacities, then SD_ASYM_PACKING selects the preferred available
-sibling inside the chosen core, whose siblings continue to share equal
-capacity.
-
-Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
-Signed-off-by: Andrea Righi <arighi@nvidia.com>
----
- kernel/sched/fair.c     | 85 ++++++++++++++++++++++++++++++++---------
- kernel/sched/sched.h    |  6 +++
- kernel/sched/topology.c | 36 +++++++++++++++++
- 3 files changed, 110 insertions(+), 17 deletions(-)
-
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index b8bd308c2d5b1..37837c36288a0 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -8587,6 +8587,35 @@ static inline bool test_idle_cores(int cpu)
- 	return false;
- }
- 
-+/*
-+ * Redirect a CPU to a higher-priority available sibling in its SMT domain,
-+ * subject to task affinity.
-+ */
-+static inline int select_idle_smt_cpu(struct task_struct *p, int cpu)
-+{
-+	struct sched_domain *sd;
-+	int best = cpu;
-+	int sibling;
-+
-+	if (!sched_smt_asym_active())
-+		return cpu;
-+
-+	sd = rcu_dereference_all(cpu_rq(cpu)->sd);
-+	if (!sd || !(sd->flags & SD_SHARE_CPUCAPACITY) ||
-+	    !(sd->flags & SD_ASYM_PACKING))
-+		return cpu;
-+
-+	for_each_cpu_and(sibling, sched_domain_span(sd), p->cpus_ptr) {
-+		if (sibling == best || !choose_idle_cpu(sibling, p))
-+			continue;
-+
-+		if (sched_asym_prefer(sibling, best))
-+			best = sibling;
-+	}
-+
-+	return best;
-+}
-+
- /*
-  * Scans the local SMT mask to see if the entire core is idle, and records this
-  * information in sd_balance_shared->has_idle_cores.
-@@ -8971,7 +9000,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 
- 	if (choose_idle_cpu(target, p) &&
- 	    asym_fits_cpu(task_util, util_min, util_max, target))
--		return target;
-+		goto select_smt_priority;
- 
- 	/*
- 	 * If the previous CPU is cache affine and idle, don't be stupid:
-@@ -8981,8 +9010,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	    asym_fits_cpu(task_util, util_min, util_max, prev)) {
- 
- 		if (!static_branch_unlikely(&sched_cluster_active) ||
--		    cpus_share_resources(prev, target))
--			return prev;
-+		    cpus_share_resources(prev, target)) {
-+			target = prev;
-+			goto select_smt_priority;
-+		}
- 
- 		prev_aff = prev;
- 	}
-@@ -9000,7 +9031,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	    prev == smp_processor_id() &&
- 	    this_rq()->nr_running <= 1 &&
- 	    asym_fits_cpu(task_util, util_min, util_max, prev)) {
--		return prev;
-+		target = prev;
-+		goto select_smt_priority;
- 	}
- 
- 	/* Check a recently used CPU as a potential idle candidate: */
-@@ -9014,8 +9046,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	    asym_fits_cpu(task_util, util_min, util_max, recent_used_cpu)) {
- 
- 		if (!static_branch_unlikely(&sched_cluster_active) ||
--		    cpus_share_resources(recent_used_cpu, target))
--			return recent_used_cpu;
-+		    cpus_share_resources(recent_used_cpu, target)) {
-+			target = recent_used_cpu;
-+			goto select_smt_priority;
-+		}
- 
- 	} else {
- 		recent_used_cpu = -1;
-@@ -9037,7 +9071,11 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 		 */
- 		if (sd) {
- 			i = select_idle_capacity(p, sd, target);
--			return ((unsigned)i < nr_cpumask_bits) ? i : target;
-+			if ((unsigned int)i < nr_cpumask_bits) {
-+				target = i;
-+				goto select_smt_priority;
-+			}
-+			return target;
- 		}
- 	}
- 
-@@ -9050,14 +9088,18 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 
- 		if (!has_idle_core && cpus_share_cache(prev, target)) {
- 			i = select_idle_smt(p, sd, prev);
--			if ((unsigned int)i < nr_cpumask_bits)
--				return i;
-+			if ((unsigned int)i < nr_cpumask_bits) {
-+				target = i;
-+				goto select_smt_priority;
-+			}
- 		}
- 	}
- 
- 	i = select_idle_cpu(p, sd, has_idle_core, target);
--	if ((unsigned)i < nr_cpumask_bits)
--		return i;
-+	if ((unsigned int)i < nr_cpumask_bits) {
-+		target = i;
-+		goto select_smt_priority;
-+	}
- 
- 	/*
- 	 * For cluster machines which have lower sharing cache like L2 or
-@@ -9065,12 +9107,19 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
- 	 * first. But prev_cpu or recent_used_cpu may also be a good candidate,
- 	 * use them if possible when no idle CPU found in select_idle_cpu().
- 	 */
--	if ((unsigned int)prev_aff < nr_cpumask_bits)
--		return prev_aff;
--	if ((unsigned int)recent_used_cpu < nr_cpumask_bits)
--		return recent_used_cpu;
-+	if ((unsigned int)prev_aff < nr_cpumask_bits) {
-+		target = prev_aff;
-+		goto select_smt_priority;
-+	}
-+	if ((unsigned int)recent_used_cpu < nr_cpumask_bits) {
-+		target = recent_used_cpu;
-+		goto select_smt_priority;
-+	}
- 
- 	return target;
-+
-+select_smt_priority:
-+	return select_idle_smt_cpu(p, target);
- }
- 
- /**
-@@ -9747,8 +9796,10 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int wake_flags)
- 	}
- 
- 	/* Slow path */
--	if (unlikely(sd))
--		return sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
-+	if (unlikely(sd)) {
-+		new_cpu = sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
-+		return select_idle_smt_cpu(p, new_cpu);
-+	}
- 
- 	/* Fast path */
- 	if (wake_flags & WF_TTWU)
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 6c3ad70e58b8e..568cb1ed2dd6b 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -2240,6 +2240,7 @@ DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
- DECLARE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
- 
- extern struct static_key_false sched_asym_cpucapacity;
-+extern struct static_key_false sched_smt_asym_packing;
- extern struct static_key_false sched_cluster_active;
- 
- static __always_inline bool sched_asym_cpucap_active(void)
-@@ -2247,6 +2248,11 @@ static __always_inline bool sched_asym_cpucap_active(void)
- 	return static_branch_unlikely(&sched_asym_cpucapacity);
- }
- 
-+static __always_inline bool sched_smt_asym_active(void)
-+{
-+	return static_branch_unlikely(&sched_smt_asym_packing);
-+}
-+
- struct sched_group_capacity {
- 	atomic_t		ref;
- 	/*
-diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
-index 0248227d983a7..06c40eb5932af 100644
---- a/kernel/sched/topology.c
-+++ b/kernel/sched/topology.c
-@@ -683,8 +683,24 @@ DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_packing);
- DEFINE_PER_CPU(struct sched_domain __rcu *, sd_asym_cpucapacity);
- 
- DEFINE_STATIC_KEY_FALSE(sched_asym_cpucapacity);
-+DEFINE_STATIC_KEY_FALSE(sched_smt_asym_packing);
- DEFINE_STATIC_KEY_FALSE(sched_cluster_active);
- 
-+static bool has_asym_smt_domain(int cpu)
-+{
-+	struct sched_domain *sd;
-+
-+	for_each_domain(cpu, sd) {
-+		if (!(sd->flags & SD_SHARE_CPUCAPACITY))
-+			break;
-+
-+		if (sd->flags & SD_ASYM_PACKING)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static void update_top_cache_domain(int cpu)
- {
- 	struct sched_domain_shared *sds = NULL;
-@@ -3084,6 +3100,7 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
- 	struct rq *rq = NULL;
- 	int i, ret = -ENOMEM;
- 	bool has_asym = false;
-+	bool has_asym_smt = false;
- 	bool has_cluster = false;
- 
- 	if (WARN_ON(cpumask_empty(cpu_map)))
-@@ -3202,6 +3219,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
- 
- 		cpu_attach_domain(sd, d.rd, i);
- 
-+		if (has_asym_smt_domain(i))
-+			has_asym_smt = true;
-+
- 		if (lowest_flag_domain(i, SD_CLUSTER))
- 			has_cluster = true;
- 	}
-@@ -3210,6 +3230,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
- 	if (has_asym)
- 		static_branch_inc_cpuslocked(&sched_asym_cpucapacity);
- 
-+	if (has_asym_smt)
-+		static_branch_inc_cpuslocked(&sched_smt_asym_packing);
-+
- 	if (has_cluster)
- 		static_branch_inc_cpuslocked(&sched_cluster_active);
- 
-@@ -3310,11 +3333,24 @@ int __init sched_init_domains(const struct cpumask *cpu_map)
- static void detach_destroy_domains(const struct cpumask *cpu_map)
- {
- 	unsigned int cpu = cpumask_any(cpu_map);
-+	bool has_asym_smt = false;
- 	int i;
- 
-+	rcu_read_lock();
-+	for_each_cpu(i, cpu_map) {
-+		if (has_asym_smt_domain(i)) {
-+			has_asym_smt = true;
-+			break;
-+		}
-+	}
-+	rcu_read_unlock();
-+
- 	if (rcu_access_pointer(per_cpu(sd_asym_cpucapacity, cpu)))
- 		static_branch_dec_cpuslocked(&sched_asym_cpucapacity);
- 
-+	if (has_asym_smt)
-+		static_branch_dec_cpuslocked(&sched_smt_asym_packing);
-+
- 	if (static_branch_unlikely(&sched_cluster_active))
- 		static_branch_dec_cpuslocked(&sched_cluster_active);
- 
 -- 
-2.55.0
-
+-Mukesh Ojha
 
