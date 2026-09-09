@@ -4,158 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4597C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5171C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIQgohTE2rOvQzNapNCth9eVCnLrSjsevoHbhxyKhm8=; b=DzYRgtfJneyTnOb9I3NfuUv1+1
-	0nXN4ZLlG5RclnJOuPUqe6YOQkJRJpq+mSvBObhP4xEnDPL8j/Bm174Tqz9HyJ1za5caax+h7U/yf
-	Ch4eXgkZwVNX5n51E/OvmCYPeBoOzax5vZYKGgsRzG2P9L72xBfxGWj4ZysfJC2eBiDaSQS6Rucv4
-	XNzKeLfNasvyAWTAkSJHk73hi4ZwI6sUR7vfl9i0RHbiebhqAFVo0Fe0FCsVE2hWDO3pH0IK8CLIs
-	qOT3RkuHINV+DwZynJZ4zKhZ9uJdoGEs7Ntyhn+3DKKo29eSfYOfh/2Eo44OxFOz7/B64Wjj2BJaD
-	Q/Mg3U5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n7bifEcfysoaJdWY3KiNVCwLaTd7V2wpeFRk1F7RAOg=; b=Mz0ZtX+NuToUewrt75ZBjYLGI2
+	yNZMRVzeUdmLbJSS+7U6oHY+zpVuduEQsbvuXakRTBQM2v1kY0HnlqOluYzCXIO1cxSC3fsRRkK6l
+	y0TZ+0SMCx+GkrwLjBB00b3yXQ1phe/5x/HQmqYYcH8dCtd2/0YWpGKLCSHwdt9PfQd93pDsi/Ps9
+	OJpiHOqmTjh9QvQ/fyeYybIBBE4ofaFjSnjWHun7Z9recz+Ikorn3vsr6RJwYuLwS79HbpxVuuwYl
+	6Fjh4klPu++1Qr6ginxnRwNcR3q6hisI4UrH+JpIhk4Cphzhh5af4l2KxR4HF/1Z7eyXc8bJbBK0R
+	yTYVcTSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4N9y-0000000Cchy-1DXG;
-	Wed, 09 Sep 2026 18:36:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4N9u-0000000CchF-1GSz
+	id 1x4NBv-0000000Cd45-2CGW;
+	Wed, 09 Sep 2026 18:38:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4NBt-0000000Cd3O-0GMH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 18:36:36 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689H7e8o3716926
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 18:36:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mIQgohTE2rOvQzNapNCth9eVCnLrSjsevoHbhxyKhm8=; b=f9fHyVhIBtdv6EUr
-	DlNghKVHtEJRyrLKeXFDlVLXSO1UAA+Yn7hGbI1f0UYI1DNCkSV2lKeExYYLGD6g
-	CSPcVJVcKhiTXh+Xxk/ETQTYTWiD579T5wEStNDRoul/rvzTnmVWP+boZ79lxeYB
-	FXY6hC14K1DEc4aUkeAYYXllFrx0NuolQS0A1f6pVA4SDRMZaY7G+8AWxlJU+/m5
-	q6QTEC2o3J+6eOxTUhYEmqbFUC7PKOZIsJUYrpGkhwey7ynH8YGPR2uJl30S6bXj
-	1vlfmR5qjsJ07tSDg2GrWJP2dkDKKKIPmCtHs7DDLTuwk43KCYv1lOSTaNjljB4R
-	hLNSRA==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gk7921wrd-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:36:33 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39512608fb1so12946660a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 11:36:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788978993; x=1789583793; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=mIQgohTE2rOvQzNapNCth9eVCnLrSjsevoHbhxyKhm8=;
-        b=RT64gjgs8fGKdbNLywcGPXNjleYktlN9/4agdOcUjCZ4zUlVZDPkGLYmpANnKui7Y0
-         DX8FHf+G0TpRYLmC2tYNjbQaS6iKHGpvR4n33gKBnQ7vRE8KKIOzr+huvuZ1eOX2Rjhv
-         B6doh3PIRLv1F7l46C4bCmK04274XW6SDNkpQDXgg+IpRNxIsIzfkS4/kZ58nNON0NVK
-         5xsKajZOloIeNwu3/FCQIGCJnX1Ike6ze5+tq3FJCv4HMBUqI4HpTAGOIiw5SKyXUJuR
-         z/UlAuSo3ZtuYIfMIU9EJvXXiWk208U+gXiVIsajnJPGJ4oNFxnyxIRJ9uelEKfHROQx
-         lc4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788978993; x=1789583793;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mIQgohTE2rOvQzNapNCth9eVCnLrSjsevoHbhxyKhm8=;
-        b=LTL6VstL3c4vgGnHwP0bd6cK6cXpEcTRfZYalMmDx/Ryk7qgNE0hI2vvT63Qls1Hwx
-         c6MMs/Qha/ti9mNFYgVr6GB7S20Z6x8nO0iqZTFcpudnBBJKpBFlVWC7CqnA/8WMRSSa
-         DhEncZVWyeCIDs+bQGdBKE+HlBlFe7novaifgSZP3IdvW5q2Wuj6deEmXFTRxw3wgMIR
-         ioMFcywGHFq6q6O9YP46bOh1lObHf7tqiQTVw7nJHFJMLRc3WklBE+VQ59NN00ByeGpA
-         Rk2CoP3fAX4i0eMoqfqkmbTm+TIByuhZ95fVrfQ4CO8a5YEXk9VHQGn5FMjKBBKe7r2E
-         h7Pg==
-X-Forwarded-Encrypted: i=1; AKwUvBwmmexQzS4x1gEFlIMuI2dUAxGeLDgiiQEN5rLfgU0FLJyZgM2R8CpY+0uZx89g5hQljgd8fNVivPu0ilGgAXCp@lists.infradead.org
-X-Gm-Message-State: AFuF++lWPQOwxG5rckK/5HG6CCBfBqvRVDDCEKzmIwri4Aab4fIg8EB2
-	FP1DzCcrJ/+p+cCVJD/d29FwC0f1pdmUSeesglzZ6/LPbnQf4kNy+2qxEwHTTAUiBlGtOMKhAvR
-	vSIIhJ+uqCdRN8W5Tb3DWPEAJwh9AUwg3QyEIUJQTbb2n/46ax3zDsPvJnHfPm6vNaqLydXX9I6
-	NoRlmqqda42w==
-X-Gm-Gg: AYBFou14puF4xWiYRQybrJTuNqMVQASi16V14SMhNRvw9KIBVzP3W/icToTgbbrRuVo
-	bpaQnPHhbRDHsqiPCbbuqxWE2YGjvFC5TtJoSZWfyiev16hGOuaQ2rMil3siKYhtDKnA8yrFwxN
-	5Xxl5b51v7xX299NtFE9aHy4gfuu2h/7cdOssF7YIjS6Kgyb4Mq65bsnp4PSLaOIAqwwu6ICQSC
-	HaVo9WVaS65TY6SXTftcdJJXcBPIDuy5z3nvgFVJ3rJFvMDMSsSInSnwExG8Jx1MjBj1kmH+Efj
-	hMTwdLzKV9yvKQWhHM1Hqe7c0EUVfoTcLJQxk9cazYYI8YjXaSavIAwy8Xr2dY/3g0ixH+6TyzH
-	3rV6iMwBOZNx8jDgiK3cDT8y0WKw=
-X-Received: by 2002:a17:90b:1d4f:b0:398:9be5:b417 with SMTP id 98e67ed59e1d1-39b26221eb1mr53821154a91.18.1788978992933;
-        Wed, 09 Sep 2026 11:36:32 -0700 (PDT)
-X-Received: by 2002:a17:90b:1d4f:b0:398:9be5:b417 with SMTP id 98e67ed59e1d1-39b26221eb1mr53821108a91.18.1788978992503;
-        Wed, 09 Sep 2026 11:36:32 -0700 (PDT)
-Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1433171a97esm50371041c88.12.2026.09.09.11.36.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 11:36:31 -0700 (PDT)
-Date: Wed, 9 Sep 2026 11:36:25 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Oleg Keri <okerixx@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Beata Michalska
- <beata.michalska@arm.com>,
-        Sumit Gupta <sumitg@nvidia.com>,
-        Prasanna Kumar
- T S M <ptsm@linux.microsoft.com>,
-        Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich
- <dakr@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
-        linux-pm@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] arm64: topology: fix arch_freq_get_on_cpu()
- overflow above 4.19 GHz
-Message-ID: <20260909113625.000063be@oss.qualcomm.com>
-In-Reply-To: <08ee55292c1cedf26067d1a2b02fa5657d9650e8.1788712186.git.okerixx@gmail.com>
-References: <cover.1788712186.git.okerixx@gmail.com>
-	<08ee55292c1cedf26067d1a2b02fa5657d9650e8.1788712186.git.okerixx@gmail.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Wed, 09 Sep 2026 18:38:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA4E31576;
+	Wed,  9 Sep 2026 11:38:30 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E02513F528;
+	Wed,  9 Sep 2026 11:38:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788979114; bh=frS1SGYXgkHttcut/kQlMeX3IPWRF3AjzyZ2IfPARzk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lvbnJKPA1MGj0YZ27FNXCLGbHFnTA2gbmSglgO9JEDGU4aHJQXBjlgo9j6Vfj16gk
+	 twxgs0WSB2Gl/ygBhDheZ74NLtkpS1iyvAGloGlCy0ZbveFJrEZsSKmq0EgRveSJWc
+	 HOZf1x51UJnQIGVItf5kyH+RNTbu1hYQ/MFZ/xSc=
+Date: Wed, 9 Sep 2026 19:38:30 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com, robin.murphy@arm.com, gshan@redhat.com,
+	kernel-dev@igalia.com, kernel@gpiccoli.net,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Houdek <sonicadvance1@gmail.com>
+Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in
+ TPIDRRO_EL0
+Message-ID: <aqGnptkgxLEkqOfx@arm.com>
+References: <20260815152759.2046231-1-gpiccoli@igalia.com>
+ <aoGIEEje1NIMTjyv@willie-the-truck>
+ <aoLLf_iZq6DLNpLO@arm.com>
+ <8207cba6-a6e0-38e6-a1bd-6f4453651793@igalia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=bd1bluPB c=1 sm=1 tr=0 ts=6aa1a731 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=pGLkceISAAAA:8 a=vZYCpiARan6kKAuTxo4A:9 a=CjuIK1q_8ugA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDIwOCBTYWx0ZWRfXwYjf4/oMuupi
- WIieMuSAqMZKuhC2i3mSm/yCOEpfoV0Jbw+Vw3sZsMTi88bzq4moNY9TKjw4KT1EVDo71KVtkUV
- 6HXoE+hfgtMvFhkz19kbAt6w5bjK8Fps+z5D4oEzVDQc26fsIu+4BlMfy498OW7z9yYVl7hIiWm
- c8K6pFtzt2r5FWrjVWbQEMg3jyay7nUT5w9IRg/5jwBn2+H5QXSSCNzPq8H293FWsJg7q8p2jxS
- /gpe5KEwyYiMy87vBODdYQtj6Q/2loA/dlCdAoiGPhoXX+nb0tJMwPWiFBizxR5+JpnAI9KcpOa
- xnSco/LY7OgkzsLIQD4+Z4pKCIlKlgk7nJlM8JpJNFUDykYXknqyFnFehY+xcArGWNIjs3/rtVd
- xZ0I30aSWRdwPDGFIpuu9l5IRuRyqTAyVHKmzCB08EP25Baibf1g0UFVH4SmCfNLV/ch4st48J+
- jqjLRBXVHRh3XUU9pqw==
-X-Proofpoint-ORIG-GUID: DZ6uKJlVu4jnRyl7ATTBF29PLEPohZOU
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDIwOCBTYWx0ZWRfX3khndRs8QYk3
- vNy42i0N2gJmNliIuIf0zSREI71NPmGeNOEN/lyQLYbkrwRPsbmJU8J8f+AQhWLoswznTz6Amo3
- Zek7TsZy1uzGpa+FmCNsh7nZy/MFoB8=
-X-Proofpoint-GUID: DZ6uKJlVu4jnRyl7ATTBF29PLEPohZOU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 suspectscore=0
- bulkscore=0 impostorscore=0 phishscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090208
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8207cba6-a6e0-38e6-a1bd-6f4453651793@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_113634_343571_B3B72328 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20260909_113837_359105_FF55F6FD 
+X-CRM114-Status: GOOD (  35.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,64 +75,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun,  6 Sep 2026 18:37:14 +0200
-Oleg Keri <okerixx@gmail.com> wrote:
+Hi Guilherme,
 
-> arch_freq_get_on_cpu() computes the product of the frequency scale and
-> the reference frequency as a u64, but assigns it to an unsigned int
-> before shifting it back down:
+On Mon, Aug 17, 2026 at 11:48:28AM -0300, Guilherme G. Piccoli wrote:
+> On 17/08/2026 05:51, Catalin Marinas wrote:
+> > On Sun, Aug 16, 2026 at 10:51:12AM +0100, Will Deacon wrote:
+> >> On Sat, Aug 15, 2026 at 12:19:32PM -0300, Guilherme G. Piccoli wrote:
+> >>> The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
+> >>> the mode userspace is running:
+> >>>
+> >>> - For native/arm64 mode, this register is always 0 from the userspace
+> >>>   perspective. In the kernel, it is used during ventry (entry.S) as
+> >>>   a scratch register, related to KPTI (stashes x30 in fact).
+> >>>
+> >>> - For 32-bit compat tasks, this register holds the TLS userspace pointer,
+> >>>   and is not used for KPTI or anything else in entry.S. This is ABI and
+> >>>   userspace can count on having a valid TLS pointer there.
+> >>>
+> >>> Happens that other operating systems follow a similar approach than 32-bit
+> >>> compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin)[1],
+> >>> this register is used to hold the running CPU of the current task, hence
+> >>> offering a very fast / non-syscall way for a given task to figure its
+> >>> running CPU id.
+> >>
+> >> I don't think we should allocate TPIDRRO_EL0 for this as it precludes us
+> >> using it for anything else in the future. If you want the current CPU,
+> >> then I think you're better off using either rseq (which I thought could
+> >> do this) or looking at reviving the vDSO work you mention (but that has
+> >> unresolved limitations iirc).
+> > 
+> > Indeed. IIRC glibc already implements getcpu() using rseq.
 > 
-> 	freq = scale * arch_scale_freq_ref(cpu);
-> 	freq >>= SCHED_CAPACITY_SHIFT;
+> Hi Will / Catalin / all,
+> first of all, thanks for your prompt responses!
 > 
-> The product is truncated to 32 bits before the shift, so the result
-> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
-> i.e. 4194304 kHz.
+> I'm a bit confused on what "using the register" means here.
+
+One example is Mark's patchset from 2020 you mentioned. While they were
+intended as a fast getcpu(), the idea for TPIDRRO was to hold some
+offset into a data structure rather than the raw smp_processor_id() (for
+future expansion, e.g. task pid). In the meantime we got rseq and never
+continued that series.
+
+TBH, I think the Wine or FEX use-case is fairly narrow to give up on
+other potential uses for TPIDRRO.
+
+> We have 2 ways of using it, IIUC:
 > 
-> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
-> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
-> the CPU demonstrably runs at the boost frequency: a fixed workload
-> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
-> kHz, matching the 1.171 frequency ratio.
+> a) Use it as it's already used today! On kernel space, this register is
+> kinda free, right? Currently, it's used as the scratch, in the entry.
+> But nothing prevents other usages, given that, as the final step of exit
+> to EL0, it's restored to the value of the CPU id. So, AFAIU, it's fair
+> use on kernel space with or without this patch.
 > 
-> Keep the arithmetic in 64 bits until after the shift.
+> b) Use as in "expose something else to userspace". Is it OK doing that,
+> even the ARM specification mentioning
 > 
-> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
-> Signed-off-by: Oleg Keri <okerixx@gmail.com>
-> ---
->  arch/arm64/kernel/topology.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+> "Purpose
+> Provides a location where software executing at EL1 or higher can store
+> thread identifying information that is visible to software executing at
+> EL0, for OS management purposes." ?
 > 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index d28438f8b83f..804758eeb63a 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -245,8 +245,9 @@ int arch_freq_get_on_cpu(int cpu)
->  	 * (see amu_scale_freq_tick for details)
->  	 */
->  	scale = arch_scale_freq_capacity(cpu);
-> -	freq = scale * arch_scale_freq_ref(cpu);
-> -	freq >>= SCHED_CAPACITY_SHIFT;
-> +	scale *= arch_scale_freq_ref(cpu);
-> +	scale >>= SCHED_CAPACITY_SHIFT;
+> Or do you mean exposing **different information** than the pure CPU id,
+> but still related with thread information?
 
-Maybe just do it all one line?
+It might be a thread or CPU specific value but without any guaranteed
+ABI to be read directly. Something to be used internally by the vDSO.
 
-	freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
+> Would it be better if we guard this usage with a Kconfig? Or as Ryan
+> already said, prctl flag or another idea?
 
-I was going to suggest that you roll in the arch_scale_freq_capacity() as well
-but then we'd need a cast to ensure maths was done in 64 bits and that was uglier.
+No, that's bad ABI to depend on Kconfig or prctl() for different views
+of this register.
 
-I think this should end up the same as what you have.
+> Finally, I would like to reinforce / disambiguate things here (though
+> Ryan already mentioned): rseq or vDSO **are not** valid resources for
+> our use case. What we are really interested is in having this register
+> filled with CPU id.
 
-Thanks,
+Yes, and we have other parties interested in this register for more vDSO
+uses. IIUC, you'd not be able to use a getcpu() vDSO implementation
+either, so it won't help you.
 
-Jonathan
+Not really familiar with Wine but can it not implement
+GetCurrentProcessorNumber() using rseq? Or do you try to handle actual
+MRS directly? If the latter, any way to patch the instruction to a BRK
+and handle the trap? If it's on a fast path, can you branch to a stub
+that reads the rseq cpu id (offset from TPIDR) and branches back? You'd
+need one stub per MRS.
 
-
-> +	freq = scale;
->  	return freq;
->  }
->  
-
+-- 
+Catalin
 
