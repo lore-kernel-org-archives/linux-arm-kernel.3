@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477A2C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B821FC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++us62bnNsUPvWVqDmA/JgoyZsHakSa60fnEd2AY7KE=; b=Qia9LwZZqnTpN6vniMgQNPMjG9
-	QThhUTTmQzwzmEqwl2kgM3u3dPxclyd2EWrmIAl3FIS2H2DzVT8zhCVE/EHPOM6va993pNIVCRoIo
-	6cy332PMhXd82tmwOw2jjmmP3hYYeSpWlfAysgUbdmQRk4VZU0see+a2Z75rOakrzgII/0qMW8ESW
-	qcGVAUdqzdHLgIQU4kyA87hUeJ36K7ezBSlezR+DUWe2wP83rIrYc2A0+KmYHCb8GFC0W2gqAK6fC
-	q04Zxw09yulV9I2U1hDd/qC0GBh3FpRMT7p5W6RNBXRO5qvlTMMv2EtN5pN5vTBjjtA2iSvaLLEte
-	R2NZV8RQ==;
+	bh=l2aWiKsurNBx2CqD2IBEMy0PrGzIHEYiSv8/glhDUeo=; b=q/95VfI3H4OD2eSFDAyDManDNg
+	TDRW+gY7fCLE2cciczen68iVqvWtFyKNS8IMMW1VjDxn5tZzESjLcxJeqv+EclS4uQb68bZj6+J1B
+	O6N3ngUwTPapJfeuKDqqtAk3TzRNSb4FLjJZyTGnBakB0IuaEb3jiKX1m3BYScE4SI4lBQvxsvNxG
+	JhCbuTT04cR6lFtw9+aP0l9wZOg45430yuZM6y7I2IJ0kFu4/awETeexaI7zC11Tv84wQ/3mbAjPy
+	zhxnm22GJi9rFctttoHYKj5SJZO5D84JQU+FZ1AwJOKpOuftbfQb/Iz+3MzrcoGFYmS2pvnt4NNIq
+	OSsMTHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Jr-0000000AVia-0IDt;
-	Wed, 09 Sep 2026 00:37:43 +0000
+	id 1x46K9-0000000AW1M-2T82;
+	Wed, 09 Sep 2026 00:38:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Jq-0000000AVgz-0Pem
+	id 1x46K8-0000000AVyo-06DR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 00:37:42 +0000
+	Wed, 09 Sep 2026 00:38:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=++us62bnNsUPvWVqDmA/JgoyZsHakSa60fnEd2AY7KE=; b=YLgt3/pKFTuk49KQsZSH6AtMJF
-	m7o52gDpt2pjGFoujxoIcOc8pWdXiEOb4DreRvWKms/oVcwCtNrr5eocsD0A3c42tgYjuPq2+XRLr
-	VO5eWZlIGoimBjIkf2wEw+yWDZxJ0Sbqqrp3gIdESHstJ3yj14u9Ium7IoS31W5LJ9Cce37OvmY8s
-	tGa3dKQwBScPQ4YBdid5kdAO+4AllU8CKMyxONexSgfxstD22xmD7pk5w5Uo0t2IvUwZPW9FEmQap
-	yvtx22Bia7GfLKdVfyKEqXqhyxzW5CvKU8sVMD3Lk6kGKEfESZDnYXrELz+9FZWR8yomkfoe8uP5e
-	i2VmVmDw==;
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	bh=l2aWiKsurNBx2CqD2IBEMy0PrGzIHEYiSv8/glhDUeo=; b=iVhd4/mIJqDeNpmw19g2BJ+q0c
+	wLBvg+EF6dBrQcSiVxLunb9in8Md8tg6mMfKh8Z6/qeEqZ2NtzLM5pnTJAlq54UYTDe5qzES7X/nN
+	RCn7qH5OgZJXs58rhjehtegRQBts+EwnRIKmtJHn60bTXcuKv9uRWgv82ndVggRlT3Le7dhA/LDHx
+	An7qi2GkI+kzYGRLPrVvAnpP9dOXPZuAQd587yGdVgKW1SUAaD5jjIXi+8VczZNwKmRdirrFUZpib
+	BN+E0GpTKvpNYcU57KzsbhylJs6skD2/nT4uaSyLnHSkzWJBCeBMCy72u9bLR5Wdw0aEbhGe6DVjG
+	q6GlpF4Q==;
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x46JY-00000000YJS-0AOH
+	id 1x46Jg-00000000YK5-3siQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 00:37:35 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2dcff8f44f2so863185ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 17:37:23 -0700 (PDT)
+	Wed, 09 Sep 2026 00:37:38 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2d6e954afbdso34519825ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 17:37:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788914242; x=1789519042; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788914250; x=1789519050; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=++us62bnNsUPvWVqDmA/JgoyZsHakSa60fnEd2AY7KE=;
-        b=AVBh+oO/pBZcw1KMRSPeRCcNo+VUVyGQCyFMN+n9R25mjjMoKiEi2ZYvBcYRvFSoK3
-         Q2de0El/nr6vGOeIesTA7BkDzjP+Jc0LOpZsEz9TGGbmT1CDYV1q4MP2Og7VgxPHMGK5
-         ql02qAILIaL7Z0ZLI3kTY+5lss8jaTW4g+Vuc/4NdxFIcwRuoQLulDlexYko52djCm1q
-         EQQGJ1f8F299dz3Bi6ubVERERBOERU/04xUzov4FW2cEMvpAHsd5nusqeH6SIXSJY76X
-         pHz0f8myDHYvxt0c6qeGd7FdgPFEDwWuze4G+Ptx0qv8TReP1e8JmfLfAK/zD72AfXkt
-         iC+w==
+        bh=l2aWiKsurNBx2CqD2IBEMy0PrGzIHEYiSv8/glhDUeo=;
+        b=s4B3N5POEYJkMACr6Uf06Va4kdekFjSpobw1G430aQfxClbBZ5S6E6w/Z3YBsd63r+
+         GZlBP0maRJSzbzT19kAWybPNpNHS3J5JnHK4DzybCZKmgI1OQokXK7tdxc/XIOsW4dhb
+         iAv+hTrWeIiECNBy7lAD9Gx54lq7uUxg8zDGWea1y8o00WmJwkxWL2Z0636vZUyyiYzB
+         peXQq/ouHnPKAmzpLGPMcGlwhferBOMM7fFTRLB+r2RYRwBbpruE4AVV7Z36VB6UjUHb
+         A8m+npFKPF91DPZNR4LCu4p4ueXTHROvfjjCSMcFYtq0pgzY8G6ElmU54/UNE3SdgRX4
+         MQdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788914242; x=1789519042;
+        d=1e100.net; s=20251104; t=1788914250; x=1789519050;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=++us62bnNsUPvWVqDmA/JgoyZsHakSa60fnEd2AY7KE=;
-        b=SE14ptiNZibQSZmgl1TWLC770O4TPxhQIqZt9NzbFB/NIOUsCeP2LdC2aosqDvjShy
-         oo0fZpCyU0ynN8jqHwPlYNgrfp7tSb6KmVKz2IPwpYIEM1/NWCpLhXhxjMU6pnaXNLSX
-         8DhC8O8l3s9DLdk9PLl5K4GcK96PRoMYGaTP0nVPHhayUSUAyb+gDgOSBtNS0w4v9WBO
-         cmeJiZBg/hoDzRavZxSwF99GUGxjzFWgAekaB2+df1rKJ6ebgeETMBiQjSg5LFKdF/zF
-         OL/Wxmi19QXoNjwqhqMCcoNc4gxnzwm0IodKcjl3l4fzq2o7UoCEusjUOfWvOebWdRyt
-         eadQ==
-X-Forwarded-Encrypted: i=1; AKwUvBysP4dblvdRFBZzJ8+eEsHr9PwWK7itTHpuJejpwBReQapJSZXKozjuQ1Ghooz6xGoeTsSPhIrxhoSXgthvREt3@lists.infradead.org
-X-Gm-Message-State: AFuF++mk1evliUwrcRJ+ju37ciM71JMzhNhfIGAJ/U9Y401qE9QprStT
-	sbz/b/dyx1ELVEey61Rn52zxmAQJUBkwunhSZp6l2pcspu2EojCmawrp
-X-Gm-Gg: AYBFou0kRLCgfmkywzSXHQdup49iy9BMReIN4z2FWkRIEoXhNRek7uwgWaEh2n3Ntak
-	r9yZ2OqbnKcIadPQr7d6l/v09LORiXqJzzwaHYiaQAZF6NleVwAFnOKWUL+LukULci0Ql7BoZyz
-	is5vPO/0bnf1haehdskEjFQNKD+52+nAhiJy2WIqr7s5gvAoUB3vKJBZte74snsl0YkBKLhMyuS
-	YowT/AMskCLWSXhFzEIkQebaOfwk3gLOnyaBCcoaU3yoaihCY3W2IxY0DXi43EuvRWQQTZ0yOBg
-	8BnCQty4CmUdC6HMsRIgr6sZSzv63h5s4JnibMgWa6XatlKbtTrN/lYRniAiTQFW/pEsBQPVqTE
-	CPXB0w3Jp2iU8nxAq+c4IppBFLiA6u7SOE3OOz178itacZWIJOVWqlYfiUJ143vfro1jR7Jm+kS
-	6mkFNsLZhZFwMSHtrFZ1MV26oOAXTzcQTEwGM2D45GOSxQU33d112eI5g8vEOZu0pchQywYSU=
-X-Received: by 2002:a17:903:2b0d:b0:2d9:1dee:43db with SMTP id d9443c01a7336-2db1284b6dfmr457504295ad.15.1788914241741;
-        Tue, 08 Sep 2026 17:37:21 -0700 (PDT)
+        bh=l2aWiKsurNBx2CqD2IBEMy0PrGzIHEYiSv8/glhDUeo=;
+        b=ZgBTvqYKGRqOUkQobIiE6jGz5UL8Kq3dQv6h/aLdum5q3o2RsjqP+qoevsDBdAXTLM
+         j+lTMYNCLNfBHfcXUSkjRQZsleqUjxr1RGKdxtPSOojfQOa/xbkqQ2wWihSjAwVZ0Rj/
+         AQKgdVmmRG770q0DPbFJvDO3Thl+eud/yfBP7DufdFqeCQTtEZUyZr9vBxpAwNcpYELs
+         6TowYdRe7tGStVduN/2o1EgG4jbXH07gAYAOlJNIrur7XEIi3hmNe/ZEqoviZP9VKufY
+         l+TwwU2p51UcUbZB4bIJxUmx69MqrobceAHBHwL+9GEMPRnHv4z+SmScQf57UwYPHr/f
+         /Uag==
+X-Forwarded-Encrypted: i=1; AKwUvBxORqcJy7aGH7vz3ZcNYgXLzM9HFbnjnUkQcEvy6xzfZTDqQYMq7aaYckwnsGykNn5xB5nSayjxrls+9Ck1YOfQ@lists.infradead.org
+X-Gm-Message-State: AFuF++ntL36iMjrmgd4mmpkkU9L1gJAtoeCyfgev+6RerU7gtwJOWvbu
+	1EQMIVJd2xtqe89lhu1qWSSDaw7cliML2YT69bVQevOi4gXzUEA4YNH5
+X-Gm-Gg: AYBFou0rs405k/rU5bGP2NfrvYzB1oWmEan1iRDx53yq/6PQK4gDEfSKdsuGg7ys506
+	t18oYmNVUQWAfVpTjITyyvHdGQ9cqNwKOwS356nJsumrWOKAg3UuXeULltNWMwA+9/ga7jyjLmg
+	bmnf9pzxfAs/qOY5Y8dI9tAIr7m2D5MVJ24GVYpK5gdohQrvagzvue2wlCCDCOMmUJilqlAcYC7
+	wP54Tukpkx4bhG0541CmbdQFrXxXol6xnFq4/8Zmcj0VVHZAhUluwJePjR0uPxEJs1PdtKJAXD1
+	FvnpnwZ7DI48GFGx3ckAGK+dOUcL9oxS2RIfu0m5T9FguDea0C3h/XuW3w5SyHuBmTzUXXzDQ9D
+	UIQ8DuzMC9SUZjqCrd9/gntwgnVwTwgxIUvJoqrMfOmkCQSWdmvhqi0F1QwTk8rdZ6rQp2Uk2uE
+	4vPeviErgQjqqKpnAii/n0ZSZAfH+pSq7BhRE7ouAtvcaSzvzewIW4EGO1Vwvp
+X-Received: by 2002:a17:902:da8e:b0:2da:eb8f:b4e4 with SMTP id d9443c01a7336-2db124c35f8mr434654835ad.7.1788914250063;
+        Tue, 08 Sep 2026 17:37:30 -0700 (PDT)
 Received: from localhost ([2400:ac40:62f:1b67:ddd8:990d:9d6f:13b8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14ae85eesm62627875ad.82.2026.09.08.17.37.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db2c0f1daasm51431225ad.5.2026.09.08.17.37.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2026 17:37:21 -0700 (PDT)
+        Tue, 08 Sep 2026 17:37:29 -0700 (PDT)
 From: Coiby Xu <coiby.xu@gmail.com>
 To: kexec@lists.infradead.org
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -97,17 +97,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Mike Rapoport <rppt@kernel.org>,
 	Pasha Tatashin <pasha.tatashin@soleen.com>,
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v5 5/9] crash_dump: Only use kexec_dprintk during the kexec_file_load syscall
-Date: Wed,  9 Sep 2026 08:36:47 +0800
-Message-ID: <20260909003657.1570544-6-coiby.xu@gmail.com>
+Subject: [PATCH v5 7/9] crash_dump: Check the function return codes in restore_dm_crypt_keys_to_thread_keyring
+Date: Wed,  9 Sep 2026 08:36:49 +0800
+Message-ID: <20260909003657.1570544-8-coiby.xu@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260909003657.1570544-1-coiby.xu@gmail.com>
 References: <20260909003657.1570544-1-coiby.xu@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_013726_495151_1C4053E2 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260909_013736_865766_DECB5922 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,76 +122,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kexec_dprintk will only be activated by "kexec -d" during
-kexec_file_load syscall. So use pr_* outside of this syscall.
+We should check the return codes so we can abort if keyring allocation
+or reading old memory fails.
 
-Fixes: 9ebfa8dcaea7 ("crash_dump: reuse saved dm crypt keys for CPU/memory hot-plugging")
-Fixes: 62f17d9df692 ("crash_dump: retrieve dm crypt keys in kdump kernel")
+Note there is no need to refer a key add_key_to_keyring, so delete
+related code.
+
 Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
 Signed-off-by: Coiby Xu <coiby.xu@gmail.com>
 ---
- kernel/crash_dump_dm_crypt.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ kernel/crash_dump_dm_crypt.c | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
 
 diff --git a/kernel/crash_dump_dm_crypt.c b/kernel/crash_dump_dm_crypt.c
-index ff6055a97a4b..9ad50ac54866 100644
+index b8fe630462cf..bc70fbb79e0f 100644
 --- a/kernel/crash_dump_dm_crypt.c
 +++ b/kernel/crash_dump_dm_crypt.c
-@@ -76,10 +76,10 @@ static int add_key_to_keyring(struct dm_crypt_key *dm_key,
+@@ -66,7 +66,7 @@ static int add_key_to_keyring(struct dm_crypt_key *dm_key,
+ 			      key_ref_t keyring_ref)
+ {
+ 	key_ref_t key_ref;
+-	int r;
++	int r = 0;
+ 
+ 	/* create or update the requested key and add it to the target keyring */
+ 	key_ref = key_create_or_update(keyring_ref, "user", dm_key->key_desc,
+@@ -74,8 +74,6 @@ static int add_key_to_keyring(struct dm_crypt_key *dm_key,
+ 				       KEY_USR_ALL, KEY_ALLOC_IN_QUOTA);
+ 
  	if (!IS_ERR(key_ref)) {
- 		r = key_ref_to_ptr(key_ref)->serial;
- 		key_ref_put(key_ref);
--		kexec_dprintk("Success adding key %s", dm_key->key_desc);
-+		pr_debug("Success adding key %s\n", dm_key->key_desc);
+-		r = key_ref_to_ptr(key_ref)->serial;
+-		key_ref_put(key_ref);
+ 		pr_debug("Success adding key %s\n", dm_key->key_desc);
  	} else {
  		r = PTR_ERR(key_ref);
--		kexec_dprintk("Error when adding key");
-+		pr_warn("Error when adding key, ret=%d\n", r);
- 	}
- 
- 	return r;
-@@ -129,19 +129,19 @@ static int restore_dm_crypt_keys_to_thread_keyring(void)
- 	keyring_ref =
- 		lookup_user_key(KEY_SPEC_USER_KEYRING, 0x01, KEY_NEED_WRITE);
- 	if (IS_ERR(keyring_ref)) {
--		kexec_dprintk("Failed to get the user keyring\n");
-+		pr_warn("Failed to get the user keyring\n");
- 		return PTR_ERR(keyring_ref);
+@@ -134,9 +132,14 @@ static int restore_dm_crypt_keys_to_thread_keyring(void)
  	}
  
  	addr = dm_crypt_keys_addr;
- 	dm_crypt_keys_read((char *)&key_count, sizeof(key_count), &addr);
+-	dm_crypt_keys_read((char *)&key_count, sizeof(key_count), &addr);
++	ret = dm_crypt_keys_read((char *)&key_count, sizeof(key_count), &addr);
++	if (ret < 0) {
++		pr_err("Failed to read the number of dm-crypt keys\n");
++		goto out;
++	}
++
  	if (key_count > KEY_NUM_MAX) {
--		kexec_dprintk("Failed to read the number of dm-crypt keys\n");
-+		pr_warn("Failed to read the number of dm-crypt keys\n");
+-		pr_warn("Failed to read the number of dm-crypt keys\n");
++		pr_warn("Read %u dm-crypt keys (max=%u)\n", key_count, KEY_NUM_MAX);
  		ret = -1;
  		goto out;
  	}
+@@ -151,12 +154,18 @@ static int restore_dm_crypt_keys_to_thread_keyring(void)
+ 		goto out;
+ 	}
  
--	kexec_dprintk("There are %u keys\n", key_count);
-+	pr_debug("There are %u keys\n", key_count);
- 	addr = dm_crypt_keys_addr;
- 
- 	keys_header_size = get_keys_header_size(key_count);
-@@ -155,7 +155,7 @@ static int restore_dm_crypt_keys_to_thread_keyring(void)
+-	dm_crypt_keys_read((char *)keys_header, keys_header_size, &addr);
++	ret = dm_crypt_keys_read((char *)keys_header, keys_header_size, &addr);
++	if (ret < 0) {
++		pr_err("Failed to read dm-crypt keys\n");
++		goto out;
++	}
  
  	for (int i = 0; i < keys_header->total_keys; i++) {
  		key = &keys_header->keys[i];
--		kexec_dprintk("Get key (size=%u)\n", key->key_size);
-+		pr_debug("Get key (size=%u)\n", key->key_size);
- 		add_key_to_keyring(key, keyring_ref);
+ 		pr_debug("Get key (size=%u)\n", key->key_size);
+-		add_key_to_keyring(key, keyring_ref);
++		ret = add_key_to_keyring(key, keyring_ref);
++		if (ret)
++			break;
  	}
  
-@@ -315,8 +315,7 @@ static ssize_t config_keys_reuse_store(struct config_item *item,
- 
- 	r = -EINVAL;
- 	if (!kexec_crash_image || !kexec_crash_image->dm_crypt_keys_addr) {
--		kexec_dprintk(
--			"dm-crypt keys haven't be saved to crash-reserved memory\n");
-+		pr_debug("dm-crypt keys haven't be saved to crash-reserved memory\n");
- 		goto unlock;
- 	}
- 
+ out:
 -- 
 2.55.0
 
