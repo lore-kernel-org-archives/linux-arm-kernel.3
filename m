@@ -4,113 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B118C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 20:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01597C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WShcmBXFwgNzgoPR80LHtqAmSPW10etwWYZcOuhMszU=; b=f4rMIFP7lwzBWX+WyzMQNpdpwb
-	lcw2utXVDbJbP1ZJx1pEvp7DXbja+hV/vcAdLslyNcrFwkP980ULGwshRJDO29Pmc3mEYK9ytWYW5
-	/6opJAsLhxOf1fWLqD1VvqBCEqnV6o+W7s3vXfhwB4boobzv0Qz2lrTfLrGhTl3shw3PnRKSIiEE6
-	dKphxEJXvgbegFQflzzUMbRzGO8MKKhX0OuHeDrVfsKFI8bqTAJgvHgeP4L67cqhB4ukXow6nDRHd
-	m7iR7fvaavwHo178M+L9CMlR76ln3tcyVJFAXScgf+Nu1rKd7by7L7PcOFL2oQ8pMzrtYSH4TqEaF
-	cGsQz+Fw==;
+	bh=1FjJQxImiAzkLyG3uq3veFiggE+2UisuLKHUfG61M7w=; b=jLGREfqtCDzLHPT5RibHhR9PNA
+	HTyuytEpVP5scnQ2pkzCtG7kBhHI/nviZwQ1gestn1/chjeNx71EfnRgK76MpfnQcoDkU2KZl0M0B
+	LsqOpuDcOwboolnm7NBqOUGEkl3C/14h7+Z0NkJbCUFR1zpLvimpuZqlK/TI/+RqKQwbFLxU4KPK0
+	c8bcSsmWGr6/m4+xY5sq45bhN44diLKHBr9WICWc4+9fSkunFhr37khlBa3jKS2uJNpnlUP+9nmC5
+	39wWb46IjgA4yBB66wYS7NfyXiyYEWzqdbyhj9psZ9ayywcNFENWCZKRdlooMUGw1Gtw9uHSmhRhh
+	nT4WWfXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4P8H-0000000CpPx-0NYh;
-	Wed, 09 Sep 2026 20:43:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4PRx-0000000Cr1o-2XUO;
+	Wed, 09 Sep 2026 21:03:21 +0000
+Received: from mail-swedencentralazon11013042.outbound.protection.outlook.com ([52.101.83.42] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4P8F-0000000CpP4-0Tsx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 20:42:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WShcmBXFwgNzgoPR80LHtqAmSPW10etwWYZcOuhMszU=; b=NQrs5PNu08DEsvqA8QAeMljemv
-	d2upHmfFxfIyVBGgRtcNjG0ilCfG9Ul4mZUlztoQ9tD2JScbXRN5JpIDbNXOflrsfh4UPZlAqxrdv
-	S/R1pGWXXePOfcBEXzU44NgNdnuJqRkmmQMr0u+tv9qFoyEe1JvuWxs3CaMDiljw+PG1dhlQRrNgd
-	Sl4xvvWCE5Gt9t74OwJQM/M3/oqOYWDZsOsMetXgiAIXsd7k16ufn8mLzuLl7qHQ8cauwHpsqIoxM
-	yR/53+LhBZ+lAqXP3j0vsP78T6gCQuFF7ZHSvzLj+e3hKGJ2Ow9//xa/2n8ejyCvCyVV7Mt1zzRX7
-	GhkzX7HQ==;
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4P88-00000001ep5-0dXb
+	id 1x4PRu-0000000Cr18-2NYw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 20:42:57 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-cbee846deecso203137a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 13:42:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788986569; x=1789591369; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=WShcmBXFwgNzgoPR80LHtqAmSPW10etwWYZcOuhMszU=;
-        b=G/IxzWEYE27ZGM4GLQX+JaZ9y6v6wRtw9stSOOG6i321uK2ddZkSBzySf6Y/U/CNMW
-         Ou0jL9legyL922GenJ9A6/LziJQ3zQIA2sFsSE5e7WdtIncDzGxZ0/xpP0aEStVnt8MR
-         n9vyYeToZ3gVjn3m0o/AUkQ6HGf2iXjQ8UixNV5RhJgfZ88rgf46cPIuSJy3WVtQo8rQ
-         E+akID7QrtwUta8yVQRggpKu6Qam5vZTzFF9w4FhBIPYRVsyhBv7TKWfVxhLqyNGr21C
-         9DjEIe5rvMV/oHmzu4EEL6+/OBv46oRH9AdYA6nBVqbtG8FTxIeeIhIx6wOVVi7PHY/a
-         W2kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788986569; x=1789591369;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WShcmBXFwgNzgoPR80LHtqAmSPW10etwWYZcOuhMszU=;
-        b=iRhqzwj4OIXHd/rRJ7agjZlwQv+m7fmOxVU0Os7H9nijysCPo6c49ovyE5vOD2M+3A
-         rSprqnSnMuOvfpDgztWZ8yZr3NIolRJWoKCKENGRBIp3XZVaSQTCHSEdiBFNILpdVgiv
-         r1O7X06GMyGyc2MpnlFTJpVYDOtQgcORVNIDebJ1lJfydxwr2a475xWhpv475KUR/B1z
-         teuEbQREW7ODgZxIVok6WaeUBxfE76+FuSvukSB41SoUeo+x1R16LSjAgEmGCS4s59Oc
-         gtGPVTf1lTp9Kt6PTzkDoHCmD85x3LwO5ybHyb8l9Hdl2+NP8Id76FXlxjfzsIJrCKHT
-         trAA==
-X-Forwarded-Encrypted: i=1; AKwUvBzEDtoZO7Oy/wqFCig5i+osRxfpXxqoVxxeuZ7Q4osphpnfYLl8f4YV7V6r568Y+OC7+9CEiH8cuuwjE/uuDOdo@lists.infradead.org
-X-Gm-Message-State: AFuF++k1q1YXDBlSBq4VB6LpJg4S9+fPOsEAJnEemtgW1wR69pigKijO
-	lECMlCoGV9i84VuGpzXQuWYm7h+RjkwrExJcdn94dsvvOfgeT184XMlj
-X-Gm-Gg: AYBFou28kjCwkgZ+YEbj3WXOsBP0JwFhhWo2QaAodkEYgrdsSYwdZy+P/81TR2FPTqF
-	f7NbWE0E6iTspTT1/YLIXkqJGlWYaUD8y3UFb4Yh1H97mtq8ANpKQMbgv23iuS4sF6/hKqba1/y
-	9woHPDsFsZBjVa2yn5eixtGFtuNezcjgPH275sj1W5MMBDXMMhA8UN6AA+7v7GRnbWukKhkYCC1
-	nEKyQkRHAoeHx2QsfbPbfOb+lKifNaQP6cbNY7D+Yn11vT8NBVS6JgbsmMI6Ea0+kZnBLBTCQ8y
-	Fahxa6Il7FqIK1UR1v5rLTj+M4wXAiqTYv75DJgh8qvgd2Tl8aNA/UD8rXHtXqIMgEZ9eybkVsT
-	8GG5SqpXSf1oLQqey1FHxIh2NZijjRbpUIt2oo8GBIGYA0LgZGs+2YwZNaif3lyxviYKDXFu3xw
-	A1/EGX4YOwxmtr5WmqwYuKysUFr0LUO6aa8RCe1DHEX9fqn46BrU3xTss1BjvoDgy0MNNVN8062
-	+jnO8D2AzeA
-X-Received: by 2002:a17:90b:2f46:b0:396:6344:3b63 with SMTP id 98e67ed59e1d1-39b260de5c6mr59642710a91.2.1788986569020;
-        Wed, 09 Sep 2026 13:42:49 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d774197c4sm1220340a91.8.2026.09.09.13.42.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 13:42:48 -0700 (PDT)
-Date: Wed, 9 Sep 2026 13:42:47 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Zakariya Hadrami <zkh@mailbox.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, zkh1@proton.me,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 1/4] dt-bindings: watchdog: mediatek: Add MT8127
-Message-ID: <6a212071-3b1a-4dcd-8d9c-8df6352813b9@roeck-us.net>
-References: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
- <20260909-mt8127-amazon-ford-basic-v4-1-e9af5c420ab1@mailbox.org>
-MIME-Version: 1.0
+	Wed, 09 Sep 2026 21:03:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f7fxSVi921bRbp/1EtsIqtANDXUm2VQ9x9hm0UUZrR3rXteisUCqMl6Yhi+o/1a9jl3bkFRDKPQ5PGEqIaIANOFUH9nkDxza4dXJRURWh6iVxYUasSjeMwTq01tL10rABnsp4psbif0GNf6X+n+tO2+Zw9GrdnhtXqQBN3xdGW4brDqAqMXss6AkgBXvVBLuNct2cMdgOg89S9KLZ6Jc5Mx9HG/PIcTeZ51uwJHwTCmCORJDbTSsp+rmm2nEi6yX1hO/VbyDuZLJmIcsG7sctfBUuc6h/0T7y98OM+FmijbSrhXuvGOnpMHxJVwMyiY8kVrw/toLXgCMpB0r/mJ22Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1FjJQxImiAzkLyG3uq3veFiggE+2UisuLKHUfG61M7w=;
+ b=V5hruOxJaxGydrUF9GaL7KJJgsLXBZ/NdMuWGTwxTGzjq76ZNIvsIbZn9pK0Nx+qLtVGFqm53LwYBkD1vpTw4t8KjzohzC2xCv1xbh+am+/+O3vPqOeADF+ybDsciL1SaG205co0UjWLVlxKOABftnFkrfw91gseNVeKtSbGNCIBYbo0zM6o5ScxbHg3FoSm+NlpZbTNQLEr81oCq+0CKUrL61zsYWrjWE73UKlIsklh6VCX/+u2YrRXCHY8v6cTQi4Y/xO6//B54UBhJSWBiRA3zJkER0AmYuUetYQwMPrjNyTIOsPHFbLBQmIi+P3W+uil43fi3k+iJHt911+YcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1FjJQxImiAzkLyG3uq3veFiggE+2UisuLKHUfG61M7w=;
+ b=P0lF4h5Lo4hY8r4pKSqyu+IFPwEKGq5w5RhngsSQTeKntCDXjSMNy5RQDqWIVJnfK3Puz13z/d2W5EILDNvKo0OakYoy1Lyd/b084163JPQe+1IRuo5q/Go/DCd1aPGhafI1xBq7Qb8n3lt0OuKf3V06vYz8YQZD82lbRrqHzY0r8yaXknCahYItxq6BxfxZfU3cBij9XTpLMOD7bXbjPbYNTZverC/1Cl+dtqXq/VEU1fYZ4D3phssqhJGn2O24kPfx38qOsPsCK/ZcebGb5/9yvtDaSPpihvbulfKkGGMeIrOChy7Udei2SBoLWrNJQu519iwhvHrMRriwrplLOg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8969.eurprd04.prod.outlook.com (2603:10a6:20b:408::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Wed, 9 Sep 2026
+ 21:03:12 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
+ 21:03:12 +0000
+Date: Wed, 9 Sep 2026 16:03:02 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Linmao Li <lilinmao@kylinos.cn>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Leonard Crestez <cdleonard@gmail.com>,
+	Radu Solea <radu.solea@nxp.com>,
+	Franck LENORMAND <franck.lenormand@nxp.com>,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] crypto: mxs-dcp: handle zero-length skcipher requests
+Message-ID: <aqHJhrSE2_pcCp8L@SMW015318>
+References: <20260908094437.1548278-1-lilinmao@kylinos.cn>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260909-mt8127-amazon-ford-basic-v4-1-e9af5c420ab1@mailbox.org>
+In-Reply-To: <20260908094437.1548278-1-lilinmao@kylinos.cn>
+X-ClientProxiedBy: PH7PR17CA0060.namprd17.prod.outlook.com
+ (2603:10b6:510:325::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8969:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64fa9a19-886c-468b-32a8-08df0eb5c246
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|366016|1800799024|19092799006|22082099003|18002099003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: GVfcsQwz/nAQ36hOQup/+XmBmYvOV+NpevvtMGJfwlksHCDSiSF+OL9j2gW/HBhkKNXv8H9vFZQCzcRCgMai3DQtko/P+qncMfQ1/En0t0BVVRUXJtzXvvKtgvcTwmrvddvtzpubaPTAN8oh6cg6wqP0pDkJSHnVs9Vkj/1V+k9ptX24OjdMKsg/WOSXoI37hLep0e8nTaGQ8FmOhcUV/N+Y7dQFOZhKD+4rimWoNpvbXIkn4Px1DpX02c0VDiRQ+Hmc1LxmVEvlB0NqrZhJpey6n8/x6SHSWF/hazoSulFt3pfpgJzzcTysU4/C/WdeX6rtpjmwavH4mKJlnG5TkD+VZVJZYJvt5I4D8nheaEkYHvGAL8iC2aSbJcpceU1NtqQz4IkvarSIHa1M/C7dTkOUJTaBdrJfUESea8En9i8jdTfv1MeL0EPciQihrKWukrE3mKqZNwDls9Nh6LiswKIV1p4Rf+6tyHwAE1iTKii+tkqm7LZOYZCxmjrd0j6FRRX/CJBbbWvGO8VwzZpkwGEwJh+f5kv66R4yvnHW3UFrXk66hhHofmw2U5eMwakQcmCOTUa0oe5htnA+YCzKmyodYXUmTeC+LLp8RECLSbitW4bBwgfwo6fHHgaYwiMSkPqFcCrL+Y/IQuhlKHtHMQ+mejSc9OT9Pr4sore9Wmg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(366016)(1800799024)(19092799006)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fa/KsfOaj6E66YsT/C2Yp00b61jByx8U+zVMdJ4nVbd0WeFIf+4Gz/Wrm55H?=
+ =?us-ascii?Q?mLopQVs1AAr35cCNINC2FERCF5xpgGYCKUjcpYO71DBz10l77/SZOd9Wd8JY?=
+ =?us-ascii?Q?3tktktj0JJ0lki4FQibaXAZPECIkNwAXo03DKQ+zFMtg0zzh0ppTg5s3RPTK?=
+ =?us-ascii?Q?Ou+dS1Ao1hmvjsGmvkMmBKmLQsKAKFkNA9e3du6dl//fv/DAwuYtW8emXYxI?=
+ =?us-ascii?Q?mdBh4/5ANQUWBFzd9lVeS+csx6tGra03Whz/VmonNOIFAOhpifvmT7o5YOl1?=
+ =?us-ascii?Q?7ND/xVpxt8Io9dBY+mMQHCv6knnpI4lADFcLLzfdoZTmruhY1Rl27rXW83sR?=
+ =?us-ascii?Q?0Tfx6ctuBbNUIxCLu96qICXgn+4QVAt5wQHqjOHUFYpaAnBVMKE6isrqtqaN?=
+ =?us-ascii?Q?gngchOOuDCUU83jlu5RvDH8tbJiaRgzdInfXU5ZuuiX+M9ZHryRUkVosoQyU?=
+ =?us-ascii?Q?0KOfwxhXBqlt/uAv6ZgDJxsRQmiw+A7GN4DkTfQ9TC6q2uIP9ItHB7+iMMV3?=
+ =?us-ascii?Q?pMS+n1ltLzs2CvYXNcB8OChwv0ISR5UqcXZa+SZWaQKB+ZGRnGmF5jGUSGJY?=
+ =?us-ascii?Q?vAVcwHWnwAr09/o59hy1LIEp2vB+ZwjEznlp8K0S8jabW/izPjshU26ttDXX?=
+ =?us-ascii?Q?zbCUgXWCqTWY74mO2YTq9bEQ4RyQnFxx/JssQKvmurjuDHeN0HntjqFIJHN3?=
+ =?us-ascii?Q?a96ZdBpx7TDo4bPEcTe0/2i6/AsEDJwDBd4Ks4/NlLXDIrMmLYWzDIaEPdgF?=
+ =?us-ascii?Q?jOh2EmjiZn+V3gLFt7/pLhEfPsm3gkIQuTAIBF/gU3vXjvjTX6S+T3+tK8z0?=
+ =?us-ascii?Q?b9GeEVL7Bb14GQWOJmZnoN5nw1U81h+jUnMoXH4zY1yNSWCOeJNOHXYX/28n?=
+ =?us-ascii?Q?J6NNAHhqsH0UI/mNdewQgIIBBabWoRzJtv8Wl0IH1F0NTN+GaOWChInaOXTF?=
+ =?us-ascii?Q?y+vGcj5IOZVtMPrBlYdR8Wp8vTYcB42brwiZ0JOtH+qPjgjOyVHFWBV2/xsL?=
+ =?us-ascii?Q?J2za0uEOY2CRkZM1kAoSGKEKxXr01YWXCNND7nhQNbK7jXtX9X+66ICRi8NO?=
+ =?us-ascii?Q?gR+OQrFenqV9ZGx6VjY48WfpWW9QdnA0Vw2lGjPYupx/CZf+K5XOJMdQPIjU?=
+ =?us-ascii?Q?zd85NMpFJSTejajd1X2fQ68W6evPyYh4G3vh68FyEFqHtRRiTk/kjrLnieRk?=
+ =?us-ascii?Q?G20z/LQZH1mlXgDEiLv4Qz0+aWn9B+Cp//bYGWFdwRbLNh+zctt+VnUZlFHX?=
+ =?us-ascii?Q?zZqyR0UuGnOJ5+aMktwP1llvIBDSxB7mweyUCiRwfu9KJ76xBX9qf1060YuN?=
+ =?us-ascii?Q?ENjr9HowUBH5BKFPOmkBD0xle61p2tmYMHXhvPRElzD8J/1h7vtT8SovyVbH?=
+ =?us-ascii?Q?56YvG8lpTD0vflGg6bTCpPiGonmVdHuMYwng3rhjZYt1A0fjDDH7hr2ItMZf?=
+ =?us-ascii?Q?PZrdSTPWXRtaYkqgqluAmkrq84dxRIz+Lqp7EjTfgWH+zeWjn2rX069wKzD1?=
+ =?us-ascii?Q?Gk7MNqf1KnF+KYi8H0POkzBC6kLvk7O9qaVe4CmEwvs73ONSmh0FAjCKakpS?=
+ =?us-ascii?Q?c7MXoglUmZGFY34Pbm16/ASnV2qTeCuGp2QWqtDB3zCtGL3jm5HRTE16+ero?=
+ =?us-ascii?Q?99xMlqCPLx7vNCtdAX3fT0gMmNIEWgWfLlm2Sj6l8mv1AqYFO3xpsXMdVhsy?=
+ =?us-ascii?Q?2/6jsPyhSVCr4QCE6ur30xJhkfzSLldHrjKvFEe08gMjoSb83fbBEYONJ95t?=
+ =?us-ascii?Q?gIsVznAmhNbdGaoNc/2j8bdF3P+Gw+2kzqM3ydZxQ297VJk8/NZ1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64fa9a19-886c-468b-32a8-08df0eb5c246
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 21:03:12.4007
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3H09etBTCCXlWAO9e2ZoLYGol691R2n9+rp0JHWY0JrNO1pyD9SaESygIvkzUIzFyKhvL4q8M4wApPMkXrEPiSMIr8GHBi/TAsyKpGeFUyfR5xI9WAugbz662ruMTKuf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8969
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_214254_928327_807E5F1D 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260909_140318_630664_4F5627B0 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,17 +143,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 09:38:00PM +0200, Zakariya Hadrami wrote:
-> From: Zakariya Hadrami <zkh@mailbox.org>
-> 
-> Add entry for MT8127 SoC's watchdog which is compatible with MT6589's
-> one.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
+On Tue, Sep 08, 2026 at 05:44:37PM +0800, Linmao Li wrote:
+> The generic ECB and CBC implementations return success for zero-length
+> requests, but MXS-DCP queues them anyway. When such a request reaches
+> the worker, last_out_len remains zero. The CBC completion path then
+> subtracts AES_BLOCK_SIZE from this unsigned value when updating the IV,
+> causing the offset to underflow. On decryption, the resulting source
+> address precedes aes_in_buf.
+>
+> Return success before enqueueing zero-length requests, matching the
+> generic implementations. This avoids the invalid source access and
+> leaves the IV unchanged.
+>
+> Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+> ---
 
-Applied.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks,
-Guenter
+> v2: Clarify commit message: describe zero-length return-0 as existing
+>     generic ECB/CBC behavior rather than a general API rule (Frank Li).
+>  drivers/crypto/mxs-dcp.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
+> index 133ebc998236..60794b4d49fa 100644
+> --- a/drivers/crypto/mxs-dcp.c
+> +++ b/drivers/crypto/mxs-dcp.c
+> @@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
+>  	struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
+>  	int ret;
+>
+> +	if (!req->cryptlen)
+> +		return 0;
+> +
+>  	if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
+>  		return mxs_dcp_block_fallback(req, enc);
+>
+>
+> base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+> --
+> 2.25.1
+>
 
