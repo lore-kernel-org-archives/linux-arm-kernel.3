@@ -4,170 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B466CC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF93C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7abauvZzDACK0Ed+1mJvu+H/+yYSq0K/zf/n2yHRa2E=; b=vfSJZu4V6xIG1sxAaT5Z6NKuPI
-	74bHlZRi/YMRMWJixSOc3thSqLEfEjsl3Wb9KxQpprnfO3je30qNHqEeDvmRj4V62+r5imPsbIfxw
-	Cjbn+PsSFDrpbvrqrtl0D1CxVNwyDqBi2V0cGFdRmxQZy2AnwtdYj54kRExWe782IKdxetJ7ysZi9
-	sxBOBa/vw7JfHl0cA29z6E3p3R/WjEz1rEgaRD8HFrCu3rG+Khv26kCEnZxxKyI71d9WQLkkU5P4h
-	JW8mcje8fjPaWaVvLrKOUpJb1eTxeZWIAIuD5lstGKnchxyCYvkdSc3M5i/8XLfEIuigbMeiO6ZkR
-	X2RkFOEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DvlRGZ+qYfkTRTsFESlVgI7yuiHg6UvYFOoy1Li7X3c=; b=GU6AtH0Ju4RndDwBOS5KOByF4P
+	PWj6qWF200ZKoPTjmSjdHMM45GczXL+lS0th+Hv649H4v+lA2BvsGBx70ergT2mFKynLitAIlYlLm
+	2OZjRTYvQVoKZcg0NeBn1AC8Glqc72mpychXbJ4U3J7djTUvCNVErl+iO+ZQtuMo1mVdLZRrHbZnL
+	k5+nvxj4s51Y9GMKGjqiA1o6f1ksNG97v4pRXwDbQCXrILJlOST+l/bsH56Sf/DgYnwiGsBbS+Kbo
+	9ZyWcxm3kNJntQn+xv7v8of8x3hr4QA198dxKOuL7r7et1gzK8WEwGGHeaUv9u/u0gXZwjiE4ez9c
+	WxqxH59A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4L4p-0000000CIcE-21N2;
-	Wed, 09 Sep 2026 16:23:11 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x4L4u-0000000CIfV-2vJ6;
+	Wed, 09 Sep 2026 16:23:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4L4j-0000000CIRA-01gV;
-	Wed, 09 Sep 2026 16:23:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PmCyBJFF4/JJjLvKG4S0lQFVDQ3CETjF7DRX3GWG6w0zdWdVpUobRijswCdDFV0LLt1cZ7ISO4BHIQ9zvqubOJThoutdeOp4yDjWs5D5VrMGUoW/36jWMGNbXZaeXct1oV6ZJmJPkCJ1ObGMc/J7oKQwmam7knVMvSlX1cdMFa/GQIqWzi6qG9woQWiMBKNJPp8kXjIWZdW9SVwRxDEuvXtonJzkw4QLlLRJaMHOtAesfcL3R1x0oVkauZEpItngpWOGFTf+E80rdnbEZmA6VFyxpWZMNxsno0z3s1fQoH/nOWKJNY/9Z1jV4phY2ce07CEQAplG45VCFOuDHdM7nQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7abauvZzDACK0Ed+1mJvu+H/+yYSq0K/zf/n2yHRa2E=;
- b=xtDCjuB4wLKnX/IkKFMRBnsHIJ6dhgXexcJNJAdc9In/arQTdTFuAPGok0bVCHEsZ91dLquC0t2UOxqBcwHPxdw3N4Bvp/qIw0GMH+mTe6o5XB1ir2oTSrhXWSE9phZMYVO1j0eoFoglg8ccRGh18soT8joNaFoAlTOV/pT9LgZwlmcJgB2ssGnpXBEAnrl8S8m3OXAkybUS6/8Wr1YFzo7vWRVa3zgDbp/uqM+MQb2ZuBrE0ROm08Z8Iq2puj0HI/MrrkEZVry40rv78P5lQO095+5dqchnebG4f1XH70gmioRi4KMl59Cdu1UCYr7Q15ZMGzcw6PP5Crq5iKZoOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7abauvZzDACK0Ed+1mJvu+H/+yYSq0K/zf/n2yHRa2E=;
- b=EgkGXJrIDu9sZjzAztwkv+/7JgE6a23nn4l/AE4CZYkVwcdlr4Yiu+Hz7AbgUeX//MKqrKKSyj6ior48Tz3WcNUO0mlup0QPCCcA0sCm8XdG3sBaMGNEoV063Rmm0pJNHLSlcegEknajkXQiVtLcQZGPghal/eNowK/Ta3kqQG3yARB0MvV/RqKrQA4yQb5YkJTzh1GmOKzD0h+VKNJdClXGSXz3RbBnUk+N2R9fF3q4NpUa3JrmmUwkgmMHlpJYVYgjzjtTdQ64NZTqGGcr8g5PSjMcnQjdm2xUml1Bqxc56RK7CSomBeX3V7RAmGsZUjmy2zFf9TuCrw5dF6NPjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB6786.eurprd04.prod.outlook.com (2603:10a6:208:184::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
- 16:22:58 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
- 16:22:58 +0000
-From: Frank.Li@oss.nxp.com
-Date: Wed, 09 Sep 2026 12:22:31 -0400
-Subject: [PATCH v4 4/4] dmaengine: add union chan_dev for dma_chan::dev for
- clarity
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-dma-chan_dev-rename-v4-4-d8fb6892a70f@nxp.com>
-References: <20260909-dma-chan_dev-rename-v4-0-d8fb6892a70f@nxp.com>
-In-Reply-To: <20260909-dma-chan_dev-rename-v4-0-d8fb6892a70f@nxp.com>
-To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Paul Cercueil <paul@crapouillou.net>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Binbin Zhou <zhoubinbin@loongson.cn>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, 
- =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Ludovic Desroches <ludovic.desroches@microchip.com>, 
- Viresh Kumar <vireshk@kernel.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
- =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
- Manivannan Sadhasivam <mani@kernel.org>, Daniel Mack <daniel@zonque.org>, 
- Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Kelvin Cao <kelvin.cao@microchip.com>, 
- Logan Gunthorpe <logang@deltatee.com>, 
- Laxman Dewangan <ldewangan@nvidia.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
- linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788970951; l=6095;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=gHj52vD4WNLOndR1YWKRKx1PK/eHQkOd6+tAOWX9+Io=;
- b=rLyrCMSAaeqf737nI0+3KNhYuzF/PHdlwAvBsq4aslxfuLfa/LjJBtXopLfwIeM8T6ydrDSDy
- +nEvaBDW1XCCj3gdk9RYqFRLEuKRCAio2Q4L8qi7QDJ3vYzzyYeyJdN
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH7P221CA0030.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x4L4s-0000000CIeK-3XMt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 16:23:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=DvlRGZ+qYfkTRTsFESlVgI7yuiHg6UvYFOoy1Li7X3c=; b=C2IYWiSUdfcefBO3tAAVVtScbA
+	WJRrYZUuZCczzV9hP7VQJRSVAw4PdVuzpofLUZOOcET0K12OImrzeVN1xt4cTyi+/sq8lVGp8ulod
+	ApvOzsKPTStGpmPVdS+1RWEGPsBnxr9wBtpNivqt9h2po6swIbWBxSwbsU91jHaL299MdLm8ZDO1+
+	NxznqDbaVJAMXHUkzG/s/1/g/6y3bakaGaoeJkiidjGuBej3tcnt1LCFX/nEUui3PVy30cGBxLP1U
+	Tov/DC+uY6kGindEtgARCt7tryejFSFiA8ywrj+agBoINP9qdvTtUixIq7b+P7wKZrNg/Pdp3IQkA
+	eEpUTZHA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4L4l-00000001Qyh-3uk5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 16:23:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5A441570;
+	Wed,  9 Sep 2026 09:23:01 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EA0613F7B4;
+	Wed,  9 Sep 2026 09:23:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788970985; bh=Lu6PqQ98ZIcVokP8zCJPl+McNFYlpvai7wV1clZrQ6s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mvEyKiaIe8AagPR0cTpqCEXuig/9ATEtebclddS/6kbds0a4oGrXryXVKG1vTsnuK
+	 hPQRM7Zd9IuH8+fWsHJziT3kfUOudFOQzHWxPMf13xsyjB1yPFkiCuPgRUPM9OT+My
+	 2z5zngyq1GMrxake/l4RyoJlTC2C9jE+7gyYU5/o=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] perf/arm_cspmu: Add Arm system PMU
+Date: Wed,  9 Sep 2026 17:23:00 +0100
+Message-ID: <84a65061841c8870375ee6b0621dd3f61651763d.1788970980.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6786:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9789093-cbbd-4b38-eae2-08df0e8e9c8f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|23010399003|1800799024|921020|10067099003|56012099006|11063799006|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info: 7pwalToPSEwKsAy69W6aq4wBxqMbZUAqZVi7/iqc30RZq7sT1hV7GsGncKTcJ5Xd90zhx2Rqlk8JgnmGU3uzTMhualDiWh1izNfs02o2/qeKMopcncWswenOkIH/wb8ExokO0v6Ru6cIRg46jVZopD+EiAfXHafh6QL/THWwvi/j2zM0c5lcpUfQ4pfNGGTcrcrupeADkfznMpf8jHC8nk3XglM1gN8LGImA2+p48p4kES5981HPQlkiN545fiKDp5JHgVaqNLLB/riplH7mSvtph8fhh2v7ta3+HhAXaF9V9hKl99eMCAWzmV0rqlqMdM3NrBAaINiZGidPxpZ7G7iUja/OIO2ij6VhD4jWB1+4p9NOdiv9IdHlZMXgCO5d3Dtcpo/Wm2of5wLSrsoQ+jhVdDhoBdXSJMeWKnpFAJqkkOQv7YKPOOQE4CmTmDf/qcbFTphqM16qpfTeSQ0X0F+nAyyDs5DTi5XZuEXMlj+R9MVX+8TRu/8my7W5umWtFvghnhEagAvWmN69uB+Es5f5L821ZgiuyQQkMyNCtEiQxV3L/mm78yJocnNfFLN0Q+1ZDjsI0RbIPBbXq3yfnNaHEMMgKhr+/cB1/4GzyKmJpCa4iAv3efmpbTdz0wXNECJa5uipwDF55JMUSMOvP3vK/VxKp3rZlvtCEi24G1DNjsby0UgzDSq/uQyDtmCW3/qWNSDF3n1r/cyK3heTPnlfpsaMJT0QZh57G+t/qynP+tA1limnJDzQyb/UqWKI
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(23010399003)(1800799024)(921020)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QXJxenBuQWt5MXhJdkU2alpTb216QWZobTNiK056R1lJRG5pUjRRRk5DY0J5?=
- =?utf-8?B?cTl5SDZUSHJTc0wvVGxsdEg1YU1QZDRtSDJJQkg0ekpMbEpyVGduck9kNFJT?=
- =?utf-8?B?c25MeU01M2FjYS9uMWR6RDNTSUk1MENIbXI2cUw0S01FazRyblMxNlMzWjQv?=
- =?utf-8?B?b2tGUUMxdlEyS0REaHNWcWZGdmpoZVpKd0lYMjE2aXdIKzd5Qkc2R09nRFl0?=
- =?utf-8?B?MkdXTFp1L3NKaW02Tkh6ZTU1WXMzY01FYWZ5Z1czTEZqY1dHcEJsb2QxUTJ3?=
- =?utf-8?B?Z3RxdkI0UG95SlRQUHViRUVtUjRoUmxrR3cvZ0dNa3ZvalE3SU9qTVphazZr?=
- =?utf-8?B?TG95d01sYTFoN3RhdFpjeDg3S09LL09ydml6QnN3eDhXVmsrVDBYejdZeWRu?=
- =?utf-8?B?VGtYQ0JpQUZUc3pra1J3SWgvUHNaNk1idjY2anNuTXRUY0R3MmNzb1RGbGxv?=
- =?utf-8?B?TWJjZXVDWXBUdGpBMDJqd2wzTVFQUzZnakFqOWt4UHlDQjlYYWU1bERERVFL?=
- =?utf-8?B?UTFDSGVDQThFU0J0ZnVLMWozY0VUc2U4eVFzVnpXUno1bGIyOGNmaGVlWW9o?=
- =?utf-8?B?a1ZzNFJuWFFMdUh0WndyOHpBQUQ4b1FuSjJETURFZjkwZ1JuOGUxRmNUY0RU?=
- =?utf-8?B?OVlydVpzSUlHN3JOZEg3enVDYWdlaWRiZGtQcnQzS2NDQzlueXJ6YzBCcFk4?=
- =?utf-8?B?QlFraTlqTDRRM0tIVWRwUmJibm0wcm1TVXUySUdqSG1rc3ZIVDNlTEZNYTY5?=
- =?utf-8?B?elVtWGZjamdHY1NFY3lnVmJiODZoV3lUS3Q2a29mOWdTcVhOeXJVWlhzYmdy?=
- =?utf-8?B?NVE1eXdGVy9aOFFhYjJsT1lickhmRGlKWExaSTIyVjNzK1ZJVUNIVUM2bDgr?=
- =?utf-8?B?ZUhMNDdrKzZnVHNNbTE3OG40TnRkK2s2d3dkMk43V0llMTZVU1ZwMzJhNDZy?=
- =?utf-8?B?eGFzL2p1SitlL0dKdHBoVXFUdHc4TE5tMUNZVENjSEhIdkFUL0pNTEo1Nmwx?=
- =?utf-8?B?NkJNeVFmMEwraTZubERPQ09hWDNwUWI3NjJBSWRuK0ZDRWxsV2ZQKzd2bFYw?=
- =?utf-8?B?RUxYUHhCSXU2SjZlaEdkemZFZDRlWEViZ3FNaFZTbTRtaVJyOWNvUExkaVNx?=
- =?utf-8?B?VW1IbU9NNEp0OWgyZXhrMUc3bGtTcVh4WElNRVlSUExTMWw3K2NsdThHbU0r?=
- =?utf-8?B?ZlBDOW0xNTM3VjBFMGxYVkZpY1pIcFFUbmxNNURNWTNwMG9wN2dhOXdnb3Vy?=
- =?utf-8?B?ZnNlMGdHZHhETUZtaGRNY0NpbS9pWm53K1pZZFowcktpY2c3K1k2MTRoaG11?=
- =?utf-8?B?VmZ4OVlUUElyNkVRRGZ5OS9Ibm9RaHNOTXdxL21OdjBxcGhGaHk3blVxejBa?=
- =?utf-8?B?cnNHZFZrT3dtcjNoUEE4Zk5jMDdXSDBuRXJTQU1MenJod1BCNjZlT2Z1WjFF?=
- =?utf-8?B?MnBDTkF6b0xJQlRKV1VZdWRUZnhDM0QrNFNGTm45dXIwa0tIMDFyRmNGUW43?=
- =?utf-8?B?bjZaNS9pQ0d4a0xyeEpHaFl0U0Q2dXRlcEp0NkpMMUM3SVZFdmVuYks0VitH?=
- =?utf-8?B?RjhMZFNsQ0N0YXJGZnJVOE5JVWZXUXFBblhwVVcwZWs3WTJOVnpRUndBMHNE?=
- =?utf-8?B?VDdLMTA5ZCs0VkIrcyszcFpGVXZvcWFEZ1pINkhlZDYrRHhOQVZubzVST2ZY?=
- =?utf-8?B?N3ptSDF3RFpPNVZxRDhtRU9YdTdMYnlGSXN3RFJIQ0xCK0ptajdEMmVKZ1RE?=
- =?utf-8?B?Wkx3RUpidXJnRkNyeHJ2VE9CWGlhaEZHRC9DNHBHb0dJTFZjQUZETGQ1KzVu?=
- =?utf-8?B?OS80M3pRNnQ5WEQ5emtxbm02TEM4cllkTWppNmg2MFpLSFJRQ3BNeHBDUWZJ?=
- =?utf-8?B?dFEzSkhnMjJ5bUJmQmVUdFZYQnlCUHNGV2RoWG5TVnZ6UWxWUzVaZHVmdW1L?=
- =?utf-8?B?OFZySGd5akh2cE1yampUOUpuRCtPWlozVjEwdm5KUVgxandGcHN6MDNMSzNE?=
- =?utf-8?B?N2ZuK1ZGOFJwYlUyT21rL2lpT09aNEs0TEhHTi94aHhlZVN6dCs3UWFLWTFz?=
- =?utf-8?B?aTlvR0ZlWmFselpPcTR2VWdjZ081RnV0Rmd2a1lldFEyckxSZFlDQ3crdjNZ?=
- =?utf-8?B?VEVNUTA4Q2EwU2RDZUV5c2FlZ1FrYmVpemhGbHdhaDhNNWMyb1VUTGFXZm9z?=
- =?utf-8?B?bFdYUWVwdnRXV21hY3QzY3pZMXEyRTJwaXd4bXpqRnNWZTdOUzVNY0VZQ1p4?=
- =?utf-8?B?M1p4VEtndnMwZTdSSEN5Vk81N1kydXc4NGV4dUFmT0lmVmIrSUo5czBMMzBz?=
- =?utf-8?B?UjBEV0RPMXZRZDVrNy9hc3FxQVBldDNNano0OGU3aVpuckwwdHRBVzh1L1Zl?=
- =?utf-8?Q?ZreykT2TGIlkyqv4jViBjl4Q5vWkVQs8xbZXY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9789093-cbbd-4b38-eae2-08df0e8e9c8f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 16:22:58.6470
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZZEiLnC4iI5iaYVem9V5CjQuUahbxiCPKaloEtNgbWFGZaLx/irSfO7ZMxY1afLo3owBgZvjYViOBtCvoiOzAat6oKocfDa+mjyKR8hSWrMSAMUsl31RKH8JVt5RV58a
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6786
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_092305_210819_5A0F2707 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20260909_172308_354908_977A27C1 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,179 +82,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Arm's latest Compute Subsystems and SoCs are using a common PMU block
+in various places which can mostly just be driven as a generic 64-bit
+CoreSight PMU, but does have an IMP-DEF register for additional
+filtering. The details of event and filter encodings depend on the
+particular PMU instance, so are left to the higher level Arm Telemetry
+Solution tooling.
 
-The current dma_chan structure contains both "device" and "dev". So
-
-chan->device->dev refers to the DMA engine device.
-chan->dev->device refers to the per-channel device instance.
-
-Their similar naming makes the distinction unclear and increases reader
-confusion.
-
-Add union dma_chan::chan_dev to make its purpose explicit and clearly
-identify it as the per-channel device. After all user switch to chan_dev,
-union and dma_chan::dev will be removed.
-
-Update the kernel-doc accordingly. Besides its sysfs usage, the per-channel
-device is also used by some DMA engine drivers for IOMMU mapping and
-therefore deserves a more accurate description.
-
-No functional change intended.
-
-Reviewed-by: Logan Gunthorpe <logang@deltatee.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
-there are other user use it outside drivers/dma/ directory.
----
- drivers/dma/dmaengine.c        | 14 +++++++-------
- drivers/dma/tegra186-gpc-dma.c |  2 +-
- drivers/dma/ti/k3-udma.c       |  4 ++--
- include/linux/dmaengine.h      | 18 +++++++++++++-----
- 4 files changed, 23 insertions(+), 15 deletions(-)
+ drivers/perf/arm_cspmu/Kconfig      |  7 +++
+ drivers/perf/arm_cspmu/Makefile     |  1 +
+ drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
+ drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
+ drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
+ 5 files changed, 83 insertions(+)
+ create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index a7ac2729e4d9d..bb30a9aa54d3f 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -1083,8 +1083,8 @@ static int __dma_async_device_channel_register(struct dma_device *device,
- 	chan->local = alloc_percpu(typeof(*chan->local));
- 	if (!chan->local)
- 		return -ENOMEM;
--	chan->dev = kzalloc_obj(*chan->dev);
--	if (!chan->dev) {
-+	chan->chan_dev = kzalloc_obj(*chan->chan_dev);
-+	if (!chan->chan_dev) {
- 		rc = -ENOMEM;
- 		goto err_free_local;
- 	}
-@@ -1103,8 +1103,8 @@ static int __dma_async_device_channel_register(struct dma_device *device,
+diff --git a/drivers/perf/arm_cspmu/Kconfig b/drivers/perf/arm_cspmu/Kconfig
+index 004c1c2ee2ad..d44916312c77 100644
+--- a/drivers/perf/arm_cspmu/Kconfig
++++ b/drivers/perf/arm_cspmu/Kconfig
+@@ -28,6 +28,13 @@ config AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU
+ 	  In the first phase, the driver enables support on MCU PMU used in
+ 	  AmpereOne SoC family.
  
- 	dmaengine_chan_dev(chan)->class = &dma_devclass;
- 	dmaengine_chan_dev(chan)->parent = device->dev;
--	chan->dev->chan = chan;
--	chan->dev->dev_id = device->dev_id;
-+	chan->chan_dev->chan = chan;
-+	chan->chan_dev->dev_id = device->dev_id;
- 	spin_lock_init(&chan->lock);
++config ARM_SYSTEM_PMU
++	tristate "Arm System PMU"
++	depends on ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU
++	help
++	  Support additional event filtering attributes for the CoreSight-based
++	  PMU blocks found in various parts of Arm Compute Subsystems and SoCs.
++
+ config ARM_BMU
+ 	tristate "ARM Bus Monitor Unit"
+ 	depends on ARM64 || COMPILE_TEST
+diff --git a/drivers/perf/arm_cspmu/Makefile b/drivers/perf/arm_cspmu/Makefile
+index 0bb4d510fc49..c9c42227a3ad 100644
+--- a/drivers/perf/arm_cspmu/Makefile
++++ b/drivers/perf/arm_cspmu/Makefile
+@@ -8,6 +8,7 @@ arm_cspmu_module-y := arm_cspmu.o
  
- 	if (!name)
-@@ -1122,7 +1122,7 @@ static int __dma_async_device_channel_register(struct dma_device *device,
-  err_out_ida:
- 	ida_free(&device->chan_ida, chan->chan_id);
-  err_free_dev:
--	kfree(chan->dev);
-+	kfree(chan->chan_dev);
-  err_free_local:
- 	free_percpu(chan->local);
- 	chan->local = NULL;
-@@ -1155,7 +1155,7 @@ static void __dma_async_device_channel_unregister(struct dma_device *device,
- 		  __func__, chan->client_count);
- 	mutex_lock(&dma_list_mutex);
- 	device->chancnt--;
--	chan->dev->chan = NULL;
-+	chan->chan_dev->chan = NULL;
- 	mutex_unlock(&dma_list_mutex);
- 	ida_free(&device->chan_ida, chan->chan_id);
- 	device_unregister(dmaengine_chan_dev(chan));
-@@ -1290,7 +1290,7 @@ int dma_async_device_register(struct dma_device *device)
- 		if (chan->local == NULL)
- 			continue;
- 		mutex_lock(&dma_list_mutex);
--		chan->dev->chan = NULL;
-+		chan->chan_dev->chan = NULL;
- 		mutex_unlock(&dma_list_mutex);
- 		device_unregister(dmaengine_chan_dev(chan));
- 		free_percpu(chan->local);
-diff --git a/drivers/dma/tegra186-gpc-dma.c b/drivers/dma/tegra186-gpc-dma.c
-index b3327aa35de40..e76c58f213d84 100644
---- a/drivers/dma/tegra186-gpc-dma.c
-+++ b/drivers/dma/tegra186-gpc-dma.c
-@@ -1554,7 +1554,7 @@ static int tegra_dma_probe(struct platform_device *pdev)
- 				return dev_err_probe(chdev, -EINVAL,
- 					   "Failed to get stream ID for channel %d\n", tdc->id);
+ obj-$(CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += nvidia_cspmu.o
+ obj-$(CONFIG_AMPERE_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += ampere_cspmu.o
++obj-$(CONFIG_ARM_SYSTEM_PMU) += arm_syspmu.o
  
--			chan->dev->chan_dma_dev = true;
-+			chan->chan_dev->chan_dma_dev = true;
- 		}
+ obj-$(CONFIG_ARM_BMU) += arm-bmu.o
+ obj-$(CONFIG_ARM_DMC750) += arm-dmc750.o
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index 912f03ce3ef5..9f298ea1a974 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -358,6 +358,13 @@ static struct arm_cspmu_impl_match impl_match[] = {
+ 		.module		= NULL,
+ 		.impl_init_ops	= NULL,
+ 	},
++	{
++		.module_name	= "arm_syspmu",
++		.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++		.pmiidr_mask	= PMIIDR_IMPLEMENTER,
++		.module		= NULL,
++		.impl_init_ops	= NULL,
++	},
+ 	{
+ 		.module_name	= "ampere_cspmu",
+ 		.pmiidr_val	= ARM_CSPMU_IMPL_ID_AMPERE,
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index c4058d602477..03e34692a965 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -149,6 +149,7 @@
  
- 		/* program stream-id for this channel */
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 49e2d0014d5ed..78a67cb9d6e00 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -426,12 +426,12 @@ static void k3_configure_chan_coherency(struct dma_chan *chan, u32 asel)
+ /* JEDEC-assigned JEP106 identification code */
+ #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
++#define ARM_CSPMU_IMPL_ID_ARM		0x43B
+ #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
  
- 	if (asel == 0) {
- 		/* No special handling for the channel */
--		chan->dev->chan_dma_dev = false;
-+		chan->chan_dev->chan_dma_dev = false;
- 
- 		dev_clear_dma_coherent(chan_dev);
- 		chan_dev->dma_parms = NULL;
- 	} else if (asel == 14 || asel == 15) {
--		chan->dev->chan_dma_dev = true;
-+		chan->chan_dev->chan_dma_dev = true;
- 
- 		dev_set_dma_coherent(chan_dev);
- 		dma_coerce_mask_and_coherent(chan_dev, DMA_BIT_MASK(48));
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index 33aa1bfc8fb84..c3a49a33307c6 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -325,7 +325,8 @@ struct dma_router {
-  * @lock: protect between config and prepare transfer when driver have not
-  *	  implemented callback device_prep_config_sg().
-  * @chan_id: channel ID for sysfs
-- * @dev: class device for sysfs
-+ * @chan_dev: class channel device for sysfs, some device use it for per-channel
-+ *            IOMMU mapping.
-  * @name: backlink name for sysfs
-  * @dbg_client_name: slave name for debugfs in format:
-  *	dev_name(requester's dev):channel name, for example: "2b00000.mcasp:tx"
-@@ -351,7 +352,14 @@ struct dma_chan {
- 
- 	/* sysfs */
- 	int chan_id;
--	struct dma_chan_dev *dev;
-+	union {
-+		struct dma_chan_dev *chan_dev;
-+		/*
-+		 * Use chan_dev; dev will be removed once all users are
-+		 * converted.
-+		 */
-+		struct dma_chan_dev *dev;
-+	};
- 	const char *name;
- #ifdef CONFIG_DEBUG_FS
- 	char *dbg_client_name;
-@@ -532,7 +540,7 @@ struct dma_slave_caps {
- 
- static inline const char *dma_chan_name(struct dma_chan *chan)
- {
--	return dev_name(&chan->dev->device);
-+	return dev_name(&chan->chan_dev->device);
- }
- 
- /**
-@@ -1805,12 +1813,12 @@ dmaengine_get_direction_text(enum dma_transfer_direction dir)
- 
- static inline struct device *dmaengine_chan_dev(struct dma_chan *chan)
- {
--	return &chan->dev->device;
-+	return &chan->chan_dev->device;
- }
- 
- static inline struct device *dmaengine_get_dma_device(struct dma_chan *chan)
- {
--	if (chan->dev->chan_dma_dev)
-+	if (chan->chan_dev->chan_dma_dev)
- 		return dmaengine_chan_dev(chan);
- 
- 	return chan->device->dev;
-
+ /* PMDEVARCH */
+diff --git a/drivers/perf/arm_cspmu/arm_syspmu.c b/drivers/perf/arm_cspmu/arm_syspmu.c
+new file mode 100644
+index 000000000000..ac234768a2f8
+--- /dev/null
++++ b/drivers/perf/arm_cspmu/arm_syspmu.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/io.h>
++#include <linux/module.h>
++
++#include "arm_cspmu.h"
++
++#define PMEVFILT3R	0x200
++
++static struct attribute *arm_syspmu_format_attrs[] = {
++	ARM_CSPMU_FORMAT_EVENT_ATTR,
++	ARM_CSPMU_FORMAT_FILTER_ATTR,
++	ARM_CSPMU_FORMAT_FILTER2_ATTR,
++	ARM_CSPMU_FORMAT_ATTR(filter3, "config3:0-63"),
++	NULL,
++};
++
++static struct attribute **arm_syspmu_get_format_attrs(const struct arm_cspmu *cspmu)
++{
++	return devm_kmemdup(cspmu->dev, arm_syspmu_format_attrs,
++			    sizeof(arm_syspmu_format_attrs), GFP_KERNEL);
++}
++
++static void arm_syspmu_set_ev_filter(struct arm_cspmu *cspmu,
++				     const struct perf_event *event)
++{
++	u32 offset = 8 * event->hw.idx;
++
++	writeq(event->attr.config1, cspmu->base0 + PMEVFILTR + offset);
++	writeq(event->attr.config2, cspmu->base0 + PMEVFILT2R + offset);
++	writeq(event->attr.config3, cspmu->base0 + PMEVFILT3R + offset);
++}
++
++static int arm_syspmu_init_ops(struct arm_cspmu *cspmu)
++{
++	switch (FIELD_GET(PMIIDR_PRODUCTID, cspmu->impl.pmiidr)) {
++	case 0x9c3:
++		cspmu->impl.ops.set_ev_filter = arm_syspmu_set_ev_filter;
++		cspmu->impl.ops.get_format_attrs = arm_syspmu_get_format_attrs;
++		break;
++	default:
++		break;
++	}
++	return 0;
++}
++
++static const struct arm_cspmu_impl_match arm_syspmu_param = {
++	.pmiidr_val	= ARM_CSPMU_IMPL_ID_ARM,
++	.module		= THIS_MODULE,
++	.impl_init_ops	= arm_syspmu_init_ops
++};
++
++static int __init arm_syspmu_init(void)
++{
++	return arm_cspmu_impl_register(&arm_syspmu_param);
++}
++
++static void __exit arm_syspmu_exit(void)
++{
++	arm_cspmu_impl_unregister(&arm_syspmu_param);
++}
++
++module_init(arm_syspmu_init);
++module_exit(arm_syspmu_exit);
++
++MODULE_DESCRIPTION("Arm System PMU Driver");
++MODULE_LICENSE("GPL");
 -- 
-2.43.0
+2.54.0.dirty
 
 
