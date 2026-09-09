@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A87C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 01:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E5DC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 02:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CgZCf1MgQGSCarsBSZXbw8T1G4s93KyaAhqYm1OiBLo=; b=Tum+0kVzfrN4lkxyUt6/IW1FJa
-	aC7IxUbShykLDYoXXHjZHx/aiSXenY8Dy96hV0deVNlMCJLEH3LivJp/B/drZDWmEipBl+1nbmnpC
-	YM1HZzV2qSxEiJV06f7bJaGYtWT8ZRTk2+MX/vFqYaElmB+wljtdCMWuAswGG20tNn5Hd0dE0h9dL
-	BhTGkNhOKrEODpI+IBWI7d24CByW3/dHs28evMxAiBY3w3Hf0DcibA1Wprk5/lhyJF4vWM73MiUfc
-	YVa/hAXcAuEyttJfk8dMtyFOHETWYSa/R6KTYILkNDLB2KuIFBYvlxDqRIoyekRjP4J5OD9e8RvJ/
-	3kr/Uqug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0uEessHzcSfxsC9/R4E/G5cHhOHZfHSBc4M8wjJU3EI=; b=tTgRgICnHcALGx9wzrJJfj8ZCX
+	67aGVRurKWpBElYPVw1A1WOXxqY47Z/RWcnARiVitdDKybmlEm51NWJelTdjTs42OscF85a7lRRaN
+	QnrmundS/O9YwVP+Vlr/p6p1ZrJaq/bSVnRz2ePqinkFytqWxISCx6xQU5IBO7WmRfyC4iKqSQd/L
+	evtm+DC34olHd2Y2v5uEGawvaHHeswSt6Zo7AqDjCxvHvUw47WlyERafipS3qqCRfXaaYtDBAQEED
+	FrQDwHZ2IgQu//4vxv+X3N3SfUCTkKFuqsIuHfjiFFKOfOr2JrUPtgGHK0fVhOcxo4Eqp8k1bfkzU
+	lqN7zKjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x47OT-0000000Ad2G-13bU;
-	Wed, 09 Sep 2026 01:46:33 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1x47d4-0000000Ae3f-2Trs;
+	Wed, 09 Sep 2026 02:01:38 +0000
+Received: from mail-m83119.xmail.ntesmail.com ([156.224.83.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x47OP-0000000Ad1E-3CQ9
+	id 1x47cy-0000000Ae2P-049V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 01:46:31 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CgZCf1MgQGSCarsBSZXbw8T1G4s93KyaAhqYm1OiBLo=;
-	b=Y910v+Y5eABPY8kElCpbNXnpm2xezNE4Caxux5KPcjkB2OiwgCEPofiZ4H39hZMotPTUZ1pT0
-	QwODdXsF1+whgUYKAkKsA4181r7iNN2j4YjofMgWa+hWK1KS287eBD7b2GTPI75c6P18wQFBKnu
-	KbWB+IMvJADzkKZ1CpMkGkg=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hfjzn4HPJz1cyPY;
-	Wed,  9 Sep 2026 09:35:17 +0800 (CST)
-Received: from whupemk300003.china.huawei.com (unknown [7.152.185.49])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1167940586;
-	Wed,  9 Sep 2026 09:46:11 +0800 (CST)
-Received: from huawei.com (10.50.87.204) by whupemk300003.china.huawei.com
- (7.152.185.49) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 9 Sep
- 2026 09:46:10 +0800
-From: Zhang Yuwei <zhangyuwei20@huawei.com>
-To: <quic_vjitta@quicinc.com>
-CC: <zhangyuwei20@huawei.com>, <linux-iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <robin.murphy@arm.com>,
-	<quic_prakgupt@quicinc.com>, <chenjun102@huawei.com>
-Subject: [RFC] Partial iommu_unmap issue with contiguous PTE hint enabled
-Date: Wed, 9 Sep 2026 09:40:53 +0800
-Message-ID: <20260909014053.493243-1-zhangyuwei20@huawei.com>
-X-Mailer: git-send-email 2.22.0
-In-Reply-To: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
-References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
+	Wed, 09 Sep 2026 02:01:37 +0000
+Received: from [127.0.0.1] (unknown [122.224.241.34])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d0ba6a2f;
+	Wed, 9 Sep 2026 10:01:22 +0800 (GMT+08:00)
+Message-ID: <d1c64269-63b3-40ed-9efd-1ba545f8cb2e@hj-micro.com>
+Date: Wed, 9 Sep 2026 10:01:22 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/arm-cmn: Fix {wp_dev_sel2, wp_dev_sel} limited to
+ 0/1 when MXP_MULTIPLE_DTM_EN is TRUE
+To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mark.rutland@arm.com, peter.du@hj-micro.com, andy.xu@hj-micro.com,
+ allen.wang@hj-micro.com
+References: <20260819105443.668784-1-allen.wang@hj-micro.com>
+ <f97fa5ae-3535-4e1a-a164-77138a93cc89@hj-micro.com>
+ <58adffd2-6ef4-4a4c-ba3a-3f510522d928@arm.com>
+Content-Language: en-US
+From: "allen.wang" <allen.wang@hj-micro.com>
+In-Reply-To: <58adffd2-6ef4-4a4c-ba3a-3f510522d928@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.87.204]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- whupemk300003.china.huawei.com (7.152.185.49)
+X-HM-Tid: 0aa083e5fbc009d8kunme32fd7ee3c8753
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDThoeVkofQxgYSUJPTh5NHlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUlPSlVIT1lXWRYaDxIVHRRZQVlPS0hVQk
+	JJTktVSktLVUpCS0JZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=a8vY9GZLrLFJA9Epxm8DFpwotP6Ktm3Iv64lfTXz0NlLfQ8OZ7jl/dPdtyJ6kZaxEVLGF8cpv/ODOehuhRhUE/VACwMMcH8KrFCKmWZDGcm1wercTeuFL7GSn5bADXqReIKm/HEE4Syr7vjctGHZgqtKOa8uQuImylIGGx3DDi8=; c=relaxed/relaxed; s=default; d=hj-micro.com; v=1;
+	bh=0uEessHzcSfxsC9/R4E/G5cHhOHZfHSBc4M8wjJU3EI=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_184630_255830_FD095458 
-X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-CacheID: sfid-20260908_190134_305748_1A50E487 
+X-CRM114-Status: UNSURE (   3.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,42 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vijayanand,
+Hi Robin:
 
-I have a question regarding the contiguous hint patch set:
-https://lore.kernel.org/linux-iommu/20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com/
+Yes, that's exactly what I'm saying. I've tested this on actual
+multi-DTM hardware, and the hardware does not ignore wp_dev_sel2
+automatically — it must be correctly configured by software.
 
-We encountered an issue during partial unmapping when contiguous PTE
-hints (CONT bit) are set. Here is the scenario we observed:
+Thanks!
+Allen
 
-1. Setup / Mapping:
-   - Under 4 KiB page granule, a 64 KiB memory region is mapped via
-     dma_map_page() (or iommu_map()).
-   - Because the 64 KiB range meets the contiguous hint requirement
-     (16 x 4 KiB PTEs), all 16 PTEs are programmed with the CONT bit set.
+On 9/8/2026 11:04 PM, Robin Murphy wrote:
+> https://support.arm.com/documentation/102308/0307/Debug-trace-and-PMU/
+> Debug-Trace-system-overview/DTM-watchpoint?lang=en
 
-2. Partial Unmapping Trigger:
-   - Later, iommu_unmap() is invoked to unmap a 32 KiB partial range
-     within this 64 KiB block.
-
-3. Observed Behavior:
-   - Calling iommu_unmap() triggers a kernel WARN.
-   - Only 28 KiB is successfully unmapped before the operation halts.
-   - The remaining memory in this region can no longer be unmapped,
-     leading to leaked/stuck IOMMU page table entries.
-
-4. Questions:
-   - Is partial unmapping supported when contiguous PTE hints are
-     enabled, or is caller-side alignment enforced?
-   - Should io-pgtable (or the SMMU driver) handle clearing/splitting
-     the CONT bit prior to partial unmap, or refuse the unmap gracefully?
-   - What is the recommended fix or expected behavior for handling
-     non-64 KiB aligned unmaps over CONT-hinted regions?
-
-Any insights or guidance on how this should be handled would be greatly
-appreciated. If needed, I can provide additional logs or help test
-potential fixes.
-
-Thanks,
-Zhang Yuwei
 
