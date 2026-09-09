@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5ECC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F045EC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CK3Qd7JtwaCS785oIL9SXaJ5indJD5W5VLAi3IhI91c=; b=j9ijdEBl+wbNkXn0YyMQaTs233
-	JwrqwAGbehDhBjiv1yysQBl4iDRPlb4w+tZwi3DRLkl0mAV0uK/48l8m17TIYOXry5P9caAOytMux
-	Yn/UWL+UbYScqliE5xQvCDxMw+Y3CHLX8PReSTOQtz0ND8DPppOPrcUylGXZsmaGw1NvWBhlqXJDq
-	DJsu4EsQjhRF/esyEM8Ff7va7t7FKNtKX9yzXYEAAnWkPZTVptpH9OtgJOwrW2cp494kJcJdraFK1
-	jhyeVXeVjzE18Iyrn+BxV+gX5OOhCRstxwP1pL1wikdxZ4sog+qdD47bStcUfzgB7qsOdLX7RWqXi
-	SXfNk07Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SjNDOXDeuB2hgWmjfXk2EUyO9cutSwBc1XNCZLTUAlQ=; b=KblIpwqQfH/TBhWoifV7R/eQmV
+	hkLprA4pwELGLv1VP2bxQdVm8B5CKiqfifs9uXpxdV6nwK1hmIf3yFBaRlnWNxaRFEnRLPchtZJln
+	6xf3zoNklQZ6KKy09tslyP9waFAD4jNXSkpXYEtoQu12LII4XwMfjkRFEtuLXSPU/Ol1cMTGfL1fK
+	bMPx70rYkdF6TC7WC67V82ksU+/YnlMIO7qUHNAFkm/rsPegslw6LXbUCXh25Krz2h6LOn0vW1Osp
+	yd1cmpl0gMcvDmzzWPAcZHGklk3Uol38DsdCgPRmX9TW/CYRkC27C1trBHicAbeGjq3kOC3EjjGE+
+	dJwB07Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IeK-0000000Bq6z-0evS;
-	Wed, 09 Sep 2026 13:47:40 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1x4IfN-0000000BqLO-1yUE;
+	Wed, 09 Sep 2026 13:48:45 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IeH-0000000Bq5q-1Im8
+	id 1x4IfK-0000000BqKc-0R2K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 13:47:39 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3a20dec69f9so47115071fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 06:47:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788961655; x=1789566455; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CK3Qd7JtwaCS785oIL9SXaJ5indJD5W5VLAi3IhI91c=;
-        b=DLMXVq2SnzzgtMnTphFXtxPTTul6op15saBz766EZFV57tpeyn5Ye9oN0PXnuCtKtj
-         h1fy+0P112f0HccTfcjhZMKIW8b88oSoztSIdq1AZxR1PJgvQBbnfYmBNpJHspN9Ulor
-         mU6F/TF84EhFPa/1LT2ryQQChvxfpghSlTsbRjDvWhsWBpR7jqKxEiVp7ASYIygFOmXY
-         U2WKU5LaGUv2znoWtvFzaICuGx5dFXU3E4syvZs6fxom5HvTfUK6Gt+xqXSh6PAa9Q1O
-         6pNKEfVBPYUSTeJ8ZTiGMcp9uVjSrq0mJS7awQtCojx/eO3ZP/KW4l1yN/8aNbXTB/9E
-         laxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788961655; x=1789566455;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CK3Qd7JtwaCS785oIL9SXaJ5indJD5W5VLAi3IhI91c=;
-        b=TF4XHoz4j0LAwU/dlkNQlq01KgHutXfC+sqxs+YcVVe8RH+AugGY+2q68NXoishE8o
-         GFy8krRMURO4cfCVyZpKWa47VRSdPkVQsCcwfeKAX7YCkibB3ahoh+PCjwyK4RwlHAXq
-         sECONaShtybn24OcjRpS390l65z9KWHUxNZjcqKQ4t3J9eP4bqfxKSz+7q/l6RnCFXIK
-         HnCfZwEkMJZxmQk3BztDHgWnntRtnxKlluy/KEj2aL/UgGkw2UdNNwDUE5ePQwaueXIW
-         OkZO+9Xz26RlCUK72LGbn6fejtF5joc4kC+lOUnn+vK/nyYgOi0Mn7ZZRWCliGANmMpX
-         UqCA==
-X-Forwarded-Encrypted: i=1; AKwUvByXWSSyIjB72Pg99J+q5LiQMchT8YesC0MBiyL5FfdMyEKD39bqfEYV/rtd1sGXNCC1FPb5rNxaA95FNHZs8npc@lists.infradead.org
-X-Gm-Message-State: AFuF++kHEmJzfhmpwfKI3qBWo81W08AYopq+WR1hF1oB4UU4ZMqMD8Zi
-	vCFqySAZIPgOjYERrKtnrW+FDg5ibdaLROH0O58n+KCqfe3/nLfVmjIx
-X-Gm-Gg: AYBFou0CfXmZExB4y9HOVjpACIjXszAqnwF2vJp+LRHd0fuEVGJ3FwmglP1zKS/wSHe
-	GwrqfZyoeX+kKR1Y2bYjzuM1GNDKBA+8uXoyJs9BOIdv5Tj0iu/8P+L+0gWUtu74h6tmP1NB7Dx
-	vNIffKFTc/kuXnwBcboxLOrSzVui4tm65o5+5yOeb7IA7pntGc6GfkdUEgtYWeLcfJcSpvM+xQk
-	H1xnrt7jOao6kwrb8NbE4HZVVfyjyBbCbnYubU6g1FYv+9ruOS94ZaKrpT24YH6r4UBvRKLhRa4
-	D1eIJKolgExBejSI5Ui9ujocaUwqEhdjNB6wp0BCrc9/qWqiKw/BI0buSZUG0MDw671AbmgDwq/
-	EX/s14FucHVyCWcR83dTzIiefl9kwhywMs5B+21t9h2XDaJXvqP/+HXxSsBcFO7DS9dgQxqJiKl
-	MlwtTQNjAt/NsRo4BoTci0VZzrHO79ov9kFlgAyydqZdQ8yrTqcHAaYysfXTF5mQ7ggTnuSwC1W
-	viJt6AzOTy4JA==
-X-Received: by 2002:a2e:9fcb:0:b0:3a3:7681:6d72 with SMTP id 38308e7fff4ca-3a37681756fmr35983981fa.27.1788961654972;
-        Wed, 09 Sep 2026 06:47:34 -0700 (PDT)
-Received: from KAS (94-29-32-34.dynamic.spd-mgts.ru. [94.29.32.34])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a58f539ec8sm136161fa.12.2026.09.09.06.47.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 06:47:34 -0700 (PDT)
-From: Andrey Korshunov <razor1702@gmail.com>
-To: diederik@cknow-tech.com
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi R28S
-Date: Wed,  9 Sep 2026 16:47:31 +0300
-Message-ID: <20260909134731.364-1-razor1702@gmail.com>
-X-Mailer: git-send-email 2.54.0.windows.1
-In-Reply-To: <DLAPRUR4Q73F.1KIBGA408LQSJ@cknow-tech.com>
-References: <DLAPRUR4Q73F.1KIBGA408LQSJ@cknow-tech.com>
+	Wed, 09 Sep 2026 13:48:44 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id C18A01A1A70;
+	Wed,  9 Sep 2026 13:48:38 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 92C9460448;
+	Wed,  9 Sep 2026 13:48:38 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60FF411C7AF7E;
+	Wed,  9 Sep 2026 15:48:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788961712; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=SjNDOXDeuB2hgWmjfXk2EUyO9cutSwBc1XNCZLTUAlQ=;
+	b=e4hV0USw2592sArlmqCFVDTCozCtOc6LjMSbUDXNj5N8xWuQPilc8ETI4F3BiY8ykW8CSK
+	V7FAYn/uQfEtyQZp5rzZwuRicmERsJRGQQv+4DILDAZXhYfMKwQzHcnKX7rpvzN8QR21Dd
+	IJXcAHyZKNbstaLcijpTwXaDTSqj+PZCY0BtnIbX3ngZ+smMvutnMSpa7cW7FLgXbgiKt7
+	Mxb4rVD5vU178/mSnWvSrGdrmvEsrxcRBrkwPvmCJfF/0+8IsfxbL+gaYLQqHljWPs9+RO
+	tsTofIw6j+hBiz1+Esu6B9+hGjveoYmKfjL5g4jEgrwMNi3GO3FYOOk5CKsUag==
+Date: Wed, 9 Sep 2026 15:48:24 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>, Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Pavel Machek <pavel@kernel.org>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Sebastian Reichel <sre@kernel.org>, Helge Deller <deller@gmx.de>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-leds@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH 10/14] mfd: remove unused rc5t583 driver
+Message-ID: <202609091348246a76051b@mail.local>
+References: <20260909132153.1596191-1-arnd@kernel.org>
+ <20260909132153.1596191-11-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909132153.1596191-11-arnd@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_064737_360529_D153FAC8 
-X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-CacheID: sfid-20260909_064842_301687_38D4E376 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,16 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Sep 9, 2026 at 12:29 PM CEST, Diederik de Haas wrote:
-> There's already an attempt in the works to upstream NanoPi R28S support:
-> https://lore.kernel.org/linux-rockchip/20260907-r28s-upstream-v2-0-21ab570fc91c@proton.me/
+On 09/09/2026 15:21:47+0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Ricoh RC5T583 support was added in 2012, but no upstream code ever
+> defined the corresponding platform_data, and there is no devicetree
+> support, so this is all dead code.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Thanks, I had not seen it - I searched lore before sending, evidently not
-well enough. That series is further along and covers more of the board,
-so please drop mine.
+Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-I have the hardware and will review and test that one instead. One
-finding about the PHY reset has gone to patch 2 of that thread.
-
-Andrey
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
