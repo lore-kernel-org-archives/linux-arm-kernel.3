@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED135C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D217CC79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjwFGcVPSNWfje2QsRXKLC8B+AQNq5tvQ8diIKCovEc=; b=kxJPQanzX6vFP3C8s2qoP28W0G
-	wXAHriD6eV0IM9dURatw0qNTCFn2GYUpXdv88h8bXOsl8jEd7jzXaD+ui1N/LTYnLA3y0MzI24Lp2
-	+Mbgj+ejjeCSCTQbHuKm94Bymwud+FtT31ZJ27sMdQsvXbiygGl/64Jn/0yG3UZPJpRa+Xp686J3Q
-	iPimz1sg6UEwSRfzDjaF9Vj64aDt6i6RRwk44z/1T3N6Ugr0m1cT+5E/OKhlhwax49VswhZMB4GiX
-	0yziJjR0KDJBcSi+q+ruxXM9wkB1274tDoF2z+nLRFAwSgzioNkCKhpJVOap187TNgB0dg4oKRyWE
-	V6j3mu5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V/qlTnUfYfGp2JdX/hItZG5Gee2j7Ew0nxnFZ6sxuQ4=; b=J7Twb9SO4tvfUMGVcLYLVFvdZj
+	AjEj4WBSL1B+5T52LLi/2gZ2dcUIkWuzY2lbc5BUCnxTWYctTyNsZu7gm5Ee6tK3iJ/xwZF/iMHad
+	mtPdzT8P7Y8bKB3p0Acb1ZuK8jTH84s9M/LfnApFSDUiSp7lTEA9trXpOPYpTmcNB2DhcrxgvThME
+	ml05lDS/PzeHjlSTBQY9+rICghk2ErYEoOF7wZqhg1XnTOBkOvTLS+Z4A7f0Mn/o8ddlf6b3HQVA8
+	V6xgnHTgut5z7BSMqBSeKNDQb6k9me+YxYFC39Txw7+TL7SP/SgxZR/zmByPy6E+JK3pLTmKFlRv6
+	WUysNjNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Pmv-0000000CsjA-1uPC;
-	Wed, 09 Sep 2026 21:25:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4Puu-0000000CtQS-2ZJ2;
+	Wed, 09 Sep 2026 21:33:16 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Pmu-0000000CsiU-24Y1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 21:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sjwFGcVPSNWfje2QsRXKLC8B+AQNq5tvQ8diIKCovEc=; b=ZL4yULiZXmALg1ocob4IHac+d3
-	Tx2z82nfwQjkFwlpAEjwCuYTzoQFN0wj45UHEBCdVhJ+I6Ukhk5uKffyUIjoP5ZbRhs01HbHTjSag
-	yAeTcW+IQOVuqiNXfihNJyv3JtKHu/9RHrY59lznaCG4wYl/DlTO4F69rfz4z6pq8YT5J6pApodk8
-	r19c5X5mldDbza3Oa6u8gi6AR0cU1Lo0+g8VyrSWv9mbU3HkGwsRzlmeYMB7fcO6FAMtgbF2Cc6yR
-	MYKtWoFhHHDqoV6irxCD3Apm82UToPlc2LH4NHZcl9r5UaWv2pauBbMESY1uDa9pBcRBRKZEKuLk9
-	5Lqn5ruw==;
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4Pmp-00000001hKI-2zYy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 21:24:59 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so5378445a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 14:24:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788989093; x=1789593893; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=sjwFGcVPSNWfje2QsRXKLC8B+AQNq5tvQ8diIKCovEc=;
-        b=sWfQUpJyv2knzTfAsVQzGs+Zk1nEiLXKUhhfW0PYd36F9b8p5ydPojeLAiW6jQP1i4
-         t686UKQ+z7YGwIWVmMMEgSVeffGaZyu0Onk3+28qX726La6po4vym50NHAuscX72yNAY
-         rmYOoBtlfZ7o9u28EfJu896OjxNjPhBaf0px09i3y7xE65nVgZpc78i43+PPk7n9Ta/O
-         2rSaBYpXzdyvQXoqPFCNH2LzcJoUACzOsk94ryLYCCxlHSOGMX+ROEKtbwsvQt3NFnYS
-         EdbNtCVi/4piuCqYjp4s9VR3RyoIUmYkOfwEvldvw8GHor/pIzLpkpR7sCWxvm9V1/2i
-         jbPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788989093; x=1789593893;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sjwFGcVPSNWfje2QsRXKLC8B+AQNq5tvQ8diIKCovEc=;
-        b=qIkMoSvGcmNXGdUZG7+56T1y7oLDuZaQAFuUInxBLSiemBJTEZW8rmJ6FXDajXK8Z3
-         78mBJboYJcz2vphI7OH/XktSv3gjtH6h2ZE4CTylloCitOCsbkkbJg2XBURdyaOOEp8n
-         QtxSvL8l8r868gJCKLpuO2nWsasxLKcF2YodSNNx0+dZvagt+NXTxB2C0UMe4vAHxxWE
-         DLrjS5Yf8iRaEyrrNb8NIxpfMcjPbyfId6CcmOYU+hPDXC7wQm0NGCfBEH3A3KZzb00L
-         4cXIVtv4wkMw+mlRaq/+8qhyeafJoIkj54UjbQNRmWPzDOFRMH+cDrk6hVoOUUNFjJFA
-         5nFg==
-X-Forwarded-Encrypted: i=1; AKwUvBzXg/+d/waevGKu5ZqeFFKOqzeDuuFeL04+4RNZywWPFI0D1/gO6sqIhC9SGrnVuYvT9kyu1akRrsWlGYdRdHll@lists.infradead.org
-X-Gm-Message-State: AFuF++m7ptHEU5GZaF1NJrsSsQoSd5IvueJ1jXq1M4aekDz43BGQj5gA
-	wF1ZhI+ooc1N/N231PXH7s0YR5u4QZ5j0Cv+81psHSnsVAC9vowVSoFh
-X-Gm-Gg: AYBFou08PZQqxZr+uSAI+6IGUztdd2rc3LjEIg6qOfBFh5wKxX4CwxoAdmfXzd95sP5
-	qmYnsbuwvY09Jm8Nh8gUXurLq8ANbcYrn97XWAyOyBtySWB7cOItkfQVsm+sRfj4xKMW6sE1mqm
-	Hrud1Ezru2ljhAzFtkkfkuXbwaUmtwXm5SHl6t5qlllFVuy+nWEQ5wt4ZkdB3lqALMvZLwmYYMZ
-	pXSrIuwoxQp0eUM3JJfwa4LOa9MDRs4FgcqKhE7P6FGGxLriMIVY8onPyVUdwcNClilJUG5bFSN
-	LP31Qo3sE22uDEHtTzk5q00xjjUepj1ZtsFsww7imbngh3lFB2edin3Qj76qvhbz4jOZA06woZN
-	ZwIWcYa+QleS4MxY+sNJHuTF0q37zpPpI0QixutVxmBcfBPJc2k7In8fJAsPtqpQcyFj5w/Mqmv
-	mkSOUes49atYIDuM1kcthYSTiY4t8Rmj9CR74ELRq2cy9wu/P5cIitCRbTxXpmWk2zkcWLqbqYR
-	iWeIhlaXYdn
-X-Received: by 2002:a17:90b:1c0a:b0:396:41d1:cbc7 with SMTP id 98e67ed59e1d1-39b2614e099mr53418423a91.3.1788989093027;
-        Wed, 09 Sep 2026 14:24:53 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d7e9014cbsm6506a91.16.2026.09.09.14.24.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 14:24:52 -0700 (PDT)
-Date: Wed, 9 Sep 2026 14:24:51 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 1/8] watchdog: mediatek: Add wdt/toprgu resets for
- mt6589
-Message-ID: <b01b65d3-9ff5-4bfb-9917-5ab287535078@roeck-us.net>
-References: <20260908174259.9009-1-l.scorcia@gmail.com>
- <20260908174259.9009-2-l.scorcia@gmail.com>
+	id 1x4Pur-0000000CtPf-1bC5;
+	Wed, 09 Sep 2026 21:33:14 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 55D76408E9C;
+	Wed,  9 Sep 2026 23:33:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1788989589; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=V/qlTnUfYfGp2JdX/hItZG5Gee2j7Ew0nxnFZ6sxuQ4=;
+	b=njbNHfNmVsDqxX50TMx4/HC1qNAlT73XFtEcqOCX+5q5vZN+umf7CVN2biX8IYFOq7QTmY
+	fPkiBhd8WynUvTvHrd6efRjK5N+Sbtaq3XTkjYOXX4bRr+V+rrGdh2n3VYzYoTocINjWgP
+	BUSJT38c1rt9hxPDekC0tPn0FXUgC0wVkrmbTKOSEKUlQl+99LgczV5aZ8HSQCQ6MRWsI6
+	jV0SE3HZ46FstACiVBZMtrnt+7jaX8iFk3285cZlcxT1VLES+IOAZBS0L1gwEcCIbPrK+J
+	lGsgQe3MsVoKmGLIcoRwV/9P5TGvDVOFmtUNhunF4QUD9PNjrQyvyE4nZSn4kA==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>,
+	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Subject: [PATCH net-next] net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
+Date: Wed,  9 Sep 2026 21:32:50 +0000
+Message-Id: <20260909213250.3184238-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908174259.9009-2-l.scorcia@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_222456_922288_6E370BDA 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260909_143313_665126_0E32D0AF 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,15 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 07:38:28PM +0200, Luca Leonardo Scorcia wrote:
-> According to Android sources, mt6589 has 12 reset bits in the
-> WDT_SWSYSRST register. Populate toprgu_sw_rst_num to allow toprgu resets
-> in device trees of the many compatible devices.
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+The EcoNet EN751221 multi-chip module implementation of the MT7530
+requires some additional configuration of the PHYs on startup.
+The reason for this is not known, but it is possible that it has
+to do with the fact that the EN751221 MCM implementation of the
+MT7530 runs at an abnormal PLL frequency (362.5Mhz).
 
-Applied.
+Detect whether the MT7530 PHY is attached to the MDIO bus of an
+EcoNet EN751221 switch and if so, apply the necessary register
+updates.
 
-Thanks,
-Guenter
+Co-developed-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Signed-off-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+ drivers/net/phy/mediatek/mtk-ge.c | 61 +++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 73d9b72f9d9e..42b06c40d703 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -1,4 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0+
++#include <linux/of.h>
+ #include <linux/bitfield.h>
+ #include <linux/module.h>
+ #include <linux/phy.h>
+@@ -62,8 +63,68 @@ static void mtk_gephy_config_init(struct phy_device *phydev)
+ 		       FIELD_PREP(MTK_MCC_NEARECHO_OFFSET_MASK, 0x3));
+ }
+ 
++static bool mt7530_phy_is_en751221_companion(struct phy_device *phydev)
++{
++	struct device *parent = phydev->mdio.bus->parent;
++
++	return parent && parent->of_node &&
++	       of_device_is_compatible(parent->of_node, "econet,en751221");
++}
++
++/*
++ * The EcoNet reference implementation applies additional tuning to
++ * the PHYs of the multi-chip module MT7530.
++ */
++static int mt7530_phy_en751221_config_init(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = genphy_soft_reset(phydev);
++	if (ret)
++		return ret;
++
++	/* Clause 22 local data. */
++	ret = phy_write(phydev, MII_CTRL1000, 0x1e00);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1, 0x14, 0x3a04);
++	if (ret < 0)
++		return ret;
++
++	/* Clause 45 global/local data from mt7530GePhyCfgLoad(E3.0). */
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x0417, 0x7775);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00a6, 0x0350);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0012, 0xd210);
++	if (ret < 0)
++		return ret;
++
++	/* Vendor profile disables 100/1000BASE-T EEE advertisement. */
++	ret = phy_write_mmd(phydev, MDIO_MMD_AN, 0x003c, 0x0000);
++	if (ret < 0)
++		return ret;
++
++	phydev_info(phydev, "EN751221 companion MT7530 E3.0 PHY profile loaded\n");
++
++	return 0;
++}
++
+ static int mt7530_phy_config_init(struct phy_device *phydev)
+ {
++	int ret;
++
++	if (mt7530_phy_is_en751221_companion(phydev)) {
++		ret = mt7530_phy_en751221_config_init(phydev);
++		if (ret)
++			return ret;
++	}
++
+ 	mtk_gephy_config_init(phydev);
+ 
+ 	/* Increase post_update_timer */
+-- 
+2.39.5
+
 
