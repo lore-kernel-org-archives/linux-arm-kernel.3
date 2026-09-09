@@ -4,77 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A89C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1C8C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 10:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfjgJeFpXM7grjwxJfO9iaFDcmusZnd9R05IdvkkszY=; b=LWVFCi2VNJwf1wUgVuUiVz9n8O
-	UYP3fUyZB3Rj5K6dOYp7flWR86xtLW5KDquT8SGNKFDLB3MUEoRoXfOoSv5Hw4reM+AqREMiOqH3V
-	WShFVXkzcj/rNbR3Ldylv7KhZBg9wSmsLDouajZCOQllVJcNcsyJ1D9fq4pmmhX7NEwqXnxWrB2WQ
-	kdlyvf36jqSCwxXFw/D2t+lnhcOoZn8nqHnBYr+TppcP2DaOdfdyEmYFe9bhc+E0Y24hurBww40hZ
-	yFaivedr19S8Qg4vDHljh2Q3SYOnyDQuM+8fMD0fnxHDATIaqARgJZCtgGyaUKZ+vdkbqvJGGySV6
-	KFTiMeMg==;
+	bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=; b=Cq1otfFCerai3aRNN2uHd5+0/b
+	p2n3GxLMcqs8KoQ86xGeKW6GyVRKw8WE5bf9f9hEvf74oAV8ARa9zjRwZF+s2EWaGdtyEwbHrUl0i
+	4GmsOJClfeaZBIR51QMsT17OVoyBtcZLOJ8DgDWCrL0uMfgvi6GwCgl2M8ZQi6ag/ojCjEagNANWk
+	a+HsR0yYUUhSPPri5YiFazZDxSl95p7adn51cn4tn8cx2s5ufzTtHt1Sfixv5XiLs+E+DUix9QyGU
+	OYzSWCylHJnCMWehWgFM313UJt9kX8WxBWHpwUcbwNyJERLL/A876d9uReDvPaopHO1NP7J5fRnt2
+	fiiXserA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FFP-0000000BNxv-48K1;
-	Wed, 09 Sep 2026 10:09:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4FLk-0000000BOZx-2nrd;
+	Wed, 09 Sep 2026 10:16:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FFO-0000000BNxa-0j5x
+	id 1x4FLh-0000000BOZ6-1ENk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 10:09:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAC0743844;
-	Wed,  9 Sep 2026 10:09:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EE581F00A3D;
-	Wed,  9 Sep 2026 10:09:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788948581;
-	bh=HfjgJeFpXM7grjwxJfO9iaFDcmusZnd9R05IdvkkszY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=VeJPs6McjFgTz/IiwdZe50yyfTdbdVtvaH6gF5gv/T/x86fxjvRe+A/K4vPgm3VSE
-	 lfKfhw97jMEtSumkA8PvJD1Z1TdnuwlPiBRHcMk2KdeE4Hyca3oSLDRmd1fs/n/YUt
-	 U3MmezgBgYg7oBD/V7aQY8WHM8NUhQgZLSGoeo65zlqnu5Zh7zrshGYPe5NeY9sEVW
-	 a7SOWrGlQpwUHancrAQKHS8xwE/X33ENjhn/KoxUAcHqW7upatus/oFeRXX2AIAsFz
-	 ZRVSMXlOOQ3RKspRQZ9kzV6lsfcQ0//E2HjAZLMk60VQVSBjQFGqpq6M/2QbNwEOHz
-	 AsHZ+b3dfH+JA==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-In-Reply-To: <20260907125228.GB667892@ziepe.ca>
-References: <yq5aecfdnv4i.fsf@kernel.org> <20260901143445.GC56830@ziepe.ca>
- <yq5a8q5kkoz3.fsf@kernel.org> <20260902121700.GC2890729@ziepe.ca>
- <yq5aik4nztdt.fsf@kernel.org> <yq5aecfbzjyk.fsf@kernel.org>
- <20260902235609.GG2890729@ziepe.ca> <yq5a8q5izxz4.fsf@kernel.org>
- <20260903171704.GK2890729@ziepe.ca> <yq5acxupjsy2.fsf@kernel.org>
- <20260907125228.GB667892@ziepe.ca>
-Date: Wed, 09 Sep 2026 15:39:31 +0530
-Message-ID: <yq5atsnyag84.fsf@kernel.org>
+	Wed, 09 Sep 2026 10:16:15 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6896SVcp1274431
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 10:16:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=88BiZAGnU1hEzYoS7eZr1V/C
+	eQRL3wzzrwguAq0PNIk=; b=B4cwy4D2o/+zWG2OaYwF8Kg406ofGMnRr02qxXwY
+	Y3RcK0sOYfyt/oQe/5KSbHrMKA9LWIcP+TXGbZ6dp6IaAoVbBrYAPUjXJRSugpWA
+	2rOEgMsU7mmlCMPtM5BDNRCSRk3Lqt42TxnBx8WewGWsW5prdaETjNUuo8axKWTE
+	cl4EQuMoT+9ehEh3NTkGk3MMSeQammi7HIShDQYouuFOUq7mdYPChVmMA+Thr6vG
+	HILmpQF7KLzCAZL1KJ8uqq2EA8ieMp2xxRSFkY8hkyeRqnKe5PLzx95UT8r99Nkt
+	clxnotqYiuk/pTf5obfKyuOuvJzJ/y3Z02HCOU7URS7IPA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gjqdw3jgc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:16:12 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-930b571432fso881358985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 03:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788948971; x=1789553771; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=;
+        b=j5adFUO0ocFYG/Id0/oger45GHHjo5Xe9z8aYHgRqS4K+mu4tD55njF/tMIHJG8QhS
+         8pCkiCA4r/MUI2ZCRRS/XQJvsc+sPKw6zctDlek/I6lgQ4RG4JPGppbCBs9CPZ1QqN6q
+         SCZtvNz17M0fj8wPVIV/PML+Klu6J3tLzzHLG3Bsehh/W0D2pgBrcOwynGSVYW11cyGF
+         FGHGZEmJstY6IdBQ9gNOIr5YhLTIu0r91gYbqQe1E6yCjp+tw7GpnyVv/kDUHB7glGFL
+         zrQGGn4fp5tqrsz957C0c3DeTV8lxCz/X5RhqhptCKZWtCdWmMiwfLahzsrIrHn9o5Qm
+         Ms2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788948971; x=1789553771;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=88BiZAGnU1hEzYoS7eZr1V/CeQRL3wzzrwguAq0PNIk=;
+        b=RgmVefiTCGYmkLL8VC3ywN7uNv6TqECF/gSR8PeTc3UrbTDgn7gU3CLv+EqElYIzG/
+         BJ163Lx0UkL+a3kZX+s6zbQkU+bX7bA/Jt5lPQnmFaO9FHS1ZaEE+gzaZ0EMKU44PPok
+         p/EXpFnkIHjwXSuxdpVTpy7waGFqKqmqSP7Jw42PaGC25HUgNXsQJJOOW26uv/ijlWcC
+         GB1ddYNQnGom35Xt6o2Q7qtLJJr0Bls65YPvK3EwDXYqFhT9bf/oHTRB6TuTwZieewLe
+         azOKis0lT1xOPaNCLjjnwgFYx8U2IOHnAWAGY5fmLD3durV48CdnIKkfEvnoFYKVSWq4
+         RZ9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzpPew+WHMgHeTJQyeUDFKwkjpg3ASUr9KqLqKVqLcE5AsJUyaMzZza3Y9FOi3g6qVTnT9PXc7tba+fizQhhtgq@lists.infradead.org
+X-Gm-Message-State: AFuF++kbKtG0axOnWHLDbLkGrzGRM2QWXUnDDunef1W7r66U65JEJ7z7
+	jWFZikqWIvFhwXNqZ144GGl5LFEVo4lnDy4OOHLvQrse4Zy1NkIN8Mp7BK5qF8heajhxgf4DV+J
+	VsvpwkcCjdCw6/9AEn67hFQh8BTswfhjcTHyAtUq2C5twu/UhheYIIuUrNShFvaPkLSxYmnjwiJ
+	GSkw==
+X-Gm-Gg: AYBFou2KXxWiNcdHtvL5zVZlC5p5WsR1bUSmqggYLqvsVSrEqDpqMrEkK4JFTvjySiP
+	M36MJenwrArxliDnK6BteXJdvqGJEKSumjMOivwGBlYCo7wsGpZC91GJyS2yj2CiIcaMUhnLp/M
+	gY6po4ZBkTh7IuwLaZp9gKkGjFpDjQ0XnZk+vZcpW1IbHmI3Z6TIOZOc9jBKtN4omSlO2HI5fAb
+	qsgFgCqnKbCxoQelAYIAiTd44T6bghgcYb9SvP3ZHaZ1ensjM83JqLBptIQ+hDU1yxumRwacD4I
+	a53CNLQVj+BcxMj7slUQdpoEygjbQJphD/EWUPKPYQkwWG8wExgvX00v70pbhlA4vlLkRmyUXSt
+	0vawVrAZFYeXeiQ==
+X-Received: by 2002:a05:620a:711c:b0:939:a8b1:3696 with SMTP id af79cd13be357-939a8b13b38mr1595143985a.27.1788948970600;
+        Wed, 09 Sep 2026 03:16:10 -0700 (PDT)
+X-Received: by 2002:a05:620a:711c:b0:939:a8b1:3696 with SMTP id af79cd13be357-939a8b13b38mr1595140485a.27.1788948969913;
+        Wed, 09 Sep 2026 03:16:09 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20db6e76sm52797735e9.3.2026.09.09.03.16.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 03:16:08 -0700 (PDT)
+Date: Wed, 9 Sep 2026 12:16:08 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        richardcochran@gmail.com, rayagond@vayavyalabs.com, treding@nvidia.com,
+        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: propagate PTP init failures in
+ __stmmac_open() and stmmac_resume()
+Message-ID: <aqEx6OTMleffeODV@lore-desk>
+References: <20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa@oss.qualcomm.com>
+ <178894478282.219967.9123750287154631714@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5hYik/OtwsiKgIbw"
+Content-Disposition: inline
+In-Reply-To: <178894478282.219967.9123750287154631714@kernel.org>
+X-Proofpoint-ORIG-GUID: fcJ-qUtdIkCKmIEoNW7jlw0FdnLqzRB8
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDExMyBTYWx0ZWRfX9SaJRZguGmua
+ iU8MIwlEHQ3LpBA+CxD/OYOgOP0iEBLZsEeE6qjEB1+FVVToqVnSI7LTyL80GEMTmfVoYi4xR+p
+ TkCDy6EEAFTdpJ3A/n+tj2VToHkjouI=
+X-Proofpoint-GUID: fcJ-qUtdIkCKmIEoNW7jlw0FdnLqzRB8
+X-Authority-Analysis: v=2.4 cv=Bo2tB4X5 c=1 sm=1 tr=0 ts=6aa131ec cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=9R54UkLUAAAA:8 a=P1KT4AghTBEP7EdPzwwA:9 a=QEXdDO2ut3YA:10
+ a=nLVQ_eJ5mUh1pCUzEw4A:9 a=PEH46H7Ffwr30OY-TuGO:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDExMyBTYWx0ZWRfX8kUB7nXdD6ph
+ HOsCGrN0Va1ZnOLwCWci/I15lVCVoYE9aZObal8Ha+jldHKBeaXlpCK5/TEDjUN6iojdW5gyUhX
+ GmOqFn4gmUxYN7p8p6k7yOEuSIW6LfpUJGTlojhn+n/PVU1O/PVv7+84chl6M8PFqHweOiZxdB6
+ jwlgwt3NcQ874G8LYDvY5+dEq3trbMrwxVe1S0NTFKJBq6PRdKODyOGOQUoFz1X8uCwldPkSpwy
+ pQyuGJFfpOvm/RF7mt1L0+fnyiPdaP+V8xnH6b8g2jfFldI1CGrpQpSFyfU9H6k68RmGeIgvwwd
+ 8M9NB7McnAqrQNvlK6mot+xCFPs8HYmzSKi1s0zCnbWJ9Rpew9xcloLOrowRTrOTUaihfCTYdUC
+ mU7geojAhBhtDbMOU/vbfQuaY4HmDv5r/hS5cskQrJZyPTDo2oEhsuVdu0Ek4UE4RF7YZGoDUsA
+ ZvSVAwsYH2dc5MybE1Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-08_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ malwarescore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609090113
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_031613_846920_4BE65556 
+X-CRM114-Status: GOOD (  47.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,103 +152,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
+--5hYik/OtwsiKgIbw
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On Mon, Sep 07, 2026 at 03:15:25PM +0530, Aneesh Kumar K.V wrote:
->
->> I looked into this, and it becomes fairly complicated. We can move all
->> vdev/TDI-related code to arm-smmu-realm-v3.c, but that would result in:
->
-> I was going for the opposite, you'd move everything out of arm-smmu-v3
-> and into the arm-cca-host and obtain the viommu through tsm_ops not
-> through iommu_ops.
->
-> I guess I pointed to that in another email.
->
-> The only thing arm-smmu-v3 should provide is a simple function to give
-> the pdev phys and irq parameters. arm-cca-host calls that when it
-> creates an viommu object.
->
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider:
+>=20
+> Critical: 0 =C2=B7 High: 1 (1) =C2=B7 Medium: 1 =C2=B7 Low: 2
+>=20
+> - [High] Undisclosed functional regression: PTP setup failures are now
+>   fatal to `ndo_open()` and to system resume.
+> - [Medium] Unbalanced clk_ptp_ref enable/disable against the platform
+>   noirq PM callbacks.
+> - [Low] The kernel-doc block above `stmmac_init_timestamping()`
+>   (stmmac_main.c:893-899) still states 'this is to verify if the HW=E2=80=
+=A6
+> - [Low] Both new unwind paths halt the DMA but never undo
+>   `stmmac_hw_setup()`'s `stmmac_mac_set(priv, priv->ioaddr, true)`=E2=80=
+=A6
+>=20
+> Pre-existing issues:
+> - [High] Pre-existing double free / use-after-free of the DMA descriptor
+>   rings, whose trigger set this patch widens.
+>=20
+> --
+>=20
+> net: stmmac: propagate PTP init failures in __stmmac_open() and stmmac_re=
+sume()
 
+I think I have already posted a v2 for this series:
+https://patchwork.kernel.org/project/netdevbpf/patch/20260907-stmmac-ptp-er=
+ror-propagate-v2-1-4a2e8e41e860@oss.qualcomm.com/
 
-So ended up with
+This one is marked as Superseded in patchwork.
 
-static const struct tsm_viommu_ops cca_tsm_viommu_ops = {
-	.owner = THIS_MODULE,
-	.type = IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3,
-	.get_size = cca_viommu_get_size,
-	.init = cca_viommu_init,
-};
+Regards,
+Lorenzo
 
-struct cca_viommu {
-	struct cca_psmmu *psmmu;
-	struct iommu_viommu_provider *iommu_provider;
-	const struct iommufd_viommu_ops *iommu_ops; // backing SMMU ops
-};
+>=20
+> This converts stmmac_setup_ptp() from void to int so that the PTP
+> reference clock enable and stmmac_init_timestamping() failures are
+> propagated, and adds unwind paths in __stmmac_open() and stmmac_resume()
+> for those failures.  The HW timestamp capability check moves out of
+> stmmac_init_timestamping() into the new stmmac_check_timestamp_cap()
+> helper.
+>=20
+> A few questions below.
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index 24656b35350b1..d33c82bd3ee46 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -885,6 +885,11 @@ static int stmmac_init_tstamp_counter(struct stmma=
+c_priv *priv,
+> >  	return 0;
+> >  }
+> > =20
+> > +static bool stmmac_check_timestamp_cap(struct stmmac_priv *priv)
+> > +{
+> > +	return priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp;
+> > +}
+> > +
+> >  /**
+> >   * stmmac_init_timestamping - initialise timestamping
+> >   * @priv: driver private structure
+> > @@ -900,11 +905,6 @@ static int stmmac_init_timestamping(struct stmmac_=
+priv *priv)
+> >  	if (priv->plat->ptp_clk_freq_config)
+> >  		priv->plat->ptp_clk_freq_config(priv);
+> > =20
+> > -	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
+> > -		netdev_info(priv->dev, "PTP not supported by HW\n");
+> > -		return -EOPNOTSUPP;
+> > -	}
+> > -
+>=20
+> [Severity: Low]
+> Should the kernel-doc block just above stmmac_init_timestamping() be upda=
+ted
+> in the same patch?  It still says:
+>=20
+> 	 * Description: this is to verify if the HW supports the PTPv1 or PTPv2.
+> 	 * This is done by looking at the HW cap. register.
+> 	 * This function also registers the ptp driver.
+>=20
+> After this hunk the HW cap. register check lives in
+> stmmac_check_timestamp_cap()/stmmac_setup_ptp(), which is also why
+> stmmac_resume() now has to open-code "if (stmmac_check_timestamp_cap(priv=
+))",
+> and stmmac_ptp_register() is only called from stmmac_setup_ptp().  The
+> -EOPNOTSUPP return the description implies is no longer produced by any
+> path here, and the function's new error returns are not described.
+>=20
+> >  	ret =3D stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
+> >  					       PTP_TCR_TSCFUPDT);
+> >  	if (ret) {
+> > @@ -937,22 +937,39 @@ static int stmmac_init_timestamping(struct stmmac=
+_priv *priv)
+> >  	return 0;
+> >  }
+> > =20
+> > -static void stmmac_setup_ptp(struct stmmac_priv *priv)
+> > +static int stmmac_setup_ptp(struct stmmac_priv *priv)
+> >  {
+> >  	int ret;
+> > =20
+> > +	if (!stmmac_check_timestamp_cap(priv)) {
+> > +		netdev_info(priv->dev, "PTP not supported by HW\n");
+> > +		return 0;
+> > +	}
+> > +
+> >  	ret =3D clk_prepare_enable(priv->plat->clk_ptp_ref);
+>=20
+> [Severity: Medium]
+> Does this early return unbalance clk_ptp_ref against the platform noirq PM
+> callbacks?
+>=20
+> Before this patch stmmac_setup_ptp() always did clk_prepare_enable() on o=
+pen
+> and stmmac_release_ptp() always did clk_disable_unprepare() on close, so a
+> running interface always held one enable/prepare reference.  With the new
+> capability gate in both functions, hardware whose dma_cap.time_stamp and
+> dma_cap.atime_stamp are clear never gets the clock enabled.  Note
+> stmmac_hw_init() leaves priv->dma_cap all-zero when there is no HW feature
+> register ("No HW DMA feature register supported").
+>=20
+> stmmac_pltfr_noirq_suspend() in stmmac_platform.c still does this
+> unconditionally for any running non-WoL interface:
+>=20
+> 	if (!priv->wolopts) {
+> 		/* Disable clock in case of PWM is off */
+> 		clk_disable_unprepare(priv->plat->clk_ptp_ref);
+>=20
+> With the enable/prepare counts at zero, does that hit the clk core
+> enable_count/prepare_count underflow warning?  And after
+> stmmac_pltfr_noirq_resume() re-enables it unconditionally, the close path
+> stmmac_release_ptp() now returns early for the same hardware, so does that
+> reference stay held for good?
+>=20
+> These four sites appear to be the only clk_ptp_ref enable/disable users, =
+and
+> stmmac_pltfr_pm_ops installs those noirq callbacks for a large number of
+> platform glue drivers.
+>=20
+> > -	if (ret < 0)
+> > +	if (ret < 0) {
+> >  		netdev_warn(priv->dev,
+> >  			    "failed to enable PTP reference clock: %pe\n",
+> >  			    ERR_PTR(ret));
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret =3D stmmac_init_timestamping(priv);
+> > +	if (ret) {
+> > +		clk_disable_unprepare(priv->plat->clk_ptp_ref);
+> > +		return ret;
+> > +	}
+> > =20
+> > -	if (stmmac_init_timestamping(priv) =3D=3D 0)
+> > -		stmmac_ptp_register(priv);
+> > +	stmmac_ptp_register(priv);
+> > +
+> > +	return 0;
+> >  }
+> > =20
+> >  static void stmmac_release_ptp(struct stmmac_priv *priv)
+> >  {
+> > +	if (!stmmac_check_timestamp_cap(priv))
+> > +		return;
+> > +
+> >  	stmmac_ptp_unregister(priv);
+> >  	clk_disable_unprepare(priv->plat->clk_ptp_ref);
+> >  }
+> > @@ -4161,10 +4178,12 @@ static int __stmmac_open(struct net_device *dev,
+> >  	ret =3D stmmac_hw_setup(dev);
+> >  	if (ret < 0) {
+> >  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+> > -		goto init_error;
+> > +		return ret;
+> >  	}
+> > =20
+> > -	stmmac_setup_ptp(priv);
+> > +	ret =3D stmmac_setup_ptp(priv);
+> > +	if (ret)
+> > +		goto ptp_error;
+>=20
+> [Severity: High]
+> Can this make "ip link set dev ethX up" fail on configurations that work
+> today?
+>=20
+> stmmac_setup_ptp() -> stmmac_init_timestamping() -> stmmac_init_tstamp_co=
+unter()
+> returns -EINVAL for a zero PTP rate:
+>=20
+> 	if (!priv->plat->clk_ptp_rate) {
+> 		netdev_err(priv->dev, "Invalid PTP clock rate");
+> 		return -EINVAL;
+> 	}
+>=20
+> Before this patch that only produced the "PTP init failed" warning and the
+> interface still came up without timestamping.
+>=20
+> Is "timestamp capable but clk_ptp_rate =3D=3D 0" a real configuration?
+> stmmac_register_devlink() already tolerates exactly that combination:
+>=20
+> 	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp) ||
+> 	    !priv->plat->clk_ptp_rate)
+> 		return 0;
+>=20
+> and stmmac_probe_config_dt() derives the rate from a clock that may be NU=
+LL:
+>=20
+> 	if (IS_ERR(plat->clk_ptp_ref)) {
+> 		plat->clk_ptp_rate =3D clk_get_rate(plat->stmmac_clk);
+> 		plat->clk_ptp_ref =3D NULL;
+>=20
+> with clk_get_rate(NULL) returning 0 (plat->stmmac_clk is left NULL on the
+> "Cannot get CSR clock" path, and is not fetched at all for
+> snps,dwc-qos-ethernet-4.10).
+>=20
+> On such a board, would the interface become permanently un-openable for
+> users who never touch PTP or TAPRIO?  The same question applies to
+> stmmac_resume() below, where the new goto skips netif_device_attach() and
+> leaves a previously working link down.  Since there are two Fixes: tags t=
+his
+> will be picked up for stable, so it may be worth spelling the behaviour
+> change out in the changelog, or keeping the failure non-fatal for the
+> datapath and only refusing the PTP/EST-dependent features.
+>=20
+> >  	stmmac_init_coalesce(priv);
+> > =20
+> > @@ -4187,9 +4206,10 @@ static int __stmmac_open(struct net_device *dev,
+> > =20
+> >  	for (chan =3D 0; chan < priv->plat->tx_queues_to_use; chan++)
+> >  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+> > -
+> >  	stmmac_release_ptp(priv);
+> > -init_error:
+> > +ptp_error:
+> > +	stmmac_stop_all_dma(priv);
+> > +
+> >  	return ret;
+> >  }
+>=20
+> [Severity: High]
+> This isn't a bug introduced by this patch, but the new ptp_error exit wid=
+ens
+> the set of ways __stmmac_open() can fail after it has already done:
+>=20
+> 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
+>=20
+> so priv->dma_conf holds its own copy of every pointer in the caller's
+> dma_conf.  On the MTU reopen path the caller reacts to failure like this:
+>=20
+> stmmac_change_mtu()
+> 	ret =3D __stmmac_open(dev, dma_conf);
+> 	if (ret) {
+> 		free_dma_desc_resources(priv, dma_conf);
+> 		kfree(dma_conf);
+>=20
+> The interface is left administratively up, and priv->dma_conf still points
+> at the freed dma_alloc_coherent() buffers and the freed tx_skbuff/rx_skbu=
+ff
+> arrays, since nulling pointers inside the caller's copy cannot clear the
+> memcpy'd copy.  A later "ip link set dev ethX down" then runs:
+>=20
+> __stmmac_release()
+> 	stmmac_stop_all_dma(priv);
+> 	/* Release and free the Rx/Tx resources */
+> 	free_dma_desc_resources(priv, &priv->dma_conf);
+>=20
+> Does that free the same rings a second time?  The pre-existing trigger was
+> an stmmac_request_irq() failure via irq_error; with this patch a PTP
+> reference clock enable failure reaches the same state.
+>=20
+> [Severity: Low]
+> Should this unwind also clear the MAC Rx/Tx enable that stmmac_hw_setup()
+> set?
+>=20
+> stmmac_hw_setup() does:
+>=20
+> 	/* Enable the MAC Rx/Tx */
+> 	stmmac_mac_set(priv, priv->ioaddr, true);
+>=20
+> stmmac_stop_all_dma() only clears the DMA channel start bits and deinits =
+the
+> channels.  The MAC enable is cleared in the mac_link_down callback, in the
+> reset path and in stmmac_suspend(), and on the ptp_error path
+> phylink_start() was never reached, so mac_link_down() cannot run.
+> stmmac_open() then frees the descriptor rings and drops the runtime-PM
+> reference, leaving the MAC clock-gated with its Rx/Tx still armed.  All
+> stmmac_hw_setup() failure returns happen before the stmmac_mac_set() call,
+> so this residue is specific to the new post-setup failure exits.
+>=20
+> > @@ -8326,13 +8346,14 @@ int stmmac_resume(struct device *dev)
+> >  	ret =3D stmmac_hw_setup(ndev);
+> >  	if (ret < 0) {
+> >  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+> > -		stmmac_legacy_serdes_power_down(priv);
+> > -		mutex_unlock(&priv->lock);
+> > -		rtnl_unlock();
+> > -		return ret;
+> > +		goto error_unlock;
+> >  	}
+> > =20
+> > -	stmmac_init_timestamping(priv);
+> > +	if (stmmac_check_timestamp_cap(priv)) {
+> > +		ret =3D stmmac_init_timestamping(priv);
+> > +		if (ret)
+> > +			goto error_stop_dma;
+> > +	}
+> > =20
+> >  	stmmac_init_coalesce(priv);
+> >  	phylink_rx_clk_stop_block(priv->phylink);
+> > @@ -8356,6 +8377,15 @@ int stmmac_resume(struct device *dev)
+> >  	netif_device_attach(ndev);
+> > =20
+> >  	return 0;
+> > +
+> > +error_stop_dma:
+> > +	stmmac_stop_all_dma(priv);
+> > +error_unlock:
+> > +	stmmac_legacy_serdes_power_down(priv);
+> > +	mutex_unlock(&priv->lock);
+> > +	rtnl_unlock();
+> > +
+> > +	return ret;
+> >  }
+>=20
+> [Severity: Low]
+> Same question on the resume side: stmmac_suspend() explicitly did
+>=20
+> 	stmmac_mac_set(priv, priv->ioaddr, false);
+>=20
+> but error_stop_dma/error_unlock stops the DMA and calls
+> stmmac_legacy_serdes_power_down() while the MAC Rx/Tx enabled by
+> stmmac_hw_setup() is still set, so the SerDes is removed under an enabled
+> MAC.  Would adding stmmac_mac_set(priv, priv->ioaddr, false) to this unwi=
+nd
+> restore the state that stmmac_suspend() had established?
+>=20
+> Also, on this path netif_device_attach() is never reached while
+> netif_running() is still true, so the netdev stays detached after a resume
+> failure.  Is that the intended outcome for a PTP init error?
+>=20
+> --=20
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa%40oss.qualcomm.com
 
+--5hYik/OtwsiKgIbw
+Content-Type: application/pgp-signature; name=signature.asc
 
-// backing ops are mostly used for
+-----BEGIN PGP SIGNATURE-----
 
-static struct iommu_domain *
-cca_viommu_alloc_domain_nested(struct iommufd_viommu *viommu, u32 flags,
-			       const struct iommu_user_data *user_data)
-{
-	struct cca_viommu *cca = viommu->provider_data;
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqEx6AAKCRA6cBh0uS2t
+rE4WAPsH+53zamQMSb8+l3vjOhc245hJ9HSqv18qQgtD6j/aUAD8DaNU1/QNLSWI
+qhHSumkyTUk3cgGFC/HQwrelHiC1ggg=
+=eerw
+-----END PGP SIGNATURE-----
 
-	return cca->iommu_ops->alloc_domain_nested(viommu, flags, user_data);
-}
-
-static int cca_viommu_cache_invalidate(struct iommufd_viommu *viommu,
-				       struct iommu_user_data_array *array)
-{
-	struct cca_viommu *cca = viommu->provider_data;
-
-	return cca->iommu_ops->cache_invalidate(viommu, array);
-}
-
-
-struct cca_vdevice {
-	struct iommufd_vdevice core;
-	struct pci_tsm_context *tsm_context;
-	struct cca_host_tdi host_tdi;
-	u32 l2_sid;
-};
-
-static const struct iommufd_viommu_ops cca_viommu_ops = {
-	.destroy = cca_viommu_destroy,
-	.alloc_domain_nested = cca_viommu_alloc_domain_nested,
-	.cache_invalidate = cca_viommu_cache_invalidate,
-	.vdevice_size = VDEVICE_STRUCT_SIZE(struct cca_vdevice, core),
-	.vdevice_init = cca_vdevice_init,
-	.vdevice_tsm_req = cca_vdevice_tsm_req,
-};
-
-
-and on iommu side
-
-struct iommu_viommu_provider {
-	size_t size;
-	int (*init)(struct iommufd_viommu *viommu, struct device *dev,
-		    enum iommu_viommu_type type,
-		    struct iommu_domain *parent_domain,
-		    const struct iommu_user_data *user_data);
-	int (*get_params)(struct iommu_viommu_provider *provider,
-			  struct device *dev, enum iommu_viommu_type type,
-			  void *params, size_t params_size);
-	void (*release)(struct iommu_viommu_provider *provider);
-	void *data;
-};
-
-
-The TSM disconnect path will now fail while any vdevice is alive or
-active. Destroying a vdevice will unlock and destroy the VDEV. I think
-we can also unmap its MMIO mappings at that point, provided we track the
-mapping requests in a list alongside the vdevice details.
-
-All CCA operations will use pci_tsm_pf0::lock, though I think the
-locking can be made more fine-grained.
-
-I will send a cleaned-up series so that we can review the code changes.
-
--aneesh
+--5hYik/OtwsiKgIbw--
 
