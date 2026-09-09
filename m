@@ -4,155 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E25C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0696C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 19:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M5rvIWGTIvOTCE3UxEp1CtwJp24SA8aalhpVBxX9P4c=; b=QgNO2laZCWL/vWWBnNT4VYtHBR
-	ObR5ZF18wnsUMK1JPG7GoAngQvzKnRP8CVItHf0qIaGHDpR3oRaifvYhpu9fdP3elio9GVeAgAh0y
-	Oj9mmeScUi7bBFsgHG7iV2rrIP0ag0+hjdBdXZsPkM0s3bdZn6lb3OME0ds5Z/L6r0M7NWQ/CEYz9
-	AOMuo0Eu0cu/EbimIma3CH11sF2zas4r0KGTB2vIlOrR6xe+PcoSUViTkxZ46LLANyLVP2/8CTzUo
-	dfKgcdRAGvDyVCh7eVUQzhuNw7EAmF4anSAveode7uSKcbUauE7KE4VpXJMx6512PnVL9deQ8ZiCk
-	6Gywympg==;
+	bh=WZtznNTeR+z/qMMsm+g6mCwuNZImaVVc18iFQ+Gugts=; b=PX2FRW/00WgW0VP4Uj9AT/Ysqh
+	y3ES8LyrB3nRPCAs6TyrtCmJpjBApyLLQ25+z9HrYhLoBerRrTDnssHoCofLVFpP1l/WOx7ASVBOX
+	1AyCzqWVx1ixhoaDdL/6Ky8V1c+wiPoxLeZehqAciQ+qP+cz0q45+JLQo7+4lodAcpitxOWyp7E5A
+	aZydd3z492Dyw7t/qXbLGSQH6EdMmKqm1Kw1AtqmxRU8pRxhIqTEdJH4LI5HGHGsagkRoyNk+yBuE
+	q535DQ/QlhMWA9Lpr7iNLRKdn4EITfvw5jDxu4WTx9y7M9xTjHLK5dwcuYn8HMY8cWxlpMD9QfvZo
+	SAX9Hz8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NS6-0000000Cemf-0sGB;
-	Wed, 09 Sep 2026 18:55:22 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x4Nct-0000000Cfl7-0qGK;
+	Wed, 09 Sep 2026 19:06:31 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NS3-0000000CemG-2NXi
+	id 1x4Ncq-0000000Cfkd-0NIu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 18:55:20 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689IgIVA3344035
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 18:55:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=M5rvIWGTIvOTCE3UxEp1CtwJ
-	p24SA8aalhpVBxX9P4c=; b=UBKV82pFgJhLWH2fGpTDOEjWYD13vt/8iJpHl8CP
-	Wr99KKnwqJFy13Qd4uny+m/WphgkXa5cJ/2iqk8KchWGMv5GOzJvBZtqW0J53X5e
-	DWwKK2h8e1LdBzzOU2ilj3+96RVr853RiUg4DYPAh/ekLdJUW2vgs6Qah9bZKqzn
-	KKlCQF1AO6wDQd7rTmmaXaUUWjurunrQcUcPH50lY3way1V77/rcx5jZnZSdakXk
-	QoFrzV2r0wmw4j+vXJLlgjQk80PSz1wG92C0GQiY8FcFYOZsu2bsWmlCXHsExeCK
-	TOAWRQYBg3W1cogKlmAWR3bNqjA89QvEyn6+ocAG5M1UEA==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gkcygg1mg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:55:18 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-785b66a7017so1507135137.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 11:55:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788980118; x=1789584918; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=M5rvIWGTIvOTCE3UxEp1CtwJp24SA8aalhpVBxX9P4c=;
-        b=UqIH2pVSy3YjsQuYBDnTy/xtYH9n9dAa4k74IVT0LKnAe14Fgnx7kfwg/JmFnnVnKR
-         UzMJcg8AFOtHQeVPcEEekSmrpoSBFpCVoV8pm67BbwTQL2GN7C7U3X5smZFh7j/rT/1C
-         xXmHhlNGBLvB0wKBNUt//YAFAZBoxOztUj07GtKgpEpwv2BFcVgtCG4mBanboiDpuq0W
-         D26Ixn/uYzOl5PVYSOsoIygsgWs1WvxSrkfL9StwfTls3qVXxKPpEgdkYJGgehXzJmRW
-         dWBIprBz1gUBI+WZ3rOZRYucAYPVYjrHdnPSrwhiIhDz0N5eyUGX5LcJkIGwsYMfhoJ2
-         jfQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788980118; x=1789584918;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M5rvIWGTIvOTCE3UxEp1CtwJp24SA8aalhpVBxX9P4c=;
-        b=htmvm4Z/PmMn+WrkoFN6/ZsqyP5JPCZTQwtSuSIu4MXfkViFAAklwBi4CIRcTVfskz
-         t42DG4z7MiNXkXU+QXUHxsleFu6jCRn/3CDSCHjhYrFTbg0SsKXfaK4Fyjv8od5sib4n
-         CLt2jh6XUqi9HQXad/wg2JJbNexKRAiP5D0y6HwWknoFfScfNVwgQV7UGjKRIVYYQTll
-         DotFPJl6hPbpMewjGtEQg9BWxDR+Z3+PhBIfMUr+u5EEOdUVJ5syNw/3gzZWBX3noGI/
-         360Znu7lTu3ICz/ZWBVwwhTtlo77tD8i07mOGrSC//2P0MQJ7qs/lYk9R7Rk8TwzYST2
-         aAdA==
-X-Forwarded-Encrypted: i=1; AKwUvByaUCk5eFbMzN7PLuGkUAAj1dks2jQ/8/SWjHvFMDv/pw5cCWeiIvvMKSEwd8DYmadWrjmEUF05DlCamkJiUl45@lists.infradead.org
-X-Gm-Message-State: AFuF++lx9R/KMIgMXXFPbeNgTRQJaCAc4BA/Gy5OXKGXMpbl6V4B4AqH
-	KMDRfGZSrdVMqBtlypRqZnNtvhMMkpmV33enu9ze18u2uAYjXnyC5kRKUOkyNueDEDvYbUA6bmI
-	uPjy9vWdopFpSi9WDjU4dBzvLKXIFAMoDQoHg8lBf9PNdZe/BaH97JptRqWqyNTbsJKumuNyCLZ
-	P7mg==
-X-Gm-Gg: AYBFou0nJ/OTtRpGKMEjGVAdCFHAj6IG+U//mYmx+e6YrEaAywnzIJk0Gdd/+5YHRfq
-	JVMUANjmq42YbnWTwKS2aGINek+54+ndfbabH/n/4o3U01xv3hVY1cJZ5TL1Kppx/A9HjvWRbhw
-	QuQo6Y9GG1irPLL/0mBUhKVFlAmpdJoq+H77VIEQKQhhGnUL3K/Poz8R39iusuKAzQ2NiAmSRdD
-	LB5A0gb1eC3k1IHjj6S9I90Gnx6dYitP9zuE8ZGM6R1U+jMTqmtT4pBVscQvOSRs6INLSRtXvwu
-	QdowVGBw5gU12VQ/mTvwLtzgkYoBPLPiANhvHtKhQV6fSs+gLM/BqQvoUD6D5AKvWCNsx3TiPD/
-	lASaTauWV9aes0A==
-X-Received: by 2002:a05:6102:6b01:b0:785:3211:f5e4 with SMTP id ada2fe7eead31-78a4a6c8a04mr16623437137.4.1788980117617;
-        Wed, 09 Sep 2026 11:55:17 -0700 (PDT)
-X-Received: by 2002:a05:6102:6b01:b0:785:3211:f5e4 with SMTP id ada2fe7eead31-78a4a6c8a04mr16623409137.4.1788980116994;
-        Wed, 09 Sep 2026 11:55:16 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26d49d57sm9738765e9.14.2026.09.09.11.55.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 11:55:15 -0700 (PDT)
-Date: Wed, 9 Sep 2026 20:55:15 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
-        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v2 9/9] net: stmmac: qcom-ethqos: add Shikra
- EMAC support
-Message-ID: <aqGrk9TLx8RJ4Xzr@lore-desk>
-References: <20260908-shikra_ethernet-v2-0-bbe3389d0652@oss.qualcomm.com>
- <20260908-shikra_ethernet-v2-9-bbe3389d0652@oss.qualcomm.com>
+	Wed, 09 Sep 2026 19:06:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IN58BzxGiX/w8bu64ZSQP9ofVgvG70csEfVAXXxHgkHFZMO3Fv2X5D8lfucSPUwbA+JKb6ULC+75gllZacznQnC+sv+ltYecH3vLR87OHA/HJHxhiFxnEgw+ivg1K5eM6w167TdB1uFRZxtn+3NvKXk4xiStLtZuMe8AEaiILRpHIkzZ9X83UWxpMEwV3FHzMuRQKmqA/zFt/0Zai1FL1Bpi3VC+5rYdc46YQL243v8fRTeQauTBaFV8B66J7vLOPRJrFq5dBk/gF84SNqrrq86E8U8Tpjd+WVj7FvqcItlCP3g/CaYYVhIgxgZ+4BBZ1/gWd7z8VFmTiOt7CVrgQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WZtznNTeR+z/qMMsm+g6mCwuNZImaVVc18iFQ+Gugts=;
+ b=R3zCiqC455rAuQtEHzYdQdtfFiIs87uppM0KCd6t7yQgf0+NGIqjf/TWvNuip4Gz5zPQni43JEFkYoN8GXCVsgXl/efioMbRNQEiMbBoNMFtcjz5C7m4bDgT9JmdmpTH99tpM3T07EjBNuXB7UybXLRZuKR4TeDZZ0HRL+zWLFo9qXEWTN77ZBL5zalV7sfikg7t15tDpH5NY/JBJ250C80PqEHn51c6yRhuNVPZ8tR0CyK8maq+qC+k+DZkg6IWOk7MQyphxevl/8ZNVvUnBN9KUpCmUaWWbeHgJpseGA4g9S3Gb0yWPzIs46jRLNc+1SaLIDYHui3EG81bOy3DwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WZtznNTeR+z/qMMsm+g6mCwuNZImaVVc18iFQ+Gugts=;
+ b=fTEXVLmua+RQhswHm5Iz/l+hYyP5mMAiZ/0dHqzKWKmOUt4HkehYVXVd+ztMgLicIfdVAhw7k4QMCuAI80Zd/xWCnbi8/wSPS8F2HaymJTiCLaXecpUspqCdRlbG337zpKvYNS8FKDU6oY7x9ad3PqPlirWIRgttuYWcaf8QGl5Oe0btQAe0TNrt7cAdo18TMdgFLnX/XSMvB8qSNvnUxDKD0PP/kt9yPu2kIO41F6knamUn4YxfYusUYP640TJoUa39T2r2WxXU4K1JatXboG5SQbGRlt3XlFTWJvYScbWHKfWeZmuhqWnhYEZ4vkwwj2ew12kLWVr4648WOk5RzA==
+Received: from BN9PR03CA0138.namprd03.prod.outlook.com (2603:10b6:408:fe::23)
+ by CY8PR12MB7489.namprd12.prod.outlook.com (2603:10b6:930:90::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
+ 19:06:07 +0000
+Received: from BN7PEPF00000097.namprd03.prod.outlook.com
+ (2603:10b6:408:fe:cafe::71) by BN9PR03CA0138.outlook.office365.com
+ (2603:10b6:408:fe::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Wed, 9
+ Sep 2026 19:06:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN7PEPF00000097.mail.protection.outlook.com (10.167.245.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 19:06:07 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 12:05:40 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 12:05:39 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Wed, 9 Sep 2026 12:05:36 -0700
+Date: Wed, 9 Sep 2026 12:05:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<praan@google.com>, <kevin.tian@intel.com>, <kees@kernel.org>,
+	<smostafa@google.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
+	<bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
+Subject: Re: [PATCH v3 08/13] iommu/arm-smmu-v3: Disable PRI when no IRQ
+ handler is registered
+Message-ID: <aqGt/l6L5BeidQ8g@nvidia.com>
+References: <cover.1788222485.git.nicolinc@nvidia.com>
+ <0b5282c7e850f1a1c650e43670899b4ef5335efd.1788222486.git.nicolinc@nvidia.com>
+ <178846311318.1308030.4956293524348641228.b4-review@b4>
+ <20260904141525.GT4157646@nvidia.com>
+ <20260909105954.00002181@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hx4+qUIsDXNsQO4F"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260908-shikra_ethernet-v2-9-bbe3389d0652@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDIxMSBTYWx0ZWRfX+8B5n+bPhwBw
- rGbet0/mXwD3zeWek4usbTBHtcD252tgd8kko+JBsZTs39GjWea+Poayfk1bUjOLt3EPJqJjEqX
- 1yLUAiEd54ACZXSLNn+x6qNnJRAL+o4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDIxMSBTYWx0ZWRfXzUSWvpu8KrKV
- KmtSDG6/TypQrOyHaRgM21XURejivt4lcXlILPkLf0ZG2Sp0trJkjPn6or6i3WLAxKdSSbon1c7
- AT/ahvNCYjPnRrACt8Totj/W5n/UnYSF/Yxwqkc3bz9VdYjYzwgxbRkGtkaq8e8/mwsligL/ANW
- EaUOXtn8Ljx7JPw/3KS65LCKE1UMO0v8OAGts+kMafeESi2wsyzHb4WbBcP2O9sAiOuIomdtCEP
- geEfmPVEpFpDHSum7kiZilZj3aiB2obzJAKzfx7wwaGPRFlrV8mxU3oqlQ1GrXqSDGTPdxzFmD9
- pcAV4PBRR2Sa11WY40bC2rp44j8K4ffXvrJdwk+afo7MFjXc/Vv5LvF0j7Zrf3Sv5nS3Hl5xxgk
- iUEl7F44a9FsHqcFWnELKYUSYgi6ijEDayJzAv6189774WZ7NlfvhET5LqP0liRHyJr54Ixnpnl
- n+zENN0XCnfbo8jIAWA==
-X-Proofpoint-ORIG-GUID: S4HaF7SFiGX2rXft6-F0UuDh5zF4x__f
-X-Proofpoint-GUID: S4HaF7SFiGX2rXft6-F0UuDh5zF4x__f
-X-Authority-Analysis: v=2.4 cv=Z/F5j3RA c=1 sm=1 tr=0 ts=6aa1ab96 cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=DFbXc3gujWXi7Ms4cGQA:9 a=CjuIK1q_8ugA:10 a=AyJwBSL0_NbV6ZD5tKsA:9
- a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-08_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0 adultscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609090211
+In-Reply-To: <20260909105954.00002181@oss.qualcomm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF00000097:EE_|CY8PR12MB7489:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81bf4bde-d7d1-4319-7146-08df0ea56734
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|7416014|82310400026|36860700016|4143699003|5023799004|11063799006|56012099006|10067099003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: L4XZ9Fa+Dcd11zWbtlsNOvNGen+V/X+qpWXWDjX5X8CR0cZjMqtuBjXaQDg50Wa/Z2N5R87AzOpxaDdsCrfSrUldER24Ph2DcLW2kmMUHRmrngiEuwQ8Pcfe75Z2wP/MYElVeJOYMZ4zaCoAM0AnujipcW/EmUzRJ79zSePBvVPTioyRBUKb0kHX9TCEE2vDPxAcbItrvh29Tk4G7nbEEHQZPoK0uJMyPiFQVjPc24TNsDhKEdL7Zz8ROjuQ7/+nutNFIREkt2PAxpkrs7leZLCH2kKwJaDWs3ckY87zlK3Cfjj0DSPOXQIb7J6IBG1wgQHiRDWGkX8cENC6s8Pi+YSXO+tR/g+KyzE/TGzvTtvTdJha2K0I25yEdFCeQhh7mXEjJj7/WL2adTs2GIc58fkIFdhF66TP2X3UyhZ6ka+0s+QbxBUN/krEMMcqiecZpTTAJzVIHbzbyLFeDqzn20KUvevFLd5WC5rLhIF9YJvUb+0eJ9ECjf9URZpw3Qe0rKoHUzhn2GnzQFPC39GshEAju2yFC5y5B78cwff1JTi5IVU5qwXKAGWF/YMH9WJ2m+lYWCH6tTeIXGtcUBc8j8p+Xv4iUpu9965MKuv8nZuuTcrHHK29Kwbrettc0/XZfaROK3Cbq/MD5kHPAZKGRcTA13est7VInD4UBaPdnDkHFmYeN/lwlsWmeOBUzRbTtxRAaOQpE4Kh69T1OTQrmQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(7416014)(82310400026)(36860700016)(4143699003)(5023799004)(11063799006)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: hgCvy1NpL6ihxvQiZDvdrp+yBMb18Ig9hUMxovZ7dT2rRwhKD70Z2dxklz3dNtRu87kic794EQMiEp2rG70KHyzyzhzqClJu3DBCQLM7ektZiE5Bz2NDqNjCtfKTP6k70J+nndiuxyI+XgL6nowKt+YO3S4DoG6HIlsfoztlE6/2Xvg8OktvkyniWQ0/IdRuRgN8MPjtDapVS6rmHQOs6yqt3TtIbG8cL2IU167eD9YgUv0n9GbnA62fIL0WeflEO4WEhbv/YIFz2SmIm/+WPDVUWeJt1b9lz/PdndkOzNZ9EzSo3mTufLp7/q9vNmDwaQlhbdWE4fuXLBF7IOFKkLpfbuoM+6ex0CMsufBSVsv9I18aJ/cFe2+79gzDb0UTynEZA+avgPkqA4L/wDIm8/EsCHH3YNVw/lt7yaMIzeU5uC6KlckmUusajXzRSCBl
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 19:06:07.1919
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81bf4bde-d7d1-4319-7146-08df0ea56734
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF00000097.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7489
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_115519_726870_10AEC576 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260909_120628_134793_4BF01A0B 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,110 +137,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---hx4+qUIsDXNsQO4F
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Sep 09, 2026 at 10:59:54AM -0700, Jonathan Cameron wrote:
+> On Fri, 4 Sep 2026 11:15:25 -0300
+> Jason Gunthorpe <jgg@nvidia.com> wrote:
+> 
+> > On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
+> > > > arm_smmu_setup_irqs() has three failure paths that leave the priq without
+> > > > a handler: a missing priq IRQ line, devm_request_threaded_irq() failure on
+> > > > the priq IRQ, and devm_request_threaded_irq() failure on the combined IRQ.
+> > > > Each path warned but kept ARM_SMMU_FEAT_PRI set in smmu->features.
+> > > > 
+> > > > With FEAT_PRI still set, arm_smmu_setup_irqs() enables IRQ_CTRL_PRIQ_IRQEN
+> > > > against a handler that does not exist, and a later change would then have
+> > > > arm_smmu_probe_device() call pci_enable_pri() on PCIe endpoints, allowing
+> > > > them to issue PRI Page Requests that pile up in the priq with no drainer.
+> > > > Separately, arm_smmu_device_reset() has already enabled CR0_PRIQEN before
+> > > > it invoked arm_smmu_setup_irqs(), so the hardware queue would stay enabled
+> > > > regardless of what setup_irqs decides.
+> > > > 
+> > > > Clear ARM_SMMU_FEAT_PRI in all three failure paths, so that subsequent code
+> > > > treats PRI as unavailable. And disable CR0_PRIQEN after the setup function
+> > > > returns.
+> > > > 
+> > > > A kdump kernel cannot service page requests: strip FEAT_PRI when detecting
+> > > > features, so downstream PRI setup is skipped.  
+> > > 
+> > > Dumb question - why can't a kdump kernel service page requests?
+> > > I'm nowhere near familiar enough with that stuff and I suspect I'm not
+> > > the only one who might be in that state and reading this series.
+> > > Configuration choice, or a fundamental thing?  
+> > 
+> > The initial issue is the streams are left in whatever state the crash
+> > kernel had them in, so it can be generating a bunch of PRIs with no
+> > place to put them.
+> > 
+> > Though eventually we may find a device where dropping them is not good
+> > and they need to be NAK'd promptly..
+> > 
+> > But I think the real motivation here is to save memory in the kdump
+> > kernel..
+> 
+> Got it, so design decision rather than fundamental.  Maybe tweak that text
+> to say 
+> "A kdump kernel doesn't service page request" ?
 
-> Shikra integrates two Qualcomm ETHQOS controllers based on the Synopsys
-> GMAC IP, similar to previous platforms.  Register qcom,shikra-ethqos
-> backed by a new shikra_data descriptor that enables the three NOC clocks
-> required for DMA memory access (axi-noc, pcie-tile-axi-noc, stmmaceth)
-> all at 120 MHz, and the 36-bit DMA address width.
->=20
-> As part of the NOC clock voting logic, the qcom-ethqos glue driver takes
-> a second enable reference on the "stmmaceth" clock, which is already
-> enabled by the stmmac core. All three clocks in shikra_noc_clks[] must
-> run at 120 MHz for NOC access, and managing "stmmaceth" through the same
-> clk_bulk path keeps the rate-setting and enable/disable together.
->=20
-> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 31 ++++++++++++++++=
-++++++
->  1 file changed, 31 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/dr=
-ivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 8871d285941162c72e2a8f79d2eef915d9283796..c474f1e5a043777a52bcbff8a=
-488640f6dbdca30 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -328,6 +328,36 @@ static const struct ethqos_emac_driver_data emac_v4_=
-0_0_data =3D {
->  	},
->  };
-> =20
-> +static const struct ethqos_noc_clk_cfg shikra_noc_clks[] =3D {
-> +	{ "axi-noc", 120000000 },
-> +	{ "pcie-tile-axi-noc", 120000000 },
-> +	{ "stmmaceth", 120000000 },
-> +};
-> +
-> +static const struct ethqos_emac_driver_data shikra_data =3D {
-> +	.dma_addr_width =3D 36,
-> +	.has_emac_ge_3 =3D true,
-> +	.noc_clk_cfg =3D shikra_noc_clks,
-> +	.num_noc_clks =3D ARRAY_SIZE(shikra_noc_clks),
-> +	.rgmii_config_loopback_en =3D false,
-> +	.dwmac4_addrs =3D {
+Sure. Fixed.
 
-nit: this part seems in common between emac_v3_0_0, emac_v4_0_0 and
-shikraemac_v3_0_0, emac_v3_0_0 and shikra.
-Can we add a common definition? E.g.
-
-static const struct dwmac4_addrs qcom_emac_dwmac4_addrs {
-	...
-};
-
-Regards,
-Lorenzo
-
-> +		.dma_chan =3D 0x00008100,
-> +		.dma_chan_offset =3D 0x1000,
-> +		.mtl_chan =3D 0x00008000,
-> +		.mtl_chan_offset =3D 0x1000,
-> +		.mtl_ets_ctrl =3D 0x00008010,
-> +		.mtl_ets_ctrl_offset =3D 0x1000,
-> +		.mtl_txq_weight =3D 0x00008018,
-> +		.mtl_txq_weight_offset =3D 0x1000,
-> +		.mtl_send_slp_cred =3D 0x0000801c,
-> +		.mtl_send_slp_cred_offset =3D 0x1000,
-> +		.mtl_high_cred =3D 0x00008020,
-> +		.mtl_high_cred_offset =3D 0x1000,
-> +		.mtl_low_cred =3D 0x00008024,
-> +		.mtl_low_cred_offset =3D 0x1000,
-> +	},
-> +};
-> +
->  static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->  {
->  	struct device *dev =3D &ethqos->pdev->dev;
-> @@ -962,6 +992,7 @@ static const struct of_device_id qcom_ethqos_match[] =
-=3D {
->  	{ .compatible =3D "qcom,qcs404-ethqos", .data =3D &emac_v2_3_0_data},
->  	{ .compatible =3D "qcom,sa8775p-ethqos", .data =3D &emac_v4_0_0_data},
->  	{ .compatible =3D "qcom,sc8280xp-ethqos", .data =3D &emac_v3_0_0_data},
-> +	{ .compatible =3D "qcom,shikra-ethqos", .data =3D &shikra_data},
->  	{ .compatible =3D "qcom,sm8150-ethqos", .data =3D &emac_v2_1_0_data},
->  	{ }
->  };
->=20
-> --=20
-> 2.34.1
->=20
->=20
-
---hx4+qUIsDXNsQO4F
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqGrkwAKCRA6cBh0uS2t
-rArrAP9R8xEG+zLWVTIluHMbwn06eRZVDw4njA5XwSEu+LwHrQEAo4TJM5euvbra
-4jutQknO4Wvvhxx1ELycGgKuzOGCTw0=
-=m+rn
------END PGP SIGNATURE-----
-
---hx4+qUIsDXNsQO4F--
+Thanks
+Nicolin
 
