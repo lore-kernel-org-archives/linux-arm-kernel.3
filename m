@@ -4,71 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB1DC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2272EC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DdaO/fxaX/wM98oLF3knAk6udkfoh4snwThvT3XID84=; b=vpV9OLw7II5C1XlXH622zu7LX5
-	+hymw6U3zw655TwChMytvapSaA9oyxcMpzSV56uQmNMQk88nVDPcgNTgcyfNvOWdNLb/YSYwtK5TY
-	vw9r2pAiuTKxKcZbhY8nmdX5x/WKKWSYAlRvj0OVp+XuHpC447tYdCZ1fbf6FFyJ+FnNLYJ+OX33S
-	srJJ/uYqGYnjdSdEDUeLSpWYn4y7tK0NmAIg8SPLx3F94THVnRDLVVuPgoBpZOYt6S3zOTiogLWFo
-	RJvqq03gxOaeg+K/l8bb+924UypWAHHkkPYG4yBe5Ngci0SbsqoLAaTQFaAX1ITL0OoJ/OrmjH48E
-	dVCJbzdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LsT9uDCS6ynS9P8HglVSxvbqQqFErINXoVYW1Vl+EDY=; b=W9Q2wCr3yaC09+fcqjkcymK15e
+	OvTeNAmXu0rRrGi9HoEHFfo47IhTLPuNwAw0hdMv1Q1U88xH/I74kRjEMXQT18njeYEQdZViMmBX3
+	PZVOBzk3u7dccwbOTG/Xpgm3wBgA5BFZKyz9bXBGCVb8qAlG4J5pnZ7FM9vzw3ZVUABz/ivC5pan+
+	KZUvmlmF56ptTXcxfh86xhu6LPIhcsJGZY09/tjzbKgJC0CNzKnHWidlfHoqIqTU7ABmeDHePZplk
+	Pev+oLU7tWfEfJFoWA5C12RQfY43L7uikNkbMsOjBmEmw/gksSYVMoQiHfI3G6NImPHK0p+ZlDty6
+	EAphrHzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4L2N-0000000CI6u-0RXF;
-	Wed, 09 Sep 2026 16:20:40 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x4L4B-0000000CIKW-1jA5;
+	Wed, 09 Sep 2026 16:22:31 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4L2G-0000000CI6E-3kC9
+	id 1x4L46-0000000CIJ4-1swC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 16:20:38 +0000
-X-PTX-Original-Recipient: laurentiumihalcea111@gmail.com
-X-PTX-Original-Recipient: robh@kernel.org
-X-PTX-Original-Recipient: krzk+dt@kernel.org
-X-PTX-Original-Recipient: conor+dt@kernel.org
-X-PTX-Original-Recipient: s.hauer@pengutronix.de
-X-PTX-Original-Recipient: frank.li@nxp.com
-X-PTX-Original-Recipient: festevam@gmail.com
-X-PTX-Original-Recipient: elena.popa@nxp.com
-X-PTX-Original-Recipient: consmin.stoica@nxp.com
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-PTX-Original-Recipient: devicetree@vger.kernel.org
-X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
-X-PTX-Original-Recipient: kernel@pengutronix.de
-X-PTX-Original-Recipient: imx@lists.linux.dev
-Received: from [0.0.0.0] (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: afa@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4AEF620007C;
-	Wed, 09 Sep 2026 18:20:30 +0200 (CEST)
-Message-ID: <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
-Date: Wed, 9 Sep 2026 18:20:29 +0200
+	Wed, 09 Sep 2026 16:22:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q2YPfOqbktLa9D7xQ5aHo+BTlAPKNORJfd13Xwwb7idmntx0MnvUrZMubH/o5FObn+L25M6PiRBT//ZsjCywesY8ZRvWo+B19a3VQJN2l+kGmN+PZQOtHYEu7cm0Te/yWORqxwbEkBN75Bt1ObpWHeanGJKkoKGXu3lqBVL/OKy7nOyghBLOGqaWxz6d55AJrRGoAyGY4LN/1wffuYhv3yqFEJkAOChcRIRiQQ/h8xzjosLBpTkVHhlIXE7TZql7kUP2c4MefcR3osBQopQZvqX0+sMNgh+WtAwlLRrnlDVkc4HjXyYbFp5mLy7QDBK7eTY0ahvLWNL4fDpxr8waZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LsT9uDCS6ynS9P8HglVSxvbqQqFErINXoVYW1Vl+EDY=;
+ b=dPh4jN0PzqGwBMoUl1bTZwVD7LpFcEDTgQe1tc/+CduwgIFrYnx5Edn+Xva4ie0X9Cvfq1wdl5VPz8jOTXDNNU2PVPuaVIU8WQxRHCQHtn77OZRdQb9B80mUHPWDr3trcfE8lVZiMaLnOupMIVcwcePdmIA+mO6U8zDCnn5uwJQSewCPk1f8RCii+DE6uGxBgPRFMv0xVKHBVcUej28FlQPKuzGVBG9zFiE3ovOtUoubbtIaKYdXTeib4ItGnvniyVWZ4q3LSzs60uPEqipfCfCo0CHrOx7ZPe7+AZMW3Sytm2gw6t1RAEde+QzhCmn2eFUKYQNbq4/pyI6QQ7NkBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LsT9uDCS6ynS9P8HglVSxvbqQqFErINXoVYW1Vl+EDY=;
+ b=TLXk8iQyx68oT5s3joOzSHBY6c0Q9csRpEa+hE9XBR14VIur9Y0/+t4u1nDEkHCGpBx5HX+YJ7xwdULQidNS5ONQW4NWc3ErSkB2qvj/vHAXU2tGqMr8OQOaFLInFGYBeYkI6n9N2KMo6YLgAZUHf2VYzigoqsy+M5JlAZ6wyrFU3mwPB5iiI6RiNOXxoNWjaeR3RlwjPOYL6AP+6EpOKo8MnZXAmuWO/NztZ9E/WnnbbgygXzF6PyhVVw9EIvAQwAanV6CYJVu6p/RuaAYeHhjK4aww+zx16LoBh6OCxJ3hRa1UsQ1VokHWQRLncDjkPRfBv2hllWkLrV+u+HFXQA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by LV1PR12MB999328.namprd12.prod.outlook.com (2603:10b6:408:3f8::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.14; Wed, 9 Sep
+ 2026 16:22:20 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0382.014; Wed, 9 Sep 2026
+ 16:22:20 +0000
+Date: Wed, 9 Sep 2026 18:22:12 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
+ selection
+Message-ID: <aqGHtIo2Bk2irSdu@gpd4>
+References: <20260908082345.103087-1-arighi@nvidia.com>
+ <20260908082345.103087-3-arighi@nvidia.com>
+ <CAKfTPtAQh6ZndkHC+njYvX0hoDafaC+PX2EBfafDumTHvvgFcg@mail.gmail.com>
+ <aqF4sqhjpYjIPgQF@gpd4>
+ <CAKfTPtASXty5hOOgmXokCh95w0idU0y12UDua1_vg9m8teF9Rg@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtASXty5hOOgmXokCh95w0idU0y12UDua1_vg9m8teF9Rg@mail.gmail.com>
+X-ClientProxiedBy: MI3PEPF00007541.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::4d3) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board
- support
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- elena.popa@nxp.com, consmin.stoica@nxp.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team
- <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
- <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|LV1PR12MB999328:EE_
+X-MS-Office365-Filtering-Correlation-Id: c579949b-9ed4-4477-de98-08df0e8e85a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mJla1NbzG5xZI2fWztvAwvReI/IaLYMIoB1P2XEV09b3uhfMhCDgMTbrLwEnKtDOR61IXRpUuu1dFP0a427m81oNYbyAlIOg7gJO0jISbh15Uze7VO89FLXgBz4IeXxQAJwvl0Rh3I+abFkQaW3LvLeJzyrtEaEHnhzguG7hvIxsmXnh38psYuF8Q7c21nrFUnKq3k+PXru+H1PbcmpB/hUL3nXHXzmQ/DAmZ6vYYjmUiLQheuRxaUdzyAVrq642n8QmLCHRzRIovKZV7MgNI210paQ8g7i7aoYtUg+kNLAvYruIfKbOBFQraTGcP88cuLCv4F/GR7kVtsNDqXJXkwCOs0ABPvBIuRvwYB3kCz0Lkjnld6cJB0aasYkJIZ7nCaUdfd+7dOv00FHC2CtzMNzgWY8mY7D/ps+hrMY8dft6G4i+F/plW0qA9KSGVPE5yQvhXm+R+srgmLI8DN+xG1Xnev2Sky8YNRpHdFG2HOmZ1Zi692uZV4Ef/3kXSGUV/EEywDlZyURMD/tCAlQ8dOlOCXp1S7QX6jZbUSdrOOB+hr1/f/iVPYwHa/ZgBmBBa1fz17SHywaRHzpp+ReJuVnxTkPuKVmKiqL87JC6jPo8cy4FCJO6wppC0OQUvKPHyhFzx5XHe0mL4AmY/VO3X0DcKQFf3pUKlua99QW6Unw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kvW6grVhAxC0pjhpLS9277h/7d+kWZs6W5jEeIXgQDMWe5hTcFJmdgWtyANq?=
+ =?us-ascii?Q?fMzI4Le3Dljwb5cIiTuMIDIyHIkX1EVNny+fkUINGUh20xgIkVXJba6QAKIp?=
+ =?us-ascii?Q?Wl589fXJpSuKsz4rz9T5OOJcLLosyGDXNI12CBL6ziUtY/gR8H5zI9Ny69LV?=
+ =?us-ascii?Q?Zpm5X8hhQ4al86JT+ztGGEFDCrQ76Gfwz4M2NyhdPosLtjZMomfOGY+jYQi3?=
+ =?us-ascii?Q?U2wYPveocyzc1iXUZSiL0gnb/5hFYCeyiYcPJGm5fX44/LZ+HsvuDpTPE7s7?=
+ =?us-ascii?Q?q6FcFwMAIeDdbgqjY19iQ2Ei4kV+h0n/XDoBMFQS8Ooh/VdtjRA5r7Ewu1gD?=
+ =?us-ascii?Q?jcezIoEjSEZCvHn+nXIUl1cSsWFAPLYVpJryKsPKkZlmj4vALqAcNCBUXHTu?=
+ =?us-ascii?Q?W1amOWoTkyMbi8j4ewpuch4+6B+sUWDU1odrAGXno2sjJZjGCSXIGqYHNHIM?=
+ =?us-ascii?Q?YSq45mcwRYRXaDxpRoZdGQCe1S+rMilQZrHd5O2rs3YtejvmKtuSy8eRdyhM?=
+ =?us-ascii?Q?EN4a54+lEH76A5DqOmeLOuSyfsJu+m49YVKavelqTCZNPOhY+qmSKWjc7thC?=
+ =?us-ascii?Q?roHTISxwFtvW3VeSUtoCnSNe+imIn7dm7Kpzwi+PTE3IfAQvWjxjDptfZp6e?=
+ =?us-ascii?Q?IOimzIcHyfVt7a6TdV+9r2ICQdxc4noxnJGcKEXExQqUY93ETl10mHqOJTzi?=
+ =?us-ascii?Q?cjessgLzRBfs+mtB6+8WOI/8srg/nx5qJlpbPBZGa5d+g79/FlJDUTUCC7JO?=
+ =?us-ascii?Q?cfFGJiz0xH+P/KRsBi5X0lj1kiax8BCCxFFAz5zxWcC/1+Yfed/6hPLs9z0J?=
+ =?us-ascii?Q?qh6goEXKwmCa7XqEDASxss2A3y7r4t1I6TSrzA5HS3CCr/rjnoNSNohQCB8/?=
+ =?us-ascii?Q?B6LXS9djMy80oRKWP2b6k6dV9gBlRDRmIooX5syo8g8ZrLmmfdhoU6iZXXnj?=
+ =?us-ascii?Q?nP11vWlisZTF89U3NOg54pWGvWVoxvK0tnj49C5AIjwrlmYmNSFl/k7To2en?=
+ =?us-ascii?Q?aDl6xUqsMZ/q/EjrQiRrHwLnVIbXAKiyXeX/+/6FkTx/lbOc4ZjHmtFzMzPk?=
+ =?us-ascii?Q?Qtsb90KLPU4ISxu6tKTMLbqugEGV9VwEl3LGFPwekAR8y4U3hCjpaS2P/Txi?=
+ =?us-ascii?Q?YAgxgS3Xs9gxoUM8gx0E/aNTrlB2OYDzwoycYWSVvVQgL2trI4mkqtliA0Wu?=
+ =?us-ascii?Q?qhYxCUU42hL8qRoCdIUYsym/Pyq2WIilaAyhYOaLHdk3rOY+JH6btY8iTqHQ?=
+ =?us-ascii?Q?M2Zvr0s34CEIwi/1boFyYHmvwnWn7ZgDoHqkJy0hmwPbCfjPqhyT4YCroKDz?=
+ =?us-ascii?Q?MtHiZ2xRs91DuxfMqgl7MaxFGgkfWpReziBaXaq63XxguL457YTSpWgzos6k?=
+ =?us-ascii?Q?mzXW6anKi6QFMMf9Z5TsjXzVCw2xspRbN/eoIbwykCMqnWAdVH8mW2zM3GQx?=
+ =?us-ascii?Q?tWDo23U+EQnssAL08/B4jNprgTVZpCzd11AW79vLSuFXejFDDn3qu5LQa0EF?=
+ =?us-ascii?Q?oQMYKWHQtMns1aqcBVt62pWZE4u4gVZGj5rCQipabCaN2uRnnhFjc87Nb8wd?=
+ =?us-ascii?Q?D4Jaeg6isausK53CdYSmkY9nKNli84fOv/RwgtPVywJ99ihHMuf3/Fqu2mWF?=
+ =?us-ascii?Q?+UnWmss/VMFqbKmwdLzbvdMGLf1KCasAZ4vJyHPSa4tyaiettfYAO2XLsrGc?=
+ =?us-ascii?Q?IeE/qGvuMJnIXqy8kVDyhDRMGyOIyfaYBD+kkk1Xp7/M3V5ZZfXiJ8p/g/xD?=
+ =?us-ascii?Q?ufNcwYvvKA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c579949b-9ed4-4477-de98-08df0e8e85a7
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 16:22:20.1710
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kIS21NRgoTSk6rB12QaDTEugj8HncFC7q1YWPmfnFqjALPCm7Mv+NXgAUcP+H6eFvabWx/0tIgkjkYbYPh9TAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB999328
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_092033_089796_BFDAA643 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20260909_092226_498606_41A4538E 
+X-CRM114-Status: GOOD (  37.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +152,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Vincent,
 
-On 9/9/26 5:39 PM, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Wed, Sep 09, 2026 at 05:42:43PM +0200, Vincent Guittot wrote:
+> On Wed, 9 Sept 2026 at 17:18, Andrea Righi <arighi@nvidia.com> wrote:
+> >
+> > Hi Vincent,
+> >
+> > On Wed, Sep 09, 2026 at 04:42:44PM +0200, Vincent Guittot wrote:
+> > > On Tue, 8 Sept 2026 at 10:24, Andrea Righi <arighi@nvidia.com> wrote:
+> > > >
+> > > > POWER7 and NVIDIA Olympus use SD_ASYM_PACKING at the shared-capacity SMT
+> > > > level to order hardware threads. Idle CPU selection does not consult
+> > > > that order, so a task can wake on an arbitrary sibling and remain there
+> > > > until load balancing corrects the placement. On these systems, that
+> > > > initial choice can prevent the core from entering its preferred
+> > > > lower-thread resource mode and cause a large and persistent performance
+> > > > loss.
+> > > >
+> > > > When idle selection finds an available CPU in an SMT core, choose the
+> > > > highest-priority available sibling. On SMT2 Olympus this only changes
+> > > > selection on fully idle cores. A partially idle core has only one
+> > > > available CPU. On wider SMT systems such as POWER7, it also fills
+> > > > available siblings in priority order while the core is partially busy.
+> > > >
+> > > > Apply the preference to idle-core and idle-CPU scans,
+> > > > asymmetric-capacity scans, target, previous, recently-used CPU fast
+> > > > paths and the slow path. Inspect the lowest scheduling domain directly,
+> > > > but require both CPUs to share its span because isolcpus can split
+> > > > hardware siblings across scheduling domains.
+> > > >
+> > > > Keep physical-core capacity selection independent from SMT sibling
+> > > > ordering. SD_ASYM_CPUCAPACITY first selects among cores with different
+> > > > maximum capacities, then SD_ASYM_PACKING selects the preferred available
+> > > > sibling inside the chosen core, whose siblings continue to share equal
+> > > > capacity.
+> > > >
+> > > > Reviewed-by: Srikar Dronamraju <srikar@linux.ibm.com>
+> > > > Signed-off-by: Andrea Righi <arighi@nvidia.com>
+> > > > ---
+> > > >  kernel/sched/fair.c     | 85 ++++++++++++++++++++++++++++++++---------
+> > > >  kernel/sched/sched.h    |  6 +++
+> > > >  kernel/sched/topology.c | 36 +++++++++++++++++
+> > > >  3 files changed, 110 insertions(+), 17 deletions(-)
+> > > >
+> > > > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > > > index b8bd308c2d5b1..37837c36288a0 100644
+> > > > --- a/kernel/sched/fair.c
+> > > > +++ b/kernel/sched/fair.c
+> > > > @@ -8587,6 +8587,35 @@ static inline bool test_idle_cores(int cpu)
+> > > >         return false;
+> > > >  }
+> > > >
+> > > > +/*
+> > > > + * Redirect a CPU to a higher-priority available sibling in its SMT domain,
+> > > > + * subject to task affinity.
+> > > > + */
+> > > > +static inline int select_idle_smt_cpu(struct task_struct *p, int cpu)
+> > > > +{
+> > > > +       struct sched_domain *sd;
+> > > > +       int best = cpu;
+> > > > +       int sibling;
+> > > > +
+> > > > +       if (!sched_smt_asym_active())
+> > >
+> > > I wonder if it's worth creating a new static key. All other pieces
+> > > related to asym packing use sched_smt_active() to opt out the related
+> > > code
+> >
+> > The intent was to keep the additional sd dereference and flag checks out of the
+> > wakeup path for the more common symmetric SMT systems; sched_smt_active()
+> > remains enabled on those systems, the new key lets them return immediately.
+> >
+> > Without it, the additional cost should be small when everything is cache-hot
+> > (roughly a couple of dependent loads, flag tests and branches), but this is a
+> > hot path and a cache miss could make it more noticeable. I haven't measured
+> > whether the saving is significant, though. If the extra key and its topology
+> > accounting are not considered worth the potential saving, we can remove it and
+> > use sched_smt_active() instead.
 > 
-> Add basic support for NXP's MR-NAVQ95 board. This board is designed for
-> robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
-> following hardware feats (list is not exhaustive):
-> 
-> * based on i.MX95 19x19 SoC
-> * 64GB eMMC
-> * up to 16GB of LPDDR5 memory
-> * 1 x USB 2.0 TypeC
-> * 1 x USB 3.0 TypeC
-> * 1 x RJ45 port with RTL8211 PHY
-> 
-> The support targets revision B of the board.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
+> If we start having a static key per sub part of a feature like the
+> asym packing, that can quickly become unmanageable. In this case we
+> should better have a a static key for whole asym_packing feature
+> instead
 
-> +	chosen {
-> +		stdout-path = &lpuart1;
+Makes sense, I'll remove the static key and use sched_smt_active().
 
-I would recommend instead "serial0:115200n8" here. This introduces no
-change for Linux, but for other consumers of the device tree, they will
-be able to agree on a common baudrate.
-
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		/* actual size filled in by the bootloader */
-> +		reg = <0x0 0x80000000 0 0x80000000>;
-
-If the board has at least 2G always, this is fine.
-
-> +&usdhc2 {
-> +	bootph-pre-ram;
-> +	bus-width = <4>;
-> +	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-> +	pinctrl-1 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-> +	pinctrl-2 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-> +	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-
-Looks unexpected to have same pinctrl groups for the higher speeds.
-Are higher speed modes even possible on this board?
-
-If not, I would suggest dropping the extra states.
-
-Cheers,
-Ahmad
-
-> +	vmmc-supply = <&reg_usdhc2_vmmc>;
-> +
-> +	status = "okay";
-> +};
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
-
+Thanks,
+-Andrea
 
