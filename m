@@ -4,132 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AB6C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9215BC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=; b=1DrhdWP/xJWWg8MeTYG9HyIGae
-	UNZPqiErynxgPU6S8JHfOAIJ267gyzv2yN8xtQUkJKyAnLvvCqWn+voDV/Of4z9u7umA8UFwXbbOu
-	OWhmEynqvc79ej8vzh2GJkIMtNpQYrOwfe4iu/7SNyeirmsQqQDhuo16n2811LufLQBCp5fxaZYOu
-	3wZUFytfJKEAUj0q8wXOFkgXP62eihbUQL7bmF8NcAyzsZtDxNahUFoHBjhrDAdLeyhqa9Ryyzfj0
-	BdGOZRAqkKGdHT4p4DqjOG28vA44Gph4ED5GwiVtpI3SpjwFl23vp4Sq0XDP6EOg56RMCmuk9VRQ0
-	3Nbs7P8A==;
+	bh=UjINjCJofxG0Hx+eP6FeXopWezSwVFKw/eXpAnjSr8M=; b=GscuI6cs+JkE0F9Y0ipLxkkReT
+	rqcb3UMknGLoLAsaBamIja7ssqkPomwWNFd8K9mYnqrd9Wdks35teRr2gEkxIzI5WaKAjEt7dKG4e
+	FfqT2KOP4oVTWDhNMaB5pIAfd81odtNU21PDX1a5NLXLxiwERup0K/UkPPJK5SrqTCtIydLtmCHOT
+	xPgy7Xb+KGcjbZ+nxBwMqtQW74H4KFDeBzjq7AQl+PBdbowBTIDaOGbMJ/UtEnWiAHNhhc+ztkdQE
+	4IH4JGhRcirJryn55fsXv0F9+CjTcTb673Jyc6UzaGmQYHbframUzEJaAPgaTsyYQrsvCvzGU2KS3
+	kxRHpPCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NJL-0000000CdoB-1Kmr;
-	Wed, 09 Sep 2026 18:46:19 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x4NKt-0000000Ce4g-0ds1;
+	Wed, 09 Sep 2026 18:47:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NJI-0000000CdnK-3eu6
+	id 1x4NKq-0000000Ce3u-1wCS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 18:46:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xpdV0a9Z8iwDBWMooOgPOeZMkRjZVYDQaNqrFimw25F9s05Ynjk7sjDg39ZnE/UYlPzpNrBQZjIz52oeWvxrP/cjOQypHVkz2vDnrRGgtHJ7MiWVrCGw7TpOu4KyUwlTYIeyu0VAYK1RC7gmxfxUj4Ar37OVy3m38ButWVIBumZMO7uv8OypCx5JsY1V9ffyxm5IiG6CdPjstwCIIZbtuqJvWWXyKb6lLZubbnWuJ6ArfUgFCvk+kB5MGMoZ/ArSFjk0g0ND7afLlxzsFGlqaA1cfHPFgaRxM6RcbqI+DXDCdnVA4ufaWDro/SZ8fokUlj7V9PR48VEDCDX2V54T3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=;
- b=zQVyvQ2Uh81DmdxfMrgLn8GVq2oA/8ptsOEux/ntoS+uK4QTxcpbndp06Y0jf2BealUbRSPj126Ve581pj11Z1CxoiuyZkm+FDuiv9xOFkV7zEOFupZz91PkbAwpucU7vxC+G2QAmS2kbUoh9R82oiPTppG/vmufNYDpU8l+n/FbZrenWr+NL672RlNjfoRYPaqBKgo3mcMsqy/CuInvreV+/uqLn5ZunPYqqQqioCAMTumiMK/1Hh8G+4geWk7n3dNAlqkat/vJWArEV3giNK0d3dpbS58e/VnwVgfL6CPu1gRgb7xphuLhhq+rpAn2YVckpkFE5k/EWQOYFScmVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=;
- b=q7icaDMN34SQh7gporuTsQwLTxtZI5Z5udZO4NKl11fXUP52xTIU13zXEh6/mXXvnQOBqqZDeYZrTutc/2lSIAjP8ugLVXWQzDZr+DYoGC/URJaMqpLw0zr5e0k63L4wRAqcpS5OYDlVcLokz/csv+lR3A/WKhFsWvFiA/FiH6w8fRLQRPhejimzsRMgLpcUaotKa5ZOih0kqSsjbg9Ze7JEZlY3rUiOnOfuzkng4uVwS7OFzcYLUIkJH1fgd+RqM3FMIpy2NUPDrv+cXwso9dII4/Dh48eqo87Qe4foWJ6pGIGOhzeYuZ2lwEOIJUraE36rxWoApyHFJ8fuRVbRsQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM6PR04MB11268.eurprd04.prod.outlook.com (2603:10a6:20b:6d1::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
- 18:46:10 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
- 18:46:09 +0000
-Date: Wed, 9 Sep 2026 13:45:57 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Eberhard Stoll <eberhard.stoll@kontron.de>
-Subject: Re: [PATCH 1/9] ARM: dts: imx6ul-kontron-bl-common: Replace UART3
- with DIP switch GPIOs
-Message-ID: <aqGpZQlbFHD_-hVg@SMW015318>
-References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
- <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-1-4d0e8a75db79@kontron.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-1-4d0e8a75db79@kontron.de>
-X-ClientProxiedBy: PH8PR02CA0045.namprd02.prod.outlook.com
- (2603:10b6:510:2da::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 09 Sep 2026 18:47:53 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689Ihvsq2284066
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 18:47:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=UjINjCJofxG0Hx+eP6FeXopW
+	ezSwVFKw/eXpAnjSr8M=; b=D+2Mbw4Wz1ucLoRCjZZYq5KAD1AGbhsfRnzQHz0c
+	NJ/OCD86miYFWT7NTTxn/tDTq1Nt1v0MoZm1WNhedXC8T91qKTtoXwh8h1VXTR5N
+	djCIWugcZBIO36+Ro1yyqOMaz8qcEDcATI29LaegHqNzz1wcKuEa62vEzyrQ58Bq
+	9632bd9XrcqTC09twWXiLZcHMYQWSIhNK3vEa1lYXJOQMaNLM6sD3HpJvjmac4Fz
+	PJo7Rt5tq6PE5Ef2+/UKWuhHTtZTT4yO2KEpxm4JV39E3j7Q1bmKRpMmJcERWe4z
+	mp5sxmCC0jDZMS4oMQeIrZUAcFSWmkv5Lllt03sFHHEPOA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gkcydr0vy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:47:52 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-934956beec8so885850485a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 11:47:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788979671; x=1789584471; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UjINjCJofxG0Hx+eP6FeXopWezSwVFKw/eXpAnjSr8M=;
+        b=X2X+Xa+vzxbT/RTt7WBV4+zJvBX1GBOufGexGbk/R/mw6/+kzfZ7FLYkv1CIBGtFRQ
+         fTJR3lLUWHKGTRdrcHn407Bik7WzqMXD+1hZQ9Rwkiz9F0MQUJIRQc08REM0aePIt+3/
+         KHuu7h44kx7HoI47BPQ7AAD/yxv6CnDqCYhLDZolpxMuVm2cjJfDtKyMkRAEqXuVuk4t
+         5feZHwGmuiD32kd2OHGPUkkNpG+2Q3r7xIQsZNHxNVI4cAGcuWLLPa5CNAd3TMhd+E5j
+         gnQ8J7XjCmH+a0dqrphBb9tEdO/CZfIroCP71Ixo9NdB6MitDABW8CFODF8GhKupHj8b
+         ifUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788979671; x=1789584471;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UjINjCJofxG0Hx+eP6FeXopWezSwVFKw/eXpAnjSr8M=;
+        b=JrWrJZpVkJxDEAddEcCAcKbTNMRmgjZiGc6408slr84oI4FqnHu42WIIYysrNxmDNE
+         5jQZ4yYggJ8jBxptuWzG3r+9s3Pbtg5ZsGeTB6A1UJ7GufVJI4BChjiSSwPD2U8Jew1+
+         b8+HRdeL/1Qsx7YrDHbxi1B+9chgneBZ8lksqRWnT6yY6VcwuBbzJSMSZrMW6V7ehBCq
+         gJVzjedoKS1Nnh5uGc88XijFbYP0DU4yi4qwW9U8JwZijXQT1qGVRRdikysfWhC5Vrov
+         CNyZmpO2QvK6eBK2wd2Qwo6mpkBAzRa4TIWZU2PO49VywbQCQ6l/fFeTonpWRGv56LIR
+         B5ZA==
+X-Forwarded-Encrypted: i=1; AKwUvBwiJi7reNNBWsLtBQ+rovK6AFnSOHqUW5NaB0+XvAzj0b34ae6TC04m0vk5mFnC6cE0tQofL4sFkHzbIZoxUWxB@lists.infradead.org
+X-Gm-Message-State: AFuF++kcmuhKwVIXkhk/aG908tUlG+l6cnEZchBFicEN0Ym9c91nv+UW
+	tf3NQvIsawMRHDQgOhpuhTFZq+VPf/k7QRJEz2Ax+dTH4mhOA7JE0BhqefdbcVfaOqoC4xtxOBe
+	JK77eOk821PfxNntRvhY3rWTwtmRPrMFtfIBZeX6PCkrPMGNn/JylyO5SneJ+H0SRhk/+ftWBVW
+	j6Fg==
+X-Gm-Gg: AYBFou1TfJxudpyUjIqWu15eyC16QJXh1YLB8gNpLTy+l0Zk5aZRd8d9fIpDhEwR7pO
+	EnpRvLeKw8j8WqcQOOIAovdl1iXqyXlIFvEFnVobzlXer7RwYjmqVQEzPiPJq8MEUYQs7pSTnXA
+	W00vPIFu6cwpHzImzSDmnIVu8uYIlcX1PILSM7H2Kk7T/19Zxm+lPCuUAVbwDAbAmi8GaikSxiB
+	+CIikzdWgdWsOz75VouiS8021suc/nT9vyhblr2x1oqs3b2QjEu0dZl4yLs+a3wtyQvrLXx6CRz
+	Mi0A4XyUWZ/qlhRpcsOXC7ZyPrKHWb7FTpOonb1MsAaONUEawycUnQgWmbsZN8fHgJzF2oxIFJY
+	KyZKhV5baC8dN4w==
+X-Received: by 2002:a05:620a:468f:b0:939:6db3:6cad with SMTP id af79cd13be357-9398035a913mr3836948085a.12.1788979671024;
+        Wed, 09 Sep 2026 11:47:51 -0700 (PDT)
+X-Received: by 2002:a05:620a:468f:b0:939:6db3:6cad with SMTP id af79cd13be357-9398035a913mr3836938685a.12.1788979670273;
+        Wed, 09 Sep 2026 11:47:50 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfe14sm46103192f8f.35.2026.09.09.11.47.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 11:47:49 -0700 (PDT)
+Date: Wed, 9 Sep 2026 20:47:48 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
+        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v2 8/9] net: stmmac: qcom-ethqos: add
+ per-platform NOC clock voting
+Message-ID: <aqGp1D6ySJpTK1fB@lore-desk>
+References: <20260908-shikra_ethernet-v2-0-bbe3389d0652@oss.qualcomm.com>
+ <20260908-shikra_ethernet-v2-8-bbe3389d0652@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM6PR04MB11268:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7da11d90-382f-4dde-59c5-08df0ea29d13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|23010399003|22082099003|18002099003|56012099006|10067099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: HtSeCwd4A536vACWrzV/+LCJ9UCSKlHDgQcBjfMyAmrQ7SBPAmR5tzWxhFQJCRVlNPQXZ1r38pWTPquQDnJb/J+2ZHgKm2zm7zx0Dt0pLYPTliqjOkKuYQS4DdWg9lmWyYt+uXvo8zri503xT4IcYZ+aVeyGDb8u+Jp/Cw+LbmxINdVI+jxofPa+Y+ossI0V4kC5KOZdDTOTmHFrXrqxEqJD4q81fnDX6M/yX2IBQCoWymCM49Poti/DEZxlIgHdMMfwOhwPBU50xrJ2Nl3TDJH0yXUgfdGesl6+dxASlrWyZgP0mJtbQj9L1pgw/sRKgcyTvKmRn3dS0Zh0RcWXRgU5LQI1+eUQ6vjvANElmzJdiIXcgWROMzQiSQuXYoNDRxk4l7ohMsWoNjF0m4WrfP71I1Vr8yRdn5+HRt0RhOCKyKuWPeXZOhdijOTnZ72Y2WZ3lN5sVusQU2tLpjAbvWelhJU7zLC6bckZbjtprktj9eFYwX93XNCKcbpM4CFgT+1oJsS1j7x/mDtO1PORrslR9y3DojH/4z3o/T7wLcLbh7u+UbdlpEpGmXnmQ2XoPKL8JfSs+sBuXuhWPD/h/erPqYSJ0+kuEJwnQnMxLeYn05lTjlA7lRgJfEwh32NkR0bGbSp/11zVlUGoh0jw43zxYf17bN+/E+57I/xkoVA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kbPyK1upnUS3k6m3len73SfIL1M/NtpCCgeVPtnDIKX71K1Nb95ZGgEURuC9?=
- =?us-ascii?Q?jZLJh9qAvg6hOlrvpKeYykZs2y1O//7p4O/tFt9DfW/aJmwPhGLgYA9ADvG8?=
- =?us-ascii?Q?y364MMZW95kIc6eos9dcAPW00oXThahKALtMfyf+dizKrKh9nuRQECliXtLi?=
- =?us-ascii?Q?RZcktEFsF95tXFCL34K8RaUIW2AGqRhO4CbdNJLy5/kGHq+jkFlKFdbNB3Nx?=
- =?us-ascii?Q?MgAZawdVpvOBzdI3tpN0inNkReVHn//ax7JGH4mNCQNFwyFQUBSEaiWbdqXf?=
- =?us-ascii?Q?yoZM7NM/uZtnZthB836HIKQOhu9O1GH5RQkbmAz6iGzCKt3PhaVcfYOzFi4/?=
- =?us-ascii?Q?6nZEupNPDpCs/vzC06ohhn6jNFvPQV9SuOvdxcOtrjnLA3HxQK/Knd/BXmxv?=
- =?us-ascii?Q?pFecs8gU7+8cuayU69odYmLxnM4OMPeM6GK9+jLlUz8go/lmUytNRMxSE4sk?=
- =?us-ascii?Q?nus4HD21s/yjPSIocoZ8UpSlW20e9FpTOc2xbuiuojlxb6OaIxaBG+Qdx3n+?=
- =?us-ascii?Q?y+S9/I1oymHz4XZC/Ajgj0jEndDgRGVhDUwVAGs9wgTvnqapU+PFxobaaEYO?=
- =?us-ascii?Q?zCNYMO/KtAJs5stBF3Jz1C/uk9QFt+hZrSnwqDC4ZmjQ6ntXPePOKlR8JT/C?=
- =?us-ascii?Q?O73cu8K/OrYFZzJau6MZYNMSlIXF2Rf+abeEG4lfdlu12UkTyf4r1RgkjpsU?=
- =?us-ascii?Q?HLTw709Zjsg6sitmOInq/HlmkOBoTsbiAw4N6wpxFKgupApCvpMDq7HWt2RV?=
- =?us-ascii?Q?ASOSnSA4R7rbBN8UFHAufDbLgJGVFVqy+Lc73khiKvYJkfpo+iW6wmzntA96?=
- =?us-ascii?Q?sExfZ7bh0XEn+ek5Gf3v2NWW7KHlLNMkFP9m23wiMndjt4EEXJbrSQfYvoNx?=
- =?us-ascii?Q?2H5XwBfplcbAjQqVqFcHuHNLYvnIgXrTYZgBD4lcsws6NORk4QE1WCma1oLM?=
- =?us-ascii?Q?1VME86UtLiHJ2QcJntv2pBChzI8/dzQcYXJizChj31tgEBcBfpYecswpWajp?=
- =?us-ascii?Q?4T7WsGVjeXNr8q13pwKYAuloncgcnxTxdlvv5LHvQ3+6dkoDTA+WRjToa45e?=
- =?us-ascii?Q?KisIxOmd4dRhiErtyGjnVuMB2WhEGhhJaW8oGQJsMLp+v2WppTH+S2IA8dbB?=
- =?us-ascii?Q?E/cK6yzspW1lm4h8rHBUtbvznyImBvJZjJS+TqwQoYyDBc+J14So5JuQ8qrs?=
- =?us-ascii?Q?Tqx0XnSx5J6+K8Ag9MKGAN5hdZPyFISd1CZlc15m3GtT95HpHqmqEOnyxO2H?=
- =?us-ascii?Q?SpI8ChTmHn0vraftPSdFodVB1GaaTdkFYmkBcswiaQXH/iAX+gv699t9nT3t?=
- =?us-ascii?Q?GphB4I+YjtUKy0YBCfEKUchNw1B/ImQeJXEn0ymiwiUEt9a/v8bjkvw863HZ?=
- =?us-ascii?Q?XdGX8i0zSwKw1xbHNUXGnoSzIzY5QH5gdG9GmQF8VS8b/wGVDNsPVHyZ8sP5?=
- =?us-ascii?Q?UVvqy3oFRF+4zDS2bGX7mhb/Yg8ezTyizZzA9y3zHxQKdX8M7UczFXeRhChh?=
- =?us-ascii?Q?WA5bJ5PZHSDvtD59zRDGu4a3pBcvOBWtmy4mzuYpgTpS98osxD0MKZIaTGGV?=
- =?us-ascii?Q?/trAsr4aHnuI6FntLVwJUdq4q0fAERZ0yBNk17KOwpiXCRbAKcTDGuDn5Lm0?=
- =?us-ascii?Q?X9ejuH1xyGM4XWkr/ncS6BGjAnIqo++Ke/G+sy20tG+AUp2rxAGCdAHTOwA6?=
- =?us-ascii?Q?9iIEQ5yNOoZMvw3/Mjk/5hg3O5E9Lvddo8okhaYkvb1eX8YJlLrLzkU9Du+L?=
- =?us-ascii?Q?huWVixRySmzBB78Kzr8sUC/GqCfJT0jaz9gLi0dn1oJb1QMiYCXW?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7da11d90-382f-4dde-59c5-08df0ea29d13
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 18:46:09.7498
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kbpneEe2Bg49pvjH/Vx84+Lh6/9OYyyjoHvNNG4k5+OHQwfVFT9ox681qAbq/fv5zXtpVgIjqCM5Wvxn2l9q69+z5RbMpyT5eGCtzofYCcmT+jKpkS5mIBK3pEWAoIZd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM6PR04MB11268
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="slUpn+zr8Skpi/6V"
+Content-Disposition: inline
+In-Reply-To: <20260908-shikra_ethernet-v2-8-bbe3389d0652@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=IfsSymqa c=1 sm=1 tr=0 ts=6aa1a9d8
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=Jx9YaH9-bZbgU6IgifAA:9 a=CjuIK1q_8ugA:10 a=8sS7P86Wg6PPOb-1CJIA:9
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-GUID: kinrP7loMhgXEqi0m5M6bn2TfoAthWn6
+X-Proofpoint-ORIG-GUID: kinrP7loMhgXEqi0m5M6bn2TfoAthWn6
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDIxMCBTYWx0ZWRfX89YLhm1WhF1H
+ jckKsluDJ8HFNKMQ8Rdw08guVxGzphh33eb72fYuDCF1QXBdsenrWHSwTVijTRJFQ6X/w7mMla2
+ lEGm4fryh+K5Mbrz8Km3SjK2v2hSdjM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDIxMCBTYWx0ZWRfX5xGk165+M/rH
+ yW6UJs/XjlI8BXZHJtxAnpWy19UNUoGZG7ZBKHSsOe/+TKPInJpbpbpCBi+ul4cbAZK1GJIxJv/
+ ATnmBGQF6LwFQqmLNxkZ3hFwsRKhtHPHZI1QpL4HdDgFvm0+RxfsguE+c7trIL0FYjlstyjv6Ey
+ 5I1GgSoJ3tFI6UvKwOCyuJriZj8T60Mpb9vyjcvWfasxNhVdoUPvZhTtdOqx44TYmi2ob3aLya4
+ 5v6BZ2LCgt4pRWmazvDEVth/+o5S9nVwyo6ZjFCrpqN9znWbgk80IcYS9k00pmFeDKu+CkOZ8QF
+ zS2PsdRZLc1UYAGwsETQCO2JeblQgLBnJ1OXJ32nabyyUtD2l0K88sonsVlIrWH2FMfwmymud/9
+ q8TL8gcKAsDVX5A5EFcr5SAgCFb6EA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 lowpriorityscore=0 spamscore=0 adultscore=0
+ suspectscore=0 bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609090210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_114616_919835_4AA89DFF 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20260909_114752_512420_FA38310A 
+X-CRM114-Status: GOOD (  34.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,80 +165,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 03:51:48PM +0200, Frieder Schrempf wrote:
-> From: Eberhard Stoll <eberhard.stoll@kontron.de>
->
-> The latest board revision has DIP switches and lacks UART3 instead.
-> As the old revision has long been deprecated and not maintained
-> anymore, drop the support and reflect the current state of the
-> hardware. As the old revision hasn't been widely used, UART3 was
-> only available through an obscure extension connector and we have
-> carried this patch downstream for years, no users are expected to
-> be affected by this change.
+--slUpn+zr8Skpi/6V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Remove "we have carried this patch downstream for years".
-
->
-> Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
-> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> Some SoCs gate the EMAC's path to the System NOC behind dedicated clocks
+> that must be enabled before the DMA can reach memory. Add
+> ethqos_noc_clk_cfg and the corresponding fields in the driver-data and
+> runtime structs so each compatible can declare its own set with per-clock
+> rates.  The clocks are acquired during probe and enabled/disabled
+> alongside the existing link clock in ethqos_clks_config().
+>=20
+> No functional change for existing compatibles. This will help us when
+> we add support for Shikra.
+>=20
+> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 > ---
->  .../boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi  | 21 +++++----------------
->  1 file changed, 5 insertions(+), 16 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-> index f4c45e964daf..a71669bef7d4 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-> @@ -172,13 +172,6 @@ &uart2 {
->  	status = "okay";
->  };
->
-> -&uart3 {
-> -	pinctrl-names = "default";
-> -	pinctrl-0 = <&pinctrl_uart3>;
-> -	uart-has-rtscts;
-> -	status = "okay";
-> -};
-> -
->  &uart4 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_uart4>;
-> @@ -283,6 +276,11 @@ MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x1b0b0	/* DOUT1 */
->  			MX6UL_PAD_SNVS_TAMPER4__GPIO5_IO04	0x1b0b0	/* DIN1 */
->  			MX6UL_PAD_SNVS_TAMPER1__GPIO5_IO01	0x1b0b0	/* DOUT2 */
->  			MX6UL_PAD_SNVS_TAMPER0__GPIO5_IO00	0x1b0b0	/* DIN2 */
+>  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 106 +++++++++++++++=
+++++++
+>  1 file changed, 106 insertions(+)
+>=20
+
+[...]
+
+>  static u32 rgmii_readl(struct qcom_ethqos *ethqos, unsigned int offset)
+> @@ -689,15 +703,51 @@ static int ethqos_mac_finish_serdes(struct net_devi=
+ce *ndev, void *priv,
+>  static int ethqos_clks_config(void *priv, bool enabled)
+>  {
+>  	struct qcom_ethqos *ethqos =3D priv;
+> +	unsigned int i;
+>  	int ret =3D 0;
+> =20
+>  	if (enabled) {
+> +		if (ethqos->num_noc_clks) {
+> +			ret =3D dev_pm_opp_set_rate(&ethqos->pdev->dev,
+> +						  ethqos->noc_clk_rates[0]);
+
+assuming the first clock is always an OPP device seems a bit fragile to me.
+Can we find a way to enforce it? (e.g. have a dedicated clk_bulk_data struct
+for it).
+
+> +			if (ret) {
+> +				dev_err(&ethqos->pdev->dev,
+> +					"NOC OPP rate set failed: %d\n", ret);
+> +				return ret;
+> +			}
 > +
-> +			MX6UL_PAD_UART3_TX_DATA__GPIO1_IO24	0x1b0b0	/* CAN_ADR0 (DIP sw 1) */
-> +			MX6UL_PAD_UART3_RX_DATA__GPIO1_IO25	0x1b0b0	/* CAN_ADR1 (DIP sw 2) */
-> +			MX6UL_PAD_UART3_CTS_B__GPIO1_IO26	0x1b0b0	/* CAN_ADR2 (DIP sw 3) */
-> +			MX6UL_PAD_UART3_RTS_B__GPIO1_IO27	0x1b0b0	/* CAN_ADR3 (DIP sw 4) */
+> +			for (i =3D 1; i < ethqos->num_noc_clks; i++) {
+> +				ret =3D clk_set_rate(ethqos->noc_clks[i].clk,
+> +						   ethqos->noc_clk_rates[i]);
+> +				if (ret) {
+> +					dev_err(&ethqos->pdev->dev,
+> +						"NOC clock rate set failed: %d\n", ret);
+> +					dev_pm_opp_set_rate(&ethqos->pdev->dev, 0);
+> +					return ret;
+> +				}
+> +			}
+> +		}
+> +
+>  		ret =3D clk_prepare_enable(ethqos->link_clk);
+>  		if (ret) {
+>  			dev_err(&ethqos->pdev->dev, "link_clk enable failed\n");
+> +			if (ethqos->num_noc_clks)
+> +				dev_pm_opp_set_rate(&ethqos->pdev->dev, 0);
+>  			return ret;
+>  		}
+> =20
+> +		if (ethqos->num_noc_clks) {
+> +			ret =3D clk_bulk_prepare_enable(ethqos->num_noc_clks,
+> +						      ethqos->noc_clks);
+> +			if (ret) {
+> +				dev_err(&ethqos->pdev->dev,
+> +					"NOC clocks enable failed: %d\n", ret);
+> +				clk_disable_unprepare(ethqos->link_clk);
+> +				dev_pm_opp_set_rate(&ethqos->pdev->dev, 0);
+> +				return ret;
+> +			}
+> +		}
+> +
+>  		/* Enable functional clock to prevent DMA reset to timeout due
+>  		 * to lacking PHY clock after the hardware block has been power
+>  		 * cycled. The actual configuration will be adjusted once
+> @@ -706,7 +756,12 @@ static int ethqos_clks_config(void *priv, bool enabl=
+ed)
+>  		qcom_ethqos_set_sgmii_loopback(ethqos, true);
+>  		ethqos_set_func_clk_en(ethqos);
+>  	} else {
+> +		if (ethqos->num_noc_clks)
+> +			clk_bulk_disable_unprepare(ethqos->num_noc_clks,
+> +						   ethqos->noc_clks);
+>  		clk_disable_unprepare(ethqos->link_clk);
+> +		if (ethqos->num_noc_clks)
+> +			dev_pm_opp_set_rate(&ethqos->pdev->dev, 0);
+>  	}
+> =20
+>  	return ret;
+> @@ -734,6 +789,51 @@ static void ethqos_ptp_clk_freq_config(struct stmmac=
+_priv *priv)
+>  	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
+>  }
+> =20
+> +static void qcom_ethqos_noc_opp_cleanup(void *dev)
+> +{
+> +	dev_pm_opp_set_rate(dev, 0);
+> +}
+> +
+> +/* Some SoCs gate NOC access behind dedicated clocks. Acquire them here
+> + * so ethqos_clks_config() can enable/disable them at runtime. The OPP
+> + * table is used to propagate the required VDD_CX performance state via
+> + * dev_pm_opp_set_rate().
+> + */
+> +static int qcom_ethqos_init_noc_clks(struct qcom_ethqos *ethqos,
+> +				     const struct ethqos_emac_driver_data *data)
+> +{
+> +	struct device *dev =3D &ethqos->pdev->dev;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	if (!data->num_noc_clks)
+> +		return 0;
+> +
+> +	for (i =3D 0; i < data->num_noc_clks; i++) {
+> +		ethqos->noc_clks[i].id =3D data->noc_clk_cfg[i].id;
+> +		ethqos->noc_clk_rates[i] =3D data->noc_clk_cfg[i].rate;
+> +	}
+> +	ethqos->num_noc_clks =3D data->num_noc_clks;
+> +
+> +	ret =3D devm_clk_bulk_get(dev, ethqos->num_noc_clks, ethqos->noc_clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get NOC clocks\n");
+> +
+> +	ret =3D devm_pm_opp_set_clkname(dev, data->noc_clk_cfg[0].id);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to set OPP clock name\n");
+> +
+> +	ret =3D devm_pm_opp_of_add_table(dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to add OPP table\n");
+> +
+> +	ret =3D dev_pm_opp_set_rate(dev, data->noc_clk_cfg[0].rate);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to set initial NOC OPP rate\n");
+> +
+> +	return devm_add_action_or_reset(dev, qcom_ethqos_noc_opp_cleanup, dev);
+> +}
+> +
+>  static int qcom_ethqos_probe(struct platform_device *pdev)
+>  {
+>  	struct device_node *np =3D pdev->dev.of_node;
+> @@ -795,6 +895,12 @@ static int qcom_ethqos_probe(struct platform_device =
+*pdev)
+>  	ethqos->has_emac_ge_3 =3D data->has_emac_ge_3;
+>  	ethqos->needs_sgmii_loopback =3D data->needs_sgmii_loopback;
+> =20
+> +	if (data->num_noc_clks) {
 
-supposed header overlay or real user should set it. otherwise, the real
-user set it will be failure because pin conflict.
+I guess you can drop this check since it is already done in
+qcom_ethqos_init_noc_clks(), right?
 
-Frank
->  		>;
->  	};
->
-> @@ -334,15 +332,6 @@ MX6UL_PAD_NAND_DATA07__UART2_DCE_RTS	0x1b0b1
->  		>;
->  	};
->
-> -	pinctrl_uart3: uart3grp {
-> -		fsl,pins = <
-> -			MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX	0x1b0b1
-> -			MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX	0x1b0b1
-> -			MX6UL_PAD_UART3_CTS_B__UART3_DCE_CTS	0x1b0b1
-> -			MX6UL_PAD_UART3_RTS_B__UART3_DCE_RTS	0x1b0b1
-> -		>;
-> -	};
-> -
->  	pinctrl_uart4: uart4grp {
->  		fsl,pins = <
->  			MX6UL_PAD_UART4_TX_DATA__UART4_DCE_TX	0x1b0b1
->
-> --
-> 2.55.0
->
->
+Regards,
+Lorenzo
+
+> +		ret =3D qcom_ethqos_init_noc_clks(ethqos, data);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	ethqos->link_clk =3D devm_clk_get(dev, data->link_clk_name ?: "rgmii");
+>  	if (IS_ERR(ethqos->link_clk))
+>  		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
+>=20
+> --=20
+> 2.34.1
+>=20
+>=20
+
+--slUpn+zr8Skpi/6V
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqGp1AAKCRA6cBh0uS2t
+rJe5AP412HbG+cRGfi9lkrr+Gg/WmE/XOiGzUoflMRha2mmokAD/RbM96cAfeMgt
+zWdQxOE79McBOAswltXFCrrAJhxVMgg=
+=+2DD
+-----END PGP SIGNATURE-----
+
+--slUpn+zr8Skpi/6V--
 
