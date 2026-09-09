@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F96C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E872BC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmlMljZT/6fO26V/fEoR8ernMpnUFy1iAPY7wr0dQNs=; b=aGn4dIpfNSPi7DVOt79YwE0qJg
-	j99a8ygEIoRG4kkOC65l422iRDQ6XdDIjnqPjMePir1DEgyU4oKG8yQ2E7m003R4ane5Xbt/YNhAX
-	1mBn6gXZwlowsF78rz7QwZE4QCAPlEX07wAzr9zzFe6xTZ/Xq4mUkEEijML9/Z6DdWXJNqvo29u50
-	cRvzt3sd3B+TYFhkIhsLpt3u5sQoM0tex+2BmMKN1xHcGzmM1BFmE13R1i2+BnQZGxkOteuNGVgTE
-	Rj5WzT2/jfzpmk70WYAanrWtnhDFcj04iHLbHYKp2CrIDA6gJ+XaFnF74g4TvuPZPBLWHl0Ul8okb
-	yKJQ/4ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MWEmkr+zQ6/VVfarQAkrQrbMrQkcnEMf1D5bh/GH5bM=; b=ZQxFHZcvgZtKmwV8k22Of/krbA
+	9//Wg28amypFyWQDgJdMWMuziBsmQylw8TeatK1GaagNhThaX0SNzcbntXomagWMP1gJTquc/46m+
+	TaLVlBNNIFKqrMhIYZDzt2997WQ3SIDJQl6KbfAxKcfNdMBElM28Y8LdjoAp3JmCuORWQmNOKryJa
+	j1ytj7WUe24x1Sg1XeYk9AkTQ1AV23w2MUD8pLa+ff21w6APsBC5HYiOddMuBNqvMSJCimmQBKvFu
+	RJfbSQPAlp8ujcDJhOIpnDPeOnTmKmQ5NvfFgsXbyl77YNnfOqTbl0R1Jy/wjWyuMhF1CgtX1chbY
+	++Cjz4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LXd-0000000COdw-2mhC;
-	Wed, 09 Sep 2026 16:52:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LXc-0000000COde-0Rv6;
-	Wed, 09 Sep 2026 16:52:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86590600CB;
-	Wed,  9 Sep 2026 16:52:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B32791F000FF;
-	Wed,  9 Sep 2026 16:52:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788972775;
-	bh=GmlMljZT/6fO26V/fEoR8ernMpnUFy1iAPY7wr0dQNs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KkhMoR6Gs7IooOaJd6DKs7tUqWc1jCblWwWBcebrdQphPcJfx9IHywVG0VVdPQcZr
-	 Ujc+1ZiZDZsZBo0BrfVxc7W0Z7wbJxsVToSLW6b854TSdi/sJPu6STLcXEmkiKy4TS
-	 3nkPhpQ1Bl7Z4P9RYdUWzulpKKMbSG40E8yaol2K0HHfVSpDN1gMbN6cbgpBTs9QIy
-	 VDePMdyerGmnffIQvv6WecoqTTaLEzerfhfu6+Vu58/WBqIxA/6IEgxAWNKrGKLnDG
-	 JgHQbPwgWlMwEFPoMtfE1bMTTELWNN7XggB/FHAP+91OztVhKa6hS689YxKChFNb7r
-	 SkgQHw+GkfxQA==
-Date: Wed, 9 Sep 2026 18:52:45 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	chunkuang.hu@kernel.org, p.zabel@pengutronix.de, justin.yeh@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 02/12] phy: phy-mtk-dp: Rename regs to regmap in
- struct mtk_dp_phy
-Message-ID: <wvjid3xethoskbttbgy3oy3j7fxnonrnzqg7pqndn32skzp4bt@2q7svyz6ojr7>
-References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
- <20260707154245.198361-3-angelogioacchino.delregno@collabora.com>
+	id 1x4La7-0000000CP6D-1lUV;
+	Wed, 09 Sep 2026 16:55:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4La4-0000000CP5O-2d6b
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 16:55:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 987061576;
+	Wed,  9 Sep 2026 09:55:22 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24FB73F7B4;
+	Wed,  9 Sep 2026 09:55:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788972926; bh=0ZZI/KQsrsxir9xpZ2e67XFkv+lIjYBkixLNLg+JqcA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=p7E4Iz8AEmwE9eJUybEYpXA9pQPs+YN2nE6ETxwxK8uhWohpguGgbsJ11vYrUCiVF
+	 oRqlb18xdfzpoDUW/sRj7s7zRMJSUlXUwINHO3u8NJ97dOFg8YgNtWvAahNwrYX2Qp
+	 eKi8URD5ojwhccTUcvGBZKwjXsK8MtkPlsklYUzM=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 11/14] KVM: selftests: arm64: Add GCS to set_id_regs
+Date: Wed,  9 Sep 2026 17:55:22 +0100
+Message-ID: <aqGPeT8sKx3Lh_Mx@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260901-arm64-gcs-v20-11-f31750bdfadb@kernel.org>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-11-f31750bdfadb@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260707154245.198361-3-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_095528_709014_1F2EDDFB 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,18 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 05:42:35PM +0200, AngeloGioacchino Del Regno wrote:
-> In preparation to perform further cleanups and to extend the
-> driver to support more SoCs, rename the `regs` member to `regmap`
-> to improve readability, as this is a common name across many
-> kernel drivers for a struct regmap.
+On Tue, Sep 01, 2026 at 10:47:09PM +0100, Mark Brown wrote:
+> Now that GCS is configurable via the ID registers update set_id_regs to
+> cover ID_AA64PFR1_EL1.GCS.
 > 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> index 7429a1055df5..34e59fbbbe89 100644
+> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> @@ -154,6 +154,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+>  
+>  static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
+> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, GCS, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Check this register for this GCS field, any value >= 0 is safe.
+Used to test setting id_regs IIUC.
 
-- Mani
+If that's correct, then:
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks,
+Leo
 
