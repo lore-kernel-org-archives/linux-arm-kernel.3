@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41C5C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 22:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F7AC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 22:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U14ZbKYeNhbE6svMGmqc17q+buoq9GEtciEeaNhJkHU=; b=cwHfX1z56o1QTRY7O4kj/rOqJL
-	sJ5vuJtjLOnME9de9ckakVwLE8dXq7kzjkJzmLGFSMwGC69BaBoGBo1aiFFUOiH2TDLECMhM147fp
-	u/vZCUGx3/IimFeNdGajS6I3xFuh5I1bxBnjLZeSbAT3Xt5uJ+7g7RIET1QYF9Hyn7fIqQvY/8Vx6
-	ywBTtM2Wx75rgXsOyiyYeJQopNcCml+8JHXF2ecOq7vQAZTSPsgY424Olz82y1xyxxrZOxLUj3Moy
-	2PyGcA44Y5a0JcavYlGDtMucc9fcsSf/CQ/IgzfWoQ34DzA2lPnFE7vM7tmyLA7cjgP5dDf5yaQZG
-	DMfGGL1w==;
+	bh=vKBTcPjtidz7G0LMIsiSOIc/V7aeFqjtZ2ONPPpjUvU=; b=VpJVISyWr/RmWo/V/qRwCClsqv
+	BlC6N0PbZ/aJgd3TGafoHsCr4fjlRFbAOsed+o+0Wef+G9scrCLMGdw2H1TzD+ep3vpZPhp56+jDy
+	8ScRNeYWHtDzQ0rmX+n5jdtV4O7iYpjJFMJ/hh0X/bbzq6q4svFyUrOxoyHmVq0D0I8oIpHu0wO8A
+	3M+mZyzULlqO+KiRsCUBjaDcmuQKKd0lNhoqrSIgJq5FrlU/li5e2+2AVKWN/zJ3avczmAkVsdc2l
+	dBLBavCVrgLAIs7hGC7+AXrO1fVNEEtlOwmO1mC8Q475MclOkoZgNSUW7UdGogkz97WcWmCg4vnNW
+	7z7x+pGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4QPt-0000000CyFL-3zlr;
+	id 1x4QPt-0000000CyEy-3SFH;
 	Wed, 09 Sep 2026 22:05:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4QPr-0000000CyBl-3Mn3
+	id 1x4QPp-0000000Cy9D-3m7F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 22:05:17 +0000
+	Wed, 09 Sep 2026 22:05:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88A79169C;
-	Wed,  9 Sep 2026 15:05:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42BD01F02;
+	Wed,  9 Sep 2026 15:05:09 -0700 (PDT)
 Received: from oss-apollo7005.lab.cambridge.arm.com (oss-apollo7005.lab.cambridge.arm.com [10.7.15.171])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18D433F7D8;
-	Wed,  9 Sep 2026 15:05:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6B6A3F7D8;
+	Wed,  9 Sep 2026 15:05:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788991515; bh=ovY3D17i0dzC62cyd/v0yJIlVY4EtK0/HjoZ47MH1Xc=;
+	t=1788991512; bh=ef6477RX1SfbSDDZb7uxx5n4DKa8eFEJI2ut9zi+u/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SenWt2diybd3TLYBfG9DVki/PK1URuv757wNGaKuBsoiZ8ft9KhLUN4O3YfuLgIG+
-	 YdnoTd1UdgqeaPsMfW/Aq85Xp1Zh2JZM7BX/RoJRzwwT/jXMf16Enr8fwC0qzbmghP
-	 khyHAO4LhvFNdIxeNYG9hxrBLfDiNwBQktV9R/yI=
+	b=H9Om7JesHCwfATNdzDlg8Qb+DhYNd9EtmOI4cYAb0ZBiMRUq+7/4z+74JJH/YlKKr
+	 Py07qOOmFtmF9M9MH+kaDh0RKHSo9rL1OjiorW8XnwQ6/KiUs4oDeXFBgAv2E0Grpz
+	 7sRWduRz1eY3cqKvCvdS9R0QZnsmgq3Cy9P3f+i4=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,17 @@ Cc: sudeep.holla@arm.com,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
 	philip.radford@arm.com
-Subject: [PATCH v9 11/13] powercap: arm_scmi: Create synthetic parent node for multi-instance
-Date: Wed,  9 Sep 2026 22:04:35 +0000
-Message-Id: <20260909220437.1254412-12-philip.radford@arm.com>
+Subject: [PATCH v9 10/13] firmware: arm_scmi: add Powercap MAI get/set support
+Date: Wed,  9 Sep 2026 22:04:34 +0000
+Message-Id: <20260909220437.1254412-11-philip.radford@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260909220437.1254412-1-philip.radford@arm.com>
 References: <20260909220437.1254412-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_150515_953686_3878251A 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20260909_150514_144940_21D1785C 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,246 +81,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An SCMI powercap instance may expose a hierarchy of domains, or even a
-forest of multiple domain trees rooted at SCMI_POWERCAP_ROOT_ZONE_ID.
-Those hierarchies are valid within the namespace of a single SCMI instance.
-
-Currently, the powercap framework has no notion of SCMI instances. If root
-domains from multiple SCMI instances are registered directly under the same
-Linux powercap control type, the per-instance boundaries are lost and the
-resulting Linux hierarchy becomes a merge of otherwise independent SCMI
-topologies.
-
-Add a synthetic top-level powercap zone per SCMI instance and register that
-instance's SCMI root domains beneath it. This keeps each instance's SCMI
-hierarchy grouped together.
+Add support for Power Measurement Averaging Interval (MAI) get and set
+operations to the SCMI powercap protocol driver. Extends scmi_powercap_info
+to store MAI configuration and implement MAI get/set via xfer and optional
+fast-channel support.
 
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
 V8->V9
-- Removed redundant scmi_powercap_get_zone_height
-- Added scmi_powercap_parent_name helper
-- Replaced tiernary operator that checked empty parent->info->name
+- Separated out domain specific fastchannel initialisation from per-cpl loop
+- Amended per-cpl fast channels to use firmware cpl id instead of relying on
+  num_cpli numbering
 ---
- drivers/powercap/arm_scmi_powercap.c | 110 +++++++++++++++++++++++----
- 1 file changed, 96 insertions(+), 14 deletions(-)
+ drivers/firmware/arm_scmi/powercap.c | 175 ++++++++++++++++++++++++---
+ include/linux/scmi_protocol.h        |  18 +++
+ 2 files changed, 173 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index bcd1ba0bde8c..b5397d7675e6 100644
---- a/drivers/powercap/arm_scmi_powercap.c
-+++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -38,6 +38,7 @@ struct scmi_powercap_root {
- 	struct scmi_powercap_zone *spzones;
- 	struct list_head *registered_zones;
- 	struct list_head scmi_zones;
-+	struct scmi_powercap_zone instance_root;
- };
+diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+index 2e30bc00f056..7d426c56b9c1 100644
+--- a/drivers/firmware/arm_scmi/powercap.c
++++ b/drivers/firmware/arm_scmi/powercap.c
+@@ -427,6 +427,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
+ 		dom_info->notify_powercap_measurement_change =
+ 			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
  
- static LIST_HEAD(scmi_powercap_roots);
-@@ -443,29 +444,75 @@ static const struct powercap_zone_constraint_ops constraint_ops  = {
- 	.get_name = scmi_powercap_get_name,
- };
- 
-+/*
-+ * Multi-instance constraints to meet driver requrements due to the fact
-+ * that full zone semantics aren't available for the synthetic zone.
-+ */
-+static int instance_root_release(struct powercap_zone *pz)
-+{
-+	return 0;
-+}
++	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
++		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
 +
-+static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
-+{
-+	*v = 0;
-+	return 0;
-+}
++		flags = le32_to_cpu(resp_v3->attributes);
++		if (pinfo->notify_measurements_cmd)
++			dom_info->notify_powercap_measurement_change =
++			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
 +
-+static int instance_root_set_constraint(struct powercap_zone *pz, int cid, u64 v)
-+{
-+	return -EOPNOTSUPP;
-+}
++		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
++		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
++		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
++		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
 +
-+static int instance_root_get_constraint(struct powercap_zone *pz, int cid, u64 *v)
-+{
-+	return -EOPNOTSUPP;
-+}
++		if (dom_info->mai_config) {
++			ret = scmi_powercap_validate(dom_info->min_mai,
++						     dom_info->max_mai,
++						     dom_info->mai_step,
++						     dom_info->mai_config);
 +
-+static const struct powercap_zone_ops instance_root_ops = {
-+	.get_max_power_range_uw = scmi_powercap_get_max_power_range_uw,
-+	.get_power_uw = instance_root_get_power_uw,
-+	.release = instance_root_release,
-+};
++			if (ret) {
++				dev_warn(ph->dev, "Platform reported invalid MAI config for domain %d - %s\n",
++					 dom_info->id, dom_info->name);
 +
-+static const struct powercap_zone_constraint_ops instance_root_const_ops = {
-+	.set_power_limit_uw = instance_root_set_constraint,
-+	.get_power_limit_uw = instance_root_get_constraint,
-+	.set_time_window_us = instance_root_set_constraint,
-+	.get_time_window_us = instance_root_get_constraint,
-+};
-+
- static void scmi_powercap_unregister_all_zones(struct scmi_powercap_root *pr)
- {
- 	int i;
- 
- 	/* Un-register children zones first starting from the leaves */
--	for (i = pr->num_zones - 1; i >= 0; i--) {
-+	for (i = pr->num_zones; i >= 0; i--) {
- 		if (!list_empty(&pr->registered_zones[i])) {
- 			struct scmi_powercap_zone *spz;
- 
--			list_for_each_entry(spz, &pr->registered_zones[i], node)
-+			list_for_each_entry(spz, &pr->registered_zones[i], node) {
-+				if (!spz->registered)
-+					continue;
-+
-+				spz->registered = false;
- 				powercap_unregister_zone(scmi_top_pcntrl,
- 							 &spz->zone);
++				return ret;
 +			}
- 		}
- 	}
++		}
++	}
++
+ 	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
+ 
+ 	dom_info->async_powercap_cap_set =
+@@ -1133,6 +1161,103 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
+ 	return 0;
  }
  
--static inline unsigned int
--scmi_powercap_get_zone_height(struct scmi_powercap_zone *spz)
-+static const char *scmi_powercap_parent_name(struct scmi_powercap_root *pr,
-+					     struct scmi_powercap_zone *parent)
- {
--	if (spz->info->parent_id == SCMI_POWERCAP_ROOT_ZONE_ID)
--		return 0;
-+	if (!parent)
-+		return "ROOT";
- 
--	return spz->spzones[spz->info->parent_id].height + 1;
-+	if (parent == &pr->instance_root)
-+		return "INSTANCE ROOT";
++static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph,
++				      u32 domain_id, u32 *mai)
++{
++	int ret;
++	struct scmi_xfer *t;
 +
-+	return parent->info->name;
- }
- 
- static inline struct scmi_powercap_zone *
-@@ -493,11 +540,14 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
- 				   parent ? &parent->zone : NULL,
- 				   &zone_ops, spz->info->num_cpli, &constraint_ops);
- 	if (!IS_ERR(z)) {
--		spz->height = scmi_powercap_get_zone_height(spz);
-+		if (parent)
-+			spz->height = parent->height + 1;
-+		else
-+			spz->height = 0;
- 		spz->registered = true;
- 		list_move(&spz->node, &pr->registered_zones[spz->height]);
- 		dev_dbg(spz->dev, "Registered node %s - parent %s - height:%d\n",
--			spz->info->name, parent ? parent->info->name : "ROOT",
-+			spz->info->name, scmi_powercap_parent_name(pr, parent),
- 			spz->height);
- 	} else {
- 		list_del(&spz->node);
-@@ -505,7 +555,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
- 		dev_err(spz->dev,
- 			"Error registering node:%s - parent:%s - h:%d - ret:%d\n",
- 			spz->info->name,
--			parent ? parent->info->name : "ROOT",
-+			scmi_powercap_parent_name(pr, parent),
- 			spz->height, ret);
- 	}
- 
-@@ -564,6 +614,8 @@ static int scmi_zones_register(struct device *dev,
- 		struct scmi_powercap_zone *parent;
- 
- 		parent = scmi_powercap_get_parent_zone(spz);
-+		if (!parent)
-+			parent = &pr->instance_root;
- 		if (parent && !parent->registered) {
- 			zones_stack[sp++] = spz;
- 			spz = parent;
-@@ -604,8 +656,11 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 	int ret, i;
- 	struct scmi_powercap_root *pr;
- 	struct scmi_powercap_zone *spz;
-+	struct scmi_powercap_zone *ir;
- 	struct scmi_protocol_handle *ph;
- 	struct device *dev = &sdev->dev;
-+	char *instance_name;
-+	struct powercap_zone *z;
- 
- 	if (!sdev->handle)
- 		return -ENODEV;
-@@ -633,7 +688,7 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 		return -ENOMEM;
- 
- 	/* Allocate for worst possible scenario of maximum tree height. */
--	pr->registered_zones = devm_kcalloc(dev, pr->num_zones,
-+	pr->registered_zones = devm_kcalloc(dev, pr->num_zones + 1,
- 					    sizeof(*pr->registered_zones),
- 					    GFP_KERNEL);
- 	if (!pr->registered_zones)
-@@ -641,6 +696,9 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 
- 	INIT_LIST_HEAD(&pr->scmi_zones);
- 
-+	for (i = 0; i <= pr->num_zones; i++)
-+		INIT_LIST_HEAD(&pr->registered_zones[i]);
++	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
++				      sizeof(u32), &t);
 +
- 	for (i = 0, spz = pr->spzones; i < pr->num_zones; i++, spz++) {
- 		/*
- 		 * Powercap domains are validate by the protocol layer, i.e.
-@@ -660,7 +718,6 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 		spz->ph = ph;
- 		spz->spzones = pr->spzones;
- 		INIT_LIST_HEAD(&spz->node);
--		INIT_LIST_HEAD(&pr->registered_zones[i]);
- 
- 		list_add_tail(&spz->node, &pr->scmi_zones);
- 		/*
-@@ -678,19 +735,44 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 		}
- 	}
- 
-+	ir = &pr->instance_root;
-+	ir->dev = dev;
-+	INIT_LIST_HEAD(&ir->node);
-+	instance_name = devm_kasprintf(dev, GFP_KERNEL, "instance_%s", dev_name(dev));
-+	if (!instance_name)
-+		return -ENOMEM;
-+
-+	z = powercap_register_zone(&ir->zone, scmi_top_pcntrl,
-+				   instance_name, NULL, &instance_root_ops, 0,
-+				   &instance_root_const_ops);
-+
-+	if (IS_ERR(z)) {
-+		ret = PTR_ERR(z);
-+		dev_err(dev, "Failed to register sysnthetic instance root: %d\n", ret);
++	if (ret)
 +		return ret;
++
++	put_unaligned_le32(domain_id, t->tx.buf);
++
++	ret = ph->xops->do_xfer(ph, t);
++	if (!ret)
++		*mai = get_unaligned_le32(t->rx.buf);
++
++	ph->xops->xfer_put(ph, t);
++	return ret;
++}
++
++static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph,
++				      u32 domain_id, u32 mai)
++{
++	int ret;
++	struct scmi_xfer *t;
++	struct scmi_msg_powercap_cap_or_pai_set *msg;
++
++	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg),
++				      0, &t);
++	if (ret)
++		return ret;
++
++	msg = t->tx.buf;
++	msg->domain_id = cpu_to_le32(domain_id);
++	msg->flags = cpu_to_le32(0);
++	msg->value = cpu_to_le32(mai);
++
++	ret = ph->xops->do_xfer(ph, t);
++
++	ph->xops->xfer_put(ph, t);
++	return ret;
++}
++
++static int
++scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
++					u32 domain_id,
++					u32 *val)
++{
++	const struct scmi_powercap_info *pc;
++	struct scmi_fc_info *fci;
++
++	if (!val)
++		return -EINVAL;
++
++	pc = scmi_powercap_dom_info_get(ph, domain_id);
++	if (!pc)
++		return -EINVAL;
++
++	fci = pc->cpli[CPL0].fc_info;
++	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
++		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET,
++				   domain_id, 0, *val, 0);
++		return 0;
 +	}
 +
-+	ir->registered = true;
-+	ir->height = 0;
-+	list_add_tail(&ir->node, &pr->registered_zones[0]);
++	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
++}
 +
- 	/*
- 	 * Scan array of retrieved SCMI powercap domains and register them
- 	 * recursively starting from the root domains.
- 	 */
- 	ret = scmi_zones_register(dev, pr);
--	if (ret)
-+	if (ret) {
-+		scmi_powercap_unregister_all_zones(pr);
- 		return ret;
++static int
++scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
++					u32 domain_id,
++					u32 val)
++{
++	const struct scmi_powercap_info *pc;
++	struct scmi_fc_info *fci;
++
++	pc = scmi_powercap_dom_info_get(ph, domain_id);
++	if (!pc)
++		return -EINVAL;
++
++	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
++		return -EINVAL;
++
++	fci = pc->cpli[CPL0].fc_info;
++	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
++		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
++		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
++		return 0;
 +	}
++
++	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
++}
++
+ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+ 	.num_domains_get = scmi_powercap_num_domains_get,
+ 	.info_get = scmi_powercap_dom_info_get,
+@@ -1145,6 +1270,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+ 	.measurements_get = scmi_powercap_measurements_get,
+ 	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
+ 	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
++	.measurements_interval_get = scmi_powercap_measurements_interval_get,
++	.measurements_interval_set = scmi_powercap_measurements_interval_set,
+ };
  
- 	INIT_LIST_HEAD(&pr->node);
+ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+@@ -1154,14 +1281,14 @@ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
  
- 	ret = scmi_powercap_read_root_children_enable_state(pr, &pr->enabled);
--	if (ret)
-+	if (ret) {
-+		scmi_powercap_unregister_all_zones(pr);
- 		return ret;
+ 	for (int id = 0; id < dom_info->num_cpli; id++) {
+ 		struct scmi_fc_info *fc;
+-		u32 *cpl_id, zero_cpl_id = 0;
++		u32 *cpl_id;
++		u32 cpl_fw_id = dom_info->cpli[id].id;
+ 
+ 		fc = devm_kcalloc(ph->dev, POWERCAP_FC_MAX, sizeof(*fc), GFP_KERNEL);
+ 		if (!fc)
+ 			return;
+ 
+-		/* NOTE THAT when num_cpli == 1 the arg *cpl_id is 0 */
+-		cpl_id = (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) ? &id : NULL;
++		cpl_id = (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) ? &cpl_fw_id : NULL;
+ 
+ 		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+ 					   POWERCAP_CAP_SET, 4, dom_info->id,
+@@ -1188,29 +1315,37 @@ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+ 						dom_info->id, cpl_id,
+ 						&fc[POWERCAP_FC_XAI].get_addr, NULL,
+ 						&fc[POWERCAP_FC_XAI].rate_limit);
+-			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-							POWERCAP_MAI_SET, 4,
+-							dom_info->id, &zero_cpl_id,
+-							&fc[POWERCAP_FC_MAI].set_addr,
+-							&fc[POWERCAP_FC_MAI].set_db,
+-							&fc[POWERCAP_FC_MAI].rate_limit);
+-
+-			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-							POWERCAP_MAI_GET, 4,
+-							dom_info->id, &zero_cpl_id,
+-							&fc[POWERCAP_FC_MAI].get_addr, NULL,
+-							&fc[POWERCAP_FC_MAI].rate_limit);
+ 
+-			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-							POWERCAP_MEASUREMENTS_GET, 4,
+-							dom_info->id, &zero_cpl_id,
+-							&fc[POWERCAP_FC_MEASUREMENT].get_addr, NULL,
+-							&fc[POWERCAP_FC_MEASUREMENT].rate_limit);
+ 		}
+ 
+ 		dom_info->cpli[id].fc_info = fc;
+ 	}
+ 
++	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
++		u32 zero_cpl_id = 0;
++
++		fc_cpl0 = dom_info->cpli[CPL0].fc_info;
++
++		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
++					   POWERCAP_MAI_SET, 4,
++					   dom_info->id, &zero_cpl_id,
++					   &fc_cpl0[POWERCAP_FC_MAI].set_addr,
++					   &fc_cpl0[POWERCAP_FC_MAI].set_db,
++					   &fc_cpl0[POWERCAP_FC_MAI].rate_limit);
++
++		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
++					   POWERCAP_MAI_GET, 4,
++					   dom_info->id, &zero_cpl_id,
++					   &fc_cpl0[POWERCAP_FC_MAI].get_addr, NULL,
++					   &fc_cpl0[POWERCAP_FC_MAI].rate_limit);
++
++		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
++					   POWERCAP_MEASUREMENTS_GET, 4,
++					   dom_info->id, &zero_cpl_id,
++					   &fc_cpl0[POWERCAP_FC_MEASUREMENT].get_addr, NULL,
++					   &fc_cpl0[POWERCAP_FC_MEASUREMENT].rate_limit);
 +	}
++
+ 	if (PROTOCOL_REV_MAJOR(ph->version) < 0x3) {
+ 		fc_cpl0 = dom_info->cpli[CPL0].fc_info;
+ 		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 583122037bf6..eeb5e609e782 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -658,6 +658,12 @@ struct scmi_powercap_cpl_info {
+  *		       reports power data on an abstract linear scale.
+  * @extended_names: Support for long names.
+  * @fastchannels: Support for at least one fastchannel,
++ * @mai_config: MAI configuration support.
++ * @min_mai: Minimum supported Power Measurement Averaging Interval in
++ *			microseconds.
++ * @max_mai: Maximum supporte Power Measurement Averaging Interval in
++			microseconds.
++ * @mai_step: Step size between supported MAI values in microseconds.
+  * @name: name assigned to the Powercap Domain by platform.
+  * @sustainable_power: Maximum sustainable power consumption for this domain
+  *		       under normal conditions.
+@@ -679,6 +685,10 @@ struct scmi_powercap_info {
+ 	bool powercap_scale_uw;
+ 	bool extended_names;
+ 	bool fastchannels;
++	bool mai_config;
++	u32 min_mai;
++	u32 max_mai;
++	u32 mai_step;
+ 	char name[SCMI_MAX_STR_SIZE];
+ 	unsigned int sustainable_power;
+ 	unsigned int accuracy;
+@@ -737,6 +747,10 @@ struct scmi_powercap_info {
+  * @measurements_threshold_get: get the currently configured low and high power
+  *				thresholds used when registering callbacks for
+  *				notification POWERCAP_MEASUREMENTS_NOTIFY.
++ * @measurements_interval_get: get the current Power Measurement Averaging
++ *				Interval (MAI) value for the specified domain.
++ * @measurements_interval_set: set the Power Measurement Averaging Interval
++ *				(MAI) value for the specified domain.
+  */
+ struct scmi_powercap_proto_ops {
+ 	int (*num_domains_get)(const struct scmi_protocol_handle *ph);
+@@ -762,6 +776,10 @@ struct scmi_powercap_proto_ops {
+ 	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
+ 					  u32 domain_id, u32 *power_thresh_low,
+ 					  u32 *power_thresh_high);
++	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
++					 u32 domain_id, u32 *val);
++	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
++					 u32 domain_id, u32 val);
+ };
  
- 	mutex_lock(&scmi_powercap_roots_lock);
- 	list_add_tail(&pr->node, &scmi_powercap_roots);
+ enum scmi_pinctrl_selector_type {
 -- 
 2.25.1
 
