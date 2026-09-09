@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2813BC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA1FC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQc+Uc9CXTyrtR8l5K6ylLrvmXTF+T5Q3He3R+s5NIw=; b=RDvS7GxBk8kdfFTeS0mQFRBzT1
-	ao1bxatbQBMNSxUdXV640YwvVBFJMTigaBkcMVNvZ/6wQYCY12y4CTDHVUlNFVXQeQpVU+IjiebMm
-	xlxzpddP31vksECJ88UthzOKu2BMdL93tPU+7QElrB3mR48asw2lYl2aFW+XxS9i5Mf+bdsc0Ebn4
-	LaPBOxVXrLjfFnm8S2hmBeaDYSeu3d4gEEzErfOBUTVsnQBRYUbawa2FSayjDH8H6nlX8upAAPOLw
-	kHi+4KGKWeiFijJ9KlKkLCQ7jBKfca4F95YTarwd00gwQYYGBUksRlZ19qGITWCSVbFbiBm3hOFNa
-	YP3USn3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HYah3uA+r1kGGwUj3wqj+G+RHCOLv0YNwo6nuTVfIPU=; b=RdQ/uuDg9sqwfbC2zltZ6b+i3+
+	HBpW+d/zTpNwlBvzy063tv7CDfALGsXcwUqvuLX1RPjsYY59O9SnpE3mILDKNHu4sxLiNUoAPuYIh
+	xBzBoREqAyjKfGvvdtqgMQk/Pu/25KDXjcSJLl2thwJXRVW+HCjCY/m8BXgBkClSwlCpjAthqbwZa
+	rT2GGP3fJzNwjfpzI8YVyApA6G1dh6Q3ibAVI0J8P8FXm/k3FxPNet0iTRRkyoGwYTjUq1ICuvNyQ
+	8rszfSWI5OrsunCuVpKma2oz3l2uXcJZMGCd5p9u+XnW1m2ry7Nur1uNq0cR2S7350uuvsBvhXuy1
+	Qa9uSNyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4CYc-0000000Axa0-0Bjv;
-	Wed, 09 Sep 2026 07:17:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4CYY-0000000AxZr-3vaO;
-	Wed, 09 Sep 2026 07:17:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 473DC601FD;
-	Wed,  9 Sep 2026 07:17:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E03131F00A3A;
-	Wed,  9 Sep 2026 07:17:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788938238;
-	bh=HQc+Uc9CXTyrtR8l5K6ylLrvmXTF+T5Q3He3R+s5NIw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TyOSDITnqL09whZ9Qxy6HEuAumowpSXOCY2gC/KkM0WG4ZCV2Yr0RiZp9HAratldc
-	 bt427rgNrENsanlMeq/E8ExIVLGScRc0zDtqlinlmcpavbN9pg4Z+FvK+oYEHwfFlI
-	 Dsdb3FzSkS59Arm4JbLPEtzB/vy6FtMiafvR53gdvohoAs7rfYKepCDGhm6u++O/dv
-	 ICV2O/7bJiQAGhlF6DN0wLkGz1xuyjEZwuhbIgeW8lYoBJrV8hQjbcQPweROIAEnYI
-	 jQy+oQBM5PHzCw6qfZ/C9hWhDbiJGl9Ki7fV9DCSaAjE31mefL/W1ybm020HqGhG1V
-	 /BE8iMO7qLBXw==
-Date: Wed, 9 Sep 2026 09:17:14 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
-	Enzo Adriano <enzo.adriano.code@gmail.com>
-Subject: Re: [PATCH v3 1/8] dt-bindings: clk: sun60i-a733-ccu: Add Allwinner
- A733 support
-Message-ID: <20260909-illegal-organic-mammoth-5daf5d@quoll>
-References: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
- <20260905-a733-clk-v3-1-50f238f39c78@pigmoral.tech>
+	id 1x4Cbv-0000000Axt0-2dy5;
+	Wed, 09 Sep 2026 07:20:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4Cbs-0000000AxsF-3snJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 07:20:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 883F61576;
+	Wed,  9 Sep 2026 00:20:36 -0700 (PDT)
+Received: from [10.57.73.177] (unknown [10.57.73.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23F153F7D8;
+	Wed,  9 Sep 2026 00:20:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788938440; bh=HYah3uA+r1kGGwUj3wqj+G+RHCOLv0YNwo6nuTVfIPU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dQDQUeoyd7rs5J3jJ2hcytzoFlCrUnuzWP/nB2QjLK0BzOhs9FoYIWjtpl4cvn6qQ
+	 V6997eLToNmC4iplPw1+KazMVhObpi6NE1jR/Shmi2nrP7e8aR5/i1v3oAvusylahm
+	 NVcSza6cWx3MNd86cbw8I3q7WzjD7IqJNeTmEkBc=
+Message-ID: <c92baaa9-1c1a-4f1e-903e-7b98ec9f694c@arm.com>
+Date: Wed, 9 Sep 2026 09:20:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260905-a733-clk-v3-1-50f238f39c78@pigmoral.tech>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] sched: Enable preferred SMT siblings on NVIDIA
+ Olympus
+To: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
+ <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
+ Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260908082345.103087-1-arighi@nvidia.com>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260908082345.103087-1-arighi@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_002045_104552_CB595F0D 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05, 2026 at 12:45:30AM +0800, Junhui Liu wrote:
-> The CCU and R-CCU (PRCM) modules provide clocks and reset functions for
-> the Allwinner A733 SoC. The clock architecture of the A733 is evolved
-> from the A523, though the root clocking strategy transitions from a
-> static oscillator frequency in the Devicetree to the "hosc" clock, which
-> is determined by choosing from three possible frequencies (19.2MHz,
-> 24MHz, or 26MHz) by the RTC hardware, and finally feeds the CCU and
-> R-CCU.
-> 
-> Additionally, the MCU_CCU module found in previous designs is removed
-> from the A733, and the clock tree is expanded with more clock outputs
-> to support new functional modules.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  | 107 ++++++++
->  .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  | 290 +++++++++++++++++++++
->  .../clock/allwinner,sun60i-a733-r-ccu.h            |  39 +++
->  .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  | 129 +++++++++
->  .../reset/allwinner,sun60i-a733-r-ccu.h            |  23 ++
->  5 files changed, 588 insertions(+)
+On 08.09.26 10:23, Andrea Righi wrote:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+[...]
 
-Best regards,
-Krzysztof
+> The series was tested on a two-node Vera system using an 88-thread
+> single-precision GEMM on the 88 physical cores of NUMA node 0.
 
+Can we use 'OpenBLAS benchmark/sgemm.goto' as an open alternative for
+your NVIDIA internal single-precision GEMM benchmark?
+
+IIUC, you used it for the 'Prefer fully idle cores for NOHZ balancing'
+work: https://lore.kernel.org/r/anIq6pU5KXTTFCDN@gpd4
+
+If yes, I assume you would run something like:
+
+export OMP_NUM_THREADS=88
+numactl -C XXX --membind=0 ./benchmark/sgemm.goto 16384 16384 16384
+
+Essentially you want to show that those 88 compute intensive tasks each
+runs on his own core alone and so you get a higher TFLOPS value.
+
+[...]
 
