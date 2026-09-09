@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2982C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 11:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F07BC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 11:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/Y/It+Oz9Nbwm/YWPpWxy0x5yTbGaVUNJsxEWDorLE=; b=5GclsxQhkvutuiVk9hv6sZ2B0h
-	bCGPx5UtnkWx3t+hHVaJdHnJKa28CoIhqh5GvRGwNaSqIIp+VrbFqsyaRSSX6lP1Onzm2PCoH4mB3
-	bsk1Ul7hMk3Mpj4OguWC66oY3y+QBufJFqGsbQ7FbxgGbljTgfebydGP4Kp++lbsWwJmOTAGHoBbg
-	EltpyjrTJLVTdYAONF7PFWQXdvmH17fXJ87UsH9sUSdOYueRkNJ2gEeHUUjMKoUY11dV3i5yxBxvi
-	R/co+mKCqmrzt/A3ivIKLWZO8lR4bruJpomu0lGgcLuTFAc/qJWu1NYpL0HzzyrvJ48qRF1SN775b
-	LHaG+wGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yPBIL7xp9k71Jeokn/0hO8JzhFF0Afrctk/+t5BAEHE=; b=IP2H15z6C1P8aFirqTGrpslMVV
+	eclwwR7B/j+46y49SlTBGX4ei12+ZM5RWM7KsjrZo5ahyTFAoypajot4ZNzAy6ecvTK/GwyVEOV2I
+	TMNpGF5cmYeooyCYDFF6o67S5rFHvG7jPgdtq6spLdg8JysLVPhWmsifYWmWN0KIXUkwpL/QCOXaO
+	zjdwG4zBMgg4iPIdH1R2y6j2I4CHK9rxFpeCN8WhjCEtEW+K1SYlUzxuVQ3V0+GcLeOj9ODHMU9iM
+	sgiqWrknCHdg6imbvVohEBAYsUikv/ftUdKxS0wK7nhaAUAg6Qw32SQjXN41KXOOWQECq0okaYEo1
+	EFoeOZUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GXt-0000000BaGQ-3CVy;
-	Wed, 09 Sep 2026 11:32:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4GYJ-0000000BaO0-0zRh;
+	Wed, 09 Sep 2026 11:33:19 +0000
+Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GXr-0000000BaFw-34Jx
+	id 1x4GYF-0000000BaJl-004b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 11:32:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5CEEB413BD;
-	Wed,  9 Sep 2026 11:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 138CC1F00A3F;
-	Wed,  9 Sep 2026 11:32:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788953571;
-	bh=F/Y/It+Oz9Nbwm/YWPpWxy0x5yTbGaVUNJsxEWDorLE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VtCxJiPYJhrxEkLHLz3Wpx4pexCEglcPyfgcdkD1zACMP3QUa9fZI442hjrd6g4YO
-	 8Gi1rlwQE2pU1XT7SJ84BKSqOPhXSDa16zJtEM3BvST4EnuXOM3XDjgQALLn9mSD++
-	 SsekVmSz7p29gCNlg5bH4afexIbboo4ZXOPTO97tSkouhyDCA95IcY4/Ixm8pxc/cC
-	 6sLNneBy3RhQLh/JZXIFb/eE6dK7ChBgob1+rSh5uvY7D0xiim6lWYoNCYSPlOsrwr
-	 9J+/xVyylptx0aWk6+YcgTQnn8SXeH+NHQE7Jv7P4KUyl31oE8qaoUMamKSBS6MXjI
-	 yT1hIeZbXepdw==
-Date: Wed, 9 Sep 2026 12:32:46 +0100
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v2 07/14] arm64: head: Force little-endian early during
- boot
-Message-ID: <aqFD3s9RgyK4A-N_@willie-the-truck>
-References: <20260907163726.17104-1-will@kernel.org>
- <20260907163726.17104-8-will@kernel.org>
- <ea76bef9-c346-41a6-9276-a5eb8cea3776@app.fastmail.com>
+	Wed, 09 Sep 2026 11:33:18 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DCBDEA91C3;
+	Wed,  9 Sep 2026 13:32:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1788953583; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=yPBIL7xp9k71Jeokn/0hO8JzhFF0Afrctk/+t5BAEHE=;
+	b=sbRE2tYkP1k8m+7VZC/tSY0yzOQ8YBnjJnZvwjHUTlqrOFt2S+IFcDWSu6pyR+oAtqCEqa
+	x8JHfGwqVz7NMO/Fod8/lA9KeBM58l3Kv5BpRWDcyWGpG4LTsKTVSnNkt4khTC6k2n6wbg
+	aTbFeLXHYiMu60j+b2fSDKzQ+1bLRVFdpvnedgmYC/wZVWaVOJRZ3DIaRvr+krDKWRXhPa
+	D8CPaES0bPYr1YRgt3c33kt2leHuIqp9gxrmMj0fmPTC+7dGlLE11tmNab8vm6zsuciAaY
+	8Ifwj7UmXpl/WF5PZJiOq3uP+aKNCpJ0k4jx3Kq8XVhn3ITd22PEXi+8VreUVQ==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea76bef9-c346-41a6-9276-a5eb8cea3776@app.fastmail.com>
+Date: Wed, 09 Sep 2026 13:32:45 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Emil Renner Berthing
+ <kernel@esmil.dk>, Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
+ <david.laight.linux@gmail.com>
+Subject: Re: [PATCH net 2/6] net: stmmac: selftests: Validate EEE based on the
+ actual LPI timer value
+In-Reply-To: <20260909074740.1247762-3-maxime.chevallier@bootlin.com>
+References: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
+ <20260909074740.1247762-3-maxime.chevallier@bootlin.com>
+Message-ID: <2f268c9ff187ba59f69d37dd4e4ba99b@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_043316_780849_475B4756 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 07:12:12PM +0200, Ard Biesheuvel wrote:
-> On Mon, 7 Sep 2026, at 18:37, Will Deacon wrote:
-> > Commit 2ced0f30a426 ("arm64: head: Switch endianness before populating
-> > the ID map") configured SCTLR_ELx.EE at boot according to the endianness
-> > of the kernel in case the bootloader had entered the image in the wrong
-> > endianness. Additionally, if the MMU was enabled in such a case, logic
-> > was added to turn it back off to prevent the hardware walker from
-> > misinterpreting the idmap page-table.
-> >
-> > Given that the MMU is only expected to be enabled when booting EFI, EFI
-> > only supports little-endian and arm64 kernels cannot be built as
-> > big-endian images, we can rip out this handling and simply force
-> > SCTLR_ELx.EE to 0 (little-endian).
-> >
-> > Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> >  arch/arm64/kernel/head.S | 20 +-------------------
-> >  1 file changed, 1 insertion(+), 19 deletions(-)
-> >
-> > diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-> > index 8951ce693552..d5c1ea0c5b3c 100644
-> > --- a/arch/arm64/kernel/head.S
-> > +++ b/arch/arm64/kernel/head.S
-> > @@ -138,29 +138,11 @@ SYM_CODE_START_LOCAL(record_mmu_state)
-> >  	b.ne	0f
-> >  	mrs	x19, sctlr_el2
-> >  0:
-> > -	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
-> > +	bic	x19, x19, #SCTLR_ELx_EE		// Force little-endian
+Hi Maxime
+
+On 9.9.2026 09:47, Maxime Chevallier wrote:
+> The EEE selftest is a 2-step test :
+>  - It validates that we enter in LPI mode with the
+>    irq_tx_path_in_lpi_mode_n counter
+>  - It then validates that we exit LPI when sending a frame, with the
+>    irq_tx_path_exit_lpi_mode_n counter.
 > 
-> This bic has no effect here: the 'and' below clears it anyway, but x19
-> is not written back to SCTLR.
-
-Oh yes, this is only used to drive the flag to say whether or not the
-MMU was enabled on entry and then the other part of the patch removes
-the sctlr write.
-
-> When I suggested this, I missed that SCTLR.EE still needs to be cleared
-> before populating the ID map, regardless of whether we enter with the
-> MMU and caches enabled.
+> The current state of the test lacks 2 main things :
 > 
-> IOW, we need to retain the SCTLR writeback logic below. The only thing
-> we can drop is the clearing of the M bit and the invocations of
-> pre_disable_mmu_workaround. But we might as well keep that.
+>  - We don't know exactly when was the previous frame sent (it's from 
+> the
+>    previous selftest)
 > 
-> Apologies for the bad suggestion.
+>  - The timeout is hardcoded, while the LPI is entered after a
+>    user-configurable delay. On top of that, the timeout loop uses a
+>    pre-decrement iterator (--retries) that actually only iterate nine
+>    times, so 900ms while the default LPI value is 1 second.
+> 
+> Let's therefore make it more deterministic :
+> 
+>  - Send a frame at the beginning of the test
+>  - Wait for more than the lpi timer value, we timeout after about twice
+>    the value,
+>  - Then send another frame, and verify that we do go out of LPI, also
+>    with a timeout.
+> 
+> Note that the test's goal isn't to validate the LPI timer value itself,
+> only that we enter/leave LPI mode.
+> 
+> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+>  .../stmicro/stmmac/stmmac_selftests.c         | 33 ++++++++++++++-----
+>  1 file changed, 25 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c 
+> b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> index 6503678b646e..4564b9f29194 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
 
-Not to worry, I made an absolutely dog's dinner of implementing it
-anyway! I'll just drop this patch for now.
+> [...]
 
-Cheers,
+> -	memcpy(initial, &priv->xstats, sizeof(*initial));
+> -
+> +	/* Send a frame, then wait to enter LPI */
+>  	ret = stmmac_test_mac_loopback(priv);
+>  	if (ret)
+>  		goto out_free_final;
+> 
+> +	max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
+> +
+> +	memcpy(initial, &priv->xstats, sizeof(*initial));
 
-Will
+Is the LPI entry already counted here? AFAIU with tx-lpi-timer=0 on 
+dwmac4 the
+MAC goes directly into LPI after the frame, before 
+stmmac_test_mac_loopback()
+returns. The loop below would time out although LPI is working.
+
+Snapshot before the first frame, and take a second snapshot right before
+the second loopback for the exit check?
+
+> [...]
+
+> +	memcpy(final, &priv->xstats, sizeof(*final));
+>  	if (final->irq_tx_path_exit_lpi_mode_n <=
+>  	    initial->irq_tx_path_exit_lpi_mode_n) {
+>  		ret = -EINVAL;
+
+nit: -ETIMEDOUT here as well, to match the entry check?
+
+Thanks
+Nicolai
 
