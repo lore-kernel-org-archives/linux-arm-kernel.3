@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B782C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 12:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6D9C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 13:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cd52PD2UuYoS6In5AKUlLRar7R24lx+Bsu9rFB17SpQ=; b=ZbdYPBVK3b4ZjpTYe7z5fQ1/M2
-	ySsgJir7bdVu6ynDTcGg67x9uwGkKaREZP+yXO2FP6Vivp7ux+21axrQhVpjWWQLCLaKyOsbWpRM2
-	fWfp3hHFCFLlyKaWUIGiprcsMwRY2ACGgImk28k1iqaMDyea29FBFtwA7K3X+tD6/0kKDYxS8273H
-	MPcLZVuQjXJOejQTr0XCxwXukSztIHo2bhR+dd4lhz90XWKB4A1PkX9eD6+RQXsr937oWDUeSC1wa
-	3c1yB50cP+v6TilcYIQS9Of2GWSbbM6lpVewcOaA9ex4VtOgLe5+IC3o6aSjgmquohTCCvizQ0MQf
-	2n616Pug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OzrULavoTQ/WrRZCjul3h8BodEA1weXd5o8Qt80OpqA=; b=pSjakb/eZ/JUqOHueeg/Dpj6QJ
+	ZtkPwhvjiDDGJHLzixxoKN0vukDqDJfGc8nTvXSYMR9dETiuhM1OEq77OADJTKiCvpeq+TgcJuzkJ
+	WHdo5r56kbovYAOpXp/Xo7eg6motOrHgt2WhBZ2PTwifvQaXs7PDewW5x32goNU/FhBFXnI9JU7+t
+	iYW3lOAX61yOdeMXdEDM8xlcDxGUlxZcCSs2xBWH5CX17eiKJLLXLF8OOPWJD6Jsg+J5eQPQEAlSz
+	gRit0UPo4xA9aIuy/WjbZx4vsXymxvKX3AKWr5YkS9YAvV46QfbVueHNHW9zixe4oAPwlJ6e54mYt
+	0yoccyrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Hkq-0000000Bhbl-25B1;
-	Wed, 09 Sep 2026 12:50:21 +0000
+	id 1x4HuZ-0000000BieD-0SRc;
+	Wed, 09 Sep 2026 13:00:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Hkm-0000000Bhap-0fmR
+	id 1x4HuW-0000000Bic7-2cg5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 12:50:17 +0000
+	Wed, 09 Sep 2026 13:00:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E01C11576;
-	Wed,  9 Sep 2026 05:50:08 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6146D3F7B4;
-	Wed,  9 Sep 2026 05:50:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52BEA1691;
+	Wed,  9 Sep 2026 06:00:11 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 545113F7B4;
+	Wed,  9 Sep 2026 06:00:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788958212; bh=2P592ah1QHrGLdfR2K13ZZmvuzgE+vLBRsQx+QWBuZs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qaKZYbRIoUxjc//OrU3dZPXMX0rs1FbFYRJ+KkU3YUc22K8ElUhMZ7QzQ8sSWSJgp
-	 cfi2vHXQh/nyhcJYjnXPELKYbC31J+XjP/I79GUQejXRI5c9sqDjXTykoTXv0Wdj/E
-	 DDjelwFrtxQbqwHtWxMNol29T1dIU0lgQOrI/YNM=
-Date: Wed, 9 Sep 2026 13:50:09 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Zeng Heng <zengheng@huaweicloud.com>
-Cc: suzuki.poulose@arm.com, anshuman.khandual@arm.com, gshan@redhat.com,
-	david@kernel.org, will@kernel.org, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: io: Reject present-invalid user prot in
- ioremap_prot()
-Message-ID: <aqFWAWNzYagW2NNH@arm.com>
-References: <20260905033148.3657516-1-zengheng@huaweicloud.com>
+	t=1788958815; bh=COoomdSG2FlqAOqhScp/Ic2bx4OeDuloT0b59UMRbdY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=s58mQgbnP66N0tSsR0ISNWZsvL2/PwI5BHGINryKYJdKCuLFiMKLHOvStA5xDsP4h
+	 HqJj8VAURT88yoH+vmDsR5Yo4Ea99qNf7dbdm+V55Qia3YuxFhOXOL8gqZ/CPX+7VP
+	 LVy3xukrI30eMDBzoMp9lI45Uq4J0Wnq6ZUaoJPQ=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 07/14] KVM: arm64: Forward GCS exceptions to nested guests
+Date: Wed,  9 Sep 2026 14:00:06 +0100
+Message-ID: <aqFYVnIgvXGXzHk7@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260901-arm64-gcs-v20-7-f31750bdfadb@kernel.org>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-7-f31750bdfadb@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260905033148.3657516-1-zengheng@huaweicloud.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_055016_335628_E5160AFE 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20260909_060020_745177_E75FE2BF 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05, 2026 at 11:31:48AM +0800, Zeng Heng wrote:
-> From: Zeng Heng <zengheng4@huawei.com>
+On Tue, Sep 01, 2026 at 10:47:05PM +0100, Mark Brown wrote:
+> For nested guests where HFGITR_EL2.nGCSSTR_EL1 is clear or when there are
+> L2 GCS data check exceptions we need to forward the exception to the guest.
+> Add handling to do so.
 > 
-> Mapping a stack-top page via /dev/mem with PROT_NONE and then reading
-> that process's /proc/<pid>/cmdline triggers a spurious WARN in
-> ioremap_prot() through generic_access_phys():
-> 
->   WARNING: ./arch/arm64/include/asm/io.h:275 at generic_access_phys
->   Call trace:
->     generic_access_phys+0x1c8/0x228 (P)
->     __access_remote_vm+0x2b4/0x398
->     access_remote_vm+0x14/0x30
->     get_mm_cmdline+0xf8/0x2a0
->     proc_pid_cmdline_read+0x68/0x120
-> 
-> generic_access_phys() passes the full pgprot derived from the user PTE
-> to ioremap_prot(). A PROT_NONE /dev/mem mapping is encoded as PAGE_NONE,
-> which clears PTE_VALID and sets the software PTE_PRESENT_INVALID bit.
-> On arm64 such an entry is still pte_present(), so follow_pfnmap_start()
-> reports the pfn and generic_access_phys() reaches ioremap_prot().
-> The PTE_USER assertion, which is meant to catch kernel prots being
-> passed by mistake, then fires for a PROT_NONE user mapping
-> that legitimately lacks PTE_USER, producing the spurious WARN.
-> 
-> Reject a user prot encoding a present-invalid (i.e. PROT_NONE) entry up
-> front so that generic_access_phys() cleanly fails the access instead
-> of warning. Note that PTE_PRESENT_INVALID aliases the PTE_NG bit and
-> is only meaningful when PTE_VALID is clear, so both bits must be
-> checked together.
-> 
-> Fixes: 8f098037139b ("arm64: io: Extract user memory type in ioremap_prot()")
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
->  arch/arm64/include/asm/io.h | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/arm64/kvm/handle_exit.c | 18 +++++++++++++++---
+>  1 file changed, 15 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> index 21c8e400107c..bbfbc4682639 100644
-> --- a/arch/arm64/include/asm/io.h
-> +++ b/arch/arm64/include/asm/io.h
-> @@ -272,6 +272,10 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
->  	pgprot_t prot;
->  	ptval_t user_prot_val = pgprot_val(user_prot);
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index db37678dcb05..a8198e96fcb4 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -304,12 +304,24 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+>  	return 1;
+>  }
 >  
-> +	if ((user_prot_val & (PTE_VALID | PTE_PRESENT_INVALID)) ==
-> +	     PTE_PRESENT_INVALID)
-> +		return NULL;
+> +/*
+> + * We might get GCS exceptions that need to be forwarded to the
+> + * hypervisor when a nested guest has HFGITR_EL2.nGCSSTR_EL1 clear, or
+> + * for a GCS data check exception for a L2 guest.
+> + */
+>  static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
+>  {
+> -	/* We don't expect GCS, so treat it with contempt */
+> -	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> -		WARN_ON_ONCE(1);
+> +	if (!kvm_has_gcs(vcpu->kvm)) {
+> +		kvm_inject_undefined(vcpu);
+> +		return 1;
+> +	}
+>  
+> +	if (vcpu_has_nv(vcpu)) {
+> +		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
+> +		return 1;
+> +	}
 > +
->  	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
->  		return NULL;
+> +	WARN_ON_ONCE(1);
+>  	kvm_inject_undefined(vcpu);
+>  	return 1;
+>  }
 
-I wonder whether we should just drop the warning and return NULL if
-!PTE_USER && PTE_UXN. The latter check would also catch execute-only
-mappings (Sashiko pointed out this case still trips the warning). The
-PROT_NONE case would be covered automatically as well since PTE_USER is
-cleared, PTE_UXN set. Maybe add a comment that that pte_protnone()
-relies on !PTE_USER && PTE_UXN, so it's not that we avoid the PROT_NONE
-issue by chance.
+Oh handle_gcs, if kvm_has_gcs() && kvm_has_nv() -> Inject synchronous 
+exception. Makes sense.
 
-Unrelated to your patch, also spotted by Sashiko, we only test a single
-pte but the size can span two. The fix should be at the higher level in
-generic_access_phys().
+(it kept bothering me that the !gcs and the gcs case do the same thing, 
+except for a warn_once. So I thougt on suggesting:
 
--- 
-Catalin
++	if (!kvm_has_gcs(vcpu->kvm))
++		goto inject_undef;
+[...]
++	WARN_ON_ONCE(1);
++inject_undef:
+>       kvm_inject_undefined(vcpu);
+>       return 1;
+
+But after it was done it did not look better.)
+
+
+So, FWIW:
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
+
+Thanks!
+Leo
 
