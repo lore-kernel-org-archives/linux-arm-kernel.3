@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D217CC79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F2EC79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V/qlTnUfYfGp2JdX/hItZG5Gee2j7Ew0nxnFZ6sxuQ4=; b=J7Twb9SO4tvfUMGVcLYLVFvdZj
-	AjEj4WBSL1B+5T52LLi/2gZ2dcUIkWuzY2lbc5BUCnxTWYctTyNsZu7gm5Ee6tK3iJ/xwZF/iMHad
-	mtPdzT8P7Y8bKB3p0Acb1ZuK8jTH84s9M/LfnApFSDUiSp7lTEA9trXpOPYpTmcNB2DhcrxgvThME
-	ml05lDS/PzeHjlSTBQY9+rICghk2ErYEoOF7wZqhg1XnTOBkOvTLS+Z4A7f0Mn/o8ddlf6b3HQVA8
-	V6xgnHTgut5z7BSMqBSeKNDQb6k9me+YxYFC39Txw7+TL7SP/SgxZR/zmByPy6E+JK3pLTmKFlRv6
-	WUysNjNw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sMS1hbLMg1gsIduehGePlq8QcJPEKyefk4+J94QrxTY=; b=cn8tXL48XeCIJKo0dyaLHJzgPW
+	oCroZsPTzvD0+nH9yHQBqCMzLG3l9Sd8teEerEM78Ucg6dEakVQpIeKV7CXtH4wedk4mtvY87N/8J
+	kDqknXB91csXMPcrq3HlpoMYq8qd/cnWSFCDOj7x1O+4PI+pDs3bg/+1DpDYzBiaZIRM3aHWFhHrS
+	9N0Est8PFj4x3z2L0Y55EtW/O0EBz2GAnYNLXWVelHJWuDDx0idaI9NZ6KfRPTer/12XFY58FUcOR
+	MQfteTY1FIbyEiDzc7VPY28hRAqga41D8ihsZG/Sre/uED+tFQQwNwnFDO/d9tTDTvrXlTQDl4BGm
+	85wUjVJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Puu-0000000CtQS-2ZJ2;
-	Wed, 09 Sep 2026 21:33:16 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1x4Pwb-0000000Ctfy-0Nur;
+	Wed, 09 Sep 2026 21:35:01 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Pur-0000000CtPf-1bC5;
-	Wed, 09 Sep 2026 21:33:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 55D76408E9C;
-	Wed,  9 Sep 2026 23:33:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1788989589; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=V/qlTnUfYfGp2JdX/hItZG5Gee2j7Ew0nxnFZ6sxuQ4=;
-	b=njbNHfNmVsDqxX50TMx4/HC1qNAlT73XFtEcqOCX+5q5vZN+umf7CVN2biX8IYFOq7QTmY
-	fPkiBhd8WynUvTvHrd6efRjK5N+Sbtaq3XTkjYOXX4bRr+V+rrGdh2n3VYzYoTocINjWgP
-	BUSJT38c1rt9hxPDekC0tPn0FXUgC0wVkrmbTKOSEKUlQl+99LgczV5aZ8HSQCQ6MRWsI6
-	jV0SE3HZ46FstACiVBZMtrnt+7jaX8iFk3285cZlcxT1VLES+IOAZBS0L1gwEcCIbPrK+J
-	lGsgQe3MsVoKmGLIcoRwV/9P5TGvDVOFmtUNhunF4QUD9PNjrQyvyE4nZSn4kA==
-From: Caleb James DeLisle <cjd@cjdns.fr>
-To: netdev@vger.kernel.org
-Cc: daniel@makrotopia.org,
-	dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com,
-	andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Caleb James DeLisle <cjd@cjdns.fr>,
-	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Subject: [PATCH net-next] net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
-Date: Wed,  9 Sep 2026 21:32:50 +0000
-Message-Id: <20260909213250.3184238-1-cjd@cjdns.fr>
+	id 1x4PwY-0000000Ctes-09Ag
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Sep 2026 21:34:59 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c25420fe973so1141751766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 14:34:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1788989696; x=1789594496; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sMS1hbLMg1gsIduehGePlq8QcJPEKyefk4+J94QrxTY=;
+        b=dNnjDAiza9qLopMkHW+xr6FW4oCXi/r/+6xU34ibKG/aa6oKs9Q9D+WI0zKxV1ZNJr
+         mqnLD8HWTkpwkif6SuXo3ed/xm4+do365JCUfkaO6sKgT6jAb6tguFTAvgSc11cC7o3q
+         fLLBjHO4adhbvJM4A7WVSLbYZLsheGanALSSU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788989696; x=1789594496;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sMS1hbLMg1gsIduehGePlq8QcJPEKyefk4+J94QrxTY=;
+        b=KZK2t5HwJHzR6dx48mUUBgW89elTjncCSVvRKt1LV+1v1yx5XTEPh0c1ed3jNj3Cni
+         SW8QpKZRG2EMbQbiTCol19j6JSTZ3JT8/QqYra8LiY7WpD05lp5596JGloBXKCp037DA
+         +NVUGalKkEPV+xGAd+aIjO4kXizZs/cGIpeQ8q1eDCLOkQUsskW/dDO21yoPLO6mQ686
+         slczD6pCvbgM/IXYJWmOvedQbBocEMflqY9Wfx2HW15SkQ+JmotYvhpKGYQ9CD8tpQon
+         eKw9zrHZJzGMOhatUNGZ1tRrxdccJn30L6iMZ+Ai3sV9iOQrKyPArUnELzktrhrZCxG5
+         dERw==
+X-Forwarded-Encrypted: i=1; AKwUvBzJeZn9ja7nMcVMEA1NhlWS1ECLi79K4ET76dtvBwqd0ThHq0H68zhsD/9k5F1ho+g8UIG6WrNa0Ncge8QeaQVW@lists.infradead.org
+X-Gm-Message-State: AFuF++mZR83PRdgO/jUDd62VUm/mMXKS/Uqk4Kvcp6By3cOEywj9NaUv
+	zFFZ0huBZVsDBRl3L+OkNrLw9YIG4h3Sb0nSz7OZx3A5FgCI5h9LrxLUoZK44e+00WHFNyZpMup
+	fRPVlWA==
+X-Gm-Gg: AYBFou1odgq1Xt5KkqE1WujBn7yt6A45BRn63vy6H1nHUmpGYxXtynHCkLEhS7IqR5T
+	dd9BxSPCp+yjWu9RTPeXKryFyX2hFtw0pjPaSTz2urlYHFdOp29PIxp3tT+8WMsyag/FwIdg3Ks
+	3V0QTP1/c73b9ZUsjmW6dwFuECmV/v5KGTw25cviaAG2mGuFQdg4tgWb/g5mPK5AMprpaum+tCD
+	h7SOYTdoVIypvgU0EQ0+/abBqalHNhV1iZRGrTFVHN96SS7BQf3taftInDtmvw36mhakDpH/0M0
+	idoZsbOFRsbRe/cL+xjzB2rly0X/Uw2sZrT/S1IxVcSct1tRLYlHB0GDdwda+3VdDqp4esazQvt
+	T/2PgcsjjVv/kpH1Ce2GsD6GiYhJaACq95gVfuRIW1Y2BaL8MS0H6wmmYvg8Kea/2hudr0vz9Pz
+	KyYCcRqtLymRgRv7n8+sIIenQnCxZXE6Lku7idX8HaOvh7yozCFheDNWRKzxykPCIwa2015jMc5
+	j/yC/kvOGNd4+CRxjEZLqsy7GCFDQM5EodXIg==
+X-Received: by 2002:a17:907:9720:b0:c29:3c6a:8357 with SMTP id a640c23a62f3a-c293c6a90e2mr211579966b.28.1788989696189;
+        Wed, 09 Sep 2026 14:34:56 -0700 (PDT)
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com. [209.85.221.41])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d501662sm838746266b.23.2026.09.09.14.34.54
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Sep 2026 14:34:55 -0700 (PDT)
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4869b6f8629so376513f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 14:34:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwln1T5dAHJOX2IRlAt61bUq12tJYIXhtp8FCidgHb/5mpOPprGI1926FMCq/J8uJ/VKXUHWMOkogJUzEy4RtuK@lists.infradead.org
+X-Received: by 2002:a05:600d:640e:20b0:49c:fc6e:a3e1 with SMTP id
+ 5b1f17b1804b1-49cfc6ea77dmr253931435e9.32.1788989693915; Wed, 09 Sep 2026
+ 14:34:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260908013843.368364-1-justin.yeh@mediatek.com>
+In-Reply-To: <20260908013843.368364-1-justin.yeh@mediatek.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 9 Sep 2026 14:34:41 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=Ui1XYRXb6ZqmAgWqF3TZaAcGqfsV6KodqPbk-sGqHdaQ@mail.gmail.com>
+X-Gm-Features: AcwNN1UfpgY7Rw4Gy4MtVJB0f5LgowF3gCGJtAAU-5vzKs2VDiX_yyNNYapd3c4
+Message-ID: <CAD=FV=Ui1XYRXb6ZqmAgWqF3TZaAcGqfsV6KodqPbk-sGqHdaQ@mail.gmail.com>
+Subject: Re: [PATCH v2] HID: i2c-hid: Unfollow the panel on shutdown
+To: Justin Yeh <justin.yeh@mediatek.com>
+Cc: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Maxime Ripard <mripard@kernel.org>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_143313_665126_0E32D0AF 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260909_143458_580366_2D91F5C4 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,103 +111,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EcoNet EN751221 multi-chip module implementation of the MT7530
-requires some additional configuration of the PHYs on startup.
-The reason for this is not known, but it is possible that it has
-to do with the fact that the EN751221 MCM implementation of the
-MT7530 runs at an abnormal PLL frequency (362.5Mhz).
+Hi,
 
-Detect whether the MT7530 PHY is attached to the MDIO bus of an
-EcoNet EN751221 switch and if so, apply the necessary register
-updates.
+On Mon, Sep 7, 2026 at 6:38=E2=80=AFPM Justin Yeh <justin.yeh@mediatek.com>=
+ wrote:
+>
+> i2c_hid_core_shutdown() sends SET_POWER(SLEEP) even for panel followers,
+> but nothing in device_shutdown() guarantees whether the panel, and hence
+> our own power, is still on by the time we get there.
+>
+> Do what i2c_hid_core_remove() does and just unfollow the panel.
+> drm_panel_remove_follower() calls panel_unpreparing() only while the
+> panel is still prepared, which powers us down properly; if it is already
+> unprepared no transfer is attempted at all. On MT8196 the panel is
+> unprepared long before us, so this also drops the ~2s i2c bus timeout
+> from every reboot.
+>
+> Fixes: 96a37bfd232a ("HID: i2c-hid: Support being a panel follower")
+> Suggested-by: Douglas Anderson <dianders@chromium.org>
+> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+> ---
+> Changes in v2:
+> - Unfollow the panel instead of just skipping SET_POWER, so we no longer
+>   depend on the panel having been unprepared before us (Doug).
+> - Link to v1: https://lore.kernel.org/all/20260904035009.4114363-1-justin=
+.yeh@mediatek.com/
+> ---
+>  drivers/hid/i2c-hid/i2c-hid-core.c | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/hid/i2c-hid/i2c-hid-core.c b/drivers/hid/i2c-hid/i2c=
+-hid-core.c
+> index 0ff07fdab442..c7e46004f513 100644
+> --- a/drivers/hid/i2c-hid/i2c-hid-core.c
+> +++ b/drivers/hid/i2c-hid/i2c-hid-core.c
+> @@ -1355,7 +1355,16 @@ void i2c_hid_core_shutdown(struct i2c_client *clie=
+nt)
+>  {
+>         struct i2c_hid *ihid =3D i2c_get_clientdata(client);
+>
+> -       i2c_hid_set_power(ihid, I2C_HID_PWR_SLEEP);
+> +       /*
+> +        * Like in i2c_hid_core_remove(): if we're a follower, the act of
+> +        * unfollowing will cause us to be powered down. Otherwise we nee=
+d to
+> +        * manually do it.
+> +        */
+> +       if (ihid->is_panel_follower)
+> +               drm_panel_remove_follower(&ihid->panel_follower);
+> +       else
+> +               i2c_hid_set_power(ihid, I2C_HID_PWR_SLEEP);
 
-Co-developed-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Signed-off-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
----
- drivers/net/phy/mediatek/mtk-ge.c | 61 +++++++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+This seems right to me. One note is for panel followers if the panel
+_hasn't_ been powered off by now, the drm_panel_remove_follower() call
+will cause "i2c_hid_core_suspend(ihid, true)" to be called. That does
+quite a bit more than just "i2c_hid_set_power(ihid,
+I2C_HID_PWR_SLEEP)". ...but I think that's fine. I would expect most
+systems would be powering off the panel at shutdown time anyway.
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-index 73d9b72f9d9e..42b06c40d703 100644
---- a/drivers/net/phy/mediatek/mtk-ge.c
-+++ b/drivers/net/phy/mediatek/mtk-ge.c
-@@ -1,4 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0+
-+#include <linux/of.h>
- #include <linux/bitfield.h>
- #include <linux/module.h>
- #include <linux/phy.h>
-@@ -62,8 +63,68 @@ static void mtk_gephy_config_init(struct phy_device *phydev)
- 		       FIELD_PREP(MTK_MCC_NEARECHO_OFFSET_MASK, 0x3));
- }
- 
-+static bool mt7530_phy_is_en751221_companion(struct phy_device *phydev)
-+{
-+	struct device *parent = phydev->mdio.bus->parent;
-+
-+	return parent && parent->of_node &&
-+	       of_device_is_compatible(parent->of_node, "econet,en751221");
-+}
-+
-+/*
-+ * The EcoNet reference implementation applies additional tuning to
-+ * the PHYs of the multi-chip module MT7530.
-+ */
-+static int mt7530_phy_en751221_config_init(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	ret = genphy_soft_reset(phydev);
-+	if (ret)
-+		return ret;
-+
-+	/* Clause 22 local data. */
-+	ret = phy_write(phydev, MII_CTRL1000, 0x1e00);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1, 0x14, 0x3a04);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* Clause 45 global/local data from mt7530GePhyCfgLoad(E3.0). */
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x0417, 0x7775);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00a6, 0x0350);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0012, 0xd210);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* Vendor profile disables 100/1000BASE-T EEE advertisement. */
-+	ret = phy_write_mmd(phydev, MDIO_MMD_AN, 0x003c, 0x0000);
-+	if (ret < 0)
-+		return ret;
-+
-+	phydev_info(phydev, "EN751221 companion MT7530 E3.0 PHY profile loaded\n");
-+
-+	return 0;
-+}
-+
- static int mt7530_phy_config_init(struct phy_device *phydev)
- {
-+	int ret;
-+
-+	if (mt7530_phy_is_en751221_companion(phydev)) {
-+		ret = mt7530_phy_en751221_config_init(phydev);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	mtk_gephy_config_init(phydev);
- 
- 	/* Increase post_update_timer */
--- 
-2.39.5
-
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
