@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58236C79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9959FC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 07:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LoDT+GUcdvRS8V4HRHzW8OXQubEURsr9zpZYmlTOACM=; b=lzLq8QwUGEAlox78r4IV95u2EW
-	TWfBAuMzbe8ZskPiaqFaHuMABGHzHKpBancOzm06DQQNlvelCEmZzGi8LH67/KHUPdlDzCSgm5Tun
-	uKZstUIHv8hrAlPquSgTlMmmygS6ovB40gqbdcBaBcYQ09eOBhasTPs4x9q01OXKZqEb6tafdWv2l
-	XrqeL5qQNi0U+Eo8z7t2gOM88VAh9L9fUNfQ14k6mF4++w3CWspTuVEpaZsQSBQP3d3q18ZzCtWqZ
-	MW+7AdnnEFUKQb8JgfBJAbC9R7/PWwj/qAl3iq0so9ohG9YwtpKjxbmVBHvGv+TQDXCY33Luz1AaK
-	Nqacv0nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y9vqYc9e5MyeZ9OmPpOdtvS3YemB4Mu1FMfPMp1z04o=; b=qfb+6E4w0VVxjYLxOXwbVRAuzl
+	TTJo7Z9VZqqTgr+VnrtOj4fk3tLtFsqwWSfVenDu33Y7ZjtSmVPxPo+A3PNtWVIm8sk2OvlwLdzKh
+	AOaJvH5E7F5nLOl+U2BG+GIrUMjnXIP41n2wVo6Tt48/gJSk97rJhhn5Phfc8B97VdXx54yzAkl4E
+	aSegMdNSUHGA0fz2078sFPNajp80XAAqSVDtDVc7+p0TN2oYYiSao4YId8CRoWzHip4HiDqNxnudH
+	JQ8jexJAEE2CNv47YFSrMLCBW7J7sSMDA4XmvUwcznhs9MNsuzxw+30/xre87tV91mjxHTOc58NsE
+	UWj1JewQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4D6f-0000000B1zd-1bbT;
-	Wed, 09 Sep 2026 07:52:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4D8s-0000000B2LZ-2ndj;
+	Wed, 09 Sep 2026 07:54:50 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4D6e-0000000B1zV-0PJ7
+	id 1x4D8q-0000000B2Kl-0HzI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 07:52:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36762407A7;
-	Wed,  9 Sep 2026 07:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DACC1F00A3A;
-	Wed,  9 Sep 2026 07:52:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788940350;
-	bh=LoDT+GUcdvRS8V4HRHzW8OXQubEURsr9zpZYmlTOACM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kUcKZVTn6hHu9hfV7jAQRDfthPODWLj8wE/wtf8qxW0+YefPWwxWP91QkbKgsQ66w
-	 NRJP8MgnPBGLNAts7Ylmdiawoq7BbOlPnUCvBm5iBSQ9N3tXN96C9l9O+tDO9zcojQ
-	 mN3imgMXWK6ZDknlUilQNcdNULKibjFI150dnrwEwTwDTm4aNinoujRfrJIr4tguNM
-	 l5TGfBvZsDfP78CGXjCej8bac+yt6MybSqDdQW+Ty3F13WSwDsr7QBEtQGhlCPKfA9
-	 DYEsS9DfC5rzAfxpQhX3n9Oq2u2+a4HNsaLZsrGeRsSS6GdxkRfJyZpjKw+Jgvyaz3
-	 KbnMr5dq6f3Fw==
-Date: Wed, 9 Sep 2026 09:52:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Hongliang Yang <hongliang.yang@cixtech.com>
-Cc: peter.chen@kernel.org, gregkh@linuxfoundation.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	p.zabel@pengutronix.de, vkoul@kernel.org, neil.armstrong@linaro.org, pawell@cadence.com, 
-	rogerq@kernel.org
-Subject: Re: [PATCH v4 4/4] arm64: dts: cix: Add USB4/USB5 nodes for Sky1
-Message-ID: <20260909-expert-fabulous-antelope-d64587@quoll>
-References: <20260906032440.470788-1-hongliang.yang@cixtech.com>
- <20260906032440.470788-5-hongliang.yang@cixtech.com>
+	Wed, 09 Sep 2026 07:54:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 118CB1A1A73;
+	Wed,  9 Sep 2026 07:54:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D5C8960448;
+	Wed,  9 Sep 2026 07:54:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 250C011C7AF5E;
+	Wed,  9 Sep 2026 09:54:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788940484; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Y9vqYc9e5MyeZ9OmPpOdtvS3YemB4Mu1FMfPMp1z04o=;
+	b=bRT6Xe2FdQ+XRFsktJaNrW8Pqt37ur7Cf9Wv5TXK2XlSeDwSbk5WlW2x0krsCsFWTYev2B
+	kFToIhXNDLL9SC0DbdXze+GCddx1ynO2du5g+llK1WTJ1BQGphRYTgCC0r5+VGeOJe1dXn
+	XrkspEnPA9cmQ39cdARQTF2sGFjbiV0yKF7xge23J4lbaVEEWYUCM9qioJGJ1l1RBh6qA9
+	dFCVHk4UqejGj3X6CDm+z7622r3KUMDDmcrA1A0txuJDHURwcrzDnaWXHzAknD8CSTKnzf
+	lUUffrFze6bC6nYuplxGJPetgbhJy85KSGYT/E9OJ9ggVaCKm4gNSUhIEjbV1w==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
+ James Hilliard <james.hilliard1@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20260904-submit-sunxi-nand-ecc-step-validation-v3-1-931cec317c10@gmail.com>
+References: <20260904-submit-sunxi-nand-ecc-step-validation-v3-1-931cec317c10@gmail.com>
+Subject: Re: [PATCH v3] mtd: rawnand: sunxi: reject ECC maximization on
+ small pages
+Message-Id: <178894048196.2040467.15162790705275563335.b4-ty@bootlin.com>
+Date: Wed, 09 Sep 2026 09:54:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260906032440.470788-5-hongliang.yang@cixtech.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_005448_244220_5E7FDA3F 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 11:24:40AM +0800, Hongliang Yang wrote:
-> Add USB4 and USB5 controller nodes for the CIX Sky1 SoC. Enable USB4
-> and USB5 in host mode on the Radxa Orion O6 board.
+On Fri, 04 Sep 2026 19:05:37 -0600, James Hilliard wrote:
+> When nand-ecc-maximize is set, the driver selects a 1024-byte ECC step
+> and divides the available OOB bytes by the resulting number of steps. A
+> NAND with a smaller page therefore produces zero steps and a division by
+> zero.
 > 
-> The per-controller RCSU registers are accessed through a syscon regmap
-> referenced by the cix,usb-rcsu phandle.
+> The older controllers also provide a 512-byte ECC block mode, but the
+> hardware documentation describes that as an ECC block size within NAND
+> pages whose supported sizes start at 1024 bytes. It does not document a
+> 512-byte NAND page mode.
 > 
-> The shared RCSU slice of the two controllers is described by a syscon
-> node; each controller references its registers through the cix,usb-rcsu
-> phandle with offsets.
-> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
+> [...]
 
-So all your patches here have manually-created wrong style...
+Applied to nand/next, thanks!
 
-Best regards,
-Krzysztof
+[1/1] mtd: rawnand: sunxi: reject ECC maximization on small pages
+      commit: a3c84084a73e170374b7dd493947efdef4ee57bc
+
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
+
+Kind regards,
+Miquèl
 
 
