@@ -4,132 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9761C79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C214BC79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=; b=lYzBVBH+Z3PhQ1nukrY3b8f2c7
-	4QkRocdSlekdctha41SV6mJOnakWFUD+UnMo9IqU8BdigDMMXvJA9ruCCBSpMYuTWW9G2QazkbhZc
-	qQR69L7H1BVDQ0e0RhjD24EjRYOaLDnrNb9MRD5OL8Wzcj5yRHEJteRUbOz0kPfZPH5KowFmgN5wZ
-	xGK9N54d54xfBDYYx9a0s64HhIQNKj3xidZvIIi56jLGxXzxI7Yz0Fiyxq5rkWhgk6PSF5PNWyaq/
-	qypcCX7twsmuBjRLxupaOwv2ZmZ7x4ZnGqJ17ctSffW2U6a3vtLfcL3wE4x2vKJ5HyvUt0wjSII2W
-	JwzUoFvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=; b=ocmSvVMMXK8EYExW6tgGoPN3lE
+	9GbRlc3D3i8n7J+K1JTBIG+19Pt79yKmH11Dq3/7pkZ2u0FqH6OE5DwxuJgEYa/VCDIPN9uOSsabS
+	Cj0/RgN6TKnNcEhA3bPHTMJudTVZfJZ456JGBAke+jcDos2/FMnQ8AlaDfJYRDdhBh9NpH/OxVY/9
+	z4+iw/dShNSwibaSUAnM4I4nt3Qu/ei5oh8/19ADyemasYPFH7XCuokadXVbe0oAdquJhkSh8Igkj
+	MoeS9/4Ak1I3ZF1eAQhrsji6T0GDE/bOrLhE/MMkqSppIfw4UZTt+GbaNq18OAHJsXQEybM+d4SkM
+	hjCwzY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Byf-0000000AuHn-12Vj;
-	Wed, 09 Sep 2026 06:40:13 +0000
-Received: from mail-northeuropeazon11011008.outbound.protection.outlook.com ([52.101.65.8] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x4Bys-0000000AuL0-1VWq;
+	Wed, 09 Sep 2026 06:40:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Byc-0000000AuH7-2YId
+	id 1x4Byo-0000000AuJx-3fB3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:40:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bdbz5gCG+1x1KoF7nQT3cinuJsBezRfAZ4YZO2/z6mUctaXNbngX/zVQrpBwJF66QGfCAX03GgwCL0g1GqoMVTYoq7IYGifIUZIJ2NemxMK+eu3DSUt9c3kGLKL/cL7AH0lP3veiSLk8fqPGrhyTip9Y1MEoHR7sGqVULhUdPwZqMQjG1Oj3wngh83J0q1yuwnMStvWZcZy76WbWBC5Nj79yzkC+4ZEiQ191oWIOiV8we2SjkIvuEI3ZR6xf0vRhfla7pstYPZYi9iD3i6q5Ph47V+C/0Fi0OBemBUmfTIqk32zqteYcOtQtiPyJ/zRnxNKhIgxvHR9tkmfEU97ylg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=;
- b=wQsTRsq4H2z9BXfHKs1I+9gFWi7hxW0+YU+UB4oZX10rIxyYTkuFVYehQlFyEmnrBMNtnalEcFeSznAvY8B2py9+Ug5CA4y2OwPHrmpU2XEmf1s/VUZ9WZ2XSKUsGEbmnSx8cImxgjtjYHkMozyN1D0dqD/cnTlwSmDYU8QeBLqf8jlxX+SdkcXLKHHi/pNuQ+7aVJUGgwSNvgcPNfSOSYZI/89EwP+N3JketL1klxDqwyt3jA+IAEnbzkwTN0XGujtSYSdjmc7mbbIxXo0DUWN/cYfLbDPXPz/f4ODn5ZnA1mT1/4bzrZs3/8vsr0L1m6egYVim1U+6kKe1VUnfmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mpGnf2THzpjkqf3nYuIap+ZpOXwwTlp/Hym6b5DuIYo=;
- b=vSrp2oXHqwzHO8rB+2cww0JsMnQxQFR2rtrxNScq7vcCzxsSch/XtkZPAccKYi/WTMBaeQQKOa1KsTZzGMG5BEvBKhQwrW4H+cyxstGmBY6iQgZf+PvUvjTUirG0DSVuYpMKuCa+6aVF6oy7thWg545FmMWX6MZds+6qrW4xlF3eHBIADvsMshIQNLjgkrQ0aP7i79HuVSl5U09uY+3GHHymu73YEAXx8P9IXaaxxxJqbQz4kl4ssHZjdWWoUux8wHTGEN6rS3DQHhvSgPPTn509nZVtfeqO8O3VZkJi64oc2+vsBVWkQ90FzLhtZCXPoAukSbHB5H3iPJ9q29uZjg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22) by VI1PR04MB6831.eurprd04.prod.outlook.com
- (2603:10a6:803:135::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 9 Sep
- 2026 06:40:03 +0000
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
- 06:40:02 +0000
-Date: Wed, 9 Sep 2026 14:44:15 +0800
-From: Bough Chen <haibo.chen@oss.nxp.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: Re: [PATCH v5 3/3] gpio: mmio: track the direction of chips without
- direction registers
-Message-ID: <20260909064415.pel5dilh7nrkxz6u@shlinux89>
-References: <20260903075940.2089367-1-mehmet.fide@gmail.com>
- <20260903075940.2089367-4-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903075940.2089367-4-mehmet.fide@gmail.com>
-X-ClientProxiedBy: SG2PR02CA0123.apcprd02.prod.outlook.com
- (2603:1096:4:188::22) To PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22)
+	Wed, 09 Sep 2026 06:40:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788936021;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=;
+	b=cl0gk/RWCQ9zKM9BdYy8Kj5L6BMnftkIMMnI2/8v2lCEOeKqyakySwI75tqaUqlvU7ZJuN
+	VWvPtH2y2LG3MJMOFR/sseRSvALybQtO+ZREYN3p5ZaQYEnvG+8iU4DuW3gqwc7ZjzDcgd
+	t1vFP+8Tte9WPHu/rVtQAdBuiL1KSxM=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-681-dgTdEoP1PT6FEu-Opk0fqA-1; Wed, 09 Sep 2026 02:40:20 -0400
+X-MC-Unique: dgTdEoP1PT6FEu-Opk0fqA-1
+X-Mimecast-MFC-AGG-ID: dgTdEoP1PT6FEu-Opk0fqA_1788936019
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8627258ef12so4093819b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Sep 2026 23:40:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788936019; x=1789540819;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ROX0AzEGKtnku63/O4EIu9e6E88ExwOGJkGzN1mDSfs=;
+        b=pH1PDKoa48JWMQAsV6w1XaBryIES2WjJ5OlQ2IWbpK/vxXjz5UsQUCyk1HPtPyzHtY
+         ALeLylS340f19i5tWnuRq1TdgupThjOQU/bhTiQZU5gTibtLVoG/Vkgh104Q2MVvVV+j
+         VMokVNCzi3itoq4/RAePqg8E8B0tEPei8KC0Bd2GdgpB+IdrZvcj7D9R/4M+2SWZUbSM
+         4yo9MGvq31B7rYhWIAGUg5BZw6gqwT8G4pS/TwF+bGzrJI4y120dGk4sUdgAijW52fjk
+         4UvR8PHU3Kvxm0/GfrHeJIYRvoWIKPX124YeOKxonhnblkC2mOqnJ5OvMk9baNOfdgsW
+         OoFw==
+X-Forwarded-Encrypted: i=1; AKwUvByOVXKuRH+jVTVtEiv2bN8cGrpZKtujs+goIcBVNtaPtIaMSeUQyhF38SjjkMiSDTlS7491WzZvDgokjHVFcfER@lists.infradead.org
+X-Gm-Message-State: AFuF++kzgnKSdU3oT62PatjKRe/+X6xLQVxTdrt1G2/ImQ0z/h86QCLb
+	NcvGHEbAvygMaTPN09QZSivpLmEKmQ9454/bjBsDZV440j20QpUV69TubfQbQ2aMON1JAFsI0oI
+	TzICR6Tkv2Ox45nTDoAFSIiV+ACsnZucczb6dD+R8zmxBYful7CfQdH8sGLofq55oYtJc3M04Jd
+	M1
+X-Gm-Gg: AYBFou05uUbQH5W4620qXXg7QmoG8/BsdsOseBNMZstA3U9vT7/Y47UDtdkDmtIyw9t
+	cB3Cxv+absHWa+EZCGWAaPaoHGFf7R79eHKX32iE4A532Bl1I4dhjqQLvfGQUE/Qt6zNihAvxWD
+	CiVwsXFwChMgSNOURL4PYy5Y9f9PbgT6uRCvuqGea0rho+BNucc9JaYqnUJjg12u0FupIwqqgjD
+	oEdJpeKzGIWSA+NPSTEfDid1u1FhTnH+VQS1yM/7bTsOSjnKO6nP5p1GdO0E2HowLy66sI6eJFX
+	yIcqjmdjsEVElDs+MF+6njjfYhJKu5ZJmKVYrKoDlYryrd3gVJ5fjS6Cn+0rVHctC7qyUt0HXYv
+	Neg8qz52AfMRI51ATSHpqJIF2slaPAbB+Bba2XnIf1w==
+X-Received: by 2002:a05:6a00:1702:b0:857:726d:270c with SMTP id d2e1a72fcca58-8616dd51063mr47210160b3a.24.1788936018857;
+        Tue, 08 Sep 2026 23:40:18 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1702:b0:857:726d:270c with SMTP id d2e1a72fcca58-8616dd51063mr47210112b3a.24.1788936018206;
+        Tue, 08 Sep 2026 23:40:18 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8633cc0f7e2sm4760580b3a.37.2026.09.08.23.40.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Sep 2026 23:40:17 -0700 (PDT)
+Message-ID: <5d2aa6a0-61a3-4b0c-8866-58c4a7888de3@redhat.com>
+Date: Wed, 9 Sep 2026 16:40:04 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|VI1PR04MB6831:EE_
-X-MS-Office365-Filtering-Correlation-Id: 13fe79b5-78e8-4c40-27b1-08df0e3d2d56
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|19092799006|366016|3023799007|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: yAFXmj1QQoogqfLKKldTXgr5zZLMZLt1KQ0f4SP5P305KuMYhHSsQvPzT+aALVcQ1eZZJCKUBu3kuv2xRGv2Z7ry1ceqVcAiWRMHjpKJf2VtVdZzyvkV3FoDCcJ87WLffK2oQjJeFQyXVhLhiZ2ptyTb45dDIJfLqbO1mpMkBtqBnyryF0ilpo8dbnGVkD/iQntmM5eh0/i412YY7e4C75/jsOCMmYOvM5scf4o9IuHwF5Z2+7NU9Jb/o/nwHo+tNanLtzxtuD6sKarNw1KUiz3/cXneDzZaBq1WYIam29fINNabxxuR/EzRu7xb9X3W5U70lE/6czlFoA0YXuXQSp6WPCy0jjGBJ9am8pd1pr+LbV1qytGZjae7aoDzydZ+gw6+CVo3SN2cglhSrrgMndq8jra9RNOydCdXMkHfJVTwK/oNkXG4VHJMrjoAV385DINNMe4MrcLCgE5RMXvRm5T7xXS9jazHBwU/Q8MGA+BBeHNLwzHikn/ITm+Zg28Ey3UKoqW3dEEX/O0NFlPc2RApooqpilw03+ohtD6EFxYfrzEWkxuzq31mpRZlTLAM0VKIAfQBLId4zlQY1Y9kVLsJrjNEGd5Vu7M4/bwjWlHH23f4rT//3Ba+esg/2Jj9JAKDcuKfxd315IAJlK0xacrr284QG+jAbrsn/Eod63U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(19092799006)(366016)(3023799007)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JaMbAWJajvtTWi6vZHMSjmSID9sxAB5Dv2IjVQkg85BAta6x/kP99x38Ftbg?=
- =?us-ascii?Q?o3JifF1xBSgUnKBwREGDkejUSum8XSfmHCMWj48AGzrkwN2JaNY+w/P81qKz?=
- =?us-ascii?Q?FJWZSUNL6f3Pbmw6QFWQQ0o9os5DmTqVRdpHiWhsTULWxWUmcjTAzCunc0jI?=
- =?us-ascii?Q?Mxp4yELSSmuiP7CjWFkS9yjafkgCivSQ5E3g3HcpptxbFh14G4F2WYOvn5VG?=
- =?us-ascii?Q?m0ptuTV5rpE9QlQGBrFKIfWtwehd6ppx0MC9k94j24PP2gcBsDK8Kz5bvxSV?=
- =?us-ascii?Q?liRCmqT5+13W+Ssh6gH3xJa7T09BNG01nVqfkCvDuMg0jHbbHbABIqMl0Dqv?=
- =?us-ascii?Q?A4cckGIY8r3QTN3l4SLo8pQ7FiEXOM4GiL61lmTkFNpII7rNoznOjimNE55q?=
- =?us-ascii?Q?lsNf48xM+vQ8nQhRXrP41H6BLl+e5zAwc+2RXJVpYvmm7xUwpLpPCZ3waKDR?=
- =?us-ascii?Q?LG83x/msKtHPyCCODCyf9RT5JXnO/oCXAjdkIqqSVtZLZU9+FE0WkBYiOB79?=
- =?us-ascii?Q?A0AVbAA7Jvz0LU2RV+WiIFCy2lQN4fWsemfwit31eEJiMyKP3vlfruMePSSh?=
- =?us-ascii?Q?2YTe+vf9pK/SEyVgKMvuC4NoqTsjDGv3c72ZUFO5cLulI2hYVFnGujSsNRlm?=
- =?us-ascii?Q?K5on8hplf5uoFXg17u7rh8j0dtc/k1V1O23CAsRaeiAvXa6HFIal2K2iSz4p?=
- =?us-ascii?Q?evS7l/8n3zlFAHy/iHcjzAPWQ3K2yRn1nvCdg9Emj7bdcVc1AaysnTtMJB9d?=
- =?us-ascii?Q?0MGZR80IRZ754w98xlHaqsGJU3BIVRmX6yfIfKReFn4Ndp/QPNcctaD+DMvK?=
- =?us-ascii?Q?kpj8KMXres4noc9P1k8ZMZbLr934ibTRFYy0goSp2gQLH1oeNXqlQ+ZUrFoU?=
- =?us-ascii?Q?lZeOpT0WSzn03hkurFkGRqMCc7Xp5kF0Mm9OBvF1KHAESp6+oa0hCcrBQIup?=
- =?us-ascii?Q?IpUJDe3L9dBzT8AIj44KIh8PWZQfULdHj7YDt2ifx4abnWVzriX1jM5jCv3v?=
- =?us-ascii?Q?ELeIP76lPeYCe4bkZ73eHj6a8ADp6ySVSj9f/s5DDgNn2f980O7F1OsQgJoI?=
- =?us-ascii?Q?G5w/3CP375Bt3ZlhHOduOvfiopMl7D3v/r458NI/8UHeFcs3jZKHxf/fietq?=
- =?us-ascii?Q?tSHM8CHxZjfD29OmjBSbMOeVo6QQKk1CEv4mYjemRYwTrSkO0t2zqZpb+w3m?=
- =?us-ascii?Q?tC96mkbhHhouj1TbqfynSRnnL0q66aaj2oqsyo2Sq02sHKIFhMOwMEzWWHLA?=
- =?us-ascii?Q?2ei6HBrjJVLFvvJIlZkwflMcR+3BhPZ0ZZlwa9am9gJtKX8bVZEtG5OlIl0q?=
- =?us-ascii?Q?nwafq+nR8/1VqwtFdEwSTdIm+QPQGzRJ1/IL+deyrHSADdV+00FClVDhCmAU?=
- =?us-ascii?Q?ZCg6GfP+PMh+sR/CaoBhYr4llFYkPywPzd7gwBueecb1OOYGzZ1fRB2yB+GQ?=
- =?us-ascii?Q?cBYVJDelDBl2op67zg6/1vztKfRsDlTARyzNpsCZi5w/bIDp6cnRscAeFRBn?=
- =?us-ascii?Q?XxipSbGRfRPEG6wd6lZIWpoMw7MK6Iyc3ha1UABPpIVu8h6AKrwB41MVamDW?=
- =?us-ascii?Q?APzC/+qCrvN6eedfn++GzyotsukYxFw/BMjKlOtQId+iAXbCSPCVG9xpFw7f?=
- =?us-ascii?Q?YJj0bGr1pqtHKQHmnIEvcl62EzTLgGFg1EZmtT5yhhCTWx5rvPGZw8+Ewbhl?=
- =?us-ascii?Q?GNZBYhbG0T8Xqqu6lxidBvmuwBJtaTDCG/V6R51o0SlbDxRyW1IbOS5wpvzu?=
- =?us-ascii?Q?KQnr515KQMkbOv3sszXMfcJUNzYpXPKEOV+WbzeE6Ipd7XhyyREJ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13fe79b5-78e8-4c40-27b1-08df0e3d2d56
-X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:40:02.8372
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AbH6rl4jEnLD2pQnJPGt1MwQ42/Qpi+HoOT7v7UI1HrULje/0P79hpEFw45fTOxjrIu1U8pcy/KmbD6Dqn2grnNCIiFP3fBMWyuu/DelsIN1KsJVHcvzUPcu5e8KvUte
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6831
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
+ for memory
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-7-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260907095942.1140734-7-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zYlC1gHS1q-6-qGZ6THZCVdNJXyH2bfqM4EVHt6Xwyc_1788936019
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_234010_654222_98DEDF7E 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20260908_234023_902401_E33FB7A3 
+X-CRM114-Status: GOOD (  42.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,153 +119,358 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 09:59:40AM +0200, Mehmet Fide wrote:
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
 > 
-> A generic chip with GPIO_GENERIC_PINCTRL_BACKEND and no direction
-> registers sets the direction through pinctrl but has no get_direction
-> callback, so every gpiod_get_direction() call trips the WARN in gpiolib
-> and the direction gpiolib reports is whatever it assumed. On a Vybrid
-> Colibri module that is 21 backtraces per boot.
+> The RMM maintains the state of all the granules in the system to make
+> sure that the host is abiding by the rules. This state can be maintained
+> at different granularity, per page (TRACKING_FINE) or per region
+> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
+> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region, all pages
+> in the region must be of the same state, this implies we need to have "fine"
+> tracking for DRAM, so that we can delegate individual pages.
 > 
-> Keep the direction of such a chip in the existing shadow: the direction
-> setters update sdir under the chip lock, and get_direction() is the
-> shadow-reading path already used for unreadable direction registers.
-> That keeps the callback usable in atomic context, which it has to be:
-> gpiochip_lock_as_irq() calls it for !can_sleep chips from
-> gpiochip_irq_domain_activate(), under the irq descriptor lock.
+> For now we only support a statically carved out memory for tracking
+> granules for the "fine" regions. This can be extended in the future to
+> allow modifying the tracking granularity and remove the need for a
+> static allocation by the firmware.
 > 
-> The pad's actual state is read once, in process context, when a line is
-> requested: gpiolib calls request() right before get_direction() for a
-> new line, so the shadow is seeded there from PIN_CONFIG_OUTPUT_ENABLE
-> through the chip's get_config(), which is gpiochip_generic_get_config()
-> for the pinctrl backend, and the line reports what the pin controller
-> says. Lines pinctrl cannot answer for keep the input default, which is
-> what gpiolib assumed before.
-
-dir_unreadable is now set from a second source (PINCTRL_BACKEND with no
-direction register, in addition to GPIO_GENERIC_UNREADABLE_REG_DIR);
-worth a line in the commit message.
-
-Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
-
-Regards
-Haibo Chen
-
+> Similarly, the firmware may create L0 GPT entries describing the total
+> address space. But if we change the "PAS" (Physical Address Space) of a
+> granule, then the firmware may need to create L1 tables to track the PAS
+> at a finer granularity. Linux therefore checks if the platform firmware manages
+> the PAR region. i.e., the firmware is in charge of managing the L1 GPTs
+> (creation and the required memory for the GPT tables - via static carveouts)
+> without host intervention. Support for dynamic GPT creation by the host will be
+> added later.
 > 
-> Suggested-by: Bartosz Golaszewski <brgl@kernel.org>
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+> If the firmware requires us to manage the tracking or GPT memory, Deactivate
+> the RMM and reclaim any memory donated at RMM activation.
+> 
+> Apply the same checks when hotplugged memory is brought online.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
+> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->  drivers/gpio/gpio-mmio.c | 60 +++++++++++++++++++++++++++++++++++++---
->  1 file changed, 56 insertions(+), 4 deletions(-)
+>   Changes since v16:
+>       * Check fine tracking and create L1 GPTs for hotplug-added memory.
+>       * Clarify the L1 GPT setup and move the explanatory comment.
+>       * Switch to using RMI_GPT_INFO command for checking the GPTs.
+>       * Deactivate the RMM and reclaim the memory if we can't proceed.
+>   Changes since v15:
+>       * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
+>       * Handle negative error codes from wrappers.
+>   Changes since v14:
+>       * Move the implementation into drivers/firmware/arm_rmm.
+>   Changes since v13:
+>       * Moved out of KVM
+> ---
+>   drivers/firmware/arm_rmm/rmi.c | 139 +++++++++++++++++++++++++++++++++
+>   include/linux/arm-rmi-cmds.h   |  75 ++++++++++++++++++
+>   2 files changed, 214 insertions(+)
 > 
-> diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-> index 7e4b3e8d609f..0709ffaab4de 100644
-> --- a/drivers/gpio/gpio-mmio.c
-> +++ b/drivers/gpio/gpio-mmio.c
-> @@ -49,6 +49,7 @@ o        `                     ~~~~\___/~~~~    ` controller in FPGA is ,.`
->  #include <linux/log2.h>
->  #include <linux/module.h>
->  #include <linux/pinctrl/consumer.h>
-> +#include <linux/pinctrl/pinconf-generic.h>
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
->  #include <linux/spinlock.h>
-> @@ -372,7 +373,17 @@ static int gpio_mmio_dir_in_err(struct gpio_chip *gc, unsigned int gpio)
->  
->  static int gpio_mmio_simple_dir_in(struct gpio_chip *gc, unsigned int gpio)
->  {
-> -	return gpio_mmio_dir_return(gc, gpio, false);
-> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-> +	int ret;
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index d969c8738efde..34058e34188d3 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -5,6 +5,7 @@
+>   
+>   #include <linux/cpufeature.h>
+>   #include <linux/memblock.h>
+> +#include <linux/memory.h>
+>   #include <linux/arm-rmi-cmds.h>
+>   #include <linux/processor.h>
+>   #include <linux/slab.h>
+> @@ -12,6 +13,8 @@
+>   #include <asm/memory.h>
+>   #include <asm/pgtable-hwdef.h>
+>   
+> +static bool arm64_rmi_is_available;
 > +
-> +	ret = gpio_mmio_dir_return(gc, gpio, false);
-> +	if (ret)
-> +		return ret;
-> +
-> +	guard(raw_spinlock_irqsave)(&chip->lock);
-> +	chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
-> +
-> +	return 0;
->  }
->  
->  static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
-> @@ -384,9 +395,19 @@ static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
->  static int gpio_mmio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
->  				    int val)
->  {
-> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-> +	int ret;
-> +
->  	gc->set(gc, gpio, val);
->  
-> -	return gpio_mmio_dir_return(gc, gpio, true);
-> +	ret = gpio_mmio_dir_return(gc, gpio, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	guard(raw_spinlock_irqsave)(&chip->lock);
-> +	chip->sdir |= gpio_mmio_line2mask(gc, gpio);
-> +
-> +	return 0;
->  }
->  
->  static int gpio_mmio_dir_in(struct gpio_chip *gc, unsigned int gpio)
-> @@ -601,20 +622,51 @@ static int gpio_mmio_setup_direction(struct gpio_generic_chip *chip,
->  			gc->direction_input = gpio_mmio_dir_in_err;
->  		else
->  			gc->direction_input = gpio_mmio_simple_dir_in;
-> +
-> +		if (cfg->flags & GPIO_GENERIC_PINCTRL_BACKEND) {
-> +			chip->dir_unreadable = true;
-> +			gc->get_direction = gpio_mmio_get_dir;
-> +			gc->get_config = gpiochip_generic_get_config;
-> +		}
->  	}
->  
->  	return 0;
->  }
->  
-> +static void gpio_mmio_seed_dir_from_pinctrl(struct gpio_chip *gc,
-> +					    unsigned int gpio)
+>   /* Currently only the first 2 registers are used by Linux */
+>   #define RMI_FEAT_REG_COUNT	2
+>   static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
+> @@ -639,6 +642,124 @@ static int rmi_configure(void)
+>   	return ret;
+>   }
+>   
+> +/*
+> + * Make sure the area is tracked by RMM at FINE granularity.
+> + * We do not support changing the tracking yet.
+> + */
+> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
 > +{
-> +	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-> +	unsigned long config;
+> +	while (start < end) {
+> +		unsigned long ret, category, state, next;
 > +
-> +	if (!gc->get_config || chip->reg_dir_out || chip->reg_dir_in)
-> +		return;
+> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
+> +		if (ret != RMI_SUCCESS)
+> +			return -ENOMEM;
 > +
-> +	config = pinconf_to_config_packed(PIN_CONFIG_OUTPUT_ENABLE, 0);
-> +	if (gc->get_config(gc, gpio, &config))
-> +		return;
+> +		if (state != RMI_TRACKING_FINE ||
+> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
+> +			/* TODO: Set granule tracking in this case */
+> +			pr_err("Granule tracking for region isn't fine/conventional: %llx-%lx\n",
+> +			       start, next);
+> +			return -ENODEV;
+> +		}
+> +		start = next;
+> +	}
 > +
-> +	guard(raw_spinlock_irqsave)(&chip->lock);
-> +	if (config)
-> +		chip->sdir |= gpio_mmio_line2mask(gc, gpio);
-> +	else
-> +		chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
+> +	return 0;
 > +}
 > +
->  static int gpio_mmio_request(struct gpio_chip *gc, unsigned int gpio_pin)
->  {
->  	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
+> +/*
+> + * We do not support creating L1 GPTs yet. So, make sure that
+> + * all the regions are managed by the firmware.
+> + */
+> +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, phys_addr_t end)
+> +{
+> +	unsigned long l0gpt_sz;
+> +	unsigned long next, par_state;
+> +
+> +	l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+> +					  rmi_feat_reg(1)));
+> +	start = ALIGN_DOWN(start, l0gpt_sz);
+> +	end = ALIGN(end, l0gpt_sz);
+> +
+> +	while (start < end) {
+> +		long ret = rmi_gpt_info(start, end, &next, &par_state);
+> +
+> +		if (ret != RMI_SUCCESS)
+> +			return -ENOMEM;
+> +
+> +		if (par_state != RMI_GPT_PAR_PLAT) {
+> +			pr_err("GPT for the region is not managed by firmware %llx-%lx\n",
+> +				start, next);
+> +			return -ENOMEM;
+
+I guess -ENODEV is more appropriate:
+
+			return -ENODEV
+
+> +		}
+> +		start = next;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_prepare_memory(phys_addr_t start, phys_addr_t end)
+> +{
 > +	int ret;
->  
->  	if (gpio_pin >= gc->ngpio)
->  		return -EINVAL;
->  
-> -	if (chip->pinctrl)
-> -		return gpiochip_generic_request(gc, gpio_pin);
-> +	if (chip->pinctrl) {
-> +		ret = gpiochip_generic_request(gc, gpio_pin);
+> +
+> +	ret = rmi_verify_memory_tracking(start, end);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return rmi_verify_gpt_firmware_managed(start, end);
+> +}
+> +
+> +static int rmi_init_metadata(void)
+> +{
+> +	phys_addr_t start, end;
+> +	struct memblock_region *r;
+> +
+> +	for_each_mem_region(r) {
+> +		int ret;
+> +
+> +		/* Firmware-reserved NOMAP regions are not usable system RAM */
+> +		if (memblock_is_nomap(r))
+> +			continue;
+> +
+> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
+> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
+> +
+> +		ret = rmi_prepare_memory(start, end);
 > +		if (ret)
 > +			return ret;
-> +		gpio_mmio_seed_dir_from_pinctrl(gc, gpio_pin);
+
+The local variable 'start' and 'end' can be dropped:
+
+		ret = rmi_prepare_memory(PFN_PHYS(memblock_region_memory_base_pfn(r)),
+					 PFN_PHYS(memblock_region_memory_end_pfn(r)));
+		if (ret)
+			return ret;
+
 > +	}
->  
->  	return 0;
->  }
-> -- 
-> 2.54.0
-> 
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_memory_notifier(struct notifier_block *nb,
+> +			       unsigned long action, void *data)
+> +{
+> +	struct memory_notify *arg = data;
+> +	phys_addr_t start, end;
+> +	int ret;
+> +
+> +	if (action != MEM_GOING_ONLINE)
+> +		return NOTIFY_DONE;
+> +
+> +	start = PFN_PHYS(arg->start_pfn);
+> +	end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
+> +	ret = rmi_prepare_memory(start, end);
+> +
+> +	return notifier_from_errno(ret);
+> +}
+> +
+> +static struct notifier_block rmi_memory_nb = {
+> +	.notifier_call = rmi_memory_notifier,
+> +};
+> +
+> +bool is_rmi_available(void)
+> +{
+> +	return arm64_rmi_is_available;
+> +}
+> +EXPORT_SYMBOL_GPL(is_rmi_available);
+> +
+>   static int __init arm64_init_rmi(void)
+>   {
+>   	int ret = 0;
+> @@ -666,8 +787,26 @@ static int __init arm64_init_rmi(void)
+>   	if (ret) {
+>   		pr_err("RMM activate failed\n");
+>   		ret = ret < 0 ? ret : -ENXIO;
+> +		goto out_free_sro;
+>   	}
+>   
+> +	ret = rmi_init_metadata();
+> +	if (ret)
+> +		goto out_deactivate;
+> +
+> +	ret = register_memory_notifier(&rmi_memory_nb);
+> +	if (ret)
+> +		goto out_deactivate;
+> +
+> +	arm64_rmi_is_available = true;
+> +	pr_info("RMI configured\n");
+> +	kfree(sro);
+> +
+> +	return 0;
+> +
+> +out_deactivate:
+> +	rmi_rmm_deactivate(sro);
+> +out_free_sro:
+>   	kfree(sro);
+>   	return ret;
+>   }
+> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+> index dea7c7004d35f..79e2c1f165112 100644
+> --- a/include/linux/arm-rmi-cmds.h
+> +++ b/include/linux/arm-rmi-cmds.h
+> @@ -35,6 +35,8 @@ static inline int rmi_undelegate_page(phys_addr_t phys)
+>   	return rmi_undelegate_range(phys, PAGE_SIZE);
+>   }
+>   
+> +bool is_rmi_available(void);
+> +
+>   long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp);
+>   void rmi_sro_free(struct rmi_sro_state *sro);
+>   long rmi_sro_execute(struct arm_smccc_1_2_regs *regs);
+> @@ -64,6 +66,19 @@ static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+>   	return res.a0;
+>   }
+>   
+> +/**
+> + * rmi_rmm_deactivate() - Deactivate the RMM and reclaim any memory donated at
+> + * rmi_rmm_activate()
+> + *
+> + * @sro: Preallocated SRO context to be used
+> + *
+> + * Return: 0 on success, positive RMI result code or negative Linux error code
+> + */
+> +static inline long rmi_rmm_deactivate(struct rmi_sro_state *sro)
+> +{
+> +	return rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE);
+> +}
+> +
+
+It seems rmi_rmm_deactivate() is used for once by rmi.c::arm64_init_rmi(). If so,
+we needn't to expose this function and just combine the logics to rmi.c::arm64_init_rmi().
+
+>   /**
+>    * rmi_rmm_activate() - Activate the RMM
+>    * @sro: Preallocated SRO context to be used
+> @@ -75,6 +90,66 @@ static inline long rmi_rmm_activate(struct rmi_sro_state *sro)
+>   	return rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_ACTIVATE);
+>   }
+>   
+> +/**
+> + * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
+> + * @start: Base PA of the tracking region
+> + * @end: End of the PA region
+> + * @out_category: Memory category
+> + * @out_state: Tracking region state
+> + * @out_top: Top of the memory region
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_granule_tracking_get(unsigned long start,
+> +					   unsigned long end,
+> +					   unsigned long *out_category,
+> +					   unsigned long *out_state,
+> +					   unsigned long *out_top)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_TRACKING_GET, start, end, &res);
+> +
+> +	if (res.a0 == RMI_SUCCESS) {
+> +		if (out_category)
+> +			*out_category = res.a1;
+> +		if (out_state)
+> +			*out_state = res.a2;
+> +		if (out_top)
+> +			*out_top = res.a3;
+> +	}
+> +
+> +	return res.a0;
+> +}
+> +
+
+rmi_granule_tracking_get() is used for once by rmi.c::rmi_verify_memory_tracking(). We needn't
+expose rmi_granule_tracking_get() and combine its logic into rmi.c::rmi_verify_memory_tracking().
+
+> +/*
+> + * rmi_gpt_info - Query the GPT info for the given PAR.
+> + * @base: Base of the physical address region
+> + * @top: Top of the physical address region
+> + * @out_top: Top of the phyiscal address region for which
+> + *		the GPT @out_gpt_par_state is valid
+> + * @out_gpt_par_state: State of the GPT covered by [base, out_top)
+> + */
+> +static inline long rmi_gpt_info(unsigned long base, unsigned long end,
+> +			       unsigned long *out_top,
+> +			       unsigned long *out_gpt_par_state)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_GPT_INFO, base, end,
+> +	};
+> +
+> +	long ret = rmi_sro_execute(&regs);
+> +
+> +	if (ret == RMI_SUCCESS) {
+> +		if (out_top)
+> +			*out_top = regs.a1;
+> +		if (out_gpt_par_state)
+> +			*out_gpt_par_state = regs.a2;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+
+Similarly, rmi_gpt_info() is used for once by rmi.c::rmi_verify_gpt_firmware_managed(). We
+needn't expose this function and can combine the logic to rmi.c::rmi_verify_gpt_firmware_managed().
+
+>   /**
+>    * rmi_features() - Read feature register
+>    * @index: Feature register index
+
+Thanks,
+Gavin
+
 
