@@ -4,73 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23724C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7058C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7SlatWSaNqRKqHfFu0GCISBxqS4y13FNspQjeXz/a2Y=; b=mQFBBSYBSH6GXkqJLtBdyMXd/g
-	0Z426BNNWs7oSbhqEBbYvXF3OkHeZ5+gSp7mvfj3AHkAOxvIySx86f0pnpC+xviCphSMBORHM2tLq
-	8vUEQyw+U1hScdzIe+4QgdFU/rHUyiB30Q60Nt9KxougHRNdnZFP45m4ExWMwXbVUrN1cWcoV3UTJ
-	E+1pfxtit7OqMatK2Tt8mApiI03ozEk5Dwn2PAjPi/GcWwD4nbIYMmrveuqV+po0TIsOh/FXzndzD
-	sRv0qyOkxvQco4w+ziqH+msgYztUg0XM/I9adPDo6w3SzwmfrYUm1vlpROZa+TRy9yQbpV+VUXEVJ
-	sxq2FO6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IoAK0wukU4A8hNIjRWi6wD/ypMPEkJdNInGE7CV+WAo=; b=v0kmKlZ6eXPZz+E6afLzn4KfOb
+	R200X1miLR66tnBmUkDsjGZNDz7Cz7SWjgkJUBxfXK3fpTyMlxTAKLzHQ9/h6rFKv41PDciqC8w5s
+	2J/TguHhcgWC18Mg7+Gg08KRTAIQ/ss1tolGtpA8hJY1P9evZJkQuzGilScwHmdYwuDa1SxfCw8Gz
+	GKdrNIVsWc/8qXCeSoQzODhqFQrcrxVG8647K9KyIxBDj5W7d6Uy5Uu2gu57IMMcELdX89AjiJq1R
+	sca7hAJxiv6YwquXtDmb/XACvTcaoGrpKMWkd967L4uEMsIafV4kG6QGDc1m+JwG7TzOnvVz4p9Qr
+	bZu8BBBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LG5-0000000CLBY-0zt4;
-	Wed, 09 Sep 2026 16:34:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4LG3-0000000CLA9-1TIU
+	id 1x4LMT-0000000CMD7-2RQS;
+	Wed, 09 Sep 2026 16:41:25 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4LMR-0000000CMCJ-0vkp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 16:34:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3A7B1576;
-	Wed,  9 Sep 2026 09:34:40 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61F703F7B4;
-	Wed,  9 Sep 2026 09:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788971684; bh=qOUYammRv9EjNcGeEMpov2EJisgMbi2/GIrImMJBmbw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ahXBd+CtAdAUGE7tnGjU8sKS/DnIy1sMSRbI6q74yb7gyVXsUmmuvleGtp1MyOK+1
-	 DuxLt0Lk64FBGI7W7XSLwUbieHuQwu9R4LIhwMIFXQlSm2raAcnEFp8YnlAy8Y4+2F
-	 Tnic1LYUYx9gA+9HouvrqZFLvKcYOc90ra5LMEyo=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v20 09/14] KVM: arm64: Allow GCS to be enabled for guests
-Date: Wed,  9 Sep 2026 17:34:37 +0100
-Message-ID: <aqGKnQZOe6leuXgG@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901-arm64-gcs-v20-9-f31750bdfadb@kernel.org>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-9-f31750bdfadb@kernel.org>
-MIME-Version: 1.0
+	Wed, 09 Sep 2026 16:41:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S84d8bUnBuKy1KbV88koIls5XwJmGCj55Od7KTHnJockNZXH19kphMb+XYpdq49VJYWfub4dj5smm8ZKgTo/J+uMvzr2qZisApLteojaA97G4vi2/OFbr4FQ+EK0THUCi5Y5nETMMu5z3Ugdwvc+fCX4CNfkELM5UmYxOEjMbuLNwOSfRxMf7fS0MCTUorMpyfPLzuh6b9RG3+mMrGJHqbbzYu32/OAJp+Vf6hyxRupOTHiuWgTPhoONl78f4+clrKbMOXSmQi46okjiYtRVQRvcoj05qD/0Qea6kgoX3eNndW4mVul4205IoUCodS76uEoj0XsCwdyQXcoDKQ27Zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IoAK0wukU4A8hNIjRWi6wD/ypMPEkJdNInGE7CV+WAo=;
+ b=wUNq+ASszrb9brUChmyQ40uEBRcpEiMNQEwUoyUdF8OGKZ0sNBSyGpQCC6GFRMRwcgGN4NqBOih2mxw9NzG4tDEsrV6L4te1k0Wi/o/qSqNW05NGIlNyyZhn9+PA7/oNq3WP7BuWafseHvsN/fMlF2TUFdsoeL0n7V5xLX988apmnIsbHJiU4srrKgnkKXeStsPl12YMYpzzX+L32HnO7I/EAcpXw8DeOjT+R1Jp3kVLbq2BxCNI5g3LBH9rElf7vKH3bNqTgkUW6/HxKiJmIxndT4kGHp3mowk571176lm0ylh5vEmYevEsauwmAZ3OGA7Q/HUEYXN21IhRKyfvgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IoAK0wukU4A8hNIjRWi6wD/ypMPEkJdNInGE7CV+WAo=;
+ b=ivozuRCyADIQGpLyXxvMMoZlVwUMnZRFu9HZA0MU0ONekeqkIA9QEUt28Tw1tr3yXFAOIK0DUnE584nSmcf3y0Amm6yL55JghlPEOUscK670BPLP8J8hJuXDKDka3dNqqS/C5u5UD9aVgp7myiq5+t4IB/imyL1qvzNmdGHXVpycYciDYSHkRo82fIOCg9LjLvPLAbM7Af7GZ1dP2/VMfOpEyEDktH5rTPXtvoTGpYMVy1ZmvqpzjYkfbUnXzRRGRaMh0DZYTA+YK66MGNzI1WfTdHbaQBMFVkjQ7zczTqIl5mWSOmsvzU98VKZdmQ5g07paAl1uPPWel0jpKKgQgg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by LV2PR12MB6015.namprd12.prod.outlook.com (2603:10b6:408:14f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
+ 16:41:13 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0406.007; Wed, 9 Sep 2026
+ 16:41:09 +0000
+Date: Wed, 9 Sep 2026 13:41:07 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
+	Kevin Tian <kevin.tian@intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Pranjal Shrivastava <praan@google.com>
+Subject: Re: [PATCH v6 0/5] iommufd: Iterate the cache invalidation array in
+ the core
+Message-ID: <20260909164107.GA4147563@nvidia.com>
+References: <cover.1788127877.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <cover.1788127877.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0456.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10d::20) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV2PR12MB6015:EE_
+X-MS-Office365-Filtering-Correlation-Id: c377d30c-31c5-4064-941a-08df0e912665
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|10067099003|11063799006|56012099006|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: TDtOt/rNRVCO+hGB6V7+QMmW2TcCXklHyKQW3hNOKRHPM2bXapaUTxNVDPAG2XLiEVMPM78y06cEMjaT93jr2bt5O8AOsy5oLYaroIinrc3tgXMzu6SFJRXHzm67T/PAvib2NEV+SzSYQ8S6TtTHDIv+QyzPfNNKiPxweh9/TVrz7wLue+7F+KO+DzEnoz9Aa29WSOYNfgytl+UK6FcxIE4PFqP60IL0dM4c4NsPObs0I5umPkzmk1unBrsuv06A7P8oW2WcKZC3tVr49lU/A175HMqGYce16oQ8xc4RtLWmaeBI3Gt0/ikeV7GgcDqJlOPzF+znJBxiLX3aASjT1zDWtUuMGDSh5jSN8q2/2ARWTvimperPy2KJOJqxjSKgO8s2oqTgkie8Yp3Fiumb/G+UsOFFqcp8asH9RqNvHNLzlWNgds2Hjb7EgLezOlftNkpXA4l1xXrawlh49uaKh8YMoz9Bi7QogEfJkbW04V9VFP7kURjKHp652OPx7nHvgwxFynuD8wn8zbyq5v35WzOWdP+Y3jGalflQ2oGFomhhSYr9MgA+TA+UFFabZR+ngvpk2s3+/xryHuQDGDvuuxvsO1Z+Anv7quDvhIu19WewsSvjuCfvLhvMJozn5ras4GZQKKaOf1Yhz6lxwH7zNlzRpg1iXoODQ+GkdIjyt2A=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tTGW5aS24AyaGZMIsmaUFXycsYdYU72tsEJCevwsk2CeB+Fh70tifIzrmP5B?=
+ =?us-ascii?Q?ASBobl9NlRQVKUc6UntoioDsTCL5CLDWSl323VFIWqMQUzvYDQ9g8UdwN44T?=
+ =?us-ascii?Q?U36O3yxMAUsy31wC3qFxfzvbK4PHBovcHA6WBpU/S2DRL8Zf0TXzUsZlRQXh?=
+ =?us-ascii?Q?RWzVWECeB9MK2O5XHev/NUsShRgEBIMJoaaeWV0hZ7kUSKad8ZvQ95BzsM4T?=
+ =?us-ascii?Q?x0ntXF3/GDZEgziB2JNCHMTZp5Fb1e9BUYXw7OXjQN90Tgb57ajC49JtgEGo?=
+ =?us-ascii?Q?Pu1LGWUhEtWtXOtDiDBaKSauc0Xwap/mBTCwynjgqkJUGCYGdyULLs6UFdNl?=
+ =?us-ascii?Q?OOXtWASHRp5P1jWhpKkjbCXqDqXR/n4jsPLdsPeWL8KSJJZozhL7Qz1XsuKk?=
+ =?us-ascii?Q?6MkaHw+I+fVGMQd9B1n9fYEPSTbOGJjt6g6ynEcRVdA1djrcvbkHBFwo77fL?=
+ =?us-ascii?Q?dXkxkmHjUcM1STzR0YBgB198qca+DoqUjpJTJPTjzGgO2R7XRbwOz9DWyxlT?=
+ =?us-ascii?Q?9XJNCWzWZ9AIq2lYvsVRRXRWY3xeZ+s+D6drX4xegnNRqv6DLVgRIEWO6QaP?=
+ =?us-ascii?Q?QESNCt4ZzUdHZJgfRX4gLGkVMw3fimq3Tj0OTr1Cb18YGd1bMfgN/7CXC/Si?=
+ =?us-ascii?Q?cfBAhlAz1xfJ7XWCS8VSZMXkTEorTrZXFNYWuYrItFyGGP27qFL5MEB7Crzg?=
+ =?us-ascii?Q?/ZeEvjHB4uwIgM6Os5S4cvyM3P8ax8fpNGiMKXZKCfyiROgjxmxF5ESPC8DI?=
+ =?us-ascii?Q?anSawIXmn7XIvEuj3Eo0RxkqxoBqrT35UXwmnJvuBBxbA4O5cvdtEQW0IVso?=
+ =?us-ascii?Q?RknCmbug6N1CRiRPdXw5kiwabFBXUpjnktWPunz8Oa4hsYpHL/F5B1JeGJVd?=
+ =?us-ascii?Q?ABbUODAmrXZ+lrr2BLPCOFgyBxyP4mS2jVzR2JbCfh0rgfeNlMgiLwn97leu?=
+ =?us-ascii?Q?J5k5lB2nxLh+Bfw/GhxXPJWRBZRYJMOFCJmUqVczdaWXxCmer9/GifHtsKTk?=
+ =?us-ascii?Q?RjoKH4Pk8tddpYDQbEdZgBf9gZ+nwsBsEtRUObey/jMp9WtDwUsKpwACPkVc?=
+ =?us-ascii?Q?2hBXoit1uSq0PQ0DGGCrHZ7HqlF5OhPenX/p/5OUv/gMV4i61ffpwH3IPg6t?=
+ =?us-ascii?Q?iBFlwC5sRitpyfoWjDxcDVXuiC9DrLUFBR+ezoO+3X1N3Vjs+OhVko0zEM59?=
+ =?us-ascii?Q?dF0YcK+lMrzh4B+C2pASRkz7ZHrlWybsegXESp9FgQT7HbOMWraoduaxcGLw?=
+ =?us-ascii?Q?yFlnwXAJVokvaQBVKf5RAFhGOe67k8acjnFVqssC+I50ZXDiISc6qjhrOLHc?=
+ =?us-ascii?Q?glpeyPV/kLCVjKLexoNWSR7zsh1bdy7zx8yE9IHt4YKEH0fsBkaik6Lmb6hD?=
+ =?us-ascii?Q?f/oWtJsta9f6jGUWjXomaksPa935kaUl4H5ZyJBvAU8kTR8khT5fw9dIvgwN?=
+ =?us-ascii?Q?G8m02rrhQtM8FcE4XJy+7eVh+BE0R5W/EW0Bijzb04S0wcW4D7ZyPF6G2j0f?=
+ =?us-ascii?Q?11FUX+reGl5FsIv09TpZiv5k+uItRvjh8MAg/S4SBdoz5MLyrCQKfAQmUkCS?=
+ =?us-ascii?Q?8QibsTQ1a9FVPZuGBU9rKgPVw8oR3ptrgSgS65lKgmV6U3aLgH9mZWTFhD4/?=
+ =?us-ascii?Q?6uz2KlpB/Ypvi2W49TxOH0SWw2BqjAc2YrY9UXJDxXzdNau5Bn28NMm+6C+O?=
+ =?us-ascii?Q?VCbCa9SEgEPDnSAfk6rd5pQDaBZhiVMnvjPsRyQOnyo+7QAk?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c377d30c-31c5-4064-941a-08df0e912665
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 16:41:08.9320
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zOEWHX7P0a6BXR+S4k3vDvjXy8oByu9Adv5P64p3N8KZIy0fLVNet7xiavt4WM1Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB6015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_093447_465932_EDCFD23B 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20260909_094123_267485_17B54E15 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,83 +140,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:47:07PM +0100, Mark Brown wrote:
-> Now that required functionality for GCS is in place expose
-> ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
+On Sun, Aug 30, 2026 at 03:26:37PM -0700, Nicolin Chen wrote:
+> The vIOMMU cache_invalidate() and the nested-HWPT cache_invalidate_user()
+> ops are each handed the full user invalidation array and must report, via
+> array->entry_num, how many of its entries they handled. That makes every
+> driver open-code the same array walk, with real downsides:
+[..]
+> Nicolin Chen (5):
+>   iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation
+>     commands
+>   iommufd: Iterate the cache invalidation array in the core
+>   iommufd/selftest: Convert cache invalidation mocks to the core array
+>     loop
+>   iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core
+>     array loop
+>   iommu/vt-d: Convert nested cache invalidation to the core array loop
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kvm/nested.c   | 3 +--
->  arch/arm64/kvm/sys_regs.c | 5 +++--
->  2 files changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 17123f0b6dab..a9dea85b6192 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1702,11 +1702,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
->  		break;
->  
->  	case SYS_ID_AA64PFR1_EL1:
-> -		/* Only support BTI, SSBS, CSV2_frac */
-> +		/* Only support GCS, BTI, SSBS, CSV2_frac */
->  		val &= ~(ID_AA64PFR1_EL1_PFAR		|
->  			 ID_AA64PFR1_EL1_MTEX		|
->  			 ID_AA64PFR1_EL1_THE		|
-> -			 ID_AA64PFR1_EL1_GCS		|
->  			 ID_AA64PFR1_EL1_MTE_frac	|
->  			 ID_AA64PFR1_EL1_NMI		|
->  			 ID_AA64PFR1_EL1_SME		|
+>  include/linux/iommu.h                         |   6 +-
+>  include/linux/iommufd.h                       |   2 +
+>  include/uapi/linux/iommufd.h                  |   4 +-
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 197 ++++++++++++++----
+>  drivers/iommu/intel/nested.c                  |  54 ++---
+>  drivers/iommu/iommufd/hw_pagetable.c          |  25 ++-
+>  drivers/iommu/iommufd/selftest.c              | 147 +++++++------
+>  7 files changed, 282 insertions(+), 153 deletions(-)
 
-So, IIUC, this is used to filter features for guests that believe to have 
-an EL2, and now this allows GCS to be used by them.
+Will, can I pick this up, or did you want a branch or something?
 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 1f80c26a9839..fb2c9fd42e24 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2193,10 +2193,12 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
->  	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
->  		val &= ~ID_AA64PFR1_EL1_RAS_frac;
->  
-> +	if (!system_supports_gcs())
-> +		val &= ~ID_AA64PFR1_EL1_GCS;
-> +
->  	val &= ~ID_AA64PFR1_EL1_SME;
->  	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
->  	val &= ~ID_AA64PFR1_EL1_NMI;
-> -	val &= ~ID_AA64PFR1_EL1_GCS;
->  	val &= ~ID_AA64PFR1_EL1_THE;
->  	val &= ~ID_AA64PFR1_EL1_MTEX;
->  	val &= ~ID_AA64PFR1_EL1_PFAR;
-
-And here it says to only mask the feature bit if it's not available.
-
-IIUC this sanitize function is called when resetting a vcpu, is that right?
-
-
-> @@ -3444,7 +3446,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  				     ~(ID_AA64PFR1_EL1_PFAR |
->  				       ID_AA64PFR1_EL1_MTEX |
->  				       ID_AA64PFR1_EL1_THE |
-> -				       ID_AA64PFR1_EL1_GCS |
->  				       ID_AA64PFR1_EL1_MTE_frac |
->  				       ID_AA64PFR1_EL1_NMI |
->  				       ID_AA64PFR1_EL1_RNDR_trap |
-> 
-
-This one looks like to be a mask that's used to compare with 
-arm64_ftr_regs[] on arm64_check_features(). That seems to be called on 
-set_id_aa64pfr1_el1() which is used when we get an ioclt to set a system 
-register.
-
-So, basically, does it use this mask to check if the set value is valid?
-
-(So, 1 for nested, 1 for reset, and one for user trying to set a value?)
-
-If I did not miss anything, FWIW:
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-
-Thanks!
-Leo
+Thanks,
+Jason
 
