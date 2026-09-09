@@ -4,111 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89698C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CEEC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L0V4HMy1CvezDYDqr9F6ZiS7h+RxgWvbBNQx5to/HBw=; b=DVEH9dbakanepp1BIW/ZdmrLlk
-	eAcphnB0zhsfqUOqhlmqcH7NwIBhTU282uckr6A0KdfJkoXQ4SO1IXnXSmGBRzF/DMf2dt+eFOj/2
-	aP5WVEM05A+qxLOCbL9I4KiPeEKVFIyxKKlJgTb3V+bAM60tUuLKTTVbFzrMGUSsVhkH8XsBP1tGV
-	8EeeheD3RsAlZkJ5WJBJsGtVXmlkJ3TCqcjRRnmOBK4Gzrw9HfTF+PFiPTyINruwCCyDt+GIdI7Ce
-	IDU37ypYOU9o+JJmkm+MrZb/oAlCE9S2+nRpIQAev1TvqJWKP6FLXor8GZ2kzvTx7Gw4ZSap7XNsl
-	Pn4i4b1w==;
+	bh=P7aLdzSztXk8d1tscwaKKy8S5ER0yzOYoze2MjbQGHY=; b=DsXvX9+v0apJ82X+x7AWwcaxdv
+	w1pzZyRBfExWfXpbMpSp6H9ODX5TwQ/atybwFg5lVbX9xeGMQ+x6hvasq5lapxCpx6IeT3I58pu6U
+	Hcy822Do61ymeB1/TLjy8/mshdgTTvbUYXnWNmObW/LSHd33vV31UURsW3b7vFSINm1tgAMP4gb5+
+	Pi+JruEDgYEx49FY4P/nOTf4HuhS03jZ4Nrbbqq4Azt+n/uS3he3UT+Ht7Uyus5nLVMZoY90+kNfi
+	Xh6Lgm1RujeK/niDsOUw/rfXycDVJ9Z4qdKm4dTjvziEiu0YeuZrv2jPGUiaEk/oxFNessOkS/XWP
+	LWadZxRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J3I-0000000Bv60-2zsj;
-	Wed, 09 Sep 2026 14:13:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4J4D-0000000BvSE-0kDB;
+	Wed, 09 Sep 2026 14:14:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4J3F-0000000Bv3E-1NFz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Sep 2026 14:13:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=L0V4HMy1CvezDYDqr9F6ZiS7h+RxgWvbBNQx5to/HBw=; b=XiiL5+bbchM3/6zP7jInnG1ChU
-	P2inu33wfjL1Xmky9/mmL0n2KPWSoBYkr5rESMwa/PhCkbLx3RFY3KQpR1LynACuOBnefRsaBNLw6
-	1JKKKKiYYYR/XWuveREB0R1Nr2hxUk98+XAeStWI9Ftz1kN577+aKlEaxX8+26NII2TMii11fXm69
-	Z6EiEAMbYjW7JBr06bgW3CM2dz9oOiEmFEHuU7WXKYZVLBTNfg57WIp7XGUt/AXAXgYFl78sw+jl1
-	CG91tkrgPgT1EkzLG2guUWHOLdPe4wQtXB/zlf03GekuLNWoUPLbkjjkyt9Wy1cEypUXAgwTDQDu+
-	+N8V5qIA==;
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4J3B-00000001Hdv-2u1S
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:13:24 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48449f62b93so844684f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788963200; x=1789568000; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=L0V4HMy1CvezDYDqr9F6ZiS7h+RxgWvbBNQx5to/HBw=;
-        b=Ur3S6uuxJVVDz4lzZlFHwqImyFJH6qc671pv15hhVplQrBAkYF6Pr9OHqtfK9yFDLZ
-         M8sI51VGYmKVh5XBfO3ECtK4GY2W6YXUbbw7cAAXlDKQCTk3XpzzBcnXZBSlTn4eGH68
-         fArrec9kDY/lDYtcKokmQtKYaUHPebrrMY36SOrwCKtczidlKkJdBhYYTm+avMBVqg83
-         BMVAindbseTHWsdKmJ+n/QM3J7/10P6Ib9dvv5Y+yXIqnYohC5rbaBAhZuhVaonhHq/d
-         5cQA0wGqs23k+Q/5Mc1ILW+eqtrFwRIHRuJ+G2lwqkIatKILiG93OS2UQ1TNE/S/uHcj
-         LR6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788963200; x=1789568000;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=L0V4HMy1CvezDYDqr9F6ZiS7h+RxgWvbBNQx5to/HBw=;
-        b=LmCCTHhbDthx/WupZs/8tEcabzDWOzdyG9RxyejSpahaSDkq0rrr80RnCsjQr2X/lf
-         UxGSNfJoaG5h6TFxNj6E7NS+s3gk2oRT1vG4DitFUgzuc/JjzL4KrciMlJNfgThaNrN3
-         c41zI9hmCtKTYaNq2nV7RRWjE2T3WEWFnYnf4L0lruTKxEs3X2j9DPVe5jAx7HkJw4H9
-         c/JCRzK12fOcwMBQXTCZIIGYZ4AV2IqJTT+MAvR9rz9T7YiTGAkA0MOW1VkJizvAEIzN
-         csyULeSlgH0zGr7un2ApTECHo2jwVAL4c9s4+MwHqlgnKKX/7WjP96+h/MxDBFTW5Pcj
-         W7Ng==
-X-Forwarded-Encrypted: i=1; AKwUvBxkJVknUeY1F2so+OZGTVDqJ8mvJcOr2Y2tYb7tqjISuB0rMbo/+SxIKxRSBd0GTaE+XM0HArnLCb/ieUmy6V1l@lists.infradead.org
-X-Gm-Message-State: AFuF++lkiR888lAZlsUWDNkLP+D1L525kvJ/bIf6NO4NGxcw/oo7u9A8
-	CB8JlInVyemtpNDgLA42x4O0A4T3izp6fWBgmYdZkWQwPvM2UiXVE9Z6
-X-Gm-Gg: AYBFou16D7Y9FRq8q9qTQGN81rsa+rlWWuiC7kQRykNfm9iU7QPVpGHAPqqVr/ZCB1m
-	c5lmkcy2RXKuLikVChlXEwtK3X4jbUMR/uENBM1db6gOEEjlUERpxYyEzLWaYNyAZd4FoTooAc0
-	WE+MDPrwV/aG8Q63vRM1Fy1vh1sWCFQWOordKor+N8xQA0Mg25E4YN5+915DEXozpngYQKOq+jl
-	5VfoZX4wBirWpbFq8WsFsGTMSwHe2d0VkpheolOPzpud7H2TTPwUXvN0iqwFf0V3QTbK7jE/c4h
-	AQGGY8rcskwb/hzEh9hMe39+gz0G7Hv5ZhCVxCcm+CJCmEbdjuo09bIg/cHfrXsVM9DDc63JMEw
-	RQYP8q5naYjXjDJ0sMIjFD7xO9VzAOlxOlpjCYkAc+lL97ivcpo+e/k9Qk533gzs4xMgiG8NRPa
-	075pL4o3qJlbwrKizhkDZD02IUUhZNVRo9rcHMF3rPYvnMtCTmE7zEwuJffbofNoIZh8Saebmla
-	DHMGjLR003R7gixa2SytXvOmBSJ6+7rbsp3tpdJ6we5aw==
-X-Received: by 2002:adf:e944:0:b0:485:8ea0:da8c with SMTP id ffacd0b85a97d-485a242f46cmr12481535f8f.16.1788963199968;
-        Wed, 09 Sep 2026 07:13:19 -0700 (PDT)
-Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c074asm43273521f8f.23.2026.09.09.07.13.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 07:13:19 -0700 (PDT)
-From: Sander Speetjens <sander.speetjens@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	sander.speetjens@gmail.com
-Subject: [PATCH 3/3] arm64: dts: broadcom: Add RTC to Raspberry Pi 5 B
-Date: Wed,  9 Sep 2026 16:13:00 +0200
-Message-ID: <20260909141300.1368790-4-sander.speetjens@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260909141300.1368790-1-sander.speetjens@gmail.com>
-References: <20260909141300.1368790-1-sander.speetjens@gmail.com>
+	id 1x4J4B-0000000BvR2-42R7;
+	Wed, 09 Sep 2026 14:14:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 848BE43D45;
+	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5972FC2BCFD;
+	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788963263;
+	bh=UOy3RLR6CRtSVXcPk+TROu7qwHZMTjKJX4eKolUbKy4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=I+Lu6d82/7QlPdwrhPDbCxAqzJLyBcigs7FETHX0rrfU1Hc9ygphTie2bYSeHzR4F
+	 JruipS5QFwBnpU4OQaCEVUzhY3G3xc9hRWrWQRQyQbRYDC3RdIr0lfZ76CvR1f/J0v
+	 Rx4nk6y3hlx09A4iDCCWQ6sITp8Bnt6c5F+03TEyo2CPhN/S7CrW93DMCkEkfNCpp3
+	 KDzvQJ9Gda47QbxXZvMCM1tEWDTbwLldOmyM2glf0sMem0uuPGctNmPiICQWvITV9N
+	 MjZXTb89gE40w3ie0NxuLwPAWl3yL5MeIJyc0FutyUNEEZtoe49jPMWizU0Rq0BE7N
+	 uvsY84yW73How==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C6CCC88E40;
+	Wed,  9 Sep 2026 14:14:23 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Wed, 09 Sep 2026 17:14:06 +0300
+Subject: [PATCH 2/3] iommu/mediatek-v1: fix IOMMU device binding
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_151321_828560_C80461E1 
-X-CRM114-Status: GOOD (  11.68  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260909-6572-iommu-v1-2-de261da09fb2@protonmail.com>
+References: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
+In-Reply-To: <20260909-6572-iommu-v1-0-de261da09fb2@protonmail.com>
+To: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: iommu@lists.linux.dev, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788963261; l=4888;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=EcGIcOox9foAPPSzCZAPzZ4As2FunuolmFilHRQ5qcg=;
+ b=soNtO8zKf8oyMiaDfTmWSrvH5R6+Rzyfb/MHjpHC1PLcyTcvCY4+RsyYiRV/GmHNQ5XuEQcZL
+ 2eh4Z8weCS2AwlTxK5SzzdxX4aW+pOYoocewtcaUIK+KIP3UxUMNLTs
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +85,173 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Raspberry Pi 5 contains a RTC on a custom DA9091 PMIC that is accesed trought the firware mailbox.
-This so we have a battery backed RTC, so the OS does not need network to get the time.
+From: Roman Vivchar <rva333@protonmail.com>
 
-Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+Currently the driver silently fails to bind devices and DRM subsystem
+(which is the primary IOMMU user on MediaTek SoCs) falls back to PA mode.
+
+Fix this by providing of_xlate callback, which lets the driver actually
+bind devices and use VA mode.
+
+The fix can be verified by reading overlay engine input address.
+Before:
+~ # devmem 0x14007040 32
+0xBB900000
+
+After:
+~ # devmem 0x14007040 32
+0x00000000
+
+Fixes: b17336c55d89 ("iommu/mediatek: add support for mtk iommu generation one HW")
+Cc: stable@vger.kernel.org
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+Untested on mt2701.
+---
+ drivers/iommu/mtk_iommu_v1.c | 86 ++++++++++++++++++++------------------------
+ 1 file changed, 39 insertions(+), 47 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-index b7a6bc34ae1a..5a82dd585f32 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-@@ -102,6 +102,13 @@ wl_on_reg: wl-on-reg {
- 		startup-delay-us = <150000>;
- 		enable-active-high;
- 	};
-+
-+	rpi_rtc: rpi-rtc {
-+		compatible = "raspberrypi,rpi-rtc";
-+		firmware = <&firmware>;
-+		status = "okay";
-+		trickle-charge-microvolt = <0>;
-+	};
- };
+diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+index ac97dd2868d4..72355f41c36a 100644
+--- a/drivers/iommu/mtk_iommu_v1.c
++++ b/drivers/iommu/mtk_iommu_v1.c
+@@ -413,38 +413,10 @@ static const struct iommu_ops mtk_iommu_v1_ops;
+  * MTK generation one iommu HW only support one iommu domain, and all the client
+  * sharing the same iova address space.
+  */
+-static int mtk_iommu_v1_create_mapping(struct device *dev,
+-				       const struct of_phandle_args *args)
++static int mtk_iommu_v1_create_mapping(struct device *dev)
+ {
+ 	struct mtk_iommu_v1_data *data;
+-	struct platform_device *m4updev;
+ 	struct dma_iommu_mapping *mtk_mapping;
+-	int ret;
+-
+-	if (args->args_count != 1) {
+-		dev_err(dev, "invalid #iommu-cells(%d) property for IOMMU\n",
+-			args->args_count);
+-		return -EINVAL;
+-	}
+-
+-	ret = iommu_fwspec_init(dev, of_fwnode_handle(args->np));
+-	if (ret)
+-		return ret;
+-
+-	if (!dev_iommu_priv_get(dev)) {
+-		/* Get the m4u device */
+-		m4updev = of_find_device_by_node(args->np);
+-		if (WARN_ON(!m4updev))
+-			return -EINVAL;
+-
+-		dev_iommu_priv_set(dev, platform_get_drvdata(m4updev));
+-
+-		put_device(&m4updev->dev);
+-	}
+-
+-	ret = iommu_fwspec_add_ids(dev, args->args, 1);
+-	if (ret)
+-		return ret;
  
- &pinctrl {
+ 	data = dev_iommu_priv_get(dev);
+ 	mtk_mapping = data->mapping;
+@@ -462,27 +434,12 @@ static int mtk_iommu_v1_create_mapping(struct device *dev,
+ 
+ static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
+ {
+-	struct iommu_fwspec *fwspec = NULL;
+-	struct of_phandle_args iommu_spec;
++	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+ 	struct mtk_iommu_v1_data *data;
+-	int err, idx = 0, larbid, larbidx;
++	int idx, larbid, larbidx;
+ 	struct device_link *link;
+ 	struct device *larbdev;
+ 
+-	while (!of_parse_phandle_with_args(dev->of_node, "iommus",
+-					   "#iommu-cells",
+-					   idx, &iommu_spec)) {
+-
+-		err = mtk_iommu_v1_create_mapping(dev, &iommu_spec);
+-		of_node_put(iommu_spec.np);
+-		if (err)
+-			return ERR_PTR(err);
+-
+-		/* dev->iommu_fwspec might have changed */
+-		fwspec = dev_iommu_fwspec_get(dev);
+-		idx++;
+-	}
+-
+ 	if (!fwspec)
+ 		return ERR_PTR(-ENODEV);
+ 
+@@ -519,9 +476,15 @@ static void mtk_iommu_v1_probe_finalize(struct device *dev)
+ 	__maybe_unused struct mtk_iommu_v1_data *data = dev_iommu_priv_get(dev);
+ 	int err;
+ 
++	err = mtk_iommu_v1_create_mapping(dev);
++	if (err) {
++		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
++		return;
++	}
++
+ 	err = arm_iommu_attach_device(dev, data->mapping);
+ 	if (err)
+-		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
++		dev_err(dev, "Can't attach to IOMMU mapping - DMA-OPS will not work\n");
+ }
+ 
+ static void mtk_iommu_v1_release_device(struct device *dev)
+@@ -537,6 +500,34 @@ static void mtk_iommu_v1_release_device(struct device *dev)
+ 	device_link_remove(dev, larbdev);
+ }
+ 
++static int mtk_iommu_v1_of_xlate(struct device *dev,
++				 const struct of_phandle_args *args)
++{
++	struct platform_device *m4updev;
++	int ret;
++
++	if (args->args_count != 1) {
++		dev_err(dev, "invalid #iommu-cells(%d) property for IOMMU\n",
++			args->args_count);
++		return -EINVAL;
++	}
++
++	ret = iommu_fwspec_init(dev, of_fwnode_handle(args->np));
++	if (ret)
++		return ret;
++
++	if (!dev_iommu_priv_get(dev)) {
++		m4updev = of_find_device_by_node(args->np);
++		if (WARN_ON(!m4updev))
++			return -EINVAL;
++
++		dev_iommu_priv_set(dev, platform_get_drvdata(m4updev));
++		put_device(&m4updev->dev);
++	}
++
++	return iommu_fwspec_add_ids(dev, args->args, 1);
++}
++
+ static int mtk_iommu_v1_hw_init(const struct mtk_iommu_v1_data *data)
+ {
+ 	u32 regval;
+@@ -585,6 +576,7 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
+ 	.probe_finalize = mtk_iommu_v1_probe_finalize,
+ 	.release_device	= mtk_iommu_v1_release_device,
+ 	.device_group	= generic_device_group,
++	.of_xlate	= mtk_iommu_v1_of_xlate,
+ 	.owner          = THIS_MODULE,
+ 	.default_domain_ops = &(const struct iommu_domain_ops) {
+ 		.attach_dev	= mtk_iommu_v1_attach_device,
+
 -- 
 2.55.0
+
 
 
