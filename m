@@ -4,106 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5287C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 20:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F889C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 20:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qckaQ07GIjAycth+WTbJjXIHu8VJsW0kggwIpsbAbME=; b=otfIY1Gfe51C5hwPJWhQjqbFO4
-	3mCPaTiyj9lSnIEiBeKTJ03jmBJazXVZSb43DYtdepFw1Y45P329+NuW9RKP8ymHVmt5nhL0PY1Mo
-	mV7TwTnjovi/ELAkTpNa0ccVPqzOlXlYCR5Qyfdkwb+ayx6f39uLm6QrHWz57OxxYZYaqF7JOAhe+
-	/kjCM5zc3aII1LYl1J6SnbMXCiFZpy+m6aFsRglXtAuY96wrDsaELSXa6W44GB39f95J55itR0bYw
-	+qfYjnHuDh329ffrmYgIzl6Q8GWeupW4+oNZ2MUepGXD2aJlYZzEkifMImOD5VKda9ubhWpHBHONO
-	SpZNyiwA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c7afDL+31SJFMeOGNst+LXN4XK7ERQT0EAu5rJfALKU=; b=TcJRHDNmODxGWkSVMoP6jrbOXD
+	XmKugCv3lbPtcLbSzJGAdM6DkrnHedZJTM8tMv5YUbzgq76jAaxaFj0ZlufjKs/lpnUQ/45ipyyQ9
+	9a0xBdxA5Ap+3aJRzgQWutdLVJULFOG+A/tnrBdwqKODEirpGFKIE7ImrsTS6Dp2TjJQlPjtueTM7
+	PdnfQGGM5GpSYq+IG9HCsIYyCHrSlUHTXteSJ3o2IfdV6QR2Wpl5Ri8/3MwLssSMcmaiJy5vsYWJ4
+	m8Xzs/qGS3Nlcw1Y5CSDJY353rotGAj5v1/g+iBoyTWOU544SB6lRA5aep478YEByC4z+DjoMGnwh
+	Dqr0qenQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OvP-0000000Co6h-3vMQ;
-	Wed, 09 Sep 2026 20:29:43 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1x4P3b-0000000Cooy-3kYT;
+	Wed, 09 Sep 2026 20:38:11 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OvN-0000000Co5b-2owI
+	id 1x4P3Y-0000000CooH-40Zx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 20:29:42 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49a97714f5dso61348485e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 13:29:40 -0700 (PDT)
+	Wed, 09 Sep 2026 20:38:10 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4995b0343c1so87277365e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 13:38:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788985779; x=1789590579; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1788986287; x=1789591087; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=qckaQ07GIjAycth+WTbJjXIHu8VJsW0kggwIpsbAbME=;
-        b=TBTCZBQVXY7o1z/k5lO6NKcH1fETaBAFpNw4/d98mEnKPGkp/+2D/1dO6bENuDCnuF
-         AddhEXoPXAYaLBqvwcDgBQZ82lzOF9P3kFpgJyOzhdE3DdEZmA3O8GjrfyO9yyTuL05D
-         cVGKXhrxlVbQJA7r8v8vauFrS6NBYpUDw5aQ5O5zxaSbX8fhhx1cfOwCqIQW4ufqhFbu
-         bV1hAYCa+VelxVGYCqZwbpPuhEZa8m+HU8YdzzAFI2ndU/QMoPmWePkpz/KwDQ2LTJkb
-         Ei3YLOQ83Q52ElxX12xxq3RbJwyTBBakdZVL4fabxuuL+pWrsP+5kSia6UyJAtZowStt
-         ZNXQ==
+        bh=c7afDL+31SJFMeOGNst+LXN4XK7ERQT0EAu5rJfALKU=;
+        b=TmZJIy2lPcxYey7ADp+x/1+uTu0IdHdOQNuhNFLy4ptkUqRopgzfI5j3K/11T2OswX
+         A+pHSiusExrKm0jMfUsZfK8zidwPFAOlck+FfORvCrRs/52OEXSUJdtK+U4Qpc19ZkJj
+         RaTogb7f/WF23zL0jtKpFcQRUr8vOy0ncd340W9xQ9YZ161DHUMn60cRXJdRUrrhCSMM
+         wcBo2PZZzjSPKAT9e/XOii3q45RRF7RBZDrlvceACTtOKXG9ReVA0aMAX3HmUMtPWmW8
+         aBQ6I8weAHjx7YeNM4HzF0Ev6nzB6XKd8j8I+ETlqeDfVpk4Dx/MIhngZgyN83FlYZ3x
+         jaBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788985779; x=1789590579;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qckaQ07GIjAycth+WTbJjXIHu8VJsW0kggwIpsbAbME=;
-        b=JGBExzjvAAN+9XV0NZZWK37404Gnr2ayHpqb2dZfgCs0Yc8LGxH8qikc+MdLMxopEm
-         I0+JlUtAQOZMf6iU5SwQLsmda3QP94u6piqZ5VyPwYv+knpV91RsvH7OXqP4dDz7D6j1
-         GFkhRtTCDX0JwRm/uxDHJhT/S6+iQc7iqgqy8goullKviN0GbUJDMO9DIDVTOUAtpuuV
-         9KpBuRaxiRygEsKBR0asTKXBJk/pG9gP8gXfGMBwnnybxWncU1Byuvz+eqUoQM6E9oC7
-         IHMMp4nhaTejF9U66ccBRCPxGbMSXhk8PfKx5Z2n9pZF20nTrS2ejAbDk9tfvjQ8VPP0
-         bfgg==
-X-Forwarded-Encrypted: i=1; AKwUvBwnyYNJYQtqV8wPWFrd70AslxRLZGlNQTsKOaN+iEcE18NxYpSeIt8f8Hk4Xjvukx9I23tiFhLF4qY9zWSiISEV@lists.infradead.org
-X-Gm-Message-State: AFuF++lYllZaM525B0HGbbs0INrWhTEKhyEczf6tRwaXRnNoxCIXSIWw
-	3jvAQy9ogZ5BSB0opADS1CECZ+uCtUbVxlmlhvqBjc0nC7ARUuDaucOu
-X-Gm-Gg: AYBFou0gcEOrKmg6owjExcMpfv06ronn+Cf4vjrPMq+zlVAaBaAmDA4RwqOuiZQ3Cup
-	ns6/GwsattZpiSFVslZh6zXO5As8J4SoXqpJOiTWofLZXh9m1UC3vMKWrZa3d+VAxkCDCWeCgxJ
-	gCaQMuiif5AIsvCz/6FJpeFi2uPZxRVfXuc+PCtefZ56AwsaT5jgAjz7+5y/DwKz9e8QvloGqE2
-	2OpsfWMCrZNEOzgWQtk6Y4xyRy16HOkdvkpjQT374LSUkHvuyrCcRR1upNmBjzWq4RQyr/PfBtg
-	Kw4EuJL6zOAo94U4LFgR4vdeBT24lWNUHVUMKX6xy/bNp6FTjiSPpARJ260Ggo1Nd/Khyxd9Er5
-	1HShsL+uItktutAWE80jH9V5gB01Tj/KH4fszoRGHdfnfL21W7PPe2yZdJ+lcWdM33Xu2rVbPZm
-	2gsxKGn6eFgbAPRqaNELBk39FfJqv8jP3BNLfac+VqWxmtuBqe5sPrz2ZM4KzrE2aH3ufXsqhKc
-	YGTaWm4b67iH2ePVDYXWYppq62jiVlLoU3TGaBmnYxROMPW9O7mwjsGoIuyf+OI8LMHv6skatG4
-	hmgTVaJAT4H6CzinKye/MciLhJzYS002jv3RjRj76U5et4LOlN2rPmVZYunWw3Oqr1YBaOA2S4w
-	oz6pZxX+6y+0oprBT
-X-Received: by 2002:a05:600c:628b:b0:49d:2856:fcf6 with SMTP id 5b1f17b1804b1-49d2856fe91mr2796585e9.15.1788985778747;
-        Wed, 09 Sep 2026 13:29:38 -0700 (PDT)
-Received: from workstation ([85.186.165.159])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26b7332asm16723565e9.0.2026.09.09.13.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 13:29:38 -0700 (PDT)
-From: =?UTF-8?q?=C8=98tefan=20Ghe=C8=9Bu?= <stefanghetu9@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Guennadi Liakhovetski <guennadi.liakhovetski@linux.intel.com>,
-	Rander Wang <rander.wang@intel.com>,
-	sound-open-firmware@alsa-project.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	=?UTF-8?q?=C8=98tefan=20Ghe=C8=9Bu?= <stefanghetu9@gmail.com>
-Subject: [PATCH v2 0/2] ASoC: SOF: xtensa: prevent stack OOB read on DSP panic
-Date: Wed,  9 Sep 2026 23:29:31 +0300
-Message-ID: <20260909202934.37644-1-stefanghetu9@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20251104; t=1788986287; x=1789591087;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=c7afDL+31SJFMeOGNst+LXN4XK7ERQT0EAu5rJfALKU=;
+        b=DTkAYvTGPi+FJvW/SLfdXQeyU6NMyWdFyWPjsnkmZW+rG4jIPY4GAq7k2IUOzzJLKa
+         PwmaODIcFGyL2EQnHrudvwqFX5rffIlVxKuNJUFH22cN4/ERFczvVq0fWTUxhXlMzZD6
+         v/J8J35aos4u0BGiITef3FWR6YAyKG7vDbyoBXZg4JvA5xpCWQexbeYB4VfH7JGnOzT+
+         hmv9rZMfaOQ40b2YK+I/Jy6lJWFW3QiM2pZZA3C6ITZbFXK+0D1X+BbfOmCOHS22kcqS
+         //oIqsPHM1JYKvb/NKrWEIs9HGNl4X5UckEqRxU2PTvquZbp3aSe4On4BGX9y73QJesU
+         krsg==
+X-Forwarded-Encrypted: i=1; AKwUvBxY7Vfthax/C2s8n97vvpKFynHiwIpXFu9XNnLXgTIvkW85XTt7q9OhtSmz3pWNMoJ9xro9UAJzLBxi9YWtGvKw@lists.infradead.org
+X-Gm-Message-State: AFuF++kHrlA9pnvI56IZ1Xa3KrAlbAQww9guky+ihNG4XuFTOAv7HKZQ
+	+vih0K5KxNmCgk7dt4JAtcDcKifb4aCdvFoO4mVZ1TxAUY5fLa8VZpSz
+X-Gm-Gg: AYBFou2KIadqjlDx1E7T15qFVHq1YfV6A3GdF14YI82+pGE1ImseUOAzO1xuug+h2gy
+	xsTKqkyC12aL/bhocJ7jSn//wj/LpxzIyzXoKaN1Djatg/CzqYoVMuhgl4Ufln5Czd+qQEONqFT
+	XwuH4ZfvuwPeV62lffbilEGb/AaFIaD4Yk4cShWoS3V5emQzVn1d1yijDkRORH1uK1rJqIOmhZt
+	KEBivvJs93/5qkYAUTxp2tDkSNom5/2slgGMsJcXQuU96iurn9eAM1LCM10QXjXA6kPhIsetxgN
+	uYfzgedOom2OHG+jU8KLEVKbbGQHmQvzkxziv0aeF10FhgQnIwt2es+Qplul/fr8+BQ2DrxXbOC
+	BBY9iGuYlAjXxSPl53vzyRlWLoyZIWja6joP/ygCDO2QJAH27ok0QHoGuKUJMQ5WDWKYIVZHw7t
+	1LRFLCLOg5B15tyTdbPSz2TiooPsvhQrrfy2pOXEkBGQFaLJleWHZ2v6jWK8PE9gJp0qlhw1hRJ
+	AtvULVqKqo9iEiQUhJ6tWHpRcaZGkPrjSTMP+tahYo=
+X-Received: by 2002:a05:600c:3b02:b0:49c:fa21:1c7d with SMTP id 5b1f17b1804b1-49cfa211d76mr359028785e9.18.1788986286889;
+        Wed, 09 Sep 2026 13:38:06 -0700 (PDT)
+Received: from [192.168.0.40] (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20daed90sm6913595e9.2.2026.09.09.13.38.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Sep 2026 13:38:06 -0700 (PDT)
+Message-ID: <af6cf493-c84e-41a1-a4d0-0460101f33a6@gmail.com>
+Date: Wed, 9 Sep 2026 22:38:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Raspberry Pi 5 RTC binding
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260909141300.1368790-1-sander.speetjens@gmail.com>
+ <20260909141300.1368790-2-sander.speetjens@gmail.com>
+ <4c237cd8-024f-405e-a00e-e22ff9529d08@kernel.org>
+ <8cd19ae8-372b-444b-bd2a-dc01221b5896@kernel.org>
+Content-Language: en-US
+From: Sander Speetjens <sander.speetjens@gmail.com>
+In-Reply-To: <8cd19ae8-372b-444b-bd2a-dc01221b5896@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_132941_722564_125ECF23 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260909_133809_035962_1E31BCCA 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +111,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes a stack out-of-bounds read affecting all platforms
-that dump DSP oops/panic info via sof_print_oops_and_stack() (i.MX,
-AMD, Intel atom/bdw/hda-dsp, MediaTek).
+ > And more important, where is any interface to actually control the RTC?
+ > I see nothing, so your firmware is? Then this is not a separate device
+ > and you just added DTS for your driver, which is a no go (see writing
+ > bindings).
 
-Commit 58bb5081cba1 ("ASoC: SOF: Xtensa: dump ar registers to restore
-call stack") added a loop that walks the flexible array member ar[]
-in struct sof_ipc_dsp_oops_xtensa, using plat_hdr.numaregs (a
-firmware-supplied, unbounded count) as the element count. This only
-works correctly for callers that allocate room for ar[], such as the
-Intel IPC4 path. The IPC3 callers listed below allocate xoops on the
-stack with no room for ar[], and were not updated when the loop was
-added, so numaregs walks past the buffer.
+The RTC is a physical, battery-backed RTC, but the Raspberry Pi
+firmware exposes its register interface exclusively through the
+firmware mailbox.
 
-Patch 1/2 fixes the i.MX handler (previously sent standalone; this v2
-includes it in the series after an automated review pass flagged the
-same pattern in five other handlers).
+I initially used a firmware phandle so that the RTC driver could obtain
+the existing rpi_firmware instance.
 
-Patch 2/2 applies the identical fix to amd_get_registers(),
-atom_get_registers(), bdw_get_registers(), hda_dsp_get_registers()
-and mtk_adsp_get_registers().
+Based on your comment, I think it would be more appropriate to model
+the RTC as a child device of rpi-firmware. The driver could then obtain
+the firmware interface from its parent, rather than adding a phandle
+solely for driver plumbing.
 
-Ștefan Ghețu (2):
-  ASoC: SOF: imx: Prevent stack OOB read in DSP panic dump
-  ASoC: SOF: Prevent stack OOB read in the remaining DSP panic dumps
+This would also mean moving the binding to
+arm/bcm/raspberrypi,bcm2835-firmware.yaml.
 
- sound/soc/sof/amd/acp-common.c           | 1 +
- sound/soc/sof/imx/imx-common.c           | 1 +
- sound/soc/sof/intel/atom.c               | 1 +
- sound/soc/sof/intel/bdw.c                | 1 +
- sound/soc/sof/intel/hda-dsp.c            | 1 +
- sound/soc/sof/mediatek/mtk-adsp-common.c | 1 +
- 6 files changed, 6 insertions(+)
+Best regards,
+Sander
 
--- 
-2.53.0
-
+On 9/9/26 17:54, Krzysztof Kozlowski wrote:
+> On 09/09/2026 17:47, Krzysztof Kozlowski wrote:
+>> On 09/09/2026 16:12, Sander Speetjens wrote:
+>>> +
+>>> +  firmware:
+>> There is no such generic property. You need vendor prefix. Wasn't this
+>> already discussed for Rpi? I feel like every time contributors send
+>> downstream DTS ignoring what was discussed upstream.
+>>
+>>
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description:
+>>> +      Phandle to the Raspberry Pi firmware device.
+>> You said nothing more than property name and type. Explain what for.
+>>
+> And more important, where is any interface to actually control the RTC?
+> I see nothing, so your firmware is? Then this is not a separate device
+> and you just added DTS for your driver, which is a no go (see writing
+> bindings).
+>
+> Best regards,
+> Krzysztof
 
