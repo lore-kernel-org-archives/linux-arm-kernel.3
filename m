@@ -4,118 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C67C79FAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F432C79FAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 06:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=; b=jxeI8CnF9CZgApR6yTO83Vrp2S
-	syAWtaudMFuSLIu0ueaORX5nfvtQWYuAQCJBgJ1+v+4tjWHNUjePujxKti8r+2rqa3B7SiF1n99r8
-	VECsIRduEiiphkEhBBjnkXl2GjY9jaIXrJji7akaj4XCjGop7Ie2jqYvvz4QekeYdQYZeUemv+FXu
-	1esFFlGUV32/7A1dXT3VIZs6yXc334A7QH2w7DoMCJzuEjOXu2QZ633ANojSRPd0kN8ifTJcrepnE
-	TnZZsF6rJRUREenahADsF377Ii0cGY3OcqlWhBfpVrNzb08LkishMTqyCjLomfcd+X8+ybrZ/F8nC
-	GjtyPzqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LQqBI6ejBvDRlBhzvGR9su9GPpCHzF1qILQIojgm5Mw=; b=Gj60h/b57d2fQeZMqHS4ZayCNh
+	/OPsj4iwtPOsX9SdXvxCN/gdEJ62YPYrowKnREPPNfDoWMKMHWeXNY6xwP7uWAkQlKG/7SLKg/J9X
+	PAgH27JA9lzmeZM1UiDY6pdtqBpiU0s1g/NhoRjJ/LvXRaddjaX4iYYmUU+jD/VeHFj5lwoQr1oN7
+	xzv0JgrASYCcU5AlsRO1bCzxS2cRGdsUENpwDmQBWU8PPBrrXPXRYQqSyyIwmg6NMZZeXzprLJz/Y
+	jtwLpqu5/54BS/rljxJEf3LHDWwMKQ76XkZJFhoa/Ft2/eX/qXLJT7Xw4LQ00upK1K7WE6GyQi4X2
+	VBd0e60g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Bv1-0000000Atjp-0OEY;
-	Wed, 09 Sep 2026 06:36:27 +0000
-Received: from mail-westusazon11010021.outbound.protection.outlook.com ([52.101.85.21] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1x4BvG-0000000AtmR-0oTh;
+	Wed, 09 Sep 2026 06:36:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Buy-0000000AtjL-28SG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 06:36:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f/rbbjOarF/VQOUnZSQ4QG/8fSy+YQW7EasNbs1eGERuTQn4SLTXRlKJXu7AmnbIOYnj9DXJTqn6Ybwt7TSvn0grPyvoAmN3pUk9TKWtr/mxKvHAS2ZTYgFBvxN6dxy+AsPIvmcFYgHE4WRHM/FVSxORl+CvY8NhItrCE1GNH4rNEnZq205Gwq+eL/o9f91HXo6Gn6wHGoOMrSZc85O0LmcJPW1gq4XLDmJs7KuBCf6TiZLo60MqbRqatDxOGkDw+YQ8CuO5hzb9yqonH66RmgzqmDFtSjMESurqFg9aw5V6SLn11KluiVGlFIrKdoN8bSIEvR/3yjSmriKdvErtAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=;
- b=ql2iNaSl4de24Om8fGc9JYmd9Go7XcuVgz5LvO77YkUY4lFlG4d18HREq1VzkFIXgK7P2yV65UwS8lAxxvAUdAw2UdcbQBIrCGqE+2V4Ih2pDTns7rBV+gNxcL7SoE2hP9dwdrBBsfELZXp4YfNSjXZOnESWGs71YAodHgoe8MULuTjabcwE2mMaT3cRFi+8erx/o1ljFlWaCJMjb7hGxmmsXt8UJD7hK+RwTKjpc1A6ECtMEFg1Z78BU1vvEJ/GstEp0mZ9wy0LKw0Rk4JBbnAjvp+K3EXGq53GOK2ngHavteKa78LF27HZVhK+fmSgoH325ZWwVzJ2I6tbtv1qtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ER0AKAXtQjkoU/cGM8bHrxUb9lj0MLvmM39NQex1+AE=;
- b=2/uT6m3EXslCw+GaDeW+E0M04UBRDhD04b5p5EwRn2Y2WoTpayioiSRyn7uZmx4sjif0Pn8Ewk8w88tjCA3Chj3cdRJDV/bsDVm6OkG/C0Sha9bGrgpFa5r02LvkL0Olfx13WGWKCepLELiLnIhE9jktCScJWGJ8SyiVG2phyeU=
-Received: from CYZPR11CA0004.namprd11.prod.outlook.com (2603:10b6:930:8d::15)
- by BL1PR12MB5779.namprd12.prod.outlook.com (2603:10b6:208:392::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Wed, 9 Sep
- 2026 06:36:19 +0000
-Received: from CY4PEPF0000EE34.namprd05.prod.outlook.com
- (2603:10b6:930:8d:cafe::97) by CYZPR11CA0004.outlook.office365.com
- (2603:10b6:930:8d::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Wed, 9
- Sep 2026 06:36:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CY4PEPF0000EE34.mail.protection.outlook.com (10.167.242.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Wed, 9 Sep 2026 06:36:18 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
- 2026 01:36:18 -0500
-Received: from [10.136.42.177] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 9 Sep 2026 01:36:12 -0500
-Message-ID: <ed191145-d58e-4463-8f54-a7bb86cce646@amd.com>
-Date: Wed, 9 Sep 2026 12:06:06 +0530
+	id 1x4BvE-0000000Atm8-2axK;
+	Wed, 09 Sep 2026 06:36:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 52D9F40C39;
+	Wed,  9 Sep 2026 06:36:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBF81F00A3A;
+	Wed,  9 Sep 2026 06:36:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788935798;
+	bh=LQqBI6ejBvDRlBhzvGR9su9GPpCHzF1qILQIojgm5Mw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jS1LRARqld8kZtl5I+TQJdUBa1Z2QlN+Nc+u3Mdd/oFYDN//Eozw1kpqPRG214O5Q
+	 U+WFPBFrC7Vzs6w6F5wp803eZSRPfMAkgQU0xjW88EgmdHGTFaix86H+YTnCtQANVZ
+	 99d68lIQd/mG+P+uN+QvkrZ7617CBdyYgKeDgNl5MK4mLENSOwx0kKDQ2LlADOMutZ
+	 zVMkqDmj/6F++hTwiNMtUIdEXB8svcAZ26anNMsK+eG8S65YS29ObspgrRD3O1YeCy
+	 bLSVze/K2UCpZUu0ZNEDZZMwfaZ2P2A/lmDHyITiNmd9iwdbb+Z1llsCIci1C216IT
+	 HKUiFQ1z6dK5w==
+Subject: Re: [PATCH net-next v6] net: airoha: add LRO offload support
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, madhur.agrawal@airoha.com, horms@kernel.org
+Date: Wed, 09 Sep 2026 06:36:37 +0000
+Message-ID: <178893579710.219967.7015031895402367364@kernel.org>
+In-Reply-To: <20260906-airoha-eth-lro-v6-1-a6cc5179a8c5@kernel.org>
+References: <20260906-airoha-eth-lro-v6-1-a6cc5179a8c5@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/2] sched: Enable preferred SMT siblings on NVIDIA
- Olympus
-To: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>, Peter
- Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent
- Guittot <vincent.guittot@linaro.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
-	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Mark Rutland
-	<mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>, Breno
- Leitao <leitao@debian.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260909062649.469633-1-arighi@nvidia.com>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260909062649.469633-1-arighi@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE34:EE_|BL1PR12MB5779:EE_
-X-MS-Office365-Filtering-Correlation-Id: e94822c9-0a72-4cc5-9bf1-08df0e3ca7d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|23010399003|1800799024|82310400026|13003099007|10067099003|56012099006|18002099003|11063799006|22082099003;
-X-Microsoft-Antispam-Message-Info: DqxMaK9Bo4TtqpiopVUvtcXbJu1Xqegd8vVHdGIzeD6z6EavOJp/FhE9eQXvvhGx3WVseumOwS8rV+x4KmxfoVyZfJcZ419Uy3dGQDWDu8VQ5FjPtgglrxz1Cg48M+BJH60MEnEzlO3WB2RfAjgzqOGefN/PJ9k+KpRQRNWMyhmG0WlWVKfv0ls6R8SIZy5WsNcoGMnUaFkaWO+aHnTuOJ2va1VKBMWiRn74bScJOwuyrukP/3+JKgUrIBlFb72j6P7V4k5vt8zDWdyRE24uhgM7YB7Vy618eXCfR1q9i7+f4CFmenWhu8vyI8ojOUFeJqf3dYTzuGNe4+2ewyrDPIXNHRzj1lzBWSQ8TYtUN+qH32XA7RfuD3onuQIHsDtg6Y+RgWD8jfUVg+dtRSAbQc5TBBlFAggj1LGX8oTvpFre66icRjUXpTPcxf+WqZbCfS72f4GLwrCZYbIVnkvskty5/b0w2Aaqw4BuWt4hYLl0nbZkhrcUoYi1y5ZWh8NEBwxcHrV8lOuqXl3hi8Ow444QpE64XkHV8utAzjaqXAbb3/5oWDxbMV8lAe7rPvObS+/uWgWvRBnRHECX+ftKcKGVmDgrH2pexhf+2b5v98CC72Gc4PlNjbTXyHJzW5TBZyDEuUqs37TIxK9RiHJH/Pex+FpQt8MV9IIbIF1I4kEqvqwLG2DKk3K7QJ9MbCV/fS1oKwp4brfmQkdx/L9+Kw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(23010399003)(1800799024)(82310400026)(13003099007)(10067099003)(56012099006)(18002099003)(11063799006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: YbzXZ6OYrS43p+bKHDnuePfErvrpPFZHbDg6cbQuAKrYhldxrR9vDtNbFIk7EKnWuEJGDIRmCyop1lT8ZwHBU4U0qdVq/gX/iXDFzw8hb5PC0LwAMFw+4CAzUUURuwoWRGbk+MBDdqWxpaKDadyBqU690xjGepGDmsVnDOIx/44zVpvutcgDjLc1vGytQ4wyKkQKXTXOWvbnXpOZ476YO7eiVkliozET+zSy909fyqND31dpFEtzC2Oek0TzYIAs19JdnXbUS3oexidg5FfItjnv1y12qN5hULEa7t52G6t46BE4xLtPtbGOSh+ZvAp7wtkIbvW5I5+OKKFoJY7KY437eOOGVHhe/Cj21wNhBfL8ij3DhaRdOKi+dfHVxiVQpmsAEP8HXa4WD4KHx9QmFyV/kmfSYsHYAF+17QEPxAZUsdHyD28b+qF50+IsPYfn
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 06:36:18.5398
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e94822c9-0a72-4cc5-9bf1-08df0e3ca7d1
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE34.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5779
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_233624_579646_DF4ADFA5 
-X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,70 +70,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrea,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider:
 
-On 9/9/2026 11:56 AM, Andrea Righi wrote:
-> NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
-> When only one PE is active, the core operates in single-thread mode and
-> that PE can use the full core resources. When both PEs are active, the core
-> operates in two-thread mode and the PEs share those resources. This
-> behavior is common to SMT implementations, but Olympus is particularly
-> sensitive to brief sibling activations because returning from two-thread
-> mode to single-thread mode after a sibling becomes idle is not immediate.
-> As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
-> for NOHZ balancing"):
-> 
->   Briefly activating an otherwise idle sibling can reduce the performance
->   available to the other sibling and this effect does not necessarily end
->   once the activated sibling becomes idle: after the ILB finishes and its
->   CPU enters WFI, full single-thread performance is restored only after the
->   sibling has remained idle for a qualification interval (10 Ki cycles on
->   the tested Vera system).
-> 
-> That change prevents the NOHZ idle load balancer from unnecessarily waking
-> a sibling of a busy PE. However, ordinary task placement can still select
-> either sibling of an idle core and repeated changes of the active PE can
-> keep Olympus cores in two-thread mode despite little or no useful overlap
-> between the siblings.
-> 
-> This series makes PE0 the preferred sibling of an Olympus core using
-> SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
-> honor asymmetric SMT priority. The scheduler first selects a candidate CPU
-> and core according to its existing placement and capacity rules, then
-> chooses the highest-priority available sibling within that core. The
-> generic scheduler behavior is enabled only when an architecture supplies
-> an SD_ASYM_PACKING SMT domain.
-> 
-> PE0 and PE1 have equal steady-state capacity, the preference does not
-> identify a faster PE. PE0 is used only as a canonical choice when both
-> siblings are available. Consistently selecting the same sibling avoids
-> alternating the active PE across wakeups, lets PE1 remain idle for longer,
-> and allows more cores to remain in, or return to, full-resource
-> single-thread mode.
-> 
-> The series was tested on a two-node Vera system using an 88-thread
-> single-precision GEMM on the 88 physical cores of NUMA node 0.
-> 
-> With the workload allowed to choose either sibling of every core, observed
-> throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
-> to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
-> became more predictable because the workload consistently settled on PE0
-> while PE1 remained quiet.
-> 
-> Changes in v5:
->  - Remove the redundant olympus_prefer_pe0 state (K Prateek Nayak)
->  - Link to v4: https://lore.kernel.org/r/20260908082345.103087-1-arighi@nvidia.com
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-My replies failed to keep up with your speed on iterations :-)
+- [Medium] The new LRO drop path in `airoha_qdma_rx_process()` increments
+  `netdev->stats.rx_dropped` (the legacy `struct net_device_stats`…
+- [Low] The commit message claims "aggregated skbs are marked
+  SKB_GSO_DODGY so that the stack does not rely on gso_size and does not…
+- [Low] Teardown asymmetry for the shared FE/CDM LRO state:
+  `airoha_dev_set_features()` arms the per-QDMA LRO block via…
+- [Low] The new LRO error path performs a plain, non-atomic read-modify-
+  write of the shared per-netdev counter `netdev->stats.rx_dropped++`…
 
-Since this is same as v4 and I had taken it for a spin on a
-x86 and an ARM64 server, feel free to include:
+--
 
-Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
-Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+net: airoha: add LRO offload support
+
+This adds LRO offload to airoha_eth using the 8 dedicated LRO hardware
+queues mapped to RX queues 24-31, bumping those queues' page_pool order
+since LRO cannot use scatter-gather.  Aggregated skbs get GSO metadata
+and a pseudo-header checksum so forwarded traffic can be re-segmented,
+and NETIF_F_LRO is only offered while a single device uses the QDMA.
+
+Link: https://lore.kernel.org/r/20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org
+
+A few questions below.
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 64619e9a704dd..7035b269a7c34 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+
+[ ... ]
+
+> @@ -657,13 +742,146 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
+>  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+>  }
+>  
+> +static int airoha_qdma_lro_rx_skb(struct airoha_queue *q,
+> +				  struct airoha_qdma_desc *desc,
+> +				  u32 msg1, u32 len)
+> +{
+
+[ ... ]
+
+> +	shinfo = skb_shinfo(skb);
+> +	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
+> +	shinfo->gso_type |= SKB_GSO_DODGY;
+> +	shinfo->gso_size = DIV_ROUND_UP(len - data_off, agg_count);
+> +	shinfo->gso_segs = agg_count;
+
+[Severity: Low]
+Is the commit message description of SKB_GSO_DODGY the right way round?
+It says:
+
+    "aggregated skbs are marked SKB_GSO_DODGY so that the stack does not
+     rely on gso_size and does not merge the aggregate into the GRO
+     engine"
+
+SKB_GSO_DODGY means the opposite for gso_segs: it tells the stack that
+gso_segs is untrusted and must be recomputed from gso_size.  In
+qdisc_pkt_len_segs_init() in net/core/dev.c:
+
+	if (unlikely(shinfo->gso_type & SKB_GSO_DODGY)) {
+		int payload = skb->len - hdr_len;
+		...
+		gso_segs = DIV_ROUND_UP(payload, shinfo->gso_size);
+
+and the TCP GSO output path uses gso_size as the MSS when re-segmenting,
+so the approximated gso_size is authoritative rather than advisory.
+
+The scheme still looks workable, since DIV_ROUND_UP(sum, agg_count) can
+never exceed the largest merged segment and the re-segmented packets only
+come out smaller.  Could the commit message state that rationale instead
+of saying the stack does not rely on gso_size?
+
+[ ... ]
+
+> @@ -707,9 +927,17 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+>  			__skb_put(q->skb, len);
+>  			skb_mark_for_recycle(q->skb);
+>  			q->skb->dev = netdev;
+> -			q->skb->protocol = eth_type_trans(q->skb, netdev);
+>  			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
+>  			skb_record_rx_queue(q->skb, qid);
+> +
+> +			if (airoha_qdma_lro_rx_skb(q, desc, msg1, len)) {
+> +				netdev->stats.rx_dropped++;
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Severity: Medium]
+Does this counter ever reach userspace?  This driver registers
+.ndo_get_stats64 = airoha_dev_get_stats64, and that callback assigns
+rx_dropped from its own MIB-derived stats:
+
+	storage->rx_dropped = dev->stats.rx_drops;
+
+dev_get_stats() in net/core/dev.c memsets storage and calls
+ndo_get_stats64 when it exists, only falling back to
+netdev_stats_to_stats64(storage, &dev->stats) when there is no
+ndo_get_stats64/ndo_get_stats, and afterwards only adds dev->core_stats.
+
+So every packet dropped here (agg_count above
+AIROHA_RXQ_LRO_MAX_AGG_COUNT, IPv6 with extension headers so nexthdr is
+not NEXTHDR_TCP, iph->ihl below 5, th->doff below 5, or a frame shorter
+than the headers) appears nowhere in ip -s link or rtnetlink.
+
+Would dev_core_stats_rx_dropped_inc(netdev), or the driver's own
+dev->stats.rx_drops under its u64_stats syncp, be the better sink here?
+
+[Severity: Low]
+Separately, can this increment lose counts?  netdev->stats.rx_dropped is
+a plain unsigned long shared per netdev, and this is a non-atomic
+read-modify-write from NAPI context.
+
+Each RX ring has its own NAPI instance (q->napi, 32 rings across the IRQ
+banks) and the target netdev is resolved per descriptor by
+airoha_qdma_get_gdm_dev(), so two pollers on different CPUs, for example
+LRO rings 24 and 31 both resolving to the same airoha_gdm_dev, can reach:
+
+	airoha_qdma_rx_napi_poll()
+	  airoha_qdma_rx_process()
+	    netdev->stats.rx_dropped++;
+
+concurrently with no lock and no per-CPU separation, which also tears on
+32-bit.
+
+> +				dev_kfree_skb(q->skb);
+> +				q->skb = NULL;
+> +				continue;
+> +			}
+> +
+> +			q->skb->protocol = eth_type_trans(q->skb, netdev);
+>  		} else { /* scattered frame */
+>  			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
+>  			int nr_frags = shinfo->nr_frags;
+
+[ ... ]
+
+> @@ -2288,6 +2582,32 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev)
+>  	}
+>  }
+>  
+> +static netdev_features_t airoha_dev_fix_features(struct net_device *netdev,
+> +						 netdev_features_t features)
+> +{
+> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> +	struct airoha_qdma *qdma;
+> +
+> +	qdma = airoha_qdma_deref(dev);
+> +	if (qdma->users > 1)
+> +		features &= ~NETIF_F_LRO;
+> +
+> +	return features;
+> +}
+> +
+> +static int airoha_dev_set_features(struct net_device *netdev,
+> +				   netdev_features_t features)
+> +{
+> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> +
+> +	if (features & NETIF_F_LRO)
+> +		airoha_dev_lro_enable(dev);
+> +	else
+> +		airoha_dev_lro_disable(dev);
+> +
+> +	return 0;
+> +}
+
+[Severity: Low]
+Should the enable path here be gated on netif_running()?  There is no
+admin-state check, so ethtool -K ethX lro on arms the shared FE/CDM LRO
+block of the QDMA while the interface is still down.
+
+The only teardown sites for that hardware state are ndo_stop and a later
+ndo_set_features.  unregister_netdev() does not call ndo_stop for an
+already-closed device, and neither airoha_qdma_cleanup() nor
+airoha_hw_cleanup() touches REG_CDM_LRO_EN, REG_CDM_LRO_RXQ or
+REG_CDM_LRO_LIMIT, so after this sequence:
+
+	ethtool -K ethX lro on      # link down, LRO armed anyway
+	rmmod airoha_eth
+
+the CDM LRO engine stays enabled and mapped to RX queues 24-31 after
+those rings, descriptors and page pools are gone.
+
+This looks like leftover hardware state rather than something worse:
+airoha_qdma_cleanup() clears GLOBAL_CFG_RX_DMA_EN_MASK and polls
+GLOBAL_CFG_RX_DMA_BUSY_MASK before the RX buffers are released, so no DMA
+into freed pages, and airoha_hw_init() asserts and deasserts the fe reset
+on the next probe before airoha_fe_init(), so the stale enable bits do not
+survive a rebind and cannot make airoha_dev_open() return -EBUSY forever.
+
+Would it make sense to call airoha_dev_lro_disable() from the remove path
+as well, so enable and disable are symmetric?
 
 -- 
-Thanks and Regards,
-Prateek
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260906-airoha-eth-lro-v6-1-a6cc5179a8c5%40kernel.org
 
