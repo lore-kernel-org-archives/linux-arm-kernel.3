@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC68C79FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F498C79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dN3Vm+A/q/0AWxfXoTAWqWfFbdTmy4SeL1/3qbxIyk=; b=RHTMB2GVBhd/eVKRpdMkYWMLRS
-	H51nx3yAjuwm4uUGgFKRPVZb7GWtdvQrt2o3Efg/oonQz3DPtP+vExwDZKcGxWDL35caFPkuS/I+2
-	zhKXmaPyGxuyHVqtEBnqnQz0oQS7c+m5cnfes1kRoVmyZ0cfNGB1qswC8qAZM4ryu8KDpgy4UPvWf
-	44KYTMGRFxyTAxY4g9jbv8kvCf6i3HWrEz0gih6zsTp70Pz22lsEZoTf1wUpifmVMapgL+2ora4p9
-	3l+SJ7WdVefOmN7eG3ESp0YoQzD98lXpnwXUG7DtSvAUUxRyBJ/G6o/dncaU0yU6ysUR6Csno2lhO
-	micg3Cow==;
+	bh=ApnG4gbQkWPzhtygCDB/k1nzV4DoinDV+hXxwsOMNyc=; b=Z88lUBXFZ/tuLRIHMFq467X3JQ
+	jNg3LlzMpOup1tNdCJxJLU02M5QgUmqr2ASd5ElDiZLdSVfz+NsvNs7ekpMY6mdW/RmtE4bcMwXZp
+	iKOv0jUFEU/aHgD0XTO1AsNhZEh0R+ORZ0exce4b42Z35SBojxWMQ+mgAzA4QYE/uDt7qBlEOwHiV
+	AkTmY4OxsrH9PKLBFz6yx/GBOR/4x6p0x7fyWFFwYdvWRxGdyVQPYmun41HBUrI+TjXafkfyC2Yo/
+	ncKRV21pY3dSDW0QqJzWIhosZSq8x8z9tC9ERPsPun7SkS/pds+PnMtf6Wk7Hp9SJnBD9Cuxm0viU
+	tnBMU26w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Er3-0000000BKiE-1itk;
-	Wed, 09 Sep 2026 09:44:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4EwZ-0000000BLWv-0nqE;
+	Wed, 09 Sep 2026 09:50:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Er0-0000000BKhb-14Da
+	id 1x4EwY-0000000BLWh-0hPp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 09:44:30 +0000
+	Wed, 09 Sep 2026 09:50:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3813A60232;
-	Wed,  9 Sep 2026 09:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0CB1F00A3D;
-	Wed,  9 Sep 2026 09:44:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F186404AD;
+	Wed,  9 Sep 2026 09:50:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B0C1F00A3A;
+	Wed,  9 Sep 2026 09:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788947069;
-	bh=4dN3Vm+A/q/0AWxfXoTAWqWfFbdTmy4SeL1/3qbxIyk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=S45tUg7LyI5EaKXJwuZ1sMfOExEKes0ouThD/mYbuZnoKFsV0K4EkDHgy4XUvJ5/E
-	 c+LiZ6EZdMXM0TmHwvM9Ka/ObBZNW91+wSkw1vw4QmCDxpVqpoO9zB1KKtuBwEiRDF
-	 SSzmd23RYV9ghTjF5FzjAfaNCTqQTtwOm3COlvpqOWKE07/2W0iystfe0sW+e3NYYX
-	 QZYIGlXlxQAFnEIvgWFVbVSiaqy7oRc1/P7PXalPY9sZ6jhJ4UwhuQEmaoX+TdLIRB
-	 psq66e8OBLS2J9IsYpxryC0DR/LzE/4O4u6nuYz1BoAqSmwD1vkA/J0gnx85thPTIe
-	 +ubcPZSrZC4nw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4Eqw-00000006cE9-2rlW;
-	Wed, 09 Sep 2026 09:44:26 +0000
-Date: Wed, 09 Sep 2026 10:44:26 +0100
-Message-ID: <861pb24v45.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Enable S1PIE for hVHE
-In-Reply-To: <20260908-kvm-arm64-nvhe-pie-v2-1-79e42d28cc08@kernel.org>
-References: <20260908-kvm-arm64-nvhe-pie-v2-1-79e42d28cc08@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1788947413;
+	bh=ApnG4gbQkWPzhtygCDB/k1nzV4DoinDV+hXxwsOMNyc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WrHYJjAlk8lzvKRzLrZHSWJSIjAxbsCur2fRPSHmLqa56woiuepdifabrqQsLdFvj
+	 +kSwWoZwfD7VYciPEW9J7q+UEWIPUrMYMBry/Lqxt3RGwN+9B6wXU6F7e2HIpbBL2h
+	 iaqbna7Jf14qJeFWvNBbL5kSkbC/UrJII3ArPcl6avlfvwRrHZDFtFpk7n2b1q82Bv
+	 Gvxs56ZEM84knNwDuYeymu1k02PF/8/njWW00cFiHtDWKWsKSAJ7n+1n7/7VkVSlbQ
+	 FfAhbhWU7cukLucHLDcDu01NJVhVaOiGgpa8AWK/UqDRwqxE9veIUMHOelbOfJMqJn
+	 Zg2U5zAnFaANQ==
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 53081198004A;
+	Wed,  9 Sep 2026 05:50:07 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Wed, 09 Sep 2026 05:50:10 -0400
+X-ME-Sender: <xms:ziuhajsMi9FPGjZrOGtzg7_eNL7EDsLpK4VnBkuvRCGwHRDJvT165Q>
+    <xme:ziuhautvhjFpNOcfjnB8gnUSyf46AyreVfFAg2npHbYn0-7DEsUztQr6isGztNbuA
+    294-hrti1w5-BWe8fCCA2qFbI09CGAu1-oZO9xZwD73vILpd54SjWLM>
+X-ME-Received: <xmr:ziuhalt1s9J_INx7rg8QxEyZtlB4eQkqEwWZASGhjagvpPw4J5a6-T6YvOI>
+X-ME-Proxy-Cause: dmFkZTFem7G3Ne1q6IC+vXmmQWHwDejS0VSp4tATdSPU4b0RTONhBMg4e3iWlREif2K+1O
+    ebkHT2ZM86YIfVSA82RZXKKwiJ5j1/gPpqk1wVlj+hQQIEgXDd+gdU6dO4kCbxe5T4Vid7
+    rjZhezuKsu8K1qhI3Q+j6B+G9qqMyuidQ+g80FjdeWDAlTsr2UcfzSTkrm7CGo34bLSAnb
+    UNjz2PQ7/3rcFs32nDzNLG7teJoa+MyNk4tYSRgSHLoxe7OYfP20OMz6aruz3qUSdmJOGs
+    aqhvdN/haL+CQENusNsZIPjdXOJxOwAsGMGWCSYZ9O0FVkbiyUMpWcl7I4+jlCYDd0Q6em
+    +REN0PnxueCUm7yFWbmUTv0iQ/5MwlpqWkGfdls4KNjET2VJpRQHqVymaWWVBdaVd6mQmt
+    lFaVI6uru/nAWLxIDLhfH9wPqeheNCXopCumDrxVKVLcXvdr8GrulsGVezh3jCBxFZzX6o
+    RJbhfY/RbVDPoc1GvgONzAYT1FCNyYghdiZ+I/E3nPDOm6oJ/gl7tDbrvn8CWo2IGzbNYb
+    iMqYb2NhvqvmaIyScjPXJgGXt67F3CgR3YBgGa0Nn1U+Pvn9I/qFBsVreNtN6kxAljSRao
+    biepisuOQZuasTKARP3Mq6zFw2ZRvup/dMatBIxI812XLV6L91zZyX7aiCcQ
+X-ME-Proxy: <xmx:ziuhap3Y-ylLYOPb-XbB9NXwkwz5JMJ7K494ehfgNdsSCqeDVs6zwQ>
+    <xmx:ziuhaiJPRSjTeSFhR5W7wHUYNcrZuDlwUsHgqccaR9I6EAMeLgk9Yw>
+    <xmx:ziuhaj-FXk3QALZLLBjQGV_ZQjlpD48SyOWLieKVXVZpF4km7o4mdA>
+    <xmx:ziuhahhBslrFpnxCJf2CYirlBJ9YW3qLufRZ1f_qpMbL4pPL6D0ZCQ>
+    <xmx:ziuhaixx5jQJebuSqQCzevDGobzoPUgXRkMlyNFTvfmAPBGH_yVilwsF>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 9 Sep 2026 05:50:06 -0400 (EDT)
+Date: Wed, 9 Sep 2026 10:50:05 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
+	Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] iommu/arm-smmu-v3: Add a cmdq_max_entries module
+ parameter
+Message-ID: <aqErsLREudADNSGS@thinkstation>
+References: <20260907095835.1233352-1-kas@kernel.org>
+ <20260907095835.1233352-2-kas@kernel.org>
+ <ap8zCvk8zUPZAJpH@nvidia.com>
+ <ap_Rktiv5hms9IvH@thinkstation>
+ <aqCEhG6NA3Ho5noV@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqCEhG6NA3Ho5noV@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,239 +105,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 20:40:47 +0100,
-Mark Brown <broonie@kernel.org> wrote:
+On Tue, Sep 08, 2026 at 02:56:20PM -0700, Nicolin Chen wrote:
+> On Tue, Sep 08, 2026 at 10:19:44AM +0100, Kiryl Shutsemau wrote:
+> > On Mon, Sep 07, 2026 at 02:56:26PM -0700, Nicolin Chen wrote:
+> > > On Mon, Sep 07, 2026 at 10:58:34AM +0100, Kiryl Shutsemau (Meta) wrote:
+> > > 
+> > > I still think that cmdq_max_n_shift can slightly tidy things here.
+> > > 
+> > > > +static u32 arm_smmu_queue_max_n_shift(u32 ceiling, u32 ent_sz_shift,
+> > > > +				      u32 entries)
+> > > 
+> > > Here, all three inputs would have been "shifts", instead of two
+> > > "shifts" and one "number of entries".
+> > > 
+> > > > +{
+> > > > +	u32 floor = PAGE_SHIFT - ent_sz_shift;
+> > > > +
+> > > > +	if (!entries)
+> > > > +		return ceiling;
+> > > > +
+> > > > +	return min(ceiling, max(ilog2(entries), floor));
+> > > 
+> > > And I see Sashiko keeps complaining against the ilog2 here:
+> > 
+> > It does build: GCC 15 and clang 21, at -O2 and -Os, without a warning.
+> > 
+> > But the reason is not obvious.
+> > 
+> > ilog2() on a runtime u32 returns int, and minmax.h only accepts an int
+> > against a u32 when __is_nonneg() can prove it non-negative at compile
+> > time.
+> > 
+> > __ilog2_u32() is fls(n) - 1, so that proof only exists because the
+> > if (entries) guard lets the compiler see entries != 0 through the inlined
+> > fls().
+> > 
+> > But this is fragile. If a compiler does not get there, or a later change
+> > that moves the guard, it turns it into a BUILD_BUG_ON.
+> > 
+> > Rather than a max_t() cast, we can give the shift its type first:
+> > 
+> > 	if (entries) {
+> > 		new_ceiling = ilog2(entries);
+> > 		new_ceiling = max(new_ceiling, floor);
+> > 	} else if (is_kdump_kernel()) {
+> > 
+> > Two u32s, nothing left for the compiler to prove, same result.
+> > 
+> > If it looks good, I can re-spin v6 with the change.
 > 
-> When FEAT_S1PIE (stage 1 permission indirection) is supported we
-> currently enable and use it in the hypervisor when running in VHE mode
-> but not when running in nVHE or hVHE mode.  While systems with
-> FEAT_S1PIE would normally use VHE users can configure them for nVHE or
-
-Missing comma after VHE.
-
-> hVHE.  Enable FEAT_S1PIE with hVHE only, hVHE is used for protected VMs
-> but there is no real use case for nVHE mode on hardware with this
-> feature.
-
-That's not the reason. The reason is that there is no nVHE-only
-hardware with PIE, and that on VHE-capable HW, nVHE and hVHE are
-strictly equivalent. Therefore there is no need to add support for HW
-that does not exist.
-
+> It looks probably okay.. though I still don't get why you aren't
+> picking the straightforward "max_n_shift" over "max_entries".
 > 
-> AP[1] is one of the bits used to encode the indirected permissions.
-> Since for hVHE this is always 0 we only configure the subset of
-> indirected permissions that the system is expected to use.
-> 
-> With permission indirection read and write permissions must be encoded
-> in the bits used by S1PIE, set DBM for writable mappings.  Only do this
-> when using S1PIE, the hypervisor does not otherwise use DBM so no
-> existing hypervisor code sets that bit.  Since the meaning is assigned
-> via S1PIE this does not actually enable DBM, the mappings we configure
-> just grant write permission.
-> 
-> In order to enable S1PIE we also need to configure TCR2_EL2 which is
-> currently only done in __finalise_el2 which is VHE only, do so when the
-> register is present.  When running in nVHE we leave TCR2_EL2.PIE
-> disabled.  This ensures we have an explicit configuration for TCR2_EL2
-> when it is present in the system.
->
-> For simplicity we unconditionally initialise PIR_EL2 and PIRE0_EL2 if
-> FEAT_S1PIE is present, this will have no effect in nVHE mode since we
-> set TCR2_EL2.PIE to 0.
-> 
-> This should have no practical impact other than causing any unexpected
-> encodings to map to no permissions instead of their default
-> meanings.
+> max_n_shift is used by both HW and SW, and it does not have such
+> converting problem or need min/max, making the code cleaner :-/
 
-What default meanings?
-
-> It will mean that the configuration is closer to that in VHE mode, and
-> will be required for future work enabling features like D128 and GCS
-> which are only available via indirection.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
-> Changes in v2:
-> - Rebase onto v7.3-rc2.
-> - Don't bother cleaning up TCR2_EL2 on hypervisor exit, and squash the
->   handling into the S1PIE patch.
-> - Remove support for nVHE mode.
-> - Link to v1: https://patch.msgid.link/20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org
-> ---
->  arch/arm64/include/asm/kvm_arm.h     | 19 +++++++++++++++++++
->  arch/arm64/include/asm/kvm_asm.h     |  1 +
->  arch/arm64/include/asm/kvm_pgtable.h |  1 +
->  arch/arm64/kernel/asm-offsets.c      |  1 +
->  arch/arm64/kvm/arm.c                 |  8 +++++++-
->  arch/arm64/kvm/hyp/nvhe/hyp-init.S   | 16 ++++++++++++++--
->  arch/arm64/kvm/hyp/pgtable.c         |  8 ++++++++
->  7 files changed, 51 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 4bfbd827c5aa..eecac91d41e4 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -345,4 +345,23 @@
->  #define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
->  				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
->  
-> +/*
-> + * Permission indirection configuration for the hVHE hypervisor when
-> + * we have FEAT_S1PIE. Like the host kernel we configure a mapping
-> + * mostly equivalent to the non-PIE meanings of the bits so the
-> + * page table manipulation code needs minimal updates for PIE.
-> + *
-> + * These mappings are minimal with only things used from the
-> + * hVHE hypervisor, nVHE is not supported.  Write permission is
-> + * controlled via DBM.
-
-They are controlled by PIIndex[1]. Yes, this is the same bit. No, this
-doesn't mean the same thing. When PIE is enabled, DBM is in the PIE
-register.
-
-> + */
-> +
-> +#define KVM_HYP_PIR_IDX(uxn, pxn, dbm, ap1) (((uxn) << 3) | ((pxn) << 2) | \
-> +					     ((dbm) << 1) | (ap1))
-> +
-
-This is not what these bits are called. They are just PIIndex[] bits.
-
-> +#define KVM_HVHE_PIR_EL2 (						\
-> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(0, 0, 0, 0), PIE_RX)	|	\
-> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(1, 1, 0, 0), PIE_R)	|	\
-> +	PIRx_ELx_PERM_PREP(KVM_HYP_PIR_IDX(1, 1, 1, 0), PIE_RW))
-> +
->  #endif /* __ARM64_KVM_ARM_H__ */
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index e5b92ac09e69..eb796436d6eb 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -208,6 +208,7 @@ extern void *__vhe_undefined_symbol;
->  struct kvm_nvhe_init_params {
->  	unsigned long mair_el2;
->  	unsigned long tcr_el2;
-> +	unsigned long tcr2_el2;
->  	unsigned long tpidr_el2;
->  	unsigned long stack_hyp_va;
->  	unsigned long stack_pa;
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 41a8687938eb..7b1b7ab3e88e 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -93,6 +93,7 @@ typedef u64 kvm_pte_t;
->  
->  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
->  
-> +#define KVM_PTE_LEAF_ATTR_HI_S1_DBM	BIT(51)
->  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
->  
->  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
-> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-> index 9c853ed3ceab..baffe58015d6 100644
-> --- a/arch/arm64/kernel/asm-offsets.c
-> +++ b/arch/arm64/kernel/asm-offsets.c
-> @@ -118,6 +118,7 @@ int main(void)
->    DEFINE(HOST_DATA_CONTEXT,	offsetof(struct kvm_host_data, host_ctxt));
->    DEFINE(NVHE_INIT_MAIR_EL2,	offsetof(struct kvm_nvhe_init_params, mair_el2));
->    DEFINE(NVHE_INIT_TCR_EL2,	offsetof(struct kvm_nvhe_init_params, tcr_el2));
-> +  DEFINE(NVHE_INIT_TCR2_EL2,	offsetof(struct kvm_nvhe_init_params, tcr2_el2));
->    DEFINE(NVHE_INIT_TPIDR_EL2,	offsetof(struct kvm_nvhe_init_params, tpidr_el2));
->    DEFINE(NVHE_INIT_STACK_HYP_VA,	offsetof(struct kvm_nvhe_init_params, stack_hyp_va));
->    DEFINE(NVHE_INIT_PGD_PA,	offsetof(struct kvm_nvhe_init_params, pgd_pa));
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8b080804bc90..607a6f808b1c 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2158,7 +2158,7 @@ static int kvm_init_vector_slots(void)
->  static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
->  {
->  	struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
-> -	unsigned long tcr;
-> +	unsigned long tcr, tcr2;
->  
->  	/*
->  	 * Calculate the raw per-cpu offset without a translation from the
-> @@ -2186,6 +2186,12 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
->  	tcr |= TCR_T0SZ(hyp_va_bits);
->  	params->tcr_el2 = tcr;
->  
-> +	tcr2 = 0;
-> +	if (cpus_have_final_cap(ARM64_HAS_S1PIE) &&
-> +	    cpus_have_final_cap(ARM64_KVM_HVHE))
-> +		tcr2 |= TCR2_EL2_PIE;
-> +	params->tcr2_el2 = tcr2;
-> +
->  	params->pgd_pa = kvm_mmu_get_httbr();
->  	if (is_protected_kvm_enabled())
->  		params->hcr_el2 = HCR_HOST_NVHE_PROTECTED_FLAGS;
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> index 0b3e0b28dfc7..cd5b75c8776f 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> @@ -137,8 +137,20 @@ alternative_if ARM64_HAS_CNP
->  alternative_else_nop_endif
->  	msr	ttbr0_el2, x2
->  
-> -	ldr	x0, [x0, #NVHE_INIT_TCR_EL2]
-> -	msr	tcr_el2, x0
-> +	ldr	x1, [x0, #NVHE_INIT_TCR_EL2]
-> +	msr	tcr_el2, x1
-> +
-> +alternative_if ARM64_HAS_S1PIE
-> +	/* S1PIE is only enabled with TCR2_EL2.PIE if we are running hVHE */
-> +	mov_q	x1, KVM_HVHE_PIR_EL2
-> +	msr	REG_PIR_EL2, x1
-> +	msr	REG_PIRE0_EL2, xzr
-> +alternative_else_nop_endif
-> +
-> +alternative_if ARM64_HAS_TCR2
-> +	ldr	x1, [x0, #NVHE_INIT_TCR2_EL2]
-> +	msr	REG_TCR2_EL2, x1
-> +alternative_else_nop_endif
-
-S1PIE implies TCR2. Why the additional alternatives?
-
->  
->  	isb
->  
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index b74dd5ce1efd..5276c2874fe0 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -349,6 +349,14 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
->  
->  		if (system_supports_bti_kernel())
->  			attr |= KVM_PTE_LEAF_ATTR_HI_S1_GP;
-> +	} else if (cpus_have_final_cap(ARM64_HAS_S1PIE) &&
-> +		   cpus_have_final_cap(ARM64_KVM_HVHE) &&
-> +		   (prot & KVM_PGTABLE_PROT_W)) {
-> +		/*
-> +		 * When using S1PIE for hVHE set DBM for writable
-> +		 * mappings since AP[2] is ineffective.
-
-It's not ineffective. It doesn't exist! See R_JJNHR.
-
-This is totally obfuscating what is really going on, which is really
-simple. We have 4 permission index bits in the PTE, and the both the
-code and comments should reflect that.
-
-> +		 */
-> +		attr |= KVM_PTE_LEAF_ATTR_HI_S1_DBM;
-
-So this sets PIIndex[1]. But It isn't obvious how this takes us from
-R(0x8) to RW(0xC). Where is PIIndex[3] coming from? It is supplied by
-the code following through the UXN/PXN bbits, but it is mind-boggling
-that we should rely on something deals with non-execution to control
-the *READ* permission.
-
-TBH, I think this is completely going the wrong way. Why can't we
-write this as a discrete enumeration of the permission combination we
-support (all 3 of them), and map that to the correct index?
-
-	M.
+Okay, fair enough. max_n_shift it is. Will post v6.
 
 -- 
-Without deviation from the norm, progress is not possible.
+  Kiryl Shutsemau / Kirill A. Shutemov
 
