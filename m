@@ -4,72 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81A8C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CC8C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 15:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jiAuFX2yhbVwIrEUDOjZptkJ10gfAcRfLWBSK+Ulw8s=; b=XX0+tCjfg4JdYVY0/WK/5Le28z
-	UQi1nIhrlXKbqRpQ9Whu3JoAuWboBlsN7loEsxW6uo8iEzwGGG93MmzO1hahbJiCX0xrThTu9t4J6
-	LniEhxaeJV0NND/dPUWFNyfN7ViAl3ohwuffzZfINZUXrpebcRkiP0ecGX1YfTTQNwzWwHcS7JF+M
-	4JfZ8Bong7MoZgG6gC8PIQ7w13pbbsgb2Xldpa5J36btt4AcTeKVrsy5O+MU4zkcjTfEyVM3jTsOd
-	Wdu8JLWUtRr7+odWCVZzYlGRjGYCDDY8E8o12PJkdT98bL+x+wMptXvVYMmgPh7O+Hc4BiC5QLomE
-	rPMIESNw==;
+	bh=aaD1iPdHXSKMIWmNsAZlaxDbgZwjJL30YcYTVXTbOpI=; b=AMRH4mvgfXNxx20xhi/vbQqL7L
+	pKRyIKedFg/1WNAxvjpa7TYFRPPNEU/bMJiDig7QdT0/KWwDN3K7tPhD1CS++OLQOzJhDB4CNogJv
+	DyABto3owFBX95TMdlpo3JpnUL+FNtbmLpepEhqEosfCf6NqpLkcFfSkt+S5MrJR50+W2BXRDs4+y
+	l5GT/iIvbZwIKDhe/B7oL6hJIIWE38+uSbzNt225VnosG3BVyZui3zuYXF4e54W03CglApl09f25l
+	1g11LyNY9QQ+s1tgT9b+9V5nuCKrwVgoDuJWZWbktOL3Rzi/HcX65WTO/R8T8UFUm7fWYgl7RiskZ
+	bFBCSU6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4K2H-0000000C75c-08sd;
-	Wed, 09 Sep 2026 15:16:29 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1x4K49-0000000C7IJ-1Iik;
+	Wed, 09 Sep 2026 15:18:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4K2E-0000000C74s-2yem
+	id 1x4K47-0000000C7I6-2FLR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 15:16:28 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4hg4CC4vN5zMlBf;
-	Wed, 09 Sep 2026 17:16:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1788966983;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jiAuFX2yhbVwIrEUDOjZptkJ10gfAcRfLWBSK+Ulw8s=;
-	b=oHcGB58PEAY/eEODVUCOsfVRTJnW1I9HX6A3MoE/KJeN/ZmBVbQ8bA0IzGAcVvUZPevYaE
-	Eky9UDQPE5GKe6hb8RcOWAJm1KjwmpRYw5wvwCi4VoEk5fQdf2/hTrVXQoXA96Iob42dmp
-	g41jXMpQyzrA88r9qZwlrZd6uM1Y4f/mgtILMJa8wqtexLnBEQh/yuD8HUbS0jslls54uA
-	dW51cgs5oX3ICW8H4AmygyrlnHYP41rz0aR1/aooKWTVEUiJ4+7RZvmn7FTgAvMjo2zRKz
-	BcfUmOMlYHDN5u6sfSAOiSaOlmYF7TPSfkAbKMS6M0lQ9ledeviikUbZuqyjWw==
-Message-ID: <c784aab5-c0c9-424f-9f9d-a0330f60a0ef@mailbox.org>
-Date: Wed, 9 Sep 2026 17:16:21 +0200
+	Wed, 09 Sep 2026 15:18:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D3F85601F1;
+	Wed,  9 Sep 2026 15:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F7151F00A3A;
+	Wed,  9 Sep 2026 15:18:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788967102;
+	bh=aaD1iPdHXSKMIWmNsAZlaxDbgZwjJL30YcYTVXTbOpI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=B/7HNL27KzdYtSLenvs3BSAsGzCESsMj1zTYAn1O3A7hOZaYHx6vv7fAxQFh/9XlF
+	 umpFWbG7ESfKcSKaBH9RQH4Jtk7jle7SRHT8H/2hsfLhbOGgfmrGHEPGWuUAeD/AI+
+	 Fdf1TsuqFzdEBbPLTrfA7OtbPK+QU/GRxuLLi1EaX35lZrhYtOhktDQ786wkQa1MYm
+	 PLmar6x3H1IC/SEFm2iWKXqamw/YLpo7TzpmgnD/xlu/oY3c5cJQskjplrtLNk+QSc
+	 mV4Z80C0uDtYHxdegJqKEct4ECUDs8YDYwLhISfXE7qdnCgyoH+spEaN1CQ13vahcT
+	 N0OtOBDb69WwQ==
+Message-ID: <d3723be0-46f4-4025-b526-e1bb3cc2cad6@kernel.org>
+Date: Wed, 9 Sep 2026 17:18:11 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for
- WaveShare 2CH CANFD HAT
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260808025724.131943-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdWvLX7OZSkfEBA34wKtnoZ4asB6rWFJiLa=2+=fezqsCA@mail.gmail.com>
- <f82ae578-fbe7-4834-bdde-d11e194a507f@mailbox.org>
- <CAMuHMdXQKL_srr80mUmsnznqJ_qxAoh0TdwyvJ41=CN=2pDjCQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Cc: akpm@linux-foundation.org, ljs@kernel.org, usama.arif@linux.dev,
+ ziy@nvidia.com, baolin.wang@linux.alibaba.com, liam@infradead.org,
+ nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com,
+ baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, rppt@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
+ <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
+ <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdXQKL_srr80mUmsnznqJ_qxAoh0TdwyvJ41=CN=2pDjCQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: yt4hfwetehfwg91nxg36oikoca5amr3u
-X-MBO-RS-ID: 18cd9288ed520fa562f
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_081626_905866_7882CC06 
-X-CRM114-Status: GOOD (  16.10  )
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +124,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/9/26 9:56 AM, Geert Uytterhoeven wrote:
-
-Hello Geert,
-
-> On Tue, 8 Sept 2026 at 19:02, Marek Vasut <marek.vasut@mailbox.org> wrote:
->> On 9/8/26 2:02 PM, Geert Uytterhoeven wrote:
->>>> +&pfc {
->>>> +       msiof0_pins: spi-ws-2ch-canfd0 {        /* SPI_0 */
->>>
->>> Node name should be "msiof0".
+On 9/8/26 16:48, Xueyuan Chen wrote:
+> On Tue, Sep 8, 2026 at 4:30 PM David Hildenbrand (Arm) <david@kernel.org> wrote:
 >>
->> Do we also have to fix up
->> arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts this:
->>
->> "
->>    755         msiof1_pins: sound {
->>                             ^^^^^
->> "
->> ?
-> 
-> Might be a good idea, to increase consistency.
-
-Submitted as
-
-[PATCH] arm64: dts: renesas: sparrow-hawk: Align MSIOF1 PFC node name 
-with label
-
->> But I wonder, shouldn't the DTOs contain unique pinmux node names, which
->> cannot accidentally overlap with the base DT or other DTO node names ?
-> 
-> In general, the answer is yes.
-> In this case it is about pin control subnodes. If the base DTS already
-> uses msiof0, its original user needs to be disabled by the overlay
-> anyway.
-
-The original DTS does not use MSIOF0 .
-
-I think the proper solution here would be DT connector ?
-
->>>> +               groups = "msiof0_clk", "msiof0_txd", "msiof0_rxd";
->>>> +               function = "msiof0";
->>>> +       };
->>>> +};
->>>> +
->>>> +/*
->>>> + * PWM1 uses PWM1_B pin configuration for pin GP2_13. This conflicts
->>>> + * with SPI_1 CE_1 signal which is also on pin GP2_13. Disable PWM1
->>>> + * in case this hat is in use.
->>>> + */
->>>> +&pwm1 {
->>>> +       status = "disabled";
->>>> +};
+>> On 9/1/26 17:18, Xueyuan Chen wrote:
+>>> The persistent huge zero folio is shared globally and should stay zero
+>>> after initialization. As Jann Horn pointed out [1], kernel bugs have
+>>> ended up writing to pages that were meant to be read-only, including in
+>>> security-sensitive cases. Making the folio read-only in the direct map
+>>> turns such writes into faults instead of silent zero-page corruption.
 >>>
->>> Please move this node disabling pwm1 to the top, for compatibility
->>> with dynamic DT overlays.
->> Could you expand on that a bit ? What difference does the placement of
->> this node make within the DTSO ? Please pardon my ignorance.
+>>> Add a page-based helper consistent with the existing direct-map interfaces.
+>>> Handle TLB invalidation in the architecture implementation; unsupported
+>>> architectures retain their current behavior.
+>>>
+>>> Protect the folio after initialization. Skip highmem folios, which have no
+>>> permanent direct-map mapping.
+>>>
+>>> Inspired by Jann Horn's read-only zero page work [1] and follow-up
+>>> discussion [3] with Yang Shi.
+>>>
+>>> Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@google.com [1]
+>>> Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org [2]
+>>> Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com [3]
+>>>
+>>> Suggested-by: David Hildenbrand <david@kernel.org>
+>>> Suggested-by: Usama Arif <usama.arif@linux.dev>
+>>> Co-developed-by: Lance Yang <lance.yang@linux.dev>
+>>> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+>>> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+>>> ---
+>>>  include/linux/set_memory.h | 17 +++++++++++++++++
+>>>  mm/huge_memory.c           | 13 ++++++++++---
+>>>  2 files changed, 27 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+>>> index 3fe293cfed8c..ed9ce04b18a1 100644
+>>> --- a/include/linux/set_memory.h
+>>> +++ b/include/linux/set_memory.h
+>>> @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
+>>>  #endif
+>>>  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+>>>
+>>> +#ifndef set_direct_map_ro
+>>> +/**
+>>> + * set_direct_map_ro - make a direct-map range read-only
+>>> + * @page: first page in the direct-map range
+>>> + * @nr: number of pages in the range
+>>> + *
+>>> + * Make the direct-map range starting at @page read-only and invalidate stale
+>>> + * writable translations before returning.
+>>> + *
+>>> + * Return: 0 on success, or a negative error code on failure.
+>>> + */
+>>> +static inline int set_direct_map_ro(struct page *page, unsigned int nr)
+>>> +{
+>>> +     return 0;
+>>> +}
+>>> +#endif
+>>> +
+>>>  #ifdef CONFIG_X86_64
+>>>  int set_mce_nospec(unsigned long pfn);
+>>>  int clear_mce_nospec(unsigned long pfn);
+>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>>> index 54494c3fa983..742283b36d74 100644
+>>> --- a/mm/huge_memory.c
+>>> +++ b/mm/huge_memory.c
+>>> @@ -42,6 +42,7 @@
+>>>  #include <linux/pgalloc_tag.h>
+>>>  #include <linux/pagewalk.h>
+>>>  #include <linux/cleanup.h>
+>>> +#include <linux/set_memory.h>
+>>>
+>>>  #include <asm/tlb.h>
+>>>  #include "internal.h"
+>>> @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
+>>>       huge_zero_folio = alloc_huge_zero_folio();
+>>>       if (!huge_zero_folio) {
+>>>               pr_warn("Allocating persistent huge zero folio failed\n");
+>>> -     } else {
+>>> -             huge_zero_pfn = folio_pfn(huge_zero_folio);
+>>> -             count_vm_event(THP_ZERO_PAGE_ALLOC);
+>>> +             return 0;
+>>>       }
+>>> +
+>>> +     huge_zero_pfn = folio_pfn(huge_zero_folio);
+>>> +     count_vm_event(THP_ZERO_PAGE_ALLOC);
+>>> +
+>>> +     /* Highmem folios have no permanent direct-map mapping to protect. */
+>>> +     if (!folio_test_highmem(huge_zero_folio))
+>>> +             set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_PMD_NR);
+>>
+>> Assuming we keep the page-based approach, can't we just move the highmem test in
+>> there?
 > 
-> In case of a dynamic overlay, pwm1 must be disabled before SPI_1 is
-> probed.  Otherwise the latter will fail with -EBUSY due to the
-> conflicting pin being still in use.
+> Hi David,
+> 
+> We can move the check into set_direct_map_ro(). However, on x86,
+> set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
+> also expect callers to exclude highmem pages.
+> 
+> Would it make sense to make highmem a documented no-op for those
+> helpers as well, so the direct-map APIs handle it consistently?
 
-TIL, thank you.
+I think getting something consistent for now is the most important thing. :)
 
 -- 
-Best regards,
-Marek Vasut
+Cheers,
+
+David
 
