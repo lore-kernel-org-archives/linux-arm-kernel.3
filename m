@@ -4,102 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D6AC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 16:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB96C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 17:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2CR/xuPBfJUaIkIrsi5gmAz0JqvQr7Lu6iPE454B+34=; b=rJzoksDSRff81ghVzRZS6bE7O6
-	f2y/6dsHx+KQ98xizY+J6hfuFW+uAzyACXdqsG5XnFGljxxKS72bqRAltGf9+gbtt9UDyDfBTmSCi
-	UIstNN4QxXBTeYXw+AD3XDsfZnSUUnNgmPajjOt+UbkOzm7Z1rYGcFUamEILpZuzyodeqF8cPJKLV
-	qj7Ic0AV/0ixDC1EFpA01PnFB3dXuKkcb1NUoyEQoMZNCX9ifFtn3m56lQP0mWFfDuklff2W51vRJ
-	kdGpFd49D8LxZ7ENldQbBBwm6VctvPEYO71V7p/fSrq444ijUlDcr6SS4QbQ1gEk6FHe/P6WPco7m
-	pQ2hTwow==;
+	bh=FXW4rsfWsl/qV1jQizp21oY8xUg2xuC2B9JemfOPbJA=; b=x6fOIGSOSqLtwA/8oQJtzP+dpx
+	Tn3gyEP8TJJ3sFZOq5Yjc8cDO6lmxdOhGaKJU+eMtbT7h1eubH7vLxNVG5pWPlLtJgn5hY3QuFdhY
+	WzCaAIqddyFkko1pPYlZhQcgehsNVNx9Vuop4+HH06hgKJUhiUBgDhto+TEMDpSgQP4Vptl1ulxQb
+	wIMYTXcHKGaBEmra8SdK2u43jwr/HIFmEYO0vDsJAF0b8dJJVSjrIAFrLft9pX9WsVZ1Vl590xATe
+	TFLQ+cOK7hBSYm/mESfFzpHxbcl/QtUaxkO4u3aitWIVcOtzucui5SWHfqn4hBnFSEQfexkre8017
+	F16KQpNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Lbi-0000000CPN3-2b3p;
-	Wed, 09 Sep 2026 16:57:10 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1x4Leb-0000000CPjK-0QWf;
+	Wed, 09 Sep 2026 17:00:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Lbg-0000000CPMa-1cOc
+	id 1x4LeZ-0000000CPin-1gNI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 17:00:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=FXW4rsfWsl/qV1jQizp21oY8xUg2xuC2B9JemfOPbJA=; b=TzTr6NPJdhAjApQeXyV+4Q/n7w
+	JeCtOkr5zkU700cCaohwNx2FXqD3hr98VNzEoR5fGD4asla5wIXgoBDFuqZIG9Nxs1o6KVJhqR5n9
+	yii9UqVYKO1OdgsatK1r2Lohs0+7RMnjGsdhj5gVH3+nVVg1HouxGTmGgaAu1Yo89EJumvuGJh/Hf
+	WH9ggS2FF1mDuYoG4fVkwsI94Z2i9333XP7CjuQAYsqPPGr6XZacuU1u/davdo6MpsLt8aTAl6/Kl
+	iWfe7EAAej+BaTmfQqQj9XBBxLUEO3fJUcVzmJKlKQPI63SpPLSj0T34I9IOchatQIntrtsiTF1Qu
+	CUF/1G9g==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4LeW-00000001SwK-28vY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 16:57:09 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5b5607bd3b5so3905473e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 09:57:07 -0700 (PDT)
+	Wed, 09 Sep 2026 17:00:06 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843af75de5so616584f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 10:00:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1788973026; x=1789577826; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2CR/xuPBfJUaIkIrsi5gmAz0JqvQr7Lu6iPE454B+34=;
-        b=RjqGOALUKKDdw/zFtR+48Iykco3+QDQytJPCHIfi+guXxqdolzysfJcS/KofPt7WIA
-         4LLcVAa7dOgqJpsMOwknDatGV2TGLGKoGOOwwmlYUoazJGFRZeIOPIIEa3++PnU5fKdz
-         IKEUl8kB0kHRr8vRLuT5qCG8R64PummCS56fM=
+        d=gmail.com; s=20251104; t=1788973202; x=1789578002; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FXW4rsfWsl/qV1jQizp21oY8xUg2xuC2B9JemfOPbJA=;
+        b=F2/KGhHQxmrLD2iO/bPPPnnbE09vBgoVYr3AcFYepoULpjoyA1kRavUMCAJxWrYCoN
+         cU/BwP1Uxy8WIday9T5U2o06JPwe2wV7HLSFGGRrfyFLAhKoJZ+c3ZKuCCbJdNzulGAd
+         SXf4VO7JdFgvSWUahtBQwbz+8iVWpVOz+k+e6BPfOPM2AqUqabldPX49MIoIGItGpUbs
+         oypCagqDC3d04hr72tBnrOrFBaP3UPZaH6sTNeMbMADLQLtKy3qdfCt7zGFrRKxIUNAd
+         pp7Y8RYmkUCHZcuF9Rk8ECYnb4IOqIizhHpfIewe3Zs1aWsLIicXtyAQ0yZ4+qBmRfjo
+         f2Eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788973026; x=1789577826;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2CR/xuPBfJUaIkIrsi5gmAz0JqvQr7Lu6iPE454B+34=;
-        b=gCIIw9FmJl2Ok3BrDdoUOjsFJ9wzsDlN0cW8G7hsCrW/iWa41oiME34segjrZXuJcC
-         /m9/nlpVhW4B8zYx8ym1zEsfnboGiu3ZSto6/A1dANikcCCY+YSAXhHCXRaHHg9Hux0K
-         UYHu2UJQVdgtFDKdXjntDzuI2IZ6OWdZLG1BBO35lnhW4kmuYuVovSZhezkXrClecr3v
-         f7Sf9P7mIfYft1+aeXbd0c9hf+O16s1N8tuZA/8e1bBoaRG7EIgIpL7fNnhs3h6P6IFv
-         08zl0me9VoVWp/tdHKshKEpmpyWDSoeiZaOwSWJUXPlOvueBcwnpHQ9RPVv8ScXpXd30
-         0www==
-X-Forwarded-Encrypted: i=1; AKwUvBzgSTbM2JeJcoeRpJsLn34m3AUKryULKg3eNbMmnt1T5tR1kWRpwkXVG7byggGMXJyjSvonjgKU3tITOkZgpl7Y@lists.infradead.org
-X-Gm-Message-State: AFuF++m0RAzmnNk8dtQFTpNGEtZJYJgHyIFomchxEWqdexmjxoGLhj3l
-	1a5S0a9J+OqKeAek58yHGc3MPY+YGbWZwIDOs/9+NJIAzya5vo+7AwNZNzbFTySK9c0olHKAo+l
-	JxT4z6g==
-X-Gm-Gg: AYBFou2T2xGwjgo9pTEBfZzKHh5x3teBlzKxrybeRlC5bft8WjBPmGEeQeMwyexISmP
-	y8Dw+6nAztQol/Gd/cVc2GqNtXhlSiXhaIgajH3b8Gl8p55NzHvSbIQR81jdzKi4oXxPD2ErG7E
-	QSdweohlwgjB7peuSVDSWFfXb8xROqE1llSJC57aWeMEaeR2MpvxfDgGug0z+Ai40UtywvR0ph3
-	rjJrsBpiwvzsxKonaxv1MDwvG1NAoQI3SEAk0H9tp30BHR3Qku/CnhVJ+tUkvEk+swuNTMwB2i0
-	wKGZDlWHrwWa33ZEakfnDWYozccAl3zEEEwaIyLAFZPKcVUaYFfr2b6F5Louq07KcI+Vh24kB85
-	RSYYXw67OEI4aHIZD8ef+KQb7/Cx39BJHYHZmGFEyK0ELFKndRSMhRcDs+41cl37kRcriXbtL8w
-	vvG6++NP0s0zfZUhZhIlCpRGSXE/tW20ES57oOxHMXcTkTO8fmJ0Qmaxhqh/BkXXbmCtLSLmmaR
-	XT1ii14ftCkYXjwBGV4qWE/lGlX06jikUL/WA==
-X-Received: by 2002:a05:6512:114c:b0:5b6:184c:7d9b with SMTP id 2adb3069b0e04-5b6184c7efbmr5835336e87.36.1788973026229;
-        Wed, 09 Sep 2026 09:57:06 -0700 (PDT)
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com. [209.85.221.52])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b7500b52bbsm3192105e87.6.2026.09.09.09.57.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 09:57:05 -0700 (PDT)
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48441fa5c37so4455331f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 09:57:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwiSR/SwJMu3/Vtp57QA5Fqg2AoziOPjsXKJe9ITAqyZtEX5thS6d2erp/6ZdHcSOV9e2x0p8nolQt6Y4d3QLZ9@lists.infradead.org
-X-Received: by 2002:a05:6000:41d8:b0:485:8a46:b3cd with SMTP id
- ffacd0b85a97d-4858a46b548mr36544508f8f.53.1788973024061; Wed, 09 Sep 2026
- 09:57:04 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788973202; x=1789578002;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FXW4rsfWsl/qV1jQizp21oY8xUg2xuC2B9JemfOPbJA=;
+        b=Pj7IOwpV4dih9CpVEdqfC11y3yissn+RKtlAVykle2uaR/TsINhi5Fwjeka/Dm59Hq
+         ImGcF81Ygo6bxY+KFdZGuqciAKM63Day33t5A3q+O/tXxnVJYPZQ5VpYKw6qPM7hVR8z
+         kSRMikIzyIakYP5aC8htPAnJg0PGFPhxnBVcywcYc1P/Fv+7UVykJI+zECUSs2puyOTU
+         BX+AkZxjcEQBxIq1/O0npAyNHOEJIq9p2soOjmI1zpbOtZAwMBO21cWnUqQCKJRtuHzf
+         kiD7sLfZHJkdhTNSZAYD/7th2muybo40ajiJ+hpI5e9swx0oDJs1snF+6pTNlPy22v0R
+         rAMw==
+X-Forwarded-Encrypted: i=1; AKwUvBxL98okX9kJVbIzhtTEKztvdnaCFyoC/iciZhxB6Xx4VyswTxYSqqWMKxqlZ3ObjU9IHPk09tq+gsCdzJ0j6c+v@lists.infradead.org
+X-Gm-Message-State: AFuF++nQIrbyOR31XSZgwlgJPMjhyemA8AEsp6zRgYvqA6ND7b2bBHMN
+	fGzLS4UH2r2J5Jv+bbZjL0/gvFfISKg6xlvx2AXewTKuIJimF1DH99rZ
+X-Gm-Gg: AYBFou1yQ3KJHZZGdadT5T73XOvLfyZKDbZwsY95kksrJHbEkYLk1tnUnMSBl3InoeG
+	LV7sNO9yhYSZ35YP3VOBKPkr2GJjzs/32S1NfDatsl10BaKcmnrFCYusA3+xKlnCxpxjJT3re8L
+	9pftUgEq07TMsMAcJ7ldTwWWAvtfFhhg2bjLYGF2QsUjt1rMtDwuL2se8CmX9PwjL/y70WWB5Wn
+	ny4u8XXCkAVjNUFypY9Boc5FUPe1pQjCvu0ZeFYycFactYiLsA+NCtMJuNAvH7Vm5r4rt5pSgAD
+	Gy95iJRfgRBE9IPTURhD4Ui7TRNx7zSQwoKE1DMv9UQzefO7nseCcz/2SYm6c4OUIeFEpfGZ70v
+	OZNl/IzEFxqx7Deo7a3CEf1v3+5mL46qNDtaF9+9wBT/U3q9ETUyNnhHi6MHuBlT+JbOFZtNybT
+	QLc+WsIsUMItXY0RwebVtzePDW/UKMtGsCl1uqzX4x7dDBgmNBpJwqD1W39SwCP09SMCnwa0TZ7
+	N5d1FN3gds1zpopUrIi7nZwxgOlYZPfZWTMxf20Bobz0HjKR5/IrgtQCetnxXN7QH8gxk1dvWYQ
+	xBM=
+X-Received: by 2002:adf:e001:0:20b0:485:a9b4:9883 with SMTP id ffacd0b85a97d-485a9b498b4mr6458294f8f.1.1788973201948;
+        Wed, 09 Sep 2026 10:00:01 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B836900B0110705BF092680.dsl.pool.telekom.hu. [2001:4c4e:1b83:6900:b011:705:bf09:2680])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bbb51sm47864373f8f.30.2026.09.09.10.00.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 10:00:01 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sidong Yang <sidong.yang@furiosa.ai>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Jiaxing Hu <gahing@gahingwoo.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/7] arm64: dts: rockchip: rk3588: add an OPP table for the NPU
+Date: Wed,  9 Sep 2026 18:59:02 +0200
+Message-ID: <20260909165903.8472-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <9af28de2a07f7965300b898994481ccf194a30da.camel@ndufresne.ca>
+References: <9af28de2a07f7965300b898994481ccf194a30da.camel@ndufresne.ca>
 MIME-Version: 1.0
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
- <CABb+yY3_xBvQVFHEs=v39u7+TLjJRaVv3sg5pGgd0YxCruZ8Tw@mail.gmail.com>
- <CAD=FV=X-fAJp=EG_yTAg+QQgNYRCt25947oHGHZuq-FEyirK0g@mail.gmail.com> <CABb+yY2CH5A1ixfX9czgtEwsP95FN-2JVzN_wmRDRNsSuZY5PQ@mail.gmail.com>
-In-Reply-To: <CABb+yY2CH5A1ixfX9czgtEwsP95FN-2JVzN_wmRDRNsSuZY5PQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 9 Sep 2026 09:56:52 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=XiguzS7nH1sE=BkXt+7G6-hhqyz5u3sjc4zAA9H7KqJg@mail.gmail.com>
-X-Gm-Features: AcwNN1WrrHTviMXpNF4XGy-eLDipuRr6WDvDf1_K-q05FH7VVpPgr4KG1SIBOUQ
-Message-ID: <CAD=FV=XiguzS7nH1sE=BkXt+7G6-hhqyz5u3sjc4zAA9H7KqJg@mail.gmail.com>
-Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox driver
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_095708_506682_DE544573 
-X-CRM114-Status: GOOD (  35.68  )
+X-CRM114-CacheID: sfid-20260909_180004_680653_2BDAF45E 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,168 +130,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Nicolas,
 
-On Wed, Sep 9, 2026 at 9:34=E2=80=AFAM Jassi Brar <jassisinghbrar@gmail.com=
-> wrote:
->
-> On Wed, Sep 9, 2026 at 10:53=E2=80=AFAM Doug Anderson <dianders@chromium.=
-org> wrote:
-> >
-> > Hi,
-> >
-> > On Sat, Sep 5, 2026 at 6:20=E2=80=AFPM Jassi Brar <jassisinghbrar@gmail=
-.com> wrote:
-> > >
-> > > Hi Douglas,
-> > >
-> > > On Tue, Jul 14, 2026 at 5:24=E2=80=AFPM Douglas Anderson <dianders@ch=
-romium.org> wrote:
-> > > ....
-> > > > +
-> > > > +/**
-> > > > + * goog_mba_handle_tx_interrupt() - Handle interrupt that remote A=
-cked our msg.
-> > > > + * @goog_mbox: The mailbox info.
-> > > > + */
-> > > > +static void goog_mba_handle_tx_interrupt(struct goog_mbox_info *go=
-og_mbox)
-> > > > +{
-> > > > +       unsigned int reqs_completed;
-> > > > +       int i;
-> > > > +
-> > > > +       /*
-> > > > +        * ACK interrupt needs to be cleared before reading CLIENT_=
-OUTSTANDING_MSG.
-> > > > +        * Then if a "race" happens and another message gets Acked =
-after we clear
-> > > > +        * but before we read CLIENT_OUTSTANDING_MSG then the worst=
- that will
-> > > > +        * happen is we'll get a followup interrupt that will show =
-0 reqs_completed.
-> > > > +        */
-> > > > +       writel(CLIENT_IRQ_STATUS_ACK_INT, goog_mbox->iomem + CLIENT=
-_IRQ_STATUS_OFFSET);
-> > > > +
-> > > > +       if (goog_mbox->queue_mode) {
-> > > > +               u32 outstanding_msgs;
-> > > > +
-> > > > +               outstanding_msgs =3D readl(goog_mbox->iomem + CLIEN=
-T_OUTSTANDING_MSG);
-> > > > +               spin_lock(&goog_mbox->lock);
-> > > > +
-> > > > +               if (goog_mbox->outstanding_msgs >=3D outstanding_ms=
-gs) {
-> > > > +                       reqs_completed =3D goog_mbox->outstanding_m=
-sgs - outstanding_msgs;
-> > > > +               } else {
-> > > > +                       /*
-> > > > +                        * The hardware's track of outstanding mess=
-ages should always
-> > > > +                        * be less than or equal to the number of m=
-essages we queued.
-> > > > +                        * If it thinks there are more messages out=
-standing than we
-> > > > +                        * queued, something is wrong. Assume nothi=
-ng was completed.
-> > > > +                        */
-> > > > +                       dev_warn_ratelimited(goog_mbox->mba->dev,
-> > > > +                                            "%pOFP: unexpected out=
-standing msgs: %u -> %u\n",
-> > > > +                                            goog_mbox->np, goog_mb=
-ox->outstanding_msgs,
-> > > > +                                            outstanding_msgs);
-> > > > +                       reqs_completed =3D 0;
-> > > > +               }
-> > > > +               goog_mbox->outstanding_msgs =3D outstanding_msgs;
-> > > > +               spin_unlock(&goog_mbox->lock);
-> > > > +
-> > > > +               trace_goog_mba_process_q_txdone(goog_mbox, reqs_com=
-pleted, outstanding_msgs);
-> > > > +       } else {
-> > > > +               reqs_completed =3D 1;
-> > > > +               trace_goog_mba_process_nq_txdone(goog_mbox);
-> > > > +       }
-> > > > +
-> > > > +       for (i =3D 0; i < reqs_completed; i++)
-> > > > +               mbox_chan_txdone(&goog_mbox->chan, 0);
-> > >
-> > > The patchset doesn't say much about the clients but if the platform
-> > > works like this, I have a strong feeling we can do without introducin=
-g
-> > > mbox_controller.has_queue.
-> > > Just use the msg_data[] ringbuffer -- we can avoid changing the core
-> > > internals and you will still get ACK for each message.
-> > > What are the clients going to be like?
-> >
-> > I don't think we can get rid of `mbox_controller.has_queue`.
-> > Specifically, the queue mode allows the mailbox controller to handle
-> > multiple outstanding transactions simultaneously to reduce latency.
-> > Imagine host (Linux) interrupt latency is 100us and we want to send 3
-> > mailbox messages. Let's say queuing a mailbox message takes 10us.
-> > We'll say that the remote interrupt latency is 50us. Timing would look
-> > something like this:
-> >
-> > 0.000000: Client sends msg #1 and mbox controller initiates the xfer
-> > 0.000010: Client sends msg #2 and mbox controller initiates the xfer
-> > 0.000020: Client sends msg #3 and mbox controller initiates the xfer
-> > 0.000050: Remote gets IRQ, sees 3 messages, and ACKs them all.
-> > 0.000150: ACK IRQ arrives; mbox controller sends 3 txdone
-> >
-> > ...so all 3 messages are sent / ACKed in 150us.
-> >
-> > Without letting the mailbox controller queue, we'd end up more like thi=
-s:
-> >
-> > 0.000000: Client sends msg #1 and mbox controller initiates the xfer
-> > 0.000050: Remote gets IRQ, sees msg #1, ACKs it.
-> > 0.000150: ACK IRQ arrives; mbox controller sends txdone
-> > 0.000150: mbox core notes txdone and sends msg #2
-> > 0.000200: Remote gets IRQ, sees msg #2, ACKs it.
-> > 0.000300: ACK IRQ arrives; mbox controller sends txdone
-> > 0.000300: mbox core notes txdone and sends msg #3
-> > 0.000350: Remote gets IRQ, sees msg #3, ACKs it.
-> > 0.000450: ACK IRQ arrives; mbox controller sends txdone
-> >
-> I don't mean that ...
+> If you can script the test, I can run it on Rock5B later on.
 
-Ah, sorry for misunderstanding!
+Here it is. I ran this exact script on my board before sending it, so it
+is the same code, not a cleaned-up retelling of what I did.
 
-> though even that may be more acceptable to the
-> clients than you think. What class of clients are there?
+It answers one question and refuses to answer anything else. Two modes:
 
-As far as I can tell, the mailbox controller is used for pretty much
-everything in the system, so latency is pretty critical. Want a clock
-turned on? You gotta send a mailbox message. Want a power domain
-turned on? Mailbox message.
+  ./rk3588-npu-devfreq-check.sh --check     # discovery and gates only
+  NPU_LOAD_CMD='...' ./rk3588-npu-devfreq-check.sh
 
-I don't think we can just drop the queuing support...
+The load command is yours - anything that keeps the NPU busy for about
+25 s and exits. I did not want to ship my benchmark, both because it is
+not interesting and because the point is that the result should not
+depend on which load you use.
 
+The gates matter more than the measurement, so let me say what they do.
+It refuses to run if the governor is not simple_ondemand, if min_freq or
+max_freq are pinned (then the governor decides nothing and the number is
+meaningless), or if the loaded rocket module is not the one belonging to
+the running kernel. That last one caught me: my everyday kernel carries
+an out-of-tree rocket with its own OPP list built by dev_pm_opp_add()
+with no voltages, and no opp-table-npu in DT at all. A measurement there
+would have described a different program. It warns rather than refuses
+when there is no DT table, or when the table carries opp-suspend, since
+both change what is being measured rather than invalidating it.
 
-> I am suggesting to consider TX-Is-Done when send_data() returns, i.e
-> tx submitted is seen as transferred. You anyway  don't catch
-> transmission errors. That way you fill all slots without blocking on
-> the first message and achieve this same throughput.
-> Without knowing the clients I am not sure if that can't be done.
+Everything is discovered, nothing is hardcoded: the devfreq device by
+name, the lowest and highest OPP from available_frequencies, the supply
+by regulator name. That last one is not paranoia - on my board the NPU
+regulator was regulator.2, .6, .7 and .8 across four boots today.
 
-We need to know the txdone and thus we can't do what you're proposing.
-In general, queuing mailboxes are used in cases where the remote side
-enables a resource like a clock or power domain. Different tasks in
-the system may independently turn on/off these resources, so allowing
-them to work "in parallel" makes sense. ...but each task needs to know
-for sure when its resource is finished turning on. If we just imagine
-3 clocks we want to turn on.
+It needs no sudo. Passwordless sudo, if present, only adds a clock
+summary sample from debugfs; without it the script says so and goes on.
 
-clk_enable(clk_a)
-clk_enable(clk_b)
-clk_enable(clk_c)
+The verdict is deliberately narrow. It looks only at the window after
+the load stops, and it wants the device to reach the lowest OPP and stay
+there, not merely touch it - simple_ondemand dips to the bottom between
+batches while the load is still running, and an earlier version of this
+script counted that as success. It also prints the trans_stat delta for
+the idle window, which is the part I would trust most if we disagree.
 
-Those 3 calls can be made in 3 different contexts from 3 different
-drivers. We want all 3 enables happening in parallel with each other
-(not one after another), but each call needs to know when its function
-is done.
+If it says INVALID, that is the intended outcome for a run that cannot
+support a conclusion, not a bug.
 
-Does that make sense?
+What it says here, on an Orange Pi 5 Plus with the series applied,
+in-tree rocket, the 3/7 table read out of DT, 25 s of load then 60 s
+idle:
 
--Doug
+  under load : peak 1000 MHz, 700-850 mV
+  after load : 200 MHz immediately, held for the whole 59.8 s, 700 mV
+  trans_stat : +60055 ms at 200 MHz in the idle window, 0 ms elsewhere
+  RESULT: YES
+
+That is worth one remark. I had already measured this earlier today with
+a different script of my own, which reported 60129 ms at 200 MHz for the
+same window. Two differently written tools, the same answer to within
+their sampling noise - which is a better reason to believe it than one
+tool run twice. Neither of them, though, is a second board, which is why
+your offer is worth more than either.
+
+The script follows below.
+
+Igor
+---
+
+#!/bin/bash
+# Does the NPU devfreq governor return to the lowest OPP after the load stops?
+#
+# Written for the discussion on "[PATCH 3/7] arm64: dts: rockchip: rk3588: add an
+# OPP table for the NPU", where the question was whether opp-suspend is needed.
+# It answers exactly that one question and nothing else.
+#
+#   ./rk3588-npu-devfreq-check.sh --check          # discovery + gates only, no load
+#   NPU_LOAD_CMD='...' ./rk3588-npu-devfreq-check.sh
+#
+# The load command is yours: anything that keeps the NPU busy for LOAD_S seconds
+# and then exits. It is run in the foreground and its exit status is checked.
+#
+# Requires: bash, python3, awk. No sudo for the measurement itself; sudo is used
+# only to read the clock summary in debugfs, and the script works without it.
+set -u
+
+CHECK_ONLY=0
+[ "${1:-}" = "--check" ] && CHECK_ONLY=1
+
+LOAD_S=${LOAD_S:-25}          # how long the load runs
+IDLE_S=${IDLE_S:-60}          # how long we watch after it stops
+SETTLE_S=${SETTLE_S:-20}      # how long it must stay at the low OPP to count
+OUT=${OUT:-$PWD/npu-devfreq-$(date +%Y%m%d-%H%M%S)}
+
+die() { echo "FAIL: $*" >&2; exit 1; }
+ok()  { echo "  ok   $*"; }
+note(){ echo "  --   $*"; }
+
+echo "=== rk3588 npu devfreq check, $(date '+%F %T %Z') ==="
+echo "kernel: $(uname -r)"
+
+# ---------------------------------------------------------------- discovery
+D=""
+for d in /sys/class/devfreq/*; do
+  [ -e "$d/available_frequencies" ] || continue
+  case "$(basename "$d")" in *npu*) D="$d"; break;; esac
+done
+[ -n "$D" ] || die "no NPU devfreq device under /sys/class/devfreq"
+ok "devfreq device: $D"
+
+MINF=$(tr ' ' '\n' < "$D/available_frequencies" | grep -v '^$' | sort -n | head -1)
+MAXF=$(tr ' ' '\n' < "$D/available_frequencies" | grep -v '^$' | sort -n | tail -1)
+ok "OPPs: $(tr ' ' '\n' < "$D/available_frequencies" | grep -cv '^$') steps, $((MINF/1000000))-$((MAXF/1000000)) MHz"
+
+REG=""
+for f in /sys/class/regulator/*/name; do
+  case "$(cat "$f" 2>/dev/null)" in *npu*) REG=$(dirname "$f"); break;; esac
+done
+if [ -n "$REG" ]; then ok "supply: $(cat "$REG/name") = $(cat "$REG/microvolts") uV  ($REG)"
+else note "no NPU regulator found by name - voltage will not be sampled"; fi
+
+SUDO=0; sudo -n true 2>/dev/null && SUDO=1
+[ $SUDO = 1 ] && ok "sudo available - clock summary will be sampled" \
+              || note "no passwordless sudo - clock summary will be skipped"
+
+# ---------------------------------------------------------------- gates
+GOV=$(cat "$D/governor"); MIN=$(cat "$D/min_freq"); MAX=$(cat "$D/max_freq")
+[ "$GOV" = simple_ondemand ] || die "governor is '$GOV'; this test only means something with simple_ondemand"
+ok "governor: $GOV"
+[ "$MIN" = "$MINF" ] && [ "$MAX" = "$MAXF" ] \
+  || die "min_freq/max_freq are pinned ($MIN/$MAX); the governor decides nothing. Reset them first."
+ok "limits not pinned: $MIN / $MAX"
+
+DTOPP=/proc/device-tree/opp-table-npu
+[ -d "$DTOPP" ] && ok "OPP table comes from DT ($DTOPP)" \
+                || note "no $DTOPP - the driver is building its own OPP list, results describe that instead"
+if [ -d "$DTOPP" ] && ls "$DTOPP"/opp-*/opp-suspend >/dev/null 2>&1; then
+  note "the DT table carries opp-suspend - that changes what is being measured"
+fi
+
+SRC_LIVE=$(cat /sys/module/rocket/srcversion 2>/dev/null || echo -)
+SRC_TREE=$(modinfo -F srcversion "/lib/modules/$(uname -r)/kernel/drivers/accel/rocket/rocket.ko" 2>/dev/null || echo -)
+if [ "$SRC_LIVE" != - ] && [ "$SRC_TREE" != - ] && [ "$SRC_LIVE" != "$SRC_TREE" ]; then
+  die "the loaded rocket module ($SRC_LIVE) is not this kernel's ($SRC_TREE) - out-of-tree module in the way"
+fi
+ok "rocket module matches the running kernel"
+
+if [ $CHECK_ONLY = 1 ]; then
+  echo
+  echo "=== --check only: everything above passed, no load was run ==="
+  echo "To measure, give it a load command, for example:"
+  echo "  NPU_LOAD_CMD='your-inference-tool --seconds $LOAD_S' $0"
+  exit 0
+fi
+
+[ -n "${NPU_LOAD_CMD:-}" ] || die "set NPU_LOAD_CMD to something that keeps the NPU busy for ~${LOAD_S}s and exits"
+
+# ---------------------------------------------------------------- measure
+mkdir -p "$OUT" || die "cannot create $OUT"
+cp "$D/trans_stat" "$OUT/trans_stat.begin" 2>/dev/null
+
+SAMPLES=$OUT/samples.txt; : > "$SAMPLES"
+( while :; do
+    printf '%s %s %s\n' "$(date +%s.%N)" "$(cat "$D/cur_freq" 2>/dev/null || echo 0)" \
+      "$([ -n "$REG" ] && cat "$REG/microvolts" 2>/dev/null || echo 0)" >> "$SAMPLES"
+    sleep 0.2
+  done ) &
+SPID=$!
+cleanup(){ kill $SPID 2>/dev/null; }
+trap 'cleanup; echo; echo "INTERRUPTED - result is not valid"; exit 130' INT TERM
+trap cleanup EXIT
+
+echo
+echo "--- load: $NPU_LOAD_CMD"
+T0=$(date +%s.%N)
+if ! eval "$NPU_LOAD_CMD" > "$OUT/load.log" 2>&1; then
+  cleanup; die "the load command exited non-zero - see $OUT/load.log"
+fi
+T1=$(date +%s.%N)
+cp "$D/trans_stat" "$OUT/trans_stat.load_end" 2>/dev/null
+[ $SUDO = 1 ] && sudo -n cat /sys/kernel/debug/clk/clk_summary 2>/dev/null | grep -i npu > "$OUT/clk.load_end"
+
+echo "--- load ran for $(python3 -c "print(f'{$T1-$T0:.1f}')") s; now watching for ${IDLE_S}s, keep the machine idle"
+sleep "$IDLE_S"
+T2=$(date +%s.%N)
+cp "$D/trans_stat" "$OUT/trans_stat.end" 2>/dev/null
+[ $SUDO = 1 ] && sudo -n cat /sys/kernel/debug/clk/clk_summary 2>/dev/null | grep -i npu > "$OUT/clk.end"
+cleanup; trap - EXIT INT TERM
+
+python3 - "$SAMPLES" "$T0" "$T1" "$T2" "$SETTLE_S" "$IDLE_S" "$LOAD_S" "$MINF" <<'PY' | tee "$OUT/verdict.txt"
+import sys
+f,t0,t1,t2,settle,idle_s,load_s,minf = sys.argv[1], *map(float,sys.argv[2:8]), int(sys.argv[8])
+S=[]
+for line in open(f):
+    p=line.split()
+    if len(p)==3:
+        try: S.append((float(p[0]),int(p[1]),int(p[2])))
+        except ValueError: pass
+load=[x for x in S if t0<=x[0]<=t1]; post=[x for x in S if x[0]>t1]
+mhz=lambda v: v//1000000
+bad=[]
+if (t1-t0) < 0.9*load_s: bad.append(f"load ran {t1-t0:.1f}s, expected ~{load_s:.0f}s")
+if not post: bad.append("no samples after the load")
+elif post[-1][0]-t1 < 0.95*idle_s: bad.append(f"idle window only {post[-1][0]-t1:.1f}s of {idle_s:.0f}s")
+peak = max((x[1] for x in load), default=0)
+print()
+print(f"under load : peak {mhz(peak)} MHz, {len(load)} samples"
+      + (f", {min(x[2] for x in load)//1000}-{max(x[2] for x in load)//1000} mV" if load and load[0][2] else ""))
+first=tail=None
+if post:
+    t=post[0][0]
+    for ts,v,u in post:
+        if v==minf: first=ts-t; break
+    tail=0.0
+    for ts,v,u in reversed(post):
+        if v==minf: tail=post[-1][0]-ts
+        else: break
+    print(f"after load : first {mhz(minf)} MHz after {'never' if first is None else f'{first:.1f}s'}, "
+          f"continuously at {mhz(minf)} MHz for the last {tail:.1f}s (need >= {settle:.0f}s)"
+          + (f", {min(x[2] for x in post)//1000}-{max(x[2] for x in post)//1000} mV" if post[0][2] else ""))
+print()
+if bad:
+    print("RESULT: INVALID -", "; ".join(bad))
+elif peak <= minf:
+    print(f"RESULT: INVALID - the NPU never went above {mhz(minf)} MHz; the load did not reach it")
+elif first is not None and tail>=settle:
+    print(f"RESULT: YES - the governor returned to {mhz(minf)} MHz on its own and stayed there")
+elif first is not None:
+    print(f"RESULT: PARTIAL - it reached {mhz(minf)} MHz but did not stay; try a longer IDLE_S")
+else:
+    print(f"RESULT: NO - it did not return to {mhz(minf)} MHz within {idle_s:.0f}s")
+PY
+
+echo
+echo "trans_stat delta (ms per OPP, idle window only):"
+python3 - "$OUT/trans_stat.load_end" "$OUT/trans_stat.end" <<'PY'
+import sys
+def parse(p):
+    out={}
+    try:
+        for l in open(p):
+            l=l.strip().lstrip('*').strip()
+            if ':' in l and l.split(':')[0].strip().isdigit():
+                k=int(l.split(':')[0]); c=l.split(':')[1].split()
+                if c: out[k]=int(c[-1])
+    except OSError: pass
+    return out
+a,b=parse(sys.argv[1]),parse(sys.argv[2])
+for k in sorted(set(a)|set(b)):
+    d=b.get(k,0)-a.get(k,0)
+    if d: print(f"  {k//1000000:>5} MHz: +{d} ms")
+PY
+echo
+echo "everything written to: $OUT"
 
