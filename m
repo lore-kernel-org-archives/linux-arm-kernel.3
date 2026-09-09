@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19226C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418BBC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 21:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WPvKcEDX6gnCm2ST1FdaIZ8G768BH/wHFWRkdo2jksY=; b=MG/JOp1gvop4f0YumIp88oMeFo
-	TLgXIXEICj2YnaNsT7Ni0NcbqUM/K7IF2UbaovrKOMn5rgHjJZCiCUZg82nCMQ/pBttK5bitbFMQG
-	DaQgwRyvSmZPEeOr8RC4DWWJWiwqp9Z7r20B8pL06URykKWX6qqIYJzY+9B+8NoZS/78iuXwu/kRS
-	t0HDaYz5AiKHHuPzHN1RVwPizodJUP5k77RJsguwbCrJ8nZOw1eHzTT6SbIL5Fm8Q12XQQzQV/ewM
-	95XykWjewYJkvVvpbrMKF7aJf9poxGpJq0lxTlL6uTtyutcnpzZ3WkGLOb78v2TRwm2QxXAgTX9vu
-	S53W4utw==;
+	bh=hx6CJv34VPpHOsWGs8nGvEjuuxvYGp2ezi0uE9qZA9A=; b=b5qL7NCMJiGTa5coityWCQqYGG
+	764o4HFc0UgQoB9yTZ4ZpooUBO9FuFWW17EVaV72pk5f44thdczeNI+2ozkOuR79e1qgAXLBUN5sb
+	6PqCo/PlkuRuTFvKMUjf50XvF3EuRRblTsbtKNyTdXvIb9y6yWsZHyOT9DJmA30dWE2F7h54fufgZ
+	sAra7f0ci57WztV2tBbnB9JgQ6+QZ/uO68uiGsUmIhcSfRk/5orHf7KMpoF8YJOioPg8JeJw6NTd8
+	D78LcTfaaJdafO4FytePGizCYiiHTOquRih6FLUmCMfn9fzYkRQ4QxZjOSM1Ru/J55dn4oFNUOy8D
+	FS+5QUrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4PjD-0000000CsDt-04og;
-	Wed, 09 Sep 2026 21:21:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4PkN-0000000CsNw-10Wl;
+	Wed, 09 Sep 2026 21:22:23 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4PjB-0000000CsDk-2FyX;
-	Wed, 09 Sep 2026 21:21:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA13C600D4;
-	Wed,  9 Sep 2026 21:21:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 65267C2BCF4;
-	Wed,  9 Sep 2026 21:21:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788988868;
-	bh=LPHP2ud1c3YW5aWPJeus/gJIDU9RP1d3zaNoCvKdyaA=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=ebumszhtFwh5OBFp8+i7VvVOC2IonvQkurLEcJPnlH7KO4aQNw2Qt2tPZPt3kNJ9w
-	 FgLJ3ng02ClqaWEEk11ih7463lPbsIXzmR6Ti+wNp4kE5cirR64zfl2k1mEh/ex0KN
-	 rex7V8Ss1KjyZgJ2XWjRrKwAYowCjKhwATaj8Bgn6YYJ2MuxRBzuhQ41X8SqZjm3Vk
-	 KUyR186EvqDY+Rf6lEV1wVH5ewUaWCx+zUB0rRKUujS8MtRAjc5aP3m7cSYAsDfKyO
-	 cZ0Le/qGRj3o9XYpy3NP6r/R8ObCNagFvz2upZsmhXnXPmJQea0M5K3sVfNIfC+E4L
-	 1hhEM2Wv1KlUw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E104C79FBB;
-	Wed,  9 Sep 2026 21:21:08 +0000 (UTC)
-From: Johan Jonker via B4 Relay <devnull+jbx6244.gmail.com@kernel.org>
-Date: Wed, 09 Sep 2026 23:20:54 +0200
-Subject: [PATCH v2] drm: rockchip: add drm_plane_create_blend_mode_property
+	id 1x4PkL-0000000CsN5-15Ku;
+	Wed, 09 Sep 2026 21:22:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DF102408FC6;
+	Wed,  9 Sep 2026 23:21:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1788988936; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=hx6CJv34VPpHOsWGs8nGvEjuuxvYGp2ezi0uE9qZA9A=;
+	b=Bt+7iyb+00Vu8uQDiQEQXmXDPDgH65AIR7cxu4TOr1zcf9DpkPdJiLvU/cbr8utfnwR9XI
+	ZfeMzzSLH3syNNnyyvr89mY/qQjb/tPDWQ8FQLcv1Rbt0krD7miBvr2moG0A2jEhEKd1xz
+	VmcXegxxXviNfQpj/pjcPRRNlBCjp0lU+V/acLFueVOgQ3p5KIUOsjAh2pv0X7NXkNQoru
+	WYh498/Pj6bt9HCN+9XfQvs8hz78qHnskQStuLBOTgPDaIOA68mJUDUPTv6HlALkIbEgyE
+	DpjtO5ncA8AQkmLo9cLQQIGc8GdMtJXWUgU3w6nggaTMFW9hwvFdIOy66KwFWg==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	vadim.fedorenko@linux.dev,
+	maxime.chevallier@bootlin.com,
+	dong100@mucse.com,
+	wangruikang@iscas.ac.cn,
+	25181214217@stu.xidian.edu.cn,
+	hkallweit1@gmail.com,
+	han.junyang@zte.com.cn,
+	xuanzhuo@linux.alibaba.com,
+	enelsonmoore@gmail.com,
+	jes@trained-monkey.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	naseefkm@gmail.com,
+	b.larsson@gmx.com,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH net-next 0/2] net: econet: add EcoNet EN751221 ethernet driver
+Date: Wed,  9 Sep 2026 21:21:44 +0000
+Message-Id: <20260909212146.3184077-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260909-blend-v2-1-37e27af4faee@gmail.com>
-X-B4-Tracking: v=1; b=H4sIALXNoWoC/x2NywqEMAwAf0Vy3kIpixh/RTz0ETWgVZJlEYr/b
- vU4zMAUUBImhb4pIPRn5T1XcJ8G4uLzTIZTZXDWtRYtmrBSTiZ2mFzEqcXuC7UNXskE8TkuT71
- 5/ZE84hCa+HwHw3hdNwJAikJwAAAA
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Johan Jonker <jbx6244@gmail.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788988866; l=1304;
- i=jbx6244@gmail.com; s=20260824; h=from:subject:message-id;
- bh=Vv2dAdwZrZngpYkZZtAtqUthy17ncXSrnl8lfyqCNow=;
- b=7Y4+ehZW3Pl8LcRBNO/umDaR4t+TQniFaUIL8IMw+k7AXa7gOy7ImS/oeZzJ6Q0zkM5k63iLE
- CSUZaUjRPkDC43hP0rkLVd0w6yVkois1LwGyvp87PxSPBGhVEUwn16D
-X-Developer-Key: i=jbx6244@gmail.com; a=ed25519;
- pk=MK5Flx1ndjAF0uwXdNm8VvvoghD4KWCNd2hQE8QGyl0=
-X-Endpoint-Received: by B4 Relay for jbx6244@gmail.com/20260824 with
- auth_id=971
-X-Original-From: Johan Jonker <jbx6244@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_142221_500759_B5FFD861 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +86,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jbx6244@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Johan Jonker <jbx6244@gmail.com>
+The EcoNet EN751221 SoC has an Ethernet device with two ports and two
+DMA engines (internally called "QDMA" because they handle both QoS and
+DMA). It is fairly similar to the MediaTek and Airoha drivers, but
+distinct enough that attempts to attach to those did not prove
+fruitful. This ethernet device shows up in the chips based on the
+EN751221 die, and also in the EN7528 chip with minor differences.
 
-A validate_blend_mode_for_alpha_formats() function was added that
-fills the kernel log with warnings for Rockchip VOP version 1 SoCs.
-Add a drm_plane_create_blend_mode_property() function as fix.
-VOP version 1 doesn't support blending with a pixel alpha background
-layer, only with a constant alpha. Advertise blending capability with
-DRM_MODE_BLEND_PIXEL_NONE.
+This ethernet device also has a "packet processing engine" similar to
+that of the MediaTek eth driver, but that is not supported in this
+driver.
 
-Signed-off-by: Johan Jonker <jbx6244@gmail.com>
----
+This driver has been used as an OpenWrt package for about 6 months but
+was not contributed until now because there was no DSA switch support
+for these devices.
 
-Changed V2:
-Add comment line
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 2 ++
- 1 file changed, 2 insertions(+)
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index 0090d8ff0c79..0bc5b606f021 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -1850,6 +1850,8 @@ static void vop_plane_add_properties(struct drm_plane *plane,
- 	if (flags)
- 		drm_plane_create_rotation_property(plane, DRM_MODE_ROTATE_0,
- 						   DRM_MODE_ROTATE_0 | flags);
-+	drm_plane_create_blend_mode_property(plane,
-+					     BIT(DRM_MODE_BLEND_PIXEL_NONE));
- }
- 
- static int vop_create_crtc(struct vop *vop)
+Caleb James DeLisle (2):
+  dt-bindings: net: econet: add EN751221 ethernet
+  net: econet: add EcoNet EN751221 ethernet driver
 
----
-base-commit: 9d80aa4617b32f5054c5aa471d06b66704854935
-change-id: 20260909-blend-c89d2c9f6984
+ .../bindings/net/econet,en751221-eth.yaml     |  127 ++
+ MAINTAINERS                                   |    7 +
+ drivers/net/ethernet/Kconfig                  |    1 +
+ drivers/net/ethernet/Makefile                 |    1 +
+ drivers/net/ethernet/econet/Kconfig           |   20 +
+ drivers/net/ethernet/econet/Makefile          |    7 +
+ drivers/net/ethernet/econet/econet_eth.c      |  334 ++++
+ drivers/net/ethernet/econet/econet_eth.h      |  231 +++
+ .../net/ethernet/econet/econet_eth_debug.c    |  617 +++++++
+ drivers/net/ethernet/econet/econet_port.c     |  473 +++++
+ drivers/net/ethernet/econet/econet_qdma.c     | 1209 +++++++++++++
+ drivers/net/ethernet/econet/gdm_regs.h        | 1514 +++++++++++++++++
+ drivers/net/ethernet/econet/qdma_desc.h       |  677 ++++++++
+ drivers/net/ethernet/econet/qdma_regs.h       | 1243 ++++++++++++++
+ 14 files changed, 6461 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/econet,en751221-eth.yaml
+ create mode 100644 drivers/net/ethernet/econet/Kconfig
+ create mode 100644 drivers/net/ethernet/econet/Makefile
+ create mode 100644 drivers/net/ethernet/econet/econet_eth.c
+ create mode 100644 drivers/net/ethernet/econet/econet_eth.h
+ create mode 100644 drivers/net/ethernet/econet/econet_eth_debug.c
+ create mode 100644 drivers/net/ethernet/econet/econet_port.c
+ create mode 100644 drivers/net/ethernet/econet/econet_qdma.c
+ create mode 100644 drivers/net/ethernet/econet/gdm_regs.h
+ create mode 100644 drivers/net/ethernet/econet/qdma_desc.h
+ create mode 100644 drivers/net/ethernet/econet/qdma_regs.h
 
-Best regards,
 -- 
-Johan Jonker <jbx6244@gmail.com>
-
+2.39.5
 
 
