@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41F3C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA8AC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyzGdytCytiwngYrjIqzDuD85r5Fhsme9WG/AK2AMiU=; b=KEa+GGaM5TQSyP++0m1SE8jo54
-	pL+dCXm9r+8FfZOJN3UwLwhMOg41XwBWcbBr7zqmFC8vPzbd6jrZopESYUPzzhcwESr64Z6AHz/sR
-	/fU/sEgiVIGqUavAsdiVC1Po3srAOA0kjGYZjL+KOXTBW5/XYRQfPgRhaUenMO5e0PKsi5XKBqFNv
-	TJQBjRk2rNpobNxPuhRizDHVJaUhP49ZybuIILiEyulZBwi+RodZDbuXqz3U1VgiV7Z1xwYQ112cr
-	ZMC6MXNiceD0DgTk0lK+a+eRsZA21LMLbnrjvAK+1w9Qu81TWY1EhT2x7YNjovE/SxKYVjqPyNAfj
-	XyZ2QdxA==;
+	bh=RPL25zB+175xW+b9ln85IKNsB2hgoRLnH6maFPW5Ixw=; b=sklwFqM8Ld7I9r7LAN5MDSnbmP
+	06P5HG+zO+dyEDGog6bi7E92NSM7XxHRRnrP+WkN4dwx4UrdS7DteOSsMLjeWUXcNVi56wa3vZ+dy
+	FV9p6RneepndSnNiouvLW7TO2Ap53LLctibkND7XB0XLBWk44q7NsOcjy9cQrXhAglR5lr/jn8kjH
+	wU+eJ05w7uKCXIt4CF0WGorvuI4f2ApIX+wyolboPTCRpIw2/UOIX3a6pkUX6XhVK+XaKkm1uximf
+	q+wAAtb0XQnGr4GcS0qSjwQXzVkBX8udsiJp1hyS3dln2aj/tTUaYSMgKu46Pcfo7xopaamvUtei5
+	ixNmpxpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46ZO-0000000AYPI-452c;
-	Wed, 09 Sep 2026 00:53:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x46aE-0000000AYeB-1djc;
+	Wed, 09 Sep 2026 00:54:40 +0000
+Received: from mail-m1602365262.xmail.ntesmail.com ([160.236.52.62])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46ZM-0000000AYNm-0pIC;
-	Wed, 09 Sep 2026 00:53:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA71740052;
-	Wed,  9 Sep 2026 00:53:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C11AF1F00A3A;
-	Wed,  9 Sep 2026 00:53:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788915223;
-	bh=yyzGdytCytiwngYrjIqzDuD85r5Fhsme9WG/AK2AMiU=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=KwU9LY3YVzrCRnmBE8SWiPHV0xsHmANrfLbLkXoWedi9FykalH9ULG51KIjZSQO8s
-	 8UO/g+v2Bievcp/+xqFxGqa/5JHAlYjqdjYkl+8nFhwyne6fYJGuK9HN4WSyOrbn7R
-	 xXP0DsISZVPwhROfi3XGW4U/mw0uzMOQNMt+t6PZwXCxprm+ENWf8LhVaKBkWF5Ldj
-	 wXZp+OYoEu1DOwiwspNTk8iZEB2H/NXsfHrHZOckAebbCQAscUcfU69nvF5fYBgxv3
-	 qR+cNtNIboWPjtPZGdHMELiPi/oJFDmSMrU9T7fiKdsgCqcX7XxPYkrFi3X//XTEhn
-	 riVWP/uR96Nww==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v5 8/9] crash_dump: Disallow
- configfs/crash_dm_crypt_key/reuse if crash hotplug supported
-To: "Coiby Xu" <coiby.xu@gmail.com>
-Cc: "Andrew Morton" <akpm@linux-foundation.org>, "Will Deacon" <will@kernel.org>, "Baoquan
- He" <baoquan.he@linux.dev>, "Jinjie Ruan" <ruanjinjie@huawei.com>, "Mike
- Rapoport" <rppt@kernel.org>, "Randy Dunlap" <rdunlap@infradead.org>, "Dave
- Young" <ruirui.yang@linux.dev>, "Pratyush Yadav" <pratyush@kernel.org>, linux-arm-kernel@lists.infradead.org, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, =?utf-8?b?b3BlbiBsaXN0OkRPQ1VN?=
- =?utf-8?b?RU5UQVRJT04=?= <linux-doc@vger.kernel.org>, kexec@lists.infradead.org, "Sourabh
- Jain" <sourabhjain@linux.ibm.com>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah
- Khan" <skhan@linuxfoundation.org>, "open list" <linux-kernel@vger.kernel.org>
-In-Reply-To: <20260909003657.1570544-9-coiby.xu@gmail.com>
-References: <20260909003657.1570544-1-coiby.xu@gmail.com>
- <20260909003657.1570544-9-coiby.xu@gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 09 Sep 2026 00:53:42 +0000
-Message-Id: <20260909005342.C11AF1F00A3A@smtp.kernel.org>
+	id 1x46aA-0000000AYcT-2SK8;
+	Wed, 09 Sep 2026 00:54:36 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d0905848;
+	Wed, 9 Sep 2026 08:54:29 +0800 (GMT+08:00)
+Message-ID: <26006eef-56b3-4a81-8b4c-95ac241412cb@rock-chips.com>
+Date: Wed, 9 Sep 2026 08:54:29 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com
+Subject: Re: [PATCH v6 03/10] PCI: dw-rockchip: Move devm_phy_get out of
+ phy_init
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
+ <20260908-rockchip-pcie-system-suspend-v6-3-fbabcca9921b@collabora.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-3-fbabcca9921b@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa083a8bf7103a4kunm4244ed5d43fc53
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSh1MVkNJQk4dTBhCSE0eS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=KmXB2npbkEt7CZvkKJcT5M6qDw2i7cCdkaVp4hQw6JqugrzoiXbkmlVDz1fpqHrq3/Lo0GHHseH/PffkVdv699JZxxH+IB2ye2sZz/Gt7NfojO4bRGNoof0/1zQqTd1okvCihaUf7Kr5vLnWxfyoprykKBpqbKY0Qj67vVCiSd8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=RPL25zB+175xW+b9ln85IKNsB2hgoRLnH6maFPW5Ixw=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_175435_210054_45ADDDA1 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,145 +78,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential issue(=
-s) to consider:
+在 2026/09/08 星期二 22:51, Sebastian Reichel 写道:
+> By moving devm_phy_get() to the probe routine, rockchip_pcie_phy_init()
+> can be used to re-initialize the PCIe PHY, which is for example needed
+> after a system suspend/resume cycle.
+> 
 
-New issues:
-- [High] Setting `image->dm_crypt_keys_addr =3D 0` during kexec image clean=
-up bypasses page table memory protections, leaving sensitive dm-crypt volum=
-e logon keys accessible/readable in the primary kernel's memory.
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 
-Pre-existing issues:
-- [High] Reused dm-crypt keys are permanently lost and silently dropped dur=
-ing ARM64 kexec segment placement retries due to premature freeing of `keys=
-_header`.
---
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++------
+>   1 file changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index f67ad3c31c35..7472ec78b473 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -612,14 +612,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+>   
+>   static int rockchip_pcie_phy_init(struct rockchip_pcie *rockchip)
+>   {
+> -	struct device *dev = rockchip->pci.dev;
+>   	int ret;
+>   
+> -	rockchip->phy = devm_phy_get(dev, "pcie-phy");
+> -	if (IS_ERR(rockchip->phy))
+> -		return dev_err_probe(dev, PTR_ERR(rockchip->phy),
+> -				     "missing PHY\n");
+> -
+>   	ret = phy_init(rockchip->phy);
+>   	if (ret < 0)
+>   		return ret;
+> @@ -858,6 +852,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+>   					     "failed to enable vpcie3v3 regulator\n");
+>   	}
+>   
+> +	rockchip->phy = devm_phy_get(dev, "pcie-phy");
+> +	if (IS_ERR(rockchip->phy)) {
+> +		ret = PTR_ERR(rockchip->phy);
+> +		dev_err_probe(dev, ret, "missing PHY\n");
+> +		goto disable_regulator;
+> +	}
+> +
+>   	ret = rockchip_pcie_phy_init(rockchip);
+>   	if (ret)
+>   		goto disable_regulator;
+> 
 
-commit ccd76380ffc2464293abaa1bf7ed098e55227890
-Author: Coiby Xu <coiby.xu@gmail.com>
-
-crash_dump: Disallow configfs/crash_dm_crypt_key/reuse if crash hotplug sup=
-ported
-
-If crash hotplug is supported, dm-crypt keys saved to reserved memory
-will be taken care of automatically. Thus it doesn't make sense to use
-configfs/crash_dm_crypt_key/reuse. Not reserving
-image->dm_crypt_keys_addr makes it implicitly to disallow using this
-API. Currently x86_64 and ppc64le have implemented crash hotplug
-feature.
-
-Also update the doc accordingly. Note two doc issues are fixed as well.
-
-> diff --git a/kernel/crash_dump_dm_crypt.c b/kernel/crash_dump_dm_crypt.c
-> index bc70fbb79e0f6..666c1f0c9e3b4 100644
-> --- a/kernel/crash_dump_dm_crypt.c
-> +++ b/kernel/crash_dump_dm_crypt.c
-
-[ ... ]
-
-> @@ -522,14 +522,18 @@ int crash_load_dm_crypt_keys(struct kimage *image)
->  void crash_dm_crypt_cleanup(struct kimage *image)
->  {
->  	/*
-> -	 * For CPU/memory hot-plugging, the kdump image will be reloaded. Preve=
-nt
-> -	 * keys_header from being cleaned up during unloading when
-> -	 * is_dm_key_reused=3Dtrue
-> +	 * For CPU/memory hot-plugging without CONFIG_CRASH_HOTPLUG, the whole =
-kdump
-> +	 * image will be reloaded. Prevent keys_header from being cleaned up du=
-ring
-> +	 * unloading when is_dm_key_reused=3Dtrue
->  	 */
->  	if (!is_dm_key_reused) {
-
-[Severity: High]
-This is a pre-existing issue, but can reused dm-crypt keys be permanently
-lost during ARM64 kexec segment placement retries due to premature freeing
-of keys_header?
-
-On ARM64, if the first kexec segment placement attempt succeeds for dm-crypt
-keys but fails on a subsequent segment (like initrd), it triggers a retry
-loop. On the first pass, crash_load_dm_crypt_keys() unsets the
-is_dm_key_reused flag:
-
-kernel/crash_dump_dm_crypt.c:crash_load_dm_crypt_keys() {
-    ...
-out:
-    is_dm_key_reused =3D false;
-    return r;
-}
-
-The error path then calls crash_dm_crypt_cleanup(), which unconditionally
-frees keys_header since the flag is now false:
-
-arch/arm64/kernel/kexec_image.c:image_load() {
-    ...
-        image->nr_segments -=3D 1;
-        kbuf.buf_min =3D kernel_segment->mem + kernel_segment->memsz;
-        kbuf.mem =3D KEXEC_BUF_MEM_UNKNOWN;
-        crash_dm_crypt_cleanup(image);
-    ...
-}
-
-On the next iteration, crash_load_dm_crypt_keys() is called again but exits
-early without allocating keys, leaving the crash kernel without decryption
-keys.
-
->  		kfree_sensitive(keys_header);
->  		keys_header =3D NULL;
->  	}
-> +#ifdef CONFIG_CRASH_HOTPLUG
-> +	if (image->hotplug_support)
-> +		image->dm_crypt_keys_addr =3D 0;
-
-[Severity: High]
-Does setting image->dm_crypt_keys_addr to 0 bypass page table memory
-protections, leaving sensitive dm-crypt volume logon keys accessible in the
-primary kernel's memory?
-
-When crash_dm_crypt_cleanup() is called during kexec file load, it zeroes
-image->dm_crypt_keys_addr. Subsequently, sys_kexec_file_load() applies
-memory protections:
-
-kernel/kexec_file.c:sys_kexec_file_load() {
-    ...
-    kimage_file_post_load_cleanup(image);
-exchange:
-    image =3D xchg(dest_image, image);
-out:
-#ifdef CONFIG_CRASH_DUMP
-    if ((flags & KEXEC_FILE_ON_CRASH) && kexec_crash_image)
-        arch_kexec_protect_crashkres();
-    ...
-}
-
-Immediately afterward, kexec_mark_dm_crypt_keys() (called by
-arch_kexec_protect_crashkres()) checks this address:
-
-arch/x86/kernel/machine_kexec_64.c:kexec_mark_dm_crypt_keys() {
-    ...
-    if (kexec_crash_image->dm_crypt_keys_addr) {
-        start_paddr =3D kexec_crash_image->dm_crypt_keys_addr;
-        ...
-        set_memory_np(...);
-    ...
-}
-
-Since the address evaluates to 0, it completely skips applying the
-non-present page table protections (set_memory_np()), exposing decryption
-keys in system RAM.
-
-> +#endif
->  }
-> =20
->  static int __init configfs_dmcrypt_keys_init(void)
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260909003657.1570=
-544-1-coiby.xu@gmail.com?part=3D8
 
