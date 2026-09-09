@@ -4,74 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016A6C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFC8C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hj53gg4ff9DCPpubSP+QVQemVjU+gS+apEWWkxqCqWs=; b=d8z7S6wbBUa9u6G8rnyB95t+q3
-	7Skq9MRlim/ezvjSm06MIa5JBDIjZGzJlD9a7cC4xq2HdA1aoFvJMk7/5/ijRKpu8glAb74SbjM+S
-	1w/hq9J9izQ9kvsP5uIES4KIrI2+WqysEixCj50Q0V7bW6Yb7VMn77ZjZX30BGWyX4KnwheIO/Sg4
-	/JWPbe9q/2kiZAPwvHO4jMUrc0sUsoDNFIeDP9/DAHwXpLgxMDu++CsGqHFaB0NybrFkyLuyKYezu
-	97LhwHm8CIXGATzTJKW8EB4UevkWvJ873UMSpbolN2FpxjHBq5j0cwKMqmPUKgum5sDz3Atjc7A0o
-	A6zbSicg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2TWle/jVnMMQgyBK/ttXU0NgWk4mPE0ZQLNLhu98M8=; b=Es0zmk/PEm4KQ53Nsjma+Nh2v4
+	ZRsuhkej1feZZkLPtnBoOLoGg5zyh0tDPdEPVjDqnpDbTn4Y3av4JYPcOFfIZMsn+5qtHM4RelyON
+	VbR4LRQTdJMb8dHFBuWbq//8zkh2M6LY9FGEO11xL+QQ+MRVnMoGGRbCtrMQ2VKTj1G65kGrhO+uo
+	rfZX7JOS4ADOjkMDcPQuB0/tv3m8sweFomASAp0eWayjkvAn3f6hgwhJ6jDt+X6BITXdfwsaxKU8z
+	phX70k/VbSYtEJdYBT7Z5TpXYmHj9c3Jk+JymetNKu1Rr70eluAj0c7t5sK6Z9gl7hvNy3Et+Q3sn
+	FPe2UE+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jcp-0000000C35t-2vJx;
-	Wed, 09 Sep 2026 14:50:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4Jdc-0000000C3KP-1rGV;
+	Wed, 09 Sep 2026 14:51:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Jco-0000000C35V-3tZo
+	id 1x4Jdb-0000000C3JM-135U
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 14:50:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=e2TWle/jVnMMQgyBK/ttXU0NgWk4mPE0ZQLNLhu98M8=; b=jn22LtLPvefhdzJSifkJFGuG/c
+	1Lq4TtdYPzAdqC1TfeSyYvagpUn5kF82G21D88QFGi4MprlH1cRqHLw+RW9Ed7EtztZ0Ox4Gb1IpO
+	yeSrwS1pkBdXO7CVoZ3kJ+AHJ4m8mIfRbUQBEAQcND86LHsAW4VpemKpMZ2vWHi3ocance13A7Beq
+	Re/fUg1P2+zHCEhDwn3Vf7FsuG8IsNdLy21fBSVnv/TD2DMEJq+RPXg26RAQ7a0bvv0idPcN4SEgx
+	Zg5ATq5trQ28B1upGIKr9dR/JbTJgkWj6GyxdmpqYaOGI0fVYmueSFsUJezGuug59Kuf9faUpTcPe
+	4IpFu8Fg==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4JdW-00000001K8g-2Xij
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:50:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3696F6020C;
-	Wed,  9 Sep 2026 14:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0AE1F00A3A;
-	Wed,  9 Sep 2026 14:50:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788965409;
-	bh=hj53gg4ff9DCPpubSP+QVQemVjU+gS+apEWWkxqCqWs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PXY6CUJxcNuepuXUdiOhOYV0+aUvtPS8ELf+WI/LU0tGbsvJxhEI5YI0FFhTX9UNd
-	 DbGmOtFyWqezaBnF6xU9vid0tAG1CIP5eGJJhoS+SWkDFVZdgYukaCAoiOnQGDE8zR
-	 MgCTAYAQjW/X1d7uFh99X8QxATiaVRr48pmLv2aMXnmvr4PMg5m31hptIWyv5UkOxv
-	 p9hZLf3yDo0mq6qj/jEeTBBUd4Ci0VZjQUK7rKh4wn1iR0w1JsHVcX6vTMCkoLygpF
-	 +ZI0OLTpB/qEGDkC1ntbrJhk2uupwnVjD1hzTdCKB8ttMPXXmL66Cag32C1Pl3k1v2
-	 uyII/snvxTwsQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4Jcl-00000006jrE-39Qu;
-	Wed, 09 Sep 2026 14:50:07 +0000
-Date: Wed, 09 Sep 2026 15:50:07 +0100
-Message-ID: <86y0da7a3k.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	stable@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] irqchip/gic-v3: Lifetime and range fixes in the GICv3 and ITS drivers
-In-Reply-To: <20260908142632.2795308-1-fuad.tabba@linux.dev>
-References: <20260908142632.2795308-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, tglx@kernel.org, radu@rendec.net, shikemeng@huaweicloud.com, will@kernel.org, tabba@google.com, stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 09 Sep 2026 14:50:58 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 689CCjZ81400923
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Sep 2026 14:50:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	e2TWle/jVnMMQgyBK/ttXU0NgWk4mPE0ZQLNLhu98M8=; b=iku3K+fV7u7wHY5q
+	VA/Q9i/dsYog2LWsig7VmLJruKngKU+46GhI42u92lhNPiNq3mP9soLjzh75mlPA
+	1TxEXKcBpa2B7NxmKqwXMyIWaespUQ4UZPLyjEhoHUCeySVdtxvVhZVpUUmwkNHK
+	vbLbDy0lZYcGv4zLYfny4/ipdPUthYGefSMEAS54UWquyADN5etGBPEEis0U588r
+	hgV35xALbJYDu2i4Ys7jAzijoNl44MYCd5goOq/8Srma4sw5fmbuk2RgyY5YQrIN
+	rtISU6QZll1416dHhL56yo3Sx+Nm+spRXvlKg4app5dg4CXsn2dgvCqxpudmsuWS
+	e0c/kw==
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gk78x0q3m-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 14:50:49 +0000 (GMT)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-789eb1bdd79so176239137.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 07:50:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788965449; x=1789570249; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=e2TWle/jVnMMQgyBK/ttXU0NgWk4mPE0ZQLNLhu98M8=;
+        b=kuwtncdwEYWRCykllN/Sonv99/dBbDNFfQ/rOsKYwIEpFPGKKBWdALI4i2+8VLoeW2
+         DUKD2jsxji8T4oL29y5WNDd3+fLJarg+McmkU2Avf7dJyzvq3Nt2XF1QYgjsPq8Ny2Qi
+         Zq47eikHnS+K6jW2ZkHSIfJ2CL2MMNoRuO5bvYQA5hWBNC6PKu7JrqAIzjRPFkyrfYFU
+         uf+5sDMwD31C8fsLcf7lf0UObwsMMVqXDlUon43Ezo0jFNoASSWetkIbPV6bgcbaP6Hp
+         ML9dlZNIObTluMNhxGG5R8y/NoPUAx7obpW+KjEOhzXFrRKanambKpkpOGGZA+2vEp3c
+         qZrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788965449; x=1789570249;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=e2TWle/jVnMMQgyBK/ttXU0NgWk4mPE0ZQLNLhu98M8=;
+        b=PGbfqezxsvEjMbOBeMkMlx8Y6dLF+95+TXZErDI9voFjPB0ikRkmju2x5I+kjw57r7
+         f/vK3WphNkYhKv0EnlxGUVL52Du7/hB6rP8L6TIwbKy6mnzM3T6dfcWXZdCXZJAJHo2q
+         eLZMOQw1x6XKekJs6PNB6vrLj36GqbVxkLP+JSevawrrgSPjXVGbyUgncUhSQ4VxTVdO
+         JN0EkEBlm7h5dscC5PkbWfaGKX8phVLkN1d1P4zXfGmPekHP54mXZ5iQbKg+pcBRUrrp
+         OMMm9msOYr2pqzzH/yFynIscoE64VRkbSt/0glVFbfTqdhy43oPUooN4eqs+RtCowQq3
+         J9Kw==
+X-Forwarded-Encrypted: i=1; AKwUvBwljf3etr+8S+xVBrs6ShwFXnu+lrH6l9I0Sa1bhDSKI/mIg9L2NpkkCb288AWdxmLmmwppnjKURrYRXkI2tzRF@lists.infradead.org
+X-Gm-Message-State: AFuF++lEM0AAfZpmiZlshKutwl0xufclJBjmxulSV9ifKEB/pLLLt8oB
+	rVUb4F0FL+9D7RNdtnrRLnVDjttmtVJ9LPR/Wx0cjwpCBXe/9RYgk1pVxP/92mIMeg+r3OUJxX9
+	PSx7oGQwZHoFr1e/feGqFdeAoFICT/N7H5nDNF1zSQd/UD+nv45pJRICvBAaBxhfRr4w2HbbpMk
+	kWAA==
+X-Gm-Gg: AYBFou3q0RgUIqPr6Ls0VoD5QkQ7wa/YaAvKTzqgY6v4wyv32xJPLXrZPrOnGGrH7Ue
+	MEtCPdexnaD7oMBanY1507CgIjVHbvUpKi/KmEQKRtysHqaPeAOHFFEkZ2nhL/w7jw9cQOi0KX9
+	dYtgQQxqZKedmZcgPpcY5m/pQbxhkEp15niKQOJo0ubTnNvinQO/eztMTop8SO30om+QKzFL/Bl
+	toX+4PdpW7vQrWrSz1gnoaztVH7tXaU/CRzdgLTOcX6m1waVqCBSFZ2CVzyaY02zAwpKNGn6S+S
+	l4XfEy7IMYb6z+OVbof4mJIf+RYSxGEUj5kH+BugmfaSmLGSwu3wpMG2vDNT0B/yxC7aLjUz9im
+	5BSlSy4g57eyneavrtSPxQQ==
+X-Received: by 2002:a05:6102:4b13:b0:78d:3ee3:c558 with SMTP id ada2fe7eead31-78d3ee3c590mr2883130137.1.1788965448892;
+        Wed, 09 Sep 2026 07:50:48 -0700 (PDT)
+X-Received: by 2002:a05:6102:4b13:b0:78d:3ee3:c558 with SMTP id ada2fe7eead31-78d3ee3c590mr2883021137.1.1788965443567;
+        Wed, 09 Sep 2026 07:50:43 -0700 (PDT)
+Received: from [192.168.202.12] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d57fd88sm767240366b.44.2026.09.09.07.50.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Sep 2026 07:50:42 -0700 (PDT)
+Message-ID: <c2f3ae91-4f0f-40ad-b03a-6d6340ec6244@oss.qualcomm.com>
+Date: Wed, 9 Sep 2026 16:50:40 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: dts: qcom: monaco-evk: Add Raspberry Pi
+ 7-inch DSI panel overlay
+To: Shashank Maurya <shashank.maurya@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com,
+        Jessica Zhang <jesszhan0024@gmail.com>
+References: <20260907-rpi_dts_overlay-v2-0-a4989322ce00@oss.qualcomm.com>
+ <20260907-rpi_dts_overlay-v2-1-a4989322ce00@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260907-rpi_dts_overlay-v2-1-a4989322ce00@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: QqMZCxT9u8UJQ-R-oUIx3Yvj5MbOTfS0
+X-Proofpoint-GUID: QqMZCxT9u8UJQ-R-oUIx3Yvj5MbOTfS0
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA5MDE2NSBTYWx0ZWRfXxStQYwctvqa1
+ f8lk08+QPaR6Eb/bFXvKi5/nC8kr9QM5HjHjygXeDPZHUoMH4QWkJEU57/UZkfFR7jkNqYiel3P
+ 7zEBN/vt8mAwuYsMSsprIibkZbewsE0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA5MDE2NSBTYWx0ZWRfXxn2Jg1sEWql8
+ eMfUVbJAuV0IHiYFXfZGH3fCtgJQZk0tHdeDpd+SscDpl05xLLZXCqrPQok5qWq8ocyOHu8Safa
+ Kbk3duwq8qYS1vFPQQiZEIPPkotW+L21yuWfXETL7RTSM4qSNwn72IfuntgU9H+ud8ZEoYwqQBn
+ XguRzbRD5vH2/PouaWMKg1W1zwlvXdakgvcbYAgUfrjm4jGtNrdeGEE7xAAqV787sOIpK5Fpx3r
+ YgnTp1h6L/OYuLmTCT6HEPJV7OhOK9glk2HElasfeSooKt5OtJOMHBRKgYomQ6Tgqho6Qe6SxnM
+ kdPUWv8SD6PhFbGThKWIVCxmA+FvvI4PVnvSm4NIYjqFGRz0v7SfFSDie6fdvRGDK68K4VXztDz
+ 8XQ+Mk43n1nsi/rnKOkfZG/vLINtAi38xhwaYSRzeE7RyKygax9XssbN5H18wffiypOOf0FMsfO
+ 0WGsUKP4pBgbQUtezKA==
+X-Authority-Analysis: v=2.4 cv=SvWgLvO0 c=1 sm=1 tr=0 ts=6aa1724a cx=c_pps
+ a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=wyx5Qp5Zs_5CJwpGNdEA:9 a=QEXdDO2ut3YA:10
+ a=crWF4MFLhNY0qMRaF8an:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-08_03,2026-09-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 phishscore=0 bulkscore=0 malwarescore=0
+ adultscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609090165
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_155055_128532_84154527 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +176,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 15:26:29 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On 9/7/26 8:33 AM, Shashank Maurya wrote:
+> Add a DT overlay for the Raspberry Pi 7" DSI touchscreen panel on
+> Monaco EVK, using mdss_dsi0 with 2 data lanes and the panel MCU on
+> I2C8.
 > 
-> Hi folks,
-> 
-> Three fixes to the GICv3 and ITS drivers, from reviewing the GIC series
-> floating around and chasing down Sashiko's reports.
-> 
-> The first releases the partition node that gic_irq_get_fwspec_info()
-> takes from of_find_node_by_phandle() and never puts. Sashiko raised it
-> on an of/irq patch of mine, and I said a fix was forthcoming [1].
-> 
-> The second widens the per-device MSI clamp, which truncates to zero when
-> GITS_TYPER.ID_bits is at its maximum and then denies every MSI on that
-> ITS. I couldn't find an implementation that reports that maximum, so
-> this is one value at the edge rather than something anyone is hitting.
-> It carries Cc: stable because the commit it fixes was itself
-> backported, so drop the tag if you'd rather.
-> 
-> The third clears vpt_page once its_vpe_teardown() has freed it, so the
-> NULL guard holds if teardown runs again on the same vPE.
-> 
-> Based on Linux 7.3-rc2 (df2908090cda3).
+> Signed-off-by: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
+> ---
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+[...]
 
-	M.
+> +&i2c8 {
+> +	qcom,load-firmware;
+> +	qcom,xfer-mode = <1>;
 
--- 
-Without deviation from the norm, progress is not possible.
+This property is undocumented and unconsumed
+
+Konrad
 
