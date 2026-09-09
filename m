@@ -4,135 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1D7C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827BEC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 09:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=; b=qRVm4xlmPVvm2fxyNwkGRbrIC4
-	LTyh7Q5aev69AmWuRUDw8MtTTj/WVK+qmPbE52tXSpdV02/8KIjHeN1a5eESsXCaEC6MIngWGdWdX
-	hfj0YZ8DRp4VKD0CG61eVvS0Xnknx9f/XpoHJjHUaZSGO3vxyYaHDuvoQ3pNbCDko3BESTJcVSWhF
-	QLonCIfmX4+JldTPQ9TvXAk825MccM+scI6A5i4D+olOUINI46ZL2e34Zz+7OJT+feEictTs8XYPy
-	PCZobWTm/Cgnvj2h/9bWB+lJvqO5dmNg+O6750BRpjkPYDpAugvu5Qlc3NhWWHwBvve+6rWV2Cozs
-	8vpMElgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LDCh3/bMgci4uGVV65c5lJe37gL3Ra631LoM+SOniZI=; b=jTQV68AxUzb5p9n4iDY41ktcK+
+	nzbPVFHo/k08ovX+WX+mrA4T7KPc6v7c9gWvZ38gWUNrOtSYBkE1rwMwXv+wrNLR7sksWDf+jtIw4
+	kuxHyAeHdpgjp5j6Kd9h0SgtfHYrnWRTNEBJ6taB8jRMg9ex9q7eJceIbomFq53FronWYZi14k4TN
+	gfQS1Ph4okTlH4MXsFhdT5tRAJ33zJYl0vuw86ThoUT4jVZ29wvn2sLCxe0SJzJxtbBGwEj0ON8PK
+	r+E6sWWwgWnIBzutZDBPtg8OHfzWH4JXdJ3FItB70oXwBWZ6yseXUcKVDRs/lEqRRiLBYnEKCj3PV
+	N1YUbO0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4EbD-0000000BHok-31Hw;
-	Wed, 09 Sep 2026 09:28:11 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x4EbI-0000000BHsc-3eTO;
+	Wed, 09 Sep 2026 09:28:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Eb5-0000000BHj1-3XPi
+	id 1x4EbD-0000000BHoT-3UX7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Sep 2026 09:28:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=LDCh3/bMgci4uGVV65c5lJe37gL3Ra631LoM+SOniZI=; b=McJMUrjxjE2gJSTdNrVHir6v6+
+	GPTQWRBeKhwP86XZJ9d3g2ud45DNFX3OD+WaQ0JuQWnA/oDYB+V6N00ZGAyMy78zbPXYbCQJFFb8T
+	S/Dewu2fRvNyxE+ib0B1rRdrC7s9IRH2HSNitPe1v3qEjDR0pw+DhWEcgV9jmnRGywdzk1IwMFdbX
+	ygDtRxWHL3uyysLdrQajLm6I+7HVZnGMaA1vrVSRMTLl0G+5SAQQOtq0klB6r1ybN3LVqwpwu6aGi
+	2+xGN3dezUO6eSuMSQTiOivYOnSZ0bWUE4Kg1FdEvIB1inOXDhzUetfXaU+bjSvb1PXKybfZ1slYH
+	mFIaUgPA==;
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4EbB-00000000zlx-0O8e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 09:28:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CClp8yixucsrIV4N/xPiodX1XX2aLm7RH+guO2BL7oyXuOPQIU1ki2ZIgZCm1oY2V7mOjmODQKsa/cQK8NVhJdfKe1d3xy1xv9l6IK11Vwddtu4R2e4LwOtHZHtcPKLj7tpV+LRNCtLyxbZep3msUOnATfpMgu5dcKOxt/30KsIWbSSM8jKVJxGYQyJCKbOKvnU6m/sdI1pDTVFZaztfS4/ncd3F3AueeXBwfMtGugHXw0HjmdNfsiGAAxSoQAc/+vHmFxspWc9aQxczr4/uncspkJH0Ah34N1+Ej6bUDtI7eANpUnLbp6GFHYB0kvrqw1/obtZKNjmOIp5G5ZJHPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=;
- b=bnalmuj+mm0wP4b8+UhJedB/xY7aCfYbGlOz7nEZ3CnEGEl0Uli9rY8fHSNp2l/EMMURIOt/070uisH7+KHpJHBtNbY9hTK2apuho1kWBU0bBR6Zdx/rusyV9ClISHstHul72cjlKpaEmIlafpWYvbtfv5WW9jikSV0H0IJSY46X2I/rPPn5byyTZNP+CM4CYGWUhHcY3XGd/ofZOKmAf/kAp/aEmRS3EEK+ZtYHpfP1uCjCihloCcSFin6jDsImQ3XQIYN+eBsAKpndtJy4LqH8X+hupJS3Kp1Zh27voUjlg6P5yrn5Tq5IN+ecZ6QobNge27sMAtG3ih43SIU4NA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MGcV3coEg4qom7QFXOrFmCRTQsZCRTTvt8QXr1gMg5M=;
- b=jewK0qZRn6DVpLrzLZ1EtpLCWsOc1TtNch9mkKyFusb6e4lXeD4AwRM4/J3wSOdLMqP2FvcDZ3KyR9ZTbAX35lJpYfjiWgSdIRPlUW7ns4pcCW4VG8CCfP4Ps6SEGp6uLxhJPOTnuJ84yljFz1gd5wzNYAeuyeaEk7ptKI9vysk=
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com (2603:10b6:8:24e::7) by
- CH3PR12MB8332.namprd12.prod.outlook.com (2603:10b6:610:131::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Wed, 9 Sep 2026
- 09:27:57 +0000
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6]) by DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6%4]) with mapi id 15.21.0406.007; Wed, 9 Sep 2026
- 09:27:57 +0000
-From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
-To: Thorsten Blum <blum@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>, "Simek, Michal"
-	<michal.simek@amd.com>,
-	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig_=28The_Capable_Hub=29?=
-	<u.kleine-koenig@baylibre.com>, Danilo Krummrich <dakr@kernel.org>, Takashi
- Sakamoto <o-takashi@sakamocchi.jp>
-CC: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
-Thread-Topic: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
-Thread-Index: AQHdP8RKUx3fE5nF40K+eDw6Pqwf5LbF+yoA
-Date: Wed, 9 Sep 2026 09:27:57 +0000
-Message-ID: <DS7PR12MB9549DD2EFA3B199CE0F6523F97B02@DS7PR12MB9549.namprd12.prod.outlook.com>
-References: <20260908190002.403337-2-blum@kernel.org>
-In-Reply-To: <20260908190002.403337-2-blum@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-09-09T09:26:52.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
- General
- v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB9549:EE_|CH3PR12MB8332:EE_
-x-ms-office365-filtering-correlation-id: eb44296a-dac6-4f57-5501-08df0e54a268
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|10067099003|22082099003|18002099003|5023799004|11063799006|56012099006|38070700021;
-x-microsoft-antispam-message-info: Azag9HrePlA0+hMToTh/+3y4r9KhhXQ9rnJaxbVWbsLvSuKXiivXUGa1nD4TFmXlzdTgZZHY4J8yQSJADg9eXqNpTEbP/wJSOO15fBfEYPbtHg1R0vDAAYrLg+xlhJQtN9mRmjwxysQtjMKBSgjwm41it9uGblWQ+axz509zPyE/D+FQ8+hqBk3/zzfZ04V/PiJn6WlOZtDMCMpq4c/jPDPzxeTq/yoBbcprMPdDZADDAO/kTEL99JHtMLf+4dIMM/aJL/Q4fWeOGgOGuAfv0nZFKsHH8YwLuWfFphbszh8Bs3tOicObWtgDPT7I2u3Rm85Mejl3yoWssDeInYGUJHsELIaxEXYs4DhK6rqjUHl3l4sRu74Ec0/Cqsg5rf5uPAwbChCwl2+L+KfkMih9N4LZntzO4znS7oeld9eYLYBELObIkWRsAEbIyyQqTtBDALcVdTqhRkz0c/3qagmvTI6MRoeFRTH7ZTPCje69eRLdD4spkbuZ5WJWBaOZi6EBw7k9hL++a6vWCofwp6gKUiHJkQzWZrbOOljSlNrVonhh0ke4/pqQJVNJJk2wpfg0SaWOtv9Wk/J7YLQWunq56kQJaUP7QlAG8JCdCYfqWlUJ8UKYoCw8W9lSAfB0sLK+at9Uw7XB1A48jpAkBNMxHADoK/MOsMJ7GmI1kOlhxIodB+1yzD73tTAZRTBAPZQDWce4rMe+QlhchU57kuon6YJ0V/Xgborldx+XLZRnWrU=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9549.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(10067099003)(22082099003)(18002099003)(5023799004)(11063799006)(56012099006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?mfOFyzgnUMKfNmqBsncEjdmeP1iuOQ8ZGkoKdVDWLgrSVwYIVDbWf9SFWd?=
- =?iso-8859-1?Q?qDxX7GQ/RArqwQRYIUMfINx4OohZkFtCK2PSKRO6+ZhJCm/k40I9zK0FGt?=
- =?iso-8859-1?Q?+RtM0EWS6GCggUOa/AQ2umaUJntC/6bDZFzCBMzOwicA4vJbECny/C+OXO?=
- =?iso-8859-1?Q?qSZHrru1yAckSqlwJ5vzHlDg7+B0U1h3Y5957LQfnzaokVdsdqtQeqCmty?=
- =?iso-8859-1?Q?9tBb5ZHL475E0PJkFsfwWbUxqULU79Lf3k15XzfJnO9GyYzHT2kh01lXzc?=
- =?iso-8859-1?Q?gIMMlLj0geL8POzHZ/6vWvIXrCfJ343bWn19Ou9a17FUYyrUqL5TMazsUv?=
- =?iso-8859-1?Q?2wa6vPTEKPy55XZgs6/t5AwQ/dcpMkFlLA8E4qnqHyvF2KuM7YU1byyKE/?=
- =?iso-8859-1?Q?vVWa7ReUttjuz4ll22gVKYnRqvrPuovyVTa+Pq/tl8ixEF/fpqSjtdozWs?=
- =?iso-8859-1?Q?BW3j6qXhwMjKQXvmQZkpvfluwt+EWR6YqwHbZ4veBprrmrbkuCDG+waJ6Q?=
- =?iso-8859-1?Q?g/K3/tN00v0mYcxKho5dLQKPPUKtNwvCUZ/vScCCED670jNmbsMBVQ93pj?=
- =?iso-8859-1?Q?zh5n0wbWocH9upNKMAe3+L5NHur96EC9XiBNJPXFuvKvC/0VEzABFGJIln?=
- =?iso-8859-1?Q?zuTKLZKFqj+umPp86MC7lqKB5dnKsiq92rXsalU3MvRLha8MCasP27uLef?=
- =?iso-8859-1?Q?BEHFgotYiXiF+0jHNTh3+MvcvAfZ14cR5ofBqotAI97cru2HuQOHEsA5rr?=
- =?iso-8859-1?Q?m0PHjpbsTE9lF+yl6F7CvqUgGQLIXZkpxquBnjTm3Ao+N4GiAPFShXqCmI?=
- =?iso-8859-1?Q?qjkuGo7MetCCWD2HCSDyfQuRVe+v/93/kc/N63XrhuAhXoftzRUGzQwl1N?=
- =?iso-8859-1?Q?gIWgmUoCu6/X2+fssHugn/Ld8KXMHkKEpmq/seukcxK+xQpfYFhercibW4?=
- =?iso-8859-1?Q?e8m1rfYnxN7xbM6gvyPnvwZUiOOOLjlDTA0CktmrcGk748DVA5T2PHzFYF?=
- =?iso-8859-1?Q?8VAILPOjhGMtcFaEj1DbIlbvr5Z5GlAD0/zkm7+vJ1J6fYyv2dFtbg4vye?=
- =?iso-8859-1?Q?TC5yYHNeidKSkJdekkJxSgeWqw1R4GV2iiuULiq5O8T9zQhrjOW486aFjr?=
- =?iso-8859-1?Q?qGzzFjRmSzmtI3T7i7uynmVLxxKOl0jOmjCIxR9iWmJ+L+rGk6xrv9uS1G?=
- =?iso-8859-1?Q?lWtEIn4b60878WqKcOwjJFvX80BIDEk6yhpWVXnDxksiIYGq9Rk8hbIWEA?=
- =?iso-8859-1?Q?AIcGX8aG2nlGw+wTM7q5pPmx2GOGn0/Hf7KZdq/jKrcJs038fFztOfNB1z?=
- =?iso-8859-1?Q?5WxoK4tf47CRF8JBXugT3gkGSIFiZwO8fHJBmftZJwVy8ARFtvIrTdE9Qd?=
- =?iso-8859-1?Q?EuI0YAvz0u507eTVcs+hsNUSAreEhp/k7NWlO2LSgiqTuFLElf2g55G7l4?=
- =?iso-8859-1?Q?Sigo+jQwBYgtOfwYn9TsU+ajm1bDW+iuUwhl7Q7+y+Gs+/jZlApJlTaf00?=
- =?iso-8859-1?Q?6uyeJv6hAFZIz1H6d7OnCgnCdvgCoez0hcxVF1i1sgJHvNKZMdv68MbXQ+?=
- =?iso-8859-1?Q?Kavg4C4K5rLJf0XrdiLN6Tpc4Eqeflzp1Y/tKihNy9Oe65WcewuT8fHcpA?=
- =?iso-8859-1?Q?IbNyJ92iz7IUtXMLvvRv2t0FHAwplzafhK45m6HN6fs9WXhC6Dncl8TCat?=
- =?iso-8859-1?Q?h4dHMymrbwN87+W52MknfcXSUWhjnnaQ8gxi3EURaUJyysmR7PavrMQ2vZ?=
- =?iso-8859-1?Q?B6H2BRSun4oqGG8efwtDN28Fp1t0MhMzIru3TqCgJcM2Uz?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 09 Sep 2026 09:28:10 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-86309e1a213so1428712b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 02:28:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788946086; x=1789550886; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LDCh3/bMgci4uGVV65c5lJe37gL3Ra631LoM+SOniZI=;
+        b=DJdhhE48i4J6uHyZlh4aefXJaEbrGxIjBYmwQ/ZoHV4Ep+u0vKaKh+7a2UUm/sWRUW
+         MYjZtxeNatONMCOT6CwOEldndK4yYVc5lk/z+H+xnB4PKLml3uXpJSBoA9tQL3bRHS1X
+         FO2zrTu4LtCjij8Ta8jD1/yT3/FFcOtav3wSy/5X3kaNaDqerLbMyMdWC6wTy+gnr5Ct
+         /0DHnCpGBXceM6+E76gKFdgbA+R96BH+8zr4AzQfj88XqJ9dI3Klh2yf7Ihksh+RG4yn
+         qkPkkIxYP39x/4nrIimEnZOcjO4huWnNR9lXV1JgklOsKju5rs7V27i+bhj3dgX4MQeg
+         te+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788946086; x=1789550886;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LDCh3/bMgci4uGVV65c5lJe37gL3Ra631LoM+SOniZI=;
+        b=b6gcu4DpViToLClrlTmw3ms/E2xgAJRHP6hy21BcpCSEK/Hg0xyoZLZwei4BFQVihq
+         0sqao51vAcf0qIj7WTXfd+Qgg/n3WylO6g3CeEZXFIPjArRzGDNBznGMmXnd3y5PHmG/
+         TIgsXQHOeEY2Yt8Ur7Yv0fLedPcF+voGCPUtoNj3PSOLmFKJjfz34aKxR7GgsZtf48Gr
+         jSPNQH2/abTRf05VbWhUomwq2O8Axhck1ahkyKK14TJJ6GcxAc4EEs3UzYcC6XbCAK4D
+         4GyVT81M6j7jkOHVnhKRyoOqOJA7uRQKbuGVXIbk+Lan+wKwpCUN1zhPNU4DTbJlUpgT
+         m5XA==
+X-Forwarded-Encrypted: i=1; AKwUvBxO2WQT0Lk5NY6iQjRlU4eBh46qyUE9D2wUewVNlnz0oqNje20qu5cJr30gmLargarW/4G9rogUL+SpuPkJ3ei3@lists.infradead.org
+X-Gm-Message-State: AFuF++l7qdaSs7ZXcsLWZQKipi1atRfSSjpkgedbo8+O7ugrbfgUvG6Y
+	jXfbZ/IgsVFuyjbn1k5oSPHc5dedHJo/9KsX1oZUyCsxBJSgqdTp2DJi
+X-Gm-Gg: AYBFou3SNNCfL7BU5T61TXKFrquNxa1JCYWIu5ZcS6MK7vXw1L3oCv88KabSyC9ysxG
+	2W5NA0oUXaXHJCqtRMmQzAEQEBhaaMtYnxDZTGgN654OKoSbD/257QIgMFVAekqQyLpMtO5Av3B
+	OeyTwWCR1iKVApLujqQGglhHh5oJrRR/fZvFcCgZ7tzTqgEku7J5XUTAn44r4TGu5K8PpEUYO8x
+	/bCbAgL5t63wpi8fnOhosC6a5Xg1KkxWaEtbNbRMzt/OqImVjNMRNxLwQLNcpO3/vgzHOQzYsEd
+	/udUuUlq/ymx65tr9q5cfTq+0aKdQPtqtXrym1mR+oiQHwF/JM/JEFx7ro7K0uXu1UNPexNc+Qn
+	rWWl4fcET1khJZb5v741L6Z4U0fENbfjMN5eWRwetes3QwBe3Fx6/UWny8AUA/47esfgg9I6XDC
+	YmBDvutjAr4K8xOiLXbifWxz33bbiX+SdC1paCezHuoL6wNPOA8NrJd28YlMmRkNy3O+RJLHILX
+	DQwAGr4/l+5
+X-Received: by 2002:a05:6a00:4388:b0:857:7317:cff2 with SMTP id d2e1a72fcca58-8616a266f1bmr50402873b3a.19.1788946086204;
+        Wed, 09 Sep 2026 02:28:06 -0700 (PDT)
+Received: from Aaron-M6 ([188.253.120.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-868e3aaab85sm484904b3a.22.2026.09.09.02.28.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 02:28:05 -0700 (PDT)
+From: Yaozhong Li <yaozhonguwl@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>
+Cc: mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yaozhong Li <yaozhonguwl@gmail.com>
+Subject: [RFC PATCH 2/3] mfd: rk8xx: release the power hold GPIOs before powering off
+Date: Wed,  9 Sep 2026 17:27:27 +0800
+Message-ID: <20260909092728.1859-3-yaozhonguwl@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.3
+In-Reply-To: <20260909092728.1859-1-yaozhonguwl@gmail.com>
+References: <20260909092728.1859-1-yaozhonguwl@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9549.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb44296a-dac6-4f57-5501-08df0e54a268
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2026 09:27:57.4483
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: x9MPyQ8ilyQwj7hVNJthKLF3ft/cEA9iVyxMaFP7T7xMSacnPDZuDjwnwxKTgQ4Y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8332
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_022804_239955_CD9440C7 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260909_102809_284616_9D7E0918 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,70 +124,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD General
+rk808_power_off() writes the PMIC's shutdown bit directly. On boards with
+"power hold" lines driven by the SoC, a shutdown performed this way does
+not stick: the rails drop and immediately come back up, so the board
+restarts instead of staying off. U-Boot reports the result as a power-on
+reset.
 
-> -----Original Message-----
-> From: Thorsten Blum <blum@kernel.org>
-> Sent: Wednesday, September 9, 2026 12:30 AM
-> To: Herbert Xu <herbert@gondor.apana.org.au>; David S. Miller
-> <davem@davemloft.net>; Simek, Michal <michal.simek@amd.com>; Jain,
-> Harsh (AECG-SSW) <h.jain@amd.com>; Uwe Kleine-K=F6nig (The Capable Hub)
-> <u.kleine-koenig@baylibre.com>; Danilo Krummrich <dakr@kernel.org>;
-> Takashi Sakamoto <o-takashi@sakamocchi.jp>
-> Cc: Thorsten Blum <blum@kernel.org>; linux-crypto@vger.kernel.org; linux-
-> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: [PATCH] crypto: xilinx - use kfree_sensitive() in cleanup paths
->
->
->
-> In zynqmp_aes_aead_cipher() and versal_aes_aead_cipher(), replace
-> memzero_explicit() followed by kfree() with kfree_sensitive() to
-> simplify the code.
->
-> Signed-off-by: Thorsten Blum <blum@kernel.org>
-> ---
->  drivers/crypto/xilinx/zynqmp-aes-gcm.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/crypto/xilinx/zynqmp-aes-gcm.c
-> b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
-> index ebee37dddb1f..d9bd6dcd23a6 100644
-> --- a/drivers/crypto/xilinx/zynqmp-aes-gcm.c
-> +++ b/drivers/crypto/xilinx/zynqmp-aes-gcm.c
-> @@ -230,10 +230,8 @@ static int zynqmp_aes_aead_cipher(struct
-> aead_request *req)
->         }
->
->  freemem:
-> -       memzero_explicit(kbuf, dma_size);
-> -       kfree(kbuf);
-> -       memzero_explicit(dmabuf, sizeof(struct zynqmp_aead_hw_req) +
-> GCM_AES_IV_SIZE);
-> -       kfree(dmabuf);
-> +       kfree_sensitive(kbuf);
-> +       kfree_sensitive(dmabuf);
->
->         return ret;
->  }
-> @@ -364,11 +362,9 @@ static int versal_aes_aead_cipher(struct aead_reques=
-t
-> *req)
->         if (unlikely(dma_addr_hw_req))
->                 dma_unmap_single(dev, dma_addr_hw_req, dmabuf_size,
-> DMA_BIDIRECTIONAL);
->  buf2_free:
-> -       memzero_explicit(dmabuf, dmabuf_size);
-> -       kfree(dmabuf);
-> +       kfree_sensitive(dmabuf);
->  buf1_free:
-> -       memzero_explicit(kbuf, kbuf_size);
-> -       kfree(kbuf);
-> +       kfree_sensitive(kbuf);
->  err:
->         return ret;
->  }
+Take those lines as an optional GPIO array, hold them asserted while the
+system runs and release them - waiting power-hold-delay-ms - before
+writing the shutdown bit. Device trees without the property retain the
+existing behaviour.
 
-Reviewed-by: Harsh Jain <h.jain@amd.com>
+Releasing every described line matters: on a Firefly-RK3399 the board
+stays off when both lines described for it are released, whereas releasing
+GPIO1_D0 while GPIO1_B5 is left asserted makes it come back up.
 
+Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
+---
+ drivers/mfd/rk8xx-core.c  | 29 +++++++++++++++++++++++++++++
+ include/linux/mfd/rk808.h |  4 ++++
+ 2 files changed, 33 insertions(+)
+
+diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
+index 3dcf6ab..fd1efbb 100644
+--- a/drivers/mfd/rk8xx-core.c
++++ b/drivers/mfd/rk8xx-core.c
+@@ -11,6 +11,8 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/interrupt.h>
+ #include <linux/mfd/rk808.h>
+ #include <linux/mfd/core.h>
+@@ -703,6 +705,24 @@ static int rk808_power_off(struct sys_off_data *data)
+ 	default:
+ 		return NOTIFY_DONE;
+ 	}
++
++	/*
++	 * Some boards route "power hold" lines from the SoC into the board's
++	 * power circuitry. They have to be held asserted while the system is
++	 * running and released before the PMIC shutdown request is written:
++	 * with any of them left asserted, the rails drop and then come back
++	 * up. Releasing them here rather than from a separate handler keeps
++	 * the ordering against the I2C write explicit.
++	 */
++	if (rk808->power_hold_gpios) {
++		unsigned int i;
++
++		for (i = 0; i < rk808->power_hold_gpios->ndescs; i++)
++			gpiod_set_value_cansleep(rk808->power_hold_gpios->desc[i], 0);
++
++		msleep(rk808->power_hold_delay_ms);
++	}
++
+ 	ret = regmap_update_bits(rk808->regmap, reg, bit, bit);
+ 	if (ret)
+ 		dev_err(rk808->dev, "Failed to shutdown device!\n");
+@@ -874,6 +894,15 @@ int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap
+ 
+ 	if (device_property_read_bool(dev, "system-power-controller") ||
+ 	    device_property_read_bool(dev, "rockchip,system-power-controller")) {
++		rk808->power_hold_gpios = devm_gpiod_get_array_optional(dev,
++							"power-hold", GPIOD_OUT_HIGH);
++		if (IS_ERR(rk808->power_hold_gpios))
++			return dev_err_probe(dev, PTR_ERR(rk808->power_hold_gpios),
++					     "failed to get power hold GPIOs\n");
++
++		device_property_read_u32(dev, "power-hold-delay-ms",
++					 &rk808->power_hold_delay_ms);
++
+ 		ret = devm_register_sys_off_handler(dev,
+ 				    SYS_OFF_MODE_POWER_OFF_PREPARE, SYS_OFF_PRIO_HIGH,
+ 				    &rk808_power_off, rk808);
+diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
+index 7ffc904..eda111e 100644
+--- a/include/linux/mfd/rk808.h
++++ b/include/linux/mfd/rk808.h
+@@ -1459,6 +1459,8 @@ enum {
+ 	RK818_ID = 0x8180,
+ };
+ 
++struct gpio_descs;
++
+ struct rk808 {
+ 	struct device			*dev;
+ 	struct regmap_irq_chip_data	*irq_data;
+@@ -1466,6 +1468,8 @@ struct rk808 {
+ 	long				variant;
+ 	const struct regmap_config	*regmap_cfg;
+ 	const struct regmap_irq_chip	*regmap_irq_chip;
++	struct gpio_descs		*power_hold_gpios;
++	u32				power_hold_delay_ms;
+ };
+ 
+ void rk8xx_shutdown(struct device *dev);
+-- 
+2.55.0.windows.3
 
 
