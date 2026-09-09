@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF16AC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D592DC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsyDLTFW2Hz/9GXfJii6CbsUgSsot8+rPVl4PmdEaRI=; b=v/L6Hj/B+NVGEziEN2GcQnC8yt
-	lEb4sobedOQV/dWn4T/5qSE2LWEjQ6apeQmVvEUQr2jdINWKdGuIrN/AMo/RCKRb8pSXby31+kArU
-	B16n1ot7b4m7WmyACfDoYERR7FtpTcWH1KiOxSCm4YmBDEOsEBa9lN7GTSsw+z+9j+6YVqsjkm6Bu
-	QE75O5VH6W5kQnWOCNnEoG4GlC9ohB+t7Z49tYz/3OoQeUEb7SXBGdeRbg8sAtKzU0odOmam6vbdF
-	A/cbXB8jt0Eoze1Zx9/7LBZG0CIoZZcpH9Mh7rPGYL2XWe6VXuIDOWIMTNcdY1I8xMpsxjsNkZ0+K
-	tfa9BT8g==;
+	bh=xYPaXFevKaKGglLFP894aQ9Q2tDiAAKyzOg7R7AUw/M=; b=WSFSg0lyNJumDs2lKLDN8o0NCL
+	pVcYhcQ9oXkzSHXKWliAZm3qPnnr8gRSPlr8LDeYbFiuuVYijygNWHWQizVVP2iCis6Cuos7SB83Y
+	UQbCVICT08ApTTtv4clPGQs0kuDEKokCAny493pMkwj/f/ByT0rsI4dauHOm5dYDX+qGBdJc8A01q
+	JqCSbBP6ikGl+y7MWd/r216ASiIxIjzf8uxfcfHGhBKoqZsHDwPfid0fraD/+Ojx8914nEl/BPLMO
+	7Z4Cyp3z7jQTizgnC7aP+NrGV6IWrZsxLtCZHfvnl8C6kUCZFRkL3p0SzU+MfKX0uxqu+A4sS+Dmc
+	Aj5nCUZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IqZ-0000000BrcT-2FaP;
-	Wed, 09 Sep 2026 14:00:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4Iqj-0000000BreF-3DHh;
+	Wed, 09 Sep 2026 14:00:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4IqY-0000000BrcL-2o7C
+	id 1x4Iqi-0000000Brdw-3N7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:00:18 +0000
+	Wed, 09 Sep 2026 14:00:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC76B60214;
-	Wed,  9 Sep 2026 14:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 158771F00A3D;
-	Wed,  9 Sep 2026 14:00:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A45C60214;
+	Wed,  9 Sep 2026 14:00:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ACEF1F00AC4;
+	Wed,  9 Sep 2026 14:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788962417;
-	bh=zsyDLTFW2Hz/9GXfJii6CbsUgSsot8+rPVl4PmdEaRI=;
+	s=k20260515; t=1788962427;
+	bh=xYPaXFevKaKGglLFP894aQ9Q2tDiAAKyzOg7R7AUw/M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HaYpXkOJXHKZr+F98OGIEWsn64zfl0q8h2boe60eMkj66Cpr7mHAr8AI7FI8UWHV/
-	 oSYz8yO8NeP9j53QL6ITDYUpzaS9oqGU6mSuEGhig09FjDEOZSgb3cupLDXbfnhq8G
-	 sHumnqOJF+Kk6bY3QCIwgNJtMpo+MDO/1HrQWj9Wx5BjZfwFN6XRV4skAe8IUEz45J
-	 1jAqUpjLE0C/baa4Nmex2f1GcJANWXvHuZb+jX4nZ0nb6Rt9c6aunWN+pV5yO9TdGD
-	 ihxeDNQFqGquwv957h8OkJ/cs4tU+nVZ3vYcnjEedxM1rFN6acwiXChjASylsMDkqj
-	 KOQaUl+Udm41A==
-Message-ID: <d0aa1ccd-d99f-4fa5-98c2-21cea0f413c7@kernel.org>
-Date: Wed, 9 Sep 2026 16:00:08 +0200
+	b=nMiClv1f3FTqqXWOX+v2hm7AwnZYICX7p9jnt49fV1gm+A1HQ9JLyH/fAM8CGpK8y
+	 ap2t1jkiQG3JYX/pLH4RtA3HEo4FrN05+8EjgkNL9dNJ28iH85oUuVa4spd2BH03k5
+	 ZJaKeSLB438Ymhe6783X6K2K6BXQ/HFiErAw5CygVA5s36HyNjilVxZujU17Xnpijz
+	 mr+/zRPTbJ/nz6R5a3c7iYAFe1SINvA70B9ZUvTWV/5AbDLKxmDht6BNj8g/QP9h/V
+	 CZNYWh9+6DVW16SGOIlF9E7TY9CXw1HHi979DSzsqAj65Ivv10ESqMdYZAh9/qKuWE
+	 BvpXtrcBuJLyg==
+Message-ID: <e1e59b35-39a9-48ca-8c01-0b9db8202094@kernel.org>
+Date: Wed, 9 Sep 2026 16:00:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] mm/swap: add folio_swap_entry() and
- folio_page_swap_entry()
+Subject: Re: [PATCH v2 3/8] mm/rmap: use folio_page_swap_entry() in
+ ttu_anon_swapbacked_folio()
 To: Tal Zussman <tz2294@columbia.edu>,
  Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
  Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
@@ -67,7 +67,7 @@ To: Tal Zussman <tz2294@columbia.edu>,
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
- <20260908-folio_swap_entry-v2-1-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-3-ee6d01dfa5e1@columbia.edu>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -114,7 +114,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260908-folio_swap_entry-v2-1-ee6d01dfa5e1@columbia.edu>
+In-Reply-To: <20260908-folio_swap_entry-v2-3-ee6d01dfa5e1@columbia.edu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -132,75 +132,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 17:16, Tal Zussman wrote:
-> A folio in the swap cache occupies folio_nr_pages() contiguous swap
-> entries starting at folio->swap, so a page's swap entry is just
-> folio->swap plus the page's index in the folio. page_swap_entry() hides
-> this behind a compound_head() call, and callers that already have the
-> folio sometimes open-code the arithmetic instead.
+> We already have the folio here, so use folio_page_swap_entry() instead
+> of going through page_swap_entry(). This saves a call to
+> compound_head().
 > 
-> Add folio_swap_entry(), which takes a folio and a page index, and
-> folio_page_swap_entry() for callers that have the page.
+> No functional change.
 > 
 > Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 > ---
->  include/linux/swap.h | 33 +++++++++++++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
-> 
-> diff --git a/include/linux/swap.h b/include/linux/swap.h
-> index fc290e29e4a9..1d979e76e78a 100644
-> --- a/include/linux/swap.h
-> +++ b/include/linux/swap.h
-> @@ -272,6 +272,39 @@ struct swap_info_struct {
->  	const struct swap_ops *ops;
->  };
->  
-> +/**
-> + * folio_swap_entry - Return the swap entry for a page within a folio.
-> + * @folio: The folio.
-> + * @idx: The index of the page within the folio.
-> + *
-> + * A folio in the swap cache occupies folio_nr_pages() contiguous swap
-> + * entries starting at folio->swap. The caller must ensure the folio is
-> + * in the swap cache and that @idx is within the folio.
-> + */
-> +static inline
-> +swp_entry_t folio_swap_entry(const struct folio *folio, unsigned long idx)
-> +{
-> +	swp_entry_t entry = folio->swap;
-> +
-> +	VM_WARN_ON_ONCE_FOLIO(idx >= folio_nr_pages(folio), folio);
-> +	entry.val += idx;
-> +	return entry;
-> +}
-> +
-> +/**
-> + * folio_page_swap_entry - Return the swap entry of a page in a folio.
-> + * @folio: The folio containing @page.
-> + * @page: A page within @folio.
-> + *
-> + * The caller must ensure the folio is in the swap cache and that @page
-> + * is part of @folio.
-> + */
-> +static inline swp_entry_t folio_page_swap_entry(const struct folio *folio,
-> +		const struct page *page)
-> +{
-> +	return folio_swap_entry(folio, folio_page_idx(folio, page));
-> +}
-> +
->  static inline swp_entry_t page_swap_entry(struct page *page)
->  {
->  	struct folio *folio = page_folio(page);
-> 
 
-"Return the swap entry for a page within a folio" vs. "Return the swap entry of
-a page in a folio."
-
-yet only of the variants has a "page" in the name :)
-
-A bit confusing.
-
-Not immediately sure how it could be done cleaner. The minority of cases seem to
-use folio_swap_entry.
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
