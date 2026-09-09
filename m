@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7ECC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE925C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQ3ATaI2YxqRI0p16u8NNlyCH2fphaDSpOTesBL5qj4=; b=4eSVmKU1IMC5gztCdElMDDCwHc
-	VYn5Y99IWFIVxL3Na0/fAPx+TOzE94r0jYy0PoVRZ7jVpm3uGwX1r9id024rJEsOwch1Jf6GJfWrz
-	uPHb/LFOygFfshzYXZXsgXRS0WMVsoYu9tBRQ7wcHJ1C9fr0LEFDGNeR/Mubch6WHp+2l3FXg/GRo
-	ohQRXwnt3tYxRzmx9lAPEYKbFIXcW8Lx8XAynTNCQfYwcFn2JDra00czY+NqZOyYSzrgMdrSZRneJ
-	tG+M7crlETMs6NSh8HmEaGyBpGFvzLaiaGCUNg0M3csslvbJIt02Vl6SrCUSsTLyW3FuUG5+eHX/j
-	dfL+7ZMw==;
+	bh=8BHp18JK7JZ2Mrw0ZrUESo0RJu+yED+tqkK5PcwM6KM=; b=N4AeLy2y9ZfMe6RLQR0nbP4T5U
+	zUR3uIk4XetG/uj5epr14qWzY6XBnzmw22wappAPIrK/mOjlODCWJMp9aDjGPw4fVszf5jQJRAeDO
+	Z/x0Rbd/3RYd5M8UR2+IBNkgSrAt17VrsseEr3kHv6yKy1gCbeS+CPRk7Iq0K+l4yzt6hi+8ge1G/
+	OBqqVXSBJ90BIlosM5GST0vhZ22NVE6OxAt16HDnaAp01B7CaUc7REAZRzCDXcKtgLyUNGkSyCbg6
+	KOzKUv2+OIQrVHC3/QaaXzp4YR0CTg0RwkgLEjJnxgB2m/SiIq/4eY/yH1jq7HDLX+henLz+a+AtX
+	m4LfRizg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46P9-0000000AWlY-3ba7;
-	Wed, 09 Sep 2026 00:43:11 +0000
-Received: from mail-m49227.qiye.163.com ([45.254.49.227])
+	id 1x46Qp-0000000AWvO-0eDa;
+	Wed, 09 Sep 2026 00:44:55 +0000
+Received: from mail-m160236524.xmail.ntesmail.com ([160.236.52.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46P6-0000000AWkm-0ucc;
-	Wed, 09 Sep 2026 00:43:10 +0000
-Received: from [172.16.12.48] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d089fcf7;
-	Wed, 9 Sep 2026 08:37:53 +0800 (GMT+08:00)
-Message-ID: <d2f5d998-5d1d-4246-8b01-01382f3cffd2@rock-chips.com>
-Date: Wed, 9 Sep 2026 08:37:50 +0800
+	id 1x46Qm-0000000AWuV-1hFs;
+	Wed, 09 Sep 2026 00:44:54 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d08c1d9d;
+	Wed, 9 Sep 2026 08:44:48 +0800 (GMT+08:00)
+Message-ID: <4d441232-6ab5-4865-a70c-f868e8128f7e@rock-chips.com>
+Date: Wed, 9 Sep 2026 08:44:45 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
  linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  kernel@collabora.com
-Subject: Re: [PATCH v6 01/10] PCI: dw-rockchip: Fix LTSSM set functions
+Subject: Re: [PATCH v6 02/10] PCI: dw-rockchip: Restore vpcie3v3 regulator
+ handle
 To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
  =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
@@ -48,24 +49,24 @@ To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-1-fbabcca9921b@collabora.com>
+ <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
 From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-1-fbabcca9921b@collabora.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa083998c7203a4kunm31a3c89943d92d
+X-HM-Tid: 0aa0839fe00403a4kunm50f3116743e785
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0wZQlZIHUwaTxhDSx
-	lIGRpWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCH0IdVk9MGkseSUJOQ01JTFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=FGKdjvlACFPFgsNMYwEWJ6Y0jyF+FQ1TkoCbAKv3eLPEGrvVpZi4emplWQEmmUl4oVm0DEYa7F1Ptp4wfYpeE1As8d3px66nQfcCioYZ60nHwL1YzhCRzCyUwvRJPcB1fLuUMjKckLwFRZt4El6BGu7ZvmUnpVxjQy3tgZ7FMa4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=jQ3ATaI2YxqRI0p16u8NNlyCH2fphaDSpOTesBL5qj4=;
+	b=e9NTEEIWqkh7Z68AwWcaKw2n1Tx+hNYucPDaLw/joe2dmc0eusuvJC9uTUS6/osiyrEz/1iXmbi+GcbCQzY84/xyRH5OnH7Tt91mMMAwTo4iuryxRApYrm6MvmZOQZqAOV2qJg2ROIsA16acFLY3yXJ/KzvONULKiDLcOGWCgEw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=8BHp18JK7JZ2Mrw0ZrUESo0RJu+yED+tqkK5PcwM6KM=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_174308_808895_C46E2325 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260908_174452_715723_70787559 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +82,72 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 在 2026/09/08 星期二 22:51, Sebastian Reichel 写道:
-> Before the Rockchip PCIe driver has been switched over to the
-> FIELD_PREP_WM16 macro, PCIE_CLIENT_ENABLE_LTSSM and
-> PCIE_CLIENT_DISABLE_LTSSM were setting bits with a mask of 0xc = 0b1100,
-> which means BIT 2 and BIT 3. After the conversion it only sets bit 2,
-> with bit 3 being handled by a separate define named
-> PCIE_CLIENT_LD_RQ_RST_GRT. Apparently the conversion missed to make use
-> of this new macros resulting in the third bit not being set.
+> This reverts commit c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator
+> setup with devm_regulator_get_enable_optional()"), which nicely cleaned
+> up the code.
+> 
+> The vpcie3v3 regulator handle is needed to disable the regulator during
+> system suspend (to be added in its own patch).
 > 
 
 Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 
-> Fixes: 30e919570581 ("PCI: dw-rockchip: Switch to FIELD_PREP_WM16 macro")
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 10 ++++++----
->   1 file changed, 6 insertions(+), 4 deletions(-)
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++++++++++++++------
+>   1 file changed, 17 insertions(+), 6 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index af26a07c0c9e..dc85564e5001 100644
+> index dc85564e5001..f67ad3c31c35 100644
 > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -321,14 +321,16 @@ static void rockchip_pcie_ltssm_trace(struct rockchip_pcie *rockchip,
+> @@ -112,6 +112,7 @@ struct rockchip_pcie {
+>   	unsigned int clk_cnt;
+>   	struct reset_control *rst;
+>   	struct gpio_desc *rst_gpio;
+> +	struct regulator *vpcie3v3;
+>   	struct irq_domain *irq_domain;
+>   	const struct rockchip_pcie_of_data *data;
+>   	bool supports_clkreq;
+> @@ -844,15 +845,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+>   		return ret;
 >   
->   static void rockchip_pcie_enable_ltssm(struct rockchip_pcie *rockchip)
->   {
-> -	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_ENABLE_LTSSM,
-> -				 PCIE_CLIENT_GENERAL_CON);
-> +	u32 val = PCIE_CLIENT_ENABLE_LTSSM | PCIE_CLIENT_LD_RQ_RST_GRT;
-> +
-> +	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_GENERAL_CON);
+>   	/* DON'T MOVE ME: must be enable before PHY init */
+> -	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
+> -	if (ret < 0 && ret != -ENODEV)
+> -		return dev_err_probe(dev, ret,
+> -				     "failed to enable vpcie3v3 regulator\n");
+> +	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
+> +	if (IS_ERR(rockchip->vpcie3v3)) {
+> +		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
+> +			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
+> +					"failed to get vpcie3v3 regulator\n");
+> +		rockchip->vpcie3v3 = NULL;
+> +	} else {
+> +		ret = regulator_enable(rockchip->vpcie3v3);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to enable vpcie3v3 regulator\n");
+> +	}
+>   
+>   	ret = rockchip_pcie_phy_init(rockchip);
+>   	if (ret)
+> -		return dev_err_probe(dev, ret,
+> -				     "failed to initialize the phy\n");
+> +		goto disable_regulator;
+>   
+>   	ret = reset_control_deassert(rockchip->rst);
+>   	if (ret)
+> @@ -885,6 +893,9 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+>   	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+>   deinit_phy:
+>   	rockchip_pcie_phy_deinit(rockchip);
+> +disable_regulator:
+> +	if (rockchip->vpcie3v3)
+> +		regulator_disable(rockchip->vpcie3v3);
+>   
+>   	return ret;
 >   }
->   
->   static void rockchip_pcie_disable_ltssm(struct rockchip_pcie *rockchip)
->   {
-> -	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_DISABLE_LTSSM,
-> -				 PCIE_CLIENT_GENERAL_CON);
-> +	u32 val = PCIE_CLIENT_DISABLE_LTSSM | PCIE_CLIENT_LD_RQ_RST_GRT;
-> +
-> +	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_GENERAL_CON);
->   }
->   
->   static bool rockchip_pcie_link_up(struct dw_pcie *pci)
 > 
 
 
