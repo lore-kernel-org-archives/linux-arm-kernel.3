@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB77C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2D5C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsT5whRXIWPhoZ883AZa0XgzOkBvLWYJ556g8quXo00=; b=BNYpLdSIvj8QRslu/5OAOkLBTF
-	ZEEuk9qzkZ5s4EKulDh5x1mLiDwTKfOqSjU0CohdNigFa+NdPYFsU95dg4OYEXyJGCoQjIi0ydt5L
-	OJXHmnVLakUl1cLHWdFmfhX4UfNOHzqD5dGC9/KA2edCWJykeJLV/Tphm9ZNuco2unClG8j4qZIMv
-	BK9NU3coP1URFngHHf3kg12WUoeE20IR30wIYVUgQrShSpCgc1QRpED2v0RomBQxnSE1VfZxTI0xe
-	A6jLjpwmBGczMAPz2MAV/uWos+XCsPMEOcaM3GARUqQMzp1E6FgQ1b2RxSMv5vBSJxxeZV+2zYEKK
-	EDhARg7Q==;
+	bh=oy6H8lueAeqMs8djnjAqPYI7ZqjdcUMC2b/zRPRWG8k=; b=3NEpZ7WE/67NgiYeUT7C54OXAL
+	t+l/o74sNT1iZLY49Wp0f23zsP9A+q/2mMghKtH/4csKuF1KdHduLVlRujOTrA57LRwvk6QdkCB8P
+	lNIQPKFhNtOFnknDOg5mCj1DAWjzwk4ewvCFeb7Q8732lWdO/eOkr2Fknmczq5DJQN+O65MK2VC51
+	NwMIbUvGowra7ITlELZgdJSbWuZifK2VLQjYYwhiOTyN/DtWdUE2Rz7jvLLzU7vctBlom7gear344
+	PpLhFOCmAxyP/6ATlu5xASI5CXj2aHpPbsVzykFoC7zn0fdvu95UByUPhw66Z+wrq057a9lBt3ECe
+	j82B3Kqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46dc-0000000AZFE-3ngB;
-	Wed, 09 Sep 2026 00:58:08 +0000
-Received: from mail-m17223.xmail.ntesmail.com ([45.195.17.223])
+	id 1x46eQ-0000000AZQX-0uV2;
+	Wed, 09 Sep 2026 00:58:58 +0000
+Received: from mail-m9391.xmail.ntesmail.com ([103.126.93.91])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46da-0000000AZEf-0jfo;
-	Wed, 09 Sep 2026 00:58:07 +0000
+	id 1x46eO-0000000AZPf-0Apu;
+	Wed, 09 Sep 2026 00:58:57 +0000
 Received: from [172.16.12.48] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d0923065;
-	Wed, 9 Sep 2026 08:58:02 +0800 (GMT+08:00)
-Message-ID: <d3a665e6-e9f6-41c7-9684-9db1cb811039@rock-chips.com>
-Date: Wed, 9 Sep 2026 08:58:01 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d0923156;
+	Wed, 9 Sep 2026 08:58:50 +0800 (GMT+08:00)
+Message-ID: <30d56a27-febb-48e8-909e-b87cad782514@rock-chips.com>
+Date: Wed, 9 Sep 2026 08:58:50 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
  linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  kernel@collabora.com
-Subject: Re: [PATCH v6 05/10] PCI: dw-rockchip: Add helper function for
- controller mode
+Subject: Re: [PATCH v6 06/10] PCI: dw-rockchip: Add helper function for DDL
+ indicator
 To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
  =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
@@ -49,24 +49,24 @@ To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-5-fbabcca9921b@collabora.com>
+ <20260908-rockchip-pcie-system-suspend-v6-6-fbabcca9921b@collabora.com>
 From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-5-fbabcca9921b@collabora.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-6-fbabcca9921b@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa083abfd6103a4kunm2a53221b44044d
+X-HM-Tid: 0aa083acbac003a4kunmccc4e748440649
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGUsaQ1ZOHkkaHRpKTx
-	lDTUpWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGU1ITFYeGU8YGUkYSR
+	0YTEtWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
 	tIVUpLSU9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=XP6iTy/dSQmg7/bZJLR97rvOuhsfxw6x8i0uhjmb2gdTTOdgfWlxIeApYFv0KpIJqWYYHez9/FNcaTS292GFeo4cwZc6yAYNx07JiqMAmK/Yat8cqoPIhoBX7W+sDWd7FW/mrLb31KcbQoQJJiWxyLlSQl/jTlGJoGRG/PQJK8g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=bsT5whRXIWPhoZ883AZa0XgzOkBvLWYJ556g8quXo00=;
+	b=D5qtsHD+yE9+RhcFUcRNxx9x9OPX0uCGrqLL6K0SPt3qcRxRp/MwneUjdBzakPLQiOqngJQCdQpKLR6zjnHM3bhTLjOHvN8HBQ6ccJ9liFJHTcN3yHA0GeMi2+T5/dKzs0qx3ubQTfQaRd2braoFZ5BnxWJ3vGXHWxkSuHnMBMU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=oy6H8lueAeqMs8djnjAqPYI7ZqjdcUMC2b/zRPRWG8k=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_175806_433935_6008980A 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20260908_175856_302682_2B90F3EF 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +83,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 在 2026/09/08 星期二 22:51, Sebastian Reichel 写道:
 > Remove code duplication and improve readability by introducing a new
-> function to setup the controller mode.
+> function to setup the DLL indicator.
 > 
 
 Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++++++--------
->   1 file changed, 7 insertions(+), 8 deletions(-)
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 16 +++++++++++-----
+>   1 file changed, 11 insertions(+), 5 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 6f84b07406d4..211776bbcb99 100644
+> index 211776bbcb99..1e48099e36e4 100644
 > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -708,6 +708,11 @@ static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pci
->   	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
+> @@ -713,6 +713,16 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3
+>   	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
 >   }
 >   
-> +static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u32 mode)
+> +static void rockchip_pcie_unmask_dll_indicator(struct rockchip_pcie *rockchip)
 > +{
-> +	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
+> +	u32 val;
+> +
+> +	/* unmask DLL up/down indicator and hot reset/link-down reset */
+> +	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
+> +	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
+> +	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
 > +}
 > +
 >   static int rockchip_pcie_configure_rc(struct platform_device *pdev,
 >   				      struct rockchip_pcie *rockchip)
 >   {
-> @@ -732,10 +737,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
->   	}
+> @@ -760,7 +770,6 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+>   {
+>   	struct device *dev = &pdev->dev;
+>   	int irq, ret;
+> -	u32 val;
 >   
->   	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
-> -
-> -	rockchip_pcie_writel_apb(rockchip,
-> -				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
-> -				 PCIE_CLIENT_GENERAL_CON);
-> +	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
+>   	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_EP))
+>   		return -ENODEV;
+> @@ -800,10 +809,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
 >   
->   	pp = &rockchip->pci.pp;
->   	pp->ops = &rockchip_pcie_host_ops;
-> @@ -776,10 +778,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
->   	}
+>   	pci_epc_init_notify(rockchip->pci.ep.epc);
 >   
->   	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, PCIE_LTSSM_APP_DLY2_EN);
-> -
-> -	rockchip_pcie_writel_apb(rockchip,
-> -				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_EP),
-> -				 PCIE_CLIENT_GENERAL_CON);
-> +	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_EP);
+> -	/* unmask DLL up/down indicator and hot reset/link-down reset */
+> -	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
+> -	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
+> -	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
+> +	rockchip_pcie_unmask_dll_indicator(rockchip);
 >   
->   	rockchip->pci.ep.ops = &rockchip_pcie_ep_ops;
->   	rockchip->pci.ep.page_size = SZ_64K;
+>   	return ret;
+>   }
 > 
 
 
