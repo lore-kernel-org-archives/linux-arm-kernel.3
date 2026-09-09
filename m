@@ -4,63 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5171C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AB6C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 18:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7bifEcfysoaJdWY3KiNVCwLaTd7V2wpeFRk1F7RAOg=; b=Mz0ZtX+NuToUewrt75ZBjYLGI2
-	yNZMRVzeUdmLbJSS+7U6oHY+zpVuduEQsbvuXakRTBQM2v1kY0HnlqOluYzCXIO1cxSC3fsRRkK6l
-	y0TZ+0SMCx+GkrwLjBB00b3yXQ1phe/5x/HQmqYYcH8dCtd2/0YWpGKLCSHwdt9PfQd93pDsi/Ps9
-	OJpiHOqmTjh9QvQ/fyeYybIBBE4ofaFjSnjWHun7Z9recz+Ikorn3vsr6RJwYuLwS79HbpxVuuwYl
-	6Fjh4klPu++1Qr6ginxnRwNcR3q6hisI4UrH+JpIhk4Cphzhh5af4l2KxR4HF/1Z7eyXc8bJbBK0R
-	yTYVcTSg==;
+	bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=; b=1DrhdWP/xJWWg8MeTYG9HyIGae
+	UNZPqiErynxgPU6S8JHfOAIJ267gyzv2yN8xtQUkJKyAnLvvCqWn+voDV/Of4z9u7umA8UFwXbbOu
+	OWhmEynqvc79ej8vzh2GJkIMtNpQYrOwfe4iu/7SNyeirmsQqQDhuo16n2811LufLQBCp5fxaZYOu
+	3wZUFytfJKEAUj0q8wXOFkgXP62eihbUQL7bmF8NcAyzsZtDxNahUFoHBjhrDAdLeyhqa9Ryyzfj0
+	BdGOZRAqkKGdHT4p4DqjOG28vA44Gph4ED5GwiVtpI3SpjwFl23vp4Sq0XDP6EOg56RMCmuk9VRQ0
+	3Nbs7P8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NBv-0000000Cd45-2CGW;
-	Wed, 09 Sep 2026 18:38:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NBt-0000000Cd3O-0GMH
+	id 1x4NJL-0000000CdoB-1Kmr;
+	Wed, 09 Sep 2026 18:46:19 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4NJI-0000000CdnK-3eu6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 18:38:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA4E31576;
-	Wed,  9 Sep 2026 11:38:30 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E02513F528;
-	Wed,  9 Sep 2026 11:38:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788979114; bh=frS1SGYXgkHttcut/kQlMeX3IPWRF3AjzyZ2IfPARzk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lvbnJKPA1MGj0YZ27FNXCLGbHFnTA2gbmSglgO9JEDGU4aHJQXBjlgo9j6Vfj16gk
-	 twxgs0WSB2Gl/ygBhDheZ74NLtkpS1iyvAGloGlCy0ZbveFJrEZsSKmq0EgRveSJWc
-	 HOZf1x51UJnQIGVItf5kyH+RNTbu1hYQ/MFZ/xSc=
-Date: Wed, 9 Sep 2026 19:38:30 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com, robin.murphy@arm.com, gshan@redhat.com,
-	kernel-dev@igalia.com, kernel@gpiccoli.net,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Houdek <sonicadvance1@gmail.com>
-Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in
- TPIDRRO_EL0
-Message-ID: <aqGnptkgxLEkqOfx@arm.com>
-References: <20260815152759.2046231-1-gpiccoli@igalia.com>
- <aoGIEEje1NIMTjyv@willie-the-truck>
- <aoLLf_iZq6DLNpLO@arm.com>
- <8207cba6-a6e0-38e6-a1bd-6f4453651793@igalia.com>
-MIME-Version: 1.0
+	Wed, 09 Sep 2026 18:46:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xpdV0a9Z8iwDBWMooOgPOeZMkRjZVYDQaNqrFimw25F9s05Ynjk7sjDg39ZnE/UYlPzpNrBQZjIz52oeWvxrP/cjOQypHVkz2vDnrRGgtHJ7MiWVrCGw7TpOu4KyUwlTYIeyu0VAYK1RC7gmxfxUj4Ar37OVy3m38ButWVIBumZMO7uv8OypCx5JsY1V9ffyxm5IiG6CdPjstwCIIZbtuqJvWWXyKb6lLZubbnWuJ6ArfUgFCvk+kB5MGMoZ/ArSFjk0g0ND7afLlxzsFGlqaA1cfHPFgaRxM6RcbqI+DXDCdnVA4ufaWDro/SZ8fokUlj7V9PR48VEDCDX2V54T3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=;
+ b=zQVyvQ2Uh81DmdxfMrgLn8GVq2oA/8ptsOEux/ntoS+uK4QTxcpbndp06Y0jf2BealUbRSPj126Ve581pj11Z1CxoiuyZkm+FDuiv9xOFkV7zEOFupZz91PkbAwpucU7vxC+G2QAmS2kbUoh9R82oiPTppG/vmufNYDpU8l+n/FbZrenWr+NL672RlNjfoRYPaqBKgo3mcMsqy/CuInvreV+/uqLn5ZunPYqqQqioCAMTumiMK/1Hh8G+4geWk7n3dNAlqkat/vJWArEV3giNK0d3dpbS58e/VnwVgfL6CPu1gRgb7xphuLhhq+rpAn2YVckpkFE5k/EWQOYFScmVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vk87k6181RDoIKjEI8BKYjwNFPWaZFl5Iq6t/6vxr+k=;
+ b=q7icaDMN34SQh7gporuTsQwLTxtZI5Z5udZO4NKl11fXUP52xTIU13zXEh6/mXXvnQOBqqZDeYZrTutc/2lSIAjP8ugLVXWQzDZr+DYoGC/URJaMqpLw0zr5e0k63L4wRAqcpS5OYDlVcLokz/csv+lR3A/WKhFsWvFiA/FiH6w8fRLQRPhejimzsRMgLpcUaotKa5ZOih0kqSsjbg9Ze7JEZlY3rUiOnOfuzkng4uVwS7OFzcYLUIkJH1fgd+RqM3FMIpy2NUPDrv+cXwso9dII4/Dh48eqo87Qe4foWJ6pGIGOhzeYuZ2lwEOIJUraE36rxWoApyHFJ8fuRVbRsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM6PR04MB11268.eurprd04.prod.outlook.com (2603:10a6:20b:6d1::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Wed, 9 Sep 2026
+ 18:46:10 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Wed, 9 Sep 2026
+ 18:46:09 +0000
+Date: Wed, 9 Sep 2026 13:45:57 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Eberhard Stoll <eberhard.stoll@kontron.de>
+Subject: Re: [PATCH 1/9] ARM: dts: imx6ul-kontron-bl-common: Replace UART3
+ with DIP switch GPIOs
+Message-ID: <aqGpZQlbFHD_-hVg@SMW015318>
+References: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de>
+ <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-1-4d0e8a75db79@kontron.de>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8207cba6-a6e0-38e6-a1bd-6f4453651793@igalia.com>
+In-Reply-To: <20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-1-4d0e8a75db79@kontron.de>
+X-ClientProxiedBy: PH8PR02CA0045.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM6PR04MB11268:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7da11d90-382f-4dde-59c5-08df0ea29d13
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|23010399003|22082099003|18002099003|56012099006|10067099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: HtSeCwd4A536vACWrzV/+LCJ9UCSKlHDgQcBjfMyAmrQ7SBPAmR5tzWxhFQJCRVlNPQXZ1r38pWTPquQDnJb/J+2ZHgKm2zm7zx0Dt0pLYPTliqjOkKuYQS4DdWg9lmWyYt+uXvo8zri503xT4IcYZ+aVeyGDb8u+Jp/Cw+LbmxINdVI+jxofPa+Y+ossI0V4kC5KOZdDTOTmHFrXrqxEqJD4q81fnDX6M/yX2IBQCoWymCM49Poti/DEZxlIgHdMMfwOhwPBU50xrJ2Nl3TDJH0yXUgfdGesl6+dxASlrWyZgP0mJtbQj9L1pgw/sRKgcyTvKmRn3dS0Zh0RcWXRgU5LQI1+eUQ6vjvANElmzJdiIXcgWROMzQiSQuXYoNDRxk4l7ohMsWoNjF0m4WrfP71I1Vr8yRdn5+HRt0RhOCKyKuWPeXZOhdijOTnZ72Y2WZ3lN5sVusQU2tLpjAbvWelhJU7zLC6bckZbjtprktj9eFYwX93XNCKcbpM4CFgT+1oJsS1j7x/mDtO1PORrslR9y3DojH/4z3o/T7wLcLbh7u+UbdlpEpGmXnmQ2XoPKL8JfSs+sBuXuhWPD/h/erPqYSJ0+kuEJwnQnMxLeYn05lTjlA7lRgJfEwh32NkR0bGbSp/11zVlUGoh0jw43zxYf17bN+/E+57I/xkoVA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kbPyK1upnUS3k6m3len73SfIL1M/NtpCCgeVPtnDIKX71K1Nb95ZGgEURuC9?=
+ =?us-ascii?Q?jZLJh9qAvg6hOlrvpKeYykZs2y1O//7p4O/tFt9DfW/aJmwPhGLgYA9ADvG8?=
+ =?us-ascii?Q?y364MMZW95kIc6eos9dcAPW00oXThahKALtMfyf+dizKrKh9nuRQECliXtLi?=
+ =?us-ascii?Q?RZcktEFsF95tXFCL34K8RaUIW2AGqRhO4CbdNJLy5/kGHq+jkFlKFdbNB3Nx?=
+ =?us-ascii?Q?MgAZawdVpvOBzdI3tpN0inNkReVHn//ax7JGH4mNCQNFwyFQUBSEaiWbdqXf?=
+ =?us-ascii?Q?yoZM7NM/uZtnZthB836HIKQOhu9O1GH5RQkbmAz6iGzCKt3PhaVcfYOzFi4/?=
+ =?us-ascii?Q?6nZEupNPDpCs/vzC06ohhn6jNFvPQV9SuOvdxcOtrjnLA3HxQK/Knd/BXmxv?=
+ =?us-ascii?Q?pFecs8gU7+8cuayU69odYmLxnM4OMPeM6GK9+jLlUz8go/lmUytNRMxSE4sk?=
+ =?us-ascii?Q?nus4HD21s/yjPSIocoZ8UpSlW20e9FpTOc2xbuiuojlxb6OaIxaBG+Qdx3n+?=
+ =?us-ascii?Q?y+S9/I1oymHz4XZC/Ajgj0jEndDgRGVhDUwVAGs9wgTvnqapU+PFxobaaEYO?=
+ =?us-ascii?Q?zCNYMO/KtAJs5stBF3Jz1C/uk9QFt+hZrSnwqDC4ZmjQ6ntXPePOKlR8JT/C?=
+ =?us-ascii?Q?O73cu8K/OrYFZzJau6MZYNMSlIXF2Rf+abeEG4lfdlu12UkTyf4r1RgkjpsU?=
+ =?us-ascii?Q?HLTw709Zjsg6sitmOInq/HlmkOBoTsbiAw4N6wpxFKgupApCvpMDq7HWt2RV?=
+ =?us-ascii?Q?ASOSnSA4R7rbBN8UFHAufDbLgJGVFVqy+Lc73khiKvYJkfpo+iW6wmzntA96?=
+ =?us-ascii?Q?sExfZ7bh0XEn+ek5Gf3v2NWW7KHlLNMkFP9m23wiMndjt4EEXJbrSQfYvoNx?=
+ =?us-ascii?Q?2H5XwBfplcbAjQqVqFcHuHNLYvnIgXrTYZgBD4lcsws6NORk4QE1WCma1oLM?=
+ =?us-ascii?Q?1VME86UtLiHJ2QcJntv2pBChzI8/dzQcYXJizChj31tgEBcBfpYecswpWajp?=
+ =?us-ascii?Q?4T7WsGVjeXNr8q13pwKYAuloncgcnxTxdlvv5LHvQ3+6dkoDTA+WRjToa45e?=
+ =?us-ascii?Q?KisIxOmd4dRhiErtyGjnVuMB2WhEGhhJaW8oGQJsMLp+v2WppTH+S2IA8dbB?=
+ =?us-ascii?Q?E/cK6yzspW1lm4h8rHBUtbvznyImBvJZjJS+TqwQoYyDBc+J14So5JuQ8qrs?=
+ =?us-ascii?Q?Tqx0XnSx5J6+K8Ag9MKGAN5hdZPyFISd1CZlc15m3GtT95HpHqmqEOnyxO2H?=
+ =?us-ascii?Q?SpI8ChTmHn0vraftPSdFodVB1GaaTdkFYmkBcswiaQXH/iAX+gv699t9nT3t?=
+ =?us-ascii?Q?GphB4I+YjtUKy0YBCfEKUchNw1B/ImQeJXEn0ymiwiUEt9a/v8bjkvw863HZ?=
+ =?us-ascii?Q?XdGX8i0zSwKw1xbHNUXGnoSzIzY5QH5gdG9GmQF8VS8b/wGVDNsPVHyZ8sP5?=
+ =?us-ascii?Q?UVvqy3oFRF+4zDS2bGX7mhb/Yg8ezTyizZzA9y3zHxQKdX8M7UczFXeRhChh?=
+ =?us-ascii?Q?WA5bJ5PZHSDvtD59zRDGu4a3pBcvOBWtmy4mzuYpgTpS98osxD0MKZIaTGGV?=
+ =?us-ascii?Q?/trAsr4aHnuI6FntLVwJUdq4q0fAERZ0yBNk17KOwpiXCRbAKcTDGuDn5Lm0?=
+ =?us-ascii?Q?X9ejuH1xyGM4XWkr/ncS6BGjAnIqo++Ke/G+sy20tG+AUp2rxAGCdAHTOwA6?=
+ =?us-ascii?Q?9iIEQ5yNOoZMvw3/Mjk/5hg3O5E9Lvddo8okhaYkvb1eX8YJlLrLzkU9Du+L?=
+ =?us-ascii?Q?huWVixRySmzBB78Kzr8sUC/GqCfJT0jaz9gLi0dn1oJb1QMiYCXW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7da11d90-382f-4dde-59c5-08df0ea29d13
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Sep 2026 18:46:09.7498
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kbpneEe2Bg49pvjH/Vx84+Lh6/9OYyyjoHvNNG4k5+OHQwfVFT9ox681qAbq/fv5zXtpVgIjqCM5Wvxn2l9q69+z5RbMpyT5eGCtzofYCcmT+jKpkS5mIBK3pEWAoIZd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM6PR04MB11268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_113837_359105_FF55F6FD 
-X-CRM114-Status: GOOD (  35.08  )
+X-CRM114-CacheID: sfid-20260909_114616_919835_4AA89DFF 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +144,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guilherme,
+On Tue, Sep 08, 2026 at 03:51:48PM +0200, Frieder Schrempf wrote:
+> From: Eberhard Stoll <eberhard.stoll@kontron.de>
+>
+> The latest board revision has DIP switches and lacks UART3 instead.
+> As the old revision has long been deprecated and not maintained
+> anymore, drop the support and reflect the current state of the
+> hardware. As the old revision hasn't been widely used, UART3 was
+> only available through an obscure extension connector and we have
+> carried this patch downstream for years, no users are expected to
+> be affected by this change.
 
-On Mon, Aug 17, 2026 at 11:48:28AM -0300, Guilherme G. Piccoli wrote:
-> On 17/08/2026 05:51, Catalin Marinas wrote:
-> > On Sun, Aug 16, 2026 at 10:51:12AM +0100, Will Deacon wrote:
-> >> On Sat, Aug 15, 2026 at 12:19:32PM -0300, Guilherme G. Piccoli wrote:
-> >>> The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
-> >>> the mode userspace is running:
-> >>>
-> >>> - For native/arm64 mode, this register is always 0 from the userspace
-> >>>   perspective. In the kernel, it is used during ventry (entry.S) as
-> >>>   a scratch register, related to KPTI (stashes x30 in fact).
-> >>>
-> >>> - For 32-bit compat tasks, this register holds the TLS userspace pointer,
-> >>>   and is not used for KPTI or anything else in entry.S. This is ABI and
-> >>>   userspace can count on having a valid TLS pointer there.
-> >>>
-> >>> Happens that other operating systems follow a similar approach than 32-bit
-> >>> compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin)[1],
-> >>> this register is used to hold the running CPU of the current task, hence
-> >>> offering a very fast / non-syscall way for a given task to figure its
-> >>> running CPU id.
-> >>
-> >> I don't think we should allocate TPIDRRO_EL0 for this as it precludes us
-> >> using it for anything else in the future. If you want the current CPU,
-> >> then I think you're better off using either rseq (which I thought could
-> >> do this) or looking at reviving the vDSO work you mention (but that has
-> >> unresolved limitations iirc).
-> > 
-> > Indeed. IIRC glibc already implements getcpu() using rseq.
-> 
-> Hi Will / Catalin / all,
-> first of all, thanks for your prompt responses!
-> 
-> I'm a bit confused on what "using the register" means here.
+Remove "we have carried this patch downstream for years".
 
-One example is Mark's patchset from 2020 you mentioned. While they were
-intended as a fast getcpu(), the idea for TPIDRRO was to hold some
-offset into a data structure rather than the raw smp_processor_id() (for
-future expansion, e.g. task pid). In the meantime we got rseq and never
-continued that series.
+>
+> Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> ---
+>  .../boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi  | 21 +++++----------------
+>  1 file changed, 5 insertions(+), 16 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+> index f4c45e964daf..a71669bef7d4 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
+> @@ -172,13 +172,6 @@ &uart2 {
+>  	status = "okay";
+>  };
+>
+> -&uart3 {
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pinctrl_uart3>;
+> -	uart-has-rtscts;
+> -	status = "okay";
+> -};
+> -
+>  &uart4 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_uart4>;
+> @@ -283,6 +276,11 @@ MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x1b0b0	/* DOUT1 */
+>  			MX6UL_PAD_SNVS_TAMPER4__GPIO5_IO04	0x1b0b0	/* DIN1 */
+>  			MX6UL_PAD_SNVS_TAMPER1__GPIO5_IO01	0x1b0b0	/* DOUT2 */
+>  			MX6UL_PAD_SNVS_TAMPER0__GPIO5_IO00	0x1b0b0	/* DIN2 */
+> +
+> +			MX6UL_PAD_UART3_TX_DATA__GPIO1_IO24	0x1b0b0	/* CAN_ADR0 (DIP sw 1) */
+> +			MX6UL_PAD_UART3_RX_DATA__GPIO1_IO25	0x1b0b0	/* CAN_ADR1 (DIP sw 2) */
+> +			MX6UL_PAD_UART3_CTS_B__GPIO1_IO26	0x1b0b0	/* CAN_ADR2 (DIP sw 3) */
+> +			MX6UL_PAD_UART3_RTS_B__GPIO1_IO27	0x1b0b0	/* CAN_ADR3 (DIP sw 4) */
 
-TBH, I think the Wine or FEX use-case is fairly narrow to give up on
-other potential uses for TPIDRRO.
+supposed header overlay or real user should set it. otherwise, the real
+user set it will be failure because pin conflict.
 
-> We have 2 ways of using it, IIUC:
-> 
-> a) Use it as it's already used today! On kernel space, this register is
-> kinda free, right? Currently, it's used as the scratch, in the entry.
-> But nothing prevents other usages, given that, as the final step of exit
-> to EL0, it's restored to the value of the CPU id. So, AFAIU, it's fair
-> use on kernel space with or without this patch.
-> 
-> b) Use as in "expose something else to userspace". Is it OK doing that,
-> even the ARM specification mentioning
-> 
-> "Purpose
-> Provides a location where software executing at EL1 or higher can store
-> thread identifying information that is visible to software executing at
-> EL0, for OS management purposes." ?
-> 
-> Or do you mean exposing **different information** than the pure CPU id,
-> but still related with thread information?
-
-It might be a thread or CPU specific value but without any guaranteed
-ABI to be read directly. Something to be used internally by the vDSO.
-
-> Would it be better if we guard this usage with a Kconfig? Or as Ryan
-> already said, prctl flag or another idea?
-
-No, that's bad ABI to depend on Kconfig or prctl() for different views
-of this register.
-
-> Finally, I would like to reinforce / disambiguate things here (though
-> Ryan already mentioned): rseq or vDSO **are not** valid resources for
-> our use case. What we are really interested is in having this register
-> filled with CPU id.
-
-Yes, and we have other parties interested in this register for more vDSO
-uses. IIUC, you'd not be able to use a getcpu() vDSO implementation
-either, so it won't help you.
-
-Not really familiar with Wine but can it not implement
-GetCurrentProcessorNumber() using rseq? Or do you try to handle actual
-MRS directly? If the latter, any way to patch the instruction to a BRK
-and handle the trap? If it's on a fast path, can you branch to a stub
-that reads the rseq cpu id (offset from TPIDR) and branches back? You'd
-need one stub per MRS.
-
--- 
-Catalin
+Frank
+>  		>;
+>  	};
+>
+> @@ -334,15 +332,6 @@ MX6UL_PAD_NAND_DATA07__UART2_DCE_RTS	0x1b0b1
+>  		>;
+>  	};
+>
+> -	pinctrl_uart3: uart3grp {
+> -		fsl,pins = <
+> -			MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX	0x1b0b1
+> -			MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX	0x1b0b1
+> -			MX6UL_PAD_UART3_CTS_B__UART3_DCE_CTS	0x1b0b1
+> -			MX6UL_PAD_UART3_RTS_B__UART3_DCE_RTS	0x1b0b1
+> -		>;
+> -	};
+> -
+>  	pinctrl_uart4: uart4grp {
+>  		fsl,pins = <
+>  			MX6UL_PAD_UART4_TX_DATA__UART4_DCE_TX	0x1b0b1
+>
+> --
+> 2.55.0
+>
+>
 
