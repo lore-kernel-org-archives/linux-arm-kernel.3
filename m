@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142D3C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B799C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 00:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cddY/E/7oRehQlouyl/DN8qA56tsyMqy79qmg1Igs+8=; b=WGTV32aTeJP3Wt68Vytj/J+Ujn
-	zXz9ld4xtaU7gi0xXZlOvfjOt6mDdt3amhKXgdFsaR4uFTDjLic4EEWe36SgrHcGVfWimZgnSnDg5
-	vacwSuCvYvXT46enKNj2p7CDvLk82Ai7qYxXOAH/eC0CFXrKkeSVAFuriYq0PLiIvOk9K35v1uO24
-	uj8Qady/O4Pv+1JIwH+OeE0yRGvFphs7tzPisc1KmsM8Z6ITz91n9r4QqaIcAzERUjXc0hEwJQOvG
-	ywH4GBFXlDUnfMZUiwLWPgqPG31sxznP7jpMgANRjPt9YP41me8xjkEr4s2xOJbCmmrYaaAMTnw1a
-	mEANekpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jSmq3oCnp2YAGwPRamuT28dFabYmGkAvDYbBsJAm1ms=; b=X6BBixyhabWiYReAY/qGdBTLZ9
+	UI0ch0Wjcz5YW2QTC/yHkoL3BTYwB4s6Tj2HB92AM1G03kOaUvn21xJM7vM5jvUBsp3UV9ObcmcKs
+	CYXbyrekm21sPl/Kljl/0EKCVHT+18gfv4df1CJci5oWUru01VuANvmBoTruBT3w2KwzXbv7aFJoN
+	cf5jz1LGffQ3KRcXUNpTvJD2Osu/wmXNjPKhefuMrZ482HntAsvPI76n5txAgJC0RQc6mPEmXsnzA
+	bbXgqkyfvNn8SV9UPUb6BciZ9mHDGmwUwJBYcyPBUvsLv4MQvszmJ7YC+zdIwiqXqZ4PvFK67Q2wX
+	lfm0HAww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Tt-0000000AXZE-009r;
-	Wed, 09 Sep 2026 00:48:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x46V8-0000000AXle-1imb;
+	Wed, 09 Sep 2026 00:49:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x46Tr-0000000AXYi-3ltk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 00:48:04 +0000
+	id 1x46V6-0000000AXkg-3P29;
+	Wed, 09 Sep 2026 00:49:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 572E5601FD;
-	Wed,  9 Sep 2026 00:48:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C75B1F00A3A;
-	Wed,  9 Sep 2026 00:48:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41F5C601FD;
+	Wed,  9 Sep 2026 00:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7802D1F00A3A;
+	Wed,  9 Sep 2026 00:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788914883;
-	bh=cddY/E/7oRehQlouyl/DN8qA56tsyMqy79qmg1Igs+8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FmoyUQxnjrOmLwR9wtu1tfMcUvoUAK7aHOe0zGY7o1lAk1In7MJKsAUTNjNwGpWAP
-	 R+63GdSzxTEJpyZovpST4EtPcgMH/VQXADlIVVlc7tBhrexJwfzdmdjQ++gTRPqTs3
-	 WzvTj02nLN8zf+tRjXv9JX7uwrIUCQq3rtcVyJ8ByMRAWce5aVBD1TI6je1Z1zn5js
-	 Qo871Tgx5BqRs9X7o1RSl8ydMZodEvfrnTtDogJ7lfOCMF/7HAOiWQSmwy3m0fNQfm
-	 /9i2glVvjwF684PN2c5Ii0UJTNgH7/OK59IeO15IqrKjvBSPUciIbc0VixVoD/e4LU
-	 5kRxH5+6Pn6Kg==
-Subject: Re: [PATCH net-next v2] net: stmmac: fix error path cleanup in DMA
- descriptor ring allocation
-From: netdev-bot+sashiko@kernel.org
-To: dinghui1111@163.com
-Cc: andrew@lunn.ch, maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
- liuxuanjun@lixiang.com
-Date: Wed, 09 Sep 2026 00:48:01 +0000
-Message-ID: <178891488143.219967.12581003227734181738@kernel.org>
-In-Reply-To: <20260905154654.1725313-1-dinghui1111@163.com>
-References: <20260905154654.1725313-1-dinghui1111@163.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	s=k20260515; t=1788914960;
+	bh=jSmq3oCnp2YAGwPRamuT28dFabYmGkAvDYbBsJAm1ms=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=B2yAef8KtyR421Rf1tDcWdczuhbM0kb1hvxrobN/ZkUmZ8zE4DdPV79APxzELRFdm
+	 5WJtJknInPlJctDcCG13XIWNnD4OO4oSP0pAsXOvLkoiyXOMK98VF0nA+pdyS7IREf
+	 6WTF6cXyWXpFCY2bxpfwU6Vn7pFB1WbsUvvIwJq3cgtcMulMaPaFcaMgbGmq+1IDqg
+	 m5LXK0V+E9jet95Fz0cUDdEOWRr4g4eoaI16FHH3B/zkYfRnMFwz8h4R3P9XonoVw0
+	 SdJi35BygJFlz3IbgIL5nnYVGRqS0Egrik6OiM4VF/4naLPKoNARkKzEs3lEToksMC
+	 /EOhwKpE7ygfg==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v5 7/9] crash_dump: Check the function return codes in
+ restore_dm_crypt_keys_to_thread_keyring
+To: "Coiby Xu" <coiby.xu@gmail.com>
+Cc: "Andrew Morton" <akpm@linux-foundation.org>, "Will Deacon" <will@kernel.org>, kexec@lists.infradead.org, "Pratyush
+ Yadav" <pratyush@kernel.org>, "Dave Young" <ruirui.yang@linux.dev>, "Mike
+ Rapoport" <rppt@kernel.org>, linux-arm-kernel@lists.infradead.org, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, "Baoquan He" <baoquan.he@linux.dev>, "Sourabh
+ Jain" <sourabhjain@linux.ibm.com>, "open list" <linux-kernel@vger.kernel.org>, "Jinjie
+ Ruan" <ruanjinjie@huawei.com>
+In-Reply-To: <20260909003657.1570544-8-coiby.xu@gmail.com>
+References: <20260909003657.1570544-1-coiby.xu@gmail.com>
+ <20260909003657.1570544-8-coiby.xu@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 09 Sep 2026 00:49:19 +0000
+Message-Id: <20260909004919.7802D1F00A3A@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,254 +69,179 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider:
+Thank you for your contribution! Sashiko AI review found 6 potential issue(=
+s) to consider:
 
-Critical: 0 · High: 1 (1) · Medium: 0 (1) · Low: 1
-
-- [High] The newly added NULL guards encode the contract 'NULL == not
-  allocated', but the free helpers never establish it:…
-- [Low] Missing `Fixes:` tag (and no stable routing) on a patch that
-  fixes a user-visible NULL-pointer dereference.
+New issues:
+- [Medium] Memory and reference leak of the key returned by key_create_or_u=
+pdate() on the success path.
+- [Medium] Incorrect return value assignment from `dm_crypt_keys_read()` br=
+eaks the caller's success check for empty key sets.
 
 Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch
-  makes it deterministic: `stmmac_enable_rx_queue()`…
-- [Medium] This problem wasn't introduced by this patch, but the sibling
-  error path in `alloc_dma_desc_resources()` (stmmac_main.c:2445-2457)…
-
+- [High] Missing validation of `dm_crypt_keys_addr` leads to arbitrary memo=
+ry reads.
+- [High] Buffer over-read from single mapped page in get_keys_from_kdump_re=
+served_memory().
+- [High] Missing validation on parsed key attributes leads to massive Heap =
+Out-of-Bounds reads and Information Leak.
+- [Medium] Double fetch of the key count from untrusted memory leads to Hea=
+p Out-of-Bounds read.
 --
 
-net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+commit e9dcb18898d315e8ec7102932e9391f9c0892b97
+Author: Coiby Xu <coiby.xu@gmail.com>
+Subject: crash_dump: Check the function return codes in restore_dm_crypt_ke=
+ys_to_thread_keyring
 
-This makes __alloc_dma_rx_desc_resources() and
-__alloc_dma_tx_desc_resources() unwind their own partial allocations on
-failure, and adds NULL checks in the buffer free helpers so they can be
-called on partially-initialized queues.
+This commit adds return code checking for dm_crypt_keys_read() and
+add_key_to_keyring() to properly abort when reading old memory or
+allocating a keyring fails. It also deletes unused code related to
+the key reference.
 
-A few questions below about the new error paths and the surrounding
-callers.
-
-[Severity: Low]
-The commit message describes three concrete NULL dereferences that are
-reachable today, when a kzalloc_objs() inside
-__alloc_dma_rx_desc_resources() / __alloc_dma_tx_desc_resources() fails
-and the err_dma: labels in alloc_dma_rx_desc_resources() /
-alloc_dma_tx_desc_resources() run the bulk free helpers over every
-queue.
-
-Should this carry a Fixes: tag so it can be routed to the stable trees?
-Without one it is hard for a backporter to tell how far back the
-dereference exists.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 07a6fab6460ed..8d03eb7904ef1 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -1761,6 +1761,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
->  	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
->  	int i;
->  
-> +	/* buf_pool may not be allocated if alloc failed early */
-> +	if (!rx_q->buf_pool)
-> +		return;
-> +
->  	for (i = 0; i < dma_conf->dma_rx_size; i++)
->  		stmmac_free_rx_buffer(priv, rx_q, i);
->  }
-
-[Severity: High]
-These new guards assume "NULL means not allocated", but do the free
-helpers ever establish that? __free_dma_rx_desc_resources() releases
-everything without clearing the fields:
-
-	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-
-	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
-		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
-
-	kfree(rx_q->buf_pool);
-	if (rx_q->page_pool)
-		page_pool_destroy(rx_q->page_pool);
-
-__free_dma_tx_desc_resources() does the same for tx_skbuff_dma,
-tx_skbuff and the coherent TX ring.
-
-That matters because these helpers also run on the long-lived
-priv->dma_conf, and it is re-used for the next allocation:
-
-  stmmac_xdp_set_prog()
-    stmmac_xdp_release()
-      free_dma_desc_resources(priv, &priv->dma_conf)   /* pointers stay set */
-    stmmac_xdp_open()
-      alloc_dma_desc_resources(priv, &priv->dma_conf)
-
-Unlike stmmac_open(), which works on a freshly kzalloc'ed dma_conf,
-nothing zeroes priv->dma_conf here. So if any per-queue allocation fails
-mid-way (for example page_pool_create() for queue 1, which is the one
-early return this patch leaves as-is), alloc_dma_rx_desc_resources()
-jumps to err_dma: and free_dma_rx_desc_resources() loops over all queues
-0..rx_queues_to_use-1:
-
-	for (queue = 0; queue < rx_count; queue++)
-		__free_dma_rx_desc_resources(priv, dma_conf, queue);
-
-The queues that were not touched in this pass still hold the pointers
-freed by the preceding release. Since those pointers are freed but not
-NULL, does the new guard fire at all for them?
-
-Following that path through, stmmac_free_rx_buffer() would read
-buf->page out of the freed buf_pool object and pass it to
-page_pool_put_full_page() on an already-destroyed pool, then
-dma_free_coherent() runs a second time on the released coherent memory,
-kfree(rx_q->buf_pool) becomes a slab double free, and
-page_pool_destroy(rx_q->page_pool) is called on a freed pool. Can that
-corrupt the slab and DMA state?
-
-The TX side looks symmetric via the new "if (!tx_q->tx_skbuff_dma)
-return;" guard and the tx_skbuff/xdpf tests added in
-stmmac_free_tx_buffer().
-
-Would it make sense for __free_dma_rx_desc_resources() and
-__free_dma_tx_desc_resources() to NULL the fields they free, so the new
-guards actually hold?
-
-[ ... ]
-
-> @@ -2296,10 +2312,27 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
->  	if (ret) {
->  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
-> -		return -EINVAL;
-> +		goto err_free_dma;
->  	}
->  
->  	return 0;
-> +
-> +err_free_dma:
-> +	if (priv->extend_desc)
-> +		dma_free_coherent(priv->device, size, rx_q->dma_erx,
-> +				  rx_q->dma_rx_phy);
-> +	else
-> +		dma_free_coherent(priv->device, size, rx_q->dma_rx,
-> +				  rx_q->dma_rx_phy);
-> +	rx_q->dma_erx = NULL;
-> +	rx_q->dma_rx = NULL;
-> +err_free_buf_pool:
-> +	kfree(rx_q->buf_pool);
-> +	rx_q->buf_pool = NULL;
-> +err_destroy_pool:
-> +	page_pool_destroy(rx_q->page_pool);
-> +	rx_q->page_pool = NULL;
-> +	return ret;
->  }
-
-[Severity: High]
-This isn't a bug introduced by this patch, but does the patch turn it
-into a deterministic NULL dereference?
-
-stmmac_enable_rx_queue() and stmmac_enable_tx_queue() return void and
-simply drop the allocation error:
-
-	ret = __alloc_dma_rx_desc_resources(priv, &priv->dma_conf, queue);
-	if (ret) {
-		netdev_err(priv->dev, "Failed to alloc RX desc.\n");
-		return;
-	}
-
-After the new labels above, the failed queue is left with
-rx_q->buf_pool == NULL, rx_q->page_pool == NULL and
-rx_q->dma_rx/dma_erx == NULL (tx_skbuff and tx_skbuff_dma on the TX
-side).
-
-The caller in stmmac_xdp.c continues regardless:
-
-	stmmac_enable_rx_queue(priv, queue);
-	stmmac_enable_tx_queue(priv, queue);
-	napi_enable(&ch->rxtx_napi);
-
-	err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
-
-and stmmac_xsk_wakeup() reaches __napi_schedule(&ch->rxtx_napi). Its
-only precondition is:
-
-	if (!rx_q->xsk_pool && !tx_q->xsk_pool)
-		return -EINVAL;
-
-which does not help here, because dma_free_tx_skbufs() only clears
-tx_q->xsk_pool when xsk_frames_done is non-zero.
-
-Does the scheduled poll then dereference rx_q->buf_pool[entry] and
-tx_q->tx_skbuff_dma[entry] in softirq context on a queue whose arrays
-were just set to NULL? Should the enable helpers propagate the error and
-skip the napi_enable()/wakeup instead?
-
-[ ... ]
-
-> @@ -2369,6 +2402,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
->  		tx_q->dma_tx = addr;
->  
->  	return 0;
-> +
-> +err_free_skbuff:
-> +	kfree(tx_q->tx_skbuff);
-> +	tx_q->tx_skbuff = NULL;
-> +err_free_skbuff_dma:
-> +	kfree(tx_q->tx_skbuff_dma);
-> +	tx_q->tx_skbuff_dma = NULL;
-> +	return -ENOMEM;
->  }
->  
->  static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+> diff --git a/kernel/crash_dump_dm_crypt.c b/kernel/crash_dump_dm_crypt.c
+> index b8fe630462cfa..bc70fbb79e0f6 100644
+> --- a/kernel/crash_dump_dm_crypt.c
+> +++ b/kernel/crash_dump_dm_crypt.c
+> @@ -66,7 +66,7 @@ static int add_key_to_keyring(struct dm_crypt_key *dm_k=
+ey,
+>  			      key_ref_t keyring_ref)
+>  {
+>  	key_ref_t key_ref;
+> -	int r;
+> +	int r =3D 0;
+> =20
+>  	/* create or update the requested key and add it to the target keyring =
+*/
+>  	key_ref =3D key_create_or_update(keyring_ref, "user", dm_key->key_desc,
+> @@ -74,8 +74,6 @@ static int add_key_to_keyring(struct dm_crypt_key *dm_k=
+ey,
+>  				       KEY_USR_ALL, KEY_ALLOC_IN_QUOTA);
+> =20
+>  	if (!IS_ERR(key_ref)) {
+> -		r =3D key_ref_to_ptr(key_ref)->serial;
+> -		key_ref_put(key_ref);
+>  		pr_debug("Success adding key %s\n", dm_key->key_desc);
 
 [Severity: Medium]
-This is a pre-existing issue, but the sibling function in the same
-family still does not follow the rule the commit message states, namely
-"making each allocation function responsible for undoing its own
-allocations on error".
+Does removing key_ref_put() here leak the key reference?
 
-alloc_dma_desc_resources() allocates RX first and returns the TX error
-directly:
+key_create_or_update() returns a key reference specifically for the caller
+with an incremented usage count, so without key_ref_put(), the key's usage
+count might be permanently elevated, preventing it from ever being garbage
+collected.
 
-	int ret = alloc_dma_rx_desc_resources(priv, dma_conf);
+>  	} else {
+>  		r =3D PTR_ERR(key_ref);
 
-	if (ret)
-		return ret;
+[ ... ]
 
-	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
+> @@ -134,9 +132,14 @@ static int restore_dm_crypt_keys_to_thread_keyring(v=
+oid)
+>  	}
+> =20
+>  	addr =3D dm_crypt_keys_addr;
+> -	dm_crypt_keys_read((char *)&key_count, sizeof(key_count), &addr);
+> +	ret =3D dm_crypt_keys_read((char *)&key_count, sizeof(key_count), &addr=
+);
 
-	return ret;
+[Severity: High]
+This is a pre-existing issue, but is it safe to read from dm_crypt_keys_addr
+without verifying if it was ever initialized by the command-line argument?
 
-On TX failure only free_dma_tx_desc_resources() has run (inside
-alloc_dma_tx_desc_resources()), so every rx_q->page_pool,
-rx_q->buf_pool and coherent RX ring is still allocated. The caller then
-takes the alloc_error: path:
+If the kdump kernel is booted without the dmcryptkeys=3D parameter,
+dm_crypt_keys_addr might remain 0, leading to arbitrary memory reads
+when this sysfs attribute is triggered.
 
-init_error:
-	free_dma_desc_resources(priv, dma_conf);
-alloc_error:
-	kfree(dma_conf);
-	return ERR_PTR(ret);
+> +	if (ret < 0) {
+> +		pr_err("Failed to read the number of dm-crypt keys\n");
+> +		goto out;
+> +	}
+> +
 
-which only kfree()s dma_conf and drops the only pointers to those RX
-resources; free_dma_desc_resources() is reached only via init_error:.
+[ ... ]
 
-Does this leak the RX page pools, the buf_pool arrays and the
-dma_alloc_coherent RX rings when a TX allocation fails during ifup or an
-MTU change? stmmac_xdp_open() has the same shape, except the resources
-stay reachable through priv->dma_conf, which feeds into the stale
-pointer question above.
+> @@ -151,12 +154,18 @@ static int restore_dm_crypt_keys_to_thread_keyring(=
+void)
+>  		goto out;
+>  	}
+> =20
+> -	dm_crypt_keys_read((char *)keys_header, keys_header_size, &addr);
+> +	ret =3D dm_crypt_keys_read((char *)keys_header, keys_header_size, &addr=
+);
 
-Would adding a free_dma_rx_desc_resources() call to
-alloc_dma_desc_resources() on the TX failure path fit the pattern this
-patch establishes?
+[Severity: Medium]
+If dm_crypt_keys_read() succeeds, it returns a positive byte count which is
+assigned to ret. If there are no keys and the loop below doesn't execute,
+will this function incorrectly return a positive value instead of 0?
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260905154654.1725313-1-dinghui1111%40163.com
+The caller config_keys_restore_store() expects !ret to set restore =3D true,
+which would fail if ret is a positive byte count.
+
+> +	if (ret < 0) {
+> +		pr_err("Failed to read dm-crypt keys\n");
+> +		goto out;
+> +	}
+> =20
+>  	for (int i =3D 0; i < keys_header->total_keys; i++) {
+
+[Severity: Medium]
+This is a pre-existing issue, but does the second read from oldmem physical=
+ly
+overwrite keys_header->total_keys with unvalidated data?
+
+If oldmem changes concurrently or the read partially fails, the newly fetch=
+ed
+total_keys can exceed the originally validated key_count. The loop bounds
+check uses this unvalidated bound, potentially causing a heap out-of-bounds
+read.
+
+>  		key =3D &keys_header->keys[i];
+>  		pr_debug("Get key (size=3D%u)\n", key->key_size);
+> -		add_key_to_keyring(key, keyring_ref);
+> +		ret =3D add_key_to_keyring(key, keyring_ref);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but are key->key_size and
+key->key_desc validated before being passed to add_key_to_keyring()?
+
+The completely untrusted key_size is passed as the payload length to
+key_create_or_update(), which might read far out-of-bounds from dm_key->data
+and embed leaked kernel heap memory into the key payload. Additionally,
+key_desc is not checked for null-termination.
+
+> +		if (ret)
+> +			break;
+>  	}
+
+[ ... ]
+
+While reviewing this file, I also noticed another pre-existing issue in
+get_keys_from_kdump_reserved_memory():
+
+kernel/crash_dump_dm_crypt.c:get_keys_from_kdump_reserved_memory() {
+    ...
+	keys_header_loaded =3D kmap_local_page(pfn_to_page(
+		kexec_crash_image->dm_crypt_keys_addr >> PAGE_SHIFT));
+    ...
+	memcpy(keys_header, keys_header_loaded, keys_header_size);
+    ...
+}
+
+[Severity: High]
+This isn't a bug introduced by this patch, but does this memcpy() read
+past the boundaries of the mapped page?
+
+kmap_local_page() establishes a mapping for exactly one page (4096 bytes),
+but keys_header_size could be up to ~49KB. This will read far beyond the
+single page boundary, potentially causing a kernel panic on architectures
+where kmap_local_page() does not fall back to the direct map.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260909003657.1570=
+544-1-coiby.xu@gmail.com?part=3D7
 
