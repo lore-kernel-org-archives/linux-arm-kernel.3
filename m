@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD39C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F124C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Sep 2026 14:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdGQNBbV5rgyR6AC1v+rMzMBWuTn1mX6O2sJk9ZzEuI=; b=Y/kgxvnm6vOHSC1XJk5d+0XQRh
-	KUenSoxiLJ7L+XBNRza7lLZDuZTIdoPlHZ7qbNykMaYS0McconqkUllqusixB/J1uYUDeuAqDiak3
-	98ipESs+By20GVNk4WhgGNPp8+ORN6XTqCwktu6Ru4PxhA7xZx8P1tigVMN5UQpnoVRLeuQS7XVTe
-	2Y+qPQ4qfM86vDfi2qFnnbSy/S04d69Dx8gYw9VnoseshlRqoJmWL+Y+3TF4qQMKI5Z1f3zGLp5yg
-	2Q6YdMlIlS7cu5yojWVNHLMaqbIlLFjTorb/Bjsm6QS84Rf26j4njQKjsmqVyHTcrnGGywbszt5ir
-	gV5H7fsw==;
+	bh=lgmQbNDE6udjGQNjpfhdi1UAeRbSGHZuGtlT9/GjdAw=; b=xE01fvU5J2nxqOY7Al+Vb0BZcN
+	Tra6C4UzY3Xe75LL/kYpDj3K8QXaAeSuScx4R1oWa4VgTbDIBDDzs+wzMO+ErM/cdwlgoXx3qtYsw
+	1lYNpBwUS7ZabPpLJU7+ood4Lve1vYJyfxk5dE/QS9/unHawVYZDwAbWzQapPNb4MMtjReAeVMaL3
+	EGTHrTiv3N8HjaEeG4rDn9LeLQbSaKlZepYrg1aycEf8i8/rJjltvRaJGNuXOuD48lrkJnYBRwu0j
+	VXwyYuxt3hry0bbKLSFkvuZkekHSqRkViVr9s12hPMaqx3Mqxz1dcaSg91hVELOqS/dEE7Er2SHBq
+	tqa6AuuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Irn-0000000Brv0-1E35;
-	Wed, 09 Sep 2026 14:01:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4Is0-0000000BryQ-1r61;
+	Wed, 09 Sep 2026 14:01:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Irl-0000000Brum-1LOS
+	id 1x4Iry-0000000Brxe-1pD3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Sep 2026 14:01:33 +0000
+	Wed, 09 Sep 2026 14:01:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16540401AC;
-	Wed,  9 Sep 2026 14:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 348811F00A3A;
-	Wed,  9 Sep 2026 14:01:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BE73560216;
+	Wed,  9 Sep 2026 14:01:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488661F00AC4;
+	Wed,  9 Sep 2026 14:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788962493;
-	bh=CdGQNBbV5rgyR6AC1v+rMzMBWuTn1mX6O2sJk9ZzEuI=;
+	s=k20260515; t=1788962505;
+	bh=lgmQbNDE6udjGQNjpfhdi1UAeRbSGHZuGtlT9/GjdAw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=VDD4HS0bFNN/fUrWGwry9H610uhD3sA91TeA2++WjM0PWm+SEvctvTbSwinGPBAqt
-	 6CIYzwKk19mN5tLGwhYdyiYErv/wNsG2DdcHKhsu5tjypdIN6ZIyn7zhhliqKylFcm
-	 P1wdNHWUBfWUHHFShC0uSMl7Z5/Rm3xMdixXzRJfhGVBlqGngEHoJw1eMd0dtAvGLP
-	 tCKQ82vPwy6gbGbgrLOt9FrNauHmAuIwM3BWyOttGSagdd1BgTbs1gEuUKoBYOfp5g
-	 cincbrs7xqsl5bROa6us9e3np8OHmlsRbqad2nzkagOha1kq4NOO7SuvrVNWJLNIQj
-	 OrAXaf8UfthYQ==
-Message-ID: <c33cbd18-a506-4301-91d4-7cee033d2536@kernel.org>
-Date: Wed, 9 Sep 2026 16:01:22 +0200
+	b=aIDREDi8cN3vEkHv81BT15oq78pQGDpQde1+F6DS83L1jfggJF6NRZKNYaJDTtkyZ
+	 HinjeHpLMD6d1P4xdz940z0c5BW+NOeYF+POuVsZE2/mnHxcYLZ50oUbv9MXwLG9Z9
+	 diG7Z1Uc5e7iQCZaCnXnvPkrjTUb2gw/wS3L6hDn0PRbANgd3/Q4UAXVK2Zba+YAtU
+	 0cb+SfgqsM2510uNdaM2qRMHjTPprKueTUahkhdJbf2hUPPv8atx5ybOekAZ1PgmFb
+	 lbLnagnLVrSRWnIgeHPUW344Uw0yQZApDB1yGY46Fg2EMHBdEmD6nr6jFEqVGJ2tIn
+	 qQfO3lATw2qhg==
+Message-ID: <7eae1b63-9989-46a5-9f0d-252d1cb81314@kernel.org>
+Date: Wed, 9 Sep 2026 16:01:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] mm/swapfile: use folio_page_swap_entry()
+Subject: Re: [PATCH v2 6/8] arm64: mte: make mte_save_tags() and
+ mte_restore_tags() static
 To: Tal Zussman <tz2294@columbia.edu>,
  Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
  Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
@@ -66,7 +67,7 @@ To: Tal Zussman <tz2294@columbia.edu>,
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
- <20260908-folio_swap_entry-v2-5-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-6-ee6d01dfa5e1@columbia.edu>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -113,7 +114,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260908-folio_swap_entry-v2-5-ee6d01dfa5e1@columbia.edu>
+In-Reply-To: <20260908-folio_swap_entry-v2-6-ee6d01dfa5e1@columbia.edu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -131,9 +132,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 17:16, Tal Zussman wrote:
-> folio_dup_swap() and folio_put_swap() open-code the swap entry
-> computation from folio->swap and folio_page_idx(). Use
-> folio_page_swap_entry() instead.
+> mte_save_tags() and mte_restore_tags() are only used by
+> arch_prepare_to_swap() and arch_swap_restore() in mteswap.c. Make them
+> static and remove their declarations from mte.h.
 > 
 > No functional change.
 > 
