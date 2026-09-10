@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79193C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 00:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85818C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 00:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xbRjo5acd8UMrmfUyBjMrQSG2cF8chnXYW5XdzKdjdE=; b=FpTEo8eqOBkJJ7zb9XhEYE+SrF
-	A9Q1dY2MWBjYJGhCJoha5M/YxhWmA0y+QEDiTJWswQgvizCEfLyDXy04GI/dm1ThJJFbUudR4yaCB
-	9wxBUS9ZiquXGLaZqIXMsqXBu+lbFxA9Fb1PiXajCzMVfPGw3urZE3bzU569VX7HM9WAv4R6v81YT
-	Pfi4agje+rt93CADKbiDvM3SNuWnYZSHb90c79zWt5SRkkOppPGH0WHYax5RY1orD+QSliJcVS8vf
-	eeUhpSPe8+0xPKIYbxQiIYtue6+qM9yXhf95QiKEtC8CRlIfdXzIbNaMvS7rvPXPONN953Y1rEHFn
-	zX1lYvcQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LB4xOGwX5zRvsIqTiz17TCA8SFZm8FpI7B2jc9dy2MY=; b=BkZkBSDqvQy0oGBVLPXSGxLNNs
+	khZH99A7xfmLeFiCqvgo4ie95yO1+sIZS+2Jj3+amA+h6V+mNEKhCpdoVgTygOgbZ2XYOLLHmI+NJ
+	EnFoheOfpe46RjksqTtqBCmq8zbUp7pjCJFJWSRrobegeDp71821ete5E6At+RePjn8R8Q72LER6Y
+	uMHfIoKP1GNVRAiZf4PV0lkUpYQqDoaU3LzaGw9Wr49KcnLHQDHDPY0Z4V8b0GKs3JJPClIZ9MO/Y
+	9NwDsVM6QrqU5K130VfA3b1bsfGtUfftgrNir0m3sBYiu++z5GsqeFlUKtTM3oDIkWxlpIRG3hP5P
+	vQ7yciPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4SPY-0000000D7m4-3meJ;
-	Thu, 10 Sep 2026 00:13:04 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x4Sq7-0000000D8we-40cd;
+	Thu, 10 Sep 2026 00:40:31 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4SPX-0000000D7lN-0IZL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 00:13:04 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747ed9866so8335385ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 17:13:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788999182; x=1789603982; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xbRjo5acd8UMrmfUyBjMrQSG2cF8chnXYW5XdzKdjdE=;
-        b=U4ZblvkRxrfpY2gIb4Hvu+fiQvC9M9ZY5qD492L8VAgOfh/0cV0FJbxXuUVqT2WFK1
-         CiMsStXck/9KR4ajjg4Dbd0PA0LfBoTFqI2RIq0AUFpUvQ84ZCiuJsWVXy0mcXFRpiAG
-         2kbR90Bk4AH2bp5phNYOQkSbywWP+IrgWb6iZXrxIa227m8Jf66BMDNOk7l3WqxPQNSd
-         esR2RbQfL9vjMOHz6x/IV/2LF4omdszoNTN2IIBaE9OIjWvPjckEj08CZ6IXRUT/x4bX
-         +XdjJeW/LQuej2LRToJbLshxTkRQsHSAurgBjxKyICxDBZ498RWe6WxU7X43v3UsJilR
-         l1PQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788999182; x=1789603982;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xbRjo5acd8UMrmfUyBjMrQSG2cF8chnXYW5XdzKdjdE=;
-        b=k7hNiUDyl3+naiBXNawtD2+hv8zXjyc9Lligba4n35GB+2C5/BjqsewIYdbI2coveb
-         1An023wYZaCBOyeH7gtDTkhRvE40PymefT/B7i+63GuX1mQiGKcNCZArMz244XODe8tR
-         EyRVFO1RB0nLIfazrC4i9Do6hTzM9mXHQdifSCyoUFEyUc7oulX7WOY00zIDztJe67Uy
-         +WIonKSPn/dfxF5UgY6vktpN8QmOZJdiPQlVAlTkAgDxaqubt1WqK6dpmss+tbQjR2gO
-         zBlmag5+VjR+UZZWWIYB4SORZHi+8dji7BhY2n9e7ltZcJJg9myjRCU0lYH9VPSIeG1z
-         YvAg==
-X-Forwarded-Encrypted: i=1; AKwUvBzsg/jbXoyJDC9q2G5bbSdUoQxML40Q0o8DffnmG8XEzT0sapNCl+Svl8BCjZ9VQ9d5EVas2/bz4XKNzyqU2i0a@lists.infradead.org
-X-Gm-Message-State: AFuF++mFYJVjI0vqnn2r0AW3Er8aAIoVKLkomXBSIgf402EPVO/UHz0e
-	q3ho5j9V78D5WOlNaChJkujzzKj3Do2d1ZsTbgbCTgy4azj8gYlBUhnk
-X-Gm-Gg: AYBFou3OzcysUbQ7msw6Npue2haYXc8rHTE+TsFLGoEmrNsgoaKvj6ebuzzRLxDIIIg
-	u1hFhK7XZZ4FRGJFO84SrXQxxHoBaxrOyxvW00CitL9gtKx3AC5tRcGL+wMOBvQImhEfVedY8Gj
-	wXQt3M1IusEr6IlBGOVTFMLb8jgaY3Q78gLp1KIRn1aNDZ9QKyn+ZfNCp5cYXpPfD6BSYm9RisZ
-	UDwEdcd/iX816L3Wqwg5x166BYjfDA/MApWFk6TUJp5Fo3PgGoziq/PXhwsainh+nMFatlKi08I
-	IYXt/3DhmZanVTvkrxGmWS9EJh2aiKdE/pK8HM/cBStJX6lT4C50OwueOVNIrLQsraeM0OZ2ptr
-	/KddO96a61cCFPNecKpknvVacXZO8hdf2Nni3EN3Be6dHGaINO8mBVeckEdC9694Hwo8Xh4tgz1
-	enl+rDEB1u9lYEL5u6/mHxdQRtjj10muxcdC8JW3HrR5pjTL471TwJOzRjPFAl9f8XnUIuvQJqR
-	vKTkODvmXeCy/B8yn61gohaLTS2TjzM1lPDwk+thSZ3Dm4mepwJBCIr14B3KH+ys1U+JDWeKhpU
-	hkWjAZVRHeGhwD2yxYdniXi/q2kbu5A21kSBumG+ctrcQfJyXihRFjlSVY8=
-X-Received: by 2002:a17:902:d58a:b0:2d9:4358:73ab with SMTP id d9443c01a7336-2dd07b9c78cmr58953035ad.19.1788999182341;
-        Wed, 09 Sep 2026 17:13:02 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1499dad4sm80556405ad.55.2026.09.09.17.13.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 17:13:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM5301X: R7000: add nvram node
-Date: Wed,  9 Sep 2026 17:13:00 -0700
-Message-ID: <20260910001300.117062-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	id 1x4Sq5-0000000D8vy-0RvD;
+	Thu, 10 Sep 2026 00:40:30 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ADACC40E58E;
+	Thu, 10 Sep 2026 02:40:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789000824; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=LB4xOGwX5zRvsIqTiz17TCA8SFZm8FpI7B2jc9dy2MY=;
+	b=W2e0+R+j5MhtDmDdh4jEQPXtRn2UQUSpSayn4MrW/NP39/u/IvlpGWcZWJY4zwClYDQUzv
+	CVsbJXXCxEis6yeZPP8PhS628sxtAa6o2kSnhGKVTtHwpdxRpQz28T3jHfdNRl91JpJK17
+	j3zVTIrdKBxvtCCAe7rM1lZN6NChxCMcvus84hPhVafJRaSRoRAMD5QyaxC0qJKBFs3QpL
+	MIW5cpvlvw6UP9JuRNeY2KhE9XCW0Uo7HIwB/iO3ntqfdJ0G7GLezv3sWjJCW5gApBps7G
+	TYuqkcPWYJ0oE1S4QfMMEUd2tW284zNPKoiTo2oCEPB7vIC9GX4Nipve6uqmsg==
+Message-ID: <508e083a-2bee-4003-8ee9-e9b269b2821d@cjdns.fr>
+Date: Thu, 10 Sep 2026 02:40:08 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: econet: add EN751221
+ ethernet
+To: Matheus Sampaio Queiroga <srherobrine20@gmail.com>, lorenzo@kernel.org
+Cc: 25181214217@stu.xidian.edu.cn, andrew+netdev@lunn.ch,
+ angelogioacchino.delregno@collabora.com, b.larsson@gmx.com,
+ conor+dt@kernel.org, davem@davemloft.net, devicetree@vger.kernel.org,
+ dong100@mucse.com, edumazet@google.com, enelsonmoore@gmail.com,
+ han.junyang@zte.com.cn, hkallweit1@gmail.com, jes@trained-monkey.org,
+ krzk+dt@kernel.org, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com, maxime.chevallier@bootlin.com, naseefkm@gmail.com,
+ netdev@vger.kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
+ robh@kernel.org, vadim.fedorenko@linux.dev, wangruikang@iscas.ac.cn,
+ xuanzhuo@linux.alibaba.com
+References: <20260909212146.3184077-2-cjd@cjdns.fr>
+ <45cb6035-4d15-426d-bb3f-45d20b4201da@gmail.com>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <45cb6035-4d15-426d-bb3f-45d20b4201da@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_171303_113292_003C75D0 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260909_174029_338157_F9876FF2 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add it and set for gmac0, which is the only GMAC used on this board.
 
-nvram size found from a random bootlog online.
+On 10/09/2026 01:09, Matheus Sampaio Queiroga wrote:
+> Hello everyone, please excuse this email.
+>
+> In my opinion, the Ethernet driver for the Econet/Airoha MIPS SoCs 
+> should be merged with the existing Airoha driver.
+> i get PPE and xPON to start and work on the en7523, en751221, and en7528.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- .../boot/dts/broadcom/bcm4709-netgear-r7000.dts    | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r7000.dts b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r7000.dts
-index 24ba8f8f9bf3..0f3a00bc38c1 100644
---- a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r7000.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r7000.dts
-@@ -25,6 +25,15 @@ memory@0 {
- 		      <0x88000000 0x08000000>;
- 	};
- 
-+	nvram@1c080000 {
-+		compatible = "brcm,nvram";
-+		reg = <0x1c080000 0x180000>;
-+
-+		et0macaddr: et0macaddr {
-+			#nvmem-cell-cells = <1>;
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -104,3 +113,8 @@ &usb3 {
- &usb3_phy {
- 	status = "okay";
- };
-+
-+&gmac0 {
-+	nvmem-cells = <&et0macaddr 0>;
-+	nvmem-cell-names = "mac-address";
-+};
--- 
-2.55.0
+For my part, I don't agree with that opinion. When I first began 
+developing this driver, I first began trying to work on that driver and 
+I couldn't find a way that didn't lead to code which I consider ugly.
 
+The main differences in hardware are the number of RX/TX chains in the 
+QDMA, number of IRQ banks (we only have 1), QDMA register layout is very 
+different and we have fewer features, and we have two GDMs rather than 
+four. Also as I recall we have fewer channels available so QoS logic is 
+not drop-in.
+
+If someone proposed to me to add Airoha support to this driver, I 
+wouldn't want the same econet_qdma.c file supporting both platforms, and 
+in the Airoha driver the QDMA subsystem is more tightly coupled - so if 
+I maintained that driver, I would not want them merged at all.
+
+I added Lorenzo Bianconi the Airoha maintainer to this thread in case he 
+may have some thoughts on the topic.
+
+
+Thanks,
+
+Caleb
+
+
+>
+> With a discussion on the Openwrt forum,
+> it is said that integrating the en751627, en7528, and en7580 Ethernet 
+> drivers into the new EcoNet Ethernet driver.
+> These families are closer to what we already have in the Aiorha driver.
+>
+>
 
