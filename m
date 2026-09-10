@@ -4,68 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85818C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 00:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA84C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 00:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LB4xOGwX5zRvsIqTiz17TCA8SFZm8FpI7B2jc9dy2MY=; b=BkZkBSDqvQy0oGBVLPXSGxLNNs
-	khZH99A7xfmLeFiCqvgo4ie95yO1+sIZS+2Jj3+amA+h6V+mNEKhCpdoVgTygOgbZ2XYOLLHmI+NJ
-	EnFoheOfpe46RjksqTtqBCmq8zbUp7pjCJFJWSRrobegeDp71821ete5E6At+RePjn8R8Q72LER6Y
-	uMHfIoKP1GNVRAiZf4PV0lkUpYQqDoaU3LzaGw9Wr49KcnLHQDHDPY0Z4V8b0GKs3JJPClIZ9MO/Y
-	9NwDsVM6QrqU5K130VfA3b1bsfGtUfftgrNir0m3sBYiu++z5GsqeFlUKtTM3oDIkWxlpIRG3hP5P
-	vQ7yciPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xgzlS1uxnCbzGMH5pUkXS6DY1hZkFu32UCS9PdpFsuk=; b=C4BsQ+/5Qkmi7nI0cmq9inT+k7
+	CG+f/9w62Vj9od/yTIVyEr98p6oMlzoqzVJ+h0RJxoikStIhwE1jb2wGLfvkj11qjU3fPZUE6gM0X
+	+CMZe2YZnEiDWDs/YJJqeaGHLXyv/hEqxguiX0dYACovKEuqUaDVE/5XGhUzZiJQnd/bt6MY3urMg
+	PHATRoXSuWLvdJg0FqnIY6QsiB5OQYRBXKZob03mbuws/y/81e/GRH7mqLvu6mX/gKKxaabTH7TZo
+	KC5yH3EU7Yb/IUKYi6WRARShjq3VVBwKu3NK60C/9IlhBWcvNC2SCi5eJnAZXZjhflTvNgDVvPwwH
+	uTxpaoaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Sq7-0000000D8we-40cd;
-	Thu, 10 Sep 2026 00:40:31 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1x4T7d-0000000D9YD-1PU8;
+	Thu, 10 Sep 2026 00:58:37 +0000
+Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Sq5-0000000D8vy-0RvD;
-	Thu, 10 Sep 2026 00:40:30 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ADACC40E58E;
-	Thu, 10 Sep 2026 02:40:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1789000824; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=LB4xOGwX5zRvsIqTiz17TCA8SFZm8FpI7B2jc9dy2MY=;
-	b=W2e0+R+j5MhtDmDdh4jEQPXtRn2UQUSpSayn4MrW/NP39/u/IvlpGWcZWJY4zwClYDQUzv
-	CVsbJXXCxEis6yeZPP8PhS628sxtAa6o2kSnhGKVTtHwpdxRpQz28T3jHfdNRl91JpJK17
-	j3zVTIrdKBxvtCCAe7rM1lZN6NChxCMcvus84hPhVafJRaSRoRAMD5QyaxC0qJKBFs3QpL
-	MIW5cpvlvw6UP9JuRNeY2KhE9XCW0Uo7HIwB/iO3ntqfdJ0G7GLezv3sWjJCW5gApBps7G
-	TYuqkcPWYJ0oE1S4QfMMEUd2tW284zNPKoiTo2oCEPB7vIC9GX4Nipve6uqmsg==
-Message-ID: <508e083a-2bee-4003-8ee9-e9b269b2821d@cjdns.fr>
-Date: Thu, 10 Sep 2026 02:40:08 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: econet: add EN751221
- ethernet
-To: Matheus Sampaio Queiroga <srherobrine20@gmail.com>, lorenzo@kernel.org
-Cc: 25181214217@stu.xidian.edu.cn, andrew+netdev@lunn.ch,
- angelogioacchino.delregno@collabora.com, b.larsson@gmx.com,
- conor+dt@kernel.org, davem@davemloft.net, devicetree@vger.kernel.org,
- dong100@mucse.com, edumazet@google.com, enelsonmoore@gmail.com,
- han.junyang@zte.com.cn, hkallweit1@gmail.com, jes@trained-monkey.org,
- krzk+dt@kernel.org, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com, maxime.chevallier@bootlin.com, naseefkm@gmail.com,
- netdev@vger.kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
- robh@kernel.org, vadim.fedorenko@linux.dev, wangruikang@iscas.ac.cn,
- xuanzhuo@linux.alibaba.com
-References: <20260909212146.3184077-2-cjd@cjdns.fr>
- <45cb6035-4d15-426d-bb3f-45d20b4201da@gmail.com>
-Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <45cb6035-4d15-426d-bb3f-45d20b4201da@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1x4T7X-0000000D9Wk-15Al
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 00:58:32 +0000
+Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2db3b126c9fso65366065ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 17:58:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789001910; x=1789606710; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xgzlS1uxnCbzGMH5pUkXS6DY1hZkFu32UCS9PdpFsuk=;
+        b=IlxvGvnS4+Qcq4ME/V6q19fMeqpQH4DeFE8e3wPKdoW0n7GA550iKxthGpZEBW5scc
+         av2cTQjd7FHZGl3LyzsPUL8p96iOPqtsGE732z008IMTwcCOrx9wsj8cH671SrcH7GZs
+         80Fqvur0aIwtTFfzKMnys1SBNGe6v1iiw8Gcna59QuLwudXjUWICnY5aNOheonv0Z0bc
+         aQrnzKXKI5OfVEC8jWub4l7W8R/F65REeWE9H/3CfonfdLZaylvstQ/2xZAC44QZFjlT
+         0TsTCNbBjg6OrH2cWpIguuuMq4uyH7hrtfr3BihbrmkvXqE8qfjjt5J09ISH0ZJB0rRl
+         NOyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789001910; x=1789606710;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xgzlS1uxnCbzGMH5pUkXS6DY1hZkFu32UCS9PdpFsuk=;
+        b=UyffPtR5HWuKWV5foH+bhRsT+8BzIGfTMyPi8vyDd6HpF+9T77yuwDGWDSIiDFZkX4
+         VkBLcqJTeBGjZB+eBYODlLeQFH2hCUDdtU+LWdQfQARuBKa4ghBmNgIL9mY5Tba8Ahc/
+         lCDrPTH7DY8T/XY43xeWmQzagkgzUYUfcyW1pGW9eIFh4bkK2KgP5v5sHE0NHbhtkjPz
+         BDGuUnJToKzxNIbhtX3k7yRMw4UMRQlsK+FEsdJNTDx2Vtmi9GG/on3czf8+mWIQpwqi
+         QEhY+JPi8d9xmYPrfoqxoQuzA+tEU3daBfQU+YJJpZwFjQ71silf6Cjtbnp7Ha0CXd0b
+         g+FA==
+X-Forwarded-Encrypted: i=1; AKwUvBxjqioSJG8YLA4Jcubpqfasu2xZCddQCtMtIQ/5kxORxn7OrDtPLtxVMHws8Ai/oxNE/CYX6x73Tk2hx4/3o2ic@lists.infradead.org
+X-Gm-Message-State: AFuF++mHn6NrQTNGAcjQLdoU9vG3NCIaHmXYPdZ2kvLc5zgD62k2eLKm
+	RTfsK9xbEfaOQaXvXlKXzJO1SQSG37I1hLejX+LlKIkc7aZJTdxllCarykxueh2ZbHqEpvz48rB
+	9SGvvCg==
+X-Received: from plsk18.prod.google.com ([2002:a17:902:ba92:b0:2d2:c22c:7b8a])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:cf10:b0:2d9:3636:d01a
+ with SMTP id d9443c01a7336-2db126669d3mr557854145ad.15.1789001909390; Wed, 09
+ Sep 2026 17:58:29 -0700 (PDT)
+Date: Wed, 9 Sep 2026 17:58:28 -0700
+In-Reply-To: <20260905012403.GX4157646@nvidia.com>
+Mime-Version: 1.0
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com> <20260905012403.GX4157646@nvidia.com>
+Message-ID: <aqIAtOoew-_6jw29@google.com>
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+From: Sean Christopherson <seanjc@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>, arnd@arndb.de, 
+	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org, 
+	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com, 
+	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org, 
+	kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com, 
+	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_174029_338157_F9876FF2 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260909_175831_294076_6ED2B6F9 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 04, 2026, Jason Gunthorpe wrote:
+> On Fri, Sep 04, 2026 at 10:24:21PM +0000, David Matlack wrote:
+> 
+> > The proposal here (which is inspired by the KVM UAPI) is to ensure every
+> > LUO ABI struct has 2 properties:
+> > 
+> >  1. A field to encode options/features (e.g. u64 flags).
+> >  2. A way way to grow without breaking backward compatibility (e.g. so
+> >     we can add new fields).
+> > 
+> > Each flag can mean whatever it needs to. e.g. It can indicate the
+> > precence of one or more fields (i.e. new fields in the struct), or it
+> > can mean a field now has a different meaning (i.e. union in the struct).
+> > 
+> > This would enable adding support for new features without breaking
+> > backward compatibility. Downstream users would have to ensure their
+> > kernel does not start using a new feature while it can still rollback to
+> > a version that does not support the new feature.
+> 
+> This was never the biggest problem. The main issue was the functional
+> behaviors of the kernel that cannot be represented simply as data in a
+> struct with some flag bits.
+> 
+> Like for instance kernel A supports memfd folio sizes far larger than
+> kernel B because we fixed MAX_ORDER. You can't fix that just with
+> simplistic flags.
 
-On 10/09/2026 01:09, Matheus Sampaio Queiroga wrote:
-> Hello everyone, please excuse this email.
->
-> In my opinion, the Ethernet driver for the Econet/Airoha MIPS SoCs 
-> should be merged with the existing Airoha driver.
-> i get PPE and xPON to start and work on the en7523, en751221, and en7528.
+Can you elaborate on why the folio sizes matter?  Honest question, because I don't
+understand why the serialization format wouldn't express things as "N contiguous
+pages starting at PFN X".  Then the implementation would rebuild its folios as
+appropriate.
 
-
-For my part, I don't agree with that opinion. When I first began 
-developing this driver, I first began trying to work on that driver and 
-I couldn't find a way that didn't lead to code which I consider ugly.
-
-The main differences in hardware are the number of RX/TX chains in the 
-QDMA, number of IRQ banks (we only have 1), QDMA register layout is very 
-different and we have fewer features, and we have two GDMs rather than 
-four. Also as I recall we have fewer channels available so QoS logic is 
-not drop-in.
-
-If someone proposed to me to add Airoha support to this driver, I 
-wouldn't want the same econet_qdma.c file supporting both platforms, and 
-in the Airoha driver the QDMA subsystem is more tightly coupled - so if 
-I maintained that driver, I would not want them merged at all.
-
-I added Lorenzo Bianconi the Airoha maintainer to this thread in case he 
-may have some thoughts on the topic.
-
-
-Thanks,
-
-Caleb
-
-
->
-> With a discussion on the Openwrt forum,
-> it is said that integrating the en751627, en7528, and en7580 Ethernet 
-> drivers into the new EcoNet Ethernet driver.
-> These families are closer to what we already have in the Aiorha driver.
->
->
+I could see things like HugeTLB not working if someone booted the kernel with
+support for only 1GiB pages and then tried to feed it payload with sub-1GiB ranges.
+But to me, those sorts of things fall into the "well yeah, don't do that" category.
 
