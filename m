@@ -4,107 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7DDC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11588C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4MZLtSduN3n4DstPQZClxNsj5BwxMrrkDzTkcMmPEOA=; b=iBM+ahc0nFUzcrA3YJdriB7RKR
-	HB5KBlRuAO31UL9bM8tePfphqyWH9OG+JSFnSEV3TAcnhy/BFf3ID/YgKXMZjvmv/S0y/ZoQgoVAV
-	eMuFIZIpw5lMdohvhcC1ZcJK7pHUPk28k74EPiRJD5vZmOCuI/uuxn8yLS2ORGtPhFB3aqsPkUiUC
-	kmIxWnCaF1D7QH721Sif49xEAQQs/9BGhQQfNnC86uhN2RvlHt6cUJdj+zscBcALHplT4JkFok84B
-	Pf+8KNap7C1A9fk44wRvMAt+Dl+noccTc0yooHOrnPQK7VyryzHTJoPCSFeAdoQtP26xGPu7Gj4H4
-	wg5JNtcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cXhFOuqDM6JUeRauAhoieNZSOIkvbDqCyTIjuUkB6yk=; b=h1Khz3/F/VYHAf95mFaRHzjaig
+	0LER3HjWwhF9QlQMC7rgRqBaD2HRZ7NTQrcfxwMqzYXtnv02bqQ9FI3+RsDNRy9Sd+Qj6AFF4ruz8
+	vSgwKf6JdZ3GVf0mDKqcnT/hUZCWCdFMJp/+WHXXm1+Mk9E2YAMtsjH1EtM2PyxFSen8uxzl5Eq3w
+	JVvMtYtv+NdMAhkxfpG+lwd8p/O6kw9VSNHvqWDyP8xMMruqtJT0I6TeYlAOU3SlGyiJAz4pzC6eL
+	2w6iYxJoemweqTym9jQ72a0wSpIAEbzU9sxKpuEmVKTuz1KZMQ5FHrPge6uGQTDsH9cBMQULf9m6h
+	degcnTHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Vxa-0000000DKoG-2Xy5;
-	Thu, 10 Sep 2026 04:00:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VxY-0000000DKnt-0N54
+	id 1x4W2D-0000000DL2v-06Cs;
+	Thu, 10 Sep 2026 04:05:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4W2A-0000000DL2U-1Gaz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:00:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789012822;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4MZLtSduN3n4DstPQZClxNsj5BwxMrrkDzTkcMmPEOA=;
-	b=HHeQhTIkmuESr+NZ+XPjh4G34hLdj1MTWpnRxq32YTmByWxGJWnwC7pcMXspxadyExJIj9
-	s+VX0lwKbg2DIBZQp6GztmQ9+NRu/nAuMGi2RZwYWqyO/LmqChsIo2YOEfDhcq5FHZ8V4r
-	5zN2I4m98SRAD9ClaZm6xgzsP59zakM=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-59-WO1pldVBMXu1MiljuBhLOw-1; Thu, 10 Sep 2026 00:00:20 -0400
-X-MC-Unique: WO1pldVBMXu1MiljuBhLOw-1
-X-Mimecast-MFC-AGG-ID: WO1pldVBMXu1MiljuBhLOw_1789012819
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2d55d8cd938so114470595ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 21:00:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789012819; x=1789617619;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4MZLtSduN3n4DstPQZClxNsj5BwxMrrkDzTkcMmPEOA=;
-        b=fMYD4D1l4rLFFjJahWFV6o13sJryLCSiCN8mfkVqhr6ldw4tnzS6im8ufDG37sGqZk
-         Kj3eh+CHzqcIjwu5gS3l192N2QgPtHsbP6PVrecpE4xDYVvYi5+XjeJY7toUOwGDPhp4
-         7EJ6ZRbsElbB/Hd1CvZkgRiFd2dn4EZ/8Uisy0p02wClphXudzTizR7d94HbGSqontXx
-         0TSaYhSOwGkG8p+4FcfUKDi/FVZC9tzQQ3nALKDHog6QqMsQo3f4M7J3yFJlzmBVOw+f
-         BdU1yYPQzKyueLcyeUjNu3QRXloffQvyXv7oXOctEuqBNuV4C2NCBO687MARUeuVLNRS
-         uKvA==
-X-Forwarded-Encrypted: i=1; AKwUvBxi2RSgoQV5pn8D2Hhk+q0Zyee+fuBtm0eTjXNQubm2ZkbkCT04NTPsiKsdNfyGuU/uZ7HA3RskRpuRuFxuP1Qr@lists.infradead.org
-X-Gm-Message-State: AFuF++kDWxFkUNefY5KSuAy5vJPUbU7AYDwwh/Kcg9uYPB6vgtoTUyyy
-	hSGU3LH9NN35Yi7UhBq0MHozRpcQXnKIxwokI5azn+Qrt2n5k+GJlwXu92N6oCc+r+rWCsCS1qB
-	mtol+NSeKCWRENl7LtqpcEAgByjM09f1u6UTYcGoToVPmUqn8mgVBv+Ovv6rz/FMLWmIwo0Syuw
-	lv
-X-Gm-Gg: AYBFou0tuF+09Cgn/6+a/biTIn8pG9HE1MQRr+GNrcwelbvA6PNsIJ3VVQTnRLXzhmA
-	NtmXGVdWtKsiTCXHC7QPOj0dsK5iwu8uD8GtaSoo9hYqSqfNdJ5x7WtBei1EYmvEoeZT1XKoLxa
-	UTQ/V6Qobp7cvDVi6go9Kg+LvARGcXCPVHImwNtBQ0edXVpjHb26FuiJqICcPYzWCZ0dDXKwqhx
-	VDVeTgN0pnlREgr0rjFr4eAk3f/XZjw745H5wka+V+elY8LujXzmaQXriG4op6zj+gjzVW/40VZ
-	aLFjpa11L6XOyoQKnNbQzILov+v1DQ48BaIBmXCTf+IAVbcVKZFVbe1C0nIUDb09OcozhKjfc3/
-	rryPiD2XlQdCeBQouc3l1VkQcEq0T1Mxj7LmC1Ri4MA==
-X-Received: by 2002:a17:902:ef44:b0:2cc:6018:f030 with SMTP id d9443c01a7336-2db1259d1f8mr542225235ad.14.1789012819322;
-        Wed, 09 Sep 2026 21:00:19 -0700 (PDT)
-X-Received: by 2002:a17:902:ef44:b0:2cc:6018:f030 with SMTP id d9443c01a7336-2db1259d1f8mr542224465ad.14.1789012818867;
-        Wed, 09 Sep 2026 21:00:18 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db149ccf2esm82468805ad.73.2026.09.09.21.00.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 21:00:18 -0700 (PDT)
-Message-ID: <a0c5c373-b5c2-4ad2-9e53-ede58c392972@redhat.com>
-Date: Thu, 10 Sep 2026 14:00:06 +1000
+	Thu, 10 Sep 2026 04:05:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC607153B;
+	Wed,  9 Sep 2026 21:05:02 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAB983F7B4;
+	Wed,  9 Sep 2026 21:05:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789013106; bh=rAWrnAEYwtxB463a6X/NBqTWvXFmxUTkIqzzvCsxG78=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tCD5v4VUvLSUKDwb09dHubBqZMyi0aXPHA7yJz72TlE/XLQq4uYoYeyVilQgXOZKc
+	 UZ9s09iK+VC5GbdAALOudg5bQ05HkZVwdMpybiLdve6B2m/peyyq3TQ4200H8aRkIN
+	 rt3JRDGreOcdVN26eSoiOLR5jUGp1QSoUaQLEVWQ=
+Date: Thu, 10 Sep 2026 09:35:03 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Mike Rapoport <rppt@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [PATCH V2 1/2] arm64/mm: Move __check_safe_pte_update()
+Message-ID: <u3uvjnmd7k7f7dijdvsykta3pcxyxhvztncu4apvg5eb6rvtyh@kmdgfebs6dns>
+References: <20260909040005.4148136-1-anshuman.khandual@arm.com>
+ <20260909040005.4148136-2-anshuman.khandual@arm.com>
+ <04358f9d-3b64-47c0-94dc-f1ef19c22f78@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 04/20] KVM: arm64: Refactor the vcpu_load to allow for
- VM specific callbacks
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-5-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260908162223.1683432-5-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5Jc-8rimTugQOQYiNIoy81XxaMj-iyW3Ybk1zyWh5-0_1789012819
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <04358f9d-3b64-47c0-94dc-f1ef19c22f78@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_210024_226250_495399F5 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20260909_210510_536076_121824CA 
+X-CRM114-Status: GOOD (  31.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,122 +72,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
-> Based on a work by Marc Zyngier
+On Wed, Sep 09, 2026 at 05:12:24PM +0200, David Hildenbrand (Arm) wrote:
+> On 9/9/26 06:00, Anshuman Khandual wrote:
+> > The page table entry print helpers and related macros which are defined in
+> > <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
+> > is basically caused by cycling dependency.
+> > 
+> > Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
+> > for subsequent usage of the afore mentioned generic MM helpers. While here
+> > drop IS_ENABLED(CONFIG_DEBUG_VM), although wrap __check_safe_pte_update()
+> > inside #ifdef CONFIG_DEBUG_VM that preserves the current code optimization
+> > which is achieved via the static inline functions.
+> > 
+> > This does not cause any functional change.
+> > 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > ---
+> > Changes in V2:
+> > 
+> > - Moved __check_safe_pte_update() inside #ifdef CONFIG_DEBUG_VM
+> > - Added empty stub for __check_safe_pte_update() when !CONFIG_DEBUG_VM
+> > - Dropped IS_ENABLED(CONFIG_DEBUG_VM) from __check_safe_pte_update()
+> > 
+> >  arch/arm64/include/asm/pgtable.h | 49 ++++----------------------------
+> >  arch/arm64/mm/mmu.c              | 44 ++++++++++++++++++++++++++++
+> >  2 files changed, 49 insertions(+), 44 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > index e89ec5f4787b..281a512f1fc6 100644
+> > --- a/arch/arm64/include/asm/pgtable.h
+> > +++ b/arch/arm64/include/asm/pgtable.h
+> > @@ -387,52 +387,13 @@ static inline pte_t __ptep_get(pte_t *ptep)
+> >  extern void __sync_icache_dcache(pte_t pteval);
+> >  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
+> >  
+> > -/*
+> > - * PTE bits configuration in the presence of hardware Dirty Bit Management
+> > - * (PTE_WRITE == PTE_DBM):
+> > - *
+> > - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
+> > - *   0      0      |   1           0          0
+> > - *   0      1      |   1           1          0
+> > - *   1      0      |   1           0          1
+> > - *   1      1      |   0           1          x
+> > - *
+> > - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
+> > - * the page fault mechanism. Checking the dirty status of a pte becomes:
+> > - *
+> > - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
+> > - */
+> > -
+> > -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
+> > -					   pte_t pte)
+> > +#ifdef CONFIG_DEBUG_VM
+> > +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
+> > +#else
+> > +static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
+> >  {
+> > -	pte_t old_pte;
+> > -
+> > -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
+> > -		return;
+> > -
+> > -	old_pte = __ptep_get(ptep);
+> > -
+> > -	if (!pte_valid(old_pte) || !pte_valid(pte))
+> > -		return;
+> > -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
+> > -		return;
+> > -
+> > -	/*
+> > -	 * Check for potential race with hardware updates of the pte
+> > -	 * (__ptep_set_access_flags safely changes valid ptes without going
+> > -	 * through an invalid entry).
+> > -	 */
+> > -	VM_WARN_ONCE(!pte_young(pte),
+> > -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> > -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
+> > -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> > -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
+> > -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
+> > -		     __func__, pte_val(old_pte), pte_val(pte));
+> >  }
+> > +#endif
 > 
-> To keep the VCPU load/put handling cleaner with the different kinds of VM types,
-> we are about to introduce VM specific callbacks to do just the right thing.
-> In preparation for that, make some refactoring to add the change easier.
+> [...]
 > 
-> No functional changes intended.
+> > +#ifdef CONFIG_DEBUG_VM
+> > +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
+> > +{
+> > +	pte_t old_pte;
+> > +
+> > +	old_pte = __ptep_get(ptep);
+> > +
+> > +	if (!pte_valid(old_pte) || !pte_valid(pte))
+> > +		return;
+> > +	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
+> > +		return;
+> > +
+> > +	/*
+> > +	 * Check for potential race with hardware updates of the pte
+> > +	 * (__ptep_set_access_flags safely changes valid ptes without going
+> > +	 * through an invalid entry).
+> > +	 */
+> > +	VM_WARN_ONCE(!pte_young(pte),
+> > +		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
+> > +		     __func__, pte_val(old_pte), pte_val(pte));
+> > +	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
+> > +		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
+> > +		     __func__, pte_val(old_pte), pte_val(pte));
+> > +	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
+> > +		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
+> > +		     __func__, pte_val(old_pte), pte_val(pte));
+> > +}
+> > +#endif
 > 
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   arch/arm64/kvm/arm.c | 46 +++++++++++++++++++++++++++-----------------
->   1 file changed, 28 insertions(+), 18 deletions(-)
+> #endif /* CONFIG_DEBUG_VM */
 > 
+> Might be helpful here.
+> 
+> Consider the same in the case above
 
-Nitpicks below, none of them are introduced by this patch itself. In either way:
+Sure will update the same both in here and also for the declrations
+in the header file as well.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+> 
+> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 67f1ff9bc4fbe..51fc651267157 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -683,14 +683,11 @@ static bool kvm_vcpu_should_clear_twe(struct kvm_vcpu *vcpu)
->   	return single_task_running();
->   }
->   
-> -void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> +static void vcpu_prepare_mmu(struct kvm_vcpu *vcpu)
->   {
->   	struct kvm_s2_mmu *mmu;
->   	int *last_ran;
->   
-> -	if (is_protected_kvm_enabled())
-> -		goto nommu;
-> -
->   	if (vcpu_has_nv(vcpu))
->   		kvm_vcpu_load_hw_mmu(vcpu);
->   
-> @@ -720,10 +717,33 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->   		kvm_call_hyp(__kvm_flush_cpu_context, mmu);
->   		*last_ran = vcpu->vcpu_idx;
->   	}
-> +}
-> +
-> +static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
-> +{
-> +	if (kvm_vcpu_should_clear_twe(vcpu))
-> +		vcpu->arch.hcr_el2 &= ~HCR_TWE;
-> +	else
-> +		vcpu->arch.hcr_el2 |= HCR_TWE;
-> +
-> +	if (kvm_vcpu_should_clear_twi(vcpu))
-> +		vcpu->arch.hcr_el2 &= ~HCR_TWI;
-> +	else
-> +		vcpu->arch.hcr_el2 |= HCR_TWI;
-> +}
-> +
+Thanks for the review.
 
-It seems FIELD_MODIFY() can be applied here if no visible constraints exist:
-
-	FIELD_MODIFY(HCR_TWE, vcpu->arch.hcr_el2, !kvm_vcpu_should_clear_twe(vcpu));
-	FIELD_MODIFY(HCR_TWI, vcpu->arch.hcr_el2, !kvm_vcpu_should_clear_twi(vcpu));
-
-> +static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
-> +{
-> +	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
-> +		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-> +}
-> +
-> +void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +	if (!is_protected_kvm_enabled())
-> +		vcpu_prepare_mmu(vcpu);
->  
-
-I think we probably try to depend on kvm->arch.vm_flavor instead
-of !is_protected_kvm_enabled().
-
-	struct kvm *kvm = vcpu->kvm;
-
-	if (kvm_vm_is_protected(kvm) || kvm_vm_flavor_eq(kvm, VM_PKVM))
-		vcpu_prepare_mmu(vcpu);
-  
-> -nommu:
->   	vcpu->cpu = cpu;
-> -
->   	/*
->   	 * The timer must be loaded before the vgic to correctly set up physical
->   	 * interrupt deactivation in nested state (e.g. timer interrupt).
-> @@ -736,19 +756,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->   		kvm_vcpu_load_vhe(vcpu);
->   	kvm_arch_vcpu_load_fp(vcpu);
->   	kvm_vcpu_pmu_restore_guest(vcpu);
-> -	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
-> -		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-> -
-> -	if (kvm_vcpu_should_clear_twe(vcpu))
-> -		vcpu->arch.hcr_el2 &= ~HCR_TWE;
-> -	else
-> -		vcpu->arch.hcr_el2 |= HCR_TWE;
-> -
-> -	if (kvm_vcpu_should_clear_twi(vcpu))
-> -		vcpu->arch.hcr_el2 &= ~HCR_TWI;
-> -	else
-> -		vcpu->arch.hcr_el2 |= HCR_TWI;
->   
-> +	vcpu_load_pvtime(vcpu);
-> +	vcpu_set_wfx_traps(vcpu);
->   	vcpu_set_pauth_traps(vcpu);
->   
->   	if (is_protected_kvm_enabled()) {
-
-Thanks,
-Gavin
-
+> 
+> -- 
+> Cheers,
+> 
+> David
 
