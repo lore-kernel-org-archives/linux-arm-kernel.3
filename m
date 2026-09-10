@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D22C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAF4C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SRIsn8qe5kijvVGnEzyAS3z5dSa3YzDzhskFAKJyBLY=; b=KXWnQgvJJrMSwrnk93fvxYekTd
-	mQkzkUNzMcGFwbWTAL2V2QO0TI7iBGZWohptkqNK+eODB4hdeirnwCVx3N1H3FMQkRi4MN6UiVCeJ
-	4MFl2Vz0ZjMnTWcskuT6as6S7KJV+hWlyAxr4/wUa0Eed2/kGpram165y9pbt1Kuu+hedBVaqXsUl
-	B5NT/9MBULs/GpsJXbokjmxIs/maN7EYoa49IjEbKSt7t+bK1HY7pG4jap50n3e/YnJP7K7I1MuCJ
-	4o9pN/uYdQaBIItUKjmV3zmFfokfMcAo9+jLPST1bH9E37Fc3zGRcF4Zgs+MsphnProDI7FO4EXL7
-	UEk6m00g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=acg21s52zn73yG1o10b+uWJAS2RrIOADAmWZx0hmucI=; b=LkbVamMdomWdSzUQwtlaojEwGE
+	t22CLmrP58/XAykGU0xjzUIdfzFmL+jVIAeb+/crOGBjimo6daGZfP2OUISOfTbPlCK5dL30jZzeo
+	qHuoDtYt7sKcvKj7o2R7tp1zErM8KgEQDFptGbLcYVyb633BnbxxwgnNc0uXkHdijprMg0SBBQKS5
+	HBmIOOxyKhdlPk2CZVPHvE48ZXSaQlEq2ZrTZRQdab/tS6VGm0QUEbIMSZ18ChXNjZhGi/S5OJE6V
+	MO1pa6IeKuoZWPZaYm3Wjek3vhhPJAdMnGuouDf+t2FMtSr+uX2GW/RNuPRJUW83B/FgrfoUiqDGh
+	GVRVGaaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gTp-0000000EkCX-0jLX;
-	Thu, 10 Sep 2026 15:14:25 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x4gTs-0000000EkDw-19UX;
+	Thu, 10 Sep 2026 15:14:28 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gTm-0000000EkBK-1vSe
+	id 1x4gTo-0000000EkC8-46gE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:14:24 +0000
+	Thu, 10 Sep 2026 15:14:26 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EECA14E40106;
-	Thu, 10 Sep 2026 15:14:18 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 41007C653E9;
+	Thu, 10 Sep 2026 15:15:04 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B67B15FA2F;
-	Thu, 10 Sep 2026 15:14:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BE8FD11C787F4;
-	Thu, 10 Sep 2026 17:14:10 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D93915FA2F;
+	Thu, 10 Sep 2026 15:14:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3EFF911C799CC;
+	Thu, 10 Sep 2026 17:14:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789053256; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=SRIsn8qe5kijvVGnEzyAS3z5dSa3YzDzhskFAKJyBLY=;
-	b=fbb54oEU1+JaeCFGWFiay2g9C02IrTPNVCCVjOYLoHoXxA/A0Zqab52cH8PEEYRcRkU/Li
-	+FS0Qq7f+B6gufCGUqciIKUBo9pciC1q/b1PhxUOltEZG7l+/7Q+qUJ5Ag2CdvBNYVDaiP
-	VzmSaIgY1QB9yI9EzgSx4+ct06LrScgpociIgH6lZ4B4IcICWvZlSlhDPIYcz7j1JxgWSx
-	uD3/Mevk9fHgffasVEFIcQrcXQT8trJtr8YZ3Rtrd04xzff2mAU6hTXNTHTOHwK7eCEhsc
-	JlycaHsiHIzAk7oKK9vXexHASdrWRehyfJH52J22bAcAfz/AQpc/T8RGTBEPDQ==
+	t=1789053260; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=acg21s52zn73yG1o10b+uWJAS2RrIOADAmWZx0hmucI=;
+	b=K/HP254InF82/kPVp2OTvH88F78ebglu+GtBb7knTo1O4Me+mmTNwl+Z2TZ43GcqeHZJH+
+	13odnXkB8EtHtjz5j9D+0ERL8fsRZWr3IeDU2pIkdxgeuxmAYR+pH9MdHBdR8tpGWm5yUE
+	jYcJPa3tsm86+m8WVEL5eJ1/R367cFpBfqYEstoIKVDTVRvfd5/UKiwr7pzVer7+zb9XLP
+	h5457oiVgjDmiN2R4ddSNL/A0kX8+oqksVhvJvZfur7mXTWzt4GGWxAchMDcSgciaO2w3I
+	vb3n+o9nR9nqPgsOIVvmpKsg7kp89y9++fmI3ZAoS7kxU9NEYiO6sfLF/47dkQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -72,16 +73,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	PKneuper@dspace.de,
 	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v2 0/6] net: stmmac: More selftest-related fixes
-Date: Thu, 10 Sep 2026 17:13:57 +0200
-Message-ID: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net v2 1/6] net: stmmac: selftests: Support running selftests on DSA conduits
+Date: Thu, 10 Sep 2026 17:13:58 +0200
+Message-ID: <20260910151404.976753-2-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
+References: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_081422_780279_D6F14B98 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260910_081425_186833_1A639440 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,149 +99,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+Most stmmac selftests rely on dev_add_pack() to add custom handlers,
+that validate the packets sent to ourselves through MAC loopback.
 
-Here's V2 of the stmmac selftest fixes. I don't really know why but V1
-was only partially delivered, yet Nicolai was kind enough to review
-whatever managed to get to the lists, and found some things to improve
-in the EEE test, addressed in this new iteration :) Hence, this is V2
-and not a resend.
+However, when the stmmac-driven interface is a DSA CPU conduit, all
+frames that are received have ETH_P_XDSA as a protocol, even though they
+don't actually contain any tag as they come from the loopback and not
+the switch.
 
-This is another round of stmmac selftest fixes, mostly about the selftests
-themselves but a few things were discovered w.r.t MTU and buffer size
-handling, see patch 5.
+This will prevent any incoming packet to match our packet handlers.
 
-I've continued expanding the test devices I'm running this on, more devices
-should come in the future. With this series, _almost_ everything is
-green, except for some flow control stuff that is either a false positive
-or a real thing that needs investigating.
+Let's register a ETH_P_ALL packet handler when we detect that we're a
+DSA conduit, and use a proxy packet handler to filter the h_proto.
 
-After this is merged, I consider the selftests to be now reliable enough
-to run them nightly on every stmmac series that's sent, and I'll be requiring
-clean selftests for new glue drivers.
+Note that we may still receive incoming packets from the switch, but
+these frames shouldn't interfere with the very specific frames used for
+selftests, and stmmac selftests in general aren't safe against external
+traffic interferences.
 
-I've been running this on :
+This was validated on a WPQ864 devkit for IPQ8064, that has the SoC
+connected to a QCA8k switch.
 
- - Altera CycloneV (dwmac-socfpga, dwmac1000 IP, v3.70a)
- - NXP imx8mp (dwmac-imx, dwmac4, v5.10a)
- - Allwinner H2S (dwmac-sun8i, dwmac1000)
- - Amlogic S905X3 (dwmac-meson8b, dwmac1000, v3.70a)
- - STM32mp157a (dwmac-stm32, dwmac4, v4.20a)
- - SiFive JH7110 (dwmac-starfive, dwmac4, v5.20)
- - Motorcomm YT8061 (PCIe, dwmac-motorcomm, dwmac4)
- - Qualcomm IPQ8064 (dwmac-ipq806x, dwmac1000)
+The ARP offload's packet handler is left alone, this feature is just not
+implemented in stmmac and due for removal.
 
-Tests are OK if return is 0 or -95 (-EOPNOTSUPP), tests are KO otherwise
+Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ .../stmicro/stmmac/stmmac_selftests.c         | 68 ++++++++++++++++---
+ 1 file changed, 58 insertions(+), 10 deletions(-)
 
-Before the series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0     0      0     0       0     0     0    -110
-MMC Counters              0     0      -95   0       0     0     0    -110
-EEE                       -95   -95    -95   -110    -110  -95   -95  -95
-Hash Filter MC            0     0      -95   0       0     0     0    -95
-Perfect Filter UC         -95   0      0     -95     -95   -95   -95  -95
-MC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-UC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-Flow Control              -95   0      -110  0       -110  -95   -110 -110
-RSS                       -95   -95    -95   -95     -95   -95   -95  -95
-VLAN Filtering            -110  -95    -95   -95     -110  -110  -95  -95
-VLAN Filtering (perf)     -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter        -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter (perf) -110  -95    -95   -95     -110  -110  -95  -95
-Flexible RX Parser        0     -95    -95   -95     -95   -95   -95  -95
-SA Insertion (desc)       0     -95    -95   -95     0     0     0    -95
-SA Replacement (desc)     0     -95    -95   -95     0     0     0    -95
-SA Insertion (reg         0     -95    -95   -95     0     0     0    -95
-SA Replacement (reg)      0     -95    -95   -95     0     0     0    -95
-VLAN TX Insertion         -110  -95    -95   -95     -110  -110  -110 -95
-SVLAN TX Insertion        -110  -95    -95   -95     -110  -95   -110 -95
-L3 DA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L3 SA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L4 DA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 DA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-ARP Offload               -95   -95    -95   -95     -110  -110  -110 -95
-Jumbo Frame               0     -110   -110  0       0     0     0    -110
-Multichannel Jumbo        0     -95    -95   -95     -95   -95   -95  -95
-Split Header             --95   -95    -95   -95     -95   -95   0    -95
-TBS (ETF Scheduler)      --95   -95    -95   -95     -95   -95   -95  -95
-
-ARP offload's still there as this was a net-next patch and I've ran these
-checks on the net tree.
-
-Jumbo frame tests on dwmac1000 started failing after :
-
-commit 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
-
-This commit is OK though, it just made the selftest reveal the cracks
-hiding beneath the surface of MTU/bufsz handling.
-
-After this series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0      0     0       0     0     0     0    0
-MMC Counters              0      0     -95     0     0     0     0    0
-EEE                       -95    -95   -95     0     0     -95   -95  -95
-Hash Filter MC            0      0     -95     0     0     0     0    -95
-Perfect Filter UC         -95    0     0       -95   -95   -95   -95  -95
-MC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-UC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-Flow Control              -95    0     -110    0     -110  -95   -110 -110
-RSS                       -95    -95   -95     -95   -95   -95   -95  -95
-VLAN Filtering            0      -95   -95     -95   0     0     -95  -95
-VLAN Filtering (perf)     0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter        0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter (perf) 0      -95   -95     -95   0     0     -95  -95
-Flexible RX Parser        0      -95   -95     -95   -95   -95   -95  -95
-SA Insertion (desc)       0      -95   -95     -95   0     0     0    -95
-SA Replacement (desc)     0      -95   -95     -95   0     0     0    -95
-SA Insertion (reg         0      -95   -95     -95   0     0     0    -95
-SA Replacement (reg)      0      -95   -95     -95   0     0     0    -95
-VLAN TX Insertion         0      -95   -95     -95   0     0     0    -95
-SVLAN TX Insertion        -95    -95   -95     -95   -95   -95   -95  -95
-L3 DA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L3 SA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L4 DA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 DA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-ARP Offload               -95    -95   -95     -95   -110  -110  -110 -95
-Jumbo Frame               0      0     0       0     0     0     0    0
-Multichannel Jumbo        0      -95   -95     -95   -95   -95   -95  -95
-Split Header              -95    -95   -95     -95   -95   -95   0    -95
-TBS (ETF Scheduler)       -95    -95   -95     -95   -95   -95   -95  -95
-
-ARP can be ignored, and Flow control needs some more attention, but
-we're getting there :)
-
-Thanks,
-
-Maxime
-
-V2:
- - Snapshot before sending the frame for EEE, in case we immediately
-   enter LPI
- - Also return -ETIMEDOUT instead of EINVAL
-
-V1: https://lore.kernel.org/lkml/20260909074740.1247762-1-maxime.chevallier@bootlin.com/
-
-Maxime Chevallier (6):
-  net: stmmac: selftests: Support running selftests on DSA conduits
-  net: stmmac: selftests: Validate EEE based on the actual LPI timer
-    value
-  net: stmmac: selftests: Check the dev->features for S-TAG offload
-    testing
-  net: stmmac: selftests: Capture all packets for vlan checks
-  net: stmmac: size the RX buffers from the frame length, not the MTU
-  net: stmmac: selftests: Account for alignment shift on dwmac1000 for
-    Jumbo test
-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  20 +--
- .../stmicro/stmmac/stmmac_selftests.c         | 116 +++++++++++++++---
- 2 files changed, 109 insertions(+), 27 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index 6372ec7c3f31..6503678b646e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -12,6 +12,7 @@
+ #include <linux/ethtool.h>
+ #include <linux/ip.h>
+ #include <linux/udp.h>
++#include <net/dsa.h>
+ #include <net/pkt_cls.h>
+ #include <net/pkt_sched.h>
+ #include <net/tcp.h>
+@@ -237,6 +238,9 @@ struct stmmac_test_priv {
+ 	struct stmmac_packet_attrs *packet;
+ 	struct packet_type pt;
+ 	struct completion comp;
++	__be16 packet_type;
++	int (*func)(struct sk_buff *skb, struct net_device *ndev,
++		    struct packet_type *pt, struct net_device *orig_ndev);
+ 	int double_vlan;
+ 	int vlan_id;
+ 	int ok;
+@@ -316,6 +320,50 @@ static int stmmac_test_loopback_validate(struct sk_buff *skb,
+ 	return 0;
+ }
+ 
++static int stmmac_sft_filter(struct sk_buff *skb, struct net_device *ndev,
++			     struct packet_type *pt,
++			     struct net_device *orig_ndev)
++{
++	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
++	struct ethhdr *hdr = eth_hdr(skb);
++	int ret = 0;
++
++	if (hdr->h_proto == tpriv->packet_type) {
++		struct sk_buff *nskb = skb_clone(skb, GFP_ATOMIC);
++
++		if (nskb)
++			ret = tpriv->func(nskb, ndev, pt, orig_ndev);
++	}
++
++	kfree_skb(skb);
++	return ret;
++}
++
++static void stmmac_sft_add_pack(struct packet_type *pt)
++{
++	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
++
++	if (netdev_uses_dsa(tpriv->pt.dev)) {
++		tpriv->packet_type = tpriv->pt.type;
++		tpriv->func = tpriv->pt.func;
++
++		/* DSA conduit will report ETH_P_XDSA, so our packet handler
++		 * won't match. Let's register a ETH_P_ALL match and filter
++		 * manually in stmmac_sft_filter.
++		 */
++		tpriv->pt.type = htons(ETH_P_ALL);
++		tpriv->pt.func = stmmac_sft_filter;
++		tpriv->pt.ignore_outgoing = true;
++	}
++
++	dev_add_pack(pt);
++}
++
++static void stmmac_sft_remove_pack(struct packet_type *pt)
++{
++	dev_remove_pack(pt);
++}
++
+ static int __stmmac_test_loopback(struct stmmac_priv *priv,
+ 				  struct stmmac_packet_attrs *attr)
+ {
+@@ -337,7 +385,7 @@ static int __stmmac_test_loopback(struct stmmac_priv *priv,
+ 	tpriv->packet = attr;
+ 
+ 	if (!attr->dont_wait)
+-		dev_add_pack(&tpriv->pt);
++		stmmac_sft_add_pack(&tpriv->pt);
+ 
+ 	skb = stmmac_test_get_udp_skb(priv, attr);
+ 	if (!skb) {
+@@ -360,7 +408,7 @@ static int __stmmac_test_loopback(struct stmmac_priv *priv,
+ 
+ cleanup:
+ 	if (!attr->dont_wait)
+-		dev_remove_pack(&tpriv->pt);
++		stmmac_sft_remove_pack(&tpriv->pt);
+ 	kfree(tpriv);
+ 	return ret;
+ }
+@@ -767,7 +815,7 @@ static int stmmac_test_flowctrl(struct stmmac_priv *priv)
+ 	tpriv->pt.func = stmmac_test_flowctrl_validate;
+ 	tpriv->pt.dev = priv->dev;
+ 	tpriv->pt.af_packet_priv = tpriv;
+-	dev_add_pack(&tpriv->pt);
++	stmmac_sft_add_pack(&tpriv->pt);
+ 
+ 	/* Compute minimum number of packets to make FIFO full */
+ 	pkt_count = rx_fifo_size;
+@@ -823,7 +871,7 @@ static int stmmac_test_flowctrl(struct stmmac_priv *priv)
+ cleanup:
+ 	dev_mc_del(priv->dev, paddr);
+ 	dev_set_promiscuity(priv->dev, -1);
+-	dev_remove_pack(&tpriv->pt);
++	stmmac_sft_remove_pack(&tpriv->pt);
+ 	kfree(tpriv);
+ 	return ret;
+ }
+@@ -928,7 +976,7 @@ static int __stmmac_test_vlanfilt(struct stmmac_priv *priv)
+ 	 * HASH values.
+ 	 */
+ 	tpriv->vlan_id = 0x123;
+-	dev_add_pack(&tpriv->pt);
++	stmmac_sft_add_pack(&tpriv->pt);
+ 
+ 	ret = vlan_vid_add(priv->dev, htons(ETH_P_8021Q), tpriv->vlan_id);
+ 	if (ret)
+@@ -968,7 +1016,7 @@ static int __stmmac_test_vlanfilt(struct stmmac_priv *priv)
+ vlan_del:
+ 	vlan_vid_del(priv->dev, htons(ETH_P_8021Q), tpriv->vlan_id);
+ cleanup:
+-	dev_remove_pack(&tpriv->pt);
++	stmmac_sft_remove_pack(&tpriv->pt);
+ 	kfree(tpriv);
+ 	return ret;
+ }
+@@ -1022,7 +1070,7 @@ static int __stmmac_test_dvlanfilt(struct stmmac_priv *priv)
+ 	 * HASH values.
+ 	 */
+ 	tpriv->vlan_id = 0x123;
+-	dev_add_pack(&tpriv->pt);
++	stmmac_sft_add_pack(&tpriv->pt);
+ 
+ 	ret = vlan_vid_add(priv->dev, htons(ETH_P_8021AD), tpriv->vlan_id);
+ 	if (ret)
+@@ -1062,7 +1110,7 @@ static int __stmmac_test_dvlanfilt(struct stmmac_priv *priv)
+ vlan_del:
+ 	vlan_vid_del(priv->dev, htons(ETH_P_8021AD), tpriv->vlan_id);
+ cleanup:
+-	dev_remove_pack(&tpriv->pt);
++	stmmac_sft_remove_pack(&tpriv->pt);
+ 	kfree(tpriv);
+ 	return ret;
+ }
+@@ -1293,7 +1341,7 @@ static int stmmac_test_vlanoff_common(struct stmmac_priv *priv, bool svlan)
+ 	tpriv->pt.af_packet_priv = tpriv;
+ 	tpriv->packet = &attr;
+ 	tpriv->vlan_id = 0x123;
+-	dev_add_pack(&tpriv->pt);
++	stmmac_sft_add_pack(&tpriv->pt);
+ 
+ 	ret = vlan_vid_add(priv->dev, htons(proto), tpriv->vlan_id);
+ 	if (ret)
+@@ -1320,7 +1368,7 @@ static int stmmac_test_vlanoff_common(struct stmmac_priv *priv, bool svlan)
+ vlan_del:
+ 	vlan_vid_del(priv->dev, htons(proto), tpriv->vlan_id);
+ cleanup:
+-	dev_remove_pack(&tpriv->pt);
++	stmmac_sft_remove_pack(&tpriv->pt);
+ 	kfree(tpriv);
+ 	return ret;
+ }
 -- 
 2.55.0
 
