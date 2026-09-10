@@ -4,89 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58A2C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6483BC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=egjXlTO+DDdBNX7oUJIbp/5S5+lAPsCv98LOkwHuUVM=; b=sGyHwtpK9OPpn171sh2tqVU28D
-	tzGsy17AWSLR3LzOa894b/+RFz0KZka3rRNoUMc+qfTnb+ybTguKpSicQ+28x9dcTKHmGiYSpryC7
-	3X7N3nHkWbrhx9OzX3dLiNXTjoOK0prYvvg7bqpHoSoWk6A8OlGICVYc/yWoj7hCotRrgX3way1Qa
-	SK95u3rYLuK93mlQ2OoIPnntj561f+qgaFXxZpGUJsh+JyiZ4AvYtzGmq8tiNborvRbwmR0zNdSFG
-	4HUOyWNAJPHsb+tYd6tQfnxbASYt205uILZNaFN3ehDV//rdG7GGLdc4/MArbjPghEg1EKjnAMgmi
-	StBTj+BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GhBW4neUTy3SQWHZrBijHwOAD+/7np95Q11BFjhZEzo=; b=DoSh4KbLcChl/SjAzS/zapg1i+
+	zJapWUEqssZbDvn4wiKBsrJhZD3vHtGGDR8X4ySmGxXpixnqkDOQ3Sfw0P+omntYLBwavQiYGyLVu
+	83BSl/UYx2z99z1E51FH5sp8rc81HGnT9YnKPw9wgDZ1qPPkxgwqw+gDmqNFfdsVqATuQrrRnQ48P
+	MfiPuw2XOl/OnTMfX/ucj1nRGwezaphs7E5nrzOqPQ9WSXjsPWyClTPJirPcu1zWIXHA8UouD6oTz
+	6VNdruYIbjLbq1rZtmHiHacD3QKhI59B9ywCmz1VDlgyKLfie683U+idUXPLpzxbPot5qJiFmWMC1
+	WQ+qQIVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gwB-0000000EqfD-2ziy;
-	Thu, 10 Sep 2026 15:43:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4gyg-0000000ErH8-1Nws;
+	Thu, 10 Sep 2026 15:46:18 +0000
+Received: from mail-francesouthazon11011043.outbound.protection.outlook.com ([40.107.130.43] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gw7-0000000EqdH-3sTN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 15:43:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=egjXlTO+DDdBNX7oUJIbp/5S5+lAPsCv98LOkwHuUVM=; b=iMuN1fagw2gG2yLeRar7Iuudpu
-	heDh6HMMxTFiefdXu8OLhikIR/epUH4vc3zmbsuA8UnNIXidxapjcXda8cXk5U3dPuz5F0tJ9IdN0
-	jLODh0aNmp1+jR+J3UrHnx49lNghTZjv0NyXZMYGJqchtdXwVd2bIujxFSfi2Q0b1BqyoEFLdDCF9
-	eAuEhi6PIMkxc6sc2JIWC2HqqCAKWVTqhhBtK0r4NjpIOXVPx+HUnMb6JufIrtftakpj4nuaG3tGG
-	iiusGqfv8l7AHdwWZR5HqFbbmuJhcx3cPvGEuvkg/7Br25AE7b6YqngazdAOdTc2z+v7vfqQzT7Jo
-	OJWOdO3g==;
-Received: from mgamail.intel.com ([198.175.65.15])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4gw4-00000002h4Q-0T8v
+	id 1x4gyd-0000000ErGH-3OQ2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:43:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789055016; x=1820591016;
-  h=date:from:to:cc:subject:message-id;
-  bh=kl710Ogpmd2+II85avk0ufWudsJiE1q8vjfpO/pbOOs=;
-  b=XDCR2B5ZCmbMNcGhQO+UUOo8FiKsUw86BJxqNRc5HpGx5ksGjmX4CHwQ
-   VsgRFs2tMPd82HRxK4fE6ZiaZSEVho8sbPrgxvkkMNEl4UCSkQDTXcGUm
-   Ap76bmbk6DRTCtw6JqT4V9ANnLqAWCy/k0zZ5nrHHpOqkycRh8GFdwjXP
-   OjqLspFtlic0QkuE4muKeWZXMHL31QHSKJZ7D4Ix0r67f8KbDW4JpV46J
-   yq4Ju8+QrGWDXU7Egu/3oi/4wtYvXRlFcGsEeJINGCTEttWxqilM29z50
-   cxLgUjmfX1F+5nMtWRWAKT5uurTpcc1MuPK1lWDdyHe3XZwGM4yasfnra
-   Q==;
-X-CSE-ConnectionGUID: 4YoXmvC8QcyaiOQ6k8dn2g==
-X-CSE-MsgGUID: kK9FpVU+RJKtrCrSUSLOIg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="93200681"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="93200681"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:43:34 -0700
-X-CSE-ConnectionGUID: 73AamxUcTFy3XN6APV26IQ==
-X-CSE-MsgGUID: SFh3gaiUQn+2GCfL8nAJPQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="301572123"
-Received: from igk-lkp-server01.igk.intel.com (HELO 2232cf45ba3c) ([10.211.93.152])
-  by orviesa002.jf.intel.com with ESMTP; 10 Sep 2026 08:43:32 -0700
-Received: from kbuild by 2232cf45ba3c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1x4gvy-000000000Rc-0PWd;
-	Thu, 10 Sep 2026 15:43:30 +0000
-Date: Thu, 10 Sep 2026 17:42:42 +0200
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove-7.3 226/294]
- drivers/mtd/spi-nor/spansion.c:100:9: error: call to undeclared function
- 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit
- function declarations
-Message-ID: <202609101458.dCAUeSAA-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 10 Sep 2026 15:46:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FXBRfEi3E1g6cibKTigPWO02mL1+EAP1yNx9PsCT/bqvQcZdWx3ZgcXRLDOqc9vEGwNNnqh7WksxHyBLZL86GptRezuIEXkBp5KroDmtv4MQyi2Uprx5AAJQNLIx5tDbYOdUseqXnlXBR54tE9rLYS4L85GTeVd9AdDEyU/MUoMwqlqN1uq0KnH6doUG63oFf+1aH8o5ZUu7EULpbfP/s2hA6BrMOPRaLZf7MZajRqSgaA2VjKM1wV73QCZPJGdGazJzTnE6B7KKZumCexeGTS44JHzZEfHAYuOanEN/yTAYv5eBdpwfCEM0lKFWwdwj961w/pcvR78xAVbggcjX7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GhBW4neUTy3SQWHZrBijHwOAD+/7np95Q11BFjhZEzo=;
+ b=PNCeOc3hpS49skTWYhWShkObO0NEvwk4qJNl9zIsFwvbTkvuX+2QmJ78KasToPAPw4jOc6somcG16gSuccJ4qpPL/9o9nWhC1JDiE+vW6rbBIhgqPHHSjYmaqBvfgUu8SAMPlgf6eJtDXTyK2qqQ1zMPbrde535GwmWPLRs5Cr1TN/5Wjc5L5sy6hEsl5SrDu8IhpgW9iMXvZFVdcn47r6pU1FKGXF7EuiXoq4EBKsRPSgPNFJsupg4HCZ3tXHPBa4G4jAt640IDQZim+H8Nv2OC2wi+b7wwtDOuuRuncYQJEwBbyW9wbnfSxguMSbj06OsWKNWYpth8oiKf+yQv1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GhBW4neUTy3SQWHZrBijHwOAD+/7np95Q11BFjhZEzo=;
+ b=t0zHjkqS72fK32O4km010xg59ToB9mlsAilF8R5IAA4ih6U4Dq/tWaUgqZeY5hss5N8/aJPzMqMUk/ExWb40ahV2WQgXd30Vu+Xwr5BDmpNF5no5e4W7RYBQLMDUP1h1qR7VTLcvn7I3Bc9FmHSvzR4G9fAzZ8GUURgro+HEll0A8DERM6QJhbT940tNRMAkOY9Imc3wP17O7LrsDzqv+Y9Cs2d+3ezr/xK/iCX6QAejRRxhkcPWpkrdEaVp8Hqf0+32A3h3cqlorTRaQZhA6AArV+c9Yc3npuY2MxWwrNPHyfpw3bPPuPqhmk1d1ufpCkF5/NkAwrvQDZ7x2eFBUQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS1PR04MB9238.eurprd04.prod.outlook.com (2603:10a6:20b:4c6::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Thu, 10 Sep
+ 2026 15:46:10 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 15:46:10 +0000
+Date: Thu, 10 Sep 2026 10:45:59 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Linkai Gong <gonglinkai@kylinos.cn>
+Cc: Abel Vesa <abelvesa@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: imx: composite-93: return timeout from gate enable
+Message-ID: <aqLQt3vAxqA421qc@SMW015318>
+References: <20260821085616.1129333-1-gonglinkai@kylinos.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821085616.1129333-1-gonglinkai@kylinos.cn>
+X-ClientProxiedBy: PH8P221CA0015.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS1PR04MB9238:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf99f35e-fe67-4f66-7392-08df0f52a276
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|23010399003|366016|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: bR9V7faPYDULRugLpdI3V8j2YHAQ2E/odXa9gkdBHz7/OOJZNGt7weMkDq/wQlYztKd2fOA93BxDc8oVoQ8+3CM8+tlcSrdwmxZg7ic3lnjmp28ZD0HWj4HdGJ1drolE82k7zbcNJXSWrSe2hM4361OpGDTbOXi1j9mRA6KXKFi4TrbnCUHb0W3RjT7F/6e7Ci9h4vAoFzG23yG8lY0VZxrpGpAwWsAH/78s82U4kEQ+6Qk7JX+pqse1+uddQBxueNZuWrHp0iy+hYcJWUSKQHwfDJ5/fysoxb551yUGrm0Dj4+d1YGaqansQQ0IuCNEMy+lUBnrAKFlvA6pz+AwcH+4a1791EeJKv4Wvtmxp5aPXi5B5wmPi48gZPUy7kdesnjDwfrfHeRc59OUAY5EoSInGIV+4azqjX7RCUHAup9r+f+RtvzGWKS0mCB8kgGX8Y6o386t9I1wCKkPTD+ptq2UzH+exk+yjxBnhJ29KutDKu43mm2hKFgEKeSxT6FjrH5meIWbz5yzTZgjT8NJoeUr+EPq0VGahfh4nuOvw2Yus43uxTygDJWoJuc2wIt9+X1dcmJxlGLpW31GxhcDxO9B6t61FIs76eBqizfBqO6StVVZIdKzQH37I6NZK6fUZQH9pJxvPYtOYJ0mXOGfWfCOoNlT0zmHgqAc/KnRtB4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(23010399003)(366016)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xyiE6lGUBeA7fTFUHwzws6U0jR+3FIwzXDD4bAnsOW4zKiqJ7U0/dzDMssCb?=
+ =?us-ascii?Q?NMHgNkycZekPcTZNpo21Vd/aVRNgepRvkPPK6KkAnryHvNJULdmpmuuZyMIy?=
+ =?us-ascii?Q?AaeEnTE9BuEcfmcAOhTpSH79yt7ujphtLKMLPOE+aenkcjeNKKalI0ZosnFc?=
+ =?us-ascii?Q?PHQL5jRIF1CyhNt/DPmEcR470qtE6/VN28IE3BHl6LIMomeZdqVyEsjNUZhn?=
+ =?us-ascii?Q?2EUjSpm1Szr4AXBoAw90qK5IFHueG6DOSLZdh2fxNaESaItDWlJf6M2QukhV?=
+ =?us-ascii?Q?GfjPDztk6MR04ps4niYyaBLF+ilS937EFK/tAqzlwq14kn8saT3WIrvvnOSi?=
+ =?us-ascii?Q?u48s67LGrYjgzVRbdBNCo0LaTZkdnSmZmjfuebxZd+VEhSZJAbhGgmyo4Byg?=
+ =?us-ascii?Q?oS9GUEwLKSHCMiN4+XxFVYhgpeuG7ZGNPviJo+INc9Uid0dbIwccW/ZgKJ40?=
+ =?us-ascii?Q?VFl17g7ZDJWS6YOMDoJqcZwwQzaLv0uE6f4ey0z0gAUqB2ZonnLKhw37BlVT?=
+ =?us-ascii?Q?umlmDh9StH8VEc+u8uVDg8O2kZ14w38KzcTn1uI5am/iqlh2tlHUFflc+GJT?=
+ =?us-ascii?Q?WUVLWFyVzim8+wafJkXFkl435LNLdBWFuUYWDqy9bS6cbGKwLaUq69gjcSLA?=
+ =?us-ascii?Q?DVcbHHJxAbbYjOK7/ZjnE9kl3YIOYVVz5qhUVUF8hYcFy1lZbCVzZVC1Tq8z?=
+ =?us-ascii?Q?bwpdOfvu0a0FL7JjPLkZHQWp0ue5Jw9MczFkXjxsbasEU80iguGyOPsern0c?=
+ =?us-ascii?Q?EY7rXDivu9Z6bZdUC8EY3AQkcVPiuXKS8v3GwfsDlDjUwxHv71lZTPEZPQqV?=
+ =?us-ascii?Q?mH+cI7Ac5udYbzF7386Ep6hp1702cOwBG71afr4FiWRdVEehc364QM7l+QhP?=
+ =?us-ascii?Q?VSBN2blOmMvCfonlXnpZD3ZorsDBdaRDzOoF41i4juAXzscO6qCFQ4gi7XFQ?=
+ =?us-ascii?Q?WnSc4TeCFNSzwyn15HNm2ckwu4H5cSeKR3tUDvCX37NqNtAmba92z5QzJU0v?=
+ =?us-ascii?Q?WxH2rHEZ/F8Q2REF4aJB/iT06IiQLUH3tjSQPKZcGyLuUC15rabxRZfzdmQn?=
+ =?us-ascii?Q?4yjeg/mKsYE45Xw7r1/kva8WhL8kJawLZQzH1taFHhohTHLzpHYbfLdyut6a?=
+ =?us-ascii?Q?Zz6MQAWu5nD5KeyKUHFdPziBNDNFUzcj6CuNnNNomUCW9+w+I+KzqKNykHtC?=
+ =?us-ascii?Q?yc4yJC27gXlue63/81I7+UfXLWbXkuFmj06zLxKPJe68kUSK99VT0LGyhxoU?=
+ =?us-ascii?Q?y5UjvsT/Ezv1J3e+44znbE/MuD/Viktja1uzkbUBrI7QSlV5vXcJ+Oj95YIu?=
+ =?us-ascii?Q?rRyCu7Y87cHuDOrPGxq8vGYy4GvnjKg5SfAl8Cb8K2e4uCX3fTcZLSGT1ZP0?=
+ =?us-ascii?Q?3hoqltj+u1yyaATzDPpp5IO6dZZfKXMEq/go6m1XbOgbciWKdAT3j9QDjQXL?=
+ =?us-ascii?Q?GY7bYiNtiNtvwyvVMQDH2SpfD/9COB03lMj3pg2VYAtN1Ua5zkL25aNXGiiY?=
+ =?us-ascii?Q?5C33p+jmB6kFjkD37Iv+SLGbbCdUn5dQvQUeR19YHihfTQRo1TTxIu/LsdiX?=
+ =?us-ascii?Q?jApuW3q48REiMUDrA5TzLSWjqi718As0MKgxUlghFi7gGMOGFU6b/b3AKrXS?=
+ =?us-ascii?Q?/SIs2Vp2lKEUGHMrqLX+83qStwzI9E1dHVgDZd/d+7Tac9cNdNEy8fTJg3m3?=
+ =?us-ascii?Q?p7nZtX7wrgPMmxMqGAxDNK+dR/DVUoYJ2E+UhZsaI9M1RFrNj0R/IQn1bEHV?=
+ =?us-ascii?Q?D2qTI8XDSNI0sTsebfYDg2RQgJyYWe7AF6AsUPjaa3HRyPY45zMe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf99f35e-fe67-4f66-7392-08df0f52a276
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 15:46:10.0873
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YK3IuMkZGDzBo55xdDPGPbVRN+OuRG9WFpu1mNP/amKU2fab0zDvL+Z1XRUso8cTwe8YAs0iNSB1ih2aThaCyqXUivy9+CghN8HznmZO7eJ5+0PRSREJu2pOTmRZCjGG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_164336_537526_4FD44AD9 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_084615_848433_F7889447 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,69 +143,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
-head:   3ac93c1e700558259ea604f7d4f37e26820fba15
-commit: 62e3b560c8fdcab6be5dce819f3b76df95cd95dc [226/294] mtd: spi-nor: remove controller_ops support
-config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20260910/202609101458.dCAUeSAA-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260910/202609101458.dCAUeSAA-lkp@intel.com/reproduce)
+On Fri, Aug 21, 2026 at 04:56:16PM +0800, Linkai Gong wrote:
+> [You don't often get email from gonglinkai@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> imx93_clk_composite_gate_enable() always returns 0, even when
+> imx93_clk_composite_wait_ready() times out.
+>
+> Fixes: 4a3de5aa7743 ("clk: imx: clk-composite-93: check slice busy")
+> Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
+> ---
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202609101458.dCAUeSAA-lkp@intel.com/
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-All errors (new ones prefixed by >>):
-
->> drivers/mtd/spi-nor/spansion.c:100:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     100 |                 ret = spi_nor_controller_ops_write_reg(nor, SPINOR_OP_CLSR,
-         |                       ^
-   1 error generated.
---
->> drivers/mtd/spi-nor/winbond.c:122:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     122 |                 ret = spi_nor_controller_ops_write_reg(nor,
-         |                       ^
-   drivers/mtd/spi-nor/winbond.c:424:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     424 |                 ret = spi_nor_controller_ops_write_reg(nor,
-         |                       ^
-   2 errors generated.
-
-
-vim +/spi_nor_controller_ops_write_reg +100 drivers/mtd/spi-nor/spansion.c
-
-d534fd9787d592 Takahiro Kuwano 2023-07-26   83  
-91f3c430f622be Takahiro Kuwano 2023-04-07   84  /**
-91f3c430f622be Takahiro Kuwano 2023-04-07   85   * spansion_nor_clear_sr() - Clear the Status Register.
-91f3c430f622be Takahiro Kuwano 2023-04-07   86   * @nor:	pointer to 'struct spi_nor'.
-91f3c430f622be Takahiro Kuwano 2023-04-07   87   */
-91f3c430f622be Takahiro Kuwano 2023-04-07   88  static void spansion_nor_clear_sr(struct spi_nor *nor)
-91f3c430f622be Takahiro Kuwano 2023-04-07   89  {
-d534fd9787d592 Takahiro Kuwano 2023-07-26   90  	const struct spansion_nor_params *priv_params = nor->params->priv;
-91f3c430f622be Takahiro Kuwano 2023-04-07   91  	int ret;
-91f3c430f622be Takahiro Kuwano 2023-04-07   92  
-91f3c430f622be Takahiro Kuwano 2023-04-07   93  	if (nor->spimem) {
-d534fd9787d592 Takahiro Kuwano 2023-07-26   94  		struct spi_mem_op op = SPANSION_OP(priv_params->clsr);
-91f3c430f622be Takahiro Kuwano 2023-04-07   95  
-91f3c430f622be Takahiro Kuwano 2023-04-07   96  		spi_nor_spimem_setup_op(nor, &op, nor->reg_proto);
-91f3c430f622be Takahiro Kuwano 2023-04-07   97  
-91f3c430f622be Takahiro Kuwano 2023-04-07   98  		ret = spi_mem_exec_op(nor->spimem, &op);
-91f3c430f622be Takahiro Kuwano 2023-04-07   99  	} else {
-91f3c430f622be Takahiro Kuwano 2023-04-07 @100  		ret = spi_nor_controller_ops_write_reg(nor, SPINOR_OP_CLSR,
-91f3c430f622be Takahiro Kuwano 2023-04-07  101  						       NULL, 0);
-91f3c430f622be Takahiro Kuwano 2023-04-07  102  	}
-91f3c430f622be Takahiro Kuwano 2023-04-07  103  
-91f3c430f622be Takahiro Kuwano 2023-04-07  104  	if (ret)
-91f3c430f622be Takahiro Kuwano 2023-04-07  105  		dev_dbg(nor->dev, "error %d clearing SR\n", ret);
-91f3c430f622be Takahiro Kuwano 2023-04-07  106  }
-91f3c430f622be Takahiro Kuwano 2023-04-07  107  
-
-:::::: The code at line 100 was first introduced by commit
-:::::: 91f3c430f622befb1b11f07df3bf7163f46adda6 mtd: spi-nor: spansion: Add a new ->ready() hook for multi-chip device
-
-:::::: TO: Takahiro Kuwano <Takahiro.Kuwano@infineon.com>
-:::::: CC: Tudor Ambarus <tudor.ambarus@linaro.org>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>  drivers/clk/imx/clk-composite-93.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/clk/imx/clk-composite-93.c b/drivers/clk/imx/clk-composite-93.c
+> index ef20ceb2d255..953f67d13978 100644
+> --- a/drivers/clk/imx/clk-composite-93.c
+> +++ b/drivers/clk/imx/clk-composite-93.c
+> @@ -43,11 +43,12 @@ static int imx93_clk_composite_wait_ready(struct clk_hw *hw, void __iomem *reg)
+>         return ret;
+>  }
+>
+> -static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
+> +static int imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
+>  {
+>         struct clk_gate *gate = to_clk_gate(hw);
+>         unsigned long flags;
+>         u32 reg;
+> +       int ret;
+>
+>         if (gate->lock)
+>                 spin_lock_irqsave(gate->lock, flags);
+> @@ -61,17 +62,17 @@ static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
+>
+>         writel(reg, gate->reg);
+>
+> -       imx93_clk_composite_wait_ready(hw, gate->reg);
+> +       ret = imx93_clk_composite_wait_ready(hw, gate->reg);
+>
+>         if (gate->lock)
+>                 spin_unlock_irqrestore(gate->lock, flags);
+> +
+> +       return ret;
+>  }
+>
+>  static int imx93_clk_composite_gate_enable(struct clk_hw *hw)
+>  {
+> -       imx93_clk_composite_gate_endisable(hw, 1);
+> -
+> -       return 0;
+> +       return imx93_clk_composite_gate_endisable(hw, 1);
+>  }
+>
+>  static void imx93_clk_composite_gate_disable(struct clk_hw *hw)
+> --
+> 2.25.1
+>
+>
 
