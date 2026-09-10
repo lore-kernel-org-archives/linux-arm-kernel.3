@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8E8C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A613C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=; b=czG+v6VXWJvuQ99yw7/0Qm8wPo
-	r0XwdJEzsb5T7XRJ30fZSMmEobOgSG33GYUqCvBNVY80DtBGYTOTjZFCc5ekGT9d3zmrY8/DvXEb+
-	0yfAqpe4H9oRv0v2Azql0UJlmV9pzpj5IFVfHxhCbec++yNW5wRlSLq3hkImHFdjzbGXFTnJfgLGd
-	8msB6sFiVYpSc9QMl8a3HhFDe4XdlXVqVQCPpz6LQCFTCwoGVY6i1ELpq4SifPXI5JTq7PHaHGvui
-	bUlQ54RcJbF9g1Cse8AnhBVW3uAUERa/BeYsAVZcMdDdEs5fmvHf3tOZvPVPZYG1Nl5Xr9ijKn9T8
-	2v1U8BMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z/kFkA8ZtlPHl7dirXaXl3pjvcX+bythjEf3lFKdsys=; b=rvgvrO1VfNJGnV6iZiPASqo+A9
+	rFTUUlzzol/gRQ6Prqr0JarZ4PHEzeY2MIEsxqXsZJD5Xqm6H9v5rUxEMIItlHntkuY6eIedld9BR
+	wgUJRh4nlgSzZlhuyZKN4SOTc73E4KegAL8ws8L0TQDY861Rd4GPQ/x0zxAwtHyR+8LktdX7NwQ9M
+	8m0hrshcUmOOCr1tofVozbbL/eAEv8BEOOKPNcBp92nDGNye6sE2ynsyrF43iClaKLG3OaR2Et5vG
+	ouv0fL4L0jNKYE52zFlyqng1QglKU6Ueh/TO5/xt839UbWWVA/jm1C9K2L/pxAZ53wNBiOoQ2AlIZ
+	L2DCalRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Wfg-0000000DOFq-2U86;
-	Thu, 10 Sep 2026 04:46:00 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1x4Wja-0000000DOeb-0QEW;
+	Thu, 10 Sep 2026 04:50:02 +0000
+Received: from esa3.hc1455-7.c3s2.iphmx.com ([207.54.90.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Wfe-0000000DOFJ-1Jfe
+	id 1x4WjX-0000000DOdd-22hR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:45:59 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38ec1402b05so6647139a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 21:45:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789015556; x=1789620356; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=;
-        b=JNYiFm/kgxRujU/HodJBust6cvNvKeT4knzGdNxWAAkP/1Jmo06vm0J6V7Momni7qy
-         fJhJQOXjHLasEcRU/zSSo7RSyTonF5GEoykmopwc1JNtLlPtesTSOL7YwN04KeoLcup+
-         FxviYd21Sp2N6YbMJ9Jt+frPlQmB42vFzMUQM4BCllpHXWeLtnc/FF8LThVoUXnXm3f1
-         59i5VtATh5d3vdp+BnC4y+/WzAR+S+mVzz9+TpGoBH8aFUulPdGgG8YaIXeJMC1xnmdR
-         qn+bRNcfJlVfZzg3MyowfkeJBjU06DmxvPZmA5FbCTfe/ppENIrVBmx2r0VOPpQnNriz
-         SN8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789015556; x=1789620356;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=;
-        b=i8v/O3RHDxnkr+fGKG6u88cjjR84nC+bztRhrGscprJKWhjhcOPeRkefADq5VCp2Gk
-         4p2B6gDmT+XGRkfpKOqZ8vyXUxUggOjAJoxjpYTwNOO0iSjNOoUEtuTWhzX97w2/c+O9
-         rhnLkj0rbe0xorQzhDjZ164ADBLbjpYdEYztE8jyYtnGSIoCijBdv09kGR0L1fbiNPN8
-         k3KduX2hyAD0zESLVR3QirW+VlVbKgQc7BsmphIbyXBNj9I6ZqR1yQrydUvnp4yEdlCI
-         F2TBeVwYNV4XduibIvQ2niEFSZARJuK5jEH3mX1M/AtpLeNv9b8KJsEnLOyebpp8lAzI
-         WM5w==
-X-Gm-Message-State: AFuF++mp+H1+KMP994x9vW76qFrnSFG+lJAI+FGS1WbmT34DdCIfA+qm
-	p+K6RYdFWKo3ir2zrHCPnVvLJ2tZeo9EZWhmev1DqP/RmEEYBt7f99RN
-X-Gm-Gg: AYBFou1s84x0cvcRVOP/oaYF8f6480Qr2oL1xIgeZ75lAn7362sHb/Iv13VJ5MQ9Ryv
-	zI4s4dDSCkRfA7Pb/fTrh8caiEZ3scw1YucsuKooQz67M824b7zuL3jjGdd3LRLbpAXI0c1JNuA
-	43ZEVUlyFyd4bAzIr2wDE/eBg43KjRC+Ku2hV8fd8yiSt4WztwOJPtDvp3PbT5x9XlEzEF2FT/P
-	bfqw2CJnVJiCCapUN6vXjT8ai7HCiZRiyAgqGyoJAZgChmyrFcBeQnmSGaf+Z77nmhKTk4VSNLU
-	elw4Yn3hbC7CfoKF/Hs63i8v++4G33Tnry77md1RM53zqzgm38wbL6eJiLLB9Qjtdemf7qy/1r4
-	nYE4s17EoKyZbaAuslqmrE8DKL3AlI54URIhG97znE5LBq105DA6cFnFUQt4bL4pOrnLz3Nisu6
-	7qLHZZB+rZNVvyFYhMOv7ydqrdP7et0ENMEl7upuNxCw8hCIi7uFEdNciEn82A93NYXHzFCzoeu
-	2pHfS5dlh4vCpWMOanQONXgng==
-X-Received: by 2002:a17:90b:2b4e:b0:398:9be9:ab8f with SMTP id 98e67ed59e1d1-39b2622b9ecmr58740166a91.20.1789015556341;
-        Wed, 09 Sep 2026 21:45:56 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b123731sm45547140eec.18.2026.09.09.21.45.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 21:45:55 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: nm@ti.com,
-	ssantosh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] soc: ti: knav_qmss_queue: Fix typos in comments
-Date: Thu, 10 Sep 2026 10:15:51 +0530
-Message-ID: <20260910044551.50308-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	Thu, 10 Sep 2026 04:50:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1789015803; x=1820551803;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Xk47tdIucK/5Zzi/z/QsVNoFQM47eXx+3YilT3u56PI=;
+  b=S8bWev4FeP73hYK+aS8TV5c8EToZFJPvUthiF3Zi8bAZZoZR9dro9Qxo
+   7TdnCtKsCSLEpj1V/NQ+zCJXfxoOs5Lvo6gzlwVTrhtAW1z+8bLCI2ZAB
+   cuuPfGWV7w2dQbccGIEckZ9y6d+iYgrPxwoqFwwse6w7d6rlYY+s02TF6
+   IzJL8NjChIrgXAA18a/4DbPBtpx8Xsm5wwfY02gxE68XyEB0AIIl6QJuZ
+   ZmSZO8PtgHDJ5g+g62eKb6rB3CmdX47ChTKR0QdOR6e6dAxNMW1/1Pq3E
+   xrQDJYm/ctbunQSlpws7KNHyUJkgdwj3BrqieBUZS2E5Nrh3umRzn6yt8
+   A==;
+X-CSE-ConnectionGUID: R2PQFJeKQV6fc4iPbWhbfQ==
+X-CSE-MsgGUID: X7vOI74bQHqZiE3Ok8d8Qg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="254488097"
+X-IronPort-AV: E=Sophos;i="6.25,271,1779116400"; 
+   d="scan'208";a="254488097"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa3.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 13:49:59 +0900
+Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6766633FB
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:49:55 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 1367318019B2
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:49:55 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.22.105])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 0379A14000ED;
+	Thu, 10 Sep 2026 04:49:47 +0000 (UTC)
+Date: Thu, 10 Sep 2026 13:49:44 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, 
+	tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, 
+	fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting
+ Realm guests
+Message-ID: <aqI2eI8IbCJQMx5d@FCCLS0092175.localdomain>
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+ <20260908162223.1683432-7-suzuki.poulose@arm.com>
+ <aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
+ <86zexq3dk5.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <86zexq3dk5.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_214558_357772_B4E36223 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20260909_214959_825700_DB51D3FA 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +100,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct "specifes" to "specifies" in the knav_queue_open() kernel-doc and
-"accomodate" to "accommodate" in knav_pool_create().  No code changes.
+Hi Marc,
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
-v2:
- - use the subject convention this file already follows, which names the
-   driver and capitalises the description (Nishanth Menon)
- - also correct "specifes" in the knav_queue_open() kernel-doc, so the
-   file is done in one go rather than a patch per word (Nishanth Menon)
+On 09/09 11:48, Marc Zyngier wrote:
+> On Wed, 09 Sep 2026 04:26:41 +0100,
+> Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> > 
+> > Hi Suzuki,
+> > 
+> > On 09/08 17:22, Suzuki K Poulose wrote:
+> > > Add an explicit mode to support Arm CCA guests.
+> > > 
+> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > ---
+> > >  Documentation/admin-guide/kernel-parameters.txt | 3 +++
+> > >  arch/arm64/include/asm/kvm_host.h               | 1 +
+> > >  arch/arm64/kvm/arm.c                            | 5 +++++
+> > >  3 files changed, 9 insertions(+)
+> > > 
+> > > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > > index 68647ff4bdd24..1afe3df3b923e 100644
+> > > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > > @@ -3256,6 +3256,9 @@ Kernel parameters
+> > >  			nested: VHE-based mode with support for nested
+> > >  				virtualization. Requires at least ARMv8.4
+> > >  				hardware (with FEAT_NV2).
+> > > +			rmm: Support for running confidential guests in Realm
+> > > +			     world using RMM, as defined by Arm Confidential
+> > > +			     Compute Architecture (CCA)
+> > >  
+> > >  			Defaults to VHE/nVHE based on hardware support. Setting
+> > >  			mode to "protected" will disable kexec and hibernation
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > index b2e99c5cb1cd3..31ae9d8d8e92f 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -69,6 +69,7 @@ enum kvm_mode {
+> > >  	KVM_MODE_DEFAULT,
+> > >  	KVM_MODE_PROTECTED,
+> > >  	KVM_MODE_NV,
+> > > +	KVM_MODE_RMM,
+> > >  	KVM_MODE_NONE,
+> > >  };
+> > >  #ifdef CONFIG_KVM
+> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > > index 9af3bbb2f8c24..50f0adfadab38 100644
+> > > --- a/arch/arm64/kvm/arm.c
+> > > +++ b/arch/arm64/kvm/arm.c
+> > > @@ -3264,6 +3264,11 @@ static int __init early_kvm_mode_cfg(char *arg)
+> > >  		return 0;
+> > >  	}
+> > >  
+> > > +	if (strcmp(arg, "rmm") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
+> > > +		kvm_mode = KVM_MODE_RMM;
+> > > +		return 0;
+> > > +	}
+> > 
+> > Does this make NV support and CCA Realm VM support mutually exclusive?
+> > 
+> > Until the v16 series, we could run Realm VMs with:
+> >   'kvm-arm.mode=nested'
+> > 
+> > As far as the AArch64 architecture is concerned, there does not seem to
+> > be a reason to make them mutually exclusive. I am therefore wondering
+> > whether this restriction is intentional.
+> 
+> I have a hack somewhere that will allow this, but this requires to
+> change the above to be a capability mask rather than a simple
+> enumeration. I'll see if I can spin that as a separate series.
 
-codespell reports nothing else in this file.  The remaining hits under
-drivers/soc/ti/ are in other drivers and are left for a separate patch;
-"indx" in k3-ringacc.c is a struct field name, not a typo.
+Ack. Thank you for the clarification.
+Looking forward to seeing the series.
 
-v1: https://lore.kernel.org/all/20260907062247.9994-1-hemanth.selam@gmail.com/
+Thanks,
+Kohei
 
- drivers/soc/ti/knav_qmss_queue.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-index 3e4041454f69..6186454dff51 100644
---- a/drivers/soc/ti/knav_qmss_queue.c
-+++ b/drivers/soc/ti/knav_qmss_queue.c
-@@ -509,7 +509,7 @@ static int knav_queue_flush(struct knav_queue *qh)
- /**
-  * knav_queue_open()	- open a hardware queue
-  * @name:		- name to give the queue handle
-- * @id:			- desired queue number if any or specifes the type
-+ * @id:			- desired queue number if any or specifies the type
-  *			  of queue
-  * @flags:		- the following flags are applicable to queues:
-  *	KNAV_QUEUE_SHARED - allow the queue to be shared. Queues are
-@@ -805,7 +805,7 @@ void *knav_pool_create(const char *name,
- 	}
- 
- 	/* Region maintains a sorted (by region offset) list of pools
--	 * use the first free slot which is large enough to accomodate
-+	 * use the first free slot which is large enough to accommodate
- 	 * the request
- 	 */
- 	last_offset = 0;
--- 
-2.48.1
-
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
