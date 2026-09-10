@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39463C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFC9C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kvF2/AhdTNUKn3alt7GoqvvoSJQY4pGwpfkfo5Yhew=; b=daDcVvBRQAcCGW5wSijGpcRpWC
-	MP2/HV0UQYE12ld46y35t5eGSObtm+yFynDQzd8Fd2qMWzfkpaT8gE1vxbt74A3qg1XfcrDL+aUuH
-	48eFfNgAqDkxP6mfTo+3cywP44zSRlp5Ut4/VEdDc+sgjFBIemOnHQRZg1M3mBwbQlzyFbkqQdTiE
-	X5MEzx/V0CR1IE4/5+awe8LYG5ZT9rGHto4kFrGoj+iVIJ71Kaj/U5Y4loh4MwCNlXLfAb1CZKxNU
-	HXpVEjRZeHaNh/fsG1ybNbHapy1d7IS5FIaOBL6HflnJV3qaPNXmR99hpFogOGyIuFzH5CxMiUN1R
-	0B4H8NFw==;
+	bh=Io3H7eT8+LcVwxa4TUx68Yyzl1iwGXsQIYcZ6tFQJ98=; b=tH9+7jxKXMbdUL8ZVw+Ks+EcV2
+	mov3CWHUxUv8fgJOTRF1mLMMbYZMvO+PelMkYetoD9mubTfF2ffjfN0n3iSrk1upKzn3zwRnADdDw
+	5sGnghRby7qhJVSDzhhfvsZMVIoDB4dHzc7yldbDT3hmC4HYMsPzxJRvsHhU433kq9JojSmIjPIFs
+	clI0zYLIQSqzarWkSmYD0Z9tx4/yLBVH4naV4ObN7N1j/4CfWOOgscI796r8ESO3IP+tA71g2N227
+	ji3hSHpMVDmv2kZ3AiF+GBac9Mkl/TS9n5FC+M0XrfIc0sFpRaq5NFoOpCmbFgkYIb2AeAdyp/sPN
+	B9CikKUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dys-0000000ELYe-3gy0;
-	Thu, 10 Sep 2026 12:34:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4dzT-0000000ELdg-00ib;
+	Thu, 10 Sep 2026 12:34:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dyr-0000000ELYX-18DN
+	id 1x4dzS-0000000ELdZ-27yy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 12:34:17 +0000
+	Thu, 10 Sep 2026 12:34:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5ADCE600CB;
-	Thu, 10 Sep 2026 12:34:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A02D1F000FF;
-	Thu, 10 Sep 2026 12:34:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789043656;
-	bh=8kvF2/AhdTNUKn3alt7GoqvvoSJQY4pGwpfkfo5Yhew=;
+	by sea.source.kernel.org (Postfix) with ESMTP id F01CA43B84;
+	Thu, 10 Sep 2026 12:34:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 578341F000FF;
+	Thu, 10 Sep 2026 12:34:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1789043693;
+	bh=Io3H7eT8+LcVwxa4TUx68Yyzl1iwGXsQIYcZ6tFQJ98=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SFOwRrfqjMORI6VJXi9dIn9HiZggnYlbQAF3RMmdl60P9ZEpNszWoDrPCjk9TrOsE
-	 qBWuYTLz4YO94Mwa9muHSYM7j7dfk9YKDigWntGCfC6Z1dym2Exgh6Eb5AA/uaBkc6
-	 f+WCVt2YPmPlDxDK5/+/FxphtMVnErmhAHGXVlUguB1kEKOpYZ7q1W18VnNeMqgOT0
-	 R/LljO/mgQ8pU9tITLugjg0mv/0OSPvV3xUHH6kGakivDm5j314cRqjVq7RwlRXPIe
-	 rCvJVfEK0x8kDo8OzSFg4kpkPDbWnAp9LMtx9qEYEu72G6RrfxLCx0F6Ww+m83j1P9
-	 eOFGJGF9D1SFQ==
-Date: Thu, 10 Sep 2026 18:04:11 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: dmaengine@vger.kernel.org,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Frank Li <Frank.Li@kernel.org>,
-	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCHv3] dmaengine: at_hdmac: use devm APIs in probe()
-Message-ID: <aqKjw2k25mX5o9BQ@parshuram>
-References: <20260817201200.10952-1-rosenp@gmail.com>
+	b=u1xLW18ZHX7/n1Wou5fWybTlwRYu6ZlLjZtXO8L23OFv40UOva766BrcpKgINEwrf
+	 AhteRRgEUNZ1S2S4dJBbJX26x5fRnke9xFf26XrSZASXOHoei01unD1PQv+JG5dpM2
+	 Mdw4hTSE2GPfyTpK9pcMOPeFuaHN8/0Cm9zpXfGk=
+Date: Thu, 10 Sep 2026 14:34:45 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH] soc: fsl: qe: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE
+Message-ID: <2026091038-trailing-jaywalker-2055@gregkh>
+References: <20260908-usb-fhci-drop-gpio-nonexclusive-v1-1-8e405dc67874@oss.qualcomm.com>
+ <40845ad0-e321-4e1b-860d-ff798f430c42@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260817201200.10952-1-rosenp@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <40845ad0-e321-4e1b-860d-ff798f430c42@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,12 +71,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17-08-26, 13:12, Rosen Penev wrote:
-> Convert resource allocation and setup in probe() to use devm-managed APIs.
-> Simplify the error handling path and removes explicit cleanup code.
+On Tue, Sep 08, 2026 at 01:58:18PM +0200, Christophe Leroy (CS GROUP) wrote:
+> Hi,
+> 
+> Le 08/09/2026 à 11:27, Bartosz Golaszewski a écrit :
+> > The GPIOD_FLAGS_BIT_NONEXCLUSIVE flag for gpiod_get() is deprecated. For
+> > actually shared GPIOs, it should be replaced by using the functionality
+> > provided by gpio-shared-proxy. The Freescale QUICC Engine GPIO driver
+> > uses it as a workaround to access the GPIO descriptor already requested
+> > by the caller of qe_pin_request() in order to access the private GPIO
+> > chip data.
+> > 
+> > As the existing comment itself states, the user already requested this
+> > GPIO and the only user in tree is the FHCI USB driver which does in fact
+> > request it, we can safely modify the function to take the *exclusive*
+> > GPIO descriptor as argument and stop using the deprecated flag.
+> 
+> This change seems sensible. I will take it via soc/fsl tree unless you have
+> other plans.
+> 
+> Greg, can you ack the change to drivers/usb/host/fhci-hcd.c ?
 
-Hey, this fails to apply on the current code, please rebase
-
--- 
-~Vinod
+Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
