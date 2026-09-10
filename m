@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351B7C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLiTrkBEtyzQyZ+38aToH0yy/G9IJIyyAE5EniGunF4=; b=r36fUM+9v93sgOVji4ayEw4KwE
-	+ezpml9G0xrY6ZrLWfS663lH68hBYTuz+HcCQD5NKxQBlHC3o0Tt8jvONkf9XLxl365jrcsEphTZq
-	CpjWYvxiHNkOjmZyii+rxTACZQ1oABNk3yu+bM0ceq5pBuU3La7aq12szzE1h2Y7gOpyVekEnxxNq
-	lVyZ4UJPPon7lqusxQ/mjas05kWSoknEIpy1CK58k6HW6j4k07fqDyk/nCtBPjEttwqwf1v+V9oO2
-	Tz7y6ZruTOIL55Bihk+Bc4RSN6Ax+FRNKCvMm2ndSc94vdRNBNUGfbEopXpFpubfqllGO5hB5UEYz
-	JkoTMddg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ic/LkmLOXogubKe3BAPte7eEtUqLwk2XroTu3Q+0VD4=; b=VmEKxigIZ17nsIQ0H72ukvKQb8
+	w2hgS3A9WQZJz4WKfF5f0sVV1wo8MPSPCkktvudwbuBbyvdyt0bZmo+6ei5+8DSS4uXkNMiWjbQsM
+	scILeUjgaLOCPOG/VfCiQmFALVvU5KpLX9jKQcQvuYcgtHpV9n4qzzwuKQ84uYz9BRPvUeaQ/JE5X
+	3tQOE/jxtzhCgvrO0gblXqOrnAUpAOQnXnPJQTfti5oBzaUkNjJWaNovUQy4yLPVrLgkYvp4WFMLX
+	8KDVtoqG4sOjesxSjQfjhnlNzseePsWvn4d+DNiFBmQn8y4bsuoBr62K2+UqtVufr8GSWEJxcj/OP
+	mkNpRpIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aWZ-0000000Dnsn-0Cx6;
-	Thu, 10 Sep 2026 08:52:51 +0000
+	id 1x4aXS-0000000Do3Z-13NI;
+	Thu, 10 Sep 2026 08:53:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aWY-0000000Dnsd-1NKw;
-	Thu, 10 Sep 2026 08:52:50 +0000
+	id 1x4aXR-0000000Do3Q-2drR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 08:53:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B867C400A8;
-	Thu, 10 Sep 2026 08:52:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E4081F000FF;
-	Thu, 10 Sep 2026 08:52:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 62B4C43F51;
+	Thu, 10 Sep 2026 08:53:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CA11F00893;
+	Thu, 10 Sep 2026 08:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789030369;
-	bh=tLiTrkBEtyzQyZ+38aToH0yy/G9IJIyyAE5EniGunF4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PqgNvKtaZx1jLV0SiljzoiZoUlzyRmiENK+lVU7ul3+izJaEGjhIx5jqtdaFCfiWp
-	 Fo0LhGZKY5YFfQ5aqwyV5MWtHsuywAnOxHaoRdaYrmBOpkd3Aq4auX90K+1NMi6tcf
-	 d72lq157Razf0KfaLWqiUOT4NndYfwP1dW1QvollBP+wkpna6miya3lEfvWkanyNHg
-	 LCTw/rmscstPJg0KN+4PAu1xHxh1co42SWkD0yBm2gG6lq9ppY0ofJu3mR/VMXiytt
-	 jA4WlEJV2kBR1v6hns+U0s2kDzCO9J8h+62tuU8gUjLFFD54ftheBI3ZGnXZmI651q
-	 SV2ZKKoK+UhPA==
-From: matthias.bgg@kernel.org
-To: kmehltretter@gmail.com
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rex-BC Chen <rex-bc.chen@mediatek.com>,
-	linux-clk@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Matthias Brugger <matthis.bgg@gmail.com>
-Subject: Re: clk: mediatek: reset: Fix device registration kernel-doc
-Date: Thu, 10 Sep 2026 10:52:27 +0200
-Message-ID: <20260910085227.45992-1-matthias.bgg@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260910033000.15926-1-kmehltretter@gmail.com>
-References: 
+	s=k20260515; t=1789030425;
+	bh=ic/LkmLOXogubKe3BAPte7eEtUqLwk2XroTu3Q+0VD4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZfTZGCTUO6fwaS0Y9cDQGvUNcotSSeNzpiBqLyI2mBO6yQDtZxTlxbWtTX3ACYhrt
+	 uuOJ8ZbwcTMRqFtSVqsptTy7Hb0CQ/3JA7lspIvmoWfahG0hAwUP+0f4od4i6jt4+t
+	 G23pDPPtt8Kd1ju0GaOcTrHVFCSMV3V1xGNjcGph8o5EVdjiTVu1IcBXR0Eq58mm28
+	 hAIBsQ/Q0fqJA/9CPoilCVx1qUaleBprjgjO9lnNqZIN+8HKWjOoJ/wdllvbRoTJT0
+	 ZRZ17SrcAnYlfFLr0CN+PqMoODAQbfXEGC9/YedX9Ew6Ln/+FZoEawYUEasQpIGyZI
+	 xBPv+Abt6HY+w==
+Date: Thu, 10 Sep 2026 09:53:38 +0100
+From: Will Deacon <will@kernel.org>
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
+ cores
+Message-ID: <aqJwEpnrmqnEzpui@willie-the-truck>
+References: <20260909062649.469633-1-arighi@nvidia.com>
+ <20260909062649.469633-2-arighi@nvidia.com>
+ <aqF8euAA8wLmr4w1@willie-the-truck>
+ <aqGEKHfxcOzYiuBy@gpd4>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqGEKHfxcOzYiuBy@gpd4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The comment for mtk_register_reset_controller_with_dev() names the
-> older helper and documents np rather than dev. The new helper takes
-> a struct device and obtains its device node internally.
+On Wed, Sep 09, 2026 at 06:07:04PM +0200, Andrea Righi wrote:
+> On Wed, Sep 09, 2026 at 04:34:18PM +0100, Will Deacon wrote:
+> > On Wed, Sep 09, 2026 at 08:26:08AM +0200, Andrea Righi wrote:
+> > > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> > > index d28438f8b83f1..e5a7a4b2e3844 100644
+> > > --- a/arch/arm64/kernel/topology.c
+> > > +++ b/arch/arm64/kernel/topology.c
+> > > @@ -19,6 +19,8 @@
+> > >  #include <linux/init.h>
+> > >  #include <linux/percpu.h>
+> > >  #include <linux/sched/isolation.h>
+> > > +#include <linux/sched/topology.h>
+> > > +#include <linux/smp.h>
+> > >  #include <linux/xarray.h>
+> > >  
+> > >  #include <asm/cpu.h>
+> > > @@ -44,6 +46,55 @@
+> > >  static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+> > >  static cpumask_var_t amu_fie_cpus;
+> > >  
+> > > +/*
+> > > + * Switching the active PE on an NVIDIA Olympus SMT core can keep the core in
+> > > + * two-thread active mode, with resources partitioned between the PEs.
+> > > + *
+> > > + * Prefer PE0 so PE1 can remain idle and the core can stay in full-resource
+> > > + * mode. Firmware does not currently describe this preference, so detect
+> > > + * Olympus by MIDR until a firmware interface is available.
+> > > + */
+> > 
+> > Fix the firmware?
+> > 
+> > If we add this MIDR kludge, I guarantee that it will never be fixed.
 > 
-> Use the actual function and parameter names and clarify that failures
-> return negative error codes.
+> Understood. The existing PPTT already describes the SMT relationship, but as far
+> as I can tell ACPI doesn't currently provide a way to describe a preferred SMT
+> sibling. Both PEs also have equal isolated performance, so representing this
+> using different _CPC highest_perf values wouldn't accurately describe their
+> capacity.
 > 
-> Fixes: 761bc64003e3 ("clk: mediatek: reset: Add new register reset function with device")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> I'll drop the MIDR-based enablement and coordinate with the firmware team on a
+> proper ABI.
 
-Reviewed-by: Matthias Brugger <matthis.bgg@gmail.com>
+Thanks, Andrea, I must confess that I wasn't expecting that!
 
-> ---
->  drivers/clk/mediatek/reset.h | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> 
-> base-commit: 50d05c7c76c96b90462f24debacca971d2e86713
-> diff --git a/drivers/clk/mediatek/reset.h b/drivers/clk/mediatek/reset.h
-> index 562ffd290a22..b09cdcab0c4b 100644
-> --- a/drivers/clk/mediatek/reset.h
-> +++ b/drivers/clk/mediatek/reset.h
-> @@ -60,11 +60,11 @@ struct mtk_clk_rst_data {
->  };
->  
->  /**
-> - * mtk_register_reset_controller - Register mediatek clock reset controller with device
-> - * @np: Pointer to device.
-> + * mtk_register_reset_controller_with_dev - Register a MediaTek reset controller
-> + * @dev: Device used to manage the reset controller resources.
->   * @desc: Constant pointer to description of clock reset.
->   *
-> - * Return: 0 on success and errorno otherwise.
-> + * Return: 0 on success, negative errno otherwise.
->   */
->  int mtk_register_reset_controller_with_dev(struct device *dev,
->  					   const struct mtk_clk_rst_desc *desc);
-> 
+> In the meantime, for systems with the existing firmware, would an explicit
+> kernel boot option be acceptable as a fallback? It'd enable SD_ASYM_PACKING at
+> the SMT level and prefer the primary PE, but only when requested by the user;
+> the kernel would not infer this policy from the CPU model.
+
+I'm ok with that.
+
+Will
 
