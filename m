@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4255DC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C373C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oV1R7Sem2YZktphiH9OH9k3wSSCyVuVuzldh1QWGuY=; b=Cm+QOyWwftvqGuHds+F9Hh5sfJ
-	5ix6biuqjrC8fpmsvl5EIUExhBtG8dqSqRljqSSIvkIrJiUeZvLw3t7F0FEPYnYjpC9+Afv/h0Y54
-	Ss05cnYOVxdQ65aari1YAvyXXtpCHvvTiNPd6nL3uTyRMyypGz6twDCvzuyWhu/zYKv1Yc3oZtRre
-	Sy7HYqtEg9KjTmfntWY4LQ0oqMLK7hAp0cxwUOdkXE94zTXzacXtXflE6b5nx1ND+BrEmbnQSUq9p
-	KKEuCLLvCdpdaVhEwW6REX3RvQ29rzbUQJ7pQQQyPSoLnK+oIbGy7KCxishO0Oz2GT+ebdNNEgqD2
-	yOht/5sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JtP12fD9RNAVyfG5BtMp8f1T+aWMSPi7iFymj737lEo=; b=pFvb/6aryo1XCskM9j+hnHxMPY
+	E/idA7wLHhEy0u6STVK8vVAFLlarqRYn1plhXH5t+d11lvIbLzX3CS8CBj05sho7rabjh0kGaJftM
+	p17OqmVDegkgw1Ja06nPTzwYvEElFPWsqb9OF4iiRyLC8NlMzC5WeMvLm7TQJYzxfhc2yTDn4hWIJ
+	UVZaVihzZxOQNoRrgO1oFVAu+Sh3ExH3YA42YEbIyzfTdmDYDZ7weRXgcugVScSsF9l5jcj6VQ5rz
+	2YvSfeTVAcAVUdwkDvvaFSc8mjK4geEcrJfwEhQJDK2XWs2BR9TKig8r0VEWXMVJtKzhNiADGqX/J
+	o0TSNgmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dEd-0000000EFuq-1Jpp;
-	Thu, 10 Sep 2026 11:46:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4dEl-0000000EFyM-2MSj;
+	Thu, 10 Sep 2026 11:46:39 +0000
+Received: from mail-m103131191167.xmail.ntesmail.com ([103.131.191.167])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dEc-0000000EFuA-1mR5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 11:46:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Message-ID:Date:In-Reply-To
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4oV1R7Sem2YZktphiH9OH9k3wSSCyVuVuzldh1QWGuY=; b=aM5AvDbTWowjKFPpE8RnTVqVL1
-	jcrI3kSChSiK+PTbKfkXhHGfjDw+oCb5FtBKLwOjlqNjP2dM4V7NW1bOfPOKP9ZettxhhNkjrZMt+
-	1I0E5N5He6ieohBjDe9WQYgHuJkXvCDbCtPjdwNYfM8hLYOkW1ub2EnEllQeACwogft5Uw58DF5bd
-	pugDrhSqXynVIkAM36HmRqiNckuBltqHqFP84DfIf+uVbTxMjzzPC9xdQjzdQJViC2TbTZFIRQRIR
-	VZJR+q+69YXfHt1hoC8RJThOh56cc4KDeY0q3TrynKwrHHvjLrv4DCrQvyt84ro+JIO3wIwBpigj/
-	GoLQXHLw==;
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4dEZ-00000002QDx-23zt
+	id 1x4dEc-0000000EFs0-2tvH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 11:46:29 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6aa9606ddadso4843248eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:46:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789040785; x=1789645585; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=4oV1R7Sem2YZktphiH9OH9k3wSSCyVuVuzldh1QWGuY=;
-        b=VZ53K6v9vY5ZHQp15jqRz4bSYPziex4fES5/64jiABnKFPRuPnXYILefpI1hx9lhmk
-         MQZJG0q1oJsoHXWEKsVjctnhjRB5hCOjXcNcSXDZaICzYU3bB0o489ZdMKz1fSwXhRNo
-         gwHZ0RnOgFer4NQ4VeeUt0IgZy+kY2ngVeXJiSWYERf1u71Y0I/EluduYWNvBys8vO5t
-         hGpR8rnRQh3QeAB6aMBla+8+USk9NYO1/lUIImk/bBnGrzXBZKq1I/I3IdBncxAu4JzR
-         TrA9YWq12O/9pZrWksgk969D654bsYYdZZVqAxdh9+LXCX5Q0XvQLWKpKSPK/tKynhPa
-         laKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789040785; x=1789645585;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4oV1R7Sem2YZktphiH9OH9k3wSSCyVuVuzldh1QWGuY=;
-        b=gWotv4V35GHf8v9bRDGeyhhMoDMi6p5kN3UL2iMYT2YH7KdF+OfHmjiOG5vObZ19up
-         azBiyiU9brIkWGlyv5l9Vz0yiYOroprExvkO2ypb7/mY0INi68sqY1L2lomIbtNbCXM7
-         HNwd+2daUHi/NKlUdFKswd5p5JQsy7NCluF46Sw0ZJ/eIksZvOGa9CmcpnTAggZq5Ahy
-         yvSEnTMLWimRQz6rkSGeX3MArc26YVZW+EKPqtPKZz7Kv8rg3th+N3HlCQp+LpDqB8a6
-         AfE9vCvM/Is3xSyW6glQDDcG3lIrCDZ20eJMW/UZi7DOFHVvKO+Jn1+Wc3ya706rSHwO
-         bJGg==
-X-Forwarded-Encrypted: i=1; AKwUvBxgm4SSi2NMPPHOkiAF1ykOqHIqh/+ODFz8Rrx8WqsYZMLc2LwfJNf9kb1UJkrI4IuIwmxVldbDD+8w6uktpqhn@lists.infradead.org
-X-Gm-Message-State: AFuF++mi+mYIOo/+6a9hH4CEvgItDDlMRBr7DBGd5GDGRKup3XNybc5a
-	SDFw4sqIqxua8w1AUcxGyIieM/xUS5ejxwPMtWhzMvUeozYLSQAYLRjV
-X-Gm-Gg: AYBFou1lFFpIRmYQV73o/yqJYurHjhndXzJwSaKl0Lp9k1AbrPfw2i+T5q/eQV2E9pT
-	cEQjUgbz9PEhsSrbtMlJg5Y16rITy5a/JSmVCPWTjYdoQn5lBVtGKc+8IpCg7F+7XRvT4OFChXC
-	t73BjU4NxhYcBsCJKGcS34QtdusnXwK5UWyyV5UlnFlBWZBi0T89XvAyJSvc4q4uOh20AEtrJNg
-	ccB38MoiIotvR8iYG3GlxsmCcqF0J/XssR5HmB+JUTeD39colldjcDv59C5NF/8dnPOLYS8uMb/
-	3bsJmFR+Sch+nTCcs+g8imwgw3E05R3VD+ofkf0DhcWpwh2FeoKQmYVD4CHk3jVmnHntIdqPhw9
-	2YTn9wQvwmwbO1wW2dqEHnPNonTeqZPA/A19VWgslokWc6wV7QOTcnu8FI80yfHCTBNdWQ7Cijt
-	DV6sazQwgYFmSh4/QIxV82E/1E168XAUuMoS5J3iVIp1tWFbstJXmHA9ilTjhLIkFPjcGvkS+h8
-	4J/bucDck9GD4N9WnYVa7TuwMD6xoZLISCWqs64a/qhgD8fEoqD0mg=
-X-Received: by 2002:a05:6820:180d:b0:6b7:8415:d78f with SMTP id 006d021491bc7-6b78415d8bbmr19129181eaf.58.1789040785360;
-        Thu, 10 Sep 2026 04:46:25 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-143240d86c3sm46857652c88.0.2026.09.10.04.46.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 04:46:24 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH v2 17/20] KVM: selftests: Take the memory region type, not memslot, in page allocators
-In-Reply-To: <20260902164123.2546762-18-seanjc@google.com>
-Date: Thu, 10 Sep 2026 17:10:56 +0530
-Message-ID: <33vh1ghj.ritesh.list@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-18-seanjc@google.com>
+	Thu, 10 Sep 2026 11:46:33 +0000
+Received: from localhost.localdomain (unknown [122.224.147.158])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d496048e;
+	Thu, 10 Sep 2026 19:46:13 +0800 (GMT+08:00)
+From: Shouping Wang <allen.wang@hj-micro.com>
+To: robin.murphy@arm.com,
+	will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	peter.du@hj-micro.com,
+	andy.xu@hj-micro.com,
+	allen.wang@hj-micro.com
+Subject: [PATCH v2] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
+Date: Thu, 10 Sep 2026 19:46:01 +0800
+Message-ID: <20260910114601.165237-1-allen.wang@hj-micro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2fb3bda7-cd64-4dc0-99f8-c0fda8d42cf9@arm.com>
+References: <2fb3bda7-cd64-4dc0-99f8-c0fda8d42cf9@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa08b23c9a409d8kunm705001594eab80
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0kZVkoaTU5CSB1OSRpLSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVU
+	JCSU5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=eCDGr7sur2hFENqnVzpUbneaLM6v6XGlzZ9IlGCCuAhQXla7vsuVMdg1br0rpq6NvxqmyunxGvyKK5dpNP9F60rDT6u2UaTXABD4G8IZpYdKNGKvtWQHC/ePus3uc1fPABj6AQJLYjY21+8b1zNw4YLmHJfvaFPPka2k16PqRVw=; c=relaxed/relaxed; s=default; d=hj-micro.com; v=1;
+	bh=JtP12fD9RNAVyfG5BtMp8f1T+aWMSPi7iFymj737lEo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_124627_682201_3AA92C09 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_044631_574114_BCAA836A 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+When MXP_MULTIPLE_DTM_EN is TRUE, each DTM will monitor at most
+two device ports. In this case, {wp_dev_sel2, wp_dev_sel} will
+only use values 2'b00 and 2'b01 per DTM.
 
-> Take the memory region type instead of the memslot in all page allocator
-> APIs, except for the innermost quad-underscores function.  This will allow
-> automatically selecting the minimum GPA based on the allocation type, which
-> can't be done using the memslot due to all regions sharing a single memslot
-> by default.  PowerPC support will also leverage the type to ensure that
-> page table allocations are naturally aligned.
->
+Previously the setting allowed values beyond the supported range
+per DTM, which could cause each DTM to select invalid ports when
+MXP_MULTIPLE_DTM_EN is TRUE.
 
-yup, PowerPC can leverage this.
+Fix this by only setting CMN_DTM_WPn_CONFIG_WP_DEV_SEL2 when
+!multi_dtm.
 
-> No functional change intended.
->
+Fixes: 60d1504070c2 ("perf/arm-cmn: Support new IP features")
+Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+---
 
-Sure, even though the callers are changed to pass type instead of slot,
-the inner page allocator is moved to pass vm->memslots[type] to
-____vm_phy_pages_alloc(). So no functional change.
+Changes in v2:
+- Made the setting of CMN_DTM_WPn_CONFIG_WP_DEV_SEL2 conditional on
+  !multi_dtm, instead of clamping with dev %= 2.
+- Refactored is_cmn600 to use cmn->part directly.
+- Updated the commit message.
 
-LGTM.
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Link to v1: https://lore.kernel.org/lkml/20260819105443.668784-1-allen.wang@hj-micro.com/
+
+ drivers/perf/arm-cmn.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 6e5cc4086a9e..7e7590381171 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -1393,13 +1393,14 @@ static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
+ 
+ static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
+ {
++	struct arm_cmn *cmn = to_cmn(event->pmu);
+ 	u32 config;
+ 	u32 dev = CMN_EVENT_WP_DEV_SEL(event);
+ 	u32 chn = CMN_EVENT_WP_CHN_SEL(event);
+ 	u32 grp = CMN_EVENT_WP_GRP(event);
+ 	u32 exc = CMN_EVENT_WP_EXCLUSIVE(event);
+ 	u32 combine = CMN_EVENT_WP_COMBINE(event);
+-	bool is_cmn600 = to_cmn(event->pmu)->part == PART_CMN600;
++	bool is_cmn600 = cmn->part == PART_CMN600;
+ 
+ 	/* CMN-600 supports only primary and secondary matching groups */
+ 	if (is_cmn600)
+@@ -1407,8 +1408,11 @@ static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
+ 
+ 	config = FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL, dev) |
+ 		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_CHN_SEL, chn) |
+-		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_GRP, grp) |
+-		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL2, dev >> 1);
++		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_GRP, grp);
++
++	if (!cmn->multi_dtm)
++		config |= FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL2, dev >> 1);
++
+ 	if (exc)
+ 		config |= is_cmn600 ? CMN600_WPn_CONFIG_WP_EXCLUSIVE :
+ 				      CMN_DTM_WPn_CONFIG_WP_EXCLUSIVE;
+-- 
+2.43.0
 
 
