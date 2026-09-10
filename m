@@ -4,120 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006A2C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 23:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E210FC88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 23:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GLFQy4cGriJHMFgx/kJ8/j/Lz6gEm4kM/Wb4uKs4Jwg=; b=WFpMkYxKCPxJbVbR4KZhhb7J4C
-	msOB9NxEUTLmtilsuCaYtfZLdcOXPXX5+sH0dc7uKmYUHV6zYW2cVJ1YKYg/IvEhtNRpAoHONiaEY
-	xUHATziHKGrzCDltjUEa9MPbwdRq8WYjdeOBpa2DwexFVXaa0LnA4LhJ4gi2HBOeGA7kjXyihm0bS
-	3mJ+xaIRlw7vdZSKOduhaTC7RetEu6egSxPzELGd7UcJhuDpgZIZaWkMCnyyTFGoQ488c7yBUryZl
-	15SuOOpFrKKoJLQ1I5hNpyDSLb3BbIB0dU1alKWSfyc1QCuJ0LKFQtzVzy8rHWYYhdEddifjhV3Py
-	PdVU/Xrg==;
+	bh=VmYtX5vt6EbB/EOm2Otei/UM5A4FPa8JtYdIHaVjpCQ=; b=ybrM4gAvrS4EIW2f4+6OTU7BRE
+	epF/MCILGhf2ik17SITCdiiyJ3BM19pn5wjEBP6jKYGqGMVv1L2B+oTBR/T47LoxOyzreK8A+xsVA
+	Q2hPCKAXvV2SyH6Sn0QoM+W1DKh5/9fFJvLG1dGjbdtR9dr4G+IW/HV2l878NHSf32z5O5YQT2r43
+	4FCR4VE6nK7BHyKVyJIabocnbgroagDmskeZg/jbYTtx0MGIOLVW5XT7LNq2903DSFfkvmNXpTaXp
+	nM4Rd1jvbYJvRpYazWr7c8UxXI3ISpUbkTlLer93xjI5QhHfIbSP/TQ78dOHfxEBrQICNahWJ1J7+
+	goDoUa0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4o1o-0000000FWNt-04X3;
-	Thu, 10 Sep 2026 23:18:00 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x4oT0-0000000FZJ4-34fW;
+	Thu, 10 Sep 2026 23:46:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4o1i-0000000FWKJ-0gft
+	id 1x4oSv-0000000FZHW-0aaa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 23:17:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PAZpozu6gjFk9yGfWO0E6q5BOkLBcJDWCeqfeKxi/sE9ToIWtzl6hs8uFV+E2uOp6Jfw1HCfd44aK3I97G3ijguIM9f9NRu2mUCAIFixMC8C8Bir6VbNzIg68rIzUGbWuGhwBT+HTExZl1kiX27qnaDVDBLhZRGCg5ToXi6pk6/zyCMkwCzQKlwVLdyUrxlqoWXanqE0mx3Ta95eKr6OxsvxyRgtYiKfZ4kTw1nHgvTXIAcA4ECJN7Av8WhA+RmdLAKzKusyzc04tkMZSwB/MMMNHEPW0JqHhuvzhMi8qqJEo25X23RBy/fJ5jM5J6oLUNH32lxbc+AhIx84C5L5lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GLFQy4cGriJHMFgx/kJ8/j/Lz6gEm4kM/Wb4uKs4Jwg=;
- b=O4tC+N8BoZApWJa4wRg97f5Qz/DPXnVXviEHYsvWZmW5r5VSiIYgJ8fNZpNzoKfGp+rvKteT5vFk1YbRHK23m3XFfI5uyUaiZajnlWv8Ph15Rum3nIzndkQDJTCZcgZC9EbxyNDiro0MDWqx2yNMP1A+71mM/PbGbhpvfKaJ3s9h/g0DfnMLB/r22PsjBP53JOYD1UdH9pZ7Ciz1o+wXFooq8d77jQzsdrBRbL95ySqALGlaKS5NT8SCDmr1OtJWJ4t4rhW7DD0iTFI3UsqAigvxS5F307Q2ZLKhGGOdOA8c+W6U+mHQkWgW7+4MgReF717L3LY2pM/2NC7N72yTlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GLFQy4cGriJHMFgx/kJ8/j/Lz6gEm4kM/Wb4uKs4Jwg=;
- b=Id8sLHzQgNfLh4ZYw97zg1KaTS9YQxZo5qaV+3TuB5oiHUougQg9H6mmadZFYQpMCWMJJiULUZhySJ1PQOWxEinh4HuFfBhuC6Gv3Kvloy15i/rISn527NWobOcuHoANe1TjOjckxy6oTOauL/dfdcUs8eAJa+YDs87vutmrTbfMo9/CbKp/M3A3fu16tv76vcwfdqlH/+2QI+NbsQvxp04BbJLXbNFmB54iSs5uIrDHouRiXlqRoFc1AFwOvqUFI08ehpvq7FQMtSJcwdlsBAFPvNFfL3y5W6LPIBgQnbE5ls2rXglqaQz2GX3i4cFiV1jTsFJGeP79TymcT3mOCw==
-Received: from SJ0PR05CA0045.namprd05.prod.outlook.com (2603:10b6:a03:33f::20)
- by LV8PR12MB9206.namprd12.prod.outlook.com (2603:10b6:408:186::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 23:17:44 +0000
-Received: from SJ1PEPF000023D0.namprd02.prod.outlook.com
- (2603:10b6:a03:33f:cafe::8c) by SJ0PR05CA0045.outlook.office365.com
- (2603:10b6:a03:33f::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Thu, 10
- Sep 2026 23:17:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF000023D0.mail.protection.outlook.com (10.167.244.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 23:17:44 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 10 Sep
- 2026 16:17:24 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 10 Sep
- 2026 16:17:24 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Thu, 10 Sep 2026 16:17:23 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>, "Jonathan
- Cameron" <jonathan.cameron@oss.qualcomm.com>
-CC: <joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-	<baolu.lu@linux.intel.com>, Jean-Philippe Brucker <jpb@kernel.org>, "Eric
- Auger" <eric.auger@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
-	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: [PATCH v4 02/15] iommu/arm-smmu-v3: Add arm_smmu_attach_release()
-Date: Thu, 10 Sep 2026 16:16:54 -0700
-Message-ID: <8594c8e42e846da3b87f96f1e196c143fe4d517a.1789081084.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1789081084.git.nicolinc@nvidia.com>
-References: <cover.1789081084.git.nicolinc@nvidia.com>
-MIME-Version: 1.0
+	Thu, 10 Sep 2026 23:46:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B089D439B8;
+	Thu, 10 Sep 2026 23:46:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A3DC1F00893;
+	Thu, 10 Sep 2026 23:45:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789083960;
+	bh=VmYtX5vt6EbB/EOm2Otei/UM5A4FPa8JtYdIHaVjpCQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=KrVIY/M9d43r5ern1GpJAKwUSRKdRYW6e+cN8Q0Kjx/ElfQguwjPLM+UHwmJzzFvk
+	 kf/aZJllXfJ3KCB2JWadI5T/lHnTsWksXxMdiPp2ZCoHa5pqCaG3IvBXUT1B/UCMnt
+	 uTusSagt1ASZCaayEdMlolZ1SeJ9m3rYw4+qVCGvOJ26JNjpg0vd06pEs0Sm9hKKpQ
+	 E9LZEsgq1MAm5QW4ejHaHvpCUsHj1DuHCfggXZltIxMEPuaplM4cVsTWfQwZxpdTEb
+	 LRT1o/7lCX1lqVtaFxAIEVQX/jJ2w5mY4hKwx9SWJBbaLRZARyD4uocfKLB++ulQ4a
+	 97C/tkpl66a8w==
+Subject: Re: [PATCH net v4 2/7] net: stmmac: Stop toggling the EDVLP bit
+From: netdev-bot+sashiko@kernel.org
+To: ovidiu.panait.rb@renesas.com
+Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, shuah@kernel.org,
+ joabreu@synopsys.com, yi.fang.gan@intel.com, jun.ann.lai@intel.com,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
+Date: Thu, 10 Sep 2026 23:45:59 +0000
+Message-ID: <178908395911.219967.10332020997199039014@kernel.org>
+In-Reply-To: <20260908164309.59282-3-ovidiu.panait.rb@renesas.com>
+References: <20260908164309.59282-3-ovidiu.panait.rb@renesas.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D0:EE_|LV8PR12MB9206:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed4f52cd-34e2-4458-05bf-08df0f91b83e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700016|23010399003|10067099003|56012099006|22082099003|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: ZinOwctoaVrPuo/zbFLi5PTLAGpzFvbbserfjQc0B8gtFaYvMHfS7G4XJAocCyXBxOX9pFiSKLiOehqGWKHQa1HlIwsF6ZDJWGBOlcAAxHvWu3vZeS5Krs5k1md0rcPLrASTHtSO+xelRuRkv1/gM3lgxBtXmYTaeBb0WAgDzJSPK9Mj1G9ORScGfDfOzwOXphw9w0NQtGPwSB59QbUYsfBHftzeabJGSybj37R7WE3yOjvmE+TA4iUNgk/3yNFDSh3PRb5W+4+I//UXb7N+eLFdOgU74TxPR1YDbWD0wtcIWuZcXwsBpCBGUgC+wz/DNHG4qHBnoIJXCXuWE7a+0P/C5zfsaxO39Sb4SeEwB1HfArM1nKi04MU8bSx+BlGBsLe/hrtOKclgIWLJo+w9vVBsx6lG5je+QRR+8hc/nPZe1K1zjVBSe65+84KQ8jd1RsxaVkvrSLkcTfcskVwPIjhbwv65S7t1EtRIfP7VDid/+IaNpmEk9PHrWxxNzqxX+FO/xlRfoUThWzmsfJ544qz8/4FFOiTUpUSRx7NC3Vn/0RFUq8OHWpgtmPbqeLS8p0t7T3333yPyhG0Yyi+8BEiWyyQQeNaMu0/T0lFtrLObkMRDg6bODZA6jkR4YVDeeS8YqUCBXioXIPVKBpd7WMT+sEdZSLNVJLWT+UQ4iOY/m5/EQTBE+TltW15KY3HjM3qowm9cnld2IOy0SqQ/yQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700016)(23010399003)(10067099003)(56012099006)(22082099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HprwVUwrfsDLopNT8mjX/FbuJOKm8lJh0FWnXsZMsNFgoCE1EzHRbX49+KhcxoU18atdebOIrILCCy/dixSWA+XK3eHJUAGYWydq7OJ0kZup1m4yyZkWJIsToEZ/yaBOn3dr3MoLz0NQ5yWEfRz4V9eFlqND37QJ14bnCfU8RnG43hyL4bok//Rc08xFWfVwDnH68JTtxebGbdGHv7oZUFl0L+64LT2ObOgPUa9Ys5J2oGCPcsI5qlbV39CDfdu2tkJ/lWiYOvSlDucHrOJX/NG23vP9JlAe+menn3rP2C68jvar39JI1o9W/aYXKZe5uExbjJrrXN8iOCDSFxikpVFqJJvDfcB3ei4LetXIRUmwKpjpy0PAaED5rODjNMjz8F/edT+c1LeS5JO1JLd9Bs3cD2/p5uDSIeZhqDSxK7t/vVqve+1km1uLtBtmCHu7
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 23:17:44.5396
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed4f52cd-34e2-4458-05bf-08df0f91b83e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D0.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9206
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_161754_215759_0EF5032C 
-X-CRM114-Status: GOOD (  18.32  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,174 +74,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IOPF teardown is done in arm_smmu_remove_master_domain() when releasing
-the master_domain on detach, under the global arm_smmu_asid_lock mutex.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-A later change will add an IOPF workqueue flush to that teardown, which can
-block on a user-faulting page-fault handler. Holding the arm_smmu_asid_lock
-across it would stall every unrelated attachment in the system.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-Split the teardown out of arm_smmu_remove_master_domain(), to a new helper
-arm_smmu_attach_release() that runs after arm_smmu_asid_lock is released.
+- [Medium] The in-kernel selftests "VLAN Filtering (perf)"
+  (stmmac_test_vlanfilt_perfect,…
 
-No functional change: the old master_domain belongs to no other device, so
-freeing it outside the lock stays safe, still under iommu_group->mutex.
+Pre-existing issues:
+- [Medium] XLGMAC Rx VLAN offload state is never programmed into the MAC:
+  dwxlgmac2_set_hw_vlan_mode()…
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 +
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 44 ++++++++++++++-----
- 3 files changed, 36 insertions(+), 11 deletions(-)
+--
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 50f8321e979ce..5b89bad71c102 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1204,12 +1204,14 @@ struct arm_smmu_attach_state {
- 	struct arm_smmu_vmaster *vmaster;
- 	struct arm_smmu_inv_state old_domain_invst;
- 	struct arm_smmu_inv_state new_domain_invst;
-+	struct arm_smmu_master_domain *old_master_domain;
- 	bool ats_enabled;
- };
- 
- int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
- 			    struct iommu_domain *new_domain);
- void arm_smmu_attach_commit(struct arm_smmu_attach_state *state);
-+void arm_smmu_attach_release(struct arm_smmu_attach_state *state);
- void arm_smmu_install_ste_for_dev(struct arm_smmu_master *master,
- 				  const struct arm_smmu_ste *target);
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 25982bdbcbd9a..fce026efa44f1 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -194,6 +194,7 @@ static int arm_smmu_attach_dev_nested(struct iommu_domain *domain,
- 	arm_smmu_install_ste_for_dev(master, &ste);
- 	arm_smmu_attach_commit(&state);
- 	mutex_unlock(&arm_smmu_asid_lock);
-+	arm_smmu_attach_release(&state);
- 	return 0;
- }
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 81baafaffc410..759d0e1126b30 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3285,9 +3285,9 @@ arm_smmu_master_build_invs(struct arm_smmu_master *master, bool ats_enabled,
- 	return master->build_invs;
- }
- 
--static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
--					  struct iommu_domain *domain,
--					  ioasid_t ssid)
-+static struct arm_smmu_master_domain *
-+arm_smmu_remove_master_domain(struct arm_smmu_master *master,
-+			      struct iommu_domain *domain, ioasid_t ssid)
- {
- 	struct arm_smmu_domain *smmu_domain = to_smmu_domain_devices(domain);
- 	struct arm_smmu_master_domain *master_domain;
-@@ -3295,7 +3295,7 @@ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
- 	unsigned long flags;
- 
- 	if (!smmu_domain)
--		return;
-+		return NULL;
- 
- 	if (domain->type == IOMMU_DOMAIN_NESTED)
- 		nested_ats_flush = to_smmu_nested_domain(domain)->enable_ats;
-@@ -3310,8 +3310,24 @@ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
- 	}
- 	spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
- 
-+	/* arm_smmu_attach_release() will free it */
-+	return master_domain;
-+}
-+
-+/* Release the old master_domain detached by arm_smmu_remove_master_domain() */
-+void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
-+{
-+	struct arm_smmu_master_domain *master_domain = state->old_master_domain;
-+	struct arm_smmu_master *master = state->master;
-+
-+	iommu_group_mutex_assert(master->dev);
-+
-+	if (!master_domain)
-+		return;
-+
- 	arm_smmu_disable_iopf(master, master_domain);
- 	kfree(master_domain);
-+	state->old_master_domain = NULL;
- }
- 
- /*
-@@ -3609,7 +3625,8 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state)
- 		arm_smmu_atc_inv_master(master, IOMMU_NO_PASID);
- 	}
- 
--	arm_smmu_remove_master_domain(master, state->old_domain, state->ssid);
-+	state->old_master_domain = arm_smmu_remove_master_domain(
-+		master, state->old_domain, state->ssid);
- 	arm_smmu_install_old_domain_invs(state);
- 	master->ats_enabled = state->ats_enabled;
- }
-@@ -3684,6 +3701,7 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
- 
- 	arm_smmu_attach_commit(&state);
- 	mutex_unlock(&arm_smmu_asid_lock);
-+	arm_smmu_attach_release(&state);
- 	return 0;
- }
- 
-@@ -3766,8 +3784,10 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
- 
- 	mutex_lock(&arm_smmu_asid_lock);
- 	ret = arm_smmu_attach_prepare(&state, &smmu_domain->domain);
--	if (ret)
--		goto out_unlock;
-+	if (ret) {
-+		mutex_unlock(&arm_smmu_asid_lock);
-+		return ret;
-+	}
- 
- 	/*
- 	 * We don't want to obtain to the asid_lock too early, so fix up the
-@@ -3781,10 +3801,9 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
- 	arm_smmu_update_ste(master, sid_domain, state.ats_enabled);
- 
- 	arm_smmu_attach_commit(&state);
--
--out_unlock:
- 	mutex_unlock(&arm_smmu_asid_lock);
--	return ret;
-+	arm_smmu_attach_release(&state);
-+	return 0;
- }
- 
- static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
-@@ -3804,9 +3823,11 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
- 	arm_smmu_clear_cd(master, pasid);
- 	if (master->ats_enabled)
- 		arm_smmu_atc_inv_master(master, pasid);
--	arm_smmu_remove_master_domain(master, &smmu_domain->domain, pasid);
-+	state.old_master_domain = arm_smmu_remove_master_domain(
-+		master, &smmu_domain->domain, pasid);
- 	arm_smmu_install_old_domain_invs(&state);
- 	mutex_unlock(&arm_smmu_asid_lock);
-+	arm_smmu_attach_release(&state);
- 
- 	/*
- 	 * When the last user of the CD table goes away downgrade the STE back
-@@ -3869,6 +3890,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
- 	arm_smmu_install_ste_for_dev(master, ste);
- 	arm_smmu_attach_commit(&state);
- 	mutex_unlock(&arm_smmu_asid_lock);
-+	arm_smmu_attach_release(&state);
- 
- 	/*
- 	 * This has to be done after removing the master from the
+net: stmmac: Stop toggling the EDVLP bit
+
+The EDVLP bit is no longer toggled per 802.1ad VLAN registration. It is
+now set once from vlan_set_hw_mode() and kept enabled, and a new
+set_hw_vlan_mode callback is added for dwxlgmac2, which previously had
+none.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> index 983a90cb9767..200b34588c7f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+
+[ ... ]
+
+> @@ -222,6 +219,7 @@ static void vlan_set_hw_mode(struct mac_device_info *hw)
+>  	void __iomem *ioaddr = hw->pcsr;
+>  	u32 value = readl(ioaddr + VLAN_TAG);
+>  
+> +	value |= VLAN_EDVLP;
+>  	value &= ~VLAN_TAG_CTRL_EVLS_MASK;
+>  
+>  	if (hw->hw_vlan_en)
+
+[ ... ]
+
+> @@ -283,6 +278,14 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
+>  	}
+>  }
+>  
+> +static void dwxlgmac2_set_hw_vlan_mode(struct mac_device_info *hw)
+> +{
+> +	void __iomem *ioaddr = hw->pcsr;
+> +	u32 value = readl(ioaddr + VLAN_TAG);
+> +
+> +	writel(value | VLAN_EDVLP, ioaddr + VLAN_TAG);
+> +}
+> +
+
+[Severity: Medium]
+
+This isn't a bug introduced by this patch, but now that dwxlgmac2 gains a
+set_hw_vlan_mode callback, should it also honour hw->hw_vlan_en?
+
+The other implementation of the same ops slot, vlan_set_hw_mode(), programs
+the Rx strip mode and the descriptor report bit:
+
+	value &= ~VLAN_TAG_CTRL_EVLS_MASK;
+
+	if (hw->hw_vlan_en)
+		value |= VLAN_TAG_STRIP_ALL;
+	else
+		value |= VLAN_TAG_STRIP_NONE;
+
+	value |= VLAN_TAG_CTRL_EVLRXS;
+
+dwxlgmac2_set_hw_vlan_mode() only ORs VLAN_EDVLP, so EVLS and EVLRXS keep
+whatever value they had.
+
+At the same time stmmac_dvr_probe() forces the flag on and advertises the
+offload for every core matched by dwmac_is_xmac(), which includes the
+XLGMAC hwif entry (.core_type = DWMAC_CORE_XGMAC, .vlan =
+&dwxlgmac2_vlan_ops):
+
+	if (dwmac_is_xmac(priv->plat->core_type)) {
+		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+		priv->hw->hw_vlan_en = true;
+	}
+
+So on XLGMAC, ethtool -K <if> rxvlan on|off goes stmmac_set_features() ->
+stmmac_set_hw_vlan_mode() -> dwxlgmac2_set_hw_vlan_mode(), flips
+priv->hw->hw_vlan_en and returns success, while no strip or report bit is
+written to MAC_VLAN_Tag.
+
+The Rx path then takes the MAC level branch in stmmac_rx():
+
+	if (priv->hw->hw_vlan_en)
+		/* MAC level stripping. */
+		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+	else
+		/* Driver level stripping. */
+		stmmac_rx_vlan(priv->dev, skb);
+
+and dwxlgmac2_vlan_ops has no .rx_hw_vlan handler, so that call resolves to
+nothing.
+
+To be clear, this is not packet or tag loss: with EVLS unprogrammed the tag
+stays in-band and skb_vlan_untag() in the core Rx path still de-tags the
+frame. The point is that driver bookkeeping and the actual MAC VLAN
+configuration diverge, and the advertised NETIF_F_HW_VLAN_CTAG_RX does
+nothing on this core. This is still the case at the end of the series
+(bb70e68e6ebc): dwxlgmac2_vlan_ops has no .rx_hw_vlan and
+dwxlgmac2_set_hw_vlan_mode() never programs EVLS/EVLRXS.
+
+>  const struct stmmac_vlan_ops dwmac_vlan_ops = {
+>  	.update_vlan_hash = vlan_update_hash,
+>  	.enable_vlan = vlan_enable,
+> @@ -296,6 +299,7 @@ const struct stmmac_vlan_ops dwmac_vlan_ops = {
+>  const struct stmmac_vlan_ops dwxlgmac2_vlan_ops = {
+>  	.update_vlan_hash = dwxgmac2_update_vlan_hash,
+>  	.enable_vlan = vlan_enable,
+> +	.set_hw_vlan_mode = dwxlgmac2_set_hw_vlan_mode,
+>  };
+
+A separate question, about the preceding patch in the series rather than
+this one:
+
+[Severity: Medium]
+
+After "net: stmmac: Remove VLAN perfect matching dead code", do the two
+"(perf)" selftests still exercise a different path?
+
+stmmac_test_vlanfilt_perfect() and stmmac_test_dvlanfilt_perfect() in
+stmmac_selftests.c select the perfect matching path only by clearing the
+capability:
+
+	priv->dma_cap.vlhash = 0;
+	ret = __stmmac_test_vlanfilt(priv);
+	priv->dma_cap.vlhash = prev_cap;
+
+but stmmac_vlan_update() no longer consults priv->dma_cap.vlhash:
+
+	if (!netif_running(priv->dev))
+		return 0;
+
+	return stmmac_update_vlan_hash(priv, priv->hw, hash);
+
+and vlan_update_hash()/dwxgmac2_update_vlan_hash() no longer have the
+perfect_match branch.
+
+That makes the override inert, so hash filtering (VTHM/VTFE) stays enabled
+during the "(perf)" runs and the entries named "VLAN Filtering (perf)" and
+"Double VLAN Filter (perf)" in stmmac_selftests[] run the same path as their
+non-perf counterparts.
+
+A broken perfect match filter, that is vlan_add_hw_rx_fltr() and the
+VLAN_TAG_DATA table, would be masked by the still active hash filter while
+ethtool -t reports these tests as passing. Both tests and their names are
+unchanged at the end of the series (bb70e68e6ebc).
+
+Should these two tests be removed, or reworked to actually disable hash
+filtering?
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908164309.59282-1-ovidiu.panait.rb%40renesas.com
 
