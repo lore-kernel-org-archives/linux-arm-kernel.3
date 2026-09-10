@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABE4C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1C4C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iX8SSvkP0TRGmeqvD2oG6hiYGm+9zRzWtG9NpyIedjc=; b=zoqwTf8elrWLoxO3nu2mUVSEc5
-	Y9hACjWD1GG67rLyL3dRKAiTXiT5eIcgy51Y0uHf+Goq4rg5eaRJifhyFu3BSKdA1g00xcUnxuwZq
-	twnfTEEXLvKCKi9ww508Egh6Cp1wXhiG4119DDuEMXxtyleJ3RPNpVXDISawDY1QUnwY37KXMfjG3
-	UXijEI+KMNmgV02A7Q3Rji/F+Rry94rxz8+8Zz/rLSLOBfiD15DAbnYhvlg0suiLv7hlT/cAt0+Pb
-	8f9R3KCeGvgTVurD01PkDiQK5fWKPKnUTcnW7/Eotk/RzTyn2wsTf8i5AdNWbrz/JVCr5HRfs45R9
-	GqFvk/2Q==;
+	bh=8e//6G86LJaRiE5M1GpEgb21G8bE9NJI6seWzHEhfuI=; b=JurKINHcjdLRIj1tOoSRjhR/NH
+	JYdTTXoOtYVba6pQiJoOrId7mQIJ7h9ixOxeCM7Uj3ssgLg0+ukH+E+Ifr1zeNFm9lgObtbmenUPU
+	zenerljE5RG6fzfXansuk07b74SZ07gkNoBv1JtZ5GgjMBQS2Gkv2tuXrg7UK0o1ULp1W+6tB2oyN
+	KunS/rjAFPVF+yOXxYuWSLQ3Hh4o3phecOdSudVoHlz8N/cpTFhHiVNTxfjLDvtb/h/7Q5RGAziS1
+	Z/nf+8JK0lBZyl88fhNh0ZZdJ/M72u63MGGKajQgrE9d4ApzUEMxRd7tTGZEVmP53JLN3yrPJEADB
+	8DJU89TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQJ-0000000EZEb-01PV;
-	Thu, 10 Sep 2026 14:06:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4fQR-0000000EZLF-0Tb7;
+	Thu, 10 Sep 2026 14:06:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQI-0000000EZCy-0ZPq
+	id 1x4fQP-0000000EZJu-0Cv9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:06:42 +0000
+	Thu, 10 Sep 2026 14:06:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD5E5416F3;
-	Thu, 10 Sep 2026 14:06:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB9841F000FF;
-	Thu, 10 Sep 2026 14:06:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D612600CB;
+	Thu, 10 Sep 2026 14:06:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD071F00893;
+	Thu, 10 Sep 2026 14:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049201;
-	bh=iX8SSvkP0TRGmeqvD2oG6hiYGm+9zRzWtG9NpyIedjc=;
+	s=k20260515; t=1789049208;
+	bh=8e//6G86LJaRiE5M1GpEgb21G8bE9NJI6seWzHEhfuI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mqh0EZzxseos9g49gSpPyaDSDP5fp4uJNWI8WD3DmpUAhySxNIDdub8DwxX7JS1MY
-	 OFcPexKHHMz+mcZu2x29KuhaokyCG42H3Nq7ApOk0qP4BLWTHpGrnsjysSgjtqLTjp
-	 OwbfD6Vn9XrH8UOrFUGbqdy1RvCWhJjjp7/GxgRvL2gWHMPSJ7rRyTjUMLf7xieWxv
-	 MQfJw++DEPr/ywU9RirDxo/9CXhOMoVB3JYSSIbdCLWyKdSn9POChncwl6iFZ6Qu9e
-	 4UDqBBOuFfKw6Yky6O8B58cQsOIquQw8T4RbS7c1mlQzSNrmp0Kt6T7+lnbg8doAQZ
-	 pWGDwku8uJ3uw==
+	b=aW3wpbY0PM7OcZjDE1nbBr0vGfPf7IFR0Qp27bMXeU8oMPZr63E6tj1BXROkMDg0a
+	 opgzzg1Gh0sGIMesLRT0+m8aaT8PzFsnfAKUDn/bPodv3kdeRM9zT0nA3RSXW6LThj
+	 KRsz2AEiHMTwErtBO2ozWkwV0Toi6DaYcj6m9ufsXHsY08lT4BSI/397OvV9Sc7Rrs
+	 mbWv9bri20OlsIKwkm57YDUOcFVyplavzltFuYgINahgBzD4tb6uliiMG7FpzdvomL
+	 DXS9VWWhMU8zDo8sXPrrozdOhX+L22aGby9qF/InfPWJxjvz9ssqwzlYAU2kOKFqk2
+	 IrwzkH5OVTmWw==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [PATCH v5 12/15] coco: host: arm64: Refcount root-port pdevs used by IDE streams
-Date: Thu, 10 Sep 2026 19:35:05 +0530
-Message-ID: <20260910140509.868402-13-aneesh.kumar@kernel.org>
+Subject: [PATCH v5 13/15] PCI/TSM: Move CMA DOE mailbox discovery out of pci_tsm_pf0_constructor()
+Date: Thu, 10 Sep 2026 19:35:06 +0530
+Message-ID: <20260910140509.868402-14-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
@@ -81,117 +81,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Keep the root-port RMM pdev alive while endpoint IDE streams are attached
-to it.
+pci_tsm_pf0_constructor() currently looks up a CMA DOE mailbox and
+fails PF0 initialization when one is not present. That is too strict
+for all link TSM drivers.
 
-Add a kref to the root-port descriptor, take a reference when reusing an
-existing root-port pdev for stream setup, and drop it when the endpoint
-disconnects. Release the root-port pdev once the final reference is
-dropped, tearing down the RMM object and its communication buffers at that
-point.
+Move CMA DOE mailbox discovery into the low-level PF0 probe callbacks
+so each driver can decide whether a mailbox is mandatory.
+
+Keep SEV-TIO and TDX requiring a CMA mailbox, while allowing the
+arm-cca host path to proceed on PF0 devices that do not support IDE
+and therefore have no DOE-based SPDM path.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/virt/coco/arm-cca-host/main.c   | 31 ++++++++++++++++++++++---
- drivers/virt/coco/arm-cca-host/rmi-da.h |  4 ++++
- 2 files changed, 32 insertions(+), 3 deletions(-)
+ drivers/crypto/ccp/sev-dev-tsm.c      | 13 +++++++++++++
+ drivers/pci/tsm.c                     | 13 +++++++------
+ drivers/virt/coco/arm-cca-host/main.c | 15 ++++++++++++---
+ 3 files changed, 32 insertions(+), 9 deletions(-)
 
+diff --git a/drivers/crypto/ccp/sev-dev-tsm.c b/drivers/crypto/ccp/sev-dev-tsm.c
+index 46f2539d2d5a..e55eaca16998 100644
+--- a/drivers/crypto/ccp/sev-dev-tsm.c
++++ b/drivers/crypto/ccp/sev-dev-tsm.c
+@@ -217,6 +217,19 @@ static struct pci_tsm *tio_pf0_probe(struct pci_dev *pdev, struct sev_device *se
+ 	if (rc)
+ 		return NULL;
+ 
++	/* if device have ide cap, setup doe mailbox */
++	if (pdev->ide_cap) {
++		struct pci_doe_mb *doe_mb;
++
++		doe_mb = pci_find_doe_mailbox(pdev, PCI_VENDOR_ID_PCI_SIG,
++					      PCI_DOE_FEATURE_CMA);
++		if (!doe_mb)
++			return NULL;
++		dsm->tsm.doe_mb = doe_mb;
++	} else {
++		return NULL;
++	}
++
+ 	pci_dbg(pdev, "TSM enabled\n");
+ 	dsm->sev = sev;
+ 	return &no_free_ptr(dsm)->tsm.base_tsm;
+diff --git a/drivers/pci/tsm.c b/drivers/pci/tsm.c
+index 5fdcd7f2e820..34805b7ba7a0 100644
+--- a/drivers/pci/tsm.c
++++ b/drivers/pci/tsm.c
+@@ -744,12 +744,13 @@ int pci_tsm_pf0_constructor(struct pci_dev *pdev, struct pci_tsm_pf0 *tsm,
+ 			    struct tsm_dev *tsm_dev)
+ {
+ 	mutex_init(&tsm->lock);
+-	tsm->doe_mb = pci_find_doe_mailbox(pdev, PCI_VENDOR_ID_PCI_SIG,
+-					   PCI_DOE_FEATURE_CMA);
+-	if (!tsm->doe_mb) {
+-		pci_warn(pdev, "TSM init failure, no CMA mailbox\n");
+-		return -ENODEV;
+-	}
++	/*
++	 * Note, low-level TSM driver responsible for determining if it wants to
++	 * proceed with a device that has no DOE mailbox. TSM may have an
++	 * alternate method for coordinating TDISP.
++	 */
++	if (!tsm->doe_mb)
++		pci_dbg(pdev, "No CMA mailbox\n");
+ 
+ 	return pci_tsm_link_constructor(pdev, &tsm->base_tsm, tsm_dev);
+ }
 diff --git a/drivers/virt/coco/arm-cca-host/main.c b/drivers/virt/coco/arm-cca-host/main.c
-index d357bad14325..b74fe1fb14fd 100644
+index b74fe1fb14fd..70cbff181561 100644
 --- a/drivers/virt/coco/arm-cca-host/main.c
 +++ b/drivers/virt/coco/arm-cca-host/main.c
-@@ -113,6 +113,23 @@ static inline void free_dev_communication_buffers(struct cca_host_comm_data *com
- 	free_page((unsigned long)comm_data->io_params);
- }
+@@ -12,6 +12,7 @@
+ #include <linux/tsm.h>
+ #include <linux/vmalloc.h>
+ #include <linux/cleanup.h>
++#include <linux/pci-doe.h>
  
-+static void cca_root_port_pdev_release(struct kref *kref)
-+{
-+	struct cca_host_rp_dsc *rp_dsc = container_of(kref, struct cca_host_rp_dsc,
-+						      tsm_ref);
-+	struct pci_dev *rp = rp_dsc->pci.pdev;
-+
-+	cca_pdev_stop_and_destroy(rp);
-+	free_dev_communication_buffers(&rp_dsc->pdev.comm_data);
-+	rp->tsm = NULL;
-+	kfree(rp_dsc);
-+}
-+
-+static inline void cca_root_port_pdev_put(struct cca_host_rp_dsc *rp_dsc)
-+{
-+	kref_put(&rp_dsc->tsm_ref, cca_root_port_pdev_release);
-+}
-+
- static int cca_root_port_pdev_create(struct pci_dev *rp, struct tsm_dev *tsm_dev)
- {
- 	int ret;
-@@ -127,6 +144,7 @@ static int cca_root_port_pdev_create(struct pci_dev *rp, struct tsm_dev *tsm_dev
- 	rp->tsm->dsm_dev = rp;
- 	rp->tsm->pdev = rp;
- 	rp->tsm->tsm_dev = tsm_dev;
-+	kref_init(&rp_dsc->tsm_ref);
- 	mutex_init(&rp_dsc->pdev.object_lock);
+ #include "rmi-da.h"
  
- 	ret = init_dev_communication_buffers(rp, &rp_dsc->pdev.comm_data);
-@@ -198,12 +216,15 @@ static int cca_pdev_create_ncoh_stream(struct pci_dev *pdev, unsigned long strea
- 		/* Make sure they use the same TSM */
- 		if (rp->tsm->tsm_dev != pf0_ep_dsc->pci.base_tsm.tsm_dev)
- 			return -EINVAL;
--	}
+@@ -33,14 +34,22 @@ static struct pci_tsm *cca_tsm_pci_probe(struct tsm_dev *tsm_dev, struct pci_dev
+ 		return &no_free_ptr(fn_dsc)->pci;
+ 	}
  
-+		kref_get(&rp_dsc->tsm_ref);
+-	if (!pdev->ide_cap)
+-		return NULL;
+-
+ 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc __free(kfree) =
+ 		kzalloc(sizeof(*pf0_ep_dsc), GFP_KERNEL);
+ 	if (!pf0_ep_dsc)
+ 		return NULL;
+ 
++	/* if device have ide cap, setup doe mailbox */
++	if (pdev->ide_cap) {
++		struct pci_doe_mb *doe_mb;
++
++		doe_mb = pci_find_doe_mailbox(pdev, PCI_VENDOR_ID_PCI_SIG,
++					      PCI_DOE_FEATURE_CMA);
++		if (!doe_mb)
++			return NULL;
++		pf0_ep_dsc->pci.doe_mb = doe_mb;
 +	}
- 
- 	params = (struct rmi_pdev_stream_params *)get_zeroed_page(GFP_KERNEL);
--	if (!params)
-+	if (!params) {
-+		cca_root_port_pdev_put(rp_dsc);
- 		return -ENOMEM;
-+	}
- 
- 	params->flags = 0;
- 	params->stream_type = RMI_PDEV_STREAM_NCOH;
-@@ -213,7 +234,9 @@ static int cca_pdev_create_ncoh_stream(struct pci_dev *pdev, unsigned long strea
- 	params->num_addr_range = pci_dev_addr_range(pdev, params->addr_range);
- 
- 	ret = cca_pdev_stream_connect(pdev, rp, params, &stream_handle);
--	if (!ret)
-+	if (ret)
-+		cca_root_port_pdev_put(rp_dsc);
-+	else
- 		pf0_ep_dsc->stream_handle = stream_handle;
- 
- 	free_page((unsigned long)params);
-@@ -339,6 +362,8 @@ static void __maybe_unused cca_tsm_disconnect(struct pci_dev *pdev)
- 		ide = pf0_ep_dsc->sel_stream;
- 
- 	cca_pdev_disconnect_stream(pdev, rp, pf0_ep_dsc->stream_handle);
-+	if (rp)
-+		cca_root_port_pdev_put(to_cca_rp_dsc(rp));
- 
- 	cca_pdev_stop_and_destroy(pdev);
- 	free_dev_communication_buffers(&pf0_ep_dsc->pdev.comm_data);
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
-index ed5d3a58096d..b76cb4af8436 100644
---- a/drivers/virt/coco/arm-cca-host/rmi-da.h
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
-@@ -12,6 +12,9 @@
- #include <linux/pci-ide.h>
- #include <linux/pci-tsm.h>
- #include <linux/sizes.h>
-+#include <linux/atomic.h>
-+#include <linux/kref.h>
-+#include <linux/wait.h>
- 
- #define MAX_CACHE_OBJ_SIZE	SZ_16M
- #define CACHE_CHUNK_SIZE	SZ_4K
-@@ -104,6 +107,7 @@ struct cca_host_pf0_ep_dsc {
- struct cca_host_rp_dsc {
- 	struct pci_tsm pci;
- 	struct cca_host_pdev_dsc pdev;
-+	struct kref tsm_ref;
- };
- 
- struct cca_host_fn_dsc {
++
+ 	ret = pci_tsm_pf0_constructor(pdev, &pf0_ep_dsc->pci, tsm_dev);
+ 	if (ret)
+ 		return NULL;
 -- 
 2.43.0
 
