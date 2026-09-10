@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39822C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D90AC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGsz/AIlg5zkRhqib8+rxPKlP5FHVXhKZMGyojJ8N8M=; b=mFJhN63IM9F9YhucBj7dnCrBuY
-	F8apGiVxyMyn5EY+SwfdfTtkCnoySWLKokMhO92sgX1LPPcAKjQtGEyvujIPLDYHT+3P0JN1S9DEI
-	zEZyj8gbD/ZI5CaKrGSCz/JfMjrdJ7CtqxPpavAtEk6G/UzgHkA0dE1Tz7/O4332ok0s3uoYueZfB
-	X10eHtgGn82NSFH/g/jX5yYyh6dH9v1PzU/dT2+lx9ZizJSxFAyhLep2qBZHvraf5eR6JbQSu7A4R
-	JiQYAZ6+V0wulHuDKQYZCyqyQylDLnCBz8JtBomWTDWXfO+oYllbn6LoJCGCtFBfcT7lLNrNge/KC
-	3TSnrPmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mx6UGT3LIpnPAYN185YxCNFaJMqNkLiz8yLgGMh8ifo=; b=J3AuE6qa+AG75yUucfGG4q4NSU
+	DHpklR4l1LyOJdZePOC3yufsG9dbmCC/EBnztMVQzYUGiCEfBAAAbl1KiTVoFOQYzfyDGZFyMicpz
+	9iAdb968g+nL335JmsorCLrCaSTqjMo+IYAsBQ5dD7fgLo/1NC3Duo3yyh9vfUDkKw3878CzRiOjd
+	l2VrCjeujdqZOtBW8CSsNQF6by/1xc2fnG//oyn3IAa87JBU+47/VCWw39o3KC5X8AUs3zmKH65xL
+	v3RfXE1n52NmqeUVrgwdJMhbjd9qxoL0i/xZL35oZBgsBkRpbL5w8LK8GhT+yLdMWPFCYPAdOENLV
+	2WiCbyQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4UH4-0000000DES7-2cLB;
-	Thu, 10 Sep 2026 02:12:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4UZB-0000000DFFc-2qyo;
+	Thu, 10 Sep 2026 02:31:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4UH3-0000000DERw-2ml2;
-	Thu, 10 Sep 2026 02:12:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jGsz/AIlg5zkRhqib8+rxPKlP5FHVXhKZMGyojJ8N8M=; b=j55YJcybmcGZIPMfXbgdVN7TJm
-	CmtzA7bR4AxBqvDcQPKIf38Ipil/DqW8mvjFA8ta07AGgEPoyc2P4yFIfsalYYZVGTREC2rRdtG2/
-	7ZtDy8G6WW5gvnVGqeXD9/nMiO4f/AcbbyoxfbqP11XhVI1ULa/nTpZRWz5uzcdAdYi/LO0wwmPBf
-	y4LLCj/wM5Cin8SyDeE1yTDdhQMLb3CNOe3Bc0/P0W/fjj0CYybw3FZIIYxHTR08v+/ZtSD194Nih
-	5P8RvwzuunRTcrrGuL7sE/08NYXm35cfiBmfTUgZpJrHvrpfMceuv3LyBxmNQuJ25TpPKULnGDFsU
-	/paoe+gg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4UH0-00000001uEl-2hN9;
-	Thu, 10 Sep 2026 02:12:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=jGsz/AIlg5zkRhqib8+rxPKlP5FHVXhKZMGyojJ8N8M=; b=KscgrVCZFZYlw91Zfay36req7N
-	H+xB8J5nRlxqnmO4DJyEFdZk7QSJlpNFWMTLkzfQskL/eaUn53hrCUrEd1l/PLzmmytAPjQ2g/ZZE
-	ljxyu8D0D96bMzqDP6vHjAbBbQ/75IJQ1Xf5uCjVHBlwmuAhBfXF5MwP3LxLcibuME24=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x4UGP-004Pzi-CH; Thu, 10 Sep 2026 04:11:45 +0200
-Date: Thu, 10 Sep 2026 04:11:45 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	p.zabel@pengutronix.de, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, vadim.fedorenko@linux.dev,
-	maxime.chevallier@bootlin.com, dong100@mucse.com,
-	wangruikang@iscas.ac.cn, 25181214217@stu.xidian.edu.cn,
-	hkallweit1@gmail.com, han.junyang@zte.com.cn,
-	xuanzhuo@linux.alibaba.com, enelsonmoore@gmail.com,
-	jes@trained-monkey.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, naseefkm@gmail.com,
-	b.larsson@gmx.com
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: econet: add EN751221
- ethernet
-Message-ID: <a9eac625-f0f3-47db-ac2c-26c7df66f52a@lunn.ch>
-References: <20260909212146.3184077-1-cjd@cjdns.fr>
- <20260909212146.3184077-2-cjd@cjdns.fr>
+	id 1x4UZA-0000000DFFN-01y0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 02:31:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 29090600CB;
+	Thu, 10 Sep 2026 02:31:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D43871F000FF;
+	Thu, 10 Sep 2026 02:31:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789007466;
+	bh=mx6UGT3LIpnPAYN185YxCNFaJMqNkLiz8yLgGMh8ifo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=C28JvL1HLKvUb4uqaRKfCWYegoGE3ScjbNlK+WEdzvZ+/Dc3yBsTwZhtogX0LqHu/
+	 63s+3GlX0wvjmgSoib69EbcPv86/wGYAr8k/bwXeb0HghHidF6VWeOMRB7NddmAFvK
+	 Gg164kk0fIcqYksPLUz8CAepaewaoCwbQUOMv/03hilmJtlWdoNzigru0e6x3LbJ2A
+	 6mQG0OUMEElReJiUpgX+BYU4reQL+CR2Zg49ZHonIwsNgCV4Oxvvdth79oJWDzAUi+
+	 8/d2EE62tJxqKYiU7PgfDHpS2yXsy/U9rgm/hJo9msjf2hz6pE2hJ1PMhctcVXYeie
+	 //9nvbRHwdEgw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0C3A380CEC7;
+	Thu, 10 Sep 2026 02:30:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909212146.3184077-2-cjd@cjdns.fr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_031222_964107_E5A5F458 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: stmmac: initialize ptp_lock at probe time
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178900740464.1158570.11551563086535432629.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Sep 2026 02:30:04 +0000
+References: <20260904-stmmac-fix-ptp-clock-init-v1-1-df70eb1eb04d@oss.qualcomm.com>
+In-Reply-To: <20260904-stmmac-fix-ptp-clock-init-v1-1-df70eb1eb04d@oss.qualcomm.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ richardcochran@gmail.com, Jose.Abreu@synopsys.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,14 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +        gmac1: mac@1 {
-> +          compatible = "econet,eth-mac";
-> +          reg = <1>;
-> +          status = "disabled";
-> +          phy-mode = "rgmii-rxid";
+Hello:
 
-That is a very unusual phy-mode. Is there a reason this is used in the
-example?
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-	Andrew
+On Fri, 04 Sep 2026 12:32:55 +0200 you wrote:
+> priv->ptp_lock is only initialized in stmmac_ptp_register(), which runs
+> during __stmmac_open(). However, the lock is also used while the
+> interface is down and has never been opened: tc_taprio_configure()
+> invokes the PTP gettime64() callback to compute the EST base time when
+> offloading a TAPRIO schedule, and stmmac_get_time() takes
+> priv->ptp_lock. Using an uninitialized rwlock is undefined behaviour.
+> Move the rwlock_init() to __stmmac_dvr_probe(), together with the other
+> private locks, so that ptp_lock is always valid regardless of the
+> interface state.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] net: stmmac: initialize ptp_lock at probe time
+    https://git.kernel.org/netdev/net/c/0338c68e22ab
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
