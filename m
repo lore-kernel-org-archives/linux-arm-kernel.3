@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9E8C79F9F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F87C88E40
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfACVSTqqZWVHHMsfW9j7D8zjVuyoIFAMlGVkuERVwY=; b=lJTkC73m0KSReAG7doxywzhLtC
-	zwNy7cEvVbD/YzEFtAhjSVrcwiVS743VodFSJL03A2bnV/iPgGb69SurYen/9c1Vpz9XcXwCpVhob
-	YKMh4YVkfegq+hOFvQMfUX25P+YzvIJ17GubEgLQ4z2c/02mh0rcetG/GmDy82xzyKw//4pVTMy8h
-	2twzbu15NOI/oj2Uu+8kbbC+53hd38pfUJR1FqZsHJ3/rymuhC+afKy6BHQiR06LNpMd3Wk+P34pU
-	HFyiU66XvahelV+qbyzDr/6RsVHqQx1PyCI7RlXTTn2SwsRv7iJjPL25zm91fYeh/TSkcegVMK9zg
-	insS/IZg==;
+	bh=ktQ/mCzljVKF0hvcEfd4hDNXCpVqMxkORMTuXMwuaFE=; b=u0Mqkbsh6h3qrCYvZz8KKBdkHl
+	vazvhDfNXcrpkAFd7h9ajDAI2Vjxww2MQ1vziuohk2R2jcgUCABtLWvbOGi60Uf0TuxGofM6V/VnT
+	7wB9kquYwk0cwmr4A5yslAay6zblwm2tB3yPdM1DZWyiTLooWlbF5fmdEkbhJKMDn24vRcBLTq4l2
+	8pr2qgWXEp+v3IhU7FB25DhNg5SzcNHSdOYGCuGeToORXO9UcKeN/d37t6AsKVbdWrwelF1+7WlQY
+	S4CvHNNS0sgU/ufpDdxTRT5UlgVP/VEK0mrRb6OlFbccuVcmp1edZIJDjtQBM5jvR8U/C69aZQN9P
+	4eFJteLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQY-0000000EZT7-3GlU;
-	Thu, 10 Sep 2026 14:06:58 +0000
+	id 1x4fQZ-0000000EZTR-0AzT;
+	Thu, 10 Sep 2026 14:06:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQV-0000000EZOP-0b3K
+	id 1x4fQV-0000000EZP4-2t0H
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Sep 2026 14:06:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E129A416F3;
-	Thu, 10 Sep 2026 14:06:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 039471F00898;
-	Thu, 10 Sep 2026 14:06:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3BD04447B0;
+	Thu, 10 Sep 2026 14:06:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589461F00893;
+	Thu, 10 Sep 2026 14:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049214;
-	bh=HfACVSTqqZWVHHMsfW9j7D8zjVuyoIFAMlGVkuERVwY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=g16gXhhxkVq5S5oxzfWsaWCw3urd025JZW1sxsu9eBUu1CdJDqpISr68hktAo/CHr
-	 2F2O/QCunWoL+37JccgSRDvuhWzbmLGW4J0X2PhPFNGRVwApRS5XmPH5Lf0Ylg4PPa
-	 YbhNeDsiLtUHHK83QQtbLdaJ3I9v5IhzjCI5tAM3J049vv7Atw+WEUIhjtbQvwAAf4
-	 dDzmBw1Y1FPRD6I1J8/MaZjYuBAMNfvOZl1N2XddNvNnW4w4BWdXCZSt6NfMABdXqd
-	 KBVRcFCrHkdq0LMLI22NTuK2daML6fj7B3HFs5psQJtkawQQmgXk/MYUp4/fhuY4nP
-	 mtTkAoj8KrYTA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [PATCH v5 14/15] coco: host: arm64: Add NCOH_SYS stream support for RC endpoints
-Date: Thu, 10 Sep 2026 19:35:07 +0530
-Message-ID: <20260910140509.868402-15-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
-References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
+	s=k20260515; t=1789049215;
+	bh=ktQ/mCzljVKF0hvcEfd4hDNXCpVqMxkORMTuXMwuaFE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=fooDFSDCRbGIyectMaPvdLe4BSe0Xeb/ACL9L3ltDh7dVCBTLG+jKdQ4Y8+rvx1Ez
+	 IDDgl4dfmKSNrXfQxDGAJp+d0UsNL20qagyQkzCytVD6FeYlYuBG8hZpval3Xt9PMe
+	 pGjcj4kkKb5zOF6dr+UIIEpXyAdNsCF7DiHKMVWgkxCxlSksETReJVCF1fP6uos6qm
+	 muxg7TaQhDjvw6wsm0KWNi+dFnVlbBGtZgx+JeQTJz31ZIHfdOXSKQyb2M3Vn2Ggsb
+	 +6LF6m9+9k0J+/OpKW9l3Bw8zBiLVJ66u2XmV4YGK5OrVj9zDEYQ8iuW9uikZSw4ss
+	 lNBZmWoUKoPrw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Christian Lugnberg <christian.lugnberg@soundtrack.io>
+Cc: Frank.Li@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, 
+ samuel@sholland.org, dmaengine@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260817135723.12807-1-christian.lugnberg@soundtrack.io>
+References: <20260817135723.12807-1-christian.lugnberg@soundtrack.io>
+Subject: Re: [PATCH v3 0/2] dmaengine: sun6i: Fix two bugs in the DMA
+ status path
+Message-Id: <178904921191.109109.5746892619101559603.b4-ty@kernel.org>
+Date: Thu, 10 Sep 2026 19:36:51 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +72,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Teach the host CCA pdev setup to handle PCI_EXP_TYPE_RC_END devices.
 
-Classify RC integrated endpoints as RMI_PDEV_FLAGS_CATEGORY_ON_CHIP_EP when
-building the RMM pdev parameters, and only advertise SPDM support when a
-DOE mailbox is present.
+On Mon, 17 Aug 2026 15:51:21 +0200, Christian Lugnberg wrote:
+> Thank you for the review, Frank.
+> 
+> Changes in v3:
+>   - Patch 1: trim commit message to the root-cause explanation and fix
+>     description, dropping the debug/reproduction part per feedback
+>   - Patch 2: unchanged since v2
+> 
+> [...]
 
-Also add the stream setup path for these devices by creating an
-RMI_PDEV_STREAM_NCOH_SYS stream using the endpoint pdev and its bridge
-address windows. This allows RC endpoints to participate in the TDISP flow
-without requiring a separate root-port pdev.
+Applied, thanks!
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- drivers/virt/coco/arm-cca-host/main.c   | 28 +++++++++++++++++++++++++
- drivers/virt/coco/arm-cca-host/rmi-da.c | 10 +++++++++
- 2 files changed, 38 insertions(+)
+[1/2] dmaengine: sun6i: fix non-atomic read of DMA position registers
+      commit: c90b6973daa37f4c283342dff881ae001dea4fe6
+[2/2] dmaengine: sun6i: fix undefined behaviour in sun6i_dma_tx_status
+      commit: 9096bdc8d930147f7c39a493a859acbd3a8485d8
 
-diff --git a/drivers/virt/coco/arm-cca-host/main.c b/drivers/virt/coco/arm-cca-host/main.c
-index 70cbff181561..b7b0cc0a016c 100644
---- a/drivers/virt/coco/arm-cca-host/main.c
-+++ b/drivers/virt/coco/arm-cca-host/main.c
-@@ -252,11 +252,39 @@ static int cca_pdev_create_ncoh_stream(struct pci_dev *pdev, unsigned long strea
- 	return ret;
- }
- 
-+static int cca_pdev_create_ncoh_sys_stream(struct pci_dev *pdev)
-+{
-+	int ret;
-+	long stream_handle;
-+	struct rmi_pdev_stream_params *params;
-+	struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
-+
-+	params = (struct rmi_pdev_stream_params *)get_zeroed_page(GFP_KERNEL);
-+	if (!params)
-+		return -ENOMEM;
-+
-+	params->flags = 0;
-+	params->stream_type = RMI_PDEV_STREAM_NCOH_SYS;
-+	params->pdev_1 = virt_to_phys(pf0_ep_dsc->pdev.rmm_pdev);
-+	params->pdev_2 = 0; /* ignored */
-+	params->ide_sid = 0; /* ignored */
-+	params->num_addr_range = pci_dev_addr_range(pdev, params->addr_range);
-+
-+	ret = cca_pdev_stream_connect(pdev, NULL, params, &stream_handle);
-+	if (!ret)
-+		pf0_ep_dsc->stream_handle = stream_handle;
-+
-+	free_page((unsigned long)params);
-+	return ret;
-+}
-+
- static int cca_pdev_create_streams(struct pci_dev *pdev, unsigned long stream_id)
- {
- 	switch (pci_pcie_type(pdev)) {
- 	case PCI_EXP_TYPE_ENDPOINT:
- 		return cca_pdev_create_ncoh_stream(pdev, stream_id);
-+	case PCI_EXP_TYPE_RC_END:
-+		return cca_pdev_create_ncoh_sys_stream(pdev);
- 	default:
- 		return -EINVAL;
- 	}
-diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
-index fcca9f73b5fb..794385f818ce 100644
---- a/drivers/virt/coco/arm-cca-host/rmi-da.c
-+++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
-@@ -66,6 +66,16 @@ static int init_pdev_params(struct pci_dev *pdev, struct rmi_pdev_params *params
- 		category = RMI_PDEV_FLAGS_CATEGORY_ROOT_PORT;
- 		break;
- 	}
-+	case PCI_EXP_TYPE_RC_END: {
-+		struct cca_host_pf0_ep_dsc *pf0_ep_dsc = to_cca_pf0_ep_dsc(pdev);
-+
-+		/* Use SPDM if present */
-+		if (pf0_ep_dsc->pci.doe_mb)
-+			params->flags = RMI_PDEV_FLAGS_SPDM;
-+
-+		category = RMI_PDEV_FLAGS_CATEGORY_ON_CHIP_EP;
-+		break;
-+	}
- 	default:
- 		return -EINVAL;
- 	}
+Best regards,
 -- 
-2.43.0
+~Vinod
+
 
 
