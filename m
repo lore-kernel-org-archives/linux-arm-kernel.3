@@ -4,106 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC60C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CA4C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Abwf0alfy8lmdT9uf0Uv5Evj+p5aY96/emuc9X9I3es=; b=FUN241cHq56G7jnYwf2U/hXK6u
-	QMS5BnDmFnx+v4K6kQ15GT+Vn7yY8pHhHjhm8AbvcrviYQDoS2mlNhH/X30sAHkAr5wP3owbDM1mT
-	7YwNqJ0jIgiycpFTy9okRc8a+q9x0URd2W7D0SBHhGnDDx2x3RnhqQKS7qFXG70yyf2ULyiNhv5Mo
-	4LIyR4huIYofVMaYPsaJYK/sgoiSVY9eFIns8LxbUyvsJB6C0Rl+ghII7Gc4jrL9ZmGnl+cPq6Oi0
-	MBYYtPGoQxIBfXqss70JdCVuU+2ZNjBugJ/RRLC3fLQiz18BJ188D4h8TQRq0c7YqpnAL7SpyVq8l
-	Xk7F6jdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9tvnuGvnbgY2VToM5oSZ6NV1NviBjBV50tr9v/KS1Rw=; b=e2gmO2k+CmZSMM
+	wEByWLv+EUTnhgVMCmym37FyaZEKglAyY+aGtlpJf9okUACRnx/SKLdnfYhfroWZ8IiZXTK1cSQbD
+	ft/a+WeUBO7NeS9yQAazYuxk4BbOnTWLHHCMS42z/kDQJ5YR/leegh1S7olTOVr2oQwrbOjHH8Lx5
+	wctZqlusGMo/VOKkebQbxHz5ynpR911zMaAp+TCBOLUH1jKFK/KzQBETBYmJg6AKkDgKO0va6kIsA
+	4jR4vGDfp1rA2jXK8GNkf4kFsLGVSKRWGKplBOho2mEes54Y+qU0YdScW0fNU2xCviJ00aWzutGXq
+	BYEXxfjNkuBAb2dVGYpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Vdk-0000000DJUq-3rnU;
-	Thu, 10 Sep 2026 03:39:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x4Vdz-0000000DJYV-0gDV;
+	Thu, 10 Sep 2026 03:40:11 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Vdh-0000000DJUT-440q
+	id 1x4Vdw-0000000DJWe-2Qvc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 03:39:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789011592;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Abwf0alfy8lmdT9uf0Uv5Evj+p5aY96/emuc9X9I3es=;
-	b=AC/PJ+RTsAVSm399G92pQuH62oQViBzJ2CaxoLSeGl7w6CcNjg/oIefvQ55G5ZcN0oYHIk
-	7kBdSvhiWH3Siu3D5dGjK5GapsOuuca/ILAW/+RtqNWNOrzHu42/0dduNvQnrZw6ubBUMz
-	qfdGvMOJGot8sbYx6eiLElkbhnCKN/I=
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
- [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-651-AAaDzgWrNYO26LLMdPBwPg-1; Wed, 09 Sep 2026 23:39:50 -0400
-X-MC-Unique: AAaDzgWrNYO26LLMdPBwPg-1
-X-Mimecast-MFC-AGG-ID: AAaDzgWrNYO26LLMdPBwPg_1789011589
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cc39363cc88so6887678a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 20:39:49 -0700 (PDT)
+	Thu, 10 Sep 2026 03:40:10 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d90ba1d807so12175575ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 20:40:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1789011607; x=1789616407; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=9tvnuGvnbgY2VToM5oSZ6NV1NviBjBV50tr9v/KS1Rw=;
+        b=hFKsKw7xUE5iSjibxlNO+4CDr81tTLo+TOWgDPGLKqa+WlSXs6GxqMC6gQbBg2A968
+         HLnCUyssvUhoEQrKIhKVOJLE0k77/+CYHAqwwIU2WmnicankqwkJHDXvRhgNQJ2G1T+N
+         aVmDVuR/fYIZbvVz/VsRw96dM8bS4niOyFKWkTM6UQXcAWquZrxAF9odP68Jo1J5Pqtd
+         oYkpFYXbCD5rgfcLE5M0it+c3T6J5O+D9EVOimpqaEg8GonPz82MJYvajxBbcdazuMK/
+         6xkT+FkUj0RHPlwxM5iT+X4rjOLD2DyWEW46iRyIfE1KU4GiN21ssGy9Iw925fZyln3Z
+         iDew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789011589; x=1789616389;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Abwf0alfy8lmdT9uf0Uv5Evj+p5aY96/emuc9X9I3es=;
-        b=Rg19O1k96P0FW16FHYhgeJsc761KJcjj510A5Y6jKXrpOzlDCNWypHaMhMiwvQO3Sm
-         3EdA40LPDD7+XFKScw9pFbO2fIUE8CfAzO0Vr3NBPjPD7aK04eMFjqXHs9Y0/7RZ/ytR
-         b7VbotXxid8nuuxnoXLntLvNiuVnBGS++OzY2f1NpWStaedpbKmFZKyP7RQSL7+Ph1s7
-         VtpKlUAylwRkT2NamIIgGbPmVpm4Emvk5t3SSxVUz/0UwDcyr7i7ufOna+/xlLIamtpU
-         2uw8lOnSdk6WA3396Jt5y+j1t/U0bNHEbLRe8+9ukSn/dr3aKyfGSWe8u7/8RpLiblEQ
-         YtYQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwNxr2+tCMstG5yp0Yo02oAgrnV4q7r3jVgWWbIQhcE5UbtDD3K7QFcJzbIIuilG1O7Vj2MZpAnRqGOjNMLnswx@lists.infradead.org
-X-Gm-Message-State: AFuF++m9SHG0DRvvaPRcVgRfytx36Cy4prCi3u7772h6XofrocAxmaQP
-	cYEPhV0ycbqEbSangLR1NJyvho6h6cu590//6sjZEsmVAsQ7SOvJ+IMuCZWfRm5b/M3c5IKCJpJ
-	0/28ZecW4zXkwL+LQ2rL6tLlA6+TH5Wl0YOUx9s2i9Y0D0BWqSW8Ig24vvXBdjUuOeciQBbEUnE
-	Mn
-X-Gm-Gg: AYBFou1hTj9sRpKq4NaltojTFFUQ8kyUJZXedf9jBwLo09SVKVv85+EE1gZvdcwanjM
-	NNFYSo62zlRonIyMDuokNLq0ei7Wbj2WggDqEYPA2+rmUVlpSs2fa1iFPeAvI7cFZBj7a/LM+aU
-	YC+sPbtbXoFXh2nTh/p89iCjUlnd+qAfgGhxasJ8aSjy+Z/VMib3BwZ3b2bFl+sQHiQPUZtvtRw
-	sIP1WRMOgxw/R81lc9bYUl1c1jc6liMCvcKvHLkZ968AfGuZirkrPnDL850NqNaJAP1rmEQ3SWt
-	aEUDbrUDPJk7oK5TP0FMpFWXcv7+6PUEoDwpWkZF1YvGB9uXlxcBhVM/B+DgHdiME9IQ/kOEzwB
-	zEW8GnY5gmWXzIbwbuXhFrFSCwrANfsrMtzVUSDva9A==
-X-Received: by 2002:a17:90b:3852:b0:38e:9ef9:eb97 with SMTP id 98e67ed59e1d1-39b26272d69mr58682597a91.16.1789011588755;
-        Wed, 09 Sep 2026 20:39:48 -0700 (PDT)
-X-Received: by 2002:a17:90b:3852:b0:38e:9ef9:eb97 with SMTP id 98e67ed59e1d1-39b26272d69mr58682526a91.16.1789011588237;
-        Wed, 09 Sep 2026 20:39:48 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d7e77498csm1527727a91.3.2026.09.09.20.39.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 20:39:47 -0700 (PDT)
-Message-ID: <3cd34b9c-7500-4993-86ff-c1ee9a86b601@redhat.com>
-Date: Thu, 10 Sep 2026 13:39:36 +1000
+        d=1e100.net; s=20251104; t=1789011607; x=1789616407;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9tvnuGvnbgY2VToM5oSZ6NV1NviBjBV50tr9v/KS1Rw=;
+        b=WKh4g3OTPaBRRjmzR2tjRiRNBuY1hIklD0qTrDkG+vJ1wR0u8hnl2QjHUjIdxeQUU+
+         g0aG7241l15zA+t7nGDNqxuuNUAYvefHBdBB/uDXFKwpLesx9rSqoSY9Iv0txXcnvLCW
+         50a3c7b8iANgo5UEoliMn8UJiVWV/0wZ4aD1Dby7/nXqiVD/up5kMWI5LP1DYRCgvly7
+         A0zY/jh9A3xszRMcYl8ABq5c03d/hDVgAY6dqOCdzuJM2Qp7CbzhiSvUb3Ypqly2VyTx
+         Ybj0aycMFCgJSOJaYDQGx/jaEad+YDerXPwZtlrGezGpEfW8RevwXVrtDrvwgfFF2fbD
+         Gohw==
+X-Forwarded-Encrypted: i=1; AKwUvBzC/Cwruw08slBmxoyMzhTtQkL+VMrLNqx+gV7pVY+RM7F+/85rgBPW9PMCOhUXSzWFAuAUNnhlCwOoVIWQe7gE@lists.infradead.org
+X-Gm-Message-State: AFuF++k03+yVm39HGNfDeQIj1LYffuCnWnoBwB9Q5ijq0h7aUg5FtekF
+	sXJf1hiKVbK698HXWN1shI5zIi7AbVoRRKRtA5z81Rv6UhciioHeR2u1eP8KaFNAAsc=
+X-Gm-Gg: AYBFou3fW2G61UdfBx4Qx6q39MubXCaew/OCBFXq+UnfBR4BtRlRmF79WdBhNdlNmDI
+	GVvshsiW3x4DA00JRN/Yq1WgE0P26mq2lYHiP6Sb4K6jbnIJLOMbjhzRlcYBBQE89waxGYE26dC
+	6sEfgotnty+3flXmaLo9nsvhRtmCWyajY35sQjIotbRxI9mlvetl7UPAgu0wmzMHr3iMTiaPpCS
+	kCGqQgsBYpzK9DHT8ESe3PZCmO/MvmX0W6dSis1/Vsi7Lx5ZACrvGxyxsDYlcskbbLyUwSEsk7Y
+	ezhPoxJ63GUTKY8h0VubpcO6QhaMPPMeRL4Bq/JolGkKkFBmlytWHKR1YMlf2EbS4DZ7puGYL/x
+	Apz4zYF7Zz3Ex/BrxvjTV7cnBXCM1YvUlQT5AFf9YuoZPAh5a4eOAl5//h9qvJg2moLSH6T6dMq
+	QiBCcA43VsISqHaqwxBwbwhMXt3b+YEMhcGkOfquW0Md1LmNUIzMNulZDX3FTXNeiHyGrAAOy4T
+	g==
+X-Received: by 2002:a17:90b:4d82:b0:398:bacb:1137 with SMTP id 98e67ed59e1d1-39d70b1c7demr6759612a91.19.1789011606787;
+        Wed, 09 Sep 2026 20:40:06 -0700 (PDT)
+Received: from [127.0.0.2] ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432435648esm58294850c88.5.2026.09.09.20.40.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 20:40:06 -0700 (PDT)
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Subject: [PATCH v4 0/3] i2c: xiic: fix SMBus block read and PEC support
+Date: Wed, 09 Sep 2026 20:40:02 -0700
+Message-Id: <20260909-i2c-xiic-v4-0-218df31e9d3b@nexthop.ai>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 03/20] KVM: arm64: Track the type of VM in kvm_arch
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-4-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260908162223.1683432-4-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vLHjY8I0HpY8jZPSckYQwnvROCetS-4C-n0xFWOK0_E_1789011589
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NzQ6CMBAE4FcxPVuz3fKjnnwP46FdF1kPQCgSD
+ OHdpXgQo8dJ5psZVeBWOKjjZlQt9xKkruaQbDeKSlfdWMt1zgoBM0gw14KkBxHS6NinYJgAnZr
+ rTcuFDMvU+fLO4eHvTF30sVFK6Or2uXz1Jvb+zPZGg+YMIS8OzqXueqp46Mq62TlRcbfHj0yNW
+ UmcJZnM7oG8SQ/Jj7RraVfSRkneUpGDd2C/5DRNL/JdYaUnAQAA
+X-Change-ID: 20260427-i2c-xiic-2aeb501ec02a
+To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789011605; l=4845;
+ i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
+ bh=fbHi+gXipZ3MdJzUzGm17xyICy+psgM5NB9TegAjnbE=;
+ b=eDbI2iJM9vlheW6MkxLftANxs15Q0mkunMHPY+vnwmNkGk9UhcI0COOQSQQkgyjLbZLAg15V4
+ WNvZR3kEIlbBURSHHd2H5X8EFDVCg+GZcFxab0YYLifnqs1W+ib0/an
+X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
+ pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203954_090280_74780AED 
-X-CRM114-Status: GOOD (  33.21  )
+X-CRM114-CacheID: sfid-20260909_204008_641402_836C6A09 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,182 +112,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+This series fixes three independent bugs in the Xilinx AXI IIC driver
+that together make SMBus block reads with PEC return -EBADMSG or -EIO
+on otherwise clean transfers. They only surface when the client has
+I2C_CLIENT_PEC set; non-PEC block reads happen to mask each issue in
+turn.
 
-On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
-> KVM arm64 has different types of VMs with all the different modes in which the
-> hypervisor code can be run. e.g., VHE, nVHE, PKVM etc. Then there is protected
-> VM and normal VMs with PKVM. We might soon add other types, e.g., Arm CCA Realm.
-> So in an effort to make the handling of these different types of VMs a bit more
-> friendlier to the eyes, add a VM flavor to the kvm_arch and we could then add
-> handlers for different operations based on the VM type.
-> 
-> Keep the flavor initialisation at the beginning to allow for the detection
-> early enough and fail out on any unsupported requests. (e.g., protected on !PKVM)
-> 
-> With that, use the vm_flavor to detect if a VM is protected VM on PKVM.
-> 
-> Based on a patch by Marc Zyngier
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   arch/arm64/include/asm/kvm_host.h | 12 ++++++++++--
->   arch/arm64/kvm/arm.c              | 27 ++++++++++++++++++++++++---
->   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  2 +-
->   arch/arm64/kvm/pkvm.c             |  1 -
->   4 files changed, 35 insertions(+), 7 deletions(-)
-> 
+The problems were uncovered driving an adm1266 PMBus device behind a
+Xilinx AXI IIC FPGA block and reading its 64-byte blackbox record.
 
-Some nitpicks below. In either way:
+Patch 1 stops xiic_smbus_block_read_setup() from truncating rx_msg->len.
+The i2c core appends a byte to msg->len when PEC is enabled, so
+overwriting the length to "block size + 1" silently drops the PEC byte
+and i2c_smbus_check_pec() then reads the last payload byte as the PEC.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Patch 2 raises the RX_FULL threshold so the interrupt only fires once
+every remaining byte (payload plus optional PEC) is already buffered in
+the FIFO. The previous threshold of rxmsg_len - 2 caused the
+bytes_rem == 1 path in xiic_read_rx() to NACK a byte still on the wire.
+The chunk-vs-defer guard now also accounts for the PEC byte so a
+rxmsg_len == IIC_RX_FIFO_DEPTH PEC-enabled read does not push
+XIIC_RFD_REG_OFFSET past its 4-bit range.
 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7a..d0dccc9ad6aa8 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
->   	pkvm_handle_t handle;
->   	struct kvm_hyp_memcache teardown_mc;
->   	struct kvm_hyp_memcache stage2_teardown_mc;
-> -	bool is_protected;
->   	bool is_created;
->   
->   	/*
-> @@ -306,9 +305,18 @@ enum fgt_group_id {
->   	__NR_FGT_GROUP_IDS__
->   };
->   
-> +enum kvm_arm_vm_flavor {
-> +	VM_NVHE,
-> +	VM_VHE,
-> +	VM_PKVM,		/* Normal guests on PKVM */
-> +	VM_PROTECTED_PKVM,	/* Protected VM */
-> +	VM_FLAVOR_MAX,
-> +};
-> +
->   struct kvm_arch {
->   	struct kvm_s2_mmu mmu;
->   
-> +	enum kvm_arm_vm_flavor vm_flavor;
->   	/*
->   	 * Fine-Grained UNDEF, mimicking the FGT layout defined by the
->   	 * architecture. We track them globally, as we present the
-> @@ -1504,7 +1512,7 @@ struct kvm *kvm_arch_alloc_vm(void);
->   
->   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
->   
-> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
-> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM)
->   
+Patch 3 stops the BNB handler from forcing tx_msg->len = 1 to signal
+completion. tx_msg and rx_msg alias the same i2c_msg during a receive,
+so this also clobbered rx_msg->len; and because tx_pos is already at 2
+in the PEC case, the unsigned subtraction in xiic_tx_space() underflowed
+and the STATE_DONE check fell through to STATE_ERROR. Advancing tx_pos
+up to msg->len drives tx_space to zero without touching the length.
 
-Here we may introduce one more helper for generic use cases. It's going to
-be used in kvm_arch_init_vm().
+All three patches are pure bug fixes; non-PEC behaviour is unchanged.
+Tested on real hardware -- a Xilinx AXI IIC controller talking to an
+adm1266, where 64-byte PEC-checked block reads now complete cleanly.
 
-#define kvm_vm_flavor_eq(kvm, flavor)	((kvm)->arch.vm_flaor == (flavor))
-#define kvm_vm_is_protected(kvm)	kvm_vm_flavor_eq(kvm, VM_PROTECTED_PKVM)
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+Changes in v4:
+- No code changes; resend of v3 to collect Michal Simek's Acked-by
+  (given on the v3 cover letter) into each patch.
+- Shubhrajyoti Datta's Reviewed-by from v1 is not carried over since all
+  three patches have changed since then. Shubhrajyoti, if the current
+  code still looks good to you, a fresh tag would be appreciated.
+- Link to v3: https://patch.msgid.link/20260513-i2c-xiic-v3-0-ccb3cf70ba03@nexthop.ai
 
->   #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
->   
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8b080804bc90b..67f1ff9bc4fbe 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
->   	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->   }
->   
-> +static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
-> +{
-> +	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
-> +
-> +	if (is_protected_kvm_enabled()) {
-> +		if (protected)
-> +			kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
-> +		else
-> +			kvm->arch.vm_flavor = VM_PKVM;
-> +	} else if (protected) {
-> +		return -EINVAL;
-> +	} else if (has_vhe()) {
-> +		kvm->arch.vm_flavor = VM_VHE;
-> +	} else {
-> +		kvm->arch.vm_flavor = VM_NVHE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   /**
->    * kvm_arch_init_vm - initializes a VM data structure
->    * @kvm:	pointer to the KVM struct
-> @@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   	mutex_unlock(&kvm->lock);
->   #endif
->   
-> +	ret = kvm_init_vm_flavor(kvm, type);
-> +	if (ret)
-> +		return ret;
-> +
->   	kvm_init_nested(kvm);
->   
->   	ret = kvm_share_hyp(kvm, kvm + 1);
-> @@ -260,9 +284,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   		ret = pkvm_init_host_vm(kvm, type);
->   		if (ret)
->   			goto err_uninit_mmu;
-> -	} else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
-> -		ret = -EINVAL;
-> -		goto err_uninit_mmu;
->   	}
->   
->   	kvm_vgic_early_init(kvm);
+Changes in v3 (addresses the sashiko automated review of v2):
+- Patch 1: handle short SMBus block reads where the controller pads
+  rx_msg->len up to SMBUS_BLOCK_READ_MIN_LEN for its end-of-message
+  workaround. In v2 this branch left the PEC byte at the padded
+  offset rather than the actual end-of-payload, so the i2c core's
+  PEC validator read past the chip data. Track the on-wire length
+  in a new smbus_actual_len field populated in the minlen branch
+  of xiic_smbus_block_read_setup(), and trim rx_msg->len back at
+  RX_FULL completion before passing the message up. Addresses
+  sashiko's v2 note about the pec_len adjustment missing the
+  rxmsg_len < 3 padding branch; that branch was indeed the cause
+  of pmbus_check_block_register() silently failing on zero-length
+  MFR_* fields and skipping debugfs auto-discovery on affected
+  hardware.
+- Patch 3: defensively reset smbus_actual_len in the BNB completion
+  handler so a subsequent non-SMBus transfer cannot see a stale
+  trim value from a completed short block read.
+- Patch 2 is unchanged from v2. sashiko's two other v2 notes were
+  investigated and judged not to require code changes: the concern
+  about removed padding in the chunked-vs-deferred drain misread
+  the patch (the padding survives via the else branch and the new
+  PEC-aware guard preserves the original semantics), and the
+  flagged unsigned underflow in xiic_tx_space() is unreachable
+  because tx_pos is bounded by tx_msg->len at the call site.
+- Link to v2: https://patch.msgid.link/20260511-i2c-xiic-v2-0-c16380cb1594@nexthop.ai
 
-We needn't depend on is_protected_kvm_enabled() to call pkvm_init_host_vm() because
-the output of is_protected_kvm_enabled() has been updated to kvm->arch.vm_flavor
-by previous call kvm_init_vm_flavor().
+Changes in v2:
+- Patch 2: widen the chunk-vs-defer guard in xiic_smbus_block_read_setup()
+  to include pec_len, so a 16-byte PEC-enabled block read routes through
+  the chunked drain rather than writing 16 into the 4-bit
+  XIIC_RFD_REG_OFFSET register. No tree-level change to patches 1 or 3.
+- Link to v1: https://patch.msgid.link/20260427-i2c-xiic-v1-0-e6207f9aa5ad@nexthop.ai
 
-	if (kvm_vm_is_protected(kvm) || kvm_vm_flavor_eq(kvm, VM_PKVM)) {
-		ret = pkvm_init_host_vm(kvm, type);
-		if (ret)
-			goto err_unit_mmu;
-	}
+---
+Abdurrahman Hussain (3):
+      i2c: xiic: preserve PEC byte length in SMBus block read setup
+      i2c: xiic: defer RX_FULL until all trailing bytes are in FIFO
+      i2c: xiic: don't clobber msg->len to signal block-read completion
 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 459bd9eb7e4bc..09961c0056f2b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -432,7 +432,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->   
->   	hyp_vm->host_kvm = host_kvm;
->   	hyp_vm->kvm.created_vcpus = nr_vcpus;
-> -	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
-> +	hyp_vm->kvm.arch.vm_flavor = READ_ONCE(host_kvm->arch.vm_flavor);
->   	hyp_vm->kvm.arch.flags = 0;
->   	pkvm_init_features_from_host(hyp_vm, host_kvm);
->   
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 8e4c6e4bec123..3948fa46f4d75 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -240,7 +240,6 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
->   		return ret;
->   
->   	kvm->arch.pkvm.handle = ret;
-> -	kvm->arch.pkvm.is_protected = protected;
->   	if (protected) {
->   		pr_warn_once("kvm: protected VMs are experimental and for development only, tainting kernel\n");
->   		add_taint(TAINT_USER, LOCKDEP_STILL_OK);
+ drivers/i2c/busses/i2c-xiic.c | 67 ++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 50 insertions(+), 17 deletions(-)
+---
+base-commit: 70eda68668d1476b459b64e69b8f36659fa9dfa8
+change-id: 20260427-i2c-xiic-2aeb501ec02a
 
-In pkvm_init_host_vm(), the local variable 'protected' is used for once
-and can be removed by:
-
-	if (kvm_vm_is_protected(kvm)) {
-		pr_warn_once(...);
-		add_taint(...);
-	}
-
-Thanks,
-Gavin
+Best regards,
+--  
+Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
 
