@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2D8C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 23:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C4BC88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 23:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTp9lxLeKRbiCoZS9F/44u4HKEZO1wVF2r7BeB36fqY=; b=WnXD+y4d7oGOk4zdpiVzPigNic
-	KWyH0lbVpCHKGOQkmf+bvqYXBnh8TDYTcV9LBeLkyFEzY9/F6iZAY/0sI9pBsas7PM5cV0AjAoj5l
-	PpuQSBXeJgxbe2i+qbYS+bpcXFE3xAsF6+y0SXy2wT6PV4YQ/mzSLVSiNOWWmH4heJ15cf0kIbPGn
-	iK6nAZ6v2tk7V1Y8tYPzIi2JgSv/v0FouQeq2pGkiJCvyp/byCLBbRsnC5ryS/KZn8sAOJRAjz+z9
-	rQTNgRFDCjs9VerioZZ8Mem+oxiK4kr9H7qf3hV2xcCIwcuTwNx0ajdf9wQUzcF3Qoh4CLno1tkne
-	leuID44g==;
+	bh=bKin1QGY55AdPgTixeORacbQDYMT7clJ8zzHZH3TRxU=; b=140TYjqghqbeQmzxmjQY64R7h7
+	I28uQclRsdR1jDJ6cUb+MTiOwwboeox+6ZaFrEE3b7FS3+JygyfD7abY4WQAW9o3JoUtp0jjVoVma
+	RVDT3zdGsYqAwv39Paiu2acYEWgZCPJuyq9JQj4x1IpglspHZkAOI+ZCW8uAStZN/i3dqbjOfRUX+
+	66gr+hr66pTLL6bW06b0ob/DiQkkEs1hG+uQEvKapzCLSNn36ZRCLQcBvzM54jdkULADg7R7CMYb+
+	94URvjuZyPpZiGRP7kW6M9YvUmklia0EiB8syyw2+3i8Gze/u5Q8DMqqiW7g+o5Fnfw3xGQ6FQbgk
+	Fn8j2xMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4oT0-0000000FZJi-4BRY;
-	Thu, 10 Sep 2026 23:46:07 +0000
+	id 1x4oTE-0000000FZRD-1iQK;
+	Thu, 10 Sep 2026 23:46:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4oSy-0000000FZIN-0nNf
+	id 1x4oT1-0000000FZJo-0pu2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 23:46:04 +0000
+	Thu, 10 Sep 2026 23:46:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB5B343E3C;
-	Thu, 10 Sep 2026 23:46:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDA21F00899;
-	Thu, 10 Sep 2026 23:46:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC2AB4478C;
+	Thu, 10 Sep 2026 23:46:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53A31F000FF;
+	Thu, 10 Sep 2026 23:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789083963;
-	bh=gTp9lxLeKRbiCoZS9F/44u4HKEZO1wVF2r7BeB36fqY=;
+	s=k20260515; t=1789083966;
+	bh=bKin1QGY55AdPgTixeORacbQDYMT7clJ8zzHZH3TRxU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lHqPBuLgBqrS+824l4rkCo+ZQvHSLJyxluudzZ0KnJol3QccbAodAcf9llJDXRYTc
-	 3Ynnk3gZq/4Wd8sNNam9xifYPLwj2nakMx81Gc0NFKekltPlJYFuas61UIRNVNxZEm
-	 uI+Xpsl+MZQwOFG7r+0vNblonPdK9bR281W1VlXbhlizg7jtYtiCtxF4S2M8DqriAy
-	 YeWGXpsST4HPwsckgg7SbXxNg3koCxagh3bAMyF66WGvJ6PP5Oj0mJMi4SE8lJQJEj
-	 RuVGjTSZzZ/bj9Jre+zbO4HvkBCG91jt5GnAu3+CACTJt6zCna3hSc8+h22aD/hKoD
-	 l6ZneZ/pwIdTA==
-Subject: Re: [PATCH net v4 4/7] net: stmmac: Do not advertise S-VLAN stripping
- when it is disabled
+	b=Oj1dAledzlSEwNYwopD1K06wGLKiF/sVSFe7ThSheP5BfClxudH7mPJ5bxT8n2qyJ
+	 /xiOWxQz4V+bpbMHaqz4nao5+MAGYJirq19/A1lq7pI/TzhNLlqUoydth5ctavc24U
+	 R9VJHgsdhg+IPSZ3g9PXrhO/ekK3Glh03jZrPOJFueHPW9SqWKBRZ0taUQJw/EuwTE
+	 JBssvdhxwD+DNHhVoCFWEIZrnzKhrc1BxUesEJF/biM8WPXW4+0Qii54EDaEcEn30s
+	 VG7RjDWG4JXwz8QOOdBPAhhWvVs2RbEfto/ebdlAcV7VXmIcjEatcuxejOHnoKaFq7
+	 zdOA97CgNAo7Q==
+Subject: Re: [PATCH net v4 7/7] selftests: drv-net: Add VLAN test
 From: netdev-bot+sashiko@kernel.org
 To: ovidiu.panait.rb@renesas.com
 Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
@@ -53,11 +52,11 @@ Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
-Date: Thu, 10 Sep 2026 23:46:02 +0000
-Message-ID: <178908396239.219967.5065369273822811230@kernel.org>
-In-Reply-To: <20260908164309.59282-5-ovidiu.panait.rb@renesas.com>
-References: <20260908164309.59282-5-ovidiu.panait.rb@renesas.com>
-X-sashiko-severity: Low
+Date: Thu, 10 Sep 2026 23:46:05 +0000
+Message-ID: <178908396551.219967.6360903882566438769@kernel.org>
+In-Reply-To: <20260908164309.59282-8-ovidiu.panait.rb@renesas.com>
+References: <20260908164309.59282-8-ovidiu.panait.rb@renesas.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,115 +77,162 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 (1) · Medium: 0 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] Commit-message premise vs. actual code: with rx-vlan-offload off
-  (priv->hw->hw_vlan_en == false) the driver did not stop stripping…
-- [Low] The patch carries 'Fixes: 750011e239a5' yet its hunk depends on
-  priv->hw->hw_svlan_en, a struct member added by the immediately…
-
-Pre-existing issues:
-- [High] Hardware-stripped S-VLAN tags are handed to the stack with the
-  wrong TPID.
+- [Medium] vlan.py's 802.1ad/QinQ matrix never requests the one feature
+  combination in which the QinQ mis-stripping bug the commit says it…
+- [Low] test() calls cfg.require_ipver("4")
+  (tools/testing/selftests/drivers/net/hw/vlan.py:94) although the test…
 
 --
 
-net: stmmac: Do not advertise S-VLAN stripping when it is disabled
+selftests: drv-net: Add VLAN test
 
-The patch makes NETIF_F_HW_VLAN_STAG_RX follow NETIF_F_HW_VLAN_CTAG_RX in
-stmmac_fix_features(), so that rx-vlan-stag-hw-parse is no longer reported
-as enabled after rx-vlan-offload is turned off.  Both are driven by the same
-EVLS field, so the two features are tied together in hardware.
+Adds tools/testing/selftests/drivers/net/hw/vlan.py, which pings over
+802.1q, 802.1ad and QinQ VLAN interfaces with hardware RX VLAN stripping
+toggled on and off, plus the Makefile and config entries for it.
 
-A few questions below.
+A couple of questions about the variant matrix and the environment
+requirement below.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index cd9671493b41..c81c5bb5b075 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6189,6 +6189,13 @@ static netdev_features_t stmmac_fix_features(struct net_device *dev,
->  	if (priv->plat->bugged_jumbo && (dev->mtu > ETH_DATA_LEN))
->  		features &= ~NETIF_F_CSUM_MASK;
->  
-> +	if (priv->hw->hw_svlan_en) {
-> +		if (features & NETIF_F_HW_VLAN_CTAG_RX)
-> +			features |= NETIF_F_HW_VLAN_STAG_RX;
-> +		else
-> +			features &= ~NETIF_F_HW_VLAN_STAG_RX;
-> +	}
+> diff --git a/tools/testing/selftests/drivers/net/hw/vlan.py b/tools/testing/selftests/drivers/net/hw/vlan.py
+> new file mode 100755
+> index 000000000000..61fa452b95bd
+> --- /dev/null
+> +++ b/tools/testing/selftests/drivers/net/hw/vlan.py
+> @@ -0,0 +1,112 @@
+> +#!/usr/bin/env python3
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +"""
+> +VLAN tests.
+> +
+> +Validates that ping traffic is sent and received correctly over 802.1q
+> +and 802.1ad VLAN interfaces, with hardware RX VLAN stripping enabled and
+> +disabled on the local interface.
 > +
 
-[Severity: Low]
-The commit message describes the problem purely as a stale advertisement
-("rx-vlan-stag-hw-parse keeps being advertised as enabled"), but clearing
-NETIF_F_HW_VLAN_STAG_RX here also turns off the software S-tag stripper in
-the same file:
+[ ... ]
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_rx_vlan() {
-	if ((vlan_proto == htons(ETH_P_8021Q) &&
-	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
-	    (vlan_proto == htons(ETH_P_8021AD) &&
-	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
+> +def _vlan_setup(base, addr, outer_proto, inner_proto, host=None):
+> +    """Create VLAN interfaces on base and set an IP on the innermost one."""
+> +
+> +    _vlan_add(base, OUTER_DEV, outer_proto, OUTER_VID, host=host)
+> +    if inner_proto:
+> +        _vlan_add(OUTER_DEV, INNER_DEV, inner_proto, INNER_VID, host=host)
+> +
+> +    dev = INNER_DEV if inner_proto else OUTER_DEV
+> +    ip(f"addr add {addr}/24 dev {dev}", host=host)
+> +
+> +
+> +def _setup(cfg, outer_proto, inner_proto, hw_strip):
+> +    """Configure VLAN stripping and create the VLAN interfaces."""
+> +
+> +    feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
+> +    feats = {"rx-vlan-offload": hw_strip}
+> +    if outer_proto == "802.1ad":
+> +        feats["rx-vlan-stag-hw-parse"] = hw_strip
+> +    set_ethtool_feat(cfg.ifname, feat, feats)
+
+[Severity: Medium]
+
+Does this combination actually reach the QinQ mis-stripping case the commit
+message says the test aims to catch?
+
+In _setup() both rx-vlan-offload and rx-vlan-stag-hw-parse are driven to the
+same hw_strip value, and _vlan_variants() only yields all-on and all-off
+combinations. The combination rx-vlan-offload=on with
+rx-vlan-stag-hw-parse=off is never requested.
+
+On a device where NETIF_F_HW_VLAN_STAG_RX is fixed off, set_ethtool_feat()
+raises before running any ethtool -K:
+
+tools/testing/selftests/drivers/net/lib/py/feat.py:set_ethtool_feat() {
+	...
+		if current[name]["active"] != state:
+			no_change = False
+			if current[name]["fixed"]:
+				raise KsftXfailEx(f"Device does not support {name}")
 	...
 }
 
-With rx-vlan-offload off, hw_vlan_en is false and stmmac_rx() takes the
-stmmac_rx_vlan() path, so before this change 802.1ad tags were still popped
-into skb metadata by the driver; afterwards they are left in the linear
-frame.
+So the whole 8021ad_hw / qinq_hw variant is skipped, including the
+rx-vlan-offload=on part which is settable on those devices. The surviving
+8021ad_sw / qinq_sw variants then force rx-vlan-offload off.
 
-This looks harmless in practice, since __netif_receive_skb_core() calls
-skb_vlan_untag() for any eth_type_vlan() protocol and re-establishes the tag
-with the correct ETH_P_8021AD TPID.  Would it be worth mentioning the
-datapath side effect in the changelog, so it is clear that only the place
-where the S-tag is moved into skb metadata changes?
+That leaves no 802.1ad or QinQ ping running with hardware C-tag stripping
+active. Wouldn't a driver that strips the first VLAN tag regardless of TPID,
+reporting an 0x88a8 tag as a C-tag, still report "ok 8021ad_sw" and
+"ok qinq_sw" here? The sample TAP output in the commit message shows exactly
+this on st_gmac, and netdevsim likewise advertises only
+NETIF_F_HW_VLAN_STAG_FILTER and not NETIF_F_HW_VLAN_STAG_RX in nsim_setup().
+
+Should the 802.1ad/QinQ variants instead be split so that rx-vlan-offload=on
+is requested independently of rx-vlan-stag-hw-parse, so a fixed
+rx-vlan-stag-hw-parse does not remove the hardware stripping coverage?
+
+Related, the docstring says:
+
+  Validates that ping traffic is sent and received correctly over 802.1q
+  and 802.1ad VLAN interfaces, with hardware RX VLAN stripping enabled and
+  disabled on the local interface.
+
+and the commit message says the three configurations are covered "each with
+hardware RX VLAN stripping enabled and disabled". Could these be reworded to
+match what happens on devices where rx-vlan-stag-hw-parse cannot be changed?
+
+> +
+> +    _vlan_setup(cfg.ifname, LOCAL_IP, outer_proto, inner_proto)
+> +    _vlan_setup(cfg.remote_ifname, REMOTE_IP, outer_proto, inner_proto,
+> +                host=cfg.remote)
+> +
+> +
+> +def _vlan_variants():
+> +    """Generator that yields the VLAN protocols and the stripping mode."""
+> +
+> +    yield KsftNamedVariant("8021q_hw", "802.1q", None, True)
+> +    yield KsftNamedVariant("8021q_sw", "802.1q", None, False)
+> +    yield KsftNamedVariant("8021ad_hw", "802.1ad", None, True)
+> +    yield KsftNamedVariant("8021ad_sw", "802.1ad", None, False)
+> +    yield KsftNamedVariant("qinq_hw", "802.1ad", "802.1q", True)
+> +    yield KsftNamedVariant("qinq_sw", "802.1ad", "802.1q", False)
+> +
+> +
+> +@ksft_variants(_vlan_variants())
+> +def test(cfg, outer_proto, inner_proto, hw_strip):
+> +    """Run a single VLAN test"""
+> +
+> +    cfg.require_ipver("4")
 
 [Severity: Low]
-The commit carries Fixes: 750011e239a5 but the hunk tests
-priv->hw->hw_svlan_en, which is a struct mac_device_info member added by the
-preceding, non-Fixes patch of this series ("net: stmmac: Rework S-VLAN
-handling").  A backport of this patch alone onto a kernel that only has
-750011e239a5 would not build.
 
-Could a note about that dependency be added for stable backporters?
+Is this requirement needed? The test never uses the environment's IPv4
+endpoint addresses: _vlan_setup() installs its own 198.51.100.1/24 and
+198.51.100.2/24 on the newly created VLAN devices and the ping goes between
+those.
 
-[Severity: High]
-This isn't a bug introduced by this patch, but keeping
-NETIF_F_HW_VLAN_STAG_RX advertised whenever NETIF_F_HW_VLAN_CTAG_RX is on
-also keeps advertising an S-VLAN parse offload whose result is labelled with
-the wrong TPID.
+NetDrvEpEnv.require_ipver() skips unless both the local and remote address
+for that version were configured:
 
-In the hardware path, the stripped outer tag is always handed up as 802.1Q:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:vlan_rx_hw() {
-	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
-		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
-
-		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
-	}
+tools/testing/selftests/drivers/net/lib/py/env.py:require_ipver() {
+	if not self.addr_v[ipver] or not self.remote_addr_v[ipver]:
+		raise KsftSkipEx(f"Test requires IPv{ipver} connectivity")
 }
 
-while the descriptor helper deliberately accepts S-tagged and double-tagged
-frames:
+So an environment configured with only LOCAL_V6/REMOTE_V6, which
+_check_env() accepts, skips all six variants even though the base ifname,
+the remote ifname and the test's own VLAN addressing are all available.
 
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c:dwxgmac2_wrback_get_rx_vlan_valid() {
-	et_lt = FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3));
+drivers/net/macsec.py does the same 198.51.100.x-over-VLAN ping in
+_setup_vlan_ips() without calling require_ipver(). Could the call be dropped
+here as well?
 
-	return et_lt >= XGMAC_ET_LT_VLAN_STAG &&
-	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
-}
+> +
+> +    _setup(cfg, outer_proto, inner_proto, hw_strip)
+> +
+> +    cmd(f"ping -c 1 -W 5 {REMOTE_IP}")
 
-So on a dwxgmac2 core with rx-vlan-offload on, an 802.1ad frame is delivered
-as 802.1Q: an 8021ad upper device never sees it, a same-VID 8021Q upper
-device does, and a forwarded frame is re-tagged with the wrong TPID.
-
-This appears to date back to 750011e239a5 rather than to this patch, and
-vlan_rx_hw() is untouched by the rest of the series: the later "net: stmmac:
-Disable S-Tag processing on dwmac4" only drops the STAG advertisement for
-non-XGMAC cores, and dwxgmac210_vlan_ops still points .rx_hw_vlan at
-vlan_rx_hw().  Since the ET/LT field already distinguishes S-tag, C-tag and
-double tag, could vlan_rx_hw() use it to pick between ETH_P_8021Q and
-ETH_P_8021AD?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908164309.59282-1-ovidiu.panait.rb%40renesas.com
