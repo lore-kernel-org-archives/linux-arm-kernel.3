@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C29EC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650E6C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MA43Yy5/+z1blpg6olERItA168PY/1u0xfecuYv6VAc=; b=V7OJNoQxRSEfwHYa9+WUNfWKb+
-	vXZRvcqd2e0gvE0EPoWQH7JID7g0lCfSBAmFjaUKA5fjB1pnEoLbcM0QOcCredYRx9fXrySRTKKWh
-	V+EVfHqSc2dNW4pFM9srEEvowg2jKmKf1KDT4WYlWotmPLD60yBhpQdfTpem2CJbfalm7UcSxLzfC
-	SxbwG8i17nvi8Zuvhmj0obfovnrtiVfc9oAn/K+/wB1Ufv2hkUWQSpsJRdrnVCQ7catZUfozalgbV
-	YxURPmr8wxJ3RAAg+04MBYAxAeKjUF3EwTckWMag5QymX+trVm/TILP+oe5/T5P+zbawLEPtL5ba0
-	y8CUlAIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+791UBzYyUhwHKOv7tOfFKyXATi5fExIF34q7nX4QA4=; b=mvA+VWmX5DhUkQV/GI0erwklbn
+	s/aAB/xnvfkUCTkHraRC2+3vF0ZFpTvbnkO6nseT/TNHEdFyBK75asUJ7yLKBUcXaYr3I9Pjf4kGf
+	E9vvXEyUVYQqVmECTgNk6qoSTMck6246xSyIfEcQvfI2PWC+GL/qgtxr3SHCrqY80dgze+XrGHR2D
+	s1j3k442au9Q2ghtvqpB/WP5JZOEkownDpKOEb8q4BnmIojng3y86+CFq7PARiIZIoEOvCjOA+dly
+	nx9N1shuqodqMOiRkj+vpzF7DEVAJrz/zal3QsYN0T83pMxv47Lx+7jHMn5DqVRhx0pFFBCayY3X9
+	11PCFYNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4erO-0000000ET8x-1bJF;
-	Thu, 10 Sep 2026 13:30:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4erC-0000000ET04-2cLM;
-	Thu, 10 Sep 2026 13:30:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF01A6022D;
-	Thu, 10 Sep 2026 13:30:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 583CBC2BCC7;
-	Thu, 10 Sep 2026 13:30:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789047025;
-	bh=4N1efCu5ZtlV4h/A83Fgt8jcju0DFf1l13o1JN2/L8Y=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=R2jhBx23vSV3/J/q7bgjVRtPHgFfQ7RkGzaKNEoMKcaQVCRA7eW3H26avUrvaaVaD
-	 uhCt/uMPI3lzBecNKQd35qChxVSUR5y1H8hVayF2pTwuM4P/d+yt6iJgRwe//OgjOt
-	 w0S2/0MURQlp3Zw0bIs4R+l4aoa5VnxEhDp+6j4lhsijAsCQfc+ueaM+QWCruSG2E5
-	 QqR//rxds/WIfjRqkDaCMyRj3ELeux8sNoRgv9MKNND5aNB04mLKEMIlJkhaxTkowg
-	 wQ+4mP9hsCz8t7xZzqJNe+s5qpMqAM+L3z0dF1zuRcMh4hWFyEgjIO7SZXWLVbZOrB
-	 cAxiukj8gskaA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A172C79FBF;
-	Thu, 10 Sep 2026 13:30:25 +0000 (UTC)
-From: Zakariya Hadrami via B4 Relay <devnull+zkh.mailbox.org@kernel.org>
-Subject: [PATCH v5 0/4] ARM: Basic support for Amazon ford tablet (MT8127)
-Date: Thu, 10 Sep 2026 15:29:11 +0200
-Message-Id: <20260910-mt8127-amazon-ford-basic-v5-0-3cb9eeaffd5c@mailbox.org>
+	id 1x4esh-0000000ETVw-3Eae;
+	Thu, 10 Sep 2026 13:31:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4esd-0000000ETTe-3BrT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 13:31:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CBAF2153B;
+	Thu, 10 Sep 2026 06:31:48 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7201E3F528;
+	Thu, 10 Sep 2026 06:31:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789047112; bh=q2y1E+jfz+e2loPgk5uTMKvJJpPn2qFQADreOTA75TE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LH9up4Du6y4lg3MG2LYVykgQw0LKCGzFD7zHgyyrJrMa0ENvf0EYwGNnyn2inXtKw
+	 jPfnW+q+TLHjAisKlgb1xbRyeNUguD1docHILvcFytT8kkTNw1e1N0AYWs7+xTAP1m
+	 +tGr4x8OHatjQ5Kj1/wEKH3r9C8hDRgVcnc8z/2M=
+Message-ID: <82b2541c-ea6b-41d0-89b1-ecf9a9920cd9@arm.com>
+Date: Thu, 10 Sep 2026 15:31:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43N3WoDIRCG4VsJHtegs6uuPcp9lB6MOiZCdw26L
- GnC3ntMSukPNPTw/WCeubBKJVFlz5sLK7SkmvLUQj1tmD/gtCeeQmsGArTQUvNxHiQYjiOe88R
- jLoE7rMlzqYQNRiiIhlg7PxaK6XSnX15bH1Kdc3m/f1rkbf1Ezd/oIrngQQAGqdB3yu6OJc952
- o7EbugC/4WgQXpQlsCSARx+Q90XZMXwAOoaFH2vXZROewe7EdOby6dtLvsPqv9O2QdU3yiyGJX
- vQaCTP6l1Xa8+oKtznwEAAA==
-X-Change-ID: 20260616-mt8127-amazon-ford-basic-1509d7052f7e
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-watchdog@vger.kernel.org, zkh1@proton.me, 
- Zakariya Hadrami <zkh@mailbox.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789047024; l=1949;
- i=zkh@mailbox.org; s=20260908; h=from:subject:message-id;
- bh=4N1efCu5ZtlV4h/A83Fgt8jcju0DFf1l13o1JN2/L8Y=;
- b=Fh5JXea12ls0o+Uis/B94T8muFwAgqfQepvZ/GXnF1UlWZSgbywDDwWXl6VlUxnD4Ci7N8orM
- FUSxVd4UqyBBjWfrYRPtoej32dt1Lz7Ws5hjdnXefgjZOtQu7hCWez0
-X-Developer-Key: i=zkh@mailbox.org; a=ed25519;
- pk=up24Xn4ScFKugfT4EJru/UQAS7JOIN+DSQqro+a05T4=
-X-Endpoint-Received: by B4 Relay for zkh@mailbox.org/20260908 with
- auth_id=1015
-X-Original-From: Zakariya Hadrami <zkh@mailbox.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 8/9] pinctrl: sunxi: a523-r: add a733-r compatible
+ string
+To: Julian Calaby <julian.calaby@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20250821004232.8134-1-andre.przywara@arm.com>
+ <20250821004232.8134-9-andre.przywara@arm.com>
+ <CAGRGNgXsG5FmwFTSE1BM5qDHz_Jovb4EuRtt-=ipavBDf7AzJQ@mail.gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAGRGNgXsG5FmwFTSE1BM5qDHz_Jovb4EuRtt-=ipavBDf7AzJQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_063155_841669_0EED16A0 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +75,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: zkh@mailbox.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series of patches adds basic support for MT8127 SoC based Amazon ford
-tablet.
+Hi Julian,
 
-Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
----
-Changes in v5:
-- Fix model value in dts.
-- Fix missing space in watchdog's compatible in dtsi.
-- Link to v4: https://patch.msgid.link/20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org
+I know this email is almost comically old, but still didn't want this 
+left unanswered before sending a new revision:
 
-Changes in v4:
-- Add chassis-type property to dts.
-- Add missing #address-cells, #size-cells and ranges properties to dts
-  (sashiko report).
-- Link to v3: https://patch.msgid.link/20260908-mt8127-amazon-ford-basic-v3-0-fc46bf1b6cb2@mailbox.org
+On 8/24/25 01:09, Julian Calaby wrote:
+> Hi Andre,
+> 
+> On Thu, Aug 21, 2025 at 10:46 AM Andre Przywara <andre.przywara@arm.com> wrote:
+>>
+>> The secondary Allwinner A733 pincontroller ("-r") is interestingly not
+>> using the same new MMIO frame layout as the main controller, but is in
+>> fact very similar to the A523-r one: it has two banks, with 14 and 6 pins
+>> each. From the driver's perspective, this is all we care about, so we can
+>> re-use the a523-r pinctrl driver for the a733-r, too.
+>>
+>> The individual pinmux settings are different, so we must not use the
+>> a523-r compatible string as a fallback, but we can surely let the same
+>> driver care for both the a523-r and a733-r IP, as the pinmux values will
+>> be provided by the DT.
+> 
+> If the bank and pin counts are the same and the pinmux values are
+> provided by the DT, that means they _are_ compatible, right?
 
-Changes in v3:
-- Rebase onto v7.3-rc1.
-- Drop [PATCH v2 3/5] as it was superseded by upstream changes.
-- Link to v2: https://lore.kernel.org/r/20260617-mt8127-amazon-ford-basic-v2-0-6859e29e72a8@proton.me
+I wouldn't say so: I would argue the devices are different, and not 
+necessarily every driver written for the old device can cope with the 
+new one. For instance U-Boot still goes with hardcoded pinmux tables 
+(because that's simpler to implement there), which don't match between 
+A523-R and A733-R.
+And I would see a point if that would enable old kernels to use that new 
+SoC, but because the main pinctrl is different anyway, that doesn't help us.
 
-Changes in v2:
-- Move amazon ford compatible string to existing enum.
-- Fix watchdog node not sorted in unit address ascending order (sashiko report).
-- Move bindings documentation patches before patches implementing the bindings.
-- Link to v1: https://lore.kernel.org/r/20260617-mt8127-amazon-ford-basic-v1-0-d02ad15ac359@proton.me
+But it's not a very strong opinion, so if the maintainers disagree with 
+me, I am happy to change that.
 
----
-Zakariya Hadrami (4):
-      dt-bindings: watchdog: mediatek: Add MT8127
-      dt-bindings: arm: mediatek: Add MT8127 Amazon ford
-      ARM: dts: mediatek: mt8127: Add watchdog support
-      ARM: dts: mediatek: Add basic support for Amazon ford board
-
- .../devicetree/bindings/arm/mediatek.yaml          |  1 +
- .../bindings/watchdog/mediatek,mtk-wdt.yaml        |  1 +
- arch/arm/boot/dts/mediatek/Makefile                |  1 +
- arch/arm/boot/dts/mediatek/mt8127-amazon-ford.dts  | 54 ++++++++++++++++++++++
- arch/arm/boot/dts/mediatek/mt8127.dtsi             |  7 +++
- 5 files changed, 64 insertions(+)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260616-mt8127-amazon-ford-basic-1509d7052f7e
-
-Best regards,
---  
-Zakariya Hadrami <zkh@mailbox.org>
-
+Cheers,
+Andre
 
 
