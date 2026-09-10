@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB609C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AE4C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05JqaFBeFEoQ2fVd/vXC0wIOHHckjhCp9F0L301SgEs=; b=J5Riyxcgm2Pk+Fs6Rl/Xot1eUJ
-	8ss7xhIGaFsIh4eTnvgbchNvYNeXnVE55i9LkJKw06PGAR91eoKwy+4pVFuho/cEFqURDoTM5c4MJ
-	tW00dfyE0RwPY4jCeOA5FB//m1GfW9Had98Ekpi9hWtzeEBO+lmdqDxL/0yMGm/94sm/70oEwVBqV
-	PkO2UQmHZoDtkgDDRfThVVpiWNKI45aQocBvHSqzJHkIRFNtY3ZA870awXchj0+FT03SXRa0T6Qpe
-	xFllBS/IwApfU/8igrR6y4T4L+6jjPdkx8H/MWCKF2tD432Ry95aEYoEBF/7xpuKx5xY0tK4a/8pv
-	BsTHPkFg==;
+	bh=Cdo+rmDstdi/wv4Vrglb7Q5HOr6Q/8S05d4OuI8eWG4=; b=mm30AYxo7LewhuYsJJOgedFbOY
+	0QfTV8M8aDrP3SB3pRLjJ2qGvQCfiyHbB83YblSeOi431PXzmh3pDzI3CzcZHdeFKCNjYq8f5R5q/
+	B5eKbWzO/QaO0BRCw2f5rO1S7IP4bdgAOM9+N3WrBr7LwojRyrUVW6hbRsoPzzDyEqMe2bjMme2tj
+	Ed1BMI7vDkOp/gAIH0OnhXzQGXgXiVIHZsS7T8T652wytrB4CQabfoJumKjj1KxDBrmj/ycNVyGVt
+	FhVidfaDOh0UDKP4Gx90gHgD/plXMdbybo/72lnkLZzpWaqWRjojkws2SsUoCQk2J6IkYbNC6ZFq6
+	woYoxvkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eTX-0000000EQY2-0hvB;
+	id 1x4eTX-0000000EQYv-27kI;
 	Thu, 10 Sep 2026 13:05:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eTR-0000000EQVD-0tEa
+	id 1x4eTV-0000000EQWk-0wpO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:05:53 +0000
+	Thu, 10 Sep 2026 13:05:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F22BA40DF4;
-	Thu, 10 Sep 2026 13:05:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E4C11F00893;
-	Thu, 10 Sep 2026 13:05:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F18760219;
+	Thu, 10 Sep 2026 13:05:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ACEE1F00893;
+	Thu, 10 Sep 2026 13:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789045552;
-	bh=05JqaFBeFEoQ2fVd/vXC0wIOHHckjhCp9F0L301SgEs=;
+	s=k20260515; t=1789045556;
+	bh=Cdo+rmDstdi/wv4Vrglb7Q5HOr6Q/8S05d4OuI8eWG4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oMswmUb6eg3Tll5EF2xsdbpXrhXxaQMiQvHzCNWSK+3kpuVxphOLK9YWNqTZElwsD
-	 DM2oxIvfkfivDx8wV2DSRahqTgvZdRAiBeWRz9Da+58K+nnc8vA2FR1356iSNxTvZw
-	 clX4CazWt7cxNDaSwsXRCrW+d4oEOFxGIPvRUkhszAYVSOL4i3qO/Gqh07H4KpkVSh
-	 UJ8hGbYWIoc0ihmBOVkFU/W4LvPP2Lm1B8fJMolq/GMmM/WSweTrkEPvzGXWrsMgND
-	 f7qL0PNKnwbP2lS5XmE5AQzc0fq0Ujp7k+/HKU+xpPSLJDjUvgRk46WAW9hGbR1rfP
-	 k6jT5K9Quj3qw==
-Subject: Re: [PATCH net-next v6 12/14] net: lan966x: add PCIe FDMA XDP support
+	b=J5oDrT12yCwmsUKLG9nicehVw3jTNlBNGaqYxZOQe1B+nB8odrDQ8RSpt5b9+85bZ
+	 gC2zUpht3+5ySeGRRnC1AuPSehaUspWuKS3cYunfWyMCXY4vf55YEQCsyBv+60BNAS
+	 wys4QZN5tTRxpPFN2Cs/xKxjsXYLtPbRYL1sf2y3N3E+e+SsbeDlRTtTeIUsheau1R
+	 tVB0zRpKAWj+KC7CwgGycXPPJdgQGQtVW6mJ5+a5tbfsuGTuiyc1fJ8T/zlHf4Vgsf
+	 6W007kjJKQNvwpOjkVqQ3NYtM3evI6aUsTWp0g12lhvUBOsyh+Z45r8DXMiu+V+qTe
+	 bPBM5ZGbpBESA==
+Subject: Re: [PATCH net-next v6 14/14] misc: lan966x-pci: dts: add fdma
+ interrupt to overlay
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -53,10 +54,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  gregkh@linuxfoundation.org, mohsin.bashr@gmail.com, richardcochran@gmail.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Date: Thu, 10 Sep 2026 13:05:51 +0000
-Message-ID: <178904555117.219967.2055099842496630976@kernel.org>
-In-Reply-To: <20260909-lan966x-pci-fdma-v6-12-6f48dab9d671@microchip.com>
-References: <20260909-lan966x-pci-fdma-v6-12-6f48dab9d671@microchip.com>
+Date: Thu, 10 Sep 2026 13:05:54 +0000
+Message-ID: <178904555475.219967.711870735307370384@kernel.org>
+In-Reply-To: <20260909-lan966x-pci-fdma-v6-14-6f48dab9d671@microchip.com>
+References: <20260909-lan966x-pci-fdma-v6-14-6f48dab9d671@microchip.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,142 +81,100 @@ issue(s) to consider:
 
 Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Medium] Inconsistent XDP frame presentation between the two RX hooks
-  of the same driver: after this patch lan966x has two in-tree XDP RX…
+- [Medium] The FDMA interrupt is hooked up (and thereby unmasked in the
+  OIC) long before any FDMA state exists.
 
 --
 
-net: lan966x: add PCIe FDMA XDP support
+misc: lan966x-pci: dts: add fdma interrupt to overlay
 
-This adds XDP support to the lan966x PCIe FDMA path, using contiguous
-ATU-mapped buffers and a memcpy-based XDP_TX instead of the page_pool
-scheme used by the platform path. The IFH and FCS are stripped before
-the BPF program runs, and lan966x_xdp_setup() now skips the page_pool
-reload for the PCIe case. Only XDP_ACT_BASIC is advertised for PCIe.
+This adds OIC interrupt 14 as the "fdma" named interrupt to the lan966x
+PCI device tree overlay, so FDMA-based injection/extraction can be used
+when the switch is reached over PCIe.
 
-> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> index 6cabbb8b47f2..02c021617a3e 100644
-> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-
-[ ... ]
-
-> @@ -126,7 +127,123 @@ static bool lan966x_fdma_pci_rx_size_fits(struct fdma *fdma, u32 blockl)
-
-[ ... ]
-
-> +static int lan966x_xdp_pci_run(struct lan966x_port *port, void *data,
-> +			       u32 data_len, void **xdp_data, u32 *xdp_len)
-> +{
-
-[ ... ]
-
-> +	xdp_prepare_buff(&xdp,
-> +			 data - XDP_PACKET_HEADROOM,
-> +			 XDP_PACKET_HEADROOM + IFH_LEN_BYTES,
-> +			 data_len,
-> +			 false);
-> +
-> +	act = bpf_prog_run_xdp(xdp_prog, &xdp);
-
-[ ... ]
-
-> @@ -158,38 +275,33 @@ static int lan966x_fdma_pci_rx_check_frame(struct lan966x_rx *rx, u64 *src_port)
->  	if (!lan966x_fdma_pci_rx_size_fits(fdma, blockl))
->  		return FDMA_ERROR;
+> diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
+> index 7bb726550caf..5bb12dbc0843 100644
+> --- a/drivers/misc/lan966x_pci.dtso
+> +++ b/drivers/misc/lan966x_pci.dtso
+> @@ -141,8 +141,9 @@ switch: switch@e0000000 {
 >  
-> -	return FDMA_PASS;
-> +	/* Present the Ethernet frame (no IFH, no FCS). HW re-inserts the
-> +	 * FCS on TX; see lan966x_fdma_pci_xmit_xdpf(). May be overridden
-> +	 * by XDP. The FCS strip is unconditional because NETIF_F_RXFCS
-> +	 * is not advertised in hw_features.
-> +	 */
-> +	*data = virt_addr + IFH_LEN_BYTES;
-> +	*data_len = blockl - IFH_LEN_BYTES - ETH_FCS_LEN;
-> +
-> +	return lan966x_xdp_pci_run(port, virt_addr, *data_len, data, data_len);
->  }
+>  					interrupt-parent = <&oic>;
+>  					interrupts = <12 IRQ_TYPE_LEVEL_HIGH>,
+> +						     <14 IRQ_TYPE_LEVEL_HIGH>,
+>  						     <9 IRQ_TYPE_LEVEL_HIGH>;
+> -					interrupt-names = "xtr", "ana";
+> +					interrupt-names = "xtr", "fdma", "ana";
 
 [Severity: Medium]
-Should the two lan966x XDP receive hooks agree on whether the FCS is part
-of the window handed to the BPF program?
+With source 14 now named "fdma", platform_get_irq_byname(pdev, "fdma")
+starts succeeding on the PCIe path, and lan966x_probe() requests the
+handler right there:
 
-On the PCIe path, lan966x_fdma_pci_rx_check_frame() subtracts the FCS
-before calling into the program:
-
-	*data_len = blockl - IFH_LEN_BYTES - ETH_FCS_LEN;
-
-	return lan966x_xdp_pci_run(port, virt_addr, *data_len, data, data_len);
-
-On the platform path, lan966x_fdma_rx_check_frame() passes the raw BLOCKL
-value and lan966x_xdp_run() only removes the IFH:
-
-drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_rx_check_frame() {
-	...
-	return lan966x_xdp_run(port, page, FDMA_DCB_STATUS_BLOCKL(db->status));
+drivers/net/ethernet/microchip/lan966x/lan966x_main.c:lan966x_probe() {
+	lan966x->fdma_irq = platform_get_irq_byname(pdev, "fdma");
+	if (lan966x->fdma_irq > 0) {
+		err = devm_request_irq(&pdev->dev, lan966x->fdma_irq,
+				       lan966x_fdma_irq_handler, 0,
+				       "fdma irq", lan966x);
+		...
+		lan966x->fdma = true;
+	}
 }
 
-drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c:lan966x_xdp_run() {
-	...
-	xdp_prepare_buff(&xdp, page_address(page),
-			 IFH_LEN_BYTES + XDP_PACKET_HEADROOM,
-			 data_len - IFH_LEN_BYTES, false);
+Is this ordering safe?  The OIC maps and unmasks source 14 at
+devm_request_irq() time, but at that point no FDMA state exists yet:
+
+- netif_napi_add()/napi_enable() only run later, from
+  lan966x_port_init() -> lan966x_fdma_netdev_init() in the per-port
+  probe loop, so lan966x->napi is still the zeroed devm_kzalloc()
+  memory and napi.poll is NULL.
+
+- the DCB rings, the LLP/ATU windows and the FDMA_CTRL NRESET pulse are
+  all done even later, from lan966x->ops->fdma_init() ->
+  lan966x_fdma_pci_init().
+
+If the OIC delivers an FDMA interrupt in that window, the handler
+schedules NAPI unconditionally:
+
+drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_irq_handler() {
+	db = lan_rd(lan966x, FDMA_INTR_DB);
+	err = lan_rd(lan966x, FDMA_INTR_ERR);
+
+	if (db) {
+		lan_wr(0, lan966x, FDMA_INTR_DB_ENA);
+		lan_wr(db, lan966x, FDMA_INTR_DB);
+
+		napi_schedule(&lan966x->napi);
+	}
 }
 
-That BLOCKL value still contains the FCS, as shown by the trim done later
-on the same path:
+Can this then oops in __napi_poll(), either calling n->poll() while it
+is still NULL, or running lan966x_fdma_pci_napi_poll() against
+rx->fdma.dcbs == NULL and n_dcbs == 0, where fdma_has_frames() ->
+fdma_db_get() dereferences the dcbs array?
 
-drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c:lan966x_fdma_rx_get_frame() {
-	...
-	skb_put(skb, FDMA_DCB_STATUS_BLOCKL(db->status));
-	...
-	skb_pull(skb, IFH_LEN_BYTES);
+How reachable is that window in practice?  The series itself describes
+the card arriving with FDMA state from a previous boot.  The commit
+"net: lan966x: clear FDMA interrupt stickies after switch reset" says
+the stickies "sit in FDMA_INTR_ERR until the FDMA IRQ is requested later
+in probe, at which point the handler fires immediately and WARNs", and
+"net: lan966x: add shutdown callback to stop FDMA on reboot" says that
+on the endpoint "channels stay active and interrupt sources stay armed
+across the reset" and that "FDMA_INTR_ENA persists on the card across a
+warm reboot".
 
-	if (likely(!(skb->dev->features & NETIF_F_RXFCS)))
-		skb_trim(skb, skb->len - ETH_FCS_LEN);
-}
+The sticky clear in lan966x_reset_switch() clears the latched bits at
+one instant, but does not mask FDMA_INTR_ENA/FDMA_INTR_DB_ENA and does
+not stop the channels.  After a reboot that skips device_shutdown()
+(panic reboot, kexec/kdump, watchdog warm reset with the card still
+powered), could a still-active channel latch FDMA_INTR_DB again after
+the clear and have it delivered as soon as source 14 is unmasked?
 
-So xdp.data_end points four bytes past the end of the Ethernet payload on
-the platform path, and exactly at the end of the payload on the new PCIe
-path. Both windows stay inside the DMA buffer, so this looks like a
-behavioural difference rather than an out-of-bounds access.
-
-A program that parses backwards from data_end, compares data_end - data
-against an L3 length field, or trims via bpf_xdp_adjust_tail() would get
-different results depending on whether the switch is platform- or
-PCIe-attached. The PCIe framing matches the usual XDP convention of no
-FCS, which would make the platform hook the one that differs from
-convention.
-
-> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> index e089c08b9c37..9ada497767c6 100644
-> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> @@ -874,11 +874,13 @@ static int lan966x_probe_port(struct lan966x *lan966x, u32 p,
->  
->  	port->phylink = phylink;
->  
-> -	/* XDP is not supported on the PCIe FDMA path. */
-> -	if (lan966x->fdma && !lan966x_is_pci(lan966x))
-> -		dev->xdp_features = NETDEV_XDP_ACT_BASIC |
-> -				    NETDEV_XDP_ACT_REDIRECT |
-> -				    NETDEV_XDP_ACT_NDO_XMIT;
-> +	if (lan966x->fdma) {
-> +		dev->xdp_features = NETDEV_XDP_ACT_BASIC;
-> +
-> +		if (!lan966x_is_pci(lan966x))
-> +			dev->xdp_features |= NETDEV_XDP_ACT_REDIRECT |
-> +					     NETDEV_XDP_ACT_NDO_XMIT;
-> +	}
-
-[Severity: Medium]
-Both paths now report the same NETDEV_XDP_ACT_BASIC bit from
-lan966x_probe_port(), so is there anything in the uAPI that lets a
-program distinguish the FCS-included window of lan966x_xdp_run() from
-the FCS-stripped window of lan966x_xdp_pci_run()?
-
-Would it make sense to make one of the two hooks match the other so that
-the frame presentation is the same for identically-advertised netdevs?
+Would it be more robust to reset and mask the FDMA block (the
+FDMA_CTRL NRESET pulse that already exists in lan966x_fdma_pci_init(),
+plus clearing FDMA_INTR_ENA/FDMA_INTR_DB_ENA) before
+devm_request_irq(), or to request the FDMA IRQ only after fdma_init()
+has built the rings and added the NAPI instance?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-lan966x-pci-fdma-v6-0-6f48dab9d671%40microchip.com
