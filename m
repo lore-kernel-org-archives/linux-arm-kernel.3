@@ -4,64 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E43C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228C6C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0a6DXeYoRSPuJf/o8KnFdkoa/npQEF065gLl5JrA1JA=; b=Rcs0AWIstulsddgAHdqHd0alYb
-	2l8uhWt1yziLAZ6gYIfAtaJ0NRdLWU/QiOso135UhGPuC62fA8Py/ns7WPed5qGKo6FhdmpMDp0b/
-	SjflqpiMlvaOg71RQ4nUyPvNjqPejf0TrztxS6iGVQL/y+7eYqFqud0xLo/gPorR1l6R8bsx6UuOD
-	9yh1qSIK3aPoq+3Y4DvGf9D0x164atQ11MZQ/JvfdVncikd9dKZZjnxIuD0I+l+Tb8kC5mjw8TfyH
-	u9/gn0QiUp00KFK/q58NslJRNlNsrmmQvrKyZBGV9bmC1LqnzVlHaeBUh3vm5jKW5bdLCThtELdaD
-	nWX44Z+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=; b=XWb2twshooqJ32tcbVirtdVlVP
+	H8p+WA5VLjm0dulmxFxeeGCtKATDHOv2gDKwVk8kefaWjvjUDbSctLFkv7nrurcnI4hIsHzrlYTm1
+	aZD4tUe2Fo82ndAKi6ztFt6GiIx75/i8K04PkBRSIRQALZHb1HiyptGjiwd6YH8K6YVy6lCB2VkNx
+	FjV3HFIA6QMHaTmwBa8kn+o4X4j6WZArCkKBgryOCq3chx0T76Itp513mfQlcjmnnbeQrFmLYq1Nz
+	pIKtC0J9YMujUIRUIDE7sPgGRJ2L/9wqEODzoRpvkvC5F1Ru/w+N/wLvv+XcDmKP52McWGBxk2vPW
+	HHqeJB6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gNR-0000000Eiv1-1xwN;
-	Thu, 10 Sep 2026 15:07:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4gO3-0000000Ej4Z-2SnW;
+	Thu, 10 Sep 2026 15:08:27 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gNQ-0000000EiuZ-1gSa
+	id 1x4gO1-0000000Ej3h-17uz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:07:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB92D436B6;
-	Thu, 10 Sep 2026 15:07:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2CDD1F000FF;
-	Thu, 10 Sep 2026 15:07:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789052867;
-	bh=0a6DXeYoRSPuJf/o8KnFdkoa/npQEF065gLl5JrA1JA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lhXrpgUDoJY7c7QVQt7dF3vexkhUKmkGoMt+FhqLCR9l0DNi87GGdWquGIXgSZx8o
-	 UilAhO64RIwNgog3wOQMqRwHYTb7orPt5otypa7jKjvQGBu2/l87DrQQb1noWGknVB
-	 RVhrQKyran3lvhL1JRzrcx1x4+H5oT6y/WJTCYajo+ebdY0XlbxsQ0nTN2FVSllitV
-	 yrX4SFKtZgoM/k5vN+FXg06IahsygR3VccaaNTO2JY5sqqeC4hl5qX49lnsWf4eLHw
-	 hrg2EnUZzE4ifDod9V38Fr1cYvS9StzX0ZgwxbOQTGaKK90sLr49e92lsbzbCPaqqV
-	 uSsVD+jNloPQA==
-Subject: Re: [PATCH net v2 2/2] net: stmmac: preserve real_num_tx_queues on
- mqprio setup failure
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 0x1207@gmail.com,
- olteanv@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 10 Sep 2026 15:07:46 +0000
-Message-ID: <178905286654.219967.8364160447492855923@kernel.org>
-In-Reply-To: =?utf-8?q?=3C20260909-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-err?=
- =?utf-8?q?or-path-v2-2-8158b8333b3d=40oss=2Equalcomm=2Ecom=3E?=
-References: =?utf-8?q?=3C20260909-stmmac-tc=5Fsetup=5Fdwmac510=5Fmqprio-erro?=
- =?utf-8?q?r-path-v2-2-8158b8333b3d=40oss=2Equalcomm=2Ecom=3E?=
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 10 Sep 2026 15:08:26 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49b0d78a801so70837975e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 08:08:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789052903; x=1789657703; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=;
+        b=TT9epKxe2SKGPAXSsk4l0rKnWYobrdg6E1m6+LUqNdcDkGx5kcusw0R/LnkrxYJg1X
+         0/PVO4kk1gJ/vkmzhuT8PeMUg54un8Trf7wmY4OaUdivQ3arEUF4Z2okMnZ4J9cKnpXO
+         u/gKGtYw3yPMmeKYRVcit0F5Y+7QEjKM98lLuLaQnwW17oEY5PUo8QOdZrRZJw2+TRDq
+         wdGeCGF3rKjZoy1t0YCIdcaeRUCVMnIbIf/2myY1OG0c6pDZveCIf3jf7oiok04acN0W
+         6QquCchLBL1wIqJYK7zdCzGDUddflxlJSVpqyOYHhn0EaMWRrBzGGSgUFqz2+QepjSHc
+         Jugw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789052903; x=1789657703;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=;
+        b=bp4Th7cEHnmCdbQGEDXygbL064NATNZUvMSEQvqoBa38ZX+h83Qtd1gTxmC0JfUCvS
+         F1SfrBW6VNJ8DJD9DhMnTNlYO1ZA784QlMwmaeBfzCCnb8V5whFlyvRWKiVyrtUI/zz1
+         l0jKewl/180SAis8k0ybfLLw8RNFIFr7rA+11XRJEK2GWQiiwUIKAZfokRYkEPagp9bV
+         TV7jNMT42VKTbQAtC/nBV7vDhq2iF+dKgDsnJFcNdsLkgMyn4AMrRRzuQ1M/rQ4N6eDy
+         +YL5r/9ReC0YSvZCPrMyjvDJ7F9rRMfKOxLKvF/Ch3oQ5LcOsOPsOX4IHa4sS4xr7DuZ
+         a84Q==
+X-Gm-Message-State: AFuF++kiFtDC4bcNZ3btQLreJX3LXc4PCGWBT7tvzek48g3xqhcWzxVY
+	3woVS85+NcNpuwKH2tyEYE0cBhu8sgU3vvttOQPrAByqDuVMV+KzNtlsE2jQpuqf
+X-Gm-Gg: AYBFou0rlVym910lfVRHMSxjxtdfojOn0hI81RwutYItJKPVKOz8+aMJYs/WTZ9743y
+	P7maoEjWxOfT2MAg3r+zEeJ2fwojAMX8sAs+JUWvwKEakCwTuIxuLAzIKbo4ZELJMK5xEU4kF2f
+	xcU9y9uyn7LHp65APgvyiNfzvSYsD6hd4EYGfLMA7hp970XPX6eroQILAhUZZMCeKb/hSr28rRb
+	h40KG2NTHgMAoyYSLtTgoI6ofydEvdiV9QZtQ3+jize2+GWT4LROb+jRaKk4klQ5q6HIs4QEQsg
+	iR1tsSYCKZHBEElH3OFRdv9i6CDobdC7bNG35utM7L7S7Lq8pKHqj+fGwnpfEkhj2kb0E0B1ttO
+	hypdgqI+JvHXtv/ADUMoen9xbfglURz/s4JCBg+0TwWRHF2+RwfKQLcJ7rZUF5VZAL7vCvjCDFf
+	g42gT1i0cIgCnQeCJ6V7sejsdAgpXys+js3a4AXBfbrILF38IjM4uv54nfpQXQ+fkCKVybKVSsb
+	4tlk3kPB0tMGvb4ZMTXv5IXfWTpxWCr
+X-Received: by 2002:a05:600c:4f12:b0:49c:fc6c:be00 with SMTP id 5b1f17b1804b1-49cfc6cbfcamr388041945e9.23.1789052902962;
+        Thu, 10 Sep 2026 08:08:22 -0700 (PDT)
+Received: from [10.25.218.197] ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d24e01c66sm48739535e9.1.2026.09.10.08.08.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 08:08:21 -0700 (PDT)
+Message-ID: <a41510f0-8906-4698-9919-b65b40cc9b89@gmail.com>
+Date: Thu, 10 Sep 2026 08:08:18 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board
+ support
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ elena.popa@nxp.com, consmin.stoica@nxp.com
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, imx@lists.linux.dev
+References: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
+ <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
+ <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_080825_332564_54F3BF88 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,276 +110,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 2
+Hi Ahmad,
 
-- [Medium] The reproducer quoted in the commit message cannot demonstrate
-  the bug being fixed.
-- [Medium] The new error path no longer reprograms the MAC's FPE
-  preemption-class register.
-- [Medium] Spurious kernel warning triggered during mqprio teardown path
-  in `tc_setup_dwmac510_mqprio`
-- [Low] The driver-side restore of dev->num_tc / tc_to_txq[] /
-  prio_tc_map[] on the FPE-failure path is immediately overridden in…
-- [Low] The newly added rollback in tc_setup_dwmac510_mqprio() discards
-  the return value of netif_set_real_num_tx_queues(ndev,…
+On 9/9/2026 9:20 AM, Ahmad Fatoum wrote:
+> Hi,
+> 
+> On 9/9/26 5:39 PM, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> Add basic support for NXP's MR-NAVQ95 board. This board is designed for
+>> robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
+>> following hardware feats (list is not exhaustive):
+>>
+>> * based on i.MX95 19x19 SoC
+>> * 64GB eMMC
+>> * up to 16GB of LPDDR5 memory
+>> * 1 x USB 2.0 TypeC
+>> * 1 x USB 3.0 TypeC
+>> * 1 x RJ45 port with RTL8211 PHY
+>>
+>> The support targets revision B of the board.
+>>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+> 
+>> +	chosen {
+>> +		stdout-path = &lpuart1;
+> 
+> I would recommend instead "serial0:115200n8" here. This introduces no
+> change for Linux, but for other consumers of the device tree, they will
+> be able to agree on a common baudrate.
 
---
+ACK, seems fine. If there's no other objections to this I'll make the switch
+in V5.
 
-net: stmmac: preserve real_num_tx_queues on mqprio setup failure
+> 
+>> +	memory@80000000 {
+>> +		device_type = "memory";
+>> +		/* actual size filled in by the bootloader */
+>> +		reg = <0x0 0x80000000 0 0x80000000>;
+> 
+> If the board has at least 2G always, this is fine.
 
-This patch saves ndev->real_num_tx_queues along with the TC-to-queue and
-priority-to-TC mappings before an mqprio offload is applied, and restores
-them if stmmac_fpe_map_preemption_class() fails, instead of calling
-stmmac_reset_tc_mqprio() which reset the queue count to the platform
-maximum.
+the board only ships with 16GB LPDDR5 so yes, it'll always have at least 2GB.
+While the current size is fine, maybe it would be better to change it to 16GB?
+Will have to update the commit message as well since "up to 16GB of LPDDR5 memory"
+might be a bit misleading.
 
-Some questions about the commit message and the new rollback path below.
+my other option was to leave the size set to 0x0 like some QCOM DTSIs seem to do.
+Not sure what the preferred way of handling this is?
 
->     The issue can be triggered using the following configuration:
->     
->       # First mqprio config lowers the hw queue count.
->       $tc qdisc add dev eth0 root handle 1: mqprio queues 4@0 4@4
+> 
+>> +&usdhc2 {
+>> +	bootph-pre-ram;
+>> +	bus-width = <4>;
+>> +	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
+>> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-1 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-2 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> 
+> Looks unexpected to have same pinctrl groups for the higher speeds.
+> Are higher speed modes even possible on this board?
+> 
+> If not, I would suggest dropping the extra states.
 
-[Severity: Medium]
-Does this reproducer actually show the difference between the old and new
-error paths?
+The pin configuration is chosen to meet the timing requirements of the 200MHz
+state. Because of this, I would expect the configuration to be appropriate for
+lower frequencies as well.
 
-"queues 4@0 4@4" totals 8 TX queues, and mqprio only accepts it if
-real_num_tx_queues is already >= 8:
+The intention is to use the same configuration as MX95-19x19-EVK since, from what
+I've been told, the trace lengths are similar to those of the EVK.
 
-net/sched/sch_mqprio_lib.c:mqprio_validate_queue_counts() {
-	...
-	if (qopt->offset[i] >= dev->real_num_tx_queues ||
-	    last > dev->real_num_tx_queues) {
-	...
-}
+Thanks for taking the time to review this! :)
 
-stmmac opts into that check via caps->validate_queue_counts = true in
-tc_query_caps(), allocates MTL_MAX_TX_QUEUES (8) TX queues, and
-stmmac_hw_setup() sets:
-
-	netif_set_real_num_tx_queues(dev, priv->plat->tx_queues_to_use);
-
-So the first command is only accepted when tx_queues_to_use == 8, i.e.
-real_num_tx_queues is already at the platform maximum, and the comment
-"First mqprio config lowers the hw queue count" does not match what
-happens.
-
-With real_num_tx_queues == 8, the old path
-stmmac_reset_tc_mqprio() -> netif_set_real_num_tx_queues(ndev,
-priv->plat->tx_queues_to_use) restores exactly the same 8 that the new
-code restores from ndev_num_tx_queues, so the two behave identically for
-the quoted commands.
-
-Would a first configuration that totals fewer queues than
-tx_queues_to_use, for example "queues 2@0 2@2" on an 8-queue MAC followed
-by the failing "queues 2@0 2@2 fp E P", be a better reproducer?
-
->     Note that a failed setup makes the qdisc layer run mqprio_destroy() on
->     the new qdisc, which resets dev->num_tc to 0; that is qdisc-layer handling,
->     out of the driver's control, and the driver-side restore remains correct
->     for the still-active previous configuration.
-
-[Severity: Low]
-Is "the driver-side restore remains correct for the still-active previous
-configuration" accurate for num_tc and the two map arrays?
-
-mqprio_enable_offload() only assigns priv->hw_offload after ndo_setup_tc()
-succeeds:
-
-net/sched/sch_mqprio.c:mqprio_enable_offload() {
-	err = dev->netdev_ops->ndo_setup_tc(dev, TC_SETUP_QDISC_MQPRIO, &mqprio);
-	if (err)
-		return err;
-
-	priv->hw_offload = mqprio.qopt.hw;
-}
-
-so on the failure path mqprio_destroy() takes the else branch:
-
-net/sched/sch_mqprio.c:mqprio_destroy() {
-	if (priv->hw_offload && dev->netdev_ops->ndo_setup_tc)
-		mqprio_disable_offload(sch);
-	else
-		netdev_set_num_tc(dev, 0);
-}
-
-netdev_set_num_tc() writes num_tc only, so the netdev ends up with num_tc
-== 0 while the driver-restored tc_to_txq[] and prio_tc_map[] stay
-populated, a combination netdev_reset_tc() never produces on its own.
-
-Since skb_tx_hash(), netif_setup_tc(), mqprio_qopt_reconstruct() and XPS
-all gate on num_tc, is the newly added save/restore of num_tc and of the
-two 16-entry maps doing anything observable, and is priority
-classification for the still-installed previous qdisc actually preserved?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 5398616fcdfe..7d73b0c16f50 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -1251,43 +1275,59 @@ static int stmmac_reset_tc_mqprio(struct net_device *ndev,
-
-[ ... ]
-
-> +	err = stmmac_set_ndev_tcs(ndev, qopt->num_tc, tc_to_txq);
-> +	if (err)
-> +		goto error_reset_tc;
-> +
-> +	ndev_num_tx_queues = ndev->real_num_tx_queues;
-> +	err = netif_set_real_num_tx_queues(ndev, num_tx_queues);
->  	if (err)
-> -		goto err_reset_tc;
-> +		goto error_reset_tc;
->  
->  	err = stmmac_fpe_map_preemption_class(priv, ndev, extack,
->  					      mqprio->preemptible_tcs);
->  	if (err)
-> -		goto err_reset_tc;
-> +		goto error_reset_num_tx_queues;
->  
->  	return 0;
->  
-> -err_reset_tc:
-> -	stmmac_reset_tc_mqprio(ndev, extack);
-> +error_reset_num_tx_queues:
-> +	netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues);
-> +error_reset_tc:
-> +	stmmac_set_ndev_tcs(ndev, ndev_ntc, ndev_tc_to_txq);
-> +	for (i = 0; i < ARRAY_SIZE(ndev_prio_tc_map); i++)
-> +		netdev_set_prio_tc_map(ndev, i, ndev_prio_tc_map[i]);
-
-[Severity: Medium]
-Is the rollback order at these two labels right when the new mqprio
-configuration asks for more TX queues than the one it replaces?
-
-When error_reset_num_tx_queues is reached, the netdev still carries
-the mapping that stmmac_set_ndev_tcs(ndev, qopt->num_tc, tc_to_txq)
-just installed: dev->num_tc is qopt->num_tc and tc_to_txq[] describes
-num_tx_queues queues. The restore call then shrinks
-real_num_tx_queues back to ndev_num_tx_queues, and because
-dev->num_tc is non-zero netif_set_real_num_tx_queues() goes through
-netif_setup_tc():
-
-net/core/dev.c:netif_setup_tc() {
-	struct netdev_tc_txq *tc = &dev->tc_to_txq[0];
-
-	/* If TC0 is invalidated disable TC mapping */
-	if (tc->offset + tc->count > txq) {
-		netdev_warn(dev, "Number of in use tx queues changed"
-				 " invalidating tc mappings...\n");
-		dev->num_tc = 0;
-		return;
-	}
-
-	for (i = 1; i < TC_BITMASK + 1; i++) {
-		...
-		if (tc->offset + tc->count > txq) {
-			netdev_warn(dev, "... Setting map to 0\n");
-			netdev_set_prio_tc_map(dev, i, 0);
-		}
-	}
-}
-
-So for a sequence such as "queues 2@0 2@2" followed by a failing
-"queues 4@0 4@4 fp E P", the driver's own rollback makes the core
-print "Priority traffic classification disabled!" (and possibly the
-per-priority warnings), zero dev->num_tc and rewrite prio_tc_map[]
-entries, purely as a side effect of the intermediate state. The
-following stmmac_set_ndev_tcs(ndev, ndev_ntc, ndev_tc_to_txq) and
-the netdev_set_prio_tc_map() loop do repair all of that, so the
-end state looks correct, but users see a scary warning for an
-internal undo step and the tc mappings are transiently invalid.
-
-Would reversing the two rollback steps, restoring ndev_ntc /
-ndev_tc_to_txq / ndev_prio_tc_map first and only then calling
-netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues), avoid this?
-The saved mapping by construction fits ndev_num_tx_queues, so
-netif_setup_tc() should have nothing to complain about. If there is
-a reason the queue count has to be restored first, could that be
-spelled out in a comment?
-
-[Severity: Low]
-Should the return value of the restoring netif_set_real_num_tx_queues() be
-checked here?
-
-On this path the call always grows the queue count, because
-mqprio_validate_queue_counts() already ensured num_tx_queues <=
-ndev_num_tx_queues, and growing can fail:
-
-net/core/dev.c:netif_set_real_num_tx_queues() {
-	...
-		rc = netdev_queue_update_kobjects(dev, dev->real_num_tx_queues,
-						  txq);
-		if (rc)
-			return rc;
-	...
-}
-
-net/core/net-sysfs.c:netdev_queue_update_kobjects() {
-	for (i = old_num; i < new_num; i++) {
-		error = netdev_queue_add_kobject(dev, i);
-		if (error) {
-			new_num = old_num;
-			break;
-		}
-	}
-}
-
-The early return happens before dev->real_num_tx_queues is assigned, so on
--ENOMEM the device keeps the lower queue count while the following
-stmmac_set_ndev_tcs() reinstates a tc_to_txq[] whose offsets and counts
-describe queues beyond real_num_tx_queues. The function still returns only
-the original FPE error, so nothing above sees the partial restore.
-
-[Severity: Medium]
-Does this error path need to reprogram the FPE preemption-class register?
-
-The previous code reached the disarm through:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:stmmac_reset_tc_mqprio() {
-	netdev_reset_tc(ndev);
-	netif_set_real_num_tx_queues(ndev, priv->plat->tx_queues_to_use);
-
-	return stmmac_fpe_map_preemption_class(priv, ndev, extack, 0);
-}
-
-dwmac5_fpe_map_preemption_class() does all of its validation before its
-single read-modify-write:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c {
-		if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
-			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
-			return -EINVAL;
-		}
-	...
-update_mapping:
-	val = readl(priv->ioaddr + GMAC5_MTL_FPE_CTRL_STS);
-	writel(u32_replace_bits(val, preemptible_txqs, FPE_MTL_PREEMPTION_CLASS),
-	       priv->ioaddr + GMAC5_MTL_FPE_CTRL_STS);
-}
-
-so on the -EINVAL path GMAC5_MTL_FPE_CTRL_STS still holds the mask
-programmed by the previous successful configuration.
-
-The new error_reset_num_tx_queues/error_reset_tc labels touch no MAC
-register, and the qdisc layer then zeroes dev->num_tc via
-mqprio_destroy() -> netdev_set_num_tc(dev, 0). Is the hardware then left
-with a per-TXQ preemptible mask armed while the driver's only description
-of which TXQs belong to which TC says there are no traffic classes, so
-express-intended frames can land on TXQs the MAC merge layer will
-fragment?
-
-The driver recomputes the mask only from netdev_get_num_tc() and
-tc_to_txq[] on later calls, so it appears the stale mask stays until the
-previous qdisc is deleted or replaced. Would it be worth mentioning this
-hardware-state change in the commit message?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-stmmac-tc_setup_dwmac510_mqprio-error-path-v2-0-8158b8333b3d%40oss.qualcomm.com
 
