@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865C8C88E42
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55247C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7scpEVVr4UU62YzdzYFb4j0SlzJSeqGX0ORVVeED+nw=; b=neDzKjTJ/mpveGXJY0/YMnkuhs
-	wLwaqg9HeTp0QVKfHjx8yCmeVd0RmjiBr9be1Ncn4o+h4KXqSUIManRPQLmory9PYaRJNRgJWuSyM
-	AVtSsJEEfVIyRUHef/p2tBGg37XYTs5esjJkaJEaI4uK6p9mhpEgm6qLeY2FP1J9d50O9rK7ls4B9
-	KgwZENW8zN47k4JmjMLEg7mkT5mRtsccvLIS5ACxlT+LkcPEUM9W0hRtpKLZ8WzsWNlR4IugxQg+k
-	0u15rxK6xiIahrmenzwDgjvrPWUy5IrJKDnDSVkRiSxFRrN+ql90Faga2WrAJcWvSi5aymwn7jvsh
-	+alMMo6w==;
+	bh=9sR4iCDNmPmuLycqrtaPoXOdVxq9vF8KjjQ+eF2z45Y=; b=m6rNEJVQSTPakvvp30CeF5vFzs
+	EJTUBag2RC8TMreKuZ+HK913dfFmGPwvhseKoKoC/Kt4Eha3bnurGjyy4lvSdlnvqeTFHD4xo+sz3
+	B7cRRHiQdRStqNzUn+90VRiKFf400KmzO1r5AYPjhiVyOnl42ewzi/QNCjwvdxOmdoleYHDKbTi8q
+	rofRoLwnNBDApaAFyL8/RJ5+PIqqsbfPwbD7DQY21MbluscLaShA9dWLrHagWOaVGp79qCKHLxLM+
+	LVH7rlpT7BJ1dD3c0kcoTy3bzUqvIVFv3Ml0fzgrYTqPhNrctif7nBErX0P1eSVj2Fx3U4n1C+ifR
+	guRYnoww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQi-0000000EZeY-2Vgt;
-	Thu, 10 Sep 2026 14:07:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4fU6-0000000EaSY-1SEK;
+	Thu, 10 Sep 2026 14:10:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQd-0000000EZXp-03Si
+	id 1x4fU4-0000000EaSL-3hMZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:07:03 +0000
+	Thu, 10 Sep 2026 14:10:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7287160213;
-	Thu, 10 Sep 2026 14:07:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3A321F0089B;
-	Thu, 10 Sep 2026 14:06:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0922E60213;
+	Thu, 10 Sep 2026 14:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A62FC1F000FF;
+	Thu, 10 Sep 2026 14:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049222;
-	bh=7scpEVVr4UU62YzdzYFb4j0SlzJSeqGX0ORVVeED+nw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SyQiX9GXEjjt2r/KKPAuTr18MSFEFjkQhuO1GnsboRPFfeyD6Vfrcj5zGP342Hpcn
-	 Vb9DMA+iGTmteG3jFNDRH2l/EJlnb7w9Hy/yttWSz9uzW2rwPVtknfqtBuvjfzjJKP
-	 TNOQA8tqDfddmWhmP4g/rp93U+cZpQ5I6LckzJmB++30zG2B4KZ6GqF0CUvwzPkSR3
-	 r4vyeDVLTiiq+iRX9RlWZoX2dn2GsyXC8q0dYKBf0I5fGH31YVxakjb3JI+J0BYMqm
-	 VdRhoA7nstQFRxjZ+/ttRSpn38JZw6zYnRzRL0yy7yvADDdiXxnXdSCcZ0ffScjXnz
-	 u95B0wYR8BwYw==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [PATCH v5 15/15] coco: host: arm64: Enable PCI TSM connect callbacks
-Date: Thu, 10 Sep 2026 19:35:08 +0530
-Message-ID: <20260910140509.868402-16-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
-References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
+	s=k20260515; t=1789049435;
+	bh=9sR4iCDNmPmuLycqrtaPoXOdVxq9vF8KjjQ+eF2z45Y=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=WOEp4x1++BsXDfyTPXTDS4gmVFX7J2ksk9lukdERrQLJxB2SKNofdAWP9wGSvBEhO
+	 tC3006JjZtardegEGy/OALXz/UR69TACxhMazYNtw7lbQIKz8dlbIU71FndxUDL4p0
+	 ixr1puTbO/JgAXIAScwYvUVOSuARgamABHJqdNGNgcvJzNXK4tmDvb/0ng2b3dy2Pi
+	 v/ll+G0ZwlY/SweT7j1HKshx0ckV+E4JzVL2pXyvgVilgz5qfRbFPGz04Gbc7Wb/A4
+	 mpnQYfbefzYMV8A8IthZxOBWhS98UqiJC+jmceoouDnnNmDcwDNVKaJ0j1UXx9SI+R
+	 xp7jmkf/jq3ow==
+From: Vinod Koul <vkoul@kernel.org>
+To: dmaengine@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>, 
+ Frank Li <Frank.Li@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260908212607.590224-1-rosenp@gmail.com>
+References: <20260908212607.590224-1-rosenp@gmail.com>
+Subject: Re: [PATCH] dmaengine: at_hdmac: use devm_clk_get_enabled()
+Message-Id: <178904943321.118320.1490189042723625622.b4-ty@kernel.org>
+Date: Thu, 10 Sep 2026 19:40:33 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +70,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous patches build up the Arm CCA host device-assignment flow: RMM
-pdev creation and teardown, device communication, public-key setup, peer
-stream coordination, RMM stream connect/disconnect, and support for both
-endpoint and RC endpoint stream types.
 
-Now that the connect and disconnect paths contain the complete setup and
-teardown sequence, register them in pci_tsm_ops and drop the __maybe_unused
-annotations.
+On Tue, 08 Sep 2026 14:26:07 -0700, Rosen Penev wrote:
+> Replace the devm_clk_get() + clk_prepare_enable() pair with
+> devm_clk_get_enabled(), which handles enable/disable and the
+> unprepare on driver detach automatically.  This lets us drop the
+> err_irq cleanup label and the clk_disable_unprepare() calls in
+> probe error paths and at_dma_remove().
+> 
+> 
+> [...]
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- drivers/virt/coco/arm-cca-host/main.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Applied, thanks!
 
-diff --git a/drivers/virt/coco/arm-cca-host/main.c b/drivers/virt/coco/arm-cca-host/main.c
-index b7b0cc0a016c..e8afd54c23f6 100644
---- a/drivers/virt/coco/arm-cca-host/main.c
-+++ b/drivers/virt/coco/arm-cca-host/main.c
-@@ -295,7 +295,7 @@ static inline bool cca_pdev_need_sel_ide_streams(struct pci_dev *pdev)
- 	return pci_pcie_type(pdev) == PCI_EXP_TYPE_ENDPOINT;
- }
- 
--static int __maybe_unused cca_tsm_connect(struct pci_dev *pdev)
-+static int cca_tsm_connect(struct pci_dev *pdev)
- {
- 	struct pci_dev *rp = pcie_find_root_port(pdev);
- 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
-@@ -385,7 +385,7 @@ static int __maybe_unused cca_tsm_connect(struct pci_dev *pdev)
- 	return ret;
- }
- 
--static void __maybe_unused cca_tsm_disconnect(struct pci_dev *pdev)
-+static void cca_tsm_disconnect(struct pci_dev *pdev)
- {
- 	struct pci_ide *ide;
- 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
-@@ -414,6 +414,8 @@ static void __maybe_unused cca_tsm_disconnect(struct pci_dev *pdev)
- static struct pci_tsm_ops cca_link_pci_ops = {
- 	.probe = cca_tsm_pci_probe,
- 	.remove = cca_tsm_pci_remove,
-+	.connect = cca_tsm_connect,
-+	.disconnect = cca_tsm_disconnect,
- };
- 
- static void cca_link_tsm_remove(void *tsm_dev)
+[1/1] dmaengine: at_hdmac: use devm_clk_get_enabled()
+      commit: d882935a2ca4457f6f446b02d7d08134cd9d4582
+
+Best regards,
 -- 
-2.43.0
+~Vinod
+
 
 
