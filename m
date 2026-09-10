@@ -4,88 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E92C88E46
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A14C88E42
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WOPZcuIUSUFOlVY55JKg82gWMls3U9mBgXYoAzZ4gE=; b=0ufNDdGeB19aj52pQRSoNEevh5
-	zw4bNVLUf4AeVm6DjhYpSx1VahEMqnpd8u3CvJWgcFxaxAUeVQ+SC6BorjskqKGLOzsfi50Rozcji
-	vBPD6+aMenoFtmVB9DSgywAMxJVcljlTFrdHROUxk27tRw4AisDmJVFLApckoH+JAEBQpmU23xIBc
-	0Jv8cdLGDweHDbnrPQjSH+Y1GwpR/j88nFI0k4igS/rGny0HBTPfIejnK7TmEHNlqoRlv99CosO+k
-	x2cOFx7eMSdBJbPLdbJfxT+OZo0dqb5as5pPC7WLXiRB+686u64LC+baKVEpfonjG3eFIyFv0PQGY
-	u753A1eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JfNuYMuHogtgq0L/NPKBP4/UZHSmvz4J9fXw1KMnz9E=; b=gyQAZ24ouOxp3X
+	igJBT4a2WZ1ucnRjWSN45JggQ0Qsqh+f6+VRmNsqZEUQe8bZB1bIdS7mYCt7N+ue1nFnt5Z72b1L/
+	547CJpYIRvLUrfnBFUrYQB+0k722onLxs/CECtDl8OcpuyR7M+bp6g5WnRerS4Wodj4w33/RdtiC1
+	dytq/1NtbHi84hRkEwXIPNMm/lQ0WUIvcA/FKOmvggjUyWMoMzHYtlgqPX/b9XG74S90GMNkUkW9I
+	akO8Oc/7iQUgw24b+aVVq+k0eEcfd/lyC5N5vqrFBCNHtRjwvmF3nK3fjH5QNH5aCmXW75Hj3AKua
+	ZlO41i3K7BPD4cB3o5ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bg2-0000000Dzx7-47KO;
-	Thu, 10 Sep 2026 10:06:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bg1-0000000DzwZ-0LH9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 10:06:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4WOPZcuIUSUFOlVY55JKg82gWMls3U9mBgXYoAzZ4gE=; b=Yzxm4wezCSG3GPwOiAE8Ozdekk
-	8vWSfttolbfmN1z4UHZ64ID/L4E32jDV4ZzUAkLIg5sfW2blUje7dEOEazkJq3ZMN4p5e+/nkAJDy
-	2mCE4FiTADmzMCZdch03tBpNYpdz/1puZIOhXbu7Zk5FXuX+9wx4uzsAs51Xvb1VwgD3/839vDDqU
-	poBi5vRkC+ggGm359fc19X+n/u4qEwxnl6Tl35QKM5G/VWdZyYmxJwPDz+3Rlq9Ikbxrls++j5QZD
-	VsURcBi+4Lo34Hy84CmbG27nHQlM4GnVZUNTR6ANLyky7L7cbvZRYVVfGoOYY0xE2hB4z4p06ZrzT
-	Vc/avsLQ==;
-Received: from out-160.mta0.migadu.com ([2001:41d0:1004:224b::a0] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4bfy-00000002ItH-1bw1
+	id 1x4bgL-0000000E01a-0NsT;
+	Thu, 10 Sep 2026 10:07:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4bgH-0000000E00J-3owP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:06:40 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=hWyyIPpkRyZSi+QGoc95ooHUu2TShOPQbYuZu1dbcAk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789034793; v=1; x=1789639593;
- b=uuK6Nyl54Rt0JYSj4on/8Vgm3kAsFfQNbqAur7ZKpB4AuN7n2Ww0jFrAK1SDEjqeYJjK7VDx
- c8nZx9f75huO4OimkcmtNIQaSP5HI4L89Mmaj0+g1Yp9YEHfMo1j3I+pMDmRc5KzGRA7uHSEzVM
- 1TLnThHv3/KCBa1plsr+D73I=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b0fdba6d9e9b684b;
-	Thu, 10 Sep 2026 10:06:33 +0000
-X-Mizu-Trace-ID: b0fdba6d9e9b684b
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so4418e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 03:06:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxAHZUeaYqKR6bHAUVDGDLLJAHsW3853dIV0b3FC0eOBzU4okd6HxTFaeAjH0IkhvdBYvGlrnB3yTnRZykVn3SY@lists.infradead.org
-X-Gm-Message-State: AFuF++khjBfsX3vUp+bnqFp7LCyAueEeUWjNkrZ4dP9Qvi3cuoiPBKTL
-	oxiYTfbIgs9nOCHlnrWcuvpFEkygoLyEHKuKaR8yBizKPevwgz6BegpkR7CqF+/MYGaugEB/e3P
-	Ks/qGWYPijPw4lTSpZ6QVvQ6415A28yN+hl8RGHvB
-X-Received: by 2002:a05:6512:3b8a:b0:5b4:9dba:7401 with SMTP id
- 2adb3069b0e04-5b89af4742bmr71415e87.11.1789034792251; Thu, 10 Sep 2026
- 03:06:32 -0700 (PDT)
+	Thu, 10 Sep 2026 10:06:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5541B1570;
+	Thu, 10 Sep 2026 03:06:50 -0700 (PDT)
+Received: from [10.0.152.207] (unknown [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1125B3F7B4;
+	Thu, 10 Sep 2026 03:06:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789034814; bh=lce7eZgPvqANonEGS3VS67nJrhS6SudXV3cK2BAWgs0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vf0kfV5OIaN7jKxvjKPwTyTlUxc3ZBVV4uFgxlPVebmRDuKTgxR8f9qbyMJnM1o/c
+	 VhZD3Il4io51hiUkWHSYNDMnfW/r5kUs7gnEN2s/y9Re1lWJhnBJRT/uL4iIcm3MfP
+	 DF40HNXkIDSkQzyjzHupSnGGQ/oeGdoPLrisNR58=
+Message-ID: <1b0a435e-68c1-46c2-8fc0-310694728772@arm.com>
+Date: Thu, 10 Sep 2026 11:06:48 +0100
 MIME-Version: 1.0
-References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
- <20260907070002.3333525-7-fuad.tabba@linux.dev> <aqFkFF1ebFSHZLEN@e143914.arm.com>
-In-Reply-To: <aqFkFF1ebFSHZLEN@e143914.arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 10 Sep 2026 11:05:56 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxm8BHL0gcERu7kKZo6CWgp0xrENUmvNCdX58dEMjTfoA@mail.gmail.com>
-X-Gm-Features: AcwNN1WwBnHkFkL_PATYeQPzioeKMpAU6X46R6QBkykiNFCQ6kdeLHVErrpdvBM
-Message-ID: <CA+EHjTxm8BHL0gcERu7kKZo6CWgp0xrENUmvNCdX58dEMjTfoA@mail.gmail.com>
-Subject: Re: [PATCH v2 06/17] KVM: arm64: Add system register reset framework
- for protected VMs
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/21] arm64: cmpxchg128: LSE: Remove redundant
+ operands
+To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20260908151741.394589-1-mark.rutland@arm.com>
+ <20260908151741.394589-6-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260908151741.394589-6-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_110638_491327_5291AF20 
-X-CRM114-Status: GOOD (  38.93  )
+X-CRM114-CacheID: sfid-20260910_030658_037872_40AAE5E6 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,196 +67,148 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: ryan.roberts@arm.com, usama.anjum@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joey,
+On 9/8/26 16:17, Mark Rutland wrote:
+> The LSE assembly for cmpxhg128*() has redundant operands which cause
+> unnecessary register pressure. These operands can be removed without
+> adverse effects, as described below.
+> 
+> It is necessary to force specific registers for the 64-bit halves of
+> 'old' and 'new', as the encoding of CASP[A][L] requires that these
+> halves are allocated into even/odd register pairs, and contemporary
+> versions of LLVM don't support a mechanism to allocate a value into an
+> even/odd register pair for inline assembly. We manually allocate these
+> into x0/x1/x2/x3.
+> 
+> It is not necessary to force the address into a specific register, as
+> the encoding of CASP[A][L] can accept this in any GPR or SP. Hence, it
+> is not necessary to manually allocate the address into x4 for the
+> '[ptr]' operand. The assembly uses the '[v]' operand, and contemporary
+> compilers happen to allocate '[v]' into a separate register from
+> '[ptr]', meaning that '[ptr]' only serves to create register pressure.
+> 
+> It is not necessary to allocate the '[oldval1]' and '[oldval2]'
+> operands, as these are not used by the assembly. The assembly uses the
+> '[old1]' and '[old2]' operands for both input and output. The
+> '[oldval1]' and '[oldval2]' operands only serve to create register
+> pressure.
+> 
+> Remove the redundant operands. This saves on register pressure, as
+> demonstrated by the test case below. There's still some unfortunate
+> register shuffling due to the manual allocation of 'old' and 'new', but
+> this should be less prominent within a larger function.
+> 
+> Test case:
+> 
+> | u128 outline_cmpxchg128(u128 *p, u128 old, u128 new)
+> | {
+> | 	return cmpxchg128(p, old, new);
+> | }
+> 
+> Generated code before this patch:
+> 
+> | <outline_cmpxchg128>:
+> |        mov     x6, x0
+> |        mov     x1, x3
+> |        mov     x0, x2
+> |        b       1f
+> |        mov     x2, x4
+> |        mov     x3, x5
+> |        mov     x4, x6
+> |        mov     x5, x0
+> |        mov     x7, x1
+> |        caspal  x0, x1, x2, x3, [x6]
+> |        ret
+> | 1:     prfm    pstl1strm, [x6]
+> | 2:     ldxp    x8, x7, [x6]
+> |        cmp     x8, x0
+> |        ccmp    x7, x3, #0x0, eq
+> |        b.ne    3f
+> |        stlxp   w2, x4, x5, [x6]
+> |        cbnz    w2, 2b
+> |        dmb     ish
+> | 3:     mov     x0, x8
+> |        mov     x1, x7
+> |        ret
+> 
+> Generated code after this patch:
+> 
+> | <outline_cmpxchg128>:
+> |        mov     x6, x0
+> |        mov     x0, x2
+> |        b       1f
+> |        mov     x1, x3
+> |        mov     x2, x4
+> |        mov     x3, x5
+> |        caspal  x0, x1, x2, x3, [x6]
+> |        ret
+> | 1:     prfm    pstl1strm, [x6]
+> | 2:     ldxp    x8, x7, [x6]
+> |        cmp     x8, x0
+> |        ccmp    x7, x3, #0x0, eq
+> |        3f
+> |        stlxp   w2, x4, x5, [x6]
+> |        cbnz    w2, 2b
+> |        dmb     ish
+> | 3:     mov     x0, x8
+> |        mov     x1, x7
+> |        ret
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/include/asm/atomic_lse.h | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
+> index afad1849c4cf5..d588af0565331 100644
+> --- a/arch/arm64/include/asm/atomic_lse.h
+> +++ b/arch/arm64/include/asm/atomic_lse.h
+> @@ -291,15 +291,13 @@ __lse__cmpxchg128##name(volatile u128 *ptr, u128 old, u128 new)		\
+>  	register unsigned long x1 asm ("x1") = o.high;			\
+>  	register unsigned long x2 asm ("x2") = n.low;			\
+>  	register unsigned long x3 asm ("x3") = n.high;			\
+> -	register unsigned long x4 asm ("x4") = (unsigned long)ptr;	\
+>  									\
+>  	asm volatile(							\
+>  	__LSE_PREAMBLE							\
+>  	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
+>  	: [old1] "+&r" (x0), [old2] "+&r" (x1),				\
+>  	  [v] "+Q" (*(u128 *)ptr)					\
+> -	: [new1] "r" (x2), [new2] "r" (x3), [ptr] "r" (x4),		\
+> -	  [oldval1] "r" (o.low), [oldval2] "r" (o.high)			\
 
-On Wed, 9 Sept 2026 at 14:51, Joey Gouly <joey.gouly@arm.com> wrote:
->
-> Hi Fuad,
->
-> On Mon, Sep 07, 2026 at 07:59:51AM +0100, Fuad Tabba wrote:
-> > Add kvm_reset_pvm_sys_regs() and the pvm_sys_reg_reset_vals[] table
-> > that drives it, and call it from init_pkvm_hyp_vcpu() for protected
-> > vCPUs. The table holds the registers sys_regs.c resets that
-> > __sysreg_restore_state_nvhe() loads for a protected vCPU. The rest of
-> > the context keeps the zero the donated hyp vCPU page is cleared to. A
->
-> If the context is zero'd, why is there RESET_ZERO()? If it's just for
-> 'completeness', worth noting here.
+Both 'old1' and #old are read and write and that reflected by '+' constraint modifier.
+However, I do not fully understand why we need earlyclobber for them:
+ - they are not written before read
+ - we already constrained registers, so they do not overlap
+ - cmpxchg few lines above doesn't need it
 
-I'll answer your question with part of the updated commit message for V3:
+I had a look at ll/sc counterpart and both earlyclobebr and '=' constraint modifier
+make sense there, since we do not want registers to overlap and they are written.
 
-    A register that resets to 0 still needs an entry: a later patch calls
-    kvm_reset_pvm_sys_regs() again for PSCI CPU_ON at EL2, on a context
-    that has run.
+I admit might be missing something. Anyway, FWIW
 
->
-> > poison value stands in where sys_regs.c resets to UNKNOWN, and for
-> > VBAR_EL1 and CONTEXTIDR_EL1 in place of the 0 it uses. MPIDR_EL1 is
-> > derived from vcpu_id, as for any KVM guest. AMAIR_EL1 resets to 0
-> > where sys_regs.c reads the hardware: the host writes it freely before
-> > the hypercall, and it's loaded on every guest entry.
->
-> Also if you can just put a new line for each 'category' here would make
-> it simpler to read.
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
-Done for V3.
+> +	: [new1] "r" (x2), [new2] "r" (x3)				\
+>  	: cl);								\
+>  									\
+>  	r.low = x0; r.high = x1;					\
+> -- 2.30.2
+> 
 
->
-> >
-> > Until the per-EC marshalling patch removes the host's full-context
-> > copy from flush_hyp_vcpu(), that copy overwrites these values on every
-> > entry, so this patch has no observable effect on its own.
->
-> Thanks for adding this!
-
-Thank you for your reviews. They've been very helpful!
-
-Cheers,
-/fuad
-
->
-> >
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > ---
-> >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
-> >  arch/arm64/kvm/hyp/nvhe/pkvm.c         |  5 ++
-> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c     | 73 ++++++++++++++++++++++++--
-> >  3 files changed, 75 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> > index 49a0a992047ba..a04b7c04d5135 100644
-> > --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> > +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> > @@ -95,6 +95,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
-> >  bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
-> >  bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
-> >  void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-> > +void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu);
-> >  int kvm_check_pvm_sysreg_table(void);
-> >
-> >  #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > index e85f13233da08..af334318d0a03 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > @@ -551,6 +551,11 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
-> >               goto done;
-> >
-> >       ret = pkvm_vcpu_init_sve(hyp_vcpu, host_vcpu);
-> > +     if (ret)
-> > +             goto done;
-> > +
-> > +     if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> > +             kvm_reset_pvm_sys_regs(&hyp_vcpu->vcpu);
-> >  done:
-> >       if (ret)
-> >               unpin_host_vcpu(host_vcpu);
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > index 8758c68017765..03d2c2447e0fd 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > @@ -525,6 +525,66 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
-> >       /* Performance Monitoring Registers are restricted. */
-> >  };
-> >
-> > +struct sys_reg_desc_reset {
-> > +     int reg;
-> > +     void (*reset)(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *rd);
-> > +     u64 value;
-> > +};
-> > +
-> > +static void reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-> > +{
-> > +     __vcpu_assign_sys_reg(vcpu, r->reg, kvm_calculate_mpidr(vcpu));
-> > +}
-> > +
-> > +static void reset_value(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-> > +{
-> > +     __vcpu_assign_sys_reg(vcpu, r->reg, r->value);
-> > +}
-> > +
-> > +#define RESET_VAL(REG, RESET_VAL) {  REG, reset_value, RESET_VAL }
-> > +
-> > +#define RESET_ZERO(REG) RESET_VAL(REG, 0)
-> > +
-> > +#define RESET_UNKNOWN(REG) RESET_VAL(REG, 0x1de7ec7edbadc0deULL)
-> > +
-> > +#define RESET_FUNC(REG, RESET_FUNC) {  REG, RESET_FUNC, 0 }
-> > +
-> > +/* Sorted ascending by reg; kvm_check_pvm_sysreg_table() enforces it. */
-> > +static const struct sys_reg_desc_reset pvm_sys_reg_reset_vals[] = {
-> > +     RESET_FUNC(MPIDR_EL1, reset_mpidr),
-> > +     RESET_UNKNOWN(TPIDR_EL0),
-> > +     RESET_UNKNOWN(TPIDRRO_EL0),
-> > +     RESET_UNKNOWN(TPIDR_EL1),
-> > +     RESET_ZERO(CNTKCTL_EL1),
-> > +     RESET_UNKNOWN(PAR_EL1),
-> > +     RESET_ZERO(DISR_EL1),
-> > +     RESET_ZERO(CPACR_EL1),
-> > +     RESET_VAL(CONTEXTIDR_EL1, 0x00000000dbadc0deULL),
-> > +     RESET_VAL(SCTLR_EL1, 0x00C50078ULL),
-> > +     RESET_ZERO(TCR_EL1),
-> > +     RESET_UNKNOWN(AFSR0_EL1),
-> > +     RESET_UNKNOWN(AFSR1_EL1),
-> > +     RESET_UNKNOWN(ESR_EL1),
-> > +     RESET_UNKNOWN(MAIR_EL1),
-> > +     RESET_ZERO(AMAIR_EL1),
-> > +     RESET_ZERO(MDSCR_EL1),
-> > +     RESET_UNKNOWN(TTBR0_EL1),
-> > +     RESET_UNKNOWN(TTBR1_EL1),
-> > +     RESET_UNKNOWN(FAR_EL1),
-> > +     RESET_VAL(VBAR_EL1, 0x1de7ec7edbadc000ULL),
-> > +};
-> > +
-> > +void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu)
-> > +{
-> > +     unsigned long i;
-> > +
-> > +     for (i = 0; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
-> > +             const struct sys_reg_desc_reset *r = &pvm_sys_reg_reset_vals[i];
-> > +
-> > +             r->reset(vcpu, r);
-> > +     }
-> > +}
-> > +
-> >  /*
-> >   * Initializes feature registers for protected vms.
-> >   */
-> > @@ -550,16 +610,21 @@ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
-> >  }
-> >
-> >  /*
-> > - * Checks that the sysreg table is unique and in-order.
-> > - *
-> > - * Returns 0 if the table is consistent, or 1 otherwise.
-> > + * Both tables must be unique and sorted ascending. pvm_sys_reg_descs.reg is the
-> > + * sys_reg() encoding, pvm_sys_reg_reset_vals.reg the vcpu_sysreg index, so they
-> > + * compare differently. BUG_ON() at __pkvm_init: fatal at boot.
-> >   */
-> >  int kvm_check_pvm_sysreg_table(void)
-> >  {
-> >       unsigned int i;
-> >
-> >       for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_descs); i++) {
-> > -             if (cmp_sys_reg(&pvm_sys_reg_descs[i-1], &pvm_sys_reg_descs[i]) >= 0)
-> > +             if (cmp_sys_reg(&pvm_sys_reg_descs[i - 1], &pvm_sys_reg_descs[i]) >= 0)
-> > +                     return 1;
-> > +     }
-> > +
-> > +     for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
-> > +             if (pvm_sys_reg_reset_vals[i - 1].reg >= pvm_sys_reg_reset_vals[i].reg)
-> >                       return 1;
-> >       }
-> >
->
-> Some minor commit message nits, and I see you're going to remove this
-> sorting check.
->
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
->
-> Thanks,
-> Joey
 
