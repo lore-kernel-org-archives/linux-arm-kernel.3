@@ -4,91 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A59C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A0E4C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BoOu9cuOSCPgOVcH+4UGE762iNQ68iQBvmMzhhPzrww=; b=b4tXcK7ByksazKrFYiEg8qQ85d
-	206j5Ns8nko95FBMZedUS4G6Yy2NL2WZC+GCzLoZoEhIy3RwScza/JUuMnj8xsX0RT5EXcsjwvKmO
-	N9ksbwDsQbD2BClyoB8gFqMA9mTqoo72HZXG2BbhHqf4YBZi1cz6ucMfTEpFRncA7373VmbT/g9Ut
-	WgTBuC6ytiYZaHbSlws8LQj1wc8wPpPS+hOMOEm0VnrOzmuB0SBM+ckE76PFzOqa15ItnY/2iRNIr
-	lFFWvWjqmcXVYgytXXAdgL5G/7vSnmjCw+5De2hUvAVZU42mIIe1OJB2jGvRuBG058C0YaOlSy/DZ
-	n2tV+Khw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mlyD+mTZhC0GzDECfykCTljwxFY9z/CnuCliirlHC5s=; b=nUukpw64dH1RLaaSKYntKCiiDR
+	bLaDPbmdTCdXBBX+DmntkG7aGEDUtmSOdV+CCE6pLAnXhPeZ+9W7KPc0R3syHguI6gtm9DOG1V5l0
+	5kx73qAYujySaCNqXIRFiRKf8SY2GEcLIfdIwJh/1YTjYnIbdbrozLvmLXhDWmZN+Y9QD6gPHqDQc
+	Vh3u+j/r67WrNAHtQ7o13nszCdBhFS998uObG3rYaipiVZnc0bjknuLlK/uRr9FgT2o/S2fBQ9qzt
+	7cAyyIJ4+Ad4lSFrY45aBOhFFV8s/v8pRV2q7r4ahY1NJtHF4OWeBinJ7/BrTNVsPZqSnRqbyJPPm
+	WqRnJMdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axt-0000000Dqyy-2w3c;
-	Thu, 10 Sep 2026 09:21:05 +0000
+	id 1x4ay0-0000000DrG5-1aI6;
+	Thu, 10 Sep 2026 09:21:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axi-0000000DqhW-3F2h;
-	Thu, 10 Sep 2026 09:20:54 +0000
+	id 1x4axn-0000000Dqp8-0KBR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 09:21:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=BoOu9cuOSCPgOVcH+4UGE762iNQ68iQBvmMzhhPzrww=; b=TnLqQGuNNTZIL3ktucbO9WrZqM
-	zQIMILCWu8u1ITAOpH7M1Eq5b+RZeZ9oYAgMko5hbJ0DkDpPew6JE7RTnE13jUTacAdcPhTrSTJY2
-	V44puZp1NujiYS+/3TEMgQnwyTwNv94Tu11fuYBDOQgKrnrG77vXEqFTm1p2anuCPpU9GX/0xMaZg
-	DwOT2EV/pkguBAOjyJuzrWlfOsQvJXcGijA6OSwvABIN3qb2b0UzpmdjV2a+qiLBdBgKPKGAafXwO
-	PnKIX9Z1Q9k5vvQVetnM6vDiBJnA3OC54YJOffXSKrJNxPZ3fghj2faJzNw7Y7GXgXNraZc437Gds
-	PiPFqF1w==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=mlyD+mTZhC0GzDECfykCTljwxFY9z/CnuCliirlHC5s=; b=B+5KuHUlOvIbW2knipP+9PWE7+
+	bgcPs0sWaWbweTySYpo93WE88O23vJEgEGssmsVptNwN0QfmVUCsBBtYhbUTN1BMJ0GxypY9nGwfF
+	156v/s151VDQXrCNBmbL+8i48lCBsie/t8H74Ven/5yI171gW913mhzk1VEzJ2/sV3FoddwqYAqzM
+	TUD1My4RbSe+p168oj9Z3TFTtSWl0NfFd7y4PcVlI9i6yrWwesG6Jr2eJM/jAZDLW6Nk7skNVWG0d
+	/T9WQWAWcIjKc/WeC0g7x9StGkP2jMAR9ET1mLT/Ioz/RRalHERibqKORlIZs5W2S3qaWnCXRwEPR
+	229s9/bQ==;
+Received: from mail-northeuropeazon11011063.outbound.protection.outlook.com ([52.101.65.63] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4axf-00000002Fhm-0GXt;
-	Thu, 10 Sep 2026 09:20:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789032046;
-	bh=GaPBiWzQJR3OEHQxJ/VaePgCeu6QCU+D2EOPr8uRypk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EM7IvvodYXwFiu+ynHQZRxAgoWSEfsXTpN0h52mWBliPpN/REgcqH6KIprI3knbBq
-	 6oywYLTajMP+o/Q97ark6OBOkrXKON6n2Jgg+TUqrJ//qca7d/LghWZ3DmIInmE3lK
-	 nwNSzdynNTM1T76OHDPP3jg1Z/ls6g/VMo2TqaLlIFNQH3TZrQ+kmGKOYVZQ4+nSX2
-	 AHbmO38EDheOt4isvnuu3Mb65+k1wyfPdfnEfyFigED2K672MdxnnNLtyaLEFCuubc
-	 r4zP5ZsgcobShyDJLwugGePm3kBVF0yXLHCfIMZqRUeuZkDFF9I1HVDIxYHHRHQXCK
-	 SXKs2D+8YgrzQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6697217E0D84;
-	Thu, 10 Sep 2026 11:20:45 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: mani@kernel.org
-Cc: chunfeng.yun@mediatek.com,
-	vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Subject: [PATCH v4 04/12] phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
-Date: Thu, 10 Sep 2026 11:20:30 +0200
-Message-ID: <20260910092038.48291-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260910092038.48291-1-angelogioacchino.delregno@collabora.com>
-References: <20260910092038.48291-1-angelogioacchino.delregno@collabora.com>
+	id 1x4axj-00000002Fkp-3LjF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 09:20:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NJkOkN8MN2Oyswatn/XXy0H3ASymnvj2Uvaor1EClueTNGIaKbmkOiEc9bGedMrfKmbrbMFWb+rCjY6/0W5tAg4amj346FPIWibli0APz4X/LJ+jzg4sljAZ4iXMCPQkJ8F95BZkoMG2IBB4a4yep6t0Kpq+xjesVWeI4kyKNGeoQVrWNPItRVNtfe8iFIJ0GFU/L7wAheScszXtB1COFO91nYr1wpzBjEARPGRecbdnDyEjEd4hayyNIwJOl9jhtXSsBVjre1Sq56d5zFpdlBqUjilv+c51udWq/WepTwDw3HfZwgqaYsVaCd8s95820qxcF6lnDPPZzzVRNd/esg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mlyD+mTZhC0GzDECfykCTljwxFY9z/CnuCliirlHC5s=;
+ b=jCY2CmStsXDrnH6yshbMvoCFmPhonjO0RkM1SfvTZbJFkVk6S0+XN5m0pyaOhLJ2pbrnY7mDbqGf+eOU0q8I7XVFjBbGLQDtNIsTdKTrOkDL70ibOHTMpSZJhQR+yVwf3xpqwhUCwuFr2BG/0SLM7vdLK9d5k1RnjLsimrzJ5l1/37gcnoQp8aFInZuxHs4atVMFJNavttyAOfxDjGAHFjnNthbGDKKTBCEWJadwrhcCPiPvMmRJt81GGxZ0xtdxdwwpsQ/QUn5UYmLA0AfaL/ICur64/ytDZNfE65dSgv47OGeUcBzrZdFXrjnZnKa6G36RashoKH+gULur0mWwfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mlyD+mTZhC0GzDECfykCTljwxFY9z/CnuCliirlHC5s=;
+ b=bln6Av7iWlHu/QzEsMXY8q7d/guNlwVveJ4S8iPQvIErLzwyfZrDTlI1JM6/L0o+AuvMK6gsVNBrP2iaXY0ypIl0bwY2qjTbkVSzhvdzQsTLWtENO4GpCak1Ej42pNybnypergjRJT3Uip5yiG/u8brh+REbyvBaZPR57GET9Bh1JHHRTkuuY9dRznDUNULMWpUItt00ylx3MawPuvcNX+alig61GsGb9BmaIh3zhAJ5EgPN5hI9fZBpDimoc2laiMIAVc1f+qjSzprhvNbl1eHXp5eTK2Y6xBQ7v8u0OEWFmh8t43TqfrxCh7cyyjHidxIK3LRVbp/s4ryHSMeyfA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13) by DB8PR04MB7098.eurprd04.prod.outlook.com
+ (2603:10a6:10:fd::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 09:20:50 +0000
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd%3]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 09:20:49 +0000
+Date: Thu, 10 Sep 2026 12:20:46 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: vjardin@free.fr
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable+noautosel@kernel.org
+Subject: Re: [PATCH v2] bus: fsl-mc: register the object drivers after
+ misc_class exists
+Message-ID: <biinxck5pqrk7yyypw5vxwdz2qwluipkinssfg4m4ld3izismo@jjpune5ww555>
+References: <20260909-for-upstream-fsl-mc-initcall-order-v2-1-b7a04634fcf1@free.fr>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909-for-upstream-fsl-mc-initcall-order-v2-1-b7a04634fcf1@free.fr>
+X-ClientProxiedBy: FR0P281CA0075.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:1e::10) To GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|DB8PR04MB7098:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ededeb2-fde6-48ce-bd4f-08df0f1ccdd9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|376014|366016|22082099003|18002099003|10067099003|11063799006|56012099006|6133799003|15866825006|41080700001;
+X-Microsoft-Antispam-Message-Info: dWW1SNleEdfkhHLU7zQxMWcznP2ODCiHHUXRu4GWd9KcKHFOAYss5GdbJeRo+pwDrV/+M43p/3r02E1u/eV/mRPfawLDuq79cuEghgir5lG3vNuIoeiKDVh/SJEEPr4lbib8QhQAUgWZ6xLtJfJO4fq0gx/In77l9cvj1OYQx+wpWJNFA3FU76ar6tSouVZCpeQJqznOpm2sAhr1O5JOBMxKIaC/vNlVjcEgzavmLWd82KGdSit5/lZyjMip0xLHhA8Tj/Nl4BKt30F6ZKKVNNRIqA2p6ic6X3+qAy9l8DiQkCStNOxv3RNT9pmxYvkLS1SIOzsAQYACepcB9E1WdzdiE/PXFfN+Ew4Qdnvn+WRlnLdWytNtCcIY8kbHUuthmBHEsJ+996nh7KHxjS4QG+QEUw1F05FxuBT664I+dJnRksdDBAv6aOyjRnW2R/mSjIKddQ1Kw7RvWX0b3/Ni0x8bIVK02+PJYmPnq0ro+1oSX2CEAtejzFKNElJNBUxPCZiKy/oJwk/L2VVx+ooh82QZ7MlUU5CtV+LbeCOtkMi+mXZbSWJVnZ+piErvRPqH7THTUycK4b1NKa0phb/vyuGTZTrv/Jvu07ti6q8ZPJO0mR4iumwaA+Pqz0GoMwGMqe4dqFmmucyiD/BxwgwalFa153DBcLC/3DSrewsKDoPbGv4FDYhm+6yOeyFhUPGJo1lImwHI2/3h5HOv6SD1tigJr6SYVtXyVk4aCaBh5VuI9X747ISXAajLVCjysyUP
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(376014)(366016)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(6133799003)(15866825006)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?caJmtbap1njoS15zVu4uDxp60SUmfbPjrcMQTjwJDkClmLd8tFF3eEbwljqm?=
+ =?us-ascii?Q?YErEcjuv4KhAmhoRurrdd3BKlI85oTljnJ6/rxKb5TYR+ExbaxmJ4w30sBgD?=
+ =?us-ascii?Q?dZgwV2Bdcqg9bSPT6Oww67qV1c/zFM5VtHxxlR9k2rmQzQD9ykax4J6Hepvq?=
+ =?us-ascii?Q?+F7yAoLBrhmBGYc2d79haDAVyeqp81rSFpYP9n2WEB43f5gX8yKIhyKRVh03?=
+ =?us-ascii?Q?XCVL6Dv4o5pdRgVMN1Bo4UU9tQRLBg4iX9OPp+q8utwsYY8tnA4tTbsLeM25?=
+ =?us-ascii?Q?6Tw1Umajl5dgoSY/NbPR+vJl96Qvmup3jmCVSmltO9qeYpp6jaXT8AgqRx7j?=
+ =?us-ascii?Q?8Q4/Gnm0PXh/CCVhoRkvC8waSzsBInmE4vMqoSSnypFgSJqLWwYgXycm3Jty?=
+ =?us-ascii?Q?gGlipgq1IWRaUSyxiR3ZCo/xyu7OxMvdJVjVW/86Zw164qS8zQFlT17CnIXs?=
+ =?us-ascii?Q?Eafj8mlbFIgiinq/uO+LnOnyuY+ojxtdfZrkxDx9dr+VQWnvzMcU0CigJ1tW?=
+ =?us-ascii?Q?UHyi0SdxbdcK59kAPNi7+IOTqOUVxduVgy+8TnTVjkS0YvZNTh7qFF7LGOZj?=
+ =?us-ascii?Q?q3pXchIob7P/RZcKXO8JLDJ5fvJQkgHzfUvLa/RIiEMgKutZtm5C7LdwwpD9?=
+ =?us-ascii?Q?4h/+8WcP9LHlb3pkot0DBjBVem/k3o1g1r9Wyv+hUA9sorgC/JVvdEyNtb34?=
+ =?us-ascii?Q?vOqfuWrj7VlYKF8vttzYiY9JVjHymiS7ImvL3NMmI0KWgU7JZXWrL/kL2aBs?=
+ =?us-ascii?Q?Bx694jAfRdSbq1EHBbGwQ7qCWIhKvdYieaB25U14rEn0OOeoyny+VjRBZeBp?=
+ =?us-ascii?Q?EDUeqrs13BcKjUHC2X9m7vqKWF8ETNxAty+TLlQx2rLPas7Bt7UxkzqNtBQd?=
+ =?us-ascii?Q?wDKie4pahlsI6CW8GLFk+rQ3vQtD/+U8T2JGavyTq0a4utx/pN69TvVHodaG?=
+ =?us-ascii?Q?g1dd+LU/ImEMCwKfPsUBZs0uzmo8hIhru9HrvonsW9KGCuMETvP2jiNIJRYb?=
+ =?us-ascii?Q?WhxfIXj25fXOnyrK7UTzdw4XcR7MhPn3gJH83FXkE3A6H6q2UM0L6xZky9MW?=
+ =?us-ascii?Q?mis65i3YdAWjUcvPMqHfnR7zs/pF24Aw85iL4xCDGhTyY5vMtWo8QOoko89+?=
+ =?us-ascii?Q?k3IySBvDWt4oqVF2cdh+To9FL0++OdvQLu1asQ3iavJcNnxFZonRa+ucOeo+?=
+ =?us-ascii?Q?kBsJX5NsbBwGru3dCQL4LDMsRb3+dt5vPy/SIfWxLFwD947Mf6Ru1e/td8ut?=
+ =?us-ascii?Q?pXB6wrg7p4UAoAvU/os81eyaa4uGapxo4Gn0fNB8Y2KRPKBfzlV1vixkp/DA?=
+ =?us-ascii?Q?4jlZJappFk3QyybbhTbI4ljBXsyOkYZwwSie2xiyAYukK4l8fhs9T5kK6Noa?=
+ =?us-ascii?Q?AWp+EezQkQR6uPVnbXj/hhKXEz3Ihfy5Cdy+wh/LjyqtcIQkDfPeDf8qzr+H?=
+ =?us-ascii?Q?FkfGg/Z4GF3bJPW1hRdxTMpONAblAojwQFVKZWiNh+aA80sZ1fC1iM4VgtU3?=
+ =?us-ascii?Q?KA84cgxwTgvqviH+g0MZP/oNgTByAAJ1tnN2rQGziCMUe01SkVMGcHvopbz/?=
+ =?us-ascii?Q?Rn3GE0eoFeJXqZ04UMMSGFL/TJ2wValoMbpA/AEG5bH8Yc3/HX0CaKwqe3EG?=
+ =?us-ascii?Q?5M5s6JZULSjx1Ir1jVZmnANyIMqf/u9iLrEIaqLnefq5O2HlRC8arV14L2Xy?=
+ =?us-ascii?Q?J2XgaQAM3xzpJsMpl8V2kIXRlxm4NiVEGmTLgra8S0MaD3LPVkmALzN8VWod?=
+ =?us-ascii?Q?gWuVy1vc/Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ededeb2-fde6-48ce-bd4f-08df0f1ccdd9
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 09:20:49.8133
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SdnulP5hVaTf0RhOW03DsR4E0txOy7RlBdJaQ4XIjh2z4dtAvhjIX9Vc1E9V6jLNILWlThLDvwqLvVaV/VZ+Gw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_102051_349039_FCD5787F 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20260910_102055_940412_014ABF0E 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,270 +151,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for newer SoCs and for adding
-more capabilities to this driver in an efficient manner, migrate
-all of the hardcoded register offsets to SoC specific pdata and
-assign that for both DT and platform probing.
+On Wed, Sep 09, 2026 at 07:04:40PM +0200, Vincent Jardin via B4 Relay wrote:
+> From: Vincent Jardin <vjardin@free.fr>
+> 
+> Unbinding and re-binding the root DPRC fails with:
+> 
+>   sysfs: cannot create duplicate filename '/dev/char/10:256'
+>     misc_register / fsl_mc_uapi_create_device_file /
+>     dprc_setup / dprc_probe
+> 
+> It happens when the fsl-mc bus probe is not deferred, without SMMU:
+> - the dprc driver is registered at postcore_initcall,
+> - the DT node is populated at arch_initcall_sync,
+> - the root DPRC probes right there, before misc_init() has
+>   registered misc_class at subsys_initcall.
+> 
+> misc_register() still succeeds but the device gets
+> no class, so misc_deregister() at unbind cannot find it:
+> the minor is freed while the device and its /sys/dev/char/ link leak,
+> and then the next bind collides on the same minor.
+> 
+> Let's move the dprc and allocator drivers registration, and
+> platform_driver_register(), to subsys_initcall_sync, after misc_init()
+> at subsys_initcall.
+> bus_register() and the platform-bus notifier stay at postcore_initcall
+> so that fsl_mc_bus_notifier() still pauses the MC before the SMMU is probed.
+> 
 
-While at it also cleanup writing the driving parameters to the PHY
-by iterating through all lanes with a loop instead: note that for
-that to happen the default 0/1/2 driving parameters were added,
-those are really just zero.
+Thank you for the updated commit message.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/phy/mediatek/phy-mtk-dp.c | 145 ++++++++++++++++++++++++------
- 1 file changed, 116 insertions(+), 29 deletions(-)
+> Cc: stable+noautosel@kernel.org # niche: root DPRC unbind/rebind only
+> Fixes: 2cf1e703f066 ("bus: fsl-mc: add fsl-mc userspace support")
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index d241004e2828..20974650d940 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -4,6 +4,10 @@
-  *
-  * Copyright (c) 2022, BayLibre Inc.
-  * Copyright (c) 2022, MediaTek Inc.
-+ *
-+ * Major refactoring
-+ * Copyright (c) 2026, Collabora Ltd.
-+ *                     AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-  */
- 
- #include <linux/delay.h>
-@@ -15,24 +19,29 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- 
--#define PHY_OFFSET			0x1000
-+#define MTK_DP_PHY_MAX_LANES		4
- 
--#define MTK_DP_PHY_DIG_PLL_CTL_1	(PHY_OFFSET + 0x14)
-+/* DP_PHYD_PLL_CTL_1 */
- #define TPLL_SSC_EN			BIT(3)
- 
--#define MTK_DP_PHY_DIG_BIT_RATE		(PHY_OFFSET + 0x3C)
--#define BIT_RATE_RBR			0
--#define BIT_RATE_HBR			1
--#define BIT_RATE_HBR2			2
--#define BIT_RATE_HBR3			3
-+/* DP_PHYD_BIT_RATE */
-+#define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
-+#  define BIT_RATE_RBR			0
-+#  define BIT_RATE_HBR			1
-+#  define BIT_RATE_HBR2			2
-+#  define BIT_RATE_HBR3			3
-+
-+/* DP_PHYD_SW_RST */
-+#define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
-+#  define DP_GLB_SW_RST_PHYD		BIT(0)
-+#  define DP_GLB_SW_RST_TFIFO_ANA	BIT(1)
-+#  define DP_GLB_SW_RST_XTAL_CLK	BIT(2)
-+#  define DP_GLB_SW_RST_MAIN_LINK	BIT(3)
- 
--#define MTK_DP_PHY_DIG_SW_RST		(PHY_OFFSET + 0x38)
--#define DP_GLB_SW_RST_PHYD		BIT(0)
-+#define DRIVING_PARAM_0_DEFAULT	0x0
-+#define DRIVING_PARAM_1_DEFAULT	0x0
-+#define DRIVING_PARAM_2_DEFAULT	0x0
- 
--#define MTK_DP_LANE0_DRIVING_PARAM_3		(PHY_OFFSET + 0x138)
--#define MTK_DP_LANE1_DRIVING_PARAM_3		(PHY_OFFSET + 0x238)
--#define MTK_DP_LANE2_DRIVING_PARAM_3		(PHY_OFFSET + 0x338)
--#define MTK_DP_LANE3_DRIVING_PARAM_3		(PHY_OFFSET + 0x438)
- #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
- #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
- #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
-@@ -79,15 +88,62 @@
- #define DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
- 				 XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT)
- 
-+enum mtk_dp_phyd_dig_lane_regidx {
-+	DP_PHYD_LAN_DRIVING_PARAM_0,
-+	DP_PHYD_LAN_MAX
-+};
-+
-+enum mtk_dp_phyd_dig_glb_regidx {
-+	DP_PHYD_PLL_CTL_0,
-+	DP_PHYD_PLL_CTL_1,
-+	DP_PHYD_SW_RST,
-+	DP_PHYD_BIT_RATE,
-+	DP_PHYD_GLOBAL_MAX
-+};
-+
-+static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
-+	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
-+};
-+
-+static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
-+	[DP_PHYD_PLL_CTL_0] = 0x10,
-+	[DP_PHYD_PLL_CTL_1] = 0x14,
-+	[DP_PHYD_SW_RST] = 0x38,
-+	[DP_PHYD_BIT_RATE] = 0x3c,
-+};
-+
-+/**
-+ * struct mtk_dp_phy_pdata - Platform data and defaults for MediaTek DP/eDP PHY
-+ * @off_dig_glb:    Base offset for dptx_phyd_sifslv_dig_glb
-+ * @off_dig_lane:   Base offsets for dptx_phyd_sifslv_dig_lan (for each lane)
-+ * @regs_dig_glb:   Register (layout) offsets for dig_glb
-+ * @regs_dig_lane:  Register (layout) offsets for dig_lan
-+ */
-+struct mtk_dp_phy_pdata {
-+	/* Register offsets */
-+	u16 off_dig_glb;
-+	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
-+
-+	/* Register maps */
-+	const u8 *regs_dig_glb;
-+	const u8 *regs_dig_lane;
-+};
-+
- struct mtk_dp_phy {
- 	struct device *dev;
- 	struct regmap *regmap;
-+	const struct mtk_dp_phy_pdata *pdata;
- };
- 
- static int mtk_dp_phy_init(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_PARAM_0];
- 	static const u32 driving_params[] = {
-+		DRIVING_PARAM_0_DEFAULT,
-+		DRIVING_PARAM_1_DEFAULT,
-+		DRIVING_PARAM_2_DEFAULT,
- 		DRIVING_PARAM_3_DEFAULT,
- 		DRIVING_PARAM_4_DEFAULT,
- 		DRIVING_PARAM_5_DEFAULT,
-@@ -95,15 +151,21 @@ static int mtk_dp_phy_init(struct phy *phy)
- 		DRIVING_PARAM_7_DEFAULT,
- 		DRIVING_PARAM_8_DEFAULT
- 	};
--
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE0_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE1_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE2_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE3_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
-+	int i, ret;
-+
-+	/*
-+	 * Assume that all lanes need the same driving parameters: this
-+	 * will bulk write from DRIVING_PARAM_0 to DRIVING_PARAM_8 on
-+	 * all lanes (a grand total of [9 * num_lanes] 32-bit writes)
-+	 */
-+	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
-+		ret = regmap_bulk_write(dp_phy->regmap,
-+					pdata->off_dig_lane[i] + reg,
-+					driving_params,
-+					ARRAY_SIZE(driving_params));
-+		if (ret)
-+			return ret;
-+	};
- 
- 	return 0;
- }
-@@ -111,9 +173,12 @@ static int mtk_dp_phy_init(struct phy *phy)
- static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	u32 val;
- 
- 	if (opts->dp.set_rate) {
-+		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
-+
- 		switch (opts->dp.link_rate) {
- 		default:
- 			dev_err(&phy->dev,
-@@ -133,10 +198,11 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 			val = BIT_RATE_HBR3;
- 			break;
- 		}
--		regmap_write(dp_phy->regmap, MTK_DP_PHY_DIG_BIT_RATE, val);
-+		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
- 	}
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_PLL_CTL_1,
-+	regmap_update_bits(dp_phy->regmap,
-+			   pdata->off_dig_glb + pdata->regs_dig_glb[DP_PHYD_PLL_CTL_1],
- 			   TPLL_SSC_EN, opts->dp.ssc ? TPLL_SSC_EN : 0);
- 
- 	return 0;
-@@ -145,12 +211,17 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- static int mtk_dp_phy_reset(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg_rst = pdata->regs_dig_glb[DP_PHYD_SW_RST];
-+
-+	/* Clearing bits sets reset state */
-+	regmap_clear_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 0);
-+	/* PHYD needs 50uS to guarantee reset done */
- 	usleep_range(50, 200);
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 1);
-+
-+	/* Setting bits means go out of reset */
-+	regmap_set_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
- 	return 0;
- }
-@@ -170,12 +241,19 @@ static void mtk_dp_phy_legacy_remove_lookup(void *data)
- 	phy_remove_lookup(phy, "dp", dev_name(dp_phy->dev));
- }
- 
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data;
-+
- static int mtk_dp_phy_legacy_probe(struct platform_device *pdev, struct mtk_dp_phy *dp_phy)
- {
- 	struct device *dev = &pdev->dev;
- 	struct phy *phy;
- 	int ret;
- 
-+	/*
-+	 * If legacy platform driver probe, assume this is MT8195 or compatible
-+	 * with a devicetree that was not migrated to the new, proper bindings.
-+	 */
-+	dp_phy->pdata = &mt8195_dp_phy_data;
- 	dp_phy->regmap = *(struct regmap **)dev->platform_data;
- 	if (!dp_phy->regmap)
- 		return dev_err_probe(dev, -EINVAL, "No platform data available\n");
-@@ -235,6 +313,8 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	dp_phy->pdata = device_get_match_data(dev);
-+
- 	phy = devm_phy_create(dev, NULL, &mtk_dp_phy_dev_ops);
- 	if (IS_ERR(phy))
- 		return dev_err_probe(dev, PTR_ERR(phy),
-@@ -249,8 +329,15 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
-+	.off_dig_glb = 0x1000,
-+	.off_dig_lane = (const u16[]) { 0x1100, 0x1200, 0x1300, 0x1400 },
-+	.regs_dig_glb = mt8195_phy_dig_glb_regs,
-+	.regs_dig_lane = mt8195_phy_dig_lane_regs,
-+};
-+
- static const struct of_device_id mtk_dp_phy_of_match[] = {
--	{ .compatible = "mediatek,mt8195-dp-phy" },
-+	{ .compatible = "mediatek,mt8195-dp-phy", .data = &mt8195_dp_phy_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dp_phy_of_match);
--- 
-2.55.0
-
+Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
