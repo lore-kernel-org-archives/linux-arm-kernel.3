@@ -4,142 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056AEC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBCDC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2v8eQTUiODkYCwW7fpRiVtvLEmXAN0QDrnYnUVfQNEQ=; b=SRvb4kQZSdMwIj+97FrrWlXoYx
-	/So17XnSsPmMDhD5GaToUNM90zqjLtCCJLHtuetBIoGzojKSKQ8/0ZPOgSFefNhdIUYlHfKY1my5G
-	ozs2BnZItnYd/wr+q4zvoV6kxqQwJh2gLZ7kn0l/QcOM9vd/yHmjwA81OHCI+MnI/PGgYIMIZnrhV
-	ktY6JaJQa84CrqC5VAcjGX8U5OnQ5dYCmFUGsnItgZzD/2gkeRrD59S9YUqrk/JfFjeRkbhGdaVcB
-	vlTgltNWSAy4BqNQPaEo7yw2iko2zYhTfHSZCDNkuzTpLXJDbiZTZ8+Ta7c2v0f8wNp2FXCnmbraf
-	IGYoIOhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z5tt/vZICXYotB8Ov4sxRHc76HIObnUdWrqEICEmI+4=; b=k7Vthyo30BWk4eOdBJBaOyp9+6
+	aN6crzPqmd7pGODQIVxKvTlJ8SCKUoT9Wwd/qjEB0eIhu8oK8YU7HwKg2y95094ssT6l5xqwbVc7E
+	uwY/PhiuDtxlR540UXoyYhVRsaYGlfqViUXldowfY6Ms+z3UwIEDksxUZuXkWY7D/UG+BZf5qu5Jh
+	lIylMF3X9QTlSmdKV0JXcsVLAxgBInvG8Cwxg+G9zaMd+623Xkzuj3ojM7eKDKfB+SaaigGkFO9lO
+	jnhmbzkaa9KQnoQrSGrYSpg0ATpYNMQtNXawSjR7Xo37WTKhlo6QhMpf1WXE0J9cA42qP4AWRnAuF
+	v03cWdXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c2p-0000000E3ww-0l9L;
-	Thu, 10 Sep 2026 10:30:15 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x4c3W-0000000E4LQ-238E;
+	Thu, 10 Sep 2026 10:30:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c2U-0000000E3h6-1HlV;
-	Thu, 10 Sep 2026 10:29:55 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68A91QMg576514;
-	Thu, 10 Sep 2026 10:29:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=2v8eQT
-	UiODkYCwW7fpRiVtvLEmXAN0QDrnYnUVfQNEQ=; b=cbBoC1WUvLIsh/Wj2cLPT2
-	vjPz/azRP2Hrwlumw/k42MGAwm24W5evh90rCcbAHhlhipSVKSOfLluTbJtU1jt6
-	Gx1m/p9cwc1yahl/k90Whze96rIxuzGLAWsoacYf1NXRxuNSdY2iIbvv9apQVJlc
-	UMZI8mcGuPuZuBg96KgDjH1Pcigve3p2ynl7rfqYTHLKARJK6yDYgZPAH82YY4WR
-	VAl1DJdg2jJ4oqrX3R8i38RcGwTWjtRRHNdV+FyDZlZBQqoJbTTQnBWLJIHA7E6v
-	y6sCElhwjdI/2YfJdtQKBJsmaGNvwQ7+69t6sq49a5r086FtooX5B8DWFJH5dewg
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gkd8n3wd8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Sep 2026 10:29:37 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 68AAQC9K004763;
-	Thu, 10 Sep 2026 10:29:36 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gkcr33uj1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Sep 2026 10:29:36 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68AATWNH43188604
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Sep 2026 10:29:32 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 878092004D;
-	Thu, 10 Sep 2026 10:29:32 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 00B2F2004F;
-	Thu, 10 Sep 2026 10:29:30 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.111.48.108])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Thu, 10 Sep 2026 10:29:29 +0000 (GMT)
-Date: Thu, 10 Sep 2026 12:25:31 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Paolo
- Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>,
-        Bibo
- Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-        Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian
- Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank
- <frankja@linux.ibm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
- <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Atish
- Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        David
- Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH v2 09/20] KVM: selftests: Use the innermost page
- allocator API in s390's IRQ routing test
-Message-ID: <20260910122531.499b565b@p-imbrenda>
-In-Reply-To: <20260902164123.2546762-10-seanjc@google.com>
-References: <20260902164123.2546762-1-seanjc@google.com>
-	<20260902164123.2546762-10-seanjc@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	id 1x4c3U-0000000E4Kf-4AAo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 10:30:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 62EA841ABB;
+	Thu, 10 Sep 2026 10:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875C11F000FF;
+	Thu, 10 Sep 2026 10:30:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789036256;
+	bh=z5tt/vZICXYotB8Ov4sxRHc76HIObnUdWrqEICEmI+4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mpoFtE5bJ1xDM3TQ3yyWIgKLdNeODO0ftV5eZAFo/Tams4jQnJJ0EWELrYwtiqI9U
+	 4o0lNTHcri4/WN+GzA6ZKbWJL8UbvAz+KgCNYw9vSFMH/arhR71+6t3+HOekJEd4w5
+	 EerrtgsFnyGebjCwOVHrBSjq08KbyYRHkwO2fazhSh2vi2/mGozXFZ/9CIBUDiBIR5
+	 g52FeLV63HRSjRb902gKfcVR1K1CSxqkZSqHndTKlvpiJ8LaLru8ZXCbjwIdLHGonD
+	 +wVNCSY6aTFyG22pkvcTIrz4ITwQw+UgvdO3OlTaIiB3ZYLCSCdMqoXT6nBUT69vyT
+	 xqUI2FH0RzvLg==
+Date: Thu, 10 Sep 2026 11:30:49 +0100
+From: Simon Horman <horms@kernel.org>
+To: Hemanth Selam <hemanth.selam@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Chris Snook <chris.snook@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	GR-Linux-NIC-Dev@marvell.com, Geetha sowjanya <gakula@marvell.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jian Shen <shenjian15@huawei.com>,
+	Jijie Shao <shaojijie@huawei.com>,
+	Manish Chopra <manishc@marvell.com>,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>, Rahul Verma <rahulv@marvell.com>,
+	Ratheesh Kannoth <rkannoth@marvell.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shahed Shaikh <shshaikh@marvell.com>, Shuah Khan <shuah@kernel.org>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	Sudarsana Kalluru <skalluru@marvell.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-parisc@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v3 04/10] net: cavium: fix typos in comments
+Message-ID: <20260910103049.GW40544@horms.kernel.org>
+References: <20260908052602.27497-1-hemanth.selam@gmail.com>
+ <20260908052602.27497-5-hemanth.selam@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=NMVAaE6g c=1 sm=1 tr=0 ts=6aa28691 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=1XWaLZrsAAAA:8
- a=omOdbC7AAAAA:8 a=VnNF1IyMAAAA:8 a=ncMTWhVeLHM-VX_LCFkA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: Se5IIme47yOD2YBAO0JHuYpxPj7OtfZR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfX5cTAuBi1pOw0
- eCaNg8ALKS6/QFSqT//okMnY45ig0qLvL0qlinYgrlkvM4y8dox1QEYYRVq1DSN5ZnVPcloYMzz
- qzTs+Pk68w6UnwFc5Fcytw4kHMzGKU9lWP8PiUAG2m+ymP9PrpTKt4qGBIczpWCt8vrcJ127ixD
- 9cOEVmc3sD09VEDPEv4MbzyTBatBFAjMRySMq6Z7uKPsboCi1kWWNEaH0zm6HKcEagQuJAm1OpN
- tu1bwMh0zrZb1QtvY69KWvjYeUgL88ocCGgFWt5Kn7w04RiWEPHkblVyBo+h7CTLU/NVbmG19Go
- YqhGsu0rcwe7fP7uzCqijdqHBfQYTU+Kf++VDwhvVRuQKgfW9isJuHzl54TDJJgLK0PXPFqBZzf
- 9fLBbTJ21IPM+xgRHVm03S/vZUCBKv5qnjJ6iLnNIWb5KV5w5oRjKx9vfb5EpXDcGmx6NAjtmbx
- 3eggPh0QRJRm864ZYpA==
-X-Proofpoint-ORIG-GUID: EeWyQkeZUCSSRdpkHyS1LNqruiFVZs4W
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfX6mMimO+EDNf/
- eJupQqfyq8zKgx+xjT0vGZK4TqN7lyOx+e+F0dUZro+XG34zrPAU7eBBA1hL2I4JHSa/bG9nlqQ
- X7lB6vw5V56GrdX2vG0c4Pn1Yf68Y1c=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-10_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609100115
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_032954_390528_9B0DB8B0 
-X-CRM114-Status: GOOD (  18.69  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260908052602.27497-5-hemanth.selam@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,39 +89,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  2 Sep 2026 09:41:12 -0700
-Sean Christopherson <seanjc@google.com> wrote:
+On Tue, Sep 08, 2026 at 10:55:56AM +0530, Hemanth Selam wrote:
+> Fix misspellings in comments, found with scripts/checkpatch.pl using
+> the misspelling list in scripts/spelling.txt.  Comments only, no code
+> changes.
+> 
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 
-> Use the quad-underscores page allocator in s390's IRQ routing test in
-> anticipation of dropping the @min_gpa param from the primary APIs.
-> 
-> Note, it's not entirely clear that the test *needs* to use a very magical
-> @min_gpa, i.e. it's possible a more elegant solution exists.  But that's a
-> problem for a different day.
-> 
-> No functional change intended.
-> 
-> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
-
-> ---
->  tools/testing/selftests/kvm/s390/irq_routing.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/s390/irq_routing.c b/tools/testing/selftests/kvm/s390/irq_routing.c
-> index f3839284ac08..cd26cc1aed80 100644
-> --- a/tools/testing/selftests/kvm/s390/irq_routing.c
-> +++ b/tools/testing/selftests/kvm/s390/irq_routing.c
-> @@ -36,7 +36,7 @@ static void test(void)
->  	};
->  
->  	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> -	mem = vm_phy_pages_alloc(vm, 2, 4096 * 42, 0);
-> +	mem = ____vm_phy_pages_alloc(vm, 2, 4096 * 42, 0, false, false);
->  
->  	routing = kvm_gsi_routing_create();
->  	routing->nr = 1;
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
