@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE878C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22032C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVdmkaSk3ZG55nEhsYcH95ArBxXEWXCCMZcHoDFV5Og=; b=ZqNtRjntJK5sLJgkJ43f1Xsgsh
-	1IkBnVVkC4iw8Xvxq3XHq3mZ7AtbhhcgTQUl/Vc9NvXPIrS3xqE1EJ9DF1b+/lKepFUtyXTjMB9Sz
-	Q+jMdW9oOuD1JdOwkLmYcFpN7K4/A2/tB5ljUglAVY4gQ81pXyr0cVZbOGizPSh8DL7aehvuLHqW1
-	j62I+LWs71cpSDZpEZ/dVyCRlEXBbFZMtNu/yoyjptyUuq90ia8yf8cLF2UO9BgFaZxI+lNPegZxY
-	KQJTiG4nU0TignG7obYn7JPBNnpnukpgOLABFbQXMP+XFHz7PiS6iK89uvgTnIXM9Cf89ijoc5C1R
-	Sjch49eA==;
+	bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=; b=Xu8/e1KrT3Z0ii0xmLLB8W7hp4
+	d5O2BiT9ar2JxG7ZZ2faP3WCmDva9Cz2N5PM6rVG0E63gbL+DMTaB8Fg0Q/2sT+rNS8+E7IUm9MOU
+	d4lT/XBuoFQqgrbjXw941LhIXUORdyRZRDHMr20Eap6/jY78D7k22VjDqqJ9foyeh9ZxDl7Xn+ZBt
+	ViBAeJbblMEro/KVPOtsB8E+uyjufzlcCmSN90Z70rSVGxVZK/oKEJzGjabK471nT9gHzMMvO22jN
+	9q6dbR+lq4HtmpuGBujNZjYjpJMGXdGi47M7Kx88OpcYyD350V23TRDMgr4+EpYZEDUzlZ+7YmUuc
+	2p95GKNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gmE-0000000Ent9-219r;
-	Thu, 10 Sep 2026 15:33:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4goh-0000000EoDx-2bcC;
+	Thu, 10 Sep 2026 15:35:59 +0000
+Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gmD-0000000Ensw-40ri
+	id 1x4goe-0000000EoCS-3bTh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:33:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D01140938;
-	Thu, 10 Sep 2026 15:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC1B1F000FF;
-	Thu, 10 Sep 2026 15:33:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789054405;
-	bh=BVdmkaSk3ZG55nEhsYcH95ArBxXEWXCCMZcHoDFV5Og=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CiD6n5R1z57QgmIKQnJ5Ajzku3sxKwqHMfxaB3mDlbzMea9AtA1NwcKXXtJx0LpgT
-	 2C+FRSyKXwy3L6xS/pdLkxg7fFmUG8YIgu0U4DxW9Ah845f2plLu/j8LPQsPNYXos0
-	 27A0xWLpZrJFMnd/tPxNxM8Iey3y6yUtrPqGeYE2lSIjOZygpZWGaI2VWxy6lqJ8bc
-	 /s+S7zOYwylvbRn1vZJ58Zvd7pHkLBSyzT71ntpSfTB+cvVXada0/uO+nLcijHwzx+
-	 oCOpmFKllmeDjeZ0kaLIVQbH5FXZxx1b8iheGr4oYEvOwYZC/345xMbF1K7YURGP3v
-	 oPq7odcg1/+1A==
-Subject: Re: [PATCH net-next V3] net: axienet: Clear stale AXI DMA TX/RX
- status before re-enabling interrupts
-From: netdev-bot+sashiko@kernel.org
-To: kusuma.vasana@amd.com
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- git@amd.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Thu, 10 Sep 2026 15:33:24 +0000
-Message-ID: <178905440414.219967.6111426130109067474@kernel.org>
-In-Reply-To: <20260906153243.1903501-1-kusuma.vasana@amd.com>
-References: <20260906153243.1903501-1-kusuma.vasana@amd.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	Thu, 10 Sep 2026 15:35:58 +0000
+Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-38f57e31b6eso4367426a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 08:35:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789054555; x=1789659355; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=;
+        b=i4067qxb3NGzOipqPmKN6x37anplWN2BA8DjmfZA7QVlKx9Xv/2K2bVDahYktTgdu2
+         d1tLhzqRMFd880+Y6KZikHj6s8FQvKN1hBFD/1715lYp1os7w30QdF+YfsdK3BqUUNG/
+         CytG/w/u8Nb31c7Js32jXwKRjmJIQiAyQuJVOb/TbY6uHd7Xe6eIvDx80qKboFnQKxVh
+         ZrtBwb03xmFQGI3HOENR+8m/AoZnxyGBcfqGeFrakkjLXjkFK7xqVtXF8cNI6FSKciKV
+         YJ4ivfu99A8EBv6S6VVOSlUxKz9q8tCAQ0tRa0dDuOLL/EWfRIj/+Z0eMih++BLpeUPi
+         ZdJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789054555; x=1789659355;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=;
+        b=paMRaw7QwcSiYVITqlEkDDQdiNvMbmxuIxHHB5WleHt3mK3BoVgVRxE+9zBMurPOYG
+         jGU+0zDOPoLhskVDj7C94H993fX5EvUmIezhAWkDAwKHQt091p+PBZOsHpbe1ZIxhi1c
+         e6OQ8auwSVAm2f8vyvPA9KnvBhskV8XGnTf5eedCf7f1msHDA/LIT6Jkwlu8SlLiI+en
+         MSlqB5iue1cbzYjdrgxv9vB2GAUB4LjiZsWxEYlQqExEZRfuasF+/Dsx1uvXoHhojkML
+         BBikofIJhSKtS6jvMy6MyIJJYtBzPYxyynYN59WdgzOypePeOYiOiQDFnfdbVfH/OXrh
+         SHXQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw6nQrfu6mFXMTwq2XES8biPCOwVnRxudpNrDq+JZvUqpVnc+RaQuaQXh9jjRi1dw/KC4NehhqDhtCLZp1525jS@lists.infradead.org
+X-Gm-Message-State: AFuF++mPwrhv41M8cmC2lTyWfTZp69uumTXr8w1ZO40BySRy+t4ehFI4
+	OqTy9aHs1AMpAincKJKzmMqiCFrScJWV1oEcT9yidH019r+ioLDqbdS5dOGhNJVLNkyBkAC4M+/
+	piPXZsw==
+X-Received: from pjbdt17.prod.google.com ([2002:a17:90a:fa51:b0:39d:8f18:feb5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:6081:b0:39b:51cc:4586
+ with SMTP id 98e67ed59e1d1-39b51cc65admr27199424a91.19.1789054554982; Thu, 10
+ Sep 2026 08:35:54 -0700 (PDT)
+Date: Thu, 10 Sep 2026 08:35:54 -0700
+In-Reply-To: <20260910143448.GD3968357@nvidia.com>
+Mime-Version: 1.0
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com>
+ <20260905012403.GX4157646@nvidia.com> <aqIAtOoew-_6jw29@google.com> <20260910143448.GD3968357@nvidia.com>
+Message-ID: <aqLOWkuVKccR-I7W@google.com>
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+From: Sean Christopherson <seanjc@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>, arnd@arndb.de, 
+	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org, 
+	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com, 
+	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org, 
+	kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com, 
+	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_083556_907393_D1CDBA91 
+X-CRM114-Status: GOOD (  57.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,192 +100,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider:
+On Thu, Sep 10, 2026, Jason Gunthorpe wrote:
+> On Wed, Sep 09, 2026 at 05:58:28PM -0700, Sean Christopherson wrote:
+> > On Fri, Sep 04, 2026, Jason Gunthorpe wrote:
+> > > On Fri, Sep 04, 2026 at 10:24:21PM +0000, David Matlack wrote:
+> > > 
+> > > > The proposal here (which is inspired by the KVM UAPI) is to ensure every
+> > > > LUO ABI struct has 2 properties:
+> > > > 
+> > > >  1. A field to encode options/features (e.g. u64 flags).
+> > > >  2. A way way to grow without breaking backward compatibility (e.g. so
+> > > >     we can add new fields).
+> > > > 
+> > > > Each flag can mean whatever it needs to. e.g. It can indicate the
+> > > > precence of one or more fields (i.e. new fields in the struct), or it
+> > > > can mean a field now has a different meaning (i.e. union in the struct).
+> > > > 
+> > > > This would enable adding support for new features without breaking
+> > > > backward compatibility. Downstream users would have to ensure their
+> > > > kernel does not start using a new feature while it can still rollback to
+> > > > a version that does not support the new feature.
+> > > 
+> > > This was never the biggest problem. The main issue was the functional
+> > > behaviors of the kernel that cannot be represented simply as data in a
+> > > struct with some flag bits.
+> > > 
+> > > Like for instance kernel A supports memfd folio sizes far larger than
+> > > kernel B because we fixed MAX_ORDER. You can't fix that just with
+> > > simplistic flags.
+> > 
+> > Can you elaborate on why the folio sizes matter?  Honest question, because I don't
+> > understand why the serialization format wouldn't express things as "N contiguous
+> > pages starting at PFN X".  Then the implementation would rebuild its folios as
+> > appropriate.
+> 
+> That's an idyllic view, yes, but my point is (IIRC) we didn't do
+> exactly that for memfd.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
+Well, y'all screwed up then.  I don't see why past mistakes should force other
+subsystems to support a flawed implementation.  Learn from the mistakes, add v2
+of serialization for memfd, and move on.
 
-- [High] Unordered write-1-to-clear of the AXI DMA status register
-  followed by a descriptor read can silently swallow a DMA completion.
-- [Low] Both new blocks can `return budget` while `packets` is less than
-  budget (possibly zero), which contradicts the unchanged kernel-doc of…
-- [Low] The new RX comment at
-  drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1314-1318 states…
+> Sometimes you can do more and more work to try and be more and more
+> general but this is *alot* of work and even then eventually hits
+> problematic limits. Like what do you do with the sealing flags? That's
+> ABI breaking if the successor does not support them, and downgrades
+> make exactly that possible.
+>
+> A CSPish user can do things like patch the new sealing flag into their
+> current kernel (while preventing userspace from using it), ensure
+> everything is updated to that, then jump ahead to a newer kernel and
+> enjoy the new flag with full downgrade support. There is so much more
+> control on their part that makes the problem far more managably simple
+> that upstream does not get to have.
 
---
+I guess maybe we have a different definition of ABI? 
 
-net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
+I'm not saying that upstream has to be 100% forwards and backwards compatible.
+I'm saying the serialization payload itself should communicate what features are
+effectively required.  I.e. *if* there are incompatibilities, they should be
+naturally expressed in the serialization format, not communicated out-of-band
+through magic numbers.
 
-This adds a write-1-to-clear of the IOC/DELAY bits in the AXI DMA TX/RX
-status registers at the end of axienet_tx_poll() and axienet_rx_poll(),
-followed by a re-check of the next buffer descriptor, in order to avoid
-one redundant NAPI poll caused by status latched while interrupts were
-masked.
+The scenario you describe fits exactly with what I am proposing.  Until something
+actually starts using the new sealing flag, the CSP can downgrade to older kernels
+at will.  And if the user cares about downgrading, then they need to prevent the
+flag from being used until the new kernel is rollback-safe and deployed to enough
+hosts to prevent stockout.
 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 1722b7038f340..ae43b9744cb90 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1018,6 +1018,16 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
->  			netif_wake_queue(ndev);
->  	}
->  
-> +	/* Clear stale IOC/DELAY bits and re-check for race-window completions.
-> +	 * Skipped on budget exhaustion.
-> +	 */
-> +	if (packets < budget) {
-> +		axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
-> +				  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-> +		if (lp->tx_bd_v[lp->tx_bd_ci].status & XAXIDMA_BD_STS_COMPLETE_MASK)
-> +			return budget;
-> +	}
+> This is why I think the very idea we can support any version pair is
+> too much to ask for. We should focus on supporting a small set of
+> version pairs and not making it too invasive or hard in the kernel or
+> on the maintainers.
+>
+> Thus live update within a stable branch only is my proposal for
+> upstream support.
+> 
+> If it really succeeds at that and it becomes very popular, then let's
+> discuss upstreaming doing additional version combinations.
 
-[Severity: High]
-Can this sequence lose a DMA completion?  The status-register clear is a
-posted write with nothing after it to flush or order it:
+Why on earth would we have version numbers in the first place?  IMO, monotically
+increasing version numbers are flat out the worst way to communicate features.
 
-drivers/net/ethernet/xilinx/xilinx_axienet.h:
-static inline void axienet_dma_out32(struct axienet_local *lp,
-				     off_t reg, u32 value)
-{
-	iowrite32(value, lp->dma_regs + reg);
-}
+I am completely against supporting any scheme that relies on magic version numbers.
+It creates problems where none need exist, and checking for compatibility can't be
+sanely done in a programmatic way, because by definition it relies on magic numbers.
 
-The descriptor status that follows is a plain load from
-dma_alloc_coherent() memory, so on arm/arm64 the Device-nGnRE store is not
-ordered against the subsequent Normal-memory load (iowrite32() only emits
-__iowmb() before the store).
+E.g. if the ABI for a given component hasn't changed, why should anyone care if
+the overall "version" of the kernel is ahead or behind by N kernels?
 
-That allows this interleaving:
+> > I could see things like HugeTLB not working if someone booted the kernel with
+> > support for only 1GiB pages and then tried to feed it payload with sub-1GiB ranges.
+> > But to me, those sorts of things fall into the "well yeah, don't do that" category.
+> 
+> Okay, how about worse, todays kernel has hugetlbfs and there are
+> patches around to luo serialize that. Lots and lots of talks about a
+> post-hugetlbfs world out there.
 
-  CPU				DMA engine
-  ----				----------
-  write IOC|DELAY to SR		(write still in flight)
-  read tx_bd_v[tx_bd_ci].status
-    -> not COMPLETE
-				descriptor writeback, latch IOC/DELAY
-  (queued W1C lands, wipes IOC/DELAY)
-  napi_complete_done()
-  write lp->tx_dma_cr
+And?  Adding a compatibility layer to a future kernel so that it understands an
+incoming HugeTLBFS payload should be trivial.  I can totally see not wanting to
+support serializing a post-HugeTBLFS kernel's memory representation into the "old"
+format, though even that probably wouldn't be all that difficult.
 
-after which IOC/DELAY are enabled in the control register but the status
-register is clean, so the level-sensitive line stays de-asserted while a
-COMPLETE descriptor sits in the ring.
+> Do we want to constrain what is possible to ensure we accomodate this
+> hugetlbfs serialization? I vote no.
 
-Before this patch there was no such window: the status word was acked only
-in axienet_tx_irq()/axienet_rx_irq() before NAPI ran:
+In what way is providing strong ABI guarantees for individual components
+constraining HugeTBLFS serialization?
 
-	axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET, status);
+> Do we want to reject the hugetlbfs serialization until we have a year
+> of debate outlining every possible ABI scenario? I also vote no.
 
-so anything the hardware latched during the poll window kept the line
-asserted and produced exactly the extra poll this patch removes.
+That's a bit of a strawman argument.  Is designing a forward-looking ABI easy?
+No, but IMO "a year" is a massive exaggeration of the effort required to come up
+with a scheme that can survive a variety of plausible upgrade/downgrade scenarios.
 
-The RX hunk below has the same ack-then-scan shape, and it is issued right
-after the XAXIDMA_RX_TDESC_OFFSET doorbell, i.e. when the engine is most
-likely to complete a descriptor concurrently.  On TX the skb is not freed
-and netdev_completed_queue()/BQL accounting stays skewed until some later
-completion; note that axienet_netdev_ops has no .ndo_tx_timeout, and
-netdev_watchdog_up() returns early without one, so there is no software
-watchdog fallback.  On RX the frame is delivered late, or on an idle link
-not until the peer retransmits.
+And again, I'm not saying we have to support infinite compatibility.  If some
+future kernel drops HugeTLBFS, and we decide not to provide a shim to support
+downgrading (which IMO is totally reasonable), then it's on the user to understand
+that moving to that new kernel is a one-way street.  Given that dropping something
+like HugeTLBFS would require significant changes in the software stack, I think
+it's perfectly fine to put the burden of understanding the implications on the end
+user (though realistically, there would be a copious amount of documentation and
+deprecation warnings).
 
-Would reading back XAXIDMA_TX_SR_OFFSET / XAXIDMA_RX_SR_OFFSET (or
-otherwise ordering the clear ahead of the descriptor scan) close this?
+> Should we make a downgrade round trip a downstream problem? I think
+> so!
 
-[Severity: Low]
-This return can hand back budget while packets is smaller than budget, and
-possibly zero.  The kernel-doc above axienet_tx_poll() still says:
-
- * Return: Number of TX packets processed.
-
-and the one above axienet_rx_poll() says:
-
- * Return: Number of RX packets processed.
-
-The commit message describes the change only as
-
-    "recheck the next BD to catch race-window completions"
-
-without mentioning that the poll now returns a sentinel work value.
-__napi_poll() treats work == weight specially:
-
-net/core/dev.c:__napi_poll() {
-	...
-	if (likely(work < weight))
-		return work;
-	...
-	gro_flush_normal(&n->gro, HZ >= 1000);
-	...
-	*repoll = true;
-}
-
-and net_rx_action() charges the returned value against netdev_budget with
-budget -= napi_poll(n, &repoll), so a poll that reclaimed nothing consumes
-a full weight of the softirq budget.  On RX the same path also skips the
-net_dim() sample in the napi_complete_done() branch.
-
-Returning budget does look like the required idiom here, since returning a
-smaller value without calling napi_complete_done() would leave the instance
-scheduled but off the poll list.  Could the kernel-doc and changelog be
-updated to describe the sentinel return instead?
-
->  	if (packets < budget && napi_complete_done(napi, packets)) {
->  		/* Re-enable TX completion interrupts. This should
->  		 * cause an immediate interrupt if any TX packets are
-> @@ -1301,6 +1311,18 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
->  	if (tail_p)
->  		axienet_dma_out_addr(lp, XAXIDMA_RX_TDESC_OFFSET, tail_p);
->  
-> +	/* Clear stale IOC/DELAY bits and re-check for race-window completions.
-> +	 * Skipped on budget exhaustion and on refill failure (cur_p->skb ==
-> +	 * NULL) to leave the level-sensitive IRQ armed so the poll is
-> +	 * rescheduled on the next hardware completion.
-> +	 */
-
-[Severity: Low]
-Is the "leave the level-sensitive IRQ armed so the poll is rescheduled on
-the next hardware completion" part of this comment accurate?
-
-axienet_rx_irq() already writes back the whole status word before NAPI is
-scheduled:
-
-	axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET, status);
-
-so unless the hardware latched a new IOC/DELAY during the poll window there
-is no bit left to keep the line asserted, and the skip is a no-op rather
-than something that arms the interrupt.
-
-When a bit was latched during the window, the following block is not gated
-on cur_p->skb:
-
-	if (packets < budget && napi_complete_done(napi, packets)) {
-		...
-		axienet_dma_out32(lp, XAXIDMA_RX_CR_OFFSET, lp->rx_dma_cr);
-
-so the line asserts an interrupt immediately, not "on the next hardware
-completion".
-
-The RX tail was also only advanced to the last successfully refilled
-descriptor:
-
-	if (tail_p)
-		axienet_dma_out_addr(lp, XAXIDMA_RX_TDESC_OFFSET, tail_p);
-
-so a further completion past the stalled slot is not guaranteed either.
-Could the comment (and the matching sentence in the commit message) be
-reworded to match what the code does?
-
-> +	if (packets < budget && cur_p->skb) {
-> +		axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
-> +				  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-> +		if (cur_p->status & XAXIDMA_BD_STS_COMPLETE_MASK)
-> +			return budget;
-> +	}
->  
->  	if (packets < budget && napi_complete_done(napi, packets)) {
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260906153243.1903501-1-kusuma.vasana%40amd.com
+Hard NAK.  There will inevitably be boundaries that cannot be crossed, but I am
+not at all ok punting on downgrades.  To me, that's basically saying "we want to
+add just enough support upstream so that it's not too painful to carry full support
+out-of-tree".  That completely goes against the spirit of open source and upstream
+Linux, and I want no part of it.
 
