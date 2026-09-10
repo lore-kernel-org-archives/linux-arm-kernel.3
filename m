@@ -4,136 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C742C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F5CC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvYB7Sk0tJgpOEfZyUQRlKfRKv+bmOWl8sbAG3trAwA=; b=TMdd7TSD6AdMU5VuY1ZyZYWDRd
-	v1DUt9JmU2Cw3yKEly6jVI2gMwWEvRg7nW4nbE1JTu+OT68nmrMaIJ2BXK/yi8IYGK3kec+JEdFlw
-	7XDOKvOxn52PaayNdtol1GGUtBet0/Pnnz4CIezcRllMLYol9chge+YN1DRYBu6Y2J35gxwbshe14
-	cChyb9tCV1GKJX4wWaMWeXg3Wwc54N3Bd2kN73tC1vtMcDb4SrG9wIth4gBQ5So5TgDnv0ZqAFxso
-	eOx7wi0dvURBNpvVG1A06bE2mv/HNWLy65OVjBpxfiUEl6z0r3gvNnlsJEqXj4qUbQk3hTvDRrztT
-	XeV/T1vA==;
+	bh=cGCi7JGudYz4ih1yv+RTXMGqMbQdRYeEJWnczslWMzw=; b=wi8KA1wAW6WjF7ExXcELRcqhUJ
+	cw8qW7ltIYBtrgOMtGYCxXdw44R0W/e1Lhnz+kWxayiA9DeFN9xCJ6tgL43gj2+po49wY6OjlGKrP
+	i+vpQu9mXKDlx34sXz5sNNuMVvXcRN//nhmtvd01eaW0SMdqcd+/DvU1WJVgZLJnp8qvCqu8KOy9i
+	lKiQwm+LNZ3yg7rj4cKn5KOwZE3QKR3aDcT6mjO79TC6awajKQNEJf51cf9SlTPdHQyVGOqefuwS7
+	s9MOpk7Z9KeiEh3GDjz8LRniwy1awrUqN15+8sJnYZEAtbabuRGhZuriOZ11It2vaxuBlF7QoXLcQ
+	BlmkLE7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hm7-0000000EyGk-2owo;
-	Thu, 10 Sep 2026 16:37:23 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x4hoH-0000000EyVv-3tBO;
+	Thu, 10 Sep 2026 16:39:37 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hm5-0000000EyFs-1G1l
+	id 1x4hoF-0000000EyV9-3oq4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 16:37:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n+bsbQ87l7sjj2IAK8HVna0+/yINEsMr6MdB/RH7fEc7CJMedm1PncOoApoS8qNExZQJEUkl7ELgLLHeH4A63QjxaaSlEKrQQo0gQRc7+L0TcucIm1Fg748HMpRNpOng0amYYy+5dK5PzqcjwJUv4Q+VX1s7uDl5gZKy/EcGWmZZXj/N0Wi2Tz1S8CNHgDSbTDgoN1A0xZjtKLsDe5NIj2bfs/9KW6sjJywMHQXKH7eZWObF/zYUYgKKGw0Bg8uXWZ0uz41aWQIulqJpQ1kaSmX24hdGRHz6yVj0c1cWYC8c8/LotNlPUHmsMOxPJjRDGMpKfFDBLcRc3emwpmfv/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QvYB7Sk0tJgpOEfZyUQRlKfRKv+bmOWl8sbAG3trAwA=;
- b=R40bspBeSUl7vGUGW1I7whig3KIZ/yMFEMWj9nm5OFUDx0AIJu+mkMBugPPfO6FUxYCKwbwO6nAk9Zr3vyJMb6W0XRbpTpKRGFzkRV9+g/S+MU07J2I0j4Cb3n3rEeajTgzyOg1Qu+gf/lfVWET9uI97eg02Y1T7ofYnMT/4gwjGjuRw2BbYqF2hyl0YMpVouya8SID7+vDRoWCo0o/jIrGskZb3fwM/JfQJ+8V8BQvpu04TMTMvpkwx6pQlFEY2fRtV9AhYn2lLalfe//LBbpBUiiI8NeKT//twYO6ffF3xkrbebUjVeoxOmgywCYWrGAn22tUtpF6Ww24O2cw/sQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QvYB7Sk0tJgpOEfZyUQRlKfRKv+bmOWl8sbAG3trAwA=;
- b=JDaoOjicUORsvrNSLn5Tx/sGu15rSBPhG2peto59nEn9SaDZ76nOZpighcHw7sONHeO1qpBeB2aouoEYzGGb0kDjTdUwRguctHiF+FTGlJsvdM4a+IXpFCyqAGMn1X/wDrwMpXHc/ig5ekCNgxVR6nC+rPQA8W1aWoJB7qU8OGckQL4exUJoxfLQxoFmlIqD3RS7F6N3EFwLADe3YGYLlv3IvUrrpk8sY24nLZzcgluC+UQPHuiPq80b/RoOfXOHICfRU4UFVwTC1dXECrFudaVn2D+WmBFBL8LQYVkerRXyiEfbIc7yS76rQSrUQHWH/LSqIWyyM4c8Zubfso96gA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8341.eurprd04.prod.outlook.com (2603:10a6:20b:3b0::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Thu, 10 Sep
- 2026 16:37:17 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
- 16:37:17 +0000
-Date: Thu, 10 Sep 2026 11:37:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-Subject: Re: [PATCH 2/2] arm64: dts: imx93-kontron: Add support for Kontron
- i.MX93 DL
-Message-ID: <aqLcsc6SROjv6FRv@SMW015318>
-References: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
- <20260910-upstreaming-v7-3-imx93-displayline-v1-2-bb9446e6ed6e@kontron.de>
+	Thu, 10 Sep 2026 16:39:37 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49b965570d7so474365e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:39:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789058374; x=1789663174; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cGCi7JGudYz4ih1yv+RTXMGqMbQdRYeEJWnczslWMzw=;
+        b=LwtdeXBOkvLXldjRUFyR2Srdw0/RSz4GZowNw3BJ+J7mVNXQZ2Wr7lW1ix11mnfapy
+         GrPhtLt2KmbWGntm8Uq38h53onsRaA1BrsOiRrym9Hd4R32pI8YAlMkQWi/a/Bga4Jq3
+         Bo7ERNjSgjrNzzqNXOQ+fTtm/7F0IA1ytCEEXTJNQCd+BPzP8LvPWsAlSKMVozdbCXoE
+         StII46+X5uXapO52Uq0Sa56vvBplJpMCaiFYOrCYEDkLGpEjnbS5v89FdAABzrtVQ2ZL
+         7s1AYtHnfvh48k8+h8slQ+8dtKWVfoD+9zlLSI5rGLuT0CqyqX/fgKei4x6v50ckgM/Q
+         Urlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789058374; x=1789663174;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cGCi7JGudYz4ih1yv+RTXMGqMbQdRYeEJWnczslWMzw=;
+        b=NbdYaKwdSfO5f9hTK5EYbDoCCCc2O/UEAjIKFDSeYkoxGKamgkLvV/iLY4j4ZG4phh
+         IuiukWmlZEo87XRmhEfmGhbUObwnqDWM0S9z1uDDZb+AB72vlh5PzftcOaqCV1VbUMHm
+         7VteD4uI2eG3FGobphzjP8RyCQy8XGr9Y08w5ghBsSsnSi01d/ejX5v4o1nvIpxrrDF/
+         fsB83eUXvPbDGvUhV2PQNXYh4Y+3bDB7+zGakhOV231NJjeulLz8yyx+wnYk3Rj8Ao5i
+         P76gtpkESkH4CkifZSih1uS9tDWJBF6QIN+ReqmW/WM8tTzswj1hgZMW69bZoRhHWfnz
+         W+4Q==
+X-Forwarded-Encrypted: i=1; AKwUvBw8SlFXzHxGf+9QK/z1n5a9PSfrTWAvdb43l8J61UXrG/Wrc+loyoF5QMkrYw6ynpfLQkTRq+2sMHn2CIcJOBg7@lists.infradead.org
+X-Gm-Message-State: AFuF++nyJwfavZ0opAZk/t2L9Dcd+v5mDF4u/hjvx16isEsnHB1nZsC4
+	+zn9lvPFdfUWkMBxPfTIOClWcKZnAP02ZHQjg76/fFPqXH0LXWSlAPVU
+X-Gm-Gg: AYBFou1y+BpmzPfqoVWsaG9pAKSZD41YniCNaBlpuZsQd/Ozj7kMPT0y7D8/eaNd/nP
+	Fo5JDFSO4sg5i+NJEMMe4Hx1ErRc12ZruZhoPZKKP2X8qCRrjZ4qUJi4WHX1GNrclkm80FChprz
+	m59vunKJa413FAMMfBZHwC3VXzF7d6esLubijX4mHezNzH7CFz4SAAODJPoCSybvjz4pt+5XW6A
+	qTwZldhKQRvV860VnHU1pyMZF2dvvCXBI2FTmjdOL5opB6DXTVesZ53zzHetULMSFadKA0HLqp1
+	jnpZKOcRCfkiN2a3xNtDLbnzC1IDL/qsOVvjSJjA4fPcVgP0Mnr8aMVCuHJsZlMm4uk9H0XC/zV
+	mNH+EXTuZKI1eu3xh1I/LBIqA83LPuyH0CSyC7ePRASG50jbEZN/iqnzRSEARmX+6Exda0YjaPL
+	CVCakqdaT6VTSTjMrYndwyEWcPTQtDwK+IDlwJ1xUsPuGfd7OmV0crC0ZkCs+u5QbycihZXZII6
+	KKbfXFjk7oIV1nAYwYGeA7nm5WLyFBjg8UsThaCOiqYrDLFeGP5h6xrCc9ivD06aR+UmnW52Q==
+X-Received: by 2002:a05:600c:6383:b0:49c:f4ff:e872 with SMTP id 5b1f17b1804b1-49cf820507cmr379154095e9.5.1789058373630;
+        Thu, 10 Sep 2026 09:39:33 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20db6e76sm155013825e9.3.2026.09.10.09.39.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 09:39:32 -0700 (PDT)
+Date: Thu, 10 Sep 2026 18:39:30 +0200
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
+Message-ID: <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
+ <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
+ <aqLaLmz7n31P6igy@SMW015318>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260910-upstreaming-v7-3-imx93-displayline-v1-2-bb9446e6ed6e@kontron.de>
-X-ClientProxiedBy: CY5PR15CA0155.namprd15.prod.outlook.com
- (2603:10b6:930:67::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8341:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62e20645-4797-4ea3-9b47-08df0f59c69f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|7416014|1800799024|22082099003|18002099003|56012099006|3023799007|4143699003|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: VNypQszlb0JbBJjoC7zuzpPoEL6TtByra3wz4vQ2BJaVBK10nnek3ej3x1m8K5Pq6okGatsAQB9qtPWdeUdT3Pojht+FDTWSkTAVlKH2yPlChm2e5+FuTKoWlyy08oUpQw7HiVTJpvT/slCTHxYultCc34XNepCrRyj+yBB0O5I+xVB8qjCbhm7RO4c3U9PL2UBtFSqwOkbhQIsyRtcceWlHbSy6W+Lrf7GMEqX9HzmBA5UbGNzM4uzdYNWzDna4Qgt9q3mAMUhHzMF5IHALLqCI2QbhOXhLqUoXyZ9eQv+EXJCAOVAbb1ZGXyBXta5kpCX/TVTEuoxrBepcZM8xO1O84Ay2ybRs3Y82S+dHn6vCzX26tggPfNEUo1q9YN7v5R1pvkoK9r6hGIQROlqjg3vrtKeox9QmSxPfgmcbEQiv/cYMJtXZygyz/aLazXFIu6tKqsV7j89wTkw7ocx7vmo65GBGzIhYjw2uTbiWqC4I+cuN8rMaDMdxpHYHC/CIXE0e0teWWNGpK4a7RfNVqYp2RDpvHccPxSorZgB4TLQow9us73hb7rTTXutyOLk7yMJqdw+j8c83b5/1KakhUAlcLHyYHERXYf0t2bOmHy0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(7416014)(1800799024)(22082099003)(18002099003)(56012099006)(3023799007)(4143699003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nxNaR9+7aYOWr4rj1PKoI5A49gnkvNhsCorYNoQqcY3RZdbup15mHK3eL3s/?=
- =?us-ascii?Q?xUrhQz01mYDMc/iTQBtgci16BJ4hJubLQm8bYwmteXzZN9+fdumHQnWItztm?=
- =?us-ascii?Q?5/1ETdL/Bw0tkl3cH6fYMJKy0r+8COz6luXWIDt+CAnQy5QTUDxpD/C2g6h2?=
- =?us-ascii?Q?k9HO9Aj5oP34mIrBUmeYrFl3GfWAyvh1LdBSM8y25aiXNe6s34lEcUHxGWZn?=
- =?us-ascii?Q?opyD/4YsEuQUVi5xPg2/+8TYmS/lgrILVxAJJlaTnR65GEnW3/QTl+IPvY66?=
- =?us-ascii?Q?7oogC5BAjRKlI+xjA1TH4vqs34EvOqdcnHGK09LyObLU8ePI2zFcoDQc1j0K?=
- =?us-ascii?Q?YlqbITOCDnhxvO2Yb+QdVVvYuGYotMcZhAY+NGNNSh6cz8IKX4q4xxEhAkx0?=
- =?us-ascii?Q?rGXw+G0HkVSsawOrZm6x9GrvTnCQOLjW0924PQ3kqW6NksyISYpcZWHCA4fB?=
- =?us-ascii?Q?wrvfluqR+BSLlmBlLEUYwW/QmHmX1/8WpCJGGmahZBEQ5ixlj0MLNPe7d4Zy?=
- =?us-ascii?Q?KDTvaVGVODwIWfcdfyQy7azpT8fYthytmnEm7lgFaX2nQ36Br4KBkV1D01GZ?=
- =?us-ascii?Q?h4L8Es8o9RnAOXi78VK+spRMmfN10t2drmeEedZ6rV7FM1F5MuR9OKYzVrYX?=
- =?us-ascii?Q?g/JJR863yDHviFli1zLSK96K6nFSGjrzyvGh3IVddzBuf2/9KFi/VWllLBOy?=
- =?us-ascii?Q?FFcne30WKyoZ7S45J8fLfbAYj3KaKiU81Rp6joX4cgyszDutcUMETzN9rNcd?=
- =?us-ascii?Q?4xfPRZhEThq0lPrpCETi8B6u6IXPDKlnAlFuBaQRTuyapcrT3XH3W61Pkc6+?=
- =?us-ascii?Q?FaT/dNgMc+O7OEOHM9RwcEtqPrw9INcyPkz1nwXwWCAV3vRceQjDkitWBxUT?=
- =?us-ascii?Q?RgMVb2pwI1l2Bg8PbFRe0nLyx47ykj8ZuBDw9B/o+PjKq+Pzu7VhcA/31VBm?=
- =?us-ascii?Q?/8hiWptIH6zc7uMkW0tO2qBr326wqM5TxKpjmDJm04ShQ6C0lU64eZnUGYv0?=
- =?us-ascii?Q?kuwNE13F2UKokYUArZ0AD8DzNMCWN+3eXW9VCUmyIW3gFzJSq9noQX53gvFr?=
- =?us-ascii?Q?iixy88KNpFNtlpDWMz2O8dreVuW6I7q8+mrTon+3wtv9EnXz9lH8JjSMCDOG?=
- =?us-ascii?Q?VHlg/Q+4J89R6UFSxTPD2BTaVSiIgGgbZIROSxXcJlyZqxXZr0EaiG/7G9M8?=
- =?us-ascii?Q?0wF0/Vq2+S5HMM5lCdH328ajjidzO/IPcl2so1kJGHFUyuFhw1IPgHqzfkQi?=
- =?us-ascii?Q?CGnFRPvvOa/+3wsAV7PFDKUcoWmfhiDByx96c7blrfr9suftwVImZ0QfeW0x?=
- =?us-ascii?Q?zvGiV8USWVrF/hROOCLhqG7JOhX+VQz6FEbTGcw7wMM/0tTrMjFWN7f7f7yC?=
- =?us-ascii?Q?LT9q3Z3jk8tpFOje8Tf9JpTvDRmNgTdBrcg81o+s1piRcSnOqAbBKN2emavs?=
- =?us-ascii?Q?x2D5BNOd+4L2zcP2G//HH9aIAEnu1ZbWqY3yUMAt/PiIVDvDoAn2x97PBcUV?=
- =?us-ascii?Q?qiGhZgyyV/wR2Y+5pKSRRvv9bhD4dhvl3eRLYeFDcaOF6nJqSnN7yvtb0kPr?=
- =?us-ascii?Q?6EA0Hxh4PYC0m8K+WwYbruZ8UX9aXYyrsPLCQh5xfrtslJSbWkrgibZweDg4?=
- =?us-ascii?Q?8NSHzn8/KEEwqJYyOvrKGhB8aD1hXJs2MOn31rRh2p/djLnstjy5vkw4DYtE?=
- =?us-ascii?Q?ciVbHmvmLbPBXGuGSXNdmheauEsvnDgak0kNVW31/DDsCBXXGwQofxITHDWa?=
- =?us-ascii?Q?4Vhl0wsjGht9kU3zEE2gvHO7LcYwZrp5uu4Niz4h9dOFsUOf5xn2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62e20645-4797-4ea3-9b47-08df0f59c69f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 16:37:17.2118
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FZnQjVZUcM6zbyCx2v6S5Z2Qd1kqTSD+hf1vv62wmb3kQ+Vg3Qy9tAIcr6LNT+cCMkeEqgAelq4wIPGxzZG7ImoijesA4eP0USLS3Yrf8U2VbaJ0rGwkQYVdOqR4qreh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8341
+In-Reply-To: <aqLaLmz7n31P6igy@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_093721_343120_4C8115AE 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20260910_093935_977595_C6628E45 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,154 +107,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 05:19:07PM +0200, Frieder Schrempf wrote:
-> From: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
->
-> This provides an overlay to enable the 7" LVDS panel on Kontron
-> i.MX93 DL devices.
->
-> Signed-off-by: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-> ---
+Hi Frank,
 
-Can you use similar method to share 7" lvds for other boards also
+Thanks for reviewing this so quickly.
 
-https://lore.kernel.org/imx/20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com/T/#t
+On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
+> On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
+> > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> >
+> > Toradex boards route the sideband signals of their 24-pin camera
+> > connectors to different GPIO controllers. Camera overlays which name
+> > those controllers directly must therefore be duplicated for each host
+> > board.
+> >
+> > Describe reset, power-down, detection and power-control as
+> > connector-local GPIO functions. This lets an accessory overlay remain
+> > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
+> > remain described separately because the GPIO nexus does not abstract
+> > them.
+> >
+> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > ---
+> >  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++++++++++++++
+> >  1 file changed, 86 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
+> > new file mode 100644
+> > index 000000000000..06e6836e1aa6
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
+> > @@ -0,0 +1,86 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/base.yaml#
+> > +
+> > +title: Toradex camera connector GPIO nexus
+> > +
+> > +maintainers:
+> > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
+> > +
+> > +description: |
+> > +  Toradex boards provide 24-pin camera connectors carrying MIPI CSI-2, I2C,
+> > +  clock, power, and sideband GPIO signals. This binding describes the sideband
+> > +  signals as a GPIO nexus. The other connector resources remain described by
+> > +  the surrounding board device tree.
+> > +
+> > +  The nexus exposes connector-local GPIO function numbers to camera overlays
+> > +  and maps the functions wired by a carrier board to their GPIO controllers.
+> > +  GPIO specifiers contain a function number followed by standard GPIO flags.
+> > +  A board may omit functions which it does not wire.
+> > +
+> > +  The function numbers are:
+> > +    - 0: Camera reset, connector pin 11
+> > +    - 1: Camera power-down, connector pin 22
+> > +    - 2: Camera identification, connector pin 23
+> > +    - 3: Camera power control, connector pin 24
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: toradex,camera-connector
+> 
+> Name is too generally, suggest use board name, we got similar comments at
+> 
+> https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.nxp.com/
 
-Frank
+I saw that and it made me reconsider this name.
 
->  arch/arm64/boot/dts/freescale/Makefile             |   4 +
->  .../arm64/boot/dts/freescale/imx93-kontron-dl.dtso | 104 +++++++++++++++++++++
->  2 files changed, 108 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 95ae85ab4adf..2f0d3378c050 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -653,6 +653,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
->
->  dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
-> +
-> +imx93-kontron-dl-dtbs += imx93-kontron-bl-osm-s.dtb imx93-kontron-dl.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-dl.dtb
-> +
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso
-> new file mode 100644
-> index 000000000000..2d962823dfeb
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso
-> @@ -0,0 +1,104 @@
-> +// SPDX-License-Identifier: GPL-2.0+ OR MIT
-> +/*
-> + * Copyright (C) 2024 Kontron Electronics GmbH
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +&{/} {
-> +	model = "Kontron DL i.MX93 OSM-S";
-> +	compatible = "kontron,imx93-bl-osm-s", "kontron,imx93-osm-s", "fsl,imx93";
-> +
-> +	backlight: backlight {
-> +		compatible = "pwm-backlight";
-> +		pwms = <&tpm3 3 50000 0>;
-> +		brightness-levels = <0 100>;
-> +		num-interpolated-steps = <100>;
-> +		default-brightness-level = <100>;
-> +	};
-> +
-> +	panel {
-> +		compatible = "jenson,bl-jt60050-01a", "panel-lvds";
-> +		backlight = <&backlight>;
-> +		data-mapping = "vesa-24";
-> +		enable-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
-> +		power-supply = <&reg_vcc_panel>;
-> +		height-mm = <86>;
-> +		width-mm = <154>;
-> +
-> +		panel-timing {
-> +			clock-frequency = <50000000>;
-> +			hactive = <1024>;
-> +			hback-porch = <160>;
-> +			hfront-porch = <160>;
-> +			hsync-len = <1>;
-> +			vactive = <600>;
-> +			vback-porch = <23>;
-> +			vfront-porch = <12>;
-> +			vsync-len = <1>;
-> +		};
-> +
-> +		port {
-> +			panel_in_lvds0: endpoint {
-> +				remote-endpoint = <&ldb_lvds_ch0>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&gpio3 {
-> +	panel-rst-hog {
-> +		gpio-hog;
-> +		gpios = <26 GPIO_ACTIVE_LOW>;
-> +		output-low;
-> +		line-name = "panel-reset";
-> +	};
-> +
-> +	panel-stby-hog {
-> +		gpio-hog;
-> +		gpios = <27 GPIO_ACTIVE_HIGH>;
-> +		output-high;
-> +		line-name = "panel-standby";
-> +	};
-> +};
-> +
-> +&lcdif {
-> +	status = "okay";
-> +};
-> +
-> +&ldb_lvds_ch0 {
-> +	remote-endpoint = <&panel_in_lvds0>;
-> +};
-> +
-> +&lpi2c2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-> +
-> +	touchscreen@5d {
-> +		compatible = "goodix,gt928";
-> +		reg = <0x5d>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
-> +		irq-gpios = <&gpio2 22 GPIO_ACTIVE_HIGH>;
-> +		AVDD28-supply = <&reg_vcc_panel>;
-> +		VDDIO-supply = <&reg_vcc_panel>;
-> +		reset-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>;
-> +	};
-> +};
-> +
-> +&lvds_bridge {
-> +	status = "okay";
-> +};
-> +
-> +&media_blk_ctrl {
-> +	status = "okay";
-> +};
-> +
-> +&tpm3 {
-> +	status = "okay";
-> +};
->
-> --
-> 2.55.0
->
->
+However, I believe that in our case it is specific enough. It is really
+the same on all our carrier boards, and Toradex specific. It's also only
+for cameras, which is more defined than just "io". Curious to see if
+others agree or if we should come up with a name for this.
+ 
+> > +
+> > +  "#gpio-cells":
+> > +    const: 2
+> > +
+> > +  gpio-map:
+> > +    minItems: 1
+> > +    maxItems: 4
+> > +
+> > +  gpio-map-mask:
+> > +    items:
+> > +      - const: 0xffffffff
+> 
+> are you sure need full 32bit, only 4 pin, maybe 0xf should enough?
+> 
+
+Indeed we could reduce the size of the mask, but I don't really see the
+value in it. Isn't it good that a user can pass through the full GPIO?
+
+> > +      - const: 0
+> > +
+> > +  gpio-map-pass-thru:
+> > +    items:
+> > +      - const: 0
+> > +      - const: 0xffffffff
+> > +
+> 
+> missed
+> 	gpio-controller: true
+> 
+
+This is one thing I didn't fully understand about the GPIO nexus
+concept, why would we need this gpio-controller flag? Isn't the gpio
+controller behind the nexus? The nexus just maps onto it. The actual
+controller would be on the SoC or an expander.
+
+> > +required:
+> > +  - compatible
+> > +  - "#gpio-cells"
+> > +  - gpio-map
+> > +  - gpio-map-mask
+> > +  - gpio-map-pass-thru
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/gpio/gpio.h>
+> > +
+> > +    camera-connector {
+> > +        compatible = "toradex,camera-connector";
+> > +        #gpio-cells = <2>;
+> > +        /*
+> > +         * 0: Camera reset, connector pin 11
+> > +         * 1: Camera power-down, connector pin 22
+> > +         * 2: Camera identification, connector pin 23
+> > +         * 3: Camera power control, connector pin 24
+> > +         */
+> > +        gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
+> > +                   <1 0 &gpio1 1 GPIO_ACTIVE_HIGH>,
+> > +                   <2 0 &gpio1 2 GPIO_ACTIVE_HIGH>,
+> > +                   <3 0 &gpio1 3 GPIO_ACTIVE_HIGH>;
+> > +        gpio-map-mask = <0xffffffff 0x0>;
+> > +        gpio-map-pass-thru = <0x0 0xffffffff>;
+> > +    };
+> > +
+> > +    gpio1: gpio-controller {
+> > +        #gpio-cells = <2>;
+> > +        gpio-controller;
+> > +    };
+> 
+> Need't gpio-controller.
+> 
+> Frank
+> 
+
+This ties in to my same confusion above, could you explain why or point
+me to a relevant example/docs?
+
+Thanks and kind regards,
+Ernest
 
