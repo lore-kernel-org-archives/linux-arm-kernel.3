@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A47EC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 06:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C01C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 06:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/k+yiZQ/DjscsSQBisbAkWZG0ZHOpYd0t4wXm/dBYU=; b=ZMV0+edPME5og8v2YuwDpNdt5w
-	5jKiRZPvN4miGplHvbXvvbpoPT+lrPe7IPmvbWfmSngoGNlPW5XlnCRRCBceg1NIQZZiXXZDtzRGr
-	VUxpigL6i78lZ1nV5E0QuijRAcyRwbiew7GUxCHJVUUT0NN9FLAMYZWdGxe9qDfoH/lGKAMWTid0M
-	IZSeQ0gA71dzctld2zR/c6qtoIx44VPkxuhR4gkYwBw947cE4EhWwwhZqo7TqMLD13m03WZ3A1PMn
-	jqiQEmHCZK2oWK78uQL717Vz3bhYPhnZlh0yRL42i2J7oRO4k5ceOgH7d1oGpXZma0dgywnGKpUb9
-	5IoaFBsw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QS/rswidDYc7zKh1QoD1+mqk8IZbOAibmQnAiC6jcYg=; b=IOAfWJIP6W4hCi9oFEEV0wgKcp
+	CU1SRdloWmg3H8FHiHRI5DBoZqG6i6YrgdDnOVyMBrW5RsPnpaLqtt3W5wCEGkdNe/miJsq79ZBLN
+	cTHbrqRA5l/PvbHdf7p3RlvDimaSJWJgEfUGZQ5s/JYeKboc1oN/q1rnLqu18CBrYZp+aXBaCwHZK
+	W/fbPQTzsGjI0DY9cjXtI64erx8LjDhwBETgYJnpb3KM+qEJwIAbTWlOfMsomVVa7uqzTue0bP3A0
+	Y8eyB5olnI1upUFjYGrOlTQboyr46YJK2u07WigVOjaFClPddLBgDkvGcyx/VWCXi0egbDRkkz8hZ
+	2JmCgjjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YOF-0000000DXLz-1how;
-	Thu, 10 Sep 2026 06:36:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4YOk-0000000DXWr-2kTq;
+	Thu, 10 Sep 2026 06:36:38 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YOE-0000000DXLN-1Azr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 06:36:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Q/k+yiZQ/DjscsSQBisbAkWZG0ZHOpYd0t4wXm/dBYU=; b=SC2GXI+Hn5HJihVL+lHXO3vh8C
-	Zvgrx2989Utd8dZDqOOzw1zlos564z40LTNlMvkQM6be61QUX1XXz6fPnqtKfMBpfr4E+TiD5EsWr
-	kj25Jk2iDFkyQBurbqrTYUU1H3hLd0ufIbzgXMxX25EenYrC0H8GDBlYvK/5YDCyrMbTY5NC2qvda
-	dDsSrI5JIs2jHiTG7xXRt8bFqgOV9Z892kx6jIDCxdYziLzArOaAgrb4YztwKiLm/B+s1yrYFoCaJ
-	VRLTgfXIKt5TkfxziwKmcFkF7UwCfE79oQAw7MZ9z1Z52cCTL+0UT73jPF7y9IdMuoroDIvmea0Qw
-	2KcJnKmg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4YO8-000000025K0-3k6A
+	id 1x4YOf-0000000DXUd-1saD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 06:36:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D40751570;
-	Wed,  9 Sep 2026 23:35:52 -0700 (PDT)
-Received: from [10.57.8.56] (unknown [10.57.8.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E11703F7B4;
-	Wed,  9 Sep 2026 23:35:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789022156; bh=kumzXJBqaaaXDeADdZjd0wn2AlS+mSdcuauVEB3m0SI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qF5OLKKuz5yjN123Vu3aY3Ez3e3J7MqGqqChZHjho0jgPyGoOTVyJVQ93PhNsTP/d
-	 ZRoZgAeFWG3kJEQY79JbZlpRyws55gl2DJJ63aXMXDnpRINvaZ7kmHaZe/9OkubJEt
-	 IIkFa7X4pIfEdVb/YlhxmvzQRi4CPsggJPsoOCCU=
-Message-ID: <92ab372a-0db0-46fe-bbfe-03649e18de37@arm.com>
-Date: Thu, 10 Sep 2026 07:35:52 +0100
+	Thu, 10 Sep 2026 06:36:37 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso63629865e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 23:36:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789022191; x=1789626991; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QS/rswidDYc7zKh1QoD1+mqk8IZbOAibmQnAiC6jcYg=;
+        b=OiQLsWKoUpCQabdFpF6F4JRwWzmzg6VZu7DgyH7lxLIAOVxxkdl28mq8qcWoZ4gQAo
+         4XIANO08lAiX+zczIhSyhNqnIU5YDKIX5U8uTXt74lvqZfbGkEmlZpnWJnoumTuagAaP
+         ws7G7Pm/Ec37x9LCikYgwtQ+jkFD0y5KUxlLut13UvuprtubQApIO8YoyhEzl+cWoq4t
+         KsPsZMLSop0MUQcB9Xl4mKodsBSh8W0Wyg7gVAGOJcRwGfYrCZjFarnqAalYLjYJaZHi
+         0Fx2Dtt3iZ4yfvhQGx7nHoP5LP3kstjHxIiNjABW1JunJtzdFiADZwENxdJWK2xHi/ev
+         wm3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789022191; x=1789626991;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QS/rswidDYc7zKh1QoD1+mqk8IZbOAibmQnAiC6jcYg=;
+        b=ERAtk6kaCui9J22OrGRs0rSb3BrB955Mal7e3CbtFQzn5n/gzxZHFz9zgOcH6No9jq
+         8CGHoDoRiyR83Iq4jIm1rOU/Ud+GFLpQt9B7ooTjJunr1vZ2shuWsKrohDmaslVtBf65
+         A2HZH29m2xgu+JFSXH4kzpxfqX4WVKNlZBVjrLUCMibJd+6VJMwWahStDeRBCmDXpLjU
+         mmeCNPBTrIWC2/3O7GWYHGJ3+Wev+QELe7cNoAwCJOw97CZTnIQPpYKxJvjxnv8LiCeC
+         ihJ2dq5Gc/y92RP0r+Z4lzayA1rgB1rnSq8a/ApJpbdJU6k01oK+0ZJak7ohHtN7UWKs
+         o1qw==
+X-Forwarded-Encrypted: i=1; AKwUvBxszUERp7RrmlDQn4TQaWTTLZfRmeMnrY5cbWalPAOAafIrKck4uO7Zn4+5mmUP7VIXyYkwTiwTSAgKJ4dSa781@lists.infradead.org
+X-Gm-Message-State: AFuF++mv3SBApFbeurKE4RS3dFz0x9Cri61PlQf1fVBmziZ8eOHqnjgk
+	ItrU+XA9KAkabCCKDNu7ECMQeX+SX1sD+wV39xXpncAaoG8prn7OvYfw
+X-Gm-Gg: AYBFou05gKk3LbLb+d/KW1rOJSXaJpQtjpcrNkl0OUx5tgBVElQWMkY+vRqqs/TuoLi
+	fQ5ttxiiO/pmJqmswK5sEC8WDkzsM37H8i3R2rAM98wSpG6SG6qV+i6Mdkr00Krm4QNVJouH3aO
+	/Q3a1r8vvtInctwuUsoyJXGI4JRUuEl7q+gQh2d+MSFnmcvRyiGnCDIqIkfCUMX4qEw757anGc1
+	V7e14gbKrJfGG8dP46QmrvsCdqq3of/RK3FLeZBIFHCFbpG9DBifHYLNzHs3meVTQTUPuNE4dYy
+	BeMrYwXETXf3+5Rmox1fvxscSVbNAUeF0h/Jx2myKEUZ3zE0uJerox/0bFzhORTmfN4hJXP/sRv
+	+9rB7tHzy4hds+tAD2ns9aGVpyF1p4iGfZUetxSxU0wYs7qk8jykBGdwjsDBIA4QYNT5ZZm1M+r
+	8RYSyRAQsLJAEzPN6GH5tV2Y5GMS7OXUvmtIuaFlS69C+ScFjR0YDZs2MFuZDTi/ytkP40IamfN
+	r7uqRgnypVB32bnsLEIc/0xz+11RCXTZmbjEeA5NTh+8JvM8fhm5aPgAC4o/7vKZu1TxlAjNAWc
+	jVFpWkGF8FlG656e1BuO606GKxwgmCR1qcjIzdRUUxlln5GKJRpMpFBrGFi8uLXhU7W2i/RMvgO
+	HAvqY
+X-Received: by 2002:a05:600c:19d0:b0:49d:1840:4fd2 with SMTP id 5b1f17b1804b1-49d18405074mr152224855e9.23.1789022191188;
+        Wed, 09 Sep 2026 23:36:31 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-b3d9-b901-0402-5aad-0ef4-88ac.310.pool.telefonica.de. [2a02:3100:b3d9:b901:402:5aad:ef4:88ac])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26bfdb4asm47766655e9.11.2026.09.09.23.36.29
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 09 Sep 2026 23:36:30 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christoph Hellwig <hch@lst.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH 0/2] ARM: preserve DMA_FROM_DEVICE buffer contents
+Date: Thu, 10 Sep 2026 08:36:18 +0200
+Message-Id: <20260910063620.17768-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 03/20] KVM: arm64: Track the type of VM in kvm_arch
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-4-suzuki.poulose@arm.com>
- <3cd34b9c-7500-4993-86ff-c1ee9a86b601@redhat.com>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <3cd34b9c-7500-4993-86ff-c1ee9a86b601@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_073601_303432_90008F2D 
-X-CRM114-Status: GOOD (  30.58  )
+X-CRM114-CacheID: sfid-20260909_233633_512449_AC084BC9 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,204 +108,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2026 04:39, Gavin Shan wrote:
-> Hi Suzuki,
-> 
-> On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
->> KVM arm64 has different types of VMs with all the different modes in 
->> which the
->> hypervisor code can be run. e.g., VHE, nVHE, PKVM etc. Then there is 
->> protected
->> VM and normal VMs with PKVM. We might soon add other types, e.g., Arm 
->> CCA Realm.
->> So in an effort to make the handling of these different types of VMs a 
->> bit more
->> friendlier to the eyes, add a VM flavor to the kvm_arch and we could 
->> then add
->> handlers for different operations based on the VM type.
->>
->> Keep the flavor initialisation at the beginning to allow for the 
->> detection
->> early enough and fail out on any unsupported requests. (e.g., 
->> protected on !PKVM)
->>
->> With that, use the vm_flavor to detect if a VM is protected VM on PKVM.
->>
->> Based on a patch by Marc Zyngier
->>
->> Suggested-by: Marc Zyngier <maz@kernel.org>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   arch/arm64/include/asm/kvm_host.h | 12 ++++++++++--
->>   arch/arm64/kvm/arm.c              | 27 ++++++++++++++++++++++++---
->>   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  2 +-
->>   arch/arm64/kvm/pkvm.c             |  1 -
->>   4 files changed, 35 insertions(+), 7 deletions(-)
->>
-> 
-> Some nitpicks below. In either way:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/ 
->> asm/kvm_host.h
->> index 27fe0cd5b2d7a..d0dccc9ad6aa8 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
->>       pkvm_handle_t handle;
->>       struct kvm_hyp_memcache teardown_mc;
->>       struct kvm_hyp_memcache stage2_teardown_mc;
->> -    bool is_protected;
->>       bool is_created;
->>       /*
->> @@ -306,9 +305,18 @@ enum fgt_group_id {
->>       __NR_FGT_GROUP_IDS__
->>   };
->> +enum kvm_arm_vm_flavor {
->> +    VM_NVHE,
->> +    VM_VHE,
->> +    VM_PKVM,        /* Normal guests on PKVM */
->> +    VM_PROTECTED_PKVM,    /* Protected VM */
->> +    VM_FLAVOR_MAX,
->> +};
->> +
->>   struct kvm_arch {
->>       struct kvm_s2_mmu mmu;
->> +    enum kvm_arm_vm_flavor vm_flavor;
->>       /*
->>        * Fine-Grained UNDEF, mimicking the FGT layout defined by the
->>        * architecture. We track them globally, as we present the
->> @@ -1504,7 +1512,7 @@ struct kvm *kvm_arch_alloc_vm(void);
->>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
->> -#define kvm_vm_is_protected(kvm)    (is_protected_kvm_enabled() && 
->> (kvm)->arch.pkvm.is_protected)
->> +#define kvm_vm_is_protected(kvm)    ((kvm)->arch.vm_flavor == 
->> VM_PROTECTED_PKVM)
-> 
-> Here we may introduce one more helper for generic use cases. It's going to
-> be used in kvm_arch_init_vm().
-> 
-> #define kvm_vm_flavor_eq(kvm, flavor)    ((kvm)->arch.vm_flaor == (flavor))
-> #define kvm_vm_is_protected(kvm)    kvm_vm_flavor_eq(kvm, 
-> VM_PROTECTED_PKVM)
+This series prevents a DMA_FROM_DEVICE map from discarding CPU-written
+buffer contents on non-coherent 32-bit ARM. It is based on
+v7.3-rc1-324-g986c24e0fe44.
 
-see below.
+ARM currently invalidates these buffers before the device writes them.
+If the device writes only part of a buffer, discarded dirty cache lines
+can expose older memory contents in the untouched bytes. A stock USB
+webcam demonstrated this through usbfs. Short isochronous packets left
+gaps, and usbfs returned non-zero data to userspace from bytes it had
+cleared.
 
-> 
->>   #define vcpu_is_protected(vcpu)        kvm_vm_is_protected((vcpu)->kvm)
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 8b080804bc90b..67f1ff9bc4fbe 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
->>       return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->>   }
->> +static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
->> +{
->> +    bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
->> +
->> +    if (is_protected_kvm_enabled()) {
->> +        if (protected)
->> +            kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
->> +        else
->> +            kvm->arch.vm_flavor = VM_PKVM;
->> +    } else if (protected) {
->> +        return -EINVAL;
->> +    } else if (has_vhe()) {
->> +        kvm->arch.vm_flavor = VM_VHE;
->> +    } else {
->> +        kvm->arch.vm_flavor = VM_NVHE;
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   /**
->>    * kvm_arch_init_vm - initializes a VM data structure
->>    * @kvm:    pointer to the KVM struct
->> @@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned 
->> long type)
->>       mutex_unlock(&kvm->lock);
->>   #endif
->> +    ret = kvm_init_vm_flavor(kvm, type);
->> +    if (ret)
->> +        return ret;
->> +
->>       kvm_init_nested(kvm);
->>       ret = kvm_share_hyp(kvm, kvm + 1);
->> @@ -260,9 +284,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned 
->> long type)
->>           ret = pkvm_init_host_vm(kvm, type);
->>           if (ret)
->>               goto err_uninit_mmu;
->> -    } else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
->> -        ret = -EINVAL;
->> -        goto err_uninit_mmu;
->>       }
->>       kvm_vgic_early_init(kvm);
-> 
-> We needn't depend on is_protected_kvm_enabled() to call 
-> pkvm_init_host_vm() because
-> the output of is_protected_kvm_enabled() has been updated to kvm- 
->  >arch.vm_flavor
-> by previous call kvm_init_vm_flavor().
+arm64 changed this handoff from invalidate to clean in 2022 with commit
+c50f11c6196f ("arm64: mm: Don't invalidate FROM_DEVICE buffers at start
+of DMA transfer"). Arnd Bergmann's 2023 ARM32 cache-maintenance series
+left DMA_FROM_DEVICE preservation unresolved [1]. This series keeps the
+existing ownership hooks.
 
-TBH, thats a faster way to check if we are running on PKVM. I could
-add something linke kvm_vm_has_pkvm(kvm) which covers both VM_PKVM and
-VM_PROTECTED_PKVM.
+Patch 1 covers v6, v7, v7-M and the common outer-cache path. These paths
+already invalidate when ownership returns to the CPU. Patch 2 makes the
+legacy write-back backends use their existing clean-and-invalidate
+operation at device handoff. Their no-op ownership-return hooks remain
+unchanged, avoiding the additional completion traversal raised during
+review [2].
 
-> 
->      if (kvm_vm_is_protected(kvm) || kvm_vm_flavor_eq(kvm, VM_PKVM)) {
->          ret = pkvm_init_host_vm(kvm, type);
->          if (ret)
->              goto err_unit_mmu;
->      }
+[1] https://lore.kernel.org/r/20230327121317.4081816-1-arnd@kernel.org
+[2] https://lists.infradead.org/pipermail/linux-riscv/2023-March/029740.html
 
-And I can drop the type fron pkvm_init_host_vm with suggestion below.
+Testing:
 
-Cheers
-Suzuki
+  - An ARM11 MPCore (ARMv6) in a New Nintendo 2DS XL lost 402,080 of
+    409,600 CPU-written bytes in a mapping-only test. With patch 1, none
+    were lost. The UP kernel used out-of-tree platform support and the
+    same map-time invalidate as mainline.
 
-> 
->> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/ 
->> pkvm.c
->> index 459bd9eb7e4bc..09961c0056f2b 100644
->> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> @@ -432,7 +432,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, 
->> struct pkvm_hyp_vm *hyp_vm,
->>       hyp_vm->host_kvm = host_kvm;
->>       hyp_vm->kvm.created_vcpus = nr_vcpus;
->> -    hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm- 
->> >arch.pkvm.is_protected);
->> +    hyp_vm->kvm.arch.vm_flavor = READ_ONCE(host_kvm->arch.vm_flavor);
->>       hyp_vm->kvm.arch.flags = 0;
->>       pkvm_init_features_from_host(hyp_vm, host_kvm);
->> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
->> index 8e4c6e4bec123..3948fa46f4d75 100644
->> --- a/arch/arm64/kvm/pkvm.c
->> +++ b/arch/arm64/kvm/pkvm.c
->> @@ -240,7 +240,6 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned 
->> long type)
->>           return ret;
->>       kvm->arch.pkvm.handle = ret;
->> -    kvm->arch.pkvm.is_protected = protected;
->>       if (protected) {
->>           pr_warn_once("kvm: protected VMs are experimental and for 
->> development only, tainting kernel\n");
->>           add_taint(TAINT_USER, LOCKDEP_STILL_OK);
-> 
-> In pkvm_init_host_vm(), the local variable 'protected' is used for once
-> and can be removed by:
-> 
->      if (kvm_vm_is_protected(kvm)) {
->          pr_warn_once(...);
->          add_taint(...);
->      }
-> 
-> Thanks,
-> Gavin
-> 
+  - On an ARM926EJ-S (ARMv5TEJ) SAM9X75, eleven mapping-only runs lost
+    339,936 to 351,744 of 409,600 bytes with the existing code. Five
+    usbfs runs checked 245,708 unwritten gap bytes and exposed 29,403 of
+    them as non-zero. With this series, five fresh 100-iteration
+    mapping-only runs on the same board each lost 0 of 409,600 bytes.
 
+  - A Cortex-A72 running AArch32/LPAE did not reproduce the loss in 22
+    existing-kernel runs. This does not establish whether other v7 cores
+    are affected.
+
+The one-pass series passed focused W=1 object builds for ARM926,
+Feroceon, XScale, ARM940 and v7. The remaining legacy backends have
+source review and compile coverage from the previous two-pass revision.
+
+Neither patch adds a cache traversal. Patch 2 changes the legacy
+DMA_FROM_DEVICE operation from invalidate to clean-and-invalidate. This
+can add per-line work and memory writes on dirty buffers. Throughput and
+CPU cost have not been measured.
+
+Karl Mehltretter (2):
+  ARM: dma-mapping: preserve DMA_FROM_DEVICE buffer contents
+  ARM: dma-mapping: flush FROM_DEVICE buffers on legacy backends
+
+ arch/arm/mm/cache-fa.S          | 1 -
+ arch/arm/mm/cache-v4wb.S        | 1 -
+ arch/arm/mm/cache-v6.S          | 2 --
+ arch/arm/mm/cache-v7.S          | 2 --
+ arch/arm/mm/cache-v7m.S         | 2 --
+ arch/arm/mm/dma-mapping-nommu.c | 5 +----
+ arch/arm/mm/dma-mapping.c       | 8 +-------
+ arch/arm/mm/proc-arm1020.S      | 1 -
+ arch/arm/mm/proc-arm1020e.S     | 1 -
+ arch/arm/mm/proc-arm1022.S      | 1 -
+ arch/arm/mm/proc-arm1026.S      | 1 -
+ arch/arm/mm/proc-arm920.S       | 1 -
+ arch/arm/mm/proc-arm922.S       | 1 -
+ arch/arm/mm/proc-arm925.S       | 1 -
+ arch/arm/mm/proc-arm926.S       | 1 -
+ arch/arm/mm/proc-arm940.S       | 1 -
+ arch/arm/mm/proc-arm946.S       | 1 -
+ arch/arm/mm/proc-feroceon.S     | 2 --
+ arch/arm/mm/proc-mohawk.S       | 1 -
+ arch/arm/mm/proc-xsc3.S         | 1 -
+ arch/arm/mm/proc-xscale.S       | 1 -
+ 21 files changed, 2 insertions(+), 34 deletions(-)
+
+-- 
+2.53.0
 
