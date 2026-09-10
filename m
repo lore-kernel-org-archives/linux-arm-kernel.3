@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88C7C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BCDC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DNPAM9nDsQc4xWLjYUEEe56W4814wcdUv3lS7rYFjR0=; b=uXFpPLQCdAe9SUEZN4AsAqQT6F
-	501X1WtQNn8MeOPaZYMz0suAdF8on8rBtgqBy/ShcwhGTeqGFX4djr5423zwVL1IXsGjCa8EoL3h9
-	K+T/6Q6FaYZT1r9pgYp60nReeiXsQSq3gbZmRztO/nKYign2rajk+BiORI/kzpcKX+5H0Pb8uvCJ1
-	FOL8f/lx0MgrhzJ/follCknslMUObHcN2H9KZeNRJKRf50o0AbBhKI1Kmg0gG4m0KMoruCwHFwqsm
-	+6s2p0/HJgJdA9q5NFTVj2XA71QY44lOes5JIq/EoNTRfA6nxAhoyGQbzPn29NcjKrrw/RiWjxo97
-	aLgg3C5A==;
+	bh=bkECvjPYOX3wPrKx9OcExkvbVe1e1qMXOX5r+nCzWnw=; b=uiFVVtBJ9bmln3MnMk6GrJcX9D
+	fEORJ08Yq0r+hyNQ+BoxswpZ3eUsb686P8Obj8KXaA8CJo/uBBNO55f1eU/y93chszZfeUCw7KDd0
+	TMbHrMgr1thD1dELTSq+hEXnbuwRiqD3xRbb4vLsy4zwS4YCphWKfuNFd+pOt0MsyXbh3FfuCol9S
+	2Vq0isqSOvl6EBSBJ1AR//12R+A3fVC9lvERn+tG0GWz/wRSs3g9d8kgSKN/p8QB1WovHyBaj2oXq
+	CW/SProStInEvLceY7+KTAZlqrqAaBHrVFHUza23iO++ydgh4gZ99G1+u+cOKFOTwqdwzGnm8d6UD
+	L7/FoV5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gTw-0000000EkFl-1Zqt;
-	Thu, 10 Sep 2026 15:14:32 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x4gU0-0000000EkIX-2LFR;
+	Thu, 10 Sep 2026 15:14:36 +0000
+Received: from mail-swedencentralazon11013061.outbound.protection.outlook.com ([52.101.83.61] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gTs-0000000EkDi-3BoC
+	id 1x4gTy-0000000EkGF-2DHz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:14:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 5985CC653EB;
-	Thu, 10 Sep 2026 15:15:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F09035FA2F;
-	Thu, 10 Sep 2026 15:14:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 445CF11C79E5A;
-	Thu, 10 Sep 2026 17:14:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789053265; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DNPAM9nDsQc4xWLjYUEEe56W4814wcdUv3lS7rYFjR0=;
-	b=RHbtafzH3Ec0enGh5IsBUxWsI/AG0EySCN9HiXsqJtmZ/telJ/1mTPua726VLAwilDARq0
-	aJ/G9BIf061vOwkR7ywRhqs7NHOUqqCVjSf44wtI7eKva5tlfxTxpodO/cE1Sb1iWfr6uY
-	ODlRirq5Br9qNyW7JwyJodnm8kKUP2CObDIZuMU04LV0U5f+uwCBgyQYzbbg82SCfH7MSK
-	LWNowoJWZ6bgbjjnTSswmIcaCX7mMEyt+kXgRJYJn8uLNjNyBJmh8Bje6i/Mb+F5D9HPzm
-	hCgVR9KMHUHansZlU6PU5vZqmXtJ3OL5geLkqOK2UgWteyz/zDTSqhE8g2xpgg==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Jose.Abreu@synopsys.com,
-	Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	PKneuper@dspace.de,
-	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v2 2/6] net: stmmac: selftests: Validate EEE based on the actual LPI timer value
-Date: Thu, 10 Sep 2026 17:13:59 +0200
-Message-ID: <20260910151404.976753-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
-References: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
+	Thu, 10 Sep 2026 15:14:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=de/R6vtyhjEz/6+rXGlH3BtxqfYq4mGcV2ODFF79aI/jxwdmboWgEmnhFU7PPeTllFk3e2c0XXCXQF57KvElS4pJeBmvusLHvUAkc9hoKww17/vsUiPTvPIhXj/kKfwNseWlw+Zon/vEOIcN5peDskio5uqjTmd1cc68VaodY2d62paxC2W4MeRDIVwxAPZzVPTmP617VuQu9skYjzZyj1p2eGdY0ncFWHGujZmRYDhZHw5kiVC56laf5VieGUKUTqHlyjAsu8xvLjeoGC6KuM2vDlRbKGa7oaIZmjK87ET34EK3En7uxLZXSVpM15Msiteywt3arSecdnflCzcsVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bkECvjPYOX3wPrKx9OcExkvbVe1e1qMXOX5r+nCzWnw=;
+ b=v6De9sTEFd+TjYcDa3L7ZsEEsWX7a4PTCjbrmceab1i6MTKyjNw00MiTTKWdLhKLuXTPMkS7kTHAwBJ6l4BMGbin8ymBiqZbIj245DMLuAAxv5JAnxdzqyVUYAF1ivf9RvwsGfsD71mN/TsEcqp92hI68rVX+ZUuUp3L70J5OlYlR4dCAjCWTSC3OfjyLZnSNxlU9qYSGAqehbVO7hzXHGXoCn8twldDEdyXz2Bi87IShNhtvYxECCRIwURPzXpPAPNuUXUDf3pNERyQVklfF5GiOnp0CIYnUiG5CEMBnKmuBWt7IcakfBaJXVu0fLG0C6DPjUV+iQynmmAPcL6RLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bkECvjPYOX3wPrKx9OcExkvbVe1e1qMXOX5r+nCzWnw=;
+ b=N1klzqkA63K3Clc+MvhEmxe7Am2FhZxc9mBDtON3/3u/eRU3KCh2QEaFUHf4NV1iqnQdQFL4QrAhKJzqGmZ88FFj/x43w3P46/1eaASsfMLw6mGWCklkZ5KG0kiOtAyKrNPnHXm5s/fnn6MzYYrCF6AuinEmkUmrHGwVm6BYyeFW+WFh8ddLounUc3zd49m2ln+I//uJqj85UwZ1kpb3Lr30tz2JJK2j2p7DRthIptrfPfyI9a3OMksz87SCefOORP2OlEgm2l8tTXEp8f8Mo5oYN3i9TZhQr4GaSQS+Gtvud96AReyulRfwHKHeWqoeHbQjMrbkSs5aAdN086lJLQ==
+Received: from DU6P191CA0030.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53f::9) by
+ AS2PR10MB7658.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:641::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 15:14:28 +0000
+Received: from DB1PEPF000509E4.eurprd03.prod.outlook.com
+ (2603:10a6:10:53f:cafe::4d) by DU6P191CA0030.outlook.office365.com
+ (2603:10a6:10:53f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
+ Sep 2026 15:14:28 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB1PEPF000509E4.mail.protection.outlook.com (10.167.242.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Thu, 10 Sep 2026 15:14:28 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
+ 2026 17:19:55 +0200
+Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
+ 2026 17:14:27 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Thu, 10 Sep 2026 17:14:24 +0200
+Subject: [PATCH 1/5] ARM: dts: stm32: add TAMP backup register in
+ stm32mp131.dtsi
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260910-upstream_tamp_nvram_dts_part-v1-1-e2bca58a65f4@foss.st.com>
+References: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
+In-Reply-To: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>, Simeon Marijon
+	<simeon.marijon@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509E4:EE_|AS2PR10MB7658:EE_
+X-MS-Office365-Filtering-Correlation-Id: e70a6881-b4df-40a5-f473-08df0f4e350a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|10067099003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: NYzLKRSuV+Jcq9U9o+4yz6yQ35BHulnKLT5hO3z2CQv+n5T5gDw/D29g1yS7Q6fihXG7Ty7koQl3S1BjxGaFGd0/CVrmNAXPerWCxHcDUmd8CZoaaQRhv4xiBFfXMohsNx8yMPwIS+cbAfhLmw8ZxLqebTqKd6VHTUeLZk8RmX9wTiJzAbkQUCUwt0dIfkoKVOQFrkKU6BJBtGLTZDmcn/t7diWyDBe0nyznw3DYdARSRR+amFxKslfTqGiKc+hTVyCkrXvQakiVxwCC8H4JVlXFAUzUOdKlzjfINcY8g+My+mgsr5EG2dbnTjzNYo2tv2pIbno1ijw8EDAUds0u4q6BAay9xNEa3wu3jyiGP238ezFHINwUOOudD9+fqUxmrTTSXcqAFwk01HkiP8o9SVjZTWg9om1BlHh7n2mTiRr7x95Jw6Vym0wwwojKCmuzs/t0gXsqRzIKnoWlkGxH32dSiBbWl6AW2okR+ULnW1KIAm52jY0D4oIhBEq9eOKXzAUr+AlB2L04nJwvPiTmP0ss497oH+MhNGxjQmgGlTrUaAK99JCDKpWd/Vyc3K2nT2JStmTIRvJ+VcRUGe8boh+Gtlc162vgRtSZNHxDW/KQZd+z92+707qOCJ/zZudo1ysDeZIfXu7Zp/RNB/pAbbnJiqKMSTofHfRrvKEGfhMefQY3ljjR53m6d8rh5shWt2cjNBkoQy+IRmfkDa8mmQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: v6Wp4h99NJd7IpkqcDozvtVcP2D4FvDht1sDC4FowVrlyDFjUWxxyWqd7F8+hpsyc49nBHjPrLcCg7LV6VjW8/yHsLLIKkiTqtRqRzYZNEdQRr1Nly8Q/zORjl9SyiJHVpl+wDmAPuUwXKYYnYaSTnWRP+Yszj5gNZyYnl/jUmlnCalm/ZKnKCcgVo0Ry7ihKDAJVVa0oRCLsRixLVWil29nDnBl3zhXyBXcQ4wd8ZJ0c77XbpC7EI4a3JRd3CIT/Qc6GwzKruumJqa/QUgkhq1Ai4fujNwEwK6hDoG15ZzJSY0JfYuEfND2BAK2Ld2TkaNTahaQDj59PN0cAghIB2xNt7fv8Xce5VIKmChN3kTJ1fZyFxSLFTmkKnqxaJbW1z/MRrORPVA2Nbvv6MSKuVby2wHUuk/URlmqKl6ttlVCY4jP6GL9fmNmD4Po4JKU
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 15:14:28.0461
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e70a6881-b4df-40a5-f473-08df0f4e350a
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E4.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_081428_975367_08B1E259 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260910_081434_800019_E4A08E11 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +131,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EEE selftest is a 2-step test :
- - It validates that we enter in LPI mode with the
-   irq_tx_path_in_lpi_mode_n counter
- - It then validates that we exit LPI when sending a frame, with the
-   irq_tx_path_exit_lpi_mode_n counter.
+From: Simeon Marijon <simeon.marijon@foss.st.com>
 
-The current state of the test lacks 2 main things :
+TAMP backup registers allow information sharing between different
+software components/execution levels.
+They are described individually as nvmem cells.
 
- - We don't know exactly when was the previous frame sent (it's from the
-   previous selftest)
-
- - The timeout is hardcoded, while the LPI is entered after a
-   user-configurable delay. On top of that, the timeout loop uses a
-   pre-decrement iterator (--retries) that actually only iterate nine
-   times, so 900ms while the default LPI value is 1 second.
-
-Let's therefore make it more deterministic :
-
- - Send a frame at the beginning of the test
- - Wait for more than the lpi timer value, we timeout after about twice
-   the value,
- - Then send another frame, and verify that we do go out of LPI, also
-   with a timeout.
-
-Note that the test's goal isn't to validate the LPI timer value itself,
-only that we enter/leave LPI mode.
-
-Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Simeon Marijon <simeon.marijon@foss.st.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- .../stmicro/stmmac/stmmac_selftests.c         | 39 +++++++++++++++----
- 1 file changed, 32 insertions(+), 7 deletions(-)
+ arch/arm/boot/dts/st/stm32mp131.dtsi | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 6503678b646e..a8280834185c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -462,7 +462,7 @@ static int stmmac_test_mmc(struct stmmac_priv *priv)
- static int stmmac_test_eee(struct stmmac_priv *priv)
- {
- 	struct stmmac_extra_stats *initial, *final;
--	int retries = 10;
-+	unsigned long timeout, max_duration;
- 	int ret;
- 
- 	if (!priv->dma_cap.eee || !priv->eee_active)
-@@ -478,14 +478,21 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		goto out_free_initial;
- 	}
- 
-+	/* Snapshot stats, we want to count the in_lpi events. We may enter
-+	 * LPI just after the packet was sent.
-+	 */
- 	memcpy(initial, &priv->xstats, sizeof(*initial));
- 
-+	/* Send a frame, then wait to enter LPI */
- 	ret = stmmac_test_mac_loopback(priv);
- 	if (ret)
- 		goto out_free_final;
- 
-+	max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
+diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
+index 83ae59b73dd0..b37c22b1379c 100644
+--- a/arch/arm/boot/dts/st/stm32mp131.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
+@@ -1918,5 +1918,39 @@ gpioi: gpio@5000a000 {
+ 				gpio-ranges = <&pinctrl 0 128 8>;
+ 			};
+ 		};
 +
- 	/* We have no traffic in the line so, sooner or later it will go LPI */
--	while (--retries) {
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
- 		memcpy(final, &priv->xstats, sizeof(*final));
- 
- 		if (final->irq_tx_path_in_lpi_mode_n >
-@@ -494,20 +501,38 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		msleep(100);
- 	}
- 
--	if (!retries) {
-+	memcpy(final, &priv->xstats, sizeof(*final));
-+	if (final->irq_tx_path_in_lpi_mode_n <=
-+	    initial->irq_tx_path_in_lpi_mode_n) {
- 		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
--	if (final->irq_tx_path_in_lpi_mode_n <=
--	    initial->irq_tx_path_in_lpi_mode_n) {
--		ret = -EINVAL;
-+	/* Re-snapshot, as we want to measure exit_lpi events. We should be
-+	 * in LPI right now.
-+	 */
-+	memcpy(initial, &priv->xstats, sizeof(*initial));
++		tamp: tamp@5c00a000 {
++			compatible = "st,stm32-tamp", "syscon", "simple-mfd";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			reg = <0x5c00a000 0x400>;
++			ranges;
 +
-+	/* TX something so we go out of LPI */
-+	ret = stmmac_test_mac_loopback(priv);
-+	if (ret)
- 		goto out_free_final;
++			nvram: nvram@5c00a100 {
++				compatible = "st,stm32mp15-tamp-nvram";
++				reg = <0x5c00a100 0x80>;
 +
-+	/* Wait for the exit LPI interrupt */
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
-+		memcpy(final, &priv->xstats, sizeof(*final));
++				nvmem-layout {
++					compatible = "fixed-layout";
++					#address-cells = <1>;
++					#size-cells = <1>;
 +
-+		if (final->irq_tx_path_exit_lpi_mode_n >
-+		    initial->irq_tx_path_exit_lpi_mode_n)
-+			break;
-+		msleep(100);
- 	}
- 
-+	memcpy(final, &priv->xstats, sizeof(*final));
- 	if (final->irq_tx_path_exit_lpi_mode_n <=
- 	    initial->irq_tx_path_exit_lpi_mode_n) {
--		ret = -EINVAL;
-+		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
++					saes_secret_key: tamp-bkp@0 {
++						/* see saes secret key feature */
++						reg = <0x0 0x20>;
++					};
++
++					boot_mode: tamp-bkp@78 {
++						/* see boot mode selection feature */
++						reg = <0x78 0x4>;
++					};
++
++					boot_counter: tamp-bkp@7c {
++						/* see boot counter feature */
++						reg = <0x7c 0x4>;
++					};
++				};
++			};
++		};
+ 	};
+ };
+
 -- 
-2.55.0
+2.43.0
 
 
