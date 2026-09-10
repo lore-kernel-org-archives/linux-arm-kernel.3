@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BF3C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9FADC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kq6vuj6/rgekH+qZ17iqP5wXEZl9Suonhm2pFqXIlS8=; b=QQ5fuxd3dRNX8ADcqfXfH+Jaiv
-	HPPFr4V9IHTL3IYlx87c9UXyTwX0IejaBKS2cybz9oLJtD9IBHaE2VAGl5dn+ehKthkGemz0EYa7r
-	ZcShD9zqttkN4yEiU3tO/KosuEf17SXwM/+HX5d7SGNENnPCmxUfKVMVigfjdvJAkdgxuGdHZ7QKn
-	wYEUSubZIFO57DXDFYLxH0eIfdvB8AjW1cqeGaWHN+JO3SeimIrSieeYllsuncN+SHnJZUZ8bTd3+
-	8OY9MHwn3Id4jXA4pe7evMNmzwKzr6E80fpzcDJT32wlfqiG9GBq36gU9xSH+w64X8V16OPF51lxK
-	3TztRZ7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2ycQDX2gEqieskRW5xniG1Yt3LKFeEHNkTSheSJaMDM=; b=iau99lOpsAHWKgnErTxHY2fUdl
+	/yD7lgK8uEVmsvOYFDHWNLoYv/SItuqfDHnUpgABZf+Ok5FU1borofJU8RxaTnSdsvEEXqctUftEt
+	I6E/AZnu56Fy5Fc9GkGGQvRGeirQxwOkHmbArYTTVWkO4Q3VHf6sMam4XKhyS6Xjco6Fgr691/D1z
+	Rx3Sl2xzPpEMZBvynmuFnCtDjTQ2bJRsbkf9JWc4QMoNWRiPBDwh8+gKm2W7fjtRCXLN6sc2vTQrm
+	nXH3EFW87LOJxbk6kNMp4YuTIuBhqWbrJEfZeq2kWjPdVkbcEktixezX8tRyYc/bT2x0DYO53SEw2
+	NMJM32EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gd4-0000000EmYz-09Bd;
-	Thu, 10 Sep 2026 15:23:58 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1x4geD-0000000Emig-0ndD;
+	Thu, 10 Sep 2026 15:25:09 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gd1-0000000EmXz-0qBv
+	id 1x4geB-0000000EmiF-0FF4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:23:57 +0000
-X-PTX-Original-Recipient: laurentiumihalcea111@gmail.com
-X-PTX-Original-Recipient: robh@kernel.org
-X-PTX-Original-Recipient: krzk+dt@kernel.org
-X-PTX-Original-Recipient: conor+dt@kernel.org
-X-PTX-Original-Recipient: s.hauer@pengutronix.de
-X-PTX-Original-Recipient: frank.li@nxp.com
-X-PTX-Original-Recipient: festevam@gmail.com
-X-PTX-Original-Recipient: elena.popa@nxp.com
-X-PTX-Original-Recipient: consmin.stoica@nxp.com
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-PTX-Original-Recipient: devicetree@vger.kernel.org
-X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
-X-PTX-Original-Recipient: kernel@pengutronix.de
-X-PTX-Original-Recipient: imx@lists.linux.dev
-Received: from [0.0.0.0] (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: afa@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 697642020A4;
-	Thu, 10 Sep 2026 17:23:50 +0200 (CEST)
-Message-ID: <818e023c-8a88-4736-9577-355e97da4466@pengutronix.de>
-Date: Thu, 10 Sep 2026 17:23:50 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board
- support
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- elena.popa@nxp.com, consmin.stoica@nxp.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team
- <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
- <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
- <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
- <a41510f0-8906-4698-9919-b65b40cc9b89@gmail.com>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <a41510f0-8906-4698-9919-b65b40cc9b89@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Thu, 10 Sep 2026 15:25:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789053907; x=1820589907;
+  h=date:from:to:cc:subject:message-id;
+  bh=UURlGBa5UF35fCkmUbrt7fRp1XAUuZ9SNuDUvqdkETg=;
+  b=DRs4Uc+fmyNWq+1tLYkL45IepavzjZcSv7rsrwiQsRZkCnQRFqvFXDyj
+   HwSpV7KDi+tH1byr7vvP+u+xO3Dec8UuxYZFb+kAXy4zTnI0A5COvfy+2
+   JY/G4/4/58/RBhhRk8QrrV2jfT9yWupCNkyH3Ck3c0kPqqxH3ro1NIgoZ
+   pjfJS5h9wr4ibcQbYDCal5HLk41GTLQT/Bv5cnC3gMPugbP7ZTnggrd7K
+   wYQ4FaDeWFIwu+B1b566NVejuMpV2u1j2X28ymLoEsF9GW4fEMDW+K4a/
+   raVpbE4omlydvIUQ8C9+lVzcNvp+WtPNwbvyGF6Af/gXwh1HXjhh9Ky7a
+   Q==;
+X-CSE-ConnectionGUID: 3VReJ71nTEKFy77UASm1VA==
+X-CSE-MsgGUID: OX9DBkobS8G5gBtwzaN4fA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="106875196"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="106875196"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:25:06 -0700
+X-CSE-ConnectionGUID: fP8oZH+uStOzDrwAnBU7xw==
+X-CSE-MsgGUID: rEPQBZRmRFORKMfp6rS4eA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="271653785"
+Received: from lkp-server02.sh.intel.com (HELO 0a3643a6ed9d) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 10 Sep 2026 08:25:04 -0700
+Received: from kbuild by 0a3643a6ed9d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x4gdP-000000000Dq-1JG5;
+	Thu, 10 Sep 2026 15:24:26 +0000
+Date: Thu, 10 Sep 2026 23:02:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:board-remove-7.3] BUILD REGRESSION
+ 3ac93c1e700558259ea604f7d4f37e26820fba15
+Message-ID: <202609102347.YWrgKGon-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_082355_397831_41A04E29 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20260910_082507_170666_568A7683 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +83,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
+branch HEAD: 3ac93c1e700558259ea604f7d4f37e26820fba15  power: supply: sbs-battery: remove platform_data based probing
 
-On 9/10/26 5:08 PM, Laurentiu Mihalcea wrote:
-> 
-> Hi Ahmad,
-> 
-> On 9/9/2026 9:20 AM, Ahmad Fatoum wrote:
->> On 9/9/26 5:39 PM, Laurentiu Mihalcea wrote:
->>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>> +	memory@80000000 {
->>> +		device_type = "memory";
->>> +		/* actual size filled in by the bootloader */
->>> +		reg = <0x0 0x80000000 0 0x80000000>;
->>
->> If the board has at least 2G always, this is fine.
-> 
-> the board only ships with 16GB LPDDR5 so yes, it'll always have at least 2GB.
-> While the current size is fine, maybe it would be better to change it to 16GB?
-> Will have to update the commit message as well since "up to 16GB of LPDDR5 memory"
-> might be a bit misleading.
-> 
-> my other option was to leave the size set to 0x0 like some QCOM DTSIs seem to do.
-> Not sure what the preferred way of handling this is?
+Error/Warning (recently discovered and may have been fixed):
 
-IMO, the DT should not claim a memory size that's less than what's
-available across variants. So either 2G, 16G or just dropping it is fine
-by me. No need to change this on my account.
+    https://lore.kernel.org/oe-kbuild-all/202609100447.zZyMwFaw-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609100456.ZiTH0pix-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609100500.VDsB697w-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609100538.2YmRyN5u-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609100622.mKwcT8VH-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609100829.dZoZmxp2-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609101040.gBAHTWoN-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609101458.dCAUeSAA-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609101731.1CkBqWZb-lkp@intel.com
+    https://lore.kernel.org/oe-kbuild-all/202609101958.K8XqOq04-lkp@intel.com
 
->>> +&usdhc2 {
->>> +	bootph-pre-ram;
->>> +	bus-width = <4>;
->>> +	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
->>> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->>> +	pinctrl-1 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->>> +	pinctrl-2 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->>> +	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->>> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
->>
->> Looks unexpected to have same pinctrl groups for the higher speeds.
->> Are higher speed modes even possible on this board?
->>
->> If not, I would suggest dropping the extra states.
-> 
-> The pin configuration is chosen to meet the timing requirements of the 200MHz
-> state. Because of this, I would expect the configuration to be appropriate for
-> lower frequencies as well.
-> 
-> The intention is to use the same configuration as MX95-19x19-EVK since, from what
-> I've been told, the trace lengths are similar to those of the EVK.
+    Warning: drivers/clk/clk-si5351.c:123 Excess struct member 'clkout' description in 'si5351_clkout_config' (did you mean one of: 'clkout_src')
+    Warning: drivers/regulator/lp8755.c:72 Excess struct member 'mphase_type' description in 'lp8755_platform_data' (did you mean one of: 'mphase')
+    drivers/leds/leds-da9052.c:104:14: error: dereferencing pointer to incomplete type 'struct da9052_pdata'
+    drivers/leds/leds-da9052.c:104:21: error: invalid use of undefined type 'struct da9052_pdata'
+    drivers/media/i2c/ds90ub913.c:23:10: fatal error: 'media/i2c/ds90ub9xx.h' file not found
+    drivers/media/i2c/ds90ub913.c:23:10: fatal error: media/i2c/ds90ub9xx.h: No such file or directory
+    drivers/mtd/spi-nor/core.c:1178:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    drivers/mtd/spi-nor/core.c:1333:13: warning: unused variable 'i' [-Wunused-variable]
+    drivers/mtd/spi-nor/core.c:1333:6: warning: unused variable 'i' [-Wunused-variable]
+    drivers/mtd/spi-nor/core.c:2579:13: warning: unused variable 'ignored_mask' [-Wunused-variable]
+    drivers/mtd/spi-nor/core.c:2579:6: warning: unused variable 'ignored_mask' [-Wunused-variable]
+    drivers/mtd/spi-nor/core.c:3394:12: error: static declaration of 'spi_nor_scan' follows non-static declaration
+    drivers/mtd/spi-nor/core.c:351:13: warning: unused variable 'ret' [-Wunused-variable]
+    drivers/mtd/spi-nor/core.c:351:6: warning: unused variable 'ret' [-Wunused-variable]
+    drivers/mtd/spi-nor/spansion.c:100:23: error: implicit declaration of function 'spi_nor_controller_ops_write_reg' [-Werror=implicit-function-declaration]
+    drivers/mtd/spi-nor/spansion.c:100:23: error: implicit declaration of function 'spi_nor_controller_ops_write_reg' [-Wimplicit-function-declaration]
+    drivers/mtd/spi-nor/spansion.c:100:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    drivers/mtd/spi-nor/winbond.c:122:23: error: implicit declaration of function 'spi_nor_controller_ops_write_reg' [-Werror=implicit-function-declaration]
+    drivers/mtd/spi-nor/winbond.c:122:23: error: implicit declaration of function 'spi_nor_controller_ops_write_reg' [-Wimplicit-function-declaration]
+    drivers/mtd/spi-nor/winbond.c:122:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    drivers/rtc/rtc-stm32.c:795:13: warning: 'stm32_rtc_clear_events' defined but not used [-Wunused-function]
 
-Ok. If you can actually attain higher rates this way, then nothing needs
-to be changed.
+Error/Warning ids grouped by kconfigs:
 
-> Thanks for taking the time to review this! :)
+recent_errors
+|-- alpha-randconfig-r111-20260910
+|   `-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|-- arc-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- arc-randconfig-r112-20260910
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- arm-allyesconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- arm64-randconfig-r131-20260910
+|   `-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|-- hexagon-randconfig-r073-20260910
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   `-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|-- i386-randconfig-062-20260910
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- i386-randconfig-063-20260910
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- i386-randconfig-141-20260910
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- m68k-allyesconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- mips-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- mips-randconfig-r072-20260910
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- mips-randconfig-r113-20260910
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   `-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|-- mips-randconfig-r132-20260910
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- nios2-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- nios2-randconfig-r123-20260910
+|   `-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|-- openrisc-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- parisc-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- parisc-allyesconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- parisc-randconfig-r134-20260910
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   `-- drivers-leds-leds-da9052.c:error:dereferencing-pointer-to-incomplete-type-struct-da9052_pdata
+|-- powerpc-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   |-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-rtc-rtc-stm32.c:warning:stm32_rtc_clear_events-defined-but-not-used
+|-- powerpc-randconfig-r122-20260910
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- s390-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h-file-not-found
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-core.c:warning:variable-ret-is-used-uninitialized-whenever-if-condition-is-true
+|   |-- drivers-mtd-spi-nor-spansion.c:error:call-to-undeclared-function-spi_nor_controller_ops_write_reg-ISO-C99-and-later-do-not-support-implicit-function-declarations
+|   `-- drivers-mtd-spi-nor-winbond.c:error:call-to-undeclared-function-spi_nor_controller_ops_write_reg-ISO-C99-and-later-do-not-support-implicit-function-declarations
+|-- s390-allyesconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h:No-such-file-or-directory
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- sh-allmodconfig
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- sh-allyesconfig
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-leds-leds-da9052.c:error:invalid-use-of-undefined-type-struct-da9052_pdata
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- um-allmodconfig
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h-file-not-found
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-core.c:warning:variable-ret-is-used-uninitialized-whenever-if-condition-is-true
+|   |-- drivers-mtd-spi-nor-spansion.c:error:call-to-undeclared-function-spi_nor_controller_ops_write_reg-ISO-C99-and-later-do-not-support-implicit-function-declarations
+|   `-- drivers-mtd-spi-nor-winbond.c:error:call-to-undeclared-function-spi_nor_controller_ops_write_reg-ISO-C99-and-later-do-not-support-implicit-function-declarations
+|-- um-randconfig-r071-20260910
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- um-randconfig-r121-20260910
+|   `-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|-- x86_64-randconfig-121-20260910
+|   `-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|-- x86_64-randconfig-122-20260910
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-mtd-spi-nor-core.c:error:static-declaration-of-spi_nor_scan-follows-non-static-declaration
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+|   |-- drivers-mtd-spi-nor-spansion.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|   `-- drivers-mtd-spi-nor-winbond.c:error:implicit-declaration-of-function-spi_nor_controller_ops_write_reg
+|-- x86_64-randconfig-123-20260910
+|   |-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
+|   |-- Warning:drivers-regulator-lp8755.c-Excess-struct-member-mphase_type-description-in-lp8755_platform_data-(
+|   |-- drivers-media-i2c-ds90ub913.c:fatal-error:media-i2c-ds90ub9xx.h-file-not-found
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-i
+|   |-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ignored_mask
+|   `-- drivers-mtd-spi-nor-core.c:warning:unused-variable-ret
+`-- x86_64-randconfig-161-20260910
+    `-- Warning:drivers-clk-clk-si5351.c-Excess-struct-member-clkout-description-in-si5351_clkout_config-(
 
-Cheers,
-Ahmad
+elapsed time: 1520m
 
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+configs tested: 43
+configs skipped: 0
 
+tested configs:
+alpha        allnoconfig    gcc-16.1.0
+alpha       allyesconfig    gcc-16.1.0
+arc         allmodconfig    gcc-16.1.0
+arc          allnoconfig    gcc-16.1.0
+arc         allyesconfig    gcc-16.1.0
+arm          allnoconfig    clang-17
+arm         allyesconfig    gcc-16.1.0
+arm64       allmodconfig    clang-24
+arm64        allnoconfig    gcc-16.1.0
+csky         allnoconfig    gcc-16.1.0
+hexagon     allmodconfig    clang-24
+hexagon      allnoconfig    clang-24
+i386         allnoconfig    gcc-14
+loongarch   allmodconfig    clang-19
+loongarch    allnoconfig    clang-20
+m68k         allnoconfig    gcc-16.1.0
+m68k        allyesconfig    gcc-16.1.0
+microblaze   allnoconfig    gcc-16.1.0
+mips        allmodconfig    gcc-16.1.0
+mips         allnoconfig    gcc-16.1.0
+nios2       allmodconfig    gcc-11.5.0
+nios2        allnoconfig    gcc-11.5.0
+openrisc    allmodconfig    gcc-16.1.0
+openrisc     allnoconfig    gcc-16.1.0
+parisc      allmodconfig    gcc-16.1.0
+parisc       allnoconfig    gcc-16.1.0
+parisc      allyesconfig    gcc-16.1.0
+powerpc     allmodconfig    gcc-16.1.0
+powerpc      allnoconfig    gcc-16.1.0
+riscv       allmodconfig    clang-24
+riscv        allnoconfig    gcc-16.1.0
+s390        allmodconfig    clang-24
+s390         allnoconfig    clang-24
+s390        allyesconfig    gcc-16.1.0
+sh          allmodconfig    gcc-16.1.0
+sh           allnoconfig    gcc-16.1.0
+sh          allyesconfig    gcc-16.1.0
+sparc        allnoconfig    gcc-16.1.0
+um          allmodconfig    clang-17
+um           allnoconfig    clang-17
+um          allyesconfig    gcc-14
+x86_64       allnoconfig    clang-22
+xtensa       allnoconfig    gcc-16.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
