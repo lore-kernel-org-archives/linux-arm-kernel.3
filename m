@@ -4,73 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3B9C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 17:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A88C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 17:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3B+m2VODyjqcMmoCNkyAxbD7YGx+Hb37I9LP/5XQxA=; b=rPw6tt5bMNcLTdGx9f/C4Tag83
-	r1DXI0YR5eJgZoE2LBY89up4ytHwteHck/m5SnRl8zY3nJzySGvFuvP20Y9dqr6rW6ACJB692djoJ
-	amoDb+prU+aqc/QdHQXY2VqZZfWmFrJfs2OC1EMrMro5JUTRG2vSXrZAuYVk97a5ZMJb3QXiiJ3ow
-	WGNL35qwZXQdG4C8tW2qShwxqvwwk27ZHecj+Ljjbn9EyP611k318barmqMjGNVYb5WCoLRc9xu+n
-	/IrWD+btOaSSMURpbgAA5WBWO7HhyNQP80dK4vFTkwKg2xWpCsQeIiYXrMxY6sEAiyQpsLeC80nfi
-	fujsVJRw==;
+	bh=2GOG89oMfhyGtc0zIxq7uFeyZkDDw1ADWld6NwnVEYY=; b=el6Pg098yXYUNDgj0zkCas600m
+	PuSZHSU37S+apUtwulHAS8P/13tlZ1Xk0XbCqaA+ge3xBzHP30wD0jE4730LpwQ9ZBs7sWRL9ebzC
+	hYxTsRLM/L1caZrbgkJ9/VKqQc7rJJ5k3SIDwik4eT+Qph1YwTdQCg23ZSqAixDAj7BuXxMHXDr25
+	p07t3pS5OKsOnk+uinc2nP+TpAPoMUr5zlyXP1x3IfTRVx1GsuuoKFvcbv1v6tRJEvdh+wnnbyigM
+	doOWwJV7Y+wSja56t1cEJ/T6gfQr0xPGV2OeicXB6Ct7xYiwa/0qnVdTrMZL7y4mDbjtp0pA8YkwP
+	r8OGZ2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4iS4-0000000F3ba-187g;
-	Thu, 10 Sep 2026 17:20:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4iS1-0000000F3aw-2hcR
+	id 1x4iJt-0000000F2U5-2YDR;
+	Thu, 10 Sep 2026 17:12:17 +0000
+Received: from de-smtp-delivery-113.mimecast.com ([194.104.111.113])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4iJq-0000000F2TZ-2xVs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 17:20:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F9B822C8;
-	Thu, 10 Sep 2026 10:20:35 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C824B3F59E;
-	Thu, 10 Sep 2026 10:20:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789060838; bh=On3RzrtMuST+P6UOEpazXCXmp06+AvInEz19sMd7mHs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NIkJP13vMwgWuA8pY6Byn4L+t3sch+R32k1IpiZZiCeTpdbg3AqX/4q++xC01ygAz
-	 fm7XgBkKel3wM78k8yrifS3zOCdX9YfiBNRm15a1aBiC6Dj9+EXITie3kr3IejRqBA
-	 6rdtMYH3WJLbad37l7xxVUUxX4vfkIPXwe1UpXKk=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v20 14/14] KVM: selftests: arm64: Add GCS EXLOCK exception emulation test
-Date: Thu, 10 Sep 2026 18:20:30 +0100
-Message-ID: <aqLm3qT755sXH_D9@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901-arm64-gcs-v20-14-f31750bdfadb@kernel.org>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-14-f31750bdfadb@kernel.org>
+	Thu, 10 Sep 2026 17:12:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=toradex.com; s=toradex-com;
+	t=1789060332;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2GOG89oMfhyGtc0zIxq7uFeyZkDDw1ADWld6NwnVEYY=;
+	b=Cwuca6skqPgu1GLAgmeka5O6SL4NAcJstbqnug8hIg862HUUtWEBMHbqggBkUxIg+ggBOY
+	IZeNXfshJlcX7hGS7Yvm5iPCWc0JgnnmbBlHpEuDbSMrv/5OXwbOiknrCk/wLjgiMxk/MI
+	3OjYrbfgclaIx39IOFjMTPcItLEtOxk=
+Received: from GVAP278CU002.outbound.protection.outlook.com
+ (mail-switzerlandwestazon11020111.outbound.protection.outlook.com
+ [52.101.188.111]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-64-O_GlWKyGPcakNo-Atc1a1w-1; Thu, 10 Sep 2026 19:12:09 +0200
+X-MC-Unique: O_GlWKyGPcakNo-Atc1a1w-1
+X-Mimecast-MFC-AGG-ID: O_GlWKyGPcakNo-Atc1a1w_1789060329
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8) by
+ ZR1PPFC76DBE08A.CHEP278.PROD.OUTLOOK.COM (2603:10a6:918::2ab) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.9; Thu, 10 Sep 2026 17:12:07 +0000
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2]) by ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2%6]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
+ 17:12:06 +0000
+Date: Thu, 10 Sep 2026 19:12:05 +0200
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
+Message-ID: <aqLk5UAv-j39Jxd3@francesco-nb>
+References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
+ <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
+ <aqLaLmz7n31P6igy@SMW015318>
+ <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+ <aqLif2zrrsbYd5sM@SMW015318>
+In-Reply-To: <aqLif2zrrsbYd5sM@SMW015318>
+X-ClientProxiedBy: ZR0P278CA0106.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:23::21) To ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:2e::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZRAP278MB0495:EE_|ZR1PPFC76DBE08A:EE_
+X-MS-Office365-Filtering-Correlation-Id: 760c55b3-bc4c-4b48-bc0b-08df0f5ea444
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|6133799003|22082099003|3023799007|56012099006|4143699003|18002099003|10067099003
+X-Microsoft-Antispam-Message-Info: TcMypZiM1aBlq94BwTbMbS+/ttHVJXBvbdXcMUOrdOK6Z/oK2oDF47Q/NvaXvALvTKVz5WaJr0N1pHR7v4SH4R7H6Xp+7C1dzmzAhqf6gAktva1FWa5/DNH6bD3xatUxBaMiWmOMbz9BDqX6xGVSJ2sgM3STyWIDWVV8H9w/ToCxAmlsBq6E3UodSplnaEbblo1J/HnDIOwpafuYetj150tNC/aSIUgEHao2Rzg1+kP2umXsaa0AJ/x8InZ1dZUKYHTwOi2ZNFo85FFMTtUMb+m4Wu3X1eSJ8FtibK9PMx6JhQWnVEx2aZepn3k7gsFS1QWxEcPprUGjHROU8hAfVQMI8aXNhsBAMsHkOyCbiSoS4P+FdIwwQuZqoM45tf06A4esyPNs4I7gVRvYVFxlU54yqgdHyrKhwkfmkGIM9lugKVD+3JdPwsniEEncks47D8QRt4n3jYLP0YIET0k36dVkq3/1h/XhAEnK5zivtRfkTyDgGJ8e1PWNVX4ydHN2LV8b+vSXJjcL4LjkVwK/1kQWvjeiGh67KxM0wWKgDguDIWIOyTXFDdHfxvvWs9Ch4DAOkxN9szl4vylaRo2Hl5WSbEuP6d79KdP7GcKqAoKvNPPsx4ZJ4qN/xOmfA1Er
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(6133799003)(22082099003)(3023799007)(56012099006)(4143699003)(18002099003)(10067099003);DIR:OUT;SFP:1102
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6zjcKDND9eYiguZScc/Wli29GrEJYCSqyKj+f3xiGGIf6vanlZI5cs5yqW0f?=
+ =?us-ascii?Q?UzxNlcLpzCTXSC64lbKD0lPRh2UOpEX7a2bKzRbG6DyZGMMh9S+37Ls763Yw?=
+ =?us-ascii?Q?sSi4ayVFzqeq4lOOcE6NQSg38L8Ks/ERNUSU85jZFU1yCeCDwWGnlbF+gXc/?=
+ =?us-ascii?Q?+x6x+dynbfM3jl8Axr/6IvTILBwC+Q6X075YeV6ATL8nYx7fJ2xGXiG9hLAx?=
+ =?us-ascii?Q?ZWSUoSCC1MPh3sFQ2AaUfJYcQqrZj/iq4GoJxMpxC14Q1SuQsd8zbZh4p/CY?=
+ =?us-ascii?Q?QN+BjiAcWRd4y6mX7WeEer+Jj8QU0rpfuSuFItmKJvFcl9gNDbwxDLnHRDV/?=
+ =?us-ascii?Q?gGrhEMhKDwlvGzVSBIPjGAIrX8y/WObkMU1W0VIYRT52M94m7IfgJBKutw43?=
+ =?us-ascii?Q?k54OMAANyyNHmmwuRd9zjiMHWqK4EmfMQxCB2+7/mm4a2DbJTntVJLeZNsw7?=
+ =?us-ascii?Q?W/IbMcHgg8tUB0qj2+ECIJDPacuqKzwbHSFXDam2ytz6S3zKIFvJXDptjW3b?=
+ =?us-ascii?Q?aQWTGdFuj36t0NN+rEoQk0YGvUtAPahaIcZleHgA5SBVf1Fo2ZbEZnwKenKg?=
+ =?us-ascii?Q?PszsUM5905sAj1E9I6uTp7oe6dGLsfMj9NxRczaEJA7AkCAGAb04KKTNjbjX?=
+ =?us-ascii?Q?tm7/fEyYrJ6Dlpi5ewDA+W/ds8tAajYrT+kxwZMzbOPmAFhtXPNmExd3EGDI?=
+ =?us-ascii?Q?INlmAtKSy/XWNYfCfWCdew2776inhxHlVhQn8yce03Mk/A6jvJPcqbFofk0U?=
+ =?us-ascii?Q?aniOueuW2BiAMjJN/LCX3FaoXVBVvFX94fsG/bWNWG9U4jB71D8y6zUGKOdk?=
+ =?us-ascii?Q?6xcO6OevBjNMNoVIMm+tdAmK9VD/KsEByVgwBT2LxAiioYxwd38ddxTHKvhY?=
+ =?us-ascii?Q?Ih7ghNcmpQqErSKXrnbNJQADfRZrF8fWEolljk46hPPM8JLTidQXEA/EeOuI?=
+ =?us-ascii?Q?j8fui+kxxxu3SgXPDoqi0l088UjfSFAZBCWDhpuA4Jxne53zeChMUKtQSfVI?=
+ =?us-ascii?Q?WQUY1br0hVJvJ7gE3ZQlxFIcrfZiA4vGMguKwLZzpUtvd+HvOF9ET/CiFYyC?=
+ =?us-ascii?Q?ZevYGtROTSycJRHQ1bKG34sSK8fsF48UO5ORw+xtOGCN00XTmblBLH0lN9OJ?=
+ =?us-ascii?Q?jjDzgmUnYMJvEEVmeIg1c+HlF2KIrGsFsQ2nHiwm9vYFdcxp+kDakkb/erC8?=
+ =?us-ascii?Q?YjUpgCpGvdQNzAXrUK5cUpuLDtVxpLJux+XGuWwgVLVvpWVpIsrzyyLZ3BZR?=
+ =?us-ascii?Q?WPxSZnhJqnt0d+1rm30P0ts64TqKupzRWDO8CYbX+ok7NxXTH9zQLywpvXqT?=
+ =?us-ascii?Q?/8M8DSemCwguOa9tZwcCT3TDPNbOFR9euYjf7/B7bk3Rr4g1LDWTdf2Hy8r+?=
+ =?us-ascii?Q?R8AfU9Ei5cVkxyZz4+paM9YD9RoAYn6u/+89x450sDhNJY6VZeswuf3ntdyc?=
+ =?us-ascii?Q?eFa3ggkcHfQaK1s13ZNfIrYrxZdmylQ5AwSf8Gjcg8pcsFDwSbvQJPEpjvqq?=
+ =?us-ascii?Q?SoERGnb9jIii1QH2e9HNrM7fmasTwJ1UW4Sds/VTn7/4+LIco1jOO1zsFmSw?=
+ =?us-ascii?Q?rO9l5f4lf06yPBOi4wEpiuX0HPf5GhXCyViODBTfUW8MgJv3b23lITekd+Fr?=
+ =?us-ascii?Q?01x9EppYkgqbMcZxnqxecQK8UdMuVEk5QpxrXzjHEPTT5W4UH/szU9FioGFS?=
+ =?us-ascii?Q?oVbtVLeYUClJEdGtdxSQI9p9mtKpUP92nsJpwtHIA+pz78iixCbUBv+yvnAt?=
+ =?us-ascii?Q?q8NBlXFObwfFHhGtRnwDMOkpAc8jeH8=3D?=
+X-Exchange-RoutingPolicyChecked: mkOEI3FiUXnHk46kUyQAw+xl1kU60xzt0uZPdo6t+6aDaBDgcajoDDzl6Pnj/DwvRCN/7RyTW7g9E+FpVzhSB/6JKuA2OKuT9VrCHSLPADvJKDHONwjhX7owIpzRafcggBJ656t7XfmoRii2XLDcngid0CMdY0WPSgETJV1mFn5BcfFNAygHi7kM4wr8ii/9j7KrLMYg5a51yaWkwYYNqtUkXkuiZwWvjqnFKcVHzb68EfBv+YgutPJQCPqxgUlAmojVEFgdIp2LSf5DSnvOl6sd8PTY5ELDQXYyFDLVGRumJVpx1kyKhlLzh/YVvwlvApRQk4g9JezdeegHx/1TsA==
+X-OriginatorOrg: toradex.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 760c55b3-bc4c-4b48-bc0b-08df0f5ea444
+X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 17:12:06.8324
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d9995866-0d9b-4251-8315-093f062abab4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VOFsJJv82Fn0hj6QudbTps1JjJYk8FJiS2AXHqw+hFsmezKLUF1MrJ7htuEM+s9n2ZacIl0NcaETSFBpLdoBY090nYCW4a/5GKviXtcHlq8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR1PPFC76DBE08A
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3BWveMF0IAp9Neg32230snKYbIWdxq0UKxcM8jf-4qc_1789060329
+X-Mimecast-Originator: toradex.com
+Content-Type: text/plain; charset=WINDOWS-1252
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_102041_766126_34977C4E 
-X-CRM114-Status: GOOD (  48.26  )
+X-CRM114-CacheID: sfid-20260910_101214_898778_F891F3F6 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,464 +152,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:47:12PM +0100, Mark Brown wrote:
-> When running in vEL2 ERET is emulated, this means that we must emulate
-> the behaviour of GCSCR_EL2.EXLOCKEN. Add a test that validates the
-> behaviour.
-> 
-> As per DDI0487 R_WTXBY PSTATE.EXLOCK is set to the value of
-> GCSCR_ELx.EXLOCKEN when taking an exception to the same exception level.
-> As per DDI0487 R_TYTWB if on exception return to the same EL
-> GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK is not 1 then the exception
-> return is illegal.
-> 
-> We nest handling of two UDFs to allow us to both observe and modify
-> PSTATE.EXLOCK, checking that expected exceptions are generated for ERET.
-> We also repeat the UDF tests having enabled fine grained traps for ERET
-> to try to ensure that the slow paths are taken.
-> 
-> We also attempt to write to both SPSR_ELx and ELR_ELx, again using a UDF
-> handler to control PSTATE.EXLOCK. We do all this both with and without
-> having enabled EXLOCKEN, though only for code running at EL2 due to
-> framework limitations.
-> 
-> For completeness we also inject a data abort from EL0 to EL2 with
-> GCSCR_EL2.EXLOCKEN set, ensuring that PSTATE.EXLOCK is not set.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  tools/testing/selftests/kvm/Makefile.kvm           |   1 +
->  tools/testing/selftests/kvm/arm64/gcs_exceptions.c | 346 +++++++++++++++++++++
->  2 files changed, 347 insertions(+)
-> 
+On Thu, Sep 10, 2026 at 12:01:51PM -0500, Frank Li wrote:
+> On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wrote:
+> > Hi Frank,
+> >
+> > Thanks for reviewing this so quickly.
+> >
+> > On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
+> > > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
+> > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > >
+> > > > Toradex boards route the sideband signals of their 24-pin camera
+> > > > connectors to different GPIO controllers. Camera overlays which nam=
+e
+> > > > those controllers directly must therefore be duplicated for each ho=
+st
+> > > > board.
+> > > >
+> > > > Describe reset, power-down, detection and power-control as
+> > > > connector-local GPIO functions. This lets an accessory overlay rema=
+in
+> > > > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplie=
+s
+> > > > remain described separately because the GPIO nexus does not abstrac=
+t
+> > > > them.
+> > > >
+> > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > ---
+> > > >  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++=
+++++++++++++
+> > > >  1 file changed, 86 insertions(+)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/connector/toradex,ca=
+mera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,c=
+amera-connector.yaml
+> > > > new file mode 100644
+> > > > index 000000000000..06e6836e1aa6
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-co=
+nnector.yaml
+> > > > @@ -0,0 +1,86 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/connector/toradex,camera-connec=
+tor.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/base.yaml#
+> > > > +
+> > > > +title: Toradex camera connector GPIO nexus
+> > > > +
+> > > > +maintainers:
+> > > > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
+> > > > +
+> > > > +description: |
+> > > > +  Toradex boards provide 24-pin camera connectors carrying MIPI CS=
+I-2, I2C,
+> > > > +  clock, power, and sideband GPIO signals. This binding describes =
+the sideband
+> > > > +  signals as a GPIO nexus. The other connector resources remain de=
+scribed by
+> > > > +  the surrounding board device tree.
+> > > > +
+> > > > +  The nexus exposes connector-local GPIO function numbers to camer=
+a overlays
+> > > > +  and maps the functions wired by a carrier board to their GPIO co=
+ntrollers.
+> > > > +  GPIO specifiers contain a function number followed by standard G=
+PIO flags.
+> > > > +  A board may omit functions which it does not wire.
+> > > > +
+> > > > +  The function numbers are:
+> > > > +    - 0: Camera reset, connector pin 11
+> > > > +    - 1: Camera power-down, connector pin 22
+> > > > +    - 2: Camera identification, connector pin 23
+> > > > +    - 3: Camera power control, connector pin 24
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    const: toradex,camera-connector
+> > >
+> > > Name is too generally, suggest use board name, we got similar comment=
+s at
+> > >
+> > > https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.=
+nxp.com/
+> >
+> > I saw that and it made me reconsider this name.
+> >
+> > However, I believe that in our case it is specific enough. It is really
+> > the same on all our carrier boards, and Toradex specific. It's also onl=
+y
+> > for cameras, which is more defined than just "io". Curious to see if
+> > others agree or if we should come up with a name for this.
+>=20
+> If some days later, you update hardware connector to 30pin from 24pins.
 
-Hi Mark,
+That connector is there since years, not days.
 
-Maybe because I am new to this type of selftest (i.e. the helpers), or 
-maybe because I don't understand some of the used mechanisms here, but this 
-selftest felt hard to understand, even though the commit message made 
-it sound very simple.
+We have multiple cameras, designed to mate with it.
 
-So I will try to cover what I could understand, so please let me know if I 
-got something wrong.
-
-From both tests, the lower_el() one is the simplest: if the features are 
-there, you set TGE, EXLOCKEN and EXLOCK, and then do an KVM_SET_VCPU_EVENTS 
-ioctl which injects a dabt and commit_pending_events(). It should change 
-the PSTATE which you read and make sure EXLOCK=0.
-(This should be about the last sentence in your commit msg)
-
-For same_el(), 3 exception handlers are assigned to the vcpu: unknown, 
-ilegal, and GCS. You then run the guest once, and exit. Then you check the 
-exit reason.
-
-In the guest code, you run a few tests for EXTLOCK={0,1} by basically 
-counting and checking how many times each handler was called, and if the 
-expected EXLOCK/EXLOCKEN states are correct. (Relying on R_WTXBY)
-
-When you run test_udf_exception() it will cause an udf(COLLECT) that will 
-itself cause an udf(VALIDATE), and if EXLOCKEN=1, it will cause an illegal 
-exception, which will by itself cause an udf(REPAIR). On EXLOCKEN=0, 
-setting EXLOCK=0 should not take an exception, and thus there should be no 
-illegal++, an just 2 undef. None should cause a gcs exception.
-That makes sense with the tests you do after the udf, as well as deciding 
-to check IL based on EXLOCKEN status.
-
-As for test_sysreg(), it will run for 4 tested registers with both EXLOCKEN 
-states. What it does it take an udf(reg), which will read then write that 
-read value to that register. If EXLOCKEN=1 it's expected to cause a gcs 
-fault. That makes sense with the gcs and udf counters check in the bottom.
-
-The part of re-running test_udf_exception() with HFGITR_EL2 set, IIUC, it 
-that part of fine-grained traps. It seems correct, although I am not seeing 
-any tests of the EC syndrome being 0x1A to make sure it's in use. 
-
-There are also a lot of expect_exlock being used as an int, even if it's a 
-bool. I understand the idea of summing it as we expect it to be 1 on true 
-or 0 on false, but is it really ok?
-Maybe we could change it to int, so we just set it when we enter 
-test_sysreg() or test_udf_exception() like:
-
--	expect_exlock = enable_exlock;
-+	expect_exlock = enable_exlock ? 1 : 0;
-
-If I got the workings right, and both above suggestions (0x1A and 
-bool->int) are either fixed or considered not an issue, then:
-
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-
-Thanks!
-Leo
-
-> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> index 96bab7002d39..0286453ab223 100644
-> --- a/tools/testing/selftests/kvm/Makefile.kvm
-> +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> @@ -179,6 +179,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
->  TEST_GEN_PROGS_arm64 += arm64/host_sve
->  TEST_GEN_PROGS_arm64 += arm64/hypercalls
->  TEST_GEN_PROGS_arm64 += arm64/external_aborts
-> +TEST_GEN_PROGS_arm64 += arm64/gcs_exceptions
->  TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
->  TEST_GEN_PROGS_arm64 += arm64/page_fault_test
->  TEST_GEN_PROGS_arm64 += arm64/psci_test
-> diff --git a/tools/testing/selftests/kvm/arm64/gcs_exceptions.c b/tools/testing/selftests/kvm/arm64/gcs_exceptions.c
-> new file mode 100644
-> index 000000000000..de5bc6590727
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/arm64/gcs_exceptions.c
-> @@ -0,0 +1,346 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Test KVM's handling of Guarded Control Stack exception state.
-> + */
-> +
-> +#include "kvm_util.h"
-> +#include "processor.h"
-> +#include "test_util.h"
-> +#include "ucall.h"
-> +
-> +#include <asm/ptrace.h>
-> +#include <asm/sysreg.h>
-> +
-> +#define PSTATE_IL_BIT	BIT(20)
-> +
-> +static void require_guest_gcs(struct kvm_vcpu *vcpu)
-> +{
-> +	u64 pfr1 = vcpu_get_reg(vcpu,
-> +				KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-> +
-> +	TEST_REQUIRE(SYS_FIELD_GET(ID_AA64PFR1_EL1, GCS, pfr1) >=
-> +		     ID_AA64PFR1_EL1_GCS_IMP);
-> +}
-> +
-> +static bool expect_exlock;
-> +static unsigned int undef_count;
-> +static unsigned int illegal_count;
-> +static unsigned int gcs_count;
-> +static u64 handler_pstate;
-> +static u64 illegal_pstate;
-> +
-> +static u64 expected_illegal_pc;
-> +static enum udf_mode {
-> +	UDF_COLLECT,	/* Initial UDF we collect PSTATE from */
-> +	UDF_VALIDATE,	/* Secondary UDF that collects and validates */
-> +	UDF_REPAIR,	/* UDF to clear EXLOCK */
-> +	UDF_ELR_EL1,	/* Write to ELR_EL1 with EXLOCK */
-> +	UDF_ELR_EL2,	/* Write to ELR_EL2 with EXLOCK */
-> +	UDF_SPSR_EL1,	/* Write to SPSR_EL1 with EXLOCK */
-> +	UDF_SPSR_EL2,	/* Write to SPSR_EL2 with EXLOCK */
-> +} udf_mode;
-> +
-> +static void guest_undef_handler(struct ex_regs *regs)
-> +{
-> +	u64 esr = read_sysreg(esr_el2);
-> +	u64 val;
-> +
-> +	undef_count++;
-> +
-> +	/* Just skip the instruction either way. */
-> +	GUEST_ASSERT_EQ(esr, ESR_ELx_IL);
-> +	regs->pc += 4;
-> +
-> +	switch (udf_mode) {
-> +	case UDF_COLLECT:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
-> +
-> +		/*
-> +		 * If we want the nested exception handler to change
-> +		 * PSTATE it can't have EXLOCK set.
-> +		 */
-> +		write_sysreg_s(0, SYS_GCSCR_EL2);
-> +		isb();
-> +
-> +		/*
-> +		 * Take another exception without returning so we can
-> +		 * collect the EXLOCK state we're seeing here and make
-> +		 * our return illegal.
-> +		 */
-> +		expected_illegal_pc = regs->pc;
-> +		udf_mode = UDF_VALIDATE;
-> +		asm volatile("udf #0" ::: "memory");
-> +
-> +		/* Reenable so PSTATE.EXLOCK is checked */
-> +		write_sysreg_s(expect_exlock ? GCSCR_ELx_EXLOCKEN : 0,
-> +			       SYS_GCSCR_EL2);
-> +		isb();
-> +		break;
-> +
-> +	case UDF_VALIDATE:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				0);
-> +
-> +		/* Validate the EXLOCK of the original exception. */
-> +		handler_pstate = regs->pstate;
-> +		GUEST_ASSERT_EQ(!!(regs->pstate & PSR_EXLOCK_BIT),
-> +				expect_exlock);
-> +
-> +		/* Clearing PSTATE.EXLOCK triggers an illegal ERET. */
-> +		regs->pstate &= ~PSR_EXLOCK_BIT;
-> +		break;
-> +
-> +	case UDF_REPAIR:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				0);
-> +
-> +		/* Disable EXLOCK for the requesting context */
-> +		regs->pstate &= ~PSR_EXLOCK_BIT;
-> +		break;
-> +
-> +	case UDF_ELR_EL1:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
-> +
-> +		asm volatile("mrs %0, elr_el1   \n\
-> +	                      msr elr_el1, %0"
-> +			     : "=r"(val) :: "memory");
-> +		break;
-> +
-> +	case UDF_ELR_EL2:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
-> +
-> +		asm volatile("mrs %0, elr_el2   \n\
-> +	                      msr elr_el2, %0"
-> +			     : "=r"(val) :: "memory");
-> +		break;
-> +
-> +	case UDF_SPSR_EL1:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
-> +
-> +		asm volatile("mrs %0, spsr_el1   \n\
-> +			      msr spsr_el1, %0"
-> +			     : "=r"(val) :: "memory");
-> +		break;
-> +
-> +	case UDF_SPSR_EL2:
-> +		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
-> +				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
-> +
-> +		asm volatile("mrs %0, spsr_el2   \n\
-> +			      msr spsr_el2, %0"
-> +			     : "=r"(val) :: "memory");
-> +		break;
-> +
-> +	default:
-> +		GUEST_FAIL("Invalid udf_mode");
-> +	}
-> +}
-> +
-> +static void guest_illegal_handler(struct ex_regs *regs)
-> +{
-> +	u64 esr = read_sysreg(esr_el2);
-> +
-> +	illegal_count++;
-> +	illegal_pstate = regs->pstate;
-> +
-> +	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_ILL);
-> +	GUEST_ASSERT(esr & ESR_ELx_IL);
-> +	GUEST_ASSERT(regs->pstate & PSTATE_IL_BIT);
-> +	GUEST_ASSERT(!(regs->pstate & PSR_EXLOCK_BIT));
-> +	GUEST_ASSERT_EQ(regs->pc, expected_illegal_pc);
-> +
-> +	/* Disable exception locking so we can repair the return state. */
-> +	write_sysreg_s(0, SYS_GCSCR_EL2);
-> +	isb();
-> +
-> +	/* We need our own EXLOCK clearing so we can repair the original */
-> +	udf_mode = UDF_REPAIR;
-> +	asm volatile("udf #0" ::: "memory");
-> +
-> +	/* Disable EXLOCK for the generating context, making things legal */
-> +	regs->pstate &= ~(PSTATE_IL_BIT | PSR_EXLOCK_BIT);
-> +}
-> +
-> +static void guest_gcs_handler(struct ex_regs *regs)
-> +{
-> +	u64 esr = read_sysreg(esr_el2);
-> +
-> +	gcs_count++;
-> +
-> +	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_GCS);
-> +	GUEST_ASSERT_EQ(FIELD_GET(ESR_ELx_ExType_MASK, esr),
-> +			ESR_ELx_ExType_EXLOCK);
-> +
-> +	/* Disabling EXLOCKEN makes sysreg writes legal. */
-> +	write_sysreg_s(0, SYS_GCSCR_EL2);
-> +	isb();
-> +}
-> +
-> +static noinline void test_udf_exception(bool enable_exlock)
-> +{
-> +	unsigned int initial_undef = undef_count;
-> +	unsigned int initial_illegal = illegal_count;
-> +	unsigned int initial_gcs = gcs_count;
-> +
-> +	expect_exlock = enable_exlock;
-> +	write_sysreg_s(enable_exlock ? GCSCR_ELx_EXLOCKEN : 0,
-> +		       SYS_GCSCR_EL2);
-> +	isb();
-> +
-> +	udf_mode = UDF_COLLECT;
-> +	asm volatile("udf #0" ::: "memory");
-> +
-> +	/* Leave GCS disabled even if a broken ERET skipped the ILL handler. */
-> +	write_sysreg_s(0, SYS_GCSCR_EL2);
-> +	isb();
-> +
-> +	GUEST_ASSERT_EQ(undef_count, initial_undef + 2 + enable_exlock);
-> +	GUEST_ASSERT_EQ(illegal_count, initial_illegal + enable_exlock);
-> +	GUEST_ASSERT_EQ(!!(handler_pstate & PSR_EXLOCK_BIT), enable_exlock);
-> +	if (enable_exlock)
-> +		GUEST_ASSERT(illegal_pstate & PSTATE_IL_BIT);
-> +	GUEST_ASSERT_EQ(initial_gcs, gcs_count);
-> +}
-> +
-> +static noinline void test_sysreg(enum udf_mode reg, bool enable_exlock)
-> +{
-> +	unsigned int initial_undef = undef_count;
-> +	unsigned int initial_gcs = gcs_count;
-> +
-> +	expect_exlock = enable_exlock;
-> +
-> +	write_sysreg_s(enable_exlock ? GCSCR_ELx_EXLOCKEN : 0,
-> +		       SYS_GCSCR_EL2);
-> +	isb();
-> +
-> +	udf_mode = reg;
-> +	asm volatile("udf #0" ::: "memory");
-> +
-> +	/* Ensure EXLOCK is disabled */
-> +	write_sysreg_s(0, SYS_GCSCR_EL2);
-> +	isb();
-> +
-> +	GUEST_ASSERT_EQ(gcs_count, initial_gcs + expect_exlock);
-> +	GUEST_ASSERT_EQ(undef_count, initial_undef + 1);
-> +}
-> +
-> +static void guest_code(void)
-> +{
-> +	GUEST_ASSERT_EQ(get_current_el(), 2);
-> +
-> +	/*
-> +	 * Try straightforwardly generating an exception without and
-> +	 * with EXLOCK.
-> +	 */
-> +	test_udf_exception(false);
-> +	test_sysreg(UDF_ELR_EL1, false);
-> +	test_sysreg(UDF_ELR_EL2, false);
-> +	test_sysreg(UDF_SPSR_EL1, false);]
-> +	test_sysreg(UDF_SPSR_EL2, false);
-> +
-> +	test_udf_exception(true);
-> +	test_sysreg(UDF_ELR_EL1, true);
-> +	test_sysreg(UDF_ELR_EL2, true);
-> +	test_sysreg(UDF_SPSR_EL1, true);
-> +	test_sysreg(UDF_SPSR_EL2, true);
-> +
-> +	/* Force ERET directly through the slow emulation path as well. */
-> +	sysreg_clear_set_s(SYS_HFGITR_EL2, 0, HFGITR_EL2_ERET);
-> +	isb();
-> +
-> +	test_udf_exception(false);
-> +
-> +	test_udf_exception(true);
-> +
-> +	sysreg_clear_set_s(SYS_HFGITR_EL2, HFGITR_EL2_ERET, 0);
-> +	isb();
-> +	GUEST_DONE();
-> +}
-> +
-> +static void test_exception_from_same_el(void)
-> +{
-> +	struct kvm_vcpu_init init;
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	struct ucall uc;
-> +
-> +	vm = vm_create(1);
-> +	kvm_get_default_vcpu_target(vm, &init);
-> +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-> +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-> +	require_guest_gcs(vcpu);
-> +
-> +	vm_init_descriptor_tables(vm);
-> +	vcpu_init_descriptor_tables(vcpu);
-> +	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-> +				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
-> +	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-> +				ESR_ELx_EC_ILL, guest_illegal_handler);
-> +	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-> +				ESR_ELx_EC_GCS, guest_gcs_handler);
-> +	kvm_arch_vm_finalize_vcpus(vm);
-> +
-> +	vcpu_run(vcpu);
-> +	switch (get_ucall(vcpu, &uc)) {
-> +	case UCALL_DONE:
-> +		break;
-> +	case UCALL_ABORT:
-> +		REPORT_GUEST_ASSERT(uc);
-> +		break;
-> +	default:
-> +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-> +	}
-> +
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +static void test_exception_from_lower_el(void)
-> +{
-> +	struct kvm_vcpu_events events = {};
-> +	struct kvm_vcpu_init init;
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	u64 pstate;
-> +
-> +	vm = vm_create(1);
-> +	kvm_get_default_vcpu_target(vm, &init);
-> +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-> +	vcpu = aarch64_vcpu_add(vm, 0, &init, NULL);
-> +	require_guest_gcs(vcpu);
-> +	kvm_arch_vm_finalize_vcpus(vm);
-> +
-> +	/*
-> +	 * Inject an EL0 data abort to vEL2 with EXLOCK enabled for
-> +	 * vEL2.
-> +	 */
-> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-> +		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)) |
-> +		     HCR_EL2_TGE);
-> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_GCSCR_EL2),
-> +		     GCSCR_ELx_EXLOCKEN);
-> +	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pstate),
-> +		     PSR_MODE_EL0t | PSR_EXLOCK_BIT);
-> +
-> +	events.exception.ext_dabt_pending = true;
-> +	vcpu_events_set(vcpu, &events);
-> +
-> +	pstate = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pstate));
-> +	TEST_ASSERT_EQ(pstate & PSR_MODE_MASK, PSR_MODE_EL2h);
-> +	TEST_ASSERT(!(pstate & PSR_EXLOCK_BIT),
-> +		    "EXLOCK set on exception from a lower EL");
-> +
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +int main(void)
-> +{
-> +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-> +	test_exception_from_same_el();
-> +	test_exception_from_lower_el();
-> +
-> +	return 0;
-> +}
-> 
-> -- 
-> 2.47.3
-> 
+If tomorrow we will define a new camera connector (that is absolutely
+possible), the new connector will get its name, maybe
+toradex,camera-connector-v2, or toradex,camera-connector-22pin or
+whatever that connector would be named, not just in the DT, but also as
+a product and on the actual HW.
 
 
+Francesco
 
 
