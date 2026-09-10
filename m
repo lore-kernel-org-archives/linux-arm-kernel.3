@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE860C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D93EC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KQSmtkir2nPtNoSUedUIRbl1m78o17ChN5qqTLjhAfk=; b=X9RriPyDwSUAStyukz3JIiJlCD
-	oOd/BhZzDWk84QvJpyyQuQ+FyRKRE6EaTM3ipOLWjXvV2z/Fx+LInw4yICioTU2/DdX0ebP2uw214
-	4j4kWwgKBOyzed+9VHlmkxoSrzXViPj2hcyphRQoMlmnUvcmPfAw6HfcHZ/ktIlM2BBuPgMnn6ZS7
-	bvsJJCsEmmZKH/1dqRZ67Rq2eHgUc1gl9recOq2/bFLlRfqp10UeBIaOTWXhzhXVfZJH/e4fUHagB
-	UQm4Ff7NjIS3CSjMiycmybfFSU4Aj0CkhLa/0JFs+RkUoNiaFLdiTB/G6yz0mw+oBdJvsL1IXxbTf
-	buqnMHmw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DRH5e9h+ggMORiTSIyaC5/5XY7ctell0YPFNWaLo4WY=; b=m/qp2OWbOD6NXloe0f00WqICc9
+	EYWCJOJlZvauM0xPZ6CGVU9S/+aao/yrd+WM2EdyAlrYkXOilCpkmog55ne2ePwiC/3IPhih3fMOp
+	2BYjsI1AwK/xN21NENCzmM+iWUN3pTbJLRDa2bD+nqzHo43TtoD0lBJ2pmSrv1JR6IM9z85wDBQJN
+	+5+CwYD4B6sZZcQ4035fg6LBIUtdSMtzjxSD4RWxfnBtV0+o9NU00+1GQy9I2TsODNiPeu4VDzYJa
+	h0bpEH5e7f81eT28Cd/b6VunOeN0P9Dr3Xk884X+u603gl1AZ2/5enICxrNZWaUPTMKGao5AgB/PO
+	yjCR7kVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axj-0000000Dqjo-3qQf;
-	Thu, 10 Sep 2026 09:20:55 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axZ-0000000DqYb-3fzW;
-	Thu, 10 Sep 2026 09:20:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789032042;
-	bh=kOX7qxdoIaNGQlJqEVTvsO2lJxLSfimYQdTf/38st6Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=U3LPU7FqStDtB5+V9vaGVzVRaJJnMV+/gztlnhvBraOeJ5ARio0gSxVaS8fvoKFUx
-	 Ib26O6Y6fOcJWuL6ex/ERGRqSX/iKmGy9mMf52YJPm6Cnd09WkVpDJXk/76UPnThTS
-	 AQi69cyYEwjx72nD7iXDDJnzH80GJk6onXFMmTrgEvnvubTCF2x+hhn1G0mMHhLMax
-	 a0f41u1W3zvt8YGYGE9eU0cjCQ6RwjhepjaaEPkA921oUF06rFqSp44GhldlotjPyU
-	 P0NO8e1D7SblJQbPC5ctg0ZW156gmzc8zcHRWIlssJXYF+Uml2OcXPrWeW300w6GbG
-	 F8h6Rxf12Kl6g==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C168D17E0917;
-	Thu, 10 Sep 2026 11:20:41 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: mani@kernel.org
-Cc: chunfeng.yun@mediatek.com,
-	vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH v4 00/12] PHY: MediaTek DP PHY refactor and MT8196 eDP
-Date: Thu, 10 Sep 2026 11:20:26 +0200
-Message-ID: <20260910092038.48291-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
+	id 1x4bkS-0000000E0cY-3Wkv;
+	Thu, 10 Sep 2026 10:11:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4bkQ-0000000E0bj-0lSy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 10:11:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D345E143D;
+	Thu, 10 Sep 2026 03:11:07 -0700 (PDT)
+Received: from [10.57.72.177] (unknown [10.57.72.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B53B73F7B4;
+	Thu, 10 Sep 2026 03:11:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789035071; bh=ze2X4Lma6eVK0EPslJ52ApNw2jBlVa9FG4aUhZ3Oysw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QffLbUZIi0x47zAKcQ/fhaBHbAZmRZ2td2tLzmYC9x864r7U8LFVP70Npo+9+3OQu
+	 ieLkWcU0zlFJ4C9oHdGO1eB9Cm30gdZU+DW32guMGOTRWLJKtwI2KR2nrjZWv4QYCU
+	 QCY02mM9LFsznD0dXYbs1pCHO3Lu2ZGkRrVWkR48=
+Message-ID: <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
+Date: Thu, 10 Sep 2026 12:11:06 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
+ cores
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
+ <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
+ Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260909062649.469633-1-arighi@nvidia.com>
+ <20260909062649.469633-2-arighi@nvidia.com>
+ <89694e14-4be8-4c9e-9d7b-2808f87dd95f@arm.com> <aqGGlNce4TRLS1cW@gpd4>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <aqGGlNce4TRLS1cW@gpd4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_022046_350548_D672564B 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20260910_031114_272656_95D80C6A 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +82,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v4:
- - Removed error checking from all regmap_(bulk_){read,write} calls
-   as those are on MMIO and can't fail (Mani)
- - Changed some of the error prints in mtk_dp_phy_get_one_cal_para()
-   to dev_err_probe() (Mani, Sashiko)
+On 09.09.26 18:17, Andrea Righi wrote:
+> On Wed, Sep 09, 2026 at 05:19:08PM +0200, Dietmar Eggemann wrote:
+>> On 09.09.26 08:26, Andrea Righi wrote:
+>>
+>> [...]
+>>
+>>> +void __init arm64_init_sched_topology(void)
+>>> +{
+>>> +	if (!IS_ENABLED(CONFIG_SCHED_SMT))
+>>> +		return;
+>>> +
+>>> +	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
+>>> +		return;
+>>> +
+>>> +	if (!topology_core_has_smt(smp_processor_id()))
+>>> +		return;
+>>> +
+>>> +	set_sched_topology(arm64_asym_smt_topology);
+>>> +	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
+>>
+>> I'm not really a big fan of using this arm64 setup for NVIDIA Olympus
+>> alone here.
+>>
+>>> +}
+>>> +
+>>> +int arch_asym_cpu_priority(int cpu)
+>>> +{
+>>> +	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
+>>> +}
+>>> +
+>>
+>> This is done since it will only be called for NVIDIA Olympus since it's
+>> the only CPU model enabling this. I think it will work but it's still
+>> ugly :-)
+>>
+>> [...]
+>>
+> 
+> Agreed on both points. As mentioned in the other email, I'll coordinate with the
+> firmware team on a proper ABI for describing the PE0 preference. For the systems
+> with the current firmware, I don't have many ideas on how to enable this... a
+> special scheduler facility enabled via kernel boot option? Other ideas?
+With the explicit kernel boot time option discussed in the other thread,
+how do you want to code arch_asym_cpu_priority()?
 
-Changes in v3:
- - Added missing bitfield.h, pm_runtime.h includes (Sashiko)
- - Set calibration data before registering PHY (Sashiko)
- - Enable PM Runtime before creating PHY device (Sashiko)
- - Continue poweroff if some write fails, but still return failure
-   as that would be a partial poweroff anyway (Sashiko)
- - Added zero driving params to fix default calibration data setting (Sashiko)
- - Added NULL check on device_Get_match_data (Sashiko)
+AFAIK, Arm architecture does not require the first/primary HW thread of
+an SMT core to have MPIDR_EL1.Aff0 == 0.
 
-Changes in v2:
- - Fixed register offsets for ANA phy in MT8196
- - Set/clear FORCE_VOLT_SWING_EN bit when configuring and resetting
-   the voltage swing registers
- - Fixed endianness issue in call to nvmem_read_u16 (Sashiko)
- - Added early exit during lanes disablement if none are enabled to
-   avoid out-of-bounds bitwise shift (Sashiko)
- - Removed useless call to pm_runtime_get_sync() in probe(), which
-   also fixes issues pointed out by Sashiko
- - Fixed wrong dig vs ana register array usage in power_on/off (Sashiko)
+The closest I came to you setup in Arm64 is a ThunderX2 SMT-4 machine on
+which I can run 'OpenBLAS benchmark/sgemm.goto'. This machine has
+symmetric CPU capacity though like Power7.
+It has MPIDR_EL1.Aff0 == {0,1,2,3} for HW threads but '== 0' wouldn't
+work here.
 
-
-This series performs major refactoring on the MediaTek DisplayPort PHY
-driver, makes it probe with devicetree instead of getting registered
-by the mtk_dp DRM driver, adds power_on/off() callbacks, and honors
-the phy configure opts' set_lanes and set_voltages for, respectively,
-varying the number of lanes and setting the voltage pre-emphasis and
-swing on the PHY, for each lane.
-
-This driver now also properly gets the PHY (EYE) Calibration Data from
-NVMEM (eFuse array) if provided, instead of getting it (improperly)
-injected by the mtk_dp driver.
-
-Additionally, all of the driving parameters calculations and most of
-the other register definitions were refactored to greatly enhance the
-human readability of this code.
-
-As a last step, this also transfers the register offsets for both the
-digital and analog phy registers in arrays assigned to soc specific
-data, in an effort to both introduce support for new minor revisions
-of the MediaTek DisplayPort PHY and to have a clearer view of the
-register related differences between those (for example, it is easily
-understandable that the analog part remained exactly the same between
-MT8195 and MT8196, but the digital part gets a slight update).
-
-Speaking of which, as a last step, this also adds support for the
-MT8196 SoC (and its derivatives), which uses this PHY only for its
-Embedded DisplayPort (eDP) IP (spoiler: the DP one seems to be way
-too different and requiring an entirely new PHY driver).
-
-In this state, this driver can also easily support the MT8189 SoC
-with a few lines of code: even though I do have clean code to add
-support for this one, I was not (*yet*) able to test it on upstream
-based kernels, and for this reason I decided to leave that one out
-for now (but it's coming later for sure).
-
-NOTE!
-Despite all the apparently breaking changes in the refactoring, full
-compatibility with older MTK_DP driver and with old devicetrees was
-retained and carefully tested on multiple platforms!
-
-P.S.: I am aware of the BUILD_DRIVING_PARAM_0( 0, 2, 4, 7) checkpatch
-warning and I didn't fix it in bigger favor of human readability.
-
-AngeloGioacchino Del Regno (12):
-  dt-bindings: phy: Document MT8195 and MT8196 DisplayPort PHYs
-  phy: phy-mtk-dp: Rename regs to regmap in struct mtk_dp_phy
-  phy: phy-mtk-dp: Allow probing with devicetree match
-  phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
-  phy: phy-mtk-dp: Implement power_on and power_off PHY callbacks
-  phy: phy-mtk-dp: Support set_lanes in configure and properly cleanup
-  phy: phy-mtk-dp: Support setting volt swing and preemphasis values
-  phy: phy-mtk-dp: Add support for digital and analog calibration
-  phy: phy-mtk-dp: Rewrite and document default driving param macros
-  phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
-  phy: phy-mtk-dp: Add PHYD Lane EN register mask to SoC data
-  phy: phy-mtk-dp: Add support for MT8196 eDP PHY
-
- .../bindings/phy/mediatek,mt8195-dp-phy.yaml  |  77 ++
- drivers/phy/mediatek/phy-mtk-dp.c             | 832 ++++++++++++++++--
- 2 files changed, 812 insertions(+), 97 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8195-dp-phy.yaml
-
--- 
-2.55.0
-
+[...]
 
