@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77243C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB986C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Lnrg2/hO2PDz3YYyuFj0xK05QQ8enbQYCMqcWEZoS0=; b=p7y8i6PbwyuApOR1Ji4fJ+fRz9
-	th38Zzr8jesuKWgIp2iRlcbv0o/mxZ5xvjLa8bGFOBSzSHN6luV3XrzkzU8rFA4nn1TSR+81JymS/
-	NortpUXDs2xwCfK6siwRvkJFk27xn6DC7MAOY+9ZblOr8n0cFTHaWgeO5sfm1giAIA2aJ+fULQWMS
-	naz5xqk0jZXPoMoot3QO0CuCuUkgDwmS4a94mwiwiLQRrktDLKIhmAE5ScbaOUKikFwsP98uKuxPW
-	VH3if8x6FFuTe0H2XWGIULhron8AcWlhtBMQkSaxTEV4JzyaRxWQ2xwyXF/7CnANd125I5zyFEZFd
-	PY7WSywA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BysySkwVmfiOg80mZRu2P2L0wmj7ZMlp89VNthYItXU=; b=keArw/9AWI6xp1EnE0+N2qlDKS
+	+GS9ssyjvVnmFggN8VcZz6UM9b+ahKRSZlzmSNAnIBRrIo2APlgkLUZRhWm6RSb/g8mpVZaXo+h1R
+	sz+S1o7dYuEF4xjh0+P9q3ELIsfaAoVJO6sxy7ksdiEUPzjcVITOyujSo9p6z/6VNjueC8JSb4NAG
+	fjr8DkOj57m/Vkv7+ymR7XzQAq+tpzxQhrr9ZMiJi9hmb1cWg9FVI8nWE264SPCXFPSUerlg/8g4x
+	dWuni35cxmB4arNmgc53JxKrqc6sefFB4nTLgBrQg/Qu3w6SBvMVhx4TTD3cQEc0zEUfY0yXCmVD8
+	CYDVbJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aNR-0000000Dmbv-0t7E;
-	Thu, 10 Sep 2026 08:43:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aNP-0000000DmbP-1cPe
+	id 1x4aOv-0000000Dmr2-2bPn;
+	Thu, 10 Sep 2026 08:44:57 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4aOt-0000000DmqE-0Oac
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 08:43:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA6D81570;
-	Thu, 10 Sep 2026 01:43:18 -0700 (PDT)
-Received: from [10.0.129.245] (unknown [10.0.129.245])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A30433F7B4;
-	Thu, 10 Sep 2026 01:43:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789029802; bh=pZUMNn7G6bEmWkSQbLz54BigM3O4mPAIKyE7XJ1QN/I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EHjRVZpnJR2Yspv1pcvSj5E8gglrpU8NcIRqk/eLWDvSmVhmkEnt5wHKbiTXtnFSU
-	 vm/P1PsmftSvQMuEhWVLOoJYES5EwyAheGCUV7Jar3sxHe6GayFDDE1GnvT012cb3G
-	 h34jwHoi3ZpFOpzyb3GvlaGfqIIVa8VCneQYTc48=
-Message-ID: <40d3312a-c695-44ed-857a-fc6bf293f3e6@arm.com>
-Date: Thu, 10 Sep 2026 09:43:17 +0100
+	Thu, 10 Sep 2026 08:44:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789029895; x=1820565895;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=yHF/t7fo4m7uiGHEup1QALUVhVMyuRlqvqxKVfUDfnU=;
+  b=m8Plj2aVGk00xLZl3Z7b/qY8ansYKVgze2AyUbsmSWwc4No+FveMaFIq
+   ZHBTSaDxLkA9U68bdGGIfs8nEG5XyMo0hbeZPAnthWAbXzNzrP+WXClDq
+   /92lOVQ5W8/kRhqpxu6ZDk+05OC0MFCPkf+Q5QmPUsmKdveAW8WGSElIL
+   yXbl4edXQOis9Ry7bSyialPln9B1QYsrBA4EilNIoWebqFRYAjP+uS6Hp
+   QB6zqT/lPnYLdvEKLzJstyS6Dh6aYNFaRmuQ4zRbpVY5FJ1GH1bAl7yxe
+   5BHWxkz8ak9sXOocMuPMgcLf7v9GeeQxxjCfaKrkIXyN6i2e5MsrArubO
+   A==;
+X-CSE-ConnectionGUID: qqP5TKDdRVqIuKen9UnvZQ==
+X-CSE-MsgGUID: +PCPJsneQuuN8+dXSnRx+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="100134962"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="100134962"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 01:44:54 -0700
+X-CSE-ConnectionGUID: 5c0auEYrQJ+J/JRK8/8NQA==
+X-CSE-MsgGUID: OIeno0AwRwaIfq4Il33w4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="295059833"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.221])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 01:44:38 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 10 Sep 2026 11:44:35 +0300 (EEST)
+To: Long Zhao <longzhao@ambarella.com>
+cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+    Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+    linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, 
+    Michael Turquette <mturquette@baylibre.com>, 
+    Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+    Bartosz Golaszewski <brgl@kernel.org>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Jiri Slaby <jirislaby@kernel.org>, 
+    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+    mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+    linux-gpio@vger.kernel.org, linux-serial <linux-serial@vger.kernel.org>, 
+    LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
+In-Reply-To: <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
+Message-ID: <07cdbec9-49af-d500-d93d-56bfcef9f490@linux.intel.com>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting
- Realm guests
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-7-suzuki.poulose@arm.com>
- <e66698e1-e582-4ff8-9881-4ddda5bc1d94@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <e66698e1-e582-4ff8-9881-4ddda5bc1d94@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_014323_464721_056F5F33 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260910_014455_172534_D382D28D 
+X-CRM114-Status: GOOD (  24.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +96,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2026 06:53, Gavin Shan wrote:
-> Hi Suzuki,
-> 
-> On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
->> Add an explicit mode to support Arm CCA guests.
->>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   Documentation/admin-guide/kernel-parameters.txt | 3 +++
->>   arch/arm64/include/asm/kvm_host.h               | 1 +
->>   arch/arm64/kvm/arm.c                            | 5 +++++
->>   3 files changed, 9 insertions(+)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/ 
->> Documentation/admin-guide/kernel-parameters.txt
->> index 68647ff4bdd24..1afe3df3b923e 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -3256,6 +3256,9 @@ Kernel parameters
->>               nested: VHE-based mode with support for nested
->>                   virtualization. Requires at least ARMv8.4
->>                   hardware (with FEAT_NV2).
->> +            rmm: Support for running confidential guests in Realm
->> +                 world using RMM, as defined by Arm Confidential
->> +                 Compute Architecture (CCA)
->>
-> 
-> I'm not sure, but 'realm' would be more appropriate name. rmm (Real 
-> Management Monitor) is
-> the term limited to the firmware to me. Besides, we have been using 
-> 'realm' broadly in this
-> series like kvm_vm_is_realm(), kvm_realm_state() and so on.
+On Fri, 4 Sep 2026, Long Zhao via B4 Relay wrote:
 
-May be. But we use the "mode" of the hypervisor in question here, 
-mostly. e.g., nvhe, vhe, protected etc. So, I went with RMM (in favor
-of CCA). Does that make sense ? Also, we rely on firmware/arm_rmm for
-the support. So, it kind of make sense to keep it "rmm" ?
+> From: Long Zhao <longzhao@ambarella.com>
+> 
+> The Ambarella CV75 UART is Ambarella IP, not a Synopsys DesignWare
+> licensed block. At the register level it is close enough to DW APB UART
+> that a full custom UART driver is unnecessary: reuse 8250_dw with a
+> small platform quirk.
+> 
+> Quirks:
+> - keep IER ETOI (bit 5) set for RX timeout behaviour
+> - skip set_rate; baud clock is managed outside the UART block
+> 
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  drivers/tty/serial/8250/8250_dw.c | 34 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> index 5fba913f3301..b15de40d1e2a 100644
+> --- a/drivers/tty/serial/8250/8250_dw.c
+> +++ b/drivers/tty/serial/8250/8250_dw.c
+> @@ -43,6 +43,9 @@
+>  #define RZN1_UART_xDMACR_8_WORD_BURST	(2 << 1)
+>  #define RZN1_UART_xDMACR_BLK_SZ(x)	((x) << 3)
+>  
+> +/* Ambarella IER: receive timeout interrupt enable */
+> +#define AMBARELLA_UART_IER_ETOI		BIT(5)
+> +
+>  /* Quirks */
+>  #define DW_UART_QUIRK_OCTEON		BIT(0)
+>  #define DW_UART_QUIRK_ARMADA_38X	BIT(1)
+> @@ -60,6 +63,7 @@
+>  
+>  struct dw8250_platform_data {
+>  	u8 usr_reg;
+> +	u8 ier_mask;
+>  	u32 cpr_value;
+>  	unsigned int quirks;
+>  };
+> @@ -572,6 +576,27 @@ static void dw8250_prepare_rx_dma(struct uart_8250_port *p)
+>  	dw8250_writel_ext(up, RZN1_UART_RDMACR, val);
+>  }
+>  
+> +static int dw8250_ier_mask_startup(struct uart_port *p)
+> +{
+> +	struct dw8250_data *d = to_dw8250_data(p->private_data);
+> +	struct uart_8250_port *up = up_to_u8250p(p);
+> +	int ret;
+> +
+> +	ret = serial8250_do_startup(p);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Ambarella keeps variant IER bits (e.g. ETOI) set for correct RX
+> +	 * timeout behaviour. Force them into the 8250 IER shadow so later
+> +	 * generic IER updates do not clear them.
+> +	 */
+> +	up->ier |= d->pdata->ier_mask;
+> +	serial_port_out(p, UART_IER, up->ier);
 
-Cheers
-Suzuki
+serial8250_do_startup() seems to defer IER update on purpose. Is it fine 
+to override that behavior here?
+
+-- 
+ i.
+
+> +	return 0;
+> +}
+> +
+>  static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
+>  {
+>  	unsigned int quirks = data->pdata->quirks;
+> @@ -606,6 +631,8 @@ static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
+>  		p->serial_in = dw8250_serial_in32;
+>  		data->uart_16550_compatible = true;
+>  	}
+> +	if (data->pdata->ier_mask)
+> +		p->startup = dw8250_ier_mask_startup;
+>  }
+>  
+>  static void dw8250_reset_control_assert(void *data)
+> @@ -879,6 +906,12 @@ static const struct dw8250_platform_data dw8250_intc10ee = {
+>  	.quirks = DW_UART_QUIRK_IER_KICK,
+>  };
+>  
+> +static const struct dw8250_platform_data dw8250_ambarella_cv75_data = {
+> +	.usr_reg = DW_UART_USR,
+> +	.ier_mask = AMBARELLA_UART_IER_ETOI,
+> +	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+> +};
+> +
+>  static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
+>  	.usr_reg = DW_UART_USR,
+>  	.cpr_value = FIELD_PREP_CONST(DW_UART_CPR_ABP_DATA_WIDTH, 2) |
+> @@ -889,6 +922,7 @@ static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
+>  };
+>  
+>  static const struct of_device_id dw8250_of_match[] = {
+> +	{ .compatible = "ambarella,cv75-uart", .data = &dw8250_ambarella_cv75_data },
+>  	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
+>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+> 
+> 
 
