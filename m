@@ -4,98 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49843C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B32DC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=; b=F81kTcDXf9ZOQHND5hv0MBlA8b
-	38YYD1CwtCkuOWq5WhMBzQjsjwOfQ+wtuXvphKm/+lOYY/nfpn3jOHcO7M8nXATw3pdrnBHL2d5e7
-	dxa12+Zww6+FUAHWBZsT4iHwhvHYy8w2m4PLpMszhuPIvDReLWwm9U9tlDaMTOfojdF2hjO2tfCdz
-	21nhUpX4dS+UKqlR5UlVT+aCzD5OzlZVrdom5D5Pv/jghtup421fXUvrYOjEF1PLLuI8LkxOCQBih
-	LHhqHiFqxIaBdO82P42sfq7JaY2HFSQ/7gk7MyBbcHLQfNl27rJ89E7Y8Q6YarU2dap8LOIGSwGpP
-	UGVyth7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hbLnIWJycW550lJgcztROooyzxfaoCBFJTCFjxtrh3I=; b=TdTJlT6XFlyoQbkssvREAMxxwG
+	VnlpU0QiTT/TiOM/1WIBksGyskkqkclulRUuanrkg2V/7lx8Ggg68xyQxg2/1taYxS1MBePMmNOn+
+	2LdTCKpWxO2Sz29hfitXqAZRdsIEos4pAbziUynIgBof6nIqX2G2CfOb0gAYgc568EXxInks8NEXy
+	izz7Sf4OkGQMOtJ0Q8ByvhG1aWpqLTXVOhO1yNKPQaCyKl9PP+22FtuXqMbRFxgdN7uDGyWYZ2hWT
+	mmYttzCE6Zpqwmt60tvKItuTkHcGkiq2vPi9XtUBOuQi2HKoVcvyFr1W+3uPU2vLupQe/vwoFfyDx
+	W+TYcvgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cwv-0000000ECsW-12eQ;
-	Thu, 10 Sep 2026 11:28:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4d2h-0000000EDrv-3owj;
+	Thu, 10 Sep 2026 11:34:11 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cwt-0000000ECrO-2X5t
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 11:28:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Message-ID:Date:In-Reply-To
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=; b=MzqQJoZzaU6m9o8FPFmK+xznfb
-	Y4S5UlbD7DgtLjq4+ZNIukDIozWrOLBTOPFQ+Jq7Vm24ZSNEpygvsJnBvKL/8GHXA0on9b696HVi+
-	IrEsNWovA5a/1kNsJCv+I/gjAumxzdunOt4KmwlAZVwPk1E81oHrqwDKl5s4fiCzaql8nEgVMgxTR
-	ibuY2q9IjPXW8wsiNWJIC87u9ZgQIZfeK30UoK9aYIor786UYzccBIx1p5D0tlMH3czTYbSqy+FXq
-	BpXsn775CyRqD9ElelrZPfk3ChMaSvb+MV/khb9izF6E1ce5scX3NOsLbG0Sbo6PHseGfOSTZKYDt
-	IkjEG8pw==;
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4cwq-00000002Oln-49Bb
+	id 1x4d2f-0000000EDqr-2Tc0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 11:28:10 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-4a451915d8aso6638585b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:28:08 -0700 (PDT)
+	Thu, 10 Sep 2026 11:34:10 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd82be878so4157485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:34:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789039687; x=1789644487; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=;
-        b=pmqvuGVD4kDnZOM4VF8RLqiA7VQzj6moZH1ck1wRL11iW7H6dETDP1/CMsZrYpe3a5
-         3BGXodmD573GRK4XuK7KxmZACPWw9RT+Ee6BYijpe8cZ12auHoR1VFgSYI9aNf8XdHBm
-         wmi3QSneXCs7uxf7mXEyf8Df4yyK0lC4XUZD6G0akaFvEAeKBV8Uc0vX8Y9D/5Wp/Bs3
-         +cMFPWM+YMo5L5s40MU+fzVAbitcgox7SSvvXBYxyEiTe9mr9RD02UbU+Tr2lYM7d0x4
-         Qzx3ybefaFUNCH3P80Pj66p7PcbZRqrT2LBRaqKHcXg1ia77cds87DddcGjpzeca6BRZ
-         Wi3w==
+        d=gmail.com; s=20251104; t=1789040047; x=1789644847; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hbLnIWJycW550lJgcztROooyzxfaoCBFJTCFjxtrh3I=;
+        b=LNV+7wVTHBKuRnl2Wj+dMIN/EQ4eHLsRrC4yCJ17b1zeZ3bvOGteTsBNwuuSpyNc2f
+         QduJrq53FLgGzpMcd3elIUBDvlsUXj50v4QY3A1R4Grh25hlZiTQ8Yh4Bz0s77DPdXa5
+         0xRxe8xk7MaMYKt+repnjJtrPPnbjRHTPQAkhgOrJGDuUudd/S0176diuUEdNo8kaT6o
+         PXsFsXcSH9AAenModc7yv7VlE76E7LwDImi6Znl1reLqVvCxO2lBxNNZp+T+B+Sdd05y
+         xL3Riv2/3i18jk69h+CbIq1NQWpX+HUlk+h8+Z6JjK5LN9lIIetEG9/ymwf8OKNBLWes
+         ICiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789039687; x=1789644487;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=;
-        b=p63LgYEXfMONqAGLzgK1qCxPPJ69ZAsnAv8NBqy97u8h6fxxk54UtjWGSqsctEvhZx
-         WD/C2un8oqq1Su3JUNwmWgFGpgfH79c84w5gykNKuS7Gb0jTFzzCuCoHp/4iILlig1+t
-         D3mW1btztvr+BCjw8xkj14LlyfsigA6PLUG4qQiYvesnykH4Lr4kIzLyCMz2R7m3vc/K
-         QoY0uNLgNwj0nQogwaDE3jlUIYpUVOVrp2lSVavAmkbGhO2JjeZWFLyOsJDEX4bCUKnl
-         bACNYsbFcBzgTvzL+19t7CYr5Sl7QplD+UI7+NJlCinP37Q/4d/zNxwptvcyR1T3aiq4
-         9VPQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzYzYVA1GaCX4H+2+9hz8+bkRCJwX1E9vUSsGOHIAhWp7+69W6mB5VgoCJJQvWtWdGI4gHYg/t5ZrmfuZWFNo8x@lists.infradead.org
-X-Gm-Message-State: AFuF++k7147lMyR+Cj3LA/dKDhDUxC2iYjOOBJccCznAuJT7XcgRpTa7
-	eoXI9Z6um8kCtQ3/DkpNfpv6STSozgzSoI5mT/gnCddEulVQDirgC6+/
-X-Gm-Gg: AYBFou3z6rmbjfOsWg7PFxsiqJCXEpxAFLP30Jq5yH33FHuAaSW0Mt/s1gZo7qpB/v8
-	suNaK537uFxiAkI1+g5f1F9qc5mRoNl8+FP7mx/wtzL4sPFzB/brPa352ZJ+Vz6CPG/1GlATA5W
-	1edxM6O9BRIPKkKRuOgMK9o94rZCOLUIrbx/8kZsNKb8KvbGkOcVvVk6EQX8ZaFef864DVf1ZUZ
-	aKbpuOuKvTsq3mLuctDBt3DU0WYwrq2/HYq739Soz+RECSzFP4OvKa4k7j3rtq5rZuCwXuTbuYl
-	ovVzEkMxQfAtm+XrZz6o4Zev070hnBvGhtL9dAaYF0P+r5c3NPPA70LqL2/fJ7KLNsYMgz9ESYo
-	YFG9lZGeo7XuuJFpC5E6QrvY3P6Tl+0bq2EQSVo5GWYVc65HOOXDl0PbW91RE05/mL9yzhicHzm
-	/Dw3HMLDaDlGKlwCe8QjpwOLFkfPmSoKkQYoCIcnTOOhPQHkviAv/EkTEeO5I8C5H3nnVtjrMB/
-	iIeaYkCvDDk6I3rzPkae2h+IKkpNMGxVg4d7G9bkDa64OygAbPUBK64ZNX2UHOcBg==
-X-Received: by 2002:a05:6808:f09:b0:4b2:8ee8:8a38 with SMTP id 5614622812f47-4b95db6da80mr27637088b6e.0.1789039686755;
-        Thu, 10 Sep 2026 04:28:06 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14332405e92sm49398440c88.8.2026.09.10.04.27.56
+        d=1e100.net; s=20251104; t=1789040047; x=1789644847;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hbLnIWJycW550lJgcztROooyzxfaoCBFJTCFjxtrh3I=;
+        b=GN2jbeQ/GDg9emp027LAlBdvwt42VRc3ZNehfQFZHFKwa+iMd9OYYvbsSSvW8KMAB9
+         s2DABJp30UzuAkTD62Yzu3+T2J/BmrirWCAQNyRiBV75zrh0pJDln3UjAVUzMDUa35K3
+         i1F5Jl/lRCTj1RT2HxTa/i+l6D46pSgKjcGWLZxf1pNEaBSP5ujBtp2zS1pbbPqngus5
+         2/GauyvtvfKWrpwRZuIEL/HiWP85bDlT6vMiPWHw/RaAITmoL0mB3ivHmRRfjdy5+JSp
+         c9WHBtNtA5qzUNqHHrLXdmnIjdpBoDm4Y9ksKgOTyRkxWVAL9zaj+xgRGqcDLJUlsdP+
+         U3Vw==
+X-Forwarded-Encrypted: i=1; AKwUvBxx8SeUfveIF6oynKZYjLsSA9IepC8+X0T4UQr7RmU+gRheZEuPYiffTOnhKHLdDFfwNPQabQKJN41/t/S3KWPl@lists.infradead.org
+X-Gm-Message-State: AFuF++l+TIkjqQiqtHCx1cPGy/kRysmdTEpEcSTIqJuFYHjhZcfvhnyr
+	ywxMEbC0xEQbbTfE9BM4ikBXcJ9qieybI+qMF9OUZM5x1vUy0kG/tn5Q
+X-Gm-Gg: AYBFou1fPkWO2jRHQ2Xbstk6rDzIXb6DmQJwJqTgKTambOiwhRyg3uhoq8ZP0HeCIPi
+	B+WqsdTXtYX0gjCUQv0GiSl7jUL+7AyOoYHVuuG5Q+zPHRoH8TaSc3n6IXjTu2omTvMrMuBSjFP
+	B5wHWBT/uFiSl44+10AV2xQ9t2Hu/uNP+Rj+f+tT893y66PDypFvH069lbftJUGShQ8hS/DGzgY
+	SOu1fY0vtpuVw596HKg0fgXKphXCilSZKvOTEiVSmUketEp7s0kluee1qltBEW5g2aXZ/noGMK7
+	ENrJaC8th0uLIG74LQCroqSVfg2oIOGdXmfbyXNky2kwW90NK97FNnCkrxVkN+VmhdFfLeFa9VQ
+	HmQ1qXa3f+5rTUdzxIzitLRO47/kmcP4f07w6lwKqC87HyNOs7z+2+1ndaJrHefXKObf2EhP4gh
+	WzsqHjriKRKwtOx4c8rU6N/QSwKegHEe2r7NQvB70EOaYxjWWpjcV56I+YbQg3X0WwtMwm8o+uT
+	5eZfNOR8c0YblmuUk8=
+X-Received: by 2002:a05:6000:2c0e:b0:484:3328:1ad1 with SMTP id ffacd0b85a97d-48590805fabmr30378346f8f.6.1789040047066;
+        Thu, 10 Sep 2026 04:34:07 -0700 (PDT)
+Received: from L-P-ITAIH2-L-RF.rf.local ([193.169.70.108])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4858ab73c2bsm49155813f8f.22.2026.09.10.04.34.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 04:28:05 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH v2 18/20] KVM: selftests: Use TEST_ASSERT(), not assert(), in vm_get_mem_region()
-In-Reply-To: <20260902164123.2546762-19-seanjc@google.com>
-Date: Thu, 10 Sep 2026 16:57:29 +0530
-Message-ID: <4ifx1h3y.ritesh.list@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-19-seanjc@google.com>
+        Thu, 10 Sep 2026 04:34:06 -0700 (PDT)
+From: Itai Handler <itai.handler@gmail.com>
+To: broonie@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	michal.simek@amd.com,
+	Itai Handler <itai.handler@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] spi: spi-zynqmp-gqspi: stop the controller on shutdown
+Date: Thu, 10 Sep 2026 14:33:25 +0300
+Message-Id: <20260910113325.717882-1-itai.handler@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_122809_122206_63111A07 
-X-CRM114-Status: UNSURE (   6.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_043409_645276_8C79612F 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,13 +100,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+The driver has no ->shutdown, and platform_drv_shutdown() has no
+fallback of its own.  Unlike pci_device_shutdown(), which clears bus
+mastering when kexec_in_progress, nothing on the platform bus disarms a
+device that can still write to memory.  The normal kexec path never
+calls ->suspend either, so the quiesce in zynqmp_qspi_suspend() is not
+reached.
 
-> Use a proper selftests TEST_ASSERT() in vm_get_mem_region() so that bad
-> input is guaranteed to fail the test, and with the standard error message
-> format.
->
+A controller that is still executing a DMA read may therefore keep
+writing to memory across a kexec.  QSPIDMA_DST_ADDR still points at
+memory owned by the kernel that called kexec, DST_SIZE is non-zero and
+the flash is still clocked, so data can keep landing in RAM while the
+new kernel is being relocated, and after it has started executing.
 
-LGTM. Feel free to add:
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+That destination is a physical address which means nothing to the new
+kernel, so the writes can corrupt whatever now occupies it: kernel text
+or data, page tables, or the initrd.  Nothing reports an error and the
+resulting behaviour is undefined.
+
+This can be observed by reading GQSPI_EN (offset 0x114) and
+QSPIDMA_DST_ADDR/SIZE/STS/CTRL (offsets 0x800 to 0x80c) early in the new
+kernel, before the driver probes: without this patch GQSPI_EN reads 1
+and QSPIDMA_DST_ADDR still points into the previous kernel's memory.
+
+Write 0 to GQSPI_EN_OFST, as zynqmp_qspi_remove() and
+zynqmp_qspi_suspend() already do.  Skip it only when
+pm_runtime_get_if_in_use() returns 0, i.e. runtime suspended: the clocks
+are gated, so the registers are unreachable and the controller cannot be
+mastering the bus.  A negative return is not the same thing - it is what
+the CONFIG_PM=n stub always returns, and there probe() has enabled pclk
+and refclk for good, so the controller is running and must be stopped.
+
+Fixes: dfe11a11d523 ("spi: Add support for Zynq Ultrascale+ MPSoC GQSPI controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Itai Handler <itai.handler@gmail.com>
+---
+Note for stable: before commit 1c26372e5aa9 ("spi: spi-zynqmp-gqspi:
+Update driver to use spi-mem framework") this driver stored the
+spi_master in the platform drvdata rather than the zynqmp_qspi, so a
+backport to those trees needs spi_master_get_devdata() in place of the
+platform_get_drvdata() used here.
+
+ drivers/spi/spi-zynqmp-gqspi.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
+index 4d55090..24f680b 100644
+--- a/drivers/spi/spi-zynqmp-gqspi.c
++++ b/drivers/spi/spi-zynqmp-gqspi.c
+@@ -1373,11 +1373,35 @@ static void zynqmp_qspi_remove(struct platform_device *pdev)
+ 	clk_disable_unprepare(xqspi->pclk);
+ }
+ 
++static void zynqmp_qspi_shutdown(struct platform_device *pdev)
++{
++	struct zynqmp_qspi *xqspi = platform_get_drvdata(pdev);
++	int ret;
++
++	/*
++	 * Only a runtime suspended controller can be left alone: its clocks
++	 * are gated, so it cannot be mastering the bus, and its registers
++	 * must not be accessed either.  Any other answer means it may be
++	 * running and has to be stopped.  In particular, on a kernel built
++	 * without runtime PM this returns -EINVAL, and there the clocks
++	 * enabled in probe() are never gated at all.
++	 */
++	ret = pm_runtime_get_if_in_use(&pdev->dev);
++	if (!ret)
++		return;
++
++	zynqmp_gqspi_write(xqspi, GQSPI_EN_OFST, 0x0);
++
++	if (ret > 0)
++		pm_runtime_put_noidle(&pdev->dev);
++}
++
+ MODULE_DEVICE_TABLE(of, zynqmp_qspi_of_match);
+ 
+ static struct platform_driver zynqmp_qspi_driver = {
+ 	.probe = zynqmp_qspi_probe,
+ 	.remove = zynqmp_qspi_remove,
++	.shutdown = zynqmp_qspi_shutdown,
+ 	.driver = {
+ 		.name = "zynqmp-qspi",
+ 		.of_match_table = zynqmp_qspi_of_match,
+-- 
+2.34.1
+
 
