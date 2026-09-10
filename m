@@ -4,133 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0A4C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03F1C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0IKNLxM5TSX9mM0DsyrNhze53zUnc7LA/ctMt4Lh+M=; b=d7Cd9CMoD6KNjRIRbkiMsEoMqT
-	VIEOpJznsBJcl9oQyMbtYzrCrdx9Dh9iPQqTUyPIl1YXvrD+2zHTNsdlvTkbPa1+O54vCSo30z0H+
-	RYLp1PJ9V4I1yQHyHUzzuQPoTlJ33A+so1VfGfasK4AXSJ6hk/XLglxgRk1l9mHqUrECtCqZgw0Ba
-	Q+bJkoV1oiUTKPIj7aeRwBzQz2RP+KmqOnv47P8gAo72BOwX2M86gc/8ajFhpfRWqXbVqlVKfkBGu
-	zMMmRlEkw6wTfss3cbwVM+8e/Yj5jKiOhceiE/WQYwMnj7WglvCsy7MWFZ6rFXwRnHsgV2sWTJGfM
-	LOrxQWDQ==;
+	bh=ZAy5Umz5Zq+nT/vwP5loxINh/YMraJMmGad4DijJYJE=; b=CQ8P/VlGOv3e/GyNf/jiJSMfkV
+	NiDfdIn+xgJys29Cis9gTV/FVp5JeLp1JszijHM9gDm2epdsdVpw83n2la2LRmkidrjI08WXDbmRy
+	glnErRKhTLUyvvOe4rDDqvCH6mUzuO5bxJ2xpS15SP4jXUqwtjitZ/Nrm9MgKrtMHWo1uMdo33XxB
+	AcJwobWJigXqnFiGVG0ssVLVcwVvefRxHBCAwiCRJ7XDYWVCgc74fm023HNL46/QHFuuVvBn9Tvnx
+	O1Krff8DDMaci9xLgoY7pW7GoCTvJ4NAuMracJNEA0AF2lAzm+1uGvqBR6v/vtO2RJ5geg6GB9Ln/
+	9Jv/xCKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eAt-0000000EMyB-07fV;
-	Thu, 10 Sep 2026 12:46:43 +0000
+	id 1x4eBU-0000000EN4W-19vb;
+	Thu, 10 Sep 2026 12:47:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eAq-0000000EMxp-2aqu
+	id 1x4eBT-0000000EN4Q-1nEn
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 12:46:40 +0000
+	Thu, 10 Sep 2026 12:47:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Y0IKNLxM5TSX9mM0DsyrNhze53zUnc7LA/ctMt4Lh+M=; b=GDC2l64jKyzAL9kbJXBlrW1p7g
-	kdh/Jz+uVvfHANBisr+J+NqEIvvWxoeryOT3lOGCuEjhc0FdXQIJ4yfZnJaNv68Tn3/H+prHXFcoA
-	Q0BO9597RDh/2jRL3EtsfMhRuMfI6ly333082Hd/Xvv9hrRD/x39A6tgkcDMPUEb9Yz28WmoVumdh
-	HuH7f2dD/PwRM1nPZJYuUrQpnTe8tKRNhcT9uY20gYmUllkKczkSrTV+aa08dc1OxQSZuY0hQ1YFK
-	BoYP+8oLlBCP4H0EwaltXxFEqT6l87rG/Mv4zrs2Jz39NTfIv2BXu/dKw+aBepj1OSHMMXzRtEBED
-	4DszwPdA==;
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZAy5Umz5Zq+nT/vwP5loxINh/YMraJMmGad4DijJYJE=; b=EAXKwD/OXEUOLoKb7bodVsDSr3
+	jh6qv+mjQQ8r8z1WCLTN7yx3Z7NgCRcAmP884KBLqvsVfH0XHzx9lnmR7I0SHny4+nqeZG8+4gz5r
+	ftxSEr4FFLt//KykaCQKPJ3aztOGSt7pqfcExpzU940vRTdYzm+3EUHHoVFLGolG8oWfkkvQSyatc
+	ai/P8x4RkDw6DYEZF8b+FPdIaVHBZN3T/053Vx0JMh+DJNOg2gJPo35kpUFSncKKRAK8Sz4ytiU6g
+	h8Ix6dnqCARtiyrJknGN/xeNoxvY/x/eAgQvqz5utMX6+xxaFw1arTH05zYeVvUZmRyNnA09jQA1x
+	JTkt0cvg==;
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4eAn-00000002Tzr-1vUq
+	id 1x4eBQ-00000002U3E-0kNa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 12:46:39 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-90ce08834feso100278076d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 05:46:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1789044395; x=1789649195; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Y0IKNLxM5TSX9mM0DsyrNhze53zUnc7LA/ctMt4Lh+M=;
-        b=EwnG3G/PNGjd+3chuCmL70EIE4N1unhEBFS+UhROd0SFwEl9Jgix5OXZreHHUUZ+jv
-         cjwbWZ4Pgo/AqJth21bOwYA1OYcn6ORrMgfIwOpFD5veHfIdYYIzLfLuaJ1CTOWF3l7w
-         xXutIcTwwyztU7lcWy2W6felgnVNdiMRCb54fRfHfYmFgVac2jD4aAsXITXTx8qpS/Z6
-         OpiWqiUgW3RWsrulxjEuZU/b7dBtigqDgnXu139VTqWIMa7R6taAouA79QAOxOHv/yLv
-         wsfB/olye8y6DVdbmkg7mMZxfDpGLdZREhUL+MMeRiTLhAoBiK9Ea33e/0xYDQawHnqg
-         ntKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789044395; x=1789649195;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y0IKNLxM5TSX9mM0DsyrNhze53zUnc7LA/ctMt4Lh+M=;
-        b=HZMwAVjXQvZa31S01qHrgQhVcfXUAzNS7YHRPA7PJnTrXAxqwQwq7ecKiF+Hhudz09
-         UcRo04VXar18l8zf0gS+TzdWVqapbKz68v6YsOKeYlHW50C2+iNX97QtjUO1iMkHF3wr
-         RkYj8DiExD7oPyrqVByuZv0rfkpjrHTjrxwF5yGG0r+DXeR2P+xXcQq0UmegUV9Rhh3z
-         U83bnCZpY8mp1hFLHO9BSIxC551UjyARnpEtbb/JEukitCs2/HRuCg+IHK+A3GobLSju
-         RQtQ1zGa9De1CC7XVoYcFyO/Srpgn2JZGRSc7jWIPjdlpxDO2zDkhIPdgDv6FPG35rpK
-         0JfQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxAlKzLraA0JXFBxbpsiOXhEPb4vr7ks+tVfkVMgbygivDcuzZdAGFa8XT5ctm9vNx2jWxk22bVki80QG2Ewt6e@lists.infradead.org
-X-Gm-Message-State: AFuF++lm8oTB2+D9qjGtdVp/vG/32pytX+Dl+5FwgWW3N8cadrqJF26F
-	aRK7pROEysj0KybNOp4RGQuE6/VFjP+Xrqa+Pm6mbL3RHqbtv+f+aayyg71RvHA4N4g=
-X-Gm-Gg: AYBFou3mxfX5y58D710R3/BVZ4FdtSFP3yoJTj2Nfz7mZZIOYtKuK9EfO4UV9o/lW4y
-	3YNuzoFCxHqUM/O+cKH7nCXZCBPArQnsoDYTBS13ZMEFEZtYFuw7IYtQCjVmNhOMFUXDOOKXlzE
-	wwIXiIalc8H/+3r8kouAmPYNWpc9866CniGfaK5eRncM5Vm5ZsRRhImLY1SXhYhxvBnkTstEUvb
-	Z2ni7Jj0D1hZIzMB9YHuF04q4p2GrWGdsZAo0Q34G9dnLxDnwwDiq0I9iM3Cpyt5+jp3dS3xpv0
-	goiX3oniAkMBKCopa65N73i72rrh0wrN/jvC9ujp25p+8VGxhu8g34HplkJaIKxlZe2bA+1hfyR
-	o9rnTbYJeSthnEhpwVZm153z9SJtjFvVRia2BYJbb1MFp+SrLHfKmx3eQ1eV1ff+WyAqD1gHVC8
-	0bkoAzlNOXd6bz5MDYzII/6+AyJK3LI7HNY5O9VrMJa7B99h3yTbpo/y8NzDC9SmbqZFgknENPG
-	WhNJLVXRIDJZpKiSE4GPfQIRmYChogwysfXgoUZYEeyIEWZA0ny+cNVvlCpJ6yf7xg=
-X-Received: by 2002:a05:6214:d89:b0:910:4b85:a298 with SMTP id 6a1803df08f44-9104b85a587mr381394946d6.26.1789044394511;
-        Thu, 10 Sep 2026 05:46:34 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9104059615dsm168922596d6.3.2026.09.10.05.46.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 05:46:33 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x4eAi-00000002O5s-42fb;
-	Thu, 10 Sep 2026 09:46:32 -0300
-Date: Thu, 10 Sep 2026 09:46:32 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <20260910124632.GB4083318@ziepe.ca>
-References: <yq5aik4nztdt.fsf@kernel.org>
- <yq5aecfbzjyk.fsf@kernel.org>
- <20260902235609.GG2890729@ziepe.ca>
- <yq5a8q5izxz4.fsf@kernel.org>
- <20260903171704.GK2890729@ziepe.ca>
- <yq5acxupjsy2.fsf@kernel.org>
- <20260907125228.GB667892@ziepe.ca>
- <yq5atsnyag84.fsf@kernel.org>
- <20260909124628.GH2543240@ziepe.ca>
- <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
+	Thu, 10 Sep 2026 12:47:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XlngHRuND/dm/MtoyMDCc2TtJQUTJSgciU9xWV/y8PD9TsXS88gLCMFbB1sG1xxMZX2TZBaEJBsm+fqlE4r2GARpQD6O/bCfbbKyygZiid/EznVSqOFJ8Uii9V4+CduwVWtARWDBJ3HabRdF2o3kPOQVp77GD7+XWHMxBSYLGx+VnIJX1gzbNxTXgAGmxi3O3eg0Ec1RdO725huUdZx3LQJVSmnv0dXieLfRdYNh/JMt6FzgffCSEJQgrexQxygjXg0O85L4cBtFtsduaQloQ+srUNvXnpEKZa0oGOGtIqYNCWM74nKek/tYIUu2XtvQK0Ie/M74Fw4uB1Wnvdbavg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZAy5Umz5Zq+nT/vwP5loxINh/YMraJMmGad4DijJYJE=;
+ b=QpLHQbmvGV6LijGGJXVyOe65Ye+yyAJcB77mbFKRXAkGzZZvC6/7ajIV5iRT2fDcTfoM3Gad0UtNS8/bvoyAfc17ZztddAaeUiVJswUFfhhsFWzrIaHWqal1iZEu2+TnQXZ4RUDKpwajpz6N5BkthCtlCuCoRzq5ahu7vpHZ2oadVZk1TU4YoV/An5Mi3OC2qoofTKSJyPyvZ0YuYHoozAd0qEF7+X3YEjvKTF+jQ1waFeIhTVMbQC0gwCT4pkvHF8Wdf4qXeqvRLP3m2vXxS8J3yVf4m4VJuquYHHFJVG7mBHAzMk3kWVsS0+Lm7Op9LFDL4RSKtgGX6+eKwoLWVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZAy5Umz5Zq+nT/vwP5loxINh/YMraJMmGad4DijJYJE=;
+ b=Tn0m2M9QVPgVP0+Z6gJUFcHI1V5zTyL6tD4jH52Klrv6O1BfCdPrBtZykqSM8B5bWQ+uv44o67fOTM3awr+1RIjKJ3JN4+L3WnTKyd6l/ivtc92RSux32sQck1x8Ueppsshgun5DBTau++p+loyOXpGMJt1hFuu+CVHaqO6J+wc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
+ by SN7PR12MB7812.namprd12.prod.outlook.com (2603:10b6:806:329::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 12:47:06 +0000
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54%5]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 12:47:06 +0000
+Message-ID: <f449acd3-4e79-4d88-9eca-baf4d99c20e4@amd.com>
+Date: Thu, 10 Sep 2026 18:16:56 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 1/4] dmaengine: Add support to configure and read IRQ
+ coalescing parameters
+To: Vinod Koul <vkoul@kernel.org>
+Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "Simek, Michal" <michal.simek@amd.com>,
+ "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+ "Katakam, Harini" <harini.katakam@amd.com>
+References: <20250710101229.804183-1-suraj.gupta2@amd.com>
+ <20250710101229.804183-2-suraj.gupta2@amd.com> <aICPiS1_ITwELrxq@vaman>
+ <BL3PR12MB65713879CB569E3B330C1E76C95FA@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <aKxJQLx6yprNdU03@vaman> <3369241a-b591-415a-9f40-36f95bdd6a9d@amd.com>
+ <aqFWBEct9AoIR9KC@parshuram>
+Content-Language: en-US
+From: "Gupta, Suraj" <suraj.gupta2@amd.com>
+In-Reply-To: <aqFWBEct9AoIR9KC@parshuram>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN2PR01CA0032.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:22::7) To SA1PR12MB6798.namprd12.prod.outlook.com
+ (2603:10b6:806:25a::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CO1PR11MB4835512E374074A5F4AD0A6C8CBF2@CO1PR11MB4835.namprd11.prod.outlook.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|SN7PR12MB7812:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c721829-7ef7-4762-8d97-08df0f399eaf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|6133799003|3023799007|10067099003|4143699003|56012099006|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: InjQR8IQvJV9FfvDUgaAuDCWUiJpgDuHL6EEw0fC2X93sF/7YKZ9pMnr3znfO1IOejoaLx4vYrlViBRgAV1XUrBXqyDb3sza9HNmKZmOqh4yaDkI/SnyFawa4XomW1RfDkdWd1oDUmD83p4c9Y4AfxeqC/3bniVC4K9daBqaFrvYzE6OloUi3YhCmjFgfNQT1+umFWZ62nuiNsrxawmNBqHlfukMtB4fXZ5MlgI5mIb4vWI/WcP44N3ZswBYgoZsPrH1RVVqOPEjIR1wwj9GXxMiA84mobVCPsjktpww6lq6Don0aeNOJOtuWWiOq4N7ZXRxGcLJE2ct2z2/OA/+CLJeJfiSuEZgglA31JL9IR/NBQ6eN0WzqE3hNfp1R9ZVDAX1HAq0/Zok86c7BDdgYNBnoOhPeVk0Jakd+0wR0MiLcA2n+nDfNY33bNw+bBGbkpYSZ+g6LXZe30bCwJw4JE5fw9VvQ0GBruRMH4cjlcnjDIhV/braMDVC7WD7mnE+qMUNMYpyI4rAeShK+BPozYw8K1gdCWx68yq5K1wSu5/6gD2yJ7M4EfEYiS7N6gtXSs1EyK9zv0mgmhRCUGekS+A+RurO6rZmmMSKHhOiSW3K8a1BLV7GaMolSuMx/wIqRVdIEOMuAxOCDQoJ+YdXyZppM6Bbp5QNqtVMBpD+DEA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(6133799003)(3023799007)(10067099003)(4143699003)(56012099006)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K3Aycm5FQnhKZE1ETnErRWFmb1c2Q2sxbjlWbENXaDhpK095eDlsN3RWNy96?=
+ =?utf-8?B?U2JPRktGWDZ1WlRSQW9ZM2lpdG9MVHY1Y1E5OHFsZEJmcHhxV2FaQ2dsSnFD?=
+ =?utf-8?B?bDV3QTFtQXQxRGR3MVBpQTgrSWVLdHk1OEVHSkFncHBWRmcyTXdEY1pTOVMv?=
+ =?utf-8?B?STBkcUh6NFhNWVRMTG5ubGlicXlIWmxlSkxmcnlQcXpCeVVqeVlqMFVkZEk3?=
+ =?utf-8?B?eDBCMU5xZXRFb0xvM1AzMWM4TDRDU0N3S2lZMEdjT0JDTVFxWHYzeGJrNlB5?=
+ =?utf-8?B?MWlpOUttMzFtSmJVZGhxMDF0VlVHR1lFZVFEVmRKMHJPSmZMQmhpNXFucUxP?=
+ =?utf-8?B?ZXFRQ1FhZGF1OGpjWkZvM3cwWmNKdjR6aDZTZXdVSFVwSmEwMXBEUVhsdUg0?=
+ =?utf-8?B?NG1RRkxvKzMvN3plVVFiRnpJbENLa2ZFb1lod2lWYVVaNWt4cHZsVXUxU3Bw?=
+ =?utf-8?B?UHlCWE11L3BIcHk1NmpYSGNEaWVGZ1VyRkJMQUZzRk40a09BV3ExMTRkaHVQ?=
+ =?utf-8?B?cENUOVphRlVkU2dVRlJkU3FTMEpScDBXd0pmbGlMTkZ4c00wRVRTeEVlcjJR?=
+ =?utf-8?B?WDdTb1dXTnMxN09nM0tiY0t4UEFaRFdnTDB5T0UvNnpnY2NwYlJZK3BSdkNk?=
+ =?utf-8?B?ZGZmbzcwejI3NkhPZFh3ejVFV1U2U0tTMWRFVWlnK1FYSmtNc201Qm1PR1hm?=
+ =?utf-8?B?Z0lGRHp5ekpOUThZc21lSzVUUWJLQUZWK0VYczFsQmFxWnI4aFZxdW1ObWU2?=
+ =?utf-8?B?M21iRWJoTUp2Q09YTjBwWHA1QnRORXZ5Qm5BZmRMYWlOV2FLbnN6allnbmRW?=
+ =?utf-8?B?TmpoVFBDN1RVbFhYMndGSkk5SnhjVHlIRHBueGZncGtuNVNvVnJjRkpMNFZ1?=
+ =?utf-8?B?My9nbEJYd2dSTWEzdngxV0QrazdqZ3BrbjZla2locTV1NTBHNjdVeXVaTmtr?=
+ =?utf-8?B?ZXBPaVN4QnhZWWw5dFRnbW9xRUJrTTA1MEgrQkM5bDVFTklhNVdtWVVpaURz?=
+ =?utf-8?B?L3M1Yzlja2RKbHkvWk1zam41anhZeWtDaSs0ZW4yZEFiN0JuVWNqdXVtdDZO?=
+ =?utf-8?B?VlJTNUxzVElGWXI1NmtlUCtYZGJmU0hXcjRyZmkvdXhXbnBFNnU2cGdUakVt?=
+ =?utf-8?B?Q1ZFSVlUbWFWdXdXQmVzalViaDFDT3A3dkw3R3RERG1qN2RqSUF3a2RNS1ZH?=
+ =?utf-8?B?RVp5TG52dGFTR1cyRWFxZnpZZXNtUm9CU3JlNFdxRjU5RkpucmI1VHVOSm42?=
+ =?utf-8?B?ejNqSm1xYUhDanhpRS9OR293WXhhUGJVZWc5WUw5dnJuZDlmb1d2aHZYVTZw?=
+ =?utf-8?B?YnVuR2JSeDArUlNjc2d6SjJ0RFA4NkgyZUlVMWs0aGlSa1Y1S0Zxd28zWnow?=
+ =?utf-8?B?SDlKL3Y2a3NBTEhkeWd0ZnpuMWQ1WGg0ZW1rMmVpMlJFb3c0b05ST2ZVWXVX?=
+ =?utf-8?B?dlhoOEYvSW5IcXRnSk1laWNvVCs1ZlpSSU45eFdJa2M3ZEZpWTJUTldtZVZh?=
+ =?utf-8?B?aEx4QjlSbW1GenkrQ0pzVW91akRUVFhzeURIdU1HZUs1NTBUOFd6L0Nnc3RJ?=
+ =?utf-8?B?SWRORGJFaUdOK1FOeU1yaThUZTZ6dExtRThWUWlxMWNIY0xMKzFSUllTWGRs?=
+ =?utf-8?B?elN6TEtlUkdPMGZ4dGxEdnJuR1IyN3RyTDgzbGU0VEJaUzlTZ0JyTC95VXRC?=
+ =?utf-8?B?VXl5ZTVXZTlpNUJPQnNYTG1tNThLbTdtbTVsaG83YzFQZkV6R0dtUFlTaXNH?=
+ =?utf-8?B?T0xuQVBHWG9jRlZoRFNCTUpERzNWaERGOXpBVmRRb25QYXVTVVZ3aVpBcmll?=
+ =?utf-8?B?RWJjNUZjbGVUSitEaFNyZkJ2ajRDNEVKY3RWWnk1cDdldkluL3JHcDdiRG1X?=
+ =?utf-8?B?UFhTTnIrYW1XZjhPRmxPTE1NTDJuQUt1Z05BWGZEUERkbVRLOTZ5c1BYYjBG?=
+ =?utf-8?B?RHpKMkdQeEZHb2dKaWhVTGpXZmhGUzlsZ28zdGt0RCswTWJBa2p0NVhRQzQw?=
+ =?utf-8?B?NW1vcy9VSGMyWUhvRU1hL2ZBeDl3ZTR4eVV5YndjTXYraWxCdWFvTzNYaVU5?=
+ =?utf-8?B?UmZjVEpHTW1XZHhHVmIwanpZRElRd1VVVm01THhpSmpvQjd1NDNOUlZzK1Fl?=
+ =?utf-8?B?elhMZnNUZmJtV2t2b0lFZjJNcmZvK0hVMWpCdmtTeFJXQW1YdTBKNWt4NWJK?=
+ =?utf-8?B?ZktLelpzUlFXTVUvYVlBSmQzY3pYVThYVHpic29WMU9BLzJydHZYQUd2aVB2?=
+ =?utf-8?B?RzB5NXQxckZ0eEQ3L0gyUEE5b2RBUDc4OG5ab2gvdjFBRm1JZGx1dHUyQVlB?=
+ =?utf-8?B?MExDcGF3Lzkya2YvYTY5bWszTEY4V1paQTZTb3ppTThjOEExdHdHZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c721829-7ef7-4762-8d97-08df0f399eaf
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 12:47:06.1158
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2xljmtrk2UTmiH4vuMuDNMyekflyvEQgpVzWeRBIyArTl+mUlJU1SantkE26d4VVOb6fgt0t991C0dfmtg3xIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7812
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_134637_694969_70369A51 
-X-CRM114-Status: GOOD (  40.79  )
+X-CRM114-CacheID: sfid-20260910_134716_420215_C737AE03 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,104 +174,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 09:52:12AM +0000, Tian, Kevin wrote:
-> > The mmio is owned by vfio, there should be a handshake in VFIO to
-> > remove mmio when it becomes private, otherwise I don't think we need
-> > to do anything more?
+
+
+On 9/9/2026 6:20 PM, Vinod Koul wrote:
+> On 07-09-26, 20:23, Gupta, Suraj wrote:
+>>
+>> Hi Vinod,
+>> On 8/25/2025 5:00 PM, Vinod Koul wrote:
+>>> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+>>>
+>>>
+>>> On 23-07-25, 11:49, Gupta, Suraj wrote:
+>>>>>>    struct dma_slave_caps {
+>>>>>>         u32 src_addr_widths;
+>>>>>> @@ -520,6 +528,8 @@ struct dma_slave_caps {
+>>>>>>         bool cmd_terminate;
+>>>>>>         enum dma_residue_granularity residue_granularity;
+>>>>>>         bool descriptor_reuse;
+>>>>>> +     u32 coalesce_cnt;
+>>>>>> +     u32 coalesce_usecs;
+>>>>>
+>>>>> Why not selectively set interrupts for the descriptor. The dma descriptors are in order,
+>>>>> so one a descriptor is notified and complete, you can also complete the descriptors
+>>>>> before that. I would suggest to use that rather than define a new interface for this
+>>>>>
+>>>>
+>>>> The reason I used struct dma_slave_config to pass coalesce and delay information to DMA driver is that the coalesce count is configured per channel in AXI DMA channel control register[1].
+>>>> AXI DMA IP doesn't have provision to set interrupt per descriptor[2].
+>>>> I can explore other ways to pass this information via struct dma_async_tx_descriptor or metadata, or any other way.
+>>>> Please let me know your thoughts.
+>>>
+>>> dma_async_tx_descriptor has dma_ctrl_flags and one of them is
+>>> DMA_PREP_INTERRUPT which you can set for a descriptor and control when
+>>> you get the interrupt
+>>>
+>>> I am not a fan of adding custom interfaces.
+>>>
+>>> --
+>>> ~Vinod
+>>
+>> Apologies for reviving this old thread. I got pulled onto other work and am
+>> now picking this back up.
+>> Reposting the context below so we can converge on the interface direction.
+>>
+>> As mentioned earlier, interrupt coalescing on AXI DMA/MCDMA is a per-channel
+>> configuration (IRQThreshold + IRQDelay), not a per-descriptor attribute.
+>> Because of this, DMA_PREP_INTERRUPT does not map cleanly to the underlying
+>> hardware model:
+>>
+>> - The coalescing delay is a per-channel timeout expressed in microseconds,
+>> whereas a boolean flag cannot represent a time-based value.
+>> - Linux Dynamic Interrupt Moderation (DIM) adjusts both the coalescing
+>> threshold and delay at runtime, requiring an atomic per-channel update.
+>> Flags on already queued descriptors cannot provide this capability.
+>>
+>> DIM is important for modern Ethernet drivers because it balances throughput,
+>> latency, and CPU overhead at high speeds.
+>>
+>> If adding a new interface to configure interrupt moderation parameters for
+>> networking clients using DMAEngine is not preferred, would either of the
+>> following approaches be acceptable?
+>>
+>> - Passing the coalescing parameters through per-descriptor metadata, or
+>> - Using the existing Xilinx-specific struct xilinx_vdma_config from
+>> include/linux/dma/xilinx_dma.h, which already provides coalesce and delay
+>> fields.
+>>
+>> I initially avoided the latter in favor of a standard dmaengine interface
+>> that could be used by other networking clients utilizing DMAEngine. However,
+>> I'm open to either approach if it aligns better with the subsystem's
+>> direction.
 > 
-> for TDX a callback in VFIO is invoked to revoke the dmabuf.
+> Given the above description, I somehow didnt feel that you can use
+> existing flags. It is setting the flag per descriptor applies for that
+> channel imo...
 > 
-> btw I didn't see any dmabuf related in this series (even in a hackish
-> way as Yilun sent out last year). Is it not required by CCA or just
-> skipped now waiting for the framework to be settled?
 
-I think just one step at a time :\ I think CCA needs it as well, you
-also cannot safely leave private MMIO floating around the host
-userspace on CCA.
+You're right that the effect ends up being per-channel. The trouble is 
+two-fold:
 
-> So viommu will become the abstraction point for tsm operations and
-> directly talks to the tsm driver instead of going through the merged 
-> tsm_ops (bind/unbind/guest_req).
+1. Coalescing here is two values, not one: a count (DMACR[23:16]) *and* 
+a separate delay timer (DMACR[31:24]). A flag carries neither, so the 
+DMA driver would have to infer the count by walking the queued 
+descriptors and measuring the spacing between flagged ones before 
+programming DMACR. That only holds while the flag pattern stays regular.
 
-More precisely for what was being called the TDI - ie it is the
-abstraction point for the host side of a guest virtual PCI device.
+2. DIM re-tunes both the count and the delay at runtime, from a 
+workqueue, on descriptors that are already queued. A flag can't be 
+updated after submit, so DIM can't take effect until the queued ring 
+drains -- whereas it needs an atomic per-channel update decoupled from 
+submission. The practical cost is a stale window of up to a full ring 
+depth: the channel keeps moderating at the old rate -- too many IRQs 
+when DIM is trying to back off under load, or too much latency when it's 
+trying to react quickly -- which defeats DIM's sub-millisecond feedback 
+loop.
 
-iommufd vdevice already represents this, so we use it again.
- 
-> currently what tsm_ops provides additionally is more about synchronization
-> with connect/disconnect, otherwise just calls into underlying tsm driver. As
-> long as viommu creation holds a reference to tsm then disconnection is
-> blocked then it's safe.
+Happy to walk through a concrete RX/DIM timeline if useful, but that's 
+the crux: the flag can express a static count, not the delay, and can't 
+be re-tuned for already queued descriptors.
 
-Yes, this already has to be true or our lifecylce model is
-nonsense. Once the iommufd creates the vdevice the guest is running
-and we cannot disconnect it without unplugging it from the guest. Thus
-the locking can rely on that. Within an iommufd ioctl context the vdev
-and underlying connection must be stable.
+Regards,
+Suraj
 
-> and IOMMU_VDEVICE_TSM_BIND will be removed. 
-
-Replaced, the same logical operations should flow through the viommu
-command ioctl
-
-> Seems originally this series
-> does SMC_RMI_VDEV_CREATE and SMC_RMI_VDEV_LOCK both in tsm
-> bind op. Then the proposal is moving them all to vdevice creation time so
-> no separate bind step is required.
-
-Hmm, lock still should be guest visible on CCA, and the device has to
-start up in the guest as TDISP unlocked. I'm not 100% on the RMI side
-of the flow, but this does not look right.
-
-VDEV create should be done before the realm is started. We need this
-setup right because Linux VM is going to validate the vdev during boot
-if it is affiliated to a vSMMU. lock should be done only when
-requested by the guest. The guest must start with a normal unlocked
-T=0 PCI device.
-
-> Does it mean that ARM CCA is essentially an early-bind model i.e. the TDI
-> starts in locked state from guest p.o.v.?
-
-No
-
-> but https://lore.kernel.org/all/yq5aecfbzjyk.fsf@kernel.org/ seems to indicate
-> that guest_req() still handles the bind request from the guest:
-> 
-> "
-> - cca_tsm_guest_req() now handles TSM_REQ_SET_TDI_STATE requests for
->    the unlocked, locked, and running states.
-> "
-
-Right the guest side request to lock should come that way.
-
-> 
-> a bit confusing, but maybe due to stale info cited from different timing...
-> 
-> for TDX we're currently pursuing a late-bind model (i.e. TDI starts in shared
-> state in guest), so a separate bind interface is still necessary. We could look
-> at whether it should be an explicit @bind viommu op or carried by 
-> @guest_req (say, if most preparation works can be moved to vdevice creation).
-
-It should go over the viommu command ioctl. It looked like there was
-alway some iommu specific format to the command in the tsm version of
-this, so that is the appropriate way.
-
-> btw per past discussions VFIO should block some operations (reset, etc.)
-> while a TDI is locked. Do we expect a callback into VFIO to notify the locked
-> state, or require VFIO's own interface to place a cdev into a special state
-> which prevents sensitive operations even before binding it to iommufd
-> (and allow creating TDI vdevice only on such idevice)?
-
-At a minimum I think we have to synchronize with vfio, somehow, that
-when the device enforces its private MMIO so it can unmap it. Thay may
-be an argument we need a few standard viommu ops so the core code can
-capture lock/unlocks and do this prep work. Or maybe a special cdev
-state is simpler.
-
-This should be figured out before any uapi is settled.
-
-I don't know about reset, that sounds like something the pci core
-should deal with?
-
-Jason
 
