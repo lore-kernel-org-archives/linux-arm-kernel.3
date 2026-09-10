@@ -4,135 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76156C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 17:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D2FC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 17:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzXR7xKFn4AFDE1Iss2nPIPe/99nhjMSLvF47V1cfMQ=; b=zENdjPIokIcom9I/jSgmcuYO9l
-	0OnJDL9ZIWd5RC37ugmJl7pBxU6NjW5kOkECTWl/x6alJ4xm2O5Mh17RzFKB3/9TKnZgPnh9IQF1J
-	+3P7ENdjG7HaUJBnNMOHJvi4SR9xMQks64mj6c36Cdon87rXSxqbRdm4Enzj0ZE+iRYTWLhxUXjNt
-	R3ncLVAYwXJxY8pPchEMyIeXo/+T/8Fue7P1H3TfRSJ8XRhJc3QU3ZTgF5J2XYUxgY0W/ZNkxqrIy
-	7hyZB/Vb07/REl9Nj5a7V4be+Cv3L1+Gj4de19XMr5/3WkwesDTjYZJZeVI26IND3qap5jco4jCJQ
-	cPc7ishQ==;
+	bh=P7tMA52PfXUUwFSViKt8NC1NiassUU0VI3kSP2XbenY=; b=wE0qLfXvzPLyprSPuwGzxhmjGj
+	cPDnPARt/T7kUZm/gdYq4CgO0TJ+yatXxvn6jqbyBfs44UPjtFVRU363s4aeOyxpSKLJxcas38Ihr
+	9KY3sVfXsUJqrOk3F97Ygc4tJv8e5p8r6f4IkZP++V0vULTscmwFc6hZQqNephC21uqgYagKO7tIf
+	dll2wcFEziaKQBE/aRmuZEQOy8ethqm7gWVcnm2ZqqZAtS6JxoezUBcZxAlnMpfJDcbm1XGmuMCVL
+	fq0ZsFQHZ2xFVJFo3L2Ct0XWmp3YLHUl7UjWcwhQipWHhYo+3dOoN7SO5D5idSL/UxX6rshclKmRf
+	seAwpDjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4iA8-0000000F1fd-2wtS;
-	Thu, 10 Sep 2026 17:02:12 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x4iK8-0000000F2Xf-3KxA;
+	Thu, 10 Sep 2026 17:12:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4iA5-0000000F1eq-2skR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 17:02:11 +0000
+	id 1x4iK6-0000000F2X0-2DQo;
+	Thu, 10 Sep 2026 17:12:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=P7tMA52PfXUUwFSViKt8NC1NiassUU0VI3kSP2XbenY=; b=MnDcIvneXASAwWj6oauj7SSMu4
+	Y/Dx01FpWxa+7zgDgDEeAnAXQr+crZj0Q901zMIJBRVcknytbtcy7tfLzrxJ3GD9FehpoYQxoeJ7b
+	YVYLlhciOF3IoH1pwSyA1h+exfdGIN5zUv5zEIw0QOxMa7RWoORdEdn7S5iC2Lz4NzZpXGs87unqz
+	un40jhrIryigqZFLwOu1fjRYb3xfAfdlFEK9dTPp6KkPmPZIPtuvFV4K5a0QH5VEJFgkfik7M54/e
+	V1OSj5JsJkBALwQwLuOST3kMFWKDLGg+DJ9NO+3bqylGPuV/vUI4yTd8EuRhf5mrwGpSYY9bWkXae
+	bBBV0d3A==;
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4iK3-00000002mZB-0UW8;
+	Thu, 10 Sep 2026 17:12:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iZDYv8T0USD2H8KGxW89UgFSvIPKNc6/JDDGhEz+Ae5gvNRF/A7vXZOKHtDYXWwqD5gOC1skQDqc9zUdBWPkqbfj9bcRFUpy4kj9tGCMfTMlERsfn4J8zf6qckwZIiLL8dFITYH9LJ3GNAABROWSSdldKB08zhrCRpADoGxnvbdvGKl2Ro1gKVwed7HfVK3bDisHzz3eEH59OdQr792IZxgY67iu0d7HM6IgCvMgSV061sf2I3NUSfF10Qa4QjE0v+npTl3RzW1zmjBQbz7iQXFsRIisok4Rnci6gThq7TQzo3BBn+83IUKXYwnnqsBFDfK3HzouvaeMcXWRr2jVDQ==
+ b=V7WvY/hQLeK1mELkx1Ir/mI1yoolyBz9LoS8kEqxCxNyhvLMTWHTmCZsSZBMPHPiznex37osU6tsd7skZtfXgpiRwMaJEhx/wbWSmATVBHE/9GeYYPgjf9pPfleehyK9CniIPxOKJIND8+xs0dcjRVdFS5XOkjJZP1A6DyZbiWkFGdg0l34GqR9hvWoxG6ShJBXhl15y2zsnjfDlUctebjWzmuMRDPuzvxp9a8W0wTE3Q4djKI1ZPjO6Nl8EGweZMkBStnsq1eY3BnshaQO4GyH9Uy+4oY5+IZtPUkve22LdWZoM33LbHy2tSvYFmrtL71bMHKGzbtpQ1J8VNkS3bg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pzXR7xKFn4AFDE1Iss2nPIPe/99nhjMSLvF47V1cfMQ=;
- b=ULgsquAVtkoDlfy4h7NYiDVcpDFs0kJ8R9DfAUKVUWivLtQ2sMR9MM0TzWPUBXL5j69xg+pH8XzIAANEHwDmZkvPlZhhVQSTIoAkg/AlOU45yMsFBNT+wzKyadlVryREg7fQN4XjAgXrGDtu51Jc0Mj9FI7UpDFNpx3PppKHDJhsTK1ghDuUgiGgMd3ihJg5wsJ+Vk7DqwGgwjA5WlACSaTOWcJdmVbQ5Gw1wMBGR2qKvY1HxBRlk3BEFrNYsKxHuUAT3DgfJLiqVn7UKJeuq3mXxRvG5hfZSv9RpoW+wtkHd46b/o+Pd/o4/TdRtL0ttgRL9mzDzZqbe3vVKa1YTw==
+ bh=P7tMA52PfXUUwFSViKt8NC1NiassUU0VI3kSP2XbenY=;
+ b=cTBMqnhdQmcQtZy3jUwNv3OM/RxiBPI9yasfI6Bk1Uxq7gWn94LMdlGIBMIaObonWVouXl3pkNWkmYIfBY9sm9KxyKlzAMqvKYiO/NVa2xGrF5/ZYU7iZQUXHQmJKCP8eeabKOAISE8un7euMNqUexWiZhZfPGsLMvFZIX0Ov6LA2WAjOM7MguLY0ZGcHdVjvVNWJpD3s4s99GDqs2b/QUfFeUZ9d9KfeQxPUWfrlcSQ0XOk29O0Gg22Y0voavJBosErfbjZ98SqfcZ3ZuKCCU7QENMBx4PwSRAxT9XH77xRsX63UnC1Y5wXzNd6uZDb0GQp8VHG7bn4kua50vDfFw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pzXR7xKFn4AFDE1Iss2nPIPe/99nhjMSLvF47V1cfMQ=;
- b=hkulHdeVjDTP7XP9Y1k+fy4FPwGFurqC1CnD5I5SuHWC6aDXmxK6w5FX2rgYJ/CEdWnk7Tw9F4R9WqxBLcOGUOw2CVASdqO6yLfseLTUEv0CsuIy8Gv94f0GdD2RDND9zy0ikuSuvM/xEeqQnJG4wSrafeEi5URwPTIXau6gu+Rb1OiU27RhsKqmCJ0nU4wu1/hxpmOGuTjl1ZqytzHqXTM6+K+O2o7NIJvbZAwhNJjTdpa4gCmPECJX97xLLYi5nyANYBVBWglJWZn/KFY4w1DSta2Ypbw2Nybr1pRvzrdtDdG2OYx/kpZEglXHCMR13d/omsUkLCNiNOtKvgq5WQ==
+ bh=P7tMA52PfXUUwFSViKt8NC1NiassUU0VI3kSP2XbenY=;
+ b=RcGWYLNs1X7GvJmf1+PAHtmFIHz9OBDpwzMtHpErV3C0LOSruwewEmAyy3q0rdHYf7u11TyYr5wFSXbVKQRP9iz4RzUNVlpKM0w23EV0PbvmYeC2jLGoKM1lBNdWhlpdfWOU6+4W+YPvk0ROILJ7lhDtkS+b5Dc56aHTj+7u/5FDzsJ/Vv9RkWJSTD+16K/SPmBVLIpAtJxKZ3J2IApCEsrFvzEFYj6jRq/oR3IvtvIsi2EI35ZfbqYwdD8RP1zlIORSLdkeuWPRC5A8KXwTMjgTEVASNKE7f3vGMI7JmlT3wOFALujzMCrUTTx3qcObNNhlGcvx1RG1NxPxHd7gjg==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA2PR04MB10373.eurprd04.prod.outlook.com (2603:10a6:102:416::13) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB6435.namprd12.prod.outlook.com (2603:10b6:208:3ad::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 17:02:03 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
- 17:02:03 +0000
-Date: Thu, 10 Sep 2026 12:01:51 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
-Message-ID: <aqLif2zrrsbYd5sM@SMW015318>
-References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
- <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
- <aqLaLmz7n31P6igy@SMW015318>
- <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+ 2026 17:12:12 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
+ 17:12:12 +0000
+Date: Thu, 10 Sep 2026 14:12:10 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: David Matlack <dmatlack@google.com>,
+	Logan Odell <loganodell@google.com>, arnd@arndb.de,
+	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com,
+	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com,
+	alex@shazbot.org, kevin.tian@intel.com, dwmw2@infradead.org,
+	baolu.lu@linux.intel.com, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+Message-ID: <20260910171210.GF3968357@nvidia.com>
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com>
+ <aptFFYqcSiBdMLE8@google.com>
+ <20260905012403.GX4157646@nvidia.com>
+ <aqIAtOoew-_6jw29@google.com>
+ <20260910143448.GD3968357@nvidia.com>
+ <aqLOWkuVKccR-I7W@google.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
-X-ClientProxiedBy: PH8P221CA0013.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:2d8::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+In-Reply-To: <aqLOWkuVKccR-I7W@google.com>
+X-ClientProxiedBy: CH0PR03CA0304.namprd03.prod.outlook.com
+ (2603:10b6:610:118::28) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10373:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce223642-baf9-4fab-f48f-08df0f5d3c5f
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB6435:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d6e78ae-31bc-4215-ed82-08df0f5ea73f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|19092799006|366016|10067099003|6133799003|3023799007|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: +6xv2zkSOnr+fgCkBD+QBl8vma2W7ns7nkd99bLfib/bl+qELlNG2aM6mqgO9Wm789ThTeXO5WzipJU8g2j9hXfpmdHSzEGVLVQ7OEUZW+dURMzy2jQpkyvJsdLxzKog6ETr7qf9IvtHETgT0j3CQVd0dk0popKxIdA3cvi/mm8OqB6cLt1Cm/Q39PfKksLQrx3P+OWcuj/XnIjwLPXLdmfqNXVCSIvddrApUJz1onJ+JLVaeR/VhwFhhV4Xq1rZrFqRtbAHPd2Y2EBbsXQOTCxaDvZUnmylWz3jAbMkXiznGPp6OSRTIsBhgRq+0cw1rFEkHnz3zzFLtHAgrTd59gXQ+afJJUoXJ6/5OUhMdGGqfm6TK7NHWfZdisrvVtUIukvpyXBFItujDQLK/XxV96QTbrdzfecHn2wpbhuDiEBvmTccPCqmpf4IbS2it/Pkl92WohyDalsP5zl879+1vre24h6kP4VINV86sWaXArbcuXFWbB4QejrJZK9vvgORQ54i9dPu0BoegFfTiU81jr6ZuQaCeIAWeWHQf0U6NQGbXs15ysQ8dtyJbuW5CSzQq/Qt7Nj7zCtuauprYMANTO865BJ/WEES+liNbJ7P/eE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(19092799006)(366016)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|6133799003|18002099003|22082099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: GKQccKKe63WIeMQodEr1ChpdjstsQwwo3mgXmpgJ8KCe2Dh34FxJytuK5U5IlFyNR6UQQ+7sZvfDIDX8+I4g4myAMUJnHBa12AbufDNiqVf6v5GYXt5eBypXBMUuNLCL/LXXxTHmSKJO3jSad+C3La54HE92szCQgXjSiiTAKQLv3weE34zTwgiQ2s1Dn6866+Y+LGOps4aHe16nStsGYBHlSBBXI7LCMAGxyOqnhjxsI8YkNFGeofkwJL9VNGx87eXMplMdvH6TLa5KD9YqodmPoavfwBs8waT2PK5Uh42nCqXZpresxfhmJVFX7NQBDhiozjsecdOYfp6g0ZC0lzoea42JFgJK3/9/UUm5ZcaoxibtN1D6+DJgJphxQ9de4CxYYdtV38NS3mPhUqX04i2h9Q3uQCu0TIHaguNuuThaKIp3v6jkAs+J5PAW8Vc3jIWvwTl6TVmqVlbJshpkDzauEcNdZFJODAwd25gRJq2gQvs7HjfQy8eTFz0GTDd8XsOJgqx5HJh99MW+K2lwbz8ro0T6bWvaHfMAt9c8e9lecSm4Vv0B2lmG0bQStISVuMdL0aDRroF5G7qfcKUu6A4WNpAzEm+DGPogUL22mVQ0o1tGeVQ9168GGPjV5QxcKFOkvT6cR9Zqf8DF2qHSzaTQx0Twh4IDxgiCQNh/m1U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(6133799003)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8QuVwEl8dlYCJfh+Fi6h+K+5DluA/bw/H+5b2pdvAXKcHF2OSMap6kQ9hsx9?=
- =?us-ascii?Q?bMsk+OEMB7eM1jV5kh7WhD/Y5Tthg/vmGs9xcLtfi81dArXy9qEFN6RHANJ5?=
- =?us-ascii?Q?RHe5rg+F46rDQyiVS03CVP5Gqun0onFR1N/QfshKSNL2LXODpqq4zlHqmTBU?=
- =?us-ascii?Q?NLTxPtgg8p881QSo4DY9TKOq1Szl4x5o0IKKJnRJmTTRB/3Z6bIf+6KOHpDm?=
- =?us-ascii?Q?WVO62TTvgcWE50LV0eoVBgLRcgDnUBiXioCTFZjYW1smUGXrb3FGr55zY/mo?=
- =?us-ascii?Q?By1M8akbjJiF1KcKBod2gjdFzYc7e+L3TIRsRs/KykziN6MA7JTwPslqJ+t5?=
- =?us-ascii?Q?K76t31cS8hoN6jbPicU58ZyG93L+LWQ98WSBdyfsU66y2AwOKcOAO2zVM2y0?=
- =?us-ascii?Q?uvobnD/SiMIgqeajaDnis6vrfCMRfwLJAST+qwIYpsDJ89SOJ1R8jq8IcavK?=
- =?us-ascii?Q?mnsgn1KeaU36qKbDqVOAP3d8ILDEGBoYOWY7IqMnwZgu0A6BCjb2CCBTHCVh?=
- =?us-ascii?Q?sQMYsg/wWU7W0lBgE8olvY1WhL9YmsmmFotpPRNgMBIxtnsKvri9Cl4ws3xt?=
- =?us-ascii?Q?ukI7UUMAUS1XWNM4Ig8sQJqA9l6zJI6488m26RN+01+5/emc+vFzis5JweKw?=
- =?us-ascii?Q?XSlQxUtKZw/IRKF0rqXlVSNoyu0sOADCV0rrtG6oHQu9P6FEw3KYRtFENpJb?=
- =?us-ascii?Q?tpwQF+FyA49MUzIXdM3ZpCr3XHXDl6vY56hyL99p1F+XlPL+9F84LZ57mOKb?=
- =?us-ascii?Q?YCrE2zpE+z5j19p8yo/sf6ruW/68cRq2hQnHLlLEwje+dW7mgisLQI9AaFt6?=
- =?us-ascii?Q?XpNqxwVnS6AA9VpShtaTowpmYEyvJBQ+bd/f9daeE0rCSB+zRD+W78yAtb5P?=
- =?us-ascii?Q?KAxRoel+iWwKhm01NkOQTzqsCXDOHr7XOuVpzfD+SuIhy8oUEi0EXMeqz17z?=
- =?us-ascii?Q?Vls0UnX0KnW2TPEvEvpfrcyGddbkTsa1Cg9b1UUeoRMZODIc/+b9d8bcUlFc?=
- =?us-ascii?Q?eA8YrUVSWV9cTPeioZ2QNJ1jkKwxgSOClpRLttPv8Si+Tag/+hS3f9hNqle2?=
- =?us-ascii?Q?NKKPlxmHos9LHqI1gppjGfe29mDaGCeHs2fTcvhT7LuMbmYbM+d0WtEf1uFV?=
- =?us-ascii?Q?RNSzN236+/93AlPg01Viexog4H08/VyyQ/oIjKxzlHZLV+1dAQF+TGJbz5Xt?=
- =?us-ascii?Q?efKJY9nti6hkE+VrXbOVe9QUAoDMopw5WwIUV4QXQhXFonRN7lGoM0odCxAD?=
- =?us-ascii?Q?YaTOWkepuIdcyZ14AdeytnCYQvH6+ekCAvVvrjjdhVsTVH84dAr/KFbORa2Y?=
- =?us-ascii?Q?WuuPRXHM8oSKkAdM1TP/Z7SeTgffI7lFpZ0KVgh4rOTSgexBHTH2mwiLYziw?=
- =?us-ascii?Q?hq8v/pDrC+hR9zvcSj2mGEi2iERZNfEWjUFKQAdTlUozZyUpM9Ey2MZC3scG?=
- =?us-ascii?Q?3LqFPvsRFJArp9ibyuQzh+5cii5iiCD43dcxI3Hf4m0iuE2f7w/mPxIM7WmW?=
- =?us-ascii?Q?0F/R9LKSsGKaGfOSrKY9wpyhH8xTaibORd1OmVcgpkz4DFKwqndR/5q0La+Y?=
- =?us-ascii?Q?pOtbWblpCPRaKKsuqCK1MLroJ6qxBou92Rkyz/MgXrZfvdGkDMS55FTxt8sZ?=
- =?us-ascii?Q?Qo4xdrqh8KpEym1N2h1B4W2Si9igbV3BgKQDE4EAZ2FLwOfM/9KNAqv047lU?=
- =?us-ascii?Q?ln+7gzKHvTdyZzARSLB1X/0C12YZwnoXoyRXEJPgx50vYgH2OO/BoNNu67pJ?=
- =?us-ascii?Q?4ccB7Us31VKz1srzoh/uOBHUllxAHDptmzKLHlMIuzlupHLbPfo2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce223642-baf9-4fab-f48f-08df0f5d3c5f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?//bM3Afhm6tWeD55iMTwEtIEjrtpn7/llKkHijhqXiadIPQjebLiuJw9Afmb?=
+ =?us-ascii?Q?WUdAKtnetQactYlUsRoGw8chgfVhmEzvaLP0UemehCwR1cK4GTqCRMwZmPy1?=
+ =?us-ascii?Q?0KBPeYazOMMnApnIKlgDta0wkvh9J0FB2YY/Lmap7y4aTG8wB2KS3L9XqTaN?=
+ =?us-ascii?Q?b7sH8hzHuhCL/is9SZzmXcZO1KvcU76vCOw97M3kRZSj7BzFuAs1X6WTqqm1?=
+ =?us-ascii?Q?F4GManZNSo79KK8ri3+E1PQHNbHTQ3iy9JUIYAGiFw3NBt9PSKZFuMBzAoYk?=
+ =?us-ascii?Q?MzXAXt9QxXjh2swZuz2U6vP5JGmwbLKuO03qEJFDclrU6cjKTwSc77mc4M3l?=
+ =?us-ascii?Q?RDin4Zrk6AFgWqH13tCGq6n1wWq3Rt5AsJpK60vNeBvPSer0AsT8k90ufKJ6?=
+ =?us-ascii?Q?MfkZp9CGgN697Z3ShkmPAUNKWxeq5wiyBzW2I5SLZ9DwRw4nxe123yZdMceM?=
+ =?us-ascii?Q?QlcQEZOKN2a0AGXWx9z1Ws8xQ8jpayCKBL5V3m2ez0VS5PPgS1lPURKGYYhF?=
+ =?us-ascii?Q?SzsiWJBUaz0bMkCP9yp8DvR+q8atAwmUS8D+0pat1HsP7yVJo4jeGVdrJYIy?=
+ =?us-ascii?Q?KeD6QxDwJEutcdz1fOiy5D+yBj7IaV09piGVmJvWh1n94+EdlEyo5pRol4HX?=
+ =?us-ascii?Q?c2YevB9sXKtHLh4smWTb/DYf2ztk7KCo/s7DM/NBIYTimN7hGAA4msPik9Bs?=
+ =?us-ascii?Q?mUGXpUd6ZEDk2FOwLJzia3RR7SJF5LXMDDfRGjLL6PMU0p0bS2gIfvHOCOFV?=
+ =?us-ascii?Q?0h5ZmCvFZAw+0YeqXxj6YN3S6U9EWLALS3Tcl81bRA1GaRSArYx6lXxt+uD7?=
+ =?us-ascii?Q?0/mORqkUc/SXECmyAwUwZLne0lvRxbaQJpVTFYFSlbFOp0Mj+80BBqn0K5CN?=
+ =?us-ascii?Q?pW6SrlSXUHPoN8pOcaofDcdt/t67+GzMl4/7+gGX7fpSu3bKH2gkGlpnloVN?=
+ =?us-ascii?Q?fgqjdbvPbaz7mV5SSAGmYOWCDCnM/TMSlrMgbip+BdNC6H5iAlByoV0RrK/+?=
+ =?us-ascii?Q?Zq3BnY1L3J4gxA1edHD/U+PZK5FB4Y7PTqFUIUyPA+Woj+y+7nc0TkP9mGoJ?=
+ =?us-ascii?Q?/FbvRltJ1soaM/IbMyYXvkUnESap7C/MBcz633GDs986DMxnDKdF6X1d9AXA?=
+ =?us-ascii?Q?qIG/m2AK52yWvPuLl2OIO+ieC42j5LOPWcS5GI0b2sAbW+sOIgVZTtzz1Cwa?=
+ =?us-ascii?Q?1utBxWtAJZECS0stXVVfYq0lUgm5XAlBiCcefIUu/+CPB3TgOOynBp5es+3S?=
+ =?us-ascii?Q?EB1ho8YIwot0lD9DSlwg34okMT8rzD78KHyzJCBaf1kVSnj5ObWfd4SCj3cS?=
+ =?us-ascii?Q?1SPkTSnqHHSxWMxL97Q32MuJqF3Z8ZboFHvoF6X+sz69x/DrutVHdGWfHpx/?=
+ =?us-ascii?Q?qwqKFT8WK5kj3ivxRFYAQkB7zQZSQLWq/NrObaE8TyoC4J1rF3Fy3O2/AZuW?=
+ =?us-ascii?Q?hBxjcpVb0otBLcoc4FVO26pEpg3xKXP3ZCpYtdHsc6G+qg4NBv7q1XjNBjyV?=
+ =?us-ascii?Q?Knhj++8Oy7yhJi2OC/HXNADRWKv4w0z5DbxWsyTC6YG98eUzIiMvEqB0E8CE?=
+ =?us-ascii?Q?B60BlR9Ed8l+sbT7m5oQGAipBB1kKullYIYMTWU8fqH5sejOy4US3qXWu48m?=
+ =?us-ascii?Q?yitxaJ7DNKj2TJucpjTI/zvdwg+6ggSFd41Jctf0tmLVVikoq7SNp8X3wlwn?=
+ =?us-ascii?Q?im9Lkg4odRhvFhRMse7c416Hlpq/6ruOKVL4YOqb4b8j+EII?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d6e78ae-31bc-4215-ed82-08df0f5ea73f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 17:02:03.3793
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 17:12:11.9421
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /bkSw7v7a0zTbezVy2P5sAxdNC/SGhvsmxw8k6tJcWgkY53hpNvKJ5sJ7hTjf8aNaGUMzmfYZHZNLSBN/nIN7Fn0pemFxV8CF4E/SoyZFEo3lRDeR0pMnfvOlj9qlaHx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10373
+X-MS-Exchange-CrossTenant-UserPrincipalName: Jy2mFyLKp5VkZYd66lrkn8GJLcfymEeIAcdGzDgsO7SncAeXDFDy/hGzq6ek9uTV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6435
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_100209_873330_65A53C05 
-X-CRM114-Status: GOOD (  39.72  )
+X-CRM114-CacheID: sfid-20260910_181227_609995_9BA2D556 
+X-CRM114-Status: GOOD (  47.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,185 +164,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wrote:
-> Hi Frank,
->
-> Thanks for reviewing this so quickly.
->
-> On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
-> > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
-> > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > >
-> > > Toradex boards route the sideband signals of their 24-pin camera
-> > > connectors to different GPIO controllers. Camera overlays which name
-> > > those controllers directly must therefore be duplicated for each host
-> > > board.
-> > >
-> > > Describe reset, power-down, detection and power-control as
-> > > connector-local GPIO functions. This lets an accessory overlay remain
-> > > independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
-> > > remain described separately because the GPIO nexus does not abstract
-> > > them.
-> > >
-> > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > ---
-> > >  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++++++++++++++
-> > >  1 file changed, 86 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > new file mode 100644
-> > > index 000000000000..06e6836e1aa6
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
-> > > @@ -0,0 +1,86 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> > > +
-> > > +title: Toradex camera connector GPIO nexus
-> > > +
-> > > +maintainers:
-> > > +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
-> > > +
-> > > +description: |
-> > > +  Toradex boards provide 24-pin camera connectors carrying MIPI CSI-2, I2C,
-> > > +  clock, power, and sideband GPIO signals. This binding describes the sideband
-> > > +  signals as a GPIO nexus. The other connector resources remain described by
-> > > +  the surrounding board device tree.
-> > > +
-> > > +  The nexus exposes connector-local GPIO function numbers to camera overlays
-> > > +  and maps the functions wired by a carrier board to their GPIO controllers.
-> > > +  GPIO specifiers contain a function number followed by standard GPIO flags.
-> > > +  A board may omit functions which it does not wire.
-> > > +
-> > > +  The function numbers are:
-> > > +    - 0: Camera reset, connector pin 11
-> > > +    - 1: Camera power-down, connector pin 22
-> > > +    - 2: Camera identification, connector pin 23
-> > > +    - 3: Camera power control, connector pin 24
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: toradex,camera-connector
+On Thu, Sep 10, 2026 at 08:35:54AM -0700, Sean Christopherson wrote:
+
+> I guess maybe we have a different definition of ABI? 
+> 
+> I'm not saying that upstream has to be 100% forwards and backwards compatible.
+> I'm saying the serialization payload itself should communicate what features are
+> effectively required.  I.e. *if* there are incompatibilities, they should be
+> naturally expressed in the serialization format, not communicated out-of-band
+> through magic numbers.
+
+The ABI strings were introduced specifically because extension makes
+the actual compatibility indeterminate by userspace. 
+
+Keep in mind the actual goal here. Someone has kernel A and they need
+to blind kexec into kernel B and NOT have the machine explode, or all
+the VMs sitting on it lost.
+
+Meaning you must have a way to determine before the kexec if kernel A
+is producing something B will *accept*. Accept is not "parse and fail
+with EOPNOTSUPP" like most uapi schems. Aceept means bring in and
+actually fully support and use.
+
+So how do you solve this problem? You MUST declare in some kind of
+manifest exactly what ABIs are supported, in some way.
+
+> The scenario you describe fits exactly with what I am proposing.  
+
+It does not. What is really wanted here is to tell kernel A to only
+support ABI 1 for memfd and so kernel A will fail to serialize if it
+cannot do it because a newer seal flag was used.
+
+We do not want to succeed to serialize then fail to accept after
+kexec and have a dead machine.
+
+This is not anything like a normal uapi compatability problem.
+
+> actually starts using the new sealing flag, the CSP can downgrade to
+> older kernels at will.  And if the user cares about downgrading,
+> then they need to prevent the flag from being used until the new
+> kernel is rollback-safe and deployed to enough hosts to prevent
+> stockout.
+
+Yeah, CSP broadly has to do exactly this across a wide range of
+topics. It is a further reason why this feature is not exactly usable
+by a "mainstream" user :\
+
+> > This is why I think the very idea we can support any version pair is
+> > too much to ask for. We should focus on supporting a small set of
+> > version pairs and not making it too invasive or hard in the kernel or
+> > on the maintainers.
 > >
-> > Name is too generally, suggest use board name, we got similar comments at
-> >
-> > https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.nxp.com/
+> > Thus live update within a stable branch only is my proposal for
+> > upstream support.
+> > 
+> > If it really succeeds at that and it becomes very popular, then let's
+> > discuss upstreaming doing additional version combinations.
 >
-> I saw that and it made me reconsider this name.
->
-> However, I believe that in our case it is specific enough. It is really
-> the same on all our carrier boards, and Toradex specific. It's also only
-> for cameras, which is more defined than just "io". Curious to see if
-> others agree or if we should come up with a name for this.
+> Why on earth would we have version numbers in the first place?  IMO, monotically
+> increasing version numbers are flat out the worst way to communicate
+> features.
 
-If some days later, you update hardware connector to 30pin from 24pins.
+As above, discoverablility is a key requirement.
 
->
-> > > +
-> > > +  "#gpio-cells":
-> > > +    const: 2
-> > > +
-> > > +  gpio-map:
-> > > +    minItems: 1
-> > > +    maxItems: 4
-> > > +
-> > > +  gpio-map-mask:
-> > > +    items:
-> > > +      - const: 0xffffffff
-> >
-> > are you sure need full 32bit, only 4 pin, maybe 0xf should enough?
-> >
->
-> Indeed we could reduce the size of the mask, but I don't really see the
-> value in it. Isn't it good that a user can pass through the full GPIO?
+Each version number is a very specific upstream defined ABI, in the
+sense if kernel A emits version X and kernel B accepts version X then
+kexec *must* work.
 
-it works, I remember it control input index's width.
+You can make some manifest in other more complicated ways, but I'm
+deeply skeptical that is really going to bring any value. It feels
+like it is just increasing the testing matrix :\
+ 
+> > > I could see things like HugeTLB not working if someone booted the kernel with
+> > > support for only 1GiB pages and then tried to feed it payload with sub-1GiB ranges.
+> > > But to me, those sorts of things fall into the "well yeah, don't do that" category.
+> > 
+> > Okay, how about worse, todays kernel has hugetlbfs and there are
+> > patches around to luo serialize that. Lots and lots of talks about a
+> > post-hugetlbfs world out there.
+> 
+> And?  Adding a compatibility layer to a future kernel so that it
+> understands an incoming HugeTLBFS payload should be trivial.
 
-	 <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>
-          ^
+From my experience that's optimistic :(
 
-You can wait for dt team's comments for this.
+> > Do we want to constrain what is possible to ensure we accomodate this
+> > hugetlbfs serialization? I vote no.
+> 
+> In what way is providing strong ABI guarantees for individual components
+> constraining HugeTBLFS serialization?
 
->
-> > > +      - const: 0
-> > > +
-> > > +  gpio-map-pass-thru:
-> > > +    items:
-> > > +      - const: 0
-> > > +      - const: 0xffffffff
-> > > +
-> >
-> > missed
-> > 	gpio-controller: true
-> >
->
-> This is one thing I didn't fully understand about the GPIO nexus
-> concept, why would we need this gpio-controller flag? Isn't the gpio
-> controller behind the nexus? The nexus just maps onto it. The actual
-> controller would be on the SoC or an expander.
+I bet it will. Other things we've looked at seemed to be like that.
+Even the above about "yall screwed up" with memfd has the problem
+already. I don't believe we can ever do this so right that it won't be
+constraining to the kernel internals.
 
-Yes, I remember "#gpio-cells" depend on "gpio-controller", does
-pass dt_binding_check?
+> > Do we want to reject the hugetlbfs serialization until we have a year
+> > of debate outlining every possible ABI scenario? I also vote no.
+> 
+> That's a bit of a strawman argument.  Is designing a forward-looking ABI easy?
+> No, but IMO "a year" is a massive exaggeration of the effort required to come up
+> with a scheme that can survive a variety of plausible upgrade/downgrade scenarios.
 
->
-> > > +required:
-> > > +  - compatible
-> > > +  - "#gpio-cells"
-> > > +  - gpio-map
-> > > +  - gpio-map-mask
-> > > +  - gpio-map-pass-thru
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/gpio/gpio.h>
-> > > +
-> > > +    camera-connector {
-> > > +        compatible = "toradex,camera-connector";
-> > > +        #gpio-cells = <2>;
-> > > +        /*
-> > > +         * 0: Camera reset, connector pin 11
-> > > +         * 1: Camera power-down, connector pin 22
-> > > +         * 2: Camera identification, connector pin 23
-> > > +         * 3: Camera power control, connector pin 24
-> > > +         */
-> > > +        gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
-> > > +                   <1 0 &gpio1 1 GPIO_ACTIVE_HIGH>,
-> > > +                   <2 0 &gpio1 2 GPIO_ACTIVE_HIGH>,
-> > > +                   <3 0 &gpio1 3 GPIO_ACTIVE_HIGH>;
-> > > +        gpio-map-mask = <0xffffffff 0x0>;
-> > > +        gpio-map-pass-thru = <0x0 0xffffffff>;
-> > > +    };
-> > > +
-> > > +    gpio1: gpio-controller {
-> > > +        #gpio-cells = <2>;
-> > > +        gpio-controller;
-> > > +    };
-> >
-> > Need't gpio-controller.
-> >
-> > Frank
-> >
->
-> This ties in to my same confusion above, could you explain why or point
-> me to a relevant example/docs?
+Have you tried to get anything merged into the kernel lately? I've got
+lots of uncontroversial stuff pushed out past 4 months already. Some
+luo patches are close to a year already and don't even have any
+controversy.
 
-My means needn't whole gpio-controller{} block, like &its, needn't add
-node of interrupt controllers.
+> And again, I'm not saying we have to support infinite compatibility.  
 
-  Example should not contain unrelated device
-  nodes, e.g. consumer nodes in a provider binding, other nodes referenced by
-  phandles or node labels which are not directly referenced in the example
-  itself. Phandles in the example do not have to be resolvable.
+Okay, I said same stable branch only, do you have some wider
+limitation in mind?
 
-Frank
+> > Should we make a downgrade round trip a downstream problem? I think
+> > so!
+> 
+> Hard NAK.  There will inevitably be boundaries that cannot be crossed, but I am
+> not at all ok punting on downgrades.  To me, that's basically saying "we want to
+> add just enough support upstream so that it's not too painful to carry full support
+> out-of-tree".  That completely goes against the spirit of open source and upstream
+> Linux, and I want no part of it.
 
->
-> Thanks and kind regards,
-> Ernest
+I generally agree with you sentiment, but I think this is a unique
+case. I've asked around a fair bit, this is sufficiently complicated,
+requires alot of userspace that the CSPs are not open sourcing so has
+a very minimal usage foot print out side their world. I found one
+other possible user that might be more open source oriented..
+
+So, if I was feeling unreasonable I'd say stay out of the upstream
+kernel entirely.
+
+Though, I think this could grow and maybe some open source ecosystem
+will develop around it. I don't know. I'm willing to give it a
+chance.
+
+HOWEVER upstream is not some kind of free outsourcing for the CSP's
+proprietary forks! Do not ask maintainers to do significant and
+burdensome work that only a CSP is ever going to consume and can only
+really work in a closed proprietary environment. There is no "spirit
+of open source" in that kind of demand. I will be NAKing anything like
+that in my subsystems, I am not signing up to do live update stable
+ABI so the CSPs alone can have a better proprietary product.
+
+This is how I come to my conclusion that upstream should support same
+stable branch only at this point. It minimizes the burden, it is a
+decent trail of the technology, and if things go well with a quality
+open ecosystem then sure, upstream can change its mind.
+
+Jason
 
