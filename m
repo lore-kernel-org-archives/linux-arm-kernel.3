@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86513C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65141C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6fz6BSxMkCu1RefDmAvc14OnM9ef11rusjWb2l2/6uM=; b=CQ8uR306o9rFZft1rC6ct9YZDz
-	CiLlxQjuhsDqZBpzT5lEKTW2QQxMxN+DmWKTYGt95uuvzdAGi+5qxQUdLBUz2Nz7d6YZxfwL9p1fK
-	FPMWNX/8sV7yyWAKCEe5YgEZchK8UvsBdPzZtTAJMjnFpjBclIY0P3if8Px+Q7Xo+pHyH5uWTivDC
-	q1ilJO9C4qHZzk7iNZL3jus/VVuMeMGhJn6wR3SRdxK6wzSZWSBTlC63i/Qfed/8xOFD7E7Ro85D0
-	f1xRdxdtzcSWcfdXICUJ5PPc/0d0eEsZ8zFgDShTj46DnBdt+vfI/L2YOuAxzKsIyIVmVaydUjcCg
-	Mcn5NmBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4gAAAdQMr1QJE3GRXXXmrwJFYQwrrCMUm2tIURAs440=; b=k+x1uMiiWQ1HMBxT4JcdMwnSvd
+	sgHC+j7/xm9zIMAh7pzQLePDqqo5RqPapVfpqwjXy1cba0SNfw8To+6qgorW8GF7R5sNNjo0IN/Dt
+	0Sv36pklsDX+0zSfYU/N6BDYRK14Ai78McMCOgxNupqytreFo8dynOuywgsGciJjRFxRuNvpKgCK7
+	c5L6pMht5ObcUyKDk7qu1BnCpV6Bxw0QnqnZow3BfvOdqIWzNLaCjxpWuoh6f8WtnxNNfFfqK/fE6
+	XkOMcv0ENdvilxz8OTcGRqhprWuvP3kYRS+RZ+FjJSyDhafDiQgvfRkDNSlWsSN/d6ddsuytOERQT
+	4GJk5Vbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fcl-0000000Ebma-1vzq;
-	Thu, 10 Sep 2026 14:19:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fcg-0000000Eblf-1Qbr;
-	Thu, 10 Sep 2026 14:19:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9536B1570;
-	Thu, 10 Sep 2026 07:19:25 -0700 (PDT)
-Received: from [10.211.55.7] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F0293F7B4;
-	Thu, 10 Sep 2026 07:19:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=foss.arm.com; s=main;
-	t=1789049969; bh=YyZZgELesOQYbwi5589EMzGDv5CnlCwWEAz7cpxWzf4=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=npJdqY2lkzMQ1ArUoRWjCHl6JYyGW+9VlY+FuS0oSIaTEVefYoWD5nfgZa3oYgF6v
-	 ay/2+Tge/AzDs2LsbDIQlY088djByVQkbuQy86vTzSrEcx8dA4k2lt+gHCIJrIfhQ1
-	 5pYgG0hGhKhZ4WqQc6JDXsRvcAe54mfMS72pXNHU=
-Message-ID: <615d5d1a-5266-4b83-bff2-21c8f3840040@foss.arm.com>
-Date: Thu, 10 Sep 2026 09:19:23 -0500
+	id 1x4fda-0000000EbzP-3CAu;
+	Thu, 10 Sep 2026 14:20:26 +0000
+Received: from mail-westus3azon11010024.outbound.protection.outlook.com ([52.101.201.24] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4fdY-0000000Ebxq-22zN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 14:20:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RQ/lf2liQ1UrUl+KE2g0FT0D+1KCaihkvbt7e/ShY+eLnCZpz/mXHixcYBYb+Tx7RedLtY1CQiBq/ctXfICmIssqn/wWbFYKxYRajJlLo6m97Acw6ZOf73Pq7UMa/bXgeT61CUyYEXpQtZEwsDcb4tBu5ai6UKYUs20TDFBGpdOM0gz2GFyY8CqXow9AJEAOuZ7eNLMlyltDIJjFHlco0iTF7O8UGrjtz3hOzs+6w0LMmt8gXw/Y0OoD96Cku8h5JtiCc4IOZUS+4pM3YaDKW924rT2fsgUWNUCp/TkwpmkVWLu1FmdHrG9aOnbIkNBar8axl8l4ZPqR6svJRgoKMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4gAAAdQMr1QJE3GRXXXmrwJFYQwrrCMUm2tIURAs440=;
+ b=RNjwtws7AH0I5b0F9LHL2/T2g9VvrhnlwqDrWih4F2cEigMy0wWYB7oI0HH4sWwZqWM3FtCmtNkM7tsfkcAaof1TVtCEKLqsLaRvC71XNBI2IJpoYEIooBaSxm5tW1MFzo/V/swCKCG+ds3u4piauhasj1z40INyN6qqSw/9Tifle8Y3Jad/PB0k+XJun3aTraD5DGsihOuON74c5iYka8Vr3M2Is6HL6uvwJbp6kntW7kyiA3YXeN4dKeeTH/nliZ/IozSIwD63kcc6OlB6ORcw+wR+vCFWRkOnGWh62xK5lQWIIVXM5ro6rQ+zZYEQi5j2yP/vcC7TPUZoD8rh/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com;
+ dmarc=temperror action=none header.from=amd.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4gAAAdQMr1QJE3GRXXXmrwJFYQwrrCMUm2tIURAs440=;
+ b=5uNtJm5g+4lxtXVm9AL+8DlUX32i054p3xkZxsh198NpGfTXXohvRuisKgCRYUPtEEhVo5j+v0NSnBexXfl0Ffw8J9Vr0EUdhBpyeAoN4ogGSQyxwMCu4gs1QCBBLDATeRGorVfd0GXa80KmG+YkV8fs/SZ/LhLGRydxBUg5/pg=
+Received: from BL1PR13CA0385.namprd13.prod.outlook.com (2603:10b6:208:2c0::30)
+ by DS0PR12MB8317.namprd12.prod.outlook.com (2603:10b6:8:f4::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 14:19:55 +0000
+Received: from BN7PEPF000000AB.namprd05.prod.outlook.com
+ (2603:10b6:208:2c0:cafe::a9) by BL1PR13CA0385.outlook.office365.com
+ (2603:10b6:208:2c0::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Thu,
+ 10 Sep 2026 14:19:55 +0000
+X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
+ 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=temperror action=none header.from=amd.com;
+Received-SPF: TempError (protection.outlook.com: error in processing during
+ lookup of amd.com: DNS Timeout)
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BN7PEPF000000AB.mail.protection.outlook.com (10.167.245.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 14:19:55 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 10 Sep
+ 2026 09:19:54 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
+ Transport; Thu, 10 Sep 2026 09:19:51 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>
+CC: Michal Simek <michal.simek@amd.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH net] net: xilinx: axienet: Free outstanding DMA buffers on dmaengine stop
+Date: Thu, 10 Sep 2026 19:49:46 +0530
+Message-ID: <20260910141946.3017164-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Shadow Stack Locking Semantics between arch's
-From: Bill Roberts <bill.roberts@foss.arm.com>
-To: Mark Brown <broonie@kernel.org>, Jesse Huang <jesse.huang@sifive.com>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- linux-arm-kernel@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-hardening@vger.kernel.org, linux-api@vger.kernel.org,
- dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com, debug@rivosinc.com,
- andrew@sifive.com, kito.cheng@sifive.com
-References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
- <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
- <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
- <0ef9f4ab-4c9f-4089-bed3-f7726ec97804@foss.arm.com>
-Content-Language: en-US
-In-Reply-To: <0ef9f4ab-4c9f-4089-bed3-f7726ec97804@foss.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000AB:EE_|DS0PR12MB8317:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6ebe028-72dd-4c21-55c5-08df0f469622
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: 8z7qBTxshVwKt1612zpsThiaI1A5oLqXqfJ1nWjJKmsUWRsw1+6hsCja9WpKZxf+0+jCVVhumZGy99jQh6naMNhRR9/M2hGzS0eVhhSSf1cdsJ+Emr5MGNSssJT2uJ6XD6nsdD419yb/aswtCknDUHoZgUDExSIO+N/xEXtjB3hfg8v9VdV7nh2PamhIDZaTimciUnSnWS6PY85RHZymFBoP9bk8OKPVbpBcvrqN8oj+Sqv/6P4q7oLhZb9XrJrVKnwtO5t07S1JgDYZQZQiyNKndXXJeCDssO7eYYvLXJECUSUAZqNO5NUuoMSBWV1PfPklXkfVZMh0KsIXFDPbD42SrmR0S6ZCBSHFflTeFxtXfVhd4rI8V/JGUGtMsWJxELktnURtL9SQWxYYVZJc3u56VbWRg1t6w4/so+bQV1zmZht0Yn83Or/ORWkd9J0bsOx6ThjCS5vhw9dqWhPJehH59XzRCsbN4NXhepcF1mrVfj7JxXtST8ZLl7giGEbH76LPia0sLIjxxeXGOUQjalbwO5WyRSue+Ou000iqbd6UweNlJpoIH6U7UMiDnyYJca+4IenAlhxf/Q/YLeh1fFBhO/n3H13hBD5YtdcMk4Kp/FLcdBRsabAoKR0Zhbb7/7mc7krgHljIQizF5JvLGQPISJ1LEDfXt/NS9D7bidCizNJuJZjlfDH/yQAj1Ds/g5vZnffk6vlphFzDdnVyGQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4+Cytbwhh78r1cZw80cqhgINDNp3C0NVidOYPfj+v5bOTXwpxaXuMuSuHa2GXawvLTZg4VSjXsqM4pb85oxLXN6+k5Bsh9xeDPD9rpeC71XR5PSjlDKyuW5uvIVrLAFuLsWO37k5rw4M3MNesk4F+/vqQrkYy5FC3R3pKTBsyPSrHRj5OqacfSJhOvL1hIfjow1i3mtsoxaaLnGCiCHRlZH6tuiQ6cq4VUhn4gHuiltTa83gbFQOe24YGYpfT2ZEMWNbmwFhfhVQ4XxKMxM9qMDwIObCfQvGEaJXSH/F3TTi3LlWd4iA6wAhsZwz+MqD/8scfFYXFSCzsKHgqBtpR3W3QIOTR/xl3W/zBFXL+6FE923IglBaXNZSXk7VZlIecSiMwE8byWIYFotZ72pOvuZ+UjHFY+SC4ru+1Oc7BQyu3L39B9Q/s9iMptllM9Lv
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 14:19:55.0437
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6ebe028-72dd-4c21-55c5-08df0f469622
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000AB.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8317
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_071930_527403_ED4D477C 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260910_072024_531723_7A0A05DF 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +120,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In the dmaengine path the driver pre-submits RX buffers (and holds
+in-flight TX buffers) whose SKBs are allocated and DMA-mapped by the
+driver and reclaimed only in the completion callbacks. On ndo_stop()
+the driver calls dmaengine_terminate_sync(), which aborts these
+descriptors without running their callbacks, and then frees only the
+skbuf_dma_descriptor ring shells with kfree().
 
-On 9/9/26 12:57 PM, Bill Roberts wrote:
->>
->>> 2. riscv should check that the low bit is set in locking not just 
->>> that its
->>> 0, it should be 1
->> I think for ABI compatibility RISC-V will have to continue accepting 0
->> as being equivalent to locking PR_SHADOW_STACK_ENABLE (or everything,
->> but it only supports that one bit right now).
->
-> TL;DR - No users, lets fix it before risc-v lands the userspace side IIUC
->
-> I can't find any libc's that support this for risc-v. It appears the 
-> glibc
-> patches were not merged and I commented on those patches just now
-> that the interface is wrong:
->   - 
-> https://inbox.sourceware.org/libc-alpha/8a5e21d0-0628-4910-9ad8-165c829e9680@foss.arm.com/
->
-> Additionally, stress-ng does it "generically", and it would be broken 
-> on a riscv system:
->   - 
-> https://sources.debian.org/src/stress-ng/0.22.00-2/stress-prctl.c?hl=1144#L1144
->
-> This is a bug and never followed the convention to begin with. So 
-> risc-v is
-> non-compliant to the spec and this effectively prevents the a true 
-> unification
-> of a generic prctl interface. The behavior on riscv doesn't adhere to 
-> there own docs:
->
->   - 
-> https://cdn.kernel.org/doc/html/latest/arch/riscv/zicfiss.html#prctl-enabling 
+As a result every SKB still owned by the DMA engine, together with its
+DMA mapping, is leaked on each interface down. With RX_BUF_NUM_DEFAULT
+(128) RX buffers pre-posted per channel, an ifup/ifdown cycle leaks up
+to 128 SKBs and their DMA mappings; on systems with a limited IOMMU
+aperture the mapping leak can eventually exhaust the address space.
 
+Clear the ring slot's skb pointer in the TX and RX completion callbacks
+so that a non-NULL skb reliably marks a slot that still owns a live,
+DMA-mapped buffer. On stop, after terminating the channels, walk the
+whole ring and unmap and free every such buffer before releasing the
+rings, mirroring what the completion callbacks do.
 
-Sorry I confused two interfaces here, anyway, 
-arch_set_shadow_stack_status is fine,
-it's the locking interface arch_lock_shadow_stack_status, code snippet 
-below:
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 34 ++++++++++++++++---
+ 1 file changed, 30 insertions(+), 4 deletions(-)
 
-/* If shtstk not supported or not enabled on task, nothing to lock here */
-if (!is_user_shstk_enabled() ||
-     !is_shstk_enabled(task) || arg != 0)
-         return -EINVAL;
-
-So even the glibc patches will be fine. But definitely something we want 
-to fix.
-I am going to float a patch over to the risc-v folks.
-
-
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 1722b7038f34..7828fbb09dc8 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -881,6 +881,7 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
+ 	u64_stats_update_end(&lp->tx_stat_sync);
+ 	dma_unmap_sg(lp->dev, skbuf_dma->sgl, skbuf_dma->sg_len, DMA_TO_DEVICE);
+ 	dev_consume_skb_any(skbuf_dma->skb);
++	skbuf_dma->skb = NULL;
+ 	netif_txq_completed_wake(txq, 1, len,
+ 				 CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
+ 				 2);
+@@ -1171,6 +1172,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 						       &meta_max_len);
+ 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+ 			 DMA_FROM_DEVICE);
++	skbuf_dma->skb = NULL;
+ 
+ 	if (IS_ERR(app_metadata)) {
+ 		if (net_ratelimit())
+@@ -1752,16 +1754,40 @@ static int axienet_stop(struct net_device *ndev)
+ 		free_irq(lp->rx_irq, ndev);
+ 		axienet_dma_bd_release(ndev);
+ 	} else {
++		struct skbuf_dma_descriptor *skbuf_dma;
++
+ 		dmaengine_terminate_sync(lp->tx_chan);
+ 		dmaengine_synchronize(lp->tx_chan);
+ 		dmaengine_terminate_sync(lp->rx_chan);
+ 		dmaengine_synchronize(lp->rx_chan);
+ 
+-		for (i = 0; i < TX_BD_NUM_MAX; i++)
+-			kfree(lp->tx_skb_ring[i]);
++		/* dmaengine_terminate_sync() aborts the descriptors still owned
++		 * by the DMA engine without running their completion callbacks.
++		 * A ring slot owns a live, DMA-mapped SKB iff its skb pointer is
++		 * non-NULL (the callbacks clear it on completion), so unmap and
++		 * free those here. Otherwise every outstanding TX/RX SKB and its
++		 * DMA mapping is leaked on ifdown.
++		 */
++		for (i = 0; i < TX_BD_NUM_MAX; i++) {
++			skbuf_dma = lp->tx_skb_ring[i];
++			if (skbuf_dma && skbuf_dma->skb) {
++				dma_unmap_sg(lp->dev, skbuf_dma->sgl,
++					     skbuf_dma->sg_len, DMA_TO_DEVICE);
++				dev_kfree_skb_any(skbuf_dma->skb);
++			}
++			kfree(skbuf_dma);
++		}
+ 		kfree(lp->tx_skb_ring);
+-		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++)
+-			kfree(lp->rx_skb_ring[i]);
++
++		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++) {
++			skbuf_dma = lp->rx_skb_ring[i];
++			if (skbuf_dma && skbuf_dma->skb) {
++				dma_unmap_single(lp->dev, skbuf_dma->dma_address,
++						 lp->max_frm_size, DMA_FROM_DEVICE);
++				dev_kfree_skb_any(skbuf_dma->skb);
++			}
++			kfree(skbuf_dma);
++		}
+ 		kfree(lp->rx_skb_ring);
+ 
+ 		dma_release_channel(lp->rx_chan);
+-- 
+2.25.1
 
 
