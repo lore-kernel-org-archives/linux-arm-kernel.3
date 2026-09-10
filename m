@@ -4,77 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33F5C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C09C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sLgY3kGNMUhiuDbvekSroJmn4LdKkP1crGpWtw0K8y4=; b=0QmrklMezDmgkKPis/aRkByalC
-	l5r5yc7EeYDhMTPQf0e+v8EbWjn6nJEA/MiWQl+vJVHeHPqjSUp18gx3b6iN3Gmw1yhw4gE9RXk/p
-	v2hEn/0tImE6L+LnLCw4mP9vrb49GeLbKbNxg6XyyAdmol3hr1rsFwwpY6mT97EBrtcoFw+aj9ojY
-	0mrJjEXkYNBSjqgAJVM9BxwSokbQbvRk2gqCVJtHt6/Z4Hb8XnLufH7bYJtaYHQ1rCDlY0r03OWB1
-	HKY2ZjT34jYksZxQf5KIzPLdHvsY63pxWv9bHWo1UOlUZOqGlOkqlhy4MnMf8JW/32EziMmgx6ICh
-	nW1LH0tA==;
+	bh=WmyYGlLJ4HV+ah11VEaf5EpA13EGUApuca9HZd1EWRI=; b=N9Z98YKKr+C7QE99uHA5i/EIyv
+	pMnlUenWIy7dJBn6ncjEkS8h7Zuy1VGbeMkiK8ih3GNRBH8LB8Cx1TIxENsUeRZ9G7mlqf7EfI2ov
+	D1L4QoVCuwgQ3AjIuydq2AnFPdRBGAg3tggDvBDFkUnJZn2HwODlVcksI3Au6tYP8gtFz56H4/rpm
+	L1Acp8GF2LcX04IWvDqFUlNV9QT94Lo+K4dAXFjUOyYViWHXf+bmfpD2TWKNpdC/lhear6dVsA8yV
+	t0aGsNukZW1UG5WabrwHwVk21xIvNRCIbS1i+6auAGSAqwNU/scgI814NSemEbhxNarAywaxsQoPh
+	+HRfe/7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4arV-0000000Dpoi-11Kl;
-	Thu, 10 Sep 2026 09:14:29 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1x4as4-0000000DpsZ-1fl7;
+	Thu, 10 Sep 2026 09:15:04 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4arS-0000000Dpnn-08dy
+	id 1x4as1-0000000DprJ-0VaF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:14:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=sLgY3kGNMUhiuDbvekSroJmn4LdKkP1crGpWtw0K8y4=; b=f
-	DWqdEwz9pXonBk+xO+4U3bNgelCLO4lj0rllTbkgB1K6xwCo1+/kMnW1ufWvlA28
-	Iyq2f54/PO4/i7l5bPHWh6R+xHAIpsqB5WSVLSDcR2zJY38WDDHHH9k2wXdjs85i
-	XNj05+QQiiZG3crGx/famHpzxYg5kZlNGnnac7tHfs=
-Date: Thu, 10 Sep 2026 17:12:52 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
- <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
-X-NTES-SC: AL_Qu2TC/yYvk0s5CmQZekcn0wRhug/UMa4u/sm3YNXc/0EqiX9+T4sR2RaDHjs89yCBiKngRWUTRFQw9phRId03a0R+3XdO1UpGQhOrxxtfQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Thu, 10 Sep 2026 09:15:02 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D83A51400093;
+	Thu, 10 Sep 2026 05:14:55 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 10 Sep 2026 05:14:56 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789031695;
+	 x=1789118095; bh=WmyYGlLJ4HV+ah11VEaf5EpA13EGUApuca9HZd1EWRI=; b=
+	FiAsJ+nstRvjg6RRQ8P9u/hlxRsueJIWNuCARKfZpRCtDW5cx2JKFVhhOcSGdgBe
+	e4P3qdb+z2cuxmkn3OQWael/w5TLkk75zEcujLQ+LdG32wd4ZpF1I9QrRjh8+Qc1
+	Jk4etcGhT2SPTqGIzOF2P52+B5v4DOdm/tjxUs8Yb8MLbNyhtTFijZNbqDO1HZln
+	BGv5ghywZgzbP3fJetTKMQ/eP/sewMF4XcBXKY9/GYsoZqvd41UH/RFs7NFXV/ro
+	53sm9FbkXvCVTK7nDwsaTZdg3LjIx4G11kdd8v6SpQeqQSvCyKoUroOIH0V57j4Q
+	AqL0jF3FvmaYncuVT1l+sg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789031695; x=
+	1789118095; bh=WmyYGlLJ4HV+ah11VEaf5EpA13EGUApuca9HZd1EWRI=; b=r
+	isyzqbT64YUC05GbjC/zSRHAhLC6c0NiSGKUQBBkqqw6VtVZfdfMORnhAumBTyUX
+	kao/F0zZsj8uLT/AQjX+1BlUSBIV19eNfFmH58nANK2lGx9kKIwLvLSgNcxtVgEL
+	kFK1it6j1PyooMNCK8s3ZOTNjgqdanNtK3TlC88ct2qujOoPtDhBxBd+UU4ZE0Dz
+	k4VjBjR2N4Tf9s3QhBP29iu23KlXReBspnf4Cu7RGtYaH4BnzLZ+11zZw7wE+b4T
+	ILXcG2xV3fY0XpidQGdjXzCT947KFtpfO7qZF5Tv+j1S9gh8ekMji/mXIE1il7b5
+	NowIKj8cv+JQS9iiCBcgg==
+X-ME-Sender: <xms:CXWiamAbJlFcbMlKyo_HhkUQT6XRDKcjKn_Ayqptdmv6M5zeLkXyWA>
+    <xme:CXWiarW74CEVCs48t3iKAdxXtTH3yt_IyIPuV9oU0GZoUu0uWxKy0k9ym2e7iFVJ8
+    CpoFkon07hGGL-JJsjUbRtzZuNW4x_AQKvOC0Nv4KqQMAGjLDveDz4>
+X-ME-Proxy-Cause: dmFkZTFUOKlcU60ThRN8O2zTSnwr5YCeqBhIzIYzfk5A0CrNKVififq7g0N7UP/8cRF8tW
+    yarKG/7vyzEil6c5ClBf7vc9houwglmD3QffSxML4twCsP1Wj3Chea8ZVXu2fN+HOdSIbj
+    uk0mqe2Nn53TZ8YnP8qnFHW3hMWW+0ufmB7zU99oUSU0+XXr3PnldZT2U82XFn2aAMr3ze
+    hbhY19WEqXPTMwYvN4KbvZ0hFmZNlB56E0L+U2Fg40hN2UymczLx7ApUMA57Mu+LQaojNX
+    sl7k3Dt/DyNSP/owSMjlMyx3v0vA568rICZhwCC7pkGMofmLt7T7moI3UowUAvJDNumglm
+    C/MFAeVSUQ6A7ekRZqQiyc44M0ZEYq+4cDmiMugkFXxpgpr5OlzmyU70YkMZSgYUNb65lH
+    AzjHmGhoamB2m5cgFBP9m+P50cX8OoBalBioGTTYaOFw3V4E6l4VwL05UuBVMZxaOrAP0C
+    bqI47ngIDqZkpzJQnBWSqsXEeJL9klDu00x/INOwM+3+3eovl0RDyrj3HLKl0plcQERkmx
+    kG02P/9DYGSDIKuDAv5vlhgzi9s+QoWOQORA+2naJPZkB6Mb30TayqqtwVBE5m1bIipkMS
+    ggB2WRsbwLE02NUYIHCym0P05mdjYB92Y6yOrusFGbcwaMgc/1WBkO5GhBpg
+X-ME-Proxy: <xmx:C3WiajSzkXT9br1hiKL81uZmz4pDFtgyt73BBeusKbH1VGrCPDFDNw>
+    <xmx:DHWiarSkZzouTDTSO-KH5mVuc9R_lE4gS7N9fYnX9TfilKvQtxDN1g>
+    <xmx:DHWiam3j9IKfyuCCLbBvIMAfRF6NFAYEB4nMRJblwE7Je12l_4YXig>
+    <xmx:DHWialwPvwIeve1-y-XsO3shQboP-Dbi5sLE0IFcWq3pW3UzX25Ukg>
+    <xmx:D3WiauXQT2K6VWx_Zlqpk0Vl6dMq5AApJoMNI55TBVliJtNGpSMBAILN>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id C941632A007B; Thu, 10 Sep 2026 05:14:49 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Message-ID: <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: cygvCgBXLkGVdKJqLs1DAA--.42107W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxRWF9mqidJVRiAAA3T
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-ThreadId: ATaKlDvsEa83
+Date: Thu, 10 Sep 2026 11:14:28 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Russell King" <linux@armlinux.org.uk>
+Cc: "Hans Ulli Kroll" <ulli.kroll@googlemail.com>,
+ "Robin Murphy" <robin.murphy@arm.com>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>,
+ "Will Deacon" <will@kernel.org>, "Christoph Hellwig" <hch@lst.de>,
+ "Ard Biesheuvel" <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ "Linus Walleij" <linusw@kernel.org>
+Message-Id: <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+In-Reply-To: <20260910063620.17768-1-kmehltretter@gmail.com>
+References: <20260910063620.17768-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH 0/2] ARM: preserve DMA_FROM_DEVICE buffer contents
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_021426_445965_00145378 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260910_021501_657199_E79142E1 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +114,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKVGhhbmtzIGZvciB0aGUgUmV2aWV3ZWQtYnkuCgo+IFdvbmRlcmluZyBpZiB3ZSBz
-aG91bGQgdW5kbyB0aGlzIGluIHRoZSBwb3J0J3MgLnNodXRkb3duKCkgY2FsbGJhY2suCkkgc2F3
-IHRoZSBzaHV0ZG93biBwYXRoIGFscmVhZHkgY292ZXJzIGl0OiBkdzgyNTBfc2h1dGRvd24oKSBj
-YWxscwpzZXJpYWw4MjUwX2RvX3NodXRkb3duKCksIHdoaWNoIGRvZXMKCXVwLT5pZXIgPSAwOwoJ
-c2VyaWFsX3BvcnRfb3V0KHBvcnQsIFVBUlRfSUVSLCAwKTsKc28gYm90aCB0aGUgSUVSIHNoYWRv
-dyBhbmQgaGFyZHdhcmUgSUVSIGFyZSBjbGVhcmVkLCBpbmNsdWRpbmcgRVRPSS4KCkJlc3QgcmVn
-YXJkcywKTG9uZyBaaGFvCgpBdCAyMDI2LTA5LTEwIDE2OjMzOjE0LCAiQW5keSBTaGV2Y2hlbmtv
-IiA8YW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3cm90ZToKPk9uIEZyaSwgU2Vw
-IDA0LCAyMDI2IGF0IDAyOjM4OjE4UE0gKzA4MDAsIExvbmcgWmhhbyB2aWEgQjQgUmVsYXkgd3Jv
-dGU6Cj4KPj4gVGhlIEFtYmFyZWxsYSBDVjc1IFVBUlQgaXMgQW1iYXJlbGxhIElQLCBub3QgYSBT
-eW5vcHN5cyBEZXNpZ25XYXJlCj4+IGxpY2Vuc2VkIGJsb2NrLiBBdCB0aGUgcmVnaXN0ZXIgbGV2
-ZWwgaXQgaXMgY2xvc2UgZW5vdWdoIHRvIERXIEFQQiBVQVJUCj4+IHRoYXQgYSBmdWxsIGN1c3Rv
-bSBVQVJUIGRyaXZlciBpcyB1bm5lY2Vzc2FyeTogcmV1c2UgODI1MF9kdyB3aXRoIGEKPj4gc21h
-bGwgcGxhdGZvcm0gcXVpcmsuCj4+IAo+PiBRdWlya3M6Cj4+IC0ga2VlcCBJRVIgRVRPSSAoYml0
-IDUpIHNldCBmb3IgUlggdGltZW91dCBiZWhhdmlvdXIKPj4gLSBza2lwIHNldF9yYXRlOyBiYXVk
-IGNsb2NrIGlzIG1hbmFnZWQgb3V0c2lkZSB0aGUgVUFSVCBibG9jawo+Cj5SZXZpZXdlZC1ieTog
-QW5keSBTaGV2Y2hlbmtvIDxhbmRyaXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+Cj4KPi4u
-Lgo+Cj4+ICtzdGF0aWMgaW50IGR3ODI1MF9pZXJfbWFza19zdGFydHVwKHN0cnVjdCB1YXJ0X3Bv
-cnQgKnApCj4+ICt7Cj4+ICsJc3RydWN0IGR3ODI1MF9kYXRhICpkID0gdG9fZHc4MjUwX2RhdGEo
-cC0+cHJpdmF0ZV9kYXRhKTsKPj4gKwlzdHJ1Y3QgdWFydF84MjUwX3BvcnQgKnVwID0gdXBfdG9f
-dTgyNTBwKHApOwo+PiArCWludCByZXQ7Cj4+ICsKPj4gKwlyZXQgPSBzZXJpYWw4MjUwX2RvX3N0
-YXJ0dXAocCk7Cj4+ICsJaWYgKHJldCkKPj4gKwkJcmV0dXJuIHJldDsKPj4gKwo+PiArCS8qCj4+
-ICsJICogQW1iYXJlbGxhIGtlZXBzIHZhcmlhbnQgSUVSIGJpdHMgKGUuZy4gRVRPSSkgc2V0IGZv
-ciBjb3JyZWN0IFJYCj4+ICsJICogdGltZW91dCBiZWhhdmlvdXIuIEZvcmNlIHRoZW0gaW50byB0
-aGUgODI1MCBJRVIgc2hhZG93IHNvIGxhdGVyCj4+ICsJICogZ2VuZXJpYyBJRVIgdXBkYXRlcyBk
-byBub3QgY2xlYXIgdGhlbS4KPj4gKwkgKi8KPgo+V29uZGVyaW5nIGlmIHdlIHNob3VsZCB1bmRv
-IHRoaXMgaW4gdGhlIHBvcnQncyAuc2h1dGRvd24oKSBjYWxsYmFjay4KPgo+PiArCXVwLT5pZXIg
-fD0gZC0+cGRhdGEtPmllcl9tYXNrOwo+PiArCXNlcmlhbF9wb3J0X291dChwLCBVQVJUX0lFUiwg
-dXAtPmllcik7Cj4+ICsKPj4gKwlyZXR1cm4gMDsKPj4gK30KPgo+LS0gCj5XaXRoIEJlc3QgUmVn
-YXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
+On Thu, Sep 10, 2026, at 08:36, Karl Mehltretter wrote:
+> This series prevents a DMA_FROM_DEVICE map from discarding CPU-written
+> buffer contents on non-coherent 32-bit ARM. It is based on
+> v7.3-rc1-324-g986c24e0fe44.
+>
+> ARM currently invalidates these buffers before the device writes them.
+> If the device writes only part of a buffer, discarded dirty cache lines
+> can expose older memory contents in the untouched bytes. A stock USB
+> webcam demonstrated this through usbfs. Short isochronous packets left
+> gaps, and usbfs returned non-zero data to userspace from bytes it had
+> cleared.
+>
+> arm64 changed this handoff from invalidate to clean in 2022 with commit
+> c50f11c6196f ("arm64: mm: Don't invalidate FROM_DEVICE buffers at start
+> of DMA transfer"). Arnd Bergmann's 2023 ARM32 cache-maintenance series
+> left DMA_FROM_DEVICE preservation unresolved [1]. This series keeps the
+> existing ownership hooks.
+
+Hi Karl,
+
+I think the main problem here is that we remain inconsistent about the
+rules across CPU architectures, and changing Arm on its own does not
+mean we have a solution if another architecture decides to change it
+in the opposite direction at some point.
+
+I see this as a tradeoff that can go either way:
+
+- the current 32-bit Arm approach (also arc, hexagon, microblaze, mips,
+  nios2, openrisc, powerpc32, sh) is obviously faster as it avoids
+  the writeback, but it relies on device drivers to ensure no stale
+  data can leak back into userspace.
+
+- Will's patch changed arm64 (later copied into riscv) to avoid that
+  risk by adding the overhead out of caution, and avoid having to
+  audit and fix all drivers.
+
+Clearly the current state is suboptimal, as most drivers are shared
+across architectures and should expect a clear interface. Portable
+drivers now get extra overhead on arm64/riscv for doing both the
+zero-pad and writeback.
+
+If we decide to align with arm64/riscv and take your series, I think
+we need two more parts:
+
+- actually measure the performance overhead: you already did the
+  work to test this on three separate arm implementations but did
+  not share performance numbers.
+  Can you quantify how much this costs us on the hardware you used?
+
+- change the remaining architectures the same way: right now, both
+  variants are common enough across supported embedded systems
+  on all architectures, but changing over arm32 means that all
+  only a vanishingly small set of users gets the invalidate-only
+  version and we're much more likely to miss future driver bugs
+  when driver writes assume the arm/riscv behavior is universal.
+
+       Arnd
 
