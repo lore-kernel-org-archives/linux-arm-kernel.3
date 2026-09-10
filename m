@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CACDC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE45CC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=; b=Y4QQrhIws5yGYpgHNjs1ejOKD9
-	cpbmtFFnyyJvt5AFq+ILjo52Nq4ojwOcZXxKL0PL2opz2SPcmW1cYDbRscdrnwJ2ExTW/WSC9H6gj
-	o3DtdLMnpHB2zeQMYp9VrSUcir8qi6DE1I3K1cpxHrxq/pYAGYb2jxSCLYe4Hb3Y/4GfLUJKNZOJ4
-	Ef9uSD/UQ9QId64TGNljlWz7PmdGjTzb3cHIHhRKLqoj9Q8/KXspO7LaLiNr4pxptHbTaLzx4RC6t
-	30sxGWxlu4ebk7iB8oFivCUJk3F6fnOpS4cbjmtNdnZ6V6dgEe/P0zNwwcCc0QNlFY5kQXg5lWU/8
-	ukGm54jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cDCZbvoUqbxEiYkoFZ45w2v4oUTAj3iYwhU3KZbQxrc=; b=rs3xwJGyQweRLph7WTbbV57Por
+	EuQ+Iwz699hxJWUeT02PvUEmvtMz5i+AVWIINWwc2uMSc5L9pfjWzBwMFxyhCYQRq4qRAhtn0MXym
+	XFZd+1n+ELrixuk1g4FopIaOsBaP9Kgv+kxa3KU13niDLuLeKyZ6y+Bx92hj21NlJ+L1HJPTC2wDk
+	tU6d/kYbVvCw+WZ2K62VhItUCl6sU6zBVeO0fvqhBCCDlSqCuC5DE6iR1j2iaRI5MGKt3FkKvS8gN
+	IgA/kd5xZ0Zy6iUmOWm/k4bcLTSGi8ZZ8ySM3UbMz8PwNpDvznqjvzIh1566jk43TazK/TMPjtyQY
+	fPO5GHjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4etI-0000000EThI-0tEe;
-	Thu, 10 Sep 2026 13:32:36 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4etE-0000000ETeH-0fkQ
+	id 1x4ew5-0000000EU9S-1kB1;
+	Thu, 10 Sep 2026 13:35:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4ew2-0000000EU95-3QCp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:32:34 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f705536so289616766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:32:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789047150; x=1789651950; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=;
-        b=it3ga0la+xdnGRVIzv443xdbDVkBDg/jneDHrOilWLkGGnQEH6p50M4jT8oF9qgWju
-         9j+zB3NoEmb3RidC/NhFgASPWvcNFvQMiX1Mu2eq2xFFSvsuS81yj3uUa+pwa1O0wbT9
-         BqW2lu/PBSRKsnFCy31SNnFs89w4Wu587/d9dCm7ROMPlEJAOSwU7qK5N6OAST1ZDegZ
-         rGaxCg97VvN+Rdp+FuGE6Vqr7rJsaTa2SRCoB4d7a/Jwpm/MIpgm3Z2CeWBTtIWjrKan
-         CAR/JEOg3tq1kHpyvRPWzWAQh4J9a3SBSSIMIVo5oa2icIJUrjXk6VI9ceaWzIgb5JuJ
-         v8fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789047150; x=1789651950;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=;
-        b=SaDeWW5ZLNxcbM34jF3hpPGVUeFkdn/tKeTRoI+J/FydnGGTkGgLb++QrACvTFtXDr
-         lbGYu7Mub6Q3UG802HTwfskHnnH6J0s7gJbv61KvEafCqG0lEIUxrXEUa3OgwBDEMT6U
-         VXcTqIgTvlmgV/JFfV0LQAMzj8AU3oOcKANwfCvcwsHAZliDuL1bI3OMYXk2bU5kR7UT
-         FK5JnuoyqremrNAhqnmDSj/fbhCPWKs1YvaA97y/1dE00GOZrpqsJR2tNAlqFXkQ29wv
-         VEwukPpQ/KuqQGI8RMo03ELr51g1/MoJgEdbbLNJ08iQ4EmDJZazTNCkHa0831SOXmxU
-         maFA==
-X-Forwarded-Encrypted: i=1; AKwUvBwZdvi+vyF0jJpdIh5cIwTHV/Dh2z/0nkjL9Eufr1BXEqZ352tKo42g9Tq7FoVZTPbm846T9vJGCZYA/+2VD9Oh@lists.infradead.org
-X-Gm-Message-State: AFuF++mbwEf0RWdjhjP3tE06HvZqolk5j1LAppjP0LLFnezWf5PA+Qmm
-	FePqpvx9s3t+UNkFossH4J0LNvr5IMeThzwD8/zC+1ptFtwhdGGe3p4q
-X-Gm-Gg: AYBFou3lcvPb4Pgxg7Zif13j17Y4T41R0U0Xmo4wXEaLgM317Pmj8Mxdt37B9yMdSKk
-	7YPkAH/e2Z8z82kBWP+Mean92S9hnpCsq/xk9kdZZBWp8tLB7dnmoeWlrFMnBl0ExrkyeBN/mZX
-	gEQl6YBGxDy3sQf723hoivLyzw64Sa49CJPEX18gH3VhBhb6K8/FMbHEqpa5asuKRIm4fw5zzso
-	PH+1ko16clTRS6hY1RXPya7ll61yo3mHHqAcs1ue0TNCJ+cLcLeiaihzv42H9d7gwBAbK3lwcOk
-	iHkdObTjV9vYfzgT7itfUptZ5vwFt0e1SzQJuZh4ZkCqT4tSh2vSfjzYFRUIl5CuOSKsfxhHZWT
-	g28jxJXFDCUtBhebb1btxb1EgE2gWwJztF3lakC9cDif4elacM3MfBeGBzdt/6cbs5VuVFCkqII
-	wthgasI5qMXi8772ybeOAsDoULtQQlJOv54zSvAUEoXdkwohtIvhjTZb2EID79lIGTLOM=
-X-Received: by 2002:a17:906:99cb:b0:c25:62db:772b with SMTP id a640c23a62f3a-c2941868ad6mr336284266b.7.1789047149946;
-        Thu, 10 Sep 2026 06:32:29 -0700 (PDT)
-Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d581f51sm945616266b.42.2026.09.10.06.32.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 06:32:29 -0700 (PDT)
-Date: Thu, 10 Sep 2026 16:32:25 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	cassiogabrielcontato@gmail.com, linux-sound@vger.kernel.org,
+	Thu, 10 Sep 2026 13:35:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9B72204C;
+	Thu, 10 Sep 2026 06:35:21 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB7123F528;
+	Thu, 10 Sep 2026 06:35:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789047325; bh=HwQDBz5oLzKG9qLyiXZqxlvO7T32/h+XjqXU5wEETFo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kaDox7TvjHq/wLCyMuQdsXIbtx5DQsNGh6oyDgT/Cxvxv7vQRdS5r1UxLlsU8LSqJ
+	 TIOw8AIde6Yiqu5gR4NsOicFXr/Jc9q71hdDMzsKKlAsCNGeBJb1UaJkp4aCk+sooD
+	 wpvyIg4tLtxqqDtTqACV790BKbDzA3cExEwNs8JA=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 02/13] ASoC: mediatek: mt8189: Propagate APLL enable
- errors
-Message-ID: <aqKxadkfX9Tqx8JR@stanley.mountain>
-References: <20260910125742.150902-1-phucduc.bui@gmail.com>
- <20260910125742.150902-3-phucduc.bui@gmail.com>
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 0/7] pinctrl: sunxi: Add Allwinner A733 support
+Date: Thu, 10 Sep 2026 15:35:11 +0200
+Message-ID: <20260910133519.459011-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260910125742.150902-3-phucduc.bui@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_063232_236520_3DC57F1F 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20260910_063527_116214_0905A91D 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +78,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 07:57:31PM +0700, phucduc.bui@gmail.com wrote:
->  sound/soc/mediatek/mt8189/mt8189-afe-clk.c | 78 ++++++++++++++++------
->  1 file changed, 56 insertions(+), 22 deletions(-)
-> 
-> diff --git a/sound/soc/mediatek/mt8189/mt8189-afe-clk.c b/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
-> index 63e03a40dbbe..a901be97e75f 100644
-> --- a/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
-> +++ b/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
-> @@ -454,30 +454,47 @@ int mt8189_apll1_enable(struct mtk_base_afe *afe)
->  
->  	ret = mt8189_afe_enable_top_cg(afe, MT8189_CG_APLL1_CK);
->  	if (ret)
-> -		return ret;
-> +		goto err_apll1_ck;
+Hi,
 
-I shouldn't complain about this, but I am going to...  I don't like
-ComeFrom label names at all.  Imagine if we named functions that
-way, there would be a thousand functions named called_from_probe().
-We already are looking at the goto so we know where the goto is, but
-what we want to know is what the goto does.
+more than a year(!) after the RFC, now the first "proper" version of the
+pinctrl and GPIO IP support for the new Allwinner A733 SoC. I originally
+had planned to prepend the GPIO_GENERIC support [1] here, but there are
+quite some nasty details to solve there, and I don't want to jeopardise the
+hardware enablement for this SoC on this rework. LinusW, I hope you can
+forgive me for dropping this rework (just for this series), I still want
+to work on this, but it takes more time. I do understand this would make
+you to give up some of your leverage on this topic then, so please let me
+know if that's fine for you. I can elaborate on the GPIO_GENERIC
+problems if you like.
+So compared to the RFC this is mostly a rebase, dropping one patch that
+has already been merged (RFC PATCH 2/9 "pinctrl: sunxi: pass down flags
+to pinctrl routines"). I also dropped the patch that introduces the GPIO
+set/clear optimisation, using the new separate registers, as this would
+become obsolete with the adoption of GPIO_GENERIC.
+Changelog below, based on v7.3-rc1.
 
-Better to name it err_clear_mux_setting or something.
+[1] https://lore.kernel.org/linux-arm-kernel/20260313000652.11470-1-andre.przywara@arm.com/
 
->  
->  	ret = mt8189_afe_enable_top_cg(afe, MT8189_PDN_APLL_TUNER1);
->  	if (ret)
-> -		return ret;
-> +		goto err_apll_tuner1;
->  
->  	/* sel 44.1kHz:1, apll_div:7, upper bound:3 */
-> -	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
-> -			   XTAL_EN_128FS_SEL_MASK_SFT | APLL_DIV_MASK_SFT |
-> -			   UPPER_BOUND_MASK_SFT,
-> -			   (0x1 << XTAL_EN_128FS_SEL_SFT) | (7 << APLL_DIV_SFT) |
-> -			   (3 << UPPER_BOUND_SFT));
-> +	ret = regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
-> +				 XTAL_EN_128FS_SEL_MASK_SFT | APLL_DIV_MASK_SFT |
-> +				 UPPER_BOUND_MASK_SFT,
-> +				 (0x1 << XTAL_EN_128FS_SEL_SFT) | (7 << APLL_DIV_SFT) |
-> +				 (3 << UPPER_BOUND_SFT));
+================================
+Add GPIO and pinctrl support for the new Allwinner A733 SoC.
+With all our abstractions and data structure driven code, life could
+have been so easy, but Allwinner decided to change the layout of the
+MMIO register frame, which requires all kinds of special handling and
+code changes here and there. Hopefully this new layout (which admittedly
+looks more future proof) will stay around for a while, but I am not
+holding my breath on this.
 
-Since you can't test it, it's a bit risky to start caring about
-errors.
+In summary, the changes are:
+- Each GPIO bank now occupies 128 bytes instead of just 36 or 48.
+- PortA (not implemented on the A733) starts at offset 0x80, not at 0.
+- The non-bank specific registers are moved into this gap at the
+  beginning.
+- There are two new registers per bank, to set or clear bits in the GPIO
+  data register, to allow for single-write, lockless GPIO settings.
+- The drive level register is moved (to make room for the set/clr regs).
+- The IRQ registers are moved into the now bigger respective bank control
+  registers part, instead of being grouped separately, as before.
 
-regards,
-dan carpener
+The series follows the usual pattern of refactoring first, to prepare
+for the new MMIO frame layout (patches 1-3), then using the changed code
+to enable support for this new generation, in patch 4/7.
+Patch 5/7 adds the new DT bindings, patch 6/7 enables the secondary
+controller, which curiously is not using the new layout, but looks very
+similar to the secondary A523 pin controller.
+The final patch 7/7 then adds the driver stub file, which just describes
+the GPIO bank configuration and lists the one quirk bit that engages the
+code changes added for the new layout.
+
+Please have a look, review and test.
+I tested this on a Cubie A7Z board.
+
+Cheers,
+Andre
+
+Changes in v1:
+- rebase on v7.3-rc1
+- drop already applied RFC patch 2/9
+- drop SET/CLEAR register patch
+
+
+Andre Przywara (7):
+  pinctrl: sunxi: rename SUNXI_PINCTRL_NEW_REG_LAYOUT
+  pinctrl: sunxi: only use PortK special handling on A523
+  pinctrl: sunxi: refactor IRQ register accessors
+  pinctrl: sunxi: support A733 generation MMIO register layout
+  dt-bindings: pinctrl: add compatible for Allwinner A733
+  pinctrl: sunxi: a523-r: add a733-r compatible string
+  pinctrl: sunxi: add support for the Allwinner A733
+
+ .../allwinner,sun55i-a523-pinctrl.yaml        |  6 +-
+ drivers/pinctrl/sunxi/Kconfig                 |  5 ++
+ drivers/pinctrl/sunxi/Makefile                |  1 +
+ drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     |  2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  3 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c   | 50 +++++++++++++
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 41 +++++++----
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 71 +++++++++++++------
+ 9 files changed, 139 insertions(+), 42 deletions(-)
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.47.3
 
 
