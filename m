@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6F7C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868A5C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJXs8QEQplpsD7TykCLygoPyjsSjXkWAK/IQrvHJzTM=; b=O8kYyFCme7aw8mjrfvJT4iYbjf
-	f0h4UUp19kfI5cL+Ezm71WqCOgx+TjQn3GRbZorA9GWGafpwDNTwHdgMlhuvbe7Pjvymyab76gHHR
-	+r2u4SwWRjYIw8w9W0qrRQltSLxN7zFJKA5YUDCG/r1R9GB27wtm3O83czhmB4uYpuMiG9eGIPs5b
-	PD6mV495CLRO3V/9Nabrc1VT5FHPy3MDc3IJr5t04l+ZdJb5wCZnjv36hIS0fo410PdVFkUX529jx
-	AKOJ2/m6mf3hnVxWCZyOs21gZuZRuL8qlf4zK//ZZbruDpVogNtHaNnpz08c9H3NNQpHd6C9DQGgE
-	SoFlgEbA==;
+	bh=bQxF5xPnidokpY8b4H+spdca0SQOWphTNH0IC+8rD8s=; b=Nzmx4bTWuSNSw8Wp0svP2H9go7
+	R+4peQBwCTuuZtGeQjATnjpaLvIPitAROSn/QNXporAt45inoURW0DHowinqdgAtL7wxtcEFTy5ZF
+	bvlgV766dH96ifQCNuB1ljznNMivC8OJHq/df4AUt9ng3z7Hi+2tedlNmXay2Ka4r7VCR7jYpP3Qd
+	99owAH9D7G3/16BJVuFI79e/epqpGvCK67P7WVl0HHoqxnD2Xsocj4tQnk45ji47cTcR365AGBCr7
+	QBJw12ntsqzsrrETbE8UrHbjWYHbY/Ns95Uqyul1E2TA3SWQtexPLwz0sStvDTqyuOpSlGXO1axss
+	ObtCR48A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPe-0000000EYjM-2Cq9;
-	Thu, 10 Sep 2026 14:06:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4fPl-0000000EYnh-2cPm;
+	Thu, 10 Sep 2026 14:06:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPd-0000000EYim-41AI
+	id 1x4fPl-0000000EYnG-0Gnr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:06:01 +0000
+	Thu, 10 Sep 2026 14:06:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 721764152A;
+	by sea.source.kernel.org (Postfix) with ESMTP id CEE05405A2;
+	Thu, 10 Sep 2026 14:06:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BE221F00898;
 	Thu, 10 Sep 2026 14:06:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5100A1F000FF;
-	Thu, 10 Sep 2026 14:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049161;
-	bh=MJXs8QEQplpsD7TykCLygoPyjsSjXkWAK/IQrvHJzTM=;
+	s=k20260515; t=1789049168;
+	bh=bQxF5xPnidokpY8b4H+spdca0SQOWphTNH0IC+8rD8s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aEhHkPMI95R2HMm7OcFqIIp2t363j7h16Mbj3iZUXL1gUTYX4eK36EBuNlWmB9rr4
-	 C0ACD2I851UWas5dLSimqai2XK2vDX2mn+lnfWeTk+BNdT2AAwhEvflzqLISHLY+2Z
-	 OInh+vVW6Ouh2lNlKcxn8+qkjiVf3/CPl4lBF25HZCXCq5H++sCi+GD+T1O0IZZ0TN
-	 qncCi9d8rpaToAvbm88rVOTyP8F+xSDUQu5t+PW1B3TLczcJq+LFZLQsky7HuLOdgL
-	 lLHPA8S2I5Bj7XijlAp2cnZRR2npvrXlYDHOeKqzsg6Iv97b8XpEMwoeYR4DFS5N0a
-	 Ddwh6iMGNxwFg==
+	b=W+Yfr3B2cmI6WXnzmhxjcrdlIzZGAK6ctIf/QDzgV8LB4GtNmkmB1H2OQDYxE2sYX
+	 zV1kQvoT9kMMY1gV0DxuXGK9Xo4ZSjwVcNFgltva8RL06rSL8d/soQj0JO1EjPYKwO
+	 Ax1i6cg9/VeyxEu90tA8kgY7nFRAbN0Bu1CvaFAGYLLu2Z1y4hKO78/QpZzqpMsjmj
+	 BTHnc+4ma5K4dEnVU3zPMIYIa3hRqWPUqeozaMNiQSgNTQleAHHz+ZSEFGkINZGaFX
+	 ljiihOMYN/PWCcnYhkzlqyISwBxo+YYYUuRG+OapSt2AVK9Z0UWRypn5Qq4Kk2JCo9
+	 BYeIQPs5mluYg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -60,17 +60,14 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>,
 	Lukas Wunner <lukas@wunner.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v5 06/15] X.509: Parse Subject Alternative Name in certificates
-Date: Thu, 10 Sep 2026 19:34:59 +0530
-Message-ID: <20260910140509.868402-7-aneesh.kumar@kernel.org>
+Subject: [PATCH v5 07/15] X.509: Move certificate length retrieval into new helper
+Date: Thu, 10 Sep 2026 19:35:00 +0530
+Message-ID: <20260910140509.868402-8-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,57 +85,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lukas Wunner <lukas@wunner.de>
 
-The upcoming support for PCI device authentication with CMA-SPDM
-(PCIe r6.1 sec 6.31) requires validating the Subject Alternative Name
-in X.509 certificates.
+The upcoming in-kernel SPDM library (Security Protocol and Data Model,
+https://www.dmtf.org/dsp/DSP0274) needs to retrieve the length from
+ASN.1 DER-encoded X.509 certificates.
 
-Store a pointer to the Subject Alternative Name upon parsing for
-consumption by CMA-SPDM.
+Such code already exists in x509_load_certificate_list(), so move it
+into a new helper for reuse by SPDM.
+
+Export the helper so that SPDM can be tristate.  (Some upcoming users of
+the SPDM libray may be modular, such as SCSI and ATA.)
+
+No functional change intended.
 
 Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+Reviewed-by: Dan Williams <dan.j.williams@intel.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Acked-by: Dan Williams <dan.j.williams@intel.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- crypto/asymmetric_keys/x509_cert_parser.c | 9 +++++++++
- include/keys/x509-parser.h                | 2 ++
- 2 files changed, 11 insertions(+)
+ crypto/asymmetric_keys/x509_loader.c | 38 +++++++++++++++++++---------
+ include/keys/asymmetric-type.h       |  2 ++
+ 2 files changed, 28 insertions(+), 12 deletions(-)
 
-diff --git a/crypto/asymmetric_keys/x509_cert_parser.c b/crypto/asymmetric_keys/x509_cert_parser.c
-index bfd10f0195e0..c3ec2846695a 100644
---- a/crypto/asymmetric_keys/x509_cert_parser.c
-+++ b/crypto/asymmetric_keys/x509_cert_parser.c
-@@ -596,6 +596,15 @@ int x509_process_extension(void *context, size_t hdrlen,
- 		return 0;
- 	}
+diff --git a/crypto/asymmetric_keys/x509_loader.c b/crypto/asymmetric_keys/x509_loader.c
+index 0d516c77cc26..174451b93eda 100644
+--- a/crypto/asymmetric_keys/x509_loader.c
++++ b/crypto/asymmetric_keys/x509_loader.c
+@@ -4,28 +4,42 @@
+ #include <linux/key.h>
+ #include <keys/asymmetric-type.h>
  
-+	if (ctx->last_oid == OID_subjectAltName) {
-+		if (ctx->cert->raw_san)
-+			return -EBADMSG;
++ssize_t x509_get_certificate_length(const u8 *p, unsigned long buflen)
++{
++	ssize_t plen;
 +
-+		ctx->cert->raw_san = v;
-+		ctx->cert->raw_san_size = vlen;
-+		return 0;
-+	}
++	/* Each cert begins with an ASN.1 SEQUENCE tag and must be more
++	 * than 256 bytes in size.
++	 */
++	if (buflen < 4)
++		return -EINVAL;
 +
- 	if (ctx->last_oid == OID_keyUsage) {
- 		/*
- 		 * Get hold of the keyUsage bit string
-diff --git a/include/keys/x509-parser.h b/include/keys/x509-parser.h
-index 8b68e720693a..4e6a05a8c7a6 100644
---- a/include/keys/x509-parser.h
-+++ b/include/keys/x509-parser.h
-@@ -38,6 +38,8 @@ struct x509_certificate {
- 	unsigned	raw_subject_size;
- 	unsigned	raw_skid_size;
- 	const void	*raw_skid;		/* Raw subjectKeyId in ASN.1 */
-+	const void	*raw_san;		/* Raw subjectAltName in ASN.1 */
-+	unsigned	raw_san_size;
- 	unsigned	index;
- 	bool		seen;			/* Infinite recursion prevention */
- 	bool		verified;
++	if (p[0] != 0x30 ||
++	    p[1] != 0x82)
++		return -EINVAL;
++
++	plen = (p[2] << 8) | p[3];
++	plen += 4;
++	if (plen > buflen)
++		return -EINVAL;
++
++	return plen;
++}
++EXPORT_SYMBOL_GPL(x509_get_certificate_length);
++
+ int x509_load_certificate_list(const u8 cert_list[],
+ 			       const unsigned long list_size,
+ 			       const struct key *keyring)
+ {
+ 	key_ref_t key;
+ 	const u8 *p, *end;
+-	size_t plen;
++	ssize_t plen;
+ 
+ 	p = cert_list;
+ 	end = p + list_size;
+ 	while (p < end) {
+-		/* Each cert begins with an ASN.1 SEQUENCE tag and must be more
+-		 * than 256 bytes in size.
+-		 */
+-		if (end - p < 4)
+-			goto dodgy_cert;
+-		if (p[0] != 0x30 ||
+-		    p[1] != 0x82)
+-			goto dodgy_cert;
+-		plen = (p[2] << 8) | p[3];
+-		plen += 4;
+-		if (plen > end - p)
++		plen = x509_get_certificate_length(p, end - p);
++		if (plen < 0)
+ 			goto dodgy_cert;
+ 
+ 		key = key_create_or_update(make_key_ref(keyring, 1),
+diff --git a/include/keys/asymmetric-type.h b/include/keys/asymmetric-type.h
+index 1b91c8f98688..301efa952e26 100644
+--- a/include/keys/asymmetric-type.h
++++ b/include/keys/asymmetric-type.h
+@@ -84,6 +84,8 @@ extern struct key *find_asymmetric_key(struct key *keyring,
+ 				       const struct asymmetric_key_id *id_2,
+ 				       bool partial);
+ 
++ssize_t x509_get_certificate_length(const u8 *p, unsigned long buflen);
++
+ int x509_load_certificate_list(const u8 cert_list[], const unsigned long list_size,
+ 			       const struct key *keyring);
+ 
 -- 
 2.43.0
 
