@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B055BC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720E8C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVa5/Y7xn1EpqKezVaRBDPkPb7Gx5+V/7vYVwDKr84o=; b=qymqc+KoEGFmBklhFX9tYp+HMr
-	uVRYcG84E3IYXIe+p3bHZzNFvIFjELfqynnxJImtmLzCTUy/GQRFgm08xWbQ/cHP5nIPR0s7pgrn9
-	UaRNGrDM4Fy7LambtjzO1OBlj5XuQ9ESX4urijlrgcEjhvK9ZejB3FT4ycvlgu+Qp9fsfGMqvP5Q1
-	Obq5pCxX6JV02eznz1v2/UFfcJem6YMWg6aJ06XpdHihnedTZxHkZ55I8iInLdv/WX785EiYpqIO+
-	f9qNRL2nwKDnnXkIZUq+ahquMRvVbSFu0Gc1+2nDUDEhbFtRRjphPPTKT432uazPaG3CuyTb3My+m
-	4FK5jCdg==;
+	bh=Dj7ImCNOGYFsdY/Zf5dsBKuP9RTLXw8w8T95YWvfhUo=; b=5Aj4u80BpOIxSWprpW6CQVG6ND
+	YzE0OPvQtnzFrtuhXkb82GNisFe9z17vLSlj4UqTC+5xIQ+yJ0RQIkUjfpOgDcR4lfKxho0QILcG1
+	dapi701hclrSZKk3lydLjLq+k3cyCWRheMvnbjrA17ZiWkRgczOFjjEwjLAlLLq210ZJu8DuWVpuA
+	0q7Ox/22jLL/W7W3GSjX4oYNz1g1sppE+F5cfWCVcdEC/yKeyuUgZpkEiPi4dZHUhU6XarbqSa4O0
+	dl8SYwZcACfKC7T/1q24ij0HeN3k9K2K++xSprMONEaVA2vK5ozzJly0xU0l/zAYC/PsbufUIYCrw
+	1jOyQlKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c6y-0000000E56K-2oz5;
-	Thu, 10 Sep 2026 10:34:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4c9V-0000000E5SG-3vuW;
+	Thu, 10 Sep 2026 10:37:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c6w-0000000E55o-3Utu
+	id 1x4c9U-0000000E5S2-34iD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:34:30 +0000
+	Thu, 10 Sep 2026 10:37:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0A53600CB;
-	Thu, 10 Sep 2026 10:34:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5F101F000FF;
-	Thu, 10 Sep 2026 10:34:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7982143A74;
+	Thu, 10 Sep 2026 10:37:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8DBC1F000FF;
+	Thu, 10 Sep 2026 10:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789036469;
-	bh=KVa5/Y7xn1EpqKezVaRBDPkPb7Gx5+V/7vYVwDKr84o=;
+	s=k20260515; t=1789036628;
+	bh=Dj7ImCNOGYFsdY/Zf5dsBKuP9RTLXw8w8T95YWvfhUo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FhLSgVGO0X6wgMpX7DG6T3izBHMHrV9JP+kxARDtJ0xIJQBRE2Z4Yq+FhasjrClMm
-	 fmGa28mi8hRe8u0uCZicXaSwRQ/wJiYVu2yBEgo5IeNtRcuzuvHp5tgrKzA82fznMm
-	 64sDXHsv5KXqc8Z4Cu6YvReBDThrPacpIlfgHpt5FoJsNAgjNvaS+M8jaLUVwK8AQ2
-	 OfunWtDDRhDwT7MHakVMphGM8Uw7kQAHmgbgB9+Eg/0fLGQ62gX1rDnuxiI0iMBmaY
-	 PNSl1tUwWGVqz2CZLGW6dI811EAOe2q/QBvz/DG/v/w1l1MeJ0gT/WIhLhQ5NXljTt
-	 J/ecnYDN1gvlQ==
-Date: Thu, 10 Sep 2026 11:34:22 +0100
+	b=E4iqmfLVzbN2wGZgD+sOnb7QA+EU333VqRWrkxIcMi/A6M4FLQRbUCX8cpLq8isfN
+	 SbhG72mbVfewcUYN+nf7dD2KW9Ax4T+0DUAswNCsG8DV3v33JdHCnq13DVQ1bbaQ48
+	 JZLMnEiULSA+xo1dspSu1YIOkzBXQeSAQcqxs2zGBMb3UX3Y6AdkOaWfGl9H7tfGfv
+	 w52q4NWOlU03Vd0X5Ne+dh3G8eZ0wiF7BAeno3rmbKvzKkAcYb63IkqscPm/vu33x8
+	 Vm4dmxiOcRwA9X6a4fLe3Y/F3zGU3wefi6CKnqs/MTg0n7R6nC8jS46InhVgdnoJOn
+	 hwIFE3CRWrWzQ==
+Date: Thu, 10 Sep 2026 11:37:01 +0100
 From: Simon Horman <horms@kernel.org>
 To: Hemanth Selam <hemanth.selam@gmail.com>
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -67,14 +67,14 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org, linux-parisc@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v3 08/10] net: hisilicon: fix typos in comments
-Message-ID: <20260910103422.GZ40544@horms.kernel.org>
+Subject: Re: [PATCH net-next v3 09/10] net: atheros: fix typos in comments
+Message-ID: <20260910103701.GA40544@horms.kernel.org>
 References: <20260908052602.27497-1-hemanth.selam@gmail.com>
- <20260908052602.27497-9-hemanth.selam@gmail.com>
+ <20260908052602.27497-10-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260908052602.27497-9-hemanth.selam@gmail.com>
+In-Reply-To: <20260908052602.27497-10-hemanth.selam@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,13 +89,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 10:56:00AM +0530, Hemanth Selam wrote:
+On Tue, Sep 08, 2026 at 10:56:01AM +0530, Hemanth Selam wrote:
 > Fix misspellings in comments, found with scripts/checkpatch.pl using
 > the misspelling list in scripts/spelling.txt.  Comments only, no code
 > changes.
 > 
 > Assisted-by: Cursor:claude-opus-5
-> Reviewed-by: Jijie Shao <shaojijie@huawei.com>
 > Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 
 Reviewed-by: Simon Horman <horms@kernel.org>
