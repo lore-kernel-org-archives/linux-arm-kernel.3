@@ -4,60 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11588C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EF6C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXhFOuqDM6JUeRauAhoieNZSOIkvbDqCyTIjuUkB6yk=; b=h1Khz3/F/VYHAf95mFaRHzjaig
-	0LER3HjWwhF9QlQMC7rgRqBaD2HRZ7NTQrcfxwMqzYXtnv02bqQ9FI3+RsDNRy9Sd+Qj6AFF4ruz8
-	vSgwKf6JdZ3GVf0mDKqcnT/hUZCWCdFMJp/+WHXXm1+Mk9E2YAMtsjH1EtM2PyxFSen8uxzl5Eq3w
-	JVvMtYtv+NdMAhkxfpG+lwd8p/O6kw9VSNHvqWDyP8xMMruqtJT0I6TeYlAOU3SlGyiJAz4pzC6eL
-	2w6iYxJoemweqTym9jQ72a0wSpIAEbzU9sxKpuEmVKTuz1KZMQ5FHrPge6uGQTDsH9cBMQULf9m6h
-	degcnTHQ==;
+	bh=zpbah0L05eiHmHOtHjK+Nv7fX2cEcb14L0k+7z5InzE=; b=qkHOUxoAZyx7HQXhz1I9OD362V
+	OOwmZXPZ+ZbQLpWFv+2LgxosQUxBqHwgRtfa+784nXXATVxNZLBueDH+NajMpbYpp/BlCwZaDH24S
+	hNDkZ3KONV/sVuVK1dktmOAfxo9gZMyJcAed1vlF3B8jp7US6EKr9MgvyU92yGXsA7oiFg5ic3tUQ
+	u/iQ/pQAgbQEOlhxPbuNRXpvfgIG4oUWowFDuDNH5g8PkiC3UaNufkKipUhvlzmGsyitRDLAPSlQb
+	IrDn221ZDVaBzl6DS2mLPH4URBuApzgBJEC70lS5W2xfnhgW7o3mL+EijDjuwtUw3yIHoHfKXCcxe
+	/yq80g4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4W2D-0000000DL2v-06Cs;
-	Thu, 10 Sep 2026 04:05:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4W2A-0000000DL2U-1Gaz
+	id 1x4WKg-0000000DMYO-1M6j;
+	Thu, 10 Sep 2026 04:24:18 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4WKd-0000000DMXx-3uoK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:05:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC607153B;
-	Wed,  9 Sep 2026 21:05:02 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAB983F7B4;
-	Wed,  9 Sep 2026 21:05:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789013106; bh=rAWrnAEYwtxB463a6X/NBqTWvXFmxUTkIqzzvCsxG78=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tCD5v4VUvLSUKDwb09dHubBqZMyi0aXPHA7yJz72TlE/XLQq4uYoYeyVilQgXOZKc
-	 UZ9s09iK+VC5GbdAALOudg5bQ05HkZVwdMpybiLdve6B2m/peyyq3TQ4200H8aRkIN
-	 rt3JRDGreOcdVN26eSoiOLR5jUGp1QSoUaQLEVWQ=
-Date: Thu, 10 Sep 2026 09:35:03 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH V2 1/2] arm64/mm: Move __check_safe_pte_update()
-Message-ID: <u3uvjnmd7k7f7dijdvsykta3pcxyxhvztncu4apvg5eb6rvtyh@kmdgfebs6dns>
-References: <20260909040005.4148136-1-anshuman.khandual@arm.com>
- <20260909040005.4148136-2-anshuman.khandual@arm.com>
- <04358f9d-3b64-47c0-94dc-f1ef19c22f78@kernel.org>
+	Thu, 10 Sep 2026 04:24:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dtLinWauMWcVYQtt7CsNQJFC6MAveP4w7UOl0OaGSIvTrq0qFLlHH13WuzOzXs1GWdrqFOZ79VpW1tvVHncfyYvLGWBR1qMJCvcavhKtAL8f4Zn0aak49gLrXmACm6ZndRpf4yEGM3ikyvoz1mfWQc8GjdXvBcmntVWgzObK2gTmB6NFYccB7uYiGjBOSSH9zHM+Nl0acxIjWZ8yRaCjrCz03iJzRWBr6ROgE6WmPPpUZYZymUcXN7hHiXaBlOlAi+WK5if3ubI9owyFv1chX9K0Prs0iRtblPGcG8ovMyQpUtX3/aR6AMVDv/WEvbfp03qpDojwJpPZn9ItF4NnAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zpbah0L05eiHmHOtHjK+Nv7fX2cEcb14L0k+7z5InzE=;
+ b=f46DfiIU4TROv1ln2PotB/s2ft+MNWxlBWMMuOi446aX1YSA4TxBgLzV8N/5OsK8rENIjsmln6DVMW+18tTzzujmiWPriMi34wWPp8F828s/hhOWq4rceetd9ZaKLZPJfF2MvFnarn+YwoezBG2fA+iwufEvkB3VysO6kMwvRTrsd3Mj2W1yaI3IvhCUnhOVQ34gsSH7s+1OtgWk9z/vivPuHvupOS2Nku01UcmQbKrhZfxkDZL+LidmtmLLdOAEhsugZZlF0SfMb6WfmJ+kUyfqS6PZ6Pbace6c45mXtOm91RRdZNFpFoXzbBiXXEZkFKIhdoFmWjjF01U3LS0ARA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zpbah0L05eiHmHOtHjK+Nv7fX2cEcb14L0k+7z5InzE=;
+ b=AJlUmYCPxxiLrjMyTysSA+DC0ozTDnYjKdCj7iftKBYpmmTpSgwU1AoJ8bPNmbZJv1uineSwCl5xnosomU+AOfuKHSqfPMalPTArUFX0KQBvxbG6rvdxnjk2oBbmH4qDqAfd8oaX+Mh8FcowahY0YBwvTAcSNtSM3dzuSkq/04h9TJ78UwOJbbZrjIpVAcXEpve9mPZKdVqWzbSGK3YxpN0KOBHP6QTKj4E3cMg+QjlqRExMROjbm+K3ete7HguJBLaum+rRJLI857n+AwyEk6SpUXxcWnYTrehTTFAPEE5HV6L+u90YNBaM7ZEcyfbqblg/GPk8E6mWGqMZsjxFgw==
+Received: from CH0PR03CA0062.namprd03.prod.outlook.com (2603:10b6:610:cc::7)
+ by PH7PR12MB8428.namprd12.prod.outlook.com (2603:10b6:510:243::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
+ 2026 04:24:00 +0000
+Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
+ (2603:10b6:610:cc:cafe::3a) by CH0PR03CA0062.outlook.office365.com
+ (2603:10b6:610:cc::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
+ Sep 2026 04:23:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 04:23:59 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 21:23:45 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
+ 2026 21:23:44 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Wed, 9 Sep 2026 21:23:36 -0700
+Date: Wed, 9 Sep 2026 21:23:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>, <rafael@kernel.org>, Danilo Krummrich
+	<dakr@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+	<aneesh.kumar@kernel.org>
+CC: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Gavin Shan <gshan@redhat.com>, Vikram Sethi <vsethi@nvidia.com>, "Anshuman
+ Khandual" <anshuman.khandual@arm.com>, Shanker Donthineni
+	<sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
+	<rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, Marc Zyngier
+	<maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, <kas@kernel.org>,
+	Kohei Enju <enju.kohei@fujitsu.com>, Shaopeng Tan
+	<tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>, James Morse
+	<james.morse@arm.com>, Steven Price <steven.price@arm.com>, Sang-Heon Jeon
+	<ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>, Andrew Morton
+	<akpm@linux-foundation.org>, Jinjie Ruan <ruanjinjie@huawei.com>, Sam Edwards
+	<cfsworks@gmail.com>, Douglas Anderson <dianders@chromium.org>, "Florian
+ Fainelli" <florian.fainelli@broadcom.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Pranjal Shrivastava <praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<iommu@lists.linux.dev>, <driver-core@lists.linux.dev>, Sonang Patel
+	<sonangp@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>
+Subject: Re: [PATCH v1 8/8] iommu/arm-smmu-v3: Probe a guest-level Realm
+ VSMMU via RSI commands
+Message-ID: <aqIwxldvOHWlNGRu@nvidia.com>
+References: <cover.1789010941.git.nicolinc@nvidia.com>
+ <df25452641dc126eb334a1bfbe5eee16cc8a8953.1789010941.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <04358f9d-3b64-47c0-94dc-f1ef19c22f78@kernel.org>
+In-Reply-To: <df25452641dc126eb334a1bfbe5eee16cc8a8953.1789010941.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD76:EE_|PH7PR12MB8428:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8622a8be-86b3-47af-3b3c-08df0ef35621
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|7416014|376014|23010399003|18002099003|22082099003|4143699003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: +i4wPFj5cGmEckAhb82HfaZ0U2wR7LoMXv2UBB8KGaydHcVkXQCsrdDQHfhZby0wDmOGWcYz/vaID/yt2LGsa8WyRinztTzK/HelVhUOV+LctuDONR4DnqhGWC69+TstBHLQN5ckzwTb8rpp3vcUDUluhNvmT57yytK13V2tdJ2ELfhk43TXf5cyEJeVqwwtWHdO7axBqiiJAI7SX3RqSMewM5+iZH7AVGcGkY5gDbYrAPWH/BrvnzmggTYuHmnUOmUgFFWOvNgHY2N0E7nYyBmFE2o9oPohKWr99iCohUUx+IYMWpsYrR9eDT5n81/NBkq4zIhb+4+XroWwZxGxh3riblS+Zo8LR2k8EZzxTg2BMliYBRQ35RHtkwIqEXmog8qyZlP8Muq7qHm2/p23EZnX6rXAhfIlIHsmz/ftGT/3fM+1bFjx3+DClZBtDNmiYCzYP7YC1ziUbHMi79URnTMQq/w0DZPm9MkwkasW8y2ofFR5eammDkglXSYaeK2awINlmgVshxt9O9ZwbBZ97Hh7IOW8eZVjtqpmkY6tdoN2QuqqXtwDbq63/08G4u7O2huC7yLUeVucMhXu3A8xM1+sYnzbnGprpD6gX2RvI2BJWyo+uAtMlYPsw0DziOkMy4+vbZI1Gl9yrDqVQ2LHpU1fr5Ug7MT9AfTCdIrvPB93OMb89V8OQz1XTBfS/YnSRcKIP0OlhMVTXYES+xmAbA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(7416014)(376014)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LAbdey40vYp7bX9NRE3y0w4lP7WUfJHEyfHTe7IMjC9n9Ppte6FWrr7DERNYPVL1A3MoSvL2bjoj6xoTV1JZ2ZCmFo5aVe2kjGSlpdg+ymL5YNhqg2FxqYedTRjILTQ4+omnQS4qpguv7kzSG96ZAAZBP29pW/IQ0ci8QxvFh3232siXf/r03WFyNRWyQgwERRBEeImDdeHqbSBbNzoq5ed1QN8tuzkW3KBqN9u335VS7onkvwVq65+NsGvJJO4DUb59owdmoymTfpyQ3K881KHjmLl/hM42IUsT1hLQ0ewKPe+15mtkmoLJZd7WiXvnOqXNkyWcWsQuzGzU9pj3TK3GfPboZWq/W4+P7JV8+tKFISbd7UwDcKz7LQSOWw0yULs7rPxgwYch9FYub2uLpvAUHEZAdPtVzvaXwrQjlnXSGLLSsF1Npaee4qaP+I4Y
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 04:23:59.3585
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8622a8be-86b3-47af-3b3c-08df0ef35621
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD76.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8428
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_210510_536076_121824CA 
-X-CRM114-Status: GOOD (  31.61  )
+X-CRM114-CacheID: sfid-20260909_212415_985117_5848653C 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,144 +150,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 05:12:24PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/9/26 06:00, Anshuman Khandual wrote:
-> > The page table entry print helpers and related macros which are defined in
-> > <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
-> > is basically caused by cycling dependency.
-> > 
-> > Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
-> > for subsequent usage of the afore mentioned generic MM helpers. While here
-> > drop IS_ENABLED(CONFIG_DEBUG_VM), although wrap __check_safe_pte_update()
-> > inside #ifdef CONFIG_DEBUG_VM that preserves the current code optimization
-> > which is achieved via the static inline functions.
-> > 
-> > This does not cause any functional change.
-> > 
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> > Changes in V2:
-> > 
-> > - Moved __check_safe_pte_update() inside #ifdef CONFIG_DEBUG_VM
-> > - Added empty stub for __check_safe_pte_update() when !CONFIG_DEBUG_VM
-> > - Dropped IS_ENABLED(CONFIG_DEBUG_VM) from __check_safe_pte_update()
-> > 
-> >  arch/arm64/include/asm/pgtable.h | 49 ++++----------------------------
-> >  arch/arm64/mm/mmu.c              | 44 ++++++++++++++++++++++++++++
-> >  2 files changed, 49 insertions(+), 44 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> > index e89ec5f4787b..281a512f1fc6 100644
-> > --- a/arch/arm64/include/asm/pgtable.h
-> > +++ b/arch/arm64/include/asm/pgtable.h
-> > @@ -387,52 +387,13 @@ static inline pte_t __ptep_get(pte_t *ptep)
-> >  extern void __sync_icache_dcache(pte_t pteval);
-> >  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
-> >  
-> > -/*
-> > - * PTE bits configuration in the presence of hardware Dirty Bit Management
-> > - * (PTE_WRITE == PTE_DBM):
-> > - *
-> > - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
-> > - *   0      0      |   1           0          0
-> > - *   0      1      |   1           1          0
-> > - *   1      0      |   1           0          1
-> > - *   1      1      |   0           1          x
-> > - *
-> > - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
-> > - * the page fault mechanism. Checking the dirty status of a pte becomes:
-> > - *
-> > - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
-> > - */
-> > -
-> > -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
-> > -					   pte_t pte)
-> > +#ifdef CONFIG_DEBUG_VM
-> > +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
-> > +#else
-> > +static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
-> >  {
-> > -	pte_t old_pte;
-> > -
-> > -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
-> > -		return;
-> > -
-> > -	old_pte = __ptep_get(ptep);
-> > -
-> > -	if (!pte_valid(old_pte) || !pte_valid(pte))
-> > -		return;
-> > -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
-> > -		return;
-> > -
-> > -	/*
-> > -	 * Check for potential race with hardware updates of the pte
-> > -	 * (__ptep_set_access_flags safely changes valid ptes without going
-> > -	 * through an invalid entry).
-> > -	 */
-> > -	VM_WARN_ONCE(!pte_young(pte),
-> > -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
-> > -		     __func__, pte_val(old_pte), pte_val(pte));
-> > -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
-> > -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
-> > -		     __func__, pte_val(old_pte), pte_val(pte));
-> > -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
-> > -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
-> > -		     __func__, pte_val(old_pte), pte_val(pte));
-> >  }
-> > +#endif
-> 
-> [...]
-> 
-> > +#ifdef CONFIG_DEBUG_VM
-> > +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
-> > +{
-> > +	pte_t old_pte;
-> > +
-> > +	old_pte = __ptep_get(ptep);
-> > +
-> > +	if (!pte_valid(old_pte) || !pte_valid(pte))
-> > +		return;
-> > +	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
-> > +		return;
-> > +
-> > +	/*
-> > +	 * Check for potential race with hardware updates of the pte
-> > +	 * (__ptep_set_access_flags safely changes valid ptes without going
-> > +	 * through an invalid entry).
-> > +	 */
-> > +	VM_WARN_ONCE(!pte_young(pte),
-> > +		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
-> > +		     __func__, pte_val(old_pte), pte_val(pte));
-> > +	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
-> > +		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
-> > +		     __func__, pte_val(old_pte), pte_val(pte));
-> > +	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
-> > +		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
-> > +		     __func__, pte_val(old_pte), pte_val(pte));
-> > +}
-> > +#endif
-> 
-> #endif /* CONFIG_DEBUG_VM */
-> 
-> Might be helpful here.
-> 
-> Consider the same in the case above
+On Wed, Sep 09, 2026 at 08:32:51PM -0700, Nicolin Chen wrote:
+> @@ -5542,6 +5591,12 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	}
+>  	ioaddr = res->start;
+>  
+> +	if (is_realm_world()) {
+> +		ret = arm_smmu_probe_realm_vsmmu(smmu, res);
+> +		if (ret)
+> +			return ret;
 
-Sure will update the same both in here and also for the declrations
-in the header file as well.
+Sashiko pointed out a new finding (didn't appear in my local runs)
+that arm_smmu_impl_probe() would allow an untrusted hypervisor to
+provide a malicious ACPI/DT table specifying a vendor extension.
 
-> 
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+I think it's valid, So, we likely need a guard, until impl has RMM
+level support with additional RSI validation:
 
-Thanks for the review.
+-	smmu = arm_smmu_impl_probe(smmu);
+-	if (IS_ERR(smmu))
+-		return PTR_ERR(smmu);
++	if (!is_realm_world()) {
++		smmu = arm_smmu_impl_probe(smmu);
++		if (IS_ERR(smmu))
++			return PTR_ERR(smmu);
++	}
 
-> 
-> -- 
-> Cheers,
-> 
-> David
+Nicolin
 
