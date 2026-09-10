@@ -4,88 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1EBC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7339DC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G/vbQHAhPT31Mmibdc9NJTWNHdvmxIIchs3BB/8irg8=; b=KGvwVHTJStWUJEzoW/+GUupw0s
-	tzyMQIghgQgUenrD+Ob7ZK4pyMZ9zFkpUygGdiIlMNQ/svPKPQsgm+NwmCUsTKv+XlMLB3D4PifbN
-	0S+txMByCzEG2dHSzSTiOWF/tx7nts2RvpvtM835swFOC5CS1Iq0jGfqVhtRcVvdHeYqNib3lHiDY
-	MtfJci9FN4HpSSLw7vWYdTI5UD3USF/2O2lo3ta6Wh3ktbxMauMCa3Evu5kkGWiD/OhXnTsuPXSL7
-	/WlqSyDzT5g9KoV2UTkWAQCY3Q3IPup80TOtEUUMeHgv9eAq2ez7PYSKLhlABVjIvt1OxAnCAHElK
-	aZ3B/U8A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EtBz5QzHQc+Th2x67irNYDwYKHrb3yatIwwlwUzsjwc=; b=X5cGAvY1fMI51d+XyXUwtWxFbM
+	896o0DY5TPDP1KtnXTcKntCXNOfEdvYplgBiuZG6qnssWDBIertNplyA80JaWWT1q/PCUdtOSdy7f
+	+7omXDml/9ozTOUmVuxn8G9ed561wIEnaZRmc8bdYosh1j4wLVHLV3FQ8xW3CH/ORw7e1+oZKiEvI
+	x04nxYa3QOeZLOglvAja1d2HAFEHs1fPW8oBMxVC2Sjdtg9YTagfQ5gEYL3Jil1hr3uVg6hLxzDh5
+	AWaONpMjhBkuHirv71tf3j+KsNK31Whld5xBpb1RI1ufzkA3Xqo6jaqZ8KAn0sFhSmC8k8bvCgBom
+	tLhrsPZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4i1U-0000000F0DA-2zQd;
-	Thu, 10 Sep 2026 16:53:16 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1x4i2I-0000000F0M1-3ZMo;
+	Thu, 10 Sep 2026 16:54:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4i1R-0000000F0C8-1Al1
+	id 1x4i2F-0000000F0LO-0E4v
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 16:54:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=EtBz5QzHQc+Th2x67irNYDwYKHrb3yatIwwlwUzsjwc=; b=SYbkn85a6I30LLaN//GFF1y1bU
+	tbVGjbKNbT50CJUxso/NoHmtDOLLZ+AyRGW54F4DADsk0J70JkVl96NbDewf3tAxpk/Y43Sd4LBD7
+	PG/JHeXGMr8MBhA0bJu53xN4tGvyqM0krxP0S7H7cQzwJydrh1ixhRK+vybMZaZW3IgyYD4srqpYq
+	NRHqp/MVSUII7ZqpKEixf8RWOWxA3XP1k4fanldAvQsfTWSoUjK4+AjY2W6b3602BTtYW67xTupVm
+	95IhVZ5bOTp0hjyu7YrppQYvIwUV4IKp1ke9/tLeTr0l3gzG3bBlrXFKS36xJfmXTFj5VKTaJH9MF
+	eIjwiXqQ==;
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4i2C-00000002lfr-0lU9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 16:53:15 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8690079f2c1so1318015b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:53:12 -0700 (PDT)
+	Thu, 10 Sep 2026 16:54:01 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-cc439bfb2d8so38791a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:53:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789059192; x=1789663992; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G/vbQHAhPT31Mmibdc9NJTWNHdvmxIIchs3BB/8irg8=;
-        b=Z6e202R0M1aktL4LpPSJT25aANyJrvRrS+fVmEgYvnX5ZXXwfaxhXan8gypeCbbBHo
-         aVISD9iW44Eer6Dik1PCsJRcALbnADM4MRDP9cKQSZEarIr2LUDQIJPQav1DEs96QV/+
-         csFMB4JaxYtBdFhgGajn0RJJ7Xctdz8MKlB7IxAb5ifO2vO4mOEtFOzxM7NMnynAtZ+3
-         rvfEL7psDIZXGTesF7b3Ocqo7U73NyNOpo1b9ONYL+1TQlNahfWYb4BdVKMsDh3ZEHx5
-         SGPfTJTHof0r6qy+zFuznhMAeqVYOxpfnkIaMcIJdl6xCaxV5IzNXOVTtsia0L7xusgw
-         eQnQ==
+        d=gmail.com; s=20251104; t=1789059238; x=1789664038; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EtBz5QzHQc+Th2x67irNYDwYKHrb3yatIwwlwUzsjwc=;
+        b=THfC/kzUlqqila5GRFvgamgTNLhpeg/u71jeMD6ZSTsiyQuZzWpB9aUD5d5sD75Rda
+         pDvLaPivOIuQGc/OXeqATRYKxGTUr8d+Cud134j/quBnl+78zXnBFbVTDyxAErHQvoDq
+         CQo9AeqODu/WtXaOpn9m5V5F4tfkN8PiMuGZ6U7NmTQsXAztknsXyWlrrFlvbngOYDmI
+         NgFm4kCtKuqJrlEW2A3euRLFw8vlmAWfcLfdJVwMNKFsKG9iA7Wmu2GFIIeNyZ6BIEcV
+         ybJSQQP57g+hwBBFuS8juBWLN3fQ1SJcFHEo24sU2YsPj4a/h8mVYfDASN+vcbGt+vki
+         0WDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789059192; x=1789663992;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1789059238; x=1789664038;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G/vbQHAhPT31Mmibdc9NJTWNHdvmxIIchs3BB/8irg8=;
-        b=K34mSMGESV8UJLUl+k+jormLXWqZPO5ScfSiYnRmCWqvvldJUoZqjmLynixf2cj/Mb
-         xI4hFvu5RGBzHtbKu1FwNT/fwTKAOOjsiclQ3qH1JqZwyG5WlI9ueUwv3++kKQ3zcSpq
-         3n2NvlfNvppp1MrRg7m8A8ENMGMBXC+7cDkB6ZoXJq+iMgN2D0Pj22cpXjvDqQ1yQFed
-         Dz/9Mfs2zfAI0f7MHyUFfnZOp91b350grXhifLRnKj39bMkZTjy0z6/BTYeCwqwuWkG3
-         yjRXr1Tkj1zEwDpCB787v1adhXOHZLYjmdTkvKGFDGrBYa/XpNLel+wFsoi1SHc8Gdpk
-         bPVA==
-X-Forwarded-Encrypted: i=1; AKwUvBy3sDxG349xFqkN/x8tk/NPz0bUGcPFkqfmVU5u9CgbOFYDVPPU9vDD7NdwngALOuSYdf2hkygF96+bZkUOwnr4@lists.infradead.org
-X-Gm-Message-State: AFuF++l8JCqb7O+5jCu3GMAEQUdmhxpktzHDFa45sE3Xc405ZYidNJsT
-	TIz+xYntWPJRMs2pV/6EAJ5uQDNsWB+VLk86fJHOHYN8/gyX+EjAwwjQ
-X-Gm-Gg: AYBFou3z+/h9HXnwwWbJjTytCwIPt7DU6m1NaAyU/TrYSYdUOOMt6pcMuaCF9N3fGy8
-	U5pDhizjUDPXJzdUAqDmg10ikUkzy+tHxv1MjEhZ9Rcv/aHJewVty/qe3ug5JXHmI+51w3LG/vy
-	fZMZiLtH2qz+xl+gJZDJ3Bg0nOYyut98CMMz2C3sPTaBjKH1BTCJEgLU8bKi78nYqUHmG2KSKXo
-	QSw7xgYT5FLdJ9cewnbyDSKHjtieOdnbXpZgQ5+iWDyOcoSau2ly1OgHJhmwWIqTkzQwM11KiSZ
-	bZdLHOkxjKMuFA33cOdRUEqDH3V6qlrveLK5fj0Mxyzo1DpreeKpp+pTlzp+Q49GQ/+Vxs7aYSS
-	ECDEWxAmBE6HIpyIj6wc+/OuHBAlI4a5g+7bIB1EOGxQTTIDcK3CrlgBQbyMaBzhHGCRWxvdEBy
-	PIUqcNzOal6m8tfcGx5GJMZm9zlHOrM6oafDk3AmfGBsPEO6rlOPynNObudpGuvVlAzeTNn11xo
-	ZiuuW4Lqk+Sf0kaQc150IdOjWap
-X-Received: by 2002:a05:6a00:6d43:b0:869:201b:7386 with SMTP id d2e1a72fcca58-869201b7831mr9536931b3a.1.1789059191831;
-        Thu, 10 Sep 2026 09:53:11 -0700 (PDT)
-Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86153e3ac21sm8425743b3a.55.2026.09.10.09.53.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 09:53:11 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: james.lo@mediatek.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH v2 RESEND] soc: mediatek: pwrap: Remove obsolete NEED CONFIRM comments
-Date: Fri, 11 Sep 2026 01:52:53 +0900
-Message-ID: <20260910165253.378212-1-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        bh=EtBz5QzHQc+Th2x67irNYDwYKHrb3yatIwwlwUzsjwc=;
+        b=lknz3YNkCMrIgnOsWxzt/1uodD3L6Z5IcJus74blsIVLLAPUluOpMJiXdvsMq9a/aq
+         oY6MvmDPjIgfOaUQe/Q5h68868JJ/O30+0SuOsrHpvUrhJ/oplGy+b5tA2Goc31QVVFx
+         jncqp8jFNxxSYc2JRM8qpqhiT8d9xBRkB9aRzLIPnFE4lqUMyybQGRFDAcNNbIINZgh1
+         ShOh9+B49hBQHPMDt7wYKhp5wU9lECkE4yd/NRD6eP08meR3I/+BurKuYpRNt3NCELk5
+         CBPNfySzg/qHGTc8+ilasF+MYEXpQaApG9yv68IF6gyVsb0JKMjvZNjiYX4ESPg4g1Cd
+         1bGQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxTPnhZLrFJaWGJCGg1LSQEV0Tfb+7LQwuk8dRczijiYZq2opviBGcPZumOGQ3VGJHKm/qZQPgy5eso+mm465jJ@lists.infradead.org
+X-Gm-Message-State: AFuF++miFxk/0fJn1QhXiUPvvxIKigqsAnqARGF27wFs29tPGRQhl4xa
+	q3AvFDoeCdK3OL2cjOv/VSNUOxJVa2HYO0S4ORaGS1vT5oG2H+aI2D5R
+X-Gm-Gg: AYBFou1Nancxw+0x8Mq91kYv4NFEkJt78kgbzCDMs53ka7J2xjfobL3kBRdhYtXPQCA
+	bBilgj4lATzK7HaI9ZGdCP0gtuQYNOn2FoAW3x9GaDfB9nQ2GIaZzKpM6n49jLPJ0/xbJx14omW
+	wTwCpWxeX4J+LHIY7K9JrKJ105oxp9KflE9kIeBbF03SwGEUXDjGc+81YAzhn0whqEz/1pOudDR
+	BEWlBBTbNjDVEZBaLZOu+Evv8RC34/Kg4mowpLTmP50EGgl1xrzaOFpikLtaUYhoyKUwarARLvE
+	1FLdyhZ6P3OAsY3+rIL/oGYr59lctDQ5EGjlnVs34h0OdOZgxikEkAz/J0aUoj+9VYr/bY8UZcJ
+	vU9D7IRqnN5SEupZh4JjukkvUjT48zfv2JXfTtrvcpwUUL2bCWDZwvknoL+Jk6yG5nirKLrDwrf
+	pGFDocjDgDqjnw28BvqxZfvP/Fg/UjsWrZclndpEMb+cUNZfy5BKY33nUv67LK2zuJXjNPuHB2/
+	BNae1dgfrrt9Wh5b1jJ4pXKX0FicqmmVEsxp1HqS8vDbb4VJTRzL30=
+X-Received: by 2002:a05:6a21:1b85:b0:3d3:adbf:7779 with SMTP id adf61e73a8af0-3da3a0af14amr66467142637.21.1789059237749;
+        Thu, 10 Sep 2026 09:53:57 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c657156bsm10825a12.21.2026.09.10.09.53.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 09:53:57 -0700 (PDT)
+Message-ID: <1ae22be2-b72e-4c23-9aff-ef1052a10c45@gmail.com>
+Date: Fri, 11 Sep 2026 00:53:52 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: nuvoton: Add NuMaker board
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org,
+ openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260904-perso-ma35d1-upstream-dts-v2-0-30ce255a401f@bootlin.com>
+ <20260904-perso-ma35d1-upstream-dts-v2-3-30ce255a401f@bootlin.com>
+Content-Language: en-US
+From: Jacky Huang <ychuang570808@gmail.com>
+In-Reply-To: <20260904-perso-ma35d1-upstream-dts-v2-3-30ce255a401f@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_095313_309239_469DA347 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260910_175400_441523_4BD95C98 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,34 +128,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the obsolete "/* NEED CONFIRM */" comments from the MT8195
-configuration. These values were previously confirmed during review,
-but the placeholder comments were accidentally left behind.
+> Nuvoton MA35D SoC is used on the NuMaker SoM, itself plugged onto a
+> carrier board labelled NuMaker. Create a DTS including the SoM
+> description. As a first external component, mention the SPI NAND
+> connected to the Quad SPI controller.
+>
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>   arch/arm64/boot/dts/nuvoton/Makefile           |  1 +
+>   arch/arm64/boot/dts/nuvoton/ma35d1-numaker.dts | 42 ++++++++++++++++++++++++++
+>   2 files changed, 43 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/nuvoton/Makefile b/arch/arm64/boot/dts/nuvoton/Makefile
+> index 3bc9787801a5..4c82109c885a 100644
+> --- a/arch/arm64/boot/dts/nuvoton/Makefile
+> +++ b/arch/arm64/boot/dts/nuvoton/Makefile
+> @@ -1,4 +1,5 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   dtb-$(CONFIG_ARCH_MA35) += ma35d1-iot-512m.dtb
+> +dtb-$(CONFIG_ARCH_MA35) += ma35d1-numaker.dtb
+>   dtb-$(CONFIG_ARCH_MA35) += ma35d1-som-256m.dtb
+>   dtb-$(CONFIG_ARCH_NPCM) += nuvoton-npcm845-evb.dtb
+> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-numaker.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-numaker.dts
+> new file mode 100644
+> index 000000000000..16c003998d3b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-numaker.dts
+> @@ -0,0 +1,42 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Copyright (C) 2025 Bootlin
+> + * Author: Miquel Raynal <miquel.raynal@bootlin.com>
+> + */
+> +
+> +/dts-v1/;
+> +#include "ma35d1-som-256m.dts"
+> +
+> +/ {
+> +       model = "Nuvoton MA35D1 NuMaker";
+> +       compatible = "nuvoton,ma35d1-numaker", "nuvoton,ma35d1-som", "nuvoton,ma35d1";
+> +};
+> +
+> +&pinctrl {
+> +       spi-grp {
+> +               pinctrl_qspi0: qspi0-pins {
+> +                       nuvoton,pins = <3 0 5>,
+> +                                      <3 1 5>,
+> +                                      <3 2 5>,
+> +                                      <3 3 5>,
+> +                                      <3 4 5>,
+> +                                      <3 5 5>;
+> +                       bias-disable;
+> +                       power-source = <1>;
+> +               };
+> +       };
+> +};
+> +
+> +&qspi0 {
+> +       pinctrl-names = "default";
+> +       pinctrl-0 = <&pinctrl_qspi0>;
+> +       status = "okay";
+> +
+> +       flash: flash@0 {
+> +               compatible = "spi-nand";
+> +               reg = <0>;
+> +               spi-max-frequency = <30000000>;
+> +               spi-rx-bus-width = <4>;
+> +               spi-tx-bus-width = <4>;
+> +       };
+> +};
+>
+> --
+> 2.54.0
+>
 
-Link: https://lore.kernel.org/all/2a117e5fe9fe0ece39e9165a463082ef42be973f.camel@mediatek.com/
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
-Link to
-v1: https://lore.kernel.org/all/20260522134522.368073-1-akkun11.open@gmail.com/
-v2: https://lore.kernel.org/all/20260525092437.29313-1-akkun11.open@gmail.com/
----
- drivers/soc/mediatek/mtk-pmic-wrap.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
 
-diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
-index 0bcd8582637550..87bcbfa2d5f122 100644
---- a/drivers/soc/mediatek/mtk-pmic-wrap.c
-+++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
-@@ -2396,8 +2396,8 @@ static const struct pmic_wrapper_type pwrap_mt8183 = {
- static const struct pmic_wrapper_type pwrap_mt8195 = {
- 	.regs = mt8195_regs,
- 	.type = PWRAP_MT8195,
--	.arb_en_all = 0x777f, /* NEED CONFIRM */
--	.int_en_all = 0x180000, /* NEED CONFIRM */
-+	.arb_en_all = 0x777f,
-+	.int_en_all = 0x180000,
- 	.int1_en_all = 0,
- 	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
- 	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
+Best regards,
+Jacky Huang
+
 
