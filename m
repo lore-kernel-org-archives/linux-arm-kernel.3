@@ -4,77 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142A9C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570FDC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42m/xcb4QGdzKXp4MOeAQAu8xnLeUjVel5+q/FCL39A=; b=Vj9dZcziQL76XIxsAHAIrAIcJf
-	D/nMZqTF3H4uKNcjCmPzUSHYNQHghR5eJhVUmnzfwU5t7ug0Y1mFV6n8d0FSwQNStZ+LUT0dHdQFR
-	Ij/cmi2Snq7Scj1zNf72tYoAAuWKdzUG6TcuGC3W6Y/94FPSIQ1p6jZbUQK+49CsHmNQZsGCLb8us
-	UWF11DovDtXWHS7MBmT5bBEDUKZYscJ1TZpwcc1E2rz1YybUpu1eTSDeA7wITP2m1fNS3DniIDsY/
-	ovDUsgayp0NEUNPbXmNRJFDhKxCQB4EmuDld14KL5vWGiA+cVsemRXICttuD0wknqXxZqOMA2w8tA
-	nHzN5SGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=waamOSIbHPnfCUnZfts+Hg3jdCVNrRkST8I/4+mXjcU=; b=EZgobyKH4wzE1u5pbzrmok8d8y
+	nALb/UmQ3KhhAIwGUUsoIf4w8AvqNXHjfznkG91yeQUEBCS5wbhSW1svHSvz4ArxInf4zYPnQbr/9
+	gZ2HxR4WfVyyr/2nrf+U+4LnQ8zzU/7GNNgyckHBC3dBINXSVFONCDhSmfJcHQIY4+Y3KJTPwWagQ
+	npG4viYjWeXkSGPFJt6MBJ63IxfXjRr/HMmMUvcfYTnIUTcEjLNfawuILY091CMpo7iR5Y7nTDkGd
+	z4h1C0ztpDkJNb6UJoopJDSlpIY9fQ48491f9Are4eQktv3x3hsi6o43qk9sPsYBkMk0fgp5VbEOM
+	jKm561xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c19-0000000E3I6-2DWE;
-	Thu, 10 Sep 2026 10:28:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4c2L-0000000E3aq-3F09;
+	Thu, 10 Sep 2026 10:29:45 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c18-0000000E3Hl-3qyV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:28:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05383601F1;
-	Thu, 10 Sep 2026 10:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05A3F1F000FF;
-	Thu, 10 Sep 2026 10:28:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789036109;
-	bh=42m/xcb4QGdzKXp4MOeAQAu8xnLeUjVel5+q/FCL39A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bFNyVKhIhYeAP2D+ACMAAF/PssJCJjppnjWQpPJsJSi6MlZR7quI1xC0K5/bPazqJ
-	 0T30N6IEh7mM0HiWihFfer0m3Tc7BTuCOu2tQtVB1LRruB6WR4yKqPPE5SmYbdwdsD
-	 BfkGsZBpzuPDdO3RUUEjlcViyG7uYm7rjsCZ9TSBJFCbU+boV34kg0SysEUC2SrO6H
-	 kRCJ6zuMZcoc1bbSd++p6YeVFWqE/rMXF6FhUBmdwP0UU98rbTGHOIPN4E03hF1//v
-	 Bc+MqsKpvlnxb+YsrCJgEe/jLnmpR2mUfZYm1fhQ1pj59qXQgfax5UZS7+Nu2L9zQ1
-	 4NrJkVksvtWRQ==
-Date: Thu, 10 Sep 2026 11:28:22 +0100
-From: Simon Horman <horms@kernel.org>
-To: Hemanth Selam <hemanth.selam@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Chris Snook <chris.snook@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	GR-Linux-NIC-Dev@marvell.com, Geetha sowjanya <gakula@marvell.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jian Shen <shenjian15@huawei.com>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Manish Chopra <manishc@marvell.com>,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>, Rahul Verma <rahulv@marvell.com>,
-	Ratheesh Kannoth <rkannoth@marvell.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Shahed Shaikh <shshaikh@marvell.com>, Shuah Khan <shuah@kernel.org>,
-	Subbaraya Sundeep <sbhatta@marvell.com>,
-	Sudarsana Kalluru <skalluru@marvell.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-parisc@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v3 03/10] net: broadcom: fix typos in comments
-Message-ID: <20260910102822.GV40544@horms.kernel.org>
-References: <20260908052602.27497-1-hemanth.selam@gmail.com>
- <20260908052602.27497-4-hemanth.selam@gmail.com>
+	id 1x4c2J-0000000E3Zh-25NZ;
+	Thu, 10 Sep 2026 10:29:44 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68A91RYP2446610;
+	Thu, 10 Sep 2026 10:29:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=waamOS
+	IbHPnfCUnZfts+Hg3jdCVNrRkST8I/4+mXjcU=; b=PzGzUJvIA41pEq8kh7MK6Q
+	4uSkOuVBWinXgCITqDlrC0tt8uc/qLThj7oljQkvhv7t6o8mWumAb845b5Qi3B1M
+	qcFKDYWPVmb8rRFQdX5pqGpAnzflSQvNPZALJhqaISetL4UAOzApNFPNdGC6kOSK
+	ytD4kHgT69jL3TSY5yJQg5nxhpX1wzsQ3mWF78e6lok/6mCweWfGlWVKtGML0Bxk
+	c74O5K1jobLc2V9sG46rMTtshl5mqzl1n2800UPwR0tSE2VHW8qm/6EC/uf5OIei
+	2vlrHaVCbgGveno3qrtgpoOMSttsXfbNR0RN+GPjVwN+ix4HC4MX1jPOGt7VpZkQ
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gkd8pkwj7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Sep 2026 10:29:23 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 68AAQKfn031287;
+	Thu, 10 Sep 2026 10:29:22 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gkcr3bvdf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Sep 2026 10:29:22 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68AATI0Y34079172
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 10 Sep 2026 10:29:18 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 310972004D;
+	Thu, 10 Sep 2026 10:29:18 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CAC0D2004B;
+	Thu, 10 Sep 2026 10:29:15 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.111.48.108])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Thu, 10 Sep 2026 10:29:15 +0000 (GMT)
+Date: Thu, 10 Sep 2026 12:24:14 +0200
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Paolo
+ Bonzini <pbonzini@redhat.com>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>,
+        Bibo
+ Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+        Anup Patel
+ <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        Janosch Frank
+ <frankja@linux.ibm.com>,
+        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
+ <joey.gouly@arm.com>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K
+ Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Atish
+ Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        David
+ Hildenbrand <david@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Ritesh Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH v2 01/20] KVM: selftests: Use MEM_REGION_PT memslot
+ instead of '0' for s390 regions/segments
+Message-ID: <20260910122414.5c442a45@p-imbrenda>
+In-Reply-To: <20260902164123.2546762-2-seanjc@google.com>
+References: <20260902164123.2546762-1-seanjc@google.com>
+	<20260902164123.2546762-2-seanjc@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908052602.27497-4-hemanth.selam@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=eM2GH3p1 c=1 sm=1 tr=0 ts=6aa28684 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=1XWaLZrsAAAA:8
+ a=omOdbC7AAAAA:8 a=VnNF1IyMAAAA:8 a=hQRZ-KwT_607qTx81aAA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: EI-6TEyGnobs-jfk7mjk7oOMjUqKJfUX
+X-Proofpoint-GUID: PmHBFQMOSiPjT9cSxDj_2mJ3vQDK-9Am
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfXw05gKMgq5FQE
+ A5EFyYi79yUlvRQ5PUEw5pNrXcdWhpSF0mkHopyKPAIBM6kOsbtCe0miXsR2sw8xf24PyR6slr2
+ 0bg43/214DH4AQhkn0rx4VZv6jZCtLE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfX5IiV9GewViX5
+ pm5vhl3+c0M2Sq8zJJrljb6KRh4GRxnZseL6dHi2M6AmNyIukE9is3BkBsgBxWaaPZQIO1Fe7K1
+ Pc2GoAKCN3gaIOH8rcehWJbTCPsBoDJUNdzwz9XoxNiFxx602IJ/jdLDon2lDxAa6iQGrcvukxV
+ zW/eWVQ/DjLMOcOQaVxvnCl2vrSgcuN9m0Nc23MB/8uLQjdPtEvkfWTk9pR9QJFI3k6WgVErMSY
+ RyRfFZeqN+3eTDy+MkDYue1fiojJ+ZLMlkHAaQP7uRCs4jNBdtLChB6zSaAodux2PXYps/sVbjD
+ +PloHOtmYldrmzgiyXNCzb3tcc9SatlycNVYdz2Hs4HXr6orTw578Beqgv1qajiAJtmZ+HGcRCt
+ cS41Sy2x+Dxmwl1o4CcLP4vUKtu6XWAySGyDChjUdyoWCgMgfemDsuSRxWXKFp7tB/04F+s3QcR
+ 4pzbRudrjqu9Luw5Pvg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-10_03,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 impostorscore=0 malwarescore=0 adultscore=0 phishscore=0
+ lowpriorityscore=0 suspectscore=0 spamscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609100115
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_032943_552017_E915805D 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +154,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 10:55:55AM +0530, Hemanth Selam wrote:
-> Fix misspellings in comments, found with scripts/checkpatch.pl using
-> the misspelling list in scripts/spelling.txt.  Comments only, no code
-> changes.
+On Wed,  2 Sep 2026 09:41:04 -0700
+Sean Christopherson <seanjc@google.com> wrote:
+
+> Use MEM_REGION_PT to indirectly specify memslot '0' instead of hardcoding
+> the memslot in s390's virtual memory allocator, as a first step towards
+> taking the allocation type instead of the exact, raw memslot in the
+> physical memory allocator.
 > 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> Note, the only tests that set MEM_REGION_PT to a memslot other than '0' are
+> arm64-only, i.e. s390 always uses memslot '0' for page tables.
+> 
+> No functional change intended.
+> 
+> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-...
+Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
 
-> diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x.h b/drivers/net/ethernet/broadcom/bnx2x/bnx2x.h
-> index 9580ab83d387..28ea4a33f245 100644
-> --- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x.h
-> +++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x.h
-> @@ -280,7 +280,7 @@ enum {
->   * (db_msg_sz 1 << 7 * cid + 0x40 DPM offset) it can come up with a valid number
->   * We must avoid coming up with cid 8 for iscsi since according to this method
->   * the designated UIO cid will come out 0 and it has a special handling for that
-> - * case which doesn't suit us. Therefore will will cieling to closes cid which
-> + * case which doesn't suit us. Therefore will cieling to closes cid which
-
-I'm struggling a little with cieling being used as a verb.
-But that aside, I think the correct spelling is ceiling.
-
-And perhaps closes should be closest?
-
-Maybe we can fix these while we are here?
-
->   * has least signigifcant nibble 8 and if it is 8 we will move forward to 0x18.
->   */
+> ---
+>  tools/testing/selftests/kvm/lib/s390/processor.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
+> index a9adb3782b35..fb9dab92d4d1 100644
+> --- a/tools/testing/selftests/kvm/lib/s390/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/s390/processor.c
+> @@ -39,7 +39,8 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
+>  	u64 taddr;
 >  
-
-...
-
-I don't mind if you don't want to re-spin the entire series just because
-of this. Either way:
-
-Reviewed-by: Simon Horman <horms@kernel.org>
+>  	taddr = vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
+> -				   KVM_GUEST_PAGE_TABLE_MIN_PADDR, 0);
+> +				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> +				   vm->memslots[MEM_REGION_PT]);
+>  	memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page_size);
+>  
+>  	return (taddr & REGION_ENTRY_ORIGIN)
 
 
