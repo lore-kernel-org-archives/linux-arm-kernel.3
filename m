@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 763ACC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155BFC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0gbGOXTJamto1+tsBehXtVioYCP451qEHFbaWgvr9Rg=; b=dAItZ+bpxhM9Vj6LOFmV1S05k+
-	K+v0tWI+NHk4m50PlEyYyl1W/59H1tQ1PkiBsv59akbe1NITa1Er9etszf/SzD+dwLOgzwh99oJ8A
-	49A5uo0+7pZYi3l14lvaMyvbMd9QBqjTDunZXNcWbYJmh3BIggMInX6TknYQvl3WfPs4PJCIMEowm
-	2LRgpDibjr7vaukD/xC/TTJcRTdkx/HOV05px1yXx9bA1MJHeM5AOFaaHEfliTcTCC50PGuLBTKJR
-	gnJpZHstpFL9TNjFtu6FjQ/RtixdA3sJaT+7fHM7PKql4kUVIKfLPHgIQ25a18nsjnCalM/AiC1j4
-	lBNISgbA==;
+	bh=ARPEqhavuvd4sEo+R5C4AUtofUWM0B/7wgknn65mA9s=; b=vU11sErOKVCbcjNpeCKQ98c/Xr
+	wf0iVRYnG/Ji5KylpW+670c8btjrisg+Nha0AH7AA27VMxaIFawWqtybSfNYjgeAyG10iHq+LSQVq
+	iu4Mt/AB2QqGlirWpCtQMVvVCtQ4BlTZUhukRhneroR9bt+7Kn4pZCr276is5xEh2s9HiAz1KdmBm
+	7Ojhon/K2nMnrTJ4H/zthVFH0LG0jA3MmKF0Sallf+52SPa25WjTB6ctQTc/hwztlRCaex2fV9+ZS
+	kQ6AZGGENOGJNFjYg30wGUPD74w8uv2ANwlEbgx8Ky0SBu42Acjf77p4Zroxzsww/ibknjZVaNoHJ
+	tzvUSkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dqP-0000000EKiq-1vYZ;
-	Thu, 10 Sep 2026 12:25:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1x4duu-0000000EL9f-1YSA;
+	Thu, 10 Sep 2026 12:30:12 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dqL-0000000EKiW-24ec
+	id 1x4duq-0000000EL8g-47VJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 12:25:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1789043134; x=1820579134;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=MTbeJ01FO9J17bRn1c8XUB7qT3+WXI4gOZk+nMm/nfc=;
-  b=Ud+OYh0B6MJYJk8ei4L0phnNSlP4Twcl5S+mkc00cMtUCp1Hc0+gMarn
-   Gnd47ERcFLyXBRxfOqEFxarfYunsHqjh86WR/3U+twan/W/dESf3mmwM8
-   9Mo3fQY6EtXNDKH8oMex3cGaGQVwmeQjascmF/Pz6ghS1I2vt53dErsMM
-   MlqA3Yr2acwuyHX3gzN5wdaKd0Jv0kDEoYbKiDJ6bWeNqdx3P8DTb28Mn
-   Z4ejXwDIEkzqCvTlCHz7i3xubQlxI8zo/EngV5f0eNUrDNJzR3vThAwyT
-   INwm1qhavLByUA8qqeQoYjHCV0yl3cM9Z2Iy3y9I+LamgsiumiEUur4/t
-   g==;
-X-CSE-ConnectionGUID: 4abtTWM1TV2omNHCNlEErg==
-X-CSE-MsgGUID: IfbE0zNeTWSylvZ/wUi8cQ==
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="294821428"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Sep 2026 05:25:33 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 10 Sep 2026 05:25:28 -0700
-Received: from [10.171.248.45] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 10 Sep 2026 05:25:17 -0700
-Message-ID: <fe9feffe-5bf1-47c7-9b29-f289a0a2f5a2@microchip.com>
-Date: Thu, 10 Sep 2026 14:25:15 +0200
+	Thu, 10 Sep 2026 12:30:10 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4843e397f74so590556f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 05:30:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1789043406; x=1789648206; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ARPEqhavuvd4sEo+R5C4AUtofUWM0B/7wgknn65mA9s=;
+        b=I3JEvBKrWkbRCagaTO92R1l2Bx66TC5jkKUJvWPB/Gr3EgQvRGRKtABbNsHU8EH2g+
+         FAqVR0W7ABxuefdy9krS52DSDgzQsC2YrGj8vI8qBRmx+KpkKoFeEHDbyt7O6e1BNhCN
+         wgoPH3QyBUudB5AsTKrcY/aD6anqMfISOqLUNG2yd/sH8JA1PTOmyRiAsXYRzCujLkrQ
+         qlceayGBxlq8P9suAPzWAKZkfFTO3TqUqplxtLk7rxoMVLpfdp1MpnZ/w99CNVYEA4Z5
+         t6P9XG/KAiRHQc4fsfjnMPCQbM521lETkH/vThBshNiyvPi1YRkUEWYO+MCgUGGps+th
+         GkRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789043406; x=1789648206;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ARPEqhavuvd4sEo+R5C4AUtofUWM0B/7wgknn65mA9s=;
+        b=GQd4/a1O0Ur3m96i+hvEaxB5uwwlOlrIondsNd7RRp/wbucbTQZdSGHd7KInzs9lPh
+         dH+tW6mchUf7SGNYSttNV7wEFWuVFQfACzOsFwtHGal5TrMAGiXXhEz37c01AEgU/jc0
+         FfZPMp+Xd2/xae2z/J5F+qpnKGea3XlxfzD7mvTEdpR9M8U6cnOxHZKD4RVsgwkYu5/b
+         Be2S5MEkYx4rmpZ+mak9vHV2OX7qCeBSJ7W3ZRWMI2UjNNGOKnoWKvINpDc/bjOppL6k
+         65tqlcHCiYQwqD5AfGf3Hs0oK0prSNxV2Zdm37oY3VvtAVYwRoA9ntOmMCX1c/UxBeNM
+         sqtg==
+X-Forwarded-Encrypted: i=1; AKwUvBx31BxZPsXJFzAVi8kiM7aLeuIHXvvBvVct836NxA0o6lRsqctQkisRoA9yHPts3ZPd6l4nDvS6ax0XKRsV4eER@lists.infradead.org
+X-Gm-Message-State: AFuF++lV9Yag7gosEZPsbvOxHcHnvHccuTOh7fXwcWfg/C9t2mo2Y5oA
+	fhQKcQF01Wp/AUdZ9GelD2LnuNWFHpBSdZ0Oif08gxgCA8Hzvc8mQhshHfjEXqtQaX4=
+X-Gm-Gg: AYBFou2hTawCSD4HLYjx/6eSNuNIDvVKdrdof1T8zWumg69Tzy1HD59qac4MpoNpLVF
+	UH8wg2DnApqe9Bvf2UnoriymR510ejMmSW4tqxpVNOKPeYteqeQZlb313o0mbgcFjjpQ0uK63+y
+	k8WjstrmVsl7NdLvaxSyYstXdc0x3ehj5z6TDNFTmwHwfPmchq+qyS+3gtpA/cZyx+yBhe/YBr2
+	WQclnCaNYsARe3IE42T1eQx7TGLk7fhibm5K7c0MPmR2o3gsmKVIvSkm5kXqGuQKY/A4/+1sc+S
+	vied0K5CPzE+yDhSRN4XX9KZm/rlhygHv/yeheLhkfi40t0ghBpFRqrhx6Lja24lwmz3eIY/AZI
+	AaC+SPNv75HfMOPZAVJvRiUPOj89UpEaTZ8bydhrm89aMdQyd/uXe0S2oqBi/PYa7ehe7s1JBqB
+	AcYeDuGkeU8QJFBGuwxyw7hJ/v+WcWaRffHPR5KkpLMziuA8d1o0pCTleFSKJSbbevGn+C1ldJ3
+	EBfa2gxWSuh1lUTJ8GF44xR3KCZvVp0e7A=
+X-Received: by 2002:a05:6000:29cb:b0:485:8df2:6460 with SMTP id ffacd0b85a97d-486e0f776c3mr3738554f8f.20.1789043406106;
+        Thu, 10 Sep 2026 05:30:06 -0700 (PDT)
+Received: from ?IPV6:2a07:de40:8100:0:89a9:fd0e:583d:4a53? ([2001:af0:8000:1409:193:86:92:181])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm55987457f8f.25.2026.09.10.05.30.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 05:30:05 -0700 (PDT)
+Message-ID: <65b2a754-c180-42a3-b6fd-f8714804c043@suse.com>
+Date: Thu, 10 Sep 2026 14:30:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/13] ARM: at91: remove samv7 support
-To: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Arnd
- Bergmann <arnd@kernel.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, Russell
- King <linux@armlinux.org.uk>, Drew Fustini <fustini@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank
- Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas
- Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger
- Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Gregory Clement
-	<gregory.clement@bootlin.com>, Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>, Ethan Nelson-Moore
-	<enelsonmoore@gmail.com>, Geert Uytterhoeven <geert@linux-m68k.org>, "A.
- Sverdlin" <alexander.sverdlin@siemens.com>, Shawn Guo <shawnguo@kernel.org>,
-	Karl Mehltretter <kmehltretter@gmail.com>, "David Hildenbrand (Red Hat)"
-	<david@kernel.org>, Nicolas Pitre <npitre@baylibre.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-stm32@st-md-mailman.stormreply.com>, Linux-OMAP
-	<linux-omap@vger.kernel.org>
-References: <20260908152808.3928630-1-arnd@kernel.org>
- <20260908152808.3928630-13-arnd@kernel.org>
- <20260908210947.GA519272-robh@kernel.org>
- <7608c487-390e-4526-a2ac-11f073c902c2@app.fastmail.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <7608c487-390e-4526-a2ac-11f073c902c2@app.fastmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH] module: reject out-of-range relocation target indices
+To: Helge Deller <deller@gmx.de>, Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Luis Chamberlain <mcgrof@kernel.org>, Daniel Gomez <da.gomez@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Nicolas Pitre <nico@fluxnic.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, linux-modules@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260908230815.78409-1-kmehltretter@gmail.com>
+ <a8f29668-be71-4679-a95d-55dfbd9b5c61@gmx.de>
+Content-Language: en-US
+From: Petr Pavlu <petr.pavlu@suse.com>
+In-Reply-To: <a8f29668-be71-4679-a95d-55dfbd9b5c61@gmx.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_052529_549901_9A67672B 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260910_053009_043873_ABC6A8B3 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,125 +116,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/09/2026 at 23:30, Arnd Bergmann wrote:
-> On Tue, Sep 8, 2026, at 23:09, Rob Herring wrote:
+On 9/10/26 12:59 PM, Helge Deller wrote:
+> On 9/9/26 01:08, Karl Mehltretter wrote:
+>> apply_relocations() skips relocation sections whose sh_info target index
+>> is outside the section table. ARM, ARM64, LoongArch, PA-RISC and RISC-V
+>> use sh_info earlier in module_frob_arch_sections(), before this check.
 >>
->> Do you want to drop all the samv7 platform compatibles from at91.yaml?
->> Are there non-Linux users using DT?
+>> ARM, ARM64, LoongArch and RISC-V use the unchecked index to read
+>> sh_flags outside the section header table. PA-RISC uses it to index an
+>> e_shnum-sized heap array for a read and an update. QEMU reproduced
+>> page-fault Oopses on ARM, ARM64, LoongArch and RISC-V, and a Data TLB
+>> miss on the PA-RISC array read.
+>>
+>> Validate sh_info for SHT_REL and SHT_RELA sections in
+>> elf_validity_cache_sechdrs(). Reject the module with ENOEXEC before
+>> architecture code can use the index.
+>>
+>> Fixes: c298be74492b ("parisc: fix module loading failure of large kernel modules")
+>> Fixes: 7d485f647c1f ("ARM: 8220/1: allow modules outside of bl range")
+>> Fixes: fd045f6cd98e ("arm64: add support for module PLTs")
+>> Fixes: ab1ef68e5401 ("RISC-V: Add sections of PLT and GOT for kernel module")
+>> Fixes: fcdfe9d22bed ("LoongArch: Add ELF and module support")
+>> Cc: stable@vger.kernel.org
+>> Assisted-by: LLM
+>> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+>> ---
+>>
+>> A custom harness for upstream Frama-C 33.0 (Arsenic) Eva found the
+>> ARM32 instance in a source-identical ARM module_frob_arch_sections()
+>> slice. Eva reported the out-of-range section-table pointer and sh_flags
+>> access.
+>>
+>> The analysis and ARM32 A/B test ran at Linux b9b3e33b70b7 ("Merge tag
+>> 'trace-v7.2-rc6' of
+>> git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace"). The
+>> PA-RISC, ARM64, RISC-V, LoongArch and x86_64 A/B tests ran at the
+>> declared base commit, 28924df2a08f. arch/arm/kernel/module-plts.c and
+>> the touched loop in kernel/module/main.c are identical between the two
+>> commits.
+>>
+>> Each A/B test changed only a relocation section's sh_info to
+>> 0x10000000. The same configurations and modules were used before and
+>> after the change. All controls loaded before and after the change. The
+>> fixed kernels rejected the malformed modules with ENOEXEC.
+>>
+>> Original-kernel results with QEMU 10.2.1 TCG:
+>>
+>> - ARM32, virt/Cortex-A15, GCC 15.2.0, multi_v7_defconfig plus
+>>    VMSPLIT_2G: page fault at module_frob_arch_sections()+0x160.
+>> - ARM64, virt/Cortex-A57, GCC 15.2.0, defconfig: page fault at
+>>    module_frob_arch_sections()+0x110.
+>> - PA-RISC, B160L, hppa-linux-gcc 8.1.0, binutils 2.30,
+>>    generic-32bit_defconfig: Data TLB miss at
+>>    module_frob_arch_sections()+0x11c on the stub_entries read for a
+>>    counted R_PARISC_PCREL17F relocation.
+>> - RISC-V, virt, GCC 15.2.0, defconfig plus RELOCATABLE with
+>>    MODULE_SECTIONS enabled: page fault at
+>>    module_frob_arch_sections()+0xe4.
+>> - LoongArch, virt/LA464, LLVM 21.1.8, loongson64_defconfig: page fault
+>>    at module_frob_arch_sections()+0x1b8.
+>>
+>> On x86_64, which has no vulnerable early sh_info access, the original
+>> kernel loaded both modules. The fixed kernel loaded the control and
+>> rejected the malformed module with ENOEXEC. The test used pc/qemu64,
+>> x86_64_defconfig and GCC 15.2.0.
 > 
-> I see that zephyr uses DT here, but it uses an incompatible
-> set of bindings, see
-> https://github.com/zephyrproject-rtos/zephyr/tree/main/dts/arm/atmel
+> Interesting.
+> So, this patch helps to prevent loading modules with buggy entries,
+> even if the module was e.g. loaded on x86-64 before.
 > 
-> I'm dropping the references from the binding now, and also from
-> Documentation/arch/arm/microchip.rst, which I had missed earlier.
+> For me the patch is OK, but it only adds one random sanitizing check,
+> and where would we stop to check?
 
-Very good, thanks for having handling that Arnd.
+Loading a module should normally at least get through the signature and
+blacklist checks without crashing due to a corrupted module ELF file.
+After that point, I believe the ELF data should be trusted, similar to
+how the actual module code is expected to be correct.
 
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+module_frob_arch_sections() is called later in the module-loading
+process, after the signature and blacklist checks, so I think this patch
+is not strictly necessary.
 
-Best regards,
-   Nicolas
-
-> diff --git a/Documentation/arch/arm/microchip.rst b/Documentation/arch/arm/microchip.rst
-> index e721d855f2c9..b776a6656717 100644
-> --- a/Documentation/arch/arm/microchip.rst
-> +++ b/Documentation/arch/arm/microchip.rst
-> @@ -157,45 +157,6 @@ the Microchip website: http://www.microchip.com.
-> 
->             Coming soon
-> 
-> -    * ARM Cortex-M7 MCUs
-> -      - sams70 family
-> -
-> -        - sams70j19
-> -        - sams70j20
-> -        - sams70j21
-> -        - sams70n19
-> -        - sams70n20
-> -        - sams70n21
-> -        - sams70q19
-> -        - sams70q20
-> -        - sams70q21
-> -
-> -      - samv70 family
-> -
-> -        - samv70j19
-> -        - samv70j20
-> -        - samv70n19
-> -        - samv70n20
-> -        - samv70q19
-> -        - samv70q20
-> -
-> -      - samv71 family
-> -
-> -        - samv71j19
-> -        - samv71j20
-> -        - samv71j21
-> -        - samv71n19
-> -        - samv71n20
-> -        - samv71n21
-> -        - samv71q19
-> -        - samv71q20
-> -        - samv71q21
-> -
-> -          * Datasheet
-> -
-> -          http://ww1.microchip.com/downloads/en/DeviceDoc/SAM-E70-S70-V70-V71-Family-Data-Sheet-DS60001527D.pdf
-> -
-> -
->   Linux kernel information
->   ------------------------
->   Linux kernel mach directory: arch/arm/mach-at91
-> diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> index bf161e0950ea..d9b32a95b136 100644
-> --- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> +++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> @@ -258,45 +258,6 @@ properties:
->             - const: microchip,lan9668
->             - const: microchip,lan966
-> 
-> -      - items:
-> -          - enum:
-> -              - atmel,sams70j19
-> -              - atmel,sams70j20
-> -              - atmel,sams70j21
-> -              - atmel,sams70n19
-> -              - atmel,sams70n20
-> -              - atmel,sams70n21
-> -              - atmel,sams70q19
-> -              - atmel,sams70q20
-> -              - atmel,sams70q21
-> -          - const: atmel,sams70
-> -          - const: atmel,samv7
-> -
-> -      - items:
-> -          - enum:
-> -              - atmel,samv70j19
-> -              - atmel,samv70j20
-> -              - atmel,samv70n19
-> -              - atmel,samv70n20
-> -              - atmel,samv70q19
-> -              - atmel,samv70q20
-> -          - const: atmel,samv70
-> -          - const: atmel,samv7
-> -
-> -      - items:
-> -          - enum:
-> -              - atmel,samv71j19
-> -              - atmel,samv71j20
-> -              - atmel,samv71j21
-> -              - atmel,samv71n19
-> -              - atmel,samv71n20
-> -              - atmel,samv71n21
-> -              - atmel,samv71q19
-> -              - atmel,samv71q20
-> -              - atmel,samv71q21
-> -          - const: atmel,samv71
-> -          - const: atmel,samv7
-> -
->   additionalProperties: true
-> 
->   ...
-
+-- 
+Thanks,
+Petr
 
