@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868A5C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2934C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQxF5xPnidokpY8b4H+spdca0SQOWphTNH0IC+8rD8s=; b=Nzmx4bTWuSNSw8Wp0svP2H9go7
-	R+4peQBwCTuuZtGeQjATnjpaLvIPitAROSn/QNXporAt45inoURW0DHowinqdgAtL7wxtcEFTy5ZF
-	bvlgV766dH96ifQCNuB1ljznNMivC8OJHq/df4AUt9ng3z7Hi+2tedlNmXay2Ka4r7VCR7jYpP3Qd
-	99owAH9D7G3/16BJVuFI79e/epqpGvCK67P7WVl0HHoqxnD2Xsocj4tQnk45ji47cTcR365AGBCr7
-	QBJw12ntsqzsrrETbE8UrHbjWYHbY/Ns95Uqyul1E2TA3SWQtexPLwz0sStvDTqyuOpSlGXO1axss
-	ObtCR48A==;
+	bh=CB6ghbgDfVwHgjqO9k99YiMcwetqo8QudA9rXLeQUJM=; b=UEMi/31P5JIGCUSikZCVN9Q/G2
+	9u7raTOtjOb29fsx9tKEVB+w6rg5Whc8EE/urvmkFZH4AY1Mnq8S/vUPumJixTm7LXCtTBLfRCScx
+	T383aUGb3mYaIRWHs5xDFaIowgQNzmE7MM7deBI0hPYBFgwNfEZdTDpsg0wXGqE3NSt4EUUmLanMY
+	eNsW6W4zPDrU7SBQB3hjj62GRclYyaVmniaOecVXfPaJ9ckT5qVVzpCWqodOK0sRRV3F8EuIKMEzD
+	UPmDklyEwLXRIxg+5HdqWwA40kB6CnjfX7TNpfxxwc3yytdUDbBH8VXscIZ1SbYZng1hkhHwf4Mwd
+	2FlPXa9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPl-0000000EYnh-2cPm;
-	Thu, 10 Sep 2026 14:06:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4fPt-0000000EYtK-3247;
+	Thu, 10 Sep 2026 14:06:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPl-0000000EYnG-0Gnr
+	id 1x4fPs-0000000EYs4-1nrv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:06:09 +0000
+	Thu, 10 Sep 2026 14:06:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEE05405A2;
-	Thu, 10 Sep 2026 14:06:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BE221F00898;
-	Thu, 10 Sep 2026 14:06:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D9636601F1;
+	Thu, 10 Sep 2026 14:06:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D361F000FF;
+	Thu, 10 Sep 2026 14:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049168;
-	bh=bQxF5xPnidokpY8b4H+spdca0SQOWphTNH0IC+8rD8s=;
+	s=k20260515; t=1789049175;
+	bh=CB6ghbgDfVwHgjqO9k99YiMcwetqo8QudA9rXLeQUJM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=W+Yfr3B2cmI6WXnzmhxjcrdlIzZGAK6ctIf/QDzgV8LB4GtNmkmB1H2OQDYxE2sYX
-	 zV1kQvoT9kMMY1gV0DxuXGK9Xo4ZSjwVcNFgltva8RL06rSL8d/soQj0JO1EjPYKwO
-	 Ax1i6cg9/VeyxEu90tA8kgY7nFRAbN0Bu1CvaFAGYLLu2Z1y4hKO78/QpZzqpMsjmj
-	 BTHnc+4ma5K4dEnVU3zPMIYIa3hRqWPUqeozaMNiQSgNTQleAHHz+ZSEFGkINZGaFX
-	 ljiihOMYN/PWCcnYhkzlqyISwBxo+YYYUuRG+OapSt2AVK9Z0UWRypn5Qq4Kk2JCo9
-	 BYeIQPs5mluYg==
+	b=JTsc+wSRMF2u/wDOvehp/0qBJt2b6pliIpB8D0gu6ByMP1AzSUdEGLw5HWf1KnB9g
+	 46Sj9Lo7ZwCUzaCiIh8Zj8qGO7o+uAAzdZKISao/KO8Knla8Y1V05ehrDquUYMx9rS
+	 sFPZoxPvnSglk5FTTgo+T4whprCq9pyZjIjFMOZsZVSQgnfJTjLqK5rx82+3TEHagT
+	 5U08vrubQAvdJDlxQ7Wi92o34oPdA+PePTbnmJ+Q3gZNAzrrF3yrlxIIumelh0DtU+
+	 4FfF3e78Iez2KQlGEzqg0eg+bzV1Tv7OOlrCzGI7AItzHbJphftQKNvZyfOW519LB8
+	 1wLMQty+M4MlQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -58,16 +58,15 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v5 07/15] X.509: Move certificate length retrieval into new helper
-Date: Thu, 10 Sep 2026 19:35:00 +0530
-Message-ID: <20260910140509.868402-8-aneesh.kumar@kernel.org>
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: [PATCH v5 08/15] coco: host: arm64: Register device public key with RMM
+Date: Thu, 10 Sep 2026 19:35:01 +0530
+Message-ID: <20260910140509.868402-9-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,101 +82,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Wunner <lukas@wunner.de>
+- Introduce the SMC_RMI_PDEV_SET_PUBKEY helper and the associated struct
+rmi_public_key_params so the host can hand the device’s public key to
+the RMM.
 
-The upcoming in-kernel SPDM library (Security Protocol and Data Model,
-https://www.dmtf.org/dsp/DSP0274) needs to retrieve the length from
-ASN.1 DER-encoded X.509 certificates.
+- Parse the certificate chain cached during SPDM session setup, extract the
+final certificate’s public key, and recognise RSA-3072, ECDSA-P256, and
+ECDSA-P384 keys before calling into the RMM.
 
-Such code already exists in x509_load_certificate_list(), so move it
-into a new helper for reuse by SPDM.
-
-Export the helper so that SPDM can be tristate.  (Some upcoming users of
-the SPDM libray may be modular, such as SCSI and ATA.)
-
-No functional change intended.
-
-Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- crypto/asymmetric_keys/x509_loader.c | 38 +++++++++++++++++++---------
- include/keys/asymmetric-type.h       |  2 ++
- 2 files changed, 28 insertions(+), 12 deletions(-)
+ drivers/virt/coco/arm-cca-host/Kconfig  |   7 ++
+ drivers/virt/coco/arm-cca-host/rmi-da.c | 152 ++++++++++++++++++++++++
+ drivers/virt/coco/arm-cca-host/rmi-da.h |   2 +
+ include/linux/arm-rmi-cmds.h            |   9 ++
+ include/linux/arm-smccc-rmi.h           |  18 +++
+ 5 files changed, 188 insertions(+)
 
-diff --git a/crypto/asymmetric_keys/x509_loader.c b/crypto/asymmetric_keys/x509_loader.c
-index 0d516c77cc26..174451b93eda 100644
---- a/crypto/asymmetric_keys/x509_loader.c
-+++ b/crypto/asymmetric_keys/x509_loader.c
-@@ -4,28 +4,42 @@
- #include <linux/key.h>
- #include <keys/asymmetric-type.h>
+diff --git a/drivers/virt/coco/arm-cca-host/Kconfig b/drivers/virt/coco/arm-cca-host/Kconfig
+index d2bf44f9776a..43f0f0228e0c 100644
+--- a/drivers/virt/coco/arm-cca-host/Kconfig
++++ b/drivers/virt/coco/arm-cca-host/Kconfig
+@@ -9,6 +9,13 @@ config ARM_CCA_HOST
+ 	depends on ARM_RMM_RMI
+ 	depends on HAVE_ARM_SMCCC_DISCOVERY
+ 	select PCI_TSM
++	select KEYS
++	select ASYMMETRIC_KEY_TYPE
++	select ASYMMETRIC_PUBLIC_KEY_SUBTYPE
++	select CRYPTO
++	select X509_CERTIFICATE_PARSER
++	select CRYPTO_ECDSA
++	select CRYPTO_RSA
  
-+ssize_t x509_get_certificate_length(const u8 *p, unsigned long buflen)
+ 	help
+ 	  ARM CCA RMM firmware is the trusted runtime that enforces memory
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
+index 7a72e8eead90..394b6a87f2d3 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.c
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
+@@ -8,6 +8,9 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/pci-doe.h>
+ #include <linux/delay.h>
++#include <crypto/internal/rsa.h>
++#include <keys/asymmetric-type.h>
++#include <keys/x509-parser.h>
+ 
+ #include "rmi-da.h"
+ 
+@@ -378,6 +381,154 @@ static int wait_for_pdev_state(struct pci_tsm *tsm, enum rmi_pdev_state target_s
+ 	return wait_for_dev_state(PDEV_COMMUNICATE, tsm, target_state, RMI_PDEV_ERROR);
+ }
+ 
++static int __maybe_unused parse_certificate_chain(struct pci_tsm *tsm)
 +{
-+	ssize_t plen;
++	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
++	unsigned int chain_size;
++	unsigned int offset = 0;
++	u8 *chain_data;
 +
-+	/* Each cert begins with an ASN.1 SEQUENCE tag and must be more
-+	 * than 256 bytes in size.
-+	 */
-+	if (buflen < 4)
++	pf0_ep_dsc = to_cca_pf0_ep_dsc(tsm->pdev);
++
++	/* If device communication didn't results in certificate caching. */
++	if (!pf0_ep_dsc->cert_chain.cache || !pf0_ep_dsc->cert_chain.cache->offset)
 +		return -EINVAL;
 +
-+	if (p[0] != 0x30 ||
-+	    p[1] != 0x82)
-+		return -EINVAL;
++	chain_size = pf0_ep_dsc->cert_chain.cache->offset;
++	chain_data = pf0_ep_dsc->cert_chain.cache->buf;
 +
-+	plen = (p[2] << 8) | p[3];
-+	plen += 4;
-+	if (plen > buflen)
-+		return -EINVAL;
++	while (offset < chain_size) {
++		ssize_t cert_len =
++			x509_get_certificate_length(chain_data + offset,
++						    chain_size - offset);
++		if (cert_len < 0)
++			return cert_len;
 +
-+	return plen;
++		struct x509_certificate *cert __free(x509_free_certificate) =
++			x509_cert_parse(chain_data + offset, cert_len);
++
++		if (IS_ERR(cert)) {
++			pci_warn(tsm->pdev, "parsing of certificate chain not successful\n");
++			return PTR_ERR(cert);
++		}
++
++		/* The key in the last cert in the chain is used */
++		if (offset + cert_len == chain_size) {
++			char *signature_algorithm __free(kfree) = NULL;
++			void *public_key __free(kfree) =
++				kzalloc(cert->pub->keylen, GFP_KERNEL);
++
++			if (!public_key)
++				return -ENOMEM;
++
++			if (!strcmp("rsa", cert->pub->pkey_algo)) {
++				struct rsa_key rsa_key = {0};
++				size_t skip = 0;
++				int ret;
++
++				ret = rsa_parse_pub_key(&rsa_key, cert->pub->key,
++							cert->pub->keylen);
++				if (ret)
++					return ret;
++
++				while (skip < rsa_key.n_sz && !rsa_key.n[skip])
++					skip++;
++
++				/* check we have 3072 bits len */
++				if ((rsa_key.n_sz - skip) != (3072 >> 3))
++					return -EINVAL;
++			} else if (strcmp("ecdsa-nist-p256", cert->pub->pkey_algo) &&
++				   strcmp("ecdsa-nist-p384", cert->pub->pkey_algo)) {
++				return -EINVAL;
++			}
++
++			signature_algorithm = kstrdup(cert->pub->pkey_algo, GFP_KERNEL);
++			if (!signature_algorithm)
++				return -ENOMEM;
++
++			memcpy(public_key, cert->pub->key, cert->pub->keylen);
++			pf0_ep_dsc->rmi_signature_algorithm =
++				no_free_ptr(signature_algorithm);
++			pf0_ep_dsc->cert_chain.public_key = no_free_ptr(public_key);
++			pf0_ep_dsc->cert_chain.public_key_size = cert->pub->keylen;
++			pf0_ep_dsc->cert_chain.valid = true;
++			return 0;
++		}
++
++		offset += cert_len;
++	}
++
++	/* something wrong with chain size and parsing. */
++	return -EINVAL;
 +}
-+EXPORT_SYMBOL_GPL(x509_get_certificate_length);
 +
- int x509_load_certificate_list(const u8 cert_list[],
- 			       const unsigned long list_size,
- 			       const struct key *keyring)
++static inline void key_param_free(struct rmi_public_key_params *param)
++{
++	return free_page((unsigned long)param);
++}
++
++static inline int copy_key_part(u8 *buf, const u8 *key_buf, size_t sz)
++{
++	int skip;
++
++	/* skip leading zero in asn.1 */
++	for (skip = 0; skip < sz; skip++)
++		if (key_buf[skip])
++			break;
++
++	memcpy(buf, key_buf + skip, sz - skip);
++	return sz - skip;
++}
++
++DEFINE_FREE(key_param_free, struct rmi_public_key_params *, if (_T) key_param_free(_T))
++static int __maybe_unused pdev_set_public_key(struct pci_tsm *tsm)
++{
++	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
++
++	pf0_ep_dsc = to_cca_pf0_ep_dsc(tsm->pdev);
++	/* Check that all the necessary information was captured from communication */
++	if (!pf0_ep_dsc->cert_chain.valid)
++		return -EINVAL;
++
++	u8 *key __free(free_page) = (u8 *)get_zeroed_page(GFP_KERNEL);
++	u8 *metadata __free(free_page) = (u8 *)get_zeroed_page(GFP_KERNEL);
++	struct rmi_public_key_params *key_params __free(key_param_free) =
++		(struct rmi_public_key_params *)get_zeroed_page(GFP_KERNEL);
++	if (!key_params || !key || !metadata)
++		return -ENOMEM;
++
++	if (!strcmp("ecdsa-nist-p384", pf0_ep_dsc->rmi_signature_algorithm) ||
++	    !strcmp("ecdsa-nist-p256", pf0_ep_dsc->rmi_signature_algorithm)) {
++		key_params->key_len = pf0_ep_dsc->cert_chain.public_key_size;
++		memcpy(key, pf0_ep_dsc->cert_chain.public_key,
++		       pf0_ep_dsc->cert_chain.public_key_size);
++		key_params->metadata_len = 0;
++	} else if (!strcmp("rsa", pf0_ep_dsc->rmi_signature_algorithm)) {
++		int ret;
++		struct rsa_key rsa_key = {0};
++
++		ret = rsa_parse_pub_key(&rsa_key,
++					pf0_ep_dsc->cert_chain.public_key,
++					pf0_ep_dsc->cert_chain.public_key_size);
++		if (ret)
++			return ret;
++
++		key_params->key_len = copy_key_part(key, rsa_key.n, rsa_key.n_sz);
++		key_params->metadata_len = copy_key_part(metadata,
++							 rsa_key.e, rsa_key.e_sz);
++	} else {
++		return -EINVAL;
++	}
++
++	key_params->key_addr = virt_to_phys(key);
++	key_params->metadata_addr = virt_to_phys(metadata);
++
++	if (rmi_pdev_set_pubkey(virt_to_phys(pf0_ep_dsc->pdev.rmm_pdev),
++				virt_to_phys(key_params)))
++		return -ENXIO;
++	return 0;
++}
++
+ static void pdev_state_transition_workfn(struct work_struct *work)
  {
- 	key_ref_t key;
- 	const u8 *p, *end;
--	size_t plen;
-+	ssize_t plen;
+ 	unsigned long state;
+@@ -454,6 +605,7 @@ void cca_pdev_stop_and_destroy(struct pci_dev *pdev)
+ 		return;
  
- 	p = cert_list;
- 	end = p + list_size;
- 	while (p < end) {
--		/* Each cert begins with an ASN.1 SEQUENCE tag and must be more
--		 * than 256 bytes in size.
--		 */
--		if (end - p < 4)
--			goto dodgy_cert;
--		if (p[0] != 0x30 ||
--		    p[1] != 0x82)
--			goto dodgy_cert;
--		plen = (p[2] << 8) | p[3];
--		plen += 4;
--		if (plen > end - p)
-+		plen = x509_get_certificate_length(p, end - p);
-+		if (plen < 0)
- 			goto dodgy_cert;
+ 	if (pf0_ep_dsc) {
++		kfree(pf0_ep_dsc->rmi_signature_algorithm);
+ 		kfree(pf0_ep_dsc->cert_chain.public_key);
+ 		kvfree(pf0_ep_dsc->cert_chain.cache);
+ 		kvfree(pf0_ep_dsc->vca);
+diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
+index f3bd106c8a54..92bcd9571cb8 100644
+--- a/drivers/virt/coco/arm-cca-host/rmi-da.h
++++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
+@@ -59,6 +59,7 @@ struct cca_host_pdev_dsc {
+  * @pci: Physical Function 0 TDISP link context
+  * @pdev: pdev communication context
+  * @sel_stream: Selective IDE Stream descriptor
++ * @rmi_signature_algorithm: Signature algorithm used for public key
+  * @cert_chain: cetrificate chain
+  * @vca: SPDM's Version-Capabilities-Algorithms cache object
+  */
+@@ -67,6 +68,7 @@ struct cca_host_pf0_ep_dsc {
+ 	struct cca_host_pdev_dsc pdev;
+ 	struct pci_ide *sel_stream;
  
- 		key = key_create_or_update(make_key_ref(keyring, 1),
-diff --git a/include/keys/asymmetric-type.h b/include/keys/asymmetric-type.h
-index 1b91c8f98688..301efa952e26 100644
---- a/include/keys/asymmetric-type.h
-+++ b/include/keys/asymmetric-type.h
-@@ -84,6 +84,8 @@ extern struct key *find_asymmetric_key(struct key *keyring,
- 				       const struct asymmetric_key_id *id_2,
- 				       bool partial);
++	char *rmi_signature_algorithm;
+ 	struct {
+ 		struct cache_object *cache;
  
-+ssize_t x509_get_certificate_length(const u8 *p, unsigned long buflen);
+diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+index f947b2f4909a..1f1dc771a8ff 100644
+--- a/include/linux/arm-rmi-cmds.h
++++ b/include/linux/arm-rmi-cmds.h
+@@ -715,4 +715,13 @@ static inline unsigned long rmi_pdev_stop(unsigned long pdev_phys)
+ 	return res.a0;
+ }
+ 
++static inline unsigned long rmi_pdev_set_pubkey(unsigned long pdev_phys, unsigned long key_phys)
++{
++	struct arm_smccc_res res;
 +
- int x509_load_certificate_list(const u8 cert_list[], const unsigned long list_size,
- 			       const struct key *keyring);
++	arm_smccc_1_1_invoke(SMC_RMI_PDEV_SET_PUBKEY, pdev_phys, key_phys, &res);
++
++	return res.a0;
++}
++
+ #endif
+diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-rmi.h
+index 3133b34354ce..fdc830379060 100644
+--- a/include/linux/arm-smccc-rmi.h
++++ b/include/linux/arm-smccc-rmi.h
+@@ -596,4 +596,22 @@ struct rmi_dev_comm_data {
+ 	};
+ };
  
++struct rmi_public_key_params {
++	union {
++		struct {
++			union { /* 0x0 */
++				u64 key_addr;
++				u8 padding0[0x400];
++			};
++			union { /* 0x400 */
++				u64 metadata_addr;
++				u8 padding1[0x400];
++			};
++			u64 key_len;
++			u64 metadata_len;
++		};
++		u8 padding[0x1000];
++	};
++};
++
+ #endif /* __LINUX_ARM_SMCCC_RMI_H_ */
 -- 
 2.43.0
 
