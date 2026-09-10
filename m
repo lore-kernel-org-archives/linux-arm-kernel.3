@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DB7C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1061FC88E42
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9mkwdnQVR1s008Ew+lynOpuL8qm56jSllUtcf0uVtmg=; b=lFGeqlS4QL1zwX
-	u5kloIsNwzkK7L/El4z0ria4YY4ShRcIJm9cd45jt0Ja5SQQ30zBqFZFBoceK8pq/5co4cWDZZjdM
-	CEKSbICju9SLE/njl8oY+eRiOowfHnOWsHLcluwjmu+eLb+ya69vXCNWowP/Gblohy29vHbDA/pIE
-	Jk93jFUEQGzI09yOUYtoWmDDWlcrYJIokU4Qg6zpqTYjr0X5fiz/PHKZ8jXOM7sJZMJWm7XfI8TEK
-	1ocEtDnKfha6OvMpT1CM2/X0ce0YQWaof+orGKVO08z4fsnLhT4yKbhTyjeFNn7KE2U4DObwQ4Hht
-	f9AB7NzwlhEN0vDN158g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+PWAYP82D7RHz/P4UYwXmZTgTNCy8B0FnbT67Bi+EA=; b=mRKRLc+w+xjhyQqbfl9ZTXm2x/
+	5VxJgBRH8v8V3KTUaR452UIFaeXyW5Oe9M2n112N4cJQ7VtorWPS+pwYq6sFC6GzsGpyqY6T3FxpZ
+	J9M/KqDIDO5Bl8lpandGq1KInqZqpz6RA9anRBBmtL6nzATlS1gdMBANvBgLG0Hc+qZ3qwQxgpeJi
+	XpizvoVg+cvWadkUWM4wtXmb8Yp3zDmjyfpuCY0cl9d7WPu8ZnPgzBm03mt+ZpCwMVq5x9063W69k
+	sMV1UAnwE6g0rnujvdhyqQUrnBpeWfQ1+GnyKkkuGN6t9qWbvk9hTGvrswtQ49+COnct6Q/wdq35U
+	QfUyElng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ewB-0000000EUEp-3MSY;
-	Thu, 10 Sep 2026 13:35:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x4ewL-0000000EUR8-3Hc7;
+	Thu, 10 Sep 2026 13:35:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ew6-0000000EU9K-36pm;
-	Thu, 10 Sep 2026 13:35:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789047326;
-	bh=9C3JUCOwAQ1zEUDQ4Llz8iTa13vqDmi1w2+KMGh3JMs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=FiWwdYgrjexM6w7mybio42uRq+AB0nkNrHP2priZTT9Ej+ZktndbH3CD4MJxpRMjx
-	 D3lqb09j9qHQrbl3CvD876KdiceSBUzZEGHvuSm53/7JJHW6mms+Ad6Hc2rVt74J6S
-	 pvPVZCzWUeceGHmtg9uB7p9g5V1C5Z9NP8qq2fLUyQBhbWW0r0Diwm0Y+LNypolcy4
-	 efvXfqdbnl9JrmC1KIs1NqBd4n5rRLyQVl0QJWA67NaxrLx//eA9lwO+vS8oQPg1et
-	 XraCxVDecKRaUpLSKtw5jBzoBtObKhOZtYdAu+xzEBy0BnQVSjanNXSQB+uVPWT8/s
-	 ti3pc+BZczEIA==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8565F17E03E1;
-	Thu, 10 Sep 2026 15:35:24 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH v2 0/8] arm(64): dts: rockchip: give HDMI sound cards
- SoC-specific names
-Date: Thu, 10 Sep 2026 09:34:42 -0400
-Message-Id: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
+	id 1x4ewD-0000000EUFz-0l0W
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 13:35:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=V+PWAYP82D7RHz/P4UYwXmZTgTNCy8B0FnbT67Bi+EA=; b=nAycL76nPamYPdizdDfbzmDFnd
+	NWyCXnsgARJeMm0tgoLJ64t4mjDZiL3k61GzR+vnduO411cTAeW9RoXlglr3wAz3bFcS+IC7r6e2X
+	UgV7ECj/KuSV6OVcFmuAg++AUQxWIcbsN2y4Ui89W7hkbZOUJo14ctsnm6bQ5YJOUnPnfLkVhHfWs
+	bCMENBf0uGote6VYQFgvf/ZyLeebl92PyHI1oDmyItAG8S6AyNuDMSDR1qutVElTRpNAKg4NtRxRL
+	4M+OTS+3YJgjJY/IjBANkRlm07CwmgWQ9gmK198jnheZDOg5TDQk9dAKYwSsuN9X9qTI7e6AeLFsX
+	IvXtSOKw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4ewA-00000002Xeu-07Sj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 13:35:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2A0C2103;
+	Thu, 10 Sep 2026 06:35:27 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8AE93F528;
+	Thu, 10 Sep 2026 06:35:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789047331; bh=FxDtznMDF3G6v0CC70O4PDTkkMNel6NjQbC+dSOUz88=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=P2rUvKCc6VWahL75AGslFxx/iJECXrzPx0JPzJM6WnYBtpajHI33FgH8EJo2UJEsv
+	 8PKF6u3/TDuCfgyMvC/K1OnSfw8CJ5cZtGERkvscnIH5PdRuwJ9e5mGsyRnv3Z4n5O
+	 W0jBsHSre5QW+IjH3+zxOCX8ovtNwI5NlkbR4L7U=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 2/7] pinctrl: sunxi: only use PortK special handling on A523
+Date: Thu, 10 Sep 2026 15:35:13 +0200
+Message-ID: <20260910133519.459011-3-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260910133519.459011-1-andre.przywara@arm.com>
+References: <20260910133519.459011-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OQQ6CMBBFr0K6dkxbLEFX3sOwGNpBRoWSFoiGc
- HcLXsDlS/5//y8iUmCK4pItItDMkX2fQB8yYVvs7wTsEgstdSHLXEHDbwjePm3LA7SuY8DJsYc
- eO4pQWiXRFafGlCiSYwiUCrv/Vv04TvWD7LhJt0TLcfThsx+Y1Zb7d2tWIMHUyhgkafQ5v1r/e
- mHtAx6t70S1rusXWIno/OAAAAA=
-X-Change-ID: 20260831-fix-rockchip-hdmi-audio-names-8c10ad64f58a
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Johan Jonker <jbx6244@gmail.com>, Alex Bee <knaerzche@gmail.com>, 
- Christian Hewitt <christianshewitt@gmail.com>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- David Summers <beagleboard@davidjohnsummers.uk>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_063530_973907_FA60D792 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260910_143534_364368_7A0C921A 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello !
+The Allwinner A523 pinctrl IP requires an exception for addressing PortK,
+since the registers for this GPIO bank did not fit anymore in the
+existing MMIO frame. Since the A523 was also the first SoC to actually
+implement PortK, we just enabled this quirk unconditionally.
+Now the new Allwinner A733 changed the MMIO frame layout, so PortK can
+and must be handled without any special code.
 
-Some Rockchip SoC that exposes HDMI audio through simple-audio-card
-currently expose a generic and inconsistent 'simple-audio-card,name':
-- HDMI on rk3066a, rk3288, rk3328, rk356x and rk3576
-- hdmi-sound on rk3399
-- hdmi[01] on rk3588
+Mark the special casing for PortK with the ELEVEN_BANKS quirk flag we
+introduced, so that it will only be used on SoCs using the A523 pinctrl
+IP.
 
-There is also rockchip,tinker-codec on rk3288.
-
-That string is user-visible and it shows up in aplay -l,
-/proc/asound/cards and is what ALSA UCM, WirePlumber and PulseAudio
-match on when picking a profile for a card.
-
-As the names are not unique across boards (5 of them use HDMI), any
-userspace rule matching on the current name is ambiguous.
-alsa-ucm-conf.git has no upstream UCM profile matching "HDMI", 
-"hdmi-sound", "hdmi0" or "hdmi1" for Rockchip, precisely
-because such a name could match on the wrong hardware.
-It also prevents alsa-ucm to hav specific profiles per SoC.
-
-This series renames each card to "RK<SOC> HDMI[N]". The new names:
-- are unique inside the Rockchip family and self-describing,
-- fit the 16-char ALSA driver field after normalization
-  ("RK3588 HDMI1" -> driver "RK3588_HDMI1"),
-- give distributions a stable, unambiguous name to match UCM /
-  WirePlumber / PulseAudio rules on, which the current names cannot
-  provide.
-
-Because no upstream userspace configuration can match on the current
-names without misfiring on a different board, this rename does not
-regress any known userspace setup and allows reliable matching on the
-different SoCs.
-The tinker configuration is also not present in userspace tools.
-It also gives naming examples for future Rockchip SoC enablement work,
-which should avoid naming issues from now on.
-
-As similar rename was already previously accepted in commit 309598fca339
-("arm64: dts: rockchip: Use a readable audio card name on NanoPi M5"),
-which changed 'simple-audio-card,name' simply for aesthetic reasons.
-
-Detlev.
-
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
-Changes in v2:
-- Fixed the ARM commit messages (instead of arm64)
-- Also rename rk3288-tinker
-- Separate rk3566 and rk3568 instead of using rk356x
-- Link to v1: https://patch.msgid.link/20260831-fix-rockchip-hdmi-audio-names-v1-0-5b155ae05293@collabora.com
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Johan Jonker <jbx6244@gmail.com>
-To: Christian Hewitt <christianshewitt@gmail.com>
-To: Alex Bee <knaerzche@gmail.com>
-To: David Summers <beagleboard@davidjohnsummers.uk>
-To: Robin Murphy <robin.murphy@arm.com>
-To: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: kernel@collabora.com
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Detlev Casanova (8):
-      ARM: dts: rockchip: Rename rk3066a HDMI audio card
-      ARM: dts: rockchip: Rename rk3288-miqi HDMI audio card
-      ARM: dts: rockchip: Rename rk3288-tinker HDMI audio card
-      arm64: dts: rockchip: Rename rk3328 HDMI audio card
-      arm64: dts: rockchip: Rename rk3399 HDMI audio card
-      arm64: dts: rockchip: Rename rk3566 and rk3568 HDMI audio cards
-      arm64: dts: rockchip: Rename rk3576 HDMI audio card
-      arm64: dts: rockchip: Rename rk3588 HDMI audio cards
-
- arch/arm/boot/dts/rockchip/rk3066a.dtsi        | 2 +-
- arch/arm/boot/dts/rockchip/rk3288-miqi.dts     | 2 +-
- arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi  | 2 +-
- arch/arm64/boot/dts/rockchip/rk3328.dtsi       | 2 +-
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi  | 2 +-
- arch/arm64/boot/dts/rockchip/rk3566-base.dtsi  | 4 ++++
- arch/arm64/boot/dts/rockchip/rk3568.dtsi       | 4 ++++
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi  | 1 -
- arch/arm64/boot/dts/rockchip/rk3576.dtsi       | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi  | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 2 +-
- 11 files changed, 16 insertions(+), 9 deletions(-)
----
-base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
-change-id: 20260831-fix-rockchip-hdmi-audio-names-8c10ad64f58a
-
-Best regards,
---  
-Detlev Casanova <detlev.casanova@collabora.com>
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index bc6948e3fb495..2524e0b3a2a5a 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -67,7 +67,7 @@ static u32 sunxi_bank_offset(const struct sunxi_pinctrl *pctl, u32 pin)
+ {
+ 	u32 offset = 0;
+ 
+-	if (pin >= PK_BASE) {
++	if (pin >= PK_BASE && (pctl->flags & SUNXI_PINCTRL_ELEVEN_BANKS)) {
+ 		pin -= PK_BASE;
+ 		offset = PIO_BANK_K_OFFSET;
+ 	}
+-- 
+2.47.3
 
 
