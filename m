@@ -4,179 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B6BC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB97C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KQxXhUSQqnQRY33aFcXayPIgvZ2x+iDK2sfU5SLLQZA=; b=YA/tiOftzHF635HlRxmugJVBHD
-	u/n6gZbruB696zJPnCUscQKW2D0+5st5GtyGB3ri+vseGecfTlwXPoZoJfSM+3Gf8aI9fC7lOYa2q
-	NvjEjYxZrB0qlA6JUU2Kn+P7HbIFIRZxpkF6kHIgmH73SfBGEWyUUheFQrGpiE/TCvELVkla6DuIx
-	aUOw6VhOKjlP6in6Ji9O6HIP2B6MNuSLcyCl+A0+Y2M/6NACBQIIqT0Ql1Uu/lF2N7gaYZtTgdkZu
-	vL6Xz1cWhHx7ndS8i/W6E/khGPaonPv2RNUkUJR/Bx7dX49TprhgT8XdewHN9xWC04oVWJMPbhJgl
-	HxWfB0Qw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vSAyVE60XQLyRPwC9MkpBcNQsSwUZtnNykq/J5h6ht4=; b=HWLxNcssXzxVNm
+	zD/m8MzwlNvNARNK2yR/WakeSystDIdm8W5T/3yoH8avaDG45k8xat8Iiu6HNioFfOdRTRTziF4uq
+	KR1IsbH1cTQYwLEv93rgvJO5FvTvubk3txKWVHAb0LHVA/T+G3eNDKyiWgBLXPiOoO6UpIXB3eozi
+	jAdavFolZoBI02ZyvofEC0qZfXfvTCm91huUDp/nQLsRxCoajk8UCUOo98g8SX5cNn5ZCTTSat12t
+	9mv2yzjU4lUFAa0oFOn+cwKCjL5QJ3/He+N/D9Iix2tHmgJb3Wh1MLLzQFpxgz3drSV4TFaRl/kwh
+	4uslT2X2Hlb1RvsI41Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4f5T-0000000EWUW-025j;
-	Thu, 10 Sep 2026 13:45:11 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4f5Q-0000000EWTo-1Sld
+	id 1x4f9t-0000000EWqa-2dD4;
+	Thu, 10 Sep 2026 13:49:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4f9q-0000000EWq3-1Fvw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:45:10 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68AC9XaO1085740;
-	Thu, 10 Sep 2026 08:44:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=KQxXhUSQqnQRY
-	33aFcXayPIgvZ2x+iDK2sfU5SLLQZA=; b=IKDhpd4cBOE7f6F7ooVIuKemp9vbq
-	v5djWYCTsQknTXgRc1fz//LLwAUvNqyXysULAh7iBnF5fxDAIOJ0FRj9l7GGlTNZ
-	QDjCtwA7Gm+9u37cxnlvmRb8iXRBEwdH26CTsaoKFUF9RU8+FQP3/tF07ypeOqHG
-	4PkoSJqOcSUiCf5xHgVmZzDWfDbeLlvILSL9jnHqw0jyuZWOVlMW0x1jZwLRTxCu
-	UO51YJmoZRcrZ8JQExsHh0LsM2ejvsitd6T/S0rmg64wCWqTOtMLo+q6atVTbkKz
-	yxJblNFm2llqIlYHsCY+mi20TKmqH3BDp0RzAxRtPs8ZJTltGQpv6S2/A==
-Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012007.outbound.protection.outlook.com [52.101.48.7])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gkcxgdk59-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 10 Sep 2026 08:44:23 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LQOryLOkJwNsk51FdZInAT5m5AeXhaN63BNmtQRMieoHf6tBv6Q/5mm1Wd/x8QaVzNG6XfyiH+TBZSnD9IfcGP/OQAEg4zaY73Ms/0nZHFMKpRcwQHxuohU8vJgF110QQy34nySA9JZVheQhzSoSdqpY5MZNiev6pzrBK5ZAcw0vD3ePZrIewcQgRySdP5YPymkEObMQKKbqK7K7Z+ne300vytRSgAQIEheRYCqXmaQsnQ+EKuy44qJGyAf9emvy1FniyX7/tpHZeXEGID6ctG3eao4/ep6Dm1+uKe4LU2H+vnK6RZu5+xry5dHxyxiKOg11qbaNjZVWgQz+xtv1HQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KQxXhUSQqnQRY33aFcXayPIgvZ2x+iDK2sfU5SLLQZA=;
- b=I9UCRoW+1HnGDDaCJ2IrLNNosvSiZHgDiu7Og2f/+CSOdjHpZcdbGW+E7qX4O2vBHhplOKKkS8v+VORzb6P+PbuhEpcPr1de5ygtuUu0U0UTpXumXfGL9ddfQxbpKi8TyEGiNWOAPMmTPxVo0qW3RUBPpBtAkokr60YRwdVN99DAC4SrSbQM65L5AsI2TRhhXURznSbVx/n9F4+86HqJ0IdJfO78F/WOFs+XhXERPt8imGkCedLzLhsMC93k6jbR03vXltvAgRuNKioVFqMr0R60Hu1+Lb/Jwzw3uqxa0cpKVWymXejYcnCBDYEnhRKigKxABL1VYqWxqIMjaHPqPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KQxXhUSQqnQRY33aFcXayPIgvZ2x+iDK2sfU5SLLQZA=;
- b=NOAT59RZNCL5njCRintOZXPfjnBubltMMIDrfhjSm5lax51OJPSOT4oG/VokwUcfw6tMM1xyaQm1AYHWEd2FXL8zYtcYmajb7iZuKDKjKtOdhn+66lRgtpB12cjcoEfK0zrQKvEAcs+BRbGwPuxf7QHRZMgLqWDb/ZSoaqLGIfI=
-Received: from MW4PR03CA0349.namprd03.prod.outlook.com (2603:10b6:303:dc::24)
- by SJ0PR10MB4573.namprd10.prod.outlook.com (2603:10b6:a03:2ac::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.5; Thu, 10 Sep
- 2026 13:44:21 +0000
-Received: from BY1PEPF0001AE1B.namprd04.prod.outlook.com
- (2603:10b6:303:dc:cafe::ac) by MW4PR03CA0349.outlook.office365.com
- (2603:10b6:303:dc::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Thu, 10
- Sep 2026 13:44:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BY1PEPF0001AE1B.mail.protection.outlook.com (10.167.242.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 13:44:20 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 10 Sep
- 2026 08:44:09 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 10 Sep
- 2026 08:44:09 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 10 Sep 2026 08:44:09 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68ADi9Mh2432799;
-	Thu, 10 Sep 2026 08:44:09 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Nishanth Menon <nm@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Geert Uytterhoeven
-	<geert+renesas@glider.be>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        <alexander.sverdlin@siemens.com>, <jan.kiszka@siemens.com>,
-        <ayush@beagleboard.org>, <robertcnelson@gmail.com>,
-        <upstream@lists.phytec.de>, <francesco.dolcini@toradex.com>,
-        <leonardo.costa@toradex.com>, <matthias.schiffer@ew.tq-group.com>,
-        <stefano.r@variscite.com>, <eblanc@baylibre.com>, <msp@baylibre.com>,
-        <thomas.richard@bootlin.com>, <miquel.raynal@bootlin.com>,
-        <mwalle@kernel.org>
-Subject: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
-Date: Thu, 10 Sep 2026 08:44:09 -0500
-Message-ID: <20260910134409.1713610-1-nm@ti.com>
-X-Mailer: git-send-email 2.47.0
+	Thu, 10 Sep 2026 13:49:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E6E51570;
+	Thu, 10 Sep 2026 06:49:37 -0700 (PDT)
+Received: from [10.0.152.207] (unknown [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3A0C3F59E;
+	Thu, 10 Sep 2026 06:49:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789048181; bh=iTqT7mryvjsJeX9OToGmlp1uflWsp/yL5jLj0xRAq7g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EiZ+k6gYrFFklPfNYclyE+wnL5/q8uJLnVQQBgPyIX1o9MChkCxUS16MHg5HDwdHM
+	 jZLorCGbiI5PwTlxRFgAROCPfxrdv0x4tTeYtLmNIzJYXKJhMME1F4dhXl8ZM3n5D3
+	 s+roG6zsO7r/Bn9q+EO3sT+hsluhWgY7o7hG1kg0=
+Message-ID: <5ecf87dc-30ec-454f-bee3-0c05f2f11168@arm.com>
+Date: Thu, 10 Sep 2026 14:49:37 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1B:EE_|SJ0PR10MB4573:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f562d52-6ed2-412c-4512-08df0f419e2a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|7416014|82310400026|1800799024|10067099003|18002099003|6133799003|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: oAAWP0k34nnZHy0OhQhgKpFTEZnPG7T/19lde+P3e8dG/3/Dxt75N9ZpsVU90tqBPkj4nqFDdiFiyDLC/EmyVKEDONzKB7ENJpaAv5MPnmAWzBxmm8br0K7bwpqK1D6894gsitRNBJ3vnCXwxzYve+B9fy5oxShLKJzeBu4cqL+c1RH7Xc75iBdCapQ3bNIBU6m8Q65WYjHSwyzu/3Jg/uUlTf7JwDfqd16ISswT3rkov4KIsUWbqIf6g5Sl+Evdt4dS4RT9mADgdeco5U/8dHx0G3S+C+dnsd/OyepksJ/PzI9ctD3XSpITLikz0AAWV/Pjm2Ug+3SCfwWr6BIfVcf9tzPLoTHm5x3MNgvEXbSb4EibEWfST/aHUVvbp9PWmGAhiCsn+rZjk/HHshnrD4g+3Kce9/w3dKhRNKBbtDr9YLtbBdWbkdwIQAHdWnRjvhrZTrmAzqXkGcqH5e6rtM7b283FQGi/g+qPVFZpg4FPaI1lgGqdkspOFhanfcsqPiyW3o5sDL3a3Ioi2HQqd00tc8yIvoqVwqIKvknGf7Qv5c5+GdneawVCeJCzE1ME+oAopdQUPbWmgR+i0FAqHNHOuDFpCquM4zWsmlP43vkY1Cy0ippkZm4liBa12z3R+j97Tiu+ePlRQJKteEYbtA==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(7416014)(82310400026)(1800799024)(10067099003)(18002099003)(6133799003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ApuB4SPQZJKRVQc/lwjFClft8GgFUqyb8jbPBQuDdswqRfs4WyVl6MGu4oHQvBj+uAKXGnAWQx3sT8W18iVyEJ9s0KGESTN1aJlwywIsg0AorLuS5UNSYjBZWPGQg4Pd0G9pstpLXYbkvvH5N/NgcutXk5cTiiZOeMTpbruz0lwGpjEUWIF8QCzJtvNVnCNuc2Nrr9KOVoJOIbttda+N0tddyQB/q4UkShLYjHnCdZvdrRT6wp3kHz5JT/8+3XIMV4se39gFZSB8Nm2H+S8SjpKRPX9M2wYaHEYpGqICI/+u3Bo2xERjR3mEet4i+Pxi1Mg5YGfKOjnUPcgfCmBWA0aHe0t+P9N2gxr/flFmVYF/EZkQ+wR6H1ax/N8bSz2yGh1Lfon1XmIQT7OSIItzBFbEMrCvyqQOxlh6Wl9/K8zUrOKsQItCblx7XOFKR2m9
-X-Exchange-RoutingPolicyChecked: FsC5pt+XkmfZ69GSzCpbVKr3a3qiaoAD/IdIIYKNo1iau7Eef0LjYSnugPp+24uej2yPIYJcPpxCdAwFqnhCCU/P8IKTYXfwLm2rz7XFg4vvU5eXj4RRBgYn/u8frEgtRUV7sHxik04P/A00TXB+dPGndnhJmSiNME0kSeQwpx57mb0EqRCfoVjpk7S7IOLhwr5i8hi1mZwnyHltNEMUWFJNAchBjGMkVmuNi12vSs9xXRvOSrsaufDLDhCAZMHIfEoPEM9M5+mNCP1+HDKVZDxDSns9Ir5XEc/E4VSQpGwWsyq8iGnN6V118iOnI79sD0fhfkIixWfTraKcpbCvew==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 13:44:20.9367
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f562d52-6ed2-412c-4512-08df0f419e2a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4573
-X-Proofpoint-ORIG-GUID: Ir6yxrI57yfFZ0IzRlXAOapPCBe-cNf3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDE2NSBTYWx0ZWRfX2YljUHBxiFjp
- TxMcv+kU58zFgHmRBN22b+msHZJvPQ58ij+NZCFKKzqt82u+3xLMDK5fOHVgGFrRFR2ixSV57+s
- UvBQEDe6R+mz+IE1L065FwTFHivRTR0=
-X-Proofpoint-GUID: Ir6yxrI57yfFZ0IzRlXAOapPCBe-cNf3
-X-Authority-Analysis: v=2.4 cv=MqbHeGae c=1 sm=1 tr=0 ts=6aa2b437 cx=c_pps
- a=F1HhE1toGRAZ88wdd1wKFg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=0Miry4rRAAAA:8 a=sozttTNsAAAA:8 a=7CQSdrXTAAAA:8 a=a_U1oVfrAAAA:8
- a=fGhLjsSNAAAA:8 a=pGLkceISAAAA:8 a=m8ToADvmAAAA:8 a=8f9FM25-AAAA:8
- a=cMDUSdu-AAAA:8 a=IpJZQVW2AAAA:8 a=P-IC7800AAAA:8 a=-oG_GxVZrpTI68_nl-sA:9
- a=UT1Yo3WijKgCWNxi40OF:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=LYKFdyShAPKLkGq8p7WX:22
- a=kCrBFHLFDAq2jDEeoMj9:22 a=uSNRK0Bqq4PXrUp6LDpb:22 a=QRaI_VI5Kbc4sAalow4w:22
- a=IawgGOuG5U0WyFbmm1f5:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDE2NSBTYWx0ZWRfX5MVyxQNZ/hWn
- 2UCgGeyqF4BtysItjVkUJ9E22b7HT2jmq0hdtPaH2BG1oKh1fW/1YHqg8alXl88H3R23igmURnN
- MRPN6fe0XVczuxG/2kaqD9sdvZ9ctdplaD3+ZPNed9ajAFqLB1U3XwjRkd+KQqxZLCt99EcNYVH
- QFTdeE4YYdtAvRHs2n9PvBnkPwyka3bkAwMlPlAiZLjfVxqIbSb3y49D4Y0/bgF3CsWldC2/4wo
- ac0UDiR3uz7VIE5AZT97KmZnxGyrNEoeDplDyMBS0QG4w+W0JDVxqGoxIod3Aihjx4LYKXtQdBL
- wnfLNuH+w3WBy8sVEyBtFleLFL0wFC6wwp7QbsQRJ6klw4yfyQCiHEB+IZSzzr5otmQck9mOmIu
- ZPUkTb2gwT2gDXU+hyD99/UTefvvhRepBcXhMKJtHSnU9kNmrQ6/pWOTGOB7RRLZfe6wms8pvlr
- v7xTPtOPg8mez1CMtxQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-10_04,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 impostorscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609100165
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/21] arm64: Move overflow sp into SP_EL1 and kernel sp
+ into SP_EL0
+To: Will Deacon <will@kernel.org>
+References: <20260907164247.17223-1-will@kernel.org>
+ <40954731-a235-4877-b615-7a3f66f1b039@arm.com>
+ <aqFDFYECDl15R_39@willie-the-truck>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <aqFDFYECDl15R_39@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_064508_573947_B726573E 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260910_064942_433278_0D1634CD 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,125 +68,177 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Mostafa Saleh <smostafa@google.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all relevant drivers have are ready, convert the
-TISCI drivers to modules. This impacts all K3 platforms for
-boot, recommendation (based on empirical evidence) is to use
-deferred_probe_timeout=60 in kernel command line to allow for driver
-probes to complete successfully based on the initrd used.
+Hi Will,
 
-NET Savings: (Ubuntu Clang 23.0.0)
-./scripts/bloat-o-meter vmlinux_previous vmlinux
-add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
+On 9/9/26 12:29, Will Deacon wrote:
+> Hi Vladimir,
+> 
+> On Wed, Sep 09, 2026 at 11:39:24AM +0100, Vladimir Murzin wrote:
+>> On 9/7/26 17:42, Will Deacon wrote:
+>>> This series is a bit of a complicated juggling act that, on its own,
+>>> doesn't achieve an awful lot. However, it lays the ground work for
+>>> sizing the kernel stack at runtime, e.g. via a cmdline option or even
+>>> potentially on a per-task basis and so I would like to work towards
+>>> getting it merged independently.
+> [...]
+> 
+>> I gave it a try and I observe splat:
+> Thanks for taking it for a spin!
+> 
+>> Unable to handle kernel execute from non-executable memory at virtual address ffff000970e81148
+>> Mem abort info:
+>>   ESR = 0x000000008600000f
+>>   EC = 0x21: IABT (current EL), IL = 32 bits
+>>   SET = 0, FnV = 0
+>>   EA = 0, S1PTW = 0
+>>   FSC = 0x0f: level 3 permission fault
+>> swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000008129f000
+>> [ffff000970e81148] pgd=0000000000000000, p4d=18000009f1dff403, pud=18000009f1079403, pmd=18000009f0ef1403, pte=00e80009f0e81707
+>> Internal error: Oops: 000000008600000f [#1]  SMP
+>> Modules linked in:
+>> CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc2-7fb054f87+ #3627 PREEMPT(lazy) 
+>> Hardware name: Generated (DT)
+>> pstate: 1634023c9 (nZCv DAIF +ALLINT +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+>> pc : 0xffff000970e81148
+>> lr : 0xffff000970e81148
+>> sp : ffff000970e81150
+>> x29: ffff800080f85fc0 x28: 0000000000000001 x27: 0000000000002000
+>> x26: 0000000000000000 x25: 00000000000000c0 x24: 0000000040000023
+>> x23: ffff800080c0e1d8 x22: 00000000000003c0 x21: ffff800080b58300
+>> x20: cfa2800080b58300 x19: 00000000200003c0 x18: 0000000000000000
+>> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000028
+>> x14: 0000000000000000 x13: ffff8000814f3ac0 x12: ffff8008efcac000
+>> x11: b2000c3eb474d99d x10: 0000000000000008 x9 : 0000000000001000
+>> x8 : ffff800080010800 x7 : 055001f2b5503510 x6 : 0000000001310000
+>> x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff800081502d80
+>> x2 : 0000000000000802 x1 : ffff000800106a70 x0 : 0000000000000001
+>> Call trace:
+>>  0xffff000970e81148 (P)
+>> Code: 00000000 00000000 00000000 00000000 (00000002) 
+>> ---[ end trace 0000000000000000 ]---
+>> Kernel panic - not syncing: Oops: Fatal exception
+>> SMP: stopping secondary CPUs
+>> Kernel Offset: disabled
+>> CPU features: 0x0,00000000,034bfc7d,ff728b42,7ffce667
+>> Memory Limit: none
+>> ---[ end Kernel panic - not syncing: Oops: Fatal exception ]---
+>>
+>> I suspect it is related to power management, since it can be triggered
+>> with the sleep command, though I haven't debugged it. I noticed that
+>> Sashiko has reported issues related to suspend/resume, so if you
+>> provide fixups for the relevant commits, I can give them another
+>> try. Otherwise, I'll wait for v2 :)
+> It's fiddly to envisage how we end up trying to execute from non-executable
+> memory, but there are two bugs in the suspend/resume code:
+> 
+> 1. I don't save/restore the stack pointers correctly (I suppose this could
+>    explain almost any crash, tbh)
+> 
+> 2. I don't restore the pauth keys properly
+> 
+> I've hacked up an untested diff below, please can you take it for a spin?
+> 
 
-Signed-off-by: Nishanth Menon <nm@ti.com>
----
+With fixup applied I do not see splat anymore :) 
 
-NOTE:
-a) This patch is based off v7.3-rc1 and will create a merge conflict
-  in linux-next (next-20260909), but the resolution is trivial (vs
-  bd94bea7165be450903c6d64bbcb4862e36798f9).
-b) Emperical experiments that Siddharth Vadapalli did,
-  it seems like some driver probes might be taking much
-  longer than the default deferred_probe_timeout of 10
-  seconds that is used when CONFIG_MODULES=y. Testing log[1]
-  a deferred_probe_timeout=60 seems to have worked fine.
-c) Full bloatometer report is available in [1] as well.
-d) related lore discussions[2]
+Thanks
+Vladimir
 
-[1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
-[2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
-    See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
-    https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
-    (original thread that triggered various changes)
-
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>
-Cc: alexander.sverdlin@siemens.com
-Cc: jan.kiszka@siemens.com
-Cc: ayush@beagleboard.org
-Cc: robertcnelson@gmail.com
-Cc: upstream@lists.phytec.de
-Cc: francesco.dolcini@toradex.com
-Cc: leonardo.costa@toradex.com
-Cc: matthias.schiffer@ew.tq-group.com
-Cc: stefano.r@variscite.com
-Cc: eblanc@baylibre.com
-Cc: msp@baylibre.com
-Cc: thomas.richard@bootlin.com
-Cc: miquel.raynal@bootlin.com
-Cc: mwalle@kernel.org
-
- arch/arm64/configs/defconfig | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 6ec8d3a69c98..ed5aebf96080 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -267,6 +267,7 @@ CONFIG_RASPBERRYPI_FIRMWARE=y
- CONFIG_INTEL_STRATIX10_SERVICE=y
- CONFIG_INTEL_STRATIX10_RSU=m
- CONFIG_MTK_ADSP_IPC=m
-+CONFIG_TI_SCI_PROTOCOL=m
- CONFIG_GOOGLE_FIRMWARE=y
- CONFIG_GOOGLE_CBMEM=m
- CONFIG_GOOGLE_COREBOOT_TABLE=m
-@@ -1403,8 +1404,8 @@ CONFIG_DW_EDMA=m
- CONFIG_RCAR_DMAC=y
- CONFIG_RENESAS_USB_DMAC=m
- CONFIG_RZ_DMAC=y
--CONFIG_TI_K3_UDMA=y
--CONFIG_TI_K3_UDMA_GLUE_LAYER=y
-+CONFIG_TI_K3_UDMA=m
-+CONFIG_TI_K3_UDMA_GLUE_LAYER=m
- CONFIG_STM32_DMA3=m
- CONFIG_DMABUF_HEAPS=y
- CONFIG_DMABUF_HEAPS_SYSTEM=m
-@@ -1456,7 +1457,7 @@ CONFIG_CLK_IMX8QXP=y
- CONFIG_CLK_IMX8ULP=y
- CONFIG_CLK_IMX93=y
- CONFIG_CLK_IMX95_BLK_CTL=y
--CONFIG_TI_SCI_CLK=y
-+CONFIG_TI_SCI_CLK=m
- CONFIG_COMMON_CLK_MT8192_AUDSYS=y
- CONFIG_COMMON_CLK_MT8192_CAMSYS=y
- CONFIG_COMMON_CLK_MT8192_IMGSYS=y
-@@ -1678,7 +1679,7 @@ CONFIG_QCOM_CPR=y
- CONFIG_QCOM_RPMHPD=y
- CONFIG_QCOM_RPMPD=y
- CONFIG_ROCKCHIP_PM_DOMAINS=y
--CONFIG_TI_SCI_PM_DOMAINS=y
-+CONFIG_TI_SCI_PM_DOMAINS=m
- CONFIG_ARM_IMX_BUS_DEVFREQ=y
- CONFIG_ARM_IMX8M_DDRC_DEVFREQ=m
- CONFIG_ARM_MEDIATEK_CCI_DEVFREQ=m
-@@ -1745,15 +1746,15 @@ CONFIG_SL28CPLD_INTC=y
- CONFIG_XILINX_INTC=y
- CONFIG_QCOM_PDC=y
- CONFIG_QCOM_MPM=y
--CONFIG_TI_SCI_INTR_IRQCHIP=y
--CONFIG_TI_SCI_INTA_IRQCHIP=y
-+CONFIG_TI_SCI_INTR_IRQCHIP=m
-+CONFIG_TI_SCI_INTA_IRQCHIP=m
- CONFIG_RESET_GPIO=m
- CONFIG_RESET_IMX7=y
- CONFIG_RESET_QCOM_AOSS=y
- CONFIG_RESET_QCOM_PDC=m
- CONFIG_RESET_RZG2L_USBPHY_CTRL=y
- CONFIG_RESET_RZV2H_USB2PHY=m
--CONFIG_RESET_TI_SCI=y
-+CONFIG_RESET_TI_SCI=m
- CONFIG_PHY_CAN_TRANSCEIVER=m
- CONFIG_PHY_NXP_PTN3222=m
- CONFIG_PHY_SNPS_EUSB2=m
--- 
-2.47.0
+> Cheers,
+> 
+> Will
+> 
+> --->8
+> 
+> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+> index f093cdf71be1..facf3f1cc3b1 100644
+> --- a/arch/arm64/kernel/sleep.S
+> +++ b/arch/arm64/kernel/sleep.S
+> @@ -133,7 +133,8 @@ SYM_FUNC_START(_cpu_resume)
+>  	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
+>  	/* load sp from context */
+>  	ldr	x2, [x0, #CPU_CTX_SP]
+> -	mov	sp, x2
+> +	msr	sp_el0, x2
+> +
+>  	/*
+>  	 * cpu_do_resume expects x0 to contain context address pointer
+>  	 */
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index 0811fa569100..bec7f858fae9 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -87,6 +87,7 @@
+>   * This must be kept in sync with struct cpu_suspend_ctx in <asm/suspend.h>.
+>   */
+>  SYM_FUNC_START(cpu_do_suspend)
+> +	msr	spsel, #1
+>  	mrs	x2, tpidr_el0
+>  	mrs	x3, tpidrro_el0
+>  	mrs	x4, contextidr_el1
+> @@ -98,8 +99,7 @@ SYM_FUNC_START(cpu_do_suspend)
+>  	mrs	x10, oslsr_el1
+>  	mrs	x11, sctlr_el1
+>  	get_this_cpu_offset x12
+> -	msr	spsel, #1
+> -	mrs	x13, sp_el0
+> +	mov	x13, sp				// SP_EL1
+>  	stp	x2, x3, [x0]
+>  	stp	x4, x5, [x0, #16]
+>  	stp	x6, x7, [x0, #32]
+> @@ -115,6 +115,7 @@ alternative_if ARM64_HAS_TCR2
+>  	mrs	x2, REG_TCR2_EL1
+>  	str	x2, [x0, #104]
+>  alternative_else_nop_endif
+> +	msr	spsel, #0
+>  	ret
+>  SYM_FUNC_END(cpu_do_suspend)
+>  
+> @@ -122,6 +123,8 @@ SYM_FUNC_END(cpu_do_suspend)
+>   * cpu_do_resume - restore CPU register context
+>   *
+>   * x0: Address of context pointer
+> + *
+> + * Entered with SPSel == 1, returns with SPSel == 0.
+>   */
+>  SYM_FUNC_START(cpu_do_resume)
+>  	ldp	x2, x3, [x0]
+> @@ -130,6 +133,10 @@ SYM_FUNC_START(cpu_do_resume)
+>  	ldp	x9, x10, [x0, #48]
+>  	ldp	x11, x12, [x0, #64]
+>  	ldp	x13, x14, [x0, #80]
+> +
+> +	/* Move 'current' somewhere safe */
+> +	mov	x15, x3
+> +
+>  	/*
+>  	 * Restore x18, as it may be used as a platform register, and clear
+>  	 * the buffer to minimize the risk of exposure when used for shadow
+> @@ -156,8 +163,7 @@ alternative_else_nop_endif
+>  
+>  	msr	sctlr_el1, x12
+>  	set_this_cpu_offset x13
+> -	msr	sp_el0, x14
+> -	msr	spsel, #0
+> +	mov	sp, x14				// SP_EL1
+>  
+>  	/*
+>  	 * Restore oslsr_el1 by writing oslar_el1
+> @@ -179,8 +185,9 @@ alternative_if ARM64_HAS_GIC_PRIO_MASKING
+>  alternative_else_nop_endif
+>  #endif
+>  
+> -	ptrauth_keys_install_kernel_nosync x14, x1, x2, x3
+> +	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
+>  	isb
+> +	msr	spsel, #0
+>  	ret
+>  SYM_FUNC_END(cpu_do_resume)
+>  #endif
+> 
 
 
