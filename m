@@ -4,58 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55247C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458ABC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9sR4iCDNmPmuLycqrtaPoXOdVxq9vF8KjjQ+eF2z45Y=; b=m6rNEJVQSTPakvvp30CeF5vFzs
-	EJTUBag2RC8TMreKuZ+HK913dfFmGPwvhseKoKoC/Kt4Eha3bnurGjyy4lvSdlnvqeTFHD4xo+sz3
-	B7cRRHiQdRStqNzUn+90VRiKFf400KmzO1r5AYPjhiVyOnl42ewzi/QNCjwvdxOmdoleYHDKbTi8q
-	rofRoLwnNBDApaAFyL8/RJ5+PIqqsbfPwbD7DQY21MbluscLaShA9dWLrHagWOaVGp79qCKHLxLM+
-	LVH7rlpT7BJ1dD3c0kcoTy3bzUqvIVFv3Ml0fzgrYTqPhNrctif7nBErX0P1eSVj2Fx3U4n1C+ifR
-	guRYnoww==;
+	bh=bJ1x3kgqSkTQvoo2VkC6bdHXJE6MAsnAJkaVi1Blhp4=; b=tJEtHKHRmgiEwp8nk/J81kvpZC
+	smBs2vi4pjAhcMPtjitpahA5CNn9aEjvl11n2wOcvG8e2bNDiZ6gto6N3iNuv2H9MkmsVm11n6OcZ
+	0qGxkw9dmIV4Sdz1Kc15XS+Ike9hH+RmmIe3LA8Dn7CdA2g4LrWIOcpyV1JYMEw9427yp3CNJJXOq
+	8jLBysw1arB0/t3EQRQcDkv3mO0K7lw41iw71wHBgv/qBW+dwDzWzWtiIR/25Ac/VzGKnJUWbzafK
+	+Dgk+lGYg8930S4rppoK20Jld/Ug+zE3GsXxeIEmES6jGtUo8D7+EiVLauqJ7s4PHJnFD9BbWkPav
+	+YYPGwXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fU6-0000000EaSY-1SEK;
-	Thu, 10 Sep 2026 14:10:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4fVF-0000000Eahb-2fha;
+	Thu, 10 Sep 2026 14:11:49 +0000
+Received: from mail-francesouthazon11011012.outbound.protection.outlook.com ([40.107.130.12] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fU4-0000000EaSL-3hMZ
+	id 1x4fVC-0000000Eafm-3sUa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:10:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0922E60213;
-	Thu, 10 Sep 2026 14:10:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A62FC1F000FF;
-	Thu, 10 Sep 2026 14:10:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049435;
-	bh=9sR4iCDNmPmuLycqrtaPoXOdVxq9vF8KjjQ+eF2z45Y=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=WOEp4x1++BsXDfyTPXTDS4gmVFX7J2ksk9lukdERrQLJxB2SKNofdAWP9wGSvBEhO
-	 tC3006JjZtardegEGy/OALXz/UR69TACxhMazYNtw7lbQIKz8dlbIU71FndxUDL4p0
-	 ixr1puTbO/JgAXIAScwYvUVOSuARgamABHJqdNGNgcvJzNXK4tmDvb/0ng2b3dy2Pi
-	 v/ll+G0ZwlY/SweT7j1HKshx0ckV+E4JzVL2pXyvgVilgz5qfRbFPGz04Gbc7Wb/A4
-	 mpnQYfbefzYMV8A8IthZxOBWhS98UqiJC+jmceoouDnnNmDcwDNVKaJ0j1UXx9SI+R
-	 xp7jmkf/jq3ow==
-From: Vinod Koul <vkoul@kernel.org>
-To: dmaengine@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>, 
- Frank Li <Frank.Li@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260908212607.590224-1-rosenp@gmail.com>
-References: <20260908212607.590224-1-rosenp@gmail.com>
-Subject: Re: [PATCH] dmaengine: at_hdmac: use devm_clk_get_enabled()
-Message-Id: <178904943321.118320.1490189042723625622.b4-ty@kernel.org>
-Date: Thu, 10 Sep 2026 19:40:33 +0530
+	Thu, 10 Sep 2026 14:11:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eEcj0ihIW4/2hfL2sFmXcgUUHPiSp9pOV/BkETS2qp5UCBuMmd9p2Euvqz5mAGhsfZdz95QrwtbJ0FQC0HJOBf4rx9jjp936wwFGmRTVWCq7iiLzgNzsvrIKzbNXQwopTBnklVAXfPeEtY0n72IaIu116M17NQPSDrbfqCYmt4zeECly4k70T2sbPbetG57bZR4AnVo+RbPgf1Lw8NJ90oKbJlz6By3VYeqR6Ml6WcomDNYgrLx03+Y27NgMVPYmgMbMEFwhbqxFXeZAwZtr7M5ROz4uHm/1FOgHczHYI0Z9lZb5zYk6t4PbHhJEEmS9T6kyZrHlgV1KLnUguTe2pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bJ1x3kgqSkTQvoo2VkC6bdHXJE6MAsnAJkaVi1Blhp4=;
+ b=HEuQv+GX4JYci6515GXSUQpq3rfv8f8IQthfddZWou+v1LE0sQiqTK3C6n9kguAT6og5M5n7ACbasr/Ng0LleNbXJuDv/Ytygv1zEJCw+flJ4R1elogjnMuR1soogdKMbthwYdIoEUA1gXsGrbbRtfPlWo95br3lEgaVs+dimzbBv+Jaek9MbkDbHDRYz/IRGEvQOqI9+/Ng26+BAqMsmZr/zjyZwbhp5iqECU5Wki6Kx99YWNHg4GbtzUcfyqVpDQ2YYzTXc0VW9JfOP7+qASbdeBuanONEvGaLQwJ9WUoVgtT26PtpP/ejyJJUqvtJY3CoX/60GcNZewpySYS7ew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=st-md-mailman.stormreply.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bJ1x3kgqSkTQvoo2VkC6bdHXJE6MAsnAJkaVi1Blhp4=;
+ b=ZW2JmJmOjGzEPHlOq7+LTlWJjuUHUfwnH6E6V7O1cCq+lSPnjk/wcXsb+ZdSNs5CSBkxuQAEHugu8liOZeRaiBt7FoR+78Guicl7/H4sIr/l5yA70tiOlDLxMxN+w6cKuipco08rlMzFT2pY9BctbuyYjYlTY6evhSdsJua2tMkdKtLqxXg4mQR/BW9HaMJc/fXiMHUNKtz196wTRDBjgPRxf/ndjNrJ70z3Nos9Uxkyp/XdNYasla123xTGcZS7fkYTuGJ56AscsijoKbbSfKIbX2OeF0LJQj7TnpzotTUhsgGwOHmrO0pw0ZER+dkhwT3XRgWVRKpNceyOphdpew==
+Received: from PA7P264CA0351.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:37c::7)
+ by MI3PR10MB9922.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:290:74::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 14:11:38 +0000
+Received: from MI3PEPF00008481.eurprd02.prod.outlook.com
+ (2603:10a6:102:37c:cafe::95) by PA7P264CA0351.outlook.office365.com
+ (2603:10a6:102:37c::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
+ Sep 2026 14:11:38 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MI3PEPF00008481.mail.protection.outlook.com (10.167.240.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 14:11:38 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
+ 2026 16:17:39 +0200
+Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
+ 2026 16:11:37 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Thu, 10 Sep 2026 16:11:23 +0200
+Subject: [PATCH 2/3] dt-bindings: arm: stm32: allow TAMP nvram child node
+ for syscon
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Message-ID: <20260910-upstream_nvram_reworked-v1-2-521c16175cef@foss.st.com>
+References: <20260910-upstream_nvram_reworked-v1-0-521c16175cef@foss.st.com>
+In-Reply-To: <20260910-upstream_nvram_reworked-v1-0-521c16175cef@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>, Srinivas Kandagatla
+	<srini@kernel.org>
+CC: Simeon Marijon <simeon.marijon@foss.st.com>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PEPF00008481:EE_|MI3PR10MB9922:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f576c7d-f4d7-4ac7-0728-08df0f456e4f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|23010399003|1800799024|10067099003|6133799003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: HA8eRosO9OG3svvJcnkzPdNKZ4LiBBc9EFBHzg1giGhc8O/q7KSYHgVgO9zEe2sNxhMAqeWtLu0TdUMhlNVl8ZYdV6DuXVHd9J8/tIwCjafyW+5MNbDvrGjJt17RRayHQL4RccYyBaj5kIyQsJqJAkIWIvfhAcTHHoqkl2/jhSaWZLuAiUoof+YaZq2OGZIES5eJ3m6ue7tB8PBYKjENqeOBsJ73nFdZcYIXrlFJ5RQ0ZQ/Y96T5y4k0+8cCLoLSFt01s1O2CaUlzlS7mFG2Ubcv9m7+Mg+s1OjaaUbNRvaQ21UGurayry1vbma5OsldpbA7zc8gtuIBDATD8kUig/j/uEl7PxXg1fVAV8AYP0MG9bFycZAMa/tbCW5EjuhUi8VCcCGRjuuWXslULfFtSS7TZF/0L22XQdqHQwE8wyWAqIyGRtOgQIoZSSPAuKEluKJTVPA5c9AlHv77X4pAMGRwQecw3oe8fE9t2B+0S1+O1y5X7yTG26dVAEwse49SCgqIVWTq605aO/iqtVqAjKMT5ZIyT56+sAmCiAc/lPgnKwfO+cgFMrYqwWBusn1921+c9vvYe5BRhQL0fWZWbvem0mZ3gOyngSYS/vIXlU2jwPy2xbkIaDgByHO45vJv8ELuedi+BjYDUSrga2sT37XhArIjy2+lUyOumv7yo3Y9cLSXgBpL4KEA2fH37iMna3k14CqNVws1OxkCmlG2tQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(23010399003)(1800799024)(10067099003)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XNY4kiQZp/HNRS0IgvGpU4WC3oEhPLqzC4MrYqg0mNf0OF+a4aqn8WsRJ3z2YTZYyiPeBly/4QgUNfDlq4tz2KAbWKRF20MajJ+JM0cC7C6KL5z9TjISEqEH20dnSgnb5zuiYv6isPXUXi70/wEn5BDIuPATxX+ewMuWVV6ybXOs316Q4TkJcggRS7MosH23OtDLLC8d/eTQTDPYm3d5krsyQxeS/hNKClDMfZ5QdS8Bt42cdPbe+sJpk1pk46WiETflWMmO368UvHIhBpbEnNaemBW3RgZ6ne6Cyrydo0PtS4ksfJ8zULfTHIGocl3IkSGlKabQOxLAJ+X9a+DgDEy5OFWFkZmxU3HzubQgvBcZ5thEy0tkYAEBebk9XwaM3Wr1hTLO5ho0qCjDdAxolbmSrR4SrsWhgOEw+Wz0ii6gv3QtCVInEwdkHuuPkKFd
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 14:11:38.6920
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f576c7d-f4d7-4ac7-0728-08df0f456e4f
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008481.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR10MB9922
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_071146_967855_9BD7D7E7 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,25 +133,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The STM32 TAMP node (compatible "st,stm32-tamp", "syscon", "simple-mfd")
+exposes its backup registers through an nvram child node described by
+nvmem/st,stm32-tamp-nvram.yaml. That requires the TAMP node to carry
+"#address-cells", "#size-cells", "ranges" and an "nvram@..." child.
 
-On Tue, 08 Sep 2026 14:26:07 -0700, Rosen Penev wrote:
-> Replace the devm_clk_get() + clk_prepare_enable() pair with
-> devm_clk_get_enabled(), which handles enable/disable and the
-> unprepare on driver detach automatically.  This lets us drop the
-> err_irq cleanup label and the clk_disable_unprepare() calls in
-> probe error paths and at_dma_remove().
-> 
-> 
-> [...]
+st,stm32-syscon.yaml uses "additionalProperties: false" and only allowed
+reg/clocks/#clock-cells, so wiring the nvram provider into the DTSI made
+"make dtbs_check" fail on every STM32MP TAMP node:
 
-Applied, thanks!
+  tamp@5c00a000 (st,stm32-tamp): '#address-cells', '#size-cells',
+  'nvram@5c00a100', 'ranges' do not match any of the regexes:
+  '^pinctrl-[0-9]+$'
 
-[1/1] dmaengine: at_hdmac: use devm_clk_get_enabled()
-      commit: d882935a2ca4457f6f446b02d7d08134cd9d4582
+Allow the addressing properties and the nvram child, gated on the
+st,stm32-tamp compatible so the other syscon variants stay strict.
+"#size-cells" may be 1 or 2: the STM32MP21 soc bus uses two size cells
+(an empty "ranges" requires the node to match its parent) while the
+other STM32MP SoCs use one.
 
-Best regards,
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ .../bindings/arm/stm32/st,stm32-syscon.yaml        | 28 ++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+index 95d2319afe23..8a0e751591f6 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+@@ -39,6 +39,21 @@ properties:
+   "#clock-cells":
+     const: 0
+ 
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    enum: [1, 2]
++
++  ranges: true
++
++patternProperties:
++  "^nvram@[0-9a-f]+$":
++    type: object
++    description:
++      TAMP backup registers exposed as an NVMEM provider. See
++      nvmem/st,stm32-tamp-nvram.yaml.
++
+ required:
+   - compatible
+   - reg
+@@ -61,6 +76,19 @@ allOf:
+     then:
+       required:
+         - "#clock-cells"
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: st,stm32-tamp
++    then:
++      properties:
++        "#address-cells": false
++        "#size-cells": false
++        ranges: false
++      patternProperties:
++        "^nvram@[0-9a-f]+$": false
+ 
+ additionalProperties: false
+ 
+
 -- 
-~Vinod
-
+2.43.0
 
 
