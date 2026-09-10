@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150D0C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CC0C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+rBPZVMVUyjo1kUIfdHiXExoRcCpgFuug24ae9XJXFg=; b=bXV9JHy9LtuBBtLGXwKKur/MUL
-	lOIijyxbxwvfrf4YyvK1moVjoFeu40jv9YLunL2MhQulzrgF/mlNf3WSlnwd5FMpACzD/x8IGUypL
-	smyrEgVCuxGqTtermsV8WQU0KiB+Wa4A+V0bPT+9kd8jxFOywNwWZcn0pE6cEUwoKnvjUOsPzL1BY
-	LIkJJiHPw08dr3gyL4P7gs7Bpt18v44ST6KCRoMLUlIFlzRiZobFKX1IZ5hnoaQDIOKsWX6lS7sNH
-	pSJ67udlZrl+L9roLOJ/g2gZPbcwcU1+4gpBf3P0gCLV4Uw0q0yYfu5UZwQ4sFbH4jy5Om37aax87
-	bka5BxGQ==;
+	bh=1iAtv2unCZuRSKay79DiZYrgZPynv4zWBTNGjY3xYd4=; b=P3lloDVrK0+Ir+xUzwwU8gQoIS
+	t1WHGw1YSNi/jzqNfEQkIe4kjnkE6I9ggy8xeZH29lbnRjq6J2zwzgyDbVuenECug/ES8529EzzgZ
+	9F+p2vQNRu4TAuWMTYq8W7/6RypyeZ1ebKrF5MiSguK2v8vmn0rFfLX11LkReulLVYgO/+YeTwuje
+	9CGV9bfDABwWPTgKWW+deZXKKm2p5POWKI+SBdOKcuhCLtffijzZguN1bYzk2k/1jO1SRvQ3m59TA
+	QlrEZ3PKEbKr9quuGxatK3u9+25kRALwv/kRWgkgUug47TakLufU4wuVNPR0QWmMt8fHpJmY4Xazd
+	gyMPII3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZPF-0000000Degp-3cUA;
-	Thu, 10 Sep 2026 07:41:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x4Ytv-0000000Daeb-235g;
+	Thu, 10 Sep 2026 07:08:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZPD-0000000DegH-3UsB;
-	Thu, 10 Sep 2026 07:41:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789026068;
-	bh=/mUIqen27iTJQ+qGVZdilGkl+ZjxfZXaVc7xvPeqU0E=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=fG1tpQfzOnpcLFK8cOiDMMwPNoA6/CjjE4fbPt5eercMMoY9Rmlm81hIoP5mGSMD1
-	 yrHgLK/Ol/sfgiB1qQomOQU2mk0H0XIUlNPmGubz4jNo4gfHURH5Ybr8RrGosuwM6I
-	 LMMa+GriOtWXQFt5F6pd2MzUOErkRFp40P7dcCaI9w5DKNr0n+eq2j5Gzu5KkTaBp1
-	 PWsWyYpGVbp/dtYHNy6ntZYYBRuRUGIJVqn0ZByzvFBmfdMFIJN74wB9zPr5KibdAQ
-	 4UzS+L6+7LX+ANNewUBxBFd+/x2RAngBw/WWkiEYOxlHO0FMMWwukv1AE6+bfCGBee
-	 PXJ4oTPoW8Uww==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8C4B717E0785;
-	Thu, 10 Sep 2026 09:41:08 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Justin Yeh <justin.yeh@mediatek.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20260903062142.1025443-1-justin.yeh@mediatek.com>
-References: <20260903062142.1025443-1-justin.yeh@mediatek.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-regulator-coupler: Add support for
- MT8189
-Message-Id: <178902606853.11258.8562228346904746355.b4-ty@b4>
-Date: Thu, 10 Sep 2026 09:41:08 +0200
+	id 1x4Ytu-0000000DaeO-0Ca9;
+	Thu, 10 Sep 2026 07:08:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A3E860200;
+	Thu, 10 Sep 2026 07:08:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1BA1F000FF;
+	Thu, 10 Sep 2026 07:08:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789024129;
+	bh=1iAtv2unCZuRSKay79DiZYrgZPynv4zWBTNGjY3xYd4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Kn3TV6sHwqFYbruJ8kjg0KQ90hYJiR7ApbX5/uTVmWQVCxD4jgO2hzofkmI293v0J
+	 /w7gW8SwP71ls7Pq5d49C2Lm5/wMiKGS77D7/2It38k9A3zgKAJ5LM6SBjr1cRgGrF
+	 6KZuweQ/5IwsbrpaUuFw0BlTbi74C5ImDwtuqTDlv8HNNRhrOFZhoQVYCW1o5CgAnj
+	 9m4Z7QB2bukAA5WzHv2ab00T2DSL4B64L956do+bX37b/JcX68C9i0DcukbJGqVnn1
+	 8lBjhWwJ1h/pINv5ODNcmLGjiK0GpS4XbJtdXkSa2/YvcQh6XGl89teHXhAYUMFCe0
+	 hXx7tiZHnLcUg==
+Message-ID: <718e88b8-3f3b-410e-8e76-90c370ff920a@kernel.org>
+Date: Thu, 10 Sep 2026 09:08:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Raspberry Pi 5 RTC binding
+To: Sander Speetjens <sander.speetjens@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260909141300.1368790-1-sander.speetjens@gmail.com>
+ <20260909141300.1368790-2-sander.speetjens@gmail.com>
+ <4c237cd8-024f-405e-a00e-e22ff9529d08@kernel.org>
+ <8cd19ae8-372b-444b-bd2a-dc01221b5896@kernel.org>
+ <CAAOJLPHNGgC7B=7ESCifZ1FPcR6V=Hcg-q-aaVg_9M_-d6Fh2A@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAAOJLPHNGgC7B=7ESCifZ1FPcR6V=Hcg-q-aaVg_9M_-d6Fh2A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_004112_026351_5F3CFB3A 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Sep 2026 14:21:24 +0800, Justin Yeh wrote:
-> MT8189 couples its GPU supply (buck_vgpu) with the GPU SRAM supply
-> (ldo_sram_gpu), which is exactly the GPU<->SRAM relationship this
-> coupler already handles for MT8183, MT8186, MT8188 and MT8192.
+On 09/09/2026 22:24, Sander Speetjens wrote:
+> Thanks for your response
 > 
-> Register the coupler on MT8189 as well so that both supplies stay
-> voltage-balanced.
+>> And more important, where is any interface to actually control the RTC?
+>> I see nothing, so your firmware is? Then this is not a separate device
+>> and you just added DTS for your driver, which is a no go (see writing
+>> bindings).
 > 
-> [...]
+> The RTC is a physical, battery-backed RTC, but the Raspberry Pi firmware
+> exposes its register interface exclusively through the firmware mailbox.
+> I initially used a firmware phandle so the RTC driver could obtain the
+> existing rpi_firmware instance.
+> 
+> Based on your comment, I think it is more appropriate to model
+> the RTC as a child device of rpi-firmware,
+> referencing to the existing firmware clock/reset/power services,
+> and have the driver obtain the firmware interface from its parent
+> rather than adding a phandle solely for driver plumbing.
+> Which also means moving this to arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> 
 
-Applied to v7.3-next/soc, thanks!
+Whether device has separate node, depends on it having dedicated
+resources. I don't see such here, so unlikely it should have a node in
+the first place (see writing bindings or DTS101 where exactly this
+question is asked).
 
-[1/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
-      commit: 6c5388154299ee0b5ab2c654d5f3631bafd524a7
-
-Cheers,
-Angelo
-
-
+Best regards,
+Krzysztof
 
