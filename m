@@ -4,108 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63964C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 19:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1C4C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dxBJRgyuHY3W/iJApny4mLX1c4wnn/TYh39J8mu564M=; b=iMWxtshe0C6xtwBhnJe60oMokO
-	hdEw1UW+irbxhGXSAf74JpvmH5HNF+nkuvWhXIlPtYxYPsFKjHHkh33dhqKLOclwh5oawlUWqQ2hh
-	3e4gjIq9C3J6So6gyabXHbevEeXTDM0q3xikkOUYDLIgvzPsIDcHAE6Hf2SNWQy0gpFllYGh8sttm
-	ooIk28F2Utap6TXD1q9rgznxznhp1qwLzP52e/QHzZ4FvIwKRXEoZdjKydwL9EG9zgB9geZFK3MWp
-	z78MY1CTcNKCVj8G3Sy6NZ4rMlL4VPwDSgzRSIBoPRootjPPAKLxYztiePFTNLO4NFCh6WDsZADPn
-	r4aoXGNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GXk0qLzumkeWHKGn2E4m00nTu6We02N0NBhHR8mYOJQ=; b=Vz+quvhE3S5Dc7b52Nem22xVlf
+	vmvCcwdlx5RFDQSPq4y/Exw4Il/faXKbIQtdPyZkPKmQkatIWDvHNIl2wVNn5+iEVNAk91eIl1LHd
+	KSh2rF207k9Gx4bwASsL+/alvHjYmKWOGhNhZ4Jz9AGHlbpe3Izhy4eoAkakpVfAMRic2en5FlDj3
+	FZMYqv51ZDpFVQnxe7zLW5qM6Kj8l/QnZz9H5ruAXumA0nwTStNQ0u+UGXNCo9bKmzos+upAaNuuH
+	8KdBwqvElC0f0vypAMS81T+/AIawgZxkdpFmtQrFbVh/5AcUhskNHREHvEXjebuk3Hqt7vn23g7Qv
+	oD2vBW3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrS-0000000FBYM-11Bf;
-	Thu, 10 Sep 2026 18:51:02 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1x4kx9-0000000FIJP-46IV;
+	Thu, 10 Sep 2026 20:01:00 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrL-0000000FBVp-3pkt
+	id 1x4kx6-0000000FIIg-4Bxw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:50:57 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-90cc39e06bdso569056d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:50:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1789066255; x=1789671055; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dxBJRgyuHY3W/iJApny4mLX1c4wnn/TYh39J8mu564M=;
-        b=BauBWKsoy7T3rNVvGEasalZa9VM1+o3D+2e1bbkauoOS4noWP84wl/bIiQhyrkT8pU
-         Lh5CXKi97umwW6TQICsqKcJBHSOMZtZ4rfFXfeo5YmZQTvLgEDOi0ClHpFft9Z0C53mK
-         y0GOeNRmsPwZgxFVNFm+Adqa5VTKXzfh6gPieFpv/88+p7U+K3LW87oC/6HQfaKdBnvR
-         Xe8eo5Lf5wY9qbI+NEuMHZBRSFwcTGFAG/UEQ+WYQpRkQksAxzXikE/m4F0vOqElKN+7
-         5dpL9Wqvlxg0zKs2puLNwzrKpjdL+cCxbteigurPXguDxqCs0w2SV6wcLIZwHZewLfgh
-         Eynw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789066255; x=1789671055;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dxBJRgyuHY3W/iJApny4mLX1c4wnn/TYh39J8mu564M=;
-        b=ARn2PCZET6bHUhn4e/0QKuUHvTwEp0r6gmwTSaRNVYwLU8YajRa/JsTslbwKwpNawo
-         ycX+fio+VIk6Mdg8LAAiVY3FKQCqoHxarA3DieMwjdZ7/UURIhks4z43PLwOZWtAs3gt
-         DjJO+BKfnIcj2gIKsPG71cKOJDHiIctxDyGFkGj3Bhs/7jGcCGiBMODDhNiuuzmDLQpk
-         YUDUTj4GUVsBhVZBjm8WXcBe+O5sXbT667W9XB17ZTQl8WQos+l8j3RDoarbTsIKVucC
-         APqlV3eHQVY3UbHBWvALiqMVo5z049e5y2YYNWZPILxGt1fhYhClpsxKmNWdX7y8vog7
-         J9sQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxcjee79Gxh/75ycK0sLSmznB/ssiGvpAK4SkTUWE81IBUeKOL/6W+twEaE/UHMYW2FiWb0C/Y5cqq4fRdsF8p5@lists.infradead.org
-X-Gm-Message-State: AFuF++knD9TJf64om6Phs661l4PowearrXyXHbH4KlPDJVIKMCJxufIP
-	S2tjR4KODkT6OgHglvAgc63HYIFoC1EJuOe9QLQEzyE93+vf8wwST9XMhcu48yn2c9I=
-X-Gm-Gg: AYBFou2irYzaMJRnSgRfDY/N5F66v2Araoky6bUkduYYtL/2+uXBtOkwU8Ykx9Zxsc4
-	mBueANWGOONjurIU6q4P3ymgZ1nZPARssLcAQ96Cahvmnv10rcCgzx5aeQzhXgMfzBobQfQsCM1
-	wrcl3jJbdmp8N4lA0fjuKrMwDWY3bQy2isMEnNLlA75ueitNaJjttYLqKgGVUV6ZTsAtvb52QSz
-	UZZojS/t4TR/1yVPuj3OenpFJbzs0tNWnnJnxqtNNhCJ3av99gfuMRWw9f3mcHkhQ6Gm86hdTwo
-	nzwEN2hpThsM+yzidEedaLTduBeBjRHr1aXOiw9bBuW7t/hTo/YAkaoaZKz7iJY9DG6Q3PnLo8+
-	ha+NDIBR7OjxbZkRvHuddRaF/PZAxqx2rSmWYGjYGbpRMOIpfNLxdxouapjrRC3V2+hKncF4LwP
-	u0Kcl2OmJUUaOHg5DlbjiXlLGNHs2sjbey6CjUZRfTc1B4hO9luXjyK9HWlfV5i0CpmfR0plgqw
-	Lz+pBuatP1YmYYOgYgHdm4Zpi2mLFLPBIdbWM4hhA4kNflfePqJzEt9
-X-Received: by 2002:a05:620a:280d:b0:939:78ab:3c5f with SMTP id af79cd13be357-939ea0137a8mr26249085a.9.1789066254480;
-        Thu, 10 Sep 2026 11:50:54 -0700 (PDT)
-Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-939e8bf9d51sm34965885a.14.2026.09.10.11.50.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 11:50:53 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Thu, 10 Sep 2026 18:50:25 +0000
-Subject: [PATCH RFC 02/13] entry: Pass pt_regs to
- irqentry_exit_cond_resched()
+	Thu, 10 Sep 2026 20:00:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e5DAa4eatw0ZujFPE2zNAAbfmJQ2slY6X0Hd/4DKk0tVjO16wHXpL3Hg1kAW2E3L68FJkJVP9OmVBOEzSp/2svVRpSwC69qq3ne/9JccQhLEVk2pkVHNqu2gu8pI5phXBPbreSrKtXnhIKcjgOklswgRZKZRLfLMX6foHtXmp1SCdzk+gjLtfWwHTxsB8ColWLiVSn0VcmpKYFebWCQiwRpukmQ2if3gn0GDUTejn5MkVZhVszyutL5AEQcVEpBsSfqIPyqXefhXfZ5h4OPDyjWgm/UcBg4NH5fJIgj+u2pfs9JffzXuTbWF/GPjOQkzxsKxZoSIsTtLu9BVcNIIDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GXk0qLzumkeWHKGn2E4m00nTu6We02N0NBhHR8mYOJQ=;
+ b=Aj6TG4U2M+BFftjNAa0vFU22d0reYqnyH1kLlEpNST9q4fkNZkf0x8973/t8TEN6WF+hjtirLEa2xHuVhcFEYrIorihUyrYfXnVwamrDHLYKLwPE85LgrCmWpKSuFzS4Oe6jpNdZSveuU9b6wXtylt/MPipAVhrzBzFgnator1rjVgW6f4VfgZcF7lIBtXlbS4GJ6cIcGBm4mNLjvLjoxLr5pjCYGgqSLMhI1e7BP5PQaEvfB1WTHBeOVIkzrswNDAErKlyA/EGwb0aVtLJ1pdEnUv489UuSR+OuKDQjtI6yhuNIiCJ8uQi5Qmmzittvg7Hf9H4S1gPzgjlhh5BzJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GXk0qLzumkeWHKGn2E4m00nTu6We02N0NBhHR8mYOJQ=;
+ b=dLiJFZWWTuZVqJPgMguw64gsmMnQG+YJ/jg/vJ7CdsnCznckXUP0cFJeD0+8wtsNK8oQUVHWHORcdJtckbGys8pDzlUYLzXc7G1wlBIOww8peGrm63rZu7WbmOqvbltGxStLcRIGDY34W/P6S8Q8kW2/C1VprQhLv/mVO7HrKU2Zr5QwHkt45v8GbSdv6SBlidARt4PjtU0wWZ0wh9UQltmVwSntiPzgiuQvtraS+TSxFLsSylM6wUzza/TEjBqwOp4uX3kUReJy5GjPRXUHT6apgfntImcjtojNYEcLkpcmpie1W0uAPDN/HF+SM/EIGsl9C/vVIdAqG2Emy6lAvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB9091.eurprd04.prod.outlook.com (2603:10a6:102:229::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 20:00:51 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 20:00:51 +0000
+Date: Thu, 10 Sep 2026 16:00:42 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@xs4all.nl, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com, linux-arm-kernel@lists.infradead.org,
+	jackson.lee@chipsnmedia.com, lafley.kim@chipsnmedia.com,
+	marek.vasut@mailbox.org
+Subject: Re: [PATCH v7 0/9] Add support for Wave6 video codec driver
+Message-ID: <aqMMap6NHllxh1st@lizhi-Precision-Tower-5810>
+References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+X-ClientProxiedBy: PH7P222CA0014.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:33a::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-b4-rcu-tasks-preempt-qs-v1-2-d4469f4cc101@toxicpanda.com>
-References: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-In-Reply-To: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
- Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
- rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9091:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1d7ec78-fc33-4b62-a8f7-08df0f7636c6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|7416014|376014|366016|6133799003|10067099003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 5BhybztGiAbriC4ZkbQc4hshTAuhmCYm1VjHnEmaXKNaiWSpZ0wvsoDxbHbXDwfKBg27a7K0IlNhqBiNcsuRhKBGW6BioBlebiCNSQdFynQpgWWVZPsj2FAHFCUBwnag0QTxRhARr1MF99ZlKLjCDLhvRxDP8bSD9zZe+eGlYFsVlRYqXmCwDLzlWAjwqHkxu6nYlsn9/BEJv4Dc7ZJUPIApiRKnlXyt/t+bIzFEDh2HTm/F6UuHKA1uFsLwUOFG42reQ1s53i1ca1hS6+ZRKpgGe/K4yPvLny5apUfsgKZJxHn+noQewVMAQAKv+fPu5RTBqWgxVXQC6bK8FdPYZcHHNw5hjH+0548Y8QSV8PyqZ8ltLfEL7wv/4ztUzFnk4XEOAWtabDELQo2dggSjnOoVDs5QBBflmmUYAO87VOcCvQVK2/SvKegV6iFoAv9KikB7B5An6bu2gwfZz26Mort55oX9goX/T8BSKb7w+NvG1Chwpev7B87QrGKdsH1U6X8py60hh0u4qjK4ANFbEf4wLJqnEAWue94mc+C7tqaEcszZgorBGJH25BZh89AjlZpELHLzLgfgvMbmMMV1VOQS9yLZGFez5D/ole4TAkEoaX3VfzQ121DvyrFm43b21NLLq59nrGuD4bk0ALTsBE1R3KXBtXJMqbzYE+ExcLE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(7416014)(376014)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c+8mEBPKfCVF/KotcP9Lmo0jGXjz4tflH8LRcL2wa6w1kskMwID+lDpkrp5i?=
+ =?us-ascii?Q?7Bdr3NrlMfnhbN319YS14tRpNmp5e5WXdpYNrJS6Q0vn+6E+TFJ16iiEBzy+?=
+ =?us-ascii?Q?7/DKr1Z18mucfhqO2pFUyPb0vjDvwc3yD6AlzKUoo33EsJtIiaUUMaQLnqWn?=
+ =?us-ascii?Q?fNX14eN8l4GBueSYM2sAtEhFEsrpY8wFUVs2T41wsAISovma7QsOf7OIIvcu?=
+ =?us-ascii?Q?4Ho/0y6ik+3mmcULHKzeKipN62l75X16Z7jcitv90m5Czm2eolhSMbbNAFU8?=
+ =?us-ascii?Q?DSExowNQyGH8bO5Wix6p2JnEH8qrKYHGAUpdNRmkbgorhViwjwwB17XM9hW0?=
+ =?us-ascii?Q?pGlvBKbGYkEbSiwHZEUaAYXdeiWmYy/EbwH+WbVZaG7ikYgpKcaMPKR6Fe3p?=
+ =?us-ascii?Q?64OrtDm44XTLziOdc/ZhTKRU9Bl0V+2jzdneBcquo2Psg+j+2PpJlPkdIoGy?=
+ =?us-ascii?Q?w8PVUuAsEwTRJZveYGn6PpxG4gQ8Xlu7MceamIdG89qnHd0DKg6LdN4ujyzI?=
+ =?us-ascii?Q?lkqwKWZ3Nyn8T+Eg6M/8Bro1GP30Sw9kYzpQ+T8f8pOxC3VhiIvO/dHgZNxi?=
+ =?us-ascii?Q?lmPaThKqVPvxjtROFFMZqDwA/oalX+dZ7GxJQr516I/jLy6VV22I0iwDn+ah?=
+ =?us-ascii?Q?L5HAm//pnG1/TANmw8r8NLbtydXJUOoCr6dIUZ5nPmeYyjAK4RtrQM6Y+Qlb?=
+ =?us-ascii?Q?VKqQFe33Nnvh9c/7lL0LL2fJozmkNkFBAaTYT321po+w/9neXBqCG70Enp6d?=
+ =?us-ascii?Q?8plcHn3SztfqYJ6HcUUz6s3fVbcT6BwS4xfoG1pICbGMUfl8GYDRtub2ApsZ?=
+ =?us-ascii?Q?UeL1FkKUlURUjg5tABl7SzqhvQZJ6EfKxp4li3pTtFK8MAG1zFlc1+JHbOeY?=
+ =?us-ascii?Q?fYIIePnDJWGRLgDg8D870fy5DFN3umCm5yctbSXnwywWxJWzSPOiYpE2JOpz?=
+ =?us-ascii?Q?0Aqt2vJkrE9jwoVxZp83rjMCjhhA62vvHR4gjKLmrPtYgI4ElTSl2XsFIB4X?=
+ =?us-ascii?Q?/7YXBRJaDC8SeInPkYaJ606XDxVgv2iDE6MhWIKjPCmLCTFTHzwb0wOhsME4?=
+ =?us-ascii?Q?WaXqk5gTzv1/aD9e65+LqX3oIqshuiThwS9slMG+t+D7TgDrJTBCXxeuNCpa?=
+ =?us-ascii?Q?+cg/D2AVs/WWdb4t2bnEJsX4QCgLHxUdWbzR2U6RrbJ2dU7fH993k95t5buQ?=
+ =?us-ascii?Q?+7AXefr1SKtsbWWv8FcbfzQA0AIZ/ZhNfM4ir/YLwXwRFhq79vye3Jj78puT?=
+ =?us-ascii?Q?PqFETnayWMCgmfrUgnrvx5b5tsoQ1Bq8pTbXAZGdnsTTnxVsSzPJ86b4fW9G?=
+ =?us-ascii?Q?7yZbdJMdO1ughJZShfPP6ZRvFXvn0FhmUX9gGURGvn7Va1/+ZCXAvZgnAyqT?=
+ =?us-ascii?Q?fxdNzrEVBjoDNLoxJAEgTYMUzeGo+P7JItvNPnG9jgRUdE+NHAKtvao0hvc8?=
+ =?us-ascii?Q?sn7+3LcMyd1OCYC7Okcl+m527sLA1eXyQjJstOylih1P4+AMiKqsX/u52c5B?=
+ =?us-ascii?Q?jd9ArjeaDUEV3sjOlW9rts5+vN6yNh+6QfiRMgaEwX5YIpanI0phLie8zWto?=
+ =?us-ascii?Q?Vccfhu3sAwjZo4gJ55/b+SojLuy8SBIkBdmXygIbjqdLUNIB+tYqBaF5s3M7?=
+ =?us-ascii?Q?GV3DoUtdR3+0+OWfAPtcxSz++AZe8NiGlw73DWTI9WbOXVvE1cKpOcVy9vmK?=
+ =?us-ascii?Q?L+eqdrGj+HOeBAHS+lC4c4eyUetbD3Cn3v3RZwwN66OI3dGX4Kjyb8Te2zVu?=
+ =?us-ascii?Q?pLbtVBhmSMWLN4zJunDOpKFQEwq/ZhqkwiU12QU5E8QOAJxQD6aY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1d7ec78-fc33-4b62-a8f7-08df0f7636c6
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 20:00:51.2923
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GmkIjnTMADovvo5ebAfimGDUrI5BygY70DtHWvWu4DB7uwMDtxX9AnsjJ/jcSEV7x91fluMu5l66xtHKpBks4I5aETJJKChHMEw/GXpKuUEIPSNynZywIFCHmFpynsFx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_115055_969888_F1F2F000 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20260910_130057_217925_505CC9A3 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,106 +140,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The irq-exit preemption path is about to need the interrupted context's
-registers to decide whether the preemption may be reported to Tasks RCU
-as a quiescent state.  irqentry_exit_to_kernel_mode_preempt() already
-has them; hand them down through irqentry_exit_cond_resched(), its
-PREEMPT_DYNAMIC static-call and static-key variants, and
-raw_irqentry_exit_cond_resched().  The only caller outside the generic
-entry code is Xen PV's upcall handler, which has regs as well.
+On Fri, Sep 04, 2026 at 03:46:26PM +0900, Nas Chung wrote:
+> This patch series introduces support for the Chips&Media Wave6 video
+> codec IP, a completely different hardware architecture compared to Wave5.
+>
+> The wave6 driver is a M2M stateful encoder/decoder driver.
+> It supports various video formats, including H.264 and H.265, for both encoding
+> and decoding.
+> While other versions of the Wave6 IP may support VP9 decoding and AV1 decoding
+> and encoding those formats are not implemented or validated in this driver at
+> this time.
+>
+> On NXP i.MX SoCs, the Wave6 hardware exposes one control register region and
+> four interface register regions for one shared video processing engine.
+> VPU Control region, Manages shared resources such as firmware memory.
+> VPU Core region, Provides encoding and decoding capabilities.
+> The control and interface regions are distinct DMA requesters and can be
+> associated with separate IOMMU stream IDs, allowing DMA isolation between them.
+>
+> The interface regions are described as child nodes of the VPU node rather
+> than folded into the parent with reg-names/interrupt-names, because each
+> one is a separate DMA requester. This follows the same structure already
+> accepted for the Qualcomm video codec bindings, and was mentioned on the v6
+> thread.
+>
+> The firmware tested by this driver has been upstreamed in linux-firmware:
+> - Path: cnm/wave633c_imx9_codec_fw.bin
+>
+> This driver has been tested with GStreamer on:
+> - NXP i.MX95 board
+> - pre-silicon FPGA environment
+>
+> Test results for decoder fluster with -j2 option:
+> - JVT-AVC_V1, Ran 77/135 tests successfully              in 24.180 secs
+> - JVT-FR-EXT, Ran 25/69 tests successfully               in 11.157 secs
+> - JCT-VC-HEVC_V1, Ran 132/147 tests successfully         in 45.534 secs
+> - All failures are due to unsupported hardware features:
+> -- 10bit, Resolutions higher than 4K, FMO, MBAFF
+> -- Extended profile, Field encoding and High422 sreams.
+>
+> Test results for v4l2-compliance:
+> v4l2-compliance 1.31.0-5386, 64 bits, 64-bit time_t
+> v4l2-compliance SHA: 48316b8a20aa 2025-08-12 12:44:56
+>
+> Compliance test for wave6-dec device /dev/video0:
+>                 fail: v4l2-test-controls.cpp(1204): !have_source_change || !have_eos
+>         test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+> Total for wave6-dec device /dev/video0: 48, Succeeded: 47, Failed: 1, Warnings: 0
+>
+> Compliance test for wave6-enc device /dev/video1:
+>                 fail: v4l2-test-controls.cpp(1193): node->codec_mask & STATEFUL_ENCODER
+>         test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+> Total for wave6-enc device /dev/video1: 48, Succeeded: 47, Failed: 1, Warnings: 0
+>
+> Note: the failures are all related with the eos event.
+>
+> Changelog:
+>
+> v7:
+> - Moved the sram property from imx95-19x19-evk.dts to imx95.dtsi
+> - Simplified the sram binding property to maxItems: 1
+> - Fixed the issues reported by the sashiko-bot review of v6:
+>   - Bounded frame buffer and aux buffer counts before indexing
+>   - Added vb2_is_busy() checks to the decoder S_FMT handlers
+>   - Fixed video_device lifetime and driver teardown ordering
+>   - Propagated hardware init, runtime PM and thermal failures upward
+>   - Fixed tracepoint field widths and debugfs handling
+> - Balanced the VPU reference on the core activation error path
+>
+> v6:
+> - Fixed the existing P010 format_info entry
+> - Moved all encoder parameter validation from the HW layer into the V4L2 layer
+> - Removed redundant HW-abstraction wrappers from the VPU API layer
+> - Computed frame stride and sizeimage in the V4L2 layer
+> - Added explicit instance lifecycle helpers to the core driver
+> - Enabled the VPU only on the tested imx95-19x19-evk board
+>
+> RFC v5:
+> - Move all shared resources to the parent node
+> - Drop child compatible and use data-only interface child nodes
+> - Update the VPU driver to create child devices and load the core driver
+>
+> v4:
+> - Fixed build issues reported by CI tools
+> - Updated commit messages to use imperative mood
+> - Avoided using the same name for both nodes and labels in devicetree
+> - Removed unused labels from YAML examples
+> - Added description for child(vpu-core) node
+> - Added iommus property to both parent(vpu) and child(vpu-core) nodes
+> - Updated probe() functions to use dev_err_probe() when returning -EPROBE_DEFER
+> - Added wave6_vpu prefix to trace functions
+> - Updated HEVC decoder profile control to report MAIN_STILL profile
+> - Fixed bug in multiple instance creation by pre-allocating work buffer
+> - Fixed interrupt handling by checking INSTANCE_INFO register and instance list
+>
+> v3:
+> - Removed ambiguous SUPPORT_FOLLOWER feature
+> - Used WARN_ON() for unexpected programming errors
+> - Split thermal device code into wave6-vpu-thermal.c/h
+> - Dropped wave6_cooling_disable module parameter
+> - Replaced mutex_lock() with guard()
+> - Added lockdep_assert_held() to clarify locking regions
+> - Removed exported function due to dual-license and used function pointer
+> - Added documentation and validation for state transitions
+> - Added documentation for device structures
+> - Added patch to enable VPU device in imx95 DTS
+> - Updated DT bindings and driver to align with parent(vpu) and child(vpu-core)
+> - Replaced magic numbers with mask and offset macros when accessing registers
+> - Placed goto statements after an empty line
+> - Printed HW info (e.g. product_code) via dev_dbg() for debugging
+> - Replaced wave6_vpu_dec_give_command() with dedicated functions
+>
+> v2:
+> - Refined DT bindings to better represent the hardware
+> - Reworked driver to align with the parent(VPU) and child(CTRL, CORE)
+> - Fixed build issues reported by CI tools (Smatch, Sparse, TRACE)
+> - Improved commit messages with clearer descriptions
+> - Added kernel-doc for exported functions
+> - Removed redundant print statements and unused code
+> - Reordered patches to prevent build failures
+>
+> Nas Chung (9):
+>   media: v4l2-common: Fix P010 format info
+>   dt-bindings: media: nxp: Add Wave6 video codec device
+>   media: chips-media: wave6: Add Wave6 VPU interface
+>   media: chips-media: wave6: Add v4l2 m2m driver support
+>   media: chips-media: wave6: Add Wave6 core driver
+>   media: chips-media: wave6: Improve debugging capabilities
+>   media: chips-media: wave6: Add Wave6 thermal cooling device
+>   media: chips-media: wave6: Add Wave6 control driver
 
-No functional change.
+This is quite big drivers. You enable build at finial patches, it is not
+good. Each patch expect built-able.
 
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
----
- arch/x86/xen/enlighten_pv.c      |  2 +-
- include/linux/irq-entry-common.h | 12 ++++++------
- kernel/entry/common.c            |  6 +++---
- 3 files changed, 10 insertions(+), 10 deletions(-)
+I suggest split
 
-diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-index 2c64b388f616..3d85035f5624 100644
---- a/arch/x86/xen/enlighten_pv.c
-+++ b/arch/x86/xen/enlighten_pv.c
-@@ -739,7 +739,7 @@ __visible noinstr void xen_pv_evtchn_do_upcall(struct pt_regs *regs)
- 
- 	inhcall = get_and_clear_inhcall();
- 	if (inhcall && !WARN_ON_ONCE(state.exit_rcu)) {
--		irqentry_exit_cond_resched();
-+		irqentry_exit_cond_resched(regs);
- 		instrumentation_end();
- 		restore_inhcall(inhcall);
- 	} else {
-diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
-index 8da571622000..fc04725ae46b 100644
---- a/include/linux/irq-entry-common.h
-+++ b/include/linux/irq-entry-common.h
-@@ -348,21 +348,21 @@ typedef struct irqentry_state {
-  *
-  * Conditional reschedule with additional sanity checks.
-  */
--void raw_irqentry_exit_cond_resched(void);
-+void raw_irqentry_exit_cond_resched(struct pt_regs *regs);
- 
- #ifdef CONFIG_PREEMPT_DYNAMIC
- #if defined(CONFIG_HAVE_PREEMPT_DYNAMIC_CALL)
- #define irqentry_exit_cond_resched_dynamic_enabled	raw_irqentry_exit_cond_resched
- #define irqentry_exit_cond_resched_dynamic_disabled	NULL
- DECLARE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
--#define irqentry_exit_cond_resched()	static_call(irqentry_exit_cond_resched)()
-+#define irqentry_exit_cond_resched(regs)	static_call(irqentry_exit_cond_resched)(regs)
- #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
- DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--void dynamic_irqentry_exit_cond_resched(void);
--#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
-+void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs);
-+#define irqentry_exit_cond_resched(regs)	dynamic_irqentry_exit_cond_resched(regs)
- #endif
- #else /* CONFIG_PREEMPT_DYNAMIC */
--#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
-+#define irqentry_exit_cond_resched(regs)	raw_irqentry_exit_cond_resched(regs)
- #endif /* CONFIG_PREEMPT_DYNAMIC */
- 
- /**
-@@ -467,7 +467,7 @@ static inline void irqentry_exit_to_kernel_mode_preempt(struct pt_regs *regs,
- 		return;
- 
- 	if (IS_ENABLED(CONFIG_PREEMPTION))
--		irqentry_exit_cond_resched();
-+		irqentry_exit_cond_resched(regs);
- }
- 
- /**
-diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-index e3d381fd3d25..e4acd50bd81a 100644
---- a/kernel/entry/common.c
-+++ b/kernel/entry/common.c
-@@ -134,7 +134,7 @@ static inline bool arch_irqentry_exit_need_resched(void);
- static inline bool arch_irqentry_exit_need_resched(void) { return true; }
- #endif
- 
--void raw_irqentry_exit_cond_resched(void)
-+void raw_irqentry_exit_cond_resched(struct pt_regs *regs)
- {
- 	if (!preempt_count()) {
- 		/* Sanity check RCU and thread stack */
-@@ -150,11 +150,11 @@ void raw_irqentry_exit_cond_resched(void)
- DEFINE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
- #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
- DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--void dynamic_irqentry_exit_cond_resched(void)
-+void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs)
- {
- 	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
- 		return;
--	raw_irqentry_exit_cond_resched();
-+	raw_irqentry_exit_cond_resched(regs);
- }
- #endif
- #endif
+1. core part with simplest decode driver. "You use git add -p to choose
+which trunk to add"
+2. Add encode part
+3. Add m2m part
+4. add debug and tracing
+5. add performance profile
+6. add thermal cooling device
 
--- 
-2.55.0
+Maintainer may pick subset.
 
+binding + simplest decode + dts can be merged firstly.
+
+Then gradulately add encode, m2m and other advance features.
+
+Frank
+
+>   arm64: dts: freescale: imx95: Add video codec node
+>
+>  .../bindings/media/nxp,imx95-vpu.yaml         |  162 +
+>  MAINTAINERS                                   |    8 +
+>  .../boot/dts/freescale/imx95-19x19-evk.dts    |   10 +
+>  arch/arm64/boot/dts/freescale/imx95.dtsi      |   37 +
+>  drivers/media/platform/chips-media/Kconfig    |    1 +
+>  drivers/media/platform/chips-media/Makefile   |    1 +
+>  .../media/platform/chips-media/wave6/Kconfig  |   17 +
+>  .../media/platform/chips-media/wave6/Makefile |   17 +
+>  .../platform/chips-media/wave6/wave6-hw.c     | 2030 ++++++++++++
+>  .../platform/chips-media/wave6/wave6-hw.h     |   56 +
+>  .../chips-media/wave6/wave6-regdefine.h       |  649 ++++
+>  .../platform/chips-media/wave6/wave6-trace.h  |  289 ++
+>  .../platform/chips-media/wave6/wave6-vdi.h    |   92 +
+>  .../chips-media/wave6/wave6-vpu-core.c        |  448 +++
+>  .../chips-media/wave6/wave6-vpu-core.h        |  126 +
+>  .../chips-media/wave6/wave6-vpu-dbg.c         |  183 ++
+>  .../chips-media/wave6/wave6-vpu-dbg.h         |   14 +
+>  .../chips-media/wave6/wave6-vpu-dec.c         | 1843 +++++++++++
+>  .../chips-media/wave6/wave6-vpu-enc.c         | 2764 +++++++++++++++++
+>  .../chips-media/wave6/wave6-vpu-thermal.c     |  143 +
+>  .../chips-media/wave6/wave6-vpu-thermal.h     |   24 +
+>  .../chips-media/wave6/wave6-vpu-v4l2.c        |  516 +++
+>  .../platform/chips-media/wave6/wave6-vpu.c    |  826 +++++
+>  .../platform/chips-media/wave6/wave6-vpu.h    |  143 +
+>  .../platform/chips-media/wave6/wave6-vpuapi.c |  336 ++
+>  .../platform/chips-media/wave6/wave6-vpuapi.h | 1007 ++++++
+>  .../chips-media/wave6/wave6-vpuconfig.h       |   72 +
+>  .../chips-media/wave6/wave6-vpuerror.h        |  262 ++
+>  drivers/media/v4l2-core/v4l2-common.c         |    2 +-
+>  29 files changed, 12077 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+>  create mode 100644 drivers/media/platform/chips-media/wave6/Kconfig
+>  create mode 100644 drivers/media/platform/chips-media/wave6/Makefile
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-regdefine.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-trace.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vdi.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-core.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-core.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dec.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-enc.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-v4l2.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuapi.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuapi.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuerror.h
+>
+> --
+> 2.31.1
+>
 
