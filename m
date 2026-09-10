@@ -4,109 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633D7C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3554CC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/H7/x7jrZUwe3gjvxEalG5iN9U5i6+Y9YANROw43qY=; b=tSANfongcHHOsBndEGESo4GVCu
-	lhy3/TheWBDeLViNMAtTLnOfbPBcMtZ+ULJ4tjhAnLi4xAz6sQIDbqvl3OBkhJmZPndrseo1kHskf
-	n9iH/CoM4Kb7fidY/xFSoU019Cts7AA3yrDSTRqqaevsmVlCanCVmIIXsKD870tIWm1YItg33Vyl/
-	GGt5vqVuwtT8OKBslFHSEZh+9A47D9u31wsPjs2Kh5XRSV0r3MD7erHNR2nYXwliGMb1PhHC4qd6T
-	wOUWoKgJ4JZThDwSgHippHOjfB2geZ4kiNto15pwf4TJ4EH96o3kh/kiGrNeYl24eC/vj4urygRQs
-	P9iiYJQg==;
+	bh=F5/vPpllGKppAQmvAZ51j2daco6+yuo7BVECN5KUbX0=; b=zNGENwnh5F1rSuItnaku4BfWmQ
+	WXwzKuKieFk/OHwxlC9i9HrVAJjHIJIzh5aBnPWOzNipXJq6SaXzY/wHQaC/DNZeVIINUr83qqltP
+	WO97YLNjfpES0RFUhrkIzudC0fDqBMFWtYPZ2zjLSkPfCd7OGcf5YsIm8LjfINrKSqqtnRQIwI8kc
+	VoEDqa5GZyMyQrPEhTjUQOjF+CDg8OAvW532L+o56NlO7kODODpae5XN6MtX1sVqwgkJ+kfYjCClN
+	fR8pq6vrfhpE2gRl4V6iAg9oZLftSioD1BmFG8KiL4Oehvgm+DDv8vHcPT44qD6ndNRFMpTvP5zAD
+	dPpItjOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bGn-0000000Duut-2yFl;
-	Thu, 10 Sep 2026 09:40:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x4bMr-0000000DvU7-2ZX3;
+	Thu, 10 Sep 2026 09:46:53 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bGl-0000000DuuM-0MMg
+	id 1x4bMo-0000000DvT6-3QIq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789033232;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J/H7/x7jrZUwe3gjvxEalG5iN9U5i6+Y9YANROw43qY=;
-	b=NKZ5cacAcuN7mbpNR4iCohIwEwYtwjhyns25Kft60c9AryPxgSIDVnK8pc1JboskiqBWA7
-	qktrlSsfDTePoUwiq9eHeUwwDcgUV56eHKcZzUCG7GV6H6nIqpKepM4OVpe5FG4NMbe5GS
-	VpgXBPPA0e55OVHxkA0M6TJYslBrXs0=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-57-S4bZein7NoWIwe7L1n-8KA-1; Thu, 10 Sep 2026 05:40:29 -0400
-X-MC-Unique: S4bZein7NoWIwe7L1n-8KA-1
-X-Mimecast-MFC-AGG-ID: S4bZein7NoWIwe7L1n-8KA_1789033228
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ce7dff6253so9697905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 02:40:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789033228; x=1789638028;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=J/H7/x7jrZUwe3gjvxEalG5iN9U5i6+Y9YANROw43qY=;
-        b=Ck0FuDgYogjXKDMIjOatO/yQUeW1n0qgtOJZ0OnNR1Y3Mf2FoNPNpn3UQQKQCGy2NX
-         P6kT4z8z6MyTugX2w2/E+e4XAzczRu6q8SH9Yvfd8uBbhr65ESf0qViJtECqZNZvocXM
-         aFbY7nj95kZnoJiJ+C3T3JIcklUYfJCzjOJOetuMgVIPqN0ViC+h1yLxf0q2on48bmt9
-         n/y3QHKdTfj9oPxfljQjwEzv1mrpFsIHm4NILsd6TfV1n9BKNFcMGW2dyfrIeRvLyofT
-         xdElHSpaUW+XlabcbifAnDumY4yI9mTe00LzjkhL+ih6XK2kQyaodjIKWubLg7WFq2u0
-         jQ8w==
-X-Forwarded-Encrypted: i=1; AKwUvBwdNNp/wrUTAO7nqo0yNHUyq2AonZgpLfWXcs9qpB33rsXtlhVNpn199qbpQAYRrD61OXKFyg4S3KUeuDCua7WW@lists.infradead.org
-X-Gm-Message-State: AFuF++nFuGsSgt6QKRLbf2MsNevOMfJQXCw1xLAi7urSWuaOFpO4VrIe
-	VHGKPk+Rjm6h5t8C5+9VLWb5xJ3KuiHBg8Fv1nP4iyQ2Y8Vy0+/EGlxSFBFzrQgLh8/s7iFwvlr
-	REuD+1L+YxQpFjB/KnhCZ26BRWt+/0A/rwtGTorKh4FqIcXN5dDJ/4rZiASnMj33gcbrorqb3qO
-	rT
-X-Gm-Gg: AYBFou3/phrn7d7E9p3JXj/U9nkqgEEvSgs/4OxO/YAiSDU0Gwb5sQ97sQ9gToi7M01
-	BT0AASs/iBiLk21XFxCVOrSJg7GxiA0v9V8vuTGQn9ZiCexutoFbIjyhzgeXyq0eOhgAp8/85EF
-	MoxHr2FiRiyeV5HMcoghGuZjB7rfIwj7lMrYOT2K0g5UPBtMT+lPiEm2y5QGRziVvVinccL7IdQ
-	B514HXda1acJfS5SsjrLZXnluy4XjYbzxlocwGKyR152kTu3RyPLYKQiBHlr7Wgi7rCz/WLyoXH
-	b0qzFgNlaBA/6m7CknuAXeJ1bhLxZIsSsppywMS04LVqEVnqt66lAzpTrFZSfSsNATuMZGPquWY
-	aD4XIfYQJTOZjjobd8s1E3ZOA3um3fIKjeuzXWynPHg==
-X-Received: by 2002:a17:90b:4490:b0:398:baa7:4c2f with SMTP id 98e67ed59e1d1-39d77a08755mr3066651a91.5.1789033228090;
-        Thu, 10 Sep 2026 02:40:28 -0700 (PDT)
-X-Received: by 2002:a17:90b:4490:b0:398:baa7:4c2f with SMTP id 98e67ed59e1d1-39d77a08755mr3066617a91.5.1789033227578;
-        Thu, 10 Sep 2026 02:40:27 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d80f0068esm3343502a91.10.2026.09.10.02.40.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Sep 2026 02:40:26 -0700 (PDT)
-Message-ID: <472daa5d-19e5-41f1-9650-44e0245bc1f0@redhat.com>
-Date: Thu, 10 Sep 2026 19:40:13 +1000
+	Thu, 10 Sep 2026 09:46:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=F5/vPpllGKppAQmvAZ51j2daco6+yuo7BVECN5KUbX0=; b=l
+	qXmm7sMACXKuGTYrhuNCWfmPg5VEqhYXjr3OUG/evdiii5qKdz1WBt9cWRK4AIyR
+	oOrGDa7nYpOkYEna1BshJ0UY8tk5Wjp5lZbAwr0uJOSm9quHSnEItNUmyjrM/biC
+	LLq2WOZewwsIWu8Riybaa3g98vnHpzOPIGS9fsrNxk=
+Date: Thu, 10 Sep 2026 17:45:36 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+	longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial <linux-serial@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re:Re: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75
+ quirks
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <b199eb38-b1a2-4db6-81d8-37bab09a75b7@linux.intel.com>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
+ <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
+ <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
+ <aqJ35vMBiBZo2iUE@ashevche-desk.local>
+ <b199eb38-b1a2-4db6-81d8-37bab09a75b7@linux.intel.com>
+X-NTES-SC: AL_Qu2TC/yYvE0o4CCfYekcn0wRhug/UMa4u/sm3YNXc8IFoD/G9CUlQFRoOmbk686TGjqAnROpYCR11ftiZ4N9xBLb9kFkJNpkbO2sqGB8hQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting
- Realm guests
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-7-suzuki.poulose@arm.com>
- <e66698e1-e582-4ff8-9881-4ddda5bc1d94@redhat.com>
- <40d3312a-c695-44ed-857a-fc6bf293f3e6@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <40d3312a-c695-44ed-857a-fc6bf293f3e6@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: lcyN0HclMzq_3Ed9Tbu9ronlMFiBqZ2ZoYWSr0UeQKc_1789033228
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Message-ID: <55b27872.8ed9.1a08ab55a52.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: hCgvCgD3n9RAfKJqJMVDAA--.19073W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgBy42qifEADiwAA3r
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_024035_250212_5D8E7223 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260910_024651_221491_EC1DF04B 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,49 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/26 6:43 PM, Suzuki K Poulose wrote:
-> On 10/09/2026 06:53, Gavin Shan wrote:
->> Hi Suzuki,
->>
->> On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
->>> Add an explicit mode to support Arm CCA guests.
->>>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> ---
->>>   Documentation/admin-guide/kernel-parameters.txt | 3 +++
->>>   arch/arm64/include/asm/kvm_host.h               | 1 +
->>>   arch/arm64/kvm/arm.c                            | 5 +++++
->>>   3 files changed, 9 insertions(+)
->>>
->>> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/ Documentation/admin-guide/kernel-parameters.txt
->>> index 68647ff4bdd24..1afe3df3b923e 100644
->>> --- a/Documentation/admin-guide/kernel-parameters.txt
->>> +++ b/Documentation/admin-guide/kernel-parameters.txt
->>> @@ -3256,6 +3256,9 @@ Kernel parameters
->>>               nested: VHE-based mode with support for nested
->>>                   virtualization. Requires at least ARMv8.4
->>>                   hardware (with FEAT_NV2).
->>> +            rmm: Support for running confidential guests in Realm
->>> +                 world using RMM, as defined by Arm Confidential
->>> +                 Compute Architecture (CCA)
->>>
->>
->> I'm not sure, but 'realm' would be more appropriate name. rmm (Real Management Monitor) is
->> the term limited to the firmware to me. Besides, we have been using 'realm' broadly in this
->> series like kvm_vm_is_realm(), kvm_realm_state() and so on.
-> 
-> May be. But we use the "mode" of the hypervisor in question here, mostly. e.g., nvhe, vhe, protected etc. So, I went with RMM (in favor
-> of CCA). Does that make sense ? Also, we rely on firmware/arm_rmm for
-> the support. So, it kind of make sense to keep it "rmm" ?
-> 
-
-Ok, lets keep 'rmm' unless somebody else has better suggestion.
-
-> Cheers
-> Suzuki
-> 
-
-Thanks,
-Gavin
-
+SGkgSWxwbywgQW5keSwKCkknbGwgZ28gd2l0aCB0aGUgc2ltcGxlIGNvbW1lbnQ6CgkvKgoJICog
+QW1iYXJlbGxhIGtlZXBzIHZhcmlhbnQgSUVSIGJpdHMgKGUuZy4gRVRPSSkgc2V0IGZvciBjb3Jy
+ZWN0IFJYCgkgKiB0aW1lb3V0IGJlaGF2aW91ci4KCSAqLwoJdXAtPmllciB8PSBkLT5wZGF0YS0+
+aWVyX21hc2s7CgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwoKQXQgMjAyNi0wOS0xMCAxNzozMzoz
+OCwgIklscG8gSsOkcnZpbmVuIiA8aWxwby5qYXJ2aW5lbkBsaW51eC5pbnRlbC5jb20+IHdyb3Rl
+Ogo+T24gVGh1LCAxMCBTZXAgMjAyNiwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOgo+Cj4+IE9uIFRo
+dSwgU2VwIDEwLCAyMDI2IGF0IDA1OjEyOjUyUE0gKzA4MDAsIHpsMDIwODk1IHdyb3RlOgo+PiAK
+Pj4gPiA+IFdvbmRlcmluZyBpZiB3ZSBzaG91bGQgdW5kbyB0aGlzIGluIHRoZSBwb3J0J3MgLnNo
+dXRkb3duKCkgY2FsbGJhY2suCj4+ID4gSSBzYXcgdGhlIHNodXRkb3duIHBhdGggYWxyZWFkeSBj
+b3ZlcnMgaXQ6IGR3ODI1MF9zaHV0ZG93bigpIGNhbGxzCj4+ID4gc2VyaWFsODI1MF9kb19zaHV0
+ZG93bigpLCB3aGljaCBkb2VzCj4+ID4gCXVwLT5pZXIgPSAwOwo+PiA+IAlzZXJpYWxfcG9ydF9v
+dXQocG9ydCwgVUFSVF9JRVIsIDApOwo+PiA+IHNvIGJvdGggdGhlIElFUiBzaGFkb3cgYW5kIGhh
+cmR3YXJlIElFUiBhcmUgY2xlYXJlZCwgaW5jbHVkaW5nIEVUT0kuCj4+IAo+PiBEZXBlbmRpbmcg
+b24gdGhlIGFuc3dlciB0byBJbHBvIHRoZSBlbmFibGluZyBtYXkgbmVlZCBhbiB1cGRhdGVkIGNv
+bW1lbnQKPj4gc3VtbWFyaXNpbmcgdGhlIGFib3ZlLgo+Cj5JJ2QgcHJlZmVyIHJlbW92aW5nIHRo
+ZSBlbnRpcmUgIkZvcmNlIHRoZW0gLi4uIiBzZW50ZW5jZSwgaXQgZmVlbHMgcmVhbGx5IAo+YmFz
+aWMgZGV0YWlsIGFib3V0IGhvdyAtPmllciB3b3Jrcy4gSSBiZWxpZXZlIHRoYXQgd291bGQgcmVz
+b2x2ZSB5b3VyIAo+Y29uY2VybiBpZiByZWxhdGVzIHRvIHdoYXQgc2h1dGRvd24gZG9lcyBmb3Ig
+dGhlIGZsYWcgKGNsZWFycyBpdCB3aGlsZSAKPnRoZSBjb21tZW50IGFzIGlzIHNheXMgbm90aGlu
+ZyBpcyBzdXBwb3NlZCB0byBjbGVhciBpdCkuCj4KPj4gPiBBdCAyMDI2LTA5LTEwIDE2OjMzOjE0
+LCAiQW5keSBTaGV2Y2hlbmtvIiA8YW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3
+cm90ZToKPj4gPiA+T24gRnJpLCBTZXAgMDQsIDIwMjYgYXQgMDI6Mzg6MThQTSArMDgwMCwgTG9u
+ZyBaaGFvIHZpYSBCNCBSZWxheSB3cm90ZToKPj4gCj4+IC4uLgo+PiAKPj4gPiA+PiArCS8qCj4+
+ID4gPj4gKwkgKiBBbWJhcmVsbGEga2VlcHMgdmFyaWFudCBJRVIgYml0cyAoZS5nLiBFVE9JKSBz
+ZXQgZm9yIGNvcnJlY3QgUlgKPj4gPiA+PiArCSAqIHRpbWVvdXQgYmVoYXZpb3VyLiBGb3JjZSB0
+aGVtIGludG8gdGhlIDgyNTAgSUVSIHNoYWRvdyBzbyBsYXRlcgo+PiA+ID4+ICsJICogZ2VuZXJp
+YyBJRVIgdXBkYXRlcyBkbyBub3QgY2xlYXIgdGhlbS4KPj4gPiA+PiArCSAqLwo+PiA+ID4KPj4g
+PiA+V29uZGVyaW5nIGlmIHdlIHNob3VsZCB1bmRvIHRoaXMgaW4gdGhlIHBvcnQncyAuc2h1dGRv
+d24oKSBjYWxsYmFjay4KPj4gCj4+IAo+Cj4tLSAKPiBpLgo=
 
