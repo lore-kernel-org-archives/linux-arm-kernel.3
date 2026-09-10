@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE368C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93336C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=; b=Xu0NC+yVE4uA2gzXXTWDxAa+TF
-	YlgB8hC9jCgQQWF2VeU8U98S/+W9B3Mhd3ImUQAQjXniFUSY1l/9Jkua8fxKIdx122OHLDOVud8jq
-	Knh0dQjSCja8dD7jvckkWS/VVsmOFpr1BVW73fheLHLy5wVwL5spu+aKMWm8mPjnYqyA8RwjSPXu0
-	pFMQ5nATRVMooSP4Orc5novCqX2tEAq5USLK9shETYufphWd0oLgSzAQg1+VIxlI0rUyxCIurNDeV
-	5KdH09YfiXPjzLMS399OHxwRPuDjIiEus4xWpKK2DVbYGRXBaJ1mSPffWrcg8orgAE9ZzDNGfP50x
-	PuK9LUuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=; b=naXeOML5NLVQtdYPKZG3I6ReyS
+	F1mGmbTFjUw4oc3Q0H8nEtobDX6JQurCuwVvgIA8nU7Qhh3ijkbA4zj5cn7h/eza95/tLmpNMkj5k
+	EI7iDLGoB4URLZmkqOa9tdOfdbqeARh5OzXzFHkJLrtpPgfU31cr4m8/SD/qBxuz97M+qZKPyKQcE
+	HSpqXbnQ2ZOFkxnT8pL+tc54t5SOwzgiq1am8f+7fpIZpchkRyM8CY1E7RrcZgq4M1jwhXYT8//E9
+	SraHlEZN3E01kIWRFO0KzudZoILDZ2eDM2fQWaOummxWmwZbslvbOAm3Ish4K4/81nCYjlZVMEGyt
+	gP/SMHAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4efk-0000000ES2G-2TXt;
-	Thu, 10 Sep 2026 13:18:36 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4enr-0000000EScM-3iIo;
+	Thu, 10 Sep 2026 13:26:59 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4efh-0000000ES1g-2rD9
+	id 1x4enp-0000000ESbs-30jS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:18:35 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so12119085e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:18:32 -0700 (PDT)
+	Thu, 10 Sep 2026 13:26:58 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c253425b253so1073822866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:26:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789046311; x=1789651111; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=;
-        b=Zz/ecsOzK5FmQN+zxse1pAJKfV9u8yJoJU+v2rjECaeesA3+sAUObEkRdEpCLugvD7
-         qyu3dEY63ZrxCHh4eUw/DuK0buS4SGhODOHP1l12N0hQMAztL7pdvLrwcHFJTf8CHlxv
-         i/jsLLeKgTYOSD6Akw2hIMYtTD+YT0ivlh0PIU8fQFtum/Sa7FO38RIzncZo8tC1N3QV
-         63va8ht+3r1/xelG4OxJn29YqbhfvoIJ48ZXZUaAcPsui2+YbA/0KkNon4L2KNl+p6pO
-         494QKDPbFYbGqO86wqTr70oxEhvFIzQzewBdXJ1tcrQQzWm9zI/8+NICYXc+bPwy4kYV
-         Qg5Q==
+        d=gmail.com; s=20251104; t=1789046815; x=1789651615; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=;
+        b=iZvmmvd4zIak5JDVw1Y34XPDlSUQFt/o/4w+EfkOgnAWqqhuPw6ACvPtqYtSoMwmIp
+         uKlvGjVhTnAguMGM/zs43hMdYD4vc4Ziw9XTTTgv77SM/hmTcx9cxgAdEKAfEzaO0Cf9
+         LXe5hfV9eJOwa+liAYZj62/Ya9Phdo3AwBJG/uskQ8vxJ7MxeWMZTDTb9n5JzDM/WoWN
+         DzkGQgx/WX+35PBwOuXMvJ5z4nftpYtluVD8MqDAk0QKjt/noh4SQh/HK2VgifZfUzw+
+         ABw5wAs1BUxfwHoUap+V/tLKJa7ER6dnpj1TNa/yprwD8W5QrfiTcheqY6HZkvQOnATK
+         8GfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789046311; x=1789651111;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=;
-        b=jSDm5LOOev1IbevaRXuyayiZcyy5AMurRqJxZZaO/CLhurhDZUDQQMWHwwHoh5Tpqz
-         DICM381X1jcsnaMhQhU6PHrTyfwKB1A9MBHc/1kGkWsfpsACZ2A1k/bmemGG7L7nceMY
-         48bXcpzAkAR7Wa1YIa/N2XKGO0KoZxmxevYAvO93UyTXd+0rES/O0NeXdEviWo4ap2XM
-         H0o7YINVdeTt65gkHtuFwrgy63/gdmhaRJNEGxSD9g12g4qPQtTNwzjtQFYqc5OVmYws
-         02R/TGm34QI6FVFS2hOhe5DaIHqdqvZ5ssFnTaTVHUiNfo4oGJraxP2pjgfvWRS4G5vY
-         /obQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwNnEZP/RgURNpHzjduB+BBYnXfE6MNWdFDiZxxD3THPvSxVpeOEs5Fon8bp4NPsYRKWtGyIlpnCJlkYZRwQLFV@lists.infradead.org
-X-Gm-Message-State: AFuF++lpBmPFvVrPubU1Bz6N9GRUaARUFVlyx7cFGNSjvvRpsLDlSBjO
-	js9Yt8betxcWWAnyRcUF8cEzD09+YFHiZJkdM11oEu4BHFpBefAs9USvBFeOYwDz/cE=
-X-Gm-Gg: AYBFou2m52iSCOoCmPzpBpSIbCLUr6/C49mA2QBwYtPMU/BHDq5YYRVtBUjvGaHx+UU
-	ehh98aRNPXPjG5qGwTXzWQ3nY3LEKKTOhMZ74HDi056eGPyTgLITXw6Z7VRNYYCyFgu9ZDyA7Vj
-	8ROiWHma9Kvsfk9uPq0UfhQVjLdRIoxLCmFqEEfJJItkmFjVvNqSo8XdH4Wz12hG4nIB2EIRbQo
-	Dt877IM03rqC0lyY21075jpYvc6EY7C90aNo68jsbUdK4YzLMBpfwATWN7moUarI4HJbdbJUB8n
-	qFlbWXs5VqhzOZDV3WnX06UOAUbRDWpZjG1Vh1jNO601qOPkH5yDehJo8we02MddywGkTIc6F9d
-	1eaqUxPRDbuIJjyT2hUTfU0OF9eRJE+DEAPmlvIdccUwO2d8TWwTl8FnQsEiZ8R9+M35mVmBcjp
-	pkwUZO6ySjMfpUYczS6TToxne1NzG7leVIw6x5Rxtbh/+5Du9M0ngweInQWBwhqAiFKO6O+KRc/
-	cXAB5c=
-X-Received: by 2002:a05:600c:4712:b0:49d:2705:7030 with SMTP id 5b1f17b1804b1-49d270571ecmr45811495e9.7.1789046311143;
-        Thu, 10 Sep 2026 06:18:31 -0700 (PDT)
-Received: from [10.11.12.110] ([79.115.63.240])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e5fbda49asm9602715e9.3.2026.09.10.06.18.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Sep 2026 06:18:30 -0700 (PDT)
-Message-ID: <f80d4081-d585-44c1-bb82-3d7f83462d1c@linaro.org>
-Date: Thu, 10 Sep 2026 16:18:27 +0300
+        d=1e100.net; s=20251104; t=1789046815; x=1789651615;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=;
+        b=c+GoB1EVQY5XB17TAs5Yep8rDMEzXWsp29F+T6dkITsOxdsc8gHepJ7Hw6H9JhM9Ll
+         aUbzvhMb02xZvVYFpjA6PHda6Le4H6R4QKvJXpgppkuyysI85FQqQEdMXoSY7pEx4NDY
+         EUmwlqhpMKXhQ2ByvAkGPGZ/aq2prZAa1LEaPsh+Dk+1Dgg2Bvio+M3so5ieZG+Skv/N
+         OUJLwAex5MfRQbecNypBsNRqtYvu6lAGmLdM7ssjf8u+eWRjHhSdoa+Kmt1frepLMfPa
+         SZPfjpSLATCKzsXgkVZMLY77ZO/YWzt7yBEPTwd8DwNW+Ud08BbM85Wv0iKYDiLaQsKf
+         /vbA==
+X-Forwarded-Encrypted: i=1; AKwUvBys8ylmT2nYSRnYrbhs2vk1xCCNMyl4pzlvuYkxBvT4kdSecBvUj//CICsy/Q9gCDIS/alIL4m6KPe1Gx2RSize@lists.infradead.org
+X-Gm-Message-State: AFuF++mdl8P78TyJ5V9dvFdPt2GDX2QYvbCjnYZdgm5Nr8kre7ZSEUYn
+	a6ZPXmbLxMtuq3qnZizcH9LgzAZBxYWCmuXtIjHnivAcrXL59bJyNbdQ
+X-Gm-Gg: AYBFou14Q+BxAAlXMyK7Z1wFxIGfeHEUBbFM64tXHzgkkHO11bFsw/njEuYhSLrFgHF
+	/E+crq1ovX8xbY/uTWi3OxDRtSGvJgQHU1pUSYhHeSf9JlyOSpC664hMy5JEtbt8K/Di6yGe0WU
+	GT6NzIXQzU2GhDH/tu1uOYTo208NYK0v1h84sGHRT2Ad4EHOHREHOttl33VkJj3thSLoShYC9xR
+	ko4uuvshhp7apN4sGBHKdoUfAEh1yazzMRuSSSaZ8Oavv07Q+8M/O24M5dsDsNNaaiFIcTqjG6d
+	2YHNW0YJ/OJKlDKp7UuA6jxnkWBjPLOuSCyRl3wLIgUajk8jsFsz4fBpt9FroRTNDvpEX4fZp4c
+	iB5/UDedz25am0+M+En3nG1QpWZObNrWEdywcqDrMTCQaaucbssRaHazK3um7OsBfmywkQ2a0EE
+	sZC9AqsgGqT5ztwKtO2a0UB9rH1cDpZZRRkWvTswNJ68dmmrhEfEcDz+pGB+2Fp2/UEOiULXnat
+	j7rIb4=
+X-Received: by 2002:a17:907:a893:b0:c29:286e:2e3e with SMTP id a640c23a62f3a-c29286e30e9mr574563466b.38.1789046815001;
+        Thu, 10 Sep 2026 06:26:55 -0700 (PDT)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d6e1c93sm912526366b.63.2026.09.10.06.26.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 06:26:53 -0700 (PDT)
+Date: Thu, 10 Sep 2026 16:26:49 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	cassiogabrielcontato@gmail.com, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 11/13] ASoC: mediatek: mt8189: Validate sysclk frequency
+Message-ID: <aqKwGQDkB_HruLyQ@stanley.mountain>
+References: <20260910125742.150902-1-phucduc.bui@gmail.com>
+ <20260910125742.150902-12-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] firmware: samsung: acpm: add fire-and-forget xfer
- support
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org, Juan Yescas <jyescas@google.com>,
- dianders@chromium.org
-References: <20260612-acpm-fast-xfer-v1-0-1aa6cd2268ba@linaro.org>
- <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910125742.150902-12-phucduc.bui@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_061833_773985_ABFE8DB8 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20260910_062657_793080_8CFC4583 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,75 +110,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Alexey,
-
-Sorry for the delay.
-
-And thanks for the series. Improving frequency transition latency by
-giving schedutil an atomic ->fast_switch() path is definitely a
-worthwhile goal.
-
-On 6/12/26 7:34 AM, Alexey Klimov wrote:
-> The current ACPM IPC protocol relies on synchronous polling
-> (acpm_dequeue_by_polling) to process mailbox responses.
-> For CPU DVFS, cpufreqs schedutil governor requires ->fast_switch() to
-> execute in an atomic context. Waiting for firmware acknowledgments
-> in a loop in such case also using udelay(20) under spinlock doesn't
-> make a lot of sense. Experiemnts on Exynos850 showed that even with
-> removed udelay() or with it significantly decreased, the firmware
-> processing takes 15us...250us.
+On Thu, Sep 10, 2026 at 07:57:40PM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> Introduce acpm_do_xfer_fast(), which implements a fire-and-forget
-> asynchronous path:
->  - utilizes spin_trylock() to exit without sleeping if the channel
->    is busy;
->  - adds/sends the message and kicks the mailbox doorbell;
->  - exits immediately, allowing fast_switch to complete quickly.
+> mtk_dai_i2s_set_sysclk() accepts zero or negative frequencies.
+                                           ^^^^^^^^^^^^^^^^^^^^
+It's unsigned int so it can't be negative.
+
+regards,
+dan carpenter
+
+> Reject invalid frequencies before configuring the I2S clock.
 > 
-> To prevent the unread asynchronous responses from permanently exhausting
-> the 63-slot sequence ring buffer, implement an acpm_drain_stale_rx().
-> This drains the RX queue during the fast path:
->  - copies payloads and sets completion flags for sleeping
->    synchronous users;
->  - explicitly acks 'is_async' messages.
-
-Answering your core question directly: the fire-and-forget approach
-over the existing ACPM command queue (acpm_do_xfer_fast) won't fly.
-
-The ACPM IPC protocol is fundamentally a half-duplex, synchronous
-request-response mechanism over SRAM ring buffers.
-
-Even if the host sets response = false, the ACPM firmware does not have
-a concept of fire-and-forget on standard command queues. It executes the
-transition and still pushes a completion entry into the SRAM RX queue,
-advancing rx.front.
-
-Draining stale RX entries opportunistically on the next xfer via
-acpm_drain_stale_rx() is fragile:
-1. If frequency transitions stop (e.g. CPU hits target frequency and
-   stays there), rx.rear is never advanced, leaving stale responses in
-   SRAM indefinitely.
-2. Queue lengths (qlen) in ACPM SRAM are small. If schedutil issues a
-   burst of frequency changes faster than the firmware completes them,
-   the RX queue fills up. When rx.front == rx.rear the firmware panics.
-3. If spin_trylock(&achan->rx_lock) fails, acpm_drain_stale_rx()
-   silently aborts, and sequence numbers in achan->bitmap_seqnum leak
-   until the pool is exhausted (-EBUSY).
-
-For addressing fast switch, I see downstream that the firmware defines
-a dedicated channel of type TYPE_BUFFER (async_dvfs). Frequency changes
-simply write the frequency into the SRAM cell and ring a direct MMIO
-doorbell:
-(https://android.googlesource.com/kernel/google-modules/soc/gs/+/refs/heads/android-gs-raviole-6.1-android16/drivers/soc/google/cal-if/acpm_dvfs.c#97)
-        async_dvfs_set_requested_freq(id, rate); /* 32-bit SRAM write */
-        acpm_ipc_ring_doorbell(async_ch_num);    /* MMIO doorbell */
-
-There are no ring buffers, no sequence numbers, no polling, and no
-RX responses to drain. This is essentially an SCMI FastChannel-style
-interface.
-
-Is e850 supporting this?
-
-Cheers,
-ta
+> Fixes: 7eb153585598 ("ASoC: mediatek: mt8189: add platform driver")
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+>  sound/soc/mediatek/mt8189/mt8189-dai-i2s.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
+> index f20dbb410223..ca7d786cdeff 100644
+> --- a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
+> +++ b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
+> @@ -1286,6 +1286,9 @@ static int mtk_dai_i2s_set_sysclk(struct snd_soc_dai *dai,
+>  	    dir != SND_SOC_CLOCK_OUT)
+>  		return -EINVAL;
+>  
+> +	if (freq <= 0)
+> +		return -EINVAL;
+> +
+>  	i2s_priv = afe_priv->dai_priv[dai->id];
+>  	if (!i2s_priv)
+>  		return -EINVAL;
+> -- 
+> 2.43.0
 
