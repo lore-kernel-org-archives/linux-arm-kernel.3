@@ -4,98 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4D1C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60573C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 21:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qV7jCnMrMxqcUpoF7Sb7Bgwuj9krY+1lli75M73Ykr8=; b=hXDz5X1CN+ANvVKJwOhb7d1Jrj
-	BsoXy+dLMnOf85e4B7Sfm2Cgr7uKxAnMltcmET4GxuBbUJ5gb41x4Ee+n3KrgfrLGZnOP8rJ8Neuy
-	G+EaRKRomkVn4fLK/XD/VEUMjX2a4Xwc6kZXKrKFaiHcNugJM9QUDchKeNvcS80XvEdpNTQVkpi3B
-	wuMGmHAZoKuTe/Ha3kgoZZ3ISsna+MpNE9PrpVifDOoLIphFXDoNvXZO+5i8sATzoiSr3cbT5vQZd
-	qBZ6nLzK6/AvthnPEagLUGz4gldnuY170WQbYivesyQopLOYdYDrXfD+5MwFvZimqmbrbH/f7m5Xj
-	A5uyb+2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2KCdz+zvXXdSp2MiD0wXeQm1PaWpNCDiv4bcXhGVjg0=; b=K4ee+xmkYBGyTvQb+e+GNAA3um
+	pnZdOjc7UTo6Mj75zu1Fb8C1WgAlbQdArcNIPNLZilnh79KRzUKt7c+PhKDzsI5ije0tO5Im6M47L
+	CR3pYV6jNtHhq1VVOdkEmx4KeFMMiAN39BaXAydRe3Txqs4UZGKmC/sY1jP97MJdM5Ib7O+SdI4L8
+	fdGD7vyu3bBaOwT2Ps+JKo7VK0+Y/tJpREpxC/8D53foBMK8lDPXc+gQMh8+WRmwbiGxuqTuRYmFD
+	jesgkjOVVHQTCBZF9UgaAZWOhE6vhHINXsUVa6gqm7DsD1keH0QaYXCLopBObT0s015tkHGnMF/jW
+	ghpGx0FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4lm1-0000000FNEH-3khN;
-	Thu, 10 Sep 2026 20:53:33 +0000
-Received: from mail-pz2-f12.google.com ([74.125.228.12])
+	id 1x4lwn-0000000FOEA-12Jh;
+	Thu, 10 Sep 2026 21:04:41 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4llx-0000000FNCS-2VTP
+	id 1x4lwf-0000000FODG-1JHo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 20:53:32 +0000
-Received: by mail-pz2-f12.google.com with SMTP id d2e1a72fcca58-8523cc41f3bso16088b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 13:53:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789073608; x=1789678408; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qV7jCnMrMxqcUpoF7Sb7Bgwuj9krY+1lli75M73Ykr8=;
-        b=Dakr90Dw/vrPN/yV/Cnk8hWjJGxczegCrkQy+ZNPBD0t60rlVi8ou+i7kxERsqIL/y
-         OuvzAUPA9skZy+Bc0skmPSj0OkBAqwmwKoY4NCeGsMO0AHA/71aVQIa+1KtxIjgjcqz+
-         IMZaiuS/6BqHH/GRygoSYVKxd/5ZsFTTEZFkW1DUVRh5m81mPu4wz8NK8XZHrxv3l4Fa
-         /DQjeWhGTyhOfzXHv3FwW94kDB4i/NLZAom7sOxWxoWLux66PfuNahRBWSNNkkW0Pk68
-         81/PCnv2VrFUDTWu9/HOq8dU8WzWEdog8r9vjfqFgBhsxBnlQUqpcvOfK5u6aRIjPVTB
-         8SnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789073608; x=1789678408;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qV7jCnMrMxqcUpoF7Sb7Bgwuj9krY+1lli75M73Ykr8=;
-        b=IQ2je5DbtCMixF3/3vSirUoMUEIMTUK2q46kUl4GeJPXtbkc7J+XcGFKCaaNvMsYhO
-         ar9G+HAA1AiaCtb29vZ5aOvsVHipu9nI8kMgEVxKiighyWYssvj2kyR78rgqLfYD+NUd
-         nQOd/Kf1GIShFH7GaD6OkvisXMOcXKHlBVazd5m2M3nAfKqBvGdL6P7stf627F7bYeFe
-         7o8BJMUQFQt1jDXzEQucZ3on7rllqM8Vz/pNcP7+OUrllXqU7Jt8DAAdK68kPEh5Wybi
-         Z5qFy8HiRGtU5U9uEOG/150vSNyMgbod96vU3DIuqwfduMG+00zLiKrRIOemgeE4mVLg
-         imoA==
-X-Gm-Message-State: AFuF++l5VnbHfGIhQV7lFF6IofMy41qimsaw9Ig3YItjCqjmYpXfvmaN
-	LoIHkvDG8tobKXaX9jlXz+bQ6xmB+JVxgGqJsXO5qkQ8SuNXI8iDVRjlv9oGCQ==
-X-Gm-Gg: AYBFou3XeI7njdfyp8Coih2xPdFOwQk1An9GPd6Qv+pVlx4y0xU1vYJhtSeN3H/aeyr
-	Gus6qQE2QuY2wHGZ4ndouReqH/8dVN6CxTbQTEKYHeuegJr8Z58uEjkbe4HsRN99XjL4YSN0dkw
-	GK1JOmZtU+EwuJun69+JFwF4tVTaf93/KsRgfcUomZUgco1yLO8q/SFWHVEQo2zcSjFjpBsHWIg
-	5BU7YHNgbhjvs9zmHmSiHeRQb7nZnnNgVwF0Kiz3WLCsPTng7NjOsOgtnhGNWdoNOSB9T0/a7IR
-	GqXanZx4uLovEMMOZDuz4aJidDHrLqh08PF1qV+oZeCsp3kOPGIchR/kP+UuC6gT/I1emhTvmk+
-	GF6VtYxWl/8KfcA6cJH9oVFopysQFG1ZYHAefMIXInoHe0H2cVGP2bSMXEO+tSIPLVCya4DQDMm
-	d82WG9EQj4DS2EwgUB70GaFt9L+PPU7oDqv3Rlp1oBoxDXtPovgpCl5xzBjc6NWvJ8xjvzuiJbv
-	AfmOo8mJUQH
-X-Received: by 2002:a05:6a00:4891:b0:845:cf73:5bd8 with SMTP id d2e1a72fcca58-86b30e0e9e2mr502408b3a.1.1789073608481;
-        Thu, 10 Sep 2026 13:53:28 -0700 (PDT)
-Received: from [172.29.212.252] ([2409:40c2:5431:4168:e542:5202:be02:6ae4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b250bf3e6sm150822b3a.5.2026.09.10.13.53.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 13:53:28 -0700 (PDT)
-From: Bhargav Joshi <j.bhargav.u@gmail.com>
-Date: Fri, 11 Sep 2026 02:22:51 +0530
-Subject: [PATCH 2/2] ARM: dts: keystone-k2g: Move usb-phy nodes out of
- simple-bus
+	Thu, 10 Sep 2026 21:04:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wHFZVs+0AyedhXDpOZ2kNpnIllo3P7iW+J+nilDh3w7IgBWOzzK2FHkVURLBYyjjoidfxVK/PRuRDHOOaL1GXBPUEjhrdAP47EX8cyL0i/o3GD+bQSSY/QGiBbhrc2PGZnr4WyuFqk4jKdTzfiLR5/IxzW4Y6hwrMAIqpdXHkaD1YoEh0PyyDlOKZ3GTSNXbeZQbtWpjn0nt+t8qT3El8x5JUWyn8Np602kc+4rml688HZhDrQt0lfLbvBiYK+i+HmF4GtSLSdLsHr8dFi2BRxUmFimFg8f8r73c7adiutPrmXirXod0NoDmVtwPZnolDvtiDQ5sm5OMepYUMuLFUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2KCdz+zvXXdSp2MiD0wXeQm1PaWpNCDiv4bcXhGVjg0=;
+ b=w0kWgbKLjgGj4WjKCNm9yWyklXh5OX1+bF/8aYxfVOQHoasDwmqPn9wYrmFlwSJoEihPRj4jmEOBwxc4nZcRAWCsX9O48jua2m32YRUDUJAVC2Hgl4E8qWeo1rYR7MpvQ2I6N4b60PRpPuRNSHNxA6ZqKj+7zp9FvJW2kZ7wbfsk4lM7jsGK0aB/H2C/Wkw0rYtTMkdhDt0C/AFhKlTOYnDgTV1BjQYWLMB3OgQfKQIW7DL4ZQZbj8U+CCaV0XiMF2JIDq/NWYa9oU5wDm4XVCqUdxS97v0COw51tHWSZt18zZV1cdGWPXClV/VEd4/rhThDWpb30dHtfORPv+Ld9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2KCdz+zvXXdSp2MiD0wXeQm1PaWpNCDiv4bcXhGVjg0=;
+ b=gKY+sh8DcEGUvtSLMTHJYkmEnXxDx/GX1Y9un5AIWT/rRtGo2PeFUeTOEIxj0nIiYHIzGgUXBNfc/40NJaIQPrAL2WKre0YrkXn1UxaYb2UupI7HcMnqCwNCvxZKYg6qqcX8EIdDtiQvdaCDz251xYRy+eDGxNi0Q428Bm1D5pmIZERmUX1GJTny/CGI6Ad5FBzJAYpvZ6V/gArRZ9BXaVotEn4OgNXpCdHT7SPoa46oHEfeV4Z0zAkMPmSdTbFzEy9sGKUxjKTrZ2Sli8k+Rx3EL6uNPb0fCuduZxyX6rSMU6pOBOs2Z9XglUsD5pi9Z6Bs1O6LhgFk69sw3RUkRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by PAXPR04MB8960.eurprd04.prod.outlook.com (2603:10a6:102:20f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 21:04:28 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
+ 21:04:27 +0000
+Date: Thu, 10 Sep 2026 17:04:14 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@xs4all.nl, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com, linux-arm-kernel@lists.infradead.org,
+	jackson.lee@chipsnmedia.com, lafley.kim@chipsnmedia.com,
+	marek.vasut@mailbox.org, Ming Qian <ming.qian@oss.nxp.com>
+Subject: Re: [PATCH v7 8/9] media: chips-media: wave6: Add Wave6 control
+ driver
+Message-ID: <aqMbTg0oDTrjs7Hl@lizhi-Precision-Tower-5810>
+References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+ <9a39dbcd48c8326394992cc048a635fb2472537e.1788496816.git.nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9a39dbcd48c8326394992cc048a635fb2472537e.1788496816.git.nas.chung@chipsnmedia.com>
+X-ClientProxiedBy: PH7P220CA0072.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::31) To DU4PR04MB11791.eurprd04.prod.outlook.com
+ (2603:10a6:10:623::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-ti-keystone-usb-phy-fix-v1-2-9f6e9cd649a3@gmail.com>
-References: <20260911-ti-keystone-usb-phy-fix-v1-0-9f6e9cd649a3@gmail.com>
-In-Reply-To: <20260911-ti-keystone-usb-phy-fix-v1-0-9f6e9cd649a3@gmail.com>
-To: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, j.bhargav.u@gmail.com
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789073586; l=1455;
- i=j.bhargav.u@gmail.com; h=from:subject:message-id;
- bh=KPgoBO1nv2ixXnAOeXDLi+rIWIYBz8Puw7NNm00WdZk=;
- b=up0xZHUD3oEBsdfWzUu/NU4e1y2rfEMY2fmQpXizS1C1K3D5SCKhUi7ySXSFdAMIQn9hR3Hrs
- Ru30k6VE7rUB3PtpD64dNdeVJ4nAb5Q3PqemLm0mC13HF2jj7dusCdy
-X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
- pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|PAXPR04MB8960:EE_
+X-MS-Office365-Filtering-Correlation-Id: da12280f-2118-4c69-b48a-08df0f7f1993
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|376014|7416014|6133799003|22082099003|18002099003|10067099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: mSftaw8N8dRAb4Emn2eACY+6+/BFJo36L8FMB9dNvxJ7hgSOMtrTYLKNkoDxTuApcEcXnepSwYzFFY1iR79VvEnCFcobcly8RvPnhqKtd6c0xe11OFOGUjUoIPmJEh+s1G+5oqImBXivHIMkRL6TjGWh60x5wXSkHzSRxVxQaEjJm6M07KZC5NFZe3ElocCNfnBlRDT0nwLkYYvA+p0UIsmPCUK3G8D5XZ9uRlr+TDOxeL9zshcpu2tihya5JcQsb1ZIZltKobWICaNAhldnpFhEAD79j8EoFTcZJHQMHvqw8yZVVE55LHOehp7YX6+rX0tbf7c1EiS9XvEWm8icp49+V9+JIfCWfywvZRmHhgCxbiryvfICXeQFnCYfr/MU+YkCwi/Hidp96GEsLmqN+fUViykl8yTQYnBfmWBmRLnvbNi6zBNVQ1ZhCof76wSHOiDI34eNxajiBGpT4Tf2cyKBaamWtiMJHbToUPxVeq2e/48W1BWrBorGww42Hr88Iy/hjdyjFHniHr7F1RdZyG/gc1rtEW1wf1YUAB8n/buTnwbSqsVSLaa/UgD5S0i66/Coai11VwEmHiEtBI8KMjZGvuLKbqmSJ1vQYjse3mB1wNC2r0n90ec+mqqhuxRLJ3mqlmaRD9bvelRaZSdBl/Q92PRdYcKPRINqeDlhYJM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(376014)(7416014)(6133799003)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U+ug8Lf+0X449c5RkYQM7wzbg5fepfjS3DD3kqjpkVBLw31y63xlVoX6zhbA?=
+ =?us-ascii?Q?sYkjvBE90vbTb/V4M0SkoKSIEAcnoiFOfb8t52RJJ3UlnvV7trxoJNbb9/O6?=
+ =?us-ascii?Q?Uu4NJdfG8Q3eZEI2/uuB0I07fKk0rWTO67Qzd49VOSqmfGeSydz2Ir8bI/GG?=
+ =?us-ascii?Q?RG1JWKSuby159kVrfEKSqqAwOpbqCDBYdRXbMFlfFEG9/LME3U9p8mbar/tg?=
+ =?us-ascii?Q?D/lFU47kd3nLxnvT5tibpJ5xfEdEqRbAoEbLAw4m2cgSvD4lHYymg5InWbBy?=
+ =?us-ascii?Q?7TUENtsVDbQ9XdK8xW10ZG97To28WLJPd8/5r4ZXPUTO95P9zlb4t+5Mxakm?=
+ =?us-ascii?Q?3RNfaYQaTwaBJQFCK+USyWujAruS4nVcX0Vk/N8NGUbrvTKhUVQIgYL/BG9l?=
+ =?us-ascii?Q?MT07ciIUYLVFdNRVJNRbGVy2Pz7IhuaOibd4tozg09ZFMDl1n3qEM5ez9UzG?=
+ =?us-ascii?Q?Grf/OOmCtSTv0ydSrAlwbNZ6JXDRQxrXffjXSo9n8cM0IJ04W0r81dmTRSRm?=
+ =?us-ascii?Q?d4+TSLTtzwhFeCO0iZC0xQJeeZavFdrHXpoDvzoG5qg1aUELGhEdGzREtkEN?=
+ =?us-ascii?Q?NZUS/xzqDnaR0puZ2KaGeSww21yS0L8i/NFMX4IeVyGkQY+y5+oX+gdcyvE1?=
+ =?us-ascii?Q?czHWr9HNeMLyvzofW1LjgGuQmcDW4Ws7chzawqYC6bTGVL3gL/NeRDgySGaX?=
+ =?us-ascii?Q?wxgTmumrdUjSdTiMn+zoDYtMsoRHgIf13QpRh4BecAOIXokPVcKNgv98b8jT?=
+ =?us-ascii?Q?QOjdrFcfTua55cIBp56xrUqw9+QwfMXJ+w9UnGu9OUDGr0mTm0zjrYRDViOy?=
+ =?us-ascii?Q?kwoMaOc7oWpgn6sCMFoeQrAa4dyYObZpzXtQrJ7/MJ1OXr2jJP1POySljOp5?=
+ =?us-ascii?Q?XPzyuAXVhwjYdrLqsAW2xrTrclC5cOr5/5Ge7C2fgLxJpbu5bDfsLHcZ65A8?=
+ =?us-ascii?Q?XQrApLbnWO6NTfPAYksP797+1EwQRu/8XYI+uydcE6z5M3R4tm/amAXmFw+P?=
+ =?us-ascii?Q?s0uHTaOuqWEipNi2OApIeYTfy7S3Jc4rpWjI0KI7PJcbM6WBHoQeFFg+n25P?=
+ =?us-ascii?Q?T+P+4IhLDcpEiQbY04yO04wdol/uLZD2ko7ZDlhuJPSGLIfnB7Vy0bHla6mr?=
+ =?us-ascii?Q?XGqE3WelkwBHQYgr0zbARfPHcZRsXEztqLGTqHbjXWVUrBI941nBqrUxoDqB?=
+ =?us-ascii?Q?6TPJgk7p14LYEvJH6adPwaG7jovCBrRUMCyHH9Wwol8jItuSBuOejZouovI+?=
+ =?us-ascii?Q?2PE6TpTgzhdwMGaL2Rg3fYKfeP9zD2COx0XoK9b3n312gkrePcgSg0FGeH9L?=
+ =?us-ascii?Q?eoQAEZywhuB+kQ0/MSJhP6r+fM3K1Bih5bE8PZ9EI8UawvNV1QCqj7dXxOOP?=
+ =?us-ascii?Q?TnqQK6qIipQKkuY1em+GhIIYcJiJdY1MQ0sud/s52WxZ8QnIOCGFUQ2p9pAb?=
+ =?us-ascii?Q?kXByqH6utYqZVe97TdTAJtgoi6sl8EVTnUaCZ6UfJs4+IlMvpLEHBi9oO0oi?=
+ =?us-ascii?Q?HJeVHXqbbf5qLIYeRukQZ6muKJHpnRq/oT6hTF+FDPJ7vFZ3M4f52s31+cAE?=
+ =?us-ascii?Q?IkLuF6p9/qCqpcaxLwcZ3Wj3S5g2SxlVlsRGlS4Y3O8mcBxZ0HLc734U3sWJ?=
+ =?us-ascii?Q?UTdTBmcK2sv1/fW4ciHo8lIcwo1ZSwZpqq23irtuiUBY/5Ly9iUwv5L14ovg?=
+ =?us-ascii?Q?eQt0OOKNRJDjNCBINV59lKjp27LZRt0DqEbqz5o3f5ZAh5bEyeALBP9FN+ue?=
+ =?us-ascii?Q?doZvQi1+AkjZF4lPg/xRu/el/PAtpdelKlrpjuNdpmLG/Bv/qqmG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da12280f-2118-4c69-b48a-08df0f7f1993
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 21:04:27.8237
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fyF6zSiCpbptp4LRvTIO3Y2TZGgorZVbDC2HVV8oz0a/esfnI6V/itJoabZRe3Ok08dUTp/vgEKtwEOr3K5Vf0p3Z3qWeZhkmffFZcfV/85RXTyWekED6fzS8vBg9epk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_135329_660789_744B8DA6 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260910_140433_565606_D8A25DEE 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,58 +142,1089 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-usb0_phy and usb1_phy are usb-nop-xceiv NOP PHYs with no registers. They
-sit under a usbphy simple-bus wrapper with unit-address names, which
-forces a meaningless reg.
+On Fri, Sep 04, 2026 at 03:46:34PM +0900, Nas Chung wrote:
+> Add the control driver for the Chips&Media Wave6 video codec IP.
+>
+> The hardware contains one control register region and four interface
+> register regions for a shared video processing engine.
+>
+> This driver handles the control region and manages shared resources such
+> as firmware loading, firmware memory allocation, and coordination required
+> by the interface register regions.
+>
+> It also instantiates and coordinates with the `wave6-core` child devices
+> for firmware and power state management.
+>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
+> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
 
-Drop the wrapper, reg and unit-addresses, move the PHYs to root with
-plain unique names to fix dtbs_check errors.
+Look likes this driver is independent on other one, as parent devices, which
+register children devices only.
 
-Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
----
- arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi | 26 +++++++++----------------
- 1 file changed, 9 insertions(+), 17 deletions(-)
+You can move this patch just after binding.
 
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-index 5a63874090eb..c18bec46d9bf 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-@@ -69,24 +69,16 @@ pmu {
- 		interrupts = <GIC_SPI 4 IRQ_TYPE_EDGE_RISING>;
- 	};
- 
--	usbphy {
--		#address-cells = <1>;
--		#size-cells = <0>;
--		compatible = "simple-bus";
--
--		usb0_phy: usb-phy@0 {
--			compatible = "usb-nop-xceiv";
--			reg = <0>;
--			#phy-cells = <0>;
--			status = "disabled";
--		};
-+	usb0_phy: usb0-phy {
-+		compatible = "usb-nop-xceiv";
-+		#phy-cells = <0>;
-+		status = "disabled";
-+	};
- 
--		usb1_phy: usb-phy@1 {
--			compatible = "usb-nop-xceiv";
--			reg = <1>;
--			#phy-cells = <0>;
--			status = "disabled";
--		};
-+	usb1_phy: usb1-phy {
-+		compatible = "usb-nop-xceiv";
-+		#phy-cells = <0>;
-+		status = "disabled";
- 	};
- 
- 	soc0: soc@0 {
+Frank
 
--- 
-2.55.0
-
+>  drivers/media/platform/chips-media/Kconfig    |   1 +
+>  drivers/media/platform/chips-media/Makefile   |   1 +
+>  .../media/platform/chips-media/wave6/Kconfig  |  17 +
+>  .../media/platform/chips-media/wave6/Makefile |  17 +
+>  .../platform/chips-media/wave6/wave6-vpu.c    | 826 ++++++++++++++++++
+>  .../platform/chips-media/wave6/wave6-vpu.h    | 143 +++
+>  6 files changed, 1005 insertions(+)
+>  create mode 100644 drivers/media/platform/chips-media/wave6/Kconfig
+>  create mode 100644 drivers/media/platform/chips-media/wave6/Makefile
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.c
+>  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.h
+>
+> diff --git a/drivers/media/platform/chips-media/Kconfig b/drivers/media/platform/chips-media/Kconfig
+> index ad350eb6b1fc..8ef7fc8029a4 100644
+> --- a/drivers/media/platform/chips-media/Kconfig
+> +++ b/drivers/media/platform/chips-media/Kconfig
+> @@ -4,3 +4,4 @@ comment "Chips&Media media platform drivers"
+>
+>  source "drivers/media/platform/chips-media/coda/Kconfig"
+>  source "drivers/media/platform/chips-media/wave5/Kconfig"
+> +source "drivers/media/platform/chips-media/wave6/Kconfig"
+> diff --git a/drivers/media/platform/chips-media/Makefile b/drivers/media/platform/chips-media/Makefile
+> index 6b5d99de8b54..b9a07a91c9d6 100644
+> --- a/drivers/media/platform/chips-media/Makefile
+> +++ b/drivers/media/platform/chips-media/Makefile
+> @@ -2,3 +2,4 @@
+>
+>  obj-y += coda/
+>  obj-y += wave5/
+> +obj-y += wave6/
+> diff --git a/drivers/media/platform/chips-media/wave6/Kconfig b/drivers/media/platform/chips-media/wave6/Kconfig
+> new file mode 100644
+> index 000000000000..63d79c56c7fc
+> --- /dev/null
+> +++ b/drivers/media/platform/chips-media/wave6/Kconfig
+> @@ -0,0 +1,17 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +config VIDEO_WAVE6_VPU
+> +	tristate "Chips&Media Wave6 Codec Driver"
+> +	depends on V4L_MEM2MEM_DRIVERS
+> +	depends on VIDEO_DEV && OF
+> +	depends on ARCH_MXC || COMPILE_TEST
+> +	select VIDEOBUF2_DMA_CONTIG
+> +	select V4L2_MEM2MEM_DEV
+> +	select GENERIC_ALLOCATOR
+> +	help
+> +	  Chips&Media Wave6 stateful codec driver.
+> +	  The wave6 driver manages shared resources such as firmware memory.
+> +	  The wave6-core driver provides encoding and decoding capabilities
+> +	  for H.264, HEVC, and other video formats.
+> +	  To compile this driver as modules, choose M here: the
+> +	  modules will be called wave6 and wave6-core.
+> diff --git a/drivers/media/platform/chips-media/wave6/Makefile b/drivers/media/platform/chips-media/wave6/Makefile
+> new file mode 100644
+> index 000000000000..06f8ac9bef14
+> --- /dev/null
+> +++ b/drivers/media/platform/chips-media/wave6/Makefile
+> @@ -0,0 +1,17 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +# tell define_trace.h where to find the trace header
+> +CFLAGS_wave6-vpu-core.o := -I$(src)
+> +
+> +wave6-objs += wave6-vpu.o \
+> +	      wave6-vpu-thermal.o
+> +obj-$(CONFIG_VIDEO_WAVE6_VPU) += wave6.o
+> +
+> +wave6-core-objs += wave6-vpu-core.o \
+> +		   wave6-vpu-v4l2.o \
+> +		   wave6-vpu-dbg.o \
+> +		   wave6-vpuapi.o \
+> +		   wave6-vpu-dec.o \
+> +		   wave6-vpu-enc.o \
+> +		   wave6-hw.o
+> +obj-$(CONFIG_VIDEO_WAVE6_VPU) += wave6-core.o
+> diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu.c b/drivers/media/platform/chips-media/wave6/wave6-vpu.c
+> new file mode 100644
+> index 000000000000..40948063b058
+> --- /dev/null
+> +++ b/drivers/media/platform/chips-media/wave6/wave6-vpu.c
+> @@ -0,0 +1,826 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+> +/*
+> + * Wave6 series multi-standard codec IP - wave6 driver
+> + *
+> + * Copyright (C) 2025 CHIPS&MEDIA INC
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/clk.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/property.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/firmware.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/genalloc.h>
+> +
+> +#include "wave6-vpuconfig.h"
+> +#include "wave6-regdefine.h"
+> +#include "wave6-vpu.h"
+> +
+> +static const struct wave6_vpu_resource wave633c_data = {
+> +	.fw_name = "cnm/wave633c_imx9_codec_fw.bin",
+> +	/* For HEVC, AVC, 4096x4096, 8bit */
+> +	.sram_size = 0x14800,
+> +};
+> +
+> +static const struct wave6_vpu_core_resource wave633c_core_data = {
+> +	.codec_types = WAVE633_CODEC_TYPE,
+> +	.compatible_fw_version = WAVE633_COMPATIBLE_FW_VERSION,
+> +};
+> +
+> +static const char *wave6_vpu_state_name(enum wave6_vpu_state state)
+> +{
+> +	switch (state) {
+> +	case WAVE6_VPU_STATE_OFF:
+> +		return "off";
+> +	case WAVE6_VPU_STATE_PREPARE:
+> +		return "prepare";
+> +	case WAVE6_VPU_STATE_ON:
+> +		return "on";
+> +	case WAVE6_VPU_STATE_SLEEP:
+> +		return "sleep";
+> +	default:
+> +		return "unknown";
+> +	}
+> +}
+> +
+> +static bool wave6_vpu_valid_transition(struct wave6_vpu_device *vpu,
+> +				       enum wave6_vpu_state next)
+> +{
+> +	switch (vpu->state) {
+> +	case WAVE6_VPU_STATE_OFF:
+> +		/* to PREPARE: first boot attempt */
+> +		/* to ON: already booted before, skipping boot */
+> +		if (next == WAVE6_VPU_STATE_PREPARE ||
+> +		    next == WAVE6_VPU_STATE_ON)
+> +			return true;
+> +		break;
+> +	case WAVE6_VPU_STATE_PREPARE:
+> +		/* to OFF: boot failed */
+> +		/* to ON: boot successful */
+> +		if (next == WAVE6_VPU_STATE_OFF ||
+> +		    next == WAVE6_VPU_STATE_ON)
+> +			return true;
+> +		break;
+> +	case WAVE6_VPU_STATE_ON:
+> +		/* to OFF: sleep failed */
+> +		/* to SLEEP: sleep successful */
+> +		if (next == WAVE6_VPU_STATE_OFF ||
+> +		    next == WAVE6_VPU_STATE_SLEEP)
+> +			return true;
+> +		break;
+> +	case WAVE6_VPU_STATE_SLEEP:
+> +		/* to OFF: resume failed */
+> +		/* to ON: resume successful */
+> +		if (next == WAVE6_VPU_STATE_OFF ||
+> +		    next == WAVE6_VPU_STATE_ON)
+> +			return true;
+> +		break;
+> +	}
+> +
+> +	dev_err(vpu->dev, "invalid transition: %s -> %s\n",
+> +		wave6_vpu_state_name(vpu->state), wave6_vpu_state_name(next));
+> +
+> +	return false;
+> +}
+> +
+> +static void wave6_vpu_set_state(struct wave6_vpu_device *vpu,
+> +				enum wave6_vpu_state state)
+> +{
+> +	if (!wave6_vpu_valid_transition(vpu, state))
+> +		return;
+> +
+> +	dev_dbg(vpu->dev, "set state: %s -> %s\n",
+> +		wave6_vpu_state_name(vpu->state), wave6_vpu_state_name(state));
+> +
+> +	vpu->state = state;
+> +}
+> +
+> +static int wave6_vpu_wait_busy(struct vpu_core_device *core)
+> +{
+> +	u32 val;
+> +
+> +	return read_poll_timeout(wave6_vdi_readl, val, !val,
+> +				 W6_VPU_POLL_DELAY_US, W6_VPU_POLL_TIMEOUT,
+> +				 false, core->reg_base, W6_VPU_BUSY_STATUS);
+> +}
+> +
+> +static int wave6_vpu_check_result(struct vpu_core_device *core)
+> +{
+> +	if (wave6_vdi_readl(core->reg_base, W6_RET_SUCCESS))
+> +		return 0;
+> +
+> +	return wave6_vdi_readl(core->reg_base, W6_RET_FAIL_REASON);
+> +}
+> +
+> +static u32 wave6_vpu_get_code_buf_size(struct wave6_vpu_device *vpu)
+> +{
+> +	return min_t(u32, vpu->code_buf.size, W6_MAX_CODE_BUF_SIZE);
+> +}
+> +
+> +static void wave6_vpu_remap_code_buf(struct wave6_vpu_device *vpu)
+> +{
+> +	dma_addr_t code_base = vpu->code_buf.dma_addr;
+> +	u32 i, reg_val;
+> +
+> +	for (i = 0; i < wave6_vpu_get_code_buf_size(vpu) / W6_MAX_REMAP_PAGE_SIZE; i++) {
+> +		reg_val = REMAP_CTRL_ON |
+> +			  REMAP_CTRL_INDEX(i) |
+> +			  REMAP_CTRL_PAGE_SIZE_ON |
+> +			  REMAP_CTRL_PAGE_SIZE(W6_MAX_REMAP_PAGE_SIZE);
+> +		wave6_vdi_writel(vpu->reg_base, W6_VPU_REMAP_CTRL_GB, reg_val);
+> +		wave6_vdi_writel(vpu->reg_base, W6_VPU_REMAP_VADDR_GB,
+> +				 i * W6_MAX_REMAP_PAGE_SIZE);
+> +		wave6_vdi_writel(vpu->reg_base, W6_VPU_REMAP_PADDR_GB,
+> +				 code_base + i * W6_MAX_REMAP_PAGE_SIZE);
+> +	}
+> +}
+> +
+> +static void wave6_vpu_init_code_buf(struct wave6_vpu_device *vpu)
+> +{
+> +	if (vpu->code_buf.size < W6_CODE_BUF_SIZE) {
+> +		dev_warn(vpu->dev,
+> +			 "code buf size (%zu) is too small\n", vpu->code_buf.size);
+> +		memset(&vpu->code_buf, 0, sizeof(vpu->code_buf));
+> +		return;
+> +	}
+> +
+> +	vpu->code_buf.vaddr = devm_memremap(vpu->dev,
+> +					    vpu->code_buf.phys_addr,
+> +					    vpu->code_buf.size,
+> +					    MEMREMAP_WC);
+> +	if (!vpu->code_buf.vaddr) {
+> +		memset(&vpu->code_buf, 0, sizeof(vpu->code_buf));
+> +		return;
+> +	}
+> +
+> +	vpu->code_buf.dma_addr = dma_map_resource(vpu->dev,
+> +						  vpu->code_buf.phys_addr,
+> +						  vpu->code_buf.size,
+> +						  DMA_BIDIRECTIONAL,
+> +						  0);
+> +	if (dma_mapping_error(vpu->dev, vpu->code_buf.dma_addr)) {
+> +		memset(&vpu->code_buf, 0, sizeof(vpu->code_buf));
+> +		return;
+> +	}
+> +}
+> +
+> +static void wave6_vpu_allocate_work_buffers(struct wave6_vpu_device *vpu)
+> +{
+> +	struct vpu_buf *buf;
+> +	int i;
+> +
+> +	for (i = 0; i < MAX_NUM_INSTANCE; i++) {
+> +		buf = &vpu->work_buffers[i];
+> +		buf->size = W637DEC_WORKBUF_SIZE_FOR_CQ;
+> +
+> +		if (wave6_vdi_alloc_dma(vpu->dev, buf)) {
+> +			dev_warn(vpu->dev, "Failed to allocate work_buffers\n");
+> +			return;
+> +		}
+> +
+> +		vpu->work_buffers_alloc++;
+> +	}
+> +}
+> +
+> +static void wave6_vpu_free_work_buffers(struct wave6_vpu_device *vpu)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < vpu->work_buffers_alloc; i++)
+> +		wave6_vdi_free_dma(&vpu->work_buffers[i]);
+> +
+> +	vpu->work_buffers_alloc = 0;
+> +	vpu->work_buffers_avail = 0;
+> +}
+> +
+> +static int wave6_vpu_init_work_buf(struct wave6_vpu_device *vpu,
+> +				   struct vpu_core_device *core)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&vpu->lock);
+> +
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_BUSY_STATUS, BUSY_STATUS_SET);
+> +	wave6_vdi_writel(core->reg_base, W6_COMMAND, W6_CMD_INIT_WORK_BUF);
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_HOST_INT_REQ, HOST_INT_REQ_ON);
+> +
+> +	ret = wave6_vpu_wait_busy(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "init work buf failed\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = wave6_vpu_check_result(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "init work buf failed, reason 0x%x\n", ret);
+> +		return -EIO;
+> +	}
+> +
+> +	vpu->work_buffers_avail = vpu->work_buffers_alloc;
+> +
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_init_vpu(struct wave6_vpu_device *vpu,
+> +			      struct vpu_core_device *core)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&vpu->lock);
+> +
+> +	/* try init directly as firmware is running */
+> +	if (wave6_vdi_readl(core->reg_base, W6_VPU_VCPU_CUR_PC))
+> +		goto init_done;
+> +
+> +	wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_PREPARE);
+> +
+> +	wave6_vpu_remap_code_buf(vpu);
+> +
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_BUSY_STATUS, BUSY_STATUS_SET);
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_INIT_VPU_SEC_AXI_BASE_CORE0,
+> +			 vpu->sram_buf.dma_addr);
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_INIT_VPU_SEC_AXI_SIZE_CORE0,
+> +			 vpu->sram_buf.size);
+> +	wave6_vdi_writel(vpu->reg_base, W6_COMMAND_GB, W6_CMD_INIT_VPU);
+> +	wave6_vdi_writel(vpu->reg_base, W6_VPU_REMAP_CORE_START_GB,
+> +			 REMAP_CORE_START_ON);
+> +
+> +	ret = wave6_vpu_wait_busy(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "init vpu timeout\n");
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = wave6_vpu_check_result(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "init vpu fail, reason 0x%x\n", ret);
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EIO;
+> +	}
+> +
+> +init_done:
+> +	ret = wave6_vpu_init_work_buf(vpu, core);
+> +	if (ret)
+> +		return ret;
+> +
+> +	wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_ON);
+> +
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_sleep(struct wave6_vpu_device *vpu,
+> +			   struct vpu_core_device *core)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&vpu->lock);
+> +
+> +	if (!wave6_vdi_readl(core->reg_base, W6_VPU_VCPU_CUR_PC)) {
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return 0;
+> +	}
+> +
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_BUSY_STATUS, BUSY_STATUS_SET);
+> +	wave6_vdi_writel(core->reg_base, W6_COMMAND, W6_CMD_SLEEP_VPU);
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_HOST_INT_REQ, HOST_INT_REQ_ON);
+> +
+> +	ret = wave6_vpu_wait_busy(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "sleep vpu timeout\n");
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = wave6_vpu_check_result(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "sleep vpu fail, reason 0x%x\n", ret);
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EIO;
+> +	}
+> +
+> +	wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_SLEEP);
+> +
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_wakeup(struct wave6_vpu_device *vpu,
+> +			    struct vpu_core_device *core)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&vpu->lock);
+> +
+> +	/* try wakeup directly as firmware is running */
+> +	if (wave6_vdi_readl(core->reg_base, W6_VPU_VCPU_CUR_PC))
+> +		goto wakeup_done;
+> +
+> +	wave6_vpu_remap_code_buf(vpu);
+> +
+> +	wave6_vdi_writel(core->reg_base, W6_VPU_BUSY_STATUS, BUSY_STATUS_SET);
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_INIT_VPU_SEC_AXI_BASE_CORE0,
+> +			 vpu->sram_buf.dma_addr);
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_INIT_VPU_SEC_AXI_SIZE_CORE0,
+> +			 vpu->sram_buf.size);
+> +	wave6_vdi_writel(vpu->reg_base, W6_COMMAND_GB, W6_CMD_WAKEUP_VPU);
+> +	wave6_vdi_writel(vpu->reg_base, W6_VPU_REMAP_CORE_START_GB,
+> +			 REMAP_CORE_START_ON);
+> +
+> +	ret = wave6_vpu_wait_busy(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "wakeup vpu timeout\n");
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = wave6_vpu_check_result(core);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "wakeup vpu fail, reason 0x%x\n", ret);
+> +		wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_OFF);
+> +		return -EIO;
+> +	}
+> +
+> +wakeup_done:
+> +	wave6_vpu_set_state(vpu, WAVE6_VPU_STATE_ON);
+> +
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_try_boot(struct wave6_vpu_device *vpu,
+> +			      struct vpu_core_device *core)
+> +{
+> +	u32 product_code;
+> +	int ret;
+> +
+> +	lockdep_assert_held(&vpu->lock);
+> +
+> +	if (vpu->state != WAVE6_VPU_STATE_OFF && vpu->state != WAVE6_VPU_STATE_SLEEP)
+> +		return 0;
+> +
+> +	product_code = wave6_vdi_readl(core->reg_base, W6_VPU_RET_PRODUCT_CODE);
+> +	if (!wave6_is_product_w_series(product_code)) {
+> +		dev_err(vpu->dev, "unknown product : %08x\n", product_code);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (vpu->state == WAVE6_VPU_STATE_SLEEP) {
+> +		ret = wave6_vpu_wakeup(vpu, core);
+> +		return ret;
+> +	}
+> +
+> +	ret = wave6_vpu_init_vpu(vpu, core);
+> +
+> +	return ret;
+> +}
+> +
+> +static int wave6_vpu_get(struct wave6_vpu_device *vpu,
+> +			 struct vpu_core_device *core)
+> +{
+> +	int ret;
+> +
+> +	if (WARN_ON(!vpu || !core))
+> +		return -EINVAL;
+> +
+> +	guard(mutex)(&vpu->lock);
+> +
+> +	if (!vpu->fw_available)
+> +		return -EINVAL;
+> +
+> +	/* Only the first core executes boot; others return */
+> +	if (atomic_inc_return(&vpu->core_count) > 1)
+> +		return 0;
+> +
+> +	ret = pm_runtime_resume_and_get(vpu->dev);
+> +	if (ret)
+> +		goto error_pm;
+> +
+> +	ret = wave6_vpu_try_boot(vpu, core);
+> +	if (ret)
+> +		goto error_boot;
+> +
+> +	return 0;
+> +
+> +error_boot:
+> +	pm_runtime_put_sync(vpu->dev);
+> +error_pm:
+> +	atomic_dec(&vpu->core_count);
+> +
+> +	return ret;
+> +}
+> +
+> +static void wave6_vpu_put(struct wave6_vpu_device *vpu,
+> +			  struct vpu_core_device *core)
+> +{
+> +	if (WARN_ON(!vpu || !core))
+> +		return;
+> +
+> +	guard(mutex)(&vpu->lock);
+> +
+> +	if (!vpu->fw_available)
+> +		return;
+> +
+> +	/* Only the last core executes sleep; others return */
+> +	if (atomic_dec_return(&vpu->core_count) > 0)
+> +		return;
+> +
+> +	wave6_vpu_sleep(vpu, core);
+> +
+> +	if (!pm_runtime_suspended(vpu->dev))
+> +		pm_runtime_put_sync(vpu->dev);
+> +}
+> +
+> +static void wave6_vpu_require_work_buffer(struct wave6_vpu_device *vpu,
+> +					  struct vpu_core_device *core)
+> +{
+> +	struct vpu_buf *vb;
+> +	u32 size;
+> +
+> +	if (WARN_ON(!vpu || !core))
+> +		return;
+> +
+> +	size = wave6_vdi_readl(core->reg_base, W6_CMD_SET_WORK_BUF_SIZE);
+> +	if (!size)
+> +		return;
+> +
+> +	if (WARN_ON(size > W637DEC_WORKBUF_SIZE_FOR_CQ))
+> +		goto exit;
+> +
+> +	if (WARN_ON(vpu->work_buffers_avail == 0))
+> +		goto exit;
+> +
+> +	vpu->work_buffers_avail--;
+> +	vb = &vpu->work_buffers[vpu->work_buffers_avail];
+> +
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_SET_WORK_BUF_ADDR, vb->daddr);
+> +
+> +exit:
+> +	wave6_vdi_writel(core->reg_base, W6_CMD_SET_WORK_BUF_SIZE, SET_WORK_BUF_SIZE_ACK);
+> +}
+> +
+> +static int wave6_vpu_create_cores(struct wave6_vpu_device *vpu)
+> +{
+> +	struct device_node *child;
+> +	int num_cores = 0;
+> +
+> +	for_each_available_child_of_node(vpu->dev->of_node, child) {
+> +		struct platform_device_info info = {};
+> +		struct platform_device *pdev;
+> +		struct resource res[2];
+> +		int irq;
+> +
+> +		if (num_cores >= W6_VPU_MAX_NUM_CORE) {
+> +			of_node_put(child);
+> +			break;
+> +		}
+> +
+> +		if (of_address_to_resource(child, 0, &res[0])) {
+> +			dev_warn(vpu->dev, "%pOF: missing reg property\n", child);
+> +			continue;
+> +		}
+> +
+> +		irq = of_irq_get(child, 0);
+> +		if (irq < 0) {
+> +			dev_warn(vpu->dev, "%pOF: missing interrupts property\n", child);
+> +			continue;
+> +		}
+> +		res[1] = DEFINE_RES_IRQ(irq);
+> +
+> +		info.fwnode = of_fwnode_handle(child);
+> +		info.parent = vpu->dev;
+> +		info.name = WAVE6_VPU_CORE_PLATFORM_DRIVER_NAME;
+> +		info.id = num_cores;
+> +		info.dma_mask = DMA_BIT_MASK(32);
+> +		info.res = res;
+> +		info.num_res = ARRAY_SIZE(res);
+> +		info.data = &wave633c_core_data;
+> +		info.size_data = sizeof(wave633c_core_data);
+> +
+> +		pdev = platform_device_register_full(&info);
+> +		if (IS_ERR(pdev)) {
+> +			dev_err(vpu->dev, "Failed to register core %d: %ld\n",
+> +				num_cores, PTR_ERR(pdev));
+> +			continue;
+> +		}
+> +
+> +		vpu->core_pdevs[num_cores] = pdev;
+> +		num_cores++;
+> +	}
+> +
+> +	return num_cores;
+> +}
+> +
+> +static void wave6_vpu_destroy_cores(struct wave6_vpu_device *vpu)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < W6_VPU_MAX_NUM_CORE; i++) {
+> +		struct platform_device *pdev = vpu->core_pdevs[i];
+> +
+> +		if (!pdev)
+> +			continue;
+> +
+> +		platform_device_unregister(pdev);
+> +		vpu->core_pdevs[i] = NULL;
+> +	}
+> +}
+> +
+> +static void wave6_vpu_release(struct wave6_vpu_device *vpu)
+> +{
+> +	guard(mutex)(&vpu->lock);
+> +
+> +	vpu->fw_available = false;
+> +	wave6_vpu_destroy_cores(vpu);
+> +	wave6_vpu_free_work_buffers(vpu);
+> +	if (vpu->sram_pool && vpu->sram_buf.vaddr) {
+> +		dma_unmap_resource(vpu->dev,
+> +				   vpu->sram_buf.dma_addr,
+> +				   vpu->sram_buf.size,
+> +				   DMA_BIDIRECTIONAL,
+> +				   0);
+> +		gen_pool_free(vpu->sram_pool,
+> +			      (unsigned long)vpu->sram_buf.vaddr,
+> +			      vpu->sram_buf.size);
+> +	}
+> +	if (vpu->code_buf.dma_addr)
+> +		dma_unmap_resource(vpu->dev,
+> +				   vpu->code_buf.dma_addr,
+> +				   vpu->code_buf.size,
+> +				   DMA_BIDIRECTIONAL,
+> +				   0);
+> +}
+> +
+> +static void wave6_vpu_load_firmware(const struct firmware *fw, void *context)
+> +{
+> +	struct wave6_vpu_device *vpu = context;
+> +
+> +	guard(mutex)(&vpu->lock);
+> +
+> +	if (!fw || !fw->data) {
+> +		dev_err(vpu->dev, "No firmware.\n");
+> +		return;
+> +	}
+> +
+> +	if (!vpu->fw_available)
+> +		goto exit;
+> +
+> +	if (fw->size + W6_EXTRA_CODE_BUF_SIZE > wave6_vpu_get_code_buf_size(vpu)) {
+> +		dev_err(vpu->dev, "firmware size (%zd > %zd) is too big\n",
+> +			fw->size, vpu->code_buf.size);
+> +		vpu->fw_available = false;
+> +		goto exit;
+> +	}
+> +
+> +	memcpy(vpu->code_buf.vaddr, fw->data, fw->size);
+> +
+> +	vpu->get_vpu = wave6_vpu_get;
+> +	vpu->put_vpu = wave6_vpu_put;
+> +	vpu->req_work_buffer = wave6_vpu_require_work_buffer;
+> +
+> +	if (!wave6_vpu_create_cores(vpu)) {
+> +		dev_err(vpu->dev, "Failed to create VPU cores\n");
+> +		vpu->fw_available = false;
+> +	}
+> +
+> +exit:
+> +	release_firmware(fw);
+> +}
+> +
+> +static void wave6_vpu_detach_pm_domains(struct wave6_vpu_device *vpu)
+> +{
+> +	if (!vpu->num_pm_domains)
+> +		return;
+> +
+> +	for (int i = 0; i < vpu->num_pm_domains; i++) {
+> +		struct device *pd_dev = vpu->pd_list->pd_devs[i];
+> +
+> +		if (!IS_ERR_OR_NULL(pd_dev) && !pm_runtime_suspended(pd_dev))
+> +			pm_runtime_force_suspend(pd_dev);
+> +	}
+> +
+> +	dev_pm_domain_detach_list(vpu->pd_list);
+> +	vpu->pd_list = NULL;
+> +	vpu->num_pm_domains = 0;
+> +}
+> +
+> +static int wave6_vpu_attach_pm_domains(struct wave6_vpu_device *vpu)
+> +{
+> +	int ret;
+> +
+> +	vpu->num_pm_domains = of_count_phandle_with_args(vpu->dev->of_node,
+> +							 "power-domains",
+> +							 "#power-domain-cells");
+> +	if (vpu->num_pm_domains < 0) {
+> +		dev_err(vpu->dev, "No power domains defined for vpu node\n");
+> +		return vpu->num_pm_domains;
+> +	}
+> +
+> +	if (vpu->num_pm_domains == 1) {
+> +		/* genpd_dev_pm_attach() attach automatically if count is 1 */
+> +		vpu->num_pm_domains = 0;
+> +		return 0;
+> +	}
+> +
+> +	ret = dev_pm_domain_attach_list(vpu->dev, NULL, &vpu->pd_list);
+> +	if (ret < 0) {
+> +		dev_err(vpu->dev, "Can't attach pm domains, ret = %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	vpu->num_pm_domains = ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static struct device *wave6_vpu_get_performance_dev(struct wave6_vpu_device *vpu)
+> +{
+> +	int index;
+> +
+> +	if (!vpu->num_pm_domains)
+> +		return vpu->dev;
+> +
+> +	index = of_property_match_string(vpu->dev->of_node,
+> +					 "power-domain-names", "perf");
+> +	if (index < 0 || index >= vpu->num_pm_domains)
+> +		return NULL;
+> +
+> +	return vpu->pd_list->pd_devs[index];
+> +}
+> +
+> +static int wave6_vpu_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *np;
+> +	struct wave6_vpu_device *vpu;
+> +	const struct wave6_vpu_resource *res;
+> +	int ret;
+> +
+> +	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev, "failed to set DMA mask: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	res = device_get_match_data(&pdev->dev);
+> +	if (!res)
+> +		return -ENODEV;
+> +
+> +	vpu = devm_kzalloc(&pdev->dev, sizeof(*vpu), GFP_KERNEL);
+> +	if (!vpu)
+> +		return -ENOMEM;
+> +
+> +	ret = devm_mutex_init(&pdev->dev, &vpu->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	atomic_set(&vpu->core_count, 0);
+> +	dev_set_drvdata(&pdev->dev, vpu);
+> +	vpu->dev = &pdev->dev;
+> +	vpu->res = res;
+> +	vpu->reg_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(vpu->reg_base))
+> +		return PTR_ERR(vpu->reg_base);
+> +
+> +	ret = devm_clk_bulk_get_all(&pdev->dev, &vpu->clks);
+> +	if (ret < 0)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to get clocks\n");
+> +
+> +	vpu->num_clks = ret;
+> +
+> +	ret = wave6_vpu_attach_pm_domains(vpu);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to attach pm domains\n");
+> +
+> +	np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
+> +	if (np) {
+> +		struct resource mem;
+> +
+> +		ret = of_address_to_resource(np, 0, &mem);
+> +		of_node_put(np);
+> +		if (!ret) {
+> +			vpu->code_buf.phys_addr = mem.start;
+> +			vpu->code_buf.size = resource_size(&mem);
+> +			wave6_vpu_init_code_buf(vpu);
+> +		} else {
+> +			dev_warn(&pdev->dev, "memory-region is not available.\n");
+> +		}
+> +	}
+> +
+> +	vpu->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
+> +	if (vpu->sram_pool) {
+> +		vpu->sram_buf.size = vpu->res->sram_size;
+> +		vpu->sram_buf.vaddr = gen_pool_dma_alloc(vpu->sram_pool,
+> +							 vpu->sram_buf.size,
+> +							 &vpu->sram_buf.phys_addr);
+> +		if (!vpu->sram_buf.vaddr) {
+> +			vpu->sram_buf.size = 0;
+> +		} else {
+> +			vpu->sram_buf.dma_addr = dma_map_resource(&pdev->dev,
+> +								  vpu->sram_buf.phys_addr,
+> +								  vpu->sram_buf.size,
+> +								  DMA_BIDIRECTIONAL,
+> +								  0);
+> +			if (dma_mapping_error(&pdev->dev, vpu->sram_buf.dma_addr)) {
+> +				gen_pool_free(vpu->sram_pool,
+> +					      (unsigned long)vpu->sram_buf.vaddr,
+> +					      vpu->sram_buf.size);
+> +				memset(&vpu->sram_buf, 0, sizeof(vpu->sram_buf));
+> +			}
+> +		}
+> +	}
+> +
+> +	vpu->thermal.dev = wave6_vpu_get_performance_dev(vpu);
+> +	if (vpu->thermal.dev) {
+> +		ret = wave6_vpu_cooling_init(vpu->dev, &vpu->thermal);
+> +		if (ret)
+> +			dev_err(&pdev->dev, "failed to initialize thermal cooling, %d\n", ret);
+> +	}
+> +
+> +	wave6_vpu_allocate_work_buffers(vpu);
+> +
+> +	pm_runtime_enable(&pdev->dev);
+> +	vpu->fw_available = true;
+> +
+> +	request_module("platform:%s", WAVE6_VPU_CORE_PLATFORM_DRIVER_NAME);
+> +
+> +	ret = firmware_request_nowait_nowarn(THIS_MODULE,
+> +					     vpu->res->fw_name,
+> +					     &pdev->dev,
+> +					     GFP_KERNEL,
+> +					     vpu,
+> +					     wave6_vpu_load_firmware);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "request firmware fail, ret = %d\n", ret);
+> +		goto error;
+> +	}
+> +
+> +	return 0;
+> +
+> +error:
+> +	wave6_vpu_release(vpu);
+> +	pm_runtime_disable(&pdev->dev);
+> +	wave6_vpu_detach_pm_domains(vpu);
+> +
+> +	return ret;
+> +}
+> +
+> +static void wave6_vpu_remove(struct platform_device *pdev)
+> +{
+> +	struct wave6_vpu_device *vpu = dev_get_drvdata(&pdev->dev);
+> +
+> +	wave6_vpu_release(vpu);
+> +	pm_runtime_disable(vpu->dev);
+> +	wave6_vpu_detach_pm_domains(vpu);
+> +}
+> +
+> +static int wave6_vpu_runtime_suspend(struct device *dev)
+> +{
+> +	struct wave6_vpu_device *vpu = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(vpu->num_clks, vpu->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_runtime_resume(struct device *dev)
+> +{
+> +	struct wave6_vpu_device *vpu = dev_get_drvdata(dev);
+> +
+> +	return clk_bulk_prepare_enable(vpu->num_clks, vpu->clks);
+> +}
+> +
+> +static const struct dev_pm_ops wave6_vpu_pm_ops = {
+> +	RUNTIME_PM_OPS(wave6_vpu_runtime_suspend,
+> +		       wave6_vpu_runtime_resume, NULL)
+> +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+> +			    pm_runtime_force_resume)
+> +};
+> +
+> +static const struct of_device_id wave6_vpu_ids[] = {
+> +	{ .compatible = "nxp,imx95-vpu", .data = &wave633c_data },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, wave6_vpu_ids);
+> +
+> +static struct platform_driver wave6_vpu_driver = {
+> +	.driver = {
+> +		.name = WAVE6_VPU_PLATFORM_DRIVER_NAME,
+> +		.of_match_table = wave6_vpu_ids,
+> +		.pm = pm_ptr(&wave6_vpu_pm_ops),
+> +	},
+> +	.probe = wave6_vpu_probe,
+> +	.remove = wave6_vpu_remove,
+> +};
+> +
+> +module_platform_driver(wave6_vpu_driver);
+> +MODULE_DESCRIPTION("chips&media Wave6 VPU driver");
+> +MODULE_AUTHOR("CHIPS&MEDIA INC");
+> +MODULE_FIRMWARE("cnm/wave633c_imx9_codec_fw.bin");
+> +MODULE_LICENSE("Dual BSD/GPL");
+> diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu.h b/drivers/media/platform/chips-media/wave6/wave6-vpu.h
+> new file mode 100644
+> index 000000000000..ec3c9299526b
+> --- /dev/null
+> +++ b/drivers/media/platform/chips-media/wave6/wave6-vpu.h
+> @@ -0,0 +1,143 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
+> +/*
+> + * Wave6 series multi-standard codec IP - wave6 driver
+> + *
+> + * Copyright (C) 2025 CHIPS&MEDIA INC
+> + */
+> +
+> +#ifndef __WAVE6_VPU_H__
+> +#define __WAVE6_VPU_H__
+> +
+> +#include <linux/device.h>
+> +#include "wave6-vpu-thermal.h"
+> +#include "wave6-vdi.h"
+> +#include "wave6-vpuapi.h"
+> +
+> +#define WAVE6_VPU_PLATFORM_DRIVER_NAME "wave6-vpu"
+> +#define WAVE6_VPU_CORE_PLATFORM_DRIVER_NAME "wave6-vpu-core"
+> +
+> +struct wave6_vpu_device;
+> +struct vpu_core_device;
+> +
+> +/**
+> + * enum wave6_vpu_state - VPU states
+> + * @WAVE6_VPU_STATE_OFF:	VPU is powered off
+> + * @WAVE6_VPU_STATE_PREPARE:	VPU is booting
+> + * @WAVE6_VPU_STATE_ON:		VPU is running
+> + * @WAVE6_VPU_STATE_SLEEP:	VPU is in a sleep mode
+> + */
+> +enum wave6_vpu_state {
+> +	WAVE6_VPU_STATE_OFF,
+> +	WAVE6_VPU_STATE_PREPARE,
+> +	WAVE6_VPU_STATE_ON,
+> +	WAVE6_VPU_STATE_SLEEP
+> +};
+> +
+> +/**
+> + * struct wave6_vpu_dma_buf - VPU buffer from reserved memory or gen_pool
+> + * @size:	Buffer size
+> + * @dma_addr:	Mapped address for device access
+> + * @vaddr:	Kernel virtual address
+> + * @phys_addr:	Physical address of the reserved memory region or gen_pool
+> + *
+> + * Represents a buffer allocated from pre-reserved device memory regions or
+> + * SRAM via gen_pool_dma_alloc(). Used for code and SRAM buffers only.
+> + * Managed by the VPU device.
+> + */
+> +struct wave6_vpu_dma_buf {
+> +	size_t size;
+> +	dma_addr_t dma_addr;
+> +	void *vaddr;
+> +	phys_addr_t phys_addr;
+> +};
+> +
+> +/**
+> + * struct wave6_vpu_resource - VPU device compatible data
+> + * @fw_name:	Firmware name for the device
+> + * @sram_size:	Required SRAM size
+> + */
+> +struct wave6_vpu_resource {
+> +	const char *fw_name;
+> +	u32 sram_size;
+> +};
+> +
+> +#define WAVE6_IS_ENC				BIT(0)
+> +#define WAVE6_IS_DEC				BIT(1)
+> +
+> +#define WAVE633_CODEC_TYPE			(WAVE6_IS_ENC | WAVE6_IS_DEC)
+> +#define WAVE633_COMPATIBLE_FW_VERSION		0x2010000
+> +
+> +/**
+> + * struct wave6_vpu_core_resource - VPU CORE device compatible data
+> + * @codec_types:		Bitmask of supported codec types
+> + * @compatible_fw_version:	Firmware version compatible with driver
+> + */
+> +struct wave6_vpu_core_resource {
+> +	int codec_types;
+> +	u32 compatible_fw_version;
+> +};
+> +
+> +/**
+> + * struct wave6_vpu_device - VPU driver structure
+> + * @get_vpu:		Function pointer, boot or wake the device
+> + * @put_vpu:		Function pointer, power off or suspend the device
+> + * @req_work_buffer:	Function pointer, request allocation of a work buffer
+> + * @dev:		Platform device pointer
+> + * @reg_base:		Base address of MMIO registers
+> + * @clks:		Array of clock handles
+> + * @num_clks:		Number of entries in @clks
+> + * @state:		Device state
+> + * @lock:		Mutex protecting device data, register access
+> + * @fw_available:	Firmware availability flag
+> + * @res:		Device compatible data
+> + * @sram_pool:		Genalloc pool for SRAM allocations
+> + * @sram_buf:		Optional SRAM buffer
+> + * @code_buf:		Firmware code buffer
+> + * @work_buffers:	Array of work buffers
+> + * @work_buffers_alloc:	Number of allocated work buffers
+> + * @work_buffers_avail:	Number of available work buffers
+> + * @thermal:		Thermal cooling device
+> + * @core_count:		Number of available VPU core devices
+> + *
+> + * @get_vpu, @put_vpu, @req_work_buffer are called by VPU core devices.
+> + *
+> + * Buffers such as @sram_buf, @code_buf, and @work_buffers are managed
+> + * by the VPU device and accessed exclusively by the firmware.
+> + */
+> +struct wave6_vpu_device {
+> +	int (*get_vpu)(struct wave6_vpu_device *vpu,
+> +		       struct vpu_core_device *core);
+> +	void (*put_vpu)(struct wave6_vpu_device *vpu,
+> +			struct vpu_core_device *core);
+> +	void (*req_work_buffer)(struct wave6_vpu_device *vpu,
+> +				struct vpu_core_device *core);
+> +	struct device *dev;
+> +	void __iomem *reg_base;
+> +	struct clk_bulk_data *clks;
+> +	int num_clks;
+> +	enum wave6_vpu_state state;
+> +	struct mutex lock; /* Protects device data, register access */
+> +
+> +	/* Prevents boot or sleep sequence if firmware is unavailable. */
+> +	bool fw_available;
+> +
+> +	const struct wave6_vpu_resource *res;
+> +	struct gen_pool *sram_pool;
+> +	struct wave6_vpu_dma_buf sram_buf;
+> +	struct wave6_vpu_dma_buf code_buf;
+> +
+> +	/* Allocates per-instance, used for storing instance-specific data. */
+> +	struct vpu_buf work_buffers[MAX_NUM_INSTANCE];
+> +	u32 work_buffers_alloc;
+> +	u32 work_buffers_avail;
+> +
+> +	struct vpu_thermal_cooling thermal;
+> +	atomic_t core_count;
+> +
+> +	int num_pm_domains;
+> +	struct dev_pm_domain_list *pd_list;
+> +
+> +	struct platform_device *core_pdevs[W6_VPU_MAX_NUM_CORE];
+> +};
+> +
+> +#endif /* __WAVE6_VPU_H__ */
+> --
+> 2.31.1
+>
 
