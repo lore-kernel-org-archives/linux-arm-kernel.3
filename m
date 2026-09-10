@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE33C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE368C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:18:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63mYHX7mtuoiPipaFKq34F2k9faAGyQ8nFHA1oVLU8U=; b=Fr/GDI954I36T4A2c1ilU4iCCP
-	d3T7B88C7lLVwTO5RjjZMNJDaFPmaGBXurGIRlCDknml+RtngWxu/ZabP0WgysFu0EJBZ5xEj3QLV
-	IXPUAB2lbXU8zt9Wtqp+HUQJnVZdHpDQbb2Hi1I807GrOHZCACzDYUN68Iwcowsot6qwSsCl9Stx+
-	ZI5aFAaa5W+cuH2Qe54zqSY6E8+8GyyMhQ22+jcqaFL02AaamMuyDjDB8FolGcCSKPuAiTKHFROdW
-	s0g/eCfwxtYZzBxh7soYq/+y0RPw/WO8DMqA8wW3G/nUpVOvCHWS27saZGUvFJWjoBxVyAPKneLre
-	eCld86tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=; b=Xu0NC+yVE4uA2gzXXTWDxAa+TF
+	YlgB8hC9jCgQQWF2VeU8U98S/+W9B3Mhd3ImUQAQjXniFUSY1l/9Jkua8fxKIdx122OHLDOVud8jq
+	Knh0dQjSCja8dD7jvckkWS/VVsmOFpr1BVW73fheLHLy5wVwL5spu+aKMWm8mPjnYqyA8RwjSPXu0
+	pFMQ5nATRVMooSP4Orc5novCqX2tEAq5USLK9shETYufphWd0oLgSzAQg1+VIxlI0rUyxCIurNDeV
+	5KdH09YfiXPjzLMS399OHxwRPuDjIiEus4xWpKK2DVbYGRXBaJ1mSPffWrcg8orgAE9ZzDNGfP50x
+	PuK9LUuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4efH-0000000ERy6-1uVX;
-	Thu, 10 Sep 2026 13:18:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4efk-0000000ES2G-2TXt;
+	Thu, 10 Sep 2026 13:18:36 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4efF-0000000ERxo-2QEw
+	id 1x4efh-0000000ES1g-2rD9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:18:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8B16600E2;
-	Thu, 10 Sep 2026 13:18:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E76B11F000FF;
-	Thu, 10 Sep 2026 13:18:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789046284;
-	bh=63mYHX7mtuoiPipaFKq34F2k9faAGyQ8nFHA1oVLU8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Yh28SgK7gOsyNTvjOGWgVG1/MDJixzQwQhYPAGNTeDU4OCLsroi21iNV/clvoIEh5
-	 uKFGiJ3Oi1dp52stLFPNgzYrIwY8vNlOCjtj1+b4kort8izKB+rqCmiPcTI2gh7VgM
-	 tnC4jvDMu1aBxEAWYpTLCVl4tx5EUYH1Eo4S55XiuIvhDgkXE6oCXY/ZV/qc9qh0co
-	 NXrZ88fbtKVa75c5eqBXedcleXEgyodSEZT+Sa1MLTSh3o3RmvxJy3XY5E77JyMUO4
-	 o5wNJdeykoOuBVD3BDFefmraJ/IoJNeQ3gvvoxGkawTwMXxtIDWfOV+WxREmvKXjJl
-	 YyFwTlmBFNxlA==
-Date: Thu, 10 Sep 2026 14:17:57 +0100
-From: Mark Brown <broonie@kernel.org>
-To: =?utf-8?B?yJh0ZWZhbiBHaGXIm3U=?= <stefanghetu9@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ASoC: SOF: imx: Prevent stack OOB read in DSP panic dump
-Message-ID: <f64a008a-8bdd-4c06-aa12-a721cebc3a11@sirena.org.uk>
-References: <20260909204042.46656-1-stefanghetu9@gmail.com>
- <20260909204042.46656-2-stefanghetu9@gmail.com>
+	Thu, 10 Sep 2026 13:18:35 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so12119085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:18:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789046311; x=1789651111; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=;
+        b=Zz/ecsOzK5FmQN+zxse1pAJKfV9u8yJoJU+v2rjECaeesA3+sAUObEkRdEpCLugvD7
+         qyu3dEY63ZrxCHh4eUw/DuK0buS4SGhODOHP1l12N0hQMAztL7pdvLrwcHFJTf8CHlxv
+         i/jsLLeKgTYOSD6Akw2hIMYtTD+YT0ivlh0PIU8fQFtum/Sa7FO38RIzncZo8tC1N3QV
+         63va8ht+3r1/xelG4OxJn29YqbhfvoIJ48ZXZUaAcPsui2+YbA/0KkNon4L2KNl+p6pO
+         494QKDPbFYbGqO86wqTr70oxEhvFIzQzewBdXJ1tcrQQzWm9zI/8+NICYXc+bPwy4kYV
+         Qg5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789046311; x=1789651111;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SFrncxg8AQQiuXDWK0QdricKiYQ4QF6k7OcXsKbqExE=;
+        b=jSDm5LOOev1IbevaRXuyayiZcyy5AMurRqJxZZaO/CLhurhDZUDQQMWHwwHoh5Tpqz
+         DICM381X1jcsnaMhQhU6PHrTyfwKB1A9MBHc/1kGkWsfpsACZ2A1k/bmemGG7L7nceMY
+         48bXcpzAkAR7Wa1YIa/N2XKGO0KoZxmxevYAvO93UyTXd+0rES/O0NeXdEviWo4ap2XM
+         H0o7YINVdeTt65gkHtuFwrgy63/gdmhaRJNEGxSD9g12g4qPQtTNwzjtQFYqc5OVmYws
+         02R/TGm34QI6FVFS2hOhe5DaIHqdqvZ5ssFnTaTVHUiNfo4oGJraxP2pjgfvWRS4G5vY
+         /obQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwNnEZP/RgURNpHzjduB+BBYnXfE6MNWdFDiZxxD3THPvSxVpeOEs5Fon8bp4NPsYRKWtGyIlpnCJlkYZRwQLFV@lists.infradead.org
+X-Gm-Message-State: AFuF++lpBmPFvVrPubU1Bz6N9GRUaARUFVlyx7cFGNSjvvRpsLDlSBjO
+	js9Yt8betxcWWAnyRcUF8cEzD09+YFHiZJkdM11oEu4BHFpBefAs9USvBFeOYwDz/cE=
+X-Gm-Gg: AYBFou2m52iSCOoCmPzpBpSIbCLUr6/C49mA2QBwYtPMU/BHDq5YYRVtBUjvGaHx+UU
+	ehh98aRNPXPjG5qGwTXzWQ3nY3LEKKTOhMZ74HDi056eGPyTgLITXw6Z7VRNYYCyFgu9ZDyA7Vj
+	8ROiWHma9Kvsfk9uPq0UfhQVjLdRIoxLCmFqEEfJJItkmFjVvNqSo8XdH4Wz12hG4nIB2EIRbQo
+	Dt877IM03rqC0lyY21075jpYvc6EY7C90aNo68jsbUdK4YzLMBpfwATWN7moUarI4HJbdbJUB8n
+	qFlbWXs5VqhzOZDV3WnX06UOAUbRDWpZjG1Vh1jNO601qOPkH5yDehJo8we02MddywGkTIc6F9d
+	1eaqUxPRDbuIJjyT2hUTfU0OF9eRJE+DEAPmlvIdccUwO2d8TWwTl8FnQsEiZ8R9+M35mVmBcjp
+	pkwUZO6ySjMfpUYczS6TToxne1NzG7leVIw6x5Rxtbh/+5Du9M0ngweInQWBwhqAiFKO6O+KRc/
+	cXAB5c=
+X-Received: by 2002:a05:600c:4712:b0:49d:2705:7030 with SMTP id 5b1f17b1804b1-49d270571ecmr45811495e9.7.1789046311143;
+        Thu, 10 Sep 2026 06:18:31 -0700 (PDT)
+Received: from [10.11.12.110] ([79.115.63.240])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e5fbda49asm9602715e9.3.2026.09.10.06.18.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 06:18:30 -0700 (PDT)
+Message-ID: <f80d4081-d585-44c1-bb82-3d7f83462d1c@linaro.org>
+Date: Thu, 10 Sep 2026 16:18:27 +0300
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Bxz62p+0qLECbO21"
-Content-Disposition: inline
-In-Reply-To: <20260909204042.46656-2-stefanghetu9@gmail.com>
-X-Cookie: Gravity brings me down.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] firmware: samsung: acpm: add fire-and-forget xfer
+ support
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, Juan Yescas <jyescas@google.com>,
+ dianders@chromium.org
+References: <20260612-acpm-fast-xfer-v1-0-1aa6cd2268ba@linaro.org>
+ <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_061833_773985_ABFE8DB8 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +113,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Alexey,
 
---Bxz62p+0qLECbO21
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sorry for the delay.
 
-On Wed, Sep 09, 2026 at 11:40:42PM +0300, =C8=98tefan Ghe=C8=9Bu wrote:
-> Commit 58bb5081cba1 ("ASoC: SOF: Xtensa: dump ar registers to restore
-> call stack") added a shared Xtensa helper that iterates over a flexible
-> array of AR registers (`ar[]`) controlled by `plat_hdr.numaregs`.
+And thanks for the series. Improving frequency transition latency by
+giving schedutil an atomic ->fast_switch() path is definitely a
+worthwhile goal.
 
-You've sent multiple tengentially related patches in a single thread
-without anything indicating that it's a patch series.  This is really
-confusing tooling, please resend as either a coherent series or
-individual patches.
+On 6/12/26 7:34 AM, Alexey Klimov wrote:
+> The current ACPM IPC protocol relies on synchronous polling
+> (acpm_dequeue_by_polling) to process mailbox responses.
+> For CPU DVFS, cpufreqs schedutil governor requires ->fast_switch() to
+> execute in an atomic context. Waiting for firmware acknowledgments
+> in a loop in such case also using udelay(20) under spinlock doesn't
+> make a lot of sense. Experiemnts on Exynos850 showed that even with
+> removed udelay() or with it significantly decreased, the firmware
+> processing takes 15us...250us.
+> 
+> Introduce acpm_do_xfer_fast(), which implements a fire-and-forget
+> asynchronous path:
+>  - utilizes spin_trylock() to exit without sleeping if the channel
+>    is busy;
+>  - adds/sends the message and kicks the mailbox doorbell;
+>  - exits immediately, allowing fast_switch to complete quickly.
+> 
+> To prevent the unread asynchronous responses from permanently exhausting
+> the 63-slot sequence ring buffer, implement an acpm_drain_stale_rx().
+> This drains the RX queue during the fast path:
+>  - copies payloads and sets completion flags for sleeping
+>    synchronous users;
+>  - explicitly acks 'is_async' messages.
 
---Bxz62p+0qLECbO21
-Content-Type: application/pgp-signature; name="signature.asc"
+Answering your core question directly: the fire-and-forget approach
+over the existing ACPM command queue (acpm_do_xfer_fast) won't fly.
 
------BEGIN PGP SIGNATURE-----
+The ACPM IPC protocol is fundamentally a half-duplex, synchronous
+request-response mechanism over SRAM ring buffers.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqirgUACgkQJNaLcl1U
-h9AwYQf+OIH7nMiz45cq2dAIjQSTZ7xvYRJFfL7NgH9LmIUJzCDA5iD/8JHzAJqH
-HtB/dbJUg5yoPkH8vB9DmrouOKM1/ZnoGMZLz2md/fcHprBKzTRRY/hpS/SLL7uG
-ebPii0YZt+JZnq0WeDpOljT7LfjU7mcSxobur3AjJd84pHxsxFHB1XnjtBPGHhdT
-O77Q+yTV8DjIgXy4iZSWTvmxxYFIagg6w7DiuJ7G5VogrWpFJGOFw1PRw+Xg+S7F
-YP96GFRjjB+BMtmXvRYpIyB6Uvm3NYGkYlIMP2TOLR+vEbuz/UxWOwUVFFw9Jg38
-W8RJHuPrDPsz/7g1TH6r92mrmYo0ig==
-=uzC5
------END PGP SIGNATURE-----
+Even if the host sets response = false, the ACPM firmware does not have
+a concept of fire-and-forget on standard command queues. It executes the
+transition and still pushes a completion entry into the SRAM RX queue,
+advancing rx.front.
 
---Bxz62p+0qLECbO21--
+Draining stale RX entries opportunistically on the next xfer via
+acpm_drain_stale_rx() is fragile:
+1. If frequency transitions stop (e.g. CPU hits target frequency and
+   stays there), rx.rear is never advanced, leaving stale responses in
+   SRAM indefinitely.
+2. Queue lengths (qlen) in ACPM SRAM are small. If schedutil issues a
+   burst of frequency changes faster than the firmware completes them,
+   the RX queue fills up. When rx.front == rx.rear the firmware panics.
+3. If spin_trylock(&achan->rx_lock) fails, acpm_drain_stale_rx()
+   silently aborts, and sequence numbers in achan->bitmap_seqnum leak
+   until the pool is exhausted (-EBUSY).
+
+For addressing fast switch, I see downstream that the firmware defines
+a dedicated channel of type TYPE_BUFFER (async_dvfs). Frequency changes
+simply write the frequency into the SRAM cell and ring a direct MMIO
+doorbell:
+(https://android.googlesource.com/kernel/google-modules/soc/gs/+/refs/heads/android-gs-raviole-6.1-android16/drivers/soc/google/cal-if/acpm_dvfs.c#97)
+        async_dvfs_set_requested_freq(id, rate); /* 32-bit SRAM write */
+        acpm_ipc_ring_doorbell(async_ch_num);    /* MMIO doorbell */
+
+There are no ring buffers, no sequence numbers, no polling, and no
+RX responses to drain. This is essentially an SCMI FastChannel-style
+interface.
+
+Is e850 supporting this?
+
+Cheers,
+ta
 
