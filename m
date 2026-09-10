@@ -4,113 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A2BBC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5D8C79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPA7h1yzQiskXY53xtPOVbRZgGvwK1v/3hUYMrYw/Xg=; b=L3AaltwS8oa+uyo0U3LAJe0rOF
-	qKL6a/66rRV4lnGph+t5+9FeR5ZTp0YHU2rrGzYpF53+oc48J2bP8dDl3cV8aPm+wR6EbNwDH5wew
-	Nh4onZ+TOvk6bgW8/MP9oSLW+vBhtC7ojZiSu/2A2cH5+Q/bwvEvVc9/pZc6ce42DSqqABG8erttD
-	BW6jSvDSR2lqVIKNLdlG5OO9+sUVd2avM4edNC8Wqj2TIc63pK2tRmqChSvuCQGX9z/pNR5ixvfZN
-	hENk16vvSdThb4tY6CCLVqRzTA4W/RsWZh4WwnlfpEbC9jOk+wcImvPA0ze1NFaE7lsz+m65uiza1
-	3h5L0O1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TxLFoqvsaen+/s4fMM/RLCX3g5k4dxrg7lkZo5p2w6c=; b=DHYmd/S82mdRn2ToKtOaSeq6Ke
+	bomziOIpA78iA3m6hjubbrj1tPmWtl+QsdrMpXk4DBfc0ZCJI6o9maqfuBUFl5E2P6XztNIa28bM6
+	uE9f9YRKrw6WZ2h1BnBGQDSLHGonhYOQy+L9yt7RN959yUhuu9JFKO/jFxL718dtEOyYspDy7+sja
+	BWYiV1UxovBlXNimzrCxyMJoQU5w0dbD+4hHvsMLjDdZflxzspagfCcbhxiE3GPhWK761pP6SchLo
+	fLBwmHbcmbZCKKnyTXrowIyii7dYIlxpuQLBRPRt31ZjNbUjCGOwE3aF2Ou7YuuX2ouAjV7QNpiSe
+	n+N7xkhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jtc-0000000FCqd-118m;
-	Thu, 10 Sep 2026 18:53:16 +0000
-Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
+	id 1x4jx8-0000000FD76-4BaO;
+	Thu, 10 Sep 2026 18:56:55 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jtZ-0000000FCpp-3mPE
+	id 1x4jx6-0000000FD6X-2nll
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:53:15 +0000
-Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so9576e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:53:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789066392; cv=none;
+	Thu, 10 Sep 2026 18:56:53 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c1c52d920b8so20665766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:56:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789066611; cv=none;
         d=google.com; s=arc-20260327;
-        b=WZUou4LkCCHAxJ/eiHcvNf6nXs1JLbk01GEMc0/9L/OfbBwHCEDyjjc1TMgb9EOhh4
-         7emFFyHnfa1fQlRemouQiPOnFSJbxltGtgQy391wyJQ/FGo9wtR/jBAh0FJIIBNLyrWb
-         T3ItlDiKNAO5/uS0uZR7JNcuEUWJn7WCLgFfHNYd082VjsYhrfSXdNn2ma644oCVZBVt
-         24dAaXnDa17SC6HxaxqpA+hgttNtOvffmvUYqUlrDMob6fYF78Hizu9gOTEjAKYyJt7V
-         gbUx6sdYasSn0iLllSSCWo4GOVawINgfo0c5wqYbMfu8czJKY4EK7EL/c4cuS15KoD0r
-         9qTw==
+        b=ULFbw5CB8Vz1xmT1c8fMnf3Kc6ugwQwBXWZ8TArEfCLNVQIxwkMumYgXHfvkucqTqU
+         20gXLm2tqEoPigmAT9ZFVrousEERIPp7XWC3RmmDEUwghcSjv4cK14tG4LuKHPI/6fNk
+         7/DO1nNJVi/WqfjAfwxKXRAROgLA0asbajpXE2yjxmK8EWuQ+7iZ3+Kl09gmkfec9huk
+         5Vyje/w4+KuHygiPSYzKg17X/5XkrWbhcWffbT829g0RemcyCiliSpYDa3YRbkq0P2X2
+         0PV5kEnzdw+AUp20K6jX6MXg0FzcNR46veUzvNajK4S49NZjs6td46L02uvnOdiD/3dP
+         AIBg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=uPA7h1yzQiskXY53xtPOVbRZgGvwK1v/3hUYMrYw/Xg=;
-        fh=1Ipe8pdf67UQcVSGdUlSgRxlYp57Suymw9VoJp+qQPg=;
-        b=KNa0clxquZlng4SucWHKu5ioRprbUtdVrS8En69GJQVznqIqGJ+sUsfb7sbQiz2AwM
-         SVqQTOtULt43Bnc9rbtwm8EEVHIkEe+ZPb1nGX+XBOC1ZD3JHBNU7nUC8aUdSZzP/Iu8
-         ATkpbldgJtgcrYo5No488ubBp5M9K0jmT2AvW3rqsG/K8q+PuOWAJmEDiO/aVZcOn8W0
-         C6bU3k4INJKLslFfRSgpqGGR1Vo2xGK0Yjlq3ZZ4IT+opHgOIQY3QCZBNMQsXqzfbSt2
-         OsP4R1THvLN+xjmXdD1jfwMTOc4xBVsRUKwSia3L1JbC8fkM0agxpEZjwFTjQCMTRnpi
-         0LxQ==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=TxLFoqvsaen+/s4fMM/RLCX3g5k4dxrg7lkZo5p2w6c=;
+        fh=UPFPrYqOKICwT10HYxSNo4qx1ctQdAECxfdhc8Sj5gY=;
+        b=rzEA/l+tXD/TRMFV7imO7NwiGLjP4purCJVYF49vU/Avfn4bA8P1ZqKmyqthxoYLKN
+         r6mi0rrQrmffNSmfS40BQ5PjBdbbB8rdeLL2myZrdDeSqTMHPCstJAJMzaoQXd3znj0s
+         2SLF5kMWo2r6aWkM8j2mSm0sTeOgZqhEWDhG5hmAcZMFMvKqwx4x+Wuv4ndANmutKWGa
+         HO0ID3F6s919dgY55CxqgkcwEar9g0YidBiz+JarAPr5u7tfkqIR4JtEsMydiozETMuO
+         UcNAm5rbmQlfRY73BgevpUurh5+WamVXmD0OP+nNoaybGoIqNgv+IoZssSJzuMkxcV5C
+         e+rA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789066392; x=1789671192; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uPA7h1yzQiskXY53xtPOVbRZgGvwK1v/3hUYMrYw/Xg=;
-        b=Ox2Q7vX7N4e+7XcBfiI/zlgXWkg6sCyZFLahICgA6Lw8fusXxgSyuYsZha+BsGBQgk
-         zoJAot4l6ws1fIwkhdP9umR3+2oMi6QxylhLQot+2mamsCJRCfnjzEm9QkrUzeZOSinG
-         1oTqWHZlbuFgbhVLkXP7QyBVhSK6rkWTzkF/dOjQaYCQ3PbRdxzJpupe5J5Z2eshYKKF
-         p1D1C4zWC4FnJ6mhDTOuY/MSwlwDBI3WuTC1jDQHL/AfOoIKWQCij+ldaeaIyKvAgBin
-         egHOQBoEOR55Rx5NByj2D8xPybZcsLdCEfYI+w5CYLDC5SGwI7Wo5R8h2L7iFRlnWjdI
-         rx3w==
+        d=gmail.com; s=20251104; t=1789066611; x=1789671411; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=TxLFoqvsaen+/s4fMM/RLCX3g5k4dxrg7lkZo5p2w6c=;
+        b=Ts7YCbN+mDsYYt2vYMLV4DDIizvl20hiK8j6SLqmg24ETL2rDo29wYq84WqydLQgG5
+         bjCs8rcm5u7+5npLlig/J5Lwktcb9AQMjc8fbSCyNYBPDa9CnrdVL1//w6IIu9MJPj1q
+         lEVuCUc2omLQMR4BFATLzcrgkQOlRdwuEfY6pw+i+xgcyX7pQnZRhWQ92W79PXrkG/yT
+         KJwi/n0h6uD00KDZiz4G0DHr6WIuDuoaXBWCF4etXkN7lVABZoUgnrKBn0EmNpPkiUH9
+         zrQCyOC0vHAbL/O5kqslL+Ea85QQTUd7iDevzlZ06mvt4ZOURipjtefWFK4BbsUIkD/R
+         DyoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789066392; x=1789671192;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=uPA7h1yzQiskXY53xtPOVbRZgGvwK1v/3hUYMrYw/Xg=;
-        b=ay8l9ptVKJo+bd0MqcUGdshTxPAQ6tvYDjHM+iv3GNEsnGThiW4+HEr0VSm8J57Yg3
-         Wwmq1G9rBM5tJynXW7UXVQ3XRP9L+Pe7sr5kUwMsEkCdUwpP5cq5wtBR98UwAQLgxKsd
-         t7QbqhD3XmUvVhYrisLIAxl+RZs29/S37SI/XUV3mSC7ZTjTKirh4jx3P/DkGC7JQCoF
-         zm5A6XlCWcxvxq3QkPrRJo2rIetL+TPyZGuE7Gk6qBHBMnenOfNEPxoNSLVnNj5eHHQs
-         PdenIBg70fukiGonmnuhdmiqheAvBJWU5ZZjtlUVZfawcuhd79Snr6sUU6h2IK6aYty8
-         fuWQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxDhUBQKsOAiQHfAPjHyaNoae8fzKiSnw9hTScjyUltEs7oSXbNBaif9MPrhwO3dgKCkYmG+RSoeXhYdUd7vGWL@lists.infradead.org
-X-Gm-Message-State: AFuF++mu36lTCbd+TiO6vWMreBaEiv2Vp3K+/j8PFpjm7OhUEII1XBvW
-	pcmFVpczgcAnRzfd3AVSv3KzZk+KT45rR99FLd3twos94Xt01J3DzqSGBL8mGtj4AOZz+usXl23
-	dOpE4wByLgA/UIL4Ld/vM2XdANLvEueL5nVwU+AMf
-X-Gm-Gg: AYBFou3S/zWPzKM3YYC6V4C10iM874J6sMLOnewqJopqOHFA+++8hdwzsvwti4O6TH7
-	ROisT5n/7d4h5Xts7rKlZikLNJuZw2LydS+cX0NEwjxfQ4OnUrvOD4BxoRScVHa6/UMt0/lZ5dO
-	9Au/mw/sFupprvPxt2QVghKmvjYmUP4dt98b0hlmbelImqxUjxss8kmF9cy8Ce6XtJpJHWo7EAV
-	+TXLN5z3t9CchwCT84G7IUmhqtMjQfIapa1X8nldKvHjztwj8LxOHH9B0dyzbXdCbAj5src42+g
-	eVNwDWlhgifQq/uwa65A74K8Hk7H4PNHzk1k7TAAhzoM5r8Z8CTmSzcVQ0FOpm5TYgPbRKkkqhj
-	vOnGdSKWlcLotgA==
-X-Received: by 2002:a05:6512:4009:b0:5b1:4fd9:ac with SMTP id
- 2adb3069b0e04-5b8a07a0e5fmr23463e87.3.1789066391400; Thu, 10 Sep 2026
- 11:53:11 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1789066611; x=1789671411;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TxLFoqvsaen+/s4fMM/RLCX3g5k4dxrg7lkZo5p2w6c=;
+        b=YNKYg+nbyRnguYVU3LUAEhLpc93EA9qIGdPZAJGKWqgaW5X2ePYElPCxQsZtw29OXC
+         8FFSPoVs5MHKDDsHEpJ373vxdi9lx4p/d5bmkurmvX+ANZGKea3+g6mpa07O2c7AL/rE
+         x5lPtVsn/YDES81qsfEyz+ab+5NxIZAXAOqlZJ/j7K0+2/ap5C7A71Ct3J4eaeHzk/DO
+         5Pw0udLBxm3zBtP9Euy9MxGZasmmd69nXsdxgHwE8S4R3iRfTQ7ocSPEom7+lsbDjui/
+         l96AUtkGWDf7W/s+Jv48+6vbzRC2oRbBVq/h0YIN9Q0dJOgkvHUiJtJZHCOeTnWGAqdk
+         GoJw==
+X-Forwarded-Encrypted: i=1; AKwUvBxrRZS71uanoJSU6iauJCG+v0GNe7Vn9Lcky+XJRkZ4jhFtVv2fuslw1lhvx3rkNXHW47UebXepVSTzYQFQRe60@lists.infradead.org
+X-Gm-Message-State: AFuF++n8bemuBHySaoasvjHwOOZB4/WZur/ZdaSTvPOE+ximEPyN2vhy
+	gnSc3DrDUkhfC9vR77QNAlr/kji5ziksmiT6b9qMnupSrCF0eYxGM/lw+Nze+XRiG9mcd0ai2WV
+	JMkGVX/Oqm4e39zy+wd8Be/C8L0Fuo0E=
+X-Gm-Gg: AYBFou3fuyxphH0yFgg5uEJIg1yqX2nQNeYKoTirIUnWCJvpjrGpSzMZGp2XbORNO1W
+	nek+w5oUSrvYLOIFa4EvGvX2ToSM3wgCNqjYXsdhNGhSgJojAtD5vgQv27RLXI64/xq6exOIgxq
+	kTqzqEoe+FIOHclHJzhYVlm9FCgKO8fLesuTU4is+3oGJFi5WuUrlHZLicK0nJsyVv9nULquT5f
+	nTafKzTvChIUJV5utJJV8MCIwv1riMr+xtzw5DCb73zMAh80dOuS1V8bj4MhJ6uvqR3nMpDFd6l
+	us3yJu+9KBfjCpqDvjbzMT/v9QdpHLSByo9SiQTcYjTvR8SWRVPlEOGciegqx14pgSGNRmE+VjP
+	3ekJKyNISrt4lFHCKBJnV/4ProIo+TAKRoaz+AsP2JsybpnUm26xPJR7dh16IqY0g/NQvPM2yW9
+	JzD3mPooe2M2H2PTrgLzD5XheFwOF0KHHxP+a0Qk7CZ7j6SLWe2OZTLbQhPzm4J8LTlQ==
+X-Received: by 2002:a17:907:3e87:b0:c29:386c:58df with SMTP id
+ a640c23a62f3a-c296668deb5mr944166b.30.1789066610568; Thu, 10 Sep 2026
+ 11:56:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org> <20260825-kvm-arm-prefault-v1-6-befe8947702e@kernel.org>
-In-Reply-To: <20260825-kvm-arm-prefault-v1-6-befe8947702e@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 10 Sep 2026 19:52:35 +0100
-X-Gm-Features: AcwNN1XPPeWtd-a0jzst6s0fMnTr0aHfMbhg6rA4kjyMckfbadgDOVe553duj-k
-Message-ID: <CA+EHjTzOKHNrf=0n2c_E+vbt=pGquz6qzBpJ+eLJ5hjK_nyJMA@mail.gmail.com>
-Subject: Re: [PATCH 6/8] KVM: selftests: Enable pre_fault_memory_test for arm64
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>
+References: <20260910001209.116465-1-rosenp@gmail.com> <6a65465e-f860-434f-9dad-59d9538c97b8@broadcom.com>
+In-Reply-To: <6a65465e-f860-434f-9dad-59d9538c97b8@broadcom.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Thu, 10 Sep 2026 11:56:39 -0700
+X-Gm-Features: AcwNN1V6aaA1o2c79sKoypMBaKIL_zofsrFDIKG1O8uwY83YC9Mz1J-mEf9e4HU
+Message-ID: <CAKxU2N-DJS+ZotHsgami8pc2tnC2+V3nL4JZrqgf=rpTpFHNEA@mail.gmail.com>
+Subject: Re: [PATCHv2] ARM: dts: BCM5301X: AC56U: add nvram node
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: devicetree@vger.kernel.org, Hauke Mehrtens <hauke@hauke-m.de>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_115313_960001_CF7B1AB7 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260910_115652_731146_040D7E47 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,38 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 at 17:01, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+On Thu, Sep 10, 2026 at 9:46=E2=80=AFAM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
 >
-> From: Jack Thomson <jackabt@amazon.com>
+> On 9/9/26 17:12, Rosen Penev wrote:
+> > Add it and set for gmac0, which is the only GMAC used on this board.
+> >
+> > nvram size found from a random bootlog online.
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >   v2: fix typo.
+> >   .../boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts    | 14 +++++++++++++=
++
+> >   1 file changed, 14 insertions(+)
+> >
+> > diff --git a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts b/arc=
+h/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+> > index c80ac16ad949..9ab618a097b1 100644
+> > --- a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+> > +++ b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+> > @@ -25,6 +25,15 @@ memory@0 {
+> >                     <0x88000000 0x08000000>;
+> >       };
+> >
+> > +     nvram@1c080000 {
+> > +             compatible =3D "brcm,nvram";
+> > +             reg =3D <0x1c080000 0x180000>;
 >
-> Enable the pre_fault_memory_test to run on arm64 by making it work with
-> different guest page sizes and testing multiple guest configurations.
->
-> Update the test_assert to compare against the UCALL_EXIT_REASON, for
-> portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-> KVM_EXIT_IO.
-
-The message says this updates the test_assert for portability, but the
-parent has no exit-reason assert and no struct kvm_run; this patch
-adds both, so there was no hardcoded KVM_EXIT_IO to make portable.
-
-...
-
->  int main(int argc, char *argv[])
->  {
-...
-> +
->         TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
->
->         test_pre_fault_memory(0, false);
-
-Would it be worth adding an arm64 case for gmem_abort()'s pre-fault path?
-
-Cheers,
-/fuad
-
->
+> Why is not the nvram node moved to bcm5301x.dtsi given it is common to
+> all of the chips?
+To avoid probe errors on hardware where sizes are unknown.
 > --
-> 2.55.0
->
+> Florian
 
