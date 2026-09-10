@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2771C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC31C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 05:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIU+SJtkIfybDXXmoUFk3eibvPS+E8RO9Lx9I/iDWvc=; b=MDkDbZHDxdLQRyRW97t6GY6HBl
-	toKDXxfZB93hQ6mbaQ9psf6yU9JnQz3s0XfGKz15VMBXZXBExC0QUUaDsUwdBLkxwImzbq3YaTPg7
-	TTHIzOo7RGzAIQOAXN+xtWRK6o5bsamNBYJS/JBjjIEgmW9ZY2oHMz8nWbLrFZmknzBPYgW3a1Uem
-	BqUWjGc1h9Q43Jw7cMVWYnPcJEk/qZA/Ov3GzTP6dzrOIfrgNBPi2G7PgdQ1+ypgKqSfUwmF3xbmj
-	wv438jp1+KKAWJZ+zZCzMsgt+EtV2jCVL0eamJLRijiovNNhuoc5RQyjetxsdaFWcNei/zBQ/ZEc0
-	AjYV7tOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DsZOltiP1R8W8vsyrS5UrPX+wRdKVv3/djndYWU1II4=; b=X+aWJB+f+0Nldhwp9jf49Rspgj
+	zKdJv/ubMBspon8nAR2grmNo8B4+b9d6rb5PBsAXESmRkY1jfOl/kteW+nrrrkNT8wWo5Tt4jIKwj
+	UjD/qC5zNA4uYGWCaKu9CDLiZDPu9KXHNljVboSi23OH0bG+8iRf7uQ90u98qO0hdIDslW67sRSzz
+	OoAFdyjTWpdubSAxZ+DAVI3d12nJmYNBlVWEFEWsEX/AX1bnbdhyjmK27Qc3xrv4xXPuOQnu66nTe
+	nwG/CDXG6HRecFiJfqesj9Kl6VRu035HrJpHmc38FIg+hWpDgrJFOrmX1aBBseKAy6c/6p8nH/nIU
+	7unwCbOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Wme-0000000DP2I-3HAv;
-	Thu, 10 Sep 2026 04:53:12 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1x4XE1-0000000DQdX-0MxD;
+	Thu, 10 Sep 2026 05:21:29 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Wmc-0000000DP0n-0v1w
+	id 1x4XDx-0000000DQbz-0YY0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:53:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789015990; x=1820551990;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=USeOFNpDGXQjN6aRmhfuPnevSjX11EyywpmYrkmenIc=;
-  b=g3U7ng0JQJnPkF3LievEgAGm3NTZ4ooUROjX1aFrZCo3fw+Xu/P1C2OY
-   Q7j86hbN9WV08tcnJL5EG1CCP+6xfKKZneF09d3OppRTKXr4NKpFMIFjY
-   4cSEwae8oe6iDXdUJ7D1OdT0EK4xO+dsK3cVCXvIo8R/eDT0d4TfTKzVb
-   0sRiiJO7lz/BZV2WD395lklnNlmLDtUqHFJPQ0hwXJp/I+YXyIi4Ahui9
-   tz7ccIphBF4JDiNebwY7EyOdTes1No9ef6a6fsIGrsdIaVdVqS4q8Hdvh
-   vz5bAo7u001HqGEL1dgPHFtG912stBbqmXGLcTRc1QTycDB6nQ/CakzbI
-   A==;
-X-CSE-ConnectionGUID: z63tmgplQ66aiU889VQ7pQ==
-X-CSE-MsgGUID: bw/Txtz2TUSmo0rwWiP9SQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="88400089"
-X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
-   d="scan'208";a="88400089"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2026 21:53:04 -0700
-X-CSE-ConnectionGUID: nmriR2Y6SfKCCmZYZngiPw==
-X-CSE-MsgGUID: Jq5tGFnjRBePw97xGD45VQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
-   d="scan'208";a="295017967"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa002.fm.intel.com with ESMTP; 09 Sep 2026 21:53:00 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 4578B99; Thu, 10 Sep 2026 06:52:59 +0200 (CEST)
-Date: Thu, 10 Sep 2026 06:52:59 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 19/22] thunderbolt: Add Apple Silicon support
-Message-ID: <20260910045259.GO106095@black.igk.intel.com>
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-19-1f80085f93fb@kernel.org>
- <20260908091844.GD106095@black.igk.intel.com>
- <22808191-5310-4d90-9fac-68d0d85b4c54@kernel.org>
- <20260909060615.GJ106095@black.igk.intel.com>
- <33699664-6afb-4b46-99d1-98a0f5e57f39@kernel.org>
- <5a8bc263-0263-4ccb-b5dd-f5e899dc25c4@kernel.org>
+	Thu, 10 Sep 2026 05:21:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1789017620;
+	bh=DsZOltiP1R8W8vsyrS5UrPX+wRdKVv3/djndYWU1II4=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=ofOgsQ3z9ZSI+NQTvkYnwJHgLw2f4q224IqWxMZcjXamv8feqMJX7NWm1hjwF9XtV
+	 Imbx27zURAqC2sB5W6p1CICDxNhoVSpUh6X7IJ9zw3aEZNyPpMaNX8IC89KouVYu1V
+	 WlgDToMzaAc7bVAnDmyqmv01kkQmr7SDGKlnuXpM=
+X-QQ-mid: esmtpsz19t1789017609t8b058a96
+X-QQ-Originating-IP: DUmqSkz4nEReLFqUyWpMium9HE3atKEqluVbWzOIZ6Q=
+Received: from [10.10.7.69] ( [1.202.39.170])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 10 Sep 2026 13:19:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 6560279084322675743
+EX-QQ-RecipientCnt: 14
+From: ZhaoJinming <zhaojinming@uniontech.com>
+Date: Thu, 10 Sep 2026 13:19:44 +0800
+Subject: [PATCH net] net: stmmac: fix stale descriptors and DMA mapping
+ leak on Tx map failure
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <5a8bc263-0263-4ccb-b5dd-f5e899dc25c4@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260910-stmmac-fix-vlan-desc-leak-v1-1-6b07dca5e5e8@uniontech.com>
+X-B4-Tracking: v=1; b=H4sIAO89omoC/x2M0QqDMAwAf0XyvEAU7HC/MvYQ2ziDWqWRIhT/f
+ WWPB3dXwCSpGLyaAkmymu6xQvtowM8cv4IaKkNHnaOBBrRz29jjpBfmlSMGMY+r8IIT9c9xJNc
+ GZqj9kaRa//cbopzwue8fTPoWLXAAAAA=
+X-Change-ID: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ ZhaoJinming <zhaojinming@uniontech.com>
+X-Mailer: b4 0.14.2
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: NDtUtlvFer7vvhZCV/FA4NQc2y41TiKxFpgyi8xxS20SWJISRL7hVIFY
+	I0QZ3FBzegeQUJEnWZET9xi0jToPT/C/3j0PyQGj5iTPZrHlGUxTLby5eXOw9EWraUrhzD0
+	CugrMVlfcJqQgnL0L0MbcJqzE2wY2erVQh/HTyEmy0ON0782AhQNiE4NTuMKBl3S/ei/bTg
+	pD7nOEUETIEJnxrN1g7OF7v/MNQS2ELwiefH4iR6OBPqo8LLfA+35KrCodE0ih9L86g/q+x
+	6KRfOXltimPkhYDOKeCrBunnLra84etAb/zg2Gpc6077j8tZMUeN9ClSxQJNdFg/zlrsvb4
+	NvZwEXlUANBl4BDwbM6qF+0VScg6o4YUxxMi0/W0aOzgFlRtFwRFzI9/Aa7++US7FerxPGk
+	y+8lfJcoCpdv435UWjU+fcu6SS8sT9RSZ9OzKR9tmvymAooz321amNeTiNbJwwEwdyyJ+/y
+	y/HAGx0R8MOagrHl81lAMWmtVym/xzMsqUb5JxXfVGu4QVhO7M8MA+ZErkFFP6rWLjysMAP
+	79BoM/1IIoXVfQmbgGtQcH05+UEHzvhofkPNhtZp1TJT+In9f1WZY0DNaJz0lyp8X/mwXYT
+	j+U9k7FPL1at6GwMDMtkAu+7T+SX69MLMK3SzjIWrtDwmSqIWpBvEJT680uvOuSoY1H5pH8
+	By+312GkXRCGZrKUXP6VZtjVfUx82HaHx+iYYWfDuyr2JOcbMVoxXn+pNKFfS6o4qdo4b0w
+	A9T7yPQyT9Df8AZPBIPblIZkV/i0mvsKPDDhWG558v8i7tPpcFGB7Rs4Lh+X4nOqHkId9MC
+	QI1VurVx+NVbJpLSX+6NO0s2LaF2vy4MtMzdY05pyevaMEC5nQ/QmmhZgukfEn5XwQIH4fj
+	eoerx0K1XCAFaQyB/tMBQciahDox3YorhVUxs5BryVXFsPW8uX83sA12PWejr/UJYQajrM5
+	a0ebTwVf7gKfsLjY/dTtFZ4NTFAK6gD3vdn58WxTlBzBAc56AxC4eQii/73vHT6aHhyuLPw
+	QiVao+TncFheqkisAL5bd35m3qtgQ=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_215310_274219_1DB85DA5 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20260909_222125_989499_B0601814 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +103,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+In stmmac_xmit(), when the DMA mapping of the linear part or of a
+fragment fails, the error path only frees the skb.  This leaves behind
+the DMA mappings already created for the linear part and for the
+fragments mapped before the failure, which are never unmapped.
 
-On Wed, Sep 09, 2026 at 05:25:32PM +0200, Sven Peter wrote:
-> On 09.09.26 17:20, Sven Peter wrote:
-> > Hi,
-> > 
-> > On 09.09.26 08:06, Mika Westerberg wrote:
-> > 
-> > [...]
-> > 
-> > > 
-> > > If it is possible, I suggest to use the same way we do in ACPI side here:
-> > > 
-> > > https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-
-> > > for-pcie-root-ports#map-native-protocols-pcie-displayport-tunneled-
-> > > through-usb4-to-usb4-host-routers
-> > > 
-> > > It was specifically designed so that it should support DT as well (that's
-> > > why it uses the device properties _DSD).
-> > 
-> > Oh, nice, I didn't know those existed. Konrad already has a PR open to
-> > add these to dt-schema [1] and a PR that already makes use of these for
-> > dwc3 [2].
-> > I can just write generic code similar to the ACPI one then to add the
-> > device links and split it off from this series, though I think that dt-
-> > schema PR must be merged before we're allowed to use that
-> > representation.
-> > I'll adjust the dt-bindings here for v3 to just drop the representation
-> > as OF ports/endpoints as well.
-> > For the PCIe/DP tunnel notifications I should be able to use the same
-> > representation, possibly with an additional usb4-adapter-index property
-> > or similar to differentiate between the two DP IN adapters, once I get
-> > to that then.
-> 
-> Though now that I read it again: do you know what PortInstance# in
-> 
-> Package () { "usb4-port-number", PortInstance#}, // PortInstance# is unused
-> and can be 0
->       }
-> 
-> refers to? Is that meant to e.g. by 0 for the first DP IN adapter and 1 for
-> the second? Or is that meant to be used when the NHI handles multiple Type-C
-> ports? The description isn't clear to me...
-> 
+The VLAN context descriptor programmed by stmmac_vlan_insert() is also
+left behind with its OWN bit set while tx_q->cur_tx has been advanced
+past it, so the DMA engine later consumes the orphaned descriptor and
+applies its stale VLAN tag to an unrelated frame.
 
-That's the USB4 port through the native PCIe/USB3 Gen X is tunneled through
-but like I said in the previous email you don't need this for DP, only for
-PCIe and USB3 (Gen X/T).
+Release the descriptors and their DMA mappings in the dma_map_err path
+with stmmac_release_tx_desc() and stmmac_free_tx_buffer(), walking from
+first_entry to entry, then roll back tx_q->cur_tx and release the VLAN
+context descriptor.
+
+Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
+Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 29 +++++++++++++++++++----
+ 1 file changed, 25 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 24656b35350b14454fb10deced6516eb89e2c0c9..2e36c27e2cfb436af3566cf1c3e70d32ce9830a0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4769,12 +4769,12 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	u32 queue = skb_get_queue_mapping(skb);
+ 	int nfrags = skb_shinfo(skb)->nr_frags;
+-	unsigned int first_entry, tx_packets;
++	unsigned int first_entry, entry, tx_packets;
+ 	struct stmmac_txq_stats *txq_stats;
+ 	struct dma_desc *desc, *first_desc;
+ 	struct stmmac_tx_queue *tx_q;
+ 	int i, csum_insertion = 0;
+-	int entry, first_tx;
++	int first_tx, ret;
+ 	dma_addr_t dma_addr;
+ 	u32 sdu_len;
+ 
+@@ -4832,9 +4832,10 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	csum_insertion = skb->ip_summed == CHECKSUM_PARTIAL;
+ 
+ 	if (unlikely(is_jumbo)) {
+-		entry = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+-		if (unlikely(entry < 0) && (entry != -EINVAL))
++		ret = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
++		if (unlikely(ret < 0) && (ret != -EINVAL))
+ 			goto dma_map_err;
++		entry = ret;
+ 	} else {
+ 		bool last_segment = (nfrags == 0);
+ 
+@@ -4984,6 +4985,26 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ dma_map_err:
+ 	netdev_err(priv->dev, "Tx DMA map failed\n");
++
++	/* entry points one past the last descriptor written for this frame:
++	 * on failure it is the descriptor whose DMA mapping failed, so walk
++	 * from first_entry up to, but not including, entry.  Reset cur_tx
++	 * unconditionally as both stmmac_vlan_insert() and stmmac_jumbo_frm()
++	 * may have advanced it, and release the VLAN context descriptor.
++	 */
++	while (first_entry != entry) {
++		desc = stmmac_get_tx_desc(priv, tx_q, first_entry);
++		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
++		stmmac_free_tx_buffer(priv, &priv->dma_conf, queue, first_entry);
++		first_entry = STMMAC_NEXT_ENTRY(first_entry,
++						priv->dma_conf.dma_tx_size);
++	}
++
++	tx_q->cur_tx = first_tx;
++	if (has_vlan) {
++		desc = stmmac_get_tx_desc(priv, tx_q, first_tx);
++		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
++	}
+ max_sdu_err:
+ 	dev_kfree_skb(skb);
+ 	priv->xstats.tx_dropped++;
+
+---
+base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+change-id: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
+
+Best regards,
+-- 
+ZhaoJinming <zhaojinming@uniontech.com>
+
 
