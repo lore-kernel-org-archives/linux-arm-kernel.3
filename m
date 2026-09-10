@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D93EC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549C3C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRH5e9h+ggMORiTSIyaC5/5XY7ctell0YPFNWaLo4WY=; b=m/qp2OWbOD6NXloe0f00WqICc9
-	EYWCJOJlZvauM0xPZ6CGVU9S/+aao/yrd+WM2EdyAlrYkXOilCpkmog55ne2ePwiC/3IPhih3fMOp
-	2BYjsI1AwK/xN21NENCzmM+iWUN3pTbJLRDa2bD+nqzHo43TtoD0lBJ2pmSrv1JR6IM9z85wDBQJN
-	+5+CwYD4B6sZZcQ4035fg6LBIUtdSMtzjxSD4RWxfnBtV0+o9NU00+1GQy9I2TsODNiPeu4VDzYJa
-	h0bpEH5e7f81eT28Cd/b6VunOeN0P9Dr3Xk884X+u603gl1AZ2/5enICxrNZWaUPTMKGao5AgB/PO
-	yjCR7kVQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HmQEgp98q8O8JhuWPmG9fTi4h3McQ6KmVcusD4VmijQ=; b=bapWVOZqUM6Jxhin/ikYQvC6oX
+	S9poGJvXl8LrNyZ8Yq2KMjfbE8hA0Vh8d2bJVRLjfKUWFF9qGw9mnaaCxUEZdkSBDR3HK8k+blyki
+	3tORznssK3yTqnjUU07CfY+IjXoPF5x3xPgZuu3HqVIiDL5pD6aPcnZjLpjNVDX3IZ81ODqgFnsrQ
+	1mJL4XWRVlDCqShcHud7cVKBiS96sasCDnZnfu6/WxJmHHausA5qBzdNYokGW28YTBZxInXXk8ROe
+	gypZniU/TAAvULL/HTfpw6B08l75wyDhvEUMFd+Q3YMRxR8LBoqlDvoSdHTwLz438cIjHsly9NIlV
+	YyFwZ+1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bkS-0000000E0cY-3Wkv;
-	Thu, 10 Sep 2026 10:11:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bkQ-0000000E0bj-0lSy
+	id 1x4bpY-0000000E19F-2JI5;
+	Thu, 10 Sep 2026 10:16:32 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4bpV-0000000E17E-2GWF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:11:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D345E143D;
-	Thu, 10 Sep 2026 03:11:07 -0700 (PDT)
-Received: from [10.57.72.177] (unknown [10.57.72.177])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B53B73F7B4;
-	Thu, 10 Sep 2026 03:11:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789035071; bh=ze2X4Lma6eVK0EPslJ52ApNw2jBlVa9FG4aUhZ3Oysw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QffLbUZIi0x47zAKcQ/fhaBHbAZmRZ2td2tLzmYC9x864r7U8LFVP70Npo+9+3OQu
-	 ieLkWcU0zlFJ4C9oHdGO1eB9Cm30gdZU+DW32guMGOTRWLJKtwI2KR2nrjZWv4QYCU
-	 QCY02mM9LFsznD0dXYbs1pCHO3Lu2ZGkRrVWkR48=
-Message-ID: <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
-Date: Thu, 10 Sep 2026 12:11:06 +0200
+	Thu, 10 Sep 2026 10:16:31 +0000
+Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
+	by mail11.truemail.it (Postfix) with ESMTPA id 58AD41F95E;
+	Thu, 10 Sep 2026 12:16:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789035384;
+	bh=HmQEgp98q8O8JhuWPmG9fTi4h3McQ6KmVcusD4VmijQ=; h=From:To:Subject;
+	b=mUe2+h5xiYk7qOe4WNAjvXyKugNWCTLoooYVFua0xFMhkonmKhNYpvdwriuL2ORiH
+	 cHNFccY0u+SkTZoNWus7oluQIrt8BJUo0A4yFED4zQgEYdK65TOHQ7EEfxe2eIMH8X
+	 qIXQOoBcUsR57u7S6fApwTc0ivixdHl1IgSHF6QoXENoHxvgX0sqSm00Q2ETUcVHVB
+	 wMs+iNuPFeIOr0dnjO0k3ipMbuTUSFC5RqJVXZC4i/XKmperIBJP9lTeMe0ThhDaiH
+	 1nSFgBTjMiWBoh7YlbGJIwlSS24X8pUdOfRo3RuegA0w8+hVTDyebywLVLg91/PhWs
+	 8JclziDVGJaNw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 0/7] arm64: dts: freescale: Add Toradex Lino and OSM iMX91/iMX93
+Date: Thu, 10 Sep 2026 12:16:06 +0200
+Message-ID: <20260910101616.139270-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
- cores
-To: Andrea Righi <arighi@nvidia.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
- <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
- Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260909062649.469633-1-arighi@nvidia.com>
- <20260909062649.469633-2-arighi@nvidia.com>
- <89694e14-4be8-4c9e-9d7b-2808f87dd95f@arm.com> <aqGGlNce4TRLS1cW@gpd4>
-Content-Language: en-GB
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <aqGGlNce4TRLS1cW@gpd4>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_031114_272656_95D80C6A 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260910_031630_485624_678E2C4D 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +77,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.09.26 18:17, Andrea Righi wrote:
-> On Wed, Sep 09, 2026 at 05:19:08PM +0200, Dietmar Eggemann wrote:
->> On 09.09.26 08:26, Andrea Righi wrote:
->>
->> [...]
->>
->>> +void __init arm64_init_sched_topology(void)
->>> +{
->>> +	if (!IS_ENABLED(CONFIG_SCHED_SMT))
->>> +		return;
->>> +
->>> +	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
->>> +		return;
->>> +
->>> +	if (!topology_core_has_smt(smp_processor_id()))
->>> +		return;
->>> +
->>> +	set_sched_topology(arm64_asym_smt_topology);
->>> +	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
->>
->> I'm not really a big fan of using this arm64 setup for NVIDIA Olympus
->> alone here.
->>
->>> +}
->>> +
->>> +int arch_asym_cpu_priority(int cpu)
->>> +{
->>> +	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
->>> +}
->>> +
->>
->> This is done since it will only be called for NVIDIA Olympus since it's
->> the only CPU model enabling this. I think it will work but it's still
->> ugly :-)
->>
->> [...]
->>
-> 
-> Agreed on both points. As mentioned in the other email, I'll coordinate with the
-> firmware team on a proper ABI for describing the PE0 preference. For the systems
-> with the current firmware, I don't have many ideas on how to enable this... a
-> special scheduler facility enabled via kernel boot option? Other ideas?
-With the explicit kernel boot time option discussed in the other thread,
-how do you want to code arch_asym_cpu_priority()?
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-AFAIK, Arm architecture does not require the first/primary HW thread of
-an SMT core to have MPIDR_EL1.Aff0 == 0.
+Add Device Tree support for the Toradex Lino and OSM SoM families,
+based on the NXP i.MX91 and i.MX93 SoCs.
 
-The closest I came to you setup in Arm64 is a ThunderX2 SMT-4 machine on
-which I can run 'OpenBLAS benchmark/sgemm.goto'. This machine has
-symmetric CPU capacity though like Power7.
-It has MPIDR_EL1.Aff0 == {0,1,2,3} for HW threads but '== 0' wouldn't
-work here.
+Both families are available with either i.MX91 or i.MX93 on the same
+PCB. Since the two SoCs are pin compatible, common Device Tree files
+are used to share the hardware description between the two variants.
 
-[...]
+For the Lino family, add support for the Lino-Verdin Adapter, which
+allows Lino modules to be used with Verdin-compatible carrier boards.
+This series supports the Verdin Development Board and Dahlia carrier
+board.
+
+For the OSM family, add support for the OSM Development Board.
+
+Francesco Dolcini (7):
+  dt-bindings: arm: fsl: Add Lino iMX91/iMX93
+  dt-bindings: arm: fsl: Add Toradex OSM iMX91/iMX93
+  arm64: dts: freescale: Add Lino iMX93
+  arm64: dts: freescale: imx93-lino: Add dahlia
+  arm64: dts: freescale: Add Lino iMX91
+  arm64: dts: freescale: Add Toradex OSM iMX93
+  arm64: dts: freescale: Add Toradex OSM iMX91
+
+ .../devicetree/bindings/arm/fsl.yaml          |  30 +
+ arch/arm64/boot/dts/freescale/Makefile        |   8 +
+ .../freescale/imx91-lino-verdin-dahlia.dts    |  24 +
+ .../dts/freescale/imx91-lino-verdin-dev.dts   |  24 +
+ arch/arm64/boot/dts/freescale/imx91-lino.dtsi | 305 ++++++++++
+ .../dts/freescale/imx91-toradex-osm-dev.dts   |  22 +
+ .../boot/dts/freescale/imx91-toradex-osm.dtsi | 303 ++++++++++
+ .../freescale/imx93-imx91-lino-common.dtsi    | 545 ++++++++++++++++++
+ .../imx93-imx91-lino-verdin-common.dtsi       | 175 ++++++
+ ...imx93-imx91-lino-verdin-dahlia-common.dtsi | 198 +++++++
+ .../imx93-imx91-lino-verdin-dev-common.dtsi   | 216 +++++++
+ .../imx93-imx91-toradex-osm-common.dtsi       | 533 +++++++++++++++++
+ .../imx93-imx91-toradex-osm-dev-common.dtsi   | 324 +++++++++++
+ .../freescale/imx93-lino-verdin-dahlia.dts    |  24 +
+ .../dts/freescale/imx93-lino-verdin-dev.dts   |  24 +
+ arch/arm64/boot/dts/freescale/imx93-lino.dtsi | 359 ++++++++++++
+ .../dts/freescale/imx93-toradex-osm-dev.dts   |  22 +
+ .../boot/dts/freescale/imx93-toradex-osm.dtsi | 357 ++++++++++++
+ 18 files changed, 3493 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dahlia.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dev-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm.dtsi
+
+-- 
+2.47.3
+
 
