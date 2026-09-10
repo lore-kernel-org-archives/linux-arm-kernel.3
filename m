@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5075C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378EDC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/RT5MEi13NhbvUpXcVj6ZnkJ1EuOtEu5fTTf6U9AFwY=; b=eKSUvMdr/ZCSougmcba3R1WarW
-	jsZm4vM6rw0IKLBu2bFyJHd+UbcCGkT8bI/mAAzGE6K8HU7tfOYg7yzG2HMfLAmA8N0daZrirOnLN
-	ag4tgPTlyVrF7jcWt6WbK6XnK19Huyg8CXOHMHoTWxbfPdE2M9igZ01I+8GLYzIPn4Ixa47ajclqw
-	yseBu8kQY5MloN8jN4Pulp+8a3eaNluRZRR/4L3pUS8kRA158zkRM687LaZwDzv+5u+LL4Q4/R+hl
-	SmK8oF0ZdH8rv7G+Pt0YnNoPu+QRA/0Z+pECOoMqONNegaSvrkcE/xa2vOi+eyHFmH4CQOmBE5qqs
-	bpHn+NHA==;
+	bh=mP3wOfzqpEf8iRTqZ3mT+eF2s4gZ475jaPm0o9mXzg8=; b=RAa+whcVIXAyNWygaTNOzfHIYq
+	b7w9DKsvXD4Zx8JuwnFCYLPoba3IVOAAdak+OEJFWUQNd9a2hlRVAqaRySssRskGQDfYTABIErmcC
+	TfDTgCAoH6z0yC0pezynUL8qTkARKjjdD6qje0gP++X9DfnJL4RAa77GIdKQHtdmibg0NpIbJROsT
+	QqzTV6v1v2RStCdakEBB6SQbHONrBoQQvpJveEHIZt7LLgh+qqtVTrbx0S79ZCLA8IsboaVeTbRak
+	AQDvEz1TSyM9KiLQf0GnDA9Lb8emQeCx/KXRGPNKFfCUcTgknz0PcthonXgIgYs8N6YHHu6lRON1m
+	jBNY1l8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYO-0000000DIL3-3Tcu;
-	Thu, 10 Sep 2026 03:34:24 +0000
-Received: from mail-westus2azon11012019.outbound.protection.outlook.com ([52.101.48.19] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1x4VYU-0000000DIOQ-0zp0;
+	Thu, 10 Sep 2026 03:34:30 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYL-0000000DIK3-1GyX
+	id 1x4VYR-0000000DILx-1YQV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 03:34:23 +0000
+	Thu, 10 Sep 2026 03:34:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wAfn8euJemwK5JsuPJ6MF3bo9Cy5/gcou9XE1dRF2/G/8R8g6Mk4nEyGWRjvtwD3tB87oGsTn2DR5uttpbI5fYLtx4Vti0JjQ4pLjyeJJBXEPM7prmsrErBB6TDQYT+32v02vl46msZR0hL7Jg4F0cKy+Qf17nD+W1pan+vZLMSW38j/2N8cH3ny9GFcbY9mTy+OpJe/aNwBl4t9hEqfgFN/QJ9AoulmMtHqehV0t6QbmQKLL0xgverwYWatdAsbwspIaXU4JRbLvA7+Xh8HSF2J3dHOmgdiDYiBxrju2z22HVpiCYjC4gYIGun97K/Py0AeVeybsnI16SlOXoNChQ==
+ b=j1jR7LE0CTApO7N28tTpr7+3tr761XamVDgqHylmPo5qFDOxJBCxVPDgDXkiCZGufQhsPRgayUSCeky99addD8h1g0gQ2ZivCkL8EbSpB+7ykCTCkGVk4E71aaqEljNrG/2vUqzcTdggolVXloCesulaIq6t70AJZ0r2PrWeVh0ig3hmcnEjpG7bDqWkRukC/sqVW8+OHItyOL6/kMllOzravC0revcXU3CoWEcht0s+k1qBkl22PO1d0emoEbJ1CQjsBTuz8t57xT+G/CELVcDsv455PAXoJ4jROAurNh0W5IPW5BcWko3HMFczebJ6f2PAmYCBqWmkRV1YWc4PPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/RT5MEi13NhbvUpXcVj6ZnkJ1EuOtEu5fTTf6U9AFwY=;
- b=HjE4beabFno87b60PZs2f2/qmI69O6i/Fh4lf6D2b3OgS7ERVpgUoc+Z3FTBlPzhLY7Vh91F9WMUTWQyZTuOSR5jGPH5GMaDGetHMzwKwOx64cugPrkFdzZMaCBTMpPHIgNBF0jj77DGmFGBg6Me6bnXaz/JdKLzXWQJn8DCHDoLRmrLlI+zvHBi/OTRDt6aARjJ6aHae7AmXKh1W5ZlCSoiniKX3XUDp/Etx+UaxtHOdMdDTlNhnaW2btw29J+UUBiTG34YOUsaoIV3zfz7s/SdDE4iHq+lzRy7oGUOfOgJedlTBO291fvH4psHyB8nJPEfdpfwGPABZ1E4bz0yvg==
+ bh=mP3wOfzqpEf8iRTqZ3mT+eF2s4gZ475jaPm0o9mXzg8=;
+ b=thhh4WPk/whdebf3hCBuzunPJTWBBsIP3dnS47IpGxm7DFOV56rBnBDcU3cknFhyE5zSLuLDEHMEuV1P9LN45X1rxEk7gPoIWkV/eRRejKHvdGJ0USPFHDcADzUn5EbzdUnMRdGaKgt29YfCWEhPqCiPcRzOFY3DnUzdrV93W7P0vvOSnKBRFF+wYK92kiDp6fjZlDNulv5bKvC2A4b2qrN1UhCyr9YJfQ+ZYyyOJ4Acbw4rDQUTEI2m37C2u2XV2CJ8XuVDE6zqjsramFj0Dx5mqM3m1vEwNIdCdj1bQXKtnvH2dMdBtqhshSWsLv/tTLziq+liTOujZ5y50poEyw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/RT5MEi13NhbvUpXcVj6ZnkJ1EuOtEu5fTTf6U9AFwY=;
- b=k43BJ9TGviEdVfc0/Er+lkPT/AhcmHh+3qmh+i7ZGaxbB5eMZjBMtFbzNWalRC5orOXrmcxNYSXybQYTCGRUH+A8dOJTZijLyWhRIIFWCMcIkXNGuQbTN9vyrew0cKWkU7Bd+cyHC44VRkmDAkbbPtggIXJxNaR5fw/p2yNYKqn10uAEKOtPLtZgoavrvrAM0WPPqEcEzTcKEGxVy/+awhtoKE5XMoxjI06m/k7YfLrzqSF0mlb+b8lyddpN0as00Scjgq+MEffikKGh6BW0K3yH52w7Gl8I7QXHbzLVwCShSrvB6RHH/P6UMXF3yDjsA1k5zG/euyli0Yo7fGtAeg==
-Received: from SJ0PR05CA0183.namprd05.prod.outlook.com (2603:10b6:a03:330::8)
- by SN7PR12MB8025.namprd12.prod.outlook.com (2603:10b6:806:340::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
- 2026 03:34:07 +0000
-Received: from SJ1PEPF00002315.namprd03.prod.outlook.com
- (2603:10b6:a03:330:cafe::8) by SJ0PR05CA0183.outlook.office365.com
- (2603:10b6:a03:330::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Thu, 10
- Sep 2026 03:34:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ bh=mP3wOfzqpEf8iRTqZ3mT+eF2s4gZ475jaPm0o9mXzg8=;
+ b=Ids9shPayTvg3qu/a5Mnh/YNnTjCenFqTe88/igLjS3eb09jAB7jz7gHZHYkn/BM1tBmzMsgSb663mcZoTR8XSn1AZVDVxckTJfxWI70FTciTTBAJiv9fpzxCYlgzsJCkcFcQq2qrO7CkzzMyPYk9WR6NuW9F15FBG3K/IiCisTvdvxcx+pfDryXFDxLNNgciYKfIfZLuyc/squbiqRGCr5h01Gw7Yq8oj3oxSB0lXsjC6oJy9AfEZUpfr7griy852qJ7ZifdH2G3nt6xDw+VUYubkn+eY/zPKPZ+J22yXPB70BcxDX6sD0/F+kzAUmPvh2/5Ayzw3v8wkdpWhUQ/Q==
+Received: from DS2PEPF0000455D.namprd21.prod.outlook.com
+ (2603:10b6:f:fc00::515) by CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Thu, 10 Sep
+ 2026 03:34:15 +0000
+Received: from CY4PEPF0000FCC5.namprd03.prod.outlook.com
+ (2603:10b6:92f::1006:0:b) by DS2PEPF0000455D.outlook.office365.com
+ (2603:10b6:f:fc00::515) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Thu,
+ 10 Sep 2026 03:34:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF00002315.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY4PEPF0000FCC5.mail.protection.outlook.com (10.167.242.107) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:07 +0000
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:15 +0000
 Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
- 2026 20:33:59 -0700
+ 2026 20:34:04 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
  drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 20:33:59 -0700
+ 15.2.2562.46; Wed, 9 Sep 2026 20:34:03 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 9 Sep 2026 20:33:57 -0700
+ Transport; Wed, 9 Sep 2026 20:34:01 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, <joro@8bytes.org>,
@@ -100,9 +100,9 @@ CC: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<iommu@lists.linux.dev>, <driver-core@lists.linux.dev>, Sonang Patel
 	<sonangp@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>
-Subject: [PATCH v1 1/8] firmware: arm_rmm: Move RSI support out of arch/arm64
-Date: Wed, 9 Sep 2026 20:32:44 -0700
-Message-ID: <caa3647d2bf8146678b8a05e3fdd6241b47e1af0.1789010941.git.nicolinc@nvidia.com>
+Subject: [PATCH v1 3/8] dma-mapping: Let a device declare that it reaches private memory
+Date: Wed, 9 Sep 2026 20:32:46 -0700
+Message-ID: <2190d81f2451668fa09d5f83e43e25540907daf1.1789010941.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1789010941.git.nicolinc@nvidia.com>
 References: <cover.1789010941.git.nicolinc@nvidia.com>
@@ -112,28 +112,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002315:EE_|SN7PR12MB8025:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae6d58e8-d2b7-49f4-404d-08df0eec5ebf
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|CH3PR12MB9194:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5d2511aa-7a82-425b-703f-08df0eec6385
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|30052699003|7416014|1800799024|376014|82310400026|5023799004|11063799006|56012099006|10067099003|13003099007|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: r/fa+oFUbSNZZs8cyVrrkiL84Je+RJf94CrUveU773Ljs43RzkuNZUTCXKANfi2lzFpKelpN5i7R/16ZagZ5N/Gn5rMEblh7THWGOVtOYNrqj8z9zDYr+iAgF7pab+KpM5UrDK8e67Vor+VkO49wikoRfdWDnEYFg6ck0n+5owrqhYj7G1OyFqFZfe2fejB84RdmUhwedsbLrsyaki6a8IKsnb0khLTWpv/opX3DMv6yljlJwgv1mdl1iIRRC4cEElyF7P24KYnC2NPVOr4DWo3QKVRhTkQ0eV7cPmvGGj4KxQLTf50/6Kgy8PVGf4qZiZiGopOdmAFTkA/92oYFzUgsEiZhZQaisqGOq4+WGWSlsmoOuWH8MRCMGB8Tx1IGQZoPQ8NyKuZvvVXOM+thM+eFxa/6zIX2RlOgmI/gvNeFOVMeDNFwkIad3Y7URiBYfR8eY+n3huCyNuVromIvFeOgFWDxOp0TIGuj5WB6QZR8uNhFVgX3pJQ3+e8MOGaktX8XIgsoCrg+Ny48IitjvfUrDAPCKOfRu76cNfxX+ln54xv8gxAfZnT6HSBDx23Rns6PmvynkYRF2TED568IsJ2XkyYj0z7T/6mg4HYB2RGFaSOUlwjq7G4+KOFcFcLqn03cN5VcC4RSsPKcmcCgOwAS5SzoTqzNiXetya1YwSeec6QN2IUi4ZvgWyRrWnE6Y4kr49RR0aUDLhg5NP5hiw==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(30052699003)(7416014)(1800799024)(376014)(82310400026)(5023799004)(11063799006)(56012099006)(10067099003)(13003099007)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|36860700016|376014|7416014|10067099003|22082099003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: A191XTttZT1/w9yKIV6bkxBpFr98Z2fyfcd/gsU1RcU8a3nF7Dv6sH0EF7QASFhW1hSRf1vY/3RuX1FmUeH1bRuKaL+7UZV3Jpc9zCBZAPvtkzsXoagCOAu5JGzhg2xst+N3idiZ1jtxvBqQjtjLQ209M4Jm0tpTHJKWCXtImzVZbHMDObKcTsbCKLL5vpl+K9eEWXwCMuKSZojR4vyIz3yUmysRETR8snP6r5BKV1afQQhk4La9n3j62AMG7B4xnsr32RQPUdMWjTenWDvIL//YgV+jKqlRzFiocPVkPeq6nU2xXnp4A3vON1N5rRdZFeqzLj1SXSEQ+UBWzfINQplpQCbGapTW6eDtsoVKuFZS3eAOiiJbB2k7bxoBoemSFK3shrsNExgNmYYELCNXqR4kZhHKt++L3SpBf7RE7kc7UnT+pV/4itDg7vqborj/pgkjmbzzGYVuXLc/zWnB3Cvl7WggXcERoqRMpsPoI8LSPE0UcAa/R+jhg0SFDfaa2xk0W6kaGr2pW8OvL5xastE0bNx11/YS+TmB3drAoT3j/dIaRcKz0fy27i2lB4RCNuSTgsURFJ9iDwrks+0pNXa3K2pOWWl0WhZru1DgRjzpxhdCI8lHTAIkK4s4VHKYGFRdK+TB7EgMXNBugocZuMGsaIRULsE9sczyDR6yLHNyyKK+1mJe84Vkr3eOamwhayDt/yY6a09mNVHtrpxgYw==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(36860700016)(376014)(7416014)(10067099003)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vCRWX9k8bbnSWTqlZNZIHMyy5v80RqAEb8oYm4+OEq7A/5SlWWgJW6P3VpoVIGjqHsNXXskC97ll+WN1ZJ7njmZUIJ9AC9KVmZhIIANOEHesosmzn1ATo8Kep23VSeW1IdgDwVgqKvuJcxbGAVNxuiqybLx9DByrcYTVDyITKTLg1ZNp9Te61/FAdgD5QwcGzagzV2byZs9EkI799Rwr/5nSpZgiEygZVQCZGwLwRhPQasKbCdb7qCaZatkeh0lgQdsk4nYF/Exv2vGc0NsXt6RqrLsY0j3i5MQccpOGFiv6q8HMFLaPYcmfi6yIs1BW82Su6pbDI8QpVkIPaMr3kLdHRVAc5FHJCxJL0bASLvfeyLzKvGvUKanZgPvvoLosumlfhHiJjpn8eeBqN/3CW5KZaQbvu2TXkMYRY/wMo0d2dpT2XWMB9otUN2kI94C8
+X-MS-Exchange-AntiSpam-MessageData-0: LPqY1Lp9f1TZ2DSveYPEV2mWGaxY0aI++Pr0TpMVq0vfRIrfJxWREcnjm8QutmXgi5pgyWxBxl7+Nr6xp62EJo6iCTI78lavUZltRKoAT3TwYw7ONav1OInPUSeazunh/yTpV7cXT1i3zlV8JnnfKHZK7YnkTXI+rTwpmLQF05eBlxqNfdkB91mGpUVSukpHpQxkvMv2PxCIdoxqpPz/bM+n7yrLbba6vNoQSOUgwBkXpGh71kZfO/OSq/VQVJW9ag+Aqyaf0ww1VnL5NDqjAkfd+j/HZSwfFaEm8ADHRCtb1v777yQCJrLjke+02vwClcunphm5MfK+8k3makKhwaYphzRqC7ypcpVSZmy3E8u17NSlTBbJ+nSF/KDbyd9Swjrsr0IBsa6FsVNJWcFuYUuLsZ4vj9+RiNz2SUnprLXWVFafSdVUk4PRJl4a9aMN
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:07.4253
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:15.3802
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae6d58e8-d2b7-49f4-404d-08df0eec5ebf
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d2511aa-7a82-425b-703f-08df0eec6385
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002315.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC5.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8025
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203421_407702_ED300D7C 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260909_203427_449927_D2403FB7 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,478 +148,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+DMA devices in a confidential guest can access only shared memory, or both
+private and shared memory. Some method outside the DMA API will confirm the
+device is able to access private memory through DMA.
 
-The RSI SMCCC function IDs describe a firmware ABI and are not arm64
-architecture specific definitions. Follow-up changes need to use them from
-non-arch code, including drivers/firmware/smccc and the Arm CCA guest
-driver.
+Add DEV_FLAG_DMA_CC_PRIVATE and dma_set_cc_private(dev, bool).
 
-Move the complete Realm Service Interface (RSI) implementation from
-arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
-command helpers are also moved to include/linux so they can be shared by
-architecture code and firmware or driver code. This also keeps the
-firmware interface outside architecture code, as requested [1].
+The flag must be stable while any DMA mapping exists.
 
-[1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Assisted-by: Claude:claude-opus-5
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- arch/arm64/Kconfig                            |  1 +
- drivers/firmware/Kconfig                      |  1 +
- drivers/firmware/arm_rmm/Kconfig              | 18 +++++
- drivers/virt/coco/arm-cca-guest/Kconfig       |  2 +-
- arch/arm64/kernel/Makefile                    |  2 +-
- drivers/firmware/Makefile                     |  1 +
- drivers/firmware/arm_rmm/Makefile             |  2 +
- arch/arm64/include/asm/io.h                   |  2 +-
- arch/arm64/include/asm/mem_encrypt.h          |  2 +-
- arch/arm64/include/asm/pgtable-prot.h         |  2 +-
- arch/arm64/include/asm/rsi.h                  | 70 -----------------
- .../linux/arm-rsi-cmds.h                      | 77 +++++++++++++++++--
- .../linux/arm-smccc-rsi.h                     |  6 +-
- arch/arm64/kernel/setup.c                     |  2 +-
- arch/arm64/mm/init.c                          |  3 +-
- .../kernel => drivers/firmware/arm_rmm}/rsi.c |  2 +-
- .../virt/coco/arm-cca-guest/arm-cca-guest.c   |  5 +-
- 17 files changed, 109 insertions(+), 89 deletions(-)
- create mode 100644 drivers/firmware/arm_rmm/Kconfig
- create mode 100644 drivers/firmware/arm_rmm/Makefile
- delete mode 100644 arch/arm64/include/asm/rsi.h
- rename arch/arm64/include/asm/rsi_cmds.h => include/linux/arm-rsi-cmds.h (69%)
- rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (98%)
- rename {arch/arm64/kernel => drivers/firmware/arm_rmm}/rsi.c (99%)
+ include/linux/device.h      |  4 ++++
+ include/linux/dma-mapping.h |  4 ++++
+ kernel/dma/mapping.c        | 21 +++++++++++++++++++++
+ 3 files changed, 29 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef9440..ff9565d3ffa59 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -38,6 +38,7 @@ config ARM64
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEM_ENCRYPT
- 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-+	select ARCH_SUPPORTS_RMM
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index b7cc11e4fbfa6..62660bf520a8d 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -310,5 +310,6 @@ source "drivers/firmware/samsung/Kconfig"
- source "drivers/firmware/smccc/Kconfig"
- source "drivers/firmware/tegra/Kconfig"
- source "drivers/firmware/xilinx/Kconfig"
-+source "drivers/firmware/arm_rmm/Kconfig"
+diff --git a/include/linux/device.h b/include/linux/device.h
+index aee79fd6b32b4..54ac6cb7f3762 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -599,6 +599,8 @@ struct device_physical_location {
+  *		ancestor device.
+  * @DEV_FLAG_OFFLINE_DISABLED: If set, the device is permanently online.
+  * @DEV_FLAG_OFFLINE: Set after successful invocation of bus type's .offline().
++ * @DEV_FLAG_DMA_CC_PRIVATE: The device is able to access private (encrypted)
++ *		memory, no shared memory bouncing is required from the DMA API.
+  * @DEV_FLAG_COUNT: Number of defined struct_device_flags.
+  */
+ enum struct_device_flags {
+@@ -612,6 +614,7 @@ enum struct_device_flags {
+ 	DEV_FLAG_OF_NODE_REUSED = 7,
+ 	DEV_FLAG_OFFLINE_DISABLED = 8,
+ 	DEV_FLAG_OFFLINE = 9,
++	DEV_FLAG_DMA_CC_PRIVATE = 10,
  
- endmenu
-diff --git a/drivers/firmware/arm_rmm/Kconfig b/drivers/firmware/arm_rmm/Kconfig
-new file mode 100644
-index 0000000000000..1322a1447b560
---- /dev/null
-+++ b/drivers/firmware/arm_rmm/Kconfig
-@@ -0,0 +1,18 @@
+ 	DEV_FLAG_COUNT
+ };
+@@ -829,6 +832,7 @@ __create_dev_flag_accessors(dma_coherent, DEV_FLAG_DMA_COHERENT);
+ __create_dev_flag_accessors(of_node_reused, DEV_FLAG_OF_NODE_REUSED);
+ __create_dev_flag_accessors(offline_disabled, DEV_FLAG_OFFLINE_DISABLED);
+ __create_dev_flag_accessors(offline, DEV_FLAG_OFFLINE);
++__create_dev_flag_accessors(dma_cc_private, DEV_FLAG_DMA_CC_PRIVATE);
+ 
+ #undef __create_dev_flag_accessors
+ 
+diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
+index a3e880649fa41..8d23b983092e8 100644
+--- a/include/linux/dma-mapping.h
++++ b/include/linux/dma-mapping.h
+@@ -218,6 +218,7 @@ void *dma_vmap_noncontiguous(struct device *dev, size_t size,
+ void dma_vunmap_noncontiguous(struct device *dev, void *vaddr);
+ int dma_mmap_noncontiguous(struct device *dev, struct vm_area_struct *vma,
+ 		size_t size, struct sg_table *sgt);
++void dma_set_cc_private(struct device *dev, bool private);
+ #else /* CONFIG_HAS_DMA */
+ static inline dma_addr_t dma_map_page_attrs(struct device *dev,
+ 		struct page *page, size_t offset, size_t size,
+@@ -357,6 +358,9 @@ static inline int dma_mmap_noncontiguous(struct device *dev,
+ {
+ 	return -EINVAL;
+ }
++static inline void dma_set_cc_private(struct device *dev, bool private)
++{
++}
+ #endif /* CONFIG_HAS_DMA */
+ 
+ #ifdef CONFIG_IOMMU_DMA
+diff --git a/kernel/dma/mapping.c b/kernel/dma/mapping.c
+index bf2651a70b7c2..11c127ad45370 100644
+--- a/kernel/dma/mapping.c
++++ b/kernel/dma/mapping.c
+@@ -501,6 +501,27 @@ static void dma_setup_need_sync(struct device *dev)
+ static inline void dma_setup_need_sync(struct device *dev) { }
+ #endif /* !CONFIG_DMA_NEED_SYNC */
+ 
++/**
++ * dma_set_cc_private - Set whether @dev can DMA to private memory
++ * @dev: device whose confidential-computing DMA access is being updated
++ * @private: whether the device can DMA to private memory
++ *
++ * Called when a device is known to be able to DMA to private memory.
++ * For architected CPU integrated devices their kernel drivers will
++ * self-accept using a driver specific validation. Other devices will
++ * have a userspace managed process.
++ *
++ * DMA mapping must not be active when this flag is changed. For CPU
++ * integrated devices the driver should self accept early during probe
++ * after validation. Other devices have this flag set automatically
++ * before probing.
++ */
++void dma_set_cc_private(struct device *dev, bool private)
++{
++	dev_assign_dma_cc_private(dev, private);
++}
++EXPORT_SYMBOL_GPL(dma_set_cc_private);
 +
-+config ARCH_SUPPORTS_RMM
-+	bool
-+
-+config ARM_RMM
-+	bool "Realm Management Monitor (RMM) Support"
-+	depends on ARCH_SUPPORTS_RMM
-+	default y
-+	help
-+	  Support the Realm Management Monitor (RMM) on Arm systems that
-+	  implement the Realm Management Extension (RME), as defined by the
-+	  Arm Confidential Compute Architecture.
-+
-+	  The RMM provides the Realm Management Interface (RMI) for use by
-+	  the Normal World host and the Realm Service Interface (RSI) for
-+	  use by Realm guests. The RSI is used to negotiate the RSI version
-+	  and Realm configuration with the RMM and manage the protected
-+	  state of memory.
-diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
-index 3f0f013f03f15..b2c225fd445cf 100644
---- a/drivers/virt/coco/arm-cca-guest/Kconfig
-+++ b/drivers/virt/coco/arm-cca-guest/Kconfig
-@@ -1,6 +1,6 @@
- config ARM_CCA_GUEST
- 	tristate "Arm CCA Guest driver"
--	depends on ARM64
-+	depends on ARM_RMM
- 	select TSM_REPORTS
- 	help
- 	  The driver provides userspace interface to request and
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index d2690c3ec5288..21fc3a3d25c91 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
- 			   cpufeature.o alternative.o cacheinfo.o		\
- 			   smp.o smp_spin_table.o topology.o smccc-call.o	\
- 			   syscall.o proton-pack.o idle.o patching.o pi/	\
--			   rsi.o jump_label.o
-+			   jump_label.o
- 
- obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
- 					   sys_compat.o
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index be46f1e1dc77f..196a650ccf025 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -39,3 +39,4 @@ obj-y				+= samsung/
- obj-y				+= smccc/
- obj-y				+= tegra/
- obj-y				+= xilinx/
-+obj-y				+= arm_rmm/
-diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/arm_rmm/Makefile
-new file mode 100644
-index 0000000000000..3d8181ae94a7b
---- /dev/null
-+++ b/drivers/firmware/arm_rmm/Makefile
-@@ -0,0 +1,2 @@
-+
-+obj-$(CONFIG_ARM_RMM)	= rsi.o
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 49a7002661a92..1620537f0332d 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -8,6 +8,7 @@
- #ifndef __ASM_IO_H
- #define __ASM_IO_H
- 
-+#include <linux/arm-rsi-cmds.h>
- #include <linux/types.h>
- #include <linux/pgtable.h>
- 
-@@ -17,7 +18,6 @@
- #include <asm/early_ioremap.h>
- #include <asm/alternative.h>
- #include <asm/cpufeature.h>
--#include <asm/rsi.h>
- 
  /*
-  * Generic IO read/write.  These perform native-endian accesses.
-diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-index 636f45b4d8afc..f03b9d7b83b43 100644
---- a/arch/arm64/include/asm/mem_encrypt.h
-+++ b/arch/arm64/include/asm/mem_encrypt.h
-@@ -2,8 +2,8 @@
- #ifndef __ASM_MEM_ENCRYPT_H
- #define __ASM_MEM_ENCRYPT_H
- 
-+#include <linux/arm-rsi-cmds.h>
- #include <asm/hypervisor.h>
--#include <asm/rsi.h>
- 
- struct device;
- 
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 09d7c00cf4054..58e71e592175e 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -66,9 +66,9 @@
- 
- #ifndef __ASSEMBLER__
- 
-+#include <linux/arm-rsi-cmds.h>
- #include <asm/cpufeature.h>
- #include <asm/pgtable-types.h>
--#include <asm/rsi.h>
- 
- extern bool arm64_use_ng_mappings;
- extern unsigned long prot_ns_shared;
-diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-deleted file mode 100644
-index 88b50d660e85a..0000000000000
---- a/arch/arm64/include/asm/rsi.h
-+++ /dev/null
-@@ -1,70 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2024 ARM Ltd.
-- */
--
--#ifndef __ASM_RSI_H_
--#define __ASM_RSI_H_
--
--#include <linux/errno.h>
--#include <linux/jump_label.h>
--#include <asm/rsi_cmds.h>
--
--#define RSI_PDEV_NAME "arm-cca-dev"
--
--DECLARE_STATIC_KEY_FALSE(rsi_present);
--
--void __init arm64_rsi_init(void);
--
--bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
--
--static inline bool is_realm_world(void)
--{
--	return static_branch_unlikely(&rsi_present);
--}
--
--static inline int rsi_set_memory_range(phys_addr_t start, phys_addr_t end,
--				       enum ripas state, unsigned long flags)
--{
--	unsigned long ret;
--	phys_addr_t top;
--
--	while (start != end) {
--		ret = rsi_set_addr_range_state(start, end, state, flags, &top);
--		if (ret || top < start || top > end)
--			return -EINVAL;
--		start = top;
--	}
--
--	return 0;
--}
--
--/*
-- * Convert the specified range to RAM. Do not use this if you rely on the
-- * contents of a page that may already be in RAM state.
-- */
--static inline int rsi_set_memory_range_protected(phys_addr_t start,
--						 phys_addr_t end)
--{
--	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
--				    RSI_CHANGE_DESTROYED);
--}
--
--/*
-- * Convert the specified range to RAM. Do not convert any pages that may have
-- * been DESTROYED, without our permission.
-- */
--static inline int rsi_set_memory_range_protected_safe(phys_addr_t start,
--						      phys_addr_t end)
--{
--	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
--				    RSI_NO_CHANGE_DESTROYED);
--}
--
--static inline int rsi_set_memory_range_shared(phys_addr_t start,
--					      phys_addr_t end)
--{
--	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
--				    RSI_CHANGE_DESTROYED);
--}
--#endif /* __ASM_RSI_H_ */
-diff --git a/arch/arm64/include/asm/rsi_cmds.h b/include/linux/arm-rsi-cmds.h
-similarity index 69%
-rename from arch/arm64/include/asm/rsi_cmds.h
-rename to include/linux/arm-rsi-cmds.h
-index c1fab41f671ec..13478e14c4296 100644
---- a/arch/arm64/include/asm/rsi_cmds.h
-+++ b/include/linux/arm-rsi-cmds.h
-@@ -3,14 +3,36 @@
-  * Copyright (C) 2023 ARM Ltd.
-  */
- 
--#ifndef __ASM_RSI_CMDS_H
--#define __ASM_RSI_CMDS_H
-+#ifndef __LINUX_ARM_RSI_CMDS_H_
-+#define __LINUX_ARM_RSI_CMDS_H_
- 
--#include <linux/arm-smccc.h>
-+#include <linux/arm-smccc-rsi.h>
-+#include <linux/jump_label.h>
- #include <linux/string.h>
- #include <asm/memory.h>
- 
--#include <asm/rsi_smc.h>
-+#define RSI_PDEV_NAME "arm-cca-dev"
-+#ifdef CONFIG_ARM_RMM
-+DECLARE_STATIC_KEY_FALSE(rsi_present);
-+
-+void __init arm64_rsi_init(void);
-+
-+bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
-+
-+static inline bool is_realm_world(void)
-+{
-+	return static_branch_unlikely(&rsi_present);
-+}
-+#else
-+static inline void arm64_rsi_init(void) { }
-+
-+static inline bool arm64_rsi_is_protected(phys_addr_t base, size_t size)
-+{
-+	return false;
-+}
-+
-+static inline bool is_realm_world(void) { return false; }
-+#endif
- 
- #define RSI_GRANULE_SHIFT		12
- #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
-@@ -88,6 +110,51 @@ static inline long rsi_set_addr_range_state(phys_addr_t start,
- 	return res.a0;
- }
- 
-+static inline int rsi_set_memory_range(phys_addr_t start, phys_addr_t end,
-+				       enum ripas state, unsigned long flags)
-+{
-+	unsigned long ret;
-+	phys_addr_t top;
-+
-+	while (start != end) {
-+		ret = rsi_set_addr_range_state(start, end, state, flags, &top);
-+		if (ret || top < start || top > end)
-+			return -EINVAL;
-+		start = top;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Convert the specified range to RAM. Do not use this if you rely on the
-+ * contents of a page that may already be in RAM state.
-+ */
-+static inline int rsi_set_memory_range_protected(phys_addr_t start,
-+						 phys_addr_t end)
-+{
-+	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
-+				    RSI_CHANGE_DESTROYED);
-+}
-+
-+/*
-+ * Convert the specified range to RAM. Do not convert any pages that may have
-+ * been DESTROYED, without our permission.
-+ */
-+static inline int rsi_set_memory_range_protected_safe(phys_addr_t start,
-+						      phys_addr_t end)
-+{
-+	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
-+				    RSI_NO_CHANGE_DESTROYED);
-+}
-+
-+static inline int rsi_set_memory_range_shared(phys_addr_t start,
-+					      phys_addr_t end)
-+{
-+	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
-+				    RSI_CHANGE_DESTROYED);
-+}
-+
- #define RSI_ATTEST_CHALLENGE_MIN_SIZE	32
- #define RSI_ATTEST_CHALLENGE_MAX_SIZE	64
- 
-@@ -170,4 +237,4 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
- 	return res.a0;
- }
- 
--#endif /* __ASM_RSI_CMDS_H */
-+#endif /* __LINUX_ARM_RSI_CMDS_H_ */
-diff --git a/arch/arm64/include/asm/rsi_smc.h b/include/linux/arm-smccc-rsi.h
-similarity index 98%
-rename from arch/arm64/include/asm/rsi_smc.h
-rename to include/linux/arm-smccc-rsi.h
-index e19253f96c940..fddb77986f706 100644
---- a/arch/arm64/include/asm/rsi_smc.h
-+++ b/include/linux/arm-smccc-rsi.h
-@@ -3,8 +3,8 @@
-  * Copyright (C) 2023 ARM Ltd.
-  */
- 
--#ifndef __ASM_RSI_SMC_H_
--#define __ASM_RSI_SMC_H_
-+#ifndef __LINUX_ARM_SMCCC_RSI_H_
-+#define __LINUX_ARM_SMCCC_RSI_H_
- 
- #include <linux/arm-smccc.h>
- 
-@@ -190,4 +190,4 @@ struct realm_config {
-  */
- #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
- 
--#endif /* __ASM_RSI_SMC_H_ */
-+#endif /* __LINUX_ARM_SMCCC_RSI_H_ */
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 29c6100f0c50b..a707deba6ae70 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -7,6 +7,7 @@
-  */
- 
- #include <linux/acpi.h>
-+#include <linux/arm-rsi-cmds.h>
- #include <linux/export.h>
- #include <linux/kernel.h>
- #include <linux/stddef.h>
-@@ -43,7 +44,6 @@
- #include <asm/cpu_ops.h>
- #include <asm/kasan.h>
- #include <asm/numa.h>
--#include <asm/rsi.h>
- #include <asm/scs.h>
- #include <asm/sections.h>
- #include <asm/setup.h>
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index fbf215ecc7d06..2a8de20d2b447 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -34,6 +34,8 @@
- #include <linux/acpi_iort.h>
- #include <linux/kmemleak.h>
- #include <linux/execmem.h>
-+#include <linux/arm-rsi-cmds.h>
-+
- 
- #include <asm/boot.h>
- #include <asm/fixmap.h>
-@@ -43,7 +45,6 @@
- #include <asm/kvm_host.h>
- #include <asm/memory.h>
- #include <asm/numa.h>
--#include <asm/rsi.h>
- #include <asm/sections.h>
- #include <asm/setup.h>
- #include <linux/sizes.h>
-diff --git a/arch/arm64/kernel/rsi.c b/drivers/firmware/arm_rmm/rsi.c
-similarity index 99%
-rename from arch/arm64/kernel/rsi.c
-rename to drivers/firmware/arm_rmm/rsi.c
-index 25ca75ce1a4df..8e716f1c1e319 100644
---- a/arch/arm64/kernel/rsi.c
-+++ b/drivers/firmware/arm_rmm/rsi.c
-@@ -8,11 +8,11 @@
- #include <linux/psci.h>
- #include <linux/swiotlb.h>
- #include <linux/platform_device.h>
-+#include <linux/arm-rsi-cmds.h>
- 
- #include <asm/io.h>
- #include <asm/mem_encrypt.h>
- #include <asm/pgtable.h>
--#include <asm/rsi.h>
- 
- static struct realm_config config;
- 
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-index 0eeddd1ff05b5..b741643d13647 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-@@ -3,7 +3,8 @@
-  * Copyright (C) 2023 ARM Ltd.
-  */
- 
--#include <linux/arm-smccc.h>
-+#include <linux/arm-rsi-cmds.h>
-+#include <linux/arm-smccc-rsi.h>
- #include <linux/cc_platform.h>
- #include <linux/kernel.h>
- #include <linux/device-id/platform.h>
-@@ -12,8 +13,6 @@
- #include <linux/tsm.h>
- #include <linux/types.h>
- 
--#include <asm/rsi.h>
--
- /**
-  * struct arm_cca_token_info - a descriptor for the token buffer.
-  * @granule:		PA of the granule to which the token will be written
+  * The whole dma_get_sgtable() idea is fundamentally unsafe - it seems
+  * that the intention is to allow exporting memory allocated via the
 -- 
 2.43.0
 
