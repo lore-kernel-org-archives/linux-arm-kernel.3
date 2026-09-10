@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3C0C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69754C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdDuwrNT5nqbnggT94bNnBal0P0MT94FqQjiRpDuoes=; b=keJK8VzUhzcePK5l+eadkujfez
-	0WdBl2KjPIlhGOZzGetaRzBE5Cs7zWUFHvb/2/qg58pW+TBXn/rx4bK0FJcfUJzYFXPG0FRkcqDxq
-	XTCu8apZhCwjb2Ax4w8UcSl5ssg7g/0PutumJ1shs2kge3C7nqBr0L9w12YMFLXBmFtOROHPgYGxA
-	Rz2bKyUTK6pSQdNYSqZVXVXNd34hEPzcUDZ7K8RFZsIttzb6PWpfRQq0eoEVYtT6Gv5eyoZBAeY8s
-	aQsGGA9k/pkNlWfjxikcDem+DmLvTp27g6xS2iF69r49qKEs7TnPhvMQIK9iNvxdWDItBC6LCYnAA
-	jjhdw/3Q==;
+	bh=yHOomXa8scx/CRbimDArT+ltvBBBfYbsevo1M7FG8J8=; b=b5A6Laghz7nPKJPaBZHSCW+lF8
+	yzvlPKMLbgJg1//hr9tyts6uQHZacyXwMmbjxYuR3Li2de/cys6L0n+/HVXHj1HmDirGpXDQl3HnE
+	kM82YVbd4WGWuM1WsEFr+gIX92kSSzt71GfiG5PtbLwjM0oV7lNyMAoplAvowZv2icIY4F3Iy3JwU
+	c6MfYCtKARBCbaoU9r0M7WDuba36iCihVgbErCA6KOPigcxGF2sea+7v3xCMFGr7awu0l6PsH7sE/
+	91nJeqrklBmJZvPkQEvW4gAThjccs49xf6jdQT+rPeT1472bhkPkLbCGrjdzL/KKLQnlv/EuG9DFt
+	N1B7qghw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eFO-0000000ENUU-3oRf;
-	Thu, 10 Sep 2026 12:51:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eFN-0000000ENU9-3ULO;
-	Thu, 10 Sep 2026 12:51:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D00F434BF;
-	Thu, 10 Sep 2026 12:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E1B91F00893;
-	Thu, 10 Sep 2026 12:51:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789044681;
-	bh=wdDuwrNT5nqbnggT94bNnBal0P0MT94FqQjiRpDuoes=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=k4BBfE6N9JhgZmKsYJCrLKT/4Kamlq6xyP9VaFLhV/nWH+q4kAcV8GbMRy2B28mEF
-	 4j1HBYtvEdO0cDfHz5p6MJ9dipXxOOFpV5GR/P9lE/uR9gzg42ib9Wy96guE6ScnEb
-	 ZCbGT18R+cZxOlNcG5R7U/7XiRQC+RsVMPvMs4ig5TAd/N3FOgV12yRpRfptAEK52I
-	 rZgPZBCl1tvaJvF0K0MrFFrRW/m93+0N3qFOgN2tT7p2H7nwgMdkx99AiLFwDnz+p6
-	 EGqtK0VvftGy6WjM06VGIz26Cv8kb3C3gAMuWM22koJbFbrysXNhxpw7gD+G9GFmZA
-	 JlH/1Zy66QQRw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A04380CFEE;
-	Thu, 10 Sep 2026 12:50:19 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1x4eHQ-0000000ENpN-1sqy;
+	Thu, 10 Sep 2026 12:53:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4eHN-0000000ENoE-2rxP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 12:53:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6021B153B;
+	Thu, 10 Sep 2026 05:53:20 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E68303F7B4;
+	Thu, 10 Sep 2026 05:53:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789044804; bh=guLDhJ6ZyKq8+hcs+PxAXVS1CrsGCXfmslmq82z2LuI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NsFi2PfvyLst+INRWtF2yNw0Omd4UwkceAxkwK5wIm59I/pNOA42pZ29ILrJ1dUBW
+	 sMeXXpzg0BjgT5HtTQByXqrn53rtnxBwG4dMGTYsv/ed4APaFU4mf4eehAX7SNVw4C
+	 S/IZx7MJ8g/DM8eMZ5IfOjS3FCQf3VeoehWuCebk=
+Message-ID: <a219c25b-bc19-4a48-ba0e-dc50ad36f3b2@arm.com>
+Date: Thu, 10 Sep 2026 13:53:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v4] net: phy: mediatek-ge: disable EEE on the MT7530
- PHY
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178904461843.1411984.6387257251091474222.git-patchwork-notify@kernel.org>
-Date: Thu, 10 Sep 2026 12:50:18 +0000
-References: <20260908145213.3976508-1-vladislav.karmanov.dev@gmail.com>
-In-Reply-To: <20260908145213.3976508-1-vladislav.karmanov.dev@gmail.com>
-To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, daniel@makrotopia.org,
- dqfext@gmail.com, SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, arinc.unal@arinc9.com,
- sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dma-mapping: split cache maintenance at highmem
+ boundary
+To: Karl Mehltretter <kmehltretter@gmail.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre
+ <npitre@baylibre.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260909064443.90544-1-kmehltretter@gmail.com>
+ <ff220a24-edae-4b75-9873-1a58f5948a01@app.fastmail.com>
+ <aqJJ5fQ60Nm6xf5G@gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aqJJ5fQ60Nm6xf5G@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_055325_763804_32CDDE61 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +75,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Tue,  8 Sep 2026 17:52:13 +0300 you wrote:
-> The MT7530 internal GE PHY advertises EEE by hardware default, but its
-> EEE support is defective: with EEE advertised, some link partners fail
-> to establish a stable link. On a 2-pair (4-wire) cable where both ends
-> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
-> falling back to 100 Mbps the port loops, so no link or DHCP lease is
-> ever obtained. MediaTek confirms the hardware is the root cause (Landen
-> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
-> problems, so it is recommended to disable its EEE."
+On 10/09/2026 7:24 am, Karl Mehltretter wrote:
+> On Wed, Sep 09, 2026 at 09:24:23AM +0100, Arnd Bergmann wrote:
+>> I can see how the fix addresses the problem, but I don't yet see
+>> how you can arrive in this situation. What type of memory allocation
+>> can produce a physically contiguous page range from multiple
+>> zones?
+>>
 > 
-> [...]
+> Hi Arnd,
+> 
+> You're right that a buddy allocation cannot span zones. I found this issue
+> during code review while investigating another ARM DMA issue. I plan to
+> post a patch for that soon.
+> 
+> My Pi test deliberately reserved the last lowmem and first highmem pages
+> in DT. It confirms the crash with a crossing SG entry, but I have not
+> found an ordinary workload that creates one. I should have made that
+> clear in the changelog.
+> 
+> In a follow-up QEMU test, sg_alloc_table_from_pages() merged the reserved
+> pair into one 8192-byte entry. It checks that the pages are physically
+> adjacent but does not check page_zone().
+> 
+> I also searched a bit for a real-world example. Rockchip's vendor 4.4
+> boot-logo code looks like a possible case: it builds an SG table from
+> firmware-reserved pages and calls dma_map_sg() when no display IOMMU is
+> used. Product logs show the boot-logo feature in use, but I found no
+> record of its reserved memory crossing the lowmem/highmem boundary.
+> Such a crossing seems unlikely.
 
-Here is the summary with links:
-  - [net,v4] net: phy: mediatek-ge: disable EEE on the MT7530 PHY
-    https://git.kernel.org/netdev/net/c/ccbe7540e4aa
+That is completely bogus to begin with though. Calling dma_map_* on 
+reserved non-kernel memory is liable to blow up in various ways anyway 
+(e.g. in sparsemem page_to_pfn/pfn_to_page) - what's the justification 
+for being more lenient towards one particular corner of invalid usage?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Thanks,
+Robin.
 
+> I still think the change is worthwhile. For v2, I will update the
+> changelog to make the test setup and its limits clear. I may also drop the
+> Cc: stable tag.
+> 
+> Thanks,
+> Karl
 
 
