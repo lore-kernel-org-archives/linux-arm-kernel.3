@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D90AC79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0222C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx6UGT3LIpnPAYN185YxCNFaJMqNkLiz8yLgGMh8ifo=; b=J3AuE6qa+AG75yUucfGG4q4NSU
-	DHpklR4l1LyOJdZePOC3yufsG9dbmCC/EBnztMVQzYUGiCEfBAAAbl1KiTVoFOQYzfyDGZFyMicpz
-	9iAdb968g+nL335JmsorCLrCaSTqjMo+IYAsBQ5dD7fgLo/1NC3Duo3yyh9vfUDkKw3878CzRiOjd
-	l2VrCjeujdqZOtBW8CSsNQF6by/1xc2fnG//oyn3IAa87JBU+47/VCWw39o3KC5X8AUs3zmKH65xL
-	v3RfXE1n52NmqeUVrgwdJMhbjd9qxoL0i/xZL35oZBgsBkRpbL5w8LK8GhT+yLdMWPFCYPAdOENLV
-	2WiCbyQw==;
+	bh=V0ShTmh8FKbZZ+WR012q1DMssKHK7PKExz7rrLZx4z8=; b=0SDfPVfaFB/ICWIBZErKg/lZTF
+	PWiaSaHWfaEKZuVpFJUha8S/qGAq9dl/eaM73PlRUaIlJGED0tcgqL3IjEKfbIJZvDCK9sxeU/k52
+	5V/qCZ3bv43n0606+780Zv41UcV5YygK2D27QXPAUeslJV5c3rPozvHiWwFkUQCgcw9bxTfuEtJLu
+	aQ9Vit1th6c0QloVhxRxgWDF4rQuJ1gtCrSiimcMljEF0fTS4v6yy5Y433h8ZMeatHIcDX7z31ms3
+	W6hsGnyVFCgaypIEGcpkvcyEyOWE/nUSErvOqXEMV5nuEZQhTyMvsqBXkf+C7Hi59L7HOURCP6V/k
+	+/dKk2aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4UZB-0000000DFFc-2qyo;
-	Thu, 10 Sep 2026 02:31:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4Uph-0000000DGCL-0iZ3;
+	Thu, 10 Sep 2026 02:48:13 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4UZA-0000000DFFN-01y0
+	id 1x4Upd-0000000DGBm-1ehg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 02:31:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29090600CB;
-	Thu, 10 Sep 2026 02:31:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D43871F000FF;
-	Thu, 10 Sep 2026 02:31:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789007466;
-	bh=mx6UGT3LIpnPAYN185YxCNFaJMqNkLiz8yLgGMh8ifo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=C28JvL1HLKvUb4uqaRKfCWYegoGE3ScjbNlK+WEdzvZ+/Dc3yBsTwZhtogX0LqHu/
-	 63s+3GlX0wvjmgSoib69EbcPv86/wGYAr8k/bwXeb0HghHidF6VWeOMRB7NddmAFvK
-	 Gg164kk0fIcqYksPLUz8CAepaewaoCwbQUOMv/03hilmJtlWdoNzigru0e6x3LbJ2A
-	 6mQG0OUMEElReJiUpgX+BYU4reQL+CR2Zg49ZHonIwsNgCV4Oxvvdth79oJWDzAUi+
-	 8/d2EE62tJxqKYiU7PgfDHpS2yXsy/U9rgm/hJo9msjf2hz6pE2hJ1PMhctcVXYeie
-	 //9nvbRHwdEgw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0C3A380CEC7;
-	Thu, 10 Sep 2026 02:30:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 10 Sep 2026 02:48:11 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=V0ShTmh8FKbZZ+WR012q1DMssKHK7PKExz7rrLZx4z8=;
+	b=QGjsm9fJcMdixSQ95CvMh/d/WbL3KUc3MMxKKvsv/S0aPEVlG7bSmL5vko19kJ2++sFauZkko
+	wdACT3+kwy/2I//dqEk0d3bstdOkRR0KaaHhBeEw/iWXSEkmCQHjkEXHJHNwwRReAyino76iP/s
+	7eDCzvmk5Rmo/gbtvbxG8uc=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hgMHs4g2QzpSvd;
+	Thu, 10 Sep 2026 10:36:25 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 15DC140561;
+	Thu, 10 Sep 2026 10:48:00 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 10 Sep 2026 10:47:59 +0800
+Message-ID: <19ba4bb9-e2c4-4956-bd8d-b8f50259a422@huawei.com>
+Date: Thu, 10 Sep 2026 10:47:58 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/19] arm64: smp: Defer RCU registration during secondary
+ CPU bringup
+To: Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, David Woodhouse <dwmw@amazon.co.uk>,
+	Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-10-will@kernel.org>
+ <45c37592-f05d-4b1c-812b-0cb38d1c3e24@huawei.com>
+ <ap_hR1mntzm-TZOP@willie-the-truck>
+ <f01fc59e-5254-484d-adf9-8dd1c2e58d91@huawei.com>
+ <aqFS58mJ4GJNrbZ2@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <aqFS58mJ4GJNrbZ2@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: stmmac: initialize ptp_lock at probe time
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178900740464.1158570.11551563086535432629.git-patchwork-notify@kernel.org>
-Date: Thu, 10 Sep 2026 02:30:04 +0000
-References: <20260904-stmmac-fix-ptp-clock-init-v1-1-df70eb1eb04d@oss.qualcomm.com>
-In-Reply-To: <20260904-stmmac-fix-ptp-clock-init-v1-1-df70eb1eb04d@oss.qualcomm.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- richardcochran@gmail.com, Jose.Abreu@synopsys.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_194810_124398_A9BB91C6 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +86,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Fri, 04 Sep 2026 12:32:55 +0200 you wrote:
-> priv->ptp_lock is only initialized in stmmac_ptp_register(), which runs
-> during __stmmac_open(). However, the lock is also used while the
-> interface is down and has never been opened: tc_taprio_configure()
-> invokes the PTP gettime64() callback to compute the EST base time when
-> offloading a TAPRIO schedule, and stmmac_get_time() takes
-> priv->ptp_lock. Using an uninitialized rwlock is undefined behaviour.
-> Move the rwlock_init() to __stmmac_dvr_probe(), together with the other
-> private locks, so that ptp_lock is always valid regardless of the
-> interface state.
+在 2026/9/9 20:36, Will Deacon 写道:
+> On Tue, Sep 08, 2026 at 07:25:54PM +0800, Jinjie Ruan wrote:
+>> 在 2026/9/8 18:19, Will Deacon 写道:
+>>> On Tue, Sep 08, 2026 at 04:55:36PM +0800, Jinjie Ruan wrote:
+>>>> I think we need to handle the printk problem before this patch as we
+>>>> discussed earlier.
+>>>>
+>>>> Otherwise defer the rcutree_report_cpu_starting() will trigger a
+>>>> false-positive lockdep"suspicious RCU usage" splat during early lock
+>>>> acquisitions as commit ce3d31ad3cac ("arm64/smp: Move
+>>>> rcu_cpu_starting() earlier") pointed out.
+>>>
+>>> Sorry, I meant to mention this in the cover letter but forgot about it.
+>>> I'm not sure that ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting()
+>>> earlier") is still relevant with the latest printk/console/lockdep code.
+>>> I tried quite hard to trigger lockdep splats manually, but the only way
+>>> I could do it was by using the "%pS" specifier to print the name of a
+>>> symbol in a module, which would cause an RCU walk of the module symbols
+>>> in the kallsyms code! Manually calling WARN() or even rcu_read_lock() /
+>>> spin_lock() did _not_ trigger a splat.
+>>
+>> Add "dyndbg="+p"" in cmdline, CONFIG_DEBUG_LOCK_ALLOC=y,
+>> CONFIG_PROVE_RCU_LIST=y, we can reproduce the warning as below:
+>>
+>> I believe there is also a problem in the RISC-V code itself here as
+>> store_cpu_topology() is common for RISC-V.
+>>
+>> [    0.335162] smp: Bringing up secondary CPUs ...
+>> [    0.345495]
+>> [    0.345513] =============================
+>> [    0.345523] WARNING: suspicious RCU usage
+>> [    0.345621] 7.3.0-rc2-00010-g2311ba2cd56f #500 Tainted: G        W
+>> [    0.345637] -----------------------------
+>> [    0.345646] kernel/locking/lockdep.c:3845 RCU-list traversed in
+>> non-reader section!!
+>> [    0.345659]
+>> [    0.345659] other info that might help us debug this:
+>> [    0.345659]
+>> [    0.345680]
+>> [    0.345680] RCU used illegally from offline CPU!
+>> [    0.345680] rcu_scheduler_active = 1, debug_locks = 1
+>> [    0.345725] locks held by swapper/1/0: 0, last CPU#1
+>> [    0.345743]
+>> [    0.345743] stack backtrace:
+>> [    0.345834] CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Tainted: G        W
+>>          7.3.0-rc2-00010-g2311ba2cd56f #500 PREEMPT(full)
+>> [    0.345885] Tainted: [W]=WARN
+>> [    0.346077] Call trace:
+>> [    0.346102]  show_stack+0x20/0x38 (C)
+>> [    0.346153]  dump_stack_lvl+0xc4/0x150
+>> [    0.346176]  dump_stack+0x18/0x28
+>> [    0.346194]  lockdep_rcu_suspicious+0x170/0x238
+>> [    0.346217]  __lock_acquire+0xf08/0x1818
+>> [    0.346237]  lock_acquire+0x1e0/0x450
+>> [    0.346256]  _raw_spin_lock_irqsave+0x70/0xc0
+>> [    0.346277]  down_trylock+0x20/0x60
+>> [    0.346293]  __down_trylock_console_sem+0x4c/0x118
+>> [    0.346316]  vprintk_emit+0x2d8/0x3f8
+>> [    0.346333]  vprintk_default+0x40/0x58
+>> [    0.346350]  vprintk+0x3c/0x80
+>> [    0.346366]  _printk+0x64/0x98
+>> [    0.346386]  __dynamic_pr_debug+0x90/0xd8
+>> [    0.346406]  acpi_get_cache_info+0x140/0x1a0
+>> [    0.346430]  init_cache_level+0xec/0x110
+>> [    0.346450]  detect_cache_attributes+0x74/0x7c0
+>> [    0.346473]  update_siblings_masks+0x30/0x300
+>> [    0.346495]  store_cpu_topology+0x70/0xf0
+>> [    0.346515]  secondary_start_kernel+0xe0/0x178
+>> [    0.346535]  __secondary_switched+0xc0/0xc8
 > 
-> [...]
+> I was about to say "don't do this" but then I realised two things:
+> 
+> 1. update_siblings_masks() can trigger lockdep splats outside of
+>    pr_debug() if RCU isn't up and running, e.g.:
+> 
+>     [    0.524042]  show_stack+0x18/0x24 (C)
+>     [    0.524519]  __dump_stack+0x28/0x38
+>     [    0.524546]  dump_stack_lvl+0x64/0x84
+>     [    0.524562]  dump_stack+0x18/0x24
+>     [    0.524576]  lockdep_rcu_suspicious+0x134/0x1cc
+>     [    0.524591]  __lock_acquire+0xee8/0x2cb0
+>     [    0.524606]  lock_acquire+0x11c/0x2fc
+>     [    0.524621]  _raw_spin_lock_irqsave+0x64/0x84
+>     [    0.524641]  of_find_property+0x2c/0x8c
+>     [    0.524659]  detect_cache_attributes+0x1c0/0x6d0
+>     [    0.524676]  update_siblings_masks+0x38/0x288
+>     [    0.524692]  store_cpu_topology+0x4c/0x58
+>     [    0.524706]  secondary_start_kernel+0xdc/0x1c8
+>     [    0.524722]  __secondary_switched+0x120/0x124
+> 
+> 2. This code is running _after_ cpuhp_ap_sync_alive().
+> 
+> So for the next version, I'll reintroduce the call to
+> rcutree_report_cpu_starting(), but move it immediately after the call to
+> cpuhp_ap_sync_alive(). I think that will solve these issues, without
 
-Here is the summary with links:
-  - [net] net: stmmac: initialize ptp_lock at probe time
-    https://git.kernel.org/netdev/net/c/0338c68e22ab
+pr_crit() and pr_warn() (such as vec_verify_vq_map()) in
+check_local_cpu_capabilities() can also trigger lockdep splats as below.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+But I think this is not common on the failure path, so it seems to have
+little impact..
 
+
+[    0.158619] smp: Bringing up secondary CPUs ...
+[    0.173958] CPU1: missing HWCAP.
+[    0.174071]
+[    0.174088] =============================
+[    0.174099] WARNING: suspicious RCU usage
+[    0.174197] 7.3.0-rc2-00020-gef0bd63bdd97-dirty #504 Tainted: G        W
+[    0.174217] -----------------------------
+[    0.174226] kernel/locking/lockdep.c:3845 RCU-list traversed in
+non-reader section!!
+[    0.174240]
+[    0.174240] other info that might help us debug this:
+[    0.174240]
+[    0.174262]
+[    0.174262] RCU used illegally from offline CPU!
+[    0.174262] rcu_scheduler_active = 1, debug_locks = 1
+[    0.174306] locks held by swapper/1/0: 0, last CPU#1
+[    0.174326]
+[    0.174326] stack backtrace:
+[    0.174412] CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Tainted: G        W
+         7.3.0-rc2-00020-gef0bd63bdd97-dirty #504 PREEMPT(full)
+[    0.174462] Tainted: [W]=WARN
+[    0.174488] Call trace:
+[    0.174513]  show_stack+0x20/0x38 (C)
+[    0.174568]  dump_stack_lvl+0xc4/0x150
+[    0.174594]  dump_stack+0x18/0x28
+[    0.174615]  lockdep_rcu_suspicious+0x170/0x238
+[    0.174641]  __lock_acquire+0xf08/0x1818
+[    0.174664]  lock_acquire+0x1e0/0x450
+[    0.174687]  _raw_spin_lock_irqsave+0x70/0xc0
+[    0.174709]  down_trylock+0x20/0x60
+[    0.174728]  __down_trylock_console_sem+0x4c/0x118
+[    0.174748]  vprintk_emit+0x2d8/0x3f8
+[    0.174769]  vprintk_default+0x40/0x58
+[    0.174788]  vprintk+0x3c/0x80
+[    0.174808]  _printk+0x64/0x98
+[    0.174832]  secondary_start_kernel+0xc8/0x190
+[    0.174857]  __secondary_switched+0x120/0x128
+
+
+> causing issues with the concurrent part of early boot and also without
+> reintroducing the early call to rcutree_report_cpu_dead().
+> 
+> Cheers,
+> 
+> Will
 
 
