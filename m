@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF78C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2C1C88E47
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05dd9VYQTJafQ4/I82ZtSnyvGkZDL23MpUqml2U2W4Q=; b=iGZyh7jf5UP0vhxzdnDDO2X9Sm
-	GDLPwsZ2fFhF7abBLKvb4JFRBPtwOXUc84H8S81EKcsFPnSrSYpUunl+pmuJOCfK7ULsVtaqa5kPe
-	4b0QRBU+oJnpTW53YS57tPDTmLpWzrCfEo00yc6/mnts+CscDwtXBT7ugTWpiwMNTgXJyKIqzm1My
-	OHEG+RIh66AZCFo1lwt0h6uLHv5AL3xKmF9adzTEbOG2f7J/75Hu3Mhw+KGlzLews8lq31DouIZp+
-	2GtoRZe1mY+xzh/w/SdxQwqruWRN7WtIU1Tzv1aCtEYBHr+YYyKRb7gx//uQEJMbwUSITnQRFWSPf
-	C1W4mqyw==;
+	bh=xnNWWTf63vcwUS5Fd1W1iIPFN/a8rLamfb0kVCJGo+4=; b=gP4wCSoE2IuGIFNCjjPVNiWjKS
+	7Ukvpfq2AKeKH7G56spa+VceI6/jUgyDWUQEYqdhXTzyPfoVGNQ9fjqjIJfEmbvfsEu26/8trYn/u
+	EL2t1T1bfnu547Mq+G8bFtAvPissxQGHZlVBi6Ak9XrzpTkUcFOpoCPqDgcOBWUO7/61DaIsHDrDK
+	fqYbvSrnXtoscLSrMy9QE/1CQQtvq+p/21qpuFCl69DyGm8eRvfNsrwNdZDvkxO2Q4U4LkuAXpTzO
+	RKqOfyBg2/w7uAVSiHizg9cXtB6yzbNSGMdE7ZMYc0tFll3OhQ92x6Ev7XbdzpsjlmTtfxZLDicJ9
+	p1k95ajw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ewM-0000000EUS4-0Nmf;
-	Thu, 10 Sep 2026 13:35:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4ewL-0000000EURc-3jMj;
+	Thu, 10 Sep 2026 13:35:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ewH-0000000EULa-0oxq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 13:35:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=05dd9VYQTJafQ4/I82ZtSnyvGkZDL23MpUqml2U2W4Q=; b=e+umVcaYUGxkh57LDLlHtZg4/P
-	OQZgLimAI7dwqQCmv/4alb1f7cVRIP9McM4peUs7QQepxpK+tKM2vocSnEdQK1JS3xud1hl3fzqkU
-	kwgqF6cVMSWcsWDpnTnee0Mdau5bk2/Teo1qBeRULIsq+GOBe2CohpS5+oGstTQf3GjM1qVg1+Rkx
-	TNtmF6JdeU7e1fBOwLbsxHGzodxJqm2C56tPjmIfOkavYAJMxp02CEGo4D9/pFH1iWz4wgRLyC0vI
-	SSFEJWWjSZo2MXmuy8DGrmLWkU6KlGMEwhIKR0lyWuI42ajKpDy7potfeZQ90Sh8awiRhbm/f+7Li
-	SQC8/RCA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4ewE-00000002XfX-122O
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:35:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E99522BE;
-	Thu, 10 Sep 2026 06:35:33 -0700 (PDT)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A39043F528;
-	Thu, 10 Sep 2026 06:35:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789047337; bh=NKEooR/BP+QmLw2QaESRChX1MftucmWGYzCzP1r3PIo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JLTE3oihpM02KQmJ+UpQYOJZAlkNblbqM+ckWNTB+Cj+3Im3OthohBfPpDym52cQU
-	 tmlemi/IEHD3aa7j68zk1VgVliaYDbf9fCjw2Pi09xoetF5KyN2FyMQesqcuaieW/0
-	 5qPI0gqIozLZCV3qx5BVMKrcwQBlmo8S6SwMkEJY=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH 4/7] pinctrl: sunxi: support A733 generation MMIO register layout
-Date: Thu, 10 Sep 2026 15:35:15 +0200
-Message-ID: <20260910133519.459011-5-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260910133519.459011-1-andre.przywara@arm.com>
-References: <20260910133519.459011-1-andre.przywara@arm.com>
+	id 1x4ewB-0000000EUDW-3Fwn;
+	Thu, 10 Sep 2026 13:35:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789047333;
+	bh=K3GaWrXHjf2WYX8MKuiARabxEZrrwlOOoHt64IJplh0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=bF2WXemdZp8jQR07k+8iTE1cRzxyGbzgkZ0JeK6pyL1T4ntVQNPb5ADKg7ll5EOiX
+	 F2DOeqJpflMo9BNf0/K9yviqyilyGRkHttIj9CxRQ1vIDyLcxwTpjt0BqIJ+pphYna
+	 DRvBFLkVem59zKL7+FyIFVzuEDGmRZHfAPwjLvfGjqpxHQT2DumrE+PkgyMLm14kar
+	 gINy4jWWQDt2YAznIL9fWDkk2cWxsHGORvWGZgIpZa3S0BkQdl8/DNDsUtFmvrot/L
+	 /kFBEj8R8LMUKOxXxhfi99L70sl8xYQhVOZ7YeWvSPlAILkzc3tDmn4wKo9qx9nlOd
+	 kn6eBhQF/RmmA==
+Received: from [192.168.0.15] (unknown [100.64.0.170])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8ACB317E120F;
+	Thu, 10 Sep 2026 15:35:31 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Date: Thu, 10 Sep 2026 09:34:45 -0400
+Subject: [PATCH v2 3/8] ARM: dts: rockchip: Rename rk3288-tinker HDMI audio
+ card
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260910-fix-rockchip-hdmi-audio-names-v2-3-1396a6168e20@collabora.com>
+References: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
+In-Reply-To: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Johan Jonker <jbx6244@gmail.com>, Alex Bee <knaerzche@gmail.com>, 
+ Christian Hewitt <christianshewitt@gmail.com>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ David Summers <beagleboard@davidjohnsummers.uk>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_143538_690152_64BC2718 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20260910_063536_037540_76D603A3 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,122 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After Allwinner changed the layout of the pinctrl/GPIO IP MMIO register
-frame only a few years back, the new SoC generation (starting with the
-A733) changes the layout again: each port now uses 128 instead of 36 or 48
-bytes, and the drive level registers move to make space for the new
-set/clear data registers. Also the PortA registers start at offset 0x80
-instead of 0x0 as before, to make room for non-bank specific registers,
-like the pow_mod_sel registers, at the beginning of the MMIO frame. Finally
-the IRQ registers move into each bank's region.
+Rename the audio card to "RK3288 HDMI" so it can be identified
+user-visible ALSA fields and match the naming scheme used across
+the rest of the Rockchip family.
 
-Add yet another quirk bit to mark this case, and set the existing register
-offset values to match the new layout. This also requires to add new
-members to struct sunxi_pinctrl, to accommodate the extra changes. The
-actual runtime code changes are fortunately minor.
+It gets the same name as the rk3288-miqi, making the sound node
+identical in both device trees, but won't be moved to rk3288.dtsi as
+tinker and miqi are the only rk3288 boards with HDMI sound.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Fixes: e58c5e739d6f ("ARM: dts: rockchip: move shared tinker-board nodes to a common dtsi")
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 14 ++++++++++++--
- drivers/pinctrl/sunxi/pinctrl-sunxi.h | 14 ++++++++++++++
- 2 files changed, 26 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index 5f08c75549b4d..35aa3a8ea1814 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -65,7 +65,7 @@ static struct irq_chip sunxi_pinctrl_level_irq_chip;
-  */
- static u32 sunxi_bank_offset(const struct sunxi_pinctrl *pctl, u32 pin)
- {
--	u32 offset = 0;
-+	u32 offset = pctl->bank_offset;
+diff --git a/arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi b/arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi
+index 7e16022c7d9e..1caf49579ae3 100644
+--- a/arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3288-tinker.dtsi
+@@ -73,7 +73,7 @@ sdio_pwrseq: sdio-pwrseq {
+ 	sound {
+ 		compatible = "simple-audio-card";
+ 		simple-audio-card,format = "i2s";
+-		simple-audio-card,name = "rockchip,tinker-codec";
++		simple-audio-card,name = "RK3288 HDMI";
+ 		simple-audio-card,mclk-fs = <512>;
  
- 	if (pin >= PK_BASE && (pctl->flags & SUNXI_PINCTRL_ELEVEN_BANKS)) {
- 		pin -= PK_BASE;
-@@ -102,7 +102,7 @@ static void sunxi_dlevel_reg(const struct sunxi_pinctrl *pctl,
- {
- 	u32 offset = pin % PINS_PER_BANK * pctl->dlevel_field_width;
- 
--	*reg   = sunxi_bank_offset(pctl, pin) + DLEVEL_REGS_OFFSET +
-+	*reg   = sunxi_bank_offset(pctl, pin) + pctl->drv_regs_offset +
- 		 offset / BITS_PER_TYPE(u32) * sizeof(u32);
- 	*shift = offset % BITS_PER_TYPE(u32);
- 	*mask  = (BIT(pctl->dlevel_field_width) - 1) << *shift;
-@@ -1592,15 +1592,25 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 	pctl->flags = flags;
- 	if (flags & SUNXI_PINCTRL_NCAT2_REG_LAYOUT) {
- 		pctl->bank_mem_size = D1_BANK_MEM_SIZE;
-+		pctl->drv_regs_offset = DLEVEL_REGS_OFFSET;
- 		pctl->pull_regs_offset = D1_PULL_REGS_OFFSET;
- 		pctl->dlevel_field_width = D1_DLEVEL_FIELD_WIDTH;
-+	} else if (flags & SUNXI_PINCTRL_NCAT3_REG_LAYOUT) {
-+		pctl->bank_mem_size = A733_BANK_MEM_SIZE;
-+		pctl->bank_offset = A733_BANK_OFFSET;
-+		pctl->drv_regs_offset = A733_DLEVEL_REGS_OFFSET;
-+		pctl->pull_regs_offset = A733_PULL_REGS_OFFSET;
-+		pctl->dlevel_field_width = D1_DLEVEL_FIELD_WIDTH;
- 	} else {
- 		pctl->bank_mem_size = BANK_MEM_SIZE;
-+		pctl->drv_regs_offset = DLEVEL_REGS_OFFSET;
- 		pctl->pull_regs_offset = PULL_REGS_OFFSET;
- 		pctl->dlevel_field_width = DLEVEL_FIELD_WIDTH;
- 	}
- 	if (flags & SUNXI_PINCTRL_ELEVEN_BANKS)
- 		pctl->pow_mod_sel_offset = PIO_11B_POW_MOD_SEL_REG;
-+	else if (flags & SUNXI_PINCTRL_NCAT3_REG_LAYOUT)
-+		pctl->pow_mod_sel_offset = PIO_NCAT3_POW_MOD_SEL_REG;
- 	else
- 		pctl->pow_mod_sel_offset = PIO_POW_MOD_SEL_REG;
- 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index 15aa6fe62dbbc..d09467ed437a3 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -53,6 +53,12 @@
- #define D1_DLEVEL_FIELD_WIDTH	4
- #define D1_PULL_REGS_OFFSET	0x24
- 
-+#define A733_BANK_MEM_SIZE	0x80
-+#define A733_BANK_OFFSET	0x80
-+#define A733_DLEVEL_REGS_OFFSET	0x20
-+#define A733_PULL_REGS_OFFSET	0x30
-+#define A733_IRQ_REGS_OFFSET	0x40
-+
- #define PINS_PER_BANK		32
- 
- #define IRQ_PER_BANK		32
-@@ -94,7 +100,9 @@
- #define SUNXI_PINCTRL_NCAT2_REG_LAYOUT	BIT(8)
- #define SUNXI_PINCTRL_PORTF_SWITCH	BIT(9)
- #define SUNXI_PINCTRL_ELEVEN_BANKS	BIT(10)
-+#define SUNXI_PINCTRL_NCAT3_REG_LAYOUT	BIT(11)
- 
-+#define PIO_NCAT3_POW_MOD_SEL_REG	0x040
- #define PIO_POW_MOD_SEL_REG		0x340
- #define PIO_11B_POW_MOD_SEL_REG		0x380
- #define PIO_POW_MOD_CTL_OFS		0x004
-@@ -179,6 +187,8 @@ struct sunxi_pinctrl {
- 	struct pinctrl_dev		*pctl_dev;
- 	unsigned long			flags;
- 	u32				bank_mem_size;
-+	u32				bank_offset;
-+	u32				drv_regs_offset;
- 	u32				pull_regs_offset;
- 	u32				dlevel_field_width;
- 	u32				pow_mod_sel_offset;
-@@ -238,6 +248,10 @@ static inline u32 sunxi_irq_hw_bank_num(const struct sunxi_pinctrl_desc *desc,
- 
- static inline u32 sunxi_irq_base_reg(const struct sunxi_pinctrl *pctl, u16 bank)
- {
-+	if (pctl->flags & SUNXI_PINCTRL_NCAT3_REG_LAYOUT)
-+		return pctl->bank_offset + bank * pctl->bank_mem_size +
-+		       A733_IRQ_REGS_OFFSET;
-+
- 	return IRQ_REGS_OFFSET +
- 	       sunxi_irq_hw_bank_num(pctl->desc, bank) * IRQ_MEM_SIZE;
- }
+ 		simple-audio-card,codec {
+
 -- 
-2.47.3
+2.55.0
 
 
