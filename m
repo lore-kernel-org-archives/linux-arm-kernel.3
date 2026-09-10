@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BA2C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 19:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B340C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 19:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAMHT2wWkahUBzUJa6rU6nxefkvh71WH2CfBhS9jm8Y=; b=N+RbEeuh7OiMr5NrA1YZWWMg0W
-	1ea8ZG8oCQSJ88Dg35aDvSTZ/6vgKqkBCSxPI2seZV2PFDFDbPD8JqnLgbsHp0EN/og9JD8Nyn2Hp
-	XdcQfd1gnSe+ad5Qgrg1iPUH1Fy1qur9s2JVoMaKtdf1klnqrZansicT3bQ4hOdTSA115hiRx+RkD
-	NdRQRCoTPnsdV19/kcz1I82w8/RgP0oZFrdmZ6sDGm7eu0zQyDuybyMimYFKc7GRwYEWCnjhNIo5B
-	2T+enfmbDoRmnSiI7aDtqtgLWrmZmuwvHne1kmV4pf9FlwnUZW7r/VwWBpKDc7+QhNSDn4gFU529k
-	EQqykHlA==;
+	bh=bDPWQKpYK210YH7pdRtFQhVqun7oclqubAHor3TmIiA=; b=H5lud00ZCGYqPfjn94z/wEV2Zi
+	b4pjO0rc3R81MVR61zm5FlhKeQlphJOHJtPucQShBVuawznblp71vayg4+TWhSh9h5IJcZw5kEyec
+	BL937pys0QFIDrcrpadfHV3h0A2QO3H8EYT1p08TegxxpXSMLhAefcruNyYgG9pchnqUV/6o2oNSt
+	oP1iD0ErrUL6C5Sd19TA9+WsgXxFnRyJm6nD2hlknUaJ7J72IdKSMMsuNASWP6juZTSxogGjGIgAu
+	ihIbYjrLwsdpjIgSnLlHuOmf+MAW3BlP3Z0M6hrvDLBTh1NIUMrRMWGFUg3vTr4WCOtA1sAqpq1Id
+	ATBxJZdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4k2P-0000000FE9r-2t2Z;
-	Thu, 10 Sep 2026 19:02:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4k5f-0000000FEZW-0nRc;
+	Thu, 10 Sep 2026 19:05:43 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4k2N-0000000FE92-0RWI
+	id 1x4k5c-0000000FEYp-3faD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 19:02:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 871346025B;
-	Thu, 10 Sep 2026 19:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9441F1F00893;
-	Thu, 10 Sep 2026 19:02:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789066938;
-	bh=HAMHT2wWkahUBzUJa6rU6nxefkvh71WH2CfBhS9jm8Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ZcwoTfL4RMRjTGO7KA6R28gf0K1P+d/yc56bHe6U/rEzpBo0nqgj72Y/U3rnuBH/q
-	 bczcN08K3g0bEu1jpYc7TgP3WmGanSODZncfvZafiugwZtVCoSZ4yQ8M6OG6WDIjra
-	 5ZiMu7HoA3ef4UJwx3hs5+AmC3MF3XVS6V1pMOMLvtJC880STJPSNLAjUu0BF4IXlU
-	 RkiM7gFsrLWij4d+EQLAhS6pG6KcbnXmpn7YaLMrFeEPu+ZOi3Vbcemp0BjOosrdwQ
-	 oLfxvr6xPVrc6RAo4vQ77zHIiYtbcQ1ei3GY9GP4aBGfiQjNggW+gO2EUUOj1CRlcd
-	 poOrrjWKgHM3w==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 10 Sep 2026 20:00:40 +0100
-Subject: [PATCH 1/2] arm64: gcs: Return -EPERM not -EBUSY for prctl()
- locking failures
+	Thu, 10 Sep 2026 19:05:42 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-499ac87c92bso2228045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 12:05:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789067139; x=1789671939; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bDPWQKpYK210YH7pdRtFQhVqun7oclqubAHor3TmIiA=;
+        b=NJOLP8KCopYnyhoVgbfSdV+kdav+ZBJ1Q/vHTLeLlVS/0EjXYEJqcCVK5RFJzeLWU2
+         HzMdoQz9Ky95NhmIDBTZpMsVAUuzpywTvxbt/UlpxlLPiZtY7izJYLsk4rjGvR/TH3kW
+         iJmAsVnKDkVaUu+URawPzEVXJRLpgzjh5NCNg7DAKml8j5MjkXg+2wXgRCIuI7nl1Cju
+         wFitugvPXfMFjLeS4Bjy2sO70LMqVU+Q3yb1nKrzyqmPkJHf3T+nD4TL6dlWoQKNOOaO
+         Jv7K3rpVaHKD3B/uV8enhCvu4Dj3fGrHq0oPyfi1hC0s8GnFn28QH7jMGQvVMuekNJqr
+         QLOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789067139; x=1789671939;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bDPWQKpYK210YH7pdRtFQhVqun7oclqubAHor3TmIiA=;
+        b=SETXJv1RyerjLRsUfrhyP3POlJGak3V9H5Ksh8HkweRtn6nZCeRvYis0/MaYcUEES8
+         rCPH+koUmok2C+HkCGZEIfQev9+4jYICen7VJTwaBM6gGKwi6Jyuy9nynIQFrjHr4bQe
+         B0KV2k569Y13Aq8O5pFag1eGLMSCyHIby4VJIoTrLjgLCPQATASr+f7OCQmN1wOWZCsv
+         Wh2eYznpPUtitLDvm7yaDCQzy/Bfs15jGEPLUB7eft8frUjCsa+YmF0iKXIbZJjOIjAC
+         mS8uc2ASDQ+Xm2yt/NRBi1fMVOFo2c9sJzhaOcRmRpeyjxzU4c25gQm+gGL65glk+ffx
+         gSqg==
+X-Forwarded-Encrypted: i=1; AKwUvBymhx7N2/F1R3iefyFrkyFuowTFtWXOLdeAft0wet9ltTvl8ySURYzxBWdeD5v3SyYRMaC9ncy7lH1+Zu1l1cNg@lists.infradead.org
+X-Gm-Message-State: AFuF++mhuDwQTHM8t13z+GtVw8097RM3mXpR52IYtJ9++L/UmOoJXcBf
+	Y6xsaQcxIL8qB5F285JEq9EhoXn7ZUC2wzcd5kGRIIAIpCIwhuu/t+hd
+X-Gm-Gg: AYBFou0rVp5SZlmAofTm5rXIBzwGkI3pcHyfJaqkAoKsGX1ViKwYLPqDKSd7jDNGeGT
+	ctO/JEbBoELL0VO2jn5nXiU1CA8hOKnTXd13r3eA969q48MdCrzvWcfxWpFGmrlgWKdeDa4J2m+
+	7zeAcDuebu/h+rKV73F//oihSCeBKhByz6xPEm+4F4X1axF4wBGJOfipk0ePyo4MKJLBbI+sk7K
+	Zf+tfcvIvF6xtt1LCnzKAphJ87m25wc4TkvvlEpwq5FJcgRLItqSjVK1ZXG7xz/bkXPgVtyrVe/
+	D5vQ0CiID23naU7zvUk5Lmtb3vexuXg24IalC8kX4jqa+83Qz5xV7AF5ZUzWYfCpNo94Jb3zz3R
+	SNtnEg/OPcsuKc2aLxnOgwnM1+ys0rW3H3RI16KMSw2e2AERP6BpCCPslG+lMsyBXxMP/7pUj7D
+	eN6A9wb0vZ5EHN/PgACUayEBrna7SHVA6LUWkoybNlrlg7QpDeyipIS+kuWNobuRpzpooFkHqzU
+	xUKZZWaYKt58WGnPrammeZ3w5D/APPjAtmjwd6/TH4PCjoPaNKlcez/m5AsontdgBF6lk155ErI
+	2bLed6y3sraGhrFgKdnw0zr/InVYldXP3j44ZO+ieq9BSiEajM6MqrMNjPR780tHSCaKDrlQsK1
+	Vsw+WFmk=
+X-Received: by 2002:a05:600c:1f8d:b0:499:be2d:c290 with SMTP id 5b1f17b1804b1-49e6198933cmr5181655e9.9.1789067138621;
+        Thu, 10 Sep 2026 12:05:38 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-b3d9-b901-601c-58ef-b3f5-74f5.310.pool.telefonica.de. [2a02:3100:b3d9:b901:601c:58ef:b3f5:74f5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e60adb075sm14811665e9.13.2026.09.10.12.05.37
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 10 Sep 2026 12:05:38 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: Fix kvm_get_vtcr() kernel-doc
+Date: Thu, 10 Sep 2026 21:05:28 +0200
+Message-Id: <20260910190528.4483-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
+References: <20260909063156.89636-1-kmehltretter@gmail.com> <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-arm64-gcs-lock-eperm-v1-1-d88e51855c9f@kernel.org>
-References: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
-In-Reply-To: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
- Bill Roberts <bill.roberts@foss.arm.com>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=974; i=broonie@kernel.org;
- h=from:subject:message-id; bh=vU9yWrJuoA+cpifhPhPxnwazMEUMYCWdCoBAlgROTGM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqov6z4s5CpPxwkjCGNsVndUvdbbURiX0+IaXam
- eyAPjZ0U06JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqL+swAKCRAk1otyXVSH
- 0EroB/91yMMzQ0TMon3Pl732xM3Ub/Jjv8bnNG6TIpxZ3EjkSAIt52YZPoks3gxbhX6tATUJpga
- WqPl6o3ZqAlrTV91dfU5nqHvhac+Rm8/+c/KCiN1pe0rfPjqeSJyhmwZw9IOfZMlL3dyVJWniYk
- dBWXzkFkd5ywOPXA/bAHOg46dXPBD1yYmwXs/VLRY6sTbKWpMlFt8OmmTdGzoqE1KapXISGICT1
- ldGnOU3vd/eISwbdgdxsP7gO06CfoIKSLvRU3CYcPKBDiXTN58Bo21K03J+bUmfomE3Vdv2Ydyz
- NNekdVwinLO4LpCgyl14Y5MxzOl2KZK3woM6wTb/JR6RTl4R
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_120540_933003_364246B9 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +113,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we refuse to perform a GCS configuration change due to locking we
-currently return -EBUSY which is an odd error code to return.  While the
-selftest does currently check for this it is unlikely that we have any
-practical users relying on the behaviour at this point so let's change
-to return the more descriptive -EPERM instead like other architectures.
+kvm_get_vtcr() takes a parameter named phys_shift, but its kernel-doc
+describes phys_shfit. This leaves the real parameter undescribed and
+adds an excess parameter description to the generated documentation.
 
-Reported-by: Bill Roberts <bill.roberts@foss.arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Correct the spelling and describe phys_shift as the IPA size in bits.
+The value written to VTCR_EL2.T0SZ is 64 - phys_shift, rather than
+phys_shift itself.
+
+Fixes: bcb25a2b86b4 ("KVM: arm64: Refactor kvm_arm_setup_stage2()")
+Suggested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- arch/arm64/include/asm/gcs.h | 2 +-
+Changes in v2:
+- Describe phys_shift as the IPA size in bits (Fuad).
+
+ arch/arm64/include/asm/kvm_pgtable.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index 8fa0707069e8..bbc22e382cfe 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -76,7 +76,7 @@ static inline int gcs_check_locked(struct task_struct *task,
- 	new_val &= task->thread.gcs_el0_locked;
- 
- 	if (cur_val != new_val)
--		return -EBUSY;
-+		return -EPERM;
- 
- 	return 0;
- }
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..20d12da3d28e 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -532,7 +532,7 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+  * kvm_get_vtcr() - Helper to construct VTCR_EL2
+  * @mmfr0:	Sanitized value of SYS_ID_AA64MMFR0_EL1 register.
+  * @mmfr1:	Sanitized value of SYS_ID_AA64MMFR1_EL1 register.
+- * @phys_shfit:	Value to set in VTCR_EL2.T0SZ.
++ * @phys_shift:	IPA size, in bits.
+  *
+  * The VTCR value is common across all the physical CPUs on the system.
+  * We use system wide sanitised values to fill in different fields,
 
+base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
 -- 
-2.47.3
-
+2.53.0
 
