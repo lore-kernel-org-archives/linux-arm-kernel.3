@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8AFC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234F4C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPR+8RLWsIHJc9acjgG1g7ANa3O2x38Ojpgbt/bpoPQ=; b=NT8q/1tF7lhrbht0cOfhIGr2Dx
-	XKtWTFdjxkLkZCTQvBZnvDpEtuqMHGBR5DCsLi8s32/tz8nV4kW8BCZNfQfSObFtMXonRNeM82rDE
-	qaj288ZTAjNDgkMG1V1MS2KHl6T4a41tRnYltUN+4deouHzqOl1J+30I8YyQSWRYiKEDp+SLcRTct
-	uuLscRoM2lGD/IGnnTQRGBmss0PzNJGV+wAp94OIEFLgAbFzjH+llmrDftsH9vLfW3DMKOe/4dhmu
-	vSLOwGVWb3/lqVn9H+F/5MUIcbfJi95SyDWkRM9zy5SN22Hz3e60cTz+g5sFOlvPgx1xKVjkVwjX3
-	2aHluIug==;
+	bh=VFhy93n6Rb/y4cA3aaIcOvTxc0gTIiwSK8DV0XBamcA=; b=ZSDCXO/C+CCLnHfhZ4rZsgkp32
+	taPwOFv5Z0Mp38/0j9M1mZb1+D8bI5CMfLT7jC6nhvRpB5iIbzpG/Taf/Q1jrlcwHaH7I14npOrLN
+	El96OIDOkJSYVbpFRl2sP6a0/LYcgQ/QfIjxcRhbQA3JRNKkXlQ6sDQuyENC3WlFndtA7SwKlrW9q
+	D5QrtEYKj/S5CSG/c92qnBtxk6vNxwWRzpHLLh90mvS0gdCxu9eOvmTw0qAaB4Nyk6VC9TmfxmGu+
+	xyummitSelojd8lxT3FpxwVGk7RQ2WGFZc5KW2/su29AaEC+69lhFvEbY4ub5VzUxxGhTZuc0+oaw
+	AnWV1qtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4g7T-0000000Egbq-2mOG;
+	id 1x4g7T-0000000Egbd-2PF6;
 	Thu, 10 Sep 2026 14:51:19 +0000
-Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4g7P-0000000EgZX-1wAS
+	id 1x4g7O-0000000EgZ4-0jLA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:51:16 +0000
-Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2dc7337e2a7so33261075ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 07:51:14 -0700 (PDT)
+	Thu, 10 Sep 2026 14:51:15 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d7443e0f0bso116061185ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 07:51:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789051874; x=1789656674; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1789051872; x=1789656672; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=iPR+8RLWsIHJc9acjgG1g7ANa3O2x38Ojpgbt/bpoPQ=;
-        b=phnKwAWYKZDU99YceZjlWrtBLnBpqJoIz5Dx0CpMVqvb8BoBADhjp7fcUdWISOfE/P
-         52OvEQrWena0b4n/6kdMqEmpIW9AbqM6xt5K2ZOVRnLgUjoZqQ8XN3473fMreKbgtM6k
-         F8JevScnuyCmhXrJGZzFNQJuD0zB2EAjWqVMg63CTD97t9EpH5lRYpufMpRgaz7W+17R
-         KbU0zp+rhpOnxbGKTs8lzq1o9pf/9imLHg5M5npK3ssFBE6SMZhPF2RtWhYgLFHMP0JA
-         qe8hj5pus+F/Cw+nXwQtP7eqCz5PrwsbKmJxl77k/U0trdPt3VlGIJr/SwRizAoXqjAG
-         hSmw==
+        bh=VFhy93n6Rb/y4cA3aaIcOvTxc0gTIiwSK8DV0XBamcA=;
+        b=YexqA6HBky04KGSQh4WRp2iFvnnfu9PrTvabCJ7M8evwnDGcaZ8bNG6wP9TULdTP0C
+         laeh49nKgk9Nkg5iWt9StvTihqUqxBokXuwwHpyoHdhHXFjkwB6e8MAdbcCEpCZ2ztXt
+         gZ97vZrqcC5cc5RbZMQ2oUrq93IJUoGltD2Rtyw8MxsadV5Cych2TeABsFS4Q3tgfGTk
+         35G8sVn6Veyf1DF3HIPbGxY0o02dzG9UmBwumFjCMiuHTD3yvrdbbkQ1ZeauQGEd5Pt8
+         zNjYHZa/4MvdVQqadG4qNZ8O5CxVQjBJwIgR55SmvQWA8/5ptXFq7zfIOGkDSyVUk614
+         pY8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789051874; x=1789656674;
+        d=1e100.net; s=20251104; t=1789051872; x=1789656672;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=iPR+8RLWsIHJc9acjgG1g7ANa3O2x38Ojpgbt/bpoPQ=;
-        b=Ezvdr4s4QqpZKTmKQDA20qyiOc0EV5YBDcYgHuX2KV0J6tBI5YxvuD4YSNHO0vCpDa
-         Mghm0wz/zS7JA2it5xzXlb0HSFkjewg7kD7xDq3dKJ7sLowHNVSOtchvC1nQPsiG5q25
-         Vb/XlAUlYOUpOlaDztk9OV38GQYG9FYvlOXN+z0u5FB5jC+2H+tLYZL3NHXA0NzYKpVK
-         lYMGnM2QZjUYBez8Dn6+zDDZg7zLjZuHc9cHdErGgLRhXULgQ9FqfkRotMOICxnHdVPs
-         n8mxSS7tPrA83d2MtMzHzuG7sEQzqZDuhljvkvb08bm3dHr2Fg3A4PN+svyI0WnjlCX5
-         ZULA==
-X-Forwarded-Encrypted: i=1; AKwUvBz1WyLcPHKi5rqVtLKbvemRl3OcfqtkvQu+i3eIdpsRPLD3hhky2KdEIIRJY0cc9mSBTqlIh0ggyQvFfZL50E18@lists.infradead.org
-X-Gm-Message-State: AFuF++k7wJac68ePI4I+DgwCiWasd1rVpxvtxC7RTAJWQahFvUhVlKjj
-	YxuiHE88Q/xOMmEDypuiVDk7P6VSKUXM/hkXRGNsN1w+cnBP/IGNMXoZtrainTJldvkjiQQANxS
-	gBoJRQHZpw/6ZymVxXfpUBQ==
-X-Received: from plw20.prod.google.com ([2002:a17:903:45d4:b0:2ca:f1f8:ea00])
+        bh=VFhy93n6Rb/y4cA3aaIcOvTxc0gTIiwSK8DV0XBamcA=;
+        b=PCmIyTSfUqz2/QwN3Lt1oSQkrV9savixz+ra5Bgs3BfawrhkgHabnBx8M7ZRAaNmaC
+         D1qmygaedmCdjFgyZSPxvxMkrUnoBZHWTTVB0X/TCxfencU+HoLhFysDymWdorikN7lw
+         izA/c+lrwepIiYAIoLUlAEaiSiphCJcS54Tjh0xIHoqmGEPtNVqAXW8CcPO1c0VRSZYl
+         lXi61JG7fOcUBj6QpUzRoLBZvAEgsBamKo5WWOArTDfmR98ybYZSoJw4sHsPz3zTUaCp
+         GZ/RHzONOTQkJeQTGn6AxYR3yNDLqoTu97x6jCjZMPpw0L8biQsxIfUzstZkZYO+DFvM
+         dkxA==
+X-Forwarded-Encrypted: i=1; AKwUvBzUPM6sE+V3PiOG8qV+pt2mFnUgBT4xzbtIneloabZ8Nox1C1PrzyD5o0IkdPNrl2Ge/e6ciQBBDhETFv0ovkVK@lists.infradead.org
+X-Gm-Message-State: AFuF++mRCEY6WUJkUX0PjcD+BdfqtO5wDBiRKOjp4p7E8mIDdsh9ZH2X
+	fR8X8BuszwAokC98BZ+0DCntkZiwqw9aKagilqk+f+pRPeMbDPZ3ZkRCaSBVM9yC90fTlrq7UEX
+	4GyS280AMTCey6wsRfQtZqw==
+X-Received: from pllx5.prod.google.com ([2002:a17:902:7c05:b0:2dd:1e7c:bcec])
  (user=ericchancf job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:3804:b0:2cf:9347:f445 with SMTP id d9443c01a7336-2db126d8a54mr668494555ad.10.1789051873909;
- Thu, 10 Sep 2026 07:51:13 -0700 (PDT)
-Date: Thu, 10 Sep 2026 14:51:07 +0000
+ 2002:a17:903:46cd:b0:2db:39da:90f2 with SMTP id d9443c01a7336-2dd07809f49mr112539965ad.8.1789051872100;
+ Thu, 10 Sep 2026 07:51:12 -0700 (PDT)
+Date: Thu, 10 Sep 2026 14:51:06 +0000
 In-Reply-To: <20260910145107.3640991-1-ericchancf@google.com>
 Mime-Version: 1.0
 References: <20260910145107.3640991-1-ericchancf@google.com>
 X-Mailer: git-send-email 2.55.0.1003.g10538fe699-goog
-Message-ID: <20260910145107.3640991-3-ericchancf@google.com>
-Subject: [PATCH 2/2] coresight: Switch to DEFINE_RUNTIME_DEV_PM_OPS()
+Message-ID: <20260910145107.3640991-2-ericchancf@google.com>
+Subject: [PATCH 1/2] coresight: Add missing dev_pm_ops to AMBA drivers
 From: Eric Chan <ericchancf@google.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>
@@ -78,8 +78,8 @@ Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
 	stable@vger.kernel.org, Eric Chan <ericchancf@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_075115_525260_161BB802 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20260910_075114_214790_6FB36CF4 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,162 +94,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to Documentation/power/runtime_pm.rst and
-include/linux/pm_runtime.h, modern drivers are encouraged to use
-DEFINE_RUNTIME_DEV_PM_OPS() and pm_ptr() to simplify runtime PM ops
-definitions and eliminate unnecessary #ifdef CONFIG_PM guards.
+When ACPI or MMIO platform driver support was added for TMC, CATU, and
+ETM4x, runtime PM support was hooked up for their platform drivers via
+respective dev_pm_ops, but setting the .pm pointer in their AMBA drivers
+was missed.
 
-Convert the CoreSight TMC, CATU, and ETM4x drivers to use
-DEFINE_RUNTIME_DEV_PM_OPS() and replace direct references to their
-dev_pm_ops structures with pm_ptr(). This removes the #ifdef CONFIG_PM
-blocks around the runtime suspend and resume callbacks, allowing the
-compiler to always validate them regardless of CONFIG_PM.
+As a result, when these devices are probed via the AMBA bus, runtime
+power management does not invoke their runtime suspend/resume callbacks,
+leaving device clocks (such as atclk and pclk) unmanaged during runtime
+PM transitions.
 
+Move the AMBA drivers next to their platform drivers and hook up
+dev_pm_ops to their drv.pm pointers across TMC, CATU, and ETM4x.
+
+Fixes: 70750e257aab ("coresight: tmc: Move ACPI support from AMBA driver to platform driver")
+Fixes: 23567323857d ("coresight: catu: Move ACPI support from AMBA driver to platform driver")
+Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
+Cc: stable@vger.kernel.org
 Signed-off-by: Eric Chan <ericchancf@google.com>
 ---
- drivers/hwtracing/coresight/coresight-catu.c       | 12 +++++-------
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++-------
- drivers/hwtracing/coresight/coresight-tmc-core.c   | 12 ++++--------
- 3 files changed, 13 insertions(+), 22 deletions(-)
+ drivers/hwtracing/coresight/coresight-catu.c  | 21 +++++++++--------
+ .../coresight/coresight-etm4x-core.c          | 21 +++++++++--------
+ .../hwtracing/coresight/coresight-tmc-core.c  | 23 ++++++++++---------
+ 3 files changed, 34 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index d9a12d5e48fa..e3bbfb707f73 100644
+index ad8dafea7d2f..d9a12d5e48fa 100644
 --- a/drivers/hwtracing/coresight/coresight-catu.c
 +++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -14,6 +14,7 @@
- #include <linux/io.h>
- #include <linux/kernel.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/slab.h>
+@@ -612,16 +612,6 @@ static const struct amba_id catu_ids[] = {
  
- #include "coresight-catu.h"
-@@ -640,7 +641,6 @@ static void catu_platform_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- }
+ MODULE_DEVICE_TABLE(amba, catu_ids);
  
--#ifdef CONFIG_PM
- static int catu_runtime_suspend(struct device *dev)
- {
- 	struct catu_drvdata *drvdata = dev_get_drvdata(dev);
-@@ -666,11 +666,9 @@ static int catu_runtime_resume(struct device *dev)
- 
- 	return ret;
- }
--#endif
- 
--static const struct dev_pm_ops catu_dev_pm_ops = {
--	SET_RUNTIME_PM_OPS(catu_runtime_suspend, catu_runtime_resume, NULL)
+-static struct amba_driver catu_driver = {
+-	.drv = {
+-		.name			= "coresight-catu",
+-		.suppress_bind_attrs	= true,
+-	},
+-	.probe				= catu_probe,
+-	.remove				= catu_remove,
+-	.id_table			= catu_ids,
 -};
-+static DEFINE_RUNTIME_DEV_PM_OPS(catu_dev_pm_ops,
-+				 catu_runtime_suspend, catu_runtime_resume, NULL);
- 
- #ifdef CONFIG_ACPI
- static const struct acpi_device_id catu_acpi_ids[] = {
-@@ -688,14 +686,14 @@ static struct platform_driver catu_platform_driver = {
- 		.name			= "coresight-catu-platform",
- 		.acpi_match_table	= ACPI_PTR(catu_acpi_ids),
- 		.suppress_bind_attrs	= true,
--		.pm			= &catu_dev_pm_ops,
-+		.pm			= pm_ptr(&catu_dev_pm_ops),
+-
+ static int catu_platform_probe(struct platform_device *pdev)
+ {
+ 	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+@@ -702,6 +692,17 @@ static struct platform_driver catu_platform_driver = {
  	},
  };
  
- static struct amba_driver catu_driver = {
- 	.drv = {
- 		.name			= "coresight-catu",
--		.pm			= &catu_dev_pm_ops,
-+		.pm			= pm_ptr(&catu_dev_pm_ops),
- 		.suppress_bind_attrs	= true,
- 	},
- 	.probe				= catu_probe,
++static struct amba_driver catu_driver = {
++	.drv = {
++		.name			= "coresight-catu",
++		.pm			= &catu_dev_pm_ops,
++		.suppress_bind_attrs	= true,
++	},
++	.probe				= catu_probe,
++	.remove				= catu_remove,
++	.id_table			= catu_ids,
++};
++
+ static int __init catu_init(void)
+ {
+ 	int ret;
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index ace5e077a10c..ef664a84120f 100644
+index 2247ad55d444..ace5e077a10c 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -2460,7 +2460,6 @@ static const struct amba_id etm4_ids[] = {
+@@ -2460,16 +2460,6 @@ static const struct amba_id etm4_ids[] = {
  
  MODULE_DEVICE_TABLE(amba, etm4_ids);
  
--#ifdef CONFIG_PM
+-static struct amba_driver etm4x_amba_driver = {
+-	.drv = {
+-		.name   = "coresight-etm4x",
+-		.suppress_bind_attrs = true,
+-	},
+-	.probe		= etm4_probe_amba,
+-	.remove         = etm4_remove_amba,
+-	.id_table	= etm4_ids,
+-};
+-
+ #ifdef CONFIG_PM
  static int etm4_runtime_suspend(struct device *dev)
  {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev);
-@@ -2486,11 +2485,9 @@ static int etm4_runtime_resume(struct device *dev)
- 
- 	return ret;
- }
--#endif
- 
--static const struct dev_pm_ops etm4_dev_pm_ops = {
--	SET_RUNTIME_PM_OPS(etm4_runtime_suspend, etm4_runtime_resume, NULL)
--};
-+static DEFINE_RUNTIME_DEV_PM_OPS(etm4_dev_pm_ops,
-+				 etm4_runtime_suspend, etm4_runtime_resume, NULL);
- 
- static const struct of_device_id etm4_sysreg_match[] = {
- 	{ .compatible	= "arm,coresight-etm4x-sysreg" },
-@@ -2514,14 +2511,14 @@ static struct platform_driver etm4_platform_driver = {
- 		.of_match_table		= etm4_sysreg_match,
- 		.acpi_match_table	= ACPI_PTR(etm4x_acpi_ids),
- 		.suppress_bind_attrs	= true,
--		.pm			= &etm4_dev_pm_ops,
-+		.pm			= pm_ptr(&etm4_dev_pm_ops),
+@@ -2528,6 +2518,17 @@ static struct platform_driver etm4_platform_driver = {
  	},
  };
  
- static struct amba_driver etm4x_amba_driver = {
- 	.drv = {
- 		.name   = "coresight-etm4x",
--		.pm	= &etm4_dev_pm_ops,
-+		.pm	= pm_ptr(&etm4_dev_pm_ops),
- 		.suppress_bind_attrs = true,
- 	},
- 	.probe		= etm4_probe_amba,
++static struct amba_driver etm4x_amba_driver = {
++	.drv = {
++		.name   = "coresight-etm4x",
++		.pm	= &etm4_dev_pm_ops,
++		.suppress_bind_attrs = true,
++	},
++	.probe		= etm4_probe_amba,
++	.remove         = etm4_remove_amba,
++	.id_table	= etm4_ids,
++};
++
+ static int __init etm4x_init(void)
+ {
+ 	int ret;
 diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index ece2e8c9be26..77588d53e1b0 100644
+index bc5a133ada3e..ece2e8c9be26 100644
 --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
 +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -980,8 +980,6 @@ static void tmc_platform_remove(struct platform_device *pdev)
- 	__tmc_remove(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
- }
--
--#ifdef CONFIG_PM
- static int tmc_runtime_suspend(struct device *dev)
- {
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
-@@ -1007,11 +1005,9 @@ static int tmc_runtime_resume(struct device *dev)
+@@ -953,17 +953,6 @@ static const struct amba_id tmc_ids[] = {
  
- 	return ret;
- }
--#endif
+ MODULE_DEVICE_TABLE(amba, tmc_ids);
  
--static const struct dev_pm_ops tmc_dev_pm_ops = {
--	SET_RUNTIME_PM_OPS(tmc_runtime_suspend, tmc_runtime_resume, NULL)
+-static struct amba_driver tmc_driver = {
+-	.drv = {
+-		.name   = "coresight-tmc",
+-		.suppress_bind_attrs = true,
+-	},
+-	.probe		= tmc_probe,
+-	.shutdown	= tmc_shutdown,
+-	.remove		= tmc_remove,
+-	.id_table	= tmc_ids,
 -};
-+static DEFINE_RUNTIME_DEV_PM_OPS(tmc_dev_pm_ops,
-+				 tmc_runtime_suspend, tmc_runtime_resume, NULL);
- 
- #ifdef CONFIG_ACPI
- static const struct acpi_device_id tmc_acpi_ids[] = {
-@@ -1029,14 +1025,14 @@ static struct platform_driver tmc_platform_driver = {
- 		.name			= "coresight-tmc-platform",
- 		.acpi_match_table	= ACPI_PTR(tmc_acpi_ids),
- 		.suppress_bind_attrs	= true,
--		.pm			= &tmc_dev_pm_ops,
-+		.pm			= pm_ptr(&tmc_dev_pm_ops),
+-
+ static int tmc_platform_probe(struct platform_device *pdev)
+ {
+ 	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+@@ -1044,6 +1033,18 @@ static struct platform_driver tmc_platform_driver = {
  	},
  };
  
- static struct amba_driver tmc_driver = {
- 	.drv = {
- 		.name   = "coresight-tmc",
--		.pm	= &tmc_dev_pm_ops,
-+		.pm	= pm_ptr(&tmc_dev_pm_ops),
- 		.suppress_bind_attrs = true,
- 	},
- 	.probe		= tmc_probe,
++static struct amba_driver tmc_driver = {
++	.drv = {
++		.name   = "coresight-tmc",
++		.pm	= &tmc_dev_pm_ops,
++		.suppress_bind_attrs = true,
++	},
++	.probe		= tmc_probe,
++	.shutdown	= tmc_shutdown,
++	.remove		= tmc_remove,
++	.id_table	= tmc_ids,
++};
++
+ static int __init tmc_init(void)
+ {
+ 	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver);
 -- 
 2.55.0.1003.g10538fe699-goog
 
