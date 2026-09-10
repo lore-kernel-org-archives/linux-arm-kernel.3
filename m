@@ -4,118 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E74C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58A2C79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNDpDRQBwO4DWkUpRn1Ex9z1RqvOS9op6Mnw1jVE4Yg=; b=17GndEs/hZKnkVhyk7kJfTtplF
-	W5NkWhtJ3Kdcyn3XhVyBq60e5mkosNGmQ2GpI3zMbacIK8XAfPBV5K4TgTyTW6JU+rJL6QhgMox3e
-	9Upa+9RTZjYevt21BriMF6FNOQ5TBhAUQ2xwpaLrtx6nDQykIilflYqtBDAUALRgbhq4LhuOfMBbz
-	9bYgzd4DgxjUb/Rn5ZqQLXUJ8aqAJ9+81OGSMGW0Y1RGF3F+2Nbo8A8q4X7VPdTWhFlH7X/chJlb5
-	XwnDz0NevfJqC+8BetIBxYuzHk5+C55sdG7hhEYwUY+8RPi8PJ8K3FcC8T5UIJePee8cvG0WouP5r
-	1lh4AABQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=egjXlTO+DDdBNX7oUJIbp/5S5+lAPsCv98LOkwHuUVM=; b=sGyHwtpK9OPpn171sh2tqVU28D
+	tzGsy17AWSLR3LzOa894b/+RFz0KZka3rRNoUMc+qfTnb+ybTguKpSicQ+28x9dcTKHmGiYSpryC7
+	3X7N3nHkWbrhx9OzX3dLiNXTjoOK0prYvvg7bqpHoSoWk6A8OlGICVYc/yWoj7hCotRrgX3way1Qa
+	SK95u3rYLuK93mlQ2OoIPnntj561f+qgaFXxZpGUJsh+JyiZ4AvYtzGmq8tiNborvRbwmR0zNdSFG
+	4HUOyWNAJPHsb+tYd6tQfnxbASYt205uILZNaFN3ehDV//rdG7GGLdc4/MArbjPghEg1EKjnAMgmi
+	StBTj+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gU4-0000000EkMo-3sdL;
-	Thu, 10 Sep 2026 15:14:40 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x4gwB-0000000EqfD-2ziy;
+	Thu, 10 Sep 2026 15:43:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gU2-0000000EkIM-0NRW
+	id 1x4gw7-0000000EqdH-3sTN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 15:43:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=egjXlTO+DDdBNX7oUJIbp/5S5+lAPsCv98LOkwHuUVM=; b=iMuN1fagw2gG2yLeRar7Iuudpu
+	heDh6HMMxTFiefdXu8OLhikIR/epUH4vc3zmbsuA8UnNIXidxapjcXda8cXk5U3dPuz5F0tJ9IdN0
+	jLODh0aNmp1+jR+J3UrHnx49lNghTZjv0NyXZMYGJqchtdXwVd2bIujxFSfi2Q0b1BqyoEFLdDCF9
+	eAuEhi6PIMkxc6sc2JIWC2HqqCAKWVTqhhBtK0r4NjpIOXVPx+HUnMb6JufIrtftakpj4nuaG3tGG
+	iiusGqfv8l7AHdwWZR5HqFbbmuJhcx3cPvGEuvkg/7Br25AE7b6YqngazdAOdTc2z+v7vfqQzT7Jo
+	OJWOdO3g==;
+Received: from mgamail.intel.com ([198.175.65.15])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4gw4-00000002h4Q-0T8v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:14:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y0LimQFxtZjmmc3bGrSIJdeRF1d1g9QiccvTG/WlePEDXjO+qgf3zEGmzCICyJYjng7EHWyKOlpyZm74PynUG0tLrl0nfcZMm9+KGsqzHW/e5rf9ODMQyPhOd+clWY2SkFxmuBwqmF5iz+VlZpJcTquFEZD8VXDUNCh82QS2l1Nui4DZNPITc3p1ODeMLWl8Pgio7TleZDhglT7lTHDzAkUk5vMJTUbZtloJ9KlbcMBdTMHMg9uD2KUzV6DZkc9iEKaLSXrqksOtVusDdqnErMxpRRjkgGUjmFch6zhSWCBUAZLu9nz+XY7tz1oPtDikWyQ+6RbCk/34cNreWtZ35g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TNDpDRQBwO4DWkUpRn1Ex9z1RqvOS9op6Mnw1jVE4Yg=;
- b=W7R1O8cpgQolZhLvM4oWm0pnDdYlyTtuY8mjR+PF7fbw8cHsCc3vRjAOGVELkjHGfWLdbUsu73CZyP3KaTf9i4RKKJGdgbRjUfXoMB7ZD5mkgcin2OVE5B1xjQeLxncYeJHu+kW7xGEP9xSN1ZHbyV1uv8jZIJQi3Ls3AvxIIq6kdFjqY2dwnKO0UmObtJG78C7U3PEi71zYqXMoLJTGG1H9doZzwbawHFpWy8rMGFYu897zzkYKptXFxfRUpu7WzWUM00LPhUhn3GJG2exIitO2Tb98Envl09oDBZZKRdUXrBHvqbD1PN26rY3yALjFPns/DGC3SzfRT1Uey3qaeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TNDpDRQBwO4DWkUpRn1Ex9z1RqvOS9op6Mnw1jVE4Yg=;
- b=AqWvU0j48AY2dltfdy9SoMylipYktTowvF0PWhgdXbA0MdqNFgWVx7VpQKkokjnCHhhb8BCvMux3PwLwV5937vRolBgQ1sLUEc5bvEJlUH0Skigp9k5m+Hsz8TEYD7VCH093dSjf+qPkobjeGwWXFSmJfAwgOwKAW5yftXGcFIXpY1PzdgqnCFpsiCy6sGvckTv6WV29VTw6L6LMu00iYBawL9HO5yFxwin9fOLmVjGRUXszf/CZuKe3hrrNQilxg/RgDWrq5NVCSOhiuESLLfwCx0ECLCgHgaRbQCH96Vkjz9T7nXBD8qVxWqr6xOetzz/6+hI8xBNfilYhaD1Rdw==
-Received: from PR1P264CA0013.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:19e::18)
- by AS8PR10MB6770.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5bc::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
- 2026 15:14:32 +0000
-Received: from MI3PEPF00008487.eurprd02.prod.outlook.com
- (2603:10a6:102:19e:cafe::53) by PR1P264CA0013.outlook.office365.com
- (2603:10a6:102:19e::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
- Sep 2026 15:14:31 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MI3PEPF00008487.mail.protection.outlook.com (10.167.240.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 15:14:31 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 17:20:30 +0200
-Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 17:14:28 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Thu, 10 Sep 2026 17:14:25 +0200
-Subject: [PATCH 2/5] ARM: dts: stm32: add TAMP backup register in
- stm32mp151.dtsi
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260910-upstream_tamp_nvram_dts_part-v1-2-e2bca58a65f4@foss.st.com>
-References: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
-In-Reply-To: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>, Simeon Marijon
-	<simeon.marijon@foss.st.com>
-X-Mailer: b4 0.16.0
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008487:EE_|AS8PR10MB6770:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77a8edf1-6b3f-4e75-763a-08df0f4e3748
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: UIaJ54p2mGa7oveZiqRbXKdOAxXd/54rUlWbQv8kPeka0SCr2nUYVnGOQ7LKQtuguLwf5YUfYFxuZY+8poJ4voiLATex5+SVVvM4vBMXSjarTCwLlcCcWmqDWzV799oa1u7q9yz0C/KJ+tTqZpHcjoQ/3cRzQ/5SQclU3W5NigUm3xsXP3YT7HFKfV+s0bYm0G99Ou2khgw671k2zzhcWrTjBP21jocxmpnesq0eueJrTpmH5VcCLfjQTMScgHWbwhvCJKfJDxvE/o3BCuEX7Scal2jqkM3JyV+H/HePAayaxDKTsaiEfeE+e7T8i1thKetR6u301ZtFKIR3yhDN8jRcy+Sx5KwtfPV24aGniHe3bGlJeojM6TFcWpRy+NusdWVqIvtZBy/tFTiY6PjCiGGaq9DYRi1DWtT3bofGT5gJWNw/81dKv31mGIiPFXXi9dtTl817BnsJvM29NZiR1orSCl48AMHW0frNvb2HogzmTl3Ofmu/M2gSEJsbNyCl3zFGSl97bAThoNlcdeRudMg+ietXrfLOwYSXGcL3gprzoxbNZlYWOftbPRZeMe1C9owlZLfnmWDXOjEwKgYTlDRg1m5FOT7mpxzVw75e4UGl95DYytkvK9QS/X0a7SJtJ2VPTCzPCRwNPgutcCYc639XpAkbUlfSZGdjtvC3HyzRUW6CDi18xq2//gdjQ3Ts98UnETiGXiYxkksDgzv2bQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9eTef4RmuTigfFMW9e65KvTVoHzAPabH38tCoxE1/NiL/gTIv8E6E8DFj7EvHkRKk1q0bHrpvCiuhclsND526vbHtUnXmJ1kqxocg7OexXVAOkGYckT1WSZMaM+tiR+awHqCJlBqIGpgFzs9ATA/prMY99WJx8VD+4Pxrqx10u+kznUBukYwKklqLPgBa5fSSMYZBHlAUNJ6X/y24p3Ry/lJSkeASbVFTyDJaJbI2u/+KEpr5ttxdQvl/VOnobqTdYdHwCicyZvMhzRZH/3Jdkel3YXnt91Fz8wo3mwAHmmAIUJR3pmLJFlZ5n9wlk+RvLwBB8BM1fgprCfmvNbKvGRra25+NGB4eiWo3jCLFSmNYCuzVlUKhcUUNqltgeh8VlwpJDiSnU2AzG/fuX1RAAut3fNwaszuE6WH3rnntHXOHLMV5Ry906G0EWhVCRhS
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 15:14:31.8500
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77a8edf1-6b3f-4e75-763a-08df0f4e3748
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008487.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB6770
+	Thu, 10 Sep 2026 15:43:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789055016; x=1820591016;
+  h=date:from:to:cc:subject:message-id;
+  bh=kl710Ogpmd2+II85avk0ufWudsJiE1q8vjfpO/pbOOs=;
+  b=XDCR2B5ZCmbMNcGhQO+UUOo8FiKsUw86BJxqNRc5HpGx5ksGjmX4CHwQ
+   VsgRFs2tMPd82HRxK4fE6ZiaZSEVho8sbPrgxvkkMNEl4UCSkQDTXcGUm
+   Ap76bmbk6DRTCtw6JqT4V9ANnLqAWCy/k0zZ5nrHHpOqkycRh8GFdwjXP
+   OjqLspFtlic0QkuE4muKeWZXMHL31QHSKJZ7D4Ix0r67f8KbDW4JpV46J
+   yq4Ju8+QrGWDXU7Egu/3oi/4wtYvXRlFcGsEeJINGCTEttWxqilM29z50
+   cxLgUjmfX1F+5nMtWRWAKT5uurTpcc1MuPK1lWDdyHe3XZwGM4yasfnra
+   Q==;
+X-CSE-ConnectionGUID: 4YoXmvC8QcyaiOQ6k8dn2g==
+X-CSE-MsgGUID: kK9FpVU+RJKtrCrSUSLOIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="93200681"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="93200681"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:43:34 -0700
+X-CSE-ConnectionGUID: 73AamxUcTFy3XN6APV26IQ==
+X-CSE-MsgGUID: SFh3gaiUQn+2GCfL8nAJPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="301572123"
+Received: from igk-lkp-server01.igk.intel.com (HELO 2232cf45ba3c) ([10.211.93.152])
+  by orviesa002.jf.intel.com with ESMTP; 10 Sep 2026 08:43:32 -0700
+Received: from kbuild by 2232cf45ba3c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x4gvy-000000000Rc-0PWd;
+	Thu, 10 Sep 2026 15:43:30 +0000
+Date: Thu, 10 Sep 2026 17:42:42 +0200
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove-7.3 226/294]
+ drivers/mtd/spi-nor/spansion.c:100:9: error: call to undeclared function
+ 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit
+ function declarations
+Message-ID: <202609101458.dCAUeSAA-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_081438_143947_20509A8F 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20260910_164336_537526_4FD44AD9 
+X-CRM114-Status: UNSURE (   9.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,114 +101,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Simeon Marijon <simeon.marijon@foss.st.com>
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
+head:   3ac93c1e700558259ea604f7d4f37e26820fba15
+commit: 62e3b560c8fdcab6be5dce819f3b76df95cd95dc [226/294] mtd: spi-nor: remove controller_ops support
+config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20260910/202609101458.dCAUeSAA-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260910/202609101458.dCAUeSAA-lkp@intel.com/reproduce)
 
-TAMP backup registers allow information sharing between different
-software components/execution levels.
-They are described individually as nvmem cells.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609101458.dCAUeSAA-lkp@intel.com/
 
-Signed-off-by: Simeon Marijon <simeon.marijon@foss.st.com>
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- arch/arm/boot/dts/st/stm32mp151.dtsi | 82 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 82 insertions(+)
+All errors (new ones prefixed by >>):
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index 84f68e8563d8..0ad75e010839 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -2060,7 +2060,89 @@ i2c6: i2c@5c009000 {
- 
- 		tamp: tamp@5c00a000 {
- 			compatible = "st,stm32-tamp", "syscon", "simple-mfd";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
- 			reg = <0x5c00a000 0x400>;
-+			ranges;
-+
-+			nvram: nvram@5c00a100 {
-+				compatible = "st,stm32mp15-tamp-nvram";
-+				reg = <0x5c00a100 0x80>;
-+
-+				nvmem-layout {
-+					compatible = "fixed-layout";
-+					#address-cells = <1>;
-+					#size-cells = <1>;
-+					wakeup_sec: tamp-bkp@0 {
-+						reg = <0x0 0x4>;
-+					};
-+
-+					m4_security_perimeter_exti1: tamp-bkp@4 {
-+						/* see cortex-m4 wake up feature */
-+						reg = <0x4 0x4>;
-+					};
-+
-+					m4_security_perimeter_exti2: tamp-bkp@8 {
-+						/* see cortex-m4 wake up feature */
-+						reg = <0x8 0x4>;
-+					};
-+
-+					m4_security_perimeter_exti3: tamp-bkp@c {
-+						/* see cortex-m4 wtake up feature */
-+						reg = <0xc 0x4>;
-+					};
-+
-+					magic_number: tamp-bkp@10 {
-+						/* see ddr and cpu wake up management feature */
-+						reg = <0x10 0x4>;
-+					};
-+
-+					branch_address: tamp-bkp@14 {
-+						/* see ddr and cpu wake up management feature */
-+						reg = <0x14 0x4>;
-+					};
-+
-+					fwu_info: tamp-bkp@28 {
-+						/* see firmware update info feature */
-+						reg = <0x28 0x4>;
-+					};
-+
-+					copro_rsc_tbl_address: tamp-bkp@44 {
-+						/* see cortex-m4 management feature */
-+						reg = <0x44 0x4>;
-+					};
-+
-+					cortex_m_state: tamp-bkp@48 {
-+						/* see cortex-m4 management feature */
-+						reg = <0x48 0x4>;
-+					};
-+
-+					boot_mode: tamp-bkp@50 {
-+						/* see boot mode selection feature */
-+						reg = <0x50 0x4>;
-+					};
-+
-+					boot_counter: tamp-bkp@54 {
-+						/* see boot counter feature */
-+						reg = <0x54 0x4>;
-+					};
-+
-+					m4_wakeup_area_start: tamp-bkp@58 {
-+						/* see cortex-m4 wake up feature */
-+						reg = <0x58 0x4>;
-+					};
-+
-+					m4_wakeup_area_length: tamp-bkp@5c {
-+						/* see cortex-m4 wake up feature */
-+						reg = <0x5c 0x4>;
-+					};
-+
-+					m4_wakeup_area_hash: tamp-bkp@60 {
-+						/* SHA-0x100 value see Cortex-M4 wake up feature */
-+						reg = <0x60 0x20>;
-+					};
-+				};
-+			};
- 		};
- 
- 		/*
+>> drivers/mtd/spi-nor/spansion.c:100:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     100 |                 ret = spi_nor_controller_ops_write_reg(nor, SPINOR_OP_CLSR,
+         |                       ^
+   1 error generated.
+--
+>> drivers/mtd/spi-nor/winbond.c:122:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     122 |                 ret = spi_nor_controller_ops_write_reg(nor,
+         |                       ^
+   drivers/mtd/spi-nor/winbond.c:424:9: error: call to undeclared function 'spi_nor_controller_ops_write_reg'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     424 |                 ret = spi_nor_controller_ops_write_reg(nor,
+         |                       ^
+   2 errors generated.
 
--- 
-2.43.0
 
+vim +/spi_nor_controller_ops_write_reg +100 drivers/mtd/spi-nor/spansion.c
+
+d534fd9787d592 Takahiro Kuwano 2023-07-26   83  
+91f3c430f622be Takahiro Kuwano 2023-04-07   84  /**
+91f3c430f622be Takahiro Kuwano 2023-04-07   85   * spansion_nor_clear_sr() - Clear the Status Register.
+91f3c430f622be Takahiro Kuwano 2023-04-07   86   * @nor:	pointer to 'struct spi_nor'.
+91f3c430f622be Takahiro Kuwano 2023-04-07   87   */
+91f3c430f622be Takahiro Kuwano 2023-04-07   88  static void spansion_nor_clear_sr(struct spi_nor *nor)
+91f3c430f622be Takahiro Kuwano 2023-04-07   89  {
+d534fd9787d592 Takahiro Kuwano 2023-07-26   90  	const struct spansion_nor_params *priv_params = nor->params->priv;
+91f3c430f622be Takahiro Kuwano 2023-04-07   91  	int ret;
+91f3c430f622be Takahiro Kuwano 2023-04-07   92  
+91f3c430f622be Takahiro Kuwano 2023-04-07   93  	if (nor->spimem) {
+d534fd9787d592 Takahiro Kuwano 2023-07-26   94  		struct spi_mem_op op = SPANSION_OP(priv_params->clsr);
+91f3c430f622be Takahiro Kuwano 2023-04-07   95  
+91f3c430f622be Takahiro Kuwano 2023-04-07   96  		spi_nor_spimem_setup_op(nor, &op, nor->reg_proto);
+91f3c430f622be Takahiro Kuwano 2023-04-07   97  
+91f3c430f622be Takahiro Kuwano 2023-04-07   98  		ret = spi_mem_exec_op(nor->spimem, &op);
+91f3c430f622be Takahiro Kuwano 2023-04-07   99  	} else {
+91f3c430f622be Takahiro Kuwano 2023-04-07 @100  		ret = spi_nor_controller_ops_write_reg(nor, SPINOR_OP_CLSR,
+91f3c430f622be Takahiro Kuwano 2023-04-07  101  						       NULL, 0);
+91f3c430f622be Takahiro Kuwano 2023-04-07  102  	}
+91f3c430f622be Takahiro Kuwano 2023-04-07  103  
+91f3c430f622be Takahiro Kuwano 2023-04-07  104  	if (ret)
+91f3c430f622be Takahiro Kuwano 2023-04-07  105  		dev_dbg(nor->dev, "error %d clearing SR\n", ret);
+91f3c430f622be Takahiro Kuwano 2023-04-07  106  }
+91f3c430f622be Takahiro Kuwano 2023-04-07  107  
+
+:::::: The code at line 100 was first introduced by commit
+:::::: 91f3c430f622befb1b11f07df3bf7163f46adda6 mtd: spi-nor: spansion: Add a new ->ready() hook for multi-chip device
+
+:::::: TO: Takahiro Kuwano <Takahiro.Kuwano@infineon.com>
+:::::: CC: Tudor Ambarus <tudor.ambarus@linaro.org>
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
