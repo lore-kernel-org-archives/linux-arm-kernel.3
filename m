@@ -4,65 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30804C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 22:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3A8C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 22:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okOIj87nnsWhStAZQejKM6CdTZVLqVyfiZc+h4cJ6SQ=; b=LKJptV1CK81xFyCW7zcz2peUDJ
-	eu9rxLn3ZouGHEGpkDCZc5fkXY+B5892qJRo64CziaKkGHQNB09ZGdkT6IJmB/yu84IPBDyiAx0mJ
-	2iRmgD0xCFb8Io8NX8Vn1bDdU0FbffSsd2gvKBl8TXDJGxIA87epeJBysvj3u0uAancK9edn6/1E0
-	ND3vo04vG+44eLvwYEjadBz1VH3HDHFsejDKS9rjMzsPI86Zw4TolkEDsNwoVvparTrx/hGN81NPP
-	nNcsIAN1gFp1stzKFHSRrWtzLXEdsyJgKVLxCSb3itMzAK9r/zteZMDW/Hff+RRXanzapxhovW4Yy
-	NmdAf4dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=skSZMJCxx5hkdKhii/CR8+Hb56esOFV3bhF6MfbbNWk=; b=2XdZbvsRF1ydit3bln8KBVg6Kp
+	vSVoBQ9pXykEs7FyW/3UuLW/Yt1on7oaXVdS2CiEkgB/ZDNHcu8Oj3BdUciQPzsJ+JEQl7nH5YgZC
+	HTgLg3xRkYY8VwQawXXRwDiMBt40W/sweKyD6D7drkI73846ijFivyCbauFIBcSyIICAf3unwkrc9
+	LWExpx01nYoV9JglzQFlb8Edo++eQ0vawoF3H/nALxgGaFU7sqZuFSjiCemKbxVm1yLMoWsYYca6t
+	Rem0Vp0wPhVzwmcPcFSe6mOGF1FSokMvvwnD4fCLEisA6u+8O5lL5sfZjYcwkmiPClMvAzFhWCpBl
+	ltGfJfMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4n65-0000000FTWn-0qqO;
-	Thu, 10 Sep 2026 22:18:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4n62-0000000FTW7-2fNq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 22:18:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5BDA237B;
-	Thu, 10 Sep 2026 15:18:12 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74B8A3F7B4;
-	Thu, 10 Sep 2026 15:18:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789078696; bh=7wVWwurN/h0UfK56gPZolyDAb0z3FbgclCmbEZseAEw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=onLdeVEJh+X78kzwpPJjKiJ+UJ2DE86wjqBwMU4YEDhYM8t9Gpw6YGE/RhQgZuMT2
-	 9guKA845RvwrbbFo8k4GhSOzYLWh2YB/pD16ioOzwKMaeugrwTmog3h+OhvwhRkcaa
-	 QEp982vU6I4KU+kOO0DpmTqVRvAR6y6Ktc6xQ8nw=
-Date: Fri, 11 Sep 2026 00:18:05 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Enzo Adriano via B4 Relay
- <devnull+enzo.adriano.code.gmail.com@kernel.org>
-Cc: enzo.adriano.code@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Ulf
- Hansson <ulfh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: allwinner: add Allwinner A733 SoC
-Message-ID: <20260911001805.0a2e033d@ryzen.lan>
-In-Reply-To: <20260613-a733-dts-v1-public-ready-v1-3-7787c94681db@gmail.com>
-References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
-	<20260613-a733-dts-v1-public-ready-v1-3-7787c94681db@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1x4n6X-0000000FTbS-1SDi;
+	Thu, 10 Sep 2026 22:18:49 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4n6U-0000000FTap-0xSb;
+	Thu, 10 Sep 2026 22:18:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wHrARG1sxBtLue13PauEtIp4t1lYqz19P2FbbuiJbKcWeFYPvxkPQDHmGH7dN050Z6OHI5xhn7J0KT86X+hxcq0uE0XjHWWFPH55jFUi8WXcIyGj9Q7p3Yp+nDRqo2aMKonMTKg8sOC4s2SX5lw/zaJfoCqf+SCYPJH7+CRiehpCGkmXWgjuUUTQUXWO/R7F8CU2BONeHYThkWz66QH5xk0VPpVFpfdseLXTrybr9nYO2+am0w5ZbZbrStLfWiHgiWTVCvkH3Ti81tk8VuQ1PZHja4u4kGS3ZsNlh3lNFP2me2Yu+XlR/qFTx8j0yYtQVzbhVGQ6q0ADCEOqOgxuww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=skSZMJCxx5hkdKhii/CR8+Hb56esOFV3bhF6MfbbNWk=;
+ b=Cvtdvgv+4JvHx5+DgwUv+0AbQ03VB16pgcjq7dVJhqkhGBiqSIG4XFDBudj28y9TTIwtmUZR+WYqAFe/43Rkx9ijHTiEnPQD1K6OTGG6sQmd+rjjmuFH3sQgda0FnyKh2Eq5e/S2TM6lO9XzHinx7KSGBeJL+kDMViq5LEKjnYKDQq7CypGKTDz1+cdKAGq0kQTUKWXbcqeMzxCWtlai2ihBsw6HS1iz7cLNBibyfwvsZsEK272UM61PuTnA5hUG6jbZ1F9fzIPDT/MOe6JKG6zkv787zHBxwLNQcHtrKeTCWgRk5/vCHfDzsOwAiPSJpqKupQ6EKClurVAzyQNI0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=skSZMJCxx5hkdKhii/CR8+Hb56esOFV3bhF6MfbbNWk=;
+ b=uQVXA4ZPv1GD/4HvsVpUy2HEyMvmowkDxhAdyjam+XINl5GibTrTCPBBiT+BVw9tZ+oTDDAnp8qCjkqmctCHBBS/sScz3tlG52fNBvJ05VCKRg+EDLIwzBN4DqwTEyYuRjbZXO7kHhBHnUuXG9hYVkSSHewfGDXAfMisZRtx7pW/8QhUxRmXkCzS/iIXaWNsFTHxaXPyVKvb6eXa8ZJBTw4Ud/TQt5pgT8f8pQSohTjKiRWvLIykzyJsyt5fhwRh5UG8Fbu9sd1zOW3IcdFGEnSPhvP6IZ/g0sjeE6FpomKgOJaVv/VLgIjBmyXAfJE05GMrNi5MvsWIm6J+6FB2rA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CY5PR12MB6600.namprd12.prod.outlook.com
+ (2603:10b6:930:40::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
+ 2026 22:18:33 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
+ 22:18:33 +0000
+Date: Thu, 10 Sep 2026 19:18:32 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Sean Christopherson <seanjc@google.com>,
+	Logan Odell <loganodell@google.com>, arnd@arndb.de,
+	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com,
+	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com,
+	alex@shazbot.org, kevin.tian@intel.com, dwmw2@infradead.org,
+	baolu.lu@linux.intel.com, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+Message-ID: <20260910221832.GH3968357@nvidia.com>
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com>
+ <aptFFYqcSiBdMLE8@google.com>
+ <20260905012403.GX4157646@nvidia.com>
+ <aqIAtOoew-_6jw29@google.com>
+ <20260910143448.GD3968357@nvidia.com>
+ <aqLOWkuVKccR-I7W@google.com>
+ <20260910171210.GF3968357@nvidia.com>
+ <aqMgjXfTJ8u3n7Kj@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqMgjXfTJ8u3n7Kj@google.com>
+X-ClientProxiedBy: YT4PR01CA0436.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10d::8) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CY5PR12MB6600:EE_
+X-MS-Office365-Filtering-Correlation-Id: a15d49df-9717-4f83-750c-08df0f897359
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|6133799003|22082099003|18002099003|4143699003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: 1MrG7hkEr3/b3LgVUbr3162uj/00KXpgrem1FS0xbTzLzM3PogRZ6ft/V8vIiKXJ8OVtbi8DxkFKxmamRPOP1w6Fn11gb+rXacwmsSNNjmV4uPfLWIkPPTgyGyWvnRqHiyS6Uq2oagzDuU0sdraG+aYdtLYfQS/MUop0XfL5UXF24KveLIiOMxnOnnew2Ld8F8mww4OGPrqAOIGVi1A63zX4HXmE4CRpg+JGsp9KYXvYreTHuUyeBZZ7qHttNIqwgnFOAjmX0gwDzKNha+KwrLEapgcYx3On8gjDmS6D5Paceyzov5QAIwWosma0dZbfzi473LfDrgIlQS3t2QSkMAYi6X52XKYi26SZp+SBo7SN9IrORW8zbVgxTpr4opfnq+U00wxEG8mNKkOhUr3HQ6YpZKrBAPTuAl8m4eQvoKcvGGWO6R6CAhw+vK9bIHdAYQHOSLKI+q63cG4YxysIOUwbtMb2uGzG+M8hESfeEa6dfI3ywOMIIUV3idfV1GmtrRRhvKUu2o5XkmOHN6C13Hnw62pVS0fkEbO/9BvACzmd2Aajrf4UkwJs+1iVJ6PvSyWXiPMBsD1YmrP0yY3R552muNiaaxkcxGeXYSeK7KGXhZZr9E/Ahy40Nfh39DFzC1j9T5eciGxPqzmdz5FPoc1BRAXkuQ49f0/oh42TpJ4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(6133799003)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DDe9Xc7gGk3KAGlAubroCNFNm8Bxdjzpg13Pguni19iU70Qbi5dn10yABek7?=
+ =?us-ascii?Q?+BbPvjPhOkMMWVPW4ZATvYezSPIri5b1bMC0hkGPf8h+WGU7HXfoNQxpuTtL?=
+ =?us-ascii?Q?v6jo90Cgt+p/9c95391WcvrsWRT9cKvgBP7UgNm83M17W1S9gyJEC5cnf4nK?=
+ =?us-ascii?Q?giVW2PkEkYA8gwcSBPrNjI0yMN5kvvJwOC73Prt63j+qPnqSkXwvhIf0XG0l?=
+ =?us-ascii?Q?rOvHNTF2KSVZMTpp31V2oEWOpy9hTNTgDPtXgkSu0wd0E7M6A3U4hhGtxkxV?=
+ =?us-ascii?Q?W4RLjl2WTGQjCe+wEBEF3KkBVbSt4oPITguHm9V1Qr1VzcCfWcsXZrKDmCV9?=
+ =?us-ascii?Q?bUp13/PyjWNpWh9MxpElG+BExyyiNOJdUA89xBYH+TYCkPRrb0IB66RwWFIZ?=
+ =?us-ascii?Q?PIBrstGRpT2i6K5Eq5sQWNhpqVtImaoig8Noc/wouZqb07XpdC/9M+XU/3vo?=
+ =?us-ascii?Q?XrGyYeUth4pM775w8j94D9z2PA2bczU+GF1dSsklciTEkPmOzGz2pplgVHl2?=
+ =?us-ascii?Q?lctyduI7G81zuOIJFcej/OoV1VS+a7CYPRL8F4NQW1mkyaeh/7iaTjBUFF2J?=
+ =?us-ascii?Q?W0ba4k+kkkEQxfWz4K37Ht+eN6H23hsKNfSaL8FaqV6qV9E94kqmgyOBzLZH?=
+ =?us-ascii?Q?NUJer5Z2h7b+HAcr3XmwYqvNIUqKHiY+l8jxicwcIH/6WNcdNKedqLQuW8ND?=
+ =?us-ascii?Q?FGzaPt0V4kKXdUO7pUzZDAKQ9PUX+oVrr6S4b539Cs4eiVklioZZd4BgRmBH?=
+ =?us-ascii?Q?ehaX2PKmQoS6a1Nw6bGlp5o4OGwslD4GuOtk6LiFtA6St3KLZb0UFtUczR9L?=
+ =?us-ascii?Q?0jCLTMbZYtniOqDvRf7HR3KJkxNepSGS1VcNgi5/Ia5CSnKbOrpEAL2kBPGG?=
+ =?us-ascii?Q?MbVGtbt12vuPRmSERGI+O/SIwydjWDnOLkrRJyaN3HjoeKb7PFnLX8as2GEF?=
+ =?us-ascii?Q?N5504hHIsB2foJ/XgyvYTjlmWFQQLkBoUAbsOxi6OGIJh6++uLJ2UN8sYJSv?=
+ =?us-ascii?Q?fZjS1gUPe/PWiGwXnhKsuWAFhnakOZz82LkBQU/0RtIipjJ0UZI6WCG2TqER?=
+ =?us-ascii?Q?NnG0CH7Bk5w2/6Ju5CRi+dnwG4ZjjWJVm9NHp0+nvfdY+29YY0a99LJ1U1uv?=
+ =?us-ascii?Q?G1ZmDpBNZSz60SHyCgtA8Osum/ORpMVzoqGWQcc/UET12xV4Tvyx0cxNVgTM?=
+ =?us-ascii?Q?G1ATxp++dwtYMBQ74GCi0BltsFUg2hpkEGBB70uFuFZJFTYIQiL2R73gIEF4?=
+ =?us-ascii?Q?OLxojJrXfZ9/cUJ1PWMA+JlY76t5DkxqIAg111fZRHciNTMWdWhIviT/WDvr?=
+ =?us-ascii?Q?zpgnKnaJBP2Eu+MVC1iOTjMN6JUDWO5lSdj2+p4Z3FT1JHQj+SstEmesPhdt?=
+ =?us-ascii?Q?CAv2TJhvRTdeTOv7wnTFMjj2BPRh6AbZ2uo5Rn83Krwppf3XGYy8hqz7gykH?=
+ =?us-ascii?Q?KJk4AStKO7CPyunikXj5Iu1R9eXnLLMaKffBtvZqXG1yEWsrsJV3VzuGBCbt?=
+ =?us-ascii?Q?CvIOec1brUcK6y+VMfbI0skRfx+3RuJ1hu1Faft45fFurHsjNuolQcuHK47F?=
+ =?us-ascii?Q?9yNnfLrCiyX0aSE0OrMV0CR+0NDO+c1nzV/9WuwwXvUFQ53fe9jdvzEmgft2?=
+ =?us-ascii?Q?YpUZ9XdERVYz27Df/ctIDIdt/5wRvZeXvZEYIO/mJF2vyqjUMVfcVmOZcZgO?=
+ =?us-ascii?Q?EUu0IlYo3vyULrlddYZWuDKOBc2pvvHJJNlblcOX8O6NWJv0?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a15d49df-9717-4f83-750c-08df0f897359
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 22:18:33.0913
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tOcwI9WOc7rme2P/95uDNbTYQSUUGV512F92iOcPIekgiYmCZsrw0oFwfPO86YQY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_151818_849747_5E5D8188 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260910_151846_274295_48FAE51D 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,274 +152,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 13 Jun 2026 05:42:15 -0400
-Enzo Adriano via B4 Relay
-<devnull+enzo.adriano.code.gmail.com@kernel.org> wrote:
+On Thu, Sep 10, 2026 at 09:27:58PM +0000, David Matlack wrote:
+> Each ABI is now extensible with a set of structured featured flags that
+> are exposed to userspace. Userspace can inspect the flags that the
+> kernel supports and confirm the next kernel also supports them.
 
-Hi Enzo,
+I'm fine with that bit, it is really just a different way to encode an
+ABI ID #. If ABI 5 is spelled b11111 instead it doesn't materially
+change how things work.
 
-it seems like it's probably a good time now to send a v2. Branch off at
-v7.3-rc1, cherry-pick the DT binding patches for clocks and pinctrl
-(plus anything else missing), then put your patches on top.
-Verify that with (in the build directory, after "make dtbs"):
-$ make W=2 CHECK_DTBS=y allwinner/sun60i-*.dtb
+It was always the case you can use the same struct extension techinque
+with a version number. A version can't handle 'holes' in the feature
+mask, but I haven't thought that was a meaningful use case.
 
-> From: Enzo Adriano <enzo.adriano.code@gmail.com>
-> 
-> Add the initial A733 SoC description with CPUs, timers, interrupt
-> controller, clocks, pinctrl, UART0, and MMC0.
+"if (id > 10)" instead "if (id & FEAT)" isn't a big coding difference.
 
-This misses the RTC, support for which has been merged recently.
- 
-> Keep peripherals disabled by default. Board DTS files can enable only the
-> devices that are proven on their hardware.
+My concern is the implied position that the kernel must make full use
+of this to maximize compatability or bust. That's what has always
+concerned me about all these proposals since the start.
 
-Not sure we need that needs explicit mentioning, as this is how .dtsi
-files work...
- 
-> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
-> ---
->  arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi | 198 +++++++++++++++++++++++++
->  1 file changed, 198 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
-> new file mode 100644
-> index 000000000000..3721aa9e8573
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
-> @@ -0,0 +1,198 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/clock/sun60i-a733-ccu.h>
-> +#include <dt-bindings/reset/sun60i-a733-ccu.h>
-> +
-> +/ {
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x000>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu1: cpu@100 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x100>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu2: cpu@200 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x200>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu3: cpu@300 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x300>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu4: cpu@400 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x400>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu5: cpu@500 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x500>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <530>;
-> +		};
-> +
-> +		cpu6: cpu@600 {
-> +			compatible = "arm,cortex-a76";
-> +			device_type = "cpu";
-> +			reg = <0x600>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu7: cpu@700 {
-> +			compatible = "arm,cortex-a76";
-> +			device_type = "cpu";
-> +			reg = <0x700>;
-> +			enable-method = "psci";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +	};
-> +
-> +	osc24M: osc24M-clk {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <24000000>;
-> +		clock-output-names = "osc24M";
-> +	};
-> +
-> +	osc32k: osc32k-clk {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <32768>;
-> +		clock-output-names = "osc32k";
-> +	};
-> +
-> +	iosc: internal-osc-clk {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <16000000>;
-> +		clock-output-names = "iosc";
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0", "arm,psci-0.2";
+I do not want to have arguments upstream about not changing things
+because we didn't do a perfect job preserving luo compatability with
+upgrade and downgrade for arbitary kernel versions. That has always
+been my position and worry.
 
-No need for arm,psci-1.0. PSCI v0.2 requires a version call.
+So, change the simple version to a u64 features[] tuple (be sure to
+use an array, we will need alot of them!!) and I'm fine. But I'm not
+going to promise that every upstream kernel will strictly only have an
+increasing string of 1's. You are going to get some that look like
+b1110000 and still wont work with old kernels.
 
-> +		method = "smc";
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		arm,no-tick-in-suspend;
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
+Sean's initial email was asking for strict never-break ABI
+compatability rules on top, and that is what I've been reacting to.
 
-Please add the ARMv8.2 EL2 virtual timer IRQ, see commit
-a186a9742dc5d.
-
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x0 0x0 0x0 0x40000000>;
-> +
-> +		pio: pinctrl@2000000 {
-> +			compatible = "allwinner,sun60i-a733-pinctrl";
-> +			reg = <0x02000000 0x600>;
-> +			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&ccu CLK_APB1>, <&osc24M>, <&osc32k>;
-> +			clock-names = "apb", "hosc", "losc";
-> +			gpio-controller;
-> +			#gpio-cells = <3>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <3>;
-> +
-> +			mmc0_pins: mmc0-pins {
-> +				pins = "PF0", "PF1", "PF2",
-> +				       "PF3", "PF4", "PF5";
-> +				function = "mmc0";
-> +				drive-strength = <30>;
-> +				bias-pull-up;
-
-You need an allwinner,pinmux property here.
-Also please add the other MMC pins, at least for mmc1 and mmc2.
-
-> +			};
-> +		};
-> +
-> +		ccu: clock-controller@2002000 {
-> +			compatible = "allwinner,sun60i-a733-ccu";
-> +			reg = <0x02002000 0x2000>;
-> +			clocks = <&osc24M>, <&osc32k>, <&iosc>;
-> +			clock-names = "hosc", "losc", "iosc";
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
-> +		uart0: serial@2500000 {
-> +			compatible = "snps,dw-apb-uart";
-> +			reg = <0x02500000 0x400>;
-> +			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg-shift = <2>;
-> +			reg-io-width = <4>;
-> +			clocks = <&ccu CLK_BUS_UART0>;
-> +			resets = <&ccu RST_BUS_UART0>;
-> +			status = "disabled";
-> +		};
-
-Please add the other UART instances here as well.
-
-> +
-> +		gic: interrupt-controller@3400000 {
-> +			compatible = "arm,gic-v3";
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +			reg = <0x03400000 0x10000>,
-> +			      <0x03460000 0x100000>;
-
-Please add the maintenance interrupt here. And do we need
-dma-noncoherent, like in the A523?
-And isn't there an ITS here to describe?
-
-> +		};
-> +
-> +		mmc0: mmc@4020000 {
-> +			compatible = "allwinner,sun60i-a733-mmc",
-> +				     "allwinner,sun20i-d1-mmc";
-> +			reg = <0x04020000 0x1000>;
-> +			interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
-> +			clock-names = "ahb", "mmc";
-> +			resets = <&ccu RST_BUS_MMC0>;
-> +			reset-names = "ahb";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&mmc0_pins>;
-> +			max-frequency = <200000000>;
-> +			cap-sd-highspeed;
-> +			status = "disabled";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-
-Please describe the other MMC controllers here as well. The IP is the
-same, so no reason to not add them here.
-
-And what about I2C? We would need that for the AXP PMIC. Having that in
-the initial DT is required to keep the DTBs compatible with older/stable
-kernels later on.
-
-And it seems like the whole r_ side is missing, even those we should
-have bindings for those. At least r_pio and r_ccu would be needed, plus
-r_i2c.
-
-Cheers,
-Andre
-
-> +	};
-> +};
-> 
-
+Jason
 
