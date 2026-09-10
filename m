@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549C3C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC339C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HmQEgp98q8O8JhuWPmG9fTi4h3McQ6KmVcusD4VmijQ=; b=bapWVOZqUM6Jxhin/ikYQvC6oX
-	S9poGJvXl8LrNyZ8Yq2KMjfbE8hA0Vh8d2bJVRLjfKUWFF9qGw9mnaaCxUEZdkSBDR3HK8k+blyki
-	3tORznssK3yTqnjUU07CfY+IjXoPF5x3xPgZuu3HqVIiDL5pD6aPcnZjLpjNVDX3IZ81ODqgFnsrQ
-	1mJL4XWRVlDCqShcHud7cVKBiS96sasCDnZnfu6/WxJmHHausA5qBzdNYokGW28YTBZxInXXk8ROe
-	gypZniU/TAAvULL/HTfpw6B08l75wyDhvEUMFd+Q3YMRxR8LBoqlDvoSdHTwLz438cIjHsly9NIlV
-	YyFwZ+1w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0vgXszPk/6A9hDxAaTn3qwjWdJafIMQkMqMjKyfDlNc=; b=3KxEu7aKuq5XLa/HOug9UhWsYb
+	rGZ6OEjyJSXCu7gl/ofzX0bqE5JiQWacwVBsp2uSpQ/RHHLq/m3Du8+4FZx6E5HcywojLy54eYJTZ
+	5aoh2GULMaXmBc9rzfQquOF89NBqFwNU+evMLjgcT3dNdWBr/+9JmrXfTEmp69akiti47w9QKt8aZ
+	3fEmisb/Xn03tUlxKN8Gr8tDPo7q8frQ4V8v0CSFhAkjYb+P9paxexYl4DVNr7qHhef4qLdLAWJeq
+	uLDoHKHEaxY1ZHHiBvwyxOmOosGP+rDhYPN5nmT+c7Lxu6k7R6pE6Y8OdPYk+JfC8rDFlHarNXe2V
+	FcZ0r9IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bpY-0000000E19F-2JI5;
-	Thu, 10 Sep 2026 10:16:32 +0000
+	id 1x4bpc-0000000E1CU-3SgL;
+	Thu, 10 Sep 2026 10:16:36 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bpV-0000000E17E-2GWF
+	id 1x4bpV-0000000E17F-2GHQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:16:31 +0000
+	Thu, 10 Sep 2026 10:16:33 +0000
 Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id 58AD41F95E;
+	by mail11.truemail.it (Postfix) with ESMTPA id ED93C1FABC;
 	Thu, 10 Sep 2026 12:16:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789035384;
-	bh=HmQEgp98q8O8JhuWPmG9fTi4h3McQ6KmVcusD4VmijQ=; h=From:To:Subject;
-	b=mUe2+h5xiYk7qOe4WNAjvXyKugNWCTLoooYVFua0xFMhkonmKhNYpvdwriuL2ORiH
-	 cHNFccY0u+SkTZoNWus7oluQIrt8BJUo0A4yFED4zQgEYdK65TOHQ7EEfxe2eIMH8X
-	 qIXQOoBcUsR57u7S6fApwTc0ivixdHl1IgSHF6QoXENoHxvgX0sqSm00Q2ETUcVHVB
-	 wMs+iNuPFeIOr0dnjO0k3ipMbuTUSFC5RqJVXZC4i/XKmperIBJP9lTeMe0ThhDaiH
-	 1nSFgBTjMiWBoh7YlbGJIwlSS24X8pUdOfRo3RuegA0w8+hVTDyebywLVLg91/PhWs
-	 8JclziDVGJaNw==
+	s=default; t=1789035385;
+	bh=0vgXszPk/6A9hDxAaTn3qwjWdJafIMQkMqMjKyfDlNc=; h=From:To:Subject;
+	b=m7gPW7NtRCmInN/+cDwXBsh6HZmnx5527R8uFtMbd9UHVwKQijvclnnq7zgbkTtjJ
+	 7Bwik7qDIHZ9XWLGrqTdGPRwCe9/VXmJwhYHX6/+JRsZG8um3HFzeH83rS6ZVWDLN7
+	 ytEVSDSTm+Z3b4fVZhPK0VmrqgO0YvH0JCvqzE9o4o0IftB8VTiU9c+8VfCaZhY+UG
+	 eVnIFhWM3ChrU/5DjbKOlkFDpscNzEB0COr6wFIAH0//+8BBhqgLhjY2mFQZKZXkbK
+	 zynOThSCNBCiF0FNe6Gl9QqHsmIIdzRG9GW/EkL1v7B7c4ZP3eegasa5S5a4s+86hK
+	 PgYTpyMC97cFA==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,15 +53,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 0/7] arm64: dts: freescale: Add Toradex Lino and OSM iMX91/iMX93
-Date: Thu, 10 Sep 2026 12:16:06 +0200
-Message-ID: <20260910101616.139270-1-francesco@dolcini.it>
+Subject: [PATCH v1 1/7] dt-bindings: arm: fsl: Add Lino iMX91/iMX93
+Date: Thu, 10 Sep 2026 12:16:07 +0200
+Message-ID: <20260910101616.139270-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260910101616.139270-1-francesco@dolcini.it>
+References: <20260910101616.139270-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_031630_485624_678E2C4D 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20260910_031630_485851_F4C51E4C 
+X-CRM114-Status: UNSURE (   7.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,65 +81,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Add Device Tree support for the Toradex Lino and OSM SoM families,
-based on the NXP i.MX91 and i.MX93 SoCs.
+Add bindings for the Toradex Lino iMX91 and Lino iMX93 SoMs, based on
+the NXP i.MX91 and i.MX93 SoCs, respectively.
 
-Both families are available with either i.MX91 or i.MX93 on the same
-PCB. Since the two SoCs are pin compatible, common Device Tree files
-are used to share the hardware description between the two variants.
+Lino SoMs use two board-to-board connectors to interface with a carrier
+board. They can also be mounted on the Lino-Verdin Adapter, which
+converts the Lino interface to the Toradex Verdin family pinout and
+allows the SoM to be used with Verdin-compatible carrier boards.
 
-For the Lino family, add support for the Lino-Verdin Adapter, which
-allows Lino modules to be used with Verdin-compatible carrier boards.
-This series supports the Verdin Development Board and Dahlia carrier
-board.
+The Lino-Verdin Adapter also provides a Wi-Fi/Bluetooth module, an
+Ethernet PHY and a GPIO expander.
 
-For the OSM family, add support for the OSM Development Board.
+Add compatibles for systems consisting of a Lino SoM mounted on a
+Lino-Verdin Adapter and connected to either a Verdin Development Board
+or a Dahlia carrier board.
 
-Francesco Dolcini (7):
-  dt-bindings: arm: fsl: Add Lino iMX91/iMX93
-  dt-bindings: arm: fsl: Add Toradex OSM iMX91/iMX93
-  arm64: dts: freescale: Add Lino iMX93
-  arm64: dts: freescale: imx93-lino: Add dahlia
-  arm64: dts: freescale: Add Lino iMX91
-  arm64: dts: freescale: Add Toradex OSM iMX93
-  arm64: dts: freescale: Add Toradex OSM iMX91
+Link: https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx91
+Link: https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx93
+Link: https://www.toradex.com/accessories/lino-verdin-adapter
+Link: https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
+Link: https://www.toradex.com/products/carrier-board/verdin-development-board-kit
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
- .../devicetree/bindings/arm/fsl.yaml          |  30 +
- arch/arm64/boot/dts/freescale/Makefile        |   8 +
- .../freescale/imx91-lino-verdin-dahlia.dts    |  24 +
- .../dts/freescale/imx91-lino-verdin-dev.dts   |  24 +
- arch/arm64/boot/dts/freescale/imx91-lino.dtsi | 305 ++++++++++
- .../dts/freescale/imx91-toradex-osm-dev.dts   |  22 +
- .../boot/dts/freescale/imx91-toradex-osm.dtsi | 303 ++++++++++
- .../freescale/imx93-imx91-lino-common.dtsi    | 545 ++++++++++++++++++
- .../imx93-imx91-lino-verdin-common.dtsi       | 175 ++++++
- ...imx93-imx91-lino-verdin-dahlia-common.dtsi | 198 +++++++
- .../imx93-imx91-lino-verdin-dev-common.dtsi   | 216 +++++++
- .../imx93-imx91-toradex-osm-common.dtsi       | 533 +++++++++++++++++
- .../imx93-imx91-toradex-osm-dev-common.dtsi   | 324 +++++++++++
- .../freescale/imx93-lino-verdin-dahlia.dts    |  24 +
- .../dts/freescale/imx93-lino-verdin-dev.dts   |  24 +
- arch/arm64/boot/dts/freescale/imx93-lino.dtsi | 359 ++++++++++++
- .../dts/freescale/imx93-toradex-osm-dev.dts   |  22 +
- .../boot/dts/freescale/imx93-toradex-osm.dtsi | 357 ++++++++++++
- 18 files changed, 3493 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dahlia.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dev-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 338dd9eafb17..a32f779f02e4 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1511,6 +1511,15 @@ properties:
+               - fsl,imx91-11x11-frdm-s    # FRDM i.MX91S Development Board
+           - const: fsl,imx91
+ 
++      - description: i.MX91 boards with Toradex Lino Modules and Verdin Adapter
++        items:
++          - enum:
++              - toradex,lino-imx91-verdin-dahlia # Lino iMX91 Module on Verdin Dahlia Board
++              - toradex,lino-imx91-verdin-dev    # Lino iMX91 Module on Verdin Dev Board
++          - const: toradex,lino-imx91-verdin     # Lino iMX91 Module on Verdin Adapter
++          - const: toradex,lino-imx91
++          - const: fsl,imx91
++
+       - description: i.MX93 based Boards
+         items:
+           - enum:
+@@ -1522,6 +1531,15 @@ properties:
+               - fsl,imx93-wireless-frdm   # i.MX93 and IW610G WLCSP (Wi-Fi + BLE + 802.15.4) SiP FRDM Board
+           - const: fsl,imx93
+ 
++      - description: i.MX93 boards with Toradex Lino Modules and Verdin Adapter
++        items:
++          - enum:
++              - toradex,lino-imx93-verdin-dahlia # Lino iMX93 Module on Verdin Dahlia Board
++              - toradex,lino-imx93-verdin-dev    # Lino iMX93 Module on Verdin Dev Board
++          - const: toradex,lino-imx93-verdin     # Lino iMX93 Module on Verdin Adapter
++          - const: toradex,lino-imx93
++          - const: fsl,imx93
++
+       - description: i.MX94 based Boards
+         items:
+           - enum:
 -- 
 2.47.3
 
