@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228C6C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAC3C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=; b=XWb2twshooqJ32tcbVirtdVlVP
-	H8p+WA5VLjm0dulmxFxeeGCtKATDHOv2gDKwVk8kefaWjvjUDbSctLFkv7nrurcnI4hIsHzrlYTm1
-	aZD4tUe2Fo82ndAKi6ztFt6GiIx75/i8K04PkBRSIRQALZHb1HiyptGjiwd6YH8K6YVy6lCB2VkNx
-	FjV3HFIA6QMHaTmwBa8kn+o4X4j6WZArCkKBgryOCq3chx0T76Itp513mfQlcjmnnbeQrFmLYq1Nz
-	pIKtC0J9YMujUIRUIDE7sPgGRJ2L/9wqEODzoRpvkvC5F1Ru/w+N/wLvv+XcDmKP52McWGBxk2vPW
-	HHqeJB6Q==;
+	bh=DAmpgL5dNVrNQnJh+yD//pzzGZfsNROOX3umq9ugYFc=; b=ndxzcYWFZjecENpJ3zIjsIbQQv
+	nbBWT3kThxojI/fu4jOsX36YfZ1MZRgr2KlNy4FhueXkNxEP7djMBPsQU8xNpufDRUvn1pUNHSYvN
+	+2KkgoDTO1zfdjOcYoJxP13b9mokgb1Lh/ckb6S6ETJ9E+5w9ZEiDyb54SORMJ5JxUK8i6JSL+IGf
+	vUQ+OOttRT6RaAdaKNhMsHSRP5d72WMmKsCp7S3YAhdfkfocykq+cu56/mp50k+AROzNcDmx4shm5
+	a666RDHq6nNNyCWhJpcPZ4YPXhurTQUY6MZ1xGr5IAr+Vpr2B372NRF6gGFiZ0ru+CIjcy2itn0lr
+	J7VA+5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gO3-0000000Ej4Z-2SnW;
-	Thu, 10 Sep 2026 15:08:27 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1x4gPw-0000000EjTM-0eXV;
+	Thu, 10 Sep 2026 15:10:24 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gO1-0000000Ej3h-17uz
+	id 1x4gPt-0000000EjSM-2CPq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:08:26 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49b0d78a801so70837975e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 08:08:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789052903; x=1789657703; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=;
-        b=TT9epKxe2SKGPAXSsk4l0rKnWYobrdg6E1m6+LUqNdcDkGx5kcusw0R/LnkrxYJg1X
-         0/PVO4kk1gJ/vkmzhuT8PeMUg54un8Trf7wmY4OaUdivQ3arEUF4Z2okMnZ4J9cKnpXO
-         u/gKGtYw3yPMmeKYRVcit0F5Y+7QEjKM98lLuLaQnwW17oEY5PUo8QOdZrRZJw2+TRDq
-         wdGeCGF3rKjZoy1t0YCIdcaeRUCVMnIbIf/2myY1OG0c6pDZveCIf3jf7oiok04acN0W
-         6QquCchLBL1wIqJYK7zdCzGDUddflxlJSVpqyOYHhn0EaMWRrBzGGSgUFqz2+QepjSHc
-         Jugw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789052903; x=1789657703;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/O88mD56SBzt1YvJ4sXCFFpkOs3XAqa1P/dxdZfqCQY=;
-        b=bp4Th7cEHnmCdbQGEDXygbL064NATNZUvMSEQvqoBa38ZX+h83Qtd1gTxmC0JfUCvS
-         F1SfrBW6VNJ8DJD9DhMnTNlYO1ZA784QlMwmaeBfzCCnb8V5whFlyvRWKiVyrtUI/zz1
-         l0jKewl/180SAis8k0ybfLLw8RNFIFr7rA+11XRJEK2GWQiiwUIKAZfokRYkEPagp9bV
-         TV7jNMT42VKTbQAtC/nBV7vDhq2iF+dKgDsnJFcNdsLkgMyn4AMrRRzuQ1M/rQ4N6eDy
-         +YL5r/9ReC0YSvZCPrMyjvDJ7F9rRMfKOxLKvF/Ch3oQ5LcOsOPsOX4IHa4sS4xr7DuZ
-         a84Q==
-X-Gm-Message-State: AFuF++kiFtDC4bcNZ3btQLreJX3LXc4PCGWBT7tvzek48g3xqhcWzxVY
-	3woVS85+NcNpuwKH2tyEYE0cBhu8sgU3vvttOQPrAByqDuVMV+KzNtlsE2jQpuqf
-X-Gm-Gg: AYBFou0rlVym910lfVRHMSxjxtdfojOn0hI81RwutYItJKPVKOz8+aMJYs/WTZ9743y
-	P7maoEjWxOfT2MAg3r+zEeJ2fwojAMX8sAs+JUWvwKEakCwTuIxuLAzIKbo4ZELJMK5xEU4kF2f
-	xcU9y9uyn7LHp65APgvyiNfzvSYsD6hd4EYGfLMA7hp970XPX6eroQILAhUZZMCeKb/hSr28rRb
-	h40KG2NTHgMAoyYSLtTgoI6ofydEvdiV9QZtQ3+jize2+GWT4LROb+jRaKk4klQ5q6HIs4QEQsg
-	iR1tsSYCKZHBEElH3OFRdv9i6CDobdC7bNG35utM7L7S7Lq8pKHqj+fGwnpfEkhj2kb0E0B1ttO
-	hypdgqI+JvHXtv/ADUMoen9xbfglURz/s4JCBg+0TwWRHF2+RwfKQLcJ7rZUF5VZAL7vCvjCDFf
-	g42gT1i0cIgCnQeCJ6V7sejsdAgpXys+js3a4AXBfbrILF38IjM4uv54nfpQXQ+fkCKVybKVSsb
-	4tlk3kPB0tMGvb4ZMTXv5IXfWTpxWCr
-X-Received: by 2002:a05:600c:4f12:b0:49c:fc6c:be00 with SMTP id 5b1f17b1804b1-49cfc6cbfcamr388041945e9.23.1789052902962;
-        Thu, 10 Sep 2026 08:08:22 -0700 (PDT)
-Received: from [10.25.218.197] ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d24e01c66sm48739535e9.1.2026.09.10.08.08.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 08:08:21 -0700 (PDT)
-Message-ID: <a41510f0-8906-4698-9919-b65b40cc9b89@gmail.com>
-Date: Thu, 10 Sep 2026 08:08:18 -0700
+	Thu, 10 Sep 2026 15:10:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id DC077C653E5;
+	Thu, 10 Sep 2026 15:10:57 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5CA355FA2F;
+	Thu, 10 Sep 2026 15:10:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7AAC911C799CC;
+	Thu, 10 Sep 2026 17:09:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789053010; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=DAmpgL5dNVrNQnJh+yD//pzzGZfsNROOX3umq9ugYFc=;
+	b=wCBtnoRqIjXEwv87TBg6OzGvf4AYIGWYUwYDwRdo3W/063xJ94d+OSKsgMGIimBrTafcT9
+	7bBe8MvW0FcdG5b/Zat/CGay4ASlLq5dbaDpkz1FsUQmLU9g1ha+8K0R12FlyZBWPOU5Em
+	6yRHGT9vo/CH14PdQ/sBhKP+vh9Z2rYyHJTD/DMHu/drBC07oSHyxyDwLPxlH7nv9X9QwJ
+	rDZygzKwDpm9TrjENagEJDo129nx96Aq7IsQc+052w2rtxVb50VuHrUy85q3NvXIdaw6Tl
+	730yhNgMdHGw3DHwokypk7Y2f+MIG63CJLaSBVqJbhZyIOIfMc0ix2BGKaXG0g==
+Message-ID: <a8b81a01-b790-47e3-85e8-c8d82cc6273b@bootlin.com>
+Date: Thu, 10 Sep 2026 17:09:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board
- support
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- elena.popa@nxp.com, consmin.stoica@nxp.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team
- <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20260909153943.1048-1-laurentiumihalcea111@gmail.com>
- <20260909153943.1048-3-laurentiumihalcea111@gmail.com>
- <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
+Subject: Re: [PATCH net 2/6] net: stmmac: selftests: Validate EEE based on the
+ actual LPI timer value
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260909074740.1247762-1-maxime.chevallier@bootlin.com>
+ <20260909074740.1247762-3-maxime.chevallier@bootlin.com>
+ <2f268c9ff187ba59f69d37dd4e4ba99b@tipi-net.de>
 Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <f0136c29-e372-4ae9-972a-23d7a60d75e4@pengutronix.de>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <2f268c9ff187ba59f69d37dd4e4ba99b@tipi-net.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_080825_332564_54F3BF88 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20260910_081021_729307_877885AB 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Hi Ahmad,
-
-On 9/9/2026 9:20 AM, Ahmad Fatoum wrote:
-> Hi,
+On 9/9/26 13:32, Nicolai Buchwitz wrote:
+> Hi Maxime
 > 
-> On 9/9/26 5:39 PM, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> On 9.9.2026 09:47, Maxime Chevallier wrote:
+>> The EEE selftest is a 2-step test :
+>>  - It validates that we enter in LPI mode with the
+>>    irq_tx_path_in_lpi_mode_n counter
+>>  - It then validates that we exit LPI when sending a frame, with the
+>>    irq_tx_path_exit_lpi_mode_n counter.
 >>
->> Add basic support for NXP's MR-NAVQ95 board. This board is designed for
->> robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
->> following hardware feats (list is not exhaustive):
+>> The current state of the test lacks 2 main things :
 >>
->> * based on i.MX95 19x19 SoC
->> * 64GB eMMC
->> * up to 16GB of LPDDR5 memory
->> * 1 x USB 2.0 TypeC
->> * 1 x USB 3.0 TypeC
->> * 1 x RJ45 port with RTL8211 PHY
+>>  - We don't know exactly when was the previous frame sent (it's from the
+>>    previous selftest)
 >>
->> The support targets revision B of the board.
+>>  - The timeout is hardcoded, while the LPI is entered after a
+>>    user-configurable delay. On top of that, the timeout loop uses a
+>>    pre-decrement iterator (--retries) that actually only iterate nine
+>>    times, so 900ms while the default LPI value is 1 second.
 >>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> Let's therefore make it more deterministic :
+>>
+>>  - Send a frame at the beginning of the test
+>>  - Wait for more than the lpi timer value, we timeout after about twice
+>>    the value,
+>>  - Then send another frame, and verify that we do go out of LPI, also
+>>    with a timeout.
+>>
+>> Note that the test's goal isn't to validate the LPI timer value itself,
+>> only that we enter/leave LPI mode.
+>>
+>> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 >> ---
+>>  .../stmicro/stmmac/stmmac_selftests.c         | 33 ++++++++++++++-----
+>>  1 file changed, 25 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+>> index 6503678b646e..4564b9f29194 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
 > 
->> +	chosen {
->> +		stdout-path = &lpuart1;
+>> [...]
 > 
-> I would recommend instead "serial0:115200n8" here. This introduces no
-> change for Linux, but for other consumers of the device tree, they will
-> be able to agree on a common baudrate.
+>> -    memcpy(initial, &priv->xstats, sizeof(*initial));
+>> -
+>> +    /* Send a frame, then wait to enter LPI */
+>>      ret = stmmac_test_mac_loopback(priv);
+>>      if (ret)
+>>          goto out_free_final;
+>>
+>> +    max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
+>> +
+>> +    memcpy(initial, &priv->xstats, sizeof(*initial));
+> 
+> Is the LPI entry already counted here? AFAIU with tx-lpi-timer=0 on dwmac4 the
+> MAC goes directly into LPI after the frame, before stmmac_test_mac_loopback()
+> returns. The loop below would time out although LPI is working.
+> 
+> Snapshot before the first frame, and take a second snapshot right before
+> the second loopback for the exit check?
+> 
+>> [...]
+> 
+>> +    memcpy(final, &priv->xstats, sizeof(*final));
+>>      if (final->irq_tx_path_exit_lpi_mode_n <=
+>>          initial->irq_tx_path_exit_lpi_mode_n) {
+>>          ret = -EINVAL;
+> 
+> nit: -ETIMEDOUT here as well, to match the entry check?
 
-ACK, seems fine. If there's no other objections to this I'll make the switch
-in V5.
+I ended up changing my mind and following you call here, V2 is incoming,
+hopefully with all the patches this time :)
+
+Maxime
 
 > 
->> +	memory@80000000 {
->> +		device_type = "memory";
->> +		/* actual size filled in by the bootloader */
->> +		reg = <0x0 0x80000000 0 0x80000000>;
-> 
-> If the board has at least 2G always, this is fine.
-
-the board only ships with 16GB LPDDR5 so yes, it'll always have at least 2GB.
-While the current size is fine, maybe it would be better to change it to 16GB?
-Will have to update the commit message as well since "up to 16GB of LPDDR5 memory"
-might be a bit misleading.
-
-my other option was to leave the size set to 0x0 like some QCOM DTSIs seem to do.
-Not sure what the preferred way of handling this is?
-
-> 
->> +&usdhc2 {
->> +	bootph-pre-ram;
->> +	bus-width = <4>;
->> +	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
->> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->> +	pinctrl-1 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->> +	pinctrl-2 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->> +	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-> 
-> Looks unexpected to have same pinctrl groups for the higher speeds.
-> Are higher speed modes even possible on this board?
-> 
-> If not, I would suggest dropping the extra states.
-
-The pin configuration is chosen to meet the timing requirements of the 200MHz
-state. Because of this, I would expect the configuration to be appropriate for
-lower frequencies as well.
-
-The intention is to use the same configuration as MX95-19x19-EVK since, from what
-I've been told, the trace lengths are similar to those of the EVK.
-
-Thanks for taking the time to review this! :)
+> Thanks
+> Nicolai
 
 
