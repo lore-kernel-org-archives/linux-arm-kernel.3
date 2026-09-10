@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51006C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 01:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5BCC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 01:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VrhRS/M7q7pkTrLXrhmPne9tuf4NOHwrkARE6eFwxWk=; b=ZWy7fpYZdJqrDOhLYWz1nGZAEG
-	6Tw21jlTOcKsG1SvnB3sfBauDwrPsaAcTkjkyZDwevUU9sd/QVYYqAjK+BZ7TDhTpOl7aL/FCL37E
-	dc6/zQhhWObgZ2ENrqICWBtj7lbqiwhXrmMZqbxSOgW3VmvskM0tly2N7qsJXeNa2Ldy4f+6QOgmq
-	FN6s9u5+dQeFdu5zI+srZsV2HlO0xwR4FTsxxCEyhzEngucW+rpneIt4vYH6wv99T5cQJC6MtbgXY
-	YZ3XE/7fn0jqo9+V3vxs+iD/At7UoyE87zzP8Tu2s6iq1rXboCaEjreJXwjmW28TJn5FHw7iPEvzt
-	fONufuvw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G0noSNcNvP/+I+rxnaf4LKhy/qChedg87Os3I3Fnbpw=; b=1IxmwRY7ogy0ru3nxH7ODsRzQP
+	qx5j4t2H4GAWq6u0FRHKV3uTwt7amBYACkbrfY/0v3KaNAMwjZEDI29sRM3ydNNbUpPRwmiS2WA8D
+	k8mSeCtWcezQGjZAT6EvQExbkRVpTA2ZPafvGY/9QsicRgQIUPHzQVpn55JO4ENYmW9Yx1rI4X/nS
+	qgE/kqGANRfUv43dLJjss561KHf0lwyFJK1CYhWyEsOL4vnC9P/3fmQvmSjtXjnh6etJpquDKV7wD
+	ry+E4wmKk4/sdpPb2TKvXistp/qqr3uwuxIRfCZNBhdhoyaERq/Z73wkyDIP35Ya6afD63R1gGlnE
+	tbaLdk4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Teq-0000000DBo8-48ut;
-	Thu, 10 Sep 2026 01:32:56 +0000
-Received: from mail-wm1-f43.google.com ([209.85.128.43])
+	id 1x4Tex-0000000DBqL-0JFP;
+	Thu, 10 Sep 2026 01:33:03 +0000
+Received: from mail-wm1-f54.google.com ([209.85.128.54])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ten-0000000DBnL-3nzL
+	id 1x4Teo-0000000DBnQ-3EXT
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Sep 2026 01:32:55 +0000
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-49cca4ffdcfso53320185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:32:52 -0700 (PDT)
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-49cca4ffdcfso53320375e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:32:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789003971; x=1789608771; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VrhRS/M7q7pkTrLXrhmPne9tuf4NOHwrkARE6eFwxWk=;
-        b=JyhET+iW/Enxy7V6v7B2sABZUW8yr6UGOowpvcXQlqTK0QNf0XUmvUns2Z8+1J+cZG
-         5SYlO5Fd0c6UayD0ktICoBf6FoYvrZAcIBsNbTF+BDywuiDIE51tfKeO74bRtWe4pCHo
-         +jrazvvaECKaqXiuqj/ZJqarkrU7xVfaJkWi44BNIF79Pm6w5CAA0y9BwC0amLtVmxt+
-         1zzjH+ilzsP7yf3OgRkOvdUMt/twpHnFC7ABiTeHJ5krgOFHT+tuwbCV76OCbQ2LMeVs
-         jgN878em1Juo/KgDlSOO5wnHCEujN3C1PNePbT6x1aSM5U8SxtxIve5M7fSkOu35khNx
-         W2Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789003971; x=1789608771;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789003972; x=1789608772; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VrhRS/M7q7pkTrLXrhmPne9tuf4NOHwrkARE6eFwxWk=;
-        b=csfVdIc2JGmSNb87R0hLtfNJqOwC9+1ksfr8+zhZEi+PYtu9/G9Sz6kIfU6CiTX4eD
-         bpuY7A1g4dXagw9BhfcE49NBYNqqugWqbQoFrbdsPF6ra5wr2IClaUceuWrIrIiTQWde
-         eSfTmrxpWgwf7ynCZyv0Z2zWJxpKQmuUhqn7DN+NSGbn/ZblqfgUJciMHpUZ0DFnUnvV
-         lK+fyoCkFF1f0tBlgOJcWvpRFYtaQh9+oSdh3LoQKGmlWx1qB8cDFzUXtykRYIamblNY
-         bOUwfHD9vTKDOozFQ2ljKEQztHHn5rya6LKi6s+hKf/qcdIH0gt0LjTBPXPnCNDIO/Ji
-         +cHQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzWhx1kjb49M2jgjF4iYCtA4at+chCRzXOnyBRubgMeUu4ub9Ww6DxmhKM8vkX59jNCuRCpyo/plO1hE9ARZUJo@lists.infradead.org
-X-Gm-Message-State: AFuF++nHASUWIdexISWj/Jh1STolcthmSCjyCKTuQRh+TpH0RK43UCI0
-	XL8jtbeDSu0DkBxBNn5LM8R/e9La/afjKMGOrFESA3GEeEbUSeDo5mSG
-X-Gm-Gg: AYBFou31xrlcSK9qN8d+pWa2i1bq1rktPkGm8Otpsg9odHzX9EgPWeVfncfmrbs+ojL
-	1MFAAw/ka5CSrbCqgu1TyRF1OUIbYzIer3S6gRbB8ZMHTZ8jdPpo5VVk/6neqSZeHV0uPMWySWa
-	o0SJWN3mD4K/sWihOUkCoFstcTRef2I7rCePJN+6bslYn6S8ML+Zz9EG9gBbs87YCmTVTCn45Dl
-	76UBDkOLue0bgmBe+rzR1BHOS7rCVAmXqWsrmlckJ1y/Ec42T/fGIEUHfemkYq4clVbwX0pUevr
-	fzciVMWwf+B0OvWyvuEWoRe4DG+43t3KqCNsQB+0wxXRfekKTLrdNyK3CkrSY4ABXw/yhnMhmMu
-	y4jJRbdI8El8rdiAuP5nKmsnLKcoUhZzB5JYW9Zz7mLEL0QIuKbXZpb+yWnG1PsQYweGUbb7xCh
-	JIkhiUHSqU+NuXyRZXmBLH/tuAZNUkQPwhuBGG4KF2PZYajiScJa/U/dLSdfMWVYzP4SPsmvDzO
-	zfHU8392RQ3+CNLT/hzNmzZLUJwdn0hxrx6WN10oiNCD5PPIZl4cC2MhR05N+1tyriGog789iRF
-	9XDoi0J4oojbFeXwlvb870bDyzsRcUKmFbo6NoHL/CW5GdauOpcQevpyxjbtI8OfLUbna0BYTtB
-	cDw==
-X-Received: by 2002:a05:600c:4e0e:b0:499:bf8c:cfd1 with SMTP id 5b1f17b1804b1-49cf81e6063mr368280035e9.2.1789003970778;
-        Wed, 09 Sep 2026 18:32:50 -0700 (PDT)
+        bh=G0noSNcNvP/+I+rxnaf4LKhy/qChedg87Os3I3Fnbpw=;
+        b=e3PW8YwDOJPHlWs4PODCxCr/0sS/kzzQYVtySWPC1qmamsK6EBzyRIbFfZTIHeDKOQ
+         BvkVhCNdzA14H1Rn+gYEKLM8k/V84B0aT3xYUc2TOu2F21vsPkNW/cTkv2ROcXOxPwhA
+         W9aVmEbhW2Wd9CVlqduPCReeXuBaxKEwyd7tmmMYJOCArIqREsrtbfwPK7u5co2ltdsE
+         VHlPah0lhdSW0Xf/99a33oecMhRHs6LX9huM9n35zv1/XFZPEY43erZgTH8vAmjs6qal
+         YTB7beIl8QW8wFpxGY98AA0rHaD25Tdfs0GZoR0syX3QErJ+Iqu2EjKksrNij5XgmA9W
+         +M6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789003972; x=1789608772;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G0noSNcNvP/+I+rxnaf4LKhy/qChedg87Os3I3Fnbpw=;
+        b=ESy+UuxrEYXUQddSVmmgOZOk7b1VhTHRY1gpaoOJtKaSwuMQpRKO0t29JZKvmjNNl/
+         6Kl43t4pvHDJTynqC+CEpV/CagftKYJ9AKqbezpq62Jwehw/Wunf/qiu3qkW5AfTXgVU
+         fGfKr/HJkm2t0ywzV1yKNHlfDfQA/1KSXMmRTCOx8UBbjgIU6o7RWS7WZc5E4QI4oUqo
+         OzwsEFylQmQMtSXQSixfigAAFhamfodpwtlt4hFnYJr88zpLFBZwwv3U9uvscL7aWIDL
+         Rk0cc0mC3xXlOisRmA7HAjR2mwPtpHJBgzjLfvf5qomOlPHuSXAZclVP3fQjN0OGfcrQ
+         i1Ng==
+X-Forwarded-Encrypted: i=1; AKwUvBw6FTtRB5KeW4Qvy/AXogmTmi5gwos4eY5pivIX4X7PdrymT3IGsX2IRs3LpOQRbPLUe0N0wCKqWOYCrwJI1uSY@lists.infradead.org
+X-Gm-Message-State: AFuF++nPR3Gwp9xfYzI5dPSmeV5s/6yCVCyN1j9hfWjxLGaGzVyqEo4h
+	kOmOMXcFVpyXLlPVEYQMZzJLh2jaTbl9ubhHGm23hWTQIohgGIIJIVS+
+X-Gm-Gg: AYBFou04ZvsBkBtJ9fGl97DMy4XWaPmyjW2EnMX+3ffc4HYxeouUnj/QMlfbH+EWouV
+	6hCc/WGbpDox7XwUJdI3goFLMDw8ZOBJavSwXB2gdgqcJMqbE6uHjCVk37bjsHs0exAhH4MOG4/
+	xHdHgM/ONjmmhMvwitVSq5+alUt6saSAbRcp08BeCRExEW9h0xjqA2XJKdpIZkuBtHPDfIT9uV9
+	V2yUSTqAqxkKyKWqitXSGhtho4JTB18/MafK3drRnhT7k9xvnET5j+ucZ9dX/hhyRMsYOmpunHT
+	MQSg8ImtSAP9O3sJEjnJlaOJt6vdQLbGLegJMhu+t4Nw0OlVao51/YaQr4GIgrI4czVy5c0Jsl5
+	uo8c5+B7TwMLirUqR8znHlEq0DtuLAlxHi4uSpupcmBK4Vm1OpjfQuKEBWvjy4yFSWBU6pDVAC/
+	XcXTEGfTwnOjGKs0/OoKPive3AILHoGnDKCofnvmpyLHllCNUqBmQaCVZUSAQGhFaeCD8eE4ftV
+	tdsy4FJgmS/+vQAd+/MnA6+DiGxQEB22mX4AH0uGofqmK7HjM4/EPZDqExYjjbeMJrwPdOsLJZP
+	IIUG9Zlu3XmT0Mnr75h6HewmhqmOXMGloTCfLv0Ko4WAsvKHF7e7hFCKQoPiw5S2JkofXvGovM7
+	9EQ==
+X-Received: by 2002:a05:600c:3ba3:b0:49d:e79:612f with SMTP id 5b1f17b1804b1-49d0e79635amr237510065e9.26.1789003972418;
+        Wed, 09 Sep 2026 18:32:52 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-b090-6201-5565-e933-e630-1831.310.pool.telefonica.de. [2a02:3100:b090:6201:5565:e933:e630:1831])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26d4e3f3sm35852735e9.15.2026.09.09.18.32.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26d4e3f3sm35852735e9.15.2026.09.09.18.32.50
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 09 Sep 2026 18:32:50 -0700 (PDT)
+        Wed, 09 Sep 2026 18:32:52 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -101,15 +102,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Dominik Brodowski <linux@dominikbrodowski.net>,
 	Michael Schmitz <schmitzmic@gmail.com>,
 	Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v3 0/8] docs: kernel-parameters: Remove eight entries for parameters that no longer exist
-Date: Thu, 10 Sep 2026 03:32:37 +0200
-Message-Id: <20260910013245.8619-1-kmehltretter@gmail.com>
+Subject: [PATCH v3 1/8] docs: kernel-parameters: Drop the atarimouse= entry
+Date: Thu, 10 Sep 2026 03:32:38 +0200
+Message-Id: <20260910013245.8619-2-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20260910013245.8619-1-kmehltretter@gmail.com>
+References: <20260910013245.8619-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_183253_957554_B564C002 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260909_183254_821670_BBBB95EE 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +127,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel-parameters.txt still documents eight boot parameters whose parsing
-code was removed with the drivers or platforms that used them, one of
-them (atarimouse=) since before the git history. There is one patch per
-parameter, with a Fixes: tag where the removal is in git history.
-Each entry was checked with git grep for its __setup(), early_param()
-and module_param() handler and with git log -S for the removing commit,
-and the name is absent from the whole tree at that commit.
+Nothing in the tree parses atarimouse=. drivers/input/mouse/atarimouse.c
+only takes a module parameter, and git log -S finds no __setup() for the
+boot parameter anywhere in the git history, so the entry has been stale
+since before it.
 
-Changes in v3:
-- patch 3: name the commit that turned edac_report= into a module
-  parameter (fee27d7d9788) and the one that removed it (7fc0b9b995f2),
-  Fixes: tag moved to the latter (Boris)
-- the pata_legacy patch is dropped, Ethan's patch from June covers all
-  six parameters that commit 3c4d783f6922 removed:
-  https://lore.kernel.org/r/20260607064053.195166-1-enelsonmoore@gmail.com/
-- collect Reviewed-by and Acked-by tags
-- the "Found by cross-checking ..." paragraph dropped from the messages
+Drop the entry.
 
-The remaining eight patch diffs are unchanged since v2.
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Reviewed-by: Michael Schmitz <schmitzmic@gmail.com>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
+---
+ Documentation/admin-guide/kernel-parameters.txt | 2 --
+ 1 file changed, 2 deletions(-)
 
-Changes in v2:
-- patch 9: drop the Fixes: tag for 0dcd0a76370a, which removed the
-  separate pata_qdi driver and not the pata_legacy parameter; both
-  parameters went away in 3c4d783f6922 alone
-- collect the Reviewed-by and Acked-by tags from v1
-
-v2: https://lore.kernel.org/r/20260905094649.41996-1-kmehltretter@gmail.com/
-v1: https://lore.kernel.org/r/20260905070347.25902-1-kmehltretter@gmail.com/
-
-Karl Mehltretter (8):
-  docs: kernel-parameters: Drop the atarimouse= entry
-  docs: kernel-parameters: Drop the bau= entry
-  docs: kernel-parameters: Drop the edac_report= entry
-  docs: kernel-parameters: Drop the enable_timer_pin_1 entry
-  docs: kernel-parameters: Drop the mini2440= entry
-  docs: kernel-parameters: Drop the nomfgpt entry
-  docs: kernel-parameters: Drop the omap_mux= entry
-  docs: kernel-parameters: Drop the pcmv= entry
-
- .../admin-guide/kernel-parameters.txt         | 54 -------------------
- 1 file changed, 54 deletions(-)
-
-
-base-commit: 986c24e0fe44f844b44d365b71ce831947f50298
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 68647ff4bdd2..c8d96de4c00d 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -591,8 +591,6 @@ Kernel parameters
+ 
+ 	ataflop=	[HW,M68k]
+ 
+-	atarimouse=	[HW,MOUSE] Atari Mouse
+-
+ 	atkbd.extra=	[HW] Enable extra LEDs and keys on IBM RapidAccess,
+ 			EzKey and similar keyboards
+ 
 -- 
 2.53.0
 
