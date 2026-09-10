@@ -4,121 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA80C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD51AC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlGmQIimNNv0zNQkUs5tyS2Zt6/GWcnEpjM3m+LZ9Zg=; b=mWXiJr/C8QOW7dJEPOa5SNMAI+
-	k2XXORLiAKixOmcyIqQ0PiNDo6dm71Ry3URXNwFJWIIoJ++w3wFbj+WYWcZ4C4Nw5DvgAgXIM/da8
-	ROr6MAUxcmalCskyWTqedbsBtKSxiYXfpDK9m7vzwkRiJhGwHOOHp4cZSCYNl4NryIuawHN+3zg+w
-	+c214IzyITUe0M3syKhCS+wiQ6j17Ej8AtZlPQ/hfsZ8AZuijvADa4R7mS3dSGRbIUjshrEn3Me2X
-	dEVLABtJ9h6mKfTbNCda35iQeCsv6KOhd0td3ALXTTlOJQlWCB1+c8VbAcw/sp65g673RLEJ3ZDgB
-	HZD9aUbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0rpxpcs9OXB4KnER7qZ3x6F/Alg7K5WCZ24dhH70660=; b=HGbjLBV4VHIn3N6HMIU1Qbe2Yq
+	oHU0xe9lpGP8cyq5hp8DJapGoJfXSgor/Yj8uG7X7iiGax//TF9pHzkHjoD7IEh3AbFmH56kMSk3A
+	p0r3lLqA8sLuIXqLGBdwgx6DQhrQAoCXjyodbJNAnPEofpSDn1b6WDFAbU6SnnH2Vv2+JQ+BfPbUI
+	OiIbJUV6/syAj3mca9dioiZZWIa3RBexW1kRJqCtKGj1nYtvvGBpf3guA/thKkftWnZYTUOTqvQ1t
+	nrOrAuy5i4q4pw460AxLu7nc0dE8qKZHquVaAArZjkz78ZpkeQkyLrrFBV9guOccf3iAlw6oNg0eB
+	f+64znig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hUA-0000000EvWl-2FBR;
-	Thu, 10 Sep 2026 16:18:50 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x4hZU-0000000EwEr-1tHf;
+	Thu, 10 Sep 2026 16:24:20 +0000
+Received: from mail-pj1-x1045.google.com ([2607:f8b0:4864:20::1045])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hU5-0000000EvVG-3zpF
+	id 1x4hZR-0000000EwE3-1zmc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 16:18:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EcCfDH6iLhVzdrERKmRo3aWr6AqmIhmnqwMk9pJurqhYVp8v/TRQWAWhHPiJhRZ+0T5cD3/f54UDxu81mn+T1garkOgHkdLhI2IvriXWZTMD/smhclbR5z9lemkjg1+JJZLQRX7XBW5I3f5UMji3e1A2qDu4n6VJ+hH5guOsguVgZqmHvXboFirzZohqbhIO1NcLiVGB8ynUHj+VOFgjcjNe0nWrhzrchPSjzE/sypkGpre+JLBmauZpPeCMXuHOQYzobCMd5fIOEseN4gIYqhVTiprx7Gws/+i7BPfP56CRThLy9lY7sHkUudOpx7iKtunPOc0b/8Ov496k0fMkRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XlGmQIimNNv0zNQkUs5tyS2Zt6/GWcnEpjM3m+LZ9Zg=;
- b=pUcUp4r3DEvPMK32PAuijq0EJGsRU9bPzm+faLE7qb+2l9oBQ6b4sAMLz9sF+0kc8UGrh1Axpve2iYsh6GKq92QldOLbvIsTWJ5Ahr7WkbTMGYwRKSREh/lszy14bHrrMHpyHmoF0yhWxwW3v2AjXVL3ZJtyo8gwVAhQjYSEI/gEpSyLmQmz21BfqIYE2PlM5kTzDMvhidfmUJJzRhQiGKeBOwvpbJHK2OBphX3DgdX6iicwCs2gmMT8oYq685I3+99XMESDdMcF33aXOZ8HWCX+p+TL5rBCn7nH/ao1+hN20jadIeZmXH8dTG0m2Dgl3IuaFVyC0Fuhz2ER7dNysw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XlGmQIimNNv0zNQkUs5tyS2Zt6/GWcnEpjM3m+LZ9Zg=;
- b=EzPY8qGCs2wXC6OQzA/rqgz6IFnxcQOuW8feXumVGIkojoQEK6uWZkugP9bel7Ry5XhBaqT1qvPLqAf+MbQn1V+A/AN++rwydEJH3m4WLhAwEGoZ/ji72seOrxGqiXOw/5zDRvvhajM0ioAgr+Z76HsQsjMrBKUhwC6sYTavg94YFvkq1N968QdSIaNIYJ0tSqKToPta1q18BEV6ThJ7aW+6KlZG2I5WWNWCkdV6WItyQzUz3lCCyPiDI1mLdscPyWRTk33xdQ/qYBqXebGPFatHvppQXv18MSAaJlUqa943W7/o8jCAdebgWinU4f5ti1UMZrRy2BjMw4jc3NTd4g==
-Received: from DU2P251CA0028.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:230::32)
- by AS2PR10MB7021.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:59b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 16:18:35 +0000
-Received: from DU2PEPF00028CFF.eurprd03.prod.outlook.com
- (2603:10a6:10:230:cafe::2c) by DU2P251CA0028.outlook.office365.com
- (2603:10a6:10:230::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
- Sep 2026 16:18:34 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF00028CFF.mail.protection.outlook.com (10.167.242.183) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 16:18:34 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 18:24:36 +0200
-Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 18:18:33 +0200
-Message-ID: <ced0e0f8-c077-4329-b7cc-4387ab415d27@foss.st.com>
-Date: Thu, 10 Sep 2026 18:18:32 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] usb: dwc3: dwc3-generic-plat: Add ST STM32MP2 DWC3
- xHCI USB controller glue
-To: Marek Vasut <marex@nabladev.com>, <linux-usb@vger.kernel.org>
-CC: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Rob
- Herring" <robh@kernel.org>, <devicetree@vger.kernel.org>,
-	<kernel@dh-electronics.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260910052340.246717-1-marex@nabladev.com>
- <20260910052340.246717-2-marex@nabladev.com>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20260910052340.246717-2-marex@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028CFF:EE_|AS2PR10MB7021:EE_
-X-MS-Office365-Filtering-Correlation-Id: 596af608-397d-460b-c033-08df0f5729d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|23010399003|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|6133799003|13003099007;
-X-Microsoft-Antispam-Message-Info: eed0GDtw734op/yOSD3vaFdfIiJKhU8L1xcZymP+z0XulC3P2O9nXDRrQG9ZBMzJFikFNZsFJpmnp/3WZ254eVNRf+/ZgnWm8fb6rjDVsXD9MRL7x5WsIkOGOl9E9ESRkN0TdW0DO2vRV+kzRkS6gryiDiMM+erYLO6aCxwbCel/cW5JKmHF2ckYKhXecA0r63ER5V3+OY/PUSj113Zv84X1/9XyLc20Y0sSq5kFbagQLUeg4FYHSCIyy3grEBN4k4UJq4Y0mKXadMO13/G0M/APYT0msuhlu0LIO46xl4kr4Psk5oibOrRr8GtZfh3eNDWqIWjZnpZ5IkhoqnmvNi3eVCJ2NE205ENxmG9+z9ApJvNjm4Kb92qL0oFEghN/qtyCei6uXUloAP0xNhjS28Lgj11qHJDzzCJld2XcgOtKiFpil4RYLu3x/34pf/WvTR84wZ8930cbGp/tqpSlaSGjvz4zLHhgIv+4xZNvdVPCnU0v631FC7qNzEXHcy573hymb+DW3W90/DH+F83mpcQz7TGJo30WI5+LuOGfKj30VxPlAWF/eB/p5l/+gutBWK+UyZqXfE9yzuQWmAnn/D7/+k+vZY7xi42pOfROxXfmZ12GSXFRnk6NfTFrzuJ1WXBY/nohftMk38C39gblKcuKUlzP661P66eVKmeKfIMxdzmGGNlgHhEpmsAjAFFwbJk933yl73v7dbYXd41l3w==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(23010399003)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Z4HNUdDPxFzwxr5e72N47tzHBVCIOh1wYmo7rcbCsYi+Gicblmg3mI+cN1L+gRkLm3sBmhOkZVofKqJSe3c0m0EMltxj9Jfqae9PvVrm0PYZ2pHrOdH5y4E/nLuL5E51EePjK61xxbOs7jLrmtH4Fn14V24lQYEFfoFaJZiZyh2obkDxaj7K6AcmKubZTy+6I6WYaX4gctRl5SOVOAZuzm/FLf4PGesEfSLo3c4bwcC4ak1yFbEqSFMNdTsE/XCgoZCPXPpRj82YEjAzVB+8aTn0YVgd0QiujVqxmHa+AV5orGBmvBb0FgBZPd+TNwzn6auRzCx/0u8sfUdWuV+Tq1Xbw6+11Vcwa5iSoimoox2RNOiLS21DzIT8LK/HMGDn7Qs3Whq/kIqb6uBKCtlCKSXO7C7PcBA4N9HEBeLKGw7hoz9viS9QSKl+ao5rNO6u
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 16:18:34.7186
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 596af608-397d-460b-c033-08df0f5729d5
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFF.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7021
+	Thu, 10 Sep 2026 16:24:18 +0000
+Received: by mail-pj1-x1045.google.com with SMTP id 98e67ed59e1d1-38e1118e4abso12191350a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:24:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789057456; x=1789662256; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0rpxpcs9OXB4KnER7qZ3x6F/Alg7K5WCZ24dhH70660=;
+        b=YklsOATpwj9/qVdOgdOloV7SH9awByVgDf02RzpTZqXLWUtAsABHSrfZ+qdHmAoYGA
+         0eC7dcxzP+i8kprS3JX7vOJXOehnncHPpZ71Du2r2/xdBvpn6F+yPF1Y/sgSrh0VtRSG
+         9uNd9cjbWkvfGopIb4UEHmXCwfUYh8WLJdUHCG3c0bnDAxjy3ZefiqBqAAM/nlsU4yav
+         /1AzNsRpudPZ+A1lZuz9ka1OUMQ099qAxlMOskJArxMmsD4IMLcKPloTHejFIp5l13+E
+         6JpXa0xY18s2+sq0XKvcV1IjbSNnucLfgH3vTfPeSzLehYaxjCk7i/1eYPyZ0PUiNLRz
+         E7/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789057456; x=1789662256;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0rpxpcs9OXB4KnER7qZ3x6F/Alg7K5WCZ24dhH70660=;
+        b=RXWTtsc49KjS4HFadjxgO96nqSv8HJnM0XtdApjcsDRQMh9Qk3ekWD6zf6RMWHKU64
+         Ik+Efl+erdeq2tFvuI3H7YHXpUm8Ff0yEWELthAjdPeFjK9Im2IuY6DvNr0pvmhJAwQh
+         ZTVLlgtqW+X95pHweDckt94U5UhmOAJ6LXNzZiIjxDf/PHwgX01/o44cIiJS2rCUHzlz
+         XBWXVvWA5mrr/n4IdLtjYNvhrKXtBB2e/3VB249WvgQC4hRkAiXQCAEM9W84eowRoofr
+         B41tcDICKwaY11igI8GO6L1zVsWS4iCBSP/9Vh4j4N46579GhwI+9H7Wrz3lBmUXk79x
+         8s2w==
+X-Forwarded-Encrypted: i=1; AKwUvBylnX5yqf+s6hQrO6/8zLebJqOkXNoQzL38Zepd/qHakpv1HQjgPkvrD5/mM0YgU8xTrKqcF/9v2/x8sOvL4YeB@lists.infradead.org
+X-Gm-Message-State: AFuF++k6HV0vlwekDFQnTwWWWmhSDlSuhGHncA7Oi7tEytLYRbqZusDl
+	b0tBoTVKHq2Oel7QKGKHn1dNLMqo/CPHyrW7EIddmZn7hkwxK2n20F1POtwaOoMFsdu1+0LefYo
+	uKsWZ6Q==
+X-Received: from pjye16.prod.google.com ([2002:a17:90a:ee10:b0:39b:9a0e:78cd])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d644:b0:398:9c00:29ec
+ with SMTP id 98e67ed59e1d1-39b26245cfcmr66792937a91.20.1789057455320; Thu, 10
+ Sep 2026 09:24:15 -0700 (PDT)
+Date: Thu, 10 Sep 2026 09:24:14 -0700
+In-Reply-To: <5x0d1hj1.ritesh.list@gmail.com>
+Mime-Version: 1.0
+References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-13-seanjc@google.com>
+ <5x0d1hj1.ritesh.list@gmail.com>
+Message-ID: <aqLZrk6m3NgugzBU@google.com>
+Subject: Re: [PATCH v2 12/20] KVM: selftests: Add APIs to override memory
+ region types with custom memslots
+From: Sean Christopherson <seanjc@google.com>
+To: Ritesh Harjani <ritesh.list@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+	Nicholas Piggin <npiggin@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_091846_002498_82C956D5 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260910_092417_518782_3D848BA6 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,135 +104,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/26 07:22, Marek Vasut wrote:
-> The ST STM32MP2 SoC contains one instance of DWC3 USB controller with
-> glue logic wrapper around it controlled by syscon. Extend the generic
-> DWC3 platform driver with ST STM32MP2 glue logic specifics.
+On Thu, Sep 10, 2026, Ritesh Harjani wrote:
+> Sean Christopherson <seanjc@google.com> writes:
 > 
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-
-Hi Marek,
-
-You can add my:
-Acked-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-
-BR,
-Fabrice
-
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Marek Vasut <marex@nabladev.com>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
-> V2: No change
-> V3: - Use generic over-current-active-low
-> V4: - Include bitfield.h
->     - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
->       https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
-> V5: - Reorder usb2only_conf to improve readability
->     - Drop superfluous !!
->     - Add AB from Thinh
-> ---
->  drivers/usb/dwc3/dwc3-generic-plat.c | 46 ++++++++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
+> > Add and use APIs to override memory region types instead of open coding the
+> > logic in tests, partly to dedup test code, but mostly to add some amount of
+> > protection against conflicting overrides.  This will allow converting more
+> > tests to override memory regions without taking on too much risk of bugs in
+> > the long term, e.g. due to silently overriding a region multiple times.
+> >
+> > Deliberately "unroll" the loops in __vm_create() and the CMMA test's
+> > create_main_memslot() to avoid filling all memslots in anticipation of
+> > adding an "extra" memslot that is for test use and *only* test use, i.e.
+> > shouldn't be configured by core library code.
+> >
+> > Converting tests to overriding memory regions will allow taking the region
+> > type instead of the raw memslot in the physical page allocator APIs.
+> >
 > 
-> diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-> index ca69ac0eb07ce..2dce1f24615c8 100644
-> --- a/drivers/usb/dwc3/dwc3-generic-plat.c
-> +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-> @@ -7,6 +7,7 @@
->   * Inspired by dwc3-qcom.c and dwc3-of-simple.c
->   */
->  
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/platform_device.h>
->  #include <linux/reset.h>
-> @@ -22,6 +23,12 @@
->  #define EIC7700_HSP_AXI_LP_XM_CSYSREQ	BIT(0)
->  #define EIC7700_HSP_AXI_LP_XS_CSYSREQ	BIT(16)
->  
-> +#define STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT	BIT(0)
-> +#define STM32MP2_USB3DRCR_OVRCUR_POLARITY			BIT(1)
-> +#define STM32MP2_USB3DRCR_VBUSEN_POLARITY			BIT(2)
-> +#define STM32MP2_USB3DRCR_USB2ONLYH				BIT(3)
-> +#define STM32MP2_USB3DRCR_USB2ONLYD				BIT(4)
-> +
->  struct dwc3_generic {
->  	struct device		*dev;
->  	struct dwc3		dwc;
-> @@ -85,6 +92,39 @@ static int dwc3_spacemit_k1_init(struct dwc3_generic *dwc3g)
->  	return 0;
->  }
->  
-> +static int dwc3_stm32mp25_init(struct dwc3_generic *dwc3g)
-> +{
-> +	struct device *dev = dwc3g->dev;
-> +	bool ovrcur_polarity_low = device_property_read_bool(dev, "over-current-active-low");
-> +	bool prt_pwr_ctrl = device_property_read_bool(dev, "st,enable-port-power-control");
-> +	bool vbusen_polarity_low = device_property_read_bool(dev, "st,vbusen-active-low");
-> +	bool usb2only_conf = false;
-> +	struct regmap *regmap;
-> +	u32 drcr;
-> +
-> +	if (device_property_match_string(dev, "phy-names", "usb3-phy") < 0)
-> +		usb2only_conf = true;
-> +
-> +	regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg", 1, &drcr);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap), "No st,syscfg phandle specified\n");
-> +
-> +	return regmap_update_bits(regmap, drcr,
-> +				  STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT |
-> +				  STM32MP2_USB3DRCR_OVRCUR_POLARITY |
-> +				  STM32MP2_USB3DRCR_VBUSEN_POLARITY |
-> +				  STM32MP2_USB3DRCR_USB2ONLYD |
-> +				  STM32MP2_USB3DRCR_USB2ONLYH,
-> +				  FIELD_PREP(STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT,
-> +					     prt_pwr_ctrl) |
-> +				  FIELD_PREP(STM32MP2_USB3DRCR_OVRCUR_POLARITY,
-> +					     ovrcur_polarity_low) |
-> +				  FIELD_PREP(STM32MP2_USB3DRCR_VBUSEN_POLARITY,
-> +					     vbusen_polarity_low) |
-> +				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYD, usb2only_conf) |
-> +				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYH, usb2only_conf));
-> +}
-> +
->  static int dwc3_generic_probe(struct platform_device *pdev)
->  {
->  	const struct dwc3_generic_config *plat_config;
-> @@ -231,12 +271,18 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
->  	.properties = DWC3_DEFAULT_PROPERTIES,
->  };
->  
-> +static const struct dwc3_generic_config stm32mp25_dwc3 =  {
-> +	.init = dwc3_stm32mp25_init,
-> +	.properties = DWC3_DEFAULT_PROPERTIES,
-> +};
-> +
->  static const struct of_device_id dwc3_generic_of_match[] = {
->  	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
->  	{ .compatible = "spacemit,k3-dwc3", },
->  	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
->  	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
->  	{ .compatible = "starfive,jhb100-dwc3", },
-> +	{ .compatible = "st,stm32mp25-dwc3", &stm32mp25_dwc3 },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
+> May I suggest few changes in the naming of these APIs:
+> 
+> static inline void vm_override_mem_region(struct kvm_vm *vm,
+> 					      enum kvm_mem_region_type type,
+> 					      u32 slot)
+> {
+> 	TEST_ASSERT(vm->memslots[type] == KVM_INVALID_MEMSLOT,
+> 		    "Memory region type '%u' was already overridden with slot=%u",
+> 		    type, vm->memslots[type]);
+> 
+> 	vm->memslots[type] = slot;
+> }
+> 
+> static inline void vm_override_add_mem_region_flags(struct kvm_vm *vm,
+> 					    enum kvm_mem_region_type type,
+> 					    enum vm_mem_backing_src_type src_type,
+> 					    gpa_t gpa, u32 slot, u64 npages,
+> 					    u32 flags)
+> {
+> 	vm_override_mem_region(vm, type, slot);
+> 	vm_userspace_mem_region_add(vm, src_type, gpa, slot, npages, flags);
+> }
+> 
+> static inline void vm_override_add_mem_region(struct kvm_vm *vm,
+> 					  enum kvm_mem_region_type type,
+> 					  enum vm_mem_backing_src_type src_type,
+> 					  gpa_t gpa, u32 slot, u64 npages)
+> {
+> 	vm_override_add_mem_region_flags(vm, type, src_type, gpa, slot, npages, 0);
+> }
+> 
+> Those "_add_" and "_flags" in the function names easily gives away
+> the difference in the APIs, rather than differentiating via "__".
 
+I am strongly against postfixes like "_flags".  We do use postfixes for the VM
+creation APIs, e.g. vm_create_barebones(), vm_create_with_vcpus(), etc., but only
+because there are so many possible combinations that differentiating through
+underscores is completely infeasible (unless we forced callers to regurgitate
+huge amounts of boilerplace and/or had an absurd number of params), and because
+the collection of APIs is tree-like, as opposed to a single linear chain of APIs.
+
+For this, there is a much more finite set of possibilities, and the set of APIs
+is a direct liner chain (no underscores => __ => ____).
+
+I agree that not capturing that {,__}vm_override_mem_region() adds a userspace
+memory region isn't ideal, but due to the term "memory region" already being
+somewhat overloaded, I don't want to have "add" in the name as I think that will
+make it harder to differentiate between the "enum kvm_mem_region_type" APIs and
+the "userspace memory region" APIs.
+
+And IMO it's totally fine for a function name to express what the API does at a
+higher level, without capturing the exact operations in explicit detail.  E.g.
+__vm_create() (and even ____vm_create()) obviously does a lot more than literally
+KVM_VM_CREATE.
 
