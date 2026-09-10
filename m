@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106D2C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D4DC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IiIVREUxf6Ua6VFPmuswL/Ps0omblFjMc6DSuW760z0=; b=bE+FXeyMojwleOFnO+oqRGl/Pg
-	tw9jFf/u1I+Ju5AkVjshTNA9bXtRUJjcokScS4SoX9KhmIeU6Qztuz6okDB6GWcc4to2OKbrvv/le
-	CSJkdvRvHUZ/tJ8p7ryUKzESQZHRz4P68oeeKsZKYsdxHo7Q/yChDreGP1RHDrADFMaTrngPS/iMM
-	9873dsR/N7/u0o4dSOYblfsCMjdaxSIFHqYQM/3JuA6bMLl3PY8D8vJmAZCxE5+VT+Tr62I7bjisI
-	q/6QWJW2vtc6meaBFsEpeWASAo3flNSz09fNn0z0kWwM8iESwoOYzextbHvmxclZKQ2xP/bckaoas
-	UQmc5s2Q==;
+	bh=6ePdmdhx3YlI4NyqTdkO5yb3MhPJf9n4y0d3TQqzJF0=; b=UzecVfPSxN3jHZBHsE1faN6M+a
+	fgL5J+77jyNmxYZidLESPpVoKdCVkMsnTigNA7/dB3yTQNTL9zcpuL+ea9w26+yZeuYwQ/XiyaWcQ
+	D2r5SGGeX8VattWrnnPCNKWd3dWmCHqsg4kVQnUpdTBvCWDtbF+y2xG1AS/Bpgok4A8alsBlpRdnM
+	F5zn6iWaBl3LXR+UavGizrw+pf5+AWf27eSgwjH/lw8j4saPU9StET440axZgguQXEiYsVVFk6alX
+	g/1ROgul07kKu1TwjXSfBL/qEOcMKy3yOaWMxQzL6TG00q7H7dTwCmUS7GJThWar/KC5FifEV7rES
+	Vb9i+Y4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPz-0000000EYx3-3tYn;
-	Thu, 10 Sep 2026 14:06:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4fQ6-0000000EZ1h-1ip2;
+	Thu, 10 Sep 2026 14:06:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fPy-0000000EYwB-36Av
+	id 1x4fQ4-0000000EZ0l-3SXt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:06:22 +0000
+	Thu, 10 Sep 2026 14:06:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F9CF60202;
+	by sea.source.kernel.org (Postfix) with ESMTP id 93A6E40102;
+	Thu, 10 Sep 2026 14:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9152B1F0089A;
 	Thu, 10 Sep 2026 14:06:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5749C1F00893;
-	Thu, 10 Sep 2026 14:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049181;
-	bh=IiIVREUxf6Ua6VFPmuswL/Ps0omblFjMc6DSuW760z0=;
+	s=k20260515; t=1789049188;
+	bh=6ePdmdhx3YlI4NyqTdkO5yb3MhPJf9n4y0d3TQqzJF0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PjzpqKPHFvzO05/QxbvZ2IFnK2A1E4t7tiqS/xY/7O53ICZyAOUyJTbgcy3Cx0FAt
-	 bshLtmA9+9vAcS+IROJguNAgIkMnxvW977zPKWBttXpllQdR2HEPq2xxmWoDHwtPSk
-	 7s917CHvror+NMFSGnb66kP1wAc7vGr0H6g+vygjqTLnoU4PcwrjZdkPz/sz22qmIm
-	 cIMBZyigMnrdP0QDbiz/kecD2ODAOZO0/4sJoJAm3FTtUIMkL6m/E93b/ySITHvXcX
-	 /7TgICEnvfc4fVJaN0CoGmro4TnX5HAnu2g2nLKVGhMEq8gGCwjjBucKOcjK6PBC3F
-	 reKcTrjAt5GIw==
+	b=A1dpld/GBSZOH1TNTJr5kYxNV+DfGgq1JfY0b/u8mLoNLtS4flgJVU6Bvtk1QtMyI
+	 GTSEHrqDBT45BuF3S54rAEWELGzutsIt1kpflUDwBOvnaf4rX9p3NwEggafQ4+ezvS
+	 e3V7OLrG3VI5Hw1yrLCLhIOl82bnkKp4RYn20NrC9oZ8wzMWWGHyKWqBVAmyMu+rvF
+	 UQfxnw2jDlwIV8U8JW+ut2xnyWRCtJXLDeCdt3GLfdCvDmYkYqwVESouicyLZ1VaOI
+	 VTqmvoWMcyhecCDktcegZAe2s6cmiWthxXuzjKrth76WvntMnCQLRg8PFsrO5oaVMI
+	 b3jOGouQAbnlg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: [PATCH v5 09/15] coco: host: arm64: Initialize RMM pdev state for TDISP IDE connect
-Date: Thu, 10 Sep 2026 19:35:02 +0530
-Message-ID: <20260910140509.868402-10-aneesh.kumar@kernel.org>
+Subject: [PATCH v5 10/15] coco: host: arm64: Coordinate peer stream waits during pdev communication
+Date: Thu, 10 Sep 2026 19:35:03 +0530
+Message-ID: <20260910140509.868402-11-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260910140509.868402-1-aneesh.kumar@kernel.org>
 References: <20260910140509.868402-1-aneesh.kumar@kernel.org>
@@ -81,229 +81,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update connect() to:
-- allocate device-communication buffers,
-- create the RMM pdev object,
-- perform initial device communication to collect identity, and
-- set the device public key when the pdev enters NEEDS_KEY.
+RMM stream operations can return RMI_DEV_COMM_EXIT_STREAM_WAIT while
+one side waits for the peer stream to reach the matching point in the
+protocol.
+
+Teach arm-cca host device communication to detect STREAM_WAIT and add
+a helper that runs pdev communication for both sides in parallel until
+each side has made enough progress, then issue rmi_pdev_stream_complete().
+
+This provides the synchronization needed for stream connect,
+disconnect, key refresh, and key purge operations.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/virt/coco/arm-cca-host/main.c   | 47 ++++++++++---
- drivers/virt/coco/arm-cca-host/rmi-da.c | 90 ++++++++++++++++++++++++-
- drivers/virt/coco/arm-cca-host/rmi-da.h |  3 +
- 3 files changed, 130 insertions(+), 10 deletions(-)
+ drivers/virt/coco/arm-cca-host/rmi-da.c | 116 +++++++++++++++++++++++-
+ drivers/virt/coco/arm-cca-host/rmi-da.h |  13 +++
+ include/linux/arm-smccc-rmi.h           |   1 +
+ 3 files changed, 125 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/virt/coco/arm-cca-host/main.c b/drivers/virt/coco/arm-cca-host/main.c
-index ce16ce108db7..318967bab8ca 100644
---- a/drivers/virt/coco/arm-cca-host/main.c
-+++ b/drivers/virt/coco/arm-cca-host/main.c
-@@ -64,7 +64,7 @@ static void cca_tsm_pci_remove(struct pci_tsm *tsm)
- 	}
- }
- 
--static __maybe_unused int init_dev_communication_buffers(struct pci_dev *pdev,
-+static int init_dev_communication_buffers(struct pci_dev *pdev,
- 		struct cca_host_comm_data *comm_data)
- {
- 	int ret = -ENOMEM;
-@@ -158,15 +158,43 @@ static int __maybe_unused cca_tsm_connect(struct pci_dev *pdev)
- 		ide->partner[PCI_IDE_EP].default_stream = 1;
- 		pci_ide_stream_setup(pdev, ide);
- 		pci_ide_stream_setup(rp, ide);
-+	}
- 
--		/*
--		 * Once ide is setup, enable the stream at the endpoint
--		 * Root port will be done by RMM
--		 */
--		pci_ide_stream_enable(pdev, ide);
-+	ret = init_dev_communication_buffers(pdev, &pf0_ep_dsc->pdev.comm_data);
-+	if (ret)
-+		goto err_comm_buff;
-+	ret = cca_pdev_create(pdev);
-+	if (ret)
-+		goto err_pdev_create;
-+
-+	ret = cca_pdev_collect_identity(pdev);
-+	if (ret)
-+		goto pdev_destroy;
-+
-+	if (cca_pdev_needs_key(pdev)) {
-+		ret = cca_pdev_set_public_key(pdev);
-+		if (ret)
-+			goto pdev_destroy;
- 	}
-+	/*
-+	 * Once ide is setup, enable the stream at the endpoint
-+	 * Root port will be done by RMM
-+	 */
-+	if (cca_pdev_need_sel_ide_streams(pdev))
-+		pci_ide_stream_enable(pdev, ide);
-+
- 	return 0;
- 
-+pdev_destroy:
-+	cca_pdev_stop_and_destroy(pdev);
-+err_pdev_create:
-+	free_dev_communication_buffers(&pf0_ep_dsc->pdev.comm_data);
-+err_comm_buff:
-+	if (cca_pdev_need_sel_ide_streams(pdev)) {
-+		pci_ide_stream_teardown(rp, ide);
-+		pci_ide_stream_teardown(pdev, ide);
-+		pci_ide_stream_unregister(ide);
-+	}
- err_stream:
- 	if (cca_pdev_need_sel_ide_streams(pdev))
- 		pci_ide_stream_free(ide);
-@@ -185,13 +213,16 @@ static void __maybe_unused cca_tsm_disconnect(struct pci_dev *pdev)
- 	if (!pf0_ep_dsc)
- 		return;
- 
--	if (cca_pdev_need_sel_ide_streams(pdev)) {
-+	if (cca_pdev_need_sel_ide_streams(pdev))
- 		ide = pf0_ep_dsc->sel_stream;
- 
-+	cca_pdev_stop_and_destroy(pdev);
-+	free_dev_communication_buffers(&pf0_ep_dsc->pdev.comm_data);
-+
-+	if (cca_pdev_need_sel_ide_streams(pdev)) {
- 		pci_ide_stream_release(ide);
- 		pf0_ep_dsc->sel_stream = NULL;
- 	}
--
- }
- 
- static struct pci_tsm_ops cca_link_pci_ops = {
 diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.c b/drivers/virt/coco/arm-cca-host/rmi-da.c
-index 394b6a87f2d3..a046edb6be86 100644
+index a046edb6be86..784572116064 100644
 --- a/drivers/virt/coco/arm-cca-host/rmi-da.c
 +++ b/drivers/virt/coco/arm-cca-host/rmi-da.c
-@@ -381,7 +381,7 @@ static int wait_for_pdev_state(struct pci_tsm *tsm, enum rmi_pdev_state target_s
- 	return wait_for_dev_state(PDEV_COMMUNICATE, tsm, target_state, RMI_PDEV_ERROR);
+@@ -192,7 +192,7 @@ static inline gfp_t cache_obj_id_to_gfp_flags(u8 cache_obj_id)
+ 	return GFP_KERNEL_ACCOUNT;
  }
  
--static int __maybe_unused parse_certificate_chain(struct pci_tsm *tsm)
-+static int parse_certificate_chain(struct pci_tsm *tsm)
+-static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm)
++static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm, int *stream_wait)
  {
- 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
- 	unsigned int chain_size;
-@@ -481,7 +481,7 @@ static inline int copy_key_part(u8 *buf, const u8 *key_buf, size_t sz)
- }
+ 	unsigned long rmi_ret;
+ 	gfp_t cache_alloc_flags;
+@@ -324,11 +324,17 @@ static int _do_dev_communicate(enum dev_comm_type type, struct pci_tsm *tsm)
+ 	if (pending_dev_communicate(io_exit))
+ 		goto redo_communicate;
  
- DEFINE_FREE(key_param_free, struct rmi_public_key_params *, if (_T) key_param_free(_T))
--static int __maybe_unused pdev_set_public_key(struct pci_tsm *tsm)
-+static int pdev_set_public_key(struct pci_tsm *tsm)
- {
- 	struct cca_host_pf0_ep_dsc *pf0_ep_dsc;
- 
-@@ -572,6 +572,92 @@ static int submit_pdev_state_transition_work(struct pci_dev *pdev,
++	if (io_exit->flags & RMI_DEV_COMM_EXIT_STREAM_WAIT) {
++		if (stream_wait)
++			*stream_wait = 1;
++		else
++			WARN(1, "Unexpected Stream wait status\n");
++	}
  	return 0;
  }
  
-+static void pdev_collect_identity_workfn(struct work_struct *work)
+ static int do_dev_communicate(enum dev_comm_type type,
+-		struct pci_tsm *tsm, unsigned long error_state)
++		struct pci_tsm *tsm, unsigned long error_state, int *stream_wait)
+ {
+ 	int ret, state = error_state;
+ 	struct rmi_dev_comm_enter *io_enter;
+@@ -337,8 +343,10 @@ static int do_dev_communicate(enum dev_comm_type type,
+ 	io_enter = &pdev_dsc->comm_data.io_params->enter;
+ 	io_enter->resp_len = 0;
+ 	io_enter->status = RMI_DEV_COMM_NONE;
++	if (stream_wait)
++		*stream_wait = 0;
+ 
+-	ret = _do_dev_communicate(type, tsm);
++	ret = _do_dev_communicate(type, tsm, stream_wait);
+ 	if (ret) {
+ 		if (type == PDEV_COMMUNICATE)
+ 			rmi_pdev_abort(virt_to_phys(pdev_dsc->rmm_pdev));
+@@ -366,7 +374,7 @@ static int wait_for_dev_state(enum dev_comm_type type, struct pci_tsm *tsm,
+ 	int state;
+ 
+ 	do {
+-		state = do_dev_communicate(type, tsm, error_state);
++		state = do_dev_communicate(type, tsm, error_state, NULL);
+ 
+ 		if (state == target_state || state == error_state)
+ 			return state;
+@@ -584,7 +592,7 @@ static void pdev_collect_identity_workfn(struct work_struct *work)
+ 
+ 	guard(mutex)(&pdev_dsc->object_lock);
+ 
+-	do_dev_communicate(PDEV_COMMUNICATE, tsm, RMI_PDEV_ERROR);
++	do_dev_communicate(PDEV_COMMUNICATE, tsm, RMI_PDEV_ERROR, NULL);
+ 
+ 	/*
+ 	 * Don't worry about communication error. The caller will look at
+@@ -703,3 +711,101 @@ void cca_pdev_stop_and_destroy(struct pci_dev *pdev)
+ 		free_page((unsigned long)pdev_dsc->rmm_pdev);
+ 	pdev_dsc->rmm_pdev = NULL;
+ }
++
++static void stream_connect_workfn(struct work_struct *work)
 +{
++	int state;
++	int peer_wait = 0;
 +	struct pci_tsm *tsm;
-+	struct dev_comm_work *setup_work;
++	int my_index, peer_index, target;
++	struct stream_connect_work *stream_work;
 +	struct cca_host_pdev_dsc *pdev_dsc;
 +
-+	setup_work = container_of(work, struct dev_comm_work, work);
-+	tsm = setup_work->tsm;
++	stream_work = container_of(work, struct stream_connect_work, work);
++	tsm = stream_work->tsm;
 +	pdev_dsc = to_cca_pdev_dsc(tsm->dsm_dev);
 +
-+	guard(mutex)(&pdev_dsc->object_lock);
++	my_index = stream_work->my_index;
++	peer_index = my_index ^ 0x1;
 +
-+	do_dev_communicate(PDEV_COMMUNICATE, tsm, RMI_PDEV_ERROR);
++redo_communicate:
++	mutex_lock(&pdev_dsc->object_lock);
 +
-+	/*
-+	 * Don't worry about communication error. The caller will look at
-+	 * device state to find more about error
-+	 */
++	state = do_dev_communicate(PDEV_COMMUNICATE, tsm, RMI_PDEV_ERROR, &peer_wait);
++	if (state != RMI_PDEV_ERROR && peer_wait) {
++
++		if (!stream_work->has_peer) {
++			WARN(1, "Unexpected STREAM_WAIT without peer stream\n");
++			mutex_unlock(&pdev_dsc->object_lock);
++			return;
++		}
++		/*
++		 * Record a fresh target val for this side, then wait until
++		 * peer reaches at least the same target.
++		 */
++		target = atomic_inc_return(&stream_work->sync->val[my_index]);
++
++		wake_up_all(&stream_work->sync->wq);
++
++		mutex_unlock(&pdev_dsc->object_lock);
++
++		/* Wait for peer to make matching progress */
++		wait_event(stream_work->sync->wq,
++			   atomic_read(&stream_work->sync->val[peer_index]) >= target);
++		goto redo_communicate;
++	}
++
++	/* Signal peer if it is waiting on me */
++	atomic_inc_return(&stream_work->sync->val[my_index]);
++	wake_up_all(&stream_work->sync->wq);
++
++	mutex_unlock(&pdev_dsc->object_lock);
 +}
 +
-+int cca_pdev_collect_identity(struct pci_dev *pdev)
++static int __maybe_unused submit_stream_work(struct pci_dev *pdev1, struct pci_dev *pdev2,
++		unsigned long stream_handle)
 +{
-+	enum rmi_pdev_state state;
-+	struct dev_comm_work comm_work;
-+	struct cca_host_pdev_dsc *pdev_dsc = to_cca_pdev_dsc(pdev);
-+	struct cca_host_comm_data *comm_data = to_cca_comm_data(pdev);
++	phys_addr_t rmm_pdev1_phys, rmm_pdev2_phys = 0;
++	struct cca_host_comm_data *comm_data_pdev1, *comm_data_pdev2;
++	struct cca_host_pdev_dsc *pdev_dsc1, *pdev_dsc2 = NULL;
++	struct stream_sync sync;
++	struct stream_connect_work stream_work_pdev1, stream_work_pdev2;
 +
-+	/*
-+	 * Device identity is collected by doing a device communication
-+	 * after a pdev_create
-+	 */
-+	INIT_WORK_ONSTACK(&comm_work.work, pdev_collect_identity_workfn);
-+	comm_work.tsm = pdev->tsm;
++	comm_data_pdev1 = to_cca_comm_data(pdev1);
++	init_waitqueue_head(&sync.wq);
++	atomic_set(&sync.val[0], 0);
++	atomic_set(&sync.val[1], 0);
 +
-+	queue_work(comm_data->work_queue, &comm_work.work);
++	pdev_dsc1 = to_cca_pdev_dsc(pdev1);
++	INIT_WORK_ONSTACK(&stream_work_pdev1.work, stream_connect_workfn);
++	stream_work_pdev1.tsm = pdev1->tsm;
++	stream_work_pdev1.sync = &sync;
++	stream_work_pdev1.my_index = 0;
++	stream_work_pdev1.has_peer = !!pdev2;
++	queue_work(comm_data_pdev1->work_queue, &stream_work_pdev1.work);
 +
-+	flush_work(&comm_work.work);
-+	destroy_work_on_stack(&comm_work.work);
++	if (pdev2) {
++		comm_data_pdev2 = to_cca_comm_data(pdev2);
++		pdev_dsc2 = to_cca_pdev_dsc(pdev2);
++		INIT_WORK_ONSTACK(&stream_work_pdev2.work, stream_connect_workfn);
++		stream_work_pdev2.tsm = pdev2->tsm;
++		stream_work_pdev2.sync = &sync;
++		stream_work_pdev2.my_index = 1;
++		stream_work_pdev2.has_peer = true;
++		queue_work(comm_data_pdev2->work_queue, &stream_work_pdev2.work);
++	}
 +
-+	/* check for device communication error*/
-+	if (rmi_pdev_get_state(virt_to_phys(pdev_dsc->rmm_pdev), &state))
-+		return -EIO;
++	flush_work(&stream_work_pdev1.work);
++	if (pdev2) {
++		flush_work(&stream_work_pdev2.work);
++		destroy_work_on_stack(&stream_work_pdev2.work);
++	}
 +
-+	if (state == RMI_PDEV_ERROR)
-+		return -EPROTO;
++	destroy_work_on_stack(&stream_work_pdev1.work);
++
++	rmm_pdev1_phys = virt_to_phys(pdev_dsc1->rmm_pdev);
++	if (pdev2)
++		rmm_pdev2_phys = virt_to_phys(pdev_dsc2->rmm_pdev);
 +
 +	return 0;
 +}
-+
-+bool cca_pdev_needs_key(struct pci_dev *pdev)
-+{
-+	enum rmi_pdev_state state;
-+	struct cca_host_pdev_dsc *pdev_dsc = to_cca_pdev_dsc(pdev);
-+
-+	/*
-+	 * Consider pdev_get_state failure as need key transition
-+	 * and that will result in device communication failure, which
-+	 * will handle this error.
-+	 */
-+	if (rmi_pdev_get_state(virt_to_phys(pdev_dsc->rmm_pdev), &state))
-+		return true;
-+
-+	if (state == RMI_PDEV_NEEDS_KEY)
-+		return true;
-+	return false;
-+}
-+
-+int cca_pdev_set_public_key(struct pci_dev *pdev)
-+{
-+	int ret;
-+
-+	/*
-+	 * we now have certificate chain in dsm->cert_chain. Parse that and set
-+	 * the pubkey.
-+	 */
-+	ret = parse_certificate_chain(pdev->tsm);
-+	if (ret)
-+		return ret;
-+
-+	ret = pdev_set_public_key(pdev->tsm);
-+	if (ret)
-+		return ret;
-+
-+	return submit_pdev_state_transition_work(pdev, RMI_PDEV_READY);
-+}
-+
- static inline int rmi_pdev_destroy(unsigned long pdev_phys,
- 		unsigned long *rmi_ret)
- {
 diff --git a/drivers/virt/coco/arm-cca-host/rmi-da.h b/drivers/virt/coco/arm-cca-host/rmi-da.h
-index 92bcd9571cb8..dc5dc4246591 100644
+index dc5dc4246591..7b8fe0de7b90 100644
 --- a/drivers/virt/coco/arm-cca-host/rmi-da.h
 +++ b/drivers/virt/coco/arm-cca-host/rmi-da.h
-@@ -135,6 +135,9 @@ static inline struct cca_host_comm_data *to_cca_comm_data(struct pci_dev *pdev)
- }
+@@ -27,6 +27,19 @@ struct dev_comm_work {
+ 	struct work_struct work;
+ };
  
- int cca_pdev_create(struct pci_dev *pdev);
-+int cca_pdev_collect_identity(struct pci_dev *pdev);
-+bool cca_pdev_needs_key(struct pci_dev *pdev);
-+int cca_pdev_set_public_key(struct pci_dev *pdev);
- void cca_pdev_stop_and_destroy(struct pci_dev *pdev);
++struct stream_sync {
++	wait_queue_head_t wq;
++	atomic_t val[2];
++};
++
++struct stream_connect_work {
++	struct pci_tsm *tsm;
++	struct work_struct work;
++	struct stream_sync *sync;
++	u8 my_index;
++	bool has_peer;
++};
++
+ struct cca_host_comm_data {
+ 	void *rsp_buff;
+ 	void *req_buff;
+diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-rmi.h
+index fdc830379060..1640f2f43344 100644
+--- a/include/linux/arm-smccc-rmi.h
++++ b/include/linux/arm-smccc-rmi.h
+@@ -540,6 +540,7 @@ struct rmi_pdev_params {
+ #define RMI_DEV_COMM_EXIT_WAIT		BIT(3)
+ #define RMI_DEV_COMM_EXIT_RSP_RESET	BIT(4)
+ #define RMI_DEV_COMM_EXIT_MULTI		BIT(5)
++#define RMI_DEV_COMM_EXIT_STREAM_WAIT	BIT(6)
  
- #endif
+ #define RMI_DEV_COMM_NONE	0
+ #define RMI_DEV_COMM_RESPONSE	1
 -- 
 2.43.0
 
