@@ -4,128 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E770FC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785FBC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Df7aozBOtXp5BasAQeyfsseQI0gbS7rSN3y93pihr6s=; b=L+Nbkxzseb7vMzvSyG9g3LxDMp
-	dKazYHqH58xzJqCFbjNF48m1+cjjmKPxfxBnVI/LaygBkGbJuwzsT4XRgDQ5CiC6bLqro/Bvs/fg0
-	iX5jTBoAweMQ8BBzqL/DVK4ZpcayqNHIJYRqB8FthKT7eE/rUoQ2pENASzVWPWs8anr+QJWvf24mb
-	rfGIVCAu0OK3EQVt/F1VSKi+S4CYGyCpuA4C+28y/KUPPP30VY21V+nuHcwOG9mM4xPQJqgXpi2uO
-	vR57JGCozK4au8i4gQ4LkCQ/DVtJHnlktDSG+J8I7E+C3+FUMJj1Ne+eOxyBA1hQoeYew61lgmZIY
-	TVqwfBqA==;
+	bh=e3stYz9jx1b9Q2oH4Nnw+NNtqnXMxwA+Xc4jXa61Nfk=; b=xFBG2jcfsnjxm1zCxqiIR2om6t
+	0gV5vnjfsRtfEXRwO8aInAA3JLdIDp4dWOPJfPNt2tKBkIjXDdUcsdiy/21BiwiUiJHxLHdvCzhFX
+	ghYvidHBXuoGj+6ti83779GOFQceZ2BnoNEH1PGC8Lp+MX9e7ob3Qz9K+UHas2UvnzaOEsoBUv7qc
+	tjdzs7j96KEXcvuR19xBpxpym04wHeovY1ZOHhleVIVZvnKNsGUDB3uF+E0MI66aIFzwOG07iPCEZ
+	OsUk18Nq3hYZtJHFPgSCoNA6zgWg1JPp3sIAJWIhFKpnLm6ReGEvr7WYfRmayFrur0oyYBMr0C7CS
+	/3+CnG8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eWr-0000000ERSy-1z6I;
-	Thu, 10 Sep 2026 13:09:25 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4edt-0000000ERr6-12c1;
+	Thu, 10 Sep 2026 13:16:41 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eWm-0000000ERQt-1B8E
+	id 1x4edq-0000000ERqi-0WrM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:09:23 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49d1fb0cf5eso10818675e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:09:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789045758; cv=none;
-        d=google.com; s=arc-20260327;
-        b=K0lfCRe/8CMkdMkKUMDAwrLWZt3MuwEnBLzadsKLCVbWJRKmfGxULY679SqNTK2+ro
-         rIuOfiL6MgEqYO0BNdm9BWRIO/wnLb6McS2mtSiD0KePfFEMWe4aB2V2vcYxnAaS7qwR
-         0LiPn0JiC5WQSaPXSAAhKN8/RaBKltngbNuURJi1Eb3TEhPaYil2lDItjpYRTGXNeO6K
-         WHgaUtYip9qBa5OWUHKqZyfequQeq+sRlbpDvzH5Z52MXsW+H+b4C+amB5fYb2gxgvgl
-         8iYRAM6DYwiZ/MJG4lDvINNf0awUsR30IFmjUtihn1b3ii3wlRjEg6pE+YMgkL5p+FJx
-         ak8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Df7aozBOtXp5BasAQeyfsseQI0gbS7rSN3y93pihr6s=;
-        fh=bfyIH+PrYg7oQF/ZY73lPrJo7sdBZE73LIB0Hz75+Rs=;
-        b=q6WuAM9GLSmrFTPtlxyvalNDI5uuCnWhPQD1EDHQJvhCI47NmjD+2GpfGgtRNZN4y3
-         EXIzfPzyyo8CRn0/jvM/ZJIX9ejUxUYKGt4BwipXAX7o9qtyz4WWttVgfFuvebKckJ92
-         27jxX9R8X6aNY2JnVbW9m2WwTMPLOAKZS+D8TrCCbkC7ykfFCAhVLfAs+dUllcjgk/aI
-         Pwl1shg00V+Da5t4GXeSnmWw5pPswVMtKDwjvVXQpaTH470vBmuuK4CziIxtZjaydy3p
-         hiviAVE2AcgpEg5rSqBNH7TEUNvvaoQKDT91BQrCRGM7ElwaxQH8U73+sR/N+34rJqTO
-         wcJA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789045758; x=1789650558; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Df7aozBOtXp5BasAQeyfsseQI0gbS7rSN3y93pihr6s=;
-        b=MVxCkhJsDKpGps7djjYCwRHq+EgEbHaJxhat57ra+ayxhZwjQUjs4HWdjNKfWVAAMP
-         IxHPGiMoImcUVPwb4/5aoDpal4u4veFWLLfklMVgiFzdJMVolnf5qwpnxoeKcC6LEocV
-         LagY9jkcl+9ryDpSQ883HastHX/F+Xq3qX6ln+7ExYjODy3sg8nF+K9dIQJsoHNgSqGI
-         c9BSv+UxTlTTmGwiEVAHjiNAkspFKZgTwH2lxCvB5Av5MV5lQjqepe87G473FmRdY2jl
-         k3sAHWg9HzglJ7MBUWordSWFpk/xXATPz2lz8k38INhHrR0hMc0QU02Dphx4+j7ZY00f
-         iTLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789045758; x=1789650558;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Df7aozBOtXp5BasAQeyfsseQI0gbS7rSN3y93pihr6s=;
-        b=pXPdC/ZtHTbNYcmN33BQ7b+zjN2tG6ocdG755Q6s7JYJKo/1ZwQZ/bFjp3ak9XteL/
-         GzzJCLaqrzKQKwBGIkNgXlBAKzi4dqkM03w6bEQDW7R+oDsNdbeq+VergQV0h3EcuzZ+
-         j8S9Hy4RGX1j7wGRkRs4jEJY5VEv/mjkrtcS2EE4Emq5vD5Vmp2TFQaoXpAN1c8+HZGS
-         zyKyhLIy21AAVSxbnFZxRj9WPWNACcSAPFg3zd7VSDir1khikSpKp5LbRdeNFqCriQHY
-         f68cipcBO01NDDCLe13iDwtI79jJfxKexqoDFVhextRZ0Ftqzkimbsd4QoII1vCqE9/U
-         WJ3g==
-X-Forwarded-Encrypted: i=1; AKwUvBzszn0wNhdujlknh064/zd0OpxYBrj1XPgXvEsJKZBj73EQljXBDvuOiRSTm1b+7K4svA4sOY4SOLiCnZqHjJHb@lists.infradead.org
-X-Gm-Message-State: AFuF++lAxXCbb9QfLjBA8UwAgwz6eHFP3xc3tqlIX+RIlpR0GMYnVEdO
-	9wnmze0A+21PbZcan/XwWx6mqQUeyOTybWCk2yDugONgcw8+ql8HzZCY0c7LLdZmOKcsdTdmR/N
-	LabB/JydBBcG8I0G4AnAA/0AnNyWGNA8=
-X-Gm-Gg: AYBFou0OIfgQl3AXL+Bt7D9NHu+Q2JSxOfutz8WPPJStOGmTdvuv96lWmv+YDWRc3Ds
-	nkRG+pP+WGHYHt6ci0+qD/TMqaOLjmN1GksOfNAgjDM8sfc5wKEqmGjlp2Z2bBMRWoFKKVPy1mV
-	80ow51tanYCWyNcZpPDkU2RXLsHFpL5dXg/QZ9blwUCAh+5eamQ3WrdbbM2slDexzmWtsM0k+ld
-	Molclpe4MLd83E+/Roo6cBgpAF8dTGXzvhpz/fCzk1h43YwfNJ6HvriXZDrwKJWFlGCCX8wDzUy
-	j8rBWJMhuO+NH+KUC7TGateX56z8XwLRw4ziSwRLKZWTHz5kPHUBatXARP4++C2kAkcYPUeHUax
-	rk8GINiHnbOFs
-X-Received: by 2002:a05:600c:6c07:b0:49d:1cc7:5ec3 with SMTP id
- 5b1f17b1804b1-49d259138abmr111164355e9.9.1789045757952; Thu, 10 Sep 2026
- 06:09:17 -0700 (PDT)
+	Thu, 10 Sep 2026 13:16:39 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3BC9E1D000EA;
+	Thu, 10 Sep 2026 09:16:35 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 10 Sep 2026 09:16:36 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789046194;
+	 x=1789132594; bh=e3stYz9jx1b9Q2oH4Nnw+NNtqnXMxwA+Xc4jXa61Nfk=; b=
+	M65EOCsYFY8qmqItH4KPbmfa/S34hmo77EREMEDGsZBeXbI6ZTlc2vFWbUlEfM/j
+	LDlo1+RtGHUsjG3bWAf7EFyEHA34UjpTgHeTP0bTIndd9renbVNYBNeguwKfngXh
+	dI3PsBl2U3yoYay7zh7hGN1VeRBtfChmr/X8Bg4/osTsGphX0+SqJcUX3gLLHHRq
+	rmpS0Vx6JvGkj12LTXpYO2KODhBtzWYY5BYimY1Mfsy9+h/fz5Ag2UAj50wulGNh
+	1uN0uLWH9apk26Tup24MfPvpKpCsURkOIU3PGFccB/MPqbVr+7O8Rues6iirDn4e
+	aKUIEaZWJihYmYwdam8u0A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789046194; x=
+	1789132594; bh=e3stYz9jx1b9Q2oH4Nnw+NNtqnXMxwA+Xc4jXa61Nfk=; b=g
+	uO3ci0Bto6gNKUNATnUiKqMqxNt0NqnA5uLXCayUeaV8aQYYfJbe+czjGBt5wbjV
+	uLpyZ7dqJLe7Owvqd8zRRlgKNyWBuYRaL02yYm6q0rJSbr0gafsuWtgOrkOyxlqG
+	4wRhOVGwaY0p1oqm3ZvHLzDO8W1tT7h/NdavvLLm7CedmQSfJbCP9T3xpkOrtiTs
+	AvU/EC6PwdMtaT4wCbNAS7d73LMamu5lvba86+p4sXwHKpML0OPHmKm5jq1Pj6co
+	rNgR4FforNmJ6g28pmvzogG3ZePOBb1Sfuzq2nbAI41p7bVAKJM5zZ9ljJzg8IvB
+	JxaEBANtl/RvVsbGOkeXg==
+X-ME-Sender: <xms:rK2iaskI4Am06FtWWADsfzmMHorSeF92jvhOBx7tmiDMxq6BFQ6wyA>
+    <xme:rK2iamonI79JfvsN3L2CrtgxTrTQdBqvNX1IiAGb30rOwIuIHDcbJt7Pi1gGX8vU5
+    GUVb_mhPtev2m2APHfIU2uuYoG3hTnv_rt4CxYByCOPT6aPEfh0ObUV>
+X-ME-Proxy-Cause: dmFkZTF3HB9fRiN65EDoc3yMO7VBmb45FRf2lV1lgfDonJBDFaMYlj3UtcPsxXYQQnXRgs
+    bS+GdOCkZTgtyJs4zSKCinFCCrtA2bxdiH19evYPKT5QvJ/XmfrdjyHvo+vUPATGIk6Zd/
+    zhvkn1FqT+fRgGmGZvUk0gq8HmYb6mHZEUTuRyaZ9LQg+x81N4FhWB1NJgSkvHSiuAC8YZ
+    JRQQi2XqbVB5/HLWUzglPl3nPTNk+T+PX0heWOF/7kB/fHvNWhcFLserxEPe+SY9yZ+iD4
+    Jlay7FyZ8ATt9dZosXZsBjAQUDN/xP5FjTgDPuP/QiRCzukLHdnLwmDZ62cDSY2r5uCLbI
+    sEnfyPj/KS6oBvJGdB/D6Bi7nZrYT9PkuHsG6n8YT0dXzi8jppGjQ13UtgUc0oDUiakfa9
+    kQt8vrWi/id48mOJpRT+DAjkKETcosiMo9d/NgqvHUEMdg/H0FUrDImcJhtm6A3xYjcdYf
+    B/wB2UUjyC09sn/7hiUeWT+XzjrevoG/CdVOF+qgXXzNRW6zBKawQWFl1i+zAf5kzlqeuI
+    NE5Oldc7bpOPQfUaDVra1I8Ff57DP0oDclNNMbKzJOPVZ1o2kuQkuXX1Rk70/aToYMeZj+
+    u6eNmuZx9Lo98moAPmg3XEZ8Vt/8g1kdeT8ZrKvlqmzbVo6iRWPA+5rvElVg
+X-ME-Proxy: <xmx:rq2iajFyLkzrXydI_q2MVo78QEeePnXV_HcVtnMBgA99jPuVnnjBoA>
+    <xmx:rq2iaqavdIaG18sH6W-GdmcgON1IPQ7wkG18c1ol2oT5Eu3JGqN13g>
+    <xmx:rq2iaqE5MARX_Hgg5SpAvtjY4p6c-ylMx_KYTPZ8Fn2RQCAf14Enbw>
+    <xmx:rq2iao0SqVRdIpK_8kZUWnutOlx9bRRX-ZN7DDSddSMasHs8JjBe-w>
+    <xmx:sq2iaosSXlGB3x82dfvIMLkWakrO4QJFxUYQwKUB5_tt1HjSEDzm4T-t>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 51C7932A007B; Thu, 10 Sep 2026 09:16:28 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260908152808.3928630-1-arnd@kernel.org> <20260908152808.3928630-9-arnd@kernel.org>
- <CAOMZO5Bw72SkBChbRLg+FaYZ34ENAW95-0+LrgcrESu_YtNXFQ@mail.gmail.com>
-In-Reply-To: <CAOMZO5Bw72SkBChbRLg+FaYZ34ENAW95-0+LrgcrESu_YtNXFQ@mail.gmail.com>
-From: Jesse T <mr.bossman075@gmail.com>
-Date: Thu, 10 Sep 2026 09:08:41 -0400
-X-Gm-Features: AcwNN1UEFdvIck3fXBUKab0LkOKuiFOwC71vVQo2jwIoxCjaBOCf3NRiYyhyIhY
-Message-ID: <CAJFTR8RYajZ+Az9JvemMCApvUEGG3pDLq1KVkKyAsA6Luw-0BA@mail.gmail.com>
-Subject: Re: [PATCH 08/13] ARM: imx: remove nommu support
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Giulio Benetti <giulio.benetti@benettiengineering.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Drew Fustini <fustini@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>, Stefan Agner <stefan@agner.ch>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, 
-	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
-	Tony Lindgren <tony@atomide.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: ATaKlDvsEa83
+Date: Thu, 10 Sep 2026 15:15:48 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Will Deacon" <will@kernel.org>
+Cc: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Hans Ulli Kroll" <ulli.kroll@googlemail.com>,
+ "Robin Murphy" <robin.murphy@arm.com>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>,
+ "Christoph Hellwig" <hch@lst.de>, "Ard Biesheuvel" <ardb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, "Linus Walleij" <linusw@kernel.org>
+Message-Id: <56fbf5bc-f138-4ad6-a1db-b16b8de601c3@app.fastmail.com>
+In-Reply-To: <aqKMsKpYnAZOoKQo@willie-the-truck>
+References: <20260910063620.17768-1-kmehltretter@gmail.com>
+ <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+ <aqKMsKpYnAZOoKQo@willie-the-truck>
+Subject: Re: [PATCH 0/2] ARM: preserve DMA_FROM_DEVICE buffer contents
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_060920_343006_3C37EA87 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20260910_061638_476637_4066CFA0 
+X-CRM114-Status: GOOD (  29.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,75 +116,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 9, 2026 at 4:21=E2=80=AFPM Fabio Estevam <festevam@gmail.com> w=
-rote:
+On Thu, Sep 10, 2026, at 12:55, Will Deacon wrote:
+> On Thu, Sep 10, 2026 at 11:14:28AM +0200, Arnd Bergmann wrote:
+>> I see this as a tradeoff that can go either way:
+>> 
+>> - the current 32-bit Arm approach (also arc, hexagon, microblaze, mips,
+>>   nios2, openrisc, powerpc32, sh) is obviously faster as it avoids
+>>   the writeback, but it relies on device drivers to ensure no stale
+>>   data can leak back into userspace.
+>> 
+>> - Will's patch changed arm64 (later copied into riscv) to avoid that
+>>   risk by adding the overhead out of caution, and avoid having to
+>>   audit and fix all drivers.
 >
-> On Tue, Sep 8, 2026 at 12:29=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> w=
-rote:
-> >
-> > From: Arnd Bergmann <arnd@arndb.de>
-> >
-> > The i.MX platform has grown support for three separate product
-> > lines using Cortex-M based microcontrollers over the years:
-> >
-> >  - i.MX RT1050, a high-end microcontroller
-> >  - Vybrid vf610 suppors running Linux on either the Cortex-A5
-> >    CPU or the Cortex-M4 MCU
-> >  - i.MX7D similarly can run Linux on the Cortex-A7 or the
-> >    Cortex-M4
-> >
-> > There are no known upstream users of any of those three,
-There is both a u-boot and buildroot config for i.MX RT1050,
-I also do basic regression testing on this platform. I understand the
-need to depreciate no-MMU, but it's sad to see them go.
-
-If it helps at all to remove i.MX RT1050 there are only 11 commits
-adding it that are from Giulio Benetti and I.
-For i.MX RT1170 only 3 commits by me which only got partially
-added. See
-Commit: fff65226b229 ("pinctrl: freescale: Add i.MXRT1170 pinctrl
-driver support")
-
-I also occasionally test the stm32f429-disco as I have one.
-
-> > so
-> > drop support and simplify the platform to assume that an MMU
-> > is present.
-> >
-> > Cc: Frank Li <Frank.Li@nxp.com>
-> > Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> > Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> > Cc: Fabio Estevam <festevam@gmail.com>
-> > Cc: Stefan Agner <stefan@agner.ch>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Cc: Vladimir Zapolskiy <vz@mleia.com>
-> > Cc: Giulio Benetti <giulio.benetti@benettiengineering.com>
-> > Cc: devicetree@vger.kernel.org
-> > Cc: imx@lists.linux.dev
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >  arch/arm/boot/dts/nxp/imx/Makefile            |    2 -
-> >  arch/arm/boot/dts/nxp/imx/imxrt1050-evk.dts   |   72 -
-> >  arch/arm/boot/dts/nxp/imx/imxrt1050-pinfunc.h |  993 -----------
-> >  arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi      |  160 --
-> >  arch/arm/boot/dts/nxp/imx/imxrt1170-pinfunc.h | 1561 -----------------
-> >  arch/arm/boot/dts/nxp/vf/Makefile             |    2 -
-> >  arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dts  |   61 -
-> >  arch/arm/boot/dts/nxp/vf/vf610m4-cosmic.dts   |   88 -
-> >  arch/arm/boot/dts/nxp/vf/vf610m4.dtsi         |   61 -
-> >  arch/arm/configs/imxrt_defconfig              |   35 -
-> >  arch/arm/configs/vf610m4_defconfig            |   39 -
-> >  arch/arm/mach-imx/Kconfig                     |   27 +-
-> >  arch/arm/mach-imx/Makefile                    |    3 -
-> >  arch/arm/mach-imx/mach-imx7d-cm4.c            |   18 -
-> >  arch/arm/mach-imx/mach-imxrt.c                |   19 -
+> How would you envisage fixing a driver for this? There were two issues
+> I tried to address by moving from invalidate to clean on arm64:
 >
-> The imxrt1050-evk dts is used in U-Boot.
+> 1. If the DMA transfer didn't write every cacheline in the buffer, then
+>    we could expose stale data in the gaps.
 >
-> Adding Jesse and Giulio, who use this platform in U-Boot.
+> 2. If the buffer has a pre-existing userspace mapping, then we expose
+>    stale data during the window between the DMA map() call and the DMA
+>    itself.
+>
+> Fixing (1) in the driver would presumably require it to walk through the
+> buffer after the transfer and zero all the gaps, with an appreciation
+> for the cache writeback granule (!= cacheline size) and then (somehow)
+> clean those parts back to the PoC. Is that something any drivers attempt
+> today?
 
-Thanks for the CC,
-Jesse Taube
+I'm not aware of any driver doing this, but also haven't tried looking
+for them. I think the usual assumption is that a driver asking for
+a variable-length reply should ensure that it doesn't access of the
+data that was not returned, and that the driver understands which
+parts were received.
+
+One thing that the arm32 implementation (but not any others as far
+as IIRC) does is to do a writeback+invalidate for any partial
+cache lines passed into dma_sync_*(), but this of course does
+not handle short transfers.
+
+We had at some point discussed using KASAN to debug these better:
+mark any memory that is passed to a device as unaccessible through
+the DMA mapping API (rounded up to full cache lines), and then mark
+the data as accessible again during the sync to the CPU (not rounding
+up). As long as the driver only passes the actually received size
+into dma_sync_single_for_cpu(), any later access would trigger
+a KASAN assertion.
+
+> Fixing (2) in the driver would presumably require ruling out the
+> possibility of a user alias, which sounds hard and possibly ABI breaking
+> for some drivers (depending on how they manage their buffers).
+
+There are not that many subsystems that do streaming DMA into
+user-mapped buffers, so I also can't think of any good example
+here where things would actually go wrong in practice. Have you
+been able to find an example that runs into this scenario?
+
+Block drivers always transfer entire pages, and I don't think you
+can access a page until a transfer from userspace has completed.
+GPU and media drivers might be affected, but it looks like those
+usually use coherent mappings.
+
+>> - actually measure the performance overhead: you already did the
+>>   work to test this on three separate arm implementations but did
+>>   not share performance numbers.
+>>   Can you quantify how much this costs us on the hardware you used?
+>
+> It's worth noting that many Arm CPUs upgrade invalidate to
+> clean+invalidate (either due to the micro-architecture, errata or because
+> of virtualisation).
+
+Right.
+
+    Arnd
 
