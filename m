@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB7DC79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1417C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lhQ0s/YhP1w0rT3tIUApfrO0PRobLOkstDVUOplcnfA=; b=e+k5EkUOi10KxE4sBFXIDpr1yY
-	JZ72pBAvSpMAIs/Fy64netwFoXHV3KqvQ96s1iEZ0/3PQMSATdVEHsNnkv0g57PcGLmFBVGJLDQtf
-	R7g8Xb+u2TuT1VKlGgtPZeDqX1332mT782dZgFnf6V319L7lnxgkbUJp6yuFRtfvm/h30Ld6t+xFG
-	bjCzebWwtF4aptgkAVbDkzu5+xa6fCw4Ntc9qkMrVbUgo1hcBIlip6PSjpPQSDv0l43GhJrpoGMPg
-	q6vecsxUBOK891z7Jb0MgLW9NMVBNmQsmpeuyvaR0y5DhXpk963jhKLsuXw0eTXXkH0uUk4wiwXNK
-	SzGYibkg==;
+	bh=PAtVm0nKN1t8bJ7OQtStF8q2ULpMIH6eJ6NiwCWHqPI=; b=X8dMCipcESV4uuLJALb137BPSL
+	eXwdJjs2knHgBsXxvYzAgh8ySzNhfqGKVDvCuCUPjiBK2B5duxoN6XiiJ3lmjMZuO2DgfesKB7mIr
+	8OgQSFP0Bob/+YVbsHXdspU7xoU3ecjFWtguuPxCMKEGLPzJChFKCwCXtHyZz5eMhlOxrQh4lGksF
+	sme9CzxesZyLNflUucKwBNOKDgZyge5KT0nMJ4IJf7xrFVYHNJuh6g3HqOnjeiCMs67hR+BnQNzTP
+	XI1pBPEWUE4cXljkJMszemQh9rVZOAYPz+yU/8BIMcSNomMamEqId4oM/8uEtcxWCVAPj8RGphKYD
+	7tM8lBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bpv-0000000E1Qz-11G5;
-	Thu, 10 Sep 2026 10:16:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bpc-0000000E1BZ-2w8K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 10:16:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=lhQ0s/YhP1w0rT3tIUApfrO0PRobLOkstDVUOplcnfA=; b=k/WLS8peTuxt0KB04HGIueeQNf
-	L7jpe6orT97qpfYMoIaF9YJ6nDA4vjBLzEcphkbn9RFRYVu1ght73YM8T8DlmJot/JUj9vxhC88Z4
-	GpX5U5XvIrrwFCFh9SEELAGBYkpU4USXm1pyXtuDZuVccY+ZJ+W6TL3PIPdupcZFqHP9pG4c3/0MR
-	Gq4qse62ymjB6edEeRMM0rxZRRadd849E5j4ZrzrTlfbcwpqxJNO4mlGI3/Uidw2jFh1doM5EgYg1
-	jQNjqhcr1fSdqSMGu08P6yJi7h2oV+y3H5e+NQm18Z3/daUSI9g8zl97WsTBAISQIbPl3Q1BKwW5P
-	6HRn092w==;
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4bpZ-00000002JgG-1VLC
+	id 1x4buU-0000000E2LT-0EUr;
+	Thu, 10 Sep 2026 10:21:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4buS-0000000E2L3-0bz7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:16:35 +0000
-Received: from francesco-nb.. (xcpe-178-82-167-143.dyn.res.sunrise.net [178.82.167.143])
-	by mail11.truemail.it (Postfix) with ESMTPA id 598DE1FAFD;
-	Thu, 10 Sep 2026 12:16:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789035389;
-	bh=lhQ0s/YhP1w0rT3tIUApfrO0PRobLOkstDVUOplcnfA=; h=From:To:Subject;
-	b=pk0PKNocqMKFdCMMxVGo7kfUdIc/61Iwu/VIWKxHINx+JpQt/Kg7XO7UvVt1836NA
-	 bQpWTHNfM4D94/XUxmpU3kRwGsyXDTrbcclTPPTS/r6tfIE3c4/1QbZyIpATuoQk7G
-	 /v8eCEEfeqdrejMHsyLdMg0h/C2IjYJ2yNUsR2uuEpGm7Z6SQxVi4SZP+iSBirogEM
-	 G476p+RQ3Wn/VTmByeU3bTUa7lLD6XXJqp95cVyoRUxYBjyNHkW6dOyW/bEMed/4Nz
-	 HAoswC6K/BfgqvW2gB1i/lHxZ79lV6o0B4VD4I3BfqGXvqwYSvFMobBNE3fqE07o6f
-	 MRxmL6wti/xcQ==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 7/7] arm64: dts: freescale: Add Toradex OSM iMX91
-Date: Thu, 10 Sep 2026 12:16:13 +0200
-Message-ID: <20260910101616.139270-8-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260910101616.139270-1-francesco@dolcini.it>
-References: <20260910101616.139270-1-francesco@dolcini.it>
+	Thu, 10 Sep 2026 10:21:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51C7D143D;
+	Thu, 10 Sep 2026 03:21:31 -0700 (PDT)
+Received: from [10.0.129.245] (unknown [10.0.129.245])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 899BA3F7B4;
+	Thu, 10 Sep 2026 03:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789035695; bh=NdJwICU4hKphndkhJfKo4meJGdIZvN650SafLlOB/BM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k//7Ud38dQTnvnKQxVZAcd73FhyR9Iv9bKLlrmoT04DSSuniGXJGJi8nFSmCLEuE8
+	 fX11Ow/pTfdIBC/fgh+DTGC9ZRproSkmFOyVb9rmmwngQfXyaH/MYJCYNZcxFenoQH
+	 YnDm/TS+rtBLyZhhM83WRgOUSjTOe3zhZn+o0zjo=
+Message-ID: <b7a8e864-d7a3-4765-8b62-c5452766769d@arm.com>
+Date: Thu, 10 Sep 2026 11:21:29 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 04/20] KVM: arm64: Refactor the vcpu_load to allow for
+ VM specific callbacks
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+ <20260908162223.1683432-5-suzuki.poulose@arm.com>
+ <a0c5c373-b5c2-4ad2-9e53-ede58c392972@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <a0c5c373-b5c2-4ad2-9e53-ede58c392972@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_111633_642132_995F66EF 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260910_032136_278340_FA047FD4 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,373 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On 10/09/2026 05:00, Gavin Shan wrote:
+> Hi Suzuki,
+> 
+> On 9/9/26 2:22 AM, Suzuki K Poulose wrote:
+>> Based on a work by Marc Zyngier
+>>
+>> To keep the VCPU load/put handling cleaner with the different kinds of 
+>> VM types,
+>> we are about to introduce VM specific callbacks to do just the right 
+>> thing.
+>> In preparation for that, make some refactoring to add the change easier.
+>>
+>> No functional changes intended.
+>>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>>   arch/arm64/kvm/arm.c | 46 +++++++++++++++++++++++++++-----------------
+>>   1 file changed, 28 insertions(+), 18 deletions(-)
+>>
+> 
+> Nitpicks below, none of them are introduced by this patch itself. In 
+> either way:
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Add support for the OSM iMX91 SoM and the development carrier board that
-can be mated with.
+Thank you !
 
-Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-Link: https://www.toradex.com/products/carrier-board/osm-development-board
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   2 +
- .../dts/freescale/imx91-toradex-osm-dev.dts   |  22 ++
- .../boot/dts/freescale/imx91-toradex-osm.dtsi | 303 ++++++++++++++++++
- 3 files changed, 327 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
+> 
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 67f1ff9bc4fbe..51fc651267157 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -683,14 +683,11 @@ static bool kvm_vcpu_should_clear_twe(struct 
+>> kvm_vcpu *vcpu)
+>>       return single_task_running();
+>>   }
+>> -void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>> +static void vcpu_prepare_mmu(struct kvm_vcpu *vcpu)
+>>   {
+>>       struct kvm_s2_mmu *mmu;
+>>       int *last_ran;
+>> -    if (is_protected_kvm_enabled())
+>> -        goto nommu;
+>> -
+>>       if (vcpu_has_nv(vcpu))
+>>           kvm_vcpu_load_hw_mmu(vcpu);
+>> @@ -720,10 +717,33 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, 
+>> int cpu)
+>>           kvm_call_hyp(__kvm_flush_cpu_context, mmu);
+>>           *last_ran = vcpu->vcpu_idx;
+>>       }
+>> +}
+>> +
+>> +static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
+>> +{
+>> +    if (kvm_vcpu_should_clear_twe(vcpu))
+>> +        vcpu->arch.hcr_el2 &= ~HCR_TWE;
+>> +    else
+>> +        vcpu->arch.hcr_el2 |= HCR_TWE;
+>> +
+>> +    if (kvm_vcpu_should_clear_twi(vcpu))
+>> +        vcpu->arch.hcr_el2 &= ~HCR_TWI;
+>> +    else
+>> +        vcpu->arch.hcr_el2 |= HCR_TWI;
+>> +}
+>> +
+> 
+> It seems FIELD_MODIFY() can be applied here if no visible constraints 
+> exist:
+> 
+>      FIELD_MODIFY(HCR_TWE, vcpu->arch.hcr_el2, ! 
+> kvm_vcpu_should_clear_twe(vcpu));
+>      FIELD_MODIFY(HCR_TWI, vcpu->arch.hcr_el2, ! 
+> kvm_vcpu_should_clear_twi(vcpu));
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 64fa5d0527ff..39686f17891b 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -856,6 +856,8 @@ imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-s
- dtb-$(CONFIG_ARCH_MXC) += imx91-9x9-qsb-can1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
- 
-+dtb-$(CONFIG_ARCH_MXC) += imx91-toradex-osm-dev.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba93xxca.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts b/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
-new file mode 100644
-index 000000000000..ec5e701fb275
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex OSM iMX91 SoM on OSM Development carrier board
-+ *
-+ * https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-+ * https://www.toradex.com/products/carrier-board/osm-development-board
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx91.dtsi"
-+#include "imx91-toradex-osm.dtsi"
-+#include "imx93-imx91-toradex-osm-dev-common.dtsi"
-+
-+/ {
-+	model = "Toradex OSM iMX91 on OSM Development Board";
-+	compatible = "toradex,osm-imx91-dev",
-+		     "toradex,osm-imx91",
-+		     "fsl,imx91";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi b/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
-new file mode 100644
-index 000000000000..9d990937fd8d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
-@@ -0,0 +1,303 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex OSM iMX91 SoM
-+ *
-+ * https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-+ */
-+
-+#include "imx91-pinfunc.h"
-+#include "imx93-imx91-toradex-osm-common.dtsi"
-+
-+&iomuxc {
-+	/* OSM CAN_A */
-+	pinctrl_can_a: can1grp {
-+		fsl,pins = <MX91_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e>, /* OSM AB17 */
-+			   <MX91_PAD_PDM_CLK__CAN1_TX		0x139e>; /* OSM AC17 */
-+	};
-+
-+	/* OSM CAN_B */
-+	pinctrl_can_b: can2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO25__CAN2_TX		0x139e>, /* OSM AC19 */
-+			   <MX91_PAD_GPIO_IO27__CAN2_RX		0x139e>; /* OSM AB19 */
-+	};
-+
-+	/* OSM CAM_MCK */
-+	pinctrl_cam_mck: ccmclk1grp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO1__CCMSRCGPCMIX_CLKO1	0x51e>; /* OSM C2 */
-+	};
-+
-+	/* OSM ETH_A RGMII */
-+	pinctrl_eth_a: eqosgrp {
-+		fsl,pins = <MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x1fe>, /* OSM K15 */
-+			   <MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x1fe>, /* OSM L15 */
-+			   <MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x1fe>, /* OSM N15 */
-+			   <MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x1fe>, /* OSM P15 */
-+			   <MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC			0x1fe>, /* OSM R15 */
-+			   <MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x1fe>, /* OSM M15 */
-+			   <MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x1fe>, /* OSM H15 */
-+			   <MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1				0x1fe>, /* OSM G15 */
-+			   <MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x1fe>, /* OSM H16 */
-+			   <MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x1fe>, /* OSM G16 */
-+			   <MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x1fe>, /* OSM J15 */
-+			   <MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x1fe>; /* OSM K16 */
-+	};
-+
-+	/* OSM ETH_MDIO */
-+	pinctrl_mdio: eqosmdiogrp {
-+		fsl,pins = <MX91_PAD_ENET1_MDC__ENET1_MDC	0x1fe>, /* OSM T16 */
-+			   <MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO	0x1fe>; /* OSM T15 */
-+	};
-+
-+	/* OSM ETH_B RGMII */
-+	pinctrl_eth_b: fecgrp {
-+		fsl,pins = <MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0		0x1fe>, /* OSM J1 */
-+			   <MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1		0x1fe>, /* OSM K1 */
-+			   <MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2		0x1fe>, /* OSM M1 */
-+			   <MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3		0x1fe>, /* OSM N1 */
-+			   <MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC		0x1fe>, /* OSM P1 */
-+			   <MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL	0x1fe>, /* OSM L1 */
-+			   <MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0		0x1fe>, /* OSM G1 */
-+			   <MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1		0x1fe>, /* OSM F1 */
-+			   <MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2		0x1fe>, /* OSM G2 */
-+			   <MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3		0x1fe>, /* OSM F2 */
-+			   <MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC		0x1fe>, /* OSM H1 */
-+			   <MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL	0x1fe>; /* OSM J2 */
-+	};
-+
-+	/* OSM SPI_B_CS as GPIO */
-+	pinctrl_spi_b_cs0_gpio: gpio1io11grp {
-+		fsl,pins = <MX91_PAD_SAI1_TXFS__GPIO1_IO11	0x139e>; /* OSM AA23 */
-+	};
-+
-+	/* OSM GPIO_A_0 */
-+	pinctrl_gpio_a0:  gpio2io0grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO00__GPIO2_IO0	0x139e>; /* OSM D17 */
-+	};
-+
-+	/* OSM GPIO_A_1 */
-+	pinctrl_gpio_a1: gpio2io1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO01__GPIO2_IO1	0x139e>; /* OSM E17 */
-+	};
-+
-+	/* OSM GPIO_A_2 */
-+	pinctrl_gpio_a2: gpio2io2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO02__GPIO2_IO2	0x139e>; /* OSM F17 */
-+	};
-+
-+	/* OSM GPIO_A_3 */
-+	pinctrl_gpio_a3: gpio2io3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO03__GPIO2_IO3	0x139e>; /* OSM G17 */
-+	};
-+
-+	/* OSM SPI_A_CS0 as GPIO */
-+	pinctrl_spi_a_cs0_gpio: gpio2io12grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO12__GPIO2_IO12	0x139e>; /* OSM Y15 */
-+	};
-+
-+	/* OSM PWM_0 as GPIO */
-+	pinctrl_pwm0_gpio: gpio2io21grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO21__GPIO2_IO21	0x139e>; /* OSM E18 */
-+	};
-+
-+	/* OSM GPIO_A_4 */
-+	pinctrl_gpio_a4: gpio2io22grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO22__GPIO2_IO22	0x139e>; /* OSM H17 */
-+	};
-+
-+	/* OSM GPIO_A_5 */
-+	pinctrl_gpio_a5: gpio2io24grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO24__GPIO2_IO24	0x139e>; /* OSM J17 */
-+	};
-+
-+	/* On-module CTRL_INT# */
-+	pinctrl_ctrl_int: gpio3io27grp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO2__GPIO3_IO27	0x139e>; /* CTRL_INT# */
-+	};
-+
-+	/* OSM GPIO_A_6 */
-+	pinctrl_gpio_a6: gpio4io14grp {
-+		fsl,pins = <MX91_PAD_ENET2_MDC__GPIO4_IO14	0x139e>; /* OSM K17 */
-+	};
-+
-+	/* OSM GPIO_A_7 */
-+	pinctrl_gpio_a7:  gpio4io15grp {
-+		fsl,pins = <MX91_PAD_ENET2_MDIO__GPIO4_IO15	0x139e>; /* OSM L17 */
-+	};
-+
-+	/* OSM I2C_B as GPIO */
-+	pinctrl_i2c_b_gpio: lpi2c1gpiogrp {
-+		fsl,pins = <MX91_PAD_I2C1_SCL__GPIO1_IO0	0x40000b9e>, /* OSM AA20 */
-+			   <MX91_PAD_I2C1_SDA__GPIO1_IO1	0x40000b9e>; /* OSM AA21 */
-+	};
-+
-+	/* OSM I2C_B */
-+	pinctrl_i2c_b: lpi2c1grp {
-+		fsl,pins = <MX91_PAD_I2C1_SCL__LPI2C1_SCL	0x40000b9e>, /* OSM AA20 */
-+			   <MX91_PAD_I2C1_SDA__LPI2C1_SDA	0x40000b9e>; /* OSM AA21 */
-+	};
-+
-+	/* On-module PMIC I2C as GPIO */
-+	pinctrl_pmic_i2c_gpio: lpi2c2gpiogrp {
-+		fsl,pins = <MX91_PAD_I2C2_SCL__GPIO1_IO2	0x40000b9e>, /* PMIC_I2C_SCL */
-+			   <MX91_PAD_I2C2_SDA__GPIO1_IO3	0x40000b9e>; /* PMIC_I2C_SDA */
-+	};
-+
-+	/* On-module PMIC I2C */
-+	pinctrl_pmic_i2c: lpi2c2grp {
-+		fsl,pins = <MX91_PAD_I2C2_SCL__LPI2C2_SCL	0x40000b9e>, /* PMIC_I2C_SCL */
-+			   <MX91_PAD_I2C2_SDA__LPI2C2_SDA	0x40000b9e>; /* PMIC_I2C_SDA */
-+	};
-+
-+	/* OSM I2C_A as GPIO */
-+	pinctrl_i2c_a_gpio: lpi2c3gpiogrp {
-+		fsl,pins = <MX91_PAD_GPIO_IO28__GPIO2_IO28	0x40000b9e>, /* OSM AA16 */
-+			   <MX91_PAD_GPIO_IO29__GPIO2_IO29	0x40000b9e>; /* OSM AA15 */
-+	};
-+
-+	/* OSM I2C_A */
-+	pinctrl_i2c_a: lpi2c3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO28__LPI2C3_SDA	0x40000b9e>, /* OSM AA16 */
-+			   <MX91_PAD_GPIO_IO29__LPI2C3_SCL	0x40000b9e>; /* OSM AA15 */
-+	};
-+
-+	/* OSM SPI_B */
-+	pinctrl_spi_b: lpspi1grp {
-+		fsl,pins = <MX91_PAD_SAI1_TXC__LPSPI1_SIN	0x139e>, /* OSM Y22 */
-+			   <MX91_PAD_SAI1_TXD0__LPSPI1_SCK	0x139e>, /* OSM Y21 */
-+			   <MX91_PAD_SAI1_RXD0__LPSPI1_SOUT	0x139e>; /* OSM Y23 */
-+	};
-+
-+	/* OSM SPI_A */
-+	pinctrl_spi_a: lpspi8grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO13__LPSPI8_SIN	0x139e>, /* OSM U15 */
-+			   <MX91_PAD_GPIO_IO14__LPSPI8_SOUT	0x139e>, /* OSM V15 */
-+			   <MX91_PAD_GPIO_IO15__LPSPI8_SCK	0x139e>; /* OSM U16 */
-+	};
-+
-+	/* OSM UART_CON */
-+	pinctrl_uart_con: lpuart1grp {
-+		fsl,pins = <MX91_PAD_UART1_RXD__LPUART1_RX	0x39e>, /* OSM D22 */
-+			   <MX91_PAD_UART1_TXD__LPUART1_TX	0x39e>; /* OSM D23 */
-+	};
-+
-+	/* OSM UART_C */
-+	pinctrl_uart_c: lpuart2grp {
-+		fsl,pins = <MX91_PAD_UART2_RXD__LPUART2_RX	0x39e>, /* OSM A22 */
-+			   <MX91_PAD_UART2_TXD__LPUART2_TX	0x39e>; /* OSM B23 */
-+	};
-+
-+	/* OSM UART_A */
-+	pinctrl_uart_a: lpuart6grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO04__LPUART6_TX	0x39e>, /* OSM B13 */
-+			   <MX91_PAD_GPIO_IO05__LPUART6_RX	0x39e>, /* OSM A14 */
-+			   <MX91_PAD_GPIO_IO06__LPUART6_CTS_B	0x39e>, /* OSM C14 */
-+			   <MX91_PAD_GPIO_IO07__LPUART6_RTS_B	0x39e>; /* OSM C13 */
-+	};
-+
-+	/* OSM UART_B */
-+	pinctrl_uart_b: lpuart7grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO08__LPUART7_TX	0x39e>, /* OSM D13 */
-+			   <MX91_PAD_GPIO_IO09__LPUART7_RX	0x39e>, /* OSM D14 */
-+			   <MX91_PAD_GPIO_IO10__LPUART7_CTS_B	0x39e>, /* OSM D16 */
-+			   <MX91_PAD_GPIO_IO11__LPUART7_RTS_B	0x39e>; /* OSM D15 */
-+	};
-+
-+	/* OSM I2S_A */
-+	pinctrl_i2s_a: sai3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO16__SAI3_TX_BCLK	0x139e>, /* OSM W20 */
-+			   <MX91_PAD_GPIO_IO19__SAI3_TX_DATA0	0x139e>, /* OSM W21 */
-+			   <MX91_PAD_GPIO_IO20__SAI3_RX_DATA0	0x139e>, /* OSM V21 */
-+			   <MX91_PAD_GPIO_IO26__SAI3_TX_SYNC	0x139e>; /* OSM W18 */
-+	};
-+
-+	/* OSM I2S_MCLK */
-+	pinctrl_i2s_a_mclk: sai3mclkgrp {
-+		fsl,pins = <MX91_PAD_GPIO_IO17__SAI3_MCLK	0x31e>; /* OSM V18 */
-+	};
-+
-+	/* OSM PWM_0 */
-+	pinctrl_pwm0: tpm4ch1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO21__TPM4_CH1	0x139e>; /* OSM E18 */
-+	};
-+
-+	/* OSM PWM_1 */
-+	pinctrl_pwm1: tpm5ch2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO18__TPM5_CH2	0x139e>; /* OSM F18 */
-+	};
-+
-+	/* OSM PWM_2 */
-+	pinctrl_pwm2: tpm6ch1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO23__TPM6_CH1	0x139e>; /* OSM G18 */
-+	};
-+
-+	/* OSM USB_A_EN */
-+	pinctrl_usb_a_en: usb1engrp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO3__GPIO4_IO28	0x139e>; /* OSM AC16 */
-+	};
-+
-+	/* OSM USB_A_OC# */
-+	pinctrl_usb_a_oc: usb1ocgrp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO4__GPIO4_IO29	0x139e>; /* OSM AC15 */
-+	};
-+
-+	/* OSM USB_B_EN */
-+	pinctrl_usb_b_en: usb2engrp {
-+		fsl,pins = <MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x139e>; /* OSM AC20 */
-+	};
-+
-+	/* On-module eMMC */
-+	pinctrl_emmc: usdhc1grp {
-+		fsl,pins = <MX91_PAD_SD1_CLK__USDHC1_CLK	0x5fe>,      /* eMMC_CLK    */
-+			   <MX91_PAD_SD1_CMD__USDHC1_CMD	0x400013fe>, /* eMMC_CMD    */
-+			   <MX91_PAD_SD1_DATA0__USDHC1_DATA0	0x400013fe>, /* eMMC_DATA0  */
-+			   <MX91_PAD_SD1_DATA1__USDHC1_DATA1	0x400013fe>, /* eMMC_DATA1  */
-+			   <MX91_PAD_SD1_DATA2__USDHC1_DATA2	0x400013fe>, /* eMMC_DATA2  */
-+			   <MX91_PAD_SD1_DATA3__USDHC1_DATA3	0x400013fe>, /* eMMC_DATA3  */
-+			   <MX91_PAD_SD1_DATA4__USDHC1_DATA4	0x400013fe>, /* eMMC_DATA4  */
-+			   <MX91_PAD_SD1_DATA5__USDHC1_DATA5	0x400013fe>, /* eMMC_DATA5  */
-+			   <MX91_PAD_SD1_DATA6__USDHC1_DATA6	0x400013fe>, /* eMMC_DATA6  */
-+			   <MX91_PAD_SD1_DATA7__USDHC1_DATA7	0x400013fe>, /* eMMC_DATA7  */
-+			   <MX91_PAD_SD1_STROBE__USDHC1_STROBE	0x1580>;     /* eMMC_STROBE */
-+	};
-+
-+	/* OSM SDIO_A_CD# */
-+	pinctrl_sdio_a_cd: usdhc2cdgrp {
-+		fsl,pins = <MX91_PAD_SD2_CD_B__GPIO3_IO0	0x139e>; /* OSM J21 */
-+	};
-+
-+	/* OSM SDIO_A */
-+	pinctrl_sdio_a: usdhc2grp {
-+		fsl,pins = <MX91_PAD_SD2_CLK__USDHC2_CLK	0x5fe>,      /* OSM F21 */
-+			   <MX91_PAD_SD2_CMD__USDHC2_CMD	0x400013fe>, /* OSM E20 */
-+			   <MX91_PAD_SD2_DATA0__USDHC2_DATA0	0x400013fe>, /* OSM G20 */
-+			   <MX91_PAD_SD2_DATA1__USDHC2_DATA1	0x400013fe>, /* OSM G21 */
-+			   <MX91_PAD_SD2_DATA2__USDHC2_DATA2	0x400013fe>, /* OSM H20 */
-+			   <MX91_PAD_SD2_DATA3__USDHC2_DATA3	0x400013fe>; /* OSM H21 */
-+	};
-+
-+	/* OSM SDIO_A_PWR_EN */
-+	pinctrl_sdio_a_pwr_en: usdhc2pwrgrp {
-+		fsl,pins = <MX91_PAD_SD2_RESET_B__GPIO3_IO7	0x139e>; /* OSM D21 */
-+	};
-+
-+	/* On-module PMIC_SD_2_VSEL */
-+	pinctrl_sdio_a_vsel: usdhc2vselgrp {
-+		fsl,pins = <MX91_PAD_SD2_VSELECT__GPIO3_IO19	0x51e>; /* PMIC_SD_2_VSEL */
-+	};
-+
-+	/* OSM SDIO_B */
-+	pinctrl_sdio_b: usdhc3grp {
-+		fsl,pins = <MX91_PAD_SD3_CLK__USDHC3_CLK	0x5fe>,      /* OSM K20 */
-+			   <MX91_PAD_SD3_CMD__USDHC3_CMD	0x400013fe>, /* OSM K21 */
-+			   <MX91_PAD_SD3_DATA0__USDHC3_DATA0	0x400013fe>, /* OSM L20 */
-+			   <MX91_PAD_SD3_DATA1__USDHC3_DATA1	0x400013fe>, /* OSM L21 */
-+			   <MX91_PAD_SD3_DATA2__USDHC3_DATA2	0x400013fe>, /* OSM M21 */
-+			   <MX91_PAD_SD3_DATA3__USDHC3_DATA3	0x400013fe>; /* OSM N20 */
-+	};
-+
-+	pinctrl_wdog: wdoggrp {
-+		fsl,pins = <MX91_PAD_WDOG_ANY__WDOG1_WDOG_ANY 0x31e>; /* PMIC_WDOG_B */
-+	};
-+};
--- 
-2.47.3
+I would leave this out for now. Can be a separate patch
 
+> 
+>> +static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
+>> +{
+>> +    if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+>> +        kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+>> +}
+>> +
+>> +void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>> +{
+>> +    if (!is_protected_kvm_enabled())
+>> +        vcpu_prepare_mmu(vcpu);
+>>
+> 
+> I think we probably try to depend on kvm->arch.vm_flavor instead
+> of !is_protected_kvm_enabled().
+> 
+>      struct kvm *kvm = vcpu->kvm;
+> 
+>      if (kvm_vm_is_protected(kvm) || kvm_vm_flavor_eq(kvm, VM_PKVM))
+>          vcpu_prepare_mmu(vcpu);
+
+This will be removed as part of the call back in the next patch.
+
+Cheers
+Suzuki
 
