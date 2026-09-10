@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1EDC88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F287C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXPPn9tlwNb8+IWe2bNCfwjQ82EFPAzHyWLZ359hzmA=; b=BQpUiIb4szGWnKh3dk2xYZVAyf
-	+Dz/7Fp8A+5+QxZEgqUMlagPAYpDRy53yKsLVwfu33aOp8bRGQGRKX4yvB4Xrk0YhSsozP925bmHr
-	k2RHvgZRrLH5gfzi1Kn1RiogO0M5d3mQ+DwLa/Q41mU+FPR5cSTW9CYqAAhnlDqroCblXqKbKxKTz
-	/+fLlctYnBUBctFde6UXRPnKurWC7aKOCNOm8PrnzQWF1Y2Wzu7bUIP7ho+Gn9N71QBlecETPuDmD
-	DXSAgKoe7vAjmo+7DFStzGE7IeWhZI8tpr1lml8gA0XOSv6I6u4efiH9gALEwODJA1Hf5la3mNfH9
-	jqEPa45A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IXBSAOGIh6jCZvCkv9yCum8ZJroML+LqgNj3BgTtpxI=; b=dzwZjl2QKeRHA7M0xdt34Rrj9R
+	v2TFGUu7wZJlHeTzs1kQv7voeaJfRtprgGG3a0byh20O86IYuO3N7HAV+2C91U28V67VLIYY8drWe
+	2Q8gLhQN8+wqTEMmUJSNyBPJyuXPl08ZiXI0wEMuHpsckI2Pi3MmhOqSxK9I+0/ZBc4D1C40u/lwM
+	dLzburKGG33aGCucjvvPr00UrG/TIXlsrBchRxcPYCwETJyGrIYDGWM0GbNFxsxx11xAcXdvGH/bh
+	1E70Y42dHxRi9+YDq9iG7H9CJkuM+v3S1PcFXJQUGUZbBz8Jcpu+SyqM2ZqNNtXRwOIlXpDinEwzG
+	OZQq/y7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fy9-0000000Eenh-3ecx;
-	Thu, 10 Sep 2026 14:41:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x4eyp-0000000EW17-06Qg;
+	Thu, 10 Sep 2026 13:38:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fy6-0000000EemK-3CNZ;
-	Thu, 10 Sep 2026 14:41:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789051295;
-	bh=NQhEknJQA8Ya6L5zdIqdUOsD85jIBAx1y0eYH103iRE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=l/3pZbarrLBIxC/Bgeh0sOVvNAHiwRlpACyCd/tvr6a1aDM1yE39N2cpwZK+VQkVE
-	 MgyWtOO0Dc/G1ZYcB3Qm2E1JLOY5QbBZm9ZMoR9VGyxl8WU4ADu2K1EFkl5j0Iad/6
-	 XiSMMocF2vJVEhsJ1ZOcck/zDrlzfTgL8Y4/YjcB/mFxDppjKilV/UtDKUyEpZP31Q
-	 mTKYy9+55otmsuxQ4ciXEEflpRBMZuFFQOBurS1VbeCxTqCCwf68d/vmE7JBrSXGzi
-	 NWXbHAsrvc2mgBb8+DDl0wZsc62pBjWjXdb1zlMM5WGG2NQrb7qk2p8HS+ZRws6USc
-	 ICkrBPI187SkA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D79DB17E05D3;
-	Thu, 10 Sep 2026 16:41:34 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Zakariya Hadrami <zkh@mailbox.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-watchdog@vger.kernel.org, zkh1@proton.me, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260910-mt8127-amazon-ford-basic-v5-0-3cb9eeaffd5c@mailbox.org>
-References: <20260910-mt8127-amazon-ford-basic-v5-0-3cb9eeaffd5c@mailbox.org>
-Subject: Re: (subset) [PATCH v5 0/4] ARM: Basic support for Amazon ford
- tablet (MT8127)
-Message-Id: <178905129482.89344.17321319958555136692.b4-ty@b4>
-Date: Thu, 10 Sep 2026 16:41:34 +0200
+	id 1x4eym-0000000EW10-3ycg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 13:38:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6626A43DDD;
+	Thu, 10 Sep 2026 13:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C24CB1F000FF;
+	Thu, 10 Sep 2026 13:38:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1789047496;
+	bh=IXBSAOGIh6jCZvCkv9yCum8ZJroML+LqgNj3BgTtpxI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=xsNrvoCs9Ftw5+cXXa+IjekEtsA6YzktE0MZJSCvJtXliyEzc6/DT/+fV33QVUdc2
+	 W7UGTKGoHLg1MucSEEoonFQOfEExOoSj6h4fbOGOzlJG4Ip2WbRgir5VW++FBCcHDG
+	 L13Wj+On8GsdLvIp+T7d8A4WHlexX2oUAitBXOmU=
+Date: Thu, 10 Sep 2026 15:38:08 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: phucduc.bui@gmail.com
+Cc: Peter Chen <peter.chen@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-usb@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sashiko Bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v3 2/2] usb: chipidea: ci_hdrc_imx: Fix error handling
+ when creating IRQ name
+Message-ID: <2026091054-preflight-capacity-e7e2@gregkh>
+References: <20260810093112.47807-1-phucduc.bui@gmail.com>
+ <20260810093112.47807-2-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_074138_955355_B148EF54 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260810093112.47807-2-phucduc.bui@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +72,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Sep 2026 15:29:11 +0200, Zakariya Hadrami wrote:
-> This series of patches adds basic support for MT8127 SoC based Amazon ford
-> tablet.
+On Mon, Aug 10, 2026 at 04:31:12PM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> devm_kasprintf() can fail when allocating the wakeup IRQ name. The error
+> was logged with dev_err_probe(), but its return value was ignored and
+> probe could continue with a successful return value.
+> 
+> Store the error returned by dev_err_probe() in ret and jump to the error
+> path to propagate the failure.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Acked-by: Peter Chen <peter.chen@kernel.org>
+> Reported-by: Sashiko Bot <sashiko-bot@kernel.org>
+> Link: https://lore.kernel.org/all/20260806065755.C9F361F000E9@smtp.kernel.org/
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+> 
+> Link v2: 
+> https://lore.kernel.org/all/20260807065619.30604-2-phucduc.bui@gmail.com/
+> Changes in v3:
+>  - Use the phy_shutdown label instead of err_clk as suggested by 
+>    Sashiko's review. 
+>  - Add Peter Chen's Acked-by tag.
+>  - Add Frank Li's Reviewed-by tag.
+> 
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index 9e529398c607..edbf9df9b8f2 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -532,8 +532,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  	if (data->wakeup_irq > 0) {
+>  		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
+>  		if (!irq_name) {
+> -			dev_err_probe(dev, -ENOMEM, "failed to create irq_name\n");
+> -			goto err_clk;
+> +			ret = dev_err_probe(dev, -ENOMEM, "failed to create irq_name\n");
+> +			goto phy_shutdown;
+>  		}
+>  
+>  		ret = devm_request_threaded_irq(dev, data->wakeup_irq,
+> @@ -541,7 +541,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  						IRQF_ONESHOT | IRQF_NO_AUTOEN,
+>  						irq_name, data);
+>  		if (ret)
+> -			goto err_clk;
+> +			goto phy_shutdown;
+>  	}
+>  
+>  	ret = imx_usbmisc_init(data->usbmisc_data);
+> -- 
+> 2.43.0
+>
 
-Applied to v7.3-next/dts32, thanks!
+This patch did not apply, please rebase and resend.
 
-[2/4] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
-      commit: f97be0d722ebef4de65a39813778f6ba62c2ac1e
-[3/4] ARM: dts: mediatek: mt8127: Add watchdog support
-      commit: 5e23e7d730c6e984e4f03c3b25e2188de9f4ba99
-[4/4] ARM: dts: mediatek: Add basic support for Amazon ford board
-      commit: 2e195497fc9fc0dd89cf95dab80a2d0486dab65b
-
-Cheers,
-Angelo
-
-
+thanks,
+greg k-h
 
