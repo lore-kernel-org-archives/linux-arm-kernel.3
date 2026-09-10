@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCC4C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7251AC88E46
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OwnXKbPlC0EX7ZrPELkWw8bkjIsLFao4RIafwH1sQ/Q=; b=RFj/8Zvs0SjYr2NfZn89tlIQ2+
-	zcP4y3fp+h0RPuM04IQUFmhPgnPzV+fr1IWPsQ6ngKJgDe+/xS+ONtVNevs3aAK7ONEDIc/lInoAQ
-	oucpeHxENHSgni0DHLXooe9Xm6Ks+aksLdVV79smqHNKGTgnU7nk3X/VsarjDLOjyZfnWYUMRbPDX
-	EKtQDrPmLlTOIvcLlpfzlW5Ckk+BQ2kO4LYNGSfqdg73dJJke94xVxTFiH8bUyjMHz3UG7qXCdq/G
-	O9Rey3ZtfJAh1pRJlI7aAofz4vc6FztvgNVSxrDbMAu9U49re0nPZLUj80oG9LWNiyhzv5o469h4R
-	3EqhSZIg==;
+	bh=FFQfHQ/Ey+zcqWwgyDNrokZmou/lXSb5l0yXrzrY0EY=; b=KmZX/sy5gFDyxZXkDHHgmMv9OA
+	uwW4M6pYtgA/qEHfhZwABq3NOP6EUzC87xmtE9rnBbYzs4j4E8h/VxTbRDHHgQuyTNGbuH/kswhX2
+	f67pPbta1EU0kDw38d0TypOhkCM4YJS9zGZ/w5zIL6NSzla0G3e2S2oChMO9xB4e9GEfJiaQl9i9B
+	e6Z88732MdelZeE8y/aqHwzQ/bAjuJ6LVF0bB0diX4KxbOeupZ35kNf4+3OwLM1Sov57caKFmdW2g
+	mozPWYbNPjdt+xmNieUBGUE7dg4AcFbkETw0sE808iiIXWzjRNWVq6eIdrRuDybeNOb3AS0KlCp+U
+	9t+aGnKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4l45-0000000FIsp-2hZz;
-	Thu, 10 Sep 2026 20:08:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4l44-0000000FIrH-42oY;
+	Thu, 10 Sep 2026 20:08:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4l43-0000000FIps-2R71;
+	id 1x4l43-0000000FIpy-1p6v;
 	Thu, 10 Sep 2026 20:08:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A16086025B;
+	by sea.source.kernel.org (Postfix) with ESMTP id DD31D44801;
 	Thu, 10 Sep 2026 20:08:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 45D1BC2BCC7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BECF7C2BCFD;
 	Thu, 10 Sep 2026 20:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789070886;
-	bh=/VnniTwnoXBjNPQywRgCjcaFLbM4HVvnjXa4xa8hFgo=;
+	bh=TkgcEqovDSDZTjRFITYc6jyBnY8bUKfb7VvOWvcb4Ig=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kdkRXoGi94iN41xheavB3cTnVsP5efmQfDi1CeB32187VgOG098t/NG35ImCGVxG5
-	 9e53sEwE1sEsL/gurWcWQr9khC52cj9hGQD5BQZnRPuqm5qdv20Fpy/kMRMdMLckew
-	 JiBOM3+NAu9zLLLfVbEwDHx9wqu7jCQrQkQdb50irLeXcMHVM/likMMmpZ+OKmnN/F
-	 1b8SqHhfFBT38bECWijZ7Wc0yAAsIyyE5jo/BmRLtHa9ZxZ1+sIMA/Hz5GldtRGinu
-	 3TcCiQNiPBvSkxKqQ0lIbrj6qtegxtshVKN0PoBPPzK/tiDwnJDMg7CZ20spFCNlwB
-	 LUOP4/QroIo6g==
+	b=cHZQl3BZ4qxr7plSjoyqVajDdC8B4fLAVXBfsCBOCifcPDSsehlPHIFRTMby/G9HO
+	 BXBYEd4qH4r7yHx67j0rVuUEj498eBeKuuj3qC2szP+CepF5mK7GJYXZR177XBqSRg
+	 0ZWmvj6B4CrWJcwL+0Mvr3pGRk2j8d8Z5blNKi8JKyqK8OUqY0va8OVsz7aH56YNd+
+	 FeoQmQR6no4j/uLXb/85uKJuB6E2hAAw5jes1anuZtnIAc/vhiLzXB2mxrKBzgbYiK
+	 OEjXDGbVxyfr5QfoFbQWnvPkjZnbZ3ENcXfJd7XzYMud7SXO/Ddhw9nUVQ9e+5vmXy
+	 aGmXSqHq7J4xQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22262C88E42;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB4C2C88E46;
 	Thu, 10 Sep 2026 20:08:06 +0000 (UTC)
 From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Thu, 10 Sep 2026 22:07:51 +0200
-Subject: [PATCH v5 1/7] dt-bindings: net: add Realtek RTL8125 PCIe Ethernet
+Date: Thu, 10 Sep 2026 22:07:56 +0200
+Subject: [PATCH v5 6/7] arm64: dts: rockchip: describe PCIe RTL8125
+ Ethernet on NanoPi R6C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-1-c1b9e5f10cd6@pardini.net>
+Message-Id: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-6-c1b9e5f10cd6@pardini.net>
 References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net>
 In-Reply-To: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net>
 To: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com, 
@@ -64,17 +65,17 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, Ricardo Pardini <ricardo@pardini.net>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2688;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1602;
  i=ricardo@pardini.net; h=from:subject:message-id;
- bh=UYU35l2Y2GghYNHCV52xHFRYzHVpr2XQI3dZsBGSAww=;
- b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWQt5lOWM3t2ZK3S1tNpTK9OCSe3XHS5U1wTZPzuS818+
- a+61Va8nYz+LAyMHAyWYoosaySUeb6tf3XqjkfHZJhBrEwgU6RFGhiAgIWBLzcxr9RIx0jPVNtQ
- z9BIx0DHmIGLUwCmWluP/X9B3hG25g/5JxiX1P4+8lTgW6R29I4khja+hl+9bGcs9mbklnzJaT0
- 9+0rbq1N7zTK5QrgVFSf8Niit/BK0vCbWWFrn+ZrvyYJMSUn16946pt24wxQ77dGiSSUML4VevH
- kjt8H6UYB3wxYP/RL9BTeenuqP6Hlr7DCr4ICes6jR7ZwgqYnRr+5xG5rbzXIyMKq886HnVvFZT
- ZWtftEKG4R4Vdf/nO3p2HVujtTib3Y7fmY+++xT8N31vDOzh47KjmDv0izD5Tw79D85PFV7dnFL
- I+PFDyWrLd0+9t7xTo6+NWvB1IjpsenX2FsvH4pJemL43nJtUpSxXMXlus6yaPt9ccvMF4gcZZe
- /7LT6OQA=
+ bh=MisAjbBWjrxNVve9XEAprLuxRBoFAEwbTkAxVvkz9Fo=;
+ b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWQt5lORqT659ajnQj3O2X/Ld2hH7/C3emXIetGu1prjx
+ IGDDvOmdzL6szAwcjBYiimyrJFQ5vm2/tWpOx4dk2EGsTKBTJEWaWAAAhYGvtzEvFIjHSM9U21D
+ PUMjHQMdYwYuTgGY6lt17P9M7ZgscsVF8lRstkz1Zxd5e4VVv7Lx19RAd9cjef8uTm9++6PDTUT
+ ptMa0/P0CTSnbXAKCfc3L5m0vN/S+FeEnH/pin2V6n7L3gudM+ss87+t+nXC4oH+bXdrRv+n2ao
+ ZNeUoGbE67GmculChuO8KR0/m9+LjF6u/+AWcdnEQqHvN8fK5jwmMm/fKZ1q7pPR0Xz1lzeV3Ym
+ 3JZyuaow2PtC1dTaif8LeJojvWYXBBdOKViSdHUSdNj0tdxCNhVKudMPbLT4YGK8bv/sfafoo8u
+ Fw82NVtk69m4kzVx8pLLktUM9Wwpk1/9/e29jEEtKcswIs8r9LlCzivrX+tnzubn0zw1u2j5i7/
+ tDmJPAA==
 X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
  fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
 X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
@@ -97,87 +98,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ricardo Pardini <ricardo@pardini.net>
 
-Add a binding for fixed/soldered Realtek RTL8125 PCIe Ethernet
-controller. As a PCIe device, its "pci10ec,8125" compatible is the
-Open Firmware spelling auto-derived from its PCI-SIG vendor/device IDs
-and is already covered by the generic dtschema pci-device.yaml. The
-compatible itself therefore needs no binding to be valid.
+The FriendlyElec NanoPi R6C carries one on-board Realtek RTL8125 NIC
+(the LAN port; WAN uses the on-SoC gmac1 RGMII PHY) behind pcie2x1l1.
 
-A dedicated binding is needed because board DTs describe these
-soldered function nodes in order to attach ethernet-controller
-properties to them: a placeholder local-mac-address that the bootloader
-fills in today, and potentially nvmem-cells, phy-handle, etc. in the
-future. This binding references ethernet-controller.yaml so those
-properties are validated on the RTL8125 PCI function nodes.
+Describe the fixed function node and attach an ethernet1 alias
+(ethernet0 stays mapped to gmac1), so that U-Boot's fdt_fixup_ethernet()
+can inject a mac-address from its eth1addr env, for a stable MAC
+across boots that both U-Boot and the kernel agree on.
 
-Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+The function node is added in this .dts (not the shared
+rk3588s-nanopi-r6.dtsi), since on the R6C the dtsi's second
+RTL8125-capable lane is empty compared to the R6S.
+
 Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 ---
- .../devicetree/bindings/net/realtek,rtl8125.yaml   | 43 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 44 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
-new file mode 100644
-index 0000000000000..eee13fbc1e6a6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
-@@ -0,0 +1,43 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/realtek,rtl8125.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts
+index ccc5e46275176..b142df0b0e180 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dts
+@@ -7,8 +7,29 @@
+ / {
+ 	model = "FriendlyElec NanoPi R6C";
+ 	compatible = "friendlyarm,nanopi-r6c", "rockchip,rk3588s";
 +
-+title: Realtek RTL8125 2.5 Gigabit PCIe Ethernet Controller
-+
-+maintainers:
-+  - Heiner Kallweit <hkallweit1@gmail.com>
-+
-+description:
-+  The Realtek RTL8125 is a 2.5GBASE-T Ethernet controller with a PCIe host
-+  interface.
-+
-+allOf:
-+  - $ref: ethernet-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: pci10ec,8125
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pcie {
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+
-+        ethernet@0,0 {
-+            compatible = "pci10ec,8125";
-+            reg = <0x10000 0 0 0 0>;
-+            local-mac-address = [00 00 00 00 00 00];
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6215fcb077705..f74c559a3fd06 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -134,6 +134,7 @@ M:	Heiner Kallweit <hkallweit1@gmail.com>
- M:	nic_swsd@realtek.com
- L:	netdev@vger.kernel.org
- S:	Maintained
-+F:	Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
- F:	drivers/net/ethernet/realtek/r8169*
++	aliases {
++		ethernet1 = &rtl_eth1;
++	};
+ };
  
- 8250/16?50 (AND CLONE UARTS) SERIAL DRIVER
+ &lan2_led {
+ 	label = "user_led";
+ };
++
++&pcie2x1l1 {
++	/* on-board RTL8125 2.5GbE NIC */
++	pcie@0,0 {
++		reg = <0x300000 0 0 0 0>;
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++		device_type = "pci";
++		bus-range = <0x30 0x3f>;
++
++		rtl_eth1: ethernet@0,0 {
++			compatible = "pci10ec,8125";
++			reg = <0x310000 0 0 0 0>;
++		};
++	};
++};
 
 -- 
 2.55.0
