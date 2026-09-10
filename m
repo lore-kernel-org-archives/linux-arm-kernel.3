@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F3CC79F9F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BA2C88E40
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 19:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6Ski5oShHi724kKberIu2tJzQT3gRoRlWMUMrxLHHQ=; b=rJpKn6VqUd+AjBsF+xgw0/wWD+
-	iqMdGKz4VKmp/2+5QXop4BJ821gue52y5NoUEWEh14aKs8RmI8q9idRIXtToWAMOs/kS3OueaW1De
-	R8Lt3wN9mBhTy2/bfC9/WZq0ILr5ZAH4HfbCbHtsoNP1xXaOU8NLEtjYPWKqFD4N4cj9DSdDuyDZb
-	MMXkkB+cJ6nuglxD7Q4Jp5raJXTP7A3rrwQF3RJs8IvT7GI2IuletqmeWY32BskYTGCgJAHtuupLI
-	6pnack4RU9j5ByVkd/y94QOiu4ZHv8h7VpGfWsCTyDgwxHnJ01FSaeUzDcik87zqEmVewm5knvwZu
-	thK1kgyQ==;
+	bh=HAMHT2wWkahUBzUJa6rU6nxefkvh71WH2CfBhS9jm8Y=; b=N+RbEeuh7OiMr5NrA1YZWWMg0W
+	1ea8ZG8oCQSJ88Dg35aDvSTZ/6vgKqkBCSxPI2seZV2PFDFDbPD8JqnLgbsHp0EN/og9JD8Nyn2Hp
+	XdcQfd1gnSe+ad5Qgrg1iPUH1Fy1qur9s2JVoMaKtdf1klnqrZansicT3bQ4hOdTSA115hiRx+RkD
+	NdRQRCoTPnsdV19/kcz1I82w8/RgP0oZFrdmZ6sDGm7eu0zQyDuybyMimYFKc7GRwYEWCnjhNIo5B
+	2T+enfmbDoRmnSiI7aDtqtgLWrmZmuwvHne1kmV4pf9FlwnUZW7r/VwWBpKDc7+QhNSDn4gFU529k
+	EQqykHlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4k2P-0000000FEAA-3MiA;
+	id 1x4k2P-0000000FE9r-2t2Z;
 	Thu, 10 Sep 2026 19:02:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4k2P-0000000FE9W-0VOB
+	id 1x4k2N-0000000FE92-0RWI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 19:02:21 +0000
+	Thu, 10 Sep 2026 19:02:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72D2060AA4;
-	Thu, 10 Sep 2026 19:02:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A25421F000FF;
+	by tor.source.kernel.org (Postfix) with ESMTP id 871346025B;
 	Thu, 10 Sep 2026 19:02:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9441F1F00893;
+	Thu, 10 Sep 2026 19:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789066940;
-	bh=A6Ski5oShHi724kKberIu2tJzQT3gRoRlWMUMrxLHHQ=;
+	s=k20260515; t=1789066938;
+	bh=HAMHT2wWkahUBzUJa6rU6nxefkvh71WH2CfBhS9jm8Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=awrv2Ar66ekaz9NOUsviWrU1A7CcXwXk+/6xozdaZaOAAcGiFhadkZnxhdDuoDM34
-	 s+rCKLtCAQqZ6DOmpiN71wprjga3f48MSq6d5MdjdD3YoST5UH9miO0WAZ26C89gyh
-	 fuCf4uwS8pSouq/FhOeg6dHcyIuJKpcxQgYxbRorN92fScEg8gWjyuDvWo9Ugm20/e
-	 v7B59Gan7vClS8wLmsCi6DDij1hxg58UsYOoHKFfephK0cEvJSDYS6oLj43OmobNo3
-	 PmiTsK7zmhCycrDBZZeIMORSLm0g6HJaD1dbzW+65dEgk88D3weDOhMajShoSQpTn+
-	 KvDjbeok9ezhA==
+	b=ZcwoTfL4RMRjTGO7KA6R28gf0K1P+d/yc56bHe6U/rEzpBo0nqgj72Y/U3rnuBH/q
+	 bczcN08K3g0bEu1jpYc7TgP3WmGanSODZncfvZafiugwZtVCoSZ4yQ8M6OG6WDIjra
+	 5ZiMu7HoA3ef4UJwx3hs5+AmC3MF3XVS6V1pMOMLvtJC880STJPSNLAjUu0BF4IXlU
+	 RkiM7gFsrLWij4d+EQLAhS6pG6KcbnXmpn7YaLMrFeEPu+ZOi3Vbcemp0BjOosrdwQ
+	 oLfxvr6xPVrc6RAo4vQ77zHIiYtbcQ1ei3GY9GP4aBGfiQjNggW+gO2EUUOj1CRlcd
+	 poOrrjWKgHM3w==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 10 Sep 2026 20:00:41 +0100
-Subject: [PATCH 2/2] kselftest/arm64: Check for -EPERM not -EBUSY in the
- locking test
+Date: Thu, 10 Sep 2026 20:00:40 +0100
+Subject: [PATCH 1/2] arm64: gcs: Return -EPERM not -EBUSY for prctl()
+ locking failures
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-arm64-gcs-lock-eperm-v1-2-d88e51855c9f@kernel.org>
+Message-Id: <20260910-arm64-gcs-lock-eperm-v1-1-d88e51855c9f@kernel.org>
 References: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
 In-Reply-To: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Shuah Khan <shuah@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
+ linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ Bill Roberts <bill.roberts@foss.arm.com>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1071; i=broonie@kernel.org;
- h=from:subject:message-id; bh=qLblgPZW15ywU/QuTyo4vd/prNw7+Tn+C3xZYVdlpxs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqov60kFQTmlVbWbkGI5xS9oIPlfeF2zsG5e+Nb
- x8/8oaAuxyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqL+tAAKCRAk1otyXVSH
- 0KFUB/9HtIQ8tQo/WvM6NKR7U1gCDJ5In9ka3Kf1i4j03qlOTRHXo8jJ0UxzqQtoCOUUt1q9BR7
- Tzei9xC7l3ZXnbes6SiH0fZz1jM4IgemcUX9VmVAG0lNwPMCmMo4ZyISALw4SL8YbSwnS4kpgyJ
- yi21AOTetMRwbyzN9XEEt0Zk6ZeZxvuqlc/7DSid1GeVbIv1p5G54d00UbY6mqhiUSbbtwNbD4I
- paplYyVttspYNHNnGx7knntDVsg0pyhqyhesKgNTxgLLhfwe1d6zTUqmqCIfxRMX1qVFYA6K4mZ
- ajBQ2XbefqVCOmxbi8Ki+enyxJpRarQpWQgEHOHwdJ0bXe2a
+X-Developer-Signature: v=1; a=openpgp-sha256; l=974; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vU9yWrJuoA+cpifhPhPxnwazMEUMYCWdCoBAlgROTGM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqov6z4s5CpPxwkjCGNsVndUvdbbURiX0+IaXam
+ eyAPjZ0U06JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaqL+swAKCRAk1otyXVSH
+ 0EroB/91yMMzQ0TMon3Pl732xM3Ub/Jjv8bnNG6TIpxZ3EjkSAIt52YZPoks3gxbhX6tATUJpga
+ WqPl6o3ZqAlrTV91dfU5nqHvhac+Rm8/+c/KCiN1pe0rfPjqeSJyhmwZw9IOfZMlL3dyVJWniYk
+ dBWXzkFkd5ywOPXA/bAHOg46dXPBD1yYmwXs/VLRY6sTbKWpMlFt8OmmTdGzoqE1KapXISGICT1
+ ldGnOU3vd/eISwbdgdxsP7gO06CfoIKSLvRU3CYcPKBDiXTN58Bo21K03J+bUmfomE3Vdv2Ydyz
+ NNekdVwinLO4LpCgyl14Y5MxzOl2KZK3woM6wTb/JR6RTl4R
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,36 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The API has been updated to return the more permissive -EPERM rather
-than -EBUSY, update the selftest to reflect this.
+When we refuse to perform a GCS configuration change due to locking we
+currently return -EBUSY which is an odd error code to return.  While the
+selftest does currently check for this it is unlikely that we have any
+practical users relying on the behaviour at this point so let's change
+to return the more descriptive -EPERM instead like other architectures.
 
+Reported-by: Bill Roberts <bill.roberts@foss.arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/gcs/gcs-locking.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/gcs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-locking.c b/tools/testing/selftests/arm64/gcs/gcs-locking.c
-index 1e6abb136ffd..f780f0c7b8dd 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-locking.c
-+++ b/tools/testing/selftests/arm64/gcs/gcs-locking.c
-@@ -115,7 +115,7 @@ TEST_F(valid_modes, enable_lock_disable)
- 	ASSERT_EQ(ret, 0);
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 8fa0707069e8..bbc22e382cfe 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -76,7 +76,7 @@ static inline int gcs_check_locked(struct task_struct *task,
+ 	new_val &= task->thread.gcs_el0_locked;
  
- 	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0);
--	ASSERT_EQ(ret, -EBUSY);
-+	ASSERT_EQ(ret, -EPERM);
+ 	if (cur_val != new_val)
+-		return -EBUSY;
++		return -EPERM;
  
- 	_exit(0);
+ 	return 0;
  }
-@@ -131,7 +131,7 @@ TEST_F(valid_modes, lock_enable)
- 
- 	ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
- 			  variant->mode);
--	ASSERT_EQ(ret, -EBUSY);
-+	ASSERT_EQ(ret, -EPERM);
- 
- 	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
- 	ASSERT_EQ(ret, 0);
 
 -- 
 2.47.3
