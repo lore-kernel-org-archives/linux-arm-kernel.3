@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BF6C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrkfOSxLddbUOfL7Xbg9jSW10/8qwrLgWoRjxVeerfg=; b=y6b2NCB+aGZMMBYXIvQAcN0CFV
-	p05LtSViOWan+PdY4rgGx+ya5hvZra74l0ZpqF+e5i30Fz3vqus+3Qdm7z96bUwdKgGpxcrYAmD3x
-	KYb3R0FnsIHx8F0MHedV8Mlwe2yBVzaBFNwhyPzKA++wjawR0gl+ZV8+HR8gMOi7r6AU+tKNYr97R
-	AnTDREQOug0r3NKHlPL93MliitD+1JPLNDNEvW5HJRnt3T7B9gQsM1K8WGwkSZQdbbzCG8TWVuqLM
-	LD3kkFjMBiQiIHMkgh8qCdy1/6gXfbe4zF+uJ5H6y9oC4j6NungxGWBFs99IxTcDvt5iJ6iXDfnNL
-	KblyVGkg==;
+	bh=tLiTrkBEtyzQyZ+38aToH0yy/G9IJIyyAE5EniGunF4=; b=r36fUM+9v93sgOVji4ayEw4KwE
+	+ezpml9G0xrY6ZrLWfS663lH68hBYTuz+HcCQD5NKxQBlHC3o0Tt8jvONkf9XLxl365jrcsEphTZq
+	CpjWYvxiHNkOjmZyii+rxTACZQ1oABNk3yu+bM0ceq5pBuU3La7aq12szzE1h2Y7gOpyVekEnxxNq
+	lVyZ4UJPPon7lqusxQ/mjas05kWSoknEIpy1CK58k6HW6j4k07fqDyk/nCtBPjEttwqwf1v+V9oO2
+	Tz7y6ZruTOIL55Bihk+Bc4RSN6Ax+FRNKCvMm2ndSc94vdRNBNUGfbEopXpFpubfqllGO5hB5UEYz
+	JkoTMddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aUu-0000000Dnag-3ENE;
-	Thu, 10 Sep 2026 08:51:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4aWZ-0000000Dnsn-0Cx6;
+	Thu, 10 Sep 2026 08:52:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aUu-0000000DnaS-0Qph
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 08:51:08 +0000
+	id 1x4aWY-0000000Dnsd-1NKw;
+	Thu, 10 Sep 2026 08:52:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A008343DE9;
-	Thu, 10 Sep 2026 08:51:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EA5C1F000FF;
-	Thu, 10 Sep 2026 08:51:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B867C400A8;
+	Thu, 10 Sep 2026 08:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E4081F000FF;
+	Thu, 10 Sep 2026 08:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789030267;
-	bh=rrkfOSxLddbUOfL7Xbg9jSW10/8qwrLgWoRjxVeerfg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=E911ouiRnshT0fokrv1wwThNADwZuO2rPqVJ1hyoIxweNQqRAZhFdHEnCV/Tlzgmx
-	 /sQi3zDFo2Lf36ml3fujjZITB+9yXQZgV3xPJFiFfwSnIxw0k0P5mVRd36A+zQifsj
-	 Z+k2IO26sE5BW3MDxkX1tfKqScUkQzMf15J+3Rb9VytLDDnrUSN1eFiXuiiOlVyB0/
-	 g6GdW833z3eLuK/jqHSQqyQnmtC54vxJ0YS23I9CEYgwpJBfhTUNIbRoTXuKL+M9rM
-	 dLuPeTjjaM4DVV3hsY6lCypzQVn+si3xmNGjWD7reOW4i45CbDjt8uHKuGk8uwhNB7
-	 KTzJx+GgUBytA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 569A0380CEDF;
-	Thu, 10 Sep 2026 08:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1789030369;
+	bh=tLiTrkBEtyzQyZ+38aToH0yy/G9IJIyyAE5EniGunF4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=PqgNvKtaZx1jLV0SiljzoiZoUlzyRmiENK+lVU7ul3+izJaEGjhIx5jqtdaFCfiWp
+	 Fo0LhGZKY5YFfQ5aqwyV5MWtHsuywAnOxHaoRdaYrmBOpkd3Aq4auX90K+1NMi6tcf
+	 d72lq157Razf0KfaLWqiUOT4NndYfwP1dW1QvollBP+wkpna6miya3lEfvWkanyNHg
+	 LCTw/rmscstPJg0KN+4PAu1xHxh1co42SWkD0yBm2gG6lq9ppY0ofJu3mR/VMXiytt
+	 jA4WlEJV2kBR1v6hns+U0s2kDzCO9J8h+62tuU8gUjLFFD54ftheBI3ZGnXZmI651q
+	 SV2ZKKoK+UhPA==
+From: matthias.bgg@kernel.org
+To: kmehltretter@gmail.com
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rex-BC Chen <rex-bc.chen@mediatek.com>,
+	linux-clk@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Matthias Brugger <matthis.bgg@gmail.com>
+Subject: Re: clk: mediatek: reset: Fix device registration kernel-doc
+Date: Thu, 10 Sep 2026 10:52:27 +0200
+Message-ID: <20260910085227.45992-1-matthias.bgg@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260910033000.15926-1-kmehltretter@gmail.com>
+References: 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/5] net: stmmac: Add common RGMII delay
- handling and DP1000 support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178903020504.1290091.17816102096772468224.git-patchwork-notify@kernel.org>
-Date: Thu, 10 Sep 2026 08:50:05 +0000
-References: <20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com>
-In-Reply-To: <20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- peppe.cavallaro@st.com, joabreu@synopsys.com, chen.wang@linux.dev,
- inochiama@gmail.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, sophgo@lists.linux.dev,
- conor.dooley@microchip.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Mon, 07 Sep 2026 15:46:49 +0800 you wrote:
-> The UltraRISC DP1000 integrates a Synopsys DesignWare GMAC from the 5.20
-> series with fixed internal delays on both TX and RX RGMII clock paths.
+> The comment for mtk_register_reset_controller_with_dev() names the
+> older helper and documents np rather than dev. The new helper takes
+> a struct device and obtains its device node internally.
 > 
-> For boards without PCB delays, "rgmii-id" describes the link. Passing this
-> mode unchanged to the PHY would enable another pair of delays and break
-> RGMII timing.
+> Use the actual function and parameter names and clarify that failures
+> return negative error codes.
 > 
-> [...]
+> Fixes: 761bc64003e3 ("clk: mediatek: reset: Add new register reset function with device")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-Here is the summary with links:
-  - [net-next,v2,1/5] net: stmmac: Add common internal RGMII delay handling
-    https://git.kernel.org/netdev/net-next/c/cc54f9667188
-  - [net-next,v2,2/5] net: stmmac: sophgo: Use common RGMII delay handling
-    https://git.kernel.org/netdev/net-next/c/7d1cbb9ba933
-  - [net-next,v2,3/5] net: stmmac: eic7700: Use common RGMII delay handling
-    https://git.kernel.org/netdev/net-next/c/345d78e30980
-  - [net-next,v2,4/5] dt-bindings: net: Add UltraRISC DP1000 GMAC
-    https://git.kernel.org/netdev/net-next/c/8dbfb46c233a
-  - [net-next,v2,5/5] net: stmmac: Add UltraRISC DP1000 GMAC support
-    https://git.kernel.org/netdev/net-next/c/c6ff098cb63a
+Reviewed-by: Matthias Brugger <matthis.bgg@gmail.com>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+> ---
+>  drivers/clk/mediatek/reset.h | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> 
+> base-commit: 50d05c7c76c96b90462f24debacca971d2e86713
+> diff --git a/drivers/clk/mediatek/reset.h b/drivers/clk/mediatek/reset.h
+> index 562ffd290a22..b09cdcab0c4b 100644
+> --- a/drivers/clk/mediatek/reset.h
+> +++ b/drivers/clk/mediatek/reset.h
+> @@ -60,11 +60,11 @@ struct mtk_clk_rst_data {
+>  };
+>  
+>  /**
+> - * mtk_register_reset_controller - Register mediatek clock reset controller with device
+> - * @np: Pointer to device.
+> + * mtk_register_reset_controller_with_dev - Register a MediaTek reset controller
+> + * @dev: Device used to manage the reset controller resources.
+>   * @desc: Constant pointer to description of clock reset.
+>   *
+> - * Return: 0 on success and errorno otherwise.
+> + * Return: 0 on success, negative errno otherwise.
+>   */
+>  int mtk_register_reset_controller_with_dev(struct device *dev,
+>  					   const struct mtk_clk_rst_desc *desc);
+> 
 
