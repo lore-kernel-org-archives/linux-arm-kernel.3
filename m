@@ -4,117 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932CCC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E746FC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=; b=GCk/5t8XTI84+d4jHUt9JH/gHC
-	w9cZg5pZ52uwRi9GF8YweeQHMaIUeXNAI+f1WqFFKByKUXA35frym7ghNHe65mX07i2JTkgONaTJC
-	9Fw0Ig2Bg3N7CDTqiS3cWv6Itdtj05rK6qYw3VLd2kX6iOqZE1ZgwG2vvpr4EBEVzbyWu6+eUwt/J
-	F47MG5KGayFfklHk4nHTzvnYifnVYoJmW+sflydTROsg4o5i9dBq/81G8YbVtKYmIJvLDarQrTYMG
-	rdcmlCGDam7T+qKgfUDgCmSJfXL/0pely5yPwd45SAu2Tb9P5WvWs1K3DlfnzxmUpQgH7wgaiWrM1
-	p760+hbA==;
+	bh=hSvkvCa4QalyG2BNxJcMEEX0DpoCO16400N3JfxMgjQ=; b=wHd6GfrsZQWUJpwUXpRolSqoly
+	54Kj+rsrUrD+4dEzEJUdFi5LeA+7oB9NcfdNy/Zu+YMD7zwvQfw19O2hm26G6A+3GQT2E3obrqrbj
+	sjzzgmN0F2TnwF/pXVgZwJdF+GTXgEXQGD005Nto++6v6tKTQXx09h2Meha27fummV5HhSR58c/v/
+	ycBAyUb5Z4mYfkn8fsjmp2apOS/K0SixR+/CVp/5sACTW6sZBnG73wEm/hHa5BNHrVcdwEMZQqgk4
+	pn0Cjju+IVFnOd1uw46rBwFxuSGaoaXFrph2nR1XZpgHp9nLgTcOLGogwZLRNMhq/iVVW7rniOVif
+	toqphwIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZUf-0000000DfFe-2JKM;
-	Thu, 10 Sep 2026 07:46:49 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x4ZZm-0000000DfeX-13EB;
+	Thu, 10 Sep 2026 07:52:06 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZUd-0000000DfF4-0VRn
+	id 1x4ZZj-0000000Dfdp-0u5s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 07:46:48 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843971bdd0so744125f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 00:46:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789026405; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YZbHZXGAPPFDkXPj9/U+W55Zfz5zLZIq4q+6XddCPEswWiaHVCFY3QtfNLKRp2Va2n
-         3cD0WpX+Xp+aOkSF0egzmBKo5HqQzlPc0D8/cKe3Z8dtXHZWR4Jhr5iTnrNT+iJTkBnX
-         2s9OrXxLKE3J1eEcIG/h4twMG/EjqkAKiz2ocH33MggDm9mIXOgSQGh6yboyOntH+p5I
-         MaQgedsFFEm22s+essMkruUD+RTSowbn26orAyoDeiMO8dWNDKmsv6yUnd01GgZhDZqe
-         0UvLJ29qODVOcvC1FwcVkViZv3Pxwgk6Np09W6ky1XVdDHCBB/+RxkRS6wys35nM6bfu
-         eqDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
-        fh=9g4asAUY17gzJUhSzrfTj3yzL/NFZ0b+SUZKMAzb4Q0=;
-        b=MtsU1LJR9QKT6gxn++huHmKCee363KgoS+XIe8A4CJ/8iR/g3o7yMO0BRF6EldQeg7
-         lHQObWhb33BFOOxM0//lbEHei2gCS2klbD4Knsui1qSuq4CQRBjV0+Oaf7K8LzAatJA3
-         ddicCCun2DntBdjA5bF5I9J0uxBEGF+QzKiae9k/qCj5ERujLEp5LgaD11zSvcQgNI6Y
-         rDAmoPnSp5i1lf2PRXYdXWGnfH6sXzeudYgEHqnXPxiCm9WIAUGi6AsmAqlMCIm+X/BN
-         /z4G7klrjA6kVuODI2rvbGHYvLKtsXkr4ir8yllDfnxSv72geLqnR42omRDzaGvmpDOE
-         2a3A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 10 Sep 2026 07:52:04 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b93204449so3706055e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 00:52:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789026405; x=1789631205; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
-        b=QN6JZXyC+GWeZywqAqotpsWIOdpkcKI/oC41AVbOkq58Ae0ey/euadE0tFuAx0V9Lq
-         1V4VvAurfb0TuaBAoGUi6TCmFwIvdcNzzUK01SsPIFqg8ZODYHveQL2qs/lmW5e6tc2a
-         TpXrEChcM8FIKeAxneqgSMxMsZFmjOjT/dYdWTsswVea9HJfu08Yf/FNFSy9nnsh57Vh
-         5oI1tv6dzK4H7I519tzAT5e5Hr7Vq7BO+t9/7Zn2D67n19w0c0D4AiZfhooBbgozdKy6
-         W6AM1HLqmc7nrjZR9d8o2xfpQZYOYQzBNkUQSPzPnIr6zJGD4RbuPg3HrZs4ZqJ6LhWw
-         vzWA==
+        d=gmail.com; s=20251104; t=1789026721; x=1789631521; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hSvkvCa4QalyG2BNxJcMEEX0DpoCO16400N3JfxMgjQ=;
+        b=XJBhFjNsA5qSo4zv+BpWRnNM+lrhAu4xNi+vWeW7uEQWWUdhfMyzgPjGQDQjn8LEso
+         JE8lO8YaOFCkxbt3eFNggsuQk2Vge9qwDkUseY3V8zxMB72RDB41OdvaFq65ENNPBriR
+         cdUQkT5P2ZU9z6uL1ZzL44VDO/36GtaZxTGj5p49G5mNrshfpG65p5jZlxdN4C0dX9r/
+         j3gHBjh5DXe/hbdOiiG7KavD4fy+pb1/JMhhNsesn1c+O7MODCUaVOJ7sOEoQeCS2pol
+         prI6yFZhvzDddIQpP504N3+If777Q81fJxOxmaqASRUedlVIquYCiEhY+0jsy5PMio6i
+         a/bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789026405; x=1789631205;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
-        b=Z4M8+DnXVHS8me8Ka0HCffep5rlxo5VnQqb8ZY0yPtounVsIJzLaM/kgFICaOrazSy
-         0J7zI2EEY7B025YHIdOirb2ICv64c/koSFH8RjoKcYTQmknmtaLHkqc+oJ6EgAz+wRWg
-         i2JBWhVDgJ2hsgBYP2MfSKrzf9bA+0c55mUXTbcGXs1ZFLGfm3mOVbg7hWCW5DixTnzU
-         ndMZCJ6VDRyDivigIHeEZSKk7aAQoJPG5/f2l3ykiNMs8RKYdJB5/796e26LM/syyYuc
-         Gi72xSTVuXsmJ3taTQf7rrxgGgWxTQfSIoYuNjC5jRDSpyaJpgEbgDKmRI41yCHtdron
-         J7cA==
-X-Forwarded-Encrypted: i=1; AKwUvBz8SHAAj8kFmOqKeynfSSUMuPnEwHH4fJJcfwh+0LubQjXp82eoSxCm0Y9mVMIePBqkb4EsQZzSkk6+pLGYXEMi@lists.infradead.org
-X-Gm-Message-State: AFuF++kD82F843QIeEI6+s5pOdChbBgxFnpXlDNxfU8ktlDiNza6GWTf
-	RVYW8svkGevuYAl+Aj31LWvPz4I8hGp80RSQX3pSAIpDFAIN132VVLNGY+fSIxmf7FuBkdA2y6E
-	V0HrTStrq3IS416aAJgLBR8VMhGRNOkI=
-X-Gm-Gg: AYBFou33BSpofZ3oiMeGteU8zMJybdq2WLhRU2wpmYvcbG5KU9X613YjBr5Q+N8vDtX
-	Ey+s1FppyErBf+04K/UuZwE8CnehEFNaEa9wPyMRyB0Ac/EjF5DdbOjKrS4K65iIPCQ/mIzoV8P
-	fYaXyqRSxZqPMDZ3zSg6mpzB6+jeleHqV2TYScGtrZZweeGfPqDTKj+AJfkqZ85GAQBkfpWPMfi
-	fYHtUNgN+XBd5vo/Km9cVguxqNob1RlP9rPQp9Ksx0y/oOAuSkdLHnbMCjOd03czjmiTGWe9naP
-	+iRInzx0n46R5YZEMTwR37esc1hyAqDo0YABN6x5b2ip5hR+p/dNU9TQJUH0SBbIfBafVBkLrTn
-	8E3ygVBIKaWww7iaaAf1QhXZZ9N4vY97HijrVldBRrilGEEZ6Uug=
-X-Received: by 2002:a05:6000:2f86:b0:485:82f7:9053 with SMTP id
- ffacd0b85a97d-486d0de1a6amr3798843f8f.1.1789026404909; Thu, 10 Sep 2026
- 00:46:44 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1789026721; x=1789631521;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hSvkvCa4QalyG2BNxJcMEEX0DpoCO16400N3JfxMgjQ=;
+        b=JTZKGAQEPpQL4I/Ayt3YwXjtiZq8ZRKcP2TyQxh6bM5AGiOwl7nUpCypXjwiY3w0fO
+         MXDSFYTDFxFI7QQvn8tz/0dnpomC/EI8heuRd84cy/cD4QjiYP0bBdmMCMXuyiOvPinb
+         YXBx/U31qeTaJ/pUB7uuEBfuRaCDw1L6AG0rE/i8dA8myixuSA6/CTmn5KzYxn8u/eJl
+         unV5iSRiO4wmS1oSgWQUlXjdOvbZBDTobvDVLeYpbH0sfzFpp8R0o9ff615hDSet2uFS
+         7sLppKnogwvtkhN1pwQ+C6kSGhTrT0ebx9HdhdZvHK7yRsTftN48Up6EmBvrxjH+tIIQ
+         GS1g==
+X-Forwarded-Encrypted: i=1; AKwUvBxLe3mOEEQ8Dqx9j7VvuEx91MIbysF8cUxII4ZHsp59RD14XHkWd9RMEZ10JHffQSuYiUtyDUcaRnZrcqjiwUzm@lists.infradead.org
+X-Gm-Message-State: AFuF++l0uxTGPG3e60mifu2xTDy7S53kHBP1gQjesl06B/gBUUT2gwOo
+	T8ll8JAzVx3S+wJ3L4mufPoz8Xav60jnZgNSBsfPB1f8KnAvg9mTOXHL
+X-Gm-Gg: AYBFou35qqyhzShoGBC2lISeKS4IpYSZH4r81fmxWgFtNGldjyuzqiHvspVyy1rzlfN
+	AFlcoakd+bBgtmZ81RE5xOPnyxwzH40ZkFU8ABU4EgDHx2oXAy852Qo53Zy2zFQ7p3kLBvEVat0
+	33PBzV8el0ZCjZo3vvcafx0Ecuw3dqeol/mk9kKLvS37sCkCgzamE+mCxZhiamGweQI7GiXWXo2
+	XVNzmMePy6bupt+xr4nBDCxECiKvQYskpLaj5Aq+Nkk3hV+seowikcMNcbtQxZl8ZSW6F8ChWM3
+	eSNlAfcMav97NvGqVG2m4Kis+gxFnlfUm/umDvuiZbqs8iKBsfp5BkSAI66FG2wkF3H5AzEFOax
+	o+f8jNzLplFhFGDR9AFdZWZxRK5KmNhKw5LYSWV2y/6DG0dZV7dOUVYSrUUK7oKkWHyznazl+i8
+	WtdgCVpPH3LgAUefYH84PeCK4jqyjoShngaQn2SASvEBhjkXnxC7muPaMiDbfUoFuGEyEuAhsAF
+	01hamzL78KWGQf0as/Y2T1z2bNPzQ8xf/JkAwP32aC6j4ZaRCk84BSyeVeNa2bq2RPcojc+NBmW
+	OajE
+X-Received: by 2002:a05:600c:530d:b0:49c:e363:c66e with SMTP id 5b1f17b1804b1-49d01dce86fmr291744635e9.1.1789026720937;
+        Thu, 10 Sep 2026 00:52:00 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B9146001C92980EE71198AB.dsl.pool.telekom.hu. [2001:4c4e:1b91:4600:1c92:980e:e711:98ab])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20fce7a7sm251593715e9.4.2026.09.10.00.51.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 00:52:00 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Maxime Ripard <mripard@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Ville Syrjala <ville.syrjala@linux.intel.com>,
+	Imre Deak <imre.deak@intel.com>,
+	Ankit Nautiyal <ankit.k.nautiyal@intel.com>
+Subject: Re: [PATCH v2 3/3] drm/rockchip: dw_dp: Attach "max bpc" connector property
+Date: Thu, 10 Sep 2026 09:51:40 +0200
+Message-ID: <20260910075141.48803-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <9e77b5c5-f1d9-484b-ae02-846fae1b3642@rock-chips.com>
+References: <9e77b5c5-f1d9-484b-ae02-846fae1b3642@rock-chips.com>
 MIME-Version: 1.0
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
- <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
- <d3723be0-46f4-4025-b526-e1bb3cc2cad6@kernel.org> <CA+qSx6x2-Md9uVZo+HV0z5CfmGPDzhL482eJNnM2VYVtn_e72w@mail.gmail.com>
- <aqJbFXjU53_D7SoP@kernel.org> <401e3beb-e2c5-4241-831c-005ccfb22e34@kernel.org>
-In-Reply-To: <401e3beb-e2c5-4241-831c-005ccfb22e34@kernel.org>
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Date: Thu, 10 Sep 2026 15:46:32 +0800
-X-Gm-Features: AcwNN1XRAKyh-nKS165ym6trfmmgm5ZhN281YBrKACOabVg8q_Fxhd9PqW2nK2s
-Message-ID: <CA+qSx6yZ4R5_n0PvYMvt-vU7CfsM3YEjHxvBz+N4ann=+BQzdw@mail.gmail.com>
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org, ljs@kernel.org, 
-	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com, 
-	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
-	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com, 
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_004647_178094_E8552FF4 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260910_005203_291288_E16E1A63 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,39 +128,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 3:33=E2=80=AFPM David Hildenbrand (Arm)
-<david@kernel.org> wrote:
->
-> On 9/10/26 09:24, Mike Rapoport wrote:
-> > On Thu, Sep 10, 2026 at 02:22:25PM +0800, Xueyuan Chen wrote:
-> >> On Wed, Sep 9, 2026 at 11:18=E2=80=AFPM David Hildenbrand (Arm)
-> >> <david@kernel.org> wrote:
-> >>>
-> >>>
-> >>> I think getting something consistent for now is the most important th=
-ing. :)
-> >>>
-> >> Hi David,
-> >>
-> >> OK, I'll move the highmem check into set_direct_map_ro().
-> >
-> > Consistent means leaving highmem check in the caller ...
-> >
-> >> Should I also update the x86 set_direct_map_invalid_noflush() and
-> >> set_direct_map_default_noflush() helpers in this series to skip
-> >> highmem pages?
-> >
-> > ... or checking it in all set_direct_map functions.
-> >
-> > I'd keep the check in huge_zero_init() in this patchset.
->
-> Agreed!
->
+Hi Chaoyi,
 
-OK, I'll keep the check in huge_zero_init() in this patchset.
-
-> --
-> Cheers,
+On 9/10/26 09:16, Chaoyi Chen wrote:
+> I don't think this is the correct way to go.
 >
-> David
+> I believe max_bpc should be handled in drm_bridge_connector_init().
+> Take a look at its implementation. HDMI already does max_bpc there,
+> so DP should probably do something similar.
+
+Agreed - that is the question I left open in my reply to the bot. v3
+moves it into drm_bridge_connector_init() and drops this glue patch.
+
+Three points I would rather ask than guess, since it is shared code:
+
+1. How the bridge advertises it. drm_bridge.max_bpc is documented as
+   "only relevant if DRM_BRIDGE_OP_HDMI is set" and the helper only
+   reads it inside the OP_HDMI block. I intend to honour it on the
+   non-HDMI path too, relax that doc sentence, and have dw-dp set
+   bridge->max_bpc = 10. If you prefer to keep the field HDMI-only,
+   a separate field is easy - I just did not want to add one unasked.
+
+2. The range. HDMI attaches 8..max_bpc. dw-dp's format table goes down
+   to 6 bpc RGB and i915 attaches 6..N on its DP connectors, so I intend
+   6..max_bpc when connector_type is DisplayPort, 8..max_bpc otherwise -
+   the same gate Dmitry used for the DP subconnector property in his
+   msm series [1]. Nothing is attached unless a bridge declared
+   max_bpc, so existing non-HDMI bridge connectors are unchanged.
+
+3. Where the default lives. 2/3 restores max_requested_bpc from
+   connector->max_bpc after drm_mode_config_reset(), but Cristian's
+   v11 71/74 removes that field [2] (HDMI keeps it in hdmi.funcs). I
+   intend to keep the value in struct drm_bridge_connector and restore
+   it from there in drm_bridge_connector_create_state(), which folds
+   2/3 into the same patch. 1/3 is unaffected.
+
+The state still has to exist before the property is attached, so the
+non-HDMI path gets the same create-state block drmm_connector_hdmi_init()
+has. If you would rather see that block factored into a helper for both
+callers, say so and I will do that instead.
+
+[1] https://lore.kernel.org/all/20260722-drm-msm-display-interface-v1-24-368c10fe62fd@oss.qualcomm.com/
+[2] https://lore.kernel.org/all/20260901-dw-hdmi-qp-scramb-v11-71-bc12954a0688@collabora.com/
+
+Thanks,
+Igor
 
