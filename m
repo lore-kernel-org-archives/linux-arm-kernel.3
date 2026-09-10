@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81386C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51C2C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=az0kiZ6Vkg/DvTV9UcQQ1SWFv3DTv1KIes24E9gOO0Y=; b=EoHKQ2GAfNUhSAAEZUgVB4kDsp
-	tgoNyOcRU4OBTmlKB0ORJckDsZA21vzbk++4l77M3xkfP5COE87haPe8W+6s+wbM+GGtmGdLwu2o5
-	chxUhuemUmDX80+ClLpqBlM9hPc5ztbB//HSic2cSaEmcK1iP3rt2xqYm9+MBLNo6o67fM7VpYwUx
-	Tu/Hjj//9+wvJ8k5Zohiq5RRE5UjJeHOg2WNcO7Py3jQGeUifzsrlkWjklx2Ix9Tc809z2JKQauuD
-	84WBfJwUro2Nqm6brYngzFsnKxfe0i/0PULvLJIq2TIW2S3AAc9GeBcp6QO1DDGVmcHv0n5RpQG0p
-	dAAByefA==;
+	bh=EZGyD4HcrjDRUcR2xnLZUcoNWJUpQvPh9c9ez8Kckcc=; b=Btj2fo7BSKvuluvSxmOXXTFEDk
+	t5peomha/Ct8CVhAGITC5tPU0sh8hzrrmoyrdQVCK84FIryhhncCo7kr7xoGtY1Rm1UkXSO5jCnpj
+	UDWDcgY3Z3lJAdb2rRdaO4W8oALdsmGFzdUKF9UyZyIbcIWDiKoOWYJCQfyNAAHrc9dV+LI6jtWhD
+	mcQXv8B8Xg43n43MVgnEHnsmRrgbYHQLFIQVBcXglwy/Q7M98jDSw7K42CkHFSBYdpQR9s2G/uJlp
+	MP/a5WgJJMYm/CzzOpw1uFpnfn4BdIzD5JBfi2OSW8kNIPD2hhOo9crjv2a4ScXRtOx7Ndo6FFQjL
+	GBd2LuWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aF7-0000000DlGz-1MS4;
-	Thu, 10 Sep 2026 08:34:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4aID-0000000DliO-0qkA;
+	Thu, 10 Sep 2026 08:38:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aF6-0000000DlGY-1nrY;
-	Thu, 10 Sep 2026 08:34:48 +0000
+	id 1x4aIB-0000000Dlhz-2JZD;
+	Thu, 10 Sep 2026 08:37:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D5F10600D4;
-	Thu, 10 Sep 2026 08:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BA041F000FF;
-	Thu, 10 Sep 2026 08:34:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FC2E4335C;
+	Thu, 10 Sep 2026 08:37:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C261F000FF;
+	Thu, 10 Sep 2026 08:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789029287;
-	bh=az0kiZ6Vkg/DvTV9UcQQ1SWFv3DTv1KIes24E9gOO0Y=;
+	s=k20260515; t=1789029478;
+	bh=EZGyD4HcrjDRUcR2xnLZUcoNWJUpQvPh9c9ez8Kckcc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EC+u8d71j2WycnMf8Rx/Q+VbqSCS2snfakFw7Cm7u1f/m9J/4f4/CihF4SEm129Te
-	 GsZmSY8hs2YqP3NDSZ6eq++rS8Ozr8UFNxDeaXWL+y5Un/mkNlEhL7bNu4/FSwxbnC
-	 AaV8kLEdS8ZiMcRlHDMrdIFTvu03KkrI8jlDGA5LsaOu5VMBnBxOSpFHiiigBiCaR6
-	 K/ngYO1NKF+oOSzx1pup3Pu3kFmELfMeSRcrHjE3NEix62oVqfQHdXaeqO07YxnXIB
-	 6jQmir41XTMnu8+XQGTg87PJZVoFZDHDVBGU3GMhUcLcKHK5DzZwebu0JDarbK+pFh
-	 BYln0KM2aPhLw==
-Date: Thu, 10 Sep 2026 10:34:43 +0200
+	b=dqDayxOBxh7RZhoahGQfIr5nqGXH1m09RD+JiuwnolPYrMt+KHGlvS9sqRNJrXINB
+	 AQ2AARvY1wPptsSFIQ4l/Mp6QDdD4MsSgiKeO5MuXqRMSmSZTY5eIt/faPDLK8jtQA
+	 KGAn403hcc0XarQhKfmXw5n5QfIxqO1LREKhekOND+u4NjMteJlota8eMUE+bPD6bO
+	 9SM8b6qVaEhkHHeZxrpmGfP/uTOBj4hTNR6CSPKaatn7SIg23PURpI/HPDRlt5yOP7
+	 8VS2JFKZEcCb/Wgds0zeLjWin3qqBM+h7QUWvcJlWtu3taZkeWKWkCu26ah+Pz81Lo
+	 LVrIAcdhmb+oQ==
+Date: Thu, 10 Sep 2026 10:37:55 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -66,16 +66,16 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, 
 	Marek Szyprowski <m.szyprowski@samsung.com>, Maud Spierings <maud_spierings@murena.io>, 
 	Graham Markall <hello@big-grey.co.uk>, Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v3 06/19] dt-bindings: display: verisilicon: Add
- starfive,jh7110-dc8200
-Message-ID: <20260910-amorphous-vigilant-jaybird-d65c4f@quoll>
+Subject: Re: [PATCH v3 18/19] riscv: dts: starfive: jh7110: Update DT for
+ display subsystem
+Message-ID: <20260910-determined-fantastic-seriema-3ff701@quoll>
 References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
- <CGME20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee@eucas1p1.samsung.com>
- <20260904-jh7110-clean-send-v3-6-484f9ae72715@samsung.com>
+ <CGME20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab@eucas1p1.samsung.com>
+ <20260904-jh7110-clean-send-v3-18-484f9ae72715@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260904-jh7110-clean-send-v3-6-484f9ae72715@samsung.com>
+In-Reply-To: <20260904-jh7110-clean-send-v3-18-484f9ae72715@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,18 +90,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 03:27:07PM +0200, Michal Wilczynski wrote:
-> The JH7110 embeds a DC8200. The binding requires an SoC specific
-> compatible ahead of the generic one, so add the JH7110 to the enum.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
->  1 file changed, 1 insertion(+)
+On Fri, Sep 04, 2026 at 03:27:19PM +0200, Michal Wilczynski wrote:
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 9c3e4598747eb5541effe697044484715569a285..0f981f4c89586269b987be8591037c9461e04703 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -290,12 +290,6 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
+>  		#clock-cells = <0>;
+>  	};
+>  
+> -	hdmitx0_pixelclk: hdmitx0-pixel-clock {
+> -		compatible = "fixed-clock";
+> -		clock-output-names = "hdmitx0_pixelclk";
+> -		#clock-cells = <0>;
+> -	};
+> -
+>  	i2srx_bclk_ext: i2srx-bclk-ext-clock {
+>  		compatible = "fixed-clock";
+>  		clock-output-names = "i2srx_bclk_ext";
+> @@ -352,6 +346,13 @@ tdm_ext: tdm-ext-clock {
+>  		#clock-cells = <0>;
+>  	};
+>  
+> +	xin24m: xin24m {
 
-And this one must be before patch #5 or switch in your patch #5 to
-compatibles-style for children, instead of $ref (see some recent
-display/msm/*mdss* bindings like sm8750).
+Other clocks are called foo-clock, so follow this as well (even though
+it does not follow recommended practice of clock-foo, but at least some
+consistency).
 
 Best regards,
 Krzysztof
