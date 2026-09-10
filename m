@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7F2C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C265C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0k/HI/bcvlOdY3uUk2PaTWHvR+HLRCqNH8Ek21Htnw=; b=wHWUE2pk/JrB8Rlao7+J4VulHv
-	TmI8rFcayFNoV3A44yASVx0mIypNnU829ZHUpBXr6E8eiVgTVg5WKnXFG3fl5JDL3NG3HxuVg0hV9
-	Ot87QoPjIv9ZV8NH91hZO147OjdHpEKL2sCORkJ51CHLarLh7AYfwd+OBF6Jq/eUiM8d96MZ+Fn1d
-	PbEeF8tPbJ/z3qeFnGZ/ZQZ1jIBq3CqqCAhWkyUV5kNXxvTDlTb3bSyet2BqkHDZBGuIEdJKEeX3O
-	HunKfi5Pu8tgFOqbfjxmd0um8H1OFZBM+FOqfedqJKx2Z51hgs+sJXZUJypCz1JMLB+OdiWRtP52k
-	R2l3/Ctg==;
+	bh=vy0obgvg0nf8qGQKnYvGOGI82XsQ6j8jix882VNn/Nc=; b=xkTHeaqRklxw86hhI7VNUslyEE
+	Z8I6I104yeg6YEt1Z9QxnUsWhcppPrt/32UzdyPUoeu+tqXeFAXOo4zF/9aiWu+Ew3H8N+ijmGJ8w
+	jUjHFIspM41347t1zxcxF5l69TElz6XR/VwSG8+ArGmf7Pcc4F8Fv9WPuzBRjMX0WwG2c6EC6PyRR
+	XeD4wSksp+9esbYfs9RnZEfmCbq82Z8Y8Di9xdIqtuXcHrohybxAjA6Wqq8rlu0jMLARgHQ9/4fVd
+	fLGEP2viz+i5M9ff1WzPIVhkEB9xXNHu/7P/z/WRgMVXXwmBJxllGfnUvXsX96lwENRLMvQ1gIKLW
+	OfS3KEzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cRc-0000000E7YO-3QYx;
-	Thu, 10 Sep 2026 10:55:52 +0000
+	id 1x4cSZ-0000000E7gd-472z;
+	Thu, 10 Sep 2026 10:56:51 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cRa-0000000E7YI-3NnU
+	id 1x4cSZ-0000000E7gQ-0uMT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:55:50 +0000
+	Thu, 10 Sep 2026 10:56:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E50C42E68;
-	Thu, 10 Sep 2026 10:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FEC91F00893;
-	Thu, 10 Sep 2026 10:55:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E09804128A;
+	Thu, 10 Sep 2026 10:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB9B1F000FF;
+	Thu, 10 Sep 2026 10:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789037750;
-	bh=i0k/HI/bcvlOdY3uUk2PaTWHvR+HLRCqNH8Ek21Htnw=;
+	s=k20260515; t=1789037810;
+	bh=vy0obgvg0nf8qGQKnYvGOGI82XsQ6j8jix882VNn/Nc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Sc/Krteyn26A4LgEQxcaQ3aIGJQrPiYPJoPeNp7tZ/hRMWj3NuGHWMPxFTWsGav5x
-	 wptWbvudyVSj5LZah6hldUObO9gJUrw/FqALJrudU8w/ZQ6XvreENhQGhT5jqQCTlL
-	 wSmYrFeJXRNV1yMOF7JEX2SjiQFpGARrQ57co0kwAGpS5uPPI5kaqKKFygGvNWIi/k
-	 aAVPHnzVr63YkXDJzeXXEFWAGhCbsXdCoT6gg9W8eA4SNsvVlbC0YCx6d/o+PtdzIV
-	 qZFNSKXnlpZpABb2WgKchhgOH+kvgIFxRFGXgBTsZ7GiiBy7ulWCz+t5k96ldf1zZR
-	 UGrWVYbSz/0Fg==
-Date: Thu, 10 Sep 2026 11:55:44 +0100
-From: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Christoph Hellwig <hch@lst.de>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH 0/2] ARM: preserve DMA_FROM_DEVICE buffer contents
-Message-ID: <aqKMsKpYnAZOoKQo@willie-the-truck>
-References: <20260910063620.17768-1-kmehltretter@gmail.com>
- <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+	b=QugRe20W6g3MjyJ+mgnoAlyfxdfcW8qlXrm53ytBcd1jTs5KN6YljfasGpJHQ0FQC
+	 lJJ8Iz4hQN99WZlHJTKqfF/kSqZzxDE8ON4Tn0fE32XSyUBMPn1rR8LgiuOW2M878K
+	 IUqWJIUeZGXkk0wxvGn871PZGtXDYfzvQIs+jTnvvUk30CtHJy9Md9Lwyocou+5qj7
+	 7Ztlfmjx6Ut7DVwCSWsi6zclwPdLt9a7YrjX+Ng831FVWh59qswdmYF6ayEBsnwjQ8
+	 wA7QPytJP5GbfpiXZ+cnkByeHec4QR/zQYz07ap+c3GctQRu/thP7omkDpUpFa4OUL
+	 bvSon05EQ/nWw==
+Date: Thu, 10 Sep 2026 11:56:43 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v4 01/21] arm64: percpu: Fix this_cpu_write() casting
+Message-ID: <aqKMAXthAIfa409I@gremlin>
+References: <20260908151741.394589-1-mark.rutland@arm.com>
+ <20260908151741.394589-2-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+In-Reply-To: <20260908151741.394589-2-mark.rutland@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +64,171 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.anjum@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 11:14:28AM +0200, Arnd Bergmann wrote:
-> On Thu, Sep 10, 2026, at 08:36, Karl Mehltretter wrote:
-> > This series prevents a DMA_FROM_DEVICE map from discarding CPU-written
-> > buffer contents on non-coherent 32-bit ARM. It is based on
-> > v7.3-rc1-324-g986c24e0fe44.
-> >
-> > ARM currently invalidates these buffers before the device writes them.
-> > If the device writes only part of a buffer, discarded dirty cache lines
-> > can expose older memory contents in the untouched bytes. A stock USB
-> > webcam demonstrated this through usbfs. Short isochronous packets left
-> > gaps, and usbfs returned non-zero data to userspace from bytes it had
-> > cleared.
-> >
-> > arm64 changed this handoff from invalidate to clean in 2022 with commit
-> > c50f11c6196f ("arm64: mm: Don't invalidate FROM_DEVICE buffers at start
-> > of DMA transfer"). Arnd Bergmann's 2023 ARM32 cache-maintenance series
-> > left DMA_FROM_DEVICE preservation unresolved [1]. This series keeps the
-> > existing ownership hooks.
-> 
-> I think the main problem here is that we remain inconsistent about the
-> rules across CPU architectures, and changing Arm on its own does not
-> mean we have a solution if another architecture decides to change it
-> in the opposite direction at some point.
-> 
-> I see this as a tradeoff that can go either way:
-> 
-> - the current 32-bit Arm approach (also arc, hexagon, microblaze, mips,
->   nios2, openrisc, powerpc32, sh) is obviously faster as it avoids
->   the writeback, but it relies on device drivers to ensure no stale
->   data can leak back into userspace.
-> 
-> - Will's patch changed arm64 (later copied into riscv) to avoid that
->   risk by adding the overhead out of caution, and avoid having to
->   audit and fix all drivers.
+On Tue, Sep 08, 2026 at 04:17:21PM +0100, Mark Rutland wrote:
+> The arm64 implementation of this_cpu_write() casts 'val' to unsigned
+> long. This is necessary to handle cases where 'val' is a pointer type,
+> and to avoid spurious compiler warnings for the (unreachable!) cases
+> where the pointer type would be cast to a smaller integer type.
+>
+> Unfortunately, the cast is applied to 'val' rather than '(val)', which
+> won't always generate the expected value when 'val' is an expression.
+>
+> For example, for this_cpu_write(pcp, zero - 1), where 'pcp' is a u64 and
+> 'zero' is a u32:
+>
+> * 'zero'                      ===> (u32) 0x00000000
+> * 'zero - 1'                  ===> (u32) 0xffffffff
+> * '(unsigned long)zero - 1'   ===> (u64) 0xffffffffffffffff
+> * '(unsigned long)(zero - 1)' ===> (u64) 0x00000000ffffffff
+>
+> Fix this by adding brackets around 'val'
+>
+> The bug described above can be seen from the disassembly of the
+> following test code:
+>
+> | void this_cpu_write_zero_minus_1(u64 __percpu *pcp)
+> | {
+> | 	u32 zero = 0;
+> | 	this_cpu_write(*pcp, zero - 1);
+> | }
+> |
+> | void this_cpu_write_zero_minus_1_brackets(u64 __percpu *pcp)
+> | {
+> | 	u32 zero = 0;
+> | 	this_cpu_write(*pcp, (zero - 1));
+> | }
+>
+> Generated code before this patch:
+>
+> | <this_cpu_write_zero_minus_1>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffffffffffff
+> |        mrs     x2, tpidr_el1
+> |        str     x3, [x0, x2]
+> |        ldr     x0, [x1, #8]
+> |        add     x0, x0, x3
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 1f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 2f
+> | 1:     bl      preempt_schedule_notrace
+> | 2:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> |
+> | <this_cpu_write_zero_minus_1_brackets>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffff
+> |        mrs     x2, tpidr_el1
+> |        str     x3, [x0, x2]
+> |        ldr     x0, [x1, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 1f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 2f
+> | 1:     bl      preempt_schedule_notrace
+> | 2:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+>
+> Generated code after this patch:
+>
+> | <this_cpu_write_zero_minus_1>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffff
+> |        mrs     x2, tpidr_el1
+> |        str     x3, [x0, x2]
+> |        ldr     x0, [x1, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 1f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 2f
+> | 1:     bl      preempt_schedule_notrace
+> | 2:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> |
+> | <this_cpu_write_zero_minus_1_brackets>:
+> |        b       this_cpu_write_zero_minus_1
+>
+> Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
+> Reported-by: David Laight <david.laight.linux@gmail.com>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 
-How would you envisage fixing a driver for this? There were two issues
-I tried to address by moving from invalidate to clean on arm64:
+Ah the fun of arithmetic conversions in C :)
 
-1. If the DMA transfer didn't write every cacheline in the buffer, then
-   we could expose stale data in the gaps.
+LGTM so:
 
-2. If the buffer has a pre-existing userspace mapping, then we expose
-   stale data during the window between the DMA map() call and the DMA
-   itself.
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Fixing (1) in the driver would presumably require it to walk through the
-buffer after the transfer and zero all the gaps, with an appreciation
-for the cache writeback granule (!= cacheline size) and then (somehow)
-clean those parts back to the PoC. Is that something any drivers attempt
-today?
+> Reviewed-by: David Laight <david.laight.linux@gmail.com>
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> Acked-by: Christopher Lameter (Ampere) <cl@gentwo.org>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/percpu.h | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> index b57b2bb009677..63bbfd4944a37 100644
+> --- a/arch/arm64/include/asm/percpu.h
+> +++ b/arch/arm64/include/asm/percpu.h
+> @@ -179,13 +179,13 @@ PERCPU_RET_OP(add, add, ldadd)
+>  	_pcp_protect_return(__percpu_read_64, pcp)
+>
+>  #define this_cpu_write_1(pcp, val)	\
+> -	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
+> +	_pcp_protect(__percpu_write_8, pcp, (unsigned long)(val))
+>  #define this_cpu_write_2(pcp, val)	\
+> -	_pcp_protect(__percpu_write_16, pcp, (unsigned long)val)
+> +	_pcp_protect(__percpu_write_16, pcp, (unsigned long)(val))
+>  #define this_cpu_write_4(pcp, val)	\
+> -	_pcp_protect(__percpu_write_32, pcp, (unsigned long)val)
+> +	_pcp_protect(__percpu_write_32, pcp, (unsigned long)(val))
+>  #define this_cpu_write_8(pcp, val)	\
+> -	_pcp_protect(__percpu_write_64, pcp, (unsigned long)val)
+> +	_pcp_protect(__percpu_write_64, pcp, (unsigned long)(val))
+>
+>  #define this_cpu_add_1(pcp, val)	\
+>  	_pcp_protect(__percpu_add_case_8, pcp, val)
+> --
+> 2.30.2
+>
 
-Fixing (2) in the driver would presumably require ruling out the
-possibility of a user alias, which sounds hard and possibly ABI breaking
-for some drivers (depending on how they manage their buffers).
-
-> If we decide to align with arm64/riscv and take your series, I think
-> we need two more parts:
-> 
-> - actually measure the performance overhead: you already did the
->   work to test this on three separate arm implementations but did
->   not share performance numbers.
->   Can you quantify how much this costs us on the hardware you used?
-
-It's worth noting that many Arm CPUs upgrade invalidate to
-clean+invalidate (either due to the micro-architecture, errata or because
-of virtualisation).
-
-Will
+--
+Cheers, Lorenzo
 
