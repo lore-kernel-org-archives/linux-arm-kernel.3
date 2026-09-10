@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A39C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 215A3C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDPzwY2NdLzoJImbXz0vGW7B4amstayS32YAA47E5/Q=; b=J49mr3PsLh+IBl/+dpECEnzfWG
-	lW+l4Qh8EDwza7VbL7PERTX5gDtnjcvg/Gyp3QkLpdTtAVRS25TutNyFEz4Ipjih4f3RvGN8zDv8J
-	flJopOgy/4nJS7qbnvKimOxoUfYNfivrLgv8Eo1qn3onWkTuyYkRhSqadG9e4/dWO9QLJXL0b0PwI
-	4cXR4V7j5J/n467Z8D+yLFTtGnc+kb3MbPy4B2izttf7KOygz4Slx2NZ7f8WC1AtXqFuj4/MtIHvt
-	eki/q05E+2koNRs1jfIB8/4RNTZ1oBtv/0iOdhHJ5oOxFwvDxmB0AD9zEbb+dZ9bqkZHhJxd1uH1x
-	aPM/5fXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cC4mvysi1cGqTOJuilPewkPzp6rycC0jl7rMo1Vo1RE=; b=s1MABOht8gRe95U0DpPxbS09uw
+	pGJTx8qM7u/W7shWzrGStS0d1nlZqxux32i0IMcZkqxLaeShQRFFAnRug4PUwuRjzaCoHNIWeV0xS
+	Hl579kBpAdVYISi7bmRre1dvgkExbsduAb4f+cyeNEVZKOI0RZb/NQhUqH+SUThO8/8l0GpXHozBx
+	roxkzsm/qDupnq3g2nS8sChPGMbP7q/9lzMLfNEPzBgj4k+i/5VCtNDSYfl/ag3fU2+KSSaOyuuqd
+	afKdLraxEP8F2gEmZ8Hvx1tg7LvOcu64PAougClNXhzfg139tuwUBH6t9Dq6aWjxUxLn88dUhFSdi
+	6meBFtaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4e25-0000000EM1y-2AOu;
-	Thu, 10 Sep 2026 12:37:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4e21-0000000EM0g-3Una
+	id 1x4e7Y-0000000EMdY-2H6M;
+	Thu, 10 Sep 2026 12:43:16 +0000
+Received: from out-130.mta0.migadu.com ([2001:41d0:1004:224b::82] helo=mta0.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4e7V-0000000EMca-3n4x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 12:37:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4596F153B;
-	Thu, 10 Sep 2026 05:37:28 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 034B03F7B4;
-	Thu, 10 Sep 2026 05:37:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789043851; bh=AZwDqHdBjqPCn/h9+VhDsgEtjNFCuMURPnIg3aiP66c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=glwg5KbI4A+6EtBbJdGrMmvmGDTyxTKM5xkPl2GjCRh4g6oOCojo0tG6Nvp/BsP5W
-	 ppBt0z61poix3LIUOZVeyM697EZsNnDjwOJ4hujDmg4WZboVhhieMDl1ggKOj7h5At
-	 vee/0D7kRuE8CZtW0DhOab3JKWwY/k4PBXOl3d3o=
-Message-ID: <fca383e2-56bf-4c93-bd07-bc54a79235a3@arm.com>
-Date: Thu, 10 Sep 2026 13:37:29 +0100
+	Thu, 10 Sep 2026 12:43:15 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=TLJMW+UBHyf2hULFG74qvyh3xriAmI6y3qUkZriPhlo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789044187; v=1; x=1789648987;
+ b=mHQ0xPc1NTl7CIjNYa5HlI/RIV7OuKliN/tOYeoPzEK3gIy/32CyWsQTmYZmDA5VFsf1Xtvv
+ 3tpXo2S5dSsz3Yx2TQIkR830tExig0flM5/JpAqWvPaqvZGJGuQwq7zCq25ZAY23XsdvFnsstOP
+ pztJ3AjZOSDTAn5eH3Qu9exQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 44b515527182e254;
+	Thu, 10 Sep 2026 12:43:07 +0000
+X-Mizu-Trace-ID: 44b515527182e254
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so5444e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 05:43:02 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByP0/ixL+YHgRKuOxVgGk+uM/WN4kkP5qEBZhuGjnuUZkXq+fOctdth4F/HtAtA/IdrlbMIypu8NNn7bn7dzSro@lists.infradead.org
+X-Gm-Message-State: AFuF++m6MN3yqbttceuYrbbEwG5467FNNXsLSrkiwpoMMlCrpBV7niiv
+	laC1vQGfWNJ3ybr9fJ4F8g/i80Faw2G9FF74v1Ut8qs55dPAwdGMxaYrzgG5XIJhCDHtoh10wbQ
+	+yOYIsSwNwSfOs5WAdUyqXQpXpzewtZ0UxApN8YJL
+X-Received: by 2002:a05:6512:234c:b0:5b6:19c6:a91b with SMTP id
+ 2adb3069b0e04-5b89a6da833mr113965e87.14.1789044182010; Thu, 10 Sep 2026
+ 05:43:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM
- configurations
-To: Shouping Wang <allen.wang@hj-micro.com>, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- peter.du@hj-micro.com, andy.xu@hj-micro.com
-References: <2fb3bda7-cd64-4dc0-99f8-c0fda8d42cf9@arm.com>
- <20260910114601.165237-1-allen.wang@hj-micro.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260910114601.165237-1-allen.wang@hj-micro.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+ <20260908162223.1683432-11-suzuki.poulose@arm.com> <CA+EHjTw9ReyvsNT=y+-P6ng7VQ6Pvz9PFK9bO71qvTR1pOxx5Q@mail.gmail.com>
+ <6152fc41-65f0-460f-90b4-1454c11bcba6@arm.com> <CA+EHjTxjk1JLR7Tf5LEfB_xypbUWnw3G3H-FT7bTE=nWTTRgAA@mail.gmail.com>
+ <d22c863b-ea81-472c-b2a9-28f99e5b6f92@arm.com>
+In-Reply-To: <d22c863b-ea81-472c-b2a9-28f99e5b6f92@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 10 Sep 2026 13:42:25 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx744tg1c3vX0Ugo8YN7n-wtq9-rWdjjSP+UXi8_vvq7g@mail.gmail.com>
+X-Gm-Features: AcwNN1WSfg4g-Ni2N5yRIGRNfczplTeSi9HsXmirIR-L_CctNHI6kvs4aUKgPSE
+Message-ID: <CA+EHjTx744tg1c3vX0Ugo8YN7n-wtq9-rWdjjSP+UXi8_vvq7g@mail.gmail.com>
+Subject: Re: [PATCH v17 10/20] KVM: arm64: coco: Disable Steal time accounting
+ for coco guests
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_053733_958120_EAE0724D 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20260910_054314_083677_61AB6175 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,73 +89,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2026 12:46 pm, Shouping Wang wrote:
-> When MXP_MULTIPLE_DTM_EN is TRUE, each DTM will monitor at most
-> two device ports. In this case, {wp_dev_sel2, wp_dev_sel} will
-> only use values 2'b00 and 2'b01 per DTM.
+Hi Suzuki,
 
-Poor documentation strikes again!
+On Thu, 10 Sept 2026 at 11:28, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+...
+> Just to make sure I understand the picture:
+>
+> For coco VMs:
+>
+>   - check extension on coco KVM, KVM_CAP_STEAL_TIME => 0
+>
+> And a follow up DEVICE_HAS_ATTR => -EPERM ?
+>
+> But we tell the VMM, look you don't have the capabilit on this VM.
+> But if you try to set the attribute isn't it more appropriate to
+> say:
+>   -ENXIO - No you don't have that feature on this VM (-ENXIO)
+> rather than
+>   -EPERM - No, I won't let you do that.
+>
+> Remember we are doing only in the "VM" context. It is a minor nit
+> but I wanted to make sure we understand what we are thinking.
 
-> Previously the setting allowed values beyond the supported range
-> per DTM, which could cause each DTM to select invalid ports when
-> MXP_MULTIPLE_DTM_EN is TRUE.
-> 
-> Fix this by only setting CMN_DTM_WPn_CONFIG_WP_DEV_SEL2 when
-> !multi_dtm.
+-ENXIO it is. I went back to api.rst for KVM_SET_DEVICE_ATTR: ENXIO is
+for a group or attribute that's "unknown/unsupported for this device",
+and EPERM for one that "cannot (currently) be accessed this way", a
+state or access-mode refusal, so a VM type that doesn't have the
+feature is the former. KVM_HAS_DEVICE_ATTR only documents ENXIO at
+all. Your patch is good as it is.
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Thanks for the fix!
-Robin.
+Cheers,
+/fuad
 
-> Fixes: 60d1504070c2 ("perf/arm-cmn: Support new IP features")
-> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
-> ---
-> 
-> Changes in v2:
-> - Made the setting of CMN_DTM_WPn_CONFIG_WP_DEV_SEL2 conditional on
->    !multi_dtm, instead of clamping with dev %= 2.
-> - Refactored is_cmn600 to use cmn->part directly.
-> - Updated the commit message.
-> 
-> Link to v1: https://lore.kernel.org/lkml/20260819105443.668784-1-allen.wang@hj-micro.com/
-> 
->   drivers/perf/arm-cmn.c | 10 +++++++---
->   1 file changed, 7 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 6e5cc4086a9e..7e7590381171 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -1393,13 +1393,14 @@ static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
->   
->   static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
->   {
-> +	struct arm_cmn *cmn = to_cmn(event->pmu);
->   	u32 config;
->   	u32 dev = CMN_EVENT_WP_DEV_SEL(event);
->   	u32 chn = CMN_EVENT_WP_CHN_SEL(event);
->   	u32 grp = CMN_EVENT_WP_GRP(event);
->   	u32 exc = CMN_EVENT_WP_EXCLUSIVE(event);
->   	u32 combine = CMN_EVENT_WP_COMBINE(event);
-> -	bool is_cmn600 = to_cmn(event->pmu)->part == PART_CMN600;
-> +	bool is_cmn600 = cmn->part == PART_CMN600;
->   
->   	/* CMN-600 supports only primary and secondary matching groups */
->   	if (is_cmn600)
-> @@ -1407,8 +1408,11 @@ static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
->   
->   	config = FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL, dev) |
->   		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_CHN_SEL, chn) |
-> -		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_GRP, grp) |
-> -		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL2, dev >> 1);
-> +		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_GRP, grp);
-> +
-> +	if (!cmn->multi_dtm)
-> +		config |= FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL2, dev >> 1);
-> +
->   	if (exc)
->   		config |= is_cmn600 ? CMN600_WPn_CONFIG_WP_EXCLUSIVE :
->   				      CMN_DTM_WPn_CONFIG_WP_EXCLUSIVE;
 
+
+>
+> Cheers
+> Suzuki
+>
+> > it's just not permitted for a confidential VM, and -EPERM says exactly
+> > that, whereas -ENXIO reads as "no such feature".
+> >
+> > Cheers,
+> > /fuad
+> >
+> >>
+> >>> steal-time exists but isn't permitted for a confidential VM, whereas
+> >>> -ENXIO reads as "no such feature".
+> >>
+> >> Cheers
+> >> Suzuki
+> >>
+> >>
+> >>>
+> >>> Cheers,
+> >>> /fuad
+> >>>
+> >>>>
+> >>>>    int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+> >>>> @@ -81,7 +81,7 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+> >>>>           int ret = 0;
+> >>>>           int idx;
+> >>>>
+> >>>> -       if (!kvm_arm_pvtime_supported() ||
+> >>>> +       if (!kvm_arm_pvtime_supported(kvm) ||
+> >>>>               attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+> >>>>                   return -ENXIO;
+> >>>>
+> >>>> @@ -110,7 +110,7 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+> >>>>           u64 __user *user = (u64 __user *)attr->addr;
+> >>>>           u64 ipa;
+> >>>>
+> >>>> -       if (!kvm_arm_pvtime_supported() ||
+> >>>> +       if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
+> >>>>               attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+> >>>>                   return -ENXIO;
+> >>>>
+> >>>> @@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
+> >>>>    {
+> >>>>           switch (attr->attr) {
+> >>>>           case KVM_ARM_VCPU_PVTIME_IPA:
+> >>>> -               if (kvm_arm_pvtime_supported())
+> >>>> +               if (kvm_arm_pvtime_supported(vcpu->kvm))
+> >>>>                           return 0;
+> >>>>           }
+> >>>>           return -ENXIO;
+> >>>> --
+> >>>> 2.43.0
+> >>>>
+> >>
+>
 
