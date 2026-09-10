@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA13EC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134E5C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1AqE60xrKybP1elGY6Eu9TkumxPQD37e09X11zrnvM=; b=3ZnKmWrzFze5h2c6m8rp8rgZu7
-	3IoEBpmZ9RUrl6feTVhGvLDtrkrIZnCuY4CuSEGd41ww1r2ma4L6viAYRrrQN69hiu+6eTD1tglXM
-	AQaInNjA92hnuEYjdg1cZ5rT4YGbp5TycCTj9yQex23Zlvja1ZKNBIIx03t2RKLwsUB0UwMebkpjl
-	8p5e6Gk+8KupnIFBHF+8xIziIMg8NQ/BeXcNR5RZjlVVaAjXwB3la81dL+LCbMimLumlQV32eJec9
-	0V+Uh0uzo/wM2F6Pj+XMcmSBR8WCfxjitO+A66fDqSUHZuNJ1fwKCD9ga0taOxj0nscCn9bybJcP4
-	3BkAE+yQ==;
+	bh=vJp4rYGfCyVBSJ4qRp4Dvdioa41fPP8ClB9wWTWCzjw=; b=U5/VqQ5x3miUwdzc/cLJXBXc+9
+	R++dAevXsjYzgyoNn/cgPTbd90Vrb+Wbdr1ErqmWjH9TVGOuZAo+yxcBbLnvA50Pkj2L6FWmTzOfI
+	n0rpEodI3gqfrpRsM7VaZFLAl1hGkLoWLtfwK754dgJS3j3CMurR97p07nyadh9GWVeRmcdQW7C1G
+	pvcLm86+Oqv7NglTuap8t0JPM5Vxko8ceElTKR26gD8r0Qy0XtlibT9dlUVq/uzPkNXQQNx5YzHQo
+	hSc19LknH3PkaYAMRxfcj0D5x1y4WEQpiOaWX+xdFslO9ici+fUvkUSNn++URQCkctHZoc6bB9S59
+	TEZtPz+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YnM-0000000Da5b-1M1b;
-	Thu, 10 Sep 2026 07:02:04 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1x4YnR-0000000Da6g-1rj9;
+	Thu, 10 Sep 2026 07:02:09 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YnJ-0000000Da5B-1lZt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 07:02:02 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 21425102B79;
+	id 1x4YnO-0000000Da5a-1Lgo;
+	Thu, 10 Sep 2026 07:02:07 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2F0D140002A;
 	Thu, 10 Sep 2026 09:01:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1789023714;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789023721; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=R1AqE60xrKybP1elGY6Eu9TkumxPQD37e09X11zrnvM=;
-	b=hfX9LYllfGjdL8YY/3p6OtO1dvWBcgbYqEu6QednOJWh0o3JN52QQw3eRqpKf2hoB7KP3Q
-	aazovdjVt7ZWTNo8MVQRd+8UZg4t4EzhqpqkqcSPmyQcW1oTp4Offa5OqXo0pe++e4Mgcg
-	hykUfM1/wYvBeMt34mVF+ZliVcbfj3SmRd6VJhe6KYj+OksucGTGyGZZapLGIgtfyOWKsv
-	HC0XbBieLP1MkYI5zJjuuyBx2RCYmMTJbAwQ4NhVJuoEOy63TrZ3DNvCpXrGIw3QNr2oyi
-	ihZsM6ixTym23+W3mBKRzrShsc4J6Y0wglaPbcD1xIJPGdR5G3F2Q8iqkhtlCg==
-Message-ID: <1c39be54-c931-40a2-a806-fa963b2188ec@nabladev.com>
-Date: Thu, 10 Sep 2026 09:01:51 +0200
+	bh=vJp4rYGfCyVBSJ4qRp4Dvdioa41fPP8ClB9wWTWCzjw=;
+	b=HkcLTc9Pv7shqY6xnM1fnVqUKoJ5NSzhnAZHVtmRA8vJ5pSbMF34oxJL340E7LmN64xgyx
+	HK8PueNvZEw2Dkr9O6sMYuLf5L4qryshGLuJo0maVUyl4rP4S4Yt4OV9XzOYHXZ6oqTm4/
+	qB8ALVLDe27vfHr8pK05B3/rjUaqhaTGSV7ndSjLm6j1pEQqBB+Ii9ChgwPHOW3t1OmDo5
+	nCkCPsG5f7ZbMiuBe142X7UoTa4KH7jPCOncSP3vZiskGNez5XMUnKCnOeCg5ujhlcAfOQ
+	EB0/i8fHXKXbBPQLOy2U0d15S152FntkJMeQ3jWspQ2MVCbd4SYJXXKCFObKMg==
+Message-ID: <34c4739b-1d10-4bf9-b8b9-c09e023908b8@cjdns.fr>
+Date: Thu, 10 Sep 2026 09:01:50 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Marek Vasut <marex@nabladev.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: soc: xilinx: Document ifm ZynqMP
- VHIP6 EvalBoard
-To: Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260909182641.165383-1-marex@nabladev.com>
- <082df9b0-0517-4580-8ba8-cf6f4d3e0713@amd.com>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next] net: phy: mediatek: support MT7530 PHYs on
+ EN71221 MCM
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+References: <20260909213250.3184238-1-cjd@cjdns.fr>
+ <746ebc26-e4ad-4988-a839-c5805d7ab319@lunn.ch>
 Content-Language: en-US
-In-Reply-To: <082df9b0-0517-4580-8ba8-cf6f4d3e0713@amd.com>
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <746ebc26-e4ad-4988-a839-c5805d7ab319@lunn.ch>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_000201_685626_D09AC3FE 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20260910_000206_652527_130159A8 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/26 8:22 AM, Michal Simek wrote:
-> 
-> 
-> On 9/9/26 20:26, Marek Vasut wrote:
->> Document ifm ZynqMP VHIP6 EvalBoard reference design binding.
->> The board is populated with four ethernet ports, QSPI NOR,
->> eMMC, UART and USB host interfaces.
->>
->> Signed-off-by: Marek Vasut <marex@nabladev.com>
->> ---
->> Cc: Conor Dooley <conor+dt@kernel.org>
->> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> Cc: Michal Simek <michal.simek@amd.com>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: devicetree@vger.kernel.org
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> ---
->> V2: No change
->> ---
->>   Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml | 5 +++++
->>   1 file changed, 5 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml 
->> b/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
->> index c9f99e0df2b35..49ef4e0c68501 100644
->> --- a/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
->> +++ b/Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
->> @@ -44,6 +44,11 @@ properties:
->>             - const: xlnx,zynq-zed
->>             - const: xlnx,zynq-7000
->> +      - items:
->> +          - const: ifm,zynqmp-vhip6-evalboard
->> +          - const: ifm,zynqmp-vhip6
->> +          - const: xlnx,zynqmp
->> +
->>         - items:
->>             - enum:
->>                 - xlnx,zynqmp-zc1751
-> 
-> Can you please provide any link to public documentation about this board?
-> I wasn't able to find anything through google..
 
-I do not know whether there is any, it is an internal board from which 
-other boards get derived.
+On 10/09/2026 04:03, Andrew Lunn wrote:
+>> +	/* Clause 22 local data. */
+>> +	ret = phy_write(phydev, MII_CTRL1000, 0x1e00);
+> Please express this using
+>
+> /* 1000BASE-T Control register */
+> #define ADVERTISE_1000FULL	0x0200  /* Advertise 1000BASE-T full duplex */
+> #define ADVERTISE_1000HALF	0x0100  /* Advertise 1000BASE-T half duplex */
+> #define CTL1000_PREFER_MASTER	0x0400  /* prefer to operate as master */
+> #define CTL1000_AS_MASTER	0x0800
+> #define CTL1000_ENABLE_MASTER	0x1000
+>
+> Once we have symbolic names, it might be obvious what this is doing,
+> and if there is a better way to do it.
+>
+>
+>> +	/* Vendor profile disables 100/1000BASE-T EEE advertisement. */
+>> +	ret = phy_write_mmd(phydev, MDIO_MMD_AN, 0x003c, 0x0000);
+>> +	if (ret < 0)
+>> +		return ret;
+> Any idea why? Is EEE broken? If it is, phy_disable_eee().
 
-What would you like to know ?
+
+I am so sorry, we had this entire conversation about the other PHY and I 
+did not check carefully enough that this one is doing the same thing. I 
+will test and submit the same solution we arrived at over there.
+
+
+Thanks,
+
+Caleb
+
+
+>
+>      Andrew
 
