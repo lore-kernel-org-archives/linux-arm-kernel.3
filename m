@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC31C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 05:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B44AC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 05:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DsZOltiP1R8W8vsyrS5UrPX+wRdKVv3/djndYWU1II4=; b=X+aWJB+f+0Nldhwp9jf49Rspgj
-	zKdJv/ubMBspon8nAR2grmNo8B4+b9d6rb5PBsAXESmRkY1jfOl/kteW+nrrrkNT8wWo5Tt4jIKwj
-	UjD/qC5zNA4uYGWCaKu9CDLiZDPu9KXHNljVboSi23OH0bG+8iRf7uQ90u98qO0hdIDslW67sRSzz
-	OoAFdyjTWpdubSAxZ+DAVI3d12nJmYNBlVWEFEWsEX/AX1bnbdhyjmK27Qc3xrv4xXPuOQnu66nTe
-	nwG/CDXG6HRecFiJfqesj9Kl6VRu035HrJpHmc38FIg+hWpDgrJFOrmX1aBBseKAy6c/6p8nH/nIU
-	7unwCbOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AkrUoyd0rKa+tTVoyNIa2h+axR97xJ+HeRyCUQvO/vs=; b=EQQcDe5QwYZabvye4+8FaiEgcV
+	jBRhkYmzVvGdjJMuZYTGRCsgWXbLANXjNUXMURPfGlbsD/10DLQ9UeVSAc74ITwsV4r9JnbXPF3C7
+	GF07p4z0cDzy//Ucf6oj3QF8PcUM6iALP93HCneVKPP+u8/hGweT/LZ1g41k8mA3CKsINwAMMREkG
+	LuCHrioLbN19aXq7vT7MqPwGfreQeT3cc8gRiguuckDZgPWnggRElpjsRKwBmwrvbke8XDgir9vgX
+	4w5X8CmMcP+eSjRio4eyvLiJTUZUbaIHTjEpLOvaqzRuDrwGvA87tNTsTZtRdlR0oksk2nm8KVjvz
+	AbOkLn3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4XE1-0000000DQdX-0MxD;
-	Thu, 10 Sep 2026 05:21:29 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1x4XGQ-0000000DQpW-2PGo;
+	Thu, 10 Sep 2026 05:23:58 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4XDx-0000000DQbz-0YY0
+	id 1x4XGN-0000000DQou-0Hr7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 05:21:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1789017620;
-	bh=DsZOltiP1R8W8vsyrS5UrPX+wRdKVv3/djndYWU1II4=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=ofOgsQ3z9ZSI+NQTvkYnwJHgLw2f4q224IqWxMZcjXamv8feqMJX7NWm1hjwF9XtV
-	 Imbx27zURAqC2sB5W6p1CICDxNhoVSpUh6X7IJ9zw3aEZNyPpMaNX8IC89KouVYu1V
-	 WlgDToMzaAc7bVAnDmyqmv01kkQmr7SDGKlnuXpM=
-X-QQ-mid: esmtpsz19t1789017609t8b058a96
-X-QQ-Originating-IP: DUmqSkz4nEReLFqUyWpMium9HE3atKEqluVbWzOIZ6Q=
-Received: from [10.10.7.69] ( [1.202.39.170])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 10 Sep 2026 13:19:47 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 6560279084322675743
-EX-QQ-RecipientCnt: 14
-From: ZhaoJinming <zhaojinming@uniontech.com>
-Date: Thu, 10 Sep 2026 13:19:44 +0800
-Subject: [PATCH net] net: stmmac: fix stale descriptors and DMA mapping
- leak on Tx map failure
+	Thu, 10 Sep 2026 05:23:57 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 595D51029BB;
+	Thu, 10 Sep 2026 07:23:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1789017826;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=AkrUoyd0rKa+tTVoyNIa2h+axR97xJ+HeRyCUQvO/vs=;
+	b=Cmm5mRcJT4Y+m3CBIe+AnYgQHg+ZufLrSzjYO+V/qKf7YwZeGNfdgSINu6xKyHxOzq8vGB
+	bFB6Z8qIn/DbSiUs0nZ5wmiXQiSy9fKvQ62z9PEmgxoU5PPNhGR0lxD0y2gfseywkV+Io9
+	Eh6x7/KIksHzFEduYXeYFL2dQ6UeXqn0NLs9J76TvCeGYuU495APwCKeTm4IN+CZSXxD1n
+	hXakJSFYqbitaW/3lZeq3j+6YRR344bnVmajEyNYjwWla4vhdwu8aAWE900uWlsXnOf/tt
+	5pzFNfvE0e4VUXIewbJuXzLyDjrwSLJEuJNnHAm6URjPpfY/xXwectdDD6CbOg==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-usb@vger.kernel.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Pankaj Dev <pankaj.dev@st.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	devicetree@vger.kernel.org,
+	kernel@dh-electronics.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v5 1/2] dt-bindings: usb: dwc3: Document ST STM32MP2 DWC3 xHCI USB controller
+Date: Thu, 10 Sep 2026 07:22:40 +0200
+Message-ID: <20260910052340.246717-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-stmmac-fix-vlan-desc-leak-v1-1-6b07dca5e5e8@uniontech.com>
-X-B4-Tracking: v=1; b=H4sIAO89omoC/x2M0QqDMAwAf0XyvEAU7HC/MvYQ2ziDWqWRIhT/f
- WWPB3dXwCSpGLyaAkmymu6xQvtowM8cv4IaKkNHnaOBBrRz29jjpBfmlSMGMY+r8IIT9c9xJNc
- GZqj9kaRa//cbopzwue8fTPoWLXAAAAA=
-X-Change-ID: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- ZhaoJinming <zhaojinming@uniontech.com>
-X-Mailer: b4 0.14.2
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: NDtUtlvFer7vvhZCV/FA4NQc2y41TiKxFpgyi8xxS20SWJISRL7hVIFY
-	I0QZ3FBzegeQUJEnWZET9xi0jToPT/C/3j0PyQGj5iTPZrHlGUxTLby5eXOw9EWraUrhzD0
-	CugrMVlfcJqQgnL0L0MbcJqzE2wY2erVQh/HTyEmy0ON0782AhQNiE4NTuMKBl3S/ei/bTg
-	pD7nOEUETIEJnxrN1g7OF7v/MNQS2ELwiefH4iR6OBPqo8LLfA+35KrCodE0ih9L86g/q+x
-	6KRfOXltimPkhYDOKeCrBunnLra84etAb/zg2Gpc6077j8tZMUeN9ClSxQJNdFg/zlrsvb4
-	NvZwEXlUANBl4BDwbM6qF+0VScg6o4YUxxMi0/W0aOzgFlRtFwRFzI9/Aa7++US7FerxPGk
-	y+8lfJcoCpdv435UWjU+fcu6SS8sT9RSZ9OzKR9tmvymAooz321amNeTiNbJwwEwdyyJ+/y
-	y/HAGx0R8MOagrHl81lAMWmtVym/xzMsqUb5JxXfVGu4QVhO7M8MA+ZErkFFP6rWLjysMAP
-	79BoM/1IIoXVfQmbgGtQcH05+UEHzvhofkPNhtZp1TJT+In9f1WZY0DNaJz0lyp8X/mwXYT
-	j+U9k7FPL1at6GwMDMtkAu+7T+SX69MLMK3SzjIWrtDwmSqIWpBvEJT680uvOuSoY1H5pH8
-	By+312GkXRCGZrKUXP6VZtjVfUx82HaHx+iYYWfDuyr2JOcbMVoxXn+pNKFfS6o4qdo4b0w
-	A9T7yPQyT9Df8AZPBIPblIZkV/i0mvsKPDDhWG558v8i7tPpcFGB7Rs4Lh+X4nOqHkId9MC
-	QI1VurVx+NVbJpLSX+6NO0s2LaF2vy4MtMzdY05pyevaMEC5nQ/QmmhZgukfEn5XwQIH4fj
-	eoerx0K1XCAFaQyB/tMBQciahDox3YorhVUxs5BryVXFsPW8uX83sA12PWejr/UJYQajrM5
-	a0ebTwVf7gKfsLjY/dTtFZ4NTFAK6gD3vdn58WxTlBzBAc56AxC4eQii/73vHT6aHhyuLPw
-	QiVao+TncFheqkisAL5bd35m3qtgQ=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_222125_989499_B0601814 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260909_222355_502737_C782BE9B 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,93 +82,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In stmmac_xmit(), when the DMA mapping of the linear part or of a
-fragment fails, the error path only frees the skb.  This leaves behind
-the DMA mappings already created for the linear part and for the
-fragments mapped before the failure, which are never unmapped.
+The ST STM32MP2 SoC contains single instance of DWC3 USB controller with
+glue logic wrapper around it controlled by syscon. Document the glue
+logic and DWC3 controller.
 
-The VLAN context descriptor programmed by stmmac_vlan_insert() is also
-left behind with its OWN bit set while tx_q->cur_tx has been advanced
-past it, so the DMA engine later consumes the orphaned descriptor and
-applies its stale VLAN tag to an unrelated frame.
-
-Release the descriptors and their DMA mappings in the dma_map_err path
-with stmmac_release_tx_desc() and stmmac_free_tx_buffer(), walking from
-first_entry to entry, then roll back tx_q->cur_tx and release the VLAN
-context descriptor.
-
-Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
-Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
+Co-developed-by: Pankaj Dev <pankaj.dev@st.com>
+Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+Co-developed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Co-developed-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 29 +++++++++++++++++++----
- 1 file changed, 25 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 24656b35350b14454fb10deced6516eb89e2c0c9..2e36c27e2cfb436af3566cf1c3e70d32ce9830a0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4769,12 +4769,12 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	u32 queue = skb_get_queue_mapping(skb);
- 	int nfrags = skb_shinfo(skb)->nr_frags;
--	unsigned int first_entry, tx_packets;
-+	unsigned int first_entry, entry, tx_packets;
- 	struct stmmac_txq_stats *txq_stats;
- 	struct dma_desc *desc, *first_desc;
- 	struct stmmac_tx_queue *tx_q;
- 	int i, csum_insertion = 0;
--	int entry, first_tx;
-+	int first_tx, ret;
- 	dma_addr_t dma_addr;
- 	u32 sdu_len;
- 
-@@ -4832,9 +4832,10 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	csum_insertion = skb->ip_summed == CHECKSUM_PARTIAL;
- 
- 	if (unlikely(is_jumbo)) {
--		entry = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
--		if (unlikely(entry < 0) && (entry != -EINVAL))
-+		ret = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
-+		if (unlikely(ret < 0) && (ret != -EINVAL))
- 			goto dma_map_err;
-+		entry = ret;
- 	} else {
- 		bool last_segment = (nfrags == 0);
- 
-@@ -4984,6 +4985,26 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 
- dma_map_err:
- 	netdev_err(priv->dev, "Tx DMA map failed\n");
-+
-+	/* entry points one past the last descriptor written for this frame:
-+	 * on failure it is the descriptor whose DMA mapping failed, so walk
-+	 * from first_entry up to, but not including, entry.  Reset cur_tx
-+	 * unconditionally as both stmmac_vlan_insert() and stmmac_jumbo_frm()
-+	 * may have advanced it, and release the VLAN context descriptor.
-+	 */
-+	while (first_entry != entry) {
-+		desc = stmmac_get_tx_desc(priv, tx_q, first_entry);
-+		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
-+		stmmac_free_tx_buffer(priv, &priv->dma_conf, queue, first_entry);
-+		first_entry = STMMAC_NEXT_ENTRY(first_entry,
-+						priv->dma_conf.dma_tx_size);
-+	}
-+
-+	tx_q->cur_tx = first_tx;
-+	if (has_vlan) {
-+		desc = stmmac_get_tx_desc(priv, tx_q, first_tx);
-+		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
-+	}
- max_sdu_err:
- 	dev_kfree_skb(skb);
- 	priv->xstats.tx_dropped++;
-
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Marek Vasut <marex@nabladev.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: devicetree@vger.kernel.org
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+Cc: linux-usb@vger.kernel.org
 ---
-base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
-change-id: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
+V2: Fix up Sob/Cdb lines
+V3: - Document maximum-speed
+    - Switch resets to maxItems: 1
+    - Drop label from example
+    - Use generic over-current-active-low
+    - Use ref: snps,dwc3-common.yaml and drop generic dr_mode/maximum-speed/phys/phy-names
+V4: - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
+      https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
+V5: No change
+---
+ .../bindings/usb/st,stm32mp25-dwc3.yaml       | 97 +++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml b/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
+new file mode 100644
+index 0000000000000..96bd557327252
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
+@@ -0,0 +1,97 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/st,stm32mp25-dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STMicroelectronics STM32 MPU DWC3 USB SoC controller
++
++description:
++  The STM32 MPU DWC3 USB SoC controller block supports both
++  Host(SS/HS/FS/LS) and Device(SS/HS/FS) mode operation
++
++maintainers:
++  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
++  - Marek Vasut <marex@nabladev.com>
++
++allOf:
++  - $ref: snps,dwc3-common.yaml#
++
++properties:
++  compatible:
++    const: st,stm32mp25-dwc3
++
++  reg:
++    maxItems: 1
++
++  access-controllers:
++    maxItems: 1
++
++  clocks:
++    minItems: 3
++    maxItems: 3
++
++  clock-names:
++    items:
++      - const: ref
++      - const: bus_early
++      - const: suspend
++
++  interrupts:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  over-current-active-low:
++    type: boolean
++    description: Over-Current signal polarity is active-low
++
++  st,syscfg:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description: Phandle to system configuration controller.
++    items:
++      - items:
++          - description: phandle to syscfg
++          - description: USB3DR control offset within syscfg
++
++  st,enable-port-power-control:
++    type: boolean
++    description: Enable Host-Mode Port Power Control (bit-3 of capability param HCCPARAMS)
++
++  st,vbusen-active-low:
++    type: boolean
++    description: VBUS-ENABLE signal polarity is active-low
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - phys
++  - phy-names
++  - resets
++  - st,syscfg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++
++    usb@48300000 {
++        compatible = "st,stm32mp25-dwc3";
++        reg = <0x48300000 0x100000>;
++        clocks = <&rcc CK_KER_USB2PHY2>, <&rcc CK_BUS_USB3DR>, <&rcc CK_KER_USB2PHY2>;
++        clock-names = "ref", "bus_early", "suspend";
++        interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH>;
++        phys = <&usb2_phy>, <&usb3_phy>;
++        phy-names = "usb2-phy", "usb3-phy";
++        resets = <&rcc USB3DR_R>;
++        over-current-active-low;
++        st,syscfg = <&syscfg 0x4800>;
++        st,vbusen-active-low;
++    };
 -- 
-ZhaoJinming <zhaojinming@uniontech.com>
+2.53.0
 
 
