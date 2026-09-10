@@ -4,91 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B88C88E47
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401E4C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7U3kp4CtCEgOP7iLmn8sMtYhQ+Yr7npaw/r976WCEog=; b=EHNKuoevMpeOCg3aPHq0Q6YQSw
-	WM0B2b9l76EaLtweA33VAbtWtuAoTB94vLfQtyT1j12EYAaKRbgJDbh0TZmwOmmSna/rvm2DdJeNB
-	FmnIZw+PQfHhyBXCjLU2LYRz+m9FaHehoiLphU0cHCr/5k0OmH05RWxssyHS+1HkR8n4qL1WZ402W
-	WorhInCfk3ltaIRsC8w5rVnuwkuzT4vxugVB5n3dPkVeOo6y+DwQg6ndc4AMBnsDZF5InMoxNhwx5
-	eO6DG62WuYWkGidqR0NIWWGVZqhpiGZppEDKQnI938ifn+TD9uzsfSQkcH+qciY0iRYNOBPA1NyZF
-	dIMMMQ9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6tGM9diftK82uEPdEwwEmZx3599l3xHAru6r160uTxg=; b=G3KPFqsF0FkGspT+sU8rf7EX0v
+	aJmaZWQfUb2xK0V9nTXhWEKtzdcb0hnG0Rt8vdePNEE1Qb4ahFInyPtvziqdpevj3MYbtPkcnPXh5
+	HJ3CMIEq4fX40qQKvuJEFq6zrnuc99LOHDSnIYWEuxTEu9sXset9L4xXytVEDYaccx4hvhNACIIxq
+	qNLBZn6LK6ml5gjcwUWwcerEfhm/QipjQuezuEgB0XC1loV2jeorntCvL7BlXqCIlRtj9A9pocldp
+	TCjpMkJsWyYRgyKe1K1XM7B6p8j40cU4moGSVsdFyu2Szk+WkxI5+KvxIiD55zXDQjo6oEsT1pDyR
+	A3XaRxzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axv-0000000Dr2n-1mvq;
-	Thu, 10 Sep 2026 09:21:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4ayx-0000000Ds7o-3Vdd;
+	Thu, 10 Sep 2026 09:22:11 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4axk-0000000Dqj0-096f;
-	Thu, 10 Sep 2026 09:20:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7U3kp4CtCEgOP7iLmn8sMtYhQ+Yr7npaw/r976WCEog=; b=W6dqEsu+hm6QpZAAJk1apG38b2
-	D/1527N+D7K46ul7ULYYKqN6UzrsjDm+9Td29gslVkhBnNvuQl25J2tumpsPccxpScTx7ZGvFYl0f
-	z11Nrv8Nm2yitrtLIWEa7q+/BtYnZcYxKuzuIM/g+qlCUPkvogINg+Xju/OHivQOHiIu4gGBlTIA0
-	0nPzzzHqaxHzjGJ+ia1HBRL+kDzd9AZiuZnglDvYkaH95whQ0+dPeA/L26yQ7JmxQ07tXhX8NgpPl
-	SSJHD/Wyf39ic0zPbh/hqIaA7dJ9Mg2Imsi0uUXWu2m/zwjuuw1SeViRmW/yEN9m5LmW6sv644mQQ
-	XJkPMhnw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4axg-00000002Fji-3Vx3;
-	Thu, 10 Sep 2026 09:20:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789032051;
-	bh=CqvZJ9iwGOJsfGLwPD8vlMkeK751yceDISWCvRJVLeI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZhIVx/MeEREOsQ83/h6v0cQUuNICdxEdWN9+IHiJdsfgBHW/D0AHdrLbe9fslcLSC
-	 Yq6vGOIXtmPKRG6QI8Ezf9wZuNL9A0e7GgTy/2OFNtJCqqunljfytiIh0aZYJ4z8pA
-	 yaoj2ZMU60vdxiYpkE6v6FU1Ir2wLSTvMRrTMsOzLwi8KlMeRAb2Wd+8KlQAQuC5SM
-	 uRafDSoKyjHAZKZ+CnIDhKnpbyy8jbn/AkYB9L05iaFChXC71vIVADmfVO4AnF5qbS
-	 AqUhFVI6/AUd1dKgCYJKIodgM087cgQ1fsqY9nlelI+DWxN8d6lUrWkfCrLWoA5Qjp
-	 7gXP43+A64UXw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0A5B17E0C7E;
-	Thu, 10 Sep 2026 11:20:50 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: mani@kernel.org
-Cc: chunfeng.yun@mediatek.com,
-	vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Subject: [PATCH v4 10/12] phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
-Date: Thu, 10 Sep 2026 11:20:36 +0200
-Message-ID: <20260910092038.48291-11-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260910092038.48291-1-angelogioacchino.delregno@collabora.com>
-References: <20260910092038.48291-1-angelogioacchino.delregno@collabora.com>
+	id 1x4ayv-0000000Ds6U-0ldv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 09:22:10 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68A8q0Rq427115
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:22:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=6tGM9diftK82uEPdEwwEmZx3
+	599l3xHAru6r160uTxg=; b=REL0V7zVLnqqNklSk92VK2ksvnh73yn+uXTKLHJa
+	u5ee37RDZSmQNr8DYqK9BkKvuyr7VMA5Oa6ujFJloJjRdacBPvicVOMa74qSvF9A
+	MQanvxpWteCjrq8sPhgOzkWJItBWBhLMYS2NA4wsrU6dryGnJCOxlBbxZ8nx6Fqj
+	Hc5ozfR7FsG908utiitSriOOmvQ7PviR+6ErTkQYQAxy3zBw/azQQRo8HLwHWB89
+	+9aGRIg55uI+MNM5ozqnjGZOzwNvo55WT/EjcBOQZ0JpophFPRystsnrGEs5K4dC
+	0UgGNmrdymloI4GKJ5op/zuv9ayWDHJpnmqPgedlxUExHw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gkcyd32bd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:22:07 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-930b571432fso141978185a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 02:22:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789032126; x=1789636926; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6tGM9diftK82uEPdEwwEmZx3599l3xHAru6r160uTxg=;
+        b=kPddpac9XUW2cEcxzV6TC+Jix3Y1qNC52Vrc3ro7UPV3ia3Y8TM1ENo/Hkt5yKpHcu
+         0dj9LaV0rQ4xWKGY0Zn/3eqlFkr4pk87Vxrn24pzl3qggJIz0Q0Y5G32YK6BdZ515NAc
+         JbxbYzyuuCrdWgChdZicdsR5NUuFWEnTQufHyJMTZT7i1dPVlypm6UKGR5/2HXfInDQI
+         exRGxUBCDg/ESCZ7rfI3iUQmR/4AHlAq3kAtzjGdFfdAl9McHV3y8V/YkunXYo9S3dcW
+         23SBxlTV53yymw88rj+SmtUKV6An5GmZ5BD2gKZoYnpL6Fzmso1KGdskUcTtBmchsfmq
+         Fbzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789032126; x=1789636926;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6tGM9diftK82uEPdEwwEmZx3599l3xHAru6r160uTxg=;
+        b=mrvvwifkGMqfXGr9Os8qzWeIM6G1N5nCDRSfzqqqdZwXFiRr6J0CM93s5fPucezUVI
+         Zc4tYzWVfz64mQ7u8vQ6mt2EuqTpkmn/Zq2X6UhQJbJ3W9NZpAirrrSa6YOP7JtvzndG
+         saQTuG9tGududd/7QC+yfux0Qi02Gsi5HVtjyQgAQqvYxcGsN8mOrTXnaHjtjovrAnCO
+         pbXNbHioqrO9N2sfGXfM0LmyKaZbO6RhZ4kGBNePGPoEQJ3DMbZgi1TakXWQoaBMCoox
+         IifEnD/t+cBoOAseSaTlxcSw8l07+NXr6Wxb0XBclozmb9bumZQYZGz0ccorXXIycGr0
+         Y6mQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz3ahPIlTbKMiyemsqZ/Xl8eJT7X45dclSAB5HhNlRMC+/RZ3yee1cIxf37k0PJsX2OUEXstpXYZ8IESmwTVYVv@lists.infradead.org
+X-Gm-Message-State: AFuF++lph9i9o+fu89z+K0o71wm6IzN1JEL+tEahSxK6dKqZy0Z8JJMD
+	wOX6ri4HP8xiQfxhuE0hjW8JZhb4OKTE1oMrukcy/LwJ/FV+ok8Foge78ZXxZkRX2lh3nAZfDil
+	v9gLj4e+zu2nbeOVG8pfLaiPjrMkcMuYlUh5ytwTFoJYVcQx7cUcm3+oz8ACto+0xDBURUTn/0S
+	pJKA==
+X-Gm-Gg: AYBFou0ZKTqiMRcLKIMtWsWdLpJg0jV4qi1YmmFiPRT7aMrzUxtqMLWzxzhbFsM35v0
+	t3uLnFm5oK735vpkqbWNDvDMEkQSCNPRqu8ydYKLwZ0EiSWZVXVpaB3alDZ5gm/A8oi6Pm6A6N2
+	qjQ4227uyJYxS/7t3rRIWEW+0hZ0wENPkg7juzumLMHsNDKiLnJGjwIND8URvcKR15DeKoXZNzO
+	+jS87F9OPt1RAvtbMjJkUub8SqxLLpqzJUSyjnQ+PKkDvjRdrBlcGjGe+3EH64T200IJE28N3t3
+	fMVuX/jzEncA4Rv3UB8fyMerAEVXa8wL0OMsUsxgHDbqKfjJe0rOe7BALIs+AiL2l1dHEx59mhZ
+	vQFLuKm/xo/PXZQ==
+X-Received: by 2002:a05:620a:8801:b0:939:319f:d6e3 with SMTP id af79cd13be357-939d7e4028amr435138185a.5.1789032126546;
+        Thu, 10 Sep 2026 02:22:06 -0700 (PDT)
+X-Received: by 2002:a05:620a:8801:b0:939:319f:d6e3 with SMTP id af79cd13be357-939d7e4028amr435133485a.5.1789032126022;
+        Thu, 10 Sep 2026 02:22:06 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883a9b49sm41732270f8f.17.2026.09.10.02.22.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 02:22:05 -0700 (PDT)
+Date: Thu, 10 Sep 2026 11:22:04 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: ZhaoJinming <zhaojinming@uniontech.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: fix stale descriptors and DMA mapping
+ leak on Tx map failure
+Message-ID: <aqJ2vGaushx4EL5q@lore-desk>
+References: <20260910-stmmac-fix-vlan-desc-leak-v1-1-6b07dca5e5e8@uniontech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KcOlHxOUPHTI2fBm"
+Content-Disposition: inline
+In-Reply-To: <20260910-stmmac-fix-vlan-desc-leak-v1-1-6b07dca5e5e8@uniontech.com>
+X-Proofpoint-GUID: csed1FSHRDf21h_MuB3E3DomCOPCgVHr
+X-Authority-Analysis: v=2.4 cv=ef+o7LEH c=1 sm=1 tr=0 ts=6aa276bf cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=iHwBjlyiAAAA:8
+ a=w8qe9T3wKc6gY-gyingA:9 a=CjuIK1q_8ugA:10 a=dhHhmpoG3uERpqc57R0A:9
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=uNSKXYNwxGiU6LD0JREI:22
+X-Proofpoint-ORIG-GUID: csed1FSHRDf21h_MuB3E3DomCOPCgVHr
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDEwNCBTYWx0ZWRfX9tTTuAhm+GUN
+ fQ2cxGsSzcck31Ck372XeJHo00/itbHDFtYWv4HzcYSWEBWAhzqLOuXamPscuXY6Wk9fSISDplF
+ XHktheEJOp1UwU1/PzunhxN0L8bNRqg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDEwNCBTYWx0ZWRfX1B/9bTtXp0em
+ oTO5fgPBFFKaFV+8qNhFXFc9PEjmObGN3JiYXfJfegaeM270EUFBGm5M+VDkisSn7MdO5kYBRke
+ KwcGW4OYXNX68UaeczCiS7qN74/0fbmaTlgIEMz0ele17wKZ6KuxYcvJO+XCMEzeinJRRfRvGo4
+ VN9eOQdzElRbB0i3jSwlSCQgZrZLh0UU8E8y2wALPBwNmvBPCQaaXmKkRw63acS/6MUFQCA31Kg
+ GutS+Su2tl/QgNFXRDlEpwme3sEfrk8Jo67xJDK4s8os+dFW7djfHQvz1q7mT5PNk7bJunBQtXj
+ oV3y4NCwRSiyQhvGwOSZzcMLp8XhJrphEYQaXbVaY8USqvB4EVq+7CMZo50AmGD5iuOLDoV4slL
+ Q0aER2bLoRALbilwTXhO/jEGxlatcZk8Zxd426I0uXpD7RcR5/sVvLaQqCR49DY4taz0pUjOJ8t
+ crrurzfKR2eL3D6pT3g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-10_03,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 clxscore=1015 phishscore=0 impostorscore=0 bulkscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609100104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_102053_076395_0195775B 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260910_022209_343678_FE35B5F6 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,121 +156,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for the eDP PHY found in newer
-SoCs, transfer the bitrate register value definitions to SoC
-specific data.
+--KcOlHxOUPHTI2fBm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/phy/mediatek/phy-mtk-dp.c | 36 +++++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 9 deletions(-)
+> In stmmac_xmit(), when the DMA mapping of the linear part or of a
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index 8e1fc4e16ba6..643666c454f4 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -44,10 +44,6 @@
- 
- /* DP_PHYD_BIT_RATE */
- #define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
--#  define BIT_RATE_RBR			0
--#  define BIT_RATE_HBR			1
--#  define BIT_RATE_HBR2			2
--#  define BIT_RATE_HBR3			3
- 
- /* DP_PHYD_SW_RST */
- #define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
-@@ -163,6 +159,14 @@ enum mtk_dp_phyd_dig_glb_regidx {
- 	DP_PHYD_GLOBAL_MAX
- };
- 
-+enum mtk_dp_phyd_bit_rate_regval {
-+	DP_PHYD_BIT_RATE_RBR,
-+	DP_PHYD_BIT_RATE_HBR,
-+	DP_PHYD_BIT_RATE_HBR2,
-+	DP_PHYD_BIT_RATE_HBR3,
-+	DP_PHYD_BIT_RATE_MAX,
-+};
-+
- static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
- 	[DP_PHYA_GLB_BIAS_GEN_0] = 0x0,
- 	[DP_PHYA_GLB_BIAS_GEN_1] = 0x4,
-@@ -189,6 +193,13 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
- 	[DP_PHYD_TX_CTL_0] = 0x44,
- };
- 
-+static const u8 mt8195_phy_dig_bitrate_val[DP_PHYD_BIT_RATE_MAX] = {
-+	[DP_PHYD_BIT_RATE_RBR] = 0,
-+	[DP_PHYD_BIT_RATE_HBR] = 1,
-+	[DP_PHYD_BIT_RATE_HBR2] = 2,
-+	[DP_PHYD_BIT_RATE_HBR3] = 3
-+};
-+
- /**
-  * struct mtk_dp_phya_imp_sel - Per-Lane Impedance Selection
-  * @pmos: Impedance selection for P-Channel MOSFET
-@@ -209,6 +220,7 @@ struct mtk_dp_phya_imp_sel {
-  * @regs_ana_lane:  Register (layout) offsets for ana_lan
-  * @regs_dig_glb:   Register (layout) offsets for dig_glb
-  * @regs_dig_lane:  Register (layout) offsets for dig_lan
-+ * @val_dig_bitrate:IP Version specific register values for Bit Rate setting
-  * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
-  * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
-  * @ana_lanes_imp:  TX Impedance Selection Settings (for all lanes)
-@@ -227,6 +239,9 @@ struct mtk_dp_phy_pdata {
- 	const u8 *regs_dig_glb;
- 	const u8 *regs_dig_lane;
- 
-+	/* IP-Version specific register value arrays */
-+	const u8 *val_dig_bitrate;
-+
- 	/* Calibration defaults */
- 	u8 ana_bias_r;
- 	u8 ana_cktx_imp;
-@@ -310,6 +325,7 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 
- 	if (opts->dp.set_rate) {
- 		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
-+		enum mtk_dp_phyd_bit_rate_regval regval_idx;
- 
- 		switch (opts->dp.link_rate) {
- 		default:
-@@ -318,19 +334,20 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 				opts->dp.link_rate);
- 			return -EINVAL;
- 		case 1620:
--			val = BIT_RATE_RBR;
-+			regval_idx = DP_PHYD_BIT_RATE_RBR;
- 			break;
- 		case 2700:
--			val = BIT_RATE_HBR;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR;
- 			break;
- 		case 5400:
--			val = BIT_RATE_HBR2;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR2;
- 			break;
- 		case 8100:
--			val = BIT_RATE_HBR3;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR3;
- 			break;
- 		}
--		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
-+		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate,
-+			     pdata->val_dig_bitrate[regval_idx]);
- 	}
- 
- 	if (opts->dp.set_lanes) {
-@@ -713,6 +730,7 @@ static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
- 	.regs_ana_lane = mt8195_phy_ana_lane_regs,
- 	.regs_dig_glb = mt8195_phy_dig_glb_regs,
- 	.regs_dig_lane = mt8195_phy_dig_lane_regs,
-+	.val_dig_bitrate = mt8195_phy_dig_bitrate_val,
- 	.ana_bias_r = 15,
- 	.ana_cktx_imp = 8,
- 	.ana_lanes_imp = {
--- 
-2.55.0
+[...]
 
+>  	if (unlikely(is_jumbo)) {
+> -		entry =3D stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+> -		if (unlikely(entry < 0) && (entry !=3D -EINVAL))
+> +		ret =3D stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+
+if jumbo_frm() returns an error on the subsequent frames, entry is not upda=
+ted
+here, so we will end up with a DMA leak. Am I missing something?
+
+
+> +		if (unlikely(ret < 0) && (ret !=3D -EINVAL))
+>  			goto dma_map_err;
+> +		entry =3D ret;
+>  	} else {
+>  		bool last_segment =3D (nfrags =3D=3D 0);
+> =20
+> @@ -4984,6 +4985,26 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb=
+, struct net_device *dev)
+> =20
+>  dma_map_err:
+>  	netdev_err(priv->dev, "Tx DMA map failed\n");
+> +
+> +	/* entry points one past the last descriptor written for this frame:
+> +	 * on failure it is the descriptor whose DMA mapping failed, so walk
+> +	 * from first_entry up to, but not including, entry.  Reset cur_tx
+> +	 * unconditionally as both stmmac_vlan_insert() and stmmac_jumbo_frm()
+> +	 * may have advanced it, and release the VLAN context descriptor.
+> +	 */
+> +	while (first_entry !=3D entry) {
+> +		desc =3D stmmac_get_tx_desc(priv, tx_q, first_entry);
+> +		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
+> +		stmmac_free_tx_buffer(priv, &priv->dma_conf, queue, first_entry);
+> +		first_entry =3D STMMAC_NEXT_ENTRY(first_entry,
+> +						priv->dma_conf.dma_tx_size);
+> +	}
+> +
+> +	tx_q->cur_tx =3D first_tx;
+
+do we really need to update tx_q->cur_tx here?
+
+Regards,
+Lorenzo
+
+> +	if (has_vlan) {
+> +		desc =3D stmmac_get_tx_desc(priv, tx_q, first_tx);
+> +		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
+> +	}
+>  max_sdu_err:
+>  	dev_kfree_skb(skb);
+>  	priv->xstats.tx_dropped++;
+>=20
+> ---
+> base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+> change-id: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
+>=20
+> Best regards,
+> --=20
+> ZhaoJinming <zhaojinming@uniontech.com>
+>=20
+>=20
+
+--KcOlHxOUPHTI2fBm
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqJ2vAAKCRA6cBh0uS2t
+rO4sAP9QplCgEOl7LHiJtVRsPPgK9CPA9e9w9UD6ia60BXo9jgD/QCPFa663G/VC
+TKZ5L1wUNGHzBoI5o+tS5xidHxQsLww=
+=LJmx
+-----END PGP SIGNATURE-----
+
+--KcOlHxOUPHTI2fBm--
 
