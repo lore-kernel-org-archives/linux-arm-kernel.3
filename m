@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A613C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B474CC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/kFkA8ZtlPHl7dirXaXl3pjvcX+bythjEf3lFKdsys=; b=rvgvrO1VfNJGnV6iZiPASqo+A9
-	rFTUUlzzol/gRQ6Prqr0JarZ4PHEzeY2MIEsxqXsZJD5Xqm6H9v5rUxEMIItlHntkuY6eIedld9BR
-	wgUJRh4nlgSzZlhuyZKN4SOTc73E4KegAL8ws8L0TQDY861Rd4GPQ/x0zxAwtHyR+8LktdX7NwQ9M
-	8m0hrshcUmOOCr1tofVozbbL/eAEv8BEOOKPNcBp92nDGNye6sE2ynsyrF43iClaKLG3OaR2Et5vG
-	ouv0fL4L0jNKYE52zFlyqng1QglKU6Ueh/TO5/xt839UbWWVA/jm1C9K2L/pxAZ53wNBiOoQ2AlIZ
-	L2DCalRQ==;
+	bh=0o6BbyNMieHY+nTPlSXoikbKBcKiXxBXsauusDrJ23E=; b=c9BTcC2qhOpCoxsqjtLOwDMbWw
+	IUnBtVeQWEs6MVtyHmYna/UGJahJ7SA1BSDy7Vde0HSIQbCBcoCcaG4FQjlNO3Z/RpyAOqfd1MY5I
+	FD7ps4FreCjWHuGsVzURtqcSe5+0sSWrmgAJFDKfyr5aATHkVRDsW21De8h3udF3hspoaF4xMoT1C
+	o6/jT2WsjXq6gj2StF8ImcGtb+LZhLAsUcvWY0QNOLwOP3MIlIMgOAIKS4OFcG3yrH/lqblseRmnt
+	MGLGBPmVjMmF0BzrCph22y3WsbHAgg8jHVBWluIjhjyc2yMqWUc+AXQ600Z5SBehh/pjufDmW12dn
+	4KVEbHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Wja-0000000DOeb-0QEW;
-	Thu, 10 Sep 2026 04:50:02 +0000
-Received: from esa3.hc1455-7.c3s2.iphmx.com ([207.54.90.49])
+	id 1x4WkF-0000000DOld-0zOT;
+	Thu, 10 Sep 2026 04:50:43 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4WjX-0000000DOdd-22hR
+	id 1x4WkB-0000000DOku-3BHi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:50:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789015803; x=1820551803;
+	Thu, 10 Sep 2026 04:50:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789015840; x=1820551840;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Xk47tdIucK/5Zzi/z/QsVNoFQM47eXx+3YilT3u56PI=;
-  b=S8bWev4FeP73hYK+aS8TV5c8EToZFJPvUthiF3Zi8bAZZoZR9dro9Qxo
-   7TdnCtKsCSLEpj1V/NQ+zCJXfxoOs5Lvo6gzlwVTrhtAW1z+8bLCI2ZAB
-   cuuPfGWV7w2dQbccGIEckZ9y6d+iYgrPxwoqFwwse6w7d6rlYY+s02TF6
-   IzJL8NjChIrgXAA18a/4DbPBtpx8Xsm5wwfY02gxE68XyEB0AIIl6QJuZ
-   ZmSZO8PtgHDJ5g+g62eKb6rB3CmdX47ChTKR0QdOR6e6dAxNMW1/1Pq3E
-   xrQDJYm/ctbunQSlpws7KNHyUJkgdwj3BrqieBUZS2E5Nrh3umRzn6yt8
-   A==;
-X-CSE-ConnectionGUID: R2PQFJeKQV6fc4iPbWhbfQ==
-X-CSE-MsgGUID: X7vOI74bQHqZiE3Ok8d8Qg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="254488097"
-X-IronPort-AV: E=Sophos;i="6.25,271,1779116400"; 
-   d="scan'208";a="254488097"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa3.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 13:49:59 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6766633FB
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:49:55 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 1367318019B2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:49:55 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.22.105])
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 0379A14000ED;
-	Thu, 10 Sep 2026 04:49:47 +0000 (UTC)
-Date: Thu, 10 Sep 2026 13:49:44 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, 
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, 
-	tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, 
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, 
-	fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-Subject: Re: [PATCH v17 06/20] KVM: arm64: CCA: Add a new mode for supporting
- Realm guests
-Message-ID: <aqI2eI8IbCJQMx5d@FCCLS0092175.localdomain>
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
- <20260908162223.1683432-7-suzuki.poulose@arm.com>
- <aqDFcgzXOTWUkPtp@FCCLS0092175.localdomain>
- <86zexq3dk5.wl-maz@kernel.org>
+  bh=27sjqAX3mzIarYqMVpWaoeAe05sB9malX0xlN8XrmvM=;
+  b=DiZ2zkPwqz+zGilyQS+Kf/ab0503v15opZ5FWPIOWN0G3pf7PiqIXh5c
+   1sZBtCBQnAr3UH/ivOn4SpFQ8NZHN8P+nTQ9ROjyKfTTuYslHXD7MPCsX
+   lPKAxwqSnDW7ZSDcvVlefxNwdquS9BsV8RVIVCu2UDEyBuvkJdMb6izCh
+   tpEBYwpzBalMl042XMNNPcx5vl6FOpkslloP+xv91r/qlpJAlqiaH6lql
+   30DhiPrygUaAUiWLG2Kfls6O+wfz99MVxaCe5L/Um4lZS1VLkuSnbG08X
+   d6yRM6fsQelCr1vL2PVLd4xTIEFeSYGe05NJ/1uCjmU0kuHY/EnqKFN3G
+   w==;
+X-CSE-ConnectionGUID: ApGysfthSoyZZTE84j8eSQ==
+X-CSE-MsgGUID: DHeb07pDRl2TRBw40pUeMQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="100621091"
+X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
+   d="scan'208";a="100621091"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2026 21:50:39 -0700
+X-CSE-ConnectionGUID: t3yLjyHCRoasgCwgzmWvog==
+X-CSE-MsgGUID: u1n+qZFcRfqsUdFaiUs8fg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
+   d="scan'208";a="268257232"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa007.fm.intel.com with ESMTP; 09 Sep 2026 21:50:35 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 999D699; Thu, 10 Sep 2026 06:50:33 +0200 (CEST)
+Date: Thu, 10 Sep 2026 06:50:33 +0200
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 19/22] thunderbolt: Add Apple Silicon support
+Message-ID: <20260910045033.GN106095@black.igk.intel.com>
+References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+ <20260906-b4-apple-soc-tbt-v2-19-1f80085f93fb@kernel.org>
+ <20260908091844.GD106095@black.igk.intel.com>
+ <22808191-5310-4d90-9fac-68d0d85b4c54@kernel.org>
+ <20260909060615.GJ106095@black.igk.intel.com>
+ <33699664-6afb-4b46-99d1-98a0f5e57f39@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <86zexq3dk5.wl-maz@kernel.org>
+In-Reply-To: <33699664-6afb-4b46-99d1-98a0f5e57f39@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_214959_825700_DB51D3FA 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20260909_215039_867845_7CB8A190 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,85 +101,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi,
 
-On 09/09 11:48, Marc Zyngier wrote:
-> On Wed, 09 Sep 2026 04:26:41 +0100,
-> Kohei Enju <enju.kohei@fujitsu.com> wrote:
-> > 
-> > Hi Suzuki,
-> > 
-> > On 09/08 17:22, Suzuki K Poulose wrote:
-> > > Add an explicit mode to support Arm CCA guests.
-> > > 
-> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > ---
-> > >  Documentation/admin-guide/kernel-parameters.txt | 3 +++
-> > >  arch/arm64/include/asm/kvm_host.h               | 1 +
-> > >  arch/arm64/kvm/arm.c                            | 5 +++++
-> > >  3 files changed, 9 insertions(+)
-> > > 
-> > > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > > index 68647ff4bdd24..1afe3df3b923e 100644
-> > > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > > @@ -3256,6 +3256,9 @@ Kernel parameters
-> > >  			nested: VHE-based mode with support for nested
-> > >  				virtualization. Requires at least ARMv8.4
-> > >  				hardware (with FEAT_NV2).
-> > > +			rmm: Support for running confidential guests in Realm
-> > > +			     world using RMM, as defined by Arm Confidential
-> > > +			     Compute Architecture (CCA)
-> > >  
-> > >  			Defaults to VHE/nVHE based on hardware support. Setting
-> > >  			mode to "protected" will disable kexec and hibernation
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index b2e99c5cb1cd3..31ae9d8d8e92f 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -69,6 +69,7 @@ enum kvm_mode {
-> > >  	KVM_MODE_DEFAULT,
-> > >  	KVM_MODE_PROTECTED,
-> > >  	KVM_MODE_NV,
-> > > +	KVM_MODE_RMM,
-> > >  	KVM_MODE_NONE,
-> > >  };
-> > >  #ifdef CONFIG_KVM
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > index 9af3bbb2f8c24..50f0adfadab38 100644
-> > > --- a/arch/arm64/kvm/arm.c
-> > > +++ b/arch/arm64/kvm/arm.c
-> > > @@ -3264,6 +3264,11 @@ static int __init early_kvm_mode_cfg(char *arg)
-> > >  		return 0;
-> > >  	}
-> > >  
-> > > +	if (strcmp(arg, "rmm") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
-> > > +		kvm_mode = KVM_MODE_RMM;
-> > > +		return 0;
-> > > +	}
-> > 
-> > Does this make NV support and CCA Realm VM support mutually exclusive?
-> > 
-> > Until the v16 series, we could run Realm VMs with:
-> >   'kvm-arm.mode=nested'
-> > 
-> > As far as the AArch64 architecture is concerned, there does not seem to
-> > be a reason to make them mutually exclusive. I am therefore wondering
-> > whether this restriction is intentional.
+On Wed, Sep 09, 2026 at 05:20:35PM +0200, Sven Peter wrote:
+> Hi,
 > 
-> I have a hack somewhere that will allow this, but this requires to
-> change the above to be a capability mask rather than a simple
-> enumeration. I'll see if I can spin that as a separate series.
-
-Ack. Thank you for the clarification.
-Looking forward to seeing the series.
-
-Thanks,
-Kohei
-
+> On 09.09.26 08:06, Mika Westerberg wrote:
 > 
-> 	M.
+> [...]
 > 
-> -- 
-> Without deviation from the norm, progress is not possible.
+> > 
+> > If it is possible, I suggest to use the same way we do in ACPI side here:
+> > 
+> > https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-for-pcie-root-ports#map-native-protocols-pcie-displayport-tunneled-through-usb4-to-usb4-host-routers
+> > 
+> > It was specifically designed so that it should support DT as well (that's
+> > why it uses the device properties _DSD).
+> 
+> Oh, nice, I didn't know those existed. Konrad already has a PR open to add
+> these to dt-schema [1] and a PR that already makes use of these for dwc3
+> [2].
+
+Great.
+
+> I can just write generic code similar to the ACPI one then to add the device
+> links and split it off from this series, though I think that dt-schema PR
+> must be merged before we're allowed to use that representation.
+> I'll adjust the dt-bindings here for v3 to just drop the representation as
+> OF ports/endpoints as well.
+> For the PCIe/DP tunnel notifications I should be able to use the same
+> representation, possibly with an additional usb4-adapter-index property or
+> similar to differentiate between the two DP IN adapters, once I get to that
+> then.
+
+For PCIe yes, for DP you should not need those at all.
 
