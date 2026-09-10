@@ -4,109 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54D7C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827BDC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twz7P/UgrzFqFrDTfXn+06wBF94/L3aT/pnjRwe1Smk=; b=4j/NcDwiX17hlBX5vI1neIANM+
-	G8tM+ucZw/IazOpnHY4CZQgk30tr613CRwHhL/vgtBIgx8IqEWMsjnNbTvQm5Tz6HaMblvbfBctCo
-	WTLCSIoLhF7LV5f2FeNrmBF7IQGFpgdr0K2n7FYx7wdKvuRaEGzToWJMMYXfspeZ2BV/OB/qouU5f
-	mQxxQB1di4lcg/p34aGxuCQz6SMEUnixWj14FSAXbSSTYnIW+KS44ZC5GG8EfByaNZiRMQN880YRp
-	1CJ6Wh+y1o5nFRkWai27QHVZmeY0sB9MSDD1QMIY9iRM+s4xBRCGy3iFMXj1wTpod32IVsAS8s4tA
-	wACk21vQ==;
+	bh=TX5xEsN7qCQIDoopBpS4rzgxnoxv1TE/SIlS+HozpQQ=; b=HFDlIT7WqdDIMZ4YX4s/8SHJZJ
+	gholSJxDKUIkJiiZ+ExGEUQZ9xbsKCF0Dsy3lggOCwYu165ettx31lGE3+HSfhzQGC/p3rLmJuBkL
+	AoWyA9GqfmeG7URnRNeEbPfWywR3e1Zsum4zBiblGoDIoKcWi629+nssu1vFILT7MJv2e6+Z1lkBR
+	funEd4JtKaiTj7qjt8COP52NgAgBmg6GwjT9yDCexaidH44Vg/dTQjYoBi5B0FBpDRHJTl46UA6H3
+	PiYj/jKgKNtRfU8bu7QRNswc0aNnlF4X1vo7ZdS0Hf8w372N6p6Iu1532NB5Vkwy0TkXMvTBUeBJ+
+	KgXNGzog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrw-0000000FByK-2k6A;
-	Thu, 10 Sep 2026 18:51:32 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1x4jse-0000000FCYX-3yym;
+	Thu, 10 Sep 2026 18:52:16 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrg-0000000FBla-2AKy
+	id 1x4jsb-0000000FCW1-2Y5M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:51:24 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-92ed3993c1eso258485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:51:16 -0700 (PDT)
+	Thu, 10 Sep 2026 18:52:16 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68AIRnAh2322437
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 18:52:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	TX5xEsN7qCQIDoopBpS4rzgxnoxv1TE/SIlS+HozpQQ=; b=gH/QsaNew8fS9YD3
+	aaeGAtD0VvU7vFgRWpaDiASb1uzIfqLDaNBkBzDVlG4/VrWhKIGtcqrmTBJHQDyr
+	mDgwG6CZ6S+X8bzauacPhlh/ngomTg6pptt7OhCYtuAiTv5A3JqEsKENZ+A15FwO
+	sjn2mQi8eBkaHn2dMkVk04pCt0qblHhAu1RahJRpUZaYj3V/TvI8fAEoCm1fc8ae
+	aklzVnAtWJDpipHIcRjbJcY3hcNjbrBECdGJWmSxLkw/QCN+McRIsczCk6ap2QVm
+	N9BZWnqyyVj7ZjRKpTmEKcB/z1f4jr9ms9B5nDwMuKUE9gqPR6FOH9kMf0cytwwN
+	z5RP1Q==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gkqsvu5bv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 18:52:11 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-398dc3d8f0fso1538257a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:52:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1789066275; x=1789671075; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=twz7P/UgrzFqFrDTfXn+06wBF94/L3aT/pnjRwe1Smk=;
-        b=PNWaBbnwRMIL+tQwJvR07DCibgnfy0ykZq2FCHCvgLkL5Lu4/97TRB9S6MK9MjofZm
-         h8Uy6nkRVgePouNNII/eT6+GtysLWPM+qDFv+1cfEkvTDUHtlslvJF0WXP2RWj+hjzhE
-         1JVaHvY4gYrizuy8RjGsT4NtGHARlL11P01hukop+m1YeUXLanDMwLrAjJvgRrIRcLCJ
-         vPYPap1JnYYwXqBliyNwG+FRET26yst73dS8Pt6MMzmfhRxAchaKLWWPSrlrZnyIQrPS
-         sjAbYR6s0/svPEC02lXYK6PxfAufOWgx0TrC1PXD4qgLcUOVU5DmpXXI9+ydOnJm9JGX
-         Pugw==
+        d=oss.qualcomm.com; s=google; t=1789066331; x=1789671131; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=TX5xEsN7qCQIDoopBpS4rzgxnoxv1TE/SIlS+HozpQQ=;
+        b=Qxl/atbOAm0Ov3eLDsq9m9Z8rOanMJYVWxhqZt0aPyQxFFK45Uq/U1oI/rdkyrLzpt
+         TLsw5dk+Vb390js8LKSr33J12cXJfjAdFstjcs1BxP2jkgg+NWCK938prxggsRBRFjsK
+         BU/5O7VquVSo4cvgCxIsuzsBIRCwfi+jPNzE7R/OhaOw1byP3oCcbiqThP1wYSi7ew3b
+         ZdXPZL62jDIDmLLeebXibetaKFyWQrabOONA3Y8qG0OoHuL7LM6kVOwRTWb1OlYPzny1
+         N9EKz8NApkr17SwI5lZ2JCYmwpbnMpcSGaSHIEjz57ICSdkB3sPg3vLRkvAzEel/PdbU
+         FwKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789066275; x=1789671075;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20251104; t=1789066331; x=1789671131;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=twz7P/UgrzFqFrDTfXn+06wBF94/L3aT/pnjRwe1Smk=;
-        b=nWyhoiGwmTUHnQs3vBbay7jZj1T0iW5GMPNs5vNPLGuqYFmKeosYSOih7YRBC2eM3S
-         YaJQqXTQz4d05VKSha/WpikC0B40TJT8KRv5Fh+/+8HixWGKe7hvZpBc54TETtZljyVC
-         zD50JyMyTfehLh6onX92qKmGx3L79WUWjUSeGpfnipa9bdoieFcFLODXn96MYKR2uvA4
-         QZaY59FFn6Njm7lg89Hwjwk6u7vnP4eQnpPTnolezUrC4oyug+7QlmstGiIVtiqEPRNg
-         KnYSuBhnO8+kG8nNseqdbloosGHcTpAc8Lllkf9qNd3bittqjf1y/+zBtxeuLZEfiSW2
-         uIQg==
-X-Forwarded-Encrypted: i=1; AKwUvByp8vcQvyUhqzcyfTsP0ZscVRLscGioZSiX+E/2D+IrwdZ7qkRZcSG5tQkfwT/BVJs8UJVqoAIO5bi4d5CZRAAK@lists.infradead.org
-X-Gm-Message-State: AFuF++lqKskDwk8GRTTES4OJ/p5Bnvx5LrIFNj4iMW4j81dV84nfDt4Q
-	NHcNo3udzv7agwNt78w9/eCJd1WezggocloeqMqvYJVSR8+SqydaJsJ1GyN/cku+W/YM0XNgLLw
-	HWdftxAQ=
-X-Gm-Gg: AYBFou0bjBre2KFrBd7SoBTRS6p+dqwPyRyWpPdhRozEZagAky35ZDdb7uCx8shNHCt
-	yyvYyvVYgPM03wk34AMBvdtluKdaYgun/hqjcCJEV5RJRAFm/6dX5Vz4jLFBSKmtqhR/CFMuBZ/
-	rf6UB8VmH9784ILnrQKDYgLXY0gR4ih9onuGbKSIsq3T1xi7BMQjGBA9UZX3Hi+Ogy8xKVGSTy+
-	1E2+t4a1C55fD38C6vnlg5iFlwmNK9ON52B8/YbO+y0Q3uHwVkNTWvpjHztYpaWNW8NX5JFZDzH
-	jnRIU/Y033D/m0iHAKw2KwB66wkMh+sTuzdGWnLhDIWSPtta3f9V30MsQDHoRcqkOO+T0ZmAtQs
-	DlZNDQ5FS0VuFQ0FAhb1wp3y1ap52litaHZ4R59ttNU+d3vjyuCRO4t74Gju0GWLtDzzC9Zfs2R
-	xo0gafZ8qEkfHSheE7NsWn8kZ7G+V/EwQbl/OezC1ZYswNQAKLR65CvTgT6L3R6ac60jTdDzlUw
-	1O71Ge9MOiKY4eIDHfrDhy12+2y0vtXyioFjtdzBCbFHQH+bGKmJXO8
-X-Received: by 2002:a05:620a:269d:b0:939:6de9:208b with SMTP id af79cd13be357-939ea2b3827mr16779985a.48.1789066274997;
-        Thu, 10 Sep 2026 11:51:14 -0700 (PDT)
-Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-939e7f184f5sm49053285a.15.2026.09.10.11.51.14
+        bh=TX5xEsN7qCQIDoopBpS4rzgxnoxv1TE/SIlS+HozpQQ=;
+        b=mOCA94HHU2vJzokpBGhU9dCK+ghoAnBPLPaDOG+VHzaiRjEYAlFj42gvnCOw8xWndr
+         B0QZW+IwlKDpvUA6lEuLm2z5pPGFkoc6wSEsinVacwz+aSb6SkHmasbMm3iaF/xobaMF
+         h91mBVHdG6pEtU8H3RyLd6EHWCJU96G0w8kcl+m3p7GEKa+m3HcF/5E+vLHBMB91H3wU
+         rQ2XYnuoIfEVMAILLfU/vxMR9fmZf/HSgZ61jtmhJr2eTjYiZx0FtXXSwVOLXdhO9uqF
+         3j2Mq1vfx7tmlishNQjDOyCNd8Ryz0z354+wnJQW41L7yOvifgTrkwJpnNvGH50w97qd
+         J1yw==
+X-Forwarded-Encrypted: i=1; AKwUvBybaTCCbW2ll1fJznqehKlui712gbv/WJVAlOpsMNr9J/EqGoEaNLZyc9o7TDUjQA66cxL0j73GEVf+NeD/1a6/@lists.infradead.org
+X-Gm-Message-State: AFuF++nEe80+zFM8IYLRhTEnRd6MTbpi3ZDP83vPhc6nAUlIyDmJ2NFP
+	zk/dhlVhs6cvQXNXkamSDjoK87nEz4SUbrhXyjasG99DT2gWLEOQW0pSAh6XJb17Ds3z7KPsG7h
+	m+150xckq8aijmZt9XS/p4lglLIR7nsaYEGTBHa6r5jPsSDOrQLawVuxZe5PjsUJduFUnVNmh1e
+	NCgg==
+X-Gm-Gg: AYBFou3PTju26CxLSQFFHP6k+ZB2d/TMUBBc3hCSQoAfZeQ1Nz6B75ca2MhJQJJK+Pw
+	JxO3pH0LvbZ0UIpVCCE3DtGlnJnJsIHS9nqbwcSMB21U3iw6u8r/9tRSPt6FycIA1iMcHxvlKcV
+	L4fphwHFbONaIg7qXQKbLpsp6DlaxGLQgRMo693RgXwsWGa2aEIOtOIR/LCeTmKzAEU6wlUaKkx
+	XcSEnJa2uDKl6YpQzaMzPT44LfxVpK9ugdLbLotPL8br8tLqC6usUG1+vS1K4StVcDmJtA6GwgN
+	6jEIki8nDaN7wxdMZjWUK6diDMHjqjA4fGoy7fxcvubFyGsT7gwQhzMsq9TEIs0wDUq3NfMtnSn
+	DIzqcfCyoe3KCFl+m7vCeDLPqmms=
+X-Received: by 2002:a17:90b:54c6:b0:38e:9784:dd47 with SMTP id 98e67ed59e1d1-39d779167ddmr7340983a91.1.1789066330756;
+        Thu, 10 Sep 2026 11:52:10 -0700 (PDT)
+X-Received: by 2002:a17:90b:54c6:b0:38e:9784:dd47 with SMTP id 98e67ed59e1d1-39d779167ddmr7340943a91.1.1789066330283;
+        Thu, 10 Sep 2026 11:52:10 -0700 (PDT)
+Received: from localhost ([50.35.44.179])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365b97994sm893525c88.12.2026.09.10.11.52.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 11:51:14 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Thu, 10 Sep 2026 18:50:35 +0000
-Subject: [PATCH RFC 12/13] rcutorture: Bracket Tasks RCU readers with
- trampoline nesting
+        Thu, 10 Sep 2026 11:52:08 -0700 (PDT)
+Date: Thu, 10 Sep 2026 11:52:04 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Srirangan Madhavan <smadhavan@nvidia.com>
+Cc: mark.rutland@arm.com, lpieralisi@kernel.org, sudeep.holla@kernel.org,
+        conor@kernel.org, jic23@kernel.org, catalin.marinas@arm.com,
+        will@kernel.org, treding@nvidia.com, jonathanh@nvidia.com,
+        bence.csokas@arm.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] cache: add SMCCC-backed cache invalidate
+ provider
+Message-ID: <20260910115204.00005a79@oss.qualcomm.com>
+In-Reply-To: <20260910082142.1522865-3-smadhavan@nvidia.com>
+References: <20260910082142.1522865-1-smadhavan@nvidia.com>
+	<20260910082142.1522865-3-smadhavan@nvidia.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-b4-rcu-tasks-preempt-qs-v1-12-d4469f4cc101@toxicpanda.com>
-References: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-In-Reply-To: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
- Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
- rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
+X-Authority-Analysis: v=2.4 cv=DdOCOftW c=1 sm=1 tr=0 ts=6aa2fc5b cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=Ikd4Dj_1AAAA:8 a=VwQbUJbxAAAA:8 a=6Y3uqnu38QBErNT00lMA:9 a=CjuIK1q_8ugA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDIzMiBTYWx0ZWRfXxms7OIqZsCvP
+ iwyR9yHXg1FJtn+ILqmiXAiciv57i9YRbWl9y+GpuHNgj6jjia6/R3/++dmCBRb9AuAmKX7hQ+w
+ YlD1EE8hUMupChedHO/x/8nLUFNo/Yqjl8zdZiUyigcO9RcJKxiL61h7HntjYkAbcIxaIlu42Bg
+ xWZU6NHL/U6hvcA8yeq2oT0h/fCc2QvuJnsEAYwH5nwiI8/tkYmTO7dU4RhtMZBgDQk/A3hoAOt
+ 7uB/xiK7Mo30ba1lUSlxpv/wgFVlvYUa7y7Lc/fceQsbB0BVevFyk/Cs2peDBqitFrj8SKXevGS
+ m5ZMBBxOwXLiWq/3T4lfWK1mCWEsUv+qpQc4PxU4MEnUMLsb7KRHb8huj5AzvZHbI7UbWPnuJ8P
+ zU/gjmT04Scbznl9XS27dWNK2Y0yt3Aw24znUjkvPutxnJxD8xJdinGJXze0MgX2WRQh7mYnXMg
+ V+ecdOVASPd4etZOpkw==
+X-Proofpoint-ORIG-GUID: PiBjQc-GRQXedUV_H00wWNREQnZvV90U
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDIzMiBTYWx0ZWRfX5PR71jmuYH2I
+ V6pn8Z5+9DgdaQDeBw+9ZIaXMqmCxugtsbI+eMnHYgh7QxQxXr5zj9lVt0iYzawm/+2xFquM2rr
+ B9N7H0b9BG0TOuOJ4zL7il5Ax9V2n7I=
+X-Proofpoint-GUID: PiBjQc-GRQXedUV_H00wWNREQnZvV90U
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-10_06,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 phishscore=0 malwarescore=0 adultscore=0
+ spamscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609100232
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_115116_607469_FD5D7676 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260910_115213_787794_910A3B78 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,48 +153,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rcutorture's tasks flavor models a Tasks RCU reader as "any stretch of
-kernel code", and rcu_read_delay() deliberately preempts inside it to
-check that a preemption does not end the read-side critical section.
-Once preemption outside a trampoline becomes a quiescent state that
-model no longer matches what Tasks RCU protects, and the readers would
-report false too-short grace periods.
+On Thu, 10 Sep 2026 08:21:42 +0000
+Srirangan Madhavan <smadhavan@nvidia.com> wrote:
 
-Have tasks_torture_read_lock()/unlock() raise and drop
-current->rcu_tramp_nesting so the reader models a trampoline, which is
-the thing Tasks RCU actually guards; the deliberate preemption inside it
-then continues to be, correctly, not a quiescent state.
+> Add a cache maintenance provider for the Arm SMCCC cache clean+invalidate
+> interface.
+> 
+> The provider discovers SMCCC support and attributes at init time,
+> serializes firmware calls, handles transient BUSY and RATE_LIMITED
+> responses with bounded retries, and registers with the generic cache
+> coherency framework used by memregion callers.
+> 
+> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jic23@kernel.org>
 
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
----
- kernel/rcu/rcutorture.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+One tiny thing inline.
 
-diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
-index 794937e13e7c..df6dd708cea7 100644
---- a/kernel/rcu/rcutorture.c
-+++ b/kernel/rcu/rcutorture.c
-@@ -1144,11 +1144,17 @@ static struct rcu_torture_ops trivial_preempt_ops = {
- 
- static int tasks_torture_read_lock(void)
- {
-+	/*
-+	 * Model a trampoline: with CONFIG_RCU_TASKS_PREEMPT_QS a preemption is
-+	 * otherwise a quiescent state and rcu_read_delay() preempts on purpose.
-+	 */
-+	rcu_tasks_trampoline_enter();
- 	return 0;
- }
- 
- static void tasks_torture_read_unlock(int idx)
- {
-+	rcu_tasks_trampoline_exit();
- }
- 
- static void rcu_tasks_torture_deferred_free(struct rcu_torture *p)
+Thanks,
 
--- 
-2.55.0
+Jonathan
+
+
+> diff --git a/drivers/cache/arm_smccc_cache.c b/drivers/cache/arm_smccc_cache.c
+> new file mode 100644
+> index 000000000000..1cfa8f8809d0
+> --- /dev/null
+> +++ b/drivers/cache/arm_smccc_cache.c
+> @@ -0,0 +1,149 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2026 NVIDIA Corporation
+> + *
+> + * Arm SMCCC cache maintenance provider using cache clean+invalidate calls.
+> + */
+> +
+> +#include <linux/arm-smccc.h>
+> +#include <linux/cache_coherency.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/init.h>
+> +#include <linux/kernel.h>
+
+Small thing, but can we avoid including the catch all that is kernel.h.
+Generally aim for more specific headers for what is actually used.
+
+> +#include <linux/mutex.h>
+> +#include <linux/nmi.h>
+> +
 
 
