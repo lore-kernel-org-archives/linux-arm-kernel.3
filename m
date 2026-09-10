@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806E3C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D621EC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/dfTFSYIJI0KlIowkfqgMTTkhWReiFAfFddaWbLYdc=; b=0knl/lrOHtNuZMSJyryyKSBjGL
-	6PFR6JtWEbO+74B4aOoSVk6tiZdZge7q1iIUNH33Sm8m6xtE6+WpAvo0DKvNM7mkxu4mcUEsGffgk
-	3s5bAFTNjrBmB3QxUC1zrLAe4tieeb6PYGo9WQ/mhYizo8eo3o4jwbM6Fisd/+lVbbUT/uE+vJ7qC
-	oGHYM4+d2DA9MHPhjbuVg5lbitImY2JjwErQTUqgruqpT1yq78mNG1ZId/aDu+LnMwjoyKQtmHPQc
-	CiFQAKAcpFN5voamiXr3Am52/ehsO04r6GB05l7SSS49lnvQYxCvc14Kws+j48K1YB9YQOcip3ors
-	JhNUFKQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INcpUno4CMeCoSWa31fGGnXJCg6HwNsUBH/ehD6uQzQ=; b=tHucMAiGbdVAubchpP4E9NxlaT
+	J2SscaX4j2Ff0xG9YZO+0cmV9cCVMa4wAWemqnhhpyc6vVJ95dvhyTsvPV8pknVuJUnggVouIcsGo
+	Gd4V5UWE3GPlHShZv8LdU1WixxGaJmZ7RLv2/rfur4BM37cYgfkBTS5eHZiLe1P6dbVX55J7PgXV+
+	r3bRTOIZtzISy5BsLIu+sBZltZrFs+CZzTyIL7AQI425PB/2gmZ6kU6OxJQkoD+pQdhd+IUS1piL4
+	bxPg4clYTVSzEZwpNhLqFJzkMO9POdx3MukjB0WW9iBrWea7HlMo0ZwFK3ACEgnve5aIdk+tMYRPX
+	Zj2hLZlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Zps-0000000Dgvj-0Q9r;
-	Thu, 10 Sep 2026 08:08:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4Zrb-0000000DhF8-1chW;
+	Thu, 10 Sep 2026 08:10:31 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Zpq-0000000DgvW-1saJ
+	id 1x4ZrY-0000000DhDm-1AHq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 08:08:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B47A600C8;
-	Thu, 10 Sep 2026 08:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F071F000FF;
-	Thu, 10 Sep 2026 08:08:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789027721;
-	bh=N/dfTFSYIJI0KlIowkfqgMTTkhWReiFAfFddaWbLYdc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=L17xMoNDAy3MvI6ioQL67gAuAn4CgrGWq61d77/tFvaK0WueetEZOSgspX123gluw
-	 hmDJYmL4zTm2JyjdCHuzTPylhEyQV7U8u38OUoX3b16tBdm4q9Z9kGta8mnvSMYCnM
-	 QEKdYn8aloOUMtGbyDqcm5Xonk9dSZ2//5BOoKjJJA9yBn25u7Tp3uI47zDLvkBov2
-	 ymcquXCCenh4k2WYaesvInTDvJPZmnO2Ps+LIl1QjZLnXLvktJeUBh5GuOwm3uU5NR
-	 whhfeZj2fNZBPIiIA+cj03ofybaMh4dbpVlrADYOZwd4sTk1siM/cB9VFID5Vq7cdH
-	 c6jolalH6VClw==
-Subject: Re: [PATCH] dt-bindings: net: snps,dwmac: allow stmmaceth-ocp reset name
-From: netdev-bot+sashiko@kernel.org
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, dinguyen@kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 10 Sep 2026 08:08:39 +0000
-Message-ID: <178902771990.219967.12244559692120688678@kernel.org>
-In-Reply-To: <20260909080559.2028-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260909080559.2028-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 10 Sep 2026 08:10:30 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49b965570d7so75540025e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 01:10:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789027826; x=1789632626; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=INcpUno4CMeCoSWa31fGGnXJCg6HwNsUBH/ehD6uQzQ=;
+        b=fzp1nkW0y12kQRH0tddZY2O09gHR/KA+7fd+hxmCdTL7ZkhinyP4KIqfe790VZWYz2
+         dKoBA6ft/TXIjW8RHaI6SvFimwGs8jRK9/DytsOdgUmxfVKc/5QWEpMI2jsVA3T3ZHJX
+         VODj2uMUIbCVz6puvJDi20v9/YOEiQcNK0aRrDxIJaRhMUp9a/U8JCn8sEe5segGOpNK
+         SFn9cgeEJTOhEP0/xBepuGGUxSVIOSp6pZwZrDpErb2tEubEI7zExRCkDOTwdxZmby30
+         3JZHwmAQyLsYCwv3tFK4Urqz2836VzcZ3RQ2oITl3Xt/rptqz0c4UXFlfk2aVsPH2ALR
+         VtLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789027826; x=1789632626;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=INcpUno4CMeCoSWa31fGGnXJCg6HwNsUBH/ehD6uQzQ=;
+        b=Wv9vUoFSMZkgiTA3X0E9g9BlZ/xhiubpqCmWLZJVpfBAkH+QdH4kCTlcdysy8JdSKM
+         PYCGI4VE52R12ID4oukdGh8fmglhQvThYVuq5sL8jeGVgdBz67m1O3pNv8POIMQKylHG
+         bKfVAKwngzLQpZo+COGBhSfzpbPOJtFUBDGJ2Kh08FY2wCiwlSditPqWclNEBEhnrKPq
+         DVhNqbQISa9e0GDcS2Tu8y6pkMrTITjqFainRDVZwq6Mtqh7/VVwUP0mhQdQCgCiQpOE
+         hAs7yBcgR3qFliS/txfkN2oR4l/rhvsCzlPWaGEhoMu1vRgmCKbDfPBqSdHiwBM38Ysj
+         bVHg==
+X-Forwarded-Encrypted: i=1; AKwUvBzi8J2/k3kcLVpLDqDpg4AeOdJKk60Vnjwp4/6q5EcMKnU6XA3gTIXlpyWoUTrEzuo5pcJQ+spKoNDGMzmDDr3O@lists.infradead.org
+X-Gm-Message-State: AFuF++ns10XWxMHhrQZrvm2KurE5MJTXUMvfcQ6PlCmtmD5lwdc63pZX
+	ZMrm1VyegiH4Abb/87OSaNRDaKbkCpQTU2IJjiCT+qanZpSBAKZM1qdf
+X-Gm-Gg: AYBFou0y/pO+p/bQHSfriNXZWKUBrmTuATjnm3LcmcwiafNEh08APXALi4FGdgfz3Ci
+	MAKH1swFSgmZVCGH60ynrJl3OS/U1CYP/SiK67u8TBVOYtDW9ZHkci1xPivVW5UCETY4iDjyU+L
+	dPqGOaMCnNdZjdOmJfF7tsNF02/mOAZTHJcwb2MUMDdOju6hedRPUbAwJjesFBQEwLXqAvhjsjG
+	fdjH2e/2nC/s0jnd94i1UXDCBYerkfxpKKuOKNYMQZHuSy4gfRr9ONq8CXBy6G4MIiXnMBwnUwu
+	+vNnQ7JsI47Q/FObSaDzmaTdqwdnvdg8VVamlTTwflblPfUFGGxzfFdMhRvCPdZlwhjVBQ8cnP4
+	BsY9LPgKR/ceq6nWSzEj3cBS+OYy2fm3aLpYoX5ARffGS1YJl0AJ6fakdPNG1eFz4OlTs9xq/gC
+	ZptXKek/M7DUIizsKxbJr+Krli/Bs10IbuPWLQBVT2+E9d9iGleZH2amlkHtjebfNZ3kzyr2Lck
+	nKPXZ1IECqj
+X-Received: by 2002:a05:600c:8707:b0:49c:fc6e:8caf with SMTP id 5b1f17b1804b1-49cfc6e8efdmr368618445e9.19.1789027826071;
+        Thu, 10 Sep 2026 01:10:26 -0700 (PDT)
+Received: from [10.128.189.58] ([185.195.28.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20fc1be3sm55241535e9.4.2026.09.10.01.10.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 01:10:25 -0700 (PDT)
+Message-ID: <05f93f31-08d6-4d9f-a897-a36a96af1629@gmail.com>
+Date: Thu, 10 Sep 2026 10:10:24 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Raspberry Pi 5 RTC binding
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260909141300.1368790-1-sander.speetjens@gmail.com>
+ <20260909141300.1368790-2-sander.speetjens@gmail.com>
+ <4c237cd8-024f-405e-a00e-e22ff9529d08@kernel.org>
+ <8cd19ae8-372b-444b-bd2a-dc01221b5896@kernel.org>
+ <CAAOJLPHNGgC7B=7ESCifZ1FPcR6V=Hcg-q-aaVg_9M_-d6Fh2A@mail.gmail.com>
+ <718e88b8-3f3b-410e-8e76-90c370ff920a@kernel.org>
+Content-Language: en-US
+From: Sander Speetjens <sander.speetjens@gmail.com>
+In-Reply-To: <718e88b8-3f3b-410e-8e76-90c370ff920a@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_011028_339155_370D9BC3 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,118 +113,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider:
+ >Whether device has separate node, depends on it having dedicated
+ >resources. I don't see such here, so unlikely it should have a node in
+ >the first place (see writing bindings or DTS101 where exactly this
+ >question is asked).
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
+I think you are right there is no extra node needed (only 
+the trickle-voltage-millivolt property) and it could move directly into 
+the rpi_firmware node without creating an extra node.
 
-- [Medium] The SoCFPGA-only reset name "stmmaceth-ocp" is added
-  unconditionally to the *generic* snps,dwmac.yaml second-reset slot…
+Kind regards
+Sander
 
-Pre-existing issues:
-- [Low] After this patch,
-  Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml…
-
---
-
-dt-bindings: net: snps,dwmac: allow stmmaceth-ocp reset name
-
-The patch relaxes the second entry of reset-names in the generic
-snps,dwmac.yaml schema so that "stmmaceth-ocp" is accepted alongside
-"ahb", and removes the Arria10 TODO note from the Altera SoCFPGA DWMAC
-binding description.
-
-> diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-> index db93436c96fa..d8f90d36d246 100644
-> --- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-> @@ -13,8 +13,6 @@ description:
->    This binding describes the Altera SOCFPGA SoC implementation of the
->    Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, Agilex5 and Agilex7
->    families of chips.
-> -  # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
-> -  # does not validate against net/snps,dwmac.yaml.
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but after the TODO is removed
-this file no longer mentions Arria10 anywhere, while the family list in
-the same description block still reads:
-
-  Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, Agilex5 and Agilex7
-  families of chips.
-
-The compatible documented in this same file, altr,socfpga-stmmac-a10-s10,
-is the string used by the Arria10 gmac nodes in
-arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi.  Could Arria10 be
-added to that family list along with dropping the TODO?
-
-> 
->  select:
->    properties:
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 2449311c6d28..c7f1a7c11c8d 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -174,7 +174,7 @@ properties:
->      minItems: 1
->      items:
->        - description: GMAC stmmaceth reset
-> -      - description: AHB reset
-> +      - description: AHB or OCP reset
->  
->    reset-names:
->      oneOf:
-> @@ -182,7 +182,7 @@ properties:
->            - enum: [stmmaceth, ahb]
->        - items:
->            - const: stmmaceth
-> -          - const: ahb
-> +          - enum: [ahb, stmmaceth-ocp]
-
-[Severity: Medium]
-Should this new name be gated on the Altera compatible instead of being
-allowed for every DWMAC binding?
-
-"stmmaceth-ocp" only has one in-tree consumer,
-drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c:socfpga_dwmac_probe():
-
-	dwmac->stmmac_ocp_rst = devm_reset_control_get_optional(dev, "stmmaceth-ocp");
-
-The generic parser, stmmac_probe_config_dt() in stmmac_platform.c, only
-ever asks for the second reset by the name "ahb":
-
-	plat->stmmac_ahb_rst = devm_reset_control_get_optional_shared(
-							&pdev->dev, "ahb");
-
-Since every other DWMAC binding (mediatek, rockchip, starfive, st, qcom,
-...) $refs snps,dwmac.yaml, a device tree for one of those platforms can
-now write reset-names = "stmmaceth", "stmmaceth-ocp" and still pass
-dt_binding_check, while no driver on those platforms looks that name up,
-so that reset is never deasserted and validation reports nothing.  Would
-an if/then on the compatible be preferable?  snps,dwmac.yaml already
-carries such blocks (for example the compatible-gated snps,tso: false
-block), and altr,socfpga-stmmac.yaml already has an allOf with an
-if: on altr,socfpga-stmmac-agilex5, which looks like the natural place to
-constrain the Arria10 (altr,socfpga-stmmac-a10-s10) reset naming.
-
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -174,7 +174,7 @@ properties:
->      minItems: 1
->      items:
->        - description: GMAC stmmaceth reset
-> -      - description: AHB reset
-> +      - description: AHB or OCP reset
-
-[Severity: Medium]
-Related to the above: this description now covers two different resets
-with different acquisition semantics in one slot.  The AHB reset is taken
-as a shared control via devm_reset_control_get_optional_shared() in
-stmmac_platform.c, while the OCP reset is taken as an exclusive control
-via devm_reset_control_get_optional() in dwmac-socfpga.c.  Would separate
-per-compatible descriptions make the contract clearer?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909080559.2028-1-muhammad.nazim.amirul.nazle.asmade%40altera.com
+On 9/10/26 09:08, Krzysztof Kozlowski wrote:
+> On 09/09/2026 22:24, Sander Speetjens wrote:
+>> Thanks for your response
+>>
+>>> And more important, where is any interface to actually control the RTC?
+>>> I see nothing, so your firmware is? Then this is not a separate device
+>>> and you just added DTS for your driver, which is a no go (see writing
+>>> bindings).
+>> The RTC is a physical, battery-backed RTC, but the Raspberry Pi firmware
+>> exposes its register interface exclusively through the firmware mailbox.
+>> I initially used a firmware phandle so the RTC driver could obtain the
+>> existing rpi_firmware instance.
+>>
+>> Based on your comment, I think it is more appropriate to model
+>> the RTC as a child device of rpi-firmware,
+>> referencing to the existing firmware clock/reset/power services,
+>> and have the driver obtain the firmware interface from its parent
+>> rather than adding a phandle solely for driver plumbing.
+>> Which also means moving this to arm/bcm/raspberrypi,bcm2835-firmware.yaml
+>>
+> Whether device has separate node, depends on it having dedicated
+> resources. I don't see such here, so unlikely it should have a node in
+> the first place (see writing bindings or DTS101 where exactly this
+> question is asked).
+>
+> Best regards,
+> Krzysztof
 
