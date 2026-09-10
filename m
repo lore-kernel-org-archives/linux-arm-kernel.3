@@ -4,102 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51BBC79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FF6C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0smL/d6QKu04fRHQtGBAAZuzGVVYkDUilTOApT5q0GE=; b=dO7cjtDC0CxdJZs7BrAVXAZkZG
-	zL4QCWiyxwqF44IRfIXg4N2E0gjNFJqroVFM2QIT1WLsxeEBQjSnZNx42dBgltiG/pzxvqoIkiRc+
-	sBWpLmtBuyrcQTBRFn9eYKGfDnWBPxOjG2F6EULj4XUrPE3WPkzYkpAQ/W9KP/Osj50KqcVwPGKoj
-	BvN4PKvLeN0eC8dIh+iP4LHjVdmd7viD5viRchbRkRBaG6DFPBBO0rBkXzKs1DTq5Pl18p7e6DXfM
-	mZ3lWNUsD6DVOf0G6pFHp1vlJpvK6wHufuJFDeRSGUCKsHeuWMXIwvYukz67YzYjhhRkNadqlzEIy
-	umuU+aew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kPUTII5jib0Plmd2JAI4VZ2bRIQ0d18sbZnWQYHBjDA=; b=dTEyiZqXFjUrzGOpc6MoNenpes
+	i6cL3GV4iQLJsfFh0d+y27LKGdLEmvHtiTpGLD7mZXZb4YVsBx1k1ZtR3oRqIrZ3op60HlxRMILbV
+	BXOu9tQmHuHYLM6rJCeRt/hwAG0qPWFER340GhuWyWEkeIIcO93TStzx2b5tHOQCe7Qagql8bZPqE
+	p/HhamZibUR3FaJLy1uoIRmYSs6/DL0B6b+LY6G7JW6AFTqwGTzOoYurxRL00AUA06fA1fZs9qbrg
+	NYDYv9YEEViMNno15fTabwvcVUeyb7ChveSGQuAgBgNwAG+x7J31GU97mOHqxnhcGTZ8y0xtm7z8x
+	23MBP0CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hbV-0000000EwcC-047z;
-	Thu, 10 Sep 2026 16:26:25 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4hbi-0000000Ewfp-0hKz;
+	Thu, 10 Sep 2026 16:26:38 +0000
+Received: from mail-northeuropeazon11010047.outbound.protection.outlook.com ([52.101.84.47] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hbR-0000000Eway-3v3k
+	id 1x4hbg-0000000Ewef-1RAw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 16:26:23 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b0dd3e1d0so22735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:26:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789057580; x=1789662380; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0smL/d6QKu04fRHQtGBAAZuzGVVYkDUilTOApT5q0GE=;
-        b=obzX0IVIoqBGdjTMNqsxR6YrVJXp/htVmwVNyHyE7FeTQnN11ZmmggOFrkS4s4GI3y
-         /BoMpyH5JkW0eb9r7nURDAgdOziwavFZcjtDAGi8KOMCuUpg0sKChp/qCH0DOhZEPQWl
-         fQvwqS9BDIVttEnid0uyfw3hIitJRGZLt7kDmyj5QiFo/sm4wIrfiysFvszY8aTgzWqN
-         QDvrWnQH7dW8OKcZt/PTix5j3UVWNX5V6xpNkyWZShCNONNDO6ToDSTZvDTspthEVsPe
-         F0YKJu8ujrl+i0tYzRUhjE5oIW50yKXNgyOmSX4tH5n5ed62+FuLealil3FXbdlr5XEw
-         T6Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789057580; x=1789662380;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0smL/d6QKu04fRHQtGBAAZuzGVVYkDUilTOApT5q0GE=;
-        b=s9x6aCN0sDPmp6dF8KjANPhO5Ir6hcVSa8Sg2Ti0gbfFKqbBDacIY4O1gGWK3fRIsd
-         UmEURjbVddT6oqtX38rIeMlojcnuxRUOdSTcIYpm9LffbRSv2gIoTElM1LbXPceiEWgx
-         18fNJamkQ1B07DG237NNeMQgkc0iNlBT6v1x798gMsP2Oxp2MEVQBYx9IZZgQIuKmRcB
-         UaLusRrzKFi0v1ZpfGvi4SydIXZZeLfERH/VvCaWudjmY6IzZAibTXoPriEbw6YQdo0K
-         5kxPpwsT81bv4xeHXGWDorR8Z70vo5gwX4ziXDdtRA4zLzmYac5jc3Xh9yICr4Om52wc
-         hMrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBymd/QlVcE8szjyN8Jv+Wcnjc6SleCqII4ZYBHeUKrnvBiwVd7sO1O3LBsZVf5hInWeNkio7KQinP1e8Rr3kwAU@lists.infradead.org
-X-Gm-Message-State: AFuF++lrZHUI8OZu2iVtKf/zfjUGPtpTjVO4/rCIFIwTMLubIh97xPew
-	4HZDuqELe2H7nBCkvmpfa2Ni7rPNZ3Kk6a4pLw0YMOPBqrmHSWpLYpch38MpNqx+
-X-Gm-Gg: AYBFou0hcZqm+FLJfMd4OC0kz5mrwzJaj8loYgmffC7sCWqqXuFmIja7QctWC5H9OgJ
-	n5pWOIItOyaHjgfoGuRdpfQ4eQEZg4z5z/7BpOSZPsn6ZT005C5HugVv5Lz13JJ08Fo6m9PIfTm
-	BK4VOl716kztPRZY0YUBBF/90yyyXguDMWGVYOn9embSGXNzDGWRb5gQTexBiPtDQEUKko38S5v
-	N8FTwjFPGPMaQQgJyxgCsVxA3aFHPTT/yxEq7mdLUody4e1c4SN8KI6VUSQ9Mn43tcIV2f/rmWH
-	Pn8mXYSsZ9mE4aB+glsh4XO91eEVie7OnoFGh68b3lfoq9ZDIZHYgxmwmCfdaANY9KkjuitKALv
-	ihHWzm5Brr+6qqPihzZ0r7ODCgV8yhCnGn/T+mrGhl5e3yvVyJlD4b2IP0xgnnrTGn4Nvj0Fr5M
-	pAypB/G5qB0GPSEPhl16/oCQSoKvI2/SfWmWJ4Lvt4O0brAByQ28U1WojuvGBXg+NN8f29pKiV9
-	SftxML0BYsP0dI0eESPIK/7+irL6mhnxniUb40BfgTTMYPGCka21rsFGY3DjNXpzfo36HKCGzu4
-	BuGa
-X-Received: by 2002:a05:600c:c494:b0:499:d95a:41f with SMTP id 5b1f17b1804b1-49d010c3969mr322629105e9.0.1789057579609;
-        Thu, 10 Sep 2026 09:26:19 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B91460038D48F9767ABDC4A.dsl.pool.telekom.hu. [2001:4c4e:1b91:4600:38d4:8f97:67ab:dc4a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e60946249sm7275965e9.0.2026.09.10.09.26.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 09:26:19 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH] drm/connector: Cache out-of-band hotplug events
-Date: Thu, 10 Sep 2026 18:25:52 +0200
-Message-ID: <20260910162553.6262-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
-References: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
+	Thu, 10 Sep 2026 16:26:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eZEXKDlufwgROnDlTXgJ5cFDpaKDhSjk3+AUjm1d7ChnL4FMTfBtNmG54aVW7TrWVFnWSHtXd6Cp0tQIq70/DS+0xc8I6Nec9SA4MpoqaYPtwdfeJ5TkA8xs+zPV2St750RvOz9CUwJjVnqULkERF5ReQHjJpk0kD6AQa3xIHuMlSGupqeiIQ+C7sQi0Anek6Ue8h7shbf0cLIkHovLK4ctb5H+vNnhveBGiRUEzNWIgAAb9RwrjY3uPB0FEPx4mOmuvHnbdCzuX4v4ZI3CI+Ud7QRDL0YlEwqEJKjUS5QU/yvfpVYL3fF1iNNtfCrhLRjxEvS/U6lv0EMdvIIeT1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kPUTII5jib0Plmd2JAI4VZ2bRIQ0d18sbZnWQYHBjDA=;
+ b=iE8OHJBG1xlVy9brB58RPkLAYhLbVsYzLSB0RXdxfR7+KKtseUm4Ecw4JFlRkML3YnTtrm16wswh2kVswtygkxfBPXiE7L4zF+KgOqFKYxXLyOcmBWru2M7uuegOkliW2SrGaOl5Qd9pNIFDHxWMnJcdKksxazr+HB6OZK0Cj5o3awrZDlG++w+GeQN5QqnCzi8IuMnRjSFtC7CES3k+XLilw89CfZRMgFY0mAel9aokJl3HxDoDliyLhW7oYyFHGmv/aHAH5bvlesLBdmrwhe22TA9JWVmQJ754XP36Wh+18AI3R3YYk8Q0ojyKk9PrDsgk8zgsabBZ4XV5vW4NGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kPUTII5jib0Plmd2JAI4VZ2bRIQ0d18sbZnWQYHBjDA=;
+ b=NHrV4XuFqEU7MsMf4+6K9g/LGmiyftBPb0FCt7XU0QKFVxvQ4f6409VWrSz+pYG9OUZf+bs+AM3Re88jlN58HDJjp38SATax1tQLSvr2MjDmAx0IoEYQ4cOEmTWWNG5e/VD1Jka/OnDt5UVXwPPlnawddb10jzoRsmT8+p/hWK/7ovUoZQmK7JVXC5q/uLuDTFdWc8MvD3LjxsFBQX6GGYYS+3IIUbFsGJhJQ8i9P90/R0Qo4HQdbHLZ/n7yhWkUoYjlRBV1lkTXxTjYa7zIuSfBJViOMSY68dVBv0AIg2uiETEzJUiGgaBJUt2yzjH0/d5JT3UybuFTXtzpH5ci9w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8293.eurprd04.prod.outlook.com (2603:10a6:20b:3fa::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 16:26:33 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 16:26:33 +0000
+Date: Thu, 10 Sep 2026 11:26:22 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
+Message-ID: <aqLaLmz7n31P6igy@SMW015318>
+References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
+ <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
+X-ClientProxiedBy: CY5PR15CA0238.namprd15.prod.outlook.com
+ (2603:10b6:930:66::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8293:EE_
+X-MS-Office365-Filtering-Correlation-Id: eabc1c01-4576-448a-5b90-08df0f58469b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|376014|7416014|10067099003|6133799003|3023799007|22082099003|18002099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: jMKRGq6Xv/C0uqd+S0o2smxa7hyQ3RrB+Wa44FOc7sbEFkMSrvUpbbVxD+eFkaGYEy/tHpGFXKWGFhmcy80bpVpg5DoRif2Iw3lqvW9bnpWE4vtyzi4x1fq8rtf5aHLJS73zWx4rpb/Xg8GDFpaz70e0ROHBHOcoeJBNJ32Lg9d9g0ijaQTyTclyZvAcjrFChTYeHuCdsptmSmrp9Z6mF2n3UQYWn3o9OGfn2chr+y8CEtbHJDakzd7Cy2GD5YQWj3bBKxQBTKIJIQKQdg/mMotYYjTZXPrC7iBV1P+v8AC5AMQJYgtmDZPUHv97wSLtMQz04SIY1uA+dDz/z0sKs5HWyO4+my9Z1Sw97MWN6fUmOcTmNk9fexJjnU4CgTv3BgqntDGCexq9UshF/slAgCGwKH28n1xs0idQvTS8SBwjhiJQn38kss2aV1BTr8bnH6UeG+QknAJxBN0qUKcmlcoPc+iHriwilCWLgt0v44vxxN9KyeFotlbhhIRTKMs7zgRYhcAbp2cgiEQgT4OmWrkMvtEPsBUC+/Z1pfHBqzBeyTvzm2UEocyi9NEZ47BAZPMuHspsaKJjoGTX3ZHijYXdZHXGbtwMA/vEBQ+AOjFpfMx4hUnDDmtCJILYJ3Wu
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(376014)(7416014)(10067099003)(6133799003)(3023799007)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f4jJf6nWfT45VeHiUeWuKhh4k71//aGM6h/xzVs+ab8qKf5rHtR3cXALwipM?=
+ =?us-ascii?Q?anGEXi0r7tC275BryBd9Zxgz3DPRp5ACwnpEv87dGC4QeOoDt85NzoI0ANSY?=
+ =?us-ascii?Q?uxclEYA8w82c48au6v/EvLDlR2rebqO9wqFwALdkA0aohgmRxn5gZdrGl4PF?=
+ =?us-ascii?Q?zPLOxwXkIhuE+hZZZxfTymzZB9IGIF3rl/xrX3lJ+YA6TD8JXbZJoHv4gHb+?=
+ =?us-ascii?Q?TcTW+Ojx8sX0t93QtKtayZZz5uqh9WgBhZELMyg9eWm3RjG6NF5+AuRHDo3K?=
+ =?us-ascii?Q?cePcA2uhUB8cCBLTbysEylUJSyXNZVRZeO4fwio+eCaOXHcnKHjb6BWiB1me?=
+ =?us-ascii?Q?gRtyM9RJcZDP4JUfAB0ziTdDNmMLjlYWLS7L6IN6jbb1BFh0kefghzw8B8i2?=
+ =?us-ascii?Q?9pQuVhtAKHFt0IzCKLzvrOLGq8Xxlqkz3udpO5G6VurteyFpA+oZztK9paQW?=
+ =?us-ascii?Q?D4W/2999180PKJPlzFnuIc0SMUp2mU0ACidX1fWZOWUZCC2wHc2+xnIKvX7n?=
+ =?us-ascii?Q?uyM88yUSh49YRKyLVmQbQkX4+fVXODVZt9wXgzmrdRuKfWuH1V996rABoGxs?=
+ =?us-ascii?Q?itXJ5uD/eKDYgEJB17svsUGtwqw1UUbS270YV5LZ+xKLzdRgkUVE9oFvqhyt?=
+ =?us-ascii?Q?ZkjIdyIqemSXtp18H6w7ju7VVT9UmkJ+4V7rRP0tm3lc4AUpnj93kNvLnOLk?=
+ =?us-ascii?Q?fVWIbYCXVtlnrlq/p/Wu9GhCxE/LGIqM2jy8MqGGRIREH3ONa0QjnbaBHX3B?=
+ =?us-ascii?Q?CMPhVuGpR52diiNlMiwJObUy4qiAENw7cvkqbBKM467ps2gNUR+NV7GwI8Jz?=
+ =?us-ascii?Q?QJuA4KL8yrKQhPsSIfO3NowKrTBK7/ceVH4R6IJDl7ZNwvzpmsebT8YYVe0C?=
+ =?us-ascii?Q?6v+Fp2ODDZ9B0YwapvmpMOUew1FAC9nCTJDiHN6mbBV+Qap3tdBbx/OdT1aD?=
+ =?us-ascii?Q?5YzwiHWZcHMnmuSK6xUpuNue7itZIGYxiqUC7J4B/ZHFZnvUeUQtyAFwVctn?=
+ =?us-ascii?Q?Eo7otKndAgqUeIAh9TF5Cr0sh/t842aqrmeuMEvMrMIzO5MMfTnp4pLcs8aR?=
+ =?us-ascii?Q?z/bAVREg87kJm68/Sp+XYlpAVt7feD4BpbO7gWfZJuek5pdn5oiGSsgQBTV5?=
+ =?us-ascii?Q?qBbtmG87ijleRm9ZmMlN2tTSimWha5ler6smv5IilS27JjZG/cwbHwVnyMSG?=
+ =?us-ascii?Q?a//84CPjOOenO5Td2SSQYgxqNk/FVGyhJRglycE1IMmPBDBSD+Z1irFM9dHs?=
+ =?us-ascii?Q?bivdgy+MFwLDc1ajmosgOeSFo44ZECsEQ07ujixKnCl/UmOohE1XO4jzyVQc?=
+ =?us-ascii?Q?hsK4L1PrwTtf5vT9hFbm2kCuZHrQKvSVScjt7ffogm3Oy74Lt022DF0cuNmz?=
+ =?us-ascii?Q?U5ww2018Wa52PKByezeAhWbN5uMaQVb12B6eIlGTT6XKvpDoRKEU8yEF2lxZ?=
+ =?us-ascii?Q?/SQKQth5pG+z+J9HNf097eQnxsmJz7l6RFlQgOI3kXCII3r3TfsivadCuZih?=
+ =?us-ascii?Q?QLhM3ki4wzAzynDO8K6vdnox5RL1b0HdnYXbISfH4OFw4YMw8+V4QijA+ukZ?=
+ =?us-ascii?Q?FSkWUDDOBIcD5AzHxnuv7Iljols7Y0XqjGRYF8qVxz0snkS5aATKrvLoJ05c?=
+ =?us-ascii?Q?U58HsLErl2mhBwl1D8gYdmZhCmt8MO12psHNHNbrNHpkGE9dW60pI/lIULEi?=
+ =?us-ascii?Q?w6KcWvUUKpTTjUrNu5ADRRMyZ1OgdU6ruUuZsrKD6nZ7tk1AzUjzBmUTgUzM?=
+ =?us-ascii?Q?fbqfymdvs23t4bSztA+pjdyuzNCMzsHbp1J5W0SSJBsvtkN4fDk4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eabc1c01-4576-448a-5b90-08df0f58469b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 16:26:32.8906
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vUz79t3hjBGoN1iw8MrO0hPUuoZBE0jYnksh5Ad6I0EUtJcdaJ8aMTVepYQU7tMsV9aDYk+MlWliBsqAHjkAZDHoW9onaQx1+7/VjBkgB5BS3L59hQufNhKtCPYJ9/hF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8293
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_092621_991230_6BF9EEC1 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260910_092636_389007_283007D0 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +145,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke wrote:
+> From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+>
+> Toradex boards route the sideband signals of their 24-pin camera
+> connectors to different GPIO controllers. Camera overlays which name
+> those controllers directly must therefore be duplicated for each host
+> board.
+>
+> Describe reset, power-down, detection and power-control as
+> connector-local GPIO functions. This lets an accessory overlay remain
+> independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
+> remain described separately because the GPIO nexus does not abstract
+> them.
+>
+> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> ---
+>  .../connector/toradex,camera-connector.yaml        | 86 ++++++++++++++++++++++
+>  1 file changed, 86 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
+> new file mode 100644
+> index 000000000000..06e6836e1aa6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/connector/toradex,camera-connector.yaml
+> @@ -0,0 +1,86 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/connector/toradex,camera-connector.yaml#
+> +$schema: http://devicetree.org/meta-schemas/base.yaml#
+> +
+> +title: Toradex camera connector GPIO nexus
+> +
+> +maintainers:
+> +  - Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> +  - Toradex Linux BSP Team <linux-bsp@toradex.com>
+> +
+> +description: |
+> +  Toradex boards provide 24-pin camera connectors carrying MIPI CSI-2, I2C,
+> +  clock, power, and sideband GPIO signals. This binding describes the sideband
+> +  signals as a GPIO nexus. The other connector resources remain described by
+> +  the surrounding board device tree.
+> +
+> +  The nexus exposes connector-local GPIO function numbers to camera overlays
+> +  and maps the functions wired by a carrier board to their GPIO controllers.
+> +  GPIO specifiers contain a function number followed by standard GPIO flags.
+> +  A board may omit functions which it does not wire.
+> +
+> +  The function numbers are:
+> +    - 0: Camera reset, connector pin 11
+> +    - 1: Camera power-down, connector pin 22
+> +    - 2: Camera identification, connector pin 23
+> +    - 3: Camera power control, connector pin 24
+> +
+> +properties:
+> +  compatible:
+> +    const: toradex,camera-connector
 
-On 8/21/26 16:55, Sebastian Reichel wrote:
-> When the USB-C state machine finished negotiating DP AltMode before the
-> DRM device has been probed, the out-of-band hotplug events fired to
-> early and are lost. Without replugging the display or reloading the
-> USB-C driver, the DRM driver assumes nothing is plugged.
+Name is too generally, suggest use board name, we got similar comments at
 
-This is the boot race I reported in [1], and the patch fixes it here.
+https://lore.kernel.org/imx/20260629074734.3643227-2-chancel.liu@oss.nxp.com/
 
-Orange Pi 5 Plus (RK3588), a Samsung monitor on USB-C DisplayPort Alt
-Mode behind fusb302, on drm-misc-next plus the dw-dp and Rockchip USBDP
-PHY series.  The same tree also carries my pending vop2 AXI clock patch
-and the pending dw-hdmi-qp audio guard; without those two the board
-does not survive the boot for reasons unrelated to this patch.
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  gpio-map:
+> +    minItems: 1
+> +    maxItems: 4
+> +
+> +  gpio-map-mask:
+> +    items:
+> +      - const: 0xffffffff
 
-Without the patch (one boot on that tree, two more on my daily kernel)
-the DP connector reads "disconnected" from the moment dw-dp binds until
-a boot-time service of mine unbinds and rebinds fusb302 some 45-70 s
-later; only then does the link come up.
+are you sure need full 32bit, only 4 pin, maybe 0xf should enough?
 
-With the patch the display comes up on its own: the same service,
-running 40 s after dw-dp bound, finds the connector already "connected"
-and does nothing.  No warnings over the session.
+> +      - const: 0
+> +
+> +  gpio-map-pass-thru:
+> +    items:
+> +      - const: 0
+> +      - const: 0xffffffff
+> +
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus, USB-C DP Alt Mode
+missed
+	gpio-controller: true
 
-[1] https://lore.kernel.org/all/20260811211534.8618-1-royalnet026@gmail.com/
+> +required:
+> +  - compatible
+> +  - "#gpio-cells"
+> +  - gpio-map
+> +  - gpio-map-mask
+> +  - gpio-map-pass-thru
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +
+> +    camera-connector {
+> +        compatible = "toradex,camera-connector";
+> +        #gpio-cells = <2>;
+> +        /*
+> +         * 0: Camera reset, connector pin 11
+> +         * 1: Camera power-down, connector pin 22
+> +         * 2: Camera identification, connector pin 23
+> +         * 3: Camera power control, connector pin 24
+> +         */
+> +        gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
+> +                   <1 0 &gpio1 1 GPIO_ACTIVE_HIGH>,
+> +                   <2 0 &gpio1 2 GPIO_ACTIVE_HIGH>,
+> +                   <3 0 &gpio1 3 GPIO_ACTIVE_HIGH>;
+> +        gpio-map-mask = <0xffffffff 0x0>;
+> +        gpio-map-pass-thru = <0x0 0xffffffff>;
+> +    };
+> +
+> +    gpio1: gpio-controller {
+> +        #gpio-cells = <2>;
+> +        gpio-controller;
+> +    };
 
-Thanks,
-Igor
+Need't gpio-controller.
+
+Frank
+
+> +
+> +...
+>
+> --
+> 2.43.0
+>
+>
 
