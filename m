@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74278C79F9F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5A0C88E40
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76FpYM6Ge1vqPMazt7qg6DlSjkLRIZk420Qx/acPMmw=; b=gk1ywcc8wkV4rAiYVLLe4KHDpI
-	cgAnEkJS9po3e0GiOhaw3K5Zc161cpLn4ulofIaK9dta0kuVePkiPlsYbwdKKqrSwtwaT6Cf2DtqP
-	ro9q8Fmnrj3oIwRlT5NyUzl0rGgE50WvbIpYSfu8/iS2lHAPj1G6P7orJsfLc394H0rNkHzQPfZwk
-	toP+F0fSZmYgAkiMtx5pRxP9HQRENFMSuQ1DPYuYHr66HPpf6quJ2b2+mL0sgFiyiYdIMewUbPLtg
-	mB/HOAUQZ0q4FZwmOuj6rxZzE7RUNVtXnJQMzIcqr6qXIAyiaefde52OmHaX4zPdHwd9ly5tYXcWt
-	EgbchM6Q==;
+	bh=9s3dbjpQkzsiVVJyqVDj2DYOx7r7jEs5RAl7koa46/0=; b=yRsmSxaXCUoa/bxbyLRCuMhUfi
+	2WGjaL46b28CsOP5BvIFFcXBRDas1738bOM0oN4zXxvJuPmY2/iEYAMHxxsbp1oVKCKufBPQqzM8T
+	9VKg+sKZg+6h5aegJ0DMpmzfjbkjj2d5B76DGiqY83bFGCmuxP8aaHs40l5pGSBi+utLhUXJAEoC0
+	xnY4z0l0gHiUA9AzCeQOej4Bw7xGb0gy4racLGyhd7hr6yWoV5hR9W93oarWRYZLZ/3UPQ5FtDRpM
+	Q4PUnpIxWwQnu7Zn3CQ9cLh/HQ+C9weRMZZZwAmE/JOhYmDmv4S+wLuA8PObC5G0R8zzgJNwlxKu+
+	ZpJCwDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQi-0000000EZeC-1lad;
+	id 1x4fQi-0000000EZdp-0pfw;
 	Thu, 10 Sep 2026 14:07:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fQc-0000000EZXS-1cdd
+	id 1x4fQa-0000000EZUW-03Zv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:07:02 +0000
+	Thu, 10 Sep 2026 14:07:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2929B40B8E;
-	Thu, 10 Sep 2026 14:07:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC6871F000FF;
+	by tor.source.kernel.org (Postfix) with ESMTP id 75BAB601F1;
 	Thu, 10 Sep 2026 14:06:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4821F0089C;
+	Thu, 10 Sep 2026 14:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789049222;
-	bh=76FpYM6Ge1vqPMazt7qg6DlSjkLRIZk420Qx/acPMmw=;
+	s=k20260515; t=1789049219;
+	bh=9s3dbjpQkzsiVVJyqVDj2DYOx7r7jEs5RAl7koa46/0=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=BlCzojX3Q0bsYwxm2sTiXEjuFBoLHnV+YcU812sF5drsbQCRV5Ibt2uztD1+ZxxOn
-	 9RizU3GtxvtH6g3YEvf0NPdzI3dssg1CWFYF5gjaAetdBhQhYl53FElaEClrlegJSZ
-	 /s9lUxID1mLHAGuhTQSoA8cz/cptKmWfn5lNJQvqsZFA4bRaAXspTh1Id6xch4GoxD
-	 nDDRMaGuphtnMa7pk5c0IHEvzObUsKOGmFpg2SoykVpSqN4RWMmAl3aeYWLrR8W9yG
-	 moR+luPjvreVWPqvTDrCnWj5ipZzYPSdvDukwDFhXIKMEpFcR/dmI2N1N7cPCCNhj+
-	 4DdngHBzbZGSA==
+	b=WskmYreAF4fUUx0w9aQ7KU9ip/RwqHAMgCarp2hhnSv+5/AuLtIxnvhlFLlQM2jvu
+	 Qbk1O8JA2RW8JgdSpvFvgOQXw2tYkkIJj8tMYM/q3t4XpKa/ZLwCGB7QsQkeaqT+TO
+	 s8Fkvqzg8wm7FfvgiO6dhooCkQQSq5bOC4UFzJJsRfhk2BkJYWgIfu8x50be9gikkB
+	 Sm4njabqa1Md2c6v0llvrlkcJoSPDS5ddh2pSwb4UCxYpVLe6xOutBe7DDLU/3Qp8i
+	 6d7d5MvMOumrobWJzgOWOUIT9RVlCLPOgSM2kyM2D0RlgjqCQhz2U6NRssgn9JxCLw
+	 cdlBnTKWtA9gA==
 From: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Kedareswara rao Appana <appana.durga.rao@xilinx.com>, 
- Alex Bereza <alex@bereza.email>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260818-fix-hw-buf-desc-after-cyclic-mode-v2-1-530ff44c6a81@bereza.email>
-References: <20260818-fix-hw-buf-desc-after-cyclic-mode-v2-1-530ff44c6a81@bereza.email>
-Subject: Re: [PATCH v2] dmaengine: xilinx_dma: Fix hardware buffer
- descriptor chain after cyclic DMA
-Message-Id: <178904921939.109109.4260321202940337828.b4-ty@kernel.org>
-Date: Thu, 10 Sep 2026 19:36:59 +0530
+To: Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Frank Li <Frank.Li@kernel.org>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+In-Reply-To: <20260817-dmaengine-pxa-v2-1-f42ab0569a48@pengutronix.de>
+References: <20260817-dmaengine-pxa-v2-1-f42ab0569a48@pengutronix.de>
+Subject: Re: [PATCH v2] dmaengine: pxa: fix double counting of the hw
+ descriptors
+Message-Id: <178904921538.109109.3118643113304356856.b4-ty@kernel.org>
+Date: Thu, 10 Sep 2026 19:36:55 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -73,21 +75,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 18 Aug 2026 09:36:29 +0200, Alex Bereza wrote:
-> Using the DMA in cyclic mode modifies the hardware buffer descriptor
-> chain in xilinx_dma_prep_dma_cyclic so that the last descriptor used by
-> the cyclic transfer points back to the first descriptor, but it never
-> restores the original descriptor ring. This breaks using non-cyclic mode
-> after cyclic mode with an error like:
+On Mon, 17 Aug 2026 22:44:33 +0200, Sascha Hauer wrote:
+> pxad_alloc_desc() was converted from
 > 
->   xilinx-vdma 86000000.dma: Channel 00000000354d5c8d has errors 100, cdr 6de40000 tdr 6de40400
+>         kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
+> 
+> to kzalloc_flex(), which sets the __counted_by() counter sw_desc->nb_desc
+> itself - but only where the compiler has __builtin_counted_by_ref(), so
+> from gcc 15.1 or clang 22.1 on. The loop below it still increments
+> nb_desc, which makes it come out doubled there and correct elsewhere.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dmaengine: xilinx_dma: Fix hardware buffer descriptor chain after cyclic DMA
-      commit: 7ed1e3070c9b4bbd67d5519e14711038dd53ab13
+[1/1] dmaengine: pxa: fix double counting of the hw descriptors
+      commit: f6504be006aa4bb4bd26285f410a885c17920d65
 
 Best regards,
 -- 
