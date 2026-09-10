@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA12BC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33F5C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85V6AxDobuh7+s/NLZ3B1iJeX8fNAbX7eyVc144CvSY=; b=B3AqjCDWY026pXOL1uptYmqdZA
-	1oMiCq4BeI+weQ7Z0sIjYkXwfBs6P+Zlu+ipR0NKP8dUfELq3WMIc5Ul8bNmUG3dLmBbSXIDo4x/8
-	C3k2JqSS0fqMwPt34QbIJ5H9HRg6d9g8VkFtGvvubFpA1DX9BToQXgJwDdTdy02hlXlgK1+u9m8O4
-	wWvDKq16vALWOZrYd2ELDVnpQVDyTNWaTFxFsv7x27/8KivsUraWNfD5EopACKkTmuSJpheWROaEu
-	wN5ASCgvd9erdcQMUrdgwcR6jTwPRWULEPvj5xW/QhS3OsENeBh8W4cH25ncpWelRFhAzcgJj7DIT
-	23h1btIw==;
+	bh=sLgY3kGNMUhiuDbvekSroJmn4LdKkP1crGpWtw0K8y4=; b=0QmrklMezDmgkKPis/aRkByalC
+	l5r5yc7EeYDhMTPQf0e+v8EbWjn6nJEA/MiWQl+vJVHeHPqjSUp18gx3b6iN3Gmw1yhw4gE9RXk/p
+	v2hEn/0tImE6L+LnLCw4mP9vrb49GeLbKbNxg6XyyAdmol3hr1rsFwwpY6mT97EBrtcoFw+aj9ojY
+	0mrJjEXkYNBSjqgAJVM9BxwSokbQbvRk2gqCVJtHt6/Z4Hb8XnLufH7bYJtaYHQ1rCDlY0r03OWB1
+	HKY2ZjT34jYksZxQf5KIzPLdHvsY63pxWv9bHWo1UOlUZOqGlOkqlhy4MnMf8JW/32EziMmgx6ICh
+	nW1LH0tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4akJ-0000000DpRo-1cUO;
-	Thu, 10 Sep 2026 09:07:03 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1x4arV-0000000Dpoi-11Kl;
+	Thu, 10 Sep 2026 09:14:29 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4akG-0000000DpRC-4C62;
-	Thu, 10 Sep 2026 09:07:02 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4A8FA404F10;
-	Thu, 10 Sep 2026 11:06:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1789031217; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=85V6AxDobuh7+s/NLZ3B1iJeX8fNAbX7eyVc144CvSY=;
-	b=hrdsPiDpzVbRlzWKtPLqK536p0zGK3+mvHhW3oTJlnHDJ28PlphioJqxtLOWZTM57E8TLb
-	7OtJz3WbW10CztsvjxiQG6+gBXTPke3CmhOxDrTtiFf5mQQfPLVeqfK1/+SMFhkMaY4CtK
-	cJPjALlZFoznPBY/YhKCt9Nd8bAy/RXwYPud72HviN942TfT63vmfHMn8BDMVA9pRXNF/i
-	yLp9b2L/TQpdyR5jSoq0qcM4HKuPPJ61ZtUQG8y9b8wVRKpBWEV1QeO5f5GgjOvj5YRmKx
-	k3uxb0WOsNEpj9XEerlHhSSvs66ibzR+eBh2ettq7oaSM9Yx2vgq17AG+joeHg==
-Message-ID: <de010064-a574-4da7-8307-30bd6359e506@cjdns.fr>
-Date: Thu, 10 Sep 2026 11:06:38 +0200
+	id 1x4arS-0000000Dpnn-08dy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 09:14:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=sLgY3kGNMUhiuDbvekSroJmn4LdKkP1crGpWtw0K8y4=; b=f
+	DWqdEwz9pXonBk+xO+4U3bNgelCLO4lj0rllTbkgB1K6xwCo1+/kMnW1ufWvlA28
+	Iyq2f54/PO4/i7l5bPHWh6R+xHAIpsqB5WSVLSDcR2zJY38WDDHHH9k2wXdjs85i
+	XNj05+QQiiZG3crGx/famHpzxYg5kZlNGnnac7tHfs=
+Date: Thu, 10 Sep 2026 17:12:52 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re:Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
+ <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
+X-NTES-SC: AL_Qu2TC/yYvk0s5CmQZekcn0wRhug/UMa4u/sm3YNXc/0EqiX9+T4sR2RaDHjs89yCBiKngRWUTRFQw9phRId03a0R+3XdO1UpGQhOrxxtfQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: econet: add EN751221
- ethernet
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- vadim.fedorenko@linux.dev, maxime.chevallier@bootlin.com, dong100@mucse.com,
- wangruikang@iscas.ac.cn, 25181214217@stu.xidian.edu.cn,
- hkallweit1@gmail.com, han.junyang@zte.com.cn, xuanzhuo@linux.alibaba.com,
- enelsonmoore@gmail.com, jes@trained-monkey.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-References: <20260909212146.3184077-1-cjd@cjdns.fr>
- <20260909212146.3184077-2-cjd@cjdns.fr>
- <a9eac625-f0f3-47db-ac2c-26c7df66f52a@lunn.ch>
-Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <a9eac625-f0f3-47db-ac2c-26c7df66f52a@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-ID: <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: cygvCgBXLkGVdKJqLs1DAA--.42107W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxRWF9mqidJVRiAAA3T
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_020701_244865_FE178F5B 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_021426_445965_00145378 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 10/09/2026 04:11, Andrew Lunn wrote:
->> +        gmac1: mac@1 {
->> +          compatible = "econet,eth-mac";
->> +          reg = <1>;
->> +          status = "disabled";
->> +          phy-mode = "rgmii-rxid";
-> That is a very unusual phy-mode. Is there a reason this is used in the
-> example?
-
-
-Mac 1 connects to an xPON or xDSL subsystem depending on chip package. 
-The phy-mode is not used by the driver and when the driver was written 6 
-months ago this was the best guess about the electrical protocol, left 
-for documentation purposes.
-
-Your question made me re-investigate this, and I now note that both the 
-xPON and xDSL "upper halves" as well as the switch on gmac0 are all 
-on-die, so I think phy-mode = "internal" is more appropriate and I will 
-re-send as such, and with some light documentation about what this 
-ethernet connects to - since it's on the die so it'll always be the same.
-
-
-Thanks,
-
-Caleb
-
-
->
-> 	Andrew
+SGkgQW5keSwKVGhhbmtzIGZvciB0aGUgUmV2aWV3ZWQtYnkuCgo+IFdvbmRlcmluZyBpZiB3ZSBz
+aG91bGQgdW5kbyB0aGlzIGluIHRoZSBwb3J0J3MgLnNodXRkb3duKCkgY2FsbGJhY2suCkkgc2F3
+IHRoZSBzaHV0ZG93biBwYXRoIGFscmVhZHkgY292ZXJzIGl0OiBkdzgyNTBfc2h1dGRvd24oKSBj
+YWxscwpzZXJpYWw4MjUwX2RvX3NodXRkb3duKCksIHdoaWNoIGRvZXMKCXVwLT5pZXIgPSAwOwoJ
+c2VyaWFsX3BvcnRfb3V0KHBvcnQsIFVBUlRfSUVSLCAwKTsKc28gYm90aCB0aGUgSUVSIHNoYWRv
+dyBhbmQgaGFyZHdhcmUgSUVSIGFyZSBjbGVhcmVkLCBpbmNsdWRpbmcgRVRPSS4KCkJlc3QgcmVn
+YXJkcywKTG9uZyBaaGFvCgpBdCAyMDI2LTA5LTEwIDE2OjMzOjE0LCAiQW5keSBTaGV2Y2hlbmtv
+IiA8YW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3cm90ZToKPk9uIEZyaSwgU2Vw
+IDA0LCAyMDI2IGF0IDAyOjM4OjE4UE0gKzA4MDAsIExvbmcgWmhhbyB2aWEgQjQgUmVsYXkgd3Jv
+dGU6Cj4KPj4gVGhlIEFtYmFyZWxsYSBDVjc1IFVBUlQgaXMgQW1iYXJlbGxhIElQLCBub3QgYSBT
+eW5vcHN5cyBEZXNpZ25XYXJlCj4+IGxpY2Vuc2VkIGJsb2NrLiBBdCB0aGUgcmVnaXN0ZXIgbGV2
+ZWwgaXQgaXMgY2xvc2UgZW5vdWdoIHRvIERXIEFQQiBVQVJUCj4+IHRoYXQgYSBmdWxsIGN1c3Rv
+bSBVQVJUIGRyaXZlciBpcyB1bm5lY2Vzc2FyeTogcmV1c2UgODI1MF9kdyB3aXRoIGEKPj4gc21h
+bGwgcGxhdGZvcm0gcXVpcmsuCj4+IAo+PiBRdWlya3M6Cj4+IC0ga2VlcCBJRVIgRVRPSSAoYml0
+IDUpIHNldCBmb3IgUlggdGltZW91dCBiZWhhdmlvdXIKPj4gLSBza2lwIHNldF9yYXRlOyBiYXVk
+IGNsb2NrIGlzIG1hbmFnZWQgb3V0c2lkZSB0aGUgVUFSVCBibG9jawo+Cj5SZXZpZXdlZC1ieTog
+QW5keSBTaGV2Y2hlbmtvIDxhbmRyaXkuc2hldmNoZW5rb0BsaW51eC5pbnRlbC5jb20+Cj4KPi4u
+Lgo+Cj4+ICtzdGF0aWMgaW50IGR3ODI1MF9pZXJfbWFza19zdGFydHVwKHN0cnVjdCB1YXJ0X3Bv
+cnQgKnApCj4+ICt7Cj4+ICsJc3RydWN0IGR3ODI1MF9kYXRhICpkID0gdG9fZHc4MjUwX2RhdGEo
+cC0+cHJpdmF0ZV9kYXRhKTsKPj4gKwlzdHJ1Y3QgdWFydF84MjUwX3BvcnQgKnVwID0gdXBfdG9f
+dTgyNTBwKHApOwo+PiArCWludCByZXQ7Cj4+ICsKPj4gKwlyZXQgPSBzZXJpYWw4MjUwX2RvX3N0
+YXJ0dXAocCk7Cj4+ICsJaWYgKHJldCkKPj4gKwkJcmV0dXJuIHJldDsKPj4gKwo+PiArCS8qCj4+
+ICsJICogQW1iYXJlbGxhIGtlZXBzIHZhcmlhbnQgSUVSIGJpdHMgKGUuZy4gRVRPSSkgc2V0IGZv
+ciBjb3JyZWN0IFJYCj4+ICsJICogdGltZW91dCBiZWhhdmlvdXIuIEZvcmNlIHRoZW0gaW50byB0
+aGUgODI1MCBJRVIgc2hhZG93IHNvIGxhdGVyCj4+ICsJICogZ2VuZXJpYyBJRVIgdXBkYXRlcyBk
+byBub3QgY2xlYXIgdGhlbS4KPj4gKwkgKi8KPgo+V29uZGVyaW5nIGlmIHdlIHNob3VsZCB1bmRv
+IHRoaXMgaW4gdGhlIHBvcnQncyAuc2h1dGRvd24oKSBjYWxsYmFjay4KPgo+PiArCXVwLT5pZXIg
+fD0gZC0+cGRhdGEtPmllcl9tYXNrOwo+PiArCXNlcmlhbF9wb3J0X291dChwLCBVQVJUX0lFUiwg
+dXAtPmllcik7Cj4+ICsKPj4gKwlyZXR1cm4gMDsKPj4gK30KPgo+LS0gCj5XaXRoIEJlc3QgUmVn
+YXJkcywKPkFuZHkgU2hldmNoZW5rbwo+Cg==
 
