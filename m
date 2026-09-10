@@ -4,136 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35718C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143CBC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yhS/iPoMN1yZRTKWNj0A3kjmWq9kDJx/qF0c8CAbTAw=; b=Bb8TdnkdlO/So4FzxR7BM7k6w0
-	P77pzNzzN8+/6GSfNtiIn3VXRrHWCPTapMrB0zN0p7I9I4/OWRpron4apmtUPcbZJKZbTZfGMha0B
-	z1ZxhH6YeJrAlnxakgdm6yed9AXeY0x4pZUQGdyETUMmeLK+e/stDEHVww7KIeEnZwin68Y/5c0nC
-	zdIbbYhbH4mlOiM/9IsOGK8TXuQ4BZsccTlTB35K4p1mH+R7pCZfYrDJhfs0tyP3Iv/NFbTyT6zoM
-	1kSURvnEx5EeyJcaEbJ+VjV3Qs4M3hxFzieqMwjyUZdzhh3pD8l/LnSf++XgfTj8gqYcZR+Gs05hG
-	MODmc7Zg==;
+	bh=T7ylqSraERQnEETB+mvGqo4jSL6159nJBZR2AFj/QPo=; b=ZvEpc9Ysj9kWF2H18RyICCQEMK
+	FcVTkv673wJsxMpp4Eg7JBD8ZYhD0BVXu3Bz3DrzZi59TXvWA7uGs190qlkmoDWzOyskU6k1K+02C
+	Ch8/x681/umK19lEs7cxD2eTrbHSRMbD90okci8U8ud2N3lpP45czoUdc9Ube6B2/Hm3B2iT7QqZo
+	r5Scf4D5gaixAR+XT0qYhvYVC97XLYVcTQsuxgFIQZ9DxBcXOuQREKnWFGyuprpAOveVTHW/NXfK6
+	e3Jr0grmFW+cQYH8FETlKrE9UHAV2oJElFGUl7hNcQRKR3+BPmyBhLblo+Gsg+FXpeM+X7capaon2
+	KReOrhug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4byX-0000000E2oq-429u;
-	Thu, 10 Sep 2026 10:25:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4byV-0000000E2my-0iNO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 10:25:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=yhS/iPoMN1yZRTKWNj0A3kjmWq9kDJx/qF0c8CAbTAw=; b=Kw8XCkIsFhkNFkaveIqdqQybA4
-	KRU/F3a2iKlvLocqVgoIMKqEbe20RwsL/Q1niwaMTPoWwSf9macRvWBmPGj4bGyLANSs2s3yZBhZn
-	M6xmJdfpqMx/Y6NM7il+3Gt6UhHxf/GU3+qM2xEfncKrfEA/ML2zGAFaGqcHlbcM8i77R09JEwF5M
-	h4Nx62SXVZl9TfOTt3OorVOAiP7J5rJYZaKyXNl2qjhqeH9KNL7HojesWmOKXtJXNA0fw1ehfDKMC
-	AqbgICYlczjFvna49HiBWO/WNSyiOTUIdQZY/IU+PdD50agPC2YylXNVLneLC+c8GJVlV/l3utx7j
-	ieKbIhEQ==;
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4byS-00000002KAe-0vBJ
+	id 1x4c0g-0000000E3B3-1SMV;
+	Thu, 10 Sep 2026 10:28:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4c0d-0000000E3AT-2LJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:25:46 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49d0da752ffso50099405e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 03:25:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789035942; x=1789640742; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yhS/iPoMN1yZRTKWNj0A3kjmWq9kDJx/qF0c8CAbTAw=;
-        b=Zi400xug6QQn9QChxvAijGoUqS09lC+5t2cRkj0T/1qDh6FQzyB3/NUBMySQrN9Q84
-         5ltL8/bnfHx40nppinnnmVtsbYP7XMOqHwTQhoSci9Jvhzr6pB5FWgEPIlDvj3KTad11
-         BaV/Ee0zYv7YKHMG6JSW6KWNNIUNjgk1GTpxdoAwUT1ZwSDUpGngaxjdWwe/i9CVePXe
-         bbKSVdghBxeUE8j9ANUNFWogzydI0B4e7vbaCcwvS2W1JLyQul/luW+jLGvTzbiV9uUK
-         NBbivLpUN6quPos/aRusQvN97Q/lXso1mJ7ImT71jnf4tpd+GnrVZATL0paRW/7GnlTx
-         DpNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789035942; x=1789640742;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yhS/iPoMN1yZRTKWNj0A3kjmWq9kDJx/qF0c8CAbTAw=;
-        b=K40uoTA8L3RJnYvQOvKiXJ5OWz/ii2tFFpQKWQrnPvHNgvEvcMg1SIvcT91aRw74df
-         PyBQWjf3nemW1lMRvfjW+Yn9fSfYrNk7CYa8syzC/nMxD3Q/37gRkqDhDA49rg4DQ0AR
-         Kq8wpDhHmqXSg/iksYzBZhIFUH/x9mgm5i4uA8YDVLOYjP31UI+wmMWk7L6hMVuZmZgb
-         ufP/0kKLz6ja+ehR7aZu7B0U1IMknsYOhvR0AoZxFWSr4+7lKH4ElvMcQTdZA1VfTeFy
-         jqUZ7FCXNaRSeTrjfSnaWN1rtIiQzHIDGSOji+E/ZLyl/4yRx7IZWQ51ikfVNzXbETsK
-         xr4w==
-X-Forwarded-Encrypted: i=1; AKwUvBx6thpYcTyLOhZNgYFdIdzj1KI+qMyunusm+0YBlRxXYw33V2UOSHgU2aeMAHBSsgtmDnBOdjHTbaPfqerNugV1@lists.infradead.org
-X-Gm-Message-State: AFuF++k/93iZwBwhT+FNAgcHaWdrbuyQwyaFezwXQplIfCwoINsbrZsk
-	qYKNuL8nxt1uTnbUlM9lBRtfn+/3JUJFQ8Ih6dwKiOj5DI85ebTAADVx4EfLUDqlDf0=
-X-Gm-Gg: AYBFou254hO+tiOhJW33hJ/hHuLtconX8KHUE39cKzERPvsFKO1CywNhk8cCpC0TjKx
-	MPKBUiJh5hShSpmlQWe1EYmkoB+dXA8QTUnP9qT4Kp5lbRRlKu9RTVykB9+oFWKHfVSWxGFLCbT
-	mwT8TzH3LDx031XsXJuxqDxrhy4z3ghyFR0NyKbVCOzUOgq6Q/f/YMAstbDmkUeqXWdIQIVBKRn
-	ogEDbTiWgpCYK1LQfuLh3rrcCO1FlGDQHoLmSqI6ljkalaE9R/y8XtlvO/V4vIBlbeDW6YZkhwI
-	ZyIRo4wkx07A8myvvzfiODuKvV1f6F3MzQm/h0S++S4n6RjgxV8Tt2dLjaThdunkmCq835iiUNM
-	vU2cF/IFraZY89g/DcwE9WDOJDVP5sy5RPQKJjqjvFWSM43hYOHg4ZvHL8CFZF+FId5pcym3ffl
-	mRWGmSQZS6O5OKYbTVnoz+b1MOV6/cRzyandyMdDxr9sMt959n1W1rGpRyJFWeDuhUAdC9hXy41
-	2jqsytNSTp3Nbvm6A==
-X-Received: by 2002:a05:600c:3f0a:b0:49c:e27c:6b10 with SMTP id 5b1f17b1804b1-49cf81e4a10mr395443005e9.3.1789035942111;
-        Thu, 10 Sep 2026 03:25:42 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26bdb789sm73960825e9.1.2026.09.10.03.25.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 03:25:41 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Thu, 10 Sep 2026 12:25:27 +0200
-Subject: [PATCH net-next v2 2/2] net: stmmac: Add support for Allwinner
- A733 GMAC210
+	Thu, 10 Sep 2026 10:28:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4E8D143D;
+	Thu, 10 Sep 2026 03:27:54 -0700 (PDT)
+Received: from [10.0.129.245] (unknown [10.0.129.245])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E7D23F7B4;
+	Thu, 10 Sep 2026 03:27:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789036078; bh=aWQt/+Tvo/ggfRTd82k5+d6xlXw8sI7UgTyynHOeLvI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KYlafta4EkjMZWOAfvdk24/OlQIy6uIrL0Nvg71duaejrS5Ng65DY7mkcYqZLh0um
+	 5Im0f/4WGHfB13DFvJ55+kmxVIWDjNT3YvQ4WS4QtFD4gpq3nRSLPdfuh5Aai2eUDj
+	 Sizaon0gsCgqril8nrlevqCxDdy7//RcewiBGgl4=
+Message-ID: <d22c863b-ea81-472c-b2a9-28f99e5b6f92@arm.com>
+Date: Thu, 10 Sep 2026 11:27:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 10/20] KVM: arm64: coco: Disable Steal time accounting
+ for coco guests
+Content-Language: en-GB
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+ <20260908162223.1683432-11-suzuki.poulose@arm.com>
+ <CA+EHjTw9ReyvsNT=y+-P6ng7VQ6Pvz9PFK9bO71qvTR1pOxx5Q@mail.gmail.com>
+ <6152fc41-65f0-460f-90b4-1454c11bcba6@arm.com>
+ <CA+EHjTxjk1JLR7Tf5LEfB_xypbUWnw3G3H-FT7bTE=nWTTRgAA@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CA+EHjTxjk1JLR7Tf5LEfB_xypbUWnw3G3H-FT7bTE=nWTTRgAA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-allwinner-a733-gmac-support-v2-2-4f4a1e520c23@baylibre.com>
-References: <20260910-allwinner-a733-gmac-support-v2-0-4f4a1e520c23@baylibre.com>
-In-Reply-To: <20260910-allwinner-a733-gmac-support-v2-0-4f4a1e520c23@baylibre.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Maxime Ripard <mripard@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- Andre Przywara <andre.przywara@arm.com>, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8196; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=iiviwEqL5gcgoRgKHDKcynyJRZSYhYM7KijUYtaKBco=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqooWfZVqP4h/FmhnIkFcpRFeUK9vhz7B5BXAfH
- GVm2YN9pAqJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaqKFnwAKCRDm/A8cN/La
- hXUXD/9O9GcDsf6tEVteDWeDc13oqB3BEWwUiSNY8QkNQ/MlOz1JVGD1oJDrUYGAP7c/bT18jFM
- e+Zw8PmFy1XGty3EQPeh4vYiTiMyQoul16KwvltYnhl/1p4RaVg6RhZZJvRqss/qQOfVwgh5mK0
- X/kbiq0l/7jcZ6ruy6sHPn/6o72QxBlVcIsb1YmsNCiRAvGiOQKnjEXaTKQ7k97kHrBNshJK3q6
- dQG5nqbvdEd/jJoF9n2jBGWfrdF1fd11YAhSOkGszVCmMFoICkwKRn1Rz6m4eaJS3glbenr7hZ3
- SMZ4004904VmgGCiQK/ZVr3BvOXSI9p3TKqtj9T0c2kEjH2NtXzWwWLfEOed39FnEZfm7d2ev46
- TR3lv3liuy8kbKS7AOcIBkC8+6Yz/uohIC4/wbz/L7jGFNEWLzS2R1COwRaniFk4QBNU2di5/Ad
- SgW1a9PQDeapI/rfaUUDN9v9BMY0VzqAs50EDxl77FHE5iy8t2YhjQppsKA3pIW6y/dyu5w68T3
- Om39+TGBVZGN844LxmxBPYdLvFNmxoeXysO0fVorTfoSmEVmlubOBk3tK1AirGbysrePoAjGwxB
- aV2ix5mQPwJZIZujAe3waLNn9jwZMIk48YoRv9h9YPds/P63JVXPy5jr92RSZeiGQzbbpW+DLvG
- JA+jaF8VZnTruFQ==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_112544_405158_0AB48121 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20260910_032759_693919_196BC5D2 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,260 +81,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A733 GMAC210 is a DesignWare MAC 5.20 using an Allwinner glue close to
-the A523 GMAC200 already supported by this driver, with the following
-differences to handle:
+Hi Fuad
 
-* The glue configuration registers are a dedicated MMIO region of the
-  controller instead of a syscon register. This new register region
-  appears to be in the reset domain of stmmac's main reset. This requires
-  the glue driver to handle the reset rather than letting stmmac deal with
-  it.
-* The TX clock delay value is 5 bits wide, split over 2 register fields,
-  allowing delays up to 3100ps.
-* The DMA channels have their own interrupt lines, so the per-DMA-channel
-  interrupt mode is enabled, as the vendor SDK does.
-* TX LPI clock gating is supported, as the vendor SDK indicates. Follow
-  the PHY capability with STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP rather than
-  forcing it on with the deprecated 'snps,en-tx-lpi-clockgating' DT
-  property.
+On 09/09/2026 13:23, Fuad Tabba wrote:
+> Hi Suzuki,
+> 
+> On Wed, 9 Sept 2026 at 12:52, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> ...
+> 
+>>> I think it would be better to leave KVM_CAP_STEAL_TIME reported and
+>>> instead reject the configuration for these VMs, returning -EPERM from
+>>> the KVM_ARM_VCPU_PVTIME_CTRL attr. A capability query should report
+>>> what the kernel supports, not whether a given VM may use it; gating it
+>>> per-VM here is also inconsistent, since the !kvm clause leaves the
+>>> system-fd cap at 1 while the VM-fd cap reads 0. And -EPERM says that
+>>
+>>
+>> But isn't that we want from a VMM perspective ? i.e., enable PVTIME if
+>> it is supported for the given VM (type). Rather than PVTIME is supported
+>> by the KVM, so I can go enable it by default. But, we endup getting a
+>> failure while we enable it. I encountered this with kvmtool, where
+>> CAP_STEAL_TIME is reported true and even the HAS_DEVICE_ATTR goes
+>> through fine, but SET_DEVICE_ATTR seemed to fail.
+>>
+>> Isn't it better to allow the VM to decide if the capability is supported
+>> for the given VM type, like we are doing for other capabilities ?
+> 
+> You're right, per-VM capability reporting. My wires got crossed from
+> the pKVM series and the kvmtool fixes. However, I'd still return
+> -EPERM rather than -ENXIO from the attribute. The capability exists,
 
-Unlike the A523, both GMAC instances are supported by the same driver.
+Just to make sure I understand the picture:
 
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c | 145 ++++++++++++++++++---
- 1 file changed, 127 insertions(+), 18 deletions(-)
+For coco VMs:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-index 862df173d963..3d434a52fb02 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-@@ -10,21 +10,22 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/bitops.h>
- #include <linux/bits.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/phy.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
-+#include <linux/reset.h>
- #include <linux/stmmac.h>
- 
- #include "stmmac.h"
- #include "stmmac_platform.h"
- 
--#define SYSCON_REG		0x34
--
- /* RMII specific bits */
- #define SYSCON_RMII_EN		BIT(13) /* 1: enable RMII (overrides EPIT) */
- /* Generic system control EMAC_CLK bits */
-@@ -37,17 +38,99 @@
- #define SYSCON_ETCS_EXT_GMII	0x1
- #define SYSCON_ETCS_INT_GMII	0x2
- 
--static int sun55i_gmac200_set_syscon(struct device *dev,
--				     struct plat_stmmacenet_data *plat)
-+struct sun55i_gmac_data {
-+	struct regmap *(*get_regmap)(struct platform_device *pdev,
-+				     struct plat_stmmacenet_data *plat);
-+	unsigned int flags;
-+	u32 etxdc_ext_mask;
-+	u32 offset;
-+};
-+
-+static struct regmap *sun55i_gmac200_get_regmap(struct platform_device *pdev,
-+						struct plat_stmmacenet_data *plat)
-+{
-+	struct regmap *map =
-+		syscon_regmap_lookup_by_phandle(pdev->dev.of_node, "syscon");
-+
-+	if (IS_ERR(map))
-+		dev_err_probe(&pdev->dev, PTR_ERR(map), "Unable to map syscon\n");
-+
-+	return map;
-+}
-+
-+static const struct regmap_config sun60i_a733_regmap_cfg = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
-+static void sun60i_gmac210_reset_assert(void *data)
- {
--	struct device_node *node = dev->of_node;
-+	struct reset_control *rst = data;
-+
-+	reset_control_assert(rst);
-+}
-+
-+static struct regmap *sun60i_gmac210_get_regmap(struct platform_device *pdev,
-+						struct plat_stmmacenet_data *plat)
-+{
-+	struct device *dev = &pdev->dev;
-+	void __iomem *base;
-+	int ret;
-+
-+	base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(base)) {
-+		dev_err_probe(dev, PTR_ERR(base), "unable to get glue memory region\n");
-+		return ERR_CAST(base);
-+	}
-+
-+	if (!plat->stmmac_rst || !plat->stmmac_ahb_rst) {
-+		dev_err(dev, "missing required reset controls\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	/*
-+	 * The configuration registers are inside the controller
-+	 * reset domain, so the reset must happen before any write to them
-+	 * and should not be done again by stmmac or the configuration will
-+	 * be lost.
-+	 */
-+	ret = reset_control_assert(plat->stmmac_rst);
-+	if (!ret)
-+		ret = reset_control_deassert(plat->stmmac_rst);
-+
-+	if (ret) {
-+		dev_err_probe(dev, ret, "device reset failed\n");
-+		return ERR_PTR(ret);
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, sun60i_gmac210_reset_assert,
-+				       plat->stmmac_rst);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	plat->stmmac_rst = NULL;
-+
-+	return devm_regmap_init_mmio(&pdev->dev, base, &sun60i_a733_regmap_cfg);
-+}
-+
-+static int sun55i_gmac200_setup(struct platform_device *pdev,
-+				struct plat_stmmacenet_data *plat,
-+				const struct sun55i_gmac_data *data)
-+{
-+	unsigned int lo_bits = hweight32(SYSCON_ETXDC_MASK);
-+	struct device_node *node = pdev->dev.of_node;
-+	struct device *dev = &pdev->dev;
- 	struct regmap *regmap;
- 	u32 val, reg = 0;
-+	u32 max_delay;
- 	int ret;
- 
--	regmap = syscon_regmap_lookup_by_phandle(node, "syscon");
-+	max_delay = (1U << (lo_bits + hweight32(data->etxdc_ext_mask))) - 1;
-+
-+	regmap = data->get_regmap(pdev, plat);
- 	if (IS_ERR(regmap))
--		return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map syscon\n");
-+		return PTR_ERR(regmap);
- 
- 	if (!of_property_read_u32(node, "tx-internal-delay-ps", &val)) {
- 		if (val % 100)
-@@ -55,12 +138,15 @@ static int sun55i_gmac200_set_syscon(struct device *dev,
- 					     "tx-delay must be a multiple of 100ps\n");
- 		val /= 100;
- 		dev_dbg(dev, "set tx-delay to %x\n", val);
--		if (!FIELD_FIT(SYSCON_ETXDC_MASK, val))
-+		if (val > max_delay)
- 			return dev_err_probe(dev, -EINVAL,
--					     "TX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
--					     val, FIELD_MAX(SYSCON_ETXDC_MASK));
-+					     "TX clock delay exceeds maximum (%u00ps > %u00ps)\n",
-+					     val, max_delay);
- 
--		reg |= FIELD_PREP(SYSCON_ETXDC_MASK, val);
-+		reg |= field_prep(SYSCON_ETXDC_MASK, val);
-+		if (data->etxdc_ext_mask)
-+			reg |= field_prep(data->etxdc_ext_mask,
-+					  val >> lo_bits);
- 	}
- 
- 	if (!of_property_read_u32(node, "rx-internal-delay-ps", &val)) {
-@@ -95,21 +181,29 @@ static int sun55i_gmac200_set_syscon(struct device *dev,
- 				     phy_modes(plat->phy_interface));
- 	}
- 
--	ret = regmap_write(regmap, SYSCON_REG, reg);
-+	ret = regmap_write(regmap, data->offset, reg);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "Failed to write to syscon\n");
- 
-+	plat->flags |= data->flags;
-+	plat->host_dma_width = 32;
-+
- 	return 0;
- }
- 
- static int sun55i_gmac200_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-+	const struct sun55i_gmac_data *data;
- 	struct stmmac_resources stmmac_res;
- 	struct device *dev = &pdev->dev;
- 	struct clk *clk;
- 	int ret;
- 
-+	data = device_get_match_data(dev);
-+	if (!data)
-+		return -EINVAL;
-+
- 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
- 	if (ret)
- 		return ret;
-@@ -118,11 +212,7 @@ static int sun55i_gmac200_probe(struct platform_device *pdev)
- 	if (IS_ERR(plat_dat))
- 		return PTR_ERR(plat_dat);
- 
--	/* BSP disables it */
--	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
--	plat_dat->host_dma_width = 32;
--
--	ret = sun55i_gmac200_set_syscon(dev, plat_dat);
-+	ret = sun55i_gmac200_setup(pdev, plat_dat, data);
- 	if (ret)
- 		return ret;
- 
-@@ -138,8 +228,27 @@ static int sun55i_gmac200_probe(struct platform_device *pdev)
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
- 
-+static const struct sun55i_gmac_data sun55i_a523_gmac200_data = {
-+	.get_regmap = sun55i_gmac200_get_regmap,
-+	.flags = STMMAC_FLAG_SPH_DISABLE,
-+	.offset = 0x34,
-+	.etxdc_ext_mask = 0,
-+};
-+
-+static const struct sun55i_gmac_data sun60i_a733_gmac210_data = {
-+	.get_regmap = sun60i_gmac210_get_regmap,
-+	.flags = (STMMAC_FLAG_SPH_DISABLE |
-+		  STMMAC_FLAG_MULTI_MSI_EN |
-+		  STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP),
-+	.offset = 0x0,
-+	.etxdc_ext_mask = GENMASK(17, 16),
-+};
-+
- static const struct of_device_id sun55i_gmac200_match[] = {
--	{ .compatible = "allwinner,sun55i-a523-gmac200" },
-+	{ .compatible = "allwinner,sun55i-a523-gmac200",
-+	  .data = &sun55i_a523_gmac200_data },
-+	{ .compatible = "allwinner,sun60i-a733-gmac210",
-+	  .data = &sun60i_a733_gmac210_data },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun55i_gmac200_match);
+  - check extension on coco KVM, KVM_CAP_STEAL_TIME => 0
 
--- 
-2.53.0
+And a follow up DEVICE_HAS_ATTR => -EPERM ?
+
+But we tell the VMM, look you don't have the capabilit on this VM.
+But if you try to set the attribute isn't it more appropriate to
+say:
+  -ENXIO - No you don't have that feature on this VM (-ENXIO)
+rather than
+  -EPERM - No, I won't let you do that.
+
+Remember we are doing only in the "VM" context. It is a minor nit
+but I wanted to make sure we understand what we are thinking.
+
+Cheers
+Suzuki
+
+> it's just not permitted for a confidential VM, and -EPERM says exactly
+> that, whereas -ENXIO reads as "no such feature".
+> 
+> Cheers,
+> /fuad
+> 
+>>
+>>> steal-time exists but isn't permitted for a confidential VM, whereas
+>>> -ENXIO reads as "no such feature".
+>>
+>> Cheers
+>> Suzuki
+>>
+>>
+>>>
+>>> Cheers,
+>>> /fuad
+>>>
+>>>>
+>>>>    int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+>>>> @@ -81,7 +81,7 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+>>>>           int ret = 0;
+>>>>           int idx;
+>>>>
+>>>> -       if (!kvm_arm_pvtime_supported() ||
+>>>> +       if (!kvm_arm_pvtime_supported(kvm) ||
+>>>>               attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+>>>>                   return -ENXIO;
+>>>>
+>>>> @@ -110,7 +110,7 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+>>>>           u64 __user *user = (u64 __user *)attr->addr;
+>>>>           u64 ipa;
+>>>>
+>>>> -       if (!kvm_arm_pvtime_supported() ||
+>>>> +       if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
+>>>>               attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
+>>>>                   return -ENXIO;
+>>>>
+>>>> @@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
+>>>>    {
+>>>>           switch (attr->attr) {
+>>>>           case KVM_ARM_VCPU_PVTIME_IPA:
+>>>> -               if (kvm_arm_pvtime_supported())
+>>>> +               if (kvm_arm_pvtime_supported(vcpu->kvm))
+>>>>                           return 0;
+>>>>           }
+>>>>           return -ENXIO;
+>>>> --
+>>>> 2.43.0
+>>>>
+>>
 
 
