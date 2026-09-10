@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9177C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 22:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30804C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 22:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=phZqrumo434IM6M4R3cvUgGvziwdgVdo1+7d/hsBRIU=; b=HKEGzEYmIp2TycLflBv7BM4Y4W
-	39zZ2Ksc+lGLcwVdFbqwBp8wrd3DTjRcvSsypz4k7sE7WpfC0/jNpPmmEO6mlFNr7EE/BVpY/hRuK
-	YcDy30UnGGxyIqsFsV/vFOVgl1vSBKaplRojRf0Txxt3Ei/njhl396LO+cSleLdIlqKoabAL76Q5I
-	KcKElD9//umoeOCQcgitRNo6/hCOZuDTvhAKteI2U5S9xPYBUo7+g1me4ALpj3SLsJ1zqhb2MmAip
-	5lJlvf/VPg66ti46uUGkLx5PQcdSM7xckdXYUh7Hv+hKvHif1Sf2elq46iicnVbSIka60f5pkgu+j
-	ZgfSN/oA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=okOIj87nnsWhStAZQejKM6CdTZVLqVyfiZc+h4cJ6SQ=; b=LKJptV1CK81xFyCW7zcz2peUDJ
+	eu9rxLn3ZouGHEGpkDCZc5fkXY+B5892qJRo64CziaKkGHQNB09ZGdkT6IJmB/yu84IPBDyiAx0mJ
+	2iRmgD0xCFb8Io8NX8Vn1bDdU0FbffSsd2gvKBl8TXDJGxIA87epeJBysvj3u0uAancK9edn6/1E0
+	ND3vo04vG+44eLvwYEjadBz1VH3HDHFsejDKS9rjMzsPI86Zw4TolkEDsNwoVvparTrx/hGN81NPP
+	nNcsIAN1gFp1stzKFHSRrWtzLXEdsyJgKVLxCSb3itMzAK9r/zteZMDW/Hff+RRXanzapxhovW4Yy
+	NmdAf4dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4n5R-0000000FTT4-0MBe;
-	Thu, 10 Sep 2026 22:17:41 +0000
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4n5P-0000000FTSg-09aH
+	id 1x4n65-0000000FTWn-0qqO;
+	Thu, 10 Sep 2026 22:18:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4n62-0000000FTW7-2fNq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 22:17:40 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfcc3e14so815766d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 15:17:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789078657; x=1789683457; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=phZqrumo434IM6M4R3cvUgGvziwdgVdo1+7d/hsBRIU=;
-        b=mpM7mR7t3unieAxq3Le+S70+vhdyf1FvM5nFiDNMOhH5+NVJLJNab/Oy2whLtGxe2X
-         0CWWRLSqHmpvAjMnWnckU4IuRPpY3IEk1+/hIqSDawYi4/o0wD9HKMghs399K12ntmw6
-         bjGlUt3A37/4+xJylEptn7lPuv9aG+RM89l9TCCg1XNBlnvBO8ZhKNG4Tpiu9DDHnqmg
-         W2GPoKNxBry4pwTAxHQ2XuxVW3Z0H49YxJatFp3vcsPAA5Gszqnr4PNpQhCxF5ZGjYPB
-         Z2h7QYJMQ2tpX8YwYsUm3M/snpNDDeOGO9lSB124/koTymfCHTrCCl695Vk9ws0Md9qo
-         bBBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789078657; x=1789683457;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=phZqrumo434IM6M4R3cvUgGvziwdgVdo1+7d/hsBRIU=;
-        b=EQtsd9vi+/o2HX4Igx+u1ReiedwxB2pEAnxv31bP5Yz+AZGGcNAYb/X6/07fn75JlD
-         rmdDpVLiy+OhR8Dj+07mtfaF+pyrvHApNwtWFrydmJLv3cVjL8qH+Mjvl0XZGgUDlVir
-         piibmjmv2mDXl8sI3aZiU3vv+AtJs4obGqPu7N2xFjmDe0Q8kLT9BwbY/J2Ep2bjXGVY
-         yDMuxVCtU0p4+zvwXtDgNZHdwF7skSOQ5U4gDvm1PXn7EHjLR01llZHgNKMBXpRhfvYc
-         FJ2W+Nn2/GJpddPSEskQC/Ko/7hyQALmB7FuEi13Vo4W3jglmhv+xjdo/pP+ZGcZTovs
-         OwlA==
-X-Forwarded-Encrypted: i=1; AKwUvBx3yBiK96I1wRqM2xYOleTd4AJ+T6ev1llOeE3Pf2lSPzVvLNQ8fklW85jTDi6LGfLWlwWHU7LGwyMuIoMaCNI8@lists.infradead.org
-X-Gm-Message-State: AFuF++m5ICZad/WiGpJJTcN9msbUKLDpOXQUM43Go10p1KqxM8zn+3Em
-	ffqVaPITgLsgGgfnU4lEufLjIqDr2evJAmmu7nbdhBs1IwjMVrFIJsQ=
-X-Gm-Gg: AYBFou3+KvqCOROw8yzVwTTFT0GE6+MdoruGRaIj5muD0N9P3JYrWnfVwQz5YkMo2ix
-	Wrbky9mNY1z6nM1IeOrgXk7I3LOLpurCzGbxsrZIOSDGS+YGEG/oSSFcNL2opA2V7Yzexb+K/gM
-	xlGgq+H691r8hNT+J05choUKBY21UNB9N+c0ZdWLvUWMgEYmMSDl4LgobbwrpqlmXTOqHhKMlro
-	wnZV2zhZ86o2p3P2vPd1XoV2cEzbHSre77kUPqtV8XfZaGGuu8jpLnQDHY6TmyAxP/JIEQxQXRB
-	a33Nr6dPhRq1XQkx5dvAYdry5DelvP+YavU+TeefFdsXOGzMv1uM4YtZKWGCdK6ZXN/PFW/W0eu
-	TJGjYgrmHVBBWRzKBhufATLAoL2fqRi2ju/IfM5ipbYu1WhE32d7nktLALZeaO1jMdl5LT9JGuw
-	jhgzBvSMbLn8E0q9V9pL1Ka3jqZ5XP6GbeRijcSgsiMdGVgvBVGAp26M3cuPUwpMlJtIAHZioZN
-	CVRQ8WjVSB1xzgZBA69YUp/ndtLY+rmkEnzUMyPc7yL+1hIm10aggkS1GnYrvx/O/fREtHHLPqI
-	tSPLPuJak/TefadIakZUavf/OaeTg24kmA==
-X-Received: by 2002:a05:620a:2604:b0:939:a9de:83ea with SMTP id af79cd13be357-939e8b1c875mr207985085a.10.1789078655448;
-        Thu, 10 Sep 2026 15:17:35 -0700 (PDT)
-Received: from localhost.localdomain ([104.39.73.78])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-939e80d453esm87548985a.38.2026.09.10.15.17.33
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 10 Sep 2026 15:17:34 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: linux-pci@vger.kernel.org
-Cc: thomas.petazzoni@bootlin.com,
-	pali@kernel.org,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Myeonghun Pak <mhun512@gmail.com>,
-	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH] PCI: aardvark: Disable PHY on probe failures
-Date: Thu, 10 Sep 2026 18:17:25 -0400
-Message-ID: <20260910221725.91980-1-mhun512@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Thu, 10 Sep 2026 22:18:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5BDA237B;
+	Thu, 10 Sep 2026 15:18:12 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74B8A3F7B4;
+	Thu, 10 Sep 2026 15:18:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789078696; bh=7wVWwurN/h0UfK56gPZolyDAb0z3FbgclCmbEZseAEw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=onLdeVEJh+X78kzwpPJjKiJ+UJ2DE86wjqBwMU4YEDhYM8t9Gpw6YGE/RhQgZuMT2
+	 9guKA845RvwrbbFo8k4GhSOzYLWh2YB/pD16ioOzwKMaeugrwTmog3h+OhvwhRkcaa
+	 QEp982vU6I4KU+kOO0DpmTqVRvAR6y6Ktc6xQ8nw=
+Date: Fri, 11 Sep 2026 00:18:05 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Enzo Adriano via B4 Relay
+ <devnull+enzo.adriano.code.gmail.com@kernel.org>
+Cc: enzo.adriano.code@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+ Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Ulf
+ Hansson <ulfh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: dts: allwinner: add Allwinner A733 SoC
+Message-ID: <20260911001805.0a2e033d@ryzen.lan>
+In-Reply-To: <20260613-a733-dts-v1-public-ready-v1-3-7787c94681db@gmail.com>
+References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
+	<20260613-a733-dts-v1-public-ready-v1-3-7787c94681db@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_151739_086722_C11D39FA 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20260910_151818_849747_5E5D8188 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,92 +77,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-advk_pcie_setup_phy() initializes and powers on the PHY before the
-emulated bridge and IRQ domains are created.  If any of those later
-initialization steps or pci_host_probe() fails, probe returns without
-powering off or exiting the PHY.
+On Sat, 13 Jun 2026 05:42:15 -0400
+Enzo Adriano via B4 Relay
+<devnull+enzo.adriano.code.gmail.com@kernel.org> wrote:
 
-Replace the direct returns with staged cleanup labels.  Remove IRQ
-domains in reverse order, release the emulated bridge allocation only
-after successful initialization, and disable the PHY on every failure
-after advk_pcie_setup_phy() succeeds.  A setup_phy() failure still
-returns directly, so its partial internal cleanup is not repeated.
+Hi Enzo,
 
-Fixes: 366697018c9a ("PCI: aardvark: Add PHY support")
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
----
- drivers/pci/controller/pci-aardvark.c | 31 ++++++++++++++++++-------------
- 1 file changed, 18 insertions(+), 13 deletions(-)
+it seems like it's probably a good time now to send a v2. Branch off at
+v7.3-rc1, cherry-pick the DT binding patches for clocks and pinctrl
+(plus anything else missing), then put your patches on top.
+Verify that with (in the build directory, after "make dtbs"):
+$ make W=2 CHECK_DTBS=y allwinner/sun60i-*.dtb
 
-diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
-index ecb81ac73019..2bbdb73cfb45 100644
---- a/drivers/pci/controller/pci-aardvark.c
-+++ b/drivers/pci/controller/pci-aardvark.c
-@@ -1864,28 +1864,25 @@ static int advk_pcie_probe(struct platform_device *pdev)
- 	ret = advk_sw_pci_bridge_init(pcie);
- 	if (ret) {
- 		dev_err(dev, "Failed to register emulated root PCI bridge\n");
--		return ret;
-+		goto err_disable_phy;
- 	}
- 
- 	ret = advk_pcie_init_irq_domain(pcie);
- 	if (ret) {
- 		dev_err(dev, "Failed to initialize irq\n");
--		return ret;
-+		goto err_cleanup_bridge;
- 	}
- 
- 	ret = advk_pcie_init_msi_irq_domain(pcie);
- 	if (ret) {
- 		dev_err(dev, "Failed to initialize irq\n");
--		advk_pcie_remove_irq_domain(pcie);
--		return ret;
-+		goto err_remove_irq_domain;
- 	}
- 
- 	ret = advk_pcie_init_rp_irq_domain(pcie);
- 	if (ret) {
- 		dev_err(dev, "Failed to initialize irq\n");
--		advk_pcie_remove_msi_irq_domain(pcie);
--		advk_pcie_remove_irq_domain(pcie);
--		return ret;
-+		goto err_remove_msi_irq_domain;
- 	}
- 
- 	bridge->sysdata = pcie;
-@@ -1893,14 +1890,22 @@ static int advk_pcie_probe(struct platform_device *pdev)
- 	bridge->map_irq = advk_pcie_map_irq;
- 
- 	ret = pci_host_probe(bridge);
--	if (ret < 0) {
--		advk_pcie_remove_rp_irq_domain(pcie);
--		advk_pcie_remove_msi_irq_domain(pcie);
--		advk_pcie_remove_irq_domain(pcie);
--		return ret;
--	}
-+	if (ret < 0)
-+		goto err_remove_rp_irq_domain;
- 
- 	return 0;
-+
-+err_remove_rp_irq_domain:
-+	advk_pcie_remove_rp_irq_domain(pcie);
-+err_remove_msi_irq_domain:
-+	advk_pcie_remove_msi_irq_domain(pcie);
-+err_remove_irq_domain:
-+	advk_pcie_remove_irq_domain(pcie);
-+err_cleanup_bridge:
-+	pci_bridge_emul_cleanup(&pcie->bridge);
-+err_disable_phy:
-+	advk_pcie_disable_phy(pcie);
-+	return ret;
- }
- 
- static void advk_pcie_remove(struct platform_device *pdev)
+> From: Enzo Adriano <enzo.adriano.code@gmail.com>
+> 
+> Add the initial A733 SoC description with CPUs, timers, interrupt
+> controller, clocks, pinctrl, UART0, and MMC0.
 
--- 
-2.50.1
+This misses the RTC, support for which has been merged recently.
+ 
+> Keep peripherals disabled by default. Board DTS files can enable only the
+> devices that are proven on their hardware.
+
+Not sure we need that needs explicit mentioning, as this is how .dtsi
+files work...
+ 
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> ---
+>  arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi | 198 +++++++++++++++++++++++++
+>  1 file changed, 198 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> new file mode 100644
+> index 000000000000..3721aa9e8573
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> @@ -0,0 +1,198 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/clock/sun60i-a733-ccu.h>
+> +#include <dt-bindings/reset/sun60i-a733-ccu.h>
+> +
+> +/ {
+> +	interrupt-parent = <&gic>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x000>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu1: cpu@100 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x100>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu2: cpu@200 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x200>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu3: cpu@300 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x300>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu4: cpu@400 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x400>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu5: cpu@500 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x500>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <530>;
+> +		};
+> +
+> +		cpu6: cpu@600 {
+> +			compatible = "arm,cortex-a76";
+> +			device_type = "cpu";
+> +			reg = <0x600>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <1024>;
+> +		};
+> +
+> +		cpu7: cpu@700 {
+> +			compatible = "arm,cortex-a76";
+> +			device_type = "cpu";
+> +			reg = <0x700>;
+> +			enable-method = "psci";
+> +			capacity-dmips-mhz = <1024>;
+> +		};
+> +	};
+> +
+> +	osc24M: osc24M-clk {
+> +		#clock-cells = <0>;
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <24000000>;
+> +		clock-output-names = "osc24M";
+> +	};
+> +
+> +	osc32k: osc32k-clk {
+> +		#clock-cells = <0>;
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <32768>;
+> +		clock-output-names = "osc32k";
+> +	};
+> +
+> +	iosc: internal-osc-clk {
+> +		#clock-cells = <0>;
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <16000000>;
+> +		clock-output-names = "iosc";
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0", "arm,psci-0.2";
+
+No need for arm,psci-1.0. PSCI v0.2 requires a version call.
+
+> +		method = "smc";
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		arm,no-tick-in-suspend;
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
+
+Please add the ARMv8.2 EL2 virtual timer IRQ, see commit
+a186a9742dc5d.
+
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0x0 0x0 0x0 0x40000000>;
+> +
+> +		pio: pinctrl@2000000 {
+> +			compatible = "allwinner,sun60i-a733-pinctrl";
+> +			reg = <0x02000000 0x600>;
+> +			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_APB1>, <&osc24M>, <&osc32k>;
+> +			clock-names = "apb", "hosc", "losc";
+> +			gpio-controller;
+> +			#gpio-cells = <3>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <3>;
+> +
+> +			mmc0_pins: mmc0-pins {
+> +				pins = "PF0", "PF1", "PF2",
+> +				       "PF3", "PF4", "PF5";
+> +				function = "mmc0";
+> +				drive-strength = <30>;
+> +				bias-pull-up;
+
+You need an allwinner,pinmux property here.
+Also please add the other MMC pins, at least for mmc1 and mmc2.
+
+> +			};
+> +		};
+> +
+> +		ccu: clock-controller@2002000 {
+> +			compatible = "allwinner,sun60i-a733-ccu";
+> +			reg = <0x02002000 0x2000>;
+> +			clocks = <&osc24M>, <&osc32k>, <&iosc>;
+> +			clock-names = "hosc", "losc", "iosc";
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		uart0: serial@2500000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x02500000 0x400>;
+> +			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
+> +			reg-shift = <2>;
+> +			reg-io-width = <4>;
+> +			clocks = <&ccu CLK_BUS_UART0>;
+> +			resets = <&ccu RST_BUS_UART0>;
+> +			status = "disabled";
+> +		};
+
+Please add the other UART instances here as well.
+
+> +
+> +		gic: interrupt-controller@3400000 {
+> +			compatible = "arm,gic-v3";
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			reg = <0x03400000 0x10000>,
+> +			      <0x03460000 0x100000>;
+
+Please add the maintenance interrupt here. And do we need
+dma-noncoherent, like in the A523?
+And isn't there an ITS here to describe?
+
+> +		};
+> +
+> +		mmc0: mmc@4020000 {
+> +			compatible = "allwinner,sun60i-a733-mmc",
+> +				     "allwinner,sun20i-d1-mmc";
+> +			reg = <0x04020000 0x1000>;
+> +			interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
+> +			clock-names = "ahb", "mmc";
+> +			resets = <&ccu RST_BUS_MMC0>;
+> +			reset-names = "ahb";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&mmc0_pins>;
+> +			max-frequency = <200000000>;
+> +			cap-sd-highspeed;
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+
+Please describe the other MMC controllers here as well. The IP is the
+same, so no reason to not add them here.
+
+And what about I2C? We would need that for the AXP PMIC. Having that in
+the initial DT is required to keep the DTBs compatible with older/stable
+kernels later on.
+
+And it seems like the whole r_ side is missing, even those we should
+have bindings for those. At least r_pio and r_ccu would be needed, plus
+r_i2c.
+
+Cheers,
+Andre
+
+> +	};
+> +};
+> 
+
 
