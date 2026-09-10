@@ -4,115 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7B3C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1E5C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czh8IcADH5q+j25/l/hsdYEPqXsQdtzVs9zbnn25Avk=; b=aqQUIn7Eb6OVxNjaGx1oTNYi7F
-	ejpdq8Ub1wuxIJCicVZF7iss4OYABFbNGFSwHJMLZDq4Bhxpd2ZTCce19/NdcSfG9VCWBbflGFn6g
-	yk4hJgBK7g2l11vekBY6NbJv5tQnTIZWhGWlT6CIqrENmmhdloo7pI5ISWqimM7JjBox34D2O5qpR
-	WVk3EOoQOAZh2rBEx8rmBJ+CXQpKnECi1iJH+ATwRnVaoGn9h7YgPIqjq0nHWICy2HX+8Uq9ydhsy
-	/tWCP+CpX1bKcNtPnbFF1Wyic1k9Au7IfIp0/tivtpg30x4wdbbdYkvrY17q1hLv+5E+H4To8IYZl
-	l1bt666w==;
+	bh=D/P0j07m+Qlt1v63D3zWfA/yHhsEyVYHVaSNplYJ+Mw=; b=e1qiI6RMxO8pKmsY6k6MfOJD5V
+	4ktHbiHwaHCpWXaY6qfKlgfD5/8T/HbtkB6s628ICIqoWTEDodxYDQGDzRGnhltYVjJZPTnrS9eHf
+	Xi4aOKRSTomyK5Ov1s4aRJERP9Y2ivdrObbZRMD/n3syKN+Vkq6dbUek4a0vHwnY3+Cwh7QVVRXfE
+	l65kt/6RL2msYrVSKwVxmqHP93ObU2knNkalY7zzmeNTTLtNXMloIHFX08ksuwe5o+HljtNqiIpUL
+	rfHsONPec9XiLW+r4aRh0Y6UZgt4mIAH4fV8cQsqRQNAQ7yORhLn0fflsfzN8njrS1AglXsxkGR9+
+	KRZjvWRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZHc-0000000Ddk9-1Jtw;
-	Thu, 10 Sep 2026 07:33:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4ZNf-0000000DeTH-24JG;
+	Thu, 10 Sep 2026 07:39:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZHb-0000000Ddjx-0o5H
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 07:33:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78935600CB;
-	Thu, 10 Sep 2026 07:33:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D98C81F000FF;
-	Thu, 10 Sep 2026 07:33:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789025598;
-	bh=czh8IcADH5q+j25/l/hsdYEPqXsQdtzVs9zbnn25Avk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IGTBRL399qvUpxmFxt2OFj5h3OTsHkvcF6R9C8EZIxMtupmNmI8IGB+84AWqGb8ZA
-	 NMzQMJ1cDzUknYLC+BHFZAcz9DkqOlM5zo/7v/cadMqNurU5ynMEoMZNoXwxpm0u7N
-	 Y9h4aOWI/TcI2gz8IqnDLhfSnUPTJCWARQCaIgkl5rH0xZDBHfz93hJAE0JCXuwLG4
-	 uQc80RdpyrQMpoqN0c89DNjX+whZEOVw8dX9TsLkF611KDBwRPrTTyahwYWSeTjNp3
-	 14akviQhN0dQbBMkm1LJdo6sCWfe6DwH34PiQ6xZudu3HY30JpmPuMMjFSjSlbBm5+
-	 9mg2Z2PEQFopA==
-Message-ID: <401e3beb-e2c5-4241-831c-005ccfb22e34@kernel.org>
-Date: Thu, 10 Sep 2026 09:33:09 +0200
+	id 1x4ZNb-0000000DeSL-40o1;
+	Thu, 10 Sep 2026 07:39:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789025967;
+	bh=tX6eZXyL6wR23wIOq22oMAc/5Xx3m3IlWphVaszhixw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=OnM02PA8Q4X5YFLl4fntpBgfc6QewEsP8gvuDAqM3IIEBNlgT2voZjdBZ5eWSMzKx
+	 07uN47sV6TgZM+V9ECbVecXtewsYMPzbHX95oDQ3mmxJbgIMArB5dMFQ0dyixmuKDc
+	 0j1iB0vQfQh5Vxtxd5P4a6RN4HjyDlnHZO7dO5U6H8RsTRnVpW4PtiPdq9Qyvk7q+/
+	 Pey1ntGjWcBYA4rPnRLSLdUlzyA714xWITtbIQHltmRBQ2Yf9hOS5PuYgZeBL9/3hV
+	 uDg6pRRr6V64c7V71RXo1OrU8YKjU55/x2nsc+OT21fREUuieH3hb9ulxLL9V5jHMl
+	 Bk3f5qalBtXQQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B01F717E08A1;
+	Thu, 10 Sep 2026 09:39:26 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>, Fei Shao <fshao@chromium.org>, 
+ Justin Yeh <justin.yeh@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+In-Reply-To: <20260824090409.203230-1-justin.yeh@mediatek.com>
+References: <20260824090409.203230-1-justin.yeh@mediatek.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Enlarge SCP core0
+ memory region
+Message-Id: <178902596657.11066.1913117561872715668.b4-ty@b4>
+Date: Thu, 10 Sep 2026 09:39:26 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-To: Mike Rapoport <rppt@kernel.org>, Xueyuan Chen <xueyuan.chen21@gmail.com>
-Cc: akpm@linux-foundation.org, ljs@kernel.org, usama.arif@linux.dev,
- ziy@nvidia.com, baolin.wang@linux.alibaba.com, liam@infradead.org,
- nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com,
- baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
- <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
- <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
- <d3723be0-46f4-4025-b526-e1bb3cc2cad6@kernel.org>
- <CA+qSx6x2-Md9uVZo+HV0z5CfmGPDzhL482eJNnM2VYVtn_e72w@mail.gmail.com>
- <aqJbFXjU53_D7SoP@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <aqJbFXjU53_D7SoP@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_003932_158916_0766AB01 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,32 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/26 09:24, Mike Rapoport wrote:
-> On Thu, Sep 10, 2026 at 02:22:25PM +0800, Xueyuan Chen wrote:
->> On Wed, Sep 9, 2026 at 11:18 PM David Hildenbrand (Arm)
->> <david@kernel.org> wrote:
->>>
->>>
->>> I think getting something consistent for now is the most important thing. :)
->>>
->> Hi David,
->>
->> OK, I'll move the highmem check into set_direct_map_ro().
+On Mon, 24 Aug 2026 17:04:00 +0800, Justin Yeh wrote:
+> The SCP firmware in linux-firmware for this platform
+> (mediatek/mt8188/scp_c0.img) supports MDP, which the mdp3-rdma node
+> drives through scp_c0. On top of the segments it loads, the firmware
+> allocates a 1 MiB DMA region at 0x50800000 at run time. That lies
+> outside the 8 MiB reserved for SCP core0, so Linux is free to allocate
+> over memory the firmware uses.
 > 
-> Consistent means leaving highmem check in the caller ...
->  
->> Should I also update the x86 set_direct_map_invalid_noflush() and
->> set_direct_map_default_noflush() helpers in this series to skip
->> highmem pages?
-> 
-> ... or checking it in all set_direct_map functions.
-> 
-> I'd keep the check in huge_zero_init() in this patchset.
+> [...]
 
-Agreed!
+Applied to v7.3-next/dts64, thanks!
 
--- 
+[1/1] arm64: dts: mediatek: mt8188-geralt: Enlarge SCP core0 memory region
+      commit: 868297e3ebcc5c9b0e7cada19c82b11068faf4bf
+
 Cheers,
+Angelo
 
-David
+
 
