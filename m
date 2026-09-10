@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762E6C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89778C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grO+vlskE89YpiXuyF5nypStwXXQYdebXzjI4gldbPg=; b=nNa8Tb+m4S9JXqDsMhoB/Up9AP
-	ByImgQY/kgrXt3Pcfo2WKGlyYnammuFojupvQ1kPkCoLXLhrBHd4yj4DGYzqEemVvgE3Qtfs28UdY
-	Z6BbFXzgC0p2CTmJI7HURHyMd16wWT4KK63d0hoQD4Wo/tR01jdEVivXmVS2iRC8EpbdblYW5u7r7
-	nyJAOYIGzbJ7MaOUu0iETxC6hEos5nokYnfunVTBG8FLdli8XuAvj0RT/cUVvV8ycCuQAbfEKgQaf
-	vgsKx4lF1fVgFoQtRZ/FWzV+GXNQ6aI/E5ZCbMevwgwlo/Mi+c5dmXDKpmsDHqDA5SeK0s9FdpoPR
-	n1rEWQnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=djiO85oS8pp5OwgcWxxA+1nEL+n9+Dqo+t+O+D/6AZY=; b=WDELdcz5fbyqv7zve8pliewp90
+	SRydTc6mswUNC3OQwqwFTseNcrzFazmh2oH7UHejNQhKo+IVzcmDd0MUbqVZemYDxE5gGDIE/JSy2
+	6uAJqi9UuL5jOWcrSbynQshZaCkk4lwmQvvDSx3k8iEIDdhrM1CxdpaR975BVAe7B/WeYmEcwfAIt
+	6Y6nhdOkbZ1LmR3l7gZRskZ90Ox1xywfkjXjoiV7am4B9TvsHyQD7pu5tG5TpFlcovJgZSOw9eSvg
+	E413THAu8rqJNB9Hi6nGMQ9TwIQypkM+ElBN4JvWEwRWKFwWElp+Zk8agACgLv6/IPItrQFbwChiv
+	4HQSOD+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gsV-0000000EpPf-2l7O;
-	Thu, 10 Sep 2026 15:39:57 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1x4gth-0000000EpdX-2Jbe;
+	Thu, 10 Sep 2026 15:41:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gsT-0000000EpOv-19Y3
+	id 1x4gtg-0000000Epd8-1X6R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:39:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789054793; x=1820590793;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=UpL9Fn4FfEESsjV6cdJwzM2nTUnP2+hidnKRviHWIBQ=;
-  b=KhSBJmbS7SkjbNjq59aRBDNkPtFWNcETFnRllKVx81Df8QsfNtQ4n8xV
-   bBMjF44hGZgOtyq+ezgWwqmxaa0BN/Zu9Wmam3UFn2R3q/+lMFh0NbNCJ
-   gNmhbjqLESPxd0HrUHbmfTA331uaDf0YNRLQPiQy6P7F7lwVNhe359wfL
-   Ne8JbJ3oEH799lqMubfbEyVc+xU1tvHjysHg0BcV2czXDvo3ADoFFXMV4
-   cGZlZ9k7J8JX4xy3HZ692ZRjsQLDWFOUp3b+D7VOlTBA2Yy5ZvFFqF1ve
-   BQd7fKKw8VCE8NqhUpiWun92PfRTMmDewJuiX4XWjCpU1nKo+HaO7wGES
-   g==;
-X-CSE-ConnectionGUID: +GjJMY74S2qXd43W227FIQ==
-X-CSE-MsgGUID: l3QZRgpnT3iAsgkBqIVTUg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="89271664"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="89271664"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:39:52 -0700
-X-CSE-ConnectionGUID: pwE6b1uxSfylZKhdjLrIUQ==
-X-CSE-MsgGUID: o7PHWUCcTUm2vIiLKEoEig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="267395256"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.177])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:39:46 -0700
-Date: Thu, 10 Sep 2026 18:39:43 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial <linux-serial@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: Re: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75
- quirks
-Message-ID: <aqLPP35Y7zmDuyP5@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
- <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
- <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
- <aqJ35vMBiBZo2iUE@ashevche-desk.local>
- <b199eb38-b1a2-4db6-81d8-37bab09a75b7@linux.intel.com>
- <55b27872.8ed9.1a08ab55a52.Coremail.zl020895@163.com>
+	Thu, 10 Sep 2026 15:41:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C168E41257;
+	Thu, 10 Sep 2026 15:41:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3AE01F000FF;
+	Thu, 10 Sep 2026 15:41:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789054867;
+	bh=djiO85oS8pp5OwgcWxxA+1nEL+n9+Dqo+t+O+D/6AZY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=DovwmqI8gHCvbNpzUvvyH/y7BW/NuQXPK6xwohKCPqPQhTZawA2C5Vb8Wcr4LfJv/
+	 Jeb7zVVwe2Z4greXVBAaZ/ifjDd9wBwiMB5Z8gjpadV5sQ1JLoogRIHDPmIX2T7wmq
+	 P4saumim85AkOUgPC3hXikziyvq/qAG5kM8AGgWjFV+3gZHroECcmRt0p+sPTHDGye
+	 84rX1LgDFOusE/cv/QROrFsW0Gyco/oIeRo2/HX2UrOXUN4l4fhh28+80fp10YZMCK
+	 EE/5zjpDZAICAHwK4zF87BeAEZSCARrC0/uPfsEHAinpD1lrsNYxat2nlGF/6aoCsJ
+	 lyxo8DinB1WGw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 56B40380CEF9;
+	Thu, 10 Sep 2026 15:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <55b27872.8ed9.1a08ab55a52.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_083953_346477_0529DBDE 
-X-CRM114-Status: GOOD (  20.55  )
+Subject: Re: [PATCH net] net: stmmac: fix TX descriptor availability check for
+ TSO traffic
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178905480513.1504082.12531935982183581.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Sep 2026 15:40:05 +0000
+References: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
+In-Reply-To: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ peppe.cavallaro@st.com, alexandre.torgue@st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,54 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 05:45:36PM +0800, zl020895 wrote:
-> Hi Ilpo, Andy,
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 07 Sep 2026 23:46:45 +0200 you wrote:
+> stmmac_tso_xmit() estimates the number of free TX descriptors required by
+> a TSO skb as:
 > 
-> I'll go with the simple comment:
-> 	/*
-> 	 * Ambarella keeps variant IER bits (e.g. ETOI) set for correct RX
-> 	 * timeout behaviour.
-> 	 */
-> 	up->ier |= d->pdata->ier_mask;
+> 	(skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1
+> 
+> which assumes the payload is split into TSO_MAX_BUFF_SIZE chunks. This
+> underestimates the descriptors actually consumed by stmmac_tso_allocator(),
+> since each fragment is mapped individually and so it needs at least one
+> descriptor regardless of its size. Moreover, one descriptor is used for
+> the L2/L3/L4 headers and, when the MSS changes, one more is consumed for
+> the MSS context descriptor.
+> For a highly fragmented TSO skb the check can therefore pass even when the
+> ring has too few free slots. stmmac_tso_allocator() then writes past the
+> available descriptors, overwriting descriptors still owned by the DMA
+> engine, corrupting the TX ring.
+> Add stmmac_tso_get_num_desc() to compute the exact number of descriptors
+> needed for the header, the linear payload and each fragment, plus the MSS
+> context descriptor when required, and use it in the availability check.
+> 
+> [...]
 
+Here is the summary with links:
+  - [net] net: stmmac: fix TX descriptor availability check for TSO traffic
+    https://git.kernel.org/netdev/net/c/5e38d732ec67
 
-Works for me.
-
-> At 2026-09-10 17:33:38, "Ilpo Järvinen" <ilpo.jarvinen@linux.intel.com> wrote:
-> >On Thu, 10 Sep 2026, Andy Shevchenko wrote:
-> >> On Thu, Sep 10, 2026 at 05:12:52PM +0800, zl020895 wrote:
-> >> 
-> >> > > Wondering if we should undo this in the port's .shutdown() callback.
-> >> > I saw the shutdown path already covers it: dw8250_shutdown() calls
-> >> > serial8250_do_shutdown(), which does
-> >> > 	up->ier = 0;
-> >> > 	serial_port_out(port, UART_IER, 0);
-> >> > so both the IER shadow and hardware IER are cleared, including ETOI.
-> >> 
-> >> Depending on the answer to Ilpo the enabling may need an updated comment
-> >> summarising the above.
-> >
-> >I'd prefer removing the entire "Force them ..." sentence, it feels really 
-> >basic detail about how ->ier works. I believe that would resolve your 
-> >concern if relates to what shutdown does for the flag (clears it while 
-> >the comment as is says nothing is supposed to clear it).
-> >
-> >> > At 2026-09-10 16:33:14, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com> wrote:
-> >> > >On Fri, Sep 04, 2026 at 02:38:18PM +0800, Long Zhao via B4 Relay wrote:
-
-...
-
-> >> > >> +	/*
-> >> > >> +	 * Ambarella keeps variant IER bits (e.g. ETOI) set for correct RX
-> >> > >> +	 * timeout behaviour. Force them into the 8250 IER shadow so later
-> >> > >> +	 * generic IER updates do not clear them.
-> >> > >> +	 */
-> >> > >
-> >> > >Wondering if we should undo this in the port's .shutdown() callback.
-
+You are awesome, thank you!
 -- 
-With Best Regards,
-Andy Shevchenko
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
