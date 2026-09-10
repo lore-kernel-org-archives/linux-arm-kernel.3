@@ -4,62 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57762C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6B9C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJekABWao83ru1JSBqfRyOG/eLqJN+V2YA2rUhRvpjE=; b=RWT+5+C3HbP6tVsX966W5JTW+1
-	XE7EuL1zk1iwOxRRYWsvn6SDDZfRYdhdB0R4UHD6gBM36PaKwcxQ1+tpUjiEU75ZyRMvnePBXDNqn
-	QE1lb4lrzbEyiW0tp4IjENQxK52LA2cwVtXzCMVyaMd+iRZHFpuGtz9PgFIs9TAeQUkzYk3ABpY8A
-	MlS+yWgFHMnBYrbZWAiu9gsGkYmjfFZxRvWet128XImRLAMST5zDWNkyEIaa5TTimF8/ubhihPdiI
-	gwBZPlmjs/OWWI/fpCntQ3USykSdkcF8h37VjTFeXHhP03v3z1sW9xPjZ8SmMyi6gePg7yz0epycE
-	JZWwoYEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2yXvhB+OP5CUFg1TBMcZH6iusQjFBNo5HCOtIhY7hZE=; b=Xhl91napARNsAFe02phrY5oBuX
+	TKFIg8dgdqsjOC+feZi/ouYGdQigeNMY0B9cOo00CJJ+2dC2eCizhnz7Z8WIudvMR9qOCuQ3a8uSC
+	jZVaFGRWokm0gjjqKDnr95Pc43Cevz7Pg6/KKzVV05k17Rh00s2oF393LX7E+y2ZSEnriF+kKOPk1
+	j6KaCG2yRt5Q+luwt412Zr3WZiRCC+6Y9xGoMSl99RuvUi7d/2HB6T/Is14hxMh7jam6hKIaagOCz
+	CQm+sofXW0qW6fV8mN7Q21M87ZTK+NrNV65e3Gygl5QGK9R1DZAd6hGEhZL2FrnXEXYZkwnjefiiv
+	Hx9ektJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bOR-0000000Dvhj-3kvH;
-	Thu, 10 Sep 2026 09:48:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4bOp-0000000Dvmm-08H1;
+	Thu, 10 Sep 2026 09:48:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bOQ-0000000DvhS-36KO
+	id 1x4bOm-0000000DvlY-0Mzk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:48:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D73CF600C8;
-	Thu, 10 Sep 2026 09:48:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC0B11F000FF;
-	Thu, 10 Sep 2026 09:48:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789033709;
-	bh=RJekABWao83ru1JSBqfRyOG/eLqJN+V2YA2rUhRvpjE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Ii5l1rraz5dobLBaVEZ50tCKg56Zz1t8ePyiJPtnG6dEqDOWDoR1tzi468zZ0aDH/
-	 0wpRaJtWBr4Fe6rEEG8Vv3WlvReH5ABEzWqGHRKY/vi/8OMeSKneYZj9xtN2CnslOZ
-	 kGJL2O+VuzPnzqtD41wZ1tPJITJ+Hg48q7aLPgSUncs3cWpyyKcLx9jRy1dN9Bbs4m
-	 Nv7LZh4AFOnmx2vM1VqHE7cw5sf8NorRqe3iZwdUu51sfUZfI4Bbt9WTwYabbFiG60
-	 Z0cKjQaINoKHWipBVbX5/kwlOJ01lcA+a/sxQjRbpISEaSKCQCyaZ/Xx/6LSPXOy9o
-	 t/Yt8jTmxaMjw==
-Subject: Re: [PATCH net] net: stmmac: fix TX descriptor availability check for
- TSO traffic
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- peppe.cavallaro@st.com, alexandre.torgue@st.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 10 Sep 2026 09:48:28 +0000
-Message-ID: <178903370842.219967.14155724625684562557@kernel.org>
-In-Reply-To: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
-References: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 10 Sep 2026 09:48:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789033730;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2yXvhB+OP5CUFg1TBMcZH6iusQjFBNo5HCOtIhY7hZE=;
+	b=hHjWlcLanKgJcl+ATAlKHSH0+MQaRRDg8CQGUCs8o/qqxc2spPffi7MTrNbjtoIIPsG76s
+	mDdZtSSGP0vukTL+iC0KEJY+HLhIyka3MUDCvColJIxqEdT8Lc3Ra3Jey0WsIhMlTOQqyf
+	pTOYroBR3FaJz58pbP8wR49ZSJF8kUc=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-34-S2yaWUGCNcCBP5n6iBERlQ-1; Thu, 10 Sep 2026 05:47:15 -0400
+X-MC-Unique: S2yaWUGCNcCBP5n6iBERlQ-1
+X-Mimecast-MFC-AGG-ID: S2yaWUGCNcCBP5n6iBERlQ_1789033634
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d02df2bf09so62047475ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 02:47:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789033634; x=1789638434;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2yXvhB+OP5CUFg1TBMcZH6iusQjFBNo5HCOtIhY7hZE=;
+        b=g+ylpIM1OnG+pMhXhp3GUXeSmaNFw//YuoglvJ+Ndj3MzvAnO6Y7omnD71dqC5hmET
+         hkVZwXtLjyyb4moOguAyjYawFhCiO+ylYk0xajPdFkibjMDP3q1XRGvwcpzQ5sT9+d1i
+         NOonWgHjhCYUaU/0MKCyaE1kVKBUpxfDETOVZC/O+cbS6e3svk+5nFZqBFKvbwOx/j7w
+         6DK4Xee4IqvVFKqqlByOwS5CjyAXarT2TP7yG8aD1KX643SU9TonWXJZTk1wslaZEOQW
+         HJU1RuxBYIukcI8VdNZu2/lV9nEcP0BDIH+HfmWmLs9YaJI2eMFBKSQVlzHk0waDZH3Z
+         mc9Q==
+X-Forwarded-Encrypted: i=1; AKwUvByibWlGGcFRfmSJkzz+KFh9a2UYXeMS4IqWmkbTgPlXlGvkbP5aHGJWBe44rXj7NJA1+TPGMp9xKWz1Clyg0mZ0@lists.infradead.org
+X-Gm-Message-State: AFuF++kqYObFHFHbOCweIQaaVFMVpapLtiWTOQOsCSzQDIrzj9w/K7uM
+	fatB31UvA3wI7fSNfFYwXQ/EvUVflGuMLUyc/RLrkjvFuJHvHmlmeCIlPoAUe2yNifpoJlulu6w
+	QoCn8rHDomKHXNtP6iyPD9dFNXXAe0X05nObuWsZsvzHAbIgno7Kkm17UVzQEqnxdwtdi24kmE+
+	gv
+X-Gm-Gg: AYBFou2HBJGDdu6x+sb/JfW7f7nn7sbs8+aBMl8hxHYAtMFGnWH18s3pbGnFS1QzkEb
+	sZ5txcVtpPQxZlbpSi/v4aGq/byTxl8eOdP5AkIs8qcN6jgyCuYWX0Fpm/KwTdEGCPEMzcLCwhL
+	pYENXlveqb56dPG+Lpe5G6ZjcuWKCl2/u3prE5M/H/+YXly81BvXSfBQZgudwzHbC83FxKTwE12
+	j12Qc17ETLru9Wu/xO+M/q0KseWH7BNgrJ7TjRhzW2N93qVI35TpA08JI4ZkxPV9QMtes+EuZAb
+	hmeBR/2BLkHcoBX63GNSybHyvEySprQJ3BpQcMLN5zpy5CnAoviWDqPkGhW7Mg1k2v9vyuLBvw4
+	9kAemcvbVFeIPyjcP3fJ+I748smNdGZTo8GQKfXHplg==
+X-Received: by 2002:a17:903:1a26:b0:2ca:9d5a:8b6c with SMTP id d9443c01a7336-2dd0780d5cdmr98391575ad.5.1789033633859;
+        Thu, 10 Sep 2026 02:47:13 -0700 (PDT)
+X-Received: by 2002:a17:903:1a26:b0:2ca:9d5a:8b6c with SMTP id d9443c01a7336-2dd0780d5cdmr98390555ad.5.1789033633331;
+        Thu, 10 Sep 2026 02:47:13 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1495acf7sm86197935ad.25.2026.09.10.02.47.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 02:47:11 -0700 (PDT)
+Message-ID: <7223aeec-b269-4ef5-b5b9-693d4d12afd1@redhat.com>
+Date: Thu, 10 Sep 2026 19:47:00 +1000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 1/7] firmware: arm_rmm: Add SMC definitions for
+ calling the RMM
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260907095942.1140734-1-suzuki.poulose@arm.com>
+ <20260907095942.1140734-2-suzuki.poulose@arm.com>
+ <c9990440-acab-4c6c-b67f-8bde17feddce@redhat.com>
+ <aca629b2-27a0-4c47-acac-87edb3b0d3d9@arm.com>
+ <52e58930-8fa4-4c75-981c-25be42d83f2d@redhat.com>
+ <44f02c8c-db52-4f3e-b5d9-f25c1c8c5f0b@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <44f02c8c-db52-4f3e-b5d9-f25c1c8c5f0b@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: GO9CYOu4CB0Lq73VVmbb380Hx9zXr0XcKXTXVwRLG5Q_1789033634
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_024852_202832_690FD559 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,219 +123,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider:
+On 9/9/26 6:39 PM, Suzuki K Poulose wrote:
+> On 08/09/2026 23:41, Gavin Shan wrote:
+>> On 9/8/26 8:37 PM, Suzuki K Poulose wrote:
+>>> On 08/09/2026 07:19, Gavin Shan wrote:
+>>>> On 9/7/26 7:59 PM, Suzuki K Poulose wrote:
+>>>>> From: Steven Price <steven.price@arm.com>
+>>>>>
+>>>>> The RMM (Realm Management Monitor) provides functionality that can be
+>>>>> accessed by SMC calls from the host.
+>>>>>
+>>>>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
+>>>>>
+>>>>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
+>>>>>
+>>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>
+>>> ...
+>>>
+>>>>> ---
+>>>>>   include/linux/arm-smccc-rmi.h | 494 ++++++++++++++++++++++++++++++ ++++
+>>>>>   1 file changed, 494 insertions(+)
+>>>>>   create mode 100644 include/linux/arm-smccc-rmi.h
+>>>>>
+>>>>
+>>>> Some nitpicks below, please pick up the commits that look reasonable :)
+>>>>
+>>>
+>>>
+>>>>> +
+>>>>> +#define RMI_RETURN_STATUS_MASK        (0xFFUL)
+>>>>> +#define RMI_RETURN_INDEX_MASK        (0xFFUL << 8)
+>>>>> +#define RMI_RETURN_MEMREQ_MASK        (0x3UL << 8)
+>>>>> +#define RMI_RETURN_CAN_CANCEL_MASK    (0x1UL << 10)
+>>>>> +
+>>>>> +#define RMI_RETURN_STATUS(ret) FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
+>>>>> +#define RMI_RETURN_INDEX(ret) FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
+>>>>> +#define RMI_RETURN_MEMREQ(ret) FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
+>>>>> +#define RMI_RETURN_CAN_CANCEL(ret) FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
+>>>>> +
+>>>>
+>>>> If I'm correct enough, RMI_RETURN_{STATUS, INDEX, MEMREQ, CAN_CANEL} _MASK are used
+>>>> for once in this header file. So we needn't explicitly expose them and combine their
+>>>> definitions with users to fetch the corresponding fields, as below.
+>>>>
+>>>> #define RMI_RETURN_STATUS(ret)        FIELD_GET(GENMASK(7, 0), ret)
+>>>> #define RMI_RETURN_INDEX(ret)        FIELD_GET(GENMASK(15, 8), ret)
+>>>> #define RMI_RETURN_MEMREQ(ret)        FIELD_GET(GENMASK(10, 8), ret)
+>>>> #define RMI_RETURN_CAN_CANCEL(ret)    FIELD_GEt(GENMASK(10, 10), ret)
+>>>
+>>> I belive the header files were generated from a tool (by Steven) and
+>>> these would make it easier to compare with the generated header file for
+>>> any deviation from the spec. So, I am a bit reluctant make these
+>>> changes.
+>>>
+>>> That said, I am happy to convert the mask definitions to GENMASK() for
+>>> consistency and readability. i.e., something like:
+>>>
+>>> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc- rmi.h
+>>> index 3eb88caf40964..078197284415e 100644
+>>> --- a/include/linux/arm-smccc-rmi.h
+>>> +++ b/include/linux/arm-smccc-rmi.h
+>>> @@ -139,10 +139,10 @@
+>>>   #define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+>>>   #define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+>>>
+>>> -#define RMI_RETURN_STATUS_MASK         (0xFFUL)
+>>> -#define RMI_RETURN_INDEX_MASK          (0xFFUL << 8)
+>>> -#define RMI_RETURN_MEMREQ_MASK         (0x3UL << 8)
+>>> -#define RMI_RETURN_CAN_CANCEL_MASK     (0x1UL << 10)
+>>> +#define RMI_RETURN_STATUS_MASK         GENMASK(7, 0)
+>>> +#define RMI_RETURN_INDEX_MASK          GENMASK(15, 8)
+>>> +#define RMI_RETURN_MEMREQ_MASK         GENMASK(10, 8)
+>>> +#define RMI_RETURN_CAN_CANCEL_MASK     BIT(10)
+>>>
+>>
+>> Ok.
+>>
+>>>>
+>>>>> +#define RMI_SUCCESS            0
+>>>>> +#define RMI_ERROR_INPUT            1
+>>>>> +#define RMI_ERROR_REALM            2
+>>>>> +#define RMI_ERROR_REC            3
+>>>>> +#define RMI_ERROR_RTT            4
+>>>>> +#define RMI_ERROR_NOT_SUPPORTED        5
+>>>>> +#define RMI_ERROR_DEVICE        6
+>>>>> +#define RMI_ERROR_RTT_AUX        7
+>>>>> +#define RMI_ERROR_PSMMU_ST        8
+>>>>> +#define RMI_ERROR_DPT            9
+>>>>> +#define RMI_BUSY            10
+>>>>> +#define RMI_ERROR_GLOBAL        11
+>>>>> +#define RMI_ERROR_TRACKING        12
+>>>>> +#define RMI_INCOMPLETE            13
+>>>>> +#define RMI_BLOCKED            14
+>>>>> +#define RMI_ERROR_GPT            15
+>>>>> +#define RMI_ERROR_GRANULE        16
+>>>>> +
+>>>>> +#define RMI_CONTINUE_KEEP_GOING        0
+>>>>> +#define RMI_CONTINUE_STOP        1
+>>>>> +
+>>>>> +#define RMI_OP_MEM_REQ_NONE        0
+>>>>> +#define RMI_OP_MEM_REQ_DONATE        1
+>>>>> +#define RMI_OP_MEM_REQ_RECLAIM        2
+>>>>> +
+>>>>> +#define RMI_DONATE_SIZE_MASK        3UL
+>>>>> +#define RMI_DONATE_COUNT_MASK        GENMASK(15, 2)
+>>>>> +#define RMI_DONATE_CONTIG_MASK        BIT(16)
+>>>>> +#define RMI_DONATE_STATE_MASK        GENMASK(18, 17)
+>>>>> +
+>>>>> +#define RMI_DONATE_SIZE(req)        FIELD_GET(RMI_DONATE_SIZE_MASK, req)
+>>>>> +#define RMI_DONATE_COUNT(req) FIELD_GET(RMI_DONATE_COUNT_MASK, req)
+>>>>> +#define RMI_DONATE_CONTIG(req) FIELD_GET(RMI_DONATE_CONTIG_MASK, req)
+>>>>> +#define RMI_DONATE_STATE(req) FIELD_GET(RMI_DONATE_STATE_MASK, req)
+>>>>> +
+>>>>
+>>>> As above, RMI_DONATE_{SIZE, COUNT, CONTIG, STATE}_MASK are used for once in this
+>>>> header file. So their definitions can be dropped by modifying the followup macros,
+>>>> as below. Some enhancements are also applicable: (a) Use 'BLOCK' to indicate the
+>>>> unit encoded in the request. (b) The macros are put into order from MSB to LSB.
+>>>>
+>>>> #define RMI_DONATE_STATE(req)        FIELD_GET(GENMASK(18, 17), req)
+>>>> #define RMI_DONATE_CONTIG(req)        FIELD_GET(GENMASK(16, 16), req)
+>>>> #define RMI_DONATE_BLOCK_COUNT(req)    FIELD_GET(GENMASK(15, 2), req)
+>>>> #define RMI_DONATE_BLOCK_SIZE(req)    FIELD_GET(GENMASK(1, 0), req)
+>>>
+>>> Same as above.
+>>>
+>>
+>> Please rename RMI_DONATE_{SIZE, COUNT} to RMI_DONATE_BLOCK_{SIZE, COUNT} if possible.
+> 
+> Sorry, forgot to add that, I have renamed RMI_{DONATE,ADDR_RANGE}_SIZE
+> => RMI_{*}_BLOCK_SIZE, left  the _COUNT as it is.
+> 
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0 (1)
+It's ok to me. The point is to have "BLOCK", indicating it's related to
+a block. In rmi.c, 'unit' is also used and needs to be replaced with 'block',
+consistent with the spec.
 
-- [High] stmmac_tso_xmit() now demands the exact descriptor count
-  returned by stmmac_tso_get_num_desc() (stmmac_main.c:4543-4544) but…
+>>
+>>>>
+>>>>> +#define RMI_OP_MEM_DELEGATED        0
+>>>>> +#define RMI_OP_MEM_UNDELEGATED        1
+>>>>> +#define RMI_OP_MEM_CONDITIONAL        2
+>>>>> +
+>>>>
+>>>> B4.6.40 RmiOpMemContig type is missed here and they should be used in the c code.
+>>>>
+>>>> #define RMI_OP_MEM_NON_CONTIG    0
+>>>> #define RMI_OP_MEM_CONTIG    1
+>>>>
+>>>> In the c code, we shall have:
+>>>>
+>>>> if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
+>>>>     ...
+>>>> } else {
+>>>>     ...
+>>>> }
+>>>>
+>>>
+>>> Does it make much sense though ? I prefer
+>>>
+>>> if (RMI_DONATE_CONTIG(req))
+>>>
+>>> to
+>>>
+>>>
+>>> if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)) {
+>>>
+>>>
+>>> than having a field for a single bit values. I am happy to change
+>>> this if there is strong preference to the other.
+>>>
+>>
+>> The point is RMM-v2.0-bet3 expose RMI_OP_{MEM, MEM_NON}_CONTIG instead of true/false
+>> to indicate if the requested memory blocks are physically contiguous or not. So the
+>> expression 'if (RMI_DONATE_CONTIG(req) == RMI_OP_MEM_CONTIG)' is consistent to the
+>> RMM-v2.0-bet3 spec.
+> 
+> Agree, but the values are intuitively assigned to indicate whether it is
+> 1/0. I personally think if (RMI_DONATE_CONTIG(req)) is good enough. But
+> to be consistent with the spec, I will change them.
+> 
 
-Pre-existing issues:
-- [High] proto_hdr_len in stmmac_tso_xmit() is declared as u8
-  (stmmac_main.c:4524) but is assigned the size_t result of…
-- [Low] The stmmac_tso_xmit() kernel-doc states "mss is fixed when enable
-  tso, so w/o programming the TDES3 ctx field." (stmmac_main.c:4512),…
+Ok.
 
---
+Thanks,
+Gavin
 
-net: stmmac: fix TX descriptor availability check for TSO traffic
+> 
+> Cheers
+> Suzuki
+> 
 
-This replaces the (skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1
-estimate in stmmac_tso_xmit() with stmmac_tso_get_num_desc(), which counts
-the header descriptor, the linear payload, every fragment and the MSS
-context descriptor. The new count is then used for the free descriptor
-check before the ring is programmed.
-
-A few questions below.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 24656b35350b1..3566b33bc34e5 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4454,6 +4454,26 @@ static bool stmmac_tso_valid_packet(struct sk_buff *skb)
->  	       header_len + gso_size < 16383;
->  }
->  
-> +static int stmmac_tso_get_num_desc(struct stmmac_tx_queue *tx_q,
-> +				   struct sk_buff *skb, u32 pay_len)
-> +{
-> +	int i, ndesc = 1;
-> +
-> +	/* head payload */
-> +	ndesc += DIV_ROUND_UP(pay_len, TSO_MAX_BUFF_SIZE);
-> +	/* frag payload */
-> +	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++) {
-> +		const skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
-> +
-> +		ndesc += DIV_ROUND_UP(skb_frag_size(frag),
-> +				      TSO_MAX_BUFF_SIZE);
-> +	}
-> +	/* MSS update requires a new descriptor */
-> +	ndesc += !!(skb_shinfo(skb)->gso_size != tx_q->mss);
-
-[Severity: Low]
-This is a pre-existing issue and not introduced by this patch, but the new
-comment here now contradicts the stmmac_tso_xmit() kernel-doc that follows
-a few lines below, which still says:
-
-	 * mss is fixed when enable tso, so w/o programming the TDES3 ctx field.
-
-stmmac_tso_xmit() does program a context descriptor whenever the skb MSS
-differs from the cached queue MSS:
-
-	if (mss != tx_q->mss) {
-		...
-		stmmac_set_mss(priv, mss_desc, mss);
-		tx_q->mss = mss;
-		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
-
-Would it make sense to drop or update that kernel-doc sentence while
-touching this area?
-
-> +
-> +	return ndesc;
-> +}
-> +
->  /**
->   *  stmmac_tso_xmit - Tx entry point of the driver for oversized frames (TSO)
->   *  @skb : the socket buffer
-> @@ -4497,10 +4517,10 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	unsigned int first_entry, entry, tx_packets;
->  	struct stmmac_txq_stats *txq_stats;
-> +	int i, first_tx, nfrags, ndesc;
->  	struct stmmac_tx_queue *tx_q;
->  	bool set_ic, is_last_segment;
->  	u32 pay_len, mss, queue;
-> -	int i, first_tx, nfrags;
->  	u8 proto_hdr_len, hdr;
->  	dma_addr_t des;
->  
-> @@ -4513,14 +4533,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  
->  	/* Compute header lengths */
->  	proto_hdr_len = stmmac_tso_header_size(skb);
-> +	pay_len = skb_headlen(skb) - proto_hdr_len; /* no frags */
-
-[Severity: High]
-This isn't a bug introduced by this patch, but the new pay_len computation
-inherits an existing truncation. proto_hdr_len is declared u8 while
-stmmac_tso_header_size() returns a size_t (skb_transport_offset() +
-sizeof(struct udphdr), or skb_tcp_all_headers()), and
-stmmac_tso_valid_packet() explicitly admits headers up to 1023 bytes into
-the hardware TSO path:
-
-	return header_len <= 1023 && gso_size >= 64 &&
-	       header_len + gso_size < 16383;
-
-For a header of 256..1023 bytes the store wraps modulo 256 (486 becomes
-230, 256 becomes 0). The truncated value then defines the hardware
-contract, both for the payload start address:
-
-	stmmac_tso_allocator(priv, &entry, des + proto_hdr_len, pay_len,
-			     (nfrags == 0), queue);
-
-and for the descriptor lengths:
-
-	stmmac_prepare_tso_tx_desc(priv, first, 1, proto_hdr_len, 0, 1,
-				   is_last_segment, hdr / 4,
-				   skb->len - proto_hdr_len);
-
-so the tail of the real header is handed to the engine as TCP/UDP payload
-while TDES3 declares more payload than the following descriptors describe
-(a header of exactly 256 also yields a zero length buffer1 with TSE set).
-A TCP over IPv6 socket carrying a few hundred bytes of sticky
-destination/hop-by-hop options makes skb_tcp_all_headers() exceed 255 while
-staying under 1023, so such an skb reaches stmmac_tso_xmit().
-
-For the new pay_len the error biases upward, so the ring accounting stays
-safe, but should proto_hdr_len be widened to unsigned int (or size_t) since
-this patch now builds the descriptor count on it too?
-
->  	if (skb_shinfo(skb)->gso_type & SKB_GSO_UDP_L4)
->  		hdr = sizeof(struct udphdr);
->  	else
->  		hdr = tcp_hdrlen(skb);
->  
-> -	/* Desc availability based on threshold should be enough safe */
-> -	if (unlikely(stmmac_tx_avail(priv, queue) <
-> -		(((skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1)))) {
-> +	ndesc = stmmac_tso_get_num_desc(tx_q, skb, pay_len);
-> +	if (unlikely(stmmac_tx_avail(priv, queue) < ndesc)) {
->  		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
->  			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
->  								queue));
-
-[Severity: High]
-The new requirement is exact, but the TX flow control watermarks were left
-unchanged. Can this make the "Tx Ring full when queue awake" branch
-reachable for ordinary TSO traffic?
-
-stmmac_tso_get_num_desc() returns at least nfrags + 2 for any TSO skb that
-has a linear payload, so with MAX_SKB_FRAGS = 17 plus an MSS change it asks
-for 20 descriptors, and up to roughly 23 when individual frags exceed
-TSO_MAX_BUFF_SIZE.
-
-The tail of stmmac_tso_xmit() still stops the queue based on the old
-assumption:
-
-	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
-		netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
-			  __func__);
-		netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
-	}
-
-so the queue is deliberately left awake with as few as 19 free slots, while
-the next TSO skb may need more. Does that leave a window where the stack
-submits an skb that does not fit, hitting the un-ratelimited netdev_err()
-in the ndo_start_xmit hot path together with netif_tx_stop_queue() and a
-NETDEV_TX_BUSY requeue?
-
-The non-TSO path keeps the invariant the watermark was designed for,
-stmmac_xmit() needs nfrags + 1, which is always satisfied when the queue is
-awake:
-
-	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
-
-The only place the queue is re-armed is stmmac_tx_clean():
-
-	if (unlikely(netif_tx_queue_stopped(netdev_get_tx_queue(priv->dev, queue))) &&
-	    stmmac_tx_avail(priv, queue) > STMMAC_TX_THRESH(priv)) {
-		...
-		netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, queue));
-
-STMMAC_TX_THRESH() is dma_tx_size / 4, which is 16 on the 64 entry ring
-stmmac_set_ringparam() accepts (DMA_MIN_TX_SIZE in common.h). On such a
-ring the wake threshold is itself below the new requirement, so can the
-queue be woken while the skb still does not fit, producing a repeating
-stop/wake/TX_BUSY cycle with repeated error logging?
-
-Should the stop and wake watermarks be raised to the worst case TSO
-descriptor count, or the skb linearized/pushed to software GSO, as part of
-this change?
-
->  @@ -4532,8 +4553,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  		return NETDEV_TX_BUSY;
->  	}
-
-One more on this branch: it sets XOFF without re-checking availability and
-without arming a wake source. If the ring drains concurrently
-(dirty_tx == cur_tx, no further TX completion and no NAPI run), does the
-XOFF state persist until dev_watchdog fires ndo_tx_timeout?
-
-Since the patch is tagged for stable, would it be worth describing the new
-NETDEV_TX_BUSY and error logging behaviour in the commit message?
-
->  
-> -	pay_len = skb_headlen(skb) - proto_hdr_len; /* no frags */
-> -
->  	mss = skb_shinfo(skb)->gso_size;
->  
->  	/* set new MSS value if needed */
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb%40oss.qualcomm.com
 
