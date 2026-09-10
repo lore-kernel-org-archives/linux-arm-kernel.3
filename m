@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA885C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BFCC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NCSCPPuYHaQkAspiPMvoQKxLvMSwoarAK+y1e0lenDw=; b=slCkwGrtzkrTsiaMeo+sdkZQa7
-	KOWBwmsy01Rx1Z3YDxVk12oB9h+u+Zloizv5InNRP8ms4fEPlbG7z2Pt/07zc+LW1ozI9vs/Vmgxe
-	YraBCud+mMjMKtOhfq4NFkqEgreUz+MVcds4mzJHzQN0Xg+lB5RDVdca+VP3cGLzZn9gIBmuI1/Jy
-	46y6WatishevFQtpuvR2SEFS7jKx/04NoPGzpOxHB6N2nQi2ll/DF5C+0X0O8JkCSe5QOkQ/UxXBh
-	HrML1XQNLSXxapsulWwW3yHvF9mdx9GncKMU5PmAQfduMbILeTg1WMCy4zGhOAYIvKKFAT0o7AYKH
-	3g9ukkbQ==;
+	bh=gTba1NzUG5xbAP4x+gUk6us1Ud5EI0aPxbPupazDE+E=; b=AsOm1h1soop5SAfpQzs4Yxzh77
+	skxDBFWSCvFYvxlmIhg84DsncOSCfg/6zEWFjms6mnzLiejwtL8gGBlINbIsVbVeh0S9qvF0QL1+M
+	iZHrQAG2Twpk34juFAA+boBThMYiz8XUEnRJ4LENSBFllfQqlJUWCS4i0cRod34zSIh/YJNCrE9FA
+	6dlOugNBuf1SnYWyjcc8P3oqltueN40Hsn0DCGc943ZPlFvh2CNck7iNptxSOk4swgVcVKKXPNOlN
+	vakG3r98kltO5+DcD6z4ikatsWsRoKByB7d5D/h7Nlc31EZFjhbMtxIeblWsaD/9QvYAPoXMEqtcI
+	HsD8w85Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jHL-0000000F8BX-0ufY;
-	Thu, 10 Sep 2026 18:13:43 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1x4jHY-0000000F8Fd-1LCu;
+	Thu, 10 Sep 2026 18:13:56 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jHJ-0000000F8Aj-16OS
+	id 1x4jHV-0000000F8EO-2pOc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:13:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F04CCA0580;
-	Thu, 10 Sep 2026 20:13:37 +0200 (CEST)
+	Thu, 10 Sep 2026 18:13:54 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7832FA0580;
+	Thu, 10 Sep 2026 20:13:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1789064019; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1789064031; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=NCSCPPuYHaQkAspiPMvoQKxLvMSwoarAK+y1e0lenDw=;
-	b=AJ4z/JRxku+KUEDMbabI7GEjsv6B5Tzpbt7Q1vurzT6b1NHk7IgI5EkN2k5KncP9WSnDS6
-	IlYvdO8bku7rTDKct2ndEl/pqAhm6jlwW65ovQshFnm/TzUDVxGCRT7pl2cOhqTRPJ2sz7
-	c1xrLFzWV8oNQeTvjJhtk59aWwc+nqL4Zz7i5z/8blsDwQj3ogg8pAJpJi+mswfDnQ3kH7
-	2qobBEX2cSULtfGcZCIaDWs3Y2o1w1OXHnr+p64KL51JNnfj2iha1pJtBm0VE24m7VV091
-	WeDWyC0lHSSlQwF7/hZnYlPLWAgsgt1CxzVMNU41pyWCJZ2iGacf4STZIwWpdw==
+	bh=gTba1NzUG5xbAP4x+gUk6us1Ud5EI0aPxbPupazDE+E=;
+	b=3a+j74DPcEdAczUXBJ2bDGgzvEK5RyO+Ay2DOQr7R33QufMvsp0nffsp1zBVquSVDnGc5J
+	TyUU2qWlioSFDGm8grYtMTRTx4Z7FJi0MHY7SozgArH83dIq4qLNIQJ4TTeUnVLhCuuEu3
+	umKNP+Wj1eWVFll8NeAzku9iC5S2fqB/tREeCLzXAd/OL0UXxUyuo1y1y7AvaLrSfy9ecr
+	MnfBY70d5ciTr5nZcygs98uzPqgKsZbFySqcYqC32OM08pa4hN2lwPY2wjnnUStUIHDMDC
+	WHend6RCCH8FZeXtDesIMK7JWPYMYZiGJnoF5CLy7pwMz432k+8WS7l2GKosjA==
 MIME-Version: 1.0
-Date: Thu, 10 Sep 2026 20:13:37 +0200
+Date: Thu, 10 Sep 2026 20:13:50 +0200
 From: Nicolai Buchwitz <nb@tipi-net.de>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
@@ -57,20 +57,20 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
  thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
  <david.laight.linux@gmail.com>
-Subject: Re: [PATCH net v2 4/6] net: stmmac: selftests: Capture all packets
- for vlan checks
-In-Reply-To: <20260910151404.976753-5-maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net v2 6/6] net: stmmac: selftests: Account for alignment
+ shift on dwmac1000 for Jumbo test
+In-Reply-To: <20260910151404.976753-7-maxime.chevallier@bootlin.com>
 References: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
- <20260910151404.976753-5-maxime.chevallier@bootlin.com>
-Message-ID: <ffa7e2ca24b7a0d6a66d8213a8fb5daf@tipi-net.de>
+ <20260910151404.976753-7-maxime.chevallier@bootlin.com>
+Message-ID: <999537422e65948cc80714942b3d152a@tipi-net.de>
 X-Sender: nb@tipi-net.de
 Content-Type: text/plain; charset=US-ASCII;
  format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_111341_465356_4D545D0C 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260910_111353_912952_D81AD8B2 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,73 +86,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10.9.2026 17:14, Maxime Chevallier wrote:
-> While we use vlan_vid_add to trigger the tag filtering machinery
-> in the driver, there's no netdev associated to the VLAN. This causes 
-> the
-> skb to arrive with empty skb->vlan_tci fields, as the packet is marked
-> OTHERHOST in __netif_receive_skb_core(), and we fail our validation.
+> On dwmac1000, we currently only support single-descriptor frames. The
+> Jumbo test started failing when NET_IP_ALIGN was added to align the IP
+> header, as this tests tries to send the biggest possible frame.
 > 
-> Let's use the proxy mechanism introduced for DSA, that registers a
-> ETH_P_ALL packet handler that runs earlier, before the vlan netdev
-> lookup, then filters for the correct ethertype before passing an skb
-> clone to our validation function.
+> On dwmac1000 the DMA transfer is aligned on 4-bytes, so adding a 2-byte
+> shift at the start-of-buffer address means it takes a whole extra 
+> 4-byte
+> DMA burst to receive the Jumbo packet, causing it to spill over the 
+> next
+> descriptor.
 > 
-> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+> This doesn't seem to happen on dwmac4 and xgmac that appear to 
+> correctly
+> handle unaligned xfers (only tested on dwmac4)
+> 
+> Let's account for that in the Jumbo test, reduce the size of our big
+> packet by the align size.
+> 
+> Fixes: 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA 
+> offset")
 > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c 
 > b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> index f3a533bc6bb6..ec56ee0031ab 100644
+> index ec56ee0031ab..fc8d69260f43 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> @@ -241,6 +241,7 @@ struct stmmac_test_priv {
->  	__be16 packet_type;
->  	int (*func)(struct sk_buff *skb, struct net_device *ndev,
->  		    struct packet_type *pt, struct net_device *orig_ndev);
-> +	bool capture_all;
->  	int double_vlan;
->  	int vlan_id;
->  	int ok;
-> @@ -343,7 +344,7 @@ static void stmmac_sft_add_pack(struct packet_type 
-> *pt)
->  {
->  	struct stmmac_test_priv *tpriv = pt->af_packet_priv;
+> @@ -1776,6 +1776,9 @@ static int __stmmac_test_jumbo(struct stmmac_priv 
+> *priv, u16 queue)
+>  	struct stmmac_packet_attrs attr = { };
+>  	int size = priv->dma_conf.dma_buf_sz;
 > 
-> -	if (netdev_uses_dsa(tpriv->pt.dev)) {
-> +	if (netdev_uses_dsa(tpriv->pt.dev) || tpriv->capture_all) {
->  		tpriv->packet_type = tpriv->pt.type;
->  		tpriv->func = tpriv->pt.func;
-> 
-> @@ -994,6 +995,7 @@ static int __stmmac_test_vlanfilt(struct 
-> stmmac_priv *priv)
->  	tpriv->pt.dev = priv->dev;
->  	tpriv->pt.af_packet_priv = tpriv;
->  	tpriv->packet = &attr;
-> +	tpriv->capture_all = true;
-> 
->  	/*
->  	 * As we use HASH filtering, false positives may appear. This is a
-> @@ -1088,6 +1090,7 @@ static int __stmmac_test_dvlanfilt(struct 
-> stmmac_priv *priv)
->  	tpriv->pt.dev = priv->dev;
->  	tpriv->pt.af_packet_priv = tpriv;
->  	tpriv->packet = &attr;
-> +	tpriv->capture_all = true;
-> 
->  	/*
->  	 * As we use HASH filtering, false positives may appear. This is a
-> @@ -1366,6 +1369,7 @@ static int stmmac_test_vlanoff_common(struct 
-> stmmac_priv *priv, bool svlan)
->  	tpriv->pt.af_packet_priv = tpriv;
->  	tpriv->packet = &attr;
->  	tpriv->vlan_id = 0x123;
-> +	tpriv->capture_all = true;
->  	stmmac_sft_add_pack(&tpriv->pt);
-> 
->  	ret = vlan_vid_add(priv->dev, htons(proto), tpriv->vlan_id);
+> +	if (!dwmac_is_xmac(priv->plat->core_type))
+> +		size -= NET_IP_ALIGN;
+> +
+>  	attr.dst = priv->dev->dev_addr;
+>  	attr.max_size = size - ETH_FCS_LEN;
+>  	attr.queue_mapping = queue;
 
 Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
