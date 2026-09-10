@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C4BC88E41
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1295C88E45
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 23:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKin1QGY55AdPgTixeORacbQDYMT7clJ8zzHZH3TRxU=; b=140TYjqghqbeQmzxmjQY64R7h7
-	I28uQclRsdR1jDJ6cUb+MTiOwwboeox+6ZaFrEE3b7FS3+JygyfD7abY4WQAW9o3JoUtp0jjVoVma
-	RVDT3zdGsYqAwv39Paiu2acYEWgZCPJuyq9JQj4x1IpglspHZkAOI+ZCW8uAStZN/i3dqbjOfRUX+
-	66gr+hr66pTLL6bW06b0ob/DiQkkEs1hG+uQEvKapzCLSNn36ZRCLQcBvzM54jdkULADg7R7CMYb+
-	94URvjuZyPpZiGRP7kW6M9YvUmklia0EiB8syyw2+3i8Gze/u5Q8DMqqiW7g+o5Fnfw3xGQ6FQbgk
-	Fn8j2xMQ==;
+	bh=HTME+v/cMNyTCzlzbZXDScM0UiZP82dI2/R8CbtOkEk=; b=zapvXFDfGShN9+6La1Skj/3RYc
+	uTIP0Z/rWXPWXE4Yjn40w0KjpbbhuUUpZ5gYwih125Dtljj4ABEGANS4qe4EiFq6QVNRSBJGB51Va
+	5/iU/53lzGxp5LRAlrbFKdFR+9Qjrq/g3Zm2r4RNeJz7YBhuJTA5g3NvURqu1anqgVSpCAFO3FN7r
+	tYqp+a1zVIIHV+Ty4x08sJJ2DP6i6qikpmACGHlUzvyuh6KgUJy34/JoOJMz+s1YNCbjcoaFWdKNd
+	blq+6mJzbp3VOY+wdKi/39nspDvawCoT9SB9ULLv/vNvkjmAC7GLgjvTk4zwCtH/QYgMAXNinvsFW
+	q+eiJ2zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4oTE-0000000FZRD-1iQK;
+	id 1x4oTE-0000000FZQv-15NT;
 	Thu, 10 Sep 2026 23:46:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4oT1-0000000FZJo-0pu2
+	id 1x4oT0-0000000FZIu-1WRv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 23:46:07 +0000
+	Thu, 10 Sep 2026 23:46:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC2AB4478C;
-	Thu, 10 Sep 2026 23:46:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53A31F000FF;
+	by tor.source.kernel.org (Postfix) with ESMTP id A12FD60204;
 	Thu, 10 Sep 2026 23:46:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69C361F00893;
+	Thu, 10 Sep 2026 23:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789083966;
-	bh=bKin1QGY55AdPgTixeORacbQDYMT7clJ8zzHZH3TRxU=;
+	s=k20260515; t=1789083965;
+	bh=HTME+v/cMNyTCzlzbZXDScM0UiZP82dI2/R8CbtOkEk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Oj1dAledzlSEwNYwopD1K06wGLKiF/sVSFe7ThSheP5BfClxudH7mPJ5bxT8n2qyJ
-	 /xiOWxQz4V+bpbMHaqz4nao5+MAGYJirq19/A1lq7pI/TzhNLlqUoydth5ctavc24U
-	 R9VJHgsdhg+IPSZ3g9PXrhO/ekK3Glh03jZrPOJFueHPW9SqWKBRZ0taUQJw/EuwTE
-	 JBssvdhxwD+DNHhVoCFWEIZrnzKhrc1BxUesEJF/biM8WPXW4+0Qii54EDaEcEn30s
-	 VG7RjDWG4JXwz8QOOdBPAhhWvVs2RbEfto/ebdlAcV7VXmIcjEatcuxejOHnoKaFq7
-	 zdOA97CgNAo7Q==
-Subject: Re: [PATCH net v4 7/7] selftests: drv-net: Add VLAN test
+	b=SCfBa3JxCMHk4KzjAWREZAGswfnDoSSxx34whZ2MrbAH3QlPjQMQXi+pxqq9cJq1m
+	 x8n7GrLAf6uuTmK7UVoJ6zHPhwMCr+91g8d02awYhFXjnSjqP2AuskuotbUiCabKyl
+	 klTXh1gFe1qGli1blLN4FqWYMSAnQzLyRtIiHKaOOPgqKggJtLwK7E9RnARxDNPTac
+	 GdUmwiYtTh+7WpCekctlrE8w03rAV9FNH2r89FwBZ/dDbZgg/Q37DO7D4KaZ1zrhsp
+	 WYtG5xYndz9icH0wR7i9718nSI21BfLNJLVYH+oCiW7Okohl32aenNwKIy8mpQfBP2
+	 q7Yhj7j9h5v8g==
+Subject: Re: [PATCH net v4 5/7] net: stmmac: Disable S-Tag processing on dwmac4
 From: netdev-bot+sashiko@kernel.org
 To: ovidiu.panait.rb@renesas.com
 Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
@@ -52,11 +52,11 @@ Cc: maxime.chevallier@bootlin.com, recv.jo@gmail.com, andrew+netdev@lunn.ch,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
-Date: Thu, 10 Sep 2026 23:46:05 +0000
-Message-ID: <178908396551.219967.6360903882566438769@kernel.org>
-In-Reply-To: <20260908164309.59282-8-ovidiu.panait.rb@renesas.com>
-References: <20260908164309.59282-8-ovidiu.panait.rb@renesas.com>
-X-sashiko-severity: Medium
+Date: Thu, 10 Sep 2026 23:46:04 +0000
+Message-ID: <178908396401.219967.17191601368324370160@kernel.org>
+In-Reply-To: <20260908164309.59282-6-ovidiu.panait.rb@renesas.com>
+References: <20260908164309.59282-6-ovidiu.panait.rb@renesas.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -77,162 +77,156 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-- [Medium] vlan.py's 802.1ad/QinQ matrix never requests the one feature
-  combination in which the QinQ mis-stripping bug the commit says it…
-- [Low] test() calls cfg.require_ipver("4")
-  (tools/testing/selftests/drivers/net/hw/vlan.py:94) although the test…
+- [High] Incomplete fix: the bug class the commit message names (a
+  hardware-stripped 802.1ad S-Tag being handed to the stack as…
+- [Low] The in-kernel selftest stmmac_test_dvlanfilt()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:1069-1076)…
 
 --
 
-selftests: drv-net: Add VLAN test
+net: stmmac: Disable S-Tag processing on dwmac4
 
-Adds tools/testing/selftests/drivers/net/hw/vlan.py, which pings over
-802.1q, 802.1ad and QinQ VLAN interfaces with hardware RX VLAN stripping
-toggled on and off, plus the Makefile and config entries for it.
+This restricts NETIF_F_HW_VLAN_STAG_RX, NETIF_F_HW_VLAN_STAG_FILTER and
+priv->hw->hw_svlan_en to DWMAC_CORE_XGMAC, on the grounds that dwmac4
+cannot report which tag type the hardware stripped.  The stated goal is
+that 802.1ad tags are then left in place and handled by the software VLAN
+path.
 
-A couple of questions about the variant matrix and the environment
-requirement below.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index c81c5bb5b075..eab2903a66e4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -7952,15 +7952,20 @@ static int __stmmac_dvr_probe(struct device *device,
+>  	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
+>  #ifdef STMMAC_VLAN_TAG_USED
+>  	/* Both mac100 and gmac support receive VLAN tag detection */
+> -	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
+> -	priv->hw->hw_svlan_en = true;
+> +	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
+> +	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+> +		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
+> +		priv->hw->hw_svlan_en = true;
+> +	}
 
-> diff --git a/tools/testing/selftests/drivers/net/hw/vlan.py b/tools/testing/selftests/drivers/net/hw/vlan.py
-> new file mode 100755
-> index 000000000000..61fa452b95bd
-> --- /dev/null
-> +++ b/tools/testing/selftests/drivers/net/hw/vlan.py
-> @@ -0,0 +1,112 @@
-> +#!/usr/bin/env python3
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +"""
-> +VLAN tests.
-> +
-> +Validates that ping traffic is sent and received correctly over 802.1q
-> +and 802.1ad VLAN interfaces, with hardware RX VLAN stripping enabled and
-> +disabled on the local interface.
-> +
+[Severity: High]
+Does this leave the misreported tag protocol reachable on dwxgmac2?
 
-[ ... ]
+The commit message describes the bug as vlan_rx_hw() hardcoding
+ETH_P_8021Q, but vlan_rx_hw() is unchanged and is still the .rx_hw_vlan
+callback in dwxgmac210_vlan_ops:
 
-> +def _vlan_setup(base, addr, outer_proto, inner_proto, host=None):
-> +    """Create VLAN interfaces on base and set an IP on the innermost one."""
-> +
-> +    _vlan_add(base, OUTER_DEV, outer_proto, OUTER_VID, host=host)
-> +    if inner_proto:
-> +        _vlan_add(OUTER_DEV, INNER_DEV, inner_proto, INNER_VID, host=host)
-> +
-> +    dev = INNER_DEV if inner_proto else OUTER_DEV
-> +    ip(f"addr add {addr}/24 dev {dev}", host=host)
-> +
-> +
-> +def _setup(cfg, outer_proto, inner_proto, hw_strip):
-> +    """Configure VLAN stripping and create the VLAN interfaces."""
-> +
-> +    feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
-> +    feats = {"rx-vlan-offload": hw_strip}
-> +    if outer_proto == "802.1ad":
-> +        feats["rx-vlan-stag-hw-parse"] = hw_strip
-> +    set_ethtool_feat(cfg.ifname, feat, feats)
+drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:vlan_rx_hw() {
+	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
+		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
 
-[Severity: Medium]
-
-Does this combination actually reach the QinQ mis-stripping case the commit
-message says the test aims to catch?
-
-In _setup() both rx-vlan-offload and rx-vlan-stag-hw-parse are driven to the
-same hw_strip value, and _vlan_variants() only yields all-on and all-off
-combinations. The combination rx-vlan-offload=on with
-rx-vlan-stag-hw-parse=off is never requested.
-
-On a device where NETIF_F_HW_VLAN_STAG_RX is fixed off, set_ethtool_feat()
-raises before running any ethtool -K:
-
-tools/testing/selftests/drivers/net/lib/py/feat.py:set_ethtool_feat() {
-	...
-		if current[name]["active"] != state:
-			no_change = False
-			if current[name]["fixed"]:
-				raise KsftXfailEx(f"Device does not support {name}")
-	...
+		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
+	}
 }
 
-So the whole 8021ad_hw / qinq_hw variant is skipped, including the
-rx-vlan-offload=on part which is settable on those devices. The surviving
-8021ad_sw / qinq_sw variants then force rx-vlan-offload off.
+On DWMAC_CORE_XGMAC hw_svlan_en stays true here, and dwmac_is_xmac()
+below sets hw_vlan_en, so vlan_set_hw_mode() still programs the MAC to
+recognise and strip S-Tags:
 
-That leaves no 802.1ad or QinQ ping running with hardware C-tag stripping
-active. Wouldn't a driver that strips the first VLAN tag regardless of TPID,
-reporting an 0x88a8 tag as a C-tag, still report "ok 8021ad_sw" and
-"ok qinq_sw" here? The sample TAP output in the commit message shows exactly
-this on st_gmac, and netdevsim likewise advertises only
-NETIF_F_HW_VLAN_STAG_FILTER and not NETIF_F_HW_VLAN_STAG_RX in nsim_setup().
+drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:vlan_set_hw_mode() {
+	if (hw->hw_svlan_en)
+		value |= VLAN_ESVL | VLAN_DOVLTC;
+	...
+	if (hw->hw_vlan_en)
+		/* Always strip VLAN on Receive */
+		value |= VLAN_TAG_STRIP_ALL;
+}
 
-Should the 802.1ad/QinQ variants instead be split so that rx-vlan-offload=on
-is requested independently of rx-vlan-stag-hw-parse, so a fixed
-rx-vlan-stag-hw-parse does not remove the hardware stripping coverage?
+And dwxgmac2_wrback_get_rx_vlan_valid() collapses the ET_LT information
+the commit message points at into a boolean, so vlan_rx_hw() has no way
+to tell an S-Tag from a C-Tag:
 
-Related, the docstring says:
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c:dwxgmac2_wrback_get_rx_vlan_valid() {
+	return et_lt >= XGMAC_ET_LT_VLAN_STAG &&
+	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
+}
 
-  Validates that ping traffic is sent and received correctly over 802.1q
-  and 802.1ad VLAN interfaces, with hardware RX VLAN stripping enabled and
-  disabled on the local interface.
+With that, doesn't a received 802.1ad frame on a dwxgmac2 interface with
+default features still reach the stack with skb->vlan_proto ==
+ETH_P_8021Q, so the 802.1ad VLAN device never sees it and an 802.1Q
+sub-interface or bridge VLAN with the same VID does?  That is the same
+QinQ symptom the commit says it fixes.
 
-and the commit message says the three configurations are covered "each with
-hardware RX VLAN stripping enabled and disabled". Could these be reworded to
-match what happens on devices where rx-vlan-stag-hw-parse cannot be changed?
+Would it make sense to either derive the protocol in vlan_rx_hw() from
+ET_LT, or state in the commit message that the dwxgmac2 side is handled
+by a follow-up?
 
-> +
-> +    _vlan_setup(cfg.ifname, LOCAL_IP, outer_proto, inner_proto)
-> +    _vlan_setup(cfg.remote_ifname, REMOTE_IP, outer_proto, inner_proto,
-> +                host=cfg.remote)
-> +
-> +
-> +def _vlan_variants():
-> +    """Generator that yields the VLAN protocols and the stripping mode."""
-> +
-> +    yield KsftNamedVariant("8021q_hw", "802.1q", None, True)
-> +    yield KsftNamedVariant("8021q_sw", "802.1q", None, False)
-> +    yield KsftNamedVariant("8021ad_hw", "802.1ad", None, True)
-> +    yield KsftNamedVariant("8021ad_sw", "802.1ad", None, False)
-> +    yield KsftNamedVariant("qinq_hw", "802.1ad", "802.1q", True)
-> +    yield KsftNamedVariant("qinq_sw", "802.1ad", "802.1q", False)
-> +
-> +
-> +@ksft_variants(_vlan_variants())
-> +def test(cfg, outer_proto, inner_proto, hw_strip):
-> +    """Run a single VLAN test"""
-> +
-> +    cfg.require_ipver("4")
+A second question on the gate itself: the DWXLGMAC entry in
+drivers/net/ethernet/stmicro/stmmac/hwif.c also uses
+core_type = DWMAC_CORE_XGMAC, but dwxlgmac2_vlan_ops has no .rx_hw_vlan
+callback at all:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c {
+const struct stmmac_vlan_ops dwxlgmac2_vlan_ops = {
+	.update_vlan_hash = dwxgmac2_update_vlan_hash,
+	.enable_vlan = vlan_enable,
+	.set_hw_vlan_mode = dwxlgmac2_set_hw_vlan_mode,
+};
+}
+
+Should the check be narrower than core_type == DWMAC_CORE_XGMAC so
+NETIF_F_HW_VLAN_STAG_RX is not advertised on DWXLGMAC?
+
+>  	if (dwmac_is_xmac(priv->plat->core_type)) {
+>  		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+>  		priv->hw->hw_vlan_en = true;
+>  	}
+>  	if (priv->dma_cap.vlhash) {
+>  		ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+> -		ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
+> +		if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+> +			ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
+>  	}
 
 [Severity: Low]
+Should the selftest gate be updated to match this?
 
-Is this requirement needed? The test never uses the environment's IPv4
-endpoint addresses: _vlan_setup() installs its own 198.51.100.1/24 and
-198.51.100.2/24 on the newly created VLAN devices and the ping goes between
-those.
+stmmac_test_dvlanfilt() gates on priv->dma_cap.vlhash, while its peer
+stmmac_test_dvlanfilt_perfect() gates on the feature bit:
 
-NetDrvEpEnv.require_ipver() skips unless both the local and remote address
-for that version were configured:
-
-tools/testing/selftests/drivers/net/lib/py/env.py:require_ipver() {
-	if not self.addr_v[ipver] or not self.remote_addr_v[ipver]:
-		raise KsftSkipEx(f"Test requires IPv{ipver} connectivity")
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c {
+static int stmmac_test_dvlanfilt(struct stmmac_priv *priv)
+{
+	if (!priv->dma_cap.vlhash)
+		return -EOPNOTSUPP;
+	...
 }
 
-So an environment configured with only LOCAL_V6/REMOTE_V6, which
-_check_env() accepts, skips all six variants even though the base ifname,
-the remote ifname and the test's own VLAN addressing are all available.
+static int stmmac_test_dvlanfilt_perfect(struct stmmac_priv *priv)
+{
+	...
+	if (!(priv->dev->features & NETIF_F_HW_VLAN_STAG_FILTER))
+		return -EOPNOTSUPP;
+	...
+}
+}
 
-drivers/net/macsec.py does the same 198.51.100.x-over-VLAN ping in
-_setup_vlan_ips() without calling require_ipver(). Could the call be dropped
-here as well?
+Before this change both gates were equivalent, since STAG_FILTER was set
+whenever vlhash was set.  On a dwmac4 core with vlhash, does
+stmmac_test_dvlanfilt() now still run while exercising no hardware?  The
+vlan_vid_add(priv->dev, htons(ETH_P_8021AD), ...) in
+__stmmac_test_dvlanfilt() returns success without reaching
+ndo_vlan_rx_add_vid():
 
-> +
-> +    _setup(cfg, outer_proto, inner_proto, hw_strip)
-> +
-> +    cmd(f"ping -c 1 -W 5 {REMOTE_IP}")
+net/8021q/vlan_core.c:vlan_add_rx_filter_info() {
+	if (!vlan_hw_filter_capable(dev, proto))
+		return 0;
+}
 
-[ ... ]
+so no VLAN hash or perfect filter entry is programmed and the frames are
+validated through the software VLAN path instead.  Would ethtool -t then
+report the double-VLAN hash filter test as passing on a core where the
+feature is no longer advertised, while the perfect-filter test is
+correctly skipped?
+
+>  	if (priv->dma_cap.vlins)
+>  		ndev->features |= NETIF_F_HW_VLAN_CTAG_TX;
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908164309.59282-1-ovidiu.panait.rb%40renesas.com
