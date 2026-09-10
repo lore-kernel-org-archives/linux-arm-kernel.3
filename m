@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A01C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C258C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v9RuMLXtXdNxf8kKBQAx4rQj1YQxi4fWQAeXn6Q3mP8=; b=PgfwSRZdSdQ0K5BFo32YNt4+hB
-	GhyMTxwpmohbqQi4DRu5+5Gs0Rphz77Piab9tSQMAAI2ZDvMclwPwmq5MgKwrmDtu3MvfvFZzzA1t
-	++eccOmgZYo7I6tj8vZ5HPqCbpnDGUDcjb1ca1UdN69Bhr7UDS7l6BlMG+3f9i2RxyvmTv8DWXMz1
-	AD+FGij6f2FK1ZQbLjfFnqGendzJKKr0xmIaO5w4MQaQO8K4jGi9IWo6Ms6zMDzvCmIbJj9YA4P5Y
-	Dmgwlre1rdNqwOXgIlmUzmzqr62/GbAJHr9jvRU0ivQGKwK8VPJ8KaohucVlpRUAwuNSnKzZE5oEe
-	fn//V3MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lgm1vRoUMDJ1+grp+pb7fSArVmbDTf7dsSEXhUta1Gc=; b=ijOiXN4Bvi0TY8+pUAQZ94A2HG
+	qWukG5V7I3MrBZpqNUEbWSZ76wkYDu2ZNa2i+UGYprFaswRmtO4AhSKwObD6Q6OTSlvOkpUpJHy8x
+	MVcwQwqRriNHVwxw+iR+qEAmhNDHCH076XoCn48yiGYECSHJGE3w1Nr2WX/fJ85uC4aPMxUfcGQM8
+	GhnRN4jqO5aXaLQSSLVUjc8Xzc0A0ln55+2NWzxOIfvI94Sc3suqC1O+kzUwpcPK4FbL2KRfBXYbO
+	bkWXi71+TdkBE5SRM6pKmOtDkYfTSe8emEiTCWVAIPNvm/koU9zT9yGb69a9GrjWMfbi4l/74uBwa
+	sZa4QB6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4b6o-0000000DtFU-2Qy7;
-	Thu, 10 Sep 2026 09:30:18 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1x4b6w-0000000DtJe-3RnB;
+	Thu, 10 Sep 2026 09:30:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4b6l-0000000DtED-425h
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:30:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789032616; x=1820568616;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=uRqstXESvREbE7sgABus3VPsikH/WGsWpiYKC8RGfyc=;
-  b=m849NaLZ6sxQ5gBpvzjfBGt2DwyvTsOson0htAtAHUSG5PcjEhEoXv4I
-   EgoOrvnOPgNQO2qnZKnjlXffuuVwhNTqR9xWr6fE6I0o2kPq4p/Q+k5xO
-   O/2rkGKbNeUTwJ/YfOVl1v3apI/w/ywmaf3D+t2PBZSZYc6b5xynqzqjn
-   tOMu03LL7hsavOxwDurtnYNEL1wgkU/urhTBOAiwgkECHchh/2ENGZ5qX
-   OQRHYKsQaSd2SepuhThowH8xYm5DqvK/FxxBWCuaxbE6MciO6e+himMXu
-   RtGTkAa+kkQ41wmQCyAKk6TFUu6Nu346qgZgapZLLtwfs32M/Es4+wnqd
-   g==;
-X-CSE-ConnectionGUID: +I3zYxtvQdO9EvZh24SUgg==
-X-CSE-MsgGUID: X305HP3lRWqpYxLYnw2qyg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="89319709"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="89319709"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 02:30:15 -0700
-X-CSE-ConnectionGUID: lCnUWz4jQ8CM6GL6fh/4ZA==
-X-CSE-MsgGUID: 9Om9URfuRdabHB7tU3BG+A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="271089393"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.177])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 02:30:09 -0700
-Date: Thu, 10 Sep 2026 12:30:07 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: Re: [PATCH v6 08/13] gpio: regmap: support
- write_data_after_dir and girq
-Message-ID: <aqJ4n43eYYochJl4@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-8-e918514cb3b1@ambarella.com>
- <apqxwRgi-uVKkOpr@ashevche-desk.local>
- <27a1901.423e.1a07a183bd4.Coremail.zl020895@163.com>
- <ap5BgWtHMAxl28wF@ashevche-desk.local>
- <6ca46138.9970.1a07b6abb25.Coremail.zl020895@163.com>
+	id 1x4b6r-0000000DtGR-0pXa;
+	Thu, 10 Sep 2026 09:30:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lgm1vRoUMDJ1+grp+pb7fSArVmbDTf7dsSEXhUta1Gc=; b=fySK5nH1ct8HSZMtpqjZzzkw8d
+	PDDQ4lwBHjj993q8jsUAXWqixGlWbzVANPB0b7aDClTFeM2Cj+cxO1hU7yMY6rmy9p9OHINI7OqIG
+	u/UbLPkTy10CFRaxUV+U+8Qk26Kl5QM5WRf37mIRhbdG3FRkOKr0YNaeQWJ086Rl6j0Bcnp9PmQJ4
+	jxcuEWwzd0omTr0pJFuJK43auKvm7CokNgc6QOdbfVyvtqn3b85jpRR1Ht4yQTIsTjzMdIyXqc3wg
+	X4kY5SB4mm2vLKE4HWZbJUVzuzvp3vhQccozmUr2ONovN5VNrCLfeA2NYl1HHAIZtC+EhE7BF2drM
+	XadlYpFw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4b6o-00000002GSz-1zrA;
+	Thu, 10 Sep 2026 09:30:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789032617;
+	bh=zRvdzHl8IEtFB205zSAO49VjmRa+ZkiOo7iU4cGtHKQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Elrq5RrzzJLJjhJwzb5Cu/vv6I2zBr3yI0VP6jVbTEqHEIB9ag5DUUvgnED9GaUrC
+	 TIyaVdQ5aLwPhol0k1zDYLdw3rHUV3MoMGU9tcpML/6odbE660vsYz1piAfKTUK36C
+	 1K4kVufmvNEPYyVsCjVZoMeDEG+74f9MDsCVQX+/IUOPyNplhLmbaN9JCNeVRnJ0S8
+	 t6aSknQC0GURfOllw1H021WzZ2EK9xUbDGGr2R3ehlk4Y/CyWzbKW/V/K1vOcCK0PE
+	 bhxGbejd3+TfaWE7X2/T8W4MDppSajEEPGEaGMqT2Bl3gCcxgCYPJf8Ux1LbBa/RXV
+	 hNsxlMPk7Ngtw==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7DF217E0C7E;
+	Thu, 10 Sep 2026 11:30:16 +0200 (CEST)
+Message-ID: <f7e00f6a-35b5-4c50-9b3e-a2cec8e435db@collabora.com>
+Date: Thu, 10 Sep 2026 11:30:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6ca46138.9970.1a07b6abb25.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
+To: zkh@mailbox.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, zkh1@proton.me,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260909-mt8127-amazon-ford-basic-v4-0-e9af5c420ab1@mailbox.org>
+ <20260909-mt8127-amazon-ford-basic-v4-2-e9af5c420ab1@mailbox.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260909-mt8127-amazon-ford-basic-v4-2-e9af5c420ab1@mailbox.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_023016_039574_969981A8 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20260910_103018_619863_26845EF1 
+X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,62 +95,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 06:29:47PM +0800, zl020895 wrote:
-
-> Thanks for the bxtwc pointer.
+On 9/9/26 21:38, Zakariya Hadrami via B4 Relay wrote:
+> From: Zakariya Hadrami <zkh@mailbox.org>
 > 
-> I looked at mapping PL061 onto regmap-irq. Status/mask/ack (MIS/IE/IC)
-> could fit, but PL061 still needs the chained demux plus IS/IBE/IEV type
-> programming (including EDGE_BOTH) and the existing gpiochip immutable
-> helpers. That looks like a poor fit versus idi-48/bxtwc-style chips, and
-> switching the long-standing ARM PL061 path from chained to threaded
-> regmap-irq seems risky.
+> Add entry for the MT8127 based Amazon ford tablet.
 > 
-> What I plan for the next round (without extending gpio-regmap with girq):
-> keep the custom irqchip + chained handler, create the irq_domain in
-> gpio-pl061, and pass it via config.irq_domain to gpio-regmap.
-> 
-> Does that match what you had in mind, or do you still prefer a
-> regmap-irq-based approach?
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
 
-Okay, let's continue with this approach. Just make sure the commit message
-covers the choice made (explains why GPIO IRQ chip is customised).
-
-> At 2026-09-07 12:45:53, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com> wrote:
-> >On Mon, Sep 07, 2026 at 12:20:03PM +0800, zl020895 wrote:
-> >
-> >> > Are you going to fix this HW in the next version of the SoC?
-> >> No — Ambarella does not use write_data_after_dir. It only preserves the
-> >> existing ARM PL061 quirk already documented in gpio-pl061 (data writes
-> >> ignored while the pin is still an input). Only pl061_arm sets the flag.
-> >
-> >Ah, this is a good news!
-> >
-> >In any case when documenting that flag, please also mention that any new HW
-> >should not use it as it's considered buggy (glitches during direction change
-> >are guaranteed).
-> >
-> >> I will also make the first gpio_regmap_set() conditional so the quirk
-> >> path writes once after direction_output, not twice.
-> >
-> >I see that original pl061 actually writes twice. TBH I don't know the best
-> >effort here and if it's really required to do so. Probably others have
-> >better ideas...
-> >
-> >> > This needs to be in a separate update. Also we need to understand why
-> >> > it is required.
-> >> OK, girq will be a separate patch. PL061 keeps a custom chained
-> >> irqchip (not regmap-irq); gpio_regmap today only takes irq_domain or
-> >> regmap_irq_chip, so we passed girq to keep the usual gpio_irq_chip +
-> >> gpiochip_add flow. Open to using a caller-created irq_domain instead if
-> >> you prefer.
-> >
-> >If there is a chained IRQ, look how PMIC drivers usually do similar setups.
-> >First what comes to my mind is drivers/mfd/intel_soc_pmic_bxtwc.c.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
