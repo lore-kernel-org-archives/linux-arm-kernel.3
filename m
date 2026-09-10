@@ -4,108 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE81C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D985C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 20:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBIdGtm0mo8q5590yjvGhNrcgQrhEpuiN5lFQ+hlgEA=; b=IpswqmiwZkU4uBd/bKbxR37y3J
-	pxbDuuANUxRfYVSNHgcRVgBqqIiKhtDJTMfp+++K+G9GoAFhHW3lEGmjYVqtp7uGmd3j0la44OQbO
-	BvRSqPRlEcp8tYkUhnc0uc5FTiiL0ALl6wm2yKZ+s8NadlEQ2tKzn00Br+b8wdIA543icxq6xnKPF
-	4/xcVlkM+t15KVCzRuPHW+oCB4bNC41OPma07+uOUJFDY38m9EHyETqiC1mfj23PV5Y0Mmhdb548u
-	+DmxBhriVirShy/eGgpg9V/xeQ7KP5DnxiJjsQN1xOgzs7OA20cJBJXD+fm90nPHirWviBXhq9dGY
-	P6lmZ+6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eZ7ZXsnCUAQTYC3E96kxY/lFhI1O8FPk1ZGcdlaqnBI=; b=1GpC+ar48vp/6x+CiYAbFthG/j
+	nsvwGbSVhf4Lquwpc3k6XLvOdxa7EWDZDn2Pxe6JxSCS8sfV2yxOlW73zyKBGJThF4Rv9ZH1/IFpk
+	cFT3DCYBzln4x12OQ6fVPg0mpkW7Z7Eo1Lv2wwDkvJRZLvwhovOC7t5cRcY0+2ILdMnpk75W+1zHD
+	iHsAxc25fxTEymaCfzd2/SKVlcEhDZC8RxP2BQJivhl5M+XKyU3+rqP3SvyqCKWqdq0Z8+bnXQWeW
+	SdZqkdNyQfBK91G8MAIeVOZO1dEVaFtWhGZVpGq3CfAF5tTE80B/BCgrbrc6pBgLUn4V2O64DbDVc
+	5MzxDgAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrx-0000000FBzt-4AjA;
-	Thu, 10 Sep 2026 18:51:34 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1x4lWf-0000000FLiQ-1vjd;
+	Thu, 10 Sep 2026 20:37:41 +0000
+Received: from mail-northeuropeazon11011021.outbound.protection.outlook.com ([52.101.65.21] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrj-0000000FBnV-1IZS
+	id 1x4lWc-0000000FLhp-3yw8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:51:26 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-9377f717879so14685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:51:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1789066278; x=1789671078; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lBIdGtm0mo8q5590yjvGhNrcgQrhEpuiN5lFQ+hlgEA=;
-        b=oEjrnVrAcG4sfzfQFlyLz/6/eCR4TS7KugahgVEpE3oVktFDT9TqWX89lfkPapyxVk
-         eUsARc5o8Yxq2SFYNSSYv04xk12bddNXrN66VPdgLrHLBhUjb81Npv2ZdrURuTYZJIlc
-         pBZP2iUk1e25j1phMoBdN7agkmeLdk75gLsOg9zOdOB6FyrIvQiZwE+iyXEZNj36uMBz
-         bBDoNDN8gBIuH1XvQ74Bjgh45XOVIEJ/aWZoL77F0MnlwwuoiqgZx0c3x+MttXfzHYau
-         fTQAUjYTIjIMBLJW6Op8ymr/LGitcCro55ubLLmue+JkTMzQmw01jDN3bMhTP33rm5it
-         3wVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789066278; x=1789671078;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lBIdGtm0mo8q5590yjvGhNrcgQrhEpuiN5lFQ+hlgEA=;
-        b=s6bUJ7RJraPRsu55T7Mg2vAJ9Q3k1R1V12fdcjJfhO8b6c2am6X8ACF5X/MQdo/5jf
-         WSCKe5Zt6Qamls4QBGkwfyBI8AmO0LxGWJt7uxc9CWG1cfYfel2AajMxJ9ssI4yDzgTq
-         i0rKwSVPhjpkS4ypUXszDz1z2qXa1KxY11dW4B1dwp3UhCvrD1Widzg9SJ2KaFuFm4N1
-         4ORN9mTL5ibhDMAXKI0wlT+7KBTUY5x7vntZ/jCgTs5sloqy2yuW7tWj4wEtdxUFn4E4
-         HJxbp34G4+SrPParts50tHrxnOwXzbBP33CRRO5OsP+fzf0ZpOkz82d5Xd2b7Zu8WWVi
-         DDnQ==
-X-Forwarded-Encrypted: i=1; AKwUvByNhhNgt7U+V0jUhTUsQGTQ1G0zRc1r/xC6qXGq23pjHzmksjH0Ypuu/fv+n1vdfsAlrC/A+bhN3PyiVldTEo30@lists.infradead.org
-X-Gm-Message-State: AFuF++kMqVSzaP7iecWetlGw37Sek1NzRLbB+T2dVMjSByMOdTD7NGGP
-	TB5du6z2aj1I5TQncrATi0CnfZ1gG2lqrR6nb/BKimpZldlQLBgNIL2ThjJZOYQj7nU=
-X-Gm-Gg: AYBFou3c5np6qSqIrNX/limnIAjE4bXP3h4f+SS8Ea3sg8UEcsbh3voor/Xzw+1/aVw
-	wbGv6mCB9JCTTIUMWyywgB3TiZ8lJkbkY+XUakVMbGn1gajekpTL0+DH0bCU9NTLrJ/anS/Ayls
-	YiK9QpkUFpCBDo0rQSuYN/BVpE/5OxF49dxa2+QvC002ZPwybu+IQFGzf+wY+NIouaPhpfk9/OX
-	MdyX+I8QvYUhcLwlEFZrSqYLjYh9gv7ku1XJw8tubsrRaAMk8NN0QEJ0A9C+p+RrxZcqiNbBH1G
-	UYSbvQJOzWD5NO58IkUL7iSA5oX8O9jPivzNDNkZbEtE5XEAdz6Z/6vPw1BanGUO+3PbSLTps/Y
-	ZTL0kFqRirTgfs3h/VXuoDZYrBze/pSkNQinysO/rb14E6jutVTZZ4jFI0oNXm4n/9fqbODU5bS
-	6vBza+KwzLPSwg4n0u+AtB1rML1942XeR1AEZnD5TAAWM7NBwRxLeq8tsdv7bFh/syczHgGNHK0
-	hg4f71bDUz26nOb0DU5ENk0wNYHRjC42h1U2dPhlDgAuLniJHj47KL8
-X-Received: by 2002:a05:620a:6a04:b0:937:4e12:5db6 with SMTP id af79cd13be357-939ea2a1e5dmr15410485a.43.1789066277808;
-        Thu, 10 Sep 2026 11:51:17 -0700 (PDT)
-Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-939e80f8142sm49848385a.43.2026.09.10.11.51.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 11:51:17 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Thu, 10 Sep 2026 18:50:36 +0000
-Subject: [PATCH RFC 13/13] rcu-tasks: Treat preemption outside trampolines
- as a quiescent state
+	Thu, 10 Sep 2026 20:37:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h7VSFgFuMGFB7hD8XQ0cb41Qacnd/sD4Nq+UQ2BxdJlMKLtma8xwrUO6F1+884d7BdNI9ezvvj3ku++Srl8qhexIqmtHEB7Ntt4i6yezTcIHfPuiPWd4nGVFaomlvh2s4fdBRWjgLeT3kKj7WIqRN+PitmfSjg03jDisfWyqRbDrxozbP4jPcONK1ukfQL+D5AqXX4Rlk9gFYYiVB9d/U24xeavctfFNXWqU1lU7eBpaO+JHmVZkDu6IiXwgkG2+TZhK+Lfxha7O8R+K5zMMlOSc09c1oShD8JPSx5R5eDI8gWSfcGqtyqGV14vzrlcpKZQn1kr+9wNYFfo/WI4ksg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eZ7ZXsnCUAQTYC3E96kxY/lFhI1O8FPk1ZGcdlaqnBI=;
+ b=OVGBjPKR7zlQcCWgg0EWf002Q8sb78u6U9wa381QwFa6Ec7uc5lQLPMb/od50UZSConc+m1C4nObZdtkBQyKNjDSRTWrmQr9uhsHmestKDvxuATdzx5LxuyDCdK8980zLFK+h2INqioEzlCi3VsSEtHCtHxtjpSeSYwZzgkomoJkdNZPIlPwF17XLneFoEnIKPhzwHBhgMScSCQIBkDwA+qiEAha7Auh13GylBCdRp0Jtj9q2xp2A/SzCVURQky3QCI5gpDlrB3LjY1KoUuxzNgS5x1ndmY08/1axfuKJgeF/+zpdHnmyNongsR+IDKZ1FH+Jvz6A+rbXRavbchFcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eZ7ZXsnCUAQTYC3E96kxY/lFhI1O8FPk1ZGcdlaqnBI=;
+ b=fVa2YKVRFjaf8VcV5e9xSWWHg3Fv8pr/q+eS3o78qe6w29az/C7y6F66Y5VE5LDeiM+ubs+yEYLqgjpN45UO7qwWpBxCbyawMdwRhbJK2VNyREd+sT5u5la55P42JXXNyavr6KwORfOjqvUdskZ5rtTb1rKTRFLb+hvpQ9UYIK9DVyxGzIgLR+pbaGnOIN4xTt284a2oLkBGiZKDR+Qy9CQDZ+EHVHkrstt6X6F1LxJHbhmyY3Z/Z5k18slKj1GDjdT257x8npFXD+zlGA563kPrVEs8vK8ALr5xdwkYRwpWGj/gCBXJlGYyB2LU6SNn9owoL5qDe3lLuKJ1h5le0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8745.eurprd04.prod.outlook.com (2603:10a6:20b:43e::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 20:37:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 20:37:34 +0000
+Date: Thu, 10 Sep 2026 16:37:25 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@xs4all.nl, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com, linux-arm-kernel@lists.infradead.org,
+	jackson.lee@chipsnmedia.com, lafley.kim@chipsnmedia.com,
+	marek.vasut@mailbox.org, Ming Qian <ming.qian@oss.nxp.com>
+Subject: Re: [PATCH v7 4/9] media: chips-media: wave6: Add v4l2 m2m driver
+ support
+Message-ID: <aqMVBbzCnEsxx54Y@lizhi-Precision-Tower-5810>
+References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+ <235b2de7057182d619a361dffc247f1c1f438a3c.1788496816.git.nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <235b2de7057182d619a361dffc247f1c1f438a3c.1788496816.git.nas.chung@chipsnmedia.com>
+X-ClientProxiedBy: PH7PR17CA0072.namprd17.prod.outlook.com
+ (2603:10b6:510:325::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-b4-rcu-tasks-preempt-qs-v1-13-d4469f4cc101@toxicpanda.com>
-References: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-In-Reply-To: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
- Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
- rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8745:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97a80ddb-eb4e-4d54-dcfe-08df0f7b57e8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|19092799006|22082099003|56012099006|4143699003|3023799007|11063799006|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: X8jR5XTVS3DR+uzV3a5i7/Gb5AZQAElB7F7G0Cxaup3CgLuKN5KtNheS+sv/FNF2jo58WMG1D0F4HgL3d+WhorOtFF9kYaHUb4+xOrO4eIiPz63dnmQIVqSR6RKZCKz4GTRpdBrCeCrYoaTnAFpI2hb/Hq7kyvKlO9+gheYE6eCGjC0tJVWhPJw0pYHf/ZKnKEHBPvE448cdPOL84YlN25m61QYvI1JQY2iFoWGxLNX6/S9OdFqNF4ZA7VEijdcV3RvznG0Bd+NxlO7BUGlPEBBtXCNYtj+TFZyZ96eLEEkzfDMcpS275l3qIf+VSeLLRyi/jVDGT3g9Kipdur0WJjSYoZrPqpHRxqG2PICTse26tso1BlqJBkKenNyiCO3aqIMssJpQ5eBHLcDfdpZ3ViJK86/q/6qp55OnvBy4BxiN5Lf0a1qKEunf2tIjMjidM3SdhiI3Uo+xgYFQgvECM/e2+ostarF0p8kjN/BtOlNJ7y3AaRk39C51W1BZIUzMWnOfKRebSB7FiHNvjlv0BJJjLMOvWw2StaX6VQh3h09Qwur+gDaAtbh5jRlj6x+sUOXR2YPfkt6+H48GzXjgJlmiv434/3/gF/Ix0+R7YLxDOnVzm2fFoWrKna6IrD0RZfruF3QZq6zB69MxN8DQM8beB+f5q0A/EJPg3AodUAU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(19092799006)(22082099003)(56012099006)(4143699003)(3023799007)(11063799006)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p/CBQxa7ZXstuOMr1AJr0alGjeHmqTUInpyOt0SKn10BSlqvGhv6NubqRABU?=
+ =?us-ascii?Q?2LNpdra1jqSr00PqA8DMf0+q0BUz8Z0aPWBlDOKf0u7+rQYCN0pc3EeR9agG?=
+ =?us-ascii?Q?zaZ3AIyO4ArzzH1SmRRxSL84TiKfdAfkO8xR9soJCmFakoZHswNVv0dqXeyT?=
+ =?us-ascii?Q?Cj8Slg4LZ0KLnTxB0/neAuXTdhCS3lNH7yZWY94VZyUILnNs5CFPN6/gmGWN?=
+ =?us-ascii?Q?pcAnT9fnmxg+ywqWB+TO+NNaUtKr8TlsYhz/m8OZlYZrzIItroinQs9mDFoU?=
+ =?us-ascii?Q?okCdVu2hZmwzxbDbn0jAO8Re6yFyA2Z1ERr+zXNB1f0ZwfsmdOrYaC8rhyKi?=
+ =?us-ascii?Q?qKsS3DK090Kj8pCrT20zA9CuCBtZDZbbj9ZT7uaYdrkt3sjqr9inP7UZD/0c?=
+ =?us-ascii?Q?yW/J7f2LB0a6VDyKRb0Lum+GLROuxJ2XEMLnh0wh2wJ3yU7WF6QGslzEdIt8?=
+ =?us-ascii?Q?ArJNtrUiwmNK0omnsQ+sBTa6OmC9yxnwlQ69xLyGj5eaUwRNr3GSyLMEtvX7?=
+ =?us-ascii?Q?gwJ1m8IPhdnHQeB1c48gcn/VCb+LqC0NeFFxrGghLG5bBidxGb0QK3w1JEuj?=
+ =?us-ascii?Q?kk2uUQa0t95OxwPjTOL3bD9usrb0XWG0Xa58jcQdUJBxaPsIIGSe3eYplLoU?=
+ =?us-ascii?Q?zMYxxkpzpjHA5nnxwqK4WLZCQQvhveD18sWGvYyZ2Y3tp//8aX6VyFgMJ0J1?=
+ =?us-ascii?Q?/vmZiAQL457q3HseHV/Cgd2ZKNLMlOob6W2yHJMMpj0pf9fFri+Pvs39RF0j?=
+ =?us-ascii?Q?6aI8TDahoLnQXl7/u7uBwC+kpRbTzUJS4hoBcAy45JS3lhrP2h3Q8RFOlI0P?=
+ =?us-ascii?Q?gtQZ094R0eLuewiuv6XNpdmR51pIHSLNtJ10O73av3dBdhXzzaV03Q2PnXfR?=
+ =?us-ascii?Q?VG2bzHdzJbTM5AE+CGSr9ddu2zuwgfp046SxjtF7yKefyWsUoqbs9bSdYvb9?=
+ =?us-ascii?Q?SPUbdw3dW6+OPP0SxZuZiCO4738e6XZ1C3IQK2eTEnECzc6e7fRIH24ePsPl?=
+ =?us-ascii?Q?MrO4xa2frlu2aX/cFnLNn5n81cuamdj8/Mdb/wa2Zw3yLw3tuiT9EhoTunbA?=
+ =?us-ascii?Q?x4dUKmNN0lnP6VcxRtoPmOAb5gx+VO5Wg5cv4JQ+g7f6Tlb4JIou450buHt8?=
+ =?us-ascii?Q?kubIJ+5c6gCBlqqHGFfdfCmTVuOrQvEdjxSHX0XYXsCpiZJL5/kNtG+tneCt?=
+ =?us-ascii?Q?y8HX+TD/R5+q1H/bQ2bWY6+jF5Lqb7z7SoqW8RAXJVpUDn7kkeGGGC1drTO9?=
+ =?us-ascii?Q?KkBhJkQrUi/K9HiLgvDNk46LrHpThVPCC3yKuj31TUQyr0jAveajOjuckM9X?=
+ =?us-ascii?Q?rOAAQqJSz8NuPnRqb6WfjNuqGxR62Ug4QvWFDm1HY74gybSrJ5fzFGrGdj/S?=
+ =?us-ascii?Q?Oga/m7148nhA1dtsQ8PF/GjF6rh1BDym5Ga994O7/mW2TKG2sWC1TwbKlW+H?=
+ =?us-ascii?Q?j6vL3pJJk5IoXl4TRTSBCW3AGFHD06buwgWn7iKXMNlHDz6ZP+//TP96ADsm?=
+ =?us-ascii?Q?CuS30bqMxC0NR8+kTyuTB/5uv6MEI9VNlIODOpyUIJwwhV+Xpm8hYbSVDzNt?=
+ =?us-ascii?Q?ymcJUYa5ywI2zoZcV+uPxU4SeJK6YfWPdAB9moMBiHyD8ojAb/WCWWP3Wl0u?=
+ =?us-ascii?Q?tZDfeIC1k5hEhqTHO7d8E9EvrVbHDT+bBnMtRZ/Ko5MDAV1Kx38e+eGieWWy?=
+ =?us-ascii?Q?iGhJ8Xz/X1m12xp63BR/S2Igzcw06X3Fu0ZVd1r322ThM98j2sbtKR9blPw7?=
+ =?us-ascii?Q?l2bsTFgG/6HX6RffzHsPn0m2bC65EOMhxgpopB/GlBcK7DM8D54R?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97a80ddb-eb4e-4d54-dcfe-08df0f7b57e8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 20:37:34.2164
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xqtb5wOAUb9pTCsNZt32Sj0/v1HmFXKeqfxHcx56B1iZBtXBmnzbi8TXetCtvp5cEoHKhkZtWFhEg8iX8jwwCcx9n0Q7K7Vg09+/WV1d95GMiOqIroVX2nbCNGWpH4Eo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8745
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_115124_316126_52B21D4A 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20260910_133738_993665_AA43B38B 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,188 +142,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tasks RCU only accepts a voluntary context switch, usermode or idle as a
-quiescent state, because a task that was preempted may be sitting in a
-trampoline whose text is about to be freed.  On PREEMPT_LAZY kernels,
-where cond_resched() is a no-op and CPU-bound kernel threads only ever
-lose the CPU through preemption, that means any long-running kthread or
-kworker stalls every synchronize_rcu_tasks() caller -- BPF and LSM
-program detach and DYNAMIC ftrace_ops teardown via ftrace_shutdown(),
-and kprobe (un)registration via the jump optimizer, which waits under
-kprobe_mutex, text_mutex and cpus_read_lock() -- for its entire run,
-unless someone sprinkles cond_resched_tasks_rcu_qs() into it.  A cgroup
-writeback worker draining a large cgwb for eleven minutes was enough to
-back 40+ tasks up behind trampoline_mutex and trip the hung-task panic.
+On Fri, Sep 04, 2026 at 03:46:30PM +0900, Nas Chung wrote:
+> Add v4l2 m2m stateful driver support for the
+> Chips&Media Wave6 video codec IP, including both encoder and decoder.
+>
+> The following features and formats are supported:
+> Encoder (8bit only):
+> - Supported codecs: AVC, HEVC
+> - Supported input formats:
+>   * V4L2_PIX_FMT_YUV420/NV12/NV21
+>   * V4L2_PIX_FMT_YUV422P/NV16/NV61
+>   * V4L2_PIX_FMT_YUYV
+>   * V4L2_PIX_FMT_YUV24/NV24/NV42
+>   * V4L2_PIX_FMT_RGB24
+>   * V4L2_PIX_FMT_P010
+>   * V4L2_PIX_FMT_ARGB32
+>   * V4L2_PIX_FMT_RGBA32
+>   * V4L2_PIX_FMT_XRGB32
+>   * V4L2_PIX_FMT_ARGB2101010
+> - Supports multiplanar format
+> - Although 10-bit input formats are supported (e.g., P010, ARGB2101010),
+>   encoded output is limited to 8-bit streams
+> - Supports crop
+> - Supports extensive v4l2 encoder control
+>
+> Decoder (8bit only):
+> - Supported codecs: AVC, HEVC (8bit only)
+> - Supported output formats: V4L2_PIX_FMT_YUV420/NV12/NV21
+> - Supports multiplanar format
+> - Supports scale down
+> - Supports dynamic resolution change
+>
+> Note: While other versions of the Wave6 IP may support VP9 decoding and
+> AV1 decoding and encoding those formats are not implemented or validated
+> in this driver at this time.
+>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
+> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
+...
+> +
+> +u64 wave6_vpu_cycle_to_ns(struct vpu_core_device *core, u64 cycle)
+> +{
+> +	unsigned long rate;
+> +
+> +	if (!core->num_clks || !core->clks)
+> +		return 0;
+> +
+> +	rate = clk_get_rate(core->clks[0].clk);
+> +	if (!rate)
+> +		return 0;
+> +
+> +	return (cycle * NSEC_PER_SEC) / rate;
 
-With the previous patches, every Tasks-RCU-protected trampoline on
-x86-64 and arm64 (ftrace_caller and its dynamic copies, BPF trampoline
-images, the optprobe template, out-of-line direct trampolines) holds
-current->rcu_tramp_nesting across its call-out, and the irq-exit
-preemption path holds it across preempt_schedule_irq() whenever the
-interrupted IP is somewhere the counter cannot cover: trampoline
-entry/exit instructions and other dynamically allocated text, the static
-ftrace stubs and x86 return thunks on the way into a direct-call target,
-modules hosting their own direct trampolines, and the kprobe
-jump-optimization window.  A task that is context-switched with the
-count at zero therefore cannot be inside, called from, or about to
-resume into anything Tasks RCU protects.
+div_u64, otherwise 32bit compiler build failure.
 
-So let rcu_tasks_classic_qs() clear the holdout flag on a preemption
-too when rcu_tramp_nesting is zero, on architectures that select
-ARCH_HAS_RCU_TASKS_PREEMPT_QS, and select it for x86-64 and for arm64
-with DYNAMIC_FTRACE_WITH_ARGS.  A running holdout is already poked via
-rcu_request_urgent_qs_task(), which makes the next tick set
-NEED_RESCHED; the resulting preemption -- from irq exit, or synchronously
-at the next preempt_enable() -- now retires it, so a Tasks RCU grace
-period is bounded by roughly a tick plus the longest preempt-disabled
-section instead of by the longest stretch without a voluntary schedule().
-Other architectures keep the voluntary-only rule.  Update the Tasks RCU
-documentation comments and the FORCE_TASKS_RCU help text to match.
-
-Cost: one load of current plus an inc/dec per trampoline entry and exit,
-and on irq-exit preemption one core_kernel_text() check plus, with
-OPTPROBES, MAX_OPTIMIZED_LENGTH-1 lockless kprobe hash lookups.
-
-Not covered: x86-32 and the other GENERIC_IRQ_ENTRY architectures, and
-return_to_handler / the rethook trampoline, whose C callees take the
-ftrace recursion lock before touching any ops.
-
-Tested under QEMU (x86-64, PREEMPT_LAZY, PREEMPT_RCU=n, PROVE_RCU, with
-and without PREEMPT_DYNAMIC) against a kthread spinning in-kernel for
-30s with the function tracer, an ftrace kprobe, an optimized kprobe and
-fentry/fexit programs live: synchronize_rcu_tasks() 29.7s -> 0.1-0.3s,
-ftrace_shutdown() of a DYNAMIC ops 27s -> 0.2-0.8s, the ftrace-direct
-sample modules load/fire/unload in ~2.5s each during the spin, no
-warnings.  arm64 is build-tested only.
-
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
----
- arch/arm64/Kconfig       |  1 +
- arch/x86/Kconfig         |  1 +
- include/linux/rcupdate.h | 14 +++++++++++++-
- kernel/rcu/Kconfig       |  7 ++++---
- kernel/rcu/tasks.h       | 15 +++++++++++----
- 5 files changed, 30 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef944..0e6c1e0b236f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -44,6 +44,7 @@ config ARM64
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_SPECIAL
-+	select ARCH_HAS_RCU_TASKS_PREEMPT_QS if DYNAMIC_FTRACE_WITH_ARGS
- 	select ARCH_HAS_HW_PTE_YOUNG
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select ARCH_HAS_SET_DIRECT_MAP
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 15fd9ec5ecac..0a6427019345 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -99,6 +99,7 @@ config X86
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_SPECIAL
-+	select ARCH_HAS_RCU_TASKS_PREEMPT_QS	if X86_64
- 	select ARCH_HAS_HW_PTE_YOUNG
- 	select ARCH_HAS_NONLEAF_PMD_YOUNG	if PGTABLE_LEVELS > 2
- 	select ARCH_HAS_UACCESS_FLUSHCACHE	if X86_64
-diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-index e9afbbb1b061..356b1d6ef226 100644
---- a/include/linux/rcupdate.h
-+++ b/include/linux/rcupdate.h
-@@ -204,6 +204,11 @@ bool arch_rcu_tasks_ip_in_trampoline(unsigned long ip);
-  * non-trampoline user, kprobe jump optimization, which waits for tasks
-  * preempted inside the instruction bytes it is about to overwrite.
-  *
-+ * With both in place, on architectures that select
-+ * ARCH_HAS_RCU_TASKS_PREEMPT_QS, a preemption with rcu_tramp_nesting == 0 is
-+ * a Tasks RCU quiescent state, and a CPU-bound kernel thread no longer needs
-+ * to volunteer one via cond_resched_tasks_rcu_qs().
-+ *
-  * Only current writes the count and only current (or an interrupt on the same
-  * CPU) reads it, so plain accesses suffice.
-  */
-@@ -228,9 +233,16 @@ static __always_inline void rcu_tasks_trampoline_assert_none(void)
- 
- bool rcu_tasks_ip_in_trampoline(unsigned long ip);
- 
-+#ifdef CONFIG_RCU_TASKS_PREEMPT_QS
-+#define rcu_tasks_preempt_is_qs(t)	(!READ_ONCE((t)->rcu_tramp_nesting))
-+#else
-+#define rcu_tasks_preempt_is_qs(t)	false
-+#endif
-+
- # define rcu_tasks_classic_qs(t, preempt)				\
- 	do {								\
--		if (!(preempt) && READ_ONCE((t)->rcu_tasks_holdout))	\
-+		if (READ_ONCE((t)->rcu_tasks_holdout) &&		\
-+		    (!(preempt) || rcu_tasks_preempt_is_qs(t)))		\
- 			WRITE_ONCE((t)->rcu_tasks_holdout, false);	\
- 	} while (0)
- void call_rcu_tasks(struct rcu_head *head, rcu_callback_t func);
-diff --git a/kernel/rcu/Kconfig b/kernel/rcu/Kconfig
-index 999f8228a13d..8e7c94329105 100644
---- a/kernel/rcu/Kconfig
-+++ b/kernel/rcu/Kconfig
-@@ -94,9 +94,10 @@ config FORCE_TASKS_RCU
- 	default n
- 	help
- 	  This option force-enables a task-based RCU implementation
--	  that uses only voluntary context switch (not preemption!),
--	  idle, and user-mode execution as quiescent states.  Not for
--	  manual selection in most cases.
-+	  that uses only voluntary context switch (not preemption, unless
-+	  the architecture selects ARCH_HAS_RCU_TASKS_PREEMPT_QS and the
-+	  task is outside any trampoline), idle, and user-mode execution
-+	  as quiescent states.  Not for manual selection in most cases.
- 
- config NEED_TASKS_RCU
- 	bool
-diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
-index df68a330769a..78d2b78d3043 100644
---- a/kernel/rcu/tasks.h
-+++ b/kernel/rcu/tasks.h
-@@ -905,7 +905,10 @@ static void rcu_tasks_wait_gp(struct rcu_tasks *rtp)
- //
- // Simple variant of RCU whose quiescent states are voluntary context
- // switch, cond_resched_tasks_rcu_qs(), user-space execution, and idle.
--// As such, grace periods can take one good long time.  There are no
-+// With CONFIG_RCU_TASKS_PREEMPT_QS, a preemption taken while the task is
-+// not inside a trampoline (current->rcu_tramp_nesting == 0, see
-+// rcu_tasks_trampoline_enter()) is a quiescent state as well; without it,
-+// grace periods can take one good long time.  There are no
- // read-side primitives similar to rcu_read_lock() and rcu_read_unlock()
- // because this implementation is intended to get the system into a safe
- // state for some of the manipulations involved in tracing and the like.
-@@ -1246,8 +1249,11 @@ static void tasks_rcu_exit_stall(struct timer_list *unused)
-  * period elapses, in other words after all currently executing rcu-tasks
-  * read-side critical sections have completed. call_rcu_tasks() assumes
-  * that the read-side critical sections end at a voluntary context
-- * switch (not a preemption!), cond_resched_tasks_rcu_qs(), entry into idle,
-- * or transition to usermode execution.  As such, there are no read-side
-+ * switch, cond_resched_tasks_rcu_qs(), entry into idle, transition to
-+ * usermode execution, or, with CONFIG_RCU_TASKS_PREEMPT_QS, a preemption
-+ * taken outside any trampoline (current->rcu_tramp_nesting == 0, see
-+ * rcu_tasks_trampoline_enter()); otherwise a preemption is not a
-+ * quiescent state.  As such, there are no read-side
-  * primitives analogous to rcu_read_lock() and rcu_read_unlock() because
-  * this primitive is intended to determine that all tasks have passed
-  * through a safe state, not so much for data-structure synchronization.
-@@ -1269,7 +1275,8 @@ EXPORT_SYMBOL_GPL(call_rcu_tasks);
-  * executing rcu-tasks read-side critical sections have elapsed.  These
-  * read-side critical sections are delimited by calls to schedule(),
-  * cond_resched_tasks_rcu_qs(), idle execution, userspace execution, calls
-- * to synchronize_rcu_tasks(), and (in theory, anyway) cond_resched().
-+ * to synchronize_rcu_tasks(), (in theory, anyway) cond_resched(), and,
-+ * with CONFIG_RCU_TASKS_PREEMPT_QS, preemption outside any trampoline.
-  *
-  * This is a very specialized primitive, intended only for a few uses in
-  * tracing and other situations requiring manipulation of function
-
--- 
-2.55.0
-
+Frank
+> +}
+> +
+> +int wave6_vpu_wait_interrupt(struct vpu_instance *inst, unsigned int timeout)
+> +{
+> +	int ret;
+> +
+> +	ret = wait_for_completion_timeout(&inst->irq_done,
+> +					  msecs_to_jiffies(timeout));
+> +	if (!ret)
+> +		return -ETIMEDOUT;
+> +
+> +	reinit_completion(&inst->irq_done);
+> +
+> +	return 0;
+> +}
+> +
 
