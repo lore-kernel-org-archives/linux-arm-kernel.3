@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB986C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7211C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BysySkwVmfiOg80mZRu2P2L0wmj7ZMlp89VNthYItXU=; b=keArw/9AWI6xp1EnE0+N2qlDKS
-	+GS9ssyjvVnmFggN8VcZz6UM9b+ahKRSZlzmSNAnIBRrIo2APlgkLUZRhWm6RSb/g8mpVZaXo+h1R
-	sz+S1o7dYuEF4xjh0+P9q3ELIsfaAoVJO6sxy7ksdiEUPzjcVITOyujSo9p6z/6VNjueC8JSb4NAG
-	fjr8DkOj57m/Vkv7+ymR7XzQAq+tpzxQhrr9ZMiJi9hmb1cWg9FVI8nWE264SPCXFPSUerlg/8g4x
-	dWuni35cxmB4arNmgc53JxKrqc6sefFB4nTLgBrQg/Qu3w6SBvMVhx4TTD3cQEc0zEUfY0yXCmVD8
-	CYDVbJCg==;
+	bh=VfSkPLpOWWd+VItdFa754M+oss4bxhyEVWaKllCEoR8=; b=aY7XHi9KYns2+2Rfp14jy9sGFz
+	weP27k1+XZMzBvIyoI3auH06HfRj9kJr5UtDQFh/jxrarRYzcA+PmerNawClw6QaJFbwoDF9VLW/G
+	voa9z+n3MuV+eM/Eh7hPTGyQMdXdh2u3g0cZZL1SlhBdQzijx+CERdZ5R6LVFNbRXOPbVypK7Z6ep
+	Ad1IHM7iRvosqilNOY1tOJ4s1yhKt3ZHH8EhBicWqZY9J2nhJxp/Bza0ctscz3AuIeCETdljgH0N6
+	6gr7bE3zd888bmEv/V2fxVAPh6rwvr2z0iMnu9zoKFK2BlKRrx1XzfxtrYy3puOo3LJNU2ccWKBJx
+	Q/HkmXkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aOv-0000000Dmr2-2bPn;
-	Thu, 10 Sep 2026 08:44:57 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1x4aT4-0000000DnLX-0Zx3;
+	Thu, 10 Sep 2026 08:49:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4aOt-0000000DmqE-0Oac
+	id 1x4aT2-0000000DnL4-1YwH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 08:44:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789029895; x=1820565895;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=yHF/t7fo4m7uiGHEup1QALUVhVMyuRlqvqxKVfUDfnU=;
-  b=m8Plj2aVGk00xLZl3Z7b/qY8ansYKVgze2AyUbsmSWwc4No+FveMaFIq
-   ZHBTSaDxLkA9U68bdGGIfs8nEG5XyMo0hbeZPAnthWAbXzNzrP+WXClDq
-   /92lOVQ5W8/kRhqpxu6ZDk+05OC0MFCPkf+Q5QmPUsmKdveAW8WGSElIL
-   yXbl4edXQOis9Ry7bSyialPln9B1QYsrBA4EilNIoWebqFRYAjP+uS6Hp
-   QB6zqT/lPnYLdvEKLzJstyS6Dh6aYNFaRmuQ4zRbpVY5FJ1GH1bAl7yxe
-   5BHWxkz8ak9sXOocMuPMgcLf7v9GeeQxxjCfaKrkIXyN6i2e5MsrArubO
-   A==;
-X-CSE-ConnectionGUID: qqP5TKDdRVqIuKen9UnvZQ==
-X-CSE-MsgGUID: +PCPJsneQuuN8+dXSnRx+Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="100134962"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="100134962"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 01:44:54 -0700
-X-CSE-ConnectionGUID: 5c0auEYrQJ+J/JRK8/8NQA==
-X-CSE-MsgGUID: OIeno0AwRwaIfq4Il33w4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="295059833"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.221])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 01:44:38 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 10 Sep 2026 11:44:35 +0300 (EEST)
-To: Long Zhao <longzhao@ambarella.com>
-cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-    Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-    linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, 
-    Michael Turquette <mturquette@baylibre.com>, 
-    Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-    Bartosz Golaszewski <brgl@kernel.org>, 
-    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-    Jiri Slaby <jirislaby@kernel.org>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
-    mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-    linux-gpio@vger.kernel.org, linux-serial <linux-serial@vger.kernel.org>, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
-In-Reply-To: <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
-Message-ID: <07cdbec9-49af-d500-d93d-56bfcef9f490@linux.intel.com>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
-MIME-Version: 1.0
+	Thu, 10 Sep 2026 08:49:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 95011600CB;
+	Thu, 10 Sep 2026 08:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464D61F000FF;
+	Thu, 10 Sep 2026 08:49:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789030151;
+	bh=VfSkPLpOWWd+VItdFa754M+oss4bxhyEVWaKllCEoR8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fCv/DXz2GkQ2jYCc7xWf/313wM6aqpMIKwHxF8glPgcMfbPMnyliOsMgk0eNk5TvB
+	 K2aAyl+mZ3uWjtAjaZxgMntiIelsMcMAV3PO3WbsqEYt8btVzE4hwLjoRho8NPTFCp
+	 ylUV3Vy11jQ16dTdv92dh9HXaccFqbBzIJXPRkRlaUkjAJU+FicEpBKbX9yH6sMlan
+	 ThjNz2rS7OHvSRrSP3iFzVAemCxMztIOdmabPmru+XPPuqZZnfLWfLGSYzGh6eaGpD
+	 mLDzImom5ri+WCsBPA/q1DHXzbpP0WyPnqld7JKpsmQfHDsHU4XLfhUs+xwXvZt+yK
+	 7Y19Sv23+VcSQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x4aSy-00000007AGx-3Og4;
+	Thu, 10 Sep 2026 08:49:08 +0000
+Date: Thu, 10 Sep 2026 09:49:08 +0100
+Message-ID: <86v78d7apn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Jack Thomson <jackabt@amazon.com>,
+	Jack Thomson <jackabt.amazon@gmail.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Leo Soares Passos <Leo.Bras@arm.com>
+Subject: Re: [PATCH 3/8] KVM: arm64: Propagate and use kvm_s2_fault_result on S2 fault
+In-Reply-To: <20260825-kvm-arm-prefault-v1-3-befe8947702e@kernel.org>
+References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
+	<20260825-kvm-arm-prefault-v1-3-befe8947702e@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_014455_172534_D382D28D 
-X-CRM114-Status: GOOD (  24.15  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, corbet@lwn.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, jackabt@amazon.com, jackabt.amazon@gmail.com, alexandru.elisei@arm.com, vdonnefort@google.com, aneesh.kumar@kernel.org, seanjc@google.com, imbrenda@linux.ibm.com, Leo.Bras@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,110 +103,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Sep 2026, Long Zhao via B4 Relay wrote:
-
-> From: Long Zhao <longzhao@ambarella.com>
+On Tue, 25 Aug 2026 17:00:37 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> The Ambarella CV75 UART is Ambarella IP, not a Synopsys DesignWare
-> licensed block. At the register level it is close enough to DW APB UART
-> that a full custom UART driver is unnecessary: reuse 8250_dw with a
-> small platform quirk.
+> When stage 2 page tables fault the net result may either be that a page is
+> mapped, an error occurred or the fault should be retried (-EAGAIN).
 > 
-> Quirks:
-> - keep IER ETOI (bit 5) set for RX timeout behaviour
-> - skip set_rate; baud clock is managed outside the UART block
+> When a fault succeeds it may be upgraded to a PMD size via
+> transparent_hugepage_adjust().
 > 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> In order to support KVM pre-faulting the outcome of the fault and the
+> mapping size must be recorded.
+> 
+> Track this in the new kvm_s2_fault_result struct, which is threaded through
+> gmem_abort(), user_mem_abort() and kvm_s2_fault_map().
+> 
+> PKVM and SEA aren't relevant to synthetic pre-faulting so neither
+> kvm_inject_sea() nor pkvm_mem_abort() are altered.
+> 
+> Actual hardware faulting doesn't require this information, so
+> kvm_handle_guest_abort() simply passes NULL kvm_s2_fault_result to
+> gmem_abort() and user_mem_abort().
+> 
+> Faults are necessarily ephemeral and pre-faulting can't guarantee what may
+> happen in parallel, so do not store the GFN or PFN in
+> kvm_s2_fault_result. Pre-faulting only needs to know what was mapped in at
+> the point of the fault.
+> 
+> This struct could be replaced with a pointer to an unsigned long, however
+> it's clearer to separate out the mapped flag and having a struct allows us
+> to easily add additional fields in future as needed.
+> 
+> No functional change intended.
+> 
+> Suggested-by: Vincent Donnefort <vdonnefort@google.com>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
->  drivers/tty/serial/8250/8250_dw.c | 34 ++++++++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
+>  arch/arm64/kvm/mmu.c | 33 +++++++++++++++++++++++++++------
+>  1 file changed, 27 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-> index 5fba913f3301..b15de40d1e2a 100644
-> --- a/drivers/tty/serial/8250/8250_dw.c
-> +++ b/drivers/tty/serial/8250/8250_dw.c
-> @@ -43,6 +43,9 @@
->  #define RZN1_UART_xDMACR_8_WORD_BURST	(2 << 1)
->  #define RZN1_UART_xDMACR_BLK_SZ(x)	((x) << 3)
->  
-> +/* Ambarella IER: receive timeout interrupt enable */
-> +#define AMBARELLA_UART_IER_ETOI		BIT(5)
-> +
->  /* Quirks */
->  #define DW_UART_QUIRK_OCTEON		BIT(0)
->  #define DW_UART_QUIRK_ARMADA_38X	BIT(1)
-> @@ -60,6 +63,7 @@
->  
->  struct dw8250_platform_data {
->  	u8 usr_reg;
-> +	u8 ier_mask;
->  	u32 cpr_value;
->  	unsigned int quirks;
->  };
-> @@ -572,6 +576,27 @@ static void dw8250_prepare_rx_dma(struct uart_8250_port *p)
->  	dw8250_writel_ext(up, RZN1_UART_RDMACR, val);
->  }
->  
-> +static int dw8250_ier_mask_startup(struct uart_port *p)
-> +{
-> +	struct dw8250_data *d = to_dw8250_data(p->private_data);
-> +	struct uart_8250_port *up = up_to_u8250p(p);
-> +	int ret;
-> +
-> +	ret = serial8250_do_startup(p);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/*
-> +	 * Ambarella keeps variant IER bits (e.g. ETOI) set for correct RX
-> +	 * timeout behaviour. Force them into the 8250 IER shadow so later
-> +	 * generic IER updates do not clear them.
-> +	 */
-> +	up->ier |= d->pdata->ier_mask;
-> +	serial_port_out(p, UART_IER, up->ier);
-
-serial8250_do_startup() seems to defer IER update on purpose. Is it fine 
-to override that behavior here?
-
--- 
- i.
-
-> +	return 0;
-> +}
-> +
->  static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
->  {
->  	unsigned int quirks = data->pdata->quirks;
-> @@ -606,6 +631,8 @@ static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
->  		p->serial_in = dw8250_serial_in32;
->  		data->uart_16550_compatible = true;
->  	}
-> +	if (data->pdata->ier_mask)
-> +		p->startup = dw8250_ier_mask_startup;
->  }
->  
->  static void dw8250_reset_control_assert(void *data)
-> @@ -879,6 +906,12 @@ static const struct dw8250_platform_data dw8250_intc10ee = {
->  	.quirks = DW_UART_QUIRK_IER_KICK,
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 80cb520e25b9..da15da4e40e6 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1607,6 +1607,11 @@ struct kvm_s2_fault_desc {
+>  	struct kvm_s2_mmu	*mmu;
 >  };
 >  
-> +static const struct dw8250_platform_data dw8250_ambarella_cv75_data = {
-> +	.usr_reg = DW_UART_USR,
-> +	.ier_mask = AMBARELLA_UART_IER_ETOI,
-> +	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+> +struct kvm_s2_fault_result {
+> +	unsigned long mapping_size;
+> +	bool mapped;
 > +};
 > +
->  static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
->  	.usr_reg = DW_UART_USR,
->  	.cpr_value = FIELD_PREP_CONST(DW_UART_CPR_ABP_DATA_WIDTH, 2) |
-> @@ -889,6 +922,7 @@ static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
->  };
+>  static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+>  {
+>  	return esr_fsc_is_permission_fault(s2fd->esr);
+> @@ -1632,7 +1637,17 @@ static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
+>  	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
+>  }
 >  
->  static const struct of_device_id dw8250_of_match[] = {
-> +	{ .compatible = "ambarella,cv75-uart", .data = &dw8250_ambarella_cv75_data },
->  	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
->  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
->  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
-> 
-> 
+> -static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> +static void populate_fault_result(struct kvm_s2_fault_result *result,
+> +				  unsigned long mapping_size)
+> +{
+> +	/* A THP upgrade may have altered mapping size. */
+> +	result->mapping_size = mapping_size;
+> +	/* -EAGAIN is swallowed so be explicit when we actually map. */
+> +	result->mapped = true;
+
+I'm not sold on this boolean. I'd rather we use the fact that the
+fault handler has passed a result pointer to return -EAGAIN rather
+than turning into a 0, because that's a clear sign that the fault
+hasn't been generated by a vcpu.
+
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
