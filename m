@@ -4,163 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC40BC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A996C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 16:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HbAhR2iPBS6JlP9jCk540RehEd32H6vuse79vCpZM0Y=; b=dTQGMMDF6r6daX5ZFPZr6ATvMc
-	3dyX3/fgj9a6HXAc2S43zlvx2b5meZfNocSxjFv/QobCKM6OgXKI90KOpBKND8eTTjTe9Z6wOr7vt
-	WXuK+nK5jD+Yqy9dBuQxyKpjgAGMxGvsOHHbYpMtdjkKg+9wAbmePBVehsu6et2L0G+StRJHqXWJd
-	u1haMdd6QUkNNAAv4xTqu5O732pKTyDHEg+mLzXrDbdb+5wN6lqr5PMMjzlJcGFacM+cASJuDdNod
-	7LQZgV70YuyDXbGv6eBOkHlzn6l+MKi5gq/CSMxe0wLuPJfrW+208NrYxZnL3NNq+VKclUgD4+KQL
-	tu/tRjWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L22OvJJnj1XpQrbcfsfynWt7q6naD2+cl4v0hsGvcnk=; b=GrDHA8aAMKgpMgXad8ICjOZ1jT
+	wmQL8NfNU4umiDr6yseqLBjD3nUmRPjTTt+xnMXch5a5YpBAi1zUHLHDFY21u3FMlieJ5qPWoydiB
+	DRKdGCEFqolQ5w7EZ20dTfswFWFqQ0puB/FDBoPCCWZkimyhhZr/joFLDrJt/5eUnmzCyn5IKQzRc
+	kik+6/n+U1FwQjQhIIoZ9CFVGTfvK8vCG1oyHHWc28ZfNbZ0H29+D+ZGMPly3C7/1DFiy4TyH0w0S
+	EL6bAJgY1vJAvvLCiU5KFZr0BTWbo+1zHI/5hr1XcaeR8exNRot0DZMWG5JpgIqp86vQHnM4LSbNP
+	7G/8eIyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hfs-0000000ExIf-0U0X;
-	Thu, 10 Sep 2026 16:30:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4hh7-0000000ExaL-2ly2;
+	Thu, 10 Sep 2026 16:32:13 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hfq-0000000ExIU-0z3r
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 16:30:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=HbAhR2iPBS6JlP9jCk540RehEd32H6vuse79vCpZM0Y=; b=pjY9LuG/rxXhNaUr7jJshTd8EF
-	xvwBBUJzLph9Y534eOULtDim8Kws8rymZSWWvnfKcAJgG/Mvc3R8L1L4ZwCJb0LGFb+w6dwuHfTrH
-	5rUKXrJPkmc1U5lA03JpoBmiJJEC9GeKPPrIqJm2hCeOiSN0D6gOYxAbOYggW5bR015m1VXn1wbvr
-	ntHBpWw7/BvZ4U8Insvhh8Iiw7UYmKZveuwyZedKvtZD/RD5oDdQt8O/LHBlDFhn1b+Eo+hsyZuf6
-	8NNVSd8E20qioaNb1EbuoI+TRJ9diLgyl/NyZ6gHtZ9qZEqNwI74xysQtw2dIv8iiCLHJFJZCwYfv
-	U2crnxfA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4hfm-00000002kGp-3heH
+	id 1x4hh5-0000000ExZl-0eDo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 16:30:53 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68AF4k5D1652845
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 16:30:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=HbAhR2iPBS6JlP9jCk540R
-	ehEd32H6vuse79vCpZM0Y=; b=n1cjvJhz4gG7UIRK8Cq0rZIexgbk862hQDmfdr
-	jcakNl6JckhdFNvNqdsVd4PQovx1aHDLjp7YmAMp4IwlgkzMzeilT/zP6I0gus5Z
-	W3t+yKAw1hePuKgsMJn2u6CLnkETccmhzjpPATUt/pkksUkPq2/wth4a4DkyvY/r
-	tuYe2doGp034aoOsSLNQhjRp7tC2rl9KeEQgOJdkO/RjsAUjlV9/wH/eFdYY1lAC
-	nhNTW5uHb1N6lX/V5OGQYXL8r9qCFnwwUu2G5Gb9k/tmuTuLZVoFKrrHqXUJ6mtV
-	OKdl9Q75kc9dIlq1t2LB51S+Ppn6PhFcEPNXME8fxDesPAww==
-Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gkrcjtf2m-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 16:30:46 +0000 (GMT)
-Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-97ca6578487so13664241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 09:30:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789057845; x=1789662645; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=HbAhR2iPBS6JlP9jCk540RehEd32H6vuse79vCpZM0Y=;
-        b=Oa60kSFDk2FyvHGlOqFaD65A7HF5r0iaMhCF4by314Sgfxcu5zD7Xueas2jIi+1Cce
-         +ZFeuwpPMXhHtiChFl1Cxy59xnRUGMQf7HnbkbIDKB4/7vMzabRMhkVeoMW2UoNoc8Ko
-         AQuA3m3I6xkX+uuHyGEYew5262Q+B/5Hrr5aXzTmd/kbWG0yelnG7vVPQ5ylauO1+Pjs
-         VaOCLp/TxlPgEOkcEwSmQTCA6v0t7gbHIZ6lUmtPgUYHaDpT3s1oLMAfwqpNlMlX5Dhq
-         H/k2k2AKjneftC7nQXnUtMIZdF8wOceGP/aCDaUf/s1rMKKUlgjiH3c1aCuSFk5cMoTn
-         E5Og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789057845; x=1789662645;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=HbAhR2iPBS6JlP9jCk540RehEd32H6vuse79vCpZM0Y=;
-        b=LHRSg/oS5QUXDwVRznmw711Inn+GuertgQUerQZesYTe+LtSKfOId4MzP5qmyZ97aF
-         LnBl0IegsdvvLW4bcIYW0ELITR0FKrtMATPVHS+Jzr8ZvDkpAKYG/y7zq28NjuTb5xUa
-         pA3neLsnh7UBVCBeX5hgxKHVnQlv5mAT0QNU+cVQoebY7GYaNnRGSw7E4bJ4U3a+uakh
-         pHS9U2+zU1h8w3Kv3vt6+CLLfx5wtoF97llalDn3+zC9aiASCC+v4a4kAxGD/rI7Sswv
-         IPkwDUP798Na2KXhmvlp/sl6NwKETptvwPThjEU2eBvWASib5SBBlbueeiKIyl4vKciL
-         JtnQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxol/TugiKj77kQuALH17ibTCVTaWEfpglGm/XVsNHPv/P4NHD5xtMVlBV1nMtnHoogprdg8bT54waYgGxn0QLW@lists.infradead.org
-X-Gm-Message-State: AFuF++ljrtddo3r2hFE+zLuMIYdN7LSu86L/blMcgEpPHZs5majD72Mv
-	qJYH9n8u3tdvgmvATHR9IhUwHTZTZ1t7oSqXXZBTjekoVHT68FrhHMRFw+/L4hyLqHtPcPIjde4
-	1e9qLcUdMA4ajUN0q1UF3xL2IMOPxZZANp1vfzx/sPqYpEnIiConUsO4HPL1bk2Bg+lIRkwwMFC
-	d4uET6lYflaw==
-X-Gm-Gg: AYBFou0+7lORngZdvzoRADwAP+jWSjiI1hPqAjYXRDt19MCg571+8yp7+6+UphURZ0q
-	l1RVcf43pxDLXWlOMlf/qnXXxl85YfNy3/n1OfsR9scBfApSXe7QXou+jH31BP5zGgLy3iZvSz6
-	HGh/syt5bMP0FH5mdADqkesZj0T4Jthaf6Rimu1veY77US93Ro/7QfAcwgXbpMo66ellGKvZjHs
-	bEiQbspVOr0q9ntRhfsMPfoBdnR/R0d2UufNOB0MWK0ulBD5nqelq4IjXAyuO+dDBQsm//jdgev
-	IJJBHXVmBOXtRXpcFiUd4Wbz1Vd/UMmHs5cwpeVIAQvi/Fo2Vywhpo29+GRxdjEQRhGaw5coBOY
-	F2DrVvSchsE1nVw==
-X-Received: by 2002:a05:6122:420e:b0:5c7:ac2a:770 with SMTP id 71dfb90a1353d-5c84606cfcamr549344e0c.2.1789057845313;
-        Thu, 10 Sep 2026 09:30:45 -0700 (PDT)
-X-Received: by 2002:a05:6122:420e:b0:5c7:ac2a:770 with SMTP id 71dfb90a1353d-5c84606cfcamr549226e0c.2.1789057844791;
-        Thu, 10 Sep 2026 09:30:44 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d1fb1e60bsm130205775e9.0.2026.09.10.09.30.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 09:30:43 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Thu, 10 Sep 2026 18:30:20 +0200
-Subject: [PATCH net v3] net: stmmac: propagate PTP init failures in
- __stmmac_open() and stmmac_resume()
+	Thu, 10 Sep 2026 16:32:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LRuHCOusOEa0Jm7Et8sczvJvvQCPipGza+eo/NemZt/mJIev0A0vyInDpNqWzvj7s3lmlUWe1QoQXQl7NaD2qk33kKtWYZXSLsFd1m8kRoRUsruk+Gkn3lNC54D48B6nwBNosjNxXwBS47aLU0hICTpZpNIPMhRukeSCP+QYIt+fzEo3/qWLWma6zu9CF3RsKt/17qWfU3q+Rl6veOtwGmbVmuaFC9mU8NwbCwrX+3HEadhgiIMIfNIo9gzzMQ0YYl8Gso62vCfQGd60eLFM3pbWcUZ5IrzOVizyIqHryfjHWgQp9FgjofG3ShmPe3hfJvxiCrCZecrm6fZUAb0MMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L22OvJJnj1XpQrbcfsfynWt7q6naD2+cl4v0hsGvcnk=;
+ b=dJNsA1VDeHUdEzgtMG+Wj+q6P0cPwDSNbBaqTwwisZ029inOBUYF2xlleiBZwduIjI8PAyIYaeSnbcIZUmbRAmeVVIt+lUwwaHOpayxaG7AD8KPPbNK5pup7Vyk9/pwSn8jGAH8Qpl+mUF2r3LrTB3pKFs+kS3J+myYvAmxtWcE1Mi1HGNbvKUaxlRUGUubZYGdyfj7J7LBADyaKsabU28VAfD63MR7vX/bBb312IZuJh/uOuRuFpS75Y7gZh6bqmr/fPRIOOczSPAlvizOqTOOnVzbLPgJIbCMaLr49n/iG21gxQzrMKVBmm4ODzisqvIW50WiBaWcofJBdJRKqpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L22OvJJnj1XpQrbcfsfynWt7q6naD2+cl4v0hsGvcnk=;
+ b=Ayq1E4BuBf03mdM1/m6EuhBJmPg33cXQD+Bls+UwM+9Z6HSK+q8Ix5uS0qw9vDSEC7imdKDRL67jbW4JoPlkaOw82fB5Q7vYnmnjHNWFQPBI6kCXo27IwSq7/7nsFw0U3SYMg2cQG2ce79i0APPZ9u0tn62dt4HGhdAW774U5spKO4J4Ih3otNIqifdpSVJozgHN+EtN8/iyXTIxhbc4BS3S9Clfl5TK1ehiVsAMQXNou0bGPjdz92LN9dXADRll5kpP9CBv1z4TdvHUGwkBqC8E/e3yByZ+0kLEnvG69A7My8yRykmPGmE/X7TgVULxJeJoHMSaNgU5ezHJYobxLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AMZPR04MB828691.eurprd04.prod.outlook.com (2603:10a6:20b:7cb::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
+ 2026 16:32:06 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 16:32:05 +0000
+Date: Thu, 10 Sep 2026 11:31:54 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 4/6] arm64: dts: freescale: imx8m{m,p}-verdin: Add camera
+ connector nexus
+Message-ID: <aqLbeo5L83QH9OQK@SMW015318>
+References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
+ <20260910-verdin-imx8mp-hmp-camera-ready-v1-4-3c9349ecdb9f@toradex.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910-verdin-imx8mp-hmp-camera-ready-v1-4-3c9349ecdb9f@toradex.com>
+X-ClientProxiedBy: CYZPR20CA0022.namprd20.prod.outlook.com
+ (2603:10b6:930:a2::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-stmmac-ptp-error-propagate-v3-1-4f386e8256b6@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NTQrDIBAF4KsU1zWMRvLTVe9RujBmkgg1WrXSE
- nL3iqsuSulm4L0H32wkoNcYyOmwEY9JB23XHOrjgahFrjNSPeZMOPAGehA0RGOkoi46it5bT52
- 3Ts4yIm0UMNEOQiHvSQacx0k/C34hK0ZyzeWiQ7T+VR4mVqZ/7MQoox1MwAaoRznJsw2huj/kT
- VljqnyKnvin2P4UeRaF5NihYNg18EXc9/0Nzd3+3yIBAAA=
-X-Change-ID: 20260904-stmmac-ptp-error-propagate-6c0147b4ce29
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Rayagond Kokatanur <rayagond@vayavyalabs.com>,
-        Thierry Reding <treding@nvidia.com>,
-        Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDIwMCBTYWx0ZWRfXx5265OJOgXB/
- xZJsRz4sQAwCtD9T4OxLZNQXnW4ehrT7EU/FosTIjzS31sm7uLlxBAlZezF4QdrW2YxTrrI7AC5
- h3V47BKnuldzjKvWpiuYd2daFR0fezE=
-X-Proofpoint-GUID: zUlEyxJqq3MMa5ymsYjFddBHbZZhe3tT
-X-Authority-Analysis: v=2.4 cv=aef0Dhot c=1 sm=1 tr=0 ts=6aa2db36 cx=c_pps
- a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=P-IC7800AAAA:8 a=fjIqBVsnwoag37M7--IA:9
- a=QEXdDO2ut3YA:10 a=TOPH6uDL9cOC6tEoww4z:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDIwMCBTYWx0ZWRfX9qa0NhQsqAyA
- P6+L7/jokZ0+oZ6cRn3n56G80AWn8BDoiojxdil+50kISSzuQBLYpcVsMZKi56A+Ywkv0SI2o4I
- DZrqBz0eLXJeFX3Xt1+CnaebUqyKPGQZ3yjDoTghDCD8oqyD6FD9qw1kJBeT56V8BhPxDsbtiHv
- K99zEzkPFtSjqDr7olxt9Q6uG0ktJqK745lbqwdcoQ4tRm48lccIftUU5mfUTnHOxMObqSbYMAR
- MKdBW2oSwjNMcOOnPrhU7wzVWyLWMfhOHbN7fFeml2enRAyJVPBmuQB0juDm7iBIKFW7PFdVlR2
- 5CmUH9+8tOtbstX1heibKqu+JdJzZYHLfdaFGvT8cBEME/frM35Ko7NtsDwprlb51Qtw9NuZsZY
- Q6SoL+iICWDtdJnjymYEYLKcv3rwj0axFbCnUhUaKk5dr+D1QMGiqjjYsMM2tk66ZgAPlKDc6e1
- aR5OIdjIkbhcUGLM8PQ==
-X-Proofpoint-ORIG-GUID: zUlEyxJqq3MMa5ymsYjFddBHbZZhe3tT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-10_05,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 phishscore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 impostorscore=0 bulkscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609100200
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMZPR04MB828691:EE_
+X-MS-Office365-Filtering-Correlation-Id: c26cab8e-76a3-44c1-3d1c-08df0f590c95
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|7416014|1800799024|6133799003|22082099003|18002099003|56012099006|4143699003|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: fYAxLOi/6fqxBdo9Dx318XsK+8uKWUyabcX4xS12bqzxMHBijsq8VA6WwaR8UOkTj4OpKlEYtztphvOdiNcZMSR9eBuQQNh3gH0uBL53aDqSXCtfI1qwFRugHA3Yd4xB85QEXXYjFJqbqzr6LZCiJTZJBEnOBEjX6QzweFykVqW+TrSRLgsb9byWpwGQkM8ueU6PfdgWUTiMz1EL7zLKizicvfAEPucFIuhry79nycLEPIVPaUUuG1T4jWwUKvOYrU8Dt+zpkcyFWBb/ljllCxh65+BTrCFAVofxSqdpsTo9fQMe5BpL0t42T7d5bnd63lukD4Bnr+WC17KQ2CiU7EgEtphd98BRQQOYimPni5dgAOleJtQe11UvFpdV0Gqt07d290Tm9lB4fn1bL8loC9RMWn+HbttgsM+Wbvks+4nxH4METUFsG7YTQWip8xzc7DwCoy+lYYtNN+Fp3h8L7y3/kbbe1/CiTa5Qeoh+3r2xHYyyhl+nkXMJelVTxfq06q02X6nyYeZghuaCY9MLiCMlTPnx+EOdpe4Y7NxvGOBeXYWWiPaY1pSg5QppytWjhAzsVDMl7iXE5DPfVhbUBL/isO2eW84x1/PMA8fWA8oN2/noK03oHryJu2qHcMu1EmJqsmh1/ogSgaZlVMamCFSmtGdNi3ZWHl7zFu4Leh0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(7416014)(1800799024)(6133799003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jPR9poLtXow33ftlfV/vg3EhGG4q/LwQi062kzdlkFVgDqELarJMx3HRPCif?=
+ =?us-ascii?Q?rIvdOuKfgC0TKSS5N9cn3yyxR60sFeyVPNEsMkzr/llUHuwQOcU5G9/A+ITf?=
+ =?us-ascii?Q?BjBTwhdQTuo1CsTJQabd3k/ADQ6v5OUayv4F8lI+I5WtOTKDL83Lc6fbkLnl?=
+ =?us-ascii?Q?/18aYB7f1u8MQQ9/KcKb9kJwjSXJKziEnr/7d4vsqHGs6iPxZa2m+clqtFb4?=
+ =?us-ascii?Q?SPrqg17nETScxJq9TOa0pbWDL+evQRz4phLLkLc6jb2JCk3wwoQfMRAv4kVF?=
+ =?us-ascii?Q?MbOOYgfRqOYEnnKVUunlSTGSrvsHKlKH1slcZ1OlZOgc/uGglW3Agil5UcTf?=
+ =?us-ascii?Q?KRMEZn8dSmZXQIWL3CF+kI6/G+ubdRtc8D3bXa8tqRZD2hv+ZwGB87OoiyhE?=
+ =?us-ascii?Q?5pbMoxCseUyVkC1qUOWSD5FxvslvYT3+THjpykMmJu8xMQK4fhbjSpX4C40l?=
+ =?us-ascii?Q?nCGEgSwVeazYt9HWDftKS5/XW52hZGwbxKcFurCq0D23SUfr1+rgMAhqC/2o?=
+ =?us-ascii?Q?h3dI156lstuNhGtWbpgjaR2ZJbWExzfKgjem0Mrz6Q/9zYnZBaD/qlDHjigo?=
+ =?us-ascii?Q?atbZQjNAzVb5+2gCbRz8aaLy3FiyOnYZn1+sB7FEVBkwmeIN+KJJAa7ge0ME?=
+ =?us-ascii?Q?VvG6Ie5qZ3xIbLbCC/2+mU/BGj6inJjeMxq+tPD7wQrQlRtLOb0eVA5C/yjU?=
+ =?us-ascii?Q?WFOk/DGBR9+7xgolyeXPId6bjR4EVWBgsdPHQbdeZbgolnspO3lfxBnC/RAQ?=
+ =?us-ascii?Q?aAPqRI4QfSeNQYLR1KAeWonQvq3WHx0hDiOeksAqRK/m8zKtG05JUhBR3Kcc?=
+ =?us-ascii?Q?8uFt8HAXh4a38C9fk/mx0nb/0LxoS2TZtrLZvKMRVJs9da9VbStlZBU/JBDZ?=
+ =?us-ascii?Q?Wl/1DcsMw3f/c4/2D6SOvks33hIE9RzmodS/HbO1h8r/3qPITvQiKOF/C0aN?=
+ =?us-ascii?Q?lHbs55ntuiWb4rgvtcrKAbmtlj2wr7FCCzDyYKyp0wd5cbuV6mmY3viwpLeG?=
+ =?us-ascii?Q?iLblzy/SyoXZ6b3gegNPmbv4sm85CVJEJwqR7bEl2z1LAGOkj4hTPG1WjMjI?=
+ =?us-ascii?Q?QiZ/yXHuzdFvEfO0xb+Ox9vouoH26uvsZjkM07XdEfA38BjGib/sqrXjejuw?=
+ =?us-ascii?Q?fSR1nK2lw40eaN8pxzRAV/tsCoJ4G8TSxLgyNCjF6YiSf3+PQAM2p91N/N09?=
+ =?us-ascii?Q?qgqM84pBaXBok32XRz6kCHrysZ2qVpVRn9Cw6/Ff0Ur1e1QduPUjjo09ucG4?=
+ =?us-ascii?Q?XunEeP4lKqQl13CEvOmjoGPv6Oi4ONLv6JYGlU90OwSTd1JMSR78x2W2fGMh?=
+ =?us-ascii?Q?qM2NgGmaDjJrsP0PI0J8s4X1zdZr5ovdHBDsyYGG1R0YCjOelb2nOhUY0HgQ?=
+ =?us-ascii?Q?se+T4ILOStYOpcntqTNzdyciqANzpDP5vNRfBLOaatXfa7W1sfCua3HQrE0U?=
+ =?us-ascii?Q?xP1AxSlZssjge8gvzAukZ2n8VesL9dwLNdkoo4RrkRtv9kWYMnrvdWNa2yAd?=
+ =?us-ascii?Q?V+nqam+duUXVcJ2ueb5MyQG7ggBSMyaIOxJSsPQe4YVA5bDOts69tmx1yZIF?=
+ =?us-ascii?Q?xrDb6gNHEQLOVTuhhkIe6swg8qN6HJaE6jPTr+YCVUZI3uQDmXMWpKQ+D1rD?=
+ =?us-ascii?Q?6engSdGihMEAPtSjMHQFKPAAobOmDUvSyQSN9TMr3qrugEgqi2l6a6LdBrgt?=
+ =?us-ascii?Q?OLCgmQzRdVI9dLiCOQcnERRA/uO/GRw8ciZw1Uwt1oGvAWIiXEPg0qEazyfa?=
+ =?us-ascii?Q?+OHqZsZPDE508JGwi7unWIgmcyS3p5oZbIvRrjZBNrNMqX1ox8ne?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c26cab8e-76a3-44c1-3d1c-08df0f590c95
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 16:32:05.1140
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kfDPTeJsgEBAdIzvTL5QgmOPfnhhzTXvDQaJeuDo7V/wQblB2uZe+LViiywFYEfgL3bj+DnAsJIMNX4RhGN8CwFzx8JYj2mQgCDFjopDY8QXCPDRljoaTq8BBAlVBPH+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB828691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_173051_282315_183E0AF9 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20260910_093211_344984_708B81CC 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,332 +146,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_setup_ptp() returns void and swallows both PTP setup errors:
-the PTP reference clock enable and stmmac_init_timestamping()
-failures are logged but never propagated. When they fail, the MAC
-system time counter is left in its post-reset, non-running state,
-while the driver keeps operating as if timestamping were up.
-This matters for TAPRIO/EST qdisc offloading, which derives the EST
-base time from the hardware timestamp counter: arming the gate list
-against a non-advancing time base would leave the schedule permanently
-stuck.
+On Thu, Sep 10, 2026 at 05:38:00PM +0200, Ernest Van Hoecke wrote:
+> From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+>
+> The Verdin Development Board, Dahlia and Mallow expose the same 24-pin CSI
+> camera connector, while Verdin iMX8M Mini and Verdin iMX8M Plus route its
+> sideband signals and media pipeline through different SoC resources.
+>
+> Add a GPIO nexus to each carrier description and stable Verdin-level labels
+> for each module's CSI_1 I2C bus, receiver and capture engine. Keeping the
+> nexus in the carrier files avoids describing the physical connector on
+> carriers which do not provide it.
+>
+> This gives accessory overlays a stable connector and media interface
+> without embedding either module's wiring in the accessory description.
+>
+> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> ---
 
-Make stmmac_setup_ptp() return an error code and propagate the
-failure in __stmmac_open() and stmmac_resume(), stopping the DMA
-engines when PTP setup fails.
+Nice, thank for your efforts.
 
-Extend the same error propagation to the timestamping counter
-initialisation: stmmac_update_subsecond_increment() and
-stmmac_init_tstamp_counter() now return the addend and system time
-programming errors instead of discarding them, so a counter that
-cannot be configured is reported as a failure rather than silently
-left non-running.
+Frank
 
-While at it, factor the timestamping availability check into a
-stmmac_check_timestamp_cap() helper that requires both the hardware
-timestamping capability and a valid PTP reference clock rate. This
-keeps the interface operational on platforms with PTP-capable
-silicon but an unconfigured PTP clock, where timestamping cannot be
-enabled: those are treated as PTP-less rather than failing to open
-or resume. Apply the same helper to the hwtstamp get/set paths so
-they consistently report -EOPNOTSUPP when timestamping is not usable.
-
-Gate the PTP reference clock enable/disable in the platform noirq
-suspend/resume callbacks with the same helper, keeping the clock
-reference balanced against the new early return in
-stmmac_release_ptp().
-
-Fixes: 92ba6888510c ("stmmac: add the support for PTP hw clock driver")
-Fixes: 0ad2be79f254 ("net: stmmac: Balance PTP reference clock enable/disable")
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
-Changes in v3:
-- Rebase on top of net main branch.
-- Link to v2: https://lore.kernel.org/r/20260907-stmmac-ptp-error-propagate-v2-1-4a2e8e41e860@oss.qualcomm.com
-
-Changes in v2:
-- Check clk_ptp_rate value in stmmac_check_timestamp_cap().
-- Return error code in stmmac_update_subsecond_increment() and
-  stmmac_init_tstamp_counter().
-- Rely on stmmac_check_timestamp_cap() in stmmac_hwtstamp_set() and
-  stmmac_hwtstamp_get().
-- Link to v1: https://lore.kernel.org/r/20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa@oss.qualcomm.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h       | 11 +++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 98 ++++++++++++++--------
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  6 +-
- 3 files changed, 78 insertions(+), 37 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..0a00490832f3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -419,6 +419,17 @@ int stmmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
- 
- struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev);
- 
-+static inline bool stmmac_check_timestamp_cap(struct stmmac_priv *priv)
-+{
-+	if (!priv->dma_cap.time_stamp && !priv->dma_cap.atime_stamp)
-+		return false;
-+
-+	if (!priv->plat->clk_ptp_rate)
-+		return false;
-+
-+	return true;
-+}
-+
- static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
- {
- 	return !!priv->xdp_prog;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 5fe7e95fdd34..7f5ada1132c4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -601,7 +601,7 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
- 	}
- }
- 
--static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
-+static int stmmac_update_subsecond_increment(struct stmmac_priv *priv)
- {
- 	bool xmac = dwmac_is_xmac(priv->plat->core_type);
- 	u32 sec_inc = 0;
-@@ -625,7 +625,7 @@ static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
- 	 */
- 	temp = (u64)(temp << 32);
- 	priv->default_addend = div_u64(temp, priv->plat->clk_ptp_rate);
--	stmmac_config_addend(priv, priv->ptpaddr, priv->default_addend);
-+	return stmmac_config_addend(priv, priv->ptpaddr, priv->default_addend);
- }
- 
- /**
-@@ -653,7 +653,7 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
- 	u32 ts_master_en = 0;
- 	u32 ts_event_en = 0;
- 
--	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
-+	if (!stmmac_check_timestamp_cap(priv)) {
- 		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping");
- 		priv->hwts_tx_en = 0;
- 		priv->hwts_rx_en = 0;
-@@ -843,7 +843,7 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 
--	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
-+	if (!stmmac_check_timestamp_cap(priv))
- 		return -EOPNOTSUPP;
- 
- 	*config = priv->tstamp_config;
-@@ -865,32 +865,32 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
- 				      u32 systime_flags)
- {
- 	struct timespec64 now;
--
--	if (!priv->plat->clk_ptp_rate) {
--		netdev_err(priv->dev, "Invalid PTP clock rate");
--		return -EINVAL;
--	}
-+	int ret;
- 
- 	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
- 	priv->systime_flags = systime_flags;
- 
--	stmmac_update_subsecond_increment(priv);
-+	ret = stmmac_update_subsecond_increment(priv);
-+	if (ret)
-+		return ret;
- 
- 	/* initialize system time */
- 	ktime_get_real_ts64(&now);
- 
- 	/* lower 32 bits of tv_sec are safe until y2106 */
--	stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec, now.tv_nsec);
--
--	return 0;
-+	return stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec,
-+				   now.tv_nsec);
- }
- 
- /**
-  * stmmac_init_timestamping - initialise timestamping
-  * @priv: driver private structure
-- * Description: this is to verify if the HW supports the PTPv1 or PTPv2.
-- * This is done by looking at the HW cap. register.
-- * This function also registers the ptp driver.
-+ * Description: configure the PTP reference clock and initialise the hardware
-+ * timestamp counter, then detect which timestamping modes the HW supports.
-+ * The caller is responsible for enabling the PTP reference clock and for
-+ * registering the PTP clock driver.
-+ * Return: 0 on success, or a negative error code if the timestamp counter
-+ * cannot be initialised.
-  */
- static int stmmac_init_timestamping(struct stmmac_priv *priv)
- {
-@@ -900,11 +900,6 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
- 	if (priv->plat->ptp_clk_freq_config)
- 		priv->plat->ptp_clk_freq_config(priv);
- 
--	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
--		netdev_info(priv->dev, "PTP not supported by HW\n");
--		return -EOPNOTSUPP;
--	}
--
- 	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
- 					       PTP_TCR_TSCFUPDT);
- 	if (ret) {
-@@ -937,22 +932,39 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
- 	return 0;
- }
- 
--static void stmmac_setup_ptp(struct stmmac_priv *priv)
-+static int stmmac_setup_ptp(struct stmmac_priv *priv)
- {
- 	int ret;
- 
-+	if (!stmmac_check_timestamp_cap(priv)) {
-+		netdev_info(priv->dev, "PTP not supported\n");
-+		return 0;
-+	}
-+
- 	ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
--	if (ret < 0)
-+	if (ret < 0) {
- 		netdev_warn(priv->dev,
- 			    "failed to enable PTP reference clock: %pe\n",
- 			    ERR_PTR(ret));
-+		return ret;
-+	}
- 
--	if (stmmac_init_timestamping(priv) == 0)
--		stmmac_ptp_register(priv);
-+	ret = stmmac_init_timestamping(priv);
-+	if (ret) {
-+		clk_disable_unprepare(priv->plat->clk_ptp_ref);
-+		return ret;
-+	}
-+
-+	stmmac_ptp_register(priv);
-+
-+	return 0;
- }
- 
- static void stmmac_release_ptp(struct stmmac_priv *priv)
- {
-+	if (!stmmac_check_timestamp_cap(priv))
-+		return;
-+
- 	stmmac_ptp_unregister(priv);
- 	clk_disable_unprepare(priv->plat->clk_ptp_ref);
- }
-@@ -4161,10 +4173,12 @@ static int __stmmac_open(struct net_device *dev,
- 	ret = stmmac_hw_setup(dev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
--		goto init_error;
-+		return ret;
- 	}
- 
--	stmmac_setup_ptp(priv);
-+	ret = stmmac_setup_ptp(priv);
-+	if (ret)
-+		goto ptp_error;
- 
- 	stmmac_init_coalesce(priv);
- 
-@@ -4189,7 +4203,10 @@ static int __stmmac_open(struct net_device *dev,
- 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
- 
- 	stmmac_release_ptp(priv);
--init_error:
-+ptp_error:
-+	stmmac_stop_all_dma(priv);
-+	stmmac_mac_set(priv, priv->ioaddr, false);
-+
- 	return ret;
- }
- 
-@@ -7685,9 +7702,7 @@ static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
- 	/* In Coarse mode, we can use a smaller subsecond increment, let's
- 	 * reconfigure the systime, subsecond increment and addend.
- 	 */
--	stmmac_update_subsecond_increment(priv);
--
--	return 0;
-+	return stmmac_update_subsecond_increment(priv);
- }
- 
- static int stmmac_dl_ts_coarse_get(struct devlink *dl, u32 id,
-@@ -8327,13 +8342,14 @@ int stmmac_resume(struct device *dev)
- 	ret = stmmac_hw_setup(ndev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
--		stmmac_legacy_serdes_power_down(priv);
--		mutex_unlock(&priv->lock);
--		rtnl_unlock();
--		return ret;
-+		goto error_unlock;
- 	}
- 
--	stmmac_init_timestamping(priv);
-+	if (stmmac_check_timestamp_cap(priv)) {
-+		ret = stmmac_init_timestamping(priv);
-+		if (ret)
-+			goto error_stop_dma;
-+	}
- 
- 	stmmac_init_coalesce(priv);
- 	phylink_rx_clk_stop_block(priv->phylink);
-@@ -8357,6 +8373,16 @@ int stmmac_resume(struct device *dev)
- 	netif_device_attach(ndev);
- 
- 	return 0;
-+
-+error_stop_dma:
-+	stmmac_stop_all_dma(priv);
-+	stmmac_mac_set(priv, priv->ioaddr, false);
-+error_unlock:
-+	stmmac_legacy_serdes_power_down(priv);
-+	mutex_unlock(&priv->lock);
-+	rtnl_unlock();
-+
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(stmmac_resume);
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 6128ed1bd521..dcfce51b2886 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -959,7 +959,8 @@ static int __maybe_unused stmmac_pltfr_noirq_suspend(struct device *dev)
- 
- 	if (!priv->wolopts) {
- 		/* Disable clock in case of PWM is off */
--		clk_disable_unprepare(priv->plat->clk_ptp_ref);
-+		if (stmmac_check_timestamp_cap(priv))
-+			clk_disable_unprepare(priv->plat->clk_ptp_ref);
- 
- 		ret = pm_runtime_force_suspend(dev);
- 		if (ret)
-@@ -984,6 +985,9 @@ static int __maybe_unused stmmac_pltfr_noirq_resume(struct device *dev)
- 		if (ret)
- 			return ret;
- 
-+		if (!stmmac_check_timestamp_cap(priv))
-+			return 0;
-+
- 		ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
- 		if (ret < 0) {
- 			netdev_warn(priv->dev,
-
----
-base-commit: 2ac09b5353fe6858411fdc8c6efa60d832e20f13
-change-id: 20260904-stmmac-ptp-error-propagate-6c0147b4ce29
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-
+>  arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mm-verdin-dev.dtsi    | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mm-verdin-mallow.dtsi | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi        |  8 +++++++-
+>  arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi    | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi | 17 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi        |  7 ++++++-
+>  8 files changed, 115 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi
+> index 3d0b14968131..4cf77559e69b 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi
+> @@ -4,6 +4,23 @@
+>   */
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 11 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio1 9 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	sound_card: sound-card {
+>  		compatible = "simple-audio-card";
+>  		simple-audio-card,bitclock-master = <&dailink_master>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dev.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dev.dtsi
+> index 1d8d146d9eeb..51a836324c16 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dev.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dev.dtsi
+> @@ -4,6 +4,23 @@
+>   */
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 11 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio1 9 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	sound_card: sound-card {
+>  		compatible = "simple-audio-card";
+>  		simple-audio-card,bitclock-master = <&dailink_master>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-mallow.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin-mallow.dtsi
+> index 4a0799d63446..5951cd19a84c 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin-mallow.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-mallow.dtsi
+> @@ -11,6 +11,23 @@
+>  #include <dt-bindings/leds/common.h>
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 11 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio1 9 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	leds {
+>  		compatible = "gpio-leds";
+>  		pinctrl-names = "default";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> index ac450fc6cbfb..5c72b279d506 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> @@ -224,6 +224,9 @@ &cpu_crit0 {
+>  	temperature = <105000>;
+>  };
+>
+> +/* Verdin CSI_1 */
+> +verdin_csi_capture: &csi {};
+> +
+>  &ddrc {
+>  	operating-points-v2 = <&ddrc_opp_table>;
+>
+> @@ -596,7 +599,7 @@ &i2c2 {
+>  /* Verdin I2C_3_HDMI N/A */
+>
+>  /* Verdin I2C_4_CSI */
+> -&i2c3 {
+> +verdin_csi_i2c: &i2c3 {
+>  	clock-frequency = <400000>;
+>  	pinctrl-names = "default", "gpio";
+>  	pinctrl-0 = <&pinctrl_i2c3>;
+> @@ -695,6 +698,9 @@ eeprom_carrier_board: eeprom@57 {
+>  	};
+>  };
+>
+> +/* Verdin CSI_1 */
+> +verdin_csi_rx: &mipi_csi {};
+> +
+>  /* Verdin PCIE_1 */
+>  &pcie0 {
+>  	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi
+> index 0e218e6b8e29..164031d5dd86 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi
+> @@ -4,6 +4,23 @@
+>   */
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 7 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio4 3 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio4 1 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "X21";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> index 72a4f846d694..c52e46738110 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> @@ -4,6 +4,23 @@
+>   */
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 7 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio4 3 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio4 1 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "X37";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> index 846b36706821..b915fbbd04b6 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> @@ -11,6 +11,23 @@
+>  #include <dt-bindings/leds/common.h>
+>
+>  / {
+> +	verdin_camera_connector: camera-connector-0 {
+> +		compatible = "toradex,camera-connector";
+> +		#gpio-cells = <2>;
+> +		/*
+> +		 * CAM_1_CON_RST       (pin 11) - Verdin GPIO_5 (SODIMM 216)
+> +		 * CAM_1_CON_PWRDWN    (pin 22) - Verdin GPIO_6 (SODIMM 218)
+> +		 * CAM_1_CON_IC_DETECT (pin 23) - Verdin GPIO_7 (SODIMM 220)
+> +		 * CAM_1_CON_PWRCTRL   (pin 24) - Verdin GPIO_8 (SODIMM 222)
+> +		 */
+> +		gpio-map = <0 0 &gpio1 7 GPIO_ACTIVE_HIGH>,
+> +			   <1 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
+> +			   <2 0 &gpio4 3 GPIO_ACTIVE_HIGH>,
+> +			   <3 0 &gpio4 1 GPIO_ACTIVE_HIGH>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "X14";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
+> index 45a4713c260f..53499289cf61 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
+> @@ -719,7 +719,7 @@ atmel_mxt_ts_mezzanine: touch-mezzanine@4a {
+>  };
+>
+>  /* Verdin I2C_4_CSI */
+> -&i2c3 {
+> +verdin_csi_i2c: &i2c3 {
+>  	clock-frequency = <400000>;
+>  	pinctrl-names = "default", "gpio";
+>  	pinctrl-0 = <&pinctrl_i2c3>;
+> @@ -829,6 +829,11 @@ &i2c5 {
+>  	single-master;
+>  };
+>
+> +/* Verdin CSI_1 */
+> +verdin_csi_capture: &isi_0 {};
+> +
+> +verdin_csi_rx: &mipi_csi_0 {};
+> +
+>  /* Verdin PCIE_1 */
+>  &pcie {
+>  	pinctrl-names = "default";
+>
+> --
+> 2.43.0
+>
+>
 
