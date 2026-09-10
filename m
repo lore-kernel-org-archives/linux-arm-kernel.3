@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBF0C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 01:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141FBC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 01:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYl7DgYw3pPECQ79mBvyISUl5xXzjI6JeiWJOfwAtIc=; b=H0R4ietGkyRVxFV1WUyFvxX5pI
-	t3hqKn8dCugm3dJ2987rLNGo+HQKGfYKrNVpIl2W/iSJRU0bj2F24mDdsYa/FE6mGG9jiOatdXUZH
-	LXH9xsMq2P+mPvEBX+bV4Dd4kJvUL5UZjTlyrOYSm2HO2I9d/J+2g5o54MihwuPzhRstyu0/PH6Oi
-	F+S5Hh9Qt77aG66xagKJJcVYnPIULrkeLCW1ahCxkIXvgz1AqTAO8IRkXCP3KusyI0lX1YMQ2lHrY
-	hNaMXsLfj8mZn2/x0iFe2b2Dn4ZyY8ZY//alzj5l+rE0KOwt2O+mBW3cCTJdM1eKmg1eUW55SmPAe
-	Dv2F7gvw==;
+	bh=sjlutxGiX8pDK8sYanBqVVvMMg/4+no/0Rn14LPE0yU=; b=Bi+9AzN2XucIyMV5J3Cy1yzlKm
+	25D8NZb+v0hrYFP5DGEIEUZeGsG9OQurWDULRxSc0Y6JdmivpLOpWAoKY8ldhRpHvtFIt7/9tkJUb
+	615LnacQhIgBONKJZILZXxFx9nxOx2L/xLCXAxYMvgZJW0pKQKWdgl7LA5uREq0EHW2vwO54BurKW
+	Q2pPHPg2ey0Z7vGxZKFZlbjTpNxEvHL4WacbQC8ssHriZDLrteuLX6i0ROC29tn8sz0HT5Pk0NZ1z
+	UeYf0SLP2Jc6fbzjnoMXztvhV/ObgSOfftZe6ypIzBc7CjZH2Wp3ljDE82SGVWA/yJrCmKmEZCwQI
+	DRDDYSJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Tex-0000000DBqo-1DuA;
-	Thu, 10 Sep 2026 01:33:03 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1x4Tez-0000000DBsC-1jpF;
+	Thu, 10 Sep 2026 01:33:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ter-0000000DBo5-2J97
+	id 1x4Tew-0000000DBpz-1uuN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 01:33:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=sjlutxGiX8pDK8sYanBqVVvMMg/4+no/0Rn14LPE0yU=; b=L7gOJ2s+ov7mrJhMTk7aXKwRtH
+	cZdFzX6QTdWHzod1xLzvjXcNzx4N3Q+Mg5OdO96ctJJxNTZbmPtPAMhXqT26hy7tZnpsF8+Ewgj/T
+	kfTYtGLZk9xdGERLOjYjLGzKpiFV9/heJ7bUb4EwSG2xnGmAciNp+6cyLljSco3/fTo4nNcKtjCJ3
+	jN9yPD6qLM88Xs+hchr3T++S87R68PH4AVEMXSgBFI1zjK9Qemv0qySu9CAOzmTeRxjkK44kRYVwY
+	hGNA1k/jdwoC2nadcuAlFPHanQfJR8IdNSBMasy91FoXlFKAw4rJnUu8QghSnglpHB3m74hb56209
+	EHMe7/fw==;
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4Tet-00000001sOq-2pZo
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Sep 2026 01:33:01 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-499ac87c92bso68933385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:32:56 -0700 (PDT)
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49954b88fffso47527415e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 18:32:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789003975; x=1789608775; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789003978; x=1789608778; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MYl7DgYw3pPECQ79mBvyISUl5xXzjI6JeiWJOfwAtIc=;
-        b=eoHl30BEhN/nQ0uFX/5Uz6i8GP8A/YHLNZii7PA2iiztjzR28HVheCKhh9f7880uZe
-         X/rJfYGPeyKWBtxkHVa6P5SqTbx/4uzdOn8YyOBFXl3fj9MyodhS8dYn5IxCzMer73R5
-         LudDvL0cvnWG3P1jEpjKCpHnFoDH3dqqUvHniO4TX67mlFsCaCmkGzPcGNjEocSlhSRt
-         bGswvbOU/1EpbiG/hq9S+VxXrcWrbZpkEUziOjM/RyIpuiuW6Z4+8qJ0N2kBRGvqhl1J
-         ATQoaekNNbsiMl5MO6mqcm+G/6PSS8x0qGXjMcNyhsP+SKkexlxCeMzpf7YzBHaEI4Mx
-         qgYw==
+        bh=sjlutxGiX8pDK8sYanBqVVvMMg/4+no/0Rn14LPE0yU=;
+        b=f5ylQh56KjR38QT3QuM27Eo/q/Ngj5OKyRNzQEqTs2lla5KszOyNQ7Q4c4eV2x/8de
+         I/Qtz/fiBYLfwX/kUOTT1YIu/4veSS9K1ECx0jFMaqY3wESgRQt9/3citOu/bPRjNSKX
+         tg+p3HL8y/tu1+YRB1BbXg2PhUn9CbAP6qjuoiaLTkiaiM573l98k5aj94N1yHdPH/DP
+         ddIynB7ieu4vqfoGNJN0ovlYQvqyrCrhLhHXRVEuKw95LqLVa2GqByRc2FA1MYSEmZUp
+         aJw7siqMevEwxBvDGNcI5+I4zthJpmy63D1npZFYiJcWUJUrbZPRxqYPdneD14eBRFaH
+         CURw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789003976; x=1789608776;
+        d=1e100.net; s=20251104; t=1789003978; x=1789608778;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MYl7DgYw3pPECQ79mBvyISUl5xXzjI6JeiWJOfwAtIc=;
-        b=ZcTRnI+a7kdbQJhDeuxpTKT7XaJqtTI1czqNELc/YNr6Dpkkkl8OM4mjpWEzcXqeHz
-         m9XJRfJekU+Mlpf7/ErtMkPgrtkhf9jIul9BupwM1X1DFzfdZ6zgM0lZylxUiyMrBstB
-         YfazknzBeBZ98xKLu6J9FtiLgNWTWY9xlenZXd3EcxV9IB33VVRKnwKD6ISyCjuGv2a5
-         9e34vmaVnnJD/O97buVEZ2oaZ/DA8vrAQuledkiD9h9sJj912oFM7D4oUInskp0M5lbl
-         rebcM0rWyUrFbRN1HqMvPBCYkG0xgRCGg08oUbhWDm/4zi3KoXaFsec4nXa5Ob/2uGI0
-         Wyag==
-X-Forwarded-Encrypted: i=1; AKwUvBwgzheHW4dKjxGNT5JCLK+qERkZHksyj0tX1UD4/Quo/zYLFGDbrMWiIobT2frnrk5z+6UPeDP4zwVWKrgH8fQC@lists.infradead.org
-X-Gm-Message-State: AFuF++lTgJQsfuiGCqblFP3EV6+d74Q14sF4v/8dFYk8YV6K3Jzf3gFG
-	m5hHVf+T0WCiwdBy70plAShTKjzaDBMQT1LuS73WucmrgMTLvYBXyXeG
-X-Gm-Gg: AYBFou2I7PsZfH3oKKiOBk1kZi///iVlgz9xUWowdkFn+eoJ96i4SLjQSAJ+4fmW75C
-	/xKF+R/H6xEQKFnAdhcGEzNt40WvtoiCEDnhCmJnoMhfsyA4nrYoIAvziEbKorn7eVsGBKDxUzT
-	+QP/AqyeuVYTnVZ2cZR9u39rnVca1DU7iXJTChz5AykSjPUiei170DK/wp9hXtyowKNczxD4dFo
-	eDG9HCYdg7xsgl3T180OIl6JUdzJLOgDLKsJR5VI4IZN2S2tgVnjIlQl6zq/1RbXXSvPrZbYz8j
-	0LkkEjrhbxlXzdHToZvBr2Zz6SRFrdYJNP8bSPNHNPD0RB8zPorGOYebZ2kyBxFPmwh/GTL/zKg
-	+RY2GzFpvzkb8s5R4i9f7hAfmTW/4uP0OAl5m1bgulo72Hj4ZCJLRPUjhjdmk0UOByPYyOhL7Bm
-	dOfDsA5f7qpca1Wm/UTHNYn+Vk5w7X7Npltb9Hf7a4n6QIbErNg2xXpU2dN8V/mCL7wDrVl+pPE
-	ubrSG6vcTLIQx2P2wl+m+st5oUN7O8MvFfJqB+FTEiEUTYxtq1d7/JAdbbmjUv1L+Hkx4zJDINf
-	Spk55hflx6T9bqtEWwl3Zk/ZI+y3AH5CmZ9s/cAIHZTKtCbAQ5+oL8dnVVxEleGleMhsVxyjJk6
-	dBw==
-X-Received: by 2002:a05:600d:849c:20b0:49c:fe46:7219 with SMTP id 5b1f17b1804b1-49cfe467228mr261724915e9.20.1789003975492;
-        Wed, 09 Sep 2026 18:32:55 -0700 (PDT)
+        bh=sjlutxGiX8pDK8sYanBqVVvMMg/4+no/0Rn14LPE0yU=;
+        b=ejTn7hvrOOu3qC4vh3mK8yO8PayMXX8yaMIgeVbEvjPwJKwLDJMVPgeI6f/XTlS2JD
+         IpGmsLnrh1mHFdmfidrN0hu9FvSIszy55VUnfKqCaze5Xa/619CLUqZsNpnrH2a2QcZj
+         GKalRSy2EzSkpVCEJZ5JG0//t0QY4zqFewdnOm3KiOH+hTTYp9rxMX0mQvqL9ghfqQ/u
+         Mh/m3X8ZdUvdZ2U8be5NNRVZ6DrU/uRxL4oe6v5+ajdB+3nNpSfvS6srzSJaBKzo/QE1
+         lSYdCQoh63qaKAYhEnHqxoszejJnBP9KM6c55qkIVexDn5tSEoATlRwy76b9RRwX0/ci
+         m+Fg==
+X-Forwarded-Encrypted: i=1; AKwUvBxw65w0zg2/qqF8iZ7NLqQVvsRYieVilUVRJDOLWmFTADs1RsasqR9EKQQtU+hKY5923edVbAeo94CfBimryAer@lists.infradead.org
+X-Gm-Message-State: AFuF++krqf8KuaPjagapja6Ooyep1k6kffr9veur8KREkCHaqf55E8fd
+	u/pVduGgwoHxV7jwfJ1TZIj7KxwvKYzZZSihVMsFrQBecFODgXLoCvRp
+X-Gm-Gg: AYBFou3AVZirkmTC94j0mzqVJY+0tQCB8LjUnEsbjfoPqZfWejeeKeLGAdKT/zjSO4G
+	98oAvFu8n6QYCv5BmoaMjftcSnKWp7S0WU93oJWLGAQDKXiAqHbSAz0wqnS6UgJwM76jLKgdE8F
+	XUd0atRsjfhPb5COmhaaxeRDdSmMwn8KgFZNCUuibII4+Zt3LCE6LYJFxkAM9cn7Wy+SdlFZngR
+	2uX9/QkqUgjjm9z+Ttig4dvhCvUV3qTzL8VcgkdcwvVZPPMayXyGN9tdZm/EAbO7KjOMo/PzPyo
+	UYc2OnDGiO7hILQxqFvc8Pm4Ifinu7TJBeX3RQuvMAZU1COwap3GcuUad1jfQZjoJpZ5XAo4QTE
+	JtyK7weU+LurEdHwYV1cRxA4kTPqvobfGraS8S1o/otkfx5rKRU6HvcL9EGRYL9HHbbAUCuxw5E
+	r704bV/+/ed638h+U5PqKRRCHHXkwNY72z6TOkdb/zRbNavZwwc3bvhtoZ2a+NdczY9K02REGlY
+	YJ+wI4sc/uh1P0Fue3x41BRIfP0ooH5SPzwxL8F8MJsamr7jAaEAwfyEGE4DyuzFz3CW6dAzyre
+	0ZtCkNaQ0fUvmUT184b0bPbWp3Ob/gclHL+0lf+qH24rwjgX/Ben4y5pFYD5cntpv/Gu7rqIi5C
+	ilg==
+X-Received: by 2002:a05:600c:1c29:b0:49c:fc6c:be03 with SMTP id 5b1f17b1804b1-49cfc6cc06cmr366891825e9.26.1789003977900;
+        Wed, 09 Sep 2026 18:32:57 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-b090-6201-5565-e933-e630-1831.310.pool.telefonica.de. [2a02:3100:b090:6201:5565:e933:e630:1831])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26d4e3f3sm35852735e9.15.2026.09.09.18.32.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26d4e3f3sm35852735e9.15.2026.09.09.18.32.55
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 09 Sep 2026 18:32:54 -0700 (PDT)
+        Wed, 09 Sep 2026 18:32:57 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -102,17 +117,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Dominik Brodowski <linux@dominikbrodowski.net>,
 	Michael Schmitz <schmitzmic@gmail.com>,
 	Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v3 2/8] docs: kernel-parameters: Drop the bau= entry
-Date: Thu, 10 Sep 2026 03:32:39 +0200
-Message-Id: <20260910013245.8619-3-kmehltretter@gmail.com>
+Subject: [PATCH v3 3/8] docs: kernel-parameters: Drop the edac_report= entry
+Date: Thu, 10 Sep 2026 03:32:40 +0200
+Message-Id: <20260910013245.8619-4-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260910013245.8619-1-kmehltretter@gmail.com>
 References: <20260910013245.8619-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_183257_622490_B3D617E0 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260910_023259_785825_C32C6A86 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,39 +142,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bau= went away with commit 39297dde7390 ("x86/platform/uv: Remove UV
-BAU TLB Shootdown Handler"); nothing parses it any more.
+edac_report= became the edac_core.edac_report module parameter with
+commit fee27d7d9788 ("EDAC: Delete edac_stub.c") and went away with
+commit 7fc0b9b995f2 ("EDAC: Drop the EDAC report status checks");
+nothing parses it any more.
 
 Drop the entry.
 
-Fixes: 39297dde7390 ("x86/platform/uv: Remove UV BAU TLB Shootdown Handler")
+Fixes: 7fc0b9b995f2 ("EDAC: Drop the EDAC report status checks")
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 Acked-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
-Reviewed-by: Steve Wahl <steve.wahl@hpe.com>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 7 -------
- 1 file changed, 7 deletions(-)
+v3: name the right commits, Fixes: tag moved to 7fc0b9b995f2 (Boris)
+
+ Documentation/admin-guide/kernel-parameters.txt | 8 --------
+ 1 file changed, 8 deletions(-)
 
 diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index c8d96de4c00d..99d5bb68968a 100644
+index 99d5bb68968a..2a8d862ef30f 100644
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -624,13 +624,6 @@ Kernel parameters
- 			Format: <int> (must be >=0)
- 			Default: 64
+@@ -1578,14 +1578,6 @@ Kernel parameters
+ 			PCI device even when its classcode is not of the
+ 			UART class.
  
--	bau=		[X86_UV] Enable the BAU on SGI UV.  The default
--			behavior is to disable the BAU (i.e. bau=0).
--			Format: { "0" | "1" }
--			0 - Disable the BAU.
--			1 - Enable the BAU.
--			unset - Disable the BAU.
+-	edac_report=	[HW,EDAC] Control how to report EDAC event
+-			Format: {"on" | "off" | "force"}
+-			on: enable EDAC to report H/W event. May be overridden
+-			by other higher priority error reporting module.
+-			off: disable H/W event reporting through EDAC.
+-			force: enforce the use of EDAC to report H/W event.
+-			default: on.
 -
- 	bdev_allow_write_mounted=
- 			Format: <bool>
- 			Control the ability to open a mounted block device
+ 	edd=		[EDD]
+ 			Format: {"off" | "on" | "skip[mbr]"}
+ 
 -- 
 2.53.0
 
