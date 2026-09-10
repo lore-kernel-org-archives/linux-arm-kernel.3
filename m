@@ -4,72 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183E1C79FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A873DC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wESYV4vb4eag7IIYshHAxOTm9GlKcGj24cMsiXM47nA=; b=mHHz2cbd+d6itMGxVyhs6HagG/
-	bU09D2I4Z/MwZP2HYbPQOjFSB0ZeeWP1K+88jNF1e4iDjhw693tktEmSVbU9ZhHJ/Y1bQwkJWTnXs
-	LSU1+WdKqAezS6N5KKwZiv+dqKb6rNvgkvxwB42l5zbBSOzoKB05rJkiVisFgMRQwmd6Xr2cYDIjC
-	IKvtvbUEdNxD7Icqd4dNNDJKO6VkTq2Y+WQ+gZ8Hzj+2r3Dbp23eFVdJ0xQ9CfZfoFFGHIkdMkwTy
-	W1z0LTMP+W9KLAQoRd9z4B6w9MOsQJgcf1saiChq3ihu5EGMl+wUwfBvYZBe9ePo6m7r+kUsg+rEp
-	TnfAElFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6QM06wsJmDFUwDTXBwOD8bKArEY6vK/Tt6RRUM1IU/M=; b=jfKCKrvyV9fO4sqZWzHwtRc0Fz
+	VlDKfdx3q6ZjZZkDzcc+8Y42xljw8h1RMUg6N8p+vqSSeuX5qYoYDizS5MDu7t1qtrlcrmJsGj/FB
+	YIWgR5MF1G6862LZvgME7H4VuadE2RZgZSCrWD3meQXwGhfho2bfnY/jtNUr4vgt+qE0WlgV5bnLV
+	6QGUdF92BrTm1Vv46PokbEI2E21cXwc6U/nj+uVB6IsGA93BijbIltHP2TXtcAw0Yj5ZR90o8MVQB
+	9AjBrPvJWJDChUbifDAzNruBEsJLKyOA2lwy/xVQF6BdLIIELnK58yCAKjP9lebmOtnmy9ioA+5aX
+	lwfPdi2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Z9y-0000000DclJ-3WWz;
-	Thu, 10 Sep 2026 07:25:26 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x4ZCY-0000000Dd6l-17Mq;
+	Thu, 10 Sep 2026 07:28:06 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Z9v-0000000Dckd-3rQc
+	id 1x4ZCW-0000000Dd66-0IsU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 07:25:25 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.66])
-	by APP-01 (Coremail) with SMTP id qwCowAD3y+9cW6JqR4qWBw--.18774S2;
-	Thu, 10 Sep 2026 15:25:17 +0800 (CST)
-Message-ID: <e66fdb299d87ffdfea1c871cfeab88eeed7755ce.camel@iscas.ac.cn>
-Subject: Re: [PATCH v6 4/6] drm/verisilicon: add DC8000 (DCUltraLite)
- display controller support
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 10 Sep 2026 15:25:16 +0800
-In-Reply-To: <20260908092840.225220-5-a0987203069@gmail.com>
-References: <20260908092840.225220-1-a0987203069@gmail.com>
-	 <20260908092840.225220-5-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Thu, 10 Sep 2026 07:28:05 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1ceb47d55so578678a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 00:28:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789025283; x=1789630083; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6QM06wsJmDFUwDTXBwOD8bKArEY6vK/Tt6RRUM1IU/M=;
+        b=Ly1Bo46fqM7X5v8Ihbr3ooX+Ujue7ZC4D3LSlvJAitVRwqpu6pV0Kd0tyEC+WwlVAR
+         pS+TsDXBnYQf/zsT1FWCDGOyDDY65wiTQiIKXWWnAQMohduaiuMYyP0xEyibPCElntop
+         NZuZssQ6PRNeTFPvkofQ3u4gUCK4XtmW/GeBtE10BylHNpQIQZ3c0xAhE6OT3PtwUC7e
+         hRQYikW/+YdIuIjgtIMqT01o+xjkkZoIl/TLaWl/Jy00/wq0pkGXOjw6e8SPuUhgPsfK
+         Pfp5/GrCrvpl2m43YtQPI8BYlhhdQn2YPYS7y/8LQVfr4D6iEEUS361iNqh17c+kIs9i
+         ljXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789025283; x=1789630083;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6QM06wsJmDFUwDTXBwOD8bKArEY6vK/Tt6RRUM1IU/M=;
+        b=Sv7JLv7gA95m47DaxUbh8aVD/7r1bV8PX8hzP79oOB4R4JKsV6Zr03Z+rGtbGp1/i7
+         0pi2LiFrkKVG8u4We9DbN4ms98sEAb3bMNTAN6qaFcgUws8wARxTxlhvYisdTi8JKEt/
+         iX+dqE6sFHQdXu3nMrmawGKRCcPlSu+a9VhoIZ8agtwGv3xt9dhtTsa1/509ZrP+fjX8
+         pnOLYtnOsZOlbasNrhwU5kxlQgn3AgVudKi5QBeH88ALjmQ553/sTUPypnGjG9o2A+l7
+         911xNxd94oB+xvIg2xua5qyi3DXiDEg30w1BTY0AlOO6nqKIsips8jsu+mulH679Ik5L
+         TEEA==
+X-Forwarded-Encrypted: i=1; AKwUvBxa2p1LvVeudFcJ3ep90UevOJtKC1HWnQuALZlvQsiKFshPvs1KvOVzYff6r2Lhp/BPGzLoyDaOH2WzBJhO7HLW@lists.infradead.org
+X-Gm-Message-State: AFuF++kg8vByGJwGXR8nH/SNlqVwWCByNsiZvmbl/ALugiKbh9MRCKzx
+	/f/z+UfZToY6Q11vjkMSas+WEsLTb1z/6wWqVga6hj/Q4Z3acL9+vXKs
+X-Gm-Gg: AYBFou1TWsGMEFCSnD5XSUQeMFT4P5mNI8iMJPOfupGyHO2OfEGYp6fr2LwRUggdMp6
+	1cbRqbAKWsXa8qPMBkxeE/2Xb+3EJdNgRe+vRxnPyL4u3uJPWVD3KcZEy7UXmr2F5zxLRWPUD/l
+	aXh+JIKDrQLspkQzXH2Ro9y5E8jOS1tFSBhYtjyLM+7uFB0gcSwohMwvKDtl4/auMCxlBkx98K+
+	pgFvd7lK6hSgqORE5AVb7pQiFwXtTdwjwohAJnX85LMykODtcwxEECUSZyhpiN/S9gpKfom4O6p
+	vFvOhWiydns9AHnX9/fo+xFCrIiX+v274MyDfcG3208ZouXfwk8Y5BHtVWnsBKkkwpAqe9C3xD3
+	qYHcE0bU5t9v3A/mDtRVpM9Xce7HZ14pqPXpJ0cNTMaVwqSG50b1qF6tSigk0kwMY74Ul+7v0D2
+	Rl/CrEDFe6RWFY5eyJSs8lOoe+3gtiU2UdFomTJ6zUO9cbOolZgvFMAZiPSGNfEk1gsFyWAjqVM
+	3BTckiuVEX/PWPjniiztjQZYByEYdsguxJb1VCKu+FGNbps5gk53977
+X-Received: by 2002:a17:90b:3e46:b0:398:9bd3:d6d4 with SMTP id 98e67ed59e1d1-39d77bcba5emr3182903a91.14.1789025282698;
+        Thu, 10 Sep 2026 00:28:02 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d770bc9f5sm4178071a91.2.2026.09.10.00.27.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 00:28:02 -0700 (PDT)
+Message-ID: <7d4b5db1-7b0d-466b-9432-d80882e2720d@gmail.com>
+Date: Thu, 10 Sep 2026 15:27:57 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAD3y+9cW6JqR4qWBw--.18774S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3WFyfCFW5Ar1fJF18tryxXwb_yoWxGw45pF
-	4jyay8WrWUXay29r97tFy8tF90kw1xtw4fGrZ7G34avrn8tF98WFW8XFyUZaykWrZrJF12
-	vFs2gr47Cr42v3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU2wIDUUUUU
-X-Originating-IP: [112.94.100.66]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] arm64: dts: nuvoton: ma35d1: add USB controllers
+ and dual-port PHY node
+To: Joey Lu <a0987203069@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jacky Huang
+ <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260720102222.251179-1-a0987203069@gmail.com>
+ <20260720102222.251179-3-a0987203069@gmail.com>
+Content-Language: en-US
+From: Jacky Huang <ychuang570808@gmail.com>
+In-Reply-To: <20260720102222.251179-3-a0987203069@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_002524_353551_19343339 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20260910_002804_114341_65ED0271 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,196 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-08=E4=BA=8C=E7=9A=84 17:28 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The Verisilicon DC IP family also ships in a DCUltraLite (DC8000
-> generation) configuration that lacks the DC8200's CONFIG_EX staging
-> registers and PANEL_START sync register, and exposes its VSYNC
-> interrupt through a differently laid out status/enable register pair.
->=20
-> Add a vs_dc_funcs implementation for the DC8000 generation in
-> vs_dc8000.c: framebuffer updates are latched directly through
-> FB_CONFIG's enable/reset/valid bits instead of a staging commit,
-> panel
-> output starts as soon as PANEL_CONFIG.RUNNING is set with no separate
-> sync register to arm, and the VSYNC interrupt is acknowledged through
-> DISP_IRQ_STA/DISP_IRQ_EN.=C2=A0 Select this vtable in the probe path base=
-d
-> on the chip identity's generation field.
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+  Hi Joey,
 
-Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Thanks for v4.
 
-Thanks,
-Icenowy
+> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> index 7228ad4735b5..5a7a39b1b514 100644
+> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> @@ -88,6 +88,14 @@ sys: system-management@40460000 {
+>                          #reset-cells = <1>;
+>                  };
+>
+> +               usb_phy: usb-phy {
+> +                       compatible = "nuvoton,ma35d1-usb2-phy";
+> +                       clocks = <&clk HUSBH0_GATE>;
+> +                       nuvoton,sys = <&sys>;
+> +                       #phy-cells = <1>;
+> +                       status = "disabled";
+> +               };
+> +
+>
 
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 5 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.h=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 1 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8000.c | 92
-> +++++++++++++++++++++++++
-> =C2=A04 files changed, 98 insertions(+), 2 deletions(-)
-> =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/Makefile
-> b/drivers/gpu/drm/verisilicon/Makefile
-> index 9d4cd16452fa1..d2fd8e4dff242 100644
-> --- a/drivers/gpu/drm/verisilicon/Makefile
-> +++ b/drivers/gpu/drm/verisilicon/Makefile
-> @@ -1,6 +1,6 @@
-> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
-> =C2=A0
-> -verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_drm.o vs_hwdb.o \
-> +verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_dc8000.o vs_drm.o vs_hwdb.o \
-> =C2=A0	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
-> =C2=A0
-> =C2=A0obj-$(CONFIG_DRM_VERISILICON_DC) +=3D verisilicon-dc.o
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
-> b/drivers/gpu/drm/verisilicon/vs_dc.c
-> index 9729b693d360e..3e9e2c0264f5d 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
-> >identity.model,
-> =C2=A0		 dc->identity.revision, dc->identity.customer_id);
-> =C2=A0
-> -	dc->funcs =3D &vs_dc8200_funcs;
-> +	if (dc->identity.generation =3D=3D VSDC_GEN_DC8200)
-> +		dc->funcs =3D &vs_dc8200_funcs;
-> +	else
-> +		dc->funcs =3D &vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0	if (port_count > dc->identity.display_count) {
-> =C2=A0		dev_err(dev, "too many downstream ports than HW
-> capability\n");
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
-> b/drivers/gpu/drm/verisilicon/vs_dc.h
-> index 825f5dd6bf174..ac96ad7011994 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
-> @@ -66,5 +66,6 @@ struct vs_dc {
-> =C2=A0};
-> =C2=A0
-> =C2=A0extern const struct vs_dc_funcs vs_dc8200_funcs;
-> +extern const struct vs_dc_funcs vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0#endif /* _VS_DC_H_ */
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> new file mode 100644
-> index 0000000000000..df7bd5bdd7f2a
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> @@ -0,0 +1,92 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
-> + */
-> +
-> +#include <linux/regmap.h>
-> +
-> +#include <drm/drm_print.h>
-> +
-> +#include "vs_crtc_regs.h"
-> +#include "vs_dc.h"
-> +#include "vs_drm.h"
-> +#include "vs_primary_plane_regs.h"
-> +
-> +static void vs_dc8000_panel_enable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_panel_disable_ex(struct vs_dc *dc, unsigned
-> int output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_crtc_begin(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_flush(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_enable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_crtc_disable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_enable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static void vs_dc8000_disable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			=C2=A0 VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static u32 vs_dc8000_irq_ack(struct vs_dc *dc)
-> +{
-> +	u32 hw_irqs, unified =3D 0, known =3D 0;
-> +	unsigned int i;
-> +
-> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &hw_irqs);
-> +
-> +	for (i =3D 0; i < VSDC_MAX_OUTPUTS; i++) {
-> +		known |=3D VSDC_DISP_IRQ_VSYNC(i);
-> +		if (hw_irqs & VSDC_DISP_IRQ_VSYNC(i))
-> +			unified |=3D VSDC_IRQ_VSYNC(i);
-> +	}
-> +
-> +	drm_WARN_ONCE(&dc->drm_dev->base, hw_irqs & ~known,
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "Unknown hardware IRQ bits: %#x\n", hw_=
-irqs &
-> ~known);
-> +
-> +	return unified;
-> +}
-> +
-> +const struct vs_dc_funcs vs_dc8000_funcs =3D {
-> +	.panel_enable_ex	=3D vs_dc8000_panel_enable_ex,
-> +	.panel_disable_ex	=3D vs_dc8000_panel_disable_ex,
-> +	.crtc_begin		=3D vs_dc8000_crtc_begin,
-> +	.crtc_flush		=3D vs_dc8000_crtc_flush,
-> +	.crtc_enable_ex		=3D vs_dc8000_crtc_enable_ex,
-> +	.crtc_disable_ex	=3D vs_dc8000_crtc_disable_ex,
-> +	.enable_vblank		=3D vs_dc8000_enable_vblank,
-> +	.disable_vblank		=3D vs_dc8000_disable_vblank,
-> +	.irq_ack		=3D vs_dc8000_irq_ack,
-> +};
+The usb-phy node is placed directly under /soc, which is a simple-bus, 
+but it has no <reg> or <ranges> property.
+This triggers DT validation warnings.
+
+Please move the usb-phy node outside /soc.
+
+
+Regards Regards,
+Jacky Huang
 
 
