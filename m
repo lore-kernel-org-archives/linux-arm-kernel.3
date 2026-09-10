@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4122BC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12268C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 18:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=; b=4vNWRzi2Pfgf0+77aWAf3IyRrt
-	8i77fekmvpfh/+dO7PdMATW3SfqgKrH6Ec23eiNyBLtxJjM6bk90kBFohUFN0iM+UV3rwl0reVRcn
-	ACVC0q4z5PY4f1Ja8/vp9uPXgRLeNP8MccdoDdcfQA+1xMoAvjTW025jviWx9mz1vV1poZ48u7Xab
-	1Z7l0g8lckFmGbxXzxKtm4zhVWao3a6RE9y9BOwRyJT7C802lHwZK2dQ2Wgh7VwlgptCIvka6G//+
-	O+vbDLGsG6G7IypxOpuVROfAbcdMaM45f7jlY5ywOlXvG0OhEk1+K4vLE478c0L33OhMjtOjXtQt8
-	Obexr6mQ==;
+	bh=aLCJ034DJzI4gEh3LNSHB0+4siN8J5WsqqEdRoq/eTA=; b=Mln8M3I4OvgbXIEVZTx3iFfWKn
+	RsdQL5Kq/wZz/akkGpZ19ahcjUv3vFAXwYDsPoVmG6iYuGS93+eLE8LcnfD2oiB+nvyXJkuY4fURP
+	x1m3tdHjU8XnAirsGYqaYXrR+syoWUfI1AwNwitaru7s5v8H/YUdIdNAy1j4tBcHL3exC5F+v1m07
+	c41oUGfryGjub0m+doF7PEt6GtxNO7z0/7N6ZJME7bRzbofyRasc2+XULFzxqNSxsRvsTAlzyb891
+	72NvL5ofrWHPKdlEz2SB5mMO+/16Va8VoEwagIUFQHbLga5q55Y909zRQIOjP2voTNXenrDdL0vfA
+	8p23tJbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrc-0000000FBhC-3kfo;
+	id 1x4jrc-0000000FBge-33Av;
 	Thu, 10 Sep 2026 18:51:12 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4jrW-0000000FBbR-3O53
+	id 1x4jrU-0000000FBZL-2Frq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 18:51:07 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-90ce08834feso438576d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:51:06 -0700 (PDT)
+	Thu, 10 Sep 2026 18:51:05 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-9399daa3d43so437935585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 11:51:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1789066265; x=1789671065; darn=lists.infradead.org;
+        d=toxicpanda.com; s=google; t=1789066263; x=1789671063; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=;
-        b=S7y497749Ra//HJJJxZ+9ZfN23oQAhqPk0we4IiBhd7PtX4W4HpPbejQb9m72bYkBy
-         eUv6zVLUjC0DJZczqT61fS7kUmyJHDX4zizK4QTHicXn/LipffngjC5zfqjcYFGTpYp8
-         xtvjExE2wijzji3pWcOPbC5n9vj6vxj5jXtJFI2nY9S29ogulimcjUhfhW3uYqljaO8K
-         FyBOn1cWCikVVYFO8wrbTRxr2XsCDljbX9t77yzHWwBYRcSQ4wUnNubK/lTsgqPo5nsW
-         dKhxy21x8Dfx5YgbrfZVdHOo31xstBpe8UaF4YM2isENgFeF9evnc0fDMVowB3lxYIOF
-         rpQw==
+        bh=aLCJ034DJzI4gEh3LNSHB0+4siN8J5WsqqEdRoq/eTA=;
+        b=Uz063r3giG9ZK4NCnljLiAIWhZ52F30Ew5B3s+mxYqax4+Ie7ovqxCPF4NV3AFaVAo
+         +nQes/Gn9pd10fBJFyYKgDoYWrs2zJHNbfpDPNxE/hb4HwTfcXZAtT4Qi2rOScjNVJU6
+         5DAHZr449e00qfN90B3LcR4dJD7eNs1MxB34jAt2WIr+rmdaxwUtyGKQ6+QwTPUtfR0L
+         8aLCKxH2LJLhJ++/P8Y5EumUZ9VIeuwTCtB2vW9QnLDMhvQge7Z0hwo0PyeptS7SIFii
+         QvDMcFhECTPK+shh5CP5KtRqr/D752APlUuoPd+JO/ac0W5iZFfDFqHX+kito8DYA3XL
+         223Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789066265; x=1789671065;
+        d=1e100.net; s=20251104; t=1789066263; x=1789671063;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=;
-        b=sjHVpEhftMifk4kkwtA0Lwl8MD3tdyDah5tCNIaebxn8m2N+L/mldD1FuaoPJjP+2G
-         afg1OqjNMb2XBJnARcbHtKkAlEggG+KE9BhZSkaeLpFUhoBK4jjtne+YJsRvqxS8zKSv
-         hchC3RY4CPK+HSY9Q9A9ZXSCMFiF/xA2/RnOIBt2cQzQK5+blreAko1jkkRemqL8rf3z
-         YJnZycKQ8clytKJ89a/iOjlexIjkfLhsbK8ZzVgxcsnSwElCbhnCfRUnwiM209H2muaz
-         NTs+MPb3qu6GAjBFluJqRdGdo7l2nBLiERhn0KflLJayDQc4B+ngmDfz7CjGBZ96Qsm4
-         tPHw==
-X-Forwarded-Encrypted: i=1; AKwUvBxYjwDc3LgCNwQGTzW66+Pz4ky5/UaoVnh3M6X1wrCRAZK+aiH7WJq8dLWKKY/w/Ic3gGJPf2xNAdxhj80wcPph@lists.infradead.org
-X-Gm-Message-State: AFuF++laPR4gODo6c04PohwHbjz9X5pKG2taHB0D3X5W/tgYCasLSDM/
-	JS/1vwYb/9zj6pAjSSTUr8PX/uuTNQLMd95rN+vlTTEFQccVhQksrh4WUPi2LdeKjgigkmZ+1A5
-	d9jBver0=
-X-Gm-Gg: AYBFou29FhkG0UUGE22Y0HNm4uGLSbIpvWdePF0R1HV/ymyd8TXKJeHluIy25oylBk6
-	/m/eWnLZ+f4dU54kM0EY2hPQrVeLz16WzsE1wvwerTc3yWxEOCxISa6iKisocn1CUTH2aSIbN5r
-	HQ7TOUNiWYkHy4pKD+YsHEcvFv1rd3BoWtt0sDqqGPovxqLzv5oqT93AMm/RhtXGP7K1b9RGyB/
-	GIYP4SlxYbxLMArkno2gYJ4i1fG4D7RIYgYafBUhI4leWNc8YcVpXw4F2Zlp4tmhtEJHshgow5Q
-	Jsy5dsv4Jq92hfpV4k7U9hZdqL1r0pN8DbIlzX62OzlUuJRVkeaZ4FgXNjE7TfWkuHAZWoOUy8x
-	nFsJpHmImkoFlOWKjHu7/9yp9xUBPFYDORbDpIROqiuy1VZnf2eRfpzGoMh8tjHXI8n/R5pLtCJ
-	lrWP9j3j/KGDbxWGbHfeHglo/K4lTgGBZiZiaKfnANu2uhI8XlqFLFpBHzT95DVtSXK14NdUz1r
-	uYhODrtwVB77Z2tgR8tNKkr67BEFf6HJiRu0e23241AfiL3fQVyXcyR
-X-Received: by 2002:a05:622a:1309:b0:530:42e4:effc with SMTP id d75a77b69052e-530c87566f0mr10949261cf.41.1789066264886;
-        Thu, 10 Sep 2026 11:51:04 -0700 (PDT)
+        bh=aLCJ034DJzI4gEh3LNSHB0+4siN8J5WsqqEdRoq/eTA=;
+        b=tN5w5AM7SS1t33Py16RD58kKa69ba3goFOELGUJcDb4bj78jhYzQ+HSvYx7lFYiLzr
+         Ho7EfdJuHjJwghD8AeoSLp0uP8dzIURCKTzdrDRQpYWGGMlrhyEg4SGpWubkIRUIFq/E
+         1ZUiFPVpGE9gjQJgzT24hqUTuFo0fu3CfEFHW0wqFKgI2hPENcLkdOB0iYMFEjY/smCE
+         BKPYTVfLCBAGB5wKN/nZd+CoyZwzSZj5z9UjTPsCpLDMsVGdmX+Gq1OTeRcBz5CmnIIC
+         wPf9bsZOACz6pQt39WFPMtjOKPEpxMXmIMBnv0YhMuLj9Eo/TqrUw1iS1Lc4uMSkJUel
+         kokQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzcfQroIQxAzwpn2CgtcL1d4IVhgaeaRedUjFTjZIuSOd//1lQNnHnRATWZ+9Lf4k3w5VVzByxjIMlzKdJ+/yTY@lists.infradead.org
+X-Gm-Message-State: AFuF++mIbDE0arQVN6b5pN54B2JRax17T0npCMljMsLkz6Wfa0QWauiC
+	NU9F2kMVgYvDT5wsf0cAP9fhXCcWfPXZaPahJCZwUB0uYkwA/X/5C5jsJ/gXeR1qQxY=
+X-Gm-Gg: AYBFou1xn5VLMCh6JuGzE74hJFBz/r20JCIxaYcgNOjP3hV/n9HrXks0QlK1y8fhF7G
+	74c9jGXAZ5Xy4DkYeF8RXMyOjUqT8g4KYFNvT+AU3H50WqHshb3OOJkOZnpP/2Fk28NgZRHijLN
+	S+t3R5CKhOopoQzujXcfdn9ATPXmCalHjARnnGj2VxnNtyH4uFUxPjuRCdCn7AjO0SworfKuOQK
+	4uMtXXzepUPlm+Y/0heDeHt8aGvxdMxLcl6DjoSKay9DFpEg1egM5xdg+ml9sA655HFNzUHlVkJ
+	7Uvs/sNfg7c5yuzxpZsc3r1TtnXDmQtEpdIh2zx9zK8hvrIY3l1gKVDoXYZmHib5KooN2IOW8Lk
+	3OGeIgVbu378D7r6iUvN9s3r8Myp1joNFsoFFrANRHF3DhbvCPfp48BOFdXu2Kv/bIMO8fM1YbY
+	w3M4XDAlxPHxUDDqoubjACuigTOYEIXe251YCC4RBP/emh+bk6A3pxwaYqqrButBi2gYpANAwRG
+	N4+Fmk+yaNp2zbmPJM6aOIconQMIavQXEwUwDq2gNBzfmoKX/Oy2o8n8XNSXWuiGbA=
+X-Received: by 2002:a05:620a:6191:b0:939:a6e4:2267 with SMTP id af79cd13be357-939ea2bff00mr14491685a.50.1789066258414;
+        Thu, 10 Sep 2026 11:50:58 -0700 (PDT)
 Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-530ca47efa2sm216291cf.11.2026.09.10.11.51.03
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-939e807eba7sm47389685a.29.2026.09.10.11.50.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 11:51:04 -0700 (PDT)
+        Thu, 10 Sep 2026 11:50:57 -0700 (PDT)
 From: Josef Bacik <josef@toxicpanda.com>
-Date: Thu, 10 Sep 2026 18:50:30 +0000
-Subject: [PATCH RFC 07/13] x86/kprobes: Maintain Tasks RCU trampoline
- nesting in the optprobe template
+Date: Thu, 10 Sep 2026 18:50:27 +0000
+Subject: [PATCH RFC 04/13] kprobes: Let Tasks RCU recognise tasks preempted
+ in an optprobe jump window
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-b4-rcu-tasks-preempt-qs-v1-7-d4469f4cc101@toxicpanda.com>
+Message-Id: <20260910-b4-rcu-tasks-preempt-qs-v1-4-d4469f4cc101@toxicpanda.com>
 References: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
 In-Reply-To: <20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com>
 To: "Paul E. McKenney" <paulmck@kernel.org>, 
@@ -105,8 +104,8 @@ Cc: Andy Lutomirski <luto@kernel.org>,
  xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_115106_868247_B75C5D8D 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260910_115104_601809_55D2F701 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,77 +120,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The jump-optimized kprobe template calls optimized_callback() with
-preemption still enabled for its first few instructions, so bracket the
-call with an increment/decrement of current->rcu_tramp_nesting.  The
-template lives in .rodata and is memcpy()d into each optinsn slot without
-relocation processing, so the per-CPU reference to current_task must be
-an absolute %gs: address (R_X86_64_32S, relocated for KASLR like any
-other) rather than %rip-relative.  %rax has already been saved by
-SAVE_REGS_STRING and is dead after the call.
+kprobe_optimizer() is the one synchronize_rcu_tasks() user that is not
+about trampoline text: it waits for tasks that were preempted on an
+instruction boundary inside the bytes it is about to overwrite with the
+optimized jump, so that none of them resumes into the middle of the new
+instruction.  Such a task sits in ordinary kernel or module text with
+rcu_tramp_nesting == 0, and can only have got there via an irq-exit
+preemption.
 
-The slot itself is dynamically allocated text, so the instructions before
-the increment and after the decrement are covered by the irq-exit IP
-check.  64-bit only; 32-bit x86 does not take part.
+Add kprobe_in_optimized_region(), a lockless and conservative form of
+get_optimized_kprobe() that reports whether any registered kprobe lies
+within MAX_OPTIMIZED_LENGTH before the given address regardless of its
+optimization state, and have rcu_tasks_ip_in_trampoline() consult it so
+that a task interrupted there keeps holding off the Tasks RCU grace
+period once preemption becomes a quiescent state.
 
 Assisted-by: LLM
 Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
- arch/x86/kernel/kprobes/opt.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ include/linux/kprobes.h  |  8 +++++++-
+ include/linux/rcupdate.h |  4 +++-
+ kernel/kprobes.c         | 24 ++++++++++++++++++++++++
+ kernel/rcu/tasks.h       |  6 ++++++
+ 4 files changed, 40 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
-index 3f8fea52619f..f722520bb989 100644
---- a/arch/x86/kernel/kprobes/opt.c
-+++ b/arch/x86/kernel/kprobes/opt.c
-@@ -31,6 +31,7 @@
- #include <asm/set_memory.h>
- #include <asm/sections.h>
- #include <asm/nospec-branch.h>
-+#include <asm/asm-offsets.h>
+diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
+index e6de7ae55bda..74cc48c04417 100644
+--- a/include/linux/kprobes.h
++++ b/include/linux/kprobes.h
+@@ -530,11 +530,17 @@ static inline bool is_kprobe_insn_slot(unsigned long addr)
+ }
+ #endif /* !CONFIG_KPROBES */
  
- #include "common.h"
+-#ifndef CONFIG_OPTPROBES
++#ifdef CONFIG_OPTPROBES
++bool kprobe_in_optimized_region(unsigned long addr);
++#else /* !CONFIG_OPTPROBES */
+ static inline bool is_kprobe_optinsn_slot(unsigned long addr)
+ {
+ 	return false;
+ }
++static inline bool kprobe_in_optimized_region(unsigned long addr)
++{
++	return false;
++}
+ #endif /* !CONFIG_OPTPROBES */
  
-@@ -101,6 +102,23 @@ static void synthesize_set_arg1(kprobe_opcode_t *addr, unsigned long val)
- 	*(unsigned long *)addr = val;
+ #ifdef CONFIG_KRETPROBES
+diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+index 0a408e36ea15..e9afbbb1b061 100644
+--- a/include/linux/rcupdate.h
++++ b/include/linux/rcupdate.h
+@@ -200,7 +200,9 @@ bool arch_rcu_tasks_ip_in_trampoline(unsigned long ip);
+  * cannot be preempted synchronously, only from an interrupt, so the irq-exit
+  * preemption path covers it by checking regs->ip with
+  * rcu_tasks_ip_in_trampoline() and holding the count elevated across
+- * preempt_schedule_irq() when it matches.
++ * preempt_schedule_irq() when it matches.  The same check covers the one
++ * non-trampoline user, kprobe jump optimization, which waits for tasks
++ * preempted inside the instruction bytes it is about to overwrite.
+  *
+  * Only current writes the count and only current (or an interrupt on the same
+  * CPU) reads it, so plain accesses suffice.
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index 6337da5cab9e..76f146edb0e5 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -511,6 +511,30 @@ static struct kprobe *get_optimized_kprobe(kprobe_opcode_t *addr)
+ 	return NULL;
  }
  
-+/*
-+ * Tasks RCU trampoline nesting, see rcu_tasks_trampoline_enter().  The
-+ * template is memcpy()d into the slot without relocation processing, so the
-+ * per-CPU reference must be absolute, not %rip-relative.
++/**
++ * kprobe_in_optimized_region - Could @addr be inside bytes a jump-optimized
++ *	kprobe replaces?
++ * @addr: kernel text address, typically an interrupted instruction pointer
++ *
++ * kprobe_optimizer() relies on synchronize_rcu_tasks() to wait for tasks that
++ * were preempted on an instruction boundary inside the region about to be
++ * overwritten by the optimized jump; such a task must not report a Tasks RCU
++ * quiescent state when it is preempted (see rcu_tasks_ip_in_trampoline()).
++ * This is the lockless, conservative form of get_optimized_kprobe(): it does
++ * not care whether the kprobe found is, or ever will be, optimized.  May be
++ * called from any context with preemption disabled.
 + */
-+#if defined(CONFIG_TASKS_RCU) && defined(CONFIG_X86_64)
-+#define OPTPROBE_RCU_TASKS_ENTER					\
-+			"	movq %gs:current_task, %rax\n"		\
-+			"	incl " __stringify(TASK_rcu_tramp_nesting) "(%rax)\n"
-+#define OPTPROBE_RCU_TASKS_EXIT					\
-+			"	movq %gs:current_task, %rax\n"		\
-+			"	decl " __stringify(TASK_rcu_tramp_nesting) "(%rax)\n"
-+#else
-+#define OPTPROBE_RCU_TASKS_ENTER
-+#define OPTPROBE_RCU_TASKS_EXIT
-+#endif
++bool kprobe_in_optimized_region(unsigned long addr)
++{
++	int i;
 +
- asm (
- 			".pushsection .rodata\n"
- 			".global optprobe_template_entry\n"
-@@ -114,6 +132,7 @@ asm (
- 			"optprobe_template_clac:\n"
- 			ASM_NOP3
- 			SAVE_REGS_STRING
-+			OPTPROBE_RCU_TASKS_ENTER
- 			"	movq %rsp, %rsi\n"
- 			".global optprobe_template_val\n"
- 			"optprobe_template_val:\n"
-@@ -122,6 +141,7 @@ asm (
- 			".global optprobe_template_call\n"
- 			"optprobe_template_call:\n"
- 			ASM_NOP5
-+			OPTPROBE_RCU_TASKS_EXIT
- 			/* Copy 'regs->flags' into 'regs->ss'. */
- 			"	movq 18*8(%rsp), %rdx\n"
- 			"	movq %rdx, 20*8(%rsp)\n"
++	for (i = 1; i < MAX_OPTIMIZED_LENGTH / sizeof(kprobe_opcode_t); i++)
++		if (get_kprobe((kprobe_opcode_t *)addr - i))
++			return true;
++	return false;
++}
++NOKPROBE_SYMBOL(kprobe_in_optimized_region);
++
+ /* Optimization staging list, protected by 'kprobe_mutex' */
+ static LIST_HEAD(optimizing_list);
+ static LIST_HEAD(unoptimizing_list);
+diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+index a801ec4a951b..a55dc2a20fb7 100644
+--- a/kernel/rcu/tasks.h
++++ b/kernel/rcu/tasks.h
+@@ -1114,6 +1114,9 @@ bool __weak arch_rcu_tasks_ip_in_trampoline(unsigned long ip)
+  *    deliberately does not consult is_ftrace_trampoline() and friends: text
+  *    being torn down may already be unregistered there while a task still
+  *    stands on it;
++ *  - inside the bytes following a registered kprobe that jump optimization
++ *    may overwrite, which kprobe_optimizer() protects with
++ *    synchronize_rcu_tasks();
+  *  - in core text the architecture flags via arch_rcu_tasks_ip_in_trampoline().
+  *
+  * A false positive only defers the quiescent state to the task's next
+@@ -1121,6 +1124,9 @@ bool __weak arch_rcu_tasks_ip_in_trampoline(unsigned long ip)
+  */
+ bool rcu_tasks_ip_in_trampoline(unsigned long ip)
+ {
++	if (kprobe_in_optimized_region(ip))
++		return true;
++
+ 	if (core_kernel_text(ip))
+ 		return arch_rcu_tasks_ip_in_trampoline(ip);
+ 	return !is_module_text_address(ip);
 
 -- 
 2.55.0
