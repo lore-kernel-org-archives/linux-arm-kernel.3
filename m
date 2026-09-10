@@ -4,142 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B453C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8E8C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 04:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7A//8l4nJUfb1H6tovcX0yK/gp9nZaYlQxeLi0x2L8=; b=mEukKe9SX6KujpOqIBtt9/CoQI
-	72aa1L61aHiMqUKjXk0OMlT//zZbm+JWrQX1WTr15wESG4bVcj6l4lECO4nnCwV1gnstUoUm7dHme
-	WkRW4RnLBGmdNBrXkndPpzQuU1K9Ie00eBxmluqsvzkHp96vq6T60+9X5wihAB2uylQSG1husI7Xm
-	WeBrKgd9tImEHNELs9eURU1dOgigkZhiy3mdSR4+Z5Mxc5+EL2es61JYsKXsgVNns2NH+qauInT8U
-	ZN2/PgOjVt6wTevJTfccqFCN6ZiAoVA1c3HUGXPynahb+d67x7xCXTvBmFRYID4lyvRKiSIS5o4fD
-	FWZt6RqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=; b=czG+v6VXWJvuQ99yw7/0Qm8wPo
+	r0XwdJEzsb5T7XRJ30fZSMmEobOgSG33GYUqCvBNVY80DtBGYTOTjZFCc5ekGT9d3zmrY8/DvXEb+
+	0yfAqpe4H9oRv0v2Azql0UJlmV9pzpj5IFVfHxhCbec++yNW5wRlSLq3hkImHFdjzbGXFTnJfgLGd
+	8msB6sFiVYpSc9QMl8a3HhFDe4XdlXVqVQCPpz6LQCFTCwoGVY6i1ELpq4SifPXI5JTq7PHaHGvui
+	bUlQ54RcJbF9g1Cse8AnhBVW3uAUERa/BeYsAVZcMdDdEs5fmvHf3tOZvPVPZYG1Nl5Xr9ijKn9T8
+	2v1U8BMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4WYm-0000000DNeL-3rjQ;
-	Thu, 10 Sep 2026 04:38:52 +0000
-Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
+	id 1x4Wfg-0000000DOFq-2U86;
+	Thu, 10 Sep 2026 04:46:00 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4WYj-0000000DNcQ-2KOp
+	id 1x4Wfe-0000000DOFJ-1Jfe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 04:38:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cWQjvufx2uQ5RTIwHqAbzUKRKBZzE4Td0P6+qTSgSlrdpNs0xkw9kEM+/ZtoaRSDgRCh5cTnXNNXALaLNjGK9q12xSaTN1b+fdI5DzieCsFe1wM3IK/rClYA6iInb77RsRiKzlqxz7PNYWfnQrEBsyIpjIp8L/VrDi0l5cEm9mbZpYcRvfzIikbM/tnS9aHR3E4BFHzfycRgyE3Hi6VNi95tUXyAPfX8bGa1UO88D777brmlLi7U9c9EGVcRKvqTgFucNyAhCyaXXvgG+hr4zGxutWEzQykh8hSRVKBUdKTHPTHKE0PSjOTSReMaE5yWgnpwZUCWF8qaUVFdDRn8Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l7A//8l4nJUfb1H6tovcX0yK/gp9nZaYlQxeLi0x2L8=;
- b=QZDjbiT5AebTgVYWhouNYsxfowq3LciRLoAnI9C82PyhlD84tMJwmGN7NyVaUIN0TvDbcgyolX2q54I7AiLtcArLxAft/3WWkAH6kEbVssv9lgMA1Pi4hcNk21hggyuK61WLGpIxLCASc+9r1crxVIZ/6BJgZDEJxWx93ZHM61ZuFVMiuiTieXp6CrKmKLs7UaDIUbYcugHJyxXhNzcWPK5pPOcTEGg4dD+63tOYWrOquTFsSA/LdSrI8aqgHSwt5kEi1lwZv74OWoob+Ua3WMarbngCrrWsX/+91AarKY5xsiCkQbPS7r6Dse5gYh4YCXY9bgm6P2O3V9jj9RVhsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l7A//8l4nJUfb1H6tovcX0yK/gp9nZaYlQxeLi0x2L8=;
- b=loOWDl0XQZhujFQgZwX/vm+D8xQFU/UQFiIOY6/xo1OsT6SyVIY/8NGePSDkpocpCd7pqJsMYiXp9mPPV1uAJXcrKTp2tsHiirkr1V8+XLg5nLdTn9Hgbc/EB2/q1LpQkQXAy5mZ0pyffBtJPz8AQ/X6MgtuipdrPiurqJVJTgTLdONfsCneXEd1kvcauCn9dIvmaDhGp0wrlLHtXqwMrEfJuDOz7x6skSn0z1+zKyXbpS9A1k7dGKi4xx5TcZxphHo1mNfivMEw3AkJulZiKjtyruK8+5N/s+bWukQdcHZabmRAt+VG9plSLcUo4H2/HJ6MQWI2Nk2oZSrytLEv7g==
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by SE1P216MB2244.KORP216.PROD.OUTLOOK.COM (2603:1096:101:15e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 04:38:27 +0000
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
- 04:38:27 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@xs4all.nl"
-	<hverkuil@xs4all.nl>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-imx@nxp.com" <linux-imx@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "jackson.lee"
-	<jackson.lee@chipsnmedia.com>, "lafley.kim" <lafley.kim@chipsnmedia.com>,
-	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>, Ming Qian
-	<ming.qian@oss.nxp.com>
-Subject: RE: [PATCH v7 6/9] media: chips-media: wave6: Improve debugging
- capabilities
-Thread-Topic: [PATCH v7 6/9] media: chips-media: wave6: Improve debugging
- capabilities
-Thread-Index: AQHdPDktsEnKbE5LDkiQBIYQyxEwJLbGvoSAgABg/+A=
-Date: Thu, 10 Sep 2026 04:38:27 +0000
-Message-ID: <SL2P216MB24417ACC2BD099E4A5EE1399FBBF2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
-References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
- <e7f599a5bd65900eb45daa3b637597fce464c383.1788496816.git.nas.chung@chipsnmedia.com>
- <aqHES02SJkIGZWDc@lizhi-Precision-Tower-5810>
-In-Reply-To: <aqHES02SJkIGZWDc@lizhi-Precision-Tower-5810>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SE1P216MB2244:EE_
-x-ms-office365-filtering-correlation-id: e1205c56-2b76-4d3c-12d6-08df0ef55b9d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|4143699003|6133799003|56012099006|5023799004|10067099003|22082099003|18002099003|38070700021;
-x-microsoft-antispam-message-info: jiNNME06dbiQJCgSeWRlLPBkqvKgA38LUYEchz0bulEgAYqETspKbcupoW2KQimX02v5t2mNJ0/N2HNBIDV0WeOhFmlpNcOvYp/Txay12m0NCa9Yq0ChrcfgAjoZuOfmyaG8ApXK1STpCqhYPYCC0TAgRNBTVGGyCmcqV8msD4s5x0UgnnZ6HGrjREd/dj60PSXHMnKu3heHyTVV0njHMSZPJNGOIc0+Q7nTba6zsv62aCNbTm1W5XCs/fmo5HumjjUBqc8kSi7AKMR+QGqg6PFVJeyozM1GZNzizXkkXG1uv7uhPHEtD+2nFzsAwcEXwnwRIvGCLBsGCzQSISj3TQY2l6OrXL4GBEqAzb1A7MkRGOA/1onSN5ZfICvdouLgsi0xRqhRl9lCkKzSt1QxIGhBx23pwqVYzesIyoBURXFVqzcgFW+RDIVxRba/3HCV2zPkATLU2OHLqohkkkn6KnIRZR8Mo541PyqZrErhtofPzBoE4mWGxkp4d2mGvYvKOMcwUYogKLTLpEzxpUjDzZesnc3ztDc6sqSEtwLSOerMWR8vsFw0UtMrCMDkCbDVabEVwpV2AXtWq4rTs9bzUh9qlbWr6ietBirfMFYFxZybz3M9/rjrCFccu5tzpYxyME+2BetYg05GGunC83bl8VXunv6NMQOyrRafWFQ+JOoLq3JF0RLpljG9KY7cFuKKYPFfDSNKCOKR+3SYkc99fSWPIvb8jVXI7BNy0BY5eDA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(4143699003)(6133799003)(56012099006)(5023799004)(10067099003)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DisuWLUO7e8+JLVi2Nr9z/VJb+CTZHDlfR5pRaWkfAGdNkrPt6m3NCXmAqMD?=
- =?us-ascii?Q?HUsG2GB4YVVwaxiP/CeBKs95Au2F3BMcUfHwKmJmJP6vZnKxxuOf5UzzaEkT?=
- =?us-ascii?Q?6+1duV50k/YEkH+/NOMN6BBal0Y1r4o8itHb10snpL9bOu7gvIEx/TKRrko9?=
- =?us-ascii?Q?iY+5IAnudVRuWRc+V/Q4GxRhY3LxzL28QNtJMLZQC2fscekMXMa58mXIvW0A?=
- =?us-ascii?Q?B25ZS50+zzWXlcwXYwoSM6daHtl4r08AE7FQuAb7y5n7GeZFz9l52WJGre78?=
- =?us-ascii?Q?kwqljzqhMUb48KAC46wtaZYLoXXblnDvEYb24QcEhwKIP1nIeNdP380nkOuV?=
- =?us-ascii?Q?TqBICAtyLhM1SdtCA0/fmQqqPCp0zdce0OMn8U4fdLIRKC2yiWa+G+DsDiJL?=
- =?us-ascii?Q?S3pHgeMMX8xurCNDp/j3ktSHLG7XgBeE3jTF4S7vLnjV82K5H+ypBaC5QhJi?=
- =?us-ascii?Q?vsfAHIN/mWndzVPSkXmsEiUAWrtTn7UKPqnejkFSPKZyX1WOJbjdiPpQhCd/?=
- =?us-ascii?Q?3x/dupWmUXA1mFKcCBsscMPAWRkMObqR/73NKEYvXnk7utzjfl7vsu9mrvaO?=
- =?us-ascii?Q?zxhJbCLSMRKXP5kp/yQqJs+GuU1YZJBLxGs448seshRVxq7CpYGp0zfBKEUK?=
- =?us-ascii?Q?uC6XtQl1PFRIrL2/dnI9juiq/44nGLrNYRHVkiURB78SDEW2sjLppEDA+uKv?=
- =?us-ascii?Q?ieonbyOTnQlZmXrzYKL6aJ7nqaUI6Rqy3RubBXZSOkB65KF4dwcnqpvc1F8p?=
- =?us-ascii?Q?Ger/sHuVtpMjnZCGVR9CVDt+NHtFTroNt5WV/D6jfXhQVf/c6ha/tluvxyWL?=
- =?us-ascii?Q?gXS894rhGaYyt6IRwvBUNqFvXPIYUn4SLtPArIVneYoxj6IgttstYKP027NA?=
- =?us-ascii?Q?ZZZHHN7pqG/1S7EgycCnlGBJTxgepqVKrKnrXLJ16b5d2PFIMPJZWFDkdWFv?=
- =?us-ascii?Q?4qOVLBQfW5IFaCw8uAxLGFxf7IxP6ScwARSRDnDKKbbFBfp+f6pVplLQ6WQw?=
- =?us-ascii?Q?cq50qIW99FTxABG4BMpG0soWENoTEpHiQOlOj5cqHYV6XlSN/Muz9jM2uKN9?=
- =?us-ascii?Q?2wjiPMwDfBwBhL83eMOW1Yib7K3hHXO5vF35SqzCa7/bFXbdnQgi5wk+4lXW?=
- =?us-ascii?Q?3I/x0Xno4kiriyMb2Bgk818iYifXw0ffxLTOaX1xeOOfAZiRnLMJ/stJ+PXe?=
- =?us-ascii?Q?e0HWms5so39IqCyB6JmKYO9UQ4QOtlPi5J64FSttiITyR3RsaLVznA+Ofs1l?=
- =?us-ascii?Q?mD719kQYCVBlDJ8yE2VNncYvf7rNMH2ESfPtSt1Uz9pAMFBVoA0500tN29pJ?=
- =?us-ascii?Q?p1rHRW+sDuDDK8BTbMwQHg0PWqicHaoT8YOSUBi9E69R1nrkLIvtCkI0+H81?=
- =?us-ascii?Q?kWwPBpfZ42D+jYOdYokaxrOMATYgCiJTWvfVCon4JI4KGLlnndtHuv8bf6lT?=
- =?us-ascii?Q?q6BUbRPmwjf1pVCRy87mlO6HBwuCkuiq8WhqTft4ZcZ7OLSQ3sZnzCHYI/z9?=
- =?us-ascii?Q?jVACT68AvKWIRrH2e1nWOrNMCvwvuAqAQjWo2NZlBDyMGuxTWflwLGxE0tIp?=
- =?us-ascii?Q?deZ5zYYl5iy5iwuoAWHj3+vlKHJN1WNh24XajaeBz/8BLvJeJGiCl/NARJrl?=
- =?us-ascii?Q?hOzFJrqPlGYubl8k5qjcn5w36EkK0xaHUiujyyLLhooKJs/ZsrP4zUo8h3S7?=
- =?us-ascii?Q?hOz5ckqC0vwEhmyKKtZsP2Ipa5hn8aCNgp1Tt9zYKwUioLQ08zCvG0n35Deu?=
- =?us-ascii?Q?8XXJI6jvxw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 10 Sep 2026 04:45:59 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38ec1402b05so6647139a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 21:45:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789015556; x=1789620356; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=;
+        b=JNYiFm/kgxRujU/HodJBust6cvNvKeT4knzGdNxWAAkP/1Jmo06vm0J6V7Momni7qy
+         fJhJQOXjHLasEcRU/zSSo7RSyTonF5GEoykmopwc1JNtLlPtesTSOL7YwN04KeoLcup+
+         FxviYd21Sp2N6YbMJ9Jt+frPlQmB42vFzMUQM4BCllpHXWeLtnc/FF8LThVoUXnXm3f1
+         59i5VtATh5d3vdp+BnC4y+/WzAR+S+mVzz9+TpGoBH8aFUulPdGgG8YaIXeJMC1xnmdR
+         qn+bRNcfJlVfZzg3MyowfkeJBjU06DmxvPZmA5FbCTfe/ppENIrVBmx2r0VOPpQnNriz
+         SN8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789015556; x=1789620356;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0z6JGFLaGBLU0pTN5TYYEvd6B7WsmC5aNfWVo9r7wJ8=;
+        b=i8v/O3RHDxnkr+fGKG6u88cjjR84nC+bztRhrGscprJKWhjhcOPeRkefADq5VCp2Gk
+         4p2B6gDmT+XGRkfpKOqZ8vyXUxUggOjAJoxjpYTwNOO0iSjNOoUEtuTWhzX97w2/c+O9
+         rhnLkj0rbe0xorQzhDjZ164ADBLbjpYdEYztE8jyYtnGSIoCijBdv09kGR0L1fbiNPN8
+         k3KduX2hyAD0zESLVR3QirW+VlVbKgQc7BsmphIbyXBNj9I6ZqR1yQrydUvnp4yEdlCI
+         F2TBeVwYNV4XduibIvQ2niEFSZARJuK5jEH3mX1M/AtpLeNv9b8KJsEnLOyebpp8lAzI
+         WM5w==
+X-Gm-Message-State: AFuF++mp+H1+KMP994x9vW76qFrnSFG+lJAI+FGS1WbmT34DdCIfA+qm
+	p+K6RYdFWKo3ir2zrHCPnVvLJ2tZeo9EZWhmev1DqP/RmEEYBt7f99RN
+X-Gm-Gg: AYBFou1s84x0cvcRVOP/oaYF8f6480Qr2oL1xIgeZ75lAn7362sHb/Iv13VJ5MQ9Ryv
+	zI4s4dDSCkRfA7Pb/fTrh8caiEZ3scw1YucsuKooQz67M824b7zuL3jjGdd3LRLbpAXI0c1JNuA
+	43ZEVUlyFyd4bAzIr2wDE/eBg43KjRC+Ku2hV8fd8yiSt4WztwOJPtDvp3PbT5x9XlEzEF2FT/P
+	bfqw2CJnVJiCCapUN6vXjT8ai7HCiZRiyAgqGyoJAZgChmyrFcBeQnmSGaf+Z77nmhKTk4VSNLU
+	elw4Yn3hbC7CfoKF/Hs63i8v++4G33Tnry77md1RM53zqzgm38wbL6eJiLLB9Qjtdemf7qy/1r4
+	nYE4s17EoKyZbaAuslqmrE8DKL3AlI54URIhG97znE5LBq105DA6cFnFUQt4bL4pOrnLz3Nisu6
+	7qLHZZB+rZNVvyFYhMOv7ydqrdP7et0ENMEl7upuNxCw8hCIi7uFEdNciEn82A93NYXHzFCzoeu
+	2pHfS5dlh4vCpWMOanQONXgng==
+X-Received: by 2002:a17:90b:2b4e:b0:398:9be9:ab8f with SMTP id 98e67ed59e1d1-39b2622b9ecmr58740166a91.20.1789015556341;
+        Wed, 09 Sep 2026 21:45:56 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b123731sm45547140eec.18.2026.09.09.21.45.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 21:45:55 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: nm@ti.com,
+	ssantosh@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] soc: ti: knav_qmss_queue: Fix typos in comments
+Date: Thu, 10 Sep 2026 10:15:51 +0530
+Message-ID: <20260910044551.50308-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1205c56-2b76-4d3c-12d6-08df0ef55b9d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Sep 2026 04:38:27.6293
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OCSX7vVT2KmBeNFo/o9z+Bf/t77G4ZGvIvjwljxePhDmX/qST9atolu4rjOo2ybw+8HeOJx4gQTpWL3xHgYUeQOfx+4hNPUMhqs2Xg1g7Q4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB2244
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_213849_912463_A38CBA77 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260909_214558_357772_B4E36223 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,73 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Frank.
+Correct "specifes" to "specifies" in the knav_queue_open() kernel-doc and
+"accomodate" to "accommodate" in knav_pool_create().  No code changes.
 
->-----Original Message-----
->From: Frank Li <Frank.li@oss.nxp.com>
->Sent: Thursday, September 10, 2026 5:41 AM
->To: Nas Chung <nas.chung@chipsnmedia.com>
->Cc: mchehab@kernel.org; hverkuil@xs4all.nl; robh@kernel.org;
->krzk+dt@kernel.org; conor+dt@kernel.org; shawnguo@kernel.org;
->s.hauer@pengutronix.de; linux-media@vger.kernel.org;
->devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-imx@nxp.co=
-m;
->linux-arm-kernel@lists.infradead.org; jackson.lee
-><jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>;
->marek.vasut@mailbox.org; Ming Qian <ming.qian@oss.nxp.com>
->Subject: Re: [PATCH v7 6/9] media: chips-media: wave6: Improve debugging
->capabilities
->
->On Fri, Sep 04, 2026 at 03:46:32PM +0900, Nas Chung wrote:
->
->media: chips-media: wave6: Add trace and debugfs
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
+v2:
+ - use the subject convention this file already follows, which names the
+   driver and capitalises the description (Nishanth Menon)
+ - also correct "specifes" in the knav_queue_open() kernel-doc, so the
+   file is done in one go rather than a patch per word (Nishanth Menon)
 
-I'll address this in v8.
+codespell reports nothing else in this file.  The remaining hits under
+drivers/soc/ti/ are in other drivers and are left for a separate patch;
+"indx" in k3-ringacc.c is a struct field name, not a typo.
 
->
->> Add debugfs entries and trace events to provide detailed
->> debugging information.
->
->Nit: need extra space line here.
+v1: https://lore.kernel.org/all/20260907062247.9994-1-hemanth.selam@gmail.com/
 
-OK.
+ drivers/soc/ti/knav_qmss_queue.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
->
->> These enhancements help diagnose issues and improve debugging
->
->Remove "These enhancements".
+diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+index 3e4041454f69..6186454dff51 100644
+--- a/drivers/soc/ti/knav_qmss_queue.c
++++ b/drivers/soc/ti/knav_qmss_queue.c
+@@ -509,7 +509,7 @@ static int knav_queue_flush(struct knav_queue *qh)
+ /**
+  * knav_queue_open()	- open a hardware queue
+  * @name:		- name to give the queue handle
+- * @id:			- desired queue number if any or specifes the type
++ * @id:			- desired queue number if any or specifies the type
+  *			  of queue
+  * @flags:		- the following flags are applicable to queues:
+  *	KNAV_QUEUE_SHARED - allow the queue to be shared. Queues are
+@@ -805,7 +805,7 @@ void *knav_pool_create(const char *name,
+ 	}
+ 
+ 	/* Region maintains a sorted (by region offset) list of pools
+-	 * use the first free slot which is large enough to accomodate
++	 * use the first free slot which is large enough to accommodate
+ 	 * the request
+ 	 */
+ 	last_offset = 0;
+-- 
+2.48.1
 
-I'll remove it.
-
-...
-
->
->> +
->> +#ifndef __WAVE6_VPU_DBG_H__
->> +#define __WAVE6_VPU_DBG_H__
->> +
->> +int wave6_vpu_create_dbgfs_file(struct vpu_instance *inst);
->> +void wave6_vpu_remove_dbgfs_file(struct vpu_instance *inst);
->
->You add this patch 6. but call this funcation at patch 4.
->
->You need make sure each patch can build without break bisect.
-
-You are right that patch 4 calls what patch 6 declares.
-
-But the build does not break: wave6/Kconfig and wave6/Makefile are added in
-patch 8, so nothing under wave6/ is compiled in patches 3-7. I built every
-commit individually.
-
-Thanks.
-Nas.
-
->
->Frank
->
->> +
->> +#endif /* __WAVE6_VPU_DBG_H__ */
->> --
->> 2.31.1
->>
 
