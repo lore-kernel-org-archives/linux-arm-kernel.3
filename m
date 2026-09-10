@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A397C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8F0C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFRm/871PHRiIn7Xj60JFenQPh1lLDVpxq1iC0520Mc=; b=KwFFvQF/MwOFH83rHB9VN7Diph
-	QiWRnAoM6bKy6tAaoW0+UjFZhj8MyK37H3pgRgNsBTzvuQmImvwU6c4K3QEFCBHd/t9SzwP/pb3fq
-	kSQTEE+VxO0jYGkOXUn5f6TK7CS1WX4HYbzNydVlUQpFklYQckI7Pmk8hr/JlsfjIL1b1HymuhNpD
-	45KlLz5wELEVZiALAjq/cZSdZX7DPzCR3aJGMTBasv/DAkKwtBTT4PnCFftIxam8UsIpnFx3qgUku
-	oMeVtgUxW0P8Jb+KDcrfYjJgsMqXl1V2sag3DrMpclKcORhsmxhsv3AfrJbFXrLqkiLeP/AkrUvlk
-	x7yZyjmw==;
+	bh=lNRyQaZXRTkzI9mv9AhQ2yqB0XmwnrhAx+kU+GucctM=; b=hDS5b+H9WmOuF28PPDI+HMHA52
+	yRqlqwpBq8Jd0cLVNoVnLfD25k7sCHYtKc9PeZpV085iewlDSSf9vpWgVHvlNuTs5q55RgNkXgtyy
+	JsW4kHM9f9eb9KytHB8LzDQL5ITUjTJ4vqGyT4/1uiUlOd4stceXIvBv0pB3JfnGHc8FqJfAnB3CR
+	6xdhsUOPRBL4h2kAt6D5gacT0eCpVnlf3xDM8Ti0XT0z0UzqGOcowwSPFiZWQyUbMhTuPfIh8bZ2b
+	odG2iPYocqNsdWNyWijZ28OtzEYW5i67l52HLeINzWgAtPLbQZj1YHYrN65prOvH+eDHX19Hshpp7
+	EaqNnVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ewQ-0000000EUbm-3Y2A;
-	Thu, 10 Sep 2026 13:35:50 +0000
+	id 1x4ewl-0000000EV6j-1sku;
+	Thu, 10 Sep 2026 13:36:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ewK-0000000EUP8-3pOk;
-	Thu, 10 Sep 2026 13:35:44 +0000
+	id 1x4ewO-0000000EUW8-2DtU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 13:35:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=oFRm/871PHRiIn7Xj60JFenQPh1lLDVpxq1iC0520Mc=; b=HcKVH1WMEURbhND4HgRQaNv11T
-	vgoKw0F9vi7c7tFYDp+/NbK9TGXIBlUSE/ZrOxld/Bp3E2mbitHF/Uy3yNSSs9rKJKGTy48I1sJ0c
-	4878io0OyJomOO9kSWNdXdrS/1edXI746MDNJtq8jSXmDbzsrPCwoybwPIkHW693co38Kh2qnhrod
-	Y5OaxTj+9JxX45oc+40u0QOaJ9m/JhvbyZIQCBUtwPEzr5sD2R27/7GZBCap5Q79nixcMO+hda8j6
-	bh8Hb1fvSbRHbLxV2r40L/uSrb45rQp1ZLjYnHLawSvK7KvCXxDy8AyzexDuDe7t7mFwxyk+BraOF
-	8FSx7KQg==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4ewI-00000002XgA-0eAw;
-	Thu, 10 Sep 2026 13:35:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789047340;
-	bh=xQ7+XBReyJRczHBUQNd97CLLsbGlPLiZr8fnMEkPsd0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H+7C0nV7MSLk9Bzvvswv+a0kDAhb5h1smF3IqOEOG9mPaMYDsZyG7BrQRtSot1/WF
-	 1uQ/6F9J5AOX+/ni1iajM5xts+Vqi53x/rX3Pi6yvbABiRikKV/JGpuSt/i5nJDv9b
-	 4w3TDi04+HgM2pBWQoUra1jLjNGhORPE6sDnUPoDeguUvWaSjf7Wb7jdBOUDPAZkNn
-	 /HA6t9XUBIsxZs6hE8bh8Tq3ENC3lnMMNOxKFgi7ezwL1QFtAZ+n9ubUuX+ir2m/44
-	 uU++iURtpCa2BLWRYZdZz11DHiDlLRdWiSUUAOkfKBZjBRXX5rSubn2UgtUyxRUY7j
-	 GPtl83ireJ6sQ==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8718C17E0D43;
-	Thu, 10 Sep 2026 15:35:38 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Thu, 10 Sep 2026 09:34:48 -0400
-Subject: [PATCH v2 6/8] arm64: dts: rockchip: Rename rk3566 and rk3568 HDMI
- audio cards
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=lNRyQaZXRTkzI9mv9AhQ2yqB0XmwnrhAx+kU+GucctM=; b=kTqPkWRbme45RCmHEZe1UT/k5j
+	cvLOgDClXp1ww9MZ5n7o0I5dqzXWeCnmGDpOr6fL8AMYVjF2mEUZ6JDmLodKGEM5ebHGUR60YK1FE
+	PmB8X0PDRgnAtFTsosFWxDlIflzqirDy9+mT0WVrV8yBG5T3t7/P2gjCGZBa/GrcAVUstFnhvRqWF
+	DfsYJCNu10Ns9HUcNh6m61X6SOqs1tCYXshq5b8Cx9b42ytMqIOOjB3/OwcRQg2CScJx3RU8v4dm3
+	tdlFhxy0t+45n0jcxVhfx+LqLUGdODQXBGHKr67qcunzCwoKqnMjNivrJam6zJRFD8G/hReWLhk4k
+	IvWFo4gQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4ewL-00000002Xh1-1l2l
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 13:35:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BD5322C8;
+	Thu, 10 Sep 2026 06:35:39 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 801593F528;
+	Thu, 10 Sep 2026 06:35:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789047343; bh=vFiGko9W5vY2zPx9uystmT+pgsJatJ921+bOqjDFnsw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TMigpWmVs+gqlwFfSICdSaAmeo6lDUIvUP6cV9HfrbQt55FN6fTzomymOP19U3v9J
+	 f6VS/cUdGXCOgakdg9hL8rw6vkvhAOCtOPHpv2tmQbRYrLHCKE3+EGZOdPbMKr6CaC
+	 Njqm5G9HmtqPDwAg+e3/s/nDqc31iNGz9UqrHa3A=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Yixun Lan <dlan@gentoo.org>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 6/7] pinctrl: sunxi: a523-r: add a733-r compatible string
+Date: Thu, 10 Sep 2026 15:35:17 +0200
+Message-ID: <20260910133519.459011-7-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260910133519.459011-1-andre.przywara@arm.com>
+References: <20260910133519.459011-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260910-fix-rockchip-hdmi-audio-names-v2-6-1396a6168e20@collabora.com>
-References: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
-In-Reply-To: <20260910-fix-rockchip-hdmi-audio-names-v2-0-1396a6168e20@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Johan Jonker <jbx6244@gmail.com>, Alex Bee <knaerzche@gmail.com>, 
- Christian Hewitt <christianshewitt@gmail.com>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- David Summers <beagleboard@davidjohnsummers.uk>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_143542_392059_B711A3EA 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260910_143545_653917_B9F64824 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the HDMI audio card name for RK3566 and RK3568 to their
-corresponding dtsi files so the name can be set to match the SoC
-in user-visible ALSA fields and no longer collides with the identical
-"HDMI" string used by other Rockchip SoCs.
+The secondary Allwinner A733 pincontroller ("-r") is interestingly not
+using the same new MMIO frame layout as the main controller, but is in
+fact very similar to the A523-r one: it has two banks, with 14 and 6 pins
+each. From the driver's perspective, this is all we care about, so we can
+re-use the a523-r pinctrl driver for the a733-r, too.
 
-Fixes: 697ee8546e241 ("arm64: dts: rockchip: Add HDMI audio nodes to rk356x")
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+The individual pinmux settings are different, so we must not use the
+a523-r compatible string as a fallback, but we can surely let the same
+driver care for both the a523-r and a733-r IP, as the pinmux values will
+be provided by the DT.
+
+Add the a733-r compatible string to the match list, without further
+distinguishing between the two. Should differences be discovered later,
+we can easily split this up then.
+
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3566-base.dtsi | 4 ++++
- arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 4 ++++
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 1 -
- 3 files changed, 8 insertions(+), 1 deletion(-)
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-base.dtsi
-index e56e0b6ba941..0086ff49fee2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-base.dtsi
-@@ -6,6 +6,10 @@ / {
- 	compatible = "rockchip,rk3566";
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+index 9e07fbb5be7cb..dfdcfa740ecc9 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+@@ -40,6 +40,7 @@ static int a523_r_pinctrl_probe(struct platform_device *pdev)
+ 
+ static const struct of_device_id a523_r_pinctrl_match[] = {
+ 	{ .compatible = "allwinner,sun55i-a523-r-pinctrl", },
++	{ .compatible = "allwinner,sun60i-a733-r-pinctrl", },
+ 	{}
  };
  
-+&hdmi_sound {
-+	simple-audio-card,name = "RK3566 HDMI";
-+}
-+
- &pipegrf {
- 	compatible = "rockchip,rk3566-pipe-grf", "syscon";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index 3bc653f027f1..efc1edff1e15 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -382,6 +382,10 @@ &gpu {
- 	operating-points-v2 = <&gpu_opp_table>;
- };
- 
-+&hdmi_sound {
-+	simple-audio-card,name = "RK3568 HDMI";
-+}
-+
- &pipegrf {
- 	compatible = "rockchip,rk3568-pipe-grf", "syscon";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index a5832895bd39..1a4562df20ee 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -150,7 +150,6 @@ scmi_clk: protocol@14 {
- 
- 	hdmi_sound: hdmi-sound {
- 		compatible = "simple-audio-card";
--		simple-audio-card,name = "HDMI";
- 		simple-audio-card,format = "i2s";
- 		simple-audio-card,mclk-fs = <256>;
- 		status = "disabled";
-
 -- 
-2.55.0
+2.47.3
 
 
