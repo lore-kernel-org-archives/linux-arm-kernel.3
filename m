@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CEEC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FC2C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 11:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70Xrz5Ek18W9RLHK+PGrZl6neyZSU/LQLxpuqNmBXms=; b=Hug4Nksd2Z7n1mhQCqAqT/X0jB
-	gHwxIPq3jL8klsigVmqiPR8FIp7pThdR8fE3f+Pp5C+80QdjT9q4dURTISvGDkm4hnTwHS2Za6nwa
-	TzhYmdK0KUKbY5zw3mq4hUHiqCs8P19UawVqr88YNgfCQT6diE2Die8dM8W+VtVy2zkujY+I+xxnK
-	DleU5p43DWgr3TK+RpX4e3+4amopDlZxKrGYkyrYmXDsyqzFbf5m02uh5MTaj5OWHfPagDiR7j8Oo
-	u+MmxK36rQ0JV9mxk10mabf3QSWiPVhduOGskHsKmdlLqEGj7QfUYJi8NxXcVpL6xyFEQvRS6LTQD
-	H+7W1spw==;
+	bh=x7qhrmT6HLun6jsVh88qBFkF1/a9MuNKLp5SlVHYpFk=; b=NyOF9TLTKEAA4mCv6SMwFwPoiQ
+	DmJw3JoTUXbCh+FpLRHJ9rtbO0r6tc9OeYT0qWCo3RxV2DAzORZMuGTD0Q7XNkNKdhYC7ocu5l328
+	yjS/lngUQ5fY2TsFc5JdsTndH0hhYlEIUqliyACzVvIErfpssjGPmOnDscCTpovjc/2w3/kEOmTzD
+	AbOt6UQ/Vk+1yIxgNnlzcQ4b8/qi/szrniFUdFq6kCDyKImbzUtKw6R3rXkQxvgw4Zge4jnOJCzwP
+	3wA2q0djMD70j+QxXDkcwRTLjvfFnmy6sxAXR909Nit3swa21JnF6yNjXzRJ6T7K5tWRUroa+c0uU
+	wmmbZOMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cd4-0000000EA0Y-1i5e;
-	Thu, 10 Sep 2026 11:07:42 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1x4ceJ-0000000EAMr-3wQJ;
+	Thu, 10 Sep 2026 11:08:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cd1-0000000E9yg-05Nk
+	id 1x4ceI-0000000EAMh-1GkM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 11:07:41 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so5822667a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 04:07:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789038458; x=1789643258; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=70Xrz5Ek18W9RLHK+PGrZl6neyZSU/LQLxpuqNmBXms=;
-        b=qsALKBLuc6lRqR5oN/vSJjJYT7w7eMasGac7SBilwBbckJ02iesHaDh67Ye0NByrtw
-         YGYvTT/L+zDcpLTJUt/Wo1qNINN4vzd3cHAqx0IJpsunfacx/v056DCEJetaEDiuWxPU
-         0Gb+3975X8l6JAMfE0ZQAqiApcVY7SdmyNXaDriFuIFy7j5z1sSXobZtm9wVEJ5GIT9q
-         0rdYjOd2CBdNqxN3H2JXXJnA4/tkmRhSn4YY77LEUdzBZuRzklRJyN3rciDPWjuAYfYU
-         faM9YtPZhsrEgBZO4N1eNat242aMPsmkIdPcmF6/2f09wmP0WtKNhx4XI/N4pKa0mNyq
-         xCiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789038458; x=1789643258;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=70Xrz5Ek18W9RLHK+PGrZl6neyZSU/LQLxpuqNmBXms=;
-        b=JSFLrGETOb9ScnirVr2FPAfYoBS9UwD5eKsvQtHMLqKMenMw9sI1kLUvIVV9LrIBsK
-         9fiYPUACUxPZnKLuuYeGl5HXM90G/AX2ljal+YJtADajZvo086Fs92Tiu5zE/mKdHnnv
-         pKakZPCTys9u6rUE+PoZ/HuSGqUXfqQSO0j78IiB3+LM6qM82oRwR4NGn+MgU5zTsJek
-         tlJ9+PsWpvI2zl+RMnuKR0J9Bvku5CvqFYsY1viS7nCIn2HvKP89p2stuFfjc1II0v/m
-         t/AFCoL7VgYg5gWGTx4As5nJTyjmgeM6v4wYg64yD8i7Z4eBRs4739MlAdmCti4sJNPH
-         zPrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxFdE8hlRLzXgUKpMBkhy6nTqVlQh53Y3moVpw5tcIGYRwIAENSvjiwFmEZLINZ/y8LRWSkQIGSI5umSUstImEu@lists.infradead.org
-X-Gm-Message-State: AFuF++n40+8/U18hmBjomqj4+v4O/UFUMKc9DBQ4gPAkJ94fvrFl2oqT
-	8xX3tVNQsehqsMS8i8e29EAXPIvhJmmlvxl7J0hyL7uFvuWKpJ2abriu
-X-Gm-Gg: AYBFou2/Es0cqLxTLaiY73sJdkcAZ54z1upNQNBE8gbpUHTJc6Bg0jE6YKwxUv9mGI3
-	NZqSgEWCw7m/rOVnVoUZOjShHj0PRQ8QKCGDqiiojnygMA5EyMPFBhoAOXEHhZoKMyOkRwxVA3r
-	Gn9FHcLCstJbB6W2BHnJ/Qw25OUz7uIK1uqSbgFNeu+/KqYKE/EBO61yiyOsLJ7iewIc62KNWgZ
-	9j68fwhfSmavd8SC81Iumvgbd0xYXSGatl5J73ihQHwSW7ky0z/XfUbftK1K8wp/pWoiktnaw7f
-	DGG1Rynk4Uj6yY0XZxgWJBwH1PkiJ+RtpoOIqelj7t/ym3dTFiA1Ige0UZGypOY2xHejelw0zu+
-	MeRg7oYs5o2V2JjBWqL1PQG4q4WPsxWqUZjExy37L3/5d+SysrtBH+QzF1QU++CK3PEKUuUB6Fx
-	/sMbPvEKRMzb19poN2Cx1c7xFff54GGkGR9N1iIaIG4ESBZfiyYhZXFA1B3n9Ud8bPbYIrzIGjn
-	VPC/erIbNVhgOgQ91NWBItC2R74Vt2UU73qqd6FUO6Wj0wYOXYAL+8=
-X-Received: by 2002:a17:90b:1b06:b0:398:9be9:ab8e with SMTP id 98e67ed59e1d1-39b2622ba26mr58218547a91.19.1789038457819;
-        Thu, 10 Sep 2026 04:07:37 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a62be87sm43023781eec.6.2026.09.10.04.07.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 04:07:36 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH v2 10/20] KVM: selftests: Add a wrapper API to allocate multiple page table pages
-In-Reply-To: <20260902164123.2546762-11-seanjc@google.com>
-Date: Thu, 10 Sep 2026 16:34:41 +0530
-Message-ID: <8q591i5y.ritesh.list@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-11-seanjc@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_040739_060009_8A126BB4 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+	Thu, 10 Sep 2026 11:08:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F3FBA4032A;
+	Thu, 10 Sep 2026 11:08:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4D951F000FF;
+	Thu, 10 Sep 2026 11:08:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789038537;
+	bh=x7qhrmT6HLun6jsVh88qBFkF1/a9MuNKLp5SlVHYpFk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YALf3tBpfCON9TZe2Mv4+aJeq7WfpcvlqYIAyIr77+GrgYUoOGwZngBEBus8T5C63
+	 B38VYlbLw2otsmE6g/m4u8EGZuo+WlevckD2sZ7I9VkHtVFNdUIw5x7BKhES76BpDV
+	 7pBISJQsLlAJ7PUnO2Y6h2atyYCHvN/zNjiS3YVqWzwz7lBGQETAXPVEl0nkOeT8wY
+	 w71UIu5e9t1QOeFqkmwpXa6dj2tEjKOIZYwOvrjrjUGuF1mStHcgfcLVj89y9LMBO/
+	 REifa/XXAknlsEJYl6gJbBJ4OLAn/1LRsyZMVX/C6eWOXgS8BIXcxm9qttdiqcBcgx
+	 iXlQWxq6OOqZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x4ceF-00000007EEC-3kUD;
+	Thu, 10 Sep 2026 11:08:55 +0000
+Date: Thu, 10 Sep 2026 12:08:55 +0100
+Message-ID: <86se3h748o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Xi Ruoyao <xry111@xry111.site>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
+In-Reply-To: <20260908145651.2828597-1-fuad.tabba@linux.dev>
+References: <20260908145651.2828597-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, ben.horgan@arm.com, xry111@xry111.site, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, gshan@redhat.com, yaoyuan@linux.alibaba.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,16 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+On Tue, 08 Sep 2026 15:56:51 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> finalise_el2_state() clears the EL2 MPAM traps whenever the ID
+> registers advertise MPAM, while KVM sets them only under ARM64_MPAM,
+> which also requires MPAMEN. Without EL3 nothing sets that enable, so a
+> guest reaches the MPAM registers while ID_AA64PFR0_EL1.MPAM reads 0
+> for it.
+> 
+> Gate the traps on the ID registers alone: MPAMEN isn't a term in any
+> MPAM accessor, so they take effect without it. The cap tests the
+> sanitised ID fields, which never exceed a CPU's own, so it's set only
+> where finalise_el2_state already wrote MPAM2_EL2. MPAM3_EL3.TRAPLOWER
+> is clear there, and arm64.nompam turns the cap off too.
+> 
+> Fixes: 23b33d1e168c ("arm64: head.S: Initialise MPAM EL2 registers and disable traps")
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> 
+> Notes:
+>     Changes since v1:
+>      - Commit message only. The code is unchanged, so Yuan Yao's
+>        Reviewed-by is carried.
+>      - Fixes: names the commit that cleared the traps, rather than the
+>        one that added KVM's trapping.
+>      - Says why the sanitised ID fields are the safe gate: the cap is set
+>        only where finalise_el2_state already wrote MPAM2_EL2.
+>     
+>     Not covered, and answered on the v1 thread: a machine whose CPUs
+>     differ on MPAM, raised by Ben and by sashiko.
+>     
+>     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
+> 
+>  arch/arm64/include/asm/cpufeature.h     |  5 +++++
+>  arch/arm64/kernel/cpufeature.c          | 13 +++++++++++++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  4 ++--
+>  arch/arm64/tools/cpucaps                |  1 +
+>  4 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 7404a6e83a930..8863ae99596bc 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -873,6 +873,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
+>  	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+>  }
+>  
+> +static __always_inline bool system_supports_mpam_sysregs(void)
+> +{
+> +	return alternative_has_cap_unlikely(ARM64_MPAM_SYSREGS);
+> +}
+> +
 
-> Add vm_alloc_page_table_pages() and use it throughout arch code to replace
-> open coded equivalents.
->
-> No functional change intended.
->
+What is the rationale for choosing alternative_has_cap_unlikely()
+instead of cpus_have_final_cap(), which is more wildly used?
 
-Straight forward change. LGTM.
+	M.
 
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-
+-- 
+Without deviation from the norm, progress is not possible.
 
