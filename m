@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3554CC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57762C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5/vPpllGKppAQmvAZ51j2daco6+yuo7BVECN5KUbX0=; b=zNGENwnh5F1rSuItnaku4BfWmQ
-	WXwzKuKieFk/OHwxlC9i9HrVAJjHIJIzh5aBnPWOzNipXJq6SaXzY/wHQaC/DNZeVIINUr83qqltP
-	WO97YLNjfpES0RFUhrkIzudC0fDqBMFWtYPZ2zjLSkPfCd7OGcf5YsIm8LjfINrKSqqtnRQIwI8kc
-	VoEDqa5GZyMyQrPEhTjUQOjF+CDg8OAvW532L+o56NlO7kODODpae5XN6MtX1sVqwgkJ+kfYjCClN
-	fR8pq6vrfhpE2gRl4V6iAg9oZLftSioD1BmFG8KiL4Oehvgm+DDv8vHcPT44qD6ndNRFMpTvP5zAD
-	dPpItjOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RJekABWao83ru1JSBqfRyOG/eLqJN+V2YA2rUhRvpjE=; b=RWT+5+C3HbP6tVsX966W5JTW+1
+	XE7EuL1zk1iwOxRRYWsvn6SDDZfRYdhdB0R4UHD6gBM36PaKwcxQ1+tpUjiEU75ZyRMvnePBXDNqn
+	QE1lb4lrzbEyiW0tp4IjENQxK52LA2cwVtXzCMVyaMd+iRZHFpuGtz9PgFIs9TAeQUkzYk3ABpY8A
+	MlS+yWgFHMnBYrbZWAiu9gsGkYmjfFZxRvWet128XImRLAMST5zDWNkyEIaa5TTimF8/ubhihPdiI
+	gwBZPlmjs/OWWI/fpCntQ3USykSdkcF8h37VjTFeXHhP03v3z1sW9xPjZ8SmMyi6gePg7yz0epycE
+	JZWwoYEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bMr-0000000DvU7-2ZX3;
-	Thu, 10 Sep 2026 09:46:53 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1x4bOR-0000000Dvhj-3kvH;
+	Thu, 10 Sep 2026 09:48:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4bMo-0000000DvT6-3QIq
+	id 1x4bOQ-0000000DvhS-36KO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:46:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=F5/vPpllGKppAQmvAZ51j2daco6+yuo7BVECN5KUbX0=; b=l
-	qXmm7sMACXKuGTYrhuNCWfmPg5VEqhYXjr3OUG/evdiii5qKdz1WBt9cWRK4AIyR
-	oOrGDa7nYpOkYEna1BshJ0UY8tk5Wjp5lZbAwr0uJOSm9quHSnEItNUmyjrM/biC
-	LLq2WOZewwsIWu8Riybaa3g98vnHpzOPIGS9fsrNxk=
-Date: Thu, 10 Sep 2026 17:45:36 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
-	longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial <linux-serial@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re:Re: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75
- quirks
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <b199eb38-b1a2-4db6-81d8-37bab09a75b7@linux.intel.com>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
- <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
- <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
- <aqJ35vMBiBZo2iUE@ashevche-desk.local>
- <b199eb38-b1a2-4db6-81d8-37bab09a75b7@linux.intel.com>
-X-NTES-SC: AL_Qu2TC/yYvE0o4CCfYekcn0wRhug/UMa4u/sm3YNXc8IFoD/G9CUlQFRoOmbk686TGjqAnROpYCR11ftiZ4N9xBLb9kFkJNpkbO2sqGB8hQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Thu, 10 Sep 2026 09:48:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D73CF600C8;
+	Thu, 10 Sep 2026 09:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC0B11F000FF;
+	Thu, 10 Sep 2026 09:48:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789033709;
+	bh=RJekABWao83ru1JSBqfRyOG/eLqJN+V2YA2rUhRvpjE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ii5l1rraz5dobLBaVEZ50tCKg56Zz1t8ePyiJPtnG6dEqDOWDoR1tzi468zZ0aDH/
+	 0wpRaJtWBr4Fe6rEEG8Vv3WlvReH5ABEzWqGHRKY/vi/8OMeSKneYZj9xtN2CnslOZ
+	 kGJL2O+VuzPnzqtD41wZ1tPJITJ+Hg48q7aLPgSUncs3cWpyyKcLx9jRy1dN9Bbs4m
+	 Nv7LZh4AFOnmx2vM1VqHE7cw5sf8NorRqe3iZwdUu51sfUZfI4Bbt9WTwYabbFiG60
+	 Z0cKjQaINoKHWipBVbX5/kwlOJ01lcA+a/sxQjRbpISEaSKCQCyaZ/Xx/6LSPXOy9o
+	 t/Yt8jTmxaMjw==
+Subject: Re: [PATCH net] net: stmmac: fix TX descriptor availability check for
+ TSO traffic
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ peppe.cavallaro@st.com, alexandre.torgue@st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 10 Sep 2026 09:48:28 +0000
+Message-ID: <178903370842.219967.14155724625684562557@kernel.org>
+In-Reply-To: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
+References: <20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb@oss.qualcomm.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Message-ID: <55b27872.8ed9.1a08ab55a52.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: hCgvCgD3n9RAfKJqJMVDAA--.19073W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgBy42qifEADiwAA3r
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_024651_221491_EC1DF04B 
-X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +74,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgSWxwbywgQW5keSwKCkknbGwgZ28gd2l0aCB0aGUgc2ltcGxlIGNvbW1lbnQ6CgkvKgoJICog
-QW1iYXJlbGxhIGtlZXBzIHZhcmlhbnQgSUVSIGJpdHMgKGUuZy4gRVRPSSkgc2V0IGZvciBjb3Jy
-ZWN0IFJYCgkgKiB0aW1lb3V0IGJlaGF2aW91ci4KCSAqLwoJdXAtPmllciB8PSBkLT5wZGF0YS0+
-aWVyX21hc2s7CgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwoKQXQgMjAyNi0wOS0xMCAxNzozMzoz
-OCwgIklscG8gSsOkcnZpbmVuIiA8aWxwby5qYXJ2aW5lbkBsaW51eC5pbnRlbC5jb20+IHdyb3Rl
-Ogo+T24gVGh1LCAxMCBTZXAgMjAyNiwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOgo+Cj4+IE9uIFRo
-dSwgU2VwIDEwLCAyMDI2IGF0IDA1OjEyOjUyUE0gKzA4MDAsIHpsMDIwODk1IHdyb3RlOgo+PiAK
-Pj4gPiA+IFdvbmRlcmluZyBpZiB3ZSBzaG91bGQgdW5kbyB0aGlzIGluIHRoZSBwb3J0J3MgLnNo
-dXRkb3duKCkgY2FsbGJhY2suCj4+ID4gSSBzYXcgdGhlIHNodXRkb3duIHBhdGggYWxyZWFkeSBj
-b3ZlcnMgaXQ6IGR3ODI1MF9zaHV0ZG93bigpIGNhbGxzCj4+ID4gc2VyaWFsODI1MF9kb19zaHV0
-ZG93bigpLCB3aGljaCBkb2VzCj4+ID4gCXVwLT5pZXIgPSAwOwo+PiA+IAlzZXJpYWxfcG9ydF9v
-dXQocG9ydCwgVUFSVF9JRVIsIDApOwo+PiA+IHNvIGJvdGggdGhlIElFUiBzaGFkb3cgYW5kIGhh
-cmR3YXJlIElFUiBhcmUgY2xlYXJlZCwgaW5jbHVkaW5nIEVUT0kuCj4+IAo+PiBEZXBlbmRpbmcg
-b24gdGhlIGFuc3dlciB0byBJbHBvIHRoZSBlbmFibGluZyBtYXkgbmVlZCBhbiB1cGRhdGVkIGNv
-bW1lbnQKPj4gc3VtbWFyaXNpbmcgdGhlIGFib3ZlLgo+Cj5JJ2QgcHJlZmVyIHJlbW92aW5nIHRo
-ZSBlbnRpcmUgIkZvcmNlIHRoZW0gLi4uIiBzZW50ZW5jZSwgaXQgZmVlbHMgcmVhbGx5IAo+YmFz
-aWMgZGV0YWlsIGFib3V0IGhvdyAtPmllciB3b3Jrcy4gSSBiZWxpZXZlIHRoYXQgd291bGQgcmVz
-b2x2ZSB5b3VyIAo+Y29uY2VybiBpZiByZWxhdGVzIHRvIHdoYXQgc2h1dGRvd24gZG9lcyBmb3Ig
-dGhlIGZsYWcgKGNsZWFycyBpdCB3aGlsZSAKPnRoZSBjb21tZW50IGFzIGlzIHNheXMgbm90aGlu
-ZyBpcyBzdXBwb3NlZCB0byBjbGVhciBpdCkuCj4KPj4gPiBBdCAyMDI2LTA5LTEwIDE2OjMzOjE0
-LCAiQW5keSBTaGV2Y2hlbmtvIiA8YW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3
-cm90ZToKPj4gPiA+T24gRnJpLCBTZXAgMDQsIDIwMjYgYXQgMDI6Mzg6MThQTSArMDgwMCwgTG9u
-ZyBaaGFvIHZpYSBCNCBSZWxheSB3cm90ZToKPj4gCj4+IC4uLgo+PiAKPj4gPiA+PiArCS8qCj4+
-ID4gPj4gKwkgKiBBbWJhcmVsbGEga2VlcHMgdmFyaWFudCBJRVIgYml0cyAoZS5nLiBFVE9JKSBz
-ZXQgZm9yIGNvcnJlY3QgUlgKPj4gPiA+PiArCSAqIHRpbWVvdXQgYmVoYXZpb3VyLiBGb3JjZSB0
-aGVtIGludG8gdGhlIDgyNTAgSUVSIHNoYWRvdyBzbyBsYXRlcgo+PiA+ID4+ICsJICogZ2VuZXJp
-YyBJRVIgdXBkYXRlcyBkbyBub3QgY2xlYXIgdGhlbS4KPj4gPiA+PiArCSAqLwo+PiA+ID4KPj4g
-PiA+V29uZGVyaW5nIGlmIHdlIHNob3VsZCB1bmRvIHRoaXMgaW4gdGhlIHBvcnQncyAuc2h1dGRv
-d24oKSBjYWxsYmFjay4KPj4gCj4+IAo+Cj4tLSAKPiBpLgo=
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
+
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0 (1)
+
+- [High] stmmac_tso_xmit() now demands the exact descriptor count
+  returned by stmmac_tso_get_num_desc() (stmmac_main.c:4543-4544) but…
+
+Pre-existing issues:
+- [High] proto_hdr_len in stmmac_tso_xmit() is declared as u8
+  (stmmac_main.c:4524) but is assigned the size_t result of…
+- [Low] The stmmac_tso_xmit() kernel-doc states "mss is fixed when enable
+  tso, so w/o programming the TDES3 ctx field." (stmmac_main.c:4512),…
+
+--
+
+net: stmmac: fix TX descriptor availability check for TSO traffic
+
+This replaces the (skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1
+estimate in stmmac_tso_xmit() with stmmac_tso_get_num_desc(), which counts
+the header descriptor, the linear payload, every fragment and the MSS
+context descriptor. The new count is then used for the free descriptor
+check before the ring is programmed.
+
+A few questions below.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 24656b35350b1..3566b33bc34e5 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4454,6 +4454,26 @@ static bool stmmac_tso_valid_packet(struct sk_buff *skb)
+>  	       header_len + gso_size < 16383;
+>  }
+>  
+> +static int stmmac_tso_get_num_desc(struct stmmac_tx_queue *tx_q,
+> +				   struct sk_buff *skb, u32 pay_len)
+> +{
+> +	int i, ndesc = 1;
+> +
+> +	/* head payload */
+> +	ndesc += DIV_ROUND_UP(pay_len, TSO_MAX_BUFF_SIZE);
+> +	/* frag payload */
+> +	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++) {
+> +		const skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
+> +
+> +		ndesc += DIV_ROUND_UP(skb_frag_size(frag),
+> +				      TSO_MAX_BUFF_SIZE);
+> +	}
+> +	/* MSS update requires a new descriptor */
+> +	ndesc += !!(skb_shinfo(skb)->gso_size != tx_q->mss);
+
+[Severity: Low]
+This is a pre-existing issue and not introduced by this patch, but the new
+comment here now contradicts the stmmac_tso_xmit() kernel-doc that follows
+a few lines below, which still says:
+
+	 * mss is fixed when enable tso, so w/o programming the TDES3 ctx field.
+
+stmmac_tso_xmit() does program a context descriptor whenever the skb MSS
+differs from the cached queue MSS:
+
+	if (mss != tx_q->mss) {
+		...
+		stmmac_set_mss(priv, mss_desc, mss);
+		tx_q->mss = mss;
+		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx, priv->dma_conf.dma_tx_size);
+
+Would it make sense to drop or update that kernel-doc sentence while
+touching this area?
+
+> +
+> +	return ndesc;
+> +}
+> +
+>  /**
+>   *  stmmac_tso_xmit - Tx entry point of the driver for oversized frames (TSO)
+>   *  @skb : the socket buffer
+> @@ -4497,10 +4517,10 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	struct stmmac_priv *priv = netdev_priv(dev);
+>  	unsigned int first_entry, entry, tx_packets;
+>  	struct stmmac_txq_stats *txq_stats;
+> +	int i, first_tx, nfrags, ndesc;
+>  	struct stmmac_tx_queue *tx_q;
+>  	bool set_ic, is_last_segment;
+>  	u32 pay_len, mss, queue;
+> -	int i, first_tx, nfrags;
+>  	u8 proto_hdr_len, hdr;
+>  	dma_addr_t des;
+>  
+> @@ -4513,14 +4533,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>  
+>  	/* Compute header lengths */
+>  	proto_hdr_len = stmmac_tso_header_size(skb);
+> +	pay_len = skb_headlen(skb) - proto_hdr_len; /* no frags */
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the new pay_len computation
+inherits an existing truncation. proto_hdr_len is declared u8 while
+stmmac_tso_header_size() returns a size_t (skb_transport_offset() +
+sizeof(struct udphdr), or skb_tcp_all_headers()), and
+stmmac_tso_valid_packet() explicitly admits headers up to 1023 bytes into
+the hardware TSO path:
+
+	return header_len <= 1023 && gso_size >= 64 &&
+	       header_len + gso_size < 16383;
+
+For a header of 256..1023 bytes the store wraps modulo 256 (486 becomes
+230, 256 becomes 0). The truncated value then defines the hardware
+contract, both for the payload start address:
+
+	stmmac_tso_allocator(priv, &entry, des + proto_hdr_len, pay_len,
+			     (nfrags == 0), queue);
+
+and for the descriptor lengths:
+
+	stmmac_prepare_tso_tx_desc(priv, first, 1, proto_hdr_len, 0, 1,
+				   is_last_segment, hdr / 4,
+				   skb->len - proto_hdr_len);
+
+so the tail of the real header is handed to the engine as TCP/UDP payload
+while TDES3 declares more payload than the following descriptors describe
+(a header of exactly 256 also yields a zero length buffer1 with TSE set).
+A TCP over IPv6 socket carrying a few hundred bytes of sticky
+destination/hop-by-hop options makes skb_tcp_all_headers() exceed 255 while
+staying under 1023, so such an skb reaches stmmac_tso_xmit().
+
+For the new pay_len the error biases upward, so the ring accounting stays
+safe, but should proto_hdr_len be widened to unsigned int (or size_t) since
+this patch now builds the descriptor count on it too?
+
+>  	if (skb_shinfo(skb)->gso_type & SKB_GSO_UDP_L4)
+>  		hdr = sizeof(struct udphdr);
+>  	else
+>  		hdr = tcp_hdrlen(skb);
+>  
+> -	/* Desc availability based on threshold should be enough safe */
+> -	if (unlikely(stmmac_tx_avail(priv, queue) <
+> -		(((skb->len - proto_hdr_len) / TSO_MAX_BUFF_SIZE + 1)))) {
+> +	ndesc = stmmac_tso_get_num_desc(tx_q, skb, pay_len);
+> +	if (unlikely(stmmac_tx_avail(priv, queue) < ndesc)) {
+>  		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
+>  			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
+>  								queue));
+
+[Severity: High]
+The new requirement is exact, but the TX flow control watermarks were left
+unchanged. Can this make the "Tx Ring full when queue awake" branch
+reachable for ordinary TSO traffic?
+
+stmmac_tso_get_num_desc() returns at least nfrags + 2 for any TSO skb that
+has a linear payload, so with MAX_SKB_FRAGS = 17 plus an MSS change it asks
+for 20 descriptors, and up to roughly 23 when individual frags exceed
+TSO_MAX_BUFF_SIZE.
+
+The tail of stmmac_tso_xmit() still stops the queue based on the old
+assumption:
+
+	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
+		netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
+			  __func__);
+		netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
+	}
+
+so the queue is deliberately left awake with as few as 19 free slots, while
+the next TSO skb may need more. Does that leave a window where the stack
+submits an skb that does not fit, hitting the un-ratelimited netdev_err()
+in the ndo_start_xmit hot path together with netif_tx_stop_queue() and a
+NETDEV_TX_BUSY requeue?
+
+The non-TSO path keeps the invariant the watermark was designed for,
+stmmac_xmit() needs nfrags + 1, which is always satisfied when the queue is
+awake:
+
+	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
+
+The only place the queue is re-armed is stmmac_tx_clean():
+
+	if (unlikely(netif_tx_queue_stopped(netdev_get_tx_queue(priv->dev, queue))) &&
+	    stmmac_tx_avail(priv, queue) > STMMAC_TX_THRESH(priv)) {
+		...
+		netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, queue));
+
+STMMAC_TX_THRESH() is dma_tx_size / 4, which is 16 on the 64 entry ring
+stmmac_set_ringparam() accepts (DMA_MIN_TX_SIZE in common.h). On such a
+ring the wake threshold is itself below the new requirement, so can the
+queue be woken while the skb still does not fit, producing a repeating
+stop/wake/TX_BUSY cycle with repeated error logging?
+
+Should the stop and wake watermarks be raised to the worst case TSO
+descriptor count, or the skb linearized/pushed to software GSO, as part of
+this change?
+
+>  @@ -4532,8 +4553,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>  		return NETDEV_TX_BUSY;
+>  	}
+
+One more on this branch: it sets XOFF without re-checking availability and
+without arming a wake source. If the ring drains concurrently
+(dirty_tx == cur_tx, no further TX completion and no NAPI run), does the
+XOFF state persist until dev_watchdog fires ndo_tx_timeout?
+
+Since the patch is tagged for stable, would it be worth describing the new
+NETDEV_TX_BUSY and error logging behaviour in the commit message?
+
+>  
+> -	pay_len = skb_headlen(skb) - proto_hdr_len; /* no frags */
+> -
+>  	mss = skb_shinfo(skb)->gso_size;
+>  
+>  	/* set new MSS value if needed */
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260907-stmmac-fix-tso-nfrags-check-v1-1-328459906cdb%40oss.qualcomm.com
 
