@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06B0C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA933C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 10:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWxT80cynlb4zIAOYzQS8Ncj1BaRkxy5Cmg155xMdQs=; b=TcQBwjMTd71aStSF2KaC9U3iB4
-	6WXD1cipU1X4Mijxk/M1IWuImQlp93q2I7v3jvrF2jJDVBYaIdITHBxDAAlcc8OwvWBJ6paDZH6h/
-	A8V3bLqBMWy3Sa3sIQQsT9YSwTv9437p1rhqvt0DYvNqj8VaPSPv6VtF40W/ktFvvq+F52R4tOWsl
-	ViWdhQO5W+LoKZ4cRDZFN71ZxGXeXsfyYMQrNbcw0GkrBKnk1tWSSgPP5C952kyr4UuS+oZRcYX3G
-	E87Q31zvlPirhhVbZ6gX259BmNt3k74Ua2+qLq5FxTg/X11vWG4jJft52jG7ksUSgTrNof7EeXqC5
-	UPZ4zPDg==;
+	bh=sMB5qXqvNx3BJbaxkPq4j1Gnoku1AFqOK8/l2xk+F7g=; b=evQnYY61w1pbKD+4Y2zKNl5mAh
+	/C9SOy110gClpv+/tyk/VBuGbe8rhcW6GizkHPjZ33CshJfZs8eph0tEsGQt0fFLSjzr1rW7+xGB7
+	Yl/NNKkEVqvs2obpHYz7BSce5u74Yg0TeW+7om6ErMQzbv/S9lKKg83pT9VdA28VtuM7QKZgrYOZN
+	Y71g8POd/pNzIwTyAfB+caMPYdK7R3lAEj7mqBH3VCNYafF4/lbR61kTrAitRw7Qmq1kWXI4U/XIu
+	52y5URtVlnr4Q/SYGz/s1dcl1mOWQirHLNIzbS3FCd75p0HanU7aHM0o9ssd+Q0N79IFYJV4sgVfg
+	sSEnK9tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cDF-0000000E5zU-2v1b;
-	Thu, 10 Sep 2026 10:41:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4cIw-0000000E6WU-202K;
+	Thu, 10 Sep 2026 10:46:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cDE-0000000E5zH-0hSZ
+	id 1x4cIv-0000000E6WM-1Lc1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 10:41:00 +0000
+	Thu, 10 Sep 2026 10:46:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BA3F600C8;
-	Thu, 10 Sep 2026 10:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B305D1F00893;
-	Thu, 10 Sep 2026 10:40:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 507F6600CB;
+	Thu, 10 Sep 2026 10:46:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C90B1F000FF;
+	Thu, 10 Sep 2026 10:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789036858;
-	bh=KWxT80cynlb4zIAOYzQS8Ncj1BaRkxy5Cmg155xMdQs=;
+	s=k20260515; t=1789037212;
+	bh=sMB5qXqvNx3BJbaxkPq4j1Gnoku1AFqOK8/l2xk+F7g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b1EYKIpKm/JybExizljNgQKizptuBMZ8kMH8KT/8JlC207RHIAqutl7A3bWFHHdqe
-	 8rqzWkPBn/6YzUcXbJaF8uWbEdf7iRhK16HGLS1IpdAKC5JxD8vpATCuXozp75NPcM
-	 CrV/7Sl2KQZN8gABJf7/jjsKNZvUjwuO2KfgEQ0Dtu484kb6z1QjAPpcb5NvhKyY4C
-	 AgMCV3uTgBKXLJSSKkCLxbxI1wQswZiz0OvbcMHkcrs760ZQ9XNpYQ/+8I83y/+LVG
-	 /B/XpqZOkOcMwjlOC2xkuvujKjmrdRWa/4hr/kMHRTk9eoykIPT+6YDTGyo512kcS9
-	 9SdZ6ZHA27ipg==
-Date: Thu, 10 Sep 2026 11:40:51 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Xi Ruoyao <xry111@xry111.site>, Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>,
-	Yuan Yao <yaoyuan@linux.alibaba.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
- implemented
-Message-ID: <aqKJM3CF-i3VyJk2@willie-the-truck>
-References: <20260908145651.2828597-1-fuad.tabba@linux.dev>
+	b=ZN6QZt6O3MLzgqmYkmBgsf49pieDTorluX+jRjhxCCt7V6tC7qBO+3FTp3lNzmTC6
+	 w9WTpiww7Mu2cT5YLzO2Q7hef9jzAyKF2VFnBFMbk9ixADkSx7YkR8OYW0mQnwRLiU
+	 EqiV2dooB9fP7mYprCwfg6frserLGIT65/W/KgpTPitae3BM9wOBWQAPm5DzFonZw/
+	 WDObgQurIJdASxm+V94GbRgX9TeMnEqMv6OZ9qjjp3J/sn6TNiAThAZwinjA8/CPTW
+	 sJqAghhqpOQGpbHRcoBl6Uxh7mLqNZ8w4Q1fonJlPGTazsnqJf6A828JQv90CcE+3Z
+	 GNwjD0HtFeR3g==
+Date: Thu, 10 Sep 2026 12:46:43 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: hongxing.zhu@oss.nxp.com
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v5] PCI: imx6: Update MPLLB bandwidth to improve i.MX95
+ Gen3 PCIe stability
+Message-ID: <ojbp5v6txcdvrs2hcrknai7kkb4bu6cnp6fometzkrf2mdzvv4@cepxzg4r7jvd>
+References: <20260803034319.992323-1-hongxing.zhu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260908145651.2828597-1-fuad.tabba@linux.dev>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260803034319.992323-1-hongxing.zhu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,98 +73,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 03:56:51PM +0100, Fuad Tabba wrote:
-> finalise_el2_state() clears the EL2 MPAM traps whenever the ID
-> registers advertise MPAM, while KVM sets them only under ARM64_MPAM,
-> which also requires MPAMEN. Without EL3 nothing sets that enable, so a
-> guest reaches the MPAM registers while ID_AA64PFR0_EL1.MPAM reads 0
-> for it.
+On Mon, Aug 03, 2026 at 11:43:19AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
 > 
-> Gate the traps on the ID registers alone: MPAMEN isn't a term in any
-> MPAM accessor, so they take effect without it. The cap tests the
-> sanitised ID fields, which never exceed a CPU's own, so it's set only
-> where finalise_el2_state already wrote MPAM2_EL2. MPAM3_EL3.TRAPLOWER
-> is clear there, and arm64.nompam turns the cap off too.
+> We observed poor bandwidth margins during i.MX95 Gen3 PCIe tests with
+> the default MPLLB_BANDWIDTH value (120). The margins worsened across
+> voltage and temperature (VT) variations and different test matrices,
+> potentially causing link stability issues.
 > 
-> Fixes: 23b33d1e168c ("arm64: head.S: Initialise MPAM EL2 registers and disable traps")
-> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Testing with MPLLB_BANDWIDTH value of 140 (0x8c) shows significant
+> improvement in bandwidth margins across all VT conditions and test
+> scenarios.
+> 
+> Implement PHY register write helper function and configure:
+> - MPLLB_BW_OVRD_IN = 140 (0x8c) for improved bandwidth margin
+> - MPLLB_BW_OVRD_EN to enable the override
+> 
+> This ensures robust PCIe Gen3 performance across all operating
+> conditions.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
+> Changes in v5:
+> Update the commit log refer to Bjorn's suggestions.
 > 
-> Notes:
->     Changes since v1:
->      - Commit message only. The code is unchanged, so Yuan Yao's
->        Reviewed-by is carried.
->      - Fixes: names the commit that cleared the traps, rather than the
->        one that added KVM's trapping.
->      - Says why the sanitised ID fields are the safe gate: the cap is set
->        only where finalise_el2_state already wrote MPAM2_EL2.
->     
->     Not covered, and answered on the v1 thread: a machine whose CPUs
->     differ on MPAM, raised by Ben and by sashiko.
->     
->     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
+> Changes in v4:
+> Move the delay to imx95_pcie_init_phy() with a comment added.
 > 
->  arch/arm64/include/asm/cpufeature.h     |  5 +++++
->  arch/arm64/kernel/cpufeature.c          | 13 +++++++++++++
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  4 ++--
->  arch/arm64/tools/cpucaps                |  1 +
->  4 files changed, 21 insertions(+), 2 deletions(-)
+> Changes in v3:
+> Regarding Frank's comments, refine naming consistency and clarity.
 > 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index 7404a6e83a930..8863ae99596bc 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -873,6 +873,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
->  	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+> Changes in v2:
+> Update the register name and bit definitions.
+> Don't move IMX95_PCIE_PHY_CR_PARA_SEL settings.
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 32 +++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 39790e66b98dc..3bc52c4781903 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -80,6 +80,17 @@
+>  #define IMX95_SID_MASK				GENMASK(5, 0)
+>  #define IMX95_MAX_LUT				32
+>  
+> +#define IMX95_PCIE_PHY_REG_ADDR			0x3008
+> +#define IMX95_PCIE_PHY_REG_EN			BIT(31)
+> +#define IMX95_PCIE_PHY_REG_ADDR_MASK		GENMASK(15, 0)
+> +#define IMX95_PCIE_PHY_REG_DATA			0x300c
+> +#define IMX95_PCIE_PHY_MPLLB_OVRD_IN		0x2004
+> +/* BIT(10): Override enable for mpllb_bandwidth[15:0] */
+> +#define IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN		BIT(10)
+> +/* Register offset: Override value for mpllb_bandwidth[15:0] */
+> +#define IMX95_PCIE_PHY_MPLLB_BW_IN		0x2005
+> +#define IMX95_PCIE_PHY_MPLLB_BW_VAL		0x8c
+> +
+>  #define IMX95_PCIE_RST_CTRL			0x3010
+>  #define IMX95_PCIE_COLD_RST			BIT(0)
+>  
+> @@ -270,6 +281,15 @@ static int imx95_pcie_select_ref_clk_src(struct imx_pcie *imx_pcie)
+>  	return 0;
 >  }
 >  
-> +static __always_inline bool system_supports_mpam_sysregs(void)
+> +static void imx95_pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
 > +{
-> +	return alternative_has_cap_unlikely(ARM64_MPAM_SYSREGS);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
+> +			   IMX95_PCIE_PHY_REG_EN, IMX95_PCIE_PHY_REG_EN);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
+> +			   IMX95_PCIE_PHY_REG_ADDR_MASK, addr);
+> +	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_DATA, data);
 > +}
 > +
->  static inline bool system_supports_pmuv3(void)
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
 >  {
->  	return cpus_have_final_cap(ARM64_HAS_PMUV3);
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 17b83a2518a8f..36a27692e5cf7 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2501,6 +2501,13 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
->  	return (read_sysreg_s(SYS_MPAM1_EL1) & MPAM1_EL1_MPAMEN);
->  }
+>  	/*
+> @@ -290,6 +310,18 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  			IMX95_PCIE_PHY_CR_PARA_SEL,
+>  			IMX95_PCIE_PHY_CR_PARA_SEL);
 >  
-> +static bool
-> +test_has_mpam_sysregs(const struct arm64_cpu_capabilities *entry, int __unused)
-> +{
-> +	/* The registers exist whether or not firmware enabled MPAM. */
-> +	return detect_ftr_has_mpam();
-> +}
-> +
->  static void
->  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
->  {
-> @@ -3116,6 +3123,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		.matches = test_has_mpam,
->  		.cpu_enable = cpu_enable_mpam,
->  	},
-> +	{
-> +		.desc = "Memory Partitioning And Monitoring system registers",
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.capability = ARM64_MPAM_SYSREGS,
-> +		.matches = test_has_mpam_sysregs,
-> +	},
 
-We already have two system capabilities for MPAM so I'm not overly keen
-to add a third, especially as the MPAM code is largely confined to the
-resctrl driver. In fact, this feels a bit similar to things like TRBE
-and SPE in the sense that (a) we have to probe it per-cpu (b) it can
-be disabled by a higher EL and (c) most of the code is in a driver, but
-KVM needs to know how to switch it.
+I've added regmap_read() to flush the IMX95_PCIE_PHY_CR_PARA_SEL update before
+below delay, while applying.
 
-Neither TRBE nor SPE need entries in arm64_features[] at all, so something
-isn't right here...
+- Mani
 
-Will
+-- 
+மணிவண்ணன் சதாசிவம்
 
