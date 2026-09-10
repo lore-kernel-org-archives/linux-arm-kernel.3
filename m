@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3784FC88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 21:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3CEC79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 21:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zC/TwPpzsaghSj/8QRD9k+IasDdKbL8GKT8smkkknMk=; b=ZUTYmrf50ZV0tGyI850uu1nmE7
-	kgf6JFkDg3JbL1KJB9QUP5BWAXx3F9vdzLkkZi+sp8TruKA8sTzLUkNUNO0M59IU2O3xmcmmi/y12
-	mR05SN2E0pxXiTRVbrhukTxejSOl/QWc2OGVxvpMkmFgFdjZNG6G1E4myw/fQNmIzL54x1UEZyaec
-	SqSymqZE2CD+xQb+OxyoZXQYWbP0f6Yr1iCffa8UPVk/GZOzHKb7KYvQOduWvgHWYjrNiNuiqqLuG
-	Ez6HgN5Z5lZ8sZiemRIfDsTMFMzL4J6rCFP9P3Z4O5odm0I6IUNB0Tu4710X+oatpfpIVVBBexbaN
-	BrS9aUzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OxXvQMohmjTu0OjYWb2ljZmqmLhh+Kf9BFuWBzZ90ZU=; b=jkoI/mXG8Begmkahv9qsh0EXu5
+	rUEvTZoeNH3hOwW26dsVH08CudqWgmlKy2xVO0XBk0XBsXU2zGnUZ1PaLPDy0SiOGvB3zJxBSpFCS
+	xhxHtclaM81khc8Dhb9ACag+LmyhFScTrS+8Bc9Upz3oY9deQtyWp/GIvy4sTgFNcpuIpwm1PH5Gv
+	FY2AF6F80n5QUGrZCoO6nuIhMSxMHXP10mTQTEKZ4P7Q4G70NPJvXKVcP5Ig8LT2H2oqsXHFsta5l
+	fNnlMG8jVAP62D4NpNxiztuQLUPLqbUzLK92XU7pOfH39DJcM+egAkCxbRIGPVkvd/BPMkY+B6TRa
+	hilUJHPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4lye-0000000FOUJ-2lH1;
-	Thu, 10 Sep 2026 21:06:36 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1x4mAq-0000000FPTt-2Q2X;
+	Thu, 10 Sep 2026 21:19:12 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4lyb-0000000FOSq-2DyS
+	id 1x4mAn-0000000FPTX-33uK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 21:06:35 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so199199f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 14:06:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789074391; x=1789679191; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zC/TwPpzsaghSj/8QRD9k+IasDdKbL8GKT8smkkknMk=;
-        b=XvF32akUcmrWKIen3+UMqJaxy7L1DZqcOqUjs33csZDrKlIdnwAAxYG0oRPhfjS0QW
-         qaGWEXpvhREJL5wnLIK4jX97N2h2DbtEDn6RLlKPh9VT1jZ1MAQgFpjUEHQ3Y2QQ4h5B
-         gYkiDDGHyJMYSCtKSQAG828Kk0Bvr84QCVlq6aV9na8Q/GTM6Voxd4NOrSuv//o2OEwu
-         UdDNv9T7qqS4j4PgWBhYotbJBVnvvhYMtajYVtln/Taxoj6Ii1NGT8EiAmkNBj1zhJvQ
-         DIQ3j45aas2eYMU8GBJXr5P8q90qj0vVn6XiUIGxZ51bTyx9X1sSH60KfhoqPU+porZL
-         5wbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789074391; x=1789679191;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zC/TwPpzsaghSj/8QRD9k+IasDdKbL8GKT8smkkknMk=;
-        b=nzZIzfx6zZIi68cgOz5if6y1tsJ8sqQFj1l3+++fRQY+Ngpzed8rJ3zD4Pa6Xpy+zq
-         vJHOSVXBM7soU2yXI03S5BjRqeIrKkT//DJvWeAjt0K+5pDyxi8i8QtmSFbhAFo/zPmG
-         +zg5QrYNKxLtfjzCzm0S6yiYMcRhl5Ux8EVN4dfrzIhVEWBvTJjJ+jHLW7j2mDtXRDCm
-         KZKqIgcUqq9Pdr4Jgv4hCv3ouJxitQcIQgjPfgEL/wU3I6vl0IBTtjeAqOhYEFM1vF1t
-         S2PehGZbRgTTTleFJSc7ztA/+QxdV+4TroHYldDbfO5Ud6tto2T3mHhgksc9P82nCvkF
-         xwMQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxJofFXU0RmrMac3c9SAMq41J1soo+pu7DL38FIAdLdtjc2V/tGKZOkFtl3ev3UpNXNXreA3YU6ZGjgMRJfVa2o@lists.infradead.org
-X-Gm-Message-State: AFuF++lC50JTNEZD1YBQA0EZbQ8psrSJGwl8Y3dqWNmvzFIuQ4JZzdny
-	+KtzusVtOIR/VcU+aLDfhFyPZAflumMD9pflDhVW1bZH+e10E0iW7hk=
-X-Gm-Gg: AYBFou1F+Z2816UK1IB3bcSzb/ypNRVqcNTKO5oTQwA0hJn+EJUYOgdOfJi1wsUi9J9
-	+9fiKPam3qAFi6ZK78+j+fMy7KhG524qOtox3GhUw873Xg4FlRFSTZMfdYMH1W28+TVdQXnPnG9
-	khZYygPDQVXjUmvD+5AyZhQ+m+smXva+g6RGY86D9mdBJYat/TYnJ+jGd5dM6bRX5EqI5579Xn7
-	9ZnrMfevVOTen2JC1k4EOXisz4SYAQFRNJSXN2cNBHWbGrtOrVsBM1CSIctSRSewz6ac5R097wu
-	1xnFn2bg737blkNqOblRreDTnHcwCAccIjzO5nqJtmoqbbvyEALz77GKT9IL8WydsSIoVLiV4TD
-	LcsYUQxL5hC3Dx2jZhxCw0pMJGE8VbknQuV1yGLZK2sv1ZyWyRHpYdjnnAi+YNTaA78VeHdj1IW
-	3zXkJXgPaSYzZM/N1wNyk6Ao9WrzZEzIP/TAgntYRcSFFu8PK8ylHn1tz3XBuzqV1rDnHXhHyg
-X-Received: by 2002:a05:6000:2f86:b0:486:e73e:abe5 with SMTP id ffacd0b85a97d-486eb2e269amr1118040f8f.10.1789074390922;
-        Thu, 10 Sep 2026 14:06:30 -0700 (PDT)
-Received: from fedora ([46.8.219.5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb330bdcsm1196375f8f.13.2026.09.10.14.06.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 14:06:30 -0700 (PDT)
-From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	netdev@vger.kernel.org
-Cc: upstream@airoha.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Subject: Re: [PATCH net v3 1/2] net: airoha: handle RX_NO_CPU_DSCP interrupt, not just RX_DONE
-Date: Fri, 11 Sep 2026 00:06:21 +0100
-Message-ID: <20260910230621.730983-1-sochnev.v.74@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260903173355.62780188@kicinski-fedora-PF5CM1Y0>
-References: <cover.1788286284.git.sochnev.v.74@gmail.com> <17f1beec505b87a4acf16557386a978c98f94b97.1788286284.git.sochnev.v.74@gmail.com> <20260903173355.62780188@kicinski-fedora-PF5CM1Y0>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 10 Sep 2026 21:19:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789075149; x=1820611149;
+  h=date:from:to:cc:subject:message-id;
+  bh=IawTxksbLdoQtjLcQx6qmRxSGThyH1QQ7RxndFI3xjA=;
+  b=d3x0isizAF7ABJCzMYfHVBcR0RmEA3kdMW+/J8uUS3o5FcICFwtxdeD8
+   /XRWPZmjwrsVjg6GUQAc/6yNVhSrbg6Zj0zm/mwyRY9Dx3rgxsq88z1Pu
+   8/aDtBmynuIZUSYsXmKqBMCXw99M2xJu1pPLJkNaOugwDZF5E1oTdOez+
+   N8ictMVU8Xb9aqpROI1ZbF9lyc0Qpyoq5RK3k1CL4KyCKiPfrOiUps0pz
+   X4rdOC5W1bVtt6rqGRUcKV80zFech3UxvrMeuju7xYJ3hAl9Yvnc+dWLO
+   lgNtKWYtBJmmqyYDUSdkU0eb9EEBxd/a9ybWEk/Zm8BIHMgA5ASDuDAfn
+   Q==;
+X-CSE-ConnectionGUID: 5IxAv9J5SnGr/abPnF01fQ==
+X-CSE-MsgGUID: ylL/yltdQmipsOER2bX2Xw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="100699849"
+X-IronPort-AV: E=Sophos;i="6.27,96,1787036400"; 
+   d="scan'208";a="100699849"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 14:19:08 -0700
+X-CSE-ConnectionGUID: ulphI/UlRGOJg3xlh/3/qg==
+X-CSE-MsgGUID: Mq914YN+Q8S5sAKZpi1JKQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,96,1787036400"; 
+   d="scan'208";a="269151317"
+Received: from lkp-server02.sh.intel.com (HELO 0a3643a6ed9d) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 10 Sep 2026 14:19:06 -0700
+Received: from kbuild by 0a3643a6ed9d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x4mAh-000000000Yh-3ZJm;
+	Thu, 10 Sep 2026 21:19:03 +0000
+Date: Fri, 11 Sep 2026 05:18:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Barry Song (Xiaomi)" <baohua@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ barry.song@csr.com
+Subject: [baohua:dev/kairui_scanbalance 9/9] mm/vmscan.c:1957:46:
+ error: dereferencing pointer to incomplete type 'struct lru_gen_folio'
+Message-ID: <202609110429.UIZ3Tr8e-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_140633_576816_4F090F05 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260910_141909_823752_58F8C7FF 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,25 +83,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Since you're not sure you should probably add a timer to retry
-> later? Maybe the IRQ is not needed at all, you could just check 
-> on allocation failure if the right is completely drained or have 
-> a periodic task a'la fbnic_napi_depletion_check()
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/baohua/linux.git dev/kairui_scanbalance
+head:   c96aacd4045a7a4c8d292e6c9ba6d169cdc0b570
+commit: c96aacd4045a7a4c8d292e6c9ba6d169cdc0b570 [9/9] mm/mglru: avoid placing rejected folios below populated gen
+config: powerpc-randconfig-r123-20260910 (https://download.01.org/0day-ci/archive/20260911/202609110429.UIZ3Tr8e-lkp@intel.com/config)
+compiler: powerpc-linux-gcc (GCC) 8.5.0
+sparse: v0.6.5-rc1
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260911/202609110429.UIZ3Tr8e-lkp@intel.com/reproduce)
 
-No timer either: the depletion path is not the one being hit. Please drop
-this patch.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609110429.UIZ3Tr8e-lkp@intel.com/
 
-Instrumented builds logged zero NO_CPU_DSCP events across every run, with
-REG_INT_ENABLE(bank0, 1) reading 0x839F839F, so the bit was unmasked for
-ring 4. page_pool_dev_alloc_frag() never failed and q->queued never
-reached zero, so the ring never enters the state this patch handles.
-Images with and without it stalled identically.
+All errors (new ones prefixed by >>):
 
-The stall was RX rings smaller than 32 descriptors, fixed by 2/2 of this
-series, e84b89f17a12 ("net: airoha: grow the small RX rings"). Details in
-my report on the cover thread.
+                        ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:49:2: note: in expansion of macro 'compiletime_assert_rwonce_type'
+     compiletime_assert_rwonce_type(x);    \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/vmscan.c:1955:26: note: in expansion of macro 'READ_ONCE'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                             ^~~~~~~~~
+   mm/vmscan.c:1955:44: error: 'struct lruvec' has no member named 'lrugen'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                                               ^~
+   include/linux/compiler.h:68:3: note: in definition of macro '__trace_if_value'
+     (cond) ?     \
+      ^~~~
+   include/linux/compiler.h:55:28: note: in expansion of macro '__trace_if_var'
+    #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
+                               ^~~~~~~~~~~~~~
+   include/linux/compiler_types.h:682:3: note: in expansion of macro 'if'
+      if (!(condition))     \
+      ^~
+   include/linux/compiler_types.h:690:2: note: in expansion of macro '__compiletime_assert'
+     __compiletime_assert(condition, msg, prefix, suffix)
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
+     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+     ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:2: note: in expansion of macro 'compiletime_assert'
+     compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long), \
+     ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:21: note: in expansion of macro '__native_word'
+     compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long), \
+                        ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:49:2: note: in expansion of macro 'compiletime_assert_rwonce_type'
+     compiletime_assert_rwonce_type(x);    \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/vmscan.c:1955:26: note: in expansion of macro 'READ_ONCE'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                             ^~~~~~~~~
+   mm/vmscan.c:1955:44: error: 'struct lruvec' has no member named 'lrugen'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                                               ^~
+   include/linux/compiler.h:68:3: note: in definition of macro '__trace_if_value'
+     (cond) ?     \
+      ^~~~
+   include/linux/compiler.h:55:28: note: in expansion of macro '__trace_if_var'
+    #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
+                               ^~~~~~~~~~~~~~
+   include/linux/compiler_types.h:682:3: note: in expansion of macro 'if'
+      if (!(condition))     \
+      ^~
+   include/linux/compiler_types.h:690:2: note: in expansion of macro '__compiletime_assert'
+     __compiletime_assert(condition, msg, prefix, suffix)
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
+     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+     ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:2: note: in expansion of macro 'compiletime_assert'
+     compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long), \
+     ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:49:2: note: in expansion of macro 'compiletime_assert_rwonce_type'
+     compiletime_assert_rwonce_type(x);    \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   mm/vmscan.c:1955:26: note: in expansion of macro 'READ_ONCE'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                             ^~~~~~~~~
+   In file included from <command-line>:
+   mm/vmscan.c:1955:44: error: 'struct lruvec' has no member named 'lrugen'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                                               ^~
+   include/linux/compiler_types.h:626:13: note: in definition of macro '__unqual_scalar_typeof'
+      _Generic((x),      \
+                ^
+   include/asm-generic/rwonce.h:50:2: note: in expansion of macro '__READ_ONCE'
+     __READ_ONCE(x);       \
+     ^~~~~~~~~~~
+   mm/vmscan.c:1955:26: note: in expansion of macro 'READ_ONCE'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                             ^~~~~~~~~
+   In file included from ./arch/powerpc/include/generated/asm/rwonce.h:1,
+                    from include/linux/compiler.h:369,
+                    from include/asm-generic/bug.h:5,
+                    from arch/powerpc/include/asm/bug.h:116,
+                    from include/linux/bug.h:5,
+                    from include/linux/mmdebug.h:5,
+                    from include/linux/mm.h:7,
+                    from mm/vmscan.c:15:
+   mm/vmscan.c:1955:44: error: 'struct lruvec' has no member named 'lrugen'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                                               ^~
+   include/asm-generic/rwonce.h:44:72: note: in definition of macro '__READ_ONCE'
+    #define __READ_ONCE(x) (*(const volatile __unqual_scalar_typeof(x) *)&(x))
+                                                                           ^
+   mm/vmscan.c:1955:26: note: in expansion of macro 'READ_ONCE'
+     unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+                             ^~~~~~~~~
+   In file included from include/asm-generic/bug.h:5,
+                    from arch/powerpc/include/asm/bug.h:116,
+                    from include/linux/bug.h:5,
+                    from include/linux/mmdebug.h:5,
+                    from include/linux/mm.h:7,
+                    from mm/vmscan.c:15:
+>> mm/vmscan.c:1957:46: error: dereferencing pointer to incomplete type 'struct lru_gen_folio'
+     if (folio_test_unevictable(folio) || !lrugen->enabled)
+                                                 ^~
+   include/linux/compiler.h:57:52: note: in definition of macro '__trace_if_var'
+    #define __trace_if_var(cond) (__builtin_constant_p(cond) ? (cond) : __trace_if_value(cond))
+                                                       ^~~~
+   mm/vmscan.c:1957:2: note: in expansion of macro 'if'
+     if (folio_test_unevictable(folio) || !lrugen->enabled)
+     ^~
+   mm/vmscan.c:1960:8: error: implicit declaration of function 'lru_gen_folio_seq'; did you mean 'lru_to_folio'? [-Werror=implicit-function-declaration]
+     seq = lru_gen_folio_seq(lruvec, folio, false);
+           ^~~~~~~~~~~~~~~~~
+           lru_to_folio
+   mm/vmscan.c:1962:8: error: implicit declaration of function 'lru_gen_from_seq'; did you mean 'lru_gen_set_refs'? [-Werror=implicit-function-declaration]
+     gen = lru_gen_from_seq(seq);
+           ^~~~~~~~~~~~~~~~
+           lru_gen_set_refs
+   mm/vmscan.c:1967:2: error: implicit declaration of function 'lru_gen_update_size'; did you mean 'huge_page_size'? [-Werror=implicit-function-declaration]
+     lru_gen_update_size(lruvec, folio, -1, gen);
+     ^~~~~~~~~~~~~~~~~~~
+     huge_page_size
+   mm/vmscan.c:1953:6: warning: variable 'zone' set but not used [-Wunused-but-set-variable]
+     int zone = folio_zonenum(folio);
+         ^~~~
+   mm/vmscan.c:1952:6: warning: variable 'type' set but not used [-Wunused-but-set-variable]
+     int type = folio_is_file_lru(folio);
+         ^~~~
+   cc1: some warnings being treated as errors
 
-airoha_irq_handler() does discard the NO_CPU_DSCP bits, so handling them
-may still be right, but I have no measurement showing it matters and will
-not claim one.
+
+vim +1957 mm/vmscan.c
+
+  1938	
+  1939	/*
+  1940	 * Even though we have called folio_set_active() for rejected folios
+  1941	 * in evict_folios(), they may still be demoted or placed in the last
+  1942	 * populated generation since we can now scan all generations.
+  1943	 * Make sure these folios are neither demoted nor placed in the last
+  1944	 * populated generation, unless it is also the youngest generation
+  1945	 */
+  1946	static inline bool lru_gen_add_rejected_folio(struct lruvec *lruvec, struct folio *folio,
+  1947			unsigned long scanned_seq)
+  1948	{
+  1949		unsigned long seq;
+  1950		unsigned long flags;
+  1951		int gen;
+  1952		int type = folio_is_file_lru(folio);
+  1953		int zone = folio_zonenum(folio);
+  1954		struct lru_gen_folio *lrugen = &lruvec->lrugen;
+> 1955		unsigned long max_seq = READ_ONCE((lruvec)->lrugen.max_seq);
+  1956	
+> 1957		if (folio_test_unevictable(folio) || !lrugen->enabled)
+  1958			return false;
+  1959	
+  1960		seq = lru_gen_folio_seq(lruvec, folio, false);
+  1961		seq = max(seq, min(scanned_seq + 1, max_seq));
+  1962		gen = lru_gen_from_seq(seq);
+  1963		flags = (gen + 1UL) << LRU_GEN_PGOFF;
+  1964		/* see the comment on MIN_NR_GENS about PG_active */
+  1965		set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK | BIT(PG_active), flags);
+  1966	
+  1967		lru_gen_update_size(lruvec, folio, -1, gen);
+  1968		list_add(&folio->lru, &lrugen->folios[gen][type][zone]);
+  1969	
+  1970		return true;
+  1971	}
+  1972	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
