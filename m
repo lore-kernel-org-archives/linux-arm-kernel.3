@@ -4,60 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0290C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCC3C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 08:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2SURyTcbduKJLk+a5NWhlHR0NrFlRiMGnI7Q6438/M=; b=oMyUAhZ02s4OGcMOxDJoeyYzY9
-	B6GdQDb/AgqrxHqHnQCC9B31MxfK9EEHirI9bMxA3EovuE7rwTx2/DoL+Gm+Zl5YzVfcJMlrNPWtO
-	qS+i1PcIc9Kx/zkOrGtRwg5ML5fXHg/M/ixKXYxkrDKGPdpYtYKbk02It2ofJaGN1kVseD86ZgtWx
-	dT4u6wzNfdqU7TSVWIc6fY0d0fSrFqfXy4fyvpuKMYN80+ixnIaazb3H15ZIp0bIPAa8pvjMQXXa+
-	wLFPM2uIUP5KiDo11J3l31vFpwQIMlSREAQWke97Em2bTt3pQBrQ8kjiHjDRGKnP9b3BJEzRSbVCp
-	qmM3DNDg==;
+	bh=XTF704Dc04445OCHjkUfl/EC+16BbCdrtWj3xhOkUj0=; b=0KQZGN1BtqijRyUN7wVA8MZVh3
+	3aRwZAYOmdlrdeUmhOrKaDz4i809HyizCb5ndnpR8YUflHbkVBtdGPh84KiO1ZgW9APmD2CYhIuvY
+	wQabgiUE0Wp5G4NT9ABzEtY6vRziqI6LaTMBpBYEq47FG0fGdK6Ypc07Gs8Nfa79dddqbzu8M6Biv
+	p4tFbw3+gNhF8N9sWkiIx65HqGAE+bUqre0WDJAsProMgYDObUryViivfgc/F9WzP4UC1amtLGd9F
+	w2f1pHsVgABjRc9p4jm1TXIpZJxjtjw0TizP1qTImTmIlB3lj+AiTC10at0SJuS2//t1n1CT3zUwL
+	DlDr1DeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4a5c-0000000Djbi-1IEV;
-	Thu, 10 Sep 2026 08:25:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4a7H-0000000Djpj-3GZq;
+	Thu, 10 Sep 2026 08:26:43 +0000
+Received: from mail-eastus2azon11010059.outbound.protection.outlook.com ([52.101.56.59] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4a5b-0000000DjbP-1SYc
+	id 1x4a7F-0000000Djom-11RY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 08:24:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCBF543A9C;
-	Thu, 10 Sep 2026 08:24:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE8B41F000FF;
-	Thu, 10 Sep 2026 08:24:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789028698;
-	bh=N2SURyTcbduKJLk+a5NWhlHR0NrFlRiMGnI7Q6438/M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hX5Yl2YNobLqEoQGyfzkEC3/pXkCXYI1wPtA3nQRL90+U2tsjl585qPkt2jJeYlqR
-	 r9+BLuQ7nyuawukphAupVDlLTa3wei1BP4VCCAUHNdvw8kXsXcmmvGchTQoPDBrtFD
-	 mKv39Bwq/YCJv6IONs7Rll0waiH9WdLTHkXtV566YbpD0TYUOmLfVIfnyooheTo6ie
-	 p+izrXrqrW62my+otdagP4QucslAmrJ61ClZT1fGkJp5DDzma+CnOf1tOeIfkN6a44
-	 7DbDUNtkgPRsmmhRxjFlD0e/O2a4JzedQWdEKRu1Q5GqZG2x3Ktg8y9EcXkhMcy1Rr
-	 ic9Wp2U5bnphA==
-Date: Thu, 10 Sep 2026 10:24:50 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Rudi Heitbaum <rudi@heitbaum.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: imx6: Avoid dereferencing a NULL clock name
-Message-ID: <v5xbens6xr63smpdm4qugj6vtstd2efvezhbic2j3vctxcdbme@lh42pxcn7qp2>
-References: <am8iBwJSEhYhWTqk@6cfee64030a6>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Thu, 10 Sep 2026 08:26:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dFxAURwF1Y+FzNebPB4sTd3OtCiazy6TC7+ZAM+ZMSwksgQ/TfXN+iDtYLfRtQ6hvdZ6Obr/CyPv4fR/DXiAGU1CZfARY8wBqa6O5tU3SfyQiCENzEDb+IYuAjoCFpjlYv9sPPqHnH2T9TdyYkJME5s8HTAgo4Y5qUBgQKx5kUzpKQfKW5S+79zKxhvrUQ7S8HTKEa/zOqTnVIjm2lp7FB/TzvH9ILsxUj7GTo5sOqeJvbcuuD+BmXKq3ScGcan67yPDLqtoeUHqsUKjH7Z+fV7REARRfRWG6nNpx44J/msl3e2xEXHiUOzeVke8Y/1wtfcRfUaQogJJkTgaRU86zA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XTF704Dc04445OCHjkUfl/EC+16BbCdrtWj3xhOkUj0=;
+ b=Fr2f5SS+uIgipcAJDi9yeiuGMIJYN+LPli5lQ0LE2qoBn+bBFwAMUAV5wyryUBRKo5+j4kjhuptOrGavrWwltDC0kPlHVBwt6bQ/G2fcLG9/TwUw+J4Rtl+f+j+uMNo68D95JhP+MYACuXx9+J1MMpx1sqefRft6szDipw1lRqQ/0SziFgaY/hLFqfNPC5wfQyW8Y1qpNKXucQESZPDExOnu16F1ByGx/dE3GHJ3WgX+BYTOg4c9Iq35p2WMmuJYGAYB+CThbXOnL+Vt6P+pM4PA479LcYogPp8GH2dEflQsbORpUi86T93vlVwsi4wFRa5BxIVZzskcXzb7aca1Jg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XTF704Dc04445OCHjkUfl/EC+16BbCdrtWj3xhOkUj0=;
+ b=Lx1JDEwKOaH/IWCug6nBM9fkvu9nw2FIdGh+M5CwBGYYRwGVGOCw/T14r9m2TCRLuv7BufTqQV/2fJQ2cHQn1LiZ5SyoV2pt2YO4vdMi+dkUz2peveMnyd/3H8XPWgWR7vesuGTBcTEyWqax0F3EoU0rottxclBOIOZVNHEAAaZOhTNGP9Ep5LIvkdp4y8HlbUFwtqSDWsHwXQlZ87E8TruuG9fOB6IYXKXfv5uX7Zm7kBidkOlOUhb3RahPCPU3To8sHVR/pD7KxrLLES+epor0AerxEyg1W+CbdrCLOyPzBwI0IAtp7LOOlGMaO5/QPfTA9+E/fm7hi+/d2vK4AQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
+ by MW4PR12MB7484.namprd12.prod.outlook.com (2603:10b6:303:212::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 08:26:28 +0000
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7%4]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
+ 08:26:28 +0000
+Message-ID: <29347083-d892-4539-99d7-020eeeb61151@nvidia.com>
+Date: Thu, 10 Sep 2026 01:26:25 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] cache: add SMCCC-backed cache invalidate provider
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence.csokas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dan Williams <djbw@kernel.org>, Thierry Reding <treding@nvidia.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20260608220709.1300245-1-smadhavan@nvidia.com>
+ <20260608220709.1300245-3-smadhavan@nvidia.com>
+ <591e7ac9-310e-40f4-ab22-161d6ea8f487@arm.com>
+Content-Language: en-US
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+In-Reply-To: <591e7ac9-310e-40f4-ab22-161d6ea8f487@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <am8iBwJSEhYhWTqk@6cfee64030a6>
+X-ClientProxiedBy: SJ0PR05CA0071.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::16) To DS7PR12MB9474.namprd12.prod.outlook.com
+ (2603:10b6:8:252::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9474:EE_|MW4PR12MB7484:EE_
+X-MS-Office365-Filtering-Correlation-Id: 519d711c-7da7-4afd-3e03-08df0f153624
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: hqvMDCZ4kMgV97F4bSzgIlvMhb1pJ4Sq9ptNkG670Bn1Ho6adsVt4npt5FdaZ8rWRgEue1oHJeuz4HTJAhuT+enlaKQquBBDEsz/siVxWBF9bS1EBPDXdL4XAfVHVdgWFet9J2/tc9vfAvnpikwQS5UR9pt1W42deXpx6j4LG/O17nD0dx4FlfKlU6dV9SV8w443vrOeqDxody7lRCdhNQEvWKaqWXBaMB4lVut4rSLykeRYOW5prWiM2b3SPz9bc3OUhJto/1bfQ9fYisvIglA7h6v6oGohLd5ONTSbQBztMtigXDGWfn7IRDlEfTdpZTil9GNp8ku9OlM/dkSj143Svr5Ui7ZHlkkytSHriH2c2eTO0ooEteCFLeYjkrNpWfkWEQ3iop1IJbaVmG4+U/sGR7qm06yzCYHUtp/0ok1XeqRJcT0M23stUh5LB19TRLU6Q+ai/3IjXp1/zIqqZ84rLmZk2uuYiY33JxQKiaZCyQXb6VryEuTr2d8qijrjo1ovSzdePYSBo7R8BwXbu/wNp82GdTSlixKKwWyhxutrt7P5TDmu0El5OEvrODgXwYEFgmBAFU/2vzIpYwGNA6TDql9VqD2e2lvZZbXsrZ9cusufFjNYQvkrVuUHakzDihJzFAmswkn25z0k+3KPMR36ugFyzi0hfOagjYIJ554=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDY2bzN4TTEzTDVOcmFFZm5HMG1qRGdsRnRja3plcFRqU0ZFdVpSOFFQQ0NX?=
+ =?utf-8?B?R01yVWM1L0VVZFM4MUQ0UGVLSjFHUnJ6RUNheUYwSXIxSC9TQzZmcXhzWXY4?=
+ =?utf-8?B?c1dFZkVjNG1LQzVFRDBaZEowaFpLVHgySXpSdWpmbkI3RTllRG01RnVSYXNy?=
+ =?utf-8?B?OUpLVzRJMFVWWXBBRWNvOWNmWkIrWGJVT1JWTFZBQkV5QkhpQ0QvQ293S3Nu?=
+ =?utf-8?B?N0txVlNJa3RXcnZWQ3lIamVnSytUazBhTWlVR2pPNExLWjYrZ3k4bDFEZW5P?=
+ =?utf-8?B?b2s0K2lLMTJtbG5rc1ZTRTFrSXhNRFlsRmNJZTAyWFc0RCtNWFBhSkZibFFX?=
+ =?utf-8?B?cktyWUNXZkZZRW0xRzJKcWI1TVUwVVZsdEg1ZzhQZ2dmVHVQUCtUdlhLOGQz?=
+ =?utf-8?B?UkxWZS9mYVJzTEZUYVBGZm1FcXBnY1ovbmdqdGNBaWZRQzZyYnJtYStKaSto?=
+ =?utf-8?B?Z3FmVmRCRXlybEdtdWJjYnVndVljNXBkSkhWcm1KWTFMOXRKc2ZMTHNraWdS?=
+ =?utf-8?B?UE95c3UyekI3ZGhFVlg3cC9mU3diMi9CTHFRbjlQQlVVUGJGaC9maVd5c0Q4?=
+ =?utf-8?B?UyswZHBVR0lRc0dtMWNjcnQzTGIwVnFiMkN2bi9CVjdhNmdSeURZMG9sbTYw?=
+ =?utf-8?B?TEpJa0pXd29TK0lidTBScng1THdTZWFPSzVQT0tSZnFBK2JvaXpheUJMUU5z?=
+ =?utf-8?B?QmxCTmhLYjMrdWVyMXJiWFkxSDlUQU9kbzdFTDlLRzZLYlM5RENvZjRLMkNH?=
+ =?utf-8?B?QmNOWkxJekxrWFBNMGE0V3AvWUNmUFVSRGJpVGVkSE8zU2VRK09pKzNZeWp5?=
+ =?utf-8?B?QkRtYjlOMm9sS1NuUE53c2ttM01pQVBFaEdYZzFTWUk1dTNZQ1FqTHJQOTI3?=
+ =?utf-8?B?VXlkRlJsd3kxVGdEVUJpNUs3T2JIOXJTRERZQjhvMDhMVitXbDZqTUNtdWcx?=
+ =?utf-8?B?Q2lIQjgvZ2FwYzdMTVBwZmdzZ1JkMGI5VUo3ZThUMEtRVCtmMkdZekhacFhi?=
+ =?utf-8?B?VXovMTRxVXpHVUZlU3ZyQ1JWMW54RGlxcEs3OWt6b1Z4Nnl6dXJTOURWSU1v?=
+ =?utf-8?B?N3Jobk1oVHdwVktvY3VXNENUL0NKMnNra1JJU3FVZ0w4WGN6R25kaWRiWmZT?=
+ =?utf-8?B?cktwdHRqVGZodTY4anVPM3d4U2taWVFXTU1WU3NEL3FYSXBNblpTU1BJR2lY?=
+ =?utf-8?B?czJPbHdYWjY0bkUrMVNTUCt3SitKODVRVzVlcjl2QzJYMmczdzZ3YjZiMlhw?=
+ =?utf-8?B?NFUwS2RnVVdWc1cwcTA3SjYwQjFodmhLTVBOR2xJK2ZOTWdqbmJNZ3pUTVZs?=
+ =?utf-8?B?Z2pIeFl4TW9LemRuMEhGWWw2TzJWQWd2cjRKT1ZlRGRmbUhvcVd5aGNsd3cr?=
+ =?utf-8?B?NW5PdjRlOWhKMEpyNS9uTHlieVg1cHJ2TDk5TEZPbldXclFvZkhRT2JRWi9U?=
+ =?utf-8?B?MzZMTnY0SmJhOXpQQ205ckFsZVJsV2hlUjJJT2FhL1NMcmZLR0hONGJKcVdy?=
+ =?utf-8?B?ZXJ2NGc1bVp2R2V3d3RBVnc0WS9ielJYUTZDWDhocHAxbE5FdWpYazF4OTJQ?=
+ =?utf-8?B?WllPZHh5UTFvUzFsZTQxOVhvZ3NNMXRBOE15dVFySEUvTW5PWWdyS01LSjNZ?=
+ =?utf-8?B?eU5RbmFOcndsZ3JCMzE0dWhRSDJ4OWx6cVkrc2tNWmlGRDY4R0h5RmZuV25r?=
+ =?utf-8?B?MGQwY1JnYnFVOWtDd3FQMmk4b2poMWdvblAxOElPU1hkdUtqWXZ4UFA4UDVq?=
+ =?utf-8?B?T3U2MzZESm5pekFtYTBadGRTaC9KdXZDNndtRjJzS1M2RDNIc25BNjVpUGNy?=
+ =?utf-8?B?aVJiVEZVTGxHbm1oZDFwUUEvVldmYW1sZGdjNFBQREVIejI3ZkRIaUZ2UDRD?=
+ =?utf-8?B?M2lGRE03ZnNrbnVlaDhiUXpiR0pldHk5eWtsV1RWNHpqc0o1K25IcmNQQ2g2?=
+ =?utf-8?B?QWNCb2F5NXIzYVloNWpkbExXV1JMVTBqL054Y1FQTnVUa20zYTBJcytVaUov?=
+ =?utf-8?B?MUI1ZTh4STR5dEc4SG9OT1loTHJSK1gvNjBwaXM4RGF0UGJJUXVFYW1qZnIv?=
+ =?utf-8?B?UXNRM3VGTElzS25XU3o4ZGo1eVVOSVNEbm1kUXhCdkJxRmFnMnhzd3lUQlJj?=
+ =?utf-8?B?RUhjTTJxRnU2cUlsNjMxV0VtblNlSnl5MmxNZ2I4U1hudGRPODE2bUZUMVk5?=
+ =?utf-8?B?ZkFCZHExNWJ6cnVNbWMzTG5nSXNtZnhqWnB4Y1c0Wi96MmRhV3YzNTc5V0lq?=
+ =?utf-8?B?R1VKZkdQM29JUlR2dnZGMGdVU09ud1c2djNUSS9uYUNsZUFSelR4Y2NXbWlC?=
+ =?utf-8?B?L3F2YlBKT2U0V0tkY0VhNlhUaFE1WFI5TkY1aTNIaUQrQW5wRThCUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 519d711c-7da7-4afd-3e03-08df0f153624
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 08:26:28.8355
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: whZtr4NQFUGQy2keMOmjPGVRcNrsLBTuNqCGE+F10ychr3d0rjEkSV/Ybo9fmDRRiSMogoysnWzO2E1mTRQshw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7484
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_012641_290525_C6C86AB4 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +156,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 02, 2026 at 10:55:03AM +0000, Rudi Heitbaum wrote:
-> of_clk_bulk_get() leaves clk_bulk_data::id as NULL for every clock that
-> has no matching entry in "clock-names", which is legal: a node may list
-> more "clocks" phandles than it names. The extref scan dereferences that
-> id unconditionally, so such a node oopses during probe.
+On 7/2/26 6:04 AM, Bence Csókás wrote:
 > 
-> Check clk_bulk_data::id before dereferencing it.
+> I'm reading the 1.7 H BET0 [1] version of the spec (released
+> 2026-04-20), and I see some discrepancies. Not sure if I'm the one
+> reading it wrong, or if you had a different version than me.
 > 
-> Fixes: d8574ce57d76 ("PCI: imx6: Add external reference clock input mode support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> [1] https://developer.arm.com/documentation/den0028/h/?lang=en
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index f7389b5437df..dcdeba1856f7 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1831,7 +1831,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, imx_pcie->num_clks,
->  				     "failed to get clocks\n");
->  	for (i = 0; i < imx_pcie->num_clks; i++)
-> -		if (strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
-> +		if (imx_pcie->clks[i].id &&
-> +		    strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
+> Either way, thanks for posting this patch, I'm also looking forward to
+> seeing it get merged!
 
-As Sashiko mentioned, there are other places in this driver without the check.
-Please fix all of them in a single patch.
+Hi Bence, 
+  
 
-- Mani
+  
+  
+  
+
+Thanks for the review, and apologies for the delayed response.
+
+I have addressed the declaration ordering, preserved the final BUSY or 
+RATE_LIMITED error after retry exhaustion, removed the redundant feature 
+query for the mandatory ATTRIBUTES call, retained the full 64-bit X3 
+rate-limit value, and removed the routine registration message.
+
+The macro values are already aligned to the same column using tabs, so I
+left those unchanged. I also kept the status-to-errno conversion local 
+for now because the mapping reflects this provider's handling policy and 
+there is currently no other caller that would justify a common SMCCC 
+API. Please let me know if this works, else I'll move it.
+
+I've sent out these changes in v3.
+
+
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Srirangan
 
