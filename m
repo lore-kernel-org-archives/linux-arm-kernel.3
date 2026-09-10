@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CACC79F9F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8381C79FB9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,68 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=; b=tD9KUAwUHJeIwJek1qnHtdWr9M
-	7BsBN6cG/zqUld5eFdxTPxRyXk7VjeNN0I0Nuje9vXAFdu21xz4qBVTrOwF5RNYGoQi+DBr+zLa8O
-	XsOs/2hQhKy3gnZ4RPQfZ9BJl/4H3Vg+p3S/bCwxXmxhqekw7zy1X0/dowQgo3ZjmyVDz/aaRoYe/
-	4Fo8fUwS/sXZTR+BizXBnU8cL5r5Uz6PmMqtBEk1LuVZnAA5jEBrEnN6eGBpnGKJ9Jupb6Xd7hP/O
-	BqF7QXG45Pf3Cha74lyZK79QEIWUYbAj2sHmznKL05KqwyuS68T5UQCht0Wjdje8yrAXNp+ct8Aww
-	Yrqzy9TQ==;
+	bh=ZPsnVwapVkwHCRbG/3G5otIOKnbDmZl98XDmt9LMWU4=; b=m8kFCe82cTLj28utZLUg/x/Iiu
+	6lNtvQp8g43F/VJnT+am+nttdMuRzAkeBX2+Fl3zdMzOeFPPmAeFgoIwxf4juEsPfcOUlxx1Uep/M
+	dcwjP870weamfxUsp5cSpjrQG6TZd/fOZlXbmGlytwW/sGcypZ9STFmz756Nl71c/9PbqUCLWecNH
+	VvB5b5HeUJzN/eIlULlIK0dz+D2/xDNNtFhyM7Y7gi5uLA+SDwNE5X+Wzfj4TW/snS1GFcsdEUQQh
+	esbK0XlS+VT/2r9V714UTPa9DU7jlSeSWGniFcIqnPCKT96BSX4aLdrGP4Y2AUMdjW11GrAGnygwl
+	cDmJluAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYe-0000000DITv-3xKI;
-	Thu, 10 Sep 2026 03:34:40 +0000
-Received: from mail-westus3azon11012018.outbound.protection.outlook.com ([40.107.209.18] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1x4VYf-0000000DIUf-0bU1;
+	Thu, 10 Sep 2026 03:34:41 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYS-0000000DIN0-3zoE
+	id 1x4VYY-0000000DIPO-35iq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 03:34:30 +0000
+	Thu, 10 Sep 2026 03:34:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rdHiSE1S1NxhdV+NevHfrhYefOHHer1M09F4VJWhkgTPnyYlF+CGQlcpqFSUEY2s8USu6v2WjC/opZo7aZyMsuiRe6QC1V75t2Z11QvzIu17ZFBUEbi6mDO5PeSebH8Mv489eoEP1NRinkCTE7HzY6cHEai7n1sEtD/dCRfktaHVPv0oegot+Cov+vKIGsjP4V0KyYIFOx9C5kayMhMAwEh800u1z9615cZRbQ9H3csWaOQTF5jsTiUnThKU8hcHs8UfPcTbNjfvkrXC8ihfy+8pv4/Y0ARj54DyX2wuq4Dkcl37YLZ348nLnbZ60AQrp0adJ6dPXyEFqf9hoc/Yow==
+ b=dlSMxEE583HmzEa5kcsLxShoWxTTNXy0aG59Buat4DJbOEqK9MwFzRM0vA0PzkpKTB9Zhs33wbq87HLL4hJWToAjUIUO/a68HFmqEPQ6k3proVGYi1lJ5Q0LgsnQUTnGKp4oZqy3OAZsDWV04/K4LTHDmkZBjq0y2b3GkLt2FDBOFXDxEfj19wmbRlh6xS0SYfftuEAOU78qdpI2HWwdGLQKZgYbO3slN3ceV/90fNLB9VLnpEKwypGavtgNeJ1NRHclZ9EFPeEiBhGR8/P/ga7Ay5IdxzvblDaRVCdLVrNV8MXq+AOcesNqil/M52m34aPpZr+SWMbcWiQkIfYCTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=;
- b=Ytwn42lY8PpjyRuhimcRYyh94815eyQZ362GC03fceSriVTOWr7PLsnljrnl7SjlQH5SUkGBgaOjdjtlsWfdG5OHR9lE2y3aKQIA/vt67/ZZ+zYfqQnVSmGqmuRbJ16Tatg4mA2krfVykbde37opnDQ1mZ0AepadnV55CYqYL5QKj0dPOHyPNbifkXeyZb8depMKoiXg9+kRzU/DXINhfJme1sg5s44jFVyBdKjH6KJ7mCimRI+sFA3j3gCcfD0E8QmrN/gjpLUCYR/r23Sihx8RHLylonV4X4WStfVqZb8ht+HJeqZjZpG7jqlyG9ZiFzX3kpeflpodaaSHexJzLw==
+ bh=ZPsnVwapVkwHCRbG/3G5otIOKnbDmZl98XDmt9LMWU4=;
+ b=OcqhquJbQGMGUl2ViKSuIgIeg5ALFkdZJBMX0PFvk1zodBcSv75EsveJPXzQioi6UIhEMdFVIIUEQ6blDk41wcEK8M/8ECQTxVxx5z2Gfe+lYyQ+YLuxULsOmCiVsC8iyukf5a25UGAtk1imIj2Jwn+siUFzCNF3ZU2aC2CikxHKZ5KlOLqnC8j9ZWK7A3S8TAUWjLp5jctGJ4VTFEz3IC/ZHY7b9oTSmNjvnknG4V0lrUyS6xbMbM7yWG9HcJYzoGUSHpn0+TByS95gmIn9wZZh2pRl977fJ/Zk/cTRU/fJUUcMvk0sjKsNT6Hx+280lcUkRefnJnZBJdUJmdvxgw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=;
- b=W6S6ZZhv1qaXAXOi5bq0MdJrV0WAT85BIU1SttmG1hd8memYyx31yiPmzZtz3FcTIA8O5gIFs8ePkO1xyBgn0L1D/0E7ETu71CcaCRjQ5yKV1Mw/KriTMAvrsjGBllhdCpCvQZz5lfHopr9LVAbpF34REDnqVE/y7mD2yqU7oD0O5mqwJ4D6nsGBRbfN8xQgbLok+6PUajHlOdPaZ+hSkGST0I57ufsIunYdM2WFwhMEAMpyUiRpThjDGxS8ML99hiAK84mJgvkLLDKklxbghP2CnrtVI/fh1WQVtAoCUuAp4rk2xy7jomjTDSHJVUp5Iw5QmI5Xqem5J2LxDeHsFQ==
-Received: from DS2PEPF00004567.namprd21.prod.outlook.com
- (2603:10b6:f:fc00::509) by BL1PR12MB5827.namprd12.prod.outlook.com
- (2603:10b6:208:396::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 03:34:11 +0000
-Received: from CY4PEPF0000FCC5.namprd03.prod.outlook.com
- (2603:10b6:92f::1006:0:b) by DS2PEPF00004567.outlook.office365.com
- (2603:10b6:f:fc00::509) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.9 via Frontend Transport; Thu, 10
- Sep 2026 03:34:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ bh=ZPsnVwapVkwHCRbG/3G5otIOKnbDmZl98XDmt9LMWU4=;
+ b=TVhVpuwpB8C7ycmi330+M57T5uZjP35nvp6ca/a/5ukKXdT9SYNRZTtjQtBWyhIgQCI1jXUvX4KHs6gDCm14vTHeAkkUwfMeciTBRE1xb5sV2P7jkngg9EWaF3G7WCHP1UMwe+NX3G+5bIhxCOsmWfa1GzAUYxzp6ot0MRB2nMISCuhpnzEjYVejHfafcEWtk6abkYQGwkzosiAs+f9gznh2ag45MjTplnD92Jv/GeOSEv9GZNjg4V3Y4Mq3X7oNjaxrjtHGvV9lQGIxTPcVZYzzCNtWUV/1eGRvZfJQgtHZtHo3JdkJzVuAFS5DYTD7VuZUlRTveXlTo27a1e0vjA==
+Received: from SJ0PR05CA0202.namprd05.prod.outlook.com (2603:10b6:a03:330::27)
+ by CH0PR12MB8487.namprd12.prod.outlook.com (2603:10b6:610:18c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Thu, 10 Sep
+ 2026 03:34:17 +0000
+Received: from SJ1PEPF00002315.namprd03.prod.outlook.com
+ (2603:10b6:a03:330:cafe::7) by SJ0PR05CA0202.outlook.office365.com
+ (2603:10b6:a03:330::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Thu, 10
+ Sep 2026 03:34:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CY4PEPF0000FCC5.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF00002315.mail.protection.outlook.com (10.167.242.169) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:11 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:16 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
- 2026 20:34:01 -0700
+ 2026 20:34:06 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 20:34:01 -0700
+ 15.2.2562.46; Wed, 9 Sep 2026 20:34:05 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 9 Sep 2026 20:33:59 -0700
+ Transport; Wed, 9 Sep 2026 20:34:03 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, <joro@8bytes.org>,
@@ -100,9 +100,9 @@ CC: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<iommu@lists.linux.dev>, <driver-core@lists.linux.dev>, Sonang Patel
 	<sonangp@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>
-Subject: [PATCH v1 2/8] firmware: arm_rmm: Add VSMMU commands and fields
-Date: Wed, 9 Sep 2026 20:32:45 -0700
-Message-ID: <0623345baaf550da1339e040b59f1fda902e3390.1789010941.git.nicolinc@nvidia.com>
+Subject: [PATCH v1 4/8] dma-mapping: Keep DMA memory private for capable devices
+Date: Wed, 9 Sep 2026 20:32:47 -0700
+Message-ID: <abddd433493324a6bfdf8ba9710e96d90f0d1ccc.1789010941.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1789010941.git.nicolinc@nvidia.com>
 References: <cover.1789010941.git.nicolinc@nvidia.com>
@@ -112,28 +112,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|BL1PR12MB5827:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea30de88-fdb2-4e17-b343-08df0eec612f
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002315:EE_|CH0PR12MB8487:EE_
+X-MS-Office365-Filtering-Correlation-Id: 022bb3dc-e09c-4dcc-5a39-08df0eec643b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|82310400026|23010399003|6133799003|3023799007|10067099003|5023799004|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 43iqHOiBy55PMinPvDiJxNMBZ/m+CyahmNtwsmJWCOow3MfzkdDVhioJq89/zgID47SWvJpe+n2+BDzm7PyWQphZZbSlhiRGRiw7dCNuwfX7fuBtw5sa70WhbALNhSglGXgJKCaAc/4IfhhPPWCFrByNMnIsBj5S0vz0WoEWoGY4PIRBCZbT8ZWpX3mtTMdMLQY20zdMKeaIwN+rAHV7Y1WF4tZaVg2hlx8sIhn6MQO4L1uRSmCry1AH91yxIl65PJlIuFtjCn3ABghJNq95HbFrK1ZzWKNKg7EwNs/uwGdtIY6s0uWI8i/fssetNNCXs43+8jFKZGU8VOQwLt99g3H336Zz/1cR2Y7XfQ5rMODp45cBXaN19riF24hCN1yswdPBrYLevSLmVdckczyh0c6CUPGSgn3xHoqtSholVrPWUq0S0ZIAYYAi+KGv4r23kOtUXgso6fW1zLgasOkj+VjweytUERS7/nqqy/pwmyNkkQCAKKSodGjxcZW1JT17Lm8YPYqg9RYPJWr8oUvbc71rgfrwwknRue+o/G9f1ezFN+Y2NC1x5BOc4DrDKW7F3Pinm8e6dpiIS1rBfVvZSZOOLCJhKZQSrAsvLpRcEs/ZA7iO3iwP92htNp1kjOsvybVuuXvvSShUT1WRnDUjNupK0sEXFq9D59Qfjll+V7uVX4b325Bpg1bU9ZVfmCPTQpW+Dar4KHRERcjERDKD+w==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(6133799003)(3023799007)(10067099003)(5023799004)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|23010399003|82310400026|10067099003|11063799006|5023799004|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ei9nHSUwrZ7wotiRfXlSGwXlAOrFjQ7V1Dc4nnJ5LeNLOZvixqlKzsRqVAn5LgC9bdwKG/hteuuhdW/Bbx3pOLXMt57wrs73MkDJVIeYua+npM0fuWoJqiqmLwy8mYynTg+q5WoX4hJ84mY0EGfQkp71ZOs6I/P/kpoWj8rvp6SWa1fqlzNiaMmsSKIob4RC5RFt7AhF7QoqYuqrcoxcaJfjgZryYvhhap+1hFfI3KoS7gNpih5nkDcuKQrRw24BxgqESOUbb9+WUIJZtZ//BH61BggcKhxEYux0yTz30uutt6who3J6Jp13jDS/u/I9yzJ18YohPp+l8HJ1sh2IifwQxXSvHfmKltZWLCdZFRLopNMctKgmAksavVy99j0KUPmCGEschdwVTJgzN2gFXiRWaInMFBME8H8FXmqJTWQeRZ4/87KNR3oN4Ya0Wnn/fE/x5rDPQqIJTHl9IpLpXYENUqP3nrl0jQh4uUSM4j7Qr5kxrdg5NSkeImP8IhUxMhhChPAW/gHIgsieN3aiE9/YCprNng+QeqJUSpr8C8LHkim6zmQ+rJrDP0rotIinJ3lE5vUYLIHQFzTNeJc0O2tBFg+3I0T0KcyplT+ogptGT6DzpQaVuKhSUI0IzAQy2SlJZ0l4AdzAGaSN4+JrBFrEfWy3caFEJhJUbDF8+PpF+ZbEjTD+pj5BiI7nVhyc0t90zeIQ+nAvLrArx4sjEA==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(23010399003)(82310400026)(10067099003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MIsdXZm7Ath9JsQ+XO1SJdp4BdnLLda2AyXgD0tV+HFoAq73bLafIGFe3+K8FU4uR5Xl85OqNKNduPXfQkY0/wlPNUb3RwebbticTEHn4BCZhBD98O0n7BCbWamtRe/AeV9lobYbXgsyhahtJmZ9aeW0rUrpEdBlZiC34kalZaueXwV9fPS6pFfLCwcoKNXc4pGnRkguWYqgQWY3GiJJVFkoZ4D6CrpP7SG8rUluKltnSxd3HABObuEnAgjUGXMReHH+t2niT3RgLpHLoX7AWWGfym5+ukFg2zjJmnIksVTJgYaDL0mFYWQVU0lPEHU5G+2bPisat0eyyxuHhMheleb44/dXTR9hlDqZvvT/orn8S0hGgRdr5i+1ePoAVt4iPz13HsTkbODT+v1m5DGCjjMECx7wMMkAar8wqIXz+8pgxZGkglIV2ousrwwwO/qY
+X-MS-Exchange-AntiSpam-MessageData-0: kEdK22RZERh211hZ3xj6GMS3vM0XQz6gSWzST4irWBXaHUC5oqLYR7NyrZYSd8rFizig1k81NHhDrjp6x16VwBtmS6vZy6WxGifkb9U5t4NR6yl/k0+CHFi+DD87+EOwWLGP4KFQU9gXOLxnfTj1YjcYvt5t3sKsjwr+jZzutvg0Hgvk05bzhCTr8rYzohyuDzr0TKJuHWkbbpiomu+12EeXSwAml2dVpz6f5ob4CsIQEudmkvPIxqNSV0iJNengrHwKNvTQfVNTekyt8o4ea2b5Dgml/AGENcWxmIYyWcpEgSATNeeDiNKFdqfOiqsFfx+Hd9JNgpfDYX9veaDtufyYYHasMXp1aq0k8arnvnxW7Q7Tmo524gUYANHnjGS1tI96+9AFGm3VsH7bmUrQKA3HZ5VLY95o0qn4Fw/Hr+IAQmDodMtTfa3gqM8cwhI/
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:11.4558
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:16.6401
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea30de88-fdb2-4e17-b343-08df0eec612f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 022bb3dc-e09c-4dcc-5a39-08df0eec643b
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC5.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002315.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5827
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8487
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203429_011962_8F3A20DF 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260909_203434_826063_3610FA40 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,86 +148,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DEN0137 2.0-bet3 adds the RSI_VSMMU_GET_INFO command and replaces the old
-RSI_VSMMU_ACTIVATE command with RSI_ARCH_DEV_ACTIVATE.
+Architecture code can require devices to use unencrypted memory. This makes
+the DMA API use shared memory for coherent allocations and bounce streaming
+mappings through SWIOTLB.
 
-Add the command IDs, return codes, SMMUv3 device type, and helpers for both
-commands.
+A device marked with DEV_FLAG_DMA_CC_PRIVATE can reach private memory
+directly. Add dma_require_decrypted() to combine force_dma_unencrypted()
+with the new device flag, and use it throughout the generic DMA code.
 
 Assisted-by: Codex:gpt-5.6-sol
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- include/linux/arm-rsi-cmds.h  | 22 ++++++++++++++++++++++
- include/linux/arm-smccc-rsi.h | 20 ++++++++++++++++++++
- 2 files changed, 42 insertions(+)
+ include/linux/dma-direct.h |  7 ++++++-
+ kernel/dma/direct.c        | 16 ++++++++--------
+ kernel/dma/mapping.c       |  2 +-
+ kernel/dma/swiotlb.c       |  2 +-
+ 4 files changed, 16 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
-index 13478e14c4296..548ab0bcac722 100644
---- a/include/linux/arm-rsi-cmds.h
-+++ b/include/linux/arm-rsi-cmds.h
-@@ -237,4 +237,26 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
- 	return res.a0;
+diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+index daa31a1adf7b0..fb35ca27941cc 100644
+--- a/include/linux/dma-direct.h
++++ b/include/linux/dma-direct.h
+@@ -134,6 +134,11 @@ static inline bool force_dma_unencrypted(struct device *dev)
  }
+ #endif /* CONFIG_ARCH_HAS_FORCE_DMA_UNENCRYPTED */
  
-+static inline unsigned long rsi_vsmmu_get_info(phys_addr_t addr,
-+					       phys_addr_t *top)
++static inline bool dma_require_decrypted(struct device *dev)
 +{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RSI_VSMMU_GET_INFO, addr, &res);
-+	if (res.a0 == RSI_SUCCESS && top)
-+		*top = res.a1;
-+
-+	return res.a0;
++	return !dev_dma_cc_private(dev) && force_dma_unencrypted(dev);
 +}
 +
-+static inline unsigned long rsi_arch_dev_activate(phys_addr_t base,
-+						  unsigned long dev_type)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RSI_ARCH_DEV_ACTIVATE, base, dev_type, &res);
-+
-+	return res.a0;
-+}
-+
- #endif /* __LINUX_ARM_RSI_CMDS_H_ */
-diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
-index fddb77986f706..2c16c23611891 100644
---- a/include/linux/arm-smccc-rsi.h
-+++ b/include/linux/arm-smccc-rsi.h
-@@ -37,6 +37,7 @@
- #define RSI_ERROR_STATE		UL(2)
- #define RSI_INCOMPLETE		UL(3)
- #define RSI_ERROR_UNKNOWN	UL(4)
-+#define RSI_ERROR_DEVICE	UL(5)
+ static inline bool dma_capable(struct device *dev, dma_addr_t addr, size_t size,
+ 		bool is_ram, unsigned long attrs)
+ {
+@@ -146,7 +151,7 @@ static inline bool dma_capable(struct device *dev, dma_addr_t addr, size_t size,
+ 	 * requires unencrypted DMA addresses. Treat it as not DMA-capable
+ 	 * so the caller can fall back to a suitable SWIOTLB pool.
+ 	 */
+-	if (!(attrs & DMA_ATTR_CC_SHARED) && force_dma_unencrypted(dev))
++	if (!(attrs & DMA_ATTR_CC_SHARED) && dma_require_decrypted(dev))
+ 		return false;
  
- #define SMC_RSI_FID(n)		ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,      \
- 						   ARM_SMCCC_SMC_64,         \
-@@ -190,4 +191,23 @@ struct realm_config {
-  */
- #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
+ 	if (is_ram && !IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT) &&
+diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+index da665ca22d5c0..fbddab9740162 100644
+--- a/kernel/dma/direct.c
++++ b/kernel/dma/direct.c
+@@ -41,7 +41,7 @@ static inline struct page *dma_direct_to_page(struct device *dev,
  
-+/*
-+ * Get information about a VSMMU.
-+ *
-+ * arg1 == Base IPA of the VSMMU
-+ * ret0 == Status / error
-+ * ret1 == Top IPA of the VSMMU
-+ */
-+#define SMC_RSI_VSMMU_GET_INFO			SMC_RSI_FID(0x19A)
-+
-+#define RSI_ARCH_DEV_SMMUV3			UL(0)
-+
-+/*
-+ * Activate an architectural device.
-+ *
-+ * arg1 == Base IPA of the architectural device
-+ * arg2 == Architectural device type
-+ * ret0 == Status / error
-+ */
-+#define SMC_RSI_ARCH_DEV_ACTIVATE		SMC_RSI_FID(0x19B)
- #endif /* __LINUX_ARM_SMCCC_RSI_H_ */
+ u64 dma_direct_get_required_mask(struct device *dev)
+ {
+-	bool require_decrypted = force_dma_unencrypted(dev);
++	bool require_decrypted = dma_require_decrypted(dev);
+ 	phys_addr_t phys = ((phys_addr_t)max_pfn << PAGE_SHIFT) - 1;
+ 	u64 max_dma = phys_to_dma_direct(dev, phys, require_decrypted);
+ 
+@@ -72,7 +72,7 @@ static gfp_t dma_direct_optimal_gfp_mask(struct device *dev, u64 *phys_limit)
+ 
+ bool dma_coherent_ok(struct device *dev, phys_addr_t phys, size_t size)
+ {
+-	bool require_decrypted = force_dma_unencrypted(dev);
++	bool require_decrypted = dma_require_decrypted(dev);
+ 	dma_addr_t dma_addr = phys_to_dma_direct(dev, phys, require_decrypted);
+ 
+ 	if (dma_addr == DMA_MAPPING_ERROR)
+@@ -208,7 +208,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	struct page *page;
+ 	void *cpu_addr;
+ 
+-	if (force_dma_unencrypted(dev))
++	if (dma_require_decrypted(dev))
+ 		attrs |= __DMA_ATTR_ALLOC_CC_SHARED;
+ 
+ 	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED) {
+@@ -368,7 +368,7 @@ void dma_direct_free(struct device *dev, size_t size,
+ 	 * If the allocation used decrypted/shared backing pages, restore
+ 	 * the encryption state on free.
+ 	 */
+-	if (force_dma_unencrypted(dev))
++	if (dma_require_decrypted(dev))
+ 		attrs |= __DMA_ATTR_ALLOC_CC_SHARED;
+ 
+ 	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
+@@ -436,7 +436,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ 	struct page *page;
+ 	void *cpu_addr;
+ 
+-	if (force_dma_unencrypted(dev))
++	if (dma_require_decrypted(dev))
+ 		attrs |= __DMA_ATTR_ALLOC_CC_SHARED;
+ 
+ 	if ((attrs & __DMA_ATTR_ALLOC_CC_SHARED) && dma_direct_use_pool(dev, gfp))
+@@ -480,7 +480,7 @@ void dma_direct_free_pages(struct device *dev, size_t size,
+ 	 * if the device had requested for an unencrypted buffer,
+ 	 * convert it to encrypted on free
+ 	 */
+-	bool mark_mem_encrypted = force_dma_unencrypted(dev);
++	bool mark_mem_encrypted = dma_require_decrypted(dev);
+ 
+ 	/* If page is not from an atomic pool, dma_free_from_pool_page() fails */
+ 	if (IS_ENABLED(CONFIG_DMA_COHERENT_POOL) &&
+@@ -649,7 +649,7 @@ int dma_direct_mmap(struct device *dev, struct vm_area_struct *vma,
+ 	const pgoff_t pgoff_end = vma_end_pgoff(vma);
+ 	int ret = -ENXIO;
+ 
+-	if (force_dma_unencrypted(dev))
++	if (dma_require_decrypted(dev))
+ 		attrs |= DMA_ATTR_CC_SHARED;
+ 
+ 	vma->vm_page_prot = dma_pgprot(dev, vma->vm_page_prot, attrs);
+@@ -798,7 +798,7 @@ size_t dma_direct_max_mapping_size(struct device *dev)
+ 	/* If SWIOTLB is active, use its maximum mapping size */
+ 	if (is_swiotlb_active(dev) &&
+ 	    (dma_addressing_limited(dev) || is_swiotlb_force_bounce(dev) ||
+-	     force_dma_unencrypted(dev)))
++	     dma_require_decrypted(dev)))
+ 		return swiotlb_max_mapping_size(dev);
+ 
+ 	return SIZE_MAX;
+diff --git a/kernel/dma/mapping.c b/kernel/dma/mapping.c
+index 11c127ad45370..e7c48a925b7ac 100644
+--- a/kernel/dma/mapping.c
++++ b/kernel/dma/mapping.c
+@@ -673,7 +673,7 @@ void *dma_alloc_attrs(struct device *dev, size_t size, dma_addr_t *dma_handle,
+ 		return NULL;
+ 	}
+ 
+-	if (force_dma_unencrypted(dev))
++	if (dma_require_decrypted(dev))
+ 		attrs |= __DMA_ATTR_ALLOC_CC_SHARED;
+ 
+ 	if (dma_alloc_from_dev_coherent(dev, size, dma_handle, &cpu_addr)) {
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index ded7016a46a71..d08a3643ded14 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -1552,7 +1552,7 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+ 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+ 
+ 		/* swiotlb pool is incorrect for this device */
+-		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
++		if (unlikely(mem->cc_shared != dma_require_decrypted(dev)))
+ 			return (phys_addr_t)DMA_MAPPING_ERROR;
+ 
+ 	} else if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT)) {
 -- 
 2.43.0
 
