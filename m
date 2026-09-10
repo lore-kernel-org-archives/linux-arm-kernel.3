@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650E6C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CACDC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+791UBzYyUhwHKOv7tOfFKyXATi5fExIF34q7nX4QA4=; b=mvA+VWmX5DhUkQV/GI0erwklbn
-	s/aAB/xnvfkUCTkHraRC2+3vF0ZFpTvbnkO6nseT/TNHEdFyBK75asUJ7yLKBUcXaYr3I9Pjf4kGf
-	E9vvXEyUVYQqVmECTgNk6qoSTMck6246xSyIfEcQvfI2PWC+GL/qgtxr3SHCrqY80dgze+XrGHR2D
-	s1j3k442au9Q2ghtvqpB/WP5JZOEkownDpKOEb8q4BnmIojng3y86+CFq7PARiIZIoEOvCjOA+dly
-	nx9N1shuqodqMOiRkj+vpzF7DEVAJrz/zal3QsYN0T83pMxv47Lx+7jHMn5DqVRhx0pFFBCayY3X9
-	11PCFYNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=; b=Y4QQrhIws5yGYpgHNjs1ejOKD9
+	cpbmtFFnyyJvt5AFq+ILjo52Nq4ojwOcZXxKL0PL2opz2SPcmW1cYDbRscdrnwJ2ExTW/WSC9H6gj
+	o3DtdLMnpHB2zeQMYp9VrSUcir8qi6DE1I3K1cpxHrxq/pYAGYb2jxSCLYe4Hb3Y/4GfLUJKNZOJ4
+	Ef9uSD/UQ9QId64TGNljlWz7PmdGjTzb3cHIHhRKLqoj9Q8/KXspO7LaLiNr4pxptHbTaLzx4RC6t
+	30sxGWxlu4ebk7iB8oFivCUJk3F6fnOpS4cbjmtNdnZ6V6dgEe/P0zNwwcCc0QNlFY5kQXg5lWU/8
+	ukGm54jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4esh-0000000ETVw-3Eae;
-	Thu, 10 Sep 2026 13:31:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4esd-0000000ETTe-3BrT
+	id 1x4etI-0000000EThI-0tEe;
+	Thu, 10 Sep 2026 13:32:36 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4etE-0000000ETeH-0fkQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:31:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CBAF2153B;
-	Thu, 10 Sep 2026 06:31:48 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7201E3F528;
-	Thu, 10 Sep 2026 06:31:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789047112; bh=q2y1E+jfz+e2loPgk5uTMKvJJpPn2qFQADreOTA75TE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LH9up4Du6y4lg3MG2LYVykgQw0LKCGzFD7zHgyyrJrMa0ENvf0EYwGNnyn2inXtKw
-	 jPfnW+q+TLHjAisKlgb1xbRyeNUguD1docHILvcFytT8kkTNw1e1N0AYWs7+xTAP1m
-	 +tGr4x8OHatjQ5Kj1/wEKH3r9C8hDRgVcnc8z/2M=
-Message-ID: <82b2541c-ea6b-41d0-89b1-ecf9a9920cd9@arm.com>
-Date: Thu, 10 Sep 2026 15:31:40 +0200
+	Thu, 10 Sep 2026 13:32:34 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f705536so289616766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:32:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789047150; x=1789651950; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=;
+        b=it3ga0la+xdnGRVIzv443xdbDVkBDg/jneDHrOilWLkGGnQEH6p50M4jT8oF9qgWju
+         9j+zB3NoEmb3RidC/NhFgASPWvcNFvQMiX1Mu2eq2xFFSvsuS81yj3uUa+pwa1O0wbT9
+         BqW2lu/PBSRKsnFCy31SNnFs89w4Wu587/d9dCm7ROMPlEJAOSwU7qK5N6OAST1ZDegZ
+         rGaxCg97VvN+Rdp+FuGE6Vqr7rJsaTa2SRCoB4d7a/Jwpm/MIpgm3Z2CeWBTtIWjrKan
+         CAR/JEOg3tq1kHpyvRPWzWAQh4J9a3SBSSIMIVo5oa2icIJUrjXk6VI9ceaWzIgb5JuJ
+         v8fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789047150; x=1789651950;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/ndI1o0tF4rBbBQihF/KpyjTjK7B3nvas+X0LJj+FFg=;
+        b=SaDeWW5ZLNxcbM34jF3hpPGVUeFkdn/tKeTRoI+J/FydnGGTkGgLb++QrACvTFtXDr
+         lbGYu7Mub6Q3UG802HTwfskHnnH6J0s7gJbv61KvEafCqG0lEIUxrXEUa3OgwBDEMT6U
+         VXcTqIgTvlmgV/JFfV0LQAMzj8AU3oOcKANwfCvcwsHAZliDuL1bI3OMYXk2bU5kR7UT
+         FK5JnuoyqremrNAhqnmDSj/fbhCPWKs1YvaA97y/1dE00GOZrpqsJR2tNAlqFXkQ29wv
+         VEwukPpQ/KuqQGI8RMo03ELr51g1/MoJgEdbbLNJ08iQ4EmDJZazTNCkHa0831SOXmxU
+         maFA==
+X-Forwarded-Encrypted: i=1; AKwUvBwZdvi+vyF0jJpdIh5cIwTHV/Dh2z/0nkjL9Eufr1BXEqZ352tKo42g9Tq7FoVZTPbm846T9vJGCZYA/+2VD9Oh@lists.infradead.org
+X-Gm-Message-State: AFuF++mbwEf0RWdjhjP3tE06HvZqolk5j1LAppjP0LLFnezWf5PA+Qmm
+	FePqpvx9s3t+UNkFossH4J0LNvr5IMeThzwD8/zC+1ptFtwhdGGe3p4q
+X-Gm-Gg: AYBFou3lcvPb4Pgxg7Zif13j17Y4T41R0U0Xmo4wXEaLgM317Pmj8Mxdt37B9yMdSKk
+	7YPkAH/e2Z8z82kBWP+Mean92S9hnpCsq/xk9kdZZBWp8tLB7dnmoeWlrFMnBl0ExrkyeBN/mZX
+	gEQl6YBGxDy3sQf723hoivLyzw64Sa49CJPEX18gH3VhBhb6K8/FMbHEqpa5asuKRIm4fw5zzso
+	PH+1ko16clTRS6hY1RXPya7ll61yo3mHHqAcs1ue0TNCJ+cLcLeiaihzv42H9d7gwBAbK3lwcOk
+	iHkdObTjV9vYfzgT7itfUptZ5vwFt0e1SzQJuZh4ZkCqT4tSh2vSfjzYFRUIl5CuOSKsfxhHZWT
+	g28jxJXFDCUtBhebb1btxb1EgE2gWwJztF3lakC9cDif4elacM3MfBeGBzdt/6cbs5VuVFCkqII
+	wthgasI5qMXi8772ybeOAsDoULtQQlJOv54zSvAUEoXdkwohtIvhjTZb2EID79lIGTLOM=
+X-Received: by 2002:a17:906:99cb:b0:c25:62db:772b with SMTP id a640c23a62f3a-c2941868ad6mr336284266b.7.1789047149946;
+        Thu, 10 Sep 2026 06:32:29 -0700 (PDT)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d581f51sm945616266b.42.2026.09.10.06.32.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 06:32:29 -0700 (PDT)
+Date: Thu, 10 Sep 2026 16:32:25 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	cassiogabrielcontato@gmail.com, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 02/13] ASoC: mediatek: mt8189: Propagate APLL enable
+ errors
+Message-ID: <aqKxadkfX9Tqx8JR@stanley.mountain>
+References: <20260910125742.150902-1-phucduc.bui@gmail.com>
+ <20260910125742.150902-3-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 8/9] pinctrl: sunxi: a523-r: add a733-r compatible
- string
-To: Julian Calaby <julian.calaby@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20250821004232.8134-1-andre.przywara@arm.com>
- <20250821004232.8134-9-andre.przywara@arm.com>
- <CAGRGNgXsG5FmwFTSE1BM5qDHz_Jovb4EuRtt-=ipavBDf7AzJQ@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CAGRGNgXsG5FmwFTSE1BM5qDHz_Jovb4EuRtt-=ipavBDf7AzJQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910125742.150902-3-phucduc.bui@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_063155_841669_0EED16A0 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260910_063232_236520_3DC57F1F 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Julian,
-
-I know this email is almost comically old, but still didn't want this 
-left unanswered before sending a new revision:
-
-On 8/24/25 01:09, Julian Calaby wrote:
-> Hi Andre,
+On Thu, Sep 10, 2026 at 07:57:31PM +0700, phucduc.bui@gmail.com wrote:
+>  sound/soc/mediatek/mt8189/mt8189-afe-clk.c | 78 ++++++++++++++++------
+>  1 file changed, 56 insertions(+), 22 deletions(-)
 > 
-> On Thu, Aug 21, 2025 at 10:46 AM Andre Przywara <andre.przywara@arm.com> wrote:
->>
->> The secondary Allwinner A733 pincontroller ("-r") is interestingly not
->> using the same new MMIO frame layout as the main controller, but is in
->> fact very similar to the A523-r one: it has two banks, with 14 and 6 pins
->> each. From the driver's perspective, this is all we care about, so we can
->> re-use the a523-r pinctrl driver for the a733-r, too.
->>
->> The individual pinmux settings are different, so we must not use the
->> a523-r compatible string as a fallback, but we can surely let the same
->> driver care for both the a523-r and a733-r IP, as the pinmux values will
->> be provided by the DT.
-> 
-> If the bank and pin counts are the same and the pinmux values are
-> provided by the DT, that means they _are_ compatible, right?
+> diff --git a/sound/soc/mediatek/mt8189/mt8189-afe-clk.c b/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
+> index 63e03a40dbbe..a901be97e75f 100644
+> --- a/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
+> +++ b/sound/soc/mediatek/mt8189/mt8189-afe-clk.c
+> @@ -454,30 +454,47 @@ int mt8189_apll1_enable(struct mtk_base_afe *afe)
+>  
+>  	ret = mt8189_afe_enable_top_cg(afe, MT8189_CG_APLL1_CK);
+>  	if (ret)
+> -		return ret;
+> +		goto err_apll1_ck;
 
-I wouldn't say so: I would argue the devices are different, and not 
-necessarily every driver written for the old device can cope with the 
-new one. For instance U-Boot still goes with hardcoded pinmux tables 
-(because that's simpler to implement there), which don't match between 
-A523-R and A733-R.
-And I would see a point if that would enable old kernels to use that new 
-SoC, but because the main pinctrl is different anyway, that doesn't help us.
+I shouldn't complain about this, but I am going to...  I don't like
+ComeFrom label names at all.  Imagine if we named functions that
+way, there would be a thousand functions named called_from_probe().
+We already are looking at the goto so we know where the goto is, but
+what we want to know is what the goto does.
 
-But it's not a very strong opinion, so if the maintainers disagree with 
-me, I am happy to change that.
+Better to name it err_clear_mux_setting or something.
 
-Cheers,
-Andre
+>  
+>  	ret = mt8189_afe_enable_top_cg(afe, MT8189_PDN_APLL_TUNER1);
+>  	if (ret)
+> -		return ret;
+> +		goto err_apll_tuner1;
+>  
+>  	/* sel 44.1kHz:1, apll_div:7, upper bound:3 */
+> -	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
+> -			   XTAL_EN_128FS_SEL_MASK_SFT | APLL_DIV_MASK_SFT |
+> -			   UPPER_BOUND_MASK_SFT,
+> -			   (0x1 << XTAL_EN_128FS_SEL_SFT) | (7 << APLL_DIV_SFT) |
+> -			   (3 << UPPER_BOUND_SFT));
+> +	ret = regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
+> +				 XTAL_EN_128FS_SEL_MASK_SFT | APLL_DIV_MASK_SFT |
+> +				 UPPER_BOUND_MASK_SFT,
+> +				 (0x1 << XTAL_EN_128FS_SEL_SFT) | (7 << APLL_DIV_SFT) |
+> +				 (3 << UPPER_BOUND_SFT));
+
+Since you can't test it, it's a bit risky to start caring about
+errors.
+
+regards,
+dan carpener
 
 
