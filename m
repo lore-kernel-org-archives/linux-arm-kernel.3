@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93336C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FA4C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=; b=naXeOML5NLVQtdYPKZG3I6ReyS
-	F1mGmbTFjUw4oc3Q0H8nEtobDX6JQurCuwVvgIA8nU7Qhh3ijkbA4zj5cn7h/eza95/tLmpNMkj5k
-	EI7iDLGoB4URLZmkqOa9tdOfdbqeARh5OzXzFHkJLrtpPgfU31cr4m8/SD/qBxuz97M+qZKPyKQcE
-	HSpqXbnQ2ZOFkxnT8pL+tc54t5SOwzgiq1am8f+7fpIZpchkRyM8CY1E7RrcZgq4M1jwhXYT8//E9
-	SraHlEZN3E01kIWRFO0KzudZoILDZ2eDM2fQWaOummxWmwZbslvbOAm3Ish4K4/81nCYjlZVMEGyt
-	gP/SMHAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ff7gYwr5JatAwsuf2+3tCMqptzY259GZ7PdLz6iyl+I=; b=l21Ix5tmFSFQlR9VdZjN3whMDp
+	NJJJtH/FWAxQNyBcJK1BKhOxfBmQPuzHQV6Kxs/O1VNi9m+2xs1SCmGPsvncuXGGBafrNIcYsQ/6B
+	8Jh8LRRXsXYJJF5B+qdqXd9xS9L05z1AyQf4psGNCs2GhSx3jSvAvTc8tSk4PP9YwuzSAlsbNswSn
+	TrOg326G0/pjk63wHO5oGV+WWRLasoMuOeRYMf9ig4rlAe/aP71lJe1kpYkz72AKeUb520BAiU/nT
+	S5/B8dddBx/3Sg9/5piNMeVoXf4GCttpBxXBIZ1HHLoQntfa85jVJ48EEQmS2QKDIj86d8bgz9o9W
+	kQTpihjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4enr-0000000EScM-3iIo;
-	Thu, 10 Sep 2026 13:26:59 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1x4enw-0000000ESeA-0jzW;
+	Thu, 10 Sep 2026 13:27:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4enp-0000000ESbs-30jS
+	id 1x4enu-0000000ESct-3X8o
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 13:27:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ff7gYwr5JatAwsuf2+3tCMqptzY259GZ7PdLz6iyl+I=; b=qpmMZY/9OpgBOrZDBfJSlDS5ut
+	od8ok4LkPNuTmkC3vZE3Ccn4/o7w5HFroy5vjfm4G7R8YgkYmkuJFn/xKa5ZG5ScQemcC30OqqEmX
+	G6cf+VYNfJzQ5n+XEYTuBXPjYcb5ofyESpmp7ywRREhO+9CVkbe20pW5Sc4YLMJKHqRdt5ry7ntGk
+	CmdztLzlvEDV7fxp1Wg5TAnh4aTgsFuPr/va0uQ1mKHpwLxKJlhD3h70Rfm/0HRh6SASbugCghmW1
+	sQiFBymLn+ZZJyiFHQ77NOS4s9NKyEXf0FqrrYpMLkSdR3Ry+cG3s+MtZT9mM9/e+Xw4NLLJHJCbs
+	ZZ8VjDFg==;
+Received: from mgamail.intel.com ([192.198.163.17])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4enr-00000002Wro-2smx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:26:58 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c253425b253so1073822866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 06:26:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789046815; x=1789651615; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=;
-        b=iZvmmvd4zIak5JDVw1Y34XPDlSUQFt/o/4w+EfkOgnAWqqhuPw6ACvPtqYtSoMwmIp
-         uKlvGjVhTnAguMGM/zs43hMdYD4vc4Ziw9XTTTgv77SM/hmTcx9cxgAdEKAfEzaO0Cf9
-         LXe5hfV9eJOwa+liAYZj62/Ya9Phdo3AwBJG/uskQ8vxJ7MxeWMZTDTb9n5JzDM/WoWN
-         DzkGQgx/WX+35PBwOuXMvJ5z4nftpYtluVD8MqDAk0QKjt/noh4SQh/HK2VgifZfUzw+
-         ABw5wAs1BUxfwHoUap+V/tLKJa7ER6dnpj1TNa/yprwD8W5QrfiTcheqY6HZkvQOnATK
-         8GfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789046815; x=1789651615;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EvtswLvPiQHbO1nAALeYzwdSCfuCoM47IC0JhG2+bnc=;
-        b=c+GoB1EVQY5XB17TAs5Yep8rDMEzXWsp29F+T6dkITsOxdsc8gHepJ7Hw6H9JhM9Ll
-         aUbzvhMb02xZvVYFpjA6PHda6Le4H6R4QKvJXpgppkuyysI85FQqQEdMXoSY7pEx4NDY
-         EUmwlqhpMKXhQ2ByvAkGPGZ/aq2prZAa1LEaPsh+Dk+1Dgg2Bvio+M3so5ieZG+Skv/N
-         OUJLwAex5MfRQbecNypBsNRqtYvu6lAGmLdM7ssjf8u+eWRjHhSdoa+Kmt1frepLMfPa
-         SZPfjpSLATCKzsXgkVZMLY77ZO/YWzt7yBEPTwd8DwNW+Ud08BbM85Wv0iKYDiLaQsKf
-         /vbA==
-X-Forwarded-Encrypted: i=1; AKwUvBys8ylmT2nYSRnYrbhs2vk1xCCNMyl4pzlvuYkxBvT4kdSecBvUj//CICsy/Q9gCDIS/alIL4m6KPe1Gx2RSize@lists.infradead.org
-X-Gm-Message-State: AFuF++mdl8P78TyJ5V9dvFdPt2GDX2QYvbCjnYZdgm5Nr8kre7ZSEUYn
-	a6ZPXmbLxMtuq3qnZizcH9LgzAZBxYWCmuXtIjHnivAcrXL59bJyNbdQ
-X-Gm-Gg: AYBFou14Q+BxAAlXMyK7Z1wFxIGfeHEUBbFM64tXHzgkkHO11bFsw/njEuYhSLrFgHF
-	/E+crq1ovX8xbY/uTWi3OxDRtSGvJgQHU1pUSYhHeSf9JlyOSpC664hMy5JEtbt8K/Di6yGe0WU
-	GT6NzIXQzU2GhDH/tu1uOYTo208NYK0v1h84sGHRT2Ad4EHOHREHOttl33VkJj3thSLoShYC9xR
-	ko4uuvshhp7apN4sGBHKdoUfAEh1yazzMRuSSSaZ8Oavv07Q+8M/O24M5dsDsNNaaiFIcTqjG6d
-	2YHNW0YJ/OJKlDKp7UuA6jxnkWBjPLOuSCyRl3wLIgUajk8jsFsz4fBpt9FroRTNDvpEX4fZp4c
-	iB5/UDedz25am0+M+En3nG1QpWZObNrWEdywcqDrMTCQaaucbssRaHazK3um7OsBfmywkQ2a0EE
-	sZC9AqsgGqT5ztwKtO2a0UB9rH1cDpZZRRkWvTswNJ68dmmrhEfEcDz+pGB+2Fp2/UEOiULXnat
-	j7rIb4=
-X-Received: by 2002:a17:907:a893:b0:c29:286e:2e3e with SMTP id a640c23a62f3a-c29286e30e9mr574563466b.38.1789046815001;
-        Thu, 10 Sep 2026 06:26:55 -0700 (PDT)
-Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d6e1c93sm912526366b.63.2026.09.10.06.26.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 06:26:53 -0700 (PDT)
-Date: Thu, 10 Sep 2026 16:26:49 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	cassiogabrielcontato@gmail.com, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 11/13] ASoC: mediatek: mt8189: Validate sysclk frequency
-Message-ID: <aqKwGQDkB_HruLyQ@stanley.mountain>
-References: <20260910125742.150902-1-phucduc.bui@gmail.com>
- <20260910125742.150902-12-phucduc.bui@gmail.com>
+	Thu, 10 Sep 2026 13:27:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789046820; x=1820582820;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=8LwohI+p8DDT76fk9A1VjUcstLsK4BTQ3LgFB0X08yA=;
+  b=U34sap1zJcyhNh/jXV5V2UxaIWjRRSrePhA7zB9Mqtd9fMmaFIQ36axn
+   YfT59rD8YGaZdt4sxwoFSMevJhaNfEyRHSFtq1e83qgcyURjzw5+iKLYL
+   ZlpnENMoL5+9VQIV4sofh27ViMs43qfZpa9jRgihA0xXLXVklMDh5GR/O
+   DKapEXVnYKxg6hJj8VuQxAiEXMxGdRRFebt8D7zrTPH/8KRANK/t0Glad
+   EHJExGs9ayidF5kLalyhmGvz/Io6Cvd+q4b4BrQ15qavA4Wi8eQn5iS2h
+   0T7fo+kuyNmJ5BQtY7RClIFq3ISV3YOHVqFHIx0Virf/DW2c57HXmntj4
+   w==;
+X-CSE-ConnectionGUID: Snpmgo2WQreE607LyLP/Rg==
+X-CSE-MsgGUID: 8sxfkJSkTIKmCbh9CDAPKQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="89368701"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="89368701"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 06:26:53 -0700
+X-CSE-ConnectionGUID: KQ5tpSHfQh2knyhfTWhoxw==
+X-CSE-MsgGUID: iLCqQu/YT5SV3PoFAgxRCg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="271154595"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO [10.245.245.173]) ([10.245.245.173])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 06:26:48 -0700
+Message-ID: <6b00b20f-a4ce-402b-bdad-9411499e6753@linux.intel.com>
+Date: Thu, 10 Sep 2026 16:26:59 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260910125742.150902-12-phucduc.bui@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: SOF: imx: Prevent stack OOB read in DSP panic dump
+To: Mark Brown <broonie@kernel.org>, =?UTF-8?B?yJh0ZWZhbiBHaGXIm3U=?=
+ <stefanghetu9@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Jaroslav Kysela
+ <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260909204042.46656-1-stefanghetu9@gmail.com>
+ <20260909204042.46656-2-stefanghetu9@gmail.com>
+ <f64a008a-8bdd-4c06-aa12-a721cebc3a11@sirena.org.uk>
+Content-Language: en-US
+From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@linux.intel.com>
+In-Reply-To: <f64a008a-8bdd-4c06-aa12-a721cebc3a11@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_062657_793080_8CFC4583 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260910_142700_157877_1EBFCA4D 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 07:57:40PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> mtk_dai_i2s_set_sysclk() accepts zero or negative frequencies.
-                                           ^^^^^^^^^^^^^^^^^^^^
-It's unsigned int so it can't be negative.
 
-regards,
-dan carpenter
 
-> Reject invalid frequencies before configuring the I2S clock.
+On 10/09/2026 16:17, Mark Brown wrote:
+> On Wed, Sep 09, 2026 at 11:40:42PM +0300, Ștefan Ghețu wrote:
+>> Commit 58bb5081cba1 ("ASoC: SOF: Xtensa: dump ar registers to restore
+>> call stack") added a shared Xtensa helper that iterates over a flexible
+>> array of AR registers (`ar[]`) controlled by `plat_hdr.numaregs`.
 > 
-> Fixes: 7eb153585598 ("ASoC: mediatek: mt8189: add platform driver")
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
->  sound/soc/mediatek/mt8189/mt8189-dai-i2s.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-> index f20dbb410223..ca7d786cdeff 100644
-> --- a/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-> +++ b/sound/soc/mediatek/mt8189/mt8189-dai-i2s.c
-> @@ -1286,6 +1286,9 @@ static int mtk_dai_i2s_set_sysclk(struct snd_soc_dai *dai,
->  	    dir != SND_SOC_CLOCK_OUT)
->  		return -EINVAL;
->  
-> +	if (freq <= 0)
-> +		return -EINVAL;
-> +
->  	i2s_priv = afe_priv->dai_priv[dai->id];
->  	if (!i2s_priv)
->  		return -EINVAL;
-> -- 
-> 2.43.0
+> You've sent multiple tengentially related patches in a single thread
+> without anything indicating that it's a patch series.  This is really
+> confusing tooling, please resend as either a coherent series or
+> individual patches.
+
+I'm not sure if these patches should be applied for few reasons:
+- orchestrating the exploit or error case require access to secret
+signing key
+- deploying the signed firmware needs root access
+- in these cases the firmware could be prepared to pass the defensive
+checks and still cause problems.
+- creates false sense of security through obfuscation
+
+Stefan, sorry for nacking it and thank you for the patches, I hope you
+understand my side of the argument.
+
+-- 
+Péter
+
 
