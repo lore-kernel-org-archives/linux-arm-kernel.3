@@ -4,114 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF82BC79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3EBEC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 02:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GomFmuATENrI7QE0xTIQNphH7lRgOJ3vvZ/t2nKBz3g=; b=AP97rixnzLGFdBlqOqShvFAWHg
-	B03EHiAcUEdRtdXu4xjEIeNDDYV6WOYiDFHfoNKkqpc1vIS+K1dY1U5+g7/dw66MAx3WbDP47V6mK
-	nSLOHRuUT5ynqJTKm/zH07uPlGj4AdwZ1tFd7iFF/lROqy/tF3Y9wg80YiEX3Obpsv0cZMVV9Jd+O
-	3DahR/sVWW6wj56iHArcN5MRTuB9IZTc/dosNiN1TFCZv0JvuIScF9tc45nuYIkVDNXh16PiSdVm9
-	d1cGOnb74GPXO/V3mV1/g++VYnYyMNO7ObBen7nhJOIBRKZCnlCRfYBq9yy2nmP5rhEUHyF+9ptKI
-	8SDvGcjQ==;
+	bh=/bkqSDqoSS4X+8RqIhO4osWZcJjlcPnaK6w17Spzl4k=; b=WAMTNpBYE5Vi/APTdZdoUkEZuF
+	f9FYVN9vv+2iIgOno/iuIt80ijsuQ8686R9E6aRiIPVU+u96OIV0eAKlYKmSgSApMXhezH2mcDqmK
+	JDkbxwymV+Rk5rUyZDZyv9VnrLF3eI0i66bCzrv/FkZ+85hOSU9pXBo3T4uVYf9SnTgpfA7JN+2D1
+	vlrIsnzJuDGpOj9PTH8GpMDvX8rE43ET6N4Fpb9N/vnsUuYXblMDw9At3+EtnHZvOc8xnz+xwwmrW
+	RsFFtxxL79GEhxekX1dC7+QrAvQ/1WXX0GiGZqEeBjbDiBN5Z7+I1qEYyzQmP4QnvO23cNa+Ef+Va
+	wp4plf/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Uu9-0000000DGM5-2YRg;
-	Thu, 10 Sep 2026 02:52:49 +0000
-Received: from mail-japaneastazon11022130.outbound.protection.outlook.com ([52.101.126.130] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1x4UwD-0000000DGYH-2xzD;
+	Thu, 10 Sep 2026 02:54:57 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Uu7-0000000DGLd-0TUK
+	id 1x4UwB-0000000DGXp-47SV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 02:52:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ud8g3HCv8lIZfwtlLjOeouwtX4vtOx89I2U0ldlrO1doW2JAkhZK5OzvzQwjqxwI4ZaQTh2wF2VoTJnCJfn97qHjlfaM6L2d8jUnuB7cnb7R8Bjony4E08hd1xwjYH5Co4dq+JLMCwOjdoZT5sek97U1QLYKm4PLkRSIAJUrtehVwlFOIQc/glOBmJn/xStv5W8l1o/z1MhhACL9wToZVpWsiub2TxzX2dLB9bVDM0vFtf4dVrgZCeorqJa3gempah3wo6tFdzJ8BaNankPOu1XFC4Rq+CPSf030QeXODj2lkvUvrgxrEJDBIkBFkrt0dlTEsIegrgmhEExBMEtvWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GomFmuATENrI7QE0xTIQNphH7lRgOJ3vvZ/t2nKBz3g=;
- b=jqc/+rKWIGKrln9Dxglmo49nOxVmsY0Rgj7O8te/NMbaxfvzyHM2BKvPICxl7VC05eTMXjHDdniqWmmtwwgvo8PTIkWJAqoEbdEtYWMNCWVWeR8xClohQcZsktcg6LgucmtECloBAEqhzmmxJZxIlOcpfEEKLENk4lyb7GWczdLbvukCaDo4bFvlCSUw3DKdDVReGSfXUK8znDq8ufx7Vzyqoeal58NNHVjMff+CMpXQmCHSrPumPzGuytP8ouqPAcz8weEPUzpB9vq9sLiY5oWvlqqidLDJEvmJrwsmQCGFVgf73grX5w9Q37q0QxMRSK7slSoOBKgLT/bJad3bDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR04CA0003.apcprd04.prod.outlook.com (2603:1096:4:197::23)
- by SEZPR06MB6642.apcprd06.prod.outlook.com (2603:1096:101:17b::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 02:52:32 +0000
-Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
- (2603:1096:4:197:cafe::6e) by SI2PR04CA0003.outlook.office365.com
- (2603:1096:4:197::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Thu, 10
- Sep 2026 02:52:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 02:52:29 +0000
-Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 48F8E409211B;
-	Thu, 10 Sep 2026 10:52:28 +0800 (CST)
-From: Hongliang Yang <hongliang.yang@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hongliang Yang <hongliang.yang@cixtech.com>,
-	peter.chen@kernel.org,
-	gregkh@linuxfoundation.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	p.zabel@pengutronix.de,
-	vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	pawell@cadence.com,
-	rogerq@kernel.org,
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v4 2/4] dt-bindings: usb: Add CIX Sky1 USBSSP controller
-Date: Thu, 10 Sep 2026 10:52:27 +0800
-Message-ID: <20260910025227.2490151-1-hongliang.yang@cixtech.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <7c52bcf5-8b58-4c15-bf1a-ba7a0bb04db1@kernel.org>
-References: <7c52bcf5-8b58-4c15-bf1a-ba7a0bb04db1@kernel.org>
+	Thu, 10 Sep 2026 02:54:57 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd38e0e5dso10150895e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 19:54:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789008894; x=1789613694; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/bkqSDqoSS4X+8RqIhO4osWZcJjlcPnaK6w17Spzl4k=;
+        b=WfAoKtCxQDUvY2C866Tzu9yP0OvLLdWlfS7q47jmtJh1dSab7PbiJRaHstibXvjUGb
+         X5FjVYvFkd8faHb/zGJFr9Rbmjvrq4j6/RuAvg1uVUxmk+xBJC1VWuYx+Ee4L6eteayA
+         /0GRHB48ffFi9Wn717NXTlPEmz9pCr1mtEQn5fnm5B7VE039aHa687od7gIcfH+A/KH2
+         V//u9x2BeZCsp/1Xi0s+7kBsxZEgmaauMgyrXVlFjriKzeAIqTU2aKa8Y+U6zIP5sO73
+         spaZmfZ+32KRiooqC/MFvTiX686Q7mDpePX+WVdxEbZ96ZTNPs6xUAfivqRMYaydNmTi
+         8+oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789008894; x=1789613694;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/bkqSDqoSS4X+8RqIhO4osWZcJjlcPnaK6w17Spzl4k=;
+        b=d88UFnZ8WKPsOHmoUQtbQG3uX3nRiPcnsf209TdJ58ylD5LIFt53hRZXDtMKdmGtzl
+         4k+T8V/vAhV/3VsRre3e76gKlZVTZEUl5ya0vS25/d3LoV5moCSx6tBdSfokA5V/dDLn
+         ercfQeAT9e7LNI0XJxj8YjB50payNv6BdE78VdMIAlw4AmUKbAPM85xbKqy2E8Lhbo75
+         NoRzIc5jDPYNkGGFsGaJjRKL4QZolnDCQ+s9a8R5GlILLhCzj6qEs3KriMbMlAeD0It9
+         npJQDiaHOiEUo+FLSAFgxbWODQqo01W53iv806to21UN2MQQFu7ernmGbsNMwLDA7qeo
+         JybA==
+X-Forwarded-Encrypted: i=1; AKwUvByY8Usdn5k0VGSmAJFL15Lscdqz3PxYd+hGYyY0VQtSgxeABPpo9N2Bu3cWg1DJxVKCUAysLofCLiT6+gVoLXOk@lists.infradead.org
+X-Gm-Message-State: AFuF++lmr6Qlt1u2AzhR+pfMHket9Q1jtAMquFLmOXJqoy7uVQaF1Upi
+	QqigdXg1UQuBe2dBIOrA/lZ/lA3QUTUedJy3P6zXtKqMZu7Wvx4mL0ng
+X-Gm-Gg: AYBFou1nVeT7hffqgMkpGJ05wh8a9iz731GwD4ZLgVqkDSNHo31j+exN+E6VyLVnM+W
+	jn4pU8Xy+tbBvw6aJaY0WugcwCzoe+r3D8DLuWl5gObdi475xlscNjzUOcK9WbXjZ5To2KDN9E2
+	ge6C3VUambyyDZWZHi+4H/DlQJxEF1qWhF3WEIXPwZdgRsX5qbSx/03SPdKspDklqUdB2YpvxEZ
+	ug/4aO/65dCQhZMvOYSyDSKoTxQAILNvBsgS1wVx2YTi7AmtDVzj/iiSH0M/Pa0O6qFw6yUKUJA
+	UKOtvU2X9m3nEQGupdxQzXOsZB7mFzkb1XPfPzgPi1ndSnWM/v413veGb/aYpkF4bZLi2REVApu
+	CKPrHZSO5IVPKyjTEBvdhdg063VU2W6JKOix27gtl0TiWGn0hxinFNp9/4mKb+fZ8/nV5b2I8Fn
+	ekO7RKkyCEA4Vft+P0zSnMGiikbT1olc37jHUsm7gWifHORokBLdPgCSaJFdkeE4j1G53fu3ZpR
+	XryQ66jNcEfFNADbVlp53IAFq5xAx4X9BWhrq8mcdFNnXogYuUWbED9Bgoh7+CHDkn9jlizq2tb
+	Ax4Cqf7CwpWBqwniBq+cnAsouFfn6I4F9VDFrQna3yjkBOMI0XxIiKqLzF8rzejqKWD1HcxW
+X-Received: by 2002:a05:600c:630a:b0:49c:f89b:f82 with SMTP id 5b1f17b1804b1-49d2592c540mr85347385e9.12.1789008893739;
+        Wed, 09 Sep 2026 19:54:53 -0700 (PDT)
+Received: from unknown748F3CBA5068 (dynamic-2a02-3100-b3d9-b901-0402-5aad-0ef4-88ac.310.pool.telefonica.de. [2a02:3100:b3d9:b901:402:5aad:ef4:88ac])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26c46b64sm33036055e9.13.2026.09.09.19.54.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2026 19:54:53 -0700 (PDT)
+Date: Thu, 10 Sep 2026 04:54:52 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Quentin Perret <qperret@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix kvm_get_vtcr() kernel-doc
+Message-ID: <aqIbvOvIe89_RYHT@gmail.com>
+References: <20260909063156.89636-1-kmehltretter@gmail.com>
+ <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|SEZPR06MB6642:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 30a5d185-74e5-4bbc-83e0-08df0ee68e2b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|7416014|376014|10067099003|6133799003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: qqynJjaIgWFzvP6bEXwZPQNNY5i1rGspel+G+Ca6G8DFKIrwSenscDcrI10gGOQy+wLTu3AP1O4h79ltKS2pCGsMFueDGTpX+NZN8/jhSQBR+xM4vB6r2GUdzTp9iXZEssKlb5jHSm2eMnA7oKBE+VHnc4ZAGJLLp+WuItY/iHXx9itOmnya251WAT7jlwUEJMbE+Iw+xtVAWJP1r9iFvq60sLe8YqyS48AsX/3wXR2XnJPyDB+fxeQkQJ29t44YAsefLt9QJbplwiKl3UcY1Wj9Btmm9yso2mhX3bKVffO+0qvEhhAhri13clPWMQGx1HFjDGkt+FRPf/XiJFh+sG2xLvG1HPzfm0jyf9vvxdA3kvAyDCvNZkxytum3L0QfC6bws1R1jk5pykr/DAgSbmQQLC3dV5cxiXHZDoswjvUxAwNNiCReRWykMe6MaJ2XCEbEjw9U1gfRVGDseL9k17ukthRuNzwnO1izbzOE7JScARAT112gXwfvVamBZdwIZmUdkWm6OiVy/aoIzLevqGHT3k3BrCk9Wl6Ccl6QvJzjhLLiAxxSHk+sla4YW2ot8/jC4EnRd6IUYHiUfGhD+KVDIEJawMHzQDXxlS8DE3HL0z3gnUFOoY9+2PWoG/D1nq1d5HiqTGrE+1TquI/0KX703h3+bRtiZZrBFR7bzbNJV4FzJ26Snscpkw0PX9sh5tOHAqAYOvIwsOQoHWSHIw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(7416014)(376014)(10067099003)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: u9yG5b0TE7JULe9BAR2Uagb0KnB+AG5C2w6CHfhTZZ1/NNTdAKaoigDrVvGRuDq7GNfjbF2YHDHZPFkgr0OV5oRU7iR0rUKrGBlTzvbfI5lHBFFWI6qmLZjE0eqGJ4wVXSwLpijwjNvLSG8s4uCAWRXuZRVl6ZYsMonp0erDQzWdSJEHSPQz+LPV4/nqP8iGMo7UEMQKqyMPexJoTV2WRcNWON4zAwjIhzPYxmnCrlGplvg0bj2vqtodlDKpDXsPng4ZJQEuHRvB8XVyFKcvQguba8fIiS0MCUmN340219mErn3PjpHB5xhRJA5LPsd0D+YxHqCq4AG7otyKrgTD929thpy1PPfNKvaNRyYgXUrM//UP+2VnwHEqyYlbWbaXb7qJU5B+WaJg4YzH6vTrRASKici6sZxrMbk+U+iC5XqriE4Xjn8MD/h/cAlXoSLi
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 02:52:29.7850
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30a5d185-74e5-4bbc-83e0-08df0ee68e2b
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6642
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTx3fmj_fkD_ybPANyTrEApMUyBscfP4JtP-F_MRL-L=2w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_195247_158081_F2D68128 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20260909_195456_028990_594CB40E 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,99 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Wed, Sep 09, 2026 at 08:36:40AM +0100, Fuad Tabba wrote:
+> Hi Karl,
+> While you're on that line, the description is also inaccurate, so you
+> could fix both in one go and save a follow-up touching the same line:
+> 
+> > - * @phys_shfit:        Value to set in VTCR_EL2.T0SZ.
+> > + * @phys_shift:        Value to set in VTCR_EL2.T0SZ.
+> 
+> kvm_get_vtcr() sets T0SZ to 64 - phys_shift, so phys_shift isn't the
+> value written to the field, it's the IPA size in bits. Something like:
+> 
+>      * @phys_shift:    IPA size, in bits.
+> 
 
-Thanks for the review.
+Hi Fuad. 
 
-On 06/09/2026 08:55, Krzysztof Kozlowski wrote:
-> No MMIO here?
->
-> Then this is your device.
->
-> Last time you claimed you have TWO registers. ONLY. Now you claim you
-> have entire address space, but somewhere else.
->
-> If you do not have here MMIO, then this glue layer is not a separate
-> device node and you should have one node only, just like we did for
-> DWC. One node for glue layer and CDNS USB.
->
-> If you have here MMIO for some glue over IP block, then it is unlikely
-> to be a syscon.
+well spotted. A typo seldom comes alone :)
 
-The glue layer does have its own MMIO: each controller has a small set
-of RCSU registers (an AXI attribute configuration register and a
-controller status register), so I dropped the syscon node, the
-cix,usb-rcsu phandle and the separate cix,sky1-usbss-rcsu binding
-entirely. The glue registers are now mapped through the reg property of
-the glue node itself.
+I'll fix that.
 
-One complication is that the two controllers (usb4 and usb5) share a
-single RCSU register region and their registers are interleaved inside
-it, so neither controller owns a contiguous slice:
-
-    0x091c0300 + 0x14 : usb4 AXI attribute configuration
-    0x091c0300 + 0x24 : usb5 AXI attribute configuration
-    0x091c0300 + 0x100: usb4 controller status
-    0x091c0300 + 0x110: usb5 controller status
-
-To express this in DT I made the shared RCSU region a simple-bus
-container node with an address-translating ranges, and moved both glue
-nodes under it. The glue nodes then describe their registers as offsets
-inside the RCSU window:
-
-    usb-rcsu@91c0300 {
-        compatible = "simple-bus";
-        #address-cells = <2>;
-        #size-cells = <2>;
-        ranges = <0x00 0x091c0300 0x00 0x091c0300 0x00 0x150>;
-
-        usb@14 {
-            compatible = "cix,sky1-usbssp";
-            reg = <0x00 0x14 0x00 0x10>,
-                  <0x00 0x100 0x00 0x10>;
-            reg-names = "axi", "status";
-            ...
-        };
-
-        usb@24 {
-            ...
-        };
-    };
-
-The Cadence core stays a child of each glue node with an empty ranges,
-so its addresses are unchanged. The driver maps the two glue registers
-by name via devm_platform_ioremap_resource_byname(), so no driver
-changes are needed.
-
-Would you be fine with such representation of the shared RCSU region?
-The alternative would be to keep the glue nodes directly under the soc
-node with absolute addresses in reg:
-
-    usb@91c0314 {
-        compatible = "cix,sky1-usbssp";
-        reg = <0x00 0x091c0314 0x00 0x10>,
-              <0x00 0x091c0400 0x00 0x10>;
-        ...
-    };
-
-Both work with the current driver; I slightly prefer the ranges variant
-because it documents the shared region and constrains the glue
-registers to the RCSU window, but I am happy to go either way,
-whatever you consider more appropriate.
-
-> One more syscon?
->
-> ...
->     cix,usb-syscon:
->
-> One more syscon?
-
-The cix,usb-syscon phandle points to the Sky1 S5 system controller,
-which holds the USB mode strap controls shared with other USB
-instances of the SoC (it is a genuine system controller, not a
-register block created for this driver). I will clarify that in the
-binding description.
-
-Best regards,
-Hongliang Yang
+Thanks,
+Karl
 
