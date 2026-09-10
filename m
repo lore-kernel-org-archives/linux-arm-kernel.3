@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B66AC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF3EC79FBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GOsVFvfs9abJpzfdv5FE5oUL6nD9+8KoT4TO3PIkAXA=; b=lclAR9Gzk4qa6M
-	+NUrujdhXXEQ5v1KFI3XduxiYfciGfEosA109JdGJ05NSeoUV1MHdJfC1+2KbLXo6fagxHaRpMBnG
-	U6TbgZf/oAwHR7p+h/YAfo67D0i85GlxPn31QPw07oamw1TsR8QcVCVBmHBnGInMQD3VloGdhAWmk
-	Zb+1Zzxkft5qL29WQP1inJzHuH2XTnW7UOUt70XolA7q5KzhAoYZkinfX6bxDabwlz6oJ1k0GGPer
-	Tl+4HJYdjGKcXXB8crm9fv+dNakrzsgCyQfcu17PqMZtkA/nMhj6Iqe6yb18hnPQaU0HSD4uTNC20
-	yb1X29o81TUmSgOvXmWQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fMLzyvdCDhOp+LMAXMo33v6YgTadM1kq8Lfjv4tjsH8=; b=IghTVV0EDXpQl8gHeGCCTEl68a
+	QbaW5dH4Nnt8xObzwFVl5gE8hXyTZ2ZV5FbNrBVVGtOUu7wsUmTFtj1UQxzd77qGHwNmEtY23+gPT
+	QPn0//lLbKhWvxGDa12e0D7jsbgwsL2Yl+02e7qtJ0vvx+HL9ovd3hRXaO1fe3Jx0LD+eK6wdly4j
+	fuIooBJKDKYhdadVCAPh8LWr1xSbY5Qy8fRxh0yivtD44LWDoP9YqRctctLoeTHrzenMqJ71FDwW7
+	i0KpeFDYwHvIdoV2p6NWhS70F7XjYWEZ+0eNM4Jn0CVKdpmIwV5wbCk3LRdRlS3uB+hJmyk2MzCvy
+	tXoJ0BGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gZX-0000000Em0E-0yFB;
+	id 1x4gZX-0000000Em0W-1NsT;
 	Thu, 10 Sep 2026 15:20:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gZV-0000000ElzF-2oJZ
+	id 1x4gZV-0000000ElzE-2dJ2
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 10 Sep 2026 15:20:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=GOsVFvfs9abJpzfdv5FE5oUL6nD9+8KoT4TO3PIkAXA=; b=LDK9+kZ1WjZUDYp1wE3YA9BHJ/
-	Lxy16mQ6xWd/RixvRustJUYcCazlukxDJpJqDYEOM675AWubErsLV4xt6E96uM9q/TkmZ+f2mIbMw
-	f8DwZR4bsHsOicJT/FvV08bD2FtTZ8Eekzfp7QbS/TjLH0U1px1k3RV/XBoYyps3yRRgkaMWMnwHf
-	GSBJK8caB7k8/ou8VJC1c8xs2dCsyYBwtUDJa/uYe/YCdPo7APowN1mEAB+Br+mDmabLYwkanJWwp
-	VGGSayssejrVS3Iv4xMS0OLBJ49ef25JjYCKMbHBttl03dJftv5XLMAF2wkeur/fhicH5XlTY0Ezj
-	Xw7/qdTA==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=fMLzyvdCDhOp+LMAXMo33v6YgTadM1kq8Lfjv4tjsH8=; b=F/xE/F7KGWpMTHv8yW6kV26qtw
+	rwo4dAslayTcxKeLh2dqjsfVXfwb9XU3IZZ1OzYXb2zcLBuDzyv5GXVcOxl5PWyzm7j3QHgwY1YXL
+	OmKDNJRIZ6SI0HAbGBMotvzZJPRPXG5ySEL2fewC1jYgG9qL8zS/Ndc/NtYnyEoc/ne4p9DPj8ePI
+	QmyW97i59TkNE0aEfyvBbcf/Fakia2ShStlxWDlhGgkkwZBTa2DwLAdAFCfslWLW0aYCw+rVOYVRN
+	a3n5K1F2q4Y/6S4mKv91ReuW9dd/JDVAAW9Ttsa5ZlV/1tLUKu78X5yXPD9MJwxm94aKd8E+FAR2X
+	jegfHQuA==;
 Received: from mail.fris.de ([116.203.77.234])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4gZR-00000002fLw-1rJx
+	id 1x4gZR-00000002fLu-1vYx
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Sep 2026 15:20:16 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1789053610;
+	t=1789053611;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=GOsVFvfs9abJpzfdv5FE5oUL6nD9+8KoT4TO3PIkAXA=;
-	b=byESV2104IdEMzQol13nxZzBPLHwFMyELAO/DcR57rXlxvXdp/QuJP/mMg3Rhj8FMVeHht
-	INai/IVH22VDGEH7qixwE7gBl7bDTk6a6ZhRuQTdz9hD7cgZ1Y/iOdv1xstS40QezxGHU+
-	oKPf6Cwmi76ypnMNkaSKzlWUygRVKcebi7hFsIRmn3Mmj0KE8kNsLTxkDedie00RqvQ4Ub
-	/sj6sM0PjxD6lyMjV5d7S4Re3FOBZCzLre3Rsn1S96xmrp0RrbeM84iAZus0ViEn4jO9Wf
-	yEuA8UUSYiH5BmBKVCKqKiFUhjUAh9y4oGQ/gu+EmxUgVEcBoTnfuy6o2QtopQ==
-Subject: [PATCH 0/2] arm64: dts: imx93-kontron: Add support for Kontron
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fMLzyvdCDhOp+LMAXMo33v6YgTadM1kq8Lfjv4tjsH8=;
+	b=zfxCzCRxpsgEG1AjAnutkwMFKvd7iRH45PJsNk0Dy+mqADVvnFefwJquPyrOot9SkABRCM
+	jaZjpQZyhKBCSAmcM4DFWZsU/eKXFfTy+ug9SVtC17DBjlg1YOPAgTGnUYXsyeL4b/teyt
+	8+x/y3sOvq3TuFddB616qpGaR/nHDsXfkGsGAZhcuZ61sr5jJTY5Mein1r2oYriBa3ELyr
+	7ucQ3fKNyXaApS43UrWsqVWYASv7DVvKMgme81/+gB8Hq15P5jCIrJOCOaFMezG4BHrQzr
+	Vu438FaX8iHdStoMdMJq8tOgf5lOjJTkE6arpaHXnW+w23006731o1JJiivaog==
+Date: Thu, 10 Sep 2026 17:19:07 +0200
+Subject: [PATCH 2/2] arm64: dts: imx93-kontron: Add support for Kontron
  i.MX93 DL
-Date: Thu, 10 Sep 2026 17:19:05 +0200
-Message-Id: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNQQ6CMBBA0auQWTtJKVTBqxAWpYw4BmrTAQIh3
- N2qy7f5/wChyCRwzw6ItLLw2yfklwzc0/qBkPtk0EpfVZ0rXILMkezEfsD1hgXytNUF9ixhtPv
- InrArTaXIlNpVBlIoRHrw9ps07d+ydC9y87cM5/kBVviVuoYAAAA=
-X-Change-ID: 20260910-upstreaming-v7-3-imx93-displayline-b4580e542c85
+Message-Id: <20260910-upstreaming-v7-3-imx93-displayline-v1-2-bb9446e6ed6e@kontron.de>
+References: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
+In-Reply-To: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
  Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
  Jerome Brunet <jbrunet+clk@baylibre.com>, Frank Li <Frank.Li@nxp.com>, 
@@ -77,19 +76,18 @@ Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>, 
  Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=725;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3435;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=rkzUcBl2k304SJJoPUFSmGOHA1IleL12TzXPwoRlnA8=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWvRqVkuxX+aZq3+cyiSvabnVHPbMaEJMqaKkkaXfK6Lz
- U5OUnHoKGVhEONikBVTZJHit3htaxbrI3+sOgpmDisTyBAGLk4BmMhbQ4Y/HMtiWsL0Lnvprnjr
- pXeRLdk06bn1Y81IWbWYcz9EOJKKGP5Xe02yNr7659TZTZGxp38xccpdcWP2rz7bkNl5/s37po3
- 8AA==
+ bh=2MoUiiYl7TgFn82k5cuGD2bvJWlqdJspTEKCJ86zaqY=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWvRqZViT9U8Lm1gjAv1zTzaq2L+omzz04+Oay1eTtrX0
+ Lrs54RlHaUsDGJcDLJiiixS/Bavbc1ifeSPVUfBzGFlAhnCwMUpABM5vpbhn9K6RS5HtmU/M8g+
+ 4Ou1pKziTbfdhi1qm9flK6XoNz0Jnsjwv6DfLXTlaaY5McUpegY/WtZZB9XcCa2stFvmacx09PM
+ NPgA=
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_162013_676228_69753EA7 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_162013_661930_DC97959E 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +102,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds support for the 7" LVDS panel on Kontron i.MX93 DL
-devices.
+From: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
 
+This provides an overlay to enable the 7" LVDS panel on Kontron
+i.MX93 DL devices.
+
+Signed-off-by: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
-Mikhail Vaniulin (2):
-      clk: imx: fracn-gppll: Add 350 MHz support
-      arm64: dts: imx93-kontron: Add support for Kontron i.MX93 DL
-
  arch/arm64/boot/dts/freescale/Makefile             |   4 +
  .../arm64/boot/dts/freescale/imx93-kontron-dl.dtso | 104 +++++++++++++++++++++
- drivers/clk/imx/clk-fracn-gppll.c                  |   1 +
- 3 files changed, 109 insertions(+)
----
-base-commit: df2908090cda368b01ff43709f51890076c56157
-change-id: 20260910-upstreaming-v7-3-imx93-displayline-b4580e542c85
+ 2 files changed, 108 insertions(+)
 
-Best regards,
---  
-Frieder Schrempf <frieder.schrempf@kontron.de>
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 95ae85ab4adf..2f0d3378c050 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -653,6 +653,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
+ 
+ dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
++
++imx93-kontron-dl-dtbs += imx93-kontron-bl-osm-s.dtb imx93-kontron-dl.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-dl.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso b/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso
+new file mode 100644
+index 000000000000..2d962823dfeb
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-dl.dtso
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Copyright (C) 2024 Kontron Electronics GmbH
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++&{/} {
++	model = "Kontron DL i.MX93 OSM-S";
++	compatible = "kontron,imx93-bl-osm-s", "kontron,imx93-osm-s", "fsl,imx93";
++
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		pwms = <&tpm3 3 50000 0>;
++		brightness-levels = <0 100>;
++		num-interpolated-steps = <100>;
++		default-brightness-level = <100>;
++	};
++
++	panel {
++		compatible = "jenson,bl-jt60050-01a", "panel-lvds";
++		backlight = <&backlight>;
++		data-mapping = "vesa-24";
++		enable-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
++		power-supply = <&reg_vcc_panel>;
++		height-mm = <86>;
++		width-mm = <154>;
++
++		panel-timing {
++			clock-frequency = <50000000>;
++			hactive = <1024>;
++			hback-porch = <160>;
++			hfront-porch = <160>;
++			hsync-len = <1>;
++			vactive = <600>;
++			vback-porch = <23>;
++			vfront-porch = <12>;
++			vsync-len = <1>;
++		};
++
++		port {
++			panel_in_lvds0: endpoint {
++				remote-endpoint = <&ldb_lvds_ch0>;
++			};
++		};
++	};
++};
++
++&gpio3 {
++	panel-rst-hog {
++		gpio-hog;
++		gpios = <26 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "panel-reset";
++	};
++
++	panel-stby-hog {
++		gpio-hog;
++		gpios = <27 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "panel-standby";
++	};
++};
++
++&lcdif {
++	status = "okay";
++};
++
++&ldb_lvds_ch0 {
++	remote-endpoint = <&panel_in_lvds0>;
++};
++
++&lpi2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	touchscreen@5d {
++		compatible = "goodix,gt928";
++		reg = <0x5d>;
++		interrupt-parent = <&gpio2>;
++		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
++		irq-gpios = <&gpio2 22 GPIO_ACTIVE_HIGH>;
++		AVDD28-supply = <&reg_vcc_panel>;
++		VDDIO-supply = <&reg_vcc_panel>;
++		reset-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>;
++	};
++};
++
++&lvds_bridge {
++	status = "okay";
++};
++
++&media_blk_ctrl {
++	status = "okay";
++};
++
++&tpm3 {
++	status = "okay";
++};
+
+-- 
+2.55.0
 
 
