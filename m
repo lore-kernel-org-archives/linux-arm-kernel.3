@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AF3C79FB7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CACC79F9F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pR7rMdEFTQNYMRzOAZb2SqWfOzcx0BhWw6w7SMZW5fk=; b=h648WJ2OiDfek01NN3PMo/5Rnd
-	H+lz2J7wMdnKoqwqPDV+YDYxRoqfG3trQxaRKJDFyjKnWsHTsbnfac2uMdNCQrh/hbNjZhYarqhsd
-	Q8RAKVvxgO4P3+8wTO6g8fwY9XLVB8D6N4U11DjwVJ+lS/IBUIAsnpBzUg3s+S41uTk5lqV97VlBE
-	48YPstY/Tz1Z9HgXRn2WaE+pY1tt5nHrhbkJHM95B5ohYNNVb/4kPPyRT0Hsn2OBGnnqTwHWoYLTA
-	SSYpf5vHR0yFemD0pUpEMYYXXxp5I3xSBR1jTw3PHzzpJNAB+c15jAjzgVx/p3vn3kOeg19wKjclJ
-	pyqX5XAQ==;
+	bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=; b=tD9KUAwUHJeIwJek1qnHtdWr9M
+	7BsBN6cG/zqUld5eFdxTPxRyXk7VjeNN0I0Nuje9vXAFdu21xz4qBVTrOwF5RNYGoQi+DBr+zLa8O
+	XsOs/2hQhKy3gnZ4RPQfZ9BJl/4H3Vg+p3S/bCwxXmxhqekw7zy1X0/dowQgo3ZjmyVDz/aaRoYe/
+	4Fo8fUwS/sXZTR+BizXBnU8cL5r5Uz6PmMqtBEk1LuVZnAA5jEBrEnN6eGBpnGKJ9Jupb6Xd7hP/O
+	BqF7QXG45Pf3Cha74lyZK79QEIWUYbAj2sHmznKL05KqwyuS68T5UQCht0Wjdje8yrAXNp+ct8Aww
+	Yrqzy9TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYf-0000000DIUJ-0BoT;
-	Thu, 10 Sep 2026 03:34:41 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1x4VYe-0000000DITv-3xKI;
+	Thu, 10 Sep 2026 03:34:40 +0000
+Received: from mail-westus3azon11012018.outbound.protection.outlook.com ([40.107.209.18] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYX-0000000DIOz-1oyb
+	id 1x4VYS-0000000DIN0-3zoE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 03:34:35 +0000
+	Thu, 10 Sep 2026 03:34:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RdAR7igF/Qlm3QAqah/vA7PBhgFm1M8CA3czjYcBeNvL/ogjAe/9nfzLr47fx45Trp2mTnRyRejg+FWrOTxuod5bGc1hPDMRfapmBdw/JSNmjpqDYGHbLeRa/8RKR0VTlGcmoQu4Qn+X03cTmqfHLzwzDDkEl0YhMPGj6uDBMx+rrk6nFBvo1EVHFGOIYuT89OH/8sybeT2vlCDStaXwJ49xJ/agAnxF3ya49PwrClBSiFhlL9eeJHIyPYNAtvqBzTENE4bG4Jw599pC9NznIaIVLyq8RZdHZAAYb3unQYpwZIdNK/HNB8l2lUNX6j04JmQT8uQfc0TYd0EOiXUFRw==
+ b=rdHiSE1S1NxhdV+NevHfrhYefOHHer1M09F4VJWhkgTPnyYlF+CGQlcpqFSUEY2s8USu6v2WjC/opZo7aZyMsuiRe6QC1V75t2Z11QvzIu17ZFBUEbi6mDO5PeSebH8Mv489eoEP1NRinkCTE7HzY6cHEai7n1sEtD/dCRfktaHVPv0oegot+Cov+vKIGsjP4V0KyYIFOx9C5kayMhMAwEh800u1z9615cZRbQ9H3csWaOQTF5jsTiUnThKU8hcHs8UfPcTbNjfvkrXC8ihfy+8pv4/Y0ARj54DyX2wuq4Dkcl37YLZ348nLnbZ60AQrp0adJ6dPXyEFqf9hoc/Yow==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pR7rMdEFTQNYMRzOAZb2SqWfOzcx0BhWw6w7SMZW5fk=;
- b=i5M40sFXCwAs36Tw7v7mQYiMF6hmTrJrc0UdVNzi42YimDsKszYiaBP0UNBteqV4ASPryEDRPbOhVQyMl/9ZpBPUvof2g6oPZMeA/gZSaTs0hmsFngRcp8xCZhVCNnkN87mhLylY+Sxtvm4k2+6k16Q2q+GvziPTD0IH/v68kaB/V5Q886AQs9O4dv/P0UzVBPey4nFM5lHS2R80V4788mne7PtfRLRxMZ31xAKuQk4yderTRNDMeZPZQWkTX+VEH1yhyqA9StpMMer2wS2bBPGZ4yDxNS71BH3lFZmuBgUN3WJ4GVIzGYhapRMsOf6UmwYZNLMROOi8lT8UhH/DyQ==
+ bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=;
+ b=Ytwn42lY8PpjyRuhimcRYyh94815eyQZ362GC03fceSriVTOWr7PLsnljrnl7SjlQH5SUkGBgaOjdjtlsWfdG5OHR9lE2y3aKQIA/vt67/ZZ+zYfqQnVSmGqmuRbJ16Tatg4mA2krfVykbde37opnDQ1mZ0AepadnV55CYqYL5QKj0dPOHyPNbifkXeyZb8depMKoiXg9+kRzU/DXINhfJme1sg5s44jFVyBdKjH6KJ7mCimRI+sFA3j3gCcfD0E8QmrN/gjpLUCYR/r23Sihx8RHLylonV4X4WStfVqZb8ht+HJeqZjZpG7jqlyG9ZiFzX3kpeflpodaaSHexJzLw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pR7rMdEFTQNYMRzOAZb2SqWfOzcx0BhWw6w7SMZW5fk=;
- b=AfvzQQPCNwzAnInQIpFbE7j1cWSkbceaIAv04liT91/mWv1lKl/b14H+0AsPKuPsW6mAinoqNwonO5uMJ/PT2Q0rVYk7OekG+FjnxCiO3wNgiVgeayXmt1udT0DOm7iIu+Vqhq7NmV0pQj1tVwcNfm1qy1KpgljaLN/v2VncYE/8hLJveo0ZnDs9BSnozbqn2uaVLc4BRUrDg+AYKCRUH9WyuFDfIbWbT3gfsKIPXWR6U3p01jbp+drnZ0zf1bZUMajUsXyvQTBxE66kf0P+P2+L6gRYPOBQmhYGp2uVyw6fts5BVD2HINaL2FplbHVHQ2XvDY5YnhEocl7VNxBw1w==
-Received: from DS2PEPF00004561.namprd21.prod.outlook.com
- (2603:10b6:f:fc00::505) by SJ2PR12MB8690.namprd12.prod.outlook.com
- (2603:10b6:a03:540::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.8; Thu, 10 Sep
- 2026 03:34:25 +0000
+ bh=t+SKy7WQuPqhO0auNrXCQs91OozJyuHZDXrsfTl0CPI=;
+ b=W6S6ZZhv1qaXAXOi5bq0MdJrV0WAT85BIU1SttmG1hd8memYyx31yiPmzZtz3FcTIA8O5gIFs8ePkO1xyBgn0L1D/0E7ETu71CcaCRjQ5yKV1Mw/KriTMAvrsjGBllhdCpCvQZz5lfHopr9LVAbpF34REDnqVE/y7mD2yqU7oD0O5mqwJ4D6nsGBRbfN8xQgbLok+6PUajHlOdPaZ+hSkGST0I57ufsIunYdM2WFwhMEAMpyUiRpThjDGxS8ML99hiAK84mJgvkLLDKklxbghP2CnrtVI/fh1WQVtAoCUuAp4rk2xy7jomjTDSHJVUp5Iw5QmI5Xqem5J2LxDeHsFQ==
+Received: from DS2PEPF00004567.namprd21.prod.outlook.com
+ (2603:10b6:f:fc00::509) by BL1PR12MB5827.namprd12.prod.outlook.com
+ (2603:10b6:208:396::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 03:34:11 +0000
 Received: from CY4PEPF0000FCC5.namprd03.prod.outlook.com
- (2603:10b6:92f::1006:0:b) by DS2PEPF00004561.outlook.office365.com
- (2603:10b6:f:fc00::505) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:92f::1006:0:b) by DS2PEPF00004567.outlook.office365.com
+ (2603:10b6:f:fc00::509) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.9 via Frontend Transport; Thu, 10
- Sep 2026 03:34:25 +0000
+ Sep 2026 03:34:11 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.118.232) by
  CY4PEPF0000FCC5.mail.protection.outlook.com (10.167.242.107) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:25 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:11 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
- 2026 20:34:12 -0700
+ 2026 20:34:01 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 20:34:12 -0700
+ 15.2.2562.46; Wed, 9 Sep 2026 20:34:01 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 9 Sep 2026 20:34:10 -0700
+ Transport; Wed, 9 Sep 2026 20:33:59 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, <joro@8bytes.org>,
@@ -100,9 +100,9 @@ CC: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<iommu@lists.linux.dev>, <driver-core@lists.linux.dev>, Sonang Patel
 	<sonangp@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>
-Subject: [PATCH v1 7/8] iommu: Park TDISP T=0 devices in the blocking domain
-Date: Wed, 9 Sep 2026 20:32:50 -0700
-Message-ID: <0d57c59aa3cae891e9d3e07e939e13918a4e99a0.1789010941.git.nicolinc@nvidia.com>
+Subject: [PATCH v1 2/8] firmware: arm_rmm: Add VSMMU commands and fields
+Date: Wed, 9 Sep 2026 20:32:45 -0700
+Message-ID: <0623345baaf550da1339e040b59f1fda902e3390.1789010941.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1789010941.git.nicolinc@nvidia.com>
 References: <cover.1789010941.git.nicolinc@nvidia.com>
@@ -112,28 +112,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|SJ2PR12MB8690:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40b20b06-b649-4e0c-a446-08df0eec694c
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|BL1PR12MB5827:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea30de88-fdb2-4e17-b343-08df0eec612f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|23010399003|18002099003|22082099003|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: YYwnoETDeB29vWKFMVvg7RO2Pd7rdeuRPp3YJFsEnq1UDBdFwKP/S7/tWsYWzzXkS3DFR6e5Xz+XorgPLHL4wTUaj7YWRr5xCGYG712xKkJ2TAfIHW8dL+DGQO9V7GrVI8N4X2nP1zEc6wpb/k4TlUmR4HTyidT1G5wm0K7ue0dqMjVse8d7WF3HyyotM/nE/yAoen9jt7nsojSamEs3cE9xX5WiEt8ro1FSClWDIZFru8dN8xniu46jAhkAGLe2Mq3exiImDz9KCU+t8Ebn9dwTQK3toC4jpbRGRaUmlNPs3GbO1YryaHDN+VMMezdUZ3qdMS5YUF4vTBSbl9byO63blls7p220YiCIOQFGc8rXOPjJvr7XRUF/ps7FvD2+j80nyLf7wRJyywPHAfEfzAuM7Z/rxF8aH2xuUyj1UvRlsTkK4gcdGdN0qY97GwNKEkI4BZ994vg6frkzlAoeQTw02DaEHyoiUzyWBXkz8yvgtOmArrAhdGYKKyA5OfJyz0jEluPWqqVcy04I7LQnfI6L/hZkA0Tx4INV8U6LxTw1tgBxfxsJnmmi3Jg9Uslyxn9rAHUP3/A2SMLArb0Zyjl+uee3LXW6NYmpLPWc3VH9TkBrk55mMhPQC+uoxX1anr84jAtWnsjwRbHfAjteLfc4xv6I66bd0x7Ow1eFMx7d1WeS9F/b464aNQmJhf4wS0gwvOczAJR61l+vMtfhJA==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(23010399003)(18002099003)(22082099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|82310400026|23010399003|6133799003|3023799007|10067099003|5023799004|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 43iqHOiBy55PMinPvDiJxNMBZ/m+CyahmNtwsmJWCOow3MfzkdDVhioJq89/zgID47SWvJpe+n2+BDzm7PyWQphZZbSlhiRGRiw7dCNuwfX7fuBtw5sa70WhbALNhSglGXgJKCaAc/4IfhhPPWCFrByNMnIsBj5S0vz0WoEWoGY4PIRBCZbT8ZWpX3mtTMdMLQY20zdMKeaIwN+rAHV7Y1WF4tZaVg2hlx8sIhn6MQO4L1uRSmCry1AH91yxIl65PJlIuFtjCn3ABghJNq95HbFrK1ZzWKNKg7EwNs/uwGdtIY6s0uWI8i/fssetNNCXs43+8jFKZGU8VOQwLt99g3H336Zz/1cR2Y7XfQ5rMODp45cBXaN19riF24hCN1yswdPBrYLevSLmVdckczyh0c6CUPGSgn3xHoqtSholVrPWUq0S0ZIAYYAi+KGv4r23kOtUXgso6fW1zLgasOkj+VjweytUERS7/nqqy/pwmyNkkQCAKKSodGjxcZW1JT17Lm8YPYqg9RYPJWr8oUvbc71rgfrwwknRue+o/G9f1ezFN+Y2NC1x5BOc4DrDKW7F3Pinm8e6dpiIS1rBfVvZSZOOLCJhKZQSrAsvLpRcEs/ZA7iO3iwP92htNp1kjOsvybVuuXvvSShUT1WRnDUjNupK0sEXFq9D59Qfjll+V7uVX4b325Bpg1bU9ZVfmCPTQpW+Dar4KHRERcjERDKD+w==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(6133799003)(3023799007)(10067099003)(5023799004)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HG0HAuL0wF2B5+nr3w59B7NSXSt8RvQVq7qna2F5jF+SIefitmyUt5lkmAE8MAdjtEdqsbU6LqjIqydbjhuHJf1bpggihiTbJbpuwqlzvg/1jClO7GV/meITRqKkV+JFWZF4Zy6giIDPJ7C06IIh4UPbtrVgMwCvdKeCyqWcqxmikXf2aUmwsuPBWFVOh5ziJWdLa1hpACLTVAmEx9k2wurLc3go39DR/hYQS17FkQ6NSNO1oVIIzg8e1OcJhOuEPMJPd9+rygyQo0shoaDsjC/Uy/Vig83pDHzxCMdpJKSyLIo+d5orrIb4ipTELX9IWIbh+TYFlnY+zwoyMwtTg2nq3+oUPeTcuN7ViGwjCioiiZiOGsGqrN8U2EjH1h3yExMR3APO+ZEk11RsY759t0b30km33AcfglzHUnWVtGGwDE7DL5g6JiudkDnxFvfn
+X-MS-Exchange-AntiSpam-MessageData-0: MIsdXZm7Ath9JsQ+XO1SJdp4BdnLLda2AyXgD0tV+HFoAq73bLafIGFe3+K8FU4uR5Xl85OqNKNduPXfQkY0/wlPNUb3RwebbticTEHn4BCZhBD98O0n7BCbWamtRe/AeV9lobYbXgsyhahtJmZ9aeW0rUrpEdBlZiC34kalZaueXwV9fPS6pFfLCwcoKNXc4pGnRkguWYqgQWY3GiJJVFkoZ4D6CrpP7SG8rUluKltnSxd3HABObuEnAgjUGXMReHH+t2niT3RgLpHLoX7AWWGfym5+ukFg2zjJmnIksVTJgYaDL0mFYWQVU0lPEHU5G+2bPisat0eyyxuHhMheleb44/dXTR9hlDqZvvT/orn8S0hGgRdr5i+1ePoAVt4iPz13HsTkbODT+v1m5DGCjjMECx7wMMkAar8wqIXz+8pgxZGkglIV2ousrwwwO/qY
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:25.0672
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:11.4558
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40b20b06-b649-4e0c-a446-08df0eec694c
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea30de88-fdb2-4e17-b343-08df0eec612f
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC5.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8690
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5827
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203434_007296_F458E703 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20260909_203429_011962_8F3A20DF 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,137 +148,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A TDISP T=0 device stays associated with its guest T=1 vIOMMU, yet doesn't
-use that IOMMU for DMA translation. Instead, park its guest-visible stream
-in the driver's blocking domain.
+DEN0137 2.0-bet3 adds the RSI_VSMMU_GET_INFO command and replaces the old
+RSI_VSMMU_ACTIVATE command with RSI_ARCH_DEV_ACTIVATE.
 
-Linux's model requires a device to either use T=0 or T=1. Aside from MSI,
-it cannot use T=0 for normal DMA once moved into T=1 mode, since the device
-will have IOVA's that are not valid in T=0.
+Add the command IDs, return codes, SMMUv3 device type, and helpers for both
+commands.
 
-Select the blocking domain before normal default-domain policy is applied.
-
-Direct-map reserved regions are still fine, because the T=0 stream always
-goes to an identity mapping. Skip them here, as recording the request would
-only refuse the device its blocking domain.
-
-Reject sysfs domain changes, driver-managed group attachment, and any PASID
-attachments that would install a translating domain. The state is uniform
-across each group because all devices on a confidential IOMMU start in T=0.
-
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Assisted-by: Claude:claude-opus-5
+Assisted-by: Codex:gpt-5.6-sol
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommu.c | 49 ++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 48 insertions(+), 1 deletion(-)
+ include/linux/arm-rsi-cmds.h  | 22 ++++++++++++++++++++++
+ include/linux/arm-smccc-rsi.h | 20 ++++++++++++++++++++
+ 2 files changed, 42 insertions(+)
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 7ac6569af6773..d6b00e0373f5c 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -1238,6 +1238,14 @@ static int iommu_create_device_direct_mappings(struct iommu_domain *domain,
- 	unsigned long pg_size;
- 	int ret = 0;
- 
-+	/*
-+	 * The direct-map reserved regions are still fine because the T=0 stream
-+	 * always goes to an identity mapping. Skip them: recording the request
-+	 * would only refuse the device its blocking domain.
-+	 */
-+	if (iommu_using_t0_stream(dev))
-+		return 0;
-+
- 	pg_size = domain->pgsize_bitmap ? 1UL << __ffs(domain->pgsize_bitmap) : 0;
- 
- 	if (WARN_ON_ONCE(iommu_is_dma_domain(domain) && !pg_size))
-@@ -1790,11 +1798,22 @@ __iommu_group_alloc_default_domain(struct iommu_group *group, int req_type)
- static struct iommu_domain *
- iommu_group_alloc_default_domain(struct iommu_group *group, int req_type)
- {
--	const struct iommu_ops *ops = dev_iommu_ops(iommu_group_first_dev(group));
-+	struct device *first = iommu_group_first_dev(group);
-+	const struct iommu_ops *ops = dev_iommu_ops(first);
- 	struct iommu_domain *dom;
- 
- 	lockdep_assert_held(&group->mutex);
- 
-+	/*
-+	 * When in T=0 mode the T=1 vIOMMU must always be set to BLOCKED to
-+	 * release control of ATS.
-+	 */
-+	if (iommu_using_t0_stream(first)) {
-+		if (!ops->blocked_domain)
-+			return ERR_PTR(-EINVAL);
-+		return ops->blocked_domain;
-+	}
-+
- 	/*
- 	 * Allow legacy drivers to specify the domain that will be the default
- 	 * domain. This should always be either an IDENTITY/BLOCKED/PLATFORM
-@@ -2399,6 +2418,10 @@ static int __iommu_attach_group(struct iommu_domain *domain,
- 	    !domain_iommu_ops_compatible(dev_iommu_ops(dev), domain))
- 		return -EINVAL;
- 
-+	/* A domain cannot be attached while using the T=0 stream. */
-+	if (iommu_using_t0_stream(dev))
-+		return -EINVAL;
-+
- 	return __iommu_group_set_domain(group, domain);
+diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
+index 13478e14c4296..548ab0bcac722 100644
+--- a/include/linux/arm-rsi-cmds.h
++++ b/include/linux/arm-rsi-cmds.h
+@@ -237,4 +237,26 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
+ 	return res.a0;
  }
  
-@@ -3325,6 +3348,12 @@ static ssize_t iommu_group_store_type(struct iommu_group *group,
- 		goto out_unlock;
- 	}
- 
-+	/* Default domain changes are not allowed while using the T=0 stream. */
-+	if (iommu_using_t0_stream(iommu_group_first_dev(group))) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
++static inline unsigned long rsi_vsmmu_get_info(phys_addr_t addr,
++					       phys_addr_t *top)
++{
++	struct arm_smccc_res res;
 +
- 	ret = iommu_setup_default_domain(group, req_type);
- 	if (ret)
- 		goto out_unlock;
-@@ -3690,6 +3719,12 @@ int iommu_attach_device_pasid(struct iommu_domain *domain,
- 		goto out_unlock;
- 	}
- 
-+	/* PASID cannot be used on the T=0 stream. */
-+	if (iommu_using_t0_stream(dev)) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
++	arm_smccc_1_1_invoke(SMC_RSI_VSMMU_GET_INFO, addr, &res);
++	if (res.a0 == RSI_SUCCESS && top)
++		*top = res.a1;
 +
- 	for_each_group_device(group, device) {
- 		/*
- 		 * Skip PASID validation for devices without PASID support
-@@ -3783,6 +3818,12 @@ int iommu_replace_device_pasid(struct iommu_domain *domain,
- 		goto out_unlock;
- 	}
- 
-+	/* PASID cannot be used on the T=0 stream. */
-+	if (iommu_using_t0_stream(dev)) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
++	return res.a0;
++}
 +
- 	entry = iommu_make_pasid_array_entry(domain, handle);
- 	curr = xa_cmpxchg(&group->pasid_array, pasid, NULL,
- 			  XA_ZERO_ENTRY, GFP_KERNEL);
-@@ -4017,6 +4058,12 @@ int iommu_replace_group_handle(struct iommu_group *group,
- 		return -EINVAL;
- 
- 	mutex_lock(&group->mutex);
-+	/* Like attach, replacement is not allowed when using the T=0 stream. */
-+	if (iommu_using_t0_stream(iommu_group_first_dev(group))) {
-+		ret = -EINVAL;
-+		goto err_unlock;
-+	}
++static inline unsigned long rsi_arch_dev_activate(phys_addr_t base,
++						  unsigned long dev_type)
++{
++	struct arm_smccc_res res;
 +
- 	entry = iommu_make_pasid_array_entry(new_domain, handle);
- 	ret = xa_reserve(&group->pasid_array, IOMMU_NO_PASID, GFP_KERNEL);
- 	if (ret)
++	arm_smccc_1_1_invoke(SMC_RSI_ARCH_DEV_ACTIVATE, base, dev_type, &res);
++
++	return res.a0;
++}
++
+ #endif /* __LINUX_ARM_RSI_CMDS_H_ */
+diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
+index fddb77986f706..2c16c23611891 100644
+--- a/include/linux/arm-smccc-rsi.h
++++ b/include/linux/arm-smccc-rsi.h
+@@ -37,6 +37,7 @@
+ #define RSI_ERROR_STATE		UL(2)
+ #define RSI_INCOMPLETE		UL(3)
+ #define RSI_ERROR_UNKNOWN	UL(4)
++#define RSI_ERROR_DEVICE	UL(5)
+ 
+ #define SMC_RSI_FID(n)		ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,      \
+ 						   ARM_SMCCC_SMC_64,         \
+@@ -190,4 +191,23 @@ struct realm_config {
+  */
+ #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
+ 
++/*
++ * Get information about a VSMMU.
++ *
++ * arg1 == Base IPA of the VSMMU
++ * ret0 == Status / error
++ * ret1 == Top IPA of the VSMMU
++ */
++#define SMC_RSI_VSMMU_GET_INFO			SMC_RSI_FID(0x19A)
++
++#define RSI_ARCH_DEV_SMMUV3			UL(0)
++
++/*
++ * Activate an architectural device.
++ *
++ * arg1 == Base IPA of the architectural device
++ * arg2 == Architectural device type
++ * ret0 == Status / error
++ */
++#define SMC_RSI_ARCH_DEV_ACTIVATE		SMC_RSI_FID(0x19B)
+ #endif /* __LINUX_ARM_SMCCC_RSI_H_ */
 -- 
 2.43.0
 
