@@ -4,133 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450BFC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECF8C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEe1TyzQk0DUvobGC4MsZ8QdCfjEGVi4RzHsXB/ViB8=; b=UT0NvFiJfTbFnC8l2wt1kvJep2
-	fJJRmzAweqMr487CwwWK5FG/OxOXP1o6hDbHJB5UuJv2ZnUZk86AtFX8oMR2Ukr4aJfEkzfi6mtgg
-	w+o0FRKryDel+V6+wer4vMR8utIVgHOsrDRoAYJ513yiTnj3ONWiQ4W2F63qYdowMEVNsHzksdPk6
-	Ftds23ChdxY1Ax5iR3aCvez2JNXeFDZVOFNulQ10/KJefqYUkRY7Jg5mWMATOmW/J6TWjo8mDzoQo
-	K1BhFZsVfCCNUXaL7MnYEpE0Bz3hxy5DBSeHZdE4y65sx0QGmxCXlRwD+vIamBAemqnc2tkOwEWEB
-	8LGFIXWQ==;
+	bh=yAsi3cGu3TI2BDEMG0McW5k+U5cb9+s/V5vDEJqx/gQ=; b=KEVn6NIKdT823nHMHGIezLSxp9
+	uKnqFpxuS9oZcyjs8R9S04GUpddCqTAVxYuOr5rL/L4kqob18DQv6H5bMlZQJgxW9/sju5ruMhSWs
+	tH9JBdMG6t1cmpittgTPz2skLmhFP1pw5KK92mt5vFC7oW9kxv6tP6iwyk4lANCGAAGSXz3GwbERA
+	ScxPDqRkCyoKlWlH/XwHovnjuG6xsG7a2CVtfzOPad/CtNzkRAbEfm9DZPBphwx64McjUbs+i3dHv
+	2DKLWaqfVdmrzoaU5xrKeXafxxCCnfv98Np8rbVRKDs8DhtT2kfQQM9n6xnudbfjpB3Xp3w5zh4sz
+	eMnm+KBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gUE-0000000EkVz-2lUv;
-	Thu, 10 Sep 2026 15:14:50 +0000
+	id 1x4gUT-0000000EkkO-0RNQ;
+	Thu, 10 Sep 2026 15:15:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4gU6-0000000EkO6-1zkN
+	id 1x4gUH-0000000EkYz-1fGO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Sep 2026 15:14:43 +0000
+	Thu, 10 Sep 2026 15:14:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=LEe1TyzQk0DUvobGC4MsZ8QdCfjEGVi4RzHsXB/ViB8=; b=H21NWdP09z/w0soLvxRihM7z4p
-	Wk1fltQoRZHX+rPcPNoIlqDG1LQwF5yX2GsSaVBPUHRXrxnpeiAryqdV5RGAttiwrclGfkus3cvv3
-	6Vtkn2gHk0sYFDfA6y92fTyTxvcqlnftKX/e5BZ1vseODV3Ih3+DhbjAyKCThBVAwHKG7u+gY8dCu
-	8ABQ7hmfgR5wUky05hEDJ5odjJtT8SAOPl/F83MYN6OUVlccb2a0ZxcT+RAmIR+6tJJjVSBSQUVUM
-	kMm4Z9h9MmtkjZPBO433f9G7bM2/sEYzAaIKxyzAzArUnHQQH2cxN4BELo/MMyr0NoJIzQfPts/Iv
-	4PlF/aVg==;
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=yAsi3cGu3TI2BDEMG0McW5k+U5cb9+s/V5vDEJqx/gQ=; b=meUhi6aTkx5GTTKfPoZQYOBTQ1
+	dpFJhp5oL3wUDkSKOMIoIgCl89+JGHS+7Dy5jMmpMy5cE5JqF68EXqYfA7rH8dV6+hUrDH4yTnpGU
+	jNhoYfnrkN0pK+yXrkeZB8CX7lVE4pOfnC9d62pZ9w4UnljvnvKVMzxtRZ6Xt3OId6+Yp2aiE52I0
+	99cTAprrXR7JQFceYNzWWYsD0uB1dg4PX7Y90/etxAD9TNsVR6kejmadAHHCSVecJxizS5Z1YUXIO
+	qERbspV+rFETC0NaIu+3IRREPdtcTt1SGP/6uQjhOah0n8imJPEjChwlYoPFPYKVWhlsUXijO7Q5Z
+	rzdIQ1rw==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4gU3-00000002exk-2cbM
+	id 1x4gUE-00000002ezX-0hIW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:14:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V5PUw87Osz3CLKuozKapxAjXUR+e9w7zhVoePGRwej6LY3IxcnY38Az4SA8P3S2zs7X5l79VaHJQHEBtDlke7DGRFor5Kl8+oH7ggLqxuGJUM+rp+f3Q1vhjQH64dXl5fV6Vy1JVaC8GdDdSJBgRsfpknGzvlt/uQzGxbgiMVhg43rd4pzpuabQtrmclr/pPfx8cB3FZ6vePs0Ds3RBlEkOmWP2ULvgZdY8IZEKAijlpNmLrxir0IylfEuRoezHuzcPJfywMg1aZPMCGCUvhi5chrjkjiuo3+7GqZz+LEIz4Rr+GE8Wk2QJL95+7ZiRMA7NpBBMyMy7B4hPFCSp9sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LEe1TyzQk0DUvobGC4MsZ8QdCfjEGVi4RzHsXB/ViB8=;
- b=xDtjqS9TgSEsGqe6r1mWZ7MYEDzJpG+hEFI4OTL4CUyu27BIMtGpBXirFO6C1M6izWjR+HUOIXJVxjAambPLe0jtG3PTXFIx9Tn4vU+N8n3D1Rd6HkIgzETVh5f7D8KoQ2nOxsblfyQ4Nexm86CCwLcBJlYe9a0r8dghCC87MOD4Ao2LGO5YV/ZyVTxbAecpD/hh6pJfY9gPQTqUGaQCfek/LbHcBCfpFueHBilk2a0Sa26rabiEsakAW41k2vddcKjj529Teu0Hu/1cYJ60g+jI5+OUjY6QXFkfXt/CbQisnFo56/Wn8MRRudCbIWZK7YmP3ed92oLTq4FizQkxPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LEe1TyzQk0DUvobGC4MsZ8QdCfjEGVi4RzHsXB/ViB8=;
- b=N5KNs3VzUQ1spugHg4VRB8xkDMO8AdX8NIJ/9oV8WGhD8YCO12hE5iLZZ1TbHdENOGUMExGO3cV2Gdj9ZofREzG5TGin5pGn3osdU3n0ZZYQKXDazcZNUowYr/RVBEPsUOg2N6st9b6q448J8SP/d0B472BHsACj5z8WsCr6+io1C6LtYUuEeHA3S3YwzlDln3RmvIYoow3d6pt47Lc6pFtmjbgNIbk1UXDYWziaBFKLeGvInCo767+SofvXVNuvgzUOCnl1rfTV15OoB9AFIZkKiwYnA9B8JhyLYKFmB9MkrckcRKhCaGhr+L+AVVRQZdBLEhE0xVe6let3JIwdog==
-Received: from PR1P264CA0008.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:19e::13)
- by DU0PR10MB9326.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:59c::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 15:14:32 +0000
-Received: from MI3PEPF00008487.eurprd02.prod.outlook.com
- (2603:10a6:102:19e:cafe::3a) by PR1P264CA0008.outlook.office365.com
- (2603:10a6:102:19e::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Thu, 10
- Sep 2026 15:14:32 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MI3PEPF00008487.mail.protection.outlook.com (10.167.240.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 15:14:32 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 17:20:31 +0200
-Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 10 Sep
- 2026 17:14:29 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Thu, 10 Sep 2026 17:14:27 +0200
-Subject: [PATCH 4/5] arm64: dts: st: add TAMP backup register in
- stm32mp231.dtsi
+	Thu, 10 Sep 2026 15:14:52 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 51574C653E5;
+	Thu, 10 Sep 2026 15:15:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E9C425FA2F;
+	Thu, 10 Sep 2026 15:14:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AD77D11C7926E;
+	Thu, 10 Sep 2026 17:14:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789053287; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=yAsi3cGu3TI2BDEMG0McW5k+U5cb9+s/V5vDEJqx/gQ=;
+	b=Ejt7K3OfGInw+hfhX6r+/ekZZwYvgCR7ywEG9UdyAexrsSGT3SFgn0qpvOrlv1cpOE6Xx5
+	PXA9EOZCiVipYDw6OUmhBZSbf9KfuahmG0Qrw2I6ukfaZ4IEs/sI6rE8AM7/ddlQSoCx7b
+	1Bua3KlVnCTwNF/DzAJo0QMGUML4zaSkBtBhtu2Ww0FfYw98GLFGuMcgtsI0FC5GysxLTo
+	Vq5q/oIrh4VR95gU+jgw7IGtUPLL5yaxJ7eCsBwhFl4EodqdT54NQ8zixsqmX6m2bq1XFC
+	uJc/+vtjhgbjk2Y6QsqQUKZMP/qqJ/ciMiSlC91Q1L7XgKSpluH8yo64pmJtEQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Jose.Abreu@synopsys.com,
+	Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	PKneuper@dspace.de,
+	David Laight <david.laight.linux@gmail.com>
+Subject: [PATCH net v2 6/6] net: stmmac: selftests: Account for alignment shift on dwmac1000 for Jumbo test
+Date: Thu, 10 Sep 2026 17:14:03 +0200
+Message-ID: <20260910151404.976753-7-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
+References: <20260910151404.976753-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260910-upstream_tamp_nvram_dts_part-v1-4-e2bca58a65f4@foss.st.com>
-References: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
-In-Reply-To: <20260910-upstream_tamp_nvram_dts_part-v1-0-e2bca58a65f4@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-X-Mailer: b4 0.16.0
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008487:EE_|DU0PR10MB9326:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98208826-8acc-4ebf-64b9-08df0f4e379e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|376014|36860700016|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EhdNqjxJ+7+utVrnxxXT9kbL0hwXX5FhZzuv/i8GUARrZ95zeg4RlMwP5p6TlfskmoX0pprie5Jq/aMAifXF7FSrFG2IKi/Uce6mv3PcMpGxsOuYQhGQjqqOP2eaO6mg6bu81emZIWiga3YlBxJTw7TbPgUD7VMQSGDG/7ePDjFMirgNLthRvTI7wwhcFPn4u3kLPjYcfdN5dIviAHPEhCy+zT4zpFn+AvCPnm+x8GHq33cW344HTFkxQkmDB/7T7+lGYmEidU37Y7tj/abi0L6HtGwoF85THHwXv8Xo7RgP8oFhuovASkvwJUm4R+reHGq59yleEnNTi1eZxelv8GsdLk467sIhvZNHIKi5nu3POnLqTXcwLcA2lkPktp+N7xyvSgAmUky2hOFUPNfDMGQVGKz8motW/lvQCi+kIWJpL2y/Oe5yuiGxQ9aq8SAl+d/CpfjHlbeY53NR2eQKLqqJn5OEGIXwig6QpUqlwpKYNwOr+BXkbxVjMcZtz+ph2d5h0JapEnpxKBKpBTaNMAe6U3nUbew8zXhynHaRPwl9P/w9Rm/b3N+0WNWmQITQ9S/9j2OAw0GQsY3kzmZA/Hr1fYOFv/mwAwVVYDqw8y2Mt11kNvc1MwdrHe2mNc/kvACZsbUre1OZI4g3Aa9iX4paMEg+7bAC4IVRmzm8/GaOoF/Ufixsj87ud/1ju+Qy6UrP33UyJPqBvUdpeQ76PQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(376014)(36860700016)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CzMjs+k8/P060aGjfpws1j9ILLBBq1uHC+EKhBFJMrtwAopU+PB+zTKBtylCQ3SsLc6ygbTBQ2eS33WxVxvwyKwEZsRiT3PvQKjF4PSSNCvhfVyuoFhN8L3zZMvb0jni0ZarJydieso2GZK5KMue58z4Ex7W+IwA6Kqm5H+fKaaSPnhA+Mr8cW8xkCu7q3iQk6RE+jBDPmKwtOUE/sZLT4D2pxn2lTihGrFWbdqgxNuv82OSezOifncCUYxf6rOj/93uyVdOaJM0SeFKdGX/5v65VaQJnhYvEOxztCZXza1Q9VLp5ot6zYSxg8eNcLWK/fzZscCYA94MEjC/ivHVgL3JnF99vz5KFhYnCyjO6aT2khADYglgOAqEzO+DDJSk85H6lYrXSavRcUsd7AP60B6b+GLc8FpL7XPKpH8axSjpXEXT715Tbnu8cw2pvXPD
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 15:14:32.4157
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98208826-8acc-4ebf-64b9-08df0f4e379e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008487.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB9326
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_161439_803564_19DAC210 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_161450_346310_1BDBD8F5 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,58 +114,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TAMP backup registers allow information sharing between different
-software components/execution levels.
-They are described individually as nvmem cells.
+On dwmac1000, we currently only support single-descriptor frames. The
+Jumbo test started failing when NET_IP_ALIGN was added to align the IP
+header, as this tests tries to send the biggest possible frame.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+On dwmac1000 the DMA transfer is aligned on 4-bytes, so adding a 2-byte
+shift at the start-of-buffer address means it takes a whole extra 4-byte
+DMA burst to receive the Jumbo packet, causing it to spill over the next
+descriptor.
+
+This doesn't seem to happen on dwmac4 and xgmac that appear to correctly
+handle unaligned xfers (only tested on dwmac4)
+
+Let's account for that in the Jumbo test, reduce the size of our big
+packet by the align size.
+
+Fixes: 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- arch/arm64/boot/dts/st/stm32mp231.dtsi | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index 9e1d240888ff..6d7c16e85d86 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -1102,6 +1102,36 @@ rtc: rtc@46000000 {
- 			status = "disabled";
- 		};
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index ec56ee0031ab..fc8d69260f43 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -1776,6 +1776,9 @@ static int __stmmac_test_jumbo(struct stmmac_priv *priv, u16 queue)
+ 	struct stmmac_packet_attrs attr = { };
+ 	int size = priv->dma_conf.dma_buf_sz;
  
-+		tamp: tamp@46010000 {
-+			compatible = "st,stm32-tamp", "syscon", "simple-mfd";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			reg = <0x46010000 0x400>;
-+			ranges;
++	if (!dwmac_is_xmac(priv->plat->core_type))
++		size -= NET_IP_ALIGN;
 +
-+			nvram: nvram@46010100 {
-+				compatible = "st,stm32mp25-tamp-nvram";
-+				reg = <0x46010100 0x200>;
-+				nvmem-layout {
-+					compatible = "fixed-layout";
-+					#address-cells = <1>;
-+					#size-cells = <1>;
-+
-+					boot_mode: tamp-bkp@180 {
-+						reg = <0x180 0x4>;
-+					};
-+
-+					rsc_tbl_addr: tamp-bkp@184 {
-+						reg = <0x184 0x4>;
-+					};
-+
-+					rsc_tbl_size: tamp-bkp@188 {
-+						reg = <0x188 0x4>;
-+					};
-+				};
-+			};
-+		};
-+
- 		pinctrl_z: pinctrl@46200000 {
- 			compatible = "st,stm32mp257-z-pinctrl";
- 			ranges = <0 0x46200000 0x400>;
-
+ 	attr.dst = priv->dev->dev_addr;
+ 	attr.max_size = size - ETH_FCS_LEN;
+ 	attr.queue_mapping = queue;
 -- 
-2.43.0
+2.55.0
 
 
