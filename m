@@ -4,96 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18F0C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA8DC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 12:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=z96/yzgqxZwebx+1STswIi+Go/ctjBNtJnkegSe2jjQ=; b=zIs2qlUhDt9uQnrlFadZ+XFxjZ
-	XIpBLdiwyDqICT8bgJxoZ5RGtLmaTop8r1W6DaC46oHxGzVVyYqlK8atFIJ+XK/a7jmPs4qywicYM
-	DFkgGEko0c+eN3Htm+3jrQJ9hE33nKSlJ0Ultu1Ps+FBpopfp0DjcroEi/0vUw6jtGNlAOQmuYF6h
-	90tWVvlS4sJVptQOaJDG/eowJhGSxP40uq3SvYLlzP3P8bR7NVXc3GwZA326SOhEUaVIuWe+EHeC/
-	h5gd4Qvp+jnjiUT6s0rlu8HtccyGmsRNZuv3euKxZJpITj2MoO6CTh9FjOIpNAZB+/hW/VrB+27El
-	AfN1iutw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lplquklkdI/ZWgzzdOXLSvAbxidAuRi5Zn7Uy7zP3NY=; b=xAiAHbAQP14tt6XUx359Ofui2I
+	YM0/04LZ1nQ0XmuY2Tn1XjbYT/6zV9qB8KRSeXb7cMODMhwO+Db7AxxaOeMWzRKggwvGW6ya2LAh7
+	wBGj33dLPDIgRkqmGvbQDoeH5XSMWaLL0ET29T1T4z9OiILf21+CqxW2zPiMmGx88YGX58YjrdWeJ
+	89i2madhD8EHJ7aUPbqN810Pg4DSFKEWebzh5EvuJOijY1N6kgLuVIOJn7hlV5A1RUgUXxexBu8RV
+	nP25CesotyQOt+/nr95zdDHAVGvZr6wPR9lsn/pLMRXTdbvEtvqHcDgE3i9ObWHZ53l6fVEWK0XPu
+	AkH6gXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dce-0000000EIwL-0UgA;
-	Thu, 10 Sep 2026 12:11:20 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1x4dgH-0000000EJNX-3A4V;
+	Thu, 10 Sep 2026 12:15:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4dcb-0000000EIvX-0pth
+	id 1x4dgG-0000000EJNJ-2sxa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 12:15:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lplquklkdI/ZWgzzdOXLSvAbxidAuRi5Zn7Uy7zP3NY=; b=XPhOoE/zbXlCr4gWA/Qkg8Pwni
+	U790Hfv9p1DEQmKiaJAd3uBNLLDDRFXP24sphT6bKuYSrFV16lk5tmwgfHaF7KXwob7kuY8Px+Hj2
+	/eMlWh2HkG7z/85n/sq3ll1kvas/TFPsz1T1Fb74Mi/imtBUaTL/lxuk9UVUh6O9xeWfm/5H7DEGV
+	DsXybd9xmAOHKo1jafFi98ouEHD/lPilEvzsXmoLHMB3fqOwxDLmFcF2Gr5rtLZFZtKGoZTto4Naw
+	57ry43yditadnT+EXXjU89uSrAgM01qaew7h7cJ5mdX0Mt5gppLREp5mqgi9PLOPgpGSmBETdP7r2
+	zFQBNggw==;
+Received: from mgamail.intel.com ([198.175.65.11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4dgD-00000002S2h-1szk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 12:11:19 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6b35cc0a8c3so5816646eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 05:11:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789042276; x=1789647076; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z96/yzgqxZwebx+1STswIi+Go/ctjBNtJnkegSe2jjQ=;
-        b=Zyvrn8WzMC6NZla/QgtjfZZfAemcSVasBHcdjM8U8UngbvP5pruTxjMn/n/7WEOpuR
-         chcAC4nztqUMItaW20d17nyjfK8PeO+XbtwvdcuTpUfaSCejQmtCyZU1PO09foWlkeVL
-         QgGqzJj8ZFLgmZQFTIR813rWIIowgZVVgUu+TpgwLSaXc9gSal/+6nESxa2aVgWBAGt9
-         3cYOcIXcc3jFpJUsio7cn56yIQa7gMeKDnH+xyde8d78BK6ieikYy2apFbxPw23Csvnk
-         L1Pwo0XAsMOo2VJTkivunLJxQEUU0sZuTwRVuc+wawl2lcKaY1xQoSd0onsp48GUzqPi
-         QtGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789042276; x=1789647076;
-        h=content-type:content-transfer-encoding:mime-version:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z96/yzgqxZwebx+1STswIi+Go/ctjBNtJnkegSe2jjQ=;
-        b=e7lcADmhxzebfHERvu3e10CwSximG1rKt/VuVH4GymuGFk9p7yQo9rN6/zQllptoyW
-         QVVkQqsCRsck3w7C5+KMLzKvQR6RcL9a4eikmyxLtehe+3tqf/VToUx9rmyMsN8t6xBp
-         VVwKb01bR5gkviWayogJ0EuWCtKanFcLAZcfGZ3UnLT+UuGPTQxlSMQT4xDXyvkD4QTU
-         1Xkm9YGU5fKlbZgYEHcxaPUsLxe0lnnGgwGvqgjSGrVHIgCiZVByFFx3HYfmHCP5s2jg
-         zsZQte5GpPNYpCJ5GDpFrWxF1tYoiLuMANZTRmEJAEu8nVjfTik3C/SRrPmckyFdi1oi
-         IiqA==
-X-Forwarded-Encrypted: i=1; AKwUvBxpXm+kXtez2DypkXvlYIxoXc64pjw2SX45glnvzjoqagsjpPZcznnmsO7jxDYuYy+q87V/rFXX17JVGHOg6QyK@lists.infradead.org
-X-Gm-Message-State: AFuF++msOKZVqUjJlWbfmczm4BXqGAg0W065xfQY8537suEnWQyT3VeK
-	+jeyWYva1U/74FioNLlvnDJllKlqJYnBQ0o7G3myszLnNGgy4gFMzso=
-X-Gm-Gg: AYBFou0GHuUphr6lz4/d0xWl0v2cM92G11jBnUD7fVedIYsRlmSmYMGQKhrRmayxeoH
-	PDV9S8OHCvWONkgjnjSN7X7yVIIDafl47/oWyVcptOcDBZGCh2yNzKz0Q7ZVoKdtQDJMX51LSb+
-	Y4Z8rNXxUlA2crmvoiZNAKl/NG45oQIBpAlgqliixowhj/KPM1Q8s4bVZFaJcfcjBQJgi/4nfb7
-	Mzxj/0e32gGPzBHeeo00GU+91hDJlEG/5URDAlhw+1OSny+T5Qrkv5WTJUT5ZbuTMoezEbGBHjZ
-	iPLw4fW4QHMrc03I6nTyrqWCnHlqyK4Mupi8XCrePHOfUHoXgN++FBMosjMqdX3pVzgEI4NSiWQ
-	hkN3a/neAZk/ZH3SJYjwXEqQ0GDff1luPLeGSP4Nrbudflfou+FMRNWpJoXq7+/It/7y1AxBkEs
-	PnNqWZYX2ULUPl2uQ+zZCRm2MKS9R6pktHg5s2o+mdrNNYTprSDcC4vIIIdd7LY4ps0O4KdsIuW
-	KCusewVDU4ccwHLujXBPO8ORxBqLoc9Cg5F/aE2n2RmODOq
-X-Received: by 2002:a4a:e84a:0:b0:6b1:4a71:775a with SMTP id 006d021491bc7-6b6fcbde97emr22252414eaf.19.1789042276189;
-        Thu, 10 Sep 2026 05:11:16 -0700 (PDT)
-Received: from matheus-note.localnet ([2804:7f0:84b3:2201:fb27:8354:17d:2bcc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339bbf1feesm53156354eec.26.2026.09.10.05.11.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 05:11:15 -0700 (PDT)
-From: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-To: andrew@lunn.ch
-Cc: 25181214217@stu.xidian.edu.cn, andrew+netdev@lunn.ch,
- angelogioacchino.delregno@collabora.com, b.larsson@gmx.com, cjd@cjdns.fr,
- conor+dt@kernel.org, davem@davemloft.net, devicetree@vger.kernel.org,
- dong100@mucse.com, edumazet@google.com, enelsonmoore@gmail.com,
- han.junyang@zte.com.cn, hkallweit1@gmail.com, jes@trained-monkey.org,
- krzk+dt@kernel.org, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com, maxime.chevallier@bootlin.com, naseefkm@gmail.com,
- netdev@vger.kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
- robh@kernel.org, vadim.fedorenko@linux.dev, wangruikang@iscas.ac.cn,
- xuanzhuo@linux.alibaba.com
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: econet: add EN751221 ethernet
-Date: Thu, 10 Sep 2026 09:11:01 -0300
-Message-ID: <0bwM5hNxQhuX7GLiig7ffg@gmail.com>
-In-Reply-To: <a9eac625-f0f3-47db-ac2c-26c7df66f52a@lunn.ch>
+	Thu, 10 Sep 2026 12:15:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789042502; x=1820578502;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3nQyaecZsUcB0GBTRpE9wQWbqnay97vHqbl+yHN7CCU=;
+  b=k1Gp/57FGk/nX7NLw9VkDS0t61qYEuztP3GzdaXmoSPTbZLPvxLI/In9
+   VkDx2AWgD+fEREeZ4Xz9DszGZ3BKpLXSAeA05S2ihaUgRpesppupt3jjV
+   mS9BXE+TtVQG1Znc3FHwU9Eg0vNWVrDQCvnCazWe8gy2+COo34Mm+DwWd
+   vWgZPpI+4wr9gV+Fj9L7nUN7avvoKvMdiKxBkMCEOsyN3bDzDKeYJVD0c
+   cmueZi75e+kNWQhPpspk1OICkl6WP6ZqLfZF3v4dxrLFQScJqg9f8fsVZ
+   AmmhbFHsMNzaVUBMpssw9pRtb+lExmUXtcKcIVdunoUARjZSgHWvIXKBB
+   Q==;
+X-CSE-ConnectionGUID: QC0WgQiSQquY+C976TmS5Q==
+X-CSE-MsgGUID: ewuDaGF1SrCq08ZZV0nLHg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="99820849"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="99820849"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 05:14:55 -0700
+X-CSE-ConnectionGUID: JHhdoNf+SL+ErBQi7rLG2A==
+X-CSE-MsgGUID: Ev10l9m3SDumG8ViUn8H6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="269843818"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO [10.245.245.173]) ([10.245.245.173])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 05:14:49 -0700
+Message-ID: <2e719483-4e2a-46a2-a3fd-0c89bd1420e2@linux.intel.com>
+Date: Thu, 10 Sep 2026 15:15:00 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: SOF: Bound the panic filename print to its array
+ size
+To: =?UTF-8?B?yJh0ZWZhbiBHaGXIm3U=?= <stefanghetu9@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>, Mark Brown <broonie@kernel.org>
+Cc: Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Jaroslav Kysela
+ <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260909204042.46656-1-stefanghetu9@gmail.com>
+From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@linux.intel.com>
+Content-Language: en-US
+In-Reply-To: <20260909204042.46656-1-stefanghetu9@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_051118_363048_B123CA2D 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_131501_916847_B7D327EB 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,14 +113,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> That is a very unusual phy-mode. Is there a reason this is used in the
-> example?
->
-> 	Andrew
 
-the GDM1 and GDM2 behave something similar to the newer Airoha, we have an MT7530 connected to the GDM1 as internal mode, and the GDM2 is also an internal one that communicates with the xPON and xDSL subsystem.
 
-the en751221 has two mt7530 switches, the dsa0 limited to 10/100Mbps and a dsa2 1GbE connected to port 5 of the dsa1 in cascaded mode, but it varies from chip to chip
+On 09/09/2026 23:40, Ștefan Ghețu wrote:
+> struct sof_ipc_panic_info carries the panic location as a fixed 32 byte
+> array, and include/sound/sof/trace.h documents that the "filename array
+> will not include null terminator if fully filled".
+> 
+> sof_print_oops_and_stack() prints it with an unbounded %s, so firmware
+> that fills all 32 bytes leaves printk() with no terminator to stop at
+> within the array. It continues into the adjacent linenum field and, if
+> that holds no zero byte either, past the end of the structure into the
+> caller's stack frame, since every IPC3 dbg_dump callback passes a stack
+> allocated struct sof_ipc_panic_info.
+> 
+> Use %.*s with SOF_TRACE_FILENAME_SIZE so the print honours the
+> documented bound.
 
+Same thing as for the ASoC: SOF: ipc3: bound firmware-supplied ext
+header size.
+
+The firmware internally constructs this and it makes sure that it is
+terminated.
+
+To change that you need to compromise the system first and when you are
+there you don't need a compromised firmware.
+
+We trust that the firmware has not been compromised as if it is it means
+that the whole system has been already compromised.
+
+> 
+> Fixes: c16211d6226d ("ASoC: SOF: Add Sound Open Firmware driver core")
+> Signed-off-by: Ștefan Ghețu <stefanghetu9@gmail.com>
+> ---
+>  sound/soc/sof/core.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/sound/soc/sof/core.c b/sound/soc/sof/core.c
+> index 2d394389c945..9b0850e87bf6 100644
+> --- a/sound/soc/sof/core.c
+> +++ b/sound/soc/sof/core.c
+> @@ -152,7 +152,8 @@ void sof_print_oops_and_stack(struct snd_sof_dev *sdev, const char *level,
+>  	dev_printk(level, sdev->dev, "trace point: %#010x\n", tracep_code);
+>  
+>  out:
+> -	dev_printk(level, sdev->dev, "panic at %s:%d\n", panic_info->filename,
+> +	dev_printk(level, sdev->dev, "panic at %.*s:%d\n",
+> +		   SOF_TRACE_FILENAME_SIZE, panic_info->filename,
+>  		   panic_info->linenum);
+>  	sof_oops(sdev, level, oops);
+>  	sof_stack(sdev, level, oops, stack, stack_words);
+
+-- 
+Péter
 
 
