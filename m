@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB97C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 059EDC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 13:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vSAyVE60XQLyRPwC9MkpBcNQsSwUZtnNykq/J5h6ht4=; b=HWLxNcssXzxVNm
-	zD/m8MzwlNvNARNK2yR/WakeSystDIdm8W5T/3yoH8avaDG45k8xat8Iiu6HNioFfOdRTRTziF4uq
-	KR1IsbH1cTQYwLEv93rgvJO5FvTvubk3txKWVHAb0LHVA/T+G3eNDKyiWgBLXPiOoO6UpIXB3eozi
-	jAdavFolZoBI02ZyvofEC0qZfXfvTCm91huUDp/nQLsRxCoajk8UCUOo98g8SX5cNn5ZCTTSat12t
-	9mv2yzjU4lUFAa0oFOn+cwKCjL5QJ3/He+N/D9Iix2tHmgJb3Wh1MLLzQFpxgz3drSV4TFaRl/kwh
-	4uslT2X2Hlb1RvsI41Ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FS/FALPUjabMB7pEZn3N2o0m3+yBNogJAw0/WPnz1HE=; b=gs2oYVsFZO/LULt8WvwRY3zgZJ
+	PEPqzmBssfFNMeT0paJYqkGL/zf5tNzwwRyR/ZGlAi/umXBe5/le7eQw6fkMjYfGDI9ePncqoYEPy
+	Vc6A7gmN27bKaXAE86Yqs4Jg/r/URnUh5rATpDex3qEt37WKkCzHLvxHnHzR2H/88re7e1wka9O35
+	r2Do4O3w2MwKFYyy9ykyaoJkEon4t8HuNyq/d96FeN2B/IHGCppd1jRBzj81EGuvqvwhyObtmpbyz
+	HFJpmbNETEw0C2aXrmfIj7rQcwgFK45tl/AcdjcT6k0ySQPtFBE2HjNNxPqyzOQK6rMt2X47Sqo6H
+	YNxAOdqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4f9t-0000000EWqa-2dD4;
-	Thu, 10 Sep 2026 13:49:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4f9q-0000000EWq3-1Fvw
+	id 1x4fEA-0000000EX8W-0mSl;
+	Thu, 10 Sep 2026 13:54:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4fE8-0000000EX8A-1jXr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 13:54:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=FS/FALPUjabMB7pEZn3N2o0m3+yBNogJAw0/WPnz1HE=; b=TLz3nm0wSz1Tzi4UFKEmbOfqJw
+	KxPCk9vnZ6zjeaGXUivDes7mzpUOAbhe5dOEwwbobm50ouwbnryltnwoDHzKaeKlHB2XfmJQTjFuV
+	AYKxsqk/wahGAx5/dHi9u00/wB4ci3N+hLkyXaAHUFcIAhgFjJBdSa9GnwU1FX0Ag/gTXNv+6Mhom
+	B5WCJ+lhqEYHzhKw+ymkGihytFTSHwb3hi4fQhK8UhWPYh6xU2s+cTNa4Q9C9Mgfo4D/9J8LRr0/5
+	19PvdDoNxSfjD6zG0AqOggGnC0pl+MJ8sXRYOMeE9XTdIeZxwqEuup2ik14EbtGyYoMkwiMVNZhZn
+	tlPUEhOQ==;
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4fE5-00000002YxX-2jrU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 13:49:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E6E51570;
-	Thu, 10 Sep 2026 06:49:37 -0700 (PDT)
-Received: from [10.0.152.207] (unknown [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3A0C3F59E;
-	Thu, 10 Sep 2026 06:49:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789048181; bh=iTqT7mryvjsJeX9OToGmlp1uflWsp/yL5jLj0xRAq7g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EiZ+k6gYrFFklPfNYclyE+wnL5/q8uJLnVQQBgPyIX1o9MChkCxUS16MHg5HDwdHM
-	 jZLorCGbiI5PwTlxRFgAROCPfxrdv0x4tTeYtLmNIzJYXKJhMME1F4dhXl8ZM3n5D3
-	 s+roG6zsO7r/Bn9q+EO3sT+hsluhWgY7o7hG1kg0=
-Message-ID: <5ecf87dc-30ec-454f-bee3-0c05f2f11168@arm.com>
-Date: Thu, 10 Sep 2026 14:49:37 +0100
+	Thu, 10 Sep 2026 13:54:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=FS/FALPUjabMB7pEZn3N2o0m3+yBNogJAw0/WPnz1HE=; b=aoWVN1dsMBN1eM9ZuHzrKvA8px
+	BHA4v6j6ntywHm8B+gFZ4SkNTGaq4iaBjmX9OfA0R6NbbP32NQEfX+zxcY/P2GeCRI92lIH8REJal
+	RY6fSBZKtFog5CTy9PpVlw15htkzpDmwKhztqYBlmoGkwmuwbVTJHfnnotJ4UzBowuyyk68WQrlRr
+	Bpvft/dCFhCSQB38sYS2hSx4+t0uUSceE+r1HhSzNNMBrw8zZtZ0PeSsS9I2uq3RcsH6cf4qItVVC
+	gIf4AlLLGRX7irpEps9s2f3ouA3AqgeejqMJuZnrhXSQ3yEoG2Z89+NWvqTzR7t7Fa5kWHCe/UNOd
+	kWUxCbXg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1x4fDy-000YaT-2o;
+	Thu, 10 Sep 2026 13:53:59 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Thu, 10 Sep 2026 06:53:27 -0700
+Subject: [PATCH] arm64: hibernate: clone only the linear map that exists at
+ runtime
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/21] arm64: Move overflow sp into SP_EL1 and kernel sp
- into SP_EL0
-To: Will Deacon <will@kernel.org>
-References: <20260907164247.17223-1-will@kernel.org>
- <40954731-a235-4877-b615-7a3f66f1b039@arm.com>
- <aqFDFYECDl15R_39@willie-the-truck>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <aqFDFYECDl15R_39@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260910-arm64-hibernate-va52-v1-1-a584d9a7d65e@debian.org>
+X-B4-Tracking: v=1; b=H4sIAFa2omoC/x3MQQ6CMBAF0KtM/ppJ2loRexXCospUZmExU0JMC
+ Hc38R3gHWhiKg2JDpjs2nStSOQ7wnPJ9SWsMxIhuNC7u3ec7d1HXvQhVvMmvOdr4HK7DDJL8DE
+ WdISPSdHvvx2n8/wBXMtu7GYAAAA=
+X-Change-ID: 20260910-arm64-hibernate-va52-f738ede2144f
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.16-dev-f8e9d
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1951; i=leitao@debian.org;
+ h=from:subject:message-id; bh=Pc7559Ay0oPivlYgMSEO05noCpMOYyrNO5XdB54ryyQ=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqorZzIH+ECtYHS/zmVZm8rjGbjNEHlz7+gpTLf
+ fmWcGEH5JSJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaqK2cwAKCRA1o5Of/Hh3
+ bUzDD/4ginBBzwJ5sRDi8kVuONdKL6KTOEF8XDDWEGRok3npdYvd7Yk7BJmitEKfrGQ74OF9V8J
+ lJDD5VVC3ROcaEO4EjBAWDw6C9e021qVtayxbAQ0uPRz+ir5kEDF0stnNMGXk18xrdi+F4x2OYU
+ bvUlCNyJ5AupBwNVXHuUT6+nLYLWy8Q3xyG9zDR8E6Sx2JjKAEBlEHuSZSfxRJSl7TejdpAixG2
+ opDvyAGf7sn8aj5z86o4slJGXAjmCUZnK5lLioNI54GvnPe46KIqkUg1/51VqeFWn4g2A+R8f57
+ Jg4hhkQDc+Kb8ElQjmXWDm/zKR5DsHLOSy6jnyyF/c9QVmVxmmofEXMxUYvjnypKKplqebv/5xN
+ SP1q2v4aSHjkzPtVBfdE/rCgNNQoK4nzxbT28lhdqa1JZE22/ys2j961+NErEDx9kvUVz+M7t+8
+ E2VtI+Q/Z39VokD57SF117IrKiXweWqIvI7FuNvqRbzcGrMOjM340G3fEPBaTea0IAaykwcI8XF
+ l3H434B/oSrGiKVpapn650cW7qbvcEqlpuAIszJfxqMp1UK2lUSXGY5lV2hYdDfnTgOj8qTnz5m
+ shJxcvmiIz//FYcMgh2c6wQ/jwXTnlJa90zIfWrnxWqARM4f2exQhcPbssdh6jRchZiB/GyICV8
+ SMk8BQE4LSevfbg==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_064942_433278_0D1634CD 
-X-CRM114-Status: GOOD (  28.92  )
+X-CRM114-CacheID: sfid-20260910_145405_837696_5CD1C0E6 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,177 +107,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Mostafa Saleh <smostafa@google.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+This is similar to commit 1537e55728ec2 ("arm64: trans_pgd: clone only
+the linear map that exists at runtime"), but in a different place.
 
-On 9/9/26 12:29, Will Deacon wrote:
-> Hi Vladimir,
-> 
-> On Wed, Sep 09, 2026 at 11:39:24AM +0100, Vladimir Murzin wrote:
->> On 9/7/26 17:42, Will Deacon wrote:
->>> This series is a bit of a complicated juggling act that, on its own,
->>> doesn't achieve an awful lot. However, it lays the ground work for
->>> sizing the kernel stack at runtime, e.g. via a cmdline option or even
->>> potentially on a per-task basis and so I would like to work towards
->>> getting it merged independently.
-> [...]
-> 
->> I gave it a try and I observe splat:
-> Thanks for taking it for a spin!
-> 
->> Unable to handle kernel execute from non-executable memory at virtual address ffff000970e81148
->> Mem abort info:
->>   ESR = 0x000000008600000f
->>   EC = 0x21: IABT (current EL), IL = 32 bits
->>   SET = 0, FnV = 0
->>   EA = 0, S1PTW = 0
->>   FSC = 0x0f: level 3 permission fault
->> swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000008129f000
->> [ffff000970e81148] pgd=0000000000000000, p4d=18000009f1dff403, pud=18000009f1079403, pmd=18000009f0ef1403, pte=00e80009f0e81707
->> Internal error: Oops: 000000008600000f [#1]  SMP
->> Modules linked in:
->> CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc2-7fb054f87+ #3627 PREEMPT(lazy) 
->> Hardware name: Generated (DT)
->> pstate: 1634023c9 (nZCv DAIF +ALLINT +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
->> pc : 0xffff000970e81148
->> lr : 0xffff000970e81148
->> sp : ffff000970e81150
->> x29: ffff800080f85fc0 x28: 0000000000000001 x27: 0000000000002000
->> x26: 0000000000000000 x25: 00000000000000c0 x24: 0000000040000023
->> x23: ffff800080c0e1d8 x22: 00000000000003c0 x21: ffff800080b58300
->> x20: cfa2800080b58300 x19: 00000000200003c0 x18: 0000000000000000
->> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000028
->> x14: 0000000000000000 x13: ffff8000814f3ac0 x12: ffff8008efcac000
->> x11: b2000c3eb474d99d x10: 0000000000000008 x9 : 0000000000001000
->> x8 : ffff800080010800 x7 : 055001f2b5503510 x6 : 0000000001310000
->> x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff800081502d80
->> x2 : 0000000000000802 x1 : ffff000800106a70 x0 : 0000000000000001
->> Call trace:
->>  0xffff000970e81148 (P)
->> Code: 00000000 00000000 00000000 00000000 (00000002) 
->> ---[ end trace 0000000000000000 ]---
->> Kernel panic - not syncing: Oops: Fatal exception
->> SMP: stopping secondary CPUs
->> Kernel Offset: disabled
->> CPU features: 0x0,00000000,034bfc7d,ff728b42,7ffce667
->> Memory Limit: none
->> ---[ end Kernel panic - not syncing: Oops: Fatal exception ]---
->>
->> I suspect it is related to power management, since it can be triggered
->> with the sleep command, though I haven't debugged it. I noticed that
->> Sashiko has reported issues related to suspend/resume, so if you
->> provide fixups for the relevant commits, I can give them another
->> try. Otherwise, I'll wait for v2 :)
-> It's fiddly to envisage how we end up trying to execute from non-executable
-> memory, but there are two bugs in the suspend/resume code:
-> 
-> 1. I don't save/restore the stack pointers correctly (I suppose this could
->    explain almost any crash, tbh)
-> 
-> 2. I don't restore the pauth keys properly
-> 
-> I've hacked up an untested diff below, please can you take it for a spin?
-> 
+swsusp_arch_resume() clones the kernel linear map with
+trans_pgd_create_copy(..., PAGE_OFFSET, PAGE_END). PAGE_OFFSET comes
+from the compile-time VA_BITS, so a CONFIG_ARM64_VA_BITS_52 kernel
+booting on hardware without LPA2 -- vabits_actual is 48 and the fifth
+level is folded -- hands the walk a 3.9PB window while its linear map
+only spans the top 128TB.
 
-With fixup applied I do not see splat anymore :) 
+On a VA_BITS_52 4k kernel with CONFIG_KASAN_GENERIC in a 4GB VM, I see:
 
-Thanks
-Vladimir
+  swapper/0: page allocation failure: order:0, mode:0x920(GFP_ATOMIC|__GFP_ZERO)
+   hibernate_page_alloc+0x10/0x1c
+   swsusp_arch_resume+0x70/0x320
+   hibernation_restore+0xa4/0x138
+   software_resume+0x15c/0x270
+  PM: hibernation: Failed to load image, recovering.
+  PM: hibernation: resume failed (-12)
 
-> Cheers,
-> 
-> Will
-> 
-> --->8
-> 
-> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-> index f093cdf71be1..facf3f1cc3b1 100644
-> --- a/arch/arm64/kernel/sleep.S
-> +++ b/arch/arm64/kernel/sleep.S
-> @@ -133,7 +133,8 @@ SYM_FUNC_START(_cpu_resume)
->  	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
->  	/* load sp from context */
->  	ldr	x2, [x0, #CPU_CTX_SP]
-> -	mov	sp, x2
-> +	msr	sp_el0, x2
-> +
->  	/*
->  	 * cpu_do_resume expects x0 to contain context address pointer
->  	 */
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 0811fa569100..bec7f858fae9 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -87,6 +87,7 @@
->   * This must be kept in sync with struct cpu_suspend_ctx in <asm/suspend.h>.
->   */
->  SYM_FUNC_START(cpu_do_suspend)
-> +	msr	spsel, #1
->  	mrs	x2, tpidr_el0
->  	mrs	x3, tpidrro_el0
->  	mrs	x4, contextidr_el1
-> @@ -98,8 +99,7 @@ SYM_FUNC_START(cpu_do_suspend)
->  	mrs	x10, oslsr_el1
->  	mrs	x11, sctlr_el1
->  	get_this_cpu_offset x12
-> -	msr	spsel, #1
-> -	mrs	x13, sp_el0
-> +	mov	x13, sp				// SP_EL1
->  	stp	x2, x3, [x0]
->  	stp	x4, x5, [x0, #16]
->  	stp	x6, x7, [x0, #32]
-> @@ -115,6 +115,7 @@ alternative_if ARM64_HAS_TCR2
->  	mrs	x2, REG_TCR2_EL1
->  	str	x2, [x0, #104]
->  alternative_else_nop_endif
-> +	msr	spsel, #0
->  	ret
->  SYM_FUNC_END(cpu_do_suspend)
->  
-> @@ -122,6 +123,8 @@ SYM_FUNC_END(cpu_do_suspend)
->   * cpu_do_resume - restore CPU register context
->   *
->   * x0: Address of context pointer
-> + *
-> + * Entered with SPSel == 1, returns with SPSel == 0.
->   */
->  SYM_FUNC_START(cpu_do_resume)
->  	ldp	x2, x3, [x0]
-> @@ -130,6 +133,10 @@ SYM_FUNC_START(cpu_do_resume)
->  	ldp	x9, x10, [x0, #48]
->  	ldp	x11, x12, [x0, #64]
->  	ldp	x13, x14, [x0, #80]
-> +
-> +	/* Move 'current' somewhere safe */
-> +	mov	x15, x3
-> +
->  	/*
->  	 * Restore x18, as it may be used as a platform register, and clear
->  	 * the buffer to minimize the risk of exposure when used for shadow
-> @@ -156,8 +163,7 @@ alternative_else_nop_endif
->  
->  	msr	sctlr_el1, x12
->  	set_this_cpu_offset x13
-> -	msr	sp_el0, x14
-> -	msr	spsel, #0
-> +	mov	sp, x14				// SP_EL1
->  
->  	/*
->  	 * Restore oslsr_el1 by writing oslar_el1
-> @@ -179,8 +185,9 @@ alternative_if ARM64_HAS_GIC_PRIO_MASKING
->  alternative_else_nop_endif
->  #endif
->  
-> -	ptrauth_keys_install_kernel_nosync x14, x1, x2, x3
-> +	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
->  	isb
-> +	msr	spsel, #0
->  	ret
->  SYM_FUNC_END(cpu_do_resume)
->  #endif
-> 
+Fix it by copying the linear map that is the actual one, not the
+compiled one.
+
+Fixes: a6bbf5d4d9d1 ("arm64: mm: Add definitions to support 5 levels of paging")
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ arch/arm64/kernel/hibernate.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+index 7bf1174277772e..424291c547f02a 100644
+--- a/arch/arm64/kernel/hibernate.c
++++ b/arch/arm64/kernel/hibernate.c
+@@ -423,8 +423,8 @@ int __nocfi swsusp_arch_resume(void)
+ 	 * Create a second copy of just the linear map, and use this when
+ 	 * restoring.
+ 	 */
+-	rc = trans_pgd_create_copy(&trans_info, &tmp_pg_dir, PAGE_OFFSET,
+-				   PAGE_END);
++	rc = trans_pgd_create_copy(&trans_info, &tmp_pg_dir,
++				   _PAGE_OFFSET(vabits_actual), PAGE_END);
+ 	if (rc)
+ 		return rc;
+ 
+
+---
+base-commit: c68a982815dcce5464e3bf2a31ac94f5146c04ca
+change-id: 20260910-arm64-hibernate-va52-f738ede2144f
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
