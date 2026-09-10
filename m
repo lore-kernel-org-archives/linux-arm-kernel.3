@@ -4,136 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5222CC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D3EC79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 03:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRgxd35oIwHiXkDjOaH6BgCMwgA2OzF2U7ApjvKEm8Y=; b=etSWiURKgO7ufclbrm2U2HCwiM
-	lSD5h19mB32BwKCzpTvz668Q0rJIoKKx2VXpR7KPtHUbbKzkySiS2mJZmCb3Ea68ZUIn76poG1WMb
-	BseACEWKMp9Zowvx0nKRrXiR9EQEAB1tKfofNzruBouTvaq9t3aEp8+5iWykx6sRsqPa1OrUaHdIT
-	rbO2aCEQ2EpzPtF40ArddvMkxugXuh55iSDwwiWrJDYwAqJxBfzVkX/t7QLqPnyLOPf9wDRU8YxxM
-	u5qMdbXksp0LvIrtQ9PyWtWmjvTwSFSI2BTPFRnPRe9C1Z990qbbBPacYsoaRlwB2oUEZjCeAx03F
-	et2g7nWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LvJiCgX3BpdJe3s12OP/yBUKE0PHp9qk9pkbDTxdTfA=; b=hGZy1YNXEhkvJmNkW8qM/1uDnq
+	Wv6ROY/OxyrEgiktDNV6o/SSXD9Q1l2wYJK22Dm/5h5a4iWtXxdAUfCI/1mt4xKCQ8GOoc0rB17Vk
+	iMz+mIhUXooxloj/nhdmNIBOxjDQw8yhesCVCG6ncBjJ3nRj5ip0v6n6mCXc/L/38glsSCdO350bk
+	4G8U4kVCffJD+OH/X5HJv90zxSzAY+3ee4KAMMo5qerns/6mk+BoLwe/MZkZiHZvUFB1J+2mRO2kY
+	htbwNL7jjmzzeKDpSjKCQaQDi9SFlzNvFU0AtEoOt8cOW2fkkKfmMYez2r7FDOm36jN4ruQ6SjPn2
+	fdObw/sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYs-0000000DIg3-2kRC;
-	Thu, 10 Sep 2026 03:34:54 +0000
-Received: from mail-westcentralusazon11010019.outbound.protection.outlook.com ([40.93.198.19] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1x4Vbv-0000000DJIL-1lhI;
+	Thu, 10 Sep 2026 03:38:03 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4VYh-0000000DIWM-0SWN
+	id 1x4Vbs-0000000DJHO-1B1i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 03:34:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LBCX+Zr58bwO9BMcKYj3xS9d/AG5KhqwfRQJl7Rp56JuI9gYnOtnuug8fg79tfSqEJUmLQ5SF57+TvlngO2xytjkFahwaTUfQfqN/+Fg7jahyp/6Mv3mvcUiugMKccrYBW+dhms9K6K3clcuRiJZx6jMyPpQB+/yq2MD1MBP8SmPypX/iueaSfmyue1MdlzPBtCn47QNNF8/le0gkzLK/4svreBxWZsHZzUo2xQszRDTlMh9EQJrpnukfkJiQucUNmfr6UIbvYbk3UYEUwI0P92+GmnW8xLueNHpiyhJPBjcbzcx5A88fTVMku1hyVXIGjFfGIZejTmBxCWp0qcKSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KRgxd35oIwHiXkDjOaH6BgCMwgA2OzF2U7ApjvKEm8Y=;
- b=gXIBDKmSAPYrWispAEIDv2uQKyPREULVEI5eR4HcCRJmcPHuIgy/NuwfiEPPWzCl3BzCP0QSvZAx94VhEVv2MqR47OD6Dxt66I7O1cjtxvnWbGXI7AKX4JSHr9djfsq9BkvvQ9DbE3Obnr5b8OycXPxxHGqEx6u3YEgPcSWviiqgkBQ3q+ZCSTgjRfTWrFQ3FZI4ht2BviD2JSbWTOCBp2yAgdzW1ELlVrgvKPJrDjBrL80uhs35pDtTo5Qw+nF/KxHRPnkv+8o+BNQIF9kovDQO6Th8CIpSA+QxHPeCQzK0xzrJ/hpOdPz2+z0xjYFFcuw+oWw5DIARdxBLpM0QSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KRgxd35oIwHiXkDjOaH6BgCMwgA2OzF2U7ApjvKEm8Y=;
- b=CiNJiENtkbwz/475ewsRq8NzHc0iu9MBEQNXJRaL6LzU4m6F5ra6JBy24JbfaoNw5M5KxY3t5puDb0xHeKLLRQt1ycHqyT+4Sa9as+17nGpo7i5ondmvfGYjTqkbLrya3zDDqG09skXI4wfDfmHez6lYVZANQD4NEmszFC+YCwd+9OtdwDyKsk4l6XxkGQm+PhdeIG59toFUX7E8Rz+Y8tpAzKtTt2TL5xA1+PymTKL5+Yy8XXWXQFFL9SsjmOWTXiAgwjHVgCDz0kaPrAfuwIMroRX3yyTOTPmokiDRlECkMSVVU5y9u4Fim/GFm/+CuBtzvFtHs1jkvjGWrTJ6Og==
-Received: from DS2PEPF00004563.namprd21.prod.outlook.com
- (2603:10b6:f:fc00::519) by BN7PPF9E4583E15.namprd12.prod.outlook.com
- (2603:10b6:40f:fc02::6dc) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Thu, 10 Sep
- 2026 03:34:28 +0000
-Received: from CY4PEPF0000FCC5.namprd03.prod.outlook.com
- (2603:10b6:92f::1006:0:b) by DS2PEPF00004563.outlook.office365.com
- (2603:10b6:f:fc00::519) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.9 via Frontend Transport; Thu, 10
- Sep 2026 03:34:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CY4PEPF0000FCC5.mail.protection.outlook.com (10.167.242.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Thu, 10 Sep 2026 03:34:27 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 9 Sep
- 2026 20:34:14 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Wed, 9 Sep 2026 20:34:14 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 9 Sep 2026 20:34:12 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>, <rafael@kernel.org>, Danilo Krummrich
-	<dakr@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
-	<aneesh.kumar@kernel.org>
-CC: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Gavin Shan <gshan@redhat.com>, Vikram Sethi <vsethi@nvidia.com>, "Anshuman
- Khandual" <anshuman.khandual@arm.com>, Shanker Donthineni
-	<sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
-	<rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, Marc Zyngier
-	<maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, <kas@kernel.org>,
-	Kohei Enju <enju.kohei@fujitsu.com>, Shaopeng Tan
-	<tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>, James Morse
-	<james.morse@arm.com>, Steven Price <steven.price@arm.com>, Sang-Heon Jeon
-	<ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>, Andrew Morton
-	<akpm@linux-foundation.org>, Jinjie Ruan <ruanjinjie@huawei.com>, Sam Edwards
-	<cfsworks@gmail.com>, Douglas Anderson <dianders@chromium.org>, "Florian
- Fainelli" <florian.fainelli@broadcom.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Pranjal Shrivastava <praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<iommu@lists.linux.dev>, <driver-core@lists.linux.dev>, Sonang Patel
-	<sonangp@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>
-Subject: [PATCH v1 8/8] iommu/arm-smmu-v3: Probe a guest-level Realm VSMMU via RSI commands
-Date: Wed, 9 Sep 2026 20:32:51 -0700
-Message-ID: <df25452641dc126eb334a1bfbe5eee16cc8a8953.1789010941.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1789010941.git.nicolinc@nvidia.com>
-References: <cover.1789010941.git.nicolinc@nvidia.com>
+	Thu, 10 Sep 2026 03:38:01 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-66fb8a78ad2so8709957d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Sep 2026 20:37:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789011478; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iRO9UYQp+//3mBowNe5bQdCUxJVsNwmK54f/RCRbRi7/D/qcUUkVExv0B3SFmrwAXl
+         zZOVJwMkk39+5g+bszN9naeASt6pMvt2Mzbt2vI3E00rCI7H7kqCaPxMa157b+GrxuoU
+         cPCd5En6hcBlAyF+GN/rWogrlM54AqXloA6YB/l0QrxDRtNzqvsNKl6L1qvxe3SiOe2B
+         B5PbVkbiynNk+0wOU8+w+1a1DlAwDdY+CFiVPZsQqNMuCQ5uxkZR4lG3WIoRvq9NTI+b
+         1RVNMtLvlrgZ4bWRqjVgFJHWIteqY+++LrJyykdHc7chwTTZH+fG0z/as/eU6721ld40
+         x0Fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LvJiCgX3BpdJe3s12OP/yBUKE0PHp9qk9pkbDTxdTfA=;
+        fh=iyfnBsoDtqdVzdQYkXJwUCSvxble+CCc4z9GYFDsdzw=;
+        b=BQ9zfKclzVLCR6sOhhiY8o/GFqohonsh10BtNydncwnaiZj3QNuyJslWkVQeaL6OEb
+         jdUeadO0S1GGDwigtAc9V07p/CVyBC1D2yKNLZzfyJKN7TDSfc/2Fa3Wuaq85CDGrTPt
+         S2o4YoR6AKY1Hwyq9uNPe5ZLTYpv1n4UaMRckIq0dAaRESSzIzvvwzUKuEMKFKsF0lW7
+         wUu3jEwYUiQgxWQnn+D70WLyj175dfRYVsNU73eO6Hrr0r+lf1Sj4UDOfBWMktbjp8S0
+         Z3q1tNhC1zMeP5K80IaZJ8Hzk7SjY5o/sxZnat48a5ZwWO+P/s3gU7dx/4F+icteXZai
+         7sSg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1789011478; x=1789616278; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LvJiCgX3BpdJe3s12OP/yBUKE0PHp9qk9pkbDTxdTfA=;
+        b=eC+ZgzkThB+Exaip8722RheQqzrkZHf6tRdi5CAN5wrkJrpaqMHdpGQsgSCtT791J6
+         Fcts0k3Wa3JKw1rL65HYibglLQ0ILxkIJWkkocWlQIDhD7NqqMkp61OrLlfNKZsGPY+B
+         wVxgc0iqBeunlv/Qxv3QWFzygdbKdKTHbpcA8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789011478; x=1789616278;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LvJiCgX3BpdJe3s12OP/yBUKE0PHp9qk9pkbDTxdTfA=;
+        b=BRVWEqhiykFY9eNBotZOTnxpLUFUM81Iq/p6/ykBe8wZcsJAShyrQE9bDHbM5goUtR
+         1Wa9VABiqI/e5WuibXgMQKEbIEncdHEno7swp4Wkz9/jLewAMGlxIhjpRQPOBFchEB+M
+         YduuCQUwLnrleqAXt0GTZXVZ5yrn9j4UorJDhiDYVgnYgDxV5q6odp2EpXWBk2+5JiNY
+         gGVOBv1GsnXf9+Ee29N6aTBt9I2gl1jkFl5N2zFRU+arD4LpUgAQAa9EIP2rf3X8hdcJ
+         fa+f0O1f+jykoXXrJ8oZJqlE+0Mz8upamByCaM+brReAYEX4XIGADe+hjQk64jmIh5x+
+         1+Fg==
+X-Forwarded-Encrypted: i=1; AKwUvBzssk/Yu8ZIq4zaSZp5lzr9gJEppO/PsALkM+DPsg19+v1CzV4jTsbFKX+pbdUT6nrLP+eqvz5U6zGFP/GtNEZM@lists.infradead.org
+X-Gm-Message-State: AFuF++lTNiT7TxXjhgv3VPehBbBqUA4pPZdK3hM71Vrd39Xrv2jWzPsQ
+	UDFp3f8WmQXcWDMrG2cZ2isaNYgZTEVB1GvLhKXWQWL2L2YFQ37Ybyk/o4lmH17z2oXmSbGf3JB
+	hTUllNIv0C2gECHD7zINwPnWEi1p9MLw5Tth8qHyD
+X-Gm-Gg: AYBFou2XsQpl/E1xFmC7b+cUhO9yvQVo/hQU+Pd3A5XpjU4BuNvLZPcs8m6uCE6sVYu
+	kz40uaM2GfnxXX0dnD04uULNejmo0R/q3Kc5PaNHRtnLqq6H5UA7iSyvrEgWuPbMr/7JGIve1Zu
+	zzVkbwrGuyA0Hyb9WjtkKGMy5ctXFASgFfC0L24MNcTuzEG+jFBv6iqlrtE8Xk2OQQ27BIAkz3l
+	H5pvNSWwkKBV7X7P/sO+T1edayZr6Uqe9EuyYMfnJ8GbfQMrMr5hFmpFbHoiFTAeIg0rH4+70GC
+	yiPfea630FcqZDUEWqUz8g1pUO01TnBQz2m9tPdMX3vBKQhtOon5u+UsmabRxD8rI3Bhk7su9CX
+	EMt4koBWr
+X-Received: by 2002:a53:ad06:0:b0:66f:c1bc:408a with SMTP id
+ 956f58d0204a3-66fc1bc4792mr7713835d50.77.1789011478612; Wed, 09 Sep 2026
+ 20:37:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|BN7PPF9E4583E15:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b2db353-7b1c-431a-2440-08df0eec6ad3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|7416014|82310400026|56012099006|11063799006|10067099003|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: AZdwUii2V9mR1lEuv2Aj5/w49KLjDC4KPyV15MmoxlDculnceXlZ5rpFBN6pbha2wYss3BGK6r1d68AgACIm6AWlORIfM9ZjB9NAFjUmNo31SEsuTP3svcG+fIubrgtDCFcIwJ5L6QLWD8z3PhmuKFwl5t7LMnZsYb2iPH4Q08Yi3W69s8s9X0eIAVL6PVVIzAqkY0KW05Fk4tYBxIMcm0G9HVDB6wESN2P+ecI8ljBG083ePiVJCrLqkik4Gy/Vl3S76bTCRkeZCZQ63NoO8cPicK/FcozcZWhqu6UHRrITsn1qWSjDZrskzd5h5Pg1gWrKYrhVD7N+Bpgk+ft4W1OQPNXD4IJLZhyVS+CcW77bKpzgEmt5saNrceTZBoPpjS1gVV+vuaNGIQLCLAlHz5RE7MwDiajfD/+nSS/lLzIZL1a6tRID/MMV8wHRpLtnuor8+d8cUDzbxaMTm854P1PY3u7vVYxcjG+guyKPjlo1GfNZ3ZGk9xTdN+wOlRYYwU7f34cix9faWaDCDx85thCkLU/9+DoPpFkKzSfxGuuJQ+B6I3P4kkV81aSypfEPBmQuHMWQ+/t1Hl+jIKwO8hZX+TV4Nn097Ud7fOJcJYKEznd6CV2FI5lDqF5ZNzMCEtrLrIUrnEjqDH2iIMtmzYgnpLAH83yr5jNx081rlKFrzDa/JqYbX5JCHgJSiRZIEVZ1c4Pdtv5V1TAyVUYREw==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(7416014)(82310400026)(56012099006)(11063799006)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5tcXMWB5evienxZfpzwAByGBioR8es5/7wO0wmxHEZYpc1y8WIfYCUdGwMgRSBjVZcTFitFqqTwbEPRCSodmQoSpQCYOxfeAvCk09uUGGvhUSmcP7xFhJ/3unW7zKuPxrMnTCgm6FonZxyqnfMnGxSzEdn/jBhBWbQkR7G3vnV1VaZOypyylSgCLuo/x+8RPJnC5TEYPn9yhLDk1UMPwI1oi5ZelDggnbG8m9Hx5LO35uJBBjc/XhEarvSZ62xhTowCOeBzZWc73jf4cRU7pm9100hEj+0KxoAnVHtvJQJ0OqRLyqaOLV2q7zrOAa9GgmwBeZJGdjsR2yCUctu1hL03XlNx9zrYl63f4jRZz6wTkYMhXBGIkbenlBjl3F5G/Iq7758uVwEGAuLvtWqrbX/+e2yJZW3m6IHl0y7DNzZugT36WwH1bLiP1WMKjd6M2
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 03:34:27.6257
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b2db353-7b1c-431a-2440-08df0eec6ad3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC5.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF9E4583E15
+References: <20260910033000.15926-1-kmehltretter@gmail.com>
+In-Reply-To: <20260910033000.15926-1-kmehltretter@gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 10 Sep 2026 11:37:47 +0800
+X-Gm-Features: AcwNN1XQH0BdJFknR3BDHpgbH-5I3YT4kBpqbiKb-tpDhIaqt5ymHV136QVN-oI
+Message-ID: <CAGXv+5E7AjJLxKeq3TetBJEsPyNuKjyn_bSsQccg4g2g6xR-pg@mail.gmail.com>
+Subject: Re: [PATCH] clk: mediatek: reset: Fix device registration kernel-doc
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Rex-BC Chen <rex-bc.chen@mediatek.com>, linux-clk@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_203443_157362_9E05EA6A 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20260909_203800_364292_5C72182F 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,114 +119,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In CCA, the ACPI/etc doesn't tell the OS whether the SMMU is a confidential
-T=1 instance or a normal T=0 one. Instead, it has to be learned by issuing
-a trusted RSI. Before the kernel can operate the trusted T=1 IOMMU, it also
-has to validate all the information that it gets from ACPI against the true
-information that it gets from the RSI call, to ensure the ACPI is correct
-and prevent substitution attacks.
+On Thu, Sep 10, 2026 at 11:30=E2=80=AFAM Karl Mehltretter
+<kmehltretter@gmail.com> wrote:
+>
+> The comment for mtk_register_reset_controller_with_dev() names the
+> older helper and documents np rather than dev. The new helper takes
+> a struct device and obtains its device node internally.
+>
+> Use the actual function and parameter names and clarify that failures
+> return negative error codes.
+>
+> Fixes: 761bc64003e3 ("clk: mediatek: reset: Add new register reset functi=
+on with device")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-Use RSI_VSMMU_GET_INFO during probe and require the returned register range
-to match firmware. Then use RSI_ARCH_DEV_ACTIVATE before mapping registers.
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Currently the driver doesn't support a T=0 SMMU inside a realm. For example
-it doesn't make the page table allocations into shared memory. If we are in
-a realm reject any SMMU that is not T=1.
-
-Once the SMMU is activated, its DMA will follow the DEV_FLAG_DMA_CC_PRIVATE
-rules. It must set that flag to ensure its coherent allocations for its own
-structures are allocated from private memory, not the SWIOTLB shared pool.
-
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 55 +++++++++++++++++++++
- 1 file changed, 55 insertions(+)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5732f3ba0122d..972815c54b11f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -11,9 +11,11 @@
- 
- #include <linux/acpi.h>
- #include <linux/acpi_iort.h>
-+#include <linux/arm-rsi-cmds.h>
- #include <linux/bitops.h>
- #include <linux/crash_dump.h>
- #include <linux/delay.h>
-+#include <linux/dma-mapping.h>
- #include <linux/err.h>
- #include <linux/interrupt.h>
- #include <linux/io-pgtable.h>
-@@ -5507,6 +5509,53 @@ static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
- 	return ERR_PTR(ret);
- }
- 
-+static void arm_smmu_clear_realm_private(void *dev)
-+{
-+	dma_set_cc_private(dev, false);
-+}
-+
-+static int arm_smmu_probe_realm_vsmmu(struct arm_smmu_device *smmu,
-+				      const struct resource *res)
-+{
-+	struct device *dev = smmu->dev;
-+	unsigned long rsi_ret;
-+	phys_addr_t top;
-+
-+	/*
-+	 * Currently the driver does not support a T=0 SMMU inside a realm. For
-+	 * instance it does not make the page table allocations into shared
-+	 * memory. If we are in a realm reject any SMMU that is not T=1.
-+	 */
-+	rsi_ret = rsi_vsmmu_get_info(res->start, &top);
-+	if (rsi_ret != RSI_SUCCESS) {
-+		dev_err(dev, "RSI_VSMMU_GET_INFO failed for %pr: %lu\n", res,
-+			rsi_ret);
-+		return -ENODEV;
-+	}
-+
-+	if (top != res->end + 1) {
-+		dev_err(dev, "VSMMU range %pr ends at %pa\n", res, &top);
-+		return -EINVAL;
-+	}
-+
-+	rsi_ret = rsi_arch_dev_activate(res->start, RSI_ARCH_DEV_SMMUV3);
-+	if (rsi_ret != RSI_SUCCESS) {
-+		dev_err(dev, "RSI_ARCH_DEV_ACTIVATE failed for %pr: %lu\n", res,
-+			rsi_ret);
-+		return -EIO;
-+	}
-+
-+	/*
-+	 * Once activated, the SMMU DMA follows DEV_FLAG_DMA_CC_PRIVATE so its
-+	 * queues and tables are allocated from private memory, not the SWIOTLB
-+	 * shared pool. It only translates for a device we've requested the RMM
-+	 * to put into T=1.
-+	 */
-+	iommu_device_set_confidential(&smmu->iommu, dev);
-+
-+	return devm_add_action_or_reset(dev, arm_smmu_clear_realm_private, dev);
-+}
-+
- static int arm_smmu_device_probe(struct platform_device *pdev)
- {
- 	int irq, ret;
-@@ -5542,6 +5591,12 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 	}
- 	ioaddr = res->start;
- 
-+	if (is_realm_world()) {
-+		ret = arm_smmu_probe_realm_vsmmu(smmu, res);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	/*
- 	 * Don't map the IMPLEMENTATION DEFINED regions, since they may contain
- 	 * the PMCG registers which are reserved by the PMU driver.
--- 
-2.43.0
-
+> ---
+>  drivers/clk/mediatek/reset.h | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/clk/mediatek/reset.h b/drivers/clk/mediatek/reset.h
+> index 562ffd290a22..b09cdcab0c4b 100644
+> --- a/drivers/clk/mediatek/reset.h
+> +++ b/drivers/clk/mediatek/reset.h
+> @@ -60,11 +60,11 @@ struct mtk_clk_rst_data {
+>  };
+>
+>  /**
+> - * mtk_register_reset_controller - Register mediatek clock reset control=
+ler with device
+> - * @np: Pointer to device.
+> + * mtk_register_reset_controller_with_dev - Register a MediaTek reset co=
+ntroller
+> + * @dev: Device used to manage the reset controller resources.
+>   * @desc: Constant pointer to description of clock reset.
+>   *
+> - * Return: 0 on success and errorno otherwise.
+> + * Return: 0 on success, negative errno otherwise.
+>   */
+>  int mtk_register_reset_controller_with_dev(struct device *dev,
+>                                            const struct mtk_clk_rst_desc =
+*desc);
+>
+> base-commit: 50d05c7c76c96b90462f24debacca971d2e86713
+> --
+> 2.39.5 (Apple Git-154)
+>
+>
 
