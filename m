@@ -4,75 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF92C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A2CC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uk1MH9uVRQ/76KWE4S2PFib0dqcBksuJOlO5lWKLVg4=; b=FH78FfHWxCkwylLyGwYwNXFkLG
-	hJPQZZ8JW3+/DHutsLdiTvCiRdl5T7wRqd+adyctdIfSPdw24jz+pfXAqtlQaVGh99WQxTjfbDYlQ
-	Sks7yL7KxSgrj8wNP3sRtuQ7M16ib/jNDDx77AowLG0EnqycFBvhoGY33kxg4wCsjmJNixIKxEzpk
-	o2RCQK68SpVTJSuCc4gnJlb+P/rVosE2JrqaMroIupnhb3qd7WDI/Y9pSEGSx0Nxz8ZZMeo3LI1RN
-	AmPLiSqRy954x6XgLh09bTDstoA+njeru02gPKWR5maPKJHfCCexFmviQgykQLB16sCX21PaWabxy
-	krO0pGjg==;
+	bh=ZGkfTmvcfg2tYgnaJgCLfP1/mFjyPE2KGae6+BF91/w=; b=yfQdxtFFpdfJKvAdGvcJPJn9mC
+	0VCeGzNX1ZGDKt08eRpG3lcFvWDTzgoBhOi0S7xljRtBGvMg/LQ29aQlwF41nFXJBnrO3GSAG9px8
+	u8oHPmjd9bYiGwAMUoJW7amUfd3sjsAjvfmhmCG3iZAzdao9s5ML3RmPXQFFtg/wewNfQZDXwjJPu
+	Oxy43cRoeAQlmlEIl128FS0+jTB8V8Mv9DKUMPx4fSSy6lfz4nx7CS02kMl9Xi6dR4E+0qab08b9c
+	0vNZGy67bAWs5wnRJYoKdfRoxlE3/f2wFt9tlsXhYWYJ81G3K6edZIVgQJp/SUqwg4W5U8LhKML/v
+	cvGL7g1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4g41-0000000Efkw-1E5K;
-	Thu, 10 Sep 2026 14:47:45 +0000
-Received: from out-88.mta0.migadu.com ([2001:41d0:1004:224b::58] helo=mta0.migadu.com)
+	id 1x4g59-0000000Eg35-2djD;
+	Thu, 10 Sep 2026 14:48:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4g3x-0000000Efiy-2lgK
+	id 1x4g58-0000000Eg2M-2Kmp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Sep 2026 14:48:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZGkfTmvcfg2tYgnaJgCLfP1/mFjyPE2KGae6+BF91/w=; b=nX0xwUjZOEPDYGGLZV5R5LCu0P
+	XK1sD2JQCv1g1n5Lj7IxY1XBxh6qQd7ZpTvEUhajs1UMNuA9gL2akEVmoLuINqFJzU8qzqngcpp8x
+	zKfwlbb3CmBInnhEc1wCeVSiEuuhJI/t/5TwCIJyIqBM3KyYotnduPe04xfmH8YSZCGsmxGWOZ8be
+	5+0aN+I44FkpyOvncXrkY6JsFi9SBGi+qfHquCc9wBi5q/kuPh7ZbnMfmL0czYk5EPxTO/tInmzW1
+	fNqWAAKnfu0gJAviS7V0bEaCo6iQ3/C5yp/cySziv8t1hVmyduzEkxV/yLTDUDOGFPumree2U4a1X
+	lt2q5QTQ==;
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x4g55-00000002dXY-1vAs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 14:47:44 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ntAolI/OA7Z9WQW3bybNLUTDyMwEX6yK+A8WCHOuLy4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789051656; v=1; x=1789656456;
- b=u9h8oiIKMcONZ4m9o1NvHvnlq8EMCCOgnEFGHRc+AxHOH1Fnpt7HTTrznLgIx+SJPDQX/BWJ
- N0YSuglLgUKCKkB1f0gwmQWXWK4Ym5hWJXRopuFiDY0l+a40T3vMV0MzIimTy1tYUFY0lXD1XUO
- 2Ln88PWN9tcPlLKfJudq3tHg=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3b9c309c8b318689;
-	Thu, 10 Sep 2026 14:47:36 +0000
-X-Mizu-Trace-ID: 3b9c309c8b318689
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so6722e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 07:47:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxSUcQL+j0MfJdPfIBqLr6Jc+goG6YAwY60wz8Lf43VkxC3P6TSn+k//yeyplpJm25wNBVpUlJmP8MVc473e+Cj@lists.infradead.org
-X-Gm-Message-State: AFuF++nB0r3iNEJQTEv15vxwq8iKD4JIaGfptoyonvr6KSfxx56rpb4b
-	P9QVscLPtuoQIRQpSXBs3Wtd90HfYzGmpTsS4J4oFolhDaCD+wWkEV4CUSivel5VgjhKaOCxQMs
-	HRtvwKyV59bgTgxPunOAUZ+4808sqLbJGIDuMlpCK
-X-Received: by 2002:ac2:4e10:0:b0:5b6:4ad:d6ba with SMTP id
- 2adb3069b0e04-5b89af5179fmr118268e87.15.1789051651809; Thu, 10 Sep 2026
- 07:47:31 -0700 (PDT)
+	Thu, 10 Sep 2026 14:48:53 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa663bfso301724566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 07:48:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789051729; cv=none;
+        d=google.com; s=arc-20260327;
+        b=k2g9IUZj+Obsg+hnGWYiezw+J+f8jVjXZKxdp4+K+uqiAbHQl7STJQtkOYB+1F0ZnP
+         FCnxIEv7qcHRRXCbc79X0m1XBLTu13KOc/a9ax2etaQrsK2FUbYy2t4H/4aRQG6nDKTP
+         WoaazZBIUAltoZlNJT70klrTUDEBuJ5UTJ11oDl8b7Ya06szYsXbGu2M59b2tDLOdfrt
+         PgMjl0b5XyUEjojWR/7duGl2mU3jj+J6sHUgfvs4OgEwG68nISWpVWU/mGUSfuTmGJx1
+         hR7PsYTqPmDJoXWQrlNBOPPfJb0nJZouzsi3vqDsetrOZ82eiplWMqO2lv6R0u7uyA8z
+         d4PQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZGkfTmvcfg2tYgnaJgCLfP1/mFjyPE2KGae6+BF91/w=;
+        fh=KXOvVydvaCiwYVzHfJPPWRL9peRhvyOyussGNdw1LeU=;
+        b=bdcrWWcY+9hG/gnhOm+M02+n7/+P5gdavqlC7YTRueqD+HwKYK812bMJirFbMpSjvr
+         5N16qHkJ739qB/Pv5+5bE4A3sn+j/HJ8BV/peCgR3yQnD3zJm6N3MG+f+UoX7nDRZHT+
+         0JftnxOo3LkJbdrSPLPYuOfftwiYQU/wf+DklLI1T3ZWww0haBl/pSTU0c9WZOb2M7br
+         MmiZooyOWAUbkTDWn2ZvmWntpbXbGEgq7eMCYHL68L6ofC2j1R10Yhf1HvhXVRsZgfCk
+         rLxu4lQRzTROdPLMkTeWoF+Lup953mhRUBdkkihTCKMd/3yb/7WXVuzGFArt8NnvE8ka
+         MK/A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1789051729; x=1789656529; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZGkfTmvcfg2tYgnaJgCLfP1/mFjyPE2KGae6+BF91/w=;
+        b=dUGSyrl+m1euVAllOEVQzx31t8WnXObaUe1CkBi0xA8ALhZPAo68LTwQ8urMAPRl8H
+         4tDmuSufo8Vr7Lktis8bU8TnIFkyoMSesKyk/c0AyrxwV722OLMfSGVbnMvXpnOND6eF
+         tqSExZ5xzclxSPkfFM/pETJK/TitkBmhS123pH1C6qqp9BeIcDDYnWL61m23hlzdmS/+
+         KYz8idMqQgYmJFMajEYx6It/lm6qYY3uXXcJ3WiHvdEC/J6thC5QEKYOEnY3V2A4VW8z
+         YFHPlhCKcIzfU6XQ5I/8TNt4BDjtoKi1vJ7XP4xVn1RUUwYRfXqw2gufDx90wsVA2F1e
+         kdlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789051729; x=1789656529;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZGkfTmvcfg2tYgnaJgCLfP1/mFjyPE2KGae6+BF91/w=;
+        b=nbBXfuMl9FKIN0OCdZxaxZh19w4VCv4nJmW9IDxNdzdjOCNMAWk8lpRrwn0AzzytRV
+         zG9bAPa7WoVjnTDG6FOUT9zjAdr2CFaqPXAip32KmLArjlIYulXozyQJ2q+dDjJj6xoU
+         Tk7Po70gB8f3u8ZVv8LNExZ7LTi0kwhw8C2Dpo+vTyLE6hsgHg4G4nXwDT52QjYlJQmW
+         lZmcNlj7I20ZkMCexTirVdYpcCgHh37zsYoPKRO2LRbhb0sIFx+wH6EkwMNH8VtELi9C
+         Z2CTzI1QFCTyyypYqNfJmINUivBhu9jWNq8mVMI1jIoU9pJEKvLAJ4dZkXf6+UnRpAx8
+         jvTA==
+X-Forwarded-Encrypted: i=1; AKwUvByJy2M0NK/IGA2aZIlWA6rz58RWcCXxUUaVaF+/L37EpUb6aCgiTNoPyTlMOO7q5S/1mb6xvLuh0BhvbDiFmN48@lists.infradead.org
+X-Gm-Message-State: AFuF++nBr+fZNrmXjxJwLwEn1rJNOk09XO/sFJYoK1qrH8aGPSm/tevg
+	nqm5DJVaJddB27AqIjbpf2T19ZFd0BoaLQiGMCuk2Wb0mCxQv6P2unC86+3oNy91QenaIAnuAG9
+	+70QUz0Up2sFNpU+gKYDM9wKhcI3OlO41Jboff9RZDw==
+X-Gm-Gg: AYBFou0SiuCIOuXQuLQw+16kQYzU7JKm34Z1G3bYjSapkWGP8GXFjEU3GFPPf2FJvo2
+	sUHdxpFgEHFCassJ2HVFH9Xyx+5SBWDnoNsI+Mhc+qijrWMlceUjSKBL01rvJw2rsfAdxjwdIfy
+	2xHe1tszJ8sCuvrUNiQ12Q6lT2EgzzKR3IVu5UP5Ztk/cUiLIdxEHnxGzRTdn2uVu0L0ne+IgNT
+	gzkOEtlnhJ3cfeo+5zF/DR8RfGy5Hi3Giq7l1tiIeTb04c+U4T1ArePrQLSYKwdBb79LhjtmJOL
+	s+4JIAOBhqRWohbyUaFLYw8I1kJBF1H1D7HR+CJRqYliiwd4AswJPp6ngrfFd4LTX68iNM0/FBw
+	S3KsnSWwoFgikg2k790SYF2vJ
+X-Received: by 2002:a17:907:c5ce:b0:c25:47a4:fedc with SMTP id
+ a640c23a62f3a-c29418b652emr491393166b.2.1789051729432; Thu, 10 Sep 2026
+ 07:48:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260807164322.2970811-2-sebastianene@google.com> <20260807164322.2970811-5-sebastianene@google.com>
-In-Reply-To: <20260807164322.2970811-5-sebastianene@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 10 Sep 2026 15:46:55 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTz0jJ1+n2emZg1E7Gvzqgj8OzR5PDjsVHWz=L6CyX4W6Q@mail.gmail.com>
-X-Gm-Features: AcwNN1XDpd22jFdnDXPjIgJ7hGk7rymiE-YpHTGhy-VaFZD3HQl71sh9cUV8gas
-Message-ID: <CA+EHjTz0jJ1+n2emZg1E7Gvzqgj8OzR5PDjsVHWz=L6CyX4W6Q@mail.gmail.com>
-Subject: Re: [PATCH v2 03/13] KVM: arm64: Support host MMIO trap handlers for
- unmapped devices
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, 
-	maz@kernel.org, oupton@kernel.org, rananta@google.com, 
-	Sascha.Bischoff@arm.com, suzuki.poulose@arm.com, will@kernel.org, 
-	kvmarm@lists.linux.dev, android-kvm@google.com, bgrzesik@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nathan@kernel.org, perlarsen@google.com, seiden@linux.ibm.com, 
-	smostafa@google.com, tglx@kernel.org, vdonnefort@google.com, 
-	vladimir.murzin@arm.com, yuzenghui@huawei.com, zenghui.yu@linux.dev
+References: <20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net>
+In-Reply-To: <20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Thu, 10 Sep 2026 18:48:33 +0400
+X-Gm-Features: AcwNN1UfoxjgFqkNtB6Aosk9zTLZTrJucLfz7oY5DTmBgBUsxij8crpGNXoG4yA
+Message-ID: <CAKTNdwH9QAgreJ-6+t1j_P1di4VyoMBSsFkf_g=mCi_-M8g9Pw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] nvmem: Derive Rockchip MAC addresses from the OTP
+ CPU ID
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Michael Walle <michael@walle.cc>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_074742_631908_5C399577 
-X-CRM114-Status: GOOD (  29.80  )
+X-CRM114-CacheID: sfid-20260910_154851_666047_E265AD2B 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,189 +139,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Seb,
-
-On Fri, 7 Aug 2026 at 17:43, Sebastian Ene <sebastianene@google.com> wrote:
+On Wed, Sep 2, 2026 at 5:08=E2=80=AFPM Alexey Charkov <alchark@flipper.net>=
+ wrote:
 >
-> Hook a handler to the host mem abort so that the hypervisor can
-> intercept host accesses to unmapped memory regions.
-> When a Stage-2 fault occurs on a registered device region, the
-> hypervisor will look if there is any registered function that
-> can handle the access. On the back of this, mediate host accesses
-> to devices and emulate them in pKVM.
+> Rockchip SoCs are shipped with a unique CPU ID in their internal OTP
+> memory, and Rockchip bootloaders use it to give boards which have no
+> dedicated storage for a MAC address a stable one anyway: they hash the CP=
+U
+> ID and patch the resulting addresses into the device tree they hand over.
 >
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Signed-off-by: Bart=C5=82omiej Grzesik <bgrzesik@google.com>
-
-Is this co-authored by Bart=C5=82omiej, or a stray tag?
-
+> Kernels started without that fixup, e.g. straight from the SPL in Falcon
+> mode or by any other loader which does not implement Rockchip's derivatio=
+n,
+> fall back to random MAC addresses which change on every boot.
+>
+> Formalize the derivation in the DT binding and add a Linux kernel driver
+> implementing it, so that a Linux image can use the same stable addresses
+> regardless of the boot flow.
+>
+> Only RK3576 is wired up here, that being the SoC I can test on. Other
+> Rockchip SoCs keep the same CPU ID at a different OTP offset - 0x7 rather
+> than 0xa on RK3588, for instance - which makes supporting them a two-line
+> addition to the driver's match table plus the layout node.
+>
+> Patch 1 is a prerequisite fix. The OTP hardware has its own internal stat=
+e
+> machine which only works correctly with serial access, but the current
+> driver serializes nothing, which results in timeouts and/or corrupted
+> reads (e.g. returning splicing a TSADC trim value into the buffer of a
+> caller asking for the CPU ID, or mixing up trim values of different TSADC
+> callers). Hence the Fixes: tag and Cc: stable.
+>
+> Cross-checked on an RK3576 board: the addresses fixed up into the FDT by
+> U-Boot match the ones derived by the new driver, and the driver correctly
+> assigns them to the network interfaces when the kernel is booted without
+> U-Boot proper at all (via Falcon mode).
+>
+> Sashiko also rightly pointed out a use-after-free in the nvmem core when
+> a layout driver is unloaded leaving its sysfs nodes and the postprocessor
+> function pointer dangling. This is fixed separately in [1].
+>
+> [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d16bebe=
+b518@flipper.net/
+>
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
 > ---
->  arch/arm64/include/asm/kvm_arm.h      |  2 ++
->  arch/arm64/include/asm/kvm_pkvm.h     |  4 +++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 49 +++++++++++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/setup.c       |  3 ++
->  4 files changed, 58 insertions(+)
+> Changes in v2:
+> - Switched from a scope-based guard to explicit lock/unlock calls in the
+>   OTP driver to avoid mixing styles in a function using goto error
+>   handling (Sashiko)
+> - Link to v1: https://patch.msgid.link/20260901-rk3576-otp-cpuid-mac-v1-0=
+-ea9135270fc2@flipper.net
 >
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kv=
-m_arm.h
-> index 3f9233b5a130..6360c90f9855 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -304,6 +304,8 @@
->
->  /* Hyp Prefetch Fault Address Register (HPFAR/HDFAR) */
->  #define HPFAR_MASK     (~UL(0xf))
-> +#define FAR_MASK       GENMASK_ULL(11, 0)
+> ---
+> Alexey Charkov (4):
+>       nvmem: rockchip-otp: Serialize reads
 
-FAR_TO_FIPA_OFFSET() a few lines further down is the same mask, and
-mem_protect.c already uses it.
+Incidentally, patch 1 of this series also fixes CPU thermal throttling
+on my RK3576 device: apparently, the mis-read OTP-programmed thermal
+trim values broke the thermal governor logic, which now works
+correctly with properly serialized OTP reads. So it would be great to
+have these merged.
 
-> +
->  /*
->   * We have
->   *     PAR     [PA_Shift - 1   : 12] =3D PA      [PA_Shift - 1 : 12]
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/k=
-vm_pkvm.h
-> index ab26bec079d6..0a471564be00 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -20,9 +20,13 @@
->  /* The maximum number of hypervisor protected regions from the host */
->  #define PKVM_PROTECTED_REGS_NUM        8
->
-> +struct pkvm_protected_reg;
-> +typedef void(pkvm_emulate_handler)(struct pkvm_protected_reg *region, u6=
-4 offset,
-> +                                  bool write, u64 *reg, u8 reg_size);
->  struct pkvm_protected_reg {
->         u64 pfn;
->         u64 nr_pages;
-> +       pkvm_emulate_handler *cb;
->  };
->
->  extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/n=
-vhe/mem_protect.c
-> index 500c18c2fd48..7e978e0c44b9 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -14,6 +14,7 @@
->  #include <asm/stage2_pgtable.h>
->
->  #include <hyp/fault.h>
-> +#include <hyp/adjust_pc.h>
->
->  #include <nvhe/arm-smccc.h>
->  #include <nvhe/gfp.h>
-> @@ -752,6 +753,50 @@ static void host_inject_mem_abort(struct kvm_cpu_con=
-text *host_ctxt)
->         inject_host_exception(esr);
->  }
->
-> +static bool handle_host_mmio_trap(struct kvm_cpu_context *host_ctxt, u64=
- esr, u64 addr)
-> +{
-> +       u64 offset, reg_value =3D 0, start, end;
-> +       u8 reg_size, reg_index;
-> +       bool write;
-> +       int i;
-> +
-> +       for (i =3D 0; i < num_protected_reg; i++) {
-> +               if (!pkvm_protected_regs[i].pfn || !pkvm_protected_regs[i=
-].nr_pages ||
-> +                   !pkvm_protected_regs[i].cb)
-> +                       continue;
-> +
-> +               start =3D PFN_PHYS(pkvm_protected_regs[i].pfn);
-> +               end =3D start + PFN_PHYS(pkvm_protected_regs[i].nr_pages)=
-;
-> +               reg_size =3D BIT((esr & ESR_ELx_SAS) >> ESR_ELx_SAS_SHIFT=
-);
-> +
-> +               if (start > addr || addr + reg_size > end)
-> +                       continue;
-> +
-> +               reg_index =3D (esr & ESR_ELx_SRT_MASK) >> ESR_ELx_SRT_SHI=
-FT;
-> +               write =3D (esr & ESR_ELx_WNR) =3D=3D ESR_ELx_WNR;
-> +               offset =3D addr - start;
-> +
-> +               if (write && reg_index !=3D 31)
-> +                       reg_value =3D host_ctxt->regs.regs[reg_index];
-> +
-> +               pkvm_protected_regs[i].cb(&pkvm_protected_regs[i], offset=
-, write,
-> +                                         &reg_value, reg_size);
-> +
-> +               if (!write && reg_index !=3D 31)
-> +                       host_ctxt->regs.regs[reg_index] =3D reg_value;
-> +
-> +               kvm_skip_host_instr();
-> +               return true;
-
-The callback returns void, so a rejection can't reach this code, and
-both of the lines below it run anyway. On a read the host gets
-reg_value, still the 0 it was initialised to, and the instruction is
-skipped either way.
-
-The later patches use the same callback, and their rejections are bare
-returns: cwriter_write() drops a command that process_cmd() rejects,
-ctlr_write() drops a GITS_CTLR enable, baser_write() drops a layout
-change. That's invisible to the host, and to a test.
-
-Could the callback return bool, and this return false on a rejection?
-handle_host_mem_abort() then falls into host_stage2_idmap(), which
-returns -EPERM for a donated page, so the case there already injects
-the abort.
-
-Cheers,
-/fuad
-
-> +       }
-> +
-> +       return false;
-> +}
-> +
-> +static bool is_dabt(u64 esr)
-> +{
-> +       return (ESR_ELx_EC(esr) =3D=3D ESR_ELx_EC_DABT_LOW) && (esr & ESR=
-_ELx_ISV);
-> +}
-> +
->  void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
->  {
->         struct kvm_vcpu_fault_info fault;
-> @@ -774,6 +819,10 @@ void handle_host_mem_abort(struct kvm_cpu_context *h=
-ost_ctxt)
->         BUG_ON(!(fault.hpfar_el2 & HPFAR_EL2_NS));
->         addr =3D FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
->
-> +       if (is_dabt(esr) && !addr_is_memory(addr) &&
-> +           handle_host_mmio_trap(host_ctxt, esr, addr | (fault.far_el2 &=
- FAR_MASK)))
-> +               return;
-> +
->         switch (host_stage2_idmap(addr)) {
->         case -EPERM:
->                 host_inject_mem_abort(host_ctxt);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/se=
-tup.c
-> index 64c0290da888..4395595b7f7e 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-> @@ -294,6 +294,9 @@ static int donate_protected_mmio_regions(void)
->                                                   pkvm_protected_regs[i].=
-nr_pages << PAGE_SHIFT);
->                 if (ret)
->                         goto err_setup;
-> +
-> +               if (pkvm_protected_regs[i].cb)
-> +                       pkvm_protected_regs[i].cb =3D kern_hyp_va(pkvm_pr=
-otected_regs[i].cb);
->         }
->
->         return 0;
-> --
-> 2.55.0.654.g21b8a5bc05-goog
->
+Best regards,
+Alexey
 
