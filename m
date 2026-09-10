@@ -4,150 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64373C79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2C3C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 14:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGaDNeCAQw6LA8Ce6lgx49Gtju8XahkrrOV+TIgPgFg=; b=dEBzaPajcGCcLzu4GI9D5x7iZj
-	CormpQbo9yhKIS0wfbmYe9ydaYZkxGOtflgp1owjQHG2k/Qz0thtb2lcKgatR2w2V8WqnTEfZWbcG
-	a1D7f0B/oh4ziPlogkEmhDT32EHuxkeVT39w6yrDKujDtQPW4QdIa1RR+kSEGdI3riCvnKofyBrIK
-	3899YbaHbbjmnuE8w0Gjwv22gr2DAdmAzVw2sNELAqIHN0Y13xHOQCyXZmj1nLYpd1lB4ttf6i8Gg
-	ZZPpFvj0hbO2rfycBPIf9Y08pId72d1ferN0HFj6RhfWg88/eHV1tAG6vaX+/PQob8fW3ZlCrjHvu
-	yHN2kXHw==;
+	bh=DWUtcKBPNVdQnOWaiojxu58DcR5uB4/S6pjUi9rDujw=; b=gk2Ovqb640jLiIgqZklbmxpd5p
+	2XQnPjgH48PynLcTgzBDKqFgjJ3+uQw+x1BClQNhR/D89Dls2SvWkym+RKizK2obuOAoZrAD1mu0u
+	B7A5/YuXua226QrW79Mqj0DRCXT2k/N5iiC73j2RlufJAqtJW2zBJK3sN2Y9ZFITvgKgiJAWYHW6F
+	S1uODQkd6AiYPMayKHFIkt0axYAaDYtch2cNkUxgftRWtyiqD1Ph98ZB+6luDzfqKC0IuC/GOEw+K
+	El6un4MLe+VIj3QoVlqvlCcgTwkph+k1a6CXREMoChlcooIIITbDLSHc66qVQ7qy7eZYNdUpa+l1Z
+	OJeERKDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fs8-0000000Edmu-28Fm;
-	Thu, 10 Sep 2026 14:35:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4fv9-0000000EeIK-1bcM;
+	Thu, 10 Sep 2026 14:38:35 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4fs7-0000000EdmZ-12EA;
-	Thu, 10 Sep 2026 14:35:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yGaDNeCAQw6LA8Ce6lgx49Gtju8XahkrrOV+TIgPgFg=; b=gmD2FNZl7/6Usuc1PdeKqOvtTh
-	EE/9nBioa3j0m47yx9OLd5BL4OzFZxLLE7qgC70YwZVgAwoHbba9huuCeyJE36BS+Mw7fUhVISl4b
-	Nul3WvWaZrKi4Op+kaHiQJnezSg9wUFQCOos2dtUj2VRaq1JaRYw9CXNutEmlbhSca7l9Qd5jkP/D
-	pVpIAiBZsXmb7d0Efhn4DamdgBA/PtyxIVWRK8F/2uW672cIgL8pBy4crOcog9Hmx+jvs+1vKG6hu
-	q16rbGTrdgevN4VDCni55EWn4GUXRRvlJEjKUVA3SdIKCGsX6UXCP3HafCH08CDJJskgcunrVwH67
-	Zq4ASjRQ==;
-Received: from mail-westcentralusazon11010036.outbound.protection.outlook.com ([40.93.198.36] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4fs3-00000002cY0-2jXP;
-	Thu, 10 Sep 2026 14:35:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zjxtkdl8dYBTOYC0Z5F+08YPlVpRsXNrcCJPggS4lq+DcX5Upum93jGqBcyCYYHQbr9AsF9G6HH0mUQTFNNc1ypQrc5G8ZlGfeWWYvUuQFIrqPufOTyrc9gORiAvne4jIWzhdFxnH3f02sWsD9056k0YB2Ihd1jvg8tXM6hMgx2kB4zpuba8pWeqgvUcVnUjHZZTB0Bf8d2h2F1/dVvomaHoT3ngR/XZb8x87fXWkmFFMQjxK6xabtm1pYcwUrAVNhqVeqUoIq4HrbLCuN8J2+BqnVN51vE3b6JhDX72N/6j55nzy5tFEkv2rt4fwxO/K1p3F7A3KENrRhyq9YcHWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yGaDNeCAQw6LA8Ce6lgx49Gtju8XahkrrOV+TIgPgFg=;
- b=L16RLmjn5uvgFGRdyv3uFRkn8Y7mrMmypzjy2NxB70jX7I6b+77ZaA5iqEmkOQ4Qvx31VwC/kCjuwApTWc2C5I+Qi228eeCJMcWm7cqlOHTtvZuVxbhUHS+I3sYjM72KSCBXCOgK6kgmIN6vZEVA1cfG8Xu2+KHVpDfTdaBR/ZnwrH2Gi7st0Ku+zA3pvdkXv4ragy7PfjkDBy+JuPtdkHvJRJiR4fsbDATnvVmDdPWLb/xN1Y9nXKnyDmkumVhFD8kZM7+fYLjD/x8B5emVzAe/6a36mIaeMyOGFdPAlvNGwQwJ94RAaqud4drM1aLH5vUzb3olN0N3BcJIaZCjqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yGaDNeCAQw6LA8Ce6lgx49Gtju8XahkrrOV+TIgPgFg=;
- b=f2OwnqIup0agPSiuaOnj2H/Rsx+cgcZjn+ZI+yT0dTapY9bTv2dkS8JLEFlkXZE2hGORK1XU4QzRjptQQeHHpLTib0atyT9fG4n7YI5bM3Ai/HLUfQkAveFLYU+RuHAfZV8yGVg6tQPkkkI/iiDmvlDbaqfjW1s329yP9nmUULnAjLptG4BiKn7fhyM7hFM5nFHHci76O5WKrm1tQcjJ7x5mSIxrIY9nlgyZFldPhuJnm1hoXtJ1/YtOGc4Yv1okfY50ZvW2c86srbk2lR2OGRrHjPIOoX+wM0qCw6ZSzYPe0OCh5zIIyhGmAzWr/WXXbiixd+Ta6/CuARasGvcX4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH3PR12MB7548.namprd12.prod.outlook.com (2603:10b6:610:144::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
- 2026 14:34:50 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
- 14:34:49 +0000
-Date: Thu, 10 Sep 2026 11:34:48 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: David Matlack <dmatlack@google.com>,
-	Logan Odell <loganodell@google.com>, arnd@arndb.de,
-	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com,
-	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com,
-	alex@shazbot.org, kevin.tian@intel.com, dwmw2@infradead.org,
-	baolu.lu@linux.intel.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-pci@vger.kernel.org, iommu@lists.linux.dev
-Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
- memfd ABI compatibility
-Message-ID: <20260910143448.GD3968357@nvidia.com>
-References: <20260903023452.721732-1-loganodell@google.com>
- <20260904160009.GV4157646@nvidia.com>
- <aptFFYqcSiBdMLE8@google.com>
- <20260905012403.GX4157646@nvidia.com>
- <aqIAtOoew-_6jw29@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqIAtOoew-_6jw29@google.com>
-X-ClientProxiedBy: YT4PR01CA0382.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fd::19) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1x4fv5-0000000EeGk-22AV;
+	Thu, 10 Sep 2026 14:38:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789051100; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Qnf8yRtyLC1CPTVHqwV+O9vsI9sHTAhEly69ol4cCicYUhwKeHbcwwtTkyth7AI7dlS9REoXDNcqG2mE2wfLn6J+FbEiKtYpe81xAZfTCRoUuHcQB+qqwRVUKi1aK+MU4cndw8wdd3FX+fegVnn1vhOXXCjn4MVP1gDz3qTDuQg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789051100; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DWUtcKBPNVdQnOWaiojxu58DcR5uB4/S6pjUi9rDujw=; 
+	b=XTq6tIYGcrIKXqel+PrtmNfisk0SnqeuPi9yY5XIR5a5ngjISPlaVBYmBgYPjIsCHFIh6sXHs2KYpo29HvvUGgoqGKq6bYsJKmyorU5SS9mansGWN4Nv/XdRJelO4iR0VVo8R86tx5Q2atgSmRpSbbgaQ1uDFBGqyziIjESrnmQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789051100;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=DWUtcKBPNVdQnOWaiojxu58DcR5uB4/S6pjUi9rDujw=;
+	b=P/rruDHS/3M0kGTk8lsEn92lzuZJYLczyhVrA9gS+eEafEjgy8NKkCt/sdLgPyRh
+	kcqbjiW8ZURoi4nuogVHxx2r6oCTOwcEPrum1B2RcYiHP4Tg9VsZgPMZ8ls6OqyRUKA
+	bVqTmXog1nsNSRcceJ1/EHh/HpyYLRtPemJtsvVY=
+Received: by mx.zohomail.com with SMTPS id 1789051098268291.1074430247711;
+	Thu, 10 Sep 2026 07:38:18 -0700 (PDT)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, Christopher Healy <healych@amazon.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>
+Subject: Re: [PATCH v3 0/5] media: Add fdinfo support for v4l2 drivers
+Date: Thu, 10 Sep 2026 10:38:15 -0400
+Message-ID: <xIs2E_YWS3GdsCX4z2DR3Q@collabora.com>
+In-Reply-To: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
+References: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB7548:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd4d5558-fb52-4dc7-24fd-08df0f48ab01
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|56012099006|4143699003|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: W7fL3tR5Qv8XL0OnHzoPpp/xUPIdIJWtgtdh/PlG5QxJLUXiWqzzHcZzx3EvP1kjUMBwkHozof7b7gUKbd6i7yB7K/guW9mbLPeyrJGyC4l+gQoI6cpugJtgpNbmYr0gxAYluCtbpYe3Hllo6JED9MMu+xBRY46esjSKCAjQ/hYvYGBsO+sRbYksweQuHIIrgboxSkGWwG7OZ1rgiJhkNXsa0yLUMruhwLDUHwGWbwfuVoEq3M2boBelIhoZVfygtXiE7gCZVl2a4hYhh7uACEJajQitEED13ow9XPXDeX4YJkpWDRsCaNLoWB49Jy3Mihq9/lsLNm8vfzxypGYNjL1dax+se/vwWJeJ937uxJzPNGBFis7/jFoMc1Zo3kxX9ncEYXaiTCxvkvtVDkCp+jpZSPz56OCqatNX1PqNx7HWOLdh+5AX1P2hhRdn/aVH+gS1EI3xwYHmILXqMzl2mkCYNdmVtLbjZ/u9dGX4u3kJNCHolChEghGZDRoIaNPJ+tlkn7krYO0kUYjVAkyjkUnPx7Q55YUkiqnx1AoL9YSJAWRmlExQWXGF5Fgv3+2aohBrv1KH/afW3UaigKwE+5emk94kmrAuJqrC087ohxlLGgw1EzLfkfvylQJ3L52uXQBELSAunFOjFm0rPdwbwfTN5ccRRNCKhp0OR1eU+Uo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(56012099006)(4143699003)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BxUJYm/AyTtdf7nczxhFfvxNLJvX7diqQcOL/vzoaP5GqS8IFQko4pKWMEXr?=
- =?us-ascii?Q?Ue35tIN8XMV6uCTq12XPgbnqF5lONYa5EAEN6/AffHScg8Oz/6QmKffp8mgU?=
- =?us-ascii?Q?nGHH566LkPbREQau9pJvNxjFDz02RoLKQtBjqhMCVPudbwdum5AQiniww5yR?=
- =?us-ascii?Q?Gr1UQAM1MliXApgR8qc+gM6D4JWOg0pvFkJAsVYVvZRbp5XGKPuqYCuKj+5c?=
- =?us-ascii?Q?GIGq/yULbXW3SNuMGuUiZWyoL1+EP5yhHaOb/gjyCRojXSGKA2u4yIMgYQLP?=
- =?us-ascii?Q?Tirc6yX5G5jjPhJaNs8K0PgnoP4TxPulwBcI6IDCd5cPIT2zMKsKhkZX76fB?=
- =?us-ascii?Q?H0iJMr/KOMPsFdh0BNBtajCH6cq5giuHj2ST3+u5REgbQLMIDGJksP2PykoS?=
- =?us-ascii?Q?Zhgr5aPExVlPhkHohs4p47IAz0eYO/KrPBl/R7/+ODDCxwAdMBX7kRzl719D?=
- =?us-ascii?Q?PRpmtGd0oQNn6Fqr2K7MuI6KjwegOtecEIftF16Q/1oI6UdShvfiPbNP8s90?=
- =?us-ascii?Q?yifS+Bmt7nIo4Hn0owEP7KZEwkA40Sqaz85h12Fg8QUKOSg3c6ct/pz1uSHs?=
- =?us-ascii?Q?p+BxnQ+KtliecNRUD2YEKuFkLc51pmitqFpGW3dEbdNICRbKCeqU5L+SCh5o?=
- =?us-ascii?Q?bmh4vT8byQk0FGiHaEWZbvkvl+zcP7TfLJt9/O/E8rPGe8akq9g6lLkiTqDW?=
- =?us-ascii?Q?bTVYe4eQ03zpPzKaxAXSDnrpCuhABUZ8E0bamwiKyBVU7hstNFkXCfn/rUiY?=
- =?us-ascii?Q?GQP6S4owjIrZeOs2cH9lSAqDxpXCCV6pR/EmGKPjQr8KZK+38+ZVa2GXanVp?=
- =?us-ascii?Q?caZB4Xd2ZCzRQ8F4o+UEnt+5cN5CW1aEXmRGzScYdEjm1xT1wDy69srjw2ae?=
- =?us-ascii?Q?aHe2iQJUpAUnCDghZ53Bv3xF6TS8RI/GUW7q+tuhXZNlz/2J+PEA0uc3UmFo?=
- =?us-ascii?Q?8aC6I2hMP7baVdr7dngiHKg1xbLljrVsfgCZLvRK1CUfVuqOFVrHm7t3O4kU?=
- =?us-ascii?Q?0yRhMJLb/1MJCiHBJA5fK/LlH7tnfR6z43/8U/AHcNxb0IqEyuBSoSpe5SXq?=
- =?us-ascii?Q?8frwLewvQ9+STYb2HlnXY8QrSvmw7LuhXfAwkGpsm07D1nBzCagrpXpV89U2?=
- =?us-ascii?Q?xywDyyN3HSgK15q//5iz22wiEHnx2+3QKtrsdsAZRXnhdtxMg7Jpc8GCPrTk?=
- =?us-ascii?Q?eXW956Vmz4DdTtpmoPM0Hn7EbSzBMQA+y7ltUUzskVgMSeMwqmYd5U6S+J18?=
- =?us-ascii?Q?BlJzF3/ljYILJJtQBqJAEjTDftDJeI6fz+tKDTCnqafajK2OhBcOwWd5vdPK?=
- =?us-ascii?Q?gEikV4AC+8gvkO6HBMdPH5NCU4WuQWIaG76u+giwXAKRiK3Pba02cWLVrtK0?=
- =?us-ascii?Q?hEHCl/icuut9GthhlZ4Ifps6r1hHelgPnsky45IM5waFyIDP/USLzoEtQMjY?=
- =?us-ascii?Q?wCVaCNAUAwPA9lDWHI6e4P9AXHPi2wiejSt5LD01opWojWsGs4VhE39gUXj/?=
- =?us-ascii?Q?rKzGzy27HQ5sIRoSQSbyIraikdF1uW3wqYpdyyc8B/6HRCcP+Pt9ItO4tECi?=
- =?us-ascii?Q?R4LhM2+yxBFevidDjza1zWVkzEzm8BMCC5IUUoobw9FTsg6F0gvfMWqFWtnh?=
- =?us-ascii?Q?w02t1Dsu9OCa+xDOeQgJjDaC171gDzok+E7GGmFe8jR1Qj00T6P3Iq7Lmpye?=
- =?us-ascii?Q?eOSP/bKCudZX8to88/Zjsri66kVICplZYdX1mJZ9gNQrC1Hh?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd4d5558-fb52-4dc7-24fd-08df0f48ab01
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 14:34:49.2519
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pYgWT/OJjholglhzIrpqy/VSfI610wP/Y5/Igt5bs4YpyBamFV68piYlehfnEUhz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7548
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_153523_775915_CC713A99 
-X-CRM114-Status: GOOD (  35.59  )
+X-CRM114-CacheID: sfid-20260910_073831_586306_CD7E54FC 
+X-CRM114-Status: GOOD (  28.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,82 +83,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 05:58:28PM -0700, Sean Christopherson wrote:
-> On Fri, Sep 04, 2026, Jason Gunthorpe wrote:
-> > On Fri, Sep 04, 2026 at 10:24:21PM +0000, David Matlack wrote:
-> > 
-> > > The proposal here (which is inspired by the KVM UAPI) is to ensure every
-> > > LUO ABI struct has 2 properties:
-> > > 
-> > >  1. A field to encode options/features (e.g. u64 flags).
-> > >  2. A way way to grow without breaking backward compatibility (e.g. so
-> > >     we can add new fields).
-> > > 
-> > > Each flag can mean whatever it needs to. e.g. It can indicate the
-> > > precence of one or more fields (i.e. new fields in the struct), or it
-> > > can mean a field now has a different meaning (i.e. union in the struct).
-> > > 
-> > > This would enable adding support for new features without breaking
-> > > backward compatibility. Downstream users would have to ensure their
-> > > kernel does not start using a new feature while it can still rollback to
-> > > a version that does not support the new feature.
-> > 
-> > This was never the biggest problem. The main issue was the functional
-> > behaviors of the kernel that cannot be represented simply as data in a
-> > struct with some flag bits.
-> > 
-> > Like for instance kernel A supports memfd folio sizes far larger than
-> > kernel B because we fixed MAX_ORDER. You can't fix that just with
-> > simplistic flags.
+Hello !
+
+Do you have any comment on this ?
+
+Regards,
+Detlev
+
+On Monday, 6 July 2026 09:42:17 EDT Detlev Casanova wrote:
+> fdinfo is useful to poll information from the driver.
+> Unlike the ftrace interface, it lets userspace tools get a snapshot of
+> the state of the driver at their own pace, instead of getting events for
+> each driver status change.
 > 
-> Can you elaborate on why the folio sizes matter?  Honest question, because I don't
-> understand why the serialization format wouldn't express things as "N contiguous
-> pages starting at PFN X".  Then the implementation would rebuild its folios as
-> appropriate.
+> This works better to get information like HW usage time or clock
+> frequencies, as well as memory usage.
+> This patch set focuses on mem2mem drivers that are per-frame based and
+> an implementation is proposed for the Verisilicon Hantro and Rockchip
+> rkvdec drivers, limited to main clock frequency and HW usage time, as
+> well as HW cycles counting in Hantro.
+> 
+> Even though it is not used yet, per core fields are appended with
+> `-<core_id>` to support multi-core drivers.
+> 
+> To ease support in drivers, a v4l2_metrics struct is added.
+> It stores metrics information and provides helper functions to write
+> the fdinfo file in a standard way.
+> 
+> An example of usage of this from userspace is implemented in v4l2top:
+> 
+> https://github.com/cazou/v4l2top (Check the upstream branch)
+> 
+> checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
+> definition are kept unnamed to match with the rest of the struct
+> definition.
+> 
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+> Changes in v3:
+> - Rename the fdinfo key prefix from "media-" to "v4l2-", and "stats" to
+>   "metrics"
+> - Restructure the documentation to have mandatory and optional keys
+> - Add core ID to fields
+> - Add HW cycles count support
+> - Add ABI documentation
+> - Link to v2:
+> https://patch.msgid.link/20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabo
+> ra.com
+> 
+> Changes in v2:
+> - Simplify key/value pairs by removing repeated <eng> suffix
+> - Add media type support
+> - Add v4l2_stats helpers
+> - Add support in rkvdec too
+> - Link to v1:
+> https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-723211abc861@collabo
+> ra.com
+> 
+> To: Mauro Carvalho Chehab <mchehab@kernel.org>
+> To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> To: Philipp Zabel <p.zabel@pengutronix.de>
+> To: Detlev Casanova <detlev.casanova@collabora.com>
+> To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+> To: Heiko Stuebner <heiko@sntech.de>
+> Cc: kernel@collabora.com
+> Cc: linux-media@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-rockchip@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> 
+> ---
+> Christopher Healy (2):
+>       docs: media: add documentation for V4L2 driver usage metrics
+>       media: hantro: Add per-context fdinfo usage metrics
+> 
+> Detlev Casanova (3):
+>       media: v4l2: Add callback for show_fdinfo
+>       media: v4l2-core: Add v4l2-metrics interface
+>       media: rkvdec: Add per-context fdinfo usage metrics
+> 
+>  Documentation/ABI/testing/procfs-fdinfo-v4l2       | 129
+> +++++++++++++++++++ .../userspace-api/media/drivers/index.rst          |  
+> 1 +
+>  .../media/drivers/v4l2-usage-metrics.rst           | 137
+> +++++++++++++++++++++ drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 
+> 19 +++
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.h    |   1 +
+>  drivers/media/platform/verisilicon/hantro.h        |   3 +
+>  drivers/media/platform/verisilicon/hantro_drv.c    |  19 +++
+>  drivers/media/platform/verisilicon/hantro_hw.h     |   1 +
+>  .../platform/verisilicon/rockchip_vpu981_regs.h    |   1 +
+>  .../media/platform/verisilicon/rockchip_vpu_hw.c   |   6 +
+>  drivers/media/v4l2-core/Makefile                   |   2 +-
+>  drivers/media/v4l2-core/v4l2-dev.c                 |  12 ++
+>  drivers/media/v4l2-core/v4l2-fh.c                  |   3 +
+>  drivers/media/v4l2-core/v4l2-metrics.c             |  78 ++++++++++++
+>  include/media/v4l2-dev.h                           |   1 +
+>  include/media/v4l2-fh.h                            |   2 +
+>  include/media/v4l2-metrics.h                       |  47 +++++++
+>  17 files changed, 461 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 3c587e0b08bd3c4853a22792b9166b7457870165
+> change-id: 20260610-v4l2-add-fdinfo-a790fceab329
+> 
+> Best regards,
+> --
+> Detlev Casanova <detlev.casanova@collabora.com>
+> 
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
-That's an idyllic view, yes, but my point is (IIRC) we didn't do
-exactly that for memfd.
 
-Sometimes you can do more and more work to try and be more and more
-general but this is *alot* of work and even then eventually hits
-problematic limits. Like what do you do with the sealing flags? That's
-ABI breaking if the successor does not support them, and downgrades
-make exactly that possible.
 
-A CSPish user can do things like patch the new sealing flag into their
-current kernel (while preventing userspace from using it), ensure
-everything is updated to that, then jump ahead to a newer kernel and
-enjoy the new flag with full downgrade support. There is so much more
-control on their part that makes the problem far more managably simple
-that upstream does not get to have.
 
-This is why I think the very idea we can support any version pair is
-too much to ask for. We should focus on supporting a small set of
-version pairs and not making it too invasive or hard in the kernel or
-on the maintainers.
-
-Thus live update within a stable branch only is my proposal for
-upstream support.
-
-If it really succeeds at that and it becomes very popular, then let's
-discuss upstreaming doing additional version combinations.
-
-> I could see things like HugeTLB not working if someone booted the kernel with
-> support for only 1GiB pages and then tried to feed it payload with sub-1GiB ranges.
-> But to me, those sorts of things fall into the "well yeah, don't do that" category.
-
-Okay, how about worse, todays kernel has hugetlbfs and there are
-patches around to luo serialize that. Lots and lots of talks about a
-post-hugetlbfs world out there.
-
-Do we want to constrain what is possible to ensure we accomodate this
-hugetlbfs serialization? I vote no. 
-
-Do we want to reject the hugetlbfs serialization until we have a year
-of debate outlining every possible ABI scenario? I also vote no.
-
-Should we make a downgrade round trip a downstream problem? I think
-so!
-
-Jason
 
