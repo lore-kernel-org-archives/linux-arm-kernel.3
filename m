@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D5BC79FB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701F0C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x32XE9eOXORPKYvzuNrm3cdAVz+nEPYN5ui+w/zMPu4=; b=dzTGAVpZwoFA7CNGw9onFz+AGF
-	30xIZz0WticIDRK2ifQNLGVOHYKqv2aFAnere4pOAAk2sw+U1apC1b6x27UK4Dzoq9VK+vwsRRGrk
-	ANfmFFNeXW0IgfJY6ZjDWFGTjYWOVgALzs4TZOqQXLIqRT664Xpc4O1UhuAPw0T9pZAfzblKoD3A1
-	G26zl+to2m9asqvhDX/nq4ZhDyYOl4hrxgSq7+cDPjEjIwo/1QB7HXarDICnGhAEALQiIrjgksaga
-	/BRXmUkIu9T8/sKEy2XAG+eAmoEZGeK2OgOhGcL/K3qRQIFHVqspz1Aox9msKlu9GOV5wZKJFGVpO
-	0JHPaBkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GxEiQwXDBcebBVRE/dGiwDfd5iv2YE3skoV4kH1Bb+4=; b=ZpDv8W+1PkQ4J8bItT4EtUHpGi
+	xpN2Kj+SJnWxwjatl9Eh6vZkL0ZZ9WbD5TT/gjmqO6LzEHzMlOJGFDR5TxrozaTBhJCVg7dtOexaT
+	TW08CIecM6kBK++WhgbRiKLUAiYnHo4DaFsdIcsZ7Asl6ydCUtMkrerLaf7DMN4EJMl2u3OLIYWZ1
+	2uE/LuuwJwmVFg7ogTFWUyXrVwJsVmskBXvSsIr0sZ6ccSs/M91aawlktdlPaVQ+iMWF+vtbiElRd
+	NYWwaeKuDpsZMV9AUhSqI3SO+vFiS5VTU7/d+kAi2CZN9Kug7cVqFGSIM7UBY37mjDsiq3F8GTQL0
+	8vkhq17w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4asC-0000000Dpuu-2AB5;
-	Thu, 10 Sep 2026 09:15:12 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1x4atM-0000000DqBk-04SZ;
+	Thu, 10 Sep 2026 09:16:24 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4as9-0000000Dpu1-22xB
+	id 1x4atJ-0000000DqAg-0syD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789031709; x=1820567709;
-  h=date:from:to:cc:subject:message-id;
-  bh=tN+CAfLJT6YMiBD4FrwUdsR3FJnYt0CpRnnqy2E8WM0=;
-  b=Gq0Kjpog4B7bNsZf3N3AORBVmm3P7bjH2CoJkNGUmWXp3YpOhsXdql4e
-   3YiRU6xwW/LZvPQxtmeeWbrmkiWMSuL8N0uHcokT9S9G6Fuk0D6ZLlWVC
-   uJIS1d7sdNQaPw0jrgsbvAA0sycYZ9CBYuWYFc4GZYG9kbVwysSJWpZzV
-   x33qRN1aComPsy8Ok/4/4LRg+R+BWTTosLKau4R+MSjlDx050qiKu+Rzc
-   LoGXH9I12N7v8zrf2JOVH1EPnvxrRAr+/9vTsjzGkhVyZRLJRsKuOKE/B
-   eaSNpic5o6s98FcVQXHiJ+OaXAE5sJpYKOYJTDzhmEf/6l3yBtGsOLlvX
-   w==;
-X-CSE-ConnectionGUID: WyAev48ZSaKV1jCaDnfuLQ==
-X-CSE-MsgGUID: H/Ao0GUWQRG5TkCK2xwDFA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="89408905"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="89408905"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 02:15:08 -0700
-X-CSE-ConnectionGUID: wrEQaj/IRIK1FR1ltkMI+g==
-X-CSE-MsgGUID: a5DtEWIBS46svakReqNbbQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="276824137"
-Received: from lkp-server01.sh.intel.com (HELO a3e91e2cf319) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 10 Sep 2026 02:15:06 -0700
-Received: from kbuild by a3e91e2cf319 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1x4as4-000000001bg-1OcY;
-	Thu, 10 Sep 2026 09:15:04 +0000
-Date: Thu, 10 Sep 2026 17:14:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove-7.3 251/294]
- drivers/leds/leds-da9052.c:104:14: error: dereferencing pointer to incomplete
- type 'struct da9052_pdata'
-Message-ID: <202609101731.1CkBqWZb-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 10 Sep 2026 09:16:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=GxEiQwXDBcebBVRE/dGiwDfd5iv2YE3skoV4kH1Bb+4=; b=M
+	UlcWjfoQcsM6uozP2ZA+dhntJUpdxgTyCHJ4fHJkD2baaQI7sBKjOIxDj9Kz02PQ
+	cEosw9HrwtrGXEpLFVdECD1lMwuh2el5VjCveopyzgu17zVa7yclch3NEpEJ56I3
+	9L2wXCusqEIXl7kCHTwlTA9uueNLIAeQaGkVGejjZA=
+Date: Thu, 10 Sep 2026 17:15:30 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: "Long Zhao" <longzhao@ambarella.com>, "Arnd Bergmann" <arnd@arndb.de>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial <linux-serial@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re:Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <07cdbec9-49af-d500-d93d-56bfcef9f490@linux.intel.com>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
+ <07cdbec9-49af-d500-d93d-56bfcef9f490@linux.intel.com>
+X-NTES-SC: AL_Qu2TC/yYvk8o5iOZY+kcn0wRhug/UMa4u/sm3YNXc/0EqiX9+T4sR2RaDHjs89yCBiKngRWUTRFQw9phRId0Gm3e9H0k5+Fqn0tYhpt88g==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
+MIME-Version: 1.0
+Message-ID: <5fdd9772.82f3.1a08a99cc94.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: cygvCgD3P5MydaJqQM5DAA--.42441W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxRKsHmqidTJgdAAA3+
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_021509_620548_52F99478 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260910_021621_680996_E9D857EC 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,112 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
-head:   3ac93c1e700558259ea604f7d4f37e26820fba15
-commit: 05a9b51265a88cf5d2951982f66d5e5ee799d719 [251/294] leds: remove platform data based probing
-config: parisc-randconfig-r134-20260910 (https://download.01.org/0day-ci/archive/20260910/202609101731.1CkBqWZb-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 8.5.0
-sparse: v0.6.5-rc1
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260910/202609101731.1CkBqWZb-lkp@intel.com/reproduce)
+SGkgSWxwbywKClRoYW5rcyBmb3IgdGhlIHJldmlldy4KCkknbGwgZHJvcCB0aGUgc2VyaWFsX3Bv
+cnRfb3V0KCkgaGVyZSBhbmQgb25seSBrZWVwOgoJdXAtPmllciB8PSBkLT5wZGF0YS0+aWVyX21h
+c2s7CnNvIEVUT0kgc3RheXMgaW4gdGhlIHNoYWRvdyBhbmQgc2VyaWFsODI1MF9zZXRfaWVyKCkg
+cHJvZ3JhbXMgdGhlCmhhcmR3YXJlIGxhdGVyLgoKQmVzdCByZWdhcmRzLApMb25nIFpoYW8KCkF0
+IDIwMjYtMDktMTAgMTY6NDQ6MzUsICJJbHBvIErDpHJ2aW5lbiIgPGlscG8uamFydmluZW5AbGlu
+dXguaW50ZWwuY29tPiB3cm90ZToKPk9uIEZyaSwgNCBTZXAgMjAyNiwgTG9uZyBaaGFvIHZpYSBC
+NCBSZWxheSB3cm90ZToKPgo+PiBGcm9tOiBMb25nIFpoYW8gPGxvbmd6aGFvQGFtYmFyZWxsYS5j
+b20+Cj4+IAo+PiBUaGUgQW1iYXJlbGxhIENWNzUgVUFSVCBpcyBBbWJhcmVsbGEgSVAsIG5vdCBh
+IFN5bm9wc3lzIERlc2lnbldhcmUKPj4gbGljZW5zZWQgYmxvY2suIEF0IHRoZSByZWdpc3RlciBs
+ZXZlbCBpdCBpcyBjbG9zZSBlbm91Z2ggdG8gRFcgQVBCIFVBUlQKPj4gdGhhdCBhIGZ1bGwgY3Vz
+dG9tIFVBUlQgZHJpdmVyIGlzIHVubmVjZXNzYXJ5OiByZXVzZSA4MjUwX2R3IHdpdGggYQo+PiBz
+bWFsbCBwbGF0Zm9ybSBxdWlyay4KPj4gCj4+IFF1aXJrczoKPj4gLSBrZWVwIElFUiBFVE9JIChi
+aXQgNSkgc2V0IGZvciBSWCB0aW1lb3V0IGJlaGF2aW91cgo+PiAtIHNraXAgc2V0X3JhdGU7IGJh
+dWQgY2xvY2sgaXMgbWFuYWdlZCBvdXRzaWRlIHRoZSBVQVJUIGJsb2NrCj4+IAo+PiBTaWduZWQt
+b2ZmLWJ5OiBMb25nIFpoYW8gPGxvbmd6aGFvQGFtYmFyZWxsYS5jb20+Cj4+IC0tLQo+PiAgZHJp
+dmVycy90dHkvc2VyaWFsLzgyNTAvODI1MF9kdy5jIHwgMzQgKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKwo+PiAgMSBmaWxlIGNoYW5nZWQsIDM0IGluc2VydGlvbnMoKykKPj4gCj4+
+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3R0eS9zZXJpYWwvODI1MC84MjUwX2R3LmMgYi9kcml2ZXJz
+L3R0eS9zZXJpYWwvODI1MC84MjUwX2R3LmMKPj4gaW5kZXggNWZiYTkxM2YzMzAxLi5iMTVkZTQw
+ZDFlMmEgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvdHR5L3NlcmlhbC84MjUwLzgyNTBfZHcuYwo+
+PiArKysgYi9kcml2ZXJzL3R0eS9zZXJpYWwvODI1MC84MjUwX2R3LmMKPj4gQEAgLTQzLDYgKzQz
+LDkgQEAKPj4gICNkZWZpbmUgUlpOMV9VQVJUX3hETUFDUl84X1dPUkRfQlVSU1QJKDIgPDwgMSkK
+Pj4gICNkZWZpbmUgUlpOMV9VQVJUX3hETUFDUl9CTEtfU1ooeCkJKCh4KSA8PCAzKQo+PiAgCj4+
+ICsvKiBBbWJhcmVsbGEgSUVSOiByZWNlaXZlIHRpbWVvdXQgaW50ZXJydXB0IGVuYWJsZSAqLwo+
+PiArI2RlZmluZSBBTUJBUkVMTEFfVUFSVF9JRVJfRVRPSQkJQklUKDUpCj4+ICsKPj4gIC8qIFF1
+aXJrcyAqLwo+PiAgI2RlZmluZSBEV19VQVJUX1FVSVJLX09DVEVPTgkJQklUKDApCj4+ICAjZGVm
+aW5lIERXX1VBUlRfUVVJUktfQVJNQURBXzM4WAlCSVQoMSkKPj4gQEAgLTYwLDYgKzYzLDcgQEAK
+Pj4gIAo+PiAgc3RydWN0IGR3ODI1MF9wbGF0Zm9ybV9kYXRhIHsKPj4gIAl1OCB1c3JfcmVnOwo+
+PiArCXU4IGllcl9tYXNrOwo+PiAgCXUzMiBjcHJfdmFsdWU7Cj4+ICAJdW5zaWduZWQgaW50IHF1
+aXJrczsKPj4gIH07Cj4+IEBAIC01NzIsNiArNTc2LDI3IEBAIHN0YXRpYyB2b2lkIGR3ODI1MF9w
+cmVwYXJlX3J4X2RtYShzdHJ1Y3QgdWFydF84MjUwX3BvcnQgKnApCj4+ICAJZHc4MjUwX3dyaXRl
+bF9leHQodXAsIFJaTjFfVUFSVF9SRE1BQ1IsIHZhbCk7Cj4+ICB9Cj4+ICAKPj4gK3N0YXRpYyBp
+bnQgZHc4MjUwX2llcl9tYXNrX3N0YXJ0dXAoc3RydWN0IHVhcnRfcG9ydCAqcCkKPj4gK3sKPj4g
+KwlzdHJ1Y3QgZHc4MjUwX2RhdGEgKmQgPSB0b19kdzgyNTBfZGF0YShwLT5wcml2YXRlX2RhdGEp
+Owo+PiArCXN0cnVjdCB1YXJ0XzgyNTBfcG9ydCAqdXAgPSB1cF90b191ODI1MHAocCk7Cj4+ICsJ
+aW50IHJldDsKPj4gKwo+PiArCXJldCA9IHNlcmlhbDgyNTBfZG9fc3RhcnR1cChwKTsKPj4gKwlp
+ZiAocmV0KQo+PiArCQlyZXR1cm4gcmV0Owo+PiArCj4+ICsJLyoKPj4gKwkgKiBBbWJhcmVsbGEg
+a2VlcHMgdmFyaWFudCBJRVIgYml0cyAoZS5nLiBFVE9JKSBzZXQgZm9yIGNvcnJlY3QgUlgKPj4g
+KwkgKiB0aW1lb3V0IGJlaGF2aW91ci4gRm9yY2UgdGhlbSBpbnRvIHRoZSA4MjUwIElFUiBzaGFk
+b3cgc28gbGF0ZXIKPj4gKwkgKiBnZW5lcmljIElFUiB1cGRhdGVzIGRvIG5vdCBjbGVhciB0aGVt
+Lgo+PiArCSAqLwo+PiArCXVwLT5pZXIgfD0gZC0+cGRhdGEtPmllcl9tYXNrOwo+PiArCXNlcmlh
+bF9wb3J0X291dChwLCBVQVJUX0lFUiwgdXAtPmllcik7Cj4KPnNlcmlhbDgyNTBfZG9fc3RhcnR1
+cCgpIHNlZW1zIHRvIGRlZmVyIElFUiB1cGRhdGUgb24gcHVycG9zZS4gSXMgaXQgZmluZSAKPnRv
+IG92ZXJyaWRlIHRoYXQgYmVoYXZpb3IgaGVyZT8KPgo+LS0gCj4gaS4KPgo+PiArCXJldHVybiAw
+Owo+PiArfQo+PiArCj4+ICBzdGF0aWMgdm9pZCBkdzgyNTBfcXVpcmtzKHN0cnVjdCB1YXJ0X3Bv
+cnQgKnAsIHN0cnVjdCBkdzgyNTBfZGF0YSAqZGF0YSkKPj4gIHsKPj4gIAl1bnNpZ25lZCBpbnQg
+cXVpcmtzID0gZGF0YS0+cGRhdGEtPnF1aXJrczsKPj4gQEAgLTYwNiw2ICs2MzEsOCBAQCBzdGF0
+aWMgdm9pZCBkdzgyNTBfcXVpcmtzKHN0cnVjdCB1YXJ0X3BvcnQgKnAsIHN0cnVjdCBkdzgyNTBf
+ZGF0YSAqZGF0YSkKPj4gIAkJcC0+c2VyaWFsX2luID0gZHc4MjUwX3NlcmlhbF9pbjMyOwo+PiAg
+CQlkYXRhLT51YXJ0XzE2NTUwX2NvbXBhdGlibGUgPSB0cnVlOwo+PiAgCX0KPj4gKwlpZiAoZGF0
+YS0+cGRhdGEtPmllcl9tYXNrKQo+PiArCQlwLT5zdGFydHVwID0gZHc4MjUwX2llcl9tYXNrX3N0
+YXJ0dXA7Cj4+ICB9Cj4+ICAKPj4gIHN0YXRpYyB2b2lkIGR3ODI1MF9yZXNldF9jb250cm9sX2Fz
+c2VydCh2b2lkICpkYXRhKQo+PiBAQCAtODc5LDYgKzkwNiwxMiBAQCBzdGF0aWMgY29uc3Qgc3Ry
+dWN0IGR3ODI1MF9wbGF0Zm9ybV9kYXRhIGR3ODI1MF9pbnRjMTBlZSA9IHsKPj4gIAkucXVpcmtz
+ID0gRFdfVUFSVF9RVUlSS19JRVJfS0lDSywKPj4gIH07Cj4+ICAKPj4gK3N0YXRpYyBjb25zdCBz
+dHJ1Y3QgZHc4MjUwX3BsYXRmb3JtX2RhdGEgZHc4MjUwX2FtYmFyZWxsYV9jdjc1X2RhdGEgPSB7
+Cj4+ICsJLnVzcl9yZWcgPSBEV19VQVJUX1VTUiwKPj4gKwkuaWVyX21hc2sgPSBBTUJBUkVMTEFf
+VUFSVF9JRVJfRVRPSSwKPj4gKwkucXVpcmtzID0gRFdfVUFSVF9RVUlSS19TS0lQX1NFVF9SQVRF
+LAo+PiArfTsKPj4gKwo+PiAgc3RhdGljIGNvbnN0IHN0cnVjdCBkdzgyNTBfcGxhdGZvcm1fZGF0
+YSBkdzgyNTBfdWx0cmFyaXNjX2RwMTAwMF9kYXRhID0gewo+PiAgCS51c3JfcmVnID0gRFdfVUFS
+VF9VU1IsCj4+ICAJLmNwcl92YWx1ZSA9IEZJRUxEX1BSRVBfQ09OU1QoRFdfVUFSVF9DUFJfQUJQ
+X0RBVEFfV0lEVEgsIDIpIHwKPj4gQEAgLTg4OSw2ICs5MjIsNyBAQCBzdGF0aWMgY29uc3Qgc3Ry
+dWN0IGR3ODI1MF9wbGF0Zm9ybV9kYXRhIGR3ODI1MF91bHRyYXJpc2NfZHAxMDAwX2RhdGEgPSB7
+Cj4+ICB9Owo+PiAgCj4+ICBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBkdzgyNTBf
+b2ZfbWF0Y2hbXSA9IHsKPj4gKwl7IC5jb21wYXRpYmxlID0gImFtYmFyZWxsYSxjdjc1LXVhcnQi
+LCAuZGF0YSA9ICZkdzgyNTBfYW1iYXJlbGxhX2N2NzVfZGF0YSB9LAo+PiAgCXsgLmNvbXBhdGli
+bGUgPSAic25wcyxkdy1hcGItdWFydCIsIC5kYXRhID0gJmR3ODI1MF9kd19hcGIgfSwKPj4gIAl7
+IC5jb21wYXRpYmxlID0gImNhdml1bSxvY3Rlb24tMzg2MC11YXJ0IiwgLmRhdGEgPSAmZHc4MjUw
+X29jdGVvbl8zODYwX2RhdGEgfSwKPj4gIAl7IC5jb21wYXRpYmxlID0gIm1hcnZlbGwsYXJtYWRh
+LTM4eC11YXJ0IiwgLmRhdGEgPSAmZHc4MjUwX2FybWFkYV8zOHhfZGF0YSB9LAo+PiAKPj4gCg==
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202609101731.1CkBqWZb-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/leds/leds-da9052.c: In function 'da9052_led_probe':
->> drivers/leds/leds-da9052.c:104:14: error: dereferencing pointer to incomplete type 'struct da9052_pdata'
-     pled = pdata->pled;
-                 ^~
-   drivers/leds/leds-da9052.c: In function 'da9052_led_remove':
-   drivers/leds/leds-da9052.c:168:14: error: dereferencing pointer to incomplete type 'struct da9052_pdata'
-     pled = pdata->pled;
-                 ^~
-
-
-vim +104 drivers/leds/leds-da9052.c
-
-5ba736311bf6fe David Dajun Chen 2012-05-29   87  
-98ea1ea20cb709 Bill Pemberton   2012-11-19   88  static int da9052_led_probe(struct platform_device *pdev)
-5ba736311bf6fe David Dajun Chen 2012-05-29   89  {
-5ba736311bf6fe David Dajun Chen 2012-05-29   90  	struct da9052_pdata *pdata;
-5ba736311bf6fe David Dajun Chen 2012-05-29   91  	struct da9052 *da9052;
-5ba736311bf6fe David Dajun Chen 2012-05-29   92  	struct led_platform_data *pled;
-5ba736311bf6fe David Dajun Chen 2012-05-29   93  	struct da9052_led *led = NULL;
-5ba736311bf6fe David Dajun Chen 2012-05-29   94  	int error = -ENODEV;
-5ba736311bf6fe David Dajun Chen 2012-05-29   95  	int i;
-5ba736311bf6fe David Dajun Chen 2012-05-29   96  
-5ba736311bf6fe David Dajun Chen 2012-05-29   97  	da9052 = dev_get_drvdata(pdev->dev.parent);
-87aae1ea82f93f Jingoo Han       2013-07-30   98  	pdata = dev_get_platdata(da9052->dev);
-5ba736311bf6fe David Dajun Chen 2012-05-29   99  	if (pdata == NULL) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  100  		dev_err(&pdev->dev, "No platform data\n");
-5ba736311bf6fe David Dajun Chen 2012-05-29  101  		goto err;
-5ba736311bf6fe David Dajun Chen 2012-05-29  102  	}
-5ba736311bf6fe David Dajun Chen 2012-05-29  103  
-5ba736311bf6fe David Dajun Chen 2012-05-29 @104  	pled = pdata->pled;
-5ba736311bf6fe David Dajun Chen 2012-05-29  105  	if (pled == NULL) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  106  		dev_err(&pdev->dev, "No platform data for LED\n");
-5ba736311bf6fe David Dajun Chen 2012-05-29  107  		goto err;
-5ba736311bf6fe David Dajun Chen 2012-05-29  108  	}
-5ba736311bf6fe David Dajun Chen 2012-05-29  109  
-a86854d0c599b3 Kees Cook        2018-06-12  110  	led = devm_kcalloc(&pdev->dev,
-a86854d0c599b3 Kees Cook        2018-06-12  111  			   pled->num_leds, sizeof(struct da9052_led),
-5ba736311bf6fe David Dajun Chen 2012-05-29  112  			   GFP_KERNEL);
-0c9a03b68511da Xiubo Li         2014-05-07  113  	if (!led) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  114  		error = -ENOMEM;
-5ba736311bf6fe David Dajun Chen 2012-05-29  115  		goto err;
-5ba736311bf6fe David Dajun Chen 2012-05-29  116  	}
-5ba736311bf6fe David Dajun Chen 2012-05-29  117  
-5ba736311bf6fe David Dajun Chen 2012-05-29  118  	for (i = 0; i < pled->num_leds; i++) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  119  		led[i].cdev.name = pled->leds[i].name;
-0a1f01d38504dc Andrew Lunn      2015-08-20  120  		led[i].cdev.brightness_set_blocking = da9052_led_set;
-5ba736311bf6fe David Dajun Chen 2012-05-29  121  		led[i].cdev.brightness = LED_OFF;
-5ba736311bf6fe David Dajun Chen 2012-05-29  122  		led[i].cdev.max_brightness = DA9052_MAX_BRIGHTNESS;
-5ba736311bf6fe David Dajun Chen 2012-05-29  123  		led[i].led_index = pled->leds[i].flags;
-5ba736311bf6fe David Dajun Chen 2012-05-29  124  		led[i].da9052 = dev_get_drvdata(pdev->dev.parent);
-5ba736311bf6fe David Dajun Chen 2012-05-29  125  
-5ba736311bf6fe David Dajun Chen 2012-05-29  126  		error = led_classdev_register(pdev->dev.parent, &led[i].cdev);
-5ba736311bf6fe David Dajun Chen 2012-05-29  127  		if (error) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  128  			dev_err(&pdev->dev, "Failed to register led %d\n",
-5ba736311bf6fe David Dajun Chen 2012-05-29  129  				led[i].led_index);
-5ba736311bf6fe David Dajun Chen 2012-05-29  130  			goto err_register;
-5ba736311bf6fe David Dajun Chen 2012-05-29  131  		}
-5ba736311bf6fe David Dajun Chen 2012-05-29  132  
-0a1f01d38504dc Andrew Lunn      2015-08-20  133  		error = da9052_set_led_brightness(&led[i],
-0a1f01d38504dc Andrew Lunn      2015-08-20  134  						  led[i].cdev.brightness);
-5ba736311bf6fe David Dajun Chen 2012-05-29  135  		if (error) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  136  			dev_err(&pdev->dev, "Unable to init led %d\n",
-5ba736311bf6fe David Dajun Chen 2012-05-29  137  				led[i].led_index);
-5ba736311bf6fe David Dajun Chen 2012-05-29  138  			continue;
-5ba736311bf6fe David Dajun Chen 2012-05-29  139  		}
-5ba736311bf6fe David Dajun Chen 2012-05-29  140  	}
-5ba736311bf6fe David Dajun Chen 2012-05-29  141  	error = da9052_configure_leds(led->da9052);
-5ba736311bf6fe David Dajun Chen 2012-05-29  142  	if (error) {
-5ba736311bf6fe David Dajun Chen 2012-05-29  143  		dev_err(&pdev->dev, "Failed to configure GPIO LED%d\n", error);
-5ba736311bf6fe David Dajun Chen 2012-05-29  144  		goto err_register;
-5ba736311bf6fe David Dajun Chen 2012-05-29  145  	}
-5ba736311bf6fe David Dajun Chen 2012-05-29  146  
-5ba736311bf6fe David Dajun Chen 2012-05-29  147  	platform_set_drvdata(pdev, led);
-5ba736311bf6fe David Dajun Chen 2012-05-29  148  
-5ba736311bf6fe David Dajun Chen 2012-05-29  149  	return 0;
-5ba736311bf6fe David Dajun Chen 2012-05-29  150  
-5ba736311bf6fe David Dajun Chen 2012-05-29  151  err_register:
-0a1f01d38504dc Andrew Lunn      2015-08-20  152  	for (i = i - 1; i >= 0; i--)
-5ba736311bf6fe David Dajun Chen 2012-05-29  153  		led_classdev_unregister(&led[i].cdev);
-5ba736311bf6fe David Dajun Chen 2012-05-29  154  err:
-5ba736311bf6fe David Dajun Chen 2012-05-29  155  	return error;
-5ba736311bf6fe David Dajun Chen 2012-05-29  156  }
-5ba736311bf6fe David Dajun Chen 2012-05-29  157  
-
-:::::: The code at line 104 was first introduced by commit
-:::::: 5ba736311bf6fea25c97e868b7de6d3de8800aba leds: driver for DA9052/53 PMIC v2
-
-:::::: TO: David Dajun Chen <dchen@diasemi.com>
-:::::: CC: Linus Torvalds <torvalds@linux-foundation.org>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
