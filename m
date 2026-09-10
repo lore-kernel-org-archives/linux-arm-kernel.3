@@ -4,109 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CC0C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932CCC79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 07:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iAtv2unCZuRSKay79DiZYrgZPynv4zWBTNGjY3xYd4=; b=P3lloDVrK0+Ir+xUzwwU8gQoIS
-	t1WHGw1YSNi/jzqNfEQkIe4kjnkE6I9ggy8xeZH29lbnRjq6J2zwzgyDbVuenECug/ES8529EzzgZ
-	9F+p2vQNRu4TAuWMTYq8W7/6RypyeZ1ebKrF5MiSguK2v8vmn0rFfLX11LkReulLVYgO/+YeTwuje
-	9CGV9bfDABwWPTgKWW+deZXKKm2p5POWKI+SBdOKcuhCLtffijzZguN1bYzk2k/1jO1SRvQ3m59TA
-	QlrEZ3PKEbKr9quuGxatK3u9+25kRALwv/kRWgkgUug47TakLufU4wuVNPR0QWmMt8fHpJmY4Xazd
-	gyMPII3A==;
+	bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=; b=GCk/5t8XTI84+d4jHUt9JH/gHC
+	w9cZg5pZ52uwRi9GF8YweeQHMaIUeXNAI+f1WqFFKByKUXA35frym7ghNHe65mX07i2JTkgONaTJC
+	9Fw0Ig2Bg3N7CDTqiS3cWv6Itdtj05rK6qYw3VLd2kX6iOqZE1ZgwG2vvpr4EBEVzbyWu6+eUwt/J
+	F47MG5KGayFfklHk4nHTzvnYifnVYoJmW+sflydTROsg4o5i9dBq/81G8YbVtKYmIJvLDarQrTYMG
+	rdcmlCGDam7T+qKgfUDgCmSJfXL/0pely5yPwd45SAu2Tb9P5WvWs1K3DlfnzxmUpQgH7wgaiWrM1
+	p760+hbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ytv-0000000Daeb-235g;
-	Thu, 10 Sep 2026 07:08:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4ZUf-0000000DfFe-2JKM;
+	Thu, 10 Sep 2026 07:46:49 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Ytu-0000000DaeO-0Ca9;
-	Thu, 10 Sep 2026 07:08:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A3E860200;
-	Thu, 10 Sep 2026 07:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1BA1F000FF;
-	Thu, 10 Sep 2026 07:08:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789024129;
-	bh=1iAtv2unCZuRSKay79DiZYrgZPynv4zWBTNGjY3xYd4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Kn3TV6sHwqFYbruJ8kjg0KQ90hYJiR7ApbX5/uTVmWQVCxD4jgO2hzofkmI293v0J
-	 /w7gW8SwP71ls7Pq5d49C2Lm5/wMiKGS77D7/2It38k9A3zgKAJ5LM6SBjr1cRgGrF
-	 6KZuweQ/5IwsbrpaUuFw0BlTbi74C5ImDwtuqTDlv8HNNRhrOFZhoQVYCW1o5CgAnj
-	 9m4Z7QB2bukAA5WzHv2ab00T2DSL4B64L956do+bX37b/JcX68C9i0DcukbJGqVnn1
-	 8lBjhWwJ1h/pINv5ODNcmLGjiK0GpS4XbJtdXkSa2/YvcQh6XGl89teHXhAYUMFCe0
-	 hXx7tiZHnLcUg==
-Message-ID: <718e88b8-3f3b-410e-8e76-90c370ff920a@kernel.org>
-Date: Thu, 10 Sep 2026 09:08:41 +0200
+	id 1x4ZUd-0000000DfF4-0VRn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Sep 2026 07:46:48 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843971bdd0so744125f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 00:46:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789026405; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YZbHZXGAPPFDkXPj9/U+W55Zfz5zLZIq4q+6XddCPEswWiaHVCFY3QtfNLKRp2Va2n
+         3cD0WpX+Xp+aOkSF0egzmBKo5HqQzlPc0D8/cKe3Z8dtXHZWR4Jhr5iTnrNT+iJTkBnX
+         2s9OrXxLKE3J1eEcIG/h4twMG/EjqkAKiz2ocH33MggDm9mIXOgSQGh6yboyOntH+p5I
+         MaQgedsFFEm22s+essMkruUD+RTSowbn26orAyoDeiMO8dWNDKmsv6yUnd01GgZhDZqe
+         0UvLJ29qODVOcvC1FwcVkViZv3Pxwgk6Np09W6ky1XVdDHCBB/+RxkRS6wys35nM6bfu
+         eqDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
+        fh=9g4asAUY17gzJUhSzrfTj3yzL/NFZ0b+SUZKMAzb4Q0=;
+        b=MtsU1LJR9QKT6gxn++huHmKCee363KgoS+XIe8A4CJ/8iR/g3o7yMO0BRF6EldQeg7
+         lHQObWhb33BFOOxM0//lbEHei2gCS2klbD4Knsui1qSuq4CQRBjV0+Oaf7K8LzAatJA3
+         ddicCCun2DntBdjA5bF5I9J0uxBEGF+QzKiae9k/qCj5ERujLEp5LgaD11zSvcQgNI6Y
+         rDAmoPnSp5i1lf2PRXYdXWGnfH6sXzeudYgEHqnXPxiCm9WIAUGi6AsmAqlMCIm+X/BN
+         /z4G7klrjA6kVuODI2rvbGHYvLKtsXkr4ir8yllDfnxSv72geLqnR42omRDzaGvmpDOE
+         2a3A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789026405; x=1789631205; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
+        b=QN6JZXyC+GWeZywqAqotpsWIOdpkcKI/oC41AVbOkq58Ae0ey/euadE0tFuAx0V9Lq
+         1V4VvAurfb0TuaBAoGUi6TCmFwIvdcNzzUK01SsPIFqg8ZODYHveQL2qs/lmW5e6tc2a
+         TpXrEChcM8FIKeAxneqgSMxMsZFmjOjT/dYdWTsswVea9HJfu08Yf/FNFSy9nnsh57Vh
+         5oI1tv6dzK4H7I519tzAT5e5Hr7Vq7BO+t9/7Zn2D67n19w0c0D4AiZfhooBbgozdKy6
+         W6AM1HLqmc7nrjZR9d8o2xfpQZYOYQzBNkUQSPzPnIr6zJGD4RbuPg3HrZs4ZqJ6LhWw
+         vzWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789026405; x=1789631205;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SR/8Dy6Nrrh5LDSonTYCX4wiBWSkHbsQtwOFo2cEn6k=;
+        b=Z4M8+DnXVHS8me8Ka0HCffep5rlxo5VnQqb8ZY0yPtounVsIJzLaM/kgFICaOrazSy
+         0J7zI2EEY7B025YHIdOirb2ICv64c/koSFH8RjoKcYTQmknmtaLHkqc+oJ6EgAz+wRWg
+         i2JBWhVDgJ2hsgBYP2MfSKrzf9bA+0c55mUXTbcGXs1ZFLGfm3mOVbg7hWCW5DixTnzU
+         ndMZCJ6VDRyDivigIHeEZSKk7aAQoJPG5/f2l3ykiNMs8RKYdJB5/796e26LM/syyYuc
+         Gi72xSTVuXsmJ3taTQf7rrxgGgWxTQfSIoYuNjC5jRDSpyaJpgEbgDKmRI41yCHtdron
+         J7cA==
+X-Forwarded-Encrypted: i=1; AKwUvBz8SHAAj8kFmOqKeynfSSUMuPnEwHH4fJJcfwh+0LubQjXp82eoSxCm0Y9mVMIePBqkb4EsQZzSkk6+pLGYXEMi@lists.infradead.org
+X-Gm-Message-State: AFuF++kD82F843QIeEI6+s5pOdChbBgxFnpXlDNxfU8ktlDiNza6GWTf
+	RVYW8svkGevuYAl+Aj31LWvPz4I8hGp80RSQX3pSAIpDFAIN132VVLNGY+fSIxmf7FuBkdA2y6E
+	V0HrTStrq3IS416aAJgLBR8VMhGRNOkI=
+X-Gm-Gg: AYBFou33BSpofZ3oiMeGteU8zMJybdq2WLhRU2wpmYvcbG5KU9X613YjBr5Q+N8vDtX
+	Ey+s1FppyErBf+04K/UuZwE8CnehEFNaEa9wPyMRyB0Ac/EjF5DdbOjKrS4K65iIPCQ/mIzoV8P
+	fYaXyqRSxZqPMDZ3zSg6mpzB6+jeleHqV2TYScGtrZZweeGfPqDTKj+AJfkqZ85GAQBkfpWPMfi
+	fYHtUNgN+XBd5vo/Km9cVguxqNob1RlP9rPQp9Ksx0y/oOAuSkdLHnbMCjOd03czjmiTGWe9naP
+	+iRInzx0n46R5YZEMTwR37esc1hyAqDo0YABN6x5b2ip5hR+p/dNU9TQJUH0SBbIfBafVBkLrTn
+	8E3ygVBIKaWww7iaaAf1QhXZZ9N4vY97HijrVldBRrilGEEZ6Uug=
+X-Received: by 2002:a05:6000:2f86:b0:485:82f7:9053 with SMTP id
+ ffacd0b85a97d-486d0de1a6amr3798843f8f.1.1789026404909; Thu, 10 Sep 2026
+ 00:46:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Raspberry Pi 5 RTC binding
-To: Sander Speetjens <sander.speetjens@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20260909141300.1368790-1-sander.speetjens@gmail.com>
- <20260909141300.1368790-2-sander.speetjens@gmail.com>
- <4c237cd8-024f-405e-a00e-e22ff9529d08@kernel.org>
- <8cd19ae8-372b-444b-bd2a-dc01221b5896@kernel.org>
- <CAAOJLPHNGgC7B=7ESCifZ1FPcR6V=Hcg-q-aaVg_9M_-d6Fh2A@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAAOJLPHNGgC7B=7ESCifZ1FPcR6V=Hcg-q-aaVg_9M_-d6Fh2A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <1d5ac9d7-48ce-4fee-b893-f646bade4a86@kernel.org>
+ <CA+qSx6yjiXJkQm=hi=F8=_=DU0x_usSuXnL_1yuy0fUU9UU-Zg@mail.gmail.com>
+ <d3723be0-46f4-4025-b526-e1bb3cc2cad6@kernel.org> <CA+qSx6x2-Md9uVZo+HV0z5CfmGPDzhL482eJNnM2VYVtn_e72w@mail.gmail.com>
+ <aqJbFXjU53_D7SoP@kernel.org> <401e3beb-e2c5-4241-831c-005ccfb22e34@kernel.org>
+In-Reply-To: <401e3beb-e2c5-4241-831c-005ccfb22e34@kernel.org>
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Date: Thu, 10 Sep 2026 15:46:32 +0800
+X-Gm-Features: AcwNN1XRAKyh-nKS165ym6trfmmgm5ZhN281YBrKACOabVg8q_Fxhd9PqW2nK2s
+Message-ID: <CA+qSx6yZ4R5_n0PvYMvt-vU7CfsM3YEjHxvBz+N4ann=+BQzdw@mail.gmail.com>
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org, ljs@kernel.org, 
+	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com, 
+	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_004647_178094_E8552FF4 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,32 +129,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/09/2026 22:24, Sander Speetjens wrote:
-> Thanks for your response
-> 
->> And more important, where is any interface to actually control the RTC?
->> I see nothing, so your firmware is? Then this is not a separate device
->> and you just added DTS for your driver, which is a no go (see writing
->> bindings).
-> 
-> The RTC is a physical, battery-backed RTC, but the Raspberry Pi firmware
-> exposes its register interface exclusively through the firmware mailbox.
-> I initially used a firmware phandle so the RTC driver could obtain the
-> existing rpi_firmware instance.
-> 
-> Based on your comment, I think it is more appropriate to model
-> the RTC as a child device of rpi-firmware,
-> referencing to the existing firmware clock/reset/power services,
-> and have the driver obtain the firmware interface from its parent
-> rather than adding a phandle solely for driver plumbing.
-> Which also means moving this to arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> 
+On Thu, Sep 10, 2026 at 3:33=E2=80=AFPM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
+>
+> On 9/10/26 09:24, Mike Rapoport wrote:
+> > On Thu, Sep 10, 2026 at 02:22:25PM +0800, Xueyuan Chen wrote:
+> >> On Wed, Sep 9, 2026 at 11:18=E2=80=AFPM David Hildenbrand (Arm)
+> >> <david@kernel.org> wrote:
+> >>>
+> >>>
+> >>> I think getting something consistent for now is the most important th=
+ing. :)
+> >>>
+> >> Hi David,
+> >>
+> >> OK, I'll move the highmem check into set_direct_map_ro().
+> >
+> > Consistent means leaving highmem check in the caller ...
+> >
+> >> Should I also update the x86 set_direct_map_invalid_noflush() and
+> >> set_direct_map_default_noflush() helpers in this series to skip
+> >> highmem pages?
+> >
+> > ... or checking it in all set_direct_map functions.
+> >
+> > I'd keep the check in huge_zero_init() in this patchset.
+>
+> Agreed!
+>
 
-Whether device has separate node, depends on it having dedicated
-resources. I don't see such here, so unlikely it should have a node in
-the first place (see writing bindings or DTS101 where exactly this
-question is asked).
+OK, I'll keep the check in huge_zero_init() in this patchset.
 
-Best regards,
-Krzysztof
+> --
+> Cheers,
+>
+> David
 
