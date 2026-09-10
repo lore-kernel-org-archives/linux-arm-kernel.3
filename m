@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BACC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33373C79FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 09:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86vmOg95m0USoJ2CzbHQCprZrbWYs1qHymLuz8WAuuA=; b=yDThTRJP0u1nD4UbpNGq825Mew
-	kplfJcSj7rf55fuKLXFxIRhFrc0KDMnbbaM+hFHumGeEaRQ91zGidMRzsZSaP4eHpKvz0hBnFtcq9
-	LGsa8mNt5Y4KIKX8kMzl6VZCk6SZ+BfjtJYcUAd8fnUmy/v8VSrsNwbc5oVi6DAHQgQR30OmaVz5E
-	FOxFOYlmMfkASZR86gpQgy3qu12Lv/2OcZ8hYZEd6zcKCurHdzDf6IZN4C9w9OOP54AZS2gPKI/dk
-	SyJnmQ0wlj4i8PqQTbuGe9MImgA+Or2y8AjxVFIUDdxhSJlzJGo8gc/B/CqaXxhzu+qT8O/+ygJjN
-	w9sFj0iA==;
+	bh=Z5qIrcJzme0NduXyrAvDrLG2NE3PhTF+gf/58fAEq9k=; b=Y+5YE4JFeciSK0xyKu6VXFJwvK
+	5juWD22NjlabVkMp5T153nZ70TXvC2O10LQDhwIrNso0XMKEIQC0jfPT3AyyuumIIP5AshviQG9o3
+	R7I1xc2/MZe4gPMrdzlusZZCIPbHEUKB1k7PZzdnJ4c9Jv4yXy3GLZIeUzZt9QVJS9BViIeY7d0TZ
+	M0nhA9NxNVdjqxRBtYLlqTAoBkt93bGEOoDDAUItP2lr06/5bVDOy/bUIklGNlmRWhEoZp9McdE5A
+	cm7StNdsypENBk+31u+k3SIYYl/qsqkh5aziVUK24aIfkDiNbIFEOFuW7XrNUSvIWx+xsdLzGIKdV
+	epfvBbQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4b3s-0000000DscN-2W2A;
-	Thu, 10 Sep 2026 09:27:16 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x4b5N-0000000Dspn-3Kwc;
+	Thu, 10 Sep 2026 09:28:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4b3q-0000000Dsbx-2TQW
+	id 1x4b5N-0000000Dspe-0SLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 09:27:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789032434; x=1820568434;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=g9Cp6K2YW/0ojAZM+PERC3yWY2MaFiW9F9EZGEa+wq0=;
-  b=m0MrM3WinIL75/v4If01y1KKal2wMm1KS/8Z1/VoD3iSMTm5liHhwXhb
-   n69jSLUfK3USxydm7UbDc14b9l5v353frYp3gagwoaxPzWuInkH/i0sEM
-   pobkGUt40IE+czbYZ5a4S58PeduLfaJq6WehEyZvjmeU0C09ZzGlFhiQp
-   ceZyURsahcQJ25ixAJSmnCn+CK9K8H14QCUFQ7hqDdbty0QAsKhk+bCD5
-   oPlKt42TpxRXrgyuzqCyV6GI16RufOJfnz0/3rS2nKgAz0AseNyCSLjb2
-   HNnh/2r+kJDa9KJMe/7iye9RT5XYLkKoSL21EkgsIS3J/XLumTX1bKpic
-   g==;
-X-CSE-ConnectionGUID: /gynOjyDRY+HTfQUa+OxRA==
-X-CSE-MsgGUID: jD1sVxd/TbGZdIjrKpW7gQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="100068158"
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="100068158"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 02:27:09 -0700
-X-CSE-ConnectionGUID: 9Lk46I8cT22DEwuQeaU5Rw==
-X-CSE-MsgGUID: YmZZHAgjTGqItji2nmnofw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
-   d="scan'208";a="273537486"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.177])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 02:27:04 -0700
-Date: Thu, 10 Sep 2026 12:27:02 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
+	Thu, 10 Sep 2026 09:28:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 77F4943B30;
+	Thu, 10 Sep 2026 09:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8B101F000FF;
+	Thu, 10 Sep 2026 09:28:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789032528;
+	bh=Z5qIrcJzme0NduXyrAvDrLG2NE3PhTF+gf/58fAEq9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=M5qXhXMha99KD+SAUmY4c0ZGSM+OpKh9JL0zlPOoByw22ty92aTGlxTDK4x6rsicC
+	 11f+PGVWnEHw8AxbzqmHqGscOSVN5PrAD1hwPqzZRdOTRtLUlslIgjNNB5SSPqdkHt
+	 yIT5ZlIAQN1Eumg8FE/yJdhZ/k6Zfp0SRw5rD/ZhxUsMUz2sQEpaWYIssfGfqOx/jq
+	 HDN1EmjYdpNIlpzldwiepJT0iQw7gksXVc6UI5aJl3iWQ83Ldd4ISafSmZdEIUMjeS
+	 OFdO1Fqu+1bogKmLNNwGg+dz22+7iJeYC48wBW13enJnQZRT8kXDwvcKM6DNdF9V5U
+	 hnVfXtMtzo8yQ==
+Date: Thu, 10 Sep 2026 10:28:40 +0100
+From: Lee Jones <lee@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Russell King <linux@armlinux.org.uk>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
-Message-ID: <aqJ35vMBiBZo2iUE@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
- <aqJrSnr0rwv4BOJ3@ashevche-desk.local>
- <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
+	Alim Akhtar <alim.akhtar@samsung.com>
+Subject: Re: [PATCH v3 07/10] mfd: wm831x: support software nodes for DCDC
+ regulators
+Message-ID: <20260910092840.GN2133376@google.com>
+References: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
+ <20260711-samsung-kp-v3-7-b2fcaba77aff@gmail.com>
+ <0306eaba-b59c-4f8b-9151-9f39685398ba@kernel.org>
+ <aprLYn4VzSTnZWuw@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <122573f8.8232.1a08a9765fc.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_022714_668926_43D875A6 
-X-CRM114-Status: GOOD (  14.42  )
+In-Reply-To: <aprLYn4VzSTnZWuw@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 05:12:52PM +0800, zl020895 wrote:
+On Fri, 04 Sep 2026, Dmitry Torokhov wrote:
 
-> > Wondering if we should undo this in the port's .shutdown() callback.
-> I saw the shutdown path already covers it: dw8250_shutdown() calls
-> serial8250_do_shutdown(), which does
-> 	up->ier = 0;
-> 	serial_port_out(port, UART_IER, 0);
-> so both the IER shadow and hardware IER are cleared, including ETOI.
+> On Fri, Sep 04, 2026 at 03:41:21PM +0200, Krzysztof Kozlowski wrote:
+> > On 12/07/2026 04:12, Dmitry Torokhov wrote:
+> > > Allow passing software nodes to wm831x DCDC regulators via PMIC platform
+> > > data. This is useful for non-DT/non-ACPI platforms that want to
+> > > associate device properties (like DVS GPIOs) with the regulator devices
+> > > using software nodes.
+> > > 
+> > > We add 'dcdc_swnodes' to the PMIC platform data 'struct wm831x_pdata' and
+> > > have the MFD core assign these software nodes to the buckv cells.
+> > > 
+> > > Assisted-by: Antigravity:gemini-3.5-flash
+> > > Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> > > ---
+> > >  drivers/mfd/wm831x-core.c        | 47 ++++++++++++++++++++++++++++++----------
+> > >  include/linux/mfd/wm831x/pdata.h |  2 ++
+> > >  2 files changed, 37 insertions(+), 12 deletions(-)
+> > 
+> > I still need Ack for this from Lee... and the problem is that you did
+> > not Cc him.
+> 
+> Hmm, indeed. not sure wheat happened...
 
-Depending on the answer to Ilpo the enabling may need an updated comment
-summarising the above.
-
-> At 2026-09-10 16:33:14, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com> wrote:
-> >On Fri, Sep 04, 2026 at 02:38:18PM +0800, Long Zhao via B4 Relay wrote:
-
-...
-
-> >> +	/*
-> >> +	 * Ambarella keeps variant IER bits (e.g. ETOI) set for correct RX
-> >> +	 * timeout behaviour. Force them into the 8250 IER shadow so later
-> >> +	 * generic IER updates do not clear them.
-> >> +	 */
-> >
-> >Wondering if we should undo this in the port's .shutdown() callback.
+Always worth a try!  =;-)
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Lee Jones
 
