@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F374C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B3C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKim8kq2UcQv3AdJOy1pzLDJwBHCUlr5VmBNQA75egI=; b=K7pEQsGK119cMFyoiLJOVpP3az
-	eDrAE3fzgsFGjurNp7taHw7ki8fx2rcyeC7d3wBDGKttcMK7lHodIC5YJXNDjwL8GfHvIm1vriKPX
-	3YedPP9f9pmArVal06OvEDZzBpivxxAbBT5mTFKItnGAWRUIcHTVss2aGAOEEvWPvYCU2ErxwE/YF
-	1l4N7YqCL4DxoEP//Uy156MpJjKo2UxX+2IYCq0R/Wx7qIgubf59isL9BViiVcqjgmWmZiGiiT7E1
-	qh10rIX+9E1Z3MN/FI7YP/aa2V2WJRRNnuVcEZ4Apzv9zc+b7ulmkQwNgK8jdCeOkCb+OKZn3u55r
-	JFp6xDWw==;
+	bh=zg3eP0xfFnnvxihTFudnitZKRaskOF78/ArFi6db/og=; b=lwDcwzX8oAlcJZAtCDOFyFPXRV
+	m40qhJa0lLN9OvglpHW8hHVVE/nGX2IssIff/BAcE7PQVsxLGXLjBfbsrY4V6Q2A5zjR4xvdTlIxH
+	fHk8t0wz0kq+AkErPV2Xplsjd3yeA/IPMCvh6Fjd74+YKw3HYQp/RToB8yog8QcScPtxODg/OxMru
+	j9qhV7Il6fxm+vGQonWCEHFXy8bzTfFGoq0kr8k9OGBQVFCoz9ZWca8qkOp3RYLVMzSA0tEnkqHtx
+	0xOCLgzAeiTPzFUqEGu4rp87rmpduI/zOIw/Ihac3Q40cA216eV6npQ0R0NfrfQ9624/jqTzY4y28
+	m4Q430lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4r0t-0000000FiUT-1TzB;
-	Fri, 11 Sep 2026 02:29:15 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1x4qqb-0000000FhOD-0OIH;
+	Fri, 11 Sep 2026 02:18:37 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4r0q-0000000FiSv-0j2S
+	id 1x4qqF-0000000FhI7-1HWV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 02:29:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iKim8kq2UcQv3AdJOy1pzLDJwBHCUlr5VmBNQA75egI=;
-	b=2Hvm0k0+Seq9+L+MbnBhx642OnRFM63sm2eTVymTB7e/pZzRepOVZG26wJySjv/IjxeLvj40j
-	/espzGvsEWLeTqr0HEsiaYsuJmhg0Ygl1G5YVgZXF2Y8KhLV5AUApbHVpXWg8MGL974Y17AdBQo
-	BJ6Qa4A9ZXPkGO6bLqotPog=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hgyr16gfqz1prlJ;
-	Fri, 11 Sep 2026 10:17:53 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id CFE684057A;
-	Fri, 11 Sep 2026 10:28:50 +0800 (CST)
-Received: from [10.174.178.9] (10.174.178.9) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 11 Sep
- 2026 10:28:49 +0800
-Message-ID: <5cb48654-8d77-4525-9854-5823934ae0e8@huawei.com>
-Date: Fri, 11 Sep 2026 10:28:49 +0800
+	Fri, 11 Sep 2026 02:18:24 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260911021802epoutp02b8b692d0029140f2326a4a9b639df640~UIq4IAZrr0125601256epoutp02U
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 02:18:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260911021802epoutp02b8b692d0029140f2326a4a9b639df640~UIq4IAZrr0125601256epoutp02U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789093082;
+	bh=zg3eP0xfFnnvxihTFudnitZKRaskOF78/ArFi6db/og=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=BrKgkGhy6/j2Zb4biwrc0YYPjqgOZMdq6fxRHqnXLzW/VWbyNTaYWfrrR2WY0VjDc
+	 fqZFH8ikdmUm2ocpieq2m5xYyjqhWSD29ZRAodeq3g1tjAEQZlcSOIovZMu5OCj5yt
+	 JozgOvStftJRumKZvbuL3eqPdk6b6Hjkj48TKvrk=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260911021802epcas5p1934405434cae972b5397d63c8a600c57~UIq38BlJh1486114861epcas5p1e;
+	Fri, 11 Sep 2026 02:18:02 +0000 (GMT)
+Received: from epcpadp2new (unknown [182.195.40.142]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4hgyrB4MHRz6B9mJ; Fri, 11 Sep
+	2026 02:18:02 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260910145211epcas5p29abffd4523c683de3ac96c5e4a256097~T-UDI2d8c1658516585epcas5p2e;
+	Thu, 10 Sep 2026 14:52:11 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260910145210epsmtip27121fb27835bf4e781e8446a54a80db1~T-UBsyo711915319153epsmtip2E;
+	Thu, 10 Sep 2026 14:52:10 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzysztof.kozlowski@oss.qualcomm.com>,
+	<linux-fsd@tesla.com>, "'Krzysztof	Kozlowski'" <krzk@kernel.org>, "'Peter
+ Griffin'" <peter.griffin@linaro.org>, "'Rob	Herring'" <robh@kernel.org>,
+	"'Conor Dooley'" <conor+dt@kernel.org>
+Cc: <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <20260909-dts-samsung-cleanup-strict-v1-2-1b755a446b22@oss.qualcomm.com>
+Subject: RE: [PATCH 2/5] arm64: dts: fsd: evb: Correct node order
+Date: Thu, 10 Sep 2026 20:22:08 +0530
+Message-ID: <1860250540.01789093082598.JavaMail.epsvc@epcpadp2new>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] mm: define generic pudp_invalidate() implementation
-To: "David Hildenbrand (Arm)" <david@kernel.org>, <akpm@linux-foundation.org>,
-	<ljs@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mark.rutland@arm.com>, <ryan.roberts@arm.com>, <peterx@redhat.com>,
-	<dave.jiang@intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mm@kvack.org>
-CC: <wangkefeng.wang@huawei.com>, <sunnanyong@huawei.com>
-References: <20260909090018.1991485-1-tujinjiang@huawei.com>
- <20260909090018.1991485-2-tujinjiang@huawei.com>
- <6fb6b2b8-daae-4707-aa98-c2c447782a44@kernel.org>
-From: Jinjiang Tu <tujinjiang@huawei.com>
-In-Reply-To: <6fb6b2b8-daae-4707-aa98-c2c447782a44@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.9]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQI+vGmeAYQ1M8KGwzLNRALcGC0DngJYshc/Afimduy14mOI0A==
+Content-Language: en-us
+X-CMS-MailID: 20260910145211epcas5p29abffd4523c683de3ac96c5e4a256097
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+X-Hop-Count: 3
+X-CMS-RootMailID: 20260909141817epcas5p3ca45b73a93df14f08e47eb9beee485d6
+References: <20260909-dts-samsung-cleanup-strict-v1-0-1b755a446b22@oss.qualcomm.com>
+	<CGME20260909141817epcas5p3ca45b73a93df14f08e47eb9beee485d6@epcas5p3.samsung.com>
+	<20260909-dts-samsung-cleanup-strict-v1-2-1b755a446b22@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_192912_847419_85BAE6D8 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20260910_191818_288107_49BA2D09 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,185 +98,65 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-在 2026/9/9 18:24, David Hildenbrand (Arm) 写道:
-> On 9/9/26 11:00, Jinjiang Tu wrote:
->> x86 and riscv have identical pudp_invalidate() implementations. Move it to
->> mm/pgtable-generic.c with the __HAVE_ARCH_PUDP_INVALIDATE override guard.
->> PowerPC keeps its own implementation. In the later patch, arm64 will use
->> the generic implementation too.
->>
->> No functional change intended.
->>
->> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
->> ---
->>   arch/powerpc/include/asm/book3s/64/pgtable.h |  1 +
->>   arch/riscv/include/asm/pgtable.h             |  3 ---
->>   arch/riscv/mm/pgtable.c                      |  9 ---------
->>   arch/x86/include/asm/pgtable.h               |  3 ---
->>   arch/x86/mm/pgtable.c                        | 12 ------------
->>   include/linux/pgtable.h                      |  7 +++++++
->>   mm/pgtable-generic.c                         | 14 ++++++++++++++
->>   7 files changed, 22 insertions(+), 27 deletions(-)
->>
->> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
->> index f4db7d7fbd5c..55d33c5537f1 100644
->> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
->> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
->> @@ -1419,6 +1419,7 @@ static inline pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm,
->>   #define __HAVE_ARCH_PMDP_INVALIDATE
->>   extern pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
->>   			     pmd_t *pmdp);
->> +#define __HAVE_ARCH_PUDP_INVALIDATE
->>   extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->>   			     pud_t *pudp);
->>   
->> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->> index 40b1ed4f3ea8..327fa378032b 100644
->> --- a/arch/riscv/include/asm/pgtable.h
->> +++ b/arch/riscv/include/asm/pgtable.h
->> @@ -1159,9 +1159,6 @@ static inline pud_t pud_mkinvalid(pud_t pud)
->>   	return __pud(pud_val(pud) & ~(_PAGE_PRESENT | _PAGE_PROT_NONE));
->>   }
->>   
->> -extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->> -			     pud_t *pudp);
->> -
->>   static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
->>   {
->>   	return pte_pud(pte_modify(pud_pte(pud), newprot));
->> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
->> index 9c4427d0b187..156e385e7db4 100644
->> --- a/arch/riscv/mm/pgtable.c
->> +++ b/arch/riscv/mm/pgtable.c
->> @@ -154,15 +154,6 @@ pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
->>   	return pmd;
->>   }
->>   
->> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->> -		      pud_t *pudp)
->> -{
->> -	VM_WARN_ON_ONCE(!pud_present(*pudp));
->> -	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
->> -
->> -	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
->> -	return old;
->> -}
->>   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>   
->>   pte_t pte_mkwrite(pte_t pte, struct vm_area_struct *vma)
->> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
->> index d5f4917c1edc..97051c02385e 100644
->> --- a/arch/x86/include/asm/pgtable.h
->> +++ b/arch/x86/include/asm/pgtable.h
->> @@ -1387,9 +1387,6 @@ static inline pud_t pudp_establish(struct vm_area_struct *vma,
->>   extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
->>   				unsigned long address, pmd_t *pmdp);
->>   
->> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->> -		      pud_t *pudp);
->> -
->>   /*
->>    * Page table pages are page-aligned.  The lower half of the top
->>    * level is used for userspace and the top half for the kernel.
->> diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
->> index cb03f5a2b243..0945908631dc 100644
->> --- a/arch/x86/mm/pgtable.c
->> +++ b/arch/x86/mm/pgtable.c
->> @@ -519,18 +519,6 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
->>   }
->>   #endif
->>   
->> -#if defined(CONFIG_TRANSPARENT_HUGEPAGE) && \
->> -	defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
->> -pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->> -		     pud_t *pudp)
->> -{
->> -	VM_WARN_ON_ONCE(!pud_present(*pudp));
->> -	pud_t old = pudp_establish(vma, address, pudp, pud_mkinvalid(*pudp));
->> -	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
->> -	return old;
->> -}
->> -#endif
->> -
->>   /**
->>    * reserve_top_address - Reserve a hole in the top of the kernel address space
->>    * @reserve: Size of hole to reserve
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index 8c093c119e5a..32173005b087 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -1318,6 +1318,13 @@ extern pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma,
->>   				unsigned long address, pmd_t *pmdp);
->>   #endif
->>   
->> +#ifndef __HAVE_ARCH_PUDP_INVALIDATE
->> +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
->> +extern pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
->> +			     pud_t *pudp);
-> No "extern" please.
 
-Will update it.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Sent: Wednesday, September 9, 2026 7:48 PM
+> To: Alim Akhtar <alim.akhtar@samsung.com>; linux-fsd@tesla.com;
+> Krzysztof Kozlowski <krzk@kernel.org>; Peter Griffin
+> <peter.griffin@linaro.org>; Rob Herring <robh@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org; linux-samsung-
+> soc@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; Krzysztof Kozlowski
+> <krzysztof.kozlowski@oss.qualcomm.com>
+> Subject: [PATCH 2/5] arm64: dts: fsd: evb: Correct node order
+> 
+> Order nodes by name to fix dt-check-style warning:
+> 
+>   fsd-evb.dts:61: [child-name-order] child node 'codec' out of name order
+> 
+> Signed-off-by: Krzysztof Kozlowski
+> <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
 
->
-> Staring at this file, I do wonder why we are not smarter about combining blocks. E.g., here simply:'
+>  arch/arm64/boot/dts/tesla/fsd-evb.dts | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> index 503abe52a81c..a1f3d3fbbf8b 100644
+> --- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> +++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> @@ -50,6 +50,11 @@ simple-audio-card,dai-link@0 {
+>  			bitclock-master = <&tlv320aic3x>;
+>  			frame-master = <&tlv320aic3x>;
+> 
+> +			codec {
+> +				sound-dai = <&tlv320aic3x>;
+> +				system-clock-frequency = <33000000>;
+> +			};
+> +
+>  			cpu-0 {
+>  				sound-dai = <&i2s_0 0>;
+>  			};
+> @@ -57,11 +62,6 @@ cpu-0 {
+>  			cpu-1 {
+>  				sound-dai = <&i2s_0 1>;
+>  			};
+> -
+> -			codec {
+> -				sound-dai = <&tlv320aic3x>;
+> -				system-clock-frequency = <33000000>;
+> -			};
+>  		};
+>  	};
+>  };
+> 
+> --
+> 2.53.0
 
-Do you mean merging all #ifdef CONFIG_TRANSPARENT_HUGEPAGE blocks? There are many of them scattered
-across include/linux/pgtable.h and arch/arm64/include/asm/pgtable.h. They are intentionally kept
-separate to group the PTE, PMD, and PUD level variants of the same operation together. For example,
-ptep_set_access_flags, pmdp_set_access_flags, and pudp_set_access_flags are placed adjacently.
 
->
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index e3c8ab96941c5..8c9fe3bf580d4 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1229,9 +1229,9 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->   }
->   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->   #endif
-> -#ifndef __HAVE_ARCH_PUDP_SET_WRPROTECT
-> -#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
->   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> +#ifndef __HAVE_ARCH_PUDP_SET_WRPROTECT
->   static inline void pudp_set_wrprotect(struct mm_struct *mm,
->                                        unsigned long address, pud_t *pudp)
->   {
-> @@ -1245,9 +1245,13 @@ static inline void pudp_set_wrprotect(struct mm_struct *mm,
->   {
->          BUILD_BUG();
->   }
-> -#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> -#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
->   #endif
-> +#ifndef __HAVE_ARCH_PUDP_INVALIDATE
-> +pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
-> +               pud_t *pudp);
-> +#endif
-> +#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
-> +#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->
->> +#endif
->> +#endif
->> +
->>   #ifndef __HAVE_ARCH_PTE_SAME
->>   static inline int pte_same(pte_t pte_a, pte_t pte_b)
->>   {
->> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
->> index b91b1a98029c..ac1175d9a59a 100644
->> --- a/mm/pgtable-generic.c
->> +++ b/mm/pgtable-generic.c
->> @@ -217,6 +217,20 @@ pmd_t pmdp_invalidate_ad(struct vm_area_struct *vma, unsigned long address,
->>   }
->>   #endif
->>   
->> +#ifndef __HAVE_ARCH_PUDP_INVALIDATE
->> +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> I'd revert these and similarly see if they can be combined somehow (likely combining with
-> pudp_huge_clear_flush is harder as we are quite inconsistent with it, gluing it to
-> __HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH).
->
-> Which raises the question whether we could also piggy-back on __HAVE_ARCH_PMDP_SET_WRPROTECT
-> (I suspect no without a closer look.)
->
+
 
