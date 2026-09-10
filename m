@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619FEC88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 05:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF01C79FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 05:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyHAMGObrZ2W+LqPoNz/UDlskVqAfuHrAD8Veert9AY=; b=pulbfnb+/Rk36oOtu2GLv8ZxS4
-	zIRx7cD2YtTslsmTVMWuStsKOi8U3ZeOWgQTTNygV1h2CIVPeYpCKE4JKPWUrpHNJGjrHrxWW+P98
-	J3GSf7msuxbmHVaqPKOpFhiYsYGXde1fIOCFa1rFsu36xn7KAuSk/bvuRjJ5U3ldRbulE1MAA7Gsh
-	SW5c+NrqO/Q299vO83HmdRn/s7T+8WdtJL7BU2F1Ca4ceFpa+z5QQazz5lJRCDnSkaY4K8UVMqYN5
-	uS89uyTPr7Nc+tIwD08U+fvmiMk9s6rNe3Z/ojE5SDdg66lh3OsSjax/OlzCZsC6bQfltLoHyH9Mf
-	hZoWGw5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PEC6nt3vrsRKDroa5BH8c3PyJBsiu7afAiaLn+a4ork=; b=qEfuVVX0mqiiR2KR6wvxLBbof4
+	l5Pa25wDhGJh8SJGvTJq3efwAnLaPUsWP5uJOcNjZIHu7l90K6QDz0cVseirgMWestaB58ia0wiJg
+	G8/Wfk4hPYQbhXBzR9l9daGGbot+Y25Zbud4HhJdoptumrn6AfEbjtZT46jC2Flec6ydt/BUab0Hf
+	uXao1zcYX180KI1/zIrFy1izZkK1MaDT+5eaDuMDHa8Aki6bsG3A4PfDWaXRLCzKZuW/RlFTXXdkC
+	fpcu3I95yjBrx74phEz0lK9cqGy7+1aou3s1ERndwyqHlNZTWL3Ocb3SOirofKWdoVNTSf5iCsBM9
+	h9A5/dIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4XGT-0000000DQqL-360x;
-	Thu, 10 Sep 2026 05:24:01 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1x4XH2-0000000DQvy-3dev;
+	Thu, 10 Sep 2026 05:24:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4XGP-0000000DQpB-0ouy
+	id 1x4XH1-0000000DQvc-1MzT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 05:23:58 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFC5C102E36;
-	Thu, 10 Sep 2026 07:23:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1789017831; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RyHAMGObrZ2W+LqPoNz/UDlskVqAfuHrAD8Veert9AY=;
-	b=P8jnnJ96+KUgJHiHbucVSZVx4CKShWIKHcpwRPIs9Y64mupOm7IGll/Qsz73qQEujH8mu3
-	crGhzHcJPPQHW5CHVHELrbJjygYERhQKyzHjMzLXlKtNJf1fQqVksJkN7OQHXDrwyZl/q2
-	Gz96t9AQGaIaMGs2R8ZnjHTAKl73QV95DaYDlromICoGpmioUkPdsZc60e+PChn+3Pydn+
-	liaNbiWl5bPKQjufTEQNpxS9tH6XNA+i3gq92KtBvbDtlSu2mdIR+OB5FPoaQcBClJJONs
-	9nWBhLrCvcuYsb21hru+zMydR2lfHKwDQ309kS12WcrbqlcRqCfnmEVzdG8nyA==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-usb@vger.kernel.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	kernel@dh-electronics.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v5 2/2] usb: dwc3: dwc3-generic-plat: Add ST STM32MP2 DWC3 xHCI USB controller glue
-Date: Thu, 10 Sep 2026 07:22:41 +0200
-Message-ID: <20260910052340.246717-2-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260910052340.246717-1-marex@nabladev.com>
-References: <20260910052340.246717-1-marex@nabladev.com>
-MIME-Version: 1.0
+	Thu, 10 Sep 2026 05:24:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 795A2600CB;
+	Thu, 10 Sep 2026 05:24:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9847F1F00893;
+	Thu, 10 Sep 2026 05:24:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789017874;
+	bh=PEC6nt3vrsRKDroa5BH8c3PyJBsiu7afAiaLn+a4ork=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=OywiKZtQhA1ucXk0nlPEYGcui0A5w6vks8qaYrmsZQDyqHnDgn1rvD0ivb9bdqKWi
+	 aimNMcgjsw6UDGABHBI8BaoOwyfbqdUbEYqV+fu05QV7IIPHKtgNXP7t7hxYtXiob+
+	 Ep2OKXtULqUdGtVViITSffLDXKZcQ/wNAhSgZCUQuUlGsPCFVgRCuPY6y4oymp0DJC
+	 nBUjAcljHtzQqUN0hcuWiLgrvZmUJq8Xp8bqZPYJUTGUKQHJn3dJyWHvdd6uLKcsVp
+	 mkQYhlM7YMf15126ZskGT8aiKSE/Bb/y2EQWBKMHksY4JlbD3kmV42G0GGKdJxmurH
+	 xeu0SSW/Noyug==
+Subject: Re: [PATCH net-next v6 3/3] net: xilinx: axienet: Fix IRQ error handling
+From: netdev-bot+sashiko@kernel.org
+To: phucduc.bui@gmail.com
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ horms@kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 10 Sep 2026 05:24:33 +0000
+Message-ID: <178901787314.219967.14642070814356568514@kernel.org>
+In-Reply-To: <20260909045450.16176-4-phucduc.bui@gmail.com>
+References: <20260909045450.16176-4-phucduc.bui@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_222357_549774_81B18F76 
-X-CRM114-Status: GOOD (  15.83  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,126 +71,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ST STM32MP2 SoC contains one instance of DWC3 USB controller with
-glue logic wrapper around it controlled by syscon. Extend the generic
-DWC3 platform driver with ST STM32MP2 glue logic specifics.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Marek Vasut <marex@nabladev.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: devicetree@vger.kernel.org
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-usb@vger.kernel.org
----
-V2: No change
-V3: - Use generic over-current-active-low
-V4: - Include bitfield.h
-    - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
-      https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
-V5: - Reorder usb2only_conf to improve readability
-    - Drop superfluous !!
-    - Add AB from Thinh
----
- drivers/usb/dwc3/dwc3-generic-plat.c | 46 ++++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+Critical: 0 · High: 0 · Medium: 1 (2) · Low: 0
 
-diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-index ca69ac0eb07ce..2dce1f24615c8 100644
---- a/drivers/usb/dwc3/dwc3-generic-plat.c
-+++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-@@ -7,6 +7,7 @@
-  * Inspired by dwc3-qcom.c and dwc3-of-simple.c
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
-@@ -22,6 +23,12 @@
- #define EIC7700_HSP_AXI_LP_XM_CSYSREQ	BIT(0)
- #define EIC7700_HSP_AXI_LP_XS_CSYSREQ	BIT(16)
- 
-+#define STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT	BIT(0)
-+#define STM32MP2_USB3DRCR_OVRCUR_POLARITY			BIT(1)
-+#define STM32MP2_USB3DRCR_VBUSEN_POLARITY			BIT(2)
-+#define STM32MP2_USB3DRCR_USB2ONLYH				BIT(3)
-+#define STM32MP2_USB3DRCR_USB2ONLYD				BIT(4)
-+
- struct dwc3_generic {
- 	struct device		*dev;
- 	struct dwc3		dwc;
-@@ -85,6 +92,39 @@ static int dwc3_spacemit_k1_init(struct dwc3_generic *dwc3g)
- 	return 0;
- }
- 
-+static int dwc3_stm32mp25_init(struct dwc3_generic *dwc3g)
-+{
-+	struct device *dev = dwc3g->dev;
-+	bool ovrcur_polarity_low = device_property_read_bool(dev, "over-current-active-low");
-+	bool prt_pwr_ctrl = device_property_read_bool(dev, "st,enable-port-power-control");
-+	bool vbusen_polarity_low = device_property_read_bool(dev, "st,vbusen-active-low");
-+	bool usb2only_conf = false;
-+	struct regmap *regmap;
-+	u32 drcr;
-+
-+	if (device_property_match_string(dev, "phy-names", "usb3-phy") < 0)
-+		usb2only_conf = true;
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg", 1, &drcr);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap), "No st,syscfg phandle specified\n");
-+
-+	return regmap_update_bits(regmap, drcr,
-+				  STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT |
-+				  STM32MP2_USB3DRCR_OVRCUR_POLARITY |
-+				  STM32MP2_USB3DRCR_VBUSEN_POLARITY |
-+				  STM32MP2_USB3DRCR_USB2ONLYD |
-+				  STM32MP2_USB3DRCR_USB2ONLYH,
-+				  FIELD_PREP(STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT,
-+					     prt_pwr_ctrl) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_OVRCUR_POLARITY,
-+					     ovrcur_polarity_low) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_VBUSEN_POLARITY,
-+					     vbusen_polarity_low) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYD, usb2only_conf) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYH, usb2only_conf));
-+}
-+
- static int dwc3_generic_probe(struct platform_device *pdev)
- {
- 	const struct dwc3_generic_config *plat_config;
-@@ -231,12 +271,18 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
- 	.properties = DWC3_DEFAULT_PROPERTIES,
- };
- 
-+static const struct dwc3_generic_config stm32mp25_dwc3 =  {
-+	.init = dwc3_stm32mp25_init,
-+	.properties = DWC3_DEFAULT_PROPERTIES,
-+};
-+
- static const struct of_device_id dwc3_generic_of_match[] = {
- 	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
- 	{ .compatible = "spacemit,k3-dwc3", },
- 	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
- 	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
- 	{ .compatible = "starfive,jhb100-dwc3", },
-+	{ .compatible = "st,stm32mp25-dwc3", &stm32mp25_dwc3 },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
+- [Medium] Understated impact / missing Fixes: tag.
+
+Pre-existing issues:
+- [Medium] DT binding and driver disagree on the ethernet-node
+  `interrupts` list.
+- [Medium] IRQ mapping leaked on probe error paths.
+
+--
+
+net: xilinx: axienet: Fix IRQ error handling
+
+The probe path in axienet_probe() gets its DMA interrupts either from
+irq_of_parse_and_map(), which returns 0 on failure, or from
+platform_get_irq(), which returns a negative errno. The patch splits the
+old combined "<= 0" test so that a zero mapping returns -EINVAL and a
+negative platform_get_irq() result is propagated unchanged.
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 3927ababf833..782f903d318f 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -2971,10 +2971,14 @@ static int axienet_probe(struct platform_device *pdev)
+>  			dev_err(&pdev->dev, "could not map DMA regs\n");
+>  			return PTR_ERR(lp->dma_regs);
+>  		}
+> -		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
+> +		if (!lp->rx_irq || !lp->tx_irq) {
+>  			dev_err(&pdev->dev, "could not determine irqs\n");
+> -			return -ENOMEM;
+> +			return -EINVAL;
+>  		}
+> +		if (lp->rx_irq < 0)
+> +			return lp->rx_irq;
+> +		if (lp->tx_irq < 0)
+> +			return lp->tx_irq;
+
+[Severity: Medium]
+Is the commit message understating what these two new checks change?
+
+In the branch without "axistream-connected", the interrupts come from:
+
+	lp->rx_irq = platform_get_irq(pdev, 1);
+	lp->tx_irq = platform_get_irq(pdev, 0);
+
+and platform_get_irq() -> platform_get_irq_optional() -> __platform_get_irq()
+-> of_irq_get() returns -EPROBE_DEFER when irq_find_host() finds no domain
+for the parsed interrupt parent. The code being removed turned that into
+-ENOMEM:
+
+	if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
+		dev_err(&pdev->dev, "could not determine irqs\n");
+		return -ENOMEM;
+	}
+
+The driver core does not retry probing on -ENOMEM, so an axienet instance
+whose interrupt controller is registered after the ethernet device never
+appears at all. With the new "lp->rx_irq < 0" / "lp->tx_irq < 0" returns,
+the deferred probe request reaches the driver core again.
+
+The commit message describes this only as "propagate the original error code
+returned by platform_get_irq() instead of returning -ENOMEM", and the
+changelog says "Drop the Fixes: tag as this patch is intended for net-next".
+Could the message mention the restored deferred probe behaviour, and would a
+Fixes: tag be appropriate given that behaviour change?
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but the block being reworked here
+enforces an interrupt ordering that disagrees with the binding.
+
+Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml documents:
+
+  interrupts:
+    items:
+      - description: Ethernet core interrupt
+      - description: Tx DMA interrupt
+      - description: Rx DMA interrupt
+    ...
+    minItems: 1
+
+while the no-"axistream-connected" branch of axienet_probe() reads:
+
+	lp->rx_irq = platform_get_irq(pdev, 1);
+	lp->tx_irq = platform_get_irq(pdev, 0);
+	lp->eth_irq = platform_get_irq_optional(pdev, 2);
+
+that is, index 0 as Tx DMA, index 1 as Rx DMA and index 2 as the Ethernet
+core interrupt.
+
+For a device tree written to the documented order, does this put the Ethernet
+core interrupt into tx_irq and the Tx DMA interrupt into rx_irq while probe
+still succeeds? And does a binding-legal single-entry interrupts list get
+rejected by exactly this block, now with -EINVAL or a propagated
+platform_get_irq() error?
+
+Which of the two is correct, the binding or the driver?
+
+>  		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
+>  			return lp->eth_irq;
+>  
+
+[Severity: Medium]
+This is a pre-existing issue, but does this error path leak the virq mapping
+created by irq_of_parse_and_map()?
+
+The "axistream-connected" branch does:
+
+	lp->rx_irq = irq_of_parse_and_map(np, 1);
+	lp->tx_irq = irq_of_parse_and_map(np, 0);
+
+and irq_dispose_mapping() does not appear anywhere in
+drivers/net/ethernet/xilinx/xilinx_axienet_main.c, including in
+axienet_remove().
+
+So if rx_irq maps successfully and tx_irq comes back as 0, the new
+
+	if (!lp->rx_irq || !lp->tx_irq) {
+		dev_err(&pdev->dev, "could not determine irqs\n");
+		return -EINVAL;
+	}
+
+returns with the rx_irq mapping still in place. The same applies to the later
+returns in this branch, for example the platform_get_irq_optional() error, the
+__axienet_device_reset() failure and dma_set_mask_and_coherent(). The old
+-ENOMEM return had the same problem, so this isn't a new leak, but should the
+mapping be disposed on these paths?
+
+[ ... ]
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909045450.16176-1-phucduc.bui%40gmail.com
 
