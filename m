@@ -4,88 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22032C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB183C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Sep 2026 15:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=; b=Xu8/e1KrT3Z0ii0xmLLB8W7hp4
-	d5O2BiT9ar2JxG7ZZ2faP3WCmDva9Cz2N5PM6rVG0E63gbL+DMTaB8Fg0Q/2sT+rNS8+E7IUm9MOU
-	d4lT/XBuoFQqgrbjXw941LhIXUORdyRZRDHMr20Eap6/jY78D7k22VjDqqJ9foyeh9ZxDl7Xn+ZBt
-	ViBAeJbblMEro/KVPOtsB8E+uyjufzlcCmSN90Z70rSVGxVZK/oKEJzGjabK471nT9gHzMMvO22jN
-	9q6dbR+lq4HtmpuGBujNZjYjpJMGXdGi47M7Kx88OpcYyD350V23TRDMgr4+EpYZEDUzlZ+7YmUuc
-	2p95GKNw==;
+	bh=pcb1ZJPlkLh4Tmi4KNptmKo5xUJAe6uMusZREhHzBMU=; b=EPxjH7RUjhNWwTHUV34P3/Zqis
+	5I+XT1gRWbWdcNx2GblLZjZW5sCo5SsI01LNk1Xo3995oRl1lFcTU5+TNaV/wVGZh6oT5fr3BpnrU
+	URmC8r26u7ASiR5Afkt00oZwJgEHE5LjxNH5KtVL6Jg+VWGOTXZV5Ni0Fn0RMSS5A7COyFQjgwSgB
+	lY/qbpDXkspkZ7/4F+aqlj0timGDwlpWTJzD708M5kTwH66i9sYUIi/v6EvaRFQ+AO0r9s4NiBGrp
+	N/bDXW8SYfuZNlaqxL4CLReIRVPdKQu8hbdif9Bn+DcBc7yw+VsHoSp2+mk3BeA3uoQv9OR0UHCYp
+	hYXsdawA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4goh-0000000EoDx-2bcC;
-	Thu, 10 Sep 2026 15:35:59 +0000
-Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+	id 1x4gqE-0000000EoWl-3rqW;
+	Thu, 10 Sep 2026 15:37:34 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4goe-0000000EoCS-3bTh
+	id 1x4gqB-0000000EoVe-2KD1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Sep 2026 15:35:58 +0000
-Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-38f57e31b6eso4367426a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 08:35:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789054555; x=1789659355; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=;
-        b=i4067qxb3NGzOipqPmKN6x37anplWN2BA8DjmfZA7QVlKx9Xv/2K2bVDahYktTgdu2
-         d1tLhzqRMFd880+Y6KZikHj6s8FQvKN1hBFD/1715lYp1os7w30QdF+YfsdK3BqUUNG/
-         CytG/w/u8Nb31c7Js32jXwKRjmJIQiAyQuJVOb/TbY6uHd7Xe6eIvDx80qKboFnQKxVh
-         ZrtBwb03xmFQGI3HOENR+8m/AoZnxyGBcfqGeFrakkjLXjkFK7xqVtXF8cNI6FSKciKV
-         YJ4ivfu99A8EBv6S6VVOSlUxKz9q8tCAQ0tRa0dDuOLL/EWfRIj/+Z0eMih++BLpeUPi
-         ZdJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789054555; x=1789659355;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2+MOwVd/hSplAvFbBk52yvKLS3w7cDWTRO3ieRL0csc=;
-        b=paMRaw7QwcSiYVITqlEkDDQdiNvMbmxuIxHHB5WleHt3mK3BoVgVRxE+9zBMurPOYG
-         jGU+0zDOPoLhskVDj7C94H993fX5EvUmIezhAWkDAwKHQt091p+PBZOsHpbe1ZIxhi1c
-         e6OQ8auwSVAm2f8vyvPA9KnvBhskV8XGnTf5eedCf7f1msHDA/LIT6Jkwlu8SlLiI+en
-         MSlqB5iue1cbzYjdrgxv9vB2GAUB4LjiZsWxEYlQqExEZRfuasF+/Dsx1uvXoHhojkML
-         BBikofIJhSKtS6jvMy6MyIJJYtBzPYxyynYN59WdgzOypePeOYiOiQDFnfdbVfH/OXrh
-         SHXQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw6nQrfu6mFXMTwq2XES8biPCOwVnRxudpNrDq+JZvUqpVnc+RaQuaQXh9jjRi1dw/KC4NehhqDhtCLZp1525jS@lists.infradead.org
-X-Gm-Message-State: AFuF++mPwrhv41M8cmC2lTyWfTZp69uumTXr8w1ZO40BySRy+t4ehFI4
-	OqTy9aHs1AMpAincKJKzmMqiCFrScJWV1oEcT9yidH019r+ioLDqbdS5dOGhNJVLNkyBkAC4M+/
-	piPXZsw==
-X-Received: from pjbdt17.prod.google.com ([2002:a17:90a:fa51:b0:39d:8f18:feb5])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:6081:b0:39b:51cc:4586
- with SMTP id 98e67ed59e1d1-39b51cc65admr27199424a91.19.1789054554982; Thu, 10
- Sep 2026 08:35:54 -0700 (PDT)
-Date: Thu, 10 Sep 2026 08:35:54 -0700
-In-Reply-To: <20260910143448.GD3968357@nvidia.com>
-Mime-Version: 1.0
-References: <20260903023452.721732-1-loganodell@google.com>
- <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com>
- <20260905012403.GX4157646@nvidia.com> <aqIAtOoew-_6jw29@google.com> <20260910143448.GD3968357@nvidia.com>
-Message-ID: <aqLOWkuVKccR-I7W@google.com>
-Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
- memfd ABI compatibility
-From: Sean Christopherson <seanjc@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>, arnd@arndb.de, 
-	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org, 
-	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com, 
-	maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org, 
-	kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com, 
-	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-pci@vger.kernel.org, iommu@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
+	Thu, 10 Sep 2026 15:37:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789054652; x=1820590652;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=gpOGmEPAX4YNoysN85xbfdgBajbYKH4PNwmZKCEmFFc=;
+  b=NjCr738Fcz2Ipp9xuLw/25DY8r+j78c8PkCrfyzDyd1NnT/dGvIFAmwc
+   nwJt7SoWWRtpb/ozoxWIElOlw90tOkV+AsNYTcRWxbgiBlB/HGXglnfDv
+   HN2WYo5NV99+XdjUHbPI2Y5CbsqijRvSf0+ZllHanDYb7qm0K5D85o6bF
+   sFt4Q6QhlAo6qNVt9G80wILmKaUlLnWEqizuYbi8Ao//O4xnbGnrStrQJ
+   Rcfnj9jy9ZUHe55j+Vs31rBPiZExXEF1LJNHTJBYeYHI5t2KWRwoLKplI
+   IijERgUwZim5ITI6IYEsIiR2oRXjv+AxLPinHCfLuyABhwybdgeFDZ6zg
+   A==;
+X-CSE-ConnectionGUID: SRKWjQFHTO+pYc2exttG+g==
+X-CSE-MsgGUID: ry+CnEGCTwKChrcE9KwWhg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="89380826"
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="89380826"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:37:30 -0700
+X-CSE-ConnectionGUID: KFtfgJ6QSzKXxYKXerRfhg==
+X-CSE-MsgGUID: ZY2lwlIrQymGbB20jneQuQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,95,1787036400"; 
+   d="scan'208";a="23302"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa012.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2026 08:37:28 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 10 Sep 2026 08:37:27 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Thu, 10 Sep 2026 08:37:27 -0700
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.43) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 10 Sep 2026 08:37:27 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yQTHMHKPK4XL8c6nA9dJ+xGQ04IL7zRpis/r9RnNyAokN3TVkcRSz4N+HQHpiyh432BKvPkGp9EPTstpns9PB6J0IzrUUJgJgNClMdz9Yr5Jre9MDe6eUuJwzYVMb6w2Q93Eay8nUb/MzYHah/e0RsmNfCo+wiM1ci8znCxy/16M4+Brzq3lPctBDKmTAEcwwi+l+k+1E3Vgl10yVmzmj7ytz9wm1/mXMHwKc0hq7rWW2/jMqy9rMVZ7XKqHrsxfDh7f5rrUprtOByZV3Y8mdVW4Ut/FYnZQoVHrST9xKygleLrFDHKuHkJBmrNtx5CWBQA5/4fpdjIHE+S9gTOJFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pcb1ZJPlkLh4Tmi4KNptmKo5xUJAe6uMusZREhHzBMU=;
+ b=xt5Qt73vI4ol0aboIJigkEIIaP7U9veUsI1LEx0nvEbA3zD5z6qT3T0ZKLSP8T+BtCA2qAJ9obL3EPjMfMA0JHLbNE/HHOfadz5CmTVYMqiFmqW9MZFnSVoqe9HuPi3ae4DesELmnv7K/gk2dz71NtdSiCjT3DVaLCstxN7sn7DbPqnZAQ5LSaAwoVOp0LRbx/Z8YaIemoP2VxAM87gIWpRTAeYMYXWoguthbF0OFiZfXchB95CusOCSrnNQCX4NmEcHs2MTaRItgC2HEBZBz7/xKIOXaEcUKMGVTJzqb61Gjs/m+LeuHcBzHubujJnJkV7zs8ZkCIZlM6wIk0kjXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA0PR11MB8379.namprd11.prod.outlook.com (2603:10b6:208:488::20)
+ by DS0PR11MB7481.namprd11.prod.outlook.com (2603:10b6:8:14b::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Thu, 10 Sep
+ 2026 15:37:25 +0000
+Received: from IA0PR11MB8379.namprd11.prod.outlook.com
+ ([fe80::549f:e4b3:e10d:aaa6]) by IA0PR11MB8379.namprd11.prod.outlook.com
+ ([fe80::549f:e4b3:e10d:aaa6%6]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 15:37:25 +0000
+Message-ID: <26e294a0-76a6-4ec0-9df8-021a76bf8ed9@intel.com>
+Date: Thu, 10 Sep 2026 08:37:22 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
+	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>
+CC: <tony.luck@intel.com>, <babu.moger@amd.com>, <yu.c.chen@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+ <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+ <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+ <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
+ <a3cf9362-007d-4c6c-8f6f-1c9b8b41b1b9@intel.com>
+ <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0211.namprd03.prod.outlook.com
+ (2603:10b6:303:b9::6) To IA0PR11MB8379.namprd11.prod.outlook.com
+ (2603:10b6:208:488::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR11MB8379:EE_|DS0PR11MB7481:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62f895af-99e7-4df8-cc69-08df0f5169cf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|3023799007|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: fbSfXdF3YD9/lLSP21Nha2BjNqC8gGeS9e5sDpgZ/FW48hEfpsJM17DHjU/YF1UEUr0t4yk4OLNWMtqCZFFfKM5iNtloszxulfaeQ1Fx9ihpR1WBonNoFwPtDML2knoulmU8jCDmzlfS5jaXo77BjoqU2OOuo6Dxc7BUiPvdUPPqYFbH3PKKtFXS37EOdfpPixLcBOOicvjAcQT0yezFYMxEH6vkEs+Enwvv3Hfov+VXxFz+0Dwe9jxYS7Tt4V9IN6oGicL+GC+K6Y+LieEIUqr9RSGUG8NXJaFNuhBuHzHux+sbs7dWfW5dhGWRYilRZguew5ft0dWkzYcV+W4aAf6fBmknDmaGnMnt2SFYo3GxYl3Lo2LXC+pyWa75yrMt6mMZhILsS0BLHZfGq/+g1Cu/oec87CTTN1h50I4yGukQ8aMSX6QGjnQhsmxiVReopVLxv6EYhH58Mb3gN1BvKlPiYTRQNCnYMWgHoiPBBHad/gGh7s/1Yv1yTtaLAgGCs0vsqwYox3QlgQuP060OlFgeRjwUV0MIVQuN4ViBjuWlE+pOH051HuZ/TXWBDcvvWaKD8c08D+qohPAi4aPZuWxBNBg+jqke1Y1B9nYT1E/pLprf9wez0uVp+F2JvzatcBKIJFcE0hVFwy1iw5+ekkep7zn4owlw+av3kRZNu3I=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR11MB8379.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eXVEZ1RDaHFsMmVMcGVUOG44S1V1Y0orUlFaRlVKTGZpeVJLQWx3SjU4ZVZq?=
+ =?utf-8?B?MnFuQTkxcEIwYWFCM3Y4ZFdnVUovY2xmQVlFSXdrTFR5QVVNdzdUR2svdkZB?=
+ =?utf-8?B?NUdNcWlCU2hjWWZ0T0Rvd2NvajFUc0oybTNxZ04vR3hTMHZ1Vk4zVElMMGdR?=
+ =?utf-8?B?dDN4a3FKejhqcDFsbWN4VjZQTmdlckVscGlEeENJcHU5NnlkN055OXY5RGV6?=
+ =?utf-8?B?K3Q4ck9OTm1mSXBBWTRFRUQrVGc0dVVGQk1mdmJpb2JLZWFTeEpvdEtvaGd3?=
+ =?utf-8?B?QmRLOUN1dXdaUlluUCtwbUpuUTNlZU1NNkZ4SnRvVVhEYXgzamUvNElJRDZE?=
+ =?utf-8?B?OEJINGgxajZjd3VSbVlSUXpWTDFVemdHYU5kYmx1ZFJWaWh1anlraVhBdXlK?=
+ =?utf-8?B?Y0lvK0kvRHphRjFXSXdSaDI5TGdRc0JSRWtzWVh1WElVOFdTVDB4a09mV1BK?=
+ =?utf-8?B?QnFBQ3UxcTE3b2o4NU91Mlp2YW9wM2lNeDI0aHJJajFYVk05WWVhQjc0K0tN?=
+ =?utf-8?B?Q1I1YjlBRVdPVExrU0RqYXNiNGNORXBnRm5VaDlObVZSRTI2OFhzS1BiZkVV?=
+ =?utf-8?B?eHd3azY1WGFBbUJ0TUhDejl0YUc4dGpWRCs2bVNnVHpMM1BMdG84YmIvc1VY?=
+ =?utf-8?B?ZDQzWDQrTzN4bStzWmNLN1hUcnVCRVJIZzVhVDF2Nmc4V0dtbDh4ckdJMjRw?=
+ =?utf-8?B?QkJleVBOaXZZM0xoR0ZCeURKWEgvZlNlS1BuampjRzFZaVdGbmpUb0ZGRnhJ?=
+ =?utf-8?B?QkZKOW5uL0I4UGc3ZkU0NEdpWGtMSklxNXR3OUdYZ1UxZmxRblY2aWx1WFFu?=
+ =?utf-8?B?VnJyK0MvaEZxRDY2MmppNUdlY3p1OXk1Y1FwU2VRc3lOSG9DK3YzQTF5TGYz?=
+ =?utf-8?B?aXVBL3dkOXNxYXMvWkN5eCtZR2VxeHFRbWdpYStZd0pVZkVEYnFJRi9IN085?=
+ =?utf-8?B?QXorNDVteDMwNkJLZlZ1dlNvay9EcC9WcnAxTGZhdkVqSjh1ZnhwYkJ2cGxK?=
+ =?utf-8?B?b0ZLcjJleEJ4QzE3Q2RPR2dpaTRjaGExZ3lYSWNBVHFseGl4SldJTEhET0M1?=
+ =?utf-8?B?WG5ObVVWQTBaNXlhenNDalJBMzBEUU5NRWRaNUtFay9ONjlkYUtwemtwZmVV?=
+ =?utf-8?B?Y2dSUnB1a3dHTTRlUmltUGx0L3RMZ1hGSkJKS2I2ZFVDcWc3L2NUN0JnRnBL?=
+ =?utf-8?B?Zm9tZjRCSHpkVm8wR05ROVVQZnA5cTE5WTZwSXFITkpHZmplOFpXa21xNTNM?=
+ =?utf-8?B?Q1l6emp2ZTV5bUowRWQvRDE4QzFoRDAwS0hGMzVCSmEwQ3ZlU1p6TWd6bUxD?=
+ =?utf-8?B?bFJTVnJ6ZXcvR3RBeGdQdmU4UW9vdnJIOEUrMUNmYS9nOUpKOWxDZDZrbStY?=
+ =?utf-8?B?TXFxTDRMYW91empvNlk3KzRiRENQaU9VWE90RVVzdEtVL0U2aW42YXlvT25o?=
+ =?utf-8?B?dkcwTEFlN0NhMlBwS3E0aStNUUhIWWZIUEc1OTZyMU42TFZPZTl5bkpNYm5r?=
+ =?utf-8?B?eVhtRUMyMEY4aUtFY0RuNmRGOFk3VGQzOHorMzNjRi9Vcll3VUg0Q2RicnVx?=
+ =?utf-8?B?QzBNb0FuVE1hUVBVeW5mN2hlQnRrcE9DWnJzOTlWYUVNNFR5RExFb01DUjFh?=
+ =?utf-8?B?MzVxaWIzUDBtK2RmVVhReUR1MUNWVENFR2pacDJYWDJKRHQ2bWlVTzdCUkYv?=
+ =?utf-8?B?RXVTYkRKZ2wzL0lwdk9oQTM3WDUyNkpkcE1GRlQxa1RFdS9kaG14NG1uQlNI?=
+ =?utf-8?B?d0lvejVzbEVsRUJ1L1AvK1k4SmxUTnV0M1lCeThsZXJtakl2Mng3TzRPSUU5?=
+ =?utf-8?B?YlFiRWt4d2VkWnZGVEdTMkRXcTNMUzZ1RVhCd1ZhQnZBUVg4NnVmN1U3bFhG?=
+ =?utf-8?B?bVRKdTVlay9hWEVadmEwcS9PWHUrMS9DejY3R09GcDFOc29ySmI1WnVPSE5j?=
+ =?utf-8?B?My9vNWkvTkNHMWRHaytVbS9VWDJ5SG5zZ0dKL2c5MmR3RHpHeFpTc01TMzA0?=
+ =?utf-8?B?NUQ2RzBhMVJoZ3FwblNNVVNFQmpTbHk5S213ZHo5NXA4czRwdmNKUnRaNjJ5?=
+ =?utf-8?B?T1FhcVdXRmhKdDFQR2NhT1g1YVlCblBVejIzdDhxTlJyOXlBc2hMSDRtQmVS?=
+ =?utf-8?B?OVVVRlNmVjltUmR6R2VtZHM5STBsQTZKcnAybWxwQTNkUk4vc0VyNVNjNU9C?=
+ =?utf-8?B?M0NFcTdEUzRlVW5kV1dqcGVZeHRMYzkzUFJDcEdGUVlmdkhOdkg1OWRVL0Fu?=
+ =?utf-8?B?b29Kb2tWTHVlUUU4UytGVVZFcnJlMk82dUlsMTFRVlNQVzcxZVdtVzBoOHM0?=
+ =?utf-8?B?WXQ3NWRGK0ozOGl0d0xBUkgwZmIyNDJzdzhXYUZBT052bUpPNHdVQXUyTmVz?=
+ =?utf-8?Q?pbVmhOwONUxr5v8k=3D?=
+X-Exchange-RoutingPolicyChecked: Tfgz8ckbk17DuJYwu3S1l0LkDIfou20ysca+E94BtoXYz4JNINw1xZnz8Vwrdcl45KCxZaVbJZ+UMwCUVuv4iQK1Url928c5G166RCrAWtKP4f2s+gGtInHcLA3dxG7bsxohX7j9TTsESHU1WpkceJHaZLAOgV8nTVcCdYhMsLzoDEem4x8sHGDx/jZ7EolZ5DrrMF9ieArd7yCHU4FZqoLPLcVruA2K8krJkX9LlBOx/fIuWSFCnLVz+QNe0zbePeQEQgYY/4obbnKKhG50m0OKaUuNdGysB3Z+ARpTe6wYvza/rt/NN9EOYml9gIoXmBuiKgoLGVtF2Zngf/eDyg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62f895af-99e7-4df8-cc69-08df0f5169cf
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR11MB8379.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 15:37:25.5322
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cZZB9fRu1+dS482Bw8yNr1qHXGLL1WZtOIWiKBkj1sndhh3xlTrVoXY6pMJFUwFOYqp3n+TheZeA7OT2UqtMv58S+4GOdEeronsGrLTm0k8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7481
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_083556_907393_D1CDBA91 
-X-CRM114-Status: GOOD (  57.06  )
+X-CRM114-CacheID: sfid-20260910_083731_644037_F3817E81 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,136 +189,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026, Jason Gunthorpe wrote:
-> On Wed, Sep 09, 2026 at 05:58:28PM -0700, Sean Christopherson wrote:
-> > On Fri, Sep 04, 2026, Jason Gunthorpe wrote:
-> > > On Fri, Sep 04, 2026 at 10:24:21PM +0000, David Matlack wrote:
-> > > 
-> > > > The proposal here (which is inspired by the KVM UAPI) is to ensure every
-> > > > LUO ABI struct has 2 properties:
-> > > > 
-> > > >  1. A field to encode options/features (e.g. u64 flags).
-> > > >  2. A way way to grow without breaking backward compatibility (e.g. so
-> > > >     we can add new fields).
-> > > > 
-> > > > Each flag can mean whatever it needs to. e.g. It can indicate the
-> > > > precence of one or more fields (i.e. new fields in the struct), or it
-> > > > can mean a field now has a different meaning (i.e. union in the struct).
-> > > > 
-> > > > This would enable adding support for new features without breaking
-> > > > backward compatibility. Downstream users would have to ensure their
-> > > > kernel does not start using a new feature while it can still rollback to
-> > > > a version that does not support the new feature.
-> > > 
-> > > This was never the biggest problem. The main issue was the functional
-> > > behaviors of the kernel that cannot be represented simply as data in a
-> > > struct with some flag bits.
-> > > 
-> > > Like for instance kernel A supports memfd folio sizes far larger than
-> > > kernel B because we fixed MAX_ORDER. You can't fix that just with
-> > > simplistic flags.
-> > 
-> > Can you elaborate on why the folio sizes matter?  Honest question, because I don't
-> > understand why the serialization format wouldn't express things as "N contiguous
-> > pages starting at PFN X".  Then the implementation would rebuild its folios as
-> > appropriate.
+Hi Ben,
+
+On 9/10/26 4:11 AM, Ben Horgan wrote:
+> On 08/09/2026 22:12, Reinette Chatre wrote:
+>> On 9/7/26 10:01 AM, Ben Horgan wrote:
+>>> On 03/09/2026 16:29, Reinette Chatre wrote:
+>>>> On 9/2/26 9:10 AM, Ben Horgan wrote:
+>>>>> On 01/09/2026 00:54, Reinette Chatre wrote:
+
+...
+
+>>>> It is not clear to me if a mon_comp of NULL is able to handle all scenarios since it looks
+>>>> like mpam_resctrl_get_mon_domain_from_cpu() and mpam_resctrl_online_domain_hdr() does not
+>>>> consider the component at all. Would that not cause monitoring features to depend on which
+>>>> CPU of a domain comes online first?
+>>>>
+>>>> Could mon_comp perhaps be required to be !NULL here as a replacement for the earlier
+>>>> "ctrl_comp" check to ensure there is a component with the CPU in its affinity mask?
+>>>
+>>> Doesn't the !any_mon_comp check provide this?
+>>
+>> This is the part that I do not understand since any_mon_comp seems to support the scenario
+>> where a mon_comp may be NULL which is a scenario that I do not think resctrl can support.
 > 
-> That's an idyllic view, yes, but my point is (IIRC) we didn't do
-> exactly that for memfd.
-
-Well, y'all screwed up then.  I don't see why past mistakes should force other
-subsystems to support a flawed implementation.  Learn from the mistakes, add v2
-of serialization for memfd, and move on.
-
-> Sometimes you can do more and more work to try and be more and more
-> general but this is *alot* of work and even then eventually hits
-> problematic limits. Like what do you do with the sealing flags? That's
-> ABI breaking if the successor does not support them, and downgrades
-> make exactly that possible.
->
-> A CSPish user can do things like patch the new sealing flag into their
-> current kernel (while preventing userspace from using it), ensure
-> everything is updated to that, then jump ahead to a newer kernel and
-> enjoy the new flag with full downgrade support. There is so much more
-> control on their part that makes the problem far more managably simple
-> that upstream does not get to have.
-
-I guess maybe we have a different definition of ABI? 
-
-I'm not saying that upstream has to be 100% forwards and backwards compatible.
-I'm saying the serialization payload itself should communicate what features are
-effectively required.  I.e. *if* there are incompatibilities, they should be
-naturally expressed in the serialization format, not communicated out-of-band
-through magic numbers.
-
-The scenario you describe fits exactly with what I am proposing.  Until something
-actually starts using the new sealing flag, the CSP can downgrade to older kernels
-at will.  And if the user cares about downgrading, then they need to prevent the
-flag from being used until the new kernel is rollback-safe and deployed to enough
-hosts to prevent stockout.
-
-> This is why I think the very idea we can support any version pair is
-> too much to ask for. We should focus on supporting a small set of
-> version pairs and not making it too invasive or hard in the kernel or
-> on the maintainers.
->
-> Thus live update within a stable branch only is my proposal for
-> upstream support.
+> Ah, I see what you are getting at. As the monitor components are only considered when there topology
+> matches the l3 cache (same cpu affinity for each instance) then the find_component() call will never
+> fail and so mon_comp can't be NULL at this point.
 > 
-> If it really succeeds at that and it becomes very popular, then let's
-> discuss upstreaming doing additional version combinations.
-
-Why on earth would we have version numbers in the first place?  IMO, monotically
-increasing version numbers are flat out the worst way to communicate features.
-
-I am completely against supporting any scheme that relies on magic version numbers.
-It creates problems where none need exist, and checking for compatibility can't be
-sanely done in a programmatic way, because by definition it relies on magic numbers.
-
-E.g. if the ABI for a given component hasn't changed, why should anyone care if
-the overall "version" of the kernel is ahead or behind by N kernels?
-
-> > I could see things like HugeTLB not working if someone booted the kernel with
-> > support for only 1GiB pages and then tried to feed it payload with sub-1GiB ranges.
-> > But to me, those sorts of things fall into the "well yeah, don't do that" category.
+>>
+>> At a high level there seems to be three affinity masks used by the monitoring code:
+>> the CPU affinity of the component belonging to the control resource class, the CPU affinity
+>> of each component supporting each monitoring event, while these are three separate masks with
+>> code sometimes treating them as though they can be different they are actually required to be the same?
 > 
-> Okay, how about worse, todays kernel has hugetlbfs and there are
-> patches around to luo serialize that. Lots and lots of talks about a
-> post-hugetlbfs world out there.
+> Monitor component CPU affinity is enforced by topology_matches_l3() to be the same as the L3.
+> Additionally, traffic_matches_l3() adds extra conditions that mean that there can be considered an
+> uninterrupted link between l3 and memory and so an MSC at either end is effectively the same. Namely
+> the same restrictions I've mentioned before, only a single l3 cache, a single NUMA node and no
+> intermediate caches.
+> 
+> You list two rather than three here? Possibly you are also thinking the MSC cpu affinity which can
 
-And?  Adding a compatibility layer to a future kernel so that it understands an
-incoming HugeTLBFS payload should be trivial.  I can totally see not wanting to
-support serializing a post-HugeTBLFS kernel's memory representation into the "old"
-format, though even that probably wouldn't be all that difficult.
+I did mention three masks. Thank you for clarifying how the one mask (the "ctrl_comp" one) is associated with
+either that of the control class or the same as the class associated with the first event. 
 
-> Do we want to constrain what is possible to ensure we accomodate this
-> hugetlbfs serialization? I vote no.
+Regarding the other two masks: it seems to me as though the CPU masks associated with the two supported events
+are managed separately. This means that theoretically the class associated with QOS_L3_OCCUP_EVENT_ID could have
+components with different affinity from the components of the class associated with QOS_L3_MBM_TOTAL_EVENT_ID. A CPU
+being onlined could thus be associated with QOS_L3_OCCUP_EVENT_ID (resulting in mon_comp being
+initialized for this CPU) but not with QOS_L3_MBM_TOTAL_EVENT_ID (mon_comp is NULL for the same CPU). In
+this scenario, "any_mon_comp" will be true and the domain created and onlined while it does not
+actually support both events?
 
-In what way is providing strong ABI guarantees for individual components
-constraining HugeTBLFS serialization?
+...
+>> I think that it will support the multiple control work if this is done upstream first.
+>> I will incorporate your changes in the next version ... I believe that would make you
+>> a co-author?
+> 
+> I don't think co-author is necessary as I've just offered review and you mentioned you'd already
+> tried out the new structures. Up to you though.
+Let's see how the next version goes as I become more familiar with MPAM.
 
-> Do we want to reject the hugetlbfs serialization until we have a year
-> of debate outlining every possible ABI scenario? I also vote no.
+Thank you very much for all the insights.
 
-That's a bit of a strawman argument.  Is designing a forward-looking ABI easy?
-No, but IMO "a year" is a massive exaggeration of the effort required to come up
-with a scheme that can survive a variety of plausible upgrade/downgrade scenarios.
+Reinette
 
-And again, I'm not saying we have to support infinite compatibility.  If some
-future kernel drops HugeTLBFS, and we decide not to provide a shim to support
-downgrading (which IMO is totally reasonable), then it's on the user to understand
-that moving to that new kernel is a one-way street.  Given that dropping something
-like HugeTLBFS would require significant changes in the software stack, I think
-it's perfectly fine to put the burden of understanding the implications on the end
-user (though realistically, there would be a copious amount of documentation and
-deprecation warnings).
-
-> Should we make a downgrade round trip a downstream problem? I think
-> so!
-
-Hard NAK.  There will inevitably be boundaries that cannot be crossed, but I am
-not at all ok punting on downgrades.  To me, that's basically saying "we want to
-add just enough support upstream so that it's not too painful to carry full support
-out-of-tree".  That completely goes against the spirit of open source and upstream
-Linux, and I want no part of it.
 
