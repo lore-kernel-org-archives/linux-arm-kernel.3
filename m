@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D75DC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A351C88E58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tP9DrYq5u3CtW4MPKLTEWyaMKBFQimD/CVcoo0zV9A=; b=UZ/i7CEq++FTyQIadMqbYtkIAc
-	H6VCnQRFWRrRP5hHLop1+dEgqNhLMDRBvODdDJy/5f29/ZqaK/e69tqtW4fi/VVak+H5IFlmUoxvW
-	1S8dPHiyYdBU/8hfSAV/eKbhLsdS47YOZIAGiKE/+ds6HobEOa/X+JSkS0tCjgliA7M018CxwjQ0L
-	taPC29uNoHzkP/qnP93N2bsRJATg6FHgWqTPtl3bq2zZ9joSwqYhTZSe/fO6Y8kNLAJCXURb9oJ0X
-	JymlAjsZZ6aIjV5c66r9G5Qc8OrzUyuNv8RKp4jOPvgU94X6r6LEGeLSkNntgERYINSg6jgGz4QR3
-	d9w8Lkgw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uVtrEMvqe8kSANpBCHuzQsHgmI34VVb9nddHkeKDLsA=; b=3U2yxss5fu8+/p6RwtZyvuw9CJ
+	CZ4V0MKh51OmHZIOtb1cAgd2pEOwtU4TeW0b3L9yhq+lkE77dk2AmIylAeiUpeg7JMo0KUvbeK7kL
+	M2Nv6k6RFLWgvH03MasuWd7E25uxCYJU1tZMdIu7TgjjJFOEYnZWs73zCnrtCafSZIMVxlf1dD5IY
+	M9rR69fNhPawsMg7bY9U+dGdYTpEBza7HJ2I0m5kt7oKqhqkfVdwl2Ado1zYvIbpjDsw+mVfs6zBY
+	8xRTe8h7MgavsVY9Pw9YfFVpW6wP8GXjlN6MyeCMH+hkiYEomOobyN1QLlWjRvTkcDCS361AWEmir
+	+jCRQ52g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51cO-0000000GnMV-0prE;
+	id 1x51cN-0000000GnMO-3jDx;
 	Fri, 11 Sep 2026 13:48:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51cM-0000000GnLr-1993
+	id 1x51cM-0000000GnLq-1Q9V
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Sep 2026 13:48:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 027C843B08;
-	Fri, 11 Sep 2026 13:48:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CA51FC2BCF5;
+	by sea.source.kernel.org (Postfix) with ESMTP id D9F1B408A1;
+	Fri, 11 Sep 2026 13:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B0B6FC2BCB8;
 	Fri, 11 Sep 2026 13:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789134517;
-	bh=3UBksvgt/qdlKN1s8FeogwlZOBzUwTUkG2h4TW5YjRU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cgDLv0gENhV7b5EzTV5zbTjeUAp+6xlsscIn19l/Q+ZDqKbaf094/wZ3EGRZMe0Mg
-	 dKZ/iq5ytadP7Db0ieq8Mv4yGgyYUNc5ojlnbGaLaFtyl8td7wiLeQu9PvV1vfa25I
-	 eibb+mt9No6Z1GJsEVN9zbtATDgebuz7CehJ4OB5Z36cslv690ec5nVZy4ZaAprZZh
-	 WrwlV/AM6a0Fz41/Qec0ejjRV92YFtCxwlqGetdZYgLfGm16nW2QQw6TYgspqCDF7c
-	 FS/m0i75QmdEKCmhBTEpTTJUoGs9ULINowXn+etcaH104nnM1nuzX8bgrSWQD1k2uo
-	 VyC/U8cFgGvvg==
+	bh=lG4KDAp2pMa37LUQNtZbacnmooezoxlM4A7rINK4vpY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Y5oUdyEJMSwiGeUtOfczssRAPoFBaSXnVWs/4sMhbFj0li9Q3eGlnrqH7ArgsGrW/
+	 /ebCQhwEZUzESW8pDfyRxAkGjug4E80cSSQe1+2f8IGw3uZiXgA0dFEHf/FcbziOG5
+	 KvpAh1SoaF2v1uIb7VXrXfIFcB+lPk2DRiNCyDrUgF8NC+j9eMYvUCrJdlYYFVLURv
+	 qFgFBl+VlqXlTMy/xx12EyXEWXD/MA6CvBpUuNX3uBn6ccJx0irtLy5d2IfDvXzY3Z
+	 NUzosFRsN/aqvGeceIJP+Nv8AVJ3kFUUdRWnVrErUmpUmq4gVLRT1vuTjWckDKB3gB
+	 dp1tNa+7BtjXg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A97CCC88E45;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B5F1C88E50;
 	Fri, 11 Sep 2026 13:48:37 +0000 (UTC)
 From: =?utf-8?q?Juan_Carlos_Guti=C3=A9rrez_Lavado_via_B4_Relay?= <devnull+jcarlosgl96.proton.me@kernel.org>
-Date: Fri, 11 Sep 2026 15:48:37 +0200
-Subject: [PATCH v2 1/2] dt-bindings: arm: sunxi: Add SPC Glee 10.1 A64
+Subject: [PATCH v2 0/2] Add SPC Glee 10.1 A64 board support
+Date: Fri, 11 Sep 2026 15:48:36 +0200
+Message-Id: <20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260911-b4-spc-glee-a64-v1-v2-1-ed0b7ff02e0b@proton.me>
-References: <20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@proton.me>
-In-Reply-To: <20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@proton.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ7CIBREr9L8td8AbYm68h6mC2h/W4wCAWw0D
+ XeX1r3JbF4yM2+FSMFQhEu1QqDFRONsAXGooJ+VnQjNUBgEE5KdmUTdYPQ9Tg8iVLLBhaMkOWh
+ Vn5RqCcrQBxrNez+9dT+OL32nPm1PW2M2Mbnw2a0L33p/BSUMpeDDKHjbUs2vPrjk7PFJ0OWcv
+ 8IU1QfGAAAA
+X-Change-ID: 20260906-b4-spc-glee-a64-v1-6e6dba38aa5e
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
@@ -62,11 +65,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  =?utf-8?q?Juan_Carlos_Guti=C3=A9rrez_Lavado?= <jcarlosgl96@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789134516; l=1619;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789134516; l=2744;
  i=jcarlosgl96@proton.me; s=20260906; h=from:subject:message-id;
- bh=Xzdem3/+TDF7+9mo+NvDiiNz7PMRPxV5UR/Ew2LHb1M=;
- b=YK4WUVsNgqCrbxbQjewYp5t3YdnZ0R53TOZ9mwRj/PuFL8VHGh+KG2mjM7I4sg9EBbzfI5fkH
- N34XWTWhC0BBDG8xkngZKdCmCbrwwK7TrH8DOmzZarDMztSTfI5E8Cp
+ bh=lG4KDAp2pMa37LUQNtZbacnmooezoxlM4A7rINK4vpY=;
+ b=9cQ8HQazllEZ9I3uWCMPeNw1KeaNAYJ7K67hJqRBiRk3vDkZLO8y0O98Kuiym09Ba9Fr+zhVv
+ ihA3uDDYJ0HBtZRMro+NaiR2KP+HnwLY8llpeA3HBQck4uWQtw7cFMw
 X-Developer-Key: i=jcarlosgl96@proton.me; a=ed25519;
  pk=2/GzZfrbHAiuUrsA5A4A9ixfHKnypfDfzyE+fToY4Io=
 X-Endpoint-Received: by B4 Relay for jcarlosgl96@proton.me/20260906 with
@@ -87,49 +90,59 @@ Reply-To: jcarlosgl96@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Juan Carlos Gutiérrez Lavado <jcarlosgl96@proton.me>
+Add initial support for the SPC Glee 10.1 tablet with Allwinner A64
+and AXP803 PMIC. Describe essential supplies, 2 GiB DRAM, microSD,
+UART, battery monitoring and USB peripheral mode. Keep unverified
+peripherals disabled. The microSD slot uses broken-cd and a conservative
+25 MHz limit until its card-detect wiring and faster modes are validated.
 
-Add the Smart Products Connection vendor prefix and the board
-compatible for the SPC Glee 10.1 tablet based on the Allwinner A64.
+Validation against sunxi/for-next base 913f7eda9f3e:
+- DTB build, binding checks and full DTB schema validation pass with
+  dt-schema 2026.6. W=1 retains three inherited SoC warnings.
+- Cold boot from microSD and kexec into Linux 7.3.0-rc1 with the corrected
+  DTB reach accessible userspace without regulator_ignore_unused.
+- CPUfreq transitions to 648, 816 and 1152 MHz were observed.
+- CPU cooling state 7 limits the CPU to 648 MHz. Automatic thermal updates
+  were paused briefly to test this actuator, then restored.
+- USB supply online/present changed 1 -> 0 -> 1 during cable unplug/replug;
+  SSH reconnected after the cable was restored.
+- Automatic CPU thermal cooling reduced frequency under load. Two SHA-256
+  workers completed 10 minutes, peaking at 78.37 C, with USB/SSH connected.
+  Cooling state returned to 0 after removing the load. A four-worker test
+  was stopped at a conservative 80 C limit after 27 seconds.
+
+Long-duration stability, sustained full four-core load and broader peripheral
+support remain unvalidated.
 
 Signed-off-by: Juan Carlos Gutiérrez Lavado <jcarlosgl96@proton.me>
 ---
- Documentation/devicetree/bindings/arm/sunxi.yaml       | 5 +++++
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 2 files changed, 7 insertions(+)
+Changes in v2:
+- Use the onspc vendor prefix and place its registry entry alphabetically.
+- Include CPU OPPs for CPUfreq and CPU thermal cooling.
+- Enable the AXP803 USB supply and link it to the USB PHY for VBUS detection.
+- Keep ALDO2 (VCC-PL, 1.8 V) and ALDO3 (VCC-PLL/AVCC, 3.0 V) always on.
+  These supplies are identified by the stock firmware and match the
+  measured baseline settings. Earlier test boots stopped progressing
+  without regulator_ignore_unused; the corrected DTB remains responsive.
+- Link to v1: https://lore.kernel.org/all/20260906-b4-spc-glee-a64-v1-v1-0-621df2155e31@proton.me/
 
-diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-index f04db28c6..459a1772d 100644
---- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-+++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-@@ -902,6 +902,11 @@ properties:
-           - const: allwinner,suniv-f1c200s
-           - const: allwinner,suniv-f1c100s
- 
-+      - description: SPC Glee 10.1 A64 tablet
-+        items:
-+          - const: onspc,glee-10-1-a64
-+          - const: allwinner,sun50i-a64
-+
-       - description: SL631 Action Camera with IMX179
-         items:
-           - const: allwinner,sl631-imx179
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ba2002969..9d864dc56 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1253,6 +1253,8 @@ patternProperties:
-     description: Onion Corporation
-   "^onnn,.*":
-     description: ON Semiconductor Corp.
-+  "^onspc,.*":
-+    description: Smart Products Connection S.A.
-   "^ontat,.*":
-     description: On Tat Industrial Company
-   "^opalkelly,.*":
+---
+Juan Carlos Gutiérrez Lavado (2):
+      dt-bindings: arm: sunxi: Add SPC Glee 10.1 A64
+      arm64: dts: allwinner: Add SPC Glee 10.1 A64
 
--- 
-2.55.0
+ Documentation/devicetree/bindings/arm/sunxi.yaml   |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+ .../boot/dts/allwinner/sun50i-a64-spc-glee.dts     | 143 +++++++++++++++++++++
+ 4 files changed, 151 insertions(+)
+---
+base-commit: 913f7eda9f3e3fb1c67285e144e202494d440049
+change-id: 20260906-b4-spc-glee-a64-v1-6e6dba38aa5e
+
+Best regards,
+--  
+Juan Carlos Gutiérrez Lavado <jcarlosgl96@proton.me>
 
 
 
