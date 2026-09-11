@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C6FC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDD8C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1+0j7J5ZpJI6TOnTARAeIZd9s6jvK/5CqiSBqtUMYY=; b=W7YVdRQXliKjSNHCv9aR9emdA4
-	hEUX7gbXIZl757vtEwCpd+wO0dP+Kk5xhs31yC5JDKMU+LILfTSsPONHFDoB0bXpg174YapHMo1cr
-	8bkPv+OMvSjx6mVdpgui5y6HLm9NXYX1WUlIylQdrr0PFaVwVBVdr7x1zeolTY1b42xdrDCXI1dSc
-	D0BF5icpEtFNS1ky0EheaV0fzs8NR+nz9eqhG2xgSRp49rAvHczDJXfGpB/aToPTLDHMN3kCFIxuR
-	b9d9fVjlxM62LkG5oelLdV2pLrqNKRw3uteeMBtC3qCmjasW/ef87G0grSxF4kWx2szCjTs2GcnSl
-	Zg50Nzgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ANKFJL+4g3hT6rm4pjq+cXyt9Ea6eGkRY/USXwrE9rI=; b=yNHger9X3FFVNazi6R72HRlVYd
+	/QDWnMnuIiNz9bHfd1mOalP067ct1RJfWYUMn5EL5QTJ0GBUjP6ePwLIFUR7d48GK3pabLtdqv23r
+	Nq3fJTfuHv83Dyu8pCZBN35WIgZ2rWDAT8rOItqDhrxcii68upIC0jLEnJQ75mswFq9CU97T+sy2A
+	Vz67Mm3sCv6ARQPiCvhgD+wBZhXffFu0kmISKFpxiu9dqCG2eoZJKluV1zPxHINfjDrSly/kQxIAp
+	FbobDI3cg9HEF/9a2Z4ZYTxicWcBAy2YVsjoJ49CKSG/ylWimocuqju08M8E4iLreNSRcGHu601rQ
+	+hegQUPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51ju-0000000Gpu2-25cJ;
-	Fri, 11 Sep 2026 13:56:26 +0000
-Received: from mail-106102.protonmail.ch ([79.135.106.102])
+	id 1x51k4-0000000Gpvv-2aPE;
+	Fri, 11 Sep 2026 13:56:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51jr-0000000GptV-2jb7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:56:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1789134978; x=1789394178;
-	bh=k1+0j7J5ZpJI6TOnTARAeIZd9s6jvK/5CqiSBqtUMYY=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=dunsq/Mn8xVosr7i3Y5QIn191VbPt7R79Cappcalygd+G7f51hFCKhxQWEByVDQqk
-	 C9XOJy8FZl6sYjILcuYr+HTp7BOs5wFPA46v7KDKurzuk5QYVtXQO2SAiuDy0FI3CO
-	 UJt0DuaFfYsmMXTCdwREaOC1cbSA/EkcPZ00IUTduD9ZClDHkRmeP6LnD+b7vgHJu0
-	 7GjHtg85uUGYEuVyAFiflj6uh8ZOplCoztxe8I13crWSAGGHBT8ib7ngbRydLKw482
-	 PZ0hhSEvpkGw7FJ2rV7JP4vwsNw5YpK3i2SOdbz6EwOFOE3Je+lKMKc8aIC13mya0M
-	 K//TgZR4CT71Q==
-Date: Fri, 11 Sep 2026 13:56:12 +0000
-To: Conor Dooley <conor@kernel.org>
-From: =?utf-8?Q?Juan_Carlos_Guti=C3=A9rrez?= <jcarlosgl96@proton.me>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: sunxi: Add SPC Glee 10.1 A64
-Message-ID: <bZv581NjWaZxsz6ThV-eRGTh4T_Cs4KEkXCXp0A_nsjcF7A7LCkChZVBb4--RIFJO1NvhHiSqT9aoVj42MsvzSMzqkkPTqbW3nRcZMH8UgI=@proton.me>
-In-Reply-To: <20260907-stock-eggplant-d03a9df18a22@spud>
-References: <20260906-b4-spc-glee-a64-v1-v1-0-621df2155e31@proton.me> <20260906-b4-spc-glee-a64-v1-v1-1-621df2155e31@proton.me> <20260907-stock-eggplant-d03a9df18a22@spud>
-Feedback-ID: 47397442:user:proton
-X-Pm-Message-ID: 2a1c6f3511eb1443dbd2e5cb49c9d77de84032c9
+	id 1x51k1-0000000Gpua-18Cr;
+	Fri, 11 Sep 2026 13:56:34 +0000
+Received: from [192.168.1.182] (93-46-82-201.ip106.fastwebnet.it [93.46.82.201])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F19D363C;
+	Fri, 11 Sep 2026 15:54:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789134890;
+	bh=YliyGa1zgtLzCslNtNy69+u4K26DzRw41YQWRHAfEEw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=U7BpDuNlhRVM0K60TlVEkGHyUbgbrDvi+M2vv00ER96hmSlZKuOR5ahjEvqX6kIlS
+	 LTFB5zkcol9L9eqmTEwO8k7rnpZi+jOwI38zDOg0yK1jZ3vFyzgE0+0A89uVzbPdUK
+	 PiTpniUwFqBdC99PCv/AKUPAepWs6fbLXYOszp4Q=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Date: Fri, 11 Sep 2026 15:56:19 +0200
+Subject: [PATCH] media: rkisp1: Fix Bayer demosaicing bypass
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260911-imx8mp-demosaicing-bypass-v1-1-5568a7a560a6@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBA0auUWTuQBCmtVxEXyWSsIyQNGZVK6
+ d0b6/It/l9BuQorXLoVKn9EZc4N9tQBPXyeGCU2gzOuN6O1KGkZUsHIaVYvJHnC8C1eFUNwwzm
+ ORL430PpS+S7L8b7e/tZ3eDK9fkPYth0U3IppfQAAAA==
+X-Change-ID: 20260911-imx8mp-demosaicing-bypass-bb284d9cca60
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Paul Elder <paul.elder@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2230;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=YliyGa1zgtLzCslNtNy69+u4K26DzRw41YQWRHAfEEw=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBqpAiLYotbsXztTLtL3Y62JssWfvgaG33MhwjZL
+ p3pkjDgG7qJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaqQIiwAKCRByNAaPFqFW
+ PGW8EACrl1v7ZaaUem+zDs0hBnvGm+Aruh7c2kHnj93EfLP8sJtTLacTiNEpSxNUVh+NSaCFkO5
+ BHbyY2t9ZFGU4elfVaZpRJ9JIJhbwLIzWMi8G1u0WdzHWCTMng1BAsFOK3yNvPAhUJZDWOUrW5j
+ uyLg08dcqwKncwZ3ccum73AQjGbsLyr9JFGokaffyL2lT56Z1OYpVlPGS0rUhS8hEgNwc39m/LV
+ yJFw1EfnFr/iOGpzvAdqd1KcQ1KjxplJYc/9bAzjnIkgRv+XQfSJhxrQbSCj1q/wQZt2CzzfIGK
+ tAqxuKpSh1lO+rC+hhuBHozhkE+umrV78uJZecWDFD3v3NSD/BPtwSxn02DPcc8FZ7DF17xiiae
+ LeqLxDrDOgIRmT6EaOK2xYBVqbzNM+79pptMjO0+UoacZBzeiS+M39R2/QMi76fO0OkkYyZG85i
+ xa5AVgV8SD+9AALGz6FsCLs7Wr2nO54na+GQNfQzHrN1TQeNAHThpABERscv5aoVC/orAOxq6dF
+ 9169VFrI6JviDuhULO2DSxazz9sawqnVBhwFtZqex9Uh3HRJSaX8kaXBe6mCzqZUjznTHUUFmR2
+ Z9SN6JYwQJawNbF4DfjXh1hT7y0OS9C8KQFwGX5mfvc434ZBH3/DzdhyIA+z+2NU4HTR3zs02AP
+ d9s7Ox7ApK9bVFg==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_065624_464916_D80D4CA7 
-X-CRM114-Status: UNSURE (   4.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260911_065633_746814_8D1E7801 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,15 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+The RKISP1_CIF_ISP_DEMOSAIC_BYPASS bit, when set, bypasses the
+demosaicing block on the RkISP1 ISP.
 
-Thanks for the review. I have changed the vendor prefix to onspc and
-updated the board compatible accordingly in v2, which I have just sent:
+The current implementation however clears the bit when demosaicing
+have to be bypassed and sets it when demosaicing has to be enabled,
+effectively inverting the bypass bit handling logic.
 
-https://lore.kernel.org/all/20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@p=
-roton.me/
+Fix this by setting the bypass bit when disabling the demosaicing block,
+and by clearing it instead when demosaicing has to be performed.
+
+The issue never manifested itself as libcamera hasn't an algorithm
+to control Bayer demosaicing bypass yet.
+
+Fixes: 6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+media: rkisp1: Fix demosaicing bypass
+---
+ drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+index 042b759eba62..496381962f1b 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+@@ -1854,8 +1854,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
+ 	const struct rkisp1_ext_params_bdm_config *bdm = &block->bdm;
+ 
+ 	if (bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
+-		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
+-					RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
++		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
++				      RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
+ 		return;
+ 	}
+ 
+@@ -1863,8 +1863,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
+ 
+ 	if ((bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
+ 	    !(params->enabled_blocks & BIT(bdm->header.type)))
+-		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
+-				      RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
++		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
++					RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
+ }
+ 
+ static void
+
+---
+base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
+change-id: 20260911-imx8mp-demosaicing-bypass-bb284d9cca60
 
 Best regards,
-Juan Carlos
+--  
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
 
