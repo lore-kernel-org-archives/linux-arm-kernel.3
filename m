@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2C0C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03BDC88E54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RaGEYebWwUb80F40aFGZC5AgB+xjSicQK+zvnCUVWmA=; b=XpugOOaKrZVW9J59Ji45XaqV0u
-	QOMgEsx4DwHmPrZYkzOefAyiYEgkgSHIPp5mLsnY7Tm/30xUh8dGmxsK09QSDhIHM1y3c1Qjsqojh
-	kOvGDqpfCx2niPProJWy+VHFcM7wZLXQfM98Flr1qLaAaQ3LcCJmqp6YnSIwZG9kzpyJ4hhlKrAMn
-	SUkwudMGCUMxd2QH2gMhsSta4h+/UodcSz+WLNBNWF5WFI3Y/bIe8pyHKw9udTRCA3nkUFS54H4Kc
-	gDFVUvHWHB8Iuyc2PEvzNPQcC5sw8SaS2DEWR7r/SClAT2lhzhCshrzNmMtAW83R2vTpj5qpCe7Q5
-	4k0IW9DA==;
+	bh=BBPpQBHKrMOD/yPqfloATE7AC+AZPpDLsoNKc1UIZRc=; b=2iDFqtgwbvyT6TfproS8EjL3Xw
+	rSnp8bdYdc6/twmoJmh72RTJFsVBCuECWsbQnfgfnGdjxamxEuZnUIcDDeuV3HAI6dwXrcBLAS8AP
+	fZ/wPj3SrTibWAlvF5F+tPgEpn/WUD5OKpGo8RFKDiGrEfIaP4J3cihAwNQdkZk21vLhKlOfjHBe7
+	QdplkDUFQF0xYIPWWwRKz3Ej5p+d109D8bEdXxzLMG8RzzCcTu/Qcd57oSZTehbR6B3VkLp7ANLEJ
+	y5eyDSJ3kXBLcctAIDcM5xXCYOdIUDxHs8a+sO3jc2DO/Zoe8qUFH8WGIPwjI+4BKHjE66Zw7rpyu
+	PW0u3D9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zRY-0000000GVTd-0olF;
-	Fri, 11 Sep 2026 11:29:20 +0000
+	id 1x4zRX-0000000GVSd-3pXl;
+	Fri, 11 Sep 2026 11:29:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zRR-0000000GVP2-16sW
+	id 1x4zRJ-0000000GVLY-1JBm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 11:29:14 +0000
+	Fri, 11 Sep 2026 11:29:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0CC62910;
-	Fri, 11 Sep 2026 04:29:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34FC128FA;
+	Fri, 11 Sep 2026 04:29:00 -0700 (PDT)
 Received: from e142021.arm.com (unknown [10.57.6.75])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 661373F86C;
-	Fri, 11 Sep 2026 04:29:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D04823F59E;
+	Fri, 11 Sep 2026 04:28:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789126152; bh=FAUJ4f/N3Kj5dER0Hkup0QFcUrEJsrOUZNEavXsQOKI=;
+	t=1789126143; bh=lQbsP8ZSYvWNdPXsJJ7VCy9P00wz+YHxs5Fcq8+D5cQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rht/CmCX90Rp94Us4wJbW2yAEXuCxakt95DKwX7PPyE0Lhfkgc4vTyU6STlWsjABs
-	 nVyrOc/Q9ovesoFD25ZHcNGEmR3zTOrNwApE1av/yDUhcXXDlxs29B2tPk1HxhbQwn
-	 aT2jBYV8k5OfPTI55gMBDdUVySc81PQXBNAWLpkM=
+	b=MxRSv4SHNOL4AZR+lDt/yu8vvbI3fD0Ak/cGRSiwyUK9akp91tQ5JZEjVk+xuOmIB
+	 Q7HnXDGs2X2/tZtW5p23lX7V985G3nWHMhTG91qrfpeDrEEc3yiscB9DGzL4AUjBDb
+	 H0++2G2/Y9fFvYn2Rxkt/eYVZQz5OC2y2wfynN4A=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -63,17 +63,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v10 06/14] arm_mpam: propagate MSC access errors for state saving function
-Date: Fri, 11 Sep 2026 13:28:27 +0200
-Message-ID: <20260911112835.714162-7-andre.przywara@arm.com>
+Subject: [PATCH v10 04/14] arm_mpam: propagate MSC access errors for msmon helpers
+Date: Fri, 11 Sep 2026 13:28:25 +0200
+Message-ID: <20260911112835.714162-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260911112835.714162-1-andre.przywara@arm.com>
 References: <20260911112835.714162-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_042913_392147_D7CDDCBA 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260911_042907_327775_9BF78A65 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,7 +88,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the mpam_save_mbwu_state() function to return an error, and
+Allow the helper functions for msmon accesses to return an error, and
 propagate read and write errors from the lower level up.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
@@ -97,58 +97,138 @@ Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
 ---
- drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
- 1 file changed, 22 insertions(+), 7 deletions(-)
+ drivers/resctrl/mpam_devices.c | 72 ++++++++++++++++++++++------------
+ 1 file changed, 47 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 6a514cc9251ec..f1af249744d2e 100644
+index f780bcc587c7a..bfad65596f172 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1842,22 +1842,37 @@ static int mpam_save_mbwu_state(void *arg)
+@@ -1170,15 +1170,20 @@ static int mpam_msc_read_mbwu_l(struct mpam_msc *msc, u64 *res)
+ 	return 0;
+ }
  
- 		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
- 			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
--		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
--		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
--		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-+		if (ret)
-+			return ret;
-+		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-+		if (ret)
-+			return ret;
-+		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-+		if (ret)
-+			return ret;
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+		if (ret)
-+			return ret;
- 
- 		if (mpam_ris_has_mbwu_long_counter(ris)) {
- 			ret = mpam_msc_read_mbwu_l(msc, &val);
- 			if (ret)
- 				return ret;
--			mpam_msc_zero_mbwu_l(msc);
-+			ret = mpam_msc_zero_mbwu_l(msc);
-+			if (ret)
-+				return ret;
- 		} else {
- 			u32 val32;
- 
--			mpam_read_monsel_reg(msc, MBWU, &val32);
-+			ret = mpam_read_monsel_reg(msc, MBWU, &val32);
-+			if (ret)
-+				return ret;
- 			val = val32;
--			mpam_write_monsel_reg(msc, MBWU, 0);
+-static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
++static int mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+ {
++	int ret;
 +
-+			ret = mpam_write_monsel_reg(msc, MBWU, 0);
-+			if (ret)
-+				return ret;
- 		}
+ 	mpam_mon_sel_lock_held(msc);
  
- 		cfg->mon = i;
+ 	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+ 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+ 
+-	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
+-	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
++	ret = __mpam_write_reg(msc, MSMON_MBWU_L, 0);
++	if (ret)
++		return ret;
++
++	return __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
+ }
+ 
+ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+@@ -1221,24 +1226,28 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 	}
+ }
+ 
+-static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+-				    u32 *flt_val)
++static int read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
++				   u32 *flt_val)
+ {
+ 	struct mpam_msc *msc = m->ris->vmsc->msc;
++	int ret;
+ 
+ 	switch (m->type) {
+ 	case mpam_feat_msmon_csu:
+-		mpam_read_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+-		mpam_read_monsel_reg(msc, CFG_CSU_FLT, flt_val);
+-		break;
++		ret = mpam_read_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
++		if (ret)
++			return ret;
++		return mpam_read_monsel_reg(msc, CFG_CSU_FLT, flt_val);
+ 	case mpam_feat_msmon_mbwu_31counter:
+ 	case mpam_feat_msmon_mbwu_44counter:
+ 	case mpam_feat_msmon_mbwu_63counter:
+-		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+-		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+-		break;
++		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
++		if (ret)
++			return ret;
++		return mpam_read_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+ 	default:
+ 		pr_warn("Unexpected monitor type %d\n", m->type);
++		return -EINVAL;
+ 	}
+ }
+ 
+@@ -1251,10 +1260,11 @@ static inline void clean_msmon_ctl_val(u32 *cur_ctl)
+ 		*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+ }
+ 
+-static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+-				     u32 flt_val)
++static int write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
++				    u32 flt_val)
+ {
+ 	struct mpam_msc *msc = m->ris->vmsc->msc;
++	int ret;
+ 
+ 	/*
+ 	 * Write the ctl_val with the enable bit cleared, reset the counter,
+@@ -1262,25 +1272,37 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 	 */
+ 	switch (m->type) {
+ 	case mpam_feat_msmon_csu:
+-		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
+-		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+-		mpam_write_monsel_reg(msc, CSU, 0);
+-		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+-		break;
++		ret = mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
++		if (ret)
++			return ret;
++		ret = mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
++		if (ret)
++			return ret;
++		ret = mpam_write_monsel_reg(msc, CSU, 0);
++		if (ret)
++			return ret;
++		return mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+ 	case mpam_feat_msmon_mbwu_31counter:
+ 	case mpam_feat_msmon_mbwu_44counter:
+ 	case mpam_feat_msmon_mbwu_63counter:
+-		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+-		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+-		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
++		ret = mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
++		if (ret)
++			return ret;
++		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
++		if (ret)
++			return ret;
++		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
++					    ctl_val | MSMON_CFG_x_CTL_EN);
++		if (ret)
++			return ret;
+ 		/* Counting monitors require NRDY to be reset by software */
+ 		if (m->type == mpam_feat_msmon_mbwu_31counter)
+-			mpam_write_monsel_reg(msc, MBWU, 0);
+-		else
+-			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+-		break;
++			return mpam_write_monsel_reg(msc, MBWU, 0);
++
++		return mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+ 	default:
+ 		pr_warn("Unexpected monitor type %d\n", m->type);
++		return -EINVAL;
+ 	}
+ }
+ 
 -- 
 2.43.0
 
