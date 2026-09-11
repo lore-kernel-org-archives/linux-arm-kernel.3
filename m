@@ -4,95 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F6FC88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE0CC88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:Mime-Version:References:Subject:Cc:To:From:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=5UnCHTOpTpkqnUGkiS16fV4vAM0+e4jzRNd71F9nVaU=; b=3Y4QL54ZfzwEcIU0stsnrcosd3
-	wPgcSOgMyV9wH79VK4yeLsJvuC9XYXUR0Iv2WwDJCkWRNVEf3WY1Prd2l8L1XSQLN3A0L4KwmE3q1
-	47WV4XohpZK7fEsGAWvj3U0A5X0Y4fLGpcpPx83gvfMUbVoZ/g/NdkGirIXjKKG3qJZLKQAzYhW49
-	nmKYoRTV10Dlpl63jZElwmrqjJ0DtbXLFPWVbaEVdToyEoGyctYyS7Q7mHgZZrpFMikYPMMlAkuHe
-	kaQ15WSzHQQtF13LweKJVMntTQbo8gj2oOuuqVlnZr0nkn4t/4tgtWTQNWm9I81gzr9w3gVWocHnY
-	2/Iz7ZJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hmM/9KeHShqObjlEyB/51c475+G9ku/1YQDcHt6pJmE=; b=XmcmqgyJycaLketyM58Tc8+qkW
+	85gw869uRF7WxueWRlrn8A1+LGiPnR8nun+bwdYLyhLAoWUTzQ5M23fyXH4eJEfkQ4ihu4McAQYjY
+	aC2+x0XIk5m9qU/RoIboj80NfLoXa8eSb/sKQ+IUMX57OgRl77f49GoOPkTRRkRakzbpSKBAlSMvG
+	Ku1IEzPP4Stc8jU8ZAoDq0ngpAYnVF2QekFQ7S7JI/srR3tU2+0AVb0ohlXJsfhCWV5ZFfNYw+h/o
+	Q6g7s07F7+IRr5OoQpEiEo8T8unibG5H/ZqO0/oPdjtr76Vym9K8D1Ny2JXaFvfFpkwCJQasSBSKP
+	9uAmbn0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wjk-0000000G9Qn-3hs7;
-	Fri, 11 Sep 2026 08:35:56 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1x4wkF-0000000G9Xo-0RCr;
+	Fri, 11 Sep 2026 08:36:27 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wja-0000000G9N4-2Vbh
+	id 1x4wkA-0000000G9Wb-0Mdf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 08:35:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1789115688;
-	bh=5UnCHTOpTpkqnUGkiS16fV4vAM0+e4jzRNd71F9nVaU=;
-	h=Date:From:To:Subject:Mime-Version:Message-ID;
-	b=GC1UWomWkAmi8InVvjObPzmZYS17kT9XRxkqaMb8rzFMWH59EjrnTqod0Y7yky1+h
-	 BhYkf67W4dv9KHri0QFW5Vv6QBgDme6vabCWmR+phJQc0Bl4RPHOBo09tH18gqvKJs
-	 nPb9cmI7dfSz1OcRiCbtJ0BGlNMHCvw8dFAQ71A0=
-X-QQ-mid: zesmtpsz5t1789115685tf2ff96d6
-X-QQ-Originating-IP: dkN2Rl4g6wtK3QVk6LilRHEFcAbjj2qtefa/5Tj54S4=
-Received: from PEN002676 ( [124.126.19.250])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 11 Sep 2026 16:34:42 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16364602175366116159
-Date: Fri, 11 Sep 2026 16:34:43 +0800
-From: =?GB2312?B?1dS98MP3?= <zhaojinming@uniontech.com>
-To: "Lorenzo Bianconi" <lorenzo.bianconi@oss.qualcomm.com>
-Cc: maxime.chevallier <maxime.chevallier@bootlin.com>, 
-	andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, 
-	edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, 
-	pabeni <pabeni@redhat.com>, 
-	mcoquelin.stm32 <mcoquelin.stm32@gmail.com>, 
-	alexandre.torgue <alexandre.torgue@foss.st.com>, 
-	jose.abreu <Jose.Abreu@synopsys.com>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-stm32 <linux-stm32@st-md-mailman.stormreply.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] net: stmmac: fix stale descriptors and DMA mapping leak on Tx map failure
-References: <20260910-stmmac-fix-vlan-desc-leak-v1-1-6b07dca5e5e8@uniontech.com>, 
-	<aqJ2vGaushx4EL5q@lore-desk>
-X-Priority: 3
-X-GUID: 153DEEB6-D82D-45A0-B664-DEC4AB33931B
-X-Has-Attach: no
-X-Mailer: Foxmail 7.2.25.375[cn]
-Mime-Version: 1.0
-Message-ID: <30AFF1B9230534C1+202609111634420869983@uniontech.com>
-Content-Type: text/plain;
-	charset="GB2312"
-Content-Transfer-Encoding: base64
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: M6mCw2Ve0qEm4BJbJgyk3CA0A+GyEUUTbEKy/sXRcwHoSEzQGCkj/6o5
-	gkZA3GHzdTJrK1CRB6ChmXJeUaT81fDItIg714s4PfCXk6r75Qi9OK8cDzkOBrIDcNuPR7J
-	R6bfB+TStpWT787MJNt1pMYDb+4rQ0BEQX6A8id3cc4dwaJediosp3ZllG/72fwqMgjB00x
-	eCPJMrFrRsFOUunVTRp2HOf4F8RBvv5AhdetLAg2QFtDdECriZuEDPONc7ERIHnZzaPIclv
-	+Z2M39ebavK/OT3YaSx4TmEEzzVMs31+QfeEpSTfQacZNT8DBzzxC77UZnFAq6GNYpXHqc4
-	BWAUNa/bzYs/WYqjEJZXZB4w9iERcx0ooIJB78QHjLZNuE9ugFn8OSmb2CWfQkKtEzPuiQn
-	DoJZ/JyP1P50n7/09kCQnN/7HNzCQYYnLpFw2qPnnTs444IWphnNBEIuTWn9HGOrWb52UlR
-	hpyjXO0jmoZFHEcwZbitdrt6bmiw62ICBWxAUrI5zJEfuZYv0U7DTD7u8NdEsgUfU4HFhK+
-	dDzu0xfI/VS9rSZFakDWL0TA4E3+ubgLSg9x7Z8bcJGGREiZZ5n6OjDRxzytpfspvS2IX1/
-	5e1VWTlLQ55IZvuZqk4Wdq6XtuxZebISga/a5X67X0ouF7vorXOKeRz0IlrPMEQcb8CSllS
-	Rl5tDe16M2Ds926mcrVj4LsDwjC8TlF/EgHHvbNRkvSUHm5ICbPLd7Uk7UHuOZd6WZnvJZp
-	69q2145PEeqaY3O9BxW2dWN04uAjH5ijHtE4iq6W/8ChZtj3gggUzhS2+NaC2a4lPth3Lru
-	W3LzK36krEg1sPWiRusVRxLUWY1+AIT6mAmJGS5yCvA2Z56a37FXDGXS0Um0csw0mWi4sTL
-	nFzvbzS3+csIskFjyAYxX96kardZSAIeAtoSTz/AM0T0O3AnAYILzuJ8EevOaB5DF8FAAjo
-	uJ0WjYlnjSoT4tcVk7VvFi7XS4sEbeP9aQqoaAbI+XMN/AtPuig86iRIIw/1GejRq35/z65
-	Q+3fbcG9c5t9vDXfwiq+VUm34FjbdVBK5clxULPA==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+	Fri, 11 Sep 2026 08:36:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cr6vA08CM4t+xTJ5H568ckhfSka0Mcqwu/hb4oDUXRvh77dUl+v2vC1lscEejJPym2OdlgRqIFlFo9uTBq6PB53e02T8p5jNIcS6qDIcWaF+RBIakQA2F+RMyPgJkactCa1vVCcB/oiAkCbg8TtIAPQgLjrr3TY+QYpdWEGM08Dh9BNtP8VnB9ZIw7Tofbydeu6YLkTmrmWrWWy5VbC6eFPJT3p1DAo7nrdecWmMl3i7900YlWGyag+EVsYHcVAfgo2/AfJ39It6bOWAx7JwtHX0cbn2Plo0aKpOpE0uUAqpx/c3LO1MS5VkYW6Mvt8QQu8WtXH7aeGRFnJvx684DQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hmM/9KeHShqObjlEyB/51c475+G9ku/1YQDcHt6pJmE=;
+ b=neNTrWKhQp+FJFBmLs8IVBDSn12PxOZTTDLcAECS69K3WMNENcWDncQWnT0pF4pvlBMJe5bLy8AHtWXc67S3l18ulU4lbWzpMBIkwFdrrBalPYVtJSA2+6SIhp80g+YVvG1jyQvX9RU87QsXGdFIQbaTmyL6t0wdsSbgmOFL6RByMcjLS9UOhrmhxYGExS0sZ/dzI/OvMX4n93HvJNP+wpAU7cjsRANDR4GgpKeZ9QSblopitOZQyxtfuJeZMzYtHxQ/xcenAg+J+V0YV/Ix1cT6GTNl4/7tycNMyFARFuTpMEdRXqMzn5bEGEcpDnXysq0In1rRN9z+Zrl3XkzA7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hmM/9KeHShqObjlEyB/51c475+G9ku/1YQDcHt6pJmE=;
+ b=UyNJ0FjTq84tJ7oB/HzaGQoHdLu8+PQeYR2OitiytequXaV3N09hPukCGoV1F8TSXQ7f9WRXgkcaH+JMPw6w8+OciM83pWRViHgldzXsAKkftN/jaHvZVDhCfhxy5ORqTh3tmx59xJ87xL63cEveIGGIoX62XMH56PvQav0ZIj9AW6qKsKJe7EvBt60/AMXo0xCKKA+/tNjtvrVvAt1iBBkaKFB91zmltrrXsmNzoJAcsMmKQsoyiqN7AHBmHecWYFhnpdWE6WBoZ8c+PSj5qb/XPKlOxoO5vRdmiPQkil2QXEMlHQQ4nBfEkB07EuUWS1I2lctWxsWNUB2trnhJJQ==
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
+ by PUVP216MB481266.KORP216.PROD.OUTLOOK.COM (2603:1096:301:170::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
+ 2026 08:35:46 +0000
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 08:35:46 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@xs4all.nl"
+	<hverkuil@xs4all.nl>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "jackson.lee"
+	<jackson.lee@chipsnmedia.com>, "lafley.kim" <lafley.kim@chipsnmedia.com>,
+	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>, Ming Qian
+	<ming.qian@oss.nxp.com>
+Subject: RE: [PATCH v7 5/9] media: chips-media: wave6: Add Wave6 core driver
+Thread-Topic: [PATCH v7 5/9] media: chips-media: wave6: Add Wave6 core driver
+Thread-Index: AQHdPDksqJyR7EplN0y4kvt0BlfCQbbIUycAgACumrA=
+Date: Fri, 11 Sep 2026 08:35:46 +0000
+Message-ID: <SL2P216MB2441946218CB8AEB1D07DEB2FBBE2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
+ <e8323267420b8e8d29e71c7ea018759cb7298c8d.1788496816.git.nas.chung@chipsnmedia.com>
+ <aqMXumGHR9JjvVrf@lizhi-Precision-Tower-5810>
+In-Reply-To: <aqMXumGHR9JjvVrf@lizhi-Precision-Tower-5810>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB2441:EE_|PUVP216MB481266:EE_
+x-ms-office365-filtering-correlation-id: 7d013487-136a-4b72-4c78-08df0fdfacc7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|56012099006|38070700021|4143699003|10067099003|18002099003|22082099003|6133799003;
+x-microsoft-antispam-message-info: 3dL21L9/vD7LTfvUIafDMWt61eGyDH3vBDdWgJU3f+2CeSzTri/kI6Rosb/KxbgPhOBlDKX6DXKq5hQvESg112sjlu4l4vjRL/2Az0iFpunioaUzvioZlhAvuRZrMXc91eA4vSs70kFctWXaoaF7iXSOoVGKTQbaya3w9rm2xDtSsfzxuut36OlGU2KAGDULie6Y7WILx+D/6SFIKnbAjmGnqEdCKfvu603mQVz5QiN/x5Rp+vFUq4o9HVM6TD5VSFnb1lWNsWB3biOAOFEcZWEqYbo3tqoAW5IUBeqZOivzpIhli6wSdklp5fWySslaMHh9J7XyBDxU2QIO9cyRYe1V+Jt1nFF4d+bPeYqN80ezuSVa0hvmyWbMpBUXLlDGetaUQoCVv4MirRx7Rbp2ssusB7VBAqEDkjLwc/suYG7huGzfsNz0XeW2uxP0swJrBirHE+/gP3SnaY4OY3ttXnXccjTBofqNKe+yOR5shVd/6EtXmMj684I16gU7ZTe9APF4bK5GJRvLRSvBGyKz2U+UseLrDmhp+gbJj0n5+I50N6kstt1BAL+e/KPsndj75lLjsU+TgAGUcOVAb5j6hWLNxEAUeDOtaD7MAejgFlohqwDn6yCXBmOAlCZSBai2R2IwKO1xcDuxBUvK0Var1tAPSuNV+O6gFFIGPfn67ruP9MKwpS7vMSx+CnV/AD9uYRzA2/NKQVIfRUQ+TAODeBACbH90Rl6qux1I8caF70Q=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(56012099006)(38070700021)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OGPB5C/v4iDu36ZzYprch3PHMzCaTjE9tZRB6nwlk1eh6ZJe3t37yg28F7x8?=
+ =?us-ascii?Q?LRlxFyd05avRq2tvlQpNddWcOT2YN+y3/KcPvrNdDZVlfowad4+9eyPD45/9?=
+ =?us-ascii?Q?bSMmfdlMy5AFUuw4Vk16q1Pn2Cz31lWg4ujIrQlff88JPUteqp7/DOMtcQAd?=
+ =?us-ascii?Q?q5bQqiU3nMGqf6Pmx3P5sI2rQA6KMnd1t+wkXt4IBHtO5zBOtiREskg55+PQ?=
+ =?us-ascii?Q?xd9AhegKEHCtH3TSrygl5wI3jsis7ujn4V8soqyxeNF9D/2ZiXqZ2Lv8m9kg?=
+ =?us-ascii?Q?2XmGkRtJ0b27wvpXm3MRGdg1VAg4tJpI6/6tArH/xog2G2LLvKzsHR5rHyD8?=
+ =?us-ascii?Q?ZbCBx13Ifnhs3uDmCyzle2piSC+Lfi+0HikY2lWq4bj6sAig6eT7zg+v9vbc?=
+ =?us-ascii?Q?MtO3btcwq2YRIOw3bYGZIQraonmgrZWJRh40EgXjm95N7jIlu+4OJjIhpdp/?=
+ =?us-ascii?Q?bdvTOA4/JALtIXilONu541R+ihuuqDO/hNZ2KseXiUuC0YcgvvaAbGRYNzJG?=
+ =?us-ascii?Q?IEOdc02lAGSgHv/QqXSAwdjPmmBG1SEDJdpDrK+nc8SU7j8vsSNfdjq5VBFr?=
+ =?us-ascii?Q?6IDFsPUspC7TFgvLfnLZ8JXHPv1AslJ/6tVAhqatwY0JUZudE+0/P1462RsW?=
+ =?us-ascii?Q?j25UhVTzGfzAOOOlgmHFMsIJ782fQo55zzq5OOHkXVSgdsSZ7rmeazTNQpIJ?=
+ =?us-ascii?Q?vNHWl5AI3E9TFUgI8eFTrFptZTasSbfUNyLmCuqkpXt/JZs8g2VwYAzmfSTZ?=
+ =?us-ascii?Q?LM+LVtKgeaGC7IECHn8QvWyqhQ2OJ59rOYu1pWVGOUY8Gz3DEaXqY9fOeCfr?=
+ =?us-ascii?Q?0QBRw0s88YBSMGb5aFdZXmQSeBDxpVCGeCWOU5kUygs4zExQUwH8XohKaAt2?=
+ =?us-ascii?Q?Q6N2gb1W5I3GbfoQrtV3JizmeV0U+WG8179zteCvBP2bN+ZCew+SORV4gJFw?=
+ =?us-ascii?Q?UDu0KwZ+QPO7hemvuNBKIJ1nyhqZoqpCXP5DQc7D+sB/TrKt35d4Y0OVKmrC?=
+ =?us-ascii?Q?0i4Ldwuj0X8Hl6n7S99+d5a5JTi3klfKP1PF1927nZC6J4mwONAyJ//0n4LR?=
+ =?us-ascii?Q?6hQFfleX86t4hGd3z3KNNb9Di6ASmEm6KHP+GBWnfuZ5rVQHxJDT4Nq1C5sn?=
+ =?us-ascii?Q?frZuE1pVVEO94CSpWJBTX69aeziFbaWd3qrSsbej6DI8Io0aWZBUR3cx61vA?=
+ =?us-ascii?Q?ewz0EIImMCcGKE/4VfcQWXjU4w9uOIlP4zrbP1+xvynYnwnQ9adeGVVhr16W?=
+ =?us-ascii?Q?LS+w+XA/xZJeCEMgs0K0cQc5mjJB6saBIcwzR3rHaQokbsXigA1lbfchXIeO?=
+ =?us-ascii?Q?MqadOmFPy7v/dv22I7SYT23c86fepnB+EcN5dbPuuHAVk2DK+/3mu3RayBEL?=
+ =?us-ascii?Q?zh/yV3VKoaof/Y4LW7ub/sKnCNKsriHteAQ/zs85EEDntmOhrSzSDQvB+ppn?=
+ =?us-ascii?Q?t6SNJXQfjq4eG1+SDMpRMtil9JKwchgi7LGY+3pUR+28qYeP7CujX/mHh9j0?=
+ =?us-ascii?Q?xhXLBSnY6C5bo/az3FgKTtc8c2cdlTXI0SvIgtKLkDo22n7X1Ycm7QcM0QHW?=
+ =?us-ascii?Q?DZxLdA7iH6YCNRAjDWfP8/6vqXJUKCcIy/YGuKyxIvly3oPdeGuhL366Iwll?=
+ =?us-ascii?Q?YzlIkgeJhs2a4NpUBvwM1/moB9rbYQbcLgeT9/H5zSi8eIEEb9fRa9Zq8m+h?=
+ =?us-ascii?Q?JXuX5JYGgSdV3V+fXEcAzMyV9vcCy29XHBshQcpV5+0V75HkjPhuYXXiVw5C?=
+ =?us-ascii?Q?xcatF1c4Sw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d013487-136a-4b72-4c78-08df0fdfacc7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Sep 2026 08:35:46.0265
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7vFD3vsChzzUIaNe5Eds6ojFZgHVFr2BwHV7TPAI7e5qnYUhIyB3XWd7htSWJ1q6Y8wsmY1ZElkvXM7J0FYKQWqkWkpCaM8Lub+acJ3+Zmc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUVP216MB481266
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_013547_173499_D5F8B572 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260911_013624_087906_DF41C6FF 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +152,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgoKCj4+IEluIHN0bW1hY194bWl0KCksIHdoZW4gdGhlIERNQSBtYXBwaW5nIG9mIHRoZSBsaW5l
-YXIgcGFydCBvciBvZiBhCgoKCj4KCgoKPlsuLi5dCgoKCj4KCgoKPj4/IAlpZiAodW5saWtlbHko
-aXNfanVtYm8pKSB7CgoKCj4+IC0JCWVudHJ5ID0gc3RtbWFjX2p1bWJvX2ZybShwcml2LCB0eF9x
-LCBza2IsIGNzdW1faW5zZXJ0aW9uKTsKCgoKPj4gLQkJaWYgKHVubGlrZWx5KGVudHJ5IDwgMCkg
-JiYgKGVudHJ5ICE9IC1FSU5WQUwpKQoKCgo+PiArCQlyZXQgPSBzdG1tYWNfanVtYm9fZnJtKHBy
-aXYsIHR4X3EsIHNrYiwgY3N1bV9pbnNlcnRpb24pOwoKCgo+CgoKCj5pZiBqdW1ib19mcm0oKSBy
-ZXR1cm5zIGFuIGVycm9yIG9uIHRoZSBzdWJzZXF1ZW50IGZyYW1lcywgZW50cnkgaXMgbm90IHVw
-ZGF0ZWQKCgoKPmhlcmUsIHNvIHdlIHdpbGwgZW5kIHVwIHdpdGggYSBETUEgbGVhay4gQW0gSSBt
-aXNzaW5nIHNvbWV0aGluZz8KCgoKPgpZb3UncmUgcmlnaHQsIHRoYXQgd2FzIGEgcmVhbCBsZWFr
-IGluIHYxLiBJZiBqdW1ib19mcm0oKSBmYWlsZWQgd2hpbGUgbWFwcGluZyBhIHN1YnNlcXVlbnQg
-anVtYm8gYnVmZmVyLCB0aGUgYnVmZmVycyBtYXBwZWQgYmVmb3JlIHRoZSBmYWlsdXJlIHdlcmUg
-bmV2ZXIgdW5tYXBwZWQsIGJlY2F1c2UganVtYm9fZnJtKCkgcmV0dXJucyAtMSB3aXRob3V0IHJl
-cG9ydGluZyBob3cgbWFueSBidWZmZXJzIGl0IGhhZCBhbHJlYWR5IG1hcHBlZCwgc28gdGhlIGVy
-cm9yIHBhdGggaW4gc3RtbWFjX3htaXQoKSBjb3VsZCBub3QgcmVsZWFzZSB0aGVtLgoKdjIgZml4
-ZXMgdGhpcyBpbnNpZGUganVtYm9fZnJtKCkgaXRzZWxmOiBpdCBub3cgc2F2ZXMgdGhlIHN0YXJ0
-aW5nIGVudHJ5IGFuZCwgd2hlbiBhIHN1YnNlcXVlbnQgZG1hX21hcF9zaW5nbGUoKSBmYWlscywg
-dW5tYXBzIHRoZSBidWZmZXJzIGl0IGhhcyBhbHJlYWR5IG1hcHBlZCBiZWZvcmUgcmV0dXJuaW5n
-IGFuIGVycm9yLCBpbiBib3RoIHJpbmcgYW5kIGNoYWluIG1vZGVzLiBUaGlzIGtlZXBzIHRoZSBz
-dG1tYWNfeG1pdCgpIGVycm9yIHBhdGggdW5jaGFuZ2VkIGFuZCBhdm9pZHMgY2hhbmdpbmcganVt
-Ym9fZnJtKCkncyByZXR1cm4gc2VtYW50aWNzLgoKCgo+CgoKCj4+ICsJCWlmICh1bmxpa2VseShy
-ZXQgPCAwKSAmJiAocmV0ICE9IC1FSU5WQUwpKQoKCgo+Pj8gCQkJZ290byBkbWFfbWFwX2VycjsK
-CgoKPj4gKwkJZW50cnkgPSByZXQ7CgoKCj4+PyAJfSBlbHNlIHsKCgoKPj4/IAkJYm9vbCBsYXN0
-X3NlZ21lbnQgPSAobmZyYWdzID09IDApOwoKCgo+Pj8gCgoKCj4+IEBAIC00OTg0LDYgKzQ5ODUs
-MjYgQEAgc3RhdGljIG5ldGRldl90eF90IHN0bW1hY194bWl0KHN0cnVjdCBza19idWZmICpza2Is
-IHN0cnVjdCBuZXRfZGV2aWNlICpkZXYpCgoKCj4+PyAKCgoKPj4/IGRtYV9tYXBfZXJyOgoKCgo+
-Pj8gCW5ldGRldl9lcnIocHJpdi0+ZGV2LCAiVHggRE1BIG1hcCBmYWlsZWRcbiIpOwoKCgo+PiAr
-CgoKCj4+ICsJLyogZW50cnkgcG9pbnRzIG9uZSBwYXN0IHRoZSBsYXN0IGRlc2NyaXB0b3Igd3Jp
-dHRlbiBmb3IgdGhpcyBmcmFtZToKCgoKPj4gKwkgKiBvbiBmYWlsdXJlIGl0IGlzIHRoZSBkZXNj
-cmlwdG9yIHdob3NlIERNQSBtYXBwaW5nIGZhaWxlZCwgc28gd2FsawoKCgo+PiArCSAqIGZyb20g
-Zmlyc3RfZW50cnkgdXAgdG8sIGJ1dCBub3QgaW5jbHVkaW5nLCBlbnRyeS4/IFJlc2V0IGN1cl90
-eAoKCgo+PiArCSAqIHVuY29uZGl0aW9uYWxseSBhcyBib3RoIHN0bW1hY192bGFuX2luc2VydCgp
-IGFuZCBzdG1tYWNfanVtYm9fZnJtKCkKCgoKPj4gKwkgKiBtYXkgaGF2ZSBhZHZhbmNlZCBpdCwg
-YW5kIHJlbGVhc2UgdGhlIFZMQU4gY29udGV4dCBkZXNjcmlwdG9yLgoKCgo+PiArCSAqLwoKCgo+
-PiArCXdoaWxlIChmaXJzdF9lbnRyeSAhPSBlbnRyeSkgewoKCgo+PiArCQlkZXNjID0gc3RtbWFj
-X2dldF90eF9kZXNjKHByaXYsIHR4X3EsIGZpcnN0X2VudHJ5KTsKCgoKPj4gKwkJc3RtbWFjX3Jl
-bGVhc2VfdHhfZGVzYyhwcml2LCBkZXNjLCBwcml2LT5kZXNjcmlwdG9yX21vZGUpOwoKCgo+PiAr
-CQlzdG1tYWNfZnJlZV90eF9idWZmZXIocHJpdiwgJnByaXYtPmRtYV9jb25mLCBxdWV1ZSwgZmly
-c3RfZW50cnkpOwoKCgo+PiArCQlmaXJzdF9lbnRyeSA9IFNUTU1BQ19ORVhUX0VOVFJZKGZpcnN0
-X2VudHJ5LAoKCgo+PiArCQkJCQkJcHJpdi0+ZG1hX2NvbmYuZG1hX3R4X3NpemUpOwoKCgo+PiAr
-CX0KCgoKPj4gKwoKCgo+PiArCXR4X3EtPmN1cl90eCA9IGZpcnN0X3R4OwoKCgo+Cgo+ZG8gd2Ug
-cmVhbGx5IG5lZWQgdG8gdXBkYXRlIHR4X3EtPmN1cl90eCBoZXJlPwoKWWVzLCBpdCBpcyBuZWVk
-ZWQuIFR3byBoZWxwZXJzIGFkdmFuY2UgdHhfcS0+Y3VyX3R4IGJlZm9yZSB3ZSByZWFjaCB0aGUg
-ZXJyb3IgcGF0aDogc3RtbWFjX3ZsYW5faW5zZXJ0KCkgKHdoZW4gYSBWTEFOIHRhZyBpcyBwcmVz
-ZW50KSBtb3ZlcyBpdCBwYXN0IHRoZSBjb250ZXh0IGRlc2NyaXB0b3IsIGFuZCBzdG1tYWNfanVt
-Ym9fZnJtKCkgbW92ZXMgaXQgcGFzdCB0aGUganVtYm8gaGVhZCBkZXNjcmlwdG9ycyBvbiBzdWNj
-ZXNzLgoKSWYgd2UgZG8gbm90IHJvbGwgaXQgYmFjayB0byBmaXJzdF90eCwgdGhlIHJlbGVhc2Vk
-IFZMQU4gY29udGV4dCBkZXNjcmlwdG9yIChhbmQgYW55IGp1bWJvIGhlYWQgZGVzY3JpcHRvcnMp
-IHdvdWxkIGJlIGxlZnQgaW5zaWRlIHRoZSBbZGlydHlfdHgsIGN1cl90eCkgaW4tZmxpZ2h0IHdp
-bmRvdywgc28gc3RtbWFjX3R4X2NsZWFuKCkgd291bGQgdHJlYXQgdGhlbSBhcyBjb21wbGV0ZWQg
-ZnJhbWVzLCBhbmQgdGhlIG5leHQgeG1pdCB3b3VsZCBza2lwIHRob3NlIHNsb3RzLgoKVW5saWtl
-IHRoZSBUU08gcGF0aCwgd2hlcmUgdGhlIGFsbG9jYXRvciB1c2VzIGEgbG9jYWwgZW50cnkgYW5k
-IHR4X3EtPmN1cl90eCBpcyBvbmx5IGFzc2lnbmVkIG9uIHN1Y2Nlc3MsIHRoZXNlIGFyZSBzaGFy
-ZWQgaGVscGVycyB0aGF0IGFkdmFuY2UgY3VyX3R4IGFzIGEgc2lkZSBlZmZlY3QsIHNvIHJvbGxp
-bmcgaXQgYmFjayBoZXJlIGlzIHRoZSBtaW5pbWFsIGNvcnJlY3QgZml4LgoKCgo+CgoKCj5SZWdh
-cmRzLAoKCgo+TG9yZW56bwoKCgo+CgoKCj4+ICsJaWYgKGhhc192bGFuKSB7CgoKCj4+ICsJCWRl
-c2MgPSBzdG1tYWNfZ2V0X3R4X2Rlc2MocHJpdiwgdHhfcSwgZmlyc3RfdHgpOwoKCgo+PiArCQlz
-dG1tYWNfcmVsZWFzZV90eF9kZXNjKHByaXYsIGRlc2MsIHByaXYtPmRlc2NyaXB0b3JfbW9kZSk7
-CgoKCj4+ICsJfQoKCgo+Pj8gbWF4X3NkdV9lcnI6CgoKCj4+PyAJZGV2X2tmcmVlX3NrYihza2Ip
-OwoKCgo+Pj8gCXByaXYtPnhzdGF0cy50eF9kcm9wcGVkKys7CgoKCj4+IAoKCgo+PiAtLS0KCgoK
-Pj4gYmFzZS1jb21taXQ6IDg5M2UxMTc4N2Y3OGU0M2I1MzRlMjUyMjQ5YWMzZmZmNGQxMzMzZjgK
-CgoKPj4gY2hhbmdlLWlkOiAyMDI2MDkwOS1zdG1tYWMtZml4LXZsYW4tZGVzYy1sZWFrLWYwNTdi
-YjA2MWRhYQoKCgo+PiAKCgoKPj4gQmVzdCByZWdhcmRzLAoKCgo+PiAtLSAKCgoKPj4gWmhhb0pp
-bm1pbmcgPHpoYW9qaW5taW5nQHVuaW9udGVjaC5jb20+CgoKCj4+IAoKCgo+PiAKCgo=
+Hi, Frank.
 
+>-----Original Message-----
+>From: Frank Li <Frank.li@oss.nxp.com>
+>Sent: Friday, September 11, 2026 5:49 AM
+>To: Nas Chung <nas.chung@chipsnmedia.com>
+>Cc: mchehab@kernel.org; hverkuil@xs4all.nl; robh@kernel.org;
+>krzk+dt@kernel.org; conor+dt@kernel.org; shawnguo@kernel.org;
+>s.hauer@pengutronix.de; linux-media@vger.kernel.org;
+>devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-imx@nxp.co=
+m;
+>linux-arm-kernel@lists.infradead.org; jackson.lee
+><jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>;
+>marek.vasut@mailbox.org; Ming Qian <ming.qian@oss.nxp.com>
+>Subject: Re: [PATCH v7 5/9] media: chips-media: wave6: Add Wave6 core
+>driver
+>
+>On Fri, Sep 04, 2026 at 03:46:31PM +0900, Nas Chung wrote:
+>> Add the core driver for the Chips&Media Wave6 video codec IP.
+>>
+>> The hardware contains one control register region and four interface
+>> register regions for a shared video processing engine. This driver
+>> handles the interface register regions, each with its own MMIO range and
+>> interrupt, while relying on the control driver for firmware loading and
+>> shared resource management.
+>>
+
+...
+
+>> +static int wave6_vpu_core_probe(struct platform_device *pdev)
+>> +{
+>> +	struct vpu_core_device *core;
+>> +	const struct wave6_vpu_core_resource *res;
+>> +	int ret;
+>> +	int irq;
+>> +
+>> +	res =3D dev_get_platdata(&pdev->dev);
+>> +	if (!res)
+>> +		return -ENODEV;
+>> +
+>> +	ret =3D dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+>> +	if (ret < 0) {
+>> +		dev_err(&pdev->dev, "failed to set DMA mask: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	core =3D devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
+>> +	if (!core)
+>> +		return -ENOMEM;
+>> +
+>> +	ret =3D devm_mutex_init(&pdev->dev, &core->dev_lock);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret =3D devm_mutex_init(&pdev->dev, &core->hw_lock);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	spin_lock_init(&core->inst_lock);
+>> +	INIT_LIST_HEAD(&core->instances);
+>> +	dev_set_drvdata(&pdev->dev, core);
+>> +	core->dev =3D &pdev->dev;
+>> +	core->res =3D res;
+>> +
+>> +	if (pdev->dev.parent->driver && pdev->dev.parent->driver->name &&
+>> +	    !strcmp(pdev->dev.parent->driver->name,
+>WAVE6_VPU_PLATFORM_DRIVER_NAME))
+>
+>why need check this?
+
+I'll remove the condition in v8.
+
+>
+>> +		core->vpu =3D dev_get_drvdata(pdev->dev.parent);
+>> +
+>> +	core->reg_base =3D devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(core->reg_base))
+>> +		return PTR_ERR(core->reg_base);
+>> +
+>> +	ret =3D devm_clk_bulk_get_all(&pdev->dev, &core->clks);
+>> +	if (ret < 0)
+>> +		return dev_err_probe(&pdev->dev, ret, "failed to get
+>clocks\n");
+>> +
+>> +	core->num_clks =3D ret;
+>> +
+>> +	ret =3D kfifo_init(&core->irq_fifo, core->irq_buffer,
+>> +			 sizeof(core->irq_buffer));
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	irq =3D platform_get_irq(pdev, 0);
+>> +	if (irq < 0)
+>> +		return irq;
+>> +
+>> +	ret =3D devm_request_threaded_irq(&pdev->dev, irq,
+>> +					wave6_vpu_core_irq,
+>> +					wave6_vpu_core_irq_thread,
+>> +					0, "vpu_irq", core);
+>> +	if (ret) {
+>> +		dev_err(&pdev->dev, "failed to request IRQ: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret =3D v4l2_device_register(&pdev->dev, &core->v4l2_dev);
+>> +	if (ret) {
+>> +		dev_err(&pdev->dev, "failed to register v4l2_dev: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret =3D wave6_vpu_init_m2m_dev(core);
+>> +	if (ret)
+>> +		goto err_v4l2_unregister;
+>> +
+>> +	core->temp_vbuf.size =3D ALIGN(W6_TEMPBUF_SIZE, 4096);
+>> +	ret =3D wave6_vdi_alloc_dma(core->dev, &core->temp_vbuf);
+>> +	if (ret) {
+>> +		dev_err(&pdev->dev, "failed to allocate temp_vbuf: %d\n",
+>ret);
+>> +		goto err_m2m_dev_release;
+>> +	}
+>> +
+>> +	core->debugfs =3D debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
+>> +	if (!IS_ERR_OR_NULL(core->debugfs))
+>> +		dput(core->debugfs);
+>> +	else
+>> +		core->debugfs =3D debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR,
+>NULL);
+>> +
+>> +	pm_runtime_enable(&pdev->dev);
+>
+>devm_pm_runtime_enable()
+
+OK.
+
+>
+>> +
+>> +	if (core->res->codec_types & WAVE6_IS_DEC) {
+>> +		ret =3D wave6_vpu_dec_register_device(core);
+>> +		if (ret) {
+>> +			dev_err(&pdev->dev,
+>> +				"failed to register video_dev_dec: %d\n", ret);
+>> +			goto err_temp_vbuf_free;
+>> +		}
+>> +	}
+>> +	if (core->res->codec_types & WAVE6_IS_ENC) {
+>> +		ret =3D wave6_vpu_enc_register_device(core);
+>> +		if (ret) {
+>> +			dev_err(&pdev->dev,
+>> +				"failed to register video_dev_enc: %d\n", ret);
+>> +			goto err_dec_unreg;
+>> +		}
+>> +	}
+>> +
+>> +	dev_dbg(&pdev->dev, "Added wave6 driver with caps %s %s\n",
+>> +		core->res->codec_types & WAVE6_IS_ENC ? "'ENCODE'" : "",
+>> +		core->res->codec_types & WAVE6_IS_DEC ? "'DECODE'" : "");
+>> +
+>> +	return 0;
+>> +
+>> +err_dec_unreg:
+>> +	if (core->res->codec_types & WAVE6_IS_DEC)
+>> +		wave6_vpu_dec_unregister_device(core);
+>> +err_temp_vbuf_free:
+>> +	pm_runtime_disable(&pdev->dev);
+>> +	wave6_vdi_free_dma(&core->temp_vbuf);
+>> +err_m2m_dev_release:
+>> +	wave6_vpu_release_m2m_dev(core);
+>> +err_v4l2_unregister:
+>> +	v4l2_device_unregister(&core->v4l2_dev);
+>
+>can you try use devm_add_action_or_reset() to elimiate these error label?
+
+OK, I'll address this in v8.
+
+>
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static void wave6_vpu_core_remove(struct platform_device *pdev)
+>> +{
+>> +	struct vpu_core_device *core =3D dev_get_drvdata(&pdev->dev);
+>> +
+>> +	wave6_vpu_enc_unregister_device(core);
+>> +	wave6_vpu_dec_unregister_device(core);
+>> +	pm_runtime_disable(&pdev->dev);
+>> +	wave6_vdi_free_dma(&core->temp_vbuf);
+>> +	wave6_vpu_release_m2m_dev(core);
+>> +	v4l2_device_unregister(&core->v4l2_dev);
+>> +}
+>> +
+>> +static int wave6_vpu_core_runtime_suspend(struct device *dev)
+>> +{
+>> +	struct vpu_core_device *core =3D dev_get_drvdata(dev);
+>> +
+>> +	if (WARN_ON(!core))
+>> +		return -ENODEV;
+>> +
+>> +	/*
+>> +	 * Only call parent VPU put_vpu if the core has a parent and is
+>active.
+>> +	 * - core->vpu: prevent access in core without parent VPU.
+>> +	 * - core->active: execute sleep only after m2m streaming is started.
+>> +	 */
+>> +	if (core->vpu && core->active)
+>> +		core->vpu->put_vpu(core->vpu, core);
+>> +
+>> +	if (core->num_clks)
+>
+>Need check it. clk_bulk_disable_unprepare() is empty ops when num_clks is =
+0
+
+I'll drop the guard in v8.
+
+>
+>> +		clk_bulk_disable_unprepare(core->num_clks, core->clks);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int wave6_vpu_core_runtime_resume(struct device *dev)
+>> +{
+>> +	struct vpu_core_device *core =3D dev_get_drvdata(dev);
+>> +	bool boot_vpu;
+>> +	int ret;
+>> +
+>> +	if (WARN_ON(!core))
+>> +		return -ENODEV;
+>> +
+>> +	if (core->num_clks) {
+>
+>need checkit. clk_bulk_prepare_enable() is empty ops when num_clks is 0
+
+Same here.
+
+Thanks.
+Nas.
+
+>
+>Frank
 
