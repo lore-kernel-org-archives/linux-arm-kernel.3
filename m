@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F2EC88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79456C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YL+f1x0LzF/9hCPrGz4VLEXthddv2gmGiJP9etZAd7I=; b=xwmTueKiAk3u7sfgwWOvHS5Dbt
-	GitG4GbaKJr6A7h1BUpD+Fa7zvb0QNWYxJEHNW9nVltgzD5tZPHlY6JDlaMLNEWwNDmNttDRWlATJ
-	PbmvrBCwESiSTnpVZXS+jZaiOnLhIM8vIKvSnEIkLI4y1aDGEdCt6gl2BkZoM3cllLrKPYeEu7tWc
-	YwJ3pvPw/0ZJqtT9GVoBg5LbBJcLbOQcwLB77fk26AREoCDhaRUdZeVNbXWEcmVd+iOirnSVD3jrT
-	D+Na1MG6mjDVpNz7WWcm2ZspbOlv4JG0E4O6D832oPS0uYl02saB33DAJYgalYtY7VUjwotsbnQgw
-	FldJ1QXw==;
+	bh=07MS2zE30cT4NfaNDrdHCbk+5KH+GYI5asiTMyHjN3g=; b=hGVuAGJ+74ctd4nRITE6FJj1ZS
+	Qe3CxF1r28xdPd1NBZk0BgK6nGMy0XfCm5joW9j8+d9OUmAq8if8oAk9oaU9PwT5FsZLlYVVhAJcc
+	wbw79XVbc6uyjnGTz2aNEHfwqiIzqt23V5+o7YkL5wdOy/39V34HA2ssLCOC/qWC5bRd7PMHUh0hv
+	4rvHgiJx+XmW6JJU3AZDwg9bCNxckATKuZu4+h0KBay/1NVajhl6QSfn9c6Zi46CMwojrpyTpA8hw
+	tqaXpvfTgguHmiNdgJXyE11f/jJWXaMws+k892HtW5eRDjIjsRtYTk7RZH35o4sfIu+XM/tURoB9v
+	oFxWstvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52ey-0000000GyFT-3bu0;
-	Fri, 11 Sep 2026 14:55:25 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52en-0000000GyBV-2sLR
+	id 1x52fV-0000000GyPi-09WF;
+	Fri, 11 Sep 2026 14:55:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x52fS-0000000GyNw-2ucy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 14:55:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description;
-	bh=YL+f1x0LzF/9hCPrGz4VLEXthddv2gmGiJP9etZAd7I=; b=gbWOvfilTsBAXpD+yIHPasur+h
-	xS45Z21xRqaBBAC5S2etbYyjgVzc5PCp4lDDcXaVat74Cy6CH6W8wqJaynxKW2ibP7gNjHULYR83b
-	eLtoEL6bNftfKCpIrvvN7oHDAaG0LLpKhbtLf5Z3X5u2O6ODjCDbszWfToEwDUHQeUFWXxQ/2vbEe
-	2e0ZRhHCgM7KtdzcWPTFU5Z4ykgub7XvVS/VbJD27ui0yGZqXp2eFSpynDJRkeHEMq1nBAbbJRa3r
-	nSL4wKoGAju6LFueRQZUPckkzOSu6pOpniRTzyPy4MxLF69cgA8MtFpF7YGECrmaQty3EO+VwnEc7
-	UV24km8A==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1x52em-001Mpi-0Z;
-	Fri, 11 Sep 2026 14:55:12 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Fri, 11 Sep 2026 07:54:45 -0700
-Subject: [PATCH 2/2] iommu/arm-smmu-v3: defer attach in kdump so inherited
- entries survive probe
+	Fri, 11 Sep 2026 14:55:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 616D216A3;
+	Fri, 11 Sep 2026 07:55:46 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB8653F7B4;
+	Fri, 11 Sep 2026 07:55:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789138550; bh=zPZGk1vxERfRcanAsZShseukdti04juJdVA94TVfAWk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fvHYyr/KUqnR0dTJ/eQnFEAFSi4QhvOoYyjPmKA21Vo0XlGXBR+ynNbQN8nsKJEky
+	 5x41N4+6/ZAQS2iuSTVEdghlKTv+fzK1D7gWov9U8WCZ8Vzw3ahvwYWOyczOCTxHyv
+	 CNxfUXXTjBI2UKTYIjF+j6ThNBOiNquQsehRJPvM=
+Message-ID: <d8ab9189-7804-4e4a-a270-b4e3d61c4271@arm.com>
+Date: Fri, 11 Sep 2026 15:55:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 6/7] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+ Andre Przywara <andre.przywara@arm.com>
+References: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
+ <20260904095000.1184861-7-aneesh.kumar@kernel.org>
+ <178855077571.693280.17942746234757215326.b4-review@b4>
+ <yq5atsnyeuz5.fsf@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <yq5atsnyeuz5.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-smmu_fix_aws-v1-2-75870bf9655b@debian.org>
-References: <20260911-smmu_fix_aws-v1-0-75870bf9655b@debian.org>
-In-Reply-To: <20260911-smmu_fix_aws-v1-0-75870bf9655b@debian.org>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, catalin.marinas@arm.com, 
- mark.rutland@arm.com
-Cc: puranjay@kernel.org, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, rmikey@meta.com, 
- Breno Leitao <leitao@debian.org>, kernel-team@meta.com
-X-Mailer: b4 0.16-dev-f8e9d
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1858; i=leitao@debian.org;
- h=from:subject:message-id; bh=4f9XazJ84/Q81ykJOH80nzaLk4jPrDtKBF63TT3P4jY=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqpBZDpszgURqDACr8/r9f69rhRqZmjzYWYzzOT
- Fe4CkbpleiJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaqQWQwAKCRA1o5Of/Hh3
- baf5D/98WYBU0cIJK2ZDbZhLhvc4inI4uQcsvLz0PI7wkGZdp4+2zbfpYOyUG/BETjNVWr+HiYU
- nyQEzhqHB07H8U71ZHwR6fLp9qDu7alAtKG8I+X3BknobqHcPuEQfwLgeWstQldBjvd1zCVMgI2
- Q539lXSgM92fbElZELEoKAKFqRecu5ZMtnm88eeedpdLTEkgDI/AzdF4xoJ3YcLIZ58gneWWEcA
- XVseN/lR7JW464C49MIdKbu3T+BtYFBQKCpOluHA0xJoNy3ZrtJOXYowOqe3GxlhjnZhZ7UfCoi
- 3OEXwA8HD4ouHSnUkGE+5Mn6v9+AOpcf4T3bgwttxZobq9BlwjNpCOmLh3O5u2sd9PgxsOv+rc3
- okwXG89jOYpDkqpmuqQHjFxEIRSgi2pyU2voQG9sFzOCLzv2ZG7HYiN7/SdEohwgvXgGkXiW38g
- xVvW0SEYiyLVLFUXEGJm85d41ATSNOBmMEnx3KQ+QUbWz979/VNG9vbmjjvq/HOrLl+WxrXXAst
- KoJSgZ6rrqTu+Xhj9YwJy1RJ/RQA9VeXskALGWFRyJiJd7oxT4D9Zkq6hn8Smt8BAFQqpqBxFP1
- zlvgxtLtGcYo+3228mfdV38AoxX59F53Jq7YqeHBJGGPi1niyRKsgtzVV7oRoOe18IM6CoBlpOS
- X1+ibV1VOSgqwBQ==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_075513_742812_1D14315F 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260911_075554_819575_0B3D586A 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An inherited stream table keeps the crashed kernel's devices translating
-only until the core probes them. iommu_setup_default_domain() then attaches
-a default domain, replacing the inherited entry with one that maps nothing,
-and the fault returns as F_TRANSLATION:
+On 09/09/2026 08:37, Aneesh Kumar K.V wrote:
+> Jason Gunthorpe <jgg@nvidia.com> writes:
+> 
+>>> [ ... 42 lines skipped ... ]
+>>> @@ -94,6 +95,11 @@ static const struct smccc_device_info smccc_devices[] __initconst = {
+>>>   		.requires_smc   = false,
+>>>   		.device_name    = "arm-smccc-trng",
+>>>   	},
+>>> +	{
+>>> +		.func_id        = SMC_RSI_ABI_VERSION,
+>>> +		.requires_smc   = true,
+>>> +		.device_name    = "arm-rsi",
+>>> +	},
+>>>   };
+>>>   
+>>>   static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
+>>
+>>     [Severity: High]
+>>     When this new entry is probed by smccc_probe_smccc_device(), does
+>>     arm_smccc_1_1_invoke() pass uninitialized registers to the firmware?
+>>
+>>     Looking at smccc_probe_smccc_device() during system initialization:
+>>
+>>     drivers/firmware/smccc/smccc.c:smccc_probe_smccc_device() {
+>>         ...
+>> 	   arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+>>         ...
+>>     }
+>>
+>>     Since arm_smccc_1_1_invoke() is a variadic macro, providing only the func_id
+>>     leaves x1/r1 uninitialized in the SMC inline assembly.
+>>
+>>     For SMC_RSI_ABI_VERSION, the RMM uses x1 as the requested interface revision
+>>     to determine supported revisions.
+>>
+>>     Could this pass a garbage requested interface revision to the RMM,
+>>     potentially causing probe failures or returning an unsupported boundary?
+>>
+>>     Could this also leak kernel register state to EL2?
+>>
+>> Sashiko still has this to say, I think it should pass 0 as the x1
+>> 'requested version' instead of unpredictable garbage.
+>>
+> 
+> To handle
+> 
+>> Could this also leak kernel register state to EL2?
+>>
+> 
+> Should we instead do
+> 
+> 	arm_smccc_1_1_invoke(smccc_dev->func_id,
+> 			     0, 0, 0, 0, 0, 0, 0, &res);
 
-  [   37.824064] pci 0003:2d:00.0: Adding to iommu group 62
-  [   38.035698] arm-smmu-v3 arm-smmu-v3.0.auto: event: F_TRANSLATION client: 0003:2d:00.0 iova: 0xfffe2965
+That looks safe to me.
 
-The core already avoids this. iommu_dma_init() enables deferred attach in a
-capture kernel, but only honours it for drivers implementing
-.is_attach_deferred, which so far means amd and intel.
 
-Implement it for SMMU, so we keep the inherited table until the next
-DMA.
+> 	ret = res.a0;
+> 
+> There is no standard defining how the various SMCCC VERSION calls are
+> expected to work. For example, ARM_SMCCC_TRNG_VERSION does not use x1,
+> while SMC_RSI_ABI_VERSION does. Another VERSION call could use both x1
+> and x2. The only consistent behavior is to return
+> SMCCC_RET_NOT_SUPPORTED when the SMCCC function ID is not supported.
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+True, relying on "SMCCC_RET_NOT_SUPPORTED" => Function ID is not
+supported is the safe way. If one of the parameters are not supported,
+then the call should return INVALID_PARAMETER.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 51a809400d56a..9c8b344c75ab8 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4400,6 +4400,11 @@ static int arm_smmu_def_domain_type(struct device *dev)
- 	return 0;
- }
- 
-+static bool arm_smmu_is_attach_deferred(struct device *dev)
-+{
-+	return is_kdump_kernel();
-+}
-+
- static const struct iommu_ops arm_smmu_ops = {
- 	.identity_domain	= &arm_smmu_identity_domain,
- 	.blocked_domain		= &arm_smmu_blocked_domain,
-@@ -4415,6 +4420,7 @@ static const struct iommu_ops arm_smmu_ops = {
- 	.get_resv_regions	= arm_smmu_get_resv_regions,
- 	.page_response		= arm_smmu_page_response,
- 	.def_domain_type	= arm_smmu_def_domain_type,
-+	.is_attach_deferred	= arm_smmu_is_attach_deferred,
- 	.get_viommu_size	= arm_smmu_get_viommu_size,
- 	.viommu_init		= arm_vsmmu_init,
- 	.user_pasid_table	= 1,
+Cheers
+Suzuki
 
--- 
-2.53.0-Meta
+> 
+> -aneesh
 
 
