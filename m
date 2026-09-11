@@ -4,145 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4B2C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC6CC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lq6xWSyQpzYCSsA6tdR+rHHceJQdmU0Rk2Quur8MSlE=; b=mn6NbivyHNpa0viyo5rb5T/s0Q
-	tUNEXWpTVBTGtTMYX9r2xc4sm1te0PZQYf3RsJGFL3Tmy3Z3hzG69K4w6P+03g3WU9YMqAyiFsD8v
-	xydNGB+ePpTrP4GNuKGBTcgu41MMSS1jV6kdEw+yF22Bfw+TWAw/kxHbeaAp0dvOFJ9bvepWDo5g4
-	h5hZO5ia4ePqRab8eK/HxtHlb46322kG2GFCFcUVeJ/OgE7Qft8TaHqREoT6vIo8lX2pMPWzd2Dnf
-	4BHk5WdBPM/TlWXiReCq0noJbx6uOFbxgGgQdsRukPHje0S48OOaroJiWyFR4coZnx+XEJXcMy5ek
-	emLOcQFg==;
+	bh=pyPGYtnzf4r7mkvvETaUX3dyuduLi00Fi7uTj0IG3cQ=; b=3cRk4vs+3AiRw6XioIX77IwgE9
+	m4/Xl044iY684txPk/au4ek3flvK7FqzZIu+2FkQ61cUM8WW7zBFPQXcjR3WThnc54Q8RyvhNRvuV
+	cbcvKQecwd9vrU2NmQ7Pb+IwpRfq7NVZerSw7XS1czKgzdUSkY8naTdADebwQhsF/xeoKPjMf0BJD
+	X2zGv0aof9JU6KBCjS7IFCDVAuF9H8LIQZsoxSqSs+K77hYcMTe5wJ7xnrqffIRpDHk7sGa/Qt5Jd
+	EPUCsEPmxVVEYVcrwiTReOEjUIBmRiq6132o5+YUhhHCD/cjVhGcfxuaQBXbLUesNxI521DLkuQbQ
+	QZpAkkMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56PO-0000000HUKi-0avn;
-	Fri, 11 Sep 2026 18:55:34 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56PL-0000000HUK0-30pi
+	id 1x56RI-0000000HUX7-3VBa;
+	Fri, 11 Sep 2026 18:57:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x56RG-0000000HUWi-0K3s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 18:55:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TxMi+6Qpf5JjkvCOD6cYh85HX3yXh4JXpPKLUQHRcgUMrQ4buqWNezLU+nn1uimSCP6+QL5dhBVY00S1Jv2X8caMESCC+nS6r/AofEuCO31sFOcH+F0K1roVwxDOsLpwvJAz9qiFPqr6x+YuVMOJ6km5GUab2aX8O3QBIWsWnEKCDWfm155JIGRnq72YJWIc6ZjLab1hc1mgvpxjxV8UNfAGHOYQISuGbIvGSjRyNV4NbpHs5QJOqUR7PDvT8XXDdIjhYRpnl43eLL5Kd4lIKZHAukLcutW2SSQLgHFpGef22NdFEQMRyXg/ge8aRJOt7xq4Fg6cUwNG4o9AG9Kxiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lq6xWSyQpzYCSsA6tdR+rHHceJQdmU0Rk2Quur8MSlE=;
- b=T1wySlQS9FZRy30Bs5qHpHChsSMJOvoKsdOy13vitnx4eGipUdWMbOxJQqmdYRZhTQ4HbkbTqx5M9L8gBNqKpgywkFqW6mKrMBU6jHGUUH/RjpJ4B7SGExXOeFFnLtPLAmJCzT39Ux+pbCpt3oBAqUyTV+X+qiody5MesXeUP53UQiT5fMryNstZCkVAv6PodPAZlvtBtd50RkcXqa/2h4nwVItKmONZ4+AFuGR7TbhWvPBGHjzdhL/F6KeBZxyZ+asm0HIFUtNtIxyQY6DIPSv6cdVqko/JWzUEb8ZBB1jy1Dfq0KcKEjyNqrm8LSqossM2SxxyBO33ec9R4v4PKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lq6xWSyQpzYCSsA6tdR+rHHceJQdmU0Rk2Quur8MSlE=;
- b=TvqNNzKnt/EdUTNSEhoILmxIUUw2BjLvpeiNM9F5wBZm0s+vW5PZPqRK3G3K98rKhm2IU3XBWp3T1w7Ic0e73HGo0jNhyRUagJWVFPYBsS9G7+vcEARwQsG+tPVY7rPN0jkc+ebvImMcEZ0T0QpofNnwwtnKXwlU5q9YI3BWK6GxUXLPfKSVoNPIfMjqhSEy9dGydgFDRPIqr2UsUfcUqy9grqeNGzQ7EMgBy0zOCihPiG8c/esaVmq3foCQVmNr988ak+g582cbJtMa2KNxDv64mnQC+GCLhwrK+MWNkReF75QoMFK8kryqbf5vhd0O1w+bhaS0nXjWrYj1jMTztQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA2PR04MB10409.eurprd04.prod.outlook.com (2603:10a6:102:415::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 18:55:27 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 18:55:27 +0000
-From: Frank.Li@oss.nxp.com
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] ARM: dts: imx7-tqma7: correctly specify PMIC voltage constraints
-Date: Fri, 11 Sep 2026 14:55:17 -0400
-Message-ID: <178915291407.2919686.13200648813310370165.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <9a916f24b610cc60e0efd13296f281e00b41391e.1788335665.git.nora.schiffer@ew.tq-group.com>
-References: <9a916f24b610cc60e0efd13296f281e00b41391e.1788335665.git.nora.schiffer@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR15CA0170.namprd15.prod.outlook.com
- (2603:10b6:930:81::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 11 Sep 2026 18:57:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A1331477;
+	Fri, 11 Sep 2026 11:57:24 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00CC73F7B4;
+	Fri, 11 Sep 2026 11:57:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789153048; bh=wc9nLSphBOCT1DkhLyV+K0eqkiSCALgzgP5PlYhJbIA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FVaR9MbJyw2GqzIHwA3ysXfqcfdAaAWFOi+2Ipcd7N4AcQM//flL019SAtbrnoxAt
+	 K8fe7QzwxzUkrvQRomXTzyWAeheFEtuCZ1yOS/pydtS0bdnetFtlfXIoI5rXopMN84
+	 EKhRjZzsVq8/ZulFFDblC1dwHkjbxb072t+XL0cw=
+Date: Fri, 11 Sep 2026 19:57:17 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, ljs@kernel.org, 
+	Shen Yongchao <grayhat@foxmail.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] KVM: arm64: nv: Fix life cycle of the nested_mmus
+ array
+Message-ID: <klqsux4hc7qalbo7pev3yjpv5tywenjdpinm7tjblhhdf3l2jy@n2s5lqc5jtwd>
+References: <20260911162203.1919330-1-maz@kernel.org>
+ <20260911162203.1919330-2-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10409:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6153a6a5-a233-4fa2-63e3-08df10363e7b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|23010399003|366016|6133799003|3023799007|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: M0wRSo6KiD4HFWS4nRIY2DAJE1NeL3FC7Ve4Dy9nTNRPSi+MXUjcKw9b3CDs9MHzEvR3+rSAuu+HdRxVs2WYzq+ldxO90YH1z9Y9RbWh171ubDdYfoxLdV0mdytf26/8XoKs8cBoGSDwyRHjde1olU0j9Gl5TQwIJ+NhrdcopO3x2OY2u0KBoVUVOaTK5YMRd8KoxRdxyRrvo6lkpDQ9fUvkMSAqqFmkIV4Auhf2vGBCJhUly59lYkRGeMDOG99yYmVOYMYzhrEoM++F441jUpTDH/Dm9MFSkByIoNcfwvEo+OwP9Fk/7ENtsbH1ZOzcz78vc0xBjPZB4A2t4MqpI1BDCFRb6AGKwAB98wj8Qr6JMtiUoV2ubBCL72LWo4+w588PGwAXCwA9KbRRTsS77cnRVEqHqY3Lp3VdgyoVn3R6rFaKeqvWZg542ert7nKhRSOHGoYnnIfABsyPH0JSsyjIoV5IBdnGUZH5Y0Vg8e0kGhox/i7Sq6+kfMnS45F9oJd5C08rl78YZVy2twHXy7zox+37q8O4VPzO7pA0hg97MBxy73s7QgzE6+khEU57CVkBujtE6CsDU9fDNOtvhN+ooWDJjgNyiLwOxevfL5cDGIyHmZNLvwraJNNFLI4IfWhevOmQ/HINNzb0eib0yh7X5/t/bI1JUGh2rqX3Gxo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(23010399003)(366016)(6133799003)(3023799007)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VnY2enkvUDhldUR4N2FTdURxQUdwME1pR3JJQk5FdzVRbEU0b1N5SGVxMTBm?=
- =?utf-8?B?bzBiRUFHbDFjZno1aFpQWGJkVjhYMHlmTCtrMHl5a2laTSt4cWc0N29JekFz?=
- =?utf-8?B?cXB4T0JEUk8ra2hweWM0aXFXbE84N0R6dDlFb3V1ZGVpdFd5RGtvbUcvVzRH?=
- =?utf-8?B?TWtJaFd0N1ZuTk1ZaEVwVmN0K1ArSE9KczZKencxLzZoNHpmWlJjdFU2VTZt?=
- =?utf-8?B?UVVNd0JwNDRENGs5VXNicTUxeHh3TVE5ZUNSMlFCcXJZM2dkZk9NamV0V0x5?=
- =?utf-8?B?Mm8zQUcwOXZHRlUzMHN3czYwU1ZzZUdEcm5Xa29HeU5jbmU5QytZbXQrVjAy?=
- =?utf-8?B?blpUVDQzUEhJem1JU2RtampockNlZitCL3ZOZ3duUUR6cGZBZ2RoRHA1Nmh4?=
- =?utf-8?B?akczZTBpREN5dVUzd3Y2a2phSWtTOHpoYm1qbHhMWkJjT3RGRVpjRlQ2NU1m?=
- =?utf-8?B?aWpNMWtxTUJJSDFZS0s2RkZkSTVTZXIvTnFtU211U3UvQUFsT0FreVk3ZGRx?=
- =?utf-8?B?dTZ5SFBmU1Q2Q1N5UXVqanpjWlNUaHlMcEY0TE00VExsL1FDNUE1ZkNBR0F6?=
- =?utf-8?B?amlXQXNXV1Y0c3kxVGVOWmovWVgwK3ovTWZmSVpiNVk2UUdyNnhYTjBUWUM4?=
- =?utf-8?B?QXY0dVhGdHM1Y2tGME9TUnRqYXk2WHdCN2pmYVM0ZVBPNEliS3VGTFh5VERI?=
- =?utf-8?B?OXFYNVFyNE1QTnJsMzFkVVVsTFROUUZ0RzFUckRraEl3N0hPbnFTalMvb0M4?=
- =?utf-8?B?WFp0d2xlL1lXdzF2OWFpNEVBa3lzbVgxOEJMYm1RbnZpSU44TFlEYllWa3hz?=
- =?utf-8?B?SGN2QzA0WlNTaWRqU3RFK1lsL3VGc3hha3A5NUQrS0x0UytIRWVxMy8wUlRK?=
- =?utf-8?B?Y254QTRyQlZwemJLMEErNVJJbktCRTNlMlNKKzZkUUxnd3VTdWl2eFhXcTBJ?=
- =?utf-8?B?OWxoTzNRd1liTElqRjJuMm50TlhOeUFvR3BKQWxCV3hDQ1VVeE55dExaajdK?=
- =?utf-8?B?SmZPZFJDNHZzVlBVRlh6RUl5USs4MUxOT29YeWdUR1JFcnNwNTg1dmxqS2Iv?=
- =?utf-8?B?Q2dPUWM0ZEJtL3dLYmNjQmdpMjdJTDFsR1NZRlMzK1NZMU1HbjYya0pPcjRv?=
- =?utf-8?B?Mi9QWDBZeCt4UmRuRlA3ZG81dnNLNDNpZGN4Y0RTckdCNlR5U1AvS1hhdGRB?=
- =?utf-8?B?NjZubjlNVXU2MUxHbWRmbll3dWFrelNjQVRxM0lQRWxDK09EeC9HMk1OVHYr?=
- =?utf-8?B?L3BDalBTT09FclJxTFo5VXJ1WGdWdjljWENIVG9WL0dEMWVxb1FEYWtDVno3?=
- =?utf-8?B?NWk4RmVUcjRPK0xNbW1zWGNOckk3YXpxc0FBb29LcTJPZXduTmNDL2N6UCtK?=
- =?utf-8?B?dktCSjV0TTZzcWR0bk1iMUpVUkUwbDl3SFBMR1doQnZ0NFRiZlJpVHlQRzNp?=
- =?utf-8?B?eGduYmVrS0VlZGR4anRvNWNaUkgrblVkaDV6VmNtYkpIQWFIcVZhcEpSbFlN?=
- =?utf-8?B?Z2NYS0hPd0xZcGdvbGp5TmxQKzRxUHNWeG1XaFB5SjlWcUF4d2oxQXFxU2Uw?=
- =?utf-8?B?a21ha1hsNkpUYThCVnAxK2Z0eFIrQVBQNERoUWREdmhJamFZd3I0S2xMaEV3?=
- =?utf-8?B?RURxeHhTUFBFMFcvZDIxWEJvOEM3VWJ1R1h3dXFUeVRab083QWRVb01Rc3Fw?=
- =?utf-8?B?UkhHVjRvYXZiRnlDL2JMSklkWnRPaE5TU2krWm11eDJtYlhtNWlsSjN0VSts?=
- =?utf-8?B?Z3JtTnpvUGZtMVk5VG1aV2w4WVNiZ3ZERG5HNHdYV3hsVTVwWlA4R1Qrc0Rl?=
- =?utf-8?B?ek5oWkhyUERqTU1VQjVjckh5L1k0K3JjVFdtSWR1UmVUNktxZnVUazN4aEY3?=
- =?utf-8?B?QnN0cWl4QVZVWW4yLyt0aFdXcTZpdTBRZ0N3Vm0yd2Zhc1lvUysrTzZRSEg5?=
- =?utf-8?B?bTFzWEZYS1UwcE52YTdpdjlnZ2tzTlBVTnRLbG9Va0d4d3owM2xoT3dwTVdv?=
- =?utf-8?B?U21oWmc4d3VvSjdQc0MzWnJSazQrWFlXSWRhcWFGS2FpUmJwc0V1TDl6ak5n?=
- =?utf-8?B?NlZLSVowclA4U1FNVXlkNXQ0YlJ4bUlhczZiV2VCMmoydmlDSElpeEdnYm4r?=
- =?utf-8?B?OFdIdUJEcEJ4L1ZQTjZnUVdmQnYvemVHaS9iRFBiZXBhVlYxRVFkejk2cUNK?=
- =?utf-8?B?RXZ2OUoxdWUvcyt0VndSdm92OGhZWHdDNDJxZEtMR3pPaU9xcHA0RUVkaWZ3?=
- =?utf-8?B?czFSN2cxc21Qam82WFBVTUtjL2hjZzUreGVCUWlyMTBIajNQTExEWHhXNVBL?=
- =?utf-8?B?MXZMNDdUL21Qc0hXc1FSbmtIUXVnVDVmN09uSXl1R3FtTnR0b2pOMHFIekk1?=
- =?utf-8?Q?VOYYL3x2S7yllEy2UzXwz8ZkPONENJfyWhQVT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6153a6a5-a233-4fa2-63e3-08df10363e7b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 18:55:27.3920
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3r6GqXVDvt+Cmkop+zkoloIVdrwj1EL7/8JqVkD1t+GPCo6D3KNnTW1VF+k/xJlEAK2qtNKzpUvOj9x94Iyh76fWOulx6WSMMATJO+L8TYtXbESI8qFlCTdDV1o1rMgt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10409
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911162203.1919330-2-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_115532_502102_559671C0 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260911_115730_346665_83533E38 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,23 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Fri, Sep 11, 2026 at 05:22:02PM +0100, Marc Zyngier wrote:
+> The nested_mmus array holds the shadow page tables that are used when
+> a guest is running a nested context. These structures are allocated on
+> VCPU_INIT for whole guest, which implies that they may have to be
+> relocated as the array grows.
+> 
+> Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
+> that the allocation requires relocation, that vcpu will still be
+> running with a pointer to the previous structure, which will have been
+> freed.
+> 
+> Fix this by turning the array of structures to an array of pointers,
+> which is now allocated at VM creation, sized to the absolute maximum
+> that KVM can handle.
+> 
+> In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
+> reallocation is ever performed, and the life cycle of each object is
+> much clearer:
+> 
+> - the nested_mmus array is allocated in kvm_init_nested(), and freed
+>   in kvm_arch_destroy_vm()
+> 
+> - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
+>   on kvm_arch_flush_shadow_all()
+> 
+> Finally, the freeing of vcpu->arch.vncr_array is made consistent
+> rather than being done on some failure paths, but not others.
+> 
+> Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> Reported-by: Shen Yongchao <grayhat@foxmail.com>
+> Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
 
+Reviewed-by: Wei-Lin Chang <weilin.chang@arm.com>
 
-On Wed, 02 Sep 2026 10:05:37 +0200, Nora Schiffer wrote:
-> regulator-(min|max)-microvolt refer to the supported voltages according
-> to board design, not the possible range of the regulators themselves.
-> Update the configuration for the TQMa7x's PMIC and also add a comment
-> regarding the PMIC's VCC_SD switching feature.
+> ---
 
-Applied, thanks!
-
-[1/2] ARM: dts: imx7-tqma7: correctly specify PMIC voltage constraints
-      commit: f322f8f68c2c3291633ead663effa3b25c18f7b1
-[2/2] ARM: dts: imx7-tqma7: sort I2C device nodes by address
-      commit: cd329bd34c81320c0f9dc8c4149a7d3ef111a651
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+[...]
 
