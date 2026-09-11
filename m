@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D950C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 19:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A51C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 20:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1QNy/7gvgmU/E67RG266zicM9HX4ieZNC8ECh76/Op8=; b=Bq4xuXRjziFcUOc8qHhJN0b3dE
-	u+5sIs04ZzQCT3maYez/BgOrbPkZPFlWHo2KjXcGTxTuH28GwPie1PUXp1ndZg07hIEKrbeJUluMB
-	Wha7/TosS+6WYBMPn2CAikL2LynEHOld54o1Fk8ILIbyno1o7kQflbevS5yLw6hEtZ1B73A10gT/+
-	gLJuV/HPoScRwRmAZrF3jB0MjTZeN/lq1lrVc+wEGksdNN+dJOPKgPOqCpHKVfnu1BZZRH4sFvd1O
-	fXJhfp8G7FyVehdyMODDvg0unKbHYOGk7ZdXNkypJZi57HH3NHbCeoTyk5ULALUqZody3wO02bdf9
-	q5nBCbyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6EbnYxGqe0xixbnmgwrnZwLddp9Ao1JEq2A2JzywCcI=; b=l/NiGxDF3xHEwA2SNIz9IyLPwi
+	FJiFm2xjdV5QEUkPK6Jybst2HcoKCcuSov+tMQ3hOgmrrHfrBY/BugJ7qbKoAHuX5HkSzkcKqwBn0
+	7CmldhFp8dVvqfw5hM52r3VuXfjteOe3t/fT2848MTlGualRImvlpOmUNa5prcEnOxkeDPD2OsNpT
+	qK2TzrpbWFAeKtmurpmoxegu8QX977rV4FHvUqaowtbiU2jTjO8gru5XA1xtVGJV5+pxAdVJ2bL2y
+	wuJFCmUQPInwC3hneDlbntw72VnmyttHJOd36buXrX67UKDc3zx//iYjrI0HI/CIUD+ZHjCdG2Aky
+	fQKgM6tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x57MK-000000003Bu-00ms;
-	Fri, 11 Sep 2026 19:56:28 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1x57h1-000000004r1-2cQs;
+	Fri, 11 Sep 2026 20:17:51 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x57MH-000000003BR-16xg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 19:56:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789156585; x=1820692585;
-  h=date:from:to:cc:subject:message-id;
-  bh=sAEo9k+sWvUXSyU6ky3lRRjm0y++hKLzLz2dHFXSL7Q=;
-  b=f7nhPGRb4+P2B9Odvw2B0V3G5lQ/meZOSjtEH9hI6KgMr1JEbSumxgbs
-   H37JdXBc9VIDbubSCcxdvrhRzomanFFDK3E0u0DOlYupk9eL+1Bw6Qpel
-   Eh/3IZolTLSozUBDspw5YlrSjNneYFNc5e1AfuHPDrs61skaagKYwi2lj
-   FBZdPAYuCQnWftBhPOrc8kbdGL5pJQuD6ERGfNCIjymKQnYOg0+HlkiT1
-   D/i16tP+1k2zC2YGlzFPARD85GWxA/FP7g9F3jqzt38peks5ERFY2hFaF
-   IQJ12cg/PCDvKIg3h5McA3+01W6dGsfCoOSj7dlE9sB8T6OCE+JC237CY
-   g==;
-X-CSE-ConnectionGUID: bJ/4At2PQc6/50wvSH88cA==
-X-CSE-MsgGUID: /PaSfkM1TESNMDOKoZeOVg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11902"; a="77187937"
-X-IronPort-AV: E=Sophos;i="6.27,97,1787036400"; 
-   d="scan'208";a="77187937"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2026 12:56:24 -0700
-X-CSE-ConnectionGUID: N6kyTagwRgiwzCEHmBMddw==
-X-CSE-MsgGUID: 70cCFgcARoSKe60iERurww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,97,1787036400"; 
-   d="scan'208";a="276167018"
-Received: from lkp-server02.sh.intel.com (HELO 0a3643a6ed9d) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 11 Sep 2026 12:56:23 -0700
-Received: from kbuild by 0a3643a6ed9d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1x57MC-0000000025w-20nA;
-	Fri, 11 Sep 2026 19:56:20 +0000
-Date: Sat, 12 Sep 2026 03:53:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:board-remove-7.3] BUILD REGRESSION
- cf983087c51a9c74c3d4d3b353eb811ae5030823
-Message-ID: <202609120357.QwUJs8ue-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1x57gx-000000004qJ-459w;
+	Fri, 11 Sep 2026 20:17:50 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 53CA57A00C6;
+	Fri, 11 Sep 2026 16:17:43 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Fri, 11 Sep 2026 16:17:45 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789157862;
+	 x=1789244262; bh=6EbnYxGqe0xixbnmgwrnZwLddp9Ao1JEq2A2JzywCcI=; b=
+	Wu7myXEuTU4nZbcOAv+QPnbuAtWv8/+K/zriRJrhRxjnzdYRc2AU7kih4tjN7u4x
+	FPsmMYEUWPKmpkcz4FTBjjna/GZEu6Nru1MDgU/VVsvv3wkFIfiiLgrOlm5athXV
+	EpLnTenvHSogbwrLX5VrFXKiUXCht2PmwLZZLGYIbi3lnq+TzGADNgyzdTR6vFpz
+	vlTbWSud0X+E7Twqix/O2qWfs1WhxAbh7Kq3Q5xN1tM2zkW6O4QX0gM1O+FT8hoB
+	6gqZyDW4m4hLgylpWza7RRsgJflSKPybgiWSft13eFyuR2TQCis0g56wedFzPDyh
+	09uP9TuOXOGPVBUdOyPXBA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789157862; x=
+	1789244262; bh=6EbnYxGqe0xixbnmgwrnZwLddp9Ao1JEq2A2JzywCcI=; b=W
+	fxl++9NU0d8tHTjJWeMiF05jlpLzcp5E3OeAHqL/90wDxsS+Vhgpg3kIsI9Bu3EU
+	XL09lXtwZ+TWYQAdTdDPNoAelXZjVG5JszCpgnKrNwfkBR3mx8e4RAfVxJMB4C42
+	8Prv6vqIIhByMUEZIjDYld26i7/H/cUexctkJsp/WgiVDoMn/NUt2Gd5j8/bZr2Q
+	BsJhHiK7aak41f7vAr3VSyVeboF41dMBB0gZOK891Uswa7Os9v1gMNh3GFtdylxl
+	n+EgKweNNNW+0DYXIwbBr6QpesBHrdh8SzVAwsgdWlTMYXsSnE4tjIUo0H4F+EJZ
+	G/0U49j1q5y/trkLHXvhQ==
+X-ME-Sender: <xms:32GkasISX4WbD9wG2rxBdBe9Na4bcX9xm_JDGLFHnSAeHgzRE7Cr3g>
+    <xme:32Gkam8cvJaPKT-InblbjyT5ZdW3r4rROkjQqvt8SwiQcNb90L0c13Ez9e1WWDZYt
+    o8zuYY1S1ZV1Ph152Mjx68Bl1uPhuNaKoSyMdkdovZZRP6W8uTGFgo>
+X-ME-Proxy-Cause: dmFkZTGh0gLZNZBxe6Y5EwujO7h5YSAbLaol936kXjDbPkBTmCLtncegw+FJypwAB0cXMF
+    5VBA6L86GAs34nb9D7LOw6xcYkzdt4dfxfwMc8Df5DPPw0PSZiraAEsYITNStpuvxYvP85
+    6dvdSeWKu8M2XUSW2E+8odMexOEm7bEeGAV1bLv6IUDtMPL42JsG7nVzKQ3TCK37XXCqpF
+    92nRhGgzUy7iM+hCgmBshWzd5f6IuAsIj1DYDhgRWpdZJnswQNoYDbW0rpqX/Jrupgz+Ox
+    oX9VL28TkUhg+2x+ivO5QRzZ/lXB/ma/Oe2TQkZPd7YTZf0gQEzke7B2TrNvpS8cf5e7dW
+    YRtQzOcaJqvDbyTDiI/oDLnR6om5i0xGnn+PB0k/ganOZxbe0EHjVJz18oZTNUAD0EE8km
+    qZf/fwV/9PWYrKrL7rpucLFdTIAGYZkafGJloWzOICo1mjJY1zl1AAfpAX5gvKvkt96MCe
+    0g6F6eYAV2zE9g7/JOD0zhd41ta7wMu40/Y1hfJ/ksIarblZHeIFSeF73Fqru5qQzxQ9Yz
+    biMdM4KTC/yRDvAI9oPHDbpFetrxTvBTseI+nPrLrcgxdSAOAIkK2JJWNR/MoL23csKjlL
+    RFJJ1UuW2r5iPkr1kmh8qX6hejxePJJHDk8MSoQlBO74jfJQy3+CfQtAjkAQ
+X-ME-Proxy: <xmx:42GkaqkWLW_2vJQHOwEHI3pQ7h_Ufp9XzEukJ1yf7GqRnnR9rf2R2w>
+    <xmx:42Gkas2MNrwkQq_g4iUQMQl8VCOd2jaIkEptHlnfzmC8IFqtis4bMg>
+    <xmx:42GkavRzfofbrj818MWgcK61z7kwSf12vFAwP0UXtZXA5hPaqKEUcw>
+    <xmx:42GkasOoPcljqFc03VdUTftLcTXe_oRivwx_b_Y3omoLYCYky55G9g>
+    <xmx:5mGkaqQwkNj47I5B8l0Garx2qvsPVJE3iphHAgJ8dCMedEAhlmY2b5NE>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id C7F7532A0081; Fri, 11 Sep 2026 16:17:35 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+X-ThreadId: Atvpn89t2M6-
+Date: Fri, 11 Sep 2026 22:17:15 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Bradley Morgan" <brads@mainlining.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>
+Cc: "Frederic Weisbecker" <frederic@kernel.org>, neeraj.upadhyay@kernel.org,
+ "Boqun Feng" <boqun@kernel.org>, "Joel Fernandes" <joelagnelf@nvidia.com>,
+ rcu <rcu@vger.kernel.org>, "Andrew Morton" <akpm@linux-foundation.org>,
+ Linux-Arch <linux-arch@vger.kernel.org>, "Vineet Gupta" <vgupta@kernel.org>,
+ linux-snps-arc@lists.infradead.org, "Russell King" <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, guoren <guoren@kernel.org>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ "Yoshinori Sato" <ysato@users.sourceforge.jp>,
+ "Rich Felker" <dalias@libc.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ linux-sh@vger.kernel.org, "Chris Zankel" <chris@zankel.net>,
+ "Max Filippov" <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org
+Message-Id: <a817a6ed-7345-435c-97bd-a394b90e8366@app.fastmail.com>
+In-Reply-To: <20260911192540.20983-1-brads@mainlining.org>
+References: <20260911192540.20983-1-brads@mainlining.org>
+Subject: Re: [PATCH 0/6] Add two-byte cmpxchg emulation and wire it into the
+ architectures
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_125625_311157_C6AA1E38 
-X-CRM114-Status: UNSURE (   4.71  )
+X-CRM114-CacheID: sfid-20260911_131748_685698_DDFB5DC5 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,83 +120,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
-branch HEAD: cf983087c51a9c74c3d4d3b353eb811ae5030823  power: supply: sbs-battery: remove platform_data based probing
+On Fri, Sep 11, 2026, at 21:25, Bradley Morgan wrote:
+> Per Paul's note, Arnd Bergmann's platform removal series was
+> checked before analyzing the users. It removes the imx31 and
+> omap24xx CPU_ARM1136R0 selectors, but INTEGRATOR_CM1136JFS still
+> selects CPU_ARM1136R0 until its scheduled removal in early 2027,
+> so the ARMv6 path in patch 3 is still live.
 
-Error/Warning (recently discovered and may have been fixed):
+I can still restructure this and pull the INTEGRATOR_CM1136JFS
+removal a little earlier. At the moment, this is part of the
+patch to remove CPU_ARM1136R0, which I had planned to submit
+once the arch/arm/mach-*/ platform removal patches are done:
 
-    drivers/mtd/spi-nor/winbond.c:115:7: error: expected expression
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=a8cfcc5533e33a
 
-Error/Warning ids grouped by kconfigs:
+I could turn the mach-versatile/Kconfig change into a separate
+(trivial) patch and add it to the platform series to avoid
+churn here. The armv6 cmpxchg() code would still exist
+in 7.4 then, but be unreachable.
 
-recent_errors
-|-- arm-at91_dt_defconfig
-|   `-- drivers-mtd-spi-nor-winbond.c:error:expected-expression
-|-- m68k-randconfig-r133-20260911
-|   `-- include-linux-spi-spi-mem.h:error:expected-expression-before-token
-|-- powerpc64-randconfig-r121-20260911
-|   `-- drivers-mtd-spi-nor-winbond.c:error:expected-expression
-|-- x86_64-randconfig-012-20260911
-|   `-- include-linux-spi-spi-mem.h:error:expected-expression-before-token
-`-- x86_64-randconfig-013-20260911
-    `-- drivers-mtd-spi-nor-winbond.c:error:expected-expression
-
-elapsed time: 1492m
-
-configs tested: 48
-configs skipped: 3
-
-tested configs:
-alpha                   allnoconfig    gcc-16.1.0
-alpha                     defconfig    gcc-16.1.0
-arc                     allnoconfig    gcc-16.1.0
-arc                       defconfig    gcc-16.1.0
-arm                     allnoconfig    clang-17
-arm               at91_dt_defconfig    clang-17
-arm64                   allnoconfig    gcc-16.1.0
-csky                    allnoconfig    gcc-16.1.0
-csky                      defconfig    gcc-16.1.0
-hexagon                 allnoconfig    clang-24
-hexagon                   defconfig    clang-24
-hexagon     randconfig-001-20260912    clang-22
-hexagon     randconfig-002-20260912    clang-17
-i386                    allnoconfig    gcc-14
-loongarch               allnoconfig    clang-20
-loongarch                 defconfig    clang-24
-loongarch   randconfig-001-20260912    clang-24
-loongarch   randconfig-002-20260912    gcc-13.4.0
-m68k                    allnoconfig    gcc-16.1.0
-m68k                      defconfig    gcc-16.1.0
-m68k                 sun3_defconfig    gcc-16.1.0
-microblaze              allnoconfig    gcc-16.1.0
-microblaze                defconfig    gcc-16.1.0
-mips                    allnoconfig    gcc-16.1.0
-nios2                   allnoconfig    gcc-11.5.0
-nios2                     defconfig    gcc-11.5.0
-nios2       randconfig-001-20260912    gcc-8.5.0
-nios2       randconfig-002-20260912    gcc-11.5.0
-openrisc                allnoconfig    gcc-16.1.0
-parisc                  allnoconfig    gcc-16.1.0
-parisc64                  defconfig    gcc-16.1.0
-powerpc                 allnoconfig    gcc-16.1.0
-powerpc                g5_defconfig    gcc-16.1.0
-powerpc            katmai_defconfig    clang-24
-riscv                   allnoconfig    gcc-16.1.0
-s390                    allnoconfig    clang-24
-sh                      allnoconfig    gcc-16.1.0
-sparc                  alldefconfig    gcc-16.1.0
-sparc                   allnoconfig    gcc-16.1.0
-um                      allnoconfig    clang-17
-x86_64                  allnoconfig    clang-22
-x86_64      randconfig-011-20260911    gcc-14
-x86_64      randconfig-012-20260911    gcc-14
-x86_64      randconfig-013-20260911    clang-22
-x86_64      randconfig-014-20260911    clang-22
-x86_64      randconfig-015-20260911    clang-22
-x86_64      randconfig-016-20260911    clang-22
-xtensa                  allnoconfig    gcc-16.1.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+       Arnd
 
