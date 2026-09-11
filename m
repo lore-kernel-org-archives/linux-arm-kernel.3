@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03884C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452B7C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NRZUbtUucUhw0WkqpcYIAzHqGYCykdJeiO5IvMZwJk=; b=ikZreAxGqAaZHWkRG9T7R6K3FD
-	b2g9pb8G2kwjoxR9pj8q0oJAw4msbsopBSL2wfDoVMRxHSvEeaNqM2TWFILQSe4w9C3ZSEhTGIKGl
-	JUNb+et6Zpdo58f3J9jUQdR3X9cPmckkuta/HwArpMYz1z0d5FMWGlnpZH47MH9SsPaIOlpyDq62P
-	1VyxPi1YjN+ajCErfviGJVFw7h6dEMxkhEFUQgrKeW7Jm2eL1zt4sD/cdfjBzRH4Bxa2VzL9zlFsz
-	OAFUPT1zOibMZPudr11tMkNeg3cgXWbexwrjrFg9GawYrRbrRC4LcM9TRwQQMeHC1dSIxgDNoWoPZ
-	ut5HEjeA==;
+	bh=ZdBRWhexXolLx9DvgVpP9EDlgW3sq+myZ2NLPsbIFQI=; b=VUDnuqncodE7xv/sPE8HToGL1C
+	CRpDu9mxsKOOW1BL/U5gWY9gd/y6NCDQv+KgmteQ53OlYUqPTrW86fsWtoRMckV2LD2WVZol6XsYh
+	8XjfEoi+UqGztpO/5+6F1QUVz/fs5yuruZCQ8HLvnK6Pe6YU7X8sUBqq+S5rXPZ01z22xMIPGnhbM
+	B85FLHOzPSYsXgCK0Trv93HnkBdEgV0KGTvIAWO15GOH4yll2eg22Nhb3i/MXDKQft7t8U3ZQa1OP
+	WaTnmURFSVQSwNuuyZpByQATNByvNfqpKxYHJ83dmLveRA/SDQ3k/4vI4O7XIux2nzZ3N6/ToB9bS
+	sMKFVzrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vkE-0000000G264-2MBi;
-	Fri, 11 Sep 2026 07:32:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4vkS-0000000G2Am-3JWD;
+	Fri, 11 Sep 2026 07:32:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vkE-0000000G25g-04Cv
+	id 1x4vkR-0000000G2AK-1MU7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 07:32:22 +0000
+	Fri, 11 Sep 2026 07:32:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8EED743931;
-	Fri, 11 Sep 2026 07:32:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A9B1F000FF;
-	Fri, 11 Sep 2026 07:32:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 19AA940848;
+	Fri, 11 Sep 2026 07:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC2411F000FF;
+	Fri, 11 Sep 2026 07:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789111941;
-	bh=8NRZUbtUucUhw0WkqpcYIAzHqGYCykdJeiO5IvMZwJk=;
+	s=k20260515; t=1789111955;
+	bh=ZdBRWhexXolLx9DvgVpP9EDlgW3sq+myZ2NLPsbIFQI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=isZHds3RVUgkbzYmuIAs026IhkzEJjYNTCq2AR0SisNdLX5luwLSdo7hMZH1vZ7BK
-	 S7Zv/7lj58eB4kRjCf5HQ+bEhViwArNhumUpObc6wDHv5JnYU2kxZhVNp3lRbuWsyv
-	 pYwvHz5ZHk+EL9KGDBkCVNE4b1WL0OA7mJnuaBTU14yqMFS81WYOQi3vGQyQdqmrcb
-	 /GUoxsu9j1vW4g/S9U9IHnJEiMlJJJZetc/hXbHTSjMRPkQFK7LYvz8Ss8qEQ6sDPE
-	 7hQ1khoSdYUA8bAibBuCkGVvs66XfD4EQkBhRY/bwbhU24f3188rURADagzGszCnXY
-	 cJ7NRveh+gkHA==
-Date: Fri, 11 Sep 2026 09:32:17 +0200
+	b=mlKgjykTcQQAdbrc/459mbo2yqVFVB9GmvYVR5eaFYvAcHQItYrTgJWW90JZd8k+T
+	 pTbPI2QeZVBaLDaWQmzmiurCITD3bA+2tyYwcrFdKXmQzH80eg4KbaOIZCAsJvSlbr
+	 uJniBPHiLBMxP4VXuWANlItaASwDmQaerqXEsSPc2Rb1Xoy7jW/zVjTt/PAfKBCPlO
+	 o0+yCBue2lywIoion9lOgdMSHGyWe4Jizr2mDT/7yBWAmVCqmMQVbpU6K1dC855tda
+	 LkaXI5Vopf3gD0vqwdgtLeOMJPwIHbaC4yLZSlBPdq7iJDR4WOjWsMY3zODOqscnxB
+	 BqYZqFShr73qA==
+Date: Fri, 11 Sep 2026 09:32:30 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Marek Vasut <marex@nabladev.com>
 Cc: linux-arm-kernel@lists.infradead.org, 
 	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
-Message-ID: <20260911-sweet-industrious-stallion-b7a727@quoll>
+Subject: Re: [PATCH v2 1/2] dt-bindings: soc: xilinx: Document ifm ZynqMP
+ VHIP6 EvalBoard
+Message-ID: <20260911-weightless-slick-ostrich-cb88ca@quoll>
 References: <20260909182641.165383-1-marex@nabladev.com>
- <20260909182641.165383-2-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260909182641.165383-2-marex@nabladev.com>
+In-Reply-To: <20260909182641.165383-1-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +71,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 08:26:05PM +0200, Marek Vasut wrote:
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/phy/phy.h>
-> +
-> +#include "zynqmp.dtsi"
-> +#include "zynqmp-clk-ccf.dtsi"
-> +
-> +/ {
-> +	model = "ifm ZynqMP VHIP6 Evaluation Board";
-> +	compatible = "ifm,zynqmp-vhip6-evalboard", "ifm,zynqmp-vhip6", "xlnx,zynqmp";
-> +
-> +	aliases {
-> +		ethernet0 = &gem0;
-> +		ethernet1 = &gem1;
-> +		ethernet2 = &gem2;
-> +		ethernet3 = &gem3;
-> +		gpio0 = &gpio;
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		rtc0 = &i2crtc;
-> +		serial0 = &uart0;
-> +		spi0 = &qspi;
-> +		usb0 = &usb0;
-> +		usb1 = &usb1;
-> +	};
-> +
-> +	chosen {
-> +		bootargs = "clk_ignore_unused";
+On Wed, Sep 09, 2026 at 08:26:04PM +0200, Marek Vasut wrote:
+> Document ifm ZynqMP VHIP6 EvalBoard reference design binding.
+> The board is populated with four ethernet ports, QSPI NOR,
+> eMMC, UART and USB host interfaces.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
 
-You should not have such bootargs in mainline DTS. It ties DTS to
-currecnt Linux driver implementation, not mentioning that it is
-subjective choice. And once such bootargs appear, then they are tricky
-to remove because users of DTS might rely on them.
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
