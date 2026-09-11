@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E86C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20605C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mZRoA9PODrPhpIJV/r8XJ2VpWLCKH5KZbcXxYdds34=; b=3n27QVrVsjG9iHBU+NJRVmYG/v
-	S3tJEGagbcDBWLm5rIraMUaD1MsHGZi5UoObKtJN18Etl1NYQQeUEddVAgEVQfM7uNn82bNEkY/bU
-	Gqhf9NAAiajlGYg+molB5Nhre074qi1Q0Eb762tqujWDFhijgxYoBC/lkAA4UQsVDhVbb0bxU/ktA
-	/bvUPQzdWsaVxORHf1CvX7LgFM1dXHagP1WzjnXtlSsvxDt5G9Y/ANmQBJAGN0PnRbtba3dzPZhpg
-	yOeWZcYpIdB1LSn7VHpiq0M0QFPHha1jNTbxzLH56/WLjLsxPrjBtmTp7gJvBOXbQGr7PGaEI41i0
-	Q/jgKaLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HD7CwDSBdI7ApvW9myNSUssqtq9jDio3I05Sz3qKMAk=; b=IoWqFbjYLJzJhKrYm4+glNSHxc
+	CmdMYS7AmDs45qwJs8MPe/lvQVoNxpn+baAu2Y4f0aciuN4wF2dReS4Ow4BLjUiFqwoBJdxoHtosX
+	vcFJ/8KX2GIBwYpQaGn2ypkT5KbJz6CKYHYztgu58HdhQFT0Mv6n0SoU8kagFcXwxlEvxhy+1RRmm
+	FI7bHW8mBi8lG0iUCBX2oFPqFeFB5KfcLhC9CHBD5pyeZ3nR9MPnwGitnzeLefjTyPIbTsnJwSaCn
+	FM6Hca2n0Y0njkZYiRpeDDGdB8FyDd8wgPYzwr0sYrbgqtE6k4Xuz1KQuZr4NpBb5Hg0rhz2XxSCi
+	3XLBolig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tjF-0000000Frna-3Zll;
-	Fri, 11 Sep 2026 05:23:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4tkh-0000000Frxj-0bkH;
+	Fri, 11 Sep 2026 05:24:43 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tjB-0000000FrmT-0dzo
+	id 1x4tkd-0000000FrxM-3Usv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 05:23:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD52043BDE;
-	Fri, 11 Sep 2026 05:23:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2A8B1F00893;
-	Fri, 11 Sep 2026 05:23:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789104188;
-	bh=+mZRoA9PODrPhpIJV/r8XJ2VpWLCKH5KZbcXxYdds34=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P4RXfBs0nPp3VWp10lsNlf2bnkwuFmzTreTSpWlbyZPkzqZ8fM+k7sRwdeD2L6pig
-	 GuaHY/gzhEwxZz7MYL+Z+q0XqhlqrLRHzljXZ7m+VtdTlNCON6VEHPcQJeCfmNMSxI
-	 6QPNykGgyEvwD9NfBO2BVyiKEMRgJG3podow0KFbj1QXvXjSSao/vbpgEBWyx3hZq8
-	 T8MppCQOFy2T3Um5yvLPEYoRY0YABML6mTn1uGukKb+pWxKejY+tpvzCR1L3CwtpHY
-	 d/1W1KKGxmT7AnM+i+YCuB4Nwip5pNftCkvFAbJN61ucbfGzFX1EfTGDQY4/Eykuvq
-	 f6DhMbMaM85KA==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Vincent Jardin <vjardin@free.fr>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable+noautosel@kernel.org
-Subject: Re: [PATCH v2] bus: fsl-mc: register the object drivers after misc_class exists
-Date: Fri, 11 Sep 2026 07:22:50 +0200
-Message-ID: <178910416254.316287.15938875439475759696.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260909-for-upstream-fsl-mc-initcall-order-v2-1-b7a04634fcf1@free.fr>
-References: <20260909-for-upstream-fsl-mc-initcall-order-v2-1-b7a04634fcf1@free.fr>
+	Fri, 11 Sep 2026 05:24:41 +0000
+Received: from francesco-nb (unknown [185.12.129.179])
+	by mail11.truemail.it (Postfix) with ESMTPA id 65D9822A64;
+	Fri, 11 Sep 2026 07:24:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789104277;
+	bh=HD7CwDSBdI7ApvW9myNSUssqtq9jDio3I05Sz3qKMAk=; h=From:To:Subject;
+	b=JbPSjiN/w4LO9ADIbdIKV/vFf+H2SWOFS8oSWFQKzh0kkEmEYcB13lBle3Kq7WHAo
+	 WJyVffgJeIcbtVWFM+wZIobEHtAbTcg/S8HA2TI3INwZwmVfSy5lW3CzMUC/NHgima
+	 2UpgOO7EcyxRxRlHThqRfxuUGRZXVAZGTPNu45AhJaFILlEemwYWMvsKXLKHTxzEN9
+	 Xhl4VaMtisNJTMuLbZPBSv9dodVRnOtylbZSVL/luVqHgE4BHjECsF8DiCD3QsOnpf
+	 4ZCAr3TWcncmfn/oMCF4ojhGFOPbtBgCMtkimt3OXaHdqwB8+w9v0Algi1A0PpFMNH
+	 Axg//UkbZ0wUg==
+Date: Fri, 11 Sep 2026 07:24:28 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Judith Mendez <jm@ti.com>,
+	Daniel Schultz <d.schultz@phytec.de>, Andrew Davis <afd@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>,
+	Jai Luthra <jai.luthra@ideasonboard.com>,
+	Devarsh Thakkar <devarsht@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Vishal Mahaveer <vishalm@ti.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Sebin Francis <sebin.francis@ti.com>,
+	Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Hari Nagalla <hnagalla@ti.com>
+Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
+ bootphase
+Message-ID: <20260911052428.GB5377@francesco-nb>
+References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
+ <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=797; i=chleroy@kernel.org; h=from:subject:message-id; bh=K0L3yJTFVuuzwDSP40fpMdTeNGFWENUWsbw5HIR+7tQ=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWQtnmDQXeqnfltynoyFjlbODMfQg2WuBbks9bn3pt9O4 nt8VO9kRykLgxgXg6yYIsvx/9y7ZnR9Sc2fuksfZg4rE8gQBi5OAZiICjsjw4oQcQ4rmUt9K80s y+5de716Rtn5FzFnmLtsPorNYpjb28HIcCDA+2uV7LPe9zqiXdtstztZ5jyfcfWgR5BMuqTDQqf VjAA=
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_222440_041074_6F7B744D 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Markus
 
-On Wed, 09 Sep 2026 19:04:40 +0200, Vincent Jardin wrote:
-> Unbinding and re-binding the root DPRC fails with:
+On Thu, Sep 03, 2026 at 02:39:30PM +0200, Markus Schneider-Pargmann (TI) wrote:
+> For IO+DDR the wkup_r5fss0_core0 and the
+> wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
+> setup is done. These are used to read the lpm metadata region in
+> which data is stored to resume. This needs to be done before RAM is
+> in use to avoid overwriting data.
 > 
->   sysfs: cannot create duplicate filename '/dev/char/10:256'
->     misc_register / fsl_mc_uapi_create_device_file /
->     dprc_setup / dprc_probe
+> Add the bootph-pre-ram flag to the wkup_r5fss0_core0 node in both
+> ipc-firmware dtsi files and to the lpm metadata region nodes of the
+> AM62A and AM62P boards.
 > 
-> It happens when the fsl-mc bus probe is not deferred, without SMMU:
-> - the dprc driver is registered at postcore_initcall,
-> - the DT node is populated at arch_initcall_sync,
-> - the root DPRC probes right there, before misc_init() has
->   registered misc_class at subsys_initcall.
+> The board level bootph-pre-ram flag of k3-am62d2-evm.dts becomes
+> redundant with the dtsi-wide flag and is dropped.
 > 
-> [...]
+> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+...
 
-Applied, thanks!
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> index 45ab9d947b3a..8976c0424cd1 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> @@ -184,6 +184,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca08000 {
+>  			compatible = "shared-dma-pool";
+>  			reg = <0x00 0x9ca08000 0x00 0x1000>;
+>  			no-map;
+> +			bootph-pre-ram;
+>  		};
 
-[1/1] bus: fsl-mc: register the object drivers after misc_class exists
-      commit: 7e9023a18eec88b716d8d46a29c4207186fbd828
+verdin-am62p has the various bootph tags only in the U-Boot dtsi
+(k3-am62p5-verdin-wifi-dev-u-boot.dtsi) as of now, I am not convinced it
+is a good idea to just add this single one here.
 
-Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Francesco
+
 
