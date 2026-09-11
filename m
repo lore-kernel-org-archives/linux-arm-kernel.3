@@ -4,121 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8172C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BDEC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdmRJCCaDZa1nBcr3H2N1qYwEdhuymVKhEFGMKEdU+k=; b=psTNWAt5j+hadkraURGBVBxd6N
-	J2EYNZqIZARF4bsniWX491b9rlIoOnUhTxCGYZ5Ix5OM1HGKs4CrQHd1Z84uoxDN92HvL0yfOeC/K
-	azPSkxPSe7vhW0qhwl+gtuKM9KBImJ7IVKUkEjQLRjus2OqIAEn+g9qNnWIHltq7+2/qRUJsA0QW3
-	e5lTc5INlDv+pUuJCqzJ41mWMyux4N7nH7cIRVH3S/GtQMzmZn4Jr++TH84qURmyZZqBYEqhG51u9
-	ht2JGudYbhQ/cZTsuA2gnVSnaVS3nwG3Kq/A2ht5/EAalGoNH4/ZIU+iqIErlPXVefRmRq3UsIkR8
-	fYGwbuSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DKS3Y875g55w6+jRQCK0RAo8CGT+TF5uQ7AdPQA8+FE=; b=o7OxL9c2bo9fr/nxlcLcHFSt2k
+	kTsL+Zv/xzN/XFjltkdnnMYplZuGGyTgYJOzDaAXiYUTE3R3LrzJhiElVKWQJNB/0aO4oMKbi18Xw
+	CApG37lW9eXv7k+jhpFvP8Xsvx0urY53wy+d6wwuSxgwud7ry2lfbkP27sL3xGsnJJVyMV3qupN5v
+	nO4boNX5d7/ekL12PLarugHFZCbb92U6sBePH2IZh2+4bkQjzFpEHdh+jtA7GmZHbg/dNiw5bLYG5
+	V2wj/jQm8Z7ClZaarZEQrxES8xN5p5FG5XLXMLwUAfMmY93w3KF5QWmlqW6SjseK16dDGRu+1kJpX
+	LH9olXsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50pV-0000000GhFB-2Hnz;
-	Fri, 11 Sep 2026 12:58:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x50pn-0000000GhL4-2pru;
+	Fri, 11 Sep 2026 12:58:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50pD-0000000Gh9o-22jR
+	id 1x50pm-0000000GhJj-1RUb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:57:56 +0000
+	Fri, 11 Sep 2026 12:58:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 410E4412D5;
-	Fri, 11 Sep 2026 12:57:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3D241F00898;
-	Fri, 11 Sep 2026 12:57:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C316415A9;
+	Fri, 11 Sep 2026 12:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A331F00893;
+	Fri, 11 Sep 2026 12:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789131471;
-	bh=EdmRJCCaDZa1nBcr3H2N1qYwEdhuymVKhEFGMKEdU+k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ngr7S5tVBMBaQxLkItH0euI3RcZTH2yMPtzQ84xbpRe7x7e8oi9A9sdRvNDqhz55L
-	 eP5iCgGdM+grkmZzOF7BIF587oDRa+FUbCfSh+iW/3GUH4npUj16KHxP3wUMkvZHwI
-	 RHxunIY4VoRB8tLHiT8MjI7gcHwiaknyxUZcb+1sANp2qZKMQ5kHnme1v0fgAUMzqY
-	 fhqnmGqmLnwrwgy17Xa56tQrimbv+TIYqX79t0eGQKapJnurZedIcc1YLIKpnFBwQj
-	 9Amwmf4NyrU3UfwG3ikNCgj65N2Wl2fdN9bUwA92a7TRrL3HZzmTzcDGsph6tJih5h
-	 c4pUWdmyLISNg==
-Message-ID: <e5271c66-572a-40c1-a339-5aaf113544f7@kernel.org>
-Date: Fri, 11 Sep 2026 14:57:38 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/13] Ambarella CV75 SoC minimal bring-up
-To: Jerome Brunet <jbrunet@baylibre.com>,
- Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>,
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <1jwlt1ld6c.fsf@starbuckisacylon.baylibre.com>
- <46d21889-6b52-4c09-8f77-7c08dba93777@kernel.org>
- <1jld986j7m.fsf@starbuckisacylon.baylibre.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <1jld986j7m.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1789131506;
+	bh=DKS3Y875g55w6+jRQCK0RAo8CGT+TF5uQ7AdPQA8+FE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=e5rB0Yy0vm91hHd8PcFabYm0S+Znfex9t24hSeR/jilv1yVwTiOtxiRWg8Vp4PnQq
+	 NruMAB0HQxZGz/RHTFtvsUVcS+iAwNHPQXN/Spu48j9TWM4FGKVPNIKkpmjiFZpYu9
+	 h993H8+S/GnD6/dfShgrfjlWAMnSf4fBkZhUqo5PzjfPojrhHMMzILlYTSK1t6yM7R
+	 TBZoCG4x+NcSkIIgM52hwWjh/cmmC0B1CGh7yMdlcDiTdwEQfDZZip6vxe/lJy0ane
+	 g5FIhs6dgguYOvC6+5kLLBjVOhgh7BfNACHfny9ogXFcW8l++JTBDk/PUK+8nlzmyI
+	 n5n3kfghnZXiA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x50pj-00000007lFn-3IG3;
+	Fri, 11 Sep 2026 12:58:23 +0000
+Date: Fri, 11 Sep 2026 13:58:23 +0100
+Message-ID: <86jyos6j2o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 14/17] KVM: arm64: Reject host access to protected VM private state
+In-Reply-To: <20260907070002.3333525-15-fuad.tabba@linux.dev>
+References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
+	<20260907070002.3333525-15-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,36 +92,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2026 14:55, Jerome Brunet wrote:
-> On ven. 04 sept. 2026 at 08:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>> That is a lot of stuff mixed into a single series that could easily split
->>
->> Well, not easily, because each split patchset would rely on non-existing
->> CONFIG which could trigger warnings.
->>
->> Contributors follow here the correct and documented process of new SoC
->> platform, I don't get why now only this patchset has to be split...
+On Mon, 07 Sep 2026 07:59:59 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Are you referring to this or something else ?
+> A protected vCPU's register and debug state is no longer exposed to
+> the host. Host ioctls that would reach that state now fail rather
+> than operate on a copy that is not the guest's:
 > 
-> """
-> one patchset containing new arch/foo/Kconfig entry, DTS files, MAINTAINERS file entry and *optionally initial drivers* with their Devicetree bindings
-> """
-
-Yes
-
+>   - KVM_GET_ONE_REG and KVM_SET_ONE_REG return -EPERM once the vCPU has
+>     run: the copy then holds reset values plus what the exit handlers
+>     marshal out. Pre-run access still builds the guest's boot state.
+>   - KVM_ARM_VCPU_INIT returns -EPERM once the vCPU has run: it would
+>     reset the host copy alone and rewrite mp_state, which EL2 reads
+>     only at hyp vCPU creation, so a vCPU the guest powered off would
+>     come back RUNNABLE.
+>   - KVM_SET_VCPU_EVENTS rejects external-abort injection with -EPERM;
+>     SError injection is forwarded and stays permitted.
+>   - KVM_SET_GUEST_DEBUG returns -EPERM: a protected guest's debug state
+>     is hypervisor-owned.
 > 
-> No problem with that, I was merely trying to say that mixing 4 or 5 trees
-> in a single patchset is pushing it a little and it does not solve the
-> dependency problem you've mentioned, it just move it.
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/arm.c   |  7 +++++++
+>  arch/arm64/kvm/guest.c | 19 +++++++++++++++++++
+>  2 files changed, 26 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 5c2587da815ab..37a260b139795 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1750,6 +1750,13 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+>  	bool power_off = false;
+>  	int ret;
+>  
+> +	/*
+> +	 * Re-init would reset the host copy alone and rewrite mp_state
+> +	 * after EL2 has read it. Pre-run init stays allowed.
+> +	 */
+> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
+> +		return -EPERM;
+> +
+>  	/*
+>  	 * Treat the power-off vCPU feature as ephemeral. Clear the bit to avoid
+>  	 * reflecting it in the finalized feature set, thus limiting its scope
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index ab659795d4b2f..abab580a659d4 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -701,6 +701,10 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+>  
+>  int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  {
+> +	/* Once the vCPU has run, the host copy is not the guest's state. */
+> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
+> +		return -EPERM;
+> +
+>  	/* We currently use nothing arch-specific in upper 32 bits */
+>  	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
+>  		return -EINVAL;
+> @@ -718,6 +722,10 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  
+>  int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  {
+> +	/* Writes build the boot state; once run, EL2 owns the registers. */
+> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
+> +		return -EPERM;
+> +
 
-It solves, because there is no dependency. Symbol is introduced in first
-commit on given branch, then used in second commit on the same branch
-and so on...
+Why can't these be moved to the ioctl callback? Something like:
 
-Just like every other new platform, I really do not get why this should
-be done differently.
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index eaf583b771931..0ffd435bf6904 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1856,6 +1856,19 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+ 	return __kvm_arm_vcpu_set_events(vcpu, events);
+ }
+ 
++static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
++{
++	switch (ioctl) {
++	case KVM_ARM_VCPU_INIT:
++	case KVM_SET_ONE_REG:
++	case KVM_GET_ONE_REG:
++		if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
++			return -EPERM;
++	}
++
++	return 0;
++}
++
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+@@ -1864,6 +1877,10 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 	struct kvm_device_attr attr;
+ 	long r;
+ 
++	r = pvkm_filter_vcpu_ioctl(vcpu, ioctl);
++	if (r)
++		return r;
++
+ 	switch (ioctl) {
+ 	case KVM_ARM_VCPU_INIT: {
+ 		struct kvm_vcpu_init init;
 
-Best regards,
-Krzysztof
+>  	/* We currently use nothing arch-specific in upper 32 bits */
+>  	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
+>  		return -EINVAL;
+> @@ -786,6 +794,13 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+>  	u64 esr = events->exception.serror_esr;
+>  	int ret = 0;
+>  
+> +	/*
+> +	 * EL2 injects an external abort only to complete a forwarded abort.
+> +	 * SError injection is forwarded.
+> +	 */
+> +	if (vcpu_is_protected(vcpu) && ext_dabt_pending)
+> +		return -EPERM;
+> +
+
+Where is KVM_CAP_ARM_INJECT_EXT_DABT rejected?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
