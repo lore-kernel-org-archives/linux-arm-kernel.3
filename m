@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7083C88E59
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F275C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bh/XeWBXrRsKcF+6gWaZNgHDZVV2xBCMBMTiM1LQKWs=; b=xloiv+VeE8l9+CPe1+3EZkP83m
-	y+HrHgjMUrG13i8vCQIqGlQx9+h6AvzJZSDT/HblrnLs5Xm6KXsNxfwl5WtQG7szD0zuzqcrq8GXy
-	LYbZuigyfyCP71dvIwkD1ikLuMEi0b3wMIsd4ZyqfKoCUrxlFSncKRKuZFR/JDSJX2M7m6ELxFpJu
-	Db4/Iyx97/J1h3Loai7ta8tLQ74zKsLM6JyC52xb4xCfoULINuxgxyNhcqZA+mcLQcqp3IZjzY73G
-	GD1ubW4ji6tTxf2uvjLHWanxhLZJ/pPLyTBvgUrRfuGMok8DrQEwP9KT+NFQkaevtdooC+NvUmkt0
-	PWsEDl3A==;
+	bh=QhaWFx61kHNCtJzO3v3Zb7ybhjB0BIEw4dr94SHhlkY=; b=4WNITjs03NXvj/KZpoWWbNjv0C
+	4bpKCdNfy7iPl/nu16C8KBY3hsBKJKX4qjN9hZ/AwqOtHpLwDDMnFbp/OpcYdFP/aIFcEbhOihJmR
+	UJ6gXWB6/olGJ0sZP88khOpzjxy5ejgnaVelLlUrS0/sY+guAS7bK7T1LFSHFwGy7ESH5AkxCdw8f
+	hZFtqpcx8B+pKA35BitYUnx6AFXm/Z5a73i2KOxJaFZ/HxOpIzM8DJ99aQlMfu0STTwSGFGDI00nE
+	DXNoKEKe3RyXOZUICpiiemJ699kdtMWnUB7zd0W0aiFAGWEjde1ZPLA2xA1nwh/74BguIHZB6ExN/
+	blV9FW7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54au-0000000HHCR-22KD;
-	Fri, 11 Sep 2026 16:59:20 +0000
-Received: from [195.39.247.168] (helo=mail.cyberchaos.dev)
+	id 1x54b9-0000000HHN2-0XiB;
+	Fri, 11 Sep 2026 16:59:35 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54ar-0000000HH6L-3Ukt
+	id 1x54au-0000000HHBH-40bx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:59:19 +0000
+	Fri, 11 Sep 2026 16:59:23 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1789145941;
+	s=mail; t=1789145945;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Bh/XeWBXrRsKcF+6gWaZNgHDZVV2xBCMBMTiM1LQKWs=;
-	b=k0OyU8RlMuHRcmpShIIr49ExlBTqbu5LV4imCzl4WC0MPt67zYrEhtA7QRfyWYwQZ3VGEm
-	9+CHlbeYF6EmfdDzqh6hsd5cw6pKxEhMKNaBRAlzxF/AUfQ4QhEzZiknxxcA5NiBJ1hccZ
-	J4UR4fzGPuThrtu1WD+/t1SB+CubDYY=
-Date: Fri, 11 Sep 2026 18:58:39 +0200
-Subject: [PATCH v2 2/7] dt-bindings: arm: apple: apple,pmgr: Add t8140
- compatible
+	bh=QhaWFx61kHNCtJzO3v3Zb7ybhjB0BIEw4dr94SHhlkY=;
+	b=QYU6ec2D+zraPFgfIUKBDhDG6DSmlD0le3Jh7cacdIo/7Sra2+QoxG65wsYQDJq2SIbpQC
+	//yWU98B2G5WunZ/S1LeRpK20mnDOBY1sqNsxHu/jliXPgSGMiH/wlZF3D+BbUyYvfbZ3U
+	fqw+x+gAk0/o96pTDg3ZziDeDu/i+c8=
+Date: Fri, 11 Sep 2026 18:58:43 +0200
+Subject: [PATCH v2 6/7] dt-bindings: arm: apple: Add A18 Pro based devices
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-apple-a18-pro-initial-devicetrees-v2-2-08d06cf011d4@cyberchaos.dev>
+Message-Id: <20260911-apple-a18-pro-initial-devicetrees-v2-6-08d06cf011d4@cyberchaos.dev>
 References: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
 In-Reply-To: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -58,8 +57,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_095918_154000_7AB4D2A6 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20260911_095921_195931_D232FD54 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,27 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMGR blocks on the Apple silicon A18 Pro SoC (t8140) is compatible
-with the M1-M4 SoCs. Add "apple,t8140-pmgr" as A18 Pro specific
-compatible.
+The MacBook Neo is the first MacBook to use an A-Series Apple Silicon
+SoC. The MacBook Neo is overall similar to the M4 series devices.
+
+The iPhone 16 Pro is based on the same SoC, but Apple does not allow
+users running a custom OS on this device.
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/apple.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-index da660fa13f77..bf21a5b3a4ac 100644
---- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-+++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-@@ -42,6 +42,7 @@ properties:
-               - apple,t6031-pmgr
-               - apple,t8122-pmgr
-               - apple,t8132-pmgr
-+              - apple,t8140-pmgr
-           - const: apple,t8103-pmgr
-           - const: syscon
-           - const: simple-mfd
+diff --git a/Documentation/devicetree/bindings/arm/apple.yaml b/Documentation/devicetree/bindings/arm/apple.yaml
+index 5d87a4fef193..7c3e7131a5e7 100644
+--- a/Documentation/devicetree/bindings/arm/apple.yaml
++++ b/Documentation/devicetree/bindings/arm/apple.yaml
+@@ -82,6 +82,10 @@ description: |
+   - iPhone 8 Plus
+   - iPhone X
+ 
++  Devices based on the "A18 Pro" SoC:
++
++  - MacBook Neo (A18 Pro, 2026)
++
+   Devices based on the "M1" SoC:
+ 
+   - Mac mini (M1, 2020)
+@@ -300,6 +304,13 @@ properties:
+           - const: apple,t8015
+           - const: apple,arm-platform
+ 
++      - description: Apple A18 Pro SoC based platforms
++        items:
++          - enum:
++              - apple,j700  # MacBook Neo (A18 Pro, 2026)
++          - const: apple,t8140
++          - const: apple,arm-platform
++
+       - description: Apple M1 SoC based platforms
+         items:
+           - enum:
 
 -- 
 2.55.0
