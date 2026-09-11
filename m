@@ -4,127 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B77C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F036C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2tGUwBfylyAzEwJ5j09KTT8MbSCTHM3caW7HDAZibM=; b=KU9VIBEwv+0pv/98TVsEk0exzu
-	WrBqQ8R8dWldcJ/QIi7VjoOBUzZRc6d7H89Lkt2X3i9F4hT5CeuzpfFkxEzpDWn33j5sTuj5f4tsA
-	RSf/P/zYHfpBROSyEd2QFiW+eePJCnCooKBJllMZXXev8+Q+mS86FmY/0vqXfJkJfJpYDBX46ozlN
-	3e9N4v5jLSXtSexiFAcUcKC/JuhiTNiFbQ/Qhqj33nm+aSxgfrL1bQ+UqgY2JgcX/iXYYCS43lSmR
-	SCd4i7ZF3DncbS6+suuIFHTPdTdpnKRaMDL/biAIN9zaEAnUoc7CTsJ4HdzXoYMMa41qD9Vgzjj/2
-	GDOwEQ1Q==;
+	bh=DTMuieKJbGKJzWdmBXJjOe3oaBnE8Vn4aPPry8o87O4=; b=Q9CZnOfMVBBYI+0nh0seFoo1FW
+	2DVAnLdrD5xjpanmzWn73fdvKScMLqEC/87SHgIjCCjF/f8KYh7ej8qXN6atZFPF30S2J0QSk3OIX
+	bDO+RUiwmuTVSx/oH4VUTE/5iveC2e0oLxBUekbX3XsXYtooO+GLQ7e9rZIaxXtJv1AjCgMjVakIe
+	GeVfpqrey+Li7GFJyV+EWy5eF9uiNT8bVTpUCD3LQnCalhY91fro1FN2CyywfkpVmckvTaAN+kYw9
+	npbNWjWFaNbZ2hfRs1ELLWCH28LC1wdY7ToD/66zN4syDBzsXPc3IC8X0ICaV0uGXhmRWI7pOKWYM
+	PoCQSJJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53wy-0000000HBrw-3kpV;
-	Fri, 11 Sep 2026 16:18:04 +0000
-Received: from mail-westeuropeazon11010059.outbound.protection.outlook.com ([52.101.69.59] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53ww-0000000HBrV-3AaI
+	id 1x53yA-0000000HC4K-1bTe;
+	Fri, 11 Sep 2026 16:19:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x53y7-0000000HC3y-47j8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:18:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H1z6svZ4Nr4SB66gDrXOgdAuExksRVkShkC3WSaMnjvr4T6wJPjgni8v5v9W+fPOXdh7jGdAeRBS0qAdb3NDWuofuihyQSZc7KI2/Qng0/75GuNFJz+JI3fGsMhTJsy2XQdgWuxHblVu7dkkgRRDsY2ZHIh/2mHmbG/jZkNgXjiUaC6K5cNM4DmhENoKDCLTr3+CALEPgTnIWFYCxIIBz/2Yi8AZT37E94cVVM7NWb2HlZVMOMZ8O2vfjfNU5SdSKSEWiRiT02dcntwVSV5XeIkj9uEvXspaEAKxr2QCDt7yvcSLHAskj1vGFV91rqVBJJul/Mx4Tjvpw6ObDgjI1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P2tGUwBfylyAzEwJ5j09KTT8MbSCTHM3caW7HDAZibM=;
- b=CCuoTRL/Z4YxoLd8bHR4MrZlwS9ekLXGyT5jKyaPXqUXaXII0GDF1t6Kw65Uk83d5hb7nMiGCJkBOWpvRYjNPeqGB5OITRKZs2zCHWqAkGAMcpCyuVx9VgpYkEyVA2o1DdrpTp2mxgjjnDIWkq5OOp4Awzzo4+tu3ORGoYT5Kj7CW5tGl5x7V7r1xptJtcOWyJCmNPqqC9RwVKEwZvJYQgQGpz9Ng5cw/OtIKTT4iwDtgyETsAyJcRkBLhzQ3fGsqsF88TMuwCyBHhIRI7GlaFPxyOEPDZQASvRjbQ02xozKjg86bGZ5Y92fBShlThtKFSWooeGMMVd6OGGmzLObHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=amarulasolutions.com
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P2tGUwBfylyAzEwJ5j09KTT8MbSCTHM3caW7HDAZibM=;
- b=jlMBTKd2AZSrlbXqOds2NPDmQk4/3KVEDY6dGGfD7tDoOrH9855nxCld0ZQZBPETL9rgnIeZPZPRpghbKyNMFZAclcBcFnMfZd079Ejj/tvaRbOA608q5oyDLjZCvib1/VbJK+vKnbCu0YmJ0C9CD6SvO/AohXrTMwDGWjNXCokcHFJL0zNiY8Xfkb2ZnBpYgh9LIrIh4vTH2Qd3QXoVrRgWzquOCXJqsFBMJQIyXNuvhahqBQ1lKUSPEGhaf3cvzU57WG7OMQz5rQmk8YqHzTOCO3Nnmfjy6MOFu4jo8+o2VAHHfL85Y96P2sazVGWUE2UDwz1jeNL32r2uk2Hk3g==
-Received: from DUZPR01CA0084.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::11) by AS2PR10MB6615.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:55e::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 16:17:56 +0000
-Received: from MAD0EPF000008AF.eurprd04.prod.outlook.com
- (2603:10a6:10:46a:cafe::62) by DUZPR01CA0084.outlook.office365.com
- (2603:10a6:10:46a::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Fri, 11
- Sep 2026 16:17:56 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008AF.mail.protection.outlook.com (10.167.241.184) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 16:17:56 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
- 2026 18:23:24 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
- 2026 18:17:54 +0200
-Message-ID: <04cf5b87-dcf9-49b4-a3a2-33be039be199@foss.st.com>
-Date: Fri, 11 Sep 2026 18:17:53 +0200
+	Fri, 11 Sep 2026 16:19:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6858916F2;
+	Fri, 11 Sep 2026 09:19:10 -0700 (PDT)
+Received: from [10.57.6.75] (unknown [10.57.6.75])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6986D3F7B4;
+	Fri, 11 Sep 2026 09:19:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789143554; bh=mVzTc977Tes6HFezCnL/znxLeac4LlKNCY7uhrr7GbI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Es0VwMX2KsNRBpdLhVxZbG9MhbgbjQilQBqKWrj7gA82WtTHqIXRFCCac86kzCAno
+	 QyIhE5i2OCWIF6x3rpN/EPUC4b1t8k8MmHkulMWTrYrXryie307KyBrp8ctRNe0sHi
+	 Je2sgRzfoeRkC3iPFBixtYPPRpC+nUyyJqD1/JFA=
+Message-ID: <a305546a-29f4-45fb-a3e6-09a051733a2a@arm.com>
+Date: Fri, 11 Sep 2026 18:19:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/16] arm64: support Engicam MicroGEA-STM32MP257D-RMM
- board
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	<linux-kernel@vger.kernel.org>
-CC: <francesco.utel@engicam.com>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <domenico.acri@engicam.com>,
-	<michael@amarulasolutions.com>, <linux-amarula@amarulasolutions.com>, "Arnd
- Bergmann" <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
-	"Christophe Parant" <c.parant@phytec.fr>, Conor Dooley <conor+dt@kernel.org>,
-	"Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, Eric Biggers
-	<ebiggers@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>, Luca Weiss
-	<luca.weiss@fairphone.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, "Sven
- Peter" <sven@kernel.org>, <devicetree@vger.kernel.org>
-References: <20260820091652.43541-1-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260820091652.43541-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v10 08/14] arm_mpam: propagate MSC access errors for
+ interrupt control
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260911112835.714162-1-andre.przywara@arm.com>
+ <20260911112835.714162-9-andre.przywara@arm.com>
+ <89a13b60-a1fe-442f-ab0d-b0d37a118ad1@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <89a13b60-a1fe-442f-ab0d-b0d37a118ad1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008AF:EE_|AS2PR10MB6615:EE_
-X-MS-Office365-Filtering-Correlation-Id: d953637d-473c-4900-b832-08df10203d4e
-X-LD-Processed: 75e027c9-20d5-47d5-b82f-77d7cd041e8f,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|36860700016|82310400026|1800799024|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: cXh3vYvz0TDLFPNrTCjkKO2I9ZMFpYZxvjowjAtltEw1Hf9T/OTet4Xp3g1mVqYwTaqMWcm19wWp3GdINYv79/yeuVZ/DhFkJ9dn6KTcLC2uo0HKZ5j1xYxLveJ1ntSJv+AyjHFlJZMe0rlwAvKKph6XDSLNXDalxBEM++fImp8vx+MzkvyTJ7rJEyIY6U1wDxUdKMspMFyr2WPdZAmwKSka3394nF0nSD10Yu1ettNjFFGY7R518Qv46jW1GqrXcFtFbuhdAfZ2U/zeNg8ZM/Q6Ap2/dakUoOcCDW5FWgyEuGkqS1x44QcK/nx7KDrV09m0ASy3lgcS2kkUgjBYmCWyAesdOrl0SBYk/J7IwQ01VGmimIBSmQTCgnuoqEsEwUvq6JL2mUgrWyw+cz1fvFAKog6k6r+b4eLtzNYyWuil/GghVymNfszuuYr5pa8OHnr7F0PRxC8I9KkIPhJvzAYJZKiNK4kekqZdU4G9Z6Zoqgnlia8GumJL263Yka3if3kOWZ9OhldIpWQhiE+DykupcDCWf14jtAMMxZtTK13ymugnseBSYkMgbhr5BvdWW6BcGuvDyjP17TNYueNlQAIN/lTtIwaCuORoW5zKB5R17fRT71617HBv7Xkgq5yOt9X/cSMZjSzhG6AzZB2kLyQ5h6bRAfE87Uo4YCRMXwgSbkea4EIijKdiEdsQLaARGMVaUx2BQaoDlsu7NU9NsQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(36860700016)(82310400026)(1800799024)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: wqhMoPzcGuv+tHsbhalAusE9qpP1tdf6d0WwI5X791MJBx2pG+GN56KLnl0zJmO1Gcvb8fOEf7QYqJUK7lIJSA+rJ0BQdscunTkiJGY8OPDBVWCNnqAW7fIN0gKK2jSUJ4z2U5r6bOGkKHyHnnkt4RCWhayvn6FuvgJAbqqrZaAr7fo7XuWVBzAwPbO/SdDgjwFT+aRfVRyf0VmLfqkYuP8090gqtB8R+GpYiVMKKalTW0zAdDobAa5hJAgpU6/zmqvvNNyxe6i8k3DV9v/zuc8z4HCsoNyyp8dhAZ/8ardgfmCNPktbe3YxZZHmYm0yVVKmnECAERbLFpdaqNZiUcuvKaOBpBxuBRkdEt6ltrD23DdB+1AQUYBUFuFL0m3LLtBpql4Ua5Fv79dAgDINYFclnMZG7FWLPnfBUKXupmgb1MRjRl+yeTW2MKXwDWub
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 16:17:56.2211
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d953637d-473c-4900-b832-08df10203d4e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AF.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB6615
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_091802_803811_298EFF9F 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260911_091916_106308_CE905EAB 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,67 +85,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dario
+Hi Ben,
 
-On 8/20/26 11:12, Dario Binacchi wrote:
-> This series adds initial support for the Engicam MicroGEA-STM32MP257D-RMM
-> board based on the MicroGEA-STM32MP257 SoM.
+On 9/11/26 16:26, Ben Horgan wrote:
+> Hi Andre,
 > 
-> The support includes device tree descriptions for both the SoM and the
-> carrier board, together with the required pinctrl definitions for the
-> peripherals used.
+> On 11/09/2026 12:28, Andre Przywara wrote:
+>> Allow the functions dealing with interrupt registration and enablement
+>> to check for and return errors, and propagate MSC read and write errors
+>> from the lower level up.
+>> This does not cover the IRQ handler yet, as this needs some more
+>> attention.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
 > 
-> The series also updates the arm64 defconfig accordingly.
-> 
-> Changes in v8:
-> - Add the "d" letter to the board name (DT file name, model and
->    compatible) as done for the other STM32 boards.
-> 
-> Changes in v7:
-> - Add Reviewed-by tag of Olivier Moysan to patch 10/16 "arm64: dts: st: add
->    sai1 pins for stm32mp25"
-> - Switch CONFIG_I2C_STM32F7 and CONFIG_SPI_STM32 to modules in
->    arch/arm64/configs/defconfig.
-> 
-> Changes in v6:
-> - Update arch/arm64/configs/defconfig to match the current upstream defconfig
->    after merge window changes (no functional changes).
-> 
-> Changes in v5:
-> - Add patch 2/16 arm64: dts: st: add power-domains to sdmmc1 on stm32mp231
-> - Add patch 3/16 arm64: dts: st: add power-domains to sdmmc1 on stm32mp251
-> - Increase slew-rate to <1> of ltdc pins to support the 27 MHz pixel clock
->    and prevent timing violations.
-> - Change SDMMC2_CK pin bias from pull-up to bias-disable to avoid signal
->    integrity issues on the clock line
-> - Fix touchscreen resolution to 480x854
-> - Fix SPI1 CS0 polarity to GPIO_ACTIVE_LOW
-> 
-> Changes in v4:
-> - Drop inclusion of stm32mp25xf.dtsi from stm32mp257-engicam-microgea.dtsi
-> 
-> Changes in v3:
-> - Add power-domains property in the SDMMC2 node.
-> - Drop patch "arm64: defconfig: cleanup the defconfig"
-> 
-> Changes in v2:
-> - Add Acked-by of Conor Dooley for patch 0/1 "dt-bindings: arm: stm32:
->    support Engicam MicroGEA-STM32MP257-RMM board"
-> - Add resets property to dts CAN node. Suggested by Sashiko.
-> - Drop the clocks property from the sai1 node in stm32mp257-engicam-microgea-rmm.dts
->    to avoid overriding the peripheral bus clock reference defined in the base
->    SoC device tree. Suggested by Sashiko.
-> - Reference the existing labeled nodes directly at the root level using
->    &sai1a and &sai1b in stm32mp257-engicam-microgea-rmm.dts instead of
->    redefining the entire node structure and redeclaring the labels. Suggested by Sashiko.
-> - Drop the #clock-cells property from sai1a and remove the reference to sai1a from
->    the clocks array in sai1b, relying strictly on the st,sync property to handle
->    internal synchronization.
-> 
+> Commenting here as this is the last error propagation patch. I think we need a clean boundary for
+> the error propagation. As you said a while back I think we can propagate error for all non-static
+> functions from mpam_devices.c and the callers can discard the errors if appropriate. For instance,
+> mpam_reset_class_locked() should propagate any error.
 
-Series applied on stm32-next.
+So I checked all non-static functions in mpam_devices.c: most either 
+don't deal with MSCs at all, or already propagate errors.
+The two outliers are mpam_disable(), which must be "void", due to it 
+being called via DECLARE_WORK, and mpam_reset_class_locked(), as you 
+write above. The latter is a bit sad, because the caller is void, so any 
+errors would be discarded there anyway, but for the sake of completeness 
+we should indeed propagate here.
 
-Thanks
-Alex
+And I guess it doesn't make sense to continue the vMSC or RIS list 
+iterations after detecting the first error, but we just bail out 
+immediately? Because any error would trigger mpam_disable() anyway?
+
+Cheers,
+Andre
+
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
+>>   1 file changed, 15 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 558efab75f911..eb26c25b9f970 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   	}
+>>   
+>>   	/* Clear any stale errors */
+>> -	mpam_msc_clear_esr(msc);
+>> +	ret = mpam_msc_clear_esr(msc);
+>> +	if (ret)
+>> +		return ret;
+>>   
+>>   	spin_lock(&partid_max_lock);
+>>   	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+>> @@ -2668,9 +2670,7 @@ static int mpam_enable_msc_ecr(void *_msc)
+>>   {
+>>   	struct mpam_msc *msc = _msc;
+>>   
+>> -	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+>> -
+>> -	return 0;
+>> +	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+>>   }
+>>   
+>>   /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
+>> @@ -2678,9 +2678,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+>>   {
+>>   	struct mpam_msc *msc = _msc;
+>>   
+>> -	__mpam_write_reg(msc, MPAMF_ECR, 0);
+>> -
+>> -	return 0;
+>> +	return __mpam_write_reg(msc, MPAMF_ECR, 0);
+>>   }
+>>   
+>>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>> @@ -2777,11 +2775,13 @@ static int mpam_register_irqs(void)
+>>   				return err;
+>>   		}
+>>   
+>> -		mutex_lock(&msc->error_irq_lock);
+>> -		msc->error_irq_req = true;
+>> -		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+>> -		msc->error_irq_hw_enabled = true;
+>> -		mutex_unlock(&msc->error_irq_lock);
+>> +		scoped_guard(mutex, &msc->error_irq_lock) {
+>> +			msc->error_irq_req = true;
+>> +			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+>> +			if (err)
+>> +				return err;
+>> +			msc->error_irq_hw_enabled = true;
+>> +		}
+>>   	}
+>>   
+>>   	return 0;
+>> @@ -2800,10 +2800,10 @@ static void mpam_unregister_irqs(void)
+>>   		if (irq <= 0)
+>>   			continue;
+>>   
+>> -		mutex_lock(&msc->error_irq_lock);
+>> +		guard(mutex)(&msc->error_irq_lock);
+>>   		if (msc->error_irq_hw_enabled) {
+>> -			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+>> -			msc->error_irq_hw_enabled = false;
+>> +			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
+>> +				msc->error_irq_hw_enabled = false;
+>>   		}
+>>   
+>>   		if (msc->error_irq_req) {
+>> @@ -2815,7 +2815,6 @@ static void mpam_unregister_irqs(void)
+>>   			}
+>>   			msc->error_irq_req = false;
+>>   		}
+>> -		mutex_unlock(&msc->error_irq_lock);
+>>   	}
+>>   }
+>>   
+> 
 
 
