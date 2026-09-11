@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EACBC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58EEC88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgXj9iW4L8xDvAQnLVHYY9iMfqiEAgCZF8Tut2lsVRs=; b=dNMV3uE/CfGwgvDjzxwBZRuytn
-	fVx6q7C96LD/XeJi/MFm1IUq1UykaNUympm9H0LMoMcSc9guv5xhK1qDfSIYhG0W5HDYJ/wQXL6fG
-	y3toDKtZNRu5kke8rpVjcUFsqge4VWEKDAM9sgPu2kFfrdraQt7fQbf15BmFSz6OxUTOsGHpFp0hy
-	VbhBZVn0BW3DhAIYYAGzizAt9WvTUO0+NX27/B12AEDP5FCYcTVb2P129FXDt8jxr0H/3aZ8GW+h5
-	/iuMHybnDx9444eX4nNTiGvPEuVJeGSzXBzmxs2EH+/MM6AgCLxNiMkxx8Q4Ce9ya7zIsy7Ujy9s3
-	IJ5UlbpQ==;
+	bh=Az/NxtCPN5f+uh79/JU435f4UBkD9edmgjDV71q7HaU=; b=PsOdMR853TaYDxtJckPtMeSuh2
+	9jufPSGtvfwtYd4KWBqSSJ99sdDi3ef1kth0izlyp3QCBMWEgqEC4jusTqRL7nQrKNBV3DOEUE8sO
+	Qe0Qbnm/npTJTX7+6AdJlY7sBu5jzz8ugNJ2iwhfzn3uG79OOOUDC7PaEbeoDMhb8BRhkz1YWTsCl
+	FsPMFBmcdbVw1HZLlEz57WlX+T3aHY5mk298n6OeHN2Gc7/UbU0gAiuJELwHycCAvwTBulDxWZFvx
+	Gy9z1Y/OVRr0By7oYbAnDvqg7ACaa2p/Mol3t8f2vwhBA+q+3aycC2YRLn0lRgW+Z4qdT3sQRQ24n
+	KaqslJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tTk-0000000Fq9k-2i7p;
-	Fri, 11 Sep 2026 05:07:12 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1x4u79-0000000FtzZ-0Ien;
+	Fri, 11 Sep 2026 05:47:55 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tTg-0000000Fq9P-48rW
+	id 1x4u75-0000000Ftyn-1G8f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 05:07:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=bgXj9iW4L8xDvAQnLVHYY9iMfqiEAgCZF8Tut2lsVRs=; 
-	b=rqNx6Y2vRspOzRws6KhcNKe9q0Y5z7Yl63mj2rZZT+RmuqaYGyLN5eNxSXQfJ6ppRHTAayEzOb2
-	SP1BRIbe88AuVEvR8CvLcxEQZ/UKhRIV37+62Qo5YeXJhE3sInWAbnRZ7eBrlvAMqjmqddYs9+gVW
-	C53AVqZtDTPOuWkGUFvdADOL51gVhoZPPF41WJOujfAACnbd1m3kRVVo2mpKD8tPFEOJLWH+8FqI4
-	GFf1LNyAO1VmkKbRsCUuWGpS8ydQuZ7yKkF0rRaG0//2+TfI5CpPk7E/YdGE0+7qf7TJs4RT2KKjp
-	s/RsPB3aHpiHYVP8RcarO+Ldsn8xLyU7sYJA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1x4tTX-0000000Ctmc-24FK;
-	Fri, 11 Sep 2026 13:07:00 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 11 Sep 2026 15:06:59 +1000
-Date: Fri, 11 Sep 2026 15:06:59 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Chenghai Huang <huangchenghai2@huawei.com>
-Cc: davem@davemloft.net, robh+dt@kernel.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, xuwei5@huawei.com,
-	prime.zeng@hisilicon.com, liulongfang@huawei.com,
-	qianweili@huawei.com, wangzhou1@hisilicon.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [PATCH v2] crypto: hisilicon/sec - remove SEC crypto block
- cipher accelerator
-Message-ID: <aqOMc1vGnmiULh2E@gondor.apana.org.au>
-References: <20260819075353.94500-1-huangchenghai2@huawei.com>
+	Fri, 11 Sep 2026 05:47:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1789105671; x=1820641671;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NX/0FxXyFfQZUAmTs3a0stKu2eAXVAkDkn+OMUSpgxU=;
+  b=VNb8VYn3FCR/csHptIKvSOPLjvI/AZ/JAwPzVaL9B14/BmCx1U0RIJ3y
+   uoZ4DKTo/L6/84kjDDaknG2EwVYAWLvj9RNdyzhNwGRnCyrEo7z3QNau5
+   +xut3K7tRZgZ+TRLolKpk+lHF0LEsCXp5k0yU66KJteEPFvPCHVAFsOTk
+   t5G+oEvFDpLr/eQtdIbmyGpNuefk/qD4KG71xg0F8gcvDYVkQ5COXDdvt
+   QrodbFOcqWJGP1AY1TL/3FZKf848VTZDOgTMW7Bog4X4k/cqeL0KI4g+G
+   4Qag02RAllvRUS2D5w1w9lXuDQ6B61OuOfBM/L33awUcfQ07jksEGgMct
+   A==;
+X-CSE-ConnectionGUID: BnCaGTpcRdSrz47InrBjNQ==
+X-CSE-MsgGUID: r+seyCG1Q++62TEr2yKaAw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="254202283"
+X-IronPort-AV: E=Sophos;i="6.27,96,1786978800"; 
+   d="scan'208";a="254202283"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2026 14:47:49 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 049221C1C706
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:47:49 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (unknown [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id AF79B92674B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:47:48 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with ESMTPS id 216CE829F12;
+	Fri, 11 Sep 2026 05:47:42 +0000 (UTC)
+Date: Fri, 11 Sep 2026 14:47:40 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com,
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
+ map (new data structure)
+Message-ID: <aqOV_NFeTuHWFBVP@sm-arm-grace07>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260902163500.1841671-1-wanghan@linux.alibaba.com>
+ <877bl26aqg.wl-maz@kernel.org>
+ <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+ <46342b48-550e-42c1-9d9f-e800c72269c2@linux.alibaba.com>
+ <874ig55u5h.wl-maz@kernel.org>
+ <f2357ad9-ece1-4331-844d-5911baaf571f@linux.alibaba.com>
+ <87o6ea4q67.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260819075353.94500-1-huangchenghai2@huawei.com>
+In-Reply-To: <87o6ea4q67.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_220709_034931_2786195F 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260910_224751_832670_FBCFB0BF 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 03:53:53PM +0800, Chenghai Huang wrote:
-> The Hisilicon SEC crypto cipher accelerator has been superseded
-> by the newer SEC2 driver (drivers/crypto/hisilicon/sec2/). SEC2
-> provides wider algorithm coverage and is the maintained path forward,
-> and users have migrated to it.
-> 
-> The legacy SEC driver has had no active users for some time, and its
-> primary maintainer, Jonathan Cameron, has moved on from Huawei and
-> is no longer in a position to maintain it. With thanks to Jonathan
-> for his contributions to this driver over the years, and with no one
-> left to keep it up to date, remove it from the tree.
-> 
-> This drops the legacy SEC driver together with all of its residual
-> configuration, devicetree binding and board description references:
-> 
->   - drivers/crypto/hisilicon/sec/
->   - CONFIG_CRYPTO_DEV_HISI_SEC Kconfig option
->   - sec/ entry from drivers/crypto/hisilicon/Makefile
->   - Documentation/devicetree/bindings/crypto/hisilicon,hip06-sec.yaml
->   - hisilicon,hip07-sec device nodes and their supporting mbigen_alg /
->     smmu_alg infrastructure from arch/arm64/boot/dts/hisilicon/hip07.dtsi
-> 
-> Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
-> Reviewed-by: Longfang Liu <liulongfang@huawei.com>
-> Acked-by: Eric Biggers <ebiggers@kernel.org>
-> Acked-by: Wei Xu <xuwei5@hisilicon.com>
-> ---
->  .../bindings/crypto/hisilicon,hip06-sec.yaml  |  134 --
->  arch/arm64/boot/dts/hisilicon/hip07.dtsi      |  280 ----
->  drivers/crypto/hisilicon/Kconfig              |   14 -
->  drivers/crypto/hisilicon/Makefile             |    1 -
->  drivers/crypto/hisilicon/sec/Makefile         |    3 -
->  drivers/crypto/hisilicon/sec/sec_algs.c       | 1122 --------------
->  drivers/crypto/hisilicon/sec/sec_drv.c        | 1307 -----------------
->  drivers/crypto/hisilicon/sec/sec_drv.h        |  428 ------
->  8 files changed, 3289 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/crypto/hisilicon,hip06-sec.yaml
->  delete mode 100644 drivers/crypto/hisilicon/sec/Makefile
->  delete mode 100644 drivers/crypto/hisilicon/sec/sec_algs.c
->  delete mode 100644 drivers/crypto/hisilicon/sec/sec_drv.c
->  delete mode 100644 drivers/crypto/hisilicon/sec/sec_drv.h
+On Sun, Sep 06, 2026 at 11:42:08AM +0100, Marc Zyngier wrote:
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+> That's an interesting remark. I guess we could add some extra tracking
+> for that, but let's see what we can do about the above first.
+> 
+> I've hacked something together and pushed the result at [1]
+> (compile-tested only). I'd appreciate it if you could put it to the
+> test with your setup.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/unmap-vmall
+
+On Neoverse-V2 though, with NUMA balancing on, the WIP kernel from
+yesterday brought up the Ubuntu 7.0.0-31-generic kernel online
+without an issue. I will test the host kernel again when the new code
+is merged to kvmarm/next.
+
+Thanks,
+Itaru.
+
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
