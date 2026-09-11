@@ -4,139 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DC7C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38739C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=; b=ZxkIMzgsqTmmUdFD4XL/YqL/kz
-	vKYHzUVzGDSy/3eyHeSs9k4jXOJB9SSknKaSu2/xOP3nydxlBCqWbafDJyM4dcUHH98KTIqXoaUUJ
-	R5VD8sqlW2S+RICYnJ1y6WlFCU/s6JujGiKw6Y9f7bVUO6KThHXDxadoF5F2Ga25BhEpTY9g+ah39
-	2HRjr9Q1hnwf/TGxlyt1EPBko+VUJU7S3QR45mC/Ep2IzLjBhl9s+BMqQyj4gLlkqkmq9/5V4kpMA
-	+H7FhjVyrstpXuPlvFPra6YUeOE7MEGxyfo7yh4Xp/WnPxmctKfkh3vGnKyOxcV3Sb1YI1bymYD7X
-	lYyF0VNw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MpoL6uXTw+SZCeXvkjzFLTMX5iE7pkmJI/5n8jsejKE=; b=vD3AWXIS1UxN97
+	21w5d2FYo0XBqHaIxGRS6EninSrGPGdlVdvs7Y9SoVysvBKLHpPbx+uIdvxNqmbBQVuIFED6Kzd/Q
+	qi/5PRKdjIUMZrJ5ChVi1qbWaiYpP9kEedR4Z8XSprEVLPSWbqp162I1KZQ/7bgtw/EHM47Dgx69G
+	6pkeAkIqHxME7t459kDTGpcrjhsDR410lL3EOP0whY5NVy5H7Uzd+bZVD+g44x9xtlsSJ1m/O3Sp5
+	HCKiQquTB4cKdv2ZBePYp1g8ie3z9HnPUSD9DFWGghUACSiMqOjD4Q7s6SWWleKFLf9XMXIWmCukL
+	3a5c/8qF5T5py7f4jFOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50ex-0000000GfWt-03IX;
-	Fri, 11 Sep 2026 12:47:15 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50ej-0000000GfPH-249f
+	id 1x50f1-0000000Gfa0-1imX;
+	Fri, 11 Sep 2026 12:47:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x50et-0000000GfTc-16vg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:47:04 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 512DF21D67;
-	Fri, 11 Sep 2026 12:45:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789130756; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=e29Oa1xFS7EvCT/Twis4W+zabXg4WlAFO5wNmeaEblSD97h5J82BBRaTmWH8htfnkcOx+B
-	8G5Ar1ko3aEQTvb1G/y04Ehm8hD+EizcbzfkmPdCPUthx3YrTz0e74pPjr1qfQgmwqV5Ds
-	vYyN34/VEukJSXaxTzMh6R4Z1h9T9Mw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789130756;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=ALyD02LCN9j0MyFx1q6nKPo5caPjsAKLraWALUyuwhFfsVkxLiHzn6ZWbZfhU02cfELx0E
-	C5LfCklP1QrizJAA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789130752; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=Uf7/pL2F3BXitbtkLejjeB65jZGFp/fNd8lJ3ixj4tJs/6FAqegHYinUcJlJ4zfLorPHrl
-	bzyoFAeVHb4DA2cS2LTNJmRPN9Zor9dqlx22A1BCJRFACH2YiTVPyfMrfSR37PhXaiwtt8
-	hD9Mshv9meFxhmjAgUPF7oN+pYZFHEQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789130752;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/yw/+e2gzQxo9H+pdwIa/AXa45ESt2VPejHwf9N8gL4=;
-	b=vCrEhHV5x+2HNHCTInx512gGwfmjw56Tv7GH3g02rDS/V+yl7KIpzz2sYlk13P317reNuB
-	PGPaNXrfDAjz5jBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EFDDF136ED;
-	Fri, 11 Sep 2026 12:45:50 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id YGEjOf73o2r8EQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 11 Sep 2026 12:45:50 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: jfalempe@redhat.com,
-	javierm@redhat.com,
-	airlied@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	geert@linux-m68k.org,
-	rdunlap@infradead.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	sashiko-reviews@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v5 10/14] drm/panic: Restrict to primary planes
-Date: Fri, 11 Sep 2026 14:44:03 +0200
-Message-ID: <20260911124540.279841-11-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260911124540.279841-1-tzimmermann@suse.de>
-References: <20260911124540.279841-1-tzimmermann@suse.de>
+	Fri, 11 Sep 2026 12:47:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D15F216A3;
+	Fri, 11 Sep 2026 05:47:06 -0700 (PDT)
+Received: from [10.0.152.207] (unknown [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBD8B3F7B4;
+	Fri, 11 Sep 2026 05:47:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789130830; bh=id96Lk+HpLVgNjIVup4+7EebLweifTMRP/9y9m7oEJE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ias0IPMUgeA6nzUHI6Z5ZM7GoPxgPuUUUDADBiMCIR7EKtcam6ybraYlVw1V+Rql7
+	 PrDiQI2k/4+OxCpOArrbzlnZOHhlFLx+Wm1Pmbs4fnuux4TVU8qyJ8lbbj0WzTsmuS
+	 tmQKpXbkF7fs/1Kt2R8IsuaM5Nw09VVZxF0jywpQ=
+Message-ID: <5760123e-6e18-4f7a-beb4-8179c0795c6d@arm.com>
+Date: Fri, 11 Sep 2026 13:47:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[21];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[redhat.com,gmail.com,linux.intel.com,kernel.org,linux-m68k.org,infradead.org];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_TLS_ALL(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLhthb38qh1ntkuzcrgoc19dwi)];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 12/21] arm64: entry: sdei: Restore all clobberable GPRs
+To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20260908151741.394589-1-mark.rutland@arm.com>
+ <20260908151741.394589-13-mark.rutland@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260908151741.394589-13-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_054701_719708_756D68E6 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260911_054713_804880_50CAEB58 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,63 +66,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: ryan.roberts@arm.com, usama.anjum@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restrict panic handling to primary displays. Overlays and cursors
-should not display panic output. If there are exceptions, they can
-be registered by the driver itself.
+On 9/8/26 16:17, Mark Rutland wrote:
+> Currently __sdei_asm_handler() avoids restoring x20 to x27, as these are
+> not be clobbered by existing code. This is correct today, but it makes
+> it awkward to rework __sdei_asm_handler(). Given the rarity of SDEI
+> events, restoring x20 to x27 should not have a measurable impact.
+> 
+> Restore x20 to x27 when returning from an SDEI event handler. This will
+> free up those GPRs for usage in __sdei_asm_handler() prior to return.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/kernel/entry.S | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index f63049ac32dc6..a6ec5c5a2d29c 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -1044,10 +1044,14 @@ SYM_CODE_START(__sdei_asm_handler)
+>  	bl	__sdei_handler
+>  
+>  	msr	sp_el0, x28
+> -	/* restore regs >x17 that we clobbered */
+> +	/* restore regs >x17 that firmware won't restore */
+>  	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+> -	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+>  	ldp	x18, x19, [x4, #SDEI_EVENT_INTREGS + 16 * 9]
+> +	ldp	x20, x21, [x4, #SDEI_EVENT_INTREGS + 16 * 10]
+> +	ldp	x22, x23, [x4, #SDEI_EVENT_INTREGS + 16 * 11]
+> +	ldp	x24, x25, [x4, #SDEI_EVENT_INTREGS + 16 * 12]
+> +	ldp	x26, x27, [x4, #SDEI_EVENT_INTREGS + 16 * 13]
+> +	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+>  	ldp	lr, x1, [x4, #SDEI_EVENT_INTREGS + S_LR]
+>  	mov	sp, x1
+>  
+> -- 2.30.2
+> 
 
-v3:
-- also update drm_panic_is_enabled() (Sashiko)
-- still do some testing when unregistering (Sashiko)
+FWIW,
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
----
- drivers/gpu/drm/drm_panic.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 809d51ad78a8..522ea990a2e9 100644
---- a/drivers/gpu/drm/drm_panic.c
-+++ b/drivers/gpu/drm/drm_panic.c
-@@ -1059,9 +1059,13 @@ bool drm_panic_is_enabled(struct drm_device *dev)
- 	if (!dev->mode_config.num_total_plane)
- 		return false;
- 
--	drm_for_each_plane(plane, dev)
--		if (plane->helper_private && plane->helper_private->get_scanout_buffer)
--			return true;
-+	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
-+		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
-+			continue;
-+		return true;
-+	}
- 	return false;
- }
- EXPORT_SYMBOL(drm_panic_is_enabled);
-@@ -1079,6 +1083,8 @@ void drm_panic_register(struct drm_device *dev)
- 		return;
- 
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		plane->kmsg_panic.dump = drm_panic;
-@@ -1106,6 +1112,8 @@ void drm_panic_unregister(struct drm_device *dev)
- 		return;
- 
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		kmsg_dump_unregister(&plane->kmsg_panic);
--- 
-2.55.0
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
 
