@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5D8C88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35211C88E5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1mwNlgJ0Ok5ZgfwwPHL43bLSQUr6PFWje+Owka8lGt4=; b=B57InEgagV+0oTNTFCufAGtOuV
-	CRoI+pMY6tCiOL1MfV4lh5qvviAFtANOziTzCDCYapMHijmKNGrNzE8I32tGEV6a3n64yTBEs+Ium
-	Cy6435vyelNufXX3ayi6FUYc5ln9giDLu69OIbNmFZZmp9l/jJqH1AX5OhA9lvTjqpMPYDHXX5tLL
-	bPPSKvLC+Ms5T1BNKf8L1Own3x14GrhHE2H8ZXNQIeJDqa0H7ASeKe4aLCRdLe55Dhe+5L350b6Qz
-	113q3gtCeUj8jDZjp4KqSRovvdTGoxxyDeOraXuvHStzM8v52Vp55zONuVyfuP+GWTKo9bKxDtrCj
-	V/KnPgQw==;
+	bh=TNGI4wdJO9MfPQNZHymsObp/iaVWwbU1kTAYKqVGN8A=; b=LQL6C//t8l67kSIJQII6b9mU2h
+	OTlM200worX7UKgeXyyxUPdsxz4dzKVSt2EXBVgiChEvAeUHeQ5agoPgLmyTHnNgqFcLf6fevRWPD
+	jJ2HdsUxZq0Nf8JEKjrOa6f+VGd5G70rC7bGKBf9r/4FNPo4c4e3jLT2625gfbJl8cVIqSrlFUhRw
+	iZ0JPJxwqNyFO4mbSMDRi94l7FNGV/I95mGXafMTrnQtBKPb00gJ6oepqzMCa2Ar/MJ60qpXPJ0nR
+	9PLugoqMrEXqsX3OMuSehQBTNffIIvJnTJkvLjkZMp3Z7UVZD98lnwwj25wGH+IMmMwcv3jV3hFj5
+	UUrXacHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OY-0000000H6LR-39fw;
-	Fri, 11 Sep 2026 15:42:30 +0000
-Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
+	id 1x53Oa-0000000H6Ov-3hPL;
+	Fri, 11 Sep 2026 15:42:32 +0000
+Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OB-0000000H624-1WMe
+	id 1x53OI-0000000H6AN-165S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:42:08 +0000
-Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-466cc9b4b63so120355fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:07 -0700 (PDT)
+	Fri, 11 Sep 2026 15:42:17 +0000
+Received: by mail-oo2-x0f.google.com with SMTP id 006d021491bc7-6b1ae6b200fso713293eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141326; x=1789746126; darn=lists.infradead.org;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141333; x=1789746133; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1mwNlgJ0Ok5ZgfwwPHL43bLSQUr6PFWje+Owka8lGt4=;
-        b=aR5Hya5mobcessyRkOjZTDaC/dOtnWfkAHasNY2LyEO9gJGafnOJOTgaRfK7NRQfsw
-         Rsvpyh+9DrGcOT8WP+dKpZ9pARFWsT5a2DmfE0XkEwSA3eCSinKVTeMjWwxPZ5+wHxQW
-         2ag8GyRA3pax3TpERHSL6bYKO4cdfX1KPDy9nz51ImF2sZfYI/OW4hXNiuTbzoaUxn3J
-         UjkFqxIi1Lm9IW7EGxAa3mR8ZDMGV5LqPFDxCMoItV/ycXEj0dHGByYl90Uuu4d9AsWc
-         6fonPdKCXT3Ba/0HjolYcmoF572U9zw72QtWa+l3QfAseNOOJVi/g0Scp8WHoea6t6vF
-         EZeg==
+        bh=TNGI4wdJO9MfPQNZHymsObp/iaVWwbU1kTAYKqVGN8A=;
+        b=VRzLcErXR49E/XXsLorFfkwpmfbh8a6n4Nu85Qwcl4jNOO1aU8hgQdUiwCdIXKYrdo
+         C4jNPtenVBCXk04a7U0U+r2Cq308VRHi7nMJCxqTL/+724H/QsAnj0x2n0bcnZBrqMji
+         /72PXOJotnyiKKHlXlwYbTRYG+FN5WomB38mbAy6kHFGDJBmtHObdz16U1WIIkDYqQTC
+         XBjDKI14xUozv/JNC3g7J6JEj4/6MaLjQbyNutEBBUN/I/KUVbKPGR2H+YdDKKj2m1+S
+         4VBOoq0cAF+DKsySIEVIikA/kPSPFq1rk/X6Zd3TmhZhceIWZqcM9UzTrRGf2ma55lVj
+         1+cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141326; x=1789746126;
+        d=1e100.net; s=20251104; t=1789141333; x=1789746133;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1mwNlgJ0Ok5ZgfwwPHL43bLSQUr6PFWje+Owka8lGt4=;
-        b=ZP5f0SrxBgQ7IKT5uAKlIdYl55S/FQG13gWwDwri9We98yiZKDK47NuV/MJHkToYQf
-         /TcusLUW6OfzTK68z3s0AwlCM9eZQ996G2RC+SDSpjcEJIJdgdVkiN3qnjPxhyy46Hve
-         Oh/312FZQ+UrKZXkYkY+KgDVEDxev5cSLIopwjIUkDkbA0y8OSerL5UWLCLCX/qRi8aa
-         IYQW8PHt+g6dAnEewaq3z0fi1DSbVMx8b4ohrClYG7oftlBfFZvJenCtXaodG6Yp6gam
-         iGGIhiFLwxIYDkbHJevFBIXF70rIGo8qepq8cm5xW9v7Dvk8r7tZagIJiPu7UqbMeOj6
-         eLPw==
-X-Gm-Message-State: AFuF++lvYKe3LmXgRiB+yXNMrZMaPd5NxEHeLJ0d6HvE4+bA/Eswfvjg
-	9yeXjpd4khszUwruGphu4Om+wTwm1cH+Pri2gqDnKB+AasRmAfwUp1iODbsVdQGjD7+CdLZdDdD
-	cv0tJSpQ=
-X-Gm-Gg: AYBFou0gmX2BTLX6/Hc8CJu5doJ2Rgi/y6wl0hrATxYLC1WbTfRPHNT5Rzk0J3CdvdV
-	HRczCYfWUz5TVoB2zuHVL7CdfbdjbuQxGb6/e36HOYnva7Z61ZK1tl3cWeRij3nJZmY5oxHJCRN
-	ISXswCf7sHYcs354eDgglORUn/EaTxtorrFJBI74dxs9wlZXw+/Ale6XEJe8esS2oUGDZftIdv4
-	o6h8hf35AUaiq2kQfYFhddiFkHoIcRqJEYbgfZeUHBnGAuIJrDTRaB7p6pIgD9By9zqtNNuNmbu
-	1590MMC2oFrcnES5OwadPnch65v7oRe+SkXno7UWluslVKTUsi1j5ioaqEt/iVfEql8Q1rJnx9A
-	wjchC1jPzR04SummFAxWKKG25nkOTn+nja8psesIeZV/ozk1pDI3pmquk0PCe+LS5ZKHGhsISNZ
-	37x6taYQ87TTEJpP9igqkx2oMRLX7eBEjD3HN9x3+O7G/7LqBAMw6snqnm+3h/1yDCBKagTgo0s
-	HmlAXqfaUSSAQloD/vXbdarawiRJ+WQ09UxG74I+74=
-X-Received: by 2002:a05:6820:c0d9:20b0:6b5:ec3f:497d with SMTP id 006d021491bc7-6c0a8a27f9dmr1999129eaf.24.1789141326313;
-        Fri, 11 Sep 2026 08:42:06 -0700 (PDT)
+        bh=TNGI4wdJO9MfPQNZHymsObp/iaVWwbU1kTAYKqVGN8A=;
+        b=iypMpiOxS10M7lemVZf8pkRw3vCTkLDWrLCcX9OvH3YjgJi9BUQP6adk9TWycre31R
+         pWI/6RKKL4jBMv5WORevQlRbe2S0HohwsdNHi+6L2MkqSu02gWOqsUSAH1aXiMMTU5h8
+         JVoMoRoz3GmBfioYLZG18gaz001M8w4IXbpHTBih3yTEMrH9XtdjbbJ5PYe/Ov1seZhX
+         ZC0UHNpIhRF2wHRQ6/nyacItqzgJdajqypNgJzjIiljkpmZVRsUNrl7bUdjC7I2N6OT2
+         YQQ6axagCU5RC8+m6PMFtWlRbLrHAeW54DbLQDKnN68AueQ/9+eH/pXYiiTC8sTr5BWB
+         RZiA==
+X-Gm-Message-State: AFuF++nLFu6f6LWc+9/q0xNbzowhjoJKWXv8vmUreIcsLLJn5tI2rsnn
+	lHlqgIGbYPWXCSPluVkHMCWgvisUJ8EMtcCZb+G8V70RwiY9ZUWfFAyjJJZ/9PCVcw4=
+X-Gm-Gg: AYBFou0Gqg+AcnT6YAhjE3egbDbluzqEVvtr6GocDbpmKMW9WeKrpJSZ5I2L0//7B42
+	QsMoN5dzI11kObq2ylOFqzMCPynCnsUXin4F/i3BfrOECFu/KftmF5Dib3p30UtycW6bxpDLtO4
+	drdWucAwJvkveaz+xwDEpOTSHwhOCC70MLhu5zh+DIjR5NZOE+H4oGBvszr+9w61Keww9AxnCj3
+	92+w61vSKV1y/Hqy9p1Tv28IprTDWIbX02ftxMeSt6gmvnzOghUATnDZV26249FI51tcLes0XHn
+	uPOkYYIihpTd7GQUw3lGsU7HZ4ZKILECH+YlgVBxwmzMWme1q5lGkARW+Riu1CyJjXoE766Wx6M
+	hDyR+1cWXJMM22I0IK8KmyrjHCmyPd8NQCHZz8LVXyYzCMcWDzVjYEtwLbGvo61oWsDTeFrWbsA
+	rzD+CIaDU6lqoosdlaYJq26kw7Jld8F70dSxoOHi4qBK0DLGeqfZXGdbhqArWDZll26/uTbNL0+
+	Kzw3lXZGQjzCAGTnoLETUNNpYoooDUSclXKIDz82qo=
+X-Received: by 2002:a05:6820:a283:20b0:6ac:8e23:3078 with SMTP id 006d021491bc7-6c0b9a5f10cmr2546524eaf.5.1789141333306;
+        Fri, 11 Sep 2026 08:42:13 -0700 (PDT)
 Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.05
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:42:05 -0700 (PDT)
+        Fri, 11 Sep 2026 08:42:12 -0700 (PDT)
 From: Jens Axboe <axboe@kernel.dk>
 To: io-uring@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -78,17 +77,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	mingo@redhat.com,
 	peterz@infradead.org,
 	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH 08/15] io_uring: split io_uring_enter() and io_submit_sqes() into helpers
-Date: Fri, 11 Sep 2026 09:40:58 -0600
-Message-ID: <20260911154148.644489-9-axboe@kernel.dk>
+Subject: [PATCH 13/15] io_uring: issue blockable requests inline in blocking mode
+Date: Fri, 11 Sep 2026 09:41:03 -0600
+Message-ID: <20260911154148.644489-14-axboe@kernel.dk>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
 References: <20260911154148.644489-1-axboe@kernel.dk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084207_501774_7F1B4244 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20260911_084215_918182_FE883BF2 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,244 +102,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the tail of io_submit_sqes() into io_submit_sqes_end(), and split
-the IORING_ENTER_GETEVENTS handling out of io_uring_enter() into
-io_uring_enter_finish() and io_uring_getevents(). A later patch needs
-to resume io_uring_enter() from a different task than the one that
-started the syscall.
+With a handoff available, there's no point in issuing a blockable opcode
+nonblocking first. Clear IO_URING_F_NONBLOCK if io_handoff_begin()
+succeeds, and issue REQ_F_FORCE_ASYNC requests inline rather than
+punting them to io-wq upfront.
 
-No functional changes in this patch.
+Requests with a working nonblocking issue path, like reads and writes
+on FMODE_NOWAIT files, behave as before. The handoff is for requests
+that otherwise would have required an io-wq punt upfront, most of which
+never block. SQEs marked IOSQE_ASYNC keep their explicit io-wq offload.
 
 Signed-off-by: Jens Axboe <axboe@kernel.dk>
 ---
- io_uring/io_uring.c | 179 ++++++++++++++++++++++++++++----------------
- 1 file changed, 116 insertions(+), 63 deletions(-)
+ include/linux/io_uring_types.h |  6 +++
+ io_uring/handoff.c             | 75 ++++++++++++++++++++++------------
+ io_uring/handoff.h             | 12 +++---
+ io_uring/io_uring.c            | 48 +++++++++++++++++++---
+ io_uring/io_uring.h            |  7 ++++
+ io_uring/splice.c              |  6 +++
+ 6 files changed, 116 insertions(+), 38 deletions(-)
 
+diff --git a/include/linux/io_uring_types.h b/include/linux/io_uring_types.h
+index 6c8fe7232aa2..37c56ad37e05 100644
+--- a/include/linux/io_uring_types.h
++++ b/include/linux/io_uring_types.h
+@@ -651,6 +651,8 @@ enum {
+ 	REQ_F_IMPORT_BUFFER_BIT,
+ 	REQ_F_SQE_COPIED_BIT,
+ 	REQ_F_IOPOLL_BIT,
++	REQ_F_ASYNC_USER_BIT,
++	REQ_F_HANDOFF_BIT,
+ 
+ 	/* not a real bit, just to check we're not overflowing the space */
+ 	__REQ_F_LAST_BIT,
+@@ -746,6 +748,10 @@ enum {
+ 	REQ_F_SQE_COPIED	= IO_REQ_FLAG(REQ_F_SQE_COPIED_BIT),
+ 	/* request must be iopolled to completion (set in ->issue()) */
+ 	REQ_F_IOPOLL		= IO_REQ_FLAG(REQ_F_IOPOLL_BIT),
++	/* IOSQE_ASYNC was set on the SQE, not just by prep */
++	REQ_F_ASYNC_USER	= IO_REQ_FLAG(REQ_F_ASYNC_USER_BIT),
++	/* vetted at submit for an inline blocking issue with a handoff */
++	REQ_F_HANDOFF		= IO_REQ_FLAG(REQ_F_HANDOFF_BIT),
+ };
+ 
+ struct io_tw_req {
+diff --git a/io_uring/handoff.c b/io_uring/handoff.c
+index ddc3c4d6a4f3..9c9bb7ba99f0 100644
+--- a/io_uring/handoff.c
++++ b/io_uring/handoff.c
+@@ -31,12 +31,58 @@ int sysctl_io_uring_handoff __read_mostly = 1;
+ 
+ static long io_handoff_resume(void);
+ 
++/*
++ * Can @req be issued inline in blocking mode with a handoff ready. Everything
++ * but the spare worker check is static, REQ_F_HANDOFF caches that part.
++ */
++bool io_handoff_possible(struct io_kiocb *req)
++{
++	const struct io_issue_def *def = &io_issue_defs[req->opcode];
++	struct io_ring_ctx *ctx = req->ctx;
++	struct io_uring_task *tctx = current->io_uring;
++
++	if (!sysctl_io_uring_handoff)
++		return false;
++	if (req->flags & REQ_F_HANDOFF)
++		goto check_spare;
++	if (!def->blockable)
++		return false;
++	/* nonblocking semantics were asked for, -EAGAIN is the answer */
++	if (req->flags & REQ_F_NOWAIT)
++		return false;
++	/* IOPOLL/SQPOLL issue differently, SQ_REWIND can't resume mid-batch */
++	if (ctx->flags & (IORING_SETUP_IOPOLL | IORING_SETUP_SQPOLL |
++			  IORING_SETUP_SQ_REWIND))
++		return false;
++	/* pollable files keep the nonblocking issue + poll retry path */
++	if (io_file_can_poll(req))
++		return false;
++	/* FMODE_NOWAIT files have a working nonblocking path, keep using it */
++	if ((def->pollin || def->pollout) && req->file &&
++	    (req->file->f_mode & FMODE_NOWAIT))
++		return false;
++	if (!tctx->io_wq)
++		return false;
++	/* an intermediate task's own user state doesn't matter, it stays */
++	if (!tctx->handoff.src && !thread_handoff_allowed(current))
++		return false;
++	/* the SQ head is published while we may still be running */
++	if (io_req_sqe_copy(req, IO_URING_F_INLINE))
++		return false;
++	req->flags |= REQ_F_HANDOFF;
++check_spare:
++	/* have a worker ready to take over */
++	if (!io_wq_handoff_spare(tctx->io_wq, !io_req_unbound(req), false))
++		return false;
++	return true;
++}
++
+ /* fork a spare worker upfront, so the first blockable issue has a target */
+ void io_handoff_prime(struct io_uring_task *tctx, struct io_ring_ctx *ctx)
+ {
+ 	if (!sysctl_io_uring_handoff || !tctx->io_wq)
+ 		return;
+-	/* handoffs are never done for these, see __io_handoff_begin() */
++	/* handoffs are never done for these, see io_handoff_possible() */
+ 	if (ctx->flags & (IORING_SETUP_IOPOLL | IORING_SETUP_SQPOLL |
+ 			  IORING_SETUP_SQ_REWIND))
+ 		return;
+@@ -71,32 +117,9 @@ void __io_handoff_restore_signals(struct io_handoff *ho)
+  */
+ bool __io_handoff_begin(struct io_kiocb *req)
+ {
+-	struct io_ring_ctx *ctx = req->ctx;
+-	struct io_uring_task *tctx = current->io_uring;
+-	struct io_handoff *ho = &tctx->handoff;
++	struct io_handoff *ho = &current->io_uring->handoff;
+ 
+-	if (!sysctl_io_uring_handoff)
+-		return false;
+-	/* nonblocking semantics were asked for, -EAGAIN is the answer */
+-	if (req->flags & REQ_F_NOWAIT)
+-		return false;
+-	/* IOPOLL/SQPOLL issue differently, SQ_REWIND can't resume mid-batch */
+-	if (ctx->flags & (IORING_SETUP_IOPOLL | IORING_SETUP_SQPOLL |
+-			  IORING_SETUP_SQ_REWIND))
+-		return false;
+-	/* pollable files keep the nonblocking issue + poll retry path */
+-	if (io_file_can_poll(req))
+-		return false;
+-	if (!tctx->io_wq)
+-		return false;
+-	/* an intermediate task's own user state doesn't matter, it stays */
+-	if (!tctx->handoff.src && !thread_handoff_allowed(current))
+-		return false;
+-	/* the SQ head is published while we may still be running */
+-	if (io_req_sqe_copy(req, IO_URING_F_INLINE))
+-		return false;
+-	/* have a worker ready to take over */
+-	if (!io_wq_handoff_spare(tctx->io_wq, !io_req_unbound(req), false))
++	if (!io_handoff_possible(req))
+ 		return false;
+ 	/* would interrupt the issue right away, and can't be handled here */
+ 	if (task_sigpending(current))
+diff --git a/io_uring/handoff.h b/io_uring/handoff.h
+index b8ded4916606..f315f2ae8d80 100644
+--- a/io_uring/handoff.h
++++ b/io_uring/handoff.h
+@@ -6,16 +6,10 @@
+ #include "opdef.h"
+ #include "tw.h"
+ 
+-/* a blocking issue got interrupted, retry on io-wq rather than restart */
+-static inline bool io_issue_wants_restart(int ret)
+-{
+-	return ret == -ERESTARTSYS || ret == -ERESTARTNOINTR ||
+-	       ret == -ERESTARTNOHAND || ret == -ERESTART_RESTARTBLOCK;
+-}
+-
+ #ifdef CONFIG_THREAD_HANDOFF
+ extern int sysctl_io_uring_handoff;
+ 
++bool io_handoff_possible(struct io_kiocb *req);
+ bool __io_handoff_begin(struct io_kiocb *req);
+ void io_handoff_prime(struct io_uring_task *tctx, struct io_ring_ctx *ctx);
+ bool io_handoff_end(void);
+@@ -77,6 +71,10 @@ static inline bool io_handoff_begin(struct io_kiocb *req,
+ {
+ 	return false;
+ }
++static inline bool io_handoff_possible(struct io_kiocb *req)
++{
++	return false;
++}
+ static inline void io_handoff_submit_end(void)
+ {
+ }
 diff --git a/io_uring/io_uring.c b/io_uring/io_uring.c
-index 61053421d809..b09221e239c0 100644
+index 289e9ddc8c24..7c2aa0cfacc8 100644
 --- a/io_uring/io_uring.c
 +++ b/io_uring/io_uring.c
-@@ -2010,12 +2010,31 @@ static bool io_get_sqe(struct io_ring_ctx *ctx, const struct io_uring_sqe **sqe)
- 	return true;
- }
+@@ -1424,10 +1424,25 @@ static int io_issue_sqe(struct io_kiocb *req, unsigned int issue_flags)
+ 	if (unlikely(!io_assign_file(req, def, issue_flags)))
+ 		return -EBADF;
  
-+static int io_submit_sqes_end(struct io_ring_ctx *ctx, unsigned int entries,
-+			      unsigned int left)
-+	__must_hold(&ctx->uring_lock)
-+{
-+	int ret = entries;
-+
-+	if (unlikely(left)) {
-+		ret -= left;
-+		/* try again if it submitted nothing and can't allocate a req */
-+		if (!ret && io_req_cache_empty(ctx))
-+			ret = -EAGAIN;
-+		current->io_uring->cached_refs += left;
-+	}
-+
-+	io_submit_state_end(ctx);
-+	 /* Commit SQ ring head once we've consumed and submitted all SQEs */
-+	io_commit_sqring(ctx);
-+	return ret;
-+}
-+
- int io_submit_sqes(struct io_ring_ctx *ctx, unsigned int nr)
- 	__must_hold(&ctx->uring_lock)
- {
- 	unsigned int entries;
- 	unsigned int left;
--	int ret;
- 
- 	if (ctx->flags & IORING_SETUP_SQ_REWIND)
- 		entries = ctx->sq_entries;
-@@ -2026,7 +2045,7 @@ int io_submit_sqes(struct io_ring_ctx *ctx, unsigned int nr)
- 	if (unlikely(!entries))
- 		return 0;
- 
--	ret = left = entries;
-+	left = entries;
- 	io_get_task_refs(left);
- 	io_submit_state_start(&ctx->submit_state, left);
- 
-@@ -2052,18 +2071,7 @@ int io_submit_sqes(struct io_ring_ctx *ctx, unsigned int nr)
- 		}
- 	} while (--left);
- 
--	if (unlikely(left)) {
--		ret -= left;
--		/* try again if it submitted nothing and can't allocate a req */
--		if (!ret && io_req_cache_empty(ctx))
--			ret = -EAGAIN;
--		current->io_uring->cached_refs += left;
--	}
--
--	io_submit_state_end(ctx);
--	 /* Commit SQ ring head once we've consumed and submitted all SQEs */
--	io_commit_sqring(ctx);
--	return ret;
-+	return io_submit_sqes_end(ctx, entries, left);
- }
- 
- static void io_rings_free(struct io_ring_ctx *ctx)
-@@ -2583,6 +2591,94 @@ struct file *io_uring_ctx_get_file(unsigned int fd, bool registered)
- }
- 
- 
-+static int io_iopoll_getevents(struct io_ring_ctx *ctx, u32 min_complete,
-+			       u32 flags, const void __user *argp, size_t argsz)
-+	__must_hold(&ctx->uring_lock)
-+{
-+	int ret;
-+
-+	ret = io_validate_ext_arg(ctx, flags, argp, argsz);
-+	if (likely(!ret))
-+		return io_iopoll_check(ctx, min_complete);
-+	return ret;
-+}
-+
-+static int io_wait_getevents(struct io_ring_ctx *ctx, u32 min_complete,
-+			     u32 flags, const void __user *argp, size_t argsz)
-+{
-+	struct ext_arg ext_arg = { .argsz = argsz };
-+	int ret;
-+
-+	ret = io_get_ext_arg(ctx, flags, argp, &ext_arg);
-+	if (likely(!ret))
-+		return io_cqring_wait(ctx, min_complete, flags, &ext_arg);
-+	return ret;
-+}
-+
-+static int io_getevents_ret(struct io_ring_ctx *ctx, int ret, int ret2)
-+{
-+	if (ret)
-+		return ret;
 +	/*
-+	 * EBADR indicates that one or more CQE were dropped. Once the user has
-+	 * been informed we can clear the bit as they are obviously ok with
-+	 * those drops.
++	 * No point in a nonblocking attempt with a handoff armed. A force-async
++	 * request can't do nonblocking at all, punt if no handoff is possible.
 +	 */
-+	if (unlikely(ret2 == -EBADR))
-+		clear_bit(IO_CHECK_CQ_DROPPED_BIT, &ctx->check_cq);
-+	return ret2;
-+}
-+
-+static int io_uring_getevents(struct io_ring_ctx *ctx, int ret,
-+			      u32 min_complete, u32 flags,
-+			      const void __user *argp, size_t argsz)
+ 	handoff = io_handoff_begin(req, def, issue_flags);
++	if (handoff) {
++		issue_flags &= ~IO_URING_F_NONBLOCK;
++	} else if ((issue_flags & IO_URING_F_INLINE) &&
++		   (req->flags & REQ_F_FORCE_ASYNC)) {
++		return -EAGAIN;
++	}
+ 	ret = __io_issue_sqe(req, issue_flags, def);
+-	if (handoff && unlikely(io_handoff_end()))
+-		return io_handoff_complete(req, ret);
++	if (handoff) {
++		if (unlikely(io_handoff_end()))
++			return io_handoff_complete(req, ret);
++		/* interrupted regardless (fatal signal, stop), io-wq retries */
++		if (unlikely(io_issue_wants_restart(ret)))
++			return -EAGAIN;
++	}
+ 
+ 	if (ret == IOU_COMPLETE) {
+ 		if (issue_flags & IO_URING_F_COMPLETE_DEFER)
+@@ -1756,6 +1771,8 @@ static int io_init_req(struct io_ring_ctx *ctx, struct io_kiocb *req,
+ 	/* same numerical values with corresponding REQ_F_*, safe to copy */
+ 	sqe_flags = READ_ONCE(sqe->flags);
+ 	req->flags = (__force io_req_flags_t) sqe_flags;
++	if (sqe_flags & IOSQE_ASYNC)
++		req->flags |= REQ_F_ASYNC_USER;
+ 	req->cqe.user_data = READ_ONCE(sqe->user_data);
+ 	req->file = NULL;
+ 	req->tctx = current->io_uring;
+@@ -1895,6 +1912,25 @@ static __cold int io_submit_fail_init(const struct io_uring_sqe *sqe,
+ 	return 0;
+ }
+ 
++/* a blockable force-async request issued inline beats an io-wq punt */
++static bool io_req_force_async(struct io_kiocb *req)
 +{
-+	int ret2;
-+
-+	if (ctx->int_flags & IO_RING_F_SYSCALL_IOPOLL) {
-+		/*
-+		 * We disallow the app entering submit/complete with polling,
-+		 * but we still need to lock the ring to prevent racing with
-+		 * polled issue that got punted to a workqueue.
-+		 */
-+		mutex_lock(&ctx->uring_lock);
-+		ret2 = io_iopoll_getevents(ctx, min_complete, flags, argp,
-+					   argsz);
-+		mutex_unlock(&ctx->uring_lock);
-+	} else {
-+		ret2 = io_wait_getevents(ctx, min_complete, flags, argp, argsz);
-+	}
-+	return io_getevents_ret(ctx, ret, ret2);
++	if (req->flags & REQ_F_FAIL)
++		return true;
++	if (!(req->flags & REQ_F_FORCE_ASYNC))
++		return false;
++	/* userspace asked for it, keep the explicit offload */
++	if (req->flags & REQ_F_ASYNC_USER)
++		return true;
++	if (req->ctx->int_flags & IO_RING_F_DRAIN_ACTIVE)
++		return true;
++	/* the file decides on pollability, resolve it now if fixed */
++	if (!io_assign_file(req, &io_issue_defs[req->opcode],
++			    IO_URING_F_INLINE))
++		return true;
++	return !io_handoff_possible(req);
 +}
 +
-+/* Finish an io_uring_enter() call that submitted and holds the uring_lock */
-+static int io_uring_enter_finish(struct io_ring_ctx *ctx, int ret, u32 min_complete,
-+			  u32 flags, const void __user *argp, size_t argsz)
-+{
-+	int ret2;
-+
-+	if (!(flags & IORING_ENTER_GETEVENTS)) {
-+		mutex_unlock(&ctx->uring_lock);
-+		return ret;
-+	}
-+
-+	if (ctx->int_flags & IO_RING_F_SYSCALL_IOPOLL) {
-+		ret2 = io_iopoll_getevents(ctx, min_complete, flags, argp,
-+					   argsz);
-+		mutex_unlock(&ctx->uring_lock);
-+	} else {
-+		/*
-+		 * Ignore errors, we'll soon call io_cqring_wait() and it
-+		 * should handle ownership problems if any.
-+		 */
-+		if (ctx->flags & IORING_SETUP_DEFER_TASKRUN)
-+			(void)io_run_local_work_locked(ctx, min_complete);
-+		mutex_unlock(&ctx->uring_lock);
-+		ret2 = io_wait_getevents(ctx, min_complete, flags, argp, argsz);
-+	}
-+	return io_getevents_ret(ctx, ret, ret2);
-+}
-+
- SYSCALL_DEFINE6(io_uring_enter, unsigned int, fd, u32, to_submit,
- 		u32, min_complete, u32, flags, const void __user *, argp,
- 		size_t, argsz)
-@@ -2639,57 +2735,14 @@ SYSCALL_DEFINE6(io_uring_enter, unsigned int, fd, u32, to_submit,
- 			mutex_unlock(&ctx->uring_lock);
- 			goto out;
+ static inline int io_submit_sqe(struct io_ring_ctx *ctx, struct io_kiocb *req,
+ 			 const struct io_uring_sqe *sqe, unsigned int *left)
+ 	__must_hold(&ctx->uring_lock)
+@@ -1932,7 +1968,7 @@ static inline int io_submit_sqe(struct io_ring_ctx *ctx, struct io_kiocb *req,
+ 		/* last request of the link, flush it */
+ 		req = link->head;
+ 		link->head = NULL;
+-		if (req->flags & (REQ_F_FORCE_ASYNC | REQ_F_FAIL))
++		if (io_req_force_async(req))
+ 			goto fallback;
+ 
+ 	} else if (unlikely(req->flags & (IO_REQ_LINK_FLAGS |
+@@ -1940,11 +1976,13 @@ static inline int io_submit_sqe(struct io_ring_ctx *ctx, struct io_kiocb *req,
+ 		if (req->flags & IO_REQ_LINK_FLAGS) {
+ 			link->head = req;
+ 			link->last = req;
+-		} else {
++			return 0;
++		}
++		if (io_req_force_async(req)) {
+ fallback:
+ 			io_queue_sqe_fallback(req);
++			return 0;
  		}
--		if (flags & IORING_ENTER_GETEVENTS) {
--			if (ctx->int_flags & IO_RING_F_SYSCALL_IOPOLL)
--				goto iopoll_locked;
--			/*
--			 * Ignore errors, we'll soon call io_cqring_wait() and
--			 * it should handle ownership problems if any.
--			 */
--			if (ctx->flags & IORING_SETUP_DEFER_TASKRUN)
--				(void)io_run_local_work_locked(ctx, min_complete);
--		}
--		mutex_unlock(&ctx->uring_lock);
-+		ret = io_uring_enter_finish(ctx, ret, min_complete, flags,
-+					    argp, argsz);
-+		goto out;
+-		return 0;
  	}
  
--	if (flags & IORING_ENTER_GETEVENTS) {
--		int ret2;
--
--		if (ctx->int_flags & IO_RING_F_SYSCALL_IOPOLL) {
--			/*
--			 * We disallow the app entering submit/complete with
--			 * polling, but we still need to lock the ring to
--			 * prevent racing with polled issue that got punted to
--			 * a workqueue.
--			 */
--			mutex_lock(&ctx->uring_lock);
--iopoll_locked:
--			ret2 = io_validate_ext_arg(ctx, flags, argp, argsz);
--			if (likely(!ret2))
--				ret2 = io_iopoll_check(ctx, min_complete);
--			mutex_unlock(&ctx->uring_lock);
--		} else {
--			struct ext_arg ext_arg = { .argsz = argsz };
--
--			ret2 = io_get_ext_arg(ctx, flags, argp, &ext_arg);
--			if (likely(!ret2))
--				ret2 = io_cqring_wait(ctx, min_complete, flags,
--						      &ext_arg);
--		}
--
--		if (!ret) {
--			ret = ret2;
--
--			/*
--			 * EBADR indicates that one or more CQE were dropped.
--			 * Once the user has been informed we can clear the bit
--			 * as they are obviously ok with those drops.
--			 */
--			if (unlikely(ret2 == -EBADR))
--				clear_bit(IO_CHECK_CQ_DROPPED_BIT,
--					  &ctx->check_cq);
--		}
--	}
-+	if (flags & IORING_ENTER_GETEVENTS)
-+		ret = io_uring_getevents(ctx, ret, min_complete, flags, argp,
-+					 argsz);
- out:
- 	if (!(flags & IORING_ENTER_REGISTERED_RING))
- 		fput(file);
+ 	return io_queue_sqe(req, IO_URING_F_INLINE);
+diff --git a/io_uring/io_uring.h b/io_uring/io_uring.h
+index 79db0a8b9cc8..1f536617b584 100644
+--- a/io_uring/io_uring.h
++++ b/io_uring/io_uring.h
+@@ -421,6 +421,13 @@ static inline bool io_issue_needs_lock(unsigned int issue_flags)
+ 		io_issue_handed_off(issue_flags);
+ }
+ 
++/* a blocking issue got interrupted, retry on io-wq rather than restart */
++static inline bool io_issue_wants_restart(int ret)
++{
++	return ret == -ERESTARTSYS || ret == -ERESTARTNOINTR ||
++	       ret == -ERESTARTNOHAND || ret == -ERESTART_RESTARTBLOCK;
++}
++
+ static inline void io_ring_submit_unlock(struct io_ring_ctx *ctx,
+ 					 unsigned issue_flags)
+ {
+diff --git a/io_uring/splice.c b/io_uring/splice.c
+index e81ebbb91925..7d464deb0972 100644
+--- a/io_uring/splice.c
++++ b/io_uring/splice.c
+@@ -100,6 +100,9 @@ int io_tee(struct io_kiocb *req, unsigned int issue_flags)
+ 
+ 	if (!(sp->flags & SPLICE_F_FD_IN_FIXED))
+ 		fput(in);
++	/* interrupted before making progress, have the core retry it */
++	if (io_issue_wants_restart(ret))
++		return -EAGAIN;
+ done:
+ 	if (ret != sp->len)
+ 		req_set_fail(req);
+@@ -141,6 +144,9 @@ int io_splice(struct io_kiocb *req, unsigned int issue_flags)
+ 
+ 	if (!(sp->flags & SPLICE_F_FD_IN_FIXED))
+ 		fput(in);
++	/* interrupted before making progress, have the core retry it */
++	if (io_issue_wants_restart(ret))
++		return -EAGAIN;
+ done:
+ 	if (ret != sp->len)
+ 		req_set_fail(req);
 -- 
 2.55.0
 
