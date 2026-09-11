@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC6CC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1297FC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyPGYtnzf4r7mkvvETaUX3dyuduLi00Fi7uTj0IG3cQ=; b=3cRk4vs+3AiRw6XioIX77IwgE9
-	m4/Xl044iY684txPk/au4ek3flvK7FqzZIu+2FkQ61cUM8WW7zBFPQXcjR3WThnc54Q8RyvhNRvuV
-	cbcvKQecwd9vrU2NmQ7Pb+IwpRfq7NVZerSw7XS1czKgzdUSkY8naTdADebwQhsF/xeoKPjMf0BJD
-	X2zGv0aof9JU6KBCjS7IFCDVAuF9H8LIQZsoxSqSs+K77hYcMTe5wJ7xnrqffIRpDHk7sGa/Qt5Jd
-	EPUCsEPmxVVEYVcrwiTReOEjUIBmRiq6132o5+YUhhHCD/cjVhGcfxuaQBXbLUesNxI521DLkuQbQ
-	QZpAkkMA==;
+	bh=P98ik4Rx2MSjF5gYo78AhZnZ67Wun1nVYi3wDphvkyQ=; b=uRhLZTTjxbHRAJNiC6aKAwDFzZ
+	mHahWGg2W5z3ReNvhKM9N45i8tLztl0L9qz02HrWfmVdM30Z1/1t3L+skivy+yKMJQQEDMRm/cYPd
+	fk3oGroPO0KQx5zo1WGIhgyw6a5EQ22m/BU8h6i80Gg3YsF0wR4ZgngfXIIgIJ5nZVabji9fFqT7k
+	EAF9dMLq58mDq81KvWGGuGpibZACoufCVmptIduPU4Rv35s0AF55LZfaqR5kQsuR1kXEQDW4+KEuG
+	I4ZZjCZqugUMa80843GONnOrxvZdxJWl6M+gTOUKHMuK3+KFUIweIFQ6QjFtVwLXS11fvqt30/tQ+
+	gdsDsB5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56RI-0000000HUX7-3VBa;
-	Fri, 11 Sep 2026 18:57:33 +0000
+	id 1x56TD-0000000HUgT-2qSA;
+	Fri, 11 Sep 2026 18:59:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56RG-0000000HUWi-0K3s
+	id 1x56TB-0000000HUg8-0Rbr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 18:57:31 +0000
+	Fri, 11 Sep 2026 18:59:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A1331477;
-	Fri, 11 Sep 2026 11:57:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 484581477;
+	Fri, 11 Sep 2026 11:59:23 -0700 (PDT)
 Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00CC73F7B4;
-	Fri, 11 Sep 2026 11:57:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 035873F7B4;
+	Fri, 11 Sep 2026 11:59:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789153048; bh=wc9nLSphBOCT1DkhLyV+K0eqkiSCALgzgP5PlYhJbIA=;
+	t=1789153166; bh=+8g1zYfV+MqP/XVrXDogisrA+xn3PtXe8rEowf+uAHs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FVaR9MbJyw2GqzIHwA3ysXfqcfdAaAWFOi+2Ipcd7N4AcQM//flL019SAtbrnoxAt
-	 K8fe7QzwxzUkrvQRomXTzyWAeheFEtuCZ1yOS/pydtS0bdnetFtlfXIoI5rXopMN84
-	 EKhRjZzsVq8/ZulFFDblC1dwHkjbxb072t+XL0cw=
-Date: Fri, 11 Sep 2026 19:57:17 +0100
+	b=ik2q7jxmZUlUQgLOnijwkrlcbYbUaprkqRz02YZdoOtjfNkvAWALo7KkgbMfpfSYF
+	 5khDKX9d7ji4DtxIcIXo7jGqb+zmK/Cn2IFgA1l8DEuJJZJbqZOpb2RAVCz5KxPLki
+	 Lk1Kxlta61VcAk5TTWLOCcvzZSUby+04ueiTzjJ4=
+Date: Fri, 11 Sep 2026 19:59:16 +0100
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -48,18 +48,18 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, ljs@kernel.org, 
 	Shen Yongchao <grayhat@foxmail.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
 	stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] KVM: arm64: nv: Fix life cycle of the nested_mmus
- array
-Message-ID: <klqsux4hc7qalbo7pev3yjpv5tywenjdpinm7tjblhhdf3l2jy@n2s5lqc5jtwd>
+Subject: Re: [PATCH v4 2/2] KVM: arm64: nv: Delay freeing of shadow S2
+ structures until VM destruction
+Message-ID: <nmzxx2xi7cgzu3aswov2h7abzytbbirw4gzove5yfm3q5x72of@dwjxd6ut24ew>
 References: <20260911162203.1919330-1-maz@kernel.org>
- <20260911162203.1919330-2-maz@kernel.org>
+ <20260911162203.1919330-3-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260911162203.1919330-2-maz@kernel.org>
+In-Reply-To: <20260911162203.1919330-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_115730_346665_83533E38 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260911_115929_182477_252B9815 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 05:22:02PM +0100, Marc Zyngier wrote:
-> The nested_mmus array holds the shadow page tables that are used when
-> a guest is running a nested context. These structures are allocated on
-> VCPU_INIT for whole guest, which implies that they may have to be
-> relocated as the array grows.
+On Fri, Sep 11, 2026 at 05:22:03PM +0100, Marc Zyngier wrote:
+> We free the shadow S2 structures from kvm_arch_flush_shadow_all(), which
+> is a Bad Idea(tm). Freeing the page tables is fair game (this is what
+> this callback is for), but freeing the container that could still be
+> referenced by another part of the system is not great.
 > 
-> Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
-> that the allocation requires relocation, that vcpu will still be
-> running with a pointer to the previous structure, which will have been
-> freed.
+> Instead, grow separate destructors that gets called when we tear the VM
+> down for good. From there, we can nuke both the individual MMUs as well
+> as the global array that points to them, safe in the knowledge that the
+> vcpus themselves have been destroyed already.
 > 
-> Fix this by turning the array of structures to an array of pointers,
-> which is now allocated at VM creation, sized to the absolute maximum
-> that KVM can handle.
-> 
-> In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
-> reallocation is ever performed, and the life cycle of each object is
-> much clearer:
-> 
-> - the nested_mmus array is allocated in kvm_init_nested(), and freed
->   in kvm_arch_destroy_vm()
-> 
-> - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
->   on kvm_arch_flush_shadow_all()
-> 
-> Finally, the freeing of vcpu->arch.vncr_array is made consistent
-> rather than being done on some failure paths, but not others.
-> 
-> Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-> Reported-by: Shen Yongchao <grayhat@foxmail.com>
-> Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
-> Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
-> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
+> Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > Cc: stable@vger.kernel.org
 
@@ -116,4 +95,5 @@ Reviewed-by: Wei-Lin Chang <weilin.chang@arm.com>
 > ---
 
 [...]
+
 
