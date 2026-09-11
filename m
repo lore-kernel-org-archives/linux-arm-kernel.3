@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F986C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07005C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0RinXTxGOPfZ73QJZSm0x8nGtVjIGPhN07CdD7KpuoQ=; b=iZMFSaylkGfSAz
-	vn6aS6PN1c4haqxMkiYLk+TavhZ56XY5FhDi6oK2kVLwQMKAww/T1M92m250L+ucFCeVeJ92z4pLH
-	Dkxd4gspEiENzGzGDFI3TjMWHqaXh61+Nd2VOS+Pvwlr2c8Ws0hZR5EYTji1CllDixHtR9B/Tp+9U
-	0NPcOexvAghvvAlMegqBDfYRfffC7oZnIVckc/WDpTwi5e9IvKw/fDkEblBqeAt5w22Ef3XxiERqO
-	l3d7Mp70wAj3YIVB/k5HuAs2sfXhJIj48eZYnADpd2Zw2ZRhCi7UQymMGQfDVbrxvWyAdpuJwL2kr
-	pggBWzu5g+2DIeHQuByg==;
+	List-Owner; bh=Y9ulFaTqs6kS2HsDG0ygIrIAR2Hx3HEyof7jo0XZ8Pc=; b=ORgR4MbsTYxdEl
+	GImoD/tr9jp4oQS3/rpF5/VMV+3r6WVjCj5KPrG5m8r8lw/4YU3gOnzYDXfSxXwGHh2dZOHXXc7E6
+	B8SGZxRMaj75XDpMadCloenPopXE628eeOYgsAK0OFbBXg9v/PNR8YwgAe8YHQE4lUNGv5HvFaEIX
+	SFHKfsui8A944CnmmBkogWhpV6zNZA0hDkJ84LePbpxbRR7MtLA4iDwVe9kq91P9dlIF5CFKt8doh
+	b6SGbLOBgLLPUm+pzHGfE626LI0wIm6X8MxarmJzuP4MCxj+vJ7tkEe8fETtZsSlbr4Yed899xQyz
+	xsrVjFOh8PhE94I7uknA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50Y7-0000000Ge50-34yn;
-	Fri, 11 Sep 2026 12:40:11 +0000
+	id 1x50b6-0000000GeFD-0ebq;
+	Fri, 11 Sep 2026 12:43:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50Xz-0000000Ge4H-3vts
+	id 1x50b3-0000000GeEV-1oWP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:40:09 +0000
+	Fri, 11 Sep 2026 12:43:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E5811655;
-	Fri, 11 Sep 2026 05:39:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07CA716A3;
+	Fri, 11 Sep 2026 05:43:08 -0700 (PDT)
 Received: from [10.0.152.207] (unknown [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AD2E3F7B4;
-	Fri, 11 Sep 2026 05:39:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E4A13F86C;
+	Fri, 11 Sep 2026 05:43:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789130402; bh=XWfFiVJQd8zBFFXzrkVrZmYAIrf55jggjdeH4rEAhZY=;
+	t=1789130591; bh=8fDkzR3xz7bUOtv2VBFNlhKTI6GaTQbh45cNz7auKIE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KN4FsSrfRC9lwmJZtigkSjR7gNXqFF7FANz0TzckKmWInMpvcvMo+pB8+yKgjAOqE
-	 9jcCsLZvHxady43T6hGmNthEKXvu68EFA4buVRZTjGM4h/huoQiyLSsufd1/HBWBv+
-	 5D8iTAJMOvJMNziV41314S8ON3oZP1/NHBc+F6uI=
-Message-ID: <98386fb5-9545-446c-9681-746b9f7b8b49@arm.com>
-Date: Fri, 11 Sep 2026 13:39:57 +0100
+	b=jdmjoc5YXFimKoPrWtsGzDiGgZpv8L6ol0veAddLpi+DieVRLlBFhpQBd0mkoA76D
+	 OOlnQrdfnw4UKHK+7cK+fo2vr5+ik6SxvUJVyTIlViR8/usYl5Ck27rAZQg6TijAje
+	 mas5G9cZFd7DT/ro51xOYv4lY+2i/wYZqT81irwY=
+Message-ID: <e99bf73a-d46b-42ac-9608-32c3b1b6f083@arm.com>
+Date: Fri, 11 Sep 2026 13:43:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/21] arm64: percpu: Factor out percpu offset asm
+Subject: Re: [PATCH v4 10/21] arm64: gpr-num: Add wxN aliases for wN registers
 To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
 References: <20260908151741.394589-1-mark.rutland@arm.com>
- <20260908151741.394589-10-mark.rutland@arm.com>
+ <20260908151741.394589-11-mark.rutland@arm.com>
 Content-Language: en-GB
 From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260908151741.394589-10-mark.rutland@arm.com>
+In-Reply-To: <20260908151741.394589-11-mark.rutland@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_054004_354050_20ECE59E 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20260911_054313_676339_8D83BDDA 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +71,63 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/8/26 16:17, Mark Rutland wrote:
-> Depending on whether the kernel runs at EL1 or EL2, the percpu offset is
-> stored in either TPIDR_EL1 or TPIDR_EL2, and __kern_my_cpu_offset() uses
-> an ALTERNATIVE() sequence to read the relevant TPIDR_ELx.
+> Some A64 instructions require a W register name for specific register
+> arguments, and will not accept an X register name. For example:
 > 
-> In subsequent patches we'll need to read the percpu offset in other
-> assembly sequences. Factor the ALTERNATIVE sequence out of
-> __kern_my_cpu_offset() into a new __KERN_ASM_CPU_OFFSET() macro so that
-> we can share the code sequence.
+> 	STRH <Wt>, [<Xn|SP>, (<Wm>|<Xm>){, <extend> {<amount>}}]
 > 
-> There should be no functional change as a result of this patch.
+> This is painful when writing macros for inline assembly, especially
+> where a single register is used as both an X register and a W register.
+> 
+> We solved this for plain assembly by adding a wxN alias for each xN
+> register in commit:
+> 
+>   4c4dcd3541f83d21 ("arm64: assembler: introduce wxN aliases for wN registers")
+> 
+> Add the same facility for inline assembly, with a new
+> __DEFINE_ASM_GPR_ALIASES macro.
+> 
+> As with the other macros in gpr-num.h, different escaping is necessary
+> for inline vs non-inline assembly, so we can't share a single definition
+> that we stringify().
 > 
 > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > Cc: Ard Biesheuvel <ardb@kernel.org>
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
 > Cc: Marc Zyngier <maz@kernel.org>
 > Cc: Peter Zijlstra <peterz@infradead.org>
 > Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 > Cc: Will Deacon <will@kernel.org>
 > Cc: Yang Shi <yang@os.amperecomputing.com>
 > ---
->  arch/arm64/include/asm/percpu.h | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
+>  arch/arm64/include/asm/gpr-num.h | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index 8cf4068ce1b56..746d2a56f48bb 100644
-> --- a/arch/arm64/include/asm/percpu.h
-> +++ b/arch/arm64/include/asm/percpu.h
-> @@ -29,6 +29,11 @@ static inline unsigned long __hyp_my_cpu_offset(void)
->  	return read_sysreg(tpidr_el2);
->  }
+> diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
+> index a114e4f8209b0..240cd25d55c5a 100644
+> --- a/arch/arm64/include/asm/gpr-num.h
+> +++ b/arch/arm64/include/asm/gpr-num.h
+> @@ -21,6 +21,11 @@
+>  "	.equ	.L__gpr_num_xzr, 31\n"				\
+>  "	.equ	.L__gpr_num_wzr, 31\n"
 >  
-> +#define __KERN_ASM_CPU_OFFSET(dst)					\
-> +	ALTERNATIVE("mrs " dst ", tpidr_el1",				\
-> +		    "mrs " dst ", tpidr_el2",				\
-> +		       ARM64_HAS_VIRT_HOST_EXTN)
+> +#define __DEFINE_ASM_GPR_ALIASES									\
+> +"	.irp	n,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30\n"	\
+> +"	wx\\n	.req	w\\n\n"										\
+> +"	.endr\n"
 > +
->  static inline unsigned long __kern_my_cpu_offset(void)
->  {
->  	unsigned long off;
-> @@ -37,11 +42,11 @@ static inline unsigned long __kern_my_cpu_offset(void)
->  	 * We want to allow caching the value, so avoid using volatile and
->  	 * instead use a fake stack read to hazard against barrier().
->  	 */
-> -	asm(ALTERNATIVE("mrs %0, tpidr_el1",
-> -			"mrs %0, tpidr_el2",
-> -			ARM64_HAS_VIRT_HOST_EXTN)
-> -		: "=r" (off) :
-> -		"Q" (*(const unsigned long *)current_stack_pointer));
-> +	asm(
-> +	__KERN_ASM_CPU_OFFSET("%0")
-> +	: "=r" (off)
-> +	: "Q" (*(const unsigned long *)current_stack_pointer)
-> +	);
-
-Tiny tiny nitpick: named operand, say, [dst] would read nicer :) 
-No need to resin just for that. FWIW,
-
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
-
+>  #endif /* __ASSEMBLER__ */
 >  
->  	return off;
->  }
+>  #endif /* __ASM_GPR_NUM_H */
 > -- 2.30.2
 > 
+
+FWIW,
+
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
 
