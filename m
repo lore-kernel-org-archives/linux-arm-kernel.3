@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84262C88E4D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FF0C88E50
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1UQQs4RgrcoOL7IoOSvZHUpHULa8UMlbZavMMWsIAI=; b=b5Ixe9AiNc24Dlw0lljbdeX5NN
-	SZ2e9+eWfEvga2w2nUqTizBuZZzzhuLDv3Jryz+kZy31IcE9KGxrg/5G2cvusUBT2+0zyA7A47x/F
-	TCgEK8n2CuEy5NNFCeREM4POZAKeqlQPyhNQI8hCpUqdpK1HxAGORYEMfwGJOg45cX0CMrNtCSMw8
-	xG1Y5KKci4JxGQoxrjHuA/ok3MyPa1exMAmUVTaXkNp6bnYQKrTbZHmVBA+ab67XHKKA6bI1HMvj0
-	7bPIa76YLvcQmm73RqTjw8epR3qHzROOoPKfm/HjRkjya0lO4NS6YNk+TaG2WqLR6G4Xv80Yt9Kby
-	cb7xZfUA==;
+	bh=Tat9mq7+c+2wVgjCeNs6A4pXm6W+juN5KefobLoQo9k=; b=B0Ceml6IDcC4rhCNGB4vI78Mfo
+	rZKcRMwxeHKGYX6QOXbYyq0j0nYhGEkv1yRL0QEpekcRFIBwBI0d06yUi/ug9hbDmYMxDSks50+I9
+	f8wVH6hjU5487h47WLJ66kaHQDzunYeMx5dUd05oXz8ZOEyeWFV5MIAyrBw5kypbDrrMWG9xdG6E6
+	1lBH0o7aguWdGtnGGDvFiB3kWZLPO+X1Q47OZ7rUZcJ/dSBN45NHmcaR2PgIjAC3RaOIY67Jkotle
+	oXo8kIMMB4x1IiiXX/PC4gRypoiAK3TWKDiTrNBYNvvrYZjEA+U53yHljqBVoiUcUUFua5vXTcjVD
+	AzC8GyAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zOF-0000000GUdI-3Vhq;
+	id 1x4zOF-0000000GUcg-2Sxi;
 	Fri, 11 Sep 2026 11:25:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zNl-0000000GUQv-3Ike
+	id 1x4zNf-0000000GUOC-17bL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 11:25:26 +0000
+	Fri, 11 Sep 2026 11:25:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F0AB60A5E;
-	Fri, 11 Sep 2026 11:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C9751F0089E;
-	Fri, 11 Sep 2026 11:25:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 09EED41885;
+	Fri, 11 Sep 2026 11:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FBC91F0089B;
+	Fri, 11 Sep 2026 11:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789125924;
-	bh=V1UQQs4RgrcoOL7IoOSvZHUpHULa8UMlbZavMMWsIAI=;
+	s=k20260515; t=1789125918;
+	bh=Tat9mq7+c+2wVgjCeNs6A4pXm6W+juN5KefobLoQo9k=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ove7lllus3Mnvt02TUZBfOze1KGDqlxb6R9rnMNqnw6Kf1E4pznctBgX++hb19PQa
-	 uWhOJGsg4oCtC5SrOcR1sZTis0HJWhaSlIV6CX6cGY1DozSwXAtGPODo/zK7UiNYGK
-	 jAppYtz+UeKU2G2RDRJSjnH6SzZjj1qrYcNtIdYbQRB0qIlJ0cWKgKEHbVJxi3yVn9
-	 vnRdMOsO+5Kzxx29nikCI02OiXNXW7tHhUqnnI3DN9Gc9YoiLIVn9RgHFzxkCfmt7x
-	 7c/mu1yLry3EYV2K+UpNS9bc8IxSXjdup1uG3MSGsvga+lpilQEFP8GnWCq0pdej/B
-	 NR4uFPy9ZVczg==
-Subject: Re: [PATCH net-next v2 9/9] net: stmmac: qcom-ethqos: add Shikra EMAC support
+	b=JG3FUD5WC0loPVITE99b8rSpPe+3pzbh5U+mDnRuYFnzgrcGV9L5vTYpNxPM8r2yy
+	 61P4MOcbwypVzEjjeviACdXahJxdqE8IGiXHqknf1gkEuk8i5q2hCQVOVpYPVc77dn
+	 FWadNFYGbMuMGRNwUob2IB3myd2Zi9fM/xoq2kWgegnUVNpLZVRIBG72w7aDnHHRkQ
+	 dFXDIHjdb8Xtp++DVFQft/+Gm0ihNoHsy8TMG9YKOADk6cdikRnX65RNrdivuu3Wk9
+	 mohBN1gswc2zLba12y3ePu1+VAmc4BGP8BEk6uKboTmXI0JK927sS2ieOOvP/4N6V0
+	 J8X7fa+IqlHrw==
+Subject: Re: [PATCH net-next v2 6/9] net: stmmac: qcom-ethqos: warn about
+ legacy RGMII PHY modes
 From: netdev-bot+sashiko@kernel.org
 To: mohd.anwar@oss.qualcomm.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -55,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
-Date: Fri, 11 Sep 2026 11:25:23 +0000
-Message-ID: <178912592322.219967.17232145160989235559@kernel.org>
-In-Reply-To: <20260908-shikra_ethernet-v2-9-bbe3389d0652@oss.qualcomm.com>
-References: <20260908-shikra_ethernet-v2-9-bbe3389d0652@oss.qualcomm.com>
-X-sashiko-severity: High
+Date: Fri, 11 Sep 2026 11:25:16 +0000
+Message-ID: <178912591683.219967.17377991068527504766@kernel.org>
+In-Reply-To: <20260908-shikra_ethernet-v2-6-bbe3389d0652@oss.qualcomm.com>
+References: <20260908-shikra_ethernet-v2-6-bbe3389d0652@oss.qualcomm.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -80,162 +81,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [High] shikra_data (drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-
-  ethqos.c:337) provides no .rgmii_por/.num_rgmii_por table, while the…
-- [Medium] Adding the core-owned "stmmaceth" clock to shikra_noc_clks[]
-  decouples that clock's programmed rate and enable state from the…
+- [Medium] Unactionable boot-time warning on every in-tree qcom ethqos
+  platform: the new dev_warn() in qcom_ethqos_probe() (dwmac-qcom-…
+- [Low] Commit message / code mismatch: the changelog of "net: stmmac:
+  qcom-ethqos: warn about legacy RGMII PHY modes" states that "existing…
 
 --
 
-net: stmmac: qcom-ethqos: add Shikra EMAC support
+net: stmmac: qcom-ethqos: warn about legacy RGMII PHY modes
 
-Adds a qcom,shikra-ethqos compatible with a new shikra_data descriptor that
-declares three NOC clocks (axi-noc, pcie-tile-axi-noc, stmmaceth) at
-120 MHz and a 36-bit DMA address width.  A couple of questions below about
-the new descriptor.
+This adds a probe-time dev_warn() in qcom_ethqos_probe() when the ethernet
+node uses one of the older RGMII phy-mode values, suggesting a move to
+"rgmii-id" with PHY-provided delays.  PHY_INTERFACE_MODE_RGMII_ID is split
+out of the shared case group so that it does not warn.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 8871d28594116..c474f1e5a0437 100644
+> index 53fb9de4d92c7..a92bf4a6a2dbd 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -328,6 +328,36 @@ static const struct ethqos_emac_driver_data emac_v4_0_0_data = {
->  	},
->  };
->  
-> +static const struct ethqos_noc_clk_cfg shikra_noc_clks[] = {
-> +	{ "axi-noc", 120000000 },
-> +	{ "pcie-tile-axi-noc", 120000000 },
-> +	{ "stmmaceth", 120000000 },
+> @@ -764,9 +764,11 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  	ethqos->phy_mode = plat_dat->phy_interface;
+>  	switch (ethqos->phy_mode) {
+>  	case PHY_INTERFACE_MODE_RGMII:
+> -	case PHY_INTERFACE_MODE_RGMII_ID:
+>  	case PHY_INTERFACE_MODE_RGMII_RXID:
+>  	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		dev_warn(dev, "legacy RGMII phy-mode detected; consider upgrading to a newer DTB\n");
+
+[Severity: Low]
+The changelog says:
+
+    However, existing DTBs use "rgmii" and "rgmii-txid" and must remain
+    supported for backwards compatibility.
+
+    Warn when either of these legacy PHY modes is used [...]
+
+but the warning in qcom_ethqos_probe() is attached to a group of three case
+labels, so PHY_INTERFACE_MODE_RGMII_RXID also warns.
+
+Is "rgmii-rxid" intended to be declared legacy as well?  The driver does
+treat these modes differently, for example in ethqos_rgmii_macro_init():
+
+	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+		phase_shift = 0;
+	else
+		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+
+so which phy-modes are being deprecated seems worth stating exactly in the
+commit message.
 
 [Severity: Medium]
-Is it safe to put the core-owned "stmmaceth" clock into this table, given
-that the 120 MHz rate and the OPP/VDD_CX vote then come from different
-owners?
+Is there an upstream DTB that this warning can point people at?  No in-tree
+device tree for this driver uses "rgmii-id", and this series does not touch
+arch/ at all, so every in-tree board hits the new warning on each probe:
 
-On the resume path the core enables the clock before this driver raises the
-vote:
+  arch/arm64/boot/dts/qcom/qcs404-evb-4000.dts	phy-mode = "rgmii";
+  arch/arm64/boot/dts/qcom/sa8155p-adp.dts	phy-mode = "rgmii";
+  arch/arm64/boot/dts/qcom/sa8540p-ride.dts	phy-mode = "rgmii-txid";  (both MACs)
 
-stmmac_platform.c:stmmac_bus_clks_config() {
-	...
-	ret = clk_prepare_enable(plat_dat->stmmac_clk);
-	...
-	if (plat_dat->clks_config) {
-		ret = plat_dat->clks_config(plat_dat->bsp_priv, enabled);
-	...
-}
+The binding example in Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+also still uses:
 
-ethqos_clks_config(true) is the only place that calls
-dev_pm_opp_set_rate(dev, ethqos->noc_clk_rates[0]), so for that window
-stmmaceth is running at the previously programmed 120 MHz with the vote at
-zero.  The same inversion happens at probe, where
-devm_stmmac_probe_config_dt() enables stmmaceth before
-qcom_ethqos_init_noc_clks() installs the OPP.
+      phy-mode = "rgmii";
 
-At detach the devm actions unwind in the opposite order to how they were
-registered, so ethqos_clks_disable() runs before
-devm_stmmac_remove_config_dt():
+and the binding carries no phy-mode deprecation note, so the documented ABI
+still recommends what the driver now calls legacy.
 
-	} else {
-		if (ethqos->num_noc_clks)
-			clk_bulk_disable_unprepare(ethqos->num_noc_clks,
-						   ethqos->noc_clks);
-		clk_disable_unprepare(ethqos->link_clk);
-		if (ethqos->num_noc_clks)
-			dev_pm_opp_set_rate(&ethqos->pdev->dev, 0);
-	}
+Converting those device trees is also the only way the advocated
+PHY-provided-delay path gets exercised, since ethqos_set_clk_tx_rate() stops
+doubling the link clock only for PHY_INTERFACE_MODE_RGMII_ID.  Would it make
+sense to convert the in-tree DTs (and the binding example/text) in the same
+series, or to hold off on the warning until a migration target exists?
 
-The bulk disable only drops the glue's extra reference, the core still holds
-one, so does this withdraw the performance-state vote while stmmaceth is
-still running at 120 MHz?
-
-The mid-sequence failure paths in ethqos_clks_config() look similar: if
-clk_set_rate() fails for a later index, or clk_bulk_prepare_enable() fails,
-only dev_pm_opp_set_rate(dev, 0) is issued and the rates already raised are
-not rolled back.  The original stmmaceth rate is never recorded or restored
-either.
-
-> +};
-> +
-> +static const struct ethqos_emac_driver_data shikra_data = {
-> +	.dma_addr_width = 36,
-> +	.has_emac_ge_3 = true,
-> +	.noc_clk_cfg = shikra_noc_clks,
-> +	.num_noc_clks = ARRAY_SIZE(shikra_noc_clks),
-> +	.rgmii_config_loopback_en = false,
-
-[Severity: High]
-Was a .rgmii_por / .num_rgmii_por table meant to be part of this patch?
-
-All the other descriptors (emac_v2_1_0_data, emac_v2_3_0_data,
-emac_v3_0_0_data, emac_v4_0_0_data) supply one, and shikra_data leaves
-.link_clk_name unset, so qcom_ethqos_probe() ends up doing
-devm_clk_get(dev, "rgmii"):
-
-	ethqos->link_clk = devm_clk_get(dev, data->link_clk_name ?: "rgmii");
-
-With num_rgmii_por == 0 the reset loop at the top of
-ethqos_fix_mac_speed_rgmii() does nothing:
-
-	/* Reset to POR values and enable clk */
-	for (i = 0; i < ethqos->num_rgmii_por; i++)
-		rgmii_writel(ethqos, ethqos->rgmii_por[i].value,
-			     ethqos->rgmii_por[i].offset);
-
-so RGMII_IO_MACRO_CONFIG, SDCC_HC_REG_DLL_CONFIG, SDCC_HC_REG_DDR_CONFIG and
-RGMII_IO_MACRO_CONFIG2 are never brought back to a baseline before the
-speed-specific programming, which is read-modify-write.
-
-Can that leave stale bits across a speed change?  For has_emac_ge_3 (true
-here) at 10/100M, ethqos_rgmii_macro_init() arms the extended RX-clock delay
-path:
-
-		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY,
-			      SDCC_HC_REG_DDR_CONFIG);
-
-		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN,
-			      SDCC_HC_REG_DDR_CONFIG);
-	} else {
-
-and the 1000M branch only programs the other path:
-
-		rgmii_updatel(ethqos, SDCC_DDR_CONFIG_PRG_RCLK_DLY,
-			      FIELD_PREP(SDCC_DDR_CONFIG_PRG_RCLK_DLY,
-					 prg_rclk_dly), SDCC_HC_REG_DDR_CONFIG);
-
-		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_PRG_DLY_EN,
-			      SDCC_HC_REG_DDR_CONFIG);
-
-EXT_PRG_RCLK_DLY_EN is never cleared, so after 100M -> 1000M both delay
-paths are enabled.  On the other platforms the POR write of 0x80040800 to
-SDCC_HC_REG_DDR_CONFIG clears the extended path first.
-
-Two related fields also look like they depend on the POR table:
-
-- SDCC_DDR_CONFIG_TCXO_CYCLES_CNT is written nowhere else in the driver, yet
-  the 1G delay values are derived from "TCXO period * TCXO_CYCLES_CNT /
-  (2 * RX delay ns)", which assumes the POR value of 4.
-- SDCC_HC_REG_DLL_CONFIG is never restored to its 0x2004642c baseline, and
-  CDR_EN / CDR_EXT_EN set by ethqos_dll_configure() at 1G are not cleared
-  when dropping to 10/100M, so residual values feed the DLL_RST/PDN toggle
-  and the SDC4_STATUS_DLL_LOCK poll.
-- RGMII_CONFIG_MAX_SPD_PRG_2 / MAX_SPD_PRG_9 are set for 100M/10M and not
-  cleared for 1000M.
-
-If Shikra is in fact not an RGMII part, then the descriptor and the binding
-added in the same series look inconsistent the other way: the binding pins
-the fourth clock to const "rgmii" and the descriptor sets the RGMII-only
-.rgmii_config_loopback_en field.  Which of the two is intended?
-
-> +	.dwmac4_addrs = {
-
-[ ... ]
-
-> +};
-> +
-
-[ ... ]
+> +		fallthrough;
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+>  		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
+>  		break;
+>  	case PHY_INTERFACE_MODE_2500BASEX:
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908-shikra_ethernet-v2-0-bbe3389d0652%40oss.qualcomm.com
