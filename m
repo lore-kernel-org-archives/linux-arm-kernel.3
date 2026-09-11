@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1E7C88E4D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F58C88E4C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+i4xJvJbpZzCybARuAVvhYy0NukRF5a36xdEaqg/UOk=; b=3PsuQz5IXG2KLS6cqiszkcX5i6
-	xTN/CI054ed0isbVf1ZoO4BReq/Bc16WulTe/bbkdTkYXLPrIZVSQnbuqJYEDOAR2fqKWYh49qrPq
-	GSEM4ySZOKfJKqFl3Vfl3hqeyijkpcZOHkBzDV/pXIqsl6gHK4HrIkiKBKdkOafbVZSg1IJE8jeFi
-	GTQW00AEEy2ueUamEjUa8Y7DCwH6vwqpOhKZ4EBat5/ke2qfRld/a3Ceu6lw/uDvTumfMNKGkMqmd
-	p8J4vhWqhTmq1R0I/0+/qqOkDjJDrOnm1aAY3L0CYghrohy3SWsDMuHGs1dOjllFr4zRAfuxitxeg
-	zuuB5wIg==;
+	bh=rKouco8/yNm0gBoTUKavYASU9EWlitA5dDOKirGScbk=; b=O46VVlERafN6VgjybbPhEqB0Rw
+	Pu1rXiYXDT1v21DXqMjx+7R/i+GfMg3mpfqRCXOQPHC9gmH8pEogcNZjgU/Kasj25EtlSQs50QrVp
+	iTbDwEW/8vTc9IiK2ssFJrlvrB+mb672bEmJKmNmLMLri0/h/pEIZIuZtjxEjBrZ0C71HKu7G8SQt
+	+Bu0dGpOt2kjbCQd8T1fj6NrCaMcM9XCp2TrWUfltk+8hUqYbteai4t9+kZdbIcVSMlZW2RIMSJuj
+	fsf7LQocNGquzfwdg2h3GKeEtrMr1/LLgl9nTOwj6Il7EId+6oYW8pgPgtcuuiqhQFyVmL3hIREhq
+	2nFzukdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zNe-0000000GUNG-33TN;
+	id 1x4zNe-0000000GUMz-2UZ6;
 	Fri, 11 Sep 2026 11:25:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zNb-0000000GULV-23NE
+	id 1x4zNZ-0000000GUL2-2HQa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 11:25:15 +0000
+	Fri, 11 Sep 2026 11:25:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5D0F41885;
-	Fri, 11 Sep 2026 11:25:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3321F00898;
-	Fri, 11 Sep 2026 11:25:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F401160A66;
+	Fri, 11 Sep 2026 11:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D3291F00899;
+	Fri, 11 Sep 2026 11:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789125914;
-	bh=+i4xJvJbpZzCybARuAVvhYy0NukRF5a36xdEaqg/UOk=;
+	s=k20260515; t=1789125912;
+	bh=rKouco8/yNm0gBoTUKavYASU9EWlitA5dDOKirGScbk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=B2582l490FLyblbokIDflmio7hWcERSDpKlYd8VL+OChurbUdUVkzSLtGF4bTFFZv
-	 LTR1AH0wX7FJa3oJxIj+mQpFCMU9nSIRiehf96dZF5W3gtbFXmYhJiU4YPGD4/hfeh
-	 5bJoVZOiSaj70v7tLHaztGCtJerUKT4TFlnnzUUns8iyKMfJzGMZlSMUUkgGuxvPjX
-	 es6h3tlXL87uL/vskOkTDR+SX3Jvu+uRUq628dX1HNdSzXUvn27eO9gTGh5phzUAZt
-	 M0k5x+zTpEAj8zNjyrjw8fuduasacX/KYpk18jvHFkEgQY7TJtGBWpw+ZhgxSpcrHM
-	 hg3I8LSMl8agg==
-Subject: Re: [PATCH net-next v2 4/9] net: stmmac: qcom-ethqos: convert
- ethqos_rgmii_macro_init() to void
+	b=fBV/WqE1dSL+wlc8I8clbjJeywFqIe4YN/xQX6mZMq9yQpdk6IkeXHCn2VzGB9781
+	 ZGbzxC0urNvdKoO4O5GE7WNa5KAlLkzlmCV4sTNL4lRwCR8B11rC9qy8yn4CWqYIK3
+	 eJIabMuUAH2P36dkh+KeMy+HB4CiRZ+RfpdeXDC5yS8Bunxz+8x8PSHKdKKr91Jr1Q
+	 kIFwdIqwPa8AyefV1yoXJ4dE7cDH59X4hQX9Fl0OPGngJBmuw6CSCiHVFb0bYP4KeY
+	 DSShphr1s11Rk5LGw2syNvxKMGlLRehxI8wuDvC3DMdrkoSkAHMRxIHkS1HtFkU37p
+	 fVpkYMhkl2+bQ==
+Subject: Re: [PATCH net-next v2 3/9] dt-bindings: net: qcom,ethqos: add
+ qcom,shikra-ethqos compatible
 From: netdev-bot+sashiko@kernel.org
 To: mohd.anwar@oss.qualcomm.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
-Date: Fri, 11 Sep 2026 11:25:12 +0000
-Message-ID: <178912591286.219967.4678568368277035940@kernel.org>
-In-Reply-To: <20260908-shikra_ethernet-v2-4-bbe3389d0652@oss.qualcomm.com>
-References: <20260908-shikra_ethernet-v2-4-bbe3389d0652@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Fri, 11 Sep 2026 11:25:10 +0000
+Message-ID: <178912591096.219967.12828338145381099454@kernel.org>
+In-Reply-To: <20260908-shikra_ethernet-v2-3-bbe3389d0652@oss.qualcomm.com>
+References: <20260908-shikra_ethernet-v2-3-bbe3389d0652@oss.qualcomm.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,124 +78,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 0 · Low: 2
 
-- [Medium] In `ethqos_rgmii_macro_init()`
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c) the patch…
+- [Low] Documentation/devicetree/bindings/net/qcom,ethqos.yaml: the new
+  `if: compatible contains qcom,shikra-ethqos` block makes `operating-…
+- [Low] Concern (verified as resolved within this series): the binding
+  adds `qcom,shikra-ethqos` with six mandatory clocks (including `axi-…
 
 --
 
-net: stmmac: qcom-ethqos: convert ethqos_rgmii_macro_init() to void
+dt-bindings: net: qcom,ethqos: add qcom,shikra-ethqos compatible
 
-The patch changes ethqos_rgmii_macro_init() to return void because its only
-caller ignores the return value, and it drops the speed validation from that
-function on the grounds that the same check exists higher up the call stack.
+This adds the qcom,shikra-ethqos compatible to the qcom,ethqos and
+snps,dwmac schemas, and introduces an if/else block that constrains Shikra
+to six clocks (adding axi-noc and pcie-tile-axi-noc) while keeping the
+existing compatibles at four. The Shikra branch also makes
+operating-points-v2 mandatory.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index ac7d6d3e205a1..44270c25d874f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -371,9 +371,8 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->  	return 0;
->  }
+A couple of questions below.
+
+> diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+> index 423959cb928d9..ad2cc706fa740 100644
+> --- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+> +++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+
+[ ... ]
+
+> @@ -32,6 +29,7 @@ properties:
+>            - qcom,qcs404-ethqos
+>            - qcom,sa8775p-ethqos
+>            - qcom,sc8280xp-ethqos
+> +          - qcom,shikra-ethqos
+>            - qcom,sm8150-ethqos
+
+[Severity: Low]
+At this commit there is no driver side for this compatible:
+qcom_ethqos_match[] in drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+has no qcom,shikra-ethqos entry, and nothing acquires axi-noc or
+pcie-tile-axi-noc or registers an OPP table.
+
+Checking the rest of the series shows this is closed later by "net: stmmac:
+qcom-ethqos: add per-platform NOC clock voting" and "net: stmmac:
+qcom-ethqos: add Shikra EMAC support", which add:
+
+  { .compatible = "qcom,shikra-ethqos", .data = &shikra_data},
+
+and
+
+  static const struct ethqos_noc_clk_cfg shikra_noc_clks[] = {
+	{ "axi-noc", 120000000 },
+	{ "pcie-tile-axi-noc", 120000000 },
+	{ "stmmaceth", 120000000 },
+  };
+
+along with qcom_ethqos_init_noc_clks() doing devm_clk_bulk_get() plus
+devm_pm_opp_of_add_table() and dev_pm_opp_set_rate(). The clock-names order
+here (rgmii as the fourth name) also matches shikra_data, which does not
+override link_clk_name.
+
+So this looks consistent with the series as a whole; noting it only because
+the binding lands ahead of its consumer and the intermediate bisect point
+has no driver support.
+
+[ ... ]
+
+> @@ -92,6 +99,41 @@ required:
+>    - clock-names
+>    - reg-names
 >  
-> -static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
-> +static void ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
->  {
-> -	struct device *dev = &ethqos->pdev->dev;
->  	unsigned int prg_rclk_dly, loopback;
->  	unsigned int phase_shift;
->  
-> @@ -384,11 +383,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
->  	/* Select RGMII, write 0 to interface select */
->  	rgmii_clrmask(ethqos, RGMII_CONFIG_INTF_SEL, RGMII_IO_MACRO_CONFIG);
->  
-> -	if (speed != SPEED_1000 && speed != SPEED_100 && speed != SPEED_10) {
-> -		dev_err(dev, "Invalid speed %d\n", speed);
-> -		return -EINVAL;
-> -	}
-> -
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: qcom,shikra-ethqos
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 6
+> +        clock-names:
+> +          items:
+> +            - const: stmmaceth
+> +            - const: pclk
+> +            - const: ptp_ref
+> +            - const: rgmii
+> +            - const: axi-noc
+> +            - const: pcie-tile-axi-noc
+> +      required:
+> +        - operating-points-v2
 
-[Severity: Medium]
-The commit message says "the speed validation duplicates a check higher up
-the call stack".  Which check is that referring to?
+[Severity: Low]
+The commit message says the OPP table is there so its required-opps can
+"vote VDD_CX to SVS when the NOC clocks are enabled". Should power-domains
+be in this required list as well?
 
-The only path here is:
+The required-opps vote only reaches a genpd if the consumer device has one
+attached. In drivers/opp/core.c, _set_required_opps() starts with:
 
-  stmmac_mac_link_up()
-    -> priv->plat->fix_mac_speed()
-      -> ethqos_fix_mac_speed_rgmii()
-        -> ethqos_rgmii_macro_init()
-
-stmmac_mac_link_up() only bails out in the default arm of its speed switch:
-
-	case SPEED_2500:
-		if (interface == PHY_INTERFACE_MODE_USXGMII)
-			ctrl |= priv->hw->link.xgmii.speed2500;
-		else
-			ctrl |= priv->hw->link.speed2500;
-		break;
+	struct device **devs = opp_table->required_devs;
 	...
-	default:
-		netdev_err(priv->dev,
-			   "unsupported speed %s on %s, leaving the MAC disabled\n",
-			   phy_speed_to_str(speed), phy_modes(interface));
-		return;
-	}
+	if (!devs)
+		return 0;
 
-	if (priv->plat->fix_mac_speed)
-		priv->plat->fix_mac_speed(priv->plat->bsp_priv, interface,
-					  speed, mode);
+and required_devs[] is only populated via _opp_set_required_dev(), reached
+from genpd_set_required_opp_dev() in drivers/pmdomain/core.c during genpd
+attach, i.e. only when the node has a power-domains phandle. Even past that
+point, dev_pm_domain_set_performance_state() in drivers/base/power/common.c
+does:
 
-so SPEED_2500 and everything above it are accepted and forwarded verbatim to
-fix_mac_speed() regardless of the interface mode.
+	if (dev->pm_domain && dev->pm_domain->set_performance_state)
+		return dev->pm_domain->set_performance_state(dev, state);
 
-ethqos_fix_mac_speed_rgmii() does no RGMII-specific speed validation either;
-it only distinguishes speed == SPEED_1000 from speed == SPEED_100/SPEED_10
-while restoring POR values and bringing up the DLL, then passes speed
-straight through.
+	return 0;
 
-So the removed test rejected speeds that are invalid for RGMII, while what
-remains upstream only rejects speeds the core does not recognise at all.
-Are these really the same check?
+power-domains is already permitted through the snps,dwmac.yaml $ref (it is
+declared there as power-domains: maxItems: 1), so unevaluatedProperties:
+false is not in the way; it is simply not required.
 
-A speed above 1000 does appear reachable on an RGMII port through a fixed
-link.  phylink_parse_fixedlink() keeps the requested speed even when it does
-not match the validated supported set:
-
-	if (c) {
-		...
-	} else {
-		phylink_warn(pl, "fixed link %s duplex %dMbps not recognised\n",
-			     pl->link_config.duplex == DUPLEX_FULL ? "full" : "half",
-			     pl->link_config.speed);
-	}
-
-and phylink_get_fixed_state() then hands that speed to mac_link_up() via
-*state = pl->link_config.  With phy-mode = "rgmii" plus
-fixed-link { speed = <2500>; full-duplex; }, does 2500 now reach
-ethqos_rgmii_macro_init() and silently take the non-1000 branches
-(BYPASS_TX_ID_EN set, POS_NEG_DATA_SEL and PROG_SWAP cleared,
-PRG_RCLK_DLY_CODE = 5, RX_PROG_SWAP cleared on pre-GE3 parts) while neither
-MAX_SPD_PRG_2 nor MAX_SPD_PRG_9 is programmed, with the DLL already locked
-by the caller?
-
-The "Invalid speed %d" dev_err() was the only indication that the RGMII
-configuration is unsupported.  Would it make sense to move the check into
-ethqos_fix_mac_speed_rgmii(), before the POR restore and the DLL
-reset/enable sequence, rather than dropping it?
-
-For reference, no later patch in this series reinstates a speed check:
-ethqos_fix_mac_speed_rgmii() and ethqos_rgmii_macro_init() still accept any
-speed at the end of the series, and the newly added
-ethqos_rgmii_id_macro_init() is equally unvalidated.
-
->  	rgmii_setmask(ethqos, RGMII_CONFIG_DDR_MODE, RGMII_IO_MACRO_CONFIG);
->  
->  	if (speed == SPEED_1000) {
+As written, a Shikra node with operating-points-v2 and no power-domains
+passes dt_binding_check, and at runtime the CX performance-state request is
+silently skipped while the NOC clocks still run at 120 MHz. No in-tree DTS
+is affected today since there is no Shikra DTS yet.
 
 [ ... ]
 
