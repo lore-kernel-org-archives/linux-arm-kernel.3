@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08616C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A86EC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQK44wZWXNKhAuErpxOpPU1tsNlhRm94bvyUR1cZiuQ=; b=RwafxpxkFY/v6IBK0P3NgXAuGM
-	PSQ2TxFc5DdXMHTTVH01krb4qQGO/IyCIGDIzymmAUAGnr93hA/GHvbR74wc45yUEc3y5hQYd3hJl
-	0HJM6OZnpHxJZVHzFW/Jma5Jmouf2OoNRUhzT4BufOv+jHxQ9XiHKpMPvyabGdmZhESM/O4xWMeaF
-	xxUWzg9Qc5uWO0zVSXuVPSwclWeZvah682SHAfk6tVHmL6ODL+Vj3naOKfLx3hEUtFT7jvZHXZruA
-	5tTyfsP1NC7hWQ3dk5jwplrQYUuASrWM5fCOdAQmXKeS880TzrmKQwrLjNJmr/LIi9skSRdi/75JA
-	00WNBe2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qx8sOrSNiRpwWj+wYfNgXp2QREdlhzBDEHsErPLaQrs=; b=JDX+LKnAuyHUjOwkplA/7sfm1z
+	XoUlB3J9dfXRA416yxggfy9zNuJ+UeujFCHJmdSIIaR9TLEi2ik07XGapDC36wxBIXJbGyML90SK2
+	SPzAB0R7Z2l2Gw3BWPgmV5CAbqDMUD3MnhOAEQdNYX95qA+0bTkBB+GiCkdjFoLxHUggz3agy6Sw0
+	iosQH6uuDuA3XEyheyIEMbz+2w0f/LFqO01EC2T4vuR5SS4oxBnhFx8bsQhu49RJOsSZf0Jw/Pabo
+	H0cKPG3J1JW8KlhXMRMu5HE6qZZTMAveDL3qpUJejvbKUjt7mXKXzICYwRKwH8xuge/MfPAk8kAaE
+	XzuNfQjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50vg-0000000Gi2m-3Ozk;
-	Fri, 11 Sep 2026 13:04:33 +0000
-Received: from out-42.mta0.migadu.com ([2001:41d0:1004:224b::2a] helo=mta0.migadu.com)
+	id 1x50yS-0000000GiHE-2Fth;
+	Fri, 11 Sep 2026 13:07:24 +0000
+Received: from out-221.mta0.migadu.com ([2001:41d0:1004:224b::dd] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50va-0000000Gi1q-1WZ1
+	id 1x50yQ-0000000GiGk-1MmF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:04:31 +0000
+	Fri, 11 Sep 2026 13:07:23 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PmYOkXyCWA/NCJ3Eaz4VkslDAeMkWeUxEDpJ52XTEKI=;
- c=simple/simple; d=cknow-tech.com;
+DKIM-Signature: a=rsa-sha256; bh=8pvJVApeDyZ7aiv6BhbctxA5gKGIAQr+fiE6OB4oxLk=;
+ c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789131862; v=1; x=1789736662;
- b=SeZrlmTPjOuIDx8MQtVUJroc0kBdPHhlX36ebOT/Pr2/wyxh5tP9osmuOzKkZiL+WbBVXdBW
- 8Cc2YqItUGdmsUTl13eFk7wNqveN76dC3A76qYRPKM4GXx3VnbmWuD1Eg7Rucv0TIVWhuMdz8Tm
- DOrW0gQIG9JuLcJ0Tp2JSYXIdZ4JmV3W+TOdIrxYWBhFziSxXorfVXkACkDvTEI8iQE0xlHub/l
- F5jwMgZhBg6o5EuOwRBny5rHypS395QB3jlU5qWS5TUy21Y/v1QaHQ0pb3yN2KmwTplbC5uyAMv
- V5cbtusEd30A+cvSQU/v8PMmftp8a4Zsvlg64Xfgr7xzA==
+ t=1789132039; v=1; x=1789736839;
+ b=s5Ew8JLFNWqNsHkNoN+ttR2dZaCNFweBiYfXVEFrBxOlT0knocVNDyj25iuuV+iJ25xNeTS5
+ gYjcKJGtPJ8RmCp92ddDZPZpcAqfK1rrk9gezktYuzQg1c2tRwoFxQ6RjvYYwpJzqDmSZzIm1l+
+ 67VTonrIciON977gHhX9IOqE=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c06cdbb5f92d0953;
-	Fri, 11 Sep 2026 13:04:22 +0000
-X-Mizu-Trace-ID: c06cdbb5f92d0953
+Received: by smtp.migadu.com with ESMTPS id 5392d6de4bacd9f9;
+	Fri, 11 Sep 2026 13:07:19 +0000
+X-Mizu-Trace-ID: 5392d6de4bacd9f9
 X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 11 Sep 2026 15:04:21 +0200
-Message-Id: <DLCIBAHNWQ3M.KN3L9LK8HRU6@cknow-tech.com>
-Cc: "Sebastian Reichel" <sebastian.reichel@collabora.com>,
- <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>
-Subject: Re: [PATCH v5 2/7] arm64: dts: rockchip: describe PCIe RTL8125
- Ethernet on NanoPC-T6
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Ricardo Pardini" <ricardo@pardini.net>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Heiner Kallweit" <hkallweit1@gmail.com>,
- <nic_swsd@realtek.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-X-Mailer: aerc 0.22.0-9-ge948bb7230f4
-References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net> <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-2-c1b9e5f10cd6@pardini.net> <DLCE8BRWYCBL.2UH33L4RQMAGN@cknow-tech.com> <bd032333-c557-4595-ae0c-6cb2971a9a86@pardini.net>
-In-Reply-To: <bd032333-c557-4595-ae0c-6cb2971a9a86@pardini.net>
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so4826e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 06:07:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxa/eaqebeYCaphTld8284mlK142XAcqSGajueXucU4cKwTLBrUHiSaBuv13xqe5b18XnL6XbvGiN0gztehLhG3@lists.infradead.org
+X-Gm-Message-State: AFuF++npuoTWMlnFpSG5qs2kV9bIcAxG5o1KYOkSx/2p0M4KaHWTcrpr
+	1gHscqZtZpBHSGtREiLDh2aSyiinYkAu5kAht6VOcg17K+t9aN/3V4JqEC0R3fj3+bN0rCog6qE
+	vbEHbYolmXBuTsKWwjAt/4zrJzKgNrcwj8zRjSA/S
+X-Received: by 2002:a05:6512:2352:b0:5a4:ec:53d9 with SMTP id
+ 2adb3069b0e04-5b8a0e9870dmr120141e87.1.1789132033997; Fri, 11 Sep 2026
+ 06:07:13 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260807164322.2970811-2-sebastianene@google.com> <20260807164322.2970811-6-sebastianene@google.com>
+In-Reply-To: <20260807164322.2970811-6-sebastianene@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 11 Sep 2026 14:06:37 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxjF3bFyGPdZTjG2eaSGDn8qgkMn6mnpvR4DpNdmTo2hA@mail.gmail.com>
+X-Gm-Features: AcwNN1VrR2kYv2q8ZGCNc3rU7zWSpDHiv9N7fjGK0s-HcxCvjzx3fnURhDkVi2o
+Message-ID: <CA+EHjTxjF3bFyGPdZTjG2eaSGDn8qgkMn6mnpvR4DpNdmTo2hA@mail.gmail.com>
+Subject: Re: [PATCH v2 04/13] KVM: Parse the device tree and register the ITS
+ region with pKVM
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, 
+	maz@kernel.org, oupton@kernel.org, rananta@google.com, 
+	Sascha.Bischoff@arm.com, suzuki.poulose@arm.com, will@kernel.org, 
+	kvmarm@lists.linux.dev, android-kvm@google.com, bgrzesik@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nathan@kernel.org, perlarsen@google.com, seiden@linux.ibm.com, 
+	smostafa@google.com, tglx@kernel.org, vdonnefort@google.com, 
+	vladimir.murzin@arm.com, yuzenghui@huawei.com, zenghui.yu@linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_060429_986521_66E56A76 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20260911_060722_501527_EC896126 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,154 +86,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Sep 11, 2026 at 2:19 PM CEST, Ricardo Pardini wrote:
-> On 11/09/2026 11:52, Diederik de Haas wrote:
->> On Thu Sep 10, 2026 at 10:07 PM CEST, Ricardo Pardini via B4 Relay wrote=
-:
->>> From: Ricardo Pardini <ricardo@pardini.net>
->>>
->>> The FriendlyElec NanoPC-T6 carries two on-board Realtek RTL8125 NICs
->>> behind pcie2x1l0 and pcie2x1l2.
+Hi Seb,
 
-Forgot to mention: thanks for this series :-)
+On Fri, 7 Aug 2026 at 17:43, Sebastian Ene <sebastianene@google.com> wrote:
+...
+> +static int __init register_its_emulated_region(void)
+> +{
+> +       struct device_node *np;
+> +       struct resource res;
+> +       int i = 0;
+> +       int ret;
+> +
+> +       for_each_compatible_node(np, NULL, "arm,gic-v3-its") {
+> +               ret = of_address_to_resource(np, 0, &res);
+> +               if (ret)
+> +                       goto out_fail;
 
->>> Describe the fixed function nodes and attach ethernet0/ethernet1
->>> aliases, so that U-Boot's fdt_fixup_ethernet() can fill in the MAC
->>> from its ethaddr/eth1addr env. The on-NIC EEPROMs on this board are
->>> not pre-programmed with a unique MAC, so this gives a stable MAC
->>> across boots that both U-Boot and the kernel agree on.
->>>
->>> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
->>> ---
->>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 +++++++++++++=
-+++++++++
->>>   1 file changed, 30 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/=
-arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> index cfdb5c13f8606..550358a756618 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> @@ -20,6 +20,8 @@ / {
->>>   	compatible =3D "friendlyarm,nanopc-t6", "rockchip,rk3588";
->>>  =20
->>>   	aliases {
->>> +		ethernet0 =3D &rtl_eth0;
->>> +		ethernet1 =3D &rtl_eth1;
->>>   		mmc0 =3D &sdhci;
->>>   		mmc1 =3D &sdmmc;
->>>   	};
->>> @@ -644,6 +646,20 @@ &pcie2x1l0 {
->>>   	pinctrl-names =3D "default";
->>>   	pinctrl-0 =3D <&pcie2_0_rst>;
->>=20
->> The new pinctrl reference is ``pcie_25glan_perstb_b_pin``, so this patch=
- needs
->> to be rebased.
->
-> Indeed; I sent v5 vs v7.3-rc2 which doesn't have your recent series=20
-> fixing those. I've rebased onto next-20260910 which does, will send in a=
-=20
-> v6 - but it's really just fuzz/context changes.
->
-> I'll wait a bit until Heiner/Krysztof/Heiko chime in ref the binding and=
-=20
-> its wording as that has been contentious in the previous versions. And=20
-> who knows what Sashiko will find this time.
+its_of_probe() also requires of_device_is_available() and
+msi-controller, and its_init() goes to its_acpi_probe() when the
+fwnode isn't an OF node.
 
-Agreed, their feedback is more important.
+So a disabled node has its region taken from the host here, and on
+ACPI nothing matches at all: num_protected_reg stays 0, this returns
+0, and pKVM finalises with the ITS unmediated. The two DT checks are
+plain property queries, so they work this early. What's the intent for
+ACPI?
 
->>>   	status =3D "okay";
->>> +
->>> +	pcie@0,0 {
->>> +		reg =3D <0x200000 0 0 0 0>;
->>> +		#address-cells =3D <3>;
->>> +		#size-cells =3D <2>;
->>> +		ranges;
->>> +		device_type =3D "pci";
->>> +		bus-range =3D <0x21 0x2f>;
->>> +
->>> +		rtl_eth0: ethernet@0,0 {
->>> +			compatible =3D "pci10ec,8125";
->>> +			reg =3D <0x210000 0 0 0 0>;
->>> +		};
->>=20
->> Described on page 23 of the schematic titled '2.5G Ethernet B' and ``U12=
-``
->> (ie RTL8125BG) is connected to LAN2 which has ``ETH2`` as label on the c=
-ase.
->
-> Confirmed.
->
->>=20
->>> +	};
->>>   };
->>>  =20
->>>   &pcie2x1l1 {
->>> @@ -660,6 +676,20 @@ &pcie2x1l2 {
->>>   	pinctrl-names =3D "default";
->>>   	pinctrl-0 =3D <&pcie2_2_rst>;
->>=20
->> The new pinctrl reference is ``pcie_25glan_perstb_pin``.
->
-> Will also be fixed by rebasing onto linux-next.
->
->>=20
->>>   	status =3D "okay";
->>> +
->>> +	pcie@0,0 {
->>> +		reg =3D <0x400000 0 0 0 0>;
->>> +		#address-cells =3D <3>;
->>> +		#size-cells =3D <2>;
->>> +		ranges;
->>> +		device_type =3D "pci";
->>> +		bus-range =3D <0x41 0x4f>;
->>> +
->>> +		rtl_eth1: ethernet@0,0 {
->>> +			compatible =3D "pci10ec,8125";
->>> +			reg =3D <0x410000 0 0 0 0>;
->>> +		};
->>=20
->> Described on page 22 of the schematic titled '2.5G Ethernet A' and ``U10=
-``
->> (ie RTL8125BG) is connected to LAN1 which has ``ETH1`` as label on the c=
-ase.
->>=20
->> So this results in:
->> ETH1 -> rtl_eth1
->> ETH2 -> rtl_eth0
->>=20
->> This sounds like a recipe for confusion and/or potential future mistakes=
-.
->> I think using ``rtl_eth1`` and ``rtl_eth2`` would be less confusing, but
->> I'm fine with another construct which achieves a similar thing.
->
-> Yeah, that will result in aliases `ethernet0 =3D &rtl_eth1;` and=20
-> `ethernet1 =3D &rtl_eth2;`. It could also be `rtl_lan1`/`rtl_lan2`, or as=
-=20
-> the schematics seems to to use the `_b` suffix, just `rtl_lan` and=20
-> `rtl_lan_b`, I don't mind. Raise if you do, otherwise I'll send v6 as=20
-> you suggested.
+> +
+> +               if (i >= PKVM_PROTECTED_REGS_NUM) {
+> +                       kvm_err("Out of protected region slots\n");
+> +                       ret = -ENOSPC;
+> +                       goto out_fail;
+> +               }
 
-I'm not a fan of the `_b` suffix (also not in the schematic; without an
-`_a` suffix). Do the aliases have to be 0-based? If not, then `ethernet1`
-and `ethernet2` would be my preferred solution. If it needs to be 0-based
-then the off-by-one 'confusion' seems like the best solution.
+Tested after of_address_to_resource(), so a bad resource on the ninth
+node comes back as that error rather than -ENOSPC. Could the bound
+come first?
 
-> Userspace will be off-by-one vs the printed case labels, thus _some_=20
-> confusion will remain, but it's already better than the current=20
-> enP2p33s0/enP4p65s0.
+> +               /*
+> +                * Note: don't unmap the entire animal from the host because devices need
+> +                * to be able to access GITS_TRANSLATER to raise MSIs. If the
+> +                * page where GITS_TRANSLATER is given to HYP, devices won't be
+> +                * able to map it in their IOMMU when the IOMMU is managed by
+> +                * pKVM.
+> +                */
+> +               kvm_nvhe_sym(pkvm_protected_regs)[i].pfn = PHYS_PFN(res.start);
+> +               kvm_nvhe_sym(pkvm_protected_regs)[i].cb =
+> +                       lm_alias(&kvm_nvhe_sym(its_emulate_forward_req));
+> +               kvm_nvhe_sym(pkvm_protected_regs)[i].nr_pages =
+> +                       PFN_DOWN(min_t(u64, resource_size(&res), PAGE_ALIGN_DOWN(GITS_TRANSLATER)));
 
-Indeed :-)
-I triple checked whether my findings were correct before responding.
+I don't think the ITS likes to be called an animal :P, and the next
+sentence is missing a word after "If the page where GITS_TRANSLATER
+is".
 
-Thanks to your series, I had a look at NanoPi R5S and found a few issues.
-There it's even worse:
-PCB/schematic: LAN1=3DGbE and 'WAN' on the case; LAN2=3D2.5GbE and LAN1 on =
-the
-case; LAN3=3D2.5GbE and LAN2 on the case.=20
-And those result in `end0`, `enp1s0` and `enP1p17s0` respectively :-P
+nr_pages is 0 for a resource smaller than a page. Could that be rejected?
+
+> +
+> +               i++;
+> +       }
+> +
+> +       kvm_nvhe_sym(num_protected_reg) = i;
+> +       return 0;
+> +out_fail:
+
+num_protected_reg is set on the success path only, so out_fail leaves
+it disagreeing with the entries already written. Inert today, but
+could the failure path zero it?
 
 Cheers,
-  Diederik
+/fuad
+
+> +       of_node_put(np);
+> +       return ret;
+> +}
+> +
+>  void __init kvm_hyp_reserve(void)
+>  {
+>         u64 hyp_mem_pages = 0;
+> @@ -57,6 +103,12 @@ void __init kvm_hyp_reserve(void)
+>                 return;
+>         }
+>
+> +       ret = register_its_emulated_region();
+> +       if (ret) {
+> +               kvm_err("Failed to register ITS region %d\n", ret);
+> +               return;
+> +       }
+> +
+>         hyp_mem_pages += hyp_s1_pgtable_pages();
+>         hyp_mem_pages += host_s2_pgtable_pages();
+>         hyp_mem_pages += hyp_vm_table_pages();
+> --
+> 2.55.0.654.g21b8a5bc05-goog
+>
 
