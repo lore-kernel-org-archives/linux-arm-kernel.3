@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A10C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9B8C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76W/T3cm12M72x4+3eNdXCRYKQDmGkS57clCXK/ieLc=; b=3XIsv/oj7PAVdjQvj1WpLm6CdX
-	XMSDfIeaBsVg2aIj85Dr9dUrPyZdFpmLp3WXCF860XUUWfzxAQzKeH8QoUfBg5uiG1CHe6JE32IJP
-	P8UrHce/sLv2YEhKQqjmDzXT43GmmpeIpLWcymGTf8Lv+BG3SFboh4E5H6FpFNM+pFpTE+AKnVF/M
-	an1QS/ZKfU2u2kFEYoJQIPy8hLOH5AyU8Ta9TlnX2kNVhpgsPAZC/39sbOwIMYOpJKPPq6iOj0tgE
-	OkyHDdqHZQ5S/lE5RrcpfUQ2UBrBkxD6NcMLyVxX76jRVyoTKUHHjVE5Asq+fpCVUoUKiS0AkA6BI
-	IboimgNw==;
+	bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=; b=wjY/dU1hs835XtvOAx4R5UKVO1
+	SZrmBSBons+nectZBbwp1Z9a5S9IgwT2cAaKR9accaFVTBKmsqKu+nryXK8bHVhmCSMwF3xZyR55e
+	cxiR1hEnSiTWB6PChydfAo1jyvxxmaSl0DDNyCtLIsnFXuhuIJH0i7nz7Zw4auZ4GlAeqVnqeCS0c
+	LJ5sGdFp2RzJqfpUjdN46mZoGyc47L2EAAA1oVFwYC6X6UobjP9QXCwzJ7QX91m8oG22GMIUo9992
+	krC58DpSxk8IMGRIBxt7aDnnqW71bpiGWaBQ9UqOw9RIMQ1lraLIn8gnDo9+sbQRPY/sxSdOHvePp
+	0NOnyuKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53UY-0000000H8E4-1zwH;
-	Fri, 11 Sep 2026 15:48:42 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1x53OY-0000000H6L3-2hDk;
+	Fri, 11 Sep 2026 15:42:30 +0000
+Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53UU-0000000H8Ca-1U0j
+	id 1x53O9-0000000H60s-311G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:48:41 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 69D9EEC040D;
-	Fri, 11 Sep 2026 11:48:33 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Fri, 11 Sep 2026 11:48:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789141712;
-	 x=1789228112; bh=76W/T3cm12M72x4+3eNdXCRYKQDmGkS57clCXK/ieLc=; b=
-	VMzcAXDT9CmBgrfBGifhN6+CXzsT4Df+y18RkLKk478yGxDy/2Kc+d9HZm6rHF6Z
-	sGhiLFD8XA2q8n8VfAG4bz86TDSk0HIVliPGsmlQdaqWKOon/4u2aixOuGHFj0rh
-	mOchaTjYfKWXxFtqBgZb2PRHA/8fl/nRHyz2AW8ieNr2p4TSutt79Zm5RqyjB8Jt
-	pjobLhzMYaH+yJw/eyRmE+hpJPjjDjuX+RO5kW520cJt+U2y1e1VQwhswyhF7FiW
-	ngN/zqt35iIQZfRIdnpMwoQkYkrC2O0TqTQzyMr934bNh7MP4mcDxTEJQSK7boj0
-	ER1lrnhBvMzu5wk7wxe+cQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789141712; x=
-	1789228112; bh=76W/T3cm12M72x4+3eNdXCRYKQDmGkS57clCXK/ieLc=; b=H
-	RzxEQsDthogzduY1fHIgb4Wg/ZNJQEn/dc6Pttymrh+mPh6UQUm2vS46y5FfOihF
-	p7xcrJ1JS0AA9f4TlevCxLFWSqNKnEEQMCu/3kO8mz5k+fwYFIcPkboKpSdK74SF
-	R/PmjPqJVDbrBMW/rkU7LBUPDsPozfHvZahIIL3Qfo0Q6C9yr6lq/TxrQuYKso5N
-	3JvzwHC1mByTXtUCG+r6JC2Sz06nLJSDi5m4397V2A1uuWPmU3Ol5RvPzSBOAjVH
-	t3ZyEoTvCqh2gz0r2Gz1uKywGb+cI3NQVTqOoaGMCIhmoI8REgmzLtRuHjPz/2HX
-	MZq6UDZ2tVXG2xoT+Xbbg==
-X-ME-Sender: <xms:zSKkalbDEypcrtgJ9puzjj8UO9Fu3SX7aXySWmtLnd7X-5yYrlNEsw>
-    <xme:zSKkanNDwC7lABVvvcSl7HcODqci-_EnNRf3MboG0PmOq-21jPE-Tzz7iTUuc3OVK
-    -vBXPU577XFT9Q_KNrqvnDEfQLXFm6ZUdlks5RI-3bIXjZIpExW6Zq3eQ>
-X-ME-Proxy-Cause: dmFkZTFNUhvwxGXllS8qM4l9WodmQ60N5h4Kockcar850J98qt2UmqCZ4cj1e+ETKkVpxl
-    JRG0Uhn3brp8olA3lrsdvO8WRwVUIAtpIPqlYwv+5c/V4fHlqOO7rtZE4qXvZkQUBVU4l0
-    Mj9Wgo/JiQUDBycQJXUe6JbgDaWk0mxiWpVxTJpx51PGqJVK3EMyOFl55XKJtJxCLkjpt3
-    Utyyd1AaiVQcaCqgPnqJ0SdC1Py+u/jKnf4yfcm+N7ukKt/YXoinSvp9q+7WEWMjcgXITT
-    dVZETxdqiM8H9mKDS8yRfvCMg/OhkRXF56Awht5whZmFVd979XoBymQ+MZVtHBQev3hBWW
-    vIJ0Ju2lf4A7QHTmj1QfUNVC7ElmFBQrE8nboF+Yldksfzq8ItmaS3LxwN04Cd4nAHGMJt
-    Y+qI+6iDgZe289k/wb52NTYWPjvy5a06Gbz+mv/eLNNFv0FrQQgc6zbEUoRKWLERQITGCQ
-    o23oNGJMB0VRMZMof3q7iaOe/LBWpM9FZ0fT5lcIljOsP5G+md1iEx0xRBFSHx38vA14Y5
-    S7liOqW0eRmZ9B+8wO0zhO8zK7aJREQ7467TnzPzr0ldAMCjUL3GbiMOQIKhchJ0vYxAF3
-    BvnScxC/DX1fiDZCkPT/qJKRthedbWJ1tFdx/BX2MePv5NCf7YqSw3LnVyjQ
-X-ME-Proxy: <xmx:zyKkav8GNompK4RaWiFRRf4TXTrNWeR2225YurULlRqSJmuo1SBlXQ>
-    <xmx:zyKkat8YLIrsk6Ko5oA9N-qE5VYqS5cVHkVuAoRb8CXWVr33ZiLSww>
-    <xmx:zyKkavTM9q1JeP0DjU4dRmtA_VWo_llpAgxRFMRpWRHHEZ8-1iu7FQ>
-    <xmx:zyKkahfq1-XdNZs-eVWzBT-ok_5pjaB43464pAkEixL76JcchNn0MA>
-    <xmx:0CKkaoehfv5ni_KL1fKbVTDHRWbo_pT4UG_a9VRN6A-AI2obOEGOXvEV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id BDCC232A007E; Fri, 11 Sep 2026 11:48:29 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 11 Sep 2026 15:42:06 +0000
+Received: by mail-oo2-x0f.google.com with SMTP id 006d021491bc7-6b1ae6c9b72so252009eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141325; x=1789746125; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=;
+        b=AfEvzrXj3QH1aP6VKSyctK6EEXEO1Pi98+ukkxYNdRJCbrspnphkDpywvrKI62Yvrd
+         cP2C7a+nwqH0xbF0lwHijToTIyFLhR1kIlzj7bgcpnLtL6yH3jiOL/TXP3hosZ86U2Wy
+         s7S6XRnKLO/MyO3wkN2avs03FQSCLwJz4tPl7AvPDUTgbfcNHPNFAtMr1ZBrNlD3MCbg
+         Fo4RcXSmrpN4ZZb67oPShodr/ym05YxQJpggKo27d/6yPIrjOk8IJuOBLFT81AXTwW9U
+         gpacz7Iobi/3SYYiK5pV36GnEAQvu9ftkjcsHc/SbOHMEYUZbwGGNSFg3NODzowgSp7i
+         74OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789141325; x=1789746125;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=;
+        b=jb0R1Fy7gqcmaiUAtzakPpXvdi43/1QRDFn0NbWLbwRAqITAUb5MIl1t9+liIMS8Pi
+         9hDL3RTlWFwBePkQaVBW+bGdY0xtJTbmcwBPLa4rgRHgqEOWOZVZ1Tg/xd+8+6QCw9ae
+         EEdcbMwD6UAmreqSl8HFBscLEjJJgh4dqvNGdQ1uSgkW10ma6DvQlep+yDi5M6IquCrm
+         acgMMeSdisCFqM9GmaQoYt8PN083U2Fk5MILI5SB06GYnvukGC5feo2CgqhPgnucMdhm
+         HDa5Ad7RUDbQxH+bTfgVXjG/IrrFvkn/UTF+K1sOVa6tnEDq+E64OGWkU+DeJE/EpATx
+         2gYw==
+X-Gm-Message-State: AFuF++kvyd/Dw0uXkmlBuzDy9U3xaHF9TlBptsgXDd2i5xf00lDyfkri
+	f3pjL3/wlKSdiE1gB4vJmfG3QTAnkvarw8jYoiszTLgIWxw6sZsze9cHuFJRF5fogEqvrQ+7pLi
+	ilzu0NxU=
+X-Gm-Gg: AYBFou1bruNc4YgqR/m/DIqy+Qx1naTwBbRROJjcfsnlZ4+YpooF9MpQoU+RljSCwV4
+	GgU30kLRR6GLoS4dQKsik9JqyrC5En9otsPVNIg0Fv7iVnAXT9vjibwBY5YGbXWv4yTyV5KUtJS
+	OYsOi6iomuekkw9RkSJrCvJNPxBO8gl1vkcia//Z2OJYO4Bz7ZtJyxPdilt980kgiNqK7R3Kyli
+	mOta7iLu+tzoySAmnsvKJWUpVwFrYGVCKrolG8pDuQGaMH6yivX/xYx3mPYKIEGOVxswVPZgIPt
+	oSwNhqP6erNeZuEsfIRBvumpNbSCKV4M0C0OGHVgIhOR+S9eC/YVGCrnT+NchYnZhl6eDtwJBAn
+	4xTpo02QX5xtYEC3FEn08dato/Og1/jmrRhvRZvO/pbfOvK8ZhPtGVf30XAwAjmZXAbSpFRvLX1
+	erZkTMJ/Ek0hkVrB4NsLWFKzD+coMTlbtNcn8R6a4KuFBcyg9z4TxtgA6Pq4GM+wsiApu8xwhHK
+	/kOh/BHHZR/QaQtK1ufMvXBv71EM6BUxfqPpkLNmjQ=
+X-Received: by 2002:a05:6820:190a:b0:6b5:ec3f:4985 with SMTP id 006d021491bc7-6c0a99f860cmr2369093eaf.32.1789141324900;
+        Fri, 11 Sep 2026 08:42:04 -0700 (PDT)
+Received: from m2max ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 08:42:04 -0700 (PDT)
+From: Jens Axboe <axboe@kernel.dk>
+To: io-uring@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	Jens Axboe <axboe@kernel.dk>
+Subject: [PATCH 07/15] io_uring: add uring_lock section depth tracking and blockable opdef flag
+Date: Fri, 11 Sep 2026 09:40:57 -0600
+Message-ID: <20260911154148.644489-8-axboe@kernel.dk>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
+References: <20260911154148.644489-1-axboe@kernel.dk>
 MIME-Version: 1.0
-X-ThreadId: Aj3OoT1esCJR
-Date: Fri, 11 Sep 2026 17:48:09 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Dan Carpenter" <error27@gmail.com>, oe-kbuild@lists.linux.dev
-Cc: "kernel test robot" <lkp@intel.com>, oe-kbuild-all@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, arm <arm@kernel.org>
-Message-Id: <2e3cd096-f39f-4545-8558-a6ce9cae8b04@app.fastmail.com>
-In-Reply-To: <202609111050.oiut4oST-lkp@intel.com>
-References: <202609111050.oiut4oST-lkp@intel.com>
-Subject: Re: [soc:board-remove-7.3 182/295] drivers/hwmon/ads7828.c:121 ads7828_probe()
- warn: if statement not indented
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084838_837470_A606D8D2 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260911_084205_784390_89F436D9 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,25 +103,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026, at 14:23, Dan Carpenter wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git 
-> board-remove-7.3
-> head:   cf983087c51a9c74c3d4d3b353eb811ae5030823
-> commit: 4df92b98525f08e1eab92a25f5da2045c78403e8 [182/295] hwmon: 
-> asd7828: remove pdata based probing
-> config: arm-randconfig-r071-20260911 
-> (https://download.01.org/0day-ci/archive/20260911/202609111050.oiut4oST-lkp@intel.com/config)
-> compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 
-> 6009708b4367171ccdbf4b5905cb6a803753fe18)
-> smatch: v0.5.0-9187-g5189e3fb
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Reported-by: Dan Carpenter <error27@gmail.com>
-> | Closes: https://lore.kernel.org/r/202609111050.oiut4oST-lkp@intel.com/
+Prep patch for issuing requests inline in blocking mode and catching the
+sleep when it happens, rather than punting to io-wq upfront because an
+operation may block.
 
-Fixed now, thanks for the report!
+If a request blocks inline, uring_lock must be dropped on behalf of the
+sleeping task, which is only safe outside the sections that rely on the
+lock being held. Track those with a depth counter in
+io_ring_submit_lock() and io_ring_submit_unlock().
 
-     Arnd
+Add a "blockable" flag to io_issue_def for opcodes whose issue path can
+cope with blocking inline: read/write, the forced async fs ops, open,
+close and splice/tee. uring_cmd is excluded for now, drivers may bind
+state to the submitting task.
+
+No functional changes in this patch.
+
+Signed-off-by: Jens Axboe <axboe@kernel.dk>
+---
+ include/linux/io_uring_types.h |  5 +++++
+ io_uring/io_uring.h            |  3 +++
+ io_uring/opdef.c               | 29 +++++++++++++++++++++++++++++
+ io_uring/opdef.h               |  2 ++
+ 4 files changed, 39 insertions(+)
+
+diff --git a/include/linux/io_uring_types.h b/include/linux/io_uring_types.h
+index 4af3d579ead6..50a4a0ad222f 100644
+--- a/include/linux/io_uring_types.h
++++ b/include/linux/io_uring_types.h
+@@ -352,6 +352,11 @@ struct io_ring_ctx {
+ 	/* submission data */
+ 	struct {
+ 		struct mutex		uring_lock;
++		/*
++		 * io_ring_submit_lock() nesting depth, non-zero means the
++		 * issue path relies on the lock being held.
++		 */
++		unsigned int		submit_lock_depth;
+ 
+ 		/*
+ 		 * Ring buffer of indices into array of io_uring_sqe, which is
+diff --git a/io_uring/io_uring.h b/io_uring/io_uring.h
+index 896aab1ed026..870bb4dcc415 100644
+--- a/io_uring/io_uring.h
++++ b/io_uring/io_uring.h
+@@ -393,6 +393,8 @@ static inline void io_ring_submit_unlock(struct io_ring_ctx *ctx,
+ 					 unsigned issue_flags)
+ {
+ 	lockdep_assert_held(&ctx->uring_lock);
++	lockdep_assert(ctx->submit_lock_depth > 0);
++	ctx->submit_lock_depth--;
+ 	if (unlikely(issue_flags & IO_URING_F_UNLOCKED))
+ 		mutex_unlock(&ctx->uring_lock);
+ }
+@@ -409,6 +411,7 @@ static inline void io_ring_submit_lock(struct io_ring_ctx *ctx,
+ 	if (unlikely(issue_flags & IO_URING_F_UNLOCKED))
+ 		mutex_lock(&ctx->uring_lock);
+ 	lockdep_assert_held(&ctx->uring_lock);
++	ctx->submit_lock_depth++;
+ }
+ 
+ static inline void io_commit_cqring(struct io_ring_ctx *ctx)
+diff --git a/io_uring/opdef.c b/io_uring/opdef.c
+index cf3aa2242cd7..fa07a2b94536 100644
+--- a/io_uring/opdef.c
++++ b/io_uring/opdef.c
+@@ -69,6 +69,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.iopoll			= 1,
+ 		.vectored		= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_readv,
+ 		.issue			= io_read,
+ 	},
+@@ -83,12 +84,14 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.iopoll			= 1,
+ 		.vectored		= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_writev,
+ 		.issue			= io_write,
+ 	},
+ 	[IORING_OP_FSYNC] = {
+ 		.needs_file		= 1,
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_fsync_prep,
+ 		.issue			= io_fsync,
+ 	},
+@@ -101,6 +104,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.ioprio			= 1,
+ 		.iopoll			= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_read_fixed,
+ 		.issue			= io_read_fixed,
+ 	},
+@@ -114,6 +118,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.ioprio			= 1,
+ 		.iopoll			= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_write_fixed,
+ 		.issue			= io_write_fixed,
+ 	},
+@@ -132,6 +137,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 	[IORING_OP_SYNC_FILE_RANGE] = {
+ 		.needs_file		= 1,
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_sfr_prep,
+ 		.issue			= io_sync_file_range,
+ 	},
+@@ -215,16 +221,19 @@ const struct io_issue_def io_issue_defs[] = {
+ 	[IORING_OP_FALLOCATE] = {
+ 		.needs_file		= 1,
+ 		.hash_reg_file          = 1,
++		.blockable		= 1,
+ 		.prep			= io_fallocate_prep,
+ 		.issue			= io_fallocate,
+ 	},
+ 	[IORING_OP_OPENAT] = {
+ 		.filter_pdu_size	= sizeof_field(struct io_uring_bpf_ctx, open),
++		.blockable		= 1,
+ 		.prep			= io_openat_prep,
+ 		.issue			= io_openat,
+ 		.filter_populate	= io_openat_bpf_populate,
+ 	},
+ 	[IORING_OP_CLOSE] = {
++		.blockable		= 1,
+ 		.prep			= io_close_prep,
+ 		.issue			= io_close,
+ 	},
+@@ -236,6 +245,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 	},
+ 	[IORING_OP_STATX] = {
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_statx_prep,
+ 		.issue			= io_statx,
+ 	},
+@@ -249,6 +259,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.ioprio			= 1,
+ 		.iopoll			= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_read,
+ 		.issue			= io_read,
+ 	},
+@@ -262,17 +273,20 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.ioprio			= 1,
+ 		.iopoll			= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_write,
+ 		.issue			= io_write,
+ 	},
+ 	[IORING_OP_FADVISE] = {
+ 		.needs_file		= 1,
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_fadvise_prep,
+ 		.issue			= io_fadvise,
+ 	},
+ 	[IORING_OP_MADVISE] = {
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_madvise_prep,
+ 		.issue			= io_madvise,
+ 	},
+@@ -308,6 +322,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 	},
+ 	[IORING_OP_OPENAT2] = {
+ 		.filter_pdu_size	= sizeof_field(struct io_uring_bpf_ctx, open),
++		.blockable		= 1,
+ 		.prep			= io_openat2_prep,
+ 		.issue			= io_openat2,
+ 		.filter_populate	= io_openat_bpf_populate,
+@@ -327,6 +342,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.hash_reg_file		= 1,
+ 		.unbound_nonreg_file	= 1,
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_splice_prep,
+ 		.issue			= io_splice,
+ 	},
+@@ -347,6 +363,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.hash_reg_file		= 1,
+ 		.unbound_nonreg_file	= 1,
+ 		.audit_skip		= 1,
++		.blockable		= 1,
+ 		.prep			= io_tee_prep,
+ 		.issue			= io_tee,
+ 	},
+@@ -360,22 +377,27 @@ const struct io_issue_def io_issue_defs[] = {
+ #endif
+ 	},
+ 	[IORING_OP_RENAMEAT] = {
++		.blockable		= 1,
+ 		.prep			= io_renameat_prep,
+ 		.issue			= io_renameat,
+ 	},
+ 	[IORING_OP_UNLINKAT] = {
++		.blockable		= 1,
+ 		.prep			= io_unlinkat_prep,
+ 		.issue			= io_unlinkat,
+ 	},
+ 	[IORING_OP_MKDIRAT] = {
++		.blockable		= 1,
+ 		.prep			= io_mkdirat_prep,
+ 		.issue			= io_mkdirat,
+ 	},
+ 	[IORING_OP_SYMLINKAT] = {
++		.blockable		= 1,
+ 		.prep			= io_symlinkat_prep,
+ 		.issue			= io_symlinkat,
+ 	},
+ 	[IORING_OP_LINKAT] = {
++		.blockable		= 1,
+ 		.prep			= io_linkat_prep,
+ 		.issue			= io_linkat,
+ 	},
+@@ -387,19 +409,23 @@ const struct io_issue_def io_issue_defs[] = {
+ 	},
+ 	[IORING_OP_FSETXATTR] = {
+ 		.needs_file = 1,
++		.blockable		= 1,
+ 		.prep			= io_fsetxattr_prep,
+ 		.issue			= io_fsetxattr,
+ 	},
+ 	[IORING_OP_SETXATTR] = {
++		.blockable		= 1,
+ 		.prep			= io_setxattr_prep,
+ 		.issue			= io_setxattr,
+ 	},
+ 	[IORING_OP_FGETXATTR] = {
+ 		.needs_file = 1,
++		.blockable		= 1,
+ 		.prep			= io_fgetxattr_prep,
+ 		.issue			= io_fgetxattr,
+ 	},
+ 	[IORING_OP_GETXATTR] = {
++		.blockable		= 1,
+ 		.prep			= io_getxattr_prep,
+ 		.issue			= io_getxattr,
+ 	},
+@@ -497,6 +523,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 	[IORING_OP_FTRUNCATE] = {
+ 		.needs_file		= 1,
+ 		.hash_reg_file		= 1,
++		.blockable		= 1,
+ 		.prep			= io_ftruncate_prep,
+ 		.issue			= io_ftruncate,
+ 	},
+@@ -553,6 +580,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.iopoll			= 1,
+ 		.vectored		= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_readv_fixed,
+ 		.issue			= io_read,
+ 	},
+@@ -567,6 +595,7 @@ const struct io_issue_def io_issue_defs[] = {
+ 		.iopoll			= 1,
+ 		.vectored		= 1,
+ 		.async_size		= sizeof(struct io_async_rw),
++		.blockable		= 1,
+ 		.prep			= io_prep_writev_fixed,
+ 		.issue			= io_write,
+ 	},
+diff --git a/io_uring/opdef.h b/io_uring/opdef.h
+index 667f981e63b0..45c2f77cf782 100644
+--- a/io_uring/opdef.h
++++ b/io_uring/opdef.h
+@@ -29,6 +29,8 @@ struct io_issue_def {
+ 	unsigned		vectored : 1;
+ 	/* set to 1 if this opcode uses 128b sqes in a mixed sq */
+ 	unsigned		is_128 : 1;
++	/* issue path is safe to run inline in blocking mode */
++	unsigned		blockable : 1;
+ 
+ 	/* size of async data needed, if any */
+ 	unsigned short		async_size;
+-- 
+2.55.0
+
 
