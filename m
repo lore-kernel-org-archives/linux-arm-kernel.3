@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F243EC88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9530C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DUt8078LI6wD6+nVcD9TLG86kUVkI5Y3pqRlvqsMaBg=; b=34QJxz0yznOU5g4XNQfwMHxhW+
-	d2MfwhqPKNMzP8WyckDGZ8UlKRiCO2G1K5VXuZ4NxS6PpmyQ62HNXNINEesCpth/+24BrD54vg52u
-	akKrufbkj9CkHmNQvmwm3B/+1cDFtY0xSasAs0SCUHfIqqug5sISFVsz01M6/s5f73pUA260rLK26
-	2Yizv636+u/QPSNc1jL+WBhEG+K4sUVyDxir0n7WaHp9+nZRzQAfvvCOsdWco2JoqiOd8gJBM/AbB
-	SWmJuBcqG7fPaNL+VC5mpVyEbniOziPTcawVHqhXv/DZs3c+SqF/NwbcgXAHvLGbeVXPvSuaoPqPD
-	tI+O82Ng==;
+	bh=HARc2n7GY/N2x7f6bMrbNdeynxw6URCRU7fKnVfDbzM=; b=VM2+QkFb4uJid2BKSi1Qq3uy1P
+	prq4soevGmEK5v/Dre5WP7n2YgXKIlh3zdtA44Nfl9CaxUHcQqTk15Y2jIiqeEQ/5klfSGwjUuIrR
+	o4zwnWAzfUUWYjiTOSPcYEggrYc2hRUNXuvuppbj9+rqK6iJK3eG3pju3UfNtFfmMxX7dm9qL51g6
+	13Q/AJiTJpbmc42Fn9GvBqOXC1XuoMsW5ZSLYwwCFbSH+hCCyjUP4PISjJKztlhhbcMtiDo8wXZc1
+	VR15mQQaRDnPAnY4Wih3Jou1HINOwzkMqdODfPcBubFh2f0Ndghn1aKcnobVKkpZMGQoVB4SJR70G
+	bS+LybfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YI-0000000GmJZ-2LTp;
-	Fri, 11 Sep 2026 13:44:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x51YW-0000000GmQj-3fO3;
+	Fri, 11 Sep 2026 13:44:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YE-0000000GmHz-0Qxp
+	id 1x51YM-0000000GmLj-2qMq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:44:22 +0000
+	Fri, 11 Sep 2026 13:44:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5F1A960A57;
-	Fri, 11 Sep 2026 13:44:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B906C1F00893;
-	Fri, 11 Sep 2026 13:44:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70E844012D;
+	Fri, 11 Sep 2026 13:44:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C401F00898;
+	Fri, 11 Sep 2026 13:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789134261;
-	bh=DUt8078LI6wD6+nVcD9TLG86kUVkI5Y3pqRlvqsMaBg=;
+	s=k20260515; t=1789134270;
+	bh=HARc2n7GY/N2x7f6bMrbNdeynxw6URCRU7fKnVfDbzM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Y/mld16cYoo+0J6NDNRTftpl6Gk8wsiMTHZCq9sX/Wro8BTbtvwnpyoAqImOym339
-	 XZ2EZyXUe8hsvRo9/KslBSt4/HzE7m1msSVyzqTQbsy6AZqmZvAi24DLwL07/0cxFF
-	 ysETPu3eVIiUu1ewQfHs8Cpr0SBdB1P214gM0mB4eCnIKpT2bGUxxwHX8gofmkLWZ7
-	 nR7trRpe9ky+o4C6iL7XMorvgryGT8du3pc/a/1ZLFZJdyMqeCFfCezFA41DSy+LkW
-	 g/6P07x2PhOWY7PsVdeZLYNT9KEFCqLylh8KQB48mrZceJAu5FoRQSFk4hqLyvAkuI
-	 wQ9PRwAaWdzew==
+	b=bzP+UXvxG2EhT8V8HiCrLslfuzjCQ96o7LbZhH50LxPHnZM0mX9WM89UFWzci3Gtr
+	 cDgE4isxrzSMIQTaiR+/hYgAi6u9unyvYgGSg8Z+z976pJmATUH59IfUIc5sc2J1aG
+	 E+lAM+HZotrtgmhUpL/AzX3gRYN+zS8KC8WGclbCe7c13SUflENJgEH5xpXGu6AdOj
+	 rtq1yaBEPE0Y20E+GKBW8hVnkQ/PXQClUL9twZ21MmKhy8ONtqqWA9VB9n1CRdmdRo
+	 RuPNPQBhCgfDPmsVDSUXYUSMLZlgoFRiaReDciVay/GejvV56HiAzMW9XYz2o2YA3y
+	 S9pMUVpZlEAMg==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Huth <thuth@redhat.com>
 Cc: mark.rutland@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Yury Khrustalev <yury.khrustalev@arm.com>
-Subject: Re: [PATCH] arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
-Date: Fri, 11 Sep 2026 14:44:08 +0100
-Message-ID: <178913101591.2459695.4180294828056716193.b4-ty@kernel.org>
+	Shuah Khan <shuah@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Fix size of thread_data values for pthread_join()
+Date: Fri, 11 Sep 2026 14:44:11 +0100
+Message-ID: <178913088317.2458205.17622266384307064211.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260907113151.363924-1-catalin.marinas@arm.com>
-References: <20260907113151.363924-1-catalin.marinas@arm.com>
+In-Reply-To: <20260909155707.161121-1-thuth@redhat.com>
+References: <20260909155707.161121-1-thuth@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,23 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Sep 2026 12:30:25 +0100, Catalin Marinas wrote:
-> PTRACE_{PEEK,POKE}MTETAGS return -EIO rather than -EOPNOTSUPP (as
-> documented) when no tags are copied from/to a mapping without PROT_MTE.
-> This has been the behaviour since the interface was introduced, though
-> the original intent was to distinguish between address not being
-> accessible and mapped as untagged.
-> 
-> Update the documentation to match the implementation (de-facto ABI).
-> Since -EOPNOTSUPP was never returned, change the error assignment to
-> -EIO as well to avoid confusion.
+On Wed, 09 Sep 2026 17:57:07 +0200, Thomas Huth wrote:
+> pthread_join() stores the thread's return value (a "void *", i.e.
+> 8 bytes on 64 bit computers) into the address that is passed as second
+> parameter. However, the entries of thread_data are only normal "int"s,
+> i.e. only 4 bytes. The additional 4 bytes of the return value clobber
+> whatever is adjacent on the stack, i.e. other members of the thread_data
+> array (which will be re-written in the next iteration of the for-loop,
+> so that nobody noticed this problem), or another other local variable
+> on the stack for the last iteration. Use "intptr_t" to declare the
+> thread_data array entries with the correct size.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
-      https://git.kernel.org/arm64/c/fdb9ebc7fb77
+[1/1] kselftest/arm64: Fix size of thread_data values for pthread_join()
+      https://git.kernel.org/arm64/c/3d1ba5cbfb62
 
 Cheers,
 -- 
