@@ -4,138 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F052C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 17:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69B6C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 17:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vR0PPC+DdafEEJrPjdMbe2X1KdK10mX0EBZSjGpZALM=; b=TknrQffYOtwUtEUe6j2ftATFJL
-	pvKj7iOK2bt4DSz7Rc5jO6ljUIxaCudPjQiiRCY8VvH62bh+S2aT2wIDkg/BgMj9N5ndse582hbJD
-	bHDS64bqR99x4l5cwH7OTB4bG8P345NlJivjqNz6VVHDTtC3yTikuUtCJsomCpi66wKui2j44YnGs
-	divoSWrbwz3E9VIjLqBLrSJCwnamWtrFmHLegF7BlLCACM/6pTIWg8Pa4XccpixBIpcIqFjmSMaH6
-	N/6exb+nSxiSGjw5zmcEzE7h7vq1AKvejzo2PrNgujO2A81hn2IIUPwi89ipj9Plwnbmjajl3/iTN
-	GPlVU0sQ==;
+	bh=OJP8Kr91re/1TLbUGmF1tDEabRFooEc7DLwpbkUU1SE=; b=ZjmDgcNUg9M3OZcUZwTQpBQ9Um
+	+0DmTkshl1b4sZGBkM9IJJYfmF0Eh590WXxvC/5SSLTZfrgDw1uljQDfENOEHzzAxzdhpV6+Qk3xA
+	6X0V4DN1MwxqjX0n4h+YCZwu8R2kkCqrgLXaavx4SK5FdPCO7TY3L5phfVvS4u7SRL915PkZvMgjz
+	6Fd/S8FrxSY/DszuvdYuNGNUasRwhdmfhFcg5j5AQqM7fnNwPjJPlmp/HpdBD9I+3cdBgsC6lSjbc
+	eY84ONwIqv+kLpb6ZSClCv7YQrrtn8Y48/90UgCntAhyvX95xjYqksqMfkp3uCa+x5GzNbvLRDiTC
+	W4alhP6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54uf-0000000HKAT-2Jaa;
-	Fri, 11 Sep 2026 17:19:45 +0000
-Received: from mail-westus3azon11011071.outbound.protection.outlook.com ([40.107.208.71] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x54y7-0000000HKcJ-0odL;
+	Fri, 11 Sep 2026 17:23:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54ub-0000000HK9Q-3wHJ
+	id 1x54y6-0000000HKbx-0en3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 17:19:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g4miuq/ALJS2aeVw/vfqSDqFb0pNMhJM2uKRjT3pQAfjVWcVf7H+XbzPujMfyd1nmAxRusPUZpQowFqFfvNOaiKJTZlS3vMWJtYFbQxag8msaarUg/K8vYFmIU+fNwtLmxrRiQ1qbXFfepMf0p373wZmW8Ua76r5ATlzwZGoPAOZPe7mE2zxek81wC1jE7KLhLB8I1ZMRWG8O4y9q6rFHHjCWztkSXhkU3KPXkyMmjcWQnstbm/0cFhliRyQFYq9GCgjuYiAUZn5EvgXCMuy/55/gTT2TJugzVTqmRZ3qeMMoV5alAZEhdsKbAW/zlh39o/PrxbmP8hEptAfo+v6WA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vR0PPC+DdafEEJrPjdMbe2X1KdK10mX0EBZSjGpZALM=;
- b=Y53BWVZqdYl8wcUkctaCfqX6c3tCnuMIaoUwSPgt+OX5R7c0LWU4aav6XsG4r/+NqW/mc6+Zxuv6Y+FEPQf+M3N7SCay4KagQ1viJoFtattvvh7a8XC6F4Yg27KdRz8yYYbuCttj8udnATkja+XwOsTySk3/g2Wu+UJrlSuceS+yu1wLQAaSzLYjbo/qONen3YNM5FxHsrgveDpRsVy5WSalDrT4We3JAeDh2bGCkyclozVu2jn1LBIcsB7iwMOnQZkr1cGH1UaMDDt/YCccE+6HLQH7aXjlyP10ejiVbYNyGoaLdDI7x6ObC1uF6uvJZYjfs33Wv4kypgne/8xwJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vR0PPC+DdafEEJrPjdMbe2X1KdK10mX0EBZSjGpZALM=;
- b=tQOOqxqF1dBPgihLTXQRi07u4SJd8A2oxyfoSfvbt56rtlFixZ+DKNzqFlsped0jaJva2QinYGuwNqDtsoD8mHvTxhkOxtv+QpoRjmMNF78IHo6s3NoY5EmFJeVVjsaY8wR2MjkRz02LTE9K7P4QNDF4f0Ayu9V7InXLJMB1qZsM5dsR15lYMJbPjh4tV732hPefj6hquGxyXpmvGvPqH5JzBH9MD/mr18PNqTGRvQZYE3HlNvrmtYnE52Aogn2iTLFhMqz1aXcSurdVBgOMR2xfj1U8ORxLZPkS7Fc8FjvLUNUPp85FhP/x+5BFTMm12OkymuHtDm6RP2Su0C6WcQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by MN0PR12MB6127.namprd12.prod.outlook.com
- (2603:10b6:208:3c5::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 17:19:35 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 17:19:35 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org, 
- Kevin Tian <kevin.tian@intel.com>, David Woodhouse <dwmw2@infradead.org>, 
- Lu Baolu <baolu.lu@linux.intel.com>, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Pranjal Shrivastava <praan@google.com>
-In-Reply-To: <cover.1788127877.git.nicolinc@nvidia.com>
-References: <cover.1788127877.git.nicolinc@nvidia.com>
-Subject: Re: [PATCH v6 0/5] iommufd: Iterate the cache invalidation array
- in the core
-Message-Id: <178914599038.1311365.11397999399990847073.b4-ty@b4>
-Date: Fri, 11 Sep 2026 13:59:50 -0300
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: YT4PR01CA0341.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fc::27) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Fri, 11 Sep 2026 17:23:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C91C60A5A;
+	Fri, 11 Sep 2026 17:23:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6981F00893;
+	Fri, 11 Sep 2026 17:23:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789147396;
+	bh=OJP8Kr91re/1TLbUGmF1tDEabRFooEc7DLwpbkUU1SE=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=HIZ7yScn+Y/fJxVNeSGNMIluX+kW3qXFuO1J42ABZc2Lyzd4l390tPeIoz72ca9zZ
+	 xSMOd5mDJ9gPxF1vih4YdipWkGCmMX83+qhriXF0pGjSdAJ78J+BcCTDRhqZ1ZPHz7
+	 xwlRqpD4V42PB00qiY52yy9/bmaSCE8EkR1DRGP8DZD5cYZMwSC4bSUjzABOA39olo
+	 T9dHHVXgcLFoDm6fTUEmqpgpEgsNQkaDiiIKCvN2KVaVANuEFlOrbv0Zwg94T0wdoV
+	 L/4VpbQZgXxnSfXLkj2JRzRNuZbw+jeSgaG4gqFT/akeeog9pLPeb4xdWJTmUlyv+Q
+	 WWdU9cKD1lpDQ==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 8E68DCE1902; Fri, 11 Sep 2026 10:23:16 -0700 (PDT)
+Date: Fri, 11 Sep 2026 10:23:16 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v2 01/15] rcu-tasks: Add per-task trampoline nesting
+ count
+Message-ID: <90c2dfbe-e796-4125-b178-e854b40f68cd@paulmck-laptop>
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+ <20260911-b4-rcu-tasks-preempt-qs-v2-1-eaaa61ed2da4@toxicpanda.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MN0PR12MB6127:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e199b45-69ea-4c47-de58-08df1028da19
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|56012099006|11063799006|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: DUn51RXlPPBGQiVjcKnYQdfBAv/af6WNigDDd/SrsPSX5tbo3LhQ6Y5Jqtc6+d20d4b3OHECY2oWya0ywCQF3aABokZ4GBbQ+F+Xj5g5ertbxQXRnmS+RkiE38gjpbeM3hfKqGbGKKsqY9rs6hU6h1+6lymhavj6PMrTQ7/ANg+8tNzC4lgjs1dUshu7FHUssxlT6cw/J0duVUmz7Qg6X3kq5R8U1W9drMA9eJM5Ji5Gt2GMNqCzwLw4DnAjfpW1/Sszppu7IE5t/zalgFVJ11hpgz6KFPtSYswRffZaEALp3Xjp8V/9vDp8PUmXMR8Pk9usitA4k04IWyH2W7BQnompS/aKQ4gjlHI9QH16Fr/DLwoCD2Mr/gZ+CDjuzNhi+U3QjtjKtK0su6jsPeCKWmSLo5b5DHTd9CmApQhaM+vdXjJ8wIvQDl65JRJSlO4T9Yo7VZGyP4Gum13/VpxhMUG/VQKd1QJVgY6fIcEKRMTQ/yPs+hTPUpHcQ+O6IlR1FpWMWNrLJrJ8WbnaRNLWLGfQf8/5vtXYLAyy+RUoXq2geF9+fvHMgGWGS3M/zKHoGHY0UmwOHDN/CfERv10OzlGbeo9wsLkCn4LiBUKtNgRS3FOD04ixLgqsxACF/0W+SM0FDMFE0qtJ7St/ZmPeEZZ4Bb68zMX0bYaUaQ4MX98=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDRMZUhSQnRjZEQ2RUE5dmFRUHV2REpBYjRYQ0I2QStReERJRDRxdk81R1ly?=
- =?utf-8?B?SkRCdll0OWZrUjdnT2ZKVDBtM2xkUFRMNjVDVGJ5OVR4MlB6OVR4SzllRG5E?=
- =?utf-8?B?WnNJbk9HWTNsbEhqNHdleGx2WWpmRlRnUkhwOTdwK3FPTXJ1U3ZyV2xXMW9R?=
- =?utf-8?B?a1BEaUdRSmRiMkZ6OFJCQmNNODg0b1gzSWl3Q25Bc0hwb1cyb1M4RWR3a0pT?=
- =?utf-8?B?U2dEOVQ4ZkN0VUdUbG8xb054aXptTWh0bHNUNVJDUytLa291MXJUbDIvNmZ1?=
- =?utf-8?B?RUQ5ZnhreithM0FZS0RVTG1PcmVaV3hmTkllMjlNbFVFMWRzQldJTzdJYVl1?=
- =?utf-8?B?Qzl2WnVEYmEyemhSYVpSYmJJbVB6a1lGamdEWkc2S1ZpTGZkQjNjVlU3OU9C?=
- =?utf-8?B?dm84UExYM2R6UEVTejZJVzQ2Vmg3Rk5XZXdFYis5aXpLQ1pXZkRyUWtIUmNC?=
- =?utf-8?B?Snl0QUY0ZVNycWRrWElRUFNQdzBtQ3BjS3A1SlhqOWpLaVAyajFqMXFuNG8w?=
- =?utf-8?B?NUtQM3RrUUx5SllMSS9TNjJEWUtncUtjcnk5VUVKa2h2ME5VZ2hOZzR4cGlC?=
- =?utf-8?B?T1o2eFl5d2tybXl4elkvOEFFYlJqbm93Ti9MSk56aXcxM1g0MnVGOTVYZHpX?=
- =?utf-8?B?VmJ0cUlMbDkrZTkzM2tOVCtlRnVZc3BZZmIxV2VXOERjSjN3SDltQmExeVF0?=
- =?utf-8?B?SXdiTUJ5aFFudXNodUFUejFNd1IwaUcyaFNTTzlJdkJwVGxPZng5RkY5RFZ6?=
- =?utf-8?B?UmZUWGVUbHdqOElnZjY4NHVMZEFvWUloN1lHVVYzQTNHMXhleENlRUc0UCtI?=
- =?utf-8?B?UG5MU0tIZVdYdTNDM0ROb3BZTUpFcVQrUWoreTdVZkI5QXJRTDE3YzJLWjho?=
- =?utf-8?B?cFM4clR5QVN0b2hWbnU4VVoyVVdXQnM3VU9vd1RBcEN5KzA4Ri9vUFFYeTFh?=
- =?utf-8?B?VmxGZnJBcEx4Z3B0cktEUWxRcDBVRFRUVUx2VDB1Kys0QUxaV1M5R3pBaWha?=
- =?utf-8?B?bndhK0ZaSWtjUUZWQzRPQWQ2d0FCRlNhVVJscmpFT29XWTNsdzdLaWhBSGhF?=
- =?utf-8?B?aFhlYnpCbEVDc1FiYkg1TjlLNlY4dDJ6ZVFHRmQycjQrdGh4WVJUb2ptSEh2?=
- =?utf-8?B?MW9vcHAyZlc5UWhGMjdKY2dtaGNJOHBCMVVmbnZQTW94bnRMc3dPRFBzOGtx?=
- =?utf-8?B?cnUwdHhqS3ZaWXlVTGFGMUkzR0VDM0VtektpaElMRDBaWERYelhMQjgrLzdR?=
- =?utf-8?B?NFJkQUo2Zk5DUDJOQkF2SitkNG9oR0NHUkM1Y3I3NVFLQUw1VjIrMlJtTWgy?=
- =?utf-8?B?M0NPUExiakpORS8wbHdaVDRXUW5CWEFxNjBacVZQV2V2czVHTWw2SGw0Q1NB?=
- =?utf-8?B?dUNrdDluSjV0UC84bkpkSEtvWTZVemZnalNyK0EwcFYzR0RYOUlzNi9zd0ds?=
- =?utf-8?B?UFFYR3Zyc0NYNU5BeVJmNXB2TTJ1OVpWLzh2aTE5eURha3RhWHhpQzhZa2JV?=
- =?utf-8?B?V1VveG9lQk9BRCthdUduVWNvZk9IQVpwT1BvZHg5Nlh5VXRVLy9zZDQ1OVhi?=
- =?utf-8?B?bm40WWg2SlQvMGk5Qk1tV3AyR2x4U215cDNiVzNkTUw5TjhLdEQ0emZ2SjRQ?=
- =?utf-8?B?V1lORVo2TTN1Sy9rZCtsSFlSWGEwQ0xsdjB0a2N1ZmphQnIzWlI0d3VYa1V5?=
- =?utf-8?B?NlpYMXhXdmJTVHVSOWVoNnZPSU5tQkZsMmhIWlV4S1RYR2sya01vb1o4MUNk?=
- =?utf-8?B?U0pFeXBGdytvTXMySXdGV29jTUROMkpGUGdVeTdCSjh4QWFhSmUwZ2pWWDVF?=
- =?utf-8?B?YTBLa3JoZU1ZYk45cFVnMTZXS0U1WHpMTVIyTEhCTUxhdUhpYW9jcnEydDI2?=
- =?utf-8?B?cDk1REQ2aVc3cUVTeWY1Z0YxR1AyWEg5MTNOWVN1emlYV2ZGRnZ4L21uOXNr?=
- =?utf-8?B?QTZLWFEwWmwxdmJMdUxZU0tIS21jME1FaitZRHk4VFVoL094RlYyUFlKMWFI?=
- =?utf-8?B?a28vSEZQNWhSQ01CVzR1UmJpcGIraHJidGkvMXRYUU1qNXhwdzFuaUdja0F4?=
- =?utf-8?B?WmYvQVZLUnRrRURlRU4wODQxdlJQSVVFaHZSMnlHSERtSk5ibmxsMER4V2t1?=
- =?utf-8?B?OUFUdFNuaGYzY2pabTZ0YVBJNU9vMmdTaTFvRkl2eEtsNnhEUEo5czg1K3Aw?=
- =?utf-8?B?cHJMNCtPZnQzUkxpcytYbGtXVGQ4U2t3aTEveDAwQnYyOTdGNmRBQS94UUtX?=
- =?utf-8?B?dmxrbUQ3SG44WjBGWjVRVVhNQUlvemYreEZ6K0pVS2hSaUZqZDFoeUxhdHNB?=
- =?utf-8?Q?3msVDdxp3qDIYizTcI?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e199b45-69ea-4c47-de58-08df1028da19
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 17:19:35.4951
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: evTt913/hTBbwg4yylXtIkYoKSOeA6ISnim4sjbQhUI71Q+2QwSfsPCYB4UZb4si
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6127
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_101942_261628_E36F3335 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-1-eaaa61ed2da4@toxicpanda.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,35 +93,205 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 30 Aug 2026 15:26:37 -0700, Nicolin Chen wrote:
-> iommufd: Iterate the cache invalidation array in the core
+On Fri, Sep 11, 2026 at 02:08:39PM +0000, Josef Bacik wrote:
+> Tasks RCU exists so that ftrace, BPF and kprobes can free trampoline
+> text once no task can still be executing in it.  Today the only way a
+> task tells Tasks RCU "I am not in a trampoline" is a voluntary context
+> switch, so a preempted task is always assumed to be inside one.
 > 
-> The vIOMMU cache_invalidate() and the nested-HWPT cache_invalidate_user()
-> ops are each handed the full user invalidation array and must report, via
-> array->entry_num, how many of its entries they handled. That makes every
-> driver open-code the same array walk, with real downsides:
+> Add task_struct::rcu_tramp_nesting so that trampolines can say so
+> directly: a trampoline increments it before calling out and decrements
+> it before returning, and while it is non-zero the task must not be
+> treated as Tasks-RCU quiescent.  Provide rcu_tasks_trampoline_enter()
+> and rcu_tasks_trampoline_exit() for C users, report the count in the
+> Tasks RCU stall output, and, under CONFIG_PROVE_RCU, assert that it is
+> zero on every return to userspace since no task can legitimately reach
+> userspace with a trampoline on its stack.
 > 
-> [...]
+> Only current ever writes the count and every nested user (interrupts
+> running their own trampolines) is balanced, so plain accesses suffice.
+> 
+> The callbacks reached from static trampolines (return_to_handler, the
+> rethook and kretprobe trampolines) are covered by the preempt_disable()
+> in the ftrace recursion protection rather than by the count; note that
+> dependency in trace_recursion.h so it is not lost if the
+> preempt_disable() is ever removed from there.
+> 
+> Nothing increments the count and nothing consults it for quiescent-state
+> decisions yet; both come in later patches.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
-Applied, thanks!
+Please see below for a line-saving nit.
 
-[1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation commands
-      https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?id=26564d25cd814dfd72a21a2c52b81e678cf02bae
-[2/5] iommufd: Iterate the cache invalidation array in the core
-      https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?id=61e2f25a49bc4d274e71856b2bcac0753f38bafb
-[3/5] iommufd/selftest: Convert cache invalidation mocks to the core array loop
-      https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?id=5519695903a4b443903dd6d9207ad340bc3c984b
-[4/5] iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core array loop
-      https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?id=2d4f03f6610d569070a86d8d2c583ddfcd390f75
-[5/5] iommu/vt-d: Convert nested cache invalidation to the core array loop
-      https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?id=fe85c40e992be9578b8cdfa992d9e23005e25e77
+							Thanx, Paul
 
-Best regards,
--- 
-Jason
+> ---
+>  include/linux/irq-entry-common.h |  2 ++
+>  include/linux/rcupdate.h         | 37 +++++++++++++++++++++++++++++++++++++
+>  include/linux/sched.h            |  1 +
+>  include/linux/trace_recursion.h  | 11 +++++++++++
+>  kernel/fork.c                    |  1 +
+>  kernel/rcu/tasks.h               |  3 ++-
+>  6 files changed, 54 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+> index 0bb6c03481fa..8da571622000 100644
+> --- a/include/linux/irq-entry-common.h
+> +++ b/include/linux/irq-entry-common.h
+> @@ -5,6 +5,7 @@
+>  #include <linux/context_tracking.h>
+>  #include <linux/hrtimer_rearm.h>
+>  #include <linux/kmsan.h>
+> +#include <linux/rcupdate.h>
+>  #include <linux/rseq_entry.h>
+>  #include <linux/static_call_types.h>
+>  #include <linux/syscalls.h>
+> @@ -214,6 +215,7 @@ static __always_inline void __exit_to_user_mode_validate(void)
+>  {
+>  	/* Ensure that kernel state is sane for a return to userspace */
+>  	kmap_assert_nomap();
+> +	rcu_tasks_trampoline_assert_none();
+>  	lockdep_assert_irqs_disabled();
+>  	lockdep_sys_exit();
+>  }
+> diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+> index 44c07a66edff..b5c666c82479 100644
+> --- a/include/linux/rcupdate.h
+> +++ b/include/linux/rcupdate.h
+> @@ -180,6 +180,37 @@ static inline void rcu_nocb_flush_deferred_wakeup(void) { }
+>  #ifdef CONFIG_TASKS_RCU_GENERIC
+>  
+>  # ifdef CONFIG_TASKS_RCU
+> +
+> +/*
+> + * Trampoline nesting: dynamically allocated text (ftrace trampolines, BPF
+> + * trampoline images, kprobe optinsn slots) that relies on Tasks RCU for its
+> + * lifetime brackets itself with an increment/decrement of
+> + * current->rcu_tramp_nesting.  While the count is non-zero the task is inside,
+> + * or was called from, such text and an involuntary context switch must not be
+> + * treated as a Tasks RCU quiescent state.
+> + *
+> + * Only current writes the count and only current (or an interrupt on the same
+> + * CPU) reads it, so plain accesses suffice.
+> + */
+> +static __always_inline void rcu_tasks_trampoline_enter(void)
+> +{
+> +	current->rcu_tramp_nesting++;
+> +	barrier();
+> +}
+> +
+> +static __always_inline void rcu_tasks_trampoline_exit(void)
+> +{
+> +	barrier();
+> +	current->rcu_tramp_nesting--;
+> +}
+> +
+> +/* A task must never reach userspace with a trampoline on its stack. */
+> +static __always_inline void rcu_tasks_trampoline_assert_none(void)
+> +{
+> +	if (IS_ENABLED(CONFIG_PROVE_RCU))
+> +		WARN_ON_ONCE(current->rcu_tramp_nesting);
 
+Save a line as follows?
+
+	WARN_ON_ONCE(IS_ENABLED(CONFIG_PROVE_RCU) && current->rcu_tramp_nesting);
+
+> +}
+> +
+>  # define rcu_tasks_classic_qs(t, preempt)				\
+>  	do {								\
+>  		if (!(preempt) && READ_ONCE((t)->rcu_tasks_holdout))	\
+> @@ -192,6 +223,9 @@ void rcu_tasks_torture_stats_print(char *tt, char *tf);
+>  # define rcu_tasks_classic_qs(t, preempt) do { } while (0)
+>  # define call_rcu_tasks call_rcu
+>  # define synchronize_rcu_tasks synchronize_rcu
+> +static inline void rcu_tasks_trampoline_enter(void) { }
+> +static inline void rcu_tasks_trampoline_exit(void) { }
+> +static inline void rcu_tasks_trampoline_assert_none(void) { }
+>  # endif
+>  
+>  #define rcu_tasks_qs(t, preempt) rcu_tasks_classic_qs((t), (preempt))
+> @@ -208,6 +242,9 @@ void exit_tasks_rcu_finish(void);
+>  #define rcu_tasks_classic_qs(t, preempt) do { } while (0)
+>  #define rcu_tasks_qs(t, preempt) do { } while (0)
+>  #define rcu_note_voluntary_context_switch(t) do { } while (0)
+> +static inline void rcu_tasks_trampoline_enter(void) { }
+> +static inline void rcu_tasks_trampoline_exit(void) { }
+> +static inline void rcu_tasks_trampoline_assert_none(void) { }
+>  #define call_rcu_tasks call_rcu
+>  #define synchronize_rcu_tasks synchronize_rcu
+>  static inline void exit_tasks_rcu_start(void) { }
+> diff --git a/include/linux/sched.h b/include/linux/sched.h
+> index 8b3d47a325cc..d2e7b1b3c9d2 100644
+> --- a/include/linux/sched.h
+> +++ b/include/linux/sched.h
+> @@ -956,6 +956,7 @@ struct task_struct {
+>  	unsigned long			rcu_tasks_nvcsw;
+>  	u8				rcu_tasks_holdout;
+>  	u8				rcu_tasks_idx;
+> +	int				rcu_tramp_nesting;
+>  	int				rcu_tasks_idle_cpu;
+>  	struct list_head		rcu_tasks_holdout_list;
+>  	int				rcu_tasks_exit_cpu;
+> diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+> index e6ca052b2a85..2da23a52ca4a 100644
+> --- a/include/linux/trace_recursion.h
+> +++ b/include/linux/trace_recursion.h
+> @@ -153,6 +153,17 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>  	current->trace_recursion = val;
+>  	barrier();
+>  
+> +	/*
+> +	 * Callbacks reached from static trampoline text (return_to_handler,
+> +	 * the rethook and kretprobe trampolines) do not maintain
+> +	 * current->rcu_tramp_nesting themselves; they rely on this
+> +	 * preempt_disable() to keep the task from being preempted, and thus
+> +	 * from reporting a Tasks RCU quiescent state, while an ftrace_ops or
+> +	 * its data is in use.  If the preempt_disable() is ever removed from
+> +	 * the recursion protection, this must rcu_tasks_trampoline_enter()
+> +	 * here and rcu_tasks_trampoline_exit() in trace_clear_recursion()
+> +	 * instead.  See CONFIG_RCU_TASKS_PREEMPT_QS.
+> +	 */
+>  	preempt_disable_notrace();
+>  
+>  	return bit;
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index 416758c8a3d4..cfe3a8e53fbd 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -1869,6 +1869,7 @@ static inline void rcu_copy_process(struct task_struct *p)
+>  #endif /* #ifdef CONFIG_PREEMPT_RCU */
+>  #ifdef CONFIG_TASKS_RCU
+>  	p->rcu_tasks_holdout = false;
+> +	p->rcu_tramp_nesting = 0;
+>  	INIT_LIST_HEAD(&p->rcu_tasks_holdout_list);
+>  	p->rcu_tasks_idle_cpu = -1;
+>  	INIT_LIST_HEAD(&p->rcu_tasks_exit_list);
+> diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+> index 627295396cd9..1662ba18bf34 100644
+> --- a/kernel/rcu/tasks.h
+> +++ b/kernel/rcu/tasks.h
+> @@ -1113,10 +1113,11 @@ static void check_holdout_task(struct task_struct *t,
+>  		*firstreport = false;
+>  	}
+>  	cpu = task_cpu(t);
+> -	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d idle_cpu: %d/%d\n",
+> +	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d tramp_nesting: %d idle_cpu: %d/%d\n",
+>  		 t, ".I"[is_idle_task(t)],
+>  		 "N."[cpu < 0 || !tick_nohz_full_cpu(cpu)],
+>  		 t->rcu_tasks_nvcsw, t->nvcsw, t->rcu_tasks_holdout,
+> +		 data_race(t->rcu_tramp_nesting),
+>  		 data_race(t->rcu_tasks_idle_cpu), cpu);
+>  	sched_show_task(t);
+>  }
+> 
+> -- 
+> 2.55.0
+> 
 
