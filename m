@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BBDC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E32C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drA4MbAbfA7Yk2ZplEVuf7AbjA5LPX00J45ZkvRmoLA=; b=bzOC9lkJSz4yHH1l115etiGvYX
-	Cx/CoG4KFix/qUr8YARK56+wj7xAm5s4JZOUyVQ2rOcgD5nI92blF8FAsoKsWud5zTab8K5r2zElv
-	LxPvOg+E+wmI+8YsIlRFzNWjF8fcdw0sLqwdrrv1deFWmxWDqMHqUDQpkvfbrXFabWhS3CLkOwiH9
-	nq7veU2N2BV0u2apBfYTJC+tBgMcVjE6FIo/XsEGu2AEIJeg99JdMfvprdh7dqozVEoxoy98GYKn6
-	5A5yQ/1F/5Osy+gmeRoSUw2gIz17qfna113YQtd/TEqzjqFhDitwYXrqAXeykcaqh/cWzpc5+t5Sa
-	fNndxDKg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j387I/0sqjFwB05bkLmHGjAhBNnksazCX9cjre5EQbw=; b=TPzgwnHrhF8mcp/FoMSdKhov47
+	Krvp4R3jqCJ645Q9+OcfEwiRTW/vPjI+5GpUpwJJkoaMdye/BCBFm+dsOz+G58MTwd8dbaJzGLIwA
+	2U/4/BGaz7PLFs+X8XyiHxGX70ymPT/nTW0v1D4DaY1hijaQSthMtIuFDsnsfh9XfvBB8Xije0klI
+	VzS92bkvxyfajNyIIdU2etXe7j/HtzyCRMtGQjtjIYBLSEXoCZKd3bOLIjSxp/oeuocUhk2ZraxIJ
+	Z2XpQkfgzjv86O9Xf8bfN+kZwb7ZPK2YS4caUi9LsfsXNnsTSeqSfH7M2Uu+E3eoWG8DNWHeLQ//4
+	k1i0XfVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54DF-0000000HEU2-42p3;
-	Fri, 11 Sep 2026 16:34:53 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54DD-0000000HETJ-1L9x
+	id 1x54Eo-0000000HEhW-17GP;
+	Fri, 11 Sep 2026 16:36:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x54Em-0000000HEgo-0oai
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:34:52 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24afso897346a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:34:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789144490; x=1789749290; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=drA4MbAbfA7Yk2ZplEVuf7AbjA5LPX00J45ZkvRmoLA=;
-        b=nS8vU7qOhWhAg+NPKSzNubjfT2gkUCWMTJRJgk8zB5QuOayOteRECbf/SHUSKup/5Y
-         Q7C5tMgBhVj3TxszmYc5Owzrt5cXYzNL9jxj1lk3QlFbk3wsKMIiQkbTrIcdLCLNAKCW
-         eeMNd+Egivgo8sHXeC1gvAz3J97R5j6xQuJfl/3zZDAd6l2qCIJbx2ZDXAApS30JeK2D
-         u9ck44NlaH31/LRgkPwj2D5z5xEcKoy4g1mtTvu7CZSzrv83vZ0Y0tIg4+BI8eCEkElB
-         lRjZBJRZraZvEPav4SAZXTMPwhIzx483qii7M47ERl0ZptrksnlD6wTPMeQHxdulzEmZ
-         btDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789144490; x=1789749290;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=drA4MbAbfA7Yk2ZplEVuf7AbjA5LPX00J45ZkvRmoLA=;
-        b=CAWTA+NgWGjjR/V67pTGnGFocAPn7gM+6kLSlIHTPu4MjG/KcpKp27ZRNErjXjM3Vd
-         hxVlodF4znQzv8sV8+BviWvxQSu+kNjoA/Tf29EsuPWdDlccMw1IjHkEywXLZhawo2af
-         bvO8R2hLQjrcJ+SN5YCkzCB2jAUuN7upxH/TJO2vWbyDl5siRhzOL4gS3sYwGdQ0lugj
-         ahp7OsBy+/8N5nzmgsPDklRr63+JFu+I3L6brf0sDyogLjSQww5gGOZdyITfay/lswlW
-         0js1PhCwaUlbHS/d4f/7yBWM0dfpxkXYrWIZag58ngWha5p9P0vKcdsg+Hy/DoPDWwjW
-         MF6Q==
-X-Forwarded-Encrypted: i=1; AKwUvByGeGLwB86HBC80dRNzH+kz6r8ZnqaVyfmIIWUc3xcXmlnQ9W3cfZsAN461X6tpF9kOD9OGMm3auVjFopDtoM7Z@lists.infradead.org
-X-Gm-Message-State: AFuF++kob0QN++x1K5vm0V1z+Bsm9myFvb8OIcrMpyxsmMoSvoxKPk2m
-	WgRKu/9H6I0OiOzN84MQ0+NODVXL5loUEfNMdw7G5K4FGIT/fME2VaUQ
-X-Gm-Gg: AYBFou0kNQqTOXm2yjSvyd4+Xh4XJPi72OlAzVaeO5iJlxEq9T4bpsUs5Q2DeT7L5rq
-	AkBkLWU8k+vf9zkdHOc5d9YZ/63gejxXIwwjZ362Y5pPPZu3IvUWHfMbqtyz2lWjd12LtZpvKZF
-	gWyP0V/ejD0KQI7TP2XWQNGu6GX32fPrYjGw2KDJRgEDnhvLOigoBNGEp0+QqFNT1hAmLsbekQm
-	so0VYIKG3yGEZsPPz+QKGSgPGOqUuqXPSMHR4u/aDOgs/MhGz5yTcvoV+kERe+IYjLNg6JMCu4q
-	yAYcVmMEYPIrTwn4/bP4rUiPb6ieNwbNTZ8nZcTbLKmys8uBLecXGeH2O/jQ99rgtP/81yI80/m
-	pJ4yfOHCDiQpJnikz8i3cnjB+UuaucqYHZlNafBtmWkIbSkPs/w5q0IZj3KuwQuWI4KN9oRk+eo
-	lPbWCmyMYk+mP77nqKJVMp4my/ZSEbY48nnY84Rc8+auUoFKRw4DypXXEcunHLGGwbypCQ3tKNv
-	zJWpkfr1nyNzjoEc4Nw4fslLHJENtFLVV4CI67HpFrog180nA==
-X-Received: by 2002:a17:90b:498c:b0:39b:2b10:d05c with SMTP id 98e67ed59e1d1-39d9bbfa327mr9043413a91.5.1789144490077;
-        Fri, 11 Sep 2026 09:34:50 -0700 (PDT)
-Received: from ?IPV6:2406:7400:56:e503:ad72:fda5:83e8:be95? ([2406:7400:56:e503:ad72:fda5:83e8:be95])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d951d6b08sm6058803a91.8.2026.09.11.09.34.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Sep 2026 09:34:49 -0700 (PDT)
-Message-ID: <327e3afc-0803-4ca4-9c76-249077ab9b2e@gmail.com>
-Date: Fri, 11 Sep 2026 22:04:42 +0530
+	Fri, 11 Sep 2026 16:36:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D572B16F2;
+	Fri, 11 Sep 2026 09:36:20 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BE6143F7B4;
+	Fri, 11 Sep 2026 09:36:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789144584; bh=D4N2CYpqGur60EJ1BjNnNqN5DBpOGqb3/wXKxHx+xQ0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kZ9mqL+9GLLtVycu6xZF9AIp3+Fog/4VSLxTviBivJQuKDEZiWAu7H3HTyE72AKvT
+	 ooXeRwaSZ+i5DlfIsCpRDUZRMokU72uchgIi89zkPR33SdTQlPgcpS1l6XcMNeQR7t
+	 2ewIZKQ8NJ/EXAEUght7EvzDq3e1kkilBMC603dQ=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: james.morse@arm.com,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	corbet@lwn.net,
+	x86@kernel.org,
+	linux-doc@vger.kernel.org,
+	dave.martin@arm.com
+Subject: [PATCH v6 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time conversion to be per-arch
+Date: Fri, 11 Sep 2026 17:36:10 +0100
+Message-ID: <20260911163613.1131447-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] cpuidle: psci: Initialize the PM domains in
- powered off state for OSI
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
-Cc: Abel Vesa <abel.vesa@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Christian Loehle <christian.loehle@arm.com>,
- Maulik Shah <maulik.shah@oss.qualcomm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260907111659.263324-1-ulf.hansson@oss.qualcomm.com>
- <20260907111659.263324-5-ulf.hansson@oss.qualcomm.com>
-Content-Language: en-US
-From: Dhruva G <goledhruva@gmail.com>
-In-Reply-To: <20260907111659.263324-5-ulf.hansson@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_093451_368714_E2CD12B5 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20260911_093628_271908_8A9825CE 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,89 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-09-2026 16:46, Ulf Hansson wrote:
-> At the point when the PM domain and the topology are registered through the
-> genpd subsystem, it's not really known whether corresponding CPUs are
-> online and thus if the PM domain should be initialized as powered on or
-> not. Instead this information becomes available when the CPU devices gets
-> attached to their respective PM domain through dt_idle_attach_cpu().
-> 
-> This is a problem when using PSCI OS-initiated mode, as we may end up with
-> a PM domain that has the genpd's status indicating it to be powered on,
-> while it in fact may not be the case. In the less severe scenario, this
-> leads to selecting a shallower domain idle state for the PM domain than
-> necessary. A more critical problem is when a non-CPU device shares the PM
-> domain, leading to their corresponding drivers not being able to trust the
-> status of it.
-> 
-> Let's fix these problems by initializing the state for the genpd's to be
-> powered off and in the deepest possible domain idle state, when using
-> OS-initiated mode. The support for ->sync_state() is maintained by setting
-> the GENPD_FLAG_POWER_UNKNOWN for the genpds in question.
-> 
-> Reported-by: Maulik Shah <maulik.shah@oss.qualcomm.com>
-> Link: https://lore.kernel.org/all/20260811-domain_off_ss3-v1-0-6a0a0fc023f5@oss.qualcomm.com/
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> Tested-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-> ---
-> 
-> Changes in v3:
-> 	- None.
-> Changes in v2:
-> 	- Fix a bug in the call to pm_genpd_init().
-> 
-> ---
->  drivers/cpuidle/cpuidle-psci-domain.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
-> index b9e4ad7d43a3..4d8c63d329c2 100644
-> --- a/drivers/cpuidle/cpuidle-psci-domain.c
-> +++ b/drivers/cpuidle/cpuidle-psci-domain.c
-> @@ -68,7 +68,8 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
->  	 */
->  	if (use_osi) {
->  		pd->power_off = psci_pd_power_off;
-> -		pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
-> +		pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP | GENPD_FLAG_POWER_UNKNOWN;
-> +		pd->state_idx = pd->state_count ? pd->state_count - 1 : 0;
->  		if (IS_ENABLED(CONFIG_PREEMPT_RT))
->  			pd->flags |= GENPD_FLAG_RPM_ALWAYS_ON;
->  	} else {
-> @@ -78,7 +79,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
->  	/* Use governor for CPU PM domains if it has some states to manage. */
->  	pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
->  
-> -	ret = pm_genpd_init(pd, pd_gov, false);
-> +	ret = pm_genpd_init(pd, pd_gov, use_osi);
+Just a small documentation change found by sashiko since v5.
 
-If CONFIG_PREEMPT_RT=y,
+The patches should stay together so please could this all go via tip.
 
-psci_pd_init(use_osi=true)
-  -> sets GENPD_FLAG_POWER_UNKNOWN
-  -> sets GENPD_FLAG_RPM_ALWAYS_ON
-  -> pm_genpd_init(..., is_off=true)
-  -> genpd->status = GENPD_STATE_OFF
-  -> RPM_ALWAYS_ON + OFF is rejected (pmdomain/core.c: pm_genpd_init() 
-				      rejects an RPM_ALWAYS_ON domain whose initial state is OFF)
-  -> return -EINVAL
+Changelogs in patches.
 
-Therefore, on a PREEMPT_RT platform using OSI and hierarchical PSCI domains, psci_cpuidle_domain_probe()
-should fail while initializing the first domain. The genpd providers are then unavailable, so 
-dt_idle_attach_cpu() fails during PSCI cpuidle initialization and the driver rolls back its CPU
-registrations.
+From cover letter of v3:
 
-I don't have a device on me to test this path, perhaps one of the QC devices + RT config
-can reproduce this?
+This is a new version of Dave Martin's patch [1] to delegate rounding of
+bandwidth control user values to the arch code. As there is now more than one
+architecture using resctrl, I split the original patch into two, a core resctrl
+patch and an x86 patch, and added an MPAM patch. Please let me know if the patch
+break down and ordering is sensible and whether the pattern should be followed
+for any future similar changes.
 
-Should PREEMPT_RT case instead initialize these domains as ON?
+This does have a user visible effect on MB schema when using MPAM hardware
+with 'bandwidth_gran' greater than 1. I'm not sure if MPAM hardware with such
+coarse controls exists in the wild but it is spec compliant and I've tested it
+on a model.
 
-This might be safer here atleast:
+[1] https://lore.kernel.org/lkml/20251031154225.14799-1-Dave.Martin@arm.com/
 
-ret = pm_genpd_init(pd, pd_gov,
-		    use_osi && !IS_ENABLED(CONFIG_PREEMPT_RT));
+v3: https://lore.kernel.org/lkml/20260515140612.1205251-1-ben.horgan@arm.com/
+v4: https://lore.kernel.org/lkml/20260706160639.2136674-1-ben.horgan@arm.com/
+v5: https://lore.kernel.org/lkml/a2a7d988-339c-45f6-b910-5d7dd893b45c@arm.com/
 
-Regards,
-Dhruva
+Based on v7.3-rc2
+
+Ben Horgan (1):
+  arm_mpam: resctrl: Add pass-through resctrl_arch_preconvert_bw()
+
+Dave Martin (2):
+  x86,fs/resctrl: Add resctrl_arch_preconvert_bw()
+  fs/resctrl: Factor MBA parse-time conversion to be per-arch
+
+ Documentation/filesystems/resctrl.rst     | 17 +++++++++--------
+ arch/x86/kernel/cpu/resctrl/ctrlmondata.c |  6 ++++++
+ drivers/resctrl/mpam_resctrl.c            |  5 +++++
+ fs/resctrl/ctrlmondata.c                  |  6 +++---
+ include/linux/resctrl.h                   | 19 +++++++++++++++++++
+ 5 files changed, 42 insertions(+), 11 deletions(-)
+
+-- 
+2.43.0
+
 
