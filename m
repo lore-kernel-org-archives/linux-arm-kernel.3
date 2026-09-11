@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AADC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FBCC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yMlwh42zfWxw3I8aSGFHE6JsCvmUNQVYKp3fX73TBuY=; b=VjfkMgh3p2rUBMxPlS13CkUXx5
-	BjyIfSLUBvofxxJdY/qb5oF/Hq8hh/OwzL9+obk9atn0wt616FqmFdnOyn3RFjG2sWDBN3Q4zwjoq
-	UvDWnIBMw70eYhUT7xvXnqQdrt+dyQHY0wonD2HSXN0CwmoBu/H1XEkdzP4BSNlbHQtX+rNPy7+X1
-	JVL9bMoaz1EUo3CTAtVHaTmumnGaI9ils+kXK2ip4+71l4hVUcF64ANfr+dga6GZ4Wj+ZoWd738fQ
-	x+Ox7Vd9sYbujGnSYoeBqs2/RXlviDWl1hoMDy7z034XVJ8w8VtRyDHjl80+8/d8OAkK4nq4s5Nir
-	5Y/9HUDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q4i87onUuq9wqHpMEQ4jHZbbyUTENMsVIDfpzRkAdN0=; b=Nch5EGwFF5GMzmpEuhRIYfsT6w
+	g9rYh3P7Mrl3WW5hzOn7lgHg1MVhGioJ9YnCSGAsJ/wFxgotSBvB41SQSqpOqW3rU8AojlguOySd0
+	gnHfyYybeinDEruT1z9kbEzgbcz0BG8Zw8UWKCgYigwYB2lJNXIOALNKgmXgsMvawUYIbAfOa5UwN
+	8AgKu3bg93srwKOJJd0dlq3GhbEX2ybYAKqszYeyhc396OEWYERfGYxzVn4MT7HI5Js8kt36dO6Gz
+	Lpxhd5ZweWS3LrWxYh2ghoiOD/GjSjBHrDZYwEybd15iPw9Rho0Ig9cer7DnmJq13IOZDnl3c2mqa
+	7bG+so7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tXZ-0000000FqKy-0ONK;
-	Fri, 11 Sep 2026 05:11:09 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1x4tXj-0000000FqMb-0ua4;
+	Fri, 11 Sep 2026 05:11:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tXW-0000000FqKK-1nFX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 05:11:07 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2d91ded8174so4378665ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 22:11:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789103465; x=1789708265; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yMlwh42zfWxw3I8aSGFHE6JsCvmUNQVYKp3fX73TBuY=;
-        b=QMuRZV8aGHNAe/WoFStPWutBlNuViRUyzsovhVm+vkNJzogclQ95edivRhoJY0jdFk
-         ppDdbwBjukVpzpkygYaYQWr8tfjM1AQl+2raYQXwGATip2jYQGanNDJ6yO2K7nwessoL
-         pVkCDArRlPZlWbGuKj6ljOiJp9KLCJJK1ZyxU3biSm2AgcS4ucWy1HeHmYTkWlDL+LZ3
-         Naz1bmrFuAky2O6NfhK2SFT/zi9whIwB/o2SKX3gBe4wiDnUuXeP3nBOjjIHsV9PrR3k
-         R22QUMU9FH1pfrWn4HZzvpm67abg7rs7hr1ADbsnfRtaI19is2Y2vEk50HDMl/seA+uW
-         99ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789103465; x=1789708265;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yMlwh42zfWxw3I8aSGFHE6JsCvmUNQVYKp3fX73TBuY=;
-        b=HGZBnLZSJpzTCBdcB7rCBlEYyvIomw87gFUt6Fp8OLkTisP6uhSKILJLIfRitOL7J7
-         ucvyt6kTdhpBHrkHX4/4hojUp6ffDa//nIa6/hY6Bpr59az8pjD6BTRlXcFTLUM3rJlA
-         Wdt0Xlr40w9wFiuDsskLygfWqJvF90WdQKVXP4XZYj93Oga8CLiIB6LY35PmerhSUC0d
-         P7a2p8NlVr8wj/9DK5luyNx40WvcuQmdihmBFXzMsrjMRFioe9WysfBAUtmKgD7to+uc
-         CkSjyhH8BQccfO1nmZNbRh38Iky8fjW19RmaSuFLsoBH7k4CrAdBmIGpK98xHNfnZiDQ
-         qMjg==
-X-Forwarded-Encrypted: i=1; AKwUvBz9ukENkr88eIWCaSTH43md8OX90QJX14dsMgoDfF7+LbEXjyaEXmnNxlxsOtfhMbW87/bqwM+/zVULCheAIaMG@lists.infradead.org
-X-Gm-Message-State: AFuF++ncr+FwbqvMTlqzj1MpeG0Z3IY6Q8Q5r1MWQPXDlpNmv6vUeWnu
-	ntB0wGfnkH+QioMqj4ANvMmsariBdq0UwdNOcuxXBIh5PWh0JGip/KwD
-X-Gm-Gg: AYBFou10xPqaY9nHx7wfWKZ1hakx1ZzZXA8KDq6Pa7GHTzlBZ2tjxjVXGdoguoKZCwt
-	Eq+xAuFTAc7RTmR/gFo/DbXyuLnyDO5lvslZ8S26noyqCCnvp8H0rUbGQNVShbL0pZ9BwI4vx3r
-	e/sa1ymCkA8KqyWd15nIhGeCPl6Qbvhn/+jTc1LBlhm2akdSXTdZdQ92L61yKD3MdbIw/NGX4CU
-	725a6t3Wp0+DeWWN6983oI0iDZZXTmnbBlVAhXiXVhtgqX+QV4f1rf3rM/Xonc8gD18W1sDSXQ0
-	rlyamRfETdsCETKcJthmygK/weyEZEE8s1lq+C87+vweeBcElywQDhWll8hZBxfPnZRGauVLzz4
-	ki1aA9vlV0nlEXmBnlNl1+c6p0N9qCR6iVPHWlydugi5bmAOmAOyYgDFSd/EC47roqy3PTeBZOw
-	TgcqvDrlR9okfN34scB1/l9bz7SCt49wjSOTsuMRw3rnv38O/bh+G1AvHC/xKDxf2KiWZXs2veQ
-	Fm3Zqsfmx426qgeF4UfBkI2YQxGMgPCE2mcxGPC+FjEaE3XBozmAwX80vOgrdB5ZGWqivxTiaas
-	P7ZSxQjU+X2XoQQ=
-X-Received: by 2002:a17:90b:2641:b0:398:9bd1:3215 with SMTP id 98e67ed59e1d1-39d9c352a63mr4011103a91.22.1789103465343;
-        Thu, 10 Sep 2026 22:11:05 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d995a42a5sm2512810a91.17.2026.09.10.22.11.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 22:11:04 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-usb@vger.kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Sashiko Bot <sashiko-bot@kernel.org>
-Subject: [PATCH v4] usb: chipidea: ci_hdrc_imx: Fix error handling when creating IRQ name
-Date: Fri, 11 Sep 2026 12:10:43 +0700
-Message-ID: <20260911051043.15962-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x4tXi-0000000FqMI-0p0R;
+	Fri, 11 Sep 2026 05:11:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6119F601EF;
+	Fri, 11 Sep 2026 05:11:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84A321F000FF;
+	Fri, 11 Sep 2026 05:11:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789103477;
+	bh=Q4i87onUuq9wqHpMEQ4jHZbbyUTENMsVIDfpzRkAdN0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lOJcDAiue7cyP0WKuq94zT/BOctqQE9OG04LJueetSK3L5RRibv+eF0uGpHU9MHkn
+	 qrx5b0k+xH56P3HYQuR8CldIjVs3jDwyXbzEtKZjjrY0x6FOX1ztsTfvTw9edvSaUJ
+	 RRxHb6BSyyMpR2rtsqSYBpovIp2plvhOj736ARNLRH/ZsY5BSRVdFN8cjcFWAIVs1I
+	 It/eGS0IhiOuaPdW/uTIE1cPtOXqD3IIB77pnflyu2Pn6wlqsAoHcwsT9gnwqJMuGw
+	 77+i8CI+O/A8j9182rLn4YsObYGm1XiCKB1TYLDLPG8qLJ+yWkaBbwUirORQf+V0yZ
+	 EwIfijIsGHGHQ==
+Date: Fri, 11 Sep 2026 07:11:07 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunfeng.yun@mediatek.com, p.zabel@pengutronix.de, 
+	chunkuang.hu@kernel.org, vkoul@kernel.org, neil.armstrong@linaro.org, 
+	matthias.bgg@gmail.com, granquet@baylibre.com, justin.yeh@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@collabora.com
+Subject: Re: [PATCH 2/2] phy: mediatek: phy-mtk-hdmi-mt8195: Fix TMDS clk bit
+ ratio setting
+Message-ID: <pptwnkay4jvyom2ihwtice7usgndsw2fnffkbenkg7gyjejure@4y2znrvtmbtg>
+References: <20260701121936.19407-1-angelogioacchino.delregno@collabora.com>
+ <20260701121936.19407-3-angelogioacchino.delregno@collabora.com>
+ <5bmxa4pcwkiemubwfjun3dti4szu66gnxe6yw2pudq3wplpc23@inyswc2bdlhw>
+ <cb72ff50-b62f-47fe-af40-d38558bdff6e@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_221106_478063_923AA3C4 
-X-CRM114-Status: GOOD (  14.38  )
+In-Reply-To: <cb72ff50-b62f-47fe-af40-d38558bdff6e@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Thu, Sep 10, 2026 at 10:39:06AM +0200, AngeloGioacchino Del Regno wrote:
+> On 9/9/26 17:06, Manivannan Sadhasivam wrote:
+> > On Wed, Jul 01, 2026 at 02:19:36PM +0200, AngeloGioacchino Del Regno wrote:
+> > > The comment in the mtk_phy_tmds_clk_ratio() function clearly and
+> > > correctly explains that the TMDS ratio has to be 1/10 for data
+> > > rates under 3.4Gbps, and 1/40 over that.
+> > > 
+> > > Unfortunately though, the TXC_DIV register setting was wrong, as
+> > > in value 3 means to divide by 8 and, in order to achieve the in
+> > > spec 1/40 (tmds) data rate, this has to divide by 4 instead!
+> > > In order to achieve the correct 1/40 (tmds) data rate, this has
+> > 
+> > This statement is cut-off!
+> > 
+> 
+> Oh oops. It's just a forgotten line that has to be removed....
+> 
+> Should I resend or can you simply remove the line
+> "In order to achieve the correct 1/40 (tmds) data rate, this has"
+> while applying?
+> 
 
-devm_kasprintf() can fail when allocating the wakeup IRQ name. In this
-case, the probe error path should shut down the PHY before returning.
+I do not apply the patches, only Vinod does. It would help if you can just
+send a next version with this change and tags.
 
-Use the phy_shutdown error path instead of err_clk so that the PHY is
-properly shut down when creating the IRQ name or requesting the wakeup
-IRQ fails.
+- Mani
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Peter Chen <peter.chen@kernel.org>
-Reported-by: Sashiko Bot <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/all/20260806065755.C9F361F000E9@smtp.kernel.org/
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
-
-Link v2:
-https://lore.kernel.org/all/20260807065619.30604-2-phucduc.bui@gmail.com/
-Link v3:
-https://lore.kernel.org/all/20260810093112.47807-2-phucduc.bui@gmail.com/
-
-Changes in v3:
- - Use the phy_shutdown label instead of err_clk as suggested by
-   Sashiko's review.
- - Add Peter Chen's Acked-by tag.
- - Add Frank Li's Reviewed-by tag.
-Changes in v4:
- - Rebased on top of gregkh/usb-testing.
- - The ret assignment for dev_err_probe() is already handled by
-   1db5c6b0b983 ("usb: chipidea: imx: fix missing ret assignment for
-   dev_err_probe").
- - Keep this patch focused on the phy_shutdown error path.
-
- drivers/usb/chipidea/ci_hdrc_imx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index 6a17b22047b3..edbf9df9b8f2 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -533,7 +533,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
- 		if (!irq_name) {
- 			ret = dev_err_probe(dev, -ENOMEM, "failed to create irq_name\n");
--			goto err_clk;
-+			goto phy_shutdown;
- 		}
- 
- 		ret = devm_request_threaded_irq(dev, data->wakeup_irq,
-@@ -541,7 +541,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 						IRQF_ONESHOT | IRQF_NO_AUTOEN,
- 						irq_name, data);
- 		if (ret)
--			goto err_clk;
-+			goto phy_shutdown;
- 	}
- 
- 	ret = imx_usbmisc_init(data->usbmisc_data);
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
