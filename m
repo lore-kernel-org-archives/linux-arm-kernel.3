@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB27C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 03:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32325C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 03:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUIb14/0OAjAHlQSJSidqNaWRphPPmrzD+AXNTOoLe4=; b=Bg7qGFJV3X+ur0sXws/IcekuOU
-	vPwoSzvRgDx95v6FSQoDQLX0/2qRFDEAl/K+ihWMpmHFtc+v0q7wRNPAovRW4Uu6+lxy5hDepWNA3
-	jQ1plVEcXs16pD5FzNO+pX+2/NjEO5LrGE/Jnkf7ZX13CR/hte7ZtHeRwYS7ybmP0eIh4025GcvXj
-	uA434ad1M6vujXZfZQq7B+E1itRTt2nDqYu4Sik+KQwnOebgb/mDhnOS0uBqvOR+TrGF0JYF9pHym
-	8eHldcb5KVzjIBcsm/KWyvgJGquPeXDDFNTzjMkiUvueNbT53Jahtj2SPIv2bFyEC9pPuVeN9HO6f
-	4ygZJ5Qw==;
+	bh=sCNmEzL/xZ/SzQ+Aa70CFkgEL/dKJ18aAMwiSI6jrj0=; b=bDiQ+Js3z9QBztPkk9hR4uueUn
+	MAxm3xyPWrVcXz0QsjM57klaYgHfcU22URYvcmJ0RM2MlzK2dtqy8wOI39cfD8ajuDrFsFCkpzIFV
+	wT38JJS11wBnAi4NJu51M/nRY1CFnkcQ/vQCtR/XEZcXD6qm2jd8hyL0EveV5v015CJZCupe7iHSH
+	mO0QFpd3FZMFUQ7KOdhj3Un3fuBnja3ZeZjw5WO6u4B272450cUZEbbH8F+lXWMdSE+3bPqtJgEO5
+	yXw/k9G0xtNEZw9y3nfMd/vhBayJfayLPz36QHu9nkAA46ROzrlp683iRz53LOmAJKvG2iHTgBdSv
+	8rMiTTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5aqp-00000001L1Q-3DmG;
-	Sun, 13 Sep 2026 03:25:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x5aW3-00000001KHT-2SeL;
+	Sun, 13 Sep 2026 03:04:27 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5aqp-00000001L1I-1Qds
+	id 1x5aW1-00000001KGK-05nF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 03:25:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC78E40681;
-	Sun, 13 Sep 2026 03:25:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 460AF1F000FF;
-	Sun, 13 Sep 2026 03:25:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789269954;
-	bh=qUIb14/0OAjAHlQSJSidqNaWRphPPmrzD+AXNTOoLe4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=K5OdDYaXz71j1JtHhqb4irKRXamfBZLkRP6okXK1bfB/W11/Lkw7lAbdvHqifexHF
-	 k9AMbpbpw2p5ZpdWjKv2XOtpjWXJ4+HuJHvRb7MeMasVrd8QGSxQ5+bJyrdoda2O5r
-	 aP6HnpL4EY8tI900qc8YLWlSBqGHEU/4B5UlO+UdXBKTrlA/YIxRkX6FbnvI/uEjp7
-	 EadxsmBbMmTbIEz1SpMItZwwbOo5SlO3Kh2quBrJlLF54C9FI8JolXaCWCKpT6hkfh
-	 iZrtLINmsZ9rm40L/MgwIe8Q3FBAuD71u7jDQgXgXPSOGeSoQd/1Og0EJRnsG5MnLp
-	 v9XhjbSi1BMOg==
-Date: Sun, 13 Sep 2026 04:25:48 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Marek Vasut
- <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
- <olivier.moysan@foss.st.com>
-Subject: Re: [PATCH 3/8] iio: adc: stm32-adc: add support for stm32mp23 and
- stm32mp25
-Message-ID: <20260913042548.299b1109@jic23-hlaptop>
-In-Reply-To: <20260911-adc-stm32mp25-v1-v1-3-cef26eecdef2@foss.st.com>
-References: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
-	<20260911-adc-stm32mp25-v1-v1-3-cef26eecdef2@foss.st.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 13 Sep 2026 03:04:26 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87DCC10384A;
+	Sun, 13 Sep 2026 05:04:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1789268658;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=sCNmEzL/xZ/SzQ+Aa70CFkgEL/dKJ18aAMwiSI6jrj0=;
+	b=TxEh3WcnbGRkrMci5uDLASOJB6+sAJIHYde7RdwEmM4YFz5nK7go3JNNInc0meD8lNVjJ9
+	ZAwGS0jcPdqqB+EAEAhYt15ob0SmQ9TYSvtUD2+wgjmrp6FWwYKP4xjIN28oNVJfXy8g2H
+	+rhIYbzFiwnyld1xTFEgJlPahbyQSjbelzLll9zR3GOCmGjiX8qgdIx0GRpVEO5t2AcpxB
+	jnN+rFE++MO2tdQiCexW7OxOty0Bdq6punm3tXvntX8sr8tgngmtiN8mN2wQM2XU1Hck7b
+	teZ+lapROQ8eLVxce1S1wxnnWuwMOJ5Ma1fAx6VVjiarKPdmcKULYXytk6qGNQ==
+Message-ID: <8cf82848-116f-4bd4-b0c6-137a295c832a@nabladev.com>
+Date: Fri, 11 Sep 2026 16:50:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260909182641.165383-1-marex@nabladev.com>
+ <20260909182641.165383-2-marex@nabladev.com>
+ <20260911-sweet-industrious-stallion-b7a727@quoll>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <20260911-sweet-industrious-stallion-b7a727@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260912_200425_321641_ACDDD256 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,331 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2026 17:51:25 +0200
-Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
-
-> Add support for STM32MP23 STM32MP25 SoCs. They have 3 ADCs, split into
-> two blocks:
-> - ADC12 (ADC1 & ADC2) are tightly coupled.
-> - ADC3 is managed independently.
-> Trigger list slightly changes between STM32MP23 and STM32MP25.
+On 9/11/26 9:32 AM, Krzysztof Kozlowski wrote:
+> On Wed, Sep 09, 2026 at 08:26:05PM +0200, Marek Vasut wrote:
+>> +
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include <dt-bindings/interrupt-controller/irq.h>
+>> +#include <dt-bindings/phy/phy.h>
+>> +
+>> +#include "zynqmp.dtsi"
+>> +#include "zynqmp-clk-ccf.dtsi"
+>> +
+>> +/ {
+>> +	model = "ifm ZynqMP VHIP6 Evaluation Board";
+>> +	compatible = "ifm,zynqmp-vhip6-evalboard", "ifm,zynqmp-vhip6", "xlnx,zynqmp";
+>> +
+>> +	aliases {
+>> +		ethernet0 = &gem0;
+>> +		ethernet1 = &gem1;
+>> +		ethernet2 = &gem2;
+>> +		ethernet3 = &gem3;
+>> +		gpio0 = &gpio;
+>> +		i2c0 = &i2c0;
+>> +		i2c1 = &i2c1;
+>> +		rtc0 = &i2crtc;
+>> +		serial0 = &uart0;
+>> +		spi0 = &qspi;
+>> +		usb0 = &usb0;
+>> +		usb1 = &usb1;
+>> +	};
+>> +
+>> +	chosen {
+>> +		bootargs = "clk_ignore_unused";
 > 
-> Each ADC is a 12-bits successive approximation analog-to-digital converter,
-> with up to 20 multiplexed channels that can be configured as single ended
-> or differential. ADC resolution ranges from 6 to 12 bits.
-> 
-> It introduces diversity regarding IRQs, clocks, software calibration
-> procedure, internal voltage channels, sampling time (prescaler) and
-> trigger list. Most of the architecture, and the driver engine remains
-> similar. So, handle the differences w.r.t. other STM32 ADCs family with
-> a dedicated compatible and compatible data.
-> 
-> Trigger list depends on ADC instance, retrieved with "st,adc-trigger-sel"
-> property.
-> 
-> Add support for vddcpu and vddgpu internal channels on stm32mp25.
-> These channels are enabled by using ADC option register.
-> Add VDDGPU to the list of supported channels in this driver and made
-> available on stm32mp25. So update sampling information for all variants
-> (with zero'ed data when it's not available).
-> 
-> Co-developed-by: Cheick Traore <cheick.traore-ext@st.com>
-> Signed-off-by: Cheick Traore <cheick.traore-ext@st.com>
-> Co-developed-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-
-Hi. various comment inline. Some stuff will change if the two
-compatible solution works out instead of the trigger array
-stuff.  There are also some bits I'd like as enabling refactors
-where you add the new stuff to support extra variability before
-bringing in a the device support that uses it.  Tends to end up more
-readble.
-
->  /* STM32F4 ADC internal common clock prescaler division ratios */
->  static int stm32f4_pclk_div[] = {2, 4, 6, 8};
->  
-> +/* STM32MP25 ADC internal common clock prescaler division ratios */
-> +static int stm32mp25_presc_div[] = {1, 2, 4, 6, 8, 10, 12, 16, 32, 64, 128, 256};
-
-Spaces after { and before } 
-I don't mind the line being a bit longer. Hmm. Local style so maybe leave it
-for now.
-
-> +
->  /**
-> - * stm32f4_adc_clk_sel() - Select stm32f4 ADC common clock prescaler
-> + * stm32_adc_clk_sel() - Select stm32f4 ADC common clock prescaler
->   * @pdev: platform device
->   * @priv: stm32 ADC core private data
->   * Select clock prescaler used for analog conversions, before using ADC.
->   */
-> -static int stm32f4_adc_clk_sel(struct platform_device *pdev,
-> -			       struct stm32_adc_priv *priv)
-> +static int stm32_adc_clk_sel(struct platform_device *pdev,
-> +			     struct stm32_adc_priv *priv)
->  {
->  	unsigned long rate;
->  	u32 val;
->  	int i;
->  
-> -	/* stm32f4 has one clk input for analog (mandatory), enforce it here */
-> +	/* stm32f4/mp25 has one clk input for analog (mandatory), enforce it here */
->  	if (!priv->aclk) {
->  		dev_err(&pdev->dev, "No 'adc' clock found\n");
->  		return -ENOENT;
-> @@ -153,20 +166,20 @@ static int stm32f4_adc_clk_sel(struct platform_device *pdev,
->  		return -EINVAL;
->  	}
->  
-> -	for (i = 0; i < ARRAY_SIZE(stm32f4_pclk_div); i++) {
-> -		if ((rate / stm32f4_pclk_div[i]) <= priv->max_clk_rate)
-> +	for (i = 0; i < priv->cfg->num_presc; i++) {
-> +		if ((rate / priv->cfg->presc[i]) <= priv->max_clk_rate)
->  			break;
->  	}
-> -	if (i >= ARRAY_SIZE(stm32f4_pclk_div)) {
-> +	if (i >= priv->cfg->num_presc) {
->  		dev_err(&pdev->dev, "adc clk selection failed\n");
->  		return -EINVAL;
->  	}
->  
-> -	priv->common.rate = rate / stm32f4_pclk_div[i];
-> -	val = readl_relaxed(priv->common.base + STM32F4_ADC_CCR);
-> -	val &= ~STM32F4_ADC_ADCPRE_MASK;
-> -	val |= i << STM32F4_ADC_ADCPRE_SHIFT;
-> -	writel_relaxed(val, priv->common.base + STM32F4_ADC_CCR);
-> +	priv->common.rate = rate / priv->cfg->presc[i];
-
-Where a refactor is needed do it first in an enabling patch
-with no new device support, then follow up with the new devices stuff.
-
-You might want to break that enabling up into a couple of patches as there
-are multiple things that need to become configurable and it will get
-complex in one patch.
-
-> +	val = readl_relaxed(priv->common.base + priv->cfg->regs->ccr);
-> +	val &= ~priv->cfg->regs->presc_msk;
-> +	val |= i << priv->cfg->regs->presc_shift;
-> +	writel_relaxed(val, priv->common.base + priv->cfg->regs->ccr);
->  
->  	dev_dbg(&pdev->dev, "Using analog clock source at %ld kHz\n",
->  		priv->common.rate / 1000);
-> @@ -314,6 +327,8 @@ static const struct stm32_adc_common_regs stm32f4_adc_common_regs = {
->  	.ovr_msk = { STM32F4_OVR1, STM32F4_OVR2, STM32F4_OVR3 },
->  	.ier = STM32F4_ADC_CR1,
->  	.eocie_msk = STM32F4_EOCIE,
-> +	.presc_msk = STM32F4_ADC_ADCPRE_MASK,
-> +	.presc_shift = STM32F4_ADC_ADCPRE_SHIFT,
->  };
-
-
-> +
->  static const struct of_device_id stm32_adc_of_match[] = {
->  	{
->  		.compatible = "st,stm32f4-adc-core",
-> @@ -895,6 +948,12 @@ static const struct of_device_id stm32_adc_of_match[] = {
->  	}, {
->  		.compatible = "st,stm32mp13-adc-core",
->  		.data = (void *)&stm32mp13_adc_priv_cfg
-> +	}, {
-> +		.compatible = "st,stm32mp23-adc-core",
-> +		.data = (void *)&stm32mp25_adc_priv_cfg
-> +	}, {
-> +		.compatible = "st,stm32mp25-adc-core",
-> +		.data = (void *)&stm32mp25_adc_priv_cfg
->  	}, {
->  	},
-Feel free to delete this trailing comma whilst you are here.
-
->  };
->
-> diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-> index 183b3474cad1..42827ce489dd 100644
-> --- a/drivers/iio/adc/stm32-adc.c
-> +++ b/drivers/iio/adc/stm32-adc.c
-
->  
->  enum stm32_adc_int_ch {
-> @@ -86,6 +97,7 @@ enum stm32_adc_int_ch {
->  	STM32_ADC_INT_CH_VDDQ_DDR,
->  	STM32_ADC_INT_CH_VREFINT,
->  	STM32_ADC_INT_CH_VBAT,
-> +	STM32_ADC_INT_CH_VDDGPU,
->  	STM32_ADC_INT_CH_NB,
-
-That one shouldn't have a comma as it's just there for counting and must
-always be last. Feel free to tidy that up whilst you are here!
-
->  };
->  
-> @@ -105,6 +117,7 @@ static const struct stm32_adc_ic stm32_adc_ic[STM32_ADC_INT_CH_NB] = {
->  	{ "vddq_ddr", STM32_ADC_INT_CH_VDDQ_DDR },
->  	{ "vrefint", STM32_ADC_INT_CH_VREFINT },
->  	{ "vbat", STM32_ADC_INT_CH_VBAT },
-> +	{ "vddgpu", STM32_ADC_INT_CH_VDDGPU },
-
-A precursor making all these arrays use
-	[STM32_ADC_INT_CH_VBAT] = { "...." } would help avoid the need for static
-magic below.
-
-
->  };
-...
-
-> +/* STM32MP25 external trigger sources for ADC12 */
-> +static struct stm32_adc_trig_info stm32mp25_adc12_trigs[] = {
-> +	{ TIM1_TRGO, STM32_EXT0 },
-> +	{ TIM1_TRGO2, STM32_EXT1 },
-
-> +	{ LPTIM5_OUT, STM32_EXT28 },
-> +	{},
-As below. Look for others.
-
-> +};
-> +
-> +/* STM32MP25 external trigger sources for ADC3 */
-> +static struct stm32_adc_trig_info stm32mp25_adc3_trigs[] = {
-
-> +	{ LPTIM1_CH1, STM32_EXT24 },
-> +	{ LPTIM2_CH1, STM32_EXT25 },
-> +	{ LPTIM3_CH1, STM32_EXT26 },
-> +	{ LPTIM4_CH1, STM32_EXT27 },
-> +	{ LPTIM5_OUT, STM32_EXT28 },
-> +	{},
-
-No comma on terminating entries like this +
-	{ }
-preferred as style for IIO drivers. (random choice but I'd
-like consistency across drivers eventually!)
-
-> +};
-
-> @@ -970,7 +1162,8 @@ static int stm32h7_adc_exit_pwr_down(struct iio_dev *indio_dev)
->  
->  	/* Exit deep power down, then enable ADC voltage regulator */
->  	stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_DEEPPWD);
-> -	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADVREGEN);
-> +	if (adc->cfg->has_vregen)
-
-I'd prefer this extra flag came in during a percursor patch (and was
-always set during that).  Will reduce the complexity of this patch a touch.
-
-> +		stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADVREGEN);
->  
->  	if (adc->cfg->has_boostmode &&
->  	    adc->common->rate > STM32H7_BOOST_CLKRATE)
-> @@ -1310,6 +1503,163 @@ static void stm32h7_adc_unprepare(struct iio_dev *indio_dev)
->  	stm32h7_adc_enter_pwr_down(adc);
->  }
->  
-> +/*
-> + * STM32MP25 offset calibration software procedure. Basically the calibration routine is
-> + * expected to average (for example) 8 samples in calibration mode, for single-ended  and
-> + * differential channels, to calibrate the zero offset. In case offset is "negative", an
-> + * additional offset can be added, to determine calibration factor. It must be kept later
-> + * for all conversions.
-> + */
-> +static int stm32mp25_adc_calib_get_average_data(struct iio_dev *indio_dev, u32 *average)
-> +{
-> +	struct stm32_adc *adc = iio_priv(indio_dev);
-> +	const struct stm32_adc_regspec *regs = adc->cfg->regs;
-> +	u32 val, avg = 0;
-> +	int i, ret;
-> +
-> +	/* Repeat several conversions in calibration mode, average the results */
-> +	for (i = 0; i < STM32MP25_CALIB_LOOP; i++) {
-
-	for (unsigned int i = 0; i...
-
-Look for other cases of this that can be simplified given this style
-is now allowed in the kernel (has been for last few years).
-
-> +		stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
-> +		ret = stm32_adc_readl_poll_timeout(STM32H7_ADC_CR, val,
-> +						   !(val & (STM32H7_ADSTART)),
-> +						   100, STM32_ADC_TIMEOUT_US);
-> +		if (ret) {
-> +			dev_err(&indio_dev->dev, "calibration average error %d\n", ret);
-> +			return ret;
-> +		}
-> +
-> +		val = stm32_adc_readl(adc, regs->dr);
-> +		dev_vdbg(&indio_dev->dev, "dr[%d]=0x%08x\n", i, val);
-> +		avg += val;
-> +	}
-> +
-> +	*average = DIV_ROUND_CLOSEST(avg, STM32MP25_CALIB_LOOP);
-> +	dev_vdbg(&indio_dev->dev, "average=0x%08x\n", *average);
-> +
-> +	return 0;
-> +}
-
-...
-
->  
-> -static const unsigned int stm32_adc_min_ts_h7[] = { 0, 0, 0, 4300, 9000 };
-> +/* Internal channel indexes are mapped on stm32_adc_int_ch enum */
-> +static const unsigned int stm32_adc_min_ts_h7[] = { 0, 0, 0, 4300, 9000, 0 };
->  static_assert(ARRAY_SIZE(stm32_adc_min_ts_h7) == STM32_ADC_INT_CH_NB);
-Given we only care about some entries, maybe we should have a precursor
-that drops all these static asserts and instead does
-
-static const unsigned int stm32_adc_min_ts_h7[STM32_ADC_INT_CH_NB] = {
-	[STM32_ADC_INT_CH_VDDQ_DDR] = 4300,
-	.. Only the ones that need to be non 0.
-};
-
-> @@ -2728,18 +3098,19 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
->  	.vref_charac = 3300,
->  };
->  
-> -static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
-> +static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 0, 0, 4300, 9800, 0 };
-
-As below.  If these need to change for some reason, precursor patch. If it were just the
-extra entry that would be fine but numbers are changing for earlier entries.
-
->  static_assert(ARRAY_SIZE(stm32_adc_min_ts_mp1) == STM32_ADC_INT_CH_NB);
->  
->  static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
->  	.regs = &stm32mp1_adc_regspec,
->  	.adc_info = &stm32h7_adc_info,
-> -	.trigs = stm32h7_adc_trigs,
-> +	.trigs = { stm32h7_adc_trigs, },
->  	.has_vregready = true,
->  	.has_boostmode = true,
->  	.has_linearcal = true,
->  	.has_presel = true,
->  	.has_oversampling = true,
-> +	.has_vregen = true,
->  	.start_conv = stm32h7_adc_start_conv,
->  	.stop_conv = stm32h7_adc_stop_conv,
->  	.prepare = stm32h7_adc_prepare,
-> @@ -2751,14 +3122,15 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
->  	.vref_charac = 3300,
->  };
->  
-> -static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
-> +static const unsigned int stm32_adc_min_ts_mp13[] = { 1000, 1000, 1000, 4300, 9800, 0 };
-
-Why is this existing entry changing?
-
->  static_assert(ARRAY_SIZE(stm32_adc_min_ts_mp13) == STM32_ADC_INT_CH_NB);
->  
->  static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
->  	.regs = &stm32mp13_adc_regspec,
->  	.adc_info = &stm32mp13_adc_info,
-> -	.trigs = stm32h7_adc_trigs,
-> +	.trigs = { stm32h7_adc_trigs, },
->  	.has_oversampling = true,
-> +	.has_vregen = true,
->  	.start_conv = stm32mp13_adc_start_conv,
->  	.stop_conv = stm32h7_adc_stop_conv,
->  	.prepare = stm32h7_adc_prepare,
-> @@ -2770,11 +3142,50 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
->  	.vref_charac = 3300,
->  };
-
-
+> You should not have such bootargs in mainline DTS. It ties DTS to
+> currecnt Linux driver implementation, not mentioning that it is
+> subjective choice. And once such bootargs appear, then they are tricky
+> to remove because users of DTS might rely on them.
+This can be dropped, thanks.
 
