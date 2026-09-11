@@ -4,103 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148EEC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA4EC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PL874DxmWdEEz+/Ho1XLM1gCTFYGrhEvvkDpUQlsjxY=; b=jUuD077CmGeMYsWlztGlBhKiWb
-	mgg4We6B7EhUlNF++NuGRTwRO03ezmAtI/R2HcV0O9sA2vsiwsvd8VF9vVZKmW4Lsow1mEvuTlxw8
-	pDc+iJ1dnIM2Hj64UZ8yyE7la7Ou3kBTgfZ76B9/VqpPRxoKWLYfxocOA90XLQaHfHLgtJ7Kar0HO
-	DbUsNdtFE58SUcRxeipePZR/Ub8Vo5qM0IotOAzBTchjegPMGSELu7VDSW5jqlq5WZglwsdm8CzZW
-	kVQzaBSbYlKzGT95A48S1bruaas/H7p7ZVTnCIzgqCb7xqmbLS4ar0ZwQ6Vk4a7KLZaJGTmCCpxlh
-	rqg1M7Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PpMXHaFF1JIW3abETAGrUWAAHuJWrnkzeYHOUDUyhbo=; b=nG1X+cxSJOxWQPWTkU2OKvsa0T
+	ycFEW7BSEBAK9Tfy5yt5znyAIu46GRZvuCUIcIMq2WWnE3o6yCSAiv/21Y87iGtO+PUKqgxPJeV+t
+	+BBOeTF5Mi+Vk2OQJLYU4iGolKESnyeglvNwwj3D4gLMiqwMpVSfrUb4BJ/R9eLErx50uOuXc5LHd
+	+57ChVaOWrorwWLlvSGKNYqpzBxe/+vt7LB02bGo0AsQhzQM6rvikb8FjzEO7qlVYVa8g5uqzzgZ0
+	7thXoKd/xgb34twGEeYd0BzgepTEbCDP/Px1r/anmw/Jz328DgJwoExVVJqD7lJ4OrfsJBDOUE6Zr
+	b2/qc4vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50E1-0000000GcPa-21q3;
-	Fri, 11 Sep 2026 12:19:25 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x50I5-0000000Gd0g-13un;
+	Fri, 11 Sep 2026 12:23:37 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50Dy-0000000GcNv-2BY6
+	id 1x50I2-0000000Gczv-07UA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:19:24 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a67fa7a64eso1418924a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:19:22 -0700 (PDT)
+	Fri, 11 Sep 2026 12:23:35 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4843e397f74so505996f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:23:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pardini.net; s=google; t=1789129161; x=1789733961; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1789129412; x=1789734212; darn=lists.infradead.org;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PL874DxmWdEEz+/Ho1XLM1gCTFYGrhEvvkDpUQlsjxY=;
-        b=L1DZh2m19zt1Qjzyro3edmhrcSqkENc1d7TZ9vGgQLANtpGLCeolnDPW/TdhMl504u
-         QiP718mwSuBKSL9mao0JfqWP1pXfjJIIXsF4S+XH20+awWmtdJWQCGdtMYCueWOuaoBi
-         BKL/xQyzqM4Lfs1TCMqTyDR+3n7rEIIE4PvYkG8eZ4CqTck31p6Kyal8KCUjMOyHNQlU
-         AEzS4fAEIlqT4r+Sv/XQ03RwPoPICZuoGjWFsqw0NU5hKAPyK9YEOUu3P+Mt7jXzWhyt
-         XjqIEKhs9di5EC9epff5peSkftp+jONejcAU8kMArv0jw0MmkZ5vM3Q8u9KaUsdGEzOb
-         4U1w==
+        bh=PpMXHaFF1JIW3abETAGrUWAAHuJWrnkzeYHOUDUyhbo=;
+        b=s/Xe3HBuXe46bupOCRiNbNMCp/1C22jvb0A2U1qwy+kV46NDq8T/Ys3uqlo82wSySB
+         +0KQbnUALCtLAq6yQQFMVlQAcLRwWo5OnnnHLiCM/NZ/hhLHJvkgcWCL2/yBAm5dMBx+
+         UG/UM2tZmeRdacskWwfmBlwudBVp6LUbRzt5Nat5IgtcXdr4vdmREmPPCp71odVNIhrp
+         UY++9xZXetLsuCti6GRRq3fb39+0eT5KDde7qLOQA1OCtzjAb8IKNcJ/ydeLGoCa1J5D
+         qqRl8si51kdMd1EbZECq879yOQLGzHejHZUQCavTXYM3SQJRFgUymZenCeDoAlsAr/k4
+         my1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789129161; x=1789733961;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1789129412; x=1789734212;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PL874DxmWdEEz+/Ho1XLM1gCTFYGrhEvvkDpUQlsjxY=;
-        b=giIRgpYRqIL2RliKtQ0HwYp86b0WYyMc2UKltZEDjA6Jgmtm968rWog3Pr3sTZ8fkK
-         +K5XJAMV31zk8Mz/2R//7jnfDv+deJDgfQPv/opyh+tW157Gmggru33Fq5MAioDGB5O0
-         m5gFdBHsZ56Pzv65b5rNpsXg1Y28wN4Obj+6sO5JrswPc8Yw5FTMnyau722Atj43nMbB
-         0XmDY8/d/P37FSfHsDN+BLUlhzJUPkm4W48U7NMLJwtTfO5JT4QatSJHlln6D1yfI7bb
-         PFaf1PZloNGciUpwT9U/fnMf36BMMy4vSf4x8lruQETolSHACMA/b1iKGbaNoHqWyzmS
-         JZvg==
-X-Forwarded-Encrypted: i=1; AKwUvBzarT3k3hkcOGdt54+cv+d7IWFEYld4+aJt5e5wIAx5ZkUW9oEJY5GZ7JW7YFbsLm74+sdn1VQRK7sNO5XDJWAA@lists.infradead.org
-X-Gm-Message-State: AFuF++mvD436tAJGknlgmsK4pRS1yyh6iRM/+FCgvLgyrwXMgg4QV1E8
-	9s3MYI8c2YR0ZsyzG65GJU4wiwmUg/W7HRpd/smwzMuQeNrMsYRS6Z01ZDLl1ks99w==
-X-Gm-Gg: AYBFou3EloaJej3nr5/SFYNhO7P3PtqDXEl/3g0frAXSdv+DP9R7JUO9sh9eVutfQ1L
-	FlfgYUDo3f6mYelqmrrRHQmbpycthaQJlXBhvshzofGoouBQB479jWREij+TjzPDk8AZKdfo4Dn
-	bEa2qJ2I0y54rpXBAQ8hwk7k/T0H0CG+SX4fjP951uFHvYBuV4oNEvyngAmmcEQtyDaxg7Cb48/
-	ccmVohYmtY1Bpoje5u7kM9xv5v5N7G3QbT8iaX0ZDI30RUIGlqJcEwjMs+VPH4q/ppunQReXzeQ
-	nspPJwXV+0iKG96LmcLsTWKrN1cpKrEEbvHJLWWP2V4r8TpUFjAIelLRFkPaB0ciUvD10IyuUDc
-	VYo+F/hR0g/zHGTYtKAbbRvrLVnLnDQB//JfA9RXY7sijdx03UbauNYaJEbSv2Y3PsCV2wk2+yO
-	9Xl7dCAmTEUO1ck0D839Uwa4EfUVxIximukWDUtSZlRHjSAtx0L+HZ+BdRldJLDExIZBm/qc2tl
-	G5nMIarX8mJuZkcxHn0p9wi2XQy5pUpF/H5m5PMZdfT35A5f8jAoE5YxJeFb8jCnIWl5yS8wBGJ
-	s5aN25o62uP6O3o/tzOkGc6CH0UcBM5Ck65bYPZG/xtb3Ug=
-X-Received: by 2002:a05:6402:42d2:b0:6a9:b203:f410 with SMTP id 4fb4d7f45d1cf-6a9b5694f10mr1718054a12.21.1789129160539;
-        Fri, 11 Sep 2026 05:19:20 -0700 (PDT)
-Received: from ?IPV6:2a02:a466:4d7a:0:d90f:783f:2e2e:893d? (2a02-a466-4d7a-0-d90f-783f-2e2e-893d.fixed6.kpn.net. [2a02:a466:4d7a:0:d90f:783f:2e2e:893d])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a9b594f0fasm778079a12.25.2026.09.11.05.19.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Sep 2026 05:19:20 -0700 (PDT)
-Message-ID: <bd032333-c557-4595-ae0c-6cb2971a9a86@pardini.net>
-Date: Fri, 11 Sep 2026 14:19:19 +0200
+        bh=PpMXHaFF1JIW3abETAGrUWAAHuJWrnkzeYHOUDUyhbo=;
+        b=WHBXIoUwQ/HVtyp2f2M7jHV207YOWAeA6XQVG/LywPn9oNT53xrhxtYi+MYczmsFnP
+         mc0T+6kQ/+cVMp93lAbci2pH1rYgRW1Qv+YYeLSFlcG4xxRWp+uuNAYQ8qf4/Aw1t+FM
+         hU7qAO3+0/JVZtTfmk1pG/ZFLj612rsQvcVqaN/3aRvP9NdURIwvMmMYMDssauvEYN1c
+         v8uLSUbIYGpZGbJktvadCbn+1p3xZpCHCxHKod75GmqdEkQMjp4N9LjZS5rJQg6iGuvX
+         8jbfIR2t/2Zlf+cemWiW4g74kgjogKSv1CfgeLNl18MDINmvExCPFcZq6p0dleVrAqTT
+         e9tQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxpH8T+INvbFWCsFIwKxlQZ0c3Xad4jlp2PiW0qXdDZ+xDAEyCVeMMSRnJh+z0BrMoiz/uBodyxnuRp/9L2sZgJ@lists.infradead.org
+X-Gm-Message-State: AFuF++n4kefUu+aE+liF4VlcdF75rb31oOHBFJXxJ2vRw1hLN/UU7veh
+	0NmbzfoYhMabdXLusqF49ujCX0jfTlkfzAjPfHLK6/SSDuEuCCZ21z1q
+X-Gm-Gg: AYBFou1Tx6ITDn5nkYC6N7xwQQ6dHs1zgDCqyYGMsNdjRmgAqkUc0CjB9xe/kgUTLUI
+	USn2gJg4DU5tsAIR4ZEdVEcfYjPhXvkCuYrers9zJ6GQTrFu+oY4mpxVtm79qsxSZ1G5TuJeuCW
+	rrokezU6m7IIo9tlAtmemFknLTD2csxUyRRDdSSqpVPTMVflGLUPlnjjk2KhQDbMgpGH5zbuPCt
+	G/mmKt64v+egw7sCYg/r3uGSq9a3c1bBhg8uhxZiv+jYbl5x8Idi+sAHpHJ96BUYD5sksisnmEv
+	6LUBe/1txKiaQ9f2RDHZKXl0n31HNO4xcIegoChHp/n7jLhaxWoaSKZTyW+sznitmo1H6LKznV6
+	Nq+GS96te4ZL+TTzQx2nQpWTzVeaQQ76DBA/fF4oCYNCL17uZgjWFp+mkQDf9/xgVhU17pN0de5
+	J2+vACOyt7qUO7sYcWYmC2BnORNW8Xc+xjzm+h22cMQ3OFLHRc+YhpxrghhVVbU1L4doc=
+X-Received: by 2002:a05:6000:2311:b0:485:8d9c:47d2 with SMTP id ffacd0b85a97d-486e0f955c8mr11792035f8f.30.1789129411941;
+        Fri, 11 Sep 2026 05:23:31 -0700 (PDT)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34e608sm5870255f8f.23.2026.09.11.05.23.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 05:23:31 -0700 (PDT)
+Date: Fri, 11 Sep 2026 15:23:28 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: oe-kbuild@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:board-remove-7.3 182/295] drivers/hwmon/ads7828.c:121
+ ads7828_probe() warn: if statement not indented
+Message-ID: <202609111050.oiut4oST-lkp@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/7] arm64: dts: rockchip: describe PCIe RTL8125
- Ethernet on NanoPC-T6
-To: Diederik de Haas <diederik@cknow-tech.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net>
- <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-2-c1b9e5f10cd6@pardini.net>
- <DLCE8BRWYCBL.2UH33L4RQMAGN@cknow-tech.com>
-Content-Language: en-US
-From: Ricardo Pardini <ricardo@pardini.net>
-In-Reply-To: <DLCE8BRWYCBL.2UH33L4RQMAGN@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_051922_602388_6CA9D2EC 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20260911_052334_086796_E7BF01B3 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,134 +98,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/09/2026 11:52, Diederik de Haas wrote:
-> On Thu Sep 10, 2026 at 10:07 PM CEST, Ricardo Pardini via B4 Relay wrote:
->> From: Ricardo Pardini <ricardo@pardini.net>
->>
->> The FriendlyElec NanoPC-T6 carries two on-board Realtek RTL8125 NICs
->> behind pcie2x1l0 and pcie2x1l2.
->>
->> Describe the fixed function nodes and attach ethernet0/ethernet1
->> aliases, so that U-Boot's fdt_fixup_ethernet() can fill in the MAC
->> from its ethaddr/eth1addr env. The on-NIC EEPROMs on this board are
->> not pre-programmed with a unique MAC, so this gives a stable MAC
->> across boots that both U-Boot and the kernel agree on.
->>
->> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
->> ---
->>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 ++++++++++++++++++++++
->>   1 file changed, 30 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> index cfdb5c13f8606..550358a756618 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> @@ -20,6 +20,8 @@ / {
->>   	compatible = "friendlyarm,nanopc-t6", "rockchip,rk3588";
->>   
->>   	aliases {
->> +		ethernet0 = &rtl_eth0;
->> +		ethernet1 = &rtl_eth1;
->>   		mmc0 = &sdhci;
->>   		mmc1 = &sdmmc;
->>   	};
->> @@ -644,6 +646,20 @@ &pcie2x1l0 {
->>   	pinctrl-names = "default";
->>   	pinctrl-0 = <&pcie2_0_rst>;
-> 
-> The new pinctrl reference is ``pcie_25glan_perstb_b_pin``, so this patch needs
-> to be rebased.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove-7.3
+head:   cf983087c51a9c74c3d4d3b353eb811ae5030823
+commit: 4df92b98525f08e1eab92a25f5da2045c78403e8 [182/295] hwmon: asd7828: remove pdata based probing
+config: arm-randconfig-r071-20260911 (https://download.01.org/0day-ci/archive/20260911/202609111050.oiut4oST-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+smatch: v0.5.0-9187-g5189e3fb
 
-Indeed; I sent v5 vs v7.3-rc2 which doesn't have your recent series 
-fixing those. I've rebased onto next-20260910 which does, will send in a 
-v6 - but it's really just fuzz/context changes.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <error27@gmail.com>
+| Closes: https://lore.kernel.org/r/202609111050.oiut4oST-lkp@intel.com/
 
-I'll wait a bit until Heiner/Krysztof/Heiko chime in ref the binding and 
-its wording as that has been contentious in the previous versions. And 
-who knows what Sashiko will find this time.
+smatch warnings:
+drivers/hwmon/ads7828.c:121 ads7828_probe() warn: if statement not indented
 
-> 
->>   	status = "okay";
->> +
->> +	pcie@0,0 {
->> +		reg = <0x200000 0 0 0 0>;
->> +		#address-cells = <3>;
->> +		#size-cells = <2>;
->> +		ranges;
->> +		device_type = "pci";
->> +		bus-range = <0x21 0x2f>;
->> +
->> +		rtl_eth0: ethernet@0,0 {
->> +			compatible = "pci10ec,8125";
->> +			reg = <0x210000 0 0 0 0>;
->> +		};
-> 
-> Described on page 23 of the schematic titled '2.5G Ethernet B' and ``U12``
-> (ie RTL8125BG) is connected to LAN2 which has ``ETH2`` as label on the case.
+vim +121 drivers/hwmon/ads7828.c
 
-Confirmed.
+5812f9283e6213 Steve Hardy              2008-01-22  116  
+a8ddfea09566c3 Sam Povilus              2017-03-29  117  	diff_input = of_property_read_bool(dev->of_node,
+a8ddfea09566c3 Sam Povilus              2017-03-29  118  					   "ti,differential-input");
+fddb5ceaf901b0 Qingshuang Fu            2026-08-05  119  	vref_uv = devm_regulator_get_enable_read_voltage(dev, "vref");
+fddb5ceaf901b0 Qingshuang Fu            2026-08-05  120  	if (vref_uv < 0) {
+fddb5ceaf901b0 Qingshuang Fu            2026-08-05 @121  		if (vref_uv != -ENODEV)
+fddb5ceaf901b0 Qingshuang Fu            2026-08-05  122  		return vref_uv;
 
-> 
->> +	};
->>   };
->>   
->>   &pcie2x1l1 {
->> @@ -660,6 +676,20 @@ &pcie2x1l2 {
->>   	pinctrl-names = "default";
->>   	pinctrl-0 = <&pcie2_2_rst>;
-> 
-> The new pinctrl reference is ``pcie_25glan_perstb_pin``.
+Add another tab before the return.
 
-Will also be fixed by rebasing onto linux-next.
-
-> 
->>   	status = "okay";
->> +
->> +	pcie@0,0 {
->> +		reg = <0x400000 0 0 0 0>;
->> +		#address-cells = <3>;
->> +		#size-cells = <2>;
->> +		ranges;
->> +		device_type = "pci";
->> +		bus-range = <0x41 0x4f>;
->> +
->> +		rtl_eth1: ethernet@0,0 {
->> +			compatible = "pci10ec,8125";
->> +			reg = <0x410000 0 0 0 0>;
->> +		};
-> 
-> Described on page 22 of the schematic titled '2.5G Ethernet A' and ``U10``
-> (ie RTL8125BG) is connected to LAN1 which has ``ETH1`` as label on the case.
-> 
-> So this results in:
-> ETH1 -> rtl_eth1
-> ETH2 -> rtl_eth0
-> 
-> This sounds like a recipe for confusion and/or potential future mistakes.
-> I think using ``rtl_eth1`` and ``rtl_eth2`` would be less confusing, but
-> I'm fine with another construct which achieves a similar thing.
-
-Yeah, that will result in aliases `ethernet0 = &rtl_eth1;` and 
-`ethernet1 = &rtl_eth2;`. It could also be `rtl_lan1`/`rtl_lan2`, or as 
-the schematics seems to to use the `_b` suffix, just `rtl_lan` and 
-`rtl_lan_b`, I don't mind. Raise if you do, otherwise I'll send v6 as 
-you suggested.
-
-Userspace will be off-by-one vs the printed case labels, thus _some_ 
-confusion will remain, but it's already better than the current 
-enP2p33s0/enP4p65s0.
-
-> 
-> Cheers,
->    Diederik
-> 
->> +	};
->>   };
->>   
->>   &pcie30phy {
-> 
-
-Thanks,
-Ricardo
+fddb5ceaf901b0 Qingshuang Fu            2026-08-05  123  	} else {
+a8ddfea09566c3 Sam Povilus              2017-03-29  124  		vref_mv = DIV_ROUND_CLOSEST(vref_uv, 1000);
+a8ddfea09566c3 Sam Povilus              2017-03-29  125  		if (vref_mv < ADS7828_EXT_VREF_MV_MIN ||
+a8ddfea09566c3 Sam Povilus              2017-03-29  126  		    vref_mv > ADS7828_EXT_VREF_MV_MAX)
+a8ddfea09566c3 Sam Povilus              2017-03-29  127  			return -EINVAL;
+a8ddfea09566c3 Sam Povilus              2017-03-29  128  		ext_vref = true;
+a8ddfea09566c3 Sam Povilus              2017-03-29  129  	}
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 
