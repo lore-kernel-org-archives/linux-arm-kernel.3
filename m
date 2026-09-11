@@ -4,71 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73E5C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78403C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lm+a3MSG9zoM0b7/DkVI+7E7MxJQqcaMpITcYWuCOkM=; b=VfnAF3LrBdhQGepnYfcaTHV60C
-	qKy0miOpW7kkU3LuhTW1KqU03SnOg/o48p96sVrnz3z71Ugm125pNJcMCIlgF44E0F8lO1+V6McA/
-	CcEmKE0J5rVKYkUEJ0HOtHW4g8F6XlQIhESS5gd565YMJOKkOIByVIl1VS2qVybvCnwa/I0hMFDgf
-	BxI3UDLrRuihRZgrs8fiB3GZTJlrDv9xlTYL2feMPj3RvaJSLEKUTkNBXJEEe43J0cTz66POoSs4q
-	9TOU3cVF6wKxEKAqCpTZGBDCR5ic2eiqlwESiqaCp3Kr1Geu1mLuHjDCinfmm9x9Ei1n1rH4YGjpd
-	gYkUJeGQ==;
+	bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=; b=NH39BNa26JgwcLhUgowLpIT32Z
+	1fCxMNhCaLOAnJyR5ggnpxa79lNx5R8w+WOZBxvsw3BSzMIgXqvNnYEs1Zo2YwVqmK/DpZSRFSOSX
+	kkjXBbfQBSxyUvyuvKye6MfJnzDlBSe7ASe5ykoI02eS0SAGQKBTY8SRN/O/NRclRtYNFMRjGKpwH
+	/UaKQeBYqCyfmRN7seupA6s46O14ysndPFUpEcQjrMkiXNwBGs5D/DWZNRvenLfZYiRu8KCaAi4YB
+	zqivbjxRGN9DMSUriXQhFNu4XY32SI08P3Y2t1KjbzcLJI2EtYPwA3nKsVNHnlldbKWvga3FbnWV7
+	Y7iIkOMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52t2-0000000H0b1-2l7p;
-	Fri, 11 Sep 2026 15:09:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52sz-0000000H0aR-2GV7
+	id 1x51ww-0000000GrA2-124u;
+	Fri, 11 Sep 2026 14:09:54 +0000
+Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x51wq-0000000Gr8L-1hvY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:09:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FA4216A3;
-	Fri, 11 Sep 2026 08:09:48 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 570493F8C6;
-	Fri, 11 Sep 2026 08:09:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789139391; bh=sbQft3RiYwiBnRwgWP9qJj4nzj3aI7MtQq3JJdfFVuQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Hv4BaVbyI+lFkOT0vJWMuWoemhDJT0YwsHsemeHvYTgt3SNX2YbDzi+mrxx6z7/sM
-	 gb3cbrg+LJJXL3jMEzVKcd08htjVam5esGnqMIMC/ICwZAhs5irs8YBSRX+WyvRKEO
-	 oRiiM6Ze5/xd796FFljM/IaazilMMOXlgDJqdfWE=
-Message-ID: <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
-Date: Fri, 11 Sep 2026 16:09:48 +0100
+	Fri, 11 Sep 2026 14:09:49 +0000
+Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-6712bea5c91so497964d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 07:09:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1789135787; x=1789740587; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=;
+        b=INE91x11IPibK/wgJOlhA8qWk58NlDJuBenfnHXxFF0ZaNn+jWwtF7JodH4Cx+Ne6B
+         0GMbcu8MgNy7jl9wT3y6LTwEEG2BVTtyBzXdVov8SM7CzFRxNcWNt0xoaimY9s+bVF7n
+         XQ1fQiWNkeHMv1c0Pn9u/cdPuywZt1MoG3iPNBeGyGD1UvDpCmcrje9bCsxCDBwPP0lY
+         NIahCwCQvInFEmm36L5czX64awKbHjfzulWGmWxhzXHWQgzZmfa5Q/t28T10RH1PcYL7
+         RR467LkGvlcQ6+W/7Sp7PLgM5Zq38pnBdSkaWIH/j/nEJJ6J+CTB3pwa3SG7VYtzt6rW
+         OlGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789135787; x=1789740587;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=;
+        b=Q05AnmQvFhnX/mxlaTiDRhPP/L/IQT+JTvPhWoIopAztURoWKraUsAJx8VLW6qNtx3
+         rjF4xmclY4ey2F2ftOKl4/bNuiT3XLdLYZUwQwiwwliiWWgfqgRhwTs5MqFTmWfiRWBA
+         lYsFU1ZWyHwwb2Nfj757Xc1LpDlJkAGJswU20Gs0HAcDvRyGQdMQobuNotF/Ekhb+low
+         4YDLxDo26yvAjsTBXlLtg1mAqt/l5bvhPyA227bcrBqHKvqupfd0Gf4H45ERaKkQ00oM
+         Lrn49e2pvVWVYcOEt649aEwFv7R1HsylnQBBGRc2uZ+JCCS9S/riUP0+eVMDVsJCgaRm
+         poHQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwMlCrDaLB6E6S9AfXkSZFTAcSO3x3fItXrygM+uKjh6aIcza+fcVfjLtrqYyFprDGr21A3+3ES5yTCVXA7OwiX@lists.infradead.org
+X-Gm-Message-State: AFuF++nqgWL75wHWKOgJ50ggii67WM02YvT5BkSLhKjz4ecXelFmOKSs
+	s1XuM9jxIYWwGx5W8fyeA4m6u2YCxZfsE2plO16KSSBEQivem1fKR4+sLS5B4HPwEvc=
+X-Gm-Gg: AYBFou2HvmPAq1BduaajIChhGjFYhRFm1FPWfjI5FxQdMGhxtbyZFkLXfiSM6VSCJWF
+	HtjYIekVa0/Cxc0hLDxHuCeQzpkAg0ydJC+aKeB0M8wez+yKTecgKAknnK2p5/kWUZP2VHbnrrE
+	RlU8HC9Y7AcfsoLjYfsv5HbzKtouf5x3OEJiWP1n9maHJDgFCFEns1fYyRV2p1mkpEsCw8MM1Pa
+	Xa4NZO0CP7Lcz4LZcz5FJOXo3u3ZWNlcIve/RvxIQ72uoAYgb638OR4jScX/7vDHnpP4PSeuNmz
+	R+PXpypzngfcGcPZqMYZPHWciNS3nLQoDBVhOkrX2FeuloQE8qw+odABFg1DimviFJNLuF6XzmG
+	TdQkoZDnUH0m7/KVhVGm79McKPkZxrkXFVwKqSlVDEZsq5M4k6pyUZwbz1fVzlEIGPCu0kO2Yah
+	rLQ1Fxbmci7fHk19T3ubdqy/F/x4cEi6pXNz98bp+JDMaT4H/XYgYybuaiUYTaNyxLZ6ma6dvWO
+	C+oWViOuHXbaJ5EFX8+17EP+PuUOiLmv9DYokxwIJWSr/npBVzGBOLwSyoZIXBhaw4=
+X-Received: by 2002:a53:ac84:0:b0:671:2bb8:ceb0 with SMTP id 956f58d0204a3-6712bb8d198mr592173d50.65.1789135786904;
+        Fri, 11 Sep 2026 07:09:46 -0700 (PDT)
+Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120ef650a6sm22355976d6.0.2026.09.11.07.09.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 07:09:44 -0700 (PDT)
+From: Josef Bacik <josef@toxicpanda.com>
+Date: Fri, 11 Sep 2026 14:08:39 +0000
+Subject: [PATCH RFC v2 01/15] rcu-tasks: Add per-task trampoline nesting
+ count
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260911112835.714162-1-andre.przywara@arm.com>
- <20260911112835.714162-13-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260911112835.714162-13-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260911-b4-rcu-tasks-preempt-qs-v2-1-eaaa61ed2da4@toxicpanda.com>
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+ Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+ Xu Kuohai <xukuohai@huaweicloud.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+ Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
+ Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
+ rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openssh-sha256; t=1789135736; l=7684;
+ i=josef@toxicpanda.com; h=from:subject:message-id;
+ bh=5hfL8mlrp+YP87pgAlSpHeSx0zMtfymEMHCNh6a40UA=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
+ JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QPWvMx3TEehoRUZzyZvbL0GIDlx2yxh9C8YdBR0qgc4jATwF0zYzIPzSM+uo5u0rpazhBa063Yn
+ SUZFFg50YiQg=
+X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
+ fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_080953_664035_D2733EDD 
-X-CRM114-Status: GOOD (  38.73  )
+X-CRM114-CacheID: sfid-20260911_070948_509888_F8CFFFA6 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,308 +129,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Tasks RCU exists so that ftrace, BPF and kprobes can free trampoline
+text once no task can still be executing in it.  Today the only way a
+task tells Tasks RCU "I am not in a trampoline" is a voluntary context
+switch, so a preempted task is always assumed to be inside one.
 
-On 11/09/2026 12:28, Andre Przywara wrote:
-> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> registers through a firmware interface. This requires a shared memory
-> region to hold the message, and a mailbox to trigger the access.
-> For ACPI this is wrapped as a PCC channel, described using existing
-> ACPI abstractions.
-> 
-> Add code to parse those PCC table descriptions associated with an MSC,
-> and store the parsed information in the MSC struct.
-> There can be multiple PCC channels, and each channel can serve multiple
-> MSCs, so we need to keep track of the channel usage, using a list and
-> a refcount.
-> 
-> This will be used by the MPAM-Fb access wrapper code.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
->  drivers/resctrl/Kconfig         |   1 +
->  drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_fb.c       |  41 +++++++++++
->  drivers/resctrl/mpam_internal.h |   2 +
->  4 files changed, 161 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> index 9591d792736e5..3f81638f57be3 100644
-> --- a/drivers/resctrl/Kconfig
-> +++ b/drivers/resctrl/Kconfig
-> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
->  	bool "MPAM driver"
->  	depends on ARM64 && ARM64_MPAM
->  	select ACPI_MPAM if ACPI
-> +	select PCC if ACPI
->  	select MAILBOX
->  	help
->  	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 14dc8461e4b8f..150a529458388 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -20,14 +20,19 @@
->  #include <linux/irqdesc.h>
->  #include <linux/list.h>
->  #include <linux/lockdep.h>
-> +#include <linux/mailbox_client.h>
->  #include <linux/mutex.h>
->  #include <linux/platform_device.h>
->  #include <linux/printk.h>
-> +#include <linux/property.h>
->  #include <linux/srcu.h>
->  #include <linux/spinlock.h>
->  #include <linux/types.h>
->  #include <linux/workqueue.h>
->  
-> +#include <acpi/pcc.h>
-> +#include <acpi/acpi_io.h>
-> +
->  #include "mpam_internal.h"
->  
->  /* Values for the T241 errata workaround */
-> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
->  
->  struct srcu_struct mpam_srcu;
->  
-> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
-> +static DEFINE_MUTEX(pcc_chan_list_lock);
-> +static LIST_HEAD(pcc_chan_list);
-> +
-> +static void mpam_pcc_chan_release(struct kref *ref)
-> +{
-> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
-> +						 refcount);
-> +
-> +	pcc_mbox_free_channel(cur->pcc_chan);
-> +	list_del(&cur->pcc_chans);
-> +	mutex_destroy(&cur->pcc_chan_lock);
-> +	kfree(cur);
-> +}
-> +
-> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
-> +					       int subspace_id)
-> +{
-> +	struct mpam_pcc_chan *cur;
-> +
-> +	guard(mutex)(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
-> +		if (cur->subspace_id == subspace_id) {
-> +			kref_get(&cur->refcount);
-> +
-> +			return cur;
-> +		}
-> +	}
-> +
-> +	cur = kzalloc_obj(*cur);
-> +	if (!cur)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	cur->pcc_cl.tx_block = true;
-> +
-> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
-> +	if (IS_ERR(cur->pcc_chan)) {
-> +		long err = PTR_ERR(cur->pcc_chan);
-> +
-> +		kfree(cur);
-> +		return ERR_PTR(err);
-> +	}
-> +
-> +	/*
-> +	 * Timeout based on the "nominal latency" in us, from the
-> +	 * PCC ACPI table. tx_tout is in ms.
-> +	 * Add some margin here to be on the safe side.
-> +	 */
-> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
-> +
-> +	mutex_init(&cur->pcc_chan_lock);
-> +
-> +	cur->subspace_id = subspace_id;
-> +	kref_init(&cur->refcount);
-> +
-> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
-> +
-> +	return cur;
-> +}
-> +
-> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
-> +{
-> +	struct mpam_pcc_chan *cur, *tmp;
-> +
-> +	if (!pcc_chan)
-> +		return 0;
-> +
-> +	guard(mutex)(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
-> +		if (cur == pcc_chan) {
-> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
-> +
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	return -ENOENT;
-> +}
-> +
->  /*
->   * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->   * can be enabled.
-> @@ -2285,6 +2371,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  	if (!msc)
->  		return;
->  
-> +	mpam_pcc_chan_put(msc->pcc_chan);
-> +
->  	mutex_lock(&mpam_list_lock);
->  	mpam_msc_destroy(msc);
->  	mutex_unlock(&mpam_list_lock);
-> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  {
->  	int err;
-> -	u32 tmp;
-> +	u32 pcc_subspace_id;
->  	struct mpam_msc *msc;
->  	struct resource *msc_res;
->  	struct device *dev = &pdev->dev;
-> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  	if (err)
->  		return ERR_PTR(err);
->  
-> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->  		msc->iface = MPAM_IFACE_MMIO;
->  	else
->  		msc->iface = MPAM_IFACE_PCC;
-> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  		}
->  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->  		msc->mapped_hwpage = io;
-> +	} else if (msc->iface == MPAM_IFACE_PCC) {
-> +		u32 mpam_fb_msc_id;
-> +
-> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-> +		if (IS_ERR(msc->pcc_chan)) {
-> +			pr_err("Failed to request MSC PCC channel\n");
-> +			return ERR_CAST(msc->pcc_chan);
-> +		}
-> +
-> +		err = mpam_fb_check_shared_buffer_size(msc);
-> +		if (err) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(err);
-> +		}
-> +
-> +		err = mpam_fb_check_protocol_version(msc);
-> +		if (err) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(err);
-> +		}
-> +
-> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
-> +					     &mpam_fb_msc_id))
-> +			mpam_fb_msc_id = msc->id;
-> +		msc->mpam_fb_msc_id = mpam_fb_msc_id;
+Add task_struct::rcu_tramp_nesting so that trampolines can say so
+directly: a trampoline increments it before calling out and decrements
+it before returning, and while it is non-zero the task must not be
+treated as Tasks-RCU quiescent.  Provide rcu_tasks_trampoline_enter()
+and rcu_tasks_trampoline_exit() for C users, report the count in the
+Tasks RCU stall output, and, under CONFIG_PROVE_RCU, assert that it is
+zero on every return to userspace since no task can legitimately reach
+userspace with a trampoline on its stack.
 
-This looks like the change earlier in the series to drivers/acpi/arm64/mpam.c makes no functional
-effect unless the proposed spec changes are accepted; the default is msc->id. I'd just move the
-earlier drivers/acpi/arm64/mpam.c to your last patch and introduce this device_property_read_u32()
-their too (or a separate patch if it's easier for anyone). That way all but the last two patches can
-be considered for merging without knowing what's going to happen with the spec.
+Only current ever writes the count and every nested user (interrupts
+running their own trampolines) is balanced, so plain accesses suffice.
 
-The struct msc property mpam_fb_msc_id is a bit long. Better as msc->fb_id?
+The callbacks reached from static trampolines (return_to_handler, the
+rethook and kretprobe trampolines) are covered by the preempt_disable()
+in the ftrace recursion protection rather than by the count; note that
+dependency in trace_recursion.h so it is not lost if the
+preempt_disable() is ever removed from there.
 
-Thanks,
+Nothing increments the count and nothing consults it for quiescent-state
+decisions yet; both come in later patches.
 
-Ben
+Assisted-by: LLM
+Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+---
+ include/linux/irq-entry-common.h |  2 ++
+ include/linux/rcupdate.h         | 37 +++++++++++++++++++++++++++++++++++++
+ include/linux/sched.h            |  1 +
+ include/linux/trace_recursion.h  | 11 +++++++++++
+ kernel/fork.c                    |  1 +
+ kernel/rcu/tasks.h               |  3 ++-
+ 6 files changed, 54 insertions(+), 1 deletion(-)
 
->  	} else {
->  		return ERR_PTR(-EINVAL);
->  	}
-> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-> index 98212f761de38..8fc1d78a7b5ab 100644
-> --- a/drivers/resctrl/mpam_fb.c
-> +++ b/drivers/resctrl/mpam_fb.c
-> @@ -20,10 +20,15 @@
->  #define MPAM_FB_PROTOCOL_ID		0x1a
->  
->  #define MPAM_PROTOCOL_VERSION_CMD	0x0
-> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
-> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
-> +
->  #define MPAM_MSC_READ_CMD		0x4
->  #define MPAM_MSC_WRITE_CMD		0x5
->  
->  #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
-> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
->  
->  #define MPAM_FB_SUCCESS		 0
->  #define MPAM_FB_ERR_NOT_SUPPORTED	-1
-> @@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->  	return mpam_fb_send_request(msc, msc->mpam_fb_msc_id, reg, &value,
->  				    MPAM_MSC_WRITE_CMD);
->  }
-> +
-> +/* We only support MPAM-Fb protocol version 1.x */
-> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
-> +{
-> +	u32 version;
-> +	int ret;
-> +
-> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
-> +				   MPAM_PROTOCOL_VERSION_CMD);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
-> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
-> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
-> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
-> +
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
-> +{
-> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
-> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
-> +
-> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
-> +		pr_err("MPAM-Fb PCC channel size too small.\n");
-> +
-> +		return -ENOMEM;
-> +	}
-> +
-> +	return 0;
-> +}
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index e5a2804facd2d..314d3b48ca9fd 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
->  /* MPAM-Fb Firmware-backed protocol wrappers */
->  int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->  int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
-> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
-> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
->  
->  /*
->   * MPAM MSCs have the following register layout. See:
+diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+index 0bb6c03481fa..8da571622000 100644
+--- a/include/linux/irq-entry-common.h
++++ b/include/linux/irq-entry-common.h
+@@ -5,6 +5,7 @@
+ #include <linux/context_tracking.h>
+ #include <linux/hrtimer_rearm.h>
+ #include <linux/kmsan.h>
++#include <linux/rcupdate.h>
+ #include <linux/rseq_entry.h>
+ #include <linux/static_call_types.h>
+ #include <linux/syscalls.h>
+@@ -214,6 +215,7 @@ static __always_inline void __exit_to_user_mode_validate(void)
+ {
+ 	/* Ensure that kernel state is sane for a return to userspace */
+ 	kmap_assert_nomap();
++	rcu_tasks_trampoline_assert_none();
+ 	lockdep_assert_irqs_disabled();
+ 	lockdep_sys_exit();
+ }
+diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+index 44c07a66edff..b5c666c82479 100644
+--- a/include/linux/rcupdate.h
++++ b/include/linux/rcupdate.h
+@@ -180,6 +180,37 @@ static inline void rcu_nocb_flush_deferred_wakeup(void) { }
+ #ifdef CONFIG_TASKS_RCU_GENERIC
+ 
+ # ifdef CONFIG_TASKS_RCU
++
++/*
++ * Trampoline nesting: dynamically allocated text (ftrace trampolines, BPF
++ * trampoline images, kprobe optinsn slots) that relies on Tasks RCU for its
++ * lifetime brackets itself with an increment/decrement of
++ * current->rcu_tramp_nesting.  While the count is non-zero the task is inside,
++ * or was called from, such text and an involuntary context switch must not be
++ * treated as a Tasks RCU quiescent state.
++ *
++ * Only current writes the count and only current (or an interrupt on the same
++ * CPU) reads it, so plain accesses suffice.
++ */
++static __always_inline void rcu_tasks_trampoline_enter(void)
++{
++	current->rcu_tramp_nesting++;
++	barrier();
++}
++
++static __always_inline void rcu_tasks_trampoline_exit(void)
++{
++	barrier();
++	current->rcu_tramp_nesting--;
++}
++
++/* A task must never reach userspace with a trampoline on its stack. */
++static __always_inline void rcu_tasks_trampoline_assert_none(void)
++{
++	if (IS_ENABLED(CONFIG_PROVE_RCU))
++		WARN_ON_ONCE(current->rcu_tramp_nesting);
++}
++
+ # define rcu_tasks_classic_qs(t, preempt)				\
+ 	do {								\
+ 		if (!(preempt) && READ_ONCE((t)->rcu_tasks_holdout))	\
+@@ -192,6 +223,9 @@ void rcu_tasks_torture_stats_print(char *tt, char *tf);
+ # define rcu_tasks_classic_qs(t, preempt) do { } while (0)
+ # define call_rcu_tasks call_rcu
+ # define synchronize_rcu_tasks synchronize_rcu
++static inline void rcu_tasks_trampoline_enter(void) { }
++static inline void rcu_tasks_trampoline_exit(void) { }
++static inline void rcu_tasks_trampoline_assert_none(void) { }
+ # endif
+ 
+ #define rcu_tasks_qs(t, preempt) rcu_tasks_classic_qs((t), (preempt))
+@@ -208,6 +242,9 @@ void exit_tasks_rcu_finish(void);
+ #define rcu_tasks_classic_qs(t, preempt) do { } while (0)
+ #define rcu_tasks_qs(t, preempt) do { } while (0)
+ #define rcu_note_voluntary_context_switch(t) do { } while (0)
++static inline void rcu_tasks_trampoline_enter(void) { }
++static inline void rcu_tasks_trampoline_exit(void) { }
++static inline void rcu_tasks_trampoline_assert_none(void) { }
+ #define call_rcu_tasks call_rcu
+ #define synchronize_rcu_tasks synchronize_rcu
+ static inline void exit_tasks_rcu_start(void) { }
+diff --git a/include/linux/sched.h b/include/linux/sched.h
+index 8b3d47a325cc..d2e7b1b3c9d2 100644
+--- a/include/linux/sched.h
++++ b/include/linux/sched.h
+@@ -956,6 +956,7 @@ struct task_struct {
+ 	unsigned long			rcu_tasks_nvcsw;
+ 	u8				rcu_tasks_holdout;
+ 	u8				rcu_tasks_idx;
++	int				rcu_tramp_nesting;
+ 	int				rcu_tasks_idle_cpu;
+ 	struct list_head		rcu_tasks_holdout_list;
+ 	int				rcu_tasks_exit_cpu;
+diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+index e6ca052b2a85..2da23a52ca4a 100644
+--- a/include/linux/trace_recursion.h
++++ b/include/linux/trace_recursion.h
+@@ -153,6 +153,17 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+ 	current->trace_recursion = val;
+ 	barrier();
+ 
++	/*
++	 * Callbacks reached from static trampoline text (return_to_handler,
++	 * the rethook and kretprobe trampolines) do not maintain
++	 * current->rcu_tramp_nesting themselves; they rely on this
++	 * preempt_disable() to keep the task from being preempted, and thus
++	 * from reporting a Tasks RCU quiescent state, while an ftrace_ops or
++	 * its data is in use.  If the preempt_disable() is ever removed from
++	 * the recursion protection, this must rcu_tasks_trampoline_enter()
++	 * here and rcu_tasks_trampoline_exit() in trace_clear_recursion()
++	 * instead.  See CONFIG_RCU_TASKS_PREEMPT_QS.
++	 */
+ 	preempt_disable_notrace();
+ 
+ 	return bit;
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 416758c8a3d4..cfe3a8e53fbd 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -1869,6 +1869,7 @@ static inline void rcu_copy_process(struct task_struct *p)
+ #endif /* #ifdef CONFIG_PREEMPT_RCU */
+ #ifdef CONFIG_TASKS_RCU
+ 	p->rcu_tasks_holdout = false;
++	p->rcu_tramp_nesting = 0;
+ 	INIT_LIST_HEAD(&p->rcu_tasks_holdout_list);
+ 	p->rcu_tasks_idle_cpu = -1;
+ 	INIT_LIST_HEAD(&p->rcu_tasks_exit_list);
+diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+index 627295396cd9..1662ba18bf34 100644
+--- a/kernel/rcu/tasks.h
++++ b/kernel/rcu/tasks.h
+@@ -1113,10 +1113,11 @@ static void check_holdout_task(struct task_struct *t,
+ 		*firstreport = false;
+ 	}
+ 	cpu = task_cpu(t);
+-	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d idle_cpu: %d/%d\n",
++	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d tramp_nesting: %d idle_cpu: %d/%d\n",
+ 		 t, ".I"[is_idle_task(t)],
+ 		 "N."[cpu < 0 || !tick_nohz_full_cpu(cpu)],
+ 		 t->rcu_tasks_nvcsw, t->nvcsw, t->rcu_tasks_holdout,
++		 data_race(t->rcu_tramp_nesting),
+ 		 data_race(t->rcu_tasks_idle_cpu), cpu);
+ 	sched_show_task(t);
+ }
+
+-- 
+2.55.0
 
 
