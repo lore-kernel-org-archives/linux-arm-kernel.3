@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74497C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18DFC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOCOVInC775WiBtqQH5pSV36SDX5kInkJA9FSrFvl/M=; b=OdD4pcSo4ersau/upgARQ/maLx
-	z3gtjZB+7Q5GDyf81Hp3KNZ+ZAT1AIi4KrOZGADXdFk9y/gpo6FTBxBAnK2iVykppKEU3pGKFOmkO
-	YWI1nNaBFWXRrxJikzcRtMkGiJqqDZD7nqt/2l/pTTmh+mRSit1aDqlkr25VOQxOR5ib/Bt/14u5U
-	+DJz09keKYrOSN6clJIWx4mO7Db8R4UYJUw36rJOQhun/FF1CxL0f7kgM6P8lgq8rX8hLEa/IILSo
-	/jnvT5fhJO+Xtpo8dNCHsedKQYG/l+8e4pifh8OS6D4aYYwNUAhoCSa6cbPEno1HNmTt3xMxHB+7S
-	vlYnkw+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AAnYNMY4qKWEt8VqW/gq+QbhtFwungyZcJ3iIQPiMA8=; b=nfhZ0achbwcF1XOGFlMN4o93s0
+	we3nlsLx9NQtkPr9zvYxA4TixD46wRkXcPND21aaTIHkjohcbg5Q9qApo+cIAPm4+o8zukyHhqS9t
+	KFl0yiDFJcTklZ7BqI5J/bwO2k0+POxVlaECfKVgJtDcqMGAGvY0oHfu5ig7+4kIj8O+wZ+lX+8B0
+	CtRhA1HWrT8tj0HmPiSY88CPbOBncyT4XoUSFnEO2cNAfdW2+pm3D2iIWbROYkPWX6hwjlz0RYono
+	QIckl4yVvU234q0Xuta3cpHxfZnollbzmXFdGXGH6dcpz0ZA8vigjqQil/sWKS/85dy7uNYhwn2IA
+	LEOJE8vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xYx-0000000GGgN-2K8L;
-	Fri, 11 Sep 2026 09:28:51 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x4xcS-0000000GHAE-110N;
+	Fri, 11 Sep 2026 09:32:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xYt-0000000GGec-1K6I
+	id 1x4xcQ-0000000GH9r-2WK4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:28:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C112D4E401AD;
-	Fri, 11 Sep 2026 09:28:44 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 92144601DE;
-	Fri, 11 Sep 2026 09:28:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 286D611C7AF8E;
-	Fri, 11 Sep 2026 11:28:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789118923; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ZOCOVInC775WiBtqQH5pSV36SDX5kInkJA9FSrFvl/M=;
-	b=aD5Jiji/jcKYCmhgOG4txZ+FrxgDrogxM96MJW4fmpStxLY0A/quwGPuuDjd/UlC92cMGi
-	AubQsBFwmOpM6eGZAqzKcAZJ/hwDVd8ZBW3txW0Auklp/hbx3H4yaGeRHqpvxF3ooeBPVH
-	1xhLLFy2DgZuz88GxSBd/9dW86YtzBwtPUR6coTJviNJRhzUjgQb5EILDXj9rGLXpj974j
-	STNu3HlOYVismUbumDR9++8TZolCUGboEvZZJhCFG/AV6C1i8Ou/EWiHe6X2WzQ8+HcFpZ
-	TASjWnYLTAU79cEyDEPvvuyq/RQ1BI3kViE1Wo00vXNVuJCDv51zSiCXAzxoOw==
-Message-ID: <476761e1-81f1-48d8-9946-0f0696ce26a8@bootlin.com>
-Date: Fri, 11 Sep 2026 11:28:37 +0200
+	Fri, 11 Sep 2026 09:32:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BB4C409FD;
+	Fri, 11 Sep 2026 09:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEA7C1F000FF;
+	Fri, 11 Sep 2026 09:32:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789119146;
+	bh=AAnYNMY4qKWEt8VqW/gq+QbhtFwungyZcJ3iIQPiMA8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PyVXNLhamoEGYHMpL3Q4rsa62whZA3bWfw9FqxNQ9ZIkavOuDy970b4hzpf2VW5dg
+	 665PYTj+s7h/ZpnGzvIrO7TazHzP/S34FTp1JgiopifMNbEFVlz8LjHjFudfClI06S
+	 fTx1a+taFDlr6OMVCRlomCP09wbk7mrAuXNG3PuHZNmqmO8PmURwzsInlvjuYwC0MY
+	 kfDOwkFljeuVcpEWeZkbjNn2zn2wGDhTWG/JupNmCyWYIItr98C4LEgrD5I8aUCAui
+	 H4W2AMiROm14Ib7hqF0UXbne1UGnoeMO6gi2gMDXWquReVHt2aM95Kmicp6nwQXife
+	 ZCpaJ+H/2FLyQ==
+Date: Fri, 11 Sep 2026 10:32:17 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH 8/8] KVM: selftests: Add nested pre-fault test for arm64
+Message-ID: <aqPIUtNTJFwUvJME@gremlin>
+References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
+ <20260825-kvm-arm-prefault-v1-8-befe8947702e@kernel.org>
+ <aqOgEQKBGH-YqGr3@sm-arm-grace07>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: fix TSO header length truncation
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Niklas Cassel <niklas.cassel@axis.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260911-stmmac-fix-header-length-v1-1-8fc103334327@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260911-stmmac-fix-header-length-v1-1-8fc103334327@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_022847_497034_F8FB1F8E 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqOgEQKBGH-YqGr3@sm-arm-grace07>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +81,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
++cc Wei-Lin
 
-On 9/11/26 11:20, Lorenzo Bianconi wrote:
-> stmmac_tso_xmit() stores the protocol header length returned by
-> stmmac_tso_header_size() in a u8. stmmac_tso_valid_packet() admits
-> headers up to 1023 bytes, so a header longer than 255 bytes wraps modulo
-> 256 (486 becomes 230, 256 becomes 0).
-> 
-> A TCP over IPv6 socket carrying a few hundred bytes of sticky
-> destination/hop-by-hop options makes skb_tcp_all_headers() exceed 255
-> while staying below the 1023-byte limit, so such an skb reaches
-> stmmac_tso_xmit().
-> 
-> Widen proto_hdr_len to unsigned int, which is sufficient since the value
-> is bounded by the hardware limit, and adjust the debug print specifier
-> accordingly.
-> 
-> Fixes: 9edfa7dab811 ("net: stmmac: enable TSO for IPv6")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+On Fri, Sep 11, 2026 at 03:30:41PM +0900, Itaru Kitayama wrote:
+> Hi Lorenzo,
+>
+> On Tue, Aug 25, 2026 at 05:00:42PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > From: Jack Thomson <jackabt@amazon.com>
+> >
+> > Add an arm64 nested-virt selftest for KVM_PRE_FAULT_MEMORY. The guest
+> > enters vEL1 and exits to userspace with a nested/shadow stage-2 MMU as
+> > the vCPU's last-run context.
+> >
+> > Before prefaulting, userspace enables HCR_EL2.VM and points VTTBR_EL2 at
+> > an empty nested stage-2 root. A prefault implementation that incorrectly
+> > treats the userspace GPA as an L2 IPA will fail the ioctl; the correct
+> > path targets the canonical stage-2 and succeeds.
+> >
+> > Restore the original nested state before resuming the guest, then touch
+> > the prefaulted range to check that vEL1 still runs correctly.
+> >
+> > Signed-off-by: Jack Thomson <jackabt@amazon.com>
+> > [ljs: partial progress, >4 KiB pgsize, commit msg, comment fixups]
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  tools/testing/selftests/kvm/Makefile.kvm           |   1 +
+> >  .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 206 +++++++++++++++++++++
+> >  2 files changed, 207 insertions(+)
+>
+> I wonder whether this selftest can use functions Wei-Lin proposed
+> some time ago [1]: 20260325003620.2214766-1-weilin.chang@arm.com
+> or would you prefer this test as propose, since it is clear as
+> to what needs to be done to enter L2.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+I think if these aren't merged yet then that could be a follow up?
 
-Maxime
+>
+> Thanks,
+> Itaru.
+>
+> >
+> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> > index 66a9a4e62888..1e0edd0f99f7 100644
+> > --- a/tools/testing/selftests/kvm/Makefile.kvm
+> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> > @@ -173,6 +173,7 @@ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
+> >  TEST_GEN_PROGS_arm64 += arm64/hello_el2
+> >  TEST_GEN_PROGS_arm64 += arm64/host_sve
+> >  TEST_GEN_PROGS_arm64 += arm64/hypercalls
+> > +TEST_GEN_PROGS_arm64 += arm64/nv_pre_fault_memory_test
+> >  TEST_GEN_PROGS_arm64 += arm64/external_aborts
+> >  TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
+> >  TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+> > diff --git a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+> > new file mode 100644
+> > index 000000000000..b3833aea2a34
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+> > @@ -0,0 +1,206 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on a vCPU whose
+> > + * last-run context is nested.
+> > + *
+> > + * The guest starts at vEL2, mirrors its EL2 translation regime into the
+> > + * real EL1 registers, drops HCR_EL2.TGE and ERETs to vEL1, then exits to
+> > + * userspace from vEL1 so that the vCPU's last-run context selects a
+> > + * shadow stage-2 MMU. Userspace then enables an empty nested stage-2
+> > + * before prefaulting. Prefaulting must target the canonical stage-2,
+> > + * regardless of the vCPU's nested state.
+> > + */
+> > +#include "kvm_util.h"
+> > +#include "processor.h"
+> > +#include "test_util.h"
+> > +#include "ucall.h"
+> > +
+> > +#include <asm/sysreg.h>
+> > +#include <linux/sizes.h>
+> > +
+> > +#define TEST_MEM_SLOT		10
+> > +#define NESTED_S2_ROOT_SLOT	11
+> > +#define TEST_MEM_SIZE		SZ_2M
+> > +#define TEST_MEM_GPA		SZ_1G
+> > +#define NESTED_S2_ROOT_GPA	(TEST_MEM_GPA + TEST_MEM_SIZE)
+> > +
+> > +struct nested_s2_state {
+> > +	u64 hcr_el2;
+> > +	u64 vttbr_el2;
+> > +};
+> > +
+> > +static void guest_el1_code(void)
+> > +{
+> > +	u64 offset;
+> > +
+> > +	GUEST_ASSERT_EQ(get_current_el(), 1);
+> > +
+> > +	/* Exit to userspace with the vEL1 (nested) context live. */
+> > +	GUEST_SYNC(1);
+> > +
+> > +	/*
+> > +	 * Touch the prefaulted range. vstage-2 is disabled, so the shadow
+> > +	 * stage-2 is a 1:1 view of the canonical IPA space.
+> > +	 */
+> > +	for (offset = 0; offset < TEST_MEM_SIZE; offset += SZ_4K)
+> > +		READ_ONCE(*(u64 *)(TEST_MEM_GPA + offset));
+> > +
+> > +	GUEST_DONE();
+> > +}
+> > +
+> > +static void guest_code(void)
+> > +{
+> > +	u64 sp;
+> > +
+> > +	GUEST_ASSERT_EQ(get_current_el(), 2);
+> > +
+> > +	/*
+> > +	 * Mirror the EL2 translation regime into the real EL1 registers so
+> > +	 * that vEL1 runs on the test's stage-1 page tables. With E2H=1, the
+> > +	 * _EL1 accessors read the EL2 registers, and the _EL12 accessors
+> > +	 * write the real EL1 registers.
+> > +	 */
+> > +	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
+> > +	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
+> > +	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
+> > +	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
+> > +	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
+> > +
+> > +	/* Run vEL1 on the same stack. */
+> > +	asm volatile("mov %0, sp" : "=r"(sp));
+> > +	write_sysreg(sp, sp_el1);
+> > +
+> > +	/*
+> > +	 * Drop TGE so that vEL1 is a nested context rather than host EL0.
+> > +	 * KVM backs it with a shadow stage-2 MMU even though vstage-2 is
+> > +	 * disabled (HCR_EL2.VM=0).
+> > +	 */
+> > +	write_sysreg(read_sysreg(hcr_el2) & ~HCR_EL2_TGE, hcr_el2);
+> > +	isb();
+> > +
+> > +	write_sysreg(PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT |
+> > +		     PSR_D_BIT, spsr_el2);
+> > +	write_sysreg((u64)guest_el1_code, elr_el2);
+> > +	asm volatile("eret");
+> > +
+> > +	GUEST_ASSERT(false);
+> > +}
+> > +
+> > +static void pre_fault(struct kvm_vcpu *vcpu, u64 gpa, u64 size)
+> > +{
+> > +	struct kvm_pre_fault_memory range = {
+> > +		.gpa = gpa,
+> > +		.size = size,
+> > +	};
+> > +	int ret;
+> > +
+> > +	do {
+> > +		ret = __vcpu_ioctl(vcpu, KVM_PRE_FAULT_MEMORY, &range);
+> > +	} while ((!ret && range.size) ||
+> > +		 (ret < 0 && (errno == EINTR || errno == EAGAIN)));
+> > +
+> > +	TEST_ASSERT(!ret, "KVM_PRE_FAULT_MEMORY failed, ret: %d errno: %d",
+> > +		    ret, errno);
+> > +	TEST_ASSERT_EQ(range.size, 0);
+> > +}
+> > +
+> > +static struct nested_s2_state enable_empty_nested_s2(struct kvm_vcpu *vcpu)
+> > +{
+> > +	struct nested_s2_state state = {
+> > +		.hcr_el2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)),
+> > +		.vttbr_el2 = vcpu_get_reg(vcpu,
+> > +					   KVM_ARM64_SYS_REG(SYS_VTTBR_EL2)),
+> > +	};
+> > +
+> > +	TEST_ASSERT(!(state.hcr_el2 & HCR_EL2_TGE),
+> > +		    "vCPU should be in nested/vEL1 context");
+> > +
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
+> > +		     NESTED_S2_ROOT_GPA);
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
+> > +		     state.hcr_el2 | HCR_EL2_VM);
+> > +
+> > +	return state;
+> > +}
+> > +
+> > +static void restore_nested_s2(struct kvm_vcpu *vcpu,
+> > +			      struct nested_s2_state *state)
+> > +{
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), state->hcr_el2);
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
+> > +		     state->vttbr_el2);
+> > +}
+> > +
+> > +int main(void)
+> > +{
+> > +	struct nested_s2_state s2;
+> > +	struct kvm_vcpu_init init;
+> > +	struct kvm_vcpu *vcpu;
+> > +	struct kvm_vm *vm;
+> > +	struct ucall uc;
+> > +	u64 npages;
+> > +
+> > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
+> > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
+> > +
+> > +	vm = vm_create(1);
+> > +
+> > +	kvm_get_default_vcpu_target(vm, &init);
+> > +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
+> > +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
+> > +	kvm_arch_vm_finalize_vcpus(vm);
+> > +
+> > +	npages = TEST_MEM_SIZE / vm->page_size;
+> > +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, TEST_MEM_GPA,
+> > +				    TEST_MEM_SLOT, npages, 0);
+> > +	virt_map(vm, TEST_MEM_GPA, TEST_MEM_GPA, npages);
+> > +
+> > +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
+> > +				    NESTED_S2_ROOT_GPA, NESTED_S2_ROOT_SLOT,
+> > +				    vm_adjust_num_guest_pages(vm->mode, 1), 0);
+> > +
+> > +	/* Run the guest until it has ERET'd from vEL2 to vEL1. */
+> > +	vcpu_run(vcpu);
+> > +	switch (get_ucall(vcpu, &uc)) {
+> > +	case UCALL_SYNC:
+> > +		TEST_ASSERT_EQ(uc.args[1], 1);
+> > +		break;
+> > +	case UCALL_ABORT:
+> > +		REPORT_GUEST_ASSERT(uc);
+> > +		break;
+> > +	default:
+> > +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
+> > +	}
+> > +
+> > +	/*
+> > +	 * The vCPU's last-run context is vEL1, backed by a shadow stage-2
+> > +	 * MMU. Enable nested stage-2 with an empty root so that the ioctl
+> > +	 * fails if it tries to interpret the userspace GPA as an L2 IPA.
+> > +	 *
+> > +	 * Prefault in two halves so that the second ioctl exercises a
+> > +	 * repeated shadow-MMU attach and canonical stage-2 swap.
+> > +	 *
+> > +	 * (Note that an implementation that wrongly populates shadow
+> > +	 * stage-2 page tables would not be caught as userland can't
+> > +	 * inspect these.)
+> > +	 */
+> > +	s2 = enable_empty_nested_s2(vcpu);
+> > +	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE / 2);
+> > +	pre_fault(vcpu, TEST_MEM_GPA + TEST_MEM_SIZE / 2, TEST_MEM_SIZE / 2);
+> > +	restore_nested_s2(vcpu, &s2);
+> > +
+> > +	/* Resume at vEL1 and touch the prefaulted range. */
+> > +	vcpu_run(vcpu);
+> > +	switch (get_ucall(vcpu, &uc)) {
+> > +	case UCALL_DONE:
+> > +		break;
+> > +	case UCALL_ABORT:
+> > +		REPORT_GUEST_ASSERT(uc);
+> > +		break;
+> > +	default:
+> > +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
+> > +	}
+> > +
+> > +	kvm_vm_free(vm);
+> > +	return 0;
+> > +}
+> >
+> > --
+> > 2.55.0
+> >
 
+--
+Cheers, Lorenzo
 
