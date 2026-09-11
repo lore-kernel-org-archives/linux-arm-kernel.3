@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EA8C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D3CC88E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgrgHWkbghvtXVmKqrcuJ1jtMiEH9W3TAIXM+fsJHUE=; b=Z7uTiS3sIrxJ0atmggVIwoNFaH
-	uI7gvFYkmV5h1ovSl7YtyGWJkyy10uyb1AgSq6KVnaUAf8u0K6o9n6fAFpecYrbQPV3Mo98vK2ZMT
-	NX81YJHojDK0bLZn8OPhp5qN9gTTd90OYoDu7UqPbLQmCcNPYEH7HGkfEgtguH84EMeiQpgBvQhM8
-	8Xx+uv3JkQsg4zpKU1nht5S16sonIL3Ue2t2rADQgN5aYCtSaUoKJCqYMOyVGJzqOayiV7RDYW1UH
-	ca3fqo+HR7sSdtiUfV2zsDHuPBClj7WBjthKLCgGBpusdZ5EtZzsQCJnuZBFjHwzipBtwNqocxl5J
-	4UesQS1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bo4UnkSqgoVO/9dO8RXktdnvzNuezQiQb7CLxdoU1PY=; b=rMm7uVYRucpu1OYo7hIjsHDrxg
+	6xDmVastLT1KsvZ9DDTPUBkQ5oN3pfnxE3W6mDeReWIMF9GRMZgzDyIauN30sQv/ggMAwcBxT3+JG
+	y3v03mlPgpvSeWHx6N/GriSOtM2wgHQz//4yKPBtkiAf6UV8QGXP7IPhiT6XioffEL1kz4tULS50J
+	jVtat31GEproOgn3FLf2T+0bA9SBaKO8/ZZLgJ1Dz24lJCYKBm5HkiXkFblMQOXXH6oFtKuyWh6ke
+	D4VyYCR66Ez9ckGSgwqtz/w2zQXtjfDPRvxP+hadriIkZlx+wHMvlP5wOoXljIXTMRkrL9Fa/BSxZ
+	Zu6Di/4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yVn-0000000GOAA-3eWw;
-	Fri, 11 Sep 2026 10:29:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4yfV-0000000GPBW-0hmd;
+	Fri, 11 Sep 2026 10:39:41 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yVk-0000000GO9b-1bh4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 10:29:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A651060239;
-	Fri, 11 Sep 2026 10:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 593DD1F000FF;
-	Fri, 11 Sep 2026 10:29:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789122575;
-	bh=zgrgHWkbghvtXVmKqrcuJ1jtMiEH9W3TAIXM+fsJHUE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YhPY37kQjJGboClQmFaCa1XK2HqrJ1BZkJOazTQo2ObSkPGIobJW+yH/X83wxxDbK
-	 /ZrccE2VFUSyirDjvkQWn11WfyL5TebzMHySQxUEaJcBhS2xs/UmfKLTP5Jmearp/k
-	 H15S4cQcEelcSEpRD70TmpT+5PnGdoaYAkRbiPEeOip4dgEZaJ7lcNiMHUqat4J9kj
-	 eQM6BEKANywzCOIl6n8Rd/b8Ytg17qquy1+88P8YzJjz2G/yU/lAzF8ghnh+/E4L9u
-	 +Ma5FTh6ZPOEIE0Q8CC5qfUVBOEeRj4MetSbrjfDYwVUMBBV5UZLDsEf9nXUcH62jL
-	 LhuOJKY6ZeXEw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4yVh-00000007hk0-0QFw;
-	Fri, 11 Sep 2026 10:29:33 +0000
-Date: Fri, 11 Sep 2026 11:29:32 +0100
-Message-ID: <86ld986pyr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	id 1x4yfR-0000000GPAk-48M8;
+	Fri, 11 Sep 2026 10:39:39 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0E7E641CF51;
+	Fri, 11 Sep 2026 12:39:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1789123172; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Bo4UnkSqgoVO/9dO8RXktdnvzNuezQiQb7CLxdoU1PY=;
+	b=Dv7zqhUz6Borsnk3CfuMnJEVlc/bFwo0tGSrdrKkg7BSnJ805GhQar8b2DXuspk5hW1iTm
+	mYFeBGB4hxvR1tbn7sncbekHPLr2I6Vs4jrDP5o/IWVALciaLo7ORQZLPTGaFxOIv+2vQy
+	n9nG1R0c95VYCAuarTPeNLYpnu3odRoXRn5MjigOvOLqRnYx/BPqgW5UJv/Exie9TwLbX/
+	v/Gp75ZVc+ZKYew4HR4+tMzTyo7H5B6/I1ozx08r0BzKy+4ItXlNj2OBdLO0FFsJH2H0Zf
+	EsxlSw1jMpBWgKmfYVwE8J/2Cg0fIJs/486hjq9PFPrjEsYUpgiJZgxyt2Wsxg==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 13/17] KVM: arm64: Pend a protected guest's SError with HCR_EL2.VSE only
-In-Reply-To: <20260907070002.3333525-14-fuad.tabba@linux.dev>
-References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
-	<20260907070002.3333525-14-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>,
+	Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Subject: [PATCH v2 net-next] net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
+Date: Fri, 11 Sep 2026 10:39:10 +0000
+Message-Id: <20260911103910.4123567-1-cjd@cjdns.fr>
+In-Reply-To: <20260909213250.3184238-1-cjd@cjdns.fr>
+References: <20260909213250.3184238-1-cjd@cjdns.fr>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_033938_395803_17CD186E 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,50 +81,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Sep 2026 07:59:58 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> kvm_inject_serror_esr() emulates the exception entry when
-> serror_is_masked() reads PSTATE.A clear, but the host has no view of a
-> protected guest's PSTATE.A, and an emulated entry never reaches the
-> guest: the SError is lost. Set VSE instead and let the guest's own
-> PSTATE.A mask it.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/inject_fault.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> index d6c4fc16f8795..b88098a7e756c 100644
-> --- a/arch/arm64/kvm/inject_fault.c
-> +++ b/arch/arm64/kvm/inject_fault.c
-> @@ -378,8 +378,11 @@ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr)
->  	 *
->  	 * As we're emulating the SError injection we need to explicitly populate
->  	 * ESR_ELx.EC because hardware will not do it on our behalf.
-> +	 *
-> +	 * The host does not see a protected guest's PSTATE.A: leave the
-> +	 * vSError to HCR_EL2.VSE below, which the guest masks itself.
->  	 */
-> -	if (!serror_is_masked(vcpu)) {
-> +	if (!vcpu_is_protected(vcpu) && !serror_is_masked(vcpu)) {
->  		pend_serror_exception(vcpu);
->  		esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SERROR) | ESR_ELx_IL;
->  		vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
+The EcoNet EN751221 multi-chip module implementation of the MT7530
+requires some additional configuration of the PHYs on startup.
+The reason for this is not known, but it is possible that it has
+to do with the fact that the EN751221 MCM implementation of the
+MT7530 runs at an abnormal PLL frequency (362.5Mhz).
 
-I can't say I like this very much.
+Detect whether the MT7530 PHY is attached to the MDIO bus of an
+EcoNet EN751221 switch and if so, apply the necessary register
+updates. Additionally, never attempt to configure an MT7530
+identified PHY which does not have gigabit support because the same
+ID is used for another (FE) PHY.
 
-The fundamental premise is that as far as the host is concerned,
-PSTATE.A is always set. So why can't we give the illusion of this at
-all times?
+Of note: MDIO_AN_EEE_ADV must be zero at startup or else link will
+fail to connect. Setting MDIO_AN_EEE_ADV to 6 after link is brought
+up will make EEE work when cable is next plugged in, but link fails
+to downgrade to 100mb if gigabit is not possible, leaving a
+"connected" (nonfunctional) gigabit link.
 
-That'd be a much cleaner approach.
+Co-developed-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Signed-off-by: Matheus Sampaio Queiroga <srherobrine20@gmail.com>
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+ drivers/net/phy/mediatek/mtk-ge.c | 61 +++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-Thanks,
-
-	M.
-
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 73d9b72f9d9e..42b06c40d703 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -1,4 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0+
++#include <linux/of.h>
+ #include <linux/bitfield.h>
+ #include <linux/module.h>
+ #include <linux/phy.h>
+@@ -62,8 +63,68 @@ static void mtk_gephy_config_init(struct phy_device *phydev)
+ 		       FIELD_PREP(MTK_MCC_NEARECHO_OFFSET_MASK, 0x3));
+ }
+ 
++static bool mt7530_phy_is_en751221_companion(struct phy_device *phydev)
++{
++	struct device *parent = phydev->mdio.bus->parent;
++
++	return parent && parent->of_node &&
++	       of_device_is_compatible(parent->of_node, "econet,en751221");
++}
++
++/*
++ * The EcoNet reference implementation applies additional tuning to
++ * the PHYs of the multi-chip module MT7530.
++ */
++static int mt7530_phy_en751221_config_init(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = genphy_soft_reset(phydev);
++	if (ret)
++		return ret;
++
++	/* Clause 22 local data. */
++	ret = phy_write(phydev, MII_CTRL1000, 0x1e00);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1, 0x14, 0x3a04);
++	if (ret < 0)
++		return ret;
++
++	/* Clause 45 global/local data from mt7530GePhyCfgLoad(E3.0). */
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x0417, 0x7775);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00a6, 0x0350);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0012, 0xd210);
++	if (ret < 0)
++		return ret;
++
++	/* Vendor profile disables 100/1000BASE-T EEE advertisement. */
++	ret = phy_write_mmd(phydev, MDIO_MMD_AN, 0x003c, 0x0000);
++	if (ret < 0)
++		return ret;
++
++	phydev_info(phydev, "EN751221 companion MT7530 E3.0 PHY profile loaded\n");
++
++	return 0;
++}
++
+ static int mt7530_phy_config_init(struct phy_device *phydev)
+ {
++	int ret;
++
++	if (mt7530_phy_is_en751221_companion(phydev)) {
++		ret = mt7530_phy_en751221_config_init(phydev);
++		if (ret)
++			return ret;
++	}
++
+ 	mtk_gephy_config_init(phydev);
+ 
+ 	/* Increase post_update_timer */
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.5
+
 
