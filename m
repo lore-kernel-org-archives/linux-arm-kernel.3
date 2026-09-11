@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75B3C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884ECC88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=; b=Ybz7YH7NXblDUg0j2mrTRQoD5p
-	u7Ma7Rve5dskcnTUgEA2+cJ3i13Bv/crCugli9CT1eANek5zHfKJHuRAfjaiG4IoyCskcjGSNZh43
-	0LavseIVEM4V2vfldIbrclD14hnWVgT2sufApxqb3QnRKiXV9Ru7iiwdewP53WTlnNlnwgKtG3nud
-	sZ6lXjHHR8pTDvutrHOp2Jh3r6gv5czo0mls98lBnr55gM3693NteZxCl2Rf2dMUSzuhKbpKiMlNY
-	MhZaGc6BfDsFehEeJ+V6V2d6xwzsSwCTVKp5bNK8pSNn9zPYQoR6gTj/E/yiAVkOX3G7MRShJv5Nb
-	oIPKqg/w==;
+	bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=; b=jeyrGadb//+aIcy8AuzkhH07FH
+	TlM2CqInfE7WU/IoT2rDa6fhm8cyLtlyuBIz2Z6Zwvg06+v44JlS1MvTXb2JrKGoe8A4BLtT+jRGs
+	F6fdM5oeoQ9fvQ7/P+jFFzukGYDt0izbBVGV5t+PrPqNBDZABf2QMe0TN2C17KioJyidT4kJ998l0
+	4+k4Xtj5xo1Ob5tOVKze17irC05QNSsAtc9BUO68CVj45bl+07g6AhiJLX7bl368zwNaWgEv6203Y
+	u/QsBQPmDF03iZB6gJsR9sdvAyLqyBqje3iBQhkOwKFTVcH3d4qwSFG2bCUa90OIJdDXduZYSSx1x
+	oIadxHjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OZ-0000000H6M2-1WJe;
-	Fri, 11 Sep 2026 15:42:31 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1x53OA-0000000H61L-0TBi;
+	Fri, 11 Sep 2026 15:42:06 +0000
+Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OE-0000000H66M-2M8p
+	id 1x53O2-0000000H5xK-0IOa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:42:13 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-6b35cc0a8c3so1000255eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:10 -0700 (PDT)
+	Fri, 11 Sep 2026 15:42:01 +0000
+Received: by mail-oo2-x0f.google.com with SMTP id 006d021491bc7-6b1ae6f5fc7so681941eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:41:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141329; x=1789746129; darn=lists.infradead.org;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141317; x=1789746117; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=;
-        b=uRFk720jsXiC+JqdqltSdRCP/LgHquUoWo5dLrXV0hNyMEuHUf+rjaMl2uOxtnQRxq
-         XRXPmu6ovBJ1xuwX2oewrKeD3Sp2ctPQYNlthXZYvilj/ro7zZje2i5oPdtwv6DVycqN
-         g0U4K00dbojUBTQClrf7dHTYwt2JndG3jT7nwABEvpAMUqB513Y35fD5Aa+Fbtj1X/C+
-         K5Z+PWD3CU5KxRCGQBSqvY1xQQd+f0T3awtv83SLDm1hTRzbnfgFhYjsJRO9dLzQKYOp
-         e4JpR6oC6bClTTs+6suL+APdqu/q+i6PAwFMcpFr0lBtgUPQVGtpR17HqbSEOsFZUpm2
-         b3zw==
+        bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=;
+        b=JDG4FNne7u1VSrpIpu+o3uGaO2zRVy5JZnBRa8YnimtizvRMuhPtz/9E/K21jSr1by
+         X2gI974ypkWdNsAjZ9ItplbHZ+vZ9BN8C4DARyk10pvutrBQx+OPEL+cEifGdxMCNqcg
+         ySKb2nyDV1uow6SBZ43fdkvAPrRrDJjOW1wj9/lPHHzWNBcfDG+CujI6/pr/Qy9CDRku
+         jzMbdD6DjqfyR8zAO0G1kEtpmFVnlULmusUJTvwFGUX9QKSYlxyYDZSNmN9bREEQQP/a
+         dd0CjLyScbTUsn7UH0Gcmi3wtfS/z9Fhyoj6FOcGK3unNI1CU9OyWDc8xt2nRRhjPdwA
+         UWXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141329; x=1789746129;
+        d=1e100.net; s=20251104; t=1789141317; x=1789746117;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=;
-        b=Za2Ir7+DbhWP+x4g+gLycS6t2n7OgUBioNW6dHiUtBoMLbqE3vtXpLmdsb3qO4KEyK
-         mU38b8/vS3v5rqlTuVtU/IM2yMLvIQn7KnlW3vz1tj8Xbvmarpv6GwA8gkvNaZaSB1jM
-         xoIBNDkluU/rPlc5pHh435Y3h0VdueKoF2htgrPbpRC4bscmgoZW21LV0lP9nbAKLYaL
-         I6bsG/bllSb6yz6S8ZvWPmecXzD/ZwVfZMQvr8i9AXyMN1o22otjCBLyw87mQi2SNg5W
-         mPET9M8o19R9i0+S8WqvTl30RCGjUfoJ5vPyJ+P4qk/ghhL+ZzQFDkG0vN2caPafnvTw
-         1oyA==
-X-Gm-Message-State: AFuF++mHCzjmMOytGga1XrtsgDu3j1Dt7x4o7bDg9OV2yVbnaRYqDZIv
-	TcZiSdeZkGpN/mxjSjPsuSNoOA26vo84NMjbSpu24URToznBuSyIvHK6YMlqgeeJqPE=
-X-Gm-Gg: AYBFou35zzD2VQ53SIqR/dyG5cYtv6+YenVnXEJP9ZBsqVe3E47guQL9VujRayM47kD
-	RQ3bHBF1UOA4Ytxci7wEZUkhFkme9ebyQ2C6fG2vwa5mjPSZ4B1Hwvfo95J0BySs/RgpT4F4wz/
-	NJmRs0yfPoOMFtl5PIjn8up5Z+UHb6v7AOk/RPJkKpPCkluzxOLyxb3HjIXzSg8VSkxosPQCJEn
-	uMaO45+DNZBbcbiAFIht7WzaH5roC4EKhxPgD/+pNOqvPmIokofl5xsIIX6Wy/3jBFbNvOHdDCO
-	jKu/zzmV2QQ2wzweEoZe6Bsw0ZM0VgHyJnZQ8uWQw38HRAJ7v0WwohR0+VXKv5yspsvB63HOkEO
-	THTRI2tr9UvwtIuiKDMmRxxkKzDgxOk5O7OArpnUkntRtEI+gA2XFupJVE9mGc1B3N1w8aGyN4e
-	sZmk4f6CyzKUlHghGG9G3K9Dt+rtYBVnXj24eNZ1/mVQ4/2cx7nV2lUy+q4PiIedA6b3Lmnj/jQ
-	mdxEeoBcysGbGxo/+YkuPsMfT2U3WqiT1W5zUa/AFs=
-X-Received: by 2002:a05:6820:208d:b0:6c0:14e9:1850 with SMTP id 006d021491bc7-6c0bae0b281mr3497013eaf.21.1789141328879;
-        Fri, 11 Sep 2026 08:42:08 -0700 (PDT)
+        bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=;
+        b=qd3tZ4T2TeA716OKsqhiwNQZJ/rq+h0jihbSuP1otIvSoKG2Fxx8txcRFZaNR+0EkU
+         UcrDYAfWHAVKQNik1tVc/ZNxWM0bhfsr5OvsZfbRV6+iuz9OiOdQgYij09qpbl/k1vMs
+         HsHdcuh6Nz4PRfsMREMe5oaen1FnsUcDW+FRdunD0ErscjFK3IqwHFoZidRHFHshanMW
+         OfrHtEL/CS773t4ILAogY5G1rgDOCn5WRmV9TSMwP+CYNxUC1qfOsE3g6JwfUasYpQhm
+         zOmoFrky2cmM8F+hpccdVqViFFOgwBnO82i37ekjkgZa3gxx9b5PVZxuILKBiZkVUcGJ
+         DDuA==
+X-Gm-Message-State: AFuF++nbSvhWCUXkPSYx2FUzYxvxuwhfvSLxCTKGIa9EGHVYjQXYhCLD
+	onYDvAsYzVkNcMR2CKh6dsDJll+kc6lZJHDrRXtX4uADaLfk3gmg37XJTknrDxlygqE=
+X-Gm-Gg: AYBFou0+YvDaevw/qVtwKJ72IZlWZPaaky6pvzlXkJjCd+HBte6kszvf2xhr7SaBX2W
+	6sQKbCS/AVQgCgf06yCsanctEzrZtR8qLOexiD7dUzzzd6SzJVm+ZrWDtRuVngjY4wdK4D/0763
+	j53K/eltKJoJGVQH7oAjluVVHLhoxRcRQf1B6BoVvCk489lULiJnPyHJbEVQmbvFp7iYQ0C3Eag
+	LboxMk8U47y5QZs7AQx+PvsGImfSj4358nPL551/3PNdcPS394hYgfZ0cUFbl52z1pHwDgLqRnN
+	MiOeiX8p/46Kd8LnuSwRYSw0uFLD3PM9zl/KVCkpGy8UBr4MUzbPprjFahnI29LDfC9C5HVS2BM
+	C5L6KDZ3TN6NoWIHP9VNcevf82H/xnbRlDasFOu2hnG80/1I2ptE67AuUGQDJ2sIYzKl5Fl3rmv
+	zEnRHpUy+aIINuukZ6acxMGExiUQStFegmVyW+AbG9nyeIiNUjy02M6F9YGoAF6wlvFmr+R9pxC
+	bA4Z72fIfPCpj+qnUeheOC0XcnBGT20ylax3mAEzaU=
+X-Received: by 2002:a05:6820:1f07:b0:6b1:b867:1a1 with SMTP id 006d021491bc7-6c0bb2f3cadmr6386168eaf.12.1789141316858;
+        Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
 Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.07
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.41.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:42:08 -0700 (PDT)
+        Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
 From: Jens Axboe <axboe@kernel.dk>
 To: io-uring@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -77,17 +77,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	mingo@redhat.com,
 	peterz@infradead.org,
 	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH 10/15] io-wq: support handing a task identity to an idle worker
-Date: Fri, 11 Sep 2026 09:41:00 -0600
-Message-ID: <20260911154148.644489-11-axboe@kernel.dk>
+Subject: [PATCH 01/15] kernel: add thread identity handoff
+Date: Fri, 11 Sep 2026 09:40:51 -0600
+Message-ID: <20260911154148.644489-2-axboe@kernel.dk>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
 References: <20260911154148.644489-1-axboe@kernel.dk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084210_706160_76A2C00F 
-X-CRM114-Status: GOOD (  31.08  )
+X-CRM114-CacheID: sfid-20260911_084158_176392_5BF5E924 
+X-CRM114-Status: GOOD (  32.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,424 +102,707 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the io-wq side of handing a blocked submitter's identity to an idle
-worker. io_wq_handoff_claim() picks an idle worker that can take over
-the identity of the current task, and arranges for it to run a caller
-supplied function when it wakes instead of continuing as a worker.
+Add infrastructure for moving the user visible identity of a thread that
+is about to block in the kernel to another thread in the same process,
+which then returns to userspace on its behalf.
 
-Only a worker inside the idle sleep of the worker loop is claimable,
-being on the free list isn't enough as it may be sleeping elsewhere.
-This is tracked in acct->nr_iosleep. Redundant workers exit through
-the normal idle timeout.
+The blocked thread keeps its task_struct and kernel stack, only what
+userspace observes moves: tid, signal state, rseq and robust list,
+credentials, scheduling attributes, mempolicy, comm and the user
+register state. Thread group leadership follows the tid.
+
+thread_handoff_allowed() vets the source and thread_handoff_compatible()
+the destination. thread_handoff_prepare() runs on the source right
+before it blocks, thread_handoff_finish() on the destination moves the
+identity over. Architectures provide the arch_thread_handoff_*() hooks
+and select ARCH_HAS_THREAD_HANDOFF.
 
 Signed-off-by: Jens Axboe <axboe@kernel.dk>
 ---
- io_uring/io-wq.c | 263 ++++++++++++++++++++++++++++++++++++++++++++---
- io_uring/io-wq.h |  14 +++
- kernel/fork.c    |   3 +-
- 3 files changed, 267 insertions(+), 13 deletions(-)
+ arch/Kconfig                   |   7 +
+ include/linux/thread_handoff.h |  72 +++++
+ init/Kconfig                   |  11 +
+ kernel/Makefile                |   1 +
+ kernel/sched/core.c            |  33 +++
+ kernel/thread_handoff.c        | 484 +++++++++++++++++++++++++++++++++
+ 6 files changed, 608 insertions(+)
+ create mode 100644 include/linux/thread_handoff.h
+ create mode 100644 kernel/thread_handoff.c
 
-diff --git a/io_uring/io-wq.c b/io_uring/io-wq.c
-index 2ca223e47d41..3d4eb4992d5b 100644
---- a/io_uring/io-wq.c
-+++ b/io_uring/io-wq.c
-@@ -20,6 +20,7 @@
- #include <linux/sched/sysctl.h>
- #include <uapi/linux/io_uring.h>
- #include <linux/kcov.h>
-+#include <linux/thread_handoff.h>
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 45c657772362..5ce7e1713f59 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -604,6 +604,13 @@ config ARCH_HAVE_EXTRA_ELF_NOTES
+ config ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+ 	bool
  
- #include "io-wq.h"
- #include "slist.h"
-@@ -32,6 +33,15 @@ enum {
- 	IO_WORKER_F_UP		= 0,	/* up and active */
- 	IO_WORKER_F_RUNNING	= 1,	/* account as running */
- 	IO_WORKER_F_FREE	= 2,	/* worker on free list */
-+	IO_WORKER_F_IDLE_SLEEP	= 3,	/* in the idle sleep of the worker loop */
++config ARCH_HAS_THREAD_HANDOFF
++	bool
++	help
++	  Architecture provides the arch_thread_handoff_*() hooks for moving
++	  the user visible register state of a thread that is blocked in the
++	  kernel to another thread of the same process.
++
+ config HAVE_ALIGNED_STRUCT_PAGE
+ 	bool
+ 	help
+diff --git a/include/linux/thread_handoff.h b/include/linux/thread_handoff.h
+new file mode 100644
+index 000000000000..e1c17b833e7c
+--- /dev/null
++++ b/include/linux/thread_handoff.h
+@@ -0,0 +1,72 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_THREAD_HANDOFF_H
++#define _LINUX_THREAD_HANDOFF_H
++
++#include <linux/sched.h>
++
++/* per-thread accounting that follows the identity */
++struct thread_handoff_stats {
++	u64				utime;
++	u64				stime;
++	u64				gtime;
++	u64				exec_runtime;
++	unsigned long			min_flt;
++	unsigned long			maj_flt;
++	unsigned long			nvcsw;
++	unsigned long			nivcsw;
++	struct task_io_accounting	ioac;
 +};
 +
-+/* worker->handoff handshake */
-+enum {
-+	IO_WORKER_HANDOFF_NONE		= 0,
-+	IO_WORKER_HANDOFF_PROMOTE,	/* claimed, set under ->workers_lock */
-+	IO_WORKER_HANDOFF_DONE,		/* claimer took over the worker */
-+	IO_WORKER_HANDOFF_FINISHED,	/* identity moved, demoted released */
- };
- 
- enum {
-@@ -64,6 +74,10 @@ struct io_worker {
- 	struct callback_head create_work;
- 	int init_retries;
- 
-+	atomic_t handoff;
-+	io_wq_handoff_fn *handoff_fn;
-+	struct task_struct *handoff_task;
-+
- 	union {
- 		struct rcu_head rcu;
- 		struct delayed_work work;
-@@ -88,6 +102,9 @@ struct io_wq_acct {
- 	unsigned max_workers;
- 	atomic_t nr_running;
- 
-+	/* workers in the idle sleep, claimable for a handoff */
-+	atomic_t nr_iosleep;
-+
- 	/**
- 	 * The list of free workers.  Protected by #workers_lock
- 	 * (write) and RCU (read).
-@@ -151,6 +168,8 @@ static bool io_acct_cancel_pending_work(struct io_wq *wq,
- 					struct io_wq_acct *acct,
- 					struct io_cb_cancel_data *match);
- static void create_worker_cb(struct callback_head *cb);
-+static void create_worker_cont(struct callback_head *cb);
-+static bool io_task_work_match(struct callback_head *cb, void *data);
- static void io_wq_cancel_tw_create(struct io_wq *wq);
- 
- static inline unsigned int __io_get_work_hash(unsigned int work_flags)
-@@ -233,7 +252,7 @@ static bool io_task_worker_match(struct callback_head *cb, void *data)
- 	return worker == data;
- }
- 
--static void io_worker_exit(struct io_worker *worker)
-+static void __noreturn io_worker_exit(struct io_worker *worker)
- {
- 	struct io_wq *wq = worker->wq;
- 	struct io_wq_acct *acct = io_wq_get_acct(worker);
-@@ -411,7 +430,7 @@ static bool io_queue_worker_create(struct io_worker *worker,
- 
- 	atomic_inc(&wq->worker_refs);
- 	init_task_work(&worker->create_work, func);
--	if (!task_work_add(wq->task, &worker->create_work, TWA_SIGNAL)) {
-+	if (!io_wq_task_work_add(wq->task, &worker->create_work, TWA_SIGNAL)) {
- 		/*
- 		 * EXIT may have been set after checking it above, check after
- 		 * adding the task_work and remove any creation item if it is
-@@ -687,19 +706,48 @@ static void io_worker_handle_work(struct io_wq_acct *acct,
- 	} while (1);
- }
- 
--static int io_wq_worker(void *data)
 +/*
-+ * Leave the idle sleep, check if we got claimed while in it. Serialized with
-+ * the claimer by ->workers_lock, so a claim can't be missed or raced.
++ * Move the user visible identity of a thread that is about to block in the
++ * kernel (tid, signals, registers, rseq, creds, sched attributes, ...) to
++ * another thread in the same group, which then returns to userspace on its
++ * behalf. The blocked thread keeps its task_struct and in-kernel state.
 + */
-+static bool io_wq_worker_idle_done(struct io_wq_acct *acct,
-+				   struct io_worker *worker)
++#ifdef CONFIG_THREAD_HANDOFF
++bool thread_handoff_allowed(struct task_struct *tsk);
++bool thread_handoff_compatible(struct task_struct *src,
++			       struct task_struct *dst);
++bool thread_handoff_prepare(struct task_struct *tsk);
++void thread_handoff_stats_take(struct thread_handoff_stats *st);
++int thread_handoff_finish(struct task_struct *src,
++			  struct thread_handoff_stats *st);
++
++u64 sched_exec_runtime_take(struct task_struct *p);
++void sched_exec_runtime_add(struct task_struct *p, u64 ns);
++
++/*
++ * Arch hooks. _prepare() syncs the live user register state on the source
++ * before it blocks, _finish() copies it over and loads what the return to
++ * userspace won't. @leader tells it that thread group leadership moved.
++ */
++bool arch_thread_handoff_allowed(struct task_struct *tsk);
++bool arch_thread_handoff_compatible(struct task_struct *src,
++				    struct task_struct *dst);
++bool arch_thread_handoff_prepare(void);
++int arch_thread_handoff_finish(struct task_struct *src, bool leader);
++#else
++static inline bool thread_handoff_allowed(struct task_struct *tsk)
++{
++	return false;
++}
++static inline bool thread_handoff_compatible(struct task_struct *src,
++					     struct task_struct *dst)
++{
++	return false;
++}
++static inline bool thread_handoff_prepare(struct task_struct *tsk)
++{
++	return false;
++}
++static inline void thread_handoff_stats_take(struct thread_handoff_stats *st)
++{
++}
++static inline int thread_handoff_finish(struct task_struct *src,
++					struct thread_handoff_stats *st)
++{
++	return -EOPNOTSUPP;
++}
++#endif
++
++#endif
+diff --git a/init/Kconfig b/init/Kconfig
+index 8583d9f06c52..b376f802a77a 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1957,9 +1957,20 @@ config AIO
+ 	  by some high performance threaded applications. Disabling
+ 	  this option saves about 7k.
+ 
++config THREAD_HANDOFF
++	bool
++	depends on ARCH_HAS_THREAD_HANDOFF
++	help
++	  Support for handing the user visible identity of a thread that is
++	  about to block in the kernel to another thread of the same process,
++	  which then returns to userspace on its behalf. Used by io_uring to
++	  issue requests inline and only offload them to a worker thread if
++	  they actually block.
++
+ config IO_URING
+ 	bool "Enable IO uring support" if EXPERT
+ 	select IO_WQ
++	select THREAD_HANDOFF if ARCH_HAS_THREAD_HANDOFF
+ 	default y
+ 	help
+ 	  This option enables support for the io_uring interface, enabling
+diff --git a/kernel/Makefile b/kernel/Makefile
+index 1e1a31673577..5843d4866db7 100644
+--- a/kernel/Makefile
++++ b/kernel/Makefile
+@@ -14,6 +14,7 @@ obj-y     = fork.o exec_domain.o exec_state.o panic.o \
+ 
+ obj-$(CONFIG_MULTIUSER) += groups.o
+ obj-$(CONFIG_VHOST_TASK) += vhost_task.o
++obj-$(CONFIG_THREAD_HANDOFF) += thread_handoff.o
+ 
+ ifdef CONFIG_FUNCTION_TRACER
+ # Do not trace internal ftrace files
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index b998ef6b87af..eeb55367c0c6 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -96,6 +96,7 @@
+ 
+ #include "../workqueue_internal.h"
+ #include "../../io_uring/io-wq.h"
++#include <linux/thread_handoff.h>
+ #include "../smpboot.h"
+ #include "../locking/mutex.h"
+ 
+@@ -5684,6 +5685,38 @@ static inline void prefetch_curr_exec_start(struct task_struct *p)
+  * In case the task is currently running, return the runtime plus current's
+  * pending runtime that have not been accounted yet.
+  */
++#ifdef CONFIG_THREAD_HANDOFF
++/* keep the prev_sum_exec_runtime delta intact, slice accounting uses it */
++u64 sched_exec_runtime_take(struct task_struct *p)
++{
++	struct rq_flags rf;
++	struct rq *rq;
++	u64 ns;
++
++	rq = task_rq_lock(p, &rf);
++	if (task_current_donor(rq, p) && task_on_rq_queued(p)) {
++		update_rq_clock(rq);
++		p->sched_class->update_curr(rq);
++	}
++	ns = p->se.sum_exec_runtime;
++	p->se.sum_exec_runtime = 0;
++	p->se.prev_sum_exec_runtime -= ns;
++	task_rq_unlock(rq, p, &rf);
++	return ns;
++}
++
++void sched_exec_runtime_add(struct task_struct *p, u64 ns)
++{
++	struct rq_flags rf;
++	struct rq *rq;
++
++	rq = task_rq_lock(p, &rf);
++	p->se.sum_exec_runtime += ns;
++	p->se.prev_sum_exec_runtime += ns;
++	task_rq_unlock(rq, p, &rf);
++}
++#endif
++
+ unsigned long long task_sched_runtime(struct task_struct *p)
  {
--	struct io_worker *worker = data;
--	struct io_wq_acct *acct = io_wq_get_acct(worker);
--	struct io_wq *wq = worker->wq;
--	bool exit_mask = false, last_timeout = false;
--	char buf[TASK_COMM_LEN] = {};
-+	bool promoted;
- 
--	set_mask_bits(&worker->flags, 0,
--		      BIT(IO_WORKER_F_UP) | BIT(IO_WORKER_F_RUNNING));
-+	atomic_dec(&acct->nr_iosleep);
-+	raw_spin_lock(&acct->workers_lock);
-+	clear_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags);
-+	/* the claimer may have committed already, DONE rather than PROMOTE */
-+	promoted = atomic_read(&worker->handoff) != IO_WORKER_HANDOFF_NONE;
-+	raw_spin_unlock(&acct->workers_lock);
- 
--	snprintf(buf, sizeof(buf), "iou-wrk-%d", wq->task->pid);
--	set_task_comm(current, buf);
-+	WARN_ON_ONCE(promoted && worker->handoff_task != current);
-+	return promoted;
+ 	struct rq_flags rf;
+diff --git a/kernel/thread_handoff.c b/kernel/thread_handoff.c
+new file mode 100644
+index 000000000000..1901eb85bae8
+--- /dev/null
++++ b/kernel/thread_handoff.c
+@@ -0,0 +1,484 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Thread identity handoff, see include/linux/thread_handoff.h
++ *
++ * Copyright (C) 2026 Jens Axboe
++ */
++#include <linux/thread_handoff.h>
++#include <linux/sched/signal.h>
++#include <linux/sched/task.h>
++#include <linux/sched/rt.h>
++#include <linux/sched/mm.h>
++#include <linux/audit.h>
++#include <linux/cgroup.h>
++#include <linux/cred.h>
++#include <linux/futex.h>
++#include <linux/mempolicy.h>
++#include <linux/pid.h>
++#include <linux/rseq.h>
++#include <linux/seccomp.h>
++#include <linux/thread_info.h>
++#include <uapi/linux/sched/types.h>
++#include <linux/ioprio.h>
++#include <linux/iocontext.h>
++#include <linux/task_io_accounting_ops.h>
++#include <linux/uprobes.h>
++#include <linux/perf_event.h>
++
++/* prctl state that moves. Not PF_MEMALLOC_NOIO, kernel code sets that too */
++#define THREAD_HANDOFF_PF_FLAGS	(PF_MCE_PROCESS | PF_MCE_EARLY)
++
++/* can the identity of @tsk (current) be handed off, errs on the safe side */
++bool thread_handoff_allowed(struct task_struct *tsk)
++{
++	WARN_ON_ONCE(tsk != current);
++
++	if (tsk->flags & (PF_EXITING | PF_KTHREAD | PF_IO_WORKER))
++		return false;
++	if (tsk->ptrace)
++		return false;
++	/* tracees point back at the tracer task */
++	if (!list_empty(&tsk->ptraced))
++		return false;
++	if (tsk->signal->flags & SIGNAL_GROUP_EXIT)
++		return false;
++#ifdef CONFIG_PERF_EVENTS
++	/* per-task perf contexts are bound to the task_struct */
++	if (tsk->perf_event_ctxp)
++		return false;
++#endif
++#ifdef CONFIG_FUTEX
++	/* PI futex ownership is tied to the task_struct */
++	if (!list_empty(&tsk->futex.pi_state_list))
++		return false;
++#endif
++#ifdef CONFIG_GENERIC_ENTRY
++	if (test_syscall_work(SYSCALL_USER_DISPATCH))
++		return false;
++#endif
++	/* only the fair class moves, see thread_handoff_sched() */
++	if (rt_or_dl_task(tsk))
++		return false;
++#ifdef CONFIG_SCHED_CORE
++	/* the core scheduling cookie is bound to the task */
++	if (tsk->core_cookie)
++		return false;
++#endif
++#ifdef CONFIG_KCOV
++	/* coverage collection is per-thread */
++	if (tsk->kcov)
++		return false;
++#endif
++#ifdef CONFIG_POSIX_TIMERS
++	/* armed per-thread CPU timers would sample the destination's clock */
++	if (tsk->posix_cputimers.timers_active)
++		return false;
++#endif
++	/* the syscall never exits, its audit record would never be emitted */
++	if (!audit_dummy_context())
++		return false;
++#ifdef CONFIG_UPROBES
++	/* pending uretprobes, the return address bookkeeping is in our utask */
++	if (tsk->utask && tsk->utask->return_instances)
++		return false;
++#endif
++	/* a vfork() parent waits on this task_struct, not on the identity */
++	if (tsk->vfork_done)
++		return false;
++
++	return arch_thread_handoff_allowed(tsk);
 +}
 +
-+/* claimed, wait for the claimer to finish taking over the worker struct */
-+static io_wq_handoff_fn *io_wq_worker_promoted(struct io_worker *worker)
++/* can @dst take over the identity of @src, called from sched_submit_work() */
++bool thread_handoff_compatible(struct task_struct *src, struct task_struct *dst)
 +{
-+	io_wq_handoff_fn *fn = worker->handoff_fn;
-+
-+	/* stop the scheduler from treating us as a worker while we wait */
-+	current->flags &= ~(PF_IO_WORKER | PF_USER_WORKER);
-+
-+	wait_var_event(&worker->handoff,
-+		atomic_read_acquire(&worker->handoff) == IO_WORKER_HANDOFF_DONE);
-+
-+	WARN_ON_ONCE(current->worker_private);
-+	atomic_set(&worker->handoff, IO_WORKER_HANDOFF_NONE);
-+	return fn;
++	if (dst->flags & PF_EXITING)
++		return false;
++	/* the identity would land under a tracer that never attached to it */
++	if (dst->ptrace)
++		return false;
++	if (!same_thread_group(src, dst))
++		return false;
++#ifdef CONFIG_GENERIC_ENTRY
++	/* inherited from the thread that forked the destination */
++	if (test_task_syscall_work(dst, SYSCALL_USER_DISPATCH))
++		return false;
++#endif
++	if (dst->mm != src->mm || dst->files != src->files ||
++	    dst->fs != src->fs || dst->nsproxy != src->nsproxy)
++		return false;
++	/* the identity must not gain no_new_privs */
++	if (task_no_new_privs(dst) && !task_no_new_privs(src))
++		return false;
++#ifdef CONFIG_SECCOMP
++	/* seccomp filters are per-thread, the identity must not escape them */
++	if (dst->seccomp.mode != src->seccomp.mode ||
++	    dst->seccomp.filter != src->seccomp.filter)
++		return false;
++#endif
++#ifdef CONFIG_SYSVIPC
++	/* SEM_UNDO adjustments are accounted per undo list */
++	if (dst->sysvsem.undo_list != src->sysvsem.undo_list)
++		return false;
++#endif
++	/* thread_handoff_creds() doesn't switch namespaces */
++	scoped_guard(rcu) {
++		if (__task_cred(dst)->user_ns != __task_cred(src)->user_ns)
++			return false;
++	}
++	return arch_thread_handoff_compatible(src, dst);
 +}
 +
-+/* the worker loop, only returns if claimed for a handoff */
-+static io_wq_handoff_fn *io_wq_worker_run(struct io_worker *worker)
++/* runs on the source right before it blocks, syncs its live user state */
++bool thread_handoff_prepare(struct task_struct *tsk)
 +{
-+	struct io_wq_acct *acct = io_wq_get_acct(worker);
-+	bool exit_mask = false, last_timeout = false;
-+	struct io_wq *wq = worker->wq;
- 
- 	while (!test_bit(IO_WQ_BIT_EXIT, &wq->state)) {
- 		long ret;
-@@ -724,6 +772,11 @@ static int io_wq_worker(void *data)
- 		if ((last_timeout && (exit_mask || acct->nr_workers > 1)) ||
- 		    test_bit(IO_WQ_BIT_EXIT_ON_IDLE, &wq->state)) {
- 			acct->nr_workers--;
-+			/* a handoff can't claim an exiting worker */
-+			if (test_bit(IO_WORKER_F_FREE, &worker->flags)) {
-+				clear_bit(IO_WORKER_F_FREE, &worker->flags);
-+				hlist_nulls_del_rcu(&worker->nulls_node);
-+			}
- 			raw_spin_unlock(&acct->workers_lock);
- 			__set_current_state(TASK_RUNNING);
- 			break;
-@@ -733,7 +786,12 @@ static int io_wq_worker(void *data)
- 		raw_spin_unlock(&acct->workers_lock);
- 		if (io_run_task_work())
- 			continue;
-+		/* claimable only in this sleep, the free list isn't enough */
-+		set_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags);
-+		atomic_inc(&acct->nr_iosleep);
- 		ret = schedule_timeout(WORKER_IDLE_TIMEOUT);
-+		if (unlikely(io_wq_worker_idle_done(acct, worker)))
-+			return io_wq_worker_promoted(worker);
- 		if (signal_pending(current)) {
- 			struct ksignal ksig;
- 
-@@ -752,9 +810,190 @@ static int io_wq_worker(void *data)
- 		io_worker_handle_work(acct, worker);
- 
- 	io_worker_exit(worker);
++	WARN_ON_ONCE(tsk != current);
++	/* re-check, may have changed since thread_handoff_allowed() */
++	if (tsk->ptrace)
++		return false;
++#ifdef CONFIG_PERF_EVENTS
++	if (tsk->perf_event_ctxp)
++		return false;
++#endif
++#ifdef CONFIG_FUTEX
++	if (!list_empty(&tsk->futex.pi_state_list))
++		return false;
++#endif
++	return arch_thread_handoff_prepare();
 +}
 +
-+static int io_wq_worker(void *data)
++/*
++ * Take the source's per-thread accounting for the destination, so the tid's
++ * counters stay monotonic. Runs as current, the tick writes these from irq.
++ */
++void thread_handoff_stats_take(struct thread_handoff_stats *st)
 +{
-+	struct io_worker *worker = data;
-+	struct io_wq *wq = worker->wq;
-+	io_wq_handoff_fn *fn;
-+	char buf[TASK_COMM_LEN] = {};
++	struct task_struct *p = current;
 +
-+	set_mask_bits(&worker->flags, 0,
-+		      BIT(IO_WORKER_F_UP) | BIT(IO_WORKER_F_RUNNING));
++	st->exec_runtime = sched_exec_runtime_take(p);
 +
-+	snprintf(buf, sizeof(buf), "iou-wrk-%d", wq->task->pid);
-+	set_task_comm(current, buf);
++	local_irq_disable();
++	st->utime = p->utime;
++	st->stime = p->stime;
++	st->gtime = p->gtime;
++	p->utime = p->stime = p->gtime = 0;
++#ifndef CONFIG_VIRT_CPU_ACCOUNTING_NATIVE
++	raw_spin_lock(&p->prev_cputime.lock);
++	p->prev_cputime.utime = p->prev_cputime.stime = 0;
++	raw_spin_unlock(&p->prev_cputime.lock);
++#endif
++	local_irq_enable();
++
++	st->min_flt = p->min_flt;
++	st->maj_flt = p->maj_flt;
++	st->nvcsw = p->nvcsw;
++	st->nivcsw = p->nivcsw;
++	p->min_flt = p->maj_flt = p->nvcsw = p->nivcsw = 0;
++	st->ioac = p->ioac;
++	memset(&p->ioac, 0, sizeof(p->ioac));
++}
++
++static void thread_handoff_stats_add(struct task_struct *p,
++				     struct thread_handoff_stats *st)
++{
++	sched_exec_runtime_add(p, st->exec_runtime);
++
++	local_irq_disable();
++	p->utime += st->utime;
++	p->stime += st->stime;
++	p->gtime += st->gtime;
++	local_irq_enable();
++
++	p->min_flt += st->min_flt;
++	p->maj_flt += st->maj_flt;
++	p->nvcsw += st->nvcsw;
++	p->nivcsw += st->nivcsw;
++	task_io_accounting_add(&p->ioac, &st->ioac);
++}
++
++/* signal state follows the identity, the source gets a worker's mask */
++static void thread_handoff_signals(struct task_struct *dst,
++				   struct task_struct *src)
++	__must_hold(&dst->sighand->siglock)
++{
++	dst->blocked = src->blocked;
++	dst->real_blocked = src->real_blocked;
++	dst->saved_sigmask = src->saved_sigmask;
++	dst->sas_ss_sp = src->sas_ss_sp;
++	dst->sas_ss_size = src->sas_ss_size;
++	dst->sas_ss_flags = src->sas_ss_flags;
++	dst->restart_block = src->restart_block;
++
++	siginitsetinv(&src->blocked, sigmask(SIGKILL) | sigmask(SIGSTOP));
++	sigemptyset(&src->real_blocked);
++	sas_ss_reset(src);
++
++	list_splice_tail_init(&src->pending.list, &dst->pending.list);
++	sigorsets(&dst->pending.signal, &dst->pending.signal,
++		  &src->pending.signal);
++	sigemptyset(&src->pending.signal);
++}
++
++/* the tgid is the leader's tid, so leadership follows. Like de_thread() */
++static void thread_handoff_leader(struct task_struct *dst,
++				  struct task_struct *src)
++	__must_hold(&tasklist_lock)
++{
++	struct list_head *prev = dst->thread_node.prev;
++	struct task_struct *t;
 +
 +	/*
-+	 * Only returns if we got handed an identity. -EIOCBQUEUED means we got
-+	 * demoted again while running it, back to the worker loop.
++	 * The leader must be first on ->thread_head, swap the two list
++	 * positions. RCU readers may see a thread twice, never miss one.
 +	 */
-+	for (;;) {
-+		long ret;
++	if (prev == &src->thread_node)
++		prev = &dst->thread_node;
++	list_del_rcu(&dst->thread_node);
++	list_replace_rcu(&src->thread_node, &dst->thread_node);
++	list_add_rcu(&src->thread_node, prev);
 +
-+		fn = io_wq_worker_run(worker);
-+		ret = fn();
-+		/* what we return is what userspace gets on some archs */
-+		if (ret != -EIOCBQUEUED)
-+			return ret;
-+		worker = current->worker_private;
-+	}
++	transfer_pid(src, dst, PIDTYPE_TGID);
++	transfer_pid(src, dst, PIDTYPE_PGID);
++	transfer_pid(src, dst, PIDTYPE_SID);
++
++	list_replace_rcu(&src->tasks, &dst->tasks);
++	list_replace_init(&src->sibling, &dst->sibling);
++
++	for_each_thread(dst, t)
++		t->group_leader = dst;
++
++	dst->exit_signal = src->exit_signal;
++	src->exit_signal = -1;
 +}
 +
-+/* find and claim an idle sleeping worker, see io_wq_worker_idle_done() */
-+static struct io_worker *io_wq_acct_handoff_claim(struct io_wq *wq,
-+						  struct io_wq_acct *acct,
-+						  io_wq_handoff_fn *fn)
++/* children are parented to the forking thread, move them along */
++static void thread_handoff_children(struct task_struct *dst,
++				    struct task_struct *src)
++	__must_hold(&tasklist_lock)
 +{
-+	struct io_worker *worker, *found = NULL;
-+	struct hlist_nulls_node *n;
++	struct task_struct *p;
 +
-+	raw_spin_lock(&acct->workers_lock);
-+	if (test_bit(IO_WQ_BIT_EXIT, &wq->state))
-+		goto out_unlock;
-+	hlist_nulls_for_each_entry(worker, n, &acct->free_list, nulls_node) {
-+		/* only claimable inside the idle sleep of the worker loop */
-+		if (!test_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags))
-+			continue;
-+		if (!thread_handoff_compatible(current, worker->task))
-+			continue;
-+		clear_bit(IO_WORKER_F_FREE, &worker->flags);
-+		hlist_nulls_del_init_rcu(&worker->nulls_node);
-+		worker->handoff_fn = fn;
-+		worker->handoff_task = worker->task;
-+		atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_PROMOTE);
-+		found = worker;
-+		break;
++	list_for_each_entry(p, &src->children, sibling) {
++		RCU_INIT_POINTER(p->real_parent, dst);
++		if (rcu_access_pointer(p->parent) == src)
++			RCU_INIT_POINTER(p->parent, dst);
 +	}
-+out_unlock:
-+	raw_spin_unlock(&acct->workers_lock);
-+	if (found)
-+		wake_up_process(found->handoff_task);
-+	return found;
++	list_splice_init(&src->children, &dst->children);
++	dst->self_exec_id = src->self_exec_id;
 +}
++
++static bool thread_handoff_sched_same(struct task_struct *dst,
++				      struct task_struct *src)
++{
++	if (dst->policy != src->policy || task_nice(dst) != task_nice(src))
++		return false;
++	if (dst->sched_reset_on_fork != src->sched_reset_on_fork)
++		return false;
++	if (dst->se.custom_slice != src->se.custom_slice ||
++	    (src->se.custom_slice && dst->se.slice != src->se.slice))
++		return false;
++#ifdef CONFIG_UCLAMP_TASK
++	for (int i = 0; i < UCLAMP_CNT; i++) {
++		if (dst->uclamp_req[i].user_defined != src->uclamp_req[i].user_defined)
++			return false;
++		if (src->uclamp_req[i].user_defined &&
++		    dst->uclamp_req[i].value != src->uclamp_req[i].value)
++			return false;
++	}
++#endif
++	return true;
++}
++
++/* sched attributes follow the identity, sched_setattr() only if needed */
++static void thread_handoff_sched(struct task_struct *dst,
++				 struct task_struct *src)
++{
++	struct sched_attr attr = {
++		.sched_policy = src->policy,
++		.sched_nice = task_nice(src),
++	};
++
++	if (thread_handoff_sched_same(dst, src))
++		return;
++	if (src->sched_reset_on_fork)
++		attr.sched_flags |= SCHED_FLAG_RESET_ON_FORK;
++	if (src->se.custom_slice)
++		attr.sched_runtime = src->se.slice;
++#ifdef CONFIG_UCLAMP_TASK
++	if (src->uclamp_req[UCLAMP_MIN].user_defined) {
++		attr.sched_flags |= SCHED_FLAG_UTIL_CLAMP_MIN;
++		attr.sched_util_min = src->uclamp_req[UCLAMP_MIN].value;
++	}
++	if (src->uclamp_req[UCLAMP_MAX].user_defined) {
++		attr.sched_flags |= SCHED_FLAG_UTIL_CLAMP_MAX;
++		attr.sched_util_max = src->uclamp_req[UCLAMP_MAX].value;
++	}
++#endif
++	WARN_ON_ONCE(sched_setattr_nocheck(dst, &attr));
++}
++
++static void thread_handoff_mempolicy(struct task_struct *dst,
++				     struct task_struct *src)
++{
++#ifdef CONFIG_NUMA
++	struct mempolicy *pol = mpol_dup(src->mempolicy);
++
++	if (IS_ERR(pol))
++		return;
++	task_lock(dst);
++	swap(dst->mempolicy, pol);
++	task_unlock(dst);
++	mpol_put(pol);
++#endif
++}
++
++#ifdef CONFIG_BLOCK
++/* ionice'd threads keep their IO priority, the source's ioc may be in use */
++static void thread_handoff_ioprio(struct task_struct *dst,
++				  struct task_struct *src)
++{
++	struct io_context *ioc = src->io_context;
++
++	/* workers share the ioc of the thread that forked them, detach */
++	if (dst->io_context)
++		exit_io_context(dst);
++	if (ioc && ioprio_valid(ioc->ioprio))
++		WARN_ON_ONCE(set_task_ioprio(dst, ioc->ioprio));
++}
++#else
++static void thread_handoff_ioprio(struct task_struct *dst,
++				  struct task_struct *src)
++{
++}
++#endif
++
++#ifdef CONFIG_CGROUPS
++/* threaded cgroup placement follows the identity, the source stays put */
++static void thread_handoff_cgroup(struct task_struct *dst,
++				  struct task_struct *src)
++{
++	if (rcu_access_pointer(src->cgroups) == rcu_access_pointer(dst->cgroups))
++		return;
++	WARN_ON_ONCE(cgroup_attach_task_all(src, dst));
++}
++#else
++static void thread_handoff_cgroup(struct task_struct *dst,
++				  struct task_struct *src)
++{
++}
++#endif
 +
 +/*
-+ * task_work_add() that doesn't notify a task inside a blocking inline issue,
-+ * it'd interrupt the sleep. io_handoff_end() picks pending work up instead.
++ * Adopt the source's creds. Not commit_creds(), the process isn't changing
++ * credentials, an existing identity is just moving between two of its tasks.
 + */
-+int io_wq_task_work_add(struct task_struct *task, struct callback_head *cb,
-+			enum task_work_notify_mode notify)
++static void thread_handoff_creds(struct task_struct *dst,
++				 struct task_struct *src)
 +{
-+	int ret;
++	/* neither side changes its own creds while a handoff is in flight */
++	const struct cred *old = rcu_dereference_protected(dst->real_cred, true);
++	const struct cred *new = rcu_dereference_protected(src->real_cred, true);
 +
-+	if (notify != TWA_SIGNAL && notify != TWA_SIGNAL_NO_IPI)
-+		return task_work_add(task, cb, notify);
++	WARN_ON_ONCE(rcu_dereference_protected(dst->cred, true) != old);
++	if (new == old)
++		return;
 +
-+	ret = task_work_add(task, cb, TWA_NONE);
-+	if (ret)
-+		return ret;
-+	if (READ_ONCE(task->flags) & PF_IO_HANDOFF)
-+		return 0;
-+	if (notify == TWA_SIGNAL)
-+		set_notify_signal(task);
-+	else
-+		__set_notify_signal(task);
- 	return 0;
- }
- 
-+/* claim an idle worker to hand our identity to, pairs with _commit() */
-+struct task_struct *io_wq_handoff_claim(struct io_wq *wq, bool bound,
-+					io_wq_handoff_fn *fn)
-+{
-+	struct io_worker *worker;
-+
-+	worker = io_wq_acct_handoff_claim(wq, io_get_acct(wq, bound), fn);
-+	if (!worker)
-+		worker = io_wq_acct_handoff_claim(wq, io_get_acct(wq, !bound), fn);
-+	if (worker)
-+		return worker->task;
-+	return NULL;
++	get_cred_many(new, 2);
++	if (new->user != old->user)
++		inc_rlimit_ucounts(new->ucounts, UCOUNT_RLIMIT_NPROC, 1);
++	rcu_assign_pointer(dst->real_cred, new);
++	rcu_assign_pointer(dst->cred, new);
++	if (new->user != old->user)
++		dec_rlimit_ucounts(old->ucounts, UCOUNT_RLIMIT_NPROC, 1);
++	put_cred_many(old, 2);
 +}
 +
-+/* we take over the worker @dst was, @dst goes on to run the handoff fn */
-+void io_wq_handoff_commit(struct task_struct *dst)
++/* the user requested affinity follows, the effective mask derives from it */
++static void thread_handoff_affinity(struct task_struct *dst,
++				    struct task_struct *src)
 +{
-+	struct io_worker *worker = dst->worker_private;
-+	struct task_struct *src = current;
-+	struct io_wq *wq = worker->wq;
-+	struct callback_head *cb;
++	/* dup_user_cpus_ptr() wants no user mask, nothing can race us here */
++	release_user_cpus_ptr(dst);
++	dup_user_cpus_ptr(dst, src, NUMA_NO_NODE);
++	set_cpus_allowed_ptr(dst, src->cpus_ptr);
++}
 +
-+	WARN_ON_ONCE(src->worker_private);
-+	WARN_ON_ONCE(worker->task != dst);
-+	WARN_ON_ONCE(wq->task != src);
++/* runs on the destination, the source never looks at the moved state again */
++int thread_handoff_finish(struct task_struct *src,
++			  struct thread_handoff_stats *st)
++{
++	struct task_struct *dst = current;
++	struct sighand_struct *sighand;
++	char comm[TASK_COMM_LEN];
++	bool leader;
 +
-+	/* the sched hooks around @dst's wakeup cope with NULL worker_private */
-+	WRITE_ONCE(dst->worker_private, NULL);
-+	src->worker_private = worker;
-+	WRITE_ONCE(worker->task, src);
-+	src->flags |= PF_IO_WORKER | PF_USER_WORKER;
++	/* the same for both, neither can be mid exec */
++	sighand = rcu_dereference_protected(dst->sighand, true);
++	WARN_ON_ONCE(sighand != rcu_dereference_protected(src->sighand, true));
 +
-+	/* the user task owns the wq */
-+	get_task_struct(dst);
-+	WRITE_ONCE(wq->task, dst);
++	/* tid, leadership, and signal state swap in one go */
++	cgroup_threadgroup_change_begin(dst);
++	write_lock_irq(&tasklist_lock);
++	spin_lock(&sighand->siglock);
++	leader = thread_group_leader(src);
++	exchange_tids(dst, src);
++	if (leader)
++		thread_handoff_leader(dst, src);
++	thread_handoff_children(dst, src);
++	thread_handoff_signals(dst, src);
++	spin_unlock(&sighand->siglock);
++	write_unlock_irq(&tasklist_lock);
++	cgroup_threadgroup_change_end(dst);
++	recalc_sigpending();
 +
-+	/* move pending worker creations along, we may block for a while */
-+	while ((cb = task_work_cancel_match(src, io_task_work_match, wq))) {
-+		struct io_worker *w = container_of(cb, struct io_worker,
-+						  create_work);
++#ifdef CONFIG_FUTEX
++	dst->futex.robust_list = src->futex.robust_list;
++	src->futex.robust_list = NULL;
++#ifdef CONFIG_COMPAT
++	dst->futex.compat_robust_list = src->futex.compat_robust_list;
++	src->futex.compat_robust_list = NULL;
++#endif
++#endif
++	dst->clear_child_tid = src->clear_child_tid;
++	src->clear_child_tid = NULL;
 +
-+		if (!task_work_add(dst, cb, TWA_SIGNAL))
-+			continue;
-+		io_worker_cancel_cb(w);
-+		if (cb->func == create_worker_cont)
-+			kfree(w);
++#ifdef CONFIG_RSEQ
++	scoped_guard(irqsave) {
++		dst->rseq = src->rseq;
++		memset(&src->rseq, 0, sizeof(src->rseq));
++		src->rseq.ids.cpu_id = RSEQ_CPU_ID_UNINITIALIZED;
 +	}
-+	put_task_struct(src);
++	rseq_force_update();
++#endif
 +
-+	atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_DONE);
-+	wake_up_var(&worker->handoff);
++	thread_handoff_creds(dst, src);
++#ifdef CONFIG_AUDIT
++	dst->loginuid = src->loginuid;
++	dst->sessionid = src->sessionid;
++#endif
++
++	dst->personality = src->personality;
++	dst->pdeath_signal = src->pdeath_signal;
++	dst->timer_slack_ns = src->timer_slack_ns;
++	dst->default_timer_slack_ns = src->default_timer_slack_ns;
++	dst->start_time = src->start_time;
++	dst->start_boottime = src->start_boottime;
++	if (task_no_new_privs(src))
++		task_set_no_new_privs(dst);
++	/* prctl driven per-task flags, the source keeps them for its work */
++	dst->flags = (dst->flags & ~THREAD_HANDOFF_PF_FLAGS) |
++		     (src->flags & THREAD_HANDOFF_PF_FLAGS);
++
++	thread_handoff_mempolicy(dst, src);
++	thread_handoff_cgroup(dst, src);
++	thread_handoff_ioprio(dst, src);
++	thread_handoff_stats_add(dst, st);
++
++	thread_handoff_sched(dst, src);
++	thread_handoff_affinity(dst, src);
++
++	get_task_comm(comm, src);
++	set_task_comm(dst, comm);
++
++	return arch_thread_handoff_finish(src, leader);
 +}
-+
-+/* worker loop entry for a demoted task, only returns on another handoff */
-+io_wq_handoff_fn *io_wq_handoff_worker(void)
-+{
-+	struct io_worker *worker = current->worker_private;
-+	char buf[TASK_COMM_LEN] = {};
-+
-+	WARN_ON_ONCE(!io_wq_current_is_worker());
-+
-+	/* the promoted task reads our state until it's done migrating it */
-+	wait_var_event(&worker->handoff,
-+		atomic_read_acquire(&worker->handoff) == IO_WORKER_HANDOFF_FINISHED);
-+	atomic_set(&worker->handoff, IO_WORKER_HANDOFF_NONE);
-+
-+	snprintf(buf, sizeof(buf), "iou-wrk-%d", worker->wq->task->pid);
-+	set_task_comm(current, buf);
-+	set_cpus_allowed_ptr(current, worker->wq->cpu_mask);
-+
-+	return io_wq_worker_run(worker);
-+}
-+
-+/* release the demoted task @tsk to run as the worker it now is */
-+void io_wq_handoff_finished(struct task_struct *tsk)
-+{
-+	struct io_worker *worker = tsk->worker_private;
-+
-+	atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_FINISHED);
-+	wake_up_var(&worker->handoff);
-+}
-+
-+/* idle sleepers to keep around as handoff targets */
-+#define IO_WQ_HANDOFF_SPARES	2
-+
-+/* true if a worker is claimable, @topup forks one if below the target */
-+bool io_wq_handoff_spare(struct io_wq *wq, bool bound, bool topup)
-+{
-+	struct io_wq_acct *acct = io_get_acct(wq, bound);
-+	unsigned int idle;
-+
-+	idle = atomic_read(&acct->nr_iosleep);
-+	if (topup && idle < IO_WQ_HANDOFF_SPARES)
-+		io_wq_create_worker(wq, acct);
-+	return idle > 0;
-+}
-+
- /*
-  * Called when a worker is scheduled in. Mark us as currently running.
-  */
-diff --git a/io_uring/io-wq.h b/io_uring/io-wq.h
-index 42f00a47a9c9..98357b665e54 100644
---- a/io_uring/io-wq.h
-+++ b/io_uring/io-wq.h
-@@ -4,6 +4,7 @@
- 
- #include <linux/refcount.h>
- #include <linux/io_uring_types.h>
-+#include <linux/task_work.h>
- 
- struct io_wq;
- 
-@@ -47,6 +48,19 @@ void io_wq_set_exit_on_idle(struct io_wq *wq, bool enable);
- void io_wq_enqueue(struct io_wq *wq, struct io_wq_work *work);
- void io_wq_hash_work(struct io_wq_work *work, void *val);
- 
-+typedef long (io_wq_handoff_fn)(void);
-+
-+/* claim an idle worker, it runs @fn instead of the worker loop when woken */
-+struct task_struct *io_wq_handoff_claim(struct io_wq *wq, bool bound,
-+					io_wq_handoff_fn *fn);
-+
-+void io_wq_handoff_commit(struct task_struct *dst);
-+io_wq_handoff_fn *io_wq_handoff_worker(void);
-+bool io_wq_handoff_spare(struct io_wq *wq, bool bound, bool topup);
-+void io_wq_handoff_finished(struct task_struct *tsk);
-+int io_wq_task_work_add(struct task_struct *task, struct callback_head *cb,
-+			enum task_work_notify_mode notify);
-+
- int io_wq_cpu_affinity(struct io_uring_task *tctx, cpumask_var_t mask);
- int io_wq_max_workers(struct io_wq *wq, int *new_count);
- bool io_wq_worker_stopped(void);
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 510c8a9aa870..f31af9c5bae7 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -2688,11 +2688,12 @@ struct task_struct * __init fork_idle(int cpu)
-  * creating io_uring workers. It returns a created task, or an error pointer.
-  * The returned task is inactive, and the caller must fire it up through
-  * wake_up_new_task(p). All signals are blocked in the created task.
-+ * CLONE_SYSVSEM as a worker may take over a user thread's identity.
-  */
- struct task_struct *create_io_thread(int (*fn)(void *), void *arg, int node)
- {
- 	unsigned long flags = CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|
--			      CLONE_IO|CLONE_VM|CLONE_UNTRACED;
-+			      CLONE_IO|CLONE_VM|CLONE_UNTRACED|CLONE_SYSVSEM;
- 	struct kernel_clone_args args = {
- 		.flags		= flags,
- 		.fn		= fn,
 -- 
 2.55.0
 
