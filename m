@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE04FC88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB3EC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLOv9PqRHm0Dp6AEU3FrEQYqlkc9d2Rysj5SU5cG6RY=; b=x4NIUfVjS8wi814l8Hcme977KP
-	3b9Ffp6OfqRHYebGUvOPerDuNc05R/6jU7bgJGo0aLi34mLUK3FeGTIV1HU6TIe5XpNKDOFfYhesz
-	gPh8gDA7fwBUvErb7Ei/h8zg0NrqL2RkHY9/XalhAzQG+MNlq33AG962nzMAsKkpmMzMZce4AF7/m
-	QmCWfCqEaE0Mf2Mqvbrt3jcdpJfmhOuR2bVQ3/hjzo27cULkRwZrw7C328ZQZ2Pl54PMggAsy4Mk4
-	Yc/OayESTb5YkNK4IA1g7Yh8fRZcwyNYpd4sf7CbqBxbcs4z5rDDoXGiX8xl32PN3AaboRf62MjLx
-	I1d+X+Rw==;
+	bh=FCU2xeiF06KkVqtcXVSq5dyJUCYMUIv/B5XyYuirb0Q=; b=LrUheibTkOJFnPv10EB6grnElY
+	EjqcC3ehOkQcC3F0LBQ1Gadq2Y9kpGm23IdwPsiIeL+7PTpxQBuAjWvmI6Y5Tfchsmg9J3F1k3Kyh
+	hqM6e3uc2eHIZXp4q2FKh7CvBB+OpvhOZ7RYnuuDVW+Ht70nJUPAca533APGciK9sn5k02QSwUB+8
+	eiHt4n6+fnClgbjlxWR1zCLBvfSS9IL6zN216VeEX12on8F5ctI52CRXzBURwzhue/1hbEKnWnCzL
+	QAfd2SWrNx75WMT0RCLOOwd/feC5M1ELwfPceTrW8lG/MXCLz9coP9lHPB+WfWlDNRDZEMCYe3SZH
+	SoXnU8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vHw-0000000FzCg-3FfZ;
-	Fri, 11 Sep 2026 07:03:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4vJI-0000000FzRK-1H5X;
+	Fri, 11 Sep 2026 07:04:32 +0000
+Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vHw-0000000FzCY-1eWq
+	id 1x4vJG-0000000FzQQ-0bNH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 07:03:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0A9841399;
-	Fri, 11 Sep 2026 07:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF3421F000FF;
-	Fri, 11 Sep 2026 07:03:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789110187;
-	bh=fLOv9PqRHm0Dp6AEU3FrEQYqlkc9d2Rysj5SU5cG6RY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gg0J95fHymQW9M8DoQvwqtACHc8nmHNl3IQWWBWUFvaP/N3OpVH0jrAGtc44djAkT
-	 3+G3/D5vLC4wPjCNtA0WMtNa/MO2TkPe+ebtT0UBqnDRZIkTsEYY1dAJmZPRs98rUD
-	 MTp1DoYUVl4Xyk70tm07cBt9bKGNME+RcofIzO0pHken0ud47IeATdooHTXZXjsNX+
-	 6/K92K/LJCRnlHk5J3CkxuKAOYAfuojyK1U4E7MqSpT85p7Z5gLNfE5K07Vcov9cEX
-	 5Unv0Z/nW7hykBvwro5/waAjxNj8kmwAmp9xKsZUeK9e5HOSQzr27Q2OGR3euIz1ut
-	 laaSeYJmaKqFA==
-Date: Fri, 11 Sep 2026 09:03:03 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Tzu-Hao Wei <twei@axiado.com>, 
-	Karthikeyan Mitran <kmitran@axiado.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: hwmon: add Axiado AX3000 and AX3005
- PWM fan controller
-Message-ID: <20260911-melodic-naughty-kestrel-efc72e@quoll>
-References: <20260903-axiado-ax3000-pwm-fan-v2-0-ef43df46163e@axiado.com>
- <20260903-axiado-ax3000-pwm-fan-v2-1-ef43df46163e@axiado.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260903-axiado-ax3000-pwm-fan-v2-1-ef43df46163e@axiado.com>
+	Fri, 11 Sep 2026 07:04:31 +0000
+Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-39d865b11b4so773013a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 00:04:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789110269; x=1789715069; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FCU2xeiF06KkVqtcXVSq5dyJUCYMUIv/B5XyYuirb0Q=;
+        b=kGC5IB0j7AK8Q/isVeWuOA/xWptDlKqlSndXDw3dJAGGrmOXC874DVO1qpl3g7cX6E
+         7hbu1BsKYVzziq1RUY0xs2ni2B/cChD/YTOnv1DTbFbtFK5WjVm0CEkAx6eV1V1YOBrJ
+         qxG6aW5VTGupzolaZ7claHVJgEkJfd/4jTwa/51gpA+hJVlr3Qdlyx0GS7LYlIehfQDo
+         wJYIq7n1dV//fBTpXZm93NbvPkORu7GErhncj6bWliErxgOAaMHiCLKbkBBB8yad9Biv
+         lOC7C4PqBP1AVfyjJG7lhblMx5ph0AVUwf8oiKU0ZBvXVrOniT4xE4q1W/U94p6b6tzV
+         aosw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789110269; x=1789715069;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FCU2xeiF06KkVqtcXVSq5dyJUCYMUIv/B5XyYuirb0Q=;
+        b=pLT4v4kEuX/VI7w10gE0tVBiCyTv4ob7lfnoX+XitspTBiSoFugqSAQSFxCDn57GbQ
+         UBXcomS5po97SG4WQjH17D6bpxtGPP9fTmU9uTx7Ow08dT8EW3SmqQDS5Vh77TjjcxQk
+         nLz/dknsSqGkk5fTFI7gYHNsoKu+EHIp9TkshG+lQenPyPTKSBNiJfNFERQJN/HblNQK
+         Dv1opMqA8e3NfRk7QeTpxyBNmU+ZGNacKbNiW9HeDphCEw2Tu24OWehnNKmym+r6MIHE
+         7eySxCw2xXSHtCqTieJUzZZSF1Zu9e17PQ+c0ccrNuaazgNRIAgUTjT8QC/Mz8G/ia41
+         /68g==
+X-Forwarded-Encrypted: i=1; AKwUvBzWwEbFFN3rp6v6Ly8GgMa5z3Mm2OkGxjuCZ+O1cpezWR+cksSJR9Kl1qP2WfljbE/9364JHAQPciNiU06Y9R7s@lists.infradead.org
+X-Gm-Message-State: AFuF++mwkoKCxhrMi4n496hZJQhF3AmsoBAakkMt9HsapE7p3Nw14Wfo
+	y9h7mUZvJrMrd8JIpDdMp12mzEXqt8R8v5Szmkga8zPz5V3C+WIOyH6IONYFhFpYVnUujHJttCQ
+	i
+X-Received: from plbkc7.prod.google.com ([2002:a17:903:33c7:b0:2dd:630:cea4])
+ (user=morbo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1448:b0:2dd:3d1a:6958
+ with SMTP id d9443c01a7336-2dd3d1a6b2fmr2624175ad.6.1789110268515; Fri, 11
+ Sep 2026 00:04:28 -0700 (PDT)
+Date: Fri, 11 Sep 2026 07:03:41 +0000
+In-Reply-To: <20260911070346.801948-1-morbo@google.com>
+Mime-Version: 1.0
+References: <20260911070346.801948-1-morbo@google.com>
+X-Mailer: git-send-email 2.55.0.1032.g73a4cd73de-goog
+Message-ID: <20260911070346.801948-4-morbo@google.com>
+Subject: [PATCH 3/7] arm64/word-at-a-time: Instrument load_unaligned_zeropad()
+From: Bill Wendling <morbo@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: Bill Wendling <morbo@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_000430_190714_C8308C1E 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 01:38:39AM -0700, Petar Stepanovic wrote:
-> Add a Devicetree binding for the PWM fan controller found on the
-> Axiado AX3000 and AX3005 SoCs.
-> 
-> The controller measures fan speed using a hardware tachometer block.
-> Fan speed is controlled through a PWM signal supplied by an external
-> PWM controller.
-> 
-> Add a MAINTAINERS entry for the binding.
-> 
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> ---
->  .../bindings/hwmon/axiado,ax3000-pwm-fan.yaml      | 72 ++++++++++++++++++++++
->  MAINTAINERS                                        |  8 +++
->  2 files changed, 80 insertions(+)
+Convert arm64 to the arch_load_unaligned_zeropad() /
+load_unaligned_zeropad() split introduced for x86 in the previous
+patch, so KASAN/KCSAN also see reads through load_unaligned_zeropad()
+on this architecture (e.g. under CONFIG_KASAN_SW_TAGS).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Assisted-by: Claude:claude-sonnet-5
+Signed-off-by: Bill Wendling <morbo@google.com>
+---
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ arch/arm64/include/asm/word-at-a-time.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/include/asm/word-at-a-time.h b/arch/arm64/include/asm/word-at-a-time.h
+index 824ca6987a51..656e3274ed7a 100644
+--- a/arch/arm64/include/asm/word-at-a-time.h
++++ b/arch/arm64/include/asm/word-at-a-time.h
+@@ -47,7 +47,7 @@ static inline unsigned long zero_bytemask(unsigned long bits)
+  * and the next page not being mapped, take the exception and
+  * return zeroes in the non-existing part.
+  */
+-static inline unsigned long load_unaligned_zeropad(const void *addr)
++static inline unsigned long arch_load_unaligned_zeropad(const void *addr)
+ {
+ 	unsigned long ret;
+ 
+@@ -66,4 +66,6 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+ 	return ret;
+ }
+ 
++#include <asm-generic/word-at-a-time-instrumented.h>
++
+ #endif /* __ASM_WORD_AT_A_TIME_H */
+-- 
+2.47.3
 
 
