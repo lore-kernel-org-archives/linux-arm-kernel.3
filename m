@@ -4,122 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6FCC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D24C88E58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxKk78RkbRW1DG36XDgMwpHJuUlT+rNxqDSm0SlrpEQ=; b=s2qpErAcn2sEjDWuEiD+oXauCO
-	tdxitOEOe+/AAtphJCvsLTcWLLl8mbcWbcA+uKdbr3Qin3PlY/pt5BQUT4qZmEmsv6BBRuR/1AlNn
-	du96Tw2jGe/7kXjSJBEKYWwCUgXrXuzlTuwAB8ehRKoifJV28BoR2wHqHWMImfuhWluJgda6huqJE
-	ERvpOXvFaWncPvSrCBtt5+vvOVq5+VgKg8+yeHdCGQ8gomKGOSGC8BH4GJxVoaWElyupAjKmX1dhi
-	TUypNTepX2zKZudhfT0C1vJH4/Py507nFL0w44go/Xk1TuZFCBpvPLLGKO/+31OZLKALAAXda7mbC
-	us25SmcQ==;
+	bh=jU5lnCux5MoWJwvTX3ecr7/FRn+aWHmTCDSI/zvPia8=; b=4hC87Ufvja/tUXVZlOcB5s4kd7
+	Q5X5s4PlChzDVP8heO9rdwLGhmDTgflWkfGo0W49bZ/HnoXDftV23jnY8j5K2d+MJYZS+wu+5rFft
+	tUinQPxKpWa7F2alNHWFSfQCzoByd35Oyoewrl8R9GVQNy9tQ10/n4OvdnxZhgYmWaEGwr6VcZGPl
+	UwzACxRZqmZDqbIN81qMaqiuzVtr1ZDvFWQMHsHumNOVadRFn2CCzY9QvqpTYD6RqH6kU/1ye8qfi
+	mOzniYlu4MOCvoOaJ2jbxbIV+bE5TiYLMaLPBPNwUF/TfX4SX9GmRa6jcbLSJru1sMA8Sx7L40n4s
+	VbNoNSnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54Zs-0000000HGvv-2hxb;
-	Fri, 11 Sep 2026 16:58:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x54aS-0000000HH3T-3rAO;
+	Fri, 11 Sep 2026 16:58:52 +0000
+Received: from mx0b-00128a01.pphosted.com ([148.163.139.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54Zp-0000000HGuj-2JvT
+	id 1x54aP-0000000HH2o-3VNp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:58:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789145890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=hxKk78RkbRW1DG36XDgMwpHJuUlT+rNxqDSm0SlrpEQ=;
-	b=ADt8fy6N07Mc6rqaJLyKDl6RmXRWJyF9VZbanBkpJUbHyMzLRXn1ghF8nqVhpE6zLC/q9d
-	/6/gHjWtcjiKoKohZxObBwUdkZfHTaOyLQs90Khq0Vomqh+WzgMh7oehKYqgL/HhDALx2v
-	PNWxbkC5QPcHSow+0O571bnfEx2hCPw=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-639-MVV-OgC7OGWKNCrtZ4sAkA-1; Fri,
- 11 Sep 2026 12:58:05 -0400
-X-MC-Unique: MVV-OgC7OGWKNCrtZ4sAkA-1
-X-Mimecast-MFC-AGG-ID: MVV-OgC7OGWKNCrtZ4sAkA_1789145881
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 11FFE195396B;
-	Fri, 11 Sep 2026 16:58:00 +0000 (UTC)
-Received: from [100.90.56.12] (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EE9281800361;
-	Fri, 11 Sep 2026 16:57:48 +0000 (UTC)
-Message-ID: <705b3886-80ef-4b15-8aee-0521fa97cfe3@redhat.com>
-Date: Fri, 11 Sep 2026 18:57:45 +0200
+	Fri, 11 Sep 2026 16:58:51 +0000
+Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BEinx1685441;
+	Fri, 11 Sep 2026 12:58:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=jU5ln
+	Cux5MoWJwvTX3ecr7/FRn+aWHmTCDSI/zvPia8=; b=ARjNLBgoXVvKdm3DiA1UL
+	87FV53vT83Vy6fSCzjwwgrfrm3kLnhymBYA+g72N7U6WYgipZUTsqMShAYn6vvm9
+	exT+J095nhgll286um31ioZi5ece4pY5c2h+7wzO23mqqPvkK/+AQ9WfDyej5eYB
+	nMxuRyCI9xbwVZyNPudt7g5WJAd/PjGrYOfXaAN1hsoffiyX3BSfnz7wlbOovC05
+	ApsviQHp8EnX5Ex2KfQLesjbfFVv1Rugplj1fEqmjR+XBkX6fLUuV/2n+igHLdZb
+	EenmE2rFGKpUHphrTHMNDRfJt4qGbWBjjRhekhgyR9vt1jfSUNXJaP32ZwTmiOsQ
+	w==
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010040.outbound.protection.outlook.com [52.101.56.40])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4gkcx8rd4t-2
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 11 Sep 2026 12:58:42 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h1FcOILGtpyTb6fn6QM9A6nGAJIJM48HgRcthVEDUXHoi0aXjaMkdjrLIIsArRnxhXT01U+0Fu7lNFyOkPAMg3DSD06rL7Z05TSgJ8tOLtM/MFj4Qt+hb+gBBXjY1v48kTXci3NMmtCo2k1lBLqdS9PqdDOP8eEbbK2UFRxduHQd0Mi+KayaWW8s6RodgPKauit0BUA/FLkfRijg/8K+oWSN5YunCFKfElGNxBS3QHWRS8EGcmBN5VB1Dp1JSUpjapWzm7bJbrro/x/mjC5NNO+fWz5ktFjyuxO0fxNaEpx55hBAedSb67/l95001+TuyyngmqzlZd4EqhXCeDUJXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jU5lnCux5MoWJwvTX3ecr7/FRn+aWHmTCDSI/zvPia8=;
+ b=ugzry2aSKFiId7+fDVm6iiArhnYQJmppzkvZTyXadN9kBbnEDkVVL5nqgG8zJmp7Drq5QDRDbMfgYFRdjvxUoio9hwdNCMNbgSFDTarU+N/N8JSH03FupV3WXRtk1Fitbzek91fn2AdMc6gScLarcpjLlyD0KOHMO5hbilZF6JTvAZRND/JZxBvwsYeKaW2W6ZdbAv4GXgAOcmeKHZpcoZ4z5sp/hutOK+UAb6Mf7wYpnHwd/Bo/hdystSAqxCe6MVbRmzfwvqVQ/V35KSCsitzwut+bqpgpzgTa5m/CWu8kZSQKb3cmV3M3G2dWzfxfZYUfsQfuuzzW1h9HWaHwEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
+ by CH0PR03MB6082.namprd03.prod.outlook.com (2603:10b6:610:b9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Fri, 11 Sep
+ 2026 16:58:38 +0000
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a%6]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 16:58:38 +0000
+Date: Fri, 11 Sep 2026 17:59:54 +0100
+From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+        linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+        Lars-Peter Clausen <lars@metafoo.de>,
+        Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+        =?utf-8?Q?Am=C3=A9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v3 1/9] dmaengine: Support bus widths of 32 bytes and
+ above
+Message-ID: <aqQyiVxibcrCNCMs@nsa>
+References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+ <20260831-dmaengine-support-wider-dma-masks-v3-1-507d97496f2d@analog.com>
+ <apWFa4BFoAL2AhG3@ashevche-desk.local>
+ <apWjMBvGA6yo_nCZ@nsa>
+ <aqQaUx5Ok8uesHu5@nsa>
+ <aqQnF9-Qtc-ZJJWa@ashevche-desk.local>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aqQnF9-Qtc-ZJJWa@ashevche-desk.local>
+X-ClientProxiedBy: MA3P292CA0039.ESPP292.PROD.OUTLOOK.COM
+ (2603:10a6:250:46::8) To SJ0PR03MB5469.namprd03.prod.outlook.com
+ (2603:10b6:a03:28a::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
- memfd ABI compatibility
-To: Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@nvidia.com>
-Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>,
- arnd@arndb.de, pasha.tatashin@soleen.com, rppt@kernel.org,
- pratyush@kernel.org, graf@amazon.com, akpm@linux-foundation.org,
- maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org,
- kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-pci@vger.kernel.org, iommu@lists.linux.dev
-References: <20260903023452.721732-1-loganodell@google.com>
- <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com>
- <20260905012403.GX4157646@nvidia.com> <aqIAtOoew-_6jw29@google.com>
- <20260910143448.GD3968357@nvidia.com> <aqLOWkuVKccR-I7W@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
- CxXPkIBTvYY+ZPkoTh5xF9oS1jqI8iRLzouzF8yXs3QjQIZ2SfuCxSVwlV65jotcjD2FTN04
- hVopm9llFijNZpVIOGUTqzM4U55sdsCcZUluWM6x4HSOdw5F5Utxfp1wOjD/v92Lrax0hjiX
- DResHSt48q+8FrZzY+AUbkUS+Jm34qjswdrgsC5uxeVcLkBgWLmov2kMaMROT0YmFY6A3m1S
- P/kXmHDXxhe23gKb3dgwxUTpENDBGcfEzrzilWueOeUWiOcWuFOed/C3SyijBx3Av/lbCsHU
- Vx6pMycNTdzU1BuAroB+Y3mNEuW56Yd44jlInzG2UOwt9XjjdKkJZ1g0P9dwptwLEgTEd3Fo
- UdhAQyRXGYO8oROiuh+RZ1lXp6AQ4ZjoyH8WLfTLf5g1EKCTc4C1sy1vQSdzIRu3rBIjAvnC
- tGZADei1IExLqB3uzXKzZ1BZ+Z8hnt2og9hb7H0y8diYfEk2w3R7wEr+Ehk5NQsT2MPI2QBd
- wEv1/Aj1DgUHZAHzG1QN9S8wNWQ6K9DqHZTBnI1hUlkp22zCSHK/6FwUCuYp1zcAEQEAAc0j
- UGFvbG8gQm9uemluaSA8cGJvbnppbmlAcmVkaGF0LmNvbT7CwU0EEwECACMFAlRCcBICGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRB+FRAMzTZpsbceDp9IIN6BIA0Ol7MoB15E
- 11kRz/ewzryFY54tQlMnd4xxfH8MTQ/mm9I482YoSwPMdcWFAKnUX6Yo30tbLiNB8hzaHeRj
- jx12K+ptqYbg+cevgOtbLAlL9kNgLLcsGqC2829jBCUTVeMSZDrzS97ole/YEez2qFpPnTV0
- VrRWClWVfYh+JfzpXmgyhbkuwUxNFk421s4Ajp3d8nPPFUGgBG5HOxzkAm7xb1cjAuJ+oi/K
- CHfkuN+fLZl/u3E/fw7vvOESApLU5o0icVXeakfSz0LsygEnekDbxPnE5af/9FEkXJD5EoYG
- SEahaEtgNrR4qsyxyAGYgZlS70vkSSYJ+iT2rrwEiDlo31MzRo6Ba2FfHBSJ7lcYdPT7bbk9
- AO3hlNMhNdUhoQv7M5HsnqZ6unvSHOKmReNaS9egAGdRN0/GPDWr9wroyJ65ZNQsHl9nXBqE
- AukZNr5oJO5vxrYiAuuTSd6UI/xFkjtkzltG3mw5ao2bBpk/V/YuePrJsnPFHG7NhizrxttB
- nTuOSCMo45pfHQ+XYd5K1+Cv/NzZFNWscm5htJ0HznY+oOsZvHTyGz3v91pn51dkRYN0otqr
- bQ4tlFFuVjArBZcapSIe6NV8C4cEiSTOwE0EVEJx7gEIAMeHcVzuv2bp9HlWDp6+RkZe+vtl
- KwAHplb/WH59j2wyG8V6i33+6MlSSJMOFnYUCCL77bucx9uImI5nX24PIlqT+zasVEEVGSRF
- m8dgkcJDB7Tps0IkNrUi4yof3B3shR+vMY3i3Ip0e41zKx0CvlAhMOo6otaHmcxr35sWq1Jk
- tLkbn3wG+fPQCVudJJECvVQ//UAthSSEklA50QtD2sBkmQ14ZryEyTHQ+E42K3j2IUmOLriF
- dNr9NvE1QGmGyIcbw2NIVEBOK/GWxkS5+dmxM2iD4Jdaf2nSn3jlHjEXoPwpMs0KZsgdU0pP
- JQzMUMwmB1wM8JxovFlPYrhNT9MAEQEAAcLBMwQYAQIACQUCVEJx7gIbDAAKCRB+FRAMzTZp
- sadRDqCctLmYICZu4GSnie4lKXl+HqlLanpVMOoFNnWs9oRP47MbE2wv8OaYh5pNR9VVgyhD
- OG0AU7oidG36OeUlrFDTfnPYYSF/mPCxHttosyt8O5kabxnIPv2URuAxDByz+iVbL+RjKaGM
- GDph56ZTswlx75nZVtIukqzLAQ5fa8OALSGum0cFi4ptZUOhDNz1onz61klD6z3MODi0sBZN
- Aj6guB2L/+2ZwElZEeRBERRd/uommlYuToAXfNRdUwrwl9gRMiA0WSyTb190zneRRDfpSK5d
- usXnM/O+kr3Dm+Ui+UioPf6wgbn3T0o6I5BhVhs4h4hWmIW7iNhPjX1iybXfmb1gAFfjtHfL
- xRUr64svXpyfJMScIQtBAm0ihWPltXkyITA92ngCmPdHa6M1hMh4RDX+Jf1fiWubzp1voAg0
- JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
- dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
- b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <aqLOWkuVKccR-I7W@google.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: KUqBNAz-0_IUH2A7Oio5RWGb-eZXZsrjAvF8E8rjv0M_1789145881
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|CH0PR03MB6082:EE_
+X-MS-Office365-Filtering-Correlation-Id: 31526200-3efb-4754-e687-08df1025ecdb
+X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|4143699003|11063799006|56012099006|22082099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: /ck9F4eZimXGgG9fQ8oodZcvW3Q7XaK8D1qHbG4sV3IEuY7WqtluopUyudGbA/y/edcABFZu/5zBwT5YQ+MwA8MLJqjz+nW06NMkwuaf2Vuu5bH/ROC2bdfeq75WdeQ5TwRu+oSgvq1ZWB43jSLpsJVJExF8Ey9KNvFhkxjST9m862guSGi0nKA14dc9XygpkNkypUwJT0pN9nXLnnj2gm8X9/XLt8HIGHhNPckTkpkushFa3MpgWnUqMu+2ww5nTBqOFeS4X8HuDuKEk4imbCjE744zIf0322rLpUAJwZBduftccObLEL1/Ch8YQ/Fyk2+Kn0lNLkTi10VMlHOAlrArZ7UFU7nHIGg7uequHqIHUvXcjJOsbI7BK4FPu27vRw8GfBC2DBMN/HKRMTEyUJhbr4Q1qUY/N49K04y9ZWLX1+a9MAyZw078PfYx9YBHF6fOmgx3lLhdWlSjd0ui9iBWF3OBj+gLSbzDQqRT0KKsgiV2ClawLdeDU2oOPBvQrEkTB7lUjbLv+CCA7GqY28y6rop3SD5Wd2TImsqOiuaJS4hlQ/3wf8BT3eYYyThgNsPNu+McVcK/f9S4F6f707u9GCbX9wRC4OWc5sKNrrvbZpsR3NrPQALU+m0NWQaWW8oDcDXQlzGEkiNvA/VVlZKwSlXWkdftLLw28AQi/yk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFptOWFjdDhia29yU2tNblNQWFl1T3ZzZkpFbnBrM2tzbXhiZXJzK2VPdGt4?=
+ =?utf-8?B?L2RKSzhqMXAxNmo5UW1zaTJtU0FLaTk0b2FzbnR1VmpYbUVDODQzSWhnV21s?=
+ =?utf-8?B?aFVUMHdtZ2Y4ZEZYRFNVc25xRGZpMU1qTUNyNVM3MzJMazhMcVl1V0VERXRE?=
+ =?utf-8?B?TmdsdGIyeXRJY2NuWENwZWJBRTdLdVV0SnZyNWprbFRudDlQTUwrMllSTkl4?=
+ =?utf-8?B?Ymo2NzY1NUpQM3NVeTZlSFRxSitMQW44RTRKbDdNYWplenJXMlJZVHFCeHhr?=
+ =?utf-8?B?c2RFU1IwOUZ6L25BM3pDNU5pYTBEYml1ZHBQWm8zd1hnbG9hakVQZnlYWTZu?=
+ =?utf-8?B?Zmc0M2xFeXFpaGZmQnRmeXl1L3BscUFKbkZFL05VaGZwcTcyTzdhQ3hZQWNt?=
+ =?utf-8?B?SklZbHh1cVNDbzNESnl5TUxsb3F6bk8yT1Z6eUV0cnprdDdMaW92STJRYjVF?=
+ =?utf-8?B?c2xtZVRCaHl5UHplQWRuZUtIU3ZCb0ZXVEF5SWVrNGpWU0hDZmFyUmFjeWtn?=
+ =?utf-8?B?L1pzTDhQVWhtU3EwejFYaElNUXJMOXZnRVptZkRlOUZCbUJnbzRpOXNCb1ZS?=
+ =?utf-8?B?QXV4Y0dyendyZTg1ZGovaWpIR3hBM1l4Y2s2RzNYTVlrOElBbko5RVQvUHli?=
+ =?utf-8?B?NE9WYnRLcDJKcXZLNCt1N1J4MlAvZW94U0xLdFN4dzVvSkNBNVpESDFuSEs2?=
+ =?utf-8?B?ODQ2bWM2d1AwRCtYR3NjYm95MWFVZWlTMlczclkvL1R3NGozd0VBQXlKSVRD?=
+ =?utf-8?B?NkpTYjVhejZJeFpsVllWc0Y5c21RWDZTZS9MREdPR0ZlcitKUUZqckFHRFEv?=
+ =?utf-8?B?dWhId2xlWDU2YjVkTUVrS3ptelg4SGowUUk5RllmTkdwN2FNNEEvYUVveXJN?=
+ =?utf-8?B?K3BaUldRUXFvTi8xMHpudUFQN0p5aHE0L1p5Rm00MHU3K01kdmdMNnI2V2pj?=
+ =?utf-8?B?TmFnbE5KM2Q1aTUrdy9TaStIMGRFc25yZHQxWlR4c3lOMGxMNmI0SHd2Ly9y?=
+ =?utf-8?B?Ni83WEhUQWxHcWVGK0dIdGlET3U5ZWJjQjNJb0FPdEdQb20wNW1vUEJDaE9k?=
+ =?utf-8?B?L0ZGeCt3bXV6QjhSZUlGSEFLMDlLTm9WRVk1dHg4YmJIR1FpMEFCNzRORzV2?=
+ =?utf-8?B?cWhYcjhNTUVNUUYwTzN5MzRZU3RNU1J0dTVHSkZESTdMdUdsdjBMR2pHczlT?=
+ =?utf-8?B?aExZRW0vT2JJcWFWYnRrWTdqVGVWUjdXWTRBT3cvN1NVMFBSbmxrOFMzWHNR?=
+ =?utf-8?B?WElsR0JLbllITW1zMW1GbzNwOS9HY2hpR0dyN2hZN09HcXlyenMwbUZQSGlM?=
+ =?utf-8?B?RjBsVk8yeTFBa1JKcGorYk1JMi96MWhqNEQ3SndWeUZ5RTdDMXVaRVVycTM3?=
+ =?utf-8?B?SVVWOVkzWStnTjNmWDZaUmh3WFhrKzdMdXJpYTJOTHFIYlZNZ1NYUjlVV2gy?=
+ =?utf-8?B?RFJLOUtkUGdMdWVHS2toYzN0K0R4ZVd2VkJXTmo0ZU8rRXJlM09PN1h6WUt5?=
+ =?utf-8?B?UjFrT3haRFNEZ3hoVk1NYm5sSjJGUWFTaDY1R0YxYk5lUTJRMmZ3WWdCNWc3?=
+ =?utf-8?B?STZBcy9sUDBrL21ibER4K1VrUXMrOHlYOHBibGFXcWxvalp1L0JkbmY5TjVB?=
+ =?utf-8?B?eUVhaDZhUnRHQ3NKdlB1VUZYemlRa0FIL2Ria29Dam5BUiswZHU3cVpYaDhW?=
+ =?utf-8?B?T2VKTDZ1b0ZEc0lDUnFnVEdVNmJtRXkrMjJaMlBudjNkZTl3b2h3ampOZm9B?=
+ =?utf-8?B?MEFEUllNMXpLSVRXcXZBOXhkeEo0QlNqTUJRYWM3Vm1LZDdnclJOWXdnL2hq?=
+ =?utf-8?B?RzkyQngrd3pLN0R5K3dFcXRENjRJcWN1OExWczhnbG1WOUVnN3ptZzl1bHVi?=
+ =?utf-8?B?SnltVjV4U2ZnZHk0U2RGLzAvUldMYUFvYXgxWkFsM0RaYzRSQklFVEord2Rz?=
+ =?utf-8?B?ZkRvVCt3RGpRNGt2eE4xaEpmQitWUEEyVVFRQUYvdWJFbEZoQXUyYUVKYzdw?=
+ =?utf-8?B?c3c2Mkh6NThwcG92Nk4xRk5KRE5SVXVIUlR6MlZrTzJocFBjcCs4ZHFiMllH?=
+ =?utf-8?B?bHd0bVhsMktBM2d0Zks5NHNuNkJ2Y3RiQUJUMjZjQnNKdkpoS2JFNkVzRU01?=
+ =?utf-8?B?cnRydDA1Z000RmRSUjNsWTY0TlBnSytObmtmWk9QUExLVEVPTGV1SUkzSXJu?=
+ =?utf-8?B?OUFCcTRDY2ZHWjB3Q0pvVkRScGRScGdBNm80b2dvQVNhaGVOalBHZ1lrdGxQ?=
+ =?utf-8?B?VjY2TjAxT2hXclQrUm84RitXL1ZOQ2JaNHFLK0ZwOFJPc05kOVhVaVNYZHRX?=
+ =?utf-8?B?YkhuMDVjL1hHbmFJTjBEWkk1WU5WRFNaamR6MFRrUjN0ZTh2eEdhUT09?=
+X-Exchange-RoutingPolicyChecked: X3tRaBDweVJQ0dObtmACRBFZ90zfmhBmQulGGj5wGby1aPTRv4NtDHJW71tvppYEf+FJJeddcB44k/LWY0StNvh+cv9AewynD/EKL75FrFaQE17RJxKdAm+BJlLmIigOJ77zsWFLq4+R64Pdt+7AZIWE9nuxQQc/+xwCsALZBUGyrn5/Q5sXP95vzLwvOdh05NNnTN5eoohncnS8mg8E3krl616lQcm/Rxe5yCcouQmz1B3f81q/MPuyEhKgc01p+a0Z0eP0mrEyhsWTrFe9GK6kzOe5Z/95/3mU8HQ8bsq+fIaWHIInxOTJTFSPBb7MtTATaT6ohH/2LPBAngtvAQ==
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 31526200-3efb-4754-e687-08df1025ecdb
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 16:58:38.5935
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MbqucGkrNRoY9pb62a5AFfe1JlyCGkeDGnIPDTkttiieegE/2KaL3trnrU+ZsthNVItnQiGon0B7OPGr/Gk2jQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR03MB6082
+X-Proofpoint-GUID: sQbf1erA1II7khbraTX7fHujrZc6PbYB
+X-Authority-Analysis: v=2.4 cv=JaApPkKV c=1 sm=1 tr=0 ts=6aa43342 cx=c_pps
+ a=gS8+cbQEeirDoRw2OPG9zw==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=M51BFTxLslgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=_jAD5XSDOtq9-5Nde2OG:22
+ a=qT16TcJSW1ifsEtkDAcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: sQbf1erA1II7khbraTX7fHujrZc6PbYB
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDIzNiBTYWx0ZWRfX2RjgvNVK1uYr
+ ic3tV5qkXQ1wPVNdEv5un6oolGNItbhfZ7KOZKfQ1osglNg0g9So8+ZSLk5lf6w8ZBhEi0MkWFs
+ NybwWPadv/+AsfPrextVsUcVny1Ohyir/Oja2HKBW5RiC2ctluUF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDIzNiBTYWx0ZWRfX+h+zsRHNsoYf
+ C9pJbSQuzQmi8tzx7tGnIGCmhEHQZGjO+PcUompDU77lzO5TjMMVV2eZQpZG9Bf6DmEdZHsYIKA
+ quwQQGvJ7qBO7CsEV+/sG4toVAvB9mmfltGPpLrX/yKHJVaRH3il7ysDsCtLiF4VhF1a+QCfwAw
+ pZ6UBJ4I1uhzRZm9Kp8hU31a9+NkJw83KPnUuGvzC9iBauMmlikvCu8mV7l8Sq3H2zNXRCMy7US
+ HkNz16iFEpw2lNmvIu0bHdCu4uIAitP0m7Q79OPaN6O/XCn95vhC9vDRT1vwnwXKHSIQaIC7Apu
+ Sa6curLmlxJnq1yLiWA7249zKhsLx2QsZj30LPt04MnTFGj6r23jD08KuWGf0o9pnnflxTtuUOV
+ 1176xUe1AewrEGyY7V+rTC6XVigDmOnuAy2HB8Dl6LTUxzIw1N9oF21xBagmBJLig7fiRfvcFpC
+ 0atKs5qzGB6lcmDBL7g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-11_05,2026-09-11_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
+ phishscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_095813_658274_F73A0718 
-X-CRM114-Status: GOOD (  34.30  )
+X-CRM114-CacheID: sfid-20260911_095849_994909_BCC2A3B5 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,133 +203,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/10/26 17:35, Sean Christopherson wrote:
-> On Thu, Sep 10, 2026, Jason Gunthorpe wrote:
->> Sometimes you can do more and more work to try and be more and more
->> general but this is *alot* of work and even then eventually hits
->> problematic limits. Like what do you do with the sealing flags? That's
->> ABI breaking if the successor does not support them, and downgrades
->> make exactly that possible.
->>
->> A CSPish user can do things like patch the new sealing flag into their
->> current kernel (while preventing userspace from using it), ensure
->> everything is updated to that, then jump ahead to a newer kernel and
->> enjoy the new flag with full downgrade support. There is so much more
->> control on their part that makes the problem far more managably simple
->> that upstream does not get to have.
->
-> I guess maybe we have a different definition of ABI? I'm not saying
-> that upstream has to be 100% forwards and backwards compatible. I'm
-> saying the serialization payload itself should communicate what
-> features are effectively required.
-I strongly agree with Sean on this, like really really agree.
-
-All you need is serializing *actions*.  Make the destination a small 
-interpreter not something that read structs.  memfd/guest_memfd is 
-already created by a bunch of actions, which are syscalls, so it 
-shouldn't be hard to either come up with the actions or parse them in 
-the destination.
-
-An example matching (going by memory) what is now in place for memfd:
-
-- memfd_create(name[], flags)
-- memfd_map(folios[], index)
-- memfd_finish(seals, pos, size, mode)
-
-So:
-
-#define MEMFD_LUO_CREATE 0
-#define MEMFD_LUO_MAP 1
-#define MEMFD_LUO_FINISH 2
-struct memfd_luo_op {
-	/* 0 = end */
-	u32 size;
-	u32 op;
-	union {
-		struct {
-			u32 flags;
-			char name[];
-		} memfd_luo_create;
-		struct {
-			u32 flags;
-		} memfd_luo_secret;
-		struct {
-			u64 i_size;
-			u64 f_pos;
-			u32 f_seals;
-			u32 i_mode;
-		} memfd_luo_finish;
-		struct {
-			u64 index;
-			struct memfd_luo_folio src_folios[]; // whatever
-		} memfd_luo_map;
-	};
-} __aligned(8);
-
-You write almost everything at prepare, just ensure there is room for 
-finish and write that on freeze.
-
-Want to move secret memfds?  Sure they're different in underlying 
-implementation but they can share LUO serialization format almost 
-entirely.  Make it a new op instead of create.. you have 4 billion 
-possible ops, adding them isn't quite free but not too expensive either.
-
-In fact memfd is the easy case, almost always you'll have a more 
-complicated initialization sequence and a huge explosion of 
-possibilities, but the good thing is that the kernel *already* has to 
-initialize its data structures from actions.  We're not quite 
-serializing syscalls but pretty close, in fact for KVM a lot of code 
-could be shared between ioctls and LUO receiving side.
-
-It doesn't have to match exactly userspace, for example you wouldn't 
-really need to transmit MFD_ALLOW_SEALING because it's implicit in the 
-seals you transmit.  That said, taking inspiration doesn't hurt; just 
-remember to *always* validate unknown flags.
-
->> If it really succeeds at that and it becomes very popular, then let's
->> discuss upstreaming doing additional version combinations.
+On Fri, Sep 11, 2026 at 07:06:47PM +0300, Andy Shevchenko wrote:
+> On Fri, Sep 11, 2026 at 04:14:20PM +0100, Nuno Sá wrote:
+> > On Mon, Aug 31, 2026 at 04:56:18PM +0100, Nuno Sá wrote:
+> > > On Mon, Aug 31, 2026 at 04:45:15PM +0300, Andy Shevchenko wrote:
+> > > > On Mon, Aug 31, 2026 at 12:46:38PM +0100, Nuno Sá wrote:
 > 
-> Why on earth would we have version numbers in the first place?  IMO, monotically
-> increasing version numbers are flat out the worst way to communicate features.
-
-This, too.  KVM has been at API version 12 since 2007.  It is not 
-userspace compatible with 2007 vintage QEMU, because a couple 
-misfeatures were removed after 10 years or so of waiting, so I guess 
-technically it would be 15 or 16, but it doesn't matter because no one 
-checks KVM_API_VERSION.  If a ioctl works it works, if it doesn't you 
-get a much better message than "KVM API version mismatch".
-
->> Okay, how about worse, todays kernel has hugetlbfs and there are
->> patches around to luo serialize that. Lots and lots of talks about a
->> post-hugetlbfs world out there.
+> ...
 > 
-> And?  Adding a compatibility layer to a future kernel so that it understands an
-> incoming HugeTLBFS payload should be trivial.  I can totally see not wanting to
-> support serializing a post-HugeTBLFS kernel's memory representation into the "old"
-> format, though even that probably wouldn't be all that difficult.
-
-Yeah, hugetlbfs is an implementation detail *of the destination* not the 
-source.  The destination somehow needs to take the 1GB area and donate 
-it to hugetlbfs.  That's not the source's problem.  All the 
-source->destination ABI contains is MFD_HUGETLB and MFD_HUGE_*, which 
-promise to the destination a certain alignment of all map requests.
->> Do we want to reject the hugetlbfs serialization until we have a year
->> of debate outlining every possible ABI scenario? I also vote no.
+> > > > > +/*
+> > > > > + * Basic types shared by the DMA engine interfaces.
+> > > > > + */
+> > > > > +#ifndef LINUX_DMA_ENGINE_TYPES_H
+> > > > > +#define LINUX_DMA_ENGINE_TYPES_H
+> > > > > +
+> > > > > +#include <linux/bitops.h>
+> > > > 
+> > > > Not yet? Perhaps next changes will use it, then they can add it.
+> > > 
+> > > Should be dropped!
+> > 
+> > In fact, I'll keep the above! DECLARE_BITMAP() needs BITS_TO_LONGS().
 > 
-> That's a bit of a strawman argument.  Is designing a forward-looking ABI easy?
+> I'm not sure I follow.
+> 
+> The DECLARE_BITMAP() comes from types.h. It's the problem of types.h to include
+> bitops.h for BITS_TO_LONGS() if required.
 
-No, but it's also not *that* hard if you have a half-decent userspace ABI.
+I do agree with that (that was the "not great" comment). Just wanting to
+make sure this header compiles. But it's nasty I know!
 
-> Hard NAK.  There will inevitably be boundaries that cannot be crossed, but I am
-> not at all ok punting on downgrades.  To me, that's basically saying "we want to
-> add just enough support upstream so that it's not too painful to carry full support
-> out-of-tree".  That completely goes against the spirit of open source and upstream
-> Linux, and I want no part of it.
-100%.  And I'll add, what happened to "we don't break userspace"?  This 
-does the intentional opposite in the hope that no one cares about using 
-this feature upstream.  Which in the long term hurts downstream forks as 
-much as upstream.
+Well, I'll drop it! I guess other's are also relying on bitops to be
+available when types.h is included!
 
-Paolo
+As for this series, don't want to keep adding patches!
 
+- Nuno Sá
+> 
+> > Yeah, not great...
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
