@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC9CC88E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E281C88E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=; b=xp05+LFMb5W1HCiaphvNngUs5i
-	/znJXcjLNNQQs+klhkMqqHCy7XaoNXENAILrjLeyf1HWJbJrdBc2MJDKDOdtlBkBm4cGI0zTLuTjq
-	L8wPQ+sXdpNYS6UuyeSm0Nlou2MCW3UF+JlZvSPO7n22AV+1xfZLH4yr8tv806870mwxomG17Tp/m
-	mjpesB8lNHu3zhxJenMP17wXGD4TB8Em3rmeqyoYrsUejq/Pd5a4N+gfRbwf4ltGAw/FPQloWc+lo
-	HE++LpFbGJh4lP/1QZtM+G0Bxfk3YX0RMcflQvVuLE6fDsLBSlfLhp4SziKzHAk0CU+LOwJYX7MHa
-	3XF62ayg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+aqplhvDf/OL3/5UqRL17/rrAfzRy5i+vXd2UEPt91E=; b=hsjuAy/4gj1ylU
+	UCW5KPQqqJq9teed/OTPF9gv8momSYbXSJjN8Hk6RcIN+dj1O5FzPSs/5YAEW+6TXL1tXWpJs8GPb
+	+NkMdqSj3v5jy0rE+ZQBnOp+aMBkEf7EwqHbLHjAZ6pvgaj6A5cqx+ktMeFBLKTq2FcsOVBw0mTs2
+	XuSqI7mF2Mj1FzcUE96DUGVfZM64rejlqQc//fV2PkjSsvqks13TokM5g0mLXLf6sp9raBLDLb1pO
+	WRp4ujRQfBNhDEJ1USiIM6R7HJXwJMJIDQcniUSEYjfIZpzSxBE8BairItLRPoEFw7vx8wczV/f4M
+	h1IDAwqcMLi0uAdk+77Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ypk-0000000GQcd-1Qtw;
-	Fri, 11 Sep 2026 10:50:16 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yph-0000000GQb7-2LAV
+	id 1x4yvc-0000000GRBG-0xSS;
+	Fri, 11 Sep 2026 10:56:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4yva-0000000GRAS-014m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 10:50:14 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so2576795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 03:50:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789123811; x=1789728611; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=;
-        b=Iu/yNqt3YnVzwwIx0cr2LUEUYgSIJ8NYBbwHLIflveC6FX1cDRHE4sT9fSqGMKFdCQ
-         NX0v7gtLHJIU1ixtRDhsZ9Zm93+0znxlyIPXE0fwQkJ53fGRUO+723alkmfZlEwutZLv
-         CjtYVER5RkOytbYCnMTmye3sVMpdqyjrEg4jiHJhJignjiBcoytkYZVSMys3sZQznYVd
-         4hjamI7zy3NZ1mp2Pra7hWT/pEhwMuSzvGR47/Vnt+REi2OEFAH/t3vHxhdE4ZkTtC5m
-         urjRzDvDRKsSaBQLgUxKmi4TzE4tL9uhbC0LX4VAgR/uk8c6Aoi4DamsOTQLIPJGBt+K
-         Smhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789123811; x=1789728611;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=;
-        b=QgcxG4DDZxS3QG8rdpWvigM6cWvsNKupVlfJ+l3uXQ6b9XgIJBIPrrVW+eBRjFtnYm
-         GcgI7CEzUxQP8I7vp7dTYbaF9LAd2BcjQrDlZr63+Sa2FWDqifLFex8Id2I7ZAFNgxtV
-         p3MMy+dRbGVC5zfEelYXPka5tacfB9/GlL8hMZxfPzc2pFDFK0OkZOUUOVe8LCauTMxk
-         rRQ81u/xGbF8ibmKt803GOSZkmLpr3L0+laN68iiBncMDKvEETVIs4s0ftQOatpFBxdY
-         aywg1evJmdTcr7Cyq59jUufA+fhCKxIasp1VLLdnYMrAj0lgVL92DtrPdI4rp7eTILGR
-         z9PQ==
-X-Forwarded-Encrypted: i=1; AKwUvByj+vqmO6HfcrUdySZwbivyLYP+oNdjQ7h2X9fIb/LJOWO9kAYloWNhPVVteqdw0QsRdLCjWzgcO7JqqW2Xa0t3@lists.infradead.org
-X-Gm-Message-State: AFuF++lQmm48O9YiR517SFMsdmZQStXs6gqnXOiPZ/v3iAdwbuKncssZ
-	wRJvDlHgfugeYUu11jN149SzNScT+pxXUV+z8Nma1icdlI5DQzfxYqXB
-X-Gm-Gg: AYBFou09oL5chwA4sYAhuKqPA1zHK1Hf+57nP5E417k+a2KbEIb22bcQKhsAUiV3GkS
-	YSaJ3hP5KsUJbp39jBfiMTcCRqtI+eugkZtFLMhwzjIVT2brAAJLSbOKBYop9r/C1o58j1k6Pxx
-	tXw5VtOF6i7ihDX3LUhoa2jyHPzLVvB2HCEdj5cxu80oLxC2rie7JgI79zJu6VcXhtQidKm6MGX
-	XeISiy0R9X6XHJZioUmoYNq9ZFj12KhWaca4fZYE3oQCnTX1QCrMhk0CIldP7FSr4THXoD3Kr9w
-	CbO7uKbqr86Sm72InuB+5rGfoD5gi61uafe12GPjOIUdtZFwA0Rx3348QVXO416LlKFL6WdoZqM
-	igtEvAN71GKXBYFBMkZj8UHx3U4Fk1RKn0XZZeDPH4bUOUcNM69jgK0RHQMAYSYvjgIauMxP6jX
-	sIS/zS6kh49OBL5BaTW8PzjX2zl5cwoApdE7AoAHtmHzn+BB3ys3bm2aLDFCRITWtDhH+kSI/Xn
-	zPZu4ZKRbduDo4VNK4ddGgbaiTDa7InztI2U6cSHKuESxFnN4Phuz4yGMlpPRyA
-X-Received: by 2002:a05:600c:4ece:b0:49c:f13e:e4c with SMTP id 5b1f17b1804b1-49e610829b5mr43022575e9.9.1789123811015;
-        Fri, 11 Sep 2026 03:50:11 -0700 (PDT)
-Received: from tachyon.internal ([194.220.152.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e668aca6csm13863965e9.7.2026.09.11.03.50.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 03:50:10 -0700 (PDT)
-From: =?UTF-8?q?Enrique=20Hern=C3=A1ndez=20Bello?= <ehbello@gmail.com>
-To: shawn.lin@rock-chips.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com
-Cc: robh@kernel.org,
-	heiko@sntech.de,
-	dlemoal@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	=?UTF-8?q?Enrique=20Hern=C3=A1ndez=20Bello?= <ehbello@gmail.com>
-Subject: [PATCH] PCI: rockchip: Skip the Tpvperl wait when power is already valid
-Date: Fri, 11 Sep 2026 11:49:52 +0100
-Message-ID: <20260911104952.4190994-1-ehbello@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 11 Sep 2026 10:56:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07CA61570;
+	Fri, 11 Sep 2026 03:56:11 -0700 (PDT)
+Received: from e129823.arm.com (unknown [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C5973F7B4;
+	Fri, 11 Sep 2026 03:56:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789124174; bh=L8EzfeK5GHg9ts95UQZjIMXReLQVDSdUBWYGEouRTwo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=FoWNhRN2PkKrNDMCkWpEKANSSmhj8pUl2ugXvG+rLVOagMPoUyWEONQZq1R2ehQKD
+	 FLtFtTPyY0xeIdyhGMS9SadjMeKuVFUGxFAIpSEKYo3EAAm+KKoaqO2iS6Wtpk3P3N
+	 bOtLmU5MFLTQIl/VtYxyrrjOJ5RwwtHRu/rCTdFE=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v10 0/8] fix several inconsistencies with sysfs
+ configuration in etmX
+Date: Fri, 11 Sep 2026 11:55:59 +0100
+Message-Id: <20260911-separate_etm_cfg_v2-v10-0-1b715d95927a@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD/eo2oC/x2MWwqAIBAArxL7neAaSXWVCDFbbT96oBJBdPekz
+ xmYeSBRZEowVA9EujjxsRdAWVfgVrsHErwUAUoqLXtEkei00WYylDfjfDCXEk2LnUXdudl7KOU
+ ZyfP9b8fpfT9Urkq8ZgAAAA==
+To: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4371; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=L8EzfeK5GHg9ts95UQZjIMXReLQVDSdUBWYGEouRTwo=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqo95HtZ4cpF4zqoXqt5mEqsg7wKxqYq7f+aYuk
+ 2jGxbUKS6+JAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCaqPeRwAKCRBt1cPRWsUx
+ M0XlC/9g+sHLYYPrYo3Ooh00EvSPsOSpRlswqk9J+F1lhK218YZPlskc2uLITKHOsEJ3pot966r
+ Eldo4+4z7he90kmj6kd5CRmynThXHjf61AZ/wJTM0d93L7XtQf9oFC22NiSQmD+41JuRJu4rgbf
+ 9CFTcviIUEZ8j4GkPl6017E38c10kSqB51SEWuK5Gm3Th0Bkv0zqIQEIHkYbE/OEql0Uaw+ueNF
+ UiIe2mbeAej3EmI0PPjfkvYInkN9fvKF4lBm/xipHVSUqO2p67QJUpcgvVCjtytJ/BbeVx+RgSI
+ 014Z9gEOTadTXxEJD0pbHJvgHd7upC7vWoSJBH40Ktsc30JuslyaF50WSw8nwkwjDUE3/IRcobB
+ vXG/ZY/u4AoRYIUTSyumdDewRpD2Ndk4zJL4IGRSYaKH8a85oAHUohvPF5yvV2sYVqnbmy7NlJb
+ 74pTZD1w6SYc91IOv/0KYNI85YpE4kJKDYv13MuiyoNLbMbFNCWzQg+xOS0MPM5LZIuTk=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_035013_626357_DACD4817 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20260911_035618_165613_E1E17243 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,115 +91,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit c47f90be4c89 ("PCI: rockchip-host: Fix
-rockchip_pcie_host_init_port() PERST# handling"), a JMicron JMB585
-behind an rk3399 root port almost never becomes usable: the link trains
-normally, but the endpoint's configuration space never answers, so the
-device is not enumerated. On this controller a configuration read that
-gets no usable completion is reported as an external abort rather than
-as an all-ones response, which on arm64 brings the machine down.
+The current ETMx configuration via sysfs can lead to the following
+inconsistencies:
 
-The change added an unconditional 100 ms sleep so that PERST# stays
-asserted for at least Tpvperl after power becomes valid. The wait is
-performed while PERST# is asserted, so it also extends the reset by
-100 ms, and this endpoint does not tolerate the longer assertion.
+  - If a configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ between before
+    a sched-out and after a subsequent sched-in.
 
-Tpvperl is counted from the supplies becoming valid (PCIe CEM r5.1,
-sec 2.9.2). On boards whose PCIe supplies are always-on -- vcc3v3_pcie
-on ROCK Pi 4 is regulator-always-on and regulator-boot-on -- power has
-been valid since boot, seconds before the driver probes, so the
-requirement is already met and the sleep only lengthens the reset.
+  - If a perf session and sysfs session tries to enable concurrently,
+    configuration from configfs could be corrupted (etm4).
 
-Record whether the supplies were already enabled before the driver
-enabled them, and skip the wait in that case. A supply that is already
-on at probe was brought up either by the bootloader or by the regulator
-core at boot, both of which precede a PCIe probe by far more than
-Tpvperl. When the driver really does bring the rails up, or on resume
-where vpcie0v9 has just been re-enabled, the full wait still happens,
-as it does if regulator_is_enabled() cannot tell.
+  - There is chance to corrupt drvdata->config if perf session tries
+    to enabled among handling cscfg_csdev_disable_active_config()
+    in etm4_disable_sysfs() (etm4).
 
-Measured on a ROCK Pi 4C with a Radxa Penta SATA HAT (JMB585) by
-booting repeatedly and counting how often the endpoint enumerated:
+To resolve these inconsistencies, the configuration should be separated into:
 
-  unmodified ....................................  0 out of 84 boots
-  with this patch ...............................  3 out of 3 boots
-  other ways of dropping the same wait ..........  16 out of 16 boots
+  - active_config, which is applied configuration for the current session
+  - config, which stores the settings configured via sysfs.
 
-Fisher's exact test, pooling the last two rows against the first, gives
-p = 4.1e-21. With the patch the endpoint enumerated on every boot and all
-four disks behind it came up.
+and apply configuration from configfs after taking a mode.
 
-Each of the three PERST#-related changes that landed together in
-v6.11-rc1 was also reverted individually; only removing this wait made
-any difference. Moving the wait to before link training is enabled,
-rather than removing it, did not help (0 out of 15 boots), which is
-what identified the length of the PERST# assertion rather than any
-interaction with link training as the cause.
+Patch History
+=============
+from v9 to v10:
+  - rebase to coresight/next
+  - https://lore.kernel.org/all/20260725113645.57519-1-yeoreum.yun@arm.com/
 
-The measurements were taken on 6.18, but the code in question is
-unchanged between v6.11 and v7.2.
+from v8 to v9:
+  - add feat_csdev_lock guard interface.
+  - set feat_csdev->drv_spinlock as NULL for etmv4_drvdata.
+  - https://lore.kernel.org/all/20260629090007.1718746-1-yeoreum.yun@arm.com/
 
-Fixes: c47f90be4c89 ("PCI: rockchip-host: Fix rockchip_pcie_host_init_port() PERST# handling")
-Cc: stable@vger.kernel.org
-Signed-off-by: Enrique Hernández Bello <ehbello@gmail.com>
+from v7 to v8:
+  - accept @Leo Yan' suggestion to handle error.
+  - small minor fixes following @Suzuki' suggestion.
+  - https://lore.kernel.org/all/20260519154812.254884-1-yeoreum.yun@arm.com/
+
+from v6 to v7:
+  - rebase on coresight/next
+  - add ETM_MAX_SEQ_TRANSITIONS define
+  - remove redundant patch relavent cpu-hotplug as coresight-pm patch
+    merged.
+  - https://lore.kernel.org/all/20260422132203.977549-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - fix missing of calling cscfg_csdev_disable_active_config()
+  - add rb & fixes tags.
+  - add ss_status field in etm4x_drvdata to expose STATUS and PENDING bits.
+  - https://lore.kernel.org/all/20260415165528.3369607-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - add rb-tag.
+  - fix underflow issue for nrseqstate.
+  - fix wrong check in etm4_sspcicrn_present().
+  - remove redundant fields on etmv4_save_state.
+  - rename caps->ss_status to ss_cmp.
+  - fix wrong location of etm4_release_trace_id.
+  - https://lore.kernel.org/all/20260413142003.3549310-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - change etm_drvdata->spinlock type to raw_spin_lock_t
+  - remove redundant call etmX_enable_hw() with starting_cpu() callsback.
+  - fix missing trace id release.
+  - add missing docs.
+  - https://lore.kernel.org/all/20260412175506.412301-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - fix build error for etm3x.
+  - fix checkpatch warning.
+  - https://lore.kernel.org/all/20260410074310.2693385-1-yeoreum.yun@arm.com/
+
+from v1 to v2
+  - rebased to v7.0-rc7.
+  - introduce etmX_caps structure to save etmX's capabilities.
+  - remove ss_status from etmv4_config.
+  - modify active_config after taking a mode (perf/sysfs).
+  - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
+
 ---
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -318,6 +318,7 @@
- 	struct	regulator *vpcie1v8; /* 1.8V power supply */
- 	struct	regulator *vpcie0v9; /* 0.9V power supply */
- 	struct	gpio_desc *perst_gpio;
-+	bool	supplies_pre_enabled;
- 	u32	lanes;
- 	u8      lanes_map;
- 	int	link_gen;
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -314,7 +314,9 @@
- 	rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
- 			    PCIE_CLIENT_CONFIG);
- 
--	msleep(PCIE_T_PVPERL_MS);
-+	if (!rockchip->supplies_pre_enabled)
-+		msleep(PCIE_T_PVPERL_MS);
-+
- 	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
- 
- 	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-@@ -614,6 +616,23 @@
- 	struct device *dev = rockchip->dev;
- 	int err;
- 
-+	/*
-+	 * Tpvperl is counted from the supplies becoming valid, and the wait
-+	 * for it happens with PERST# asserted, so it also lengthens the reset.
-+	 * A supply that is already enabled before this driver enables it was
-+	 * brought up either by the bootloader or by the regulator core at boot,
-+	 * both of which precede this probe by far more than Tpvperl, so the
-+	 * requirement is already met and the wait can be skipped. Treat an
-+	 * error from regulator_is_enabled() as "not known to be on" and wait.
-+	 */
-+	rockchip->supplies_pre_enabled =
-+		(IS_ERR(rockchip->vpcie12v) ||
-+		 regulator_is_enabled(rockchip->vpcie12v) > 0) &&
-+		(IS_ERR(rockchip->vpcie3v3) ||
-+		 regulator_is_enabled(rockchip->vpcie3v3) > 0) &&
-+		regulator_is_enabled(rockchip->vpcie1v8) > 0 &&
-+		regulator_is_enabled(rockchip->vpcie0v9) > 0;
-+
- 	if (!IS_ERR(rockchip->vpcie12v)) {
- 		err = regulator_enable(rockchip->vpcie12v);
- 		if (err) {
-@@ -890,6 +909,9 @@
- 	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
- 	int err;
- 
-+	/* The 0.9V supply was turned off on suspend, so Tpvperl applies. */
-+	rockchip->supplies_pre_enabled = false;
-+
- 	err = regulator_enable(rockchip->vpcie0v9);
- 	if (err) {
- 		dev_err(dev, "fail to enable vpcie0v9 regulator\n");
+Yeoreum Yun (8):
+      coresight: etm4x: fix inconsistencies with sysfs configuration
+      coresight: etm3x: fix inconsistencies with sysfs configuration
+      coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+      coresight: etm3x: remove redundant cpu online check on etm_enable_sysfs()
+      coresight: etm4x: introduce struct etm4_caps
+      coresight: etm4x: exclude ss_status from drvdata->config
+      coresight: etm4x: remove s_ex_level from config
+      coresight: etm3x: introduce struct etm_caps
+
+ drivers/hwtracing/coresight/coresight-config.c     |  18 +-
+ drivers/hwtracing/coresight/coresight-config.h     |  22 ++
+ drivers/hwtracing/coresight/coresight-etm.h        |  48 ++-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  96 ++---
+ .../hwtracing/coresight/coresight-etm3x-sysfs.c    | 155 ++++----
+ drivers/hwtracing/coresight/coresight-etm4x-cfg.c  |  14 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 413 +++++++++++----------
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    | 204 +++++-----
+ drivers/hwtracing/coresight/coresight-etm4x.h      | 196 +++++-----
+ 9 files changed, 645 insertions(+), 521 deletions(-)
+---
+base-commit: 9e3604d7369cfc0110100eb1a0acab1865ee2d18
+change-id: 20260911-separate_etm_cfg_v2-3518a168cbff
+
+Best regards,
 -- 
-2.43.0
+Sincerely,
+Yeoreum Yun
+
 
