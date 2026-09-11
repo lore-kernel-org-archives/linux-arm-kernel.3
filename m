@@ -4,140 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E63C88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F23C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YitNaMqkfGDN66QtW7Iz4Re0M2oaBJ9gPiZ+9XuUQhI=; b=vnsIYHD/+TnOJgXL3Yhv1erWW/
-	NPhVfx2pDj8weJoQmFXdS/7eXwHsnP3B2HXXK4SZiaqRuAHNfbgEjgruQKzEr+a9vEs/2lbCB3Np9
-	RyN/X8xMXiIzfgEa6/TQFpCOMULcJjkuY12VxDHfXvVpxxrUAP/LcMdYNwWNE0moWfLbunExhXpRi
-	IHLPiTDHSrYMwDjyaMTEOfD6hhOWIdK4IhMg/y0wpfTKr/hfsnpPcKCzANMELfAXuWkA/ogSt0Umc
-	kBKEx8OJBepk82yqKaG7GmP3T5BTw1esLcTJrP7g60Nofvc+vLauLcVyK5Ugs0RWD6k3c+UR9iCpk
-	BziBPZIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLNYSItpqauwEflTrc+CaKNGkN9RI/IR/hd/+cvIUQQ=; b=1EB6QDjwUY6myN0C36GJJcPFN5
+	vDmp6gvqorU1B2Upy+e4p4UhdzqgVMSvbewtCvAL4csKn7blzvsxUAltr4rMMWD2foCBORpGYafZv
+	8mjJzzbPOBIE/xrlXikTxXHvzJ1Ql68dh5HTV26LA8mA+gFO53lRDJWVqbsE+eVLUsUJn1dN0JIjZ
+	2hLyIpWpLij3L+c3x3i+WHw16BcnGvmvUdFi4YeD1HnLIx4FdZQIOKCjLfNCjcvcnLSRvPLq13R4/
+	5y81nG4H8lAGn/kItxtY2SO8WnzP3q1afVCi8Czq0j8l7Q5J9KekYhp/oeyFr8yaxZK4tWSpHCsYZ
+	flBUXruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52N7-0000000GvrD-2yef;
-	Fri, 11 Sep 2026 14:36:57 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1x52SP-0000000GwTq-1Ysa;
+	Fri, 11 Sep 2026 14:42:25 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52N5-0000000Gvpv-0DFg
+	id 1x52SM-0000000GwTF-2JNA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 14:36:56 +0000
+	Fri, 11 Sep 2026 14:42:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cyuIDVKiiu3uJWP6advUXKw91uk0Ts2sdwhK0F3PBeUNZ/JpBPL2o2O/Of+F/ABfi+FyVzKrNFL16vBIVBH2/8S44J5eBtmWFD3TMxzb6E0EV7Rmp99SB9H2IUk+Cxaj4osU26SlzhlethfBd9qzKiabg7PiZhnhliri2pUDacERdx3bjIJtvCYoLyC9xu/JRzFPhDpGUS5hYIxeUh3gP3yR5CgrPih6u4itMFVFx2PnRxH7Bw2k7ALqTrWZGvn6REuLQetUVJzxnRtgyFHDEkc76jxS+znpeb+/y7gRx6GAH+/C2OgXBdA1e57aL9+FtcX9Z/HZnj2fy8cR3Xz1NA==
+ b=mY3CBlmaaiDDsbMvxhstbX/GoDpqn8LCXhJCPDVEXKKq8nNW7kCXy+OC6Cf6LMbG9mJxOulox6qVBY0acGULlhXZdq1cLUutzcHBH9VmbcAbmLOY+ssPAXr0QixTUPwfcCOaI2Zmmpd9eK+r0Lp8CzNW1SB1fsW/G8Oydcq33Tmvg+vyQasYkRK+Ar6ldeYOYUgxsHdxWeJzLylvwroVdK7Zwg5AvIkxR/L6mDLJbN28dQufjLIKgDKeV9aDv+Sp939tcHtE6VGpBFMqrNGURqt8JMJSXfXu982NnqBhB/dlWSjgS04wrFqDulNBKxZFTSufl12S0OST8mTYKOnR5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YitNaMqkfGDN66QtW7Iz4Re0M2oaBJ9gPiZ+9XuUQhI=;
- b=aNTbSgFBT5+vrZ/flK/brkuIsMd6m38zrqPjNhGqevDLZvNgp7JJdp9Jge7lxW8fafDYkVvzGlw+VC70bkzr4dMkB2P+nlHkAcEB/P8ELxkkfxIp5v39Uu5PotUe+lHHVUCHNtRVVXccCBamy1/hACiU5Z39eNT2vJg6y/DFksmBQI+X6hvzjcVzBaOxfmhtJDPJrN/NL7Gfvh4Ue3vOHA8eaQd1Jz6r+0DcM0EetrduYsZUKh2v4aRLfRhD++h5LVD11JBxo183jg6ngtGlawtvrMy90w6si+sDx7+xYlgtc2oAy2Ci1N1ktUYCNvlke9027Ut2usX5AFZyIs6RaQ==
+ bh=MLNYSItpqauwEflTrc+CaKNGkN9RI/IR/hd/+cvIUQQ=;
+ b=MjM450DYhaZrntC9R/i1xIv0saxfakGbfCFyVHyDEss1lqMSgJymaUhMkyoTl3V8JFGz9a4pCS/u27aa0EIxWAuHF02xbHIO/2YZHFM8MbhCasH5OqX331e0W0dRYa1DTsPC7RLg/+Y9mqKEDpvo1XuX6QI0hxm1pLR6R2i7giTGX52tpy/rS+kK+bCyl6VnPOP98tGjg/n3LmOGVtc33IVIymm5b8Vbu3F+YJKR8B+C55rEJhvePRZTMmWdQd7AGi7H3HqfoZYd6DgyUq9HfImBYt0MpFpPTSgJHyFceTUnm3sW/1PSaFPfR6YWIFWOIZFepLWPR2bG+bCyerSvug==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YitNaMqkfGDN66QtW7Iz4Re0M2oaBJ9gPiZ+9XuUQhI=;
- b=sSycsoFwfihLSOiPHP9CNgGiiVFmgSnMiB6PI/ZKzcSj2DlnshFXzVtd3A2b7s5vmRswNcmzDeGsOe7AMoj7Er6A9X9W7PI229UYyLO28ijSKb/YTfVMR1Uxw2jMoeUHIHr5CLK4XeWbOhWO5YMBErCUcPezEhhJD8PO7Be1crUyDiMdcRvaucMycIo8Ju2xBLcmBUeWBs46ljO+GkFBY/BIPbmAxQ5UAXUhZRrXSciWzqvW47AlV+/ZjpkwFNShI1lWmF5lAgRVeUwy6eS6fnfQnwYCtdKYl9S6zkTxxna1y0A2/4EBu5OsvFbb4B6Jn4vHmPKtw5bS8xaXC4ibZA==
+ bh=MLNYSItpqauwEflTrc+CaKNGkN9RI/IR/hd/+cvIUQQ=;
+ b=hABOk89cEFBv0FlzrE5xziBgVLkoBUSX0M+mC1xWNaV2xgyfb+hgVOpbF2ReXkQ5zCt9C3HpGNprS4SdC8SbwkTKsbLW+PheZi1DP2zug4rP1aL26/o+eIb11O2OdlWvWB6nROHDpE0EZTBVefJA3YnXapr09IUJoAFj05gpHWowFcJ7z+MPZsDu3T/Y8jhEUDZKfvxiwlsrfoNJTH9S+GI5d9bdgeVIPRk+cbKPROjafI8GZMxIYcPGSjbxMUiJrBhixQIp+KYZeOzP4rLVscNFW81RJleh2sjd1ktIBbDKyBImaWnGkApbXjeOJSKEoa4el9nhrkgg3qTzM9Q59Q==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by FRWPR04MB11200.eurprd04.prod.outlook.com
- (2603:10a6:d10:173::17) with Microsoft SMTP Server (version=TLS1_2,
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAWPR04MB11676.eurprd04.prod.outlook.com (2603:10a6:102:50b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 14:36:45 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 14:36:45 +0000
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Ying Liu <victor.liu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
+ 2026 14:42:13 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 14:42:13 +0000
+Date: Fri, 11 Sep 2026 09:42:03 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: vjardin@free.fr
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Stone <daniels@collabora.com>,
-	Leandro Ribeiro <leandro.ribeiro@collabora.com>,
-	Pekka Paalanen <pekka.paalanen@collabora.com>
-Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] drm/imx: dcss: Silence blend mode not set boot warning
-Date: Fri, 11 Sep 2026 14:36:36 +0000
-Message-ID: <20260911143638.2674753-1-laurentiu.palcu@oss.nxp.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM8P190CA0020.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:219::25) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] arm64: dts: freescale: add Nodebox v3 CPU Module
+Message-ID: <aqQTOx4M3FqSJAYZ@SMW015318>
+References: <20260911-for-upstream-nbxv3-dts-v4-0-2fd07d5575ab@free.fr>
+ <20260911-for-upstream-nbxv3-dts-v4-3-2fd07d5575ab@free.fr>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911-for-upstream-nbxv3-dts-v4-3-2fd07d5575ab@free.fr>
+X-ClientProxiedBy: PH7PR17CA0064.namprd17.prod.outlook.com
+ (2603:10b6:510:325::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|FRWPR04MB11200:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5396eccb-6fdf-489d-3dcf-08df10121a4f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB11676:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9cbefbc-9ed8-4e7c-759c-08df1012de32
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|7416014|1800799024|366016|10067099003|6133799003|11063799006|56012099006|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: Bz7++HRifECbAwpumh1SHWenZNrjugliFEW9t90qJOirSz5eZtNKf8IJMQ7d31A6+a63cb8bGsi3i59k+tZTijtUAo9C7wkbcr1l/YIWvVSimdNLmD+VlchnsGP9dVSyFXXTTo6j0fUR5/AsBhoMHvigIQgjm8Ko+q7OfUoKZaQpwZk0inDu5fzXS5U/SuXZVwQda5jkhM1ik5Uq50MsucSVsnL6UE8SyvetgsB9DMZ+9ygazDzW3v1eTZXH7/x9u3Z93R+MguTp1WlD++pI+XYLBJ2l/9lNWN30g7Pr3R3K0+fF16VmkXGhIMEcuqqpQ29on+ZKRd8wvG70AY27vIILb3jSRw5TVwYin0/bFT+6N/UUC5912jSFm2pa8LiWZ1yaKh4wW1YvxzS3RezWOBYnAYFcf6/u9E7hoH8YreGjfcput6WW4wg8dCUFi6UXysrvIfRFL18bVX2O5IcLjTaeynl1BMWRoXxcSuK1q0yTtSkSNE8JWRSCaCWhgB9j2R5bc36IUW3E7JZOxuQ+SP75Eb24b89co8nVh7T4Fyd6mT6Is+JQOAv31s/ReHr7cP7bnRXq+Stc8FLHBCZXWovYX2e8nBXJL2OgsXIl8d1YzBiep3StTIs0WZVCebfpE/caOEjBQD42LLvn1GObahuALJ8tMS/G89Tpob8BlR9Z3BesOtr8NYbJsSAskMN+aSqVANwQ7lSxsXiY61SNWA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(7416014)(1800799024)(366016)(10067099003)(6133799003)(11063799006)(56012099006)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|23010399003|376014|7416014|4143699003|10067099003|6133799003|3023799007|18002099003|22082099003|56012099006|11063799006|41080700001|15866825006;
+X-Microsoft-Antispam-Message-Info: yjVMqOAUPCt/MZL2DCrj3rd0xa/zo4Fd/Ujrv0CVMdoQN+TZlJk3/CltIebGGEKpKWv9JY2bdp3Gc5PjK9CYz9ylgDGtjF9i6/nuARLC7F228iPdhYwZHlfYaCYfkm2pQIRVtsSNcqgv4k7+PnXER+nDN89iJE+4ZZzzvOHjER/PjI5zt/4rSA5EbwB5/kOo867p3y7dnBIACFu5zQYs3en9V0IUbAuFw+bjFI287n0hz4IRhEY6vnoAxvkTDjexDyp1OrmZEKMKclJKbJuav4xYjvK+M1z45FZ6FtMTkYTEnyzN5BRn7RIIp1afcSz2KIeTVpeonT8Jj9MqARBoC1JLrEeThMtU9aXysibR0wTCHTqUH543X4Y4sLuE3gkVv0d6N8avoTLXvzYQ/9k9i2jiKeggvcyG/wSXra6KphlWcNvI/6EKEdiGlyUcAqDYOkuWWX60rJFG5+b9aCU6NOaWhgeDzm12QDeGa2JM+BpBrmFCHaCVIN0WsyKItlAPepNIbaxBc4CS3JXoNFdka4avLl+YqaIdmjj/qCoyz99pYgj+qbqQdQhgAsZT6PZSpvulE6oY8yR8yNwrz12k1An6urdQAXaSTmrmdvPUBwbaWo/lJGLTcs+m0bq9zwcL/QC/y0qMRN2ZCnpuMqcvF3aiPICv93dNmHrDaYha+ElQ/MaFATgAcxaEtMjzIsI+uUHtobATBWnWAfjj0D1mogPexEn6MoTw0kS6iC1t/y/WGFL1XdZDGmi+KsVmWAxu
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(23010399003)(376014)(7416014)(4143699003)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(56012099006)(11063799006)(41080700001)(15866825006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k9BUOpKCeNQeFq2q/BTJsr9sPK3RERlvQpxkqonE7i6BjIC+U7pnxavIETBy?=
- =?us-ascii?Q?F8hsIL/eIOc9bhRcZalX2G8GfXwhQvqaSkutActmnVMv8C2XMyvMR9yQonY3?=
- =?us-ascii?Q?0H+xeQPIPv/Edf5qfaYzH2juP1O9wj8UbaCKBCfHjYPkKOJV3jN8JihD6yBO?=
- =?us-ascii?Q?FojdqgyuVro3dEIJ9szb+ijMP6arzUFq1qn6VLE8R9WTcMnlBWNEQ8dKctvD?=
- =?us-ascii?Q?RqLam3vxizPwf/OKfE2N9LFYE+gvIjsEsTxS8ccyZ+GvU/6yRRX0NMy4CVLY?=
- =?us-ascii?Q?39TeW8HVPW4YlJceTvzf+84dkwItvHElvzol1BBwLqyB+2prl7TAZ/tRDEK1?=
- =?us-ascii?Q?VgqVQv1ZsW4kqQujmlt9iMge8nMkPmWv/HZm4f1lF/lq5qaDqKDgOfQVtEoe?=
- =?us-ascii?Q?LXCLKsWtXK/QeNtliY4Nam4wH7DeUU0fHHBx0PM1+H5svohTqAJ2j8DcVP7s?=
- =?us-ascii?Q?pcuGdqdX6EH+U2WW9wd5RcMsS7YpqHS/8geBdhcTBLbuMVJZcBgKBEmxYn06?=
- =?us-ascii?Q?yNbpU6qIazzkN0+MhTbSH86kZZsZp2Wngs8Yx9Jb4xSISqSxvJoyIilYckg8?=
- =?us-ascii?Q?F+DdQHWTC+XrtkjP6KDVQXoIHKm1SVOwyiZon3gtni/I3ol3ucpdz+ScJfIE?=
- =?us-ascii?Q?xppgbXOSBs9t+dvQ0mI2fvY7bfVZyQcp4zkpEu3cYZm0t0cYa5drHv0NggdW?=
- =?us-ascii?Q?d+MWjWNvPHOqhFOk75zNdD45JlPcMPGBgUn3tSwZqk8z2HeH9/Wn+aRk53CI?=
- =?us-ascii?Q?q/C33IJiOYzxivDbs1KVSpQI3VtysBIW1iGMM1Hf6jjSlERmJOJedTv0nlAM?=
- =?us-ascii?Q?E9aF/s+mv5wutMRSfaEkGs7+YokuX3YxN5vKraTRmT5ecS0jiT2Qv2UrVVnA?=
- =?us-ascii?Q?AOM9H2NFaZ+aISsiX72dSQWbHFQnH0qTIv5opsjYHPH6Bk2ggWmpKNT3xFLl?=
- =?us-ascii?Q?ax4LIv0v0RIdTlb7/PaW2iMdTbE6imoN8WZWxma0eFJJGxVUTlxrXuIUPAI1?=
- =?us-ascii?Q?zHW15ySMrxsQ2T5VEBP+kXR9+8IZYsdgB4APHXPIjyl8OyoHDC0wDYx9CaLW?=
- =?us-ascii?Q?ZU2gz4lfy2ziHUE4agn8nm3J74Px3Zl9RQvM8jmIAaScFgsjoyBXYgNaZyW+?=
- =?us-ascii?Q?+IjjzSObasmg0mO+EcK9RYAc5AgNRnMw7bB2sWlWOkoPWxfQvnfHzu8Uiphi?=
- =?us-ascii?Q?7DoByIC5Iw81oTbhQYd5xxduxC6QWj19PvBogC8yduclWDSv7vsn6LneGyJN?=
- =?us-ascii?Q?T0CRZs4Tj4WoPOiAdQPx+nauc3vRRWJv4cIU4qzfojh+TXkOeuZd31Dbj2oh?=
- =?us-ascii?Q?mvpN+1HuLXUJH/l8vCNKqFA36+V7pI1MwAU6nJcosC9MNXHFqMxt7OMOj1Av?=
- =?us-ascii?Q?STvoLV4WzBR2PCjRVEUmuz/w2PjVBcdNa3G4hUBR3q0MjoV1Z472vxrrS6Xm?=
- =?us-ascii?Q?XbL8g/9OCFpu3iESQOlkSyUXilBLrEBq35/mjkyUPZkokWTb8ERRcd3WaA4a?=
- =?us-ascii?Q?H4Mgf4ZBD6wPUEMYPwCVRh7jc6Svmz1leralyvaMRMmc55Dsi856n/Pt27Mf?=
- =?us-ascii?Q?PvncbMCswBAqqaJsN7XNfVyr3dClv4R5DPYIisIlrW2L1CwynrbgreZWzWHW?=
- =?us-ascii?Q?9R10G8L085EAOdOGnQ0RVTgQjC4DWu/LfXyPXX4U8EUMHevxuAcmXk41pA30?=
- =?us-ascii?Q?xX3ngwSNirWISWK3fpKg5/HLs33/EDdfo/B/7P1kSvU7Ct+B+FREV4UrKtPi?=
- =?us-ascii?Q?emm78vpNqy3XTH74Z/vshpfOFr0hEPI=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wYEc5YsNyLUROd+VuOZ8k0jwiio9M+Gp4ItxHLXMM7XNlN2aZ1Gf1qI/ILhN?=
+ =?us-ascii?Q?QixUhQJTogSM1qH5J76WHE0cgkiwL1v3FDbkVv4+qi+a9HgyI2MlVr2aLsS+?=
+ =?us-ascii?Q?fDzBwhtYuqUNQsy+SpzYrOR2SIKLoqFPKynCdrkRKzmAVA8r5sEFsuKUz31l?=
+ =?us-ascii?Q?Cz+aZansDWmVhiBoPezPwN49r4BJOpx5w6iOZ5jTDKSaAw+ZesCfKOdD66Q5?=
+ =?us-ascii?Q?MlOq0LZgNRh86a42wpueLYB2OIRZWMSKzcuK8FTEC5KkZ+l88NiYjKYmAuKv?=
+ =?us-ascii?Q?9kUjCrNVHAfzjVLC2g72oGg7/9sLf+dOMRVRsHkxFLG5YW4Qoci2VM4Oids6?=
+ =?us-ascii?Q?u+hq1VdG8gPpDV8sYoxjA/aIVN3AX/LD7tHmQa7GzmIhG5gMJzzJ5chaNRhq?=
+ =?us-ascii?Q?mbZjymquaJbh5zcJ/qQ0blOWmuwgGmAhJY5OcXAtTM2y2N0qPspoem2xfFMX?=
+ =?us-ascii?Q?O6FKe1DdxJb0mrp7yWrGAdTBcswly6CtssUGLBUgHDQ/MnkhNfEBb2xf8IiB?=
+ =?us-ascii?Q?SVk/0dJ/8tcDbSDz7WSY3hyENVUIrTmJIXrNEr1R7rtkPn0f4LQbGABW6657?=
+ =?us-ascii?Q?B7HsWWTyOR7J8jSm6HayJSxJIFQ7NMH0nwnvUkK/r18vYTWF3utAj3bCB2cT?=
+ =?us-ascii?Q?23KAEq19kR3Evox78+3wrOh3pteKA/YkmPNg0WR8hXWN0B7PcNwUXHHnU+nU?=
+ =?us-ascii?Q?xZGXs09OWssH5Ml88RsdzgITz3x70HVJJ/P8Oyhux7PLdS3c2EKUz54/ux5L?=
+ =?us-ascii?Q?1+7atWCwITfVZVfea8zscPRji9N+D+zDIKXBVtJTjN6SVeWE4G4k832og3Y+?=
+ =?us-ascii?Q?QK/bN3TV8eIpll4jmqX4pecezC6UVEp3FBXPEpUYshUC7f90J0t7B3OcL2yQ?=
+ =?us-ascii?Q?TaA+2Dr99LTDT0cbuU5kaRW6R13mhwkgs79GJvyLV2/gxa6yy4NxEQWH2dxJ?=
+ =?us-ascii?Q?nU+QaSVnV9KqO0BjlKctTcwIAGPvdPLT573Rmd9u4TiofErhdeiVSXtS2fb6?=
+ =?us-ascii?Q?ptZT97BM0aIyXrCJVoYezOPHBKMpqwa2NGslFH6HVvI+uD9vDfahOc2iUAOy?=
+ =?us-ascii?Q?w12Kc7y0m49ZsIiETohI/gZXOJaEInG6UEQ4Mb2xJPfNqOPzoFPPvaxRfQCR?=
+ =?us-ascii?Q?+ZIWYjx5xmlu4u9X4st/WqnjOb3likdXJT3gtuQw+Xify6t3DI9XjFzMZGAn?=
+ =?us-ascii?Q?NzzUct2VOOMyRDJ/Nr2YgZhapr8C6HB7T5oSDaXbDS7apmN2qi9LOu/rvAfv?=
+ =?us-ascii?Q?S4ZTKRR0Tysho/xq3gDSmAOKI1KeAWVsJ0rIOz2jG05bqg78LN1k4vzsI5Ja?=
+ =?us-ascii?Q?rW/wJgtUUBUnHPQPGDxaIw9vMwdhuWWRkpLqM7rTO28gs/IFosYvU0WZu6S2?=
+ =?us-ascii?Q?GRKkTi1rXVvI5E8Bvg9itRqkhPQYK4k5gRMGVRr9k2LTn2M/BN4khV8ghhyC?=
+ =?us-ascii?Q?+CLUV1x7HJy5wOAOjuFEh3Cvrqzpuaxr3puLU5EBtD6y8zXSfUNcV6vIp2FD?=
+ =?us-ascii?Q?KolTQeYcnDyX7R4LzXhUeMQxAUjr5tA49cf+W+Z6pyRlW6nI/paGueLSEpfT?=
+ =?us-ascii?Q?LE9Y/AvIkKCeIOEtcNY8zDV9Hdn0IhZ3QHYH4D/MWveN9mo91n4D2jYtKNFF?=
+ =?us-ascii?Q?RfPWvp0CVTeZxWsqk74lfMi/B00V9gjso+G+xwdH2HIA8GPhGruJVl2N8ZC9?=
+ =?us-ascii?Q?495lFb528oCjCdussOIKTR/odqO5bQVDXlYklkl2QYOY62LjeQOd7AoLsApJ?=
+ =?us-ascii?Q?pnoY0VGuUuZCCmZ5GEcHt6+6ePyF/b9jUTE1lpuqGH76GJ7vX3/U?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5396eccb-6fdf-489d-3dcf-08df10121a4f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9cbefbc-9ed8-4e7c-759c-08df1012de32
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 14:36:44.9252
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 14:42:13.5079
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cVullCztGECLYO6SudxMux8L/e97N1Arjs4tfxCiT4hm4s6kZNzK72wcLpISbwpM5tntfRXd5qvv9wrpZ3RrXA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11200
+X-MS-Exchange-CrossTenant-UserPrincipalName: uF2Dagb3dnCZATh2rPUC0qEoDsK5RQLpBPEl2apGBpCc52NVYdwPr8N9whanliNDxQWJNiYDSPKk56rhFJ/rMQhoqWtI9ceIXm0jA7TC7ZJTIk6csm0BBpxG4jU1+GZD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11676
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_073655_097697_6D5D0DD9 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20260911_074222_740202_783A4D87 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,145 +141,408 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This addresses the following warning that appears at boot time:
+On Fri, Sep 11, 2026 at 02:08:35AM +0200, Vincent Jardin via B4 Relay wrote:
+> From: Vincent Jardin <vjardin@free.fr>
+>
+> The Nodebox v3 is a Free Mobile CPU module built around the NXP
+> LX2160A (16x Cortex-A72, DPAA2).
+>
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |   2 +
+>  .../arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts |  34 +++
+>  .../boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi      | 321 +++++++++++++++++++++
+>  3 files changed, 357 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 95ae85ab4adf5..faab8bf0e1676 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -55,6 +55,8 @@ DTC_FLAGS_fsl-lx2160a-half-twins := -Wno-interrupt_map
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-half-twins.dtb
+>  DTC_FLAGS_fsl-lx2160a-honeycomb := -Wno-interrupt_map
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-honeycomb.dtb
+> +DTC_FLAGS_fsl-lx2160a-nbxv3 := -Wno-interrupt_map
+> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-nbxv3.dtb
+>  DTC_FLAGS_fsl-lx2160a-qds := -Wno-interrupt_map
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-qds.dtb
+>  DTC_FLAGS_fsl-lx2160a-rdb := -Wno-interrupt_map
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+> new file mode 100644
+> index 0000000000000..b07e9def0a529
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+> @@ -0,0 +1,34 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Free Mobile Nodebox v3 CPU Module (LX2160A)
+> + *
+> + * Copyright 2026 Free Mobile, Vincent Jardin
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "fsl-lx2160a-rev2.dtsi"
+> +#include "fsl-lx2160a-nbxv3.dtsi"
+> +
+> +/ {
+> +	model = "Free Mobile Nodebox v3 CPU Module (LX2160A)";
+> +	compatible = "freemobile,nbxv3", "fsl,lx2160a";
+> +};
+> +
+> +&fspi {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&fspi_dqs_sck_cs10_pins>, <&fspi_data30_pins>;
+> +};
+> +
+> +&gpio1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gpio1_31_28_pins>;
+> +};
+> +
+> +&pcs_mdio13 {
+> +	status = "okay";
+> +};
+> +
+> +&pcs_mdio14 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+> new file mode 100644
+> index 0000000000000..143b24d69d629
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+> @@ -0,0 +1,321 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Free Mobile Nodebox v3 CPU Module (LX2160A)
+> + *
+> + * Copyright 2026 Free Mobile, Vincent Jardin
+> + *
+> + * This file is shared by the Linux kernel and U-Boot.
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
+> +		priority = <128>;
+> +	};
+> +
+> +	reg_ethsw_mdio: regulator-ethsw-mdio {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "ethsw-mdio-en";
+> +		gpio = <&gpio3 25 GPIO_ACTIVE_LOW>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +};
+> +
+> +&crypto {
+> +	status = "okay";
+> +};
+> +
+> +&dspi0 {
+> +	status = "okay";
+> +
+> +	dpll@0 {
+> +		compatible = "microchip,zl30733";
+> +		reg = <0>;
+> +		spi-max-frequency = <12500000>;
+> +	};
+> +};
+> +
+> +&dspi2 {
+> +	status = "okay";
+> +};
+> +
+> +&dpmac13 {
+> +	status = "okay";
 
---snip--
-[PLANE:39:plane-0] pixel format with alpha exposed but blend mode not setup
-WARNING: drivers/gpu/drm/drm_mode_config.c:872 at drm_mode_config_validate+0x36c/0x520 [drm]
---snip--
+status should be last property before child nodes, check others.
 
-The warning started appearing after the commit mentioned below was
-introduced. Add the alpha and blending properties to the primary plane.
+Frank
 
-Fixes: 860e748bddcc ("drm: ensure blend mode supported if pixel format with alpha exposed")
-Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
----
-Changes in v2:
-- Also check alpha and pixel_blend_mode in dcss_plane_needs_setup() so that
-  setting alpha is not skipped by the fast-path in dcss_plane_atomic_update(); [Sashiko]
-
- drivers/gpu/drm/imx/dcss/dcss-crtc.c  |  6 ++++++
- drivers/gpu/drm/imx/dcss/dcss-dev.h   |  3 ++-
- drivers/gpu/drm/imx/dcss/dcss-dtg.c   | 12 ++++++++----
- drivers/gpu/drm/imx/dcss/dcss-plane.c | 15 +++++++++++++--
- 4 files changed, 29 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-crtc.c b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-index 5e9ee3f09d51f..193ee688cc777 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-@@ -5,6 +5,7 @@
- 
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
-+#include <drm/drm_blend.h>
- #include <drm/drm_vblank.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -202,6 +203,11 @@ int dcss_crtc_init(struct dcss_crtc *crtc, struct drm_device *drm)
- 		return ret;
- 	}
- 
-+	drm_plane_create_alpha_property(&crtc->plane[0]->base);
-+	drm_plane_create_blend_mode_property(&crtc->plane[0]->base,
-+					     BIT(DRM_MODE_BLEND_PIXEL_NONE) |
-+					     BIT(DRM_MODE_BLEND_COVERAGE));
-+
- 	crtc->irq = platform_get_irq_byname(pdev, "vblank");
- 	if (crtc->irq < 0)
- 		return crtc->irq;
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-dev.h b/drivers/gpu/drm/imx/dcss/dcss-dev.h
-index b032e873d227c..9b3bd2f3a7ef1 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-dev.h
-+++ b/drivers/gpu/drm/imx/dcss/dcss-dev.h
-@@ -147,7 +147,8 @@ bool dcss_dtg_is_enabled(struct dcss_dtg *dtg);
- void dcss_dtg_ctxld_kick_irq_enable(struct dcss_dtg *dtg, bool en);
- bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha);
- void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
--			      const struct drm_format_info *format, int alpha);
-+			      const struct drm_format_info *format, int alpha,
-+			      unsigned int blend_mode);
- void dcss_dtg_plane_pos_set(struct dcss_dtg *dtg, int ch_num,
- 			    int px, int py, int pw, int ph);
- void dcss_dtg_ch_enable(struct dcss_dtg *dtg, int ch_num, bool en);
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-dtg.c b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-index 6bbfd9aa27aca..21da9d3cce4cb 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-@@ -3,6 +3,7 @@
-  * Copyright 2019 NXP.
-  */
- 
-+#include <drm/drm_blend.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-@@ -268,17 +269,20 @@ bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha)
- }
- 
- void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
--			      const struct drm_format_info *format, int alpha)
-+			      const struct drm_format_info *format, int alpha,
-+			      unsigned int blend_mode)
- {
- 	/* we care about alpha only when channel 0 is concerned */
- 	if (ch_num)
- 		return;
- 
- 	/*
--	 * Use global alpha if pixel format does not have alpha channel or the
--	 * user explicitly chose to use global alpha (i.e. alpha is not OPAQUE).
-+	 * DCSS supports either global alpha or per-pixel blending, following
-+	 * the coverage blending formula (with global alpha set to opaque).
-+	 * When the pixel blend mode is PIXEL_NONE, the per-pixel alpha is
-+	 * meant to be ignored, so fall back to global alpha in that case too.
- 	 */
--	if (!format->has_alpha || alpha != 255)
-+	if (!format->has_alpha || blend_mode == DRM_MODE_BLEND_PIXEL_NONE)
- 		dtg->alpha_cfg = (alpha << DEFAULT_FG_ALPHA_POS) & DEFAULT_FG_ALPHA_MASK;
- 	else /* use per-pixel alpha otherwise */
- 		dtg->alpha_cfg = CH1_ALPHA_SEL;
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-index 303e93fd036c1..f991c35d2b993 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-@@ -209,6 +209,14 @@ static int dcss_plane_atomic_check(struct drm_plane *plane,
- 		return -EINVAL;
- 	}
- 
-+	/* DCSS supports either per-pixel or global alpha. Not both. */
-+	if (new_plane_state->fb->format->has_alpha &&
-+	    new_plane_state->pixel_blend_mode != DRM_MODE_BLEND_PIXEL_NONE &&
-+	    new_plane_state->alpha != DRM_BLEND_ALPHA_OPAQUE) {
-+		DRM_DEBUG_KMS("Both per-pixel and global alpha not supported.\n");
-+		return -EINVAL;
-+	}
-+
- 	return 0;
- }
- 
-@@ -263,7 +271,9 @@ static bool dcss_plane_needs_setup(struct drm_plane_state *state,
- 	       fb->format->format != old_fb->format->format ||
- 	       fb->modifier  != old_fb->modifier ||
- 	       state->rotation != old_state->rotation ||
--	       state->scaling_filter != old_state->scaling_filter;
-+	       state->scaling_filter != old_state->scaling_filter ||
-+	       state->alpha != old_state->alpha ||
-+	       state->pixel_blend_mode != old_state->pixel_blend_mode;
- }
- 
- static void dcss_plane_atomic_update(struct drm_plane *plane,
-@@ -336,7 +346,8 @@ static void dcss_plane_atomic_update(struct drm_plane *plane,
- 	dcss_dtg_plane_pos_set(dcss->dtg, dcss_plane->ch_num,
- 			       dst.x1, dst.y1, dst_w, dst_h);
- 	dcss_dtg_plane_alpha_set(dcss->dtg, dcss_plane->ch_num,
--				 fb->format, new_state->alpha >> 8);
-+				 fb->format, new_state->alpha >> 8,
-+				 new_state->pixel_blend_mode);
- 
- 	if (!dcss_plane->ch_num && (new_state->alpha >> 8) == 0)
- 		enable = false;
--- 
-2.53.0
-
+> +	phy-handle = <&lan8023_phy_s0>;
+> +	phy-connection-type = "10gbase-r";
+> +};
+> +
+> +&dpmac14 {
+> +	status = "okay";
+> +	phy-handle = <&lan8023_phy_s1>;
+> +	phy-connection-type = "10gbase-r";
+> +};
+> +
+> +&dpmac17 {
+> +	status = "okay";
+> +	phy-handle = <&rtl8211fd>;
+> +	phy-connection-type = "rgmii-id";
+> +};
+> +
+> +&emdio1 {
+> +	status = "okay";
+> +
+> +	/* Microchip LAN8023 dual 10G PCS/retimer, Clause 45 only, one address per slice */
+> +	lan8023_phy_s0: ethernet-phy@2 {
+> +		compatible = "ethernet-phy-ieee802.3-c45";
+> +		reg = <2>;
+> +	};
+> +
+> +	lan8023_phy_s1: ethernet-phy@3 {
+> +		compatible = "ethernet-phy-ieee802.3-c45";
+> +		reg = <3>;
+> +	};
+> +
+> +	rtl8211fd: ethernet-phy@6 {
+> +		compatible = "ethernet-phy-id001c.c916";
+> +		reg = <6>;
+> +	};
+> +};
+> +
+> +&emdio2 {
+> +	status = "okay";
+> +};
+> +
+> +&esdhc1 {
+> +	status = "okay";
+> +	bus-width = <8>;
+> +	non-removable;
+> +	mmc-hs200-1_8v;
+> +	mmc-hs400-1_8v;
+> +};
+> +
+> +&fspi {
+> +	status = "okay";
+> +
+> +	/* GigaDevice GD55LB02GF, 256 MiB boot NOR */
+> +	flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		spi-max-frequency = <150000000>;
+> +		spi-rx-bus-width = <1>;
+> +		spi-tx-bus-width = <1>;
+> +		reset-gpios = <&gpio1 28 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&fsl_mc {
+> +	status = "okay";
+> +};
+> +
+> +&gpio0 {
+> +	status = "okay";
+> +	gpio-line-names =
+> +		"", "",
+> +		"altfn:iic1-sda", "altfn:iic1-scl",
+> +		"altfn:uart4-sin", "altfn:uart4-sout",
+> +		"altfn:uart2-sin", "altfn:uart2-sout",
+> +		"altfn:uart3-sin", "altfn:uart3-sout",
+> +		"altfn:uart1-sin", "altfn:uart1-sout",
+> +		"altfn:spi3-pcs3", "altfn:spi3-pcs2",
+> +		"altfn:spi3-pcs1", "altfn:spi3-pcs0",
+> +		"altfn:spi1-sck", "altfn:spi1-sin",
+> +		"altfn:spi1-pcs2", "altfn:spi1-pcs1",
+> +		"altfn:spi1-pcs0", "altfn:spi1-sout",
+> +		"altfn:iic6-sda", "altfn:iic6-scl",
+> +		"altfn:spi3-sin", "altfn:spi3-sout",
+> +		"altfn:iic4-sda", "altfn:iic4-scl",
+> +		"altfn:iic3-sda", "altfn:iic3-scl",
+> +		"altfn:iic2-sda", "altfn:iic2-scl";
+> +};
+> +
+> +&gpio1 {
+> +	status = "okay";
+> +	gpio-line-names =
+> +		"", "", "", "", "", "",
+> +		"cfg-rcw-src2", "cfg-rcw-src3",
+> +		"reset-req-b",
+> +		"altfn:sdhc2-clk", "altfn:sdhc2-ds",
+> +		"altfn:sdhc2-dat0", "altfn:sdhc2-dat1",
+> +		"altfn:sdhc2-dat2", "altfn:sdhc2-dat3",
+> +		"altfn:sdhc2-dat4", "altfn:sdhc2-dat5",
+> +		"altfn:sdhc2-dat6", "altfn:sdhc2-dat7",
+> +		"altfn:sdhc2-cmd",
+> +		"cfg-svr1",
+> +		"altfn:xspi1-cs0", "altfn:xspi1-sck",
+> +		"altfn:xspi1-dqs",
+> +		"altfn:xspi1-data0", "altfn:xspi1-data1",
+> +		"", "",
+> +		"flash-reset#", "pltrst#", "", "ethsw-reset#";
+> +
+> +	/* Platform reset, no consumer node: released at boot */
+> +	pltrst-hog {
+> +		gpio-hog;
+> +		gpios = <29 GPIO_ACTIVE_LOW>;
+> +		output-low;
+> +		line-name = "pltrst#";
+> +	};
+> +};
+> +
+> +&gpio2 {
+> +	status = "okay";
+> +	gpio-line-names =
+> +		"lan8023-mdint",
+> +		"i2c2-alert#", "i2c4-alert#", "i2c6-alert#",
+> +		"u800-tca9539-int#",
+> +		"spi3-alert#",
+> +		"wake0", "wake1",
+> +		"carrier-hot#",
+> +		"u1300-rtl8211fd-int#",
+> +		"ethsw-int#",
+> +		"", "",
+> +		"u1700-zl30733-clk-gpio0", "u1700-zl30733-clk-gpio1",
+> +		"u1700-zl30733-clk-gpio2", "u1700-zl30733-clk-gpio3",
+> +		"", "", "", "", "", "", "", "",
+> +		"", "", "", "", "", "", "";
+> +};
+> +
+> +&gpio3 {
+> +	status = "okay";
+> +	gpio-line-names =
+> +		"altfn:ec1-txd3", "altfn:ec1-txd2",
+> +		"altfn:ec1-txd1", "altfn:ec1-txd0",
+> +		"altfn:ec1-tx-en", "altfn:ec1-gtx-clk",
+> +		"altfn:ec1-rxd3", "altfn:ec1-rxd2",
+> +		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
+> +		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
+> +		"", "",
+> +		"ptp-refclk-in",
+> +		"", "", "", "", "", "", "", "",
+> +		"u1700-zl30733-pps-out",
+> +		"",
+> +		"ethsw-mdio-en",
+> +		"usb01-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT share one net */
+> +		"",
+> +		"usb01-oc#",
+> +		"altfn:spi3-sck",
+> +		"", "";
+> +};
+> +
+> +/* On-module management bus */
+> +&i2c0 {
+> +	status = "okay";
+> +
+> +	eeprom@52 {
+> +		compatible = "atmel,24c32";
+> +		reg = <0x52>;
+> +		pagesize = <32>;
+> +	};
+> +
+> +	/* Board ID straps */
+> +	gpio@74 {
+> +		compatible = "ti,tca9539";
+> +		reg = <0x74>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		gpio-line-names =
+> +			"boardid-0x0001", "boardid-0x0002",
+> +			"boardid-0x0004", "boardid-0x0008",
+> +			"boardid-0x0010", "boardid-0x0020",
+> +			"boardid-0x0040", "boardid-0x0080",
+> +			"boardid-0x0100", "boardid-0x0200",
+> +			"boardid-0x0400", "boardid-0x0800",
+> +			"boardid-0x1000", "boardid-0x2000",
+> +			"boardid-0x4000", "boardid-0x8000";
+> +	};
+> +
+> +	u800: gpio@75 {
+> +		compatible = "ti,tca9539";
+> +		reg = <0x75>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		interrupt-parent = <&gpio2>;
+> +		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
+> +		gpio-line-names =
+> +			"carrier-gpio0", "carrier-gpio1",
+> +			"carrier-gpio2", "carrier-gpio3",
+> +			"carrier-gpio4", "carrier-gpio5",
+> +			"carrier-gpio6", "carrier-gpio7",
+> +			"carrier-gpio8", "carrier-gpio9",
+> +			"carrier-gpio10", "carrier-gpio11",
+> +			"", "", "",
+> +			"lan8023-rst";
+> +	};
+> +
+> +	/* +0V8_VDD core rail, MPS MPQ8646 (MPQ8785 core) over PMBus */
+> +	vdd08: regulator@10 {
+> +		compatible = "mps,mpq8646";
+> +		reg = <0x10>;
+> +	};
+> +
+> +	/* SO-DIMM SPD temperature sensors */
+> +	temperature-sensor@18 {
+> +		compatible = "jedec,jc-42.4-temp";
+> +		reg = <0x18>;
+> +	};
+> +
+> +	temperature-sensor@19 {
+> +		compatible = "jedec,jc-42.4-temp";
+> +		reg = <0x19>;
+> +	};
+> +};
+> +
+> +&i2c1 {
+> +	status = "okay";
+> +};
+> +
+> +&i2c2 {
+> +	status = "okay";
+> +};
+> +
+> +&i2c3 {
+> +	status = "okay";
+> +};
+> +
+> +&i2c5 {
+> +	status = "okay";
+> +};
+> +
+> +&pcie3 {
+> +	status = "okay";
+> +};
+> +
+> +&pcie4 {
+> +	status = "okay";
+> +};
+> +
+> +&pcie5 {
+> +	status = "okay";
+> +};
+> +
+> +&pcie6 {
+> +	status = "okay";
+> +};
+> +
+> +&uart0 {
+> +	status = "okay";
+> +};
+> +
+> +&usb0 {
+> +	status = "okay";
+> +};
+> +
+> +&usb1 {
+> +	status = "okay";
+> +};
+>
+> --
+> 2.43.0
+>
+>
+>
 
