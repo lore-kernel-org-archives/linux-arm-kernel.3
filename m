@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB251C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 03:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A5FC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 03:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqgSoIBESDHLyR7I67daLRSr3Iyho5ADiCyaj7jEfiU=; b=Zaf22AOyVKhWEMez7wradXG/PO
-	ocxsyzjyD/flqfOQtQrHv3CBkxc04ftT594IiQ7pPlV1rM7b8ApCPXh8aRTwmbGEde+dVgZ50k8qy
-	XnA1cgra7J9QDybrD4RAVbE2VNiR6sbgh5Edt4bpbomhGqw6woPgoUTVJDEEVFbdL81QkxAEO3Kre
-	sQEQfBDyWgQhzHTfR+74S3d5VHM1+icYoAtWb2CSBw+dAYYmgRb6LffNpIL/2zUPdt2kawkVFtokW
-	NhdDIxIUrH2r8jxfL8EypauP4eG7FbT4PqZX+lt+MZoZujf+63SgLCB1CNV4wDgCiG2OV4UXMrznP
-	y9f28WRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vTrVSBkVGPXm2gcTE8fmlqXbs+T/1ViJad0b75wnA3w=; b=DCfrfTwfn63HQaVpoo5pePNVht
+	2WVcZZ3b5MIQZj73taLvVuWZzIVKZw3hZs3VzpzqSfm2PjaRCrUPszO/YE0xX+Qpu7GR77w0VprJu
+	shAcGOtAAccCzaX8SH3pCCnx45T1fKaDk22ASkPBqG349Ra72auPrL3f+bHrUcXRHMTG8EzxTVa58
+	xa/Elyd1OFk7SrKBAFdE5BeJIzHWGXvkIpeR/ndp7wSMRKw6ES/p/a3XwB8ZRXtkC2dvteiaYyTlZ
+	RL1x3cbKPiaGoRBj4nzl+ss2h/CymL9yzSggnHZ+21FtTQddH5e5orl5BXQ1/i/cLpsBgJXNUIbp5
+	MFwkfgSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rwG-0000000FlUi-108v;
-	Fri, 11 Sep 2026 03:28:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4s4e-0000000Fmf0-40e4;
+	Fri, 11 Sep 2026 03:37:12 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rwF-0000000FlTi-2ZhR;
-	Fri, 11 Sep 2026 03:28:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57B2941724;
-	Fri, 11 Sep 2026 03:28:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6EA1F00893;
-	Fri, 11 Sep 2026 03:28:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789097311;
-	bh=JqgSoIBESDHLyR7I67daLRSr3Iyho5ADiCyaj7jEfiU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KNRZ9go1qR8L7JRb9Xn3RhWpeR8GUiFEVCXwjQ82DsyIfAayNiE8/5RN45cUt1Zqi
-	 8OMUYuVX/CpqposqTctGjdM+wf+x1T/6rysS/QuaBbfqLiA8bXNNK1odnylHZReKX9
-	 A6q1lNPCitZ97TLfkNkQIEAznSUwT8V3IQ6m/OTLVFZFkYuu+LcUWju489LHfveTY0
-	 ZiQz31TI+rPNLUBXmBvB+OXL7u/IfV+WdkytlAJosNU0dPl2z5bJW1unnvAPGyb9iJ
-	 mKe3jw3PIVq6Fm6Pde8OTQzYqgxNfrS+8gJBm9xjKDmIcFOQLeBcR16N4oItKnShAX
-	 RiCd0Oj1cQbrg==
-From: "GUO Ren (XuanTie)" <guoren@kernel.org>
-Date: Fri, 11 Sep 2026 03:27:14 +0000
-Subject: [PATCH v2 6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
+	id 1x4s4c-0000000Fmec-2zPS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 03:37:11 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso430202a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 20:37:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789097830; x=1789702630; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=vTrVSBkVGPXm2gcTE8fmlqXbs+T/1ViJad0b75wnA3w=;
+        b=Rld/lQVb/irJlh3tEp4hcc6hAzCAHiuTb+3JRDO/0anJI8KUV3OMDeBL7K/JyO715V
+         sDnXCR+sPsKjbhTLuJdh4KycOocU8Futdn1iSlnODW7SVVRhckvoHwD8xeTMBHb05i2A
+         thOF8jsCgiT989C+4T/sQ+JRJ05SUykSpinev8tlrH7xNcKW+hXICszwmHV+0Q4HkowC
+         8kTJRfaRf2bs0x19CAVeDJ1DH/gelD62K5FRo5VocpkfsSOEXxkHpmcAqqgkgRDmQtBY
+         HANvWr9XbROmzBSWRlR8vi7cnydOODk6bsj53YQt/aKrMSWwZjetLvhRMCGmJd+sroYB
+         Asow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789097830; x=1789702630;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vTrVSBkVGPXm2gcTE8fmlqXbs+T/1ViJad0b75wnA3w=;
+        b=SfImBG44eGqY1cqtW1//BKOGvsI9ba0Mj+MaOYQfZylE5cwMivaqJfc1gAkpeFBwqi
+         CF1ubrSkFKokfu35rXxB9b4NPicuN1gSmP3lCnV7p7xh+k/vyQYot+FtM8hbG4LTrCnm
+         xgb2mJGejbDdsyAu4L5yV8IMygE3xoyOEd0RWCVX1IV4HFhz6OXDdBCltSrKuqGZkDP1
+         zyFbCg/0sPQWMmky+F97w0DIwjySWwnbValgT1z5Ad2XHIQc4BW/J5BR0D4RB7ssOHSB
+         VANkMuALLdokIdUa2wuAG7qkImCN5VWGhAvoVibwihjQ9rDV+AYjKsOEXOQO8NiiRK4Y
+         by1Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxAw5ZOlHxb36Hah/LqeR4iqJ80T5jM2zzw48yZfAx5UKik0YKTIIk2jeyyclp3cuuyl5gd1eW19A4yDCmk1AwN@lists.infradead.org
+X-Gm-Message-State: AFuF++mdpHUVGLHvwSNkI7tVguhLlFR05BA6kGANL+Xh5B2WZDatvl0K
+	0BeLxVW/S+aD8deLq10qEzBzfN4Bx3fcq/SYOMReUXsGz+ctnvJCe85w
+X-Gm-Gg: AYBFou2NJvOKD0QQkYla/hySmOF22zBhrTYDHFlTWDYNNtqodCcnTDRcT8wf9P2TNg0
+	b8imoZlaGfYqk21cgnj5JgFBtMjXPT5TguHpqHcth/jElTgwUHBcFZsV8cbF5Sf3SIfl/s94rdY
+	aQAOb+3bJnRlQ2Ck6NxerAq3FcQkJ5LK/uTS+/EpuLKj2JX0ViwZGaEILXMD+ZAiM/otri2/leF
+	pX9SrBJRgmbczMeCZ6rpX/A038obKreKCsmWTPp+1QY+r2flB8P2gveNNBAYl4xZGgx4fNJxldw
+	YZzSUOrQJm5mVdZ4WCJLAT7iRbqE8kD98NEUM+fE+lpw0p6DKaajtWjIgCXGcQMLIXDrdytEBsj
+	gFJYYCPt3tsjTFX98bLJdL/wqNGMlkMUCjxkA/TSvciuYLffH8jEsoaawEAUZFgN8CLUBGv4/zB
+	r2IV8sukHxO0QBVACfITD1U/Z9PY096iPQCZ/jBYOTB5WBU0XeMyiAG1aHLWIrDYy7k718r79DG
+	No3slTyqOam+u5A1p2qHOY=
+X-Received: by 2002:a17:90b:384f:b0:39d:8794:5564 with SMTP id 98e67ed59e1d1-39d9c1c016bmr3307088a91.12.1789097829777;
+        Thu, 10 Sep 2026 20:37:09 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d95713602sm2537488a91.11.2026.09.10.20.37.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 20:37:09 -0700 (PDT)
+Date: Thu, 10 Sep 2026 20:37:08 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Zakariya Hadrami <zkh@mailbox.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, zkh1@proton.me,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 1/4] dt-bindings: watchdog: mediatek: Add MT8127
+Message-ID: <8bd4787a-1666-4f92-960f-287bc3b918a6@roeck-us.net>
+References: <20260910-mt8127-amazon-ford-basic-v5-0-3cb9eeaffd5c@mailbox.org>
+ <20260910-mt8127-amazon-ford-basic-v5-1-3cb9eeaffd5c@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Anup Patel <anup@brainfault.org>, Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, 
- Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
- Houlong Wei <houlong.wei@mediatek.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>, 
- "GUO Ren (XuanTie)" <guoren@kernel.org>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910-mt8127-amazon-ford-basic-v5-1-3cb9eeaffd5c@mailbox.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_203710_752543_8F1EEB41 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,107 +111,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The last enumerator of this driver's firmware IPI id list is a bound
-for the VPU mailbox protocol, not a generic host IPI limit. Follow the
-existing naming in this header: IPI_VPU_INIT already carries a VPU
-prefix, so the terminator should match.
+On Thu, Sep 10, 2026 at 03:29:12PM +0200, Zakariya Hadrami wrote:
+> From: Zakariya Hadrami <zkh@mailbox.org>
+> 
+> Add entry for MT8127 SoC's watchdog which is compatible with MT6589's
+> one.
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Acked-by: Guenter Roeck <linux@roeck-us.net>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Zakariya Hadrami <zkh@mailbox.org>
 
-The same convention is used by the SCP IPI enum, which ends with a
-prefixed SCP_IPI_MAX rather than a bare IPI_MAX.
+Applied.
 
-Rename IPI_MAX to IPI_VPU_MAX and update the descriptor table bounds
-and range checks. No functional change.
-
-Link: https://lore.kernel.org/linux-riscv/20260908222349.GA2324870@ax162
-Cc: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
----
- drivers/media/platform/mediatek/vpu/mtk_vpu.c | 12 ++++++------
- drivers/media/platform/mediatek/vpu/mtk_vpu.h |  4 ++--
- 2 files changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-index 8d8319f0cd22..b3e9f8c4ab7a 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-@@ -211,7 +211,7 @@ struct mtk_vpu {
- 	struct vpu_regs reg;
- 	struct vpu_run run;
- 	struct vpu_wdt wdt;
--	struct vpu_ipi_desc ipi_desc[IPI_MAX];
-+	struct vpu_ipi_desc ipi_desc[IPI_VPU_MAX];
- 	struct share_obj __iomem *recv_buf;
- 	struct share_obj __iomem *send_buf;
- 	struct device *dev;
-@@ -221,7 +221,7 @@ struct mtk_vpu {
- 	struct mutex vpu_mutex; /* for protecting vpu data data structure */
- 	u32 wdt_refcnt;
- 	wait_queue_head_t ack_wq;
--	bool ipi_id_ack[IPI_MAX];
-+	bool ipi_id_ack[IPI_VPU_MAX];
- };
- 
- static inline void vpu_cfg_writel(struct mtk_vpu *vpu, u32 val, u32 offset)
-@@ -296,7 +296,7 @@ int vpu_ipi_register(struct platform_device *pdev,
- 		return -EPROBE_DEFER;
- 	}
- 
--	if (id < IPI_MAX && handler) {
-+	if (id < IPI_VPU_MAX && handler) {
- 		ipi_desc = vpu->ipi_desc;
- 		ipi_desc[id].name = name;
- 		ipi_desc[id].handler = handler;
-@@ -319,7 +319,7 @@ int vpu_ipi_send(struct platform_device *pdev,
- 	unsigned long timeout;
- 	int ret = 0;
- 
--	if (id <= IPI_VPU_INIT || id >= IPI_MAX ||
-+	if (id <= IPI_VPU_INIT || id >= IPI_VPU_MAX ||
- 	    len > sizeof(send_obj->share_buf) || !buf) {
- 		dev_err(vpu->dev, "failed to send ipi message\n");
- 		return -EINVAL;
-@@ -748,7 +748,7 @@ static void vpu_ipi_handler(struct mtk_vpu *vpu)
- 	s32 id = readl(&rcv_obj->id);
- 
- 	memcpy_fromio(data, rcv_obj->share_buf, sizeof(data));
--	if (id < IPI_MAX && ipi_desc[id].handler) {
-+	if (id < IPI_VPU_MAX && ipi_desc[id].handler) {
- 		ipi_desc[id].handler(data, readl(&rcv_obj->len),
- 				     ipi_desc[id].priv);
- 		if (id > IPI_VPU_INIT) {
-@@ -934,7 +934,7 @@ static int mtk_vpu_probe(struct platform_device *pdev)
- #ifdef CONFIG_DEBUG_FS
- 	debugfs_remove(vpu_debugfs);
- #endif
--	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_MAX);
-+	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_VPU_MAX);
- vpu_mutex_destroy:
- 	mutex_destroy(&vpu->vpu_mutex);
- disable_vpu_clk:
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-index 3951547e9ec5..44ab631ec904 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-@@ -49,7 +49,7 @@ typedef void (*ipi_handler_t) (void *data,
-  *			 handle VP8 video encoder job,, and vice versa.
-  * @IPI_MDP:		 The interrupt from vpu is to notify kernel to
-  *			 handle MDP (Media Data Path) job, and vice versa.
-- * @IPI_MAX:		 The maximum IPI number
-+ * @IPI_VPU_MAX:	 The maximum VPU IPI number
-  */
- 
- enum ipi_id {
-@@ -60,7 +60,7 @@ enum ipi_id {
- 	IPI_VENC_H264,
- 	IPI_VENC_VP8,
- 	IPI_MDP,
--	IPI_MAX,
-+	IPI_VPU_MAX,
- };
- 
- /**
-
--- 
-2.43.0
-
+Thanks,
+Guenter
 
