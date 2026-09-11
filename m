@@ -4,169 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CE1C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455B8C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cPvMY85MgtxziRNodVv1JV9DMlJY8hzgkmogmM3/aM=; b=gyFYeDbusoeUJxazrMQMQjOA7W
-	az98jsjd7coPvz4ISUcSLu275xBtlBpnOtQ3T5URKM5INLsFERHTcNPTeJ/kmRtNFq5YXpChteqGc
-	GJfO1s6gHYe7qESpmvvlElZhvPhXyzpgKf5T+ny7Ru0TQJYtJwtlbMz9ulPn8mJNEkJTo1iic2k/1
-	zTIlGQCiWqj/5+eozOjnq7qbmvA8DjFCUbBZvCunpzhUOchbei4pQJBBOzozD9z0snxYiWhrXtecS
-	LRLr2aNfuuqD2NEZVsEXhf2YTSeYTO1/V3b/IhCMkisMZadCAzWvsvR6Ip8W68+P1ZpvFMIgQnpQA
-	LXsw2tiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+ZHt1Hv90ZffrGNuf1k0Rp2yL5IB44JRHsPcN8IeA0=; b=uL2vztAlC/LJQdkICYlf8nBl68
+	iBp0Ha8qv1Eek5AtkMs83mAC+MQlBqdiGHw8nfka8B/exPtuwEnljuvRTPnPr3dAvMW/qKAsvj5fn
+	e/hXtk6u/NVNGXaaHvfAvKYDwBPcyIRk5fp70G/WrcndWCMoGS00ubbtS+l86G7VvnbCAzlsfW0W3
+	dCbATgbyD4zV34Nm+Cn+D9iSchyGox/rb0oO+pOxW357okfwO05ds48m//rEMewDdVjgWOwP6lC7t
+	xFiuFSDH9SZ64cX5L62v1rMh2VhZyWHDx9qz/KPxs99vxNpzco1d9JOt2f+oNugh4ocQqCEsK3zB5
+	GkJd0CvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50l8-0000000GgTU-1vkY;
-	Fri, 11 Sep 2026 12:53:38 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1x50n1-0000000GgfA-3ALF;
+	Fri, 11 Sep 2026 12:55:35 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50l5-0000000GgSb-2YrQ
+	id 1x50mv-0000000Ggef-21sO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:53:37 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 7F3CE21D68;
-	Fri, 11 Sep 2026 12:53:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789131209; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=7cPvMY85MgtxziRNodVv1JV9DMlJY8hzgkmogmM3/aM=;
-	b=OKa28g7Hz0OZmTxpxbpvJiL1SyqvtmVIe/gf45xG1+SxTIecPkIgCeO8e7jRWT9Edp3Nzp
-	kkpDUSHEkFxg+ALv2/KSLSoGO51AyulIooWXSpc4q7FBhAQ1leB1PNryHjs1oED/dpaA9f
-	WSpvX7HTjB9bgGhS2z6f7fcRJ2INMPA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789131209;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=7cPvMY85MgtxziRNodVv1JV9DMlJY8hzgkmogmM3/aM=;
-	b=EQZ92462m3in2rUsjklW3jBlyIsr1knMJo/htxMFY23i5ahmZwmQTGQZeUnppwahHJvOU+
-	yCXL+gJvdiqqttCw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CkqBOwP6;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Drw68AFG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789131205; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=7cPvMY85MgtxziRNodVv1JV9DMlJY8hzgkmogmM3/aM=;
-	b=CkqBOwP6HJ3/Q+s0PlQlwnlubuR8qyHDf4uhhTD3QpwY7B2ElmDAgxuiVOpfjXRoKwYloW
-	Ft4hJEiveX5RygG334lKs0CAyAm54+FtUtwpRlKSwnGHjKOhw/D7AuJuNe5V4E5WR/kR5G
-	pjOcRlb1TS1aSybQhyHLTUtQyGNcWcw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789131205;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=7cPvMY85MgtxziRNodVv1JV9DMlJY8hzgkmogmM3/aM=;
-	b=Drw68AFGuLEDDqN21X4UVjPrXe9/lZMq6jUIfXO0Lp4J5cU0HFSJa7BQqfAY14Q7MsZMjS
-	s8rMYcd82ZevW1CA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C4224132D3;
-	Fri, 11 Sep 2026 12:53:24 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ZWqjKMT5o2oZGQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 11 Sep 2026 12:53:24 +0000
-Message-ID: <72ac181e-51f9-408e-8c5d-cb24e553a0f8@suse.de>
-Date: Fri, 11 Sep 2026 14:53:24 +0200
+	Fri, 11 Sep 2026 12:55:33 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccfd61ecaso9103955e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:55:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789131328; x=1789736128; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=V+ZHt1Hv90ZffrGNuf1k0Rp2yL5IB44JRHsPcN8IeA0=;
+        b=acIYA3Ghq0EzEh7FhlpSG30Fl3kMU/ZiAe/wbqKt+vbuiNJsDl1oP58u5PB0KxjUmc
+         hqEiKyD/XQ8syhydOK5zeTi6M3EkjrC5mh3tmnxvKyMrmQ6hEygXeuF2NG6gnb+N0arb
+         at338cz8nGDcREjzpOWN5+e0mT7wLpRUyNigAkFmVvkbxr6DPVF5LlmvzGJJIO4TQ5OX
+         GtItdl0g/O6laSFcpXLkNxreyj9K9e9nypajPt7iP/adkrUrOeD9b05bIagSInckUrIF
+         wo1nq3WVEjbBuLCSrRTg290hald1U9OnkjURbUTxVc1ZLaghyv1u8gQR++APJciuUQSs
+         51og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789131328; x=1789736128;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=V+ZHt1Hv90ZffrGNuf1k0Rp2yL5IB44JRHsPcN8IeA0=;
+        b=bVqY88DaoohnCy0x2CMlWp+iWjFSGqN//mXivBU5Vmw2Q5VRo+cXuzNgS/0YQ8RxnX
+         jMApqctGORisiqb1aMrrbL5ZtuGu4pM5CRfznMe2R0TeMchAxt6u0VQmBGBv03QAObqV
+         F1G6UaU19NsinbYOSOk816vRCDBbwe31fZ9cP7ad4A8mUcCz6EHiwW6gdZe+vewscyMG
+         YyXu/Cx7Gqip1Qy0EDULSyQ3KoWGbEw6dYcc/18zQGnCjtRvt0RyU/xCcZU5BOh6tGoy
+         JdysVjXp3hCcf1zTBcjNnsZ3Seq5736HBeufSG8PJJT1losTs9gVHOj7ETsD/ZP3MCAT
+         LDBA==
+X-Forwarded-Encrypted: i=1; AKwUvBy3o0En4625k/iSU+a9MHjLhQNiWc0GLmwONhQrkZPSrFIMJmGCVTPkY1JevxZQQhyrZ2qf08DiGE4gBAnbvAci@lists.infradead.org
+X-Gm-Message-State: AFuF++lH7CgNsY4u2fAx+XntwDhPpQX21BgazL07cDjYP+HPPBJzdDe2
+	H5BZAPw/P9xspVg2JH/FdlNpRJ8OPiGPs1YNAYQLK7OWhfUQBLlfj6WLsCX4hMjccVs=
+X-Gm-Gg: AYBFou0u+Y46cohY1i6vhz762XfsbFQ/oppPw7OlANRTPrUgU1jewZDBmJ0jxa+ezpn
+	OspR4zxzQrSzNsRpKs+uLep9N1FGTD3nz80YDZYXjdldxSM8rCMKJOb3dZGndSMUAfFBaWjz0zi
+	Fr3nj4YFTQuDR+nGzuGTApIANd0CO/H4RZEvEvTgm/MlH98FoIpAvGMKQVbV0Bd8t8FtktW4x18
+	upRTY+lezPJQblzczsWzKlc+J1045ONRCUSoP5aiEEY7x6oD5zrTuiws0+mwcA+I161H/+k8X4Y
+	2OYoqxDYuROap8zYwq20zXq9aE6s7JUxTHe3Qdbn/MWAiW54odJ4BotO486dofcjvb5QCRB5ZUO
+	CscgmF5uld16v+3mD4Qli2PdsuYjWfWcIDfQ7xMvIJORfRV8XibaTBHFIItJ8OmH4tkwf5IaUDc
+	pbCQJEGikJBCZDU03sRzfQtvf9IdNc5n2gF+pEnCNgaL8I0yawjlu9eqpQkJx4Uv54HFZ1Hkaof
+	cYF3h40DAbXjq+03Zc=
+X-Received: by 2002:a05:600c:3ba9:b0:49c:fa21:e73e with SMTP id 5b1f17b1804b1-49e619c0558mr56438145e9.20.1789131327727;
+        Fri, 11 Sep 2026 05:55:27 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e61a34cacsm41600045e9.0.2026.09.11.05.55.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 05:55:27 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Long Zhao via B4 Relay
+ <devnull+longzhao.ambarella.com@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Andy
+ Shevchenko <andriy.shevchenko@linux.intel.com>, Ilpo =?utf-8?Q?J=C3=A4rvi?=
+ =?utf-8?Q?nen?=
+ <ilpo.jarvinen@linux.intel.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao
+ <zl020895@163.com>, Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski
+ <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v6 00/13] Ambarella CV75 SoC minimal bring-up
+In-Reply-To: <46d21889-6b52-4c09-8f77-7c08dba93777@kernel.org>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <1jwlt1ld6c.fsf@starbuckisacylon.baylibre.com>
+ <46d21889-6b52-4c09-8f77-7c08dba93777@kernel.org>
+Date: Fri, 11 Sep 2026 14:55:25 +0200
+Message-ID: <1jld986j7m.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/8] drm/gm12u320: replace struct
- drm_simple_display_pipe with regular atomic helpers
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260727-drm-simple-kms-removal-v3-0-cd5dc89858c6@oss.qualcomm.com>
- <20260727-drm-simple-kms-removal-v3-5-cd5dc89858c6@oss.qualcomm.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260727-drm-simple-kms-removal-v3-5-cd5dc89858c6@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 7F3CE21D68
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[qualcomm.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email,suse.de:mid]
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_055335_944332_3694A0B2 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20260911_055530_265882_0A5DB388 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,246 +116,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On ven. 04 sept. 2026 at 08:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Am 26.07.26 um 21:45 schrieb Ze Huang:
-> Convert gm12u320 to direct primary plane, CRTC and encoder setup.
+> On 04/09/2026 08:54, Jerome Brunet wrote:
+>> On ven. 04 sept. 2026 at 14:38, Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org> wrote:
+>>>
+>>>  .../devicetree/bindings/arm/ambarella.yaml         |  24 +
+>>>  .../bindings/clock/ambarella,cv75-rct.yaml         |  64 ++
+>>>  .../devicetree/bindings/gpio/pl061-gpio.yaml       |  32 +-
+>>>  Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
+>>>  .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 239 +++++++
+>>>  .../bindings/serial/snps-dw-apb-uart.yaml          |   1 +
+>>>  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+>>>  MAINTAINERS                                        |  14 +
+>>>  arch/arm64/Kconfig.platforms                       |   6 +
+>>>  arch/arm64/boot/dts/Makefile                       |   1 +
+>>>  arch/arm64/boot/dts/ambarella/Makefile             |   3 +
+>>>  arch/arm64/boot/dts/ambarella/cv75-evk.dts         |  30 +
+>>>  arch/arm64/boot/dts/ambarella/cv75.dtsi            | 177 +++++
+>>>  arch/arm64/configs/defconfig                       |   1 +
+>>>  drivers/clk/Kconfig                                |   1 +
+>>>  drivers/clk/Makefile                               |   1 +
+>>>  drivers/clk/ambarella/Kconfig                      |  13 +
+>>>  drivers/clk/ambarella/Makefile                     |   6 +
+>>>  drivers/clk/ambarella/ccu-cv75.c                   | 296 ++++++++
+>>>  drivers/clk/ambarella/ccu_common.c                 |  60 ++
+>>>  drivers/clk/ambarella/ccu_common.h                 |  25 +
+>>>  drivers/clk/ambarella/ccu_mux_div.c                | 234 +++++++
+>>>  drivers/clk/ambarella/ccu_mux_div.h                |  35 +
+>>>  drivers/clk/ambarella/ccu_pll.c                    | 421 ++++++++++++
+>>>  drivers/clk/ambarella/ccu_pll.h                    |  70 ++
+>>>  drivers/gpio/Kconfig                               |   2 +
+>>>  drivers/gpio/gpio-pl061.c                          | 342 +++++----
+>>>  drivers/gpio/gpio-regmap.c                         |  24 +-
+>>>  drivers/pinctrl/Kconfig                            |  15 +
+>>>  drivers/pinctrl/Makefile                           |   2 +
+>>>  drivers/pinctrl/pinctrl-ambarella-cv75.c           | 561 +++++++++++++++
+>>>  drivers/pinctrl/pinctrl-ambarella.c                | 761 +++++++++++++++++++++
+>>>  drivers/pinctrl/pinctrl-ambarella.h                |  50 ++
+>>>  drivers/tty/serial/8250/8250_dw.c                  |  34 +
+>>>  include/dt-bindings/clock/ambarella,cv75-rct.h     |  15 +
+>>>  include/linux/amba/bus.h                           |   1 +
+>>>  include/linux/gpio/regmap.h                        |  13 +
+>>>  37 files changed, 3439 insertions(+), 138 deletions(-)
+>> 
+>> That is a lot of stuff mixed into a single series that could easily split
 >
-> Keep shadow-plane helper state, framebuffer access helpers and
-> no-scaling plane-state check from simple-KMS path.
+> Well, not easily, because each split patchset would rely on non-existing
+> CONFIG which could trigger warnings.
 >
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Tested-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+> Contributors follow here the correct and documented process of new SoC
+> platform, I don't get why now only this patchset has to be split...
 
-I have added this patch to drm-misc-next.
+Are you referring to this or something else ?
 
-Best regards
-Thomas
+"""
+one patchset containing new arch/foo/Kconfig entry, DTS files, MAINTAINERS file entry and *optionally initial drivers* with their Devicetree bindings
+"""
+
+No problem with that, I was merely trying to say that mixing 4 or 5 trees
+in a single patchset is pushing it a little and it does not solve the
+dependency problem you've mentioned, it just move it.
 
 >
-> ---
-> Changes in v3:
-> - Use commit-local plane state in the CRTC enable path when marking the first
->    frame dirty.
-> - Make the gm12u320 container helper static inline.
-> ---
->   drivers/gpu/drm/tiny/gm12u320.c | 138 ++++++++++++++++++++++++++++++++--------
->   1 file changed, 111 insertions(+), 27 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/tiny/gm12u320.c b/drivers/gpu/drm/tiny/gm12u320.c
-> index d73dfebb4353..afcf0dfff14b 100644
-> --- a/drivers/gpu/drm/tiny/gm12u320.c
-> +++ b/drivers/gpu/drm/tiny/gm12u320.c
-> @@ -8,6 +8,7 @@
->   #include <linux/usb.h>
->   
->   #include <drm/clients/drm_client_setup.h>
-> +#include <drm/drm_atomic.h>
->   #include <drm/drm_atomic_helper.h>
->   #include <drm/drm_atomic_state_helper.h>
->   #include <drm/drm_connector.h>
-> @@ -27,7 +28,6 @@
->   #include <drm/drm_modeset_helper_vtables.h>
->   #include <drm/drm_print.h>
->   #include <drm/drm_probe_helper.h>
-> -#include <drm/drm_simple_kms_helper.h>
->   
->   static bool eco_mode;
->   module_param(eco_mode, bool, 0644);
-> @@ -87,7 +87,9 @@ MODULE_PARM_DESC(eco_mode, "Turn on Eco mode (less bright, more silent)");
->   
->   struct gm12u320_device {
->   	struct drm_device	         dev;
-> -	struct drm_simple_display_pipe   pipe;
-> +	struct drm_plane	         plane;
-> +	struct drm_crtc		         crtc;
-> +	struct drm_encoder	         encoder;
->   	struct drm_connector	         conn;
->   	unsigned char                   *cmd_buf;
->   	unsigned char                   *data_buf[GM12U320_BLOCK_COUNT];
-> @@ -102,7 +104,10 @@ struct gm12u320_device {
->   	} fb_update;
->   };
->   
-> -#define to_gm12u320(__dev) container_of(__dev, struct gm12u320_device, dev)
-> +static inline struct gm12u320_device *to_gm12u320(struct drm_device *__dev)
-> +{
-> +	return container_of(__dev, struct gm12u320_device, dev);
-> +}
->   
->   static const char cmd_data[CMD_SIZE] = {
->   	0x55, 0x53, 0x42, 0x43, 0x00, 0x00, 0x00, 0x00,
-> @@ -554,43 +559,106 @@ static int gm12u320_conn_init(struct gm12u320_device *gm12u320)
->   }
->   
->   /* ------------------------------------------------------------------ */
-> -/* gm12u320 (simple) display pipe				      */
-> +/* gm12u320 display pipe					      */
->   
-> -static void gm12u320_pipe_enable(struct drm_simple_display_pipe *pipe,
-> -				 struct drm_crtc_state *crtc_state,
-> -				 struct drm_plane_state *plane_state)
-> +static void gm12u320_crtc_helper_atomic_enable(struct drm_crtc *crtc,
-> +					       struct drm_atomic_commit *commit)
->   {
->   	struct drm_rect rect = { 0, 0, GM12U320_USER_WIDTH, GM12U320_HEIGHT };
-> -	struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
-> -	struct drm_shadow_plane_state *shadow_plane_state = to_drm_shadow_plane_state(plane_state);
-> +	struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
-> +	struct drm_plane_state *pstate = drm_atomic_get_new_plane_state(commit, &gm12u320->plane);
-> +	struct drm_shadow_plane_state *shadow_plane_state = to_drm_shadow_plane_state(pstate);
->   
->   	gm12u320->fb_update.draw_status_timeout = FIRST_FRAME_TIMEOUT;
-> -	gm12u320_fb_mark_dirty(plane_state->fb, &shadow_plane_state->data[0], &rect);
-> +	gm12u320_fb_mark_dirty(pstate->fb, &shadow_plane_state->data[0], &rect);
->   }
->   
-> -static void gm12u320_pipe_disable(struct drm_simple_display_pipe *pipe)
-> +static void gm12u320_crtc_helper_atomic_disable(struct drm_crtc *crtc,
-> +						struct drm_atomic_commit *commit)
->   {
-> -	struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
-> +	struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
->   
->   	gm12u320_stop_fb_update(gm12u320);
->   }
->   
-> -static void gm12u320_pipe_update(struct drm_simple_display_pipe *pipe,
-> -				 struct drm_plane_state *old_state)
-> +static void gm12u320_plane_helper_atomic_update(struct drm_plane *plane,
-> +						struct drm_atomic_commit *commit)
->   {
-> -	struct drm_plane_state *state = pipe->plane.state;
-> +	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(commit, plane);
-> +	struct drm_plane_state *state = drm_atomic_get_new_plane_state(commit, plane);
->   	struct drm_shadow_plane_state *shadow_plane_state = to_drm_shadow_plane_state(state);
->   	struct drm_rect rect;
->   
-> +	if (!state->fb)
-> +		return;
-> +
->   	if (drm_atomic_helper_damage_merged(old_state, state, &rect))
->   		gm12u320_fb_mark_dirty(state->fb, &shadow_plane_state->data[0], &rect);
->   }
->   
-> -static const struct drm_simple_display_pipe_funcs gm12u320_pipe_funcs = {
-> -	.enable	    = gm12u320_pipe_enable,
-> -	.disable    = gm12u320_pipe_disable,
-> -	.update	    = gm12u320_pipe_update,
-> -	DRM_GEM_SIMPLE_DISPLAY_PIPE_SHADOW_PLANE_FUNCS,
-> +static const struct drm_plane_funcs gm12u320_plane_funcs = {
-> +	.update_plane	= drm_atomic_helper_update_plane,
-> +	.disable_plane	= drm_atomic_helper_disable_plane,
-> +	.destroy	= drm_plane_cleanup,
-> +	DRM_GEM_SHADOW_PLANE_FUNCS,
-> +};
-> +
-> +static int gm12u320_plane_helper_atomic_check(struct drm_plane *plane,
-> +					      struct drm_atomic_commit *commit)
-> +{
-> +	struct drm_plane_state *plane_state = drm_atomic_get_new_plane_state(commit, plane);
-> +	struct drm_crtc_state *crtc_state = NULL;
-> +
-> +	if (plane_state->crtc) {
-> +		crtc_state = drm_atomic_get_crtc_state(commit, plane_state->crtc);
-> +		if (IS_ERR(crtc_state))
-> +			return PTR_ERR(crtc_state);
-> +	}
-> +
-> +	return drm_atomic_helper_check_plane_state(plane_state, crtc_state,
-> +						   DRM_PLANE_NO_SCALING,
-> +						   DRM_PLANE_NO_SCALING,
-> +						   false, false);
-> +}
-> +
-> +static const struct drm_plane_helper_funcs gm12u320_plane_helper_funcs = {
-> +	DRM_GEM_SHADOW_PLANE_HELPER_FUNCS,
-> +	.atomic_check	= gm12u320_plane_helper_atomic_check,
-> +	.atomic_update	= gm12u320_plane_helper_atomic_update,
-> +};
-> +
-> +static int gm12u320_crtc_helper_atomic_check(struct drm_crtc *crtc,
-> +					     struct drm_atomic_commit *commit)
-> +{
-> +	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(commit, crtc);
-> +	int ret;
-> +
-> +	if (crtc_state->enable) {
-> +		ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return drm_atomic_add_affected_planes(commit, crtc);
-> +}
-> +
-> +static const struct drm_crtc_helper_funcs gm12u320_crtc_helper_funcs = {
-> +	.atomic_check	= gm12u320_crtc_helper_atomic_check,
-> +	.atomic_enable	= gm12u320_crtc_helper_atomic_enable,
-> +	.atomic_disable	= gm12u320_crtc_helper_atomic_disable,
-> +};
-> +
-> +static const struct drm_crtc_funcs gm12u320_crtc_funcs = {
-> +	.set_config		= drm_atomic_helper_set_config,
-> +	.page_flip		= drm_atomic_helper_page_flip,
-> +	.reset			= drm_atomic_helper_crtc_reset,
-> +	.destroy		= drm_crtc_cleanup,
-> +	.atomic_duplicate_state	= drm_atomic_helper_crtc_duplicate_state,
-> +	.atomic_destroy_state	= drm_atomic_helper_crtc_destroy_state,
-> +};
-> +
-> +static const struct drm_encoder_funcs gm12u320_encoder_funcs = {
-> +	.destroy = drm_encoder_cleanup,
->   };
->   
->   static const uint32_t gm12u320_pipe_formats[] = {
-> @@ -677,13 +745,29 @@ static int gm12u320_usb_probe(struct usb_interface *interface,
->   	if (ret)
->   		return ret;
->   
-> -	ret = drm_simple_display_pipe_init(&gm12u320->dev,
-> -					   &gm12u320->pipe,
-> -					   &gm12u320_pipe_funcs,
-> -					   gm12u320_pipe_formats,
-> -					   ARRAY_SIZE(gm12u320_pipe_formats),
-> -					   gm12u320_pipe_modifiers,
-> -					   &gm12u320->conn);
-> +	ret = drm_universal_plane_init(dev, &gm12u320->plane, 0,
-> +				       &gm12u320_plane_funcs,
-> +				       gm12u320_pipe_formats,
-> +				       ARRAY_SIZE(gm12u320_pipe_formats),
-> +				       gm12u320_pipe_modifiers,
-> +				       DRM_PLANE_TYPE_PRIMARY, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_plane_helper_add(&gm12u320->plane, &gm12u320_plane_helper_funcs);
-> +
-> +	ret = drm_crtc_init_with_planes(dev, &gm12u320->crtc, &gm12u320->plane, NULL,
-> +					&gm12u320_crtc_funcs, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_crtc_helper_add(&gm12u320->crtc, &gm12u320_crtc_helper_funcs);
-> +
-> +	ret = drm_encoder_init(dev, &gm12u320->encoder, &gm12u320_encoder_funcs,
-> +			       DRM_MODE_ENCODER_NONE, NULL);
-> +	if (ret)
-> +		return ret;
-> +	gm12u320->encoder.possible_crtcs = drm_crtc_mask(&gm12u320->crtc);
-> +
-> +	ret = drm_connector_attach_encoder(&gm12u320->conn, &gm12u320->encoder);
->   	if (ret)
->   		return ret;
->   
->
+> Best regards,
+> Krzysztof
 
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
-
+Jerome
 
