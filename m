@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424E9C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74497C88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQwqbXwJzJUEnBnzBsi0ka1PwipDEMcTOXIfYajspX8=; b=0ihG/WUkPVrSvCjSGvCvb1bi1A
-	lcDJuy8ugbgk/YkZajiTxYSc8QfooAxZ3dgrgou9MkbBVbsTEjl1UdxHWabCrnYIPrlT/1A7pMyPm
-	eFfN5Kf2MhTQcOSPecemCkpGV8sRFBbLIzH4A19eVl2bpRPW/tPzcHyEoGPZWVY4xAXa2ACyHEjLR
-	6uf+FSyCqsOHozvZzr7p8Ydauwusdhj3xP+h78sg155Mwq6XD5g0dyMNE0jYHdol5s8PZJmp7N7Q/
-	8QIY2E5f5YIHtEO8INJMiQgjOxYnsRFMU3CAOCsg2Y6Ya8/KEqfsVzbM1ZYtwRqoObmNu55nkb295
-	XywFccaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOCOVInC775WiBtqQH5pSV36SDX5kInkJA9FSrFvl/M=; b=OdD4pcSo4ersau/upgARQ/maLx
+	z3gtjZB+7Q5GDyf81Hp3KNZ+ZAT1AIi4KrOZGADXdFk9y/gpo6FTBxBAnK2iVykppKEU3pGKFOmkO
+	YWI1nNaBFWXRrxJikzcRtMkGiJqqDZD7nqt/2l/pTTmh+mRSit1aDqlkr25VOQxOR5ib/Bt/14u5U
+	+DJz09keKYrOSN6clJIWx4mO7Db8R4UYJUw36rJOQhun/FF1CxL0f7kgM6P8lgq8rX8hLEa/IILSo
+	/jnvT5fhJO+Xtpo8dNCHsedKQYG/l+8e4pifh8OS6D4aYYwNUAhoCSa6cbPEno1HNmTt3xMxHB+7S
+	vlYnkw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xYu-0000000GGf1-1VCb;
-	Fri, 11 Sep 2026 09:28:48 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x4xYx-0000000GGgN-2K8L;
+	Fri, 11 Sep 2026 09:28:51 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xYr-0000000GGeN-1BML
+	id 1x4xYt-0000000GGec-1K6I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:28:46 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b94fce6e8so5551525e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 02:28:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789118923; x=1789723723; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AQwqbXwJzJUEnBnzBsi0ka1PwipDEMcTOXIfYajspX8=;
-        b=C4RECgCBVLbuE4limoy5qTnSygszJLweQlFVXs26/+IViMCMG+Sys7DfcbQTQtAoMc
-         auIU5qbpqroqSPJjs1E9+vtCH5wwuWuBxI5L02Cnd4GARSqbd7Ii0fY1h3NwpRZVFc06
-         gpOtD3IKXIFomoSq+U6/C4t//SCNjmf0mTOL1VHaBjhD5NxYzqx6KzwBUZ7+cfHk5ify
-         5WXfm4yAvrFea0MLgyAt9+zwRrc3g4aAum7I3JRXH321kGhwCxSOuMGVOpuZlfYN/lj5
-         eTJPJbu/92oLb3pFRMnObYBjdPOvGpYl891h/+JqKz6vxxaAXyh4zNWg15H3C3ca9tWq
-         UJZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789118923; x=1789723723;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AQwqbXwJzJUEnBnzBsi0ka1PwipDEMcTOXIfYajspX8=;
-        b=B5vNfDZzTJ6HWzG3XTjG1op+ckLgpkZ3erlnwDvitDPhSb7rDAUaBDvQNOSKKdJvhL
-         eEzNR4trMrcb1gS0RnO/rsjXFkQiyZjhptedkIadN/PNiQbv8Iwc8Hi3enxTr3ScGChz
-         txucaCTaGamMAj6u6CrAmsVNbqNvSP0NiguA5JuCvdUbLGTXd/fzMi/BfVKeZXQAaAKR
-         9vHIQDeH7r/j0LLjQi/F/JchUcTnK0oFpPE5iJtCDiPWQskJ8DrFSMn11YfUUJZOS4IH
-         o4C394jTTZurfXkPsavCPLe6pZ0OIwpAv0roc5qKpvLSAYRhws1Bx8r15sBO7OoW/psx
-         NgFg==
-X-Forwarded-Encrypted: i=1; AKwUvBye7eaBMo/9S+VUI1SxZVXBcOjDxp/Rc09GS8j/lTMr1Q/OVFTukR2OBBVOkzAbB9jWNHOH/DPtwgmtQbePamRe@lists.infradead.org
-X-Gm-Message-State: AFuF++kywKX5yOISTmjL9BCe/At0ULi2Thx7l/iC8PrMuNf+kaMMNZTH
-	IFrPeOJGkjjOkpaRC3MsDkjK+uC74zSRia4gdjA8MfHtLs2IuIQSlD4vRPDCZhyksI4=
-X-Gm-Gg: AYBFou1t5iry3g6IdATbwTmIJQ2vrjl2hUEerDQixIe93Jt6mJkTSlSD3UOfwinUKtE
-	zD3APTBM2/JoDD9R0opJxKrCeVD3RzmcGQ+hk/FrHhgFEvfodPj81wTmJGlBKxLGWKpa4+hbQxF
-	8TSqHFJpLnsBqCucRZgfJdeujPmvgQ3HnU1cMoLLkejNlQdnQt1sjAvmkakf2lwSnq2PEUMFmMK
-	Ngm48GFW2wz/FA8CXze6zxTgIkI0lCC2W592pbeFLLmD3GxjrdH3jHPRjd3XlGS914rvZKLvDOa
-	6U8OTJsA7kKViW4EbUBYEdx6K3E4bVyAKqPxei0G+qW6T9lebvbUyoiE54f5FSkerNF3455DdLe
-	VgK1Cta+Jta3kccKJitmXEfZIPGQzuThGgJVv2hDYmPgC8lsU2PsYoroEbXCEWV/perwbLyTiJ7
-	ha1jtEZOZW84H1RC+PO2gHnkZ3byB2bW1/5mzr1tpnRbB3nrys00AuXIml6Myk4wMLgQuknOjC2
-	/735j/bWDhIIYFM8KLE9kOTye8R
-X-Received: by 2002:a05:600c:3ba9:b0:49c:fa21:e73e with SMTP id 5b1f17b1804b1-49e619c0558mr44117805e9.20.1789118922855;
-        Fri, 11 Sep 2026 02:28:42 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e60ababd5sm83052575e9.4.2026.09.11.02.28.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 02:28:42 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Andre Przywara <andre.przywara@arm.com>, Enzo Adriano via B4 Relay
- <devnull+enzo.adriano.code.gmail.com@kernel.org>
-Cc: enzo.adriano.code@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Ulf
- Hansson <ulfh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: allwinner: add Allwinner A733 SoC
-In-Reply-To: <20260911001805.0a2e033d@ryzen.lan>
-References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
- <20260613-a733-dts-v1-public-ready-v1-3-7787c94681db@gmail.com>
- <20260911001805.0a2e033d@ryzen.lan>
-Date: Fri, 11 Sep 2026 11:28:36 +0200
-Message-ID: <1jo6e46ssb.fsf@starbuckisacylon.baylibre.com>
+	Fri, 11 Sep 2026 09:28:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C112D4E401AD;
+	Fri, 11 Sep 2026 09:28:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 92144601DE;
+	Fri, 11 Sep 2026 09:28:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 286D611C7AF8E;
+	Fri, 11 Sep 2026 11:28:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789118923; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ZOCOVInC775WiBtqQH5pSV36SDX5kInkJA9FSrFvl/M=;
+	b=aD5Jiji/jcKYCmhgOG4txZ+FrxgDrogxM96MJW4fmpStxLY0A/quwGPuuDjd/UlC92cMGi
+	AubQsBFwmOpM6eGZAqzKcAZJ/hwDVd8ZBW3txW0Auklp/hbx3H4yaGeRHqpvxF3ooeBPVH
+	1xhLLFy2DgZuz88GxSBd/9dW86YtzBwtPUR6coTJviNJRhzUjgQb5EILDXj9rGLXpj974j
+	STNu3HlOYVismUbumDR9++8TZolCUGboEvZZJhCFG/AV6C1i8Ou/EWiHe6X2WzQ8+HcFpZ
+	TASjWnYLTAU79cEyDEPvvuyq/RQ1BI3kViE1Wo00vXNVuJCDv51zSiCXAzxoOw==
+Message-ID: <476761e1-81f1-48d8-9946-0f0696ce26a8@bootlin.com>
+Date: Fri, 11 Sep 2026 11:28:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: fix TSO header length truncation
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Niklas Cassel <niklas.cassel@axis.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260911-stmmac-fix-header-length-v1-1-8fc103334327@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260911-stmmac-fix-header-length-v1-1-8fc103334327@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_022845_330668_8FFA9982 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260911_022847_497034_F8FB1F8E 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ven. 11 sept. 2026 at 00:18, Andre Przywara <andre.przywara@arm.com> wrote:
+Hi
 
-> And what about I2C? We would need that for the AXP PMIC. Having that in
-> the initial DT is required to keep the DTBs compatible with older/stable
-> kernels later on.
->
-> And it seems like the whole r_ side is missing, even those we should
-> have bindings for those. At least r_pio and r_ccu would be needed, plus
-> r_i2c.
+On 9/11/26 11:20, Lorenzo Bianconi wrote:
+> stmmac_tso_xmit() stores the protocol header length returned by
+> stmmac_tso_header_size() in a u8. stmmac_tso_valid_packet() admits
+> headers up to 1023 bytes, so a header longer than 255 bytes wraps modulo
+> 256 (486 becomes 230, 256 becomes 0).
+> 
+> A TCP over IPv6 socket carrying a few hundred bytes of sticky
+> destination/hop-by-hop options makes skb_tcp_all_headers() exceed 255
+> while staying below the 1023-byte limit, so such an skb reaches
+> stmmac_tso_xmit().
+> 
+> Widen proto_hdr_len to unsigned int, which is sufficient since the value
+> is bounded by the hardware limit, and adjust the debug print specifier
+> accordingly.
+> 
+> Fixes: 9edfa7dab811 ("net: stmmac: enable TSO for IPv6")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-I have sent the i2c binding but it did get picked up.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-https://lore.kernel.org/all/20260707-allwinner-a733-i2c-compatible-v1-1-566340542bdd@baylibre.com/
+Maxime
 
-It is a marvell ip and I used b4 to send the change. I did not notice
-until now that the sunxi list was not Cced. I'll re-sent it
-
->
-> Cheers,
-> Andre
->
->> +	};
->> +};
->> 
->
-
--- 
-Jerome
 
