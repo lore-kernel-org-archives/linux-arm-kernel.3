@@ -4,69 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18DFC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF714C88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAnYNMY4qKWEt8VqW/gq+QbhtFwungyZcJ3iIQPiMA8=; b=nfhZ0achbwcF1XOGFlMN4o93s0
-	we3nlsLx9NQtkPr9zvYxA4TixD46wRkXcPND21aaTIHkjohcbg5Q9qApo+cIAPm4+o8zukyHhqS9t
-	KFl0yiDFJcTklZ7BqI5J/bwO2k0+POxVlaECfKVgJtDcqMGAGvY0oHfu5ig7+4kIj8O+wZ+lX+8B0
-	CtRhA1HWrT8tj0HmPiSY88CPbOBncyT4XoUSFnEO2cNAfdW2+pm3D2iIWbROYkPWX6hwjlz0RYono
-	QIckl4yVvU234q0Xuta3cpHxfZnollbzmXFdGXGH6dcpz0ZA8vigjqQil/sWKS/85dy7uNYhwn2IA
-	LEOJE8vA==;
+	bh=yLyByHJF4v+WtE2oWs7kAi8erXvtxq2XuKuhh2PRfaI=; b=cig4xYRWUkD361mrMhV1YZD2yI
+	ZfOrnERZPfOGyLHT4Jr3cxvJZY0jdvwHThve6lhLohMStyWXd90fudbxw92K/Dz0j2YmhkaXCecSj
+	VUzi3jsT/GpYj8rHt9+oVF5dNlk2Zhv7UkNPhPniCyXar3YF3b4DHf381j/MstKmJ+8yn0qS1docG
+	KxovoJazeCQP5wgtkPRVOdgAKc7Z+SP74SDx4hruMP3a+SmCAxQyTkLswMFsDxqAM+HHVJRiA7bE8
+	x/SSMVqJJHYtkJArnRew6btnC9LQW4BwPDMpUdGF8wPbGOjupp7q1bsn3kybK2dOdza285UHB15XR
+	Ey0RQJ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xcS-0000000GHAE-110N;
-	Fri, 11 Sep 2026 09:32:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4xdp-0000000GHO1-25F1;
+	Fri, 11 Sep 2026 09:33:53 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xcQ-0000000GH9r-2WK4
+	id 1x4xdm-0000000GHNT-0FtX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:32:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BB4C409FD;
-	Fri, 11 Sep 2026 09:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEA7C1F000FF;
-	Fri, 11 Sep 2026 09:32:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789119146;
-	bh=AAnYNMY4qKWEt8VqW/gq+QbhtFwungyZcJ3iIQPiMA8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PyVXNLhamoEGYHMpL3Q4rsa62whZA3bWfw9FqxNQ9ZIkavOuDy970b4hzpf2VW5dg
-	 665PYTj+s7h/ZpnGzvIrO7TazHzP/S34FTp1JgiopifMNbEFVlz8LjHjFudfClI06S
-	 fTx1a+taFDlr6OMVCRlomCP09wbk7mrAuXNG3PuHZNmqmO8PmURwzsInlvjuYwC0MY
-	 kfDOwkFljeuVcpEWeZkbjNn2zn2wGDhTWG/JupNmCyWYIItr98C4LEgrD5I8aUCAui
-	 H4W2AMiROm14Ib7hqF0UXbne1UGnoeMO6gi2gMDXWquReVHt2aM95Kmicp6nwQXife
-	 ZCpaJ+H/2FLyQ==
-Date: Fri, 11 Sep 2026 10:32:17 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH 8/8] KVM: selftests: Add nested pre-fault test for arm64
-Message-ID: <aqPIUtNTJFwUvJME@gremlin>
-References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
- <20260825-kvm-arm-prefault-v1-8-befe8947702e@kernel.org>
- <aqOgEQKBGH-YqGr3@sm-arm-grace07>
+	Fri, 11 Sep 2026 09:33:51 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=HzX/2/5N5yWiifZDcKMz2/PCzKib+Tfa9cO0uMu6uLaPCM9MtCDjHCpYDroPhZAoPqwR3gTPkzgrBqEtDDfumb01oLXNlfuf6CtfdoW+Sg/AtKLLW/kdZlUd1PB+CEjv6xGnVNn0qeFlt2WSP3R1uHz5F/T5POOXc4cnGQjugsm7A/IcoF1Kv1krrZgN3KYwM3dG9LZgO01DcqYpnZqa29YevWNGg//FpOEtjTHTxsOG0zv2DjRzgHQw9Lv7OH4M2SYhmbq3Cb2L1joBHEUgoKBae8/anD2Y1hVJkLz2RkMLkXIKykVlX+xf94x7p2+ouoqTZQeTL8bX1ejykVEIig==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yLyByHJF4v+WtE2oWs7kAi8erXvtxq2XuKuhh2PRfaI=;
+ b=JHd5dZ067xz6YXRrHJfsDmGi523mpndM+8k9jP/o5G2s2BRr1xPUV71e6GuQY7aeyHJ5z8RG7ag9JvnRsgo3pdoKUluKsqcurmC1hxtxmZODXM8WFIEGRjMDvEEqf2G8XOgMsEdLub7X0dwMqZeT0ru533RuGJqrQjmP9qeJlYlSZjBtmmvrcmjLsaap93QNJjfXM0DkU7squDVkjQDJYhzPqja7D7zdQEDjdBP8/R7i/Q6ijMbrFSlyCodnG84lGc0pQswZlY8V3ilEyO4Jy5lI1q2qmh0YU4Wg9gPcxEr6i43cHB77tTC+DaM8IHWDgoaf3umsvbUaJI/LEMz55w==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yLyByHJF4v+WtE2oWs7kAi8erXvtxq2XuKuhh2PRfaI=;
+ b=nC8Py7EoIKb/LbTF9O2v++L61gwdzm+dM4BOPe7/Wpmp0Wj3+sTltXVlMYY0UaqwbNebBWF2c1WkQqI3vxZQ7MjjzVogLBfyytFeABZzQfFU3/WQSIETx+yeZB7g5IllLP1SCnwYEa6rsxC/9VqwxQVPFBhHkf33GKZRK63NFnk=
+Received: from DU7P189CA0027.EURP189.PROD.OUTLOOK.COM (2603:10a6:10:552::22)
+ by GVXPR08MB7774.eurprd08.prod.outlook.com (2603:10a6:150:7::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.7; Fri, 11 Sep
+ 2026 09:33:42 +0000
+Received: from DU2PEPF00028D09.eurprd03.prod.outlook.com
+ (2603:10a6:10:552:cafe::a5) by DU7P189CA0027.outlook.office365.com
+ (2603:10a6:10:552::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Fri, 11
+ Sep 2026 09:33:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D09.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
+ via Frontend Transport; Fri, 11 Sep 2026 09:33:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=edCj8F1ONm2QfnfUfFBoBQRHxuNQDAE+lB0LB62tMPV9rN0dgk5P4jEbb6V/4yMXuX1m3VZgYVlRbsr2nU7RAxuoWeIqEyIzfjmNnpV4IMH2Iw6KoBw7fgO/4cBcqeTwjs3wjevZVWcXkkYiewUZfWGuHGVlwlzfNcK7AGBhky1muis3m9v3JK4wOL3Qqi+OrLwca78XlvzH/4VIJ1/BqhADZhrxpxu0Z+Ko5HDktU1IPNPLlG1Pwz5TMu84nXTTqPg2xgmGyg+jh9mc59qlk0/XCdnLKF4QWCsLX79d4KA18mT1iXVPUmkNpC8qypaQC35XA4tpMQ2WGuEOdlshSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yLyByHJF4v+WtE2oWs7kAi8erXvtxq2XuKuhh2PRfaI=;
+ b=aJ61+nR9ee4m0fBhCiHwTxUvuyWD3UOUCcgU2GZRCIEStNKhTABxuwU15Gm7AeUAENPCK2tkrXiUY5Vsd4rGLNBHOL6jZmJyB9Sza8+do3qEPjGCTfFNtjOU/MjNQOkwAMW9eTPJdvbbTbb1mygLJu7n4g9HZoL/Hg1PFD29x+7z4bntI0dzcn0UPrh8prdlsRbzAejIG5YrxfpGi0RYxrq6+murOiT0I6UpB9iD5hZ0mvWyBhX2GssbNdmdqXm14wD2iZu7ewUXxFxBhGNSYZOZ/MRTfjQsnEotXK7Z/+3g1A2IhZRBCp0M6YvsRkj14D4dQP4IpDOazA9Re8KbTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yLyByHJF4v+WtE2oWs7kAi8erXvtxq2XuKuhh2PRfaI=;
+ b=nC8Py7EoIKb/LbTF9O2v++L61gwdzm+dM4BOPe7/Wpmp0Wj3+sTltXVlMYY0UaqwbNebBWF2c1WkQqI3vxZQ7MjjzVogLBfyytFeABZzQfFU3/WQSIETx+yeZB7g5IllLP1SCnwYEa6rsxC/9VqwxQVPFBhHkf33GKZRK63NFnk=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
+ by GV1PR08MB9915.eurprd08.prod.outlook.com (2603:10a6:150:3d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.7; Fri, 11 Sep
+ 2026 09:33:06 +0000
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0428.004; Fri, 11 Sep 2026
+ 09:33:05 +0000
+Message-ID: <efd85115-975a-420a-92fb-113625c80183@arm.com>
+Date: Fri, 11 Sep 2026 10:33:04 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 3/5] coresight: cti: add Qualcomm extended CTI
+ identification and quirks
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com,
+ tingwei.zhang@oss.qualcomm.com, Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+ jie.gan@oss.qualcomm.com
+References: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
+ <20260615-extended_cti-v10-3-1c1694b6d8ed@oss.qualcomm.com>
+Content-Language: en-US
+From: Mike Leach <mike.leach@arm.com>
+In-Reply-To: <20260615-extended_cti-v10-3-1c1694b6d8ed@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PA7P264CA0456.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:398::26) To PAVPR08MB9674.eurprd08.prod.outlook.com
+ (2603:10a6:102:31d::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqOgEQKBGH-YqGr3@sm-arm-grace07>
+X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|GV1PR08MB9915:EE_|DU2PEPF00028D09:EE_|GVXPR08MB7774:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad10ea76-aaa2-45a7-5f3d-08df0fe7c4ae
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|11063799006|56012099006|3023799007|10067099003|4143699003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: TVShS/kF8ae/GMCfkjFYFv0idPiWMasBCBzHw6kCN0p3pWYAZ3AFdLm33asfumo8+LNtEKeN2mzuYkWflau/7rhatdNQcmWUHw0Cc1aBAXwpimI4v3rMijkQGySR+2najwD+N1tgiRbvFAqlBBoo7zo6/YLqm+zr/mXg2upOU7Jvthqm+Z6bKjuPXi2sg3lcg0jcmLdQms1CuHoQSu3vCxBOPiYaFHgjwO7FNKnmyq+3xLeH2ArbDAagQuk4M4v7QYxEhWz1gf7p2Cb7rrQRg5M6Rn2awOQaPdEexmT0HJaAhPaZYlnop0zzhmrs2aQ7LIY5tlnDmScNR2y0PvXaLHiH9qiRIWMeMFRbNQE/IeSdIXXs+CHJXybxnFYm0zZBRAjq66Z4CzEX69uAWd847k6zDBLa8ESQZkSBsAxZ0n9pm+5kOfQ0Q8rQjiWqNM4AfVqw9pHrY9zsZTVqeZDqQXF1g94XjeK6X1xqs0NYOA8wnC4dkmpqnEvQLj/5ktE69XxwAMeVrdlup81PzZJrbZSMVbJ6x706e+3uMcbPVmzvOjrs6mTGZSD22uvudeelulkHOwSUiL/VDqekkI2udHF22clqUclFVf4YyznwvjqBlTcW8hUJP+y38ZVWwJCHmXmbtIVfK7jdnwJs78pTy2v+2CisHXKF7yPjMpBxjiM=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(11063799006)(56012099006)(3023799007)(10067099003)(4143699003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: xgnWCjelNlxokKOaScccMsSUGvLAElIdEp3A8zINhuwBfBRkGbCiffTY5BaAd1NUzMFyWcpj+PCa92Aw8LNbNbph/7cDo9KkQsLdKM1cCLKD5GZTi+NLXVUD2FRZ+AjFNenJdFMWy1o52KXp1D/nM8D16tGidgwkw8E6Vvnj/+MPiW6vsPSWcxilGJHTS5ckSiClU6C4h4z62BsGDuVgBrVTKozBz+48Dk4wFjhgHpV9obwr0PC4nW3qUWGVczlxCCH6HbbMjrOl7PPPv2dNGN1pa0ZOnXOscGPTwaJk09Anqgvp3r6MFXtd5T4++VHX+xekbI211WJmVD4BxyOYAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB9915
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D09.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b27fd56e-288f-45ab-ebe0-08df0fe7aee7
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|14060799003|376014|7416014|82310400026|1800799024|35042699022|3023799007|6133799003|10067099003|4143699003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: zEG0lQ/vhWKqh+w0ma2FvDl1JcS9Z4Br7PlPwt7dAwp6bCjgNLatRU/ZQHl4HS3CdQR7Omq2Sd0oX4MGw1PGVCda5FRNYVMIJ2LjANsO5V86VIxptOFwHRFz0CDWkMEQMvkXnZaL9r8j7g3EPmlZHxEKGPpSaFQ6fYftd7WbOkmCn51RWqB0Yh9nz0R4+bfFeDVCVJvHfnyDINz4RfnQ+qpdDLI/mzJWw791Dk2DH4TXQCiHHhNfqTQ8d3VIS9BhuJzZRDmbmPyDN5CAYOgAngJdJEtiVPvUY724sx5wgSBSk+xIPIxmD97YIh4FACM92u0DN8WGwkpO/Tv/p8pLXdB3LHvW+FcVnZoTl/jLfylfMUMW5c7Q8mPZp+hCkcrJ3SvSUhSObnuY0KLeRUKZzE6cHAU0h/G+2gLUuhNwTmPIgkazVZ2URWfdmgB6KvinYRnGmu1diJBe7UD8d9Y6HgKJbMOcl0hyllIqQLPdzFPfoNFg7Zcc4Ux3MBAC84eHDjAgVVDlC2YJz8gFk9xQQ+TLNoLmhLa2ztys2t+UGi/txZ+wEGmPrvXUbuQREMgd+GuUCq6DEJdakepaJWuRgdxyILl2j0+bdYIN3TCcWXOamVkyiYgQe7n3pYqCNCMUSEtN/GawoPLW90qdy/ap8IUyoZfl1fJ6ruG8oWG2HCpDxde6hNLtmGacUYzF1R8+WiJemqrbCLdGi4ZLRTMOkw==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(14060799003)(376014)(7416014)(82310400026)(1800799024)(35042699022)(3023799007)(6133799003)(10067099003)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: q5VQdGtOI/B+QffBb7U72oOPH+56HYX0F4c6eqnJl7hppBNvov60ek12UaWKh1CTENNp01geE7GI1ONAjJEBj2XqjVFgrDrYkDPzE98SmU3T2Q8Ts4O4VQ8y8POPLTXiXXD8oJ5qNQf6+OtuTcg+v4/cuZtJ3rINTgSIJ97nRtdB49Jjncl4PHkBGop1P/6iss+RgD0CoXuMEHOsn3FFxRvhMUCwWGbzGg6otX9+omUPERMsPQGek2EIOfElQbi2NWzBQmfy5gV7o98D3hITB456YY26fQB1pZLooRu7a4ScijHt2oVTnOwlERDeUyI+5dJBTpC8yXSxl+mVWmMCgZSSE+HlnFxoS27Fv4Zka6/d1QrZ6OTOhiUSdwTkouaqh6N5WpQCLUKfzbLQpU8JYSL/Wp9iQraHAJam1ZpDXAbFaZ0/3cKJVseKPcyMUJ7y
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 09:33:42.0322
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad10ea76-aaa2-45a7-5f3d-08df0fe7c4ae
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D09.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB7774
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_023350_290413_1E90ACC4 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,275 +161,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+cc Wei-Lin
 
-On Fri, Sep 11, 2026 at 03:30:41PM +0900, Itaru Kitayama wrote:
-> Hi Lorenzo,
->
-> On Tue, Aug 25, 2026 at 05:00:42PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > From: Jack Thomson <jackabt@amazon.com>
-> >
-> > Add an arm64 nested-virt selftest for KVM_PRE_FAULT_MEMORY. The guest
-> > enters vEL1 and exits to userspace with a nested/shadow stage-2 MMU as
-> > the vCPU's last-run context.
-> >
-> > Before prefaulting, userspace enables HCR_EL2.VM and points VTTBR_EL2 at
-> > an empty nested stage-2 root. A prefault implementation that incorrectly
-> > treats the userspace GPA as an L2 IPA will fail the ioctl; the correct
-> > path targets the canonical stage-2 and succeeds.
-> >
-> > Restore the original nested state before resuming the guest, then touch
-> > the prefaulted range to check that vEL1 still runs correctly.
-> >
-> > Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> > [ljs: partial progress, >4 KiB pgsize, commit msg, comment fixups]
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  tools/testing/selftests/kvm/Makefile.kvm           |   1 +
-> >  .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 206 +++++++++++++++++++++
-> >  2 files changed, 207 insertions(+)
->
-> I wonder whether this selftest can use functions Wei-Lin proposed
-> some time ago [1]: 20260325003620.2214766-1-weilin.chang@arm.com
-> or would you prefer this test as propose, since it is clear as
-> to what needs to be done to enter L2.
 
-I think if these aren't merged yet then that could be a follow up?
+On 6/15/26 13:32, Yingchao Deng wrote:
+> Qualcomm implements an extended variant of the ARM CoreSight CTI with a
+> different register layout and vendor-specific behavior. While the
+> programming model remains largely compatible, the register offsets differ
+> from the standard ARM CTI and require explicit handling.
+> 
+> Detect Qualcomm CTIs via the DEVARCH register and record this in the CTI
+> driver data. Introduce a small mapping layer to translate standard CTI
+> register offsets to Qualcomm-specific offsets, allowing the rest of the
+> driver to use a common register access path.
+> 
+> Additionally, handle a Qualcomm-specific quirk where the hardware does
+> not implement the CoreSight Claim tag protocol. Instead of clearing the
+> CLAIMSET register at probe time, bypass the claim/disclaim operations
+> entirely for Qualcomm CTIs by wrapping coresight_claim_device(),
+> coresight_disclaim_device_unlocked() and coresight_clear_self_claim_tag()
+> in thin helpers that early-return when is_qcom_cti is set.
+> 
+> No functional change is intended for standard ARM CTI devices.
+> 
+> Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-cti-core.c | 47 +++++++++++++++--
+>   drivers/hwtracing/coresight/coresight-cti.h      | 64 +++++++++++++++++++++++-
+>   2 files changed, 105 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+> index fa758c535ccb..5b83dd4e603b 100644
+> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+> @@ -73,6 +73,35 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
+>   	CS_LOCK(drvdata->base);
+>   }
+>   
+> +/*
+> + * Qualcomm CTIs do not implement the CoreSight Claim tag protocol, so
+> + * bypass coresight_clear_self_claim_tag() for them.
+> + */
+> +static void cti_clear_self_claim_tag(struct cti_drvdata *drvdata,
+> +				     struct csdev_access *csa)
+> +{
+> +	if (drvdata->is_qcom_cti)
+> +		return;
+> +
+> +	coresight_clear_self_claim_tag(csa);
+> +}
+> +
+> +static int cti_claim_device(struct cti_drvdata *drvdata)
+> +{
+> +	if (drvdata->is_qcom_cti)
+> +		return 0;
+> +
+> +	return coresight_claim_device(drvdata->csdev);
+> +}
+> +
+> +static void cti_unclaim_device_unlocked(struct cti_drvdata *drvdata)
+> +{
+> +	if (drvdata->is_qcom_cti)
+> +		return;
+> +
+> +	coresight_disclaim_device_unlocked(drvdata->csdev);
+> +}
+> +
+>   /* write regs to hardware and enable */
+>   static int cti_enable_hw(struct cti_drvdata *drvdata)
+>   {
+> @@ -86,7 +115,7 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+>   		goto cti_state_unchanged;
+>   
+>   	/* claim the device */
+> -	rc = coresight_claim_device(drvdata->csdev);
+> +	rc = cti_claim_device(drvdata);
+>   	if (rc)
+>   		return rc;
+>   
+> @@ -101,7 +130,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+>   static int cti_disable_hw(struct cti_drvdata *drvdata)
+>   {
+>   	struct cti_config *config = &drvdata->config;
+> -	struct coresight_device *csdev = drvdata->csdev;
+>   
+>   	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+>   
+> @@ -118,7 +146,7 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
+>   	/* disable CTI */
+>   	writel_relaxed(0, drvdata->base + CTICONTROL);
+>   
+> -	coresight_disclaim_device_unlocked(csdev);
+> +	cti_unclaim_device_unlocked(drvdata);
+>   	CS_LOCK(drvdata->base);
+>   	return 0;
+>   }
+> @@ -144,6 +172,9 @@ void cti_write_intack(struct device *dev, u32 ackval)
+>   /* DEVID[19:16] - number of CTM channels */
+>   #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
+>   
+> +/* DEVARCH[31:21] - ARCHITECT */
+> +#define CTI_DEVARCH_ARCHITECT(devarch_val) ((int)BMVAL(devarch_val, 21, 31))
+> +
+>   static int cti_set_default_config(struct device *dev,
+>   				  struct cti_drvdata *drvdata)
+>   {
+> @@ -684,6 +715,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   	struct coresight_desc cti_desc = { 0 };
+>   	struct coresight_platform_data *pdata = NULL;
+>   	struct resource *res = &adev->res;
+> +	u32 devarch;
+>   
+>   	/* driver data*/
+>   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> @@ -708,6 +740,10 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	raw_spin_lock_init(&drvdata->spinlock);
+>   
+> +	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
+> +	if (CTI_DEVARCH_ARCHITECT(devarch) == QCOM_ARCHITECT)
+> +		drvdata->is_qcom_cti = true;
+> +
+>   	/* initialise CTI driver config values */
+>   	ret = cti_set_default_config(dev, drvdata);
+>   	if (ret)
+> @@ -753,7 +789,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   	cti_desc.groups = drvdata->ctidev.con_groups;
+>   	cti_desc.dev = dev;
+>   
+> -	coresight_clear_self_claim_tag(&cti_desc.access);
+> +	cti_clear_self_claim_tag(drvdata, &cti_desc.access);
+>   	drvdata->csdev = coresight_register(&cti_desc);
+>   	if (IS_ERR(drvdata->csdev))
+>   		return PTR_ERR(drvdata->csdev);
+> @@ -767,7 +803,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+>   
+>   	/* all done - dec pm refcount */
+>   	pm_runtime_put(&adev->dev);
+> -	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
+> +	dev_info(&drvdata->csdev->dev,
+> +		 "%sCTI initialized\n", drvdata->is_qcom_cti ? "QCOM " : "");
+>   	return 0;
+>   }
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+> index 634bdce5cdfd..4b6fd6b55114 100644
+> --- a/drivers/hwtracing/coresight/coresight-cti.h
+> +++ b/drivers/hwtracing/coresight/coresight-cti.h
+> @@ -54,10 +54,36 @@ struct fwnode_handle;
+>   /*
+>    * CTI CSSoc 600 has a max of 32 trigger signals per direction.
+>    * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
+> + * QCOM CTI support up to 128 trigger signals per direction.
+>    * Max of in and out defined in the DEVID register.
+>    * - pick up actual number used from .dts parameters if present.
 
->
-> Thanks,
-> Itaru.
->
-> >
-> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> > index 66a9a4e62888..1e0edd0f99f7 100644
-> > --- a/tools/testing/selftests/kvm/Makefile.kvm
-> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> > @@ -173,6 +173,7 @@ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
-> >  TEST_GEN_PROGS_arm64 += arm64/hello_el2
-> >  TEST_GEN_PROGS_arm64 += arm64/host_sve
-> >  TEST_GEN_PROGS_arm64 += arm64/hypercalls
-> > +TEST_GEN_PROGS_arm64 += arm64/nv_pre_fault_memory_test
-> >  TEST_GEN_PROGS_arm64 += arm64/external_aborts
-> >  TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
-> >  TEST_GEN_PROGS_arm64 += arm64/page_fault_test
-> > diff --git a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-> > new file mode 100644
-> > index 000000000000..b3833aea2a34
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-> > @@ -0,0 +1,206 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on a vCPU whose
-> > + * last-run context is nested.
-> > + *
-> > + * The guest starts at vEL2, mirrors its EL2 translation regime into the
-> > + * real EL1 registers, drops HCR_EL2.TGE and ERETs to vEL1, then exits to
-> > + * userspace from vEL1 so that the vCPU's last-run context selects a
-> > + * shadow stage-2 MMU. Userspace then enables an empty nested stage-2
-> > + * before prefaulting. Prefaulting must target the canonical stage-2,
-> > + * regardless of the vCPU's nested state.
-> > + */
-> > +#include "kvm_util.h"
-> > +#include "processor.h"
-> > +#include "test_util.h"
-> > +#include "ucall.h"
-> > +
-> > +#include <asm/sysreg.h>
-> > +#include <linux/sizes.h>
-> > +
-> > +#define TEST_MEM_SLOT		10
-> > +#define NESTED_S2_ROOT_SLOT	11
-> > +#define TEST_MEM_SIZE		SZ_2M
-> > +#define TEST_MEM_GPA		SZ_1G
-> > +#define NESTED_S2_ROOT_GPA	(TEST_MEM_GPA + TEST_MEM_SIZE)
-> > +
-> > +struct nested_s2_state {
-> > +	u64 hcr_el2;
-> > +	u64 vttbr_el2;
-> > +};
-> > +
-> > +static void guest_el1_code(void)
-> > +{
-> > +	u64 offset;
-> > +
-> > +	GUEST_ASSERT_EQ(get_current_el(), 1);
-> > +
-> > +	/* Exit to userspace with the vEL1 (nested) context live. */
-> > +	GUEST_SYNC(1);
-> > +
-> > +	/*
-> > +	 * Touch the prefaulted range. vstage-2 is disabled, so the shadow
-> > +	 * stage-2 is a 1:1 view of the canonical IPA space.
-> > +	 */
-> > +	for (offset = 0; offset < TEST_MEM_SIZE; offset += SZ_4K)
-> > +		READ_ONCE(*(u64 *)(TEST_MEM_GPA + offset));
-> > +
-> > +	GUEST_DONE();
-> > +}
-> > +
-> > +static void guest_code(void)
-> > +{
-> > +	u64 sp;
-> > +
-> > +	GUEST_ASSERT_EQ(get_current_el(), 2);
-> > +
-> > +	/*
-> > +	 * Mirror the EL2 translation regime into the real EL1 registers so
-> > +	 * that vEL1 runs on the test's stage-1 page tables. With E2H=1, the
-> > +	 * _EL1 accessors read the EL2 registers, and the _EL12 accessors
-> > +	 * write the real EL1 registers.
-> > +	 */
-> > +	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
-> > +	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
-> > +	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
-> > +	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
-> > +	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
-> > +
-> > +	/* Run vEL1 on the same stack. */
-> > +	asm volatile("mov %0, sp" : "=r"(sp));
-> > +	write_sysreg(sp, sp_el1);
-> > +
-> > +	/*
-> > +	 * Drop TGE so that vEL1 is a nested context rather than host EL0.
-> > +	 * KVM backs it with a shadow stage-2 MMU even though vstage-2 is
-> > +	 * disabled (HCR_EL2.VM=0).
-> > +	 */
-> > +	write_sysreg(read_sysreg(hcr_el2) & ~HCR_EL2_TGE, hcr_el2);
-> > +	isb();
-> > +
-> > +	write_sysreg(PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT |
-> > +		     PSR_D_BIT, spsr_el2);
-> > +	write_sysreg((u64)guest_el1_code, elr_el2);
-> > +	asm volatile("eret");
-> > +
-> > +	GUEST_ASSERT(false);
-> > +}
-> > +
-> > +static void pre_fault(struct kvm_vcpu *vcpu, u64 gpa, u64 size)
-> > +{
-> > +	struct kvm_pre_fault_memory range = {
-> > +		.gpa = gpa,
-> > +		.size = size,
-> > +	};
-> > +	int ret;
-> > +
-> > +	do {
-> > +		ret = __vcpu_ioctl(vcpu, KVM_PRE_FAULT_MEMORY, &range);
-> > +	} while ((!ret && range.size) ||
-> > +		 (ret < 0 && (errno == EINTR || errno == EAGAIN)));
-> > +
-> > +	TEST_ASSERT(!ret, "KVM_PRE_FAULT_MEMORY failed, ret: %d errno: %d",
-> > +		    ret, errno);
-> > +	TEST_ASSERT_EQ(range.size, 0);
-> > +}
-> > +
-> > +static struct nested_s2_state enable_empty_nested_s2(struct kvm_vcpu *vcpu)
-> > +{
-> > +	struct nested_s2_state state = {
-> > +		.hcr_el2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)),
-> > +		.vttbr_el2 = vcpu_get_reg(vcpu,
-> > +					   KVM_ARM64_SYS_REG(SYS_VTTBR_EL2)),
-> > +	};
-> > +
-> > +	TEST_ASSERT(!(state.hcr_el2 & HCR_EL2_TGE),
-> > +		    "vCPU should be in nested/vEL1 context");
-> > +
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-> > +		     NESTED_S2_ROOT_GPA);
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-> > +		     state.hcr_el2 | HCR_EL2_VM);
-> > +
-> > +	return state;
-> > +}
-> > +
-> > +static void restore_nested_s2(struct kvm_vcpu *vcpu,
-> > +			      struct nested_s2_state *state)
-> > +{
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), state->hcr_el2);
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-> > +		     state->vttbr_el2);
-> > +}
-> > +
-> > +int main(void)
-> > +{
-> > +	struct nested_s2_state s2;
-> > +	struct kvm_vcpu_init init;
-> > +	struct kvm_vcpu *vcpu;
-> > +	struct kvm_vm *vm;
-> > +	struct ucall uc;
-> > +	u64 npages;
-> > +
-> > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-> > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
-> > +
-> > +	vm = vm_create(1);
-> > +
-> > +	kvm_get_default_vcpu_target(vm, &init);
-> > +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-> > +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-> > +	kvm_arch_vm_finalize_vcpus(vm);
-> > +
-> > +	npages = TEST_MEM_SIZE / vm->page_size;
-> > +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, TEST_MEM_GPA,
-> > +				    TEST_MEM_SLOT, npages, 0);
-> > +	virt_map(vm, TEST_MEM_GPA, TEST_MEM_GPA, npages);
-> > +
-> > +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-> > +				    NESTED_S2_ROOT_GPA, NESTED_S2_ROOT_SLOT,
-> > +				    vm_adjust_num_guest_pages(vm->mode, 1), 0);
-> > +
-> > +	/* Run the guest until it has ERET'd from vEL2 to vEL1. */
-> > +	vcpu_run(vcpu);
-> > +	switch (get_ucall(vcpu, &uc)) {
-> > +	case UCALL_SYNC:
-> > +		TEST_ASSERT_EQ(uc.args[1], 1);
-> > +		break;
-> > +	case UCALL_ABORT:
-> > +		REPORT_GUEST_ASSERT(uc);
-> > +		break;
-> > +	default:
-> > +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-> > +	}
-> > +
-> > +	/*
-> > +	 * The vCPU's last-run context is vEL1, backed by a shadow stage-2
-> > +	 * MMU. Enable nested stage-2 with an empty root so that the ioctl
-> > +	 * fails if it tries to interpret the userspace GPA as an L2 IPA.
-> > +	 *
-> > +	 * Prefault in two halves so that the second ioctl exercises a
-> > +	 * repeated shadow-MMU attach and canonical stage-2 swap.
-> > +	 *
-> > +	 * (Note that an implementation that wrongly populates shadow
-> > +	 * stage-2 page tables would not be caught as userland can't
-> > +	 * inspect these.)
-> > +	 */
-> > +	s2 = enable_empty_nested_s2(vcpu);
-> > +	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE / 2);
-> > +	pre_fault(vcpu, TEST_MEM_GPA + TEST_MEM_SIZE / 2, TEST_MEM_SIZE / 2);
-> > +	restore_nested_s2(vcpu, &s2);
-> > +
-> > +	/* Resume at vEL1 and touch the prefaulted range. */
-> > +	vcpu_run(vcpu);
-> > +	switch (get_ucall(vcpu, &uc)) {
-> > +	case UCALL_DONE:
-> > +		break;
-> > +	case UCALL_ABORT:
-> > +		REPORT_GUEST_ASSERT(uc);
-> > +		break;
-> > +	default:
-> > +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-> > +	}
-> > +
-> > +	kvm_vm_free(vm);
-> > +	return 0;
-> > +}
-> >
-> > --
-> > 2.55.0
-> >
+I haven't seen anything in these patches that actually does check for 
+max CTIINOUT values in .dts.
 
---
-Cheers, Lorenzo
+Would it not be better to have a QCOM_CTIINOUTENMAX and set the max 
+value in config based on the is_qcom_cti flag?
+
+Otherwise it appears that the standard arm CTIs are going to create a 
+whole lot of unneeded/unused registers
+
+Regards
+
+Mike
+
+>    */
+> -#define CTIINOUTEN_MAX		32
+> +#define CTIINOUTEN_MAX		128
+> +
+> +/* QCOM CTI extension */
+> +#define QCOM_ARCHITECT		0x477
+> +
+> +#define QCOM_CTIINTACK		0x020
+> +#define QCOM_CTIAPPSET		0x004
+> +#define QCOM_CTIAPPCLEAR	0x008
+> +#define QCOM_CTIAPPPULSE	0x00C
+> +#define QCOM_CTIINEN		0x400
+> +#define QCOM_CTIOUTEN		0x800
+> +#define QCOM_CTITRIGINSTATUS	0x040
+> +#define QCOM_CTITRIGOUTSTATUS	0x060
+> +#define QCOM_CTICHINSTATUS	0x080
+> +#define QCOM_CTICHOUTSTATUS	0x084
+> +#define QCOM_CTIGATE		0x088
+> +#define QCOM_ASICCTL		0x08C
+> +/* Integration test registers */
+> +#define QCOM_ITCHINACK		0xE70
+> +#define QCOM_ITTRIGINACK	0xE80
+> +#define QCOM_ITCHOUT		0xE74
+> +#define QCOM_ITTRIGOUT		0xEA0
+> +#define QCOM_ITCHOUTACK		0xE78
+> +#define QCOM_ITTRIGOUTACK	0xEC0
+> +#define QCOM_ITCHIN		0xE7C
+> +#define QCOM_ITTRIGIN		0xEE0
+>   
+>   /**
+>    * Group of related trigger signals
+> @@ -168,6 +194,9 @@ struct cti_config {
+>    * @spinlock:	Control data access to one at a time.
+>    * @config:	Configuration data for this CTI device.
+>    * @node:	List entry of this device in the list of CTI devices.
+> + * @is_qcom_cti: True if this CTI is a Qualcomm vendor-specific
+> + *		 variant that requires register offset translation
+> + *		 via cti_qcom_reg_off().
+>    */
+>   struct cti_drvdata {
+>   	void __iomem *base;
+> @@ -176,6 +205,7 @@ struct cti_drvdata {
+>   	raw_spinlock_t spinlock;
+>   	struct cti_config config;
+>   	struct list_head node;
+> +	bool is_qcom_cti;
+>   };
+>   
+>   /*
+> @@ -229,9 +259,41 @@ struct coresight_platform_data *
+>   coresight_cti_get_platform_data(struct device *dev);
+>   const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
+>   
+> +static inline u32 cti_qcom_reg_off(u32 offset)
+> +{
+> +	switch (offset) {
+> +	case CTIINTACK:		return QCOM_CTIINTACK;
+> +	case CTIAPPSET:		return QCOM_CTIAPPSET;
+> +	case CTIAPPCLEAR:	return QCOM_CTIAPPCLEAR;
+> +	case CTIAPPPULSE:	return QCOM_CTIAPPPULSE;
+> +	case CTIINEN:		return QCOM_CTIINEN;
+> +	case CTIOUTEN:		return QCOM_CTIOUTEN;
+> +	case CTITRIGINSTATUS:	return QCOM_CTITRIGINSTATUS;
+> +	case CTITRIGOUTSTATUS:	return QCOM_CTITRIGOUTSTATUS;
+> +	case CTICHINSTATUS:	return QCOM_CTICHINSTATUS;
+> +	case CTICHOUTSTATUS:	return QCOM_CTICHOUTSTATUS;
+> +	case CTIGATE:		return QCOM_CTIGATE;
+> +	case ASICCTL:		return QCOM_ASICCTL;
+> +	case ITCHINACK:		return QCOM_ITCHINACK;
+> +	case ITTRIGINACK:	return QCOM_ITTRIGINACK;
+> +	case ITCHOUT:		return QCOM_ITCHOUT;
+> +	case ITTRIGOUT:		return QCOM_ITTRIGOUT;
+> +	case ITCHOUTACK:	return QCOM_ITCHOUTACK;
+> +	case ITTRIGOUTACK:	return QCOM_ITTRIGOUTACK;
+> +	case ITCHIN:		return QCOM_ITCHIN;
+> +	case ITTRIGIN:		return QCOM_ITTRIGIN;
+> +
+> +	default:
+> +		return offset;
+> +	}
+> +}
+> +
+>   static inline void __iomem *__reg_addr(struct cti_drvdata *drvdata,
+>   				       u32 off, u32 index)
+>   {
+> +	if (unlikely(drvdata->is_qcom_cti))
+> +		off = cti_qcom_reg_off(off);
+> +
+>   	return drvdata->base + off + index * sizeof(u32);
+>   }
+>   
+> 
+
 
