@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663ADC88E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 01:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9344C88E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 01:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c58X8ecI9cB05ly16RbhbStXD3+pVr/Huxc1EWTQbes=; b=tmpUajZXYda1ZHxNeGCRTAbTrW
-	1duxkEbjdb3y6W63PxcH6iiWn7zRYv6YqFsM39Daj2Jn9+Dn23eYGRZiH+uhos5ARSTzbsqaAsieW
-	JQy67zzrxATSWqgfjSz6iKWtyJ/Ri0dLKXPPj+09Kwd5Z09KcwkKqQxt4ZJZD2L3dXm8DQ5l5Fjcx
-	xVONfXsqw0cpenBUTNVnCBjZxYCm4fec0tZdI7sLvzdl1bJsrHLfYJj6SNxZMpwzQd70K067rDAu0
-	7bq778822ZnwHz1uSjNAFnH2jf/bftXC05cI17RRlU8uT168d1e9+aLU6hM/O+z5KWE/T8ti4UCNu
-	dsUa+yBg==;
+	bh=LUQgxyC9QeyHgi0GApq633kxPd9T2302b9i3nCPlxU8=; b=jVLqUjwmJS1UWjiVtouMwZZX1s
+	1CStCtvSjAM9f0YVS5MpguYiQAA9VaEyYrmmf0WaESASA6pa0Uzf476L3qpcyz5ZNoQLJzAYWBXIK
+	7HSNG+Di9Ps9nsY2EYc9PLrsM9wBjCv/1auOnCvCcrDSjMHXeX2Fg99u8COqSPdmy8ld75sgt4LEA
+	n4+yxOmkKnVYzx0l+f3dfMFN9cefgoNdr8EUBNE2zY8LzhbKBuu3XohcioSoqocafxmEMt9SQa5PN
+	qFFqgvS5/4UEMI3ndSFygupo6IbK7a3feipuqFKxJB/GjpSglnbTmiRqMy+KThPGijQz3He1jNTiE
+	PDxZhleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4q14-0000000Ff3U-0E55;
-	Fri, 11 Sep 2026 01:25:22 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1x4qSP-0000000Ffx5-0rWD;
+	Fri, 11 Sep 2026 01:53:37 +0000
+Received: from mail-m158147.netease.com ([47.251.158.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4q10-0000000Ff2t-2iWB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 01:25:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=c58X8ecI9cB05ly16RbhbStXD3+pVr/Huxc1EWTQbes=;
-	b=hKeFIytpUKGNGHnKNt+jVrk28bOpl+Wbb2Y6jJ3uatSCB9pPzYr0PPze44XkpVSMy3dDfi69H
-	Y383P3yvjSetY0Ley0mwqbo4kDMRMUuXcfUqWYF3RS0iNv9p35fOyWMFRyupylbneMH1cCqMKRr
-	vNiSJxXQxfvS5SpUuj2UDLA=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hgxQT0JHczRhXP;
-	Fri, 11 Sep 2026 09:14:09 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 19B1540561;
-	Fri, 11 Sep 2026 09:25:02 +0800 (CST)
-Received: from [10.174.179.37] (10.174.179.37) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 11 Sep 2026 09:25:01 +0800
-Message-ID: <18e70561-f2d1-444c-00d3-97093bd1bb5e@huawei.com>
-Date: Fri, 11 Sep 2026 09:25:00 +0800
+	id 1x4qSJ-0000000FfwM-3iEO;
+	Fri, 11 Sep 2026 01:53:35 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d5a509ec;
+	Fri, 11 Sep 2026 09:53:23 +0800 (GMT+08:00)
+Message-ID: <382b0c3b-95a1-4089-b413-717f65b9e99d@rock-chips.com>
+Date: Fri, 11 Sep 2026 09:53:19 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm64: io: Reject present-invalid user prot in
- ioremap_prot()
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/connector: Cache out-of-band hotplug events
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+ Igor Paunovic <royalnet026@gmail.com>, Alexey Charkov <alchark@flipper.net>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Heiko Stuebner <heiko@sntech.de>, Dmitry Baryshkov <lumag@kernel.org>
+References: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
 Content-Language: en-US
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: <suzuki.poulose@arm.com>, <anshuman.khandual@arm.com>, <gshan@redhat.com>,
-	<david@kernel.org>, <wangkefeng.wang@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260905033148.3657516-1-zengheng@huaweicloud.com>
- <aqFWAWNzYagW2NNH@arm.com> <aqFZco-0kpQIIxZQ@willie-the-truck>
- <aqGSUg488DHcQp9N@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <aqGSUg488DHcQp9N@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.37]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+X-HM-Tid: 0aa08e2b621d03a7kunmb79f0cb776a9bd
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTBhDVhpDGhgYTR8dGR8fGlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=a/hfhmb4fB7OCWDgHaUK4+MQbkutytq38VOL95lIHib/1/ZerxmhVd5SD+TiJObqinbliTMgiu1Bslo6xfWhetKFUQ5B46s69KU0F6AFftPDIQa9YrQwAVHCPHQG/d311BoNbrHE0kqnDR7Vsjn2OE42oLY/kAUGZzONU3u+1cw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=LUQgxyC9QeyHgi0GApq633kxPd9T2302b9i3nCPlxU8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_182519_021293_6F3F66B2 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20260910_185333_635892_87CCE42E 
+X-CRM114-Status: GOOD (  35.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +76,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+Hello Sebastian,
 
-On 2026/9/10 1:07, Catalin Marinas wrote:
-> On Wed, Sep 09, 2026 at 02:04:50PM +0100, Will Deacon wrote:
->> On Wed, Sep 09, 2026 at 01:50:09PM +0100, Catalin Marinas wrote:
->>> On Sat, Sep 05, 2026 at 11:31:48AM +0800, Zeng Heng wrote:
->>>> From: Zeng Heng <zengheng4@huawei.com>
->>>>
->>>> Mapping a stack-top page via /dev/mem with PROT_NONE and then reading
->>>> that process's /proc/<pid>/cmdline triggers a spurious WARN in
->>>> ioremap_prot() through generic_access_phys():
->>>>
->>>>    WARNING: ./arch/arm64/include/asm/io.h:275 at generic_access_phys
->>>>    Call trace:
->>>>      generic_access_phys+0x1c8/0x228 (P)
->>>>      __access_remote_vm+0x2b4/0x398
->>>>      access_remote_vm+0x14/0x30
->>>>      get_mm_cmdline+0xf8/0x2a0
->>>>      proc_pid_cmdline_read+0x68/0x120
->>>>
->>>> generic_access_phys() passes the full pgprot derived from the user PTE
->>>> to ioremap_prot(). A PROT_NONE /dev/mem mapping is encoded as PAGE_NONE,
->>>> which clears PTE_VALID and sets the software PTE_PRESENT_INVALID bit.
->>>> On arm64 such an entry is still pte_present(), so follow_pfnmap_start()
->>>> reports the pfn and generic_access_phys() reaches ioremap_prot().
->>>> The PTE_USER assertion, which is meant to catch kernel prots being
->>>> passed by mistake, then fires for a PROT_NONE user mapping
->>>> that legitimately lacks PTE_USER, producing the spurious WARN.
->>>>
->>>> Reject a user prot encoding a present-invalid (i.e. PROT_NONE) entry up
->>>> front so that generic_access_phys() cleanly fails the access instead
->>>> of warning. Note that PTE_PRESENT_INVALID aliases the PTE_NG bit and
->>>> is only meaningful when PTE_VALID is clear, so both bits must be
->>>> checked together.
->>>>
->>>> Fixes: 8f098037139b ("arm64: io: Extract user memory type in ioremap_prot()")
->>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->>>> ---
->>>>   arch/arm64/include/asm/io.h | 4 ++++
->>>>   1 file changed, 4 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
->>>> index 21c8e400107c..bbfbc4682639 100644
->>>> --- a/arch/arm64/include/asm/io.h
->>>> +++ b/arch/arm64/include/asm/io.h
->>>> @@ -272,6 +272,10 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
->>>>   	pgprot_t prot;
->>>>   	ptval_t user_prot_val = pgprot_val(user_prot);
->>>>   
->>>> +	if ((user_prot_val & (PTE_VALID | PTE_PRESENT_INVALID)) ==
->>>> +	     PTE_PRESENT_INVALID)
->>>> +		return NULL;
->>>> +
->>>>   	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
->>>>   		return NULL;
->>> I wonder whether we should just drop the warning and return NULL if
->>> !PTE_USER && PTE_UXN. The latter check would also catch execute-only
->>> mappings (Sashiko pointed out this case still trips the warning). The
->>> PROT_NONE case would be covered automatically as well since PTE_USER is
->>> cleared, PTE_UXN set. Maybe add a comment that that pte_protnone()
->>> relies on !PTE_USER && PTE_UXN, so it's not that we avoid the PROT_NONE
->>> issue by chance.
->> Hmm, do we want exec-only mappings to be readable via /dev/mem?
-> Ah, yes, got confused on how it reaches this path. It doesn't make sense
-> to allow exec-only to be readable. Also if we mmap(PROT_EXEC) /dev/mem,
-> PTE_UXN ends up set anyway via pgprot_noncached(). But it does have
-> PTE_VALID, so the above won't catch it.
->
-> Checking !PTE_USER should be sufficient here and return NULL. For the
-> warning, I think we can check PTE_NG first but it only works without
-> kpti.
+On 8/21/2026 10:55 PM, Sebastian Reichel wrote:
+> When the USB-C state machine finished negotiating DP AltMode before the
+> DRM device has been probed, the out-of-band hotplug events fired to
+> early and are lost. Without replugging the display or reloading the
+> USB-C driver, the DRM driver assumes nothing is plugged.
+> 
+> Reproducing this race condition at boot time depends on kernel
+> configuration and exact USB-C equipment due to timing, but it can easily
+> be reproduced by reloading the DRM driver consuming the out-of-band
+> hotplug events without reloading the USB-C driver.
+> 
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+> This has been tested together with the patch series adding USB-C DP
+> AltMode support for Rockchip RK3588/RK3576. This is mostly independent
+> and should also affect other platforms, so I'm sending it separately.
+> 
+> I ran into this during development via the module reload path, but it
+> seems Heiko [0] and Igor [1] managed to hit the race condition with a
+> normal boot.
+> 
+> [0] https://lore.kernel.org/dri-devel/20767137.geO5KgaWL5@diego/
+> [1] https://lore.kernel.org/dri-devel/20260811211534.8618-1-royalnet026@gmail.com/
+> ---
+>  drivers/gpu/drm/drm_connector.c     | 106 ++++++++++++++++++++++++++++++++++++
+>  drivers/gpu/drm/drm_crtc_internal.h |   1 +
+>  drivers/gpu/drm/drm_drv.c           |   1 +
+>  3 files changed, 108 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> index 8b4baed060f3..b69e3776b153 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -33,6 +33,7 @@
+>  #include <drm/drm_sysfs.h>
+>  #include <drm/drm_utils.h>
+>  
+> +#include <linux/cleanup.h>
+>  #include <linux/export.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/property.h>
+> @@ -81,6 +82,22 @@
+>  static DEFINE_MUTEX(connector_list_lock);
+>  static LIST_HEAD(connector_list);
+>  
+> +/*
+> + * List of connector fwnodes with their last out-of-band hotplug status
+> + * required to forward them to a connector on registration. This ensures
+> + * the connector sees a HPD event, if the event arrived before the DRM
+> + * driver was probed (either due to module reload, or because of bad
+> + * timing during bootup).
+> + */
+> +struct drm_oob_hotplug_state {
+> +	struct list_head head;
+> +	struct fwnode_handle *fwnode;
+> +	enum drm_connector_status status;
+> +};
+> +
+> +static DEFINE_MUTEX(oob_hotplug_list_lock);
+> +static LIST_HEAD(oob_hotplug_list);
+> +
+>  struct drm_conn_prop_enum_list {
+>  	int type;
+>  	const char *name;
+> @@ -130,6 +147,19 @@ void drm_connector_ida_destroy(void)
+>  		ida_destroy(&drm_connector_enum_list[i].ida);
+>  }
+>  
+> +void drm_connector_oob_hotplug_cleanup(void)
+> +{
+> +	struct drm_oob_hotplug_state *e, *tmp;
+> +
+> +	scoped_guard(mutex, &oob_hotplug_list_lock) {
+> +		list_for_each_entry_safe(e, tmp, &oob_hotplug_list, head) {
+> +			list_del(&e->head);
+> +			fwnode_handle_put(e->fwnode);
+> +			kfree(e);
+> +		}
+> +	}
+> +}
+> +
+>  /**
+>   * drm_get_connector_type_name - return a string for connector type
+>   * @type: The connector type (DRM_MODE_CONNECTOR_*)
+> @@ -829,6 +859,36 @@ void drm_connector_cleanup(struct drm_connector *connector)
+>  }
+>  EXPORT_SYMBOL(drm_connector_cleanup);
+>  
+> +/**
+> + * drm_connector_replay_oob_hotplug_event - send cached OOB HPD event
+> + * @connector: the connector that should receive the event
+> + *
+> + * Send the cached out-of-band hotplug as a new out-of-band hotplug event.
+> + */
+> +static void drm_connector_replay_oob_hotplug_event(struct drm_connector *connector)
+> +{
+> +	struct fwnode_handle *fwnode = connector->fwnode;
+> +	enum drm_connector_status status;
+> +	struct drm_oob_hotplug_state *e;
+> +	bool found = false;
+> +
+> +	if (!fwnode || !connector->funcs->oob_hotplug_event)
+> +		return;
+> +
+> +	scoped_guard(mutex, &oob_hotplug_list_lock) {
+> +		list_for_each_entry(e, &oob_hotplug_list, head) {
+> +			if (e->fwnode == fwnode || fwnode->secondary == e->fwnode) {
+> +				status = e->status;
+> +				found = true;
+> +				break;
+> +			}
+> +		}
+> +	}
+> +
+> +	if (found)
+> +		connector->funcs->oob_hotplug_event(connector, status);
+> +}
+> +
+>  /**
+>   * drm_connector_register - register a connector
+>   * @connector: the connector to register
+> @@ -849,6 +909,7 @@ EXPORT_SYMBOL(drm_connector_cleanup);
+>   */
+>  int drm_connector_register(struct drm_connector *connector)
+>  {
+> +	bool replay_oob_hotplug = false;
+>  	int ret = 0;
+>  
+>  	if (!connector->dev->registered)
+> @@ -888,6 +949,7 @@ int drm_connector_register(struct drm_connector *connector)
+>  	mutex_lock(&connector_list_lock);
+>  	list_add_tail(&connector->global_connector_list_entry, &connector_list);
+>  	mutex_unlock(&connector_list_lock);
+> +	replay_oob_hotplug = true;
+>  	goto unlock;
+>  
+>  err_late_register:
+> @@ -898,6 +960,10 @@ int drm_connector_register(struct drm_connector *connector)
+>  	drm_sysfs_connector_remove(connector);
+>  unlock:
+>  	mutex_unlock(&connector->mutex);
+> +
+> +	if (replay_oob_hotplug)
+> +		drm_connector_replay_oob_hotplug_event(connector);
+> +
+>  	return ret;
+>  }
+>  EXPORT_SYMBOL(drm_connector_register);
+> @@ -3671,6 +3737,41 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>  	return found;
+>  }
+>  
+> +/**
+> + * drm_connector_record_oob_hotplug_status - Cache OOB hotplug status
+> + * @fwnode - fwnode for the DRM connector
+> + * @status - out-of-band status info
+> + *
+> + * Cache the latest out-of-band hotplug status for a fwnode so it can be
+> + * (re)played from when the DRM device is (re)registered after this event
+> + * arrived.
+> + */
+> +static void drm_connector_record_oob_hotplug_status(struct fwnode_handle *fwnode,
+> +						    enum drm_connector_status status)
+> +{
+> +	struct drm_oob_hotplug_state *e;
+> +
+> +	if (!fwnode)
+> +		return;
+> +
+> +	guard(mutex)(&oob_hotplug_list_lock);
+> +
+> +	list_for_each_entry(e, &oob_hotplug_list, head) {
+> +		if (e->fwnode == fwnode) {
+> +			e->status = status;
+> +			return;
+> +		}
+> +	}
+> +
+> +	e = kzalloc(sizeof(*e), GFP_KERNEL);
+> +	if (!e)
+> +		return;
+> +
+> +	e->fwnode = fwnode_handle_get(fwnode);
+> +	e->status = status;
+> +	list_add_tail(&e->head, &oob_hotplug_list);
+> +}
+> +
+>  /**
+>   * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+>   * @connector_fwnode: fwnode_handle to report the event on
+> @@ -3683,12 +3784,17 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>   *
+>   * This function can be used to report these out-of-band events after obtaining
+>   * a drm_connector reference through calling drm_connector_find_by_fwnode().
+> + *
+> + * The last status for each fwnode is cached and replayed when a matching DRM
+> + * connector device is (re)registered.
+>   */
+>  void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+>  				     enum drm_connector_status status)
+>  {
+>  	struct drm_connector *connector;
+>  
+> +	drm_connector_record_oob_hotplug_status(connector_fwnode, status);
+> +
+>  	connector = drm_connector_find_by_fwnode(connector_fwnode);
+>  	if (IS_ERR(connector))
+>  		return;
 
-Thanks for your reply. I agree that checking PTE_USER is sufficient here.
 
-I'll drop the WARN_ON_ONCE() and return NULL directly when PTE_USER
-is not set. And I won't add a PTE_NG check for the warning since, as you
-pointed out, that would not work reliably with KPTI.
+Sorry for late reply.
 
+Should we call drm_connector_record_oob_hotplug_status() only when 
+drm_connector_find_by_fwnode() can't find the connector?
 
-Best regards,
-Zeng Heng
+> diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
+> index 83146ffef00c..c2714ea256a7 100644
+> --- a/drivers/gpu/drm/drm_crtc_internal.h
+> +++ b/drivers/gpu/drm/drm_crtc_internal.h
+> @@ -188,6 +188,7 @@ int drm_mode_getencoder(struct drm_device *dev,
+>  /* drm_connector.c */
+>  void drm_connector_ida_init(void);
+>  void drm_connector_ida_destroy(void);
+> +void drm_connector_oob_hotplug_cleanup(void);
+>  void drm_connector_unregister_all(struct drm_device *dev);
+>  int drm_connector_register_all(struct drm_device *dev);
+>  int drm_connector_set_obj_prop(struct drm_mode_object *obj,
+> diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+> index 3c570f9393b9..c1aeab297ff9 100644
+> --- a/drivers/gpu/drm/drm_drv.c
+> +++ b/drivers/gpu/drm/drm_drv.c
+> @@ -1239,6 +1239,7 @@ static void drm_core_exit(void)
+>  	drm_sysfs_destroy();
+>  	WARN_ON(!xa_empty(&drm_minors_xa));
+>  	drm_connector_ida_destroy();
+> +	drm_connector_oob_hotplug_cleanup();
+>  }
+>  
+>  static int __init drm_core_init(void)
+> 
+> ---
+> base-commit: d3d1e0c4343385fb343a552e4f3b6b97d5762fc2
+> change-id: 20260821-drm-connector-oob-hotplug-cache-13386679f852
+> 
+> Best regards,
+> --  
+> Sebastian Reichel <sebastian.reichel@collabora.com>
 
+-- 
+Best, 
+Chaoyi
 
