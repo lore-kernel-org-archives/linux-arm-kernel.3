@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BBDBC88E4D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBC5C88E45
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 23:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,77 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2fm0ws0RI4s9RoRTTFvcpWCb6oGc74Nxq3EnwLBIAc=; b=Sj3p4/gE3q/JBBL500fuxsg+SV
-	F4vz7pRlf/A4L5mXhd79xghRzYVZWH3MtE3ZMg6wZdW+orW7k0NbseJjH22dxR7RREqrxGs8kyC3a
-	1+RS+5uCYNB9mclEIf0yEDRHFaQK+p6TBj6AUCxY5Zzal1798Lwep8n+R2dsCxfDP3CBi84pZNKUN
-	70UCYIvZPvBbE6wQ+DXNtzlCiewXzLABYIQ04jDftY49ed14BF1JVp7ZFFdkXP45wyz8Aql+j5L2Y
-	/Ryfun66ht2Aj7t3ShAd1W98B3TsBRfRq/FubGyWAmsCwwc2Tn2bHnC3+5mcwMHxfhXwFSp59x2aB
-	Kv9KDuWw==;
+	bh=dY9ozb5KV1VBJo3Z3p+RlJyXkFICluMij+wCeI97mXA=; b=RS+gKoNsQRV9i6/OvUOsAZhtq5
+	ntzSsTyIedLRoYuiaxTdst+9STwxT08d9Rh9SpWOpLxJNn0cjsIm2GeWzZ8ntiFJlJxudEKAi9YIR
+	aN2qvyyEY3BzFaIECHA6WnLrxnvz/IVvbI7x1ypQILJEFtS39uTfLs9vbern2adcyCADtRuuimuRv
+	TCCFriRRcY4++O7oPC3jFwdsNkrTnaJcpBhxX4X3CpZoWDSwkuZ6CGVbTs/zIcQ1WFwbsB86wHcks
+	E+6MKJ8gR7kv3B9SIYt4uG1siMSxp9mq8zOATyiPvAQLypTgJtTbxqxZ8M+Mb9fkJZ7ygZpGpWNVP
+	LXJlUXoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ami-00000000Mkm-0Qp1;
+	id 1x5Ami-00000000Mkv-1Oyp;
 	Fri, 11 Sep 2026 23:35:56 +0000
-Received: from mail-ua1-x964.google.com ([2607:f8b0:4864:20::964])
+Received: from mail-ot1-x363.google.com ([2607:f8b0:4864:20::363])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Amd-00000000Mhe-1Zus
+	id 1x5Ame-00000000Mio-3wfe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 23:35:54 +0000
-Received: by mail-ua1-x964.google.com with SMTP id a1e0cc1a2514c-97e76cabd96so597940241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 16:35:50 -0700 (PDT)
+	Fri, 11 Sep 2026 23:35:55 +0000
+Received: by mail-ot1-x363.google.com with SMTP id 46e09a7af769-7f4f3683fbcso1478832a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 16:35:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789169749; x=1789774549;
+        d=1e100.net; s=20251104; t=1789169752; x=1789774552;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=b2fm0ws0RI4s9RoRTTFvcpWCb6oGc74Nxq3EnwLBIAc=;
-        b=GUese9dFtZkJ7F2QdrqqiskUtakSSrReLLDa/uGq3rXSgHZ7ngdNlFY6+xcfEdO20n
-         +Fud0VIYsyrDIS0YBe02tl+6SywqwX03rEX4Nk5Zf07g1TOP9BLYokRhp8nOXj77TfZ4
-         gp+Z1wAaJT9GYXLxlUTiQAIWHWVt/Q1QaYwXJMObenxbqFFzIvKhboXi5WO36NiF+yIj
-         Se9r5Cok8kbr5osUwU+fNDnuAem6bmmkESVyTO4i41jEmVFB1UY5p6pGYXy9P0atlZQg
-         7n5G67NlruQL0zagKGV50Slvm2Yb5iOASS2npGN8QiQqIVN0Uq2z/YeiHyXuUpRjOn5M
-         XzLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzEKYMc2lU5KNaifCkeF/tWk1EUPIa2LgbyRbk6EVl5cFctoZta02nyBehhh39kM170jAqOo5XWdoh28MrT6wYJ@lists.infradead.org
-X-Gm-Message-State: AFuF++kRT+ia0D2tZvEiZdUxNVVFgq/tV13fc3BzsDQhkcLbL8/nqiGX
-	bW7jayhZdHl3WAECMKKyYz3BioR3xPJq7xwvwakjKd0Ma634ym7rnEO/LOkfUsqwqGgayOOZMuA
-	9nIjAACmKss7EdFRrSdxcp/RXVy5KAh3hgMdLFgzW5QYtAY0BHKfY79nckdoAHF47grJt423Q4a
-	JY3uWLjN+zOUk7JpWpx8EJpMxKNSeU03qSyonbTIbZQLJEEXZvjEO2qNvyAxFNIGeSYMij8nUR+
-	VV+QzOIpFwN/j8qOnd3sLIrLTMUWA8=
-X-Gm-Gg: AYBFou24P89uXItUyK512kaj8X8rU+aUMNxYnXIjXjFvTQPWgWP+I5zV7nUH3jm6xIe
-	2rZChHCmMdSZZgkFo+/qBdQ30HC/VSs9xZur8249oh3NG+zsEqPUCkY6WWFZ+MZZ24++UGxjNK5
-	abcGGcMFRDXK73LVrTQeQSwMihrYDmqL81n6LYohA/fje8dtE35iFwXQlAeXy/OYWr9zmdgBU24
-	KVsdbMPimfBLbQGEXZHAmfEn4N8w9lveMB1Kvz2xwAnhdNElgetPduq36aXTHZjq5r2oYLSmaZT
-	0Q9s+ksisLzGFDYw+Aq7mxJyk1RWhpC2NccVKqb5jo1oiX2H/a4CCOp9xt4lmVuWYnfNH+2VZK7
-	9b6bs1Kjgqb2FQiSI2XmDTSUPZvR2XSnk4bet65a1GJuIsRlRvxM6R+D3ap1p
-X-Received: by 2002:a05:6122:4b1b:b0:5bd:af82:fd9e with SMTP id 71dfb90a1353d-5c965eea8f8mr455635e0c.8.1789169748974;
-        Fri, 11 Sep 2026 16:35:48 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com ([144.49.247.127])
-        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-5c846de7270sm1453818e0c.0.2026.09.11.16.35.48
+        bh=dY9ozb5KV1VBJo3Z3p+RlJyXkFICluMij+wCeI97mXA=;
+        b=imj3rxMK0/Q+Sao4/t86Mz0TAdq3IguiQrJ8W/MTAcsXY8YhXs0hru2Tbk9GnAHpSO
+         CgCrjl5Jxs9pEvbUTZD0U/Rd7frWew+Y9cbijfussSAG9BSwv28vvUf8CSeuEJHv673b
+         syAgnnhKC+XlcbQZXKybf4OkShP4WBBLhmx0/2xtriHh/rtlsGOnyHJof6/z4woC8S8G
+         DPMDbJNw5V0NpvYOdiq2fZmsphl9VS9KFx5pVS9gPhCyHeTBSJdCex18SXXdm5CtW9G0
+         3y6ieCyGw6Ddy5S6pnQOJxmsPYBq9n4rG6PMe4BGZpmnRd1zrf0OQSCxemKyNTK/wjiD
+         NN/A==
+X-Forwarded-Encrypted: i=1; AKwUvBxMItcbTaKcR4BT6r0cHtVXyeYKlDldfSNyjPOqm9Onxxru4xVHsN+4rlXxu8sZ9io7btUwXd25N8zHR5mHUfcQ@lists.infradead.org
+X-Gm-Message-State: AFuF++l9VOLvOMfM5Z+/FMN1MKOtlvwqbUdjb1OpnMcLOXdVL0u+XeUV
+	JDE34t/b2JGOr6qZaJMrNbmu55ffwGFTwUdBqfpCA4ht1nnYzjPiwohAzBls2MF3amdzaDVm5Mm
+	9FrBK+4pO2jnzI1vLDJO+8rY0MNuhaMTzWzys26rfrMUl6dkeKMoWFBpKZvFcoZFqHhVRm5NeDZ
+	+w6IaEjYM2PqZYVdX6kYgFBTeWv5QVTFJQftWAblWTz4xrZ/o4Z5ZFP2ypRkwF+qh6bh+QReyX0
+	UYAFsMsvhSpibkubM5JVs2u13kN7pA=
+X-Gm-Gg: AYBFou3twJMId4fc/Np/BXj5f6X7vA9iDay4jMViief4H45mP6D4uBlFIMbjNoLwdFc
+	7WaLfRFAEhx2A3YO+BsTEUYpfwoFWfNtXJA143aSJvJ159c0V8KCCsQWnHp8uhfoCjFL8/eaYTI
+	vSykU6pnh2DWSlwm/sUA9nP+Yl2YpUy8R/A8B5Oqt+V86GL2qh1O5f7Be0RfYN2djCkHA/QgVAi
+	6JIuhUA9PqF/+7XfUv+xqJ/2UGA04soU7aSsYYJQW9fSvYvceA57rCyvp5vRl062rHXg+Y2nxfS
+	5MA8pticJQLbmjEKqsOcDaJVIni4t4zEDKavucl246KXuzPR7SZccajbSUCzXoaqY4/yScBCtjA
+	aLiVkb4C6gmEYnzeVDE/d4f/iP3AHaQQmSnSEYSTOGJT9IsXoMxNt6q0XuVBIPGNorRDPTNfTJE
+	X6OmrayztCcrq4qSHB+tIjIAwQKrbfyMbyAYGx
+X-Received: by 2002:a05:6830:3e99:b0:7f4:db2:35b4 with SMTP id 46e09a7af769-8027c5b245cmr4724987a34.18.1789169751783;
+        Fri, 11 Sep 2026 16:35:51 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-14.dlp.protect.broadcom.com. [144.49.247.14])
+        by smtp-relay.gmail.com with ESMTPS id 46e09a7af769-803f5df83eesm1939554a34.5.2026.09.11.16.35.50
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 11 Sep 2026 16:35:48 -0700 (PDT)
+        Fri, 11 Sep 2026 16:35:51 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-939665a1ae6so320382985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 16:35:48 -0700 (PDT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-9102f07f2fdso49987866d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 16:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1789169748; x=1789774548; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1789169750; x=1789774550; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=b2fm0ws0RI4s9RoRTTFvcpWCb6oGc74Nxq3EnwLBIAc=;
-        b=LOZ5+NlfzYLUu0ogqu6CirZ9pewIkZfE3cX4fy4I3IP5RaGuwwjJntBNuL5vW/Q5rs
-         yvz350xF3QUB2fHHwXyeXyljjt1fmfsIkCLVqkJl4F0jOVIGa88brR4PZu3OsgVAc9QQ
-         GMATVgtW5wftKVIOX/TKj/8wj93liB0LFPFtc=
-X-Forwarded-Encrypted: i=1; AKwUvBzYQWemilRYOj4aW4+bhAfBZJWb7XbEKUxVMbe9tmb/HIWogJJ+o9hOO70iOqBTYPL/x9QTELRzY06JDetX8PAZ@lists.infradead.org
-X-Received: by 2002:a05:620a:2982:b0:939:d5f4:ab5d with SMTP id af79cd13be357-93a038b94d6mr83404685a.33.1789169748376;
-        Fri, 11 Sep 2026 16:35:48 -0700 (PDT)
-X-Received: by 2002:a05:620a:2982:b0:939:d5f4:ab5d with SMTP id af79cd13be357-93a038b94d6mr83401085a.33.1789169747922;
-        Fri, 11 Sep 2026 16:35:47 -0700 (PDT)
+        bh=dY9ozb5KV1VBJo3Z3p+RlJyXkFICluMij+wCeI97mXA=;
+        b=ZxhVzllYnENFJpOTY8ZMtglder/afCyJDrI/JiUghYcwZQeGMyL8rDmrb2wAlv4NMX
+         QqKNoJPCBfkaWQ82j1dZqFPaOfJWB/vHQh2c1GQT4RwT8Dt5tzkO3QB7hsQqK1HaYGm5
+         5VPKwezNf1PEkU5Jn2q03UAr1GCuMT96NGN7o=
+X-Forwarded-Encrypted: i=1; AKwUvBzu0GF9DB2RhBpyL2GeBLwotkUzvjoeEujXkbM30bQ0HXp+y/OZKXYwYtM1lZ8BPaq+OjdhnDNzLStnrA5eses3@lists.infradead.org
+X-Received: by 2002:ad4:5965:0:b0:910:42f3:958e with SMTP id 6a1803df08f44-912029a2a01mr144987316d6.27.1789169749970;
+        Fri, 11 Sep 2026 16:35:49 -0700 (PDT)
+X-Received: by 2002:ad4:5965:0:b0:910:42f3:958e with SMTP id 6a1803df08f44-912029a2a01mr144987016d6.27.1789169749543;
+        Fri, 11 Sep 2026 16:35:49 -0700 (PDT)
 Received: from stband-bld-1.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f45ab71sm31717326d6.12.2026.09.11.16.35.46
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f45ab71sm31717326d6.12.2026.09.11.16.35.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 16:35:47 -0700 (PDT)
+        Fri, 11 Sep 2026 16:35:49 -0700 (PDT)
 From: Jim Quinlan <james.quinlan@broadcom.com>
 To: linux-pci@vger.kernel.org,
 	Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -99,9 +100,9 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 01/13] PCI: brcmstb: Remove redundant const specifier for struct fields
-Date: Fri, 11 Sep 2026 19:35:26 -0400
-Message-Id: <20260911233541.1650895-2-james.quinlan@broadcom.com>
+Subject: [PATCH 02/13] PCI: brcmstb: Use flags u32 instead of bools
+Date: Fri, 11 Sep 2026 19:35:27 -0400
+Message-Id: <20260911233541.1650895-3-james.quinlan@broadcom.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260911233541.1650895-1-james.quinlan@broadcom.com>
 References: <20260911233541.1650895-1-james.quinlan@broadcom.com>
@@ -109,8 +110,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_163551_458929_4B7947AA 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260911_163553_455808_A269133E 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +126,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All of the variables using this particular structure are declared as const.
-There is no reason to declare its individual fields as being const.
+Instead of having separate 'bool' fields for each SoC configuration, use a
+small bitvector (u32).  Doing this uses less memory and provides a uniform
+method to assign flags for a specific SoC.  The expectation is that more
+flags will be added as we replace conditions like "if (chipA || chipB)"
+with "if (behavior_X)".
+
+A helper macro "BFLAG()" is used to shorten the determination of the flag
+value.
 
 Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 ---
- drivers/pci/controller/pcie-brcmstb.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/pci/controller/pcie-brcmstb.c | 27 +++++++++++++++++----------
+ 1 file changed, 17 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 8a0c353d2abf..89aaa19d508a 100644
+index 89aaa19d508a..47862569937e 100644
 --- a/drivers/pci/controller/pcie-brcmstb.c
 +++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -288,9 +288,9 @@ struct inbound_win {
+@@ -286,16 +286,24 @@ struct inbound_win {
+  */
+ #define CFG_QUIRK_AVOID_BRIDGE_SHUTDOWN		BIT(0)
  
++/* FLAGS */
++#define BFLAG(pcie, flag)			((pcie)->cfg->flags & CFG_FLG_ ## flag)
++
++/* The PCIe HW registers have phy control of a "RESCAL" reset block */
++#define CFG_FLG_HAS_PHY				BIT(0)
++/* The SoC PCIe HW can dump to the console PCIe error info */
++#define CFG_FLG_HAS_ERR_REPORT			BIT(1)
++
++
  struct pcie_cfg_data {
  	const int *offsets;
--	const enum pcie_soc_base soc_base;
--	const bool has_phy;
--	const u32 quirks;
-+	enum pcie_soc_base soc_base;
-+	bool has_phy;
-+	u32 quirks;
+ 	enum pcie_soc_base soc_base;
+-	bool has_phy;
++	u32 flags;
+ 	u32 quirks;
  	u8 num_inbound_wins;
  	int (*perst_set)(struct brcm_pcie *pcie, u32 val);
  	int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
+ 	int (*post_setup)(struct brcm_pcie *pcie);
+-	bool has_err_report;
+ };
+ 
+ struct subdev_regulators {
+@@ -356,14 +364,14 @@ static int brcm_pcie_bridge_sw_init_set(struct brcm_pcie *pcie, u32 val)
+ 	unsigned long flags;
+ 	int ret;
+ 
+-	if (pcie->cfg->has_err_report)
++	if (BFLAG(pcie, HAS_ERR_REPORT))
+ 		spin_lock_irqsave(&pcie->bridge_lock, flags);
+ 
+ 	ret = pcie->cfg->bridge_sw_init_set(pcie, val);
+ 	/* If we fail, assume the bridge is in reset (off) */
+ 	pcie->bridge_in_reset = ret ? true : val;
+ 
+-	if (pcie->cfg->has_err_report)
++	if (BFLAG(pcie, HAS_ERR_REPORT))
+ 		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+ 
+ 	return ret;
+@@ -1589,12 +1597,12 @@ static int brcm_phy_cntl(struct brcm_pcie *pcie, const int start)
+ 
+ static inline int brcm_phy_start(struct brcm_pcie *pcie)
+ {
+-	return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 1) : 0;
++	return BFLAG(pcie, HAS_PHY) ? brcm_phy_cntl(pcie, 1) : 0;
+ }
+ 
+ static inline int brcm_phy_stop(struct brcm_pcie *pcie)
+ {
+-	return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 0) : 0;
++	return BFLAG(pcie, HAS_PHY) ? brcm_phy_cntl(pcie, 0) : 0;
+ }
+ 
+ static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
+@@ -1898,7 +1906,7 @@ static void brcm_pcie_remove(struct platform_device *pdev)
+ 	pci_stop_root_bus(bridge->bus);
+ 	pci_remove_root_bus(bridge->bus);
+ 	pci_unlock_rescan_remove();
+-	if (pcie->cfg->has_err_report)
++	if (BFLAG(pcie, HAS_ERR_REPORT))
+ 		brcm_unregister_die_notifiers(pcie);
+ 
+ 	__brcm_pcie_remove(pcie);
+@@ -1999,9 +2007,8 @@ static const struct pcie_cfg_data bcm7216_cfg = {
+ 	.soc_base	= BCM7278,
+ 	.perst_set	= brcm_pcie_perst_set_7278,
+ 	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_7278,
+-	.has_phy	= true,
++	.flags		= CFG_FLG_HAS_PHY | CFG_FLG_HAS_ERR_REPORT,
+ 	.num_inbound_wins = 3,
+-	.has_err_report = true,
+ };
+ 
+ static const struct pcie_cfg_data bcm7712_cfg = {
+@@ -2179,7 +2186,7 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	if (pcie->cfg->has_err_report) {
++	if (BFLAG(pcie, HAS_ERR_REPORT)) {
+ 		spin_lock_init(&pcie->bridge_lock);
+ 		brcm_register_die_notifiers(pcie);
+ 	}
 -- 
 2.34.1
 
