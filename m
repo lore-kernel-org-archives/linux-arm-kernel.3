@@ -4,143 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3972EC88E4C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DD7C88E50
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pOeC9bH/10g+x2ymJYLzmSutmP+1dn79sICTa+MWWjc=; b=3VxgC+Uma6kvSz0CPKg9xHVIEE
-	ddc1BMFgpItm5m8RRp9b5nYjFefIpyaNNWnsO+xX+cLHFWyFYSVBP21M+gKz9Iv1iXYCbkVt23pu5
-	ixmkTtlimaf26/CZ/AmnOcMBz6dIFawio2nlil2SoL5h3DyzLMV8Fl1kxFhs3zCXlYKUZD6P42VVC
-	5a+fE4ATOglLTzY9/EcwzHnuE+blGalKscUbnBIUBFJMMhpyl6EqmgeTfCQix2KY+ROCiHOOCRozg
-	I/YGbLol2Iur/PiXIM0Bx1b8rr0X3XSfk60OZceP8qbcYzZAzbB1DpM0SRzm1EoV6i3IcMXkY7SxP
-	UMJfIVfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QHfO73kDcEP+7INr7vFqDT9vnQPxAaieW9owluqHhx4=; b=U3mETtVqtvSEx/SG1m/nhS11Xa
+	QhcH158O8s5YVuBNH1xlsKvPzmftIHUCCpd5POa/LYCTp4GUE7U29H94mxwkI2v3+om69VfADgqgB
+	f6utkAr+NYF2q1p7zUngrgU85N7wBXrY3CXAbwbOGNUYpYKWDdsU5otr+HbKG9c5xV8Ou6WfKyr8Y
+	r60Vg4801n+ZcHFn3fzjyg2ynS286IJpvuoOh/AaYN0orkdD1f5fyg1WCNIVizgKYJxW0qB9Aa51U
+	d8VawjZ5AOBDBmXNWUEMvpyMT+6MaAECwgJn6NtWetMMkI8dcw2RKFBZkAUjFD9TJ/DyZur1YRWtc
+	TPgu0vWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xQw-0000000GFMt-1TBJ;
-	Fri, 11 Sep 2026 09:20:34 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x4xQu-0000000GFLC-0dPs;
+	Fri, 11 Sep 2026 09:20:32 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xQr-0000000GFI6-0nf3
+	id 1x4xQp-0000000GFGL-1gWS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:20:30 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68B7kpNo2311494
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:20:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=pOeC9bH/10g+x2ymJYLzmS
-	utmP+1dn79sICTa+MWWjc=; b=hVUze7nnRawRkOIdZ0Hr2RpCU8flo/K0pZDfmm
-	LVlalXQezk97crqeaIxwxHh+nFzZkI2O2ZQYlA1vdPBXr7YKPEquHITzILJmoWFT
-	SfREbh3A3D4AQvL5MbYQfZSP2BUCnseb1jnmuJt3No5TPdZuAXiLoU8AxCQVQDgF
-	1VCZyZwalOwEYP+Myc8HMYNhiXuncbO3KxArvhbJCiDT3iDYPT8R6+R77DEibda8
-	+IdAn2Iwp96SzzylaWxE6jHZ9p5BNj5HTAliUXYPeQqLBnQcHk0cMQ9Bt0O1al0q
-	t4L3Z4fnXR7iOrp2KJwWyB3mPVdKsUqGHHbbpp5dHmmcUT+w==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gm7uchpu9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:20:28 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-934956beec8so118884285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 02:20:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789118427; x=1789723227; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=pOeC9bH/10g+x2ymJYLzmSutmP+1dn79sICTa+MWWjc=;
-        b=dbV2kNluyIz/gzqL8jVuDdKULvPk72PN2VFgd9vDrw52i6k7eFGIpCoee5BFQxjmyv
-         de2Xj3YYc23Mt1R8VbmtknilMXyamufDIgt63634KtJ6nzcdl0cjT21aRJ/kC38Wlm93
-         qOonKIy3ZHGt1S62767oJOYe2QxJgpCkAvupG/RO+e/ZtZSZKxuhttDKYWiLsvVC0Mez
-         wlIfNaVr3lD2AIjoJpN5uHCQw/kWuX5ufqM3fSlWZaLSELhKvlhQIrxoM7M5reS+vvkD
-         9MtLASdBLDu4iv2cxG527aZZkPo2+BGE9v+frMbFghTDiPMPuWTP5h5HXeXwAnXvM2Cx
-         sn7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789118427; x=1789723227;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=pOeC9bH/10g+x2ymJYLzmSutmP+1dn79sICTa+MWWjc=;
-        b=OWohs0nNgzpnJ2MGpeQwEGlsIquuR9+bdPUCBDgMPX+CwmPQKuVRmYAaE+MmFpZhg8
-         V2mc6GakN+cXEfpQbvNbnwPbWQtPLislgW9XafkNLKXBWgxGiwS1BNbUdC42JkqLwLa2
-         FZk062Ud/N7cZNOR43T0A4hELt2TLBlj8flkZ2dVad1cZ6d6g9TC1Qsqr/R5XtA2Gu6y
-         2n0KY0YdIU6TAgLBqOuldUCt+oBxEOqrjVLUKf+rYOlH+DQliGxCZ9ppSszjfbBmEAjK
-         8zn+awMiGNCimFtW2zRkGv9h39M1uJ2svrMhiNIHoSN0HQ6HB9qknfHX31YXm686+Edn
-         lZXw==
-X-Forwarded-Encrypted: i=1; AKwUvBxPrBMZG2Dgc8FRyAWphH4qXXI/AlCa64pkj96t9XY3c+VJZsjTZUT9jU/Kar8NvqoMkjg13ICFKvCTrNFsJh7B@lists.infradead.org
-X-Gm-Message-State: AFuF++nMscfC3mcI3aJhkJ3vxkkyY9zBN62SXYxXo7QziRwVwdatCFSS
-	hJ8HKoeEEzetzfkYq2wVLoqAm1rog2V2/Ou9vItIhoMXl6RdxmwLRNBBfKK/S9WtiT9SFSTN0+S
-	Hmhspy1UIiIgUbACTYVG5HLMuvz40JZHoGIB3+Ml+XIPGoMcZpc++5kGIEGsTF6YPneLWdRhZI4
-	+lhA==
-X-Gm-Gg: AYBFou0arzJQP2g7phEnmQPT15wUlKZRJzjQ4AzsppKVa1vE0hRPEk6Xfk+fi8zxhll
-	iW2zr0e9CgMe4kD+jL/ratLOWkiXrN2viJrLiu/0vynZeITSKfrEr7LOsKPnDmOVqujgO/HMEQf
-	KlVGg5CXBQNto1HoxmLLplG8Omgh3pjk3ueM+Wp2HVidcH9Advu36JbQQCet5qwGcZ5UtdKF3cb
-	E3XJP2+g9zv8LKUc99b1zy9D8VEuyYshd3mvngzwUjzOUOWldM1jxKMtWgnxO5AaXZ03M9Q6NbI
-	aCRe/LVDXPe5U4FSWLbOajVM2sX9oxTowVc5dJvMSdwgBz7psAoA+QNIYjAJEyR75OeNZxZNAla
-	lfOLyZyAIe4jlFQ==
-X-Received: by 2002:a05:620a:1a24:b0:939:40d1:2d6d with SMTP id af79cd13be357-939ea27718bmr375851685a.37.1789118427447;
-        Fri, 11 Sep 2026 02:20:27 -0700 (PDT)
-X-Received: by 2002:a05:620a:1a24:b0:939:40d1:2d6d with SMTP id af79cd13be357-939ea27718bmr375846985a.37.1789118426844;
-        Fri, 11 Sep 2026 02:20:26 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e62227071sm32076935e9.3.2026.09.11.02.20.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 02:20:26 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Fri, 11 Sep 2026 11:20:15 +0200
-Subject: [PATCH net] net: stmmac: fix TSO header length truncation
+	Fri, 11 Sep 2026 09:20:29 +0000
+Received: from francesco-nb.. (93-33-8-46.ip42.fastwebnet.it [93.33.8.46])
+	by mail11.truemail.it (Postfix) with ESMTPA id 954E922DF9;
+	Fri, 11 Sep 2026 11:20:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789118425;
+	bh=QHfO73kDcEP+7INr7vFqDT9vnQPxAaieW9owluqHhx4=; h=From:To:Subject;
+	b=yA4yoNevV8ot8Y586s5jCKMJil7D2NmQUJHH4cuseZm6Np5cDNHmwx5yo9AAlEDCp
+	 eh6TFH3BRTEsOuIsgYAAvu+ts5DVdoGoUxMGf6dasGXabBI4aMFZtXl3vsVl3TsTEn
+	 cEjTKwUAwnseXEPl3anvl/gZpWhqWdPbIxEMfI5x+snCRH4mCZNUOu0vewVedO1xKv
+	 7GDJ+ictZpDv0yOsEbLsOwcOG5vfmHn2LVdWoZMByQp4fdKraDIuABkSw3wBcyOegu
+	 DXmDVkf924a+XXhA3tQX/NEvRSyd3OzHH4s1b7xCbv+ZX1/5ZXWBG078RGZ4j3N4RL
+	 I9e8jsbzhJFEQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 4/7] arm64: dts: freescale: imx93-lino: Add dahlia
+Date: Fri, 11 Sep 2026 11:19:47 +0200
+Message-ID: <20260911091952.96233-5-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260911091952.96233-1-francesco@dolcini.it>
+References: <20260911091952.96233-1-francesco@dolcini.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-stmmac-fix-header-length-v1-1-8fc103334327@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MwQqDMBAFf0X23IVswED7K8XDYp5moaYlCVIQ/
- 93gcWBmDqoohkqv4aCC3ap9cwd5DDQnzSvYYmfyzgf3FOHatk1nXuzPCRpR+IO8tsQqcfQhBqe
- LUM9/BV2612/KaDSd5wVmmVe9bwAAAA==
-X-Change-ID: 20260911-stmmac-fix-header-length-a1d526d60af1
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Niklas Cassel <niklas.cassel@axis.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Authority-Analysis: v=2.4 cv=O4asLx9W c=1 sm=1 tr=0 ts=6aa3c7dc cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=JMNiLqPw9-2bY0mBONAA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDEyOSBTYWx0ZWRfX60qdJfJT87+2
- 301Q7NGwP8q1JBxLqJMbO8uvy6bRsiPL19p3PIGtqv1aGRE4SR5+y3tEc+obR/4Re/SHdOVagYT
- 6mfAQIHOlVidFWqvLY1ZA5Q3rAFql6qmT6Tcjb9rlo2BdYII4x+fiChAB1WoDBzAD1/xO4dXPvF
- akKHPQtCQB/zFdDhGYRXt1Sl2wTT2IEdLKLFKvIZvYuzDK+xg4MMEzAR0dInOJXAEQcVLJxGi1z
- zqn6ewPDorSfZ1zvUWqXlI+HAjC35HZ/NIka/ABzwnntkk9vbTueml7axOvZCtAU5HfFS3m2bvu
- P6cWnmcxUOO5igVqknmFjeC/FixURpDG17bPuGisQggNy+7IpNdTmWA0qlVk15E5iOTCV4uzmQM
- ikpNEOXl/r5d3uoGtr9rd0lN5vVmNYY8BhYHsx3QxFXrg98enJ+SDQKOTfWCDm0mfEszAyuORYd
- anKSq+JFUTExJoxOgtA==
-X-Proofpoint-GUID: 13WYxSPpm9m2emTKG3SZv4bdP1XH0pLa
-X-Proofpoint-ORIG-GUID: 13WYxSPpm9m2emTKG3SZv4bdP1XH0pLa
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDEyOSBTYWx0ZWRfXwZiFZjYRV2lE
- nVrBsIx67543f/gf1p9QhuhM56mq/X8WdWS2Re4fr1ainqlXK0Xt21S0DaoRMgGZIYyYAjEfhYP
- 4IXdaEns+Fcl9ziSzlPAc2z0h53Fr3k=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-11_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 priorityscore=1501 suspectscore=0 impostorscore=0
- lowpriorityscore=0 spamscore=0 adultscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110129
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_022029_283678_09AD5EE5 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20260911_022027_922842_01804A6A 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,65 +78,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_tso_xmit() stores the protocol header length returned by
-stmmac_tso_header_size() in a u8. stmmac_tso_valid_packet() admits
-headers up to 1023 bytes, so a header longer than 255 bytes wraps modulo
-256 (486 becomes 230, 256 becomes 0).
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-A TCP over IPv6 socket carrying a few hundred bytes of sticky
-destination/hop-by-hop options makes skb_tcp_all_headers() exceed 255
-while staying below the 1023-byte limit, so such an skb reaches
-stmmac_tso_xmit().
+Add support for Lino iMX93 mated with the Verdin adapter and Dahlia
+carrier board.
 
-Widen proto_hdr_len to unsigned int, which is sufficient since the value
-is bounded by the hardware limit, and adjust the debug print specifier
-accordingly.
-
-Fixes: 9edfa7dab811 ("net: stmmac: enable TSO for IPv6")
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Link: https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx93
+Link: https://www.toradex.com/accessories/lino-verdin-adapter
+Link: https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ ...imx93-imx91-lino-verdin-dahlia-common.dtsi | 198 ++++++++++++++++++
+ .../freescale/imx93-lino-verdin-dahlia.dts    |  24 +++
+ 3 files changed, 223 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 62c3441911e7..1fb5f804ea23 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4513,16 +4513,16 @@ static int stmmac_tso_get_num_desc(struct stmmac_tx_queue *tx_q,
-  */
- static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- {
-+	unsigned int first_entry, entry, tx_packets, proto_hdr_len;
- 	struct dma_desc *desc, *first, *mss_desc = NULL;
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	unsigned int first_entry, entry, tx_packets;
- 	struct stmmac_txq_stats *txq_stats;
- 	int i, first_tx, nfrags, ndesc;
- 	struct stmmac_tx_queue *tx_q;
- 	bool set_ic, is_last_segment;
- 	u32 pay_len, mss, queue;
--	u8 proto_hdr_len, hdr;
- 	dma_addr_t des;
-+	u8 hdr;
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index eb71f126a8ed..319a0e797e94 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -887,6 +887,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
  
- 	nfrags = skb_shinfo(skb)->nr_frags;
- 	queue = skb_get_queue_mapping(skb);
-@@ -4570,7 +4570,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	if (netif_msg_tx_queued(priv)) {
--		pr_info("%s: hdrlen %d, hdr_len %d, pay_len %d, mss %d\n",
-+		pr_info("%s: hdrlen %d, hdr_len %u, pay_len %d, mss %d\n",
- 			__func__, hdr, proto_hdr_len, pay_len, mss);
- 		pr_info("\tskb->len %d, skb->data_len %d\n", skb->len,
- 			skb->data_len);
-
----
-base-commit: 78445023439506ebd83b86d40b1e428a3b309d4a
-change-id: 20260911-stmmac-fix-header-length-a1d526d60af1
-
-Best regards,
+ dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-lino-verdin-dahlia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-lino-verdin-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
+new file mode 100644
+index 000000000000..5f6136204e30
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
+@@ -0,0 +1,198 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Lino iMX93/iMX91 SoM on Lino-Verdin Adapter / Dahlia carrier board
++ *
++ * https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx91
++ * https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx93
++ * https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
++ */
++
++/ {
++	aliases {
++		eeprom1 = &carrier_eeprom;
++	};
++
++	reg_1v8_sw: regulator-1v8-sw {
++		compatible = "regulator-fixed";
++		regulator-max-microvolt = <1800000>;
++		regulator-min-microvolt = <1800000>;
++		regulator-name = "On-carrier +V1.8_SW";
++	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&codec_dai>;
++		simple-audio-card,format = "i2s";
++		simple-audio-card,frame-master = <&codec_dai>;
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,name = "verdin-wm8904";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPOUTL",
++			"Headphone Jack", "HPOUTR",
++			"IN2L", "Line In Jack",
++			"IN2R", "Line In Jack",
++			"Microphone Jack", "MICBIAS",
++			"IN1L", "Microphone Jack";
++		simple-audio-card,widgets =
++			"Microphone", "Microphone Jack",
++			"Headphone", "Headphone Jack",
++			"Line", "Line In Jack";
++
++		codec_dai: simple-audio-card,codec {
++			sound-dai = <&wm8904_1a>;
++		};
++
++		simple-audio-card,cpu {
++			sound-dai = <&sai3>;
++		};
++	};
++};
++
++/* Lino ADC_1, ADC_2, ADC_3 and ADC_4 */
++&adc1 {
++	status = "okay";
++};
++
++&gpio2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio1>, <&pinctrl_gpio2>, <&pinctrl_gpio3>,
++		    <&pinctrl_gpio4>, <&pinctrl_gpio5>;
++};
++
++&gpio3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio6>, <&pinctrl_gpio7>;
++};
++
++&gpio4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio8>, <&pinctrl_gpio9>, <&pinctrl_gpio10>;
++};
++
++/* Lino ETH_1 */
++&eqos {
++	status = "okay";
++};
++
++/* Lino CAN_1 */
++&flexcan1 {
++	status = "okay";
++};
++
++/* Lino CAN_2 */
++&flexcan2 {
++	status = "okay";
++};
++
++/* Lino I2C_2 */
++&lpi2c3 {
++	status = "okay";
++};
++
++/* Lino I2C_3 */
++&lpi2c4 {
++	status = "okay";
++};
++
++/* Lino SPI_1 */
++&lpspi8 {
++	status = "okay";
++};
++
++/* Lino UART_3, used as the Linux Console */
++&lpuart1 {
++	status = "okay";
++};
++
++/* Lino UART_4 */
++&lpuart2 {
++	status = "okay";
++};
++
++/* Lino UART_2 */
++&lpuart7 {
++	status = "okay";
++};
++
++/* Lino I2S_1 */
++&sai3 {
++	status = "okay";
++};
++
++/* Lino PWM_1 */
++&tpm4 {
++	status = "okay";
++};
++
++/* Lino PWM_2 */
++&tpm5 {
++	status = "okay";
++};
++
++/* Lino PWM_3 */
++&tpm6 {
++	status = "okay";
++};
++
++/* Lino USB_1 */
++&usbotg1 {
++	status = "okay";
++};
++
++/* Lino USB_2 */
++&usbotg2 {
++	status = "okay";
++};
++
++/* Lino SD_1 */
++&usdhc2 {
++	status = "okay";
++};
++
++/* Verdin CTRL_WAKE1_MICO# */
++&verdin_gpio_keys {
++	status = "okay";
++};
++
++/* Verdin I2C_1 */
++&verdin_i2c_1 {
++	status = "okay";
++
++	wm8904_1a: audio-codec@1a {
++		compatible = "wlf,wm8904";
++		reg = <0x1a>;
++		clock-names = "mclk";
++		clocks = <&verdin_i2s1_mclk>;
++		#sound-dai-cells = <0>;
++		AVDD-supply = <&reg_1v8_sw>;
++		CPVDD-supply = <&reg_1v8_sw>;
++		DBVDD-supply = <&reg_1v8_sw>;
++		DCVDD-supply = <&reg_1v8_sw>;
++		MICVDD-supply = <&reg_1v8_sw>;
++	};
++
++	/* Current measurement into module VCC */
++	hwmon@40 {
++		compatible = "ti,ina219";
++		reg = <0x40>;
++		shunt-resistor = <10000>;
++	};
++
++	temperature-sensor@4f {
++		compatible = "ti,tmp75c";
++		reg = <0x4f>;
++	};
++
++	carrier_eeprom: eeprom@57 {
++		compatible = "st,24c02", "atmel,24c02";
++		reg = <0x57>;
++		pagesize = <16>;
++	};
++};
++
++/* Verdin PCIE_1_RESET# */
++&verdin_pcie_1_reset_hog {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts b/arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
+new file mode 100644
+index 000000000000..c708a2e18c90
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Lino iMX93 SoM on Lino-Verdin Adapter / Dahlia carrier board
++ *
++ * https://www.toradex.com/computer-on-modules/lino-arm-family/nxp-imx93
++ * https://www.toradex.com/products/carrier-board/dahlia-carrier-board-kit
++ */
++
++/dts-v1/;
++
++#include "imx93.dtsi"
++#include "imx93-lino.dtsi"
++#include "imx93-imx91-lino-verdin-common.dtsi"
++#include "imx93-imx91-lino-verdin-dahlia-common.dtsi"
++
++/ {
++	model = "Toradex Lino iMX93 on Verdin Adapter plus Dahlia Board";
++	compatible = "toradex,lino-imx93-verdin-dahlia",
++		     "toradex,lino-imx93-verdin",
++		     "toradex,lino-imx93",
++		     "fsl,imx93";
++};
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.47.3
 
 
