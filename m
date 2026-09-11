@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EEBC88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C234C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IrvthM192H7TgvATVDgXq7IKWv0MGgITyRXj6Nx8F38=; b=lLw3SmKfVGALfj1F4f94cfiEvC
-	/FaNOKVSLtXSiNAJG6X74AR0IFm1buDJ0McMEeBwz4Zm8IQKJ3OkWt8vB6FQDc6TiaX5pTj25zXpP
-	KLhQLO0xeaRPHWORabrl3+QwR4+E837VfiEFGrrzauZX++stnbqXz/pdsu2/RYcbJhR+cA7UWrdE4
-	yhAh3QavDzf6G1umSHY1o/NoY1dWhuZr/DZw3TPpTM3rR5VoV/nxwIvUQhlXNIk1jcaA/WnZ68t7L
-	+W48QgVrrUgyA0xXT6b25+x/jilSAq/W2zt6n0FcWO99GnlAt7mhEbCSUUWyV0MQO3WV6UJMJWzZp
-	q5ZmmxaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDff4RZPJsVyLk4nXYIvJaJDxD8CM685HUMiXRJ95dE=; b=nuR49LmkEFvyNPq9qWWuDCrqfc
+	ZFIgaMS/BJWYGBDirFVITz9oife8C8vTFUBVL0oBw/2gPvoN+TlqYxCe2Ri+gyXNaEbVYkfr4yGJO
+	dVpqTVsOBVOF4CBOP8XJbQCub0AwvbHTcVlwmJzUEYusrENQClaEHWZ5A9ZT6gBgXVX+BM9Nxnteh
+	ulyLXogcjq+RUhmikdB1i/mW4Op4Mwyayt//Xd6PXMjN2a4znoS96In9m/++JlRBsIU210zIpgD76
+	AUYLEISKWO18FY8fxF8Fv0U2wj7fjMjOCd9YDlNl/0XmHmp5nYcvd2cKh0GNaVaEXgDVEWdgdlN/6
+	bYx00QhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x541C-0000000HCUf-0S4h;
-	Fri, 11 Sep 2026 16:22:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x541Y-0000000HCf5-1i7P;
+	Fri, 11 Sep 2026 16:22:48 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x541B-0000000HCTs-1Bxg
+	id 1x541W-0000000HCdJ-1Cdc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:22:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82C5860202;
-	Fri, 11 Sep 2026 16:22:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 185931F00893;
-	Fri, 11 Sep 2026 16:22:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789143744;
-	bh=IrvthM192H7TgvATVDgXq7IKWv0MGgITyRXj6Nx8F38=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Bm/eehmLssjt6kaKcdOtbsmAEA/xj5CkCkxi/0Pjxr5SjpFbmTAUhm++WBDYOkEbI
-	 Kv/HyEUtefToXKttAhcvqlojBToFDGQoyZRCG1+cRtPB8PKLzEk9zhIc3pJyaWEaci
-	 0mrljmYEAS2XTw9D0mBGd54cKgrSWba29L5/2wdwPn4LpHSPEaeYH0/ygyOB5TLOzO
-	 fkZWJpVNc2a6/oTwyNyg5x4aWtUbwI/ueZGPCp6U8xBq5rTA2RxgciPxtMxXiTDTgC
-	 OPmWgpeRQUDHVnQaaEVRjBWdAuYon7uDzhX+A4y8ZA8NURQrdXJIgCIh017R9pm61d
-	 NkgDVJMXF4dyg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x5418-00000007qRK-16TA;
-	Fri, 11 Sep 2026 16:22:22 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	ljs@kernel.org,
-	Shen Yongchao <grayhat@foxmail.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 1/2] KVM: arm64: nv: Fix life cycle of the nested_mmus array
-Date: Fri, 11 Sep 2026 17:22:02 +0100
-Message-ID: <20260911162203.1919330-2-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260911162203.1919330-1-maz@kernel.org>
-References: <20260911162203.1919330-1-maz@kernel.org>
+	Fri, 11 Sep 2026 16:22:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789143766; x=1820679766;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o9cs/wE3R289YwEA9DDNeHuwXImTS8/zocoRSd5/fX0=;
+  b=nx6eVHHY9RVJcB9+nLnjeekK3dB3Dg2kxP0LKRUtc2P/xFpMhEACRGgp
+   7FAKwKr8s9HF/VOe8BmAPrqTHx5gHeSKQNPTE7MrgmBT/cR/cek8IUMDK
+   C+8h5KVg0L6MZT+rbTsApUm3NmtE+07XZtXsI7qxtdwTY0jmpeODTgzlb
+   XR/hOtslwdddkmB5/lutw77mE7WuZ7tb/khSIXQ0bQOxAaxCLsZLtVuV5
+   9f5Qc2YlEsAluX64/swy5EF8QGpv2yx7itxdnCp6p8eCFPNKw/GPr5/Vz
+   mzyv0EdaR7KAXNnphU6SJ+mC91aZ1qFyJJsz3y/SlTKkRRUfMJDQQmTo/
+   A==;
+X-CSE-ConnectionGUID: 6ZU6CMXjSeKYAFV7DrQzCg==
+X-CSE-MsgGUID: UbR5KpqLRTCqoX06pqS3Mg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11902"; a="89482086"
+X-IronPort-AV: E=Sophos;i="6.27,97,1787036400"; 
+   d="scan'208";a="89482086"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2026 09:22:45 -0700
+X-CSE-ConnectionGUID: uB5pMXjMSYmJGKekOYsmsQ==
+X-CSE-MsgGUID: ilnl7nyQQFGqvjr83fwUUg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,97,1787036400"; 
+   d="scan'208";a="270197998"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.80])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2026 09:22:41 -0700
+Date: Fri, 11 Sep 2026 19:22:38 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Marek Vasut <marex@nabladev.com>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Cheick Traore <cheick.traore-ext@st.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH 3/8] iio: adc: stm32-adc: add support for stm32mp23 and
+ stm32mp25
+Message-ID: <aqQqzl-3TBR0yNZl@ashevche-desk.local>
+References: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
+ <20260911-adc-stm32mp25-v1-v1-3-cef26eecdef2@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, ljs@kernel.org, grayhat@foxmail.com, kmehltretter@gmail.com, weilin.chang@arm.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911-adc-stm32mp25-v1-v1-3-cef26eecdef2@foss.st.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_092246_344514_D5111CA3 
+X-CRM114-Status: GOOD (  39.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,300 +99,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nested_mmus array holds the shadow page tables that are used when
-a guest is running a nested context. These structures are allocated on
-VCPU_INIT for whole guest, which implies that they may have to be
-relocated as the array grows.
+On Fri, Sep 11, 2026 at 05:51:25PM +0200, Fabrice Gasnier wrote:
+> Add support for STM32MP23 STM32MP25 SoCs. They have 3 ADCs, split into
+> two blocks:
+> - ADC12 (ADC1 & ADC2) are tightly coupled.
+> - ADC3 is managed independently.
+> Trigger list slightly changes between STM32MP23 and STM32MP25.
+> 
+> Each ADC is a 12-bits successive approximation analog-to-digital converter,
+> with up to 20 multiplexed channels that can be configured as single ended
+> or differential. ADC resolution ranges from 6 to 12 bits.
+> 
+> It introduces diversity regarding IRQs, clocks, software calibration
+> procedure, internal voltage channels, sampling time (prescaler) and
+> trigger list. Most of the architecture, and the driver engine remains
+> similar. So, handle the differences w.r.t. other STM32 ADCs family with
+> a dedicated compatible and compatible data.
+> 
+> Trigger list depends on ADC instance, retrieved with "st,adc-trigger-sel"
+> property.
+> 
+> Add support for vddcpu and vddgpu internal channels on stm32mp25.
+> These channels are enabled by using ADC option register.
+> Add VDDGPU to the list of supported channels in this driver and made
+> available on stm32mp25. So update sampling information for all variants
+> (with zero'ed data when it's not available).
 
-Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
-that the allocation requires relocation, that vcpu will still be
-running with a pointer to the previous structure, which will have been
-freed.
+...
 
-Fix this by turning the array of structures to an array of pointers,
-which is now allocated at VM creation, sized to the absolute maximum
-that KVM can handle.
+> + * @presc:	clock prescaler array
+> + * @num_presc:	number of clock prescalers in presc array
 
-In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
-reallocation is ever performed, and the life cycle of each object is
-much clearer:
+> +	int *presc;
+> +	int num_presc;
 
-- the nested_mmus array is allocated in kvm_init_nested(), and freed
-  in kvm_arch_destroy_vm()
+Why are they signed? I do not see any justification in the kernel doc.
 
-- s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
-  on kvm_arch_flush_shadow_all()
+...
 
-Finally, the freeing of vcpu->arch.vncr_array is made consistent
-rather than being done on some failure paths, but not others.
+>  static const struct stm32_adc_priv_cfg stm32f4_adc_priv_cfg = {
+>  	.regs = &stm32f4_adc_common_regs,
+> -	.clk_sel = stm32f4_adc_clk_sel,
+> +	.clk_sel = stm32_adc_clk_sel,
+> +	.presc = stm32f4_pclk_div,
+> +	.num_presc = ARRAY_SIZE(stm32f4_pclk_div),
+>  	.max_clk_rate_hz = 36000000,
+>  	.num_irqs = 1,
+>  	.num_adcs = 3,
 
-Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Reported-by: Shen Yongchao <grayhat@foxmail.com>
-Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
-Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
- arch/arm64/include/asm/kvm_host.h   |  2 +-
- arch/arm64/include/asm/kvm_nested.h |  2 +-
- arch/arm64/kvm/arm.c                |  8 ++-
- arch/arm64/kvm/nested.c             | 93 +++++++++++++----------------
- 4 files changed, 51 insertions(+), 54 deletions(-)
+>  };
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7a..cd9b9d2462f96 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -322,7 +322,7 @@ struct kvm_arch {
- 	 * Stage 2 paging state for VMs with nested S2 using a virtual
- 	 * VMID.
- 	 */
--	struct kvm_s2_mmu *nested_mmus;
-+	struct kvm_s2_mmu **nested_mmus;
- 	size_t nested_mmus_size;
- 	int nested_mmus_next;
- 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 1ed7083358096..5b8edb2e8a87d 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -66,7 +66,7 @@ static inline u64 translate_ttbr0_el2_to_ttbr0_el1(u64 ttbr0)
- 
- extern bool forward_smc_trap(struct kvm_vcpu *vcpu);
- extern bool forward_debug_exception(struct kvm_vcpu *vcpu);
--extern void kvm_init_nested(struct kvm *kvm);
-+extern int kvm_init_nested(struct kvm *kvm);
- extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
- extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
- extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8b080804bc90b..b53219e048bdf 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -236,8 +236,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	mutex_unlock(&kvm->lock);
- #endif
- 
--	kvm_init_nested(kvm);
--
- 	ret = kvm_share_hyp(kvm, kvm + 1);
- 	if (ret)
- 		return ret;
-@@ -252,6 +250,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	if (ret)
- 		goto err_free_cpumask;
- 
-+	ret = kvm_init_nested(kvm);
-+	if (ret)
-+		goto err_uninit_mmu;
-+
- 	if (is_protected_kvm_enabled()) {
- 		/*
- 		 * If any failures occur after this is successful, make sure to
-@@ -280,6 +282,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 
- err_uninit_mmu:
- 	kvm_uninit_stage2_mmu(kvm);
-+	kvfree(kvm->arch.nested_mmus);
- err_free_cpumask:
- 	free_cpumask_var(kvm->arch.supported_cpus);
- err_unshare_kvm:
-@@ -337,6 +340,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 
- 	kvm_unshare_hyp(kvm, kvm + 1);
- 
-+	kvfree(kvm->arch.nested_mmus);
- 	kvm_arm_teardown_hypercalls(kvm);
- }
- 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 3c4fc566eafc6..0a32d6bd3f6c6 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -45,11 +45,15 @@ struct vncr_tlb {
-  */
- #define S2_MMU_PER_VCPU		2
- 
--void kvm_init_nested(struct kvm *kvm)
-+int kvm_init_nested(struct kvm *kvm)
- {
--	kvm->arch.nested_mmus = NULL;
-+	kvm->arch.nested_mmus = kvmalloc_objs(struct kvm_s2_mmu *,
-+					      KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
-+					      GFP_KERNEL_ACCOUNT);
- 	kvm->arch.nested_mmus_size = 0;
- 	atomic_set(&kvm->arch.vncr_tlb_count, 0);
-+
-+	return kvm->arch.nested_mmus ? 0 : -ENOMEM;
- }
- 
- static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
-@@ -70,8 +74,9 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
- int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- {
- 	struct kvm *kvm = vcpu->kvm;
--	struct kvm_s2_mmu *tmp;
--	int num_mmus, ret = 0;
-+	int num_mmus;
-+
-+	lockdep_assert_held(&kvm->arch.config_lock);
- 
- 	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
- 	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
-@@ -84,51 +89,40 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	if (!vcpu->arch.ctxt.vncr_array)
- 		return -ENOMEM;
- 
--	/*
--	 * Let's treat memory allocation failures as benign: If we fail to
--	 * allocate anything, return an error and keep the allocated array
--	 * alive. Userspace may try to recover by initializing the vcpu
--	 * again, and there is no reason to affect the whole VM for this.
--	 */
- 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
- 
- 	if (num_mmus > kvm->arch.nested_mmus_size) {
--		tmp = kvzalloc_objs(*tmp, num_mmus, GFP_KERNEL_ACCOUNT);
-+		struct kvm_s2_mmu *tmp;
-+		int i, ret = 0;
-+
-+		tmp = kvzalloc_objs(*tmp, S2_MMU_PER_VCPU, GFP_KERNEL_ACCOUNT);
- 		if (!tmp)
--			return -ENOMEM;
-+			ret = -ENOMEM;
- 
--		write_lock(&kvm->mmu_lock);
--
--		if (kvm->arch.nested_mmus_size) {
--			memcpy(tmp, kvm->arch.nested_mmus,
--			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
--
--			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
--				tmp[i].pgt->mmu = &tmp[i];
-+		for (i = 0; !ret && i < S2_MMU_PER_VCPU; i++) {
-+			ret = init_nested_s2_mmu(kvm, &tmp[i]);
-+			if (ret)
-+				break;
- 		}
- 
--		swap(kvm->arch.nested_mmus, tmp);
-+		if (ret) {
-+			while (--i >= 0)
-+				kvm_free_stage2_pgd(&tmp[i]);
- 
--		write_unlock(&kvm->mmu_lock);
-+			kvfree(tmp);
-+			free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
-+			vcpu->arch.ctxt.vncr_array = NULL;
-+			return ret;
-+		}
- 
--		kvfree(tmp);
-+		guard(write_lock)(&kvm->mmu_lock);
-+
-+		for (i = 0; i < S2_MMU_PER_VCPU; i++)
-+			kvm->arch.nested_mmus[i + kvm->arch.nested_mmus_size] = &tmp[i];
-+
-+		kvm->arch.nested_mmus_size += S2_MMU_PER_VCPU;
- 	}
- 
--	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
--		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
--
--	if (ret) {
--		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
--			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
--
--		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
--		vcpu->arch.ctxt.vncr_array = NULL;
--
--		return ret;
--	}
--
--	kvm->arch.nested_mmus_size = num_mmus;
--
- 	return 0;
- }
- 
-@@ -742,7 +736,7 @@ void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
- 	write_lock(&kvm->mmu_lock);
- 
- 	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (!kvm_s2_mmu_valid(mmu))
- 			continue;
-@@ -784,7 +778,7 @@ struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu)
- 	 *   if S2 translation is disabled.
- 	 */
- 	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (!kvm_s2_mmu_valid(mmu))
- 			continue;
-@@ -823,7 +817,7 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	for (i = kvm->arch.nested_mmus_next;
- 	     i < (kvm->arch.nested_mmus_size + kvm->arch.nested_mmus_next);
- 	     i++) {
--		s2_mmu = &kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
-+		s2_mmu = kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
- 
- 		if (atomic_read(&s2_mmu->refcnt) == 0)
- 			break;
-@@ -1270,7 +1264,7 @@ void kvm_nested_s2_wp(struct kvm *kvm)
- 		return;
- 
- 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (kvm_s2_mmu_valid(mmu))
- 			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
-@@ -1289,7 +1283,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
- 		return;
- 
- 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (kvm_s2_mmu_valid(mmu))
- 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-@@ -1308,7 +1302,7 @@ void kvm_nested_s2_flush(struct kvm *kvm)
- 		return;
- 
- 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (kvm_s2_mmu_valid(mmu))
- 			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
-@@ -1317,16 +1311,15 @@ void kvm_nested_s2_flush(struct kvm *kvm)
- 
- void kvm_arch_flush_shadow_all(struct kvm *kvm)
- {
--	int i;
--
--	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
--		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-+	for (int i = kvm->arch.nested_mmus_size - 1; i >= 0; i--) {
-+		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
- 
- 		if (!WARN_ON(atomic_read(&mmu->refcnt)))
- 			kvm_free_stage2_pgd(mmu);
-+
-+		if ((i % S2_MMU_PER_VCPU) == 0)
-+			kvfree(mmu);
- 	}
--	kvfree(kvm->arch.nested_mmus);
--	kvm->arch.nested_mmus = NULL;
- 	kvm->arch.nested_mmus_size = 0;
- 	kvm_uninit_stage2_mmu(kvm);
- }
+> +static const struct stm32_adc_priv_cfg stm32mp25_adc_priv_cfg = {
+> +	.regs = &stm32mp25_adc_common_regs,
+> +	.clk_sel = stm32_adc_clk_sel,
+> +	.presc = stm32mp25_presc_div,
+> +	.num_presc = ARRAY_SIZE(stm32mp25_presc_div),
+> +	.max_clk_rate_hz = 70000000,
+> +	.ipid = STM32MP25_IPIDR_NUMBER,
+> +	.num_irqs = 2, /* 2 IRQs for ADC12, 1 irq for ADC3 */
+> +};
+
+Split this patch to two. One prepares the infrastructure for prescaller, and
+the other adds a new HW support.
+
+>  static const struct of_device_id stm32_adc_of_match[] = {
+>  	{
+>  		.compatible = "st,stm32f4-adc-core",
+> @@ -895,6 +948,12 @@ static const struct of_device_id stm32_adc_of_match[] = {
+>  	}, {
+>  		.compatible = "st,stm32mp13-adc-core",
+>  		.data = (void *)&stm32mp13_adc_priv_cfg
+> +	}, {
+> +		.compatible = "st,stm32mp23-adc-core",
+> +		.data = (void *)&stm32mp25_adc_priv_cfg
+> +	}, {
+> +		.compatible = "st,stm32mp25-adc-core",
+> +		.data = (void *)&stm32mp25_adc_priv_cfg
+>  	}, {
+>  	},
+>  };
+
+...
+
+>  struct stm32_adc_cfg {
+>  	const struct stm32_adc_regspec	*regs;
+>  	const struct stm32_adc_info	*adc_info;
+
+> -	const struct stm32_adc_trig_info *trigs;
+> +	const struct stm32_adc_trig_info	*trigs[2];
+
+Indentation looks suspicious. I would use just a single space.
+
+>  	bool clk_required;
+>  	bool has_vregready;
+>  	bool has_boostmode;
+>  	bool has_linearcal;
+>  	bool has_presel;
+>  	bool has_oversampling;
+> +	bool has_vregen;
+>  	int (*prepare)(struct iio_dev *);
+>  	void (*start_conv)(struct iio_dev *, bool dma);
+>  	void (*stop_conv)(struct iio_dev *);
+
+...
+
+> struct stm32_adc {
+
+>  	int			int_ch[STM32_ADC_INT_CH_NB];
+>  	int			nsmps;
+>  	int			ovs_idx;
+> +	const struct stm32_adc_trig_info	*trigs;
+
+Ditto. And this shows exactly why the tab formatting is not good. Just a single
+space makes it consistent independently on the future development.
+
+>  };
+
+...
+
+> +/* STM32MP23 external trigger sources for ADC12 */
+> +static struct stm32_adc_trig_info stm32mp23_adc12_trigs[] = {
+> +	{ TIM1_TRGO, STM32_EXT0 },
+> +	{ TIM1_TRGO2, STM32_EXT1 },
+> +	{ TIM8_TRGO, STM32_EXT2 },
+> +	{ TIM8_TRGO2, STM32_EXT3 },
+> +	{ TIM2_TRGO, STM32_EXT6 },
+> +	{ TIM3_TRGO, STM32_EXT7 },
+> +	{ TIM4_TRGO, STM32_EXT8 },
+> +	{ TIM5_TRGO, STM32_EXT9 },
+> +	{ TIM6_TRGO, STM32_EXT10 },
+> +	{ TIM15_TRGO, STM32_EXT11 },
+> +	{ TIM1_CH1, STM32_EXT12 },
+> +	{ TIM1_CH2, STM32_EXT13 },
+> +	{ TIM1_CH3, STM32_EXT14 },
+> +	{ TIM2_CH2, STM32_EXT18 },
+> +	{ TIM3_CH4, STM32_EXT19 },
+> +	{ TIM4_CH4, STM32_EXT20 },
+> +	{ TIM5_CH1, STM32_EXT21 },
+> +	{ TIM12_CH1, STM32_EXT22 },
+> +	{ LPTIM1_CH1, STM32_EXT24 },
+> +	{ LPTIM2_CH1, STM32_EXT25 },
+> +	{ LPTIM3_CH1, STM32_EXT26 },
+> +	{ LPTIM4_CH1, STM32_EXT27 },
+> +	{ LPTIM5_OUT, STM32_EXT28 },
+> +	{},
+
+The style of the terminator entry is no comma and likely a space inside, but
+the latter is optional for custom arrays (the requirement is strong for the ID
+tables in IIO).
+
+Ditto for other similar cases. Looking at which I would recommend split the
+second patch mentioned above on per-compatible basis, so make it 1 preparatory,
+1 with a new HW with some possible additional modifications, and 1 per each
+additional compatible line.
+
+> +};
+
+...
+
+> +/*
+> + * STM32MP25 offset calibration software procedure. Basically the calibration routine is
+> + * expected to average (for example) 8 samples in calibration mode, for single-ended  and
+> + * differential channels, to calibrate the zero offset. In case offset is "negative", an
+> + * additional offset can be added, to determine calibration factor. It must be kept later
+> + * for all conversions.
+> + */
+> +static int stm32mp25_adc_calib_get_average_data(struct iio_dev *indio_dev, u32 *average)
+> +{
+> +	struct stm32_adc *adc = iio_priv(indio_dev);
+> +	const struct stm32_adc_regspec *regs = adc->cfg->regs;
+> +	u32 val, avg = 0;
+> +	int i, ret;
+
+Why is 'i' signed?
+
+> +
+> +	/* Repeat several conversions in calibration mode, average the results */
+> +	for (i = 0; i < STM32MP25_CALIB_LOOP; i++) {
+
+Also I don't see the problem with
+
+	for (unsigned int i = 0; i < STM32MP25_CALIB_LOOP; i++) {
+
+> +		stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
+> +		ret = stm32_adc_readl_poll_timeout(STM32H7_ADC_CR, val,
+> +						   !(val & (STM32H7_ADSTART)),
+> +						   100, STM32_ADC_TIMEOUT_US);
+> +		if (ret) {
+> +			dev_err(&indio_dev->dev, "calibration average error %d\n", ret);
+> +			return ret;
+> +		}
+> +
+> +		val = stm32_adc_readl(adc, regs->dr);
+> +		dev_vdbg(&indio_dev->dev, "dr[%d]=0x%08x\n", i, val);
+> +		avg += val;
+> +	}
+> +
+> +	*average = DIV_ROUND_CLOSEST(avg, STM32MP25_CALIB_LOOP);
+> +	dev_vdbg(&indio_dev->dev, "average=0x%08x\n", *average);
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int stm32mp25_adc_calib(struct iio_dev *indio_dev)
+> +{
+> +	struct stm32_adc *adc = iio_priv(indio_dev);
+> +	u32 calfact = 0, average;
+> +	int ret;
+> +
+> +	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
+> +	/* Clears CALADDOS (and old calibration data if any) */
+> +	stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, 0);
+> +	/* Select single ended input calibration */
+> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
+> +	/* Use default resolution (e.g. 12 bits) */
+> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR, STM32MP25_RES_MASK);
+> +
+> +retry:
+> +	ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
+> +	if (ret)
+> +		goto out;
+> +
+> +	/* If the averaged data is zero, retry with additional offset (set CALADDOS) */
+> +	if (!average) {
+> +		if (!calfact) {
+> +			/* Averaged data is zero, retry with additional offset */
+> +			calfact = STM32MP25_CALFACT_CALADDOS;
+> +			stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, calfact);
+> +			goto retry;
+> +		}
+> +		/* Averaged data is still zero with additional offset, just warn about it */
+> +		dev_warn(&indio_dev->dev, "Single-ended calibration average: 0\n");
+> +	}
+
+OMG, try to refactor this to avoid this twisted goto chain.
+
+> +	calfact |= FIELD_PREP(STM32MP25_CALFACT_S_MASK, average);
+> +
+> +	/* Select differential input calibration (keep previous CALADDOS value) */
+> +	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
+> +	ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
+> +	if (ret)
+> +		goto out;
+> +
+> +	/*
+> +	 * If the averaged data is below 0x800 (half value in 12-bits mode),
+> +	 * retry with additional offset
+> +	 */
+> +	if (average < BIT(adc->cfg->adc_info->resolutions[0] - 1)) {
+> +		if (!(calfact & STM32MP25_CALFACT_CALADDOS)) {
+> +			/* Retry the whole calibration with additional offset */
+> +			stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
+> +			calfact = STM32MP25_CALFACT_CALADDOS;
+> +			stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, calfact);
+> +			goto retry;
+> +		}
+> +		/*
+> +		 * Averaged data is still below center value. It needs to be clamped to zero,
+> +		 * so don't use the result here, warn about it.
+> +		 */
+> +		dev_warn(&indio_dev->dev, "Differential calibration clamped(0): 0x%x\n", average);
+> +	} else {
+> +		calfact |= FIELD_PREP(STM32MP25_CALFACT_D_MASK, average);
+> +	}
+> +
+> +	stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, calfact);
+> +
+> +	dev_dbg(&indio_dev->dev, "set calfact_s=0x%03lx, calfact_d=0x%03lx, calados=%ld\n",
+> +		FIELD_GET(STM32MP25_CALFACT_S_MASK, calfact),
+> +		FIELD_GET(STM32MP25_CALFACT_D_MASK, calfact),
+> +		FIELD_GET(STM32MP25_CALFACT_CALADDOS, calfact));
+> +out:
+> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
+> +	stm32_adc_set_res(adc);
+> +
+> +	return ret;
+> +}
+
+...
+
+> +	if (device_property_present(&pdev->dev, "st,adc-trigger-sel")) {
+> +		ret = device_property_read_u32(dev, "st,adc-trigger-sel", &trig_id);
+
+Why the first parameter is inconsistent in two device property API calls?
+
+> +		if (ret)
+> +			return ret;
+
+No 'else' for the default?
+
+> +	}
+
+...
+
+>  static const struct stm32_adc_cfg stm32f4_adc_cfg = {
+>  	.regs = &stm32f4_adc_regspec,
+>  	.adc_info = &stm32f4_adc_info,
+> -	.trigs = stm32f4_adc_trigs,
+> +	.trigs = { stm32f4_adc_trigs, },
+
+When a single line the inner trailing comma is not needed.
+
+>  	.clk_required = true,
+>  	.start_conv = stm32f4_adc_start_conv,
+>  	.stop_conv = stm32f4_adc_stop_conv,
+
+>  	.vref_charac = 3300,
+>  };
+
+...
+
+Overall feeling that this patch is cumbersome of several changes. Please,
+split.
+
 -- 
-2.47.3
+With Best Regards,
+Andy Shevchenko
+
 
 
