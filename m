@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCB4C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C267BC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=87iJ8eoqZ3OPjJLYPFsUWmmff1ZXOWQWTIDzAIwLa2g=; b=tcEqMSnwhMQFDO3LCY3UnNtY1s
-	wkAxIRmjkvx5leJjVeyVPJBEwaH4S46wDcFVznjnrHwjfVZWAXVFC1yTV//T1AmIfahq2OD5G03nx
-	psq9bL0StRC+upx5S65DqvKgcqmhn74MLSROVj/FPePmvJSjq204E7svI9fLqBEoG9RV0DmZd/6rV
-	eUR3DUcrvEZ2fcOA3fXpHxPjFRrik5f6KyJO2bYyFO7UzB+LkMtgqCUWX4h5o3GlOCMeXcvFxfSD9
-	KdBfCTFLCLYpcaGTBIRNKF/MOcDY3qzSvQyQhDvyqO1x0aKj6hGDH2+bWAnZykchAm7EvPl/63mB2
-	Srnfby2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O/gnEWBZBBZeAGzcXhNZJLq+4jTjWHhMRP3+5fPBvFM=; b=O3ZhrxTJT88Wg6
+	SjFTBxWspTuXxRdNg0Vn1ESDfik4hlA77/oPjTIsKUhTN9ZYlWMTPRgtCbwb4jHVfcwarxbRH/vUd
+	xRltN8BR//cLEYrukTuIoYQ7v6JFG3wuRMbkIVSqOolSGeuhTmIpMMKTSfUb3l84y4y6g4XrJoO9T
+	H+zdoeofqagIetcuOHRacmWIBwKHN2MX3G1g6G+cN0c1+e+M3Qirr6bmfttK7bUlL1WkDOiw91frL
+	Rzg9jPND0sfjgXpZBWxhTqT4abGzYsrAlKGwbp7Ilu5w0nObo+C2wcWCjspMIlah7A+ameyShJnBW
+	qziEevnAepoGd15sV/tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YW-0000000GmR1-47r1;
+	id 1x51YW-0000000GmQV-3HlC;
 	Fri, 11 Sep 2026 13:44:40 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YN-0000000GmLU-25nq
+	id 1x51YK-0000000GmKp-0TRu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:44:34 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 645B31FFA6;
-	Fri, 11 Sep 2026 15:44:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789134268;
-	bh=87iJ8eoqZ3OPjJLYPFsUWmmff1ZXOWQWTIDzAIwLa2g=; h=From:To:Subject;
-	b=RSTz/0gA+qVD2TkRN/w0AOOqP5mSRoWI1xWj8h4KhN4ELdP1BREkv1ckj771WzcWu
-	 jWnZ5ZBbqUDiul0YwaRF7jg9kg56X/o9b84uE9aX0AVL5+JfwjoqcOt4IlAurZDRWD
-	 coxkNt38kC5mcvDiuG3jEXL/8ngzEAuBUE+xA1gXlO53cFTC3s0H93FxAy+7EUBf8C
-	 BgTUILscT1U0Vr5l97H2yN2Up1QZY81jPSsz8v/6h0vkFuIS1q06CNEAKxlUXH2nZm
-	 PH+CMxSB+qtmGYhcNc8mqd+66npeUKc9ee5181+g3WhhAr1bOyx6rGGlLI3yfgm9St
-	 B09Yy8umRY+3w==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: imx7-colibri-iris-v2: drop no-op delete-property
-Date: Fri, 11 Sep 2026 15:44:09 +0200
-Message-ID: <20260911134410.178847-1-francesco@dolcini.it>
+	Fri, 11 Sep 2026 13:44:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9CD944801;
+	Fri, 11 Sep 2026 13:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10CD71F000FF;
+	Fri, 11 Sep 2026 13:44:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789134267;
+	bh=O/gnEWBZBBZeAGzcXhNZJLq+4jTjWHhMRP3+5fPBvFM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=LZ3QFGOfGKR1bOVfD2b1kPQy9WekS03uMZ8D7/gg10AN9xnBV/2v+byGsD0T5k0Rh
+	 +UfZqDfqcJk20w+R6EZbm4n+rd2T9pkcrG9JMhigWdAWAWK4/xleJcmc8EBd38vwDz
+	 OiQhidquGjHh/OtQ6g8MR/xl1iLpQYNDIlADe8p9VU6YQO0ApPiTPxP7j0xU+lrn35
+	 YTi/t7NDaT3lQNst5vjoeJHwvTDWxhFnEsUGnJ7SaO+kb+DG9l2GrgjiR52FQOhnQa
+	 UiGcLsdG0qMoiCEV9kg/AxIux9xYkPzsH+drBOvoIkQMcSDiGKVgcHOL09fp1m0fGd
+	 pb7/Y/ypj+G8A==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v4 00/21] Preemptible this_cpu_*() operations
+Date: Fri, 11 Sep 2026 14:44:10 +0100
+Message-ID: <178912994348.2451035.18388822109867455442.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260908151741.394589-1-mark.rutland@arm.com>
+References: <20260908151741.394589-1-mark.rutland@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_064433_159765_0D7E6FFD 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +65,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.anjum@arm.com, Will Deacon <will@kernel.org>, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, kernel-team@android.com, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Tue, 08 Sep 2026 16:17:20 +0100, Mark Rutland wrote:
+> This series reworks arm64's this_cpu_*() operations such that they do
+> not need to disable preemption. The scheme is described in detail in patch 13,
+> and is similar to the approach Heiko Carstens applied to s390 [1], which
+> inspired this series.
+> 
+> This scheme should build and function in all kernel configurations (e.g.
+> regardless of KPTI, SW PAN, CNP, VA BITS), and has no dependency on new
+> architectural features. The fixup logic should "just work" with kprobes,
+> etc, and I don't expect that this will need to become more complicated.
+> 
+> [...]
 
-usdhc1 never has a "keep-power-in-suspend" property set anywhere in
-its inheritance chain, so this /delete-property/ is a no-op left over
-since it was introduced.
+Applied first three fixes to arm64 (for-next/fixes), thanks!
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Assisted-by: LLM
----
- arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+[01/21] arm64: percpu: Fix this_cpu_write() casting
+        https://git.kernel.org/arm64/c/885bff055a0f
+[02/21] arm64: percpu: Fix this_cpu_and() mask generation
+        https://git.kernel.org/arm64/c/44274c657256
+[03/21] arm64: percpu: Fix LSE operations on {8,16}-bit types
+        https://git.kernel.org/arm64/c/8cf2093f5372
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
-index 1111111..2222222 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
-@@ -106,7 +106,6 @@
- /* Colibri MMC/SD, UHS-I capable uSD slot */
- &usdhc1 {
- 	cap-power-off-card;
--	/delete-property/ keep-power-in-suspend;
- 	/delete-property/ no-1-8-v;
- 	vmmc-supply = <&reg_3v3_vmmc>;
- 	status = "okay";
---
-2.45.0
+Cheers,
+-- 
+Will
 
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
