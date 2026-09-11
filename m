@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD92C88E4D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BDFC88E50
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9WC43RiWACipaJVVputek92HstgNSaNHPvk7+Q6kjg=; b=RKUVVFjkb22qIeFfs+7w3c3fiH
-	W3kY0gmC4kl6YFxEwDrWgaz6LyE7WaABrhFmkIOxEfAl0XPyQ6qjZeqlT9NVvdQruXNO+cP1j7vCe
-	vC9NOqYufIjbVqQDYMXcVeTJCvAgH3Rea0IbMsYOBvucpGklB0E5Ii2aTNNkvfWHKv0JIxSonkMEC
-	8Glv/GwAy3pIBd7Isuc5MT+l/Kq+BpPspUy5nOLRIXR8XPPCzSZiMBATVAttczGJsaUnhHfr7bhkS
-	0LmecCJrNVvO6VGHk5TXRMS6f4Rg05pR+l3IyzssEvtUJVaTGEu+zR9vbFMIUdqnvjSRnzChFyNmp
-	g3Ef3XvA==;
+	bh=xrAFeAU1HONhylYuAElmqPqMHQ1RjTCsevj0LcygbgM=; b=SG20VPKcBWbZD9FnkaKiK0Oxek
+	tS1vBcl3nWh/IRPcMUZSKMAy0obh+Gn7QHboE000/OdinAh3O3VeiJEoB/Z6lI/uTBCOHDnHr+jZc
+	EI3ymprIP0eQmoklUm4cftvToyqXLJmn4wOIm/gvfTqBPBO6Hpl/G0Il4aOjk+HTuwtkp6oxWwQCO
+	XvpNibOi5NBP1yGRcZ5RZdsgk22c2lU7PbuErSVXosLhIms0mtZqotXxt6uRWAouHWLPDyBCy6aXJ
+	t2sJm60RgKevPo7gZSZzfqhqR5HiAKr/MWDL2/m0qiyJRltNZhTtNQKbHM3DjvqJp7r19TbPdlJ3R
+	akbu/bOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YD-0000000GmHv-1otw;
-	Fri, 11 Sep 2026 13:44:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x51YI-0000000GmJn-2oMM;
+	Fri, 11 Sep 2026 13:44:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YB-0000000GmHY-3xM8
+	id 1x51YG-0000000GmIe-2F7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:44:19 +0000
+	Fri, 11 Sep 2026 13:44:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 518D340626;
-	Fri, 11 Sep 2026 13:44:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A0BF1F000FF;
-	Fri, 11 Sep 2026 13:44:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0E5360A66;
+	Fri, 11 Sep 2026 13:44:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 988871F00893;
+	Fri, 11 Sep 2026 13:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789134259;
-	bh=n9WC43RiWACipaJVVputek92HstgNSaNHPvk7+Q6kjg=;
+	s=k20260515; t=1789134263;
+	bh=xrAFeAU1HONhylYuAElmqPqMHQ1RjTCsevj0LcygbgM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gbNj34mIcxztxPJbOWUNJYdSbplYgK4TOEeBGAQ2dTOfuNB3piJzRpzmmEnRU/2iI
-	 aNqN6KCz11dEoEnchenQ02aCVf3pzWEndcS97bWSWagU4w67pdN5ow6rkEVa6LTVvO
-	 edYbUUbdJ5xfkOwADk2xEuabG6T3PKxVrXF3mQKX3qC8pEv4P/xhMPqkqiOhbGOHnm
-	 tVHpWzsCYAZrzP6k8AJpsWes/CuQtgiVp41bEKA3XSwPXAMZndEe223cL/NcZeMKSk
-	 Q7U/G4X7NKf9yRl/s+7ct7RBoB2qZNoUuxbui5To+DreHPC8w8hdeXXKZfFNe07gBg
-	 ftGOiGLJqN38A==
+	b=C8wtgViKBZ4yAXkyZHrA0b4jjOcF5FSxZSKGhvLmk13Lev0eOijLaGm2Ts3YBKjH7
+	 AWXB44Drylx7W6vF5mdbKmdo+Ccl3gyhgRiwG1JMBhJ/n/kXiaJdGFxd56tVkp0DRI
+	 +Slhj7yvHMOBdLnceMMXOyaI5EF4j0F6DxcNNdWZyfWBk0sXp0WuWMbLYGhL6/V8zC
+	 OLTn1fXpnRNftuuFiyXZ22+t0cJMMQTJ793Y+k+uusvs6e8Qr1TWgGNhF24Q7mxXsv
+	 dJgl22+K+a9qfGM4sYTwlPzyPIb/r1I6UJ5WanRiFBXleHf63LWy7DUwzXKrTEnnHM
+	 X0aXxOXcTzuIQ==
 From: Will Deacon <will@kernel.org>
-To: robin.murphy@arm.com,
-	Shouping Wang <allen.wang@hj-micro.com>
-Cc: catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Breno Leitao <leitao@debian.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com
-Subject: Re: [PATCH v2] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
-Date: Fri, 11 Sep 2026 14:44:07 +0100
-Message-ID: <178912838524.2439009.7355093627260324589.b4-ty@kernel.org>
+	kernel-team@meta.com
+Subject: Re: [PATCH] arm64: hibernate: clone only the linear map that exists at runtime
+Date: Fri, 11 Sep 2026 14:44:09 +0100
+Message-ID: <178912888402.2443437.8441014922865389654.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260910114601.165237-1-allen.wang@hj-micro.com>
-References: <2fb3bda7-cd64-4dc0-99f8-c0fda8d42cf9@arm.com> <20260910114601.165237-1-allen.wang@hj-micro.com>
+In-Reply-To: <20260910-arm64-hibernate-va52-v1-1-a584d9a7d65e@debian.org>
+References: <20260910-arm64-hibernate-va52-v1-1-a584d9a7d65e@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,21 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Sep 2026 19:46:01 +0800, Shouping Wang wrote:
-> When MXP_MULTIPLE_DTM_EN is TRUE, each DTM will monitor at most
-> two device ports. In this case, {wp_dev_sel2, wp_dev_sel} will
-> only use values 2'b00 and 2'b01 per DTM.
+On Thu, 10 Sep 2026 06:53:27 -0700, Breno Leitao wrote:
+> This is similar to commit 1537e55728ec2 ("arm64: trans_pgd: clone only
+> the linear map that exists at runtime"), but in a different place.
 > 
-> Previously the setting allowed values beyond the supported range
-> per DTM, which could cause each DTM to select invalid ports when
-> MXP_MULTIPLE_DTM_EN is TRUE.
+> swsusp_arch_resume() clones the kernel linear map with
+> trans_pgd_create_copy(..., PAGE_OFFSET, PAGE_END). PAGE_OFFSET comes
+> from the compile-time VA_BITS, so a CONFIG_ARM64_VA_BITS_52 kernel
+> booting on hardware without LPA2 -- vabits_actual is 48 and the fifth
+> level is folded -- hands the walk a 3.9PB window while its linear map
+> only spans the top 128TB.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
-      https://git.kernel.org/arm64/c/49daa3d668b6
+[1/1] arm64: hibernate: clone only the linear map that exists at runtime
+      https://git.kernel.org/arm64/c/e4a6f57d22e0
 
 Cheers,
 -- 
