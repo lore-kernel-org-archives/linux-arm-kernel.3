@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C9DC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FDCC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:To:From:References:CC:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIPghYDjldaQhWAAAGEJ/xvZF4ExUts68Xdqztjk628=; b=XVOUvBnC289gBh+RROMOzsPsC3
-	5niozkNNK5Hg4zjnyTmVPnq2EQZIG2o9FdRprOJ1Mv/rwSFmm6Ai0NrZJZZUGbM940eoBrDSweUuq
-	FrOTisdpApq2UkLK3PYHHEUVwsmOAAV36BcYFL7WRNyeXQo1cyUnqdyCSFO/Cq4Pjx8Azidz1xaL9
-	cBTsrJe78AGXNP6r1f84S93N817NN8UsZLzEVDAowDVGl8RXW+P6yd2HjiPBihAsRWFqh2rtDoBqT
-	WiFp+EEVqdhD07znW+UsstZyRJhvZu9o8sP9DyFl4SCZMT5HpdymDtp9EveMDyq7vqVvU6E6AWQDf
-	R6fX1ffg==;
+	bh=VtzYx8SOj9vSV4mcdey89Xnwt2ndYvQMN7wZmCbv0MM=; b=kQ6BDQYHAmuTlJPPn8Jzu1EG5A
+	SXk0RwggleVNVMuDaOo+FbDGkFRuxfCWK3HK1+8QkcY5ufwQ71rYuufkG7Qk3ac37gynVgQMt9Dp8
+	cI3fb1gsm4s8zY7DfwTM4WQ3By3DEk+pqicxJHR0572KftIpoSUzEn4ND+VNVr6p7bvpWbXkz4yFk
+	W4pHqfulq4ZhrZwRIik6Mp+kMm/K/nHpSCE6wHsZGQmxXuzA4KY1UxYjbyobhF1s8tRS7LW6bsKoN
+	MKzRbxWHrL9TNpAh2lb8vVJS/1aLDda+/l2BFo+6ueiklwvX3uQoe6GrS58UwYumuBMR2iGLRQiXk
+	SKDrjzMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4uxd-0000000FxMw-3mXj;
-	Fri, 11 Sep 2026 06:42:09 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1x4vsZ-0000000G2wH-2aGJ;
+	Fri, 11 Sep 2026 07:40:59 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4uxZ-0000000FxM7-3m9T
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 06:42:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=bIPghYDjldaQhWAAAGEJ/xvZF4ExUts68Xdqztjk628=;
-	b=GIIMTrkXpqOqobIhcZXPy2aapSwvv1ajs9SmI2b4KVEHN2OH174sPwQ5kyIdAFR8KzyW793Hk
-	35P4G8ADMp0dxlidnCJ9WqB82klTzW32sH/2Kj0/YpwEEQ+Q7LB7vtrChIFEqnWucFlouvDVAUp
-	6rybl2B2o7iGh2R+eYM5ZlA=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hh4Rz4CYxz1prKW;
-	Fri, 11 Sep 2026 14:30:55 +0800 (CST)
-Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8F41A40575;
-	Fri, 11 Sep 2026 14:41:52 +0800 (CST)
-Received: from [10.67.120.233] (10.67.120.233) by
- whupemo200004.china.huawei.com (7.152.184.18) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 11 Sep 2026 14:41:49 +0800
-Message-ID: <4019452b-b25f-4c17-bc5c-570a28782bf1@huawei.com>
-Date: Fri, 11 Sep 2026 14:41:48 +0800
+	id 1x4vsU-0000000G2uK-1Ljc;
+	Fri, 11 Sep 2026 07:40:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789112452;
+	bh=0oqwV4n087TkcdE7smt77VXoCFhNFiNEr2EbMxZFD4Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=po0tBroqkvLelMZmwCQ9WY3xbdOJ3a40sY2PKdyRNnUl11BmACIbJfP+PbLHdMnS+
+	 ZFTMHhqawslg1E4RjkaQrOpTLVLjNRsD4Ey8HPiYJTc0uFPeS+k4RNM/oTIURRepZY
+	 O61bREKmshLrFzaMw8J7QPi8z00IX5sc4EPSbcQxjHPUuVlJHMYrRhjvHors3rvN+n
+	 acbB3f7u8pRVWgEJwJLU256wcO8EeS7+heaZKdCfDk/gOmCX1xR9k+kk842602Arxm
+	 GXKC7alwI8+SPk3LMmPNnT59vGaGuEWW/9H1XE4vgKb9twl6xP1OdFc3yNqJq+G2Gy
+	 pdvMnP/DiJcxw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7E9917E0CA6;
+	Fri, 11 Sep 2026 09:40:51 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: vkoul@kernel.org
+Cc: chunfeng.yun@mediatek.com,
+	p.zabel@pengutronix.de,
+	chunkuang.hu@kernel.org,
+	neil.armstrong@linaro.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	granquet@baylibre.com,
+	justin.yeh@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel@collabora.com,
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Subject: [PATCH v2 2/2] phy: mediatek: phy-mtk-hdmi-mt8195: Fix TMDS clk bit ratio setting
+Date: Fri, 11 Sep 2026 09:40:15 +0200
+Message-ID: <20260911074015.9994-3-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260911074015.9994-1-angelogioacchino.delregno@collabora.com>
+References: <20260911074015.9994-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/8] Enhance TLP packet decoder with field-level
- parsing and versioning
-CC: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <namhyung@kernel.org>,
-	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
-	<jolsa@kernel.org>, <irogers@google.com>, <adrian.hunter@intel.com>,
-	<wangyushan12@huawei.com>, <wuzongyu1@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, Arnaldo Carvalho de Melo <acme@kernel.org>
-References: <20260908140509.2485649-1-liusizhe5@huawei.com>
- <aqB37YCMUYKodo3N@x2>
-From: Sizhe Liu <liusizhe5@huawei.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aqB37YCMUYKodo3N@x2>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.233]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- whupemo200004.china.huawei.com (7.152.184.18)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_234206_617974_2A4926B6 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20260911_004054_533329_FB5437ED 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +85,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/9/9 5:02, Arnaldo Carvalho de Melo wrote:
-> On Tue, Sep 08, 2026 at 10:05:01PM +0800, Sizhe Liu wrote:
->> The original hisi-ptt-decoder only prints raw hex values with
->> generic field names for DW0/DW1/DW2/DW3, without classifying TLP
->> types or decoding DW0/DW1/DW2/DW3 fields according to the hardware-
->> defined packet format.
->> 
->> This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
->> decoder in perf tool to provide detailed field-level parsing of TLP
->> headers based on message type, and adds a versioning mechanism for
->> backward compatibility both in hisi_ptt driver and perf tool.
-> 
-> Series is sashiko clean by now, has a Reviewed-by, but it touches both
-> kernel and tools, I wouldn't have a problem if it was processed by whoever
-> maintains the kernel part.
-> 
-> - Arnaldo
-> 
+The comment in the mtk_phy_tmds_clk_ratio() function clearly and
+correctly explains that the TMDS ratio has to be 1/10 for data
+rates under 3.4Gbps, and 1/40 over that.
 
-Hi Suzuki,
+Unfortunately though, the TXC_DIV register setting was wrong, as
+in value 3 means to divide by 8 and, in order to achieve the in
+spec 1/40 (tmds) data rate, this has to divide by 4 instead!
 
-The series is now Sashiko-clean and has Reviewed-by tags. It touches both
-driver and tools. Arnaldo is fine with the tools part. Would you mind
-reviewing the driver part and picking it up through your tree if it looks good?
+Add definitions for the TXC_DIV register values clearly explaining
+the meanings (DIV2, DIV4, DIV8), and program the correct, DIV 4,
+value to the register in mtk_phy_tmds_clk_ratio().
 
-If there are any changes needed, please let me know.
+This fixes out of spec clocking and, with this change, SoCs using
+the MT8195 class HDMI PHYs can now successfully be configured to
+output 3840x2160@60Hz over HDMI.
 
-Link: https://lore.kernel.org/all/20260908140509.2485649-1-liusizhe5@huawei.com/
+Fixes: 45810d486bb4 ("phy: mediatek: add support for phy-mtk-hdmi-mt8195")
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c | 2 +-
+ drivers/phy/mediatek/phy-mtk-hdmi-mt8195.h | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-Thanks for your time!
-Sizhe
-
->> --- Changes in v4: - Add missing space in hisi-ptt.rst (Sashiko). -
->> Widen the pattern bit field in struct hisi_ptt_trace_ctrl (Sashiko). 
->> - Add protocol defined TLP header length parsing in patch 05/08. -
->> Add MRd and DMRr message types parsing in patch 05/08. - Add comment
->> for enum hisi_ptt_pkt_msg_type in patch 05/08. - Add DW0 and DW1
->> fields analysing in patch 06/08. - Refine bit-fields parsing of DW0/
->> DW1/DW2/DW3 based on different requests in patch 06/08. - Refine the
->> description of pattern=1 in the document in patch 07/08. - Extract
->> the bit-field printing of v1 version into functions in patch 08/08. -
->> Link to v3: https://lore.kernel.org/linux-
->> pci/20260903075241.1445338-1-liusizhe5@huawei.com/
->> 
->> Changes in v3: - Add explicit inclusion of <stdbool.h> (Sashiko). -
->> Make patch 07/08 apply cleanly to mainline (Yushan). - Pick up the
->> reviewed-by tag (Yushan). - Link to v2: https://lore.kernel.org/
->> linux-pci/20260827140442.2031128-1-liusizhe5@huawei.com/
->> 
->> Changes in v2: - Split patch 01/10 and patch 02/10 from series v1
->> into independent patch series for backporting (Bjorn). - Use bitwise
->> operations instead of C bitfields for cross-platform cases (Sashiko).
->> - Add `pattern` parameter in hisi_ptt driver for layout
->> compatibility. - Link to v1: https://lore.kernel.org/linux-
->> pci/20260604075005.2219785-1-liusizhe5@huawei.com/
->> 
->> --- Sizhe Liu (8): perf hisi-ptt: Abstract trace data buf and offset 
->> perf hisi-ptt: Complete the field names for 4DW and 8DW packets perf
->> hisi-ptt: Extract the raw data printing part perf hisi-ptt: Merge
->> 4DW and 8DW HEAD0 printing perf hisi-ptt: Add parsing of supported
->> message types and proto length perf hisi-ptt: Add field-level
->> parsing for header DW0/DW1/DW2/DW3 hwtracing: hisi_ptt: Add pattern
->> PMU config for trace format selection perf hisi-ptt: Pass pattern
->> version to decoder for compatibility
->> 
->> Documentation/trace/hisi-ptt.rst              |  26 +- drivers/
->> hwtracing/ptt/hisi_ptt.c              |  25 +- drivers/hwtracing/ptt/
->> hisi_ptt.h              |   4 + tools/perf/arch/arm64/util/hisi-
->> ptt.c         |  18 + .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
->> | 593 ++++++++++++++++-- .../hisi-ptt-decoder/hisi-ptt-pkt-
->> decoder.h   | 241 ++++++- tools/perf/util/hisi-
->> ptt.c                    |  51 +- tools/perf/util/hisi-
->> ptt.h                    |   9 +- 8 files changed, 872
->> insertions(+), 95 deletions(-)
->> 
->> -- 2.33.0
+diff --git a/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c b/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c
+index e6ee8e080022..a4bc1268946d 100644
+--- a/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c
++++ b/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c
+@@ -36,7 +36,7 @@ mtk_phy_tmds_clk_ratio(struct mtk_hdmi_phy *hdmi_phy, bool enable)
+ 	 * clock bit ratio 1:40, under 3.4Gbps, clock bit ratio 1:10
+ 	 */
+ 	if (enable)
+-		mtk_phy_update_field(regs + HDMI20_CLK_CFG, REG_TXC_DIV, 3);
++		mtk_phy_update_field(regs + HDMI20_CLK_CFG, REG_TXC_DIV, VAL_TXC_DIV4);
+ 	else
+ 		mtk_phy_clear_bits(regs + HDMI20_CLK_CFG, REG_TXC_DIV);
+ }
+diff --git a/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.h b/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.h
+index e26caaf4d104..58800d7659ca 100644
+--- a/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.h
++++ b/drivers/phy/mediatek/phy-mtk-hdmi-mt8195.h
+@@ -17,6 +17,9 @@
+ 
+ #define HDMI20_CLK_CFG 0x70
+ #define REG_TXC_DIV GENMASK(31, 30)
++#define VAL_TXC_DIV2 1
++#define VAL_TXC_DIV4 2
++#define VAL_TXC_DIV8 3
+ 
+ #define HDMI_1_CFG_0 0x00
+ #define RG_HDMITX21_DRV_IBIAS_CLK GENMASK(10, 5)
+-- 
+2.55.0
 
 
