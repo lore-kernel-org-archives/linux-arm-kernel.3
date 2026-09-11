@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AA9C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA21C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UChGTTKXear8gQd2Dj9H+VICAHM0s5K1F+6xOkJhwk8=; b=vmpSqSS4Q4b9x6Cx7B/NFir+bM
-	8LO1J/XSClJWrDDEJa728B0eARKruUYjsZJjVxa5kfl2U2HPbnsNghF7JiOgh/PdbL8LhHwh+1cB8
-	EfWK07C4FLuEHZj7dtknUUzwrCzjCsKrkEAPrs4ezx1SktWpeuUcWOxK6Z1psZPC6gmFdgmy2X04o
-	I6sKczSwEOVcf9syr2N5y34eqmZt3KdbFEbmV4vgTNQP47VUdKAWT2Mo0PSx9KQjKRjDKxopbTB0D
-	bf4YWmeYv3Ful6zVWD/PFTSECyX7Wvj/a6s+enUhQeVW/LSCRv12y3AmYWZJ3oACzf2ZfGslKLYSE
-	fBqtcweg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Owzto5RJpsaGdDWQuvd8vx3DnYx5//26ShytlrfPA+w=; b=QE9TXAUgIaB/d6+scinB+2QoX0
+	eObw6Z372XN1qXsT3k2Z+qaAjF/urEiyd/lwaXhjz1lm7onZXkfHk1BInAsqodeIhadEOC4foz2iv
+	QIOhQ5IlUGfj5WW41yPqaQTqDG9heSPnCNc6KpZQDWXCo/ByTtTVlD1QE0vsmZn6VC5HH6LzqAoQx
+	LYvcBd8LQbasz65OF9+/hUk+algxirNcjTZKIUqZtPZSOCQKq3mu31rfUu3c9jlFYFiCt2AYPkmMs
+	xtbGrfgnaa6vI9YAACJvHHHIp61J47PyoCOJ3pGOvGiPzrycnySqTHn/Jb5eK2GTE6Ary2WeCjl5g
+	9/RCTWNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55ez-0000000HPag-0Y1Z;
-	Fri, 11 Sep 2026 18:07:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x55gW-0000000HPsv-1jqW;
+	Fri, 11 Sep 2026 18:09:12 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55ex-0000000HPaF-0WKD;
-	Fri, 11 Sep 2026 18:07:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51CD960008;
-	Fri, 11 Sep 2026 18:07:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4D11F000FF;
-	Fri, 11 Sep 2026 18:07:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789150054;
-	bh=UChGTTKXear8gQd2Dj9H+VICAHM0s5K1F+6xOkJhwk8=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=okGWbp7gf4AeBkG9/1Ay3g134R1cA7gjJeSJln7cqv1+wr822XQAFp7ViyNSs/fEy
-	 z7zj8wp3HAgD3z32sFxFD8ENpA/QsUoDi9IeetJuRhIJjdJ1dPbP3c2BqKBLL6JFrv
-	 ZR1uZdclFtaZwkCNcFg+RtgSjSwltBsGB3p4JNqI9cjQ/l2YggHMqpjWlrDdmgyHbE
-	 f7YYyYyao8MceMxbecrRVMxzoBexwY7gsB6gWoUXbnbZXtWn7LMuheBUflTFoQHW71
-	 PMQS9WRNx6sj5ZymzSoBsPVKT5HKAPP7qX+WVkBk4bs7s8JFJtHyuOf+fiTviwYY3a
-	 H6b8m5iaN6e/w==
-Date: Fri, 11 Sep 2026 12:07:31 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-cc: Anup Patel <anup@brainfault.org>, LKML <linux-kernel@vger.kernel.org>, 
-    linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-    Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, 
-    Paul Walmsley <pjw@kernel.org>, samuel.holland@sifive.com
-Subject: Re: Interrupt chip driver maintainence
-In-Reply-To: <87ecf74c8r.ffs@fw13>
-Message-ID: <295ecaaa-fca0-05c2-ddaf-ad3a2985776d@kernel.org>
-References: <871pb9841j.ffs@fw13> <CAAhSdy1=Z-VjEhGsGOJ15QptCSZP_6zG1NF=B972KwzEJhFbFg@mail.gmail.com> <87ecf74c8r.ffs@fw13>
+	id 1x55gU-0000000HPrV-2fFS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 18:09:12 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 799BE10327B;
+	Fri, 11 Sep 2026 20:08:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1789150138;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Owzto5RJpsaGdDWQuvd8vx3DnYx5//26ShytlrfPA+w=;
+	b=TBlPm9NCuoQ4uKoJYJuqPB4sCc1c0v60uLv0xCUrF72laLt7/Y0NIUqXimUHGa9CeYwmS4
+	eaEzokHM+oJ2En+aTkAtK2qW9UtlVkut7uL1aGWjD18GkBtRKez/izcKMTGkPala4s+lc1
+	OYDTYpdLtv8bemIRQP5T3hiIsoumUz12NXH2UdyuVpYDePLpHwMIT9yuIpP6YinKggPa9p
+	lGPF1/pscNWrIiZ0r6KwqfKF1JzIdNfz6lluF5siaDTV2DQl7KnA0+pMq9Of902IsT02+A
+	uXL7/0evjaaO9qOF+ow0jxNmLGxRgS2LRkeXkRQXY937n1cVciSIS8zLAr+byQ==
+Message-ID: <2904b225-e45f-41ee-93ca-794d1b62e1a9@nabladev.com>
+Date: Fri, 11 Sep 2026 20:08:52 +0200
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1429182635-1789150055=:1495113"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] dt-bindings: iio: adc: stm32-adc: add support for
+ stm32mp23 and stm32mp25
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Cheick Traore <cheick.traore-ext@st.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>
+References: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
+ <20260911-adc-stm32mp25-v1-v1-1-cef26eecdef2@foss.st.com>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <20260911-adc-stm32mp25-v1-v1-1-cef26eecdef2@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_110910_904005_E67B6E88 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,46 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---8323329-1429182635-1789150055=:1495113
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
-
-+ Samuel
-
-Hi Thomas,
-
-Sorry for the delay; I've been on vacation this week.
-
-On Sat, 5 Sep 2026, Thomas Gleixner wrote:
-
-> On Sat, Sep 05 2026 at 16:37, Anup Patel wrote:
-> > On Fri, Sep 4, 2026 at 8:19 PM Thomas Gleixner <tglx@kernel.org> wrote:
-> >> I'm still going to pick up obvious and simple bug fixes, but for
-> >> anything which requires deep knowledge on the underlying hardware, I'm
-> >> going to just mark them obsolete when they molded in my inbox unreviewed
-> >> by the people who understand it for six weeks.
->
-[ ... ]
+On 9/11/26 5:51 PM, Fabrice Gasnier wrote:
+> Add stm32mp23 and stm32mp25 compatibles. Three ADCs can be found on
+> these SoCs, split into two blocks:
+> - ADC12 are tightly coupled (common registers).
+> - ADC3 is managed independently.
+> Each ADC is a 12-bits successive approximation analog-to-digital converter,
+> with up to 20 multiplexed channels that can be configured as single ended
+> or differential.
 > 
-> I don't know what's wrong with SiFive but they really need to get their
-> act together. Paul?
+> New property "st,adc-trigger-sel "
 
-The approach you described above is fine.  Please feel free to ignore 
-anything beyond bug fixes that doesn't have an appropriate ack, at least 
-until we figure out how to broaden the pool of maintainers for those 
-drivers.
+No need for space before "
 
-For what it's worth, several other companies also adopted SiFive PLIC-like 
-interrupt controllers, and reuse those drivers.  It would be great if 
-kernel folks from those other companies can step in and help maintain the 
-underlying code.
+> allow to make the difference between
+> the ADCs and to apply the correct trigger configuration.
 
+I think "st,adc-trigger-sel" needs an example in the example bindings below.
 
-thanks,
+> STM32 ADC may be in a power domain: allow a single 'power-domains'.
+[...]
 
-- Paul
---8323329-1429182635-1789150055=:1495113--
+> +      st,adc-trigger-sel:
+> +        description: Selects the HW trigger configuration available on this ADC
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        default: 0
+
+What does 0 and 1 mean ?
+
+[...]
 
