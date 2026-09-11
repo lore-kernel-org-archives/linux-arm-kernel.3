@@ -4,64 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A654C88E42
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9F2C88E42
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Re4OuRwLxErTc9uR7CpD1jNt1FFENy/RKFyXLL/LfjI=; b=UoWvw1lC+iHPNqiPXUo2o4628Y
-	EJF5IwUhrPMBuICpk2kdoZBjNj7xtl1Xi2B7p0alZfCgGbO5iV7BeFR1Hk488Ra4UMazneCtU8rxX
-	ao+vfVbu64ONkw4tEh2B1YnOdK3A6ZNHn4gkpTNXRES9wz9jYnZx9UEnzcGhQj6WHpJj9Pyvpaw79
-	qGF3isiH4geoZIsyt8yKK+G0RNUs/vuJTBlp78vTnFat8hmqKljaM5dXCRkxcqihSh4jiQYgwcXVP
-	iB8YITrILBPOuS9uaX715kGubXJu4pbmrCeqjau/m7qZ+n2wlp7yYP+wxwSRSPxU3BBlj1K5ZKtKH
-	5/OMlesQ==;
+	bh=ldCwAmi62bta0bScl7eF2OOXIpIyCV8KCS8Mw/m2xj8=; b=vCLfekgQL/K2qxCl3HOimCXqKR
+	cXHFNwdOey5IAFGPP39iO4l5YFn1yVrxA6PFGTQiWOKkXlniVKZO8HIEJzLjo/HskYDI0ogoqPoeT
+	SBUUcbKp+bTa4bn7+Z2z0Db9hY68MQBz8m3vBD40hzDEEEb39nQYMVzx2vLF1/1LfvgLu7XgFjI/C
+	7NX5rNOQP4BJeE2YRDtYLQxlQ2L9zk/u6L9KHa3zjT65SE8jrIPzNWdccWbHDTrIUdkht5F3F4QQa
+	mABHApPpf4p3N3+uuDZC+WK8EMyUeOi5eCrW6pwzm+2f4V/V7SIFqQmIuFM4g0FZ7gcUYwFYKnHND
+	XiT8d7OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tbt-0000000FqhI-2AHM;
-	Fri, 11 Sep 2026 05:15:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4td7-0000000Fqt3-04jM;
+	Fri, 11 Sep 2026 05:16:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tbs-0000000Fqh3-3N3C;
-	Fri, 11 Sep 2026 05:15:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D612A409FE;
-	Fri, 11 Sep 2026 05:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4014D1F000FF;
-	Fri, 11 Sep 2026 05:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789103735;
-	bh=Re4OuRwLxErTc9uR7CpD1jNt1FFENy/RKFyXLL/LfjI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IJUV/GsKHHvt9HrUKFv1KLSB1qHKzOiUQX8PYVGxYjP+6GKODDx7yyMP2zHhC8/SW
-	 pczlz20cM18LzibHOMKTJJ8JMfBfaa2hBQDetiD/d6mwq3/zOQ0fxw0D++FV7Ln9r6
-	 +/8mdx3vSyGNbwTtqZIV30bThMaYlkK3LpH8vX7btR4mqJJwU53jOgnmFNMp0CyvlY
-	 cPS5nP6kVuu7BGd5lWQx+YM8Ou8zQUPN0jwZ7XBBXaxFJ51Q/JLhf+QKzF4MpDWD2k
-	 zTnR69WtvBkinYcgt51aN5lJ87ZtRqhRwjJM3oyJeM4UOvtEXGa+bkzfnH+AAMXdzb
-	 6A53O1yu12W8Q==
-Date: Fri, 11 Sep 2026 07:15:26 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	chunkuang.hu@kernel.org, p.zabel@pengutronix.de, justin.yeh@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 11/12] phy: phy-mtk-dp: Add PHYD Lane EN register mask
- to SoC data
-Message-ID: <m3fpa2igwmsnsxhhxtg5hubsmxbn2vmzcpo4hwacs66z52x5ll@xrl5kac2qmtk>
-References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
- <20260707154245.198361-12-angelogioacchino.delregno@collabora.com>
- <cydeh263kd5o2un27oeplqx2phe7vzhxvk53kr7dbvtplazafv@rs37qtkhguhj>
- <4e658914-7a17-444b-b20b-8d8b647238b5@collabora.com>
+	id 1x4td2-0000000Fqro-2g3j
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 05:16:49 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68B4vQ8H2986654
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:16:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ldCwAmi62bta0bScl7eF2OOX
+	IpIyCV8KCS8Mw/m2xj8=; b=MY8P70ytevYKZRTZKipeZaYfAlEgnquIQ7yvefr7
+	qQ1AnZ+R6+/o3G6EnARX2+xXjtR3JczsmpQbMNX7YkygXNVRaAxtOVViG1NJY443
+	Hjsz4w4r/ZqYSJrNrJX/L0ZLW46+66FGGmltRqsCiSvlPve99Lwjt5j1FYi5WH+q
+	X2JOSSCD/GSdd22hYsCKt9zCGnaTB6K/ZZ6LTX/6/BR1ePcUCOj/s9hXHfHHVR9B
+	HQ48mlHZDF+daGMHrGmvLccXoJxN+MWFKmW7S4JjX87Rou5MyjDkHlxgWRa6RIH4
+	lux1Hx+L4qZ0fe5pggjrhen4FRxwEAy+9OnFxAwXqLPU3A==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gm1k2a3x8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 05:16:47 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-399311947f6so1019138a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 22:16:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789103806; x=1789708606; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ldCwAmi62bta0bScl7eF2OOXIpIyCV8KCS8Mw/m2xj8=;
+        b=WHbLFnApLpVGOgj2XypJVkJuk0hmq3kXvRPISwUP9haJ30hQ3adNG186iUQlbou2ID
+         wlSKMiKgA+EmY+daI0vuuo/iBLRnoccLCZX344Ru4OdaGRjgsqu35MXO5b3y7l0AM5lP
+         aBl2foX60lgJEd1kw+zKAOC6cqVQY/EjP/z4UXh/ba/08cA0sswQt3Yd6Nz/6n6VhVEI
+         d8Qv4kygCmlUlv6tr7tmYZDr5+FOwVh2lTIt3wR6iJSiljRuVlqXI6grwMk35rKO+JoB
+         gFALOfnZJVK4QksM6CkqanVh9J3h69ORzosG2af0euwOxL2AgDypuSB6RNJJVKA6iHHJ
+         eJbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789103806; x=1789708606;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ldCwAmi62bta0bScl7eF2OOXIpIyCV8KCS8Mw/m2xj8=;
+        b=P8WJoJoC93xviN9y8VhqmyrirWMV5l2ozbQ54aLfQI+qawepGfKY6Fq0ZYl6LM13Tt
+         fXMz6r7fvQtQChmrTZQ8gHrN2A46cjAD1KbTOdubxFguIPw26WUXPXqIffUdoVHC2Vvv
+         Y8P/OEyQS9bWpK+yMnKJ5yriYm3QmVhlzCvmdMWXLJM74zyBAKMM7GMraeUfqd0l5DHi
+         je1cBvO46HUl0nv0puE3C1a8Ozpmqo/OZefM4glrwIFKpa0aNSG3Rym6Z8OlRozHIbap
+         76bHsv+o/gM21MzPQz5krIi9NEGACLQcv1eS7pbIwsVyBcKHiu2UcDYVyC1HVJpNteR+
+         APlw==
+X-Forwarded-Encrypted: i=1; AKwUvBw+4maxSe5Xy1ApEE9vpe1ev1yPMUfTZ2GnCoK2uE0wsqRqYFfsENMDSC1IIdbAGVY9LrtdvgaSQEXWWAFBHwuR@lists.infradead.org
+X-Gm-Message-State: AFuF++nMzoPTQdOjoE0o+6BbqnNAEhZeXQ9NNGq5uqhXCo0ZaQLQ9RdF
+	cvnL/K4rt80VUkWzW46B1VsQck5uNugKbzzqjO9ONOUA9vB9t8SOtl2JaunbNcsjhVOaUmsxcw/
+	zd3rjFcMbw2lDYjM1dVsYlhkRcIKDi5nm59LA/3oVE7q0uj8//LPwMDQ/Ps/MJInXAQZ+8WtJhu
+	OGJg==
+X-Gm-Gg: AYBFou3LjhcJqZhIofEmXoynAoUUb4XTJ1zKpUuSILT1I+NKJc/PNjeysvaGkmCHXNI
+	VzozMZQjI0RUN63eHQQ4M42H4b5GtenMC2BHhNyCwx2OAIWC8q9qfrrGtZHUpFR1nEg/Rpb0Uec
+	KzBeXOeKVWJLJp0rzkLH4RX1r8ri//zekx0iMB6X67JLw+JWzWmyxHmKKV0UyGdmq8zZ10jjsR0
+	utMsL17W6SH6nOuvQYqXTCw0diam1JelkU5k1T95bzjFMki+n1oDPURaLb62B7hhntJxUnbU2GU
+	mn3fDQ3u9m0ZYcrZ1GIpxtoTBhSzTEdaaITX5JwzLNqBdH87WD0h/5+NL28VqZNUktWii8oR0XZ
+	Kd+RdUFw4DDMVuhCAnUWP97irpT5SfT6pwaHL
+X-Received: by 2002:a17:90b:2549:b0:398:dcfe:967a with SMTP id 98e67ed59e1d1-39d9c227fc1mr3807650a91.17.1789103805692;
+        Thu, 10 Sep 2026 22:16:45 -0700 (PDT)
+X-Received: by 2002:a17:90b:2549:b0:398:dcfe:967a with SMTP id 98e67ed59e1d1-39d9c227fc1mr3807597a91.17.1789103805142;
+        Thu, 10 Sep 2026 22:16:45 -0700 (PDT)
+Received: from hu-ssmaurya-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4ed64fcsm3419325eec.16.2026.09.10.22.16.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 22:16:44 -0700 (PDT)
+Date: Fri, 11 Sep 2026 10:46:37 +0530
+From: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        Marek Vasut <marek.vasut+renesas@mailbox.org>,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-rpi-kernel@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com,
+        Jessica Zhang <jesszhan0024@gmail.com>
+Subject: Re: [PATCH v2 2/2] regulator: rpi-panel-v2: Add required vcc-supply
+ support
+Message-ID: <aqOOtRE/FMYpZYvD@hu-ssmaurya-hyd.qualcomm.com>
+References: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com>
+ <20260907-rpi_reg-v2-2-0c59aa60d31f@oss.qualcomm.com>
+ <20260907-ensnare-wanted-e86eeaf770b0@spud>
+ <27fb1c11-c1eb-4494-ac38-d794baf80814@sirena.org.uk>
+ <20260907-showroom-elevation-ba1a0792b7f7@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4e658914-7a17-444b-b20b-8d8b647238b5@collabora.com>
+In-Reply-To: <20260907-showroom-elevation-ba1a0792b7f7@spud>
+X-Authority-Analysis: v=2.4 cv=cM11IVeN c=1 sm=1 tr=0 ts=6aa38ebf cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=oNE1GLUy8bkFCx8mVIwA:9 a=CjuIK1q_8ugA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-GUID: VB8wvv4W7xMsM-PIsHdDZUA8bdIXm3pA
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDA3MSBTYWx0ZWRfX5lbu1c9BBa8O
+ e67w0DLQ6d5MQAk0J5UiWtwU2jrSikPtcyxHXtgX29d7YqErNRH25eNxUIC1lOGlbaumUhyoXU3
+ PM/YicJF3Ulsvqi6PpJptj207NMcoLM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDA3MSBTYWx0ZWRfXxHCLdA4G3t3c
+ 4REX4ZLw32TGYjOjNMPOXYxFDNMUXetMcSAcI1G5IqbE5NMYXMucHS078QRxj3rDvjbvVS3sn1e
+ AHJktnC1lDefP1crwmgufkxuA7v+26pwqx0y5Z6P+IfIcfvf+WdleBHs3gSxibaiIjbGY6sgHUY
+ 5pdIteRgEGqEvFw1fOBdsskJ5GsPkpkIf8tXtcuh+KSqf3REze/frKjt6Qgk0hWvBq9ti+KkrgV
+ 4CPPGsu2pTop8eB0U+fluHs+5esICF4ZlIhqw0kruaokeC5S/PNrDCAJpSCha7wfGcRuRgtIoXA
+ TxXA+0yUVzWcva42beeNF/t4X2WZsNTl+VauLcnd1ayQW5bmhyAa9kzmwXtt6tAhCJk1VU31ptG
+ PvvPrt9msfJ/doTGQRS+r376sUIQQPl+HSQd35lyJ3z5qO6kP1uzoD1m50cZP7TQhsZWpPW9fjB
+ T/K1dYcskoLGml1dIrg==
+X-Proofpoint-ORIG-GUID: VB8wvv4W7xMsM-PIsHdDZUA8bdIXm3pA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-11_02,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 malwarescore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110071
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_221648_788959_8CC70996 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +158,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 11:05:39AM +0200, AngeloGioacchino Del Regno wrote:
-> On 9/9/26 19:25, Manivannan Sadhasivam wrote:
-> > On Tue, Jul 07, 2026 at 05:42:44PM +0200, AngeloGioacchino Del Regno wrote:
-> > > In preparation for adding support for the eDP PHY found in newer
-> > > SoCs, transfer the register mask for PHYD_TX_LN_EN to SoC specific
-> > > data.
-> > > 
-> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> > > ---
-> > >   drivers/phy/mediatek/phy-mtk-dp.c | 13 +++++++++----
-> > >   1 file changed, 9 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-> > > index 4603f28d1466..f5aadc5fdc42 100644
-> > > --- a/drivers/phy/mediatek/phy-mtk-dp.c
-> > > +++ b/drivers/phy/mediatek/phy-mtk-dp.c
-> > > @@ -220,6 +220,7 @@ struct mtk_dp_phya_imp_sel {
-> > >    * @regs_ana_lane:  Register (layout) offsets for ana_lan
-> > >    * @regs_dig_glb:   Register (layout) offsets for dig_glb
-> > >    * @regs_dig_lane:  Register (layout) offsets for dig_lan
-> > > + * @mask_dig_tx_ln: Register mask for PHYD_TX_LN_EN field
-> > >    * @val_dig_bitrate:IP Version specific register values for Bit Rate setting
-> > >    * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
-> > >    * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
-> > > @@ -239,6 +240,9 @@ struct mtk_dp_phy_pdata {
-> > >   	const u8 *regs_dig_glb;
-> > >   	const u8 *regs_dig_lane;
-> > > +	/* Register masks */
+On Mon, Sep 07, 2026 at 07:04:21PM +0100, Conor Dooley wrote:
+> On Mon, Sep 07, 2026 at 06:09:57PM +0100, Mark Brown wrote:
+> > On Mon, Sep 07, 2026 at 06:06:24PM +0100, Conor Dooley wrote:
+> > > On Mon, Sep 07, 2026 at 11:16:08AM +0530, Shashank Maurya wrote:
 > > 
-> > Duplicate comment. With this removed,
+> > > > +	vcc = devm_regulator_get(&i2c->dev, "vcc");
+> > > > +	if (IS_ERR(vcc))
+> > > > +		return dev_err_probe(&i2c->dev, PTR_ERR(vcc),
+> > > > +				     "Failed to get vcc supply\n");
 > > 
+> > > This needs to be optional, because without it you'll break existing
+> > > devicetrees. Unless you can explain how all existing users are
+> > > nonfunctional (e.g. nothing ever enabled the supply, which seems
+> > > doubtful given this surely worked when it was added) this must remain
+> > > optional.
+> > 
+> > The core will stub in a dummy regulator for mandatory supplies that
+> > don't have anything mapped by firmware, otherwise essentially all
+> > regualtors would be optional and our error handling would be a disaster
+> > zone.
 > 
-> Sorry but I think you didn't understand what the comments are there: the kerneldoc
-> is used to describe the structure, of course, but the comments in between are used
-> as a way to describe (and kind of enforce) the order of members.
+> I always forget how this works. Thanks for the reminder.
 > 
-> /* Register offsets */
-> u16 member1;
-> u16 member2;
-> ....
-> 
-> /* Register maps */
-> const u8 *regs1;
-> const u8 *regs2;
-> ...
-> 
-> /* Register masks */
-> u32 mask1;
-> u32 mask2;
-> ....
-> 
-> etc.
-> 
-> Does that make sense now? :-)
 > 
 
-Yes it does. Sorry for the oversight
+Thanks Mark and Conor for the clarification.
 
-- Mani
+To summarize: the binding marks vcc-supply as required 
+(since the hardware genuinely needs this rail), and the driver uses 
+devm_regulator_get() which lets the regulator core provide a dummy 
+stub for existing devicetrees that don't specify the supply. 
+This keeps backward compatibility intact.
 
--- 
-மணிவண்ணன் சதாசிவம்
+Is the series good to go as-is, or is there anything else you'd like 
+me to address in a v3?
+
 
