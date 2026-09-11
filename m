@@ -4,117 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78403C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EC1C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=; b=NH39BNa26JgwcLhUgowLpIT32Z
-	1fCxMNhCaLOAnJyR5ggnpxa79lNx5R8w+WOZBxvsw3BSzMIgXqvNnYEs1Zo2YwVqmK/DpZSRFSOSX
-	kkjXBbfQBSxyUvyuvKye6MfJnzDlBSe7ASe5ykoI02eS0SAGQKBTY8SRN/O/NRclRtYNFMRjGKpwH
-	/UaKQeBYqCyfmRN7seupA6s46O14ysndPFUpEcQjrMkiXNwBGs5D/DWZNRvenLfZYiRu8KCaAi4YB
-	zqivbjxRGN9DMSUriXQhFNu4XY32SI08P3Y2t1KjbzcLJI2EtYPwA3nKsVNHnlldbKWvga3FbnWV7
-	Y7iIkOMQ==;
+	bh=WESwzsuQOk2oYr2bvcUCNFFgqhnPEpZo2MR9yL4K3Y0=; b=Y+YvD/9rTQmhuSINDrvAzKk57n
+	PWCjjtfFd8tq92w2qTA8uqOo9jxRnLs3HvOD2QyNpE7RLHhG3wEjAbjFF2mweZp40qZGjtKlz+yfk
+	WTZxVpY4IJ5dfppPSm88/M8WzZ/wcBwhyBUa2mczrS12i8AFSCuODPwxgPsdbIA8GVQDbMSKIZx5f
+	onO98cdFZa4+NJrx+RGt+d2CZs6l+qK/KVc24K75nTgBUdZlg+wbJSNkMxDKLNIo3/1g6pbe0TE6l
+	2aGAcFZyvVgtsfLQVnDMisY2KJtR+89By5zCZYA3z3g//QkJJjpZ8By/xeOHZadZpPCF/konDqfxY
+	xNM6+Ipg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51ww-0000000GrA2-124u;
-	Fri, 11 Sep 2026 14:09:54 +0000
-Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	id 1x52wb-0000000H0yK-393S;
+	Fri, 11 Sep 2026 15:13:37 +0000
+Received: from mx0b-00128a01.pphosted.com ([148.163.139.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51wq-0000000Gr8L-1hvY
+	id 1x52wY-0000000H0w5-1v2C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 14:09:49 +0000
-Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-6712bea5c91so497964d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 07:09:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1789135787; x=1789740587; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=;
-        b=INE91x11IPibK/wgJOlhA8qWk58NlDJuBenfnHXxFF0ZaNn+jWwtF7JodH4Cx+Ne6B
-         0GMbcu8MgNy7jl9wT3y6LTwEEG2BVTtyBzXdVov8SM7CzFRxNcWNt0xoaimY9s+bVF7n
-         XQ1fQiWNkeHMv1c0Pn9u/cdPuywZt1MoG3iPNBeGyGD1UvDpCmcrje9bCsxCDBwPP0lY
-         NIahCwCQvInFEmm36L5czX64awKbHjfzulWGmWxhzXHWQgzZmfa5Q/t28T10RH1PcYL7
-         RR467LkGvlcQ6+W/7Sp7PLgM5Zq38pnBdSkaWIH/j/nEJJ6J+CTB3pwa3SG7VYtzt6rW
-         OlGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789135787; x=1789740587;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+LMR5vylWFXJjVBWLTvtKp/AcLzLdtKKT/apfY5nlpQ=;
-        b=Q05AnmQvFhnX/mxlaTiDRhPP/L/IQT+JTvPhWoIopAztURoWKraUsAJx8VLW6qNtx3
-         rjF4xmclY4ey2F2ftOKl4/bNuiT3XLdLYZUwQwiwwliiWWgfqgRhwTs5MqFTmWfiRWBA
-         lYsFU1ZWyHwwb2Nfj757Xc1LpDlJkAGJswU20Gs0HAcDvRyGQdMQobuNotF/Ekhb+low
-         4YDLxDo26yvAjsTBXlLtg1mAqt/l5bvhPyA227bcrBqHKvqupfd0Gf4H45ERaKkQ00oM
-         Lrn49e2pvVWVYcOEt649aEwFv7R1HsylnQBBGRc2uZ+JCCS9S/riUP0+eVMDVsJCgaRm
-         poHQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwMlCrDaLB6E6S9AfXkSZFTAcSO3x3fItXrygM+uKjh6aIcza+fcVfjLtrqYyFprDGr21A3+3ES5yTCVXA7OwiX@lists.infradead.org
-X-Gm-Message-State: AFuF++nqgWL75wHWKOgJ50ggii67WM02YvT5BkSLhKjz4ecXelFmOKSs
-	s1XuM9jxIYWwGx5W8fyeA4m6u2YCxZfsE2plO16KSSBEQivem1fKR4+sLS5B4HPwEvc=
-X-Gm-Gg: AYBFou2HvmPAq1BduaajIChhGjFYhRFm1FPWfjI5FxQdMGhxtbyZFkLXfiSM6VSCJWF
-	HtjYIekVa0/Cxc0hLDxHuCeQzpkAg0ydJC+aKeB0M8wez+yKTecgKAknnK2p5/kWUZP2VHbnrrE
-	RlU8HC9Y7AcfsoLjYfsv5HbzKtouf5x3OEJiWP1n9maHJDgFCFEns1fYyRV2p1mkpEsCw8MM1Pa
-	Xa4NZO0CP7Lcz4LZcz5FJOXo3u3ZWNlcIve/RvxIQ72uoAYgb638OR4jScX/7vDHnpP4PSeuNmz
-	R+PXpypzngfcGcPZqMYZPHWciNS3nLQoDBVhOkrX2FeuloQE8qw+odABFg1DimviFJNLuF6XzmG
-	TdQkoZDnUH0m7/KVhVGm79McKPkZxrkXFVwKqSlVDEZsq5M4k6pyUZwbz1fVzlEIGPCu0kO2Yah
-	rLQ1Fxbmci7fHk19T3ubdqy/F/x4cEi6pXNz98bp+JDMaT4H/XYgYybuaiUYTaNyxLZ6ma6dvWO
-	C+oWViOuHXbaJ5EFX8+17EP+PuUOiLmv9DYokxwIJWSr/npBVzGBOLwSyoZIXBhaw4=
-X-Received: by 2002:a53:ac84:0:b0:671:2bb8:ceb0 with SMTP id 956f58d0204a3-6712bb8d198mr592173d50.65.1789135786904;
-        Fri, 11 Sep 2026 07:09:46 -0700 (PDT)
-Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120ef650a6sm22355976d6.0.2026.09.11.07.09.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 07:09:44 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Fri, 11 Sep 2026 14:08:39 +0000
-Subject: [PATCH RFC v2 01/15] rcu-tasks: Add per-task trampoline nesting
- count
+	Fri, 11 Sep 2026 15:13:37 +0000
+Received: from pps.filterd (m0516786.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BEisJt1169661;
+	Fri, 11 Sep 2026 11:13:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=WESwz
+	suQOk2oYr2bvcUCNFFgqhnPEpZo2MR9yL4K3Y0=; b=bQh9pOGi2hsgBA9xoY65Y
+	Q/F3XBYRtlJHCeAF1ZSd70lWbv5qJAF1ewqd1Nmkl+MYBuH00rBobvncPVkdiHCX
+	2mY+GphysBVGCX2c6278CGbRlORqdj2AIWCqIVgR+g0KNo3H2vmmhMlNDnAcSAAC
+	41YXZw/z2POyF7tX2T0xjac7Bl0acKV0GxJpYDLPVKEGhcJcjLd06YT5UoCGPpAn
+	wwmYpHBNb0G2pOcUHpUQ7nL365JkDWfFXRTeQxfHd+8GV7byOf8Lh3C3y3OetNP8
+	pBPKupdmt55pmgD65nVBpHyHFxpDW1IFiFOHJ0LQyFsfpi7Zkb3v0N7PFp1nzja0
+	g==
+Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010056.outbound.protection.outlook.com [52.101.46.56])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4gkcxayuhd-2
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 11 Sep 2026 11:13:08 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tHR1rdC6DiJBy0V4LedJOZdvgtqr6s7mThJM3WMhlzuzwHNWv+nahbcKqOqffoRI0o5J3v8E4e/M++EjotdD++TuyWOxPLjH2MvW5Ywfi9DUWe0Lb/lH2BfAltzHF7THbbcFMJcs36VmoCIsKWAB3zQRgiKIZYuuepvqQN4A5EakyDUjb4bFPArN4NbbCtkX2TzPgyC1p71iekXLIpavCKXBPBubnrREiq0zrbHt8fdQfVTegdPjMYGcWO2oJ+8W3aZ9G6U/I5kE8IzCkEk9I5ZNRfjRY7uRCyP3+vRL/tc6zuy3J0QeRc9/udjB/Ul0lFTQLaarwCVb4Curc1WjSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WESwzsuQOk2oYr2bvcUCNFFgqhnPEpZo2MR9yL4K3Y0=;
+ b=Yv8LujEzyT2hDowBjYDzDzcjL/Zs0FnAH03DfzrRzUXXk7Y/ljcJxNUDFz9bknjCtDxWUOLcXnEuhQhSdonMxyOFtbK4xOlvjxjXJfojDpwSP8HgN4qQIzqec08AR1pRWAX8+nCyAUfDKWqRIMWBwCaE0w27GvJx8g6t0t18mvLLTU7rafcMhsUq49qhQ6+c/Rsk6gN73TdLBwR9TSYzbPm98WLub8hKAPJb74GKO8ZwKZ+n/kAJe5tFN/YIP2hTh99YEnIWf42jYi22pFhKujNzAmWKQkA3wLITWetA/7/+TQW6b47A32emBe2yYscoM151BO9EX/qMHdZ+Hzzd+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
+ by MWHPR03MB998607.namprd03.prod.outlook.com (2603:10b6:303:2a3::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Fri, 11 Sep
+ 2026 15:13:05 +0000
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a%6]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 15:13:05 +0000
+Date: Fri, 11 Sep 2026 16:14:20 +0100
+From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+        linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+        Lars-Peter Clausen <lars@metafoo.de>,
+        Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+        =?utf-8?Q?Am=C3=A9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v3 1/9] dmaengine: Support bus widths of 32 bytes and
+ above
+Message-ID: <aqQaUx5Ok8uesHu5@nsa>
+References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+ <20260831-dmaengine-support-wider-dma-masks-v3-1-507d97496f2d@analog.com>
+ <apWFa4BFoAL2AhG3@ashevche-desk.local>
+ <apWjMBvGA6yo_nCZ@nsa>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <apWjMBvGA6yo_nCZ@nsa>
+X-ClientProxiedBy: MR1P264CA0167.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:501:55::8) To SJ0PR03MB5469.namprd03.prod.outlook.com
+ (2603:10b6:a03:28a::17)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-b4-rcu-tasks-preempt-qs-v2-1-eaaa61ed2da4@toxicpanda.com>
-References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
-In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
- Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
- rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1789135736; l=7684;
- i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=5hfL8mlrp+YP87pgAlSpHeSx0zMtfymEMHCNh6a40UA=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
- JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QPWvMx3TEehoRUZzyZvbL0GIDlx2yxh9C8YdBR0qgc4jATwF0zYzIPzSM+uo5u0rpazhBa063Yn
- SUZFFg50YiQg=
-X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
- fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|MWHPR03MB998607:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd7574cc-11b3-45e8-ddbf-08df10172e18
+X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|6133799003|10067099003|4143699003|11063799006|5023799004|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: uGSBJRdoNzbSu8CO5AaxjNEBnvTUFxe7GPxxr5bPs92EKzX1OGFiLc+KJtIZNezPyYzxFRtm/bHDv4S68eZ+hDThEOPg5UJ61PaI14ivMDhp34hyPXnhDaF6do/jqKXoMDXafKd7NoTkCI+a5LnAc1uQvyjgFGvej2g3lQtPW1TOpf9ILFTcWMfRiDof/6tky+0cdHEme1rgXIUIlAcZqxi4DFVI4Ss12m47SE5INN2CghF+EjNOECLHbp1C5QS+NE6zB1Q9q6L/rjwwMTrUrnUMUzPujngWAJaDx7Scc7ANDEsbCGsSgJMio4giaF/LGuEyZQTvYDdTdfe3nVlbKas+xl9g0jV1h1D9Ka4BxUAclXM0jo1x6NHnLiCU2JfO9CPWed5VnojLvS/g03ihk6ZU8EnLu8/VkzZlcVF4IGMNtTaNqoe3Hi/w0+IBC8+Ws68MB5pHcIWaSPgvfQksaU8Ps8j4maL/EVlC7fzdrepipHxqLYVeK2/HlXiVTV4S0fJeC/gMecgzWCd59d3KY9MU700OtSNiqqSIjXpVpZRBqTiHit7NhIj3VrgYWHzrjh+yvwUMVgm/iJWLOeXhYtPCiIlKsuvq4nZaEQE51/fn/AJ9FcUklVTHDEEuNoC4kdKZNP3iLuOwFLLvCUcGod7PRzAmGnwyoM+TiuZpQps=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(6133799003)(10067099003)(4143699003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WkFDYmlTbHpxSEhZcmxrcUxEM2p6cjZRVE8yRkxhSUhnOGpxQ3phSlMwVklL?=
+ =?utf-8?B?TW9wUENMSm93aGloSTRQcks5bm1aRDdseGF2T2grakdpVEs0dENiVGJaZnY2?=
+ =?utf-8?B?Z1hoUGhta0hERDBvL3ZpWXhCemFqN0FIK21MekRsNmxqY0hscnJETmw2K3VB?=
+ =?utf-8?B?Vk5GeEJTNGVaQ2hsRGx5c3dFR0xOOE9PVVdPM0xNRVA5MTBGNStWTlo2Wm5R?=
+ =?utf-8?B?UEJOTnZSMUFuUzM0L09XN0tQbGJHckRIclFOSGg0THp6bGwramYxd2JQWDZO?=
+ =?utf-8?B?d3R6LzFKSWxwSFIyRm9qbkY0alJjZVl2NmFSWHBRbjZaQzR4ajNJTDdPRk1K?=
+ =?utf-8?B?K0RPY2pwaitkMXZGajI0VDlPcFZtK2M3SWVPdWIvRkd6b3FrcURKQU5uejFy?=
+ =?utf-8?B?TnFSMjlyMExNSlF4cVFBemt5R2JZSU14ZkVjcXVGZ2ptbUJKbFlVcFB1Tk5i?=
+ =?utf-8?B?K0lTMGNLMU10N1kweWxpckt6TXVkWXZVajZLV0ladE9lb3lDVjc5VFdjUENU?=
+ =?utf-8?B?UEZPejdZZ2RyMlA4WHpvSjBwaERiblN1R2tqcWF1dGQwVXlneEoxeU1PZU1V?=
+ =?utf-8?B?cHpLa3hVU0wyV2pqRVRxNVlIVVFyTjJhZzIxNWVZMmZWQXlwc0hDYld3NFdh?=
+ =?utf-8?B?RDJBaW1MVUZ2UjJ1bTVUU0gxK0dJRmhHOG00UTJHVmlaL0V3T3Z2QzJCYWxY?=
+ =?utf-8?B?emtCQmQ4Q0h4aHVVMzlPRHVCT1pzQm5MOUdhdXpvSWU5N3Vac0FsUkdFQ0Nr?=
+ =?utf-8?B?R003OHoyenlZczRBcXhGRzBLKzA5TE5DUFVDZEhWb1EwUlZKWnlFM3NDclhw?=
+ =?utf-8?B?OENnR3o4d0JQYkYwaEpDUEZCTlJIMVlTWGw0TkJnclVKbUMyWldkM0lVT0xv?=
+ =?utf-8?B?a1pWMld4WTBwUFhmTXdVeUlKNHdpRmF3Smh3Qnd2WDUvb0xKVFIxWEc5dldO?=
+ =?utf-8?B?RTZNWG9ETzZ2bVY3K1FjY1gxUk56UTdwWUY3NXJlVG01dC81cGFwcElwZXI1?=
+ =?utf-8?B?NjRrekRsQ0FzbjQ2SkxqUmw2eTIxV240UXVORkdQdXdXM3I0b3VCRStha2Vm?=
+ =?utf-8?B?eW44UGtua1V4UnJSU0VrMUJUVklmR3hKMjQxZHJhUENjOGdNTGtMVWRuTHpp?=
+ =?utf-8?B?d0tvWmtINVBXYXFsODI4YVBIdmg5MDJqVUgvNkM2S1pZZWVkU3o3TSsyMXRL?=
+ =?utf-8?B?WE9Ca25oUDdWUHJaZDVlUFRxcVVia2xRYnJXN2ptN1NvTEdmc0lnVXJRQmRB?=
+ =?utf-8?B?MFpEOGlmaU4rNFduYlB3ZTJna0M0WVNqVlJ6Z1VCRkNSZGUvZnhyVkwySXAw?=
+ =?utf-8?B?Vm0wYlFsTk00Z3RDbjJ1RDNuZWhQdGxaZnFMMXdsQ2VJTlRjakRCOUErK0Zo?=
+ =?utf-8?B?eWFPenI5WVFjRzNiak00WFBSWVJQcVdXY2xaSGtFZCt6eHY0WEpRek9YUTMw?=
+ =?utf-8?B?Szdaa01VSXV4WFBGVFgyTUUxZzdGUzhpRTk3NlNBK3ZXcm1sS2tNd1dwZmQw?=
+ =?utf-8?B?Lzd0eWdMZVVRU1VOZG1qR3RCUElEMWdpRzE2SjZ5QUNVWkEySkZHRVdteG1L?=
+ =?utf-8?B?QktQbFVsb20wUzBsUmZXTFZnVFZTUlBPdEVUL1hEK255U1RaK2ZwSXAraHlE?=
+ =?utf-8?B?UTcrWVlUbVFRdU0yVko3Z2wxMVo1TURuRFYzMzEvN2pyZXdMQWZWYnp0V3l3?=
+ =?utf-8?B?NmhIMVQ0dGMwYkwrQ0VnRG9IL09vbXJwa21zWjBYUnhST2NibHRrQUNQRFl5?=
+ =?utf-8?B?VUZveHoxbkJsdXBmUjdqdE1BY1lBc3NUV3RZS01nNDJZWFE1QzllMlFOZ2d3?=
+ =?utf-8?B?YnVBUXFOb0QxeHFjQ1pobktGWHFGVG96U0tQdm1JcStkREtxcUdRYWJWcTZT?=
+ =?utf-8?B?OWVBUElxREtPU3ZCQ2VRbWJtdi9BaUNWaEU2NXhFbXptREpwc2dRMzBmc1FV?=
+ =?utf-8?B?WHIxTDhzdDVDSGp2ekMrWkVYenphVWNneWF2Tk02Tlhhanl5bmIzMHNOVzJR?=
+ =?utf-8?B?OCs1ZisveUxYb01XOTdPcklZenFNUkM0dGVCU1NwQ3NMZGQ1eTdjTE9wK2J5?=
+ =?utf-8?B?UURQcnZXSUFpRmlSSktva0dxUGtPMzNXY1hCUEg5K0FyYlBmZFlTRDY2ajlm?=
+ =?utf-8?B?ei9MekxkMnhrRlFzYnJxeXBhY3RkMnlMbzJKdEl1WnpwOHAzVXgxclRqQ0NB?=
+ =?utf-8?B?OE9qUmJGaDhEUXlhMTlQQjJocXFYNnBWOTBweDFqRSt5d2JJRkpwY3RLVldR?=
+ =?utf-8?B?VXloUS9wSjVkcFZzakhhN3RyZTNlaTVEQmdmK3cvNjRieG9Jdnhzem5JYitj?=
+ =?utf-8?B?SXE2SXhYTyttY202aXpvUXI5YlZMUWk1WVZyWUlhZjlYbjhwMGc3dz09?=
+X-Exchange-RoutingPolicyChecked: XV/yhVvQp2ClhPgg8CmYKfFK9UevL6PU8nTXJTxK19pQKl5BzBkVbanOY0RN5hcBvf7UJhiT5MIBgZccucXMuB94VZw1rTtXKHXs6ybX9UiOCDKPhOBTYfbplJW41U7QymOladki43xMaHHEKIcKH/QZLelry7eLnERe5c5ExGs+7/OSHuag5shx71Txc0L5/h7ijt2jsVWf+cFgueYTKIcyLBRlajLlHNKbhwbHvXL1H5hDLNCN6jfl5Sh+D1oi73XNyrylLBKFTJV4Kf9FGixRWvp0OQEBfLYOuOvxVKt15gVKIYfp9x6ELwh2FD8VUn61CP2BnxHludZKtsxyxw==
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd7574cc-11b3-45e8-ddbf-08df10172e18
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:13:05.5819
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lJUx9AlU/H6E9+7/PsQA7wx6l3vAFwK/ak7+jt+iW9jg8HmVgTiqQ6cU3M399kDPuoyNpoOF/603zHLkXj3/TQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR03MB998607
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDIxMCBTYWx0ZWRfX6x64Nso7rPvx
+ CY024XVZKRmDLZfHx7v0NFU27OtJ6b52NDIBf8XieB4hZS4uWVM6yQ1zdu6jp+xOOLh02fMPAAW
+ S3QZL/7dLgrH3JZykAezTm+o7tG6ek7wFxrRPzca7yZ9WoVr2w6+uCljmKQcbxibbjRaSu+eSpF
+ o7GnrIA4atcuS3BZq94l2zgMLcvtx4iP5L5FmkVkmY/Astd5tOxnczk6PhJsEhyiTo0cRzbscZc
+ PNR+yPU0GvZMh4npIO+hi5sgfEcQPzjBsIagqC8ZVGPYA9btSONgoDolf+ldq53d9iv9Gwq5LzR
+ 5Tvvw2dJ9Cr8HXFzTL0Qxc0YCDB7QiAVeHji3ZNXSOPNtH0AY5Z9z4P5O9QJD1Sx+UvpMqgbOKP
+ CB2Iucmo+GvZyRca2a0WXiKxuqJG++O9b3Qy8PqLh3DlYJqrrF6loJeNMb8uEAqIw8VcLga//pw
+ YSSeaWvGBNXvYd2dyxA==
+X-Authority-Analysis: v=2.4 cv=R6yWitRX c=1 sm=1 tr=0 ts=6aa41a84 cx=c_pps
+ a=0PDhd3HO6khzWhHQYbQRQA==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=M51BFTxLslgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=ZQxX5BWu6Z8IJBb2zLX7:22
+ a=_CrwtvP5CxvIquhW4fAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDIxMCBTYWx0ZWRfX8D56yaTL0lTM
+ bcRZvsTXNwP6+LvRcp/rbFGHajQg0XfJHRvgAZ1i2YN18lpwvWJ/VzJPR1YIvswEhxUXXNvNc0b
+ h1OsomRHGwP1isw/ZWUhhJTD1hHRnnAGC3tI5CNpq45mKpYOG9QK
+X-Proofpoint-ORIG-GUID: oQDcaZDPEHF8zjofl21qBsLvVUbDG0If
+X-Proofpoint-GUID: oQDcaZDPEHF8zjofl21qBsLvVUbDG0If
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-11_05,2026-09-11_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
+ spamscore=0 adultscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_070948_509888_F8CFFFA6 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260911_081334_620181_0620B590 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,190 +201,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tasks RCU exists so that ftrace, BPF and kprobes can free trampoline
-text once no task can still be executing in it.  Today the only way a
-task tells Tasks RCU "I am not in a trampoline" is a voluntary context
-switch, so a preempted task is always assumed to be inside one.
+On Mon, Aug 31, 2026 at 04:56:18PM +0100, Nuno Sá wrote:
+> On Mon, Aug 31, 2026 at 04:45:15PM +0300, Andy Shevchenko wrote:
+> > On Mon, Aug 31, 2026 at 12:46:38PM +0100, Nuno Sá wrote:
+> > > The src_addr_widths and dst_addr_widths capability masks encode each
+> > > supported width as a bit whose position equals the corresponding
+> > > enum dma_slave_buswidth value (e.g. DMA_SLAVE_BUSWIDTH_4_BYTES sets bit
+> > > 4). As these masks are plain u32, widths of 32 bytes and above
+> > > (DMA_SLAVE_BUSWIDTH_32/64/128_BYTES map to bits 32, 64 and 128) cannot
+> > > be represented at all.
+> > > 
+> > > Introduce bitmap-based bus width capabilities that span the full enum
+> > > range, through a new dma_buswidth_mask_t type modeled after
+> > > dma_cap_mask_t. To allow DMA controller drivers to be converted
+> > > incrementally, the legacy dma_device u32 fields are kept alongside the
+> > > new masks and the core folds a legacy-only driver's u32 into the mask
+> > > when the device is registered, so consumers only ever have to look at
+> > > the mask.
+> > > 
+> > > The new interface lives in two new headers under a new
+> > > include/linux/dma/engine/ directory instead of growing
+> > > linux/dmaengine.h, which is included nearly everywhere:
+> > > 
+> > >  - dma/engine/types.h holds enum dma_slave_buswidth and the new
+> > >    dma_buswidth_mask_t type. Like dma_cap_mask_t, the type only needs
+> > >    DECLARE_BITMAP();
+> > > 
+> > >  - dma/engine/widthmask.h holds the accessors which are based on the new
+> > >    dma_buswidth_mask_t type. This gives us freedom to change the core
+> > >    without affecting consumers as they only see (and should only use) the
+> > >    new type.
+> > > 
+> > > Note the fold only has to happen in one direction on the producer side:
+> > > nothing outside a controller driver reads the legacy dma_device fields,
+> > > so a converted driver's mask is not mirrored back into them. The legacy
+> > > dma_slave_caps fields are different, as consumers not converted yet
+> > > still read them: dma_get_slave_caps() derives them from the mask when a
+> > > device_caps() callback adjusted it. Both go away with the legacy fields.
+> > 
+> > ...
+> > 
+> > >  F:	drivers/dma/
+> > >  F:	include/dt-bindings/dma/
+> > >  F:	include/linux/dma/
+> > > +F:	include/linux/dma/engine/
+> > >  F:	include/linux/dmaengine.h
+> > >  F:	include/linux/of_dma.h
+> > 
+> > Unneeded, previous entry includes recursively.
+> > 
+> 
+> Checkpatch complains so I guess we assume it's a tool issue?
+> 
+> > ...
+> > 
+> > > +/*
+> > > + * Basic types shared by the DMA engine interfaces.
+> > > + */
+> > > +#ifndef LINUX_DMA_ENGINE_TYPES_H
+> > > +#define LINUX_DMA_ENGINE_TYPES_H
+> > > +
+> > > +#include <linux/bitops.h>
+> > 
+> > Not yet? Perhaps next changes will use it, then they can add it.
+> 
+> Should be dropped!
 
-Add task_struct::rcu_tramp_nesting so that trampolines can say so
-directly: a trampoline increments it before calling out and decrements
-it before returning, and while it is non-zero the task must not be
-treated as Tasks-RCU quiescent.  Provide rcu_tasks_trampoline_enter()
-and rcu_tasks_trampoline_exit() for C users, report the count in the
-Tasks RCU stall output, and, under CONFIG_PROVE_RCU, assert that it is
-zero on every return to userspace since no task can legitimately reach
-userspace with a trampoline on its stack.
+In fact, I'll keep the above! DECLARE_BITMAP() needs BITS_TO_LONGS().
+Yeah, not great...
 
-Only current ever writes the count and every nested user (interrupts
-running their own trampolines) is balanced, so plain accesses suffice.
+- Nuno Sá
 
-The callbacks reached from static trampolines (return_to_handler, the
-rethook and kretprobe trampolines) are covered by the preempt_disable()
-in the ftrace recursion protection rather than by the count; note that
-dependency in trace_recursion.h so it is not lost if the
-preempt_disable() is ever removed from there.
-
-Nothing increments the count and nothing consults it for quiescent-state
-decisions yet; both come in later patches.
-
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
----
- include/linux/irq-entry-common.h |  2 ++
- include/linux/rcupdate.h         | 37 +++++++++++++++++++++++++++++++++++++
- include/linux/sched.h            |  1 +
- include/linux/trace_recursion.h  | 11 +++++++++++
- kernel/fork.c                    |  1 +
- kernel/rcu/tasks.h               |  3 ++-
- 6 files changed, 54 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
-index 0bb6c03481fa..8da571622000 100644
---- a/include/linux/irq-entry-common.h
-+++ b/include/linux/irq-entry-common.h
-@@ -5,6 +5,7 @@
- #include <linux/context_tracking.h>
- #include <linux/hrtimer_rearm.h>
- #include <linux/kmsan.h>
-+#include <linux/rcupdate.h>
- #include <linux/rseq_entry.h>
- #include <linux/static_call_types.h>
- #include <linux/syscalls.h>
-@@ -214,6 +215,7 @@ static __always_inline void __exit_to_user_mode_validate(void)
- {
- 	/* Ensure that kernel state is sane for a return to userspace */
- 	kmap_assert_nomap();
-+	rcu_tasks_trampoline_assert_none();
- 	lockdep_assert_irqs_disabled();
- 	lockdep_sys_exit();
- }
-diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-index 44c07a66edff..b5c666c82479 100644
---- a/include/linux/rcupdate.h
-+++ b/include/linux/rcupdate.h
-@@ -180,6 +180,37 @@ static inline void rcu_nocb_flush_deferred_wakeup(void) { }
- #ifdef CONFIG_TASKS_RCU_GENERIC
- 
- # ifdef CONFIG_TASKS_RCU
-+
-+/*
-+ * Trampoline nesting: dynamically allocated text (ftrace trampolines, BPF
-+ * trampoline images, kprobe optinsn slots) that relies on Tasks RCU for its
-+ * lifetime brackets itself with an increment/decrement of
-+ * current->rcu_tramp_nesting.  While the count is non-zero the task is inside,
-+ * or was called from, such text and an involuntary context switch must not be
-+ * treated as a Tasks RCU quiescent state.
-+ *
-+ * Only current writes the count and only current (or an interrupt on the same
-+ * CPU) reads it, so plain accesses suffice.
-+ */
-+static __always_inline void rcu_tasks_trampoline_enter(void)
-+{
-+	current->rcu_tramp_nesting++;
-+	barrier();
-+}
-+
-+static __always_inline void rcu_tasks_trampoline_exit(void)
-+{
-+	barrier();
-+	current->rcu_tramp_nesting--;
-+}
-+
-+/* A task must never reach userspace with a trampoline on its stack. */
-+static __always_inline void rcu_tasks_trampoline_assert_none(void)
-+{
-+	if (IS_ENABLED(CONFIG_PROVE_RCU))
-+		WARN_ON_ONCE(current->rcu_tramp_nesting);
-+}
-+
- # define rcu_tasks_classic_qs(t, preempt)				\
- 	do {								\
- 		if (!(preempt) && READ_ONCE((t)->rcu_tasks_holdout))	\
-@@ -192,6 +223,9 @@ void rcu_tasks_torture_stats_print(char *tt, char *tf);
- # define rcu_tasks_classic_qs(t, preempt) do { } while (0)
- # define call_rcu_tasks call_rcu
- # define synchronize_rcu_tasks synchronize_rcu
-+static inline void rcu_tasks_trampoline_enter(void) { }
-+static inline void rcu_tasks_trampoline_exit(void) { }
-+static inline void rcu_tasks_trampoline_assert_none(void) { }
- # endif
- 
- #define rcu_tasks_qs(t, preempt) rcu_tasks_classic_qs((t), (preempt))
-@@ -208,6 +242,9 @@ void exit_tasks_rcu_finish(void);
- #define rcu_tasks_classic_qs(t, preempt) do { } while (0)
- #define rcu_tasks_qs(t, preempt) do { } while (0)
- #define rcu_note_voluntary_context_switch(t) do { } while (0)
-+static inline void rcu_tasks_trampoline_enter(void) { }
-+static inline void rcu_tasks_trampoline_exit(void) { }
-+static inline void rcu_tasks_trampoline_assert_none(void) { }
- #define call_rcu_tasks call_rcu
- #define synchronize_rcu_tasks synchronize_rcu
- static inline void exit_tasks_rcu_start(void) { }
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 8b3d47a325cc..d2e7b1b3c9d2 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -956,6 +956,7 @@ struct task_struct {
- 	unsigned long			rcu_tasks_nvcsw;
- 	u8				rcu_tasks_holdout;
- 	u8				rcu_tasks_idx;
-+	int				rcu_tramp_nesting;
- 	int				rcu_tasks_idle_cpu;
- 	struct list_head		rcu_tasks_holdout_list;
- 	int				rcu_tasks_exit_cpu;
-diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
-index e6ca052b2a85..2da23a52ca4a 100644
---- a/include/linux/trace_recursion.h
-+++ b/include/linux/trace_recursion.h
-@@ -153,6 +153,17 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
- 	current->trace_recursion = val;
- 	barrier();
- 
-+	/*
-+	 * Callbacks reached from static trampoline text (return_to_handler,
-+	 * the rethook and kretprobe trampolines) do not maintain
-+	 * current->rcu_tramp_nesting themselves; they rely on this
-+	 * preempt_disable() to keep the task from being preempted, and thus
-+	 * from reporting a Tasks RCU quiescent state, while an ftrace_ops or
-+	 * its data is in use.  If the preempt_disable() is ever removed from
-+	 * the recursion protection, this must rcu_tasks_trampoline_enter()
-+	 * here and rcu_tasks_trampoline_exit() in trace_clear_recursion()
-+	 * instead.  See CONFIG_RCU_TASKS_PREEMPT_QS.
-+	 */
- 	preempt_disable_notrace();
- 
- 	return bit;
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 416758c8a3d4..cfe3a8e53fbd 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -1869,6 +1869,7 @@ static inline void rcu_copy_process(struct task_struct *p)
- #endif /* #ifdef CONFIG_PREEMPT_RCU */
- #ifdef CONFIG_TASKS_RCU
- 	p->rcu_tasks_holdout = false;
-+	p->rcu_tramp_nesting = 0;
- 	INIT_LIST_HEAD(&p->rcu_tasks_holdout_list);
- 	p->rcu_tasks_idle_cpu = -1;
- 	INIT_LIST_HEAD(&p->rcu_tasks_exit_list);
-diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
-index 627295396cd9..1662ba18bf34 100644
---- a/kernel/rcu/tasks.h
-+++ b/kernel/rcu/tasks.h
-@@ -1113,10 +1113,11 @@ static void check_holdout_task(struct task_struct *t,
- 		*firstreport = false;
- 	}
- 	cpu = task_cpu(t);
--	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d idle_cpu: %d/%d\n",
-+	pr_alert("%p: %c%c nvcsw: %lu/%lu holdout: %d tramp_nesting: %d idle_cpu: %d/%d\n",
- 		 t, ".I"[is_idle_task(t)],
- 		 "N."[cpu < 0 || !tick_nohz_full_cpu(cpu)],
- 		 t->rcu_tasks_nvcsw, t->nvcsw, t->rcu_tasks_holdout,
-+		 data_race(t->rcu_tramp_nesting),
- 		 data_race(t->rcu_tasks_idle_cpu), cpu);
- 	sched_show_task(t);
- }
-
--- 
-2.55.0
-
+> 
+> > 
+> > > +#include <linux/types.h>
+> > > +
+> > > +/**
+> > > + * enum dma_slave_buswidth - defines bus width of the DMA slave
+> > > + * device, source or target buses
+> > 
+> > I would describe the _UNDEFINED case, it might require some clarification on
+> > what behaviour is to expect with this one.
+> 
+> Yeah, here I can of just copy pasted what we had. Also not completely
+> sure what's the undefined case is about. I can do some search though.
+> 
+> > 
+> > > + */
+> > 
+> > > +enum dma_slave_buswidth {
+> > > +	DMA_SLAVE_BUSWIDTH_UNDEFINED = 0,
+> > > +	DMA_SLAVE_BUSWIDTH_1_BYTE = 1,
+> > > +	DMA_SLAVE_BUSWIDTH_2_BYTES = 2,
+> > > +	DMA_SLAVE_BUSWIDTH_3_BYTES = 3,
+> > > +	DMA_SLAVE_BUSWIDTH_4_BYTES = 4,
+> > > +	DMA_SLAVE_BUSWIDTH_8_BYTES = 8,
+> > > +	DMA_SLAVE_BUSWIDTH_16_BYTES = 16,
+> > > +	DMA_SLAVE_BUSWIDTH_32_BYTES = 32,
+> > > +	DMA_SLAVE_BUSWIDTH_64_BYTES = 64,
+> > > +	DMA_SLAVE_BUSWIDTH_128_BYTES = 128,
+> > > +	DMA_SLAVE_BUSWIDTH_MAX
+> > > +};
+> > 
+> > > +/**
+> > > + * typedef dma_buswidth_mask_t - bus width capabilities bitmap modeled after
+> > > + * dma_cap_mask_t.
+> > > + *
+> > > + * Each supported bus width is represented by the bit whose position equals the
+> > > + * corresponding enum dma_slave_buswidth value, e.g. a device supporting a bus
+> > > + * width of 4 bytes has bit 4 set.
+> > > + */
+> > > +typedef struct {
+> > > +	DECLARE_BITMAP(bits, DMA_SLAVE_BUSWIDTH_MAX);
+> > > +} dma_buswidth_mask_t;
+> > > +
+> > > +#endif /* LINUX_DMA_ENGINE_TYPES_H */
+> > 
+> > ...
+> > 
+> > > +/*
+> > > + * Bus width capabilities of DMA engine devices and channels.
+> > > + */
+> > > +#ifndef LINUX_DMA_ENGINE_WIDTHMASK_H
+> > > +#define LINUX_DMA_ENGINE_WIDTHMASK_H
+> > > +
+> > > +#include <linux/bitmap.h>
+> > > +#include <linux/dma/engine/types.h>
+> > 
+> > + errno.h
+> 
+> ack
+> 
+> > 
+> > > +#include <linux/types.h>
+> > 
+> > I would group subsystem ones.
+> > 
+> > #include <linux/bitmap.h>
+> > #include <linux/errno.h>
+> > #include <linux/types.h>
+> > 
+> > #include <linux/dma/engine/types.h>
+> 
+> Can do that, yes.
+> 
+> > 
+> > ...
+> > 
+> > > +static inline enum dma_slave_buswidth
+> > > +__dma_bus_width_min(const dma_buswidth_mask_t *mask)
+> > > +{
+> > > +	enum dma_slave_buswidth width = find_first_bit(mask->bits,
+> > > +						       DMA_SLAVE_BUSWIDTH_MAX);
+> > > +
+> > 
+> > For easier maintenance better to split the assignment.
+> > 
+> > 	enum dma_slave_buswidth width;
+> > 
+> > 	width = find_first_bit(mask->bits, DMA_SLAVE_BUSWIDTH_MAX);
+> > 
+> 
+> No strong feelings so sure.
+> 
+> > > +	if (width == DMA_SLAVE_BUSWIDTH_MAX)
+> > > +		return DMA_SLAVE_BUSWIDTH_UNDEFINED;
+> > > +
+> > > +	return width;
+> > > +}
+> > 
+> > ...
+> > 
+> > >  #ifndef LINUX_DMAENGINE_H
+> > >  #define LINUX_DMAENGINE_H
+> > >  
+> > > +#include <linux/bitops.h>
+> > >  #include <linux/device.h>
+> > 
+> > > +#include <linux/dma/engine/types.h>
+> > 
+> > Same, group them after generic linux/*.h.
+> > 
+> > >  #include <linux/err.h>
+> > >  #include <linux/uio.h>
+> > >  #include <linux/bug.h>
+> > 
+> > ...
+> > 
+> > It's possible to split this patch to two:
+> > - move the existing type into a new types.h header
+> > - add support for the new API
+> 
+> Yeah I thought about that but this still looked simple enough to go
+> together but I can split in the next version.
+> 
+> - Nuno Sá
+> > 
+> > -- 
+> > With Best Regards,
+> > Andy Shevchenko
+> > 
+> > 
 
