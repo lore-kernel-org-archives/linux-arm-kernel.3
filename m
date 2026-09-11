@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B5EC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFA7C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL+TWIh8McU1el0I5QKVmS3YEVxoYM3L1I89qeoIYbQ=; b=EEC+VshdUwW1QMhvWuNWv3iOy9
-	KZiFU6k5tMRbYi/V1ZdcAqg6k9amSGcb6AMtHHUbUyV8vh/YxANa39yUg5af/VuYY2Ob670PuDQ2s
-	xhCJAuYXwl52ccwfG8xveZ5X794/J4OeyjtC8AVOz+nOkJU2HGh220HUqq/zW2LVK+ItHdwBlg0We
-	DVANa5uvu7bY7rB2xoS9pPJMsUux91xf60608FvQ+CqJEbJoZULcUbp42ER9fLFqgLjByJhXlpM6k
-	ollc3PT7uIaO7iCysRpDAqXxWI/BI85gAWxdgw2L3qFuSaTiIbeKDAnLP6KN6MBCLSF5Ntp1gRC7E
-	N/WNgz1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=; b=eWN3+sh/vp/xmO3OX01sEipfTr
+	/QWPCzN+mZqkHzTpbWtpYYNpMkroYnHZO9n5ZkfYS1Q5jEH2K54OrXOK5j8fkAhULAKDdLru7Aw9C
+	+A1MqehOBv5R+tS5Y5Zhha3cFBlSBYnF/oISOKtY4Tq69bhXmiyu2tb/W7h2Vh9BIPrtY9+lN0FAh
+	Vlgp4qYywTozr7V5uxVcN0sAZ256DBKAlUlbqPYuj9DFHbVbWga3g8f984+pXXv8RbmuVJ1ZVE5jA
+	T8qAiGjk/8BPvR2hutSjTBpGT2D5OWLJ+5DyecfhJnv0PLpzIfyFE1HPLSIxaLsIz1AVpQKCBxeEx
+	4xDrgIEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53QU-0000000H7Rp-0GXl;
-	Fri, 11 Sep 2026 15:44:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x53Ro-0000000H7fZ-3bPb;
+	Fri, 11 Sep 2026 15:45:52 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53QS-0000000H7RG-3ofr
+	id 1x53Rj-0000000H7eC-23Ei
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:44:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D8DB60008;
-	Fri, 11 Sep 2026 15:44:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D6F1F000FF;
-	Fri, 11 Sep 2026 15:44:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789141467;
-	bh=cL+TWIh8McU1el0I5QKVmS3YEVxoYM3L1I89qeoIYbQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dxm0z51CRwUX8kBrMIAg+NJKOu6WsCMVN2UF19UryrBXBBaqjofY81m1lG1Y0wu17
-	 w/T3p3/Wm5i3eHOL1frCXdHpeZvTcoB/qrTaz6ubhviGxKUt+6XuR24heedgWPukvP
-	 dSqs2GzV3Dgv1uCH0SjK7ebL7LngGIO24hRupNFrza5rQ05pxETL+Aj2Y3DXfl/XkX
-	 /k42ZhyMvtGGuQuMvadlyLHeZMYTqbmjrsdIsHbeU4J3oT638lIf4qyXOjdnWendq4
-	 T05sJioV6cR3GOzoOurkf0F0U3xUSL9v8+6TC4EKfOGuIyDmp+uefhMYpFuZmVt85n
-	 R8f/ybKIPLVrg==
-Date: Fri, 11 Sep 2026 16:44:19 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>
-Subject: Re: [PATCH 8/8] KVM: selftests: Add nested pre-fault test for arm64
-Message-ID: <aqQY5iKMgh23Hi7p@gremlin>
-References: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
- <20260825-kvm-arm-prefault-v1-8-befe8947702e@kernel.org>
- <aqOgEQKBGH-YqGr3@sm-arm-grace07>
- <aqPIUtNTJFwUvJME@gremlin>
- <g45xmukndzivuxowpjxlajrjzx2ljevliroenbx4h4wgrnpoi6@eozuucl3usi3>
+	Fri, 11 Sep 2026 15:45:48 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d8fb334ddcso9797595ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:45:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789141546; x=1789746346; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=;
+        b=smV/VPDPOPC4OR3L19fDKJqOUsNx9sOvoTRGZFK37QutQGbUFdHLCfl2lD3AIyU0l7
+         PqLCjBb+yVB3D+humwfPPnwzVGDopz5a0aUhGFf66Fe2apFxm5KI9Iab/MfU90gzND3k
+         0D+uQ8R7zrrunCiUzBm5c/RGqeIB8ly9vmSedxwQ5Dz+xcxNBiuwDnHAuAbtGZTaINI0
+         bPh3yzUibwDy9YHDE5a/64C499RH0fMhUpLMIPvDLGr6ep99HHuREMlNLX9djQKv9kAB
+         IBnJVVYjYgM+oPqfWV51wbNdOAbj5XMa7UbYEKrrPnYaepYuL4pFiceVTUvYPNUoQuij
+         sfLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789141546; x=1789746346;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=;
+        b=FePqOd1ZBHt82Q1lHLaO/w0CeLQxsUEjvAmTKWgv53xf1A7q46KSVoGcVBwHhQzqFX
+         WmSQLqiqzBnLkpmNzWGpz32CIQ1ltVG/x+EfQnHwkrgEM1bVmU0i6LR+bCSTAdcYoTVI
+         7fzfK0qes9mjHsrVMdRv1FsP5XenrICPL4g5dNGfe5ZGIrMs4ctDQ7PUx8TKzf+tLzzT
+         Ga5sGNBh07tD9rUsPFPAoM/ewaJzpC7lgeTXUHSGDPMBGEAumFTmF1aL7safIjzX9B8d
+         HzRDHSj/Y+B+KVn20LvmVWjZ1VyUNOYSGFZVIUDi0UO29CCABJu0G/EVcm+GPK4IPgu2
+         KWFA==
+X-Forwarded-Encrypted: i=1; AKwUvBx1VAr6MUZuV8OziagZ+mFdCaNvG491yQAVup8idfht8C/T/zkcFyb+fTBl4vQ8nx2fuEz6/nXvNGi1YuEuCa5M@lists.infradead.org
+X-Gm-Message-State: AFuF++lQWJf9MYS8D8QQ1SR82+fLK6Q4Wvyfq13Ua1UBriGjCjuHc2/H
+	VNRKCdhrTJVvT0NJYGvNXZIBIks5EC3A0ctjdegP7f263R/SJEq/eFH2
+X-Gm-Gg: AYBFou3nzam+DCYCEtsLuHsP5uNMDmz9YTGIJc2qpCPosnt0m1e5jWyyseAqFkudeR5
+	34yJ63BtdXn6pTFJ1y8H7IXnn/yzsqBjalLMItar5csB8OjXPV6hQgVZOP7bAcsP/Bh050ZZdI9
+	ysSHZmQ0cVeZTXyN5ltsxzn5XnMrV4W98H3/kslWt5tN+RVJHR5/u64arcjdRmJJjenYU9LabGc
+	D+ykwawK39p7JsbBM9ZA2Hk/CDBd2GSioqFnYoYPjRKfxm26UFKyrA1iIx+PNCQ39st7ymo+0Od
+	IlvPuYjcYj496SSjqfQUX/qSCM0RxxarHxMUCSqbXPDXEslkxDgRm6nblv3Lr4Dz9HOWX7/4x9E
+	QDCETWLnebRfsXfj4x0W+1HNktMpDpwNJ9ACXKrWJY1rY2MIRRXSqmP72KbKU7zk27VAhLU2BG+
+	UadkexRKInUrpkPtTnWwzTYWniil3fhTxNWXYeMu4rvL2bjsqcW4b+uE6bz0g1brs4OxEB5Q+s+
+	3vKe0nt
+X-Received: by 2002:a17:902:f60d:b0:2db:5c0a:f184 with SMTP id d9443c01a7336-2dd2a34fd91mr100447505ad.17.1789141545988;
+        Fri, 11 Sep 2026 08:45:45 -0700 (PDT)
+Received: from arch.localdomain ([158.101.31.158])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cfc2d3bsm13628145ad.48.2026.09.11.08.45.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 08:45:45 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Jun Yan <jerrysteve1101@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] drm/bridge: analogix_dp: use devm_phy_optional_get() for the DP PHY
+Date: Fri, 11 Sep 2026 23:45:33 +0800
+Message-ID: <20260911154535.266121-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <g45xmukndzivuxowpjxlajrjzx2ljevliroenbx4h4wgrnpoi6@eozuucl3usi3>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_084547_525058_231EEB1C 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,213 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 01:42:57PM +0100, Wei-Lin Chang wrote:
-> On Fri, Sep 11, 2026 at 10:32:17AM +0100, Lorenzo Stoakes (ARM) wrote:
-> > +cc Wei-Lin
-> >
-> > On Fri, Sep 11, 2026 at 03:30:41PM +0900, Itaru Kitayama wrote:
-> > > Hi Lorenzo,
-> > >
-> > > On Tue, Aug 25, 2026 at 05:00:42PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > > > From: Jack Thomson <jackabt@amazon.com>
-> > > >
-> > > > Add an arm64 nested-virt selftest for KVM_PRE_FAULT_MEMORY. The guest
-> > > > enters vEL1 and exits to userspace with a nested/shadow stage-2 MMU as
-> > > > the vCPU's last-run context.
-> > > >
-> > > > Before prefaulting, userspace enables HCR_EL2.VM and points VTTBR_EL2 at
-> > > > an empty nested stage-2 root. A prefault implementation that incorrectly
-> > > > treats the userspace GPA as an L2 IPA will fail the ioctl; the correct
-> > > > path targets the canonical stage-2 and succeeds.
-> > > >
-> > > > Restore the original nested state before resuming the guest, then touch
-> > > > the prefaulted range to check that vEL1 still runs correctly.
-> > > >
-> > > > Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> > > > [ljs: partial progress, >4 KiB pgsize, commit msg, comment fixups]
-> > > > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > > > ---
-> > > >  tools/testing/selftests/kvm/Makefile.kvm           |   1 +
-> > > >  .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 206 +++++++++++++++++++++
-> > > >  2 files changed, 207 insertions(+)
-> > >
-> > > I wonder whether this selftest can use functions Wei-Lin proposed
-> > > some time ago [1]: 20260325003620.2214766-1-weilin.chang@arm.com
-> > > or would you prefer this test as propose, since it is clear as
-> > > to what needs to be done to enter L2.
-> >
-> > I think if these aren't merged yet then that could be a follow up?
->
-> This selftest doesn't require setting up L1's stage-2 for L2, so to me
-> the current approach is okay.
+The DP PHY is optional: the Rockchip RK3399 eDP controller (used as the
+internal eDP port) has no separate PHY device and relies on its built-in
+PHY, which is programmed directly through the GRF registers, so its DT
+node carries no "phys"/"phy-names" property.
 
+Requesting the PHY with devm_phy_get() therefore returns -ENODEV (or
+-ENOSYS when CONFIG_GENERIC_PHY is disabled) and the driver logs a
+misleading "no DP phy configured" error at probe time before falling back
+to a NULL phy.
 
+Use devm_phy_optional_get() instead, which returns NULL when the PHY is
+absent and otherwise behaves identically, and drop the manual -ENODEV/
+-ENOSYS handling. This also removes the spurious error message.
 
->
-> [...]
->
-> > > > +static void guest_code(void)
-> > > > +{
-> > > > +	u64 sp;
-> > > > +
-> > > > +	GUEST_ASSERT_EQ(get_current_el(), 2);
-> > > > +
-> > > > +	/*
-> > > > +	 * Mirror the EL2 translation regime into the real EL1 registers so
-> > > > +	 * that vEL1 runs on the test's stage-1 page tables. With E2H=1, the
-> > > > +	 * _EL1 accessors read the EL2 registers, and the _EL12 accessors
-> > > > +	 * write the real EL1 registers.
-> > > > +	 */
-> > > > +	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
-> > > > +	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
-> > > > +	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
-> > > > +	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
-> > > > +	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
->
-> Just FYI, the at.c selftest uses a macro for these.
+Assisted-by: Claude:deepseek-v4-flash
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ .../gpu/drm/bridge/analogix/analogix_dp_core.c | 18 +++---------------
+ 1 file changed, 3 insertions(+), 15 deletions(-)
 
-Ack will check and see if I can use same approach here.
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 18e76d1e78e1..28eb668d3e3f 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1427,21 +1427,9 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+-	dp->phy = devm_phy_get(dp->dev, "dp");
+-	if (IS_ERR(dp->phy)) {
+-		dev_err(dp->dev, "no DP phy configured\n");
+-		ret = PTR_ERR(dp->phy);
+-		if (ret) {
+-			/*
+-			 * phy itself is not enabled, so we can move forward
+-			 * assigning NULL to phy pointer.
+-			 */
+-			if (ret == -ENOSYS || ret == -ENODEV)
+-				dp->phy = NULL;
+-			else
+-				return ERR_PTR(ret);
+-		}
+-	}
++	dp->phy = devm_phy_optional_get(dp->dev, "dp");
++	if (IS_ERR(dp->phy))
++		return ERR_CAST(dp->phy);
+ 
+ 	dp->clock = devm_clk_get(&pdev->dev, "dp");
+ 	if (IS_ERR(dp->clock)) {
+-- 
+2.55.0
 
->
-> > > > +
-> > > > +	/* Run vEL1 on the same stack. */
-> > > > +	asm volatile("mov %0, sp" : "=r"(sp));
-> > > > +	write_sysreg(sp, sp_el1);
-> > > > +
-> > > > +	/*
-> > > > +	 * Drop TGE so that vEL1 is a nested context rather than host EL0.
-> > > > +	 * KVM backs it with a shadow stage-2 MMU even though vstage-2 is
-> > > > +	 * disabled (HCR_EL2.VM=0).
-> > > > +	 */
-> > > > +	write_sysreg(read_sysreg(hcr_el2) & ~HCR_EL2_TGE, hcr_el2);
-> > > > +	isb();
-> > > > +
-> > > > +	write_sysreg(PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT |
-> > > > +		     PSR_D_BIT, spsr_el2);
-> > > > +	write_sysreg((u64)guest_el1_code, elr_el2);
-> > > > +	asm volatile("eret");
-> > > > +
-> > > > +	GUEST_ASSERT(false);
-> > > > +}
-> > > > +
->
-> [...]
->
-> > > > +
-> > > > +static struct nested_s2_state enable_empty_nested_s2(struct kvm_vcpu *vcpu)
-> > > > +{
-> > > > +	struct nested_s2_state state = {
-> > > > +		.hcr_el2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)),
-> > > > +		.vttbr_el2 = vcpu_get_reg(vcpu,
-> > > > +					   KVM_ARM64_SYS_REG(SYS_VTTBR_EL2)),
-> > > > +	};
-> > > > +
-> > > > +	TEST_ASSERT(!(state.hcr_el2 & HCR_EL2_TGE),
-> > > > +		    "vCPU should be in nested/vEL1 context");
-> > > > +
-> > > > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-> > > > +		     NESTED_S2_ROOT_GPA);
-> > > > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-> > > > +		     state.hcr_el2 | HCR_EL2_VM);
-> > > > +
-> > > > +	return state;
-> > > > +}
-> > > > +
-> > > > +static void restore_nested_s2(struct kvm_vcpu *vcpu,
-> > > > +			      struct nested_s2_state *state)
-> > > > +{
-> > > > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), state->hcr_el2);
-> > > > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2),
-> > > > +		     state->vttbr_el2);
-> > > > +}
-> > > > +
-> > > > +int main(void)
-> > > > +{
-> > > > +	struct nested_s2_state s2;
-> > > > +	struct kvm_vcpu_init init;
-> > > > +	struct kvm_vcpu *vcpu;
-> > > > +	struct kvm_vm *vm;
-> > > > +	struct ucall uc;
-> > > > +	u64 npages;
-> > > > +
->
-> [...]
->
-> > > > +
-> > > > +	/*
-> > > > +	 * The vCPU's last-run context is vEL1, backed by a shadow stage-2
-> > > > +	 * MMU. Enable nested stage-2 with an empty root so that the ioctl
-> > > > +	 * fails if it tries to interpret the userspace GPA as an L2 IPA.
-> > > > +	 *
-> > > > +	 * Prefault in two halves so that the second ioctl exercises a
-> > > > +	 * repeated shadow-MMU attach and canonical stage-2 swap.
-> > > > +	 *
-> > > > +	 * (Note that an implementation that wrongly populates shadow
-> > > > +	 * stage-2 page tables would not be caught as userland can't
-> > > > +	 * inspect these.)
-> > > > +	 */
-> > > > +	s2 = enable_empty_nested_s2(vcpu);
-> > > > +	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE / 2);
-> > > > +	pre_fault(vcpu, TEST_MEM_GPA + TEST_MEM_SIZE / 2, TEST_MEM_SIZE / 2);
-> > > > +	restore_nested_s2(vcpu, &s2);
->
-> Sorry I don't get what enable_empty_nested_s2(), restore_nested_s2()
-> brings to the test?
->
-> After quickly going through the prefault implementation there isn't
-> anything about it that is nested related, how would giving L2 an empty
-> stage-2 translation affect the outcome if it misinterprets the GPA as an
-> L2 IPA?
-
-Well the prefaulting intentionally does not interact with nested and only
-prefaults for the canonical s2 page tables.
-
-I guess the intention here was to make sure that's the case.
-
-But I think you're right in that it's a bit silly - the code doesn't try to
-interpret anything in terms of a nested guest, and nobody's going to change it
-to do so.
-
->
-> In other words would there be potential false positives if we don't call
-> these functions?
-
-I think really think this is actually asserting anything meaningful.
-
-I'll drop it and simplify - have it just assert that the last-run vCPU was a
-stage2 vCPU and prefault doesn't do anything weird with that.
-
-The only way it could be broken is if it set a non-canonical mmu in
-__pre_fault_s2() or set s2fd->nested, neither of which, of course, it does.
-
->
-> Thanks,
-> Wei-Lin Chang
->
-> > > > +
-> > > > +	/* Resume at vEL1 and touch the prefaulted range. */
-> > > > +	vcpu_run(vcpu);
-> > > > +	switch (get_ucall(vcpu, &uc)) {
-> > > > +	case UCALL_DONE:
-> > > > +		break;
-> > > > +	case UCALL_ABORT:
-> > > > +		REPORT_GUEST_ASSERT(uc);
-> > > > +		break;
-> > > > +	default:
-> > > > +		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-> > > > +	}
-> > > > +
-> > > > +	kvm_vm_free(vm);
-> > > > +	return 0;
-> > > > +}
-> > > >
-> > > > --
-> > > > 2.55.0
-> > > >
-> >
-> > --
-> > Cheers, Lorenzo
-
---
-Cheers, Lorenzo
 
