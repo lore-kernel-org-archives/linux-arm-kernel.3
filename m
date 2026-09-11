@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54715C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CC4C88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KXNvpnAsrawHX22O6Lzfa5FtB4T8iRuyrH9BxwkerBY=; b=S8zSAG6XnrEo8g2Kos+Q87CdAw
-	3dJ1e3lcQ0vJf29aICyIrAQ2kUb3LLcJYy9447Nq1hBJHP1MiYPc+YUaq8GxrwSj6rw+DQstyMZrw
-	xLy1U8mcV1Kc2N0EwmjTxzd0nXmwaHSnn9Z3oqp/Hz0oAiEzYtAx9vbbh6+BGUGQI1GFEhRaYRBEU
-	pnuABTvgl/8CTe48xjVg4fNPqiPQ/KZC6upEdJ1CxuQ+GcyOpagPR5oKhgmsw9IiKuCKcQa4T/uBz
-	bhLqlZrrFNac3ASfhQfdi74ZirF4mA2v+iveLKaXw0ng8b1BoKaZkCYknx/8DqZs7fMshSWWGRwu7
-	5chtYnyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=; b=ewdNMzXv7W63iafNcydaBBTmLU
+	ssu9s7OeSVNST5nXr1IFNSc2jgBneQKPDhGgvvI3fCZZpnHhQe4lEEg0GnvioUOc8ufSzmOsRQwc5
+	jYlVZS8NEQKXJTFqaEq5vOdcdZ0R/rQWqzQhqlH/PedJzxgCMWDCTOTZ/1kKq7TzUm3WI7snGz81S
+	1ouPitmLEn0RKrJZA4jb7ObEy/BjXCrkIwZJnoW5VxuNpDo6EfsIIBs5I/UA0OhJiz9BjNh3+V8Gz
+	iez1NECdGB6gfEH1WVFxTs8ak5/8U8os5PcsuCTx3CD+W+WE00L1uiV6pD8CT7squTXxMdx5Tiw7t
+	MxJgsb0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xHG-0000000GEEg-1jOF;
-	Fri, 11 Sep 2026 09:10:34 +0000
-Received: from out-19.mta0.migadu.com ([2001:41d0:1004:224b::13] helo=mta0.migadu.com)
+	id 1x4xI8-0000000GEQe-2nsH;
+	Fri, 11 Sep 2026 09:11:28 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xHC-0000000GECx-0hbO
+	id 1x4xI6-0000000GEQ4-0LX1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:10:33 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=1UiFqdha0Je3xR9CoEQZhVfy8k5gYLDEkjsNuoazTlU=;
- c=simple/simple; d=jimenezcarrero.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789117826; v=1; x=1789722626;
- b=NfcQZ8DX7jkgP757F3iNU2vI/J0SIjry/c1fsQ2Yl0z9QYKMzHnf/P33Z1xZ/vyENtoqBqJm
- uyJHqFjk60RB2KyjlULGwkAblkXn3rjePW251YiqQekWcLI6+SDA8nHnECADEw2Tb38GSbBFYA1
- pRfiTgWE2LgVyfU8pxVY4iuEYi0OXscScEeQkhdLCsrbUmp9RDOHJIlcwZYY+wU8ryuVpAtmtG8
- d3sB48oLN+VJQ3jCd9MhT9O4Az1MmNAiMQ/8lMr0XgqXRu5TeQhGvwntvSUO8R+e2KrS3aly+vk
- grU0laXQjP485SWT0pbWsbmDcIVndwmXxGzPcqNd9Cmzg==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id a8b86de78718f879;
-	Fri, 11 Sep 2026 09:10:23 +0000
-X-Mizu-Trace-ID: a8b86de78718f879
-X-Migadu-Flow: FLOW_OUT
-From: Juan Jimenez Carrero <juan@jimenezcarrero.com>
-To: rf@opensource.cirrus.com
-Cc: khalil@rentman.nl,
-	broonie@kernel.org,
-	hansg@kernel.org,
-	linux-spi@vger.kernel.org,
-	ilpo.jarvinen@linux.intel.com,
-	platform-driver-x86@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	khalilst@gmail.com,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] Fix CS35L56 amplifier on Intel LPSS SPI with broken ACPI cs-gpios
-Date: Fri, 11 Sep 2026 11:10:11 +0200
-Message-ID: <20260911091011.76333-1-juan@jimenezcarrero.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <dad5e839-4932-4ae3-86d8-a3c2f4ce07d7@opensource.cirrus.com>
-References: <dad5e839-4932-4ae3-86d8-a3c2f4ce07d7@opensource.cirrus.com>
+	Fri, 11 Sep 2026 09:11:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q5NQb1guXagVllRooLwDCyjyV/msURwZuRqksPyVS8VBrD3FNVwpCck4H9DTHOziaoLjueLBPupGIXL4AMUjiPFyCkWKaPATkTjm2gwH6+BCfCNcH+29ZxOlzgFh7A1hH3UT7o2DF0e43ghVtSnaPooEfB8MU6jmvUXcbXr6QvmMHckHkleW4Cu3tXdpRUal6qIuf2lD7p9j6ip+iO7VpvbFwNe9PaD+FAMtkXaeMPIwNtlf7syBzSvsiYNtXEcRk6U6X1GiFDkgkAaWN4mtLG96n+0m1cb/ryLQHtb/ZbRpaCRNUFhspHTmUeK8MIaakICVt14VYceHfLNkBj6dEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=;
+ b=J9xMO1Udu5nFwWoAacVO4I+t0oXTf59KAC4JmBvGSOe6d5RqVWMsbeAPKFA2jW1Sg4PA9w2dfNm1+lPqd9ZZkyw7WZY9tbOr1T8zeToXdJfL3c/hdqTWGFh/DdK6hO2MnB7xkZVSXIMwgjQMOigZ9PI+z2m4X5N63T65wsVJI47O48tvkiKjpgAm0QvigqYJX+PAi1t08SOWxU36b5T31AaLXRKHvJNcqqCfU064KWylIVTSdBhiSAwr2p6gOmVCMqonosnwsEhfiwe7vPRsEDbdJ3Ie7z0mx0go4df9Ih0RgD4v4IRS7mWuIetQKoS+i8aP6TWx+xuW4WwcAa1yFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=;
+ b=MvmbZt3xcHuQ8lwRDnkRaAcxdcc68qMII6h60ZrS3SuifH3w5WdO4lEjhYhQ9d13We+B0988UkL7AWHpUG3dSaxptOhuXI9GT6NfqXpLNSoa+ufbrRJ+ShV1GghBd8jCtSx7IZRrge+fsG2VaryS+4TKuzuZkAPsBv27V4ZLowByHnq4FpCtDFrp0lH6MIGIqb4AkfxOpKvsy1hbeK8eAu2M7/tcvhjiE9lpWrJDXDUVKB4Dt13lGhOk8VMdC1uOikcxfGeDw5te+SLL1O6NpPGxRFCRxaodTZzJlHUJdgfWrjKS7mYpPKxgWI8UdgTX8djkxv5hRpHeo+kjX9FVcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by DS2PR12MB425616.namprd12.prod.outlook.com (2603:10b6:8:401::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.10; Fri, 11 Sep
+ 2026 09:11:12 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 09:11:11 +0000
+Date: Fri, 11 Sep 2026 11:11:01 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
+ cores
+Message-ID: <aqPFpUw9Y4Ui8ia-@gpd4>
+References: <20260909062649.469633-1-arighi@nvidia.com>
+ <20260909062649.469633-2-arighi@nvidia.com>
+ <89694e14-4be8-4c9e-9d7b-2808f87dd95f@arm.com>
+ <aqGGlNce4TRLS1cW@gpd4>
+ <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
+X-ClientProxiedBy: MI3PEPF0000753E.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::4da) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|DS2PR12MB425616:EE_
+X-MS-Office365-Filtering-Correlation-Id: 565ca042-366f-4a4d-0884-08df0fe49fa1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|3023799007|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: W6RiSzKuCal3su+JkY9UJ9Wq7zoOLwx2rtoYgPujiVT7FJDrKTGjPWeCHN4zvpsORRoXj3TWlouQ2JMWbJSrTllTGadbFdgOm/J8JTtPsOBCJD29aGgg7aiG0BSztjOykbL5fF3IjwugHOQ8XdYTzlRCzxYvLL3QeGE18113ItVPzlmznN7XofKlMaUD6oWnE8YSnFbruzTXxMrGdLCBg7mCu8VP/q5JIr0scbUFOWfyZVmgArMMx9Mj5zXjRx8EB66DaMS//TtOo6RK9AAxIM7lHMMF7nYPa/jv/9HTj16Xz3r7phy1tPWcSO6jd9YyoBRg+T5aUj6v6i9cAaPhpx8yUI182XT3S/pMbwK5eqppZOESULmRvtCb+D8AyKsHLzYmOr5jnNX9s0qHsfpAiy8SBwb0ENipOjtWlKTUQt0oLgaOc11rO8g0++cHnWL8gE6wWKyyS3zErVuCO/Pm0Sab7GDvwHwt6LEh8s5YtUk3PlI67PR2WL3k+VmNv5orhaBrwsr+HpztBraESmGm/FiFTP+H6F0JQPo0Qu4fR5M1oc9RWRJ9hVgeotCxN/Ay8vxKzSllajPWsEV0cmwM7th/pfuGMH+WLCYq5Lgdl5CqLFTa0/pdOcYE+jv8FoANHQRn4Qm7pqfOHjphz8B/qEa17L6/+1Ib1b4Bd2Y2g3c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gzGV4haMmds1pC7NoOiJVTw1VbLCtyN+moal+B2U4KLBQVqx33C9HBC0D3Yf?=
+ =?us-ascii?Q?F/AK9G5d0GfS25J3SYxj9Nua551lypLDWoxx4AOuGaMlf74H+Bpqnuo4P7Zj?=
+ =?us-ascii?Q?xL1fPZqI/qjUz1VUZ+hsWqVYvZFJUf9AulTKR0W1fkCTi/qM0ksm/ggicRgP?=
+ =?us-ascii?Q?B9xdI5CbOq1m8lahCjPJHAuddSSL2jsGCjMH6+7r5j55sPcDvCGBXhsapmGP?=
+ =?us-ascii?Q?oyEadFnUBnRtPmjL0z8ecD8jeZwKsQx8x3d9AQbsZW33ZgMsMOuoA9WOJpV5?=
+ =?us-ascii?Q?z2Fj7IZwkD07/F7kRCAe9gugAXR+e+YIvCODamR+2f5QHDO9+7X8gQaZ9zZb?=
+ =?us-ascii?Q?7QuKYAsIsRQtit6OtJbLxofD7fW/vzzl13xU4eqHpRFNY1WD5BhS9l6oz0T4?=
+ =?us-ascii?Q?LL5gX+vFLy4EY2K2Au1evRRa95uO5xYaRRtGdMCM/bHi+rjWiATFtuutkZkU?=
+ =?us-ascii?Q?v+xOP5dvgzy6Dsq9eSsXYsP7GIlCE+SX5XpHvhEqC2zolboW1hloqT3yBc53?=
+ =?us-ascii?Q?R+NQSquXpZq9iNC3kpcErVdsfK2e9MnC4aHNMm9hKm+7p3cPp28Rtw5NrNOu?=
+ =?us-ascii?Q?pPUSfPJz1B9hmsc2Tx+gAv11nMC19+/UFTMZxpTeJ+WQDak5fCnpoF06KA2n?=
+ =?us-ascii?Q?XbwEnDQe8vpX4kUXVqHRscJX0sHoxujAofj0lwPkFhuJygk0TwDWNDdpxNkk?=
+ =?us-ascii?Q?1Ugx/jpmyrHZB1GWU0szwVGhzMAEHrabfFnj9Qmy0KmVvF9G9eqTiXJwaSSt?=
+ =?us-ascii?Q?NYGePZdqHH5H4mFrnX80qEv7thnC6VnfxZgVMVA00PXHBbOIjPWAliciy+Gc?=
+ =?us-ascii?Q?xgBGhG+lohHFxkS3mz91GGVEOgU8H27plWZ2OMDRp3X0E/l0HObTPgkZO9cE?=
+ =?us-ascii?Q?ByT93cWjUt7h7Za7p9lx+wvkU9UlUm1IXJu5uEeAaTHumJfkUU8IwFkMHkMi?=
+ =?us-ascii?Q?iDk9+SNXyU+CZ6ZFUvcN9j0L609LwvVpN6YJ1VrjijloMtOHOrFNuWZHGNt7?=
+ =?us-ascii?Q?CBWD+jZLfOTIaXnKZOGda6UfbbSHUqrGz7wTzdqJiDc1VtLlfSVpLpGQnjQC?=
+ =?us-ascii?Q?dZPjj/iYVWJRFebaQzpQpNRTnzaTE8xalnhxKFm2M7icsdjhm33Y6q7vCDtr?=
+ =?us-ascii?Q?pqBBMQlbKDadDmyj0r3UX6DpYbo+XwLmZu/AXyUOKLLpbJcYy8wfy0jGtqD+?=
+ =?us-ascii?Q?Ii0AQkwK1p4Lg/RNiXOApJj2rLhyLbNqAAX6EQeeGMSTjVnN8gETa6+pw/4a?=
+ =?us-ascii?Q?LsNMdK90Xk2NZwvA1MaTgsWKcE6JGVE3noqigtwri7ZmeRmqXUxE20JM3qMi?=
+ =?us-ascii?Q?ND2L07wGvqMO6P6IgKVRh/ttbKsCVdGatM8TyIVffbEzQa2KSqkd3c/fWwhm?=
+ =?us-ascii?Q?h5rJLba5cB1X1FVo2yDc8FuUFdAWmPg+A2fF8M3I+bn9r3BY2IrRMGjBT4D6?=
+ =?us-ascii?Q?wRWbutNrrX8oFxQBiO/8jzfPQ/9t0HCyOpDD/VG1lPLfdromjPhdWpVrlD8w?=
+ =?us-ascii?Q?MxL32+tgQjF5oEodJa65Aezv8OgrNrDmDag5Zl3O5mwTgcVWn5lOUTCnuAPd?=
+ =?us-ascii?Q?0Y2XPrvFiAMcXyURacB7+eKh/n9a11IFNftX3qSO5zlSmQI4BEjOEY6Rv5JM?=
+ =?us-ascii?Q?R1AERa+nGZh4fKRcNUH7ciONOapl3N7GOhkOPGi4wP4Y0mFwAKkPQ2fvORA5?=
+ =?us-ascii?Q?X6f1/BjzHMUO44jqv/1cwzARpxUVB69vfIvQSoRmL/1Zb9V3AiXqG3fsAdQV?=
+ =?us-ascii?Q?BTFn2lwflA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 565ca042-366f-4a4d-0884-08df0fe49fa1
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 09:11:11.7376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1dL2hMPO+NAVpKVxoVvHq7KRSKkdvXzl3+xC8VDtxsnkD5HM1OWcdAAGmBYN53zIoU3rof+PisdY+z+9648YSg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB425616
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_021030_916307_2F21806D 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20260911_021126_143498_CB6B3798 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +151,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2026 10:21 am, Richard Fitzgerald wrote:
-> HP told us they have a BIOS with the cs-gpios fixed, and they can make
-> that available early if you post a support request for it.
->
-> Can you test that new BIOS? It would avoid the messy SPI workarounds.
+Hi Dietmar,
 
-I have affected hardware. I could raise a support request and
-test that BIOS, if a second machine doing so is useful:
+On Thu, Sep 10, 2026 at 12:11:06PM +0200, Dietmar Eggemann wrote:
+> On 09.09.26 18:17, Andrea Righi wrote:
+> > On Wed, Sep 09, 2026 at 05:19:08PM +0200, Dietmar Eggemann wrote:
+> >> On 09.09.26 08:26, Andrea Righi wrote:
+> >>
+> >> [...]
+> >>
+> >>> +void __init arm64_init_sched_topology(void)
+> >>> +{
+> >>> +	if (!IS_ENABLED(CONFIG_SCHED_SMT))
+> >>> +		return;
+> >>> +
+> >>> +	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
+> >>> +		return;
+> >>> +
+> >>> +	if (!topology_core_has_smt(smp_processor_id()))
+> >>> +		return;
+> >>> +
+> >>> +	set_sched_topology(arm64_asym_smt_topology);
+> >>> +	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
+> >>
+> >> I'm not really a big fan of using this arm64 setup for NVIDIA Olympus
+> >> alone here.
+> >>
+> >>> +}
+> >>> +
+> >>> +int arch_asym_cpu_priority(int cpu)
+> >>> +{
+> >>> +	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
+> >>> +}
+> >>> +
+> >>
+> >> This is done since it will only be called for NVIDIA Olympus since it's
+> >> the only CPU model enabling this. I think it will work but it's still
+> >> ugly :-)
+> >>
+> >> [...]
+> >>
+> > 
+> > Agreed on both points. As mentioned in the other email, I'll coordinate with the
+> > firmware team on a proper ABI for describing the PE0 preference. For the systems
+> > with the current firmware, I don't have many ideas on how to enable this... a
+> > special scheduler facility enabled via kernel boot option? Other ideas?
+> With the explicit kernel boot time option discussed in the other thread,
+> how do you want to code arch_asym_cpu_priority()?
 
-  HP EliteBook 8 G1i 14 inch, SKU D75TQET#ABE
-  BIOS X91 Ver. 01.05.02, 05/03/2026
-  Intel Core Ultra 5 238V (Lunar Lake-M)
-  SPI controller 8086:a827 (LPSS_CNL_SSP via tgl_spi_info)
-  Realtek ALC245, SSID 103c:8d8f
-  2x Cirrus Logic CS35L54 Rev B0 OTP4 fw:3.4.4, ACPI HID CSC3554
+Good point.
 
-This is the CS35L54 variant rather than CS35L56, so it may be a useful
-extra data point either way. The DSDT defect is identical:
+I think we can avoid an arm64 override entirely and rely on the default
+implementation:
 
-  Scope (_SB.PC00.SPI0)
-  {
-      Name (_DSD, Package (0x02)
-      {
-          ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-          Package (0x01)
-          {
-              Package (0x02) { "cs-gpios", Package (0x01) { Zero } }
-          }
-      })
-  }
+int __weak arch_asym_cpu_priority(int cpu)
+{
+	return -cpu;
+}
 
-while GSPK._CRS declares SpiSerialBusV2 with DeviceSelection 0x0000 and
-0x0001, plus a GpioIo for the CS1 line.
+The boot option would only add SD_ASYM_PACKING to the SMT domain. A rough
+prototype could look like this in kernel/sched/topology.c:
 
-One difference from the cover letter's description: on this machine
-neither amplifier is instantiated on a stock kernel, not only the
-second. spi_add_device() rejects CS1 and serial-multi-instantiate then
-unwinds the whole set:
+static bool sched_smt_asym_packing __read_mostly;
 
-  pxa2xx-spi pxa2xx-spi.3: cs1 >= max 1
-  spi_master spi1: error -EINVAL: failed to add SPI device CSC3554:00 from ACPI
-  Serial bus multi instantiate pseudo device driver CSC3554:00: probe with
-    driver Serial bus multi instantiate pseudo device driver failed with error -22
+static int __init setup_sched_smt_asym_packing(char *str)
+{
+	sched_smt_asym_packing = true;
+	return 1;
+}
+__setup("sched_smt_asym_packing", setup_sched_smt_asym_packing);
 
-For reference, the LPSS capability register on this board reads
-caps[0xfc] = 0x220, so CS_EN (bits 12:9) is 0x1 and ffz() yields
-num_chipselect = 1, while ACPI describes two chip selects. The TYPE
-field of the same register reads 2 (LPSS_DEV_SPI), so the read itself
-is valid. (Obtained with a dev_info() added to spi-pxa2xx.c; the
-register is not reachable from userspace with CONFIG_IO_STRICT_DEVMEM)
+int cpu_smt_flags(void)
+{
+	int flags = SD_SHARE_CPUCAPACITY | SD_SHARE_LLC;
 
-I have run the earlier two-patch version from your gist
-(serial-multi-instantiate + spi-pxa2xx), built out-of-tree as a DKMS
-module against 7.1.9. With those applied both amplifiers probe, load
-firmware and calibration, and bind to the codec. Internal speakers work
-across a cold boot:
+	if (sched_smt_asym_packing)
+		flags |= SD_ASYM_PACKING;
 
-  serial-multi-instantiate CSC3554:00: Increasing num_chipselect from 1 to 2 for CS1
-  serial-multi-instantiate CSC3554:00: Got CS GPIO for amp CS1
-  cs35l56-hda spi1-CSC3554:00-cs35l54-hda.0: DSP system name: '103C8D8F', amp name: 'AMP1'
-  cs35l56-hda spi1-CSC3554:00-cs35l54-hda.1: DSP system name: '103C8D8F', amp name: 'AMP2'
-  snd_hda_codec_alc269 ehdaudio0D0: bound spi1-CSC3554:00-cs35l54-hda.0
-  snd_hda_codec_alc269 ehdaudio0D0: bound spi1-CSC3554:00-cs35l54-hda.1
-  cs35l56-hda spi1-CSC3554:00-cs35l54-hda.0: Calibration applied
-  cs35l56-hda spi1-CSC3554:00-cs35l54-hda.1: Calibration applied
+	return flags;
+}
 
-I have not tested v3, so I am deliberately not offering a Tested-by for
-it. I can test v3, the new BIOS or both on this machine (whichever is
-more useful).
+This would make the option generic rather than specific to arm64 or Olympus.
 
-Juan Jimenez Carrero
+> 
+> AFAIK, Arm architecture does not require the first/primary HW thread of
+> an SMT core to have MPIDR_EL1.Aff0 == 0.
+
+Agreed. Using the default -cpu ordering avoids making any assumptions about
+MPIDR and consistently prefers the lowest-numbered logical CPU in each SMT
+domain.
+
+> 
+> The closest I came to you setup in Arm64 is a ThunderX2 SMT-4 machine on
+> which I can run 'OpenBLAS benchmark/sgemm.goto'. This machine has
+> symmetric CPU capacity though like Power7.
+> It has MPIDR_EL1.Aff0 == {0,1,2,3} for HW threads but '== 0' wouldn't
+> work here.
+> 
+> [...]
+
+Right, -cpu provides a total ordering for all threads, so this should provide
+the expected sibling ordering on the ThunderX2 machine as well. If you're
+willing to test the next version there, that would be very useful!
+
+Thanks,
+-Andrea
 
