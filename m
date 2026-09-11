@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BDEC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9997AC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKS3Y875g55w6+jRQCK0RAo8CGT+TF5uQ7AdPQA8+FE=; b=o7OxL9c2bo9fr/nxlcLcHFSt2k
-	kTsL+Zv/xzN/XFjltkdnnMYplZuGGyTgYJOzDaAXiYUTE3R3LrzJhiElVKWQJNB/0aO4oMKbi18Xw
-	CApG37lW9eXv7k+jhpFvP8Xsvx0urY53wy+d6wwuSxgwud7ry2lfbkP27sL3xGsnJJVyMV3qupN5v
-	nO4boNX5d7/ekL12PLarugHFZCbb92U6sBePH2IZh2+4bkQjzFpEHdh+jtA7GmZHbg/dNiw5bLYG5
-	V2wj/jQm8Z7ClZaarZEQrxES8xN5p5FG5XLXMLwUAfMmY93w3KF5QWmlqW6SjseK16dDGRu+1kJpX
-	LH9olXsw==;
+	bh=+G1OKXoNBIKzsbl+jc8rigOgfUUb72KCyBt1gFKV3Cw=; b=k7WOKpoSyH87gy2EBAKH/Cm3jU
+	gtyaEnOEyJUnUuiRdP+fuF3yz2OL3wJSfNxg2oLTCbA6o0kFTS+XBujalgf+QxSInefNlZ1l8+GPC
+	BHNTSPcsjwdUp5W+e+pbJlTy5ZtyQpUL5oby6EfvsUeKWQA5j1qqP7bXeR4df6ilXdL7c4UFWAvHS
+	CCDr79PtvIIbv6sbNr1RBd+h90VHjgBSahjvlJQFxRVf9C0qotkXv8i4KrmsLfUI8LfaucQgTxpyY
+	qXtn/Zm2c0cRhTvNeeTpjAqIqYkPwwVwob6sf0ON14ZrMU3yBjMs0LjzyQLgAitEx3vwDrbUyNs4I
+	nU1VKQyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50pn-0000000GhL4-2pru;
-	Fri, 11 Sep 2026 12:58:27 +0000
+	id 1x50te-0000000Ghn6-2Tg5;
+	Fri, 11 Sep 2026 13:02:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50pm-0000000GhJj-1RUb
+	id 1x50tc-0000000Ghmx-2wyO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:58:26 +0000
+	Fri, 11 Sep 2026 13:02:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C316415A9;
-	Fri, 11 Sep 2026 12:58:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A331F00893;
-	Fri, 11 Sep 2026 12:58:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 73CEE41A80;
+	Fri, 11 Sep 2026 13:02:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9CF81F000FF;
+	Fri, 11 Sep 2026 13:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789131506;
-	bh=DKS3Y875g55w6+jRQCK0RAo8CGT+TF5uQ7AdPQA8+FE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=e5rB0Yy0vm91hHd8PcFabYm0S+Znfex9t24hSeR/jilv1yVwTiOtxiRWg8Vp4PnQq
-	 NruMAB0HQxZGz/RHTFtvsUVcS+iAwNHPQXN/Spu48j9TWM4FGKVPNIKkpmjiFZpYu9
-	 h993H8+S/GnD6/dfShgrfjlWAMnSf4fBkZhUqo5PzjfPojrhHMMzILlYTSK1t6yM7R
-	 TBZoCG4x+NcSkIIgM52hwWjh/cmmC0B1CGh7yMdlcDiTdwEQfDZZip6vxe/lJy0ane
-	 g5FIhs6dgguYOvC6+5kLLBjVOhgh7BfNACHfny9ogXFcW8l++JTBDk/PUK+8nlzmyI
-	 n5n3kfghnZXiA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x50pj-00000007lFn-3IG3;
-	Fri, 11 Sep 2026 12:58:23 +0000
-Date: Fri, 11 Sep 2026 13:58:23 +0100
-Message-ID: <86jyos6j2o.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 14/17] KVM: arm64: Reject host access to protected VM private state
-In-Reply-To: <20260907070002.3333525-15-fuad.tabba@linux.dev>
-References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
-	<20260907070002.3333525-15-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789131744;
+	bh=+G1OKXoNBIKzsbl+jc8rigOgfUUb72KCyBt1gFKV3Cw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ocr7i/XKsT0RN6w6ujzcRthZNm2ket/5ZIMILTxA1DtiBBAgEN7aDLFJfOxJOdCR0
+	 yTOHSaBzobg8rtZzQhaEJ96Aikqkhg0mW8VaSZkVI9NLXHSLYihIZgyCjiI3Uuk383
+	 tVG+BGjmZXW7lREFwrLg/tC2dHg+bLkMwjvCOtLIgbYUd54MCgEkwqq7+quMERF1th
+	 wf+VpD+mq5ZnF+GB9UglKAcgLAZ8XsuRF85QJatVv2jJd8bg4tkAU3/iJ7RSsE0vLi
+	 nTTcwL3tjYM7Q56E3amwa8g1/xV5z7ZvAOJ1vZAemQGPWGETPI+B5piU/PrH+giWyu
+	 bFrV8bAeTrZZg==
+Date: Fri, 11 Sep 2026 14:02:18 +0100
+From: Will Deacon <will@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org, maz@kernel.org,
+	pavan.kondeti@oss.qualcomm.com, tabba@google.com,
+	aneesh.kumar@kernel.org, mark.rutland@arm.com,
+	sdonthineni@nvidia.com, steven.price@arm.com, gshan@redhat.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v17 0/1] arm64: mm: Handle Granule Protection Faults
+ (GPFs)
+Message-ID: <aqP72gst-Y0KtxA5@willie-the-truck>
+References: <20260907162204.1479401-1-suzuki.poulose@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260907162204.1479401-1-suzuki.poulose@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,132 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Sep 2026 07:59:59 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Mon, Sep 07, 2026 at 05:22:03PM +0100, Suzuki K Poulose wrote:
+> This single patch teaches the arm64 fault handling code about Granule
+> Protection Faults, introduced by FEAT_RME. This was posted with KVM CCA
+> support series, but split from that, to allow for other users of GPF.
 > 
-> A protected vCPU's register and debug state is no longer exposed to
-> the host. Host ioctls that would reach that state now fail rather
-> than operate on a copy that is not the guest's:
+> The immediate user is KVM CCA, where the host may fault if it accesses
+> granules that have been delegated for use by a Realm. However, the fault
+> handling itself is architectural and not KVM-specific. It should also be useful
+> for other FEAT_RME users where an access to secure memory or root memory can
+> result in a GPF.
 > 
->   - KVM_GET_ONE_REG and KVM_SET_ONE_REG return -EPERM once the vCPU has
->     run: the copy then holds reset values plus what the exit handlers
->     marshal out. Pre-run access still builds the guest's boot state.
->   - KVM_ARM_VCPU_INIT returns -EPERM once the vCPU has run: it would
->     reset the host copy alone and rewrite mp_state, which EL2 reads
->     only at hyp vCPU creation, so a vCPU the guest powered off would
->     come back RUNNABLE.
->   - KVM_SET_VCPU_EVENTS rejects external-abort injection with -EPERM;
->     SError injection is forwarded and stays permitted.
->   - KVM_SET_GUEST_DEBUG returns -EPERM: a protected guest's debug state
->     is hypervisor-owned.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/arm.c   |  7 +++++++
->  arch/arm64/kvm/guest.c | 19 +++++++++++++++++++
->  2 files changed, 26 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 5c2587da815ab..37a260b139795 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1750,6 +1750,13 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
->  	bool power_off = false;
->  	int ret;
->  
-> +	/*
-> +	 * Re-init would reset the host copy alone and rewrite mp_state
-> +	 * after EL2 has read it. Pre-run init stays allowed.
-> +	 */
-> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-> +		return -EPERM;
-> +
->  	/*
->  	 * Treat the power-off vCPU feature as ephemeral. Clear the bit to avoid
->  	 * reflecting it in the finalized feature set, thus limiting its scope
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index ab659795d4b2f..abab580a659d4 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -701,6 +701,10 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->  
->  int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
-> +	/* Once the vCPU has run, the host copy is not the guest's state. */
-> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-> +		return -EPERM;
-> +
->  	/* We currently use nothing arch-specific in upper 32 bits */
->  	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
->  		return -EINVAL;
-> @@ -718,6 +722,10 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  
->  int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
-> +	/* Writes build the boot state; once run, EL2 owns the registers. */
-> +	if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-> +		return -EPERM;
-> +
+> GPFs during a page table walk are treated as kernel bugs, while non-page-walk
+> faults can be reported to userspace with SIGBUS. The patch also allows existing
+> exception-table fixups to handle known in-kernel accesses such as
+> load_unaligned_zeropad() while private memory remains mapped in the linear map.
 
-Why can't these be moved to the ioctl callback? Something like:
+I assume you can't handle GUP for realm memory, so you must be using
+guest_memfd to avoid userspace mappings of realm memory. In that case,
+why don't you unmap it from the linear map entirely? There's ongoing work
+to do that afaik, it can be done largely outside of arch code and it
+seems like people want it to defend against side channels anyway.
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index eaf583b771931..0ffd435bf6904 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1856,6 +1856,19 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 	return __kvm_arm_vcpu_set_events(vcpu, events);
- }
- 
-+static long pkvm_filter_vcpu_ioctl(struct kvm_vcpu *vcpu, unsigned int ioctl)
-+{
-+	switch (ioctl) {
-+	case KVM_ARM_VCPU_INIT:
-+	case KVM_SET_ONE_REG:
-+	case KVM_GET_ONE_REG:
-+		if (vcpu_is_protected(vcpu) && vcpu_has_run_once(vcpu))
-+			return -EPERM;
-+	}
-+
-+	return 0;
-+}
-+
- long kvm_arch_vcpu_ioctl(struct file *filp,
- 			 unsigned int ioctl, unsigned long arg)
- {
-@@ -1864,6 +1877,10 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
- 	struct kvm_device_attr attr;
- 	long r;
- 
-+	r = pvkm_filter_vcpu_ioctl(vcpu, ioctl);
-+	if (r)
-+		return r;
-+
- 	switch (ioctl) {
- 	case KVM_ARM_VCPU_INIT: {
- 		struct kvm_vcpu_init init;
-
->  	/* We currently use nothing arch-specific in upper 32 bits */
->  	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
->  		return -EINVAL;
-> @@ -786,6 +794,13 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->  	u64 esr = events->exception.serror_esr;
->  	int ret = 0;
->  
-> +	/*
-> +	 * EL2 injects an external abort only to complete a forwarded abort.
-> +	 * SError injection is forwarded.
-> +	 */
-> +	if (vcpu_is_protected(vcpu) && ext_dabt_pending)
-> +		return -EPERM;
-> +
-
-Where is KVM_CAP_ARM_INJECT_EXT_DABT rejected?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
