@@ -4,90 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC0DC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4255CC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26NN2voef8YBl9mHMwb0pP++w/F7eMXxYYY8spi7/jc=; b=ZfePQX3YoS6V5untHNvGXMrkb0
-	OOyVNN9sq0050th9/0W1SA8uvnIKt+eK09PEyvCCLFAkXrqvlbRXKY+4QG7PCiaDRsJYfY2AjaVWw
-	SO69bIyDBzFcqLWTismwroCpI9qNJglW4HAXBPo0rSBMNGrAERTCMsGSQhhVFIQgh/7zzUPBO73Gi
-	/ufO3PDJNHKempGVbXDYK41tyFsq5ycbLd8c+Jcq3FKcLZoOmK+ccyOnmAdt5NoL1Jyzg5CIkwnK3
-	KR73VMU1Mc5iky1S67Gs6RLCv7Y4fffI/0WN+LCDbOF2T+DqdHLhFIAEmWDIQFPuRUka9QRppu06D
-	NlP94e5w==;
+	bh=6fN/vuoGyBl4Zf9471sx1vBiHIUbeclKC0kYzlbY/gk=; b=mUVURcCe/mtSAGF6PgcV1DfRq4
+	AMnpQw9hg3eZN/zlpuXwnS1jsqv/9tVoBlRtWz404Nin04iUto8i+15ZL8F3bWOGaqjMNUU2iXMR6
+	wBJyLXnmAhbAHyK4uuF2ythREHNgWPWuCPX6NWj3t/bqqooVJKK5IaD84i5wuAwQiH1mbbXp5bd8t
+	V/LKGZLDJhDGIl5qj+2xS35YseNp9TjyzWqfgvE5N34J8ve6VZkU68cA+uY7Tatp4SRLNE6sLX9IK
+	qQwyWBji/Iqn0FBc8PUM3P21Yyob1a0jZnZqSqKMtsskEavwi6TUQSXwH1qi4ogt5mDgpHWMtTXzb
+	SXWGMd1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OZ-0000000H6N5-30Fy;
-	Fri, 11 Sep 2026 15:42:31 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1x53Xf-0000000H8ik-1EqA;
+	Fri, 11 Sep 2026 15:51:55 +0000
+Received: from mail-northeuropeazon11010058.outbound.protection.outlook.com ([52.101.84.58] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53O8-0000000H601-2ee9
+	id 1x53Xb-0000000H8fy-2KSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:42:05 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-6b0496f4bbcso882750eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141324; x=1789746124; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=26NN2voef8YBl9mHMwb0pP++w/F7eMXxYYY8spi7/jc=;
-        b=GHrWsvFV2j4ihHlB2CbVTrcB4Mfj5njrea4s8rnLdlwh7g2Eau0/GvHSYbL6IxOhaN
-         hMft84BXpRcZUFmpNP0Stu5DvqNk4kmVhZmptX/BIPUJoQBqVb39lwck3ndCRnok3ghF
-         uyiV0kPCwE5wrBQvv/VdN9Rr340IJCY5AQKBH1MCU2YjyBk43zNY4v9E1QryWfExW8g5
-         bliF+deYbfXKCrJskVDiHxhTFF0hgsIW3HvJDoOltklmIrImtyMSqbRafjHKOGJh87xB
-         T0uIOaiOUJv9BoembMOHpU5noLEvNlQL1i7Krfni4qCC9y+djpi57I9YjgvKHTrdq5Wv
-         XzJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141324; x=1789746124;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=26NN2voef8YBl9mHMwb0pP++w/F7eMXxYYY8spi7/jc=;
-        b=JPuogH7aUb7ejchjuYvzQ/y9zCgLAWo13MXgHdpuQa+ndcvsdx81NG/ebDg4cVUU78
-         OMFb8j7qgzgYYKG6gtVP4R1CDuhkrEIO6v+dX7D2EA8G0Z/+6i99r3yGKN9BxwTutD6H
-         lPAtLBSudNtPOXqjEIYflkEnK4wRNEq9QVh0WsbMBx7ceXXYVVVYLSojWF8GAXYlE3RM
-         FXueCcVJIeCg22UGngI1Vbw9eU0rppDGK2sn8uGzfOnW5r/kZpf6ja650niHenazJ2B4
-         tL0F2cgj3xCN4SBrn95FW+iG9mV8pvUVTBM3KtHEV8P7pTBvcDISMcLp8NQRCshwioew
-         h1NA==
-X-Gm-Message-State: AFuF++m/oSv1IcHYss23SzxI5qW0xbyLqX8CJ5VFvcxodyVzVAMMAT4Z
-	GbY2iI0oKQVAEx/soRo8N1lnzcXM9p+ghBsCPmCLh7rYq5YDwijlpsZCjtK3Y5T1vRQ=
-X-Gm-Gg: AYBFou2/NmjOZz4zZmstjbUa+JUaEpE6VIKu2qWtkIP1b3PkLuzH10zcj+AqaoofMOv
-	ZU9DJXcLooDXJuDvcGC/23uz9cEkGdUn/N0IyXaEg9lo9/uMUyxiQktpZjTqmKdUetla7GraGum
-	irZNu/xB8YC0vD9f+Z7jbdJDLXwIHBBRpaz95fDol/qCAnZxQ3zKiC03PgkzJktF5d+jaB5j52E
-	tDHLDUOptjud3PeLNX8PFh8fHp3LgO5foqy4BOs5teB24uOBsittWH2yJ6DukQtatZep7PybVmv
-	b+awDxvWvnaV51FTFSxPJmAjbMQs2ukxfM5vll9UmLurtMQKOgZxPhop5laeFukSoXEIL602HfH
-	vWMHShhb6ep3DDIfztuF5aP9zSn/2E34f1UXjUnEejQN52NIAPQcRAPrPq4j5ZQzuzI5iQriw+1
-	twPnMsuMcxUNNOqjVw4NTivNh+t7SZp5+3crjZAEjmUqUDFz2NK/igLTCV48oEyC+Ccxfz+ECYJ
-	n65XjUjCCQRvccWo1OuFNcvMUbk5t5EGfNJcO5Vwd6v
-X-Received: by 2002:a05:6820:2903:b0:6ba:3635:7ffd with SMTP id 006d021491bc7-6c0bde5bcd5mr3300243eaf.64.1789141323624;
-        Fri, 11 Sep 2026 08:42:03 -0700 (PDT)
-Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:42:02 -0700 (PDT)
-From: Jens Axboe <axboe@kernel.dk>
-To: io-uring@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH 06/15] io_uring: keep the tctx nodes on a list
-Date: Fri, 11 Sep 2026 09:40:56 -0600
-Message-ID: <20260911154148.644489-7-axboe@kernel.dk>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
-References: <20260911154148.644489-1-axboe@kernel.dk>
+	Fri, 11 Sep 2026 15:51:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G/36EyMh9BRMJOT/0xE6mk6wAKq8Gz5OOcHfC2GdvbbtZig0TUAo7sh1wzP4P6W2ry1WpQRH4QipTwTUC3Tz16gQkhQzt5WfXIQ+xWs+tRqW7lDunT+KM2xMCmQX0HZ0lLHLnM6IFB9KIt8Z+LtjI0Z3dQ5nY/lOu2TQYlnfECO7Wa9q1EEmICyy+N69WWjb0R31XYbw4lFgUgN44pl0PfbQ7ha0XL3j+/hWObzMojmVuDEvmcyzhv4O2iferHRCIzSpEQXmeyzgW/aKiTojtyBbkdnP7k/yyuHQFoXKizrKP9/UiRK4anjOwNiL3ISjCqI1CBeoL4EB4oTSZI5Gkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6fN/vuoGyBl4Zf9471sx1vBiHIUbeclKC0kYzlbY/gk=;
+ b=SlI8MLXCOkaBaAcLPuMHsXELkjytr/bc3Iu8sGx4RgXo8WCKJHghl7Zf/3+rezvEboxF/Kg7r9vO8vqHocYVX/rFQLjP2LZObAd7hYTBBcltAV3OXIERh0Yy2ACX5E0MYLcP4CZgbTDEQS2qZY0ue+jjFKAkDdIMGL6xaq+gkFTuQrUK6qKrpVXWWmz4R8azeGu4OaGCoWOTaX60LLRIW4zbrq4tCkoWzGFmuuVVTZi6kD9/RQyoCJHGjJRbJwm/Me88RCy0Dpr/D6XcOS2n6t30puARJSpSL5KiW1dr79BC+dc+4oaG6qnhB5EWOgZ2AgHzlLQkmxjTv3WEwLgY2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6fN/vuoGyBl4Zf9471sx1vBiHIUbeclKC0kYzlbY/gk=;
+ b=fIz0v2pxBZ3TNYIFiAB/oDITcB1kO4YpBht4fWla0B9OIuv8QfxSGOfbfGPsJSBo5T1jhb4awUjGstb6LG7CqfAUR19mcsnR8Mj8rI6AvFz5TuezcrawfhAAX5m3DXZI4Xi0I6bffJ1iu0Y5ci5AOyIho364Fv8t2sUqflM38OEiZbt+oNgN5irjltki+9atsYdh0UOTAVtDFm7Tb/RdNlXEEEF+W/651mIWgN+pkNLwt5PA2rWs3GNzrK8SSLWJq44gVNrxunX8C6U+MsL5TO7EbYvIut03Qf1164jXMt6fnNaDgjwba+WO9RVell7ikKgaWzvCNsTXkC7bPFz/KQ==
+Received: from LO4P265CA0053.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2ac::19)
+ by AS8PR10MB7304.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:614::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
+ 2026 15:51:47 +0000
+Received: from ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
+ (2603:10a6:600:2ac:cafe::9b) by LO4P265CA0053.outlook.office365.com
+ (2603:10a6:600:2ac::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Fri, 11
+ Sep 2026 15:51:47 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ ZR1PEPF0000E6AD.mail.protection.outlook.com (10.167.241.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 15:51:47 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:57:13 +0200
+Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:51:44 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Date: Fri, 11 Sep 2026 17:51:26 +0200
+Subject: [PATCH 4/8] arm64: dts: st: add vrefint calibration on stm32mp23
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260911-adc-stm32mp25-v1-v1-4-cef26eecdef2@foss.st.com>
+References: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
+In-Reply-To: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: Marek Vasut <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Patrice Chotard
+	<patrice.chotard@foss.st.com>, Olivier Moysan <olivier.moysan@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6AD:EE_|AS8PR10MB7304:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4cb8ec1-c9f3-403b-7bb6-08df101c9609
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|23010399003|10067099003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: LkftZ1Ta0sfICC2yszrnskw+QNsXpmYDkEx2IUvGe39ru2Wdz4rNiCr/WaKVBFglb9wfH8L5nPaJR2j6NWvXd1T2USwJ8XmzSOZZDQlv8D8qbJukKQVEverg0UtuGuy8jrLBTitUILEqTCFGTY1x2uJ8QgGM5A9jRHMgH6V0cTjf6JXCLqfob6L28c3sC86hl03/SdZ6yz6uDtrp3YrpL2/21aLqeJe57vMrV1aX/p3XNNDCVp+by15xr3chgRKV29FZM8Ci/Bd+72V6ZMnGKO3hGncgmYIp0NGHzJ78a1tbslsozgwyIn/3qTErdQFtyr+SGF5ph+nvuA3whqVyOITZAjUHuOkQUM5gMuCPxw3smyxT63giakQh/7zCf5kGBYfVUG6Qh46Gkb5oi91livqPiIz1EZWHjTp1mrmJTOUbDtiblsQAapEJ0Qq3hLMpW3Fn38VlK7qxyZFHiUicj7TM5lmQlADte4lY+CZIl+AFmsU50F1z0hoYA57/+3jT7Q8cSXD11sL1LvYbvzTN6On/BeO2mPsIjgrHblWM9nMCo93o6JJJAvrM8HbBYJtsRnEOXvt+GmuqMuyFGm9UatXFATIALaJyw1e+Na/oELR3lbNt0HR0qgjO6uQYHOB5fnlFyFalIr+47VCEgvsMHloz8yWEG2EVbd4rAyLflcC/+xGLt0U8mFDu77+1HgSBYF2oqqyvLKRV33PaDswoew==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: izmxFCYy0FEdDmMLuHLYUJXvzzo6bxNXDlCm1sdzkTsI/Gttko5t+jrIVDoPS119uIWZ2OB/RAo79cgonM1rt0LXBUP9rd1KhuO4xUovhpk2WiFdZXYWiCr+TEyt6KYr731MtLm4BXLxnHlVfnMtuWFdEdaHwTl3oinrf/QRCRhnkOstVSW8BcIp0jYpr05Qhdkf960gbsCQ+H+/QlXTnfWYJCimtNs50+XO37fptLfZ7MiJE8Ps+MtnT+/wPXXewQbAUo485Z9fHT5+qsuu6aaz3Kt1T/pRowPt5XC2CK4Pk3H8AbtQf770IsT40YflxMrRx/9q1NbP9QKyHpRPR4FVrfCow1kVt4bYV0t0osJAtbWSMPTJ2oN47npuDnofj4bMwMEotFvuRARj9CDVx1XkhzNC2LHb/pCIP7kzSrd7Tulw6jmXRys+AJLRgwSI
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:51:47.1543
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4cb8ec1-c9f3-403b-7bb6-08df101c9609
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7304
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084204_693522_E9B23C13 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260911_085151_630896_B1A55B39 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +134,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tctx->xa is indexed by the ring pointer, which makes it a deep and
-sparse xarray. Iterating it with xa_for_each() is expensive, 12 usec
-for a single entry in testing. Keep the nodes on a list as well and
-walk that instead, lookups by ring stay in the xarray.
+From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Signed-off-by: Jens Axboe <axboe@kernel.dk>
+Describe vrefint calibration cell to be retrieved by ADCs through bsec,
+on STM32MP23.
+
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- include/linux/io_uring_types.h |  2 ++
- io_uring/tctx.c                | 10 ++++++----
- io_uring/tctx.h                |  2 ++
- 3 files changed, 10 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/include/linux/io_uring_types.h b/include/linux/io_uring_types.h
-index 39629ee77b91..4af3d579ead6 100644
---- a/include/linux/io_uring_types.h
-+++ b/include/linux/io_uring_types.h
-@@ -153,6 +153,8 @@ struct io_uring_task {
- 	struct file			*registered_rings[IO_RINGFD_REG_MAX];
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index 35e247af957c..959500140d98 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -790,6 +790,10 @@ part-number-otp@24 {
+ 				reg = <0x24 0x4>;
+ 			};
  
- 	struct xarray			xa;
-+	/* the nodes in ->xa, for walking without the xarray lookup cost */
-+	struct list_head		node_list;
- 	struct wait_queue_head		wait;
- 	atomic_t			in_cancel;
- 	atomic_t			inflight_tracked;
-diff --git a/io_uring/tctx.c b/io_uring/tctx.c
-index 466b7300e208..737dfad4a976 100644
---- a/io_uring/tctx.c
-+++ b/io_uring/tctx.c
-@@ -105,6 +105,7 @@ __cold struct io_uring_task *io_uring_alloc_task_context(struct task_struct *tas
- 
- 	tctx->task = task;
- 	xa_init(&tctx->xa);
-+	INIT_LIST_HEAD(&tctx->node_list);
- 	init_waitqueue_head(&tctx->wait);
- 	atomic_set(&tctx->in_cancel, 0);
- 	atomic_set(&tctx->inflight_tracked, 0);
-@@ -135,6 +136,7 @@ static int io_tctx_install_node(struct io_ring_ctx *ctx,
- 		kfree(node);
- 		return ret;
- 	}
-+	list_add(&node->tctx_link, &tctx->node_list);
- 
- 	mutex_lock(&ctx->tctx_lock);
- 	list_add(&node->ctx_node, &ctx->tctx_list);
-@@ -227,6 +229,7 @@ __cold void io_uring_del_tctx_node(unsigned long index)
- 
- 	WARN_ON_ONCE(current != node->task);
- 	WARN_ON_ONCE(list_empty(&node->ctx_node));
-+	list_del(&node->tctx_link);
- 
- 	mutex_lock(&node->ctx->tctx_lock);
- 	list_del(&node->ctx_node);
-@@ -243,11 +246,10 @@ __cold void io_uring_del_tctx_node(unsigned long index)
- __cold void io_uring_clean_tctx(struct io_uring_task *tctx)
- {
- 	struct io_wq *wq = tctx->io_wq;
--	struct io_tctx_node *node;
--	unsigned long index;
-+	struct io_tctx_node *node, *tmp;
- 
--	xa_for_each(&tctx->xa, index, node) {
--		io_uring_del_tctx_node(index);
-+	list_for_each_entry_safe(node, tmp, &tctx->node_list, tctx_link) {
-+		io_uring_del_tctx_node((unsigned long)node->ctx);
- 		cond_resched();
- 	}
- 	if (wq) {
-diff --git a/io_uring/tctx.h b/io_uring/tctx.h
-index 76ad1ad4594e..9a139816ce4f 100644
---- a/io_uring/tctx.h
-+++ b/io_uring/tctx.h
-@@ -2,6 +2,8 @@
- 
- struct io_tctx_node {
- 	struct list_head	ctx_node;
-+	/* on tctx->node_list, only ever touched by the owning task */
-+	struct list_head	tctx_link;
- 	struct task_struct	*task;
- 	struct io_ring_ctx	*ctx;
- };
++			vrefint: vrefin-cal@1b8 {
++				reg = <0x1b8 0x2>;
++			};
++
+ 			package-otp@1e8 {
+ 				reg = <0x1e8 0x1>;
+ 				bits = <0 3>;
+
 -- 
-2.55.0
+2.43.0
 
 
