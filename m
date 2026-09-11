@@ -4,117 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6379EC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 22:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F0CC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 22:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIDOEICOt4x5hTo9wOxCSTq4RJfWI5CvqmdehNQoNPk=; b=YGyTHW6HE++5EzY91nLiEw6JOz
-	eSZsEf039tikVbFlYtRj+dreoT4xME8zvgKn9Y4fqSGuM4jNs0vUy2XkZvPIbD7xTTTbHM8KGSoE2
-	kyjc/b2378XNHBoFJUpwTuVPelv3fFLopInY9MYTwRR1ofQfoZY44hcbYKdOp9iA90G74EMNmBiNg
-	jR7YiWWkw2PVLdRxQueN3M6VWpym3qkgrE/wRaGMib0wJYWY5Wma776jj7qYNxfQbcpmNuoYf8a8r
-	mMXFH8SpCUDmpj0w3geBGeTx89Nu4rHGIjktFpB3zYdiLOG+0i0Ji1BiIVbSVqoLYJVq4P/0KE73j
-	uk2tb7sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zrkXTFmlVQPcnpPC8U/nG2oDFHYiPrW26FCuVN6FIbM=; b=xs+DdhYpuxCs5efLcWpaOoA6CO
+	M8qK6eHA3Tsygs8xxe3ZoyGF2/1sUZ5CHCcBJWnzjoBTrEafEIEASUul4/bEWWk/0Xi2lZtI9ESDI
+	CiP6jMluznm5UXm4Q3c9P9kyntTWPvKVSGTgSZSvVKw5XPmUU3Hx8AZ9vNvXx37GgP2rF3ogSg5iu
+	V7da6ejjP6GQrjOIf3t0ab6G2aWqAJaF9duS+oFjb5I+gZS41ahwJKESkudIg4XlxGGdwl/vkuVTB
+	UOhk/RWq1ssZIH9TIsVvR7Q6EarPwcHiqQpskWBTIx98WZns/5Rk/kRk5NLQEn0woUnBxMqEF7SWM
+	o8WXWOeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x59gA-00000000GH8-1Y9P;
-	Fri, 11 Sep 2026 22:25:06 +0000
-Received: from mail-eastusazon11011000.outbound.protection.outlook.com ([52.101.52.0] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x59gt-00000000GNR-2Zee;
+	Fri, 11 Sep 2026 22:25:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x59g7-00000000GGn-32Ax
+	id 1x59gr-00000000GN0-3jwo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 22:25:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AqKs0c07H+J8pSlTjDiWf5c0K2AW8SIrPt/9DxXGI4jxWqwhGkLK3Zn/5rS0T26mSt/bQMu+xLAHleq/1lw1Z0RxCv9ePA/Jrl7FRA7mtGWIrNHULSP0uP9Y3/y+UUd6gDwMfGeu8NrL6JE1lYTvNrPWYG8wsdl9j1DBT5Iufwltz90GDGDXt7bWSnfUIcmEPVK7wUTkZuxZaHS3KQd2DJIujTcjVrPdLWz8VkesoKKxs3A0sdyc/DZNcts3iebxY7ook2QrI8C1oZm0kCYy9IFxfXQFm4cVoYj5TElOaGbIQFhfLFNX2yXnVTSR8YJBu0evjH3lapX7nlYKOXGsBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hIDOEICOt4x5hTo9wOxCSTq4RJfWI5CvqmdehNQoNPk=;
- b=ckQ+I3h9+rLC74G8BkNIA+hztJSxN5TxRIx4olA7jfk/wWb+Kv/MGQ6HAGDqCHRajUAc53oRG5RC2cnSKKN0qJHLuUvegnqEn37sfKvr/FkYrYPsM+qMEq2Khg277nXjfXTf9zlFh3XtNunUyClv1X2pe25e+8bhnx67MmUFGY1PoCPx4xtla7JAJCta62DMrPjr/+XKzXcywySGQxcfbPlir+Sp80xiYtIDmNldHj4xV2Aw8oKpWDtfNJXeGDoqCIOZRDTgj6FaRgvJxNAi8V13ucQZHdotYaE9akYD92cp+eSpLSvi8e+cPl0NUDrWg0o2Neb5vaRSe+rGaeGL9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=uniontech.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hIDOEICOt4x5hTo9wOxCSTq4RJfWI5CvqmdehNQoNPk=;
- b=pGx+G4aC0jprbrsZRCQCeTlvONygUrYG3ykJoyZKoJaEDDpDoolwVg4mwjBcNis4Wc5iAjVVsehRdOFOV/jT5YsUrRnv2MK3HZ8s8ySl+XDGX6buwiD5jO9VKLzgy6y2PcfLY9VT1ghCfb46wxcUAeevM1Iv+AUNg23GGHh4cfRV+favPZ4GxvzdRiZ6G87xrDmmjwMiOEf6yAK1wWLPW4It9EULYrqj0dDuFFTc9TyYSpRMc0vBTnzoeoCNYtUU7hodqNf5UeOup8zyiwwhwHU3jqcWhzsSFxAkeci3LJ2vEwFJej/Xg2h/QWgnao8Alag4uCX9YRpMtM9B2bBopw==
-Received: from BN9PR03CA0253.namprd03.prod.outlook.com (2603:10b6:408:ff::18)
- by DM4PR12MB5748.namprd12.prod.outlook.com (2603:10b6:8:5f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 22:24:55 +0000
-Received: from BN3PEPF00022BBD.namprd04.prod.outlook.com
- (2603:10b6:408:ff:cafe::19) by BN9PR03CA0253.outlook.office365.com
- (2603:10b6:408:ff::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.8 via Frontend Transport; Fri, 11
- Sep 2026 22:24:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF00022BBD.mail.protection.outlook.com (10.167.248.117) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 22:24:55 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 11 Sep
- 2026 15:24:36 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 11 Sep
- 2026 15:24:35 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 11 Sep 2026 15:24:34 -0700
-Date: Fri, 11 Sep 2026 15:24:31 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Wentao Guan <guanwentao@uniontech.com>
-CC: <sashal@kernel.org>, <jgg@nvidia.com>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>
-Subject: Re: [PATCH 7.2.y] iommu/arm-smmu-v3: Disable implementations during
- devm teardown
-Message-ID: <aqR/n+VtlgpjJrAV@nvidia.com>
-References: <20260910065429.1703706-1-guanwentao@uniontech.com>
+	Fri, 11 Sep 2026 22:25:51 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BHWVl2972042
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 22:25:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=zrkXTFmlVQPcnpPC8U/nG2
+	oDFHYiPrW26FCuVN6FIbM=; b=Nz4fFmc+3q+4nYFt4RGFkV8rHsuq9n7y0j/sT9
+	6RBjPxeI7LETEmQx0wMaKjK5zN9HbHV3qWtGgXdaQweVtAvJkoy4jfQfBPurC9OE
+	D4TGEi930v87yr864sGf8EI6Q/b8ssQ3er447C2YMnr6PoLar8y6GbBe2vUWIBZd
+	U56U7UP7axarq8JU/UwW12/Hl84C2Fv5RAhwkmxmaCUBAo3PVdTWR64T0ZCuodKv
+	xUcth9ZfBDiqv14PkaEVnDycK8PVEVVrGSCQNCLXi2gtaEZtiGZisYXhOO2jatss
+	ZvV32ym29jvOUiMKwHMtmnzqPov8GqH/aWsI+9SAzEZ+XJlA==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmm22sj7e-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 22:25:48 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc21bc2923fso1481168a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:25:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789165547; x=1789770347; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zrkXTFmlVQPcnpPC8U/nG2oDFHYiPrW26FCuVN6FIbM=;
+        b=VOhgPt+c2CQKvWBxyopt4i6DuqpngecyIMI93N3vwy6yzwItA69ZCuL1vgfC4xi8Po
+         5SYH8l7UDRn/K1f1hcgHQZHPl4eAG+WJ5TPmo2ZbxVDcbx4VL5fovd1QcJFOCKAn48XM
+         CL7Scpq8G/g7FKnn12pCTD2J1CBrnGsHLHOEYrb5irJA1BjXSqrgXY7OHGRn+XvBJnbD
+         cXYFFeDY2nhwtKDt+owj+jMTavIzzayOD3vak3bqiyI9VvaUyFI0rz0AKMyIwaEEU/M5
+         TpWiiUVNDWugiwU+YqG/htYQqxxJK4vjefOoeIlHX6HZnEu5xI0DPvBpOpdGWJEUCDr4
+         1bow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789165547; x=1789770347;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=zrkXTFmlVQPcnpPC8U/nG2oDFHYiPrW26FCuVN6FIbM=;
+        b=e2szIk13hI0VohmWWtA4VkWG+FOexoce2js208NT8W1pM/R8JhglUA8+W2dpc4smsR
+         1RyT1cFQPH6hpN6f/sQ4g2Bis6XSi5WABYycZtJ35adHz+3Jo3VWkgqTrfOVVEOevypq
+         30nNuXbVBRFixfd8KLINUD+U6HCPqWz+wrfG47VK5/qmR1wgHWF2CiSa+oJBb6/6RMTn
+         eyHtoumBtuQ4juOWsNQunssg/ue3zx3XoE2ORtlDq6jnmGBU0AjebF1mANjXc6V9XJz+
+         nn95kZcm7+qZRH7tiCvnHlP5ZwnzvrEcP9lhaG5PU2O0QU4P6y+NorqxpeI0BnBJYJCn
+         904A==
+X-Forwarded-Encrypted: i=1; AKwUvBzF5iakNzG76Tq1N3rZ27ncnHEClM8qOgo02r+wEoSSMXUj2P8ST11ZxgAnRLSXKpKHYI7tRtKfLrcz1hItMv9l@lists.infradead.org
+X-Gm-Message-State: AFuF++lknJAxoDSzv/ttoKcufcVXAYqScuVGEUykjNTfgptvwv1dA3Vg
+	jrnW+coDHyVWlszqqCrYlArdh+P6sg1WCk2Pb/fHni0zYrPW5N3lw0y48E3Pwn2ePjd80VVnKLH
+	JwvcwJ+3pbcGDvf2qCgJsKiaG7h+08joUvUpY7psz5u+baAl2LvOroCoVGYv8WMd+4Icnd2lk2X
+	9KQA==
+X-Gm-Gg: AYBFou1Ix3LiQqT0aU4xSapU36ABkeFMqqDBxd7XOakqWHSMj0Fhgl13x9Md2nRUqwH
+	USQe5SQGzigQsx28S+3B+IXXiOjXRISPvi+zIh2uSMiw9tRXtHk/+qvQvGbdIzfjMDFgQc1CO0V
+	+TcbzCZ5jgJDFbLYKS0sJlileSnNAd3c92u4WA4ts/hGZtsp7sYV0ccEsuWPuK5r2gDKaliNaf+
+	nnSzcnzAv+4gW4uplmCIrFfojreGX4AdbsMlb1fVPZEiuf/y0Ca8lHgNZoB6X/lT4tMMt+L7VBR
+	QMqFVTuGQrDb5TQQWFLwTfPwio76UUbDa/lrI0yV2CCCJC3xCuxYsZ5+qD6tnTAUXJYmcts12FT
+	vCpdzumWBYjMAhbMYQZQC8+g3XWNn7ew=
+X-Received: by 2002:a05:6a21:138e:b0:3d3:b00a:7082 with SMTP id adf61e73a8af0-3db0e48256bmr382368637.28.1789165546951;
+        Fri, 11 Sep 2026 15:25:46 -0700 (PDT)
+X-Received: by 2002:a05:6a21:138e:b0:3d3:b00a:7082 with SMTP id adf61e73a8af0-3db0e48256bmr382332637.28.1789165546468;
+        Fri, 11 Sep 2026 15:25:46 -0700 (PDT)
+Received: from hu-bibekkum-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4f739b5sm9213321eec.25.2026.09.11.15.25.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 15:25:45 -0700 (PDT)
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Date: Sat, 12 Sep 2026 03:55:38 +0530
+Subject: [PATCH] iommu: arm-smmu-qcom: Skip fault-info reads when suspended
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260910065429.1703706-1-guanwentao@uniontech.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BBD:EE_|DM4PR12MB5748:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1446d86-e23c-4572-8bd0-08df105381bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|376014|10067099003|6133799003|18002099003|22082099003|56012099006|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: DClE4X4qXMNVE2R1X4cETnRrslVMjraL39BpzUR11SaAafXnbBykMVsWRmB2+BImluS2oTcTnjw90+pa0YdH5iClN++ps0/pKW/bzRtAFU+VW+fYjVdsvCzT+8kFDE30yBctmzjiCNc/5O0mWovgIkdayZsGeYAowrnnzcw+QfrgKXiSYKvfBPN6vJSp5kqUPji79ZUm8CzPkqont3ttQtxUpQMGzaJVKncKv7C9CNpcLwyoJML+s4kkw2Jcnm+XYa1iLkdHx0VDaDVd4P+jA5kWHuIgn/ouIG+epIzY1rltBieg8M0iovqDeVpVY3IOKnTDPHMW2VNQ99cIrlaJbnImTauD6/QWIMkhS7VoFvJFheKp/yEJRX7R2xhG9N9bTEqm1camPkRCnKUQyahDwpF7pmi1qxLwOZo4ubDSPu4qAQPuKGgO7bqvbfexkgfmjyu3nLCgnZ41RWHU+W8u9i1gV0cQlTYopsVxHJ3byCNyNzB8no9DgCavWTI3OFZ/cvY6xIoSRYo9GC3MRF4Hvr0K8Cwi8ncc0WsceyJfoUvLIgwHtRHhH4PxOQd/UEJ/ER3d2G3yOj7o4RdsP85ra4x83IfNesMf344CAKu0NAiTaFAlLsa+PaKSLC9Crw+iVh685JV3i5vYS/hQ5prOKT6baBt1XxshLz0wTIhWtV2QaVqrpKORsxqpSmWdfjv0NrC+EiOD/mdypWcqXnOKMw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(376014)(10067099003)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: f/8eI8K7Sl3tIBj1hCC2PQcGOeI2x26p3eXID4jOWJpCx8wXnhiOjbbdyXNYT0XoM0U/to7BcpnUV3TPsESuGZJlmJYfyqCTfSxTavqk6Yg4OQYcANqwK7kuHVyLv+ksUX+db1YmY1W7OiOB6hADebNt+d6mFkLO8Hq6hYhqRoL2cIM5do11TceQ0OdFlKzBCWEbtgtH1Q6gzWMPgBl/M+CeSvUlf7uw0LUNhu0Vh+OVJi1hCKWZ9RgaE0wiFnFl/tlZCfugQEHY9BZIO01QdDMleAOwP82ZbuZMzpSgFDo2e0I+E1dmuruMcWmbZ3UGjdLyU33ThEToFf+ei1LEPoSXTI3zkh43sVZ5ruZWtpouwakWet7K8+tYbYawENturxza9R0XsdI0VV+guaPDdk/SLOmrSe6MlMpkmZuOrNTpzw6EB06FgepPkPaCy8fY
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 22:24:55.3097
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1446d86-e23c-4572-8bd0-08df105381bd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BBD.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5748
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260912-priv_call_runtime_handlers-v1-1-fc0c3a17523f@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAOF/pGoC/yXMQQqDMBBA0avIrA3EGCt6FZFg49hOiVFmVAri3
+ Zu2yweff4IgEwq02QmMBwktMaHIM/DPIT5Q0ZgMRpubbgqjVqbD+SEEx3vcaEaXsjEgi6qnsrJ
+ 1Za22GtJgZZzo/Zt3/d+y31/ot+8RrusDGsMagn4AAAA=
+X-Change-ID: 20260912-priv_call_runtime_handlers-7f3547544040
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789165542; l=3706;
+ i=bibek.patro@oss.qualcomm.com; s=20260617; h=from:subject:message-id;
+ bh=ZL2A2cFHlRhAKSuQ9oyrYwVIfm2ZzCci0b8JvPtYKrc=;
+ b=wtl28Fbdd6qYisueH5Nk753b3YTVUJyX0jmUcgObLW99BpkEMzkerPCmXfpJNlpCsF2blsOhf
+ aSlOmE9xVBnB3e3iXcUCRaQvOyaulsDfn9heSVcHUyAhbNIgn7IHefe
+X-Developer-Key: i=bibek.patro@oss.qualcomm.com; a=ed25519;
+ pk=DkrbE5dhskZJmBAKR5LygWRsAydEOSN+T0/YxNYxDLM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDMxNyBTYWx0ZWRfXxDABBwyo3uF4
+ 5v55Oc8xJEi/ZsGkfg7e3oNu3e9sZrDNiJ35ezN0JlnAQVzxqEgu+OTeNRMh0Oxy8NEa0TCjVbO
+ ZvCTFxZp9kIFp+jX7YLIvahKB2UQGM2t5eE6AzhWYok/nAw6H+gz6M1Pmq5Ti8roznJhIFryLZq
+ 1wgznchBRrL2TplPa5iHqwbaBPvjv8n0QDon4h7Y6nfQN/JFpYRPM106/oD5x+OtVgt9HyzB71H
+ w4/Zj9Y1Ljko4p6pfAKb1HBkveI9CRvCOaCZ17uxFQo4L7jB8uGy28iX0mLXKRCqIgNoMWY3V1a
+ v3PJpqSomyUX+jWzq1AcDACWLdOv/3j3PFtKhqqY4ux66Mm9w6QPoJVrVyfk+guqUXwFE9toge1
+ 9ZpbxcwlvuQtNxSYmmujx80R63D0cB/iJQ29TwKF0MmJjzPWiXREGAVnsXz/xfyDnlTqMqYFZy/
+ KXLs2K0z8BcdUE5uwEg==
+X-Authority-Analysis: v=2.4 cv=LPDz05W9 c=1 sm=1 tr=0 ts=6aa47fec cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=FyyklSoAK86a5T4BgM4A:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-ORIG-GUID: ZGfpIh_w4Pv2pWPuhPV8UJ1MZZOCpm-2
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDMxNyBTYWx0ZWRfX1axlVIeSDFrQ
+ eVlo+9PpaFiHVSHPwlvI410YfeeCEKW/pcqX4YEAsctP55gZlCCbF7cGBW6j1bN/gxdy2D9dePZ
+ xpKEgYra0n5QWF8D/6d8WsqOZ8CsRO4=
+X-Proofpoint-GUID: ZGfpIh_w4Pv2pWPuhPV8UJ1MZZOCpm-2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-11_06,2026-09-11_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 clxscore=1015 bulkscore=0 impostorscore=0
+ malwarescore=0 spamscore=0 suspectscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110317
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_152503_768858_9C5AD401 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260911_152549_998145_B9EB39A2 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,60 +157,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 02:54:29PM +0800, Wentao Guan wrote:
-> The Tegra241 CMDQV teardown fix moved VINTF hardware deinitialization
-> into the implementation device_disable() callback. However, its stable
-> backport preceded the conversion to devm teardown and could only invoke
-> the callback from the shutdown path.
+qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+holding a runtime PM reference. A fault is raised while the SMMU is
+active, but the GPU may drop its power vote before the threaded fault
+handler reaches the callback, allowing the SMMU to runtime suspend.
 
-Hmm, it did...
+Accessing the SMMU registers after suspend has started is unsafe and
+may cause subsequent register accesses during runtime resume to fail
+with a NoC error and an asynchronous SError.
 
-[correct in mainline]
-git log --oneline v7.3-rc1 drivers/iommu/arm/arm-smmu-v3/
-...
-9ff145a25c5c8 iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown
-2bd22a0d40503 iommu/arm-smmu-v3: Manage teardown with devm
-...
+Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+the fault information, and skip the register reads if suspend has
+already started.
 
-[inverted in two trees]
-git log --oneline v7.2.5 drivers/iommu/arm/arm-smmu-v3/
-...
-78fd5a2d65f35 iommu/arm-smmu-v3: Manage teardown with devm
-f9b7375db3b36 iommu/arm-smmu-v3: Add HAFT support for SVA
-5994617e09ee6 iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown
-...
+Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+---
+qcom_adreno_smmu_get_fault_info() accesses SMMU registers without
+holding a runtime PM reference. A fault is raised while the SMMU is
+active, but the GPU may drop its power vote before the threaded fault
+handler reaches the callback, allowing the SMMU to runtime suspend.
 
-git log --oneline v6.18.51 drivers/iommu/arm/arm-smmu-v3/
-...
-2235eafda9b3d iommu/arm-smmu-v3: Manage teardown with devm
-d903d99ffd22b iommu/tegra241-cmdqv: Reject a vSID wider than the SID_MATCH field
-d2ab08437e913 iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown
-...
+The failure sequence:
 
-[missing cmdqv fix]
-git log --oneline v6.12.109 -33 drivers/iommu/arm/arm-smmu-v3/
-...
-981686f413776 iommu/arm-smmu-v3: Manage teardown with devm
-...
+  GPU context fault
+          |
+          v
+  qcom_adreno_smmu_get_fault_info()
+          |
+          | GPU drops its power vote
+          | SMMU starts runtime suspend
+          v
+  SMMU register access without an active RPM reference
+          |
+          v
+  later Adreno PRR private-interface operation
+          |
+          v
+  pm_runtime_resume_and_get()
+          |
+          v
+  arm_smmu_runtime_resume()
+          |
+          v
+  arm_smmu_device_reset()
+          |
+          v
+  SMMU register access
+          |
+          v
+  NoC error / asynchronous SError
 
-Patch itself looks good to me for v7.2 stable and v6.8 longterm.
+Use pm_runtime_get_if_active() to keep the SMMU active while collecting
+the fault information. If suspend has already started, skip the register
+reads instead of accessing the SMMU while it is being powered down.
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-But v6.12 longterm might need some extra fix, Sasha?
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 795e8ec7e8fa..b1787a4ba0d3 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -129,6 +129,18 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+ 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+ 	struct arm_smmu_device *smmu = smmu_domain->smmu;
+ 
++	/*
++	 * A fault can only fire while the SMMU is active (GPU is issuing
++	 * transactions). Use get_if_active so that if by a rare race the
++	 * device has already suspended, we skip the register reads rather
++	 * than triggering a cold resume which would call device_reset and
++	 * destroy the fault state we are trying to capture.
++	 */
++	if (pm_runtime_get_if_active(smmu->dev) <= 0) {
++		dev_warn(smmu->dev, "get_fault_info: device not active, skipping\n");
++		return;
++	}
++
+ 	info->fsr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSR);
+ 	info->fsynr0 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR0);
+ 	info->fsynr1 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR1);
+@@ -136,6 +148,8 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+ 	info->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(cfg->cbndx));
+ 	info->ttbr0 = arm_smmu_cb_readq(smmu, cfg->cbndx, ARM_SMMU_CB_TTBR0);
+ 	info->contextidr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_CONTEXTIDR);
++
++	pm_runtime_put_autosuspend(smmu->dev);
+ }
+ 
+ static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
 
-> Now that arm_smmu_disable_action() manages normal teardown, invoke the
-> implementation callback there while the command queue is still alive.
-> This prevents the subsequent implementation remove action from releasing
-> resources while the CMDQV hardware remains active.
-> 
-> After ("iommu/arm-smmu-v3: Manage teardown with devm") merged in stable,
-> now keep the shutdown path consistent with mainline, where disabling
-> the base SMMU is sufficient.
-> 
-> It is a fix for stable tree commit to aligned with mainline, so no
-> upstream commit id here.
->
-> Fixes: 5994617e09ee ("iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown")
-> Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
+---
+base-commit: f61bb3920fa8cb44b84d32e0fa9fbaab4eb00c80
+change-id: 20260912-priv_call_runtime_handlers-7f3547544040
 
-Acked-by: Nicolin Chen <nicolinc@nvidia.com>
+Best regards,
+--  
+Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+
 
