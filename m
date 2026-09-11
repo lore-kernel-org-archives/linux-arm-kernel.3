@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16A1C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 06:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0731CC88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 06:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9qPNY3Uu4k+FecCTTTG7VYnLoe6+q61r76rTHiKu0vo=; b=FnuJgPYCc1TKO6PKDgltaCpSbT
-	3jg4azUM9QzfqKEGSQmd2/q6WZib//Ace2gQXjMrGM9cuOfFDTDFimIHrqr4HMlP4yAaw11zh+E6w
-	c6byO0/JyVI8Vnv40dpbst+4cRTAgOZWt14gjk25VDSY0uYU9YYlaUS565mKXXgpGZrT0BJh594Q8
-	TtWBftL1GJQgkDQdM5mE4McAoJb5IV8lPCi4eUGMp4jIBNpry/M6Xrgd8x8u0iyXYySDzwoPltUpI
-	svhJHp/XfTKGCbTGDfzTUwCWnH1UHhdyHsnzbCJojcdKVltCKUN+pccD5ith01q/UugGuGXG6k1kD
-	8adZHxjw==;
+	bh=Q/gVuEgQ+O1MlxzayRMNUxUrBsV8eHwDdB0w2KFHMt4=; b=uCn9zxXEyLcShPh0t/dxjC83/w
+	kU1NAD/ChR1peLE0wKEsbIjHAH2HLp8ddH9NfX3O3RQfQgn3XzvQKiHbfJt3gXW/57cD4Zk1g3M48
+	b/ijF/ZLOpt1KI5RtX7F5zKsSkHwZxtZUDjMeyjS8/GlF6CGcmeSChjgrlQcUAzVSilu9o6dD8eS9
+	N5eXanTYSIRPulcQ4OLj1pwV6QuO2ouHFZBsS6hD9ZDf+rXHiJMGPwQVG+yW0NLJO7D/qirZVguwH
+	/QCBtSI7/2PZo5746QENlWrpJW2a/pU03K5APJ78+O5IF3WOPAJoeNU1xvd/im6NKzrq/YuuRajji
+	yL5J8zwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4uWt-0000000FvGT-315T;
-	Fri, 11 Sep 2026 06:14:31 +0000
+	id 1x4uWx-0000000FvIs-3Wgy;
+	Fri, 11 Sep 2026 06:14:35 +0000
 Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4uWo-0000000FvF4-1fhY;
-	Fri, 11 Sep 2026 06:14:29 +0000
+	id 1x4uWv-0000000FvGQ-0C88
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 06:14:34 +0000
 Received: from seu.edu.cn (unknown [222.191.246.242])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d62c4fb7;
-	Fri, 11 Sep 2026 14:09:23 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d62c4fc2;
+	Fri, 11 Sep 2026 14:09:30 +0800 (GMT+08:00)
 From: Slavin Liu <bolin.liu@seu.edu.cn>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+To: ulfh@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	bolin.liu@seu.edu.cn
-Subject: [PATCH RFC net] wifi: mt76: mt7996: guard station-only MLO TX handling
-Date: Fri, 11 Sep 2026 14:09:22 +0800
-Message-Id: <20260911060922.94383-1-bolin.liu@seu.edu.cn>
+Subject: [PATCH RFC] pmdomain: imx: reject a missing bus power domain
+Date: Fri, 11 Sep 2026 14:09:29 +0800
+Message-Id: <20260911060929.94481-1-bolin.liu@seu.edu.cn>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa08f15c19903a1kunm3f9087f41c7355
+X-HM-Tid: 0aa08f15dceb03a1kunm8126a0a81c7377
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUtIVklKGE1IThpDTk9IHlYeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZS01NVhlDSUpPGRpISk4eTFYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUlVSkJKVUlPTVVJT0lZV1kWGg8SFR0UWUFZT0tIVUpLSU
 	hOQ0NVSktLVUtZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=KmpRcIo4HhataD46neMm5mjBpxhLA7cwHRwITzsoQngB8Q1+TReXPqBFyaGZFTPgqSRbkVVrbg1vrq0+2+FY7zL3yA5cifwzEo9cn43y+8+dqpZO2kizTH4Yc4oQl+wQi/yYR+j+qOJ4ljV0JSj/Mhl1jwg9z25jf1SaGhQltDs=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
-	bh=9qPNY3Uu4k+FecCTTTG7VYnLoe6+q61r76rTHiKu0vo=;
+	b=j930sFoJBSDlrQKg5hhUbpgFngB5t6l/UFcdtdQtZ4DttF9DdBRdN8GcPFX+xlwHvGz1gEmpkkJAIVosHU3dDF6yE+mY7Zj+eUoVmCjseS7mtUufsXJki71slHoqavXBfrGQOQSQKymp91UflSBQJBmoe61S81PhhHamLtKGd18=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
+	bh=Q/gVuEgQ+O1MlxzayRMNUxUrBsV8eHwDdB0w2KFHMt4=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_231428_525374_48E6DECA 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20260910_231433_301647_C6AA4668 
+X-CRM114-Status: UNSURE (   7.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,40 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pending frames can be retried after their station is no longer
-available. Require a station for both MLO-specific branches and retain
-the existing non-station transmission path for valid vif traffic.
+The named-domain attach API may return NULL for an absent name.
+Treat that as -ENODEV before publishing bus_power_dev to later unwind
+paths, without changing the handling of existing error pointers.
 
 Detected by static analysis and reviewed with AI-assisted source auditing.
 
-Fixes: 7ef0c7ad735b ("wifi: mt76: mt7996: Implement MLD address translation for EAPOL")
-Fixes: 85cd5534a3f2 ("wifi: mt76: mt7996: use correct link_id when filling TXD and TXP")
+Fixes: 2684ac05a8c4 ("soc: imx: add i.MX8M blk-ctrl driver")
+Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
 Assisted-by: LLM
 Signed-off-by: Slavin Liu <bolin.liu@seu.edu.cn>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c  | 2 ++
+ drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 2 ++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 1cba381a78b8..e24dd530486c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -1057,7 +1057,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
- 	if (!wcid)
- 		wcid = &dev->mt76.global_wcid;
+diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+index 479789009c7f..9653a8ac9a6e 100644
+--- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+@@ -228,6 +228,8 @@ static int imx8m_blk_ctrl_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
  
--	if ((is_8023 || ieee80211_is_data_qos(hdr->frame_control)) && sta->mlo &&
-+	if (sta && (is_8023 || ieee80211_is_data_qos(hdr->frame_control)) && sta->mlo &&
- 	    likely(tx_info->skb->protocol != cpu_to_be16(ETH_P_PAE))) {
- 		u8 tid = tx_info->skb->priority & IEEE80211_QOS_CTL_TID_MASK;
+ 	bc->bus_power_dev = dev_pm_domain_attach_by_name(dev, "bus");
++	if (!bc->bus_power_dev)
++		return dev_err_probe(dev, -ENODEV, "missing bus power domain\n");
+ 	if (IS_ERR(bc->bus_power_dev)) {
+ 		if (PTR_ERR(bc->bus_power_dev) == -ENODEV)
+ 			return dev_err_probe(dev, -EPROBE_DEFER,
+diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+index d255c20f58e2..e952b4ee75c0 100644
+--- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+@@ -655,6 +655,8 @@ static int imx8mp_blk_ctrl_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
  
-@@ -1097,7 +1097,7 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
- 	 * compatible with 802.11 EAPOL frame, we do the translation by
- 	 * software
- 	 */
--	if (tx_info->skb->protocol == cpu_to_be16(ETH_P_PAE) && sta->mlo) {
-+	if (sta && tx_info->skb->protocol == cpu_to_be16(ETH_P_PAE) && sta->mlo) {
- 		struct ieee80211_hdr *hdr = (void *)tx_info->skb->data;
- 		struct ieee80211_bss_conf *link_conf;
- 		struct ieee80211_link_sta *link_sta;
+ 	bc->bus_power_dev = dev_pm_domain_attach_by_name(dev, "bus");
++	if (!bc->bus_power_dev)
++		return dev_err_probe(dev, -ENODEV, "missing bus power domain\n");
+ 	if (IS_ERR(bc->bus_power_dev))
+ 		return dev_err_probe(dev, PTR_ERR(bc->bus_power_dev),
+ 				     "failed to attach bus power domain\n");
 
