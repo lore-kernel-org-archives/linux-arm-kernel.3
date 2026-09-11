@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FC4C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37386C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OUzQSxuYYcOVDrjS2UnctEZxm4NJxWO9UUlAtDRm/mg=; b=Fpq7D9IZA5v/7TtJl88E/kIu3Z
-	quyCspJtzCBMT4ON3APifub+qNkvFfegKWku7JgZAqKwekUq07EORdFV1C/TIzHT+74F/VSixmwpa
-	X1Il4ZulCX2fp83ggPbJzvwI0lNUSIroUVPmI+SNaLDusueUq7gtFp2NMizC7cL+nIijt9b586TU1
-	2NhiJhTKCTHeZ3iBggbFKprUcfcHc2J4tM/qUbJlqj9u0Zg/KCz99By0faaet6GVuguVLIxBwn8bD
-	86p3EsfgK6VFu4XgjzxvWi5GccZGPj24y9fcr5UXJX2XQQfI5qbjK1Ly/YaHU0HaVBKsvqEAZ5VF0
-	my5LwSIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FmITuOpAyp0txJ9LywM67xGVsoOppp+O+NKFqqQhmo0=; b=l8KmUup+o4EifvLJamqrAGsXLO
+	4gymPRFKiIis/gt+SfoJlxBnScNGZ1m5alCZtyt/jyByR6EY/9FO1cJN3+LZ864jBWs5N5CTaLBee
+	XGrjnxuNjQILhl1nYfKxsfENdMGtzDCFTqJMlBoR42W11GRjaW76BKa4x9ClHeuphlHkI/LHt0C0e
+	/qivMm/hpR/HqLnsRASN1C/Ur4vCFvC+Wsczuuc6I6KJ1SgGrzyzK/muIWpaEyF5MfDsb8vfmm5IH
+	1YmhK9ExJJ0LDQaAKwP9tK21g5J2Zu/XHN6Jr+vYoFtpgD8JXFbHpCshrmfS8/ytKIi8OlBNvS+KH
+	qpqG68LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51hm-0000000Gphe-0kmp;
-	Fri, 11 Sep 2026 13:54:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51hj-0000000Gph6-0PJY
+	id 1x51fO-0000000GoJf-0ftU;
+	Fri, 11 Sep 2026 13:51:46 +0000
+Received: from mail-ej1-x646.google.com ([2a00:1450:4864:20::646])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x51ex-0000000GnvM-0lcx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:54:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B8C71655;
-	Fri, 11 Sep 2026 06:54:01 -0700 (PDT)
-Received: from [10.57.73.19] (unknown [10.57.73.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 068AD3F8C6;
-	Fri, 11 Sep 2026 06:54:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789134845; bh=3OKeaaD514gqO+vYcqjWElEK11cRF8goI5Ek45BuXtM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pf2BunbC+DJjcH3fKxKeywiunyIxdQL8H/K8Sy/C7RcCv83gqiSpbSMGbYYPWTOl/
-	 iMjatyHoj9uNvjvQzotVfaII6WFyUJaPZlItlDlYWyg97A4chXczVF28gLobaHzKED
-	 8Z3lUmTopH2FSwS729+r0wg0fjw/ug5q8YM+q2Ws=
-Message-ID: <66610fa3-982a-45f0-b39a-34f81598ad18@arm.com>
-Date: Fri, 11 Sep 2026 15:53:59 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] sched: Enable preferred SMT siblings on NVIDIA
- Olympus
-To: Andrea Righi <arighi@nvidia.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
- <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
- Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260908082345.103087-1-arighi@nvidia.com>
- <c92baaa9-1c1a-4f1e-903e-7b98ec9f694c@arm.com> <aqEKCCSY6QetqOCB@gpd4>
- <aqFTbqOVW8ph3Bux@gpd4>
-Content-Language: en-GB
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <aqFTbqOVW8ph3Bux@gpd4>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 11 Sep 2026 13:51:21 +0000
+Received: by mail-ej1-x646.google.com with SMTP id a640c23a62f3a-c251c140b41so100234166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 06:51:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789134676; x=1789739476; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FmITuOpAyp0txJ9LywM67xGVsoOppp+O+NKFqqQhmo0=;
+        b=RTnl4DpzfnE88yURexeu9IN9NHiGErGVxPsDcy9ciFVsCpmd6ywMwWWGOzRRNdUHj3
+         MfAzv9cXp2lvYTQ55FrLa2DtXeb3sCIrgbr2NNL3UxcG7TEXsgbSzk8iSPdTbFtGk58D
+         OHCQFZ4SuPMp2RmmMqs7CN86bxk9d238Flw0yr3YoQYgoyaQ3gimy5WcGRMASqxuhwQ8
+         efHJqP/l8aLQ0pXeFIFZdHldZNKBUrSiXB+NmHjFFhROXF3PwkzlxPKJIZkhHcT+L+Ab
+         KqFFRlyG16wCP2MXZXiAVEusx1PpjkxACO9UjxZyQ+uGAVTM6Xj1HNIAFOfKvg58XYTm
+         5tmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789134676; x=1789739476;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FmITuOpAyp0txJ9LywM67xGVsoOppp+O+NKFqqQhmo0=;
+        b=IETky+no+vhWX7dPfaK5v7S79aCBvkXVlqPkwVNfPFnRacH2T6r7CeeBH9tGYux9+U
+         JsE5IXmiWEzptSkCH0gz4JAiJkfMpOVXq9urB3fFjqGPUULXU1kNomE1cjiKS+bQ9krw
+         /JLSWPmOOAdhDI2FrkDbZb43+TBeTe5jZoHRvNuUFwhVFuFLT2pwzXdY6EP9A7PtZ3ay
+         FGwxYUgRQVNHJIuj+mOP4G5IAj8vpKV8GuIzViwlC0RbR0/diOmkpTw/Xsrh7VWinOdL
+         9+rPrumV4lYZqEW1G22esGN2uoMdst7z6x4CGAIE1bLMAg2921Pkx6cqEYD5bR1OJwME
+         oEbQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwgjJPEPxwN84GQbItYpmiodfzKHVwbmIxk1BrMLdXA9go0KoayZcaCcMcwDGWCQVOIvgBoZ9HGfrEYMGLtaGKa@lists.infradead.org
+X-Gm-Message-State: AFuF++kK/imOMkL1GAbYk2Tzl4HgoUZNtr04Wv+kXVa0ax8jS64ASTSz
+	RKagg95VcPpV3smo/Scks2GgF94aw56kncOSZsKyd1dTbXVozJX7vk2xRvXmRQJT1/aKELxRgYJ
+	3lQzifvnysJFfhmZuDmzCSg==
+X-Received: from ejoy6.prod.google.com ([2002:a17:906:4486:b0:c29:4be1:5ff0])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:874f:b0:c26:1649:47a8 with SMTP id a640c23a62f3a-c29666bb6a7mr174063166b.30.1789134675826;
+ Fri, 11 Sep 2026 06:51:15 -0700 (PDT)
+Date: Fri, 11 Sep 2026 14:50:43 +0100
+In-Reply-To: <20260911135053.146435-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20260911135053.146435-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
+Message-ID: <20260911135053.146435-13-vdonnefort@google.com>
+Subject: [PATCH v2 12/22] KVM: arm64: Handle huge mappings in __pkvm_host_force_reclaim_page_guest()
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	weilin.chang@arm.com, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_065411_221649_7DFC78B2 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20260911_065120_237991_7D748FFC 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,199 +93,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.09.26 14:39, Andrea Righi wrote:
-> Hello,
-> 
-> On Wed, Sep 09, 2026 at 09:26:09AM +0200, Andrea Righi wrote:
->> Hi Dietmar,
->>
->> On Wed, Sep 09, 2026 at 09:20:35AM +0200, Dietmar Eggemann wrote:
->>> On 08.09.26 10:23, Andrea Righi wrote:
->>>
->>> [...]
->>>
->>>> The series was tested on a two-node Vera system using an 88-thread
->>>> single-precision GEMM on the 88 physical cores of NUMA node 0.
->>>
->>> Can we use 'OpenBLAS benchmark/sgemm.goto' as an open alternative for
->>> your NVIDIA internal single-precision GEMM benchmark?
->>>
->>> IIUC, you used it for the 'Prefer fully idle cores for NOHZ balancing'
->>> work: https://lore.kernel.org/r/anIq6pU5KXTTFCDN@gpd4
->>>
->>> If yes, I assume you would run something like:
->>>
->>> export OMP_NUM_THREADS=88
->>> numactl -C XXX --membind=0 ./benchmark/sgemm.goto 16384 16384 16384
->>>
->>> Essentially you want to show that those 88 compute intensive tasks each
->>> runs on his own core alone and so you get a higher TFLOPS value.
->>>
->>> [...]
->>
->> Yes, sure! I'll re-run some tests with that and share the results in a bit.
->>
->> Thanks,
->> -Andrea
-> 
-> I repeated the tests using the latest patch series [1] both with OpenBLAS and
-> NVPL (internal GEMM benchmark).
-> 
-> Kernels and test configuration
-> ------------------------------
-> 
-> mainline: Linux 7.3.0-rc2
-> smt-pe0-prio: Linux 7.3.0-rc2 + patch series [1] applied
-> 
-> Both tests used:
->  - 88 threads on NUMA node 0 (CPU list 0-87,176-263)
->  - performance governor with cppc_cpufreq
->  - same OpenBLAS binary and NVPL container image
->  - metrics over 5 repetitions
-> 
-> Results
-> -------
-> 
-> Delta is (smt-pe0-prio / mainline - 1): higher is better.
-> 
->  +---------------------+-------+---------------------+-----------------------+--------+
->  | Throughput          | Runs  | mainline TFLOP/s    | smt-pe0-prio TFLOP/s  | Delta  |
->  +---------------------+-------+---------------------+-----------------------+--------+
->  | OpenBLAS            | 5 / 5 | 7.11876 +/- 0.06734 |  7.34669 +/- 0.01936  | +3.20% |
->  | NVPL                | 5 / 5 | 9.64742 +/- 0.17311 | 10.29695 +/- 0.01786  | +6.73% |
->  +---------------------+-------+----------------------+----------------------+--------+
-> 
-> Hardware statistics
-> -------------------
-> 
-> ST = single-thread mode
-> SMT = two-thread mode
-> 
-> Delta is (smt-pe0-prio / mainline - 1): lower is better.
+In preparation for supporting stage-2 huge mappings for protected VMs,
+allow __pkvm_host_force_reclaim_page_guest() to work with PMD_SIZE
+mappings.  As this HVC is called from a non-preemptible context, it is
+not possible to rely on the host pkvm_mappings tree to get the mapping
+size. Instead, use the actual host stage-2 mapping size and compare it
+with the guest stage-2.
 
-Thanks for the test results. Good to see that we have an openly
-available benchmark for this.
-
-> OpenBLAS:
->  +------------------------------+----------------------+----------------------+----------+
->  | PMU metric                   | mainline             | smt-pe0-prio         | Delta    |
->  +------------------------------+----------------------+----------------------+----------+
->  | ST-to-SMT completed/run      | 10145.6 +/- 1835.2   | 1981.6 +/- 94.3      |  -80.47% |
->  | SMT-to-ST completed/run      | 10342.6 +/- 1853.6   | 1946.2 +/- 93.1      |  -81.18% |
->  | ST-to-SMT transitions/s      |   845.5 +/- 152.9    |  176.9 +/- 3.4       |  -79.08% |
->  | SMT-to-ST transitions/s      |   861.9 +/- 154.5    |  173.7 +/- 1.5       |  -79.84% |
->  | ST-to-SMT latency cycles/run | 15.785M +/- 3.315M   |  2.477M +/- 0.090M   |  -84.30% |
->  | SMT-to-ST latency cycles/run |  9.545M +/- 1.762M   |  1.815M +/- 0.047M   |  -80.98% |
->  +------------------------------+----------------------+----------------------+----------+
-> 
-> NVPL:
->  +------------------------------+----------------------+----------------------+----------+
->  | PMU metric                   | mainline             | smt-pe0-prio         | Delta    |
->  +------------------------------+----------------------+----------------------+----------+
->  | ST-to-SMT completed/run      | 7771.0 +/- 1312.2    | 2162.6 +/- 137.8     |  -72.17% |
->  | SMT-to-ST completed/run      | 7759.8 +/- 1352.2    | 2135.2 +/- 108.0     |  -72.48% |
->  | SMT-to-ST aborted/run        |    0.6 +/- 0.5       |    0.2 +/- 0.4       |  -66.67% |
->  | ST-to-SMT transitions/s      |  777.1 +/- 131.2     |  251.5 +/- 4.8       |  -67.64% |
->  | SMT-to-ST transitions/s      |  776.0 +/- 135.2     |  248.5 +/- 5.8       |  -67.98% |
->  | ST-to-SMT latency cycles/run | 13.285M +/- 3.742M   |  2.971M +/- 0.296M   |  -77.64% |
->  | SMT-to-ST latency cycles/run |  8.528M +/- 2.223M   |  2.287M +/- 0.126M   |  -73.18% |
->  +------------------------------+----------------------+----------------------+----------+
-> 
-> Conclusion
-> ----------
-> 
-> The patch leaves both workloads almost entirely in ST mode and substantially
-> reduces ST/SMT mode-transition churn.
-> 
-> Relative to mainline, completed ST-to-SMT transitions fall by 80.5% for OpenBLAS
-> and 72.2% for NVPL. This agrees with the throughput result: the scheduling
-> preference avoids repeatedly switching the active PE identity and allows cores
-> to remain in full-resource ST mode for longer intervals.
-> 
-> [1] https://lore.kernel.org/r/20260909062649.469633-1-arighi@nvidia.com
-I was able to run 'BLAS SGEMM' on ThunderX2 (ARM64) (SMT-4) on
-'tip/sched/core' (base) and v1 and v5 (w/ small changes to get it
-running on THX2).
-
-$ awk '/^cpu0[[:space:]]/{print
-$1;show=1;next}/^cpu[0-9]+[[:space:]]/&&show{exit}show&&/^domain/{print
-$1,$2,$3}' /proc/schedstat
-
-cpu0
-domain0 SMT
-00000000,00000000,00000000,00000000,00000001,00000001,00000001,00000001
-domain1 MC
-00000000,00000000,00000000,00000000,ffffffff,ffffffff,ffffffff,ffffffff
-domain2 NUMA
-ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff
-
-$ numactl -H
-available: 2 nodes (0-1)
-node 0 cpus: 0 ... 127
-node 0 size: 64270 MB
-node 0 free: 62366 MB
-node 1 cpus: 128 ... 255
-node 1 size: 128599 MB
-node 1 free: 126960 MB
-node distances:
-node     0    1
-   0:   10   20
-   1:   20   10
-
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 33 +++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 12 deletions(-)
 
-export OMP_NUM_THREADS=32
-export BM="./OpenBLAS/benchmark/sgemm.goto 16384 16384 16384"
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 7e6882ce51f6..674159736495 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1317,7 +1317,7 @@ static void hyp_poison_range(phys_addr_t phys, u64 size)
+ 	__apply_guest_page(__hyp_va(phys), size, __hyp_poison_page);
+ }
+ 
+-static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
++static int host_stage2_get_guest_info(phys_addr_t phys, u64 *size, struct pkvm_hyp_vm **vm,
+ 				      u64 *gfn)
+ {
+ 	enum pkvm_page_state state;
+@@ -1345,34 +1345,43 @@ static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
+ 	if (ret)
+ 		return ret;
+ 
+-	if (WARN_ON(level != KVM_PGTABLE_LAST_LEVEL))
+-		return -EINVAL;
++	/* We only support either PAGE_SIZE or PMD_SIZE */
++	if (level < KVM_PGTABLE_LAST_LEVEL - 1)
++		return -E2BIG;
+ 
+-	return host_stage2_decode_gfn_meta(pte, vm, gfn);
++	ret = host_stage2_decode_gfn_meta(pte, vm, gfn);
++	if (ret)
++		return ret;
++
++	*size = kvm_granule_size(level);
++
++	return 0;
+ }
+ 
+ int __pkvm_host_force_reclaim_page_guest(phys_addr_t phys)
+ {
++	u64 gfn, ipa, pa, size;
+ 	struct pkvm_hyp_vm *vm;
+-	u64 gfn, ipa, pa;
+ 	kvm_pte_t pte;
+ 	int ret;
+ 
+-	phys &= PAGE_MASK;
+-
+ 	hyp_spin_lock(&vm_table_lock);
+ 	host_lock_component();
+ 
+-	ret = host_stage2_get_guest_info(phys, &vm, &gfn);
++	ret = host_stage2_get_guest_info(phys, &size, &vm, &gfn);
+ 	if (ret)
+ 		goto unlock_host;
+ 
+ 	ipa = hyp_pfn_to_phys(gfn);
++
+ 	guest_lock_component(vm);
+-	ret = get_valid_guest_pte(vm, ipa, PAGE_SIZE, &pte, &pa);
++	ret = get_valid_guest_pte(vm, ipa, size, &pte, &pa);
+ 	if (ret)
+ 		goto unlock_guest;
+ 
++	phys = ALIGN_DOWN(phys, size);
++	pa = ALIGN_DOWN(pa, size);
++
+ 	WARN_ON(pa != phys);
+ 	if (guest_get_page_state(pte, ipa) != PKVM_PAGE_OWNED) {
+ 		ret = -EPERM;
+@@ -1380,14 +1389,14 @@ int __pkvm_host_force_reclaim_page_guest(phys_addr_t phys)
+ 	}
+ 
+ 	/* We really shouldn't be allocating, so don't pass a memcache */
+-	ret = kvm_pgtable_stage2_annotate(&vm->pgt, ipa, PAGE_SIZE, NULL,
++	ret = kvm_pgtable_stage2_annotate(&vm->pgt, ipa, size, NULL,
+ 					  KVM_GUEST_INVALID_PTE_TYPE_POISONED,
+ 					  0);
+ 	if (ret)
+ 		goto unlock_guest;
+ 
+-	hyp_poison_range(phys, PAGE_SIZE);
+-	WARN_ON(host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HOST));
++	hyp_poison_range(phys, size);
++	WARN_ON(host_stage2_set_owner_locked(phys, size, PKVM_ID_HOST));
+ unlock_guest:
+ 	guest_unlock_component(vm);
+ unlock_host:
+-- 
+2.55.0.1007.g17ff1f9808-goog
 
-(a) 8 cores/32 CPUs (hw threads)
-    $ numactl -C 0-7,32-39,64-71,96-103 -m 0 $BM
-
-(b) 16 cores/32 CPUs (hw threads)
-    $ numactl -C 0-15,32-47 -m 0 $BM
-
-(c) 32 cores/32 CPUs (hw threads):
-    $ numactl -C 0-31 -m 0 $BM
-
-(d) Entire NUMA node 0 (unconstrained)	<-- !!!
-    $ numactl -C 0-127 -m 0 $BM
-
-(e) 32 cores/32 CPUs (hw threads):
-    $ numactl -C 31-63 -m 0 $BM
-
-(f) 32 cores/32 CPUs (hw threads):
-    $ numactl -C 64-95 -m 0 $BM
-
-(g) 32 cores/32 CPUs (hw threads):
-    $ numactl -C 96-127 -m 0 $BM
-
----
-
-MFLOPS values:
-
-       v5        v1        base
-
-(a) 225349.00 227305.68 227246.94
-
-(b) 376297.15 373908.56 380849.55
-
-(c) 877144.86 867642.35 861639.57
-
-(d) 868285.22 865953.05 861662.81	<-- !!!
-
-(e) 868182.05
-
-(f) 866835.49
-
-(g) 867389.74
-
----
-
-So it doesn't seem to change much (v5 vs. base (d)).
-
-When I look into the trace file then I can see that I have 32 benchmark
-tasks running for 10s constantly (no sleep/wakeup) so with 32 cores and
-32 task, the SMT aware select_idle_sibling() (symmetric CPU capacity)
-should already place 1 task per core and then the tasks run there for
-10s w/o migration. So I can't see how you're improvement can happen
-since the benchmark has tasks <= cores (32 in my case, 88 in yours)?
 
