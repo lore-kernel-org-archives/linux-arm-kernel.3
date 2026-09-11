@@ -4,139 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CC4C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51467C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=; b=ewdNMzXv7W63iafNcydaBBTmLU
-	ssu9s7OeSVNST5nXr1IFNSc2jgBneQKPDhGgvvI3fCZZpnHhQe4lEEg0GnvioUOc8ufSzmOsRQwc5
-	jYlVZS8NEQKXJTFqaEq5vOdcdZ0R/rQWqzQhqlH/PedJzxgCMWDCTOTZ/1kKq7TzUm3WI7snGz81S
-	1ouPitmLEn0RKrJZA4jb7ObEy/BjXCrkIwZJnoW5VxuNpDo6EfsIIBs5I/UA0OhJiz9BjNh3+V8Gz
-	iez1NECdGB6gfEH1WVFxTs8ak5/8U8os5PcsuCTx3CD+W+WE00L1uiV6pD8CT7squTXxMdx5Tiw7t
-	MxJgsb0Q==;
+	bh=8JoXukOi4j7ojhYQhmHbrb7dw6iEBpFdOmOhwd9rLH4=; b=rid754dHgF412P7KC/j5G+J8c6
+	liwbKEW3NouyFqI4tatzbQe4tkElc2SPg33x+xd8tu+pafOh09xykFwzLSNnw71KOB7sz78VGEY44
+	GxNqVW398MuImLg2px879A9xHNlm9aQmOXAcAtnOFxuAh+/Xm+cwQ5m5YBSrHkooO3/hmzxcerRzA
+	gPBnastfAPXIaNcBUCkQl/KeMS/VZV/FNNMrGHhWB+r7dQfISYNA7arKbkahek1Ldg0oSVOZ05EMz
+	qZr4HxWhSgwhUncjjsXcivrWTiGzttzSVnpBJdY6/+bMDhl54/1sit831KF6eVeIPXUydQX2VCYMM
+	z8GazUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xI8-0000000GEQe-2nsH;
-	Fri, 11 Sep 2026 09:11:28 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1x4xMw-0000000GEoB-2p0Q;
+	Fri, 11 Sep 2026 09:16:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xI6-0000000GEQ4-0LX1
+	id 1x4xMt-0000000GEnT-14XV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:11:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q5NQb1guXagVllRooLwDCyjyV/msURwZuRqksPyVS8VBrD3FNVwpCck4H9DTHOziaoLjueLBPupGIXL4AMUjiPFyCkWKaPATkTjm2gwH6+BCfCNcH+29ZxOlzgFh7A1hH3UT7o2DF0e43ghVtSnaPooEfB8MU6jmvUXcbXr6QvmMHckHkleW4Cu3tXdpRUal6qIuf2lD7p9j6ip+iO7VpvbFwNe9PaD+FAMtkXaeMPIwNtlf7syBzSvsiYNtXEcRk6U6X1GiFDkgkAaWN4mtLG96n+0m1cb/ryLQHtb/ZbRpaCRNUFhspHTmUeK8MIaakICVt14VYceHfLNkBj6dEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=;
- b=J9xMO1Udu5nFwWoAacVO4I+t0oXTf59KAC4JmBvGSOe6d5RqVWMsbeAPKFA2jW1Sg4PA9w2dfNm1+lPqd9ZZkyw7WZY9tbOr1T8zeToXdJfL3c/hdqTWGFh/DdK6hO2MnB7xkZVSXIMwgjQMOigZ9PI+z2m4X5N63T65wsVJI47O48tvkiKjpgAm0QvigqYJX+PAi1t08SOWxU36b5T31AaLXRKHvJNcqqCfU064KWylIVTSdBhiSAwr2p6gOmVCMqonosnwsEhfiwe7vPRsEDbdJ3Ie7z0mx0go4df9Ih0RgD4v4IRS7mWuIetQKoS+i8aP6TWx+xuW4WwcAa1yFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W25+wRpoT5FmrPKRz7FlvVkM5WlWhH4E1k/AYUHT/yU=;
- b=MvmbZt3xcHuQ8lwRDnkRaAcxdcc68qMII6h60ZrS3SuifH3w5WdO4lEjhYhQ9d13We+B0988UkL7AWHpUG3dSaxptOhuXI9GT6NfqXpLNSoa+ufbrRJ+ShV1GghBd8jCtSx7IZRrge+fsG2VaryS+4TKuzuZkAPsBv27V4ZLowByHnq4FpCtDFrp0lH6MIGIqb4AkfxOpKvsy1hbeK8eAu2M7/tcvhjiE9lpWrJDXDUVKB4Dt13lGhOk8VMdC1uOikcxfGeDw5te+SLL1O6NpPGxRFCRxaodTZzJlHUJdgfWrjKS7mYpPKxgWI8UdgTX8djkxv5hRpHeo+kjX9FVcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by DS2PR12MB425616.namprd12.prod.outlook.com (2603:10b6:8:401::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.10; Fri, 11 Sep
- 2026 09:11:12 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 09:11:11 +0000
-Date: Fri, 11 Sep 2026 11:11:01 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
- cores
-Message-ID: <aqPFpUw9Y4Ui8ia-@gpd4>
-References: <20260909062649.469633-1-arighi@nvidia.com>
- <20260909062649.469633-2-arighi@nvidia.com>
- <89694e14-4be8-4c9e-9d7b-2808f87dd95f@arm.com>
- <aqGGlNce4TRLS1cW@gpd4>
- <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1528999e-eb59-416f-b18f-2a7667e61a90@arm.com>
-X-ClientProxiedBy: MI3PEPF0000753E.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::4da) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Fri, 11 Sep 2026 09:16:24 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68B7kcGM3686787
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:16:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=8JoXukOi4j7ojhYQhmHbrb7d
+	w6iEBpFdOmOhwd9rLH4=; b=euv2bv3jHocywpLwbkKkZMXkqc46csQz9SMgW392
+	K9N1rhvWaPI/XMH3UlfyB1FxJPMrawCgZg3QyB/c5HJS/KGM6zRe2pcXZ+aPweE/
+	eHNaZkgO+mP6IPxN+pyuZCan+ro/XHlhGvm00suh7da/U/gCE702f7m3OJ4B8oUw
+	uqMBBe5bl0PuOCWb9FzgiEYouvmuocaoj/Zj+G/4Ugbe93xgpFljD3vblYSgpbZu
+	GCLJ+eAH2QaR4Y6jqZIDZZ3TW7sXZqQadSUi5wvRapIFEeWHj4hF++G8K1sqUwVw
+	rka64yNqIZbmB544WYj4v4qgwpGHpDC1TttEhPQjGi9+Vw==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmapg128r-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:16:22 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-934963b2bc0so129955785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 02:16:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789118181; x=1789722981; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8JoXukOi4j7ojhYQhmHbrb7dw6iEBpFdOmOhwd9rLH4=;
+        b=A5lbh2R88njtc3JZbR4/N67cpfpRY/ZlklpmEs20XQjVZpgtBCen9YJOtG+RYfeG7s
+         SPT14b21LljfiYuDcvwrUFvVwOHIGxgMgH7nZ/6BvWVQJYvr01z/S3amekG89xyDTMNY
+         +E1as5+OZx1kIgbiaCZ8wzxqD7K6/BLOVVb9mEFYpNSA0+8LJGdCXDegfbV1C267Zp11
+         RRXjmSMFX2926kRf5ikV0BwME28p7RZRRjS7W3+dIBLWQ+TcCSEELpQqrRsFat3Xq+YD
+         vZ0A+dxvPIlu0O/zXd/c1A+YM7DwzuJfEUVTX8J4CXF2KiZufhKmCJL+1SE6hLse/ziX
+         eY1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789118181; x=1789722981;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8JoXukOi4j7ojhYQhmHbrb7dw6iEBpFdOmOhwd9rLH4=;
+        b=gZLIDN4F4BgbTS+TDsYaHT8D4EeufoxkI9fNT18HmV6I45S/BvQhrVnToZ8fzE31H8
+         yB7JB7gKtpW6M/1AbnqPyPkTvsrn9lD8n6Uzlbvt+XScUtwYGgCB4a1cTMYa3ZIZX+pH
+         GYz9EyMfuFgNyf01lvOPcPy6jDfJnGwXtJ3tArBZhVUVsuNvHMsL25SWjrMLxelqrdWk
+         WekUM9Up6UJjYtdg+qHna7M8Sgt4mo2oVoVDXItMnePjfogIUtBX1WIqcyNWj/4Ae4et
+         gxLmo+o9XRVmlDnldq+GscUdugt8Ebw/Iz7QEi8BIIITgw8uIlOe0/Xs6QmbtU7jnQk9
+         0rqw==
+X-Forwarded-Encrypted: i=1; AKwUvBxYyDlWcOyReCmRzPUtCfsppIpSqazxCJfHLD69PK0R89J7fCRp15/IXV6qpIMxmF2JuomaVybNWRAGTzkqYCWh@lists.infradead.org
+X-Gm-Message-State: AFuF++kPUCeVv9NxfM0ZlRdBxKLFceihbSR6vooXx9J+XA1Qb/sIRl+Y
+	Z/EHKhmINybDponLkvETRMSp7QugTPTJs4TzBo2diwG8hUUut34mWRaTc6Ca8fhuZpX2hlloZg4
+	F2UXo53SV/KCbiJAR7qMFxSm26tnkWYP+YWO2bS/ZdiFk7HeQ1j9dWJnRuGfOfb1iabeLqIVjU0
+	1uRA==
+X-Gm-Gg: AYBFou1ohPtCNCy7ZmGw0xuT+hJ9sYS/aO3JrUSdQwm3+/nGiDfmgxXMOI0l0uRAN96
+	QIARRaozqBXdagA7tGJIGph7PkxUN43pBWkbAY6HWPrIYlY7VZQnUeIDKctybGXXmhD3L4DJPHg
+	PHNZMbjSKIptOsJ1nQC2SPHh9FHyESCzrXIvdI7marU3I8qvEADlUBKykfDAg+2JU+yecHGLUKe
+	Sknfz9dJUja0JKQstKNVrUE5kmGVMCzFXLJIU4RU0xgY7wIchuhZa/Cwkm4+lYT6kn9boiquY70
+	1UVSaJ7Nj0YS48Je3bTbjFazChYRuzBX+oDx8h/iK0B0qAOYlZIBSXTtYXavafKKJaAgxomVbEQ
+	aFoiCreuPCSvqNQ==
+X-Received: by 2002:a05:620a:7117:b0:936:b923:4832 with SMTP id af79cd13be357-939ea16ba23mr400947785a.28.1789118180963;
+        Fri, 11 Sep 2026 02:16:20 -0700 (PDT)
+X-Received: by 2002:a05:620a:7117:b0:936:b923:4832 with SMTP id af79cd13be357-939ea16ba23mr400943385a.28.1789118180439;
+        Fri, 11 Sep 2026 02:16:20 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb34f1f7sm4509590f8f.24.2026.09.11.02.16.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 02:16:19 -0700 (PDT)
+Date: Fri, 11 Sep 2026 11:16:18 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: ZhaoJinming <zhaojinming@uniontech.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: fix stale descriptors and DMA
+ mapping leak on Tx map failure
+Message-ID: <aqPG4rOjTo183F0u@lore-desk>
+References: <20260911-stmmac-fix-vlan-desc-leak-v2-1-817a8a4d4a76@uniontech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|DS2PR12MB425616:EE_
-X-MS-Office365-Filtering-Correlation-Id: 565ca042-366f-4a4d-0884-08df0fe49fa1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|3023799007|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: W6RiSzKuCal3su+JkY9UJ9Wq7zoOLwx2rtoYgPujiVT7FJDrKTGjPWeCHN4zvpsORRoXj3TWlouQ2JMWbJSrTllTGadbFdgOm/J8JTtPsOBCJD29aGgg7aiG0BSztjOykbL5fF3IjwugHOQ8XdYTzlRCzxYvLL3QeGE18113ItVPzlmznN7XofKlMaUD6oWnE8YSnFbruzTXxMrGdLCBg7mCu8VP/q5JIr0scbUFOWfyZVmgArMMx9Mj5zXjRx8EB66DaMS//TtOo6RK9AAxIM7lHMMF7nYPa/jv/9HTj16Xz3r7phy1tPWcSO6jd9YyoBRg+T5aUj6v6i9cAaPhpx8yUI182XT3S/pMbwK5eqppZOESULmRvtCb+D8AyKsHLzYmOr5jnNX9s0qHsfpAiy8SBwb0ENipOjtWlKTUQt0oLgaOc11rO8g0++cHnWL8gE6wWKyyS3zErVuCO/Pm0Sab7GDvwHwt6LEh8s5YtUk3PlI67PR2WL3k+VmNv5orhaBrwsr+HpztBraESmGm/FiFTP+H6F0JQPo0Qu4fR5M1oc9RWRJ9hVgeotCxN/Ay8vxKzSllajPWsEV0cmwM7th/pfuGMH+WLCYq5Lgdl5CqLFTa0/pdOcYE+jv8FoANHQRn4Qm7pqfOHjphz8B/qEa17L6/+1Ib1b4Bd2Y2g3c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gzGV4haMmds1pC7NoOiJVTw1VbLCtyN+moal+B2U4KLBQVqx33C9HBC0D3Yf?=
- =?us-ascii?Q?F/AK9G5d0GfS25J3SYxj9Nua551lypLDWoxx4AOuGaMlf74H+Bpqnuo4P7Zj?=
- =?us-ascii?Q?xL1fPZqI/qjUz1VUZ+hsWqVYvZFJUf9AulTKR0W1fkCTi/qM0ksm/ggicRgP?=
- =?us-ascii?Q?B9xdI5CbOq1m8lahCjPJHAuddSSL2jsGCjMH6+7r5j55sPcDvCGBXhsapmGP?=
- =?us-ascii?Q?oyEadFnUBnRtPmjL0z8ecD8jeZwKsQx8x3d9AQbsZW33ZgMsMOuoA9WOJpV5?=
- =?us-ascii?Q?z2Fj7IZwkD07/F7kRCAe9gugAXR+e+YIvCODamR+2f5QHDO9+7X8gQaZ9zZb?=
- =?us-ascii?Q?7QuKYAsIsRQtit6OtJbLxofD7fW/vzzl13xU4eqHpRFNY1WD5BhS9l6oz0T4?=
- =?us-ascii?Q?LL5gX+vFLy4EY2K2Au1evRRa95uO5xYaRRtGdMCM/bHi+rjWiATFtuutkZkU?=
- =?us-ascii?Q?v+xOP5dvgzy6Dsq9eSsXYsP7GIlCE+SX5XpHvhEqC2zolboW1hloqT3yBc53?=
- =?us-ascii?Q?R+NQSquXpZq9iNC3kpcErVdsfK2e9MnC4aHNMm9hKm+7p3cPp28Rtw5NrNOu?=
- =?us-ascii?Q?pPUSfPJz1B9hmsc2Tx+gAv11nMC19+/UFTMZxpTeJ+WQDak5fCnpoF06KA2n?=
- =?us-ascii?Q?XbwEnDQe8vpX4kUXVqHRscJX0sHoxujAofj0lwPkFhuJygk0TwDWNDdpxNkk?=
- =?us-ascii?Q?1Ugx/jpmyrHZB1GWU0szwVGhzMAEHrabfFnj9Qmy0KmVvF9G9eqTiXJwaSSt?=
- =?us-ascii?Q?NYGePZdqHH5H4mFrnX80qEv7thnC6VnfxZgVMVA00PXHBbOIjPWAliciy+Gc?=
- =?us-ascii?Q?xgBGhG+lohHFxkS3mz91GGVEOgU8H27plWZ2OMDRp3X0E/l0HObTPgkZO9cE?=
- =?us-ascii?Q?ByT93cWjUt7h7Za7p9lx+wvkU9UlUm1IXJu5uEeAaTHumJfkUU8IwFkMHkMi?=
- =?us-ascii?Q?iDk9+SNXyU+CZ6ZFUvcN9j0L609LwvVpN6YJ1VrjijloMtOHOrFNuWZHGNt7?=
- =?us-ascii?Q?CBWD+jZLfOTIaXnKZOGda6UfbbSHUqrGz7wTzdqJiDc1VtLlfSVpLpGQnjQC?=
- =?us-ascii?Q?dZPjj/iYVWJRFebaQzpQpNRTnzaTE8xalnhxKFm2M7icsdjhm33Y6q7vCDtr?=
- =?us-ascii?Q?pqBBMQlbKDadDmyj0r3UX6DpYbo+XwLmZu/AXyUOKLLpbJcYy8wfy0jGtqD+?=
- =?us-ascii?Q?Ii0AQkwK1p4Lg/RNiXOApJj2rLhyLbNqAAX6EQeeGMSTjVnN8gETa6+pw/4a?=
- =?us-ascii?Q?LsNMdK90Xk2NZwvA1MaTgsWKcE6JGVE3noqigtwri7ZmeRmqXUxE20JM3qMi?=
- =?us-ascii?Q?ND2L07wGvqMO6P6IgKVRh/ttbKsCVdGatM8TyIVffbEzQa2KSqkd3c/fWwhm?=
- =?us-ascii?Q?h5rJLba5cB1X1FVo2yDc8FuUFdAWmPg+A2fF8M3I+bn9r3BY2IrRMGjBT4D6?=
- =?us-ascii?Q?wRWbutNrrX8oFxQBiO/8jzfPQ/9t0HCyOpDD/VG1lPLfdromjPhdWpVrlD8w?=
- =?us-ascii?Q?MxL32+tgQjF5oEodJa65Aezv8OgrNrDmDag5Zl3O5mwTgcVWn5lOUTCnuAPd?=
- =?us-ascii?Q?0Y2XPrvFiAMcXyURacB7+eKh/n9a11IFNftX3qSO5zlSmQI4BEjOEY6Rv5JM?=
- =?us-ascii?Q?R1AERa+nGZh4fKRcNUH7ciONOapl3N7GOhkOPGi4wP4Y0mFwAKkPQ2fvORA5?=
- =?us-ascii?Q?X6f1/BjzHMUO44jqv/1cwzARpxUVB69vfIvQSoRmL/1Zb9V3AiXqG3fsAdQV?=
- =?us-ascii?Q?BTFn2lwflA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 565ca042-366f-4a4d-0884-08df0fe49fa1
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 09:11:11.7376
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1dL2hMPO+NAVpKVxoVvHq7KRSKkdvXzl3+xC8VDtxsnkD5HM1OWcdAAGmBYN53zIoU3rof+PisdY+z+9648YSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB425616
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="URoTR0mdpRskH/Fi"
+Content-Disposition: inline
+In-Reply-To: <20260911-stmmac-fix-vlan-desc-leak-v2-1-817a8a4d4a76@uniontech.com>
+X-Proofpoint-ORIG-GUID: Ak4hIrW72Gft9C3jvxgQOAr_-kSZqBjV
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDEyOCBTYWx0ZWRfX8ODknmqwewn/
+ PCbCqcnwIwXjOjrhZvgVcmLNnDh8rB4BI+XNEZB0UUQDUjYsskjn8EOYWWrkN+qoZ8UMrcnC+Sw
+ tpDG3ykhhGP6k74EBtpLCNi920K672E=
+X-Proofpoint-GUID: Ak4hIrW72Gft9C3jvxgQOAr_-kSZqBjV
+X-Authority-Analysis: v=2.4 cv=DLoacCNb c=1 sm=1 tr=0 ts=6aa3c6e6 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
+ a=iHwBjlyiAAAA:8 a=8dicsuV96g38EK64CfoA:9 a=CjuIK1q_8ugA:10
+ a=rcQwPy2qHw7U_XsTIocA:9 a=NFOGd7dJGGMPyQGDc5-O:22 a=uNSKXYNwxGiU6LD0JREI:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDEyOCBTYWx0ZWRfXy7/vs3ZSR+7a
+ 61s6Ow/EjijjgrZuXc+1sPelPK0J77VUuFvEWECcNNz/YMeuppGY4xo2PLgurhRmLOHP4JcQkjw
+ 8g/peDvrxjqqunW7oOv93p2YG0a1UF0wcCJhxtXKU40tWxKK/4RiE3UN3RDfdKWkqev/J1lU7Da
+ rMDZAjQ2bnpgGGOP2LQsEj9QcCMFdvcGHGUetOtbbH2Juq8F784QcziVOypRVNPJ7lH5lTYvgij
+ 1HFDTq5zVYIJ/9N68uwOPbszKeJWwhuXePwGg6GmFf4E4z2UE1zdbUKd/rPBVVVtyM3O//ozcOK
+ UVzUeFHnHYoj8huu7iroxdzhFsf06weBLWI5cKexPY7ALAcy9hNkpYfLinPTBP3WPVYrcHmpqjH
+ MaRZ8aZRCr/LoymEy64TJFQHzzA0ztkKoyFZpfDK93ApwpvIQEF2smE2tmo8sanPLs5DFI3TYO3
+ kl9N0Jh8kyyTrKPOkPw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-11_03,2026-09-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 phishscore=0 adultscore=0 suspectscore=0
+ spamscore=0 impostorscore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_021126_143498_CB6B3798 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20260911_021623_417640_1EC56C13 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,109 +155,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dietmar,
+--URoTR0mdpRskH/Fi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Sep 10, 2026 at 12:11:06PM +0200, Dietmar Eggemann wrote:
-> On 09.09.26 18:17, Andrea Righi wrote:
-> > On Wed, Sep 09, 2026 at 05:19:08PM +0200, Dietmar Eggemann wrote:
-> >> On 09.09.26 08:26, Andrea Righi wrote:
-> >>
-> >> [...]
-> >>
-> >>> +void __init arm64_init_sched_topology(void)
-> >>> +{
-> >>> +	if (!IS_ENABLED(CONFIG_SCHED_SMT))
-> >>> +		return;
-> >>> +
-> >>> +	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
-> >>> +		return;
-> >>> +
-> >>> +	if (!topology_core_has_smt(smp_processor_id()))
-> >>> +		return;
-> >>> +
-> >>> +	set_sched_topology(arm64_asym_smt_topology);
-> >>> +	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
-> >>
-> >> I'm not really a big fan of using this arm64 setup for NVIDIA Olympus
-> >> alone here.
-> >>
-> >>> +}
-> >>> +
-> >>> +int arch_asym_cpu_priority(int cpu)
-> >>> +{
-> >>> +	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
-> >>> +}
-> >>> +
-> >>
-> >> This is done since it will only be called for NVIDIA Olympus since it's
-> >> the only CPU model enabling this. I think it will work but it's still
-> >> ugly :-)
-> >>
-> >> [...]
-> >>
-> > 
-> > Agreed on both points. As mentioned in the other email, I'll coordinate with the
-> > firmware team on a proper ABI for describing the PE0 preference. For the systems
-> > with the current firmware, I don't have many ideas on how to enable this... a
-> > special scheduler facility enabled via kernel boot option? Other ideas?
-> With the explicit kernel boot time option discussed in the other thread,
-> how do you want to code arch_asym_cpu_priority()?
+> In stmmac_xmit(), when the DMA mapping of the linear part or of a
+> fragment fails, the error path only frees the skb.  This leaves behind
+> the DMA mappings already created for the linear part and for the
+> fragments mapped before the failure, which are never unmapped.
+>=20
+> The VLAN context descriptor programmed by stmmac_vlan_insert() is also
+> left behind with its OWN bit set while tx_q->cur_tx has been advanced
+> past it, so the DMA engine later consumes the orphaned descriptor and
+> applies its stale VLAN tag to an unrelated frame.
+>=20
+> Release the descriptors and their DMA mappings in the dma_map_err path
+> with stmmac_release_tx_desc() and stmmac_free_tx_buffer(), walking from
+> first_entry to entry, then roll back tx_q->cur_tx and release the VLAN
+> context descriptor.
+>=20
+> jumbo_frm() has the same issue: when the DMA mapping of a subsequent
+> jumbo buffer fails, the buffers already mapped are never unmapped.
+> Unmap them before returning an error in both ring and chain modes.
+>=20
+> Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload=
+")
+> Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
 
-Good point.
+Hi ZhaoJinming,
 
-I think we can avoid an arm64 override entirely and rely on the default
-implementation:
+some comments inline.
 
-int __weak arch_asym_cpu_priority(int cpu)
-{
-	return -cpu;
-}
+Regards,
+Lorenzo
 
-The boot option would only add SD_ASYM_PACKING to the SMT domain. A rough
-prototype could look like this in kernel/sched/topology.c:
+> ---
+> Changes in v2:
+> - Reorder stmmac_xmit() variable declarations in reverse xmas tree
+>   order.
+> - Unmap partially-mapped buffers in jumbo_frm() when a subsequent
+>   buffer mapping fails (ring and chain modes).
+> - Link to v1: https://lore.kernel.org/r/20260910-stmmac-fix-vlan-desc-lea=
+k-v1-1-6b07dca5e5e8@uniontech.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/chain_mode.c  | 19 +++++++++++++--
+>  drivers/net/ethernet/stmicro/stmmac/ring_mode.c   | 10 +++++++-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 29 +++++++++++++++++=
+++----
+>  3 files changed, 51 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/n=
+et/ethernet/stmicro/stmmac/chain_mode.c
+> index 66025e2509e91f863571041f5b148d04e3708832..8415c740ee9eee32cd8b4c3e9=
+b61517690b58f9d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+> @@ -20,6 +20,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, stru=
+ct sk_buff *skb,
+>  	unsigned int nopaged_len =3D skb_headlen(skb);
+>  	struct stmmac_priv *priv =3D tx_q->priv_data;
+>  	unsigned int entry =3D tx_q->cur_tx;
+> +	unsigned int first_entry =3D entry;
+>  	unsigned int bmax, buf_len;
+>  	unsigned int i =3D 1, len;
+>  	struct dma_desc *desc;
+> @@ -57,7 +58,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, stru=
+ct sk_buff *skb,
+>  					      bmax, DMA_TO_DEVICE);
+>  			desc->des2 =3D cpu_to_le32(lower_32_bits(des2));
+>  			if (dma_mapping_error(priv->device, des2))
+> -				return -1;
+> +				goto err_unmap;
+>  			tx_q->tx_skbuff_dma[entry].buf =3D des2;
+>  			tx_q->tx_skbuff_dma[entry].len =3D bmax;
+>  			stmmac_prepare_tx_desc(priv, desc, 0, bmax, csum,
+> @@ -70,7 +71,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, stru=
+ct sk_buff *skb,
+>  					      DMA_TO_DEVICE);
+>  			desc->des2 =3D cpu_to_le32(lower_32_bits(des2));
+>  			if (dma_mapping_error(priv->device, des2))
+> -				return -1;
+> +				goto err_unmap;
+>  			tx_q->tx_skbuff_dma[entry].buf =3D des2;
+>  			tx_q->tx_skbuff_dma[entry].len =3D len;
+>  			/* last descriptor can be set now */
+> @@ -83,6 +84,20 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, str=
+uct sk_buff *skb,
+>  	tx_q->cur_tx =3D entry;
+> =20
+>  	return entry;
+> +
+> +err_unmap:
+> +	while (first_entry !=3D entry) {
+> +		dma_unmap_single(priv->device,
+> +				 tx_q->tx_skbuff_dma[first_entry].buf,
+> +				 tx_q->tx_skbuff_dma[first_entry].len,
+> +				 DMA_TO_DEVICE);
+> +		tx_q->tx_skbuff_dma[first_entry].buf =3D 0;
+> +		tx_q->tx_skbuff_dma[first_entry].len =3D 0;
 
-static bool sched_smt_asym_packing __read_mostly;
+are you missing stmmac_release_tx_desc() here?
 
-static int __init setup_sched_smt_asym_packing(char *str)
-{
-	sched_smt_asym_packing = true;
-	return 1;
-}
-__setup("sched_smt_asym_packing", setup_sched_smt_asym_packing);
+> +		first_entry =3D STMMAC_NEXT_ENTRY(first_entry,
+> +						priv->dma_conf.dma_tx_size);
+> +	}
+> +
+> +	return -1;
+>  }
+> =20
+>  static bool is_jumbo_frm(unsigned int len, bool enh_desc)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/ne=
+t/ethernet/stmicro/stmmac/ring_mode.c
+> index f7949419eb9fdca891a50ad0956f40e17f9b0967..4170c897bd1a8b5b757b57625=
+0e82e5407cfa325 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+> @@ -37,6 +37,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, stru=
+ct sk_buff *skb,
+>  	len =3D nopaged_len - bmax;
+> =20
+>  	if (nopaged_len > BUF_SIZE_8KiB) {
+> +		unsigned int first_entry =3D entry;
+> =20
+>  		des2 =3D dma_map_single(priv->device, skb->data, bmax,
+>  				      DMA_TO_DEVICE);
+> @@ -62,8 +63,15 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, str=
+uct sk_buff *skb,
+>  		des2 =3D dma_map_single(priv->device, skb->data + bmax, len,
+>  				      DMA_TO_DEVICE);
+>  		desc->des2 =3D cpu_to_le32(lower_32_bits(des2));
+> -		if (dma_mapping_error(priv->device, des2))
+> +		if (dma_mapping_error(priv->device, des2)) {
+> +			dma_unmap_single(priv->device,
+> +					 tx_q->tx_skbuff_dma[first_entry].buf,
+> +					 bmax, DMA_TO_DEVICE);
 
-int cpu_smt_flags(void)
-{
-	int flags = SD_SHARE_CPUCAPACITY | SD_SHARE_LLC;
+are you missing stmmac_release_tx_desc() here?
 
-	if (sched_smt_asym_packing)
-		flags |= SD_ASYM_PACKING;
+> +			tx_q->tx_skbuff_dma[first_entry].buf =3D 0;
+> +			tx_q->tx_skbuff_dma[first_entry].len =3D 0;
+> +			tx_q->tx_skbuff_dma[first_entry].is_jumbo =3D false;
+>  			return -1;
+> +		}
+>  		tx_q->tx_skbuff_dma[entry].buf =3D des2;
+>  		tx_q->tx_skbuff_dma[entry].len =3D len;
+>  		tx_q->tx_skbuff_dma[entry].is_jumbo =3D true;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 24656b35350b14454fb10deced6516eb89e2c0c9..9050611862108065dfa19c1a8=
+0961bd78073df9a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4767,15 +4767,15 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *sk=
+b, struct net_device *dev)
+>  	bool enh_desc, has_vlan, set_ic, is_jumbo =3D false;
+>  	struct stmmac_priv *priv =3D netdev_priv(dev);
+>  	unsigned int nopaged_len =3D skb_headlen(skb);
+> +	unsigned int first_entry, entry, tx_packets;
+>  	u32 queue =3D skb_get_queue_mapping(skb);
+>  	int nfrags =3D skb_shinfo(skb)->nr_frags;
+> -	unsigned int first_entry, tx_packets;
+>  	struct stmmac_txq_stats *txq_stats;
+>  	struct dma_desc *desc, *first_desc;
+>  	struct stmmac_tx_queue *tx_q;
+>  	int i, csum_insertion =3D 0;
+> -	int entry, first_tx;
+>  	dma_addr_t dma_addr;
+> +	int first_tx, ret;
+>  	u32 sdu_len;
+> =20
+>  	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
+> @@ -4832,9 +4832,10 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb=
+, struct net_device *dev)
+>  	csum_insertion =3D skb->ip_summed =3D=3D CHECKSUM_PARTIAL;
+> =20
+>  	if (unlikely(is_jumbo)) {
+> -		entry =3D stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+> -		if (unlikely(entry < 0) && (entry !=3D -EINVAL))
+> +		ret =3D stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
+> +		if (unlikely(ret < 0) && (ret !=3D -EINVAL))
 
-	return flags;
-}
+can ret be really -EINVAL ?
 
-This would make the option generic rather than specific to arm64 or Olympus.
+>  			goto dma_map_err;
+> +		entry =3D ret;
+>  	} else {
+>  		bool last_segment =3D (nfrags =3D=3D 0);
+> =20
+> @@ -4984,6 +4985,26 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb=
+, struct net_device *dev)
+> =20
+>  dma_map_err:
+>  	netdev_err(priv->dev, "Tx DMA map failed\n");
+> +
+> +	/* entry points one past the last descriptor written for this frame:
+> +	 * on failure it is the descriptor whose DMA mapping failed, so walk
+> +	 * from first_entry up to, but not including, entry.  Reset cur_tx
+> +	 * unconditionally as both stmmac_vlan_insert() and stmmac_jumbo_frm()
+> +	 * may have advanced it, and release the VLAN context descriptor.
+> +	 */
+> +	while (first_entry !=3D entry) {
+> +		desc =3D stmmac_get_tx_desc(priv, tx_q, first_entry);
+> +		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
+> +		stmmac_free_tx_buffer(priv, &priv->dma_conf, queue, first_entry);
+> +		first_entry =3D STMMAC_NEXT_ENTRY(first_entry,
+> +						priv->dma_conf.dma_tx_size);
+> +	}
+> +
+> +	tx_q->cur_tx =3D first_tx;
+> +	if (has_vlan) {
+> +		desc =3D stmmac_get_tx_desc(priv, tx_q, first_tx);
+> +		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
+> +	}
+>  max_sdu_err:
+>  	dev_kfree_skb(skb);
+>  	priv->xstats.tx_dropped++;
+>=20
+> ---
+> base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+> change-id: 20260909-stmmac-fix-vlan-desc-leak-f057bb061daa
+>=20
+> Best regards,
+> --=20
+> ZhaoJinming <zhaojinming@uniontech.com>
+>=20
+>=20
 
-> 
-> AFAIK, Arm architecture does not require the first/primary HW thread of
-> an SMT core to have MPIDR_EL1.Aff0 == 0.
+--URoTR0mdpRskH/Fi
+Content-Type: application/pgp-signature; name=signature.asc
 
-Agreed. Using the default -cpu ordering avoids making any assumptions about
-MPIDR and consistently prefers the lowest-numbered logical CPU in each SMT
-domain.
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> The closest I came to you setup in Arm64 is a ThunderX2 SMT-4 machine on
-> which I can run 'OpenBLAS benchmark/sgemm.goto'. This machine has
-> symmetric CPU capacity though like Power7.
-> It has MPIDR_EL1.Aff0 == {0,1,2,3} for HW threads but '== 0' wouldn't
-> work here.
-> 
-> [...]
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaqPG4gAKCRA6cBh0uS2t
+rFQXAQCWThJJOSLg7UreCWMV0kdUwSdHg5NOrs++BTwRP9j+CQEAmDjGDfqPav+X
+i2Z/pKV1EJ4AdSF/X91UiQNBsUFLFAU=
+=Pbd+
+-----END PGP SIGNATURE-----
 
-Right, -cpu provides a total ordering for all threads, so this should provide
-the expected sibling ordering on the ThunderX2 machine as well. If you're
-willing to test the next version there, that would be very useful!
-
-Thanks,
--Andrea
+--URoTR0mdpRskH/Fi--
 
