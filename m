@@ -4,186 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04CE0C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1CCC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXrAVSWj34zkCGZDg+PHEGj4I3YKEtzVq0k37OBGxaU=; b=w6jVjb3X01WHqZCEAWmmJSoNm1
-	iCal6fHdI7MAwjF7v4i04dBjAXhDPmP5RPM0BzlO+CjboyLHGH8NEDr3PSMTC2lPw3yy3jva8I6Lu
-	DPNf5trVsRniTOrr9BxRTw9h2ZkaQ7i/mrgQBzTZjeZ77v3Q7/7TmAEZwv9dKwfic+7U0FiAfAIF4
-	9Z2c+4nuip72dNZHDME6tnugb09zcrToc3DPo/2o4Z75YV2fsZkcG3vu+OlyzB4vyq63TqscUxUuS
-	AizkJ5bstU27O/DDiqFIHcLoDEUhg4kthP/I1Rlbm+YyYRaB3flYKyhsmCaw0uqfStrTFat7O+Bx6
-	lYq4/qzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8uJfGzvZ4UfZNRvl+QJ3IIITqizbFys+QsmzU2Q6ZmY=; b=ALQ9/IdILjzZWTj/Fs6GQaIttY
+	+TzMCHljtuLRmlaQJr41fkymKgJts+aMYolIiupXe81/KtTldoe+EcqIlaiBVE/HGRkiM4ATM9BXr
+	lHulKvOyWg50zroyHSLcvIfm6wj533fDckvpuXaXThpjNxul/9YmHMgickj3uOf/3RPmGGSDfylfG
+	q6Gb2bd0JUAdK6WHguewU4/WWujAjouiF7lelM7IeZIhIDtWrXvMBZj5mLfo6XmNtk7mb+zUhILYb
+	QnEjtSv2ABKo754S5oFwBw3J0cievmenKk40s02quaFNH3bpZ72VRr6Cq/pf0YRZL1PGhKaApn3Zs
+	WG/OJDEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vSd-0000000G0Ow-3fpo;
-	Fri, 11 Sep 2026 07:14:11 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1x4vV3-0000000G0bw-10dc;
+	Fri, 11 Sep 2026 07:16:41 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vSb-0000000G0OY-0DK1
+	id 1x4vUz-0000000G0bS-26kL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 07:14:10 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68B3dwwd1894863;
-	Fri, 11 Sep 2026 07:13:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=dXrAVSWj34zkCGZDg+
-	PHEGj4I3YKEtzVq0k37OBGxaU=; b=q/VCNRYXN/c4oCeTxc+TmVzmegdZLqhN2C
-	IT4cDuQSBUs8K9JoyJ1BJq+2fJwluZFy3jEoh2O3Q9XNNbl1cvGD+IQhUT827QRZ
-	nLrbDDTNOGG8n5fpXCDfl9H+kUS/XrYlmSRkhMCUa3mmStSr5DmgUWrVjkolRWjM
-	F1To3z9XTpvmzyQXRgDwoSSF8+dSCXXS940OsStphajBXPsQ5iar/sXcCXaZAM/6
-	mVTWEI9EM6dkhu1Q/nxt5x157+qx6omef2aeUH5Z0R55UrY9NNeHdsS6Kbof1ZEx
-	KQyejGteZT+IjWXLsBWPfRtnwPut+y0fMAVjlLuIWA36FVFgNfaQ==
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4gkcysamc2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Sep 2026 07:13:33 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 68B7AQcc016684;
-	Fri, 11 Sep 2026 07:13:33 GMT
-Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010039.outbound.protection.outlook.com [52.101.85.39])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4gkckm7t0q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Sep 2026 07:13:33 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cdaW1XVylcniYQDR2A6YpGNgVM6McRbH/hGwcA3b7fjZBEr8C9Kz78eK2ilazKF7+sPZSKkJM6C86153iBU09cpF/8hz1LchA4ozZAQaa6Y6nolVJE/QVdasXJhhyzHiGpntXJqzKm35ycCg/9tMfeh5kbfFz8MfFy2xTriO+TF8mbmaV0fRMndIp6uzDAg9ginhJSx4rdlNq6kaPl/hvHRXOu+wiAGvlQ03zNppMjap5UHkFxRfs7m0ZM26Vqq8UHvWPF1gEi18wsAurXVF2J+anwn+d0EyVmPPeTlA5USWCFLC9P+HkLgUmCj3mnb6UEgSdlDOGIu5sAlCm4y00A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dXrAVSWj34zkCGZDg+PHEGj4I3YKEtzVq0k37OBGxaU=;
- b=WhJVUzf/r9ed9j/bE72Tvllru0lgPj/oz9wYSw+6lWffBUlEFfI76bvg0kRext/lyJV60ytDsxoLiR2boPQPdJ90I3rQk5GJ/pmGwNLvgmMDZ39cHI+9zAZ6HjemhwNINEQck0aJqy6Q6N5OLi4rukDCbTwGWraGiYzmuj90NWnP3RTVOCuqLw2asyth9Gexq6NXJL3NR8jit1zDV5HdtIinpr+5/D1aAciSCy2k5COXQn5Z80yFc9yv0m3PFhrexMMB0K3rFK0EiGyRp8UKpi5MwWMX6jzPH4Y9THJJJaFvhi8h4CzxI8cl+27FmVvu7rwBm1VRab8jAQNzParkzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dXrAVSWj34zkCGZDg+PHEGj4I3YKEtzVq0k37OBGxaU=;
- b=BpqKVURamTp9i9my81dS9G4BXJI3OJl6CZdsNrQjia+ZKh9YONlrx5uxreIhlRJeK8YpQ9LoJLXQzmPKPP2KkpMC+/83pogUcWVmy7lYugIQXfusx+BAnKmrQbI4FqFTd2FhTlcEUnA0TgFHJWHOeSmYZx/yXBuWALo/JieHfkI=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by SJ5PPF2BE4E177D.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::798) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 07:13:28 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%6]) with mapi id 15.21.0428.004; Fri, 11 Sep 2026
- 07:13:28 +0000
-References: <20260831202251.305046-1-ankur.a.arora@oracle.com>
- <20260831202251.305046-13-ankur.a.arora@oracle.com>
- <178908146776.2725577.2613699832033292946.b4-review@b4>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Haris Okanovic <harisokn@amazon.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
-        catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org,
-        akpm@linux-foundation.org, mark.rutland@arm.com, cl@gentwo.org,
-        ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
-        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        rdunlap@infradead.org, david.laight.linux@gmail.com,
-        broonie@kernel.org, joao.m.martins@oracle.com,
-        boris.ostrovsky@oracle.com, konrad.wilk@oracle.com, ashok.bhat@arm.com
-Subject: Re: [PATCH v15 12/16] cpuidle/poll_state: Wait for need-resched via
- tif_need_resched_relaxed_wait()
-In-reply-to: <178908146776.2725577.2613699832033292946.b4-review@b4>
-Date: Fri, 11 Sep 2026 00:13:24 -0700
-Message-ID: <878q58z2ej.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: YT4PR01CA0022.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d1::25) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	Fri, 11 Sep 2026 07:16:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=8uJfGzvZ4UfZNRvl+QJ3IIITqizbFys+QsmzU2Q6ZmY=;
+	b=JlGuL2YWOcWUOgp2ty0N8wzraY7AGN7t7d6h/tHCR/RQZEWkzNA0qSkNbgBJ+1Hi4IRBlugVX
+	e0Erb4XRFiE+XDQSVuQ8Hw7cgxqgs5Y2CPsCKOaCLx9r9jmtVKfZCcaWQJ5pOTCRagAqKJmbcyA
+	GOykGflqYUkIvdo6mu2CCo0=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hh5C76CZZz1T4KL;
+	Fri, 11 Sep 2026 15:04:51 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 597AD203C1;
+	Fri, 11 Sep 2026 15:16:25 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 11 Sep 2026 15:16:24 +0800
+Message-ID: <0fa7d64c-9ccb-4a25-b40a-6ffbf5e33406@huawei.com>
+Date: Fri, 11 Sep 2026 15:16:23 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|SJ5PPF2BE4E177D:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3429a2d-35b7-498a-a618-08df0fd42d3b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|18002099003|22082099003|56012099006|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info: g/Hv8+ZhmHWrBa9N2qcfe7VLUvjjMZrU9LXUSP0Py1/ZU6MLS0/VR+aCZ+vHB5yjRoE8EGF76Gtl9elNDU2uUJXEyK0XxW0OM8U2S/iarYHPl9JnDKbA4SxNfuVlJnmkzpTEWWrzB9nEQM5VO8mrVBu7ZJvLfwzWATG9BTJHa13JaKq0ntwgZmjX54auxWZ/A7qs6WmATsg179AvzdWrz7sc5oICGsnlPmhJZRVrILrNw6k+RHaGpCfDf8xn6A1ldAra8+m2UEjKtVqyWFZLgZCOlBcCLGGC7DBrcnqswh83eP0hUuU/qqnqUyH6dmpcgUdWPQddvgdGSy5g3EdI1X6ehg5HBRCY7KCmCbbfcxWLB+zlcsfgptvhCa0eWfvVS5e4oW51DQxL83wPn+XOt2bc2dwR7f7jkk4gu/D1LvSvGszuXg5Qwl1BQYOWW+HdK7ydaAEgiUT+zSsc9JGJhvJvNUen82lfrKjQwQEh/kIm2K42jlR7/yNnJKSUZkTtBgjVSdp5Vh1TVCaIhEfgNWuA0YjGcyMRzthJ1aMDP7LWOh90D7kDr+QUkOUCA0sPAv9yXjjIPZDjbipjHxvUSouhfL6q51+u54QnxTYDWtcAAGWZ/vvpl82/Qbb5RYADv6oAny7vG8Ka9gupOAFvKSOoUanILffIHNzYSigMJe0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(18002099003)(22082099003)(56012099006)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NW+gvtghqoseVvD54CZg18Pi7jtmLfi9lGBjnWmoCu+AMyi9LTshy54Q9LKf?=
- =?us-ascii?Q?nG9ltJrA8vVCE3Y8nmLjXz/Xz5BqlwD/rEzMmI9IzpuC7TTmjzhJKry1KlgX?=
- =?us-ascii?Q?IAfKH6rZLV5Be2fmjZ0nRhhYc30v0z22fFwJ8KvKX8qVkyAVnGAH51IDOnx2?=
- =?us-ascii?Q?3lzb8m4i636VSjyWpllmOP47OLk11NFWw8jDjW5K/NfRTQxgBukcmg6wmhm3?=
- =?us-ascii?Q?an3uDgQ7NMo0Y+aGhQwZk6bdranihIURMWddT4gsaUkpzJE6FaW8iIKmBNp0?=
- =?us-ascii?Q?+cqoZg7R9zHaDozsP+KWKRoQahjI/XTlE/5BRonYKvXDRJCY2EPwo4MP5dit?=
- =?us-ascii?Q?g2l5XpydeF2vrHGeeY1kCoj+c2hJIKnRHcxtkeHd0QbukG/lwsSyv3IEZqng?=
- =?us-ascii?Q?NImVPE4yqs7WxbtK93NOGaFmoHFfwuh4I+j4Nz4tYmeuABWbkTTGrK2FzBv5?=
- =?us-ascii?Q?ddhzee43UMf9tdHF0AFh4h74PEmCNcbbQ6Vne1CIYrQkj4+l4Reqxs9dTnwA?=
- =?us-ascii?Q?bdU7uNVg4oyj4mXpObWHcqUmR7PDUkqMCGDMmj9P1oST8V7+nVCGxPUFqyQh?=
- =?us-ascii?Q?gGTEbVix85lOP8R+/5GuFJrRGA8v1v7geMzERm02xc2GiO5wXW4ixtrumNnZ?=
- =?us-ascii?Q?PLQseM7z6xBJjSx2J+m5TK3oZIVvmBIzLrc1Of+KIr3VxoHWKZvAko07v+TW?=
- =?us-ascii?Q?1/yzzRMPPusYcgQQgkhz27MGXBVPufj+2Jt1fQw3R5smI9WV+T+65q9u3NAM?=
- =?us-ascii?Q?8RO9LYiqhzvFlnrktuBnCDDCzRQz/Phb4jBTZwBfyOjkOTarK28TSbRTbaxb?=
- =?us-ascii?Q?DSLiKp5UJb38W9KLBRalLKSi9PAYqfbboRZTDe5SLhz1EtW84FK5ciY7tGhP?=
- =?us-ascii?Q?qiooIwo0rQo9bkhOzHkErFEH0wz7iIQiIZy2fWFnEttjjsOHW7pd/hTS/ImQ?=
- =?us-ascii?Q?mVYM0t5yjwUyXPs/sYm2I+/LD/Z1PJx70r4AbY8MNTNdOc1+Go2MlfJWyOt3?=
- =?us-ascii?Q?nv7o5azaA64VnzZ9exsae8cveo9jw6mxX6FJz7frplF87M8n8ks0k97Tg+c5?=
- =?us-ascii?Q?mkJAmZZnsW3/Qsav+LAFKoonmuQNRRei5BuPCdAPbnr0X5dqWGIow503Dgkh?=
- =?us-ascii?Q?aK/pQlvS2LFyROO9yO0L3sUOAT8BB8IJ/LPM5xMmDJjRsQP/xCad51JGxk3a?=
- =?us-ascii?Q?/IxM7s1eFl2CFPsE93kquS3hAHCkV8j00kgOErAJeUleWcyOEdIFjcDLU0/g?=
- =?us-ascii?Q?ojYVqxRx5Nhm110emEz9BV6hawvfL2o6Fl5g8UzQ95Q0wkqgfW2Q4p0B9aPQ?=
- =?us-ascii?Q?XyJQ+2tD4ZOC4R2CyrGieS25dFiJdi7h6+HGO+bsI0pKv0bZvgaPTvUs4ItV?=
- =?us-ascii?Q?waCwxNjciy6Mfeq6PZJcQ1P4dXf60VyDElN0fHzxlOboO6Mc3y2XdofigqIP?=
- =?us-ascii?Q?+jHXAfSEw+qxMZd0D4oGvwqZXQv+eegzxjIrmHS0vBMC7/J2tORycCfu3VEz?=
- =?us-ascii?Q?9vLpbHiPGk0yi1a6R85+mG86AHYwpDyjb2qXMpztyczzb2YOP41UflUn/48D?=
- =?us-ascii?Q?ba672+tNGLGcHemPzOPhXW5UGGDf3DhZX1stqM3LkgJiLQAWAziI8hhl4UuQ?=
- =?us-ascii?Q?wyUqK6vBrt46WJJ4ujwAv64lZgeNAkNqTpqltKEg/DkqO6Uw5NSeL3RknxrN?=
- =?us-ascii?Q?W4OnyzKLf01NIac4O7kqC8n+FLU70RiATC2ApqmisCuJojC3J2gq3+lIewuQ?=
- =?us-ascii?Q?mMos89t0jV0nFwGI9+khfuCrJWWWj/Q=3D?=
-X-Exchange-RoutingPolicyChecked: Gg5U5Xl8ldo5dXXZHiLqXctPjofWShAUgZC4Y4VOnKT9hDRkEwRulgMySg92qMHxMfg6rYXN1/FtTO1nLA6GTideYbAu/9nQzy1l/b511w8DEVXCiJ55hpgi+BmNcjI19siAVmOab0IpQ07Zz/wou90VrePK/ShWYp6PFY8UyrhfFDaOOOSpglNXZw1/yfilDTBh3x8EK3yJrg/aDBLRVylZ94uVqU9hsYBYB5drsP86x3lYDuoW8C17XDANoaE8TFJVGUkr38A95//kOGYkxIuyHsK49H7BQEr43yh4M4Ou2tq0AseAa5YSRmdvP3g4Kd6otwu4rUveWPDcEjr/bg==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Qv51EHQVyTe1tvRCSYdOY2+ASXTgvr1jzpam8iBvo944/sKZWl3cAFEw1o8MQt3wUsumwepETCIlrDWrJbnFqbQNQrXYDRUdh3c2F5xtd9KMKgkN+uWcTiRTqANwaFTt+BjNd32m/GYoQ0E2U8MYnUefnsvJHT9zfdxoskZRehdnwGsCH6QzXNQIswS1k0qLGHWLBwQ22u4guNFnun9MbBeIJUb2EsfRHFvNeQgQcOPwJSoPrlPcjWASW9NsAkEkZylp2CeSgsw8/eRzd7hjczsaUBsuutdZFfCzjh3kq+pREUYPAVfzWfSZUEvcmyTXrBT6+EQ+v5G9IS2bi/q4novD99J8/JvMZxblrUAhsKKQE2t6uI64pYkPDRsUI7EO2RjfzGNK8k81ghhGS0U1LI1Cy/Ebr/sDTDYtIDRcWcGmAU9wtzospSbFE/gpPyRxHGzPmo/8mxn/9k62lJIgRAx/VqTvllyiEgj7ngzCRlyVybnTiewUYUmOdXo0KZvh049Ao+A1BZvouDzgm1FdY/uKNn6V40VSnbA/MzgDS7UBujeOstagxpfrA8A7Q6vhwd1GbKi9pFrx7dhU/vSVHoMNTxIBo9JGbU9KgwKzEIo=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3429a2d-35b7-498a-a618-08df0fd42d3b
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 07:13:28.2463
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X92PJtMO7yCmWowQjrFdvcoTVQb4bfs7jk3ImSmqkXTy/lRaSHWROL2VBcn26RLONR+n85LCiZkeyon6KwChZxzattsauXnLUorCrYc92hs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF2BE4E177D
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-11_02,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- adultscore=0 spamscore=0 suspectscore=0 malwarescore=0 phishscore=0
- lowpriorityscore=0 mlxlogscore=999 mlxscore=0 classifier=spam adjust=0
- reason=mlx scancount=1 engine=8.19.0-2609040000 definitions=main-2609110098
-X-Authority-Analysis: v=2.4 cv=KNfPn1Fo c=1 sm=1 tr=0 ts=6aa3aa1d b=1 cx=c_pps
- a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=VdqzKS8jKosA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=o5oIOnhZENCTenyL_yNV:22 a=vggBfdFIAAAA:8 a=yPCof4ZbAAAA:8
- a=uJFUT-3x69M_IngTN_YA:9 a=5yU3S35YU4bGjq-dph-N:22 a=Bho9c0fBagfJEIQBS7DQ:22
- cc=ntf awl=host:12105
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDA5OSBTYWx0ZWRfX9NEe6K43Au+6
- BHz8PKipNfMS2CStstby5spz9WXNuLaxRdSK4gM5+C8TiR1frLq0+PcnKUDVyJKfMqshne9lhMA
- M288G6JcHdAQs0/EkH3smP1WA+PHnxtnUwru8GfWM3BqSvmIl0tBBM1fX/HQIQZCUVVUgXSzEfk
- weVmXcZ8q8iWSR3pyyL3bgQvL1GrK/UTf1fHaE/YNPMEO3OSST3bU9r7q8umNtWOFvsb3MlSGFp
- bRHtGQW/pZ6PKfdPDcAZtCTj96l2W6RZmLHY1v9c0MydO70pwCks4qM2C1xh0uUzUjiP9PoTncW
- SZy4CFrcecekD/mfwj0FVYMxAtdOahd9GhRapNBfqqqDD2mlRxs74Mvjb/hXEB+rxAiVjASbCzz
- PDnx6MCDqU3UTPRVVl3GkSNKF3bg0cWrJXGSVwXvyamAtgfoVklFTa725vDIiTuUpOJEJPuLagc
- ejkyo1SQDbKZOX/OGbyPiHj2p9bQh+r/e2HKowGc=
-X-Proofpoint-GUID: P5IfiEMVn-gScUf6QEdjsHRLaUSydSJ6
-X-Proofpoint-ORIG-GUID: P5IfiEMVn-gScUf6QEdjsHRLaUSydSJ6
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDA5OSBTYWx0ZWRfX1MqxSQRxwRRE
- aRHnK+1l5xXZ9gZGOygrbRB/IjWDREHiPZlbvWB2fOIggPQ1r2X+O0fX5D60FBdZEuUMeAc4Hql
- +Wy4dLcRx/g6UMEEu6m76rMSPCRKBBWsu4JSpFCAczO3aj+rkvVT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/19] cpu/hotplug: Avoid busy-polling on archs where
+ cpu_relax() is a no-op
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, David
+ Woodhouse <dwmw@amazon.co.uk>, Peter Zijlstra <peterz@infradead.org>, Marc
+ Zyngier <maz@kernel.org>
+References: <20260907164024.17164-1-will@kernel.org>
+ <20260907164024.17164-4-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164024.17164-4-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_001409_228287_A6D8D35B 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20260911_001638_195477_FEE33BF8 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,40 +83,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Haris Okanovic <harisokn@amazon.com> writes:
 
-> On Mon, 31 Aug 2026 13:22:47 -0700, Ankur Arora <ankur.a.arora@oracle.com> wrote:
->> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_state.c
->> index c7524e4c522a2..7443b3e971baf 100644
->> --- a/drivers/cpuidle/poll_state.c
->> +++ b/drivers/cpuidle/poll_state.c
->> @@ -6,41 +6,22 @@
->> [ ... skip 36 lines ... ]
->> -			}
->> -		}
->> +		dev->poll_time_limit = !tif_need_resched_relaxed_wait(limit);
->>  	}
->>  	raw_local_irq_disable();
->>
->
-> Tested again on AWS Graviton3/4/5 (ARM Neoverse V1/V2/V3) with haltpoll changes
-> atop latest master 8ab1afb2e: still seeing average 6% improvement across various
-> workloads (mysql, postgresql, cassandra, memcached) in latency sensitive configuration.
+在 2026/9/8 0:40, Will Deacon 写道:
+> On some architectures (such as arm64), cpu_relax() is effectively a NOP
+> and so isn't particularly efficient when used in a tight polling loop
+> such as the CPU state synchronisation in cpuhp_wait_for_sync_state().
+> 
+> Once an incoming CPU has reached the SYNC_STATE_ALIVE state, we know
+> that it is executing within the kernel and so we can use the more
+> efficient polling mechanism provided by the atomic_cond_read* API.
+> 
+> Extend the generic implementation of arch_cpuhp_sync_state_poll() to
+> take the state details as additional parameters and polling using
+> atomic_cond_read_relaxed() instead of cpu_relax() once we have reached
+> the alive state. No change on x86.
+> 
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/x86/kernel/smpboot.c  |  2 +-
+>  include/linux/cpuhotplug.h |  2 +-
+>  kernel/cpu.c               | 13 +++++++++----
+>  3 files changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
+> index ba01a9e919b7..362f85cbdbaf 100644
+> --- a/arch/x86/kernel/smpboot.c
+> +++ b/arch/x86/kernel/smpboot.c
+> @@ -1138,7 +1138,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+>  		pr_info("CPU %u is now offline\n", cpu);
+>  }
+>  
+> -void arch_cpuhp_sync_state_poll(void)
+> +void arch_cpuhp_sync_state_poll(atomic_t *st, int old)
+>  {
+>  	if (smp_ops.poll_sync_state)
+>  		smp_ops.poll_sync_state();
+> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+> index feb32949aeea..bbcee650155f 100644
+> --- a/include/linux/cpuhotplug.h
+> +++ b/include/linux/cpuhotplug.h
+> @@ -509,7 +509,7 @@ static inline void cpuhp_online_idle(enum cpuhp_state state) { }
+>  struct task_struct;
+>  
+>  void cpuhp_ap_sync_alive(void);
+> -void arch_cpuhp_sync_state_poll(void);
+> +void arch_cpuhp_sync_state_poll(atomic_t *st, int old);
+>  void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
+>  int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
+>  bool arch_cpuhp_init_parallel_bringup(void);
+> diff --git a/kernel/cpu.c b/kernel/cpu.c
+> index 97a9bfe4edad..d9fe204f02cb 100644
+> --- a/kernel/cpu.c
+> +++ b/kernel/cpu.c
+> @@ -303,7 +303,13 @@ static inline void cpuhp_ap_update_sync_state(enum cpuhp_sync_state state)
+>  	(void)atomic_xchg(st, state);
+>  }
+>  
+> -void __weak arch_cpuhp_sync_state_poll(void) { cpu_relax(); }
+> +void __weak arch_cpuhp_sync_state_poll(atomic_t *st, int old)
+> +{
+> +	if (old < SYNC_STATE_ALIVE)
+> +		cpu_relax();
+> +	else
+> +		atomic_cond_read_relaxed(st, VAL != old);
+> +}
 
-Thanks for retesting.
+As sashiko pointed out, it seems that the else branch unreachable for
+the call of cpuhp_wait_for_sync_state(cpu, SYNC_STATE_ALIVE,
+SYNC_STATE_SHOULD_ONLINE), the old state can only be "SYNC_STATE_KICKED"
+or "SYNC_STATE_SHOULD_DIE", which go the if branch.
 
-> The new unit tests all pass on both metal and virt variants of the same machines.
->
-> I hope we can merge this soon.
 
-Yes indeed. I'll send out one more version which addresses a few minor
-bot comments (and patch-1 needs a re-review because of changes.)
+Link:
+https://sashiko.dev/#/patchset/20260907164024.17164-1-will%40kernel.org
 
-But other than that this is as mergeable as it will ever be.
+>  
+>  static bool cpuhp_wait_for_sync_state(unsigned int cpu, enum cpuhp_sync_state state,
+>  				      enum cpuhp_sync_state next_state)
+> @@ -328,7 +334,7 @@ static bool cpuhp_wait_for_sync_state(unsigned int cpu, enum cpuhp_sync_state st
+>  			return false;
+>  		} else if (now - start < NSEC_PER_MSEC) {
+>  			/* Poll for one millisecond */
+> -			arch_cpuhp_sync_state_poll();
+> +			arch_cpuhp_sync_state_poll(st, sync);
+>  		} else {
+>  			usleep_range(USEC_PER_MSEC, 2 * USEC_PER_MSEC);
+>  		}
+> @@ -395,8 +401,7 @@ void cpuhp_ap_sync_alive(void)
+>  	cpuhp_ap_update_sync_state(SYNC_STATE_ALIVE);
+>  
+>  	/* Wait for the control CPU to release it. */
+> -	while (atomic_read(st) != SYNC_STATE_SHOULD_ONLINE)
+> -		cpu_relax();
+> +	atomic_cond_read_acquire(st, VAL == SYNC_STATE_SHOULD_ONLINE);
+>  }
+>  
+>  static bool cpuhp_can_boot_ap(unsigned int cpu)
 
-> Tested-by: Haris Okanovic <harisokn@amazon.com>
-
-Thanks
---
-ankur
 
