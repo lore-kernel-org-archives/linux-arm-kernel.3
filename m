@@ -4,122 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D24C88E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB5CC88E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5oc3tv087zkgUmMijoPhVa50M2i+jY4rSWrvQv9Ca8=; b=hpC/oIhWH8cfKccs0MAkmI1GQp
-	/FWqCpUj0gxhrSbd+bPKiLnkl9rWzvTUq1lWQQuQIuyP8yh5o2UPI7KBBnPiZuBVdRRtPTtbPVdya
-	7rUhgySpw0BpCxV0fenVwLWTBsKCpgSssTX/Cmx/IMqAYvFkNgycfCeciodFLvLbenKl3S96S2iQY
-	zubekefee9sJrc2Cy/LvUBwkruPSxVIhb+UgMYd6uut3b60H2rajbrv0Yh2MesT6DtG1MgVcOLld8
-	5ymjwtFkvkGBth2bXCkjbiqlXZ1nCQJJ9Qb/e6AKbofIu1i5puqQZldw4Y8jUTMYzF3eYTMSywhFV
-	tSYTJ6xw==;
+	bh=UTTG8yan6yVoKZGPEDLowwJNC987s9yGpXDxZ0pvHPw=; b=mqVIwltgqdFHsEghqTX9irAG5k
+	ePpdMTPGyYmbFw/ZQi+KT1om/a9AK4yn0KT3W7j1jbYkHzCcg5LSGrgA3U05ruGSEA7zPz30Oc6WE
+	VnMAcK/MzOTrR8UOIA29hhpg8r91c73AVr5LZli4GRgpVZ/gtq7YGzoIkq9Ejkn3CpoUiCe+ZCAXe
+	qaF0DtRmN2tJs7WLhl7bFj0u/3/PUn9v2h7WZSxIOlWXshJgT9aZwCQmsp3r5k3YL1n8tFxcUjD0z
+	25TJQeFfCAVg8NPpxB5q5+4NW245ugYJw6VeX5NKNrbktkcnPcgSoKTlPxw4iao7A964i4MGQzT/s
+	wV0ke4Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4z8A-0000000GTEH-0LTH;
-	Fri, 11 Sep 2026 11:09:18 +0000
-Received: from mail-westeuropeazon11010038.outbound.protection.outlook.com ([52.101.69.38] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x4zNY-0000000GUKX-16cr;
+	Fri, 11 Sep 2026 11:25:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4z87-0000000GTDL-2Jau
+	id 1x4zNV-0000000GUKE-3yCF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 11:09:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PpSH9gMmniiLfMrBkmvoiAdPjlV2aplHN6Z3qqgpyFDhu05tBLnUuFA3pApCxJiucq4eqSAqEUP7iuVNJHtDPsNrbNiWoYqiybrBquE54MwVhnIeZmDWBqUEJb68dLNbxFNm34s+mad0o9sMRUjqzEF05PfXeoZcNvBtKhWaZsiaNcAB89eZUb8tXswJp4xiMg+PPXbuYyXWDB7fpN8fHLoE5rdXIhuNAfp+hAoNC7kxA97uBUAxi3cD1P1Fji/UUGaktjrUzYWtOO4ZY8jNgKtIJxO0mtJSiOsDjURsx3surdPKR+5N+X3kBBbCxkdiAR63Y+yltmU8oJALPJGB2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y5oc3tv087zkgUmMijoPhVa50M2i+jY4rSWrvQv9Ca8=;
- b=C+yB9pqPb9k11TY2IJ8WCTAdlEMSYHc+3WzNnt/S/Pc6aHsUuExZb6vJn3Z2JGr7ccyBl4K5YdgP1IJgznnrNvpS31ClVuUwQeyvtJHbJ35gFnxAWXcIgnmgMRqGpjpCFIYiA7kK7OLHeQEM0fMkCGiLKHQF3P8JhuBUYHaNaksmvR/u2UC+DrIoI9VDyJ6lYr4GVq3KSJeK1MJLXcecO2estkTNM9U4YW9hJC9LDti6HCFhSyAVSWQik9Ksv3DkyMUta5FSdIV+IX4lt3CtWd1X3Pja8MobWZnBAEK2S+cxLBad1Qk6TdNNZGdBnyLzpiY9rGGKIecnKT7KIm69eA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=gmail.com smtp.mailfrom=axis.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=axis.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y5oc3tv087zkgUmMijoPhVa50M2i+jY4rSWrvQv9Ca8=;
- b=eLVrNe3Z0TsE3xoF7tZzvhgSqcFOMSge2Kb6fAjrQR/SP+/1rgZQSZqjbDpiP4k4MRqcp+RurtBm95LXj3M6+8+okYrt0Yer2OMjRMC1lYR+6D3l7fdqBAEqDz2tJIcUB+H84TolAvXmcwLQhsOkerP8yx74GkAA/RNm1FxUs2k=
-Received: from CPBP307CA0018.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380:2::15) by
- PA1PR02MB11982.eurprd02.prod.outlook.com (2603:10a6:102:567::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 11:09:07 +0000
-Received: from CPH1EPF0000051E.eurprd04.prod.outlook.com
- (2603:10a6:380:2:cafe::24) by CPBP307CA0018.outlook.office365.com
- (2603:10a6:380:2::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Fri,
- 11 Sep 2026 11:09:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
- smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- CPH1EPF0000051E.mail.protection.outlook.com (10.167.241.233) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 11:09:07 +0000
-Received: from se-mail10w.axis.com (10.20.40.10) by se-mail11w.axis.com
- (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Fri, 11 Sep
- 2026 13:09:06 +0200
-Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail10w.axis.com
- (10.20.40.10) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
- Transport; Fri, 11 Sep 2026 13:09:06 +0200
-Received: from pc55637-2337.se.axis.com (pc55637-2337.se.axis.com [10.88.4.11])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id 54BC422BC;
-	Fri, 11 Sep 2026 13:09:06 +0200 (CEST)
-Received: by pc55637-2337.se.axis.com (Postfix, from userid 363)
-	id 5290E6035BE2; Fri, 11 Sep 2026 13:09:06 +0200 (CEST)
-Date: Fri, 11 Sep 2026 13:09:06 +0200
-From: Jesper Nilsson <jesper.nilsson@axis.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-CC: Jesper Nilsson <jesper.nilsson@axis.com>, Lars Persson
-	<lars.persson@axis.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin
-	<peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-arm-kernel@axis.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 02/10] arm64: dts: exynos: axis: Re-order properties to
- match coding style
-Message-ID: <aqPhUo5Ird-Ru1TQ@axis.com>
-References: <20260911-b4-dts-samsung-cleanup-strict-continued-v1-0-9aa55051c42b@oss.qualcomm.com>
- <20260911-b4-dts-samsung-cleanup-strict-continued-v1-2-9aa55051c42b@oss.qualcomm.com>
+	Fri, 11 Sep 2026 11:25:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 314EF60A58;
+	Fri, 11 Sep 2026 11:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D4F1F00893;
+	Fri, 11 Sep 2026 11:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789125908;
+	bh=UTTG8yan6yVoKZGPEDLowwJNC987s9yGpXDxZ0pvHPw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=XczocO6d55CVKrVVPATsFg2zy9sPS0Jxt22hCBVDF65gfZ3jm+YUfeomUJzOzLD3B
+	 ntD0sMYNbEZML9W0CoFx1p7KeP5KBaNFZMAAKVS/r6cNo3EMEEQPtTNg17I/t3pFl0
+	 yI0TiH3T5LZHy5pkGtpARjkzt7WIuOaS7rwAX9VeQSqaQEFRJJO/81gKVYj2zdZkGB
+	 OHqSUoGDPsn+1fJgxNlmvjs3WcnjRZIC5Yw9oJGqec1HtJL6sWJs4Ldd1s409E5xsF
+	 +cB3TdRh8iFYJER57+PZA4jVz3IFW9pg8usW7WPNeinfvYgirww97B88N5c+fFNssD
+	 HR29fmBvobvSg==
+Subject: Re: [PATCH net-next v2 1/9] dt-bindings: net: ti,dp83867: add supply
+ properties
+From: netdev-bot+sashiko@kernel.org
+To: mohd.anwar@oss.qualcomm.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, afd@ti.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, richardcochran@gmail.com, andersson@kernel.org,
+ konradybcio@kernel.org, alexandre.torgue@foss.st.com, peppe.cavallaro@st.com,
+ joabreu@synopsys.com, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Fri, 11 Sep 2026 11:25:07 +0000
+Message-ID: <178912590701.219967.15448701667812128746@kernel.org>
+In-Reply-To: <20260908-shikra_ethernet-v2-1-bbe3389d0652@oss.qualcomm.com>
+References: <20260908-shikra_ethernet-v2-1-bbe3389d0652@oss.qualcomm.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260911-b4-dts-samsung-cleanup-strict-continued-v1-2-9aa55051c42b@oss.qualcomm.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CPH1EPF0000051E:EE_|PA1PR02MB11982:EE_
-X-MS-Office365-Filtering-Correlation-Id: 47a0a6c7-95f1-4edf-27e1-08df0ff51932
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|7416014|376014|36860700016|11063799006|4143699003|10067099003|56012099006|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: N/NopKbur3I2I8HAXiSac0jZeqNG/33JhvlBZDoz4z0su/LFvy8aUVVKfLw8LKyoXi563KxmwnI5K5ZAAcFlry7b3D8pFpkG3dsUQSryquzWH02ifE1MkskBrlxLeaRGzaHbzrl+cpQRyuRm8vLNBvnbjLV0i/KDAnGGL8K9w5Vli5YNc0qCdoV+3f7dK+gY8EDL9hi+8Vuhqbj4id7EEGsTffRiLwwTLIgMuGXzC3+/1o/Kl7cb2EM1/15t1ImESJNQv32w9JaET+J9OwNSoJnXKnSy9+W7EGDzfFO7Bg51sOIp1ukN87nWNaE7PZoF11z0FAwO2lHSOpe4MKNFVNtOM+Vu+K5CezWKKfOlEuVPIy07iQaHazOlNPtN0U8xKn4rYDBIPgTml7cyEBMxr/KaHHXjI443S+TnMd2dmKTIr3CRSHdhQeCUs6WhpsgnpY0FzjsfPplyHiEyosOx5KQEQomLX7/BAN1Rdzc8sUEIGECiu3V3eh5WAPXKRnww3gXfJ0ZGSuCCzC9Y/dfdXWhMRFZyqc7MMyfK0euawROTeZkfnuhlhTXIpmjJk4D3PpBRpFM9DMpr+wBBbweT1jMwuMLkbfyowoGSOetrnacYFz/PeG8zRqpydUVY/70JVWCwfRDt3YFLtntsew80C7ZKm+EIdRYm84fRVMSwSdAQlQOsUV1lWDo77cZkOpfzUFAfH/LFlUsIjnlYafvCHg==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(7416014)(376014)(36860700016)(11063799006)(4143699003)(10067099003)(56012099006)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DZf3TWJZcCpiJ0FUar4Xq90Ozu8J525ioJ0fIeM4+GyTr55PgknISYgXgAJy26k72ahAGdkJpvwX5MwKGeIpqQm1IG9Q8rpLS0glkQxFTT77fkq1h+B6dibxV43655Q1RAt6GZ5VgxmDpUfdug2tXUcFD4sAx19YpsGN7gfXiEYygVwl3Rr1GMKk0RWBhX0e4tHjxge37huwUqsBmhDJenaw/3/lDNdyrMKIeqpyqmatUSMh9v2MDP5M4p3CGngdDGnrzy06P3W95bPDjXJbuY1yECrTJrEOuL0D3q01GmXiB5jSl0Yt9SWtcEHpVSZMWBetfBfyeMO7obgObRNoGnb7OacTArh7kJgxERr3BooTYlOCdG36QwhJeEVlfrbdXicbxbwPb2zEexjrvAldIm5FdsPoRo2NvySYVS7RO+V+nqe+HzS0ZgWllMZ3u+oK
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 11:09:07.3853
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 47a0a6c7-95f1-4edf-27e1-08df0ff51932
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF0000051E.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR02MB11982
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_040915_591749_F88F7BB8 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,20 +78,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 12:19:10PM +0200, Krzysztof Kozlowski wrote
-> [Some people who received this message don't often get email from krzysztof.kozlowski@oss.qualcomm.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> Re-order a few properties to match coding style, as pointed out by
-> dt-check-style, e.g.:
-> 
->   artpec8.dtsi:69: [property-order] property 'local-timer-stop' out of canonical order (should sort before 'arm,psci-suspend-param')
->   artpec8.dtsi:232: [property-order] property 'pinctrl-names' must be placed after 'pinctrl-0'
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider:
 
-Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
+Critical: 0 · High: 0 · Medium: 0 · Low: 1
 
-/^JN - Jesper Nilsson
+- [Low] Reported concern (assessed INVALID): the binding patch adds four
+  regulator-consumer properties (vdda-2p5-supply, vdd-1p0-supply,…
+
+--
+
+dt-bindings: net: ti,dp83867: add supply properties
+
+This documents four regulator consumer properties for the DP83867 PHY
+(vdda-2p5-supply, vdd-1p0-supply, vdda-1p8-supply and vddio-supply),
+matching the two-supply and three-supply configurations described in the
+datasheet plus the separate VDDIO rail.  Documentation-only change, no
+code is touched.
+
+No Link: tags present in the commit header.
+
+> diff --git a/Documentation/devicetree/bindings/net/ti,dp83867.yaml b/Documentation/devicetree/bindings/net/ti,dp83867.yaml
+> index 4bc1f98fd9fe5..e78f08ded3d0d 100644
+> --- a/Documentation/devicetree/bindings/net/ti,dp83867.yaml
+> +++ b/Documentation/devicetree/bindings/net/ti,dp83867.yaml
+> @@ -118,6 +118,20 @@ properties:
+>        Transmitt FIFO depth- see dt-bindings/net/ti-dp83867.h for applicable
+>        values.
+>  
+> +  vdda-2p5-supply:
+> +    description: 2.5V analog supply (connected to the VDDA2P5 pins).
+> +
+> +  vdd-1p0-supply:
+> +    description: 1.0V digital core supply (connected to the VDD1P0 pins).
+> +
+> +  vdda-1p8-supply:
+> +    description: 1.8V analog supply (connected to the VDDA1P8 pins).
+> +
+> +  vddio-supply:
+> +    description: |
+> +      I/O supply (connected to the VDDIO pins). The supply can be 1.8V,
+> +      2.5V or 3.3V.
+> +
+
+[Severity: Low]
+One thing that came up while reading this in isolation: at this commit
+drivers/net/phy/dp83867.c has no regulator API usage, so the four new
+properties describe DT ABI with no in-tree consumer yet.  Is that
+intentional for this patch of the series?
+
+Checking the rest of the series answers it, so this looks fine as posted.
+The following patch, "net: phy: dp83867: add regulator supply management",
+adds dp83867_power_on() with:
+
+  static const char * const supply_names[] = {
+          "vdda-2p5", "vdd-1p0", "vdda-1p8", "vddio",
+  };
+  ...
+          ret = devm_regulator_get_enable_optional(dev, supply_names[i]);
+
+and dp83867_probe() calls dp83867_power_on() before dp83867_of_init() and
+before any register programming in dp83867_config_init(), with the
+datasheet stabilization delay applied there.  The supply IDs match the
+property names documented here exactly, and the enable reference taken by
+devm_regulator_get_enable_optional() keeps the regulator core's late
+cleanup from turning the rails back off.
+
+So no change is being requested here; noting it only in case the
+documentation is meant to land ahead of the driver change.
+
 -- 
-               Jesper Nilsson -- jesper.nilsson@axis.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908-shikra_ethernet-v2-0-bbe3389d0652%40oss.qualcomm.com
 
