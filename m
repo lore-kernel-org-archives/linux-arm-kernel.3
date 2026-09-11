@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20605C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A1AC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HD7CwDSBdI7ApvW9myNSUssqtq9jDio3I05Sz3qKMAk=; b=IoWqFbjYLJzJhKrYm4+glNSHxc
-	CmdMYS7AmDs45qwJs8MPe/lvQVoNxpn+baAu2Y4f0aciuN4wF2dReS4Ow4BLjUiFqwoBJdxoHtosX
-	vcFJ/8KX2GIBwYpQaGn2ypkT5KbJz6CKYHYztgu58HdhQFT0Mv6n0SoU8kagFcXwxlEvxhy+1RRmm
-	FI7bHW8mBi8lG0iUCBX2oFPqFeFB5KfcLhC9CHBD5pyeZ3nR9MPnwGitnzeLefjTyPIbTsnJwSaCn
-	FM6Hca2n0Y0njkZYiRpeDDGdB8FyDd8wgPYzwr0sYrbgqtE6k4Xuz1KQuZr4NpBb5Hg0rhz2XxSCi
-	3XLBolig==;
+	bh=eAkmSFxEapr/OWEzeHTZRFq6RfOULXKfw/VYTwth8bI=; b=gfMcFUTV2eHIg12P0PFgV0aAgw
+	pHuZHfvjriOkBYiFqzAeQ933R/UBYZVohdmmqHWx+IkmRK7EeYm3IwShwm4BpS2xZVyQ4wuk6h9V/
+	LhOju3mo0LPlioZzIhdgZ52ab1udek6D7OXpaikpro/+MKUfh5pVrogB2I9hi0dLqNM1vcwE1iPr0
+	JKk1l8Z/rX2Y8vsbX3EgJIZZ3QUQ++Pg9Lr+sXiOMbdT5aKkUo7uREzvdq85ZzXZZjp8lHa+FWsL6
+	FoUGyHbQjJtPTj4dY+ecEWEzmIVZ/Rk0DpSCJjvGtss6ehbU9Ei8EFXr0QyQuIMI3r9gbAl4tSiMX
+	yJ721bPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tkh-0000000Frxj-0bkH;
-	Fri, 11 Sep 2026 05:24:43 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1x4tpf-0000000FsM2-0wCU;
+	Fri, 11 Sep 2026 05:29:51 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tkd-0000000FrxM-3Usv
+	id 1x4tpc-0000000FsLV-1Gx1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 05:24:41 +0000
-Received: from francesco-nb (unknown [185.12.129.179])
-	by mail11.truemail.it (Postfix) with ESMTPA id 65D9822A64;
-	Fri, 11 Sep 2026 07:24:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1789104277;
-	bh=HD7CwDSBdI7ApvW9myNSUssqtq9jDio3I05Sz3qKMAk=; h=From:To:Subject;
-	b=JbPSjiN/w4LO9ADIbdIKV/vFf+H2SWOFS8oSWFQKzh0kkEmEYcB13lBle3Kq7WHAo
-	 WJyVffgJeIcbtVWFM+wZIobEHtAbTcg/S8HA2TI3INwZwmVfSy5lW3CzMUC/NHgima
-	 2UpgOO7EcyxRxRlHThqRfxuUGRZXVAZGTPNu45AhJaFILlEemwYWMvsKXLKHTxzEN9
-	 Xhl4VaMtisNJTMuLbZPBSv9dodVRnOtylbZSVL/luVqHgE4BHjECsF8DiCD3QsOnpf
-	 4ZCAr3TWcncmfn/oMCF4ojhGFOPbtBgCMtkimt3OXaHdqwB8+w9v0Algi1A0PpFMNH
-	 Axg//UkbZ0wUg==
-Date: Fri, 11 Sep 2026 07:24:28 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Judith Mendez <jm@ti.com>,
-	Daniel Schultz <d.schultz@phytec.de>, Andrew Davis <afd@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>,
-	Jai Luthra <jai.luthra@ideasonboard.com>,
-	Devarsh Thakkar <devarsht@ti.com>, Beleswar Padhi <b-padhi@ti.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Vishal Mahaveer <vishalm@ti.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Sebin Francis <sebin.francis@ti.com>,
-	Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	Hari Nagalla <hnagalla@ti.com>
-Subject: Re: [PATCH v8 9/9] arm64: dts: ti: Add wkup R5F nodes to pre-ram
- bootphase
-Message-ID: <20260911052428.GB5377@francesco-nb>
-References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
- <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com>
+	Fri, 11 Sep 2026 05:29:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=eAkmSFxEapr/OWEzeHTZRFq6RfOULXKfw/VYTwth8bI=; 
+	b=ONLiLJSpewQtgDqGoRdoeaEzn8YVSOLdeighfjbG+T89vBc31mRvWLbfFIZPAzRFoHBUXfB8Zyf
+	UlPhyM+XKIDWd/J5vHH32HZIsxSmPgec5qsA51QPtmAXmbt+Xb9SZv4LLbu5u88+FS90O5y+Pz3UH
+	1L+vdRr32OIIPfHu7XDnIx9R76ySqMgLSFUyQnldk8j7VLZWpRSYv5bteaIdDBj8P49stHCwRHmD7
+	uQXEzr98lb3CvYCDElxaBX34f65ehze2za4z834EAN241Y+O0t1uY4r+fpWEAticm4tqMYyx+YwZ1
+	YMt7lAziwlfIzLtDV55CaUeP6KRsnVqhES4A==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1x4tpP-0000000Cu8A-2TFC;
+	Fri, 11 Sep 2026 13:29:36 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 11 Sep 2026 15:29:35 +1000
+Date: Fri, 11 Sep 2026 15:29:35 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Linmao Li <lilinmao@kylinos.cn>
+Cc: "David S. Miller" <davem@davemloft.net>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Leonard Crestez <cdleonard@gmail.com>,
+	Radu Solea <radu.solea@nxp.com>,
+	Franck LENORMAND <franck.lenormand@nxp.com>,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: mxs-dcp: handle zero-length skcipher requests
+Message-ID: <aqORv0iyPUE2qKep@gondor.apana.org.au>
+References: <20260828093209.3179074-1-lilinmao@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-9-74c650dfdea6@baylibre.com>
+In-Reply-To: <20260828093209.3179074-1-lilinmao@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_222440_041074_6F7B744D 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260910_222948_343501_74FB909D 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +77,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Markus
-
-On Thu, Sep 03, 2026 at 02:39:30PM +0200, Markus Schneider-Pargmann (TI) wrote:
-> For IO+DDR the wkup_r5fss0_core0 and the
-> wkup_r5fss0_core0_lpm_metadata_region need to be accessed before RAM
-> setup is done. These are used to read the lpm metadata region in
-> which data is stored to resume. This needs to be done before RAM is
-> in use to avoid overwriting data.
+On Fri, Aug 28, 2026 at 05:32:09PM +0800, Linmao Li wrote:
+> Zero-length skcipher requests are valid no-ops, but MXS-DCP queues them.
+> When such a request reaches the worker, last_out_len remains zero. The
+> CBC completion path then subtracts AES_BLOCK_SIZE from this unsigned
+> value when updating the IV, causing the offset to underflow. On
+> decryption, the resulting source address precedes aes_in_buf.
 > 
-> Add the bootph-pre-ram flag to the wkup_r5fss0_core0 node in both
-> ipc-firmware dtsi files and to the lpm metadata region nodes of the
-> AM62A and AM62P boards.
+> Return success before enqueueing zero-length requests. This avoids the
+> invalid source access and leaves the IV unchanged for a no-op.
 > 
-> The board level bootph-pre-ram flag of k3-am62d2-evm.dts becomes
-> redundant with the dtsi-wide flag and is dropped.
-> 
-> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
-...
+> Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+> ---
+>  drivers/crypto/mxs-dcp.c | 3 +++
+>  1 file changed, 3 insertions(+)
 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-> index 45ab9d947b3a..8976c0424cd1 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-> @@ -184,6 +184,7 @@ wkup_r5fss0_core0_lpm_metadata_region: memory@9ca08000 {
->  			compatible = "shared-dma-pool";
->  			reg = <0x00 0x9ca08000 0x00 0x1000>;
->  			no-map;
-> +			bootph-pre-ram;
->  		};
-
-verdin-am62p has the various bootph tags only in the U-Boot dtsi
-(k3-am62p5-verdin-wifi-dev-u-boot.dtsi) as of now, I am not convinced it
-is a good idea to just add this single one here.
-
-Francesco
-
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
