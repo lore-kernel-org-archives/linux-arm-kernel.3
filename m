@@ -4,117 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA4BC88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBF1C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEQNnYRRZxJNRSzM+t3PTcflg5rREuyGvW1IrDIB5QM=; b=zjbJnnrDOrWo3dDv+iED+Shf1P
-	36rU1QHTZ/LAL9G2hf7O5hG9PhCBrpdy2oWi8NWjucC7vcm3kW7OVUD+cw6GUW2SzE0yEIBnXuQcA
-	gnmJKGdL3g/vsbn4YxjqQXJUesecxLpM8I2ZZ8P7fi8QHaPpUus3WnQjFLVlyP+tnZ3vSdcmdqSTI
-	mlvHg/0PNZWDTE2LSFyIYNPj9eO369SJVmjWRSeuM/jRnHCmj1dZsHLXHqD73FbHM+oriVEnEv90q
-	S/rz2S3DfOhT9QyNVQepk8mXil0opjB6R2MGy29AKODPpJ7a3tNANyNy1ns8Q4UcJXL1xH6yQNrB+
-	3YEx1GUw==;
+	bh=HUm6FsdO55jOVY3JrBx1R4mKoNfkbT3ZZvod1aeZi4M=; b=sX/VMAB/RvX6iuUQ/mMvRg7d10
+	TiPgwo6NkbMioPhtdy+c9MJIGKcI77JHK0unXJnmg8BomMO5O/Sj9n1+WG3DP1Ror+h15luPC3Ssr
+	XmRlqvOALfHZrmJW/yYiTbZDLYiPMpFDjJ3YfwlTn5s1lI7ZdUFQfnWvkGaAlMbit2z0G0gGrsG7w
+	cLxfUao3uD9IIkMvvJwR7QStg6HS/WRvVh5IWz8N7BmjyQ/w36WuTNOI0+PldgDChqHiQ6hOI9bJX
+	rjgU7UauLHqW1490/BeJcvHZkbcB+oZzj5gqlVGYuO3TDFJKpqxpWFmF+B+YWjLUVAwQLVpKLdN7d
+	K4hmBdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53DE-0000000H3kE-22Jq;
-	Fri, 11 Sep 2026 15:30:48 +0000
-Received: from mail-swedencentralazon11013065.outbound.protection.outlook.com ([52.101.83.65] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x53Fj-0000000H44W-45ag;
+	Fri, 11 Sep 2026 15:33:24 +0000
+Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53D9-0000000H3jZ-2ZQ2
+	id 1x53Fh-0000000H43S-0Vc5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:30:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AAWneYtTU+fIYoGk50jds4EDPZGojNkhYmu9nSa1cLDxkAs9DCNWO57FemB0+4A/i4l/qctQ0FjzcIrCPwylEitfpTXeRmi5j4aa1lgk/rzMsaY/MmfLxur1nu1DXd2nAVYTTieA8jbjtB/eyGLwZQEAtWkOROZbNNMqKa+O/yG7FzpS0Y4HfhZlRSCZ8T6N8Eb/7CAa/xwLwI5mmc06USU4qJrXRCqTdCphsdGv4CwqY5F4P4h+h+8u1xSzCeRuXWTp7OKtdiWMQs4DXHtI0qG/U3wNjT4YmraOYzeXX+1BctBwoK1IZbrFMPB85u4Jc0rAO9/N4V3ddk068ibgOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KEQNnYRRZxJNRSzM+t3PTcflg5rREuyGvW1IrDIB5QM=;
- b=kNW1fw6nZc299iJi0FAkRUnoQxWi+lSjQZYCrgEFqUnm106bFAuS/8P6NW9lwjfvwTkMuqhlfiEUkl8JoYzJhPGzHYK2zA1EpkuyFXnvZvfnXRyEeZHfenuVMdfgc1B73RN1TFmyd/mLa4Heh3ivbcAiNefYRVrvWT30yvoIbOE0bKQNKO4BuXeSihx3tjD0Z46ASPUW5/3TjIqnnZIKjEPNa2MiRmvNzN8BawzHuuCFKfSoB0hhgOg6qmP6ZlIzLLsy9I8CvzPrVSQ0N1RKur06coRWV+P+3ipum0KOxlxQ9CHqzPV+NNxMwXMf0x4dRv95U4L2qQ/g0Y23jvWT+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KEQNnYRRZxJNRSzM+t3PTcflg5rREuyGvW1IrDIB5QM=;
- b=axGh9V7Ote0JQTWJj4kKfUluakH0BNb9KsDv5yQsETnIgK301OZtrh05B3gNynOLn/sJPRN/oKVc0gRNNgo7TqlEQ0OpvJz8nXOF/arez9lftvfLp+Qn8lXufqerBC6PItBdVopkuHpb2m/od+idzYkMp4bmWo1Kavtqwq5iGrpYHQjqcJMOZi0O0O01fQiayCLOR+ugAsb0nlv9rYFuh46PWna49PKFpX9mYbS6wa0c4agLUajeXKAsG7c+0odbcLqqr3HQoZrFymW5txOErOtBv/9sf4qGvDhHQldHexxM8aVHJg7F/uW4oVizkc0ltCNDz5tyo4F1IdZ6AZDkcA==
-Received: from PAZP264CA0044.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fc::17)
- by BESPR10MB992202.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:b10:146::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 15:30:37 +0000
-Received: from MI3PEPF00008482.eurprd02.prod.outlook.com
- (2603:10a6:102:1fc:cafe::5b) by PAZP264CA0044.outlook.office365.com
- (2603:10a6:102:1fc::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Fri, 11
- Sep 2026 15:30:37 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MI3PEPF00008482.mail.protection.outlook.com (10.167.240.169) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 15:30:37 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
- 2026 17:36:39 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
- 2026 17:30:36 +0200
-Message-ID: <174d318a-bb55-4648-b6c7-cbb80f36fd2e@foss.st.com>
-Date: Fri, 11 Sep 2026 17:30:35 +0200
+	Fri, 11 Sep 2026 15:33:22 +0000
+Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-5309a20a55bso11021141cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:33:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789140800; x=1789745600; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HUm6FsdO55jOVY3JrBx1R4mKoNfkbT3ZZvod1aeZi4M=;
+        b=d3LAfTuhmyJr328mFV4Fhe3Bo4Rg1OnzJq55gSSSyYaEj/t03QzENQ5eA/jfopjgp5
+         18uHAvR9xIfUmgPAGUqT0XSTYUTMUIXRwMlzLHuU0XceuwgIBRWgow5WM5LN75FDlkMG
+         vnPkzi/CGybUqdnBn5eG/voeDi2gvFyyjUbW4VSpVDlUeDAdSDi3felP4dM6FeXzKKqB
+         b1QGnjnesxxCFQJlo6EU8s+BMzXU7G4/SQhR+bglcMiC+JCrbMMa9rEAqBPrbyzCLldu
+         7wo3U69nLQH34pMqadQ5fkS60YdPwUjMIe6hDw+C5JMK7i+g36CZLyNnr3PgksG4CoV5
+         kIDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789140800; x=1789745600;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HUm6FsdO55jOVY3JrBx1R4mKoNfkbT3ZZvod1aeZi4M=;
+        b=YHOkXntzJ58+pItMLHFsBT1ajUxL96L9bSCqJigDFaVf3AwhQULUNH3QwBzy7DPA60
+         6DYfdZszKz+hM/BAFV61DnEki4dokQcO6+LVneNGLuBxOWIMCkkuF9K7ovp7zl4k2ihq
+         aNtl/wBzYDuOd7MV4wfBgw/wVpyMBf98OV7gF3mEq75byiBOechyfZWlxHZ5OJHmUlpu
+         PtWllR3Rkvd0m0TF4Ollp0Prboo6bslaurg8skxHXAyr6CLKZ3iUKboBC3dZBZA+F0YA
+         2HwWjP+GFivdb0rHXETUQEgOuG36hqGyMPX5ztKBj7dhrYDvkGgy03u1s7Gef5DmpjC9
+         T69w==
+X-Forwarded-Encrypted: i=1; AKwUvBw0XcIumKQQxtOvrcBdR56xQ6xGVSWeUPVBldU4BphhpfI4bhKupaqphr6aa6vf5fHTowUW47tWy6ZBYqpp3vCz@lists.infradead.org
+X-Gm-Message-State: AFuF++mEYc/ejbKr2vX4Lea5pbL3H7ZXn6+1kWa5F0GXYU18S5mtM5gP
+	bAjvGCkCcKpUIrbhjIF7WLANxS8J2eQRF6kt1d0Yy3rhaO6OwFZVly7L
+X-Gm-Gg: AYBFou2X5KsR3nPInYV64AW2dGIFeZmkaQ/WyJtL8CZYeZ7aTb/CuBFZJV2i+8zSJ4A
+	DJL848y0Wrgt7AowY/fZfEpu/J29Hq9VUUdunrQh62k/9gPaohi09DUH2Q4qcLd9i47HHHMGdLP
+	Gt3pgeeRg12FmjhZlLTFeU4yLCW23jXarS54GkYUn/KcH5bWIZFKD8B1Wf/bIkpCcmWbIrsYq7k
+	ipisSPtusAUBIWoJdb2ZoS644y5TtehMU/YohgzBuQNvRASucdbdJlZdqvTdr/SJJ/mlcCWuP8X
+	JStvF6cdRhyAuR7Dd714fMI9EVYMjm0c+XYiNezimIZGvKiOlL1AIVQKp8yNoxhnu9e49UBFOTW
+	3f6h+JevJU4pFkKhSYtHWSZG7o12OpPt1jv2JAwgvRQzEFHbMi7TaF1fxyfnFVedU/cRwa1wSMO
+	Cc6O2YSGkuF6gG0Qc6nHeGc7VaskQgoOu/2D8zWVCdDea8rinVWUoSiDWgeZz6xwJo5wN+hrTkx
+	BTP8eXVFXD9rxTZDAOaVIgVtYg1ipe+hEi0ICwjTVd8fUKWdZFvimXHzbsK
+X-Received: by 2002:a05:622a:4019:b0:530:198c:12dc with SMTP id d75a77b69052e-530c850fdd0mr92777781cf.12.1789140798640;
+        Fri, 11 Sep 2026 08:33:18 -0700 (PDT)
+Received: from ?IPV6:2406:7400:56:e503:ad72:fda5:83e8:be95? ([2406:7400:56:e503:ad72:fda5:83e8:be95])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-530ca4b9a97sm23226571cf.18.2026.09.11.08.33.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Sep 2026 08:33:18 -0700 (PDT)
+Message-ID: <56587aea-443e-4aec-81f6-e5fde844afc4@gmail.com>
+Date: Fri, 11 Sep 2026 21:03:09 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: stm32: Remove User-PA13 button on
- stm32mp135f-dk
-To: Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260813-upstream_gpio_keys_removal_from_mp13-dk-v1-1-b333615ac6cf@foss.st.com>
+Subject: Re: [PATCH v3 2/5] pmdomain: core: Allow a non-CPU device in a CPU PM
+ domain to do power on
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org,
+ Abel Vesa <abel.vesa@oss.qualcomm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Christian Loehle <christian.loehle@arm.com>,
+ Maulik Shah <maulik.shah@oss.qualcomm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260907111659.263324-1-ulf.hansson@oss.qualcomm.com>
+ <20260907111659.263324-3-ulf.hansson@oss.qualcomm.com>
+ <02b29827-3ca3-414b-9377-972f3d46eb03@gmail.com>
+ <CAPx+jO8Cf_NGJ6h30+cd-arAJGQL=V1HayRZqaTrM-xg9eUhpg@mail.gmail.com>
+ <CAPx+jO-ZP_09poe0rHm+h4QQZBbHJisCdQGa6kA67sQAkU-BfA@mail.gmail.com>
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260813-upstream_gpio_keys_removal_from_mp13-dk-v1-1-b333615ac6cf@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008482:EE_|BESPR10MB992202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62b980e6-3eb6-40bd-d9b5-08df1019a12c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: TvTp6RyxdSvbqnlfOaDmj2O6UQjEcs0Mxcm0wBao0c2xZVn+oI1imKKSa4wL3EL5RIERT8tqyFH6TfD5+Ns/VP7yDDUzCSROUwdERqOQsiDXztONO45/baZqFRmU/Pb3kUwTafB0PPvXXeSJYqIcXIn46tIn2oLHFlMdM7xCGNjbLO5+8+iWJ2GzpsofihVHkmmWFKdE0n9bwbDnIAzllOcZheZLnHmaJtULzfk83YPLH0wJYSfQ/qa0LEXUv2+9CzioF/nOiXBonLTxErNUT2zw7/M7wplb5qP9lF8+WCEPg1kb6ZsTnOtTqv+JTaijLPeu9aRmJ2hAHNL7kowYiQaqe1uriQbYzUlRXnAA3hjV+WdG1sIkR5wbnIrFHQGuDLWjXMIGUjIgWty9l+JIOiy/qrlVTa5CkCp+QrCjjYSiCXxbubUw9Vsodqaq/RKnbXtn301WwzMjCwagGqqi5YIJGayfbIGoqokoXz1xayjGtN6i3lYdBvaKSno/vrm3obOhzGRqCW5KDs80ufdd01dsf41fAkYinBqM9v4lRRjR0zIsR8xW9l+/5DYYYD7oYdFu0P3UEC8zGua1wxBkNrQ8pk1SYE/yl1Zk/eKOAzwhsC6kwUJIQJ6LPbGwq/0v90igj1nt5HVjYL5zXMdfK3pRTKrftOV1HKLtOCXuu0fBwjfGd4HEAvT8tC9uG3KnHKq45M717ZB1kIl+Amy+Kg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sATD2IMjh4lkubCpUtLmQ9cB3mS7pHZOyT1fj+yd80FZGSQJhJIhUIZzZnDXnDBv8VUfB2t804mwa9ZwuP2oMrPWg0+VJq7sUGphXtyYO174DV9lUIA1Lr9xMmXHDqa+m58IdkShibrsFg5jlAzUUSxCaeMGtN4JsMowqcUeGLmOgM2W39yhvc6jj6pTvq/6wiNSV9J03yO6KxuL9ZfNa3c2HwQ8JUPS50VlaNhUoovQDZ/DpxG9Jc0lZ3XKayJVoNAHVvs+zWsXWNlP86rQovwX25zLxpJ33i5iURM7rVJtOZaEqEnICeCNsz8gw/E7kSKEeh/D62mg5PqkaaTqJeFpAydHAUJk5kGiaBVwKvtoRW4WzVB1jvdtxz4B+DUS3is2E58OZ4+34GzacJ0nmyWSpDZotMKm+kqfMpifMPAx6r4KAo/vaeMu+PtC/VHp
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:30:37.3393
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62b980e6-3eb6-40bd-d9b5-08df1019a12c
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008482.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR10MB992202
+From: Dhruva G <goledhruva@gmail.com>
+In-Reply-To: <CAPx+jO-ZP_09poe0rHm+h4QQZBbHJisCdQGa6kA67sQAkU-BfA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_083043_661466_2F0F73E7 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20260911_083321_209544_E7E645C1 
+X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,54 +118,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice
+On 11-09-2026 15:46, Ulf Hansson wrote:
+> On Fri, Sep 11, 2026 at 11:06 AM Ulf Hansson
+> <ulf.hansson@oss.qualcomm.com> wrote:
+>>
+>> On Thu, Sep 10, 2026 at 8:31 PM Dhruva G <goledhruva@gmail.com> wrote:
+>>>
+>>> On 07-09-2026 16:46, Ulf Hansson wrote:
+>>>> A driver for a non-CPU device that is attached to a CPU PM domain (the
+>>>> genpd has the GENPD_FLAG_CPU_DOMAIN configuration set), is currently not
+>>>> able to power on the PM domain. More precisely, to power on a CPU PM domain
+>>>> one of its corresponding CPUs needs to be woken up if they are idle.
+>>>>
+>>>> The current support for a non-CPU device is that its driver can only
+>>>> prevent an already powered on CPU PM domain from being powered off. This
+>>>> leads to problems for a driver while probing its device or when it needs to
+>>>> call pm_runtime_get_sync() to turn on the power for it. From the driver
+>>>> point of view it looks like it all works fine, but when accessing the
+>>>> device it may end up with various errors as the device may not be fully
+>>>> powered on.
+>>>>
+>>>> To fix the behavior for these types of devices, let's adjust the behaviour
+>>>> in genpd_power_on() to wake up an idle CPU that belongs to it, in cases
+>>>> when it's needed.
+>>>>
+>>>> Link: https://lore.kernel.org/all/CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZVYO=38R2cLV8nw@mail.gmail.com/
+>>>> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+>>>> Tested-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+>>>> Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+>>>> ---
+>>>>
+>>>> Changes in v3:
+>>>>       - Moved to atomic polling, pointed out by Dhruva.
+>>>
+>>> Thanks, but even in v3 we still have potential issues.
+>>> It does not fully address the consequences of polling for five seconds in that context,
+>>> nor the parent-lock nesting issue.
+>>
+>> Well, I assume we will not be polling for 5s, as it would be an error
+>> and it means that we fail to wake up the CPU. But, I get your point,
+>> 5s is really an unnecessary long timeout.
+>>
+>> Ideally the timeout should map towards the deepest domain idle state's
+>> entry+exit-latency-us, but rather than looking at what is actually
+>> available for the PM domain(s) in question, I think it's easier (and
+>> good enough) if we just pick a common value. Usually these values are
+>> in the range of a couple milliseconds and in some cases up to
+>> ~15-20ms. I suggest we decrease the timeout to 300ms and see how that
+>> plays out.
+>>
+>> Also note that, at this point I don't know of any use cases similar to
+>> what you describe, where the device in question is in an irqsafe child
+>> domain. Hence the polling would not be done in an atomic context at
+>> all, so we should be safe. Anyway, if this doesn't work we would
+>> simply have to limit the support to non irqsafe child domains.
+>>
+>> In regards to the parent-lock nesting issue. I don't think it's a
+>> problem as genpd_wakeup_cpu() is not being called recursively, but let
+>> me double check this to be sure.
+> 
+> Confirmed, I could not trigger any lockdep problems with my tests.
 
-On 8/13/26 13:50, Patrice Chotard wrote:
-> User-PA13 button and led-red are connected to the same GPIOA13, this
-> leads to a conflict when gpio-keys driver try to get gpio.
-> 
-> As led-red is mandatory in U-Boot to indicate the status during the
-> boot phase, remove User-PA13 button from stm32mp135f-dk.
-> 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> ---
->   arch/arm/boot/dts/st/stm32mp135f-dk.dts | 11 -----------
->   1 file changed, 11 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-> index 6022e73f58af..215bce4738f0 100644
-> --- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-> +++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-> @@ -60,17 +60,6 @@ optee@dd000000 {
->   		};
->   	};
->   
-> -	gpio-keys {
-> -		compatible = "gpio-keys";
-> -
-> -		button-user {
-> -			/* GPIO on PA13 "User button 2 (B2)" */
-> -			label = "User-PA13";
-> -			linux,code = <BTN_1>;
-> -			gpios = <&gpioa 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-> -		};
-> -	};
-> -
->   	leds {
->   		compatible = "gpio-leds";
->   
-> 
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 20260813-upstream_gpio_keys_removal_from_mp13-dk-c4e8a1a405f0
-> 
-> Best regards,
-> --
-> Patrice Chotard <patrice.chotard@foss.st.com>
-> 
+thanks!
 
-Applied on stm32-next.
+> 
+> If you are fine with the above suggestion for the timeout, I am
+> thinking of amending the patch when applying to avoid posting a new
+> version of the series. Please let me know.
 
-regards
-alex
+Yeah I am fine with this, will monitor in future if I suspect anything arising.
+
+Reviewed-by: Dhruva Gole <goledhruva@gmail.com>
+
+
+> 
+> [...]
+> 
+> Kind regards
+> Uffe
+
 
