@@ -4,74 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54153C88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 01:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B80C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VZeubaZqe8i/GzWhFkMo7SOtFo8/XN71Pnvz46i5xvA=; b=eppAYs42VSIUvmPfz/MfjGcUtQ
-	vOtOtAfDajGjLWfmhBp/s+3ke9ovHuJBxssYkuNet73w4Xg2CFutC5k1oPmhhiCPmlMRdyFU5rWae
-	09qfMuUuHG6myZAMsZSNjXcdVWSoNO9WTy0SNTneJ3jgvqGCqoQpkpozlgcTj3ix/rNVjxfDZ34NS
-	MNi3Z4JdJ+CJ/HPSfMstPz1wO/WExktxhZq0DlQ3LV1TAvZqyw3uDZT5HNUOrc8zzJVMsH2ZtV2fR
-	uS8UyLSIp9EHFgWeSys13fp5uvcLS8HHWiP/+F/W73Q0Yrv3lal4krrSN1TvOBjBUXv6Bl/NrAqjN
-	CEQ61b6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b0neb5KX4KNoQMvUKZdowlB9YXxNIWwHBHAGPuPkaxo=; b=hiN8bC05q7dyUmxsbhXMIXgw/3
+	dkMP25siioY5dX7I1gUJBxZ5SJFJC+STnSVfc7UuQccEjelukQBgdYJ54PU5RaW141N+NTWutOpKQ
+	IG3DJ22ScarUrUeTQ6nFbrWPcYHZyoMEvEseMWYPrFn+wqvqYnnjpfK/49Ag3vBY/GJIXmCUIO4nP
+	ycHYDv7u1/z5G7wlaXg7pJV2Ip7bmc1WrTRVLSltuSlvBW+tAEQTMWFB6Ef1J8R6BEEKA/TMyh9cR
+	rjW0sLxlXxT22z6i8UejHSGKV19V5w9DUClaZZBtEYoCNga5AV0ZbURutVCHDWx5GHayFhOSixcyP
+	0KHf14nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qYC-0000000FgCA-0BXR;
-	Fri, 11 Sep 2026 01:59:36 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1x4qar-0000000FgO1-2GWo;
+	Fri, 11 Sep 2026 02:02:21 +0000
+Received: from mail-westeuropeazon11010002.outbound.protection.outlook.com ([52.101.69.2] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qY7-0000000FgBF-3H2Q
+	id 1x4qao-0000000FgNc-43ej
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 01:59:33 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hgyQR6MWFzKHMP3
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:59:11 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 60E774056B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 09:59:17 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.50.87.109])
-	by APP1 (Coremail) with UTF8SMTPSA id cCh0CgDHrwpnYKNqFM8VBg--.41007S4;
-	Fri, 11 Sep 2026 09:59:17 +0800 (CST)
-From: Zeng Heng <zengheng@huaweicloud.com>
-To: anshuman.khandual@arm.com,
-	gshan@redhat.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	suzuki.poulose@arm.com
-Cc: zengheng4@huawei.com,
-	linux-kernel@vger.kernel.org,
-	wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] arm64: io: Reject non-user protection in ioremap_prot()
-Date: Fri, 11 Sep 2026 09:58:59 +0800
-Message-ID: <20260911015859.71164-1-zengheng@huaweicloud.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 11 Sep 2026 02:02:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pDxwOH3+8MjLtV3pCk8nwQYPXXt8pVf6ybXztUwP7N5mlCi7cVEYi9Q1j+Oo2EHqtjNK594RvVv8Fp4J+hB6iXXGAj/E8duPF0JYM/GXe11VSpCqPgaD1eIu9TQTPQrsmk5/cUqIWEuEY3cWffhte0WkCAJjS9YPmCzMg1iq2AfsNY3GDhsnAriN+iJzqXlWR45CPoI2nfIU5Zb2zEOwKy+zGm8k6+X1nLjCqrm83uXGDm7U+nsUjwfnRVNwWEDN+VmgGz65H0GLGmX1ww1OuVhZbYPS1a+5XIvZRS9+YFZ0kYyHvzI6MptIjyKzqDYcxGV/74fTK9p7USR6YyTgIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b0neb5KX4KNoQMvUKZdowlB9YXxNIWwHBHAGPuPkaxo=;
+ b=oEec8kVhtZORDeCM6oIltWSXoKOlwpB5X01BxslGsK7vuelCg1wsYWZ9jHnVs/aMJO9DaNv2jDhbpp+vru2fUsbbO36kpvHwQrsUAfn/a3w0YftvmszbZuc+Lw1soNofCyS+dve7q5AzlEOlWT3ymlYRkZi4giow3D5kyoUbUDZCdQu+WUL6wR/GXNFViBlB6qRspzEtAkn/IdVI45geFbABYOZf42zgPPrjz59paNZfYb4dyKVJaCAJYG4pN1ZpUicV8HHpJMYo4uClkfc+oT7SN1gyJdHDzOnu9ei+4+32HpIBRoUB2TsqBnILA2UMIj0SHr3l3KxgcWTn25c6mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b0neb5KX4KNoQMvUKZdowlB9YXxNIWwHBHAGPuPkaxo=;
+ b=ujSaBhazqSC6JBt3LyQt8dick13O3QjhG2cnN04YvfojnTjIeCiWr0Gy2Oz+pfFYmHa0t/0M+nMJ9XNKO6Nsp1G9mfBc9IUdBsGMbiav4VvYZ6xZLdR8yIhVT9uvpGGE5qDkCCdoKERhctOV29hQKgLx5R40XLrawIt1DU0VAEAb587+lf3gYkd5rrks0iaygFmVbyBTTznhmos4EBN0DdY5EX2PaG/jcnCLNvSQcQ2QUSgWz0KB8pOGr5EyuFIooWIs87R0XawAxRGYZkJ5+y0uFf4VhKX4yDgnGrHYrEZg5UipHBtEl9SmUaFxuvPghcfeZGbAcoNouQlbvFNG4g==
+Received: from ZR6PR04MB375776.eurprd04.prod.outlook.com
+ (2603:10a6:910:dc::10) by GVXPR04MB10657.eurprd04.prod.outlook.com
+ (2603:10a6:150:217::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
+ 2026 02:02:06 +0000
+Received: from ZR6PR04MB375776.eurprd04.prod.outlook.com
+ ([fe80::b83a:a0f5:2b29:50de]) by ZR6PR04MB375776.eurprd04.prod.outlook.com
+ ([fe80::b83a:a0f5:2b29:50de%4]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
+ 02:02:06 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Frieder Schrempf <frieder@fris.de>, Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Frank Li <frank.li@nxp.com>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
+Subject: RE: [PATCH 1/2] clk: imx: fracn-gppll: Add 350 MHz support
+Thread-Topic: [PATCH 1/2] clk: imx: fracn-gppll: Add 350 MHz support
+Thread-Index: AQHdQTfj8ZXQIHTWt0+Rs+miEkoV3bbIoIcg
+Date: Fri, 11 Sep 2026 02:02:06 +0000
+Message-ID: <ZR6PR04MB37577605914AF62FE1F29B5ADB88BE2@ZR6PR04MB375776.eurprd04.prod.outlook.com>
+References: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
+ <20260910-upstreaming-v7-3-imx93-displayline-v1-1-bb9446e6ed6e@kontron.de>
+In-Reply-To: <20260910-upstreaming-v7-3-imx93-displayline-v1-1-bb9446e6ed6e@kontron.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-09-11T02:01:39.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZR6PR04MB375776:EE_|GVXPR04MB10657:EE_
+x-ms-office365-filtering-correlation-id: ec260267-1116-492e-918f-08df0fa8ae2a
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|23010399003|376014|366016|7416014|3023799007|38070700021|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003|921020;
+x-microsoft-antispam-message-info: oL7PLzq9kM6aZGFKQd17LNxKHzjMfs9r/rBM65fnw6ybQrAZb/XOJClWvYeAwFW3GTLZdJijUDY6LoVL1+y9AV4c7KO5hdvZh5sqDw0S6spNL88eXXn1gyCho3Ta6NjHObYrsXn+lxCp8OsvlciiSB0sbXaEOuuYDN2Q/ORwzfVqP/lbC7mmis945gSevayYJ8STYf1uzrBHnfN/r+KS3IPEw1x/p+/0niCasNQvS//yWpqd9PbJ3DECoRHdue6q3VMt/IbFo3UQEoiI6J4zdnpwYmORRhf5uawgrYRnx+ZvYsbqeKCmUrdH3edSOF3a6CoKAbd7jxWIV7Hl7g9P/LSoWIrxhe0jK/ucyv5By/EOTp68T15gkY6CVGPB3Ir0nWbbZ2Xv+Ny9wzAtdg7GKtjbaoNJsYenN17M9733RT+jSzZvRfpGFl4/hTSzWGN7Y6n3P2k33+9WmKGeHHFgbM0bDaDx5LIk5JsrSmDaCMzNmGHSsTxC6crTIuFpOxBy2ZA5dPyDAW7jTBMis0B3CAcrdOouQDQV702BV7lWs+S2zqLqYbzdAH7pRkdWUMPJza6bHvBTWi14RTcY4nbm9+9lRaWQEt3UNPLDE5hBBjdzUSdsAPhuiltsKidLxdQ2TDKtMF1dxewF4bVp+pQ3T0OqNlMGCd3FaV1bUj6Trns1x7dVms6ufUNJV/KFVuRhxfzCib9r1J9yKGA9nT4hny2IR+wfcKO3PWD9LA0bD1gbG3mLCan4kq2amRWMnIAa
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR6PR04MB375776.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(23010399003)(376014)(366016)(7416014)(3023799007)(38070700021)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V1dHUWpwK1h2eWJ5T0pEWXNaa0tveXg2Z2lwR1ByaWlYeGRrMUZRM2dFc3U5?=
+ =?utf-8?B?RTFKY0NNSEQxZkJ1ZkN6VkdLd3daTUZnMXpsYVg2N0J5c0s0Zk1vVnlkWFBF?=
+ =?utf-8?B?NU5vYm96VnNVWnYrdU11MHJFZFZkN1N4STVHV2U0WHg2YjNlekVKdjZObVBF?=
+ =?utf-8?B?QlE1QjF6WSszeGsxYlhFMi9TZmUrVWdqUm1scGhkYkJ3MkFjVHBtVk9BWk5V?=
+ =?utf-8?B?ZG10ZTVQTUMrcjk4OFFsR3F5cDIrV3llUHZSMWtkSFB1d280YUEwRmRETGZX?=
+ =?utf-8?B?a2Y3dS95VXhFRkM5SXZ2Y08rVkh6QXRVcUlJeVBiYkxXT3l5OFV0S2x2dDV1?=
+ =?utf-8?B?bkNoYXRZYXh1VVh6WURxNHZ1MnJCbTNhM0tqNVRXbm95UnhpeThaUXBwcmg1?=
+ =?utf-8?B?SXdTMEdvTWZEa05LZlVVMjNZNFFZSmRlYVFnYTBqS2hERlR3OWhURW9XRGFP?=
+ =?utf-8?B?Nlp6TXA0aXVWNWpQZ2NocEtCOUM1MFBmSEU4SnYzWHFOR1FxK2JDOVhmRHBq?=
+ =?utf-8?B?UmhqTnNPR0FVbFJIZGw2eUsxc1ZtVFpLR0gxVGhTWlZXS09sbWx1bHVtQmFo?=
+ =?utf-8?B?ZlF2dC9vVFRwUnFzaGZxbTN5dzdMRkVWQjZMSDF4M0FRekpzYzh0M2Y0bVo5?=
+ =?utf-8?B?UG14MnRDU3lydDRCUGp2MEJIREZDTVJZankrVHAzemdvQTFkcmg2ZVB0RGJR?=
+ =?utf-8?B?Yk9xeTRTVmlKVDUyZTROazB6UG1PMCtyY0FHMVdSb2pZM2FFUU9VandFUDUz?=
+ =?utf-8?B?ODA2R2JucXI0Q3hORlFyVWQySElOdmZjZC83TVcwQWEwVFAwdEJ4c2FGV2l6?=
+ =?utf-8?B?cVhGaGYyVFNOUEgzWlhOanNVdnRLSTBCTG13eGlNSHpsSU1qWGRpQyswZXdZ?=
+ =?utf-8?B?RHhzc2Z0SXpmWkZsbTk2ekRNSTJaYWRoVk5iUTdIR2RLNStVVWxZeUFFOUdT?=
+ =?utf-8?B?Q3RIdHV6Q0g1WDJDd2l3Y3p6VzhkdldyMngreWNjVXByVFh5bGFZZTJnbTZt?=
+ =?utf-8?B?NUtGMUJxV2ZxNUQ5cGZwL0JQTFR3anFqUml6ODRjVUx5MUwwYWYrWCs2TGxt?=
+ =?utf-8?B?c0QxZ29vY0tkdm54YzYzWkpiWU9GdVhHVzhxNkpKTUhKVnZzcFFWVGJlNUYw?=
+ =?utf-8?B?UUhZSGorMkZUcXZNVUUzd3hReENiTkF1TWZRTXVxbmRzbWMwMTJrREJzR2g2?=
+ =?utf-8?B?MzFQT2pONG9nYzJBOEpUTFZvdWp4OFB2SUtkcnZkVEhuZlNmNGtvMlVOT3Vl?=
+ =?utf-8?B?OEpuVWNrR3pDM0E2aTdyNzJrZU5kWllDT3ltK0tvTTJxWm1QdERpM1R3NzhN?=
+ =?utf-8?B?Q1MzVjdaWWl3SmsvWS9LV24zdCtkY0NOK081R1MrR3ZmUUx6eUZoanVCaGR0?=
+ =?utf-8?B?RHJtUWJvRXlmajViaGR5cE1YVnF5bWRoT0MvL1kyVUg2allYWWh6MVd3bm1Y?=
+ =?utf-8?B?cGVlL002TVVPOURNbWppajBycThkMUR3N0tUV0RWQmpzQlFnQ004QWNRTFND?=
+ =?utf-8?B?WWFqdmhvdGJjQy94Z2RtTHJtYm5pQVY4ZjFGZDBJY3BMbVpWcU56SUFhdC9J?=
+ =?utf-8?B?STJCTndLVUVSSVdNRjluRW9UaENmTHMvNmpRTVplZ1BPU2Rkd3BVb1kxUm9q?=
+ =?utf-8?B?RjYwOXZnc09KK01QTDI3Zjg2czZ5OXBXc1RHMEZweWFNMWM4b0FiVThBV1Zh?=
+ =?utf-8?B?Vk8zQ28xcEVpa2l2NEFGMVBWeGZsVmxJKzdvU0YzMWFackJiZ1hhS05BR0tB?=
+ =?utf-8?B?NEowZE9PV0RqRllzQzdSY2FGcUdyUE9HU0x3VEJVS29QN1gvUW9BTDBKQnRI?=
+ =?utf-8?B?ZnNvS3c2clVwOCtoYXRDZnlacnlJbnp4TkVzWjVOZDl3RWdPb0R0eWs4VXVo?=
+ =?utf-8?B?a0NDWUlQbWE1Y3Z0cWM2L0xIME5WZHlxN1FobUZIVzdHZmlNNjRMZ1RLdVB0?=
+ =?utf-8?B?QUFQSDM2bHVNKzdSNDhja29VSTNSa3FYeS9kcDd0OUd5dERObXVqeUJyandt?=
+ =?utf-8?B?dFhjV1FmempuNWUwRzBDWnlGZGlxYW4zb1lzZnYyUWVWWnhNU252NUNjQjVm?=
+ =?utf-8?B?dkl4SG81N2dRNUpLQlpCeVFIVFk4ckx3TWgrMXZzakpFSWZ5WW1KRkQ1dVFx?=
+ =?utf-8?B?WGQ1NTZ2S3RPYWtiazZhT1hnaVR4QXVTZnM3UURkMCtkaHhkL0pMNlB0Q3lQ?=
+ =?utf-8?B?TGpTZlpmZFJpbTVqRTFUUExJOWc3K2ZjUGthc1FwV3BJZkc4eGUvL3BwNjl0?=
+ =?utf-8?B?bDFCT3hiRHBBeWtlbjJ1M3ROdEJ3Rnk0NkdsczBIWVlrdUpjVlJmZHBEMTlq?=
+ =?utf-8?Q?7wFxU4Fig/pS9JgKqg?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgDHrwpnYKNqFM8VBg--.41007S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ww17Kry3ZFWkWr15Ar4xWFg_yoW8Zw15pF
-	n09w1rWrZ5WF10yrWkJr929F15ua1fG3yvqw18Xr1jv3WjqF48tFWxWFy5ury8CrZ2yw48
-	Wr4Ig3s8XFyjyFUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6x
-	kF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAq
-	x4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6x
-	CaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r1q6r43MxAIw28I
-	cxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2
-	IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI
-	42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42
-	IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280
-	aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU17KsUUUUUU==
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZR6PR04MB375776.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec260267-1116-492e-918f-08df0fa8ae2a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Sep 2026 02:02:06.0434
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uI79x52bnKWgBMKkkAhuYOmUZmOrGeY77FADow+U3fAnd3W1fUp77SWqIJdycNH2A1f9I30loDyIQEbaKSt3Wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10657
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_185932_192236_E2FCAFAB 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260910_190219_044269_62BB3CA7 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +164,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zeng Heng <zengheng4@huawei.com>
-
-Mapping a stack-top page via /dev/mem with PROT_NONE and then
-reading that process's /proc/<pid>/cmdline triggers a spurious WARN
-in ioremap_prot() through generic_access_phys():
-
-  WARNING: ./arch/arm64/include/asm/io.h:275 at generic_access_phys
-  Call trace:
-    generic_access_phys+0x1c8/0x228 (P)
-    __access_remote_vm+0x2b4/0x398
-    access_remote_vm+0x14/0x30
-    get_mm_cmdline+0xf8/0x2a0
-    proc_pid_cmdline_read+0x68/0x120
-
-generic_access_phys() passes the protection derived from the user PTE
-to ioremap_prot(). On arm64, a PROT_NONE mapping is represented by a
-present-invalid PTE, so pte_present() still returns true and the
-protection reaches ioremap_prot().
-
-A PROT_NONE mapping does not have PTE_USER, causing the existing
-WARN_ON_ONCE() in ioremap_prot() to fire even though this is a valid
-user mapping. Execute-only mappings have the same issue and must not
-be readable through this path either.
-
-ioremap_prot() should therefore reject protection values without
-PTE_USER without warning. This makes the access fail cleanly for
-PROT_NONE and execute-only mappings while retaining the existing
-user-protection contract.
-
-Fixes: 8f098037139b ("arm64: io: Extract user memory type in ioremap_prot()")
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
----
- arch/arm64/include/asm/io.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 21c8e400107c..31e67f6bd4a7 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -272,7 +272,8 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
- 	pgprot_t prot;
- 	ptval_t user_prot_val = pgprot_val(user_prot);
- 
--	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
-+	/* Reject PROT_NONE and exec-only */
-+	if (!(user_prot_val & PTE_USER))
- 		return NULL;
- 
- 	prot = __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK,
--- 
-2.43.0
-
+PiBTdWJqZWN0OiBbUEFUQ0ggMS8yXSBjbGs6IGlteDogZnJhY24tZ3BwbGw6IEFkZCAzNTAgTUh6
+IHN1cHBvcnQNCj4NCj4gRnJvbTogTWlraGFpbCBWYW5pdWxpbiA8bWlraGFpbC52YW5pdWxpbkBh
+eGlhbnMucnM+DQo+DQo+IEFkZCB0aGUgMzUwIE1IeiBmcmVxdWVuY3kgc3VwcG9ydCB0aGF0IGNh
+biBiZSB1c2VkIGZvciBkaXNwbGF5IHdpdGgNCj4gcGl4ZWxjbGsgb2YgNTAgTUh6LiBUaGUgZGl2
+aWRlciBvZiA3IGlzIGltcG9ydGFudCBmb3IgTFZEUyBvdXRwdXQgb24NCj4gaS5NWDkzLiBJdCBp
+cyBhbHNvIHVzYWJsZSBmb3IgcGFyYWxsZWwgb3V0cHV0Lg0KPg0KPiBTaWduZWQtb2ZmLWJ5OiBN
+aWtoYWlsIFZhbml1bGluIDxtaWtoYWlsLnZhbml1bGluQGF4aWFucy5ycz4NCj4gU2lnbmVkLW9m
+Zi1ieTogRnJpZWRlciBTY2hyZW1wZiA8ZnJpZWRlci5zY2hyZW1wZkBrb250cm9uLmRlPg0KDQpS
+ZXZpZXdlZC1ieTogUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+DQoNCk5YUCBDb25maWRlbnRp
+YWwNCg==
 
