@@ -4,160 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37469C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2909FC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9gVRbTQP7+HXM2XZul7tJ0soNXDAB0XswIPF3ZiIrx8=; b=kojTpqXH7Bv4dh8ogU231DQjN1
-	Q4UZ7SCJTziZMvRBdCPuP1By/NqjEKnUfuNgOvRRQDOsNPD350+g2ydT/Jh/ow3DdHByApVZN55ah
-	uMrMK6XWiarvc/rpyclYJFujbS8Bq0YI+cvBf4WaH9ApVs2esMRMtQ57bXh9GmyjrDNHIvnMjrcKX
-	4ITqeHhuZlomvLbLPLpbbXlD4r1x5i1SLCVLsiKzVqFn2FY5SF2q2DPcwzO35cNzahp2DaoVAUOet
-	iR518vK05/8SHybAIZbzwolh+/D1vyah0WgOLmb159LFDGz/YRodUF99lUlpQJxML+ku9CfJkryAU
-	u0sgEeLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=; b=OKTX1fcYRNEOK1ydXnT9acDZ91
+	MCTOnj313rwHzZd6tJke6sVJwncY3wdVXa38yphGvlwaqN2aPYowV6IW4EbbOf0ukeqeBgdkpx4Q+
+	Uv9io8YooFsjVrHa3bCb2C8opSQntkwx/uHT31n8OnrESwFYzlR6lOmMWldKBF43vW9HUVqM52elF
+	4tDWcol6I9hReboFrImUfyCRfh1Ys+VySB2A6KbJfca9eZz01jUHioaVRQrJcgBSzZV2CG/Vsd89I
+	SjJLoS0GgJtgJx2svEDc5L+L5hNw1AsWcB63pn2YnSeSC8HL1X/bgszW+hCAfsrTPM63G9YXkiqvF
+	clmfpqzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53Mx-0000000H5f7-11Km;
-	Fri, 11 Sep 2026 15:40:51 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x53O6-0000000H5yv-04QT;
+	Fri, 11 Sep 2026 15:42:02 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53Mt-0000000H5eH-33zR
+	id 1x53O0-0000000H5x1-2eb3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:40:48 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BEm8Mn1090825
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:40:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9gVRbTQP7+HXM2XZul7tJ0soNXDAB0XswIPF3ZiIrx8=; b=I3TZVEPXZXd1Os5M
-	NrODBZZh7T1xCUBzKFyUjkEAOKX+RRhB0xUdUtqnXOD7wpDfJgVcM0P8ZAzbzvJL
-	17AjNsRXhsgYC5/xF3Hz+eo0TceSARvcGYLMIQwqFJRdfdKtgutrri/KzKcvQE7q
-	28Rok/kNb+0XzN8xl2dgjNWrDHiJ/ENoqsceZe9haNYmE2I/eUyUlVT2J1t8q6QD
-	SLrrbQEDq93v0gaYF4B2SeI1gp521usXrUP7WHGlDJXSRZNOLmz1u4BX4hHyEwrx
-	XGTXtD2+scqMlbuWYo/tagR/1XZRpd1B6QX0sGpdvpj23BhXJClvEu8QAj32QnDw
-	vQqPkA==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmbd3akap-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:40:47 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d7443e0f0bso18240525ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:40:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789141246; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YbTM9uulyKNoABrhHj5OryEaLG62jVEuVLohGN4rh14aHvdTBUcRbHL5j0PlVgQDdZ
-         6FJa5kSSLp1OJ0pWiFZY16mTxL4R8rdu2MAHJAGGM63Q/JOoJS2YS0EzQkHUEEJZzJJQ
-         rlHxQkyk2e3xSZJz5Ye7e5TJsKviQm4uiLC4HD1eQcx1hfU2PtU+tBal5OPLoaSiizkY
-         xozT4CWJqwTehu4L7MtJ42z7nk1MArup0IHXOZr5UxGP5LWPZ4SgPki5tDxaCVMpJAyw
-         JIbPz5AvuoC4jep1eB0TksdPR6Nt3d8CVCZQoupy+uoX5TCX9kxEFDnXuJK2ujjMOlO9
-         Wwkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9gVRbTQP7+HXM2XZul7tJ0soNXDAB0XswIPF3ZiIrx8=;
-        fh=CLNDJhFlypS5imu30JsjW7gI823qRndEMECiPbXCGMs=;
-        b=TxatqushW8H3di0z0RU2QWed3F3XqPo9SnzPdlLhMgceBapO8K2h1HF/4sociAJ1rd
-         yK5cWP5r5pyTOmnZmXEnyrRp9YlgRBme0XXC+8bwE1nyhjoCyIb/b0GgCYwkPATXyfj8
-         JjOZ5RBinjxwqvX1djVGydQGaDnFerzjoEyTSw5grzEsIwjl4Zae/2gCuJbFOLVFwXbD
-         bijnC+nsNkbxzjBTRvheVLRubATHRnqBalmkWQ3jCnb6zwBSMp0h6ZFa4oGxKjCJij1h
-         HBKFugM9E8TInrIbWBqHKKhZvYfbkxcob7BlRoHutsINUnzKalQB8xV4eSNAtc903LT6
-         F5og==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 11 Sep 2026 15:41:59 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7ffa69b7462so1110604a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789141246; x=1789746046; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9gVRbTQP7+HXM2XZul7tJ0soNXDAB0XswIPF3ZiIrx8=;
-        b=gKg8QoddPqzAPdjorYTa7yJlVoog4fXw2U4PFf6gDxBsbG/C+Ah6FtArnFgPLoLjw3
-         M6d5tb68uZ5IZMP6CER6T2dbL52hHvvbpdSFYIPcoNw0qgrU7fJ59mudBixMvpf29Odr
-         lwEMXKp1Z/nt5N+HC0ItEPrVsp5YzH7td9QuoOWsJQKaW5n/EpJUaW/QuQnHKhMyZa4o
-         j49HimoUjb8WAbzonsy3xqqAR7zw7ej7TH0/51H4nYZPhoFaR5CDBdfet1NXEraWIU+2
-         aN3YI20zszvc0hZCdLyHNnU5vaJ5midy8meZvuqNbQtqlyiw+RzhEAKBtSBMy7CX3BYZ
-         etHw==
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141315; x=1789746115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=;
+        b=Ge7ZtBIUVshAOtEJCA34PWc3U07azidflvzG2KQyLkvtliKMTNA2FABQWyHsEn+ALv
+         H3n9daeu3fDcj15XgMDnwDWGGqA8izBksEHq8rKAC1XmLDhJ6yJ7fZrQQkIACH8XD8TQ
+         SPiskL5tRXbA5CUB0aUYPJDI2UXcxuX6GeRzcDNEFNI0nlXFq7VL3jsnIKjYrl2dusfk
+         CfL6r2RkqWTX4YK/1P5U+6xcvsvBTLA7vmAy5RRed1ZrDKjL6QAmARQcUZzYG429q5Ro
+         oeW1yYq1pt0Ih0gz5liGZt0x1bsi+Q5x+yXwAakpVWI6zR7KfvuWFdZlW2IdtO10/Gmz
+         dISA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141246; x=1789746046;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9gVRbTQP7+HXM2XZul7tJ0soNXDAB0XswIPF3ZiIrx8=;
-        b=WA0e4VBDQJmQa4Sr44SieID6d7INiA1eYEC41PGWwqIEYu0JmZYZRnibjSPyoJLw1X
-         GcyWXc6m0ZvnRniHgcULkET0rAXiVoTweo9nFdfm0WGQeHst2LxdE0/Hcbw+UNQ/QRRV
-         WEij6N0qEbTZjYbEC9ueByYDcWIH7zP+zgUQ+e3p00EBfpjmivmaFCaU9tasXr/Q2nCD
-         PYJVCfsOMlK90Z++oDS1AosYkeyrHlKC4G/JlrmEfKp2H1VHCPvcKoZ23IOZKUAa0g72
-         kXBTm6JvA+uoYgzHB5m75gOQH2brEdIvzsDlkX2tZkATwHAPh2+9bHvD7wWnfWy+U1BP
-         TLjg==
-X-Forwarded-Encrypted: i=1; AKwUvBw2d669BZS3lNZzO4n6gqADY1oP15l/sQhMJks3J0I+71tJDRBFpJfJDG8nR8PwRBqde/ieHVZU3fF8uXr+Dbnz@lists.infradead.org
-X-Gm-Message-State: AFuF++lDQSSY8Vp4YnVbywVkjHwqx5aQQ1HLvwhv0lOwGlRcdGZEjq2T
-	BUWz33L3FsH7K8DBCjN84Z/WOEJu8YdexGqPQjOEbUaQtxgLCKHDHrkvtk/ERoCEUf7M/Nirvjj
-	MKlqcMQyI5itggR68f+S2ZKS9Lg/k7NhC9DgUf9GUrUfVKx6iPrxYnL3G0IgpYy8oIjSZvyylOs
-	UvQ0DYJczApqWA3xMIPu4VPhNv8E4ErBPtDZONR4cmh9JuU8zJnHMa
-X-Gm-Gg: AYBFou1IB4Y3hnsk8O/CUhDNSoSsotlG8f3Phzo1vMWDXXCd6rL+o4T7BTdQ51LgLti
-	GCJ/fI2mwtbLIwjm59f1YTudMSNk1rHez+2Hm4pKUgltctCGJUzBuVbSEieJyH6cbhxtI0hd30L
-	r0eYSqMdXPxPClxOxgQZup7S7hq1glgdFYc3tXe2WgHMyUp0a3GzWQQIqZEg==
-X-Received: by 2002:a17:902:d551:b0:2d9:4871:393d with SMTP id d9443c01a7336-2dd2a45aef6mr95924785ad.21.1789141246347;
-        Fri, 11 Sep 2026 08:40:46 -0700 (PDT)
-X-Received: by 2002:a17:902:d551:b0:2d9:4871:393d with SMTP id
- d9443c01a7336-2dd2a45aef6mr95924275ad.21.1789141245940; Fri, 11 Sep 2026
- 08:40:45 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1789141315; x=1789746115;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=;
+        b=DplpTQAnFttLQTrfcBYjPdGYjhy5azVm+FxLv8o0wqXVXJqIuA7Mk9XuGZCXlRIRfD
+         QaoIf7/+wN8bQR2upJpXTWodVdCcE3RyzNg6wBPTow9aX/p4QTxbuntbCbzieqs5nwZt
+         9/KkSUkMKcIX4wPz0fH29HPusiZKUeVddfOVwh4lUucER2Fe24fwzEqzPLtyalD3sD4x
+         ZXsjkf6nFZtLGZfiRvPT0UQwQ3qwHhyxA++DI7QRu6Z6dl7WJz8p06VBPWWk7i6yzvOZ
+         QJDHJIcr5uwN1DSpjKKydVrm1Xq5boxtxeWu5hFDeajn03Zk4SvVvmpp0zw9MdZYJQ5f
+         kimw==
+X-Gm-Message-State: AFuF++noJHfHD5lxdpDIXM3SFcQzcfNcj3TxdVhTLhjUlT93GQvKQ4as
+	QKEVw9y5aFO8nR55bbdSkwnOM2c+LW6C8+c/hY06bmHALoyklOUsbGJfW+BsDnS9oK4=
+X-Gm-Gg: AYBFou1PsnVziyRNhDNYyhMn4rn3Z72QiAgndpzAnYntd8hgHo611glqx5B6yvdxv29
+	PlTjc/2PgiK+0Koe2vrL4NDm7vd44KwnT7tqBmLBQACsbb2abc6kJoHbOap387FNh8w+q/U+upH
+	FCxAANCwe+kfdcWgwIBOy3shvQ5WuEvjGKuz2GOYx97bmg7t0TB1Qr189SQ5n6IGc6KWwVWtdIP
+	4UfZkE4AW5hKvzh95BnVMOuwfluAaFrWzOni/00gWkp3p9kADRfRl38GiTblF3FHmxIaO7o4T/K
+	EHVCsILQqffzMZ/4QLOkUQW9C57jS/zwibNR5NnkrLLRiiMpEiY7XckIgUjs2DWpyR8Idu0J1VU
+	pF6YOI3CvQXZLYFHeupxEenUkkXl4XbTpvesEZEcbnbmSB8Ox3gut2yqvjl+iMXGyo1iiqeWZz/
+	xcrc1pb0P3PBW2PH0/eyl/tmhKPjjh6IQNTZCxlMVG29VuugGru9p6ukf3wB9ZVzHWUKdzeosNx
+	BY8o/XJvZRslNO3yycZ6NoE6FVvqGOmAsrDQlmfPBk=
+X-Received: by 2002:a05:6820:5709:10b0:6b1:bdd9:453 with SMTP id 006d021491bc7-6c0b9958c88mr2386446eaf.12.1789141315549;
+        Fri, 11 Sep 2026 08:41:55 -0700 (PDT)
+Received: from m2max ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.41.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 08:41:54 -0700 (PDT)
+From: Jens Axboe <axboe@kernel.dk>
+To: io-uring@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org
+Subject: [RFC PATCH 00/15] io_uring: thread identity handoff for blocking inline issue
+Date: Fri, 11 Sep 2026 09:40:50 -0600
+Message-ID: <20260911154148.644489-1-axboe@kernel.dk>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-References: <20260905153234.133217-1-tanure@linux.com>
-In-Reply-To: <20260905153234.133217-1-tanure@linux.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 11 Sep 2026 17:40:34 +0200
-X-Gm-Features: AcwNN1XJiqHpLAh6BkLXLC9WoOCg1aSLupw2Vf07ULv13DKT3f9hOH1d-RT7-pQ
-Message-ID: <CAPx+jO8oWZxgkWTv3v5odp8K2oWMY-KhJVR3U+iqY4mQ9LrG9w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] amlogic: t7: give the MMC bus pipeline clock real consumers
-To: Lucas Tanure <tanure@linux.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
-        Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-mmc@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=Bv8IUoX5 c=1 sm=1 tr=0 ts=6aa420ff cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=NufY4J3AAAAA:8 a=yCDuxKIkwSfSSdlP9cUA:9
- a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22 a=TPcZfFuj8SYsoCJAFAiX:22
-X-Proofpoint-GUID: eYjKk3mMIEb8_yttNAe_9MYmhgHz9I9D
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDIxOCBTYWx0ZWRfXxkB+v5uNRCJ9
- 82yRMDTCxJ1delllszfgF2ME6Ps64XEQu7K/55ZWoO2zee3U/VnDomhn9dWhoZxXh9SPH5wkFAW
- JkOlP2GxDkwnpc+najFbo71j5nQ4zB4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDIxOCBTYWx0ZWRfX2Gzsvx6ZHwTT
- wb+k+x6yDOTMxqWwEUz4HvuRyhvFEMEjrCDquKGQOEx0+Xq20ogrqbzu80y0FtGtKirhIIIpGzh
- FiMynpg7BFvGtK6aYIgH5g6PPJFdjiEJHklukIp3ehBP35KjCUHu6PUJKJ7END/AX03+IiUrOW0
- XVU3S/iM9x8e7DiL+socY5ogVw8dmn4M9bS3605ve0JsB/OW7XVZxcQolVQa3Wr/qpLTT98AASM
- pcfikgMkW9oXYRSIOfTWIs1HXzjkoaP9gp9lrn0/Lxldf8Mjr9X2/VPxFs1/94olcwHSpLoacKU
- LS5meEFMEG1vLQGHsGlVEsI4JnOVw73JQmzkMRnY42BUetQ2hiztRD9OEgXPoJ/bYyqjpLvZyYQ
- IFGnPNbCBmVjQnB3MM/3zdSOKSNglxjt34dpd8f7zUi08PAuWchheEh6/SiWGLRObXbJjPcMtCj
- wNAUV5uRDZ65GAGbN9Q==
-X-Proofpoint-ORIG-GUID: eYjKk3mMIEb8_yttNAe_9MYmhgHz9I9D
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-11_05,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 priorityscore=1501 phishscore=0 impostorscore=0
- adultscore=0 clxscore=1015 spamscore=0 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110218
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084047_777570_88110151 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20260911_084156_696940_290F9D78 
+X-CRM114-Status: GOOD (  28.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,54 +98,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 5, 2026 at 5:32=E2=80=AFPM Lucas Tanure <tanure@linux.com> wrot=
-e:
->
-> The previous series for the intermittent boot hangs on the VIM4
-> marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
-> explained, sys_ampipe_nand clocks a pipeline stage that the
-> hardware design inserts in the bus path between the SD/eMMC
-> controllers and the NIC_MATRIX fabric to help timing closure.
->
-> So the clock has real consumers: reference it from the three MMC
-> controller nodes and drop CLK_IS_CRITICAL instead.
->
-> The series crosses three trees; patch 4 (clk) must only land after
-> patches 1-3, otherwise the DMA hangs fixed by 43e1705ecab9 come back.
->
-> Changes since v1 [3]:
->  - Dropped the Fixes: tag; this series is an improvement and should not
->    be picked up by stable (Jerome Brunet)
->  - Moved the patch 4 dependency note below the --- so it is not kept
->    for posterity (Jerome Brunet)
->  - Dropped the e-mail address from the Assisted-by trailer, see
->    Documentation/process/coding-assistants.rst (Jerome Brunet)
->  - Fixed the space-indented error path added to meson_mmc_probe() in
->    patch 2, it did not pass checkpatch
->  - Dropped the CLK_PIPELINE() macro from patch 2; has_pipeline_clk is a
->    capability flag, not an SD_EMMC_CLOCK register field
->
-> Thanks,
-> Lucas
->
-> Lucas Tanure (4):
->   dt-bindings: mmc: amlogic,meson-gx-mmc: document the T7 pipeline clock
->   mmc: meson-gx: enable the bus pipeline clock on T7
->   arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
->   clk: meson: t7: don't mark sys_ampipe_nand as critical
->
->  .../bindings/mmc/amlogic,meson-gx-mmc.yaml    | 29 ++++++++++++++++++-
->  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 15 ++++++----
->  drivers/clk/meson/t7-peripherals.c            | 10 +++----
->  drivers/mmc/host/meson-gx-mmc.c               | 20 +++++++++++++
->  4 files changed, 62 insertions(+), 12 deletions(-)
->
-> --
-> 2.55.0
->
+Hi,
 
-Patch 1 and patch2 applied for next, thanks!
+io_uring issues requests inline with IO_URING_F_NONBLOCK and punts to
+io-wq when that isn't possible. For a range of opcodes it isn't possible
+at all, as there's no nonblocking path in the kernel for them: fsync,
+statx, openat, the *at family, xattr, fadvise, splice, etc. Those are
+punted unconditionally, and the punt costs a thread wakeup, a context
+switch and a task_work completion round trip per request. io_uring HAS
+to be cautious to prevent accidental blocking in the kernel, even if the
+operations predominantly never block. Sad story. Examples of that are
+things like an fdatasync that doesn't block, statx that hits dcache,
+openat for O_TMPFILE, etc. All of those would've completed inline just
+fine, but io_uring just cannot rely on that.
 
-Kind regards
-Uffe
+This series issues those requests inline in blocking mode instead, and
+only pays for the offload if the request actually blocks. But by the
+time it blocks, the submitter is deep in the kernel with the request on
+its stack, so the work can't be moved to another thread. What we can
+move is the identity. If the submitting task blocks, an idle io-wq
+worker takes over its user visible identity (tid, signal state,
+credentials, scheduling attributes, cgroup, user register state),
+finishes the io_uring_enter() call and returns to userspace as the
+submitter. The original task finishes the request as an
+io-wq worker and joins the pool. Userspace is none the wiser, hopefully,
+the same tid came back from the syscall, it's just on a different
+task_struct. Folks that have been around a while may remember earlier
+attempts at this about 20 years ago.
+
+We catch the blocking through a scheduler hook. A task in a blocking
+inline issue carries PF_IO_HANDOFF, and sched_submit_work() calls into
+io_uring for it, next to the existing io-wq and workqueue hooks. This is
+where the identity is handed off, with the uring_lock still held by the
+blocking task and released for the promoted worker on its behalf.
+
+Structure of the series:
+
+  1     kernel: the thread identity handoff itself, in
+        kernel/thread_handoff.c. Independent of io_uring.
+  2     sched: the PF_IO_HANDOFF hook.
+  3-4   arm64 and x86 support. The arch hooks sync live register state
+        before the source blocks and load it on the destination.
+  5-9   io_uring prep: helper cleanups, a tctx node list, tracking of
+        uring_lock sections in the issue path so the hook knows when
+        the lock may be dropped, splitting io_uring_enter() so it can
+        be resumed by another task, and keeping the block plug on the
+        submitter's stack.
+  10    io-wq: claiming an idle worker for a handoff, and keeping a
+        couple of idle spares around as targets.
+  11-12 io_uring: the handoff itself, and deferring the identity
+        migration to the end of the submission so a batch of blocking
+        SQEs costs one migration rather than one per SQE.
+  13    io_uring: issue blockable requests inline in blocking mode.
+        This is where behavior changes.
+  14    tracepoints.
+  15    treat IOSQE_ASYNC the same way. Separate as it's a userspace
+        visible policy change, and I'm not sure yet it should be done.
+
+Some things are refused for handoff up front: traced tasks, per-task
+perf contexts, PI futexes, audit contexts, armed per-thread CPU timers,
+core scheduling cookies, vfork parents. Per-thread accounting moves with
+the handoff, so the counters userspace sees for a tid stay monotonic.
+Known gaps are LSM state kept in the task rather than the cred, and
+PR_SET_IO_FLUSHER. Neither moves, and not moving them can only ever
+restrict.
+
+Reads and writes on files with FMODE_NOWAIT are excluded.
+They have a working nonblocking path and poll retry, and a handoff per
+op would be worse than that. The handoff covers requests that previously
+would always have been handed to io-wq upfront. uring_cmd is excluded
+too, as drivers like ublk bind state to the submitting task.
+
+Some test results:
+
+Measured in a virtme-ng guest, 8 vcpu, non-debug x86 config, same
+kernel with a sysctl toggle for turning the feature on and off. CPU
+is the usage of the whole process including io-wq workers, as a
+percentage of one CPU. Mean of two runs.
+
+                                          ops/s    cpu
+ =====================================================
+ fsync, tmpfs, qd 1
+   baseline                               28.2k    96%
+   handoff                                 221k   100%
+   change                                 +681%    +5%
+ fsync, tmpfs, qd 8
+   baseline                                195k   141%
+   handoff                                 526k   100%
+   change                                 +170%   -29%
+ fsync, tmpfs, qd 32
+   baseline                                357k   219%
+   handoff                                 611k   100%
+   change                                  +71%   -54%
+
+ fsync, ext4 (flushes, always blocks), qd 1
+   baseline                                9.6k    66%
+   handoff                                 7.1k    91%
+   change                                  -26%   +37%
+ fsync, ext4 (flushes, always blocks), qd 8
+   baseline                               29.8k   212%
+   handoff                                14.7k   146%
+   change                                  -51%   -31%
+ fsync, ext4 (flushes, always blocks), qd 32
+   baseline                               42.2k   270%
+   handoff                                14.6k   144%
+   change                                  -65%   -47%
+
+ statx, ext4, qd 1
+   baseline                               23.6k    96%
+   handoff                                 121k   100%
+   change                                 +414%    +5%
+ statx, ext4, qd 8
+   baseline                                129k   234%
+   handoff                                 179k   100%
+   change                                  +38%   -57%
+ statx, ext4, qd 32
+   baseline                                197k   276%
+   handoff                                 140k   100%
+   change                                  -29%   -64%
+
+ statx, tmpfs, qd 1
+   baseline                               24.4k    96%
+   handoff                                 117k   100%
+   change                                 +378%    +4%
+ statx, tmpfs, qd 8
+   baseline                                131k   232%
+   handoff                                 180k   100%
+   change                                  +37%   -57%
+ statx, tmpfs, qd 32
+   baseline                                219k   295%
+   handoff                                 190k   100%
+   change                                  -13%   -66%
+
+ fadvise DONTNEED, ext4, qd 1
+   baseline                               26.1k    95%
+   handoff                                 150k   100%
+   change                                 +478%    +5%
+ fadvise DONTNEED, ext4, qd 8
+   baseline                                127k   170%
+   handoff                                 252k   100%
+   change                                  +99%   -41%
+ fadvise DONTNEED, ext4, qd 32
+   baseline                                270k   234%
+   handoff                                 273k   100%
+   change                                   +1%   -57%
+
+ renameat, ext4, qd 1
+   baseline                                7.4k    98%
+   handoff                                13.4k   100%
+   change                                  +81%    +2%
+ renameat, ext4, qd 8
+   baseline                               12.0k   544%
+   handoff                                14.6k   100%
+   change                                  +21%   -82%
+ renameat, ext4, qd 32
+   baseline                               11.2k   500%
+   handoff                                14.3k   100%
+   change                                  +28%   -80%
+
+ renameat, tmpfs, qd 1
+   baseline                               15.0k    97%
+   handoff                                48.5k    99%
+   change                                 +223%    +2%
+ renameat, tmpfs, qd 8
+   baseline                               65.6k   514%
+   handoff                                55.4k    98%
+   change                                  -15%   -81%
+ renameat, tmpfs, qd 32
+   baseline                               39.4k   462%
+   handoff                                38.9k    98%
+   change                                   -1%   -79%
+
+ openat O_TMPFILE, ext4, qd 1
+   baseline                                6.3k   100%
+   handoff                                11.3k   100%
+   change                                  +81%    +1%
+ openat O_TMPFILE, ext4, qd 8
+   baseline                               23.0k   258%
+   handoff                                12.9k    99%
+   change                                  -44%   -62%
+ openat O_TMPFILE, ext4, qd 32
+   baseline                               26.2k   248%
+   handoff                                13.4k    99%
+   change                                  -49%   -60%
+
+ openat O_TMPFILE, tmpfs, qd 1
+   baseline                               13.4k    95%
+   handoff                                43.0k    98%
+   change                                 +222%    +3%
+ openat O_TMPFILE, tmpfs, qd 8
+   baseline                               57.8k   220%
+   handoff                                51.7k    96%
+   change                                  -11%   -56%
+ openat O_TMPFILE, tmpfs, qd 32
+   baseline                               69.3k   218%
+   handoff                                56.8k    96%
+   change                                  -18%   -56%
+
+ splice to pipe, ext4, qd 1
+   baseline                               19.4k    96%
+   handoff                                21.1k    98%
+   change                                   +8%    +2%
+ splice to pipe, ext4, qd 8
+   baseline                               48.2k   176%
+   handoff                                48.4k   176%
+   change                                   +0%    +0%
+ splice to pipe, ext4, qd 32
+   baseline                               53.3k   188%
+   handoff                                48.1k   182%
+   change                                  -10%    -3%
+
+As you can tell, normal QD=1 type issues see big wins. Conversely, for
+higher queue depth, there are losses. The losses are generally from one
+of two reasons:
+
+1) The syscall part is fairly expensive, and previously we farmed all of
+this work across a bunch of io-wq workers, and the parallelization
+there helps performance. For QD=1 that obviously isn't the case. The
+more expensive the lower level kernel parts are, the lower the QD
+required to see a perf loss. openat is the obvious worse case for this.
+
+2) The syscall part ALWAYS blocks. For this case, io-wq is going to be
+quicker, just punt the opcode upfront. fsync on ext4, as shown in the table
+above, is indeed that case. Each of those block.
+
+I've got some ideas for how to mitigate the losses for higher queue
+depths, but a) I didn't think they were THAT interesting for an RFC, as
+low QD is generally what people do with these kinds of ops, and b) the
+main concept behind this handoff is really the interesting part right
+now.
+
+Passes the full liburing test suite, on both x86-64 and arm64. Other
+archs don't support this yet.
+
+This is obviously an RFC, in terms of what I'd love people to take a
+closer look at:
+
+- The scheduler hook and the identity move itself, kernel/thread_handoff.c.
+  Is the set of refused states complete enough, and is moving
+  thread group leadership this way (the leader must stay first on
+  ->thread_head, like de_thread() keeps it) acceptable / kosher.
+- The x86 and arm64 register state handling. x86 refuses AMX users,
+  and arm64 refuses SME.
+- Whether anyone relies on a task's user identity staying on one
+  task_struct in ways not covered above in the series.
+
+Patches are against 7.3-rc2. Also available at:
+
+  git://git.kernel.dk/linux.git io_uring-thread-handoff.3
+
+ arch/Kconfig                    |   7 +
+ arch/arm64/Kconfig              |   1 +
+ arch/arm64/kernel/process.c     | 109 +++++++
+ arch/x86/Kconfig                |   1 +
+ arch/x86/kernel/process.c       |  10 +-
+ arch/x86/kernel/process_64.c    | 139 +++++++++
+ include/linux/io_uring.h        |   9 +
+ include/linux/io_uring_types.h  |  48 +++-
+ include/linux/sched.h           |   2 +-
+ include/linux/thread_handoff.h  |  76 +++++
+ include/trace/events/io_uring.h | 114 ++++++++
+ init/Kconfig                    |  11 +
+ io_uring/Makefile               |   1 +
+ io_uring/handoff.c              | 395 +++++++++++++++++++++++++
+ io_uring/handoff.h              | 103 +++++++
+ io_uring/io-wq.c                | 270 +++++++++++++++++-
+ io_uring/io-wq.h                |  15 +
+ io_uring/io_uring.c             | 310 ++++++++++++++------
+ io_uring/io_uring.h             |  46 ++-
+ io_uring/kbuf.c                 |   5 +-
+ io_uring/msg_ring.c             |   2 +-
+ io_uring/opdef.c                |  29 ++
+ io_uring/opdef.h                |   2 +
+ io_uring/rw.c                   |   2 +-
+ io_uring/splice.c               |   6 +
+ io_uring/tctx.c                 |  16 +-
+ io_uring/tctx.h                 |   2 +
+ io_uring/tw.c                   |  14 +-
+ io_uring/uring_cmd.c            |   5 +-
+ kernel/Makefile                 |   1 +
+ kernel/fork.c                   |   6 +-
+ kernel/sched/core.c             |  36 +++
+ kernel/thread_handoff.c         | 490 ++++++++++++++++++++++++++++++++
+ 33 files changed, 2167 insertions(+), 116 deletions(-)
+
+-- 
+Jens Axboe
+
 
