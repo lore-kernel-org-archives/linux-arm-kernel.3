@@ -4,87 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104FCC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 21:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D864C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 21:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E53E+laYN2V9OrwunsngYOX3sgSFNZRroU2RxbAo3+g=; b=HBwhMFzAlstWjIEvPkj8H/oA5J
-	sJ2EbVr2SKAdjp5tdU1VQtHqSB24phD2GyXLcqjQ1yfjeMX0iouZ64K99pn8vb5ouBloNBHmK8WOn
-	wubwRwWoZgmsrs1Ym24CQBrDCjYoB0+R6/C9S5TeGdtElMuusLsGK6nHMFWZ83xvc1YpWl2CVbBOJ
-	O+r7I84MMpkU5JwGjr8jwaplkpq87BbZeaMukIG3QbQM2JrTCi8ZnqRL2skcgIBGvWikyKhiNRPo6
-	c7mKXhCwSLMJqYuQsmYCcOriZ2FrB4MZAdGbvFe/upXAOL4ntLIGQxuRoqeTAB9FINmRTWiHTPaVI
-	UMoapHSA==;
+	bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=; b=YPyy0HZv0HDBsXEL3FBDTVQKMt
+	JI7vvldjp5+zBPOMYK0RDD/LNDJ6OxQsjQf2ZudFt6H8dk9UvF6wccoNGW9hSlUx7/ioqGWbaenKz
+	qyRdaBK3Fm4W/FcowHnpsyivcxRCe2zh0u2JEWH/5aloFgenst/rONntzqlKbgdOerVuH/5kFmL2E
+	3VtP5R383Ttj7Hf2lJoNz3xgguDcHceF8QxNy8AEZZRcs2SeYTikOxxgrE27H6OIE7P3ww7uIu6EV
+	07CPlmQRjQpidi48/JfBUWCCYqwUoP9M+CboTs3B0glzR0jvMvCpkdGZ1jFbJJH9kPbYMg0bG+0dv
+	AJ6xRqmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58gI-000000009lb-3VYC;
-	Fri, 11 Sep 2026 21:21:11 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x58gR-000000009qK-0ZMK;
+	Fri, 11 Sep 2026 21:21:19 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58gF-000000009kH-3Ahm
+	id 1x58gO-000000009nX-1tTE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 21:21:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 50CFE1A022A;
-	Fri, 11 Sep 2026 21:21:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1BBCA601A3;
-	Fri, 11 Sep 2026 21:21:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3BABE11C7A23F;
-	Fri, 11 Sep 2026 23:20:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789161660; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=E53E+laYN2V9OrwunsngYOX3sgSFNZRroU2RxbAo3+g=;
-	b=k7okRelX+F97+CgvB8hxPWdgZCN4Jcuo8AECXrt0Gz9P09JJEpFqGrDueFYp4y62XEU12r
-	YV2Zh3+Tf0znV3ECJOUDxnSsveZrcchnwQc8EadD98uWcm4Eu1UgMS5sf9g5wfSNQ8kAsO
-	WYmkOBn0BiayzPy7EdgP6DPYtp++/4y+xYGkEAghxrqMMRlu83AKtP+z1bKFMdLV3ie8lA
-	w+ZmXL200BZXHZJ42lW3M/aIo/MS0yAbE0DLJ2nzjz0TMpxkfpFJSvT+RBNzG0a782p0Mi
-	e/Oc6YwjZsCLYGLP4vZIs0EYLuHGvmR148t7tRPqdC0FbWxZL6gLCaRTJPgyEQ==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Jose.Abreu@synopsys.com,
-	Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	PKneuper@dspace.de,
-	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v3 2/6] net: stmmac: selftests: Validate EEE based on the actual LPI timer value
-Date: Fri, 11 Sep 2026 23:20:22 +0200
-Message-ID: <20260911212028.1497613-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260911212028.1497613-1-maxime.chevallier@bootlin.com>
-References: <20260911212028.1497613-1-maxime.chevallier@bootlin.com>
+	Fri, 11 Sep 2026 21:21:17 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa663c2so55481866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 14:21:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1789161674; x=1789766474; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=;
+        b=LsBbVs9CqhmeJ7ftJdFptJSppkh8ArFVSP3rhGBBjinutFiz7EyNiaVP/P97bodOnE
+         fTacA/BRXx16rr8yVR96Fnv7E4m5oHCUzjGyptWoQc4As7AEGflGYOtuCnimuhPO7Hzb
+         S6sN+MWt2owLcCY1VSVAc76iJlVUdJidBhcl82n/xwuixzxfnZWZPpgRR6JmLmGZ0E6d
+         32/Ge3z/D1bHk2AZ/2f4xIfXAEu31a2/u+NX+quxEE3SnEqMlxMpWU+ItYpuo6kHnXhH
+         CKXW1E6Nouwxb+dVefsEPttoa3/Zx6wcomlF4r1UhrEtSHiXCBnJN/hzqIMA9ZHXB/XK
+         DpQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789161674; x=1789766474;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=;
+        b=Q7VeeAMC2m9n0LSVav6jLj7kYsUr7rEe3OtD0G5dXLurTpvfknIZ5i/+Oaoo1QM9QS
+         sY1qltmh0xwj9SIDGEEcd95wtSYjBGdJ/1WLnJWClswQ/2lWIOm0qA3h4UDU8xDY58Yo
+         VxnMjBTLjyrK5hWpMs6OR5IlWEiuZ5L+i5QG1JYfFJjwBqIupcK//zjq603XbHc8MtwO
+         CyXJIceQSom3A4ni4HuoGvadnRj1AIw+J7G6e70KSZ31cB+Z8Z5M0kGwugCQVdaYe+AP
+         Jw6pRUdEgMTO0S50SfItNnmBgI2/HULvD06BJePSbnHKhiB/rN+8t0la9CtxPu/VK8E6
+         xxUw==
+X-Forwarded-Encrypted: i=1; AKwUvBz9z1xPiEaF0I4Xai6XEa7E6/8oQWXByLJ1EWBB83sDXXnPXH9AhKpTHSYVBMao9+9qmMOl2bHrZ9n77NeW760Q@lists.infradead.org
+X-Gm-Message-State: AFuF++kg/5IpSpFeJ6GqMOkN59UOCLKCI/PH5Su13n/g8PgBwc9OFm5v
+	jv4ew6KM8peDDrbiYsIhGBCBSZjXsA954egQtbaOA8kHruH6eijTdFG1DomnuLOn43OWDodYmQ6
+	OpSQz/xg=
+X-Gm-Gg: AYBFou2xxCoJ4XomWqZOT92JL+sXao8BxNDdm+onRF1kWaTj+UMj6AIdr32Zw3/cR5+
+	BlYWzjxX1B8ZNS0Giqe2IiUb+B34AYSYllGyOXCFeGQBs0mo6KidBdxZMFvzlFP+yFCtPeWn8Kw
+	x7oDo15m+COVt30rbabiH1ZoxYgzZ5Xt8GHvOcKDDvUFnGAfHvIYDxTIA/MA4UM0G/L4qAjnva8
+	2vwDDpYRjf2XBb2P3wgq5Eq4xpdEqq7vC80Ge7PiLEELmE7cruvPB/Y423u6MMdxbUcoutC7DbG
+	Zitt9nSYlJd3XqxcRgNej5OgM/1OBdNlRwZnao644ZSbAXWpu8GND3cVjRke7cTo62tP8VmX81h
+	6JYHejNZKIhzSPFT02oJNTiSkCFQk2hDkVc/utAZxTU/ec66YJiD9S+aeBlGoi2lfB7ByaFg609
+	wH1/aNdecIYlTtLIn/k7Lc4YrV0J3O9ZOE877es3chXdzpm4hH5kET5uAOtVazbfXQbg5oiOtEQ
+	SaTYimHB6iJ8LTqJHsRswIlmnm6ofRaBa//lza9qz7YVKFXjGTMvbAwRnvusISeAw==
+X-Received: by 2002:a17:907:c1a:b0:c15:e8c8:340 with SMTP id a640c23a62f3a-c296674a92cmr569758566b.23.1789161674200;
+        Fri, 11 Sep 2026 14:21:14 -0700 (PDT)
+Received: from petegriffin.c.googlers.com (116.118.90.34.bc.googleusercontent.com. [34.90.118.116])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c29660234f2sm126375166b.12.2026.09.11.14.21.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 14:21:13 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 11 Sep 2026 21:21:05 +0000
+Subject: [PATCH v2 1/2] dt-bindings: iommu: arm,smmu-v3: Add
+ arm,instdata-override property
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260911-arm-smmu-v3-instcfg-override-v2-1-5804e4f400b5@linaro.org>
+References: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
+In-Reply-To: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Pranjal Shrivastava <praan@google.com>, 
+ Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org, 
+ willmcvicker@google.com, jyescas@google.com, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1506;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=tUGaS29lFsJmXAHbJSfhfRBSAtNRDMY5NM3rTaPK0XI=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqpHDHk57NrYBKK636xbBtxQC8tNbhZKUpKQNvp
+ K2QlPCh/LCJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaqRwxwAKCRDO6LjWAjRy
+ ujZ+D/9tMuGPJ4rap7PJdDNlZUe1EQphmU7tRCCP/H5j5mI5j/BtybzMKyMpMeCjerkf+UTKYCO
+ CYDG+K+6mov6T+mBwrtr0OV/soVu59lG+DCmTfa25FF7vHpDRlkOACuS0zygn3411nOr5XNGYKy
+ ijLCk9JanRujXZSesqesVLBQP4fspZf2EI6kfZwB4F2bidH5mf7oery6A5avsaDOvuIRiJnPqfS
+ 8jcBSTwwVpeOrA9JGuuCIukNcTawPWlqJQs2yLraj/tENoamHvfvET+OrWyNEP8ekgjoQIK0FNX
+ Mv51GQNIqjFSggDGxgfmEMTTd4LMm8R8xbvh/DU8x2kvNpLnRKfZBrG1IQnQelMwzsLLu1uc2lD
+ dUg+whEhSIcd5iVwYHHde+2d5Z2cfbcUNa64+gz+1Di2oxp5Aap0Akpqx/PiviD4H5vdCVj77ID
+ QP8Bv6r6UV4S0juavx1X43AvOvexroAdYTnPadqZQtT+OlhMKf8174TVhLgNR1gUBSBFvCnLJlq
+ lJvf5hlkcFLIkbU4214oVDm4p0nISi6n0mKC0Ioel7TyyFCF0yfa2gmFG7vG/YMKRPbgVwd/SA1
+ 5NJGxrU3nldN418CZgg7Qg1LHi8xSPi5EUeE4zYwmLTuHNQsTOuI2CsIEzhd+2W1m1FgUyOmCS4
+ QD5KHOaZtDsTSGw==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_142107_940379_23D08C27 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260911_142116_514614_8EB1B4A7 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,141 +128,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EEE selftest is a 2-step test :
- - It validates that we enter in LPI mode with the
-   irq_tx_path_in_lpi_mode_n counter
- - It then validates that we exit LPI when sending a frame, with the
-   irq_tx_path_exit_lpi_mode_n counter.
+arm,instdata-override DT property is intended to be used for SMMUs that
+have a silicon integration issue with the AxPROT[2] signal always being 1
+making all transactions appear as instructions.
 
-The current state of the test lacks 2 main things :
+Google Tensor G5 (Laguna) is an example of an SoC with this silicon
+erratum. The DT property can be specified to enable a software
+workaround which overrides the incoming attribute to data.
 
- - We don't know exactly when was the previous frame sent (it's from the
-   previous selftest)
-
- - The timeout is hardcoded, while the LPI is entered after a
-   user-configurable delay. On top of that, the timeout loop uses a
-   pre-decrement iterator (--retries) that actually only iterate nine
-   times, so 900ms while the default LPI value is 1 second.
-
-Let's therefore make it more deterministic :
-
- - Send a frame at the beginning of the test
- - Wait for more than the lpi timer value, we timeout after about twice
-   the value,
- - Then send another frame, and verify that we do go out of LPI, also
-   with a timeout.
-
-As LPI timer can get pretty high, bail out if LPI timer is over 5
-seconds.
-
-Note that the test's goal isn't to validate the LPI timer value itself,
-only that we enter/leave LPI mode.
-
-Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- .../stmicro/stmmac/stmmac_selftests.c         | 44 ++++++++++++++++---
- 1 file changed, 37 insertions(+), 7 deletions(-)
+---
+ Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 6503678b646e..df28741abf2b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -30,6 +30,7 @@ struct stmmachdr {
- 			      sizeof(struct stmmachdr))
- #define STMMAC_TEST_PKT_MAGIC	0xdeadcafecafedeadULL
- #define STMMAC_LB_TIMEOUT	msecs_to_jiffies(200)
-+#define STMMAC_SFT_MAX_LPI	(5 * USEC_PER_SEC)
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+index 82957334bea24..3c044e4f03d4e 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+@@ -83,6 +83,16 @@ properties:
+       register access with page 0 offsets. Set for Cavium ThunderX2 silicon that
+       doesn't support SMMU page1 register space.
  
- struct stmmac_packet_attrs {
- 	int vlan;
-@@ -462,12 +463,16 @@ static int stmmac_test_mmc(struct stmmac_priv *priv)
- static int stmmac_test_eee(struct stmmac_priv *priv)
- {
- 	struct stmmac_extra_stats *initial, *final;
--	int retries = 10;
-+	unsigned long timeout, max_duration;
- 	int ret;
- 
- 	if (!priv->dma_cap.eee || !priv->eee_active)
- 		return -EOPNOTSUPP;
- 
-+	/* Bail out if the configured LPI timer is too long */
-+	if (priv->tx_lpi_timer > STMMAC_SFT_MAX_LPI)
-+		return -EOPNOTSUPP;
++  arm,instdata-override:
++    type: boolean
++    description:
++      Some SoCs like Google Tensor G5 (Laguna) have an SMMU integration
++      silicon erratum where AxPROT[2] signal is always 1, making all
++      transactions appear as instructions.
 +
- 	initial = kzalloc_obj(*initial);
- 	if (!initial)
- 		return -ENOMEM;
-@@ -478,14 +483,21 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		goto out_free_initial;
- 	}
- 
-+	/* Snapshot stats, we want to count the in_lpi events. We may enter
-+	 * LPI just after the packet was sent.
-+	 */
- 	memcpy(initial, &priv->xstats, sizeof(*initial));
- 
-+	/* Send a frame, then wait to enter LPI */
- 	ret = stmmac_test_mac_loopback(priv);
- 	if (ret)
- 		goto out_free_final;
- 
-+	max_duration = usecs_to_jiffies(2 * priv->tx_lpi_timer);
++      This property enables a software workaround to override the
++      instruction/data attribute of incoming traffic to data.
 +
- 	/* We have no traffic in the line so, sooner or later it will go LPI */
--	while (--retries) {
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
- 		memcpy(final, &priv->xstats, sizeof(*final));
- 
- 		if (final->irq_tx_path_in_lpi_mode_n >
-@@ -494,20 +506,38 @@ static int stmmac_test_eee(struct stmmac_priv *priv)
- 		msleep(100);
- 	}
- 
--	if (!retries) {
-+	memcpy(final, &priv->xstats, sizeof(*final));
-+	if (final->irq_tx_path_in_lpi_mode_n <=
-+	    initial->irq_tx_path_in_lpi_mode_n) {
- 		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
--	if (final->irq_tx_path_in_lpi_mode_n <=
--	    initial->irq_tx_path_in_lpi_mode_n) {
--		ret = -EINVAL;
-+	/* Re-snapshot, as we want to measure exit_lpi events. We should be
-+	 * in LPI right now.
-+	 */
-+	memcpy(initial, &priv->xstats, sizeof(*initial));
-+
-+	/* TX something so we go out of LPI */
-+	ret = stmmac_test_mac_loopback(priv);
-+	if (ret)
- 		goto out_free_final;
-+
-+	/* Wait for the exit LPI interrupt */
-+	timeout = jiffies + max_duration;
-+	while (!time_after(jiffies, timeout)) {
-+		memcpy(final, &priv->xstats, sizeof(*final));
-+
-+		if (final->irq_tx_path_exit_lpi_mode_n >
-+		    initial->irq_tx_path_exit_lpi_mode_n)
-+			break;
-+		msleep(100);
- 	}
- 
-+	memcpy(final, &priv->xstats, sizeof(*final));
- 	if (final->irq_tx_path_exit_lpi_mode_n <=
- 	    initial->irq_tx_path_exit_lpi_mode_n) {
--		ret = -EINVAL;
-+		ret = -ETIMEDOUT;
- 		goto out_free_final;
- 	}
- 
+ allOf:
+   - if:
+       not:
+
 -- 
-2.55.0
+2.55.0.1007.g17ff1f9808-goog
 
 
