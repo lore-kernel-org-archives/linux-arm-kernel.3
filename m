@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60970C88E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC9CC88E4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 10:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11f6SdDiBsLZEK+6xrnQANC+Z+Fp65AqSdwdx2iIhKY=; b=RzR34mstsc0eeNDaCn+pNuKadM
-	l7gojLEtJx8fsVFPCRlIULl/uhqXB1Uv0aSmKAreidoJHYj0gYLNXxklG4LRsHeK0Am5D6nfS7kIy
-	PR3WgQy/OSvlnzzBCdZzQKPIsQ9xp81YZdlsH4bhuh+PuGhlW4u6RyfJbNk0wFhwNi1iJO1dxNgU4
-	6hLxSs+oqC9zMv+LvTqbOFWJIFey0sFH7QgFFYfhekHTWZgh1v02DrHmJgzw6GURntGxsDkp0FCLH
-	L2Lyof8wYqWJV0T1c+vpNOG31M03iZcGl00bL1t/uBGPR/zWpdbHGBpOnPDmTWPqw3QVxxupSNl4B
-	nwLltwPw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=; b=xp05+LFMb5W1HCiaphvNngUs5i
+	/znJXcjLNNQQs+klhkMqqHCy7XaoNXENAILrjLeyf1HWJbJrdBc2MJDKDOdtlBkBm4cGI0zTLuTjq
+	L8wPQ+sXdpNYS6UuyeSm0Nlou2MCW3UF+JlZvSPO7n22AV+1xfZLH4yr8tv806870mwxomG17Tp/m
+	mjpesB8lNHu3zhxJenMP17wXGD4TB8Em3rmeqyoYrsUejq/Pd5a4N+gfRbwf4ltGAw/FPQloWc+lo
+	HE++LpFbGJh4lP/1QZtM+G0Bxfk3YX0RMcflQvVuLE6fDsLBSlfLhp4SziKzHAk0CU+LOwJYX7MHa
+	3XF62ayg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yoN-0000000GQJE-3mbv;
-	Fri, 11 Sep 2026 10:48:51 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1x4ypk-0000000GQcd-1Qtw;
+	Fri, 11 Sep 2026 10:50:16 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yoL-0000000GQI1-0wEU;
-	Fri, 11 Sep 2026 10:48:50 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0103741E8BE;
-	Fri, 11 Sep 2026 12:48:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1789123724; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=11f6SdDiBsLZEK+6xrnQANC+Z+Fp65AqSdwdx2iIhKY=;
-	b=rNCxHeT0mYxpRuViaP9flP64qaNE7U13NSACKvh4kwEmZxhLqJvnHMHn+ZDVGA94hobwD5
-	Wz488/BOmE+sW3/sExZD+3AQn4f42BvPwAczpKRJaTioBufsRF1vRytLB4aeNgho/DF2Eh
-	mmZsHO0P1OXeG2vs2qALwismh3GhVf9kF+1oHVzP5NfOzxTdVekykCevZkO+R/y534nfFh
-	PDWYSu2Gkd/CE1DOZ72CwjSHIbD84VjEJg/2NZDzslRLOwWVNFC8mW5eRX29ZXkI3JEJIq
-	t6/Fh4zTELjtdNRp5Uqa+pOnZ99IuQMZrPl8h4zV9krgQyf6Xs8j8qa3HuEukw==
-Message-ID: <3f0244b6-f557-497a-9e28-bcec63891398@cjdns.fr>
-Date: Fri, 11 Sep 2026 12:48:35 +0200
+	id 1x4yph-0000000GQb7-2LAV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 10:50:14 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cc9f581c4so2576795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 03:50:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789123811; x=1789728611; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=;
+        b=Iu/yNqt3YnVzwwIx0cr2LUEUYgSIJ8NYBbwHLIflveC6FX1cDRHE4sT9fSqGMKFdCQ
+         NX0v7gtLHJIU1ixtRDhsZ9Zm93+0znxlyIPXE0fwQkJ53fGRUO+723alkmfZlEwutZLv
+         CjtYVER5RkOytbYCnMTmye3sVMpdqyjrEg4jiHJhJignjiBcoytkYZVSMys3sZQznYVd
+         4hjamI7zy3NZ1mp2Pra7hWT/pEhwMuSzvGR47/Vnt+REi2OEFAH/t3vHxhdE4ZkTtC5m
+         urjRzDvDRKsSaBQLgUxKmi4TzE4tL9uhbC0LX4VAgR/uk8c6Aoi4DamsOTQLIPJGBt+K
+         Smhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789123811; x=1789728611;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=W07kJ3p6qzFM1kDya7o2HF3cIvPn0BxyCJFGBFTKDFg=;
+        b=QgcxG4DDZxS3QG8rdpWvigM6cWvsNKupVlfJ+l3uXQ6b9XgIJBIPrrVW+eBRjFtnYm
+         GcgI7CEzUxQP8I7vp7dTYbaF9LAd2BcjQrDlZr63+Sa2FWDqifLFex8Id2I7ZAFNgxtV
+         p3MMy+dRbGVC5zfEelYXPka5tacfB9/GlL8hMZxfPzc2pFDFK0OkZOUUOVe8LCauTMxk
+         rRQ81u/xGbF8ibmKt803GOSZkmLpr3L0+laN68iiBncMDKvEETVIs4s0ftQOatpFBxdY
+         aywg1evJmdTcr7Cyq59jUufA+fhCKxIasp1VLLdnYMrAj0lgVL92DtrPdI4rp7eTILGR
+         z9PQ==
+X-Forwarded-Encrypted: i=1; AKwUvByj+vqmO6HfcrUdySZwbivyLYP+oNdjQ7h2X9fIb/LJOWO9kAYloWNhPVVteqdw0QsRdLCjWzgcO7JqqW2Xa0t3@lists.infradead.org
+X-Gm-Message-State: AFuF++lQmm48O9YiR517SFMsdmZQStXs6gqnXOiPZ/v3iAdwbuKncssZ
+	wRJvDlHgfugeYUu11jN149SzNScT+pxXUV+z8Nma1icdlI5DQzfxYqXB
+X-Gm-Gg: AYBFou09oL5chwA4sYAhuKqPA1zHK1Hf+57nP5E417k+a2KbEIb22bcQKhsAUiV3GkS
+	YSaJ3hP5KsUJbp39jBfiMTcCRqtI+eugkZtFLMhwzjIVT2brAAJLSbOKBYop9r/C1o58j1k6Pxx
+	tXw5VtOF6i7ihDX3LUhoa2jyHPzLVvB2HCEdj5cxu80oLxC2rie7JgI79zJu6VcXhtQidKm6MGX
+	XeISiy0R9X6XHJZioUmoYNq9ZFj12KhWaca4fZYE3oQCnTX1QCrMhk0CIldP7FSr4THXoD3Kr9w
+	CbO7uKbqr86Sm72InuB+5rGfoD5gi61uafe12GPjOIUdtZFwA0Rx3348QVXO416LlKFL6WdoZqM
+	igtEvAN71GKXBYFBMkZj8UHx3U4Fk1RKn0XZZeDPH4bUOUcNM69jgK0RHQMAYSYvjgIauMxP6jX
+	sIS/zS6kh49OBL5BaTW8PzjX2zl5cwoApdE7AoAHtmHzn+BB3ys3bm2aLDFCRITWtDhH+kSI/Xn
+	zPZu4ZKRbduDo4VNK4ddGgbaiTDa7InztI2U6cSHKuESxFnN4Phuz4yGMlpPRyA
+X-Received: by 2002:a05:600c:4ece:b0:49c:f13e:e4c with SMTP id 5b1f17b1804b1-49e610829b5mr43022575e9.9.1789123811015;
+        Fri, 11 Sep 2026 03:50:11 -0700 (PDT)
+Received: from tachyon.internal ([194.220.152.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e668aca6csm13863965e9.7.2026.09.11.03.50.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 03:50:10 -0700 (PDT)
+From: =?UTF-8?q?Enrique=20Hern=C3=A1ndez=20Bello?= <ehbello@gmail.com>
+To: shawn.lin@rock-chips.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com
+Cc: robh@kernel.org,
+	heiko@sntech.de,
+	dlemoal@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	=?UTF-8?q?Enrique=20Hern=C3=A1ndez=20Bello?= <ehbello@gmail.com>
+Subject: [PATCH] PCI: rockchip: Skip the Tpvperl wait when power is already valid
+Date: Fri, 11 Sep 2026 11:49:52 +0100
+Message-ID: <20260911104952.4190994-1-ehbello@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next] net: phy: mediatek: support MT7530 PHYs on
- EN71221 MCM
-From: Caleb James DeLisle <cjd@cjdns.fr>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
- andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Matheus Sampaio Queiroga <srherobrine20@gmail.com>
-References: <20260909213250.3184238-1-cjd@cjdns.fr>
- <aqHlfmYa249e3HRM@makrotopia.org>
- <7a3479c8-45cc-4b88-b111-c35d59f370e1@cjdns.fr>
- <aqIOGgVujIKT7H2H@makrotopia.org>
- <f1c898c4-2a84-41e8-ad8d-8c79df3feb47@cjdns.fr>
-Content-Language: en-US
-In-Reply-To: <f1c898c4-2a84-41e8-ad8d-8c79df3feb47@cjdns.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_034849_527380_88A0BDDB 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260911_035013_626357_DACD4817 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +109,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>
->> Dumping the PHY register space and comparing it with MT7530 could also
->> help to indentify any better way than relying on the parent DT
->> compatible which *is* a bit of a stretch (but could well be
->> unavoidable, of course).
->
-> I'll give it a shot but I have low confidence in it because AFAIK this 
-> is actually a real MT7530 MCM just like MT7621 but it just happens to 
-> be clocked to a weird PLL frequency.
+Since commit c47f90be4c89 ("PCI: rockchip-host: Fix
+rockchip_pcie_host_init_port() PERST# handling"), a JMicron JMB585
+behind an rk3399 root port almost never becomes usable: the link trains
+normally, but the endpoint's configuration space never answers, so the
+device is not enumerated. On this controller a configuration read that
+gets no usable completion is reported as an external abort rather than
+as an all-ones response, which on arm64 brings the machine down.
 
+The change added an unconditional 100 ms sleep so that PERST# stays
+asserted for at least Tpvperl after power becomes valid. The wait is
+performed while PERST# is asserted, so it also extends the reset by
+100 ms, and this endpoint does not tolerate the longer assertion.
 
-I just sent a v2 and I didn't find a register that looks obviously like 
-a chip sub-id so I left the check based on the DT. But since I have no 
-documentation on any of this, here are the differences I found in case 
-you or someone else may know something that I don't.
+Tpvperl is counted from the supplies becoming valid (PCIe CEM r5.1,
+sec 2.9.2). On boards whose PCIe supplies are always-on -- vcc3v3_pcie
+on ROCK Pi 4 is regulator-always-on and regulator-boot-on -- power has
+been valid since boot, seconds before the driver probes, so the
+requirement is already met and the sleep only lengthens the reset.
 
+Record whether the supplies were already enabled before the driver
+enabled them, and skip the wait in that case. A supply that is already
+on at probe was brought up either by the bootloader or by the regulator
+core at boot, both of which precede a PCIe probe by far more than
+Tpvperl. When the driver really does bring the rails up, or on resume
+where vpcie0v9 has just been re-enabled, the full wait still happens,
+as it does if regulator_is_enabled() cannot tell.
 
-I dumped the pages (g0-g7,l0-l4,ext,misc,lpi,test,tr) and the 
-MDIO_MMD_VEND(1|2) of non-0 non-active PHYs on MT7621 and EN7526G. The 
-differences that seem potentially relevant are:
+Measured on a ROCK Pi 4C with a Radxa Penta SATA HAT (JMB585) by
+booting repeatedly and counting how often the endpoint enumerated:
 
+  unmodified ....................................  0 out of 84 boots
+  with this patch ...............................  3 out of 3 boots
+  other ways of dropping the same wait ..........  16 out of 16 boots
 
-MT7621:
-EXT   23 (0x17): 0x0800
-MISC  20 (0x14): 0x0200
-MISC  21 (0x15): 0xffff
+Fisher's exact test, pooling the last two rows against the first, gives
+p = 4.1e-21. With the patch the endpoint enumerated on every boot and all
+four disks behind it came up.
 
-EN7526G:
-EXT   23 (0x17): 0x1800
-MISC  20 (0x14): 0xffff
-MISC  21 (0x15): 0x00fe
+Each of the three PERST#-related changes that landed together in
+v6.11-rc1 was also reverted individually; only removing this wait made
+any difference. Moving the wait to before link training is enabled,
+rather than removing it, did not help (0 out of 15 boots), which is
+what identified the length of the PERST# assertion rather than any
+interaction with link training as the cause.
 
+The measurements were taken on 6.18, but the code in question is
+unchanged between v6.11 and v7.2.
 
-MMD is here: 
-https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=835011309#gid=835011309 
-with about 16 differences in total.
-
-
-And regarding what's being changed by the patch, the registers, their 
-MT7621 value, and the value set by the driver are as follows:
-
-EXT 0x14 (MTK_PHY_AUX_CTRL_AND_STATUS) -> MT7621 = 0x3a55, EN751221 
-sets 0x3a04
-
-MDIO_MMD_VEND2 0x417 -> MT7521 = 0x7773, EN751221 sets 0x7775
-
-MDIO_MMD_VEND1 0xa6 -> MT7621 = 0x03e0, EN751221 sets 0x0350
-
-MDIO_MMD_VEND1 0x12 -> MT7621 = 0x7210, EN751221 sets 0xd210
-
-The other difference of this implementation is both master/slave 
-negotiation and EEE are unreliable. Maybe these give a hint as to what's 
-different with this implementation - whether it's same silicon different 
-frequency, different package, different FAB run, etc.
-
-
-Thanks,
-
-Caleb
-
+Fixes: c47f90be4c89 ("PCI: rockchip-host: Fix rockchip_pcie_host_init_port() PERST# handling")
+Cc: stable@vger.kernel.org
+Signed-off-by: Enrique Hernández Bello <ehbello@gmail.com>
+---
+--- a/drivers/pci/controller/pcie-rockchip.h
++++ b/drivers/pci/controller/pcie-rockchip.h
+@@ -318,6 +318,7 @@
+ 	struct	regulator *vpcie1v8; /* 1.8V power supply */
+ 	struct	regulator *vpcie0v9; /* 0.9V power supply */
+ 	struct	gpio_desc *perst_gpio;
++	bool	supplies_pre_enabled;
+ 	u32	lanes;
+ 	u8      lanes_map;
+ 	int	link_gen;
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -314,7 +314,9 @@
+ 	rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
+ 			    PCIE_CLIENT_CONFIG);
+ 
+-	msleep(PCIE_T_PVPERL_MS);
++	if (!rockchip->supplies_pre_enabled)
++		msleep(PCIE_T_PVPERL_MS);
++
+ 	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+ 
+ 	msleep(PCIE_RESET_CONFIG_WAIT_MS);
+@@ -614,6 +616,23 @@
+ 	struct device *dev = rockchip->dev;
+ 	int err;
+ 
++	/*
++	 * Tpvperl is counted from the supplies becoming valid, and the wait
++	 * for it happens with PERST# asserted, so it also lengthens the reset.
++	 * A supply that is already enabled before this driver enables it was
++	 * brought up either by the bootloader or by the regulator core at boot,
++	 * both of which precede this probe by far more than Tpvperl, so the
++	 * requirement is already met and the wait can be skipped. Treat an
++	 * error from regulator_is_enabled() as "not known to be on" and wait.
++	 */
++	rockchip->supplies_pre_enabled =
++		(IS_ERR(rockchip->vpcie12v) ||
++		 regulator_is_enabled(rockchip->vpcie12v) > 0) &&
++		(IS_ERR(rockchip->vpcie3v3) ||
++		 regulator_is_enabled(rockchip->vpcie3v3) > 0) &&
++		regulator_is_enabled(rockchip->vpcie1v8) > 0 &&
++		regulator_is_enabled(rockchip->vpcie0v9) > 0;
++
+ 	if (!IS_ERR(rockchip->vpcie12v)) {
+ 		err = regulator_enable(rockchip->vpcie12v);
+ 		if (err) {
+@@ -890,6 +909,9 @@
+ 	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+ 	int err;
+ 
++	/* The 0.9V supply was turned off on suspend, so Tpvperl applies. */
++	rockchip->supplies_pre_enabled = false;
++
+ 	err = regulator_enable(rockchip->vpcie0v9);
+ 	if (err) {
+ 		dev_err(dev, "fail to enable vpcie0v9 regulator\n");
+-- 
+2.43.0
 
