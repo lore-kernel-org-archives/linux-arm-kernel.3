@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD74C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73E5C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFk2Z6Xi7d6Da3C0kQCSLnpvItVd8hZ6EBv2sHcLHBQ=; b=a7ndMZ+efDym+2DMz36RoefI46
-	L/9/xCPjDM0+VYZe0v/n+ENUJY3xBpz57rZnOj+RsYHRNlbCrbS5Zs4rZGlNhHM3UMmuxkPIL8c13
-	GvMtV5J7i1u7ftxCaG6yETOP6EXRK+GpubRGqq9UDHpjggOz2zdXMcebkdf554Er2y8/eDHUoJPKM
-	XDBTyi2g0U1w94VLgICErPpk9OCV6CgRNHIA9ZgbXpbEZIZkvH9b1I+Qco7uMuPr8iCUZyJ+yU2R6
-	mPl+iyk/8Wk7hZpdb/o1yCVX0jAziLeYGAaZ6kF4BL7Ec9yeV7uEef+xYVA3+ei2nz9lMNC+Rf+tA
-	29ULSS5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lm+a3MSG9zoM0b7/DkVI+7E7MxJQqcaMpITcYWuCOkM=; b=VfnAF3LrBdhQGepnYfcaTHV60C
+	qKy0miOpW7kkU3LuhTW1KqU03SnOg/o48p96sVrnz3z71Ugm125pNJcMCIlgF44E0F8lO1+V6McA/
+	CcEmKE0J5rVKYkUEJ0HOtHW4g8F6XlQIhESS5gd565YMJOKkOIByVIl1VS2qVybvCnwa/I0hMFDgf
+	BxI3UDLrRuihRZgrs8fiB3GZTJlrDv9xlTYL2feMPj3RvaJSLEKUTkNBXJEEe43J0cTz66POoSs4q
+	9TOU3cVF6wKxEKAqCpTZGBDCR5ic2eiqlwESiqaCp3Kr1Geu1mLuHjDCinfmm9x9Ei1n1rH4YGjpd
+	gYkUJeGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51et-0000000Gnsj-1HSM;
-	Fri, 11 Sep 2026 13:51:15 +0000
-Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51en-0000000Gnmk-2ra3
+	id 1x52t2-0000000H0b1-2l7p;
+	Fri, 11 Sep 2026 15:09:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x52sz-0000000H0aR-2GV7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:51:10 +0000
-Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6a9a69637eeso1253731a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 06:51:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789134666; x=1789739466; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SFk2Z6Xi7d6Da3C0kQCSLnpvItVd8hZ6EBv2sHcLHBQ=;
-        b=NZ6ogbvdMqDdoVsVaLm3Ar4UVtVbm11K4ycWnyMnXC5N6gvJR9Us6fIRANYCZrwDZ/
-         6rNBRzm1+85rvXG8t8FednbsBRWGF+4tWmv5plq8uzzxREWYAkDDFUbDZA0TOKNGqpKK
-         xR158FnKqL8L2o20cvoxoiC0x0+klAw2rdnybIEE8eiTMMtaXo+YwNggBOYUt7mQdtkS
-         jhvmhrCw9Znv06R66LBOKfageEBauhKlfe4p+dc+CvSwZ6hvQujfrn82bkXiHNwqFJmI
-         sjpf8zJjBKlgprhgg0SCs3EOamd72bCwbUp10j7D8NLj0ZailcY8GP2ZOYVqf6UVMpL4
-         AvfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789134666; x=1789739466;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SFk2Z6Xi7d6Da3C0kQCSLnpvItVd8hZ6EBv2sHcLHBQ=;
-        b=m+kcPfZNNvWmIK204UlAW1Xggb3uJlsREjwbzXj/gaLOye/1SM1FNL+81tIX3C7Nb2
-         dRgdBaEu9sw8GPS1vnuw/BF7bJrGf2q1oxPgy86zZYoI318VWYmmmJOJls3JJ4fa4yTI
-         CKA3Mo7DvuEVtSScugF0WRjsunSIuYBp1ymwlEG/cUlESJWPfz+jvpll1P6dn/HLDwwv
-         V6hnaoBsixzhTFNg6Em9YunUEfK8lcVXKNudR8eeFf5rOLRkc0nM/a24VrAwwf7TyOIA
-         VaIesm+i+HX4+9fKpm/dLE42tcA7AsOzuQLCYA3VuODlk4USsjAc8848E/vI5LHKRxwv
-         QKdw==
-X-Forwarded-Encrypted: i=1; AKwUvBy/mkEq89VUyYcgfI5GG4YtB3mE3o0feS6uF6rpZlnLeY9ER/3GNqm2vCsqEABVupZ6cbW/X7EA5I60tYU/wArT@lists.infradead.org
-X-Gm-Message-State: AFuF++nDSiphYtlPr99NtQOtF5gpeExGm/dLKhnZXICJQywqmuexDSXW
-	46hU0SBo6YioG43ROb+886FYiXZ625pm7ildeF1KlZ/u6NXtlMMYLkHmK/ZgY6YvPClyJEefmPO
-	1fK3PEADwbO/cQvQOdjxLRA==
-X-Received: from edbdd4.prod.google.com ([2002:a05:6402:3124:b0:6a6:62f4:91a4])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:2546:b0:6a6:37a3:2b0f with SMTP id 4fb4d7f45d1cf-6a9b5606356mr1900256a12.8.1789134665990;
- Fri, 11 Sep 2026 06:51:05 -0700 (PDT)
-Date: Fri, 11 Sep 2026 14:50:35 +0100
-In-Reply-To: <20260911135053.146435-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260911135053.146435-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
-Message-ID: <20260911135053.146435-5-vdonnefort@google.com>
-Subject: [PATCH v2 04/22] KVM: arm64: Use block-level annotations when setting
- up the host stage-2
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
-	weilin.chang@arm.com, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 11 Sep 2026 15:09:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FA4216A3;
+	Fri, 11 Sep 2026 08:09:48 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 570493F8C6;
+	Fri, 11 Sep 2026 08:09:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789139391; bh=sbQft3RiYwiBnRwgWP9qJj4nzj3aI7MtQq3JJdfFVuQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Hv4BaVbyI+lFkOT0vJWMuWoemhDJT0YwsHsemeHvYTgt3SNX2YbDzi+mrxx6z7/sM
+	 gb3cbrg+LJJXL3jMEzVKcd08htjVam5esGnqMIMC/ICwZAhs5irs8YBSRX+WyvRKEO
+	 oRiiM6Ze5/xd796FFljM/IaazilMMOXlgDJqdfWE=
+Message-ID: <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
+Date: Fri, 11 Sep 2026 16:09:48 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260911112835.714162-1-andre.przywara@arm.com>
+ <20260911112835.714162-13-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260911112835.714162-13-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_065109_787933_60A6120A 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20260911_080953_664035_D2733EDD 
+X-CRM114-Status: GOOD (  38.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,228 +83,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During pKVM initialisation, fix_host_ownership() configures the host
-stage-2 mappings to match the hypervisor stage-1. Previously this was
-done page-by-page. Now that the host stage-2 supports block-level
-annotations, refactor the walker to apply the ownership state to an
-entire range at once.
+Hi Andre,
 
-This reduces host stage-2 page-table fragmentation and memory usage by
-avoiding allocation of intermediate page-table pages.
+On 11/09/2026 12:28, Andre Przywara wrote:
+> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+> registers through a firmware interface. This requires a shared memory
+> region to hold the message, and a mailbox to trigger the access.
+> For ACPI this is wrapped as a PCC channel, described using existing
+> ACPI abstractions.
+> 
+> Add code to parse those PCC table descriptions associated with an MSC,
+> and store the parsed information in the MSC struct.
+> There can be multiple PCC channels, and each channel can serve multiple
+> MSCs, so we need to keep track of the channel usage, using a list and
+> a refcount.
+> 
+> This will be used by the MPAM-Fb access wrapper code.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+>  drivers/resctrl/Kconfig         |   1 +
+>  drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_fb.c       |  41 +++++++++++
+>  drivers/resctrl/mpam_internal.h |   2 +
+>  4 files changed, 161 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> index 9591d792736e5..3f81638f57be3 100644
+> --- a/drivers/resctrl/Kconfig
+> +++ b/drivers/resctrl/Kconfig
+> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
+>  	bool "MPAM driver"
+>  	depends on ARM64 && ARM64_MPAM
+>  	select ACPI_MPAM if ACPI
+> +	select PCC if ACPI
+>  	select MAILBOX
+>  	help
+>  	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 14dc8461e4b8f..150a529458388 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -20,14 +20,19 @@
+>  #include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+> +#include <linux/mailbox_client.h>
+>  #include <linux/mutex.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/printk.h>
+> +#include <linux/property.h>
+>  #include <linux/srcu.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/types.h>
+>  #include <linux/workqueue.h>
+>  
+> +#include <acpi/pcc.h>
+> +#include <acpi/acpi_io.h>
+> +
+>  #include "mpam_internal.h"
+>  
+>  /* Values for the T241 errata workaround */
+> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
+>  
+>  struct srcu_struct mpam_srcu;
+>  
+> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
+> +static DEFINE_MUTEX(pcc_chan_list_lock);
+> +static LIST_HEAD(pcc_chan_list);
+> +
+> +static void mpam_pcc_chan_release(struct kref *ref)
+> +{
+> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
+> +						 refcount);
+> +
+> +	pcc_mbox_free_channel(cur->pcc_chan);
+> +	list_del(&cur->pcc_chans);
+> +	mutex_destroy(&cur->pcc_chan_lock);
+> +	kfree(cur);
+> +}
+> +
+> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
+> +					       int subspace_id)
+> +{
+> +	struct mpam_pcc_chan *cur;
+> +
+> +	guard(mutex)(&pcc_chan_list_lock);
+> +
+> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
+> +		if (cur->subspace_id == subspace_id) {
+> +			kref_get(&cur->refcount);
+> +
+> +			return cur;
+> +		}
+> +	}
+> +
+> +	cur = kzalloc_obj(*cur);
+> +	if (!cur)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	cur->pcc_cl.tx_block = true;
+> +
+> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
+> +	if (IS_ERR(cur->pcc_chan)) {
+> +		long err = PTR_ERR(cur->pcc_chan);
+> +
+> +		kfree(cur);
+> +		return ERR_PTR(err);
+> +	}
+> +
+> +	/*
+> +	 * Timeout based on the "nominal latency" in us, from the
+> +	 * PCC ACPI table. tx_tout is in ms.
+> +	 * Add some margin here to be on the safe side.
+> +	 */
+> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
+> +
+> +	mutex_init(&cur->pcc_chan_lock);
+> +
+> +	cur->subspace_id = subspace_id;
+> +	kref_init(&cur->refcount);
+> +
+> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
+> +
+> +	return cur;
+> +}
+> +
+> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
+> +{
+> +	struct mpam_pcc_chan *cur, *tmp;
+> +
+> +	if (!pcc_chan)
+> +		return 0;
+> +
+> +	guard(mutex)(&pcc_chan_list_lock);
+> +
+> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
+> +		if (cur == pcc_chan) {
+> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
+> +
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -ENOENT;
+> +}
+> +
+>  /*
+>   * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
+>   * can be enabled.
+> @@ -2285,6 +2371,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  	if (!msc)
+>  		return;
+>  
+> +	mpam_pcc_chan_put(msc->pcc_chan);
+> +
+>  	mutex_lock(&mpam_list_lock);
+>  	mpam_msc_destroy(msc);
+>  	mutex_unlock(&mpam_list_lock);
+> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  {
+>  	int err;
+> -	u32 tmp;
+> +	u32 pcc_subspace_id;
+>  	struct mpam_msc *msc;
+>  	struct resource *msc_res;
+>  	struct device *dev = &pdev->dev;
+> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  	if (err)
+>  		return ERR_PTR(err);
+>  
+> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>  		msc->iface = MPAM_IFACE_MMIO;
+>  	else
+>  		msc->iface = MPAM_IFACE_PCC;
+> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  		}
+>  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>  		msc->mapped_hwpage = io;
+> +	} else if (msc->iface == MPAM_IFACE_PCC) {
+> +		u32 mpam_fb_msc_id;
+> +
+> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+> +		if (IS_ERR(msc->pcc_chan)) {
+> +			pr_err("Failed to request MSC PCC channel\n");
+> +			return ERR_CAST(msc->pcc_chan);
+> +		}
+> +
+> +		err = mpam_fb_check_shared_buffer_size(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		err = mpam_fb_check_protocol_version(msc);
+> +		if (err) {
+> +			mpam_pcc_chan_put(msc->pcc_chan);
+> +
+> +			return ERR_PTR(err);
+> +		}
+> +
+> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
+> +					     &mpam_fb_msc_id))
+> +			mpam_fb_msc_id = msc->id;
+> +		msc->mpam_fb_msc_id = mpam_fb_msc_id;
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/kvm/hyp/include/nvhe/memory.h |   5 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c    |   5 -
- arch/arm64/kvm/hyp/nvhe/setup.c          | 132 ++++++++++++++---------
- 3 files changed, 89 insertions(+), 53 deletions(-)
+This looks like the change earlier in the series to drivers/acpi/arm64/mpam.c makes no functional
+effect unless the proposed spec changes are accepted; the default is msc->id. I'd just move the
+earlier drivers/acpi/arm64/mpam.c to your last patch and introduce this device_property_read_u32()
+their too (or a separate patch if it's easier for anyone). That way all but the last two patches can
+be considered for merging without knowing what's going to happen with the spec.
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-index b50712d47f6d..86a51cf1d590 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-@@ -122,6 +122,11 @@ static inline void set_hyp_state(struct hyp_page *p, enum pkvm_page_state state)
- 	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_VMEMMAP_MASK;
- }
- 
-+#define for_each_hyp_page(__p, __st, __sz)				\
-+	for (struct hyp_page *__p = hyp_phys_to_page(__st),		\
-+			     *__e = __p + ((__sz) >> PAGE_SHIFT);	\
-+	     __p < __e; __p++)
-+
- /*
-  * Refcounting for 'struct hyp_page'.
-  * hyp_pool::lock must be held if atomic access to the refcount is required.
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 39aa8911f62c..c3676243fddc 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -76,11 +76,6 @@ static void hyp_unlock_component(void)
- 	hyp_spin_unlock(&pkvm_pgd_lock);
- }
- 
--#define for_each_hyp_page(__p, __st, __sz)				\
--	for (struct hyp_page *__p = hyp_phys_to_page(__st),		\
--			     *__e = __p + ((__sz) >> PAGE_SHIFT);	\
--	     __p < __e; __p++)
--
- static void *host_s2_zalloc_pages_exact(size_t size)
- {
- 	void *addr = hyp_alloc_pages(&host_s2_pool, get_order(size));
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 75b00c323310..22200bb50990 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -186,50 +186,46 @@ static void hpool_put_page(void *addr)
- 	hyp_put_page(&hpool, addr);
- }
- 
--static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
--				     enum kvm_pgtable_walk_flags visit)
-+struct fix_host_ownership_data {
-+	phys_addr_t		phys;
-+	size_t			size;
-+	enum kvm_pgtable_prot	prot;
-+};
-+
-+static int __fix_host_ownership(const struct fix_host_ownership_data *data)
- {
--	enum pkvm_page_state state;
--	struct hyp_page *page;
--	phys_addr_t phys;
--	enum kvm_pgtable_prot prot;
-+	enum pkvm_page_state state = pkvm_getstate(data->prot);
- 
--	if (!kvm_pte_valid(ctx->old))
-+	if (!data->prot)
- 		return 0;
- 
--	if (ctx->level != KVM_PGTABLE_LAST_LEVEL)
--		return -EINVAL;
--
--	phys = kvm_pte_to_phys(ctx->old);
--	if (!addr_is_memory(phys))
--		return -EINVAL;
--
--	page = hyp_phys_to_page(phys);
--
- 	/*
- 	 * Adjust the host stage-2 mappings to match the ownership attributes
- 	 * configured in the hypervisor stage-1, and make sure to propagate them
- 	 * to the hyp_vmemmap state.
- 	 */
--	prot = kvm_pgtable_hyp_pte_prot(ctx->old);
--	state = pkvm_getstate(prot);
- 	switch (state) {
- 	case PKVM_PAGE_OWNED:
--		set_hyp_state(page, PKVM_PAGE_OWNED);
--		/* hyp text is RO in the host stage-2 to be inspected on panic. */
--		if (prot == PAGE_HYP_EXEC) {
-+		for_each_hyp_page(page, data->phys, data->size) {
-+			set_hyp_state(page, PKVM_PAGE_OWNED);
- 			set_host_state(page, PKVM_NOPAGE);
--			return host_stage2_idmap_locked(phys, PAGE_SIZE, KVM_PGTABLE_PROT_R);
--		} else {
--			return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
- 		}
-+		/* hyp text is RO in the host stage-2 to be inspected on panic. */
-+		if (data->prot == PAGE_HYP_EXEC)
-+			return host_stage2_idmap_locked(data->phys, data->size, KVM_PGTABLE_PROT_R);
-+		else
-+			return host_stage2_set_owner_locked(data->phys, data->size, PKVM_ID_HYP);
- 	case PKVM_PAGE_SHARED_OWNED:
--		set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
--		set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
-+		for_each_hyp_page(page, data->phys, data->size) {
-+			set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
-+			set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
-+		}
- 		break;
- 	case PKVM_PAGE_SHARED_BORROWED:
--		set_hyp_state(page, PKVM_PAGE_SHARED_BORROWED);
--		set_host_state(page, PKVM_PAGE_SHARED_OWNED);
-+		for_each_hyp_page(page, data->phys, data->size) {
-+			set_hyp_state(page, PKVM_PAGE_SHARED_BORROWED);
-+			set_host_state(page, PKVM_PAGE_SHARED_OWNED);
-+		}
- 		break;
- 	default:
- 		return -EINVAL;
-@@ -238,6 +234,66 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	return 0;
- }
- 
-+static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
-+				     enum kvm_pgtable_walk_flags visit)
-+{
-+	struct fix_host_ownership_data *data = ctx->arg;
-+	enum kvm_pgtable_prot prot = 0;
-+	phys_addr_t phys = 0;
-+	int ret;
-+
-+	if (kvm_pte_valid(ctx->old)) {
-+		prot = kvm_pgtable_hyp_pte_prot(ctx->old);
-+		phys = kvm_pte_to_phys(ctx->old);
-+		if (!addr_is_memory(phys))
-+			return -EINVAL;
-+	}
-+
-+	if (prot == data->prot &&
-+	    phys == data->phys + data->size) {
-+		data->size += kvm_granule_size(ctx->level);
-+
-+		return 0;
-+	}
-+
-+	ret = __fix_host_ownership(data);
-+	if (ret)
-+		return ret;
-+
-+	data->phys = phys;
-+	data->size = kvm_granule_size(ctx->level);
-+	data->prot = prot;
-+
-+	return 0;
-+}
-+
-+static int fix_host_ownership(void)
-+{
-+	struct fix_host_ownership_data data;
-+	struct kvm_pgtable_walker walker = {
-+		.cb	= fix_host_ownership_walker,
-+		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.arg	= &data,
-+	};
-+	int i, ret;
-+
-+	for (i = 0; i < hyp_memblock_nr; i++) {
-+		struct memblock_region *reg = &hyp_memory[i];
-+		u64 start = (u64)hyp_phys_to_virt(reg->base);
-+
-+		data = (struct fix_host_ownership_data){ 0 };
-+		ret = kvm_pgtable_walk(&pkvm_pgtable, start, reg->size, &walker);
-+		if (ret)
-+			return ret;
-+
-+		ret = __fix_host_ownership(&data);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static int fix_hyp_pgtable_refcnt_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 					 enum kvm_pgtable_walk_flags visit)
- {
-@@ -252,26 +308,6 @@ static int fix_hyp_pgtable_refcnt_walker(const struct kvm_pgtable_visit_ctx *ctx
- 	return 0;
- }
- 
--static int fix_host_ownership(void)
--{
--	struct kvm_pgtable_walker walker = {
--		.cb	= fix_host_ownership_walker,
--		.flags	= KVM_PGTABLE_WALK_LEAF,
--	};
--	int i, ret;
--
--	for (i = 0; i < hyp_memblock_nr; i++) {
--		struct memblock_region *reg = &hyp_memory[i];
--		u64 start = (u64)hyp_phys_to_virt(reg->base);
--
--		ret = kvm_pgtable_walk(&pkvm_pgtable, start, reg->size, &walker);
--		if (ret)
--			return ret;
--	}
--
--	return 0;
--}
--
- static int fix_hyp_pgtable_refcnt(void)
- {
- 	struct kvm_pgtable_walker walker = {
--- 
-2.55.0.1007.g17ff1f9808-goog
+The struct msc property mpam_fb_msc_id is a bit long. Better as msc->fb_id?
+
+Thanks,
+
+Ben
+
+>  	} else {
+>  		return ERR_PTR(-EINVAL);
+>  	}
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> index 98212f761de38..8fc1d78a7b5ab 100644
+> --- a/drivers/resctrl/mpam_fb.c
+> +++ b/drivers/resctrl/mpam_fb.c
+> @@ -20,10 +20,15 @@
+>  #define MPAM_FB_PROTOCOL_ID		0x1a
+>  
+>  #define MPAM_PROTOCOL_VERSION_CMD	0x0
+> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
+> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
+> +
+>  #define MPAM_MSC_READ_CMD		0x4
+>  #define MPAM_MSC_WRITE_CMD		0x5
+>  
+>  #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
+> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
+>  
+>  #define MPAM_FB_SUCCESS		 0
+>  #define MPAM_FB_ERR_NOT_SUPPORTED	-1
+> @@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>  	return mpam_fb_send_request(msc, msc->mpam_fb_msc_id, reg, &value,
+>  				    MPAM_MSC_WRITE_CMD);
+>  }
+> +
+> +/* We only support MPAM-Fb protocol version 1.x */
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
+> +{
+> +	u32 version;
+> +	int ret;
+> +
+> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
+> +				   MPAM_PROTOCOL_VERSION_CMD);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
+> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
+> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
+> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
+> +{
+> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
+> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
+> +
+> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
+> +		pr_err("MPAM-Fb PCC channel size too small.\n");
+> +
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index e5a2804facd2d..314d3b48ca9fd 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+>  /* MPAM-Fb Firmware-backed protocol wrappers */
+>  int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
+>  int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
+> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
+>  
+>  /*
+>   * MPAM MSCs have the following register layout. See:
 
 
