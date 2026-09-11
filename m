@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9530C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCB4C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HARc2n7GY/N2x7f6bMrbNdeynxw6URCRU7fKnVfDbzM=; b=VM2+QkFb4uJid2BKSi1Qq3uy1P
-	prq4soevGmEK5v/Dre5WP7n2YgXKIlh3zdtA44Nfl9CaxUHcQqTk15Y2jIiqeEQ/5klfSGwjUuIrR
-	o4zwnWAzfUUWYjiTOSPcYEggrYc2hRUNXuvuppbj9+rqK6iJK3eG3pju3UfNtFfmMxX7dm9qL51g6
-	13Q/AJiTJpbmc42Fn9GvBqOXC1XuoMsW5ZSLYwwCFbSH+hCCyjUP4PISjJKztlhhbcMtiDo8wXZc1
-	VR15mQQaRDnPAnY4Wih3Jou1HINOwzkMqdODfPcBubFh2f0Ndghn1aKcnobVKkpZMGQoVB4SJR70G
-	bS+LybfQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=87iJ8eoqZ3OPjJLYPFsUWmmff1ZXOWQWTIDzAIwLa2g=; b=tcEqMSnwhMQFDO3LCY3UnNtY1s
+	wkAxIRmjkvx5leJjVeyVPJBEwaH4S46wDcFVznjnrHwjfVZWAXVFC1yTV//T1AmIfahq2OD5G03nx
+	psq9bL0StRC+upx5S65DqvKgcqmhn74MLSROVj/FPePmvJSjq204E7svI9fLqBEoG9RV0DmZd/6rV
+	eUR3DUcrvEZ2fcOA3fXpHxPjFRrik5f6KyJO2bYyFO7UzB+LkMtgqCUWX4h5o3GlOCMeXcvFxfSD9
+	KdBfCTFLCLYpcaGTBIRNKF/MOcDY3qzSvQyQhDvyqO1x0aKj6hGDH2+bWAnZykchAm7EvPl/63mB2
+	Srnfby2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YW-0000000GmQj-3fO3;
+	id 1x51YW-0000000GmR1-47r1;
 	Fri, 11 Sep 2026 13:44:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YM-0000000GmLj-2qMq
+	id 1x51YN-0000000GmLU-25nq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:44:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70E844012D;
-	Fri, 11 Sep 2026 13:44:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C401F00898;
-	Fri, 11 Sep 2026 13:44:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789134270;
-	bh=HARc2n7GY/N2x7f6bMrbNdeynxw6URCRU7fKnVfDbzM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bzP+UXvxG2EhT8V8HiCrLslfuzjCQ96o7LbZhH50LxPHnZM0mX9WM89UFWzci3Gtr
-	 cDgE4isxrzSMIQTaiR+/hYgAi6u9unyvYgGSg8Z+z976pJmATUH59IfUIc5sc2J1aG
-	 E+lAM+HZotrtgmhUpL/AzX3gRYN+zS8KC8WGclbCe7c13SUflENJgEH5xpXGu6AdOj
-	 rtq1yaBEPE0Y20E+GKBW8hVnkQ/PXQClUL9twZ21MmKhy8ONtqqWA9VB9n1CRdmdRo
-	 RuPNPQBhCgfDPmsVDSUXYUSMLZlgoFRiaReDciVay/GejvV56HiAzMW9XYz2o2YA3y
-	 S9pMUVpZlEAMg==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Huth <thuth@redhat.com>
-Cc: mark.rutland@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Fri, 11 Sep 2026 13:44:34 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 645B31FFA6;
+	Fri, 11 Sep 2026 15:44:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789134268;
+	bh=87iJ8eoqZ3OPjJLYPFsUWmmff1ZXOWQWTIDzAIwLa2g=; h=From:To:Subject;
+	b=RSTz/0gA+qVD2TkRN/w0AOOqP5mSRoWI1xWj8h4KhN4ELdP1BREkv1ckj771WzcWu
+	 jWnZ5ZBbqUDiul0YwaRF7jg9kg56X/o9b84uE9aX0AVL5+JfwjoqcOt4IlAurZDRWD
+	 coxkNt38kC5mcvDiuG3jEXL/8ngzEAuBUE+xA1gXlO53cFTC3s0H93FxAy+7EUBf8C
+	 BgTUILscT1U0Vr5l97H2yN2Up1QZY81jPSsz8v/6h0vkFuIS1q06CNEAKxlUXH2nZm
+	 PH+CMxSB+qtmGYhcNc8mqd+66npeUKc9ee5181+g3WhhAr1bOyx6rGGlLI3yfgm9St
+	 B09Yy8umRY+3w==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Fix size of thread_data values for pthread_join()
-Date: Fri, 11 Sep 2026 14:44:11 +0100
-Message-ID: <178913088317.2458205.17622266384307064211.b4-ty@kernel.org>
+Subject: [PATCH] ARM: dts: imx7-colibri-iris-v2: drop no-op delete-property
+Date: Fri, 11 Sep 2026 15:44:09 +0200
+Message-ID: <20260911134410.178847-1-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260909155707.161121-1-thuth@redhat.com>
-References: <20260909155707.161121-1-thuth@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_064433_159765_0D7E6FFD 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Sep 2026 17:57:07 +0200, Thomas Huth wrote:
-> pthread_join() stores the thread's return value (a "void *", i.e.
-> 8 bytes on 64 bit computers) into the address that is passed as second
-> parameter. However, the entries of thread_data are only normal "int"s,
-> i.e. only 4 bytes. The additional 4 bytes of the return value clobber
-> whatever is adjacent on the stack, i.e. other members of the thread_data
-> array (which will be re-written in the next iteration of the for-loop,
-> so that nobody noticed this problem), or another other local variable
-> on the stack for the last iteration. Use "intptr_t" to declare the
-> thread_data array entries with the correct size.
-> 
-> [...]
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Applied to arm64 (for-next/fixes), thanks!
+usdhc1 never has a "keep-power-in-suspend" property set anywhere in
+its inheritance chain, so this /delete-property/ is a no-op left over
+since it was introduced.
 
-[1/1] kselftest/arm64: Fix size of thread_data values for pthread_join()
-      https://git.kernel.org/arm64/c/3d1ba5cbfb62
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Assisted-by: LLM
+---
+ arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-Cheers,
--- 
-Will
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
+index 1111111..2222222 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri-iris-v2.dtsi
+@@ -106,7 +106,6 @@
+ /* Colibri MMC/SD, UHS-I capable uSD slot */
+ &usdhc1 {
+ 	cap-power-off-card;
+-	/delete-property/ keep-power-in-suspend;
+ 	/delete-property/ no-1-8-v;
+ 	vmmc-supply = <&reg_3v3_vmmc>;
+ 	status = "okay";
+--
+2.45.0
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
