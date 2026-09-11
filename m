@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00397C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 22:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B4AC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 22:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=zcSpC8B/zBe1QBiSP3SsQ8IbOXdwAlEg8XGj9L10bq8=; b=3x1tQNLxqRsX7Ktj6hOwIaXMvI
-	FlrzIwbTOOAjxVMrw1fj2JatrAJJpUMiE9BkSjVf85NSL8XshoUJQvl/hnYv438uMVHgVcw672wEZ
-	DyLlhUrHnef4okrt12VWIeRqIVTJ4KDhqpnG3c0Hre6IQpiTPjk6TINTUXfxslw3F5GJShlYOJeJK
-	0oBBYTUz86u3fjZc5OBv1rdhl1/JwQaELC0JK3cwoIyVbPLnCtBKWKz2LJxLjlFusl3BMulASSiXD
-	nMkg7oIPOtehEbxV8sCfSP5V9nYAzZHuUT63xQjv+p/d5ONXTbxB1AxSbejYE81w6+4gYTMAh7vun
-	h6q6h3VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=srhabopEjDrPGbNiaixTBBq3q3UYUb7b5seSM2Uisn8=; b=3rTxnpxj7Zo6Qt
+	tm/nYrNvDfwAlnuNr+HlvngA3h5ubglb7M6JvJtiI5aWJbBrWsyMhAw8pr8E+VROP7nC+I3t0OQvE
+	v2Yk0eMNbjdfHzwn6vBx6haGByHObXZchHPUzjbpQvf4iM6Nd3G/E488qgBRpKX8EU2mmsgVwKvKN
+	qACua7XACFB8NiWKiZxBJqbUWMjEdfBfIN63dukkDE2r4rsS6EEmDXjmijM4cumLee+utSBZKSM5P
+	KZZvOqUSLnR58Rylv5cIBOy+b3JqPEy/iQ+NwNaooXJGQWQ5GUjUAGL63CfXo/EtMxrhoFbsUQlif
+	o8PCtyyB3tfQRzgYtPCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x59Ti-00000000EV9-1x2K;
-	Fri, 11 Sep 2026 22:12:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x59We-00000000FEF-1UU6;
+	Fri, 11 Sep 2026 22:15:16 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x59Tg-00000000EUu-0uVh;
-	Fri, 11 Sep 2026 22:12:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 500FF60008;
-	Fri, 11 Sep 2026 22:12:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6811F000FF;
-	Fri, 11 Sep 2026 22:12:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789164731;
-	bh=zcSpC8B/zBe1QBiSP3SsQ8IbOXdwAlEg8XGj9L10bq8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=fpZSM3z6PJ9swFzsvH+djv6QNuc3r3Jbh6fc5fg1plDIs1WScdIHvAlLBKslHFOpC
-	 VUlgeo0f4KrBy7cqz2x9XD+Eh3NSgeWTi4XevOllxU7aRx6le8EGCRlOn+NRS1y7ZT
-	 GYBZJbc5xO7X6hzpn+Zvxucqhh1evUkZ/RnAsEuHLV1vwBDcR/+mcWL3e5UX0jetdV
-	 yVMQfWSmiYNtJBa+MBKplM6FwGvkAsIabg7ccf5NsRaHmsVooL7N1AKbaAWG/Rv2bV
-	 0AwWtnXJG/bkaR0cMvSqKCps8HWA3DXqOgv3MqLk2Vx/pAe1cBKiOZbR7fWWy90N/G
-	 b2VIe389tv9qg==
-Date: Fri, 11 Sep 2026 17:12:09 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-tegra@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Felix Gu <ustc.gu@gmail.com>
-Subject: Re: [PATCH v9 3/3] PCI: Remove device links to PHY
-Message-ID: <20260911221209.GA587622@bhelgaas>
+	id 1x59Wb-00000000FBx-2DZa
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 22:15:15 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e65b1cc29so4513185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:15:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789164911; x=1789769711; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=srhabopEjDrPGbNiaixTBBq3q3UYUb7b5seSM2Uisn8=;
+        b=HAWIMcGrAUb+covAW6bygnX9li1krdshYcGyoEHrtNwHWTyv3n9nBz0rsYRIqIOizM
+         drNSpL1AXjNwvsaIYOuEyj+BjOULwgT3MBmIGrQ1NRgxoyl0eRzlK6vMdIb3lOkvk+bj
+         DObSKARgfBAceMqUtiJ1bvVeKdgp1y4xa9qhNLoMDb0F33XF3feZDEq5pp/F1qSDRi9y
+         +9ZZc2d+W50f+AAvmy2cK52mQIZl+1/Lxrgu1LTEeJXjU1kbhHsB2PBYmzl7fKzPdci4
+         rOlTInpxUUlYIl93sHUmnzzJjVOsA8B+fpKjsVXhPp8Ac2M7N5NUbIjlp3Rf/c3jTUu+
+         Bt+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789164911; x=1789769711;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=srhabopEjDrPGbNiaixTBBq3q3UYUb7b5seSM2Uisn8=;
+        b=WH8kYc6UEAYxXyNSmSsXO7uS6KXZmTNDR6rR3VGH4eC185YIrDSuahi9vpjf1pvyF6
+         SCT6Q4kZ8eAbvAFJNHDBUQS7rODjVdb07DJOCsXYKJqcVJ5BRnH5imLLdYd0Oxxrn7wG
+         x4CIJstVuJ1Yy6nCLtKz+zakAn9CKxdr8ZZPa7Ec4KZudqiJHsC+j03gVkY7MHLeoMVq
+         YeQ/uGBYNftKsqGpXFaCpNbWNIBigN5riY0piGX5carJXM4dgTTjWF6MJRLn0qkKR0qL
+         cF5BNvH1UqXH3V8o/qBokX0+63hiIEK5Y8Vb0blkX5CwAYaBUF9ti/7kHJZui2Y6Iy40
+         E/Bg==
+X-Forwarded-Encrypted: i=1; AKwUvByqimvLn6DZOA5uDrro0+l4IvBS9VV2oaWn+0QOcb0jJUBVcf8mYMr7eQu3soYgsIWSgAXsm0Yx2RxkrtvmEALj@lists.infradead.org
+X-Gm-Message-State: AFuF++k8ARsW0weouVBzYn5umxCz3AD4pQwxewcH+wUsCG5rkk6VL7lj
+	WUja0CyfkP5oZChwXGP7bpQStbr6qTc13S1wXL2CNfVgGOF/2pxNnLaj/yEw0ezdOhA=
+X-Gm-Gg: AYBFou3Yf84R1ItIkBGyJNj4Xb1ruaJln5nkP+JhWTbwtFhekSFDGMA+XU/lB2Kq4CU
+	bG1mhDx+rdmq7inRvaS3h5M+1EadkcvPQpLGpSsVPwoeXHXGq95Hyid1/lLDaPFefqqkGXqOS9e
+	WbJDwMipwhINpGbV3+bfNQUEAxQOZ1/FwFcfReO4sQhwnKwR4Cy/IHbbesoyKt1nnuLlk52szqy
+	BmrG4DtDi6wi+SgoREMOJ6eaeIe9BS+xcfVN1ZQs/4GbJPp8B+34FFnlxn1AluL3AUMWwIvFzXx
+	qmqY+tOlRrG3RnUqLp/vkz7qFRG8owcROEV6IP6g09SfEAGLeQKzwNPUZYlXlmWqguu5bTFFtXo
+	Z5ktwXZzPNpOr/DPUSOXkEHJFefphF5di6ptwlpwiiFEaYdLqbm7J8Rxz6KiPpU0s+7UYJbqdcm
+	I/TuXZiBDYjcIJHJBnRPvn54G41klCDkHw4m+25LaRps/koQI/hNLvOySBNgtY8ybNU22r2CdUm
+	CoY
+X-Received: by 2002:a05:600c:3513:b0:493:f140:c3fb with SMTP id 5b1f17b1804b1-49e619c0357mr123658065e9.7.1789164911027;
+        Fri, 11 Sep 2026 15:15:11 -0700 (PDT)
+Received: from [127.0.1.1] ([151.42.87.32])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26c2a419sm202882745e9.7.2026.09.11.15.15.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 15:15:10 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Subject: [PATCH 0/6] ASoC: meson: gx: add base support for I2S audio input
+Date: Sat, 12 Sep 2026 00:14:30 +0200
+Message-Id: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260810124315.433448-4-vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEZ9pGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDC2ND3cTSlMw8XcvkxKQkE1OD5GRLEyWg2oKi1LTMCrA50bEQfnFpUlZ
+ qcglIs1JtLQAVIgntaQAAAA==
+X-Change-ID: 20260831-audin-9cabb450cc94
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3226; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=PWDc5RQ3INoxq0fo7alWh++0I6W5IGuIRf0MFpXSV8s=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFlLanOaRdZMWiury/nzTfOTv99ijh7ZIG6rNWFa9b6ZK
+ 3/UeT+M6ChlYRDjYpAVU2RhmX7vd0Gp2kPjhJMFMHNYmUCGMHBxCsBEAo8x/A/Z9ERcTLvnivwC
+ h9+mV8XKT96fcuzu+WOqXI3LGX5Jh01m+J9+cd8XMRsXcV1mrd9NDN5LohSW15geuMURO3uHM5d
+ TDjcA
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_151513_603796_14BAC77C 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,320 +118,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Felix, author of device link leak fixes]
+This series is the 2nd part of the initial RFC [1] proposed to add audio
+input support to the Meson GX SoCs. After the AIU reshaping series [2] that
+has recently been merged, this one adds the audio input path itself.
 
-On Mon, Aug 10, 2026 at 03:43:15PM +0300, Vladimir Oltean wrote:
-> This is practically a full revert of commit
-> 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
-> and a partial revert of the device link pieces from commits
-> dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
-> 49229238ab47 ("PCI: keystone: Cleanup PHY handling")
+The biggest change from the RFC concerns the I2S data formatter. Previously
+it was a DT node owning a single register, which was deemed an invalid
+binding. There is now a single audin node owning the whole audio input
+register range; it instantiates the widget for the I2S data formatter,
+following the solution already used by AIU, and then probes its DT child
+nodes implementing the FIFOs. This lets the three FIFO instances share
+one driver.
 
-Can we split this into three commits (dra7xx, cadence, keystone)?
-This combined commit is applied on the pci/controller/misc branch, and
-then we have conflicts between that branch and
-pci/controller/dwc-dra7xx.
+Resulting capture topology is:
+  pads --> AIU I2S Encoder -> AUDIN I2S Formatter -> AUDIN FIFO -> RAM
 
-I think if we split this into three separate commits, we can apply the
-dra7xx one on pci/controller/dwc-dra7xx and drop Felix's device link
-leak fixes below so we don't clutter the git history with conflict
-resolutions or irrelevant commits:
+This series includes all the changes related to this work (dt-bindings,
+drivers and device-tree) in order to give the full picture in one single
+place.
 
-  https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=2b9a036b568c ("PCI: dra7xx: Fix device link leak when devm_phy_get() fails")
+Unfortunately, since no Meson GXBB/GXL board available in the tree feature
+an I2S capture capable codec, this work cannot be directly tested out of
+the box. To test it an external codec must be connected to the SoC.
+When working on this series, a custom hat board with an NXP SGTL5000 codec
+has been plugged on top of an Odroid-C2 (GXBB). The last commit of this
+series fully details all the device-tree changes which are required to
+finalize the support for this scenario.
+With this hardware configuration it has been possible to succeffully
+validate the implementation with:
+- alsa tools (arecord)
+- pcm-tests
 
-  https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=bdfdf654b4b2 ("PCI: dra7xx: Fix device links leak when dra7xx_pcie_enable_phy() fails")
+[1]: https://lore.kernel.org/linux-sound/20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com/
+[2]: https://lore.kernel.org/linux-sound/20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com/
 
-> The trouble with these commits is that they dereference fields inside
-> struct phy from a consumer driver, which will become no longer possible.
-> 
-> Since commit 987351e1ea77 ("phy: core: Add consumer device link
-> support") from 2019, the PHY core also adds a device link to order PHY
-> provider and consumer suspend/resume operations. All reverted commits
-> are from 2017-2018, and what they do should actually be redundant now.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> ---
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Vignesh Raghavendra <vigneshr@ti.com>
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> 
-> v8->v9: none
-> v7->v8: only context change - "return 0" became "return ret" for
->         cdns_plat_pcie_probe()
-> v6->v7: none
-> v5->v6: collect tag from Manivannan Sadhasivam
-> v3->v5: none
-> v2->v3:
-> - remove dangling set but unused phy_count local variable in
->   cdns_plat_pcie_probe()
-> v1->v2:
-> - fully remove struct device link **link from struct cdns_pcie and from
->   cdns_plat_pcie_probe() error path
-> - collect tag from Bjorn Helgaas
-> - adjust commit title
-> ---
->  .../controller/cadence/pcie-cadence-plat.c    |  4 ---
->  drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
->  drivers/pci/controller/cadence/pcie-cadence.h |  2 --
->  drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
->  drivers/pci/controller/dwc/pci-keystone.c     | 31 +++----------------
->  5 files changed, 5 insertions(+), 64 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence-plat.c b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> index 8aed8b4c3e11..13edc6be21f5 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> @@ -41,7 +41,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
->  	struct pci_host_bridge *bridge;
->  	struct cdns_pcie_ep *ep;
->  	struct cdns_pcie_rc *rc;
-> -	int phy_count;
->  	bool is_rc;
->  	int ret;
->  
-> @@ -122,9 +121,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_put_sync(dev);
->  	pm_runtime_disable(dev);
->  	cdns_pcie_disable_phy(cdns_plat_pcie->pcie);
-> -	phy_count = cdns_plat_pcie->pcie->phy_count;
-> -	while (phy_count--)
-> -		device_link_del(cdns_plat_pcie->pcie->link[phy_count]);
->  
->  	return ret;
->  }
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
-> index a1eada56edba..0ac980249941 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.c
-> @@ -222,7 +222,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	struct device_node *np = dev->of_node;
->  	int phy_count;
->  	struct phy **phy;
-> -	struct device_link **link;
->  	int i;
->  	int ret;
->  	const char *name;
-> @@ -238,10 +237,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	for (i = 0; i < phy_count; i++) {
->  		of_property_read_string_index(np, "phy-names", i, &name);
->  		phy[i] = devm_phy_get(dev, name);
-> @@ -249,17 +244,10 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  			ret = PTR_ERR(phy[i]);
->  			goto err_phy;
->  		}
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			devm_phy_put(dev, phy[i]);
-> -			ret = -EINVAL;
-> -			goto err_phy;
-> -		}
->  	}
->  
->  	pcie->phy_count = phy_count;
->  	pcie->phy = phy;
-> -	pcie->link = link;
->  
->  	ret =  cdns_pcie_enable_phy(pcie);
->  	if (ret)
-> @@ -268,10 +256,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	return 0;
->  
->  err_phy:
-> -	while (--i >= 0) {
-> -		device_link_del(link[i]);
-> +	while (--i >= 0)
->  		devm_phy_put(dev, phy[i]);
-> -	}
->  
->  	return ret;
->  }
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-> index b4d51adefea5..4a96e1869e53 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.h
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
-> @@ -260,7 +260,6 @@ struct cdns_plat_pcie_of_data {
->   * @is_hpa: indicates if the architecture is HPA
->   * @phy_count: number of supported PHY devices
->   * @phy: list of pointers to specific PHY control blocks
-> - * @link: list of pointers to corresponding device link representations
->   * @ops: Platform-specific ops to control various inputs from Cadence PCIe
->   *       wrapper
->   * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
-> @@ -276,7 +275,6 @@ struct cdns_pcie {
->  	bool				     is_hpa;
->  	int			             phy_count;
->  	struct phy		             **phy;
-> -	struct device_link	             **link;
->  	const  struct cdns_pcie_ops          *ops;
->  	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
->  	int				     max_link_speed;
-> diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-> index 3fc889944f02..bf6c5b86bb27 100644
-> --- a/drivers/pci/controller/dwc/pci-dra7xx.c
-> +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-> @@ -9,7 +9,6 @@
->  
->  #include <linux/clk.h>
->  #include <linux/delay.h>
-> -#include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
-> @@ -678,7 +677,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	int i;
->  	int phy_count;
->  	struct phy **phy;
-> -	struct device_link **link;
->  	void __iomem *base;
->  	struct dw_pcie *pci;
->  	struct dra7xx_pcie *dra7xx;
-> @@ -726,10 +724,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	dra7xx->clk = devm_clk_get_optional(dev, NULL);
->  	if (IS_ERR(dra7xx->clk))
->  		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
-> @@ -744,12 +738,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  		phy[i] = devm_phy_get(dev, name);
->  		if (IS_ERR(phy[i]))
->  			return PTR_ERR(phy[i]);
-> -
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			ret = -EINVAL;
-> -			goto err_link;
-> -		}
->  	}
->  
->  	dra7xx->base = base;
-> @@ -851,10 +839,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_disable(dev);
->  	dra7xx_pcie_disable_phy(dra7xx);
->  
-> -err_link:
-> -	while (--i >= 0)
-> -		device_link_del(link[i]);
-> -
->  	return ret;
->  }
->  
-> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> index e9b012a5ea9a..8085c4f61403 100644
-> --- a/drivers/pci/controller/dwc/pci-keystone.c
-> +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> @@ -130,7 +130,6 @@ struct keystone_pcie {
->  	int			num_lanes;
->  	u32			num_viewport;
->  	struct phy		**phy;
-> -	struct device_link	**link;
->  	struct			device_node *msi_intc_np;
->  	struct irq_domain	*intx_irq_domain;
->  	struct device_node	*np;
-> @@ -1130,7 +1129,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	enum dw_pcie_device_mode mode;
->  	struct dw_pcie *pci;
->  	struct keystone_pcie *ks_pcie;
-> -	struct device_link **link;
->  	struct gpio_desc *gpiod;
->  	struct resource *res;
->  	void __iomem *base;
-> @@ -1201,31 +1199,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	for (i = 0; i < num_lanes; i++) {
->  		snprintf(name, sizeof(name), "pcie-phy%d", i);
->  		phy[i] = devm_phy_optional_get(dev, name);
->  		if (IS_ERR(phy[i])) {
->  			ret = PTR_ERR(phy[i]);
-> -			goto err_link;
-> -		}
-> -
-> -		if (!phy[i])
-> -			continue;
-> -
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			ret = -EINVAL;
-> -			goto err_link;
-> +			goto err;
->  		}
->  	}
->  
->  	ks_pcie->np = np;
->  	ks_pcie->pci = pci;
-> -	ks_pcie->link = link;
->  	ks_pcie->num_lanes = num_lanes;
->  	ks_pcie->phy = phy;
->  
-> @@ -1235,7 +1219,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  		ret = PTR_ERR(gpiod);
->  		if (ret != -EPROBE_DEFER)
->  			dev_err(dev, "Failed to get reset GPIO\n");
-> -		goto err_link;
-> +		goto err;
->  	}
->  
->  	/* Obtain references to the PHYs */
-> @@ -1250,7 +1234,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  
->  	if (ret) {
->  		dev_err(dev, "failed to enable phy\n");
-> -		goto err_link;
-> +		goto err;
->  	}
->  
->  	platform_set_drvdata(pdev, ks_pcie);
-> @@ -1337,25 +1321,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_disable(dev);
->  	ks_pcie_disable_phy(ks_pcie);
->  
-> -err_link:
-> -	while (--i >= 0 && link[i])
-> -		device_link_del(link[i]);
-> -
-> +err:
->  	return ret;
->  }
->  
->  static void ks_pcie_remove(struct platform_device *pdev)
->  {
->  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
-> -	struct device_link **link = ks_pcie->link;
-> -	int num_lanes = ks_pcie->num_lanes;
->  	struct device *dev = &pdev->dev;
->  
->  	pm_runtime_put(dev);
->  	pm_runtime_disable(dev);
->  	ks_pcie_disable_phy(ks_pcie);
-> -	while (num_lanes--)
-> -		device_link_del(link[num_lanes]);
->  }
->  
->  static struct platform_driver ks_pcie_driver = {
-> -- 
-> 2.34.1
-> 
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+Valerio Setti (6):
+      dt-bindings: sound: amlogic: add schemas for audin components
+      ASoC: meson: add audin main module and I2S formatter
+      ASoC: meson: add audin FIFO driver
+      ASoC: meson: aiu: add I2S Capture DAI
+      ASoC: meson: gx-card: add support for audin FIFO
+      arm64: dts: amlogic: gx: add nodes for audin and its FIFOs
+
+ .../sound/amlogic,meson-gx-audin-fifo.yaml         |  52 +++
+ .../bindings/sound/amlogic,meson-gx-audin.yaml     |  96 +++++
+ arch/arm64/boot/dts/amlogic/meson-gx.dtsi          |  35 ++
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |  22 +
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |  22 +
+ sound/soc/meson/Kconfig                            |  14 +
+ sound/soc/meson/Makefile                           |   5 +
+ sound/soc/meson/aiu.c                              |   7 +
+ sound/soc/meson/audin-fifo.c                       | 466 +++++++++++++++++++++
+ sound/soc/meson/audin-formatter-i2s.c              | 174 ++++++++
+ sound/soc/meson/audin.c                            | 109 +++++
+ sound/soc/meson/audin.h                            |  14 +
+ sound/soc/meson/gx-card.c                          |  16 +-
+ 13 files changed, 1025 insertions(+), 7 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260831-audin-9cabb450cc94
+
+Best regards,
+--  
+Valerio Setti <vsetti@baylibre.com>
+
 
