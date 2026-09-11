@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C06EC88E53
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AD1C88E4D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xRh1SLhMiStwGt9nJg+3zWmBJZsQViVNXNAHf567sjs=; b=l+gTP96dzAXb5W0ucATEdBxAp0
-	6ZyTX1Bq7sBWqxlRqeSWh814DE7XNxyK2wHn4xKL0G2RP9IK1VZIm1aZf1XDXljAd9KCcHtrSMf45
-	E1/sKYIbbl55xL9M6B+Tdq53n3QaEz+NbYWfmoC7sdxS4r9tQRFbmnAKGv1uCWrUiBjQbLnEcvUzO
-	Nwr7ps3uwg87Pcy5HgDgrJ5Ogy1hY7rZJlkkwP812ok42km+XayMRiOS2nLhg1FPykcT/D6UyG3UQ
-	sH2fe1KfTMf6ZShbQLdovSBxWu8Gayx2Y4Q1b9/pq3xkOpxOO8xSt+fMAA78aDtuQ2+Ti06MWJyI9
-	izBUUyEA==;
+	bh=hfhvNN0fjj6swoLbh/0FaAvtFZVMTHuJaXk4F3s84AQ=; b=JNmOZKbBl87NLA0x2P2iZvYzyS
+	ErBB6fedsa8ItESjn0rg/aCWzDTvoDlIlOnvxjcxwqgDrxhBtSq9J6RA8MNLDqBWKM0dXvPVm25ni
+	HLqHBz/F5z9L5U0FdGNiQk1FzEDp4+lZuE32JW8kjq9zBncEME0ACKaqfJmgisoeXSPiRF/37QG31
+	E+6SmT9L3Wajxf6MeD5IEGEzcdcN4av+Rb9kFBj48HMKvaGGNkr7XK18PBRTRdGwcarlSlffyCbhJ
+	oPKPnAEUb7s5dfintml/bqTqXnyX84AuH8nJNjKXooz9aF+CLFbMZcNWM1nthB6ya6Qws0+OOBr9U
+	8utIXlFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54au-0000000HHBx-1Qwv;
+	id 1x54au-0000000HHBL-0WZJ;
 	Fri, 11 Sep 2026 16:59:20 +0000
 Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54ar-0000000HH69-3Tc5
+	id 1x54ar-0000000HH6g-3TqO
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Sep 2026 16:59:19 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1789145940;
+	s=mail; t=1789145943;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xRh1SLhMiStwGt9nJg+3zWmBJZsQViVNXNAHf567sjs=;
-	b=QO96gQgvJK3AcAfDBNzqVilkvuyE1sq07mFRJ3aH+WgzpTZfcHKsfHY918Li9ziYcjjS2F
-	hjHve62MjiDeNkL/S7BoRIDT9o4BK/jGLTPFoTyITakpZQ5/rqB9WO+vZQb3Tzu/YKspJo
-	V1DIQ9dVy6yYgg39kg8bvbVoipzTfbo=
-Date: Fri, 11 Sep 2026 18:58:38 +0200
-Subject: [PATCH v2 1/7] dt-bindings: arm: cpus: Add Apple A18 Pro CPU core
- compatibles
+	bh=hfhvNN0fjj6swoLbh/0FaAvtFZVMTHuJaXk4F3s84AQ=;
+	b=wRXIqfgVb6Yz/3qh2s6mH3u2Iv7yH6hudX87vP7mOAVSY4N1RhJJwNJ2ljrFJqhnYl4mQe
+	+h0jCZ4a324UVKw8/OsdqqcG+UYRc7BTU40dUtSM+G/X1ay7ZvEJ1ZM6YJUHMVBb3a332G
+	bcfWEJQe45LuI9Iuocf4EmaL5sjleQA=
+Date: Fri, 11 Sep 2026 18:58:41 +0200
+Subject: [PATCH v2 4/7] dt-bindings: interrupt-controller: apple,aic2: Add
+ t8140 compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-apple-a18-pro-initial-devicetrees-v2-1-08d06cf011d4@cyberchaos.dev>
+Message-Id: <20260911-apple-a18-pro-initial-devicetrees-v2-4-08d06cf011d4@cyberchaos.dev>
 References: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
 In-Reply-To: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -56,11 +56,10 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Guenter Roeck <linux@roeck-us.net>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_095918_122303_F7D50832 
-X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-CacheID: sfid-20260911_095918_122484_EC29675B 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,31 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "apple,tahiti-e" and "apple,tahiti-p" compatibles for the A18 Pro
-efficiency and performance CPU cores respectively. As with the M4 cores,
-there is no longer a generational codename, so we assign the core
-compatible based on SoC codename ("Tahiti") plus core type (E-Core /
-P-Core).
+The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, same as
+the M1-M4 SoCs.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index c328e9fb9843..5d79da63301b 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -95,6 +95,8 @@ properties:
-           - apple,mistral
-           - apple,monsoon
-           - apple,sawtooth
-+          - apple,tahiti-e
-+          - apple,tahiti-p
-           - apple,twister
-           - apple,typhoon
-           - arm,arm710t
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+index 1cb886785173..e3cadc5ad39d 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+@@ -46,6 +46,7 @@ properties:
+               - apple,t6030-aic3
+               - apple,t6031-aic3
+               - apple,t8132-aic3
++              - apple,t8140-aic3
+           - const: apple,t8122-aic3
+       - const: apple,t8122-aic3
+ 
 
 -- 
 2.55.0
