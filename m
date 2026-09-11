@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D138C88E60
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C516C88E54
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZp7/w3Q0JX/yCG7cFeblXe+/5tQdKM7syzdgfGv7po=; b=ni2gs4qMBqokrDjPDwoP7QtUQh
-	zM7OqqZgJPh7jHfi9naKjVElXrrd16bBP6UXehFPuN1yL/4SjbHYzcCm8p+4a9yIirwfUZX2JTH4f
-	Oo7fWtMm+PuKMxF00I/iqjsDMvwnox4PhyPH2sq22ziNqkqYcCcVENC0pkOGutWeLnKvSrQ6p8w6l
-	V7zMxVpUpR6rVHenRe4UnCZA3Li/vwGluEsa7gZrHRGfJkomWcnj4wnnC/XtiSx0ZKv7qWNNf2JbQ
-	F50doSJ0KaM9kF46EiBfGrpRV7XmrQBrXJS9i3OO0362+lkSlWFxLyuZyE5ey4yCJpXKrTdTgDodh
-	g2y3rbTw==;
+	bh=Y2p+CWD3SlvHFhm5upLG6ZgOd8bEtDZeUbNDOVEcky0=; b=F4WzzsQExKJ+XaNaCJq1Z3FvjM
+	e7JdhWNXHlpsIbMBpX81118ITTop1LzgA6k8DD2yDC1Vp/nwraUmjo/VnUOsfPJCI0tmjxnqlVX9k
+	or104A6enqkWT5TbH2IgrtHX6bjql5fyXLxmezxG/aXsmkKEVrplBe05UfgOGjOCYr9ctnBfvzsZK
+	MHLEcLYt8DN0wfP6xRXG0HoNGFEqADXVrrUDIMwymgFgXCkS0OdSbsx7YkzM0R4QcEF+W++EBFCY5
+	YDk1IP84VlvEBdW7LE3X0ogn1714oTUR5YVar8tNv3fWLIkZa0htqaZMEHPNDxylDGxd1Wb9F1igW
+	cgSV9jNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wcz-0000000G7pO-2fGx;
-	Fri, 11 Sep 2026 08:28:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4wcx-0000000G7jO-1HCj;
+	Fri, 11 Sep 2026 08:28:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wcv-0000000G7h6-2nlD;
+	id 1x4wcv-0000000G7gi-1KDF;
 	Fri, 11 Sep 2026 08:28:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4DE0C447C0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1714143C77;
 	Fri, 11 Sep 2026 08:28:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 30936C4AF0D;
-	Fri, 11 Sep 2026 08:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E0FECC2BCFB;
+	Fri, 11 Sep 2026 08:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789115332;
-	bh=ASdPmlELWfdb/Y/YJ4rVHsEqniNVnoU71S6yuvMaeDA=;
+	bh=DiPGG6/1y2xmrETzC91peDuTfVXoxRXsfQ56MzCZN9c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KppIjkc3Ey3qNP05A5ATH37K53I3DnEZ5DU+4A+G07s18UXuk780jHcDYgHixxe09
-	 AumAq9BYru8fpRU1AS6JIVu4DN+TnTQqu6zGbBVNErCErZVI7K5+eBB+4y8Um5qgYu
-	 AUODr1UJo7jM1d1ibOKJOCagsu0RLVecTSPo9ErhDxuDXHBKV9zpb5FjDtjk/Kd0Oi
-	 xG32pQiitQMoePxOOzKs5rJDNXpXMcV638bBJKrVniTKCua6nWuwR6Or+GJyszGOQ2
-	 JteDSpECQChX4f1rNnlGSduAWg4JnUpJ9WdFn/Iuq+pA/s7r+2xnba3JHqDMnH7O2V
-	 gDUhZOmpJQiYg==
+	b=eofex1EYc4oqSgx/4d58E0WLp/L067GHsx9erfSBOfnH1liGDTxjEdex2pgV5BbAJ
+	 aVia89N4jfwihLXA4kKWdxYcnUY3mBbIWAJxlu0QYImFiSap6Zbm4VUpRYhdUY5yV0
+	 uksOYtT4KKGOHU4C6KN1gF71RpQ5umL1uDFOn/Y9nLnNA1ZKei600idSSfFv1azyTb
+	 odeHrZ5T5C8FBkJOQIF1IcZ/vJppmRnqi8xiJuTMbA0JfMM8ghDllpzosQVLCgQ4RX
+	 R3xYvQ1UpyL9XuEwwsHHPZlDKyMvakuyYcmvl2zZnquHhHMK19fg45kjJVWSfNqpy8
+	 7s/zeBozfP+Sw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E9AFC88E53;
-	Fri, 11 Sep 2026 08:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C2DE8C88E4C;
+	Fri, 11 Sep 2026 08:28:51 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Fri, 11 Sep 2026 16:28:34 +0800
-Subject: [PATCH 07/10] arm64: dts: amlogic: s7: Add clk-measure controller
- node
+Date: Fri, 11 Sep 2026 16:28:29 +0800
+Subject: [PATCH 02/10] soc: amlogic: clk-measure: Support more measurement
+ channels
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-more-socs-to-support-clk_measure-v1-7-940e269aa52f@amlogic.com>
+Message-Id: <20260911-more-socs-to-support-clk_measure-v1-2-940e269aa52f@amlogic.com>
 References: <20260911-more-socs-to-support-clk_measure-v1-0-940e269aa52f@amlogic.com>
 In-Reply-To: <20260911-more-socs-to-support-clk_measure-v1-0-940e269aa52f@amlogic.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789115329; l=725;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789115329; l=1344;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=g+jOIpaICoW8GinTHQ5X1UmJpEi/mHf2rXG4N1xQzYo=;
- b=jBoQhEkWh+cODoW1/QU+/Cii70cHo4qDdgNTjWFcVZNRN8DquG2R3AjAfd3k2RUObSja2setn
- q3V83Y//pNQB9YOkf87zm3ICaORQYI5UsiSQtmaWTadt5pqCMJM4Tpo
+ bh=e2ydz5bLAgoXoKx1id6ARA1Qq/OeV3kWw0wR36wz9Ks=;
+ b=Ni8daolTgIdg3jAm0A8kb0WCYbrmYnKh/C3NyycRuAnk8bFEMRQ6GS22kUNk1VOvJlgWA3y18
+ cdffAlfZX26DHdr5MIXWfOtqEv7rTZiJaU19Ci0uE2qA1MwYsQf5+7n
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -90,29 +90,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the clk-measure controller node for S7 SoC family.
+On S4 and C3, as well as later SoCs, the clk-measure IP expands the
+number of supported measurement channels from 128 to 256. Accordingly,
+the MSR_CLK_SRC field in the register is extended from 7 bits to 8 bits.
+
+To support both the old and new implementations, the driver now
+uniformly defines the valid MSR_CLK_SRC field as bits[27:20].
+
+For SoCs where MSR_CLK_SRC is only 7 bits wide, the driver never sets
+bit27, and on those SoCs bit27 is read-only. Therefore, using
+bits[27:20] as the unified field definition does not introduce any
+behavioral change or compatibility issue for existing SoCs.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/soc/amlogic/meson-clk-measure.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-index a3faf4d188e1..64440df4f542 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-@@ -239,6 +239,11 @@ ao-secure@10220 {
- 				reg = <0x0 0x10220 0x0 0x140>;
- 				amlogic,has-chip-id;
- 			};
-+
-+			clk_msr: clock-measure@48000 {
-+				compatible = "amlogic,s7-clk-measure";
-+				reg = <0x0 0x48000 0x0 0x1c>;
-+			};
- 		};
- 	};
- };
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index 8a1a9fed0e74..0d4ba2555d17 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -20,7 +20,7 @@ static DEFINE_MUTEX(measure_lock);
+ #define MSR_CONT		BIT(17) /* continuous measurement */
+ #define MSR_INTR		BIT(18) /* interrupts */
+ #define MSR_RUN			BIT(19)
+-#define MSR_CLK_SRC		GENMASK(26, 20)
++#define MSR_CLK_SRC		GENMASK(27, 20)
+ #define MSR_BUSY		BIT(31)
+ 
+ #define MSR_VAL_MASK		GENMASK(15, 0)
 
 -- 
 2.42.0
