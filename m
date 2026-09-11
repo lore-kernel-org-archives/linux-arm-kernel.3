@@ -4,182 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D557DC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6FCC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 16:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KTa80jqO3svUzJMaVcOA3t7Su9Pi/nyY1Hhx3Hsg2m4=; b=iWnvj32t4qdCkXn0tHT16XvDGL
-	bZaaDCcwoGAWKKYy7XLgvfqd85H9zgLEWDWf8NNvNOLlu3FXEwBB28vmV0nYi80l+dqIKNEq28Fjf
-	gw/rz1sBXW87dv+eacAz2Kg0TzpH5ej8QE+Xv59oxXvNPFXKsoQRBrzrFHk21HyR+P+OlDX2q0pEo
-	uXgeiJb/me4cDoi5POwYhMPcO9kVB3YcR0QgwyPFZ+WAW9TXcylFTN0zuxd/4Fkq3Hn3KKbbxJBC7
-	slw+0gJR3IHpKjnHffquIqquiZ0O+quIWNUV1HW4vQn2NCqODIaba73e3ADiD11pLYAT5879xLNlr
-	mYqPl9Qg==;
+	bh=hxKk78RkbRW1DG36XDgMwpHJuUlT+rNxqDSm0SlrpEQ=; b=s2qpErAcn2sEjDWuEiD+oXauCO
+	tdxitOEOe+/AAtphJCvsLTcWLLl8mbcWbcA+uKdbr3Qin3PlY/pt5BQUT4qZmEmsv6BBRuR/1AlNn
+	du96Tw2jGe/7kXjSJBEKYWwCUgXrXuzlTuwAB8ehRKoifJV28BoR2wHqHWMImfuhWluJgda6huqJE
+	ERvpOXvFaWncPvSrCBtt5+vvOVq5+VgKg8+yeHdCGQ8gomKGOSGC8BH4GJxVoaWElyupAjKmX1dhi
+	TUypNTepX2zKZudhfT0C1vJH4/Py507nFL0w44go/Xk1TuZFCBpvPLLGKO/+31OZLKALAAXda7mbC
+	us25SmcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54XP-0000000HGg4-19yl;
-	Fri, 11 Sep 2026 16:55:43 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1x54Zs-0000000HGvv-2hxb;
+	Fri, 11 Sep 2026 16:58:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54XM-0000000HGe3-0sEm
+	id 1x54Zp-0000000HGuj-2JvT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 16:55:42 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BEjma72222273;
-	Fri, 11 Sep 2026 11:54:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=KTa80jqO3svUzJMaVcOA3t7Su9Pi/nyY1Hhx3Hsg2
-	m4=; b=Xy0i9XR0wRRLh1+uR9H6fqo1knZ/jjjOGxMWjlZ+xoqSoFYT+s3Ak5KLD
-	iSP9uYFh786HAWzvcIXQmWAwu8IIYsMGlpyxjn8KnbFskZeA2Vs3SXl2a8kHjEZx
-	LaWj5PgMTPO0l5qxoGacWZU7bfp3S8FfuX/HN1Ywgo7yQD029/xZff6dYS7NIUX2
-	wRsC06CNYfvD8bp6I/YYHRHGPiL2iRvb9oUJ8ns7i81zcrXjV204b3s71ZgvIHWC
-	6h/NCSpq+GMJyhLOTNGDxsyJKGvo8W/kFAjm2TAQMGFBLUcNWyEHlVSxpJcY0jnT
-	q6UMOwBjVJ+OGcN7g4HP76uRGfrbw==
-Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013014.outbound.protection.outlook.com [40.93.196.14])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gkyw9qs6a-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 11 Sep 2026 11:54:58 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UzO3Rarw7+AKSy+i63jsy5+55+3NAMhALQQiNGUyWD4dD631pYm42KQPwR/8rIZN3R2lqU/YFv7IX1CK24SVSGqjdAu+n9f2O2ms8l7E9DWslJkSPZxJXFmsHrt2Miil8jg18ti0WmoDrUtc75Of7QUsBzGLGGNjyWQ9JqY41h7f0IMU7dHWgF+hF1+NYeBQPBYKdu5Vua64+OkGscrbKtzYenyoXGTR6BBk4bipB9ngGAqqykCkQyGd9+pMpcswyQu6P2fS9iN/M+LrR21z1yuftd8oF87VYF3ZdE2+QEKnhVdwDlt3m7STH8bzK1lD7UJBW15d6KIEcb5TuB85qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KTa80jqO3svUzJMaVcOA3t7Su9Pi/nyY1Hhx3Hsg2m4=;
- b=IvSJvMmVZaO/J04qfILW+ZX10D5JqAKTbD/wv+ZdRnqH5nJvQqUXF9Fi1DLmrFsnRsOJhzQ7u6U46oCecJLcNCvxbkOlUrQVnkNZEENuC2TUu7gOxyAwAdq6b76eleH/mRrZNSDzJ53FUhtYqT8g+K21DDW62tPEp3dr7V129+RvQuvUOzBX2pxvwKGvjBebZYAngSG8enWyMjN75EX3SPK5gpnZJuc50PppfBhEms58ePHdoaDbj7R9yGdkWRz8anFqQh9p2TukBGnvaCxe1bBfyt9gmSPvsCRsTvEZHjBXV9BElCdcsOOEbzbBrb2InX4VRKM6abPkQeyyUJ2EGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KTa80jqO3svUzJMaVcOA3t7Su9Pi/nyY1Hhx3Hsg2m4=;
- b=M546PrwJ8fj/MFJ4hn1lXqPLqniqyNcoQPQTfa7YHYJ1/edIxAdcP9mdI/MLijNdvo9+jK6ZyIZezT/Iho4nZvLIi81/wpLyAZ99AP1OXcxO48hlTb1d2/s0oRRTvKuKJ1Bpz39xJDJOo6SkyPCLP7XK9fGhJhly2QHVBGzusUI=
-Received: from DS7PR03CA0042.namprd03.prod.outlook.com (2603:10b6:5:3b5::17)
- by DS0PR10MB7067.namprd10.prod.outlook.com (2603:10b6:8:145::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.7; Fri, 11 Sep
- 2026 16:54:52 +0000
-Received: from DS3PEPF0000C381.namprd04.prod.outlook.com
- (2603:10b6:5:3b5:cafe::97) by DS7PR03CA0042.outlook.office365.com
- (2603:10b6:5:3b5::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Fri, 11
- Sep 2026 16:54:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS3PEPF0000C381.mail.protection.outlook.com (10.167.23.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 16:54:51 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 11 Sep
- 2026 11:54:31 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 11 Sep
- 2026 11:54:31 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Fri, 11 Sep 2026 11:54:30 -0500
-Received: from [128.247.81.105] (hpz2.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68BGsVBE473052;
-	Fri, 11 Sep 2026 11:54:31 -0500
-Message-ID: <134505de-78e1-418e-8cd0-855697633696@ti.com>
-Date: Fri, 11 Sep 2026 11:54:31 -0500
+	Fri, 11 Sep 2026 16:58:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789145890;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hxKk78RkbRW1DG36XDgMwpHJuUlT+rNxqDSm0SlrpEQ=;
+	b=ADt8fy6N07Mc6rqaJLyKDl6RmXRWJyF9VZbanBkpJUbHyMzLRXn1ghF8nqVhpE6zLC/q9d
+	/6/gHjWtcjiKoKohZxObBwUdkZfHTaOyLQs90Khq0Vomqh+WzgMh7oehKYqgL/HhDALx2v
+	PNWxbkC5QPcHSow+0O571bnfEx2hCPw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-639-MVV-OgC7OGWKNCrtZ4sAkA-1; Fri,
+ 11 Sep 2026 12:58:05 -0400
+X-MC-Unique: MVV-OgC7OGWKNCrtZ4sAkA-1
+X-Mimecast-MFC-AGG-ID: MVV-OgC7OGWKNCrtZ4sAkA_1789145881
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 11FFE195396B;
+	Fri, 11 Sep 2026 16:58:00 +0000 (UTC)
+Received: from [100.90.56.12] (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EE9281800361;
+	Fri, 11 Sep 2026 16:57:48 +0000 (UTC)
+Message-ID: <705b3886-80ef-4b15-8aee-0521fa97cfe3@redhat.com>
+Date: Fri, 11 Sep 2026 18:57:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/15] arm64: dts: ti: k3-am62a: Fix MMC0_CLK register
- address
-To: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Garrett
- Giordano" <ggiordano@phytec.com>,
-        Wadim Egorov <w.egorov@phytec.de>,
-        "Robert
- Nelson" <robertcnelson@gmail.com>,
-        Tony Lindgren <tony@atomide.com>,
-        "Nora
- Schiffer" <nora.schiffer@ew.tq-group.com>,
-        Stefano Radaelli
-	<stefano.r@variscite.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Moteen Shah
-	<m-shah@ti.com>
-References: <20260909214743.899477-1-jm@ti.com>
- <20260909214743.899477-2-jm@ti.com>
- <9a1146e9-0c00-4348-b1a5-31be7c597eea@ti.com>
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+To: Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>,
+ arnd@arndb.de, pasha.tatashin@soleen.com, rppt@kernel.org,
+ pratyush@kernel.org, graf@amazon.com, akpm@linux-foundation.org,
+ maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org,
+ kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-pci@vger.kernel.org, iommu@lists.linux.dev
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com>
+ <20260905012403.GX4157646@nvidia.com> <aqIAtOoew-_6jw29@google.com>
+ <20260910143448.GD3968357@nvidia.com> <aqLOWkuVKccR-I7W@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <aqLOWkuVKccR-I7W@google.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: KUqBNAz-0_IUH2A7Oio5RWGb-eZXZsrjAvF8E8rjv0M_1789145881
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <9a1146e9-0c00-4348-b1a5-31be7c597eea@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C381:EE_|DS0PR10MB7067:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7fc4968a-7b40-4c51-6ca6-08df102565ef
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|36860700016|82310400026|6133799003|10067099003|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: QnPBxuNBIBmfwb6HN+1sZFxOdDfrTwFTJ1XNStnxV4U7Msmo7l4uuJfMomOIlsbyRZkbGYWoKFIistMefhsWo9DjeVF6SqTUT7CNBY/C/vjF/GQ9Af5WcdmA/Jv/bJMCbUJ+JWUyvxpTvfsCdk/x5Z+gXp8G3V1so7X5jHt6KkDWdOG47RuYZYxB7tPHJ3K3DqFZMwo7meQhNB1IsPuDUslGTmGyruZq82ebKJHzgwct+qdkfX4t1VAh/lywggwMdk3e6YZouYJNLWP8AeRy1kvMWoVn7yvyVCkl4N0jSN7FCjVEwpNuoqKzCq2oQ+H671YoJAkhi+bDQRCeJsogc1xJLc4Lh/PDL1hvkbjilmy4zwYB6PzfOL/IVz7Q6I90iTnhAMhGuTPEHNnUhbDkrOG3RQuKNrmdLj60EVoQJCqqDXk6V77dlRiRQSa2gl1E9W/1d4yLKfgiX6d8Q6G/WzMz353+Mys8msfhFKhlYQxAF0VheAhq5NDPoraeZ782H3slLvSVdZzF0oP2Sw5If3ndLsSZR/+PfNio52UnkYOOywVx5X6Van4GDegE//PJeUhRvixJ0Mo30svFBzuGX4rgOx1pDA7h/e+Nf0OzKeAG2zKow4mFQTw+csbm/4b87tR1BNgumIUVqbp0W5WK4dGGR7+HraboHHW25Agrq9UFzVJgF0bZbnIkU6s1GY/1nT97ybG/uVsFn3LyuQNp8g==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(36860700016)(82310400026)(6133799003)(10067099003)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZjIl0ZX1mlFFYyD5Sb6zHwg6jCBMxx+rGtzFwdrliVeRAYJdhMTqVTYJeXl67jvJZbtARIE1DbTqjPDTN82UFh14qIyPhWhGqX9+QQ+dEGO6uQq+rWlzXh6yaQRL4H53eJuDITG6YUm7gy5hSxiVKGemZMU/Enp6lR8/li3D0FVXCx7M8wbHhh8I0QwVuN3/FxoApEHBzalhf3Mb9y7EM93y1Ws1Q4mgn161TLFHoV/TELyhxTBBr9TANh7DDL1ZniMkfylNfbd/OgbElOayMZXcrfAAq5lpvqsiA1z0sQHD9qGkGsHyJoumlxWCU8sI9OL5/5A4/t0sAqPQpdKGzttn5/0u2D3kZpY+H8Ib2WFJks8bb++GCbiEBslZZHVuL6sS8FnF8lPGhyXQINBy/LP6Gc8dhzkpP6VQBCa4grEQ6V6HdIfX0kZ6PWfQ8uGm
-X-Exchange-RoutingPolicyChecked: a+pAMjfmuFcHEK9z54B9OnRB96KvBGG542fI07tJ0b/L+mte5l9cebW0MnQTB59jJYYLIMB9plu5zIkphhFVEg/zB2huAjdh2x5wMSptG6wyDHt4imXQqxYSKpiwoQO8FoNZqebdyZfvhSFBg5YqOap9Iv4AjEfxvB6mxnYyHxDtKKqW0V0FzkedVVN2BquBm+vZ/xOVa19IyTE2GnQTFsi0V6sM10phuOaaec5dGI8fDoFBlNFsk4/LHKze1BlaOGOaHYm6/keoFwLPP3k8rdxnpnvRCp7WGro3nnbL7Z2vTg/kXVQsUmHRK5ofjaLaF8CD8nzLT6bf25zi7dHLYQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 16:54:51.8873
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7fc4968a-7b40-4c51-6ca6-08df102565ef
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7067
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDIzNiBTYWx0ZWRfX258QYiKRHiTb
- LDiRwYLhKkSUi6OZKtzEmkESGK7192vQ8z+64zXZqYwIcYzhbc9VI3ihF7FQ+2p+3pxhD7lWhes
- R0qq18ynsk9slJ4MKDhVB2lHwh8/yBE=
-X-Authority-Analysis: v=2.4 cv=ON6yTiaB c=1 sm=1 tr=0 ts=6aa43262 cx=c_pps
- a=hwAR686YzpmZ7aH69gEPcA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8
- a=VwQbUJbxAAAA:8 a=XRC_AYY96FsfdDYP95gA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: I1H4ps_Z1Cwgcorq-cO0NoK4MDT7jo9B
-X-Proofpoint-ORIG-GUID: I1H4ps_Z1Cwgcorq-cO0NoK4MDT7jo9B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDIzNiBTYWx0ZWRfX+93gNCtGurMS
- KFZURfFOPN+U4154wmv4xwSgRFni+1kSRGSQZFAdnQTiIFW86jXGGbfgKSniXO7gVfGF4mnHDXE
- caBMYblci7O0S+ltqUoKAa67jrwOEe9q8afQ6LtcpnZYRewHAGWZywhtqGmHHnAxE2j4vGPb9og
- TPAQKMm+RexR5wH3YLTvZFkiIqNweLbZU8CF/VF8hrDlcyZSRyJGfK4q+px9dSjRtXiKF6V8fm5
- jOH7VtDzWxDrVlEGl/2ItzXjGJkMZeGNGuphfSYO/x6uf/YtZwasLvNmchLsNJtr5NJkmmzQaJs
- APl1PU2tSyGIvxjImF+JA+WpKa/QMd5hVOILM+rd/etv31AYQlENw0b/8myRtrUJq3m7gu1NohG
- OhKDlCgISO2KjYggw8gMh5aXmcNiGW5BeW/iEeziuMW0PUxKww6tylBUrNzWYRAjGc6dD/Kmff0
- /F4oHCK1H0ZEVXs8a6g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-11_05,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 clxscore=1015 phishscore=0 bulkscore=0
- spamscore=0 suspectscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609110236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_095540_368526_5B90F332 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260911_095813_658274_F73A0718 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,53 +134,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Udit,
-
-On 9/11/26 2:57 AM, Kumar, Udit wrote:
-> 
-> 
-> On 9/10/2026 3:17 AM, Judith Mendez wrote:
->> MMC0_CLKLB and MMC0_CLK have incorrectly swapped register addresses
->> as per datasheet [0]. Set the correct MMC0_CLK address and drop the
->> unneeded MMC0_CLKLB pin configuration.
+On 9/10/26 17:35, Sean Christopherson wrote:
+> On Thu, Sep 10, 2026, Jason Gunthorpe wrote:
+>> Sometimes you can do more and more work to try and be more and more
+>> general but this is *alot* of work and even then eventually hits
+>> problematic limits. Like what do you do with the sealing flags? That's
+>> ABI breaking if the successor does not support them, and downgrades
+>> make exactly that possible.
 >>
->> [0] https://www.ti.com/lit/gpn/am62a7 Rev. E: Table 5-1. Pin Attributes
->>
->> Fixes: e041ec6e86e7 ("arm64: dts: ti: k3-am62a7-sk: Enable eMMC support")
->> Cc: <stable@vger.kernel.org>
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> Reviewed-by: Moteen Shah <m-shah@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 3 +--
->>   1 file changed, 1 insertion(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> index d3b3675e7a8fc..b04636cab71c7 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->> @@ -328,8 +328,7 @@ AM62AX_IOPAD(0x0b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
->>   	main_mmc0_pins_default: main-mmc0-default-pins {
->>   		pinctrl-single,pins = <
->>   			AM62AX_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
->> -			AM62AX_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLKLB */
->> -			AM62AX_IOPAD(0x21c, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
->> +			AM62AX_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
-> 
-> Shouldn't be MMC0_CLK be o/p, instead of  PIN_INPUT
-> Similar to patch [0]
-> [0] https://lore.kernel.org/all/20260909214743.899477-4-jm@ti.com/
+>> A CSPish user can do things like patch the new sealing flag into their
+>> current kernel (while preventing userspace from using it), ensure
+>> everything is updated to that, then jump ahead to a newer kernel and
+>> enjoy the new flag with full downgrade support. There is so much more
+>> control on their part that makes the problem far more managably simple
+>> that upstream does not get to have.
+>
+> I guess maybe we have a different definition of ABI? I'm not saying
+> that upstream has to be 100% forwards and backwards compatible. I'm
+> saying the serialization payload itself should communicate what
+> features are effectively required.
+I strongly agree with Sean on this, like really really agree.
 
-Yes it should, and it is in the same series as  you pointed out. This
-current patch only fixes register address as per commit description. (:
+All you need is serializing *actions*.  Make the destination a small 
+interpreter not something that read structs.  memfd/guest_memfd is 
+already created by a bunch of actions, which are syscalls, so it 
+shouldn't be hard to either come up with the actions or parse them in 
+the destination.
 
-~ Judith
+An example matching (going by memory) what is now in place for memfd:
 
+- memfd_create(name[], flags)
+- memfd_map(folios[], index)
+- memfd_finish(seals, pos, size, mode)
+
+So:
+
+#define MEMFD_LUO_CREATE 0
+#define MEMFD_LUO_MAP 1
+#define MEMFD_LUO_FINISH 2
+struct memfd_luo_op {
+	/* 0 = end */
+	u32 size;
+	u32 op;
+	union {
+		struct {
+			u32 flags;
+			char name[];
+		} memfd_luo_create;
+		struct {
+			u32 flags;
+		} memfd_luo_secret;
+		struct {
+			u64 i_size;
+			u64 f_pos;
+			u32 f_seals;
+			u32 i_mode;
+		} memfd_luo_finish;
+		struct {
+			u64 index;
+			struct memfd_luo_folio src_folios[]; // whatever
+		} memfd_luo_map;
+	};
+} __aligned(8);
+
+You write almost everything at prepare, just ensure there is room for 
+finish and write that on freeze.
+
+Want to move secret memfds?  Sure they're different in underlying 
+implementation but they can share LUO serialization format almost 
+entirely.  Make it a new op instead of create.. you have 4 billion 
+possible ops, adding them isn't quite free but not too expensive either.
+
+In fact memfd is the easy case, almost always you'll have a more 
+complicated initialization sequence and a huge explosion of 
+possibilities, but the good thing is that the kernel *already* has to 
+initialize its data structures from actions.  We're not quite 
+serializing syscalls but pretty close, in fact for KVM a lot of code 
+could be shared between ioctls and LUO receiving side.
+
+It doesn't have to match exactly userspace, for example you wouldn't 
+really need to transmit MFD_ALLOW_SEALING because it's implicit in the 
+seals you transmit.  That said, taking inspiration doesn't hurt; just 
+remember to *always* validate unknown flags.
+
+>> If it really succeeds at that and it becomes very popular, then let's
+>> discuss upstreaming doing additional version combinations.
 > 
+> Why on earth would we have version numbers in the first place?  IMO, monotically
+> increasing version numbers are flat out the worst way to communicate features.
+
+This, too.  KVM has been at API version 12 since 2007.  It is not 
+userspace compatible with 2007 vintage QEMU, because a couple 
+misfeatures were removed after 10 years or so of waiting, so I guess 
+technically it would be 15 or 16, but it doesn't matter because no one 
+checks KVM_API_VERSION.  If a ioctl works it works, if it doesn't you 
+get a much better message than "KVM API version mismatch".
+
+>> Okay, how about worse, todays kernel has hugetlbfs and there are
+>> patches around to luo serialize that. Lots and lots of talks about a
+>> post-hugetlbfs world out there.
 > 
+> And?  Adding a compatibility layer to a future kernel so that it understands an
+> incoming HugeTLBFS payload should be trivial.  I can totally see not wanting to
+> support serializing a post-HugeTBLFS kernel's memory representation into the "old"
+> format, though even that probably wouldn't be all that difficult.
+
+Yeah, hugetlbfs is an implementation detail *of the destination* not the 
+source.  The destination somehow needs to take the 1GB area and donate 
+it to hugetlbfs.  That's not the source's problem.  All the 
+source->destination ABI contains is MFD_HUGETLB and MFD_HUGE_*, which 
+promise to the destination a certain alignment of all map requests.
+>> Do we want to reject the hugetlbfs serialization until we have a year
+>> of debate outlining every possible ABI scenario? I also vote no.
 > 
->>   			AM62AX_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
->>   			AM62AX_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
->>   			AM62AX_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
-> 
+> That's a bit of a strawman argument.  Is designing a forward-looking ABI easy?
+
+No, but it's also not *that* hard if you have a half-decent userspace ABI.
+
+> Hard NAK.  There will inevitably be boundaries that cannot be crossed, but I am
+> not at all ok punting on downgrades.  To me, that's basically saying "we want to
+> add just enough support upstream so that it's not too painful to carry full support
+> out-of-tree".  That completely goes against the spirit of open source and upstream
+> Linux, and I want no part of it.
+100%.  And I'll add, what happened to "we don't break userspace"?  This 
+does the intentional opposite in the hope that no one cares about using 
+this feature upstream.  Which in the long term hurts downstream forks as 
+much as upstream.
+
+Paolo
 
 
