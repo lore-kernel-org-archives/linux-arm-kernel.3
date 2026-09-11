@@ -4,46 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49194C88E5A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC03C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 12:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHcnWQis0a9YdEbj0QwnLdNo84Wg9sGXZxx3L0bx0Ig=; b=P/HVgPMBaRatUexnFCg8kGtZfH
-	5xQ8xLMduC4ZLesuWHTRrfihQvbfE0a7t0ueAzR1rnHN/QK/IFtyXpspmAycJ/iaLU5GpDUtZ9Gh5
-	v3fFthTcZOjc5Sx4b58eosMv6rHmByUGvKLicyuxfYsw8BOEIIm+XEB0kTYtT+8ZdZpWR2+6i4qtx
-	/Gj4A/kGI0lnu21+9oNnqaZB2bcFy0tRaKztkib0Qpm4xiCfdpE2YDugWCiuvKiWZnaBvXQW7hchl
-	l6/LObWDsJO12PM3A0fsYbhISiD152Ccg+Mjn0QRIa1wV9JNdicWMRveavioxoTkS618N9MEQuF/+
-	KWOGwx/g==;
+	bh=SnvK6SDSqRaczPeuHNPtlErQ77C4BU5i8ISwXQWL8II=; b=4c8aHgOkgJs/+coRVSk0LeNBxH
+	WZ8wT/ZTnSta5KxRCvq8MZpnFnMkUWSOYnoUeNiX8hThhLDa418KDfMgp7GhwHXIg/qbg6tNdLIpm
+	XAxwkWjkXSsg+XN+BAJyHTSNBQcrri9+Lb39a8wUjIKgyvXjfNm9Jg90dW3aY+an8EphLjfzfc6OA
+	OH/6NmuVzF8PU5gAgt8G6yK12vHn49Ikd2xMS2klqqtgOJN+BN23eBYjZfuHagUliQ5ft+xpGOj4V
+	u49DuHi0Bg7pIDmhbZVLSst3uqOcFzh00XZLgKP9/FsFqZahLqEaiUngR91ozjmH9FdLry+buAb40
+	fAfYDANQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50df-0000000Geax-2df2;
-	Fri, 11 Sep 2026 12:45:55 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1x50dn-0000000Geg0-3XFG;
+	Fri, 11 Sep 2026 12:46:03 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x50dc-0000000GeZO-3iST
+	id 1x50dk-0000000GedQ-3llt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 12:45:54 +0000
+	Fri, 11 Sep 2026 12:46:02 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E672421B74;
-	Fri, 11 Sep 2026 12:45:50 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BEDD91FE76;
+	Fri, 11 Sep 2026 12:45:47 +0000 (UTC)
+Authentication-Results: smtp-out2.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1789130747; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SnvK6SDSqRaczPeuHNPtlErQ77C4BU5i8ISwXQWL8II=;
+	b=PW8TgfjvIstBD9399q7YSvx+2i/FGZUl3rJltk8jc8Lr+ufRqmThDu/eCIyPZenENvBx9s
+	DH0TM+g3HHDMOY1y8L13rn3Pa/z1SqGdVQMxHCBC/ZptxRr4K/i7qXRLMJpS9sNT3wgp55
+	VIIPPSW8m9eU9hATB0tE/LIA+GjJ/zM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1789130747;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SnvK6SDSqRaczPeuHNPtlErQ77C4BU5i8ISwXQWL8II=;
+	b=6d0ixILuG3io/xxjsylDalXvRVdoUUZ8JX2BGO0WcTVPY9+P7JMONBsDWKueLA3cyeoAf2
+	kKPhjiVx6ujhXHCg==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A0B8A137DE;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1AA2213794;
 	Fri, 11 Sep 2026 12:45:47 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 4OL4Jfv3o2r8EQAAD6G6ig
+	id 6G9NBfv3o2r8EQAAD6G6ig
 	(envelope-from <tzimmermann@suse.de>); Fri, 11 Sep 2026 12:45:47 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: jfalempe@redhat.com,
@@ -67,28 +85,26 @@ Cc: dri-devel@lists.freedesktop.org,
 	virtualization@lists.linux.dev,
 	sashiko-reviews@lists.linux.dev,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v5 04/14] drm/panic: Return errno codes if panic output fails
-Date: Fri, 11 Sep 2026 14:43:57 +0200
-Message-ID: <20260911124540.279841-5-tzimmermann@suse.de>
+Subject: [PATCH v5 03/14] drm/panic: Return -EINVAL if font is not available
+Date: Fri, 11 Sep 2026 14:43:56 +0200
+Message-ID: <20260911124540.279841-4-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260911124540.279841-1-tzimmermann@suse.de>
 References: <20260911124540.279841-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
 X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: E672421B74
+X-Rspamd-Queue-Id: BEDD91FE76
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
 X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
+	REPLY(-4.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLo585esf9b7txaosbn5shab9z)]
 X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_054553_082757_B26442CC 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20260911_054601_089741_BFFBB0DB 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,227 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return errno codes from the panic output helpers to detect invalid
-panic handling. Avoid flushing the display if an error ocured. The
-unflushed display output might be helpful in debugging.
-
-For now, test the result values in the panic test cases. A later patch
-will add support for retrying failed panic output.
-
-v2:
-- forward return value of draw_panic_screen_user() (Sashiko)
-- forward errno code from drm_panic_get_qr_code
+Font lookup does not allocate memory. Hence reporting ENOMEM on
+failed lookups is misleading. Report EINVAL instead.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
 ---
- drivers/gpu/drm/drm_panic.c            | 47 +++++++++++++++++---------
- drivers/gpu/drm/tests/drm_panic_test.c | 16 +++++----
- 2 files changed, 41 insertions(+), 22 deletions(-)
+ drivers/gpu/drm/drm_panic.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 62490d32019c..cc33a2b4bb52 100644
+index d28ce8878e05..62490d32019c 100644
 --- a/drivers/gpu/drm/drm_panic.c
 +++ b/drivers/gpu/drm/drm_panic.c
-@@ -480,7 +480,7 @@ static void drm_panic_logo_draw(struct drm_scanout_buffer *sb, struct drm_rect *
- 				   fg_color);
- }
+@@ -751,8 +751,10 @@ static int _draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
+ 	int qr_width, qr_canvas_width, qr_pitch, v_margin;
+ 	u8 *qr_image;
  
--static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_user(struct drm_scanout_buffer *sb)
- {
- 	u32 fg_color = drm_draw_color_from_xrgb8888(CONFIG_DRM_PANIC_FOREGROUND_COLOR,
- 						    sb->format->format);
-@@ -491,7 +491,7 @@ static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
- 	unsigned int msg_width, msg_height;
- 
- 	if (!font)
--		return;
+-	if (!font || !qrbuf1 || !qrbuf2 || !stream.workspace)
++	if (!qrbuf1 || !qrbuf2 || !stream.workspace)
+ 		return -ENOMEM;
++	if (!font)
 +		return -EINVAL;
  
  	r_screen = DRM_RECT_INIT(0, 0, sb->width, sb->height);
- 	drm_panic_logo_rect(&r_logo, font);
-@@ -510,6 +510,8 @@ static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
- 		drm_panic_logo_draw(sb, &r_logo, font, fg_color);
  
- 	draw_txt_rectangle(sb, font, panic_msg, panic_msg_lines, true, &r_msg, fg_color);
-+
-+	return 0;
- }
- 
- /*
-@@ -549,7 +551,7 @@ static int draw_line_with_wrap(struct drm_scanout_buffer *sb, const struct font_
-  * Draw the kmsg buffer to the screen, starting from the youngest message at the bottom,
-  * and going up until reaching the top of the screen.
-  */
--static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- {
- 	u32 fg_color = drm_draw_color_from_xrgb8888(CONFIG_DRM_PANIC_FOREGROUND_COLOR,
- 						    sb->format->format);
-@@ -564,7 +566,7 @@ static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- 	int yoffset;
- 
- 	if (!font || font->width > sb->width)
--		return;
-+		return -EINVAL;
- 
- 	yoffset = sb->height - font->height - (sb->height % font->height) / 2;
- 
-@@ -591,6 +593,8 @@ static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- 			start--;
- 		}
- 	}
-+
-+	return 0;
- }
- 
- #if defined(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
-@@ -767,7 +771,9 @@ static int _draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
- 	max_qr_size = min(3 * sb->width / 4, 3 * sb->height / 4);
- 
- 	qr_width = drm_panic_get_qr_code(&qr_image);
--	if (qr_width <= 0)
-+	if (qr_width < 0)
-+		return qr_width;
-+	else if (!qr_width)
- 		return -ENOSPC;
- 
- 	qr_canvas_width = qr_width + QR_MARGIN * 2;
-@@ -808,10 +814,11 @@ static int _draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
- 	return 0;
- }
- 
--static void draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
- {
- 	if (_draw_panic_screen_qr_code(sb))
--		draw_panic_screen_user(sb);
-+		return draw_panic_screen_user(sb);
-+	return 0;
- }
- #else
- static void drm_panic_qr_init(void) {};
-@@ -882,23 +889,25 @@ static bool drm_panic_is_format_supported(const struct drm_format_info *format)
- 	return drm_draw_can_convert_from_xrgb8888(format->format);
- }
- 
--static void draw_panic_dispatch(struct drm_scanout_buffer *sb)
-+static int draw_panic_dispatch(struct drm_scanout_buffer *sb)
- {
-+	int ret;
-+
- 	switch (drm_panic_type) {
- 	case DRM_PANIC_TYPE_KMSG:
--		draw_panic_screen_kmsg(sb);
-+		ret = draw_panic_screen_kmsg(sb);
- 		break;
--
- #if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
- 	case DRM_PANIC_TYPE_QR:
--		draw_panic_screen_qr_code(sb);
-+		ret = draw_panic_screen_qr_code(sb);
- 		break;
- #endif
--
- 	case DRM_PANIC_TYPE_USER:
- 	default:
--		draw_panic_screen_user(sb);
-+		ret = draw_panic_screen_user(sb);
- 	}
-+
-+	return ret;
- }
- 
- static void drm_panic_set_description(const char *description)
-@@ -945,9 +954,15 @@ static void draw_panic_plane(struct drm_plane *plane, const char *description)
- 
- 	drm_panic_set_description(description);
- 
--	draw_panic_dispatch(&sb);
--	if (plane->helper_private->panic_flush)
--		plane->helper_private->panic_flush(plane);
-+	ret = draw_panic_dispatch(&sb);
-+	if (!ret) {
-+		/*
-+		 * Only flush if we have a panic screen to display. Otherwise
-+		 * it's probably better to leave the display output as-is.
-+		 */
-+		if (plane->helper_private->panic_flush)
-+			plane->helper_private->panic_flush(plane);
-+	}
- 
- 	drm_panic_clear_description();
- 
-diff --git a/drivers/gpu/drm/tests/drm_panic_test.c b/drivers/gpu/drm/tests/drm_panic_test.c
-index ad2f3a2f93b6..fdd77b0cc54c 100644
---- a/drivers/gpu/drm/tests/drm_panic_test.c
-+++ b/drivers/gpu/drm/tests/drm_panic_test.c
-@@ -30,7 +30,7 @@ struct drm_test_mode {
- 	const int width;
- 	const int height;
- 	const u32 format;
--	void (*draw_screen)(struct drm_scanout_buffer *sb);
-+	int (*draw_screen)(struct drm_scanout_buffer *sb);
- 	const char *fname;
- };
- 
-@@ -87,7 +87,7 @@ static void drm_test_panic_screen_user_map(struct kunit *test)
- 	const struct drm_test_mode *params = test->param_value;
- 	char *fb;
- 	int fb_size;
--	int i;
-+	int i, ret;
- 
- 	sb->format = drm_format_info(params->format);
- 	fb_size = params->width * params->height * sb->format->cpp[0];
-@@ -102,7 +102,8 @@ static void drm_test_panic_screen_user_map(struct kunit *test)
- 	sb->height = params->height;
- 	sb->pitch[0] = params->width * sb->format->cpp[0];
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- 
- 	for (i = 0; i < fb_size; i++)
- 		drm_panic_check_color_byte(test, fb[i]);
-@@ -119,7 +120,7 @@ static void drm_test_panic_screen_user_page(struct kunit *test)
- {
- 	struct drm_scanout_buffer *sb = test->priv;
- 	const struct drm_test_mode *params = test->param_value;
--	int fb_size, p, i, npages;
-+	int fb_size, p, i, npages, ret;
- 	struct page **pages;
- 	u8 *vaddr;
- 
-@@ -146,7 +147,8 @@ static void drm_test_panic_screen_user_page(struct kunit *test)
- 	sb->height = params->height;
- 	sb->pitch[0] = params->width * sb->format->cpp[0];
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- 
- 	for (p = 0; p < npages; p++) {
- 		int bytes_in_page = (p == npages - 1) ? fb_size - p * PAGE_SIZE : PAGE_SIZE;
-@@ -182,6 +184,7 @@ static void drm_test_panic_screen_user_set_pixel(struct kunit *test)
- {
- 	struct drm_scanout_buffer *sb = test->priv;
- 	const struct drm_test_mode *params = test->param_value;
-+	int ret;
- 
- 	sb->format = drm_format_info(params->format);
- 	sb->set_pixel = drm_test_panic_set_pixel;
-@@ -189,7 +192,8 @@ static void drm_test_panic_screen_user_set_pixel(struct kunit *test)
- 	sb->height = params->height;
- 	sb->private = test;
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- }
- 
- static void drm_test_panic_desc(const struct drm_test_mode *t, char *desc)
 -- 
 2.55.0
 
