@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E62C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CC3C88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 07:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAbGJK1TfivU+OKkZxPlu+JsW/mWTytutOio68a70R4=; b=frYM0zS2DnHfClOZ/YiM8M6N8Y
-	RmlS5slQAqJeQk0cUN2Bmsryj83WB5OGkjZD1hf3m8kpXBtXyYX9c+QKEGGBlsAwWFSf6mhxPGmjc
-	aNRDmPQjeLnnYJ0sTknN7TLWyQSKrKj6Aq4+h4kClWTjwY5TuCnkv0xIH6L3ZMi0MU3I+7gethwFg
-	RDMSASgkpyiZZmadxX419ZQ2B78PBiS5z8nMTL0/+OhZPg2BzckRJQPUQZXy8J3GbsubOIGLssQTU
-	lEUir5tfYmXyaf66yagenmQn+kmOmgVRdecBZrk5M/lcYoJGVsCKL7IQquvplV82ySG8oXHfhi+FU
-	Q+kVY3aQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W6+glI+goJHVqKYDYCONg5FmS7+GpysWG5BLuwQqvu8=; b=zI1+mAYo7QvXh5
+	gqMxbMuin4b8de5Lck/0qc4S446pIqsks6hJwLNlPwT1K3oQbg2xUi0ZI8xz36oHCbflWYAXRpPrg
+	RO7FjhRMHmT2t290NYuzrFfpPENJ9hGjNrbWF+jy2XPqfvdraEuKQxlgpdL3yZC5NY5ce5WBbjpHa
+	8mln177HurkDmnzt1EfIyChhh4wilmervn5483QjwwppmqfmK6C/flUOGRem53V1q+itM71JS91yx
+	jSsdVL1nOmbAoQaGUFGH+GdKr6Glh2kOQDvLWDy3rlCjnkzecb4xzjkfYOud6jpP1Eu7e/zeTeHFk
+	+4ZRXQtUL22X9OHcJZsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vzS-0000000G45a-2tel;
-	Fri, 11 Sep 2026 07:48:06 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1x4w50-0000000G4dY-2HNr;
+	Fri, 11 Sep 2026 07:53:50 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vzO-0000000G42q-0eVP
+	id 1x4w4w-0000000G4cE-38VW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 07:48:03 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-86265451beeso396060b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 00:48:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789112881; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sykmus8wkGl3JgrXnlkwyqxGftmcrN6R9zvrLtt/T0CUwPZd2s19wQV1PosSFRt7p5
-         07iQmk3S3UjrTAGJphaNRGgnFIwM+3pAkWotLPwUsFtZ9nLdA93THdE4n5Ijaj0n52fT
-         8B8latwe41NJgYlO9BFZ6w3sGK7JuZrmAMr6Hoyq2eM8lBTTzI5UxhPbz8UJOY7FSRWh
-         VFWgY6W39cWdi5neqY88bOG1/5DRh/W/Lr7/Mg++b7n9xLP2IKEb6o6DNtQpG0yzdJCO
-         ro5QG0DCm3HM6ua6nvxTdAg1Iq1gf+FjkLFxR6Vbs5cW+DWOym1gK1HFFsSSoU8WTclk
-         WGXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=nAbGJK1TfivU+OKkZxPlu+JsW/mWTytutOio68a70R4=;
-        fh=B8Fw0PLpSW/RJiBWBBY/azqp54q5cCHsuUUbBpVaNFQ=;
-        b=FQO8chjs5R0+HPzSNxDNJnU3qB2zAkKGSyAHIuORC8FEwxdm4V7eUtALw2gP3C9WeS
-         xVaCaN/Fz7RjNi5cE3l+D274UMevAdC1l6dGfAia5IMofGMEbmvYeYWdA5lBtvjU5tAG
-         eB2dNvQv7NBnxnKKuqCB9r40b92NXAjr/iyEQtwOjn4EbR070bADVwiWfQ3Y9sjxgThw
-         PCgkbOAnhLKg+ZQRbsOfcKP5fE2VEk42e9RrcM79rbf6vTNZde4y1D58yTF/2A7KDRQV
-         SQrr2w1wigzg0uA5z7W1Ie3GmOCNDIYRhD5U8hLK0bQw/h3lwebIc2w0Z1xNFUHI+Cq9
-         J+4g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789112881; x=1789717681; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nAbGJK1TfivU+OKkZxPlu+JsW/mWTytutOio68a70R4=;
-        b=g2csJUTe3Hel2HJHUkAkeOIIw/FAcAkWcpIUDqFVKKsrM5wnLXE32U/dzTCTs7zcws
-         hvuiFdq2OlofkSKUN/uuryzvn3pxJpH758hPGo2PQhrWJIPwwp3RXtcTnR7DYrSygVIh
-         INBK8vtvihGwcNgUKoFofnwNS0f2Nf6+BZ76BUx5/PHzZ9J8CgY+qI9EmY0NyFlccmcS
-         Sm3g2M1wWNX5hZVx4dCBdRnEoWiJQlLeuHHoexhxPNsXQ7f2MIMGbru3/jdzREy05isl
-         dDLU2kc9th9kIPTCO88fuhdzG8vxC2hnwihch6EfTNIGkyFSVZsWYbTc2lJCzz+Ma/kn
-         fKsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789112881; x=1789717681;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nAbGJK1TfivU+OKkZxPlu+JsW/mWTytutOio68a70R4=;
-        b=PIyTIk1nHbPI+zJB20mAqn31saPDQ9WyeclggChOAggkSux+yLHj8OdVpOTWueHalf
-         9Q8uh/kRlKEHgjIagMxQ1lxbx9YhtDV/DwvIbImOdrz212VxTRzvMW+CKC1URDzGhdSL
-         dcfZ7X2J7K7QX7GWt5jAYgJfsTJoLuqgEgAuF4GKhsivYFwyvMOpgsRkIeHWrjt7cV9w
-         PDAx34KeTdH7fd0r0fQ8NOLSnNpFVQEZkNTT6ZAD3A4Co9j46s749xO+Ckb+zRmlESha
-         MVX1zP9hRjUBGguBPQ97PQUhus0Z3FuyjcwYfmYwLFiy/qHykkFQfT4/TY7EmdG7Vg5W
-         TB/g==
-X-Forwarded-Encrypted: i=1; AKwUvBzIh3ClLaAtQGLB9IUj4bqYykZAsV9ya+K1Gcx1muF4EdaU3aiM9nPUojhdzaDapAGGoCaviQPyupqezp3CqqXC@lists.infradead.org
-X-Gm-Message-State: AFuF++kYqHKZBrFYqKW0UHvHT3WRDS3pRvX4doioDmJmtbePAY0Kql6c
-	qsskA6kD187yWHzhrab328f57g6HQXFBQ0KT9144Zicxpw7FP0T4+D/1Q+7vrjITC7S31BwIguu
-	4OSlQyty6zAaKzU1VvHGTIsRGOs+DM+w=
-X-Gm-Gg: AYBFou1ZZ5qVFMvCIpJ2p9BwAhu09D9cwM5NDBp9rXRSUlYGNYzsTuDJFT/uGPr0gk1
-	iG5Aek0xnEwwIjKAOAP7WbMAaWc0QEltnOb/aESwyhLr5LH22gQMbxFNTqtEH/94Jbwizz5iZBb
-	pad/fYvDV+xMeKNBOeiNrvSUg8ceDBuSIo7uuuJr3tw5tTO3hww7rgrkuiz6Sn0UFZHG/HTgd5q
-	SLQr79QpUFmL1ouxy1q8bCDse9o29PiqNOk8GpADPBYAPkcgfCwIKi52l2IjUwmLS5TtH+08K7N
-	dzSiOA/nqxSFFzGQarfMboLSlbTWNdDXg37/IPZ4A/eHk+i+7a18+/5M0Ai5aEwSF4xZfG8dxOk
-	UGfgVAunqa37m8tj8hR6YUfr3vs017pu7qao3NLnPi/HKBToGoWGmMUal63FFy0EUYvU=
-X-Received: by 2002:a05:6a20:a103:b0:3d3:adbf:7779 with SMTP id
- adf61e73a8af0-3daed3b7ec5mr5165165637.21.1789112880724; Fri, 11 Sep 2026
- 00:48:00 -0700 (PDT)
+	Fri, 11 Sep 2026 07:53:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=W6+glI+goJHVqKYDYCONg5FmS7+GpysWG5BLuwQqvu8=;
+	b=AMo0eUCc9feVo66C77zPPBNSi+lNjw3r76+qQRNtidxEVYyIaBbPE5nUb97YFsHgsH0yUSQEF
+	KweUX0s1l5dqnqWr1ljDwCndZGcYiVF0pivnWQFSF/YRfcQYJ7a858+0BbyY+Nw4vmBTa+ulMwq
+	cPX442lp4U4hoSRVB87hm5w=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hh62Z0DGcznTVd;
+	Fri, 11 Sep 2026 15:42:30 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 101AD40586;
+	Fri, 11 Sep 2026 15:53:38 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 11 Sep 2026 15:53:37 +0800
+Message-ID: <f1675130-c72e-4c11-b2bf-daec44f02b29@huawei.com>
+Date: Fri, 11 Sep 2026 15:53:36 +0800
 MIME-Version: 1.0
-References: <20260910125742.150902-1-phucduc.bui@gmail.com>
- <20260910125742.150902-12-phucduc.bui@gmail.com> <aqKwGQDkB_HruLyQ@stanley.mountain>
-In-Reply-To: <aqKwGQDkB_HruLyQ@stanley.mountain>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 11 Sep 2026 14:47:48 +0700
-X-Gm-Features: AcwNN1U0HOa6yp6q-cu6PKO_-PEzbPG32NAKnqHP9l3WjK-sZPO65dMRXGkz238
-Message-ID: <CAABR9nE+NYF23XqXCZiHaK7CXhcmVKLznB5Xz3eDr03NCM2dtQ@mail.gmail.com>
-Subject: Re: [PATCH 11/13] ASoC: mediatek: mt8189: Validate sysclk frequency
-To: Dan Carpenter <error27@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Cezary Rojewski <cezary.rojewski@intel.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, cassiogabrielcontato@gmail.com, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/21] arm64: entry: Defer setting of TPIDRRO_EL0 until
+ exit to userspace
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260907164247.17223-1-will@kernel.org>
+ <20260907164247.17223-2-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260907164247.17223-2-will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_004802_250509_A28CDEE6 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260911_005347_415197_1EF1BF70 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,19 +74,120 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
 
 
-> > mtk_dai_i2s_set_sysclk() accepts zero or negative frequencies.
->                                            ^^^^^^^^^^^^^^^^^^^^
-> It's unsigned int so it can't be negative.
->
+在 2026/9/8 0:42, Will Deacon 写道:
+> In preparation for using TPIDRRO_EL0 to point at 'current' while running
+> inside the kernel, defer its userspace initialisation from the
+> context-switch patch to exception return. This has the added benefit of
+> not having to worry about keeping the in-memory value and the register
+> value in-sync during preemptible sections.
+> 
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kernel/asm-offsets.c |  1 +
+>  arch/arm64/kernel/entry.S       |  4 +++-
+>  arch/arm64/kernel/process.c     | 16 +---------------
+>  arch/arm64/kernel/sys_compat.c  |  7 -------
+>  4 files changed, 5 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+> index 9c853ed3ceab..6038ab3beb25 100644
+> --- a/arch/arm64/kernel/asm-offsets.c
+> +++ b/arch/arm64/kernel/asm-offsets.c
+> @@ -42,6 +42,7 @@ int main(void)
+>  #endif
+>    BLANK();
+>    DEFINE(THREAD_CPU_CONTEXT,	offsetof(struct task_struct, thread.cpu_context));
+> +  DEFINE(THREAD_TP_VALUE,	offsetof(struct task_struct, thread.uw.tp_value));
+>    DEFINE(THREAD_SCTLR_USER,	offsetof(struct task_struct, thread.sctlr_user));
+>  #ifdef CONFIG_ARM64_PTR_AUTH
+>    DEFINE(THREAD_KEYS_USER,	offsetof(struct task_struct, thread.keys_user));
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index f63049ac32dc..59f045e496ec 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -47,7 +47,6 @@
+>  	b	.Lskip_tramp_vectors_cleanup\@
+>  	.if	\regsize == 64
+>  	mrs	x30, tpidrro_el0
+> -	msr	tpidrro_el0, xzr
+>  	.else
+>  	mov	x30, xzr
+>  	.endif
+> @@ -360,9 +359,12 @@ alternative_else_nop_endif
+>  	.if	\el == 0
+>  	ldr	x23, [sp, #S_SP]		// load return stack pointer
+>  	msr	sp_el0, x23
+> +	msr	tpidrro_el0, xzr
+>  	tst	x22, #PSR_MODE32_BIT		// native task?
+>  	b.eq	3f
+>  
+> +	ldr	x0, [tsk, #THREAD_TP_VALUE]
+> +	msr	tpidrro_el0, x0
 
-You're right, thanks for catching that. I'll fix it.
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Best regards,
-Phuc
+>  #ifdef CONFIG_ARM64_ERRATUM_845719
+>  alternative_if ARM64_WORKAROUND_845719
+>  #ifdef CONFIG_PID_IN_CONTEXTIDR
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index 581f80e9b9b7..bfdc12166895 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -256,17 +256,8 @@ static void tls_thread_flush(void)
+>  	if (system_supports_tpidr2())
+>  		write_sysreg_s(0, SYS_TPIDR2_EL0);
+>  
+> -	if (is_compat_task()) {
+> +	if (is_compat_task())
+>  		current->thread.uw.tp_value = 0;
+> -
+> -		/*
+> -		 * We need to ensure ordering between the shadow state and the
+> -		 * hardware state, so that we don't corrupt the hardware state
+> -		 * with a stale shadow state during context switch.
+> -		 */
+> -		barrier();
+> -		write_sysreg(0, tpidrro_el0);
+> -	}
+>  }
+>  
+>  static void flush_tagged_addr_state(void)
+> @@ -531,11 +522,6 @@ static void tls_thread_switch(struct task_struct *next)
+>  {
+>  	tls_preserve_current_state();
+>  
+> -	if (is_compat_thread(task_thread_info(next)))
+> -		write_sysreg(next->thread.uw.tp_value, tpidrro_el0);
+> -	else
+> -		write_sysreg(0, tpidrro_el0);
+> -
+>  	write_sysreg(*task_user_tls(next), tpidr_el0);
+>  	if (system_supports_tpidr2())
+>  		write_sysreg_s(next->thread.tpidr2_el0, SYS_TPIDR2_EL0);
+> diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
+> index 0451f96c2c3f..59eee301c6f4 100644
+> --- a/arch/arm64/kernel/sys_compat.c
+> +++ b/arch/arm64/kernel/sys_compat.c
+> @@ -89,13 +89,6 @@ long compat_arm_syscall(struct pt_regs *regs, int scno)
+>  
+>  	case __ARM_NR_compat_set_tls:
+>  		current->thread.uw.tp_value = regs->regs[0];
+> -
+> -		/*
+> -		 * Protect against register corruption from context switch.
+> -		 * See comment in tls_thread_flush.
+> -		 */
+> -		barrier();
+> -		write_sysreg(regs->regs[0], tpidrro_el0);
+>  		return 0;
+>  
+>  	default:
+
 
