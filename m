@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE40BC88E50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40038C79FA1
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 06:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ed9pd0rkWXEvHKY9PlVF670WS12tqCTEdzAdyUEs+WA=; b=XgFiLkzCxgYxoxZi3L3d3ELWQU
-	x4GGeZk786d1ytW6oX3fUQ3HY0tla4iwTtyIp7Vop96IAZj69/CWh3Dm1gsKK1HSfpHHSlHtRrKkY
-	mz4NifiSsrDaLK38FZWKsU8tGKJtyIC3vCq/0jDDQqmOAI6hXIgpmzxiglZ1oPdev7NPaLIcPo3x3
-	8VXB5LDC9VL6BJy+E/eDNPvwjK43f4JSQYteHv6de7Lh8jaU8bDzgY6l1beFAQlIukfU31sezIQx1
-	uHDCXr1oIx59BWexB8ignwOu5cb8nz+c+o+6pncsxUOUJgiHEtvT0cRhtMyqrzqXWZlCGKdj9Dh52
-	q6mrvaqA==;
+	bh=Gzm9JY1ZXSVVUgll0I+jNV/rKkZTnVl+KCsd07yQvPM=; b=i78+0ozdWDHdfZ0npse3e6WXQl
+	FFum5e+bNv3t5Thxp/4if+vGnzhBw2UPDfLzUxw+mP9bKCsJFZ93OPpa15vpdOpJteG1WeP4Lqg6D
+	EZJ/gpFDdTfoGmRA54BeQA7aEbImEVi3Hi2w/Dbe2RNNR4ydzzr+/YxQta23N9PWj4FLGHY8o+8A9
+	6iF5CI3CD9cT0nPjgDkrlDarOHEijePqGoxnZWuymHbYY1u69/CXKkQBomIHTZpL33EnaunEYw9qA
+	+9GlJTIA+11Rsb0Ufqvwpoq2VuwbtPDMl5O158czcznICvWvm08bbGoKDoIYS2ih/5SbV3la8jFYI
+	tyX77SFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vCN-0000000FyRN-1YET;
-	Fri, 11 Sep 2026 06:57:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4vCM-0000000FyQN-059M;
+	Fri, 11 Sep 2026 06:57:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vCK-0000000FyPJ-2R6N
+	id 1x4vCK-0000000FyPD-1XgH
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Sep 2026 06:57:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A0146020A;
-	Fri, 11 Sep 2026 06:57:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A1BE3C2BCB8;
+	by sea.source.kernel.org (Postfix) with ESMTP id DD72544785;
+	Fri, 11 Sep 2026 06:57:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B0974C2BCFF;
 	Fri, 11 Sep 2026 06:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789109839;
-	bh=ZwAaadx5hjQEdyKyc9oxn254nSkQCL0+FG6XUZI7g9c=;
+	bh=Jrj2VkVe8w3SAozOeuCceP15Zh8/t1yXEVvNwyEwWjA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nr7EvVxg3IdAGV5fYoEGkK1wQ901HEFtpaHVoYu4NiOdJOyWmaWyPsaStD1N4WStt
-	 zMi/cgwVQuPPCUlHCHNXfhHckxE65zKGJ6RsweMYOs50s1nPPLxmYFuTbM4jiwrQAF
-	 8a+tJQ/ImsHMcnEOP9spn92oEFunlRIduR6NfMys5Zss80grZIr9bMKeCNb9L2S2Uf
-	 GMqECVrAhv7yPJFnXYfyxctkkqyLBSXTvqyVrCqHBEeTpNqmdoqnOSa4sdynGkhQCe
-	 5lNPUgfOP6WbbIWo643JA7iEmT+h5p/Oek6EBMJwn/Jcp9kqSceAWpOuYKu8xTEdUT
-	 /JcpNbhapoGXQ==
+	b=K8FukDrtNmGArEtSWrxjwQm18Uc74iEa+IDOiRuQs48ZQCpLgZ9FwbqkxP5M0x3wj
+	 /mJG373zkgROVV4faFXUo+3PiNWopUWgU/9ykjFe2IVfDzGsyxBpUdi+qwNjkhinxx
+	 kyAFh356/2XNZgD2Qe+aPyXxpnexsvSiIY9W/MMKHOe7yj8MGEsQFerIwUYpViT8s+
+	 enBIkENdm9/GRKX1ww5mDOc7a8hnw1UjNoymHWwYl2e6LkJ0cAMrBWJL6JaFAjdmIA
+	 uKVgkE3ZYi5lTf8nwH0tK/OwOlGnqZxsyY9TYTfH5AXkHmJ//i3uGQARfUCfoc4lWn
+	 t1IZneDv+xotQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 840C3C88E50;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9934BC88E53;
 	Fri, 11 Sep 2026 06:57:19 +0000 (UTC)
 From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Fri, 11 Sep 2026 02:08:34 +0200
-Subject: [PATCH v4 2/3] dt-bindings: arm: fsl: add Free Mobile Nodebox v3
- CPU Module
+Date: Fri, 11 Sep 2026 02:08:35 +0200
+Subject: [PATCH v4 3/3] arm64: dts: freescale: add Nodebox v3 CPU Module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-for-upstream-nbxv3-dts-v4-2-2fd07d5575ab@free.fr>
+Message-Id: <20260911-for-upstream-nbxv3-dts-v4-3-2fd07d5575ab@free.fr>
 References: <20260911-for-upstream-nbxv3-dts-v4-0-2fd07d5575ab@free.fr>
 In-Reply-To: <20260911-for-upstream-nbxv3-dts-v4-0-2fd07d5575ab@free.fr>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -64,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Vincent Jardin <vjardin@free.fr>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789085313; l=892;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789085313; l=9136;
  i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=EDQrDIoVj9BzoPOG09GyK9jZt6CKfC9K8e2yVKy7XuI=;
- b=VyZ5S5qCNcz/iULpMonVcIATemrHh/0BDQVFUuqGNFgDQJeihYERbA6zVBlUk2FeB8Nf3cQTx
- hQniqwFglcbCDWmBiiS21LK6WyTQMosSLwn4k5gA1iaRMUday69R9Bo
+ bh=wMStofaaS1fLUcUflqDJo0Cv2n5EJWfat/hF21/0LFA=;
+ b=io0JixooSt3lyf1TRXC1PXz/jsszGEMYn4sUO+yF8xJqmxU6VaSHvLqc0Pg0zkvpdZGW239QX
+ JdRx71XjxTACGaMM9/dvS4Wsw8wYrPMmVUL/nH1JIxVqwUZahxuODIE
 X-Developer-Key: i=vjardin@free.fr; a=ed25519;
  pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
 X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
@@ -91,31 +90,396 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vincent Jardin <vjardin@free.fr>
 
-Add DT compatible string for the Free Mobile Nodebox v3 CPU Module, an
-NXP LX2160A based board.
+The Nodebox v3 is a Free Mobile CPU module built around the NXP
+LX2160A (16x Cortex-A72, DPAA2).
 
 Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile             |   2 +
+ .../arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts |  34 +++
+ .../boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi      | 321 +++++++++++++++++++++
+ 3 files changed, 357 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 656f2596e1d53..baff4f4159b29 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1937,6 +1937,12 @@ properties:
-               - fsl,lx2162a-qds
-           - const: fsl,lx2160a
- 
-+      - description: Free Mobile LX2160A based Boards
-+        items:
-+          - enum:
-+              - freemobile,nbxv3
-+          - const: fsl,lx2160a
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 95ae85ab4adf5..faab8bf0e1676 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -55,6 +55,8 @@ DTC_FLAGS_fsl-lx2160a-half-twins := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-half-twins.dtb
+ DTC_FLAGS_fsl-lx2160a-honeycomb := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-honeycomb.dtb
++DTC_FLAGS_fsl-lx2160a-nbxv3 := -Wno-interrupt_map
++dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-nbxv3.dtb
+ DTC_FLAGS_fsl-lx2160a-qds := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-qds.dtb
+ DTC_FLAGS_fsl-lx2160a-rdb := -Wno-interrupt_map
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+new file mode 100644
+index 0000000000000..b07e9def0a529
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+@@ -0,0 +1,34 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Free Mobile Nodebox v3 CPU Module (LX2160A)
++ *
++ * Copyright 2026 Free Mobile, Vincent Jardin
++ */
 +
-       - description: SolidRun LX2160A CEX-7 based Boards
-         items:
-           - enum:
++/dts-v1/;
++
++#include "fsl-lx2160a-rev2.dtsi"
++#include "fsl-lx2160a-nbxv3.dtsi"
++
++/ {
++	model = "Free Mobile Nodebox v3 CPU Module (LX2160A)";
++	compatible = "freemobile,nbxv3", "fsl,lx2160a";
++};
++
++&fspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&fspi_dqs_sck_cs10_pins>, <&fspi_data30_pins>;
++};
++
++&gpio1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gpio1_31_28_pins>;
++};
++
++&pcs_mdio13 {
++	status = "okay";
++};
++
++&pcs_mdio14 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+new file mode 100644
+index 0000000000000..143b24d69d629
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+@@ -0,0 +1,321 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Free Mobile Nodebox v3 CPU Module (LX2160A)
++ *
++ * Copyright 2026 Free Mobile, Vincent Jardin
++ *
++ * This file is shared by the Linux kernel and U-Boot.
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	gpio-restart {
++		compatible = "gpio-restart";
++		gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
++		priority = <128>;
++	};
++
++	reg_ethsw_mdio: regulator-ethsw-mdio {
++		compatible = "regulator-fixed";
++		regulator-name = "ethsw-mdio-en";
++		gpio = <&gpio3 25 GPIO_ACTIVE_LOW>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++};
++
++&crypto {
++	status = "okay";
++};
++
++&dspi0 {
++	status = "okay";
++
++	dpll@0 {
++		compatible = "microchip,zl30733";
++		reg = <0>;
++		spi-max-frequency = <12500000>;
++	};
++};
++
++&dspi2 {
++	status = "okay";
++};
++
++&dpmac13 {
++	status = "okay";
++	phy-handle = <&lan8023_phy_s0>;
++	phy-connection-type = "10gbase-r";
++};
++
++&dpmac14 {
++	status = "okay";
++	phy-handle = <&lan8023_phy_s1>;
++	phy-connection-type = "10gbase-r";
++};
++
++&dpmac17 {
++	status = "okay";
++	phy-handle = <&rtl8211fd>;
++	phy-connection-type = "rgmii-id";
++};
++
++&emdio1 {
++	status = "okay";
++
++	/* Microchip LAN8023 dual 10G PCS/retimer, Clause 45 only, one address per slice */
++	lan8023_phy_s0: ethernet-phy@2 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <2>;
++	};
++
++	lan8023_phy_s1: ethernet-phy@3 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <3>;
++	};
++
++	rtl8211fd: ethernet-phy@6 {
++		compatible = "ethernet-phy-id001c.c916";
++		reg = <6>;
++	};
++};
++
++&emdio2 {
++	status = "okay";
++};
++
++&esdhc1 {
++	status = "okay";
++	bus-width = <8>;
++	non-removable;
++	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++};
++
++&fspi {
++	status = "okay";
++
++	/* GigaDevice GD55LB02GF, 256 MiB boot NOR */
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		spi-max-frequency = <150000000>;
++		spi-rx-bus-width = <1>;
++		spi-tx-bus-width = <1>;
++		reset-gpios = <&gpio1 28 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&fsl_mc {
++	status = "okay";
++};
++
++&gpio0 {
++	status = "okay";
++	gpio-line-names =
++		"", "",
++		"altfn:iic1-sda", "altfn:iic1-scl",
++		"altfn:uart4-sin", "altfn:uart4-sout",
++		"altfn:uart2-sin", "altfn:uart2-sout",
++		"altfn:uart3-sin", "altfn:uart3-sout",
++		"altfn:uart1-sin", "altfn:uart1-sout",
++		"altfn:spi3-pcs3", "altfn:spi3-pcs2",
++		"altfn:spi3-pcs1", "altfn:spi3-pcs0",
++		"altfn:spi1-sck", "altfn:spi1-sin",
++		"altfn:spi1-pcs2", "altfn:spi1-pcs1",
++		"altfn:spi1-pcs0", "altfn:spi1-sout",
++		"altfn:iic6-sda", "altfn:iic6-scl",
++		"altfn:spi3-sin", "altfn:spi3-sout",
++		"altfn:iic4-sda", "altfn:iic4-scl",
++		"altfn:iic3-sda", "altfn:iic3-scl",
++		"altfn:iic2-sda", "altfn:iic2-scl";
++};
++
++&gpio1 {
++	status = "okay";
++	gpio-line-names =
++		"", "", "", "", "", "",
++		"cfg-rcw-src2", "cfg-rcw-src3",
++		"reset-req-b",
++		"altfn:sdhc2-clk", "altfn:sdhc2-ds",
++		"altfn:sdhc2-dat0", "altfn:sdhc2-dat1",
++		"altfn:sdhc2-dat2", "altfn:sdhc2-dat3",
++		"altfn:sdhc2-dat4", "altfn:sdhc2-dat5",
++		"altfn:sdhc2-dat6", "altfn:sdhc2-dat7",
++		"altfn:sdhc2-cmd",
++		"cfg-svr1",
++		"altfn:xspi1-cs0", "altfn:xspi1-sck",
++		"altfn:xspi1-dqs",
++		"altfn:xspi1-data0", "altfn:xspi1-data1",
++		"", "",
++		"flash-reset#", "pltrst#", "", "ethsw-reset#";
++
++	/* Platform reset, no consumer node: released at boot */
++	pltrst-hog {
++		gpio-hog;
++		gpios = <29 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "pltrst#";
++	};
++};
++
++&gpio2 {
++	status = "okay";
++	gpio-line-names =
++		"lan8023-mdint",
++		"i2c2-alert#", "i2c4-alert#", "i2c6-alert#",
++		"u800-tca9539-int#",
++		"spi3-alert#",
++		"wake0", "wake1",
++		"carrier-hot#",
++		"u1300-rtl8211fd-int#",
++		"ethsw-int#",
++		"", "",
++		"u1700-zl30733-clk-gpio0", "u1700-zl30733-clk-gpio1",
++		"u1700-zl30733-clk-gpio2", "u1700-zl30733-clk-gpio3",
++		"", "", "", "", "", "", "", "",
++		"", "", "", "", "", "", "";
++};
++
++&gpio3 {
++	status = "okay";
++	gpio-line-names =
++		"altfn:ec1-txd3", "altfn:ec1-txd2",
++		"altfn:ec1-txd1", "altfn:ec1-txd0",
++		"altfn:ec1-tx-en", "altfn:ec1-gtx-clk",
++		"altfn:ec1-rxd3", "altfn:ec1-rxd2",
++		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
++		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
++		"", "",
++		"ptp-refclk-in",
++		"", "", "", "", "", "", "", "",
++		"u1700-zl30733-pps-out",
++		"",
++		"ethsw-mdio-en",
++		"usb01-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT share one net */
++		"",
++		"usb01-oc#",
++		"altfn:spi3-sck",
++		"", "";
++};
++
++/* On-module management bus */
++&i2c0 {
++	status = "okay";
++
++	eeprom@52 {
++		compatible = "atmel,24c32";
++		reg = <0x52>;
++		pagesize = <32>;
++	};
++
++	/* Board ID straps */
++	gpio@74 {
++		compatible = "ti,tca9539";
++		reg = <0x74>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		gpio-line-names =
++			"boardid-0x0001", "boardid-0x0002",
++			"boardid-0x0004", "boardid-0x0008",
++			"boardid-0x0010", "boardid-0x0020",
++			"boardid-0x0040", "boardid-0x0080",
++			"boardid-0x0100", "boardid-0x0200",
++			"boardid-0x0400", "boardid-0x0800",
++			"boardid-0x1000", "boardid-0x2000",
++			"boardid-0x4000", "boardid-0x8000";
++	};
++
++	u800: gpio@75 {
++		compatible = "ti,tca9539";
++		reg = <0x75>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio2>;
++		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"carrier-gpio0", "carrier-gpio1",
++			"carrier-gpio2", "carrier-gpio3",
++			"carrier-gpio4", "carrier-gpio5",
++			"carrier-gpio6", "carrier-gpio7",
++			"carrier-gpio8", "carrier-gpio9",
++			"carrier-gpio10", "carrier-gpio11",
++			"", "", "",
++			"lan8023-rst";
++	};
++
++	/* +0V8_VDD core rail, MPS MPQ8646 (MPQ8785 core) over PMBus */
++	vdd08: regulator@10 {
++		compatible = "mps,mpq8646";
++		reg = <0x10>;
++	};
++
++	/* SO-DIMM SPD temperature sensors */
++	temperature-sensor@18 {
++		compatible = "jedec,jc-42.4-temp";
++		reg = <0x18>;
++	};
++
++	temperature-sensor@19 {
++		compatible = "jedec,jc-42.4-temp";
++		reg = <0x19>;
++	};
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++};
++
++&i2c3 {
++	status = "okay";
++};
++
++&i2c5 {
++	status = "okay";
++};
++
++&pcie3 {
++	status = "okay";
++};
++
++&pcie4 {
++	status = "okay";
++};
++
++&pcie5 {
++	status = "okay";
++};
++
++&pcie6 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&usb0 {
++	status = "okay";
++};
++
++&usb1 {
++	status = "okay";
++};
 
 -- 
 2.43.0
