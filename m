@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5532BC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 21:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81066C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 21:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=47me5HqSi4G4g0cqSSDdu4U83cbKJwEbQCbF4tWqQ6I=; b=tgrlDIBtsIzY/7KNfX5bLy9q+1
-	ko/UqyGvHsZ5y9Cp0V8XKqAYAFTPXFp480Dkyzhu6qjEcDsKyPwE1fmn5LyfTxSDdIVeQppS1MUKd
-	EtUIPTEfvFv/715cd1wAUkaqYhP3yZFmHuFVnPK6oe3ynikgAZKaIj9SFGII+yHz4Zvd6CoHFTy9b
-	mESBsHAhX7CJ8IADWTFlJRut+vIKcXMvfEXfv+PJzbjo76HA5IPWqoPMpweLcD0oC+FdXAXL78ceC
-	KyBhJzdfevsoVgH9sI88TtatzVpUYoYzHGYitHSm8ephkE/1DDcE2OMUPkedkbT+wtF0avqtDs+pU
-	Y0pwLgoQ==;
+	bh=2LPrONMbj0bwp/GdYN4yOukwx8bvXQe9ntAGUumY47s=; b=J7+igNF2FUcwkScDiiWNuPmPn2
+	r5kJNYe3BweH+sLuerS+8H67PwOWZpH1hGSwYqV9y5GY+nmAfaOVNyw1ycDvJyP4O1Frfjf0Q/d63
+	gwS6xoQHq4ZrJHG69oPvlpsNAuBPdFIHtdZN2I0OgqiQrnNzh8hQxqLr8jfRQTWonrI07btIcAaKg
+	ASdwTqzz+Zsen8aumjsUyXN25XWnm8LaXnpehbTAsJ9IfLohKG6lDvxO/t9CFZx+o0b4sOW0XnRBJ
+	pRn7U/7Esl0ABGhLWQ38cGd/ZtFU4mZgPsbdFlz5H6jYOUwiD7S/jfj7s/wTP+b8rrc+Jj59V3mbX
+	eFRUFeGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58g6-000000009hh-1sMo;
-	Fri, 11 Sep 2026 21:20:58 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x59HH-00000000DNU-132k;
+	Fri, 11 Sep 2026 21:59:23 +0000
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58g2-000000009gz-2tc3
+	id 1x59HE-00000000DN6-1zFd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 21:20:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 22709C63A10;
-	Fri, 11 Sep 2026 21:21:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 075A7601A3;
-	Fri, 11 Sep 2026 21:20:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C068811C7A23F;
-	Fri, 11 Sep 2026 23:20:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789161644; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=47me5HqSi4G4g0cqSSDdu4U83cbKJwEbQCbF4tWqQ6I=;
-	b=WfL5B2k4xKXGM5bxQoQxfB9a1cT/RPyuU54KehqlB1Bcu+t2ZhQexNXf1gMb+8vPvXA9+H
-	b5BdTZb3YIvk7RPnegfrMAuI32RjaSv3u1qDTxcGbjdJQd/JFRKeYXUyz554FneO78O0qG
-	Af6dTTcfmuByb+ACgu/72/cnv5Prx+2rht9zVN08MjlugwZFhhRn+rfs3mltv4kDVEMwvL
-	tY1YMHtgilEfkERtBXhMfhy2xBht3LpPfBJESpT3PrIf7WipW4Mn8n2lXbbS6fOQyezGcH
-	fPQ8xKvE7Lhq/zqPeC6bJWkgmXnPXYvBN2c02efqN5hJipHzBk29YCEWoCWy2w==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Jose.Abreu@synopsys.com,
-	Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	PKneuper@dspace.de,
-	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH net v3 0/6] net: stmmac: More selftest-related fixes
-Date: Fri, 11 Sep 2026 23:20:20 +0200
-Message-ID: <20260911212028.1497613-1-maxime.chevallier@bootlin.com>
+	Fri, 11 Sep 2026 21:59:21 +0000
+Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-5309ce58730so572671cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 14:59:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789163959; x=1789768759; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2LPrONMbj0bwp/GdYN4yOukwx8bvXQe9ntAGUumY47s=;
+        b=lun+TOHBSrnz7vYmZMt9uNtyjJEBfwA6+hBFWfrca6JRcRVRyQ5J5RXPfL2Xr9lbQO
+         sE1gz9knD/JPxxi4i3WzsXaiMwbvqbYBUKSmowAb1mWzuWanlHwNjF8FpJM7rhu8l1qs
+         7H3JpLwAUnp6jCJ6Zgurt1AJZQz0/txmCvW1zA9KsdYDBnaqyC2eQE8XGb5WPiOykono
+         mFeXaqeG+lvp6QTioPyvML1MiCWtg9NqYBuot3PshU6QAgpf5kTXVPVuCgYuBEYOFi8q
+         q5oBR9rJflfuYvNwlxdkd85rapbEwTEY6KDreohhVb7OQByUExJHjvmI2wEM0AqogWn3
+         ZYaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789163959; x=1789768759;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2LPrONMbj0bwp/GdYN4yOukwx8bvXQe9ntAGUumY47s=;
+        b=aJcbsFVbAla0NuRzKZX655ZCrY1NwwQc1kDL+Dz8VZKaJqmzRarKJk3ZXZb9qROF1Q
+         ngRTP88o+y/+vRTFKTH2fg4GLh0SxHbOg5BRSofhfiVlfq/zRIYSeuXcYexBy2pYE73d
+         xazrt8osE83tL66RGt3yi0lhaoslH7i7gpawV2CM0RVH8sYpzI6BUGBCH6B4jQFGYoj5
+         ftbhKJwRHzyYLu6hJx9qU6uYmP+s1ZY0coavUYJuloNuqf1PFMnsrPKFhgww/a5iPD02
+         EHDIBM1n33SxgSmDPiF76ujomY4W0+MGRiZ1S4xxHXLB0TEQtICYtj92lrOKUZ1jzBz0
+         qYxQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxLciM4w7uUaKOQkRSewHS3oLruxrN2lpwIiH3e07H8FGUKygvLBqI7O5ZcRsEbUS/TnpLAabksv4SP1gmR28/F@lists.infradead.org
+X-Gm-Message-State: AFuF++myQTxLZE6X84yCKkpntDNFS5AUjP7JSP4L1g2gdMyV2k46cNQr
+	EWaZKBbqFlAyIiqBbrYcPYeI9cXpOGyjJvbGep0YwsqeZ5g3HB/PF7K+
+X-Gm-Gg: AYBFou2thog4y4OSlFR7cvFVbBKZ7a81YQdnzWkcAqJvCjezQ06iz7XDwUi5N4pcnRK
+	u8aUai3zFcb+bvdshEPBYV8AsJ8gxRWEo24TnFlUfZyhOA5rFA+gdFrl5ZZOAYAxSwO6Qr3jcbo
+	e4WnWMtt7I9ciUrk8SyuiizH/iU7tGRjRiaajGJuDsGqvOj5H0DgruJOWHGhsAmNra1fxmpUjA/
+	je8aIesmNNm+cq+shsk2aEEGmJ5iI6557Z/HIekDSsbZwDoAmz4P1kQ1Cp8XbcfOB35akAwq3QZ
+	rJLqRfyoSYFs/4w6l1kuej7VSnShj86uXYxL4cUHPzGTJkLG/EZus3boNXjJiZkX2EPDb9Yk8zb
+	Rc+jQRvzUETjVwZF3i9S8ouJuunQxS6uqohAmF0eOz9dDjAR38e4GFt4ulmGMRY5ZrIwqF7Cdh7
+	s8KXNWasj0ztK9qEW5d2OsNR+17UQcBgpS4y8HUmszpe7ugsZwD7Xj21z+3FbL8UGSiGGDCSqYA
+	ef1qjTZExvoXLBWb3ZKnBMczn3wi88ZzMCWe/dGyX8SA9WMpnZbQRpP4lo91PFooQ3O6qivdeCj
+	EdFOuixMhpt/vGbX91Vq85Z8obWS1LbahcUSCOJMosMwkvpYtw3U634Cleg=
+X-Received: by 2002:a05:622a:4814:b0:52c:dde9:5cd5 with SMTP id d75a77b69052e-530e7edb01emr1223561cf.21.1789163959026;
+        Fri, 11 Sep 2026 14:59:19 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-530e64da059sm2568531cf.24.2026.09.11.14.59.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 14:59:17 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
+Subject: [PATCH] dmaengine: bestcomm: make gen_bd init helpers static
+Date: Fri, 11 Sep 2026 14:59:14 -0700
+Message-ID: <20260911215914.175851-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_142055_072304_15AA68E9 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260911_145920_521644_B3301979 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,150 +101,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+bcom_gen_bd_rx_init() and bcom_gen_bd_tx_init() are only called from
+the PSC wrapper functions in gen_bd.c, so make them static, drop
+their now-unneeded exports, and remove the corresponding header
+declarations.  The reset and release variants stay exported because
+sound/soc/fsl/mpc5200_dma.c calls them from a separate module.
 
-This is V3 of stmmac selftest fixes, adding a cap on EEE test as the
-timeout can get pretty long, found by Nicolai.
+Assisted-by: LLM
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/dma/bestcomm/gen_bd.c       | 6 ++----
+ include/linux/fsl/bestcomm/gen_bd.h | 8 --------
+ 2 files changed, 2 insertions(+), 12 deletions(-)
 
-This is another round of stmmac selftest fixes, mostly about the selftests
-themselves but a few things were discovered w.r.t MTU and buffer size
-handling, see patch 5.
-
-I've continued expanding the test devices I'm running this on, more devices
-should come in the future. With this series, _almost_ everything is
-green, except for some flow control stuff that is either a false positive
-or a real thing that needs investigating.
-
-After this is merged, I consider the selftests to be now reliable enough
-to run them nightly on every stmmac series that's sent, and I'll be requiring
-clean selftests for new glue drivers.
-
-I've been running this on :
-
- - Altera CycloneV (dwmac-socfpga, dwmac1000 IP, v3.70a)
- - NXP imx8mp (dwmac-imx, dwmac4, v5.10a)
- - Allwinner H2S (dwmac-sun8i, dwmac1000)
- - Amlogic S905X3 (dwmac-meson8b, dwmac1000, v3.70a)
- - STM32mp157a (dwmac-stm32, dwmac4, v4.20a)
- - SiFive JH7110 (dwmac-starfive, dwmac4, v5.20)
- - Motorcomm YT8061 (PCIe, dwmac-motorcomm, dwmac4)
- - Qualcomm IPQ8064 (dwmac-ipq806x, dwmac1000)
-
-Tests are OK if return is 0 or -95 (-EOPNOTSUPP), tests are KO otherwise
-
-Before the series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0     0      0     0       0     0     0    -110
-MMC Counters              0     0      -95   0       0     0     0    -110
-EEE                       -95   -95    -95   -110    -110  -95   -95  -95
-Hash Filter MC            0     0      -95   0       0     0     0    -95
-Perfect Filter UC         -95   0      0     -95     -95   -95   -95  -95
-MC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-UC Filter                 -95   0      -95   -95     -95   -95   -95  -95
-Flow Control              -95   0      -110  0       -110  -95   -110 -110
-RSS                       -95   -95    -95   -95     -95   -95   -95  -95
-VLAN Filtering            -110  -95    -95   -95     -110  -110  -95  -95
-VLAN Filtering (perf)     -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter        -110  -95    -95   -95     -110  -110  -95  -95
-Double VLAN Filter (perf) -110  -95    -95   -95     -110  -110  -95  -95
-Flexible RX Parser        0     -95    -95   -95     -95   -95   -95  -95
-SA Insertion (desc)       0     -95    -95   -95     0     0     0    -95
-SA Replacement (desc)     0     -95    -95   -95     0     0     0    -95
-SA Insertion (reg         0     -95    -95   -95     0     0     0    -95
-SA Replacement (reg)      0     -95    -95   -95     0     0     0    -95
-VLAN TX Insertion         -110  -95    -95   -95     -110  -110  -110 -95
-SVLAN TX Insertion        -110  -95    -95   -95     -110  -95   -110 -95
-L3 DA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L3 SA Filtering           0     -95    -95   -95     -95   -95   -95  -95
-L4 DA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA TCP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 DA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-L4 SA UDP Filtering       0     -95    -95   -95     -95   -95   -95  -95
-ARP Offload               -95   -95    -95   -95     -110  -110  -110 -95
-Jumbo Frame               0     -110   -110  0       0     0     0    -110
-Multichannel Jumbo        0     -95    -95   -95     -95   -95   -95  -95
-Split Header             --95   -95    -95   -95     -95   -95   0    -95
-TBS (ETF Scheduler)      --95   -95    -95   -95     -95   -95   -95  -95
-
-ARP offload's still there as this was a net-next patch and I've ran these
-checks on the net tree.
-
-Jumbo frame tests on dwmac1000 started failing after :
-
-commit 23680bf5f8c6 ("net: stmmac: restore NET_IP_ALIGN in the RX DMA offset")
-
-This commit is OK though, it just made the selftest reveal the cracks
-hiding beneath the surface of MTU/bufsz handling.
-
-After this series :
-
-Test                     imx  socfpga sun8i meson8b stm32 starV mcom ipq806x
-MAC Loopback              0      0     0       0     0     0     0    0
-MMC Counters              0      0     -95     0     0     0     0    0
-EEE                       -95    -95   -95     0     0     -95   -95  -95
-Hash Filter MC            0      0     -95     0     0     0     0    -95
-Perfect Filter UC         -95    0     0       -95   -95   -95   -95  -95
-MC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-UC Filter                 -95    0     -95     -95   -95   -95   -95  -95
-Flow Control              -95    0     -110    0     -110  -95   -110 -110
-RSS                       -95    -95   -95     -95   -95   -95   -95  -95
-VLAN Filtering            0      -95   -95     -95   0     0     -95  -95
-VLAN Filtering (perf)     0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter        0      -95   -95     -95   0     0     -95  -95
-Double VLAN Filter (perf) 0      -95   -95     -95   0     0     -95  -95
-Flexible RX Parser        0      -95   -95     -95   -95   -95   -95  -95
-SA Insertion (desc)       0      -95   -95     -95   0     0     0    -95
-SA Replacement (desc)     0      -95   -95     -95   0     0     0    -95
-SA Insertion (reg         0      -95   -95     -95   0     0     0    -95
-SA Replacement (reg)      0      -95   -95     -95   0     0     0    -95
-VLAN TX Insertion         0      -95   -95     -95   0     0     0    -95
-SVLAN TX Insertion        -95    -95   -95     -95   -95   -95   -95  -95
-L3 DA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L3 SA Filtering           0      -95   -95     -95   -95   -95   -95  -95
-L4 DA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA TCP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 DA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-L4 SA UDP Filtering       0      -95   -95     -95   -95   -95   -95  -95
-ARP Offload               -95    -95   -95     -95   -110  -110  -110 -95
-Jumbo Frame               0      0     0       0     0     0     0    0
-Multichannel Jumbo        0      -95   -95     -95   -95   -95   -95  -95
-Split Header              -95    -95   -95     -95   -95   -95   0    -95
-TBS (ETF Scheduler)       -95    -95   -95     -95   -95   -95   -95  -95
-
-ARP can be ignored, and Flow control needs some more attention, but
-we're getting there :)
-
-Thanks,
-
-Maxime
-
-V3:
- - Bail out of the EEE test if LPI is over 5 seconds
-
-V2:
-https://lore.kernel.org/r/20260910151404.976753-1-maxime.chevallier@bootlin.com
- - Snapshot before sending the frame for EEE, in case we immediately
-   enter LPI
- - Also return -ETIMEDOUT instead of EINVAL
-
-V1: https://lore.kernel.org/lkml/20260909074740.1247762-1-maxime.chevallier@bootlin.com/
-
-Maxime Chevallier (6):
-  net: stmmac: selftests: Support running selftests on DSA conduits
-  net: stmmac: selftests: Validate EEE based on the actual LPI timer
-    value
-  net: stmmac: selftests: Check the dev->features for S-TAG offload
-    testing
-  net: stmmac: selftests: Capture all packets for vlan checks
-  net: stmmac: size the RX buffers from the frame length, not the MTU
-  net: stmmac: selftests: Account for alignment shift on dwmac1000 for
-    Jumbo test
-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  20 +--
- .../stmicro/stmmac/stmmac_selftests.c         | 121 +++++++++++++++---
- 2 files changed, 114 insertions(+), 27 deletions(-)
-
+diff --git a/drivers/dma/bestcomm/gen_bd.c b/drivers/dma/bestcomm/gen_bd.c
+index 61b5746e1a97..b5093f7445cb 100644
+--- a/drivers/dma/bestcomm/gen_bd.c
++++ b/drivers/dma/bestcomm/gen_bd.c
+@@ -81,7 +81,7 @@ struct bcom_gen_bd_priv {
+ /* Task support code                                                        */
+ /* ======================================================================== */
+ 
+-struct bcom_task *
++static struct bcom_task *
+ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+ 			int initiator, int ipr, int maxbufsize)
+ {
+@@ -108,7 +108,6 @@ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+ 
+ 	return tsk;
+ }
+-EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_init);
+ 
+ int
+ bcom_gen_bd_rx_reset(struct bcom_task *tsk)
+@@ -166,7 +165,7 @@ bcom_gen_bd_rx_release(struct bcom_task *tsk)
+ EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_release);
+ 
+ 
+-extern struct bcom_task *
++static struct bcom_task *
+ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+ 			int initiator, int ipr)
+ {
+@@ -192,7 +191,6 @@ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+ 
+ 	return tsk;
+ }
+-EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_init);
+ 
+ int
+ bcom_gen_bd_tx_reset(struct bcom_task *tsk)
+diff --git a/include/linux/fsl/bestcomm/gen_bd.h b/include/linux/fsl/bestcomm/gen_bd.h
+index aeb312a1cd00..7253d308d77a 100644
+--- a/include/linux/fsl/bestcomm/gen_bd.h
++++ b/include/linux/fsl/bestcomm/gen_bd.h
+@@ -16,10 +16,6 @@ struct bcom_gen_bd {
+ };
+ 
+ 
+-extern struct bcom_task *
+-bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+-			int initiator, int ipr, int maxbufsize);
+-
+ extern int
+ bcom_gen_bd_rx_reset(struct bcom_task *tsk);
+ 
+@@ -27,10 +23,6 @@ extern void
+ bcom_gen_bd_rx_release(struct bcom_task *tsk);
+ 
+ 
+-extern struct bcom_task *
+-bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+-			int initiator, int ipr);
+-
+ extern int
+ bcom_gen_bd_tx_reset(struct bcom_task *tsk);
+ 
 -- 
 2.55.0
 
