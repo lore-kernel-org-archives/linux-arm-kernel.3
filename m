@@ -4,61 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230B0C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CFCC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+v1gtFzTVZ9q73cE4Nq8oqrnGDKcy3JKZg27z2WKH8=; b=ZxclXyA6qLKiKN88TUJY/nKl5B
-	saHWqBeDMZNRNAujp/URw4U4MTPWaPMPQh5As/NjcYxrQX/rVYAZ8cdApNtm7ScAAfSFV7sSSYsW5
-	L0iR4yG7KOa9DdvHGsTdDadaxUHUMe4csvvgHK578ZJCf3WEeiNw4bjqMIqC1+YrBTs3mGtM67oXb
-	4dC3HqyvEmFzW3uwLM+GbtkDm8v6GbmHsP8kvaZ5OzPGynWmzrli4wKRxnIsAfY2WLFS4v3GfFwjo
-	4JHE1hhRbqzw6smhr/ddOQEmDXSeG5oc4ycKofERZPpcmwRGNmAea0WST3PgXMo3FiG3pwZO9qAOg
-	2ta46dSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wk7lqCnj5EHVFD8CU+/wneiMkMPyKTH7DE9Tq02uMzg=; b=2DHMCZPFccvqXPR4hKT4GVowUq
+	G9Y8SVPTAcnx4kcLTGwe25gE1xxS4toRoDxkk4WKQFFH53d6BkH9W0MHxXRnTtyQ/4P6A68Z7l5rs
+	IyfjmH1BTeSCgTzRdGC89lM2RXo5sKGlOEh6wNMXF9/8hPMyN3x/UAxHTd+8/ZKLBqO2aeNRxUjLU
+	lmCx22MSZtgIjVUjdh2JFVPzZpV1hJ7ZSs2CmY7R/4YVvchfWN6JwsixS513sx2XnOzbrx9feupqJ
+	rOyl4e7UxWy/g9EqTG5lFW+9/E7kRguOMeS2Ebp1+oLOC8DQGTSBt2pb3sDbsnm1icPwpFPe4lMvP
+	g9mtCo3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x535N-0000000H211-2grA;
-	Fri, 11 Sep 2026 15:22:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x536H-0000000H2Ct-0CoN;
+	Fri, 11 Sep 2026 15:23:37 +0000
+Received: from mail-northeuropeazon11011070.outbound.protection.outlook.com ([52.101.65.70] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x535M-0000000H20Q-2DhW;
-	Fri, 11 Sep 2026 15:22:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 050D341883;
-	Fri, 11 Sep 2026 15:22:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E8EF1F000FF;
-	Fri, 11 Sep 2026 15:22:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789140159;
-	bh=q+v1gtFzTVZ9q73cE4Nq8oqrnGDKcy3JKZg27z2WKH8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DKZRuG22tMKiaV1cnpgF9/BNc3PHSh2tuhVG69RHesvJPA4iTQhpuyG1IqYuHAcTq
-	 YoT2RrTEiZd2GD9q0OBK63mTsteCW/akfGzq3yI4Gv93AAeeSqspopySPQMb0txPXG
-	 7BIWuQMcyigy/44YksoFS6d21BdEnZeOeVd3GsK+7O1bK3aGCOm5eXz/HihjZ6iDma
-	 7qJtC8Z+L32JpDW3aiDV7ApiyzZAT85Y96Zu8cRCDgEiKP4MqUFz1qSOq+H70hmJgx
-	 4NTbatYQyAM8cdYhDHa2ODijPAGY8z83k0frGa4UExCM/LMfz3XSd3J786uLF6UwgO
-	 bHwpY3iIPBnjA==
-Date: Fri, 11 Sep 2026 09:22:37 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-nvme@lists.infradead.org
-Subject: Re: [PATCH v2 0/2] nvme: apple: add t8132 (M4) ANS2 NVMe support
-Message-ID: <aqQcvdAl0FA4wslB@kbusch-mbp>
-References: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
+	id 1x536D-0000000H2Bn-1h6F
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 15:23:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jwACQygMA7Fz/fyv0EUZNS1j1o56bSHaxHWCFDQbKyfqRg34oE5/S0SfoMqbdCEFmjq/IBEG9KlqIG+0OJ8xIs7dwb9zMySzrFZPkxJIjbKL2QcDk4hTbnatoDOQ6A020dXmEmRuSjiocV8p284oUSNYeziA3tB+QdCe5+8oglf5/jMWSy3ZWfNyMz4lSaGjZfWpnX9HCz+rj6uX0XmQW6gHFW5OVCaDSZSiaFxnFrfJ8t3TuoBwrI20/H3WSnjxejhuJFiFgrxnTXUMNjT3LS/vXr4pxAbRd5iaeEz8vZ/4e8BSa0JMLt/Z6GOEngQPjOWiTeSnpSumEjYZb/lVVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Wk7lqCnj5EHVFD8CU+/wneiMkMPyKTH7DE9Tq02uMzg=;
+ b=TyI+ebWdYKJd6WwbzD6v27+FWIQTzJVecayiirqj0SHSdMPVuyos3bpGMXIrmo8TGinMrgrE+LSSgD4YpWSlho6K6VT+8fSk/amSy6YwwndpProBHieDdWY4OjaTyj4P/CFjUbsdGO/o+qELURUTgDEN23prZwmM8YILuJWBqs/iVNKinbTGLQ+88alC6a0RGreM9ZT5VfF4BgBqjVKxd9p0Cjshgb5dkL87IH6AY865cfAwSDCMzgGNiP+4LRksM02yOxQhSYvYIRbMS0ZTEoUzZHaLryjLSsuSfGstVp1Secogl/EZR72u2BbRtKSc6FUqYLBLc3wd2vSBri2FDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Wk7lqCnj5EHVFD8CU+/wneiMkMPyKTH7DE9Tq02uMzg=;
+ b=TtnP8nEeeSwQ7JIVR1hwTWcppogvoI7hwt85nxyJ4ZuZNBAKnssSa69g8DQOJQWfWxSAZ+KMkRqgJNrxhzi7kWbT7JwRtEFkvFckaa7Pc2Pb7H7Aj7BdkYGZi7PBv9lXRidCc/81HHNbXZJBBf0SbPi6R5Yz+ihUM+GXcCQO+Vl65p7rXh2MR0Lv1Ar7VRrg9OjHICLCvLTPOzEfnb0nvohQfEvJVCr/yeXNE0KeQ1NsoUhVQVuQLgGsGiLv5RoL64CHMeVmWOny3He2UfGHpavk5CQgZxEO6SaiRsAybX9NzzvBT1VNW+CwzLENnPfCyUilk44VJoIdQRdOeyJKlQ==
+Received: from AS4P190CA0045.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d1::16)
+ by VE1PR10MB3808.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:160::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Fri, 11 Sep
+ 2026 15:23:27 +0000
+Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d1:cafe::34) by AS4P190CA0045.outlook.office365.com
+ (2603:10a6:20b:5d1::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.9 via Frontend Transport; Fri, 11
+ Sep 2026 15:23:27 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 15:23:27 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:29:28 +0200
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:23:25 +0200
+Message-ID: <c592771c-e002-4c4a-a532-dd73e87c89f8@foss.st.com>
+Date: Fri, 11 Sep 2026 17:23:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: arm: stm32: Sort the document
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
+	<kernel@dh-electronics.com>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20260713232440.120352-1-marex@nabladev.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260713232440.120352-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E2:EE_|VE1PR10MB3808:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7a24fc4-d969-4f41-9747-08df1018a0b8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|82310400026|376014|36860700016|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: tuz43jBBl4Ir1B4tAvJ0u6pANxT4A+BOAKpCCDLFfbVRlBrhMZOJeviSVKtur/WxUw0jxxSvcVViS9loVoKeIsNeUmUT8EeeKsQhlJZk/bUalr4N5SnA98eV5S2HDzdnvurEAmn0TKNAMGfL7CwG13gNP3U7rPKU3BEsyLMSblEc04pmEMPbLCXoyjabSlZqPltuOLyR/vRn/Ny244/G8q9FhObAzLXZiLMpxcqwiKHvLPVvRoPfPY8fkLnv36svVVhc0LMJ+gQ3sSK0eCwMImyoHnXCrKhFlgEw5C3XcD0IjRZXqu5G7/j+nuRzo2IAy20209S6kJKvYa3wgChN/kSl+Zx/TjlGoCFF/D/AijV1kxjGTyJ4VXbNfKBlVA32vDUS5XdcxMLF22HCVFByq7obLHdq5MbxFMopCyo8pHFI0qKOBAE2gwEexC4lZWrFjaUoVsdbCd0jo8zWTDDQDvDf/kB/cAzq/aAwW3CxiIMDmoZi/hwrIl4odSHOqiBCAuN7QfxfMXaq1iJ9cxlcdshEidUNPBUz1DQukz3rPMx2cGM+YiDHrPWNyqesT9St3VnGF5zZ0wGyL8HP9AvhsA5lxiiAO1jGJTkNRHpx2PV2A+U1VvFrVB2nkYymN1zfBqMtmp6Qo5VK9uptvCOghUG3Zy89R3ZQa0N89No4Gil3PpcO4oQ/oFpT8CfkLXZD0qjR+osIwo7w8KdT4OT3kQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(82310400026)(376014)(36860700016)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kxpLsaUccTkCT/AkNf8T556noMjpWgwjTVf7tBJ9xe+S5mjr6OHOclDRAuWbx20qNjcDbf3+nzi3zs7aYWEons+nHSWLvV18wseyf3TRo0JDxtDVMd4EtrMEW/4SFqVu64zMR2JYEGl1E1KaCleTfZu3iI0XGJzl3s4E5iI41Y2BBMd8HafmZaWqk90wH/B1aIBQEG4x6oNXPf8IlQIku0eD557z2T1N6BJqkn+vDsP9RI+rQhwjNnygxcrtF7oim4F9NarppBdKqVufJzJYMpCNBkbxERvoJ4Ny3jrPJKaDWeFFvgYhc/od3VjrKfLkli4RWUeHBJiSV61EAh6aq0LFa0/mS2dICOlg2Mby4PRGTM/RWUOe+cta+5tSQuGAdXptUd8tfolxpJvo1DXq4LzKhGK34S3/1quiyzH6BtKtw/X/JIm1PfnTly3QwY9c
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:23:27.0384
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7a24fc4-d969-4f41-9747-08df1018a0b8
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR10MB3808
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_082333_554101_B4630301 
+X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,13 +130,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 10:15:28PM +0200, Yureka Lilian wrote:
-> This patch series adds dt-bindings and driver support for ANS2 NVMe on
-> the Apple t8132 (M4) SoC.
-> 
-> This variant requires the IO queues to be registered using additional
-> MMIO writes. Otherwise it is largerly the same as the ANS2 NVMe variants
-> present on Apple M1-M3 SoCs.
+Hi Marek
 
-Thanks, applied to nvme-7.3.
+On 7/14/26 01:24, Marek Vasut wrote:
+> Sort the document, place STM32MP21 before STM32MP23, and STM32MP23
+> before STM32MP25 . No functional change.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Bartosz Golaszewski <brgl@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-gpio@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+
+Applied on stm32-next.
+
+Regards
+Alex
+
+
+
 
