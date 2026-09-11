@@ -4,86 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B810EC88E41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDACBC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NFtbyzYoNl/zCEgTU0VH6n/v1JONtCfMPfAx62T90jY=; b=Y4ICfTED5ZWpbsmK74cHHbnVwB
-	5uVlwNc0XZIfyK9TpDoD3gHZcdaOLwnUMF3ZQVCLxdvzOK2lxsNHkZsEWpNfvWYr8HjwsRPThQfJi
-	GhHYUYVXH2PncS3zoDzUxMcbw6bdCOMMXvzL6KuTn1j/FLZ+PNubnaSIEpHJznPdYRXpTBdztNb/J
-	Y7tZo/HlkTEbbRpG846W3kOsODGJvPtTxVEcXwa25zv0UBKJWwiv6JswYT/kHf3wuzpOaDk2Dz5Uu
-	s+Bj544XITl7yol8goEpx8ua2gB/+9cudcyhyimEB75iAn3SK+rvMYyb3glMCVC3SsPSRYKLpTiED
-	mu4FYpVw==;
+	bh=PuxOMmFLlhO7PBg7Pbai7BgbNylrrfzDckYCbeR2JDg=; b=g9WSNk843t08eYMKvQr9rJqgYX
+	uQOodGBjYHp7Mv2qJJu4dVNHMxB7H7fKg3fyo1v+ko58zt3Ktm8aUZkqtJv59QYHb7r0SFYH1cRIH
+	Oh9cIF8t3c5eOJr1vwa8XlvGISAUoljK+ABqOAV0JL+iktMpFs/VBo38gPM8Cc61MjnAiZ959uhRr
+	ikB1PhZn70V60oLQR8ZPnLaqYo1NBG3xFvHMnkCWYho4WL81IlfHYBtTAeMP0mJxTA/J8+gJ8Za+Y
+	MWfkZ/e3f8IszYQotTdOTankr9ZtEcdJTbkpoRUMbXE7hecRVU4ridZyfA9MYiSbv0k68JzjgG5lR
+	uBDFmPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qqb-0000000FhOW-0mQQ;
-	Fri, 11 Sep 2026 02:18:37 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1x4qxd-0000000Fhu2-3q9T;
+	Fri, 11 Sep 2026 02:25:53 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qqF-0000000FhI9-1HNK
+	id 1x4qxa-0000000Fhtg-3PgK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 02:18:24 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260911021803epoutp012468bc1dd817ea85471890dad79849eb~UIq40u40g1793417934epoutp01f
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 02:18:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260911021803epoutp012468bc1dd817ea85471890dad79849eb~UIq40u40g1793417934epoutp01f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789093083;
-	bh=NFtbyzYoNl/zCEgTU0VH6n/v1JONtCfMPfAx62T90jY=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=ZWEAKJZJVgEC7eZ2jFl1u3xZ2Hhys6o8newPTd3nLC9fZ6xPEaB05tziAoTWtxTjr
-	 B4hpZh2sClxvvqyGaHKyBLlKOeTEFD1QXCpBKdO/pa+fsdU4/zxRPhX5y7+skWBvCb
-	 YoVT56EZh2H+0zs9SkMUcI3tx4OJ8LfU51XvgkUc=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260911021803epcas5p125a2fd347d43b9bfdd2cf660e77fbc2b~UIq4dqRYd1230512305epcas5p1s;
-	Fri, 11 Sep 2026 02:18:03 +0000 (GMT)
-Received: from epcpadp2new (unknown [182.195.40.142]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4hgyrC15sTz2SSKZ; Fri, 11 Sep
-	2026 02:18:03 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260910155949epcas5p25209000963122d8c73dc18152feeabee~UAPGFN7l72530325303epcas5p2N;
-	Thu, 10 Sep 2026 15:59:49 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260910155947epsmtip28ec55c8ae2033e856b86e2b9ec9c545e~UAPEp86IB1332813328epsmtip2p;
-	Thu, 10 Sep 2026 15:59:47 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzysztof.kozlowski@oss.qualcomm.com>,
-	<linux-fsd@tesla.com>, "'Krzysztof	Kozlowski'" <krzk@kernel.org>, "'Peter
- Griffin'" <peter.griffin@linaro.org>, "'Rob	Herring'" <robh@kernel.org>,
-	"'Conor Dooley'" <conor+dt@kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20260909-dts-samsung-cleanup-strict-v1-4-1b755a446b22@oss.qualcomm.com>
-Subject: RE: [PATCH 4/5] arm64: dts: fsd: Re-order nodes to match coding
- style
-Date: Thu, 10 Sep 2026 21:29:46 +0530
-Message-ID: <2084663827.61789093083145.JavaMail.epsvc@epcpadp2new>
+	Fri, 11 Sep 2026 02:25:52 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-398a5aad413so394780a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Sep 2026 19:25:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789093550; x=1789698350; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PuxOMmFLlhO7PBg7Pbai7BgbNylrrfzDckYCbeR2JDg=;
+        b=jrQ+zffDOmLNnqWLtgNOlaZ+FYnPo9x3qO9rJzH/IKYREhggpjTSv8Chmk/fbQIG+z
+         FT/5xqpAOZkREoWTW0GKdprX7gRn1MSiv7ynfdPSFUOUBCNeN5PG3HPrcxxRU/utGg9Y
+         yqq5Aj4RnHqZgesalBrlY9qsqug8cGyWvNNc0IEp9DZAq0zwZ0XKizDMkWN+q6XPQtJ7
+         yMDDPSv6c93DXmhKKIwHhQ1YoPk/Uma40Sa2xtVPW/D33CSHj2KC8A4G4PJ4UOgotuj9
+         cg70t3G7QN+jPCuGngNuPjSz/Kfg25Q/GG6pZzcsHv4DYE350tLWSW/hu1604o+ZfhwV
+         s+gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789093550; x=1789698350;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PuxOMmFLlhO7PBg7Pbai7BgbNylrrfzDckYCbeR2JDg=;
+        b=CsZEZhWj1zb4CmCOslFNiYX6YVIil0YRz06dH4CkPhXKItWD9Tc4zVPoHx8Cm1dCdg
+         6yoBYpGcHYFAnfECB5wmwodB9d6BBaM3ZoAtX5vDxctJF/wkPD7KqQCN105d94rKGmyN
+         vxbbI+LzqWiC81mpBH7aOMqGcLeicbSd7e0jciraILy1wzUzniQXAOxyv6QC5OGYfjMu
+         MlA5rqZrjIife2j27GlNrTDE7r1d+lO/t0+m/TtVkThG3KdKRPQK1WjBvcgz4rvSW4WM
+         v5ZXlD+bpehRFIpUzrDHlQDhBNSr7dOWLYFX8fYC+qeb+EtJ5MY2zoTaHj6Du4ps/V91
+         3TNw==
+X-Forwarded-Encrypted: i=1; AKwUvBzAgssj9nV9YZElrDb/2Mu5SeQ2jDMdKlSBQp1r1loh7o/EIpJ+38fjWGd6UmQRH0kKHdaZwZT1DwNuqoQdWCqL@lists.infradead.org
+X-Gm-Message-State: AFuF++mRGy8NNrb17Ygo/gC4VUOCgBvEGpxDafJudWKW6Cd1i4V3D+Op
+	sjrMLe2cADVO2GCJWwFeLVjgTZExB0jv5Ck+vNLxVdYgG1+AU9YuOa2I
+X-Gm-Gg: AYBFou0nmWD6vXv0Lqkakh5cwByeLG/fDjtfWOfe+opKU48UOo8pr0xKB5Jme64PrcR
+	lkOeGoa1W5/R1mYl2JjBvwkaJvgLFTTBKidWhmMJiU17hAj3zdSc7yyUL8pX/pw9nkYE5hdleCT
+	0kVKdI/WnkIcTnoaMS4+FHueLjL50FlC5jVJt7WJ5cVe1iIpModiDTUPvOu1zcyZxkt8ZHFa7qP
+	aUmh74pqlug+iFpd8YlAs+L7i7KLKf8UJ9OlpvjUj2t2p4jWYCaacX1MZQQjYYJX7SS3IV0d/r9
+	O2r+2TjhFfyu/eEqAguOldqEosPhBjKwzUGRqeu5Uz3oM63VPSHyBosuIdGTxeQY1eDA1QZbUww
+	WiqKkT6/6OGByVE7Um5LvFihzrw1+3VGcBROA9G1IMvcJ6Z+X+doQCat7VlzvF7T0arXW6dAbYg
+	LffIjRP0sYsULhMMhFMMHyTFWJJKNffZwb8I+IfU1Qxfb2aPKOcG+7kULtDjo2MYvD/Q1ld+0bz
+	CsvU0C+n27EZd1Yw7AdfkRix5SQJD+y94x+eHWQ/qH+osd4oL943ss=
+X-Received: by 2002:a17:90a:d2cb:b0:38f:efed:5448 with SMTP id 98e67ed59e1d1-39d9bd971fcmr2831000a91.8.1789093549708;
+        Thu, 10 Sep 2026 19:25:49 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d98e602e7sm1998815a91.5.2026.09.10.19.25.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 19:25:49 -0700 (PDT)
+Message-ID: <c7dc7356-22fb-4194-aeb6-084b5d3f9b73@gmail.com>
+Date: Fri, 11 Sep 2026 10:25:45 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQI+vGmeAYQ1M8KGwzLNRALcGC0DngIGdcDsAfk7HAC15QOycA==
-Content-Language: en-us
-X-CMS-MailID: 20260910155949epcas5p25209000963122d8c73dc18152feeabee
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-X-Hop-Count: 3
-X-CMS-RootMailID: 20260909141824epcas5p28e392ad97ca2e5dae47a857272b5ea14
-References: <20260909-dts-samsung-cleanup-strict-v1-0-1b755a446b22@oss.qualcomm.com>
-	<CGME20260909141824epcas5p28e392ad97ca2e5dae47a857272b5ea14@epcas5p2.samsung.com>
-	<20260909-dts-samsung-cleanup-strict-v1-4-1b755a446b22@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: nuvoton: ma35d1: add CAN nodes
+To: Zi-Yu Chen <zychennvt@gmail.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mkl@pengutronix.de
+References: <20260908014526.413399-1-zychennvt@gmail.com>
+Content-Language: en-US
+From: Jacky Huang <ychuang570808@gmail.com>
+In-Reply-To: <20260908014526.413399-1-zychennvt@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_191818_269259_6482775A 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260910_192550_883884_FD866D50 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +107,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Zi-Yu,
 
+I reviewed v3 of this patch, including the CAN controller addresses,
+interrupts, clocks, Message RAM ranges, pinctrl settings, and the
+board-level clock configuration.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Sent: Wednesday, September 9, 2026 7:48 PM
-> To: Alim Akhtar <alim.akhtar@samsung.com>; linux-fsd@tesla.com;
-> Krzysztof Kozlowski <krzk@kernel.org>; Peter Griffin
-> <peter.griffin@linaro.org>; Rob Herring <robh@kernel.org>; Conor Dooley
-> <conor+dt@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org; linux-samsung-
-> soc@vger.kernel.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org; Krzysztof Kozlowski
-> <krzysztof.kozlowski@oss.qualcomm.com>
-> Subject: [PATCH 4/5] arm64: dts: fsd: Re-order nodes to match coding styl=
-e
->=20
-> Re-order several top-level and MMIO nodes to match coding style - orderin=
-g
-> by name or by unit address, as pointed out by dt-check-style,
-> e.g.:
->=20
->   fsd.dtsi:981: [child-address-order] child node @10040000 out of address
-> order
->   fsd.dtsi:315: [child-name-order] child node 'arm-pmu' out of name order
->   fsd.dtsi:348: [child-name-order] child node 'clock' out of name order
->=20
-> While moving chunks of code, also re-order a few properties (I2S, SPI and
-> CAN nodes) to fix:
->=20
->   fsd.dtsi:661: [property-order] property 'clocks' out of canonical order
-> (should sort before 'samsung,syscon-phandle')
->   fsd.dtsi:936: [property-order] property 'pinctrl-names' must be placed =
-after
-> 'pinctrl-0'
->   fsd.dtsi:936: [property-order] property 'pinctrl-names' out of canonica=
-l
-> order (should sort before 'samsung,spi-src-clk')
->=20
-> Moving several nodes already creates unreviewable commit, thus reshufflin=
-g
-> the properties allows to skip changing the same line twice without loss o=
-f
-> readability.
->=20
-> Signed-off-by: Krzysztof Kozlowski
-> <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
+Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
 
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-
+Best regards,
+Jacky Huang
 
 
