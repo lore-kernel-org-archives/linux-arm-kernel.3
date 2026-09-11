@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8824BC88E41
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621C0C88E40
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 02:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsrQP+FKX7ACjXnioTe1PG7XirWH9x4PyAmk/UhDN6s=; b=c+QPYGKh1i8/AEZws9zAUnIxNo
-	rYK9AAGBEhoPyQAkwZFZVUJ4QzU2mxl8m/EBGLeLTx4nJC+fTfbQeFpT6veKYWdrg6GNsl3CdGEsU
-	PB/+RiOge13D86UHe6Rrd/uM4KwuAkGg9e56t9sZwfdvNTtgnNYOvyyF0TpJMfxoPUyI0xqq/Pw2u
-	097Dbn7F5jOk6J0VJJYkVwnnWKjv+f7JMJb0lAym/GpF77uaHvaGONf3U1QhqW6FsvJdPFI6i+aEU
-	omZMmIR+q0eVTKHMCsnz5h/oGiVcCmJrX1f08Ga4OA4KZcn90SG1sgqaGwDtjTr+0dbewSOBuXLpf
-	eDJ+coFw==;
+	bh=V6gJ2io6CHbZV+in01bmVOivcND1h8Ntdr8b0UjzLrA=; b=njfLXgA2Rklmtg8IBT2962W3pN
+	eYMt/uvOfq9FnQOanYIkRHWDxXwkPJ78u+aM6wQgcznkawBX3KQX+eobchV2r8GK8DUWkpDu3LN6h
+	c+Rivxpkag0AIRCA8OtIXiCGcCg8/34ZxIzgr/LHh2/0Ur8e631rCtJMrmA2/4lbdY4LydUYK6smF
+	8/Yen4YR4qSTfhURCjjByP/btW4ADZ+8Tb6YjczYfrTilFj/+I0WcuijO0CNIPlOJtrvR8SC8IaUu
+	JHQod1fpNZiB6fMtp/2TJJUTL1SmsUkB/ciJFlnq4siQ5CHvbgLQLd/sWLJpawjDg0eH2Qb5g+Kr8
+	8jOsqsjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qxk-0000000FhvZ-0XkH;
+	id 1x4qxk-0000000Fhvr-0xyN;
 	Fri, 11 Sep 2026 02:26:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qxj-0000000FhvE-1sVU
+	id 1x4qxj-0000000FhvI-2wMm
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Sep 2026 02:25:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 294F56020A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E1A1447DD;
+	Fri, 11 Sep 2026 02:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16FA11F0089D;
 	Fri, 11 Sep 2026 02:25:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C91661F0089A;
-	Fri, 11 Sep 2026 02:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789093556;
-	bh=gsrQP+FKX7ACjXnioTe1PG7XirWH9x4PyAmk/UhDN6s=;
+	s=k20260515; t=1789093559;
+	bh=V6gJ2io6CHbZV+in01bmVOivcND1h8Ntdr8b0UjzLrA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UGNiU1Myu3dLWOe3jlEypuiaVcN/rK8Gel2dEmf+zsSRFkaf/23qZz9othH7DtSZB
-	 lJRqFrkyB3FKEqnG4y1zLAAlhLBSqXFMrml+81epQaaNzKdMwNZshbGGzCVRqN4k8K
-	 4WTyC91TWsTj6+LMJ828U3YiOyBUirQaUSB8NTa+B5xcjUzK73MOKbtPvrYvXBCfcU
-	 IW5gMM5LmU7lWhScRk+3fNXFL8cHOoAmb7TIaydOXPy1dMpQDZJjR+iQY5m6G77iZZ
-	 PrgukZphQ1zkcrbuVAjf1b80Y/3WosaT2KYlPvhkMlnvix7BJ4nSsh+iwBsjjSvL7F
-	 u7xBlVY0CM8LA==
+	b=PXmcJWPuqB09dI5WFH4TqhhcYaqNIF8hYst4Gnfo7DpAKjfSkchoYKUQdrvpzVWVR
+	 HdD+qlQzeP3xyBw136cuPKmObfMEvtlEkh1uL1X9XJ5UApKS+IKymnsresD9zrugNN
+	 WZDvaRv1Ghwq8ILWkREcibno363/XhJmLTdSbForq1X90SkmWig6fBRSFlR8qIdEER
+	 8kMLjRirPoVtKpuIn0d46jNSvINm1DNfKHzHqqkM5LSWqHkiYnKVQ/lDi9hPs02nzo
+	 RdbPUzZTXK3fIxVWQZqrXSwNl/CYxQ1sk+94Egw4zFvqoLdSM3/2jqfc3mHO/P2Sxo
+	 XUUlJf4kJGkVA==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
 	Linus Walleij <linusw@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Robert Marko <robimarko@gmail.com>,
+	Guru Das Srinagesh <linux@gurudas.dev>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 Cc: linux-arm-msm@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: QCOM interfaces should depend on ARCH_QCOM
-Date: Thu, 10 Sep 2026 21:25:34 -0500
-Message-ID: <178909353836.920241.11751783764687425864.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v5 00/15] Add initial support for Qualcomm Kuno SoC
+Date: Thu, 10 Sep 2026 21:25:35 -0500
+Message-ID: <178909353843.920241.15734171629938035637.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <888efe8e63b6a18fae4acd5a90a1e0e69dcdf2ca.1786012495.git.geert+renesas@glider.be>
-References: <888efe8e63b6a18fae4acd5a90a1e0e69dcdf2ca.1786012495.git.geert+renesas@glider.be>
+In-Reply-To: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,20 +97,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 06 Aug 2026 12:35:15 +0200, Geert Uytterhoeven wrote:
-> The various Qualcomm firmware interfaces are only present on Qualcomm
-> systems.  Hence add dependencies on ARCH_QCOM, to prevent asking the
-> user about them when configuring a kernel without Qualcomm SoC support.
-> Make QCOM_PAS invisible instead, as it is already selected by its users
-> when needed.
+On Thu, 27 Aug 2026 23:21:03 +0530, Hardeep Sharma wrote:
+> This series adds initial support for the Qualcomm Kuno SoC and the Kuno
+> IDP reference board.
 > 
+> Kuno is a 32-bit ARM (Cortex-A7) Qualcomm platform. This series brings up
+> the essential SoC infrastructure required to boot to a serial console:
+> 
+>   - Global Clock Controller (GCC) and RPMh clock controller
+>   - RPMh power domains
+>   - Interconnect (NoC) provider
+>   - TLMM pin controller
+>   - PDC interrupt controller and SCM firmware interface
+>   - Devicetree for the SoC and the Kuno IDP board
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] firmware: QCOM interfaces should depend on ARCH_QCOM
-      commit: 8fecd3194de338bdc0c57597be61fdcf33e1832d
+[14/15] dt-bindings: arm: qcom: Document Kuno IDP board
+        commit: e3fa925ca180aea34852e282211fea12501cb6c3
 
 Best regards,
 -- 
