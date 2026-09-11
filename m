@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB646C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DE5C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 09:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6o+QncrTqmoqAMM3f1Bikm2mAzRwxYrhaW4iMNLfgSQ=; b=b0RsPHHgrMpM14rhyk4hUBDnKK
-	3YCHzOXOTqMXetcTblidPp3YzQdgMoJE2TeWZg6g7XDqokGh/LdPAFD9maORN6TBJ4KbsbDkcgZ6x
-	omYnOP7ijU3WQPtAZu2yq0vQVkl5rpSdx4BY+vCYPbfnx7y0D2YhVKmjalN+DgGPcGKy8CGbPptbn
-	n0wCEguqebpv050sWMB4ORdHBLoXDhR8YIj74yfAbZhUlVcbwHlWpftdwmgnzwRa9h43p0tGxy7oW
-	qxSvgTQmbCUAd7Ow5aIlN1RmChNzy3F1Xn5m71ooC/+TAGcdCGAzo9udMsaNHbLH3UaGAByynEpf6
-	X1/YPfiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+6MYxy5XUjX01KpC8TpqcYswDVyBlb/TK9KQ1ZJYVc=; b=2BFTs6Y4l54bVZtWApdFXrs4Cn
+	nuWNb0E5oWOP1ao8pLcoR+RPH17YCzzCJVDz485+5qtWv1Ao5btzPLUGm9o8i28AL2kQ1ZeMxtnSq
+	otcnjkNWOy0nxmYYgso9r0qavmEYYiIAww0QFHp5ZeM5JqpIW4YjzUPe7TBg/B5Lrpd6hiauKW7QL
+	xOteXhMhX78MqkdlcCBxerQV+JZvmtRBjfBwTWxSCMyOXjy2XXyEkg+GmJwYQqFSov1uKNmte7FJ0
+	XymCPS/cRCUvSALeOP4In+WqPfxB2LyjTJInpaLVk7Lj/0quqpHKBw68016goRyNbNU1YxY4dmZ1Z
+	ld6KgImA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xFm-0000000GDoG-2UbN;
-	Fri, 11 Sep 2026 09:09:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4xGN-0000000GDto-3x2G;
+	Fri, 11 Sep 2026 09:09:39 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xFm-0000000GDo7-0ZZt
+	id 1x4xGL-0000000GDsf-1B7x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 09:09:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3834A60210;
-	Fri, 11 Sep 2026 09:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE4411F000FF;
-	Fri, 11 Sep 2026 09:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789117740;
-	bh=6o+QncrTqmoqAMM3f1Bikm2mAzRwxYrhaW4iMNLfgSQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=JIJ+9wt3rF81Eca2UtXQV4IcTUqdXhVTY8CAcPrThQRhMYBrE6gkZv1bb8U51pVaL
-	 4Xmks7Zs/q9xAsEP1K8jhx+dkRFEhndo+FikfrgAqqM2H/z/8bOem3RhEN97IMnkEi
-	 R1zx62K7s7lX9Sop6+WvP8mWAiuouAjk4QAE72HA6CcGhtAHE0BTaDTsKLtXiWMynA
-	 RXzE4KeUXHfxpMUOXxSN2c82wAeCo4E8dJLUiz9fKk9m+LpsP0Mgs6QaQcfCr6iCQg
-	 6x8VjZeU1vDdsZlKJu+LaDp4DLDLJmfKH1azBsTGW4ZZZ4ke5RoEHqglZgxq068568
-	 e8Hc1iO3/VOxw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x4xFi-00000007fc4-3XmF;
-	Fri, 11 Sep 2026 09:08:58 +0000
-Date: Fri, 11 Sep 2026 10:08:58 +0100
-Message-ID: <86mrto6tp1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Huth <thuth@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Mark Brown <broonie@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v1 1/3] KVM: arm64: nv: Don't advertise FEAT_LPA2 for guest stage-1
-In-Reply-To: <20260909222015.3046432-2-weilin.chang@arm.com>
-References: <20260909222015.3046432-1-weilin.chang@arm.com>
-	<20260909222015.3046432-2-weilin.chang@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, Sascha.Bischoff@arm.com, ben.horgan@arm.com, lpieralisi@kernel.org, thuth@redhat.com, james.clark@linaro.org, broonie@kernel.org, anshuman.khandual@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 11 Sep 2026 09:09:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 09AE4C653FC;
+	Fri, 11 Sep 2026 09:10:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24DA5601DE;
+	Fri, 11 Sep 2026 09:09:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5556811C7AF8E;
+	Fri, 11 Sep 2026 11:09:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789117772; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=t+6MYxy5XUjX01KpC8TpqcYswDVyBlb/TK9KQ1ZJYVc=;
+	b=DSrRpMzo7xommH6ljF3n40eJNp4XkPIlSTnxYdGK9noi1maEjPYXHwbRBMJQlyifjzSK9/
+	OIJM1vSUZQWh5eGnUsmf7KridG6Y3f5lk5k3s1++gtzvm/aPAHNhxj6bBHccAghi6hSI0Z
+	U5rUj/t0oe1S2TpcRMVagB65Vjjc59OyYzz/FODdv6v2j5MVX+/m7t9MyC+isQw3SpZwq7
+	8D+DLBC82Gvc00XvStT/u28NAMGJkU/QusWmjSMxhTQ77O72cS4LJ8UgxxKwA+U31Cdjcp
+	d0V4UO4PuyEmfZtPDicT7LOHM3eezIDw+jsib6AWDgIWLilFWBlupjm9kwcXig==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Pratyush Yadav <pratyush@kernel.org>,  Michael Walle
+ <mwalle@kernel.org>,  Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+  Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Nicolas Ferre <nicolas.ferre@microchip.com>,
+  Alexandre Belloni <alexandre.belloni@bootlin.com>,  Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>,  Jonathan Corbet <corbet@lwn.net>,  Shuah Khan
+ <skhan@linuxfoundation.org>,  Randy Dunlap <rdunlap@infradead.org>,  Steam
+ Lin <STLin2@winbond.com>,  Hsin-Yi Wang <hsinyi@chromium.org>,  Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-doc@vger.kernel.org,  "linux-tegra@vger.kernel.org"
+ <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v5 03/25] mtd: spi-nor: Refactor Read Status/Write
+ Status support
+In-Reply-To: <87ecf1sa2w.fsf@bootlin.com> (Miquel Raynal's message of "Thu, 10
+	Sep 2026 11:57:11 +0200")
+References: <20260904-winbond-v7-1-spi-nor-rv-addition-v5-0-2909a45fe4fa@bootlin.com>
+	<20260904-winbond-v7-1-spi-nor-rv-addition-v5-3-2909a45fe4fa@bootlin.com>
+	<b78b8e6a-2fab-489f-aa1b-a2ab23051794@nvidia.com>
+	<87ecf1sa2w.fsf@bootlin.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 11 Sep 2026 11:09:26 +0200
+Message-ID: <87tsnwqhmh.fsf@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_020937_476627_E1D13813 
+X-CRM114-Status: UNSURE (   5.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +91,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Sep 2026 23:20:13 +0100,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> 
-> There is no FEAT_LPA2 support for NV guests as of now, but we missed
-> limiting it for the non-stage-2 granule size fields (TGRAN4, TGRAN16) in
-> ID_AA64MMFR0_EL1. Add the sanitisation.
-> 
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> ---
->  arch/arm64/kvm/nested.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 3c4fc566eafc..1fd98117df23 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1731,6 +1731,19 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
->  		/* Hide CNTPOFF if present */
->  		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR0_EL1, ECV, IMP);
->  
-> +		/* NV does not support FEAT_LPA2. */
-> +		if (SYS_FIELD_GET(ID_AA64MMFR0_EL1, TGRAN4, val) ==
-> +		    ID_AA64MMFR0_EL1_TGRAN4_52_BIT) {
+Hello Jon,
 
-nit: keep both sides of == on a single line.
+>> spi-nor spi0.0: probe with driver spi-nor failed with error -22
+>
+> Thanks for catching this early! I'll get back to you with a proposal
+> very soon.
 
-> +			val &= ~ID_AA64MMFR0_EL1_TGRAN4;
-> +			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4, IMP);
-> +		}
-> +
-> +		if (SYS_FIELD_GET(ID_AA64MMFR0_EL1, TGRAN16, val) ==
-> +		    ID_AA64MMFR0_EL1_TGRAN16_52_BIT) {
-> +			val &= ~ID_AA64MMFR0_EL1_TGRAN16;
-> +			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16, IMP);
-> +		}
-> +
->  		/* Disallow unsupported S2 page sizes */
->  		switch (PAGE_SIZE) {
->  		case SZ_64K:
+Here is a proposal, please let me know if that fixes your issue fully.
 
-In theory, we should also change the userspace interface to accept
-(but ignore) FEAT_LPA2 being set from userspace.
+Link: https://lore.kernel.org/linux-mtd/DLCD7NN2IW82.33ISZCKO1E7UY@kernel.o=
+rg/T/#t
 
-But since there is no LPA2 HW in the wild, I'm not too worried about
-that. You probably want to Cc stable on this patch though.
+FYI it is only compile tested.
 
 Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Miqu=C3=A8l
 
