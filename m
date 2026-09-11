@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BDFC88E50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F243EC88E58
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrAFeAU1HONhylYuAElmqPqMHQ1RjTCsevj0LcygbgM=; b=SG20VPKcBWbZD9FnkaKiK0Oxek
-	tS1vBcl3nWh/IRPcMUZSKMAy0obh+Gn7QHboE000/OdinAh3O3VeiJEoB/Z6lI/uTBCOHDnHr+jZc
-	EI3ymprIP0eQmoklUm4cftvToyqXLJmn4wOIm/gvfTqBPBO6Hpl/G0Il4aOjk+HTuwtkp6oxWwQCO
-	XvpNibOi5NBP1yGRcZ5RZdsgk22c2lU7PbuErSVXosLhIms0mtZqotXxt6uRWAouHWLPDyBCy6aXJ
-	t2sJm60RgKevPo7gZSZzfqhqR5HiAKr/MWDL2/m0qiyJRltNZhTtNQKbHM3DjvqJp7r19TbPdlJ3R
-	akbu/bOg==;
+	bh=DUt8078LI6wD6+nVcD9TLG86kUVkI5Y3pqRlvqsMaBg=; b=34QJxz0yznOU5g4XNQfwMHxhW+
+	d2MfwhqPKNMzP8WyckDGZ8UlKRiCO2G1K5VXuZ4NxS6PpmyQ62HNXNINEesCpth/+24BrD54vg52u
+	akKrufbkj9CkHmNQvmwm3B/+1cDFtY0xSasAs0SCUHfIqqug5sISFVsz01M6/s5f73pUA260rLK26
+	2Yizv636+u/QPSNc1jL+WBhEG+K4sUVyDxir0n7WaHp9+nZRzQAfvvCOsdWco2JoqiOd8gJBM/AbB
+	SWmJuBcqG7fPaNL+VC5mpVyEbniOziPTcawVHqhXv/DZs3c+SqF/NwbcgXAHvLGbeVXPvSuaoPqPD
+	tI+O82Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YI-0000000GmJn-2oMM;
+	id 1x51YI-0000000GmJZ-2LTp;
 	Fri, 11 Sep 2026 13:44:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51YG-0000000GmIe-2F7Y
+	id 1x51YE-0000000GmHz-0Qxp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:44:24 +0000
+	Fri, 11 Sep 2026 13:44:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C0E5360A66;
-	Fri, 11 Sep 2026 13:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 988871F00893;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F1A960A57;
 	Fri, 11 Sep 2026 13:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B906C1F00893;
+	Fri, 11 Sep 2026 13:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789134263;
-	bh=xrAFeAU1HONhylYuAElmqPqMHQ1RjTCsevj0LcygbgM=;
+	s=k20260515; t=1789134261;
+	bh=DUt8078LI6wD6+nVcD9TLG86kUVkI5Y3pqRlvqsMaBg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C8wtgViKBZ4yAXkyZHrA0b4jjOcF5FSxZSKGhvLmk13Lev0eOijLaGm2Ts3YBKjH7
-	 AWXB44Drylx7W6vF5mdbKmdo+Ccl3gyhgRiwG1JMBhJ/n/kXiaJdGFxd56tVkp0DRI
-	 +Slhj7yvHMOBdLnceMMXOyaI5EF4j0F6DxcNNdWZyfWBk0sXp0WuWMbLYGhL6/V8zC
-	 OLTn1fXpnRNftuuFiyXZ22+t0cJMMQTJ793Y+k+uusvs6e8Qr1TWgGNhF24Q7mxXsv
-	 dJgl22+K+a9qfGM4sYTwlPzyPIb/r1I6UJ5WanRiFBXleHf63LWy7DUwzXKrTEnnHM
-	 X0aXxOXcTzuIQ==
+	b=Y/mld16cYoo+0J6NDNRTftpl6Gk8wsiMTHZCq9sX/Wro8BTbtvwnpyoAqImOym339
+	 XZ2EZyXUe8hsvRo9/KslBSt4/HzE7m1msSVyzqTQbsy6AZqmZvAi24DLwL07/0cxFF
+	 ysETPu3eVIiUu1ewQfHs8Cpr0SBdB1P214gM0mB4eCnIKpT2bGUxxwHX8gofmkLWZ7
+	 nR7trRpe9ky+o4C6iL7XMorvgryGT8du3pc/a/1ZLFZJdyMqeCFfCezFA41DSy+LkW
+	 g/6P07x2PhOWY7PsVdeZLYNT9KEFCqLylh8KQB48mrZceJAu5FoRQSFk4hqLyvAkuI
+	 wQ9PRwAaWdzew==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Breno Leitao <leitao@debian.org>
-Cc: kernel-team@android.com,
+To: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: mark.rutland@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH] arm64: hibernate: clone only the linear map that exists at runtime
-Date: Fri, 11 Sep 2026 14:44:09 +0100
-Message-ID: <178912888402.2443437.8441014922865389654.b4-ty@kernel.org>
+	Yury Khrustalev <yury.khrustalev@arm.com>
+Subject: Re: [PATCH] arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
+Date: Fri, 11 Sep 2026 14:44:08 +0100
+Message-ID: <178913101591.2459695.4180294828056716193.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260910-arm64-hibernate-va52-v1-1-a584d9a7d65e@debian.org>
-References: <20260910-arm64-hibernate-va52-v1-1-a584d9a7d65e@debian.org>
+In-Reply-To: <20260907113151.363924-1-catalin.marinas@arm.com>
+References: <20260907113151.363924-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,23 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Sep 2026 06:53:27 -0700, Breno Leitao wrote:
-> This is similar to commit 1537e55728ec2 ("arm64: trans_pgd: clone only
-> the linear map that exists at runtime"), but in a different place.
+On Mon, 07 Sep 2026 12:30:25 +0100, Catalin Marinas wrote:
+> PTRACE_{PEEK,POKE}MTETAGS return -EIO rather than -EOPNOTSUPP (as
+> documented) when no tags are copied from/to a mapping without PROT_MTE.
+> This has been the behaviour since the interface was introduced, though
+> the original intent was to distinguish between address not being
+> accessible and mapped as untagged.
 > 
-> swsusp_arch_resume() clones the kernel linear map with
-> trans_pgd_create_copy(..., PAGE_OFFSET, PAGE_END). PAGE_OFFSET comes
-> from the compile-time VA_BITS, so a CONFIG_ARM64_VA_BITS_52 kernel
-> booting on hardware without LPA2 -- vabits_actual is 48 and the fifth
-> level is folded -- hands the walk a 3.9PB window while its linear map
-> only spans the top 128TB.
+> Update the documentation to match the implementation (de-facto ABI).
+> Since -EOPNOTSUPP was never returned, change the error assignment to
+> -EIO as well to avoid confusion.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: hibernate: clone only the linear map that exists at runtime
-      https://git.kernel.org/arm64/c/e4a6f57d22e0
+[1/1] arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
+      https://git.kernel.org/arm64/c/fdb9ebc7fb77
 
 Cheers,
 -- 
