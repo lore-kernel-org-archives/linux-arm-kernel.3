@@ -4,90 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884ECC88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AF9C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=; b=jeyrGadb//+aIcy8AuzkhH07FH
-	TlM2CqInfE7WU/IoT2rDa6fhm8cyLtlyuBIz2Z6Zwvg06+v44JlS1MvTXb2JrKGoe8A4BLtT+jRGs
-	F6fdM5oeoQ9fvQ7/P+jFFzukGYDt0izbBVGV5t+PrPqNBDZABf2QMe0TN2C17KioJyidT4kJ998l0
-	4+k4Xtj5xo1Ob5tOVKze17irC05QNSsAtc9BUO68CVj45bl+07g6AhiJLX7bl368zwNaWgEv6203Y
-	u/QsBQPmDF03iZB6gJsR9sdvAyLqyBqje3iBQhkOwKFTVcH3d4qwSFG2bCUa90OIJdDXduZYSSx1x
-	oIadxHjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GAoYyAkPzqZFzJg8fyHyiI+fkie1SJPMug2ZzfugPWA=; b=ty8C8XgnUEdMko
+	IuyK31CKgCg7YWB5q2sdlHUaq8t3ly0bt28aaoAjKNe1Le6DwWzP95EA0zki0eHDYNNYUlwwFAI78
+	yhy190nTXJxAQCphsp9+KLJiWEzjTSzJrq0EMhR9lIPShoXjB30F1jiixV9jmUtp5/TqGew81IEHc
+	fNlWMOd03jeQz1UvnwhPp8xQ08+zazyDYgqqvC9inLhcJOQfECE3AUuqOar9G2CUijXWEJmHjFdvc
+	RJGrQ38HJ9QYgWwEceSDLztPR6iIUn6q7qHqU7/09Rlu/p4AOOxg/1pbL4zA/fQbj4dX38/resIBb
+	/aRPjNV3iQ9qR3lOIMrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OA-0000000H61L-0TBi;
-	Fri, 11 Sep 2026 15:42:06 +0000
-Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
+	id 1x53Xf-0000000H8iG-0XUo;
+	Fri, 11 Sep 2026 15:51:55 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53O2-0000000H5xK-0IOa
+	id 1x53Xa-0000000H8fk-2QYQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:42:01 +0000
-Received: by mail-oo2-x0f.google.com with SMTP id 006d021491bc7-6b1ae6f5fc7so681941eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:41:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141317; x=1789746117; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=;
-        b=JDG4FNne7u1VSrpIpu+o3uGaO2zRVy5JZnBRa8YnimtizvRMuhPtz/9E/K21jSr1by
-         X2gI974ypkWdNsAjZ9ItplbHZ+vZ9BN8C4DARyk10pvutrBQx+OPEL+cEifGdxMCNqcg
-         ySKb2nyDV1uow6SBZ43fdkvAPrRrDJjOW1wj9/lPHHzWNBcfDG+CujI6/pr/Qy9CDRku
-         jzMbdD6DjqfyR8zAO0G1kEtpmFVnlULmusUJTvwFGUX9QKSYlxyYDZSNmN9bREEQQP/a
-         dd0CjLyScbTUsn7UH0Gcmi3wtfS/z9Fhyoj6FOcGK3unNI1CU9OyWDc8xt2nRRhjPdwA
-         UWXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141317; x=1789746117;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LQGIaUxtlzAP3sjiLv3UoTOfP6jJ6w5b9DVleKCMx9s=;
-        b=qd3tZ4T2TeA716OKsqhiwNQZJ/rq+h0jihbSuP1otIvSoKG2Fxx8txcRFZaNR+0EkU
-         UcrDYAfWHAVKQNik1tVc/ZNxWM0bhfsr5OvsZfbRV6+iuz9OiOdQgYij09qpbl/k1vMs
-         HsHdcuh6Nz4PRfsMREMe5oaen1FnsUcDW+FRdunD0ErscjFK3IqwHFoZidRHFHshanMW
-         OfrHtEL/CS773t4ILAogY5G1rgDOCn5WRmV9TSMwP+CYNxUC1qfOsE3g6JwfUasYpQhm
-         zOmoFrky2cmM8F+hpccdVqViFFOgwBnO82i37ekjkgZa3gxx9b5PVZxuILKBiZkVUcGJ
-         DDuA==
-X-Gm-Message-State: AFuF++nbSvhWCUXkPSYx2FUzYxvxuwhfvSLxCTKGIa9EGHVYjQXYhCLD
-	onYDvAsYzVkNcMR2CKh6dsDJll+kc6lZJHDrRXtX4uADaLfk3gmg37XJTknrDxlygqE=
-X-Gm-Gg: AYBFou0+YvDaevw/qVtwKJ72IZlWZPaaky6pvzlXkJjCd+HBte6kszvf2xhr7SaBX2W
-	6sQKbCS/AVQgCgf06yCsanctEzrZtR8qLOexiD7dUzzzd6SzJVm+ZrWDtRuVngjY4wdK4D/0763
-	j53K/eltKJoJGVQH7oAjluVVHLhoxRcRQf1B6BoVvCk489lULiJnPyHJbEVQmbvFp7iYQ0C3Eag
-	LboxMk8U47y5QZs7AQx+PvsGImfSj4358nPL551/3PNdcPS394hYgfZ0cUFbl52z1pHwDgLqRnN
-	MiOeiX8p/46Kd8LnuSwRYSw0uFLD3PM9zl/KVCkpGy8UBr4MUzbPprjFahnI29LDfC9C5HVS2BM
-	C5L6KDZ3TN6NoWIHP9VNcevf82H/xnbRlDasFOu2hnG80/1I2ptE67AuUGQDJ2sIYzKl5Fl3rmv
-	zEnRHpUy+aIINuukZ6acxMGExiUQStFegmVyW+AbG9nyeIiNUjy02M6F9YGoAF6wlvFmr+R9pxC
-	bA4Z72fIfPCpj+qnUeheOC0XcnBGT20ylax3mAEzaU=
-X-Received: by 2002:a05:6820:1f07:b0:6b1:b867:1a1 with SMTP id 006d021491bc7-6c0bb2f3cadmr6386168eaf.12.1789141316858;
-        Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
-Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.41.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
-From: Jens Axboe <axboe@kernel.dk>
-To: io-uring@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH 01/15] kernel: add thread identity handoff
-Date: Fri, 11 Sep 2026 09:40:51 -0600
-Message-ID: <20260911154148.644489-2-axboe@kernel.dk>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
-References: <20260911154148.644489-1-axboe@kernel.dk>
+	Fri, 11 Sep 2026 15:51:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ODTrhUTpRtTubHvVqf0fE6BYR9Fwmv00+Q5fgxWBU5JUkA/gojvIqS1NpLRmekHuU3ltEVt87DcboEWKDNzMb8rTt55lfLgEtH5MGK55fNVx1nUp/8qzs9HOmCviiwgpoh9aI+3KZ0JWlDXpUl/wcEJR0JvO6e8owzp+w4RZY5285923DeT81y5puk0RCRfHKfEFPu/wSgZquhZSjuQkL7NEXPs2lwjKNhAUsL/bjl/vstZ7WCx1qyxJ5wDZJfKMEF8INZywFPcGzPqRdRmb1iOJGFIKqBD9aNL+68D6T8BNQgCCTDjgKdfob2nCFx/OxrKTgsjUYeU72Va7KskfWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GAoYyAkPzqZFzJg8fyHyiI+fkie1SJPMug2ZzfugPWA=;
+ b=OtTr5FN/dfZM5a1/E2HwEheHu3RxHFLX1/RUK2Kyox2dIGz0bmusRm0nqJ0P7LWu3BZ/qjXjr+QmEPBug3ZrK3HOXZJePHH3uKr5v6x1z4oE4FrKOEok15hpwnvHx5zy24Bn4frojDPpTEF6Ohkq6whhc9w1w5zyNFloDxq+5coUc8w50yk8dlZHoPhWsPAxXQio+rC2B2bqcm/LTJJtieXKSh8hv8XOSm5M4VfETNZcc8GKfk8Rx+L7/l8C+F21rmtdPaaqEeLnVqvT7ShA7vCLBJuJ9FYbGIj7wZnd64AaUkdz1tDSgtxWcMFKoN4bRNtwA1XIu12KARlDOPjDEA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=analog.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GAoYyAkPzqZFzJg8fyHyiI+fkie1SJPMug2ZzfugPWA=;
+ b=YknZONUQrXt1OTVy5NNKB1R1HZZSaQJFgk3gdgLKX2Ir1LzeYC5S8z94K/ZyfEwH+QdZgj5HEVNyPL1v6KpAzAHqLoXAVYRoHIFbjoF8g3J59vTjRo3IeLEoKVi+HcG6EJIhTE3q3V0JkmkcDuBNXfuD9o/mTt6PmtS7Fmdvfd4wnKnb50NxlEa75bME5Q2NkPbgLyUgnpBscO6Ybk6q9UPsy9X2fK/o0WpYtL0l/b/hDMHSCDalrW7BzqwIT8lU0CDuVnx2w0sGP0ri834DGViGfKBE07Wg4JuKJzMfj7yWjA6TpWKR1KYYtsdSELtqssuyyGESy3xS/vQS5QIasQ==
+Received: from LO4P265CA0051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2ac::13)
+ by AS4PR10MB5800.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:507::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.10; Fri, 11 Sep
+ 2026 15:51:42 +0000
+Received: from ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
+ (2603:10a6:600:2ac:cafe::49) by LO4P265CA0051.outlook.office365.com
+ (2603:10a6:600:2ac::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Fri, 11
+ Sep 2026 15:51:42 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ ZR1PEPF0000E6AD.mail.protection.outlook.com (10.167.241.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Fri, 11 Sep 2026 15:51:41 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:57:10 +0200
+Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 11 Sep
+ 2026 17:51:41 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Subject: [PATCH 0/8] iio: adc: stm32: add support for stm32mp23 and
+ stm32mp25
+Date: Fri, 11 Sep 2026 17:51:22 +0200
+Message-ID: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHojpGoC/yXMQQ6CMBBA0as0s3YSOqRqvYphUdpRx4RKOkhMC
+ HenyPIt/l9AuQgr3MwChWdR+eQKezIQXyE/GSVVAzV0bry1GFJEnYaWhpEczhYpxEtLV+d88lC
+ zsfBDfv/lvTus3/7Ncdo/sK4bnsWRBnQAAAA=
+X-Change-ID: 20260911-adc-stm32mp25-v1-2ac7328559d9
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: Marek Vasut <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Cheick Traore
+	<cheick.traore-ext@st.com>, Olivier Moysan <olivier.moysan@foss.st.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>, Cheick Traore
+	<cheick.traore@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6AD:EE_|AS4PR10MB5800:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b642a07-41f7-497f-a451-08df101c92ef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|23010399003|10067099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: YS/eYuCNUj3LlWvwWknCJXSoI5Gb4XIU5HAoMZFaCO2+kCAZF8gHFLFWidVOmI+QXI+x/SsgxWWm8p7YLmT8TEttDdWfDTdwaNKdhZaAjZrtn13VDsjGKqMiIO8YHuZV6C6PthXg1YOV86wvd9ppTm+CS9vpaJGJnhO/hd+rH3EfUIb9kBiiBu1OldAPzg0jaSWYU5ByR/0OPH5/vbizkrc8vTO6drJl+YOQCvyE1i+T2DU+gZ5TJQjSEFq6id/m6TJfUq/TodPs0zNqp3+hiJxEVTo8iL5IPvsQ/rurumN8iHXCMkMOu52tuooWTROUodqMMLzQACRI2tcGqxuvgYTCkdmkeJeidrsN9y46cTm+JtvuaTP7SReYL4eoODWIjjFwo8rMjC2a3VaXqZt6cUJLWmUcY+BkbudJYFgeYZYkJsGbgw8voMg+h+VVzcjDVn21Kh3VR/IIQY9PW8pC2a5i3i7BamsSnMA8wiKptbe1zImBAvMzJDucTpO1WVANeFkhwMW7GlU3cZJCJ38F+inRbtvurfAY8rTC9O2p2NcbpYd2VyxhFyBpPBwgxmfSUBcT1vxDkVnib7lhM+b4/Nh4YgfEvdL3FX1B04IIVZS3m2zWQGWL+YBxu4Z6y3xWYQmoHr4dmYifRSPSVcgmt4ktwK/Xn6UYw76Gr5hea2Z0Q984n8e/JiMqP+pKxTtEnWn6bIH7wsX5vKp5AYr24w==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(23010399003)(10067099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kxxpxckU55hAL4e4hHS4y+pD0oI8a7TfdORuKLrelPk9It2HOnKb3Ax9qaS4D/1eT89wPDmaAlq1iEH3pJl8MhcszDRwPY28FarecXq112xYAOP+/bVzw568RWC9+3tjUSLRmkG/cA10/i9MiKbvK8fSCjyQ5K/tDN5IngM3IUzrauxUafQYRX32+iCPdSKd3gB/1fIiR5rnElmiKpNO6KvCPtF43Q3YRKsbvooeropQ+as7mfQP6STFcRYxGnsL13l2hytDLu+a/0ccObyuO4oZDrQJ9OaFNgtD8FO5WSbhL0cSJNpUAWMvQSVGyElEHlj68mRjIVFcatyrAJOYfJQDhmNX71NEeSCyYANMSjUihpAlDc+MX+PxT+lBeX2s7KNmzXJoS1ztMRx8i0TIO9fiqcb8gatsIeUGZUjl1gfAv3Rdwg2xyWang8rCgNsM
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:51:41.9545
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b642a07-41f7-497f-a451-08df101c92ef
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084158_176392_5BF5E924 
-X-CRM114-Status: GOOD (  32.80  )
+X-CRM114-CacheID: sfid-20260911_085150_825705_68C77A00 
+X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,708 +139,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add infrastructure for moving the user visible identity of a thread that
-is about to block in the kernel to another thread in the same process,
-which then returns to userspace on its behalf.
+Add support for STM32MP23 and STM32MP25 Analog to Digital Converter.
+It's a variant of other supported STM32MP ADCs. Add the DT bindings,
+driver, SOC DTS and an example on stm32mp257f-ev1 board.
 
-The blocked thread keeps its task_struct and kernel stack, only what
-userspace observes moves: tid, signal state, rseq and robust list,
-credentials, scheduling attributes, mempolicy, comm and the user
-register state. Thread group leadership follows the tid.
-
-thread_handoff_allowed() vets the source and thread_handoff_compatible()
-the destination. thread_handoff_prepare() runs on the source right
-before it blocks, thread_handoff_finish() on the destination moves the
-identity over. Architectures provide the arch_thread_handoff_*() hooks
-and select ARCH_HAS_THREAD_HANDOFF.
-
-Signed-off-by: Jens Axboe <axboe@kernel.dk>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- arch/Kconfig                   |   7 +
- include/linux/thread_handoff.h |  72 +++++
- init/Kconfig                   |  11 +
- kernel/Makefile                |   1 +
- kernel/sched/core.c            |  33 +++
- kernel/thread_handoff.c        | 484 +++++++++++++++++++++++++++++++++
- 6 files changed, 608 insertions(+)
- create mode 100644 include/linux/thread_handoff.h
- create mode 100644 kernel/thread_handoff.c
+Cheick Traore (1):
+      arm64: dts: st: add ADC nodes on stm32mp231
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 45c657772362..5ce7e1713f59 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -604,6 +604,13 @@ config ARCH_HAVE_EXTRA_ELF_NOTES
- config ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	bool
- 
-+config ARCH_HAS_THREAD_HANDOFF
-+	bool
-+	help
-+	  Architecture provides the arch_thread_handoff_*() hooks for moving
-+	  the user visible register state of a thread that is blocked in the
-+	  kernel to another thread of the same process.
-+
- config HAVE_ALIGNED_STRUCT_PAGE
- 	bool
- 	help
-diff --git a/include/linux/thread_handoff.h b/include/linux/thread_handoff.h
-new file mode 100644
-index 000000000000..e1c17b833e7c
---- /dev/null
-+++ b/include/linux/thread_handoff.h
-@@ -0,0 +1,72 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_THREAD_HANDOFF_H
-+#define _LINUX_THREAD_HANDOFF_H
-+
-+#include <linux/sched.h>
-+
-+/* per-thread accounting that follows the identity */
-+struct thread_handoff_stats {
-+	u64				utime;
-+	u64				stime;
-+	u64				gtime;
-+	u64				exec_runtime;
-+	unsigned long			min_flt;
-+	unsigned long			maj_flt;
-+	unsigned long			nvcsw;
-+	unsigned long			nivcsw;
-+	struct task_io_accounting	ioac;
-+};
-+
-+/*
-+ * Move the user visible identity of a thread that is about to block in the
-+ * kernel (tid, signals, registers, rseq, creds, sched attributes, ...) to
-+ * another thread in the same group, which then returns to userspace on its
-+ * behalf. The blocked thread keeps its task_struct and in-kernel state.
-+ */
-+#ifdef CONFIG_THREAD_HANDOFF
-+bool thread_handoff_allowed(struct task_struct *tsk);
-+bool thread_handoff_compatible(struct task_struct *src,
-+			       struct task_struct *dst);
-+bool thread_handoff_prepare(struct task_struct *tsk);
-+void thread_handoff_stats_take(struct thread_handoff_stats *st);
-+int thread_handoff_finish(struct task_struct *src,
-+			  struct thread_handoff_stats *st);
-+
-+u64 sched_exec_runtime_take(struct task_struct *p);
-+void sched_exec_runtime_add(struct task_struct *p, u64 ns);
-+
-+/*
-+ * Arch hooks. _prepare() syncs the live user register state on the source
-+ * before it blocks, _finish() copies it over and loads what the return to
-+ * userspace won't. @leader tells it that thread group leadership moved.
-+ */
-+bool arch_thread_handoff_allowed(struct task_struct *tsk);
-+bool arch_thread_handoff_compatible(struct task_struct *src,
-+				    struct task_struct *dst);
-+bool arch_thread_handoff_prepare(void);
-+int arch_thread_handoff_finish(struct task_struct *src, bool leader);
-+#else
-+static inline bool thread_handoff_allowed(struct task_struct *tsk)
-+{
-+	return false;
-+}
-+static inline bool thread_handoff_compatible(struct task_struct *src,
-+					     struct task_struct *dst)
-+{
-+	return false;
-+}
-+static inline bool thread_handoff_prepare(struct task_struct *tsk)
-+{
-+	return false;
-+}
-+static inline void thread_handoff_stats_take(struct thread_handoff_stats *st)
-+{
-+}
-+static inline int thread_handoff_finish(struct task_struct *src,
-+					struct thread_handoff_stats *st)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif
-+
-+#endif
-diff --git a/init/Kconfig b/init/Kconfig
-index 8583d9f06c52..b376f802a77a 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -1957,9 +1957,20 @@ config AIO
- 	  by some high performance threaded applications. Disabling
- 	  this option saves about 7k.
- 
-+config THREAD_HANDOFF
-+	bool
-+	depends on ARCH_HAS_THREAD_HANDOFF
-+	help
-+	  Support for handing the user visible identity of a thread that is
-+	  about to block in the kernel to another thread of the same process,
-+	  which then returns to userspace on its behalf. Used by io_uring to
-+	  issue requests inline and only offload them to a worker thread if
-+	  they actually block.
-+
- config IO_URING
- 	bool "Enable IO uring support" if EXPERT
- 	select IO_WQ
-+	select THREAD_HANDOFF if ARCH_HAS_THREAD_HANDOFF
- 	default y
- 	help
- 	  This option enables support for the io_uring interface, enabling
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 1e1a31673577..5843d4866db7 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -14,6 +14,7 @@ obj-y     = fork.o exec_domain.o exec_state.o panic.o \
- 
- obj-$(CONFIG_MULTIUSER) += groups.o
- obj-$(CONFIG_VHOST_TASK) += vhost_task.o
-+obj-$(CONFIG_THREAD_HANDOFF) += thread_handoff.o
- 
- ifdef CONFIG_FUNCTION_TRACER
- # Do not trace internal ftrace files
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index b998ef6b87af..eeb55367c0c6 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -96,6 +96,7 @@
- 
- #include "../workqueue_internal.h"
- #include "../../io_uring/io-wq.h"
-+#include <linux/thread_handoff.h>
- #include "../smpboot.h"
- #include "../locking/mutex.h"
- 
-@@ -5684,6 +5685,38 @@ static inline void prefetch_curr_exec_start(struct task_struct *p)
-  * In case the task is currently running, return the runtime plus current's
-  * pending runtime that have not been accounted yet.
-  */
-+#ifdef CONFIG_THREAD_HANDOFF
-+/* keep the prev_sum_exec_runtime delta intact, slice accounting uses it */
-+u64 sched_exec_runtime_take(struct task_struct *p)
-+{
-+	struct rq_flags rf;
-+	struct rq *rq;
-+	u64 ns;
-+
-+	rq = task_rq_lock(p, &rf);
-+	if (task_current_donor(rq, p) && task_on_rq_queued(p)) {
-+		update_rq_clock(rq);
-+		p->sched_class->update_curr(rq);
-+	}
-+	ns = p->se.sum_exec_runtime;
-+	p->se.sum_exec_runtime = 0;
-+	p->se.prev_sum_exec_runtime -= ns;
-+	task_rq_unlock(rq, p, &rf);
-+	return ns;
-+}
-+
-+void sched_exec_runtime_add(struct task_struct *p, u64 ns)
-+{
-+	struct rq_flags rf;
-+	struct rq *rq;
-+
-+	rq = task_rq_lock(p, &rf);
-+	p->se.sum_exec_runtime += ns;
-+	p->se.prev_sum_exec_runtime += ns;
-+	task_rq_unlock(rq, p, &rf);
-+}
-+#endif
-+
- unsigned long long task_sched_runtime(struct task_struct *p)
- {
- 	struct rq_flags rf;
-diff --git a/kernel/thread_handoff.c b/kernel/thread_handoff.c
-new file mode 100644
-index 000000000000..1901eb85bae8
---- /dev/null
-+++ b/kernel/thread_handoff.c
-@@ -0,0 +1,484 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Thread identity handoff, see include/linux/thread_handoff.h
-+ *
-+ * Copyright (C) 2026 Jens Axboe
-+ */
-+#include <linux/thread_handoff.h>
-+#include <linux/sched/signal.h>
-+#include <linux/sched/task.h>
-+#include <linux/sched/rt.h>
-+#include <linux/sched/mm.h>
-+#include <linux/audit.h>
-+#include <linux/cgroup.h>
-+#include <linux/cred.h>
-+#include <linux/futex.h>
-+#include <linux/mempolicy.h>
-+#include <linux/pid.h>
-+#include <linux/rseq.h>
-+#include <linux/seccomp.h>
-+#include <linux/thread_info.h>
-+#include <uapi/linux/sched/types.h>
-+#include <linux/ioprio.h>
-+#include <linux/iocontext.h>
-+#include <linux/task_io_accounting_ops.h>
-+#include <linux/uprobes.h>
-+#include <linux/perf_event.h>
-+
-+/* prctl state that moves. Not PF_MEMALLOC_NOIO, kernel code sets that too */
-+#define THREAD_HANDOFF_PF_FLAGS	(PF_MCE_PROCESS | PF_MCE_EARLY)
-+
-+/* can the identity of @tsk (current) be handed off, errs on the safe side */
-+bool thread_handoff_allowed(struct task_struct *tsk)
-+{
-+	WARN_ON_ONCE(tsk != current);
-+
-+	if (tsk->flags & (PF_EXITING | PF_KTHREAD | PF_IO_WORKER))
-+		return false;
-+	if (tsk->ptrace)
-+		return false;
-+	/* tracees point back at the tracer task */
-+	if (!list_empty(&tsk->ptraced))
-+		return false;
-+	if (tsk->signal->flags & SIGNAL_GROUP_EXIT)
-+		return false;
-+#ifdef CONFIG_PERF_EVENTS
-+	/* per-task perf contexts are bound to the task_struct */
-+	if (tsk->perf_event_ctxp)
-+		return false;
-+#endif
-+#ifdef CONFIG_FUTEX
-+	/* PI futex ownership is tied to the task_struct */
-+	if (!list_empty(&tsk->futex.pi_state_list))
-+		return false;
-+#endif
-+#ifdef CONFIG_GENERIC_ENTRY
-+	if (test_syscall_work(SYSCALL_USER_DISPATCH))
-+		return false;
-+#endif
-+	/* only the fair class moves, see thread_handoff_sched() */
-+	if (rt_or_dl_task(tsk))
-+		return false;
-+#ifdef CONFIG_SCHED_CORE
-+	/* the core scheduling cookie is bound to the task */
-+	if (tsk->core_cookie)
-+		return false;
-+#endif
-+#ifdef CONFIG_KCOV
-+	/* coverage collection is per-thread */
-+	if (tsk->kcov)
-+		return false;
-+#endif
-+#ifdef CONFIG_POSIX_TIMERS
-+	/* armed per-thread CPU timers would sample the destination's clock */
-+	if (tsk->posix_cputimers.timers_active)
-+		return false;
-+#endif
-+	/* the syscall never exits, its audit record would never be emitted */
-+	if (!audit_dummy_context())
-+		return false;
-+#ifdef CONFIG_UPROBES
-+	/* pending uretprobes, the return address bookkeeping is in our utask */
-+	if (tsk->utask && tsk->utask->return_instances)
-+		return false;
-+#endif
-+	/* a vfork() parent waits on this task_struct, not on the identity */
-+	if (tsk->vfork_done)
-+		return false;
-+
-+	return arch_thread_handoff_allowed(tsk);
-+}
-+
-+/* can @dst take over the identity of @src, called from sched_submit_work() */
-+bool thread_handoff_compatible(struct task_struct *src, struct task_struct *dst)
-+{
-+	if (dst->flags & PF_EXITING)
-+		return false;
-+	/* the identity would land under a tracer that never attached to it */
-+	if (dst->ptrace)
-+		return false;
-+	if (!same_thread_group(src, dst))
-+		return false;
-+#ifdef CONFIG_GENERIC_ENTRY
-+	/* inherited from the thread that forked the destination */
-+	if (test_task_syscall_work(dst, SYSCALL_USER_DISPATCH))
-+		return false;
-+#endif
-+	if (dst->mm != src->mm || dst->files != src->files ||
-+	    dst->fs != src->fs || dst->nsproxy != src->nsproxy)
-+		return false;
-+	/* the identity must not gain no_new_privs */
-+	if (task_no_new_privs(dst) && !task_no_new_privs(src))
-+		return false;
-+#ifdef CONFIG_SECCOMP
-+	/* seccomp filters are per-thread, the identity must not escape them */
-+	if (dst->seccomp.mode != src->seccomp.mode ||
-+	    dst->seccomp.filter != src->seccomp.filter)
-+		return false;
-+#endif
-+#ifdef CONFIG_SYSVIPC
-+	/* SEM_UNDO adjustments are accounted per undo list */
-+	if (dst->sysvsem.undo_list != src->sysvsem.undo_list)
-+		return false;
-+#endif
-+	/* thread_handoff_creds() doesn't switch namespaces */
-+	scoped_guard(rcu) {
-+		if (__task_cred(dst)->user_ns != __task_cred(src)->user_ns)
-+			return false;
-+	}
-+	return arch_thread_handoff_compatible(src, dst);
-+}
-+
-+/* runs on the source right before it blocks, syncs its live user state */
-+bool thread_handoff_prepare(struct task_struct *tsk)
-+{
-+	WARN_ON_ONCE(tsk != current);
-+	/* re-check, may have changed since thread_handoff_allowed() */
-+	if (tsk->ptrace)
-+		return false;
-+#ifdef CONFIG_PERF_EVENTS
-+	if (tsk->perf_event_ctxp)
-+		return false;
-+#endif
-+#ifdef CONFIG_FUTEX
-+	if (!list_empty(&tsk->futex.pi_state_list))
-+		return false;
-+#endif
-+	return arch_thread_handoff_prepare();
-+}
-+
-+/*
-+ * Take the source's per-thread accounting for the destination, so the tid's
-+ * counters stay monotonic. Runs as current, the tick writes these from irq.
-+ */
-+void thread_handoff_stats_take(struct thread_handoff_stats *st)
-+{
-+	struct task_struct *p = current;
-+
-+	st->exec_runtime = sched_exec_runtime_take(p);
-+
-+	local_irq_disable();
-+	st->utime = p->utime;
-+	st->stime = p->stime;
-+	st->gtime = p->gtime;
-+	p->utime = p->stime = p->gtime = 0;
-+#ifndef CONFIG_VIRT_CPU_ACCOUNTING_NATIVE
-+	raw_spin_lock(&p->prev_cputime.lock);
-+	p->prev_cputime.utime = p->prev_cputime.stime = 0;
-+	raw_spin_unlock(&p->prev_cputime.lock);
-+#endif
-+	local_irq_enable();
-+
-+	st->min_flt = p->min_flt;
-+	st->maj_flt = p->maj_flt;
-+	st->nvcsw = p->nvcsw;
-+	st->nivcsw = p->nivcsw;
-+	p->min_flt = p->maj_flt = p->nvcsw = p->nivcsw = 0;
-+	st->ioac = p->ioac;
-+	memset(&p->ioac, 0, sizeof(p->ioac));
-+}
-+
-+static void thread_handoff_stats_add(struct task_struct *p,
-+				     struct thread_handoff_stats *st)
-+{
-+	sched_exec_runtime_add(p, st->exec_runtime);
-+
-+	local_irq_disable();
-+	p->utime += st->utime;
-+	p->stime += st->stime;
-+	p->gtime += st->gtime;
-+	local_irq_enable();
-+
-+	p->min_flt += st->min_flt;
-+	p->maj_flt += st->maj_flt;
-+	p->nvcsw += st->nvcsw;
-+	p->nivcsw += st->nivcsw;
-+	task_io_accounting_add(&p->ioac, &st->ioac);
-+}
-+
-+/* signal state follows the identity, the source gets a worker's mask */
-+static void thread_handoff_signals(struct task_struct *dst,
-+				   struct task_struct *src)
-+	__must_hold(&dst->sighand->siglock)
-+{
-+	dst->blocked = src->blocked;
-+	dst->real_blocked = src->real_blocked;
-+	dst->saved_sigmask = src->saved_sigmask;
-+	dst->sas_ss_sp = src->sas_ss_sp;
-+	dst->sas_ss_size = src->sas_ss_size;
-+	dst->sas_ss_flags = src->sas_ss_flags;
-+	dst->restart_block = src->restart_block;
-+
-+	siginitsetinv(&src->blocked, sigmask(SIGKILL) | sigmask(SIGSTOP));
-+	sigemptyset(&src->real_blocked);
-+	sas_ss_reset(src);
-+
-+	list_splice_tail_init(&src->pending.list, &dst->pending.list);
-+	sigorsets(&dst->pending.signal, &dst->pending.signal,
-+		  &src->pending.signal);
-+	sigemptyset(&src->pending.signal);
-+}
-+
-+/* the tgid is the leader's tid, so leadership follows. Like de_thread() */
-+static void thread_handoff_leader(struct task_struct *dst,
-+				  struct task_struct *src)
-+	__must_hold(&tasklist_lock)
-+{
-+	struct list_head *prev = dst->thread_node.prev;
-+	struct task_struct *t;
-+
-+	/*
-+	 * The leader must be first on ->thread_head, swap the two list
-+	 * positions. RCU readers may see a thread twice, never miss one.
-+	 */
-+	if (prev == &src->thread_node)
-+		prev = &dst->thread_node;
-+	list_del_rcu(&dst->thread_node);
-+	list_replace_rcu(&src->thread_node, &dst->thread_node);
-+	list_add_rcu(&src->thread_node, prev);
-+
-+	transfer_pid(src, dst, PIDTYPE_TGID);
-+	transfer_pid(src, dst, PIDTYPE_PGID);
-+	transfer_pid(src, dst, PIDTYPE_SID);
-+
-+	list_replace_rcu(&src->tasks, &dst->tasks);
-+	list_replace_init(&src->sibling, &dst->sibling);
-+
-+	for_each_thread(dst, t)
-+		t->group_leader = dst;
-+
-+	dst->exit_signal = src->exit_signal;
-+	src->exit_signal = -1;
-+}
-+
-+/* children are parented to the forking thread, move them along */
-+static void thread_handoff_children(struct task_struct *dst,
-+				    struct task_struct *src)
-+	__must_hold(&tasklist_lock)
-+{
-+	struct task_struct *p;
-+
-+	list_for_each_entry(p, &src->children, sibling) {
-+		RCU_INIT_POINTER(p->real_parent, dst);
-+		if (rcu_access_pointer(p->parent) == src)
-+			RCU_INIT_POINTER(p->parent, dst);
-+	}
-+	list_splice_init(&src->children, &dst->children);
-+	dst->self_exec_id = src->self_exec_id;
-+}
-+
-+static bool thread_handoff_sched_same(struct task_struct *dst,
-+				      struct task_struct *src)
-+{
-+	if (dst->policy != src->policy || task_nice(dst) != task_nice(src))
-+		return false;
-+	if (dst->sched_reset_on_fork != src->sched_reset_on_fork)
-+		return false;
-+	if (dst->se.custom_slice != src->se.custom_slice ||
-+	    (src->se.custom_slice && dst->se.slice != src->se.slice))
-+		return false;
-+#ifdef CONFIG_UCLAMP_TASK
-+	for (int i = 0; i < UCLAMP_CNT; i++) {
-+		if (dst->uclamp_req[i].user_defined != src->uclamp_req[i].user_defined)
-+			return false;
-+		if (src->uclamp_req[i].user_defined &&
-+		    dst->uclamp_req[i].value != src->uclamp_req[i].value)
-+			return false;
-+	}
-+#endif
-+	return true;
-+}
-+
-+/* sched attributes follow the identity, sched_setattr() only if needed */
-+static void thread_handoff_sched(struct task_struct *dst,
-+				 struct task_struct *src)
-+{
-+	struct sched_attr attr = {
-+		.sched_policy = src->policy,
-+		.sched_nice = task_nice(src),
-+	};
-+
-+	if (thread_handoff_sched_same(dst, src))
-+		return;
-+	if (src->sched_reset_on_fork)
-+		attr.sched_flags |= SCHED_FLAG_RESET_ON_FORK;
-+	if (src->se.custom_slice)
-+		attr.sched_runtime = src->se.slice;
-+#ifdef CONFIG_UCLAMP_TASK
-+	if (src->uclamp_req[UCLAMP_MIN].user_defined) {
-+		attr.sched_flags |= SCHED_FLAG_UTIL_CLAMP_MIN;
-+		attr.sched_util_min = src->uclamp_req[UCLAMP_MIN].value;
-+	}
-+	if (src->uclamp_req[UCLAMP_MAX].user_defined) {
-+		attr.sched_flags |= SCHED_FLAG_UTIL_CLAMP_MAX;
-+		attr.sched_util_max = src->uclamp_req[UCLAMP_MAX].value;
-+	}
-+#endif
-+	WARN_ON_ONCE(sched_setattr_nocheck(dst, &attr));
-+}
-+
-+static void thread_handoff_mempolicy(struct task_struct *dst,
-+				     struct task_struct *src)
-+{
-+#ifdef CONFIG_NUMA
-+	struct mempolicy *pol = mpol_dup(src->mempolicy);
-+
-+	if (IS_ERR(pol))
-+		return;
-+	task_lock(dst);
-+	swap(dst->mempolicy, pol);
-+	task_unlock(dst);
-+	mpol_put(pol);
-+#endif
-+}
-+
-+#ifdef CONFIG_BLOCK
-+/* ionice'd threads keep their IO priority, the source's ioc may be in use */
-+static void thread_handoff_ioprio(struct task_struct *dst,
-+				  struct task_struct *src)
-+{
-+	struct io_context *ioc = src->io_context;
-+
-+	/* workers share the ioc of the thread that forked them, detach */
-+	if (dst->io_context)
-+		exit_io_context(dst);
-+	if (ioc && ioprio_valid(ioc->ioprio))
-+		WARN_ON_ONCE(set_task_ioprio(dst, ioc->ioprio));
-+}
-+#else
-+static void thread_handoff_ioprio(struct task_struct *dst,
-+				  struct task_struct *src)
-+{
-+}
-+#endif
-+
-+#ifdef CONFIG_CGROUPS
-+/* threaded cgroup placement follows the identity, the source stays put */
-+static void thread_handoff_cgroup(struct task_struct *dst,
-+				  struct task_struct *src)
-+{
-+	if (rcu_access_pointer(src->cgroups) == rcu_access_pointer(dst->cgroups))
-+		return;
-+	WARN_ON_ONCE(cgroup_attach_task_all(src, dst));
-+}
-+#else
-+static void thread_handoff_cgroup(struct task_struct *dst,
-+				  struct task_struct *src)
-+{
-+}
-+#endif
-+
-+/*
-+ * Adopt the source's creds. Not commit_creds(), the process isn't changing
-+ * credentials, an existing identity is just moving between two of its tasks.
-+ */
-+static void thread_handoff_creds(struct task_struct *dst,
-+				 struct task_struct *src)
-+{
-+	/* neither side changes its own creds while a handoff is in flight */
-+	const struct cred *old = rcu_dereference_protected(dst->real_cred, true);
-+	const struct cred *new = rcu_dereference_protected(src->real_cred, true);
-+
-+	WARN_ON_ONCE(rcu_dereference_protected(dst->cred, true) != old);
-+	if (new == old)
-+		return;
-+
-+	get_cred_many(new, 2);
-+	if (new->user != old->user)
-+		inc_rlimit_ucounts(new->ucounts, UCOUNT_RLIMIT_NPROC, 1);
-+	rcu_assign_pointer(dst->real_cred, new);
-+	rcu_assign_pointer(dst->cred, new);
-+	if (new->user != old->user)
-+		dec_rlimit_ucounts(old->ucounts, UCOUNT_RLIMIT_NPROC, 1);
-+	put_cred_many(old, 2);
-+}
-+
-+/* the user requested affinity follows, the effective mask derives from it */
-+static void thread_handoff_affinity(struct task_struct *dst,
-+				    struct task_struct *src)
-+{
-+	/* dup_user_cpus_ptr() wants no user mask, nothing can race us here */
-+	release_user_cpus_ptr(dst);
-+	dup_user_cpus_ptr(dst, src, NUMA_NO_NODE);
-+	set_cpus_allowed_ptr(dst, src->cpus_ptr);
-+}
-+
-+/* runs on the destination, the source never looks at the moved state again */
-+int thread_handoff_finish(struct task_struct *src,
-+			  struct thread_handoff_stats *st)
-+{
-+	struct task_struct *dst = current;
-+	struct sighand_struct *sighand;
-+	char comm[TASK_COMM_LEN];
-+	bool leader;
-+
-+	/* the same for both, neither can be mid exec */
-+	sighand = rcu_dereference_protected(dst->sighand, true);
-+	WARN_ON_ONCE(sighand != rcu_dereference_protected(src->sighand, true));
-+
-+	/* tid, leadership, and signal state swap in one go */
-+	cgroup_threadgroup_change_begin(dst);
-+	write_lock_irq(&tasklist_lock);
-+	spin_lock(&sighand->siglock);
-+	leader = thread_group_leader(src);
-+	exchange_tids(dst, src);
-+	if (leader)
-+		thread_handoff_leader(dst, src);
-+	thread_handoff_children(dst, src);
-+	thread_handoff_signals(dst, src);
-+	spin_unlock(&sighand->siglock);
-+	write_unlock_irq(&tasklist_lock);
-+	cgroup_threadgroup_change_end(dst);
-+	recalc_sigpending();
-+
-+#ifdef CONFIG_FUTEX
-+	dst->futex.robust_list = src->futex.robust_list;
-+	src->futex.robust_list = NULL;
-+#ifdef CONFIG_COMPAT
-+	dst->futex.compat_robust_list = src->futex.compat_robust_list;
-+	src->futex.compat_robust_list = NULL;
-+#endif
-+#endif
-+	dst->clear_child_tid = src->clear_child_tid;
-+	src->clear_child_tid = NULL;
-+
-+#ifdef CONFIG_RSEQ
-+	scoped_guard(irqsave) {
-+		dst->rseq = src->rseq;
-+		memset(&src->rseq, 0, sizeof(src->rseq));
-+		src->rseq.ids.cpu_id = RSEQ_CPU_ID_UNINITIALIZED;
-+	}
-+	rseq_force_update();
-+#endif
-+
-+	thread_handoff_creds(dst, src);
-+#ifdef CONFIG_AUDIT
-+	dst->loginuid = src->loginuid;
-+	dst->sessionid = src->sessionid;
-+#endif
-+
-+	dst->personality = src->personality;
-+	dst->pdeath_signal = src->pdeath_signal;
-+	dst->timer_slack_ns = src->timer_slack_ns;
-+	dst->default_timer_slack_ns = src->default_timer_slack_ns;
-+	dst->start_time = src->start_time;
-+	dst->start_boottime = src->start_boottime;
-+	if (task_no_new_privs(src))
-+		task_set_no_new_privs(dst);
-+	/* prctl driven per-task flags, the source keeps them for its work */
-+	dst->flags = (dst->flags & ~THREAD_HANDOFF_PF_FLAGS) |
-+		     (src->flags & THREAD_HANDOFF_PF_FLAGS);
-+
-+	thread_handoff_mempolicy(dst, src);
-+	thread_handoff_cgroup(dst, src);
-+	thread_handoff_ioprio(dst, src);
-+	thread_handoff_stats_add(dst, st);
-+
-+	thread_handoff_sched(dst, src);
-+	thread_handoff_affinity(dst, src);
-+
-+	get_task_comm(comm, src);
-+	set_task_comm(dst, comm);
-+
-+	return arch_thread_handoff_finish(src, leader);
-+}
--- 
-2.55.0
+Fabrice Gasnier (4):
+      dt-bindings: iio: adc: stm32-adc: add support for stm32mp23 and stm32mp25
+      iio: adc: stm32-adc: add support for stm32mp23 and stm32mp25
+      arm64: dts: st: add ADC nodes on stm32mp251
+      arm64: dts: st: add ADC support on stm32mp257f-ev1 board
+
+Olivier Moysan (1):
+      iio: adc: stm32-adc: manage characterization voltage diversity
+
+Patrice Chotard (2):
+      arm64: dts: st: add vrefint calibration on stm32mp23
+      arm64: dts: st: add vrefint calibration on stm32mp25
+
+ .../devicetree/bindings/iio/adc/st,stm32-adc.yaml  | 106 ++++-
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             | 117 ++++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             | 119 ++++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |  22 +
+ drivers/iio/adc/stm32-adc-core.c                   |  91 ++++-
+ drivers/iio/adc/stm32-adc-core.h                   |  23 ++
+ drivers/iio/adc/stm32-adc.c                        | 444 ++++++++++++++++++++-
+ 7 files changed, 880 insertions(+), 42 deletions(-)
+---
+base-commit: 6d31021b7ce470983aeee0727f7417272c0a1cad
+change-id: 20260911-adc-stm32mp25-v1-2ac7328559d9
+
+Best regards,
+--  
+Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
 
