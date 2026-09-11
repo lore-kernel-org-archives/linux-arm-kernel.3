@@ -4,138 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1177FC88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1500AC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mZj8U1PD25cE+8ESg/8vDL8EK7ciOY34ML1dGtbAf+A=; b=bcvsrT7Fq/Bh1TtkDiPIYRqSDT
-	uSulGdhNG+5kMejZob9a8OEgj3Ot6jT2Mk2ffFhcaMaohHm1hNCo4jYZpUA5lot+1L8eKdl52Zhtq
-	ib8cG3K8hkBvDifKK+H1aLD+9/YrglaeP0ih8WKbwUVNLaB+PmqyRGwx55MHziGPT0rUxADrtmPo9
-	DFOTYeMpRG5PxNz5r2W1M0/5suoVBC9eOT96PZNdoM7p2vYXLNLy4yYCLSqH9m4TZAF+qw87KK7os
-	/N5MRhpqmTTpoGr4C7tI5SK1X9Xh5BHMeu3mHW03j+2kdmQH02HdPp4IJ3nMTugZsjr3ZVAEFGGik
-	HWztPPTw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dL5SIEsYkL5CFvwQMkla31xLNVufHe8l4HQ4/Pcc7zE=; b=DBbfcFTV7Kt+fwVf+TrNhUITzn
+	t8Lnk5Po4NwEyB7lkE/DobgzQ8Jbw6Pd27mIY35C0CXEe/H4MfifYQPfuCRHEbB4sOqz378ow+KCw
+	PhAVzVu5m2PuhZl6oWaCuDvWRAGk+n7Ux0omwtxf1cVmycJdXgA1zOUt2YXHvjd+Shx4hWfmRUI03
+	k3cSVBl7q2oUHBnEraIyOgcIzBJffhfhtNn4AshwGNTEA3fQdvgrtlQCxnJLSa1/qg8CKBDOBezaz
+	u14B6+YcLjnWB4q1eIIwGL/Act9wN1Igs5ycs0NWdWVBVHYm0CXFhN2aFJuWBCNVu0Ud/5qqEPT3E
+	HBkI53RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x536n-0000000H2Ue-1Kub;
-	Fri, 11 Sep 2026 15:24:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x539i-0000000H38H-3Cgv;
+	Fri, 11 Sep 2026 15:27:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x536U-0000000H2LH-24dV
+	id 1x539e-0000000H37x-1kgA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:23:53 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68BEmF9T798918
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:23:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=mZj8U1PD25c
-	E+8ESg/8vDL8EK7ciOY34ML1dGtbAf+A=; b=LhMHT+xBhFwTdV7bkSdWxz4EoAC
-	z7U/u39CJNv7+23UyJYMvjDYMEGHhjYtseSJJci9B0nWGAImnllxhTjT0EANdoKP
-	O0D4JBPXRbsyNibsjRLB1PDsU7yNh/QaRMmRbqfRkzOZZ1O1flN8oloWTgobel/R
-	IZXEaxIvwmnbmwUbO2FFAb44stsRh+9EwQdAiFTWW4r1lIJOfnYoBLXOcc5Jfz6t
-	acExdXWI4GV1osNWm9kSyXrS9jbH72IQhj7vmOCHuTfn55h8fGXsH0rp8Fyf6AfX
-	9kEIFFa5/DRPc4fMAv7p4LQVQQ9KeWYmcZyeujF6e8i+L2GmhgV/24R4f1Q==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gm2q147ne-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 15:23:49 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-78580a6b2fbso307435137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:23:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789140229; x=1789745029; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mZj8U1PD25cE+8ESg/8vDL8EK7ciOY34ML1dGtbAf+A=;
-        b=gjoyuUn86W5zxc13NwQf4OBHhjv7e3GzrcFD/MCMK6nvjECVUoLcAVDNdbbj+jJPtO
-         MA5rE4OxWKwHl2pboBRfMnkhlRXOhe/NclDM4YCUufiz4BUYr014+TrnVMShV7r9Ksw8
-         T1C65Z5NIN4zW6VLYb2WJF5KYtIYZJuYVFYvHhs9lvpvSEIuMaW+Ek2O5lP1QTPPzy16
-         dKj6SZcGhzZQ5Si9L62wK4brKtijW/z2rPF+jX0iY/62b7ceJy9B2Ym/7fKzdIYMABmG
-         1++ECZyYgS05du8n7BHQVk79ErE0xivu87uJJ2Bq9uFdKlpYzQlAECxRksy2HaX81QdX
-         UB0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789140229; x=1789745029;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mZj8U1PD25cE+8ESg/8vDL8EK7ciOY34ML1dGtbAf+A=;
-        b=M1XbdZotN9PFUnA8llZNM+be3zyjjxZxtK0ocabUfOL16DN8k7h8mby5M9MsVgM8ta
-         USF/wnYKB+Rl6hi93cZu+hsBWx5spEIxfeDBfe1it3Y91YOv1c3unRnSOyn2LZ0ss6u5
-         p0de68xIfLOR566oko89GyMwmoyF0aYY0rJ0rQeMxsqI9PCa1qgwdo385YInNlUTOIg7
-         nRFsMIpX9ugOEnDCvbpcu49Vp15LlZf5TK6ZRNzaJupMujpNYtcdDgQiylROGK4A/2qv
-         oV93tWMswVQlo0Qn+0AAV6nohUaRqkn5ZbJHwgLvtAKHpV1aTNB8uLCwoWDWNPJbau/I
-         wKVg==
-X-Forwarded-Encrypted: i=1; AKwUvBw8vXK2QS0QfUfPGU+YBW79ZBSeW88qChOnKPjqpWWhuKXWCnN1owxGFYFgHM/iSPRUa1AUbK0KXzCDjow5AX6C@lists.infradead.org
-X-Gm-Message-State: AFuF++kpu/PlktYB4PZwQZbx417+r/NUXGLBhpljPtLlkf0hdDyEmMBI
-	IYsPmT412xFFYhG1z3BfZob2rd3EBiiQyYwGTDHLbIb1QqGinu0+lK1cSxbsJsl2YF7IyYXDcwY
-	UwwW3SXL0wqRT01NWSbkERp8lN93Ra2NBoHSUYxJWFhzkh/xo8uB41YAiJjW9miaPWAUYU+46Vk
-	FgLiAh8txbFg==
-X-Gm-Gg: AYBFou27dej6BXKLRS05bQfJAeiv0APj1V0E856b4gp9VKPKtKBZCs9Si9+NzrPAExw
-	lKvkEY+0I2c2BK5y7uef6R117lEI1MzL/qXNg03StKIaphv2XWOKDQV+370HN46sD9/9D35uDtr
-	F5SM1nt0Rx8ENSDqfdiMMV8QxQTcolkPRMCB+ltKamJmaKOK/Ihqo3pE/1Q02P9nb0z6V45NUG7
-	DTehCAL7JEPkrzrvx80xmzTYw5IoIcB5Lrhji9lO+KoOWJOgywbzq3TFEkoZU5br215wDiIHS/5
-	rpqSEahqJw9j8/Dhj4xP7GjMyW5SkVC51GOsk/35EVuowW0ja7Exd1Fixexd22/LOdmDNGBAIes
-	HBwnTGtC+HD1F3UNUmNY1SenIXWWwvR7/0E9Snefeyp42750E+HzOCLoNf8o3VXhNrA/Y8JNSDn
-	OZBzw0pMIZ2/HhQjfvdmkXgDEIBA64ZWuMSaX0
-X-Received: by 2002:a05:6102:c8d:b0:793:980a:d1ff with SMTP id ada2fe7eead31-7939829b4d3mr3029882137.3.1789140228734;
-        Fri, 11 Sep 2026 08:23:48 -0700 (PDT)
-X-Received: by 2002:a05:6102:c8d:b0:793:980a:d1ff with SMTP id ada2fe7eead31-7939829b4d3mr3029791137.3.1789140228322;
-        Fri, 11 Sep 2026 08:23:48 -0700 (PDT)
-Received: from t14s.space.revspace.nl (2001-1c00-2a07-3a01-8e96-3679-0b9c-de47.cable.dynamic.v6.ziggo.nl. [2001:1c00:2a07:3a01:8e96:3679:b9c:de47])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c296614323csm94042566b.59.2026.09.11.08.23.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:23:44 -0700 (PDT)
-From: Hans de Goede <johannes.goede@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
-        Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Frank.Li@kernel.org, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH v6 4/4] firmware: arm_scmi: Always create devices for standard protocols
-Date: Fri, 11 Sep 2026 17:23:29 +0200
-Message-ID: <20260911152329.5822-5-johannes.goede@oss.qualcomm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260911152329.5822-1-johannes.goede@oss.qualcomm.com>
-References: <20260911152329.5822-1-johannes.goede@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=d6lgWhjE c=1 sm=1 tr=0 ts=6aa41d05 cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=xqWC_Br6kY4A:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8 a=l971TreVHldC-rsvbM8A:9
- a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTExMDIxNCBTYWx0ZWRfX+q7zjx0k+6/1
- 2LmIwn30JnIaCZ41NghHEkE5x9JzobZxzmVzQmItU0YNCapmh9838Kxab1vGw43OgeKh2xnlwyh
- C0SQg64znj3EbIXZoH7CV9smGSDZKVRazDLmuFTS7yd9/wNhR6hVON5+X4EhMksYR9P8y9zSOpk
- mSXyg6D/P/QdEvS5bvgTIIGVqtLUPkP38Qa/t5V4N8EeT7GnR7oBRl1ViUODN0rvP+pT1SwVJUj
- lJYcsAT1sdiRLwBIftUOYqfji5PFitAA9eMYeNeSdTX+/bSmPFVIjwupewPcB8q5DGkxNqk8Nnz
- 3rmmOixj3lb0zDyaQPazxyMSkTO+rYn68vHr75GPwg0ADusLZIcJmZQR5kcJrvJELOktxJwVA5d
- 3vPWo+c/BZmzEim4epPhRKdSC6fUF935Lq3mFAb/DVhPhfViID8f4S9brAGD9EVKAw5x+UVImEm
- bbxdMK6Rd7kATquq4qA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTExMDIxNCBTYWx0ZWRfXzOX1HvJus5Rv
- ZiItgJlelQF2OXJtB3f6hv3LpDRPQcyuSkYV2r0ZymHbe6fYWGD1dGDZnb+jRBUBSKtzdVR4FLd
- BWDZ0k4+R2aLUEY4ay1DZSM00B+IbBs=
-X-Proofpoint-GUID: 3cEph5fCeOJN5p5gPWQCf-JeBPrPH6DZ
-X-Proofpoint-ORIG-GUID: 3cEph5fCeOJN5p5gPWQCf-JeBPrPH6DZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-11_05,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- adultscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609110214
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_082351_470926_B4F1AF38 
-X-CRM114-Status: GOOD (  26.37  )
+	Fri, 11 Sep 2026 15:27:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 85CEE60202;
+	Fri, 11 Sep 2026 15:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B92A1F000FF;
+	Fri, 11 Sep 2026 15:27:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789140425;
+	bh=dL5SIEsYkL5CFvwQMkla31xLNVufHe8l4HQ4/Pcc7zE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=agMogg7MfwE6qQ+hq1iJshNCB1YrISD9q+Xy8K8HxRCjrJ0szmZjoDYNFODVMnW4+
+	 GMbyqli2WHZJOyRSEiXb6zMLnfw318oPj2C20GU4HuQP9i0KVdc9WYACfa9qfLN8GA
+	 wovSL8neofGZ6d76PawnIDdKHOdlQyMWQA7UFCL4frFJQZ2LGQxpKoofh+ZkgN5+sg
+	 SlhL9ITp/qb3mDs2QrXyx9OHVX6JM/tlmRMZr67pEvvhhTG+04sAdJU45vqiQjKHqd
+	 +GE7M9+x+EL5iTJzZq81pNnu8aPqGBTMqROfNZXnMoolXtRvC2r5yiX8PB2K4y0W67
+	 +SqV6khmMSqeA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x539b-00000007p44-0ROi;
+	Fri, 11 Sep 2026 15:27:03 +0000
+Date: Fri, 11 Sep 2026 16:27:02 +0100
+Message-ID: <86h5jv7qrd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking structures
+In-Reply-To: <w4kihqs6n7ja7nr4sn3i2r4o2mspwj7k36w2fkh4kheizr6oj3@wfsea5mhnto6>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+	<20260810205038.118843-3-weilin.chang@arm.com>
+	<87mrtu4c21.wl-maz@kernel.org>
+	<w4kihqs6n7ja7nr4sn3i2r4o2mspwj7k36w2fkh4kheizr6oj3@wfsea5mhnto6>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,120 +95,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Protocol driver module auto-loading requires the devices to already be
-created for udev to get the necessary uevents based on which udev loads
-modules. But SCMI devices are only created after their { protocol, name }
-device-id has been added to the requested-devices list which is done from
-scmi_driver_register().
+On Sun, 06 Sep 2026 20:56:34 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+>=20
+> On Sun, Sep 06, 2026 at 04:47:02PM +0100, Marc Zyngier wrote:
+>=20
+> [...]
+>=20
+> > > +/*
+> > > + * Record of a guest stage-2 mapping, storing canonical and nested I=
+PA
+> > > + * ranges. Both ranges have the same size.
+> > > + */
+> > > +struct kvm_guest_s2_mapping {
+> > > +	struct interval_tree_node canonical;
+> > > +	struct interval_tree_node nested;
+> > > +	struct kvm_s2_mmu *nested_mmu;
+> > > +};
+> > > +
+> >=20
+> > I'm trying hard to find a way to reduce the size of this structure,
+> > because this is IMO the only real problem with this approach.
+> >=20
+> > Obviously, the only thing we could kill is this nested_mmu field, as
+> > everything else is used by the interval trees. I can see two ugly ways
+> > to do that:
+> >=20
+> > - either we iterate over all shadow MMUs to find the corresponding
+> >   'nested' node: really costly if we have a lot of mappings and/or a
+> >   lot of shadow MMUs
+> >=20
+> > - or we steal bits from the interval_tree_node to encode extra
+> >   information. One realisation is that all addresses are PAGE_SIZE
+> >   aligned, meaning that we have at least 12 bits that are always 0. We
+> >   could, for example, encode an index in the bottom bits of the
+> >   nested.start field. Probably easy enough, but may require some
+> >   careful masking (and the addition of an index in the s2_mmu
+> >   structure).
+> >=20
+> > The result would be significant, as we could then use a 96 byte slab,
+> > which means the cost of a 1GB @4k granularity could fall to 24MB.
+>=20
+> One way of meeting in the middle is to keep the nested_mmu pointer, and
+> use a dedicated kmem cache. That cache will then hand out exact 104-byte
+> objects.
+>=20
+> That's 26MB for 1GB @4K.
+>=20
+> This is a nice improvement from the current 128-byte allocations.
+> Although it's not as good as 96-byte allocations, the code logic can
+> remain simple. Would you take this approach?
 
-This creates a circular dependency where device creation is waiting for
-the driver to register and loading the module with the driver is waiting
-for the device to be created.
+I don't think the logic has to be complicated to go all the way to 96
+bytes, see the patch below. I hope we can further trim it over time,
+but this would be a good start.
 
-Add a list of standard protocol device-ids and always create devices for
-these without relying on these being added to the requested-devices list.
+Thanks,
 
-This removes the circular dependency, fixing module auto-loading.
+	M.
 
-Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+
+=46rom 39e3bdaa1b02c460a1001a23a20dccca5501eb6d Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Tue, 8 Sep 2026 17:07:50 +0100
+Subject: [PATCH] KVM: arm64: Drop kvm_s2_mmu pointer from kvm_guest_s2_mapp=
+ing
+
+As it appears that the kvm_guest_s2_mapping structure is quite large,
+and results in a 128 byte slab allocation, there is some insentive
+to shrink a bit.
+
+For this, replace the S2 MMU back-pointer with an index tucked into
+the low bits of the nested.start field. This allows us to shrink
+the structure by 8 bytes, and therefore to fit in a 96 byte slab.
+
+The index is also stored in the S2 MMU structure itself, which
+comes for free as it fits in an existing hole. The structure is
+also repacked to avoid other disgracious holes.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
-Changes in v6:
-- Replace the if (!phead) return NULL; early exit with return scmi_dev;
-  Since a standard protocol device may have been created at this point.
+ arch/arm64/include/asm/kvm_host.h | 16 ++++++-----
+ arch/arm64/kvm/nested.c           | 44 +++++++++++++++++++++++++------
+ 2 files changed, 45 insertions(+), 15 deletions(-)
 
-Changes in v5:
-- This is a new patch in v5 replacing "Pre-register protocol, name tupples
-  for standard protocol". Pre-registering requires
-  scmi_protocol_device_request() to allow duplicate device-ids, but then if
-  the first driver of two with duplicate devce-ids gets unloaded device
-  creation for the second driver will fail. Allowing duplicates causes all
-  kinds of problems, so this new approach avoids this.
----
- drivers/firmware/arm_scmi/bus.c | 50 +++++++++++++++++++++++++++++++--
- 1 file changed, 47 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 651d4ba06574..ea59dcd95b6a 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -511,6 +511,34 @@ _scmi_device_create(struct device_node *np, struct device *parent,
- 	return sdev;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm=
+_host.h
+index f12883a420817..4b3fc4d4a61f2 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -158,7 +158,6 @@ struct kvm_vmid {
+ struct kvm_guest_s2_mapping {
+ 	struct interval_tree_node canonical;
+ 	struct interval_tree_node nested;
+-	struct kvm_s2_mmu *nested_mmu;
+ };
+=20
+ struct kvm_s2_mmu {
+@@ -222,30 +221,33 @@ struct kvm_s2_mmu {
+ 	u64	tlb_vttbr;
+ 	u64	tlb_vtcr;
+=20
++	/* Guest s2 mapping records indexed in this MMU's IPA space. */
++	struct rb_root_cached guest_s2_mappings;
++
+ 	/*
+ 	 * true when this represents a nested context where virtual
+ 	 * HCR_EL2.VM =3D=3D 1
+ 	 */
+ 	bool	nested_stage2_enabled;
+=20
+-#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+-	struct dentry *shadow_pt_debugfs_dentry;
+-#endif
+-
+ 	/*
+ 	 * true when this MMU needs to be unmapped before being used for a new
+ 	 * purpose.
+ 	 */
+ 	bool	pending_unmap;
+=20
+-	/* Guest s2 mapping records indexed in this MMU's IPA space. */
+-	struct rb_root_cached guest_s2_mappings;
++	/* Index in the S2 MMU array, only valid for a shadow S2 */
++	u16	s2_mmu_idx;
+=20
+ 	/*
+ 	 *  0: Nobody is currently using this, check vttbr for validity
+ 	 * >0: Somebody is actively using this.
+ 	 */
+ 	atomic_t refcnt;
++
++#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
++	struct dentry *shadow_pt_debugfs_dentry;
++#endif
+ };
+=20
+ struct kvm_arch_memory_slot {
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index e0941a261787c..540e52db9f180 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -45,11 +45,12 @@ struct vncr_tlb {
+  * will invalidate them more often).
+  */
+ #define S2_MMU_PER_VCPU		2
++#define S2_MMU_PER_VM		(KVM_MAX_VCPUS * S2_MMU_PER_VCPU)
+=20
+ int kvm_init_nested(struct kvm *kvm)
+ {
+ 	kvm->arch.nested_mmus =3D kvmalloc_objs(struct kvm_s2_mmu *,
+-					      KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
++					      S2_MMU_PER_VM,
+ 					      GFP_KERNEL_ACCOUNT);
+ 	kvm->arch.nested_mmus_size =3D 0;
+ 	atomic_set(&kvm->arch.vncr_tlb_count, 0);
+@@ -128,8 +129,10 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+=20
+ 		guard(write_lock)(&kvm->mmu_lock);
+=20
+-		for (i =3D 0; i < S2_MMU_PER_VCPU; i++)
++		for (i =3D 0; i < S2_MMU_PER_VCPU; i++) {
++			tmp[i].s2_mmu_idx =3D i + kvm->arch.nested_mmus_size;
+ 			kvm->arch.nested_mmus[i + kvm->arch.nested_mmus_size] =3D &tmp[i];
++		}
+=20
+ 		kvm->arch.nested_mmus_size +=3D S2_MMU_PER_VCPU;
+ 	}
+@@ -873,6 +876,27 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm=
+_vcpu *vcpu)
+ 	return s2_mmu;
  }
- 
-+/* Standard protocols table */
-+static const struct scmi_device_id scmi_std_id_table[] = {
-+	{ SCMI_PROTOCOL_POWER, "genpd" },
-+	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
-+	{ SCMI_PROTOCOL_PERF, "perf" },
-+	{ SCMI_PROTOCOL_PERF, "cpufreq" },
-+	{ SCMI_PROTOCOL_CLOCK, "clocks" },
-+	{ SCMI_PROTOCOL_SENSOR, "hwmon" },
-+	{ SCMI_PROTOCOL_SENSOR, "iiodev" },
-+	{ SCMI_PROTOCOL_RESET, "reset" },
-+	{ SCMI_PROTOCOL_VOLTAGE, "regulator" },
-+	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
-+	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
-+	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
-+	{ },
-+};
+=20
++#define S2_MMU_IDX_MASK	GENMASK_ULL(const_ilog2(S2_MMU_PER_VM) - 1, 0)
 +
-+static bool scmi_device_id_in_std_id_table(const struct scmi_device_id *id)
++static void tag_s2_mapping_mmu(struct kvm_guest_s2_mapping *mapping,
++			       struct kvm_s2_mmu *mmu)
 +{
-+	for (int i = 0; scmi_std_id_table[i].name[0]; i++) {
-+		if (scmi_std_id_table[i].protocol_id == id->protocol_id &&
-+		    !strcmp(scmi_std_id_table[i].name, id->name))
-+			return true;
-+	}
-+
-+	return false;
++	BUILD_BUG_ON(const_ilog2(S2_MMU_PER_VM) >=3D 12);
++	mapping->nested.start &=3D ~S2_MMU_IDX_MASK;
++	mapping->nested.start |=3D mmu->s2_mmu_idx;
 +}
 +
- /**
-  * scmi_device_create  - A method to create one or more SCMI devices
-  *
-@@ -540,22 +568,38 @@ struct scmi_device *scmi_device_create(struct device_node *np,
- {
- 	struct list_head *phead;
- 	struct scmi_requested_dev *rdev;
--	struct scmi_device *scmi_dev = NULL;
-+	struct scmi_device *sdev, *scmi_dev = NULL;
- 
- 	if (name)
- 		return _scmi_device_create(np, parent, protocol, name);
- 
-+	/*
-+	 * Always create devices for standard protocols, even if the device-ids
-+	 * have not been registered into scmi_requested_devices yet. This allows
-+	 * auto-loading of SCMI protocol driver modules for standard protocols.
-+	 */
-+	for (int i = 0; scmi_std_id_table[i].name[0]; i++) {
-+		if (scmi_std_id_table[i].protocol_id != protocol)
-+			continue;
++static struct kvm_s2_mmu *s2_mapping_to_mmu(struct kvm *kvm,
++					    struct kvm_guest_s2_mapping *mapping)
++{
++	return kvm->arch.nested_mmus[mapping->nested.start & S2_MMU_IDX_MASK];
++}
 +
-+		sdev = _scmi_device_create(np, parent, protocol, scmi_std_id_table[i].name);
-+		if (sdev)
-+			scmi_dev = sdev;
-+	}
++static unsigned long s2_mapping_to_nested_start(struct kvm_guest_s2_mappin=
+g *mapping)
++{
++	return mapping->nested.start & ~S2_MMU_IDX_MASK;
++}
 +
- 	mutex_lock(&scmi_requested_devices_mtx);
- 	phead = idr_find(&scmi_requested_devices, protocol);
- 	/* Nothing to do. */
- 	if (!phead) {
- 		mutex_unlock(&scmi_requested_devices_mtx);
--		return NULL;
-+		return scmi_dev;
- 	}
- 
- 	/* Walk the list of requested devices for protocol and create them */
- 	list_for_each_entry(rdev, phead, node) {
--		struct scmi_device *sdev;
-+		/* Standard proto matches already have their dev created above */
-+		if (scmi_device_id_in_std_id_table(rdev->id_table))
-+			continue;
- 
- 		sdev = _scmi_device_create(np, parent,
- 					   rdev->id_table->protocol_id,
--- 
-2.55.0
+ void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu, gpa_t canonical_i=
+pa,
+ 				 gpa_t nested_ipa, size_t map_size,
+ 				 struct kvm_guest_s2_mapping *mapping)
+@@ -890,7 +914,7 @@ void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu=
+, gpa_t canonical_ipa,
+ 	mapping->nested.start    =3D nested_ipa;
+ 	mapping->nested.last     =3D nested_ipa + map_size - 1;
+=20
+-	mapping->nested_mmu      =3D mmu;
++	tag_s2_mapping_mmu(mapping, mmu);
+=20
+ 	guard(spinlock)(&kvm->arch.guest_s2_tracking_lock);
+ 	interval_tree_insert(&mapping->nested, &mmu->guest_s2_mappings);
+@@ -1357,17 +1381,21 @@ void kvm_nested_unmap_cipa_range(struct kvm *kvm, g=
+pa_t cipa, size_t unmap_size,
+=20
+ 	while ((node =3D interval_tree_iter_first(&kvm->arch.mmu.guest_s2_mapping=
+s,
+ 						cipa, cipa_end))) {
++		unsigned long nested_start;
++		struct kvm_s2_mmu *mmu;
++
+ 		mapping =3D container_of(node, struct kvm_guest_s2_mapping,
+ 				       canonical);
+-		mapping_size =3D mapping->nested.last - mapping->nested.start + 1;
++		nested_start =3D s2_mapping_to_nested_start(mapping);
++		mmu =3D s2_mapping_to_mmu(kvm, mapping);
+=20
+-		if (WARN_ON_ONCE(kvm_pgtable_stage2_unmap(mapping->nested_mmu->pgt,
+-							  mapping->nested.start,
+-							  mapping_size)))
++		mapping_size =3D mapping->nested.last - nested_start + 1;
++
++		if (WARN_ON_ONCE(kvm_pgtable_stage2_unmap(mmu->pgt, nested_start, mappin=
+g_size)))
+ 			return;
+=20
+ 		interval_tree_remove(node, &kvm->arch.mmu.guest_s2_mappings);
+-		interval_tree_remove(&mapping->nested, &mapping->nested_mmu->guest_s2_ma=
+ppings);
++		interval_tree_remove(&mapping->nested, &mmu->guest_s2_mappings);
+ 		kfree(mapping);
+=20
+ 		if (may_block)
+--=20
+2.47.3
 
+--=20
+Without deviation from the norm, progress is not possible.
 
