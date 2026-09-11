@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE62C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 19:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1226C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 19:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVfuiw2IJwckYpk5Orz7zN5u8QP5Vbl4rPIuTtXXLuM=; b=R8yaq+QYN7QO10zDvH+jjBIjGa
-	XumzO37VD7V3qtI7DGM8b5Yl3jTPt4kyx7Z2a4Ob5THR67UpmgI4mtnFPPIkyT7CVAjggnCQQDbxs
-	T7oi8DD06mQXMzf+MHyf2A2gD8R0ZSaFeu5g5sw3niBFow04wo5VUG/c68fMv9XOJEZWwkrW0hltg
-	IGTdtqsAbuVRgFSm0hDLqWnwrn7DdKrN1jqJhfjmO0WTJ9bGwJC2HXTpEBUCVr7ULEmGALSuLxNJH
-	8lBk9SUHOGs8wdPukS1Ob8nhampbYpUwnnoIEkdaIO3Hq2CrpAX0jLog2su9PuZ8/0dKTIFbC7nbB
-	DKIc3bvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=6dBTiX4xAO3JV4ryYMi2B6agwtg8EoTxOEevYmBg6jY=; b=tMeerZX4BY4khgMUC0lGPrCmnW
+	C99vCbwa4gKW7GK4EyktQoEzqpWGGv54asgWmEimY8RfzjVzDO9Oocy2T5kz2J7egRUmM9FqiQF2g
+	6KrqD7C79l+GzuSjuZbX0QYY2e/7U6ePiNc9Ag0CLyr4txC9cqL7UURrFidUj/VvoaIE90cCzjpYB
+	tFqrdJKql0yeEQLe8k961kaGPROt66B6saIeEd4NEBtSLQMsvzv8zA9fyoze5yrOPLil/BwjE9rIx
+	OrxhVmM45eOunACtBXEdY+s9hzctDETVm6fzK6mD/gW0ylq/ddn6YhZvAaMUC67wnHwatIjuSRPPt
+	1+0pWRPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56f5-0000000HVnR-3f8t;
-	Fri, 11 Sep 2026 19:11:47 +0000
-Received: from mail-norwayeastazon11013065.outbound.protection.outlook.com ([40.107.159.65] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x56hl-0000000HVwl-0yUo;
+	Fri, 11 Sep 2026 19:14:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56f3-0000000HVms-2xuC
+	id 1x56hj-0000000HVwf-3eVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 19:11:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a8BbOk823/hRJEm0+qJGLEaeKo7gAFKFjchAnjeiC6lL0VdYloGVgPoJmuxRUg5Lr9uPTbaCIwk62paPFpgImhSpU961aoj/3XkKHF/8lIR0XXJZkmj9icE9OIC24dq0kOnX2eJFKxXz6u7t0QWJUVuFR+COQ3lvOVNehp5O3G3Y4mrUCX47GcVH0jnXAniK6ctxFN/r1ungSOfQJoQOvNINxSldxgCqUaCaj/qVBvHtUNeO+vk4AFrQm/E9Vl5qF+XcVef7N7zbs2AKf0Ppfl0DhwLudOxYsqYa1HUvjr/5e7e2/D0LfWNl2MOkLe5mTXUKe+6QTX2YhLbfcxRF4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VVfuiw2IJwckYpk5Orz7zN5u8QP5Vbl4rPIuTtXXLuM=;
- b=JMgMNF2db3LPzWq7bXaFJDsv0y/9u+4MZSiXKgNEbIKCA5xfKdhvEItXh0QmNpNn3x2gqKRvmq37GK0MLXSgaV+HbbZ2W7LPXlIaLkbbIyWK00svi8kahp9srfVuvDPPVEM91yL9kQG9HCoODf2E7PC+POG9zSaoWp8Kr2e+BiPRlhUMzstJ0XBiHEcb7wmirizJTkJh2m9BkEsvPnF6zlPzxBR6cyKNdShBKHeW04cSmiWjRJRB6MbRbcyFo/ClSHgotq8BAVc8elYwNRiei+UMFxCz/Y7OvNkgayK9NOddcJMXcZ6yYAAQ/cysYKkIsPE4Dn9Tkw6Ft82XV7f/Cw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VVfuiw2IJwckYpk5Orz7zN5u8QP5Vbl4rPIuTtXXLuM=;
- b=auZ/aa5xTrL4HzYkI800yq+W9TMp9BOuqQdms/P/vkx7vSdf6LBs/YUwCXhDt8SXXImmTmV/iPpXdQGZADkg7H2Mai9JoWqfvyCBCkatK1pN08Fr4nPJfuxbtu52+EVBZcTiEcf1ak3OFtsxCvZiipITLx03RiaqBehjo8JiKPs+yNw92zEG3nMUpuxrRpgJACv3EtWEBDv8cxGTXOPxzxi1ou59FaNhpIghmgFAPoyBuexRJ4INet6PRhfpjjNkbIQYL+Psd8WQHyj6aA6rnaUN1dg59c6gNUPrrvUUo1IX+Ar2d5oWINcx/Kq3rD0U7WTCQ0enHtzO6lSsUXD34Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB7083.eurprd04.prod.outlook.com (2603:10a6:10:121::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 19:11:39 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 19:11:38 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Marek Vasut <marex@nabladev.com>
-Subject: Re: [PATCH v8 0/3] Add support for Variscite VAR-SOM-MX7 and MX7CustomBoard
-Date: Fri, 11 Sep 2026 15:11:30 -0400
-Message-ID: <178915388268.2931591.7036499750607052249.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1788184274.git.stefano.r@variscite.com>
-References: <cover.1788184274.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CYZPR14CA0020.namprd14.prod.outlook.com
- (2603:10b6:930:8f::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 11 Sep 2026 19:14:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E9D8600AA;
+	Fri, 11 Sep 2026 19:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5731F000FF;
+	Fri, 11 Sep 2026 19:14:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789154070;
+	bh=6dBTiX4xAO3JV4ryYMi2B6agwtg8EoTxOEevYmBg6jY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=KEalvI/2bEBdkDuKN4fDoYIKLX7rAzEfZt8bke8EBvHnfyzM7P2NknWBSV2RDem7Q
+	 nhaUbLczJcFxoJ2dWu9IENtTm3GibRW0LJjdgS+08etBmUihh9/mu3OrOuss+dmBk8
+	 5ywqAybM2Oes8BjZDd5OendLHvt7KVyTiPdnapbIF1HjYXhC8LMf/lmyuJx3wKgJSz
+	 94NeaGgX75Ry5f+8KjxF/nthw1h2JoGfRDyarbp7DU2eXY4rvxW+Ai+7oVxL22fjW2
+	 zbE261wRJJnNpV/wDW8to41BavEmjVlRTfgeYlESIwNN6TDpN/5HpdiHXEyQVKoou6
+	 8bRA/EtABB+QA==
+Date: Fri, 11 Sep 2026 14:14:29 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Semih Baskan <strst.gs@gmail.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, rjui@broadcom.com,
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+	rafal@milecki.pl, florian.fainelli@broadcom.com, arnd@arndb.de,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rosenp@gmail.com, rani.hod@gmail.com
+Subject: Re: [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
+Message-ID: <20260911191429.GA549927@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7083:EE_
-X-MS-Office365-Filtering-Correlation-Id: a78a5f6b-66f7-4f00-2176-08df10388164
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|7416014|376014|10067099003|6133799003|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: dSc2ZmC0vblrRxeLTGMXMgePJHhhC4P8RrG4osm9h2vPDAG6+5Dt66zFta2qg6pKlUAHI7mF0kdGRPjpcCfkLFhm/PDV4OqdhYoFQa9/igDrDacL+YGNS0bA73fqvow+iCt4GBUMeAZgckgIsJRyUrNcsaN1fm0JJkpBO8R90VtU9LIT9qtCRGgHWsyEJJLRnWcuAEpUpCvuNGFm7/kf1c9nfLfk5uRJeJcTwT9t/Q/AY3l3GVkkumG6wvACZNa+jkxmaW4lTxeU5+DXRhT5CQ2f98A00i0F6cqj/mI66QPYmP4TyQiJecDMHGnjzV844MrL2knZmfKlp2xSVF/oQcalFgWLicuUC//1+h8IEozFhFb2eUYtvOgJ2+BBxGKB3nr+yaWUwepqXNfddkLg93RgfOwbSX75UZmMbBtOClKXTG3MqvsYlC2WAIqhZmTltLeeIW0etpZa3fiacpZGo4EHWLoOifAM1KOjKGFyoCEa5RbBjiTlK9vR4iTH1l17yRnhdG6gAxsa8dzO/xGbwEb94XmCaAAylNMlh22y8+bfEWqNnNsoeafAsOR1750+eWVIm4l8rZ/MRAUJChOcJJxSd3/Fh6h7Z8KmwiXT+hPuDjDhr2tr64LG3n1My9X62mXYKWjYUBSEvfnmXZgoi5lgEdbktuCkh5dJbdSVhHI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(7416014)(376014)(10067099003)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3I0N3oxcmhGZ1A5enZmcVgyeVlKazVYZmN0RkZSdkVLMmFKMm5rUDYvUzE2?=
- =?utf-8?B?Uy9scnBOdXUzVjFWRzluaXdSUGRrU0ZNRkp4dG90cUxVTUxsZ3Z5YnFhK2RB?=
- =?utf-8?B?cFBvbitEMHEybXRoaDBYeFoyNFBrcGM0WERobVZUN20vcTkwTUcyWDZ4QzBm?=
- =?utf-8?B?YTR2bHhkdUFlbG5CRXZremwyRXdOdEovMUZBMnptOFYybDBzVnBldHJDQVBv?=
- =?utf-8?B?dnJDYmhPanhCMmlGanNwRTVRNDdVL0RzY1o3ZGtabU9Oc1Z5Ujlwc0VJWmcw?=
- =?utf-8?B?SlVXZ3h3VFZoUkI0YlQwR0tBTEk1eHFqZXpiYytsa2lGMnFuUnVib0swNHRL?=
- =?utf-8?B?ZWVHTmJnbmRXbU4vMlNEblZVdUZoY1NHUTFoZVhlcngwTmhmWWkzYkJ0RCs0?=
- =?utf-8?B?NVVWNlBZajZ3cytua3VoUjkxU1kxTTVDZE9HNXFOY3Jpdk1RMnZ3Ny83Q0lC?=
- =?utf-8?B?QTlCOHBzM3l3elBWNTNTbzdia2hORGgwV3h1SHQ0QmdoN3JIUkorbk03MEps?=
- =?utf-8?B?R1JJVmtXeU1SUGw2UUdYYlJnYmljQkhobDdNZWdFQSt1QndCWjNRdmpNcGVF?=
- =?utf-8?B?RlFLTy8wd3BLL3p5U3ErTjFWRUFvRmZPVmJVRktoWS9PVVdnT2V5YldUb25q?=
- =?utf-8?B?YlRETXJzV2EzOUEwRFN2Vy9PaEN6WUR0Q2VCQ3NXUURuY1JlNmkycU9rUzVn?=
- =?utf-8?B?Um9VS1pPWFAvdlVDcWt5dnNKdWZaVnJDWWY3WEtKZmlkTklrL042ZkhVTnFR?=
- =?utf-8?B?eXdwdDJSQ2ZMWGVNNWEyeURySi9pSGtYaEtpR1lTRDlPZnloYlZtTHFCdzdZ?=
- =?utf-8?B?SUVuczVnMjRIaUt0KzhxbjI4M29tTHdDYWdlWENhSndocDdrRWlyaGZiODF1?=
- =?utf-8?B?dWlOZThQR0w5S3VMSUFQMTkwZmJodk5qSHJBYTczOHZNUXUvc3c2aXRsMC9U?=
- =?utf-8?B?WHMyVXdRWWl3dVJvTDhxM1hMMzk4NjB1Mm02UTZQMTJmcGZHK0JBUWV6ejE5?=
- =?utf-8?B?OTR3T2Z2aVhnZVZlUkMzVlpFUzIvSEhDV3lRRy9yTEcyc1RZd2JWZlJvbnQ5?=
- =?utf-8?B?U2pDT0hRRC8zU2wvNVkydktIR3lPbjFTVVhoWk44amdIdHMvVlg3am1EaXZH?=
- =?utf-8?B?UCtxanlaTzVTUExycEZxZUhkdWdjMjJoeDZQendGcTRxeHJuZ1pIU2VieGMy?=
- =?utf-8?B?SXdKeFdDa2hkWThsWDlBNlFnd2YyQWErWkpWQjJ0aEtBZ3FzTk9TM0ZISlkx?=
- =?utf-8?B?c3lwYmgyTS9uRjZNdEttUTZ6bDlpNkhsYlhqM3BNbXpJcDV0UUU3NzJxeXZL?=
- =?utf-8?B?dGdMU0NnWVg4SnhNQ2VodFEvcm5XOVVZV3ZoVFpjaWVjczNsL1JtSmc4bUFX?=
- =?utf-8?B?d01kYWNNNzJtTkxNcWZpbThlSGFQSGIvcEJBeUVNU0luelFoc2VtNjBaQU1O?=
- =?utf-8?B?NndZREhxWjFzeS85NGIzajA2Z3QwVGVyTWV4UWt4cWNRRUlyVWZUdFpMc2FF?=
- =?utf-8?B?RFM5YllWTllRV0lNTmFhQ3BxMzJRMWdvTmlUVUJySjA4Zi95S0xmWmp3emFh?=
- =?utf-8?B?MjlJMjZ0Wks0dFptS0tQK25mdWdzUGFDYU5xa2ZkSW15OHAwK1pTb1Q0cjY3?=
- =?utf-8?B?SS9mcHJwdmVHY0E0NS9oM3ErUHlwT1VwVzFyUDlWWkh3dkNNc0IyQzZudmRY?=
- =?utf-8?B?NnZvUW05QkRRdzBYTGVKNjFhOGpCV0JIVVcrSU5YazA0Zkd0UFBWU3VkaVN1?=
- =?utf-8?B?NlZjL1plQjJSOW5hZlYvWUxuK01sdnJYblc5T1FqT3NNQUpJZGovdW40eG00?=
- =?utf-8?B?L3kzZnlsQ29Td2FGRXdEQkUrc0c1UWZRY09wOERnQmtiY0U3WVFjdWNZSmUr?=
- =?utf-8?B?MzdZeWI1QnZ6TWpUWjVzWDNTQ3RmdTM5U1lEN0pBR0hmejNEM0p5akFSamJG?=
- =?utf-8?B?SE5OWnVnVXhHeDlHR1YyNG1wYjlmajZIQzBWSDBQRUhCekFBVThudW5iNm5H?=
- =?utf-8?B?VkNqYnhOZG4wS1Z6YkNlWEhtMXdndTdDbWxCbS9SMGxtZmRPbmNJMUcvckY3?=
- =?utf-8?B?cldna0E0ekE1VlVIUWtXdTJWamsrSFRmaVM4dXFHK3kvaG90S25PZGlOR2I0?=
- =?utf-8?B?N3F6Z1E4eE1saEpFdEtFZU1nWGkyL0poZU1LdTgvQTVFZVF3U1grTkFsQW9q?=
- =?utf-8?B?emxhci8xaVRwU1FHVktKQVRLanc4UUFKeFB3S0lGcS9lMFhpbld3Sk9UZXBh?=
- =?utf-8?B?UEpXU09acHNDRTNFb1pXV21wejVTMCtXVEFnaDQ2M1k4Y2wzSHdxUk1sM21o?=
- =?utf-8?B?SXZ6bTF5Zm5mUG1CaHhtOGtCYW1reEgwdnNta29SWGMydDJkZXBuVkk5aEFl?=
- =?utf-8?Q?zCKjY3rzVTZE3lLwmVNOV59pGHmbZfhb8kfqi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a78a5f6b-66f7-4f00-2176-08df10388164
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 19:11:38.8939
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AHTimoJfAJX0MpSid44mSCK5EZPzgiT4J6uBF2noLN01+jt4Ft2w3tFv9CCKxVpTpEob+kBwY4iTblXKTB0yzuRruNXxn4G/GvgAZgsge8FSBnNw+qd40HmNKckqxlE5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7083
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_121145_755029_A6458363 
-X-CRM114-Status: GOOD (  11.74  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260807160526.379-1-strst.gs@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,33 +73,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+[+to Rafał; probably same as rafal@milecki.pl, but MAINTAINERS lists
+zajec5@gmail.com for BCMA]
 
-
-On Tue, 01 Sep 2026 00:55:17 +0200, Stefano Radaelli wrote:
-> This patch series adds support for the Variscite VAR-SOM-MX7 system on
-> module and the MX7CustomBoard carrier board.
+On Fri, Aug 07, 2026 at 07:05:26PM +0300, Semih Baskan wrote:
+> The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
+> revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
+> controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
+> 0x20000000 and 0x28000000. Broadcom's own driver branches on the core
+> revision for exactly this reason.
 > 
-> The series includes:
+> bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
+> that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
+> Describe PCIe controllers fully") gave the controllers a ranges property.
+> The commit shipped in v7.1.
 > 
-> - DT bindings for the supported VAR-SOM-MX7 board configurations
-> - VAR-SOM-MX7 device tree support, including V1 and V2 hardware revisions
-> - MX7CustomBoard carrier board support
-> - eMMC and NAND storage variants
-> - optional WM8731 audio codec support
+> With that property present, two things go wrong with this driver:
 > 
-> [...]
+>  - devm_pci_alloc_host_bridge() parses those ranges and requests them,
+>    then this driver adds its own window and requests the whole list a
+>    second time, so every controller fails to probe with -EBUSY.
+> 
+>  - The DT window itself is only correct on core revision 0x07. On
+>    revision 0x01 it points at an address the hardware does not decode,
+>    and the first MMIO access to a BAR takes an imprecise external
+>    abort.
+> 
+> The enumeration ROM reports the correct base for the revision actually
+> present, and bcma already provides it as addr_s[0]. Drop any memory
+> window that came from the device tree and use that instead, requesting
+> only the window this driver owns. This makes the driver correct whether
+> or not the DT describes a window.
+> 
+> When a dropped window does not match what the EROM reports, print a
+> warning naming both. The mismatch means the devicetree describes a
+> window the hardware does not decode, and that should be fixed in the
+> dts rather than ignored silently.
+> 
+> The same commit also added compatible = "brcm,iproc-pcie", so these
+> nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
+> enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
+> first and this driver's probe fails inside devm_pci_alloc_host_bridge().
+> This patch fixes the configurations where the BCMA driver is the one in
+> use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
+> platform path takes the DT window as-is and has the same wrong address
+> on core revision 0x01, so that side needs a devicetree fix either way.
+> 
+> Tested on an ASUS RT-N18U (BCM47081) and a Linksys EA9200 (BCM4709),
+> both core revision 0x01.
+> 
+> Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
+> Tested-by: Rani Hod <rani.hod@gmail.com>
+> Cc: stable@vger.kernel.org # v7.1+
+> Signed-off-by: Semih Baskan <strst.gs@gmail.com>
+> ---
+> v2 -> v3: format the two problem descriptions as bullet points.
+> Requested by Bjorn Helgaas.
+> 
+> v1 -> v2: print a warning for every devicetree memory window that does
+> not match the EROM window. Requested by Arnd Bergmann:
+> https://lore.kernel.org/all/d05ffeca-f289-42dd-b454-5a7c7741c6d5@app.fastmail.com/
+> 
+> v2: https://lore.kernel.org/all/20260807035726.387-1-strst.gs@gmail.com/
+> v1: https://lore.kernel.org/all/20260727140939.389-1-strst.gs@gmail.com/
+> 
+>  drivers/pci/controller/pcie-iproc-bcma.c | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
+> index 593418c2b..06a471f4a 100644
+> --- a/drivers/pci/controller/pcie-iproc-bcma.c
+> +++ b/drivers/pci/controller/pcie-iproc-bcma.c
+> @@ -36,6 +36,7 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+>  	struct device *dev = &bdev->dev;
+>  	struct iproc_pcie *pcie;
+>  	struct pci_host_bridge *bridge;
+> +	struct resource_entry *win, *tmp;
+>  	int ret;
+>  
+>  	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+> @@ -59,8 +60,22 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+>  	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
+>  	pcie->mem.name = "PCIe MEM space";
+>  	pcie->mem.flags = IORESOURCE_MEM;
+> +
+> +	resource_list_for_each_entry_safe(win, tmp, &bridge->windows) {
+> +		if (resource_type(win->res) != IORESOURCE_MEM)
+> +			continue;
+> +
+> +		if (win->res->start != pcie->mem.start ||
+> +		    win->res->end != pcie->mem.end)
+> +			dev_warn(dev, "DT window %pR does not match EROM window %pR, using EROM\n",
+> +				 win->res, &pcie->mem);
+> +
+> +		devm_release_resource(dev, win->res);
+> +		resource_list_destroy_entry(win);
+> +	}
+> +
+>  	pci_add_resource(&bridge->windows, &pcie->mem);
+> -	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
+> +	ret = devm_request_resource(dev, &iomem_resource, &pcie->mem);
 
-Applied, thanks!
+If the EROM supplies the information the driver needs, why does this
+BCMA driver use DT at all?
 
-[1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX7 boards
-      commit: 9b58e80264d87f8e0faa80029248b48290bd74a3
-[2/3] ARM: dts: imx7d: add Variscite VAR-SOM-MX7 support
-      commit: df2c7ea04c8ac239daff1c5c78cbcdca550f8e62
-[3/3] ARM: dts: imx7d: add Variscite MX7CustomBoard support
-      commit: 40f1b207d21530e10f05b9eaf892b4358a1f1151
+AFAICS, pcie-iproc-bcma.c doesn't use any of the information from DT.
+devm_pci_alloc_host_bridge() *looks* in DT, parses it, and fills in
+bridge->windows, and requests those windows, but I don't think
+iproc-bcma ever uses them.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+iproc_bcma_pcie_probe() passes &bridge->windows to iproc_pcie_setup(),
+where I think it's ignored because pcie->need_ob_cfg is never set for
+iproc_bcma.
+
+It looks like iproc_bcma_pcie_probe() should just call
+pci_alloc_host_bridge() directly and skip devm_pci_alloc_host_bridge()
+and the DT things it does.
+
+>  	if (ret)
+>  		return ret;
+>  
+> -- 
+> 2.43.0
+> 
 
