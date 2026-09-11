@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC8BC88E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FC4C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pTg2vf1jjIMBVtegu9b0KSVQwmbhLOaMelrOQMA6JM=; b=mZbl0VYlBREJDigUR3kurkADuq
-	IvhCU+rnw8KqtHdH5qNh1F389ctr63W0gdijNr2SwWV7lvRoOqrCca7BD6mvJTahaEK4YFpplY/ts
-	PPGd4oy10teTSMDm1C2Rzg1TFWYrH8wl/RO16ZOIDQzfpS116Xhpj718GKUsVasZwa0Gnmx0ZNgPt
-	4CyhM2+IF9AxswF6ToF4LDyDU5bGFnlXA5FNtdYcPfv0oTAMG5WHSO57IYJbw3mEW27kjbD8KJvdP
-	Ztv4nTJk4tQ7B/A5TUIFbma9KLmOy+FXKRRYJh1wrwYZkVHDj+liFROsNnYhJT2NaiItF1UJGCfqR
-	YZXHVl1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OUzQSxuYYcOVDrjS2UnctEZxm4NJxWO9UUlAtDRm/mg=; b=Fpq7D9IZA5v/7TtJl88E/kIu3Z
+	quyCspJtzCBMT4ON3APifub+qNkvFfegKWku7JgZAqKwekUq07EORdFV1C/TIzHT+74F/VSixmwpa
+	X1Il4ZulCX2fp83ggPbJzvwI0lNUSIroUVPmI+SNaLDusueUq7gtFp2NMizC7cL+nIijt9b586TU1
+	2NhiJhTKCTHeZ3iBggbFKprUcfcHc2J4tM/qUbJlqj9u0Zg/KCz99By0faaet6GVuguVLIxBwn8bD
+	86p3EsfgK6VFu4XgjzxvWi5GccZGPj24y9fcr5UXJX2XQQfI5qbjK1Ly/YaHU0HaVBKsvqEAZ5VF0
+	my5LwSIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51fR-0000000GoPJ-0tu9;
-	Fri, 11 Sep 2026 13:51:49 +0000
-Received: from mail-ed1-x548.google.com ([2a00:1450:4864:20::548])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51f2-0000000Go10-3sip
+	id 1x51hm-0000000Gphe-0kmp;
+	Fri, 11 Sep 2026 13:54:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x51hj-0000000Gph6-0PJY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:51:27 +0000
-Received: by mail-ed1-x548.google.com with SMTP id 4fb4d7f45d1cf-6a6108d2987so1003966a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 06:51:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789134682; x=1789739482; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/pTg2vf1jjIMBVtegu9b0KSVQwmbhLOaMelrOQMA6JM=;
-        b=Ztm3k3Iq9qGY6+e3Oe9uDKF4ykBQpOz9X4ofq90sVZ7R9XUFgMGuPrbDy1pokzXF+/
-         LwWT4ej96QZ1ocg7wX4I5NN4gXOeM5nme14WxM4WIFxWvubsV5UBDhmkuqs/uzyvdSWK
-         cUGBrbuLG1B/FqX+u5ZmgCDCVOuXJE84CtQW7E1s4zxuOeay016cT4eIbiSK6JzTHaO0
-         qqZZUdlrq4vroErOK+Tb20D2fZ2V1AUphlzkHtIpouAnhqwHwJKhpcBqC6/ifdbL/+2O
-         aICMGSvsI9h1KlJP3taMQq5xO2m2YrjV1nyOScjQSBh1eynEX3KMVJ5hgkcn867HjSbe
-         mQyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789134682; x=1789739482;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/pTg2vf1jjIMBVtegu9b0KSVQwmbhLOaMelrOQMA6JM=;
-        b=IaR3P7lXkCXS3xRGW8spLZqy0DJJpq/aUbDl0rzsprL+1jutfFovkyvnMixRvxRQce
-         C337KCfd5xKnbeGv6gsweAxxsu2wyJr2JkrPpKGMAb1reP4hnFvF9X0uieKmEObVqo6D
-         wtfj/Wcx3Bv105jmDRIYOvVd/FD8B1MDbh7Di+bHZKQlEfSABm0c+WCOQt1x6xQAkjLQ
-         LT1HCIlbXf9uwWH++M4syWN/ip8ddwXK9QuJ29sa0Gnck+drYo2DucTGdY4zDxozQ8zr
-         12kDbNh4OvPUOCUBnfGFDWkRDZz79PqwNPL+SnX/ANfz/hcKo0/dGQuhHSeOo9QKrZwU
-         1pVg==
-X-Forwarded-Encrypted: i=1; AKwUvBxOFBzszNvZH4gLYwsxoKSUOSa0V3fdn6OLGhgk6WLjYiJg2GAluT4bwkj5nXPFy5Iu8j8XGIlsPO6kct5r3Xc/@lists.infradead.org
-X-Gm-Message-State: AFuF++mDEAABhTrbtY4nsD5pHTiifS3tYEpRG3iayCV1LAfdfUcV9bPS
-	lLGYhhcuHSvotku1SB5e9vG3CzB/+DniEA8qR+0d2+LRLLTf/FuJqEn1N45B1QpnPcy51SHZUeL
-	ZqGuTLUsTD6uTfH3jrR9c3g==
-X-Received: from edad9.prod.google.com ([2002:a05:6402:4009:b0:6a7:e6d1:c763])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:3889:b0:6a9:a5e7:f8be with SMTP id 4fb4d7f45d1cf-6a9b5655206mr1868948a12.5.1789134681903;
- Fri, 11 Sep 2026 06:51:21 -0700 (PDT)
-Date: Fri, 11 Sep 2026 14:50:48 +0100
-In-Reply-To: <20260911135053.146435-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260911135053.146435-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
-Message-ID: <20260911135053.146435-18-vdonnefort@google.com>
-Subject: [PATCH v2 17/22] KVM: arm64: Introduce kvm_pgtable_stage2_table_install()
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
-	weilin.chang@arm.com, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 11 Sep 2026 13:54:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B8C71655;
+	Fri, 11 Sep 2026 06:54:01 -0700 (PDT)
+Received: from [10.57.73.19] (unknown [10.57.73.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 068AD3F8C6;
+	Fri, 11 Sep 2026 06:54:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789134845; bh=3OKeaaD514gqO+vYcqjWElEK11cRF8goI5Ek45BuXtM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pf2BunbC+DJjcH3fKxKeywiunyIxdQL8H/K8Sy/C7RcCv83gqiSpbSMGbYYPWTOl/
+	 iMjatyHoj9uNvjvQzotVfaII6WFyUJaPZlItlDlYWyg97A4chXczVF28gLobaHzKED
+	 8Z3lUmTopH2FSwS729+r0wg0fjw/ug5q8YM+q2Ws=
+Message-ID: <66610fa3-982a-45f0-b39a-34f81598ad18@arm.com>
+Date: Fri, 11 Sep 2026 15:53:59 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] sched: Enable preferred SMT siblings on NVIDIA
+ Olympus
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
+ <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
+ Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260908082345.103087-1-arighi@nvidia.com>
+ <c92baaa9-1c1a-4f1e-903e-7b98ec9f694c@arm.com> <aqEKCCSY6QetqOCB@gpd4>
+ <aqFTbqOVW8ph3Bux@gpd4>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <aqFTbqOVW8ph3Bux@gpd4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_065125_022081_636A6578 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20260911_065411_221649_7DFC78B2 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,168 +82,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing kvm_pgtable_stage2_split() is unfit for pKVM: it relies on
-kvm_mmu_memory_cache which pKVM doesn't use and has no easy way to
-handle pKVM-specific annotations.
+On 09.09.26 14:39, Andrea Righi wrote:
+> Hello,
+> 
+> On Wed, Sep 09, 2026 at 09:26:09AM +0200, Andrea Righi wrote:
+>> Hi Dietmar,
+>>
+>> On Wed, Sep 09, 2026 at 09:20:35AM +0200, Dietmar Eggemann wrote:
+>>> On 08.09.26 10:23, Andrea Righi wrote:
+>>>
+>>> [...]
+>>>
+>>>> The series was tested on a two-node Vera system using an 88-thread
+>>>> single-precision GEMM on the 88 physical cores of NUMA node 0.
+>>>
+>>> Can we use 'OpenBLAS benchmark/sgemm.goto' as an open alternative for
+>>> your NVIDIA internal single-precision GEMM benchmark?
+>>>
+>>> IIUC, you used it for the 'Prefer fully idle cores for NOHZ balancing'
+>>> work: https://lore.kernel.org/r/anIq6pU5KXTTFCDN@gpd4
+>>>
+>>> If yes, I assume you would run something like:
+>>>
+>>> export OMP_NUM_THREADS=88
+>>> numactl -C XXX --membind=0 ./benchmark/sgemm.goto 16384 16384 16384
+>>>
+>>> Essentially you want to show that those 88 compute intensive tasks each
+>>> runs on his own core alone and so you get a higher TFLOPS value.
+>>>
+>>> [...]
+>>
+>> Yes, sure! I'll re-run some tests with that and share the results in a bit.
+>>
+>> Thanks,
+>> -Andrea
+> 
+> I repeated the tests using the latest patch series [1] both with OpenBLAS and
+> NVPL (internal GEMM benchmark).
+> 
+> Kernels and test configuration
+> ------------------------------
+> 
+> mainline: Linux 7.3.0-rc2
+> smt-pe0-prio: Linux 7.3.0-rc2 + patch series [1] applied
+> 
+> Both tests used:
+>  - 88 threads on NUMA node 0 (CPU list 0-87,176-263)
+>  - performance governor with cppc_cpufreq
+>  - same OpenBLAS binary and NVPL container image
+>  - metrics over 5 repetitions
+> 
+> Results
+> -------
+> 
+> Delta is (smt-pe0-prio / mainline - 1): higher is better.
+> 
+>  +---------------------+-------+---------------------+-----------------------+--------+
+>  | Throughput          | Runs  | mainline TFLOP/s    | smt-pe0-prio TFLOP/s  | Delta  |
+>  +---------------------+-------+---------------------+-----------------------+--------+
+>  | OpenBLAS            | 5 / 5 | 7.11876 +/- 0.06734 |  7.34669 +/- 0.01936  | +3.20% |
+>  | NVPL                | 5 / 5 | 9.64742 +/- 0.17311 | 10.29695 +/- 0.01786  | +6.73% |
+>  +---------------------+-------+----------------------+----------------------+--------+
+> 
+> Hardware statistics
+> -------------------
+> 
+> ST = single-thread mode
+> SMT = two-thread mode
+> 
+> Delta is (smt-pe0-prio / mainline - 1): lower is better.
 
-Add the pgtable helper kvm_pgtable_stage2_table_install() so pKVM can
-handle block splitting in mem_protect.c. That helper can take a table
-either populated with kvm_pgtable_stage2_create_unlinked() or one filled
-with annotations.
+Thanks for the test results. Good to see that we have an openly
+available benchmark for this.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> OpenBLAS:
+>  +------------------------------+----------------------+----------------------+----------+
+>  | PMU metric                   | mainline             | smt-pe0-prio         | Delta    |
+>  +------------------------------+----------------------+----------------------+----------+
+>  | ST-to-SMT completed/run      | 10145.6 +/- 1835.2   | 1981.6 +/- 94.3      |  -80.47% |
+>  | SMT-to-ST completed/run      | 10342.6 +/- 1853.6   | 1946.2 +/- 93.1      |  -81.18% |
+>  | ST-to-SMT transitions/s      |   845.5 +/- 152.9    |  176.9 +/- 3.4       |  -79.08% |
+>  | SMT-to-ST transitions/s      |   861.9 +/- 154.5    |  173.7 +/- 1.5       |  -79.84% |
+>  | ST-to-SMT latency cycles/run | 15.785M +/- 3.315M   |  2.477M +/- 0.090M   |  -84.30% |
+>  | SMT-to-ST latency cycles/run |  9.545M +/- 1.762M   |  1.815M +/- 0.047M   |  -80.98% |
+>  +------------------------------+----------------------+----------------------+----------+
+> 
+> NVPL:
+>  +------------------------------+----------------------+----------------------+----------+
+>  | PMU metric                   | mainline             | smt-pe0-prio         | Delta    |
+>  +------------------------------+----------------------+----------------------+----------+
+>  | ST-to-SMT completed/run      | 7771.0 +/- 1312.2    | 2162.6 +/- 137.8     |  -72.17% |
+>  | SMT-to-ST completed/run      | 7759.8 +/- 1352.2    | 2135.2 +/- 108.0     |  -72.48% |
+>  | SMT-to-ST aborted/run        |    0.6 +/- 0.5       |    0.2 +/- 0.4       |  -66.67% |
+>  | ST-to-SMT transitions/s      |  777.1 +/- 131.2     |  251.5 +/- 4.8       |  -67.64% |
+>  | SMT-to-ST transitions/s      |  776.0 +/- 135.2     |  248.5 +/- 5.8       |  -67.98% |
+>  | ST-to-SMT latency cycles/run | 13.285M +/- 3.742M   |  2.971M +/- 0.296M   |  -77.64% |
+>  | SMT-to-ST latency cycles/run |  8.528M +/- 2.223M   |  2.287M +/- 0.126M   |  -73.18% |
+>  +------------------------------+----------------------+----------------------+----------+
+> 
+> Conclusion
+> ----------
+> 
+> The patch leaves both workloads almost entirely in ST mode and substantially
+> reduces ST/SMT mode-transition churn.
+> 
+> Relative to mainline, completed ST-to-SMT transitions fall by 80.5% for OpenBLAS
+> and 72.2% for NVPL. This agrees with the throughput result: the scheduling
+> preference avoids repeatedly switching the active PE identity and allows cores
+> to remain in full-resource ST mode for longer intervals.
+> 
+> [1] https://lore.kernel.org/r/20260909062649.469633-1-arighi@nvidia.com
+I was able to run 'BLAS SGEMM' on ThunderX2 (ARM64) (SMT-4) on
+'tip/sched/core' (base) and v1 and v5 (w/ small changes to get it
+running on THX2).
+
+$ awk '/^cpu0[[:space:]]/{print
+$1;show=1;next}/^cpu[0-9]+[[:space:]]/&&show{exit}show&&/^domain/{print
+$1,$2,$3}' /proc/schedstat
+
+cpu0
+domain0 SMT
+00000000,00000000,00000000,00000000,00000001,00000001,00000001,00000001
+domain1 MC
+00000000,00000000,00000000,00000000,ffffffff,ffffffff,ffffffff,ffffffff
+domain2 NUMA
+ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff,ffffffff
+
+$ numactl -H
+available: 2 nodes (0-1)
+node 0 cpus: 0 ... 127
+node 0 size: 64270 MB
+node 0 free: 62366 MB
+node 1 cpus: 128 ... 255
+node 1 size: 128599 MB
+node 1 free: 126960 MB
+node distances:
+node     0    1
+   0:   10   20
+   1:   20   10
+
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 12 ++++
- arch/arm64/kvm/hyp/pgtable.c         | 85 ++++++++++++++++++++++++----
- 2 files changed, 86 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..24d6e05d8050 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -827,6 +827,18 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
- int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 			     struct kvm_mmu_memory_cache *mc);
- 
-+/**
-+ * kvm_pgtable_stage2_table_install() - Replace a stage-2 leaf entry with a table.
-+ * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_create_unlinked().
-+ * @addr:	Address identifying the leaf entry to replace.
-+ * @size:	Size of the block to replace.
-+ * @tab:	Pointer to the pre-allocated table to install.
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int kvm_pgtable_stage2_table_install(struct kvm_pgtable *pgt, u64 addr, u64 size,
-+				     kvm_pte_t *table);
-+
- /**
-  * kvm_pgtable_walk() - Walk a page-table.
-  * @pgt:	Page-table structure initialised by kvm_pgtable_*_init().
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index c4ebae0544d4..6c85af51002d 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1533,18 +1533,38 @@ static int stage2_block_get_nr_page_tables(s8 level)
- 	};
- }
- 
-+static int stage2_table_install(const struct kvm_pgtable_visit_ctx *ctx,
-+				struct kvm_s2_mmu *mmu,
-+				kvm_pte_t *table)
-+{
-+	kvm_pte_t new;
-+
-+	if (!stage2_try_break_pte(ctx, mmu))
-+		return -EAGAIN;
-+
-+	/*
-+	 * Note, the contents of the page table are guaranteed to be made
-+	 * visible before the new PTE is assigned because stage2_make_pte()
-+	 * writes the PTE using smp_store_release().
-+	 */
-+	new = kvm_init_table_pte(table, ctx->mm_ops);
-+	stage2_make_pte(ctx, new);
-+	return 0;
-+}
-+
- static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 			       enum kvm_pgtable_walk_flags visit)
- {
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
- 	struct kvm_mmu_memory_cache *mc = ctx->arg;
--	struct kvm_s2_mmu *mmu;
--	kvm_pte_t pte = ctx->old, new, *childp;
-+	kvm_pte_t pte = ctx->old, *childp;
- 	enum kvm_pgtable_prot prot;
-+	struct kvm_s2_mmu *mmu;
- 	s8 level = ctx->level;
- 	bool force_pte;
- 	int nr_pages;
- 	u64 phys;
-+	int ret;
- 
- 	/* No huge-pages exist at the last level */
- 	if (level == KVM_PGTABLE_LAST_LEVEL)
-@@ -1586,18 +1606,12 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (IS_ERR(childp))
- 		return PTR_ERR(childp);
- 
--	if (!stage2_try_break_pte(ctx, mmu)) {
-+	ret = stage2_table_install(ctx, mmu, childp);
-+	if (ret) {
- 		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
--		return -EAGAIN;
-+		return ret;
- 	}
- 
--	/*
--	 * Note, the contents of the page table are guaranteed to be made
--	 * visible before the new PTE is assigned because stage2_make_pte()
--	 * writes the PTE using smp_store_release().
--	 */
--	new = kvm_init_table_pte(childp, mm_ops);
--	stage2_make_pte(ctx, new);
- 	return 0;
- }
- 
-@@ -1616,6 +1630,55 @@ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	return ret;
- }
- 
-+struct stage2_table_install_data {
-+	struct kvm_s2_mmu	*mmu;
-+	kvm_pte_t		*table;
-+};
-+
-+static int stage2_table_install_walker(const struct kvm_pgtable_visit_ctx *ctx,
-+				       enum kvm_pgtable_walk_flags visit)
-+{
-+	struct stage2_table_install_data *data = ctx->arg;
-+	struct kvm_s2_mmu *mmu = data->mmu;
-+	kvm_pte_t *childp = data->table;
-+
-+	if (ctx->level == KVM_PGTABLE_LAST_LEVEL)
-+		return -EINVAL;
-+
-+	if (ctx->addr != ctx->start ||
-+	    ctx->end != ctx->addr + kvm_granule_size(ctx->level))
-+		return -EINVAL;
-+
-+	/*
-+	 * On success, return a positive value to prevent descending into the
-+	 * new table.
-+	 */
-+	return stage2_table_install(ctx, mmu, childp) ?: 1;
-+}
-+
-+int kvm_pgtable_stage2_table_install(struct kvm_pgtable *pgt, u64 addr, u64 size, kvm_pte_t *table)
-+{
-+	struct stage2_table_install_data data = {
-+		.mmu	= pgt->mmu,
-+		.table	= table,
-+	};
-+	struct kvm_pgtable_walker walker = {
-+		.cb	= stage2_table_install_walker,
-+		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.arg	= &data,
-+	};
-+	int ret;
-+
-+	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
-+	if (ret < 0)
-+		return ret;
-+	if (!ret)
-+		return -EINVAL;
-+
-+	dsb(ishst);
-+	return 0;
-+}
-+
- int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
- 			      struct kvm_pgtable_mm_ops *mm_ops,
- 			      enum kvm_pgtable_stage2_flags flags,
--- 
-2.55.0.1007.g17ff1f9808-goog
+export OMP_NUM_THREADS=32
+export BM="./OpenBLAS/benchmark/sgemm.goto 16384 16384 16384"
 
+(a) 8 cores/32 CPUs (hw threads)
+    $ numactl -C 0-7,32-39,64-71,96-103 -m 0 $BM
+
+(b) 16 cores/32 CPUs (hw threads)
+    $ numactl -C 0-15,32-47 -m 0 $BM
+
+(c) 32 cores/32 CPUs (hw threads):
+    $ numactl -C 0-31 -m 0 $BM
+
+(d) Entire NUMA node 0 (unconstrained)	<-- !!!
+    $ numactl -C 0-127 -m 0 $BM
+
+(e) 32 cores/32 CPUs (hw threads):
+    $ numactl -C 31-63 -m 0 $BM
+
+(f) 32 cores/32 CPUs (hw threads):
+    $ numactl -C 64-95 -m 0 $BM
+
+(g) 32 cores/32 CPUs (hw threads):
+    $ numactl -C 96-127 -m 0 $BM
+
+---
+
+MFLOPS values:
+
+       v5        v1        base
+
+(a) 225349.00 227305.68 227246.94
+
+(b) 376297.15 373908.56 380849.55
+
+(c) 877144.86 867642.35 861639.57
+
+(d) 868285.22 865953.05 861662.81	<-- !!!
+
+(e) 868182.05
+
+(f) 866835.49
+
+(g) 867389.74
+
+---
+
+So it doesn't seem to change much (v5 vs. base (d)).
+
+When I look into the trace file then I can see that I have 32 benchmark
+tasks running for 10s constantly (no sleep/wakeup) so with 32 cores and
+32 task, the SMT aware select_idle_sibling() (symmetric CPU capacity)
+should already place 1 task per core and then the tasks run there for
+10s w/o migration. So I can't see how you're improvement can happen
+since the benchmark has tasks <= cores (32 in my case, 88 in yours)?
 
