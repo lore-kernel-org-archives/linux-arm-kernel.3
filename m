@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D13C88E4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCB2C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 11:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1//qZSRS+hJDa1tgu3tfHEnaKnJO5kTUToo92WITcnw=; b=cdh3kLvmD4Z7ZwM7ppUvHRdUq0
-	PyvkmBMtPqQjuKXeG0/SMJsFVkTeSUZKxebQK7GrxXPdoEx3CEK7+q2ELSrJvXeSsB+F+3LXniKIp
-	UW8WWtrXnEwGrjYsTDlizl+1zliJaMoojrSkGo8ulXZrO5aSTqZLoMgP2vzGqyfB7m81i7GOnJal/
-	DnrZtanG123YJpA/xy/LzfvBE/gETwFyB6C4e+vEdqLEyNv4Gs8E23MWr21OcZ1l2dwyWmcFIbbv9
-	8NT9BkPYdrQbG6pKVkx+eIA3TP1kSXXGmyW2tW/mERZtSlpDEvhlKja3PeHja+ikEKpvAR12nPATf
-	S4zhud3A==;
+	bh=RdZP/6HNOuGBfq2kgLhrIqIEX1HgQSuvTX9uOX9/bCI=; b=eAbbG6bv6AmQLYzG2XAMnEaD/b
+	IjGfoI2EaGKv4XdZLqo81T+hLxZGvTVrCp7KXklNy/CN2Qgo98gBEvJ/m9j40JkCT1oXAzbOGyPMO
+	8aQvW7YfIhZqYyEaUJn/ioss7TZGdahcfmgkzV5DEvaP5rmodfx8Q4kUamwUWrkpv4glqhSITY21B
+	EhmrJDEcHnBzsgqybWWN9sCRYIhZ9CFcn1ahA9Ha4MmC/50akHC4K3gpPXwnpxEgUj4AGBxSLvRWJ
+	P1hysZ9iKn4fGsBhDil2GxBdoA05DofwMrPxA4VSekQK4VBbJaRL5N951y5micW02ay5tujIJxxF4
+	BW17VWwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zNe-0000000GUNn-3bNp;
+	id 1x4zNe-0000000GUMf-1yj5;
 	Fri, 11 Sep 2026 11:25:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4zNd-0000000GUMJ-03X8
+	id 1x4zNX-0000000GUKK-36mO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 11:25:17 +0000
+	Fri, 11 Sep 2026 11:25:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C185841AA8;
-	Fri, 11 Sep 2026 11:25:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5684F1F0089A;
-	Fri, 11 Sep 2026 11:25:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A69060A5A;
+	Fri, 11 Sep 2026 11:25:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 789631F000FF;
+	Fri, 11 Sep 2026 11:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789125916;
-	bh=1//qZSRS+hJDa1tgu3tfHEnaKnJO5kTUToo92WITcnw=;
+	s=k20260515; t=1789125910;
+	bh=RdZP/6HNOuGBfq2kgLhrIqIEX1HgQSuvTX9uOX9/bCI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=l7bL2UuAQ1c3GP2ytUeLyrlGQHpnk5WC+NnS9brjNa0bRHl7O4QKofRDC2BaWPghk
-	 x3QC5gqWbA4v48oPtcpSJwKUNDi6Rx1AqeoC+O2wggnnd7K7nM2MT+3JAOXT5aUg6P
-	 +d98xToerqvUMxy4OgLgrd93RoscyQvn19UigUVBL8wRgyz5z4l096nIEy1Zz5Szw4
-	 7d7cMmUMfKiJ9E0tRbqB5rmLSimtNFD/wkcqk/+vuUJzzLGkYOttesMqBicC9CIDwz
-	 DE0u02m3kOXAsb45YmdAuCha6/rXTbPpsywdvkNjRVOZ6GqHpVWplIr3+FS8ADyNBX
-	 BUk3h90Z5kmfw==
-Subject: Re: [PATCH net-next v2 5/9] net: stmmac: qcom-ethqos: fix RGMII_ID
- mode to use DLL bypass
+	b=SI09aKvb19Mvv4ssXbRp4wFHGaW2N671Rf1nnDOT+y2Nm2tVd7B9FxrDZ+l+uI51y
+	 agZNpWtEZkl2xrM/fzbGYzqi9WLKIiQpxtXoLLPCCblFr2xgStLUVy04qClUn1a01p
+	 6aHwHI/RvHSlz4BkxExeJvLLYKtBnSLXmBpX8h6mW47HGt6xtridct2fHyk5LVIS/P
+	 I2Y8/IHkVU3vS8RqtqJFQXYDYS3T4cimG383r+UekX6M/SHdEV3BH9pWaa6m51BWfT
+	 o0zbAoeAp7Q5WF70JDoeIvyz5H5zGuTFNcxOOnvON/iYdNK6aMFAYbwV/IzuZOHZVv
+	 pdrFS8HZ0N6jg==
+Subject: Re: [PATCH net-next v2 2/9] net: phy: dp83867: add regulator supply
+ management
 From: netdev-bot+sashiko@kernel.org
 To: mohd.anwar@oss.qualcomm.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,11 +56,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
-Date: Fri, 11 Sep 2026 11:25:14 +0000
-Message-ID: <178912591493.219967.8863321460780410702@kernel.org>
-In-Reply-To: <20260908-shikra_ethernet-v2-5-bbe3389d0652@oss.qualcomm.com>
-References: <20260908-shikra_ethernet-v2-5-bbe3389d0652@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Fri, 11 Sep 2026 11:25:09 +0000
+Message-ID: <178912590907.219967.12393486261427611719@kernel.org>
+In-Reply-To: <20260908-shikra_ethernet-v2-2-bbe3389d0652@oss.qualcomm.com>
+References: <20260908-shikra_ethernet-v2-2-bbe3389d0652@oss.qualcomm.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -78,102 +78,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-- [Medium] The patch is worded as a bug fix ("fix RGMII_ID mode to use
-  DLL bypass", "Also fix ethqos_set_clk_tx_rate()") for two user-visible…
+- [High] The rail enable sequence is placed in the PHY driver's probe
+  (dp83867_probe() -> dp83867_power_on(),…
+- [Medium] In dp83867_power_on() (drivers/net/phy/dp83867.c:723-748) the
+  variable `count` is incremented for every return value of 0 from…
+- [Low] dp83867_power_on() wraps its entire body in `#ifdef CONFIG_OF`
+  (drivers/net/phy/dp83867.c:725-746) although nothing inside uses an OF…
 
 --
 
-net: stmmac: qcom-ethqos: fix RGMII_ID mode to use DLL bypass
+net: phy: dp83867: add regulator supply management
 
-For phy-mode = "rgmii-id" the driver now powers down the DLL, sets DDR
-bypass and programs the IO_MACRO through a new
-ethqos_rgmii_id_macro_init() helper instead of running the generic DLL
-init.  It also stops doubling the link clock rate at 100M/10M in that
-mode, and drops RGMII_ID from the TX phase-shift suppression in
-ethqos_rgmii_macro_init().
+This adds dp83867_power_on(), called from dp83867_probe(), which walks four
+supply names with devm_regulator_get_enable_optional() and, if any of them
+returned success, sleeps 200 ms for the datasheet post power-up
+stabilisation.  A few questions about the new function below.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 44270c25d874f..53fb9de4d92c7 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> diff --git a/drivers/net/phy/dp83867.c b/drivers/net/phy/dp83867.c
+> index 88255e92b4cdb..dbeee7cad6f0c 100644
+> --- a/drivers/net/phy/dp83867.c
+> +++ b/drivers/net/phy/dp83867.c
 
 [ ... ]
 
-> @@ -183,7 +186,15 @@ static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
->  	if (rate < 0)
->  		return rate;
->  
-> -	return clk_set_rate(ethqos->link_clk, rate * 2);
-> +	/* Clock Rate Requirements:
-> +	 * MAC added delay: 250/50/5 Mhz for 1G/100M/10M
-> +	 * No MAC delay (DLL bypass): 250/25/2.5 Mhz for 1G/100M/10M
-> +	 */
-> +	if (ethqos->phy_mode != PHY_INTERFACE_MODE_RGMII_ID ||
-> +	    speed == SPEED_1000)
-> +		rate *= 2;
-> +
-> +	return clk_set_rate(ethqos->link_clk, rate);
+> @@ -719,9 +720,41 @@ static int dp83867_resume(struct phy_device *phydev)
+>  	return 0;
 >  }
-
-[ ... ]
-
-> @@ -493,6 +539,21 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
 >  
->  	ethqos_set_func_clk_en(ethqos);
->  
-> +	/* For rgmii-id mode, the PHY should add the required delays.
-> +	 * Therefore, power down the DLL and program it in bypass mode.
-> +	 * Program the IO_MACRO as per the settings recommended by the
-> +	 * programming guide for bypass mode. This will ensure that the
-> +	 * MAC core doesn't add any additional delays.
-> +	 */
-> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID) {
-> +		rgmii_setmask(ethqos, SDCC_DLL_CONFIG_PDN, SDCC_HC_REG_DLL_CONFIG);
-> +		rgmii_setmask(ethqos, SDCC_USR_CTL_DDR_BYPASS, SDCC_USR_CTL);
+> +static int dp83867_power_on(struct phy_device *phydev)
+> +{
+> +#ifdef CONFIG_OF
+
+[Severity: Low]
+Is CONFIG_OF the right predicate here?  Nothing inside the guard uses an OF
+API, only devm_regulator_get_enable_optional(), dev_err_probe() and
+fsleep().
+
+On CONFIG_OF=n the whole body disappears and dp83867_power_on() becomes
+"return 0", so supplies that the regulator core would resolve through the
+non-DT lookup path (regulator_lookup_by_name() in _regulator_get(), taken
+when dev_of_node(dev) is NULL) are never enabled, and errors including
+-EPROBE_DEFER are never propagated.
+
+The rest of this file uses #if IS_ENABLED(CONFIG_OF_MDIO) for its genuinely
+OF-dependent code (dp83867_of_init_io_impedance()).  Would keying this on
+the regulator API instead, or dropping the guard entirely since the
+!CONFIG_REGULATOR stub already makes the calls harmless, be more accurate?
+
+> +	static const char * const supply_names[] = {
+> +		"vdda-2p5", "vdd-1p0", "vdda-1p8", "vddio",
+> +	};
+> +	struct device *dev = &phydev->mdio.dev;
+> +	u32 count = 0;
+> +	int i, ret;
 > +
-> +		ethqos_rgmii_id_macro_init(ethqos, speed);
-> +
-> +		return;
+> +	for (i = 0; i < ARRAY_SIZE(supply_names); i++) {
+> +		ret = devm_regulator_get_enable_optional(dev, supply_names[i]);
+> +		if (!ret)
+> +			count++;
+> +		else if (ret != -ENODEV)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to enable %s supply\n",
+> +					     supply_names[i]);
 > +	}
 > +
+> +	/* Datasheet section 6.6 suggests a 200ms post power-up stabilization */
+> +	if (count)
+> +		fsleep(200000);
+> +#endif
 
 [Severity: Medium]
-The changelog describes this as two functional corrections, "fix RGMII_ID
-mode to use DLL bypass" and "Also fix ethqos_set_clk_tx_rate() to not
-double the clock rate in bypass mode at 100M/10M", but there is no Fixes:
-tag.  Should one be added?
+Can count reliably mean "a rail was newly powered up" here?
 
-Both defects look reachable before this patch.  qcom_ethqos_probe() accepts
-PHY_INTERFACE_MODE_RGMII_ID and installs the affected callback:
+With CONFIG_REGULATOR=n the API is a stub that can never return -ENODEV:
 
-	case PHY_INTERFACE_MODE_RGMII_ID:
-	case PHY_INTERFACE_MODE_RGMII_RXID:
-	case PHY_INTERFACE_MODE_RGMII_TXID:
-		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
+include/linux/regulator/consumer.h:
+	static inline int devm_regulator_get_enable_optional(struct device *dev,
+							     const char *id)
+	{
+		return 0;
+	}
 
-so an rgmii-id link previously ran the full DLL init and had the RX delay
-programmed by ethqos_rgmii_macro_init() through
-SDCC_DDR_CONFIG_PRG_RCLK_DLY / SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY, and also
-got rate * 2 from ethqos_set_clk_tx_rate().
+so all four lookups "succeed", count == 4, and every DP83867 probe pays
+fsleep(200000), which for usecs >= USLEEP_RANGE_UPPER_BOUND lands in
+msleep(200).  DP83867_PHY in drivers/net/phy/Kconfig has no
+depends on REGULATOR, so this is a valid configuration.
 
-The partial mitigation for the TX side came in with 164a9ebe9742 ("net:
-stmmac: dwmac-qcom-ethqos: Respect phy-mode and TX delay"), which only
-suppressed RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN and left the RX delay and
-the doubled rate in place.  Would that commit, or the original driver
-commit, be the right Fixes: target here?
+With CONFIG_REGULATOR=y, _devm_regulator_get_enable() in
+drivers/regulator/devres.c returns the result of regulator_enable():
 
-Related question: which platform reproduces the misprogramming, and on
-which hardware was the new bypass register sequence in
-ethqos_rgmii_id_macro_init() validated?  Grepping arch/arm64/boot/dts/qcom
-turns up no ethqos node using phy-mode = "rgmii-id" (only sa8540p-ride.dts,
-which uses "rgmii-txid"), so it is hard to tell from the changelog who is
-affected and what the backport risk is.  Could that be stated in the commit
-message?
+	ret = regulator_enable(r);
+	if (!ret)
+		ret = devm_add_action_or_reset(dev, &regulator_action_disable, r);
+
+and regulator_enable() also returns 0 for a rail that is already on
+(always-on/boot-on, enabled by the bootloader, or shared with another
+consumer), so the 200 ms wait is taken on every probe or re-bind merely
+because the rails are described in DT, with no off->on transition.
+
+Both cases seem to disagree with the commit message:
+
+> Absent supplies are silently skipped, so boards
+> that do not describe them are unaffected.
+
+and
+
+> When any supply is newly enabled the driver sleeps for 200 ms before
+> returning.
+
+Should the delay instead be gated on something that actually distinguishes
+an off->on transition?
+
+> +	return 0;
+> +}
+> +
+>  static int dp83867_probe(struct phy_device *phydev)
+>  {
+>  	struct dp83867_private *dp83867;
+> +	int ret;
+> +
+> +	ret = dp83867_power_on(phydev);
+> +	if (ret)
+> +		return ret;
+
+[Severity: High]
+Can this call site ever power up a DP83867 whose rails are off at boot,
+which is the board class the commit message describes?
+
+phy_driver->probe() runs only after the PHY has been identified over MDIO.
+For a DT node without an explicit "ethernet-phy-idXXXX.YYYY" compatible,
+fwnode_mdiobus_register_phy() takes the scanning path:
+
+drivers/net/mdio/fwnode_mdio.c:fwnode_mdiobus_register_phy() {
+	is_c45 = fwnode_device_is_compatible(child, "ethernet-phy-ieee802.3-c45");
+	if (is_c45 || fwnode_get_phy_id(child, &phy_id))
+		phy = get_phy_device(bus, addr, is_c45);
+	else
+		phy = phy_device_create(bus, addr, phy_id, 0, NULL);
+}
+
+and get_phy_device() -> get_phy_c22_id() gives up on an unpowered PHY:
+
+drivers/net/phy/phy_device.c:get_phy_c22_id() {
+	/* If the phy_id is mostly Fs, there is no device there */
+	if ((*phy_id & 0x1fffffff) == 0x1fffffff)
+		return -ENODEV;
+}
+
+With the rails off no phy_device with the TI ID is created, so this driver
+never binds and dp83867_power_on() never runs.  In the case where the driver
+does bind after a scan, the rails were already on, so the enable is a no-op
+and the 200 ms is dead time on every bind.  Would this power-up need to
+happen before MDIO identification (MDIO bus / reset-and-power stage) to have
+the intended effect?  The only configuration where the new code can power a
+dark PHY appears to be a DT node carrying an explicit phy-id compatible so
+the ID read is skipped, and the binding example added earlier in the series
+in Documentation/devicetree/bindings/net/ti,dp83867.yaml uses the scanned
+form.
+
+There is a second consequence of using the devm form here.
+devm_regulator_get_enable_optional() installs regulator_action_disable() via
+devres, so unbinding the PHY driver, or a later failure in dp83867_probe(),
+disables these rails while the mdio device stays registered.  Does that
+leave subsequent register access (generic PHY fallback, re-scan, ethtool)
+talking to a powered-off device?
+
+>  
+>  	dp83867 = devm_kzalloc(&phydev->mdio.dev, sizeof(*dp83867),
+>  			       GFP_KERNEL);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260908-shikra_ethernet-v2-0-bbe3389d0652%40oss.qualcomm.com
