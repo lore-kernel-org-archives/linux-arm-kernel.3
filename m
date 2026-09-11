@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9B8C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75B3C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=; b=wjY/dU1hs835XtvOAx4R5UKVO1
-	SZrmBSBons+nectZBbwp1Z9a5S9IgwT2cAaKR9accaFVTBKmsqKu+nryXK8bHVhmCSMwF3xZyR55e
-	cxiR1hEnSiTWB6PChydfAo1jyvxxmaSl0DDNyCtLIsnFXuhuIJH0i7nz7Zw4auZ4GlAeqVnqeCS0c
-	LJ5sGdFp2RzJqfpUjdN46mZoGyc47L2EAAA1oVFwYC6X6UobjP9QXCwzJ7QX91m8oG22GMIUo9992
-	krC58DpSxk8IMGRIBxt7aDnnqW71bpiGWaBQ9UqOw9RIMQ1lraLIn8gnDo9+sbQRPY/sxSdOHvePp
-	0NOnyuKQ==;
+	bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=; b=Ybz7YH7NXblDUg0j2mrTRQoD5p
+	u7Ma7Rve5dskcnTUgEA2+cJ3i13Bv/crCugli9CT1eANek5zHfKJHuRAfjaiG4IoyCskcjGSNZh43
+	0LavseIVEM4V2vfldIbrclD14hnWVgT2sufApxqb3QnRKiXV9Ru7iiwdewP53WTlnNlnwgKtG3nud
+	sZ6lXjHHR8pTDvutrHOp2Jh3r6gv5czo0mls98lBnr55gM3693NteZxCl2Rf2dMUSzuhKbpKiMlNY
+	MhZaGc6BfDsFehEeJ+V6V2d6xwzsSwCTVKp5bNK8pSNn9zPYQoR6gTj/E/yiAVkOX3G7MRShJv5Nb
+	oIPKqg/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53OY-0000000H6L3-2hDk;
-	Fri, 11 Sep 2026 15:42:30 +0000
-Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
+	id 1x53OZ-0000000H6M2-1WJe;
+	Fri, 11 Sep 2026 15:42:31 +0000
+Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53O9-0000000H60s-311G
+	id 1x53OE-0000000H66M-2M8p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:42:06 +0000
-Received: by mail-oo2-x0f.google.com with SMTP id 006d021491bc7-6b1ae6c9b72so252009eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:05 -0700 (PDT)
+	Fri, 11 Sep 2026 15:42:13 +0000
+Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-6b35cc0a8c3so1000255eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141325; x=1789746125; darn=lists.infradead.org;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141329; x=1789746129; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=;
-        b=AfEvzrXj3QH1aP6VKSyctK6EEXEO1Pi98+ukkxYNdRJCbrspnphkDpywvrKI62Yvrd
-         cP2C7a+nwqH0xbF0lwHijToTIyFLhR1kIlzj7bgcpnLtL6yH3jiOL/TXP3hosZ86U2Wy
-         s7S6XRnKLO/MyO3wkN2avs03FQSCLwJz4tPl7AvPDUTgbfcNHPNFAtMr1ZBrNlD3MCbg
-         Fo4RcXSmrpN4ZZb67oPShodr/ym05YxQJpggKo27d/6yPIrjOk8IJuOBLFT81AXTwW9U
-         gpacz7Iobi/3SYYiK5pV36GnEAQvu9ftkjcsHc/SbOHMEYUZbwGGNSFg3NODzowgSp7i
-         74OA==
+        bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=;
+        b=uRFk720jsXiC+JqdqltSdRCP/LgHquUoWo5dLrXV0hNyMEuHUf+rjaMl2uOxtnQRxq
+         XRXPmu6ovBJ1xuwX2oewrKeD3Sp2ctPQYNlthXZYvilj/ro7zZje2i5oPdtwv6DVycqN
+         g0U4K00dbojUBTQClrf7dHTYwt2JndG3jT7nwABEvpAMUqB513Y35fD5Aa+Fbtj1X/C+
+         K5Z+PWD3CU5KxRCGQBSqvY1xQQd+f0T3awtv83SLDm1hTRzbnfgFhYjsJRO9dLzQKYOp
+         e4JpR6oC6bClTTs+6suL+APdqu/q+i6PAwFMcpFr0lBtgUPQVGtpR17HqbSEOsFZUpm2
+         b3zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141325; x=1789746125;
+        d=1e100.net; s=20251104; t=1789141329; x=1789746129;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rIQRpDFpvkA6v5lh/5UPtLNtecnKXIQ2k9kxGqhZIEM=;
-        b=jb0R1Fy7gqcmaiUAtzakPpXvdi43/1QRDFn0NbWLbwRAqITAUb5MIl1t9+liIMS8Pi
-         9hDL3RTlWFwBePkQaVBW+bGdY0xtJTbmcwBPLa4rgRHgqEOWOZVZ1Tg/xd+8+6QCw9ae
-         EEdcbMwD6UAmreqSl8HFBscLEjJJgh4dqvNGdQ1uSgkW10ma6DvQlep+yDi5M6IquCrm
-         acgMMeSdisCFqM9GmaQoYt8PN083U2Fk5MILI5SB06GYnvukGC5feo2CgqhPgnucMdhm
-         HDa5Ad7RUDbQxH+bTfgVXjG/IrrFvkn/UTF+K1sOVa6tnEDq+E64OGWkU+DeJE/EpATx
-         2gYw==
-X-Gm-Message-State: AFuF++kvyd/Dw0uXkmlBuzDy9U3xaHF9TlBptsgXDd2i5xf00lDyfkri
-	f3pjL3/wlKSdiE1gB4vJmfG3QTAnkvarw8jYoiszTLgIWxw6sZsze9cHuFJRF5fogEqvrQ+7pLi
-	ilzu0NxU=
-X-Gm-Gg: AYBFou1bruNc4YgqR/m/DIqy+Qx1naTwBbRROJjcfsnlZ4+YpooF9MpQoU+RljSCwV4
-	GgU30kLRR6GLoS4dQKsik9JqyrC5En9otsPVNIg0Fv7iVnAXT9vjibwBY5YGbXWv4yTyV5KUtJS
-	OYsOi6iomuekkw9RkSJrCvJNPxBO8gl1vkcia//Z2OJYO4Bz7ZtJyxPdilt980kgiNqK7R3Kyli
-	mOta7iLu+tzoySAmnsvKJWUpVwFrYGVCKrolG8pDuQGaMH6yivX/xYx3mPYKIEGOVxswVPZgIPt
-	oSwNhqP6erNeZuEsfIRBvumpNbSCKV4M0C0OGHVgIhOR+S9eC/YVGCrnT+NchYnZhl6eDtwJBAn
-	4xTpo02QX5xtYEC3FEn08dato/Og1/jmrRhvRZvO/pbfOvK8ZhPtGVf30XAwAjmZXAbSpFRvLX1
-	erZkTMJ/Ek0hkVrB4NsLWFKzD+coMTlbtNcn8R6a4KuFBcyg9z4TxtgA6Pq4GM+wsiApu8xwhHK
-	/kOh/BHHZR/QaQtK1ufMvXBv71EM6BUxfqPpkLNmjQ=
-X-Received: by 2002:a05:6820:190a:b0:6b5:ec3f:4985 with SMTP id 006d021491bc7-6c0a99f860cmr2369093eaf.32.1789141324900;
-        Fri, 11 Sep 2026 08:42:04 -0700 (PDT)
+        bh=RAOeNgcoqL33KiDySFvl0CYTM4qzSmTk0iyHPZgyOXc=;
+        b=Za2Ir7+DbhWP+x4g+gLycS6t2n7OgUBioNW6dHiUtBoMLbqE3vtXpLmdsb3qO4KEyK
+         mU38b8/vS3v5rqlTuVtU/IM2yMLvIQn7KnlW3vz1tj8Xbvmarpv6GwA8gkvNaZaSB1jM
+         xoIBNDkluU/rPlc5pHh435Y3h0VdueKoF2htgrPbpRC4bscmgoZW21LV0lP9nbAKLYaL
+         I6bsG/bllSb6yz6S8ZvWPmecXzD/ZwVfZMQvr8i9AXyMN1o22otjCBLyw87mQi2SNg5W
+         mPET9M8o19R9i0+S8WqvTl30RCGjUfoJ5vPyJ+P4qk/ghhL+ZzQFDkG0vN2caPafnvTw
+         1oyA==
+X-Gm-Message-State: AFuF++mHCzjmMOytGga1XrtsgDu3j1Dt7x4o7bDg9OV2yVbnaRYqDZIv
+	TcZiSdeZkGpN/mxjSjPsuSNoOA26vo84NMjbSpu24URToznBuSyIvHK6YMlqgeeJqPE=
+X-Gm-Gg: AYBFou35zzD2VQ53SIqR/dyG5cYtv6+YenVnXEJP9ZBsqVe3E47guQL9VujRayM47kD
+	RQ3bHBF1UOA4Ytxci7wEZUkhFkme9ebyQ2C6fG2vwa5mjPSZ4B1Hwvfo95J0BySs/RgpT4F4wz/
+	NJmRs0yfPoOMFtl5PIjn8up5Z+UHb6v7AOk/RPJkKpPCkluzxOLyxb3HjIXzSg8VSkxosPQCJEn
+	uMaO45+DNZBbcbiAFIht7WzaH5roC4EKhxPgD/+pNOqvPmIokofl5xsIIX6Wy/3jBFbNvOHdDCO
+	jKu/zzmV2QQ2wzweEoZe6Bsw0ZM0VgHyJnZQ8uWQw38HRAJ7v0WwohR0+VXKv5yspsvB63HOkEO
+	THTRI2tr9UvwtIuiKDMmRxxkKzDgxOk5O7OArpnUkntRtEI+gA2XFupJVE9mGc1B3N1w8aGyN4e
+	sZmk4f6CyzKUlHghGG9G3K9Dt+rtYBVnXj24eNZ1/mVQ4/2cx7nV2lUy+q4PiIedA6b3Lmnj/jQ
+	mdxEeoBcysGbGxo/+YkuPsMfT2U3WqiT1W5zUa/AFs=
+X-Received: by 2002:a05:6820:208d:b0:6c0:14e9:1850 with SMTP id 006d021491bc7-6c0bae0b281mr3497013eaf.21.1789141328879;
+        Fri, 11 Sep 2026 08:42:08 -0700 (PDT)
 Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.03
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.42.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:42:04 -0700 (PDT)
+        Fri, 11 Sep 2026 08:42:08 -0700 (PDT)
 From: Jens Axboe <axboe@kernel.dk>
 To: io-uring@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -78,17 +77,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	mingo@redhat.com,
 	peterz@infradead.org,
 	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH 07/15] io_uring: add uring_lock section depth tracking and blockable opdef flag
-Date: Fri, 11 Sep 2026 09:40:57 -0600
-Message-ID: <20260911154148.644489-8-axboe@kernel.dk>
+Subject: [PATCH 10/15] io-wq: support handing a task identity to an idle worker
+Date: Fri, 11 Sep 2026 09:41:00 -0600
+Message-ID: <20260911154148.644489-11-axboe@kernel.dk>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
 References: <20260911154148.644489-1-axboe@kernel.dk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084205_784390_89F436D9 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20260911_084210_706160_76A2C00F 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,288 +102,424 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prep patch for issuing requests inline in blocking mode and catching the
-sleep when it happens, rather than punting to io-wq upfront because an
-operation may block.
+Add the io-wq side of handing a blocked submitter's identity to an idle
+worker. io_wq_handoff_claim() picks an idle worker that can take over
+the identity of the current task, and arranges for it to run a caller
+supplied function when it wakes instead of continuing as a worker.
 
-If a request blocks inline, uring_lock must be dropped on behalf of the
-sleeping task, which is only safe outside the sections that rely on the
-lock being held. Track those with a depth counter in
-io_ring_submit_lock() and io_ring_submit_unlock().
-
-Add a "blockable" flag to io_issue_def for opcodes whose issue path can
-cope with blocking inline: read/write, the forced async fs ops, open,
-close and splice/tee. uring_cmd is excluded for now, drivers may bind
-state to the submitting task.
-
-No functional changes in this patch.
+Only a worker inside the idle sleep of the worker loop is claimable,
+being on the free list isn't enough as it may be sleeping elsewhere.
+This is tracked in acct->nr_iosleep. Redundant workers exit through
+the normal idle timeout.
 
 Signed-off-by: Jens Axboe <axboe@kernel.dk>
 ---
- include/linux/io_uring_types.h |  5 +++++
- io_uring/io_uring.h            |  3 +++
- io_uring/opdef.c               | 29 +++++++++++++++++++++++++++++
- io_uring/opdef.h               |  2 ++
- 4 files changed, 39 insertions(+)
+ io_uring/io-wq.c | 263 ++++++++++++++++++++++++++++++++++++++++++++---
+ io_uring/io-wq.h |  14 +++
+ kernel/fork.c    |   3 +-
+ 3 files changed, 267 insertions(+), 13 deletions(-)
 
-diff --git a/include/linux/io_uring_types.h b/include/linux/io_uring_types.h
-index 4af3d579ead6..50a4a0ad222f 100644
---- a/include/linux/io_uring_types.h
-+++ b/include/linux/io_uring_types.h
-@@ -352,6 +352,11 @@ struct io_ring_ctx {
- 	/* submission data */
- 	struct {
- 		struct mutex		uring_lock;
-+		/*
-+		 * io_ring_submit_lock() nesting depth, non-zero means the
-+		 * issue path relies on the lock being held.
-+		 */
-+		unsigned int		submit_lock_depth;
+diff --git a/io_uring/io-wq.c b/io_uring/io-wq.c
+index 2ca223e47d41..3d4eb4992d5b 100644
+--- a/io_uring/io-wq.c
++++ b/io_uring/io-wq.c
+@@ -20,6 +20,7 @@
+ #include <linux/sched/sysctl.h>
+ #include <uapi/linux/io_uring.h>
+ #include <linux/kcov.h>
++#include <linux/thread_handoff.h>
  
- 		/*
- 		 * Ring buffer of indices into array of io_uring_sqe, which is
-diff --git a/io_uring/io_uring.h b/io_uring/io_uring.h
-index 896aab1ed026..870bb4dcc415 100644
---- a/io_uring/io_uring.h
-+++ b/io_uring/io_uring.h
-@@ -393,6 +393,8 @@ static inline void io_ring_submit_unlock(struct io_ring_ctx *ctx,
- 					 unsigned issue_flags)
+ #include "io-wq.h"
+ #include "slist.h"
+@@ -32,6 +33,15 @@ enum {
+ 	IO_WORKER_F_UP		= 0,	/* up and active */
+ 	IO_WORKER_F_RUNNING	= 1,	/* account as running */
+ 	IO_WORKER_F_FREE	= 2,	/* worker on free list */
++	IO_WORKER_F_IDLE_SLEEP	= 3,	/* in the idle sleep of the worker loop */
++};
++
++/* worker->handoff handshake */
++enum {
++	IO_WORKER_HANDOFF_NONE		= 0,
++	IO_WORKER_HANDOFF_PROMOTE,	/* claimed, set under ->workers_lock */
++	IO_WORKER_HANDOFF_DONE,		/* claimer took over the worker */
++	IO_WORKER_HANDOFF_FINISHED,	/* identity moved, demoted released */
+ };
+ 
+ enum {
+@@ -64,6 +74,10 @@ struct io_worker {
+ 	struct callback_head create_work;
+ 	int init_retries;
+ 
++	atomic_t handoff;
++	io_wq_handoff_fn *handoff_fn;
++	struct task_struct *handoff_task;
++
+ 	union {
+ 		struct rcu_head rcu;
+ 		struct delayed_work work;
+@@ -88,6 +102,9 @@ struct io_wq_acct {
+ 	unsigned max_workers;
+ 	atomic_t nr_running;
+ 
++	/* workers in the idle sleep, claimable for a handoff */
++	atomic_t nr_iosleep;
++
+ 	/**
+ 	 * The list of free workers.  Protected by #workers_lock
+ 	 * (write) and RCU (read).
+@@ -151,6 +168,8 @@ static bool io_acct_cancel_pending_work(struct io_wq *wq,
+ 					struct io_wq_acct *acct,
+ 					struct io_cb_cancel_data *match);
+ static void create_worker_cb(struct callback_head *cb);
++static void create_worker_cont(struct callback_head *cb);
++static bool io_task_work_match(struct callback_head *cb, void *data);
+ static void io_wq_cancel_tw_create(struct io_wq *wq);
+ 
+ static inline unsigned int __io_get_work_hash(unsigned int work_flags)
+@@ -233,7 +252,7 @@ static bool io_task_worker_match(struct callback_head *cb, void *data)
+ 	return worker == data;
+ }
+ 
+-static void io_worker_exit(struct io_worker *worker)
++static void __noreturn io_worker_exit(struct io_worker *worker)
  {
- 	lockdep_assert_held(&ctx->uring_lock);
-+	lockdep_assert(ctx->submit_lock_depth > 0);
-+	ctx->submit_lock_depth--;
- 	if (unlikely(issue_flags & IO_URING_F_UNLOCKED))
- 		mutex_unlock(&ctx->uring_lock);
- }
-@@ -409,6 +411,7 @@ static inline void io_ring_submit_lock(struct io_ring_ctx *ctx,
- 	if (unlikely(issue_flags & IO_URING_F_UNLOCKED))
- 		mutex_lock(&ctx->uring_lock);
- 	lockdep_assert_held(&ctx->uring_lock);
-+	ctx->submit_lock_depth++;
+ 	struct io_wq *wq = worker->wq;
+ 	struct io_wq_acct *acct = io_wq_get_acct(worker);
+@@ -411,7 +430,7 @@ static bool io_queue_worker_create(struct io_worker *worker,
+ 
+ 	atomic_inc(&wq->worker_refs);
+ 	init_task_work(&worker->create_work, func);
+-	if (!task_work_add(wq->task, &worker->create_work, TWA_SIGNAL)) {
++	if (!io_wq_task_work_add(wq->task, &worker->create_work, TWA_SIGNAL)) {
+ 		/*
+ 		 * EXIT may have been set after checking it above, check after
+ 		 * adding the task_work and remove any creation item if it is
+@@ -687,19 +706,48 @@ static void io_worker_handle_work(struct io_wq_acct *acct,
+ 	} while (1);
  }
  
- static inline void io_commit_cqring(struct io_ring_ctx *ctx)
-diff --git a/io_uring/opdef.c b/io_uring/opdef.c
-index cf3aa2242cd7..fa07a2b94536 100644
---- a/io_uring/opdef.c
-+++ b/io_uring/opdef.c
-@@ -69,6 +69,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.iopoll			= 1,
- 		.vectored		= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_readv,
- 		.issue			= io_read,
- 	},
-@@ -83,12 +84,14 @@ const struct io_issue_def io_issue_defs[] = {
- 		.iopoll			= 1,
- 		.vectored		= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_writev,
- 		.issue			= io_write,
- 	},
- 	[IORING_OP_FSYNC] = {
- 		.needs_file		= 1,
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_fsync_prep,
- 		.issue			= io_fsync,
- 	},
-@@ -101,6 +104,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.ioprio			= 1,
- 		.iopoll			= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_read_fixed,
- 		.issue			= io_read_fixed,
- 	},
-@@ -114,6 +118,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.ioprio			= 1,
- 		.iopoll			= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_write_fixed,
- 		.issue			= io_write_fixed,
- 	},
-@@ -132,6 +137,7 @@ const struct io_issue_def io_issue_defs[] = {
- 	[IORING_OP_SYNC_FILE_RANGE] = {
- 		.needs_file		= 1,
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_sfr_prep,
- 		.issue			= io_sync_file_range,
- 	},
-@@ -215,16 +221,19 @@ const struct io_issue_def io_issue_defs[] = {
- 	[IORING_OP_FALLOCATE] = {
- 		.needs_file		= 1,
- 		.hash_reg_file          = 1,
-+		.blockable		= 1,
- 		.prep			= io_fallocate_prep,
- 		.issue			= io_fallocate,
- 	},
- 	[IORING_OP_OPENAT] = {
- 		.filter_pdu_size	= sizeof_field(struct io_uring_bpf_ctx, open),
-+		.blockable		= 1,
- 		.prep			= io_openat_prep,
- 		.issue			= io_openat,
- 		.filter_populate	= io_openat_bpf_populate,
- 	},
- 	[IORING_OP_CLOSE] = {
-+		.blockable		= 1,
- 		.prep			= io_close_prep,
- 		.issue			= io_close,
- 	},
-@@ -236,6 +245,7 @@ const struct io_issue_def io_issue_defs[] = {
- 	},
- 	[IORING_OP_STATX] = {
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_statx_prep,
- 		.issue			= io_statx,
- 	},
-@@ -249,6 +259,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.ioprio			= 1,
- 		.iopoll			= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_read,
- 		.issue			= io_read,
- 	},
-@@ -262,17 +273,20 @@ const struct io_issue_def io_issue_defs[] = {
- 		.ioprio			= 1,
- 		.iopoll			= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_write,
- 		.issue			= io_write,
- 	},
- 	[IORING_OP_FADVISE] = {
- 		.needs_file		= 1,
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_fadvise_prep,
- 		.issue			= io_fadvise,
- 	},
- 	[IORING_OP_MADVISE] = {
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_madvise_prep,
- 		.issue			= io_madvise,
- 	},
-@@ -308,6 +322,7 @@ const struct io_issue_def io_issue_defs[] = {
- 	},
- 	[IORING_OP_OPENAT2] = {
- 		.filter_pdu_size	= sizeof_field(struct io_uring_bpf_ctx, open),
-+		.blockable		= 1,
- 		.prep			= io_openat2_prep,
- 		.issue			= io_openat2,
- 		.filter_populate	= io_openat_bpf_populate,
-@@ -327,6 +342,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.hash_reg_file		= 1,
- 		.unbound_nonreg_file	= 1,
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_splice_prep,
- 		.issue			= io_splice,
- 	},
-@@ -347,6 +363,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.hash_reg_file		= 1,
- 		.unbound_nonreg_file	= 1,
- 		.audit_skip		= 1,
-+		.blockable		= 1,
- 		.prep			= io_tee_prep,
- 		.issue			= io_tee,
- 	},
-@@ -360,22 +377,27 @@ const struct io_issue_def io_issue_defs[] = {
- #endif
- 	},
- 	[IORING_OP_RENAMEAT] = {
-+		.blockable		= 1,
- 		.prep			= io_renameat_prep,
- 		.issue			= io_renameat,
- 	},
- 	[IORING_OP_UNLINKAT] = {
-+		.blockable		= 1,
- 		.prep			= io_unlinkat_prep,
- 		.issue			= io_unlinkat,
- 	},
- 	[IORING_OP_MKDIRAT] = {
-+		.blockable		= 1,
- 		.prep			= io_mkdirat_prep,
- 		.issue			= io_mkdirat,
- 	},
- 	[IORING_OP_SYMLINKAT] = {
-+		.blockable		= 1,
- 		.prep			= io_symlinkat_prep,
- 		.issue			= io_symlinkat,
- 	},
- 	[IORING_OP_LINKAT] = {
-+		.blockable		= 1,
- 		.prep			= io_linkat_prep,
- 		.issue			= io_linkat,
- 	},
-@@ -387,19 +409,23 @@ const struct io_issue_def io_issue_defs[] = {
- 	},
- 	[IORING_OP_FSETXATTR] = {
- 		.needs_file = 1,
-+		.blockable		= 1,
- 		.prep			= io_fsetxattr_prep,
- 		.issue			= io_fsetxattr,
- 	},
- 	[IORING_OP_SETXATTR] = {
-+		.blockable		= 1,
- 		.prep			= io_setxattr_prep,
- 		.issue			= io_setxattr,
- 	},
- 	[IORING_OP_FGETXATTR] = {
- 		.needs_file = 1,
-+		.blockable		= 1,
- 		.prep			= io_fgetxattr_prep,
- 		.issue			= io_fgetxattr,
- 	},
- 	[IORING_OP_GETXATTR] = {
-+		.blockable		= 1,
- 		.prep			= io_getxattr_prep,
- 		.issue			= io_getxattr,
- 	},
-@@ -497,6 +523,7 @@ const struct io_issue_def io_issue_defs[] = {
- 	[IORING_OP_FTRUNCATE] = {
- 		.needs_file		= 1,
- 		.hash_reg_file		= 1,
-+		.blockable		= 1,
- 		.prep			= io_ftruncate_prep,
- 		.issue			= io_ftruncate,
- 	},
-@@ -553,6 +580,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.iopoll			= 1,
- 		.vectored		= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_readv_fixed,
- 		.issue			= io_read,
- 	},
-@@ -567,6 +595,7 @@ const struct io_issue_def io_issue_defs[] = {
- 		.iopoll			= 1,
- 		.vectored		= 1,
- 		.async_size		= sizeof(struct io_async_rw),
-+		.blockable		= 1,
- 		.prep			= io_prep_writev_fixed,
- 		.issue			= io_write,
- 	},
-diff --git a/io_uring/opdef.h b/io_uring/opdef.h
-index 667f981e63b0..45c2f77cf782 100644
---- a/io_uring/opdef.h
-+++ b/io_uring/opdef.h
-@@ -29,6 +29,8 @@ struct io_issue_def {
- 	unsigned		vectored : 1;
- 	/* set to 1 if this opcode uses 128b sqes in a mixed sq */
- 	unsigned		is_128 : 1;
-+	/* issue path is safe to run inline in blocking mode */
-+	unsigned		blockable : 1;
+-static int io_wq_worker(void *data)
++/*
++ * Leave the idle sleep, check if we got claimed while in it. Serialized with
++ * the claimer by ->workers_lock, so a claim can't be missed or raced.
++ */
++static bool io_wq_worker_idle_done(struct io_wq_acct *acct,
++				   struct io_worker *worker)
+ {
+-	struct io_worker *worker = data;
+-	struct io_wq_acct *acct = io_wq_get_acct(worker);
+-	struct io_wq *wq = worker->wq;
+-	bool exit_mask = false, last_timeout = false;
+-	char buf[TASK_COMM_LEN] = {};
++	bool promoted;
  
- 	/* size of async data needed, if any */
- 	unsigned short		async_size;
+-	set_mask_bits(&worker->flags, 0,
+-		      BIT(IO_WORKER_F_UP) | BIT(IO_WORKER_F_RUNNING));
++	atomic_dec(&acct->nr_iosleep);
++	raw_spin_lock(&acct->workers_lock);
++	clear_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags);
++	/* the claimer may have committed already, DONE rather than PROMOTE */
++	promoted = atomic_read(&worker->handoff) != IO_WORKER_HANDOFF_NONE;
++	raw_spin_unlock(&acct->workers_lock);
+ 
+-	snprintf(buf, sizeof(buf), "iou-wrk-%d", wq->task->pid);
+-	set_task_comm(current, buf);
++	WARN_ON_ONCE(promoted && worker->handoff_task != current);
++	return promoted;
++}
++
++/* claimed, wait for the claimer to finish taking over the worker struct */
++static io_wq_handoff_fn *io_wq_worker_promoted(struct io_worker *worker)
++{
++	io_wq_handoff_fn *fn = worker->handoff_fn;
++
++	/* stop the scheduler from treating us as a worker while we wait */
++	current->flags &= ~(PF_IO_WORKER | PF_USER_WORKER);
++
++	wait_var_event(&worker->handoff,
++		atomic_read_acquire(&worker->handoff) == IO_WORKER_HANDOFF_DONE);
++
++	WARN_ON_ONCE(current->worker_private);
++	atomic_set(&worker->handoff, IO_WORKER_HANDOFF_NONE);
++	return fn;
++}
++
++/* the worker loop, only returns if claimed for a handoff */
++static io_wq_handoff_fn *io_wq_worker_run(struct io_worker *worker)
++{
++	struct io_wq_acct *acct = io_wq_get_acct(worker);
++	bool exit_mask = false, last_timeout = false;
++	struct io_wq *wq = worker->wq;
+ 
+ 	while (!test_bit(IO_WQ_BIT_EXIT, &wq->state)) {
+ 		long ret;
+@@ -724,6 +772,11 @@ static int io_wq_worker(void *data)
+ 		if ((last_timeout && (exit_mask || acct->nr_workers > 1)) ||
+ 		    test_bit(IO_WQ_BIT_EXIT_ON_IDLE, &wq->state)) {
+ 			acct->nr_workers--;
++			/* a handoff can't claim an exiting worker */
++			if (test_bit(IO_WORKER_F_FREE, &worker->flags)) {
++				clear_bit(IO_WORKER_F_FREE, &worker->flags);
++				hlist_nulls_del_rcu(&worker->nulls_node);
++			}
+ 			raw_spin_unlock(&acct->workers_lock);
+ 			__set_current_state(TASK_RUNNING);
+ 			break;
+@@ -733,7 +786,12 @@ static int io_wq_worker(void *data)
+ 		raw_spin_unlock(&acct->workers_lock);
+ 		if (io_run_task_work())
+ 			continue;
++		/* claimable only in this sleep, the free list isn't enough */
++		set_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags);
++		atomic_inc(&acct->nr_iosleep);
+ 		ret = schedule_timeout(WORKER_IDLE_TIMEOUT);
++		if (unlikely(io_wq_worker_idle_done(acct, worker)))
++			return io_wq_worker_promoted(worker);
+ 		if (signal_pending(current)) {
+ 			struct ksignal ksig;
+ 
+@@ -752,9 +810,190 @@ static int io_wq_worker(void *data)
+ 		io_worker_handle_work(acct, worker);
+ 
+ 	io_worker_exit(worker);
++}
++
++static int io_wq_worker(void *data)
++{
++	struct io_worker *worker = data;
++	struct io_wq *wq = worker->wq;
++	io_wq_handoff_fn *fn;
++	char buf[TASK_COMM_LEN] = {};
++
++	set_mask_bits(&worker->flags, 0,
++		      BIT(IO_WORKER_F_UP) | BIT(IO_WORKER_F_RUNNING));
++
++	snprintf(buf, sizeof(buf), "iou-wrk-%d", wq->task->pid);
++	set_task_comm(current, buf);
++
++	/*
++	 * Only returns if we got handed an identity. -EIOCBQUEUED means we got
++	 * demoted again while running it, back to the worker loop.
++	 */
++	for (;;) {
++		long ret;
++
++		fn = io_wq_worker_run(worker);
++		ret = fn();
++		/* what we return is what userspace gets on some archs */
++		if (ret != -EIOCBQUEUED)
++			return ret;
++		worker = current->worker_private;
++	}
++}
++
++/* find and claim an idle sleeping worker, see io_wq_worker_idle_done() */
++static struct io_worker *io_wq_acct_handoff_claim(struct io_wq *wq,
++						  struct io_wq_acct *acct,
++						  io_wq_handoff_fn *fn)
++{
++	struct io_worker *worker, *found = NULL;
++	struct hlist_nulls_node *n;
++
++	raw_spin_lock(&acct->workers_lock);
++	if (test_bit(IO_WQ_BIT_EXIT, &wq->state))
++		goto out_unlock;
++	hlist_nulls_for_each_entry(worker, n, &acct->free_list, nulls_node) {
++		/* only claimable inside the idle sleep of the worker loop */
++		if (!test_bit(IO_WORKER_F_IDLE_SLEEP, &worker->flags))
++			continue;
++		if (!thread_handoff_compatible(current, worker->task))
++			continue;
++		clear_bit(IO_WORKER_F_FREE, &worker->flags);
++		hlist_nulls_del_init_rcu(&worker->nulls_node);
++		worker->handoff_fn = fn;
++		worker->handoff_task = worker->task;
++		atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_PROMOTE);
++		found = worker;
++		break;
++	}
++out_unlock:
++	raw_spin_unlock(&acct->workers_lock);
++	if (found)
++		wake_up_process(found->handoff_task);
++	return found;
++}
++
++/*
++ * task_work_add() that doesn't notify a task inside a blocking inline issue,
++ * it'd interrupt the sleep. io_handoff_end() picks pending work up instead.
++ */
++int io_wq_task_work_add(struct task_struct *task, struct callback_head *cb,
++			enum task_work_notify_mode notify)
++{
++	int ret;
++
++	if (notify != TWA_SIGNAL && notify != TWA_SIGNAL_NO_IPI)
++		return task_work_add(task, cb, notify);
++
++	ret = task_work_add(task, cb, TWA_NONE);
++	if (ret)
++		return ret;
++	if (READ_ONCE(task->flags) & PF_IO_HANDOFF)
++		return 0;
++	if (notify == TWA_SIGNAL)
++		set_notify_signal(task);
++	else
++		__set_notify_signal(task);
+ 	return 0;
+ }
+ 
++/* claim an idle worker to hand our identity to, pairs with _commit() */
++struct task_struct *io_wq_handoff_claim(struct io_wq *wq, bool bound,
++					io_wq_handoff_fn *fn)
++{
++	struct io_worker *worker;
++
++	worker = io_wq_acct_handoff_claim(wq, io_get_acct(wq, bound), fn);
++	if (!worker)
++		worker = io_wq_acct_handoff_claim(wq, io_get_acct(wq, !bound), fn);
++	if (worker)
++		return worker->task;
++	return NULL;
++}
++
++/* we take over the worker @dst was, @dst goes on to run the handoff fn */
++void io_wq_handoff_commit(struct task_struct *dst)
++{
++	struct io_worker *worker = dst->worker_private;
++	struct task_struct *src = current;
++	struct io_wq *wq = worker->wq;
++	struct callback_head *cb;
++
++	WARN_ON_ONCE(src->worker_private);
++	WARN_ON_ONCE(worker->task != dst);
++	WARN_ON_ONCE(wq->task != src);
++
++	/* the sched hooks around @dst's wakeup cope with NULL worker_private */
++	WRITE_ONCE(dst->worker_private, NULL);
++	src->worker_private = worker;
++	WRITE_ONCE(worker->task, src);
++	src->flags |= PF_IO_WORKER | PF_USER_WORKER;
++
++	/* the user task owns the wq */
++	get_task_struct(dst);
++	WRITE_ONCE(wq->task, dst);
++
++	/* move pending worker creations along, we may block for a while */
++	while ((cb = task_work_cancel_match(src, io_task_work_match, wq))) {
++		struct io_worker *w = container_of(cb, struct io_worker,
++						  create_work);
++
++		if (!task_work_add(dst, cb, TWA_SIGNAL))
++			continue;
++		io_worker_cancel_cb(w);
++		if (cb->func == create_worker_cont)
++			kfree(w);
++	}
++	put_task_struct(src);
++
++	atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_DONE);
++	wake_up_var(&worker->handoff);
++}
++
++/* worker loop entry for a demoted task, only returns on another handoff */
++io_wq_handoff_fn *io_wq_handoff_worker(void)
++{
++	struct io_worker *worker = current->worker_private;
++	char buf[TASK_COMM_LEN] = {};
++
++	WARN_ON_ONCE(!io_wq_current_is_worker());
++
++	/* the promoted task reads our state until it's done migrating it */
++	wait_var_event(&worker->handoff,
++		atomic_read_acquire(&worker->handoff) == IO_WORKER_HANDOFF_FINISHED);
++	atomic_set(&worker->handoff, IO_WORKER_HANDOFF_NONE);
++
++	snprintf(buf, sizeof(buf), "iou-wrk-%d", worker->wq->task->pid);
++	set_task_comm(current, buf);
++	set_cpus_allowed_ptr(current, worker->wq->cpu_mask);
++
++	return io_wq_worker_run(worker);
++}
++
++/* release the demoted task @tsk to run as the worker it now is */
++void io_wq_handoff_finished(struct task_struct *tsk)
++{
++	struct io_worker *worker = tsk->worker_private;
++
++	atomic_set_release(&worker->handoff, IO_WORKER_HANDOFF_FINISHED);
++	wake_up_var(&worker->handoff);
++}
++
++/* idle sleepers to keep around as handoff targets */
++#define IO_WQ_HANDOFF_SPARES	2
++
++/* true if a worker is claimable, @topup forks one if below the target */
++bool io_wq_handoff_spare(struct io_wq *wq, bool bound, bool topup)
++{
++	struct io_wq_acct *acct = io_get_acct(wq, bound);
++	unsigned int idle;
++
++	idle = atomic_read(&acct->nr_iosleep);
++	if (topup && idle < IO_WQ_HANDOFF_SPARES)
++		io_wq_create_worker(wq, acct);
++	return idle > 0;
++}
++
+ /*
+  * Called when a worker is scheduled in. Mark us as currently running.
+  */
+diff --git a/io_uring/io-wq.h b/io_uring/io-wq.h
+index 42f00a47a9c9..98357b665e54 100644
+--- a/io_uring/io-wq.h
++++ b/io_uring/io-wq.h
+@@ -4,6 +4,7 @@
+ 
+ #include <linux/refcount.h>
+ #include <linux/io_uring_types.h>
++#include <linux/task_work.h>
+ 
+ struct io_wq;
+ 
+@@ -47,6 +48,19 @@ void io_wq_set_exit_on_idle(struct io_wq *wq, bool enable);
+ void io_wq_enqueue(struct io_wq *wq, struct io_wq_work *work);
+ void io_wq_hash_work(struct io_wq_work *work, void *val);
+ 
++typedef long (io_wq_handoff_fn)(void);
++
++/* claim an idle worker, it runs @fn instead of the worker loop when woken */
++struct task_struct *io_wq_handoff_claim(struct io_wq *wq, bool bound,
++					io_wq_handoff_fn *fn);
++
++void io_wq_handoff_commit(struct task_struct *dst);
++io_wq_handoff_fn *io_wq_handoff_worker(void);
++bool io_wq_handoff_spare(struct io_wq *wq, bool bound, bool topup);
++void io_wq_handoff_finished(struct task_struct *tsk);
++int io_wq_task_work_add(struct task_struct *task, struct callback_head *cb,
++			enum task_work_notify_mode notify);
++
+ int io_wq_cpu_affinity(struct io_uring_task *tctx, cpumask_var_t mask);
+ int io_wq_max_workers(struct io_wq *wq, int *new_count);
+ bool io_wq_worker_stopped(void);
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 510c8a9aa870..f31af9c5bae7 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -2688,11 +2688,12 @@ struct task_struct * __init fork_idle(int cpu)
+  * creating io_uring workers. It returns a created task, or an error pointer.
+  * The returned task is inactive, and the caller must fire it up through
+  * wake_up_new_task(p). All signals are blocked in the created task.
++ * CLONE_SYSVSEM as a worker may take over a user thread's identity.
+  */
+ struct task_struct *create_io_thread(int (*fn)(void *), void *arg, int node)
+ {
+ 	unsigned long flags = CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|
+-			      CLONE_IO|CLONE_VM|CLONE_UNTRACED;
++			      CLONE_IO|CLONE_VM|CLONE_UNTRACED|CLONE_SYSVSEM;
+ 	struct kernel_clone_args args = {
+ 		.flags		= flags,
+ 		.fn		= fn,
 -- 
 2.55.0
 
