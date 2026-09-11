@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DA2C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A543C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 05:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAzqMJyfWffnd0KP5f4SwAp8Y5vWAr+5IodcQ5y1LnQ=; b=CwxpEbynlqX0cvLiY1LAxpCpP5
-	pIUWIkLMORhR1Bu0mcGZx4AV4jly2sByMGp2poT0nUtOpVbrU8uFG6kQwa7F1FE6E/naN7jnELwIi
-	RcazykZX6EKoeaFeM3ClwPfsVFkoUKPXYvcgE1dzlflBFFloeaJtOhhdpKHmdjOrKyLDoNujPfwML
-	dsyQ2nAAx59zzRHO/87+b9KO126uzG8JCRU0CCzG0aeIG2bWkle3//jxe/r+vwdM8oNB+8DjKJf0z
-	SxZDA9JKRfM0h7kvhsLMWlTchhN5UZAxfKQza/Xnh9jFaP4XaeJtBRAsWPb7Yf+UQOgz+tWpR+b+l
-	PAW+6NaQ==;
+	bh=PdKT3mgg1Pb/Jdrfl1nwELxR2cBte3Dqhgwz6ZyzOwI=; b=jZr/k2L/TLfgVBLOiYqJwICqMB
+	+/IAXPpO1LPU5OstXhXcE4JpkUEC0TdWejPH2LR0ejbaJpL48usXhphngzd/7nkI5QFKwds6Ii+FH
+	q+XSb3uCuFWKlwhvvNYg4jA1ZnmEQn+yisxIGiabanxCM8Hat75Kc6wTOShCmpyj1QVa15NiBhqfy
+	bkaFcE2ijZ+LPC8MICf7+xY+37GvY9bZMoIFCFhZkWSDC2/PmLmzeK5ubmRGB5OqPfIl2bnVIW++G
+	xNb87YDW4vvvyBoQ9QhOMvuQkfGMemrryVixjC8BmBAW8Au/Z3eGGvZtDoVlZdmrP3w669TAg5ogV
+	a/nUb+wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tqY-0000000FsUf-2tyk;
-	Fri, 11 Sep 2026 05:30:46 +0000
+	id 1x4tt7-0000000FsqX-0fst;
+	Fri, 11 Sep 2026 05:33:25 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4tqO-0000000FsRp-2BMK
+	id 1x4tt4-0000000Fspq-2luD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 05:30:37 +0000
+	Fri, 11 Sep 2026 05:33:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=RAzqMJyfWffnd0KP5f4SwAp8Y5vWAr+5IodcQ5y1LnQ=; 
-	b=Mov11AJSwbzm2/RpeywMES4De1nrUJ3gQs7Wfr4CFwCghSsX11X9Y+RnhlQovOcqKM79OGXAOCf
-	Euuk3ehdm5ZLP1czSgWRQVtIE6jT0ajK2faPwObgYex3/2pvNqYaDy5ODa893Lk3UDY75lDvdqbTd
-	trjs5swrmslxrlVghRcJesnpJPpb5efR7EverX25vvm7g7/VR8wSKoobUZAntCr3/N+y//zLfSK1d
-	qbOJRCkWZw9qqJIr6mJh15N7SuI80TX4ZR3ePJmmhbHGOAieH5RlfCk4wPFPElRof4uup5FvqLTTa
-	M2Y8Dtz+WPWIHnxud0D5vF+QRRQd/gW0quQw==;
+	from:content-type:reply-to; bh=PdKT3mgg1Pb/Jdrfl1nwELxR2cBte3Dqhgwz6ZyzOwI=; 
+	b=TIMa3c6GeA4fZd4f2E6nP97mtVPGZ6Brs0UF+lS5YEA2cywF320gAH8RDdDBChvD0RddqlPLGhx
+	WXuqzHhDm7t+Tnm/GAwrHmIPWaWJYaB3qnhyhJX9tQYv+NSi0i6fA7FMT4jiDiibym1Z/YaSlFztO
+	q7hR/B3xMXUs++aaDluo+STuZciNdkyZ1ufV1DOwBsHTmOAU73PMqgfI2Nr74K+Zu0MrcI7PRUuuq
+	JEFjXcSp/CSDwOVHvAT8fmCF7rzl/e8WKLWFeFtY0a40Y+1SXFc8qNHDYZ4t8afbW8+UCeAVsHuKw
+	IPkVSKsec5vXBCXbyEZztjYGKnN5+0fEruBg==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1x4tqH-0000000CuAu-0mpt;
-	Fri, 11 Sep 2026 13:30:30 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 11 Sep 2026 15:30:29 +1000
-Date: Fri, 11 Sep 2026 15:30:29 +1000
+	id 1x4tsi-0000000CuDA-1MAD;
+	Fri, 11 Sep 2026 13:33:01 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 11 Sep 2026 15:33:00 +1000
+Date: Fri, 11 Sep 2026 15:33:00 +1000
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
+To: Thorsten Blum <blum@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Wensheng Wang <wenswang@yeah.net>, Frank Li <Frank.Li@nxp.com>,
+	Cosmo Chou <chou.cosmo@gmail.com>, Colin Huang <u8813345@gmail.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Antoni Pokusinski <apokusinski01@gmail.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Dixit Parmar <dixitparmar19@gmail.com>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-aes - fix AADLENR for standalone GHASH
-Message-ID: <aqOR9dg-KzA-U2QP@gondor.apana.org.au>
-References: <20260829042604.82719-1-kmehltretter@gmail.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH 1/2] dt-bindings: trivial-devices: add atmel,atecc608a
+Message-ID: <aqOSjDb1FeLv9Po4@gondor.apana.org.au>
+References: <20260830220151.21469-3-blum@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260829042604.82719-1-kmehltretter@gmail.com>
+In-Reply-To: <20260830220151.21469-3-blum@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_223036_584381_5DF31616 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260910_223322_698367_9BD835E2 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +85,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 29, 2026 at 06:26:04AM +0200, Karl Mehltretter wrote:
-> atmel_aes_gcm_ghash_init() writes dd->total, the request's text length,
-> to AES_AADLENR.  But the GHASH it runs hashes the dd->datalen bytes passed
-> in: the 16-byte length block, or the padded IV when the IV is not 96 bits.
-> The data sheet requires AES_AADLENR to hold the length of that input.
+On Mon, Aug 31, 2026 at 12:01:51AM +0200, Thorsten Blum wrote:
+> Add an entry for ATECC608A.
 > 
-> With empty plaintext and empty AAD, dd->total is 0 and the tag comes out
-> wrong.  Later requests only pass because dd->total still holds the
-> previous request's length.
-> 
-> This is testmgr's first gcm(aes) vector, so CONFIG_CRYPTO_SELFTESTS=y
-> fails at boot:
-> 
->   alg: aead: atmel-gcm-aes encryption test failed (wrong result) on test
->   vector 0, cfg="in-place (one sglist)"
-> 
-> Without selftests the broken atmel-gcm-aes is preferred at priority 300.
-> Seen on a SAM9X75 Curiosity with 6.18 and current mainline.
-> 
-> Write dd->datalen instead.
-> 
-> Fixes: d4419548dba9 ("crypto: atmel-aes - add support to GCM mode")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 > ---
->  drivers/crypto/atmel-aes.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Patch applied.  Thanks.
+All applied.  Thanks.
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
