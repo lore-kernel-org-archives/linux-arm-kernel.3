@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2909FC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAD6C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=; b=OKTX1fcYRNEOK1ydXnT9acDZ91
-	MCTOnj313rwHzZd6tJke6sVJwncY3wdVXa38yphGvlwaqN2aPYowV6IW4EbbOf0ukeqeBgdkpx4Q+
-	Uv9io8YooFsjVrHa3bCb2C8opSQntkwx/uHT31n8OnrESwFYzlR6lOmMWldKBF43vW9HUVqM52elF
-	4tDWcol6I9hReboFrImUfyCRfh1Ys+VySB2A6KbJfca9eZz01jUHioaVRQrJcgBSzZV2CG/Vsd89I
-	SjJLoS0GgJtgJx2svEDc5L+L5hNw1AsWcB63pn2YnSeSC8HL1X/bgszW+hCAfsrTPM63G9YXkiqvF
-	clmfpqzQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vd+hpYguRm0/LXSau2U/e2KAtn148hROAqJ+zClJj0g=; b=WqvH/tuVcWY+GoUUxSrvrI4HHK
+	IudHYlq2f6U2Rv5W3YUDADTZyKlr0T9oEMcyADffh0aP4+ty31Zj/xlzy0ZuFJUwLInt8lF+h8c3X
+	EtTuVDS27+cuDpQdddYcjMbcbi8CufFG8/awl+AqtyQx5SaCNxYP7ejixwXIwMqMWEbObNatHZXk2
+	PTih0PV0S2e1h2VuI0857sPYjjU0OC2VByvqJ1Bd4KNy/fnl6kDXZ+6Um2WlK7sNLkkp0dbCJMaab
+	TKZYS6covzkSu5nE5Cr7+rDmq+DsFZ1a7EsBssKOpF0YvTIhnK6qWPP1uMTDaJE/rXllmE3SyHtaD
+	bFBqigFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53O6-0000000H5yv-04QT;
-	Fri, 11 Sep 2026 15:42:02 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1x53OB-0000000H62z-2TAz;
+	Fri, 11 Sep 2026 15:42:07 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x53O0-0000000H5x1-2eb3
+	id 1x53O5-0000000H5yD-2Vn9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:41:59 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7ffa69b7462so1110604a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:41:56 -0700 (PDT)
+	Fri, 11 Sep 2026 15:42:02 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7f84a55cc06so964713a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 08:42:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141315; x=1789746115; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=;
-        b=Ge7ZtBIUVshAOtEJCA34PWc3U07azidflvzG2KQyLkvtliKMTNA2FABQWyHsEn+ALv
-         H3n9daeu3fDcj15XgMDnwDWGGqA8izBksEHq8rKAC1XmLDhJ6yJ7fZrQQkIACH8XD8TQ
-         SPiskL5tRXbA5CUB0aUYPJDI2UXcxuX6GeRzcDNEFNI0nlXFq7VL3jsnIKjYrl2dusfk
-         CfL6r2RkqWTX4YK/1P5U+6xcvsvBTLA7vmAy5RRed1ZrDKjL6QAmARQcUZzYG429q5Ro
-         oeW1yYq1pt0Ih0gz5liGZt0x1bsi+Q5x+yXwAakpVWI6zR7KfvuWFdZlW2IdtO10/Gmz
-         dISA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789141315; x=1789746115;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1789141320; x=1789746120; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xrJjCdIc8RoNMEPBe6DHEkTVlEk5SUMXdKcZmlJO1zk=;
-        b=DplpTQAnFttLQTrfcBYjPdGYjhy5azVm+FxLv8o0wqXVXJqIuA7Mk9XuGZCXlRIRfD
-         QaoIf7/+wN8bQR2upJpXTWodVdCcE3RyzNg6wBPTow9aX/p4QTxbuntbCbzieqs5nwZt
-         9/KkSUkMKcIX4wPz0fH29HPusiZKUeVddfOVwh4lUucER2Fe24fwzEqzPLtyalD3sD4x
-         ZXsjkf6nFZtLGZfiRvPT0UQwQ3qwHhyxA++DI7QRu6Z6dl7WJz8p06VBPWWk7i6yzvOZ
-         QJDHJIcr5uwN1DSpjKKydVrm1Xq5boxtxeWu5hFDeajn03Zk4SvVvmpp0zw9MdZYJQ5f
-         kimw==
-X-Gm-Message-State: AFuF++noJHfHD5lxdpDIXM3SFcQzcfNcj3TxdVhTLhjUlT93GQvKQ4as
-	QKEVw9y5aFO8nR55bbdSkwnOM2c+LW6C8+c/hY06bmHALoyklOUsbGJfW+BsDnS9oK4=
-X-Gm-Gg: AYBFou1PsnVziyRNhDNYyhMn4rn3Z72QiAgndpzAnYntd8hgHo611glqx5B6yvdxv29
-	PlTjc/2PgiK+0Koe2vrL4NDm7vd44KwnT7tqBmLBQACsbb2abc6kJoHbOap387FNh8w+q/U+upH
-	FCxAANCwe+kfdcWgwIBOy3shvQ5WuEvjGKuz2GOYx97bmg7t0TB1Qr189SQ5n6IGc6KWwVWtdIP
-	4UfZkE4AW5hKvzh95BnVMOuwfluAaFrWzOni/00gWkp3p9kADRfRl38GiTblF3FHmxIaO7o4T/K
-	EHVCsILQqffzMZ/4QLOkUQW9C57jS/zwibNR5NnkrLLRiiMpEiY7XckIgUjs2DWpyR8Idu0J1VU
-	pF6YOI3CvQXZLYFHeupxEenUkkXl4XbTpvesEZEcbnbmSB8Ox3gut2yqvjl+iMXGyo1iiqeWZz/
-	xcrc1pb0P3PBW2PH0/eyl/tmhKPjjh6IQNTZCxlMVG29VuugGru9p6ukf3wB9ZVzHWUKdzeosNx
-	BY8o/XJvZRslNO3yycZ6NoE6FVvqGOmAsrDQlmfPBk=
-X-Received: by 2002:a05:6820:5709:10b0:6b1:bdd9:453 with SMTP id 006d021491bc7-6c0b9958c88mr2386446eaf.12.1789141315549;
-        Fri, 11 Sep 2026 08:41:55 -0700 (PDT)
+        bh=Vd+hpYguRm0/LXSau2U/e2KAtn148hROAqJ+zClJj0g=;
+        b=L+EtHFZWcqmQ7ZvXnjmd4sltocvJS92wzkB7A8vIbYX8218oQjmSTiBx8mXIfVh0j8
+         4ML1xoZy+GnzkBeco8MAsCRKJeJlBwmW3Lbsh8uyedcsT44CRYF2G6PJNinNsj47Aj6W
+         DOa/yPjrRmHFN9NDBTea4BrCvZ8vg/RtmheOEjvV0+nk/zvtT9yBWQtGpvYPJS8fveMA
+         dZZv/+TGlPMu8TT/dEZpDBF98YSBL6sVyMq5cBidlc5mXsS32rcFQgNaKylTIwcOKEgD
+         fDvt8zJX2kPUkEiCORsyAKib66n8VYhNUb1whiv/8qocWv1bBxJzAkiBOZfZOj0Hqtyf
+         wQ8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789141320; x=1789746120;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Vd+hpYguRm0/LXSau2U/e2KAtn148hROAqJ+zClJj0g=;
+        b=WL7z6jDeyM81Tlz8hmBJiyeLnlUlsd1Ru/Ow6x5MZaQfyqV4+JIVrlI5H8a7e+bGe7
+         SAUh3A/pstLC1eGE9zQFFCqXdLrf8C/iMgY9HBxYYUpOImCZdbrn7ug4i5fuWsBstTjR
+         zB7K8AvUAM2oYq5Cf7k1F1vIYdepKhEPGfa8AgGgfMR5Iviq2rWtznNgyCIInho6q92s
+         VBAYpSj0IivNHt5oz4uqdzE50El75ZyUgonOGUUWCqcTrWCchMY4TFNW1ark6AxOzakH
+         DeCvRYQEJ37gl41t/aJ1yGGBknzfBPOrSJkB1mYHC8L9WRsa0pHfJqamt5N3vxEjAV5c
+         gqRA==
+X-Gm-Message-State: AFuF++kdGLXSPb2JDyO8qBMTsY21qHdNjqrlplxVAI8JaBJmUlDJBsga
+	OFLGdld+m9GI+4ENMaFSEkBmPZFyvcK7xOp7HYi8P5LNDQwoOve9FkPMoLbcwHywb4U=
+X-Gm-Gg: AYBFou2tVcql/kg5s0gdQRRimYxJRXiRMn34jpDZJ9BYPYH68MjCuclAs9NM7htX3JO
+	QU6rJt3XqArs98vx0/PuDht5CcD6tHwPkXLEoT0oU1eGgIxEBWcj2/e6FBvGQEz9EhwMSFNZthb
+	RikEZsJcj5JpZhNJP+j8cMXqLw/PHz+SSdLWAYt3sMYM1Ho5xzX237QxdEq9IxBzFeLSyk36U0J
+	4Ef8seExsDjSYKos7tf1RgI8yoEfAsp6RybdGDHP60lxYTbq/DkOyD9Z/LCWQmbJqe2XrOkyKaN
+	d0N1TuK2UIWV6gRLemXNHufQdl2GMdrvexqw95JOBKPf79eQROC5Hg27nzdyECtEZfVC7ITMlyv
+	5NM/9g4kakvyZSCG33W8a/S6jX5KWfh/qtIQ59ZhFSGxIFiRBzj85WGue09qSTVpkPFwq1J17xd
+	lIr8GvCvYElAQvKylpcNvGKtxgMqLx2D7ES9PhnVFC5KFOUfRbtbic6sDWrKecuHcu5BkN15FGP
+	b4Gn5M/Y91omq6c6HbW1sHSWisbygcoAoOUBlq4LixR
+X-Received: by 2002:a05:6820:491a:b0:6b7:46fc:1d3 with SMTP id 006d021491bc7-6c0bd587be9mr2976582eaf.50.1789141320381;
+        Fri, 11 Sep 2026 08:42:00 -0700 (PDT)
 Received: from m2max ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.41.54
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c09690af1dsm2802199eaf.1.2026.09.11.08.41.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 08:41:54 -0700 (PDT)
+        Fri, 11 Sep 2026 08:41:59 -0700 (PDT)
 From: Jens Axboe <axboe@kernel.dk>
 To: io-uring@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	tglx@kernel.org,
 	mingo@redhat.com,
-	peterz@infradead.org
-Subject: [RFC PATCH 00/15] io_uring: thread identity handoff for blocking inline issue
-Date: Fri, 11 Sep 2026 09:40:50 -0600
-Message-ID: <20260911154148.644489-1-axboe@kernel.dk>
+	peterz@infradead.org,
+	Jens Axboe <axboe@kernel.dk>
+Subject: [PATCH 04/15] x86: implement thread identity handoff
+Date: Fri, 11 Sep 2026 09:40:54 -0600
+Message-ID: <20260911154148.644489-5-axboe@kernel.dk>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
+References: <20260911154148.644489-1-axboe@kernel.dk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_084156_696940_290F9D78 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20260911_084201_724892_C17EB033 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,291 +102,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Implement the arch_thread_handoff_*() hooks for 64-bit x86 and select
+ARCH_HAS_THREAD_HANDOFF.
 
-io_uring issues requests inline with IO_URING_F_NONBLOCK and punts to
-io-wq when that isn't possible. For a range of opcodes it isn't possible
-at all, as there's no nonblocking path in the kernel for them: fsync,
-statx, openat, the *at family, xattr, fadvise, splice, etc. Those are
-punted unconditionally, and the punt costs a thread wakeup, a context
-switch and a task_work completion round trip per request. io_uring HAS
-to be cautious to prevent accidental blocking in the kernel, even if the
-operations predominantly never block. Sad story. Examples of that are
-things like an fdatasync that doesn't block, statx that hits dcache,
-openat for O_TMPFILE, etc. All of those would've completed inline just
-fine, but io_uring just cannot rely on that.
+Prepare saves FS/GS, PKRU and the FPU state. Finish copies the syscall
+pt_regs, fault info and FPU image over, and loads what __switch_to()
+would have. Refused are 32-bit tasks, I/O bitmaps and emulated iopl,
+per-thread speculation and CPUID/TSC controls, user shadow stacks and
+non-default sized fpstates.
 
-This series issues those requests inline in blocking mode instead, and
-only pays for the offload if the request actually blocks. But by the
-time it blocks, the submitter is deep in the kernel with the request on
-its stack, so the work can't be moved to another thread. What we can
-move is the identity. If the submitting task blocks, an idle io-wq
-worker takes over its user visible identity (tid, signal state,
-credentials, scheduling attributes, cgroup, user register state),
-finishes the io_uring_enter() call and returns to userspace as the
-submitter. The original task finishes the request as an
-io-wq worker and joins the pool. Userspace is none the wiser, hopefully,
-the same tid came back from the syscall, it's just on a different
-task_struct. Folks that have been around a while may remember earlier
-attempts at this about 20 years ago.
+ret_from_fork() now returns what the thread function returns in
+regs->ax rather than 0. A kernel thread returning from kernel_execve()
+returns 0 anyway, an io-wq worker that got handed a user identity
+returns the result of the syscall it took over.
 
-We catch the blocking through a scheduler hook. A task in a blocking
-inline issue carries PF_IO_HANDOFF, and sched_submit_work() calls into
-io_uring for it, next to the existing io-wq and workqueue hooks. This is
-where the identity is handed off, with the uring_lock still held by the
-blocking task and released for the promoted worker on its behalf.
+Signed-off-by: Jens Axboe <axboe@kernel.dk>
+---
+ arch/x86/Kconfig             |   1 +
+ arch/x86/kernel/process.c    |  10 +--
+ arch/x86/kernel/process_64.c | 139 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 145 insertions(+), 5 deletions(-)
 
-Structure of the series:
-
-  1     kernel: the thread identity handoff itself, in
-        kernel/thread_handoff.c. Independent of io_uring.
-  2     sched: the PF_IO_HANDOFF hook.
-  3-4   arm64 and x86 support. The arch hooks sync live register state
-        before the source blocks and load it on the destination.
-  5-9   io_uring prep: helper cleanups, a tctx node list, tracking of
-        uring_lock sections in the issue path so the hook knows when
-        the lock may be dropped, splitting io_uring_enter() so it can
-        be resumed by another task, and keeping the block plug on the
-        submitter's stack.
-  10    io-wq: claiming an idle worker for a handoff, and keeping a
-        couple of idle spares around as targets.
-  11-12 io_uring: the handoff itself, and deferring the identity
-        migration to the end of the submission so a batch of blocking
-        SQEs costs one migration rather than one per SQE.
-  13    io_uring: issue blockable requests inline in blocking mode.
-        This is where behavior changes.
-  14    tracepoints.
-  15    treat IOSQE_ASYNC the same way. Separate as it's a userspace
-        visible policy change, and I'm not sure yet it should be done.
-
-Some things are refused for handoff up front: traced tasks, per-task
-perf contexts, PI futexes, audit contexts, armed per-thread CPU timers,
-core scheduling cookies, vfork parents. Per-thread accounting moves with
-the handoff, so the counters userspace sees for a tid stay monotonic.
-Known gaps are LSM state kept in the task rather than the cred, and
-PR_SET_IO_FLUSHER. Neither moves, and not moving them can only ever
-restrict.
-
-Reads and writes on files with FMODE_NOWAIT are excluded.
-They have a working nonblocking path and poll retry, and a handoff per
-op would be worse than that. The handoff covers requests that previously
-would always have been handed to io-wq upfront. uring_cmd is excluded
-too, as drivers like ublk bind state to the submitting task.
-
-Some test results:
-
-Measured in a virtme-ng guest, 8 vcpu, non-debug x86 config, same
-kernel with a sysctl toggle for turning the feature on and off. CPU
-is the usage of the whole process including io-wq workers, as a
-percentage of one CPU. Mean of two runs.
-
-                                          ops/s    cpu
- =====================================================
- fsync, tmpfs, qd 1
-   baseline                               28.2k    96%
-   handoff                                 221k   100%
-   change                                 +681%    +5%
- fsync, tmpfs, qd 8
-   baseline                                195k   141%
-   handoff                                 526k   100%
-   change                                 +170%   -29%
- fsync, tmpfs, qd 32
-   baseline                                357k   219%
-   handoff                                 611k   100%
-   change                                  +71%   -54%
-
- fsync, ext4 (flushes, always blocks), qd 1
-   baseline                                9.6k    66%
-   handoff                                 7.1k    91%
-   change                                  -26%   +37%
- fsync, ext4 (flushes, always blocks), qd 8
-   baseline                               29.8k   212%
-   handoff                                14.7k   146%
-   change                                  -51%   -31%
- fsync, ext4 (flushes, always blocks), qd 32
-   baseline                               42.2k   270%
-   handoff                                14.6k   144%
-   change                                  -65%   -47%
-
- statx, ext4, qd 1
-   baseline                               23.6k    96%
-   handoff                                 121k   100%
-   change                                 +414%    +5%
- statx, ext4, qd 8
-   baseline                                129k   234%
-   handoff                                 179k   100%
-   change                                  +38%   -57%
- statx, ext4, qd 32
-   baseline                                197k   276%
-   handoff                                 140k   100%
-   change                                  -29%   -64%
-
- statx, tmpfs, qd 1
-   baseline                               24.4k    96%
-   handoff                                 117k   100%
-   change                                 +378%    +4%
- statx, tmpfs, qd 8
-   baseline                                131k   232%
-   handoff                                 180k   100%
-   change                                  +37%   -57%
- statx, tmpfs, qd 32
-   baseline                                219k   295%
-   handoff                                 190k   100%
-   change                                  -13%   -66%
-
- fadvise DONTNEED, ext4, qd 1
-   baseline                               26.1k    95%
-   handoff                                 150k   100%
-   change                                 +478%    +5%
- fadvise DONTNEED, ext4, qd 8
-   baseline                                127k   170%
-   handoff                                 252k   100%
-   change                                  +99%   -41%
- fadvise DONTNEED, ext4, qd 32
-   baseline                                270k   234%
-   handoff                                 273k   100%
-   change                                   +1%   -57%
-
- renameat, ext4, qd 1
-   baseline                                7.4k    98%
-   handoff                                13.4k   100%
-   change                                  +81%    +2%
- renameat, ext4, qd 8
-   baseline                               12.0k   544%
-   handoff                                14.6k   100%
-   change                                  +21%   -82%
- renameat, ext4, qd 32
-   baseline                               11.2k   500%
-   handoff                                14.3k   100%
-   change                                  +28%   -80%
-
- renameat, tmpfs, qd 1
-   baseline                               15.0k    97%
-   handoff                                48.5k    99%
-   change                                 +223%    +2%
- renameat, tmpfs, qd 8
-   baseline                               65.6k   514%
-   handoff                                55.4k    98%
-   change                                  -15%   -81%
- renameat, tmpfs, qd 32
-   baseline                               39.4k   462%
-   handoff                                38.9k    98%
-   change                                   -1%   -79%
-
- openat O_TMPFILE, ext4, qd 1
-   baseline                                6.3k   100%
-   handoff                                11.3k   100%
-   change                                  +81%    +1%
- openat O_TMPFILE, ext4, qd 8
-   baseline                               23.0k   258%
-   handoff                                12.9k    99%
-   change                                  -44%   -62%
- openat O_TMPFILE, ext4, qd 32
-   baseline                               26.2k   248%
-   handoff                                13.4k    99%
-   change                                  -49%   -60%
-
- openat O_TMPFILE, tmpfs, qd 1
-   baseline                               13.4k    95%
-   handoff                                43.0k    98%
-   change                                 +222%    +3%
- openat O_TMPFILE, tmpfs, qd 8
-   baseline                               57.8k   220%
-   handoff                                51.7k    96%
-   change                                  -11%   -56%
- openat O_TMPFILE, tmpfs, qd 32
-   baseline                               69.3k   218%
-   handoff                                56.8k    96%
-   change                                  -18%   -56%
-
- splice to pipe, ext4, qd 1
-   baseline                               19.4k    96%
-   handoff                                21.1k    98%
-   change                                   +8%    +2%
- splice to pipe, ext4, qd 8
-   baseline                               48.2k   176%
-   handoff                                48.4k   176%
-   change                                   +0%    +0%
- splice to pipe, ext4, qd 32
-   baseline                               53.3k   188%
-   handoff                                48.1k   182%
-   change                                  -10%    -3%
-
-As you can tell, normal QD=1 type issues see big wins. Conversely, for
-higher queue depth, there are losses. The losses are generally from one
-of two reasons:
-
-1) The syscall part is fairly expensive, and previously we farmed all of
-this work across a bunch of io-wq workers, and the parallelization
-there helps performance. For QD=1 that obviously isn't the case. The
-more expensive the lower level kernel parts are, the lower the QD
-required to see a perf loss. openat is the obvious worse case for this.
-
-2) The syscall part ALWAYS blocks. For this case, io-wq is going to be
-quicker, just punt the opcode upfront. fsync on ext4, as shown in the table
-above, is indeed that case. Each of those block.
-
-I've got some ideas for how to mitigate the losses for higher queue
-depths, but a) I didn't think they were THAT interesting for an RFC, as
-low QD is generally what people do with these kinds of ops, and b) the
-main concept behind this handoff is really the interesting part right
-now.
-
-Passes the full liburing test suite, on both x86-64 and arm64. Other
-archs don't support this yet.
-
-This is obviously an RFC, in terms of what I'd love people to take a
-closer look at:
-
-- The scheduler hook and the identity move itself, kernel/thread_handoff.c.
-  Is the set of refused states complete enough, and is moving
-  thread group leadership this way (the leader must stay first on
-  ->thread_head, like de_thread() keeps it) acceptable / kosher.
-- The x86 and arm64 register state handling. x86 refuses AMX users,
-  and arm64 refuses SME.
-- Whether anyone relies on a task's user identity staying on one
-  task_struct in ways not covered above in the series.
-
-Patches are against 7.3-rc2. Also available at:
-
-  git://git.kernel.dk/linux.git io_uring-thread-handoff.3
-
- arch/Kconfig                    |   7 +
- arch/arm64/Kconfig              |   1 +
- arch/arm64/kernel/process.c     | 109 +++++++
- arch/x86/Kconfig                |   1 +
- arch/x86/kernel/process.c       |  10 +-
- arch/x86/kernel/process_64.c    | 139 +++++++++
- include/linux/io_uring.h        |   9 +
- include/linux/io_uring_types.h  |  48 +++-
- include/linux/sched.h           |   2 +-
- include/linux/thread_handoff.h  |  76 +++++
- include/trace/events/io_uring.h | 114 ++++++++
- init/Kconfig                    |  11 +
- io_uring/Makefile               |   1 +
- io_uring/handoff.c              | 395 +++++++++++++++++++++++++
- io_uring/handoff.h              | 103 +++++++
- io_uring/io-wq.c                | 270 +++++++++++++++++-
- io_uring/io-wq.h                |  15 +
- io_uring/io_uring.c             | 310 ++++++++++++++------
- io_uring/io_uring.h             |  46 ++-
- io_uring/kbuf.c                 |   5 +-
- io_uring/msg_ring.c             |   2 +-
- io_uring/opdef.c                |  29 ++
- io_uring/opdef.h                |   2 +
- io_uring/rw.c                   |   2 +-
- io_uring/splice.c               |   6 +
- io_uring/tctx.c                 |  16 +-
- io_uring/tctx.h                 |   2 +
- io_uring/tw.c                   |  14 +-
- io_uring/uring_cmd.c            |   5 +-
- kernel/Makefile                 |   1 +
- kernel/fork.c                   |   6 +-
- kernel/sched/core.c             |  36 +++
- kernel/thread_handoff.c         | 490 ++++++++++++++++++++++++++++++++
- 33 files changed, 2167 insertions(+), 116 deletions(-)
-
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 15fd9ec5ecac..4f53859d0228 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -109,6 +109,7 @@ config X86
+ 	select ARCH_HAS_STRICT_MODULE_RWX
+ 	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
+ 	select ARCH_HAS_SYSCALL_WRAPPER
++	select ARCH_HAS_THREAD_HANDOFF		if X86_64
+ 	select ARCH_HAS_UBSAN
+ 	select ARCH_HAS_DEBUG_WX
+ 	select ARCH_HAS_ZONE_DMA_SET if EXPERT
+diff --git a/arch/x86/kernel/process.c b/arch/x86/kernel/process.c
+index 346c438ac880..ed52af862392 100644
+--- a/arch/x86/kernel/process.c
++++ b/arch/x86/kernel/process.c
+@@ -155,13 +155,13 @@ __visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
+ 
+ 	/* Is this a kernel thread? */
+ 	if (unlikely(fn)) {
+-		fn(fn_arg);
++		long ret = fn(fn_arg);
++
+ 		/*
+-		 * A kernel thread is allowed to return here after successfully
+-		 * calling kernel_execve().  Exit to userspace to complete the
+-		 * execve() syscall.
++		 * A kernel thread returning from kernel_execve(), or an io-wq
++		 * worker returning the result of a syscall it took over.
+ 		 */
+-		regs->ax = 0;
++		regs->ax = ret;
+ 	}
+ 
+ 	syscall_exit_to_user_mode(regs);
+diff --git a/arch/x86/kernel/process_64.c b/arch/x86/kernel/process_64.c
+index 2bce7b3f97ed..0f07e9a6bb02 100644
+--- a/arch/x86/kernel/process_64.c
++++ b/arch/x86/kernel/process_64.c
+@@ -41,10 +41,12 @@
+ #include <linux/ftrace.h>
+ #include <linux/syscalls.h>
+ #include <linux/iommu.h>
++#include <linux/thread_handoff.h>
+ 
+ #include <asm/processor.h>
+ #include <asm/pkru.h>
+ #include <asm/fpu/sched.h>
++#include <asm/fpu/xstate.h>
+ #include <asm/mmu_context.h>
+ #include <asm/prctl.h>
+ #include <asm/desc.h>
+@@ -980,3 +982,140 @@ long do_arch_prctl_64(struct task_struct *task, int option, unsigned long arg2)
+ 
+ 	return ret;
+ }
++
++#ifdef CONFIG_THREAD_HANDOFF
++/* Thread identity handoff, see include/linux/thread_handoff.h */
++
++/* prctl driven per-thread controls that __switch_to_xtra() applies */
++#define THREAD_HANDOFF_TIF_MATCH \
++	(_TIF_SSBD | _TIF_SPEC_IB | _TIF_NOCPUID | _TIF_NOTSC)
++
++/* state bound to the task that neither side may have */
++static bool thread_handoff_task_ok(struct task_struct *tsk)
++{
++	/* I/O permissions, the bitmap hangs off the task */
++	if (test_tsk_thread_flag(tsk, TIF_IO_BITMAP) || tsk->thread.iopl_emul)
++		return false;
++#ifdef CONFIG_X86_USER_SHADOW_STACK
++	/* the shadow stack is per-thread and would have to move along */
++	if (tsk->thread.features & ARCH_SHSTK_SHSTK)
++		return false;
++#endif
++	/* only the default sized FPU state gets copied over, no AMX */
++	if (x86_task_fpu(tsk)->fpstate->is_valloc)
++		return false;
++	return true;
++}
++
++bool arch_thread_handoff_allowed(struct task_struct *tsk)
++{
++	/* 64-bit tasks only */
++	if (test_tsk_thread_flag(tsk, TIF_ADDR32))
++		return false;
++	return thread_handoff_task_ok(tsk);
++}
++
++bool arch_thread_handoff_compatible(struct task_struct *src,
++				    struct task_struct *dst)
++{
++	/* these don't move, must match. They're usually applied process wide */
++	if ((read_task_thread_flags(src) ^ read_task_thread_flags(dst)) &
++	    THREAD_HANDOFF_TIF_MATCH)
++		return false;
++	return thread_handoff_task_ok(dst);
++}
++
++/*
++ * Sync the live user register state. TIF_NEED_FPU_LOAD makes the in-memory
++ * FPU image final, later context switches won't write it again.
++ */
++bool arch_thread_handoff_prepare(void)
++{
++	current_save_fsgs();
++	/* thread.pkru is only valid when scheduled out, make it so */
++	if (cpu_feature_enabled(X86_FEATURE_OSPKE))
++		current->thread.pkru = read_pkru();
++	fpregs_lock();
++	if (!test_thread_flag(TIF_NEED_FPU_LOAD)) {
++		save_fpregs_to_fpstate(x86_task_fpu(current));
++		set_thread_flag(TIF_NEED_FPU_LOAD);
++	}
++	fpregs_unlock();
++	return true;
++}
++
++/* copy the user register state over, load what __switch_to() would have */
++int arch_thread_handoff_finish(struct task_struct *src, bool leader)
++{
++	struct task_struct *dst = current;
++	struct thread_struct *t = &dst->thread, *s = &src->thread;
++	struct fpu *dst_fpu = x86_task_fpu(dst), *src_fpu = x86_task_fpu(src);
++	struct thread_struct prev;
++
++	/* the syscall frame, this is what the return to userspace restores */
++	*task_pt_regs(dst) = *task_pt_regs(src);
++
++	/* fault info, in case a signal for it is pending */
++	t->cr2 = s->cr2;
++	t->trap_nr = s->trap_nr;
++	t->error_code = s->error_code;
++
++	/*
++	 * Dynamic xstate permissions are a property of the process but live
++	 * in the group leader's struct fpu, see xstate_get_group_perm().
++	 */
++	if (leader && fpu_state_size_dynamic()) {
++		struct sighand_struct *sighand;
++
++		sighand = rcu_dereference_protected(dst->sighand, true);
++		spin_lock_irq(&sighand->siglock);
++		dst_fpu->perm = src_fpu->perm;
++		dst_fpu->guest_perm = src_fpu->guest_perm;
++		spin_unlock_irq(&sighand->siglock);
++	}
++
++	/* both sides have the default sized fpstate, reload on the way out */
++	fpregs_lock();
++	memcpy(&dst_fpu->fpstate->regs, &src_fpu->fpstate->regs,
++	       src_fpu->fpstate->size);
++	dst_fpu->last_cpu = -1;
++	set_thread_flag(TIF_NEED_FPU_LOAD);
++	fpregs_unlock();
++
++	preempt_disable();
++
++	memcpy(t->tls_array, s->tls_array, sizeof(t->tls_array));
++	load_TLS(t, smp_processor_id());
++
++	savesegment(es, t->es);
++	if (unlikely(t->es | s->es))
++		loadsegment(es, s->es);
++	t->es = s->es;
++	savesegment(ds, t->ds);
++	if (unlikely(t->ds | s->ds))
++		loadsegment(ds, s->ds);
++	t->ds = s->ds;
++
++	/* FS/GS, the legacy load path needs to know what the CPU holds now */
++	local_irq_disable();
++	save_fsgs(dst);
++	prev.fsindex = t->fsindex;
++	prev.fsbase = t->fsbase;
++	prev.gsindex = t->gsindex;
++	prev.gsbase = t->gsbase;
++	t->fsindex = s->fsindex;
++	t->fsbase = s->fsbase;
++	t->gsindex = s->gsindex;
++	t->gsbase = s->gsbase;
++	x86_fsgsbase_load(&prev, t);
++	local_irq_enable();
++
++	if (cpu_feature_enabled(X86_FEATURE_OSPKE)) {
++		t->pkru = s->pkru;
++		write_pkru(t->pkru);
++	}
++
++	preempt_enable();
++	return 0;
++}
++#endif
 -- 
-Jens Axboe
+2.55.0
 
 
