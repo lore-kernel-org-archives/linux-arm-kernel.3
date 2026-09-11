@@ -4,139 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17681C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED198C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 15:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+z5LgpvHG6CbOJmP1xMKkOjhaDHRYCmPGAp6O192k4=; b=mE04Lla5hWcGB6wxzt9xxlDS5l
-	mfaF8vVKiObzFF/Js2BMD3ygdXB0NRats5TT83yyzpv/GiFF9v14awQCaYPnSYbshvAowYzW+6kVA
-	ghiZVa8H4kAIX3EmJ4/Z+0A/0L17BbChCTovwjvnp3svrp0ZfyRejgi5+EnmI+k5WXs63mtgP9P7F
-	nIshLL7HRvEeTkp1fKysyHovEHC454vKWtVnkhasoGJ09TylJ+5caasbhvKtP6XH6J7XbzHOsKQZf
-	ZGlN5A1IZiyKKCrJWat0ipyj1k0ywz940awk6bx5AxzRm+h+6uTgjMSl1igCqIJgRYk5AXcy/OYmx
-	spU6FRTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cXNqSD4M+STt9rPeJLNdSTkWXei7RgeGLCS8pC4zY2w=; b=YVu9d53mVPeghPZdhEc/nL+fJL
+	eHeL8EJVn34sMoyEng5P4mk44OXlDpKPHb/Arle4a76oASD2ERXEk3tx6YLCWpa4ktouZH7l/nBbu
+	ayo3R4GS1o9xnQ7Nn45LcvN/z43FIE7yN2XTpqahoMNwXClW1EYlEFNKJbVhFMRNja1K2W++0JN+Z
+	hwEBcYDaVlB7mAEB169EtQIZhc9smN1f2cdYmjG9zwY+R0sNsNTmlN4FpICrchuxq9FPKkACkeBN0
+	sMajtPipCppH6PmmD1v+HumRsSIU1IivjD33y1k5xU9tczsdSmq0L+UkmTJal5YEel77br4YhVKNs
+	V1zfo5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52xq-0000000H1Cd-02Af;
-	Fri, 11 Sep 2026 15:14:54 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52xl-0000000H1BV-42kq
+	id 1x52zv-0000000H1RE-1Oqu;
+	Fri, 11 Sep 2026 15:17:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x52zr-0000000H1Qa-1CV2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 15:14:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dzMNxPwTqI+OEAC+xbNGyQcesEmvL1mMbpU1nWsgKElHJWxjEhe5T9HolEMsJCcyZ/D8yXSgNJ470Krg84YkR6Y51IYwhZlCRWUPWcScJn7fJjM3uL8ckDwZNrk8vm5TTgLj5ERZLGcvBHLvbS7ADTaHONVlza7UnAWTmAJHaJ7dCkWLQvqPWXdo8N61YvR1g8UNwVWiIDW1CV1vf0T9HK7KQTDG48RBiqmxN6w8ad8pOiMeMjHrAFhG7QVNsz9IEfy1LGD4WIYeKKFXT8ZkiPCDPiwtPZcSvuG1ul9HG1zSRYVrv92PmNMV+1Izi6PhkcT+ZnVtIKFx30J0GbwzWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q+z5LgpvHG6CbOJmP1xMKkOjhaDHRYCmPGAp6O192k4=;
- b=nISaQ7jaeTMaSTn+MaIfJTJBwyghdSH0EtmUfGMe0GWLDlM9TtZTus/KYv+Z6xX1cxCH1Uf6Cxt/FUjcb2EZxp+0B+XJElOAeoUP1IAolC9mrbyx+Qd89R4lXoqapVjqXalj5itTNy4n+BtDoOCQIQOzGkyk62mvHndbFObT20WE6zmmmCn5NhgVseFq8q3HqKgiZUWDHjP/XKd+HISn1qKKSeNvkO1Qzjfoa2kMA4cEQ1D0toL7CLRLbGe180cRf1B7GMONoHXqTtvIYU5A8dxFcotqg0eYacVmG/2U/xGhNr+LMtTKw8Q0yFoAvdTI+n5171h6UzPTnpbpo5BHZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q+z5LgpvHG6CbOJmP1xMKkOjhaDHRYCmPGAp6O192k4=;
- b=HSdLkBXhBOh9linb6cEk5m9qvFoi5+6UynfPqoExl8cYSenHrojCx4c3ZzZBXkgiRbFzJ9yMonnj5HpOhPzTpo8Ahl+xuUhkj+AzGpYqcKrKFwyRJIRScrxAyzSautwW4Uj1i9wkC9AcR8RRaiax6xXdU+glmTQ0nFI7/LYvzfVKlONYlap/y0nEjSkOaxwgyuMLmu6KQyBL+nvy49yo+Eu+T/oCKQFG7rIaPHP+f1/OXXfGFOjwwqZlgzQZIdd/+pI9FYP6fOr3LXeVptT5Z6QT1a06u6rMbAx1zoqYB2H8mucV0SFUiQY3gfXI82gOcYj9hVXXeU37sH97VMmdPA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB11705.eurprd04.prod.outlook.com (2603:10a6:102:50a::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 15:14:45 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 15:14:44 +0000
-Date: Fri, 11 Sep 2026 10:14:34 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Frieder Schrempf <frieder@fris.de>, Abel Vesa <abelvesa@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-Subject: Re: [PATCH 1/2] clk: imx: fracn-gppll: Add 350 MHz support
-Message-ID: <aqQa2jM7PSOdkOcJ@SMW015318>
-References: <20260910-upstreaming-v7-3-imx93-displayline-v1-0-bb9446e6ed6e@kontron.de>
- <20260910-upstreaming-v7-3-imx93-displayline-v1-1-bb9446e6ed6e@kontron.de>
- <ZR6PR04MB37577605914AF62FE1F29B5ADB88BE2@ZR6PR04MB375776.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZR6PR04MB37577605914AF62FE1F29B5ADB88BE2@ZR6PR04MB375776.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: CY5PR17CA0018.namprd17.prod.outlook.com
- (2603:10b6:930:17::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 11 Sep 2026 15:17:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B05716A3;
+	Fri, 11 Sep 2026 08:16:52 -0700 (PDT)
+Received: from [10.57.6.75] (unknown [10.57.6.75])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 866A73F8C6;
+	Fri, 11 Sep 2026 08:16:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789139816; bh=SH9LQjovDQKwYst9EmYx/0+2qn295mC9Q+2GFhxBYLs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VrDyOKDUEAoDzxB/jtc1qwotnvW8CKelDYAZgbTzMT4DvT2KmQrcUOx7l+dSn5ZtP
+	 xAXAzNyC5W13BfhS8cMlkUVH84i7/pvi5LoE5oNcq57voI6avTUmW34tSBFazyx+w3
+	 gFA1eHbbiwzSuccwAOShQBbsFJ+TN697fe14Ecso=
+Message-ID: <63a19617-9349-4dd4-b9cb-dc677edc387f@arm.com>
+Date: Fri, 11 Sep 2026 17:16:52 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB11705:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77f3edd7-5897-439d-82fd-08df1017693d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|376014|23010399003|10067099003|4143699003|56012099006|11063799006|3023799007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: n2BopTN+uwShzrvT/4Oj5RZ2fJdNKr7AFqxTZyKtGHGVXIQTBnFnfvHRsblSmg/WB8ohNoEQrrngpNtgnqf/hZwcaxXFtBtg9pnfDSd6Uxko0ewRfx/0WkJ3BSd+DBFWNkj6PGFcX3/i81o9+z5CstVjgI04VZYXIdcjjnplk7UhQ7+e8PY9Ngf4zW/BTIRRW59n71Gc+lbtcQv6Mmr2j7esKpPrncsYw8EXdOY6MNxxqYCA6XtDBcYtaUpTaIx5Hl5lxkyuWdP1v6tz94G2TdLrH3EIbXcTh7GFA1bcPLDSUH7inAUKlR45EwP9day5we+YYFMubJTWjpHEijj/27wpyChzBnCYM7qtdidispfzsm+HNQ6NTY1gjuJNeCjSQ7rkGaEikls5zVEtM0tMIS6P4ytkjKRGBo7ki/wOdm2P8mrlB/cA7ynary9o5mrjsF2eCpiW9MChoH25EpG8XARJlavNfigxk7BsIn8dllHRQ6Ridd1TfMdAeO0jBlJg7X3r9/aQp5JL4it9XO8PQ+gkT+wgKfCOMBdK09MltnQu3ZlSc9OxOaFKoQUswrIWBZm1pJgBnhJxT3RTgmVIUYNtgqXH7HGNI1Gm/5k+ErH3lFXASdu69ZjWOy+O41XFqKfbRI6ievZMSkzhe0rP96fegtlktqKdfSEBtgi6u0U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(376014)(23010399003)(10067099003)(4143699003)(56012099006)(11063799006)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M97WaMCufOs6U3n7Xi/UI7bpW4L3QyJM2k929qs86OQiQR2blmA40lPqzDct?=
- =?us-ascii?Q?KJ3hMCuyU4iPDEJn604KpdKWgApJ3wz5o4PjQvMQ7BYE2kcaIIitmQvGit3H?=
- =?us-ascii?Q?g8/jB1fAkQzUawGmlCfVe6B1QxPgmPnUC1XELPREZnlZZbsX6yOjGhsDUBDm?=
- =?us-ascii?Q?P/4ijG6hODxEzPiqHRjFgvNerrWWsAFrxizomtTHpVNR4GclaFcHtqABKNal?=
- =?us-ascii?Q?V233TfSDp8aEbr3TZlaofK4xvpwQ7PZQ61tE4gz31WOZSF0cwgCjuiwQktQm?=
- =?us-ascii?Q?6H/Xp2wYre7IjjTYdF8zylCyMn0whrRX/Z85/5mUqpx4aMXsDNge40Qcb0ti?=
- =?us-ascii?Q?4ngic1YP0chPuNa5wL7gPKWNfL4fiidfYkTf9LMVflOT2+QE9tw0lruUb/Ef?=
- =?us-ascii?Q?QI39TTVyuSZ30D3feBV5kIxHHIxwyi4JMRUTr4z3m2fouKiRDmls2QeaAwt8?=
- =?us-ascii?Q?yt0fC2VRvVeAclFrC3jaCwzEjap85i09+ApHOur7sWm/l2SQLx06n6HMXuYv?=
- =?us-ascii?Q?Uf69J8ZXygy1E5S44d+2RC5mEJlaZ94mxvpHWQffVXUdJgFx3Xs3KVk57EDk?=
- =?us-ascii?Q?+4DVSqSQmg4o7gEwuTQT5vjAp4eFAE9+t3kE6g6uAqnk0vGM4hwFE+03O0iw?=
- =?us-ascii?Q?XDFb7iPNntVMA41hq2+3/INNsnyrg47lPQe0qlmUP4oTnH+wzUnj/+BaoPr3?=
- =?us-ascii?Q?WL6ofuWA0h0Lxi/waM6u14pIIhWKUS9Ke6/EobD+ztKxymgY3RxyPRxZVL4O?=
- =?us-ascii?Q?T8EsfJ84OCf9aD7X1X5/hbjb/VwMbsAFa+YCgodx+e0YDe2aprxXcYc9QLvB?=
- =?us-ascii?Q?K2T1nn6a42MOwzJ+kCJtD2b+snqGW2Pj2f6IKQTZE0Fwx4oeH/tV09YSldQl?=
- =?us-ascii?Q?O44+z1+Z92+RS1xENtW1YWMw1mC4XYXn9atEHWqPlfcKJqMFFEF2NWeivrFz?=
- =?us-ascii?Q?y2BsMenzN8dScdkEZ7vNGYov3nSpZ25cZpf8f4q+W8pR5OSXH6RIXc7jLpOr?=
- =?us-ascii?Q?TtP2Fjm8DonRaKzohtyFOW7dBZRobPgZdulv57m/u5J9InmAIw6csBS5zEio?=
- =?us-ascii?Q?1LJworVTf1OeDmShsjqC3AkC68X+OsyO+KAjNgl9hAE2lcL4zPXslyawAoPf?=
- =?us-ascii?Q?iFuM9xwAOQFT8L6TZyA6TigyGzg3UPMpEeJT25s378LCJFJze4046522Svfu?=
- =?us-ascii?Q?fJvppma53QFRwf+JOBGLjbcCrx2SG9w/U4o/JKkNDwW45sUeFVry9ILHExgQ?=
- =?us-ascii?Q?svB848uirh59c+5q8noUk3+QhDl3US0cdiAubLu4KlFRZuLQ55Q3thUSqBRs?=
- =?us-ascii?Q?JMM+ypFmOUJ7hjU1nnLZ9JNvAT44ujnDhsd3IvWyycvNeL7xWxK+1X4CSKlU?=
- =?us-ascii?Q?gZlzFxSHo4XcZzO32Gtk+15uqw0fzUAp5oRwH9S05Euj+p5wyCaCKPNFBI+w?=
- =?us-ascii?Q?STFyFAB8GY16wrh3L7W4deCKo4u/THNTofVloHpugQwAL33BjMTl4eXRl4c5?=
- =?us-ascii?Q?bEGRUmXy7Sx707Y1pXjeTbI5J8C2KcXMEo5rOvduF4WaCzKZuvjki/MG9X/O?=
- =?us-ascii?Q?lNIp1paMnhFj5bd39cdeVywJ2Vm6q2dNDwgaZljpoWBwroF7790Ir4n1KfLJ?=
- =?us-ascii?Q?YJiw0lsjBraCml7+yKlxx0PAwolkah75qSipDChgkwZNPtGQq3BmYWluxjnn?=
- =?us-ascii?Q?/2agNcMyPZhL6+aEkAnNhNEKHENBZsigoOuB/43RoWO3v5zeqmdCrwtpbfiu?=
- =?us-ascii?Q?NeL8uC6zgQJp9I2VJ5tr81kMrkFA1txsW9gPrN3uOLsTJDMdGmWa?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77f3edd7-5897-439d-82fd-08df1017693d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 15:14:44.8632
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oFRzBN5U+QNB6yIdOGpBSkOlb7Yt1GdxiyJhKXj/INSpYSo8umF0lScHkgofNLZNc4PtBFI3BYPSZr6/BOzhUK0WcJYzPxiA2lyxsH31+6Qe+9ikZLeaHIvo6V47rMfq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11705
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: allwinner: Add SPC Glee 10.1 A64
+To: jcarlosgl96@proton.me, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260911-b4-spc-glee-a64-v1-v2-0-ed0b7ff02e0b@proton.me>
+ <20260911-b4-spc-glee-a64-v1-v2-2-ed0b7ff02e0b@proton.me>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260911-b4-spc-glee-a64-v1-v2-2-ed0b7ff02e0b@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_081450_007471_1234A8A7 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260911_081659_404822_361B80D3 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,24 +75,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 02:02:06AM +0000, Peng Fan (OSS) wrote:
-> > Subject: [PATCH 1/2] clk: imx: fracn-gppll: Add 350 MHz support
-> >
-> > From: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-> >
-> > Add the 350 MHz frequency support that can be used for display with
-> > pixelclk of 50 MHz. The divider of 7 is important for LVDS output on
-> > i.MX93. It is also usable for parallel output.
-> >
-> > Signed-off-by: Mikhail Vaniulin <mikhail.vaniulin@axians.rs>
-> > Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
->
-> NXP Confidential
+Hi,
 
-Please avoid use "NXP Confidential", this is public mail list. Anyone
-can see it.
+thanks for taking the time to send this upstream!
+Have you looked at the Pinetab .dts? That could serve as a guideline for 
+the other peripherals. Typically many devices follow some Allwinner 
+reference design, so are close to each other.
 
-Frank
+On 9/11/26 15:48, Juan Carlos Gutiérrez Lavado via B4 Relay wrote:
+> From: Juan Carlos Gutiérrez Lavado <jcarlosgl96@proton.me>
+> 
+> Add support for the SPC Glee 10.1 tablet based on the Allwinner A64.
+> Describe the 2 GiB DRAM configuration, AXP803 PMIC, essential supplies,
+> microSD, UART, battery monitoring and USB peripheral port. Leave eMMC
+
+why is that? eMMC should be very easy to enable: you just need to figure 
+out if it's 1.8V or 3.3V, the speed (mode) in a BSP booted system should 
+give you some clue.
+> and unverified peripherals disabled.
+> 
+> Include CPU operating points for frequency scaling and thermal cooling.
+> Enable the PMIC USB supply and connect it to the PHY for VBUS detection.
+> Keep the ALDO2 VCC-PL and ALDO3 VCC-PLL/AVCC supplies enabled, matching
+> the stock firmware and the measured 1.8 V and 3.0 V baseline settings.
+> 
+> Tested with kexec into Linux 7.3.0-rc1 without regulator_ignore_unused:
+> CPU frequency transitions, CPU cooling frequency cap, and USB supply
+> unplug/replug detection with SSH reconnection. Cold-boot validation of
+> this revision remains pending.
+> 
+> Signed-off-by: Juan Carlos Gutiérrez Lavado <jcarlosgl96@proton.me>
+> ---
+>   arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+>   .../boot/dts/allwinner/sun50i-a64-spc-glee.dts     | 143 +++++++++++++++++++++
+>   2 files changed, 144 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+> index aa21f58a4..cc6687b39 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -21,6 +21,7 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-pinephone-1.2.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-pinetab.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-pinetab-early-adopter.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-sopine-baseboard.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-spc-glee.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-teres-i.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h64-remix-mini-pc.dtb
+>   dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a100-allwinner-perf1.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-spc-glee.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-spc-glee.dts
+> new file mode 100644
+> index 000000000..0f8f37b14
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-spc-glee.dts
+> @@ -0,0 +1,143 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2026 SPC Glee A64 Linux contributors
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sun50i-a64.dtsi"
+> +#include "sun50i-a64-cpu-opp.dtsi"
+> +
+> +/ {
+> +	model = "SPC Glee 10.1 A64";
+> +	compatible = "onspc,glee-10-1-a64", "allwinner,sun50i-a64";
+> +	chassis-type = "tablet";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0x40000000 0x80000000>;
+> +	};
+
+Please no memory nodes, this is up to the bootloader (U-Boot) to detect 
+and insert into the DTB.
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply = <&reg_dcdc2>;
+> +};
+> +
+> +&cpu1 {
+> +	cpu-supply = <&reg_dcdc2>;
+> +};
+> +
+> +&cpu2 {
+> +	cpu-supply = <&reg_dcdc2>;
+> +};
+> +
+> +&cpu3 {
+> +	cpu-supply = <&reg_dcdc2>;
+> +};
+> +
+> +&mmc0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mmc0_pins>;
+> +	vmmc-supply = <&reg_dcdc1>;
+> +	vqmmc-supply = <&reg_dcdc1>;
+> +	broken-cd;
+> +	bus-width = <4>;
+> +	max-frequency = <25000000>;
+
+Why is this? This would limit the SD card to just 12.5 MB/s, half of 
+what it can do at High-Speed mode (at 3.3V).
+If it can do 50 MHz (~25MB/s at 4 bits), you wouldn't need to enter a 
+max frequency at all, as the 3.3V I/O supply would limit the frequency 
+to that anyway.
+
+> +	status = "okay";
+> +};
+> +
+> +&r_rsb {
+> +	status = "okay";
+> +
+> +	axp803: pmic@3a3 {
+> +		compatible = "x-powers,axp803";
+> +		reg = <0x3a3>;
+> +		interrupt-parent = <&r_intc>;
+> +		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
+> +	};
+> +};
+> +
+> +#include "axp803.dtsi"
+> +
+> +&axp_adc {
+> +	status = "okay";
+> +};
+> +
+> +&battery_power_supply {
+> +	status = "okay";
+> +};
+> +
+> +&reg_aldo2 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <1800000>;
+> +	regulator-max-microvolt = <1800000>;
+> +	regulator-name = "vcc-pl";
+> +};
+> +
+> +&reg_aldo3 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <3000000>;
+> +	regulator-max-microvolt = <3000000>;
+> +	regulator-name = "vcc-pll-avcc";
+> +};
+> +
+> +&reg_dcdc1 {
+> +	regulator-always-on;
+> +	regulator-name = "vcc-3v3";
+> +};
+> +
+> +&reg_dcdc2 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <1000000>;
+> +	regulator-max-microvolt = <1300000>;
+> +	regulator-name = "vdd-cpux";
+> +};
+> +
+> +&reg_dcdc5 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <1500000>;
+> +	regulator-max-microvolt = <1500000>;
+> +	regulator-name = "vcc-dram";
+> +};
+> +
+> +&reg_dcdc6 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <1100000>;
+> +	regulator-max-microvolt = <1100000>;
+> +	regulator-name = "vdd-sys";
+> +};
+> +
+> +&reg_fldo2 {
+> +	regulator-always-on;
+> +	regulator-min-microvolt = <1100000>;
+> +	regulator-max-microvolt = <1100000>;
+> +	regulator-name = "vdd-cpus";
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0_pb_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&usb_otg {
+> +	dr_mode = "peripheral";
+
+Is that really peripheral only? I guess it can do OTG, right? You hint 
+at that above in the commit message. You would just need to specify 
+usb0_id_det-gpios in the usbphy node below. If you are lucky, the BSP's 
+/sys/kernel/debug/gpio would give you a hint which GPIO it is.
+
+Cheers,
+Andre
+
+> +	status = "okay";
+> +};
+> +
+> +&usb_power_supply {
+> +	status = "okay";
+> +};
+> +
+> +&usbphy {
+> +	usb0_vbus_power-supply = <&usb_power_supply>;
+> +	status = "okay";
+> +};
+> 
+
 
