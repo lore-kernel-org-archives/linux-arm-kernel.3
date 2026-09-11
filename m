@@ -4,136 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99722C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 17:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A36C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 17:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XecmXT69Z+ab0z5DBLgIaUEPgBa/z6RBS5UICHgPyU=; b=R8N1KwpIorPJarD1ywBDYU5ult
-	HMmELiN+nMCb3pjjZuJev6dXdTftEJcSxEyURm8mbom0+HcWN5v2D25WL6147Gl/ITBrxK9nPX50d
-	LaMb3CIRA5jKpcvgu6Zdh2AytkMWhwFCf/onOJfrXgbn4jxjwM5sWyq9IHTQ+0DGtJ+5jS7QuZoxJ
-	vBGUjvsHyle/JdJOK+39TSot10f2E5EspYd1KkknAzz2tVuReru13+PMRA/+5IbMA1p0utlSKwU+0
-	bOPZFNTlU7WKasjrDIIqqEfV2gkzxVLrmnHk8CN0D12W+IU3hgPtVGc+Xx9DWHwXecSTIbOHMlcRT
-	A/Y4C+Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2gLJ161dkwsq964nEcXmxhgBhqu8XXJwXX0byV6GR0o=; b=xNDsL2fTCtlL6ibPxsuC2pLfX2
+	RgBkUcdbmuvBnYmu3+yUrKpTP73GFTeT0XsQV50ESzGMQNp04pb85pfaEfCpZrPjBGxfcd/isEbg4
+	5TxsSBkGeqxZZUUILSxS32VLwXmNShasi7h/7CRG/Gu2/LNrmld5Z3CpoWhuO7K9WsHSEGPF7mFN4
+	zTzWeTKbp0gEkYvNgSVtMQpS2EkN30ftpcbYW5JQqZgnP3t6yKoQKezxk1ClU8lqFrI6zdjr9JtBi
+	cYHJ52b+bKLOwuZB9X0g/YDdzzfk0uDEHYiMYjfMt9QS8/BMu8eIrLmDIwT1RCoZG4GWWPgBvwbHs
+	9y6eq2pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54pk-0000000HJWY-0mMo;
-	Fri, 11 Sep 2026 17:14:40 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x54ro-0000000HJpo-47Em;
+	Fri, 11 Sep 2026 17:16:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x54ph-0000000HJVN-3XUB
+	id 1x54rm-0000000HJoo-0WDE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 17:14:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ULgfwPie0tYt94E24HJJMN1pIpKD/ATQ9SqPfw+o60kYEEeHS5tLw0T3Wrq3U3vtNLOEoz+r18XeDaDdPcleQ/MlvNQvXGoi+Tpry1jEGdbq/Jp+cmHyJZiXao2DbyPogNye41+Zwp2MyGPdT/sx1dmET4f3KNtgbgxlYgm8fy/vAS0l8FjpWb4TYkBtJ8dnkbydyi6spvXhbDpkSNIknfyCWd0aL8yoT6ipxADVdbKW0FYR7eg6gzBJ5X3YwixT+O753wG/c3pJX6i7oe40VhfvdxL1D7Pwpw7ivNq/1evJdU6nRdLYIkWxP4cKCkppQSOed5p1/x2+C7pXIxOJ6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6XecmXT69Z+ab0z5DBLgIaUEPgBa/z6RBS5UICHgPyU=;
- b=dFHWjyDYibWvVDh0s+0fptvfgLeJB6I9WJ1KCDiIty2baCTn/hXvSrtneJe2hKU1N6OccyeOdxrg5zmJ3EDN2PJQLzAsKACPm+EIvCrFn90npVHUOrDyxp5SWQVLLR688BQ9aCmRws4SAJLUcSQbyx1segjO0ZbhgN++FJCVY2tOSlq1CnZhODHflWLNWSpsVmYdKzdrvwYp8nBwltwkDBNKNJdI4Yl3dO/GUfaU8JTHrcK8Lup/+2jHUdLFYDa6/pXjfOuJZ1AwtSFj1gZ9S/Hq+t2YtZDHd8Xk/euEqk+ULle7ZvPGpTVU+frwb8/987wV088mM8+wIn06cdn7OQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6XecmXT69Z+ab0z5DBLgIaUEPgBa/z6RBS5UICHgPyU=;
- b=nt2mlS5J+rFKSBEalqqf7nfp+yxlFlV6s8aDvV7Ymyhs/v9LK4fqZkLd+ESyULZlAdb9BNtfSXm4/v/onqcqXb4g45tS99P6G75/qivYFVn5upy4rrGaH/5mbifoVnxxcnxuiHTFvUNyMQK5PZtXxQfgINZRWVeWgPwx/LqPvA0AbAPExJC/oY8L7Vag0a+7TRpT6Ed35Jm2GMBP5rMbn6E1tpUSubVR0PpLbZ0r1z9smNbDYxzLmTB8Y5xgcsuao1qBxzsYTdyfMsDMyNCTMdx9onuL8PhAiWM04RYzq1evusITAdnMnGNIYIp5tVxJJwh6yJhRNhNR1/PK+cUNlw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB10126.eurprd04.prod.outlook.com (2603:10a6:150:1a5::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.9; Fri, 11 Sep
- 2026 17:14:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 17:14:24 +0000
-Date: Fri, 11 Sep 2026 13:14:15 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Subasri S <subasris1210@gmail.com>
-Cc: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Duncan Sands <duncan.sands@free.fr>,
-	Chas Williams <3chas3@gmail.com>,
-	Minas Harutyunyan <hminas@synopsys.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	linux-usb@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] usb: typec: Use %pe to print error pointers
-Message-ID: <aqQ252-G4cMDw5Lv@lizhi-Precision-Tower-5810>
-References: <20260801-usb-ptr_err_patchset-v2-0-1698e298c1e3@gmail.com>
- <20260801-usb-ptr_err_patchset-v2-3-1698e298c1e3@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260801-usb-ptr_err_patchset-v2-3-1698e298c1e3@gmail.com>
-X-ClientProxiedBy: CYZPR14CA0032.namprd14.prod.outlook.com
- (2603:10b6:930:a0::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 11 Sep 2026 17:16:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789147004;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=2gLJ161dkwsq964nEcXmxhgBhqu8XXJwXX0byV6GR0o=;
+	b=QzV+agSQahwsWUf8rV/jEMB2Uhbkc8Kg0lBxEWj2L6Jl5rxYCReGutJft1pwQmA7VVysRD
+	0EoiNAG8D5eg2wRYufc4M5N1XSy8x90/t009CKnIXXR+/iEl/XyiKHgc1J1E4UpTY1dKoM
+	SrFGpotOrgEN7uqdu+19P6Gz+bPw3ow=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-648-Rj-cvUwGMAyGPQnZAnD2Fw-1; Fri,
+ 11 Sep 2026 13:16:39 -0400
+X-MC-Unique: Rj-cvUwGMAyGPQnZAnD2Fw-1
+X-Mimecast-MFC-AGG-ID: Rj-cvUwGMAyGPQnZAnD2Fw_1789146996
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3F1851801366;
+	Fri, 11 Sep 2026 17:16:35 +0000 (UTC)
+Received: from [100.90.56.12] (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 21D561956095;
+	Fri, 11 Sep 2026 17:16:26 +0000 (UTC)
+Message-ID: <a3c2d0f6-a7b5-4344-b837-434aeac5dbc0@redhat.com>
+Date: Fri, 11 Sep 2026 19:16:23 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10126:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c0a7fca-adec-4886-2809-08df102820d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|19092799006|366016|4143699003|10067099003|11063799006|56012099006|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info: drvgM6sf+WJqX1CvZhk5eIHCUNgvkVv5WaYnPC6LP+Fy8UjKSpIzan7J7ysyNd/rWAKyXBDeQXqeTwQvWGfD1l9vRKy6Pxax530skrQ9u6qgvHgXcVp+eZg5ERgoHA3I+HEsV0mCmuvbzd088wIIhXIjBGtEpQbhCFhkNOYjNMhkWFmqe6blfCQl6hK5X6MiOMlxMUZKsWfsyuzVZSuvjw320boQmysOkPqBwwSMwssY8dGUjHxyaVlzzBssOBurgp5Rhs//o/A7459/ShcshCy0mQ09hzmDBvSnqDeKVL0uUtF7pSaF0txDlvEAcHerelJXpc1z7MJxxmzw9rHXyj/uxgW5I78a9EwvoeXs5AFovSSmdlkUG1byAQAsWWEYT3vej8Al1hlSgog5QVaT3CwzYwtOfA85OvL364NQpdMUQsDENjrqHUGrBE54l3PyOfX8oVrELUxaO/Q0XpRnoFhxcZ4S4xxMfswFp+RRaDXSYhs+bolRS6qWTH0InY+N7r6NMx054QzTh8WSo8HuevUAmXndpSvOkhRFqlvKumG6emImn9dG9Bznz5X+Ka8TEGiZk5l8PX33+mZ5lLwZKl2+/J7yDWwLLfXgsdbiCrf2SyoohNUve0vfoglwnQJVNrpCrfqOipkLFCUM37bObhK1toSCBvgd56egSw12C0DMvcEuhKrgonKnsbSFKEdJ1OsXqwo8Q1ZH1thT8r9C/1gkrPZFEi/f5ZlO0N8P1J8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(19092799006)(366016)(4143699003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dNGtdmMYxXrJIzDO/Aa3ENNQrZzMFR2JXy+5ZuG9NgR5w0m4lbzEedhNwjd/?=
- =?us-ascii?Q?tAZK1s+cnEpQIt3EK6xy+EI7ncNNV3oku8rKh0tuH+9iWuJirhhksIehAmd/?=
- =?us-ascii?Q?h1miGrWcnphxPrx61msoRh0LSKR1P6KpbMr1sUAKgsQN8EXv0ukaxMKmg7Dl?=
- =?us-ascii?Q?2+Ie/EWICoSXzodZ/8QNZyZheFX3PM2EE49Y51w0mu+z5URbskRNJ3443lDb?=
- =?us-ascii?Q?X648iG+RX1gE56oIESQ40rGQwuAHMcWgKN6N3gwzGfW3e8Ra8a3XjmduWdOr?=
- =?us-ascii?Q?ZnqmM3F81aEDLqfMLwKXV43DLlwvPhlc1UwnR8/0zv1soa8+V1gASaSm1rBN?=
- =?us-ascii?Q?FasJbKuDKulEFFvpbJg7mTwMRekE0NJxaQOPo6L3nZr2cMcJJKLHVk/22q5o?=
- =?us-ascii?Q?lznfgYhTGJcpRbrQAjnZAm1OqNWKQaA6bbfRi/x0eYs1Pslo5fcHC8eh0otT?=
- =?us-ascii?Q?nQehsmjn5S7VDg2zBSmgCMkRwYIEtn4npOZE22VJmYLl+nTyXeNewf20evuk?=
- =?us-ascii?Q?bC9so/PahDM+8e6q6UyAw13FCdWs9UHKpaJE2ZvMW0Xohh9y6yu9LkNQ8yjT?=
- =?us-ascii?Q?Zl4LZ7JhvtMwW/Hyw8nVgHQY0BHcEGB4rDJNgTOvH2iwfUJ5SSQbg3vcV1I3?=
- =?us-ascii?Q?FNVb8s7gdzBSDWqYkJGkBDYrXLXdk9roAKCEtrWJDW6QWknLDc5vupnK1A0v?=
- =?us-ascii?Q?C2UxA6AvdF/wLgksHtf7kaSj6Z//oDCyOZpGomyCcN6uznjRzAjCNaN+z3pk?=
- =?us-ascii?Q?9WIWR1XPa92mY9RaVLTt6BaNlxVxeTuxw/hexlGehUw5lTuvUaxa3auJtaYd?=
- =?us-ascii?Q?UODQjYjKjiQooMuiskTqOyC9jLERRed+zqXgj8Glyzz04xw32h+KKQeUN8B/?=
- =?us-ascii?Q?Obg2Me3+AGLTQOWpEua+xioPxsRRUgoU01ZXKmQW8rPoMgHJjCTZeQxvmfPU?=
- =?us-ascii?Q?mncXXIbIbuc0KL9RwQzwP+KF2fE9KJPuAko/pMstT9ZcsLjsVp1l6uY71nAu?=
- =?us-ascii?Q?PDwK6nDgYM5ZncckZpV9GprPHoaFHiI6lbFQxUuSO0P+I1w9SYh6aFwEvi+u?=
- =?us-ascii?Q?sjzJrR4mcVLhKukgoAXiJvJnujL4rYQkek8qJeKaVNa7DUVuZRHUjgy1hThc?=
- =?us-ascii?Q?sP2dgB3MX7qzbu4jTZ/KjsYQkUZT7Av/MEZZpaZJnQUZ2jDrSz8v863jrIS7?=
- =?us-ascii?Q?VDi8reP/C+/CNVIXPAvo5f1Agz1/4UTIGuTSd+Kg7+Rkm4MVYS+t5UZPU/0f?=
- =?us-ascii?Q?jOVQpzUXgUfVqix1XaWk27qGuupW7vpz2BX6XQepG819wiOQcM/tSWQMTWY3?=
- =?us-ascii?Q?bNU/Ucc4ZQoRI0BkGJ95fr5sUWGZuGjoK2bYvzmlcamjhR0sDlH03FSHpqXl?=
- =?us-ascii?Q?rrFXhv4oHTq83bQhTszOZ1IYyc/nVKoRUFdvkPD9AlzZSeSHyGUAvuu2EOLn?=
- =?us-ascii?Q?Rim8CUljqJp4jEbxKd5sSE8FK3b292Ab9SZVFhTQoUCMkLfafiKwN2PGWWlb?=
- =?us-ascii?Q?0hqxbcPz066xpwphtQSR5j0E8MfEHUeraIvhxRRUTefQO32+XWSBDACSTYV2?=
- =?us-ascii?Q?/H5/4BXWt7VqqNNwacx5xt2kKZiNNjvfOoRFple5iNWaXimTt7wu2al1m4zt?=
- =?us-ascii?Q?SjESrNPPz9IRwtPToXSVG7B72347wXqXfEdQVZIqS9V7axZp7+jB+/DTvqUb?=
- =?us-ascii?Q?Y6/+ymKjOLu8DCSGDOWYJM1LImKAlMUlv+R5otnLLqBGej/fZsx/q3RKH1Nt?=
- =?us-ascii?Q?aGPnoH4tJiQ43fuZyHsrR1chP+lARSjQUcGSTw3T6pyL1yKxZncD?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c0a7fca-adec-4886-2809-08df102820d5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 17:14:24.7541
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ue4FBGV2dyRBwPPZoRFXYzXMfdtKwIPPthUMRgBU7Ro/IFrR4Lp6Ezqe4vMZw2ic/rv7vE47ax5yK3pzS5Aig3HwCEOs5X8z6Q5QhJDWx09pog4fizWjhgVTBYgiKxFZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10126
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
+ memfd ABI compatibility
+To: Jason Gunthorpe <jgg@nvidia.com>, Sean Christopherson <seanjc@google.com>
+Cc: David Matlack <dmatlack@google.com>, Logan Odell <loganodell@google.com>,
+ arnd@arndb.de, pasha.tatashin@soleen.com, rppt@kernel.org,
+ pratyush@kernel.org, graf@amazon.com, akpm@linux-foundation.org,
+ maz@kernel.org, oupton@kernel.org, bhelgaas@google.com, alex@shazbot.org,
+ kevin.tian@intel.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-pci@vger.kernel.org, iommu@lists.linux.dev
+References: <20260903023452.721732-1-loganodell@google.com>
+ <20260904160009.GV4157646@nvidia.com> <aptFFYqcSiBdMLE8@google.com>
+ <20260905012403.GX4157646@nvidia.com> <aqIAtOoew-_6jw29@google.com>
+ <20260910143448.GD3968357@nvidia.com> <aqLOWkuVKccR-I7W@google.com>
+ <20260910171210.GF3968357@nvidia.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20260910171210.GF3968357@nvidia.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: E9KjeayjNl8nniMvrqoQNDImJgyYZy801KwfQ-ZDObI_1789146996
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_101437_893508_F79045A5 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260911_101646_242045_F0ADB058 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,82 +135,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 05:59:52PM +0530, Subasri S wrote:
-> Use the %pe format specifier instead of %ld with PTR_ERR() for printing
-> error pointers in various typec drivers. This prints symbolic
-> error names (e.g.-ENOMEM) instead of errno numbers (e.g. -12),
-> making error logs more readable.
+On 9/10/26 19:12, Jason Gunthorpe wrote:
+> Keep in mind the actual goal here. Someone has kernel A and they need
+> to blind kexec into kernel B and NOT have the machine explode, or all
+> the VMs sitting on it lost.
+> 
+> Meaning you must have a way to determine before the kexec if kernel A
+> is producing something B will *accept*. Accept is not "parse and fail
+> with EOPNOTSUPP" like most uapi schems. Aceept means bring in and
+> actually fully support and use.
 >
-> Fix coccinelle reported warning:
-> WARNING: Consider using %pe to print PTR_ERR()
->
-> Compile tested only.
->
-> Reviewed-by: Badhri Jagan Sridharan <badhri@google.com>
-> Signed-off-by: Subasri S <subasris1210@gmail.com>
-> ---
+> So how do you solve this problem? You MUST declare in some kind of
+> manifest exactly what ABIs are supported, in some way.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+You still have to pass out of band what B will accept.  Passing a string 
+or a bitvector doesn't change much.
 
->  drivers/usb/typec/mux/pi3usb30532.c | 6 ++----
->  drivers/usb/typec/tcpm/tcpm.c       | 2 +-
->  drivers/usb/typec/wusb3801.c        | 4 ++--
->  3 files changed, 5 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/usb/typec/mux/pi3usb30532.c b/drivers/usb/typec/mux/pi3usb30532.c
-> index 985683fe49e9..b32f4c433de9 100644
-> --- a/drivers/usb/typec/mux/pi3usb30532.c
-> +++ b/drivers/usb/typec/mux/pi3usb30532.c
-> @@ -139,8 +139,7 @@ static int pi3usb30532_probe(struct i2c_client *client)
->
->  	pi->sw = typec_switch_register(dev, &sw_desc);
->  	if (IS_ERR(pi->sw)) {
-> -		dev_err(dev, "Error registering typec switch: %ld\n",
-> -			PTR_ERR(pi->sw));
-> +		dev_err(dev, "Error registering typec switch: %pe\n", pi->sw);
->  		return PTR_ERR(pi->sw);
->  	}
->
-> @@ -151,8 +150,7 @@ static int pi3usb30532_probe(struct i2c_client *client)
->  	pi->mux = typec_mux_register(dev, &mux_desc);
->  	if (IS_ERR(pi->mux)) {
->  		typec_switch_unregister(pi->sw);
-> -		dev_err(dev, "Error registering typec mux: %ld\n",
-> -			PTR_ERR(pi->mux));
-> +		dev_err(dev, "Error registering typec mux: %pe\n", pi->mux);
->  		return PTR_ERR(pi->mux);
->  	}
->
-> diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-> index 89eec20a2064..ad10470ea73b 100644
-> --- a/drivers/usb/typec/tcpm/tcpm.c
-> +++ b/drivers/usb/typec/tcpm/tcpm.c
-> @@ -4796,7 +4796,7 @@ static void tcpm_typec_connect(struct tcpm_port *port)
->  			port->partner_desc.accessory = TYPEC_ACCESSORY_NONE;
->  		partner = typec_register_partner(port->typec_port, &port->partner_desc);
->  		if (IS_ERR(partner)) {
-> -			dev_err(port->dev, "Failed to register partner (%ld)\n", PTR_ERR(partner));
-> +			dev_err(port->dev, "Failed to register partner (%pe)\n", partner);
->  			return;
->  		}
->
-> diff --git a/drivers/usb/typec/wusb3801.c b/drivers/usb/typec/wusb3801.c
-> index 6062875fb04a..86d13ab41670 100644
-> --- a/drivers/usb/typec/wusb3801.c
-> +++ b/drivers/usb/typec/wusb3801.c
-> @@ -277,8 +277,8 @@ static void wusb3801_hw_update(struct wusb3801 *wusb3801)
->  		if (partner_type != WUSB3801_STAT_PARTNER_STANDBY) {
->  			wusb3801->partner = typec_register_partner(port, &desc);
->  			if (IS_ERR(wusb3801->partner))
-> -				dev_err(dev, "Failed to register partner: %ld\n",
-> -					PTR_ERR(wusb3801->partner));
-> +				dev_err(dev, "Failed to register partner: %pe\n",
-> +					wusb3801->partner);
->  		}
->
->  		data_role = pwr_role == TYPEC_SOURCE ? TYPEC_HOST : TYPEC_DEVICE;
->
-> --
-> 2.43.0
->
+The problem, again is that memfd is the easy case.  KVM would bump the 
+version number on every other release, as even a new serialized MSR will 
+be an incompatibility.
+
+Rather, forwards kexec *must* work (again, that's nothing but a variant 
+of "we don't break userspace") and for backwards kexec, well, you must 
+know what you're doing.  QEMU has been doing backwards live migration 
+forever, and QEMU is a gnarly C program that has grown by accretion as 
+we were learning all this stuff, so it's not impossible at all.
+
+> Yeah, CSP broadly has to do exactly this across a wide range of
+> topics. It is a further reason why this feature is not exactly usable
+> by a "mainstream" user :\
+It's not easy, but you aren't even trying to do it right in the kernel. 
+You are starting from *a* solution and saying that it makes the feature 
+hard to use.
+
+And I'm not saying to dismiss your work or ability, quite the contrary 
+in fact!  It's just that you're solving for the wrong complexity, and 
+only partially so because (if I'm not wrong) there's still the question 
+of how to bring the manifest of kernel B into kernel A.
+
+Paolo
+
 
