@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300E1C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2CEC88E4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U/TcAfpNy9eIzFLTbXKaYNl6G8XOWTQ5TXRvEfw5GE4=; b=ugGz0rnb8hEKN5n2lU9NNxsrie
-	oGalL8/vvoDdI7mIMAu5NgiIGg8o+dCX32JtyxgA6QeAx5eS/clSCCqprP6ZEJm/AGn7ecWCCOOMU
-	hHV+osn6u7Q+XtwJ75I/Yf4ePMgoxx8T3CgpxlGQPxf1Uv94SUh++RUia0EZscAFVdNppQCdOuOWd
-	uhnLx+rsAnXLqfqg9JPXKFxGDckhMh0UcTpcXQa5MeVJxcSGVE7PBqz3ph5e1Z+d/Vr3VTWUT0ay4
-	aPW4RYWKoEvERb2xQWp6LiZTcBr+zhLwUn2n/+XzKgBK80gj8jeucrC5jWvFFGEsKioatAaJAEUWG
-	8YWqgx7w==;
+	bh=w/L0Gci4dWz7IrqDMJL9O/2LA8MRX78qWC0lGe4XUyk=; b=f1u9O3Lby9XqsaUhSGSoQbWbBn
+	+GOumX5qoh+Z+EFEZuagwMH+Zm3W7V6j8FVCW9GFNGW2eVs4+RV4ooFUyAnpJPOUpbgzNmQSPx/4L
+	8Dhd9Hy1LyXHhYoP1dehRq0a13ydWF7mUPlQmkTWaSblWMmp6NeUyA5IVc3y0m85q2AmQEd78ue1z
+	dv0LM0ukEyYPRQaJhh7WrCzWP7kDEucmigJorJYQFMt1R7H4rmJ/R9XbTcn7aBjatfMJaRPOwikKI
+	S/P1HUgKfBKYGd1ekrv6pZsBK6zLeJsf2+g/2vwoxt6cgKSJuzXn/OxZmCIQeqcuNsyCh/1JjOvDE
+	cUGijJCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wyO-0000000GBGH-2Ew4;
-	Fri, 11 Sep 2026 08:51:04 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wyL-0000000GBFl-3yYl
+	id 1x4x2f-0000000GBjE-1JQW;
+	Fri, 11 Sep 2026 08:55:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4x2d-0000000GBiW-13z8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 08:51:03 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2caced6038eso7366605ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 01:51:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789116661; x=1789721461; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U/TcAfpNy9eIzFLTbXKaYNl6G8XOWTQ5TXRvEfw5GE4=;
-        b=K8naL7hKn5/ZL23vKoQ7PbkGY+P8vY4cSF2aj0yZuSvy5x0VeU21B1zWiv9UmzU52X
-         l7igpmNM3UMJB2mNUmCWxoTbdt8e9ThgBMEgs7UJcAWzhnH5C/XRo763he87ZImGmK+x
-         6+Gk8faSJkxaSd+y8lADJe9Xxww3V6k58otUwd5GNVl1Y55tI0y+aoLmBlk6rwUY1gnn
-         hrDRXLqO2yAk4HNi9AQyi7w8ZvvMptE8N6QuA/OoqrDsFs1BhwB8brUUV/EQUelZHBER
-         IvVUiEwBbCy36y+EVN4DfuG+j5n2LKKvkCz6xJxIzXMfPqSJWqdTeIcQj9zH5UaJo3+l
-         z4rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789116661; x=1789721461;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U/TcAfpNy9eIzFLTbXKaYNl6G8XOWTQ5TXRvEfw5GE4=;
-        b=IW5nBzwVD5kvDzyGmqzw5q3tJrBYJKUYJoWTliGI2OSA0mRnQEu8g3Arr06kzp4j04
-         f0U0QRAqzHx21cFkqRwpNL3GPueJ6W9sCUlJJerSxJasgX6a2Ch8dvEvncIHfEKcP+C0
-         m0m5Y1+IjDHq3rctt0GTzNQ6mzg+r3xyvIexeq2Dg6tTUmevy060pPPGnuqnSVpWrvUB
-         631vY37nysEdFjn9ydVidIfIuXNzsc/xAibVrrBLZWlh/gaBvl0jiJdfmEg5VEJ5KHx7
-         VdhFLCpIR9aVmJFISMCtdUzUmDNRcTxW3hmJYxl9N2pIet3xsdjlflzKLloqqOgMJny6
-         OH6w==
-X-Forwarded-Encrypted: i=1; AKwUvBznRJKi7KXnbmtuWCdp8imNNKDa/USH1vH4HtuqfPBtHZm5lW20hNkngblfF/SDtqjo1IYrlCnF6IbD7HZZw6WR@lists.infradead.org
-X-Gm-Message-State: AFuF++m3HpdQ2ulbSVmNiMaC3a8qRFbN2rb45ZhXe1oK8HG6s8aCFIm/
-	IDu6H9efUFKUiinnRaxTfBsrGjR59S4t/pEB8DIK4w2MJKBk2tJ5qfcWup/YLw==
-X-Gm-Gg: AYBFou0ld+fOp/vYKZ/eWM1RtFugBJ31Q9FdjVStKT3axgobvyR9FUX3mrMBIGI/Jrs
-	0CKiPLVs1mCCLHM4uJ4HXfR1Sgne1d2lusUAxjFmrj5jHvpCeH9gZPAOuymI8UtKlwdX1455DzJ
-	DOWLKX4/oC7MftQVEa1hoMTimpClfCp4IaK+/8Gq3nifVyQpasa6SVpdf/c6eTu4WqVHhhToeIb
-	8uuTaXMmbOkL/Ym/PmgLZ4x3Pm5Ix2WyJzNqW1f8SepIsTwL2IQAum5sLCZ4AfhcM4JfwM5cCvE
-	L/V2rW90k89pbnR0MN331kiLijb73FnQqkYxaB6qj2A0xaiHI6ZN71v475ARbdSeKKW4L2PzERF
-	YZmt0ualWb/36jBWPadIdc/sYlzj9JGNjC2hU/p31qp2ODFPpS+qyorODeQ8lsQwH64+voM9EVK
-	iY8z39Ull5YDEASk9fLEyEZyNYRGugkGRn4+udtMSGdlsxU4T8usks81GpEN6eobp6A6/KEwZ/l
-	ZTdB5Z/d2XroRKTQko97QxzuHM=
-X-Received: by 2002:a17:903:4405:b0:2d6:fddf:a890 with SMTP id d9443c01a7336-2dd0e9e5fd9mr93067975ad.6.1789116660866;
-        Fri, 11 Sep 2026 01:51:00 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4e95075sm4715294eec.11.2026.09.11.01.50.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 01:51:00 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Udit Kumar <u-kumar1@ti.com>,
+	Fri, 11 Sep 2026 08:55:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D07416A3;
+	Fri, 11 Sep 2026 01:55:20 -0700 (PDT)
+Received: from e142892.manchester.arm.com (e142892.arm.com [10.33.8.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B21853F7B4;
+	Fri, 11 Sep 2026 01:55:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789116924; bh=5A1EK0N/gipYt9PjNBNWj0Ne+fz6KdYh5A1j+8IH04M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ak3oFlJT7BAKSRtFvnsrvhIFCdk8FnLPWMbEf0Djn38wpRvsi3eMYQvrSTvD1XL2z
+	 Gb6mECytE6CblXXQmhkYYlvsB3OsWEh9ceYjynvI7SYaI7q4WFZXTARI82KGDtja9z
+	 yslo6dKZQTeBOiBFIWPws4cATdUH7g5rN8mPfyY8=
+From: Mike Leach <mike.leach@arm.com>
+To: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] soc: ti: knav_qmss: Fix typos in comments
-Date: Fri, 11 Sep 2026 14:20:55 +0530
-Message-ID: <20260911085055.715191-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+Cc: suzuki.poulose@arm.com,
+	leo.yan@arm.com,
+	james.clark@linaro.org,
+	Mike Leach <mike.leach@arm.com>
+Subject: [PATCH v4 0/1]  coresight: fix issue with insufficient claim tags
+Date: Fri, 11 Sep 2026 09:55:19 +0100
+Message-ID: <20260911085520.2201261-1-mike.leach@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_015101_994885_768321DF 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260911_015527_338623_B525EC43 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +70,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct "specifes" to "specifies" in the knav_queue_open() kernel-doc and
-"accomodate" to "accommodate" in knav_pool_create().  No code changes.
+All CoreSight compliant components have an implementation defined number
+of 0 to 8 claim tag bits in the claim tag registers.
 
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
-v3:
- - name the driver as knav_qmss in the subject rather than
-   knav_qmss_queue, which is what the recent commits to this file use
-   (Udit Kumar)
- - dropped the Assisted-by trailer naming the model
+These are used to claim the CoreSight resources by system agents.
 
-The diff is unchanged from v2.
+ARM recommends implementions have 4 claim tag bits, though a valid
+implementation can have 0 claim tags bits.
 
-v2: https://lore.kernel.org/all/20260910044551.50308-1-hemanth.selam@gmail.com/
-v1: https://lore.kernel.org/all/20260907062247.9994-1-hemanth.selam@gmail.com/
+The CoreSight drivers implement a 2 claim tag bit protocol to allow
+self hosted and external debug agents to manage access to the hardware.
 
- drivers/soc/ti/knav_qmss_queue.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+However, if there are less than 2 claim tags available the protocol
+incorrectly returns an error on device claim, as no checks are made.
 
-diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-index 3e4041454f69..6186454dff51 100644
---- a/drivers/soc/ti/knav_qmss_queue.c
-+++ b/drivers/soc/ti/knav_qmss_queue.c
-@@ -509,7 +509,7 @@ static int knav_queue_flush(struct knav_queue *qh)
- /**
-  * knav_queue_open()	- open a hardware queue
-  * @name:		- name to give the queue handle
-- * @id:			- desired queue number if any or specifes the type
-+ * @id:			- desired queue number if any or specifies the type
-  *			  of queue
-  * @flags:		- the following flags are applicable to queues:
-  *	KNAV_QUEUE_SHARED - allow the queue to be shared. Queues are
-@@ -805,7 +805,7 @@ void *knav_pool_create(const char *name,
- 	}
- 
- 	/* Region maintains a sorted (by region offset) list of pools
--	 * use the first free slot which is large enough to accomodate
-+	 * use the first free slot which is large enough to accommodate
- 	 * the request
- 	 */
- 	last_offset = 0;
+If insufficient claim tags are present in a component then the protocol
+must return success on claim / disclaim to allow components to be used
+normally.
+
+Add initialisation to read the CLAIMSET bits to establish the number of
+available claim tag bits, and adjust the claim returns accordingly.
+
+Cache the claimtag protocol availablity in the coresight_device to reduce
+reads for the main claim/disclaim api.
+
+changes since v3:
+1) removed unneeded bool casts (Leo)
+2) rebased to kernel 7.2 on coresight/next
+
+changes since v2:
+1) consolidated API to remove the API calls using just cs_access, which were
+used purely to clear down stale self claim tags, replace with a normal
+coresight_device API for initialisation, to match the claim/disclaim API.
+This does both the check on availability and the stale tag clearance.
+Updated all drivers to use the new init functionality
+
+2) Added option for drivers to skip claim tag checking completely for devices
+with no-compliant hardware, that do not implement registers at the claim tag
+location, or do not operate correctly to indicate the correct number of
+claim tags for the device.
+
+changes since v1:
+1) Added claim tag availability cache into coresight_device when using the
+main coresight_claim_device() / coresight_disclaim_device() API.
+
+Applies to coresight/next
+
+Mike Leach (1):
+  coresight: fix issue where coresight component has no claimtags
+
+ drivers/hwtracing/coresight/coresight-catu.c  |   6 +-
+ drivers/hwtracing/coresight/coresight-core.c  | 139 ++++++++++++++++--
+ .../hwtracing/coresight/coresight-cti-core.c  |   7 +-
+ drivers/hwtracing/coresight/coresight-etb10.c |   9 +-
+ .../coresight/coresight-etm3x-core.c          |   8 +-
+ .../coresight/coresight-etm4x-core.c          |   8 +-
+ .../hwtracing/coresight/coresight-funnel.c    |   7 +-
+ drivers/hwtracing/coresight/coresight-priv.h  |   7 +
+ .../coresight/coresight-replicator.c          |   9 +-
+ .../hwtracing/coresight/coresight-tmc-core.c  |   7 +-
+ include/linux/coresight.h                     |  23 ++-
+ 11 files changed, 205 insertions(+), 25 deletions(-)
+
 -- 
-2.48.1
+2.43.0
 
 
