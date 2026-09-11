@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDD8C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4621C88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ANKFJL+4g3hT6rm4pjq+cXyt9Ea6eGkRY/USXwrE9rI=; b=yNHger9X3FFVNazi6R72HRlVYd
-	/QDWnMnuIiNz9bHfd1mOalP067ct1RJfWYUMn5EL5QTJ0GBUjP6ePwLIFUR7d48GK3pabLtdqv23r
-	Nq3fJTfuHv83Dyu8pCZBN35WIgZ2rWDAT8rOItqDhrxcii68upIC0jLEnJQ75mswFq9CU97T+sy2A
-	Vz67Mm3sCv6ARQPiCvhgD+wBZhXffFu0kmISKFpxiu9dqCG2eoZJKluV1zPxHINfjDrSly/kQxIAp
-	FbobDI3cg9HEF/9a2Z4ZYTxicWcBAy2YVsjoJ49CKSG/ylWimocuqju08M8E4iLreNSRcGHu601rQ
-	+hegQUPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k8TDycb2cS/6xQtixvmpSHORaLCfzdYrrBcbgqHOSmg=; b=jR35nWmXLuQaRxNQJehuUFI4EA
+	MpbpAWGGvlzE4KxBR9yQwlytGofo82PC+y6KRRDG5EsU6m0cUBjTAQv3YWkb4xwj1F1hWurXhlyrh
+	PVyj8wYzkxEo+OWzaBVgZTP6Jp6QTZEgAqWlgJGrj3YNTf8ZMivB+PWN2McfidgaoI2wfMoi2wm49
+	KmLPoWoNneXjwSx1Qunml9DWSQcnCOI1uw17jbz3252hkNCPT9CiJlGmfFr747manRTGOHNsIpLNX
+	MCFb0P8HOgUoa/PIUzVAZumvHud8yCH6Qi7ILe+6oXeG0ldyml6gFnxBI5ecCGEI7C5FkZ3J3Rfj6
+	BGdCqm9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51k4-0000000Gpvv-2aPE;
-	Fri, 11 Sep 2026 13:56:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x51lg-0000000GqAk-47gK;
+	Fri, 11 Sep 2026 13:58:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51k1-0000000Gpua-18Cr;
-	Fri, 11 Sep 2026 13:56:34 +0000
-Received: from [192.168.1.182] (93-46-82-201.ip106.fastwebnet.it [93.46.82.201])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F19D363C;
-	Fri, 11 Sep 2026 15:54:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789134890;
-	bh=YliyGa1zgtLzCslNtNy69+u4K26DzRw41YQWRHAfEEw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=U7BpDuNlhRVM0K60TlVEkGHyUbgbrDvi+M2vv00ER96hmSlZKuOR5ahjEvqX6kIlS
-	 LTFB5zkcol9L9eqmTEwO8k7rnpZi+jOwI38zDOg0yK1jZ3vFyzgE0+0A89uVzbPdUK
-	 PiTpniUwFqBdC99PCv/AKUPAepWs6fbLXYOszp4Q=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Fri, 11 Sep 2026 15:56:19 +0200
-Subject: [PATCH] media: rkisp1: Fix Bayer demosaicing bypass
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-imx8mp-demosaicing-bypass-v1-1-5568a7a560a6@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBA0auUWTuQBCmtVxEXyWSsIyQNGZVK6
- d0b6/It/l9BuQorXLoVKn9EZc4N9tQBPXyeGCU2gzOuN6O1KGkZUsHIaVYvJHnC8C1eFUNwwzm
- ORL430PpS+S7L8b7e/tZ3eDK9fkPYth0U3IppfQAAAA==
-X-Change-ID: 20260911-imx8mp-demosaicing-bypass-bb284d9cca60
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Paul Elder <paul.elder@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2230;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=YliyGa1zgtLzCslNtNy69+u4K26DzRw41YQWRHAfEEw=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBqpAiLYotbsXztTLtL3Y62JssWfvgaG33MhwjZL
- p3pkjDgG7qJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaqQIiwAKCRByNAaPFqFW
- PGW8EACrl1v7ZaaUem+zDs0hBnvGm+Aruh7c2kHnj93EfLP8sJtTLacTiNEpSxNUVh+NSaCFkO5
- BHbyY2t9ZFGU4elfVaZpRJ9JIJhbwLIzWMi8G1u0WdzHWCTMng1BAsFOK3yNvPAhUJZDWOUrW5j
- uyLg08dcqwKncwZ3ccum73AQjGbsLyr9JFGokaffyL2lT56Z1OYpVlPGS0rUhS8hEgNwc39m/LV
- yJFw1EfnFr/iOGpzvAdqd1KcQ1KjxplJYc/9bAzjnIkgRv+XQfSJhxrQbSCj1q/wQZt2CzzfIGK
- tAqxuKpSh1lO+rC+hhuBHozhkE+umrV78uJZecWDFD3v3NSD/BPtwSxn02DPcc8FZ7DF17xiiae
- LeqLxDrDOgIRmT6EaOK2xYBVqbzNM+79pptMjO0+UoacZBzeiS+M39R2/QMi76fO0OkkYyZG85i
- xa5AVgV8SD+9AALGz6FsCLs7Wr2nO54na+GQNfQzHrN1TQeNAHThpABERscv5aoVC/orAOxq6dF
- 9169VFrI6JviDuhULO2DSxazz9sawqnVBhwFtZqex9Uh3HRJSaX8kaXBe6mCzqZUjznTHUUFmR2
- Z9SN6JYwQJawNbF4DfjXh1hT7y0OS9C8KQFwGX5mfvc434ZBH3/DzdhyIA+z+2NU4HTR3zs02AP
- d9s7Ox7ApK9bVFg==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_065633_746814_8D1E7801 
-X-CRM114-Status: GOOD (  10.88  )
+	id 1x51le-0000000GqAZ-1niO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 13:58:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 85BFD6025A;
+	Fri, 11 Sep 2026 13:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195021F00893;
+	Fri, 11 Sep 2026 13:58:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789135093;
+	bh=k8TDycb2cS/6xQtixvmpSHORaLCfzdYrrBcbgqHOSmg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WjD1gVyhyKYKOEMJBfQ9v4UnulTwdMNhNtmQFZ6hel2Vf5GHDyOAJgB0U9uzf/jY5
+	 0Wo4qt1PsLQUBpVMnbRjshD9V/Y17sXA1qaj6JfyPI9Qq4DFcTuEO8fRjocwLQYldb
+	 VKLi1+SSJHc7xxNIsey94sHrv6xD+6CPbuAA4B7abAtIWd9glp4LKyauGB83ZDZ9N3
+	 2mvNYY2kCucpjLYceFWlMbBbXoxT5eZW5v4k6rzNj4ujsMID0Q/m9xR4655X7hI247
+	 gpkpAE2Y/XGje4b8Ha8qPK/uepukWv7IEka9Di1mBXKS8hltooMdSrhcybdyg9XmW1
+	 lBG8Z9MgQp4MQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x51la-00000007mhN-461L;
+	Fri, 11 Sep 2026 13:58:11 +0000
+Date: Fri, 11 Sep 2026 14:58:10 +0100
+Message-ID: <86ik4b7uvh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 10/17] KVM: arm64: Prevent host PC adjustments for protected vCPUs
+In-Reply-To: <20260907070002.3333525-11-fuad.tabba@linux.dev>
+References: <20260907070002.3333525-1-fuad.tabba@linux.dev>
+	<20260907070002.3333525-11-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +92,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RKISP1_CIF_ISP_DEMOSAIC_BYPASS bit, when set, bypasses the
-demosaicing block on the RkISP1 ISP.
+On Mon, 07 Sep 2026 07:59:55 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> __kvm_adjust_pc() lets the host advance a vCPU's PC or inject an
+> exception, which for a protected vCPU would let the host redirect
+> guest execution. Drop the request there: the entry handlers apply the
+> host's PC_UPDATE_REQ on re-entry, where EL2 allows it.
+> 
+> For a non-protected vCPU, adjusting the hyp vCPU while
+> PKVM_HOST_STATE_DIRTY is set loses the update at the next flush and
+> the guest re-executes an emulated MMIO access, so the flag selects
+> which copy to adjust. Adjusting the hyp vCPU copies PC_UPDATE_REQ in
+> and back out again. Without the copy back, INCREMENT_PC outlives the
+> adjustment and the next KVM_SET_VCPU_EVENTS trips
+> WARN_ON(INCREMENT_PC) in kvm_pend_exception().
+> 
+> Unloaded, the host copy is host-writable, so pin it and its VM before
+> adjusting. Only commit_pending_events(), under KVM_SET_VCPU_EVENTS,
+> reaches EL2 with no hyp vCPU loaded. KVM_RUN's call always has one.
+> enter_exception64() reads the VM's MTE flag and a host copy's
+> vcpu->kvm is host-written, so __kvm_adjust_pc_vm() takes the VM as a
+> parameter: the pinned host struct kvm when unloaded, the hyp VM
+> otherwise.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h   |  1 +
+>  arch/arm64/kvm/hyp/exception.c     | 27 ++++++++++-------
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 47 +++++++++++++++++++++++++++++-
+>  3 files changed, 63 insertions(+), 12 deletions(-)
 
-The current implementation however clears the bit when demosaicing
-have to be bypassed and sets it when demosaicing has to be enabled,
-effectively inverting the bypass bit handling logic.
+I keep coming to this patch because I really dislike how invasive it
+is. Suggestions below.
 
-Fix this by setting the bypass bit when disabling the demosaicing block,
-and by clearing it instead when demosaicing has to be performed.
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index e5b92ac09e69e..d149afee7b4bd 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -280,6 +280,7 @@ extern int __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr);
+>  extern int __kvm_vcpu_run(struct kvm_vcpu *vcpu);
+>  
+>  extern void __kvm_adjust_pc(struct kvm_vcpu *vcpu);
+> +extern void __kvm_adjust_pc_vm(struct kvm_vcpu *vcpu, struct kvm *kvm);
+>  
+>  extern bool __vgic_v3_get_gic_config(void);
+>  extern void __vgic_v3_init_lrs(void);
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index 754e2dc1df54a..bf9d8efce9984 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -66,8 +66,8 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
+>   * Here we manipulate the fields in order of the AArch64 SPSR_ELx layout, from
+>   * MSB to LSB.
+>   */
+> -static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+> -			      enum exception_type type)
+> +static void enter_exception64(struct kvm_vcpu *vcpu, struct kvm *kvm,
+> +			      unsigned long target_mode, enum exception_type type)
+>  {
+>  	unsigned long sctlr, vbar, old, new, mode;
+>  	u64 exc_offset;
+> @@ -109,7 +109,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  	new |= (old & PSR_C_BIT);
+>  	new |= (old & PSR_V_BIT);
+>  
+> -	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
+> +	if (kvm_has_mte(kvm))
+>  		new |= PSR_TCO_BIT;
 
-The issue never manifested itself as libcamera hasn't an algorithm
-to control Bayer demosaicing bypass yet.
+So this is the sole reason why we need to access the kvm structure,
+and the cause for all of this churn. Can't this be written as some
+form of:
 
-Fixes: 6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
-media: rkisp1: Fix demosaicing bypass
----
- drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+	kvm = vcpu_get_kvm(vcpu);
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index 042b759eba62..496381962f1b 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -1854,8 +1854,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
- 	const struct rkisp1_ext_params_bdm_config *bdm = &block->bdm;
- 
- 	if (bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
--		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
--					RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
-+		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-+				      RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
- 		return;
- 	}
- 
-@@ -1863,8 +1863,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
- 
- 	if ((bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
- 	    !(params->enabled_blocks & BIT(bdm->header.type)))
--		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
--				      RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
-+		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-+					RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
- }
- 
- static void
+	[do whatever is needed]
 
----
-base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
-change-id: 20260911-imx8mp-demosaicing-bypass-bb284d9cca60
+	vcpu_put_kvm(vcpu, kvm);
 
-Best regards,
---  
-Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+where get/put do the pinning/unpinning as required? These helpers
+would become NOPs on VHE, for example.
 
+>  
+>  	new |= (old & PSR_DIT_BIT);
+> @@ -294,7 +294,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+>  	*vcpu_pc(vcpu) = vect_offset;
+>  }
+>  
+> -static void kvm_inject_exception(struct kvm_vcpu *vcpu)
+> +static void kvm_inject_exception(struct kvm_vcpu *vcpu, struct kvm *kvm)
+>  {
+>  	if (vcpu_el1_is_32bit(vcpu)) {
+>  		switch (vcpu_get_flag(vcpu, EXCEPT_MASK)) {
+> @@ -314,23 +314,23 @@ static void kvm_inject_exception(struct kvm_vcpu *vcpu)
+>  	} else {
+>  		switch (vcpu_get_flag(vcpu, EXCEPT_MASK)) {
+>  		case unpack_vcpu_flag(EXCEPT_AA64_EL1_SYNC):
+> -			enter_exception64(vcpu, PSR_MODE_EL1h, except_type_sync);
+> +			enter_exception64(vcpu, kvm, PSR_MODE_EL1h, except_type_sync);
+>  			break;
+>  
+>  		case unpack_vcpu_flag(EXCEPT_AA64_EL1_SERR):
+> -			enter_exception64(vcpu, PSR_MODE_EL1h, except_type_serror);
+> +			enter_exception64(vcpu, kvm, PSR_MODE_EL1h, except_type_serror);
+>  			break;
+>  
+>  		case unpack_vcpu_flag(EXCEPT_AA64_EL2_SYNC):
+> -			enter_exception64(vcpu, PSR_MODE_EL2h, except_type_sync);
+> +			enter_exception64(vcpu, kvm, PSR_MODE_EL2h, except_type_sync);
+>  			break;
+>  
+>  		case unpack_vcpu_flag(EXCEPT_AA64_EL2_IRQ):
+> -			enter_exception64(vcpu, PSR_MODE_EL2h, except_type_irq);
+> +			enter_exception64(vcpu, kvm, PSR_MODE_EL2h, except_type_irq);
+>  			break;
+>  
+>  		case unpack_vcpu_flag(EXCEPT_AA64_EL2_SERR):
+> -			enter_exception64(vcpu, PSR_MODE_EL2h, except_type_serror);
+> +			enter_exception64(vcpu, kvm, PSR_MODE_EL2h, except_type_serror);
+>  			break;
+>  
+>  		default:
+> @@ -348,10 +348,10 @@ static void kvm_inject_exception(struct kvm_vcpu *vcpu)
+>   * Adjust the guest PC (and potentially exception state) depending on
+>   * flags provided by the emulation code.
+>   */
+> -void __kvm_adjust_pc(struct kvm_vcpu *vcpu)
+> +void __kvm_adjust_pc_vm(struct kvm_vcpu *vcpu, struct kvm *kvm)
+>  {
+>  	if (vcpu_get_flag(vcpu, PENDING_EXCEPTION)) {
+> -		kvm_inject_exception(vcpu);
+> +		kvm_inject_exception(vcpu, kvm);
+>  		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+>  		vcpu_clear_flag(vcpu, EXCEPT_MASK);
+>  	} else if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
+> @@ -359,3 +359,8 @@ void __kvm_adjust_pc(struct kvm_vcpu *vcpu)
+>  		vcpu_clear_flag(vcpu, INCREMENT_PC);
+>  	}
+>  }
+> +
+> +void __kvm_adjust_pc(struct kvm_vcpu *vcpu)
+> +{
+> +	__kvm_adjust_pc_vm(vcpu, kern_hyp_va(vcpu->kvm));
+> +}
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 051c2d95e3b7d..1a3f23e90e563 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -640,11 +640,56 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
+>  	cpu_reg(host_ctxt, 1) =  ret;
+>  }
+>  
+> +static void adjust_pc_loaded(struct pkvm_hyp_vcpu *hyp_vcpu,
+> +			     struct kvm_vcpu *host_vcpu)
+> +{
+> +	/*
+> +	 * PKVM_HOST_STATE_DIRTY names the authoritative copy: the host's
+> +	 * when set, the hyp vCPU's otherwise. Adjust that one.
+> +	 */
+> +	if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY)) {
+> +		__kvm_adjust_pc_vm(host_vcpu, hyp_vcpu->vcpu.kvm);
+> +		return;
+> +	}
+> +
+> +	/* Reflect the consumed request back, otherwise it stays pending. */
+> +	vcpu_copy_flag(&hyp_vcpu->vcpu, host_vcpu, PC_UPDATE_REQ);
+> +	__kvm_adjust_pc(&hyp_vcpu->vcpu);
+> +	vcpu_copy_flag(host_vcpu, &hyp_vcpu->vcpu, PC_UPDATE_REQ);
+
+And this stuff could simply be a similar set of helpers in
+__kvm_adjust_pc(), the original one.
+
+> +}
+> +
+> +static void adjust_pc_unloaded(struct kvm_vcpu *host_vcpu)
+> +{
+> +	struct kvm *host_kvm;
+> +
+> +	if (!is_protected_kvm_enabled()) {
+> +		__kvm_adjust_pc(host_vcpu);
+> +		return;
+> +	}
+> +
+> +	/* The host copy is authoritative, used only while pinned. */
+> +	if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
+> +		return;
+
+Huh. Really?
+
+> +
+> +	host_kvm = kern_hyp_va(READ_ONCE(host_vcpu->kvm));
+> +	if (!hyp_pin_shared_mem(host_kvm, host_kvm + 1)) {
+> +		__kvm_adjust_pc_vm(host_vcpu, host_kvm);
+> +		hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
+> +	}
+> +	hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
+> +}
+> +
+>  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> +	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +	struct kvm_vcpu *host_vcpu;
+>  
+> -	__kvm_adjust_pc(kern_hyp_va(vcpu));
+> +	host_vcpu = __get_host_hyp_vcpus(vcpu, &hyp_vcpu);
+> +	if (!hyp_vcpu)
+> +		adjust_pc_unloaded(kern_hyp_va(vcpu));
+> +	else if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> +		adjust_pc_loaded(hyp_vcpu, host_vcpu);
+>  }
+>  
+>  static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
