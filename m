@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D864C88E53
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29F1C88E4D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 21:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=; b=YPyy0HZv0HDBsXEL3FBDTVQKMt
-	JI7vvldjp5+zBPOMYK0RDD/LNDJ6OxQsjQf2ZudFt6H8dk9UvF6wccoNGW9hSlUx7/ioqGWbaenKz
-	qyRdaBK3Fm4W/FcowHnpsyivcxRCe2zh0u2JEWH/5aloFgenst/rONntzqlKbgdOerVuH/5kFmL2E
-	3VtP5R383Ttj7Hf2lJoNz3xgguDcHceF8QxNy8AEZZRcs2SeYTikOxxgrE27H6OIE7P3ww7uIu6EV
-	07CPlmQRjQpidi48/JfBUWCCYqwUoP9M+CboTs3B0glzR0jvMvCpkdGZ1jFbJJH9kPbYMg0bG+0dv
-	AJ6xRqmg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YtkRxipFDL5icgX3Q2CLk2qBLGJiypsIowMqv9dIrjU=; b=FmZW8a26K0StFR
+	Y6v7CZ+OcVtLAY/unpatSKCFgtrvVmMGAHKYsVK3gE9+5kn5D9mAPrA2GqHYOyQtC6nS6xVnYhrGQ
+	Qy6Cml8v5sfF6QBk/e8xGLAACX/NI+cv87NZb5eS4l9R4Y+/Rr2B7ALnM0utImFQzl9CIkcbUsgRI
+	Of3P4qOlgsWQbQ8RbWBQ914+Wl7W2aKTn8FF9lcy90bMuBu0b/7se4yAs1BcrLwDXjjLQpsin9vzx
+	GT1v3igKrFNpjnCenwa1PLwvq6gFhJuW6DnvKMIfOVykzSEN3z+sd59p1ymlv3YtkumNpqK8OQqDJ
+	REvX5U1S8pYfkkcuoYCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58gR-000000009qK-0ZMK;
+	id 1x58gR-000000009qW-12i6;
 	Fri, 11 Sep 2026 21:21:19 +0000
 Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x58gO-000000009nX-1tTE
+	id 1x58gN-000000009nP-455B
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Sep 2026 21:21:17 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254fa663c2so55481866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 14:21:15 -0700 (PDT)
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c264788fd58so4971466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 14:21:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789161674; x=1789766474; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=;
-        b=LsBbVs9CqhmeJ7ftJdFptJSppkh8ArFVSP3rhGBBjinutFiz7EyNiaVP/P97bodOnE
-         fTacA/BRXx16rr8yVR96Fnv7E4m5oHCUzjGyptWoQc4As7AEGflGYOtuCnimuhPO7Hzb
-         S6sN+MWt2owLcCY1VSVAc76iJlVUdJidBhcl82n/xwuixzxfnZWZPpgRR6JmLmGZ0E6d
-         32/Ge3z/D1bHk2AZ/2f4xIfXAEu31a2/u+NX+quxEE3SnEqMlxMpWU+ItYpuo6kHnXhH
-         CKXW1E6Nouwxb+dVefsEPttoa3/Zx6wcomlF4r1UhrEtSHiXCBnJN/hzqIMA9ZHXB/XK
-         DpQA==
+        d=linaro.org; s=google; t=1789161673; x=1789766473; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YtkRxipFDL5icgX3Q2CLk2qBLGJiypsIowMqv9dIrjU=;
+        b=uk0/NYx1weJNgrTG0yq+qOlktQDxTe0bqYmv6KCV2uED/D3zMzKGBiUKhI1QZm/ZYj
+         nqPnuhPE7sAvXCtAyXXOfWFLKaqbuWu6trYtPQQUpQi1XeMNNfyVv+waOq/dQSZtjxbv
+         pv31t4cYKOQgEZEKkAuY5AfDm25jONURniGdVYTt/fEHB2XAzpnF+Ver7nP7j+SB7o8n
+         VUr5f0s3eZrXhlMW8ZUN+wVObceOV2TVZBe+KKiiCCCz2KQd+GoNqxzEF5mYKRsElU0M
+         GBr5q3reHoKHyMqgF6z6ZKv1LjAF/Fl+J6z9C7EHVNhIzUIpcN7hFpzH5MoCxhWHJ4rn
+         eNuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789161674; x=1789766474;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LiiI20XmZiZkLtdJaWOZkEQ+3eGld2Up6TgYEg78YLU=;
-        b=Q7VeeAMC2m9n0LSVav6jLj7kYsUr7rEe3OtD0G5dXLurTpvfknIZ5i/+Oaoo1QM9QS
-         sY1qltmh0xwj9SIDGEEcd95wtSYjBGdJ/1WLnJWClswQ/2lWIOm0qA3h4UDU8xDY58Yo
-         VxnMjBTLjyrK5hWpMs6OR5IlWEiuZ5L+i5QG1JYfFJjwBqIupcK//zjq603XbHc8MtwO
-         CyXJIceQSom3A4ni4HuoGvadnRj1AIw+J7G6e70KSZ31cB+Z8Z5M0kGwugCQVdaYe+AP
-         Jw6pRUdEgMTO0S50SfItNnmBgI2/HULvD06BJePSbnHKhiB/rN+8t0la9CtxPu/VK8E6
-         xxUw==
-X-Forwarded-Encrypted: i=1; AKwUvBz9z1xPiEaF0I4Xai6XEa7E6/8oQWXByLJ1EWBB83sDXXnPXH9AhKpTHSYVBMao9+9qmMOl2bHrZ9n77NeW760Q@lists.infradead.org
-X-Gm-Message-State: AFuF++kg/5IpSpFeJ6GqMOkN59UOCLKCI/PH5Su13n/g8PgBwc9OFm5v
-	jv4ew6KM8peDDrbiYsIhGBCBSZjXsA954egQtbaOA8kHruH6eijTdFG1DomnuLOn43OWDodYmQ6
-	OpSQz/xg=
-X-Gm-Gg: AYBFou2xxCoJ4XomWqZOT92JL+sXao8BxNDdm+onRF1kWaTj+UMj6AIdr32Zw3/cR5+
-	BlYWzjxX1B8ZNS0Giqe2IiUb+B34AYSYllGyOXCFeGQBs0mo6KidBdxZMFvzlFP+yFCtPeWn8Kw
-	x7oDo15m+COVt30rbabiH1ZoxYgzZ5Xt8GHvOcKDDvUFnGAfHvIYDxTIA/MA4UM0G/L4qAjnva8
-	2vwDDpYRjf2XBb2P3wgq5Eq4xpdEqq7vC80Ge7PiLEELmE7cruvPB/Y423u6MMdxbUcoutC7DbG
-	Zitt9nSYlJd3XqxcRgNej5OgM/1OBdNlRwZnao644ZSbAXWpu8GND3cVjRke7cTo62tP8VmX81h
-	6JYHejNZKIhzSPFT02oJNTiSkCFQk2hDkVc/utAZxTU/ec66YJiD9S+aeBlGoi2lfB7ByaFg609
-	wH1/aNdecIYlTtLIn/k7Lc4YrV0J3O9ZOE877es3chXdzpm4hH5kET5uAOtVazbfXQbg5oiOtEQ
-	SaTYimHB6iJ8LTqJHsRswIlmnm6ofRaBa//lza9qz7YVKFXjGTMvbAwRnvusISeAw==
-X-Received: by 2002:a17:907:c1a:b0:c15:e8c8:340 with SMTP id a640c23a62f3a-c296674a92cmr569758566b.23.1789161674200;
-        Fri, 11 Sep 2026 14:21:14 -0700 (PDT)
-Received: from petegriffin.c.googlers.com (116.118.90.34.bc.googleusercontent.com. [34.90.118.116])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c29660234f2sm126375166b.12.2026.09.11.14.21.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        d=1e100.net; s=20251104; t=1789161673; x=1789766473;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YtkRxipFDL5icgX3Q2CLk2qBLGJiypsIowMqv9dIrjU=;
+        b=ERozGlpzI6Ut6JAoJrW6DTrc0hMdomVUMmvXjQocDbjAaZbunFqM/uGquyiZxCKWpp
+         53mitqqoASkCmU1obJpoexrwvT7YazEN6KX3+YFWXw6+7rWb54V+3fAgBtA8tI+km85d
+         ZVzNccIqdGX34TL94x/Kp1trCOg7OZQbkUvA4gaH017cwWihB3kXAmAE99elooHxSfCa
+         0G/i86Ym86FmFmCWSkRJiT66wgjl+bKXgBtSi5+tD3sixL/k3vz0shM9WaW16vz+LN9I
+         7temT8AnOL2NBw0wKuJs8pFEiqfrOkpWrVMjl3UGRM5Kbb5zj+wpehdcjEwNRWo7NAVa
+         r+sw==
+X-Forwarded-Encrypted: i=1; AKwUvBx8PMpXlREyPmBp/5UUMQHgBAlD0uOtoEZLMCuEbDrEGu63ZC6vySQBlYm5De1bThjUdYKsakV9iOl8fnWMQliu@lists.infradead.org
+X-Gm-Message-State: AFuF++kmDEuVhDMZQuXSEZzBvmjCd5L8fnkx4dOE30UB9KuoXPoek/r6
+	6hDqJRe6Ck4RVtpwdsUjSf/V2wp/vIrcXgGd1J6fZUT5MTYhNR+pfoMWzVsr0zQO1U0=
+X-Gm-Gg: AYBFou2CtISH0kADOBYnYHbeNLCdlsjMZtP3IhlOPI5h3t06+WtbEXWlh6z1EwmBy2S
+	lZeiNZ//eoiTUImpAqPsJgNiSdSZF7/FhB0Df3mKVUy16zocdjawsGkPAo/1Ca3WzKu86lWEzt8
+	x/3SrUBx+m5b1zvNVTZyHGJTNCTkQYc+8XZUuh3ZpDOsWfxzEbcuwHvWtGdgfiqLsqJD4J59gfD
+	n9GQSINiaXVZeh+8lSaOVnTqZMXSvc8iFNtITzmq+8HFkeIhLm7ultm6xcA7x14bEugZGBdaBIs
+	upit+B5+4eUNS0h5B07ryI7QZDvjA+BaD/DojPHsP6zGD3cRSmAKV5d2tusYaOIcEhrqOcUInO+
+	MOhh8UmtTvjQHo2lFrEr/zLjo+7+0NqQo5221tXkTj6hte8u4osQ4OLrmIRmCW8I2kvLGSCta3b
+	1792r2nXGHB9C5p+SSlD8LUILBPx8QWDssD4QA8T9x43o+FWVeZROgBQM81zBP/ndYLKV0L9oMe
+	3Myv/cJHcKT4B54b5HkMhMN8kPNyzy7qu3wY18yyhX9Nul/9UA4cecjMaN0hcrXlau5XKUuXSJR
+X-Received: by 2002:a17:906:478a:b0:c20:3402:bd35 with SMTP id a640c23a62f3a-c2985736d25mr5788366b.12.1789161673377;
         Fri, 11 Sep 2026 14:21:13 -0700 (PDT)
+Received: from petegriffin.c.googlers.com (116.118.90.34.bc.googleusercontent.com. [34.90.118.116])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c29660234f2sm126375166b.12.2026.09.11.14.21.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 14:21:12 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 11 Sep 2026 21:21:05 +0000
-Subject: [PATCH v2 1/2] dt-bindings: iommu: arm,smmu-v3: Add
- arm,instdata-override property
+Subject: [PATCH v2 0/2] Add arm-smmu-v3 support for Laguna SMMU silicon
+ erratum workaround
+Date: Fri, 11 Sep 2026 21:21:04 +0000
+Message-Id: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260911-arm-smmu-v3-instcfg-override-v2-1-5804e4f400b5@linaro.org>
-References: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
-In-Reply-To: <20260911-arm-smmu-v3-instcfg-override-v2-0-5804e4f400b5@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMBwpGoC/43NQQ6CMBCF4auQWTumFArGlfcwLApMYRJpzRQbD
+ eHuVk7g8nuL/20QSZgiXIsNhBJHDj5DnwoYZusnQh6zQSvdqFbXaGXBuCwvTBWyj+vgJgyJRHg
+ k7E1jlBt7R1UNOfEUcvw+8vcue+a4Bvkcb6n8rX+GU4kKqbWDq+3FGm1uD/ZWwjnIBN2+71+fp
+ QY7yQAAAA==
+X-Change-ID: 20260724-arm-smmu-v3-instcfg-override-b5650fdbfe34
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
  "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -94,26 +95,26 @@ Cc: Pranjal Shrivastava <praan@google.com>,
  willmcvicker@google.com, jyescas@google.com, 
  Peter Griffin <peter.griffin@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1506;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2438;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=tUGaS29lFsJmXAHbJSfhfRBSAtNRDMY5NM3rTaPK0XI=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqpHDHk57NrYBKK636xbBtxQC8tNbhZKUpKQNvp
- K2QlPCh/LCJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaqRwxwAKCRDO6LjWAjRy
- ujZ+D/9tMuGPJ4rap7PJdDNlZUe1EQphmU7tRCCP/H5j5mI5j/BtybzMKyMpMeCjerkf+UTKYCO
- CYDG+K+6mov6T+mBwrtr0OV/soVu59lG+DCmTfa25FF7vHpDRlkOACuS0zygn3411nOr5XNGYKy
- ijLCk9JanRujXZSesqesVLBQP4fspZf2EI6kfZwB4F2bidH5mf7oery6A5avsaDOvuIRiJnPqfS
- 8jcBSTwwVpeOrA9JGuuCIukNcTawPWlqJQs2yLraj/tENoamHvfvET+OrWyNEP8ekgjoQIK0FNX
- Mv51GQNIqjFSggDGxgfmEMTTd4LMm8R8xbvh/DU8x2kvNpLnRKfZBrG1IQnQelMwzsLLu1uc2lD
- dUg+whEhSIcd5iVwYHHde+2d5Z2cfbcUNa64+gz+1Di2oxp5Aap0Akpqx/PiviD4H5vdCVj77ID
- QP8Bv6r6UV4S0juavx1X43AvOvexroAdYTnPadqZQtT+OlhMKf8174TVhLgNR1gUBSBFvCnLJlq
- lJvf5hlkcFLIkbU4214oVDm4p0nISi6n0mKC0Ioel7TyyFCF0yfa2gmFG7vG/YMKRPbgVwd/SA1
- 5NJGxrU3nldN418CZgg7Qg1LHi8xSPi5EUeE4zYwmLTuHNQsTOuI2CsIEzhd+2W1m1FgUyOmCS4
- QD5KHOaZtDsTSGw==
+ bh=c21PgPKHOIxP9rG11c7WqJwD7hUOwv0oDlYhmLHwZRo=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqpHDHRXghRdY6uBz63a5ApZqNJCpKlCLxF8jzV
+ 5/3SSiL7jyJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaqRwxwAKCRDO6LjWAjRy
+ usxOD/9TZnmjDxdAt4z+h8x9Bjg9ECMZxhknIg3DibsnTWsOJFDnVWfD0SOIpWiWOg/crqeJFnX
+ 6x2XWbd12BM0bZWsuArGA3ESu50pJBPil9ReIv/PUPft1PqLLsQeTf+z4kRS1RxLurUzsAZmHUr
+ U266fE+if9Ov8Z/MNicdH76HEQyihmaEtAGzOhMpbK41V/VX5FnnsFIJrJHaH62Ni1jO1+5miJ2
+ 5Mk6EKnc80okBZazcn26U87g9/flORVwGvddRO03VO0RQFt9Z7pkfJpM/uxN9sNJymtxAg4qJB9
+ 8GK90HECfopF7wdVkBWdy7jrM2/hRIUPprg8F63ET6Yo7EwCygOYzIC6Xagu134W6tVAKlgec2V
+ Yv+IA/VQ1pXtI41y4v6vXcfwnyFfvmM6hKH01CyxuES8JW3+/pDIGTEyeF+Uu3OVGkUdHrbl3K0
+ b3clvzMgMDqC5Cy8NmZ61QNLJEah535UXYM/3vWdg9pJjbXiwsoKGB1sXyX+vQIJIeBXahb/Yzc
+ 8RAvyCIjdHJrXjh3+0aEy2Nyzpz58wMj4L2OwVUGnPZ4C5c2Oi8NbNwt7fcZ0h/jLdjEPMgQl5Z
+ m7lBYdUanmvu/ZMYv64dnc6NJYMXmoQvmPh8TL37LwhXp/UaHdrnsv4aezmnif6CONBzNJmLq5G
+ JyL0noaCWqix8bg==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_142116_514614_8EB1B4A7 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260911_142116_161338_E5AF1104 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,43 +129,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm,instdata-override DT property is intended to be used for SMMUs that
-have a silicon integration issue with the AxPROT[2] signal always being 1
-making all transactions appear as instructions.
+Hi folks,
 
-Google Tensor G5 (Laguna) is an example of an SoC with this silicon
-erratum. The DT property can be specified to enable a software
-workaround which overrides the incoming attribute to data.
+The Google Tensor G5 SoC (Laguna) has a silicon erratum with the SMMU
+integration where the AxPROT[2] signal is always 1, which makes all
+transactions appear as instructions.
+
+As a software workaround we make use of the INSTCFG override feature to
+force all incoming traffic to data.
+
+To enable this workaround, the "arm,instdata-override" DT property can be
+provided in the device tree entry for the SMMU, similar to how existing
+errata workarounds are handled by this driver.
+
+The first patch in this series adds the DT bindings documentation for the
+property and the second patch adds the associated driver changes. The
+Laguna SMMU device tree changes will be sent separately (as that will
+go via Arm SoC tree).
+
+Note existing silicon errata DT options in this driver tend to use a vendor
+prefix e.g. hisilicon,broken-prefetch-cmd or
+cavium,cn9900-broken-page1-regspace. But Rob agreed in the v1 thread that
+using "arm,instdata-override" makes sense here in case other SoCs need
+to use this.
+
+The Arm SMMU spec that documents the instcfg feature can be found at this
+link: https://developer.arm.com/documentation/ihi0070/ha/
+
+regards,
+
+Peter
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
+Changes in v2:
+- Add a more verbose commit message of the silicon errata issue (Will/Robin)
+- Make clear it is a silicon errata software workaround not a "feature" (Rob)
+- Fixup incorrect bracket (Sashiko / Nicolin)
+- Add a note about why "bypass" is not required in commit message (Nicolin)
+- Remove feature flag (Nicolin)
+- Move override feature/DT property sanity check closer to the
+  register read (Peter)
+- Rebase on next-20260911 
+- Link to v1: https://lore.kernel.org/r/20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org
+
 ---
- Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Peter Griffin (2):
+      dt-bindings: iommu: arm,smmu-v3: Add arm,instdata-override property
+      iommu/arm-smmu-v3: Add support for arm,instdata-override DT property
 
-diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-index 82957334bea24..3c044e4f03d4e 100644
---- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-+++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-@@ -83,6 +83,16 @@ properties:
-       register access with page 0 offsets. Set for Cavium ThunderX2 silicon that
-       doesn't support SMMU page1 register space.
- 
-+  arm,instdata-override:
-+    type: boolean
-+    description:
-+      Some SoCs like Google Tensor G5 (Laguna) have an SMMU integration
-+      silicon erratum where AxPROT[2] signal is always 1, making all
-+      transactions appear as instructions.
-+
-+      This property enables a software workaround to override the
-+      instruction/data attribute of incoming traffic to data.
-+
- allOf:
-   - if:
-       not:
+ .../devicetree/bindings/iommu/arm,smmu-v3.yaml     | 10 +++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 25 ++++++++++++++++++----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |  6 ++++++
+ 3 files changed, 37 insertions(+), 4 deletions(-)
+---
+base-commit: 68142f986ff04b2b70b31db00f719bf690f64a9a
+change-id: 20260724-arm-smmu-v3-instcfg-override-b5650fdbfe34
 
+Best regards,
 -- 
-2.55.0.1007.g17ff1f9808-goog
+Peter Griffin <peter.griffin@linaro.org>
 
 
