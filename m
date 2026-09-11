@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE147C88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD92C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 13:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLOW3+LT8I0V81YZyRdQW+xKVW0XZaK8vbxLKfs1U20=; b=UYKBqbGFMcHBSg52jPVXURu9qS
-	PaEGrIH1wPR1/O+oDHKRkFb2Xpcrwys25sU8UI/+7KQ3DBq2WSPMyQDik2JUihy4eaLjKBNDcw1Tm
-	f3RlVLJYy8sWo7jN0u0HCSNX5wzHx/nkpiMGSQFNsgHGr+Sq2OYigOstxfwZZFezMKRBchuHu4m3Z
-	lIwOCUhKpA4DNi5F7Y9hq0GYTo1ugPTsL69n628DQ+xyXFbAALwFp/TUKPoBVICfzsTslpd2bxaMe
-	tQi/rdQHx+dvk/zwUrwa9RTIC77j1V3EjSlIH/VZrW9S9fek7EjvAh9B084Ws2SrfEdeiD0GKG+9V
-	bX07Jh3w==;
+	bh=n9WC43RiWACipaJVVputek92HstgNSaNHPvk7+Q6kjg=; b=RKUVVFjkb22qIeFfs+7w3c3fiH
+	W3kY0gmC4kl6YFxEwDrWgaz6LyE7WaABrhFmkIOxEfAl0XPyQ6qjZeqlT9NVvdQruXNO+cP1j7vCe
+	vC9NOqYufIjbVqQDYMXcVeTJCvAgH3Rea0IbMsYOBvucpGklB0E5Ii2aTNNkvfWHKv0JIxSonkMEC
+	8Glv/GwAy3pIBd7Isuc5MT+l/Kq+BpPspUy5nOLRIXR8XPPCzSZiMBATVAttczGJsaUnhHfr7bhkS
+	0LmecCJrNVvO6VGHk5TXRMS6f4Rg05pR+l3IyzssEvtUJVaTGEu+zR9vbFMIUdqnvjSRnzChFyNmp
+	g3Ef3XvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51IY-0000000GkUr-1M5H;
-	Fri, 11 Sep 2026 13:28:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x51IV-0000000GkU9-2CjR
+	id 1x51YD-0000000GmHv-1otw;
+	Fri, 11 Sep 2026 13:44:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x51YB-0000000GmHY-3xM8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 13:28:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D980A1655;
-	Fri, 11 Sep 2026 06:28:02 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 998CB3F59E;
-	Fri, 11 Sep 2026 06:28:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789133286; bh=4YD+Fk3HHL60l22D6521PP0drw4lBWBwFWKg00cHdOg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PpsP4tqKrtQfSCwZE+blAV5Ik4POSn6QJ1SVHQxpbSN7xEZQndzNNwrTj9bnG4p4p
-	 fyIXy/pnUo/2KQPsj2nQ0WIxx3foDqMy3DcGpHpTDFbGt5sDtP/ImD368c/lZbIYTb
-	 TgpgppBePyhRq7KB0b+tsBGrfJNDAkZ9WRajr744=
-Message-ID: <624c282f-4c48-4e06-a7e9-87f754db7b1b@arm.com>
-Date: Fri, 11 Sep 2026 14:27:57 +0100
+	Fri, 11 Sep 2026 13:44:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 518D340626;
+	Fri, 11 Sep 2026 13:44:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A0BF1F000FF;
+	Fri, 11 Sep 2026 13:44:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789134259;
+	bh=n9WC43RiWACipaJVVputek92HstgNSaNHPvk7+Q6kjg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=gbNj34mIcxztxPJbOWUNJYdSbplYgK4TOEeBGAQ2dTOfuNB3piJzRpzmmEnRU/2iI
+	 aNqN6KCz11dEoEnchenQ02aCVf3pzWEndcS97bWSWagU4w67pdN5ow6rkEVa6LTVvO
+	 edYbUUbdJ5xfkOwADk2xEuabG6T3PKxVrXF3mQKX3qC8pEv4P/xhMPqkqiOhbGOHnm
+	 tVHpWzsCYAZrzP6k8AJpsWes/CuQtgiVp41bEKA3XSwPXAMZndEe223cL/NcZeMKSk
+	 Q7U/G4X7NKf9yRl/s+7ct7RBoB2qZNoUuxbui5To+DreHPC8w8hdeXXKZfFNe07gBg
+	 ftGOiGLJqN38A==
+From: Will Deacon <will@kernel.org>
+To: robin.murphy@arm.com,
+	Shouping Wang <allen.wang@hj-micro.com>
+Cc: catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	peter.du@hj-micro.com,
+	andy.xu@hj-micro.com
+Subject: Re: [PATCH v2] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
+Date: Fri, 11 Sep 2026 14:44:07 +0100
+Message-ID: <178912838524.2439009.7355093627260324589.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260910114601.165237-1-allen.wang@hj-micro.com>
+References: <2fb3bda7-cd64-4dc0-99f8-c0fda8d42cf9@arm.com> <20260910114601.165237-1-allen.wang@hj-micro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
- implemented
-To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>,
- Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Gavin Shan <gshan@redhat.com>, Yuan Yao <yaoyuan@linux.alibaba.com>,
- Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260911104715.307500-1-fuad.tabba@linux.dev>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260911104715.307500-1-fuad.tabba@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_062807_648992_A6786C3C 
-X-CRM114-Status: GOOD (  28.99  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,138 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
-
-On 11/09/2026 11:47, Fuad Tabba wrote:
-> finalise_el2_state() clears the EL2 MPAM traps whenever the ID
-> registers advertise MPAM, while KVM sets them only under ARM64_MPAM,
-> which also requires MPAMEN. Without EL3 nothing sets that enable, so a
-
-This "Without EL3..." part reads oddly to me. I guess what you are getting at is that the MPAMEN is
-read only apart from at the highest implemented exception level.
-
-> guest reaches the MPAM registers while ID_AA64PFR0_EL1.MPAM reads 0
-> for it.
+On Thu, 10 Sep 2026 19:46:01 +0800, Shouping Wang wrote:
+> When MXP_MULTIPLE_DTM_EN is TRUE, each DTM will monitor at most
+> two device ports. In this case, {wp_dev_sel2, wp_dev_sel} will
+> only use values 2'b00 and 2'b01 per DTM.
 > 
-> Gate on what finalise_el2_state() tests instead: this CPU's ID
-> registers with the arm64.nompam override applied, and its
-> MPAMIDR_EL1.HAS_HCR before writing MPAMHCR_EL2, which is UNDEFINED
-> without it. MPAMEN isn't a term in any MPAM accessor, so the traps
-> take effect without it.
+> Previously the setting allowed values beyond the supported range
+> per DTM, which could cause each DTM to select invalid ports when
+> MXP_MULTIPLE_DTM_EN is TRUE.
 > 
-> Fixes: 31ff96c38ea3 ("KVM: arm64: Fix missing traps of guest accesses to the MPAM registers")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> [...]
 
-This looks good to me. Now that you're determining if the MPAM registers are present on a per CPU
-basis and using that via a host flag, the traps will be set on all CPUs that have MPAM registers
-unless overridden on the command line. IIUC this covers the mismatched CPU case as well and so all
-cases that the register can be safely accessed (arm64.nompam not required) are covered.
+Applied to arm64 (for-next/fixes), thanks!
 
+[1/1] perf/arm-cmn: Fix wp_dev_sel2 setting for multi-DTM configurations
+      https://git.kernel.org/arm64/c/49daa3d668b6
 
-> ---
-> 
-> Notes:
->     Changes since v2:
->      - A per-CPU flag in kvm_host_data, set at KVM's CPU init from the ID
->        registers with the override applied, instead of a third cpucap
->        (Will). The probe checks presence only, since MPAM3_EL3.TRAPLOWER
->        can't be read at EL2.
->      - The MPAMHCR_EL2 branch reads this CPU's MPAMIDR_EL1 rather than the
->        sanitised ARM64_MPAM_HCR, which would otherwise have been the one
->        system-wide test left in a per-CPU function.
->      - Fixes: names the KVM commit that left this case open, rather than
->        the head.S commit that cleared the traps.
->      - Yuan's Reviewed-by dropped, since the mechanism changed.
->     
->     v2: https://lore.kernel.org/all/20260908145651.2828597-1-fuad.tabba@linux.dev/
->     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
-> 
->  arch/arm64/include/asm/kvm_host.h       |  1 +
->  arch/arm64/kvm/arm.c                    |  7 +++++++
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 13 ++++++++-----
->  3 files changed, 16 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7a..98ca2d9b9e18d 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -755,6 +755,7 @@ struct kvm_host_data {
->  #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
->  #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
->  #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
-> +#define KVM_HOST_DATA_FLAG_HAS_MPAM			7
->  	unsigned long flags;
->  
->  	struct kvm_cpu_context host_ctxt;
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8b080804bc90b..fde75a63cf045 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2281,9 +2281,16 @@ static void cpu_set_hyp_vector(void)
->  
->  static void cpu_hyp_init_context(void)
->  {
-> +	u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
-> +	u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
-> +
->  	kvm_init_host_cpu_context(host_data_ptr(host_ctxt));
->  	kvm_init_host_debug_data();
->  
-> +	/* The traps take effect without MPAMEN, which ARM64_MPAM requires. */
-> +	if (id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1))
-> +		host_data_set_flag(HAS_MPAM);
-> +
->  	if (!is_kernel_in_hyp_mode())
->  		cpu_init_hyp_mode();
->  }
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index 1ce7130e25490..2cb611e2bd69b 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
->  	u64 clr = MPAM2_EL2_EnMPAMSM;
->  	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
->  
-> -	if (!system_supports_mpam())
-> +	if (!host_data_test_flag(HAS_MPAM))
->  		return;
->  
->  	/* trap guest access to MPAMIDR_EL1 */
-> -	if (system_supports_mpam_hcr()) {
-> +	if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR) {
->  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
->  	} else {
-> -		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
-> +		/*
-> +		 * TIDR is RES0 without MPAMIDR_EL1.HAS_TIDR, which MPAM v1.0
-> +		 * prohibits: such a PE without HAS_HCR can't trap MPAMIDR_EL1.
-> +		 */
+Cheers,
+-- 
+Will
 
-The lack of a trap too bad as all the fields of MPAMIDR_EL1 are read only.
-
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-
-Thanks,
-
-Ben
-
->  		set |= MPAM2_EL2_TIDR;
->  	}
->  
-> @@ -317,12 +320,12 @@ static inline void __deactivate_traps_mpam(void)
->  	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
->  	u64 set = MPAM2_EL2_EnMPAMSM;
->  
-> -	if (!system_supports_mpam())
-> +	if (!host_data_test_flag(HAS_MPAM))
->  		return;
->  
->  	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
->  
-> -	if (system_supports_mpam_hcr())
-> +	if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR)
->  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
->  }
->  
-
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
