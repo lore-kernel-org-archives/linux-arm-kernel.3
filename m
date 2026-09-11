@@ -4,143 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56ECDC88E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D72C88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 18:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7EEBE14tY6ojxRMv6JTbOWDYxn9zXEUPpPq8PRh9nc=; b=yxvi4+Z8W3Ex5S9bEJUO255r9h
-	tTcu1wncXADTSPVzYguWZqwePztOOIlPpgATcza979GgjLslwxRhenjXGVVkhKvrcJbYtAHTIeQQ0
-	QXs6xKDdvd0cuuKqiRa++0YBdlFY+ZH9C9DHM5IW9gwEld9fxmDmy9JBBRQrOD8TRaawHl+w3xfw/
-	zq1lRVVsVEN4cb3/xb/WOZkADQ2r+ij1/ooRTSQ4jJQoTReSFIsFDmhjnuTKs3KEqy5P6KUuieLLO
-	RJCOoOncjC44rf89ghI0QT9hVK5b9zLJpWD3zpU4bVP0u6SFVq7gRE6gMoY0JtDz2iWGzXVib2zSq
-	wirLFDlQ==;
+	bh=BEH5L0y3LixWWPpE999YsoF8vwfZIA/JtkIUSaMP+LE=; b=47xEsTLYWXyBNSY+NNag045OJ3
+	aUT/csgHOqopRzK54LK1Gtd+iYl0xJ5M+s1Flqq2qEYrrmsPydVdoAakTlOate9IyzKaRNnrLqdy9
+	GbsHjUX2U+RzW7tT8oux5JAtGNiUqWpbyOBNF33sjv89dzscDsjKXEELrcttrF5/NLOn7SXmOSlTE
+	v6e8dn/n8uzUP3Gd2XlQkhicSwq4DXw0EuU8IDkFk8YhgZvnkIfeliQArnkbpRl/Yu2X7+38W+A1o
+	WlUEBGDACNS0EW2TCYa6YA2jPW3aOA9XPyPUtDXbTuKUjb69+Qe2wnouQEXhujM8Vb64Ctof6X4BI
+	q1I321og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56Dr-0000000HSrC-0Z1P;
-	Fri, 11 Sep 2026 18:43:39 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x56GZ-0000000HTFA-3XFM;
+	Fri, 11 Sep 2026 18:46:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x56Do-0000000HSqc-3srU
+	id 1x56GY-0000000HTEq-0TZr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 18:43:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dxtWS/FZqRAn8zSvJxp77Mtnl0Au1+jXTTszwU3D5bdbI7vrAs5iAVMIx6pMSH2l5nzqPQyT+uKjUpZcRWS7la89nx8vIos/Jr24qEpjcY7C1JEHVVFjZHlFt/iWuiu0ydHoOvXgzPjLsq/9Iuzv5MxrYNP6DYwru8ajnln4JUMKhSwu50nUWKt92hyBDDhKS0Pj8Sr/37Qf5V89zYbe4UDGwYIkxz+mXFb5EEMH1oC7mKqwSFuIx3g11GTMdPQxFbank7n9wikprGExi+iOWu3Nj30NpZbfzwj1TyzzsoYshqjLq7ZidxVgcxRbmDAgegb9BAC+xOnJVP7yNMUDAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q7EEBE14tY6ojxRMv6JTbOWDYxn9zXEUPpPq8PRh9nc=;
- b=ZUTinTlv5Uyj6ONm4tyk4NR5082qLPgT5QFhEkd/+t+W2N6EXpfv+qF7k5pDhfIOugPAEpcE6g2rPOlnAWFi0wIUgAylqDtoPfRC/YKju75iDd3AefrvMRNYr8MWeYk/8PKlBWItWCC8b0xXpb0VHAe6527EfdPTpEQ6dqorpyrRuuX/6aEkMTPmVWRKmUgJndjKmzVrZkEGAwNqKsYapFRvaUvTVrCL71M8FTlNZfk3OJGCIBoDf6BfbHJRTUYFIWJukb6a2aD/BP+8qBGIDB0wbMbLMU+9V5OdmJ9e/UzplilVB31eZsCChJ8NkIq+6ELTD+LwiJB/JVDeZ59UPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q7EEBE14tY6ojxRMv6JTbOWDYxn9zXEUPpPq8PRh9nc=;
- b=Rjd/7tkf/u58zEhrg0EBrZQB+JjfTaT/hL0tMTNGZbh8me31N3bBQqXP9yfoO4S1efYCEgSfLq1rwhzx07vNHF/9vL5IbB190B5Hi7km1zIKowStbqfS+FGZGOmJhjv2DsFibbubslN8//aVv/R/Ro1HBP04j/xAYw1a7sOu3AQXjad04u9vSf3hhlVpD5RrwkAhe9xiut/WQfUIn2EU9sxLUiQmbuDmm/fXdZ2mjPB1lp5vAHuI/9oQ8N40Ffo3rQ42slznymhIAi5yPRGiBC0G3hFI/FU6q9Ck+qVN6A2/cBAlHX/Aaegg871jroY23tT7jgZIbOwQiBezWGpKOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB9PR04MB11657.eurprd04.prod.outlook.com (2603:10a6:10:605::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.10; Fri, 11 Sep
- 2026 18:43:32 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Fri, 11 Sep 2026
- 18:43:31 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maud Spierings <maud_spierings@hotmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Fri, 11 Sep 2026 18:46:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 79CD3410C6;
+	Fri, 11 Sep 2026 18:46:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52E991F000FF;
+	Fri, 11 Sep 2026 18:46:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789152384;
+	bh=BEH5L0y3LixWWPpE999YsoF8vwfZIA/JtkIUSaMP+LE=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=M9R+fJHeZmy6WEfJ+D6CNLH+c3kjB5rut7ErP2+h8nVsKa7j3etNfbwtdp8rS80MS
+	 fPhFABuFdrUdvOlZdTQAQCr61orU4wm/RjC2OU7poW1VrwvZyfgZGrC+qE1sarkPq0
+	 QuxzQZPObBkWqJyMQach0VVskbIlHcGS9oQDOKxfOvJgnVD5bycCjFRDIgaYdLH17Q
+	 UJmHrZwzXcEdIcRWoMRdQtTKfYNAHGRWaw/E2J3Bjse6JBE5JIuSHCfhhwe6AtNnRq
+	 Z179pIn76KHvhsX6T+IKzErceu3YloUEBWmwjn5CgynJh7djSuiFdwsOpDYYGmPtoi
+	 fH4mBz7X+Zqjw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 17178CE1902; Fri, 11 Sep 2026 11:46:24 -0700 (PDT)
+Date: Fri, 11 Sep 2026 11:46:24 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] arm64: dts: imx93-11x11-frdm: some fixes
-Date: Fri, 11 Sep 2026 14:43:24 -0400
-Message-ID: <178915219647.2910505.1476712574924535814.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260906-imx93_frdm_rtc-v1-0-3fadbda0bea1@hotmail.com>
-References: <20260906-imx93_frdm_rtc-v1-0-3fadbda0bea1@hotmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR16CA0007.namprd16.prod.outlook.com
- (2603:10b6:930:10::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v2 15/15] rcu-tasks: Kick running holdouts through
+ the scheduler
+Message-ID: <78c438b0-9c9a-4307-a6f7-19e69adc20c0@paulmck-laptop>
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+ <20260911-b4-rcu-tasks-preempt-qs-v2-15-eaaa61ed2da4@toxicpanda.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB11657:EE_
-X-MS-Office365-Filtering-Correlation-Id: a507c73d-579c-433e-5f26-08df103493df
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|1800799024|19092799006|376014|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: +051Cf/gJnUuPWs6qGtqov0RELmD3VE0H8gZXcUhyp10maZC30tCQnESSbVmNvh1Uf996iMbtdjqeVO90U1Lgd2H875+ZCGarH+XsB2ue9hnSfJjmMN3eeIsycuGtivmrKJYPTjRWtFBqVxRt/LTLMAetmieO15p7II+1Jp4WVkHAqKuS76zCc6zx36AolGzwNeI8zUTdJ0cYpsAgAk0tleJq52L56aU92MB7HJY18j1lFT+dVPNZI8atuUjVbyL2Bnr06k75l32yPoZISfGqZt1uAGak/HaRH181vHFBZZbX+O4l/DL9JqMKys28xGlljdQ04oxexhIZvJE5IUYrjZqa3CLhPvYFm3frozDVwwqM9go1cw98aG1FVIVy34ns+6mxrItd+35AAZerVD99U1CciOW8XAdAW55MypgOT424ZHbBPDRh2Ss9KBKZLJR8nzEX51SeeDiP0fAyrO99355PeQ1z+C7l1fckAHZQHd9NjqNX38m6ZQzyzx20XDQ6Ik16HXO1dk7Gs4dOdZ+tCq2WAYTE9OWijU3rgmXgf8THX8Nyxks0+e6ExI314RCzRDQFHUw4ItlTww3iYDecdwCuLNJ5OQeAwG+D55M1FAxcA48e13XDM/hmLdfhcmOF4T/Fjh9DJG07wNVsIKjBXtFmpmDiSS5NvEA9gTdZp8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(1800799024)(19092799006)(376014)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blEwdEZvLy95dU1Ga29IbklzRDFuZFRqcjc0VmNpYyswSThhUnlqbGtFUFJX?=
- =?utf-8?B?WHFxT2s5MXdwYVR6VXBGdHhzbmorWXFOYmF5MEVEb1I2eEtvQWhUZ29tYnli?=
- =?utf-8?B?NlRVREY3RGdjRXlXNUxYL2QyU1hnbUIwb2h6Ukc3ZGl4L3Y1bFkzZ2xwaXNu?=
- =?utf-8?B?bVRORUYvdkc3b2FHZlgwVDdwclYyS1lBMEM2eWdlRHZLaVFFYWVOSmVIMEQ2?=
- =?utf-8?B?ZHRQUlVMOWFvUE9SdG5GYlR6Ky9ncUViMmFTSGd1cTVwTXNaY1llenBORjF1?=
- =?utf-8?B?WDVQdDV5WHh5Y0lMNm8rWXFMakh4eERIb3QvY0pDS1VPbmxQWkdKcER3T3h5?=
- =?utf-8?B?SDB3c2VtRDJKWVpRandhY2NRSW9FQ1QxZFRJd2FNaWRmSjdXeVM0THEza2VI?=
- =?utf-8?B?TGNseUp5YlNTeGlMdHoyajk5RWxNYUdOU0dBajRxNnJNMEF3ckg4Zjd2OWlt?=
- =?utf-8?B?Mmx6Qi9BSE15M21qcm15Y0xsc2t4ck4yTFhodzd3Z3RReHRMOU1OZ0krb2kw?=
- =?utf-8?B?aGRiU29TZk53Z3BDNlcwSHBEQ2pTZmhnYkRPeVZuK2twYUJmZEpSK29MRHZi?=
- =?utf-8?B?dW9KQVRKQjg5Q3dQMkhnSkNkYWZKQmJhRHRSZ1EvNmMrTlNjdXNFSldGcE1r?=
- =?utf-8?B?VlZtZHVnVmIyZnFtYVhsQWY5QTJHaE1jSHQvQ0xqTDZBZzN5UVhRSXVUWE9h?=
- =?utf-8?B?R1lCN29xZlZDUGNoYURsVGNWNmg3bGwvT2w4YXo5M3R4NzhNeFdKL3oyRTU2?=
- =?utf-8?B?NmNPWU9qZkJXbFdrejIvMUNFSlc1aStvZkdXM0hES2IzMkVSRDlEa3RXK1FN?=
- =?utf-8?B?ek5LRjgxSUVLYkZUQTNWRnJvTnc5MTAyUlZrRS9GOWtTMk02V0N3cThIdFhP?=
- =?utf-8?B?OHg1K1E2WG0xaUxWUU5HbW5xbS8zOFRETmJSSUVGYWt1NnJpVlB3WHNOK0lF?=
- =?utf-8?B?Qi8vaGNjUnBUU0FGT3VxVHoraDB3ZGxoNmt0amJLUm1oTi8rUXNBWUljRVl0?=
- =?utf-8?B?ckVteXdRdklEQ1BUdFB1Sk4yYUU3b05PMWZIYTFJbWpYQU9rSVBVbk1MeExI?=
- =?utf-8?B?bURjNlo2dDFxSFRsRjBVUTN0QVg3S2lBMWhDSmdQRXdFeUVXWERvSVlkM2c3?=
- =?utf-8?B?a05OdFFES29UbWhRSEFyYmdLMC91VnNUMStIdzlVNHFrVUZYN0luNnl6ODNj?=
- =?utf-8?B?Z0hYQ0JmNEYrR0JvZnQ2bmcvVyt5WW9BL05YRk9JL1ROZTdnWG14Q1Q5OXpB?=
- =?utf-8?B?NG9TMUUzK3M1Uk8zbU9pdlJIY2RWQWFQYjJJMkF3Njg5YXR0d1U1cmRzY3dS?=
- =?utf-8?B?bDRLVG0xZHh3ZHhjTWFrc3NEK0lPWG1PWTdTTWJZSCthd3I3aVJDQnROeVdu?=
- =?utf-8?B?R3JZMTZubFBkMXJWclRzZHZGU2dvcHF2SU1DSndyNTl3QWZGdFhhTURpVUY3?=
- =?utf-8?B?TUxDS0VPUnZMbDlFNVhOTUh3aWVBTGhHL0pIK1k0WlZXU3oxcWVCYytYRzRE?=
- =?utf-8?B?SyttQm5ZSm9XNi9yYldaZDV0cVFqS3RFV0xTSUtqYmhnQmF5MEg2TU50Sllk?=
- =?utf-8?B?c2xDRVQvRXQ0cExqbmlnSllkT1lwWUVIbmdqcisxT0JJVjB3dGxuaEpZSHo0?=
- =?utf-8?B?ZjhJeXcybDh6dVJ3ejhpcnVYelgrbUdZL1g4SHZzbW9uUHB3OWJJZERtbUwv?=
- =?utf-8?B?NldSTUVlcDk5cUZ4WnlXRHJTaGt6dFg0WFg5NFJwT1pydmJtSGlvU2xJc2VT?=
- =?utf-8?B?TVV0cDFCbGs3NTVrUlJQc09lSWhubjR0a3RrZ2k3U1NVZ0FFcHUvY0xCdVhw?=
- =?utf-8?B?TTkwQmJTOURwQ3BORHJBRFFFZFZKY21KL21SQ1orZllMdGgybDFEdlAwbXp5?=
- =?utf-8?B?MFdwQzhyUW5qNDJQU2FTVlpuSEQwQ0VnNDJFME02elBkcjBmaGJlWXZzaUYr?=
- =?utf-8?B?YTVsTHFPVms2eHRGcVdWTWQyRytPN21WSG5KNjlvaWd6R3NTSWtMKzRhNlV4?=
- =?utf-8?B?RElaVXpLYkpTYmN4RnZGTEtvdi84am1yR1VYZ0VMUkF0L1c3MmVsNEp6YnNO?=
- =?utf-8?B?YlFLcWYzS1RyOHdyb1NMK1oyRUNISlBZKzZGVEplQXEzVHMxOU5QT3J6VitN?=
- =?utf-8?B?ZjIzUzhqQzQwZVdzNkhIK2ErM2N5Ukw1MmM5SWRjbDk3WDc1dXh3blRpWGNn?=
- =?utf-8?B?b0FkT1EvL1U3RDBCNmFIcG1IL0p4dVZwakxSRXFRMVFyWHpnKzREeXJ5SktI?=
- =?utf-8?B?cjdyb05NbWxiRHVZQUVjczRmL1EvdWxpOWR2b2k0OGtITDU3WWlBK3hDTUgy?=
- =?utf-8?B?UjlrUjl3STVPTk1NcEFXRzZ2WTVPYlVJclNxcm5NQWZmQXFXeHVBL3AzdmJZ?=
- =?utf-8?Q?gm+LLDI3S1MZuqKG349JHzeOMjEVPI6wb7J6c?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a507c73d-579c-433e-5f26-08df103493df
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 18:43:31.6953
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6Xz1cipePzACCuhjtb8bg42C5jsXtFsgUjbiQNlqZJgsgFt35xROKFKrb2IeUOaqsuBf0Rj5OeajGbiFb02pS4ivsV0JPjuMIf8rGBvkkJ0CN57b01DUl8/ZHysNc5LP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11657
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_114336_973649_95290AB0 
-X-CRM114-Status: GOOD (  11.07  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-15-eaaa61ed2da4@toxicpanda.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,31 +93,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Sun, 06 Sep 2026 15:58:20 +0200, Maud Spierings wrote:
-> pcf2131 has been assigned the rtc0 alias, but if the bbnsm_rtc gets
-> probed first it will take this name.
+On Fri, Sep 11, 2026 at 02:08:53PM +0000, Josef Bacik wrote:
+> A holdout that is running on a CPU with nothing else runnable is only
+> preempted if the tick acts on rcu_request_urgent_qs_task()'s flag, and
+> there may be no tick.  Now that a preemption outside a trampoline is a
+> quiescent state, have check_holdout_task() call resched_cpu() on a
+> running holdout as well, so the scheduler IPIs it and it goes through
+> __schedule() and reports (or, if it is inside a trampoline, does not
+> report) its own state with purely local ordering.  Nothing reads a
+> running task's rcu_tramp_nesting remotely.
 > 
-> Properly assign bbnsm_rtc to rtc1 so that this doesn't happen
+> Only under CONFIG_RCU_TASKS_PREEMPT_QS; other architectures are
+> unchanged.
 > 
-> Add the power supply to the pcal6408 gpio expander, it doesn't have the
-> dependency loop like the pcal6524.
+> Suggested-by: Paul E. McKenney <paulmck@kernel.org>
+> Assisted-by: LLM
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+
+Much better!  But please see below.
+
+							Thanx, Paul
+
+> ---
+>  kernel/rcu/tasks.h | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 > 
-> [...]
+> diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+> index ba432bd922e2..02d2592ab7a3 100644
+> --- a/kernel/rcu/tasks.h
+> +++ b/kernel/rcu/tasks.h
+> @@ -1038,8 +1038,18 @@ static bool rcu_tasks_preempted_qs(struct task_struct *t)
+>  {
+>  	return task_call_func(t, rcu_tasks_switched_out_clean, NULL);
+>  }
+> +
+> +/* Make a running holdout pass through __schedule() soon, tick or no tick. */
+> +static void rcu_tasks_kick_running(struct task_struct *t)
+> +{
+> +	int cpu = task_cpu(t);
+> +
+> +	if (task_curr(t) && cpu_online(cpu))
+> +		resched_cpu(cpu);
+> +}
+>  #else
+>  static bool rcu_tasks_preempted_qs(struct task_struct *t) { return false; }
+> +static void rcu_tasks_kick_running(struct task_struct *t) { }
+>  #endif
+>  
+>  /* Per-task initial processing. */
+> @@ -1219,6 +1229,7 @@ static void check_holdout_task(struct task_struct *t,
+>  		return;
+>  	}
+>  	rcu_request_urgent_qs_task(t);
+> +	rcu_tasks_kick_running(t);
 
-Applied, thanks!
+Something I learned the hard way, though Google paid most of the tuition
+for this lesson:  There can be a *lot* of tasks on large systems, as
+in hundreds of thousands of them.  If these tasks are consuming CPU in
+very short bursts, we could easily repeatedly invoke resched_cpu() on
+the same CPU, and all invocations other than the last one are redundant.
 
-[1/2] arm64: dts: imx93-11x11-frdm-common: fix the rtc aliases
-      commit: ef92c79a1e4a3e272407d9ceb01327c0b0e32c76
-[2/2] arm64: dts: imx93-11x11-frdm: add missing vcc-supply
-      commit: 711ccefdf461c2d448e009116e1ac51f7ef2c10b
+I instead suggest doing something similar to force_qs_rnp(), where a
+cpumask is accumulated and at the end resched_cpu() is invoked for each
+CPU with a bit set in that mask.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Of course, if a CPU appears twice while traversing the tasks list, then
+each of those tasks did a context switch, which would have reported a
+Tasks RCU quiescent state.  Unless those tasks happened to have non-zero
+->rcu_tramp_nesting at that time.
+
+Which suggests that each task have a pair of counters.  Or that
+rcu_tasks_trampoline_exit() should check for zero ->rcu_tramp_nesting,
+and report a quiescent state at that point.
+
+Either way, if a CPU appears only once in the tasks_list traversal,
+hitting it with resched_cpu() makes sense.  Though we might also
+need to suppress calls to resched_cpu() for grace periods that are
+(say) less than one second old.
+
+Thoughts?
+
+							Thanx, Paul
+
+>  	if (!needreport)
+>  		return;
+>  	if (*firstreport) {
+> 
+> -- 
+> 2.55.0
+> 
+> 
 
