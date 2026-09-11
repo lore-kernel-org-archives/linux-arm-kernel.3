@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500D5C88E4C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE483C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 08:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgBFmIz5YTp7wfout/YjdIH/iv04uZIZpKOlaUDqiCU=; b=DxVUzL0KKKjJeN3j9yFafWr2Pu
-	ysKhUOLtn+EZFXfMYJMc8e7A3efXLW3SS2UKX5aIHV05frKAQVVugHVDkIfqKfiwGQzCiqJ9FVtB1
-	sn+QT7G8be7DG7ouU+DCJbnNaTSR8O8TJAwoAwwbnnig31MEXV7OmDVM0j964gBfkewH5Qnp+POQn
-	qgLeBOntKwrSw48S7Lk5iV59k4gxk4FriFKRo0uWlqBqzCxnQtg1l/O/W1W3EKfB2MgQmuKkjHlDF
-	550de6nLZVykYC5xt3b1ep+cgAfbUfgm44tENlCJNfdDAFT2JDfcuTUsUBRVLDIf5G7NzIIUIDndr
-	muCpGa6Q==;
+	bh=Gi0wJmxVBZXyKBxA+aOLOq98emOlx/Z25W5ZIR7FAIw=; b=DELdypsd1oZ/2M5HvS4898wwZ9
+	IFJKSn2oTQnfSjDMP4P+cYuEIVroVVtGpyBMLobEKo2vcFf9B/0jJNsDzMMYaQVnlFj9xnft/n4HR
+	3uM2y77Ivi+s4jgiU+1CjysWiMtuRU8PNZ9mCAkGwgstUPF7+Pp3BIP75V+NKztqmT3FEoy8s0fgz
+	ldjLohU2qa+JtEEs+eqjh3ucEpbONBFhgSOmwm2RkScsIkne9sY4GQTDgtwDJkR5CKauwIe5/eNhP
+	BlKN7ohgQG1w4GCmY2smCEzTGKmsospOUcJ0bY23sUFQzVN7lrf6JhALHY7lO2seFRxI1mWhxb3jz
+	p98M/3+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4x2l-0000000GBkY-1kQj;
-	Fri, 11 Sep 2026 08:55:35 +0000
+	id 1x4x3N-0000000GBvb-44b8;
+	Fri, 11 Sep 2026 08:56:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4x2d-0000000GBiq-2Vkd
+	id 1x4x3K-0000000GBuj-1PQA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Sep 2026 08:55:29 +0000
+	Fri, 11 Sep 2026 08:56:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEBFE16F2;
-	Fri, 11 Sep 2026 01:55:21 -0700 (PDT)
-Received: from e142892.manchester.arm.com (e142892.arm.com [10.33.8.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 629F83F7B4;
-	Fri, 11 Sep 2026 01:55:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FE7A16A3;
+	Fri, 11 Sep 2026 01:56:05 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1CED3F7B4;
+	Fri, 11 Sep 2026 01:56:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789116925; bh=VIPaJpghTbx/v7PJ/scUmkcYX8jgjYewClkchSwndq0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=q87itpKEB3mJNc9/8m7ojFjedYlsRicdvzWFC1DPjzg3z+4/YuZK8hokDJ6imfEMD
-	 4LtukdInFLZZ1+rFHdl3laI8zg82l/soFCbBBecnLg8XWt0CfSZ/0lrJ89mYL1Rd7H
-	 M8MWxzifvCy5i+athLQoj36h3+n0cbLAb5ytKMi0=
-From: Mike Leach <mike.leach@arm.com>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	leo.yan@arm.com,
-	james.clark@linaro.org,
-	Mike Leach <mike.leach@arm.com>
-Subject: [PATCH v4 1/1] coresight: fix issue where coresight component has no claimtags
-Date: Fri, 11 Sep 2026 09:55:20 +0100
-Message-ID: <20260911085520.2201261-2-mike.leach@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260911085520.2201261-1-mike.leach@arm.com>
-References: <20260911085520.2201261-1-mike.leach@arm.com>
+	t=1789116969; bh=mPcxAHu3KYHI6pGhTtcvzaAlBrH1n1Q4zJ/2mJJUMPE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P7mkOT24uSdxWqA8jPAny9fmmKdRuCez9zivlFL3QbNQuVEdreVcChQMiV3DvwIzk
+	 rrdc/6RxTi0bFuJWvqtTr1h74BQ3yd2b6Qe2Uefghl43RYD90MA01Q6fr+KpC97tBX
+	 N9jg0PAiqjM977hyHX0WRd+g6MSB4bijquUUJsPk=
+Message-ID: <d403b92c-aae8-499f-8c73-933a2d757fba@arm.com>
+Date: Fri, 11 Sep 2026 09:56:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com
+Cc: tony.luck@intel.com, babu.moger@amd.com, yu.c.chen@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+ <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+ <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
+ <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
+ <a3cf9362-007d-4c6c-8f6f-1c9b8b41b1b9@intel.com>
+ <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
+ <26e294a0-76a6-4ec0-9df8-021a76bf8ed9@intel.com>
+ <86603611-b20d-4a0a-a247-8cebb11b3432@arm.com>
+ <071d3dc6-6c18-4287-af26-719b89304058@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <071d3dc6-6c18-4287-af26-719b89304058@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_015528_187787_6994CC3D 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20260911_015611_129853_4B6FF3ED 
+X-CRM114-Status: GOOD (  35.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,522 +80,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Coresight components have 0 to 8 claim tag bits. ARM recommends 4 and
-the implemented claim tag protocol uses two of these.
+Hi Reinette,
 
-If a component has insufficient claim tags then the protocol incorrectly
-returns an error when attempting to claim a component.
+On 10/09/2026 19:10, Reinette Chatre wrote:
+> Hi Ben,
+> 
+> On 9/10/26 9:28 AM, Ben Horgan wrote:
+>> Hi Reinette,
+>>
+>> On 10/09/2026 16:37, Reinette Chatre wrote:
+>>> Hi Ben,
+>>>
+>>> On 9/10/26 4:11 AM, Ben Horgan wrote:
+>>>> On 08/09/2026 22:12, Reinette Chatre wrote:
+>>>>> On 9/7/26 10:01 AM, Ben Horgan wrote:
+>>>>>> On 03/09/2026 16:29, Reinette Chatre wrote:
+>>>>>>> On 9/2/26 9:10 AM, Ben Horgan wrote:
+>>>>>>>> On 01/09/2026 00:54, Reinette Chatre wrote:
+>>>
+>>> ...
+>>>
+>>>>>>> It is not clear to me if a mon_comp of NULL is able to handle all scenarios since it looks
+>>>>>>> like mpam_resctrl_get_mon_domain_from_cpu() and mpam_resctrl_online_domain_hdr() does not
+>>>>>>> consider the component at all. Would that not cause monitoring features to depend on which
+>>>>>>> CPU of a domain comes online first?
+>>>>>>>
+>>>>>>> Could mon_comp perhaps be required to be !NULL here as a replacement for the earlier
+>>>>>>> "ctrl_comp" check to ensure there is a component with the CPU in its affinity mask?
+>>>>>>
+>>>>>> Doesn't the !any_mon_comp check provide this?
+>>>>>
+>>>>> This is the part that I do not understand since any_mon_comp seems to support the scenario
+>>>>> where a mon_comp may be NULL which is a scenario that I do not think resctrl can support.
+>>>>
+>>>> Ah, I see what you are getting at. As the monitor components are only considered when there topology
+>>>> matches the l3 cache (same cpu affinity for each instance) then the find_component() call will never
+>>>> fail and so mon_comp can't be NULL at this point.
+>>>>
+>>>>>
+>>>>> At a high level there seems to be three affinity masks used by the monitoring code:
+>>>>> the CPU affinity of the component belonging to the control resource class, the CPU affinity
+>>>>> of each component supporting each monitoring event, while these are three separate masks with
+>>>>> code sometimes treating them as though they can be different they are actually required to be the same?
+>>>>
+>>>> Monitor component CPU affinity is enforced by topology_matches_l3() to be the same as the L3.
+>>>> Additionally, traffic_matches_l3() adds extra conditions that mean that there can be considered an
+>>>> uninterrupted link between l3 and memory and so an MSC at either end is effectively the same. Namely
+>>>> the same restrictions I've mentioned before, only a single l3 cache, a single NUMA node and no
+>>>> intermediate caches.
+>>>>
+>>>> You list two rather than three here? Possibly you are also thinking the MSC cpu affinity which can
+>>>
+>>> I did mention three masks. Thank you for clarifying how the one mask (the "ctrl_comp" one) is associated with
+>>> either that of the control class or the same as the class associated with the first event. 
+>>
+>> Ah yes, I misunderstood.
+>>
+>>>
+>>> Regarding the other two masks: it seems to me as though the CPU masks associated with the two supported events
+>>> are managed separately. This means that theoretically the class associated with QOS_L3_OCCUP_EVENT_ID could have
+>>> components with different affinity from the components of the class associated with QOS_L3_MBM_TOTAL_EVENT_ID. A CPU
+>>> being onlined could thus be associated with QOS_L3_OCCUP_EVENT_ID (resulting in mon_comp being
+>>> initialized for this CPU) but not with QOS_L3_MBM_TOTAL_EVENT_ID (mon_comp is NULL for the same CPU). In
+>>> this scenario, "any_mon_comp" will be true and the domain created and onlined while it does not
+>>> actually support both events?
+>>
+>> Hmm, it depends what you mean by "theoretically". In mpam_resctrl_pick_counters() the class to back
+>> each event is chosen. For QOS_L3_OCCUP_EVENT_ID it will always be the class at the L3. For
+>> QOS_L3_MBM_TOTAL_EVENT_ID the topology_matches_l3() call will check the cpu mask matches the L3.
+>> Does that answer query or am I missing something else?
+> I mean "theoretically" because it seems that the CPU online code (specifically domain creation) supports
+> the scenario where these CPU masks of the two events are different (mon_comp can be set for one event but
+> not the other) while the rest of the driver seems to make an effort to keep these CPU masks identical (as
+> you highlight) and there is not actually support for them being different.
+> 
+> The planned changes discussed here are for the domain creation and will touch the code handling this
+> scenario. I was hoping to just change the data structures while maintaining the current flows as closely
+> as possible. I currently struggle with maintaining this flow that can never, and more importantly should
+> never, be encountered.
 
-Fix by introducing a claim tag init function that will read CLAIMSET
-to establish then actual number of claim tags and save a claim tag info
-flag to indicate the level of support in the device.
+I see, makes sense.
 
-Additionally this init routine will also clear down any stale self claim
-tag bits that are present in the hardware - removing the need for the
-additional interface that was added to accomplish this during device probe.
+> 
+> Do (admittedly crude) guardrails like below capture the existing driver requirements?
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 9d223057953a..dbd06371890c 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -1681,11 +1681,18 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>  				continue;       // dummy resource
+>  
+>  			mon_comp = find_component(mon->class, cpu);
+> +			if (!mon_comp) {
+> +				WARN_ON_ONCE(0);
+> +				err = -EFAULT;
+> +				goto offline_ctrl_domain;
+> +			}
+>  			dom->mon_comp[eventid] = mon_comp;
+> -			if (mon_comp)
+> -				any_mon_comp = mon_comp;
+> +			any_mon_comp = mon_comp;
 
-Any device which is not verified to support claim tags, will now get a
-success return from the claim/disclaim calls.
+This first part which ensures that if there is a class for the monitor then a component can always
+be found for the given CPU.
 
-Device drivers can also force skipping of claim tag support checks where
-hardware does not support any readable registers at the claim tag
-location.
+>  		}
+> -		if (!any_mon_comp) {
 
-Signed-off-by: Mike Leach <mike.leach@arm.com>
----
- drivers/hwtracing/coresight/coresight-catu.c  |   6 +-
- drivers/hwtracing/coresight/coresight-core.c  | 139 ++++++++++++++++--
- .../hwtracing/coresight/coresight-cti-core.c  |   7 +-
- drivers/hwtracing/coresight/coresight-etb10.c |   9 +-
- .../coresight/coresight-etm3x-core.c          |   8 +-
- .../coresight/coresight-etm4x-core.c          |   8 +-
- .../hwtracing/coresight/coresight-funnel.c    |   7 +-
- drivers/hwtracing/coresight/coresight-priv.h  |   7 +
- .../coresight/coresight-replicator.c          |   9 +-
- .../hwtracing/coresight/coresight-tmc-core.c  |   7 +-
- include/linux/coresight.h                     |  23 ++-
- 11 files changed, 205 insertions(+), 25 deletions(-)
+The any_mon_comp check could still be useful to confirm that if r->mon_capable then there is a
+component for at least one of the events.
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index ad8dafea7d2f..7db53dbeff2b 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -574,10 +574,14 @@ static int __catu_probe(struct device *dev, struct resource *res)
- 	catu_desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU;
- 	catu_desc.ops = &catu_ops;
- 
--	coresight_clear_self_claim_tag(&catu_desc.access);
- 	drvdata->csdev = coresight_register(&catu_desc);
- 	if (IS_ERR(drvdata->csdev))
- 		ret = PTR_ERR(drvdata->csdev);
-+
-+	ret = coresight_init_claim_tags(drvdata->csdev);
-+	if (ret)
-+		coresight_unregister(drvdata->csdev);
-+
- out:
- 	return ret;
- }
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 6d65c43d574f..a21a77795e18 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -232,6 +232,34 @@ coresight_find_out_connection(struct coresight_device *csdev,
- 	return ERR_PTR(-ENODEV);
- }
- 
-+/*
-+ * Reading CLAIMSET returns a bitfield representing the number of claim tags
-+ * implemented from bit 0 to bit nTag-1, valid bits set to 1.
-+ *
-+ * Claim protocol requires 2 bits so test for MS bit required,
-+ * bit 1 -  CORESIGHT_CLAIM_SELF_HOSTED
-+ *
-+ * return true if sufficient claim tags implemented for protocol
-+ */
-+static bool coresight_claim_tags_implemented_unlocked(struct csdev_access *csa)
-+{
-+	u32 claim_bits_impl = FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-+			 csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-+	return ((claim_bits_impl & CORESIGHT_CLAIM_SELF_HOSTED) != 0);
-+}
-+
-+/* helper for checking if claim tag protocol in use */
-+static bool coresight_using_claim_tag_protocol(struct coresight_device *csdev)
-+{
-+	return (csdev->claim_tag_info == CS_CLAIM_TAG_STD_PROTOCOL);
-+}
-+
-+/* helper to check initialised */
-+static bool coresight_claim_tag_noinit(struct coresight_device *csdev)
-+{
-+	return (csdev->claim_tag_info == CS_CLAIM_TAG_UNKNOWN);
-+}
-+
- static u32 coresight_read_claim_tags_unlocked(struct coresight_device *csdev)
- {
- 	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-@@ -245,23 +273,97 @@ static void coresight_set_self_claim_tag_unlocked(struct coresight_device *csdev
- 	isb();
- }
- 
--void coresight_clear_self_claim_tag(struct csdev_access *csa)
-+static void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
-+{
-+	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
-+				     CORESIGHT_CLAIMCLR);
-+	isb();
-+}
-+
-+/*
-+ * Initialise claim tag protocol.
-+ *
-+ * Check for existence of claim tags and clear down any stale
-+ * existing self claim tag.
-+ *
-+ * Set claim tag protocol usage flag.
-+ *
-+ * Automatically unlocks/relocks memory mapped devices.
-+ *
-+ * Call during device probe.
-+ */
-+int coresight_init_claim_tags(struct coresight_device *csdev)
- {
-+	struct csdev_access *csa;
-+
-+	if (WARN_ON(!csdev))
-+		return -EINVAL;
-+
-+	/* if previous init or forced ignore claim tag,  no checks needed */
-+	if (csdev->claim_tag_info != CS_CLAIM_TAG_UNKNOWN) {
-+		if (csdev->claim_tag_info == CS_CLAIM_TAG_IGNORE)
-+			dev_dbg(&csdev->dev,
-+				"Device set to ignore claim tag protocols\n");
-+		return 0;
-+	}
-+
-+	/* get the access method */
-+	csa = &csdev->access;
-+
-+	/* unlock if memory access */
- 	if (csa->io_mem)
- 		CS_UNLOCK(csa->base);
--	coresight_clear_self_claim_tag_unlocked(csa);
-+
-+	/* check claim tag validity */
-+	if (coresight_claim_tags_implemented_unlocked(csa)) {
-+		csdev->claim_tag_info = CS_CLAIM_TAG_STD_PROTOCOL;
-+		dev_dbg(&csdev->dev, "Device using standard claim tag protocol\n");
-+
-+		/* using claim tags so clear down any stale self claim tag */
-+		coresight_clear_self_claim_tag_unlocked(csa);
-+	} else {
-+		csdev->claim_tag_info = CS_CLAIM_TAG_NOT_IMPL;
-+		dev_dbg(&csdev->dev, "Device claim tag hardware not implemented\n");
-+	}
-+
-+	/* relock if memory access */
- 	if (csa->io_mem)
- 		CS_LOCK(csa->base);
-+
-+	/* return success - caller can check claim_tag_info for state */
-+	return 0;
- }
--EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
-+EXPORT_SYMBOL_GPL(coresight_init_claim_tags);
-+
-+struct cs_claim_tag_init_arg {
-+	struct coresight_device *csdev;
-+	int rc;
-+};
- 
--void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
-+static void coresight_init_claim_tags_smp_call(void *info)
- {
--	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
--				     CORESIGHT_CLAIMCLR);
--	isb();
-+	struct cs_claim_tag_init_arg *arg = info;
-+
-+	arg->rc = coresight_init_claim_tags(arg->csdev);
- }
--EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
-+
-+/* cpu bound devices (etms) may need to run on bound cpu */
-+int coresight_init_claim_tags_cpu_smp(struct coresight_device *csdev, int cpu)
-+{
-+	int ret = 0;
-+	struct cs_claim_tag_init_arg arg = { };
-+
-+	arg.csdev = csdev;
-+	ret = smp_call_function_single(cpu,
-+				       coresight_init_claim_tags_smp_call,
-+				       &arg, 1);
-+
-+	if (!ret)
-+		ret = arg.rc;
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(coresight_init_claim_tags_cpu_smp);
- 
- /*
-  * coresight_claim_device_unlocked : Claim the device for self-hosted usage
-@@ -276,12 +378,18 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
- int coresight_claim_device_unlocked(struct coresight_device *csdev)
- {
- 	int tag;
--	struct csdev_access *csa;
- 
- 	if (WARN_ON(!csdev))
- 		return -EINVAL;
- 
--	csa = &csdev->access;
-+	/* check init complete */
-+	if (WARN_ON(coresight_claim_tag_noinit(csdev)))
-+		return -EPERM;
-+
-+	/* check if we are using claim tags on this device */
-+	if (!coresight_using_claim_tag_protocol(csdev))
-+		return 0;
-+
- 	tag = coresight_read_claim_tags_unlocked(csdev);
- 
- 	switch (tag) {
-@@ -291,7 +399,7 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
- 			return 0;
- 
- 		/* There was a race setting the tag, clean up and fail */
--		coresight_clear_self_claim_tag_unlocked(csa);
-+		coresight_clear_self_claim_tag_unlocked(&csdev->access);
- 		dev_dbg(&csdev->dev, "Busy: Couldn't set self claim tag");
- 		return -EBUSY;
- 
-@@ -338,6 +446,14 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
- 	if (WARN_ON(!csdev))
- 		return;
- 
-+	/* check init complete */
-+	if (WARN_ON(coresight_claim_tag_noinit(csdev)))
-+		return;
-+
-+	/* check if we are using claim tags on this device */
-+	if (!coresight_using_claim_tag_protocol(csdev))
-+		return;
-+
- 	if (coresight_read_claim_tags_unlocked(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
- 		coresight_clear_self_claim_tag_unlocked(&csdev->access);
- 	else
-@@ -1543,6 +1659,7 @@ coresight_init_device(struct coresight_desc *desc)
- 	csdev->ops = desc->ops;
- 	csdev->access = desc->access;
- 	csdev->orphan = true;
-+	csdev->claim_tag_info = CS_CLAIM_TAG_UNKNOWN;
- 
- 	if (desc->flags & CORESIGHT_DESC_CPU_BOUND) {
- 		csdev->cpu = desc->cpu;
-diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index b2c9a4db13b4..436ae2d8a7b9 100644
---- a/drivers/hwtracing/coresight/coresight-cti-core.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -729,11 +729,16 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	cti_desc.groups = drvdata->ctidev.con_groups;
- 	cti_desc.dev = dev;
- 
--	coresight_clear_self_claim_tag(&cti_desc.access);
- 	drvdata->csdev = coresight_register(&cti_desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	ret = coresight_init_claim_tags(drvdata->csdev);
-+	if (ret) {
-+		coresight_unregister(drvdata->csdev);
-+		return ret;
-+	}
-+
- 	/* add to list of CTI devices */
- 	mutex_lock(&ect_mutex);
- 	list_add(&drvdata->node, &ect_net);
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index a827f76b8144..339d902ce88a 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -769,22 +769,25 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
- 	desc.dev = dev;
- 	desc.groups = coresight_etb_groups;
- 
--	coresight_clear_self_claim_tag(&desc.access);
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	ret = coresight_init_claim_tags(drvdata->csdev);
-+	if (ret)
-+		goto err_unregister_csdev;
-+
- 	drvdata->miscdev.name = desc.name;
- 	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
- 	drvdata->miscdev.fops = &etb_fops;
- 	ret = misc_register(&drvdata->miscdev);
- 	if (ret)
--		goto err_misc_register;
-+		goto err_unregister_csdev;
- 
- 	pm_runtime_put(&adev->dev);
- 	return 0;
- 
--err_misc_register:
-+err_unregister_csdev:
- 	coresight_unregister(drvdata->csdev);
- 	return ret;
- }
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 862ad0786699..3d24bcac14ec 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -756,7 +756,6 @@ static void etm_init_arch_data(void *info)
- 	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
- 	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
- 
--	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
- 	etm_set_pwrdwn(drvdata);
- 	etm_clr_pwrup(drvdata);
- 	CS_LOCK(drvdata->csa.base);
-@@ -852,6 +851,13 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	/* init the claim tag protocol - ensure run on correct cpu */
-+	ret = coresight_init_claim_tags_cpu_smp(drvdata->csdev, drvdata->cpu);
-+	if (ret) {
-+		coresight_unregister(drvdata->csdev);
-+		return ret;
-+	}
-+
- 	ret = etm_perf_symlink(drvdata->csdev, true);
- 	if (ret) {
- 		coresight_unregister(drvdata->csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 2247ad55d444..2b6cc19cf06f 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1522,7 +1522,6 @@ static void etm4_init_arch_data(void *info)
- 	/* NUMCNTR, bits[30:28] number of counters available for tracing */
- 	drvdata->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
- 
--	coresight_clear_self_claim_tag_unlocked(csa);
- 	etm4_cs_lock(drvdata, csa);
- 	cpu_detect_trace_filtering(drvdata);
- }
-@@ -2206,6 +2205,13 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	/* init the claim tag protocol - ensure run on correct cpu */
-+	ret = coresight_init_claim_tags_cpu_smp(drvdata->csdev, drvdata->cpu);
-+	if (ret) {
-+		coresight_unregister(drvdata->csdev);
-+		return ret;
-+	}
-+
- 	ret = etm_perf_symlink(drvdata->csdev, true);
- 	if (ret) {
- 		coresight_unregister(drvdata->csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 0abc11f0690c..fe0a256ba1db 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -244,7 +244,6 @@ static int funnel_probe(struct device *dev, struct resource *res)
- 		drvdata->base = base;
- 		desc.groups = coresight_funnel_groups;
- 		desc.access = CSDEV_ACCESS_IOMEM(base);
--		coresight_clear_self_claim_tag(&desc.access);
- 	}
- 
- 	dev_set_drvdata(dev, drvdata);
-@@ -265,6 +264,12 @@ static int funnel_probe(struct device *dev, struct resource *res)
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	if (res) {
-+		ret = coresight_init_claim_tags(drvdata->csdev);
-+		if (ret)
-+			coresight_unregister(drvdata->csdev);
-+	}
-+
- 	return 0;
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index dddac946659f..fada0e49ed28 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -41,6 +41,13 @@ extern const struct device_type coresight_dev_type[];
- #define CORESIGHT_CLAIM_SELF_HOSTED	2
- #define CORESIGHT_CLAIM_INVALID		3
- 
-+/*
-+ * Coresight specification defines a maximum of 8 claim tag bits.
-+ * The precise number is implementation defined, and may be obtained by
-+ * reading the CLAIMSET register.
-+ */
-+#define CORESIGHT_CLAIM_BITS_MAX_MASK	GENMASK(7, 0)
-+
- #define TIMEOUT_US		100
- #define BMVAL(val, lsb, msb)	((val & GENMASK(msb, lsb)) >> lsb)
- 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 2f382de357ee..1c76c8b788e2 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -251,7 +251,6 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 		drvdata->base = base;
- 		desc.groups = replicator_groups;
- 		desc.access = CSDEV_ACCESS_IOMEM(base);
--		coresight_clear_self_claim_tag(&desc.access);
- 	}
- 
- 	if (fwnode_property_present(dev_fwnode(dev),
-@@ -276,6 +275,14 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
-+	if (res) {
-+		ret = coresight_init_claim_tags(drvdata->csdev);
-+		if (ret) {
-+			coresight_unregister(drvdata->csdev);
-+			return ret;
-+		}
-+	}
-+
- 	replicator_reset(drvdata);
- 	return 0;
- }
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index bc5a133ada3e..94e974f00a4e 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -864,13 +864,18 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 	dev->platform_data = pdata;
- 	desc.pdata = pdata;
- 
--	coresight_clear_self_claim_tag(&desc.access);
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev)) {
- 		ret = PTR_ERR(drvdata->csdev);
- 		goto out;
- 	}
- 
-+	ret = coresight_init_claim_tags(drvdata->csdev);
-+	if (ret) {
-+		coresight_unregister(drvdata->csdev);
-+		goto out;
-+	}
-+
- 	drvdata->miscdev.name = desc.name;
- 	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
- 	drvdata->miscdev.fops = &tmc_fops;
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index ddf18c970e34..e100344ab7bb 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -248,6 +248,20 @@ struct coresight_trace_id_map {
- 	raw_spinlock_t lock;
- };
- 
-+/*
-+ * Coresight claim tag info:
-+ * CS_CLAIM_TAG_UNKNOWN      - not yet checked.
-+ * CS_CLAIM_TAG_STD_PROTOCOL - using standard claim/release protocol.
-+ * CS_CLAIM_TAG_NOT_IMPL     - no claim tags available.
-+ * CS_CLAIM_TAG_IGNORE	     - force skip of claim tags protocol
-+ */
-+enum coresight_claim_tag_info {
-+	CS_CLAIM_TAG_UNKNOWN,
-+	CS_CLAIM_TAG_STD_PROTOCOL,
-+	CS_CLAIM_TAG_NOT_IMPL,
-+	CS_CLAIM_TAG_IGNORE,
-+};
-+
- /**
-  * struct coresight_device - representation of a device as used by the framework
-  * @pdata:	Platform data with device connections associated to this device.
-@@ -269,6 +283,7 @@ struct coresight_trace_id_map {
-  *		spinlock.
-  * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-  * @orphan:	true if the component has connections that haven't been linked.
-+ * @claim_tag_info: how the device is using claim tags.
-  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
-  *		by writing a 1 to the 'enable_sink' file.  A sink can be
-  *		activated but not yet enabled.  Enabling for a _sink_ happens
-@@ -297,6 +312,7 @@ struct coresight_device {
- 	int refcnt;
- 	int cpu;
- 	bool orphan;
-+	enum coresight_claim_tag_info claim_tag_info;
- 	/* sink specific fields */
- 	bool sysfs_sink_activated;
- 	struct dev_ext_attribute *ea;
-@@ -664,15 +680,14 @@ int coresight_timeout(struct csdev_access *csa, u32 offset, int position, int va
- typedef void (*coresight_timeout_cb_t) (struct csdev_access *, u32, int, int);
- int coresight_timeout_action(struct csdev_access *csa, u32 offset, int position, int value,
- 			     coresight_timeout_cb_t cb);
--int coresight_claim_device(struct coresight_device *csdev);
--int coresight_claim_device_unlocked(struct coresight_device *csdev);
- 
- int coresight_claim_device(struct coresight_device *csdev);
- int coresight_claim_device_unlocked(struct coresight_device *csdev);
--void coresight_clear_self_claim_tag(struct csdev_access *csa);
--void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa);
- void coresight_disclaim_device(struct coresight_device *csdev);
- void coresight_disclaim_device_unlocked(struct coresight_device *csdev);
-+int coresight_init_claim_tags(struct coresight_device *csdev);
-+int coresight_init_claim_tags_cpu_smp(struct coresight_device *csdev, int cpu);
-+
- char *coresight_alloc_device_name(const char *prefix, struct device *dev);
- 
- bool coresight_loses_context_with_cpu(struct device *dev);
--- 
-2.43.0
+> +
+> +		/* hack */
+> +		if (!cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
+> +				   &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity)) {
+
+There doesn't necessary need to be a monitoring class associated with any particular event. If there
+are classes and so components for each of the two supported events then this check looks correct.
+You could ensure that by checking existence:
+
+if (dom->mon_comp[QOS_L3_OCCUP_EVENT_ID] && dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID] &&
+    !cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
+	           &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity))
+
+
+Thanks,
+
+Ben
+
+
+>  			WARN_ON_ONCE(0);
+>  			err = -EFAULT;
+>  			goto offline_ctrl_domain;
+> 
+> 
+> Reinette
+> 
+> 
 
 
