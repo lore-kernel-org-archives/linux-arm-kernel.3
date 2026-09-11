@@ -4,53 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0CF4C88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14CCC88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Sep 2026 14:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNH/OsYIcw2SwCqHABXaQbKVWhGxSRFZUcnJDpFWP4k=; b=Zr1LxLIy6yqppH5uo/hD5rpBLO
-	9auUgvpz0r4cnnQ9yQHyyWGRNLGWTB0rRLnthHkDyfTpr6Q4NJ3Agg8tRbhvtvW1/XuPF0xB3aZYa
-	N65rPyiS+eMTC6moCVYAqOZ8MZiW6Ap5YMpzEvCA6gpC3W12QHL/U3c1WgycHOJ8sxNBYfn5CwlIX
-	H0KhuHVhYVL82QdxTH1QTtZfoxxtvqc2/rG5nsnpUBlf5elgtb0/M8AwXMei2mbmlHYrFkfljpxha
-	2cUAdhHI5j7c5/A7MSUUVzTE0VL81uZEHwzKYWO681r4zDg09Yh94pWbtZSbmPANVWz6yKwej8rAH
-	bdCC9+og==;
+	bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=; b=3lBqATBLdW16/Tzg4jbj4O0t1v
+	ULA7sv0VDGvhNThDJSwZ1ysqHTWrN3Z3VhT/0rRxdpbyHaKoPofDAF3CTiNzVN8Ac2GfCBdORTnet
+	PCkZjJGp78rvVMoK5nMP7Hz3zO1xB88BQRL7iZeGtHQlCCdiRF9qpNGTJgbI50V3hJRnfTe6PccOh
+	W7GiDlpj4w+robrmQn97eAu8avTtOLbINOYdFxEbew5R0wC4DpEPmXWyqi06J4+ijx5/WM4NrWZae
+	lqLDdLXydpvnbE6+WH8zkLsjcHm5Pxn/IDYqY3atrvoFNsz6K1vQcCY5/waZLN32B7+LYqvph2D9v
+	0TGIeRaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52EV-0000000GuWH-0EZ3;
-	Fri, 11 Sep 2026 14:28:03 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x51xG-0000000GrJH-15d6;
+	Fri, 11 Sep 2026 14:10:14 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x52EQ-0000000GuUt-07NI;
-	Fri, 11 Sep 2026 14:28:01 +0000
-Received: from monstersaurus.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8510663C;
-	Fri, 11 Sep 2026 16:26:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789136775;
-	bh=WzVA3xuZ5JdDGBqQbjJVlTNBllbYsKRQWabRga5ERUE=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=bx7OnAGre7KGRBkMjaytz3CoYbubcRbmabeSbTGp8hvXheaK6MZeL8YAqHLSkp6A8
-	 bfKDFS6ZTNCkZKeVzsLJiCafbH+E+8Eu+c7SYGvIxU1EFElpCX3z/96SktdqYHUiMz
-	 hL3/Ca78PdXrtLWp+crCNB4HLF+GCv9oBxX9xnTk=
-Content-Type: text/plain; charset="utf-8"
+	id 1x51x7-0000000GrEe-1BgF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Sep 2026 14:10:07 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-92f0b5ed131so121694285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 07:10:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1789135804; x=1789740604; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=;
+        b=hERtfNxBC18cBRvRYuaZBD9QLMOucexXjBOivpaKPS2mHhuDuCgTHMOSdW4z2DkhEX
+         feENG4fRVin4GK2ODYMJ6lkOG3T1cG5bKm15FY5tE6sBQovE89Ptmalnkn3DpYzZmGRd
+         GQcBV+sl901FL/a+ly6px72GHONQWKCloePlpjmEo/VnujwncS2MgLvR55Wg+k3/h+Xx
+         Mt+1IOV9G3P2oVW8tlMb6Jt4b1lrt12JnuGlfBcOXSoue1IS60XBPWJkP5AfXsFw0NLO
+         Ic/3VGVsWnBmDpi6aL/o8iuka6TUBNH0QTFhxs54udG/JBKLe7bSbqML7fKjcds0TBLS
+         MGWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789135804; x=1789740604;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hbVlQmHCpb9zv+5BDFsE+SK081jwlXFhk4tZhnaWY5k=;
+        b=O6S9QMlj0iKYOgkvW7NHdWLccIchu/HfIjRaniPpqy7YW1bsaYXJCDhb9Q9anHQLS1
+         WzDyipEiotv0ImuPjxLro+RhB3qVV11f3Ta+WLh43k1Hf+uscK/sM4cyovfQGr/pqnx1
+         oPLwrUS6IN19You4PNcwPTz192KTFUya12pKy8XzlQbWVtLP1CR/PAu13n6/AOPnLNMC
+         kSt7mN42a9oY8AkA3+GuxDqlaElWAfn1R5nnwZWL5DfyBaMtboHtOveBZQ/PyjxlTCl/
+         yMmvMjvSezly0d/gjXqkCxnODoBOqWKw0tKT4MKMKD79tACA+jKy1ooQqkpTgnwCAB6D
+         c9Yw==
+X-Forwarded-Encrypted: i=1; AKwUvBzYgSTgXOiI9BbkqRJ6b0KTnttm03mfFlZM9gxri2ZlF7b19haYSrysYaeG1F0rh9YDyMpZVCAPQh4EugHxbovv@lists.infradead.org
+X-Gm-Message-State: AFuF++mgoJAhGwACzZcXZhRhSILAsIsA5p0/GsL/KfPl3oyLTHqOov//
+	Mwu0rCjh5h70WUZkLcogFfvuLdYGqhn9ffCPWROSs6b/3G3et9IaHnfwiQJbwgxG/fQ=
+X-Gm-Gg: AYBFou0PXWnrTdl72Bf21S+mm4CRhPbt2KzPDh6PvGPWtfXZWP8J2gWG8Uxhi9DwSRw
+	25Sp1f5prSAgHNf4eaZSi8gjdace8gWSLm7VwiLQebc/VdF4R9Bg0hpbMMUAAyAKVEjczbUD9jZ
+	NklrHP0oD/8N6/Gwc/QiGctlnRXayvJGJdZOQUhL1DNp8KVSuGjSQOwm53wra1ZBuMiOfc1570X
+	AjzNbuAUQzrTcvcUbWqLoqng4V8S1jXp2emu6UkChG6Hwhy12KrRy1VghlXczmD3fSIN2V2mx6h
+	qo34a8H/5Pp8bQ9TLVmG4fY3qNyf364lWUJ75o62i80MqNBIqEab4neko1oEvLHHnKujH+QcY6M
+	EUhv6qVytv8fj+OqhO0v0J4Kes/p5PWPDNoVdhy8GiQpAGBs0hBo2qixuQORbaMVG3r7gmSctta
+	GMSPjjsy9TZXAHH45WpyTuxxzB0n/efZybmO7Da/BUO4qXgXQBbUIxWV9oUafbsHQx9JSLq1VC7
+	UlslKVs7Vv4ET2zNDz2mRFYmWYsnNj92yl1segvZzJI982v1Pq7BifF
+X-Received: by 2002:a05:620a:198d:b0:939:3a81:326 with SMTP id af79cd13be357-939ea18c166mr526461185a.37.1789135803738;
+        Fri, 11 Sep 2026 07:10:03 -0700 (PDT)
+Received: from toxicpanda.com (ec2-34-228-114-98.compute-1.amazonaws.com. [34.228.114.98])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-939f1dd527asm125166385a.16.2026.09.11.07.10.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 07:10:01 -0700 (PDT)
+From: Josef Bacik <josef@toxicpanda.com>
+Date: Fri, 11 Sep 2026 14:08:45 +0000
+Subject: [PATCH RFC v2 07/15] x86/kprobes: Maintain Tasks RCU trampoline
+ nesting in the optprobe template
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260911-imx8mp-demosaicing-bypass-v1-1-5568a7a560a6@ideasonboard.com>
-References: <20260911-imx8mp-demosaicing-bypass-v1-1-5568a7a560a6@ideasonboard.com>
-Subject: Re: [PATCH] media: rkisp1: Fix Bayer demosaicing bypass
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-To: Dafna Hirschfeld <dafna@fastmail.com>, Heiko Stuebner <heiko@sntech.de>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Paul Elder <paul.elder@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Date: Fri, 11 Sep 2026 15:27:50 +0100
-Message-ID: <178913687012.1723501.3167773155478207003@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260911-b4-rcu-tasks-preempt-qs-v2-7-eaaa61ed2da4@toxicpanda.com>
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+ Joel Fernandes <joelagnelf@nvidia.com>, Boqun Feng <boqun@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+ Xu Kuohai <xukuohai@huaweicloud.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+ Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
+ Juergen Gross <jgross@suse.com>, Luis Chamberlain <mcgrof@kernel.org>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, linux-kernel@vger.kernel.org, 
+ rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ xen-devel@lists.xenproject.org, Josef Bacik <josef@toxicpanda.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openssh-sha256; t=1789135736; l=2636;
+ i=josef@toxicpanda.com; h=from:subject:message-id;
+ bh=8cFDFeD2IXPN8Vlj1EymtW9Bi32PSZwsbXS468MRSTs=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
+ JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QE88Fo4D8KnMZviii3UcxtNsSOWitctfeeqTUeKrfDl5ze3tUkJnL+Us2LrW6ea29znHZAO8PVa
+ SQS9QIpNv5Ao=
+X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
+ fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_072800_187917_CCB79BF7 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20260911_071005_594467_6B6A1E4A 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,75 +129,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Jacopo Mondi (2026-09-11 14:56:19)
-> The RKISP1_CIF_ISP_DEMOSAIC_BYPASS bit, when set, bypasses the
-> demosaicing block on the RkISP1 ISP.
->=20
-> The current implementation however clears the bit when demosaicing
-> have to be bypassed and sets it when demosaicing has to be enabled,
-> effectively inverting the bypass bit handling logic.
+The jump-optimized kprobe template calls optimized_callback() with
+preemption still enabled for its first few instructions, so bracket the
+call with an increment/decrement of current->rcu_tramp_nesting.  The
+template lives in .rodata and is memcpy()d into each optinsn slot without
+relocation processing, so the per-CPU reference to current_task must be
+an absolute %gs: address (R_X86_64_32S, relocated for KASLR like any
+other) rather than %rip-relative.  %rax has already been saved by
+SAVE_REGS_STRING and is dead after the call.
 
-Ouch.
+The slot itself is dynamically allocated text, so the instructions before
+the increment and after the decrement are covered by the irq-exit IP
+check.  64-bit only; 32-bit x86 does not take part.
 
-> Fix this by setting the bypass bit when disabling the demosaicing block,
-> and by clearing it instead when demosaicing has to be performed.
->=20
-> The issue never manifested itself as libcamera hasn't an algorithm
-> to control Bayer demosaicing bypass yet.
->=20
-> Fixes: 6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> ---
-> media: rkisp1: Fix demosaicing bypass
-> ---
->  drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/dri=
-vers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> index 042b759eba62..496381962f1b 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> @@ -1854,8 +1854,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
->         const struct rkisp1_ext_params_bdm_config *bdm =3D &block->bdm;
-> =20
->         if (bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
-> -               rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-> -                                       RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
-> +               rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-> +                                     RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
->                 return;
->         }
-> =20
-> @@ -1863,8 +1863,8 @@ rkisp1_ext_params_bdm(struct rkisp1_params *params,
-> =20
->         if ((bdm->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
->             !(params->enabled_blocks & BIT(bdm->header.type)))
-> -               rkisp1_param_set_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-> -                                     RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
-> +               rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DEMOSAIC,
-> +                                       RKISP1_CIF_ISP_DEMOSAIC_BYPASS);
+Assisted-by: LLM
+Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+---
+ arch/x86/kernel/kprobes/opt.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
+diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
+index 3f8fea52619f..f722520bb989 100644
+--- a/arch/x86/kernel/kprobes/opt.c
++++ b/arch/x86/kernel/kprobes/opt.c
+@@ -31,6 +31,7 @@
+ #include <asm/set_memory.h>
+ #include <asm/sections.h>
+ #include <asm/nospec-branch.h>
++#include <asm/asm-offsets.h>
+ 
+ #include "common.h"
+ 
+@@ -101,6 +102,23 @@ static void synthesize_set_arg1(kprobe_opcode_t *addr, unsigned long val)
+ 	*(unsigned long *)addr = val;
+ }
+ 
++/*
++ * Tasks RCU trampoline nesting, see rcu_tasks_trampoline_enter().  The
++ * template is memcpy()d into the slot without relocation processing, so the
++ * per-CPU reference must be absolute, not %rip-relative.
++ */
++#if defined(CONFIG_TASKS_RCU) && defined(CONFIG_X86_64)
++#define OPTPROBE_RCU_TASKS_ENTER					\
++			"	movq %gs:current_task, %rax\n"		\
++			"	incl " __stringify(TASK_rcu_tramp_nesting) "(%rax)\n"
++#define OPTPROBE_RCU_TASKS_EXIT					\
++			"	movq %gs:current_task, %rax\n"		\
++			"	decl " __stringify(TASK_rcu_tramp_nesting) "(%rax)\n"
++#else
++#define OPTPROBE_RCU_TASKS_ENTER
++#define OPTPROBE_RCU_TASKS_EXIT
++#endif
++
+ asm (
+ 			".pushsection .rodata\n"
+ 			".global optprobe_template_entry\n"
+@@ -114,6 +132,7 @@ asm (
+ 			"optprobe_template_clac:\n"
+ 			ASM_NOP3
+ 			SAVE_REGS_STRING
++			OPTPROBE_RCU_TASKS_ENTER
+ 			"	movq %rsp, %rsi\n"
+ 			".global optprobe_template_val\n"
+ 			"optprobe_template_val:\n"
+@@ -122,6 +141,7 @@ asm (
+ 			".global optprobe_template_call\n"
+ 			"optprobe_template_call:\n"
+ 			ASM_NOP5
++			OPTPROBE_RCU_TASKS_EXIT
+ 			/* Copy 'regs->flags' into 'regs->ss'. */
+ 			"	movq 18*8(%rsp), %rdx\n"
+ 			"	movq %rdx, 20*8(%rsp)\n"
 
-I think this also opens us up to add mono formats as explicitly
-supported by the ISP and potentially set the demosaic defaulting to off
-in that instance?
+-- 
+2.55.0
 
-Anyway, Looks sane to me in this order.
-
-Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-
->  }
-> =20
->  static void
->=20
-> ---
-> base-commit: 27953c044974baf7e24dee3e9342fe0103dea80c
-> change-id: 20260911-imx8mp-demosaicing-bypass-bb284d9cca60
->=20
-> Best regards,
-> -- =20
-> Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->
 
