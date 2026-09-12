@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433E2C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 10:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F82FC79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 10:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bdbvte0+CitU7dEGN6OVeRkmpffddfmnG/xB5jCYKZk=; b=Xlt/zwDrYTaHUhWD8ErksPsgsR
-	PfCHZG7PFBbVUlDEQIkdJWg3BgZuULwKTuv4BKN2nxbWbaJVdGAoQmfLYdGI8ecNHzBndjbLjFsuw
-	uYY+wazZIjlHEvsDkXr4WfQO/evKj651W/ITVYXbAhgJ6/zIC8k9FMDnMb4GZGgnBaUUK9o16oTjc
-	cN6MTVDqN+nmOC76vQjYmHZxzpGaiehTMawZUqzS+axib1s37PdoiVGxly/KvfTlBuUHd6DegSp/o
-	aa0JVERNEJpMlxsT+GvCZILkkAvynLazCR2ntVYQbGZSKsY51l5ks9TVS5ZF0BLyyBEgyHaHWJu6y
-	qnOYYZVQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lqHXjcVnGTBQ1bsrr/Fc3iQEP7fL/Kd/ZHlhsq2jKSg=; b=1civL+1uG3FlCYH9/CLFV3+FRM
+	nNNxjq1z2NpwvWelWt4WKYgxYtHp5HgDDdAhSckHAvgV6aQ7m64JT5NroLApRhzxToy0OgWFBrqrn
+	MeLyJZIPqynXVYTIKE7Z0PJOIqkdmsd9CurbWh0AZqwfd48z1D5ShnXG9BpfbTtTJZCPSbXB0wn5j
+	mHXzcmwLxjoVCL2hCDnAUGctX8dMYUenhqOCyUKD6PklNm8ERq+S8ZTk+IhtXpDUrZj/oSp9m9JbC
+	qpd8/RXx14fm//eAHcobt/F9O0fIlyOMX1qscm0zdsJPT+RQA2N4f/BwEyVPslJxB7dyLm0nKyYOc
+	is/0hmjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5LHo-00000000nZJ-3lQP;
+	id 1x5LHo-00000000nYa-2xQh;
 	Sat, 12 Sep 2026 10:48:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5LHn-00000000nXt-0GTn
+	id 1x5LHm-00000000nXp-3hMe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 10:48:43 +0000
+	Sat, 12 Sep 2026 10:48:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA6B4419D9;
-	Sat, 12 Sep 2026 10:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC2551F00898;
+	by tor.source.kernel.org (Postfix) with ESMTP id 13E70601F1;
+	Sat, 12 Sep 2026 10:48:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC1011F00893;
 	Sat, 12 Sep 2026 10:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1789210121;
-	bh=bdbvte0+CitU7dEGN6OVeRkmpffddfmnG/xB5jCYKZk=;
-	h=From:To:Cc:Subject:Date;
-	b=icHDUr/QHpVJPWBa6qt/im9UB1tpQSq1Mmpk9TKwOK/8nJPqrnHz5ALgSJOiW/8GT
-	 ClOt1sE5TLHYvUY2RT6Jl1fEU8DQWqc0jIhy5GaRkpeuoclWwY//FdpIEH4Y33Zb/r
-	 h68aki7kj75q1A6vjh1JtWaVyWXOcgpdA2IdxhkmkyVKBwu0oe70dK3M+aPjD99uJD
-	 KSHVi7FCKAluCHBtas5xqTwpap9X9uHUVGDUy/oOMnsJzQet5jDbL5oIkd7KwdrVwf
-	 4yxIg+lCh4eJf8fTVYPOEsIZuoDzB2OBQz5dkLFpqmCAcwNLZ635YMUmDFJU8+0XpZ
-	 7By741Joqf+2w==
+	bh=lqHXjcVnGTBQ1bsrr/Fc3iQEP7fL/Kd/ZHlhsq2jKSg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=UPQn6Hk6L3XaClKSjURgEoqrzMQxg8Ho2mk3WOjlxjxGmQ59sKFnZoJSjkHUd+jz8
+	 9pdsbnlYCEb10NKeAGJT4kAaYB1RyP1qhbodrWOe3gedlMiUNDtIj8JiSYM9UW8n3K
+	 nCmrXQcpm7hiNFMq50vduLY1Md3rfv3s+/nQIm0ycxexwlkOh1Ui17eLmrYzT6Ya/I
+	 6Dla2iiHgt0QOp5QjKRdXphpfDtMo74GR+H6gnFrLAHDGp4isH/mSRq4m+HbU/Xj/W
+	 e7houfmX///x78aoEotAVDauvlgq7ENdNeuSGZ4nsW/pM3PtH4MFVHzEMwzq1b6kqA
+	 V43vbULHFVyuQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x5LHj-000000084hK-1QCw;
+	id 1x5LHj-000000084hK-3oow;
 	Sat, 12 Sep 2026 10:48:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -60,10 +60,12 @@ Cc: Wei-Lin Chang <weilin.chang@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH 0/4] KVM: arm64: Reduce overhead of full S2 teardown
-Date: Sat, 12 Sep 2026 11:48:30 +0100
-Message-ID: <20260912104834.3093878-1-maz@kernel.org>
+Subject: [PATCH 2/4] KVM: arm64: MMU: Add kvm_stage2_unmap_all() helper
+Date: Sat, 12 Sep 2026 11:48:32 +0100
+Message-ID: <20260912104834.3093878-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260912104834.3093878-1-maz@kernel.org>
+References: <20260912104834.3093878-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,42 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tearing down a full S2 is a pretty involved process, resulting in a
-lot of TLB invalidation. These TLBIs are either on a per leaf basis if
-the HW doesn't support range invalidation, or by top-level range if it
-does. Amusingly, the latter occurs even when nothing has been
-unmapped.
+Build on top of kvm_pgtable_stage2_unmap_notlbi() to provide a primitive
+tearing down a whole Stage-2 MMU and invalidating the corresponding TLBs
+by VMID, which is far more efficient than performing range invalidation
+(or even worse, single mappings).
 
-Things are made worse with NV, as we have a bucket-load of shadow S2s,
-and the need to invalidate them all on the back of an MMU notifier.
-The latter will eventually be solved by the reverse-map tracking that
-Wei-Lin is working on, but we need to be better at full-S2 teardown.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_mmu.h |  1 +
+ arch/arm64/kvm/mmu.c             | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+)
 
-This small series adds a "no TLBI" unmapping primitive, which allows
-the caller to then whack the TLBs using a VMID-wide invalidation. This
-results in far fewer TLBIs, and a better recursive virtualisation as
-we get far fewer traps as a consequence.
-
-This applies on top of my shadow-s2 lifetime fixes, and is expected to
-be a prefix to Wei-Lin's series.
-
-Marc Zyngier (4):
-  KVM: arm64: pgtable: Add Stage-2 unmap without TLBI primitive
-  KVM: arm64: MMU: Add kvm_stage2_unmap_all() helper
-  KVM: arm64: nv: Move full s2_mmu unmap over to kvm_stage2_unmap_all()
-  KVM: arm64: nv: Move TLBI VMALLS12E1* emulation over to
-    kvm_stage2_unmap_all()
-
- arch/arm64/include/asm/kvm_mmu.h     |  1 +
- arch/arm64/include/asm/kvm_pgtable.h | 17 +++++++++++++
- arch/arm64/include/asm/kvm_pkvm.h    |  1 +
- arch/arm64/kvm/hyp/pgtable.c         | 38 +++++++++++++++++++++-------
- arch/arm64/kvm/mmu.c                 | 15 +++++++++++
- arch/arm64/kvm/nested.c              |  4 +--
- arch/arm64/kvm/pkvm.c                |  2 ++
- arch/arm64/kvm/sys_regs.c            | 18 ++++++-------
- 8 files changed, 75 insertions(+), 21 deletions(-)
-
+diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+index 6eae7e7e2a684..f450557d4b7b3 100644
+--- a/arch/arm64/include/asm/kvm_mmu.h
++++ b/arch/arm64/include/asm/kvm_mmu.h
+@@ -171,6 +171,7 @@ void __init free_hyp_pgds(void);
+ 
+ void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+ 			    u64 size, bool may_block);
++void kvm_stage2_unmap_all(struct kvm_s2_mmu *mmu, bool may_block);
+ void kvm_stage2_flush_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end);
+ void kvm_stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end);
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 9ba86450fe4af..68bfd09870b76 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -346,6 +346,21 @@ void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+ 	__unmap_stage2_range(mmu, start, size, may_block);
+ }
+ 
++void kvm_stage2_unmap_all(struct kvm_s2_mmu *mmu, bool may_block)
++{
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
++
++	if (kvm_vm_is_protected(kvm))
++		return;
++
++	lockdep_assert_held_write(&kvm->mmu_lock);
++	WARN_ON(stage2_apply_range(mmu, 0, kvm_phys_size(mmu),
++				   KVM_PGT_FN(kvm_pgtable_stage2_unmap_notlbi),
++				   may_block));
++
++	kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
++}
++
+ void kvm_stage2_flush_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
+ {
+ 	stage2_apply_range_resched(mmu, addr, end, KVM_PGT_FN(kvm_pgtable_stage2_flush));
 -- 
 2.47.3
 
