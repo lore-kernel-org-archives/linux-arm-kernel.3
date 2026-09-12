@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B825DC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 09:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0DEC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 10:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIDaovYKooHqH78d/6XZ6tf1fVeqSDWOw5EQD+FAKCk=; b=Uylb1iVjP6NU4MUTAe7ve6zcY9
-	DnWuT/KtWrnFuXoSUTsEwz7kOLSuu/jYFWXaTfVPzu0UPBARjLNMRsieTfMyr65Da+xxzZI3MU8sm
-	dKXHJg83ejDmux0XFrIU85GR/efZJ8OnNT3mcbpZNfk4AJUcpuoa9RT1whu2te4P6+GnRSc8gmB/e
-	APsJdYK7YEg2VZ2VeXiPtWvHX4WBOGTyX5j7jF44XU/UTL7j9iDhTYGdRl8L24wekaS7j8e0bOHhe
-	5Ek1prcDbU/EEOUM66Qi7ymcSb6/5EbyGc/LDjmrP6GAIUcx/tPHqGbdxVnXh19vfdr+QEHFh9SEk
-	8EcKiS2Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2hOyG2nrHECF3VQfVstDdXpYoOnMejT29j+W3a7NumM=; b=aSfC5iVR2UENJqJoSrCo7XbwXv
+	WVst9HzDf0wEKMyJD151vplClJOWMGAvIg/ehUpnP81o+7EnvxhxqmEADCN7jtFh6TV5A9eQ3e56X
+	Oc+dO8DH9MYK1R8WFBiFSMXmJyjDHQPtY5d48HU+s7AmfD8YLU101TUMHEYgWqNhZvo2sRNB/hG/G
+	G+4n5Bldssh3a4QWFHoPQDV4Lv3hGuLes+r0mrjvtGQtfHFGrD0+ML6AyiplIMlAB49rjhZ6iZmNW
+	eb3NQh9JQOVeFt259y3A9+XbzGKQXYiV3L7YuorDwE3tSBPLoaAXzTqa1SsxAF3t2SbyG2A0ZrqWi
+	1gMo7XKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5K4X-00000000kH7-2XS9;
-	Sat, 12 Sep 2026 09:30:57 +0000
+	id 1x5Ke5-00000000lLF-2OPb;
+	Sat, 12 Sep 2026 10:07:41 +0000
 Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5K4Q-00000000kFy-3eW3
+	id 1x5Ke3-00000000lKt-23m3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 09:30:54 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e64ccso4532815e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 02:30:50 -0700 (PDT)
+	Sat, 12 Sep 2026 10:07:40 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d37b5so3830605e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 03:07:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789205449; x=1789810249; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wIDaovYKooHqH78d/6XZ6tf1fVeqSDWOw5EQD+FAKCk=;
-        b=WMiAb2triWWbk9pIFjqk+aN4wlflpPANspaeP7Y46eu5cwM5VzdjwWR8wkDdDL3EOg
-         BA6GFjJrH5C2TgCmHihBsS2D1bUtASU9dPcFEIHIWGiQBbsrb+YjrKGfS4h2LCzE5D20
-         BgyeQG7m5xQ2IQrb49R87rSeJhpo7PbYEwFzzT7wivpthNQsplsRNxfFEe721K6f5Q7M
-         kAEIhHXgCN5ihpU0dsqXbxS5dqaee+LPvTJoRUxkDbltUq0FF0oj4HDk0jKNOYxmQRAy
-         QZI52Ln3gABi6SQjTXGKmBWQIi0hLoHRmIBKJO0KnCrF445S7iuMgS8Osl24CndTC7IJ
-         +MTA==
+        d=gmail.com; s=20251104; t=1789207657; x=1789812457; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2hOyG2nrHECF3VQfVstDdXpYoOnMejT29j+W3a7NumM=;
+        b=Y+zpXFGCRCKI9PzK03QuqQLgu8r08bFMzYjS93EP/iFSWCFUK+0icsNmh4GCZdUC1h
+         4F3zyzypnCiG+2eFWKcYc3wQnl1viFQWP7MoKbKunaRVleWGk8l4AlX8cyMLUNS88XJ3
+         TCWeJIZByOiQt04/0lYuDHe5OHLxkFuRRUsdkmmf+8yHqlIGcPt9tejiLa4kTVq/8z8o
+         gXPzl9x9ZXQj4HkEwPFHCRn8aTcCao5YK/Cqk01GOOVjwO3keq/hf3liI63qZNBtxZ8Q
+         OjD070jxq7PnkMmZD7p9PH3T883Uzo2mgOQ0py8Ys6d9buuWZO7Ao98aAuVk2jPajE0g
+         afqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789205449; x=1789810249;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wIDaovYKooHqH78d/6XZ6tf1fVeqSDWOw5EQD+FAKCk=;
-        b=hf3H5nLTHGTS03dyUcCZSeC9GzWAjnQ35Z61HLj2TYPZNOe0d4OZBDt8aIgtBPOfq6
-         nhSW2uW+rsmWM9vDcWC7s8EM8FjWA5MELurRhWoGRCxSexwGedtpnY2xsEen9z2N4ymJ
-         Wvd1xpq6yoJy/GBGvw51O1y60DSdHqT5M7oaOTxfuQackc/CUb3YnpQm1DZTxnAWI9pm
-         VGlraweoJiH0qI3JqcBTQkn5Rt6JLmq8t8YeJY3HDzjrFDyjAV8fF8kHqFVCzIiVTG9f
-         lBZG7pD1JYnhKWd0BxiARIkDgk5FtWrUlqwksI8vi45goyXtlQTFN7WWjUmSng77lExU
-         LkZQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxWhP4MraiKQGiOL1Rgm/Aug0MtHOiNlEEAiO45N2Oq2VMWDmYn1xQzBU3kGJWUA8pdcj/Llsx1M5aqLQ0+hJly@lists.infradead.org
-X-Gm-Message-State: AFuF++lO4alIpGF2OF0vEakf7d6YFfLX7pbGrjJUnt1dMaN1gqm/zb+e
-	0AVecVU2c7RwtlLAeb39hMyZdlkPel3USc4XQlgbyEAIcVfW2bqnZCmJ
-X-Gm-Gg: AYBFou06+d4vtiWlbAjioz0CsImAETKuSCG5YXZFZiDh27uIuoKSYJyB+BANcjbBlui
-	tlBzq24Dz0bO/cPXWPkZKVmjyCU2osET8sKgXNUMu8mbDg4zhp4HbVrcXRGSOsmouh35CMc+WY+
-	9ZwpZswHoBm5Od8wTrFX9dSokkXXPVQWn8Jscos8kkCthvA68+xVQcE8xhb4qMGd3EEYT3dJ5Sp
-	WV5DIINU56i3qaD5Nb7V1cWVh7YXki5he7sXkW9Ph7BjL3P/wbFAln2dlTbAnOa5mSyUODR5OwQ
-	TPiI6Xb1osFiD8qDw/XORqF6ta1uq67GbV6glNcrikb0Z2//BwM7CIEUoSPQEotZdlmnFI6oVb5
-	WMS50A7sC9IoxSNIiQnKi+dTsqzbaU5nocgaSME316M7QcAE5Fyl4+0DGTfWLEkPr8QRdkA+oJ5
-	gZ8Xu/mLcZmSry295iE7+SDqENTgK2xWPlVJ6U7bi7JqHI5pGS9IqBdPG7l4AIbXNEGz8V6iCAK
-	Rfb01xGDHCBU5bnNZtEDqgUDw0qX1nyy5x+
-X-Received: by 2002:a05:600c:8411:b0:49d:1e09:694a with SMTP id 5b1f17b1804b1-49e619f5049mr195258665e9.11.1789205448684;
-        Sat, 12 Sep 2026 02:30:48 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e706d0c1fsm26523335e9.1.2026.09.12.02.30.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 02:30:48 -0700 (PDT)
-Date: Sat, 12 Sep 2026 10:30:47 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Bradley Morgan <brads@mainlining.org>, frederic@kernel.org,
- neeraj.upadhyay@kernel.org, boqun@kernel.org, joelagnelf@nvidia.com,
- rcu@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, Arnd
- Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, Vineet Gupta
- <vgupta@kernel.org>, linux-snps-arc@lists.infradead.org, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Guo Ren
- <guoren@kernel.org>, linux-csky@vger.kernel.org, Yoshinori Sato
- <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, John Paul
- Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, linux-sh@vger.kernel.org,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] lib: Add two-byte cmpxchg emulation function
-Message-ID: <20260912103047.1b95bb03@pumpkin>
-In-Reply-To: <d0ef7beb-6952-49cc-9b33-e7542e831ba6@paulmck-laptop>
-References: <20260911192540.20983-1-brads@mainlining.org>
-	<20260911192540.20983-2-brads@mainlining.org>
-	<20260911231017.550f8cd1@pumpkin>
-	<d0ef7beb-6952-49cc-9b33-e7542e831ba6@paulmck-laptop>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        d=1e100.net; s=20251104; t=1789207657; x=1789812457;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2hOyG2nrHECF3VQfVstDdXpYoOnMejT29j+W3a7NumM=;
+        b=bRrZ+V/Skx5VbaNeAFIPqggT7KlEoRgPPDsJMxWQP01ptOQxg/NQRNKSNaCgDkdUXc
+         wpTJO19K5eJuljms9kjrMGtqjaCKIsshAruD8DqpBL652VKO16GhPkmKRI7QQtdOw0K8
+         y0f/zJQm0lIZV+oOFkYhL06HS6G4a+pXBdo66ckQIHu8yo8/Dpgwxx3hkovZ1zUVZKQU
+         MVKQR62VN45hWJrvkZO8+TSR9JLX9OA1anSiqLg9hh5oXspRn8QPWEzhyq1XItZ6u3ba
+         9vc6rb12E4/VFg7zofn/UCtLDCsislOM9tOLbm874N9EQ3c0VUjpxfcTkIYfqHj/2cuZ
+         JIEg==
+X-Forwarded-Encrypted: i=1; AKwUvByaKeWZw1UbkWqUFxelES6wfQSdmxS85sbzgA2bK/wwAuzdm8EIkw3QvPWT/li6Dgc7AJUty67vOZ8aAgE803eH@lists.infradead.org
+X-Gm-Message-State: AFuF++k0IJ0ilo9DudX3vRqnlSKm68m2Tm9M9KcC3sbdbfiJ1iAPW2sY
+	RYQ8CFI3K8wy+HSmlP2O9WvGHZpw42wEcW+Jc5Ji4BKPtkdRMA7XqFlD
+X-Gm-Gg: AYBFou20Thv4WxwSAVPDFtSyml3EpE2/gEX92AXTUXDBXmvXNqZ5xnGHaGRM5zRV7G/
+	E1N2xtsxDkaotjNTsM6B7tnuPiH57AuiGhD9GbtK0hDmGRS3QgEN4QPrsN61W89EWPnWMNgjUfx
+	iFl4mf1qzflRuiA9IYXQXysT60DFRIQ4jvdJKSQXPewyLqhdoYawSPBwFSLtQzLrZspSzDMNI1o
+	BVI6zkJbu7Fjsy7fz7L74mozoRgG8uv5qJtq32PDXrQwdUT5IP7gLLgSdOLOe5yThM++8BeQoFa
+	WVYh1LnHt0oFojvFqWBvnjjmkEG6mXgLGedJtED1FwNUnhUZWQ1W+YeuseAcZX52Kxqu0Tc1jsQ
+	0ZYxA8Sd63TIKGl3cN1tjUF6/AxephSvMP7hitcJWSmGonzn757yjxe2xcceXvkRTCOsjvE0l4o
+	+M1WiMZ0HVsH38yHGIHvciDYYEQS1fqkPm4hY8Z64osI4bKqeLPMtb5irwn7+ky/GZRkBbZ6PyD
+	4dNT6wgAO4GuNvb3AqvFpBCV0fEm9NjqdjecUoX/W+ZYB5/lOJOnxtOA/FNlscv3lvf7u2M0JW+
+	zCWT80CyCs9NMBfGMhjLaFJpjyThJ2ntf3l/zd2PAvboPQBSq0f319JpxQJkcTdRf0zQAqsTZ4I
+	OWA==
+X-Received: by 2002:a05:600c:c493:b0:49d:2607:4ada with SMTP id 5b1f17b1804b1-49e619bf31cmr157482605e9.14.1789207657237;
+        Sat, 12 Sep 2026 03:07:37 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-b260-f201-9983-e8c4-aff5-7a36.310.pool.telefonica.de. [2a02:3100:b260:f201:9983:e8c4:aff5:7a36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e6576122bsm164341085e9.2.2026.09.12.03.07.36
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 12 Sep 2026 03:07:36 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Tao Zhang <tao.zhang@oss.qualcomm.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ABI: coresight: tpda: Correct the kernel version to 7.0
+Date: Sat, 12 Sep 2026 12:07:33 +0200
+Message-Id: <20260912100733.86226-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_023050_982172_7C5AE26D 
-X-CRM114-Status: GOOD (  33.73  )
+X-CRM114-CacheID: sfid-20260912_030739_562781_5E26FABB 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,82 +107,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2026 16:09:16 -0700
-"Paul E. McKenney" <paulmck@kernel.org> wrote:
+Nine TPDA sysfs ABI entries name kernel version 6.20. All four commits
+introducing these attributes first appeared in v7.0-rc1, after the
+release following 6.19 was numbered 7.0.
 
-> On Fri, Sep 11, 2026 at 11:10:17PM +0100, David Laight wrote:
-> > On Fri, 11 Sep 2026 19:25:34 +0000
-> > Bradley Morgan <brads@mainlining.org> wrote:
-> >   
-> > > cmpxchg_emu_u8() emulates one-byte cmpxchg() in terms of four-byte
-> > > cmpxchg() for the architectures lacking native one-byte atomics.
-> > > The same architectures also lack native two-byte cmpxchg(), where
-> > > such an operation is not supported and either fails to compile via
-> > > BUILD_BUG() or fails to link, because the bad pointer sentinels
-> > > these architectures declare are never defined.
-> > > 
-> > > Add cmpxchg_emu_u16(), the two-byte sibling. It reads the enclosing
-> > > word with READ_ONCE(), splices the two target bytes through a union
-> > > and loops on cmpxchg() of the full word until the compare succeeds.
-> > > Like cmpxchg_emu_u8() it is fully ordered.
-> > > 
-> > > The Kconfig symbol gating this file is renamed from
-> > > ARCH_NEED_CMPXCHG_1_EMU to ARCH_NEED_CMPXCHG_1_2_EMU, as it now
-> > > selects both the one-byte and the two-byte emulation.
-> > > 
-> > > Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-> > > Signed-off-by: Bradley Morgan <brads@mainlining.org>
-> > > ---
-> > >  arch/Kconfig                |  2 +-
-> > >  arch/arc/Kconfig            |  2 +-
-> > >  arch/arm/Kconfig            |  2 +-
-> > >  arch/csky/Kconfig           |  2 +-
-> > >  arch/sh/Kconfig             |  2 +-
-> > >  arch/xtensa/Kconfig         |  2 +-
-> > >  include/linux/cmpxchg-emu.h |  1 +
-> > >  lib/Makefile                |  2 +-
-> > >  lib/cmpxchg-emu.c           | 35 ++++++++++++++++++++++++++++++++---
-> > >  9 files changed, 40 insertions(+), 10 deletions(-)
-> > >   
-> > ...  
-> > > diff --git a/include/linux/cmpxchg-emu.h b/include/linux/cmpxchg-emu.h
-> > > index 998deec67740..fee8171fa05e 100644
-> > > --- a/include/linux/cmpxchg-emu.h
-> > > +++ b/include/linux/cmpxchg-emu.h
-> > > @@ -11,5 +11,6 @@
-> > >  #define __LINUX_CMPXCHG_EMU_H
-> > >  
-> > >  uintptr_t cmpxchg_emu_u8(volatile u8 *p, uintptr_t old, uintptr_t new);
-> > > +uintptr_t cmpxchg_emu_u16(volatile u16 *p, uintptr_t old, uintptr_t new);  
-> > 
-> > Why uintptr_t? Shouldn't it just be u16?
-> > (Which probably means the code would better if it was just 'unsigned int')  
-> 
-> I suspect that Bradley is just following my cmpxchg_emu_u8() example,
-> which also returns uintptr_t.
-> 
-> I remember that *something* broke when I made this be u8, but I cannot
-> recall what the problem was.
-> 
-> Bradley, could you please try making it be u16 as David suggests just to
-> see what happens?  Who knows?  Maybe it was a compiler issue that has
-> since been fixed.  Or maybe the macros and asms using cmpxchg_emu_u8()
-> need that uintptr_t for some reason.
+Correct all nine KernelVersion fields to 7.0.
 
-I think the uintptr (unsigned long) cast is needed to stop a compile
-error when exchanging pointers.
-But that is an issue with the #define not the called functions.
+Fixes: f9cc5b5a9e9a ("coresight: tpda: add sysfs nodes for tpda cross-trigger configuration")
+Fixes: 8e1c358a3b0e ("coresight: tpda: add global_flush_req sysfs node")
+Fixes: 33f04ead7c49 ("coresight: tpda: add logic to configure TPDA_SYNCR register")
+Fixes: a089d585a7f4 ("coresight: tpda: add sysfs node to flush specific port")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ .../testing/sysfs-bus-coresight-devices-tpda   | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-Possibly changing the #define to have:
-	unsigned long ul_old = (unsigned long)(old);
-Or even, with the type check from:
-	unsigned long ul_old = (unsigned long)(0 ? *(ptr) : (old));
-(with the same for 'new')
-and the removing all the casts where the value are used might be better.
-
-David
-
-> 
-> 							Thanx, Paul
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+index 650431feae45e725d4cdcc5f029a5d2a908ca2ed..0140ac97725e063c89a5d36a2ea5ae918ffb606c 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+@@ -1,34 +1,34 @@
+ What:		/sys/bus/coresight/devices/<tpda-name>/trig_async_enable
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Enable/disable cross trigger synchronization sequence interface.
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/trig_flag_ts_enable
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Enable/disable cross trigger FLAG packet request interface.
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/trig_freq_enable
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Enable/disable cross trigger FREQ packet request interface.
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/freq_ts_enable
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Enable/disable the timestamp for all FREQ packets.
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/cmbchan_mode
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
+@@ -36,7 +36,7 @@ Description:
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/global_flush_req
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Set global (all ports) flush request bit. The bit remains set until a
+@@ -44,7 +44,7 @@ Description:
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/syncr_mode
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Set mode the of the syncr counter.
+@@ -54,7 +54,7 @@ Description:
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/syncr_count
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Set value the of the syncr counter.
+@@ -62,7 +62,7 @@ Description:
+ 
+ What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
+ Date:		December 2025
+-KernelVersion:	6.20
++KernelVersion:	7.0
+ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+ Description:
+ 		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
+-- 
+2.39.5 (Apple Git-154)
 
 
