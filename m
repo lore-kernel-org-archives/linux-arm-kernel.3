@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0A9C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 00:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5333AC88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 00:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+e6U5jGD86yqBXhoRz8wqGY9P2a9TSeSSbA20YZjfA=; b=luY7/FvvtZznedHMVbddPYNPQK
-	y2bO5M3ByMM0BTB3RIqDa9CfjVLRuUAhlTQSvLIgAvIfh9ygwQedQQbL8hNKCjipeJ1gWh8xGrDrS
-	UqX9F2ebiWHWwIWcnRTYzRAq6J7xFyJ+NO9lO0BUGcUW+sGHrqnQ7FHq+x0QCyKxv3iT5E7bzZKT2
-	zAWhiJSrAA1yUax1jinYZ25HdUraifdtuyv7zz4Vwp1UoVkMpcl8jxBtE2VRt9vwqSHcuYvrgTEc0
-	CBPpiJAqxnqgm84i50VoEffZo9P6aL0yoH4+KB9a+hz8v9II36oYNwdn/zXBQxXz13C7+nd1EtAFk
-	9glzBJtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PKOjMDXQRwMnjwfHSFSVSkvHj3xfpBDTda3CqhlJen8=; b=FEcvWWQE/aEaoLUhh3F5UrxA7F
+	CiWCJLvtGGsTP8KH+eWzgINIZ/wABWeC2kZpiuZ9l65Z5Z3Z3uGEFVTt+QXWO3FCTsYO1nyRYiBYk
+	qc9HVqv8e7q1jByOH5EpYXqGpYIFDwsrxA+9K8R/2b1RXiUzVUiMBCygQvM2AFXjul8rK299GFCHl
+	ANTLBL0BW91MUD4XlqQ0Dm4KN26Af4AXdyB5evem0EqDv+OuJ/9i4QB2tC6qlY71ogIyXpdgoJGx0
+	4usT5BB+oiBNTziHTdy2r6Ww4Z3PW8Lbcs9UqvLK1X9HH8wwpEirv4jHgQ0zwkSIx0bHAbfsig0Wa
+	6HimJF4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5BIQ-00000000QOI-12HO;
-	Sat, 12 Sep 2026 00:08:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x5BIb-00000000QRs-3QJK;
+	Sat, 12 Sep 2026 00:08:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5BIM-00000000QMQ-0rEP
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 00:08:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789171716;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r+e6U5jGD86yqBXhoRz8wqGY9P2a9TSeSSbA20YZjfA=;
-	b=elV+dIfemIKru/EmhPuiJ5LjyutSfy59qYseNQbF5IksBV0zzEbTexAR4P8p2n0g14cTYm
-	vmZvRHqpL9/AGaDeXXjI7lW0L/8wKB/5+va2jqCV5j9K4ZCb14WtvuMynQSrN23ivPFqgz
-	xizZnh12eTR6m4zexJJmYr0pyTyTQ5M=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-50-8u9VmawRMLCoTbEelyb38g-1; Fri, 11 Sep 2026 20:08:34 -0400
-X-MC-Unique: 8u9VmawRMLCoTbEelyb38g-1
-X-Mimecast-MFC-AGG-ID: 8u9VmawRMLCoTbEelyb38g_1789171714
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-90e87478402so32761526d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 17:08:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789171714; x=1789776514;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r+e6U5jGD86yqBXhoRz8wqGY9P2a9TSeSSbA20YZjfA=;
-        b=bJwSIaxYEbWwnsc+shjlJT5cr/UhBY3SHoAkRHIsEdg3rl1CBHhJVgYVFu1wjNpG7+
-         lVItjaKQMNvUvod9DmiYXCBPP05O+Ki4viPA0ZxxvtoeLQfuqHXxUdiDC6F0M8tEgnCo
-         FHoeyrL9oCO19OpkYTP1aWs3nqs4w6W0TCiXbpP+zdx8Zf+BTQuZhTYND+snNXNXBxYj
-         kVDDTyPgjdOhHLBM2fdJNuz0YWMLSuO6Do4r0JSaU6AUCU/d9nRmCMApmzHu49C+WTjI
-         M0mechDY/pP5VBFtgkXPF/gd7DCK1D3V9UuthfgMYauscKZyzGgq9gx4qnOypNP3eTO0
-         uV4g==
-X-Forwarded-Encrypted: i=1; AKwUvBzlyUVhTZN8rpOD/ddDUqeICsCGn8TsgmZvp9m9sD7WihN/smmZFk5qbWi78q+TuteSyV3zrP17Vpoda30zpMBJ@lists.infradead.org
-X-Gm-Message-State: AFuF++n/SmYC6xYstTbHyZSRdadeO1O3i2Mj9+Y1McC59TXPVzXC6DtK
-	hxhWhplBf/p+0NTNXu1pKp0e8I08DonMI9SLlAIZfPiU3UVGT0hbUEYOv/V2ePcTS+cXOvoDIav
-	Ti5HNFINTrpxSPieGgxsD9qqnYr6x++9DEQX0a7lF5Gb/rOTCUSPDEj2LulTnLxUn9e3PkPoNEM
-	n1
-X-Gm-Gg: AYBFou384PJN/888SwfTcs239m0bcn9GeX9jVRsfEIG2uv+OgiCEixeOWFREztHKKpQ
-	9rbbG0wTQHYwzdcXwfICrHZwi6vWh0K9A1jNUHaxXZQbl0dBXv1fQM4SxS8RQXJ0sspIs7+qbgn
-	rviJdd7Eu/jcuvPU+M9prbVGS4z8cz3y05tpbQl8THoJkqnxbM4An+SCUOD7EEs5nMWuUL0v3YJ
-	U758tf17TE73XBeOQJx2z2qy+jb1G/kFDJiAxr3kQYzSfEs+tYhHLTzVZZyvJP0+sJsIjD+uIWD
-	qZ9fYR2me8fwOpU2Q/zVQyjeyQ6e/h186G5Q0wWyfTPGFtqeGpThx5dPl+x1KS8/TeBxUu1/Ao+
-	MXthTE/1OJdp23n6LqaBAV+PyKaz8GH5Po+E=
-X-Received: by 2002:a05:6214:2307:b0:910:722f:b8b with SMTP id 6a1803df08f44-9121da7621emr10925276d6.21.1789171709430;
-        Fri, 11 Sep 2026 17:08:29 -0700 (PDT)
-X-Received: by 2002:a05:6214:2307:b0:910:722f:b8b with SMTP id 6a1803df08f44-9121da7621emr10924946d6.21.1789171708976;
-        Fri, 11 Sep 2026 17:08:28 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f20367dsm32915306d6.6.2026.09.11.17.08.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 17:08:28 -0700 (PDT)
-Date: Fri, 11 Sep 2026 20:08:26 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Lucas Tanure <tanure@linux.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Chuan Liu <chuan.liu@amlogic.com>, Jian Hu <jian.hu@amlogic.com>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] clk: meson: t7: don't mark sys_ampipe_nand as
- critical
-Message-ID: <aqSX-kUvYaixESxe@redhat.com>
-References: <20260905153234.133217-1-tanure@linux.com>
- <20260905153234.133217-5-tanure@linux.com>
+	id 1x5BIa-00000000QR0-2UAJ;
+	Sat, 12 Sep 2026 00:08:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BA920601EF;
+	Sat, 12 Sep 2026 00:08:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B72761F00898;
+	Sat, 12 Sep 2026 00:08:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789171731;
+	bh=PKOjMDXQRwMnjwfHSFSVSkvHj3xfpBDTda3CqhlJen8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Q0Oq/tERW2zN2geFXSdG5TcvRwsirw2cC4ORPsqyD8VIM5+1uPIUu/MPj6FLSXxIi
+	 PVULcXYpZ69OJIEcvRU+1VkvTyj84g2mEh5bz+fUkRVFtMGRrL4LO7Zo+Hobc+ptu+
+	 7eG5T2TlTJg58ugjY9vvZlLMTOPtOqkH6x9K9upMQ0Ea95JC5vrPpbCLtR8lDlLbAA
+	 LkCDuxnYw2xdicd9PWl4JtDEgXtp6/i6QzaCRVIToqM1hTPA76deOh1yUndeAU4dDc
+	 Jqt4Jtn2rtnlYk9d0cNqPSswzsY8lRHWyo6/2AQxisdkxBIzo2P+Zehe46xLSuo0mj
+	 kPV+muiZswLBA==
+Date: Fri, 11 Sep 2026 17:08:50 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Caleb James DeLisle <cjd@cjdns.fr>
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ chester.a.unal@arinc9.com, daniel@makrotopia.org, linux@armlinux.org.uk,
+ arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
+ sean.wang@mediatek.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
+Subject: Re: [PATCH net-next 7/7] net: dsa: mediatek: support EN751221
+ switch
+Message-ID: <20260911170850.05cfb134@kernel.org>
+In-Reply-To: <20260909140346.2861572-8-cjd@cjdns.fr>
+References: <20260909140346.2861572-1-cjd@cjdns.fr>
+	<20260909140346.2861572-8-cjd@cjdns.fr>
 MIME-Version: 1.0
-In-Reply-To: <20260905153234.133217-5-tanure@linux.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7j_qm3wiRp-R-FXih2ceEUQS2ekj4CXzN3_PMfQpzSM_1789171714
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_170838_311565_C5FFD9AD 
-X-CRM114-Status: GOOD (  18.26  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lucas,
+On Wed,  9 Sep 2026 14:03:46 +0000 Caleb James DeLisle wrote:
+> The EcoNet EN751221 has either one, or two, onboard MT7530 switches.
+> Every implementation of this SoC has one switch on die with the CPU,
+> but some chips - notably those with a "G" in the name, have a second
+> MT7530 as an MCM module.
+>=20
+> The on-die MT7530 has 4 FE ports and 1 GE port. The MCM switch has all
+> gigabit ports.
+>=20
+> The MCM switch connects to the SoC switch via a TRGMII link from port
+> 5 on the SoC switch to port 6 on the MCM switch. This link undergoes
+> calibration on startup.
+>=20
+> All known devices with the MCM present do not make any use of the ports
+> on the on-die switch, it is put into "passthrough" mode in which all
+> traffic is shuttled between port 6 and port 5 without alteration of the
+> DSA tags.
+>=20
+> Add support for both the on-die and the MCM switch, and calibration of
+> the TRGMII link between them.
 
-On Sat, Sep 05, 2026 at 04:32:34PM +0100, Lucas Tanure wrote:
-> sys_ampipe_nand clocks the pipeline stage inserted in the bus path
-> between the SD/eMMC controllers and the NIC_MATRIX fabric. It does have
-> identifiable consumers - the three MMC controllers - so marking it
-> critical was the wrong tool: the clock should be referenced from the
-> consumer nodes and claimed by the mmc driver instead.
-> 
-> Drop the CLK_IS_CRITICAL flag and update the comment accordingly.
-> sys_am2axi0..2 remain critical as they clock the AXI DMA bus itself and
-> have no single identifiable consumer.
-> 
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Lucas Tanure <tanure@linux.com>
-> ---
-> This patch depends on the MMC controllers actually referencing the clock:
-> the dt-bindings, mmc driver and t7 DTS changes adding the "pipeline"
-> clock must land before this patch, otherwise the boot hangs and memory
-> corruption this clock caused are reintroduced.
-
-This series should be merged together in one tree? Which tree? I can
-provide an Acked-by if it should go through the mmc tree.
-
-Brian
-
+../drivers/net/dsa/mt7530.c: In function =E2=80=98en751221_trgmii_pair_setu=
+p=E2=80=99:
+../drivers/net/dsa/mt7530.c:593:12: warning: variable =E2=80=98default_taps=
+_ondie=E2=80=99 set but not used [-Wunused-but-set-variable=3D]
+  593 |         u8 default_taps_ondie[NUM_TRGMII_CTRL];
+      |            ^~~~~~~~~~~~~~~~~~
+--=20
+pw-bot: cr
 
