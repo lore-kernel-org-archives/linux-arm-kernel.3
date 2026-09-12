@@ -4,150 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BA1C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 11:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5C1C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 11:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=; b=cdoxB9krgwFVeC+H1q4H44lLga
-	rOVncYqoyNvYaOsvXaXgGyN+KA/DQLlucJhIbk5Vuekk2dBY9xyODYqEnSzJk5886Wtj98sg/AAne
-	qTyWeQWl7gs+731hJt3xQMfYPwhnpNMIX+1KsUkcJGDGud3WYNr7rD4K++MWrXws0sWCL0NSHiPd3
-	bNiJRJqaWV7xlbtvDEq15JDWpr1zjcbqkShFBPsquFN49b/8HE8+NESIpqs9N9kj4/ZzE5KIuSs1d
-	bT3YpuqX8vN9ro1+rqUx8zAphROPmvMuddU73XLrZKsIRYJporkg1WNRHA4Ar/RqBXYeqjoji0vNi
-	4C/xJiqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=; b=GMXjNgUUShCKhNs3ZY6AO5/8zY
+	1X1XxSOqAAg/oS5VQSJ5n1DGLmWXgH3PLWpzRSfjnvyvDVXJk4HAbazachrmLibjy8eh8VxUVfdGU
+	X/ORRWYbfK+VQdHqzCbEGjkg0lp1QKDHbFoKLA9xqh6o84X1UIzqul6RmyuR+JmyxWXahAGOBQjjo
+	OFcyxEfoz39iUeMNdv7B+N1em4PLW48LU2Eanhq5Lm0523wX1amCCKx0u6qT+Qe3zSLGkI+CQ8+MY
+	/BRZPBuLhlJDClQdXptZw0nILehq80GNNQObAJ5ZYEqfMSe7SPx8q/nCjlbZAoR5GkuwDPJAmBShe
+	1H1gBjDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5M0p-00000000pR6-1OwZ;
-	Sat, 12 Sep 2026 11:35:15 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x5M3J-00000000pvA-2opf;
+	Sat, 12 Sep 2026 11:37:49 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5M0h-00000000pLS-3lE1
+	id 1x5M3G-00000000puG-38H9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 11:35:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IcwvCt+P5gJAHHKYumJzbLZn1DTecbkbxSABpI2YnBV0vTYE1pdIWNTjM9kX/jyJO0RL30yCjisiNwg396earpFlPiDTMg1Gw1IRv247+mqvwgB0oVnAocuz1gy6pKYwQ+soSqQCH8EmpAFOiF5DlHTMR+LhIipqhLyy+9o8eH9TzW3bXbhB+Rn3zwVYockP3z7rjLNmX4aD10UB/1Lr+49bCDlms/9Lmo8LvaCXzMXjMDKp+ldxc57/n4s++towmwdZ9weQ1uwSrNEBD1KqLCIOROk+JPIOVm5Y8vcFFtbEQ708OI3sYkQI50HGL/2Gxafyxi+dp9g5M94G02/9Bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=;
- b=SFF1P3iczp94083+Bcq9o4WMVdaTKM5LB16jURfAumYPkVzcL0aS7xXeDCdOw3dtTIfQmK2fW3PHSXQ512B5cIV8jsS8BD64EQq0pMiPbtrKFhT2abgr/vPsn575RFk974zoVi08+Q2S/mew6Y6+MACd+UTSCO9W+S5ZRf6T4RssMRAxncNY1JM3UMmBmdrQtC9BsioghD6qypccgWpmmyTDbe6DPkBCwwQYLJ3NzdyKS3z6VBUqMco97tuFobuMfI2T4mz9S9Ec9qmTdU8eE52LutUXdWNtPk5gFPrNAtaMECHTzo5Lv9VFePmbi02zoVKOTvctnoRjAtOehRb0dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=;
- b=q8LjxC9CWBBBKYNta3rt2ljm7zxX1jK8tjt4Z37SeuvT6OAV/fLaLu/SzF17m2VvgwALbTwmXfXO8bPl4xkPoyIuo4YUyPQRbxwzNkB+9/X1i/5w/gJ0jtYSQtGkeGMMzrIBD/YDOQQIvSiXvLoqd5q7YvztHHnImjlCbzw+A6wsExgGb8cAMHBLrdt0IksgPQKTzAEzDr17r3sIrLxfAInewZiWXZTNlH8S2T7dgMIXXiDE3iPjdxisWy713bGQ54reXy//QUP+h+H5vZTVGeVeWlrmo4AocX3oD0N5kIxBys5iTKZzL6bzXt8ZH+jrLHRmCFRtwN4K8BzaNtRsRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by ZR6PR04MB466071.eurprd04.prod.outlook.com (2603:10a6:910:dc::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.11; Sat, 12 Sep
- 2026 11:35:04 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0406.007; Sat, 12 Sep 2026
- 11:35:04 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Sat, 12 Sep 2026 22:33:41 +0530
-Subject: [PATCH v50 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260912-imx-se-if-v50-7-80834ef510d3@nxp.com>
-References: <20260912-imx-se-if-v50-0-80834ef510d3@nxp.com>
-In-Reply-To: <20260912-imx-se-if-v50-0-80834ef510d3@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789232651; l=2500;
- i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
- bh=LA5pZ8YRZFeVk56nd//uP0RHiwT4E6voL97vzkkh9tk=;
- b=tThr9IdKzT9A/QM4Th+0SEEmm1Nh3NyMRqKy9UF2LwXnrUXiqg2iJvCcB7dt58WvKZTB8cLg2
- kVwbjl16LelDnlui+T3PciWlUuCYSVeiY4cJURnOAFR9jW0qhzRw1H3
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
-X-ClientProxiedBy: MA5PR01CA0135.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1d5::12) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Sat, 12 Sep 2026 11:37:48 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482e1b55da8so79793f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 04:37:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789213065; x=1789817865; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=;
+        b=bcwNKFm4JAhxMuQ4vbBvXF6Rp2gTpl5OiDA5x44YAF94z7zLUFuezgIUt2XJ+SEI7n
+         TDoQbn2LfW6GDCAJZZp/EhCUk4hfJD/bP4PgZCBWFOwLuRHVkxe/I3hnfFAZWMDuxMA7
+         zvYeaoZ+fabtuL94RqLjDRleJcFwvADuNQWdn36jTM+YHlX6Ztr94lr/GvG5VCNzTwlM
+         oFwTuNOkfHyvM9pd7CMFCGD9Uy7FBq0cxSGO/xHinZ3RiX780Yh6JIWImbVVXipsOrdD
+         xNHXxZlFlpOGrECCmUYhmanheKw8G9OTzDJfnR6uchUYQLC5ALMqNha0WMfez1ksjS3P
+         qD7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789213065; x=1789817865;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=;
+        b=egavKCk5Sm9wO0y7Li2ryckeZkNH8pPkA8b5b2L5IcdOLOdvUGLLyEUWm5njl04v5f
+         02Hinwnq3vvrzStmii1FExps+7vt4JfscPJB6sEjdzT4WajTx7ZoKUpMnMr08zN0YosS
+         yuru+4itLu2TdTvYNo8Pl7gZ+LX90Wteu9FTeEZi6lOjb3A45FXr6kJp2ok6dc7SnOSx
+         pGpnM5uSIPhcSp+wdkFWcEfhGrlz/ISKMLkbTSGQzNmu3kBDbPc/8UkPATkiUKW26Aro
+         bv1Nvt9TD6tdHApzvhyx8fqPZ2DpvPct2Z7SO8gx40wSAuX37Yjz4NT455dfWgLa5MHx
+         Wdsw==
+X-Forwarded-Encrypted: i=1; AKwUvBwN5Ow1HazxD8F9SjC/hXq/rhnOT7545njmkrVmoAmTW2FLqxc3RCd9KtpJHh0oeTufW7Ij2T1oto6cHvQn22wj@lists.infradead.org
+X-Gm-Message-State: AFuF++nyQ6c++td9syGW81nB8Iz6GX2n+EIoq95uO1YIcGPzpr2uQkBE
+	rXLuE1ozEwSnZbLEevJ2e/z/4ot1+PqryEqbzoBViVCqTYZv1RjgzG3z
+X-Gm-Gg: AYBFou1kAs6ru7uGTQQujWOXc9ZvHx2eON7FRDVmcRoHKRu4bLO3hHcR5cmwMNGo2aH
+	i3DskdOD2KWpx0IFINLaLdjPupbhKEjclJWFBaawI+1pwWIeB6Jok2j8bRmsTC7JPD1nR7jyW5X
+	AjjvrnVbllG/gxE+bjSK7oLvtoK43q11kg+4iohx7xF5FJlfxlZnVixfk+Q87/Q1fdy1aHwZvYo
+	Hl2lQBqi3m4eU4/roSkUjdZBVNWHsV+uZf65vbFpivbsdvmEiyxskZa+AR9mLDlIlzUcndn7y+4
+	bn/rwKsmwdbU+NAHVpwQgTVByqGQMyWq+w2uHRj/Tz8hcCZOudQxz+9bEQKhccNK+XG57SILxXE
+	+VRflrPj7IKI7h4I1H6JmEVN6pKW7J/3cOdq7PYH8RAyFpLhQ/up7EvC+zi2hZPRC1gnP4kiHTp
+	IFXBr7pb41dGH12ZAsGW1d3xdJlrPmhuScvXuUN2X/tvuf3OYfuBhg/elAG7Tx4WVbtUPWJQntn
+	TgtSW/V7cHAUVbEa7095qMqXkJqTla5AsTPcu0UYiEOzSqGG0kmgI18JxKrA1Su4UGeYkUNwum6
+	LQ==
+X-Received: by 2002:a05:600c:46d1:b0:49d:798:67a4 with SMTP id 5b1f17b1804b1-49e61640f73mr84164245e9.0.1789213064708;
+        Sat, 12 Sep 2026 04:37:44 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8209007423DB663D3B2FEC.dsl.pool.telekom.hu. [2001:4c4e:1b82:900:7423:db66:3d3b:2fec])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e61a81943sm99068345e9.1.2026.09.12.04.37.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Sep 2026 04:37:44 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Sidong Yang <sidong.yang@furiosa.ai>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH v12 03/14] accel/rocket: wait for a running IRQ handler before resetting a core
+Date: Sat, 12 Sep 2026 13:37:17 +0200
+Message-ID: <20260912113717.6819-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260912065053.1519165-4-gahing@gahingwoo.com>
+References: <20260912065053.1519165-1-gahing@gahingwoo.com> <20260912065053.1519165-4-gahing@gahingwoo.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|ZR6PR04MB466071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22faa4a7-1c24-4c7a-e850-08df10c1e36e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|11063799006|56012099006|10067099003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: FXKBFk38GLEi37Fcxzj53XCDMUSUGm0usNWM8sdPR2M6OdNPMlbWjceDVz0xByS+TZ7fxt44nA+T5wxTBaUxsBCP53zZy0dIBZKIvWTnaLbgmmbqMFuBv18s9KzSn/l5s8iI1VOqcktrj5z1fBXLqCUumWsceCUlmgOoYmDM6zbXILrnCbSo/P83S2bfCVIThLAUgqIkOm5k8j/+o07TNWRyj/e/NtEMe015fl6uLh/HI4i3ACWnqdRGxO6sa5Ye0fKfY/qXAducxoO6vHWsQE5988QLe0slpMP3PwR9d5JjeGrmFDSk90zvcfSESls52YnKDs4pjAPo4puKUcMVtbqXSWmZO9yo0k2t/tdCTq1B0Poy/NHSAhlZsih+ShNiLCp2qVh4VsCJYRmvogRMpl6yXmkUiE76Dnsz/J0hYEpIt0Ls3Bf+MQaztafIOzBqNinUip1kUcAIullhXCes1qq4OFrcvK4QKG3eDs+xbaVmEtkI2tf5e5qHGj369Mavg8LqJLA4lCTPnBheOus4Pq3UF1b/VBYR08eBdIcoa04SHoxBdCLR4hhyAfdb3oWADJ4gDkl3ZefJgdxiLQ93kdsk9TBTQL+WJQRzgiTXXfONgpj9NcPs1KGgSIUQpZdlnGK2hzr78eo1zxuPmS84MNs+Wn5UhRm2vLUHtYbP5DWvXduB8md5UITtExb8KttTV4XRrhNY/fSIAwAhCqh4uA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHFnWVJVd1BNTEtkOUZURm04NlZGb2FVdE1WTkY5SzhRdzh1QUR5SVgyYWRV?=
- =?utf-8?B?RWp1UVBYb1hTVUpHK21aQURSdEtvWlIzVVl0RkkvVzZ0d3ZYMXJudWNBN3Nl?=
- =?utf-8?B?TFZpOXBaZXIxUE5ZWG9IZlVLOTNaeGczL25maDRLYmZPOVpvbTFGdVFWTFlv?=
- =?utf-8?B?aTQwZkhGYjVkOUlseFIrbG1KVU9wWkpZTlpnZkdUdVRKV01UUnM2eXE5dXhj?=
- =?utf-8?B?d3FQdFlTY1R5L1ZmQmsvOHhFZkxMSlltand1ek81dW9yMWQxUTQwUkhzeGNy?=
- =?utf-8?B?YVN4OUlvUUZOZHJBdXhxWXpIOHc4MjVnT3g3RFBVQkNlRkdxUUhXaVlMSWsr?=
- =?utf-8?B?UENuZml6SStUQ25iMkU3UlNtYkVabGVmUTNmejZPN2dLblZsOGpPdHpsSHRo?=
- =?utf-8?B?dVQ3TEhCdWovQzQxaTlDZ2dDTnhyamJvQkIvejdtaEpKWStwZWlMRSsrZVBh?=
- =?utf-8?B?VnZ4VVcyWjNkVUVrbW1EMU5qdmlEMVhOeExCclBDeTM1N3FaL2MrK0NVb0tG?=
- =?utf-8?B?T0tIcncvSVNTMmNFa0FtT3dHNU4wSW9OQTdlU3ZrK2FTd3BsTnlQRVJQSnJR?=
- =?utf-8?B?VEQ0QWhoc044M28vOHJNNzZ3NkFjM0FVNnk3S3BZZC9hQVIzMUhlcDZGcmhT?=
- =?utf-8?B?TERSSjdaZ09zVmNzT2xSN25GcjdzZ0xoeUFFVkRSVnhtVUlkQmZjK2ZYSThJ?=
- =?utf-8?B?Vm1teHJzTkhuYTh2bmFXU1RsQitsWlViakl5Q3E5ZklwQXpXNWFrSU1JNkdD?=
- =?utf-8?B?emtWcVkrMlVseG5RVVZPVEpFQWdxNk4zclZ3SE9oQk90ZTdwTzdsNUdPV2Fu?=
- =?utf-8?B?TUducTFEcG9pb2ZSOXNmVVNaTkNPc0xPRm5qOTBDMzZOWDh1QjlWY3ErRk84?=
- =?utf-8?B?bm1TR2F3ZzgxVTNnZU9FUmk1eHl6azJ6TlNCYVJCL3lGbXU4RktRTjRBNk9U?=
- =?utf-8?B?QmN2MUNpZGRYVzVzUlNYYitMSHlPbGJkbTF4VHU1dGV1cTFvSmhKU2pvMS90?=
- =?utf-8?B?bm1NZGE2cWVmeDQvM0Eza3FJQ29abzlVWUk5V0o2bnNKcXRKaytTK3NJOEZV?=
- =?utf-8?B?QmNxaUtVVFZpSmE4ZHZhN2lGT3llVDNUMjF4NVZxeXB3NnhEK3lSeHJ0Rkxu?=
- =?utf-8?B?c0RFVzdrU3lEYmxNZC92UFVCSWE4MHF3U3hZSFcvUnIweGJ5WUZpWHpGWUlX?=
- =?utf-8?B?Mzl6OGtEYmdESDA2OEJvSmc4aWVUWk9ob1I2Z1ZHTWxvaVR5c2IydXBkSlBR?=
- =?utf-8?B?aWoxd2xwSFVlaGxqVEZRZ1M0cDk1cDlPa2hNTWxBcXd2Y3M4Q3BrVUFYMWdY?=
- =?utf-8?B?MlVlRDg3UHU2SHlnbGNNZmZodDkrUUlXaDVCNTZla1h4c2xPdFRTc2lYSFRh?=
- =?utf-8?B?ZkhHb05GVS9VMjNYS1B3MmNURS84K3FNelcydG80Z2JWdUlaZzd0OUJTYlRm?=
- =?utf-8?B?eEJpRkdqdkRIOXNlZU5rRCtBL0YrdVFQRGRrbU5yb0tTNFVUKzF3WFl5Q2Ex?=
- =?utf-8?B?WlBRNGZxNEFIUWZTai9xa0JwS1E2Z2lSS2djR05yOEhzS0RnMi9jRkpsai9j?=
- =?utf-8?B?K0JXLzhaTUd3VXk0VDVQRGJEUTJJd1NnK0xsZ3JGTnh6YVV6RzBOb01oSlRF?=
- =?utf-8?B?dmx0SjNSQlM4aGUvbVJmWmZVTWpmMFpGUTRNMXRRa0FRUzNvSU9rT1R4aXdV?=
- =?utf-8?B?T0l2eXZhckV1UWdzMFNiZHJpa0dQeEcrK2huYytPdmVJR0RHSWM4NTFkZVJR?=
- =?utf-8?B?U2VYS1JaYnJDSjk1Zm9IamlmZkFqMGtydWVqM0pJdWFIQkx4YW9ONWZmMWZz?=
- =?utf-8?B?VmZMQmVRTW9UNXpRYS8zTDhoRkNXckRkNlV5cC8zam5GL2NGTUxCdVdvTTlL?=
- =?utf-8?B?ZENkQ1c1RlVWazUzT1BRVkdrQktrK2VXd3VkbXVxUEVkZFZVWU80M0dLMERH?=
- =?utf-8?B?b2NMbGx6WFNOdXZVSkpoUjJVamE4RnMvTndhRC9uYWxoVkR5VU5CUjZkRHlC?=
- =?utf-8?B?SmlSUVVrQk16TjBkMkE1cmRlS283bXFxelphN1NWb0dZOEVOdWxjK2xhelRk?=
- =?utf-8?B?R1VqdUVNMkFRTWR3ckFRMFJlRktsd29iRDN4NTlHdk5Ld3NBYTJtQWJ0T3pV?=
- =?utf-8?B?YzZOQ0NRcFlleVFFbTFTZlVkNlZKM3ZtZ1NxQ2E0WjliaWd4ZTJodFQ3bi9V?=
- =?utf-8?B?MThYbVdmZU1pRGNGRnVoZFJnTm1ldzMxUkNuckI1N2dVS3FCcWI2NnFFdUMy?=
- =?utf-8?B?TlBTaThNMVRKdzZERG5yNTFBRlhLYkEzM2pPeFNlZ0NKZjc2S0d1WGJlcDha?=
- =?utf-8?B?b20xSFpoU2NoQ2FQZldtamp0aDkyVUsyMGQ3VTRKVXU1aFRqNWpzc0JwQ3J2?=
- =?utf-8?Q?SJeexo/ZeXY4l3v2NNNZccbkmzjx0eSHzKqLw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22faa4a7-1c24-4c7a-e850-08df10c1e36e
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2026 11:35:04.1280
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iXXq6XULJCnkAgfes+o39G8L/uZLm47RP1WuU95e9RvtD57dwes8rZZVKmEHEuK9tKExnpmUzFAubP/qISP3hX07QgZN3kr5q9DZRSmPb93J8IMJYgZqlwBUDMxk2xWO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB466071
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_043507_976716_D263CC73 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260912_043747_205600_F563E4F7 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,83 +125,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Hi Jiaxing,
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+While re-running the 19 August protocol on v12 as posted today, I
+found an error in my own reports that this commit message now
+carries. It is mine to correct, and it also corrects yesterday's mail
+[1]. What falls from that mail: the 53-versus-49 bound, the sentence
+that 19 August showed no manifestation on either arm, and the closing
+suggestion that both statements can stand in the commit message. What
+stands: the provenance, 45 resets on 19 August on v8 1-2/12 and 102
+on 25 August on v9, and the caveat that this protocol bounds and does
+not prove.
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
+My script kept the scorer output of every inference per round and
+never aggregated it; my summaries scored only the one inference after
+the forced autosuspend. Aggregating the per-round files now, the
+constant-0x80 result is in the rounds of nearly every run, on every
+arm, on all three dates (resets per run, then rounds at 0x80):
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+  19 Aug  v8 1+2        12 + 8            2 + 1
+  19 Aug  base only     12 + 13           2 + 3
+  25 Aug  v9 1+2        12 + 11           6 + 1
+  25 Aug  base only     8/10/12/8/15      2/0/1/1/2  (+ the one after
+                                                     suspend)
+  25 Aug  v9 1+2+3      13 + 13           2 + 2
+  12 Sep  v12 2+3       10 + 11           2 + 0
+  12 Sep  v12 2+3+4     9/5/12/13/14      2/0/2/1/1  (+ the one after
+                                                     suspend, twice)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 4b925832bb66..5fe58a025cfd 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,12 +1,13 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include <dt-bindings/input/input.h>
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+Today's seven runs were two arms only, no unpatched arm, so nothing
+today re-tests the differential. Same board and base as before,
+PROVE_LOCKING and DEBUG_ATOMIC_SLEEP on, serial console captured on a
+second machine for the whole session.
 
--- 
-2.43.0
+So "no manifestation on either arm, oracle 48/48 throughout" on 19
+August and "every inference matched" on 25 August were both wrong
+for the in-round inferences, and the 0x80 buffer is not a
+differential signal. It is what a job cancelled by the reset looks
+like from userspace in this protocol, whatever made the job miss its
+deadline, so it cannot tell the races 2/14 and 3/14 close from an
+ordinary induced timeout.
 
+The mechanism, from the code: rocket_reset() calls drm_sched_stop(),
+which detaches the hardware fence of every pending job that has not
+completed; rocket_core_reset() kills the block; drm_sched_start(sched,
+0) then completes those jobs through drm_sched_job_done(job,
+-ECANCELED). That finished fence is the one on the output BO's
+reservation. The only wait the rocket uAPI offers is
+DRM_IOCTL_ROCKET_PREP_BO, and rocket_gem.c maps any positive return
+of dma_resv_wait_timeout() to 0, error or not, so teflon reads an
+output buffer that was never written, which its output conversion
+turns into 0x80 (mesa rkt_ml.c, output + 0x80), exactly as you
+described for RK3576. With JOB_TIMEOUT_MS=2 the timeout fires on
+about half the inferences (74 timeouts over the 147 inferences run
+today, seven runs of twenty-one; 14 of the 21 in the traced run
+below); whether the reset or the completion wins that race decides
+the outcome, on every arm alike.
+
+A direct witness, one run on v12 2+3+4 today with a kprobe on
+drm_sched_fence_finished(): exactly two completions in the whole run
+carried result -125 (-ECANCELED), and exactly two inferences came
+back all-0x80, round 11 and the post-suspend one. The two
+cancellations are 5.3062 s apart and the two scorer files 5.3057 s
+apart, and across all twenty-one inferences of the run the gap
+between a traced completion and the scorer file it produced is
+constant to within 2 ms, against a round period of 280 ms, so each
+cancellation falls unambiguously in the round that came back at
+0x80. In the other runs I have only the scorer output, which took
+exactly two values today (all 48 channels within 1 of the CPU
+reference, or all-0x80, nothing in between), so there the
+identification of the 0x80 results as cancelled jobs is inference,
+not observation.
+
+For this commit message I would drop the two paragraphs that cite my
+runs as evidence for the race: the one beginning "Igor also ran a
+differential on RK3588" and the one beginning "His own bound on it is
+the right one", and put this in their place: 45 induced resets on 19
+August, 102 on 25 August and 74 today, every reset recovered, no MMU
+faults, no lockdep report from rocket or the scheduler in the runs
+where lockdep was still armed, and of the 420 inferences scored, 384
+matched the CPU reference within 1 on all 48 output channels while 36
+returned the all-0x80 buffer of a job the reset had cancelled. Please
+keep both Link: lines and add this message as a third, so anyone
+following the 19 and 25 August reports lands on the correction too.
+
+Two things I should have said before: all of those resets landed on
+core 0 (fdab0000), the other two cores being bound but idle in this
+single-client protocol; and two of today's five 2+3+4 runs come from
+a boot that had an unrelated lockdep splat in the DP driver at probe
+time, before the test, so they carry no PROVE_LOCKING cover. The
+Tested-by lines on 2/14, 3/14 and 4/14 stand for that and only that.
+On 3/14 please drop "differential base" from my tag comment, which
+then reads exactly like the one on 4/14; and on 2/14, where the
+comment is only "# RK3588, three cores", please give it the same
+comment as 4/14, since the lowered timeout belongs on every tag that
+came out of this protocol.
+
+One question this leaves, mostly for Tomeu: there is no out-fence or
+status field in the rocket uAPI, and PREP_BO drops the fence error,
+so a job cancelled by a reset is indistinguishable from one that ran
+(rocket_job_run() reads the error, but only to return NULL instead of
+executing the job). Is that intended?
+
+The artifacts of all twenty runs (scorer output per round, runtime
+and genpd state, journal, serial log, today's kprobe trace) are
+preserved if you or Tomeu want them.
+
+[1] https://lore.kernel.org/all/20260911192833.105634-1-royalnet026@gmail.com/
+
+Regards,
+Igor
 
