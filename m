@@ -4,61 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9924AC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 01:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F93C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 03:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/QG9JqLLnNaub/oqU9gkVaGaxueCMPbNMwP2fsCHcY=; b=pkS+918ajMq1xY2e26erkBijKx
-	GIXHd1rvRpXrYmMSwxehqQrXOKTwWtS4OdoI4Pxu4bBi210U3MSfznYrCZnrqWSfbjGAJH+PH7y2S
-	kDBjQJNJW36rc5EH0hRJGAvwRn2SlQuwe/qW2/8nvYnvK1PZL7jpLQy3Ct65/5HFNWGhmDHUkymlb
-	30zCvkHuCco7VxvJ7F124w5Fx9jKS6AsZ9FdjCyR5BxuRMWu/ltzguMbGJ+oh9JJGGfnVKEZQdeBp
-	QVmfNk+faSJnmHD+zZXwaKVNT2ZhnsFlvk6fPfEghuFKxX6onABrUaS8NWMTM7bQebANtyCZa3Z99
-	bZLsY+Mw==;
+	bh=ud1ZpqadGMe+QubhUEhtcVCLKFg2sCSQ6NPZYlf26Tg=; b=cO4NZKiIjMs49S+m1LMFAKFEPx
+	jPt3lWa7EcOlcloGuLYda1VwLF+T6r//PzRGVXfyLLHjhThae8ouf2ExQ3uvIYsqxZrpTRfzWdDGN
+	MM9QV20SDsnelG7FzGPB2dxQ27pugCIWam/eedelKT7tuGmWBDaGCEIOXdIhJJtpYnsP+gZGWig9W
+	Vof6zhlkE1OOToy+X1gCkagQ/L+04KzeP87i05A7xY1SRzsTqmfxDJxgc+XalHTq3Sdyu9hoVQpC0
+	LYIkkobcmQZOVxokHq7b2dWa7oYCSLhvuEJZbKqXAIZpHUzSOeoZ8mTRAWLXXlLT93XnOFnJCRKxU
+	g5BQ/Yhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5CQh-00000000TLN-3VNz;
-	Sat, 12 Sep 2026 01:21:19 +0000
-Received: from mail-m25496.xmail.ntesmail.com ([103.129.254.96])
+	id 1x5EPL-00000000Vj7-2FQv;
+	Sat, 12 Sep 2026 03:28:03 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5CQd-00000000TKp-01Zk;
-	Sat, 12 Sep 2026 01:21:17 +0000
-Received: from [172.16.12.48] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d7dade84;
-	Sat, 12 Sep 2026 09:21:03 +0800 (GMT+08:00)
-Message-ID: <577c2a79-25f9-409d-be46-275821e3a2f7@rock-chips.com>
-Date: Sat, 12 Sep 2026 09:21:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, robh@kernel.org, heiko@sntech.de,
- dlemoal@kernel.org, linux-pci@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, lpieralisi@kernel.org,
- kwilczynski@kernel.org, bhelgaas@google.com, mani@kernel.org
-Subject: Re: [PATCH v2] PCI: rockchip: Skip the Tpvperl wait when power is
- already valid
-To: =?UTF-8?Q?Enrique_Hern=C3=A1ndez_Bello?= <ehbello@gmail.com>
-References: <20260911211559.207990-1-ehbello@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260911211559.207990-1-ehbello@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0933423fc03a4kunm40c32d25659aad
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0xKTFYYGUlDGU8aHk
-	9PGEpWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUJCSU5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=cxf08jnlyk6piigolkqCttl0YSj1g+2QbmF0qfW48jixSdNXBS62RrdYfpyeCe4ykg6faZFb5n3tENxhSudVN+Dhw1HlUUlL8evUWbYcja4hDbROnVo6+pNHZL82UCkMN79QJ9F2cFOLT/jyGDVtItkX/YetjYejI3fJze03Y2k=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=8/QG9JqLLnNaub/oqU9gkVaGaxueCMPbNMwP2fsCHcY=;
-	h=date:mime-version:subject:message-id:from;
+	id 1x5EPI-00000000ViT-2sLw
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 12 Sep 2026 03:28:02 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7f4e729368fso1719805a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 20:27:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789183679; x=1789788479; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ud1ZpqadGMe+QubhUEhtcVCLKFg2sCSQ6NPZYlf26Tg=;
+        b=cqUF1V8uFOoCwoy1E5111crSt1HlNTbV4T08jaWwaIcqq1bgdShJuzeTxRpwcEgNhR
+         V4PLuolYGAXyVg+eqQOqE24iTWKgBETQ+/rfaYKLgKPo9FAz+IEtKrsLLwAF3ysucKnq
+         k84qx0N6Ge1ATyls9VaI2OrdNjttZFwUVK110BgSVJ/KChx/ni5WtB7ftaKdNTWwMlOY
+         L0ns5J8+xOGL5RdgWu/v78GjyhGdwrAQNOhOvRiNs6WQsN4e2/KqvVJXioA55o3A2vBT
+         wrpbJWQ2jBhQDFeo9JEm1jv/Z6f9MiviEHVc3m4pmX3lP+RW7XY9h+OcdO+1q96OYXYO
+         gQEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789183679; x=1789788479;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ud1ZpqadGMe+QubhUEhtcVCLKFg2sCSQ6NPZYlf26Tg=;
+        b=G3Ha99f4m0fEmOYC9849JfLesYYxbbhchRYOrzTSsx84fIw8onnHZDtql6fk1qQk/3
+         Lj2rs+TnpslmzT7A/rb74545UeH/vfRf0So9omlseOx6hFR9KdlZz88xoppHnw6zzY3o
+         qSKjfTzhH84jYkP8eFmnCaYCxUhKA0f1jIeHRzdfNhOA/XVRzneOsQA6PZq6siVtBhtv
+         2zgDTGlKv8eY2GkpN+EuBL8Wb4enMgfLdZzLfb0U+UK3ywgd2kIWfoZffOD8PDZmvWHl
+         9Zfg7AGTeWDZJQJVt/ZugNMafbu02ZXaei7EDM9ro/baDVZYElxqvXQX+SPqtDS0iI0E
+         MkRg==
+X-Forwarded-Encrypted: i=1; AKwUvBzM9xWrFbcI1e2nQ2BJRH8iuwmAZnL55oObThq2Tj8Z10huReFi6URfnVvjEZzH7pqpOLwPahbcsW6LUFr38PaG@lists.infradead.org
+X-Gm-Message-State: AFuF++kbuZsBPrmBYZ2xj8LzfXE6jCX49qoiIRn9Y77jhm85rFZm5x8L
+	tMjrfK2K3jnZ0AlGWPzkHV+37j3LPyg7gxvfApYtX352Nt0pzohYbvkq
+X-Gm-Gg: AYBFou2SBaeDiucmzicqcCvj5QJGideuWjC2QpBfXK70xo18XMm6aNoL+85gVeC/vp2
+	0If3zc74pznnlKCaiET2cyZMQwJvoesN7di0XX6DS1CdmHNV7cD2mD+3fcbAeG2ecZ2SppFwdgC
+	UFt/6e2Gi8NyftlaImhFBLBsUiLFeu+Enujv/u+hGkHDcFgtH+oTpepWQGuuUbF8CpTKf2p52+5
+	JRDCm5NYzQbSXmasiFl7MFcCNwCS8ZPzOJsD2rTyQ+je+Z1SKxckrsKoV9KUfjCRNslfkqQwlqd
+	PF+71P8eJqibj9cUDJb317Daa8I5dAJfcUHHJGFhtxtRbqSSYOtFEvvwzJQT3XFdYaIm6XAxSaE
+	3cAD7o9v196/bGvjGVdBzGLS6b1VkBO0L1pdNKO2qwZpN3+FzKWkNpy/NMGCaJfn5gFjKyk70S2
+	W5sR/ilegxc7Fa5D0BROGnB5/P5Ld4AEKjfRcBR09G/iS8USTpR35SA2/fMsynOxU6EifVDmBNL
+	72OtWhP2NTbdqhl0vqXqK3K24BaOuZml8UEGK4oBIsI0p8NMNzdkIIUspmUXrT//Q==
+X-Received: by 2002:a05:6830:2786:b0:7fa:ac4f:785 with SMTP id 46e09a7af769-80400b2042dmr6714669a34.17.1789183678934;
+        Fri, 11 Sep 2026 20:27:58 -0700 (PDT)
+Received: from localhost ([2a03:2880:10ff:15::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-803f6d208f5sm4822052a34.25.2026.09.11.20.27.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Sep 2026 20:27:58 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 11 Sep 2026 20:27:56 -0700
+Message-Id: <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com>
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Josef Bacik" <josef@toxicpanda.com>, "Paul E. McKenney"
+ <paulmck@kernel.org>, "Frederic Weisbecker" <frederic@kernel.org>, "Neeraj
+ Upadhyay" <neeraj.upadhyay@kernel.org>, "Joel Fernandes"
+ <joelagnelf@nvidia.com>, "Boqun Feng" <boqun@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>, "Steven
+ Rostedt" <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Jiri Olsa" <jolsa@kernel.org>,
+ "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>,
+ <x86@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, "Puranjay Mohan" <puranjay@kernel.org>, "Xu
+ Kuohai" <xukuohai@huaweicloud.com>
+Cc: "Andy Lutomirski" <luto@kernel.org>, "Josh Triplett"
+ <josh@joshtriplett.org>, "Uladzislau Rezki" <urezki@gmail.com>, "Mathieu
+ Desnoyers" <mathieu.desnoyers@efficios.com>, "Lai Jiangshan"
+ <jiangshanlai@gmail.com>, "Zqiang" <qiang.zhang@linux.dev>, "Juergen Gross"
+ <jgross@suse.com>, "Luis Chamberlain" <mcgrof@kernel.org>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, <linux-kernel@vger.kernel.org>,
+ <rcu@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+ <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH RFC v2 08/15] bpf, x86: Maintain Tasks RCU trampoline
+ nesting in the BPF trampoline
+X-Mailer: aerc
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com> <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com>
+In-Reply-To: <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_182115_662941_96FB567E 
-X-CRM114-Status: GOOD (  41.05  )
+X-CRM114-CacheID: sfid-20260911_202800_762644_4EC9F9D8 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,156 +120,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/09/12 星期六 5:15, Enrique Hernández Bello 写道:
-> Since commit c47f90be4c89 ("PCI: rockchip-host: Fix
-> rockchip_pcie_host_init_port() PERST# handling"), a JMicron JMB585
-> behind an rk3399 root port almost never becomes usable: the link trains
-> normally, but the endpoint's configuration space never answers, so the
-> device is not enumerated. On this controller a configuration read that
-> gets no usable completion is reported as an external abort rather than
-> as an all-ones response, which on arm64 brings the machine down.
-> 
-> The change added an unconditional 100 ms sleep so that PERST# stays
-> asserted for at least Tpvperl after power becomes valid. The wait is
-> performed while PERST# is asserted, so it also extends the reset by
-> 100 ms, and this endpoint does not tolerate the longer assertion.
-> 
-> Tpvperl is counted from the supplies becoming valid (PCIe CEM r5.1,
-> sec 2.9.2). On boards whose PCIe supplies are always-on -- vcc3v3_pcie
-> on ROCK Pi 4 is regulator-always-on and regulator-boot-on -- power has
-> been valid since boot, seconds before the driver probes, so the
-> requirement is already met and the sleep only lengthens the reset.
-> 
-> Record whether the supplies were already enabled before the driver
-> enabled them, and skip the wait in that case. A supply that is already
-> on at probe was brought up either by the bootloader or by the regulator
-> core at boot, both of which precede a PCIe probe by far more than
-> Tpvperl. When the driver really does bring the rails up the full wait
-> still happens, as it does if regulator_is_enabled() cannot tell.
-> 
-> The same check is repeated on resume rather than assuming that power
-> was cycled: suspend calls regulator_disable() on the 0.9V supply, which
-> only drops a reference, so on a board where that rail is always-on or
-> shared with another consumer the power stays valid across the cycle.
-> 
-> Skipping the wait only when every supply is already on is strictly more
-> conservative than what this driver did for years: until the change cited
-> above there was no Tpvperl wait at all, and PERST# stayed asserted only
-> for as long as the register writes in between took.
-> 
-> Measured on a ROCK Pi 4C with a Radxa Penta SATA HAT (JMB585) by
-> booting repeatedly and counting how often the endpoint enumerated:
-> 
->    unmodified ....................................  0 out of 84 boots
->    with this patch ...............................  3 out of 3 boots
->    other ways of dropping the same wait ..........  16 out of 16 boots
-> 
-> Fisher's exact test, pooling the last two rows against the first, gives
-> p = 4.1e-21. With the patch the endpoint enumerated on every boot and all
-> four disks behind it came up.
-> 
-> Each of the three PERST#-related changes that landed together in
-> v6.11-rc1 was also reverted individually; only removing this wait made
-> any difference. Moving the wait to before link training is enabled,
-> rather than removing it, did not help (0 out of 15 boots), which is
-> what identified the length of the PERST# assertion rather than any
-> interaction with link training as the cause.
-> 
-> The measurements were taken on 6.18, but the code in question is
-> unchanged between v6.11 and v7.2.
-> 
-> Fixes: c47f90be4c89 ("PCI: rockchip-host: Fix rockchip_pcie_host_init_port() PERST# handling")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Enrique Hernández Bello <ehbello@gmail.com>
+On Fri Sep 11, 2026 at 7:08 AM PDT, Josef Bacik wrote:
+> Emit an increment of current->rcu_tramp_nesting once the trampoline's
+> frame is set up and a decrement before the final register restore, so
+> that a task preempted while running fentry/fexit/fmod_ret/LSM programs
+> or the __bpf_tramp_enter()/__bpf_tramp_exit() glue is not treated as
+> Tasks-RCU quiescent.  Drop the count around the call to the original
+> function: that may run arbitrarily long without sleeping and must not pin
+> a Tasks RCU grace period, and the trampoline frame above it is held by
+> im->pcref rather than by Tasks RCU (see bpf_tramp_image_put()).  The
+> fmod_ret early-exit branch and the ip_after_call -> ip_epilogue poke both
+> skip the decrement/increment pair around the original call, so the count
+> stays balanced on every path.
+>
+> The sequence is "mov r11, gs:[current_task]; inc/dec dword [r11 + off]";
+> r11 is scratch at every emission point and (u32)&current_task is a valid
+> sign-extended %gs-absolute with the current per-CPU layout, the same form
+> the JIT already uses for this_cpu_off.  The image is dynamically
+> allocated text, so the instructions outside the bracketed region are
+> covered by the irq-exit IP check.
+>
+> Assisted-by: LLM
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 > ---
-> ---
-> v2:
->   - Re-evaluate the supplies in rockchip_pcie_resume_noirq() instead of
->     assuming that the 0.9V rail was really turned off. On a board where
->     that rail is always-on or shared, regulator_disable() leaves it on,
->     and forcing the wait there would reintroduce on resume exactly the
->     failure this patch fixes. Spotted by an automated review of v1.
->   - Factor the test into rockchip_pcie_supplies_enabled() now that it
->     has two callers.
-> 
-> v1: https://lore.kernel.org/all/20260911104952.4190994-1-ehbello@gmail.com/
-> 
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -318,6 +318,7 @@
->   	struct	regulator *vpcie1v8; /* 1.8V power supply */
->   	struct	regulator *vpcie0v9; /* 0.9V power supply */
->   	struct	gpio_desc *perst_gpio;
-> +	bool	supplies_pre_enabled;
->   	u32	lanes;
->   	u8      lanes_map;
->   	int	link_gen;
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -314,7 +314,9 @@
->   	rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
->   			    PCIE_CLIENT_CONFIG);
->   
-> -	msleep(PCIE_T_PVPERL_MS);
-> +	if (!rockchip->supplies_pre_enabled)
-> +		msleep(PCIE_T_PVPERL_MS);
-> +
->   	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
->   
->   	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> @@ -609,11 +611,33 @@
->   	return 0;
->   }
->   
+>  arch/x86/net/bpf_jit_comp.c | 43 +++++++++++++++++++++++++++++++++++++++=
+++++
+>  1 file changed, 43 insertions(+)
+>
+> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+> index 2853e87797a7..a375c1b7bd50 100644
+> --- a/arch/x86/net/bpf_jit_comp.c
+> +++ b/arch/x86/net/bpf_jit_comp.c
+> @@ -722,6 +722,31 @@ static void emit_indirect_jump(u8 **pprog, int bpf_r=
+eg, u8 *ip)
+>  	*pprog =3D prog;
+>  }
+> =20
 > +/*
-> + * Tpvperl is counted from the supplies becoming valid, and the driver waits
-> + * for it with PERST# asserted, so the wait also lengthens the reset pulse.
-> + * Supplies that are already enabled before this driver enables them were
-> + * brought up by the bootloader or by the regulator core at boot, both of
-> + * which precede this point by far more than Tpvperl, so the requirement is
-> + * already met. Treat an error from regulator_is_enabled() as "not known to
-> + * be on" so that the caller waits.
+> + * Tasks RCU trampoline nesting, see rcu_tasks_trampoline_enter().
+> + *
+> + *   mov r11, QWORD PTR gs:[current_task]
+> + *   inc/dec DWORD PTR [r11 + offsetof(struct task_struct, rcu_tramp_nes=
+ting)]
+> + *
+> + * r11 (AUX_REG) is scratch in the trampoline at every point this is emi=
+tted.
 > + */
-> +static bool rockchip_pcie_supplies_enabled(struct rockchip_pcie *rockchip)
+> +static void emit_rcu_tasks_tramp_nesting(u8 **pprog, bool enter)
 > +{
-> +	return (IS_ERR(rockchip->vpcie12v) ||
-> +		regulator_is_enabled(rockchip->vpcie12v) > 0) &&
-> +	       (IS_ERR(rockchip->vpcie3v3) ||
-> +		regulator_is_enabled(rockchip->vpcie3v3) > 0) &&
-> +	       regulator_is_enabled(rockchip->vpcie1v8) > 0 &&
-> +	       regulator_is_enabled(rockchip->vpcie0v9) > 0;
-> +}
+> +#ifdef CONFIG_TASKS_RCU
+> +	u8 *prog =3D *pprog;
 > +
->   static int rockchip_pcie_set_vpcie(struct rockchip_pcie *rockchip)
->   {
->   	struct device *dev = rockchip->dev;
->   	int err;
->   
-> +	rockchip->supplies_pre_enabled =
-> +		rockchip_pcie_supplies_enabled(rockchip);
+> +	/* mov r11, gs:[abs32] */
+> +	EMIT2(0x65, 0x4C);
+> +	EMIT3(0x8B, 0x1C, 0x25);
+> +	EMIT((u32)(unsigned long)&current_task, 4);
+> +	/* inc/dec dword ptr [r11 + disp32] */
+> +	EMIT3(0x41, 0xFF, enter ? 0x83 : 0x8B);
+> +	EMIT(offsetof(struct task_struct, rcu_tramp_nesting), 4);
 > +
+> +	*pprog =3D prog;
+> +#endif
 
-If it's pre-enabled, should we still need to enable this regulator just
-for adding a refcount for it?
+It's not a lot of overhead, but I feel it will be the death by thousand cut=
+s.
+rcu_read_lock_trace() in bpf_prog_enter_sleepable is doing the same thing..=
+.
+increamenting a variable inside current.
+Can they be combined? Like treat current->trc_reader_nesting > 0 as
+ current->rcu_tramp_nesting > 0 ?
+Or replace one with the other?
+Two current->foo++ operations look redundant.
 
->   	if (!IS_ERR(rockchip->vpcie12v)) {
->   		err = regulator_enable(rockchip->vpcie12v);
->   		if (err) {
-> @@ -890,6 +914,13 @@
->   	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
->   	int err;
->   
-> +	/*
-> +	 * Suspend calls regulator_disable() on the 0.9V supply, but on boards
-> +	 * where it is always-on or shared the rail does not actually drop, so
-> +	 * re-evaluate instead of assuming that power was cycled.
-> +	 */
-> +	rockchip->supplies_pre_enabled = rockchip_pcie_supplies_enabled(rockchip);
-> +
->   	err = regulator_enable(rockchip->vpcie0v9);
->   	if (err) {
->   		dev_err(dev, "fail to enable vpcie0v9 regulator\n");
-> 
-> 
+bpf trampoline is already quite heavy. I'd like to find ways to reduce
+its overhead instead of adding more.
 
 
