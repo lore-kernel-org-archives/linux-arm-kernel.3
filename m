@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEABC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 21:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2692BC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 21:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8//k2tt/DAzpaRSDYkVVEJC0drkQwp8Q2YveHgNVO8=; b=kWZ0PPFZi4Eqp6uZcSopYzYYD3
-	yjCh4AjmP6B0d0RAOV+83pf0LVDyToPJEneoZo3Dx5RkhH/9gG/fVZeY09/o5Hq7PZJceOUVemKLK
-	pgpVFpSVg5cCy5UmCXL4C+jKZxaTuhNjHAjFozacfxTh4mANoqP5rDKZNgPaXCUnF1e86WkTTdTDa
-	PUponBhhPDTb2lDCwZCekRPA0CFoKwzWBehge8i92yc6r7qA+cT0bHoZqVKDhO4yvux9Ae+L8osTt
-	8dCs9GfZUhjJ7bf01+7GI+BZD3+YJ+7Lje3/KxmFq2Sg0N7P1rPN8SVLECbf5dmJ0wgnLVdO3wv4y
-	xabR7q+w==;
+	bh=0Mh/huTJwam5/F8JzuAR6TpZyhHpFnxSR9MEhdoiU+0=; b=09K6Ta7pPL2T2SH0mJd+KegXFF
+	ESmOGSsxPkbkoeVVhmAVTLsaYGxL2CC06zVmLOSNoyde7fbv4gzbY1JyMWnpTAjvNvSwCoW3uyxVP
+	Lx7PsvHvpsRD9ovjaGI801y8YFnyR9FAXIaJ5BpKl4AaEoVJ1H87IFEsjfiv7TlJ51ElFK8hvkMNK
+	+DzuuryCaZAtFFN80iKbAXIfIC2nXznAvbP+wMgXQZ13JkM2RvqLUdooxTkW4sEegqTf9RDTOyijc
+	AKPpIo4emC/WD/cmvKnJCRtw9o3d8iNZ+slXeFsGV8y3YVJ/R6OccrdSWQhlVWAekty+sfRmms+sk
+	xjCacRpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5V3J-00000001D2c-2GD3;
-	Sat, 12 Sep 2026 21:14:25 +0000
+	id 1x5V4V-00000001DB7-30JH;
+	Sat, 12 Sep 2026 21:15:39 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5V3F-00000001D2I-3PHQ
+	id 1x5V4U-00000001DAy-3w6L
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 21:14:21 +0000
+	Sat, 12 Sep 2026 21:15:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8009E416FA;
-	Sat, 12 Sep 2026 21:14:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9F41F00893;
-	Sat, 12 Sep 2026 21:14:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A6C24377F;
+	Sat, 12 Sep 2026 21:15:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 623541F000FF;
+	Sat, 12 Sep 2026 21:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789247660;
-	bh=/8//k2tt/DAzpaRSDYkVVEJC0drkQwp8Q2YveHgNVO8=;
+	s=k20260515; t=1789247736;
+	bh=0Mh/huTJwam5/F8JzuAR6TpZyhHpFnxSR9MEhdoiU+0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=N53qReGzBEacqG0KFHEgGPHjZ40KVMKr9Esf+xzdtWIEqd+J56EQYz5Kox6MjxFEW
-	 zpqxX4EjeLZs1rlUuRn+pq5DbHIeetnzjoS8P9zCNzA3gq6OdYQJZGAMX6bIc7JDoy
-	 4EpZPckk6jYw3bGyGSDoTFtvc58ClGFJe40byLOU9Y/DCP6pd60GIkmH2QRHPrpn5m
-	 Dy+Bwu5u8LBgt5xre1asnF8kI3naoQKogFJTxv/S6VxZMeLairz/honP1TMGxGaebx
-	 Tdz3yOXUVI6GcxqwVXFpyGEGxPkjtAyfs1b/xxoF1BVToIzXIE6TzgG964O9ug2oJf
-	 7hyWIbuk/wNnQ==
-Message-ID: <158e15df-f8a0-43a0-9f92-fd4e64b06b1f@kernel.org>
-Date: Sat, 12 Sep 2026 23:14:14 +0200
+	b=h/iGEqodz+ovg9AX5QfDUyIbRTfpiPdzaXsEjjsW1gozSPZrHZeAHt9V4OcRJPhBc
+	 tvrYef3NRQPv9r2BkcWa7gGEqAMXq/DHNCMzlQIukKaqpQeaWm1Ynck6GzuzPL6dH+
+	 BSThwNXYy5XZX9Z/HkLbHkkTBbHBh1xHTAaXTtLyPA7yoIZQg4T42iB2vpTNAQjzsN
+	 1QRTQ+CTN2oYVw2r/lW4KYeiG2MT7SUqdexMkadhaIrQok8ajbkJw7JEA4yMoh43ms
+	 OOTPwEfLFCCv7U0JuO5p7PhbQbtlw9VWCNLDyakjKIS0RikRczC5tmV5GuVCIo4agK
+	 PB2n9SBXeSvCg==
+Message-ID: <5fd92f0d-ec79-4e58-9a10-c135f55531aa@kernel.org>
+Date: Sat, 12 Sep 2026 23:15:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] Initial Apple Silicon A18 Pro device trees and
- dt-bindings
+Subject: Re: [PATCH v2 4/7] dt-bindings: interrupt-controller: apple,aic2: Add
+ t8140 compatible
 To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -57,12 +57,12 @@ To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
  Guenter Roeck <linux@roeck-us.net>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-watchdog@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-watchdog@vger.kernel.org
 References: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
+ <20260911-apple-a18-pro-initial-devicetrees-v2-4-08d06cf011d4@cyberchaos.dev>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev>
+In-Reply-To: <20260911-apple-a18-pro-initial-devicetrees-v2-4-08d06cf011d4@cyberchaos.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,36 +82,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 9/11/26 18:58, Yureka Lilian wrote:
-> Hi,
->
-> This series adds initial device trees and dt-bindings for the A18 Pro
-> (t8140) SoC and the MacBook Neo (the only Mac using this SoC).
-> It only covers a minimal amount of hardware, but is nontheless useful
-> for further development work. The hardware added here has remained
-> largely unchanged from the earlier generation Apple Silicon Macs.
->
-> Similar to the M4 devices, changes to the m1n1 bootloader are required
-> to boot Linux on the MacBook Neo.
-> Also, SMP boot depends on further patches to avoid WFI and WFIT
-> instructions [1][2].
->
-> Merge strategy:
->
-> Since there are no actual driver changes in this series, we'd prefer to
-> merge the dt-bindings changes through the apple-soc tree once Acked by
-> the respective maintainers.
->
-> Link[1]: https://lore.kernel.org/all/20260804-arm64-idle-param-v3-1-d10f8159062b@cyberchaos.dev/
-> Link[2]: https://lore.kernel.org/all/20260811-idreg-override-wfxt-v1-1-1c71228d0719@cyberchaos.dev/
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
+> The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, same as
+> the M1-M4 SoCs.
 
-there's a single typo in one commit message, otherwise for the entire 
-series:
-
-Reviewed-by: Sven Peter <sven@kernel.org>
+AIC3 was introduced with M3, but no need to respin just for this. If I 
+end up applying it to the apple-soc tree I'll just fix it then.
 
 
 Sven
-
 
