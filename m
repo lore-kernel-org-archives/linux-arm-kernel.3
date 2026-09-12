@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D14C88E45
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 07:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C828C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 08:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vEd0Kwb2AivAH6fLDJ2jTZXPM4cUwHOzdO8EEhmSl+M=; b=3QITvscxs4tTtVJAh1wOOpf4lF
-	sy0CE+ta6Z/exxFvquYAaWu4kQDJ2KWeSNF1SOoKJabElHcWttrCqpvHXMyZwD7hnUN5qEiF7ny85
-	YbfRoRVCw9DBRi1nATHIV4d95XS1BWYDTxe4U1f5+nZLSavajXaLRt1K9fzOAtSdweGJEBAf6s6YP
-	inTB+voIWKSkU3sSLFG/KCVZB8IzIJiXz7fbHuuOW9Gi9OU+IPIMlDNHRPURv68wDJzdOGGdyqSsf
-	uYDfmrajvXu7XjV1eKaNYWoqSUvl9VgVNsoKB4gFC8wbx6meLT/JCzZeQhJFBjRdnzISQ4zcvConJ
-	SOwKsPrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y6FPOvM23OlPkDouxPQ9OlptW9eXBsYBVcbdP2w7Tj4=; b=U37sajQ+MNtkZUhEZhQUc9bfLA
+	/ZxLWHBWl9oPO9bA3hOVAvNV1RPOWzXmMOUXy6uyxzeYiLLF4tr4i67QtqfFMnrHXNrKdQDBPpe/Z
+	hy+e2UArkQvRz3N7V/fYrekKwM5OLaJaLrPkWYylNXqYNd8xxiAdsfbHOogcMnaJ6WUlz+pzD5xiH
+	ODsl4+klYnl/Eg9KaTMK7itLmcmELpRU5e8QRb7TAy5bNbMg26IHDgiVcmi8RaS4Sb/AkXAKBwVrC
+	Ik8PIXWTqloWoAX8P1PNP2+GZqB3jTKTz0KMTgVHpBmoRsrG3UqMqsxhg/QbBjCgH4vs0WW4sQWDp
+	HcTlI/uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Icc-00000000fdb-2AFB;
-	Sat, 12 Sep 2026 07:58:02 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1x5Ii9-00000000gCP-2VAW;
+	Sat, 12 Sep 2026 08:03:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ica-00000000fd9-2ZDA
+	id 1x5Ii8-00000000gCG-18nb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 07:58:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789199881; x=1820735881;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=vXC/lz8sDS7vIK7kkmOHAKB95vRwZ8MKI1dgipjQ6uY=;
-  b=a21iApI6lIn8l4zrGQjoSdP5qeVjRhwgvQ2qayS8uB4MhTP/tk8LZyJT
-   rOAzRx4CZBffmLQ3zdWV0bHO/EaczFHhLaTk3+tDg079rlIuY4EVRqthg
-   Ulqsicn/+nBk9Aq7Ih6R+7J7NTGiY3ChDR7J4keBztvjMqnmTJRvg2dUG
-   oFHTYkfTB6PcCUGsJDxe7UM6L6uYw8w3k/a1BCLoins53BhTxwV15Z1yE
-   xi2GPTlM03dgBmba8cg/tP+qglcEbPJv8yaJ00Itj5vg9SOjCP4vOsheS
-   w5EvAnZ0mHqXXdmu6JMSRfc9zGt0AT9y/dPmlizlEFHuh2wjtRJReupFD
-   g==;
-X-CSE-ConnectionGUID: nd6kTDtjSvudrccfU5UCXg==
-X-CSE-MsgGUID: 0XEP+be/TNeo55MAiqg1kA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11902"; a="89691831"
-X-IronPort-AV: E=Sophos;i="6.27,98,1787036400"; 
-   d="scan'208";a="89691831"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2026 00:57:59 -0700
-X-CSE-ConnectionGUID: bR4opzlKQVmHrLrg7T0zlQ==
-X-CSE-MsgGUID: wAgTxgzzQDaNadMqh9H5pQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,98,1787036400"; 
-   d="scan'208";a="268851514"
-Received: from cpetruta-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.230])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2026 00:57:54 -0700
-Date: Sat, 12 Sep 2026 10:57:51 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 01/10] dmaengine: Move enum dma_slave_buswidth to a
- new header
-Message-ID: <aqUF_8g-DG7GB1pM@ashevche-desk.local>
-References: <20260911-dmaengine-support-wider-dma-masks-v4-0-72b8fd4cc78e@analog.com>
- <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
+	Sat, 12 Sep 2026 08:03:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3340960218;
+	Sat, 12 Sep 2026 08:03:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D0EC2C2BCF4;
+	Sat, 12 Sep 2026 08:03:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789200222;
+	bh=ILKNp+WUMz7m60Cj2U3b3QKfAIuTdzWdXrka2tpZqXw=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=bkZiD4uF5TCVrUKm68zSiu3UsGrSnIROJB8jRqeUX0SgnekRupH45MgAKqAVHFzhn
+	 uVOVmxgy4NCSHafnrSf+sICm8tSeYW6jG1ziihWox+nY96AmlBZ+KoA3qf8mjbVBjv
+	 o9QcxiNQnyKwSXX9mk6879UnB9WzT8bk658znHSEuh+GX/Rlq5CrUylHVvhYbcKflu
+	 +B7KKIAJ3i6EvnaAPvVhmsU+fEiUlAPmfmK2+LIS/3XLuFk+oh9Ah4IiDK/A66yxW5
+	 rXGP5taFECRp98rp2yAX8taCg+51fiipg1DhzM03AZTQ2XNlqzV0EW2C//7B6+acKf
+	 9YKlDMmbU/0Pw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AE2F1C88E4D;
+	Sat, 12 Sep 2026 08:03:42 +0000 (UTC)
+From: Myria Sarvay via B4 Relay <devnull+myrialsarvay.gmail.com@kernel.org>
+Date: Sat, 12 Sep 2026 18:03:35 +1000
+Subject: [PATCH] drivers/perf: apple_m1: Add macOS 27 M2 Event
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260911-dmaengine-support-wider-dma-masks-v4-1-72b8fd4cc78e@analog.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_005800_723343_BE589BBC 
-X-CRM114-Status: GOOD (  13.48  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrB3QKajjVYoLm07aEZJKYkQQ7
+ 96oy7f4f4coQSVCX+wQZNWoP59RlwWY7+g/gvrOBqqoqbgmdIRscXYJ/egE246NbejBtmXI0Rz
+ E6nYNn8PtmF6TmOW8wHH8AWdXnI5yAAAA
+X-Change-ID: 20260912-m2-9f-pmu-name-789cf6239f79
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ Myria Sarvay <myrialsarvay@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1883;
+ i=myrialsarvay@gmail.com; h=from:subject:message-id;
+ bh=WE/9S0PEWj724ZfvllqIPRhYse7Qz5ha7AiDrC/FTsg=;
+ b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYspayxz65P616LZ9MUu9hz417PhrzyN/98Wr2pZPXq
+ g4Kqv4IMn/eUcrCIMbFICumyKJvmqY9ma3hUuky1y0wc1iZQIYwcHEKwET0rRgZlv4v+ytisH/V
+ bqWbC7UP50ttuHTvbs7Vdjcvb+b+oMU3lBgZdvy9F5kzfcrGTY6/DLfXWXYdFnbz/DBZV4Jt0QP
+ NvyEKzADqTksT
+X-Developer-Key: i=myrialsarvay@gmail.com; a=openpgp;
+ fpr=2F35662B930680D275A645B452444118A8ADFEE9
+X-Endpoint-Received: by B4 Relay for myrialsarvay@gmail.com/default with
+ auth_id=1027
+X-Original-From: Myria Sarvay <myrialsarvay@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,32 +84,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: myrialsarvay@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 06:25:36PM +0100, Nuno Sá wrote:
-> In preparation for the bitmap based bus width capabilities, move
-> enum dma_slave_buswidth out of linux/dmaengine.h into a new
-> include/linux/dma/engine/types.h.
-> 
-> linux/dmaengine.h is included nearly everywhere, so growing it with the
-> new interface would make every one of its users pay for it. Keeping the
-> basic types in a separate header lets the new interface live next to it
-> without that cost. linux/dmaengine.h includes the new header, so its
-> users are unaffected.
-> 
-> While at it, add the missing kernel-doc for the enum members. The block
-> already opened with /**, so kernel-doc expected every member to be
-> described and warned about each one of them. Describe the UNDEFINED case
-> in particular, as its meaning depends on where the value is used.
-> 
-> No functional change intended.
+From: Myria Sarvay <myrialsarvay@gmail.com>
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+This patch adds another known PMU event that can be found under
+/usr/share/kpep on macOS 27 for M2 macs. INST_SIMD_ALU_VEC purports to
+count "Retired non-load/store vector Advanced SIMD instructions", and as
+we already noted, can only be registered on counter 7. Though this event
+only shows up on the M2 kpep records, it can be set on M1 CPUs, and
+records something.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Link: https://github.com/0ax1/apmc/blob/9cff99a9df2ae055f1e3065c64f633e38bb6beec/counters/m2.md
+Signed-off-by: Myria Sarvay <myrialsarvay@gmail.com>
+---
+ drivers/perf/apple_m1_cpu_pmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+index 81b6f1a62349..1f73c8a77462 100644
+--- a/drivers/perf/apple_m1_cpu_pmu.c
++++ b/drivers/perf/apple_m1_cpu_pmu.c
+@@ -81,7 +81,7 @@ enum m1_pmu_events {
+ 	M1_PMU_PERFCTR_INST_SIMD_ALU				= 0x9a,
+ 	M1_PMU_PERFCTR_INST_LDST				= 0x9b,
+ 	M1_PMU_PERFCTR_INST_BARRIER				= 0x9c,
+-	M1_PMU_PERFCTR_UNKNOWN_9f				= 0x9f,
++	M1_PMU_PERFCTR_INST_SIMD_ALU_VEC			= 0x9f,
+ 	M1_PMU_PERFCTR_L1D_TLB_ACCESS				= 0xa0,
+ 	M1_PMU_PERFCTR_L1D_TLB_MISS				= 0xa1,
+ 	M1_PMU_PERFCTR_L1D_CACHE_MISS_ST			= 0xa2,
+@@ -150,7 +150,7 @@ static const u16 m1_pmu_event_affinity[M1_PMU_PERFCTR_LAST + 1] = {
+ 	[M1_PMU_PERFCTR_INST_SIMD_ALU]				= BIT(7),
+ 	[M1_PMU_PERFCTR_INST_LDST]				= BIT(7),
+ 	[M1_PMU_PERFCTR_INST_BARRIER]				= ONLY_5_6_7,
+-	[M1_PMU_PERFCTR_UNKNOWN_9f]				= BIT(7),
++	[M1_PMU_PERFCTR_INST_SIMD_ALU_VEC]			= BIT(7),
+ 	[M1_PMU_PERFCTR_L1D_CACHE_MISS_LD_NONSPEC]		= ONLY_5_6_7,
+ 	[M1_PMU_PERFCTR_L1D_CACHE_MISS_ST_NONSPEC]		= ONLY_5_6_7,
+ 	[M1_PMU_PERFCTR_L1D_TLB_MISS_NONSPEC]			= ONLY_5_6_7,
+
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260912-m2-9f-pmu-name-789cf6239f79
+
+Best regards,
+--  
+Myria Sarvay <myrialsarvay@gmail.com>
 
 
 
