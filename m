@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE91CC88E56
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC7EC88E65
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXVXqhp6ApyiTqcJ3Hf36THfHfahlafVZ6pQFIgKxDA=; b=xKcdC+URzy9+scDSKMadB+udeJ
-	GHU99BRmVvL8yU22M0QR08iNdVOaJXcE7E602UDA3lWivkIHB3khRI0n+/leapqAX+MNupPCiBQWi
-	YKUYGV77gYaY/rsWWJinVo1dafMfkUo4rljL8LFgyZ9z/al5sRbWjnvGcfz+Uhm+sfURicAHUQ7wY
-	bHRb6fMlglZ6LryKbqBFyTHqS5RrnsIZaiJEb+Jo8dwxSciQNuub2xupPyZNdOKBpmxvqOWQqL3c9
-	LTN0qje6JnPv4YoCcVR4fMnh6lRRDOWn/eemT5FB1PxdUo4ZjcLDKHxkCuIfeWqJpuxyiKkIO3wEJ
-	yphTTvDg==;
+	bh=7ogonOqpgyEB6kgacfYKnKkNjbUMkziLQ4rxvlKSZwU=; b=K6NRiyM0ZnWbi6R2EpbcpJL8wD
+	y8QL05KhJVJ+JSc7f8vtqFLuQdXWuNkP8fV3DCTdo0BPzqymQoQdx9XFL6JGbOmB1+Q4yovA5V8st
+	xYtzPDmclolhsu3Z2yIQdYm8L3vwS0iQX8ljsHhH3jHaVNHp96UZTb50FsFldfDGxb7+NfjJ4S9MD
+	JdELrjqPE97TsrVGA2gn3QXiouduUi+AOrSfwj4pMB5UKXCnC7c5NmddpVjpXrCMvNXy1pdpZ3ZYt
+	qW2KMLBEQzxYy4ILaAk8MJIxoFk3ZjVY6Y/cjEu47ZYhlS709SXufvER/jGgTAabkyHMS/mQaMICG
+	M0/Z3V/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5USP-00000001Aim-07QT;
+	id 1x5USP-00000001AjV-12bx;
 	Sat, 12 Sep 2026 20:36:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5USK-00000001Ah0-2yix
+	id 1x5USO-00000001Ahv-27Q2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 20:36:13 +0000
+	Sat, 12 Sep 2026 20:36:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F17B447FB;
-	Sat, 12 Sep 2026 20:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85D31F000FF;
-	Sat, 12 Sep 2026 20:36:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED05360213;
+	Sat, 12 Sep 2026 20:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E5BF1F00893;
+	Sat, 12 Sep 2026 20:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789245372;
-	bh=VXVXqhp6ApyiTqcJ3Hf36THfHfahlafVZ6pQFIgKxDA=;
+	s=k20260515; t=1789245375;
+	bh=7ogonOqpgyEB6kgacfYKnKkNjbUMkziLQ4rxvlKSZwU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SCtDugJ4nzwZDh/t+FYKZZqEgDb1smAvZ33YDc5Yvf/70N4R5hSiR3pPmpQIAOX9o
-	 lWhQZOFujP2nJEo59dRrtV3YP+jHH7zQEJoelwyCO6SkmaddIlEmUP6uGsHvknSdoe
-	 Kcgv0usnNahWfU5p+SyugMij2pkrNfaaqm5hBN0/iO9P+wLaJWX0bZ1Dhx/ozzFD5M
-	 TAHN3QhkoC21ZmdsARdFyOIREePgUFk4kXrLPZHVjUZw530ohD624JJu14xJlMYLBC
-	 Q8SeHLJhI/tbROAX/zo3eqqBUGQjcEOVpTA4ikTIIktz1SY/lU3r1B1mgCTXuvLpX0
-	 uZ/P+1fupiruQ==
-Subject: Re: [PATCH net-next v2 4/8] net: xilinx: tsn: parse endpoint DMA
- channel configuration
+	b=lMQ57srTtrpfqW2athOWSwRqqV47rFYG822cWJq5wYyeRwRx0J4hgMSftYISiIsNK
+	 qe6kUjghyHMKC5tXXRogV7z033J1WCtZ74B8hK8N89MYm+qF1GPzmLetyuNoJBopzq
+	 fCOeG5w0i2FnZ2hyIZKIt/elOTDLx4jUcW+4uqeigo7wT/AO1KZ4d/nc+0Jq6wJIl+
+	 oUFE4wMmCW3twzlTxK9YHFW8ZmFeFq1DTpyBnYtrzvNXC/TQLSWsVGOujxeIo/Rl9a
+	 KsktRcgUQUG75wOdHkQo8TZx7uZ/3izgUL+pmEc0AWCkU78HwYd0IdFH4TJiZdN9w5
+	 2OV5SuVCna13g==
+Subject: Re: [PATCH net-next v2 6/8] net: xilinx: tsn: add the endpoint RX data path
 From: netdev-bot+sashiko@kernel.org
 To: srinivas.neeli@amd.com
 Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -53,11 +52,11 @@ Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  rostedt@goodmis.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
-Date: Sat, 12 Sep 2026 20:36:10 +0000
-Message-ID: <178924537042.3125.10976584091391894658@kernel.org>
-In-Reply-To: <20260909-patches_v2_external-v2-4-3a40babaff4c@amd.com>
-References: <20260909-patches_v2_external-v2-4-3a40babaff4c@amd.com>
-X-sashiko-severity: Medium
+Date: Sat, 12 Sep 2026 20:36:14 +0000
+Message-ID: <178924537407.3125.1382925704702790504@kernel.org>
+In-Reply-To: <20260909-patches_v2_external-v2-6-3a40babaff4c@amd.com>
+References: <20260909-patches_v2_external-v2-6-3a40babaff4c@amd.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -75,161 +74,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 2 · Medium: 3 · Low: 0
 
-- [Medium] xlnx_tsn_ep_probe() and ep_parse_tx_queue_config() enforce two
-  new mandatory device-tree constraints that the in-tree binding does…
+- [High] The new RX path cannot deliver a single frame on the hardware it
+  targets.
+- [High] ep_rx_submit_desc()
+  (drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c:169-178) records the…
+- [Medium] ep_dma_rx_cb() documents and indexes the dmaengine metadata
+  window as "[0] = status, [1] = sideband (TID/TDEST/TUSER), [2..] =…
+- [Medium] ep_rx_refill() holds the per-channel spinlock with softirqs
+  disabled (guard(spinlock_bh)(&xchan->rx_lock), line 191) across a loop…
+- [Medium] The commit message states "ndo_stop() sets a closing flag
+  under the same per-channel lock the refill takes", but ep_stop() (line…
 
 --
 
-net: xilinx: tsn: parse endpoint DMA channel configuration
+net: xilinx: tsn: add the endpoint RX data path
 
-This patch counts the TX and RX MCDMA channels listed in the endpoint's
-"dma-names" property, allocates the conduit netdev with that many hardware
-queues, and parses the "tx-queues-config" child node to map each logical TX
-queue to a physical DMA channel.
+This adds the RX side of the Xilinx TSN endpoint: RX buffers are posted to
+every RX channel at ndo_open and reaped from the dmaengine completion
+callback, which decodes a TUSER port_id out of the descriptor metadata and
+passes MAC1/MAC2 frames up with __netif_rx(). A per-channel rx_lock plus a
+refill timer are added to serialise refill against teardown.
+
+[Severity: Medium]
+The commit message says:
+
+  "Serialise the RX refill against teardown. The completion callback re-arms
+   the ring, so ndo_stop() sets a closing flag under the same per-channel
+   lock the refill takes, and ep_free_dma_chan() takes that lock as a barrier
+   before it terminates the channel."
+
+Is the "under the same per-channel lock" part accurate?  ep_stop() looks
+like this:
+
+	netif_tx_disable(ndev);
+	WRITE_ONCE(ep->closing, true);
+	ep_exit_dmaengine(ep);
+
+The store is not done under any rx_lock; the per-channel lock only shows up
+later in ep_free_dma_chan() as a bare lock/unlock barrier, after the flag
+has already been published.  Since this claim is the stated reason a single
+dmaengine_terminate_sync() suffices, could the wording be adjusted to
+describe what the code actually does?
 
 > diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> index 089f17a126f5..24025b1f6e66 100644
+> index 23a15df71baa..9ed1170794e0 100644
 > --- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 > +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 
 [ ... ]
 
-> @@ -69,15 +88,173 @@ static const struct ethtool_ops ep_ethtool_ops = {
->  	.get_drvinfo	= ep_get_drvinfo,
->  };
+> @@ -41,6 +43,19 @@
+>  #define TX_BD_NUM_DEFAULT		64
+>  #define RX_BD_NUM_DEFAULT		128
 >  
+> +#define EP_RX_REFILL_RETRY		msecs_to_jiffies(10)
+> +
 > +/*
-> + * Parse the "tx-queues-config" child of the EP node. The logical queue
-> + * index is taken from the "queue<N>" node name, so the mapping does not
-> + * depend on the order the child nodes appear in the device tree.
+> + * The DMA descriptor sideband status word packs TID/TDEST/TUSER together;
+> + * TUSER occupies the low byte, TID/TDEST sit in the upper bits.
 > + */
-> +static int ep_parse_tx_queue_config(struct xlnx_tsn_ep *ep,
-> +				    struct device_node *txcfg_np, u16 tx_present)
-> +{
-> +	DECLARE_BITMAP(queue_seen, TSN_MAX_TX_QUEUE) = {};
-> +	DECLARE_BITMAP(chan_seen, TSN_MAX_TX_QUEUE) = {};
-> +	unsigned int count = 0;
-> +	int ret;
+> +#define TSN_TUSER_MASK			GENMASK(7, 0)
+> +/* TUSER Input Port ID field (bits [5:4] of the TUSER field) */
+> +#define TSN_TUSER_PORT_ID_MASK		GENMASK(5, 4)
+> +#define TSN_TUSER_PORT_EP		0x0
+> +#define TSN_TUSER_PORT_MAC1		0x1
+> +#define TSN_TUSER_PORT_MAC2		0x2
 > +
-> +	for_each_child_of_node_scoped(txcfg_np, qnode) {
-> +		u32 chan, queue;
-> +
-> +		if (!str_has_prefix(qnode->name, "queue") ||
-> +		    kstrtou32(qnode->name + strlen("queue"), 10, &queue) ||
-> +		    queue >= ep->num_tx_queues)
-> +			return dev_err_probe(ep->dev, -EINVAL,
-> +					     "tx-config: invalid queue node %pOFn (have %u queues)\n",
-> +					     qnode, ep->num_tx_queues);
 
 [ ... ]
 
-> +		ep->tx_dma_chan_map[queue] = chan;
-> +		count++;
-> +	}
-> +
-> +	if (count != ep->num_tx_queues)
-> +		return dev_err_probe(ep->dev, -EINVAL,
-> +				     "tx-config: described %u queues but expected %u\n",
-> +				     count, ep->num_tx_queues);
+> @@ -113,6 +132,174 @@ ep_get_desc(struct xlnx_tsn_ep_dma_chan *xchan, int idx)
+
+[ ... ]
+
+> +	skbuf_dma->skb = skb;
+> +	skbuf_dma->dma_address = sg_dma_address(skbuf_dma->sgl);
+> +	skbuf_dma->desc = dma_rx_desc;
+> +	dma_rx_desc->callback_param = xchan;
+> +	dma_rx_desc->callback_result = ep_dma_rx_cb;
+> +	xchan->ring_head++;
+> +	dmaengine_submit(dma_rx_desc);
 > +
 > +	return 0;
+
+[Severity: High]
+Should ep_rx_submit_desc() check the cookie returned by dmaengine_submit()?
+ring_head is advanced and the slot is marked armed before the submit, and
+the return value is discarded, so 0 is returned even when the descriptor was
+never queued.  The provider can fail:
+
+drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_tx_submit() {
+	...
+	if (chan->err) {
+		err = xilinx_dma_chan_reset(chan);
+		if (err < 0)
+			return err;
+	}
+	...
+}
+
+If that happens, three things seem to follow.
+
+The skb and its DMA_FROM_DEVICE mapping stay pinned in the slot with no
+completion ever arriving for it.
+
+ep_dma_rx_cb() consumes slots strictly in ring_tail order with no
+correlation to the completing descriptor:
+
+	skbuf_dma = ep_get_desc(xchan, xchan->ring_tail & (xchan->ring_size - 1));
+	WRITE_ONCE(xchan->ring_tail, xchan->ring_tail + 1);
+
+so every later completion is attributed to the wrong slot.  Can this hand a
+buffer the engine never wrote, i.e. freshly allocated dev_alloc_skb() memory
+with another descriptor's length applied by skb_put(), to __netif_rx()?
+
+And since ep_rx_refill() judges success only by ring_head != ring_tail, the
+falsely advanced head makes refill report success, no retry timer is armed,
+and the new ep_init_dmaengine() arming check passes with nothing queued.
+
+The TX path in this series does check dma_submit_error() and rolls the slot
+back; would the same handling fit here?
+
+> +
+> +err_unmap_skb:
+> +	dma_unmap_single(xchan->dma_dev, addr, ep->max_frm_size, DMA_FROM_DEVICE);
+> +err_free_skb:
+> +	dev_kfree_skb(skb);
+> +	return -ENOMEM;
+> +}
+> +
+> +static bool ep_rx_refill(struct xlnx_tsn_ep_dma_chan *xchan, bool arm_timer)
+> +{
+> +	int avail, i;
+> +
+> +	guard(spinlock_bh)(&xchan->rx_lock);
+> +
+> +	if (READ_ONCE(xchan->ep->closing))
+> +		return false;
+> +
+> +	avail = CIRC_SPACE(xchan->ring_head, READ_ONCE(xchan->ring_tail),
+> +			   xchan->ring_size);
+> +	for (i = 0; i < avail; i++) {
+> +		if (ep_rx_submit_desc(xchan))
+> +			break;
+> +	}
+> +	dma_async_issue_pending(xchan->chan);
+
+[Severity: Medium]
+Does rx_lock need to cover the whole submit loop?  The guard is taken at
+function scope, so with an empty ring avail is ring_size - 1 (127 with
+RX_BD_NUM_DEFAULT), and each iteration of ep_rx_submit_desc() does
+dev_alloc_skb(), dma_map_single(), dmaengine_prep_slave_sg() and
+dmaengine_submit() with softirqs disabled.
+
+Two consequences worth considering.  On the ndo_open path
+(ep_init_dmaengine -> ep_rx_refill(chan, false)) this is sleepable process
+context, yet every allocation is forced into the GFP_ATOMIC reserve and can
+fail ndo_open with -ENOMEM.  A concurrent RX completion on another CPU spins
+on rx_lock for the whole burst.
+
+Would moving the skb allocation and mapping outside rx_lock, or dropping and
+retaking it per descriptor, work here?
+
+> +
+> +	if (xchan->ring_head != READ_ONCE(xchan->ring_tail))
+> +		return true;
+> +
+> +	if (arm_timer)
+> +		mod_timer(&xchan->rx_refill_timer, jiffies + EP_RX_REFILL_RETRY);
+> +
+> +	return false;
 > +}
 
 [ ... ]
 
->  static int xlnx_tsn_ep_probe(struct platform_device *pdev)
->  {
-> +	u32 rx_chan_num[TSN_MAX_RX_QUEUE];
->  	struct device *dev = &pdev->dev;
-> +	struct device_node *txcfg_np;
-> +	u32 num_tx, num_rx, num_prio;
-> +	struct device_node *ip_np;
->  	struct net_device *ndev;
->  	struct xlnx_tsn_ep *ep;
->  	u8 mac_addr[ETH_ALEN];
-> +	u16 tx_present = 0;
->  	int ret;
-> +	int i;
+> +	metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc,
+> +						   &meta_len,
+> +						   &meta_max_len);
+> +	if (IS_ERR_OR_NULL(metadata)) {
+> +		if (net_ratelimit())
+> +			dev_warn(ep->dev, "Failed to get RX metadata pointer\n");
 > +
-> +	ret = ep_count_dma_queues(dev, &num_tx, &num_rx, &tx_present, rx_chan_num);
-> +	if (ret)
-> +		return ret;
+> +		dev_kfree_skb_any(skb);
+> +		DEV_STATS_INC(ndev, rx_dropped);
+> +		DEV_STATS_INC(ndev, rx_errors);
+> +		goto submit_new;
+> +	}
+
+[Severity: High]
+Can this drop every received frame on the AXI MCDMA channels the endpoint
+binding uses?  dmaengine_desc_get_metadata_ptr() goes through:
+
+drivers/dma/dmaengine.c:
+	ret = desc_check_and_set_metadata_mode(desc, DESC_METADATA_ENGINE);
+	if (ret)
+		return ERR_PTR(ret);
+
+and xilinx_dma.c only advertises DESC_METADATA_ENGINE for
+XDMA_TYPE_AXIDMA:
+
+drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_probe() {
+	...
+	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA)
+		xdev->has_axistream_connected =
+			of_property_read_bool(node, "xlnx,axistream-connected");
+	...
+	if (xdev->has_axistream_connected)
+		xdev->common.desc_metadata_modes = DESC_METADATA_ENGINE;
+	...
+}
+
+xilinx_mcdma_prep_slave_sg() also never assigns
+desc->async_tx.metadata_ops, unlike the two AXIDMA prep paths.  With
+desc_metadata_modes unset, desc_check_and_set_metadata_mode() returns
+-ENOTSUPP for every MCDMA completion, so IS_ERR_OR_NULL(metadata) is taken
+and the skb is freed with rx_dropped/rx_errors incremented, making the
+port_id filtering and __netif_rx() below unreachable.
+
+Would a one-time capability check at open (for example
+dmaengine_is_metadata_mode_supported()) be better than a ratelimited
+per-packet warning here, and does the MCDMA side need metadata support added
+first?
+
 > +
-> +	ip_np = of_get_parent(dev->of_node);
-> +	if (!ip_np)
-> +		return dev_err_probe(dev, -EINVAL, "missing parent IP node\n");
-> +
-> +	ret = of_property_read_u32(ip_np, "xlnx,num-priorities", &num_prio);
-> +	of_node_put(ip_np);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "missing xlnx,num-priorities\n");
-> +
-> +	if (num_tx != num_prio)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "TX channel count %u must equal num-priorities %u\n",
-> +				     num_tx, num_prio);
+> +	/* MCDMA metadata: [0] = status, [1] = sideband (TID/TDEST/TUSER), [2..] = app */
+> +	tuser = metadata[1] & TSN_TUSER_MASK;
+> +	rx_len = ep->max_frm_size - result->residue;
 
 [Severity: Medium]
-Can this equality check reject device trees that the in-tree binding
-accepts?  Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-describes the two properties completely independently:
+Is metadata[1] really the sideband word?  The in-tree provider hands out the
+APP window, not the status word:
 
-  xlnx,num-priorities:
-    $ref: /schemas/types.yaml#/definitions/uint32
-    minimum: 2
-    maximum: 8
+drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_get_metadata_ptr() {
+	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+	seg = list_first_entry(&desc->segments,
+			       struct xilinx_axidma_tx_segment, node);
+	return seg->hw.app;
+}
 
-      dma-names:
-        minItems: 2
-        maxItems: 16
-        items:
-          pattern: "^(tx|rx)_chan[0-7]$"
+and in the MCDMA hardware descriptor the status and sideband words sit
+before app[]:
 
-With that schema, dma-names = "tx_chan0", "rx_chan0" together with
-xlnx,num-priorities = <2> validates, but xlnx_tsn_ep_probe() now fails with
-"TX channel count 1 must equal num-priorities 2".  A 4 TX + 4 RX endpoint
-under xlnx,num-priorities = <8> fails the same way.
+struct xilinx_aximcdma_desc_hw {
+	...
+	u32 control;		/* @0x14 */
+	u32 status;		/* @0x18 */
+	u32 sideband_status;	/* @0x1C */
+	u32 app[XILINX_DMA_NUM_APP_WORDS]; /* @0x20 */
+};
 
-The queue node checks in ep_parse_tx_queue_config() add a second constraint
-that the schema does not express: exactly one queue<N> node per TX channel,
-with dense indices 0..num_tx-1.  The schema has no required queue children
-under tx-queues-config, so an empty
+So metadata[0] is APP0 and metadata[1] is APP1, which would make the decoded
+port_id below unrelated to TUSER: a zero APP1 gives port_id 0
+(TSN_TUSER_PORT_EP) and every frame is dropped as an unexpected port_id,
+while non-zero garbage can accept a frame and later select the wrong
+ep->port_md[port_id] for DSA delivery.  The peer consumer of this same ABI,
+axienet_dma_rx_cb(), indexes app_metadata[XILINX_DMA_NUM_APP_WORDS - 1],
+which matches the APP-window interpretation.
 
-  tx-queues-config {
-  };
+Also, meta_len and meta_max_len are fetched and then never used.  Should
+this check meta_len >= 2 * sizeof(u32) before dereferencing metadata[1]?
 
-is schema-valid and gets "tx-config: described 0 queues but expected N",
-and sparse names such as queue0/queue1/queue2/queue7 with 4 TX channels get
-"tx-config: invalid queue node queue7 (have 4 queues)".
+> +
+> +	if (rx_len > ep->max_frm_size || rx_len < ETH_HLEN) {
 
-Because the endpoint MAC is the DSA conduit referenced by
-port@0 { ethernet = <&ep_mac>; }, a probe failure here also takes away the
-three-port switch, not just the ep0 netdev.
+[ ... ]
 
-Semantically these look like different things: xlnx,num-priorities is an
-IP-wide traffic class count on the parent node, while dma-names describes
-host-side MCDMA wiring on the endpoint node, and the binding's own example
-uses an arbitrary queueN -> tx_chanM permutation.  num_prio is read here for
-no other purpose than this comparison.
+> +	port_id = FIELD_GET(TSN_TUSER_PORT_ID_MASK, tuser);
+> +	if (port_id != TSN_TUSER_PORT_MAC1 && port_id != TSN_TUSER_PORT_MAC2) {
+> +		if (net_ratelimit())
+> +			dev_dbg(ep->dev, "RX dropping unexpected TUSER port_id=%u\n",
+> +				port_id);
+> +
+> +		dev_kfree_skb_any(skb);
+> +		DEV_STATS_INC(ndev, rx_dropped);
+> +		goto submit_new;
+> +	}
 
-Should the binding encode the coupling (required queue children and a
-dma-names/num-priorities relation), or should the driver accept every
-topology the binding advertises?
+[ ... ]
 
-The YAML is unchanged by this patch and by the remainder of the series, and
-only the 8 TX / 8 RX, xlnx,num-priorities = <8> example in the binding
-satisfies the driver, so dt_binding_check does not surface the mismatch.
-
-Could the commit message body state these new device tree requirements?
-Right now they appear only in the below-the-line v2 changelog:
-
-  - Require one queue node per tx_chan and num-priorities equal to the TX
-    channel count.
+> @@ -322,9 +526,19 @@ static int ep_init_dmaengine(struct xlnx_tsn_ep *ep)
+>  		rx_allocated++;
+>  	}
+>  
+> +	for (i = 0; i < ep->num_rx_queues; i++) {
+> +		if (!ep_rx_refill(ep->rx_chans[i], false)) {
+> +			dev_err(ep->dev, "RX channel %d: no descriptors armed\n",
+> +				i);
+> +			ret = -ENOMEM;
+> +			goto err_free_chans;
+> +		}
+> +	}
+> +
 
 [ ... ]
 
