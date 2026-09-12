@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A81C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F6DC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=va5DYBu2vUOwC5NHKgWZaSsI06SaL+sZeAaoSpAlKxc=; b=mfkre1wHB2FJMxu/1DSHFOgUiz
-	o5Kbbwb8HYam5rU22WkIsUgUYEsC1JjrExhanWcfGSynMkJJNPPNEqMW/ZynZUDIP5pOb6NfclJXR
-	wWYhqmjGRpSYGVY1/3kDY++XqS0TmlMd7lq0gYEVZJ0XznmLkmTpIugRM0imqg3Vn4FDPjh7yfMI5
-	r5vb8OK39vUZ+aqMxTh5HGk8pkw3BiEjFCR/pfGFZMM2VEiP6KPCcVavTrx6X460T6nGQS4noLiVC
-	pvFCqY0HD9vn5tudN9p+VhcbOL2U43PldkJ18UEdYCva+EjF0q/oLEOcl+2S7cYfo6CeigRh6KQkS
-	OdAsXGZg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Myy3smEvql/qodoHPfYgXGKdcJUKumaY+uFvrhTMU5M=; b=TxNEYRT6HtAq3AsPv2G2pQ7h94
+	3TTiubbAPGDU+qFsFDN0ve32oORHOVrIc5heEeGXQ7kPjWLZA5jWmvj2HmmSwCz7+kEp4k30hwO6H
+	TXUTSfvmC+xzJ1185d7kqqCkjgVFFJ4aGzmF8W7eaT2mGSwYs0gVCRQkUwvbDeC2rpgeA+JePbPwj
+	x4F1pbxfmavMFS9X+fLgIPGl8v39ErjEBuu84+YxKyCRKkL3XVfMEMws4piqb1+9ySKlaCzEQE3xq
+	Ew9tGdDxp2db7OCeojWCCR+Yep7s+7FtZXhZ+kOQTn31qZ1YNCTfVugHQL7Fzd7pmWMkxi7bATkQ2
+	ZKDZdEmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ub3-00000001C7U-26u0;
-	Sat, 12 Sep 2026 20:45:13 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1x5UbA-00000001C91-2zYj;
+	Sat, 12 Sep 2026 20:45:20 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ub1-00000001C66-37pr
+	id 1x5Ub2-00000001C69-09wi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 20:45:12 +0000
+	Sat, 12 Sep 2026 20:45:14 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 6EF56240101
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 22:45:03 +0200 (CEST)
+	by mout01.posteo.de (Postfix) with ESMTPS id BF224240028
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 22:45:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1789245903;
-	bh=va5DYBu2vUOwC5NHKgWZaSsI06SaL+sZeAaoSpAlKxc=;
+	s=1984.8680eb; t=1789245904;
+	bh=Myy3smEvql/qodoHPfYgXGKdcJUKumaY+uFvrhTMU5M=;
 	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding:From;
-	b=fDCgS+4REl5KgxgSmYJhCkBu7A3e2lsVPV/12PgGbIOvbiHmMsBKCgx0v2+FsqwmR
-	 PHyLeTSZNMo8u2NcE05l0APEo3uI4a12vWKhHbXXnuuvjWNwXkVlneJ0rS6rgZbEMO
-	 zQ9o3GhoktidxAZsKVkON8xHoUavnM2T2fGTw8DGHjKVu1iwI0Z+EoacEhJ1XunKU0
-	 19n9qjwvNzjHtINmian7oP/zgqP4vElTN72C89JetY39+xIkE/8Kd/pg/ORVMyn0fq
-	 58ZQ/bil9NCVFq/tUACL6KJcDFyy6cxthDf9xCsvBQnRB3ymQLzYonx7sAZ2JcZfvA
-	 fpL2+SNxFt89g==
+	b=ahGVWikQWzElFIqOcmtCZv6GyrHrNdCT13y08LejH4cvzx87/fX/9QqXntFKyrNpk
+	 QVBVvLbmhdVx06AFRD04peCv1B8VEtU7XeMtF74uBj4nCGyKv3cN1ax6NkU39CyMTT
+	 IrNeqZTvhAAqlKf3XKheadISthEvgKq2KyCyTX5mct+iBD+S8fW+XBXg7xHnCTRpJ0
+	 Zl9BaBCywdudLwNCiirOakAFDk5uanx/aG4QO6azDnN8HUIKF9RIJPbMY0ah+7hXRG
+	 yA7MUd8FLW4pHZDtiHdPhCdXyIWr9eMIbu/qwkqwTH+Bk8AavvstpHBZPykjVdj9DJ
+	 93rszw+rOoxLQ==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hj3M0750nz9rxB;
-	Sat, 12 Sep 2026 22:45:00 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hj3M32998z9rxG;
+	Sat, 12 Sep 2026 22:45:03 +0200 (CEST)
 From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 To: alexandre.torgue@foss.st.com,
 	mcoquelin.stm32@gmail.com
@@ -54,14 +54,16 @@ Cc: robh@kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] arm64: dts: st: add eMMC support on STM32MP257F-DK
-Date: Sat, 12 Sep 2026 20:45:03 +0000
-Message-ID: <20260912204454.219606-1-mateusz.nowicki@posteo.net>
+Subject: [PATCH 1/3] arm64: dts: st: add sdmmc2 node on stm32mp251
+Date: Sat, 12 Sep 2026 20:45:04 +0000
+Message-ID: <20260912204454.219606-2-mateusz.nowicki@posteo.net>
+In-Reply-To: <20260912204454.219606-1-mateusz.nowicki@posteo.net>
+References: <20260912204454.219606-1-mateusz.nowicki@posteo.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_134511_930202_79846B7F 
-X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-CacheID: sfid-20260912_134512_224165_C3179627 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,21 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the SDMMC2 controller, its 8-bit pin groups and enable the
-8-Gbyte eMMC of the STM32MP257F-DK. Only MMC High Speed for now.
+Add the SDMMC2 controller, the same PL18x/SDMMC2 block as SDMMC1 with
+its own delay block in SYSCFG (DLYBSD2). It is used for the eMMC on
+the STM32MP257F-DK and STM32MP257F-EV1 boards.
 
-Tested on STM32MP257F-DK.
+Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+---
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Mateusz Nowicki (3):
-  arm64: dts: st: add sdmmc2 node on stm32mp251
-  arm64: dts: st: add sdmmc2 pins on stm32mp25
-  arm64: dts: st: enable eMMC on stm32mp257f-dk
-
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 69 +++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp251.dtsi        | 15 ++++
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts     | 21 ++++++
- 3 files changed, 105 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 9c63fdb5a885..0d10023ec1e3 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -1667,6 +1667,21 @@ sdmmc1: mmc@48220000 {
+ 				status = "disabled";
+ 			};
+ 
++			sdmmc2: mmc@48230000 {
++				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
++				arm,primecell-periphid = <0x00353180>;
++				reg = <0x48230000 0x400>, <0x44230800 0x8>;
++				interrupts = <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_KER_SDMMC2>;
++				clock-names = "apb_pclk";
++				resets = <&rcc SDMMC2_R>;
++				cap-sd-highspeed;
++				cap-mmc-highspeed;
++				max-frequency = <120000000>;
++				access-controllers = <&rifsc 77>;
++				status = "disabled";
++			};
++
+ 			ethernet1: ethernet@482c0000 {
+ 				compatible = "st,stm32mp25-dwmac", "snps,dwmac-5.20";
+ 				reg = <0x482c0000 0x4000>;
 -- 
 2.55.0
 
