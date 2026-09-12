@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E83C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6BEC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/H9gXZvtiPCItc2HBDLyTycRCmevlZw42OTHpRaYCzQ=; b=44Ooaw2HhDn/qYYc3BMBVM968N
-	G4kcKZaCwg0zcajbxgDgw7ipgy5933+8HFBw/Ja4R3fQeZieyKT9pFDdwtFN0MsTmTEH/ZhafAL++
-	48AeAFtpJQJI0aTV5j17qI+6gw9NG8uqnJ33RTdz3SbCqIsthAqJxqCbrk9FblZehN7Bjw37Iecfr
-	jkhGg7u9+2/CCpO8fYrlPpx5uVgIfN4Ts+RZUb6n3L0FBDgd0S0TiJ0zAX+mG2/Jdy+i6K28Kdo41
-	qx/Z7KDnxeO1wqxIkozIbeCyu+nGh/R2Z4GedeXlULkT0SVcVooHPl0ULISBDjpq1O3xwKVo0MLrD
-	1CLVXecw==;
+	bh=I+13VNAMtbfGWdAp2t9CtnZz1iOetM/SVsqh/1Alnmc=; b=1lGARiTKfJoxWPPzaRZy+NAUhn
+	oBzMrV/vtkcAJ5/bFsCsjuNAmBYt+XTXepV14L8hc45y2CVNIU4udgozRaZjXXH09OMQtRY0cIITs
+	H4Wfrjp55VXmrrvZMBYVF5jxcJGYM4n/G10/CEkuDWfZC2P5qytPgwplF7Ult31EVjc7TKHcXU6Ff
+	K2FNB+kMiY3hGOkQpuYZAXcin1Qt3qPHEX8CZQVIGsP8qBhnRtgTkKY4Gf/8RF4oqLx1HQQueUngn
+	/hNJsdLHqi6D3AG176bbYZoyOgbAUZmKP14v0Jx+CxGeefQk1a83M/d2NDcTmJnDCUetKyDO6Jvf/
+	e2xDcCYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U7I-000000019Bm-0dmr;
-	Sat, 12 Sep 2026 20:14:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x5U7R-000000019KF-2S4c;
+	Sat, 12 Sep 2026 20:14:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U6O-000000018gO-3e2W;
-	Sat, 12 Sep 2026 20:13:32 +0000
+	id 1x5U6Q-000000018gn-2L02;
+	Sat, 12 Sep 2026 20:13:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 541B24176D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0360660233;
+	Sat, 12 Sep 2026 20:13:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E13751F0089A;
 	Sat, 12 Sep 2026 20:13:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D9281F00893;
-	Sat, 12 Sep 2026 20:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789244012;
-	bh=/H9gXZvtiPCItc2HBDLyTycRCmevlZw42OTHpRaYCzQ=;
+	s=k20260515; t=1789244013;
+	bh=I+13VNAMtbfGWdAp2t9CtnZz1iOetM/SVsqh/1Alnmc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Mv3rHdy0fMDC8f5BzHeShyYkiTSzSfG4sCDbyu/b8+hs1TByHhvKFku8+Hi0wDr0k
-	 bAZmbZcFfWCebLdttVg6ZSlvPflr2UayykHQDpwvHush8LpMRmkRBGqyCy6TcTm9T3
-	 eUA4R6QaKOnKEmBxWJBH5FLPrJtkZK49VJa5diqS6A0HodvOdnBzqrYBT7ZcC8Zmjy
-	 vj6/Qlh1bPOcK6nukfwfCKYYuHc3WHG6EBPZpx6YpRtSv2DNacPSzsnGLESdQBnnBu
-	 9J5CMEZJefG8zUhUPlFHaJEYmEtqHmFoEhEAvkjH91MMRXQbmLeCbar0WhOcj63MNR
-	 Ow7WB063PSupA==
+	b=CaSSM90H1iqfHVJcq4ufihT3xNXDC6v0I17M5rAuwzqOlPRfPR2eb+U/BNcXLePB9
+	 MYgYTEYbDoFnoEpf+lkjONoZk+x4JgFxsU1mgZkLOc9Jx3Kx4jHVLoJqxbObP7tE3M
+	 copcTTej5DfnIHmo02HOJGRswBjjcRWBOGZ4St5898KPzLLrp9LI6eIDrLp8r5rm2H
+	 8k2QYPNS3cOJp3fnPA/2wT7uFd+oW/xYoOab5cgqZOxfgRlEiY1KqN8F24FRc335cD
+	 uQjUT+weaush7M2F0ifsoiY4LyV81L9Q0sd/u6kahrSGyAO1or8CEmZEQVDGskz8FA
+	 GMLuqVnV5gZVw==
 From: Jakub Kicinski <kuba@kernel.org>
 To: coiaprant@gmail.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -71,12 +71,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH net-next v4 08/10] net: stmmac: dwmac-rk: add SGMII support for RK3568
-Date: Sat, 12 Sep 2026 13:13:30 -0700
-Message-ID: <20260912201330.127164-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 09/10] arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
+Date: Sat, 12 Sep 2026 13:13:32 -0700
+Message-ID: <20260912201332.127297-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260907153713.2572547-10-coiaprant@gmail.com>
-References: <20260907153713.2572547-10-coiaprant@gmail.com>
+In-Reply-To: <20260907153713.2572547-11-coiaprant@gmail.com>
+References: <20260907153713.2572547-11-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -96,325 +96,165 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: stmmac: dwmac-rk: add SGMII support for RK3568
+arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
 
-This adds SGMII glue for RK3568: a set_to_sgmii() callback that programs
-GMAC CON1 bit 7, pcs_init/pcs_exit/select_pcs callbacks that create the
-Rockchip XPCS from the "pcs-handle" phandle, and a rework of the
-rk_gmac_powerup() error unwinding into a single clk_disable label.
+This enables the GMAC0 SGMII LAN port on the Ariaboard Photonicat by
+adding the xpcs/xpcs_mii0 overrides, the combphy2 SGMII MAC selection, and
+an mdio0 node with the YT8521SC PHY.  It also adds PHY LED descriptions on
+both mdio0 and mdio1.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+> index 58c1052ba8ef3..25caa44198843 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
 
-A few questions below.
+[ ... ]
 
-> While at it, fix the clock enable ordering in rk_gmac_powerup():
-> gmac_clk_enable() is now called before any register access, including
-> the SGMII mode setup path.  Previously SGMII mode would bypass the
-> clock enable via a goto, which could cause synchronous external abort
-> when accessing MAC registers with the clock domain disabled.
+> @@ -242,6 +243,7 @@ &combphy1 {
+>  
+>  &combphy2 {
+>  	status = "okay";
+> +	rockchip,sgmii-mac-sel = <0>;
+>  };
 
 [Severity: Low]
-Does this paragraph describe the baseline?  At 879e280b8486 there is no
-SGMII case and no goto in rk_gmac_powerup(), and the order is already:
+The changelog says:
 
-	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
-	if (ret < 0)
-		return ret;
-	intf = ret;
+  "Enable combphy2 with rockchip,sgmii-mac-sel = <0> to route the SGMII
+   interface to GMAC0."
 
-	ret = gmac_clk_enable(bsp_priv, true);
-	if (ret)
-		return ret;
-	...
-		ret = rk_write_gmac_grf_reg(bsp_priv, val);
+Is that description accurate?  In the baseline the node already reads:
 
-so gmac_clk_enable() already preceded every register access and there was
-nothing that could bypass it.  The change here is a pure reorder ahead of
-rk_get_phy_intf_sel(), which touches no registers, plus the new unified
-unwind label.
+  &combphy2 {
+          status = "okay";
+  };
 
-Would it be more accurate to describe this as preparing the ordering for
-the new SGMII path rather than as a fix for a synchronous external abort?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 8d7042e689261..e47ca1bec5b8b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-
-[ ... ]
-
-> @@ -809,6 +813,8 @@ static const struct rk_gmac_ops rk3528_ops = {
->  #define RK3568_GRF_GMAC1_CON1		0x038c
->  
->  /* RK3568_GRF_GMAC0_CON1 && RK3568_GRF_GMAC1_CON1 */
-> +#define RK3568_GMAC_MODE_RMII_RGMII		GRF_CLR_BIT(7)
-> +#define RK3568_GMAC_MODE_SGMII_QSGMII		GRF_BIT(7)
->  #define RK3568_GMAC_FLOW_CTRL			GRF_BIT(3)
->  #define RK3568_GMAC_FLOW_CTRL_CLR		GRF_CLR_BIT(3)
->  #define RK3568_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
-> @@ -851,18 +857,32 @@ static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
->  		     RK3568_GMAC_CLK_TX_DL_CFG(tx_delay));
->  
->  	regmap_write(bsp_priv->grf, con1,
-> +		     RK3568_GMAC_MODE_RMII_RGMII |
->  		     RK3568_GMAC_RXCLK_DLY_ENABLE |
->  		     RK3568_GMAC_TXCLK_DLY_ENABLE);
->  }
->  
-> +static void rk3568_set_to_sgmii(struct rk_priv_data *bsp_priv)
-> +{
-> +	u32 con1;
-> +
-> +	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
-> +				     RK3568_GRF_GMAC0_CON1;
-> +
-> +	regmap_write(bsp_priv->grf, con1, RK3568_GMAC_MODE_SGMII_QSGMII);
-> +}
-> +
->  static const struct rk_gmac_ops rk3568_ops = {
->  	.init = rk3568_init,
->  	.set_to_rgmii = rk3568_set_to_rgmii,
-> +	.set_to_sgmii = rk3568_set_to_sgmii,
-> +
->  	.set_speed = rk_set_clk_mac_speed,
->  
->  	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
->  
->  	.supports_rmii = true,
-> +	.supports_sgmii = true,
-
-[Severity: Medium]
-Who clears CON1 bit 7 for RMII on rk3568?
-
-rk3568_set_to_rgmii() now explicitly writes RK3568_GMAC_MODE_RMII_RGMII,
-which shows bit 7 has to be programmed by the driver.  rk3568_ops declares
-supports_rmii = true but has no .set_to_rmii, so the RMII branch of
-rk_gmac_powerup() is a no-op:
-
-	case PHY_INTERFACE_MODE_RMII:
-		dev_info(dev, "init for RMII\n");
-		if (bsp_priv->ops->set_to_rmii)
-			bsp_priv->ops->set_to_rmii(bsp_priv);
-		break;
-
-and the generic GRF write uses gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
-whose write-enable half-word never covers bit 7.
-
-Since rk3568_set_to_sgmii() leaves bit 7 set persistently and nothing in
-rk_gmac_powerdown() restores it, can an RMII port come up muxed to the
-SerDes when bit 7 was left set by firmware or by a previous SGMII
-configuration of the same MAC (kexec, warm reboot)?  The probe would report
-success while the link never works.
-
->  
->  	.regs_valid = true,
->  	.regs = {
-> @@ -1208,6 +1228,43 @@ static void rk_phy_powerdown(struct rk_priv_data *bsp_priv)
->  		dev_err(bsp_priv->dev, "fail to disable phy-supply\n");
->  }
->  
-> +static int rk_pcs_init(struct stmmac_priv *priv)
-> +{
-> +	struct device_node *np = priv->device->of_node;
-> +	struct device_node *pcs_node;
-> +	struct dw_xpcs *xpcs;
-> +
-> +	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-> +	if (!pcs_node)
-> +		return -ENODEV;
+so the only new thing here is the rockchip,sgmii-mac-sel property.  Could
+the wording be adjusted to say the property is added to an already enabled
+combphy2?
 
 [Severity: Low]
-Should "pcs-handle" be documented in the Rockchip MAC binding?
+This isn't a bug, but the new properties do not follow the ordering used by
+the rest of this file, where properties come roughly alphabetically and
+status is last.  Here rockchip,sgmii-mac-sel lands after status, in &gmac0
+below pcs-handle comes before managed, and in the new &xpcs override status
+is first with phys/phy-names after it.  Compare the existing &gmac1
+override, which ends with status = "okay";.  Could these be reordered?
 
-This makes the property effectively mandatory for phy-mode = "sgmii" on
-RK3568: a missing phandle returns -ENODEV, and stmmac_pcs_setup() turns
-that into a probe failure:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c:stmmac_pcs_setup() {
-	ret = priv->plat->pcs_init(priv);
-	if (ret)
-		return dev_err_probe(priv->device, ret, "No xPCS found\n");
-}
-
-Documentation/devicetree/bindings/net/rockchip-dwmac.yaml does not mention
-pcs-handle at all - it is neither described nor conditionally required for
-the SGMII-capable compatibles - while the new
-Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml says the
-port "is linked to an Ethernet MAC controller via the pcs-handle property
-in the MAC's device tree node".  Other stmmac glue bindings that parse this
-property describe it (renesas,rzn1-gmac.yaml, renesas,rzv2h-gbeth.yaml).
-Could the MAC binding be updated to match?
-
-> +
-> +	xpcs = xpcs_rk_create(priv->device, pcs_node);
-> +	of_node_put(pcs_node);
-> +	if (IS_ERR(xpcs))
-> +		return PTR_ERR(xpcs);
-> +
-> +	priv->hw->xpcs = xpcs;
-> +	return 0;
-> +}
+>  
+>  &cpu0 {
+> @@ -260,9 +262,18 @@ &cpu3 {
+>  	cpu-supply = <&vdd_cpu>;
+>  };
+>  
+> -/* Motorcomm YT8521SC LAN port (require SGMII) */
+> +/* Motorcomm YT8521SC LAN port */
+>  &gmac0 {
+> -	status = "disabled";
+> +	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>;
+> +	assigned-clock-parents = <&xpcs_gmac0_clk>;
+> +	pcs-handle = <&xpcs_mii0>;
+> +	managed = "in-band-status";
+> +	phy-handle = <&sgmii_phy>;
+> +	phy-mode = "sgmii";
+> +	phy-supply = <&vcc_3v3>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_miim>;
+> +	status = "okay";
+>  };
 
 [ ... ]
 
-> @@ -1330,6 +1387,7 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
->  
->  	bsp_priv->supports_rgmii = ops->supports_rgmii || !!ops->set_to_rgmii;
->  	bsp_priv->supports_rmii = ops->supports_rmii || !!ops->set_to_rmii;
-> +	bsp_priv->supports_sgmii = ops->supports_sgmii || !!ops->set_to_sgmii;
+> @@ -350,6 +391,25 @@ rgmii_phy: ethernet-phy@3 {
+>  		reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
+>  		rx-internal-delay-ps = <1500>;
+>  		tx-internal-delay-ps = <1500>;
+> +
+> +		leds {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_AMBER>;
+> +				function = LED_FUNCTION_WAN;
+> +				default-state = "keep";
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				function = LED_FUNCTION_WAN;
+> +				default-state = "keep";
+> +			};
+> +		};
+>  	};
+>  };
+
+[Severity: Low]
+This hunk describes the LEDs of the pre-existing RGMII WAN PHY on &mdio1,
+which is already functional and unaffected by the SGMII enablement.  The
+changelog justifies it only with:
+
+  "Also add LED configuration for the existing RGMII PHY on mdio1 for
+   consistency."
+
+Would it be preferable to split this into its own patch, so this commit
+contains only the SGMII LAN port enablement?
 
 [ ... ]
 
-> @@ -1379,16 +1441,19 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  	if (ret)
->  		return ret;
->  
-> +	ret = gmac_clk_enable(bsp_priv, true);
-> +	if (ret)
-> +		return ret;
+> @@ -586,3 +646,13 @@ &xin32k {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&clk32k_out1>;
+>  };
+> +
+> +&xpcs {
+> +	status = "okay";
+> +	phys = <&combphy2 PHY_TYPE_SGMII>;
+> +	phy-names = "serdes";
+> +};
 
 [Severity: Medium]
-This isn't a bug introduced by this patch, but the bare return here cannot
-unwind a partially enabled clock domain.  gmac_clk_enable() leaks the bulk
-clock references when the PHY clock fails:
+Should phys/phy-names live in rk3568.dtsi rather than in each board file?
 
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:gmac_clk_enable() {
-			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
-						      bsp_priv->clks);
-			if (ret)
-				return ret;
+The binding lists them as required properties of the XPCS node:
 
-			ret = clk_prepare_enable(bsp_priv->clk_phy);
-			if (ret)
-				return ret;
-	...
-			bsp_priv->clk_enabled = true;
-}
+  Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+  required:
+    - compatible
+    - reg
+    - "#address-cells"
+    - "#size-cells"
+    - clocks
+    - clock-names
+    - phys
+    - phy-names
+    - power-domains
 
-The second failure path returns without clk_bulk_disable_unprepare() and
-without setting clk_enabled, so the new clk_disable label,
-rk_gmac_powerdown() and the suspend path are all no-ops afterwards because
-the disable branch is gated on clk_enabled.  Does this leave the bulk
-clocks prepared and enabled for the lifetime of the system?
+but the SoC node in arch/arm64/boot/dts/rockchip/rk3568.dtsi has neither:
+
+  xpcs: pcs@fda00000 {
+          compatible = "rockchip,rk3568-xpcs";
+          #address-cells = <1>;
+          #size-cells = <0>;
+          reg = <0x0 0xfda00000 0x0 0x200000>;
+          clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+          clock-names = "csr", "eee";
+          power-domains = <&power RK3568_PD_PIPE>;
+          status = "disabled";
+
+Does this mean every rk3568 dtb reports pcs@fda00000 as missing the required
+phys and phy-names under make CHECK_DTBS=y, including boards that do not
+enable the XPCS?
+
+The XPCS to combphy2 connection is internal to the SoC, so each board that
+enables it will have to repeat the same phandle, as this patch does.  Could
+phys = <&combphy2 PHY_TYPE_SGMII>; and phy-names = "serdes"; be moved into
+the dtsi node instead?
 
 > +
-> +	if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_SGMII)
-> +		goto set_mode;
-> +
->  	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
->  	if (ret < 0)
-> -		return ret;
-> +		goto clk_disable;
->  
->  	intf = ret;
->  
-
-[ ... ]
-
-> @@ -1447,15 +1509,20 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  		if (bsp_priv->ops->set_to_rmii)
->  			bsp_priv->ops->set_to_rmii(bsp_priv);
->  		break;
-> +	case PHY_INTERFACE_MODE_SGMII:
-> +		dev_info(dev, "init for SGMII\n");
-> +		if (bsp_priv->ops->set_to_sgmii)
-> +			bsp_priv->ops->set_to_sgmii(bsp_priv);
-> +		break;
->  	default:
->  		dev_err(dev, "NO interface defined!\n");
-> +		ret = -EINVAL;
-> +		goto clk_disable;
->  	}
-
-[ ... ]
-
-> @@ -1486,6 +1557,9 @@ static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
->  
->  	if (rk->supports_rmii)
->  		__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
-> +
-> +	if (rk->supports_sgmii)
-> +		__set_bit(PHY_INTERFACE_MODE_SGMII, interfaces);
->  }
-
-[Severity: Medium]
-Is the SGMII advertisement here consistent with where the PCS is installed?
-
-supports_sgmii is true for every rk3568 instance regardless of DT, so SGMII
-always lands in phylink_config.supported_interfaces.  The PCS plumbing,
-however, is only installed when the DT phy-mode is exactly SGMII (see the
-rk_gmac_probe() hunk below).
-
-On an RK3568 board with phy-mode = "rgmii"/"rmii", phylink can still pick
-SGMII - phylink_validate_phy() intersects phy->possible_interfaces with
-config->supported_interfaces - and then:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_mac_select_pcs() {
-	if (priv->plat->select_pcs) {
-		pcs = priv->plat->select_pcs(priv, interface);
-		if (!IS_ERR(pcs))
-			return pcs;
-	}
-}
-
-returns NULL because select_pcs is unset, no XPCS was ever created
-(pcs_init is NULL), and rk_gmac_powerup() has already programmed the GRF
-once from the DT-derived bsp_priv->phy_iface, so rk3568_set_to_sgmii() never
-ran.  Would gating the SGMII bit on the same condition that installs
-select_pcs/pcs_init keep the two in agreement?
-
->  
->  static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
-> @@ -1602,6 +1676,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
->  	plat_dat->suspend = rk_gmac_suspend;
->  	plat_dat->resume = rk_gmac_resume;
->  
-> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-> +		/* SGMII clock always runs at 125 MHz */
-> +		plat_dat->set_clk_tx_rate = NULL;
-> +
-> +		/* SGMII requires a PCS */
-> +		plat_dat->default_an_inband = true;
-
-[Severity: Medium]
-Does default_an_inband guarantee in-band mode here?
-
-include/linux/phylink.h describes it as a default that "a fixed-link
-specification will override", and phylink has two ways out of in-band:
-
-drivers/net/phy/phylink.c:phylink_parse_mode() {
-	dn = fwnode_get_named_child_node(fwnode, "fixed-link");
-	if (dn || fwnode_property_present(fwnode, "fixed-link"))
-		pl->cfg_link_an_mode = MLO_AN_FIXED;
-}
-
-drivers/net/phy/phylink.c:phylink_pcs_neg_mode() {
-			neg_mode = PHYLINK_PCS_NEG_OUTBAND;
-			if (pl->phydev)
-				mode = MLO_AN_PHY;
-}
-
-With set_clk_tx_rate cleared, stmmac_mac_link_up() then programs no rate at
-all:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_mac_link_up() {
-	if (priv->plat->set_clk_tx_rate) {
-		ret = priv->plat->set_clk_tx_rate(priv->plat->bsp_priv,
-						priv->plat->clk_tx_i,
-						interface, speed);
-}
-
-So for phy-mode = "sgmii" with a fixed-link node, or with a PHY that cannot
-do in-band signalling, the fixed 125 MHz clock is used at 10/100 Mbps -
-which the commit message says gives working TX and failing RX.  Should the
-driver reject out-of-band SGMII explicitly instead of relying on the
-default?
-
-> +		plat_dat->pcs_init = rk_pcs_init;
-> +		plat_dat->pcs_exit = rk_pcs_exit;
-> +		plat_dat->select_pcs = rk_select_pcs;
-> +	}
-> +
-
-[ ... ]
+> +&xpcs_mii0 {
+> +	status = "okay";
+> +};
 
