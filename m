@@ -4,135 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F348C88E59
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516E3C88E59
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 17:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LoZbRRqYtVHqcPM6hFdzgqle9b2xvCA1hlTCv7ez/50=; b=UyGPguKyxmTp0CjNu7w+iEJxTh
-	1RjnR76VE9H4mecuSlyBYpAd/mypWFp57+wTmpmphiKfkhglu+aW5HFR1e3QK4PQjL/ecQT/2F6uZ
-	icC4CB3+E9e82vw2HZQCO/ab+IbV/frS5GP0OKdE8oyp75W4eKcbimEcB81UD0CQvo66tji6dVXtb
-	11v3hTrNTlQhZ1gCKUNCTLTs9l5HR+e9S716Gdq3Rb0N90yLrxjIxJZykrnnzLHVUTfYLOrhGL+ED
-	+BB3eMzOZLmQQrti/pwH/tXJawOenqivT2hWNRJzeHUcQSlEh7wS/WZaGosE0Gnd5P5tWZKGUSgd/
-	B2OCoHqA==;
+	bh=M1c6suOtzZ2rRuH1TXxQJyOcddxpg3oryXf9dCc4tZI=; b=gRHiLtbT6r1+Wd36ua/ir3X1Pw
+	syOkY4YoPCYuS8ybcLcsuz6JVodIZT6OBwGFnYGWI+QrcySGZdLMeD/8TvFRaWWeUup/Vp2iaiXkv
+	nM+W1PtucyzZobIi+0cT2/8Rz4EZvP5jZZUT2aGdgA21dYaq1xjV+ckLxvX64Rz+iusMcqRblzamR
+	MldPE+qARRLzAFBx0M05TIZUXyRtTl6RteQfx0qjmwtW63NrfB6aHuMqtUlXeWnFHPk4igk6U8qPP
+	vV5tUh6mzLTsRnaUi73vud9DSm8aZ2bVoyfOAZdA/JCcNfmFFPwDVaQTpoq2gUHcXabY1I3xUoCcv
+	wtVwxa7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5QP3-000000010Zw-2DBK;
-	Sat, 12 Sep 2026 16:16:33 +0000
-Received: from mail-norwayeastazon11013023.outbound.protection.outlook.com ([40.107.159.23] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x5RNO-0000000128i-2DL2;
+	Sat, 12 Sep 2026 17:18:54 +0000
+Received: from mail-oi2-x11.google.com ([2607:f8b0:4864:32::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5QP0-000000010Wq-3woe
+	id 1x5RNM-0000000128M-1BlF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 16:16:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v/Tp4CLqhTOjRSYSS5Qiw67eJe0aOD6jzcgfdVUdIO6kes5pwtLbeLSAlD6rpVzPjqsHT6bbeGagrlBADJk/0ls+7qCngLHX9PU450IO0XV8gBd7gAWssSV9XApBd+osvX408bXNBbMVlPHivzJ05CxPR9KVIF8I6ixiB9WDAZ1Gzpr0f1QJxdzA7+o5e30Gz+fLCn44pdnHaar2R7KC2j+bRi6jEvgqD7wygoTuGrIYb7uKYaStVdbdfGfR6ie8MEi7SQkv1l8WAbzRrijH/hPaST7V1zvDGbRvL4KjfXhlLQ0ygDPUG1qozwrs0tfGhPhR07iwn8SEtOK4ZtPseg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LoZbRRqYtVHqcPM6hFdzgqle9b2xvCA1hlTCv7ez/50=;
- b=qCiQXUxWxBLoBuM54VNYSVHy28ukpZvIo6eMqk1kIIGYeOYyl3wCeYSITIn6aBKLSqEyZHQ/9bV9804vxil2zlfRJbFiNL9E6v4dRQa7E/aX03zWbLG+YBuiRqIrhbhjRijpaYxW77LKYrxzxZ9A8kuKjuk5+IIZLzzPVxIRUmpJenhvsxvVsFRn9p+R7I28iVzMLZ24oKsxVerRlJJvpeSEETFTX01M1nLpkZv4Ln7dK50dRFUQ0qbvgeoKa0uoF7JyN66wwirxg/F8bINAr3tFOg8tn+HMJQ3vqmqPmaF2jS2CettmcftnPy+2a4ZF4QMjIVQt4ocrFFUyKekHyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LoZbRRqYtVHqcPM6hFdzgqle9b2xvCA1hlTCv7ez/50=;
- b=eopY0BWOAk15ljI6Lhaxu9PZm4OMawBQptoeM1dyz6TZxHiaINDdm0N1EX433lBaJsERkMGyew6K81Rc8u+2lye6lJTE8z3RxnkdDqOzSfqTIKDD6YapaJ3JIy0QnRpzveQt5Uqfq2MyIIVAfX096PjWicdGOCWFdQJCCHQF6BJ1n+Tl9g6NAW/sGWE1NhxmWHYr+cMyAbsXpC6VtkjaWqu2hvAAN2lGfhwhXw8/N2G3qOT5EDrsEufE5B65L5yz/OqF4LoYzLrew4HIOcmwUW2b7X5ix1quPBuFAWHq/jAJFW1RX7ic4AXpJ4ET6zvKYf41X3GMSXEbjPDWB8fBNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by DU2PR04MB8871.eurprd04.prod.outlook.com (2603:10a6:10:2e2::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.10; Sat, 12 Sep
- 2026 16:16:25 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0406.007; Sat, 12 Sep 2026
- 16:16:24 +0000
-From: vladimir.oltean@nxp.com
-To: linux-pci@vger.kernel.org
-Cc: Aksh Garg <a-garg7@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Manikandan K Pillai <mpillai@cadence.com>,
-	Felix Gu <ustc.gu@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/3] PCI: keystone: Remove device links to PHY
-Date: Sat, 12 Sep 2026 19:14:40 +0300
-Message-ID: <20260912161440.1032188-4-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260912161440.1032188-1-vladimir.oltean@nxp.com>
-References: <20260912161440.1032188-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BE1P281CA0165.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:67::14) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|DU2PR04MB8871:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7746d58e-44ec-4dc1-8c92-08df10e9312c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|19092799006|366016|23010399003|376014|1800799024|7416014|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: z5x2Ic+mP0jnDdsmvmFQip5ZaHyn23IDA1Ky+TWaN2Nc2ovenmYOJ40XxOtP4E5+1DhESXzt7za5z8H1RFNfU08cmXyg2UUMA8OoalBFa3VoY62Qsyh6NCNG3cXsCn/1ko6TfWUzTQ9Dk30gV5znl9p7ljavmr1QSBxx8320MQg2CUevuVsPfaGuqIPl5zmphBXeTKBAmQrkMMh103kte+LJ+2GM9b1CH9HYJ+G0cGH52Px+9VRKvJbqp1Spd61M8YhnFtyuGKyxZ5BaZTk7qgYjqd1qwQmRxtCL58/5VPJ36umpfSPVKctvOG97cyaSBN5rrHGkNKD5oUCODtQhIsydlPIm4TJH0q4n88MY2lSajdcgWnXHOHMoyfnI1QBteAPaNniaUo/aEb7NtChJAO5yzXHOyHAK5L3kHwT2g0uEPH0jm8r/SKfpavOLwmyBlHj8DgVXD6DjP9pNakDw4EYThG9x0Nb0oXLJXAXOKJU1Ws5p7pz9g1Gj+FOPX8B38gEdoPKtvjfKt6yo2QcEaW5w9Nw5e9RAyK32ALhCRr/DOhVh/ws5EE+L4Au/HbvuDf7NGcp/LxEHhuX12QUd0fXKd1klpXkMpAZbY34b8W7nJzPndG3Q2GL6fVZ7hUcLGRjPip1e2K9cb7mrXToACogLuWLiXiS4mlNUqTKDAug=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(19092799006)(366016)(23010399003)(376014)(1800799024)(7416014)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qDrhgmbsYWHectne4eakpUVJarkFBFk+J3GMCVt3OYNtAUqva4vHwel9fnbU?=
- =?us-ascii?Q?VweVX/dJKwc3vzgluyTuttv/8sz8rS6iIPrYcTHyBmof6uastBIxcKpn/LMh?=
- =?us-ascii?Q?BKKcYrT4GxfKTkwswsgHsNvjvCPGu9to/798MotjsJB7fRkv72/ti3QpgN/b?=
- =?us-ascii?Q?Fiy+sv/AsnDklpS8FAX7ZZ+gu8EIwSF51aoLDgQAKniqBImn0AyrDMdhY45Y?=
- =?us-ascii?Q?ezr0cU7gdsCBy3x54yzY43FOzC/r3aM6bI2jh/gNU3df9tlv1Rv8mQW+QAGl?=
- =?us-ascii?Q?5l3BabxKWcMZmBTryKt8bHhPaaygZj5gr8ZxSVSy0zFJI3BYmypmyateJbGF?=
- =?us-ascii?Q?wxaPTZUiEp3sfaI25SI4T0AWmQh6JgzV7H8UaRxH+8nSjDXW6mvEqMZjBFqP?=
- =?us-ascii?Q?4RCoRmiYoNTCD36/0n92+4VIXpk3witJiriMZkJNS902DyZ+plolTN+ZEKG1?=
- =?us-ascii?Q?R12ZdhyBGs+4Z3Vb1mqdm0Fh00++lYK8dkhf/YSrOJOPgjWACTtRgim79ykR?=
- =?us-ascii?Q?JPBcTPA4Fx1wUSmYPTEe2mYDsx/QWVBzMtzwnsyc7PPgJlQaO6+yWfPKpYD2?=
- =?us-ascii?Q?cYuhCo9INT3mxCFYe0cXM6roxDEy31r6Ir8jcam9ABNBFYAwV/n1xZ0tt1b8?=
- =?us-ascii?Q?OWa10EuAYa3UpAp7MZyiaPPrC/9Sep1nO+dVzuUs1gvik/LSGbFIFvOOuI9h?=
- =?us-ascii?Q?X/upxrbHWlKpRB1xyu/K3Ctw8TbmU1Bj+JQnneZT2XhF60h4grYsqVhDZZIb?=
- =?us-ascii?Q?FFBSjFsb4UYcSpERIpZa7y5759JbRMMbGTzY7UmbMgIx+Q+WF8qPFlwhX6B7?=
- =?us-ascii?Q?G2zBksRPw7bzMs0mBvTG7SYo/6Ek0SWjqWjEC3HrJaka76R6Uc/ltS9xlil5?=
- =?us-ascii?Q?ewZjuBLtLHtQwr1jGcJtS3w3YG8iCGrgzn/M73c7W4y9GSL9KahiQqMd9Ywf?=
- =?us-ascii?Q?T77oPrYgvfZ/ErMbvxXvqbTr0p8x2/teQ1Ub+lEtnBJO3fnXLVO4iKEU0yKl?=
- =?us-ascii?Q?1UtCl4y3hiwJc8Pf1H3uiAGplEgWim4Pbo8yBrTd8FxgKmpB+66GZuyS0vau?=
- =?us-ascii?Q?ALJfR1SqtV6rb1CmNjBH0Z2FFt5Vbj8MWCRJY7vr9aD1hHtjAiLCE7C+CT1N?=
- =?us-ascii?Q?bbPVYeF4mz10bOCOd0DZGSVLKpGKtuUFWjoXdpAyBxK+Ro+9qwyFEh3xlyBa?=
- =?us-ascii?Q?WFVe+FQh6a9rgXot2wwyo5cOcY49BIFomqKF06RldzWqaFFEkS6DkfkKNHhG?=
- =?us-ascii?Q?SRJtQZiBOIkuVRDNfs82gJGLa+3sjyGVUUlWj1uOgy3bH3+caIx65M+3NoPo?=
- =?us-ascii?Q?YnK4Y+t+uZEOutO6l5ccKV81aNOoCyC3mxdG6Az2Pqk+tBFxxYh92bgZ9mEH?=
- =?us-ascii?Q?3wbaAHnNdP6CR5xeS3r5j1NTJ9V8OvOFfYJJOKFVVrJ+dx80GBPPCR+xWxv4?=
- =?us-ascii?Q?x672twxkhaGK7WVBhHM4oRgz7pvlf/z0pFDBbEznQn8iGeogFrnmXFkbwjSe?=
- =?us-ascii?Q?YkV+IwlmH6nEqbrawyil+n+sl0/KVli3GQAv/kpg8M8fJU3w89JN74geYgqO?=
- =?us-ascii?Q?PSORJIpyocllVhyua89xKczJEAn7kqHDgZ3Ufslva5av9meOZf7wxLP2/JbX?=
- =?us-ascii?Q?6TjJxrw6LzlwZZDGfh1CpMoUPDMRKgaiDZfccGQjzsDZXF3MZJuKVi8hJRlJ?=
- =?us-ascii?Q?J7ttTOplhXykz6h2q3tSTAitfIlJ3atwR7A1GYB4KYWLslFjUC3BOhcAFsCa?=
- =?us-ascii?Q?QXoIAmjSf5iZjotos8cp7K8Vc5P1grXTbdC9aF9sTSHzxahjXzp1FTX69PlG?=
-X-MS-Exchange-AntiSpam-MessageData-1: bPoWTVpbtHLBLyKxgGBKMtWxQY5vwjNHNCs=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7746d58e-44ec-4dc1-8c92-08df10e9312c
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2026 16:16:24.9251
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cZaoLkjFToVkv+JZp7vO8D3gE1ug0AtMZu2b6Evaz8E42eal6tNwQ4y0/M5/ldN1ZbYLWAWO6khqHwurhUj1IA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8871
+	Sat, 12 Sep 2026 17:18:53 +0000
+Received: by mail-oi2-x11.google.com with SMTP id 5614622812f47-4c2c08ff3f8so404702b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 10:18:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789233531; x=1789838331; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=M1c6suOtzZ2rRuH1TXxQJyOcddxpg3oryXf9dCc4tZI=;
+        b=Dpe4WD7FkclejlDBmMPZtBiLV5XWsJhuXdikeHuMRx6RrEUCcdI5UDWDknNCGlWQVd
+         UuysqAIvxkAYgotsxEQkJhLo64AMds06Q9PQKyVx6kwx1/QhMLAbrC3y5u7BBi+qhzyz
+         H2fA0H2O+F8nE6NaHqmOREN3fkhI9YLCRJdrEqYnBbNboiTo2hd9C9wi2RiP1QSicaeJ
+         80LUY4Ettu3QCL0lN5nLeL7o+bclUeaTLMKqZEhVYqm5Yc1/SiAuRW+gwdyENs4g3y8R
+         t/DbHEctVW2hutZzKmindrF1t/o7R4+A2u/vrKJ7Yj2FKgmFNB//IXPL1q4tt/Cty6Ct
+         p0dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789233531; x=1789838331;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M1c6suOtzZ2rRuH1TXxQJyOcddxpg3oryXf9dCc4tZI=;
+        b=hbNgIqowip8WUNPgQLK/PkcHuBu+bVKJ/KcXm3n7gVU+/ZVZxuErLcM3hjV3h4W2Be
+         1K5xfaTjJGkjGI2YcrhLkDTxhK7tBbWhIoSPWch4MZ3Iz01SScR+97z3gbAH9ABiTEgQ
+         70kYBx9nyA7uqtYCXxlTcksHKzGeHRCrw5kqn7A0IcqDlESYN3waEWnezqYTivseM+S2
+         gRNKojrwzUk2OYBOqIUNTuOvr4/Kow+WqUII/0HoCC0L532Ao0JUb4u2eITJYa4C5jPB
+         9MMQ/vX/3YZ/xTC8DqJ9dO8TFt9XtPQWINX9RQlpNJOsqe6Qs96BLWqWCEGhLIAYUgbG
+         ra6A==
+X-Forwarded-Encrypted: i=1; AKwUvBxxG2tLGwAs7yhHlD5MCC9/OZbgrLQYOoq4w+V6Iopsg8Qsf/rw1hIXTjD6dPVEPlzbsrlI3qZenooqi4TqBjI+@lists.infradead.org
+X-Gm-Message-State: AFuF++nZ3v1dyPMHu4ndQOubU6BEQNYSNA5laB7srpQFBFgK9OmQgqkW
+	ctqGXbfu68cneQXBHedhm+Yfe42pF1U27aiathN+5gU1hvITwRO02QuY
+X-Gm-Gg: AYBFou01aWmMsiRbR2Wlg8v8mK2z2JzVSjW/1wC9awBau4O4gz5VytdrmGBYY8obelP
+	TBxBjrOz/orVr3icjD93+6R5aOOSJvXE89Ty01afuygY1sEeIXmPKF2kk1qTkB5hIOimdr1fSlL
+	YSQRDPHZJ/qYXFwCEhS74B0yzpOiSvpx2Kr39Q7XTaggItiXwfFHQ4A6Apse7hLpQXU7W8Nh5c/
+	xYkbVM46W+jDnKjoD0KhfIu5hfguBX/U0bJ/uGFfrILBbdIIwYeUVlHd9u7slom3hzdpEqUlVtr
+	5kB39Ihem0vRXkWV9vQcxDslx7iu1cg5PMIlbLu1iNz+bqmsF8owcNODbvog7ETc8se08zwtuRE
+	dOsgi8HrmamLe66X/3PmeNsn4Wv+Y7AKm3xcjE1mNJIiYC+u/dcDxJrvDHt/BS0QuRciCUyt/DI
+	j0pBV9swcY4KYhustkrfsQb/6EnOcgn7xfgv3KbeUj355O5q8qXKFPoerIEHepKgiNOKPPIzZEC
+	r8nE5VnZDAKvlvOiIVmvue2KLcaXi3TEzyawQwFOT3o4WmGo1DBosdLcrir39Np8g==
+X-Received: by 2002:a05:6808:3503:b0:4b3:8323:8cd8 with SMTP id 5614622812f47-4c4a751294bmr2617971b6e.5.1789233530981;
+        Sat, 12 Sep 2026 10:18:50 -0700 (PDT)
+Received: from localhost ([2a03:2880:10ff:72::])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4c3315b19afsm5495263b6e.10.2026.09.12.10.18.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 12 Sep 2026 10:18:49 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 12 Sep 2026 10:18:48 -0700
+Message-Id: <DLDICNLENSRI.2R6EJ0ZFJE45T@gmail.com>
+Cc: "Josef Bacik" <josef@toxicpanda.com>, "Frederic Weisbecker"
+ <frederic@kernel.org>, "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
+ "Joel Fernandes" <joelagnelf@nvidia.com>, "Boqun Feng" <boqun@kernel.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Peter Zijlstra"
+ <peterz@infradead.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Jiri Olsa" <jolsa@kernel.org>, "Alexei Starovoitov" <ast@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, <x86@kernel.org>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Puranjay
+ Mohan" <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Andy
+ Lutomirski" <luto@kernel.org>, "Josh Triplett" <josh@joshtriplett.org>,
+ "Uladzislau Rezki" <urezki@gmail.com>, "Mathieu Desnoyers"
+ <mathieu.desnoyers@efficios.com>, "Lai Jiangshan" <jiangshanlai@gmail.com>,
+ "Zqiang" <qiang.zhang@linux.dev>, "Juergen Gross" <jgross@suse.com>, "Luis
+ Chamberlain" <mcgrof@kernel.org>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, <linux-kernel@vger.kernel.org>,
+ <rcu@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+ <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH RFC v2 08/15] bpf, x86: Maintain Tasks RCU trampoline
+ nesting in the BPF trampoline
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: <paulmck@kernel.org>
+X-Mailer: aerc
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com> <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com> <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com> <14cb8a91-497d-49f5-aa20-c6cb8b9a27fc@paulmck-laptop>
+In-Reply-To: <14cb8a91-497d-49f5-aa20-c6cb8b9a27fc@paulmck-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_091630_988779_A3B2E315 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260912_101852_362147_0A651E01 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,121 +120,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a partial revert of the device link pieces from commit
-49229238ab47 ("PCI: keystone: Cleanup PHY handling").
+On Fri Sep 11, 2026 at 10:10 PM PDT, Paul E. McKenney wrote:
+> On Fri, Sep 11, 2026 at 08:27:56PM -0700, Alexei Starovoitov wrote:
+>> On Fri Sep 11, 2026 at 7:08 AM PDT, Josef Bacik wrote:
+>> > Emit an increment of current->rcu_tramp_nesting once the trampoline's
+>> > frame is set up and a decrement before the final register restore, so
+>> > that a task preempted while running fentry/fexit/fmod_ret/LSM programs
+>> > or the __bpf_tramp_enter()/__bpf_tramp_exit() glue is not treated as
+>> > Tasks-RCU quiescent.  Drop the count around the call to the original
+>> > function: that may run arbitrarily long without sleeping and must not =
+pin
+>> > a Tasks RCU grace period, and the trampoline frame above it is held by
+>> > im->pcref rather than by Tasks RCU (see bpf_tramp_image_put()).  The
+>> > fmod_ret early-exit branch and the ip_after_call -> ip_epilogue poke b=
+oth
+>> > skip the decrement/increment pair around the original call, so the cou=
+nt
+>> > stays balanced on every path.
+>> >
+>> > The sequence is "mov r11, gs:[current_task]; inc/dec dword [r11 + off]=
+";
+>> > r11 is scratch at every emission point and (u32)&current_task is a val=
+id
+>> > sign-extended %gs-absolute with the current per-CPU layout, the same f=
+orm
+>> > the JIT already uses for this_cpu_off.  The image is dynamically
+>> > allocated text, so the instructions outside the bracketed region are
+>> > covered by the irq-exit IP check.
+>> >
+>> > Assisted-by: LLM
+>> > Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+>> > ---
+>> >  arch/x86/net/bpf_jit_comp.c | 43 ++++++++++++++++++++++++++++++++++++=
++++++++
+>> >  1 file changed, 43 insertions(+)
+>> >
+>> > diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+>> > index 2853e87797a7..a375c1b7bd50 100644
+>> > --- a/arch/x86/net/bpf_jit_comp.c
+>> > +++ b/arch/x86/net/bpf_jit_comp.c
+>> > @@ -722,6 +722,31 @@ static void emit_indirect_jump(u8 **pprog, int bp=
+f_reg, u8 *ip)
+>> >  	*pprog =3D prog;
+>> >  }
+>> > =20
+>> > +/*
+>> > + * Tasks RCU trampoline nesting, see rcu_tasks_trampoline_enter().
+>> > + *
+>> > + *   mov r11, QWORD PTR gs:[current_task]
+>> > + *   inc/dec DWORD PTR [r11 + offsetof(struct task_struct, rcu_tramp_=
+nesting)]
+>> > + *
+>> > + * r11 (AUX_REG) is scratch in the trampoline at every point this is =
+emitted.
+>> > + */
+>> > +static void emit_rcu_tasks_tramp_nesting(u8 **pprog, bool enter)
+>> > +{
+>> > +#ifdef CONFIG_TASKS_RCU
+>> > +	u8 *prog =3D *pprog;
+>> > +
+>> > +	/* mov r11, gs:[abs32] */
+>> > +	EMIT2(0x65, 0x4C);
+>> > +	EMIT3(0x8B, 0x1C, 0x25);
+>> > +	EMIT((u32)(unsigned long)&current_task, 4);
+>> > +	/* inc/dec dword ptr [r11 + disp32] */
+>> > +	EMIT3(0x41, 0xFF, enter ? 0x83 : 0x8B);
+>> > +	EMIT(offsetof(struct task_struct, rcu_tramp_nesting), 4);
+>> > +
+>> > +	*pprog =3D prog;
+>> > +#endif
+>>=20
+>> It's not a lot of overhead, but I feel it will be the death by thousand =
+cuts.
+>> rcu_read_lock_trace() in bpf_prog_enter_sleepable is doing the same thin=
+g...
+>> increamenting a variable inside current.
+>> Can they be combined? Like treat current->trc_reader_nesting > 0 as
+>>  current->rcu_tramp_nesting > 0 ?
+>> Or replace one with the other?
+>> Two current->foo++ operations look redundant.
+>>=20
+>> bpf trampoline is already quite heavy. I'd like to find ways to reduce
+>> its overhead instead of adding more.
+>
+> Replace rcu_read_lock_trace() with Josef's rcu_tasks_trampoline_enter)?
 
-The trouble with this is that a PHY consumer driver dereferences fields
-from struct phy, which will become no longer possible.
-
-Since commit 987351e1ea77 ("phy: core: Add consumer device link
-support") from 2019, the PHY core also adds a device link to order
-PHY provider and consumer suspend/resume operations. The reverted
-functionality is from 2018, and is redundant with the PHY core now.
-
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- drivers/pci/controller/dwc/pci-keystone.c | 31 +++--------------------
- 1 file changed, 4 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index 602516239a57..bd736a1624bc 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -129,7 +129,6 @@ struct keystone_pcie {
- 	int			num_lanes;
- 	u32			num_viewport;
- 	struct phy		**phy;
--	struct device_link	**link;
- 	struct			device_node *msi_intc_np;
- 	struct irq_domain	*intx_irq_domain;
- 	struct device_node	*np;
-@@ -1131,7 +1130,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	enum dw_pcie_device_mode mode;
- 	struct dw_pcie *pci;
- 	struct keystone_pcie *ks_pcie;
--	struct device_link **link;
- 	struct gpio_desc *gpiod;
- 	struct resource *res;
- 	void __iomem *base;
-@@ -1202,31 +1200,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	for (i = 0; i < num_lanes; i++) {
- 		snprintf(name, sizeof(name), "pcie-phy%d", i);
- 		phy[i] = devm_phy_optional_get(dev, name);
- 		if (IS_ERR(phy[i])) {
- 			ret = PTR_ERR(phy[i]);
--			goto err_link;
--		}
--
--		if (!phy[i])
--			continue;
--
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			ret = -EINVAL;
--			goto err_link;
-+			goto err;
- 		}
- 	}
- 
- 	ks_pcie->np = np;
- 	ks_pcie->pci = pci;
--	ks_pcie->link = link;
- 	ks_pcie->num_lanes = num_lanes;
- 	ks_pcie->phy = phy;
- 
-@@ -1236,7 +1220,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 		ret = PTR_ERR(gpiod);
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(dev, "Failed to get reset GPIO\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	/* Obtain references to the PHYs */
-@@ -1251,7 +1235,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 
- 	if (ret) {
- 		dev_err(dev, "failed to enable phy\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	platform_set_drvdata(pdev, ks_pcie);
-@@ -1338,25 +1322,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
- 
--err_link:
--	while (--i >= 0 && link[i])
--		device_link_del(link[i]);
--
-+err:
- 	return ret;
- }
- 
- static void ks_pcie_remove(struct platform_device *pdev)
- {
- 	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
--	struct device_link **link = ks_pcie->link;
--	int num_lanes = ks_pcie->num_lanes;
- 	struct device *dev = &pdev->dev;
- 
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
--	while (num_lanes--)
--		device_link_del(link[num_lanes]);
- }
- 
- static struct platform_driver ks_pcie_driver = {
--- 
-2.43.0
+If necessary...
+what I don't understand why we need another rcu_tasks_trampoline_enter-like=
+ counter.
+Can existing rcu_read_lock_trace() current be used ?
+It's already doing current->trc_reader_nesting++
+so use that as a signal ?
 
 
