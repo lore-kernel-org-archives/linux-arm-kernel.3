@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85839C88E5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 15:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCAAC88E5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 15:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1zReJSMCMiuQkus9FSHYhhVP/oAXjMflxwYObfy08Jc=; b=VsPf6MbxgrHWrndzMygSmeVqP3
-	wwiZvbxcz0J2LlAba0KTh+Yg2xb/sKMKFGHxdFg05ico8EjN98GpniKcjhvHxB6/tVe4d8TfjWqvq
-	hK/ySVfjeYXxerQY9hZzNQRaPT9uS6kZSxjR/OK2qqd7XDaaNWnIbLDeEXElI0Hu/szVswod6V0Ep
-	oOSPvaPF1v9iZnvGL/5e+J0QlFbUyFwlP73DJTDMZnok6eFPY96glXxNkzGkkwcnlwgpN3Wcoz116
-	HoPTM5cWEmS/CrKEtNsskpa6VV+svA9KTeHs1a0ZLuZ+dvHzPASfRyBG34Ez5yhyy2g7wz3bejK5n
-	Ltf28Aqg==;
+	bh=WYsEok5/6RpeOa0+UdPPhWNeU1Av3CpfKIsBFwLi6qQ=; b=TfkHi1d/LgFravAwBaHJosZefq
+	bXG9BuekodaZDJyDRKKwUs7YRCjoDdw0WbrL1sv09OenEHDTp8ddED6Rf0bdSsrDl4V80D1PlT3KG
+	fP3YTEFuqFBzokb8X5DfTPQ7moGQv5w967VKHeEwQRqDUgwbXBGjd05BlRshUoBawzcBxZXO9wPU6
+	B9luXoBgzMh/a6Q96NPlyMjBykHwX9+onG57MlO73izKLrbGXrgXu5ObU9ovnfvBNH3vZXFZh1no0
+	FRQIAtj0JdpxQ4L1pDzy+Pca/w5rh8lMwkX1IZ+eQwxk9YP1pebd2ysSjdUMT5o20t1nDdxY6GC4b
+	i1SXVRrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5PyN-0000000100W-3we7;
-	Sat, 12 Sep 2026 15:48:59 +0000
-Received: from out-10.mta0.migadu.com ([2001:41d0:1004:224b::a] helo=mta0.migadu.com)
+	id 1x5Q0Q-0000000109A-15HI;
+	Sat, 12 Sep 2026 15:51:06 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5PyL-00000000zzs-1yKz
+	id 1x5Q0M-0000000108T-3cwr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 15:48:59 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=7Xxdw0BpYVeSsVYvjnUMpQGHZK67v9pQzvF+pta/r2k=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789228135; v=1; x=1789832935;
- b=jtWBlZvuvS7+BgGr4dZSQnEoaFTAqoHZWo6YPzn/vDM9GNWzVDcTl2BhEe6g+dwbTRNTvbnd
- RZavAPp0l7kVXvovMev9f/5LS9mng2aTS0kPhhWwUalRtyugeUCWTmiFF4j/jUrVECRwMS3RhSC
- iqNtBV6xanaGzUlH1blXIkHTnkAjx1T3VtQDmMusmhQR7r7WuBx769LptoJivx1UgrCNnvuNxjj
- 7wtkB8dg1nsfcYiANnors7R+d8rH34krSDFUr9xX6Rf4PL3TU0O4wO/CZcJL4IOkmmKfucXjQVy
- +wY9PVMEHd9n7XRJNqAh+xxYgPqz/uxZYOAexsulVUBdg==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 835f230ca6fc7137;
-	Sat, 12 Sep 2026 15:48:55 +0000
-X-Mizu-Trace-ID: 835f230ca6fc7137
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
+	Sat, 12 Sep 2026 15:51:04 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e6598dd44so1877175e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 08:51:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789228260; x=1789833060; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WYsEok5/6RpeOa0+UdPPhWNeU1Av3CpfKIsBFwLi6qQ=;
+        b=Ye8imBPF7KukpRyQUqshoKAZoBN/sTUc42/MPybMIV6km7fNrcvapPXRsBrk85l3KK
+         2uFqnbm/zgxSXHPMElxUcVmIVf5FiAp7TrrerrG6AgEKJoGnLr1y+nj3inA11Tzr4TH7
+         gC8Cmu7NkKhcn1SLg3nQ9dpaAoM46Z4z8mIEaohSic1qmU1XoXs9F/wrmyP5hZahPF4v
+         xnZ4QNAYTyat8oIQ26tmHX5eMbhLEbdhkoM6moNsJgdOEiKHK8IGst5d5w+uEzZ2A26H
+         SWBswE91cB10JszkWJr3Vgivj+CPUEtTUffWnOTc8sVgin38rS7nLsXSVx/MH3qacgE2
+         SyBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789228260; x=1789833060;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WYsEok5/6RpeOa0+UdPPhWNeU1Av3CpfKIsBFwLi6qQ=;
+        b=aAO4YTeLOYhm1josrA/J4dsoDPxZlLYHbNBd2ipIYyJKX2GcGU/oTkfaFqslp5E+IS
+         HzoRE23BUpNUURW+4q79ykV1IOi1yeO5PCAGVqtMjZkl6EF6mc4sqYwdlS9pIUv5pYMJ
+         0Q4MMlL89/+Zr9YIZ/fJKvmvDGBGUvtk1p6ikKHU38rntO5JkogkVrC06wS/3SbH7M/x
+         S/TU/+l0URpVxkJN3A9sfdVwhhFi9gNEQ+Yfe+BpVkmFQpg94ex8QJunAlxi62l4j7Nv
+         SaqQMSRnGsIYvCS0ZysHa0+CbJwoKoOWP8XFO0a2rIkd/Pd320GgZ7XdsMblrYgFfl2A
+         3Ogg==
+X-Forwarded-Encrypted: i=1; AKwUvBwpPUDj1eTzLwK+6+cNKD/cUr1X/PkWs26BLXwPf6zrf7BFss5iCUCoEfo0dxgP5ZeHMU6dgFnxImg8Ekg5grTP@lists.infradead.org
+X-Gm-Message-State: AFuF++msUJFhHxuuA+5i2jBpj1OyW/M9iqKIKT8ThJadjIBgIPgb3Xe4
+	bv3QCQv7Uisu4tGPy40efFmGMzyPCpI6eDkLn2f6F3y5PU6KDLN6mxZrUpDqFiozzr8=
+X-Gm-Gg: AYBFou2LssTD0nBBxGjkOfvfBg+nlEsusqwQVD3uhR205o+xwXQ9x9p81sPAn4ezlWD
+	ohZMrweBeF/1XH9lP9kFsZHVKycj3pbl/Bplt+fHBC9paTFFhT11yGBl9cFKFVYSykQwvY9WEJM
+	iXCVgW+Xtv5mRrlHbK2zCKchaaXifC+h16Q15ibn0bIeUjpUDIDMjsQwcaj5cusvsc1gIMgymSd
+	dNZPnqnrNaWkM0ANCETyU5HOCdVSBE6Mz4nTj7xdZyyu049e0W5EOD+8e9R58Bp+Sb4zPMNVfOl
+	iHoC2pphLwEarSCrhuOED05R6OhroCyO3bU93v5mShA1FQcziycKlwcsDlBxUA2GwBB/dWKwODi
+	Zaoa1WyNZGxx0/89Dx7BBQZzoSHqQN4YXprXu+DW5dj8ACY9C4olSzTh/f/AL0K/avQXKSPrKut
+	2OPeWN4nfGU6WvUBGtSilxkcVmBav5RSMaxZMGqChZQUNMRdTzwrA3ecgQUrzLPgZHo8lCKJH+J
+	cWh0tZ6t22Rt5KqbI6C1/IXf5ge
+X-Received: by 2002:a05:600c:8b8b:b0:49c:fa20:cbfd with SMTP id 5b1f17b1804b1-49e6cbfeee9mr26096875e9.20.1789228260689;
+        Sat, 12 Sep 2026 08:51:00 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e636f7fa2sm154001915e9.15.2026.09.12.08.50.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Sep 2026 08:51:00 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: tanure@linux.com, Brian Masney <bmasney@redhat.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+ <khilman@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>, Chuan Liu <chuan.liu@amlogic.com>,
+ Jian Hu <jian.hu@amlogic.com>, Ronald Claveau <linux-kernel-dev@aliel.fr>,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/4] clk: meson: t7: don't mark sys_ampipe_nand as
+ critical
+In-Reply-To: <CAJX_Q+2vpcFw-5evCkykwWo6jbHvKvQ4XjYt_EKFyJuQm_ES5g@mail.gmail.com>
+References: <20260905153234.133217-1-tanure@linux.com>
+ <20260905153234.133217-5-tanure@linux.com> <aqSX-kUvYaixESxe@redhat.com>
+ <CAJX_Q+2vpcFw-5evCkykwWo6jbHvKvQ4XjYt_EKFyJuQm_ES5g@mail.gmail.com>
+Date: Sat, 12 Sep 2026 17:50:55 +0200
+Message-ID: <1jcxui79k0.fsf@starbuckisacylon.baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 12 Sep 2026 17:48:52 +0200
-Message-Id: <DLDGFSSZUIKQ.19CS0SRKYOKOJ@cknow-tech.com>
-Cc: "Ricardo Pardini" <ricardo@pardini.net>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix i2c6 clock-frequency on
- NanoPC-T6
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Diederik de Haas" <diederik@cknow-tech.com>, "Heiko Stuebner"
- <heiko@sntech.de>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
-X-Mailer: aerc 0.22.0-9-ge948bb7230f4
-References: <20260911152911.2088363-1-diederik@cknow-tech.com>
- <2071782.usQuhbGJ8B@phil> <DLDEGZ68QQ19.1MJEB7QOK4G7T@cknow-tech.com>
-In-Reply-To: <DLDEGZ68QQ19.1MJEB7QOK4G7T@cknow-tech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_084857_864937_8052BC9F 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260912_085102_927032_EE0ECB79 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +111,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Sep 12, 2026 at 4:16 PM CEST, Diederik de Haas wrote:
-> On Sat Sep 12, 2026 at 2:41 PM CEST, Heiko Stuebner wrote:
->> Am Freitag, 11. September 2026, 17:28:33 Mitteleurop=C3=A4ische Sommerze=
-it schrieb Diederik de Haas:
->>> The i2c6 bus needs to run at 200kHz, because at the default frequency o=
-f
->>> 100kHz it may fail to find the RTC resulting in warnings/errors like
->>>=20
->>>   rtc-hym8563 6-0051: no valid clock/calendar values available
->>>   rtc-hym8563 6-0051: hctosys: unable to read the hardware clock
->>>=20
->>> But only sometimes. This should not happen when there is a battery back=
-ing
->>> the RTC, yet it does ... sometimes.
+On sam. 12 sept. 2026 at 08:50, Lucas Tanure <tanure@linux.com> wrote:
+
+> On Sat, Sep 12, 2026 at 1:08=E2=80=AFAM Brian Masney <bmasney@redhat.com>=
+ wrote:
 >>
->> I'm confused, shouldn't a slower clock always work?
->> Like I understand how a clock that is too fast can cause issues due
->> to hardware limitations, but running the bus slower somehow shouldn't
->> cause issues?
->
-> Impeccable timing ... as I was just about to retract this patch.
->
-> So please ignore/drop this and sorry for the noise.
+>> Hi Lucas,
+>>
+>> On Sat, Sep 05, 2026 at 04:32:34PM +0100, Lucas Tanure wrote:
+>> > sys_ampipe_nand clocks the pipeline stage inserted in the bus path
+>> > between the SD/eMMC controllers and the NIC_MATRIX fabric. It does have
+>> > identifiable consumers - the three MMC controllers - so marking it
+>> > critical was the wrong tool: the clock should be referenced from the
+>> > consumer nodes and claimed by the mmc driver instead.
+>> >
+>> > Drop the CLK_IS_CRITICAL flag and update the comment accordingly.
+>> > sys_am2axi0..2 remain critical as they clock the AXI DMA bus itself and
+>> > have no single identifiable consumer.
+>> >
+>> > Assisted-by: Claude:claude-fable-5
+>> > Signed-off-by: Lucas Tanure <tanure@linux.com>
+>> > ---
+>> > This patch depends on the MMC controllers actually referencing the clo=
+ck:
+>> > the dt-bindings, mmc driver and t7 DTS changes adding the "pipeline"
+>> > clock must land before this patch, otherwise the boot hangs and memory
+>> > corruption this clock caused are reintroduced.
+>>
+>> This series should be merged together in one tree? Which tree? I can
+>> provide an Acked-by if it should go through the mmc tree.
+>>
+>> Brian
+>>
+> It's definitely best to keep the series together in one tree to avoid
+> boot regressions,
+> but I think the clk tree is the better fit since the core changes
+> revolve around clock logic.
+> Could you accept it ?
 
-https://github.com/rockchip-linux/kernel/commit/815c9a084e62d700ab5487974b6=
-3035e772a29a4
-"remove the buf[0] & HYM8563_SEC_VL, it's unsuitable for some hym8563.
-set rtc init time for first power on."
+No. This applies on top of another change already queued in the amlogic
+clock tree. It can't go through the MMC tree at the moment.
 
-I guess I have 'some hym8563' in both my NanoPC-T6 LTS & Plus :-/
-The one in my NanoPi R5S works great, so I'll just use/depend on that one.
+This clock is not critical in mainline right now, so
+1) I could merge this and it and in practice there would be no
+   regression. The problem you had would still be there until the MMC
+   change lands
+
+2) Or you can wait for the MMC stuff to land and re-submit this in
+   the next cycle.
+
+Your choice. IMO, (1) is fine.
+
+>
+> thanks
+> lucas
+
+--=20
+Jerome
 
