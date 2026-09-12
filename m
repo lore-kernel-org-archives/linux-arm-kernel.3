@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9CCC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 19:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B645EC88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 19:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=; b=wgz4rpnIch2ycNzEbDFL9JZEg9
-	P2JoXjC9IbnD2rYOzcrhQnySDs+nEQy1Q80qflXA1SUlxnEtAWWm1v/X6+dxeAkrXnRPLf4YFywDh
-	gNkwuv4xcveipbmlE8WKYf5GN94I6dejgO/GCl/0qylheWsxiBKeOWFD3D4gJvpantihzFqhH9ivX
-	Ns4bX7hrO4gxc1p978G/npL6jBCkqy6AgigRGAZaHVBjo3d/m85MUedPhAKYt/oyYsSCWyDI6Eqfz
-	CClz9UzF2mpI4ZMvIw+e4FbLDmMxmFBtn9sw7O7CSbtlavobY82HeYyBp4AyB528ui6/cMTl8BHp0
-	NF23HQxQ==;
+	bh=daj75kJ6ldxZJz9wLYTKbQQmIUWSVox4tdaNBDn6j84=; b=s37H8PAvTT40wcKvk+lcGYwJiB
+	8joBDC2c+Y+Op0mi+oWVCDrIkS0Dnn3II0+ReDpbfrIU21z6RU0quJnPBfA8NitoFchmYdFEbG02+
+	LnCj2VckgHs2tUv/gwE4UPCxZxXlq+UDkVSyGVLARoGDanYq1Z/rhdKb0forzNklZFpNj7iPHHzOI
+	8kI9dhSfMD2PdejtOSNkX01MV4IyhVpHKT2+hbCv6LkHw8NxyYY7QEYimaByHQ4Mq1ww132HD8erZ
+	x0aoxQhsGWB5MNU65JUN+Za/E9621tsTP+r20boB0YsBdNEEuzbonzZ96WaUxJKiq8GsNY7ErNtQd
+	mgyU+mJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5T4v-000000015UF-2doi;
-	Sat, 12 Sep 2026 19:07:57 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1x5T7Y-000000015bk-0PDC;
+	Sat, 12 Sep 2026 19:10:40 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5T4q-000000015Td-1NUW
+	id 1x5T7T-000000015bO-45E9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 19:07:55 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-857ff9fef54so16191667b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 12:07:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789240070; cv=none;
+	Sat, 12 Sep 2026 19:10:39 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-85d43da99e9so7536627b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 12:10:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789240234; cv=none;
         d=google.com; s=arc-20260327;
-        b=JAccX6jtIdJlpo16RsHchinn3MJM5n3n3kj3l0eDAWi/ulzlAps+igm3HL43vNkESC
-         J3wP2Eag9pKbGaSHGA4giH3tXYypGuPoDrr6nhl0t91sQm1sMwfAV3zNYzTMKFfB1j/g
-         7qkFiE3Cy6SuMpW8CuuC8f0mn6Tcng4YVH6VJLzYqWH1wBimDEhML1bHMKNfgeFpOTDJ
-         7o/bf2V96UYitv6j1vrVYUr3t32lKQ1sjNrVIGdIV3cSuy8jpxd60EM1VOsxMPan9C55
-         P/uDOBEqkd04gT1cklqy4QPOesyd/X7VXQcRyYtWDZ2tItU7K1h+a9No2OgtqYBC+fjh
-         O22w==
+        b=s8DgrbgzHXkfiNDA3RLrgJZ9DW2b0MD5G6Ph/pv4St8j5oGliO4LIDx5E4erKpFZHB
+         d1kVkO474LuC/6lLZ14/v3s9cXnLkIO43ADReTkW0n45wdMLJvCtBY/tLP2jTskagsVT
+         ODOf7FqQfHf9ORLmxTLBa819cl3ABvShhP4o7uJzHvbnOpZkSd6fLomPSpoA4ZvfWTog
+         bryw/VXR+G9XnjMXkeNWo23e6h2H45y+J5UTD9fE1pQ7hJDOAcj/sctu6epaYWSjmVNc
+         L1uRy4mowhX+UCbI3pWcVtk+NSGp60udWmU7OpmlZndBimdw428Xt4CKGLAs7Dun3bs8
+         KUOw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
-        fh=i4cu+CGEdUQygsjaBW4OYUEZY9+bChs7oL8QZUR0xjo=;
-        b=hecVQqtKoYA/YWRGAotU+h7PcDhQ76Dexlg6wDlQTEFB4zl1X6R7EwR8XhgyfnUE9t
-         xWyC+ZN9kgQshLjsAwA5BtRNn3a0Go7tBgJrvEQIwAsaj34XJCz4zyyTHvL6ePW7G+/j
-         KFKzXz/9EUQUhHK/ATSyvaQI6K9CvAZzn86GMo1aALHfpWPKD05Avtw30KL+9dRj9lMH
-         eOP39iwTzIoIZ8LzDAgzChgGWy6pifaDaA5KpIwVuNisZV12OKbkf/1vO+N2iUIUnzuy
-         bEDmByRl2FWVsKlqwfUTJVUpiD1Y0MhpUeik6ni3NKO1DQGud1OJYZ27unqCvsnafidv
-         5H0w==;
+        bh=daj75kJ6ldxZJz9wLYTKbQQmIUWSVox4tdaNBDn6j84=;
+        fh=V/sxEt9qbOoj/SFry1dyny9fAW/RVFnxAM5SkSZMROc=;
+        b=aELkZlu8NBYBL1mjKM6bQSs6lz8Z0LHO/49NGNJsINfDjp1a3KhwstMW/QSPwEnDMo
+         gUJ4w6tujf4fnzMCM9YlPUbYVkw2ZDSG/jyeCM2+zoJ+5I4c1AP9af1eYnSP+/70iuHF
+         91bZrnOfb1KRSfyWjc2lzQU0u4GbCVVJDAS3Q7KnBnAnRP2pFEWlU53c6GqNLR1ELSY7
+         3k/BN12SD27up2jwq8J8AJlNAkkuUTxE7cA/w7EY0t57KjDuAyYZUlwdlbGQoQfA9+io
+         T//r0RpcJFDpYig3ekBF49VWa+z8q+5zuhb8KkdL1VsRRg8fRSrYBrh6F7RA5Cob6n93
+         gkKQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789240070; x=1789844870; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789240234; x=1789845034; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
-        b=qCv8c04Q4NbLcBTBB8PD1Xnx+cnTZH5DyLXZdQReL+VTB/x90uAblpll1CHIe87Rvn
-         c4LGBNbn80UqIg0A9QYb0jBAtN8MAIm1gEtUqKgVtS3Je08ZvsGWV+kb29Sjgk2T7iOM
-         SM4l4+ZpxjCRkKF9hEfzGiuavifx6lxAOdAUrR9hbMCZdFezlWeskwJb8AJBtY5TXNEF
-         ngEO7WroZ860219zZqjN6NIPgAEETUfY5zz85mE3KaZ9FS67ZxT6PuKlDD7cWy94jJue
-         sDOC0FXRExUM88bqpMlaltnmB3D7/aQqq58eLMdbRa9anFiPmFfJZecRDUAgSDhvKLQb
-         Ir4g==
+        bh=daj75kJ6ldxZJz9wLYTKbQQmIUWSVox4tdaNBDn6j84=;
+        b=awym6Pkkln3mz/u0gDp8DqPphb0SOtI+GvnXMGaTiq9S9ez0A+lyQlzcoEW2w60X5x
+         5T0gW9wSX+uTW9QBxWpURbCdoDdRDm/LeV9Nv0n089n+SKcOhrroeMaaUrTMPscE5/jF
+         t6jc91Zm34+zG84s26KQynwbYZYuvUVVrooSw4fupoYhdV1emVJehhgSQ37kpsNcuubm
+         0wiRX/ccG3inw+AyVsJAxO0shUBPsOzWGcAAQGhwLfhAR7Ajsd0dtZCo1yIkmSEhnirw
+         M3tGTJsjgaV6V3MqwfESWMXg8aC9M7TEPxjn7r43W7NCUNtvQwafA/yFPKwwCH7iJ2A8
+         X2BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789240070; x=1789844870;
+        d=1e100.net; s=20251104; t=1789240234; x=1789845034;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
-        b=boJKqtodyeXbSj4vQ4cItQhcxE31lgDURpJbcESSsdTVLAg5yJrHReWthv/t+kbvt7
-         zShpKgBfABAl4Mf4Ddp2ajs6TwDN+hd8DmAxKfPbBlXRl4EF+XC5LCQ2sCHYopuifAFm
-         j7cLMV+LG/Etka3sOY90X0ZvLfZSjz6LYiOLgCmKvK+YeBGhVqtKF+HhXhhzlD1c49i0
-         8t3KbsNwxb6aGiF4DAXh2uy+4NWTQx3B3yXRpl2dYoBH5O82yiPjiTKDOVIqUvFhqabM
-         ISxIm14UVjeDIebGClX8l/ntwyzqp7ltxIzhAiPsDA3ioVT6K+0YJiBHLmbyciBPDT7+
-         MqTw==
-X-Forwarded-Encrypted: i=1; AKwUvBz55UBSOtMpNjJeImUa8nQtNtkDLJkxwkfRVrQ27EufpaH0mgr0lOGifFAOo3Esb+VPkO6V5OVEYXoJD94jM2H4@lists.infradead.org
-X-Gm-Message-State: AFuF++nLAM3vZez/UoyPb8+wBn31/GRuA80+1uRLKA3TYc0f91PylvAD
-	ee1VzOG+4o4UEz99NzIU0vXUnJw66qgGRRQadhFmKhWc7xz0tZPLUfzsdSBkXdPv1u/3RrMdbTH
-	aWxoyQlbDW2K5IGAP6HtANCJcgAa48Xo=
-X-Gm-Gg: AYBFou2TBlnTumSd1ExHPR3BiwnnipRD13WIxwC4PyPuj9oT7jonstXBe4SXyIKcqIA
-	tQQHceI4V3UqgrcWy2RFqnYCoEOMV5odz3Mhgt+/r+8/E1Pskllh42az3XwrSDuk9Yzg2MmWo4R
-	e0gm1X9aD56f7D4fdWzcEAJ3onjwxYgkNeSA1YPDZrObMuxs9aTdbGU1FEpOf1XCk6IugQOOy3l
-	l8U0SsPA3mz3KOsPezNvH1oralcswMHbvVnLzQVaCpPjoebPO3QA4MiJoSV1BkJT1tcOVtlEyuR
-	2Mv7GbzpWJYg+yZPstPwsg+TvTQk/VPvnA6T/+mhKjTA+ngtH2h7
-X-Received: by 2002:a05:690c:a790:b0:873:5bb2:6c0a with SMTP id
- 00721157ae682-884b6f29b6bmr21177167b3.52.1789240070580; Sat, 12 Sep 2026
- 12:07:50 -0700 (PDT)
+        bh=daj75kJ6ldxZJz9wLYTKbQQmIUWSVox4tdaNBDn6j84=;
+        b=DXzV77tt2zEdCT4wM5hwzfq3jEorDmardjddjpO+i5p8jedE/+r+cFwO8XjeD/rpOJ
+         N11/tRN5J+eBZIBwMy5wc/QtzQzCW+u2H4s9p7hrIeiL8R/xxfbAD2VklNtCWIiWhTww
+         Ns+vD9iDB7LuuKnUACMK+9i46ebbDSHRSpaiEy2FdSumSeMFtbroOJE50XcMmaehHW0K
+         NM7Z+sQpzbuZvCKB0kjloV6lZ/0su3wZlD8cFtOtRDovKxyj6Iex/sOs48EX2HMwRdIO
+         YSKMPeMxxa3BOU02gdEF3inndo0I46SdviU/x9P82kNq1G25NJZdJAv7N47b6M/mVW6Y
+         SN9A==
+X-Forwarded-Encrypted: i=1; AKwUvBwSbSZxymmYBL0GS1qKL2zFwMJBQ/WggY0y706DsKsxI8umsAjFGYRUvWa2CBBT7b9cDBbeVZT45qUm13eKaWTo@lists.infradead.org
+X-Gm-Message-State: AFuF++lCYipNEDYikplrMJpUrYY8/PDZi6tYHfZLZn9tbIJ+PQwiaoq1
+	82dR13zhndfpbBWtayucPpq8y/xdBxsoakcMqOlX0pL94vTclCA7P+p+LiPZztPnqTmLewGHDir
+	AnudVk7muQWbB9TF4ttsokMA4E8cd+UM=
+X-Gm-Gg: AYBFou3Qg8roqrTR9nbTRYgU4OA3VaAakU1e/VadNWr50/zCwNnsBfTD1IujT6t7NmA
+	ls+k1oUBwG2GN61AephtSPfGRqN7Y7yCQaj1NbgtzbbMZy6lZ/hmvTZXA43aZi3zmSoMlQldW2X
+	Jh9bihUuc3kDAQZwFDyBDKhEXAHzFFLd0f9fBRJYie9rN2xkS5BGc9iHDHGXNmaGf1/I3XSzGC3
+	3yWn8Nt3I8s8Dju7ImIA0rWWbnTjo7Eko8EqnnjTqw0AFy9f0mP7YDoXPyoxXuEiqs9Y5WZFvsB
+	CyATa1PwRefVULjVQdLcASAyDUbE10mVEPtufDbjgiFLj5r+nEZ4
+X-Received: by 2002:a05:690c:9a91:b0:873:5bd1:98b5 with SMTP id
+ 00721157ae682-884b200e9d9mr29464677b3.39.1789240234520; Sat, 12 Sep 2026
+ 12:10:34 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260906061755.5103-1-sumeet4linux@gmail.com> <20260906061755.5103-5-sumeet4linux@gmail.com>
- <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
-In-Reply-To: <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
+References: <20260906061755.5103-1-sumeet4linux@gmail.com> <20260906061755.5103-6-sumeet4linux@gmail.com>
+ <1a5fb9bb-d057-4579-8b2c-b81aa16a61cb@kernel.org>
+In-Reply-To: <1a5fb9bb-d057-4579-8b2c-b81aa16a61cb@kernel.org>
 From: Sumeet Pawnikar <sumeet4linux@gmail.com>
-Date: Sun, 13 Sep 2026 00:37:38 +0530
-X-Gm-Features: AcwNN1XqTP8GoNHaMkR4dokovXZ0UiUGTDkYaF2EyUFt2qLbm2siHwKKSL9BVhQ
-Message-ID: <CAJ9orWStxJLN-0Dk2LqmyxEagC_nH-veS7wWrN_kXvb6WEUWiw@mail.gmail.com>
-Subject: Re: [PATCH 4/5] devfreq: Use %pe to print error pointers symbolically
+Date: Sun, 13 Sep 2026 00:40:23 +0530
+X-Gm-Features: AcwNN1WFgZ6qmRCXqz0Ywv_tzPCCXsJ0jqSiA_xFTFPzs4rsV6HyVJPe6GfuozM
+Message-ID: <CAJ9orWRgatqn5gLx5+eDu7-T4s2PWcoVQPvuyMBgEp-KwDwkfQ@mail.gmail.com>
+Subject: Re: [PATCH 5/5] power: Use %pe to print error pointers symbolically
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: rafael@kernel.org, amit.kachhap@gmail.com, daniel.lezcano@kernel.org, 
 	thara.gopinath@gmail.com, talel@amazon.com, hayashi.kunihiko@socionext.com, 
@@ -113,8 +113,8 @@ Cc: rafael@kernel.org, amit.kachhap@gmail.com, daniel.lezcano@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_120752_408437_6DC527DC 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260912_121038_438739_CFC9969C 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,25 +133,36 @@ On Sun, Sep 6, 2026 at 12:00=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
 g> wrote:
 >
 > On 06/09/2026 08:17, Sumeet Pawnikar wrote:
-> >               ret =3D -EPROBE_DEFER;
-> > -             dev_err(dev, "failed to add devfreq device: %ld\n",
-> > -                     PTR_ERR(drv->devfreq));
-> > +             dev_err(dev, "failed to add devfreq device: %pe\n",
-> > +                     drv->devfreq);
+> >       }
+> > diff --git a/drivers/power/supply/cw2015_battery.c b/drivers/power/supp=
+ly/cw2015_battery.c
+> > index 1bcb60cf763d..48643f7bf503 100644
+> > --- a/drivers/power/supply/cw2015_battery.c
+> > +++ b/drivers/power/supply/cw2015_battery.c
+> > @@ -658,8 +658,8 @@ static int cw_bat_probe(struct i2c_client *client)
+> >
+> >       cw_bat->regmap =3D devm_regmap_init_i2c(client, &cw2015_regmap_co=
+nfig);
+> >       if (IS_ERR(cw_bat->regmap)) {
+> > -             dev_err(cw_bat->dev, "Failed to allocate regmap: %ld\n",
+> > -                     PTR_ERR(cw_bat->regmap));
+> > +             dev_err(cw_bat->dev, "Failed to allocate regmap: %pe\n",
+> > +                     cw_bat->regmap);
+> >               return PTR_ERR(cw_bat->regmap);
+>
+> return dev_err_probe
 >
 > Instead you should use dev_err_probe and drop the last argument.
 >
 Sure. I'll do this suggested usage of dev_err_probe in different patch
 series for *_probe() functions update.
 
-Planning to post V2 for this original series to use %pe to print the
-error pointers symbolically, reverting the change for dev_err under
-*_porbe() function.
+As of now reverting the change for dev_err under *_porbe() function
+and planning to post V2 for this original series to use %pe for review.
 
 Thanks,
 Sumeet.
 
->
 > Best regards,
 > Krzysztof
 
