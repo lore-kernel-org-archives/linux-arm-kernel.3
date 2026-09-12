@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD426C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 18:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B404FC88E65
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 18:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BjdcnniX+ccVQA7cSgS2ONHbmJ0xMV8RyAyGUcD/M60=; b=qAR0tQ9K6qBDNd
-	EQUE06QemRJD9TfelbkaHov4KzE9pXxmqbtPfmLESR83ygFfz5ak6yDz/7n/1dn/uKvGwf1+XEG7L
-	STt388u9h+/WtbHFclOhcU+mmQ0F2cpmGOAsRGfuNvBwJFGKElHaoWCdNPUfeCakm+okG8PCqG95m
-	KuttGdL/kowGBmPQRMCFJnguZEPiZ0S5y3h39eYd6/YmJGk3cYNPAGcGawet+hWqpNBu8IRuNhmw3
-	P/GyGJ4H4bzvFM/fziecTi8vqx4fhKDdkFD+FKl4Tqwlu4adu/HVx4U/tCa79okJ7KdkwNfIEnZqc
-	1y8aSDNHnNxyHiLzgowQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AN4nkmy715+ZC3aVioDzrXzTiXOhWqzQ+KZN4fFwxng=; b=Fi9vxSZV4jFIKmNHL8OJ3lRTXg
+	YXBD22s37feWC5MNALZxnGGMn8Q1UzdMYy3tKQ9qY3T1kqS9EZC8z33bsI12kZzruyxZj9z7Oa1EQ
+	myfxDGjApjZficWwSGv0V/Dkf/6CZ9SCzT+uvVVeibnd47UfVV0FHX5msxzGfsdz77Fu4XOCTrhIK
+	H3XtIFqI8qfuoWKp26ls9qQewkfjzVkJItMz1M9+l2+yNDhSnri8ixbxQ/TuC4pxOwdGBMGYQM11l
+	s59tMtB55PsOu2zHnHTwteZjxwbgMoXDW7bXHp4s9IQr3Al7NeZfs/66xwZl2nqu+1rAJmO+Itgzf
+	g43P8hkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5SN2-000000013ba-0qpF;
-	Sat, 12 Sep 2026 18:22:36 +0000
-Received: from mail-oo2-x0b.google.com ([2607:f8b0:4864:31::b])
+	id 1x5SNA-000000013fL-2mkK;
+	Sat, 12 Sep 2026 18:22:45 +0000
+Received: from mail-oa2-x0a.google.com ([2607:f8b0:4864:30::a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5SMy-000000013aM-1aqP
+	id 1x5SN4-000000013cL-40MG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 18:22:34 +0000
-Received: by mail-oo2-x0b.google.com with SMTP id 46e09a7af769-8069d92e182so73233a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 11:22:31 -0700 (PDT)
+	Sat, 12 Sep 2026 18:22:40 +0000
+Received: by mail-oa2-x0a.google.com with SMTP id 586e51a60fabf-4753ef5108aso643227fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 11:22:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789237351; x=1789842151; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BjdcnniX+ccVQA7cSgS2ONHbmJ0xMV8RyAyGUcD/M60=;
-        b=USKPdsT5kv/LCFTFVswVb73/9y01WVyfwsOaLvhKG2Mu46QVziiXNZvpEipNp9KoWf
-         PBCLJ2quH4hA/NiyNNsprmQOWtNEoC5Eg0YZ9i7vTZtlgGRijxmH/6jTpowVzDEMeNbD
-         hKwefOD6+rh/NMVhkZa/BGsfS1cWyG7MDf3g5YA27vBfvvUboH3PjlbxLqPiM+S/IQ6t
-         iS7UawnXi2Pw1w3p9FexOuykY2gSlf+RskjpaG3gjOsH33FPLYwsVMualRJgmPlyz1ml
-         5V9tRTXiF9esMAJIuRIABKExDMKiDLlRRWFEqK+DMr4O7PFMvGuAhiu3OU+s8nqdfsQZ
-         BF4Q==
+        d=gmail.com; s=20251104; t=1789237358; x=1789842158; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AN4nkmy715+ZC3aVioDzrXzTiXOhWqzQ+KZN4fFwxng=;
+        b=I3M2WFqf7T3VeD6Bx0QZpSAGTHC0TGZJ0NVDGKCnF9g6l60llEeuKPPa4oQg6Ft5hn
+         zkjzwLg+VWkFKx7afXGcgXjAfV5NoFA4eTlt2XyOrm1rCzSHgvXHLdsUWZbDbcOlw2NC
+         VDgvx8R/7/F+CBRiB3BYx3VkaDeTadGd/gxPxSCztdyCrNg2e2X9mvDLS8Til3eaK3/t
+         Om/HrHfNrFyEqjkLWA3hBo6uWn2b9F7ksrj/kNoZ4AY/Bj8z8zbzDrUMDunCZOanjIEn
+         sBinoxRHH0Ml9HsdrvE5opCNYbUhhvsWZHaqZB41uaZ0gtC/Dq+XnoqtyXsfevAevdDX
+         1H9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789237351; x=1789842151;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=BjdcnniX+ccVQA7cSgS2ONHbmJ0xMV8RyAyGUcD/M60=;
-        b=kwFSIu/apZW/saA6rDu7fDDV5QCRRuHgYjVI9CQ536EYK2GYtF5PTSv8A9W7X8RPXX
-         BHEVyJBTZnCT/3vC/En5viaYpT8feXYKXxt358lppCe1IQzdPwhMXIYk6bPC9KKGgj3P
-         DIgKNSyMSgR0oGGpzQPa6GfJCTRRr7u+c/oquW4qhg2VXa9pLe9xyta2pWnahTeVPIpc
-         us7wuHZwclceM09oaF9JpsotEo/62iSOSnYHndP1cc66EWSA+3w9x563tokT4B3NPStz
-         BlZnwK/DBVKTprD3G4e9xQBEUjYLj0vk2wgIxTUDXj1IFT3fKwNeY4nz71NXXWCbKDdu
-         ULeg==
-X-Forwarded-Encrypted: i=1; AKwUvBzOFmB0aWeVKYeWxoRwryLgChV6CaZvzexdnWFoLRcMwB5j4OvNL5Tm387gDGPhTYZA1hTKCXW0E8iF4QjgDMqz@lists.infradead.org
-X-Gm-Message-State: AFuF++mkUBJ+VxkOr6XnzmPnwNylTB+G1kjdy9lYrHiGca2sl+fU3TUu
-	JM3XxDT9b7WtNzx/5iqo9mhSbVB83nGnFxK6pnSgQ4rU1r8KVuBs2rhy
-X-Gm-Gg: AYBFou16oKHQ91/XBxr22P2+yXQ8CFCpgUdxETU3pov+VOIK3CcrN6sL7vrVLXcdu+G
-	+Ft4drjmbpu3HKhnKwsP5y+BFaEGrR1+xYbPwg+5QcMW1uobT1dlVheNhLql+RUU7pAG10SIeLm
-	laPSmMkFICl3DMY1FPlZSfbwIhyZ0NBnTr3hm38n6in4X20ZfD5jO3aOrqVIFFmcgzlL7QG3k9m
-	uP4IAfEDjCgSRXuynISOSH9DQrSAOX8caecVL/dhjk7sXODauzmoRG0rl3V+D/qNjv65NeDjEAb
-	fEG69Ew37JYIUoE0g4RAdQQjzeR0I3VO+Q1fOAzbMZ1PJVCQt3l4pXs2ImlAShOTpcSGfoQD30e
-	LBfugh07ETqsP3zXW7lJjU9d5M7ja4cP8J7006Pu/tjAS9e0y0cOl+sVcJG4LUwceDoftLdVhOx
-	mQB1zVABkbfHORu1aSx31rMBmTm6jmiXnD8kXfYIzNTCkxizorNUYSTAtmFExD8SnCxiA=
-X-Received: by 2002:a05:6820:214:b0:6bd:cb3f:5896 with SMTP id 006d021491bc7-6c24d39681emr1997214eaf.30.1789237351016;
-        Sat, 12 Sep 2026 11:22:31 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1789237358; x=1789842158;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AN4nkmy715+ZC3aVioDzrXzTiXOhWqzQ+KZN4fFwxng=;
+        b=pbbfycW1j2g6skMHpzv/SfTMOjzlqLVn2RBVAdo3DaGrQTW2l0lGG/1HXiKLytNSy1
+         Dxevx9P7BsgQlYmVCoKrgd7p+jFs2etkPEopodsBMLp7/h8W6xIH/Nme+AIeazk8WbOc
+         CmfTMKOZyx/I9PIdD4VTWno9jNsYZ/7dKKEo2MQIyuzjAHnUz3p7HnRywkXj6zqutvCO
+         dlY5XinC6CUUrSuMkJ/sa7ZokUtP5biAxZ66fRE+gqGH889rmnWQpI47PkDdl8YjVXPo
+         v6N4iQJuV/eGO37DoxtL2m0iQCqgsG+r3jBK8RISg1RoXEu9otLsP0Cm2mJt7GwMAj3n
+         s+ng==
+X-Forwarded-Encrypted: i=1; AKwUvByUuygseYI+0ZU55QEKFZJg32uefKVDLXlM+W9tBC101DuSf3d4lJjaoZlR3qflPbCwBiiAjTgz4Nqx/FYee+9V@lists.infradead.org
+X-Gm-Message-State: AFuF++kdW2NQtCLzHRddwLtDgBF0odCQI7daCtiu9J4nCX2KsoLE7CZ8
+	0k6PD/FW3EzZqyrb7gpxC7wMkZ1TOBByWmVZLKMeLzmSZaV38wmibCJd
+X-Gm-Gg: AYBFou1MnV1lYhamnLmdmbt9j6Hf2qgeCcCxvTcnFyNM7ut52YHCEXs9NljZSvYbSHI
+	PJHs89fKaFJYFVJHwwTUJUds+/NJECupdQDotnbtN5TikDPZTnB1oh6cFSxiz/6LKCpBPu1GXLC
+	Wmzu5xzgA2OrquYGwfEsTs/ilPyje3pEe+Pd4z5iHNRlFN2CTRFvLF58Fnjpuy1oJ0a+g190aag
+	Z39b8ENddUajp7fqUIiuU9oIkTTvW6JquFDa6dTR+G6HF+beEA10RNxpXGM8WbmlIz4Loddux+M
+	EqOEDl4IcKrYFp3hAfNS4dQk3W50SZxvXYlHahGBUXdsrAZ/h+iDqJ1BHEQ7weDV+UYxZQfIy5S
+	/wWWOfZtUVExg+ngkmyMontrvwDs0OaCkBvg2PxzyhWUuKr622tCgmja1UgUlffNJR9Zj6iuyOx
+	EfItqjt/GeImdSHlvk3GcFFvHRvisXyYxZMCrlYOKtdVrDQV1QoTkVKptrnw8vvmqOniVuEwpGK
+	t1ojA==
+X-Received: by 2002:a05:6871:708:b0:46a:239f:fc75 with SMTP id 586e51a60fabf-47de872ac02mr13363495fac.6.1789237358141;
+        Sat, 12 Sep 2026 11:22:38 -0700 (PDT)
 Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-47df64d89b9sm5413898fac.1.2026.09.12.11.22.27
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-47df64d89b9sm5413898fac.1.2026.09.12.11.22.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 11:22:29 -0700 (PDT)
+        Sat, 12 Sep 2026 11:22:36 -0700 (PDT)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Subject: [PATCH 0/2] drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
-Date: Sat, 12 Sep 2026 13:22:21 -0500
-Message-Id: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
+Date: Sat, 12 Sep 2026 13:22:23 -0500
+Subject: [PATCH 2/2] drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2O2W7CMBBFfyXycwd5nEBEhKr+B+LBy5C6xWOwH
- VMJ8e81y+ORzl1uIlPylMXU3USi6rOP3AA/OmG/Nc8E3jUWSqqN3KIC7RyYSFAqSrwuAThIcFq
- iHYZxcGYjWvSc6Oj/nrX7w4vzYn7IlkfX20h0WdpeeWnC6ExgYwi+TF0dVz0kqx5qoJz188jU7
- d4/EC5NBY5VF/oFLmuUCuGsmU4ZqgIJ2K+px63U49F8Be355NnzvIpp/hSH+/0fxNISU/sAAAA
- =
-X-Change-ID: 20260912-add-boe-tv101wum-nm0-da01c4474db6
+Message-Id: <20260912-add-boe-tv101wum-nm0-v1-2-3057a08e8b80@gmail.com>
+References: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
+In-Reply-To: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
 To: Nickolay Goppen <setotau@mainlining.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
  Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
@@ -96,16 +94,16 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789237347; l=1702;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789237347; l=8635;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=kKPzi/HLXfog7rBMUGiYLepe2mjam6b/jz1qv/PYobU=;
- b=zhgopAjqYGTLQfAWgqPnNFDJTigscCfew+z0rKaCkpyo6MuRFZd+vY+oPw5xjQIg8OP5kWijt
- UfJm8fc9c7UDq7WRF3gqj6GifalJJCWcfTHEurQeM7krhqd4d0rbQSa
+ bh=+ss2L+Ib4MBWxp1h1w+PuZmWHwVj9nyoMPZxLoTG0+8=;
+ b=j1p228CnmIEzx9is8c0FeHCDh/btuOiRy02C9Vr5rG83/TfahazWxf2gXBWwsNoTKDnjiOb0/
+ jstq0A03/EDAboCyB8HY+AhZZeJlh+vq/hctZv2L7SBp91JGOXdqRMa
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_112232_958223_69200D6B 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260912_112239_026209_2BDFC135 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +118,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series depends on the following series:
-[PATCH v2 0/3] Novatek NT51021 DSI panel IC driver
-https://lore.kernel.org/all/20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org/
+Add the BOE module fitted to the Amazon Fire HD 10 (2017), an MT8173
+tablet, as a third NT51021 variant. How the part was identified, since
+its label is not readable without removing the main board, is set out in
+the binding patch.
 
-The BOE TV101WUM-NM0 is a 10.1" panel present in the Amazon Fire HD 10
-(2017) tablet. It differs from the BOE panels in the dependent series in
-key ways:
+The register sequence is the BOE branch of init_lcm_registers() in
+drivers/misc/mediatek/lcm/nt51021_wuxga_dsi_vdo/ in the Fire OS 3.18
+tree, command for command, with only a 120 ms wait after sleep-out added
+where the vendor waits its trailing 5 ms. The 0x8f 0xa5 and 0x8f 0x00
+that bracket it are the vendor's command interface selection, sent on
+every board that is not an early proto or HVT unit.
 
-- The pin count is 51 instead of 46
-- The vendor asks for SYNC_EVENT_VDO_MODE with cont_clock=1 instead of
-burst mode.
-- Different timings and flags expected.
+It is much shorter than boe_tv101wum_nx0_init() because this module is
+left on its own factory trim. NT51021 R8CH selects whether V1/V14, gamma
+and HAOP come from the panel's OTP memory or from control registers, and
+the 0x8c 0x80 here leaves all three on OTP, where the NX0's 0x8e
+switches
+them to registers so that the three pages of gamma it then writes take
+effect. So the absent gamma is deliberate rather than an omission, and
+the differing 0x8c is its consequence. CABC is likewise untouched
+because
+the vendor drives it over I2C from the backlight path. What is left is
+0xc0 and 0xc8, which the public NT51021 specification does not describe;
+everything else this sequence touches carries the same value as the
+other
+two panels, including the terminal resistor, TP_SYNC, the MIPI Rx drive
+strength and all three test modes.
 
-The init sequence, flags and timings are mostly adapted straight from
-Amazon's vendor kernel.
+The timings are the vendor's lcm_get_params(): hsync 1, hbp 32, hfp 110,
+vsync 1, vbp 14, vfp 11, so htotal 1343 and vtotal 1946. The pixel clock
+follows the vendor's PLL_CLOCK = 490, which after DDR is 980 Mbps per
+lane and over four lanes at 24bpp is 163.33 MHz, so 62.5 Hz. The
+bootloader leaves the MIPI TX PLL at that rate: read back before the
+kernel touches it, this board's PLL decodes to exactly 980 Mbps per
+lane, so the panel is already there when the kernel takes over.
+
+The front porch is the vendor's declared 110 rather than the smaller
+value its own DSI driver ends up running. That driver also sets
+clk_lp_per_line_enable, which makes ddp_dsi_config() overwrite HFP_WC
+after the declared timing is programmed, shrinking it to leave just
+enough room to take the clock lane to LP and back. That is a
+controller-side workaround rather than a panel property, and it
+contradicts the cont_clock = 1 set beside it, which disables the very LP
+transition it makes room for. Mainline mtk_dsi handles the clock lane
+itself, so the panel's declared timing is the right thing to carry here.
+
+The vendor asks for SYNC_EVENT_VDO_MODE with cont_clock = 1 rather than
+burst, so make mode_flags per variant instead of fixed in probe(). The
+two existing panels keep the flags they had. Burst was also tried on
+this hardware and worked, but the vendor configuration is the one the
+module is characterised for.
+
+The physical size is the datasheet active area, 216.576 x 135.36 mm,
+which measures 216 x 135 on the glass. The vendor's declared a
+physical_width = 136 and physical_height = 221, which appears to be an
+error. The size of the test unit was physically measured. 1200/136 and
+1920/221 disagree by 1.5%.
+
+The vendor's bootloader and kernel both carry a second register sequence
+for the Innolux module this board second-sources against, selected from
+two board ID straps. No Innolux unit was available, so that sequence is
+left out rather than carried untested; however, the Innolux part number
+was identified as "P101KDA-AB0", should someone with that glass need to
+upstream support in the future.
 
 Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
 at 62.5 Hz across a cold boot, display off and on cycles and a
 suspend/resume, with the MIPI TX PLL reading back at the intended rate
 every time.
 
+Assisted-by: LLM
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
-Ryan Brue (2):
-      dt-bindings: display: panel: add the BOE TV101WUM-NM0
-      drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
+ drivers/gpu/drm/panel/panel-novatek-nt51021.c | 66 ++++++++++++++++++++++++++-
+ 1 file changed, 64 insertions(+), 2 deletions(-)
 
- .../bindings/display/panel/novatek,nt51021.yaml    |  1 +
- drivers/gpu/drm/panel/panel-novatek-nt51021.c      | 66 +++++++++++++++++++++-
- 2 files changed, 65 insertions(+), 2 deletions(-)
----
-base-commit: 5e036ce12de91c6fd674dad33b169c6150be2a7a
-change-id: 20260912-add-boe-tv101wum-nm0-da01c4474db6
-prerequisite-message-id: <20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org>
-prerequisite-patch-id: d8b58f07dc5c9e1fcf7c51a14b48eddca2e09090
-prerequisite-patch-id: 79dfdac7b7fa79f7d05a5f3849909c9a7f956398
-prerequisite-patch-id: 79c01de4e67563772dde152cd4c4d0c568b14d17
+diff --git a/drivers/gpu/drm/panel/panel-novatek-nt51021.c b/drivers/gpu/drm/panel/panel-novatek-nt51021.c
+index 61dd283769a7..2a8fa181ac37 100644
+--- a/drivers/gpu/drm/panel/panel-novatek-nt51021.c
++++ b/drivers/gpu/drm/panel/panel-novatek-nt51021.c
+@@ -23,6 +23,7 @@ struct novatek_nt51021_variant {
+ 	int (*init)(struct novatek_nt51021_desc *ctx);
+ 
+ 	const struct drm_display_mode *display_mode;
++	unsigned long mode_flags;
+ };
+ 
+ struct novatek_nt51021_desc {
+@@ -607,6 +608,39 @@ static int boe_tv101wum_nx0_init(struct novatek_nt51021_desc *ctx)
+ 	return dsi_ctx.accum_err;
+ }
+ 
++static int boe_tv101wum_nm0_init(struct novatek_nt51021_desc *ctx)
++{
++	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
++
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x8f, 0xa5);
++	mipi_dsi_usleep_range(&dsi_ctx, 1000, 2000);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x01, 0x00);
++	mipi_dsi_msleep(&dsi_ctx, 20);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x8f, 0xa5);
++	mipi_dsi_usleep_range(&dsi_ctx, 1000, 2000);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x83, 0x00);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x84, 0x00);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x8c, 0x80);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xcd, 0x6c);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xc0, 0x8b);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xc8, 0xf0);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x97, 0x00);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x8b, 0x10);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xa9, 0x20);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x83, 0xaa);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x84, 0x11);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xa9, 0x4b);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x85, 0x04);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x86, 0x08);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x9c, 0x10);
++	mipi_dsi_dcs_exit_sleep_mode_multi(&dsi_ctx);
++	mipi_dsi_msleep(&dsi_ctx, 120);
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0x8f, 0x00);
++	mipi_dsi_msleep(&dsi_ctx, 5);
++
++	return dsi_ctx.accum_err;
++}
++
+ static int nt51021_novatek_off(struct novatek_nt51021_desc *ctx)
+ {
+ 	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
+@@ -713,8 +747,7 @@ static int nt51021_novatek_probe(struct mipi_dsi_device *dsi)
+ 
+ 	dsi->lanes = 4;
+ 	dsi->format = MIPI_DSI_FMT_RGB888;
+-	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
+-			  MIPI_DSI_MODE_NO_EOT_PACKET | MIPI_DSI_MODE_LPM;
++	dsi->mode_flags = ctx->variant->mode_flags;
+ 
+ 	ctx->panel.prepare_prev_first = true;
+ 
+@@ -744,6 +777,21 @@ static const struct drm_display_mode boe_tv080wum_nx2_mode = {
+ 	.type = DRM_MODE_TYPE_DRIVER,
+ };
+ 
++static const struct drm_display_mode boe_tv101wum_nm0_mode = {
++	.clock = 163333,
++	.hdisplay = 1200,
++	.hsync_start = 1200 + 110,
++	.hsync_end = 1200 + 110 + 1,
++	.htotal = 1200 + 110 + 1 + 32,
++	.vdisplay = 1920,
++	.vsync_start = 1920 + 11,
++	.vsync_end = 1920 + 11 + 1,
++	.vtotal = 1920 + 11 + 1 + 14,
++	.width_mm = 135,
++	.height_mm = 216,
++	.type = DRM_MODE_TYPE_DRIVER,
++};
++
+ static const struct drm_display_mode boe_tv101wum_nx0_mode = {
+ 	.clock = (1200 + 172 + 4 + 32) * (1920 + 25 + 1 + 14) * 60 / 1000,
+ 	.hdisplay = 1200,
+@@ -759,18 +807,32 @@ static const struct drm_display_mode boe_tv101wum_nx0_mode = {
+ 	.type = DRM_MODE_TYPE_DRIVER,
+ };
+ 
++#define NT51021_BURST_MODE_FLAGS	(MIPI_DSI_MODE_VIDEO | \
++					 MIPI_DSI_MODE_VIDEO_BURST | \
++					 MIPI_DSI_MODE_NO_EOT_PACKET | \
++					 MIPI_DSI_MODE_LPM)
++
+ static const struct novatek_nt51021_variant boe_tv080wum_nx2_data = {
+ 	.init = boe_tv080wum_nx2_init,
+ 	.display_mode = &boe_tv080wum_nx2_mode,
++	.mode_flags = NT51021_BURST_MODE_FLAGS,
++};
++
++static const struct novatek_nt51021_variant boe_tv101wum_nm0_data = {
++	.init = boe_tv101wum_nm0_init,
++	.display_mode = &boe_tv101wum_nm0_mode,
++	.mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_LPM,
+ };
+ 
+ static const struct novatek_nt51021_variant boe_tv101wum_nx0_data = {
+ 	.init = boe_tv101wum_nx0_init,
+ 	.display_mode = &boe_tv101wum_nx0_mode,
++	.mode_flags = NT51021_BURST_MODE_FLAGS,
+ };
+ 
+ static const struct of_device_id nt51021_novatek_of_match[] = {
+ 	{ .compatible = "boe,tv080wum-nx2", .data = &boe_tv080wum_nx2_data },
++	{ .compatible = "boe,tv101wum-nm0", .data = &boe_tv101wum_nm0_data },
+ 	{ .compatible = "boe,tv101wum-nx0", .data = &boe_tv101wum_nx0_data },
+ 	{ /* sentinel */ }
+ };
 
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
+-- 
+2.55.0
 
 
