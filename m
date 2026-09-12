@@ -4,113 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5C1C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 11:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E0C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 11:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=; b=GMXjNgUUShCKhNs3ZY6AO5/8zY
-	1X1XxSOqAAg/oS5VQSJ5n1DGLmWXgH3PLWpzRSfjnvyvDVXJk4HAbazachrmLibjy8eh8VxUVfdGU
-	X/ORRWYbfK+VQdHqzCbEGjkg0lp1QKDHbFoKLA9xqh6o84X1UIzqul6RmyuR+JmyxWXahAGOBQjjo
-	OFcyxEfoz39iUeMNdv7B+N1em4PLW48LU2Eanhq5Lm0523wX1amCCKx0u6qT+Qe3zSLGkI+CQ8+MY
-	/BRZPBuLhlJDClQdXptZw0nILehq80GNNQObAJ5ZYEqfMSe7SPx8q/nCjlbZAoR5GkuwDPJAmBShe
-	1H1gBjDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KZXJwnSdWWnCiHu6CFBEOlgICtMyxV/EetgcKlS2Cas=; b=GhQljoGPcoXmb2IsJhCIv+luxh
+	fmD+4qowvM2H4fUkOHhArkUurEnf2M9XysmSoSzpMfqu15IgRDATxpOZyx2N1p6wGpRcWg/xCBzId
+	QPc8dAHaDz1aZzi96ncPX8qLFq4HnRtLXtOvkxS/+j1XpN5/2ZKq32DOe2tOmUz32kwIoTHiTzgx5
+	qk7W0NsQHpQvyEnENBIVpuWlsmioHqTiUk8D0xaMatsCA/51a27UnRrpWirD0jktF/kxZwfWJCo5l
+	zqatnwPL2vwF6XRpaEmXqIsctAMec8+71iCm/vagCznmJKisCROpkHXTK+dONVUsI49hSmkjVxIF2
+	6Xw2PnUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5M3J-00000000pvA-2opf;
-	Sat, 12 Sep 2026 11:37:49 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x5M5P-00000000qBm-1IPA;
+	Sat, 12 Sep 2026 11:39:59 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5M3G-00000000puG-38H9
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 11:37:48 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482e1b55da8so79793f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 04:37:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789213065; x=1789817865; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=;
-        b=bcwNKFm4JAhxMuQ4vbBvXF6Rp2gTpl5OiDA5x44YAF94z7zLUFuezgIUt2XJ+SEI7n
-         TDoQbn2LfW6GDCAJZZp/EhCUk4hfJD/bP4PgZCBWFOwLuRHVkxe/I3hnfFAZWMDuxMA7
-         zvYeaoZ+fabtuL94RqLjDRleJcFwvADuNQWdn36jTM+YHlX6Ztr94lr/GvG5VCNzTwlM
-         oFwTuNOkfHyvM9pd7CMFCGD9Uy7FBq0cxSGO/xHinZ3RiX780Yh6JIWImbVVXipsOrdD
-         xNHXxZlFlpOGrECCmUYhmanheKw8G9OTzDJfnR6uchUYQLC5ALMqNha0WMfez1ksjS3P
-         qD7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789213065; x=1789817865;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gJcRqsLZqK1lU4eYh1WG11ZDI4ruah74QgvrXeQigNU=;
-        b=egavKCk5Sm9wO0y7Li2ryckeZkNH8pPkA8b5b2L5IcdOLOdvUGLLyEUWm5njl04v5f
-         02Hinwnq3vvrzStmii1FExps+7vt4JfscPJB6sEjdzT4WajTx7ZoKUpMnMr08zN0YosS
-         yuru+4itLu2TdTvYNo8Pl7gZ+LX90Wteu9FTeEZi6lOjb3A45FXr6kJp2ok6dc7SnOSx
-         pGpnM5uSIPhcSp+wdkFWcEfhGrlz/ISKMLkbTSGQzNmu3kBDbPc/8UkPATkiUKW26Aro
-         bv1Nvt9TD6tdHApzvhyx8fqPZ2DpvPct2Z7SO8gx40wSAuX37Yjz4NT455dfWgLa5MHx
-         Wdsw==
-X-Forwarded-Encrypted: i=1; AKwUvBwN5Ow1HazxD8F9SjC/hXq/rhnOT7545njmkrVmoAmTW2FLqxc3RCd9KtpJHh0oeTufW7Ij2T1oto6cHvQn22wj@lists.infradead.org
-X-Gm-Message-State: AFuF++nyQ6c++td9syGW81nB8Iz6GX2n+EIoq95uO1YIcGPzpr2uQkBE
-	rXLuE1ozEwSnZbLEevJ2e/z/4ot1+PqryEqbzoBViVCqTYZv1RjgzG3z
-X-Gm-Gg: AYBFou1kAs6ru7uGTQQujWOXc9ZvHx2eON7FRDVmcRoHKRu4bLO3hHcR5cmwMNGo2aH
-	i3DskdOD2KWpx0IFINLaLdjPupbhKEjclJWFBaawI+1pwWIeB6Jok2j8bRmsTC7JPD1nR7jyW5X
-	AjjvrnVbllG/gxE+bjSK7oLvtoK43q11kg+4iohx7xF5FJlfxlZnVixfk+Q87/Q1fdy1aHwZvYo
-	Hl2lQBqi3m4eU4/roSkUjdZBVNWHsV+uZf65vbFpivbsdvmEiyxskZa+AR9mLDlIlzUcndn7y+4
-	bn/rwKsmwdbU+NAHVpwQgTVByqGQMyWq+w2uHRj/Tz8hcCZOudQxz+9bEQKhccNK+XG57SILxXE
-	+VRflrPj7IKI7h4I1H6JmEVN6pKW7J/3cOdq7PYH8RAyFpLhQ/up7EvC+zi2hZPRC1gnP4kiHTp
-	IFXBr7pb41dGH12ZAsGW1d3xdJlrPmhuScvXuUN2X/tvuf3OYfuBhg/elAG7Tx4WVbtUPWJQntn
-	TgtSW/V7cHAUVbEa7095qMqXkJqTla5AsTPcu0UYiEOzSqGG0kmgI18JxKrA1Su4UGeYkUNwum6
-	LQ==
-X-Received: by 2002:a05:600c:46d1:b0:49d:798:67a4 with SMTP id 5b1f17b1804b1-49e61640f73mr84164245e9.0.1789213064708;
-        Sat, 12 Sep 2026 04:37:44 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8209007423DB663D3B2FEC.dsl.pool.telekom.hu. [2001:4c4e:1b82:900:7423:db66:3d3b:2fec])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e61a81943sm99068345e9.1.2026.09.12.04.37.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 04:37:44 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Heiko Stuebner <heiko@sntech.de>,
+	id 1x5M5L-00000000qAc-1Y7D;
+	Sat, 12 Sep 2026 11:39:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JdcpBzsSKVAK+pm3sl1YucjVdWApB2JlvXrLGbhBQ8LPXJF8Z2eFovtyQqQmqFuzb2TYFWdGK/VPFj6g2NDR+BbIFc71+ztaMCvugYAxjBXTFafK04h8g/LFRQznNOIKdL3S1nE5fyIcgZgr+ZP1kj1PGHKX4ROPBKzTyAHJ9QrS8oDAzMW13UdXGLKF9tSIw+99SCzBfMXupnVlJiD7vn4g60xu6SPN/6dc9JFqmhrL9Eg0VnORS8JbRs9z0fRi9X6+qkH2ygChy9Ok3CRq9g7hhSsb2GcrXv6lJ+CaTUtIyPIOoSbsNNhkRTgq9KUvFCaOUTpF/NR4aBHtxdzYaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KZXJwnSdWWnCiHu6CFBEOlgICtMyxV/EetgcKlS2Cas=;
+ b=cRTxvsigtntLNxWeswnVGwxpGeQ+g1dGKccBkl6nHiU6kHMFpDiMM4Tj4qW+PvsVCbdmF/eEh2mEf/gcgtAz3Z5DHBmJtQpW18vD7LjLejEeMSeuztrxvA9CezvTHTVBBSmcjh7poFR+Dwp718Ah5HrZJv1W8sAVoso2VVcx3+C1uUFVo5VC0XWKnH6DcVhWIWGxv8Xm8jJoqulLcciZEwuRDfranQeusDxMrZQC1jx07CBykmg14nbyOlkf4onjUuQKKnCXwNaHGIGSkmDzy1HFYAKHuH7sCAAD8jO5tI24fYGKk97DT4i/vbmq2l3nygXxQjxRbNf1jZrkpRacPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KZXJwnSdWWnCiHu6CFBEOlgICtMyxV/EetgcKlS2Cas=;
+ b=FvLZghkNn0zv7J9GhwZ3upjMDpnYn7us826ks3pF1QdBD3l0d6EFcdxnc71oodkIkKhQnO8ye2JJnwkoTVyK9vKYXpTbrKtew3yekmD57C21tL23etoUkTza4x3Zqwn78tUors3I73MBBDGRLMqcHd80bJHnNmHZrk4cg9FwBMCXNAjRJlfb+QOExAQACoJgskSaU3z/O3XbZkBdN8Ih2bvia3nogbBArEeLxdyzBZw0KABRgWs2UR7iO0FMRM+tNms7qOCgJJp1z+5ApR+glQEiEH6f2ERX2auq4IqK/a5IHfn1+WrpA5VKKWhg7Oes4IpPuHGyjQHjHGWvMluaJA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by DBAPR04MB7478.eurprd04.prod.outlook.com (2603:10a6:10:1b3::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.11; Sat, 12 Sep
+ 2026 11:39:49 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0406.007; Sat, 12 Sep 2026
+ 11:39:48 +0000
+Date: Sat, 12 Sep 2026 14:39:44 +0300
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-tegra@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v12 03/14] accel/rocket: wait for a running IRQ handler before resetting a core
-Date: Sat, 12 Sep 2026 13:37:17 +0200
-Message-ID: <20260912113717.6819-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260912065053.1519165-4-gahing@gahingwoo.com>
-References: <20260912065053.1519165-1-gahing@gahingwoo.com> <20260912065053.1519165-4-gahing@gahingwoo.com>
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Felix Gu <ustc.gu@gmail.com>
+Subject: Re: [PATCH v9 3/3] PCI: Remove device links to PHY
+Message-ID: <20260912113944.cfs6tebsv2eqctvw@skbuf>
+References: <20260810124315.433448-4-vladimir.oltean@nxp.com>
+ <20260911221209.GA587622@bhelgaas>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911221209.GA587622@bhelgaas>
+X-ClientProxiedBy: WA2PEPF000008BA.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d8::696) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|DBAPR04MB7478:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99f746bd-4296-43f1-cf9a-08df10c28d04
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|7416014|10070799003|366016|23010399003|1800799024|10067099003|4143699003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: OFLgkwxff8Qo7TmyuPs+uO7hfEbjjkc286NGkhmmX5v+qijUUUfIq2M0A949+bajRBzKcqEjdmVoVNPOS3sqoRmKri20dNp7sXR5+6aiJFMDkB2gfWdEyqw1BqK3IlYvBBG9mmHUkAEe0eir8apcMI30JoFBqak1f9wjVrlKDA1w1xdhltG7KyfQpz6qQcClwL5ALLzMiephZdUipHL6WVKDjdJBnx9goJnWMUU2t1RQie1G4zyp/HQr0vimycT4GM+MqZvDunzAi0zvbMF4SIpvq+a02QOa6Dx2ztQ6V/EShB+GfJksEUIXDRCLdMKyJ/hI/zUUjj0GhbH8V37pqQ9b3h5NdF4htbjN0p2uZ+Ke/VI052BmXTulmX6bILjq2youLVXzp1t2PcYxMPZume2Buqno8h5vsT9YIq6l1AJfcqlqDpM1+6CDOETvvtGnmDG9NqOdH5ORNGSpgQ+1rBAG3NbHq+uQ04Zl1Bz8xE/eK+VH86Vtt2DBLc91//gj0a4mPbMqmsXb7w1Z9oth1fosC7vqrpEqkOfeRXj44VPnH2L9HeuxbDpt3H5k8L68SaVac4tFPRz2LqlWBK5kpVVvnRCzdiLDHYKL3f0y7vF7ERnuUM0NeUBlDrnWC9Ke9ZPvfMcwc3fAJvm4bPf0+2i8S9muNJjIGuP8ewdS8Xk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(7416014)(10070799003)(366016)(23010399003)(1800799024)(10067099003)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZbFA1VgxTCNW2fgmxPxG2MWdcUtZSlQsJUKPq8lIiX+OPFCJK6OA8CW8FOAS?=
+ =?us-ascii?Q?KZXVIQ/Dl+3bZeHZxvTuekz8LnL9+4uJAge+eXTLlpZE61rWixVNkV9JZlUt?=
+ =?us-ascii?Q?0wuOaZLvdgH72b340bsXYgxCB3fNuutHA7tdl0aLQ4+IQ2+l2JLt9dUoIFXE?=
+ =?us-ascii?Q?Fc3z9HS6JLzr1cNG5hhzG3QIxEInARNy3bmBgtxbVe5JPMdAr+RYBbJGVC2m?=
+ =?us-ascii?Q?bP4u9yKOUiozffkfb5gW0hasLpaQOhOGLuBTBX5xU45j8f4GLLy0nc7czJDX?=
+ =?us-ascii?Q?w9IccBq6Y4IgiGrtbmBX1fFqoLJImNNb6RGbyomMm60QC1ngQwm+G8m4Cmq4?=
+ =?us-ascii?Q?swBl3vB7334VjEB7+Lg4Lub+IYnczRCZWB53NX3O0rowEggyeIUcM4Cm8EMH?=
+ =?us-ascii?Q?AqB5bQqn8J/fw4KOg33tTWP4DAzOTma724yx1DrF4QxThGnR+OdICTS5BzaB?=
+ =?us-ascii?Q?QUrqKEiKZrUZ7sMYCTd9mxYf9MXbGvx/RZa3xlgWDw8nhctw7e9yyf7f3V+Z?=
+ =?us-ascii?Q?Mw1LP1SEhEQvYsnPJmqItFLIJuwAwLsqYg1RK/zT8viD5QYS51RCXfQhh3uR?=
+ =?us-ascii?Q?PaZnpcH3SlRJlOsX5U4JYYqU5vpIChBMqoTZFiIaDzEon9SNynu2kCshQWST?=
+ =?us-ascii?Q?lh2uH8wB3nLpW+taW0mMwNwUtYAat6MjpbIQ9mDrR9CsN1RurGbSlvQEIz6h?=
+ =?us-ascii?Q?19wwSBXYg3tBHEKw7PQ1spW8nzPxuGV8QwRQ5SeJz7iV838t4DKcfTp0RflO?=
+ =?us-ascii?Q?hvoiydFZY6sfII9E2kC0GBkN8r4Ea6wXNw3RKxE+wI7K6rDLYdHxuEGqTNDZ?=
+ =?us-ascii?Q?9WtbJq8mDV+yaVn3leqLqO6SQxkqejzraMvFY0t/SzbhmO2T5LfoHWHRQ8iQ?=
+ =?us-ascii?Q?tK7Wqn2BzaTkZeERzvQJLTz83QGWiGNfRTkebhm4ISphH/uGMczq1oj+CL6d?=
+ =?us-ascii?Q?SdLxhvtOFSeE8cO6aMdBrDj+g39w87JOJ1zguEPPJa/hsk6U70+ifrf18Dhj?=
+ =?us-ascii?Q?YNbkV/HDbA9BtIybK2mhPRLDD/GZT8+++kvKCGb1od8JlXKkQz2u/qBKB0zA?=
+ =?us-ascii?Q?hCeg/lGl00JE9AGaX9AH/wDZR6ZVOApCznyyNAdYSsLsxo0A/TboPXtXQubA?=
+ =?us-ascii?Q?70hc0vQ/KIkHQUuFeBmzld8qCGJny7TNFNv1Q4IgTfVQroadL84JRrTU6tjc?=
+ =?us-ascii?Q?V45CyVGfF7UdKppa1xcdbyoDzVq5W2opDiEG2wVua85ZPski/af+knnmcYE7?=
+ =?us-ascii?Q?QXqLaxe36VeG0AoAp3xMg0uOX0rBidCr1JUvUgdN0QLQjr4cBq3lQYZOFVU9?=
+ =?us-ascii?Q?SdGV3pKB7SXao2YLWLethKD2w+fXomdKxqB2gYhHWeKCzWbuS0nbk4Fo03d7?=
+ =?us-ascii?Q?7wd5w2FKK+N174w8gnWu2PzD3vq7Ef6jcGrrLeABMwFpxisqG156xhFQdyQ+?=
+ =?us-ascii?Q?JBi28TVjxWvEgA7es9vg3baCbpC3aCQySQVzM96ZxhduTrWSVR8zUMZLRy4t?=
+ =?us-ascii?Q?u99MglhhOGICARDYerU9tHUzmYNwuJROb80kV2AOTcFX9HD9Chk53glW5WiI?=
+ =?us-ascii?Q?lz3LA9xd2hbzN30N/XRDpggs+j3pdKF+Sv5JfgO3C89h+ID0wQRIx9NqjOIH?=
+ =?us-ascii?Q?ht5RBBax4R/hZeqfGcTnpMaM8+4mbpJEvQ5bjKhtg3LfWSxzFMhx1RPTMicW?=
+ =?us-ascii?Q?4rRd6RivMi7IHXqpzLTQZbF0uqbtNBc/WpV6RdQ/pZ8v+HsIdzvBvUyCRNbu?=
+ =?us-ascii?Q?JQp5g0OdB26YtnxUWGA5th/OnjL4rAP+GebtqhHOe946dX8Y05KbeFGinIjS?=
+X-MS-Exchange-AntiSpam-MessageData-1: dNtMtMYXUgQSnUy/gsk+UN5EEpuXOrnKD7I=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99f746bd-4296-43f1-cf9a-08df10c28d04
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2026 11:39:48.7224
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vLpPF5QL4+Onm1IH+aj4H4dV17uZmYO3RmcAF2OYL0OtM0o5Ymsfe3FEmlbm+kgQBNb0+uZzPHIRkoKGUnipRw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7478
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_043747_205600_F563E4F7 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20260912_043956_066883_6D390A8A 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,114 +145,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+Hi Bjorn,
 
-While re-running the 19 August protocol on v12 as posted today, I
-found an error in my own reports that this commit message now
-carries. It is mine to correct, and it also corrects yesterday's mail
-[1]. What falls from that mail: the 53-versus-49 bound, the sentence
-that 19 August showed no manifestation on either arm, and the closing
-suggestion that both statements can stand in the commit message. What
-stands: the provenance, 45 resets on 19 August on v8 1-2/12 and 102
-on 25 August on v9, and the caveat that this protocol bounds and does
-not prove.
+On Fri, Sep 11, 2026 at 05:12:09PM -0500, Bjorn Helgaas wrote:
+> [+cc Felix, author of device link leak fixes]
+> 
+> On Mon, Aug 10, 2026 at 03:43:15PM +0300, Vladimir Oltean wrote:
+> > This is practically a full revert of commit
+> > 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
+> > and a partial revert of the device link pieces from commits
+> > dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
+> > 49229238ab47 ("PCI: keystone: Cleanup PHY handling")
+> 
+> Can we split this into three commits (dra7xx, cadence, keystone)?
+> This combined commit is applied on the pci/controller/misc branch, and
+> then we have conflicts between that branch and
+> pci/controller/dwc-dra7xx.
+> 
+> I think if we split this into three separate commits, we can apply the
+> dra7xx one on pci/controller/dwc-dra7xx and drop Felix's device link
+> leak fixes below so we don't clutter the git history with conflict
+> resolutions or irrelevant commits:
+> 
+>   https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=2b9a036b568c ("PCI: dra7xx: Fix device link leak when devm_phy_get() fails")
+> 
+>   https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=bdfdf654b4b2 ("PCI: dra7xx: Fix device links leak when dra7xx_pcie_enable_phy() fails")
 
-My script kept the scorer output of every inference per round and
-never aggregated it; my summaries scored only the one inference after
-the forced autosuspend. Aggregating the per-round files now, the
-constant-0x80 result is in the rounds of nearly every run, on every
-arm, on all three dates (resets per run, then rounds at 0x80):
-
-  19 Aug  v8 1+2        12 + 8            2 + 1
-  19 Aug  base only     12 + 13           2 + 3
-  25 Aug  v9 1+2        12 + 11           6 + 1
-  25 Aug  base only     8/10/12/8/15      2/0/1/1/2  (+ the one after
-                                                     suspend)
-  25 Aug  v9 1+2+3      13 + 13           2 + 2
-  12 Sep  v12 2+3       10 + 11           2 + 0
-  12 Sep  v12 2+3+4     9/5/12/13/14      2/0/2/1/1  (+ the one after
-                                                     suspend, twice)
-
-Today's seven runs were two arms only, no unpatched arm, so nothing
-today re-tests the differential. Same board and base as before,
-PROVE_LOCKING and DEBUG_ATOMIC_SLEEP on, serial console captured on a
-second machine for the whole session.
-
-So "no manifestation on either arm, oracle 48/48 throughout" on 19
-August and "every inference matched" on 25 August were both wrong
-for the in-round inferences, and the 0x80 buffer is not a
-differential signal. It is what a job cancelled by the reset looks
-like from userspace in this protocol, whatever made the job miss its
-deadline, so it cannot tell the races 2/14 and 3/14 close from an
-ordinary induced timeout.
-
-The mechanism, from the code: rocket_reset() calls drm_sched_stop(),
-which detaches the hardware fence of every pending job that has not
-completed; rocket_core_reset() kills the block; drm_sched_start(sched,
-0) then completes those jobs through drm_sched_job_done(job,
--ECANCELED). That finished fence is the one on the output BO's
-reservation. The only wait the rocket uAPI offers is
-DRM_IOCTL_ROCKET_PREP_BO, and rocket_gem.c maps any positive return
-of dma_resv_wait_timeout() to 0, error or not, so teflon reads an
-output buffer that was never written, which its output conversion
-turns into 0x80 (mesa rkt_ml.c, output + 0x80), exactly as you
-described for RK3576. With JOB_TIMEOUT_MS=2 the timeout fires on
-about half the inferences (74 timeouts over the 147 inferences run
-today, seven runs of twenty-one; 14 of the 21 in the traced run
-below); whether the reset or the completion wins that race decides
-the outcome, on every arm alike.
-
-A direct witness, one run on v12 2+3+4 today with a kprobe on
-drm_sched_fence_finished(): exactly two completions in the whole run
-carried result -125 (-ECANCELED), and exactly two inferences came
-back all-0x80, round 11 and the post-suspend one. The two
-cancellations are 5.3062 s apart and the two scorer files 5.3057 s
-apart, and across all twenty-one inferences of the run the gap
-between a traced completion and the scorer file it produced is
-constant to within 2 ms, against a round period of 280 ms, so each
-cancellation falls unambiguously in the round that came back at
-0x80. In the other runs I have only the scorer output, which took
-exactly two values today (all 48 channels within 1 of the CPU
-reference, or all-0x80, nothing in between), so there the
-identification of the 0x80 results as cancelled jobs is inference,
-not observation.
-
-For this commit message I would drop the two paragraphs that cite my
-runs as evidence for the race: the one beginning "Igor also ran a
-differential on RK3588" and the one beginning "His own bound on it is
-the right one", and put this in their place: 45 induced resets on 19
-August, 102 on 25 August and 74 today, every reset recovered, no MMU
-faults, no lockdep report from rocket or the scheduler in the runs
-where lockdep was still armed, and of the 420 inferences scored, 384
-matched the CPU reference within 1 on all 48 output channels while 36
-returned the all-0x80 buffer of a job the reset had cancelled. Please
-keep both Link: lines and add this message as a third, so anyone
-following the 19 and 25 August reports lands on the correction too.
-
-Two things I should have said before: all of those resets landed on
-core 0 (fdab0000), the other two cores being bound but idle in this
-single-client protocol; and two of today's five 2+3+4 runs come from
-a boot that had an unrelated lockdep splat in the DP driver at probe
-time, before the test, so they carry no PROVE_LOCKING cover. The
-Tested-by lines on 2/14, 3/14 and 4/14 stand for that and only that.
-On 3/14 please drop "differential base" from my tag comment, which
-then reads exactly like the one on 4/14; and on 2/14, where the
-comment is only "# RK3588, three cores", please give it the same
-comment as 4/14, since the lowered timeout belongs on every tag that
-came out of this protocol.
-
-One question this leaves, mostly for Tomeu: there is no out-fence or
-status field in the rocket uAPI, and PREP_BO drops the fence error,
-so a job cancelled by a reset is indistinguishable from one that ran
-(rocket_job_run() reads the error, but only to return NULL instead of
-executing the job). Is that intended?
-
-The artifacts of all twenty runs (scorer output per round, runtime
-and genpd state, journal, serial log, today's kprobe trace) are
-preserved if you or Tomeu want them.
-
-[1] https://lore.kernel.org/all/20260911192833.105634-1-royalnet026@gmail.com/
-
-Regards,
-Igor
+Isn't this patch already merged in pci/next as
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?id=9a9d18547ddc97a73d5d90cff4d5aef90bd8c15d
+?
 
