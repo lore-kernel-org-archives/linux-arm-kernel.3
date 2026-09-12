@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012D0C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 22:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC15C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 22:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9T5TqugoZpwriYm80tITfJ7eL5e79XFR+RGRlWT3Yo=; b=QY2V47jzTMTQ5vjg4PY4xIgCkf
-	qmKPIXOZLFlCNjgFTcGVApPgSwrHxXphoeyA0a67EViXnRDRhYouSjAjRgTelBoqhxK464qijChnc
-	gLkRnOou7GQQthgriWn4BqugxaEut0I3GvPu5kBAWRLVO5TEC06ZqOlTwhvmjlRgJsSqvcT5SRLGO
-	YXYGgA7KEnUc4YdNzI7vo3ILdKNwPR+egBW6XibiCUnJN/vYNJyNXZ2KGYrMTfhdVcdD15O5eorZB
-	s+LG/rTsdFUa+qKr7qlbmWu58rmGE9QN2ZeCjhx/SpauBHlsNzUMQI8BEH7FriA6Jbtd1D+YSnW3B
-	r7qHG3gQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUSC3/6wZp614V0HmSolX31ACddFJPOtZM6hstYDymE=; b=KzZzKkaDGA3n7PGiHahKBIPJUa
+	NWHBoXWJbeTVp2wxxeT1ohYbZLh6eTp1dUaNblJJQxIeOzbuXFqP2/8d4Ep0npwITjm+3gJdkBo/2
+	/fm1P84TjggEKDwbditk3hURjzrU5XceZ7k6UtY0AGI1NsULsW9Rpp+v1EZQAkdo9OwrNcoUAhcr4
+	pZBUktWu7D+Y5dLu8BDD3AF0F4jdt9GLO/25TgZgQN3ikDhA8UT7AOkLuHobkseSRQcMUbCjWsqOw
+	vRTXZDN6qFc0wpIWNcd+igYwbdw9VzxqD3V6X00WFTr4Mk8VklcUwvfWVqymsx7vriZxq1XlUCsoe
+	1VL6bl1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5W5p-00000001FSG-12bW;
-	Sat, 12 Sep 2026 22:21:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5WCs-00000001FeM-46kN;
+	Sat, 12 Sep 2026 22:28:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5W5n-00000001FS9-1vtM
+	id 1x5WCs-00000001FeF-0v9K
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 22:21:03 +0000
+	Sat, 12 Sep 2026 22:28:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BB6D60008;
-	Sat, 12 Sep 2026 22:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434821F000FF;
-	Sat, 12 Sep 2026 22:20:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CEDB44B58;
+	Sat, 12 Sep 2026 22:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7CDB1F000FF;
+	Sat, 12 Sep 2026 22:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789251662;
-	bh=A9T5TqugoZpwriYm80tITfJ7eL5e79XFR+RGRlWT3Yo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=BHhPvzDnmzwpQttZFmPMZf/UutFNeY/Degy6vahXXbV7Z6hNGc9MkvFE+rdhQJ6MU
-	 VAw3b4RYQvofx2lNTbeX4zkZRnpelNzwDei0UTSd3ZGNIs/4odMQ67B9LiiARuySxb
-	 U6BER7d7wfXohAn2tXbzGwa2wiTRgp4c4+hrPC/Fg2mvopBtYwKpfuJcqo2gQktz/i
-	 UBA340zyHxS9IBLWpHZ7ZP/iBROp/81WLbTAUh34hL3mGOOjez8TZZyGHIC4Q8vD6X
-	 SvDJPAFOvk+SgEr6vR+aGc41krBbPQbYbAOql8ew7alD2jpnrmyuGLi/805cAMk+g3
-	 S6DFuxrkx8D2Q==
-Date: Sat, 12 Sep 2026 23:20:47 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Svyatoslav Ryhel" <clamor95@gmail.com>, "Arnd Bergmann"
- <arnd@kernel.org>, "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Bartosz Golaszewski" <brgl@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Daniel Thompson"
- <danielt@kernel.org>, "Helge Deller" <deller@gmx.de>,
- devicetree@vger.kernel.org, "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- dri-devel@lists.freedesktop.org, "Jingoo Han" <jingoohan1@gmail.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
- "Liam Girdwood" <lgirdwood@gmail.com>, "Linus Walleij" <linusw@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-fbdev@vger.kernel.org, "open list:GPIO SUBSYSTEM"
- <linux-gpio@vger.kernel.org>, linux-hwmon@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-leds@vger.kernel.org,
- linux-media@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rtc@vger.kernel.org, linux-sound@vger.kernel.org,
- linux-watchdog@vger.kernel.org, "Guenter Roeck" <linux@roeck-us.net>,
- linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev, "Mauro Carvalho
- Chehab" <mchehab@kernel.org>, mfd@lists.linux.dev, "Michael Hennerich"
- <michael.hennerich@analog.com>, patches@opensource.cirrus.com, "Pavel
- Machek" <pavel@kernel.org>, "Rob Herring" <robh@kernel.org>, "Sebastian
- Reichel" <sre@kernel.org>, "Support Opensource"
- <support.opensource@diasemi.com>
-Subject: Re: [PATCH 08/14] mfd: remove unused aat2870 driver
-Message-ID: <20260912232047.19c4cb10@jic23-hlaptop>
-In-Reply-To: <11652e5e-053e-45b0-98a0-0c1cb2aeedc4@app.fastmail.com>
-References: <CAPVz0n0ryOns2sCJE_jFana9MVzwEj1QZuPEa8FNhGbHXnMB+A@mail.gmail.com>
-	<11652e5e-053e-45b0-98a0-0c1cb2aeedc4@app.fastmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1789252096;
+	bh=FUSC3/6wZp614V0HmSolX31ACddFJPOtZM6hstYDymE=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=CAY8iaMRIgUEVj2m8qO5yp0DxUv+P5XvE2wHuZpVgEs1aEJozyptLJbfPwIDKU9cG
+	 nZ8lr7em4IssfJNCHthk1CBckof4zi6MPqWd2jJVXxGnpw499vSiEhg0xj7sJOYZgY
+	 8C/0OqEOoxtby2igBkVtTcnZDnI6giwDd39+A3lwn/gzgznfonBDHsvuJ+lNWa/070
+	 UYnUHAEQ18maKO95GoFBGluciXa8xqJjOpILbWWdTFyb/lqEmdWzQ78VurvGX1Z7Sv
+	 KjOJN8mcAIANRvNl//XI9HifNzupXh1acBkdTfKFwO0hryPFkxTNHR9mulXJ+sQ3Rw
+	 OD+q87PDNaJpg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 9A778CE17BD; Sat, 12 Sep 2026 15:28:16 -0700 (PDT)
+Date: Sat, 12 Sep 2026 15:28:16 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Josef Bacik <josef@toxicpanda.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH RFC v2 08/15] bpf, x86: Maintain Tasks RCU trampoline
+ nesting in the BPF trampoline
+Message-ID: <8fbfb3fc-cf5d-4dfb-b144-bc021faa13ff@paulmck-laptop>
+References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
+ <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com>
+ <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com>
+ <14cb8a91-497d-49f5-aa20-c6cb8b9a27fc@paulmck-laptop>
+ <DLDICNLENSRI.2R6EJ0ZFJE45T@gmail.com>
+ <8c51a669-eb6b-455b-a829-b537da5209f8@paulmck-laptop>
+ <DLDLDGTSBHA0.32TYNBSKKPFXH@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DLDLDGTSBHA0.32TYNBSKKPFXH@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +99,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Sep 2026 20:14:15 +0200
-"Arnd Bergmann" <arnd@arndb.de> wrote:
-
-> On Thu, Sep 10, 2026, at 18:40, Svyatoslav Ryhel wrote:
-> > __ 
-> > Hello Arnd! May you please spare AAT2870 from being removed? I have a 
-> > device which uses aat2870 (LG Optimus 2X P990 Tegra 2, not upstreamed 
-> > yet, but in process as well) and atm I am working on converting this 
-> > driver to use OF. Thank you!  
+On Sat, Sep 12, 2026 at 12:40:55PM -0700, Alexei Starovoitov wrote:
+> On Sat Sep 12, 2026 at 11:03 AM PDT, Paul E. McKenney wrote:
+> >
+> > In the old kernels, yes, we have current->trc_reader_nesting++.
+> > In the newer kernels, Tasks Trace RCU is instead implemented in terms
+> > of SRCU-fast, which instead increments per-CPU counters.  Which among
+> > other thins is a bit faster and does not need to hook into the scheduler.
 > 
-> Sure, I have removed this patch from my series now.
+> old kernels? I'm confused.
+> rcu_read_lock_trace() in bpf-next is doing t->trc_reader_nesting++
+> and then calls __srcu_read_lock_fast().
 > 
-> > P. S. If you are planning to remove more old drivers, please CC me in 
-> > since I may be interested in some additional driver upgrades for 
-> > devices I own.  
+> Are you talking about some RCU branch that you target for next merge window?
+
+No, I was thinking of rcu_read_lock_tasks_trace(), forgetting that
+rcu_read_lock_trace() is still used.  (For good reason, just be clear.)
+Your comments are quite correct for rcu_read_lock_trace().
+
+Hmmm...  Josep's using t->trc_reader_nesting would break for
+partially overlapping RCU Tasks and rcu_read_lock_trace() readers.
+
+But yes, your #5 makes sense:  Deprecate RCU Tasks, upgrade RCU Tasks
+Trace to check for preemption from within trampolines, and move RCU
+Tasks users over to the rcu_read_lock_trace() variant of RCU Tasks Trace.
+(Or am I still missing your point?)
+
+Josef, thoughts?
+
+							Thanx, Paul
+
+> > So we have several ways forward:
+> >
+> > 1.	Revert the implementation of RCU Tasks Trace in terms of
+> > 	SRCU-fast, and use the existing current->trc_reader_nesting++,
+> > 	as you suggest.
+> >
+> > 2.	Deprecate RCU Tasks Trace entirely in favor of RCU Tasks
+> > 	augmented by rcu_tasks_trampoline_enter() and friends, as
+> > 	I was suggesting.
+> >
+> > 3.	Implement rcu_tasks_trampoline_enter() in terms of SRCU-fast,
+> > 	keeping the speedup, and put a synchronize_srcu() in the
+> > 	RCU Tasks grace-period mechanism.  This again deprecates
+> > 	RCU Tasks Trace entirely in favor of the augmented RCU Tasks.
+> >
+> > 4.	It is always good to explicitly state the apparent status quo,
+> > 	which involves redundant trampoline entry/exit overhead.
+> >
+> > 5.	As always, your additional ideas here!
+> >
+> > 							Thanx, Paul
 > 
-> Please have a look at
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=board-remove-7.3
-> 
-> I tried to be careful about figuring out exactly which drivers are
-> unused, but I'm sure there are still a few false positive and false
-> negative ones in there. I've added the current list of driver files below,
-> let me know if you see something that shouldn't be there.
-Hi Arnd
-
-For I2C and SPI at least, there doesn't need to be explicit
-device tree support as long as they have defaults when platform
-data isn't there. Those two buses will happily bind based on
-a dt-compatible and their i2c_device_id or spi_device_id tables
-for example.
-
-So unless they fail to probe (some might?) we don't have
-a clear signal on whether they are in use via DT or not.
-
-For vast majority of IIO drivers we don't have an upstream
-DTS as there is no clear motivation for anyone to upstream
-the dts for a random industrial control board or similar.
-
-> drivers/iio/adc/ad7266.c
-No to dropping this.
-
-Has fallbacks and should bind just fine  No one ever
-bothered adding an of_device_id table because it isn't
-needed. Fine to rip out the platform data support as nothing is
-using that.
-
-This is a production part that is likely being used in new designs.
-
-> drivers/iio/adc/ad7791.c
-No to dropping this one.
-
-I'm fine with ripping out the platform data but this again
-has defaults and may well be in use via DT. Antoniu from
-Analog was doing some cleanup on this recently so I'd guess
-they probably still at least somewhat care and some of the
-supported parts are still in production (e.g. the AD7788)
-
-> drivers/iio/adc/ad7793.c
-Maybe. Analog devices ack needed.
-
-Production part but this one indeed fails to probe.  Analog
-folk, do you want to fix this one up?
-
-> drivers/iio/adc/ad7887.c
-No to dropping this.
-
-Production part - should work fine with defaults in driver.
-Could like the others drop the platform data handling.
-
-> drivers/iio/adc/lp8788_adc.c
-Probably
-
-Sub driver of an MFD.  I'm fine with that going if we know
-the mfd is no longer in use.
-
-> drivers/iio/adc/lpc18xx_adc.c
-> drivers/iio/dac/lpc18xx_dac.c
-Probably
-
-Likewise these two.
-
-> drivers/iio/frequency/ad9523.c
-Maybe. Analog Devices ack needed.
-
-Fails to probe without platform data and marked not recomended
-for new designs. If we get an Ack from Analog devices folk
-I'm fine with this one going away.
-
-Jonathan
-
 
