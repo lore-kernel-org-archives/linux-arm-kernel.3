@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E39DC88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 10:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34811C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 11:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEwmDT2FqQtjUT6qD3zLfnGfUOm0Jk1WqVVN88AlR+M=; b=YpME34RIbPlnez2pqFpUiojIrV
-	0OtWTfjAv8WZcUdcHkijT6MO65Mxi3aekNGGKy2U3oaMcZutYmeP87XzRmMLP5mc/WTkaDTC+8rbp
-	lBFh5jOUpoloj2HsQs3y8g2M/hGuOwZR1LooVBfyw/tGPBaWf0keH04yBrsZh5Al2FvsdXy76CLLb
-	TO2NjjunFJoU6IldBB/2oUJyicnen/EweefBWHmjhcqLyomW84qO1emBA1tBpo8RNxoECioDQDVPP
-	1jBM89ZfWirFzHSVmfvgpAo1lyelCng76pRC+fpfzZOYGRsSjzbxv5mf9cgJnr+RyfLeIPuqBwb94
-	xBnGmaDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ndF+Ahl/00pkHTGdmeYbeYwBggFcmMC1z041MAQiywY=; b=sjPfzyKG1lrjBzmAiVXPCBXUfd
+	Ukm9qwqZTVav69ubuWuCAAaKoHamPLGmlHqfoILDWdIEdjKmbaPt6v5wBaWV1kl9wnWg1wJUbfYLA
+	gJ1btuhQEnu1hp+c1swWbAy8eS9xISRLFVZrpDLSJ9EyE9dBE82iKLDJ7MgaLDhsJlUu8GSfhoP7Y
+	BRn5+dYicB/Pj0TidXbs7M1I4b4/Wt4FUpe7lOS3bv1lgfRVKrjCdGD6T0g3GKEJoWRQE4j6wUAO2
+	WJrNjuPp9IpsNP04vAeDIBbbzsOqHB7dwnjmDIneL5PbcldHvjtZUJHjgqri5pahDijGKDf2FYG2A
+	DRsl3beQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5LHo-00000000nZb-49RU;
-	Sat, 12 Sep 2026 10:48:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x5LXj-00000000oLM-2BKg;
+	Sat, 12 Sep 2026 11:05:11 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5LHn-00000000nXq-0GiD
+	id 1x5LXg-00000000oKw-14P7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 10:48:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BC2F407BD;
-	Sat, 12 Sep 2026 10:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF5D31F00899;
-	Sat, 12 Sep 2026 10:48:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789210121;
-	bh=VEwmDT2FqQtjUT6qD3zLfnGfUOm0Jk1WqVVN88AlR+M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=E2BJddTBwuWrJjIU4v4+PYgloq9biC5jl71n1lPOICSICFNTEoiJv5GCUNsBJ7J3u
-	 d3aDwvTtNGLeUyDlKJbHVrdnBczVemlwrNY/+e9NUioRXFgY0zaxmqGG1cqGmVfZDN
-	 VnxEShtgw9/sM7Qz5Ye0/h+xvjzuk5yrzIpxN6BMY/bg7vjllE+wqPko5pHOAd5Yzd
-	 osJzwY2NO+iCMukB2lOu2dMIovntpia3HEhBfiq7/F0X4oLGzsVnTvNR1zuUOPurIL
-	 Au5Uzy351VexmZwyrYe7sBq259lQ+0vYFimR0HMyC0YA1zufNmgTSQhUuTk/W8EDQ8
-	 qBInpO3y6hdsA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x5LHj-000000084hK-2j68;
-	Sat, 12 Sep 2026 10:48:39 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	Wang Han <wanghan@linux.alibaba.com>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH 1/4] KVM: arm64: pgtable: Add Stage-2 unmap without TLBI primitive
-Date: Sat, 12 Sep 2026 11:48:31 +0100
-Message-ID: <20260912104834.3093878-2-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260912104834.3093878-1-maz@kernel.org>
-References: <20260912104834.3093878-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, weilin.chang@arm.com, wanghan@linux.alibaba.com, xueshuai@linux.alibaba.com, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 12 Sep 2026 11:05:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789211109; x=1820747109;
+  h=date:from:to:cc:subject:message-id;
+  bh=CNpHkiMb0301FYj4fK0YYL/nsJVnzp0YjZA60uN7tAA=;
+  b=cXyG1XEGzeL8Cd4GqUVjbGPMIuTEQoZ3ZeZHxNt8+ikCSzfoLMSzF4B8
+   HWKk6I7wLAHFp2dBJ3sYXkcpOXagIOmtngSfeeZIsXr4JTTyfQuVt4hbO
+   j+6yqZ0Pvy2MKEEup5FhAduPJPnY3bPzTVCSlwlCSwTcpAu5js5zM4tSK
+   +JR9T9A8cul1q+xhXvQj4S5hJ9H7TVwiFj3xQq4yKOVlGyYXTgnjz8eit
+   yewqKf6siMF7SSkrKkmHDDbzaRTMCVLKFHvSWFkEaWYJ6bU20kwl1MFuc
+   ICgTvtTgY2xoRSIwW1JPonZwbb5gjbppttVxWsAmRlEHYbpdA1u45P/MH
+   w==;
+X-CSE-ConnectionGUID: /mXnxhLVR12e3PwwduSkKw==
+X-CSE-MsgGUID: 2orHcLzhSAm/rasf+YISWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11902"; a="93350555"
+X-IronPort-AV: E=Sophos;i="6.27,99,1787036400"; 
+   d="scan'208";a="93350555"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Sep 2026 04:05:06 -0700
+X-CSE-ConnectionGUID: 4lFz7tVJSO2dBOgCvSZgyA==
+X-CSE-MsgGUID: GU5GAQSLR9mx3y+D0jRwWQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,99,1787036400"; 
+   d="scan'208";a="310426254"
+Received: from lkp-server02.sh.intel.com (HELO 0a3643a6ed9d) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 12 Sep 2026 04:05:05 -0700
+Received: from kbuild by 0a3643a6ed9d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x5LWB-000000002t7-3qLG;
+	Sat, 12 Sep 2026 11:03:53 +0000
+Date: Sat, 12 Sep 2026 18:59:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4:ux500-simple-sound] BUILD SUCCESS
+ 2eb80219e8fce070d765e9882a7fe586861ee64a
+Message-ID: <202609121851.JiQjTnJg-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260912_040508_359708_76B5DD96 
+X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,178 +83,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_pgtable_stage2_unmap() iterates over a range, unmapping whatever is
-within the range, and always guarantees that that the corresponding TLBs
-are invalidated when the function returns.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-simple-sound
+branch HEAD: 2eb80219e8fce070d765e9882a7fe586861ee64a  ARM: config: u8500: Enable the simple audio card
 
-While this is safe, it means that iterating over empty range on a system
-that supports range invalidation results in a TLBI per largest block
-mapping size (1GB, 32MB or 512MB, depending on the base granule size).
+elapsed time: 2109m
 
-This can be pretty expensive in situation where the whole address space
-is being torn down, as it happens with NV (where S2 MMUs are recycled
-regularly), and it would be more efficient to elide the per-subrange
-TLBIs to solely rely on a VMID-wide TLBI.
+configs tested: 123
+configs skipped: 3
 
-For this, provide a kvm_pgtable_stage2_unmap_notlbi() helper that elides
-all TLBIs, and relies on the caller to do the work.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Note that for  pKVM case, no additional helper is provided, and we
-fallback on the TLBI-aware version.
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+arc                              allmodconfig    gcc-16.1.0
+arc                               allnoconfig    gcc-16.1.0
+arc                   randconfig-001-20260912    gcc-11.5.0
+arc                   randconfig-002-20260912    gcc-8.5.0
+arm                               allnoconfig    clang-17
+arm                              allyesconfig    gcc-16.1.0
+arm                          pxa3xx_defconfig    clang-17
+arm                   randconfig-001-20260912    gcc-10.5.0
+arm                   randconfig-002-20260912    clang-18
+arm                   randconfig-003-20260912    gcc-13.4.0
+arm                   randconfig-004-20260912    clang-17
+arm                         wpcm450_defconfig    gcc-16.1.0
+arm64                             allnoconfig    gcc-16.1.0
+arm64                 randconfig-001-20260912    gcc-15.2.0
+arm64                 randconfig-002-20260912    clang-24
+arm64                 randconfig-003-20260912    gcc-11.5.0
+arm64                 randconfig-004-20260912    gcc-9.5.0
+csky                              allnoconfig    gcc-16.1.0
+csky                  randconfig-001-20260912    gcc-13.4.0
+csky                  randconfig-002-20260912    gcc-15.2.0
+hexagon                           allnoconfig    clang-24
+hexagon               randconfig-001-20260912    clang-22
+hexagon               randconfig-002-20260912    clang-17
+i386                              allnoconfig    gcc-14
+i386                  randconfig-011-20260912    clang-22
+i386                  randconfig-012-20260912    gcc-13
+i386                  randconfig-013-20260912    gcc-14
+i386                  randconfig-014-20260912    clang-22
+i386                  randconfig-015-20260912    clang-22
+i386                  randconfig-016-20260912    clang-22
+i386                  randconfig-017-20260912    gcc-14
+loongarch                         allnoconfig    clang-20
+loongarch                           defconfig    clang-24
+loongarch             randconfig-001-20260912    clang-24
+loongarch             randconfig-002-20260912    gcc-13.4.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    gcc-16.1.0
+m68k                                defconfig    gcc-16.1.0
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                          defconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20260912    gcc-8.5.0
+nios2                 randconfig-002-20260912    gcc-11.5.0
+openrisc                          allnoconfig    gcc-16.1.0
+openrisc                            defconfig    gcc-16.1.0
+parisc                            allnoconfig    gcc-16.1.0
+parisc                              defconfig    gcc-16.1.0
+parisc                randconfig-001-20260912    gcc-8.5.0
+parisc                randconfig-002-20260912    gcc-8.5.0
+parisc64                            defconfig    gcc-16.1.0
+powerpc                           allnoconfig    gcc-16.1.0
+powerpc                      arches_defconfig    gcc-16.1.0
+powerpc                   currituck_defconfig    clang-24
+powerpc                 mpc837x_rdb_defconfig    gcc-16.1.0
+powerpc                  mpc866_ads_defconfig    clang-17
+powerpc                      ppc44x_defconfig    clang-17
+powerpc               randconfig-001-20260912    gcc-13.4.0
+powerpc               randconfig-002-20260912    clang-24
+powerpc                     tqm8548_defconfig    clang-24
+powerpc64             randconfig-001-20260912    clang-24
+powerpc64             randconfig-002-20260912    gcc-8.5.0
+riscv                            allmodconfig    clang-24
+riscv                             allnoconfig    gcc-16.1.0
+riscv                            allyesconfig    clang-24
+riscv                               defconfig    clang-24
+riscv                 randconfig-001-20260912    gcc-15.2.0
+riscv                 randconfig-002-20260912    clang-24
+s390                              allnoconfig    clang-24
+s390                                defconfig    clang-18
+s390                  randconfig-001-20260912    clang-24
+s390                  randconfig-002-20260912    clang-17
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    gcc-16.1.0
+sh                                  defconfig    gcc-16.1.0
+sh                    randconfig-001-20260912    gcc-9.5.0
+sh                    randconfig-002-20260912    gcc-11.5.0
+sparc                             allnoconfig    gcc-16.1.0
+sparc                               defconfig    gcc-16.1.0
+sparc                 randconfig-001-20260912    gcc-12.5.0
+sparc                 randconfig-002-20260912    gcc-14.3.0
+sparc64                             defconfig    clang-24
+sparc64               randconfig-001-20260912    clang-24
+sparc64               randconfig-002-20260912    clang-20
+um                                allnoconfig    clang-17
+um                                  defconfig    clang-24
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260912    gcc-14
+um                    randconfig-002-20260912    clang-24
+um                           x86_64_defconfig    clang-24
+x86_64                            allnoconfig    clang-22
+x86_64      buildonly-randconfig-001-20260912    gcc-14
+x86_64      buildonly-randconfig-002-20260912    gcc-14
+x86_64      buildonly-randconfig-003-20260912    gcc-14
+x86_64      buildonly-randconfig-004-20260912    gcc-14
+x86_64      buildonly-randconfig-005-20260912    clang-22
+x86_64      buildonly-randconfig-006-20260912    gcc-12
+x86_64                              defconfig    gcc-14
+x86_64                randconfig-001-20260912    clang-22
+x86_64                randconfig-002-20260912    gcc-14
+x86_64                randconfig-003-20260912    gcc-14
+x86_64                randconfig-004-20260912    clang-22
+x86_64                randconfig-005-20260912    clang-22
+x86_64                randconfig-006-20260912    clang-22
+x86_64                randconfig-011-20260912    gcc-14
+x86_64                randconfig-012-20260912    gcc-14
+x86_64                randconfig-013-20260912    gcc-14
+x86_64                randconfig-014-20260912    clang-22
+x86_64                randconfig-015-20260912    gcc-14
+x86_64                randconfig-016-20260912    clang-22
+x86_64                randconfig-071-20260912    gcc-14
+x86_64                randconfig-072-20260912    gcc-14
+x86_64                randconfig-073-20260912    gcc-14
+x86_64                randconfig-074-20260912    clang-22
+x86_64                randconfig-075-20260912    gcc-14
+x86_64                randconfig-076-20260912    gcc-14
+x86_64                          rhel-9.4-rust    clang-22
+xtensa                            allnoconfig    gcc-16.1.0
+xtensa                randconfig-001-20260912    gcc-16.1.0
+xtensa                randconfig-002-20260912    gcc-14.3.0
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_pgtable.h | 17 +++++++++++++
- arch/arm64/include/asm/kvm_pkvm.h    |  1 +
- arch/arm64/kvm/hyp/pgtable.c         | 38 +++++++++++++++++++++-------
- arch/arm64/kvm/pkvm.c                |  2 ++
- 4 files changed, 49 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb6..c370196888d1d 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -318,6 +318,8 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
-  * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
-  *					without Cache maintenance
-  *					operations required.
-+ * @KVM_PGTABLE_WALK_SKIP_S2_TLBI:	Visit and update table entries
-+ *					without Stage-2 TLB invalidation.
-  */
- enum kvm_pgtable_walk_flags {
- 	KVM_PGTABLE_WALK_LEAF			= BIT(0),
-@@ -327,6 +329,7 @@ enum kvm_pgtable_walk_flags {
- 	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
- 	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
- 	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
-+	KVM_PGTABLE_WALK_SKIP_S2_TLBI		= BIT(7),
- };
- 
- struct kvm_pgtable_visit_ctx {
-@@ -717,6 +720,20 @@ int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  */
- int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
- 
-+/**
-+ * kvm_pgtable_stage2_unmap_notlbi() - Remove a mapping from a guest stage-2 page-table
-+ *				       without TLB invalidation.
-+ * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-+ * @addr:	Intermediate physical address from which to remove the mapping.
-+ * @size:	Size of the mapping.
-+ *
-+ * Same as kvm_pgtable_stage2_unmap(), but does not invalidate the
-+ * TLBs, which is the responsibility of the caller. Use with caution!
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int kvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size);
-+
- /**
-  * kvm_pgtable_stage2_wrprotect() - Write-protect guest stage-2 address range
-  *                                  without TLB invalidation.
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index beea00e693a0a..273013c98ff17 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -214,6 +214,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phy
- 			    enum kvm_pgtable_prot prot, void *mc,
- 			    enum kvm_pgtable_walk_flags flags);
- int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-+int pkvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size);
- int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
- int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
- bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold);
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd3..6603fc236daa2 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -29,6 +29,11 @@ static bool kvm_pgtable_walk_skip_cmo(const struct kvm_pgtable_visit_ctx *ctx)
- 	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_CMO);
- }
- 
-+static bool kvm_pgtable_walk_skip_s2_tlbi(const struct kvm_pgtable_visit_ctx *ctx)
-+{
-+	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_S2_TLBI);
-+}
-+
- static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
- {
- 	u64 granule = kvm_granule_size(ctx->level);
-@@ -905,12 +910,14 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (kvm_pte_valid(ctx->old)) {
- 		kvm_clear_pte(ctx->ptep);
- 
--		if (kvm_pte_table(ctx->old, ctx->level)) {
--			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
--				     TLBI_TTL_UNKNOWN);
--		} else if (!stage2_unmap_defer_tlb_flush(pgt)) {
--			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
--				     ctx->level);
-+		if (!kvm_pgtable_walk_skip_s2_tlbi(ctx)) {
-+			if (kvm_pte_table(ctx->old, ctx->level)) {
-+				kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
-+					     TLBI_TTL_UNKNOWN);
-+			} else if (!stage2_unmap_defer_tlb_flush(pgt)) {
-+				kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu, ctx->addr,
-+					     ctx->level);
-+			}
- 		}
- 	}
- 
-@@ -1195,23 +1202,36 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	return 0;
- }
- 
--int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+static int __kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt,
-+				      enum kvm_pgtable_walk_flags flags,
-+				      u64 addr, u64 size)
- {
- 	int ret;
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_unmap_walker,
- 		.arg	= pgt,
--		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
-+		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST | flags,
- 	};
- 
- 	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
--	if (stage2_unmap_defer_tlb_flush(pgt))
-+	if (stage2_unmap_defer_tlb_flush(pgt) &&
-+	    !(flags & KVM_PGTABLE_WALK_SKIP_S2_TLBI))
- 		/* Perform the deferred TLB invalidations */
- 		kvm_tlb_flush_vmid_range(pgt->mmu, addr, size);
- 
- 	return ret;
- }
- 
-+int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+{
-+	return __kvm_pgtable_stage2_unmap(pgt, 0, addr, size);
-+}
-+
-+int kvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size)
-+{
-+	return __kvm_pgtable_stage2_unmap(pgt, KVM_PGTABLE_WALK_SKIP_S2_TLBI, addr, size);
-+}
-+
- struct stage2_attr_data {
- 	kvm_pte_t			attr_set;
- 	kvm_pte_t			attr_clr;
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 8e4c6e4bec123..ec151005fbe4d 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -488,6 +488,8 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
- }
- 
-+int pkvm_pgtable_stage2_unmap_notlbi(struct kvm_pgtable *pgt, u64 addr, u64 size) __alias(pkvm_pgtable_stage2_unmap);
-+
- int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
--- 
-2.47.3
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
