@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81B6C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E83C88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkDhQxVWy/3slqWBx/yw9dsD/9+W1OH/8+HzOVO0/8c=; b=4IjRTqqIEFJOt6pJJMuWwoujIU
-	k5tnPsaq6u6TDDf1J6IBAfcjCltzrwPViB2BS5kCmu3xxsgcMf1Irtw0+789Fc/CXTqcfFT47L5Ie
-	TtcM1aZ++ODaXOBexVrn3t8RN2aptzN1dNcJsC1TKCMoa7T+oOk7XSVq+qiYQA1o9DYUmTGRzrmTi
-	qmh9tzndKnyinN5jRH69JxshhHeDpcUIis+booRfqtR1XVb7P4WXPFTmMGK/08LPGFo2ITMvQrTwi
-	VysAzmMIyBUtO76pPoB2a/QuA2tNPdMylSYU+FGB1+C04Tp2VGQZYALn5xpksUfacPo4VP7ciggO+
-	us9baMyw==;
+	bh=/H9gXZvtiPCItc2HBDLyTycRCmevlZw42OTHpRaYCzQ=; b=44Ooaw2HhDn/qYYc3BMBVM968N
+	G4kcKZaCwg0zcajbxgDgw7ipgy5933+8HFBw/Ja4R3fQeZieyKT9pFDdwtFN0MsTmTEH/ZhafAL++
+	48AeAFtpJQJI0aTV5j17qI+6gw9NG8uqnJ33RTdz3SbCqIsthAqJxqCbrk9FblZehN7Bjw37Iecfr
+	jkhGg7u9+2/CCpO8fYrlPpx5uVgIfN4Ts+RZUb6n3L0FBDgd0S0TiJ0zAX+mG2/Jdy+i6K28Kdo41
+	qx/Z7KDnxeO1wqxIkozIbeCyu+nGh/R2Z4GedeXlULkT0SVcVooHPl0ULISBDjpq1O3xwKVo0MLrD
+	1CLVXecw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U77-0000000193u-1Tue;
-	Sat, 12 Sep 2026 20:14:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5U7I-000000019Bm-0dmr;
+	Sat, 12 Sep 2026 20:14:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U6N-000000018fx-1l5y;
-	Sat, 12 Sep 2026 20:13:31 +0000
+	id 1x5U6O-000000018gO-3e2W;
+	Sat, 12 Sep 2026 20:13:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D54B260213;
-	Sat, 12 Sep 2026 20:13:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB7D81F000FF;
-	Sat, 12 Sep 2026 20:13:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 541B24176D;
+	Sat, 12 Sep 2026 20:13:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D9281F00893;
+	Sat, 12 Sep 2026 20:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789244010;
-	bh=YkDhQxVWy/3slqWBx/yw9dsD/9+W1OH/8+HzOVO0/8c=;
+	s=k20260515; t=1789244012;
+	bh=/H9gXZvtiPCItc2HBDLyTycRCmevlZw42OTHpRaYCzQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P9ewyniSOH4D0Z5guBKU++kZUEv9d9JxruO/psAxW07kMwpG3ZFuPRUH1zJWy+rp6
-	 sa2v990V84tuVjQluUo9Ib2lCgtPCcGrR4j5DOtWqCGLWGhWgESCGjgs9OnjsDuy85
-	 oiA47+ESxUN6lnQg/MdfiUGuhZG57FfiVkXE6od0B0c+9QhHeVwb78mv0A5KF+b4KL
-	 JsIGr0yacQ9Aa7/0R4I7cRdNmJO70B0Om+xiIVpq/C1SSHwsbHXD+/eQFLsfjQTJMx
-	 35KPRTR6ADz9A8KhUPdaLe/DsLbzcDeUm1gxzXvxPQl8PNOxS935MqwvEr2zwdfkap
-	 1cwwb7jDTbLMg==
+	b=Mv3rHdy0fMDC8f5BzHeShyYkiTSzSfG4sCDbyu/b8+hs1TByHhvKFku8+Hi0wDr0k
+	 bAZmbZcFfWCebLdttVg6ZSlvPflr2UayykHQDpwvHush8LpMRmkRBGqyCy6TcTm9T3
+	 eUA4R6QaKOnKEmBxWJBH5FLPrJtkZK49VJa5diqS6A0HodvOdnBzqrYBT7ZcC8Zmjy
+	 vj6/Qlh1bPOcK6nukfwfCKYYuHc3WHG6EBPZpx6YpRtSv2DNacPSzsnGLESdQBnnBu
+	 9J5CMEZJefG8zUhUPlFHaJEYmEtqHmFoEhEAvkjH91MMRXQbmLeCbar0WhOcj63MNR
+	 Ow7WB063PSupA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: coiaprant@gmail.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -71,12 +71,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH net-next v4 07/10] net: pcs: xpcs: add Rockchip RK3568 platform glue driver
-Date: Sat, 12 Sep 2026 13:13:29 -0700
-Message-ID: <20260912201329.127095-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 08/10] net: stmmac: dwmac-rk: add SGMII support for RK3568
+Date: Sat, 12 Sep 2026 13:13:30 -0700
+Message-ID: <20260912201330.127164-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260907153713.2572547-9-coiaprant@gmail.com>
-References: <20260907153713.2572547-9-coiaprant@gmail.com>
+In-Reply-To: <20260907153713.2572547-10-coiaprant@gmail.com>
+References: <20260907153713.2572547-10-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -96,292 +96,325 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+net: stmmac: dwmac-rk: add SGMII support for RK3568
 
-This adds a glue driver for the Synopsys DesignWare XPCS found on RK3568,
-which is reached through APB3 memory-mapped registers instead of a real
-MDIO bus.  The driver registers a virtual MDIO bus that remaps the four
-MII ports onto their respective MMDs, and exports xpcs_rk_create() so a
-MAC driver can obtain a dw_xpcs instance.
+This adds SGMII glue for RK3568: a set_to_sgmii() callback that programs
+GMAC CON1 bit 7, pcs_init/pcs_exit/select_pcs callbacks that create the
+Rockchip XPCS from the "pcs-handle" phandle, and a rework of the
+rk_gmac_powerup() error unwinding into a single clk_disable label.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part2%20V1.1-20210301.pdf (Page 2078)
+Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
 
 A few questions below.
 
-> diff --git a/drivers/net/pcs/Kconfig b/drivers/net/pcs/Kconfig
-> index e417fd66f660a..88bc40791e69f 100644
-> --- a/drivers/net/pcs/Kconfig
-> +++ b/drivers/net/pcs/Kconfig
-> @@ -12,6 +12,29 @@ config PCS_XPCS
->  	  This module provides a driver and helper functions for Synopsys
->  	  DesignWare XPCS controllers.
->  
-> +if PCS_XPCS
-> +
-> +config PCS_XPCS_PLATFORM
-> +	tristate "Generic XPCS controller support"
-> +	default PCS_XPCS
-> +	help
-> +	  Generic DWXPCS driver for platforms that don't require any
-> +	  platform specific code to function or is using platform
-> +	  data for setup.
-> +
-> +	  If you have a controller with this interface, say Y or M here.
+> While at it, fix the clock enable ordering in rk_gmac_powerup():
+> gmac_clk_enable() is now called before any register access, including
+> the SGMII mode setup path.  Previously SGMII mode would bypass the
+> clock enable via a goto, which could cause synchronous external abort
+> when accessing MAC registers with the clock domain disabled.
 
-[Severity: Medium]
-Should this new user-visible symbol be part of a patch whose changelog only
-describes adding Rockchip RK3568 support?
+[Severity: Low]
+Does this paragraph describe the baseline?  At 879e280b8486 there is no
+SGMII case and no goto in rk_gmac_powerup(), and the order is already:
 
-Two side effects of introducing PCS_XPCS_PLATFORM are not mentioned
-anywhere in the commit message:
+	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
+	if (ret < 0)
+		return ret;
+	intf = ret;
 
-  - the "snps,dw-xpcs" platform glue moves out of pcs_xpcs.ko into a new
-    pcs-xpcs-plat.ko, which changes module packaging for every existing
-    memory-mapped DW XPCS user
-  - the glue becomes optional, so a config with PCS_XPCS=y and
-    PCS_XPCS_PLATFORM=n silently loses "snps,dw-xpcs" support
+	ret = gmac_clk_enable(bsp_priv, true);
+	if (ret)
+		return ret;
+	...
+		ret = rk_write_gmac_grf_reg(bsp_priv, val);
 
-Since this restructuring of shared code is independent of the Rockchip
-glue, could it be split into its own preparatory patch with the effects
-described?
+so gmac_clk_enable() already preceded every register access and there was
+nothing that could bypass it.  The change here is a pure reorder ahead of
+rk_get_phy_intf_sel(), which touches no registers, plus the new unified
+unwind label.
 
-> +
-> +config PCS_XPCS_ROCKCHIP
-> +	tristate "Rockchip XPCS controller support"
-> +	default ARCH_ROCKCHIP
-> +	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
+Would it be more accurate to describe this as preparing the ordering for
+the new SGMII path rather than as a fix for a synchronous external abort?
 
-[Severity: Medium]
-Do the dependencies here need GENERIC_PHY and PM_GENERIC_DOMAINS as well?
-
-xpcs_rk_probe() cannot make forward progress without either of them.  With
-CONFIG_GENERIC_PHY=n, the first probe step hits the stub:
-
-include/linux/phy/phy.h:
-	static inline struct phy *devm_phy_get(struct device *dev,
-					       const char *string)
-	{
-		return ERR_PTR(-ENOSYS);
-	}
-
-so xpcs_rk_serdes_phy_init() always fails through dev_err_probe().
-
-With CONFIG_PM_GENERIC_DOMAINS=n (which covers every CONFIG_PM=n build),
-xpcs_rk_serdes_phy_poweron() hits:
-
-include/linux/pm_domain.h:
-	static inline int dev_pm_genpd_rpm_always_on(struct device *dev, bool on)
-	{
-		return -EOPNOTSUPP;
-	}
-
-and the driver treats that as fatal.  Since the symbol is also
-default ARCH_ROCKCHIP, it can be built and matched in configurations where
-it can never bind.  Would adding depends on GENERIC_PHY and
-PM_GENERIC_DOMAINS be appropriate?
-
-> +	help
-> +	  Support for XPCS controller on Rockchip RK356x SoC.
-> +
-> +	  If you have a Rockchip SoC with this interface, say Y or M here.
-> +
-> +endif # PCS_XPCS
-> +
->  config PCS_LYNX
->  	tristate
->  	help
-> diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
-> index 4f7920618b900..f9f6cf2578d72 100644
-> --- a/drivers/net/pcs/Makefile
-> +++ b/drivers/net/pcs/Makefile
-> @@ -1,10 +1,11 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # Makefile for Linux PCS drivers
->  
-> -pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
-> -				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
-> +pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-nxp.o pcs-xpcs-wx.o
->  
->  obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
-> +obj-$(CONFIG_PCS_XPCS_PLATFORM) += pcs-xpcs-plat.o
-> +obj-$(CONFIG_PCS_XPCS_ROCKCHIP) += pcs-xpcs-rk.o
->  obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
->  obj-$(CONFIG_PCS_MTK_LYNXI)	+= pcs-mtk-lynxi.o
->  obj-$(CONFIG_PCS_RZN1_MIIC)	+= pcs-rzn1-miic.o
-> diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
-> new file mode 100644
-> index 0000000000000..68bcaa1a5cbbf
-> --- /dev/null
-> +++ b/drivers/net/pcs/pcs-xpcs-rk.c
-> @@ -0,0 +1,543 @@
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 8d7042e689261..e47ca1bec5b8b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 
 [ ... ]
 
-> +static int xpcs_rk_serdes_phy_init(struct dw_xpcs_rk *pxpcs)
+> @@ -809,6 +813,8 @@ static const struct rk_gmac_ops rk3528_ops = {
+>  #define RK3568_GRF_GMAC1_CON1		0x038c
+>  
+>  /* RK3568_GRF_GMAC0_CON1 && RK3568_GRF_GMAC1_CON1 */
+> +#define RK3568_GMAC_MODE_RMII_RGMII		GRF_CLR_BIT(7)
+> +#define RK3568_GMAC_MODE_SGMII_QSGMII		GRF_BIT(7)
+>  #define RK3568_GMAC_FLOW_CTRL			GRF_BIT(3)
+>  #define RK3568_GMAC_FLOW_CTRL_CLR		GRF_CLR_BIT(3)
+>  #define RK3568_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
+> @@ -851,18 +857,32 @@ static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
+>  		     RK3568_GMAC_CLK_TX_DL_CFG(tx_delay));
+>  
+>  	regmap_write(bsp_priv->grf, con1,
+> +		     RK3568_GMAC_MODE_RMII_RGMII |
+>  		     RK3568_GMAC_RXCLK_DLY_ENABLE |
+>  		     RK3568_GMAC_TXCLK_DLY_ENABLE);
+>  }
+>  
+> +static void rk3568_set_to_sgmii(struct rk_priv_data *bsp_priv)
 > +{
-> +	struct device *dev = &pxpcs->pdev->dev;
+> +	u32 con1;
 > +
-> +	pxpcs->serdes_phy = devm_phy_get(dev, "serdes");
-> +	if (IS_ERR(pxpcs->serdes_phy))
-> +		return dev_err_probe(dev, PTR_ERR(pxpcs->serdes_phy),
-> +					"Failed to get SerDes PHY\n");
+> +	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
+> +				     RK3568_GRF_GMAC0_CON1;
 > +
+> +	regmap_write(bsp_priv->grf, con1, RK3568_GMAC_MODE_SGMII_QSGMII);
+> +}
+> +
+>  static const struct rk_gmac_ops rk3568_ops = {
+>  	.init = rk3568_init,
+>  	.set_to_rgmii = rk3568_set_to_rgmii,
+> +	.set_to_sgmii = rk3568_set_to_sgmii,
+> +
+>  	.set_speed = rk_set_clk_mac_speed,
+>  
+>  	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
+>  
+>  	.supports_rmii = true,
+> +	.supports_sgmii = true,
+
+[Severity: Medium]
+Who clears CON1 bit 7 for RMII on rk3568?
+
+rk3568_set_to_rgmii() now explicitly writes RK3568_GMAC_MODE_RMII_RGMII,
+which shows bit 7 has to be programmed by the driver.  rk3568_ops declares
+supports_rmii = true but has no .set_to_rmii, so the RMII branch of
+rk_gmac_powerup() is a no-op:
+
+	case PHY_INTERFACE_MODE_RMII:
+		dev_info(dev, "init for RMII\n");
+		if (bsp_priv->ops->set_to_rmii)
+			bsp_priv->ops->set_to_rmii(bsp_priv);
+		break;
+
+and the generic GRF write uses gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
+whose write-enable half-word never covers bit 7.
+
+Since rk3568_set_to_sgmii() leaves bit 7 set persistently and nothing in
+rk_gmac_powerdown() restores it, can an RMII port come up muxed to the
+SerDes when bit 7 was left set by firmware or by a previous SGMII
+configuration of the same MAC (kexec, warm reboot)?  The probe would report
+success while the link never works.
+
+>  
+>  	.regs_valid = true,
+>  	.regs = {
+> @@ -1208,6 +1228,43 @@ static void rk_phy_powerdown(struct rk_priv_data *bsp_priv)
+>  		dev_err(bsp_priv->dev, "fail to disable phy-supply\n");
+>  }
+>  
+> +static int rk_pcs_init(struct stmmac_priv *priv)
+> +{
+> +	struct device_node *np = priv->device->of_node;
+> +	struct device_node *pcs_node;
+> +	struct dw_xpcs *xpcs;
+> +
+> +	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
+> +	if (!pcs_node)
+> +		return -ENODEV;
+
+[Severity: Low]
+Should "pcs-handle" be documented in the Rockchip MAC binding?
+
+This makes the property effectively mandatory for phy-mode = "sgmii" on
+RK3568: a missing phandle returns -ENODEV, and stmmac_pcs_setup() turns
+that into a probe failure:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c:stmmac_pcs_setup() {
+	ret = priv->plat->pcs_init(priv);
+	if (ret)
+		return dev_err_probe(priv->device, ret, "No xPCS found\n");
+}
+
+Documentation/devicetree/bindings/net/rockchip-dwmac.yaml does not mention
+pcs-handle at all - it is neither described nor conditionally required for
+the SGMII-capable compatibles - while the new
+Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml says the
+port "is linked to an Ethernet MAC controller via the pcs-handle property
+in the MAC's device tree node".  Other stmmac glue bindings that parse this
+property describe it (renesas,rzn1-gmac.yaml, renesas,rzv2h-gbeth.yaml).
+Could the MAC binding be updated to match?
+
+> +
+> +	xpcs = xpcs_rk_create(priv->device, pcs_node);
+> +	of_node_put(pcs_node);
+> +	if (IS_ERR(xpcs))
+> +		return PTR_ERR(xpcs);
+> +
+> +	priv->hw->xpcs = xpcs;
 > +	return 0;
 > +}
 
-[Severity: Low]
-Is the mandatory "serdes" PHY consistent with the device tree added by the
-rest of the series?
+[ ... ]
 
-The binding added in this series lists phys and phy-names under required:
-
-Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml:
-	required:
-	  - compatible
-	  - reg
-	  ...
-	  - phys
-	  - phy-names
-	  - power-domains
-
-but the SoC node has neither property:
-
-arch/arm64/boot/dts/rockchip/rk3568.dtsi:
-	xpcs: pcs@fda00000 {
-		compatible = "rockchip,rk3568-xpcs";
-		#address-cells = <1>;
-		#size-cells = <0>;
-		reg = <0x0 0xfda00000 0x0 0x200000>;
-		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-		clock-names = "csr", "eee";
-		power-domains = <&power RK3568_PD_PIPE>;
-		status = "disabled";
-
-dtschema validates nodes regardless of status, so every RK3568 DTB other
-than the one board patched later in the series should report that phys is
-a required property.  Any board that enables the node without adding
-phys/phy-names also gets an unconditional probe failure here, since there
-is no devm_phy_get_optional() path.  Should the PHY properties move to the
-SoC dtsi, or should they be dropped from required:?
+> @@ -1330,6 +1387,7 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
+>  
+>  	bsp_priv->supports_rgmii = ops->supports_rgmii || !!ops->set_to_rgmii;
+>  	bsp_priv->supports_rmii = ops->supports_rmii || !!ops->set_to_rmii;
+> +	bsp_priv->supports_sgmii = ops->supports_sgmii || !!ops->set_to_sgmii;
 
 [ ... ]
 
-> +static int xpcs_rk_init_clk(struct dw_xpcs_rk *pxpcs)
-> +{
-> +	struct device *dev = &pxpcs->pdev->dev;
-> +	int ret;
-> +
-> +	pxpcs->csr_clk = devm_clk_get(dev, "csr");
-> +	if (IS_ERR(pxpcs->csr_clk))
-> +		return dev_err_probe(dev, PTR_ERR(pxpcs->csr_clk),
-> +					 "Failed to get CSR clock\n");
-> +
-> +	pxpcs->eee_clk = devm_clk_get(dev, "eee");
-> +	if (IS_ERR(pxpcs->eee_clk))
-> +		return dev_err_probe(dev, PTR_ERR(pxpcs->eee_clk),
-> +					 "Failed to get EEE clock\n");
-> +
-> +	ret = clk_prepare_enable(pxpcs->eee_clk);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to enable EEE clock\n");
+> @@ -1379,16 +1441,19 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
+>  	if (ret)
+>  		return ret;
+>  
+> +	ret = gmac_clk_enable(bsp_priv, true);
+> +	if (ret)
 > +		return ret;
-> +	}
-
-[Severity: Low]
-The EEE clock is acquired and permanently enabled, but nothing ever
-derives the XPCS 100 ns multiplier from its rate.  Should this driver call
-xpcs_config_eee_mult_fact() the way dwmac-intel.c does?
-
-Without it xpcs->eee_mult_fact stays 0, and the core programs that value
-verbatim when EEE is turned on:
-
-drivers/net/pcs/pcs-xpcs.c:
-	/* Configure the eee_mult_fact so that
-	 * clk_eee_time_period * (mult_fact + 1) is within the range
-	 * 80 to 120ns.
-	 */
-	val = ... FIELD_PREP(DW_VR_MII_EEE_MULT_FACT_100NS,
-			     xpcs->eee_mult_fact);
-
-With the RK3568 EEE clock parents (125/200 MHz, so a 5-8 ns period), a
-multiplier of 0 puts the LPI timing well below that range.  The register
-reset value is also 0, so nothing valid is being overwritten, but is the
-timing expected to be programmed here?
-
-[ ... ]
-
-> +struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *np)
-> +{
-
-[ ... ]
-
-> +	pdev = of_find_device_by_node(pcs_np);
-> +	of_node_put(pcs_np);
-> +	if (!pdev)
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +
-> +	device_lock(&pdev->dev);
-> +	pxpcs = platform_get_drvdata(pdev);
-> +	if (!pxpcs || !pxpcs->bus) {
-> +		device_unlock(&pdev->dev);
-> +		put_device(&pdev->dev);
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +	}
-> +
-> +	xpcs = xpcs_create_mdiodev(pxpcs->bus, (int)port);
-> +	device_unlock(&pdev->dev);
-> +	if (IS_ERR(xpcs)) {
-> +		put_device(&pdev->dev);
-> +		return xpcs;
-> +	}
-> +
-> +	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
 
 [Severity: Medium]
-Can the mii_bus be freed under the new dw_xpcs in the window between
-device_unlock() and device_link_add()?
+This isn't a bug introduced by this patch, but the bare return here cannot
+unwind a partially enabled clock domain.  gmac_clk_enable() leaks the bulk
+clock references when the PHY clock fails:
 
-The bus is devm managed, so it goes away when the XPCS platform driver
-unbinds:
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:gmac_clk_enable() {
+			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
+						      bsp_priv->clks);
+			if (ret)
+				return ret;
 
-xpcs_rk_init_bus()
-	bus = devm_mdiobus_alloc_size(dev, 0);
+			ret = clk_prepare_enable(bsp_priv->clk_phy);
+			if (ret)
+				return ret;
 	...
-	ret = devm_mdiobus_register(dev, bus);
+			bsp_priv->clk_enabled = true;
+}
 
-and xpcs_create_mdiodev() takes no reference on it:
+The second failure path returns without clk_bulk_disable_unprepare() and
+without setting clk_enabled, so the new clk_disable label,
+rk_gmac_powerdown() and the suspend path are all no-ops afterwards because
+the disable branch is gated on clk_enabled.  Does this leave the bulk
+clocks prepared and enabled for the lifetime of the system?
 
-drivers/net/phy/mdio_device.c:mdio_device_create()
-	mdiodev->bus = bus;
-	mdiodev->addr = addr;
-
-so the managed device link is the only thing keeping the supplier binding
-alive.  With the lock already dropped, an unbind through sysfs or an
-rmmod of pcs-xpcs-rk can run device_release_driver() before the link
-exists.  put_device() keeps the struct device around but not the driver
-binding or its devm resources, leaving mdiodev->bus and the ioremapped
-window pointing at freed memory.  The xpcs_destroy() call on the
-device_link_add() failure path would then touch it too.
-
-Would creating the device link while still holding device_lock(), or
-otherwise pinning the supplier before unlocking, close this?
+> +
+> +	if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_SGMII)
+> +		goto set_mode;
+> +
+>  	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto clk_disable;
+>  
+>  	intf = ret;
+>  
 
 [ ... ]
 
-> +EXPORT_SYMBOL_GPL(xpcs_rk_create);
+> @@ -1447,15 +1509,20 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
+>  		if (bsp_priv->ops->set_to_rmii)
+>  			bsp_priv->ops->set_to_rmii(bsp_priv);
+>  		break;
+> +	case PHY_INTERFACE_MODE_SGMII:
+> +		dev_info(dev, "init for SGMII\n");
+> +		if (bsp_priv->ops->set_to_sgmii)
+> +			bsp_priv->ops->set_to_sgmii(bsp_priv);
+> +		break;
+>  	default:
+>  		dev_err(dev, "NO interface defined!\n");
+> +		ret = -EINVAL;
+> +		goto clk_disable;
+>  	}
 
-[Severity: Low]
-As of this commit alone, xpcs_rk_create() has no in-tree caller, so the
-driver only probes, pins the power domain and SerDes, and registers the
-virtual MDIO bus without ever producing the phylink_pcs the changelog
-describes.
+[ ... ]
 
-This resolves later in the same series: rk_pcs_init() in
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c calls
-xpcs_rk_create(priv->device, pcs_node), rk_gmac_probe() installs
-pcs_init/pcs_exit/select_pcs, and DWMAC_ROCKCHIP gains
-select PCS_XPCS_ROCKCHIP.  Noting it only in case the ordering was
-intentional.
+> @@ -1486,6 +1557,9 @@ static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
+>  
+>  	if (rk->supports_rmii)
+>  		__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
+> +
+> +	if (rk->supports_sgmii)
+> +		__set_bit(PHY_INTERFACE_MODE_SGMII, interfaces);
+>  }
+
+[Severity: Medium]
+Is the SGMII advertisement here consistent with where the PCS is installed?
+
+supports_sgmii is true for every rk3568 instance regardless of DT, so SGMII
+always lands in phylink_config.supported_interfaces.  The PCS plumbing,
+however, is only installed when the DT phy-mode is exactly SGMII (see the
+rk_gmac_probe() hunk below).
+
+On an RK3568 board with phy-mode = "rgmii"/"rmii", phylink can still pick
+SGMII - phylink_validate_phy() intersects phy->possible_interfaces with
+config->supported_interfaces - and then:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_mac_select_pcs() {
+	if (priv->plat->select_pcs) {
+		pcs = priv->plat->select_pcs(priv, interface);
+		if (!IS_ERR(pcs))
+			return pcs;
+	}
+}
+
+returns NULL because select_pcs is unset, no XPCS was ever created
+(pcs_init is NULL), and rk_gmac_powerup() has already programmed the GRF
+once from the DT-derived bsp_priv->phy_iface, so rk3568_set_to_sgmii() never
+ran.  Would gating the SGMII bit on the same condition that installs
+select_pcs/pcs_init keep the two in agreement?
+
+>  
+>  static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
+> @@ -1602,6 +1676,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
+>  	plat_dat->suspend = rk_gmac_suspend;
+>  	plat_dat->resume = rk_gmac_resume;
+>  
+> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
+> +		/* SGMII clock always runs at 125 MHz */
+> +		plat_dat->set_clk_tx_rate = NULL;
+> +
+> +		/* SGMII requires a PCS */
+> +		plat_dat->default_an_inband = true;
+
+[Severity: Medium]
+Does default_an_inband guarantee in-band mode here?
+
+include/linux/phylink.h describes it as a default that "a fixed-link
+specification will override", and phylink has two ways out of in-band:
+
+drivers/net/phy/phylink.c:phylink_parse_mode() {
+	dn = fwnode_get_named_child_node(fwnode, "fixed-link");
+	if (dn || fwnode_property_present(fwnode, "fixed-link"))
+		pl->cfg_link_an_mode = MLO_AN_FIXED;
+}
+
+drivers/net/phy/phylink.c:phylink_pcs_neg_mode() {
+			neg_mode = PHYLINK_PCS_NEG_OUTBAND;
+			if (pl->phydev)
+				mode = MLO_AN_PHY;
+}
+
+With set_clk_tx_rate cleared, stmmac_mac_link_up() then programs no rate at
+all:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_mac_link_up() {
+	if (priv->plat->set_clk_tx_rate) {
+		ret = priv->plat->set_clk_tx_rate(priv->plat->bsp_priv,
+						priv->plat->clk_tx_i,
+						interface, speed);
+}
+
+So for phy-mode = "sgmii" with a fixed-link node, or with a PHY that cannot
+do in-band signalling, the fixed 125 MHz clock is used at 10/100 Mbps -
+which the commit message says gives working TX and failing RX.  Should the
+driver reject out-of-band SGMII explicitly instead of relying on the
+default?
+
+> +		plat_dat->pcs_init = rk_pcs_init;
+> +		plat_dat->pcs_exit = rk_pcs_exit;
+> +		plat_dat->select_pcs = rk_select_pcs;
+> +	}
+> +
 
 [ ... ]
 
