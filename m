@@ -4,94 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E4DC88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE5CC88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KmMs3gRal1z49mHzxWm4Gkbi6oU8/Tm+5YR7zF+GVoc=; b=L3C75FddnagRwEeBIjTCkfW3gO
-	3XiELR5OiY7VYqiomB5HQ23O0rPUtL1CAtQZuaDyYGLsRedi439+KBQI8rVryMROcYaDfukQgENf4
-	8ibaXLiZ9wOFsVFCM2htIBcBkLdWYu3E+Iv5yx728C5T5/auoYqJaks/dZyE0RX+WqrmQC1022tj3
-	WFR0Ils4s80QavM83k3QIgIbmzI/G8kdk09/oxV6TPQimX8waTegryvPF/O0AgmgLBkzJmcUs+CjK
-	yHjvUOOHZaAccqul7HHZqzAnff1TkTLUVD4LDVkVmKXDo6CCfL8+8XMCI0p1AbehviTV2aItgvxJ9
-	JYOSa4XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jMJ1BP7kFCSqrDlTpk6HSShuuUbHZX05cq1SvWPnFxY=; b=WVrZaLFXwlu6B0jdZUW7/f7Olr
+	N4MUE4ZRxwktrCgWz7t6rUC3s6OR1omTa+ky/U377YozRR2tN7xYA9Xt9lCtxlcbOPEn0l8gFKrJ3
+	6J7wmylvOjbrVV5AW3s/68JElfsFDc3R//uT59wIW+zN3qnLM9537wZdT/948qRTfnpPzUigxRQ35
+	K/QY8s8xazLk24Gf+aiUBY6ChC5hH4Hctj9Oqh6MsQ9F5Uq0rBtyDMJOa7zGGZHdkYZEEZve0LiT+
+	im5nQpoFuYjBZaLy080a1ZOeFf7E/gY7hixb0xMYs4Np/mKJuxJTZ3Mjf7PrJOwI3RbDHC3lHATjw
+	newsIokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ugl-00000001CfR-1JWf;
-	Sat, 12 Sep 2026 20:51:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x5UnY-00000001CoT-0JHQ;
+	Sat, 12 Sep 2026 20:58:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ugj-00000001Cf5-1Qsj
+	id 1x5UnT-00000001Co6-1BF5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 20:51:06 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68CI5Jwh3729795
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 20:51:03 GMT
+	Sat, 12 Sep 2026 20:58:04 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68CI5K1k4071651
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 20:58:01 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=KmMs3gRal1z49mHzxWm4Gkbi
-	6oU8/Tm+5YR7zF+GVoc=; b=Ay+SGGoTAZSu1hitwSPfrGlcXjYxxexyI7ofZ3Y6
-	S+tuVGB3y0mr7m67JyYXEJlJW7PlccZgEc5xvsTuQHApcViM4YazCNZjHozxlz3a
-	vegeaylaaLj5z4zMPpM8bbowTD3CA66pMa/dI4PB7kfL1mgRKjr2ZksgcVuJWnPN
-	NnKVR3DLLdPHXjfPqUQESfIWJfSuThchTAiISC/VjCGtXk1ZB8Spp3fz4xAOSkcd
-	lwj/k/GWkDSyBs9IUSXv7nKyy1QD63t/UklqOTL2RJXXnxzXWR+DNLQ3o+OTIbPX
-	+8jM/y+FVyLRp8lNvY6i37zAvtO9rlN5p60ncOWElO45wA==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	jMJ1BP7kFCSqrDlTpk6HSShuuUbHZX05cq1SvWPnFxY=; b=MhX5Xfkvk4ZQQ6g/
+	KiLgU3Jnhik938QvC1TZcJUQhVGx6Aec/nDosu5TSQWGdLPmXg4d63G4TR0PmiUF
+	Cin4AjgXj98K2DrMkrfKHuCE6o2gOht947UIjAP1hMdXbl1RLi/8b9ann2dnAhzG
+	m+SvtDCZ2l4qwm9wlEMPk/KUohnbnKkXD2is9ZubQaMn9mvYmol/ac09N17MmOqO
+	lZSrY5rDMmh3K9frCbkPHNQsghwuQZtv1W3/nFzH1+CPRd4qYq1OL1hdQXhNSqpY
+	V1bxrT8hGN/BAp5Ogx2He0gf+OpcWXPo0rk+RKd94Vh0up+LukwzO+9PqVlO1EKI
+	cofpHw==
 Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmy9d1wa6-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmy9dhx7t-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 20:51:02 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9399b66e0e7so471562385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 13:51:02 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 20:58:01 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-938153538caso365737285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 13:58:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789246262; x=1789851062; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KmMs3gRal1z49mHzxWm4Gkbi6oU8/Tm+5YR7zF+GVoc=;
-        b=hVTZ7Tz/BE1anH1tTER3ik+NZbVS/4KZBUkHEjgsCnBPRLXUMGYtVeDItqJia1DgIW
-         LGKZk/JmLZfFFZHyMHSkD6ofiHGikCcHjmlpzu4+GhFmOJ7GH1EDNYBxD1vU3Edf9ufe
-         yzsqjKBSppRtZ0hR6b/hqug61237S5f4MGtxY+PlLHR/Hoa0EMLWMq9XvR6cFrAhR2dx
-         BOLrrXZBS1W5Ilh3IRpdn3U+xF/6YYfBsBSSugj4x5QMiFFiSQYd/WlGE6/wpWldMmp2
-         FDxIxF1b3lysR+ArzN9NrT06mvwcukTHPtYJXOlUylwQJRIUDVlr2gLSL9eMO0wd/MMg
-         W4Lw==
+        d=oss.qualcomm.com; s=google; t=1789246681; x=1789851481; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jMJ1BP7kFCSqrDlTpk6HSShuuUbHZX05cq1SvWPnFxY=;
+        b=L5HU1zQ8fPOXku1FPO9reybKQI2yoh86kUci5kX3Whr0cEbG8O0jn1CQEGWqIATWX2
+         hPmsw/GLqx1Qo724H6Hav0MmmJXZyaMJmRTyfWxXHGwmakzup6gjJwekxmE0/N/JCazX
+         pvcqCJkcAATTxgCFYqLLMS3aIbciBLvqcsXTKPxfj2CwdzKc5Ja2D4ci0OXdSPpsBlfd
+         aEI1+bLtv9Pbm/QoNdcZoARuimToJpaefpbWu1zqMYCRNekGoKFneEwot6aTcDnQd7iQ
+         NuTv0w3KX89V4Bt5n1Tfx2fWPu+Z3nVSc7RmMTm6ukkcw6zOqRw0Fou4sK43YdQldmqP
+         Dcaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789246262; x=1789851062;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KmMs3gRal1z49mHzxWm4Gkbi6oU8/Tm+5YR7zF+GVoc=;
-        b=Y6vpnMFVrfetkrS4oxqUd8L2WfGdiiZKprf6ZXZzS/u1b1X+zll0PhlSrPvu7jNIz0
-         gMVQIPQ5gUF6HzYD9QaXAJnad8Zp0PnIE/blQiyWkHvbSltPBW6sIbsr/P1Spcp1Yed2
-         n7aUZ+cPu0xAciNHquhf6ab854OR4P0YPC8ob0Oe1MdQvTz+Hj1l0Tt4Vi7pv/2R217L
-         iM4QvZYaODwiov6NO1wPUGPgaDlkm87RsgGEz6NjfVXEHdhPIaOFyMIwSMRJ2utSd4hZ
-         iOYshIEiRiNwFBMHhXySmZqZTDlV7X9XwEblIqpts5FICjTTv7tgpp7yBKSObiJPzr5j
-         oRUg==
-X-Forwarded-Encrypted: i=1; AKwUvBzrNCUAyvcxxuGYku+hKN4dlm16/t0N/0JPqel8/9/WhiM5DdrGO31YJcLS7utnix6ounvqZGMCRZZtB0gTBBKn@lists.infradead.org
-X-Gm-Message-State: AFuF++nb3axXhxcK52P2vSRJUNtMOyovuVe7iNAqMfwlGmgEHTwYTraD
-	hIvqqw0X/tES7STdZwjpjJ3tyB+c/eMBJPrc2zQmcNjSFu1FOZK90xyLO1OhKvb1ogvFD36BBiq
-	djWUltj7e2TRsz9+eHFFNHBesp9b+yamImss67JIakPX3Da1eCTtl7KwmIDuoOsXZkHlJobl0Rv
-	NhKg==
-X-Gm-Gg: AYBFou1qZYyVR9DySoevU37/gY0Nji9/apdf7kp/yTtxkSmOIGpl32n/vefx9BbW7gB
-	VWLVD/04qajYZec08+43DlIwy3zbvW4QzZ4ndKNWstLRg5KjUEQ9sze6T/9Qa9k6xnsfaICHzOU
-	lCxMwCRHJmvrQtXh5EUTOtScQDmsAW6S9zimvpKt5+o2jQRPPKLTv3XN20A+7DEAmtdAtn1B+nv
-	EneUg1ogkRvAk9dMKztYBWgCss/ctMKXezGVaauvx+L3S+N3oGcMMLGsQ1WkDV+5Fw2uWkIQRkO
-	08EQm7r5uGJ1zCrlLCWgBcTnqEdkd9IPbJJUuDNg764l3zTGIBo2evxkVLfLxhFOwgfiwKqNyg+
-	k8cgeHmuY421VPg==
-X-Received: by 2002:a05:620a:260f:b0:939:3a81:326 with SMTP id af79cd13be357-93a0390793emr670206685a.37.1789246261935;
-        Sat, 12 Sep 2026 13:51:01 -0700 (PDT)
-X-Received: by 2002:a05:620a:260f:b0:939:3a81:326 with SMTP id af79cd13be357-93a0390793emr670202885a.37.1789246261354;
-        Sat, 12 Sep 2026 13:51:01 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.170.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb33fc02sm14093160f8f.16.2026.09.12.13.50.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 13:51:00 -0700 (PDT)
-Date: Sat, 12 Sep 2026 23:50:57 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Hans de Goede <johannes.goede@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1789246681; x=1789851481;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jMJ1BP7kFCSqrDlTpk6HSShuuUbHZX05cq1SvWPnFxY=;
+        b=rVn11+BSG/EFWbNgrHjW8p6A1drPpIkVrttK6ESl8OIferPFT6bw9NI6LetHKMqEHg
+         bkdpfjnT/xDG52bJ+VEoKOc0mrwOmaR7ijRnaZhLUa/9013m0ilhkPDHpcp8ddwdukFc
+         5/hig3dPSdc0owo//fP4SLMsREzzIFWqzYqqTjjPWTyUMUg4vhkZA6UgEkXrLkPf1NIO
+         LEaPoiuViFsFrLd283X5N9ZXY4XooyjQcuoaMQEgyo7b5vV6eH3AX/F7I3bK9Y85mXFv
+         N7vqF781rkJD0u/XvpEwURM7Gj+DFk1ET3Sr+70h53GQTgRsfHszjXpiV+j5G5RrbmW6
+         UnMw==
+X-Forwarded-Encrypted: i=1; AKwUvByC5A/UgzG0KUHLjgZY2l418lS+/HhcE69UCRWYi8ylnLYRIn49n90AZUWMpUnsTKeuFC0ZR7BwgWgVaKkDB12l@lists.infradead.org
+X-Gm-Message-State: AFuF++lfu+VkU1ipAxh8tSKFgEj2CAOPNKOKphj8Lb7pq61fi6FBcV3i
+	0ooeAgY9AmLufZgYF3jVmOLdP/w/ZFd7YqEQyWBppfOuuHEdVfpvqWbIL17AVDWAbW3Ftc6MJY2
+	4Onf+FuBsJ2hdh7OqxBZaHmmIE6Y+TOCDaKmji7H2dUEC5xfVHN75joPYY1ZfOFaZOQWCruFCb+
+	ZbKQ==
+X-Gm-Gg: AYBFou0eC9BT4boDZ3DJATNblZ26lUQJI6fgLgsHoFtfOh5AvdoKrNRnrSDFyb7ezMq
+	j4Da57g7vokHxBSdXDRDjU38kyo/tZhff6gdi3eHzMFSCo2dcayHE6c3IVl+0jl6wwK/nh76oBX
+	p7w1rt2bOZZlbp7VmjRP1qZ36xeLN0HE7I16rDC5cJXUbt6sRiop+D/tnDs2Ci5+7F0iBx7ui6S
+	WVJ0L3Tbl3Pah0fVGWCdZHf3qoxmgRTkBarH3/1ecUt911fscAx/5P/hoTw70Tsycz03GItNJsi
+	2jG1MPyUI1aDab0jNVA8N1Nf1ok+n7ohN4FkG0CMw9ROYM72wFzT24JCjCf5LFA3W5qlwLdnusz
+	j7WGv+m9mzaP3921hpsJ884H5LJpP4k2zJaxr3drh6OUqfQPbNQQ45o4tgnCHVqER/wvM1Ts318
+	I2QNRuqJ3jlzFQixEZn3G0vKuIFjEMGIHVXDc1Q/wQQV3zJHKCIADp+1cm7GV9L2VVxZM=
+X-Received: by 2002:a05:620a:4386:b0:939:6db3:6cad with SMTP id af79cd13be357-939ea13c648mr1411256285a.12.1789246680658;
+        Sat, 12 Sep 2026 13:58:00 -0700 (PDT)
+X-Received: by 2002:a05:620a:4386:b0:939:6db3:6cad with SMTP id af79cd13be357-939ea13c648mr1411253885a.12.1789246680244;
+        Sat, 12 Sep 2026 13:58:00 -0700 (PDT)
+Received: from ?IPV6:2001:1c00:c32:7800:5bfa:a036:83f0:f9ec? (2001-1c00-0c32-7800-5bfa-a036-83f0-f9ec.cable.dynamic.v6.ziggo.nl. [2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a9b59644f2sm1993071a12.29.2026.09.12.13.57.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 12 Sep 2026 13:57:58 -0700 (PDT)
+Message-ID: <a7f109e5-50fb-45ab-bf8f-c674d9e8fb3b@oss.qualcomm.com>
+Date: Sat, 12 Sep 2026 22:57:57 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Subject: Re: [PATCH v6 2/4] firmware: arm_scmi: Fix
+ scmi_protocol_table_register() error handling
+To: Abel Vesa <abel.vesa@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>,
         Cristian Marussi <cristian.marussi@arm.com>,
         Sudeep Holla <sudeep.holla@kernel.org>,
@@ -100,46 +107,42 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
         Frank.Li@kernel.org, arm-scmi@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 2/4] firmware: arm_scmi: Fix
- scmi_protocol_table_register() error handling
-Message-ID: <k2agmmtgq2tbx2zyokidn3dsdkcjpdjbasx7vlch6b3xz5sjuk@pfhc5npwwegc>
 References: <20260911152329.5822-1-johannes.goede@oss.qualcomm.com>
  <20260911152329.5822-3-johannes.goede@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260911152329.5822-3-johannes.goede@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEyMDMwNCBTYWx0ZWRfX1MF7Ljnzd3iq
- 7jFh0Aoni7K9YEHJTvXc6+75QfOCYErxliYv4e3XUd1b2a598T+VcPaNuEsw+iU3QikbOrvqU89
- QWeXkr44nVCgIWb4JvLx539O3o6AOM0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEyMDMwNCBTYWx0ZWRfX16UYfhYA0Aoc
- PSNU364Th/eC9hxaEabXL8eR0Ko2J8igLia39nq3szjMNcj+fHdti0xXoDa4YR2E2Qty8xE5ZUb
- hfYTKIiiST+iCOTbgGwyzYx9lBmATnsRWFqYdrYkqjV30Kn60EZPB3vFRv58b6bA/td4mLeo4cn
- +Hq8jaZqQi1IPlGq0KS7gZwpsID+yKyXKKmVVOJck6xmp+HyE6MHMEbHn+7jd1zBFahWmW7XWXs
- mKDoP/e3RGW/u1lX4xMKQEfJBqeqOF/XSxHVTJHkAXLsTD7PSkbXS45R9jq77iqU19X9jIanoDf
- wb284FWlOvfkOiFAG1zv6HZccHsUFZZWE6EQTHaJkyNN4JHT7462zqLMejGJeh42VUv6JG10Qsw
- b5OWLC2m9jLcPqYrZ87NsmZ2B93sk8qJ/E4Ywda1twYm7kidxmkxyrleaVyTJ3UvE0nglJoCIqo
- PussXos/axnKkgp3kwg==
-X-Authority-Analysis: v=2.4 cv=IOSXmQvG c=1 sm=1 tr=0 ts=6aa5bb37 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=po8fGBi+ks8MzcVQGuqtFQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=yiJOAx8gJh0FWUIRsxYA:9 a=CjuIK1q_8ugA:10 a=ZXulRonScM0A:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: aVg8QxDo0jl02Q-QKJFv9h0NZaxByq7O
-X-Proofpoint-GUID: aVg8QxDo0jl02Q-QKJFv9h0NZaxByq7O
+ <k2agmmtgq2tbx2zyokidn3dsdkcjpdjbasx7vlch6b3xz5sjuk@pfhc5npwwegc>
+Content-Language: en-US, nl
+In-Reply-To: <k2agmmtgq2tbx2zyokidn3dsdkcjpdjbasx7vlch6b3xz5sjuk@pfhc5npwwegc>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEyMDMwNSBTYWx0ZWRfX774KpWCxR610
+ vNbg7+YRtGgANMHasrUeNH3xo3UmHymVd0BcFmBYgr2IpFDsX82UF+N456iJskjmsw+jUpGoLsO
+ qAfIwnnULcGmS0fm4M03cbrx9h6/vuEpdDkF3E+EMl/2aynEXIGMx2AaOJ0T/G6tSk0jdfe76Bg
+ GfprmFyMskAbnFjXO5ZqCU3xLMxNAkbSC4qVhO42boP1Kz9HGKZxaSh6qLpsBIeeltWXPU2T171
+ tHZ1tnshvHn6O/HS6s2Dj6tKdQ3bIi7Br9nXK4lu3OgDIVYX+UtXfGshv1vOlTsK/J8eqpaPydW
+ gND+FXEO/d0e8zaQ9BWfRoP2X5jh4O4Ifz6pnKfJcbQ4bd+C9vt7GuAArnxxcD6av7SkTB9Ulz3
+ CZ3HeHFfeeHN2TEa28j2qTFt5M54ap9Ns3PpiZEDlAUjpZcXVI+eWlYhkJdL8a9Zjsdcz8GuBCx
+ GPPbDVGnweJHBA++asw==
+X-Proofpoint-ORIG-GUID: 8loWOeCAAw7TT2q6I_rXpI9sL3PqNADS
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEyMDMwNSBTYWx0ZWRfX2fR63U4Jhhgj
+ qsbH3lUpsvefYLyttmfOWysSQMOWaxDZuTkvsT9XqNDiBXo2uEquTaKSAiPjFlY7c4ZMMeQNVqZ
+ vLffNeOXjrLWAOXV6wAnteBqDYp35vo=
+X-Authority-Analysis: v=2.4 cv=Y6htIReN c=1 sm=1 tr=0 ts=6aa5bcd9 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=ePD8OZhNOdW2f7jq964A:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: 8loWOeCAAw7TT2q6I_rXpI9sL3PqNADS
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-12_06,2026-09-11_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 phishscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 lowpriorityscore=0 impostorscore=0 clxscore=1015
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609120304
+ malwarescore=0 lowpriorityscore=0 adultscore=0 spamscore=0 impostorscore=0
+ bulkscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609120305
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_135105_402770_E7FC7E8D 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20260912_135803_463956_E34B3FF2 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,25 +157,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-09-11 17:23:27, Hans de Goede wrote:
-> scmi_protocol_table_register() stops at the first failure to request
-> one of the scmi_device_id-s into scmi_requested_devices, but it leaves any
-> previously successfully requested device-ids in place.
-> 
-> Unrequest any successfully requested device-ids on error to fix this.
-> 
-> The code manually unrequests these rather then calling
-> scmi_protocol_table_unregister() because one way this can fail is because
-> of duplicate device-ids and in that case the original device-id must not
-> be unrequested.
-> 
-> This also moves scmi_protocol_table_register() to below
-> scmi_protocol_device_unrequest() since it now calls that local function.
-> 
-> Fixes: 2858f6e5f064 ("firmware: arm_scmi: Add multiple protocols registration support")
-> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Hi,
 
-This was already done by the commit:
+On 12-Sep-26 22:50, Abel Vesa wrote:
+> On 26-09-11 17:23:27, Hans de Goede wrote:
+>> scmi_protocol_table_register() stops at the first failure to request
+>> one of the scmi_device_id-s into scmi_requested_devices, but it leaves any
+>> previously successfully requested device-ids in place.
+>>
+>> Unrequest any successfully requested device-ids on error to fix this.
+>>
+>> The code manually unrequests these rather then calling
+>> scmi_protocol_table_unregister() because one way this can fail is because
+>> of duplicate device-ids and in that case the original device-id must not
+>> be unrequested.
+>>
+>> This also moves scmi_protocol_table_register() to below
+>> scmi_protocol_device_unrequest() since it now calls that local function.
+>>
+>> Fixes: 2858f6e5f064 ("firmware: arm_scmi: Add multiple protocols registration support")
+>> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> 
+> This was already done by the commit:
+> 
+> 2224b622260b ("firmware: arm_scmi: Roll back partial protocol table registration")
 
-2224b622260b ("firmware: arm_scmi: Roll back partial protocol table registration")
+Thank you for pointing that out, this can be dropped from the set then.
+
+I believe the other 3 should still apply cleanly with that dropped.
+
+Regards,
+
+Hans
+
 
