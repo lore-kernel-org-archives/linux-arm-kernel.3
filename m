@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58ED4C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F51FC88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NJwNoOVu5Lw2f15qRrrWFOurl539RxGcb8Qsu6qCEI=; b=VJm57To7NrGiaW9bnAIYF2XjEQ
-	1yDT0rfAkvCJwdqqgwBf3YlJHyQdoTx52waSi52NU5aEIsYhA64Kela52yONFh8jeVl1kG1v6VlnA
-	LgXCJJS+gpRoHdteDjV6tQnVxMuEU6j8aMnqlFxZGKHyABK/5Hnmaor7MIdeTPkwVaKNTnetuajxG
-	M7D5qttB/TvmOgDWf7FHnKBJIIFJV7lkJtp/4MxCEodw1tk8ZVIltC4md3YlG1nopeVmvXoPUkC0S
-	w82XrX/EUzVEjBPurFfOso6R9r+SHebCKLXhew9B1sykeQqiEi6Mf0kID9fysLMPGN3iaye4LWN3n
-	JgsjF65g==;
+	bh=UE5bH0ObBqaZ7dEveSGaGgFsPOY86iRhftTZrAJaBUk=; b=Pa5B6zMKLuvAuCbWAruwZy7FO4
+	X7Niv+US1Vk46W252QY3Zabgc620HHbAsUo3sGMUZE6hnpf8qtc2HcAzNsLk6gvZ3i9lsWWoZGqw1
+	Tcgowwbjz93pFmc35nsSmBeYxDPlYJmUpzhm6t/oT8IK1s/K/KChoNFeGanGdZp2F1/AgEgHXfN5i
+	GgvYrJUDVTAccTxAFu0asopEpmwzo245aQ0g7XF+MsxfW8LoyFfYyvyy0RBZgDX74Lmei/KD/NrW4
+	Y15PilhwVrnpL1U30JrMF/QXtVt9jlNoYeXD6/EVF+NZk6HaMKPAU/mjVdtI9pYo9n1FgBSyA5Kum
+	4Fs74eiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U6Q-000000018gq-37Yi;
-	Sat, 12 Sep 2026 20:13:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x5U6g-000000018mF-1K8B;
+	Sat, 12 Sep 2026 20:13:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5U6G-000000018dQ-1lWS;
-	Sat, 12 Sep 2026 20:13:24 +0000
+	id 1x5U6I-000000018eV-3yKx;
+	Sat, 12 Sep 2026 20:13:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 205D5440AC;
+	by tor.source.kernel.org (Postfix) with ESMTP id DF10B6020C;
+	Sat, 12 Sep 2026 20:13:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C95771F00898;
 	Sat, 12 Sep 2026 20:13:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9CE1F00893;
-	Sat, 12 Sep 2026 20:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789244004;
-	bh=+NJwNoOVu5Lw2f15qRrrWFOurl539RxGcb8Qsu6qCEI=;
+	s=k20260515; t=1789244005;
+	bh=UE5bH0ObBqaZ7dEveSGaGgFsPOY86iRhftTZrAJaBUk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=I0MmQ30h5SiJq+iVMB+LoHrWxU7iu+LRN7wyVVy4A/D7qto9ZHf8XdClVJETygujI
-	 zIW4yw3u6f6RzEL9glKC9/xM/40dnOb0vPNczffwUIM5x8goXwgJal1F/ENE+I73wn
-	 UBXl2nAN1241vMF/GsQNLU5Cdn8mwAu/Plg/jMAO4UuNFNKbJoCTH7l4EChE5ts20U
-	 fASguPrLxwrm0Gf6KIPKGrvIpLP9+O+vO4QxzNYqs56V0PBBP9ZfoO67DRrjC2csQu
-	 k/08PfDMeS2T4CmqNOKx1ihf90sSyvqe+FDKQtjZj0q1ngf7Kh26aQnSMU1iEQuadj
-	 2+Z2XHCPJuxrA==
+	b=PEdrAyl0Fiw6f57sLkmOmjJjZpMDwFTzgy+EEFxO39KnWzow38fijHh0TTb7PPOa0
+	 Dvsujffa6QeqsXE89Zae82JPOQ8l00jtH69WUIlr5VJdnonH8iJ0rZTG0PzBDryxyf
+	 BCIttDAYUsdj8rSj97V4CxbhNVg89gwi7ZW6581LHBoE0kVs4RaO9i6DVzhOgTMW2a
+	 fnTkXmyoESiS2vsbW2NeAye5D/AS/2O3efjwGcAdapOo0buHOwUq9qKNH+DnYYuIA/
+	 oHhDh2s318bOoOSi2dpaEy5ilh/Gn2oC1SQpPaDaJZHGk5sJdvWv/HivWThIWgWVYK
+	 nBCikZJkxUvPg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: coiaprant@gmail.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -71,12 +71,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH net-next v4 03/10] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
-Date: Sat, 12 Sep 2026 13:13:22 -0700
-Message-ID: <20260912201322.126940-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 04/10] dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+Date: Sat, 12 Sep 2026 13:13:24 -0700
+Message-ID: <20260912201324.126973-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260907153713.2572547-5-coiaprant@gmail.com>
-References: <20260907153713.2572547-5-coiaprant@gmail.com>
+In-Reply-To: <20260907153713.2572547-6-coiaprant@gmail.com>
+References: <20260907153713.2572547-6-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -96,148 +96,235 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
 
-This adds a "rockchip,sgmii-mac-sel" DT property to the RK3568 combphy
-driver so the SGMII interface can be routed to GMAC0 or GMAC1 through the
-pipe GRF pipe_sgmii_mac_sel bit. The value defaults to 1 (GMAC1) when the
-property is absent, and is written during PHY_TYPE_SGMII configuration.
+This adds a new standalone schema describing the Synopsys DesignWare XPCS
+as integrated on the Rockchip RK3568, with a CSR window, csr/eee clocks, a
+Naneng Combo SerDes phy, a power domain and four MII child ports.  A few
+questions about the property set and the file naming below.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
+> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+> new file mode 100644
+> index 0000000000000..0852d0bcb66a2
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+> @@ -0,0 +1,110 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/pcs/rockchip-dwxpcs.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 
-A few questions below.
+[Severity: Low]
 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 7843356a4dd47..919bb97a4b182 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+This isn't a bug, but should the file be named after the documented
+compatible, i.e. rockchip,rk3568-xpcs.yaml?  The other schemas in
+Documentation/devicetree/bindings/net/pcs/ all use that form:
+snps,dw-xpcs.yaml, fsl,lynx-pcs.yaml, mediatek,sgmiisys.yaml,
+renesas,rzn1-miic.yaml.
+
+A rename would also have to update the $id line above, since it encodes the
+same name.
+
+Related: the example at the bottom uses pcs@fda00000 and pcs-mii@0, while
+the sibling PCS binding uses the generic ethernet-pcs@... node name, and no
+$nodename constraint is added here.  The SoC dtsi added later in the series
+copies the pcs@/pcs-mii@ names verbatim.
+
+> +
+> +title: Rockchip RK3568 Synopsys DesignWare Ethernet PCS
 
 [ ... ]
 
-> @@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
->  	bool enable_ssc;
->  	bool ext_refclk;
->  	struct clk *refclk;
-> +	u32 sgmii_mac_sel;
->  };
->  
->  static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
-> @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
->  
->  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->  
-> +	priv->sgmii_mac_sel = 1;
-> +	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3568-xpcs
+
+[Severity: Low]
+
+This isn't a bug, but would a set of SoC-specific if/then blocks in
+Documentation/devicetree/bindings/net/pcs/snps,dw-xpcs.yaml be preferred
+over a second schema for the same IP?
+
+To be clear, a snps,dw-xpcs fallback compatible or a $ref to that schema
+would be wrong here.  The glue driver added later in the series builds CSR
+addresses with only a 3-bit MMD field:
+
+	return FIELD_PREP(0x70000, dev) | FIELD_PREP(0xffff, reg);
+
+and remaps the vendor MMDs in xpcs_rk_mdio_read_remapping() /
+xpcs_rk_mdio_write_remapping(), so the generic direct mapping described in
+snps,dw-xpcs.yaml would compute different offsets.
+
+So the only question is where the description should live, not whether the
+compatible should be shared.
+
 > +
+> +  reg:
+> +    maxItems: 1
+
+[Severity: Low]
+
+Should the sbd_intr_o output be described as an optional interrupts
+property?  With additionalProperties: false at the end of the file, a
+conforming device tree cannot carry it, although adding it later stays
+backward compatible.
+
+The single unnamed 2 MiB window itself does match the driver:
+xpcs_rk_init_res() uses platform_get_resource(pdev, IORESOURCE_MEM, 0) and
+requires resource_size(res) >= SZ_2M, and the largest computed offset
+0x7FFFF << 2 = 0x1FFFFC still falls inside 0x200000, so reg-names and
+reg-io-width are not needed.
+
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +  clocks:
+> +    items:
+> +      - description: APB3 bus interface clock (clk_csr_i), required for register access
+> +      - description: EEE clock (clk_eee_i), required for Energy Efficient Ethernet operation
+> +
+> +  clock-names:
+> +    items:
+> +      - const: csr
+> +      - const: eee
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  phy-names:
+> +    const: serdes
+> +
+> +  power-domains:
+> +    maxItems: 1
+
+[Severity: Low]
+
+Should resets/reset-names be described here too?  The RK3568 CRU exposes
+four dedicated reset lines for this block in
+include/dt-bindings/clock/rk3568-cru.h:
+
+	#define SRST_XPCS		150
+	#define SRST_XPCS_TX_DIV10	151
+	#define SRST_XPCS_RX_DIV10	152
+	#define SRST_XPCS_XGXS_RX	153
+
+Since the schema ends with additionalProperties: false, a conforming device
+tree cannot express them at all, and the glue driver added later in the
+series never requests a reset control, so it depends on those resets already
+being de-asserted.
+
+Peer blocks in the same island do describe theirs, e.g. combphy0 with
+resets = <&cru SRST_PIPEPHY0> and gmac0 with resets = <&cru SRST_A_GMAC0>.
+
+Note the XPCS core does provide a register-level reset via xpcs_soft_reset()
+in drivers/net/pcs/pcs-xpcs.c, so a state-machine restart is possible
+without the CRU resets, and an optional resets property can be added later
+without breaking the ABI.
+
+> +
+> +patternProperties:
+> +  "^pcs-mii@[0-3]$":
+> +    type: object
+> +    description:
+> +      One of the four MII ports of the XPCS. The port is linked to an
+> +      Ethernet MAC controller via the pcs-handle property in the MAC's
+> +      device tree node.
+> +
+> +    properties:
+> +      reg:
+> +        description: MII port number.
+> +        enum: [0, 1, 2, 3]
+
+[Severity: Low]
+
+This isn't a bug, but is pcs-mii@N the intended name for these per-port
+children rather than the generic ethernet-pcs@N?
+
+Resolving a MAC pcs-handle that points at one of these children does work
+with the rest of the series: xpcs_rk_create() in
+drivers/net/pcs/pcs-xpcs-rk.c reads the child reg, walks up with
+of_get_parent() and calls xpcs_create_mdiodev(pxpcs->bus, port), and
+rk_pcs_init() in drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c does
+of_parse_phandle(np, "pcs-handle", 0).  So the open point is just the node
+naming.
+
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - phy-names
+> +  - power-domains
 
 [Severity: Medium]
-Since the return value of device_property_read_u32() is discarded here,
-rockchip_combphy_parse_dt() cannot distinguish "the DT asked for GMAC1"
-from "the DT said nothing about the mux".
 
-The result is that rk3568_combphy_cfg() writes PIPE_GRF 0x0040 bit 1 on
-every PHY_TYPE_SGMII bring-up, including for device trees that do not have
-the new property. Before this patch that bit was never touched, so whatever
-routing the SoC reset or the boot firmware established was left alone.
+Does requiring phys and phy-names here make dtbs_check fail for the RK3568
+boards?  The SoC node added later in the same series omits both, because the
+SerDes selection is board specific:
 
-The commit message states:
+arch/arm64/boot/dts/rockchip/rk3568.dtsi:
+	xpcs: pcs@fda00000 {
+		compatible = "rockchip,rk3568-xpcs";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x0 0xfda00000 0x0 0x200000>;
+		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+		clock-names = "csr", "eee";
+		power-domains = <&power RK3568_PD_PIPE>;
+		status = "disabled";
 
-  "The hardware reset value is GMAC1 (1). If the property is set to 0,
-  the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-  remains at GMAC1."
+and only the board fills them in:
 
-The "or omitted" case now depends entirely on that reset value being 1. If
-the reset value is actually 0, or if firmware routed SGMII to GMAC0 on a
-board wired that way and its DT lacks the property, does phy_init() still
-return success while the XPCS ends up attached to the wrong MAC, giving a
-link that never comes up and no message explaining why?
+arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts:
+	&xpcs {
+		status = "okay";
+		phys = <&combphy2 PHY_TYPE_SGMII>;
+		phy-names = "serdes";
+	};
 
-Would it make sense to only write the bit when the property is actually
-present, for example:
+dtschema validates nodes irrespective of status = "disabled", so wouldn't
+every rk3568*.dtb apart from the Photonicat report "'phys', 'phy-names' are
+required properties"?
 
-	if (!device_property_read_u32(dev, "rockchip,sgmii-mac-sel",
-				      &priv->sgmii_mac_sel))
-		priv->sgmii_mac_sel_valid = true;
+Should phys/phy-names be dropped from required (or made conditional), or
+should the SoC dtsi carry them instead?
 
-so that omitting the property leaves the mux untouched?
-
->  	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
->  	/* fallback to old behaviour */
->  	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-> @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
->  		break;
->  
->  	case PHY_TYPE_SGMII:
-> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-> +					priv->sgmii_mac_sel > 0);
-
-[Severity: Low]
-The binding added in the preceding patch of this series declares the
-property as:
-
-  rockchip,sgmii-mac-sel:
-    $ref: /schemas/types.yaml#/definitions/uint32
-    enum: [0, 1]
-    default: 1
-
-but "priv->sgmii_mac_sel > 0" collapses the value to a boolean, and
-rockchip_combphy_parse_dt() does no range check.
-
-Does that mean a device tree setting the property to 2 or 0xffffffff is
-silently treated as GMAC1 rather than rejected? Similarly, a
-present-but-malformed property (wrong length or type) makes
-device_property_read_u32() fail, and the pre-seeded default of 1 is used
-with no diagnostic.
-
-dtschema only validates in-tree device trees, so for bootloader-supplied
-DTs or overlays the driver is the only place the enum can be enforced.
-Would checking the value against {0, 1} and returning an error, or
-alternatively documenting the property as a plain flag, close that gap?
-
-[Severity: Low]
-The mux write is only added to the PHY_TYPE_SGMII case. The adjacent
-PHY_TYPE_QSGMII case in rk3568_combphy_cfg() programs the same pipe-grf
-register (pipe_xpcs_phy_ready at offset 0x0040 bit 2) but never touches
-the MAC-select bit:
-
-	case PHY_TYPE_QSGMII:
-		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
-		...
-
-The binding gates the property on the compatible only, not on the PHY
-type, and rockchip_combphy_parse_dt() runs at probe time before the PHY
-type is known from rockchip_combphy_xlate().
-
-If a device tree sets rockchip,sgmii-mac-sel on a combphy that a consumer
-later claims with PHY_TYPE_QSGMII, is the requested routing simply dropped
-with no warning? If the property is meant to be SGMII-only, would
-rejecting or warning about it for other PHY types make that explicit?
-
->  		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
->  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
->  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-> @@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
->  	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
->  	/* pipe-grf */
->  	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
-> +	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
->  	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
->  	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
->  	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
-
-For reference on the first two comments: this disable/enable encoding
-({ 0x0040, 1, 1, 0x00, 0x01 }) is what maps the DT value onto GMAC0/GMAC1,
-and rockchip_combphy_param_write() always sets the write-enable mask:
-
-	tmp = en ? reg->enable : reg->disable;
-	mask = GENMASK(reg->bitend, reg->bitstart);
-	val = (tmp << reg->bitstart) | (mask << BIT_WRITEABLE_SHIFT);
-
-so the bit is committed to hardware on every SGMII bring-up regardless of
-whether the device tree expressed a preference. Could the TRM bit polarity
-and the claimed reset value of 1 be confirmed in the commit message?
-
-Note that no in-tree Rockchip device tree requests PHY_TYPE_SGMII before
-this series, and the only user (rk3568-photonicat.dts) is added later in
-the series, so nothing in-tree changes behaviour today.
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3568-cru.h>
+> +    #include <dt-bindings/power/rk3568-power.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    pcs@fda00000 {
+> +      compatible = "rockchip,rk3568-xpcs";
+> +      reg = <0xfda00000 0x200000>;
+> +      #address-cells = <1>;
+> +      #size-cells = <0>;
+> +      clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+> +      clock-names = "csr", "eee";
+> +      phys = <&combphy2 PHY_TYPE_SGMII>;
+> +      phy-names = "serdes";
+> +      power-domains = <&power RK3568_PD_PIPE>;
+> +
+> +      pcs-mii@0 {
+> +        reg = <0>;
+> +      };
+> +    };
 
