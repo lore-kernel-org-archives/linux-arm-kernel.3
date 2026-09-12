@@ -4,75 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C828C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 08:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E2EC88E4D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 08:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y6FPOvM23OlPkDouxPQ9OlptW9eXBsYBVcbdP2w7Tj4=; b=U37sajQ+MNtkZUhEZhQUc9bfLA
-	/ZxLWHBWl9oPO9bA3hOVAvNV1RPOWzXmMOUXy6uyxzeYiLLF4tr4i67QtqfFMnrHXNrKdQDBPpe/Z
-	hy+e2UArkQvRz3N7V/fYrekKwM5OLaJaLrPkWYylNXqYNd8xxiAdsfbHOogcMnaJ6WUlz+pzD5xiH
-	ODsl4+klYnl/Eg9KaTMK7itLmcmELpRU5e8QRb7TAy5bNbMg26IHDgiVcmi8RaS4Sb/AkXAKBwVrC
-	Ik8PIXWTqloWoAX8P1PNP2+GZqB3jTKTz0KMTgVHpBmoRsrG3UqMqsxhg/QbBjCgH4vs0WW4sQWDp
-	HcTlI/uw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f3qwWyqi3bNUqorYQGcKxNjQwJcXGV0fC7D1AqFX08M=; b=q1XGV4G86l5WU5veJL6rvks/pQ
+	oxhdQaYU6Mfc71/SFLrncV3iyc7ZB5uLIsyb4pyB5PrX3uyWpEVXbCzQxOI5vuaBC3O+xyhVi2Hcc
+	BGdKpl6uIXcN4iYcwlceBBGUw2teJzgdB0WJqYdmZA/tbU81s915zHR7KklDuHc6/q4pV4OQ+yfs3
+	TbOMQEgE90Cjq464OFuEFne3NhEKkosMquscPL83gRfQySOhLkbFLaXHd0DecBLb809dGl9MLDUER
+	/eTrUVFM7hskpddr877zkYaSOfvgiW2fTqZL6gqBSCFq61XyDjeU5vKw11N7kygU/EJ2JlCuHl0XL
+	yEwXM81A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ii9-00000000gCP-2VAW;
-	Sat, 12 Sep 2026 08:03:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5IlU-00000000ggS-0mxI;
+	Sat, 12 Sep 2026 08:07:12 +0000
+Received: from flow-a7-smtp.messagingengine.com ([103.168.172.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Ii8-00000000gCG-18nb
+	id 1x5IlP-00000000gfi-3aUz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 08:03:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3340960218;
-	Sat, 12 Sep 2026 08:03:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D0EC2C2BCF4;
-	Sat, 12 Sep 2026 08:03:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789200222;
-	bh=ILKNp+WUMz7m60Cj2U3b3QKfAIuTdzWdXrka2tpZqXw=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=bkZiD4uF5TCVrUKm68zSiu3UsGrSnIROJB8jRqeUX0SgnekRupH45MgAKqAVHFzhn
-	 uVOVmxgy4NCSHafnrSf+sICm8tSeYW6jG1ziihWox+nY96AmlBZ+KoA3qf8mjbVBjv
-	 o9QcxiNQnyKwSXX9mk6879UnB9WzT8bk658znHSEuh+GX/Rlq5CrUylHVvhYbcKflu
-	 +B7KKIAJ3i6EvnaAPvVhmsU+fEiUlAPmfmK2+LIS/3XLuFk+oh9Ah4IiDK/A66yxW5
-	 rXGP5taFECRp98rp2yAX8taCg+51fiipg1DhzM03AZTQ2XNlqzV0EW2C//7B6+acKf
-	 9YKlDMmbU/0Pw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE2F1C88E4D;
-	Sat, 12 Sep 2026 08:03:42 +0000 (UTC)
-From: Myria Sarvay via B4 Relay <devnull+myrialsarvay.gmail.com@kernel.org>
-Date: Sat, 12 Sep 2026 18:03:35 +1000
-Subject: [PATCH] drivers/perf: apple_m1: Add macOS 27 M2 Event
+	Sat, 12 Sep 2026 08:07:11 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id 0C6721380082;
+	Sat, 12 Sep 2026 04:07:02 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sat, 12 Sep 2026 04:07:06 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789200422;
+	 x=1789207622; bh=f3qwWyqi3bNUqorYQGcKxNjQwJcXGV0fC7D1AqFX08M=; b=
+	Lrt/fM48uvxyR5iY147Dg1TLUxzhC6V9WeE9G4Nf2xS4+pkFwVgvQlPsZgX1ObsY
+	hxNwAbimSrgLpG19RfvyiSqHjWyUKu/DrU6GHqrd1Ny3X/qxb2V7PLMrwMTGxJ5J
+	hxhHSDw6DzkOfUQoTLd/xCPLr0ZkyiUbbdsArhbOLbeDBOETI9bYaulAFEdBhhYB
+	8yV92Rxc4ba4CNFpTlX1DQ8hmsjEd2RUFxoF2+d6ai2JCK/3mEz0yCBKDLCy0kT7
+	MblYeZafK+CpuQ2/h4Xvl/E08vAxOSUkiRJzXlUswU1dssfWm8A/JrDq84M4L8cU
+	2hzmROIQ1QhHapZ/aclkGQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789200422; x=
+	1789207622; bh=f3qwWyqi3bNUqorYQGcKxNjQwJcXGV0fC7D1AqFX08M=; b=l
+	xb01r0kwHfIHCGkG23JDkVT0OR6WYaawzrtFN7BXJBAVCJeq1Uh+/e7Gg8JYmtXF
+	1LCmYWrVh+aXxK5P/aKoegaKad7yStYYhFa5ivwWliqhk6EY7BLZYTcIbQ4z6YAP
+	OgbD33qflDx3/fBJ5dTlkLlHBZs9X0dE/P17DVw8jlpi5mFAJYYwLaUHyVeXRB3f
+	CdBLMEWG4iHPdsLf2rroVuXg2vYAKidKUSvaUd82yVymPftKPUW6ojD1IN5haV6W
+	RHa8fD3MVF0wRBMz5082rQG2m7E0jTrMHkEZvxZ3XxwrNqgA6EB6PgmjTdxzlq1x
+	xsRPvrz6z+1EwtsZYC6DQ==
+X-ME-Sender: <xms:GwilaiM9DoEGXPS-5POglj3Fs3UX9dKSgEcrGATNpDMJPGNSuR9zRA>
+    <xme:GwilarxN0E-D3ujq0LTikzEohK71z4qj5L4kuPdseBnDwMgcrWtIyG72C2_JeVM5A
+    FBrlFgdq3_j6q1S6Y1dTCO0Qo2bNHyHI3LXOfX-aFV8Bj-yyr6y6g>
+X-ME-Proxy-Cause: dmFkZTEnMfHZeL1bdmK0cMv43Ykw4Ux5EmKrIdL01M3dqOuqJ2lE5s/Zf8fR7tEIJo0kPv
+    zWtV+y0PrEAHOjaSKsxSLCyqEt7BsSvRONex+NaaPtPqORZ63NRy+Js06kSKO6B4kHMOw6
+    X66YzjTgLq7T2dVQ/Wy+z0mQ4yQi6eeqwM+Ha0y0Pecb27IXKwT7AyfrUjOgPW/ax0pbxm
+    431ZmN3/a8b+CFj03gZG/0GqmMDdPzw9zIGPXhsnXYuTl1E61xnGM14GRGmIYVt0/4ruFj
+    bJzQHDqH1XLMGaU36Dad0/cx0LiIfSRIILMzpeOL+9wHlFYdYe8pNXSPkjqQSck9kl74XP
+    aCzd84oPX17C7TH8ROIK4AlY8as07h/xF1/mi69Tj3lPRbQOBi9KqgToWBN9+IbxAFo0Bl
+    O91jo3tZhjZHGmsdRT5I8CZPH49W4wppnyIMbWnJORO8mrIahMZ6pRtbPa974ykxYGKMc0
+    xa2sGvHlvvuBThI5t8oyZDRmkUDZCxhbR0R3u3jVuF2XW3z+rnrLNhMoF4j2qzzk8B1zZz
+    lJPY/WsxQGZwEdKj8dXZcU/q8nWTM5JBnCaWjr2cJoG1Wha/0dH3WyaH3eGu7Az0Ec7QPm
+    5/9iLK7Gy3Htywzk5qwWNhjRQMpdbPa/lgeqDfBz1ZWNbrYIda+j3gvZ7Xqg
+X-ME-Proxy: <xmx:IAilakYs_TJapqNKc7Bl7_t1LCTdqWksnA1ncYoY1SxGbgOkM5mR3g>
+    <xmx:IAilamUNZ9SPghoBE-fNuCRW3yvOkVXSEolaLNroFm67Oxs_i5V_HA>
+    <xmx:IAilakGOzLYoRVy5sbiYSRPFTKbqOoOKrzwo-FEclMQe4BRLcwxJkQ>
+    <xmx:IAilajCG69PBf_6_2kGV2BfXz2ckOvpTnN8WdA2x9XjMv6PH7RVuBQ>
+    <xmx:JgilasFp5Sb1z50QC1Sew28jzpy_7_aNbHZVZSIJDSN67XqZa69ERdel>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 549A532A007E; Sat, 12 Sep 2026 04:06:51 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260912-m2-9f-pmu-name-v1-1-da682557453c@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrB3QKajjVYoLm07aEZJKYkQQ7
- 96oy7f4f4coQSVCX+wQZNWoP59RlwWY7+g/gvrOBqqoqbgmdIRscXYJ/egE246NbejBtmXI0Rz
- E6nYNn8PtmF6TmOW8wHH8AWdXnI5yAAAA
-X-Change-ID: 20260912-m2-9f-pmu-name-789cf6239f79
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
- Myria Sarvay <myrialsarvay@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1883;
- i=myrialsarvay@gmail.com; h=from:subject:message-id;
- bh=WE/9S0PEWj724ZfvllqIPRhYse7Qz5ha7AiDrC/FTsg=;
- b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYspayxz65P616LZ9MUu9hz417PhrzyN/98Wr2pZPXq
- g4Kqv4IMn/eUcrCIMbFICumyKJvmqY9ma3hUuky1y0wc1iZQIYwcHEKwET0rRgZlv4v+ytisH/V
- bqWbC7UP50ttuHTvbs7Vdjcvb+b+oMU3lBgZdvy9F5kzfcrGTY6/DLfXWXYdFnbz/DBZV4Jt0QP
- NvyEKzADqTksT
-X-Developer-Key: i=myrialsarvay@gmail.com; a=openpgp;
- fpr=2F35662B930680D275A645B452444118A8ADFEE9
-X-Endpoint-Received: by B4 Relay for myrialsarvay@gmail.com/default with
- auth_id=1027
-X-Original-From: Myria Sarvay <myrialsarvay@gmail.com>
+X-ThreadId: AK-jVwBtQCQR
+Date: Sat, 12 Sep 2026 10:05:45 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Svyatoslav Ryhel" <clamor95@gmail.com>
+Cc: "Arnd Bergmann" <arnd@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Bartosz Golaszewski" <brgl@kernel.org>,
+ "Mark Brown" <broonie@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Daniel Thompson" <danielt@kernel.org>, "Helge Deller" <deller@gmx.de>,
+ devicetree@vger.kernel.org,
+ "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ dri-devel@lists.freedesktop.org, "Jonathan Cameron" <jic23@kernel.org>,
+ "Jingoo Han" <jingoohan1@gmail.com>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
+ "Liam Girdwood" <lgirdwood@gmail.com>,
+ "Linus Walleij" <linusw@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-fbdev@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-hwmon@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-leds@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-watchdog@vger.kernel.org,
+ "Guenter Roeck" <linux@roeck-us.net>, linuxppc-dev@lists.ozlabs.org,
+ llvm@lists.linux.dev, "Mauro Carvalho Chehab" <mchehab@kernel.org>,
+ mfd@lists.linux.dev, "Michael Hennerich" <michael.hennerich@analog.com>,
+ patches@opensource.cirrus.com, "Pavel Machek" <pavel@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Sebastian Reichel" <sre@kernel.org>,
+ "Support Opensource" <support.opensource@diasemi.com>
+Message-Id: <937fb2c0-e910-4ab6-8599-ff5ea67fd9c3@app.fastmail.com>
+In-Reply-To: <CAPVz0n0pBxP2J=5DN+k+ut0HRnTmsU64orXwxa19G0+WAxN-zg@mail.gmail.com>
+References: <CAPVz0n0ryOns2sCJE_jFana9MVzwEj1QZuPEa8FNhGbHXnMB+A@mail.gmail.com>
+ <11652e5e-053e-45b0-98a0-0c1cb2aeedc4@app.fastmail.com>
+ <CAPVz0n0pBxP2J=5DN+k+ut0HRnTmsU64orXwxa19G0+WAxN-zg@mail.gmail.com>
+Subject: Re: [PATCH 08/14] mfd: remove unused aat2870 driver
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260912_010708_934571_B00746BD 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +131,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: myrialsarvay@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Myria Sarvay <myrialsarvay@gmail.com>
+On Sat, Sep 12, 2026, at 08:42, Svyatoslav Ryhel wrote:
+> =D1=87=D1=82, 10 =D0=B2=D0=B5=D1=80. 2026=E2=80=AF=D1=80. =D0=BE 21:15=
+ Arnd Bergmann <arnd@arndb.de> =D0=BF=D0=B8=D1=88=D0=B5:
 
-This patch adds another known PMU event that can be found under
-/usr/share/kpep on macOS 27 for M2 macs. INST_SIMD_ALU_VEC purports to
-count "Retired non-load/store vector Advanced SIMD instructions", and as
-we already noted, can only be registered on counter 7. Though this event
-only shows up on the M2 kpep records, it can be set on M1 CPUs, and
-records something.
+>> drivers/leds/leds-lm3530.c
+>> drivers/leds/leds-lm3532.c
+>
+> LM3532 has full OF support and is functional, it just does not have
+> device tree users yet. I have a device using it - Motorola Atrix 4G
+> (Tegra 2 based).
+>
+> Here is commit removing LM3532
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=
+=3D46a6457870825d8b782d350fdc7e27c540734d41
+> Here are my patches bringing up Motorola Atrix 4G support
+> https://lore.kernel.org/lkml/20260721100245.444623-3-clamor95@gmail.co=
+m/
 
-Link: https://github.com/0ax1/apmc/blob/9cff99a9df2ae055f1e3065c64f633e38bb6beec/counters/m2.md
-Signed-off-by: Myria Sarvay <myrialsarvay@gmail.com>
----
- drivers/perf/apple_m1_cpu_pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Ah, perfect: this is actually one of two drivers that I independently
+noticed as a false positive while writing the commit logs, and I
+dropped the changes in the update I pushed the branch yesterday.
 
-diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
-index 81b6f1a62349..1f73c8a77462 100644
---- a/drivers/perf/apple_m1_cpu_pmu.c
-+++ b/drivers/perf/apple_m1_cpu_pmu.c
-@@ -81,7 +81,7 @@ enum m1_pmu_events {
- 	M1_PMU_PERFCTR_INST_SIMD_ALU				= 0x9a,
- 	M1_PMU_PERFCTR_INST_LDST				= 0x9b,
- 	M1_PMU_PERFCTR_INST_BARRIER				= 0x9c,
--	M1_PMU_PERFCTR_UNKNOWN_9f				= 0x9f,
-+	M1_PMU_PERFCTR_INST_SIMD_ALU_VEC			= 0x9f,
- 	M1_PMU_PERFCTR_L1D_TLB_ACCESS				= 0xa0,
- 	M1_PMU_PERFCTR_L1D_TLB_MISS				= 0xa1,
- 	M1_PMU_PERFCTR_L1D_CACHE_MISS_ST			= 0xa2,
-@@ -150,7 +150,7 @@ static const u16 m1_pmu_event_affinity[M1_PMU_PERFCTR_LAST + 1] = {
- 	[M1_PMU_PERFCTR_INST_SIMD_ALU]				= BIT(7),
- 	[M1_PMU_PERFCTR_INST_LDST]				= BIT(7),
- 	[M1_PMU_PERFCTR_INST_BARRIER]				= ONLY_5_6_7,
--	[M1_PMU_PERFCTR_UNKNOWN_9f]				= BIT(7),
-+	[M1_PMU_PERFCTR_INST_SIMD_ALU_VEC]			= BIT(7),
- 	[M1_PMU_PERFCTR_L1D_CACHE_MISS_LD_NONSPEC]		= ONLY_5_6_7,
- 	[M1_PMU_PERFCTR_L1D_CACHE_MISS_ST_NONSPEC]		= ONLY_5_6_7,
- 	[M1_PMU_PERFCTR_L1D_TLB_MISS_NONSPEC]			= ONLY_5_6_7,
+In fact, I saw that there are three other upstream dts files using
+this driver. In general, I assumed that anything with a DT binding
+has users, with the exception of the devices inside of a removed
+SoC and a few PMIC chips that were tightly linked to a removed SoC
+from the same manufacturer.
 
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260912-m2-9f-pmu-name-789cf6239f79
+Thanks a lot for checking the list!
 
-Best regards,
---  
-Myria Sarvay <myrialsarvay@gmail.com>
-
-
+      Arnd
 
