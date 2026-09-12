@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42090C88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 19:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D81C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SudqM4dinshG/ga4dKzazwfwaSNRtgAeUisYk5patHw=; b=dmQsYE4zV26zcC6yBW35Z5BPEA
-	QJgH5HaVDIYTjE2oDaKue0d6+Fa/0KXX8UtUZsILBsz5fAKupQhSeNYHzGpRgpStvH+MDoUgcEwcd
-	lHbO/dyMBk9wcRMbXzpGFADuqv8TrJfUnxFL6XOTJlL0FYcBJoiwBKCL3RGtpvtub7Egq//N4bLn9
-	UbRwiJhkIqT/o6onmhHU12AU/TZpiZKoyCYLV6cTjcsIlsiXznzSjWjFpJsm45NKBGtBXF+MW6Fvm
-	q7HxIkJQjBfMQTN2Fh9XuDCkDVa72K/Jkt+rza/fXW+zajbSTM5EyxdHpshCh1rPf626l4NIi12kT
-	Eu5LpR6w==;
+	bh=JtoUpb6McNb8j9Z4qP+rOvN+AYV7xXHpuSQDz0IbEJo=; b=GY/g7kmr7P2xXSOh4vlQGuTI6j
+	68Du0TxHmJhZC0lw89kYg2HdWWcg38ObhMuQWkxmgZxwhXuGFmryXgWnMlg1HS3dEDC040fS5x8PZ
+	hyawfa2yCEhAdWVOrwhLQMQD1CTmagO+S6wSnmUoZ+d6Um5kg35zUQ7D28+Ekj6oA+F6P1lEIYE7S
+	1pblfLPkSeQU8mmJ8kijMBnFkv0PVIQAAopV48U6RySRxz3OpnLexnV12nnoxrfuPgYE2iLLr3gzP
+	sKIdNQXLWZ8bFL7MqPQSbTjreFUWmj0OlQwe8MiHll2RDvdCyTYSURJgD9oMI1cLbML1O2vHHYuOv
+	li1tBRQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5TpY-000000017vS-00He;
-	Sat, 12 Sep 2026 19:56:08 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1x5U6G-000000018dR-27I4;
+	Sat, 12 Sep 2026 20:13:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5TpV-000000017tL-2SEu
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 19:56:06 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49d0da752ffso25223755e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 12:56:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789242964; x=1789847764; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SudqM4dinshG/ga4dKzazwfwaSNRtgAeUisYk5patHw=;
-        b=dEZ3btoNsLWxx0i/qX9BKqkIaPI/y4EyexIkbDzi565fEjjgjI8qGVnT6GsdZV4ZDm
-         pwxjl2yjdCoRLja3B4NXVM5nItBu/iaVx0wMaqFjbX4IakoTG3LG9RRGcURmMJW8C7A0
-         l6col3rMp3YuSFcRk52DaZnV50tBndhsRhrqAIyFVzlmSYe7pwFp66vP+rWFyCr8hlAX
-         AEw1r+uG3OxiymfF77HbjA4e4WQQMm9kP6tyfwARsBa9RdxKIYaDHKDBnX/+SNUOlZgV
-         sRwKaecd88bictPcZpXqCGFFueAW+Xg3eJ7JgzHp1wpnGFz5ncZgl5t7uAM2YhopEEn1
-         CzGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789242964; x=1789847764;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SudqM4dinshG/ga4dKzazwfwaSNRtgAeUisYk5patHw=;
-        b=j6KzqYy2NKqOdwWOl8ZB6Q163qkerh0ng3rpFZ4+qGmErLXkmBBwNRs4MVgNqSFi2n
-         kCzLtAuTwJGmvefyLOavV/iNIKDvxGouviYaI9m+ty73M0+Is9kY9rJAT1ZHulpXmvoE
-         kuQRF4D9O4gbutt+AuxuHyAnK2UPtW5ceP9SJkGmp0JWFyM0Aie3VfaeMeDMPLbQ7ox7
-         ZPsJVonxLPRY43bJ6O/+okD0zlmw5BNFPBjfe/MnTLgS/Ou9UtJjTQnUI5/Tps6GHkmi
-         MhAtgzM6LvOmnG2XP/8JBAO9COLsA3adryhVI+S3nndCkZSW+ycnOGoup9JggFe2OYfU
-         o/Yg==
-X-Forwarded-Encrypted: i=1; AKwUvBwpID/ChxgcvuJdZZFuNIHLM+3uqDC7bie8CrnjYskd7EDmHbg6TU4XxDXXWxWqcwdBN2z3Jj3b00T035VIP7+G@lists.infradead.org
-X-Gm-Message-State: AFuF++muwWs9qaHLHqueaSbvGH5VMb8sDNJmLe3BZL7tT9OUC642XmsA
-	Q8zZ0j8jwZV0LXlQkiBdbwULRSGgxOgNViSVACSyVWgBQXGqfamucarP
-X-Gm-Gg: AYBFou0hV6mfyRBSv77B5wOmbA9g/OT+DrXwinjFd6ycXlXXWrP02+XklzJE0QOtX7j
-	mRt5y+GkEVFEum9Coiy9yxHWvwpjVGJjyOLOygTkRIaoljppFAydrQGjpartnytSRAItsz8K33A
-	gWmOtdDC9XT41s+YHZpTyyhHIWEw3kLfqVuu/dP03xryR4APd6BVLpAhfEtXTuoLWFTfKDGqWsQ
-	ATtbtM80ip68jjE2QldWcYvS3HELzAXt6J8DQHqF13u8J5oHjVvYQw8vhImwwg/Wwel4mID1AhR
-	Cckws9L6nRvHnjZAbfLwb/tFUcvbFOOU7nXc/cWxNQpVVmdzoKgWou+QPWPg42mtp0dMNcEUjfk
-	IZP339n9rK/tKl1NwtxWBKsP09MKBnLjMrAFcGgRCpeEfmLsqOz88xDRfOZfAgudBZihfj5UPzw
-	AI5nZS6/0SHwH0sLGADT8q/iv9lnL7YIPxEJEia+0dQ1RT0ADzf/or0o1vEr1zFjAs1MkYmXg+0
-	Fh5JM9XCA+kxdDWiE/mIcYDlzhaj7ndAIpljEf/F+vjWX0gBJHyLOJ4Rk0njIBk8WcHcnkr7MZE
-	nC2+R9tGX9mI/NBHLC9Vtse4VZFdAxPwezgoOgNHVzSH4KBtvGy/vZQBvkmgbSvCZ5wbwDWK4jU
-	1BRcsCPWd
-X-Received: by 2002:a05:600c:3115:b0:495:4d88:e630 with SMTP id 5b1f17b1804b1-49e61989e79mr109783245e9.10.1789242963500;
-        Sat, 12 Sep 2026 12:56:03 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-b260-f201-9983-e8c4-aff5-7a36.310.pool.telefonica.de. [2a02:3100:b260:f201:9983:e8c4:aff5:7a36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e60adaee4sm267089045e9.14.2026.09.12.12.56.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 12 Sep 2026 12:56:02 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Radu Rendec <rrendec@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
+	id 1x5U6E-000000018dC-3pRh;
+	Sat, 12 Sep 2026 20:13:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E7E140D52;
+	Sat, 12 Sep 2026 20:13:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A3E21F000FF;
+	Sat, 12 Sep 2026 20:13:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789244002;
+	bh=JtoUpb6McNb8j9Z4qP+rOvN+AYV7xXHpuSQDz0IbEJo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=EFk7I55vjqe2AiKGLYvCZHQw7wNr/JCb+JgkqtAe19BCOXtj+ON+hCWj8q+x/nqIc
+	 AY41oLO8iFVcwf1khYooVFFjvoieVNx6amrTRHlh6/Zqe9OPhbKiOdUzjURzA7Y+VZ
+	 bDNRGkqGAavN2q96TX79ZybNdMSvUSu7h4Hp/X8SjhFkODokmuILfhgL8Ri8VR5xB/
+	 Ky4jBUkDTLQgWYHlQXmXEehGMyKM9nYMpLKn1ASZRls2eYvG0wO1MU31pkkyfposGj
+	 yXHAgrK4vO4z7Xp5XFzz9YtMYLKkEuqmeD8KWoUm1Z3WdYht8cOXheIZJXlJUjQV/9
+	 CfMuGev1upN9w==
+From: Jakub Kicinski <kuba@kernel.org>
+To: coiaprant@gmail.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	vkoul@kernel.org,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	romain.gantois@bootlin.com,
+	hkallweit1@gmail.com,
+	neil.armstrong@linaro.org,
+	linux@armlinux.org.uk,
+	shawn.lin@rock-chips.com,
+	david@ixit.cz,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 4/4] ARM: topology: allocate the cacheinfo early on the boot CPU
-Date: Sat, 12 Sep 2026 21:55:52 +0200
-Message-Id: <20260912195552.76673-5-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20260912195552.76673-1-kmehltretter@gmail.com>
-References: <20260912195552.76673-1-kmehltretter@gmail.com>
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH net-next v4 01/10] net: stmmac: move XPCS lifetime management to platform drivers
+Date: Sat, 12 Sep 2026 13:13:13 -0700
+Message-ID: <20260912201313.126882-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260907153713.2572547-3-coiaprant@gmail.com>
+References: <20260907153713.2572547-3-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_125605_669504_4AFE4894 
-X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,93 +93,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM secondary CPUs allocate cacheinfo in detect_cache_attributes(),
-called from secondary_start_kernel() with interrupts disabled. With
-PREEMPT_RT, the allocation takes a sleeping lock and triggers
-"BUG: sleeping function called from invalid context".
-
-Call fetch_cache_info() for each possible CPU from init_cpu_topology()
-on the boot CPU, following commit 5944ce092b97 ("arch_topology: Build
-cacheinfo from primary CPU"). This supplies the arrays before secondary
-CPUs populate them. Suppress -ENOENT and -EOPNOTSUPP, which leave cache
-detection to the existing late path.
-
-The CLIDR fallback uses the boot CPU's cache geometry. A secondary CPU
-with more cache leaves can still require late reallocation and trigger
-the warning.
-
-Fixes: a9ff94477836 ("ARM: 9433/2: implement cacheinfo support")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 ---
-Full warning on QEMU virt, cortex-a15, 7.3-rc2, PREEMPT_RT:
+net: stmmac: move XPCS lifetime management to platform drivers
 
-  BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-  in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/1
-  Call trace:
-   rt_spin_lock from ___slab_alloc+0x68/0x728
-   ...
-   __kmalloc_noprof from detect_cache_attributes+0xe4/0x734
-   detect_cache_attributes from update_siblings_masks+0x10/0x174
-   update_siblings_masks from secondary_start_kernel+0xec/0x120
+This removes the generic XPCS creation and destruction code from
+stmmac_pcs_setup() and stmmac_pcs_clean(), leaving those functions as
+plain dispatchers to plat->pcs_init() and plat->pcs_exit().  The Intel
+mGbE glue gains its own pcs_init()/pcs_exit() implementations, and the
+renesas-gbeth, rzn1 and socfpga pcs_exit() callbacks now clear
+priv->hw->phylink_pcs after destroying the PCS.
 
-PREEMPT_RT became selectable on ARM in 7.1 with commit c6e61c06d606
-("ARM: 9463/1: Allow to enable RT"). The PREEMPT_RT patch queues carry
-that change for 6.18 and later, so 6.18.y is affected as well.
+A few questions on the changelog and on the removed common code below.
 
-QEMU virt, cortex-a15, PREEMPT_RT, 2 and 4 CPUs: the warning is gone,
-the cacheinfo sysfs tree is identical before and after, CPU 1 survives
-an offline/online cycle. Same on a non-RT build.
+[Severity: Medium]
+Three statements in the commit message do not seem to match the tree
+this patch applies to.
 
-QEMU realview-eb-mpcore, ARM11 MPCore, 4 CPUs, ARMv6 plus ARMv7 SMP
-kernel with PREEMPT_RT: fetch_cache_info() returns -EOPNOTSUPP through
-the CTR format check, no message, no cacheinfo before or after, CPU
-hotplug works, kernel messages otherwise identical.
+First:
 
-Raspberry Pi 400, four Cortex-A72 CPUs, 32-bit PREEMPT_RT 7.2.6-rc1,
-full series: the boot warning is absent and all 12 cache sysfs entries
-match the unpatched baseline and earlier topology-only run. The live
-DT describes the shared L2, exercising DT-based early allocation.
-CPU hotplug is unavailable on this platform.
+    Address all of these issues by introducing pcs_init() and pcs_exit()
+    callbacks in plat_stmmacenet_data.
 
- arch/arm/kernel/topology.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Are these callbacks actually introduced here?  Both function pointers
+already exist in struct plat_stmmacenet_data at the baseline:
 
-diff --git a/arch/arm/kernel/topology.c b/arch/arm/kernel/topology.c
-index 2336ee2aa44a..e6b50cd43ce5 100644
---- a/arch/arm/kernel/topology.c
-+++ b/arch/arm/kernel/topology.c
-@@ -12,6 +12,7 @@
-  */
- 
- #include <linux/arch_topology.h>
-+#include <linux/cacheinfo.h>
- #include <linux/cpu.h>
- #include <linux/cpufreq.h>
- #include <linux/cpumask.h>
-@@ -238,8 +239,20 @@ void store_cpu_topology(unsigned int cpuid)
-  */
- void __init init_cpu_topology(void)
- {
-+	int cpu, ret;
-+
- 	reset_cpu_topology();
- 	smp_wmb();
- 
- 	parse_dt_topology();
-+
-+	for_each_possible_cpu(cpu) {
-+		ret = fetch_cache_info(cpu);
-+		if (!ret)
-+			continue;
-+		/* CPUs without a usable CLIDR return -EOPNOTSUPP. */
-+		if (ret != -ENOENT && ret != -EOPNOTSUPP)
-+			pr_err("Early cacheinfo failed, ret = %d\n", ret);
-+		return;
-+	}
- }
--- 
-2.53.0
+	int (*pcs_init)(struct stmmac_priv *priv);
+	void (*pcs_exit)(struct stmmac_priv *priv);
 
+and this patch does not touch include/linux/stmmac.h at all.  The
+baseline stmmac_pcs_setup() and stmmac_pcs_clean() already call them.
+
+Second:
+
+    Second, and more critically, when stmmac_pcs_setup() fails to create
+    an XPCS (either because no pcs-handle is present and no pcs_mask is
+    configured), it falls through to the else branch and leaves
+    priv->hw->xpcs as NULL. This will silently override any XPCS that a
+    platform driver may have already set up
+
+Is that the branch that causes the override?  In the baseline that arm
+returns immediately:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c:stmmac_pcs_setup() {
+	if (priv->plat->pcs_init) {
+		ret = priv->plat->pcs_init(priv);
+	} else if (fwnode_property_present(devnode, "pcs-handle")) {
+	...
+	} else {
+		return 0;
+	}
+	...
+	priv->hw->xpcs = xpcs;
+}
+
+so no XPCS pointer can be clobbered there.  The clobber only happens on
+the plat->pcs_init branch, where the local xpcs stays NULL and the
+unconditional priv->hw->xpcs = xpcs; afterwards overwrites whatever
+pcs_init() stored.  Could the changelog describe that path instead?
+
+Third:
+
+    Existing platform drivers (intel, rzn1, socfpga) are updated to use
+    the new callbacks by moving their XPCS creation and cleanup logic into
+    pcs_init() and pcs_exit().
+
+rzn1 and socfpga already used pcs_init()/pcs_exit() before this patch,
+and neither creates an XPCS: rzn1_dwmac_pcs_init() calls miic_create()
+and socfpga_dwmac_pcs_init() calls lynx_pcs_create_mdiodev().  The only
+change for them is the added NULL assignment.  The patch also modifies
+dwmac-renesas-gbeth.c, which the changelog does not mention.  Should
+that list be corrected to intel only, plus a note about the pointer
+clearing in renesas-gbeth, rzn1 and socfpga?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> index f5f9fa67ecd77..fd5f01c8941c1 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> @@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
+>  	plat->mdio_bus_data->needs_reset = true;
+>  }
+>  
+> +static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
+> +{
+> +	struct fwnode_handle *devnode, *pcsnode;
+> +	struct dw_xpcs *xpcs = NULL;
+
+[Severity: Low]
+This isn't a bug, but is the NULL initializer still reachable here?
+Both arms of the if/else below assign xpcs unconditionally, from
+xpcs_create_fwnode() or xpcs_create_mdiodev(), and neither returns NULL.
+In the common code this was moved from, the initializer mattered because
+a fall-through left xpcs NULL and the call was guarded by
+if (xpcs) xpcs_config_eee_mult_fact(...); that guard is now gone.
+
+> +	int addr;
+> +
+> +	devnode = dev_fwnode(priv->device);
+> +
+> +	if (fwnode_property_present(devnode, "pcs-handle")) {
+> +		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> +		xpcs = xpcs_create_fwnode(pcsnode);
+> +		fwnode_handle_put(pcsnode);
+> +	} else {
+> +		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> +		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> +	}
+> +
+> +	if (IS_ERR(xpcs))
+> +		return PTR_ERR(xpcs);
+> +
+> +	xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> +
+> +	priv->hw->xpcs = xpcs;
+> +	return 0;
+> +}
+> +
+> +static void intel_mgbe_pcs_exit(struct stmmac_priv *priv)
+> +{
+> +	if (!priv->hw->xpcs)
+> +		return;
+> +
+> +	xpcs_destroy(priv->hw->xpcs);
+> +	priv->hw->xpcs = NULL;
+> +}
+> +
+
+[ ... ]
+
+> @@ -733,6 +767,8 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
+>  	    plat->phy_interface == PHY_INTERFACE_MODE_1000BASEX) {
+>  		plat->mdio_bus_data->pcs_mask = BIT_U32(INTEL_MGBE_XPCS_ADDR);
+>  		plat->default_an_inband = true;
+> +		plat->pcs_init = intel_mgbe_pcs_init;
+> +		plat->pcs_exit = intel_mgbe_pcs_exit;
+>  		plat->select_pcs = intel_mgbe_select_pcs;
+>  	}
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> index 19f34e18bfef2..9af32c26f9c14 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> @@ -81,8 +81,11 @@ static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
+>  
+>  static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
+>  {
+> -	if (priv->hw->phylink_pcs)
+> -		miic_destroy(priv->hw->phylink_pcs);
+> +	if (!priv->hw->phylink_pcs)
+> +		return;
+> +
+> +	miic_destroy(priv->hw->phylink_pcs);
+> +	priv->hw->phylink_pcs = NULL;
+>  }
+>  
+>  static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
+> index 13634965bc19a..01df4776edb3f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
+> @@ -35,8 +35,11 @@ static int rzn1_dwmac_pcs_init(struct stmmac_priv *priv)
+>  
+>  static void rzn1_dwmac_pcs_exit(struct stmmac_priv *priv)
+>  {
+> -	if (priv->hw->phylink_pcs)
+> -		miic_destroy(priv->hw->phylink_pcs);
+> +	if (!priv->hw->phylink_pcs)
+> +		return;
+> +
+> +	miic_destroy(priv->hw->phylink_pcs);
+> +	priv->hw->phylink_pcs = NULL;
+>  }
+>  
+>  static struct phylink_pcs *rzn1_dwmac_select_pcs(struct stmmac_priv *priv,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> index 1d7f0a57d2889..6d4bc1fe8f751 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> @@ -539,8 +539,11 @@ static int socfpga_dwmac_pcs_init(struct stmmac_priv *priv)
+>  
+>  static void socfpga_dwmac_pcs_exit(struct stmmac_priv *priv)
+>  {
+> -	if (priv->hw->phylink_pcs)
+> -		lynx_pcs_destroy(priv->hw->phylink_pcs);
+> +	if (!priv->hw->phylink_pcs)
+> +		return;
+> +
+> +	lynx_pcs_destroy(priv->hw->phylink_pcs);
+> +	priv->hw->phylink_pcs = NULL;
+>  }
+>  
+>  static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index afe98ff5bdcb0..d2f77f0c223a7 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -426,36 +426,15 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  int stmmac_pcs_setup(struct net_device *ndev)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> -	struct fwnode_handle *devnode, *pcsnode;
+> -	struct dw_xpcs *xpcs = NULL;
+> -	int addr, ret;
+> -
+> -	devnode = dev_fwnode(priv->device);
+> -
+> -	if (priv->plat->pcs_init) {
+> -		ret = priv->plat->pcs_init(priv);
+> -	} else if (fwnode_property_present(devnode, "pcs-handle")) {
+> -		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> -		xpcs = xpcs_create_fwnode(pcsnode);
+> -		fwnode_handle_put(pcsnode);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else if (priv->plat->mdio_bus_data &&
+> -		   priv->plat->mdio_bus_data->pcs_mask) {
+> -		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> -		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else {
+> +	int ret;
+> +
+> +	if (!priv->plat->pcs_init)
+>  		return 0;
+> -	}
+
+[Severity: Medium]
+Does this drop the generic handling of the "pcs-handle" property?  After
+this change, any snps,dwmac node whose firmware points "pcs-handle" at a
+Synopsys XPCS, but whose glue driver does not set plat->pcs_init, gets
+priv->hw->xpcs == NULL and no message at all, since the function just
+returns 0.  "pcs-handle" is still a documented generic property in
+Documentation/devicetree/bindings/net/ethernet-controller.yaml.
+
+The changelog explains this is harmless because:
+
+    First, if a device tree specifies a "pcs-handle" but no select_pcs()
+    callback is provided by the platform driver, the created XPCS is never
+    used.
+
+Is that accurate?  The core consumes priv->hw->xpcs in two places that
+do not go through plat->select_pcs():
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_phy_setup() {
+	/* If we have an xpcs, it defines which PHY interfaces are supported. */
+	if (priv->hw->xpcs)
+		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
+	else
+		pcs = priv->hw->phylink_pcs;
+
+	if (pcs)
+		phy_interface_or(config->supported_interfaces, ...);
+}
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_init_phy() {
+	if (priv->hw->xpcs &&
+	    xpcs_get_an_mode(priv->hw->xpcs, mode) == DW_AN_C73)
+		return 0;
+}
+
+Without the XPCS, supported_interfaces stays limited to
+plat->phy_interface and the DW_AN_C73 "no PHY" path is lost, so
+stmmac_init_phy() can now fail where it previously succeeded.
+
+Related, for Intel mGbE the callbacks are only installed inside the
+SGMII/1000BASEX branch of intel_mgbe_common_data(), while the removed
+common code created an XPCS from "pcs-handle" regardless of interface
+mode.  Should a warning be emitted when "pcs-handle" is present but no
+pcs_init() claims it, or should the changelog state the behaviour change
+explicitly?
+
+>  
+> +	ret = priv->plat->pcs_init(priv);
+>  	if (ret)
+>  		return dev_err_probe(priv->device, ret, "No xPCS found\n");
+
+[Severity: Low]
+This is a pre-existing wording problem and not introduced by this patch,
+but with the generic XPCS code gone this is now the only diagnostic in
+stmmac_pcs_setup(), and three of the four pcs_init() implementers do not
+create an XPCS:
+
+  socfpga_dwmac_pcs_init()  -> lynx_pcs_create_mdiodev()
+  rzn1_dwmac_pcs_init()     -> miic_create()
+  renesas_gmac_pcs_init()   -> miic_create()
+
+So a miic_create() or lynx_pcs_create_mdiodev() failure, including
+-EPROBE_DEFER, is reported as "No xPCS found".  Would something like
+"failed to initialise PCS" be more accurate here?
+
+>  
+> -	if (xpcs)
+> -		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> -
+> -	priv->hw->xpcs = xpcs;
+> -
+>  	return 0;
+>  }
+>  
+
+[ ... ]
 
