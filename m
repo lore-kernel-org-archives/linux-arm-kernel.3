@@ -4,91 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857DDC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 00:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8C8C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 00:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kXFkUUSERusmiOZxFKcpCM04OYHSm47q3Lv6FIZm0GU=; b=xyBNnLQ+IUveMqZs577wLM9ApD
-	PvYah9VaxLxXfDnSXpX0HbwLihvIj/+IJ23Sp//+RlZxXNs/wEwXxV4H1n1YEZ0j0xtcNtR1kyBbs
-	gCjc/mEOwGD+pWbN0p0oEZNYx0UPwJpSyPNDFAgYN/WO1JurtZG+o0f3Ix5cstqbzpC3OEeuoQ37c
-	qZSvYcXX+g5fJ96XDaTrsUuxmXBF2z6JIJtGsXcXEEXLkQHQ64LQ6z+CKWsp6/L0dQnmBo6uStY6I
-	6hQWIqhDX/Hs6DdggJXYdtrH+hPoGDdU70h//qfIb8flxATkTSA+Bzioo4CAsl9BHnx0UeNFoF+yY
-	5hntQGUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lxOehLNxF4tlyLyLQCgqOYqfV3EqWhPuIVTXdkGG4gY=; b=0k+zYLqRqbKGvaqVEcILvb1Bed
+	KBNQB1Vw6jY1pK4/iu8nv+1YhbE8oLs5Mq6EVTLyrxtVnEhKEHeouLrrEnzk7JjqYANK2gL2sCLSz
+	W4EIiyaUYZPDL5nLUDbubbYJVxHLJh+UMGjb5PHeRAPM0iqEyBK5PKUBU5qwlTA0OHd49hdjyrRAr
+	FlNtoLiiMs8L2o33zSKwHpJYnwY8E8uon2Tpn927XOxdBGFIprUUa9dH8/uHPiZ6NXMjdIsHU4SML
+	sI9jqxCUBmTjHaCJGWRo0rGCXmq3Nl+yqJ+LyY9eSi6RpcUbnuWGoERRNcKl0CdL72ou2N2dd6K9N
+	D+ewMgHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5BFP-00000000Ppp-1YxH;
-	Sat, 12 Sep 2026 00:05:35 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	id 1x5BGL-00000000Pz9-2n4N;
+	Sat, 12 Sep 2026 00:06:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5BFM-00000000Pp3-40L9
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 00:05:33 +0000
-Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-5309d6188e1so5463161cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 17:05:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789171532; x=1789776332; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kXFkUUSERusmiOZxFKcpCM04OYHSm47q3Lv6FIZm0GU=;
-        b=n0+T61foUFhNaEhFjbEEZzpO0ZVdRp2OLMIgHV8Ho0cSvRAaFfp4O6f0FJqxNlRRKK
-         mged4PaQCdt7iQmfs6qajXvA77FO0Z4pjjginSiZ5HUobjHB+z9VS5K2weoMCQSTSxJg
-         qWfhgmP2QQQsl67D7/LWGlzAu59OSFvP12+xmzKLusDsMxsJv2eY3LTmYFFqIw2KsdPK
-         PsXU0aFxAjZ5Z/uLvO+tgkePLx3YTjs7r6F4BULdyzIyGYOKRQyiIkzW6AjlwuXgmKcp
-         LwHx7w9kIEMOfa7f2P7/TfsiP77fNvTBi6mOtWqXz1qnzN8mg9hLasi85vI2rbY4QHtG
-         m9cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789171532; x=1789776332;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kXFkUUSERusmiOZxFKcpCM04OYHSm47q3Lv6FIZm0GU=;
-        b=NCp1ljjGlJMdPgRH+at32jGnUZAudQUMDSU+2RJfyWGVpxTvREddeQPs8+NBow46XO
-         /GLtxTo2LZ5HL/n/Sc05b0h+tnnowfGI2E7/8+Ey6D/hpMhO5N3/JzBuAZQr25TdNxmW
-         WvnEDFZVNBKwqjh0I8gRCeTqUnvcm3q4a8Z39TXgh0h+zJXCO23PaKu4neDv5u+kPcjY
-         U3RMyZr9ijaTtHxovgRvRQIcrZWyv81+ZkqvIGKPM1efv8hLdjfYmMSUJPgwDa8jlvr8
-         vrz0ZNwypy929M3BZEQ3hQ5Elb/PWNq3BFPgqYWTaSQI34cn1BW4So1HeN65oCkOt0Ar
-         Ly/g==
-X-Forwarded-Encrypted: i=1; AKwUvBz5NL+hHBV+CYvfT+pbYHV4D69NtgJXADhIoxnRDk9Yg6u5LYu4hk4wUW9OYypc1l1rl0u8czlDnVZHS13yxw8K@lists.infradead.org
-X-Gm-Message-State: AFuF++lsUxjg7wduqhiLYFIEuLgeIpCjPKz1CK0kAMp+0ImYPqSXXu85
-	BnPUytNNfC4Id7q53vIvzCkxfFt/aQy5hJSVbbrWWNXcF3fUiQGEZbuV
-X-Gm-Gg: AYBFou1WgzfRdis4Ed1UscoafMWmlmShP1J3MAGg3lAJfMbKpdanjn8VTXFXjMKB2kR
-	JBkeyv5YvWNIJfbTM+KbEaRHqMFy6Z9PKsMIxtVTdB+D+vVhrr9/rdYR9I9iwe7P9ZDVYgBsDIF
-	NtcPga+3MMtKaVWVwilM9U57jhZiZRcxjTVNPJoOotQhGnG6BWw6rKEcGfFqNVAl6mV77wAd5C8
-	fI/RetugRKOpJiYO21MkR/g/LfOS9+s5ws3AmN94rEVMj0ml5j+Rl0MLyKdVlThKOhZDrJKRkMU
-	8YAN8ngX+3/+TVv8N7QgJ149y839nEp6mVCO//K+9HMPi2veWedIGr8t5Ll+VFuXa4aRVIGdwiB
-	0xY5lrrD2MDENgr8YIEIz/WDai+KwFOmI+ZM5r0q/GgaWlN+9v28BTGAP6s7SC3RKil5bgfHiyb
-	bpXSFDi+BLxwlDQQ6P+jGhPv8molqIC9BZT4Y/OSb7g8i8Ck1b/zIkIdUMdN5ghtf6kTaijmemc
-	AgP7M4GxNQLwmQK3fQE9zTofZalPZfoQJZeTc6TaXpWXQzMHbRmp1JzkZgOugIR+2h+qx8cJBH6
-	9hL0/dwc+sMZonHKk+sjwRZIOPC0tJHM5LoOdGj6kE42Il54
-X-Received: by 2002:a05:622a:4d8d:b0:530:430e:8126 with SMTP id d75a77b69052e-530c876fcfemr131514161cf.47.1789171530137;
-        Fri, 11 Sep 2026 17:05:30 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f47a239sm32910836d6.26.2026.09.11.17.05.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 17:05:29 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-clk@vger.kernel.org
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
-	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2] clk: actions: owl-pll: cast delay to unsigned long for udelay()
-Date: Fri, 11 Sep 2026 17:05:27 -0700
-Message-ID: <20260912000527.231245-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
+	id 1x5BGK-00000000PyX-0Wmo;
+	Sat, 12 Sep 2026 00:06:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7193243E7D;
+	Sat, 12 Sep 2026 00:06:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A332C1F00893;
+	Sat, 12 Sep 2026 00:06:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789171591;
+	bh=lxOehLNxF4tlyLyLQCgqOYqfV3EqWhPuIVTXdkGG4gY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WTxGK2yjJPkp7v3hoam+kMczpPEuI9S9QSrtKLmok4sy4FrVvZBV2mD6ZqHg4B/+K
+	 1LEk+v/nhNJJNyu4UcFW7Dqk9/dwe160Dz3dwWAGP19jgUu5MLaQGnmswbSr9Op151
+	 3PP6zPkxKXYNffsaV30ywG08hzqanTlB7Z062AJfXZvj/UmblDa5jAyf5dOLnla/LA
+	 f9aJy+Yx2IxM2kRzsfcu6OkRQHoWObPq8hvxy3YcXJYqV12RPB2lO6tswA/t8i75bn
+	 xYEamReWEyFseWx2ceBYGOuyWwQx/+RG0/HxRthR6GtbojQ4Z5zQGLUr1nUro69ghk
+	 BXRTHFSyear2Q==
+Subject: Re: [PATCH net-next v7] net: airoha: add LRO offload support
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, madhur.agrawal@airoha.com, horms@kernel.org
+Date: Sat, 12 Sep 2026 00:06:30 +0000
+Message-ID: <178917159014.219967.5680210222972540082@kernel.org>
+In-Reply-To: <20260909-airoha-eth-lro-v7-1-e6317be79067@kernel.org>
+References: <20260909-airoha-eth-lro-v7-1-e6317be79067@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_170532_990496_293EC929 
-X-CRM114-Status: GOOD (  10.99  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +70,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'delay' field in struct owl_pll_hw is u8, but udelay() internally
-compares its argument against MAX_UDELAY_MS * 1000 (2000). Since a u8
-can never exceed 255, the compiler warns of a tautological comparison
-that is always false:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider:
 
-  drivers/clk/actions/owl-pll.c:189:2: error: result of comparison of
-  constant 2000 with expression of type 'u8' is always false
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-Cast the delay value to unsigned long to widen the type and silence the
-W=1 warning without changing behavior.
+- [Medium] In airoha_qdma_init_rx_queue() the page_pool order, buffer
+  size and the hardware scatter-gather setting for RX rings 24-31 are…
+- [Medium] The per-QDMA CDM LRO engine is armed from paths that do not
+  require the netdev to be running, and there is no unconditional disarm…
 
-Assisted-by: LLM
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: fix uelay typo. mention W=1.
- drivers/clk/actions/owl-pll.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--
 
-diff --git a/drivers/clk/actions/owl-pll.c b/drivers/clk/actions/owl-pll.c
-index 869690b79cc1..5e30ce35f2f5 100644
---- a/drivers/clk/actions/owl-pll.c
-+++ b/drivers/clk/actions/owl-pll.c
-@@ -186,7 +186,7 @@ static int owl_pll_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- 	regmap_write(common->regmap, pll_hw->reg, reg);
- 
--	udelay(pll_hw->delay);
-+	udelay((unsigned long)pll_hw->delay);
- 
- 	return 0;
- }
+net: airoha: add LRO offload support
+
+This adds LRO offload to airoha_eth using the eight hardware LRO queues
+mapped to RX rings 24-31, bumps the page_pool order for those rings and
+disables hardware scatter-gather on them, and sets GSO metadata plus
+CHECKSUM_PARTIAL on aggregated skbs. NETIF_F_LRO is exposed in
+hw_features and re-evaluated when the QDMA user count changes.
+
+A couple of questions below about the unconditional buffer sizing and
+about the lifetime of the CDM LRO enable bits.
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 64619e9a704dd..21ac80bdd084a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+
+[ ... ]
+
+> @@ -800,12 +1027,10 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
+>  static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+>  				     struct airoha_qdma *qdma, int ndesc)
+>  {
+> -	const struct page_pool_params pp_params = {
+> -		.order = 0,
+> +	struct page_pool_params pp_params = {
+>  		.pool_size = 256,
+>  		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
+>  		.dma_dir = DMA_FROM_DEVICE,
+> -		.max_len = PAGE_SIZE,
+>  		.nid = NUMA_NO_NODE,
+>  		.dev = qdma->eth->dev,
+>  		.napi = &q->napi,
+> @@ -813,9 +1038,10 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+>  	struct airoha_eth *eth = qdma->eth;
+>  	int qid = q - &qdma->q_rx[0], thr;
+>  	dma_addr_t dma_addr;
+> +	bool lro_q;
+>  
+> -	q->buf_size = PAGE_SIZE / 2;
+>  	q->qdma = qdma;
+> +	lro_q = airoha_qdma_is_lro_queue(q);
+>  
+>  	q->entry = devm_kzalloc(eth->dev, ndesc * sizeof(*q->entry),
+>  				GFP_KERNEL);
+> @@ -827,6 +1053,9 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+>  	if (!q->desc)
+>  		return -ENOMEM;
+>  
+> +	pp_params.order = lro_q ? AIROHA_LRO_PAGE_ORDER : 0;
+> +	pp_params.max_len = PAGE_SIZE << pp_params.order;
+> +
+>  	q->page_pool = page_pool_create(&pp_params);
+>  	if (IS_ERR(q->page_pool)) {
+>  		int err = PTR_ERR(q->page_pool);
+> @@ -835,6 +1064,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+>  		return err;
+>  	}
+>  
+> +	q->buf_size = lro_q ? pp_params.max_len : pp_params.max_len / 2;
+>  	q->ndesc = ndesc;
+>  	netif_napi_add(eth->napi_dev, &q->napi, airoha_qdma_rx_napi_poll);
+>  
+> @@ -848,7 +1078,12 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+>  			FIELD_PREP(RX_RING_THR_MASK, thr));
+>  	airoha_qdma_rmw(qdma, REG_RX_DMA_IDX(qid), RX_RING_DMA_IDX_MASK,
+>  			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->head));
+> -	airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid), RX_RING_SG_EN_MASK);
+> +	if (lro_q)
+> +		airoha_qdma_clear(qdma, REG_RX_SCATTER_CFG(qid),
+> +				  RX_RING_SG_EN_MASK);
+> +	else
+> +		airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid),
+> +				RX_RING_SG_EN_MASK);
+
+[Severity: Medium]
+Is the order-2 sizing meant to be paid even when LRO is never enabled?
+
+airoha_qdma_is_lro_queue() is a pure function of the ring index
+(AIROHA_RXQ_LRO_EN_MASK & BIT(qid)), so it does not depend on
+NETIF_F_LRO at all:
+
+	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
+
+airoha_qdma_init_rx() initializes every ring in RX_DONE_INT_MASK, which
+expands to 0xffffffff, so rings 24-31 of both eth->qdma[0] and
+eth->qdma[1] are always live. For those rings this hunk gives
+pp_params.order = get_order(SZ_16K) (2 with 4 KiB pages),
+pp_params.max_len = 16384 and q->buf_size = 16384.
+
+Since q->buf_size equals max_len, page_pool_alloc_frag_netmem() no
+longer sub-allocates (it only splits when the request is smaller than
+max_size), so airoha_qdma_fill_rx_queue() consumes one whole order-2
+compound page per descriptor:
+
+	page = page_pool_dev_alloc_frag(q->page_pool, &offset,
+					q->buf_size);
+
+That moves the per-ring in-flight RX memory from roughly 31 x 2 KiB to
+31 x 16 KiB, i.e. about +4 MiB per QDMA block.
+
+Meanwhile NETIF_F_LRO is only added to netdev->hw_features:
+
+	netdev->hw_features = AIROHA_HW_FEATURES | NETIF_F_LRO;
+	netdev->features |= AIROHA_HW_FEATURES;
+
+so LRO is off at probe, and airoha_dev_fix_features() strips
+NETIF_F_LRO whenever qdma->users > 1. On a board with two GDM devices
+sharing one QDMA the feature can never be turned on, yet those rings
+still hold 16 KiB buffers with RX_RING_SG_EN_MASK cleared, and the
+pools are never re-created when LRO is toggled.
+
+With scatter-gather cleared on those rings there is also no fragment
+fallback, and refill runs from NAPI with GFP_ATOMIC | __GFP_NOWARN.
+Could order-2 atomic allocation failures under fragmentation simply
+starve rings 24-31 here?
+
+Would it be possible to key the order, buf_size and SG setting on
+whether LRO is actually enabled, rather than on the ring index?
+
+[ ... ]
+
+> @@ -1954,6 +2235,10 @@ static int airoha_dev_stop(struct net_device *netdev)
+>  		airoha_set_gdm_port_fwd_cfg(dev->eth,
+>  					    REG_GDM_FWD_CFG(port->id),
+>  					    FE_PSE_PORT_DROP);
+> +
+> +	if (netdev->features & NETIF_F_LRO)
+> +		airoha_dev_lro_disable(dev);
+> +
+>  	return 0;
+>  }
+
+[ ... ]
+
+> @@ -2136,8 +2424,14 @@ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+>  			airoha_qdma_rr(qdma, REG_CNTR_VAL((i << 1) + 1));
+>  	}
+>  
+> -	if (cur_qdma)
+> +	if (cur_qdma) {
+> +		cur_qdma->users--;
+>  		netif_tx_wake_all_queues(netdev);
+> +	}
+> +
+> +	airoha_update_netdev_features(dev);
+> +	if (netdev->features & NETIF_F_LRO)
+> +		airoha_dev_lro_enable(dev);
+>  }
+
+[ ... ]
+
+> +static int airoha_dev_set_features(struct net_device *netdev,
+> +				   netdev_features_t features)
+> +{
+> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> +
+> +	if (features & NETIF_F_LRO)
+> +		airoha_dev_lro_enable(dev);
+> +	else
+> +		airoha_dev_lro_disable(dev);
+> +
+> +	return 0;
+> +}
+
+[Severity: Medium]
+Should the LRO arming in airoha_dev_set_features() and at the tail of
+airoha_dev_set_qdma() be gated on netif_running()?
+
+__netdev_update_features() dispatches ndo_set_features regardless of
+the running state, so "ethtool -K ethX lro on" on an administratively
+down interface reaches airoha_dev_lro_enable(), which programs
+REG_CDM_LRO_LIMIT, REG_CDM_LRO_AGE_TIME, the REG_CDM_LRO_RXQ mapping
+and REG_CDM_LRO_EN for that QDMA block.
+
+The only automatic disarm is in airoha_dev_stop():
+
+	if (netdev->features & NETIF_F_LRO)
+		airoha_dev_lro_disable(dev);
+
+which is only reached for a device that was successfully opened, so
+nothing clears REG_CDM_LRO_EN for hardware armed while the device was
+down.
+
+The same applies to airoha_dev_set_qdma(): airoha_update_netdev_features()
+runs first, so a device whose wanted NETIF_F_LRO had been masked by
+qdma->users > 1 regains the bit and then gets the destination QDMA
+armed even while it is down.
+
+Neither airoha_qdma_cleanup() nor airoha_hw_cleanup() clears the LRO
+enable bits or the queue mapping before RX DMA is stopped and the rings
+and page pools are destroyed, so the CDM aggregation engine is left
+enabled with a stale queue mapping after teardown. Would an
+unconditional airoha_fe_lro_disable() on the QDMA cleanup path be
+appropriate?
+
+This is also inconsistent with the surrounding convention in the same
+file: airoha_enable_qos_for_gdm34() and airoha_disable_qos_for_gdm34()
+both gate their REG_GDM_FWD_CFG writes on netif_running(netdev).
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index 527e3833e36b1..286f73e2e1e09 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -46,6 +46,18 @@
+>  	 (_n) == 15 ? 128 :		\
+>  	 (_n) ==  0 ? 1024 : 32)
+>  
+> +#define AIROHA_LRO_PAGE_ORDER		get_order(SZ_16K)
+> +#define AIROHA_MAX_NUM_LRO_QUEUES	8
+> +#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
+
+[ ... ]
+
+> +static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
+> +{
+> +	struct airoha_qdma *qdma = q->qdma;
+> +	int qid = q - &qdma->q_rx[0];
+> +
+> +	/* EN7581 SoC supports at most 8 LRO rx queues */
+> +	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
+> +		     AIROHA_MAX_NUM_LRO_QUEUES);
+> +
+> +	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
+> +}
+
+[ ... ]
+
 -- 
-2.55.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260909-airoha-eth-lro-v7-1-e6317be79067%40kernel.org
 
