@@ -4,86 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53125C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 05:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE27EC88E45
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 05:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7gamaM3ocBB+4O2hg6ustnV02tbiSJQKUzLHib6YK0=; b=hJl+khIH1HiHLw1b2oeLPDnYPs
-	MIzSaAjwWu3xL/q8Ghv+aI3iIb81OHNv/FfZIUnkeO1qKclLX1fBTP5eM0sL1YBzX0G3RVSm1AFHl
-	Npi/cUedOkWrd+QPZPAiMgYtINsK4KtuldSbnMOafTQtm7uADYrP6orKMxHDGxUa2wSZCOvrm1334
-	ErPorCczqrPfzEYgHF9dAe9BFz3YCj4M/CYVTq9FpKCfmSZij99wH/UdnRNuFlC+ENxu+WG3LQg5Y
-	OzvAzErUrdNDHn7eWC2C/ZrHqnxNuo1ZLn50accjV7p4xJXngQ2mIdQKJvOzFwnzl/JdFrQFSrsAv
-	daFomo5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vJxa2A/3rOOORvzNhRcBlzIBKMNk6f1s0vIeCYqnmPc=; b=XQxs/bQk2qGS2aDYW1W3NwqyMl
+	seG5fvtZugh9MUxJZQGPlZVhSb+i1K90ffnJLWeggAOILCaCQJN9cI9uv1tLRu+6NN35DemJshu67
+	WIAqKEp+nHxulCoYmmKPSReDAtdIvv+1qBbj8JfyESH2a17TPawtnNK9ojjeudqFjwEDnXqgCrd8g
+	aHQcS3zcIxRvsC/fQH9iAelH1E1/kudxutThJSAhxIbuTbaLnz1KOFihy77MlSmxPubndB40Rtr4k
+	ojDVLVZ8SdrFRVWgyUNyMboE4G2TRw79GV/NdEYmo0AjYOt3/gfATOANtwDnQ4qbeIskOZJdiHElz
+	sIHMbftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5G0j-00000000Y1e-0PRv;
-	Sat, 12 Sep 2026 05:10:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5FQC-00000000Wme-2Nol;
+	Sat, 12 Sep 2026 04:33:00 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5G0g-00000000Y1W-48VI
+	id 1x5FQ9-00000000WmG-3EIk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 05:10:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A83AA600D4;
-	Sat, 12 Sep 2026 05:10:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F2201F000FF;
-	Sat, 12 Sep 2026 05:10:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789189841;
-	bh=b7gamaM3ocBB+4O2hg6ustnV02tbiSJQKUzLHib6YK0=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=OEZphzm3wMMRqTwmUnagcM+KkWkkTEvAT3wcp93TZCJkN2dazyFetMFqVZVuf+zV7
-	 drMfqy3/azCvyRO4GZwYRU62gKX9R/h4JnLkota4GImeWvztGmQ6gwzOEl9t+pkiVf
-	 BDyS7frnNnG5/bK6UOHkPheXHOc+Ms5TmGLMpESOjUDdK4nK60SgDxKyQ8zj52lyzc
-	 wcMR2QrQ2oOSEEYg/HXgIsIeY8gxve2Ade2bJEbOR4QQA4BcQ9oOAbXJ23ExBEaMJr
-	 fjuNwfEtxx9Jn4UMZiVSKI/wMEB0jAsmzu3W4RnVLmA/qTJBuYAwblXEdcX6uU/UsY
-	 1IvqTxEnYzpUg==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id C2B99CE1580; Fri, 11 Sep 2026 22:10:40 -0700 (PDT)
-Date: Fri, 11 Sep 2026 22:10:40 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v2 08/15] bpf, x86: Maintain Tasks RCU trampoline
- nesting in the BPF trampoline
-Message-ID: <14cb8a91-497d-49f5-aa20-c6cb8b9a27fc@paulmck-laptop>
-References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
- <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com>
- <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com>
+	Sat, 12 Sep 2026 04:32:58 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469e211a3so195975b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 21:32:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789187576; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nA9vdr9FjvD+9GbeZ5ZomqYB/Ve0WvyqEcVKusHPVzL+N/e11exEhn4KsMvIBECafH
+         MAOLW5ijWZMXdYYWfKAvUD8S0E+n5fqymH6XK7bIdhvp5vW7Np8LiTPihEX5u11oLyya
+         z67rZvNrkHdUJ4mhgnBeMubzfGS9lsup6/cFCoWxSqC0oDXhIqYQkES1iuASXpk+pQbj
+         XbJWRvUCvEFBOnLQalqLF36UofbK9luyCOZzETKUSZWx315923SRJQ3+tchEGJYl2+gk
+         ncsEpWBwjXDoaifTrEIs3DLPvlFQDHcSjNzeOBj1XtS5mLEZin/qeAnNYvzjhCKrKU4u
+         1hpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vJxa2A/3rOOORvzNhRcBlzIBKMNk6f1s0vIeCYqnmPc=;
+        fh=1/uzxZ+j6ceQ+Ef9wNLi9PXKTm6bozhVnMCvhL+r0VE=;
+        b=UknQ3WfOmtqKq79UFcFCPKsn1Nbxv8yGu86MZRNqv5lt/glKY94KN35uqbPDf7J401
+         yr7umf2sO/rOgHoX0jVGsMAi99WUwofcwYckRpA8dFuAQdY7UhOzMCui0IVyI33WrpCm
+         jVJPnYWBqPgyL1r9h9BUA1KTBrP2aaw6JQTOhNfxz+BIuxbI4r6xc2P3YVo58gb9Aw23
+         AAWDy54SX+k2jH686NapcNWa3uuqdLUzeCBIxT5Hnm+kEpJt/Ho6drfg9KcU0hPVoer4
+         fBD2x/ib5OCPLdijQr8JloMqdA9XuUpXzy0h3aKYlhN9k37q8OkDuTA4m3GxalYuEaJI
+         gt7g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789187576; x=1789792376; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vJxa2A/3rOOORvzNhRcBlzIBKMNk6f1s0vIeCYqnmPc=;
+        b=bl0w68qAEPA0JWZiBH03usaB4S+uCvQJMqQhI1vGQM9wkbFuyG14AsVvVDpiRnnEfl
+         mye1x60lcZyKryxdAbRji/repW/L+Yo8yurHVC699lUWpwNtAIJ7jz6vd6gJaAx8YHCv
+         qRQEmFPvarlLQj2WRRgnwIRuurhWUG1cADk57P/GKct0XrLbNX1q3qlBI5B5xOBMPAEl
+         d4i6XJfhxnT55PgE8c4HKk0Ib3H/oY89cZ2zU0E8AXnH7FwJgfW8DGbe9RoIAzLvAy1W
+         aKM5YDrF71nJVNh0HgLZBi1lwREsZ4nwLnpq77wGf8kXSjOnHsZKpygWPJ5rRQ2KJZm5
+         Mtzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789187576; x=1789792376;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vJxa2A/3rOOORvzNhRcBlzIBKMNk6f1s0vIeCYqnmPc=;
+        b=sNpE7Uc/oyx8H3+MgPzQPsMNqzdP9frrR95Xuxblns0ux0POAJ+cSIJfZF3XETzE1e
+         f7mYcaNGtaF5zYc7+b8JU5N1EoX6sXgtZU5algQkKa9doJbKkNIMHO4nXMkD/UeXKdAC
+         LlulNMotnt9J5r5SV1Bkks4+Sm/AVLbED54Q/ZtYbg4f5rS/6KQG4BZN7CRP5CEH64Tl
+         Y2MDHo2cmAl4SB/rBqc0p8vZoHCX6QDbUQT3D2v8fKgwkfk6tTe0JbhR1RAgHjGJsAHT
+         w2Pq7wFb4z6g8PxQUwrFFYlSB8svGBupNIhQ0kTNWyxuM4tVhm4m1JfSN9546J8cQmuT
+         haYA==
+X-Forwarded-Encrypted: i=1; AKwUvByAaLu5FmbKeIop2JDQN8XT7GlGhR1wKh6+8wslB6y5Y5YlX38Eixyh9LKfqk0LK3YS11m4Wf16p1PuTzcLaEaR@lists.infradead.org
+X-Gm-Message-State: AFuF++m+tVTnYEoTYS4rhRoYY1gnOtij7X/RqtMxp472RSjDgnOcmo/Z
+	+wBI5pUkS2lGt+30fZqEuRqWGBIuP5RmAmVvuztf0bkLpuHf8/yuG1mwwY9THP0iq2JL63n3Dts
+	dtitcSUQwjDMS62DkwOQcMdbMmK2QY7U=
+X-Gm-Gg: AYBFou1oeJg1KqYwngHyHBSlJH9nLwR0r8sbxukTwBTYpmidRwi7zBujYf+VNEM83Xl
+	BiAcWj5if8k93to0p0wrIlYXO6vI30Uipgk2cMnRWos1DHFpDjX+m6S/GKJRN2nvbqvguM8yAWA
+	XkwSGrB2YDJ1Ld68n09iVziztnRA9M1QOClCMp5Go+IfbZrKgsOtXQc70uvcfVf80z++SHRTOhV
+	NK4ucyK2apu51v7pPuzqG68zS4ARhMiVgthFkyGrXh+bWGo/Z7xdqLUBWYrqHvAj7zWzmogCU/8
+	EkGHYNbzQ6VvhtOkuPSipqlOtPkMS078yTP43F7nWgQM2B5yfawWPd30yziS8S017FCdJHCDVoc
+	uhabMU1d+Ip8ol/WNtsJBFZeqf3cL3vNWPgFkMP+ShTwdfBHf
+X-Received: by 2002:a05:6a00:9286:b0:869:9298:ba59 with SMTP id
+ d2e1a72fcca58-86cc58b3feemr1893927b3a.0.1789187575535; Fri, 11 Sep 2026
+ 21:32:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com>
+References: <20260807160526.379-1-strst.gs@gmail.com> <20260911191429.GA549927@bhelgaas>
+In-Reply-To: <20260911191429.GA549927@bhelgaas>
+From: Semih Baskan <strst.gs@gmail.com>
+Date: Sat, 12 Sep 2026 07:32:44 +0300
+X-Gm-Features: AcwNN1UPlx4zHiHBwu2SiU3dxKzddih3M0ikGVdRzc6FKwE8r_Mspr0-EsTYEe4
+Message-ID: <CAAsRjR=F7_7M-_tC_u1WRxB4Toj8nbcQh0WeXuNhzCQAs=vbuA@mail.gmail.com>
+Subject: Re: [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	rjui@broadcom.com, sbranden@broadcom.com, 
+	bcm-kernel-feedback-list@broadcom.com, rafal@milecki.pl, 
+	florian.fainelli@broadcom.com, arnd@arndb.de, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	rosenp@gmail.com, rani.hod@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_213257_840745_C5E3C9DD 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,84 +120,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 08:27:56PM -0700, Alexei Starovoitov wrote:
-> On Fri Sep 11, 2026 at 7:08 AM PDT, Josef Bacik wrote:
-> > Emit an increment of current->rcu_tramp_nesting once the trampoline's
-> > frame is set up and a decrement before the final register restore, so
-> > that a task preempted while running fentry/fexit/fmod_ret/LSM programs
-> > or the __bpf_tramp_enter()/__bpf_tramp_exit() glue is not treated as
-> > Tasks-RCU quiescent.  Drop the count around the call to the original
-> > function: that may run arbitrarily long without sleeping and must not pin
-> > a Tasks RCU grace period, and the trampoline frame above it is held by
-> > im->pcref rather than by Tasks RCU (see bpf_tramp_image_put()).  The
-> > fmod_ret early-exit branch and the ip_after_call -> ip_epilogue poke both
-> > skip the decrement/increment pair around the original call, so the count
-> > stays balanced on every path.
-> >
-> > The sequence is "mov r11, gs:[current_task]; inc/dec dword [r11 + off]";
-> > r11 is scratch at every emission point and (u32)&current_task is a valid
-> > sign-extended %gs-absolute with the current per-CPU layout, the same form
-> > the JIT already uses for this_cpu_off.  The image is dynamically
-> > allocated text, so the instructions outside the bracketed region are
-> > covered by the irq-exit IP check.
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> > ---
-> >  arch/x86/net/bpf_jit_comp.c | 43 +++++++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 43 insertions(+)
-> >
-> > diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> > index 2853e87797a7..a375c1b7bd50 100644
-> > --- a/arch/x86/net/bpf_jit_comp.c
-> > +++ b/arch/x86/net/bpf_jit_comp.c
-> > @@ -722,6 +722,31 @@ static void emit_indirect_jump(u8 **pprog, int bpf_reg, u8 *ip)
-> >  	*pprog = prog;
-> >  }
-> >  
-> > +/*
-> > + * Tasks RCU trampoline nesting, see rcu_tasks_trampoline_enter().
-> > + *
-> > + *   mov r11, QWORD PTR gs:[current_task]
-> > + *   inc/dec DWORD PTR [r11 + offsetof(struct task_struct, rcu_tramp_nesting)]
-> > + *
-> > + * r11 (AUX_REG) is scratch in the trampoline at every point this is emitted.
-> > + */
-> > +static void emit_rcu_tasks_tramp_nesting(u8 **pprog, bool enter)
-> > +{
-> > +#ifdef CONFIG_TASKS_RCU
-> > +	u8 *prog = *pprog;
-> > +
-> > +	/* mov r11, gs:[abs32] */
-> > +	EMIT2(0x65, 0x4C);
-> > +	EMIT3(0x8B, 0x1C, 0x25);
-> > +	EMIT((u32)(unsigned long)&current_task, 4);
-> > +	/* inc/dec dword ptr [r11 + disp32] */
-> > +	EMIT3(0x41, 0xFF, enter ? 0x83 : 0x8B);
-> > +	EMIT(offsetof(struct task_struct, rcu_tramp_nesting), 4);
-> > +
-> > +	*pprog = prog;
-> > +#endif
-> 
-> It's not a lot of overhead, but I feel it will be the death by thousand cuts.
-> rcu_read_lock_trace() in bpf_prog_enter_sleepable is doing the same thing...
-> increamenting a variable inside current.
-> Can they be combined? Like treat current->trc_reader_nesting > 0 as
->  current->rcu_tramp_nesting > 0 ?
-> Or replace one with the other?
-> Two current->foo++ operations look redundant.
-> 
-> bpf trampoline is already quite heavy. I'd like to find ways to reduce
-> its overhead instead of adding more.
+On Fri, Sep 11, 2026 at 02:14:29PM -0500, Bjorn Helgaas wrote:
+> If the EROM supplies the information the driver needs, why does this
+> BCMA driver use DT at all?
+>
+> AFAICS, pcie-iproc-bcma.c doesn't use any of the information from DT.
 
-Replace rcu_read_lock_trace() with Josef's rcu_tasks_trampoline_enter)?
+It doesn't. need_ob_cfg is set only in pcie-iproc-platform.c, so the
+windows devm_pci_alloc_host_bridge() parses never reach
+iproc_pcie_map_ranges() here; the applied patch only had to get them
+out of the way of the EROM window.
 
-But if this means reverting the re-implementation of RCU Tasks Trace in
-terms of SRCU, I will be rather annoyed with myself.  ;-)
+The follow-up keeps bridge->dev.parent set by hand, because the wifi
+nodes under pcie_bridge0 in bcm4709-netgear-r8000.dts are resolved
+through the root bus, and frees the bridge itself on the error paths
+and in remove(). The one DT dependency left is the IRQ, and that goes
+through bcma_core_irq(), not through this driver.
 
-							Thanx, Paul
+The follow-up is in reply to this mail: pci_alloc_host_bridge(), nothing
+from DT requested or handed to the PCI core, request_resource() and
+release_resource() instead of devm since pcie->mem sits inside the
+bridge allocation. The ranges property is still read, but only to
+compare it with the EROM and warn. That is the warning Arnd asked for
+before v2: the same property feeds the platform driver on the same
+nodes, and on core revision 0x01 it is wrong, which only a BCMA boot
+can notice. If you would rather the driver did not open the DT at all,
+that check is one separate function and comes out cleanly.
+Both shapes are tested on the RT-N18U (core revision 0x01): the warning
+lines match the applied version, /proc/iomem and the enumerated devices
+are unchanged.
+
+One thing changes with it. With PCIE_IPROC_PLATFORM and PCIE_IPROC_BCMA
+both enabled, a core revision 0x01 board now gets a second probe from
+this driver: the DT window sits elsewhere there, so the collision that
+stopped it before is gone. Revision 0x07 still collides. That
+configuration does not work on revision 0x01 either way, since the DT
+window there is one the hardware does not decode, and Rafa=C5=82's DT commi=
+t
+was tested with the platform driver, so I take that as the intended
+path on mainline. It is in the commit log.
+
+If it is better squashed into 552aa843e4c5 while that is still on the
+topic branch, I can send it that way instead.
+
+Best regards,
+Semih
 
