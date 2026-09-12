@@ -4,176 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849CDC88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 21:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C336C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 21:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60MAC8K8VhX8A/5Yu8rhJ/FgiqlwTDjyjqEQCpjoT1U=; b=U2NGT9j1U8FPxcaVCt6XEUj+mJ
-	NN+gxPduWXmd6tGq78NEr75aMcK6PNOLykWT/oVi5rZxsKLmvuh112H62qOqZ9QLtxefcbV9m+Xpc
-	nDGjeSqHU2CAXANasUMp3aMnLTrbYOfjWY7xn4SY60xUVyRYhphkm2/HKGNuznTK2wrullKmXsOj+
-	LhCEl4+2lRfcTdpi2/jp3pcnLTJaQ+fcPWyLsWXh0qiNTNuk3j2AXcCLAgNrNgyOqnE2xiUbapyS+
-	M5bCDnQzdV9yxb3QeZRppXVFl2Mh9H+KZrwSIj39v6C/+W5wYmW4rAjAG8Wvwvu+yKR8WIrwj4yd1
-	U3StOQKg==;
+	bh=N/CbiDPrUOsN+7DAN3mxpptlWvTyBYiJ+JQCnLs+z18=; b=NvzOd9/jVF3JUVDKzlE/jucayG
+	ML9QFeLwA2opp9HV0RSxmC4/kB2J/mbK9z1pyZoRboKoTSKg9FT3A190B01hbFBvyafmY/AZcx7RK
+	+l4031NXip+EO6fRTrLpHqdq23s4AEJng1v31NlX/YCJR3cw1Ge44kMSkM5jRRYgWpJ5tyBciO15j
+	7SMYn2JCv8R7QAvFGAo6EqV7oWu+zPp0gy/RiWob6SfzkRcPI3Ermp+PDe/bZ+nn1wepO2HPLuBfL
+	C7jcPyfkQHXqMQTP4dXDNQisGIjqmNJZdXnaNYB2poVj5i7Fdic+6VaUnZVpb4eciC+YolM49lo2j
+	pdCn+CEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5VLV-00000001Dug-2GXp;
-	Sat, 12 Sep 2026 21:33:13 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x5VOP-00000001EE1-0czi;
+	Sat, 12 Sep 2026 21:36:13 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5VLQ-00000001Dt9-2ZXm
+	id 1x5VOL-00000001EDG-3tLv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 21:33:12 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68CI1LNV901940;
-	Sat, 12 Sep 2026 16:33:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=60MAC8K8VhX8A/5Yu8rhJ/FgiqlwTDjyjqEQCpjoT
-	1U=; b=kB7TOgyyqdnz0rUPg6TGJcZNQDpk5G44Aer71LIquHc9vDWwvEYaNteDQ
-	+qfL6uHwCB/22woTH0r2u1Vb9dzipugQGDHYBHofv0k9nvd6DPSx08rJqoLXICBV
-	BIk06uxTLSOwLwx/NVBNxp40eqRM1jGKI1uhwQWcd0DVG5Jii/BzOpG5NGtkmLJK
-	47h6HYH0Ou2gNhiPqRagMfol4VXlHLVsFdD7bJzpTVZM7AGSQrrWbQ+pwxckAzDB
-	Z4GoPBwm/8t9AR1EBlF5tmOAL3O2BiVnCUEAO4DckHKrRCD6k/kdbNFzlPXtcnhI
-	MTLD9pHIipAZSsjqSGeANWiJ5j8RQ==
-Received: from bn8pr05cu002.outbound.protection.outlook.com (mail-eastus2azon11011020.outbound.protection.outlook.com [52.101.57.20])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4gmy7au4a4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 12 Sep 2026 16:33:06 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=li70M8M0YuG18jRKIK4nkqz2+U3aWmawvv3OiDtVjM/AydxBfh8FPYrylrglk0d5cGnt6Af1GHjHb4G/RUrEHMdMEn7urB3SQHt1uw2hrOHmI65XkxhB6LaeGLlmpCHflAoy21zKJNuFMhAB+kcF30sZ0M8EBHYu7AL/Bfj7F6y+lvKRJl0qPgHLElnpBHIdORCOsFyS5nfITMGnxE6/sv7xMYs3OCRBCoEfYZwmUj6C/2DUHukiT55MDO88Utg9/StbcbNlVRqThtYezlKRd7P+/pnmlHO15IXYS6fuZ5EDyq20NhM3I3BpiVsF6G7aeg1ftKgAHOCXwfw+rBINqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=60MAC8K8VhX8A/5Yu8rhJ/FgiqlwTDjyjqEQCpjoT1U=;
- b=ZkrWRY6ZKP5KT74mzBxUcvfVupyOBwIfThUh3UEw24t+1I0mArfZ+3Bj9L7MX8gpJfMz7Ne2mlx1BHtffu49Ug1u22cr9Pwrkw9C9XweY0hw831MiNVFqDnMg99gT5c3RKTxiK5yEjSnN6/SrackZ97jqHMsK1/2/9GBf0+un6VNURjqz/32itK8XCW89kB8CK71RWXtiXl0K87LB7aqBRwQfgwL6i+yMHTDQIrMH7fGNOqDrQHPJeSa0llLBXaXLvaN8oYJfB+GH4wgZhF2V60Ug/FLRpxvzcFgotb24jr+CXENUhypXw6TlchArTNwT7/8kLdo/mm04svABnTJUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=60MAC8K8VhX8A/5Yu8rhJ/FgiqlwTDjyjqEQCpjoT1U=;
- b=Z5qrajDz/fFqIAC0GZdd8hl5JiY7uRbmZEvtXAkf3jPCB2Aw7KmjnpwGTJZeyAbFTYuGgxB7bopscGCL2MCZ3hsvQU3AfMQ8uGYT5sl4okQqi0z2PtRfzko3Mu4mx/DgJHnCXxUaxusEmh0sB2pFuisa5ivyN4FCxgm8rQlSMXs=
-Received: from BN0PR03CA0057.namprd03.prod.outlook.com (2603:10b6:408:e7::32)
- by SJ5PPF5467E3597.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::7a0) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.8; Sat, 12 Sep
- 2026 21:33:02 +0000
-Received: from BN2PEPF0000A992.namprd04.prod.outlook.com
- (2603:10b6:408:e7:cafe::82) by BN0PR03CA0057.outlook.office365.com
- (2603:10b6:408:e7::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.11 via Frontend Transport; Sat,
- 12 Sep 2026 21:33:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN2PEPF0000A992.mail.protection.outlook.com (10.167.248.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Sat, 12 Sep 2026 21:33:00 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 12 Sep
- 2026 16:32:19 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 12 Sep
- 2026 16:32:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sat, 12 Sep 2026 16:32:19 -0500
-Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.196])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68CLWI8m3511026;
-	Sat, 12 Sep 2026 16:32:18 -0500
-From: Kendall Willis <k-willis@ti.com>
-Date: Sat, 12 Sep 2026 16:32:14 -0500
-Subject: [PATCH v3 2/3] arm64: dts: ti: k3-am62a: use ti,am62-mcan
- compatible for m_can devices
+	Sat, 12 Sep 2026 21:36:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 789911A030B;
+	Sat, 12 Sep 2026 21:36:04 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E44CE60580;
+	Sat, 12 Sep 2026 21:36:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C302611C7AFB3;
+	Sat, 12 Sep 2026 23:35:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789248958; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=N/CbiDPrUOsN+7DAN3mxpptlWvTyBYiJ+JQCnLs+z18=;
+	b=w+oXppiydFxBpp5BUd31WCr9pmxENm2EDF8f4NAQ9wHCCHuLUp9Bp4s0RTmbvquk0fVqGd
+	RKl4I2hzWD+RAkVx4kbw+bZOlAWjOqqbKy9B/Ln7uPyWMYy//XqoN2NgDTTqCj0grpaBPm
+	1o0pvbduZkdmAKCDvnhjKV8ZtGoEYGtgJsOf5PsH/+/WQEOYvW55k0q+SYmhi/8vJm5qOG
+	VQp5zw7iXmh7gGc3TUPVuYs1AuWRM3ILC+DGQkw8j6pBcB0dqmWLmFHTFzSZH/5syzeq8Z
+	JZKHe0RTg8AcD3SHzk9ei3k/LjlgbhxwDROAY1HpTJh81ElS0y14qC8uZObtug==
+Message-ID: <7d72b99f-ca65-4ad4-954c-b3f9d07de523@bootlin.com>
+Date: Sat, 12 Sep 2026 23:35:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v6] net: stmmac: remove software VLAN tag stripping
+To: peilinhe2020@163.com, he.peilin@zte.com.cn
+Cc: alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, jiang.kun2@zte.com.cn, kuba@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com, vbridgers2013@gmail.com,
+ xu.xin16@zte.com.cn
+References: <202609040845307827XHaxAT2PmgJc9jjPqfAP@zte.com.cn>
+ <20260911141126.10592-1-peilinhe2020@163.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260911141126.10592-1-peilinhe2020@163.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260912-smth-v3-2-6fa661ae5a4c@ti.com>
-References: <20260912-smth-v3-0-6fa661ae5a4c@ti.com>
-In-Reply-To: <20260912-smth-v3-0-6fa661ae5a4c@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <s-kochidanadu@ti.com>, <a-kaur@ti.com>, <s-tripathi1@ti.com>,
-        <vishalm@ti.com>, <k-willis@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789248738; l=2005;
- i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
- bh=YRTgOaVwPxH+jKVn9JeTMKZNQR839ArwvxywwTpBLAQ=;
- b=q2b5JvNxkaHjTB91zhvzGksQqfIjSCPJjfOWCFmSunBYks7rRrrEcjSc2tcmeYXImp5gezptN
- BpD54J9uxdFCT01cKBLqxveDfo59KSraK+CmTqSPaTc60n5VqfG78Du
-X-Developer-Key: i=k-willis@ti.com; a=ed25519;
- pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A992:EE_|SJ5PPF5467E3597:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08990c41-743b-41dc-ecc8-08df11156b7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|82310400026|1800799024|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: BIQo0fK9R9ToB158GwUl5CQ5dSzyRN0aCD1lEkuUtMt8mpZhkA9ssYovyUAvUbcdfhRYeeG9coMmay/orwtA2kfASWMBRkZAkGpqXKqy4C0G3jzqduKSiRHT3+vwI/aoPwYarxZsCt7N5B/2ZlkdUCrsz/77+UXterBLaD7F2J3ehUFFf7JZ7UU3hQPG5CpZarjd7KcjQv7iuN/iPMHA8P6D8A/Ek8VS6vB7//FoPKNd38p4H53RW5u0aKYJOaAPy4cPRCeBroGMz50i7xej3qpMEvgrwxtckDbe/D7gOVb0EwNEMd1qXolKsFms384/gX1z4gpW1s2uv3AIlp72kP+ElPLiUR25dnOP3TB/p1a/2Q1qiGgNCGA0FN5IiVddjcPTvXr/bN0vT0zyS+iG/6S/o14uAhdYXIa9MTjYHj95G38Z0xpxzXtsp3I3a2yQJwbACplhOAMbCjUOrzx8o4Qy4irAZLxpHcvBj9a43H6YswwCquxksdONTJvBYigsllUeLtmbrRI+PQ5wwmfNN9MTG6tZebsW4d5pBGj/nd0UK0fjwvX4ZmXuXMO2vt2QG6a6hSlZ0x1OBNN8j+f48PQIy+m0S9o6VEgG0QoE5N4IcnK6PYj78RuFkDTQvWA0GVxYhcFjIQ9KgPupNIyy6wvpbJxrDgZdpw7bFggKd8YH5tky+5TJt6jUJTPlkrwMRn8cA96DW0H14T4GcZwHxA==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(82310400026)(1800799024)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Y3zb+yly3Quk98tRO/wd2UmE4NX0CQvMiBr25n4RM9Ylgktr8fRTIVh041OjdCtRUqkjYYZ49IV70PFdj9lqk4yrdTNLNZ8Gwe3gcthpFcNKY5C+nXjfEZvtUoKyuKYBWrg38cbcP73F/Yiz/jXXNgu/sOuTcXeDfa76cweyvvZ1CeDTE983wXtgbw0nntqYv6FPqtIakPCoeSlda0QvPOnS3ry2rzYmC8hYUMtQKAFer8Ld+bddSjXulTRZlD/dxxYsNMagvqSTw75TeTRBl5t38cCnIcbO9hshmlLdai/vXNocfJXCNzYVbDOGXLzdsEDSt6/8nSkM47Lg2XIc6FJBbUMA43UagrMzt2ClwLOCekJfsWfwaucDjOkge2fc16kNhklF2iQtkKraRQ8+XdVGrw4GkgFRsqrf4jMG0tkKi9pEruMittBiC79+DUY8
-X-Exchange-RoutingPolicyChecked: Mk6tY2AigVgE6zVtNz9QSYOU5W6K1m50ctvoZN2593Zk/gUGcw3ny9esehVgyMFH9g4vWvmTNFR7+jTq2lA43VsyHAvhl99myuTy6MN9448oY44J9XOIB3JP97DulilYAYMa/Dhrg+FG8e4iGG3hZQ0WZHkR+V+BBpgaXeZ73DRIogAec/ehNVz0Ax8GD4R9x5VF6Ci4HBx8HeJAQTut/EDqw5cUykl2lnPAvIlLHuKsz7lnGJZ2Ozb6axrQ8fmsvNrGfagfp+XkUgfbg7fyZNEsXGZfHOsE69LmbficK0a83D0wi+TL5cGS3OVeQx+r+GRjVYwDkKuXbGNzBS1YSg==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Sep 2026 21:33:00.3981
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08990c41-743b-41dc-ecc8-08df11156b7a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000A992.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF5467E3597
-X-Proofpoint-GUID: HJR92KSJv9ekpPR7fcprukoTGGNVriTv
-X-Authority-Analysis: v=2.4 cv=XZkcX455 c=1 sm=1 tr=0 ts=6aa5c512 cx=c_pps
- a=pqTWcw9xC4/AVWcamW/T+Q==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=kEN_4Xw7oY-NQBIjgk4A:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEyMDMxNCBTYWx0ZWRfX5pLFUOFqCzvY
- WOugfnzkb/OY0j89aTleFXRM7Km/s+pTOgnkqn4K/C/Oeiv8KTf+tMg0GQIBp0SybkXZc0AqBsi
- AS/5GQEmpKujlrcdgdJw/R1Lb5N4XJ7yJzZzkelhTXA+tRceXQzU7TtISb7v4Qn2gZOUYq7k6u7
- tHnob23UwRlCtFJAByHw1FRb8jGWJMrUqiXGCjJe2kuivF9+J31533KNO/Vw9/9KN24dUVFkSLH
- uKgsgE1sI12hDjkTeBQU0lKO/Hqib2LRF2NzKtpaPMwePVtJCaOyHfHtgwJD46odhiC3KW6q2J/
- RkVEJYO9ZRXC7zYYNiTpoWwe2qBMDBlmcNQ+LCl9F8407PyDLvNGNvTZUjYvweeE8pdGWqUv+7s
- 2CJdYZjCqA2b5vJxRlOrVAaqVqh/HgpiX8PiUithMaHLmw+GH9aBkYecfdK5l/OwpS1aES2IYPe
- Fl+czG6eFmc5SEPjG9Q==
-X-Proofpoint-ORIG-GUID: HJR92KSJv9ekpPR7fcprukoTGGNVriTv
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEyMDMxNCBTYWx0ZWRfXyMbpmY/qQ4S4
- 8FAAyLiXlOrAwA4ylTluVoHMnr0n9agUNjbz1TEvQ5CsJGB5l1Dhy9IqVMLsCofYsJyt5hf5uHI
- f0+Tj89psUOX8O0rz7psqQjPmDoIows=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-12_06,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 priorityscore=1501 adultscore=0 malwarescore=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 suspectscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609120314
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_143308_683146_920A2017 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260912_143610_141790_C5C38C3D 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,55 +81,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepend "ti,am62-mcan" to the m_can device compatible property since
-this compatible adds out-of-band wakeup functionality. The m_can pins
-can be a wakeup source in the deepest low power states, despite being
-in power domains which are OFF during deeper low power states since
-it has the out-of-band wakeup capability.
+Hi,
 
-Signed-off-by: Kendall Willis <k-willis@ti.com>
+On 9/11/26 16:11, peilinhe2020@163.com wrote:
+> From: Peilin He <he.peilin@zte.com.cn>
+
+Eaxh patch should be an independent thread, not a reply to the previous
+one.
+
+> 
+> The software VLAN stripping logic in stmmac_rx_vlan() was originally
+> introduced in 2014 by commit b93819854d6e ("stmmac: Add vlan rx for
+> better GRO performance.") as a workaround to improve GRO performance,
+> since at that time GRO could not handle frames with VLAN tags. However,
+> this limitation was resolved in 2015 by commit 66e5133f19e9 ("vlan: Add
+> GRO support for non hardware accelerated vlan"), which added GRO support
+> for non-hardware-accelerated VLAN frames. Keeping a software fallback
+> path for VLAN stripping is no longer necessary and only adds complexity.
+> 
+> Fixes: b93819854d6e ("stmmac: Add vlan rx for better GRO performance.")
+> Signed-off-by: Peilin He <he.peilin@zte.com.cn>
+> Reviewed-by: xu xin <xu.xin16@zte.com.cn>
+> Reviewed-by: Jiang Kun <jiang.kun2@zte.com.cn>
+
+So this patch breaks all the stmmac selftests on some dwmac1000, e.g. on
+dwmac-meson8b  :
+
+# ethtool -t eth0
+
+[trimming the output to tests that don't report -95, i.e. -EOPNOTSUPP]
+
+The test result is FAIL
+The test extra info:
+ 1. MAC Loopback                 -110
+ 2. MMC Counters                 -110
+ 3. EEE                          -110
+ 4. Hash Filter MC               -110
+ 8. Flow Control                 -110
+28. Jumbo Frame                  -110
+
+However I'd say this patch is still correct, what seems to be happening is :
+
+As now we don't have the NETIF_F_HW_VLAN_[C|S]TAG_RX flags set anymore, the
+platforms that don't support VLAN offloads end-up skipping this check in
+stmmac_phylink_setup() :
+
+         if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI) &&                  
+             !(priv->dev->features & NETIF_F_VLAN_FEATURES))                           
+                 config->eee_rx_clk_stop_enable = true;    
+ 
+So if we enter LPI during the selfests, PHY stops rxc, and notoriously on
+stmmac if you don't have RXC, half the features don't work, and especially
+the DMA RX path.
+
+This is confirmed by running :
+
+# ethtool --set-eee eth0 eee off
+# ethtool -t eth0
+The test result is PASS
+The test extra info:
+ 1. MAC Loopback                 0
+ 2. MMC Counters                 0
+ 4. Hash Filter MC               0
+ 8. Flow Control                 0
+28. Jumbo Frame                  0
+
+
+A solution is to block RXC from being disabled in the selftests.
+
+Can you add the following patch to your series, as patch number 1 so
+that ethtool selftests still work during bisect ? I've tested it on
+the board who'se selftest failed with this patch and it works :)
+
+Thanks,
+
+Maxime
+
+--------------------8x------------------------------------------
+
+From 9e4bea5f2292521997ef6b3814b586a9623993aa Mon Sep 17 00:00:00 2001
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Date: Sat, 12 Sep 2026 23:15:03 +0200
+Subject: [PATCH] net: stmmac: selftests: Prevent RXC from being disabled in
+ LPI
+
+RXC is critical to the RX path and some register banks in stmmac, so
+it is blocked from being disabled in LPI when we know we're going
+to need that clock.
+
+During selftests, we're in MAC loopback so the PHY may enter LPI and
+stop its RXC. This will prevent the RX path from properly receiving
+the looped-back packets, hence failing the selftests.
+
+As the NETIF_F_VLAN_FEATURES may be empty on some platforms once the
+software vlan stripping is removed, the phylink config attribute
+'eee_rx_clk_stop_enable' may no longer be inconditionnally set to
+true, hence allowing RXC to be disabled during LPI on platforms
+that don't have any VLAN features.
+
+Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62a-main.dtsi | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi  | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-index 9e5b75a4e88e23c74270b667a0a02d5efd931532..1552029fe4d4945b8fbe87792719c7ec7335bebb 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-@@ -848,7 +848,7 @@ mailbox0_cluster3: mailbox@29030000 {
- 	};
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index cd7dc99095a0..982c711a9700 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -2044,12 +2044,14 @@ void stmmac_selftest_run(struct net_device *dev,
+ 		return;
+ 	}
  
- 	main_mcan0: can@20701000 {
--		compatible = "bosch,m_can";
-+		compatible = "ti,am62-mcan", "bosch,m_can";
- 		reg = <0x00 0x20701000 0x00 0x200>,
- 		      <0x00 0x20708000 0x00 0x8000>;
- 		reg-names = "m_can", "message_ram";
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-index d22caa7c346b35dcb11163a5e73e17790ff751dd..b9a66e884434132dbfe93811578ca436e8c6103f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-@@ -152,7 +152,7 @@ mcu_rti0: watchdog@4880000 {
- 	};
++	phylink_rx_clk_stop_block(priv->phylink);
+ 	for (i = 0; i < count; i++) {
+ 		ret = stmmac_selftests[i].fn(priv);
+ 		if (ret && (ret != -EOPNOTSUPP))
+ 			etest->flags |= ETH_TEST_FL_FAILED;
+ 		buf[i] = ret;
+ 	}
++	phylink_rx_clk_stop_unblock(priv->phylink);
  
- 	mcu_mcan0: can@4e08000 {
--		compatible = "bosch,m_can";
-+		compatible = "ti,am62-mcan", "bosch,m_can";
- 		reg = <0x00 0x4e08000 0x00 0x200>,
- 		      <0x00 0x4e00000 0x00 0x8000>;
- 		reg-names = "m_can", "message_ram";
-@@ -164,7 +164,7 @@ mcu_mcan0: can@4e08000 {
- 	};
- 
- 	mcu_mcan1: can@4e18000 {
--		compatible = "bosch,m_can";
-+		compatible = "ti,am62-mcan", "bosch,m_can";
- 		reg = <0x00 0x4e18000 0x00 0x200>,
- 		      <0x00 0x4e10000 0x00 0x8000>;
- 		reg-names = "m_can", "message_ram";
-
+ 	stmmac_set_mac_loopback(priv, priv->ioaddr, false);
+ }
 -- 
-2.34.1
+2.55.0
+
 
 
