@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278D7C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 21:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012D0C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 22:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZT6RlOhkt+EWSh2HQUd1bKDLTnT3xlJTc9dltgodwI=; b=D0gzHdDq3lsbVsOUgOt79/MKYX
-	C3viCLnRHnVHd2bXtAXqbZMwNvR5Ge+7fj3G2RfpmjIqzyZ7R/R/Zi3yoiIY55y3bc1/ofm+DchJI
-	YyeGdMiqVJjU//S61vCJLy6bWXyKhW+RwU2IqIcmjo2QAYmIfZ3j6W0CMaq8OIsezEaX1J8Mt+n1C
-	fEfi8iAb8RoylxkTPXTp8Gld+ttxkji859mY8ocu2aLHz3E179Aie2CmBFLFpBmE3ZAXm0L6tTO10
-	gIGwWRX8J0A1sxurCSemH9Rg1/tZsDhZlStSMEq/yMar4T//CoatAG//64J2Zz0qQWNAbUmfq6T4o
-	hAf18BNg==;
+	bh=A9T5TqugoZpwriYm80tITfJ7eL5e79XFR+RGRlWT3Yo=; b=QY2V47jzTMTQ5vjg4PY4xIgCkf
+	qmKPIXOZLFlCNjgFTcGVApPgSwrHxXphoeyA0a67EViXnRDRhYouSjAjRgTelBoqhxK464qijChnc
+	gLkRnOou7GQQthgriWn4BqugxaEut0I3GvPu5kBAWRLVO5TEC06ZqOlTwhvmjlRgJsSqvcT5SRLGO
+	YXYGgA7KEnUc4YdNzI7vo3ILdKNwPR+egBW6XibiCUnJN/vYNJyNXZ2KGYrMTfhdVcdD15O5eorZB
+	s+LG/rTsdFUa+qKr7qlbmWu58rmGE9QN2ZeCjhx/SpauBHlsNzUMQI8BEH7FriA6Jbtd1D+YSnW3B
+	r7qHG3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5VRL-00000001Ea0-06W7;
-	Sat, 12 Sep 2026 21:39:15 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x5W5p-00000001FSG-12bW;
+	Sat, 12 Sep 2026 22:21:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5VRI-00000001EZh-4B5Z
+	id 1x5W5n-00000001FS9-1vtM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 21:39:14 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6B9281A030B;
-	Sat, 12 Sep 2026 21:39:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2B74260580;
-	Sat, 12 Sep 2026 21:39:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00B2E11C7AFA9;
-	Sat, 12 Sep 2026 23:39:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789249146; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=lZT6RlOhkt+EWSh2HQUd1bKDLTnT3xlJTc9dltgodwI=;
-	b=XgQoqzIdO4NMDQi9D3AxENE7d5xKIKvCWynl195QwX3AsYG0ZcYmaeiD6mg4PLN7wH5TKR
-	PlXYlME3nHoJqmjTFb/jDlhaK1hP8MIHd3W1bgfqB5ELkSVz71yTdAYYEcppz5tHBcFz4M
-	83WXYZx8NPdlt76spPGt8u9TRWB44MQdaKt4ppTB/LUwK04tB3E56V7uisHFxwZXgqbz2M
-	8KgGQEIbGtpm3HCfn/J6RwGHpZwOpoV8Mhy8gCnHNb6+9cA3TdURDNBEV4bv+jt/ds3+IU
-	zg1yXfgWyNGHAkJgmS6FO7P5dRXP7uudkqvLg+S6I0vWE0THaKxjygddeONK7g==
-Message-ID: <6ef48513-6302-44a1-833d-613f2b8a9e21@bootlin.com>
-Date: Sat, 12 Sep 2026 23:39:02 +0200
+	Sat, 12 Sep 2026 22:21:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BB6D60008;
+	Sat, 12 Sep 2026 22:21:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434821F000FF;
+	Sat, 12 Sep 2026 22:20:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789251662;
+	bh=A9T5TqugoZpwriYm80tITfJ7eL5e79XFR+RGRlWT3Yo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=BHhPvzDnmzwpQttZFmPMZf/UutFNeY/Degy6vahXXbV7Z6hNGc9MkvFE+rdhQJ6MU
+	 VAw3b4RYQvofx2lNTbeX4zkZRnpelNzwDei0UTSd3ZGNIs/4odMQ67B9LiiARuySxb
+	 U6BER7d7wfXohAn2tXbzGwa2wiTRgp4c4+hrPC/Fg2mvopBtYwKpfuJcqo2gQktz/i
+	 UBA340zyHxS9IBLWpHZ7ZP/iBROp/81WLbTAUh34hL3mGOOjez8TZZyGHIC4Q8vD6X
+	 SvDJPAFOvk+SgEr6vR+aGc41krBbPQbYbAOql8ew7alD2jpnrmyuGLi/805cAMk+g3
+	 S6DFuxrkx8D2Q==
+Date: Sat, 12 Sep 2026 23:20:47 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Svyatoslav Ryhel" <clamor95@gmail.com>, "Arnd Bergmann"
+ <arnd@kernel.org>, "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, "Mark Brown" <broonie@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Daniel Thompson"
+ <danielt@kernel.org>, "Helge Deller" <deller@gmx.de>,
+ devicetree@vger.kernel.org, "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ dri-devel@lists.freedesktop.org, "Jingoo Han" <jingoohan1@gmail.com>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
+ "Liam Girdwood" <lgirdwood@gmail.com>, "Linus Walleij" <linusw@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, "open list:GPIO SUBSYSTEM"
+ <linux-gpio@vger.kernel.org>, linux-hwmon@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-leds@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, "Guenter Roeck" <linux@roeck-us.net>,
+ linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev, "Mauro Carvalho
+ Chehab" <mchehab@kernel.org>, mfd@lists.linux.dev, "Michael Hennerich"
+ <michael.hennerich@analog.com>, patches@opensource.cirrus.com, "Pavel
+ Machek" <pavel@kernel.org>, "Rob Herring" <robh@kernel.org>, "Sebastian
+ Reichel" <sre@kernel.org>, "Support Opensource"
+ <support.opensource@diasemi.com>
+Subject: Re: [PATCH 08/14] mfd: remove unused aat2870 driver
+Message-ID: <20260912232047.19c4cb10@jic23-hlaptop>
+In-Reply-To: <11652e5e-053e-45b0-98a0-0c1cb2aeedc4@app.fastmail.com>
+References: <CAPVz0n0ryOns2sCJE_jFana9MVzwEj1QZuPEa8FNhGbHXnMB+A@mail.gmail.com>
+	<11652e5e-053e-45b0-98a0-0c1cb2aeedc4@app.fastmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: report phc_index as -1 when no PTP clock
- is registered
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Gal Pressman <gal@nvidia.com>, Rahul Rameshbabu <rrameshbabu@nvidia.com>,
- Carolina Jubran <cjubran@nvidia.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260912-stmmac-fix-phc_index-v1-1-26e1ead25324@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260912-stmmac-fix-phc_index-v1-1-26e1ead25324@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_143913_196617_496AA2B3 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +91,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+On Thu, 10 Sep 2026 20:14:15 +0200
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-On 9/12/26 23:16, Lorenzo Bianconi wrote:
-> When hardware timestamping is supported but no PTP clock has been
-> registered yet (e.g. while the interface is down), stmmac_get_ts_info()
-> currently reports phc_index as 0. Zero is a valid PHC index and would
-> make userspace resolve the wrong clock; the absence of a clock should
-> be reported as -1, matching ethtool_init_tsinfo() and
-> ethtool_op_get_ts_info().
+> On Thu, Sep 10, 2026, at 18:40, Svyatoslav Ryhel wrote:
+> > __ 
+> > Hello Arnd! May you please spare AAT2870 from being removed? I have a 
+> > device which uses aat2870 (LG Optimus 2X P990 Tegra 2, not upstreamed 
+> > yet, but in process as well) and atm I am working on converting this 
+> > driver to use OF. Thank you!  
 > 
-> Report -1 when no PTP clock is available.
+> Sure, I have removed this patch from my series now.
 > 
-> Fixes: 9364fa7fcf12 ("net: stmmac: Remove setting of RX software timestamp")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> > P. S. If you are planning to remove more old drivers, please CC me in 
+> > since I may be interested in some additional driver upgrades for 
+> > devices I own.  
+> 
+> Please have a look at
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=board-remove-7.3
+> 
+> I tried to be careful about figuring out exactly which drivers are
+> unused, but I'm sure there are still a few false positive and false
+> negative ones in there. I've added the current list of driver files below,
+> let me know if you see something that shouldn't be there.
+Hi Arnd
 
-Ah nice, I've briefly saw that just yesterday but haven't started digging,
-thanks for fixing this :)
+For I2C and SPI at least, there doesn't need to be explicit
+device tree support as long as they have defaults when platform
+data isn't there. Those two buses will happily bind based on
+a dt-compatible and their i2c_device_id or spi_device_id tables
+for example.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+So unless they fail to probe (some might?) we don't have
+a clear signal on whether they are in use via DT or not.
 
-Maxime
+For vast majority of IIO drivers we don't have an upstream
+DTS as there is no clear motivation for anyone to upstream
+the dts for a random industrial control board or similar.
+
+> drivers/iio/adc/ad7266.c
+No to dropping this.
+
+Has fallbacks and should bind just fine  No one ever
+bothered adding an of_device_id table because it isn't
+needed. Fine to rip out the platform data support as nothing is
+using that.
+
+This is a production part that is likely being used in new designs.
+
+> drivers/iio/adc/ad7791.c
+No to dropping this one.
+
+I'm fine with ripping out the platform data but this again
+has defaults and may well be in use via DT. Antoniu from
+Analog was doing some cleanup on this recently so I'd guess
+they probably still at least somewhat care and some of the
+supported parts are still in production (e.g. the AD7788)
+
+> drivers/iio/adc/ad7793.c
+Maybe. Analog devices ack needed.
+
+Production part but this one indeed fails to probe.  Analog
+folk, do you want to fix this one up?
+
+> drivers/iio/adc/ad7887.c
+No to dropping this.
+
+Production part - should work fine with defaults in driver.
+Could like the others drop the platform data handling.
+
+> drivers/iio/adc/lp8788_adc.c
+Probably
+
+Sub driver of an MFD.  I'm fine with that going if we know
+the mfd is no longer in use.
+
+> drivers/iio/adc/lpc18xx_adc.c
+> drivers/iio/dac/lpc18xx_dac.c
+Probably
+
+Likewise these two.
+
+> drivers/iio/frequency/ad9523.c
+Maybe. Analog Devices ack needed.
+
+Fails to probe without platform data and marked not recomended
+for new designs. If we get an Ack from Analog devices folk
+I'm fine with this one going away.
+
+Jonathan
 
 
