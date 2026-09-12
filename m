@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27144C79FB6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 06:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3A1C79FB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 07:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ve9TjNtAR1yRkdeuTb/54fs6qejMaivLp/JWxfSV1gU=; b=1ZY9qJGQ1CL7Ky252+WYof4boe
-	c7L1kktrKQifyEj3al4K/k+sw8X7LQjnJRGUwafEdsz0dqXcASoLb9XRssRH/PNkoGj98ONwjeNGx
-	AgkjJ8BoTVni1VilTxg1o0IPpKZmf04rp1vn7kI9X7hHgw2q+dszGfwAMD8BmKNMSXqLv6p1Vy6C3
-	4TYQxFMe2HrRE6PLlEC3zeF05kg1LQL+dW5kdOwZiNs1QYf/IkUP9IBJBkCI/RK+dV0k1aCWbyT/K
-	E2xAPkha+XnDqRah3VbOCJbArMt9AHjiBhtTGsxXSzbxVfMSuHj4SJIcBNCSStx8d7ZNDJ8jWF2Fy
-	DdQd3SmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bTBk2CBRDahK1Lh12GNmBkGqI1rSJ+RuEfJVc5A7eMs=; b=iowldBzrJumjIp
+	ur+FgH/JU2TgLbEVWfmJvoAzpaD+a0X8u+a02Y44J7mJO07vGhQfUOMT321wK4vDcxYx0E9gRLwLp
+	kgpPLj6YSVJyXfxg+zVJdourRphXnsiyjctSpVDxP0jJsL7nFLSapMXsZhmoNZNs4eG0kFK9xXy/s
+	PjINJJsb92PmEh5e5YWpZyq2ift1fiY+nZQXKEN1uoyGtsRMKPYIhe+uApREOPMWSfMqjBzmPq5o9
+	aGvOIBGhrr63EovnfLplXS/dyof7tKJyvRxXt4OPv7DKo8rVg61xDOIHxnu9qxgGPAkev8hlEAGmN
+	BvEi86Tk6/lvtaCgRZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Hhh-00000000dCH-0MSR;
-	Sat, 12 Sep 2026 06:59:13 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x5IVO-00000000fKw-0Qk2;
+	Sat, 12 Sep 2026 07:50:34 +0000
+Received: from mail-yx2-f12.google.com ([74.125.224.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5Hha-00000000dBn-1chA
+	id 1x5IVK-00000000fKU-2YrJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 06:59:09 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485b1d2874fso131110f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Sep 2026 23:59:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789196344; x=1789801144; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ve9TjNtAR1yRkdeuTb/54fs6qejMaivLp/JWxfSV1gU=;
-        b=NIFkYHTkQldITTVcPKrqDxLlji7Rl6S+cVZyM4+LqMaij3dMkoB54bIm3uIa5naTS2
-         i19s7gjuj18y9DS2NECO3iiVnZeI03iW0kMAwcqWm8thwu5/oJxb+mzjTVSNUes5R3j4
-         AcpbYumHUSXmS5v/3fVJEqUVZe1MtdgqCftHJO7csdbu26+qc1Uo3ZL6m7HVLXP0d75r
-         ijjRENMc2zwTE+XXB7hDT6ZQPgDHh9i63Pw59tNxqpl6P4DsvX2acEdC3861kBfYXzxA
-         40XOYGeKQjlgW/1C1iYChVn7pEOF7EVcWuWCb4cZ83K8tEdW9DjC5L761+UHDWys9diA
-         iwfA==
+	Sat, 12 Sep 2026 07:50:32 +0000
+Received: by mail-yx2-f12.google.com with SMTP id 00721157ae682-85d4ddd17a0so5863997b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 00:50:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789196344; x=1789801144;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1789199429; x=1789804229;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ve9TjNtAR1yRkdeuTb/54fs6qejMaivLp/JWxfSV1gU=;
-        b=b1tocjviHBQPDCyzOnjn8ufPhLv2ul2zAvy87Su4CvXNuUViw5LFR++G66Lt2AHPV+
-         4zTMMFpCXQyGBZbfLBVaPCx1A1xmEZnsUZTzSTjeQAL2TzaNK3ZqD+txMnmd4XyK0ykZ
-         +3nhldEsZN+spERpm1r6Y8LG93C8WjBVoSuHdjEzBU14WWRy/cNzFu3yQ7XOGmGJVM/i
-         LoecI8b/0BfNqQD7E04UV88L3r2XKjaEVk9db5BMXNnRIbNjaj8Hw6/I4JYJYX7+3Hf6
-         AucVyPA3Efah4lF/f3CQkEo+HGVp/qAhfAHy92rV6uQAlYKx9Cdqcu54+gZp3xN/P6ZY
-         TZpA==
-X-Forwarded-Encrypted: i=1; AKwUvBylEdWOAUPrHCJM1wIkeqZhKLLPqBRzDm30KYCX4EQ0nljDqmcGxDPXg5vPXUES6q2FAOHBLlxPnP441Lqcgpzd@lists.infradead.org
-X-Gm-Message-State: AFuF++m8VlkzzVp3glLWnxa8FzPR5oW7E7OKqjiGlrTY42zXPthj+cpH
-	3azuQk0ZfWO/WqWKlQbaWcNEVetN1YLFDc32AKxqtIlevLqrp5t581k6
-X-Gm-Gg: AYBFou3kTxJHIDSf2vOSfRxg6Uh10U8c0pwSml5odrDeel23LjRM+cEoMDJbV/9exJk
-	0MIzObeQMDEXmhHoo8kqOW4Q4HVu/b3/D7JMseC5rU2mPR01gaNkF45SAmR4+R09pTOYoZ7xWHp
-	B/fur5J2+tSH1PIYI9ji5io+gYAOsoMZeFJtnXbMi8kG70rDTFUiZ3SQPNbuxJ54EAMPUbkAgQr
-	zUfoM5LsUbrDl1LZPN8s/HdAebcJ9Q+D+4paEenXaQLadMjCU5BySY1+2LIh6nEnUeYYrVW59H7
-	ZEAaFuKHHLIpLDpXixtBdP/qFYtLxVYReIgTwfAKvAKOpRviXj5kvi8GeXix6303noJopG/FR3c
-	ujXc4I94zyPYM5LTWwLFIw0MbYXMku5VrCIO2uyoCyWq3F/AhQMTpnSoouAEDzXSLgQeXbDQBJ2
-	FJRV7HgZRCT6Z0pkRkQ1Z28kxxUtqGo3kdE+lTMkuQSV009DZ2mkM17MLKe4Af3YoV5CK2pgvHL
-	l4G0mcxexzD+1Y9TKi87y/6aH6LwEIqHmf1p6B2IQhXM9P47NtZzEYHfgfR+OhZHtfUA7IO/F+p
-	+x47RmvWiuBrU2L5r2klxm/EAjFWEQgGc4PDAGzU+5/vyF2p/Id5dKFq+pcVCSc2kewuWMDzXjM
-	oR+OFfNjhng==
-X-Received: by 2002:a05:600c:3509:b0:49c:f13e:e4d with SMTP id 5b1f17b1804b1-49e61082a1dmr89197245e9.10.1789196344222;
-        Fri, 11 Sep 2026 23:59:04 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-b260-f201-9983-e8c4-aff5-7a36.310.pool.telefonica.de. [2a02:3100:b260:f201:9983:e8c4:aff5:7a36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e6576122bsm146181225e9.2.2026.09.11.23.59.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 23:59:03 -0700 (PDT)
-Date: Sat, 12 Sep 2026 08:59:01 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	Hans Ulli Kroll <ulli.kroll@googlemail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH 0/2] ARM: preserve DMA_FROM_DEVICE buffer contents
-Message-ID: <aqT3UcHPXHIwlqqd@gmail.com>
-References: <20260910063620.17768-1-kmehltretter@gmail.com>
- <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+        bh=bTBk2CBRDahK1Lh12GNmBkGqI1rSJ+RuEfJVc5A7eMs=;
+        b=rcehF9RYcwiq1Yg2bOz6yR1CBCDc/k73HEJXOoFRudhU9vx0+U/24ykpbWi0OGcmCt
+         FxfqcpZDMOkq/2Kq761dh4F85YyydIuBlHdXWxKEZdO4OW5EocyGs8mC/BdMjoI30o6Z
+         fCRUA/odiBATkAFYX8Ez+fANiHBX7/DSe3cIlfBd0HqHj/dUItUoCUea2knCYUU0KDlA
+         jZwyCqx+A5wMBiWXqSGXAjXJjnJkoGcfj+XrQ56mfGZLqoca8MzE2gthoCWak0kjV3wW
+         1aPBn0dYOI7jIm5qwcH9gDBHY1ec8C2RiX50AlvhlSOk3eIWohLNvQYg1v5pGQqN10Uj
+         BGQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw7ISmcGLkOEj6qxpb9cOQm319UHNTx3KAtyStVWX0ajim9XkZ1sw6EmAcZ08KOHmaMNDTG5ETKrieTMiHJlOGA@lists.infradead.org
+X-Gm-Message-State: AFuF++mB+J73vzB+1i563SYGaC/f5gUZ7RV9+Ph0l3JNaiHpAIMvz4X/
+	yoTsUzYc/mlqNMo9LPrz9dnTS9IlxBiAULSHlbKVhYqPP0d16NYCyJ9KTa2971Awf7s=
+X-Gm-Gg: AYBFou2g2WBg4hDsSRy5Q9HwbRF2iVZC27pSRiH1GEgA31/FzDxY9tpI89W+y5TUsD0
+	82+4AZce8kcc0Lzsp8oEtsWISf4iYv1fEzmSxU5lkj3UfB097RUIPjnwiyBohuuZNSAy3f/KNZe
+	6aNSjX7/YSa1AHvTMCSI28R84sNEXkkWtMfWHp2/tRTT4Ne3uiqLuylH/F+HS+zRH5Vqxfu5hAq
+	TeEuh9Wl028SQ9cK0vLH/pykXAVK9OmabfkixNTt9bvB6g38hJabCeRzPD2cqJRs/V8/izbWAEo
+	JPMQjsD6lvYE/gw5B4c8LCXCuGl1ZpKfklewF89DPKgyDY0hvgI7S3i85aCpLNLRUV79UzfeHSi
+	eYiqTbwwuskEYH/aZ/TSOMlSRRJCDWFW9hbayx2y1KU+HxOiN7NyvHXEemkLUKetkd5jVX5JlOj
+	l5Tt0UiO4gT8dTLo/eF5D/wCNDeqQm8OTcVXvTLzmeVxHy5VbDqqs8Unhnj1+XtuKhUgp9lQm4P
+	/qul8rbz75hG9VMjfBgJ4lCTS6sXgMDeJVy9rqFtXqMItEKov6F+kxVT7uFxJEc
+X-Received: by 2002:a05:690c:e295:20b0:87e:2404:5c46 with SMTP id 00721157ae682-884afc1d946mr26684957b3.12.1789199428869;
+        Sat, 12 Sep 2026 00:50:28 -0700 (PDT)
+Received: from mail-yx2-f13.google.com (mail-yx2-f13.google.com. [74.125.224.141])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-88487ea38e1sm19215387b3.30.2026.09.12.00.50.28
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 12 Sep 2026 00:50:28 -0700 (PDT)
+Received: by mail-yx2-f13.google.com with SMTP id 00721157ae682-85e68bdbcc1so4759057b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 00:50:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwpj1LUsnBWmWX/doFEc3je5Qswtf4XDx+NNrRDdx3UYPrRYHP3eetMysySlZuyWIC1zg0PSyRqwd9zsE4EZ5Wj@lists.infradead.org
+X-Received: by 2002:a05:690c:97:b0:81f:e85b:f9da with SMTP id
+ 00721157ae682-884b4b01ddamr30061107b3.33.1789199423193; Sat, 12 Sep 2026
+ 00:50:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2ea28a17-f36f-4dfb-8e2a-375e7a3a4d6b@app.fastmail.com>
+References: <20260905153234.133217-1-tanure@linux.com> <20260905153234.133217-5-tanure@linux.com>
+ <aqSX-kUvYaixESxe@redhat.com>
+In-Reply-To: <aqSX-kUvYaixESxe@redhat.com>
+From: Lucas Tanure <tanure@linux.com>
+Date: Sat, 12 Sep 2026 08:50:12 +0100
+X-Gmail-Original-Message-ID: <CAJX_Q+2vpcFw-5evCkykwWo6jbHvKvQ4XjYt_EKFyJuQm_ES5g@mail.gmail.com>
+X-Gm-Features: AcwNN1V-hZOzugyfoJiJeFS5rmMdeoAyBQ6wZJLEfk_Dvgzhb0zC99WtQCvbVRg
+Message-ID: <CAJX_Q+2vpcFw-5evCkykwWo6jbHvKvQ4XjYt_EKFyJuQm_ES5g@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] clk: meson: t7: don't mark sys_ampipe_nand as critical
+To: Brian Masney <bmasney@redhat.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Chuan Liu <chuan.liu@amlogic.com>, 
+	Jian Hu <jian.hu@amlogic.com>, Ronald Claveau <linux-kernel-dev@aliel.fr>, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_235907_972946_E37977C1 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260912_005030_685295_ED8F75BD 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,188 +103,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 11:14:28AM +0100, Arnd Bergmann wrote:
+On Sat, Sep 12, 2026 at 1:08=E2=80=AFAM Brian Masney <bmasney@redhat.com> w=
+rote:
+>
+> Hi Lucas,
+>
+> On Sat, Sep 05, 2026 at 04:32:34PM +0100, Lucas Tanure wrote:
+> > sys_ampipe_nand clocks the pipeline stage inserted in the bus path
+> > between the SD/eMMC controllers and the NIC_MATRIX fabric. It does have
+> > identifiable consumers - the three MMC controllers - so marking it
+> > critical was the wrong tool: the clock should be referenced from the
+> > consumer nodes and claimed by the mmc driver instead.
+> >
+> > Drop the CLK_IS_CRITICAL flag and update the comment accordingly.
+> > sys_am2axi0..2 remain critical as they clock the AXI DMA bus itself and
+> > have no single identifiable consumer.
+> >
+> > Assisted-by: Claude:claude-fable-5
+> > Signed-off-by: Lucas Tanure <tanure@linux.com>
+> > ---
+> > This patch depends on the MMC controllers actually referencing the cloc=
+k:
+> > the dt-bindings, mmc driver and t7 DTS changes adding the "pipeline"
+> > clock must land before this patch, otherwise the boot hangs and memory
+> > corruption this clock caused are reintroduced.
+>
+> This series should be merged together in one tree? Which tree? I can
+> provide an Acked-by if it should go through the mmc tree.
+>
+> Brian
+>
+It's definitely best to keep the series together in one tree to avoid
+boot regressions,
+but I think the clk tree is the better fit since the core changes
+revolve around clock logic.
+Could you accept it ?
 
-Hi Arnd,
-
-> - actually measure the performance overhead: you already did the
->   work to test this on three separate arm implementations but did
->   not share performance numbers.
->   Can you quantify how much this costs us on the hardware you used?
-> 
-
-I measured DMA_FROM_DEVICE map/unmap round trips without a device transfer.
-The 1 MiB results were unchanged within noise on Pi 400 and SAM9X75, and
-faster on ARM11. The only reproducible increase was about 22 ns for a
-256 B round trip on Pi 400.
-
-These are the mean times per round trip. I wrote to the dirty buffers
-before each iteration and left the clean buffers untouched.
-
-                                         control     patched       change
-  Cortex-A72, v7, 256 B dirty           353 ns         376 ns       +6.3%
-  Cortex-A72, v7, 1 MiB dirty        73.840 us      73.994 us       +0.21%
-  Cortex-A72, v7, 1 MiB clean        73.108 us      73.115 us       +0.01%
-
-  ARM926EJ-S, legacy, 256 B dirty      1.208 us       1.203 us       -0.4%
-  ARM926EJ-S, legacy, 1 MiB dirty    656.888 us     656.827 us       -0.009%
-  ARM926EJ-S, legacy, 1 MiB clean    656.608 us     656.601 us       -0.001%
-
-  ARM11 MPCore, v6, 256 B dirty        4.639 us       3.095 us      -33.3%
-  ARM11 MPCore, v6, 1 MiB dirty       16.380 ms      15.550 ms       -5.1%
-  ARM11 MPCore, v6, 1 MiB clean       16.380 ms      15.560 ms       -5.0%
-
-Pi 400 and SAM9X75 used 786262be6048 and GCC 13.3, with three boots per
-kernel. On Pi 400, only the v7 map change from patch 1 takes effect.
-On SAM9X75, patch 2 changes map-time invalidate to clean-and-invalidate.
-Unmap remains a no-op.
-
-ARM11 used a 5.11-based tree and Clang/LLD 22.1.8 on both sides. Its clock
-has 4 ms resolution, so I timed batches and subtracted a separate
-memset-only batch for dirty buffers. I alternated kernels for five boots
-each, with five batches per scenario per boot and 500,000 iterations per
-256 B batch. Every patched boot's mean was below every control boot's
-mean in all three scenarios.
-
-Both ARM11 kernels invalidate at unmap, as current mainline does.
-They differ only in whether they invalidate or clean at map time.
-
-Below is the benchmark source used on Pi 400 and SAM9X75.
-
------ dma_from_device_benchmark.c -----
-// SPDX-License-Identifier: GPL-2.0-only
-/*
- * Streaming DMA_FROM_DEVICE map/unmap cost benchmark.
- *
- * Times dma_map_single()+dma_unmap_single() round trips for a few
- * buffer size / dirty-state scenarios, to quantify the cost of the
- * architecture's cache-maintenance choice for DMA_FROM_DEVICE (e.g.
- * invalidate-at-map vs clean-at-map). No real DMA hardware is used or
- * required: only the architecture's cache-maintenance side effects of
- * the streaming DMA API are measured, against a throwaway platform
- * device, so this runs unmodified on any architecture.
- *
- * insmod dma_from_device_benchmark.ko and read dmesg for one line per
- * scenario: mean/min/max nanoseconds per round trip and ns per KiB.
- */
-#include <linux/dma-mapping.h>
-#include <linux/interrupt.h>
-#include <linux/ktime.h>
-#include <linux/math64.h>
-#include <linux/module.h>
-#include <linux/platform_device.h>
-#include <linux/slab.h>
-
-struct scenario {
-	const char *name;
-	size_t size;
-	unsigned int reps;
-	bool dirty;
-};
-
-static const struct scenario scenarios[] = {
-	{ "small-dirty-256B", 256,      5000, true  },
-	{ "large-dirty-1MiB", 1 << 20,  300,  true  },
-	{ "large-clean-1MiB", 1 << 20,  300,  false },
-};
-
-static struct platform_device *pdev;
-
-static int run_scenario(struct device *dev, const struct scenario *sc)
-{
-	u64 sum = 0, min = U64_MAX, max = 0;
-	unsigned int i;
-	u8 *buf;
-	int ret = 0;
-
-	buf = kmalloc(sc->size, GFP_KERNEL);
-	if (!buf)
-		return -ENOMEM;
-
-	for (i = 0; i < sc->reps; i++) {
-		unsigned long flags;
-		dma_addr_t dma;
-		u64 t0, t1, d;
-
-		/* Re-dirty every line each pass; a "clean" scenario never
-		 * writes buf at all, so it stays whatever the allocator left
-		 * it as (steady-state after the first map/unmap invalidates
-		 * it out of cache).
-		 */
-		if (sc->dirty)
-			memset(buf, (u8)(i | 1), sc->size);
-
-		local_irq_save(flags);
-		t0 = ktime_get_ns();
-		dma = dma_map_single(dev, buf, sc->size, DMA_FROM_DEVICE);
-		if (!dma_mapping_error(dev, dma))
-			dma_unmap_single(dev, dma, sc->size, DMA_FROM_DEVICE);
-		t1 = ktime_get_ns();
-		local_irq_restore(flags);
-
-		if (dma_mapping_error(dev, dma)) {
-			ret = -EIO;
-			break;
-		}
-
-		d = t1 - t0;
-		sum += d;
-		min = min_t(u64, min, d);
-		max = max_t(u64, max, d);
-	}
-
-	if (!ret) {
-		u64 mean = sum, ns_per_kib;
-
-		do_div(mean, sc->reps);
-		ns_per_kib = mean * 1024;
-		do_div(ns_per_kib, sc->size);
-		pr_info("dmabench: %-16s size=%8zu reps=%u mean_ns=%llu min_ns=%llu max_ns=%llu ns_per_KiB=%llu\n",
-			sc->name, sc->size, sc->reps, mean, min, max, ns_per_kib);
-	} else
-		pr_err("dmabench: %s: dma_map_single failed\n", sc->name);
-
-	kfree(buf);
-	return ret;
-}
-
-static int __init dmabench_init(void)
-{
-	struct device *dev;
-	unsigned int i;
-	int ret;
-
-	pdev = platform_device_register_simple("dmabench", -1, NULL, 0);
-	if (IS_ERR(pdev))
-		return PTR_ERR(pdev);
-	dev = &pdev->dev;
-
-	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
-	if (ret) {
-		platform_device_unregister(pdev);
-		return ret;
-	}
-
-	pr_info("dmabench: START\n");
-	for (i = 0; i < ARRAY_SIZE(scenarios); i++)
-		run_scenario(dev, &scenarios[i]);
-	pr_info("dmabench: DONE\n");
-	return 0;
-}
-
-static void __exit dmabench_exit(void)
-{
-	platform_device_unregister(pdev);
-}
-
-module_init(dmabench_init);
-module_exit(dmabench_exit);
-MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("Streaming DMA_FROM_DEVICE map/unmap cost benchmark");
-
--- 
-Karl
+thanks
+lucas
 
