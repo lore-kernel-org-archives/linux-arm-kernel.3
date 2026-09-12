@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5293C88E53
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE91CC88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 20:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Y6jm1/pkJQDM9mGVuASKpC3wlUzOHbp3gqCKfcG1sI=; b=2AsG5ISFwBNCqZuWsJVaCDHIZi
-	Co+bpYggcNwRC1Qj8ynQQh13bM+oIV1FW8lI7PMGGn3DVhkA1SCok0NLj6Q9+vxhx2oXyE6NlUpWI
-	5YRz8lb/p1preYVzGOXTzfXtUEdH3Rb0wadeTe9Bw4lvsIWlT10QXAOoc4T4dYRl1Q1k1vWZArJPd
-	o+QHy9C2P4kGgJVMBEb6HG+T6kh/G4SIhdjO4FAc1voANOczrKNiYYT64AaswoCsJ5/WB4EiC44tT
-	nwtSgQIAFNCR2YFQl16kKyoDgnaub3TKQZwiWsB+GfSSceHluT6P9IKkDF3Eovdg4LE3gN2MPcDKf
-	pR6sK9vw==;
+	bh=VXVXqhp6ApyiTqcJ3Hf36THfHfahlafVZ6pQFIgKxDA=; b=xKcdC+URzy9+scDSKMadB+udeJ
+	GHU99BRmVvL8yU22M0QR08iNdVOaJXcE7E602UDA3lWivkIHB3khRI0n+/leapqAX+MNupPCiBQWi
+	YKUYGV77gYaY/rsWWJinVo1dafMfkUo4rljL8LFgyZ9z/al5sRbWjnvGcfz+Uhm+sfURicAHUQ7wY
+	bHRb6fMlglZ6LryKbqBFyTHqS5RrnsIZaiJEb+Jo8dwxSciQNuub2xupPyZNdOKBpmxvqOWQqL3c9
+	LTN0qje6JnPv4YoCcVR4fMnh6lRRDOWn/eemT5FB1PxdUo4ZjcLDKHxkCuIfeWqJpuxyiKkIO3wEJ
+	yphTTvDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5USO-00000001Ai7-3HSp;
-	Sat, 12 Sep 2026 20:36:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5USP-00000001Aim-07QT;
+	Sat, 12 Sep 2026 20:36:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5USH-00000001Afu-0Pus
+	id 1x5USK-00000001Ah0-2yix
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 20:36:09 +0000
+	Sat, 12 Sep 2026 20:36:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 896CB60213;
-	Sat, 12 Sep 2026 20:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC811F00893;
-	Sat, 12 Sep 2026 20:36:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F17B447FB;
+	Sat, 12 Sep 2026 20:36:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85D31F000FF;
+	Sat, 12 Sep 2026 20:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789245368;
-	bh=4Y6jm1/pkJQDM9mGVuASKpC3wlUzOHbp3gqCKfcG1sI=;
+	s=k20260515; t=1789245372;
+	bh=VXVXqhp6ApyiTqcJ3Hf36THfHfahlafVZ6pQFIgKxDA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aZO+0x2PRpTpD+JHIXWMLwn63U9B0oYIUvdqS6seoBbZozca3QhOOzC7CVaoGwoQD
-	 nxlOmVczpOWqFAiSVBvO8W+v1L8pn/fCnt5940hCExPE6VYg6GkWcwcLZ7BAZA1Zp0
-	 TLvhCuC9U4V8qYEstn5qLBzuYgtXx5ijss6i+5cuzqFxhnz9JicZCtfe+S4cKfTgDx
-	 +1isedVG5DFF5tBbsH8tSZJfepPyIo5A1FR8y17QJqlFr711O/D12B8CPyW/sDtNui
-	 FLJbikyxWteWebymI9VLft7MbEvR1fPoGVM7EHl7LKQ/WlJARNibqV/ysBJG7RJlPo
-	 f6Koc1LlYc4KQ==
-Subject: Re: [PATCH net-next v2 2/8] net: xilinx: tsn: add TSN endpoint wrapper driver
+	b=SCtDugJ4nzwZDh/t+FYKZZqEgDb1smAvZ33YDc5Yvf/70N4R5hSiR3pPmpQIAOX9o
+	 lWhQZOFujP2nJEo59dRrtV3YP+jHH7zQEJoelwyCO6SkmaddIlEmUP6uGsHvknSdoe
+	 Kcgv0usnNahWfU5p+SyugMij2pkrNfaaqm5hBN0/iO9P+wLaJWX0bZ1Dhx/ozzFD5M
+	 TAHN3QhkoC21ZmdsARdFyOIREePgUFk4kXrLPZHVjUZw530ohD624JJu14xJlMYLBC
+	 Q8SeHLJhI/tbROAX/zo3eqqBUGQjcEOVpTA4ikTIIktz1SY/lU3r1B1mgCTXuvLpX0
+	 uZ/P+1fupiruQ==
+Subject: Re: [PATCH net-next v2 4/8] net: xilinx: tsn: parse endpoint DMA
+ channel configuration
 From: netdev-bot+sashiko@kernel.org
 To: srinivas.neeli@amd.com
 Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -52,11 +53,11 @@ Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  rostedt@goodmis.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
-Date: Sat, 12 Sep 2026 20:36:06 +0000
-Message-ID: <178924536666.3125.1102910032368474240@kernel.org>
-In-Reply-To: <20260909-patches_v2_external-v2-2-3a40babaff4c@amd.com>
-References: <20260909-patches_v2_external-v2-2-3a40babaff4c@amd.com>
-X-sashiko-severity: Low
+Date: Sat, 12 Sep 2026 20:36:10 +0000
+Message-ID: <178924537042.3125.10976584091391894658@kernel.org>
+In-Reply-To: <20260909-patches_v2_external-v2-4-3a40babaff4c@amd.com>
+References: <20260909-patches_v2_external-v2-4-3a40babaff4c@amd.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -74,157 +75,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] Kconfig help text for CONFIG_XILINX_TSN claims the option
-  "provides the wrapper device and the endpoint MAC that connects the IP…
-- [Low] The binding Documentation/devicetree/bindings/net/xlnx,tsn-
-  endpoint-ethernet-mac.yaml puts 'xlnx,num-priorities' (uint32, 2..8)…
+- [Medium] xlnx_tsn_ep_probe() and ep_parse_tx_queue_config() enforce two
+  new mandatory device-tree constraints that the in-tree binding does…
 
 --
 
-net: xilinx: tsn: add TSN endpoint wrapper driver
+net: xilinx: tsn: parse endpoint DMA channel configuration
 
-This adds a thin wrapper platform driver for the AMD/Xilinx TSN Endpoint
-Ethernet MAC IP node. The wrapper enables the six IP-wide clocks
-described in the device tree and then populates the DT sub-nodes so each
-one can bind to its own driver.
+This patch counts the TX and RX MCDMA channels listed in the endpoint's
+"dma-names" property, allocates the conduit netdev with that many hardware
+queues, and parses the "tx-queues-config" child node to map each logical TX
+queue to a physical DMA channel.
 
-A couple of questions on the new Kconfig text and on the DT properties
-the wrapper consumes.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> new file mode 100644
-> index 000000000000..b8939d8a92ef
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> @@ -0,0 +1,15 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Xilinx TSN device configuration
-> +#
-> +
-> +config XILINX_TSN
-> +	tristate "Xilinx TSN Ethernet driver"
-> +	depends on OF_ADDRESS
-> +	help
-> +	  This driver supports the AMD/Xilinx Time-Sensitive Networking
-> +	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
-> +	  and the endpoint MAC that connects the IP to the host CPU. The
-> +	  three-port switch is supported by the companion DSA driver.
-
-[Severity: Low]
-Is the help text accurate at this point in the series?  It says the
-option "provides the wrapper device and the endpoint MAC that connects
-the IP to the host CPU", but the Makefile added by this patch builds only
-the wrapper object:
-
-  xilinx_tsn-y := xilinx_tsn_main.o
-
-and tsn_drivers[] registers only &tsn_driver, which matches
-"xlnx,tsn-endpoint-ethernet-mac-3.0".  No driver in the tree matches the
-sub-node compatibles at this commit, so devm_of_platform_populate() in
-tsn_ip_probe() creates child platform devices that cannot bind, and
-enabling the symbol here yields enabled clocks but no netdev.
-
-The endpoint MAC part is resolved by later patches in this same series:
-by the end of the series the Makefile also builds xilinx_tsn_ep.o,
-tsn_drivers[] gains &xlnx_tsn_ep_driver, and xilinx_tsn_ep.c matches
-".compatible = \"xlnx,tsn-ep-mac\"", so this is only a transient
-mismatch between patches.
-
-The remaining sentence about the "companion DSA driver" refers to
-something that is not in-tree at any point of this series.  Could that
-sentence be dropped or reworded until the DSA driver lands?
-
-> +
-> +	  If unsure, say N.
-> diff --git a/drivers/net/ethernet/xilinx/tsn/Makefile b/drivers/net/ethernet/xilinx/tsn/Makefile
-> new file mode 100644
-> index 000000000000..6f99226f3dc8
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/Makefile
-> @@ -0,0 +1,2 @@
-> +obj-$(CONFIG_XILINX_TSN) += xilinx_tsn.o
-> +xilinx_tsn-y := xilinx_tsn_main.o
-> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
-> new file mode 100644
-> index 000000000000..afe7609c67fb
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
-> @@ -0,0 +1,104 @@
+> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+> index 089f17a126f5..24025b1f6e66 100644
+> --- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 
 [ ... ]
 
-> +static int tsn_ip_probe(struct platform_device *pdev)
+> @@ -69,15 +88,173 @@ static const struct ethtool_ops ep_ethtool_ops = {
+>  	.get_drvinfo	= ep_get_drvinfo,
+>  };
+>  
+> +/*
+> + * Parse the "tx-queues-config" child of the EP node. The logical queue
+> + * index is taken from the "queue<N>" node name, so the mapping does not
+> + * depend on the order the child nodes appear in the device tree.
+> + */
+> +static int ep_parse_tx_queue_config(struct xlnx_tsn_ep *ep,
+> +				    struct device_node *txcfg_np, u16 tx_present)
 > +{
-> +	struct device *dev = &pdev->dev;
-> +	struct xlnx_tsn_ip *w;
+> +	DECLARE_BITMAP(queue_seen, TSN_MAX_TX_QUEUE) = {};
+> +	DECLARE_BITMAP(chan_seen, TSN_MAX_TX_QUEUE) = {};
+> +	unsigned int count = 0;
 > +	int ret;
 > +
-> +	w = devm_kzalloc(dev, sizeof(*w), GFP_KERNEL);
-> +	if (!w)
-> +		return -ENOMEM;
+> +	for_each_child_of_node_scoped(txcfg_np, qnode) {
+> +		u32 chan, queue;
 > +
-> +	for (int i = 0; i < TSN_NUM_CLOCKS; i++)
-> +		w->clks[i].id = tsn_clk_names[i];
+> +		if (!str_has_prefix(qnode->name, "queue") ||
+> +		    kstrtou32(qnode->name + strlen("queue"), 10, &queue) ||
+> +		    queue >= ep->num_tx_queues)
+> +			return dev_err_probe(ep->dev, -EINVAL,
+> +					     "tx-config: invalid queue node %pOFn (have %u queues)\n",
+> +					     qnode, ep->num_tx_queues);
+
+[ ... ]
+
+> +		ep->tx_dma_chan_map[queue] = chan;
+> +		count++;
+> +	}
 > +
-> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get clocks\n");
+> +	if (count != ep->num_tx_queues)
+> +		return dev_err_probe(ep->dev, -EINVAL,
+> +				     "tx-config: described %u queues but expected %u\n",
+> +				     count, ep->num_tx_queues);
 > +
-> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, w->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
+> +	return 0;
+> +}
+
+[ ... ]
+
+>  static int xlnx_tsn_ep_probe(struct platform_device *pdev)
+>  {
+> +	u32 rx_chan_num[TSN_MAX_RX_QUEUE];
+>  	struct device *dev = &pdev->dev;
+> +	struct device_node *txcfg_np;
+> +	u32 num_tx, num_rx, num_prio;
+> +	struct device_node *ip_np;
+>  	struct net_device *ndev;
+>  	struct xlnx_tsn_ep *ep;
+>  	u8 mac_addr[ETH_ALEN];
+> +	u16 tx_present = 0;
+>  	int ret;
+> +	int i;
 > +
-> +	ret = devm_add_action_or_reset(dev, tsn_clk_bulk_disable, w);
+> +	ret = ep_count_dma_queues(dev, &num_tx, &num_rx, &tx_present, rx_chan_num);
 > +	if (ret)
 > +		return ret;
 > +
-> +	return devm_of_platform_populate(dev);
-> +}
+> +	ip_np = of_get_parent(dev->of_node);
+> +	if (!ip_np)
+> +		return dev_err_probe(dev, -EINVAL, "missing parent IP node\n");
+> +
+> +	ret = of_property_read_u32(ip_np, "xlnx,num-priorities", &num_prio);
+> +	of_node_put(ip_np);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "missing xlnx,num-priorities\n");
+> +
+> +	if (num_tx != num_prio)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "TX channel count %u must equal num-priorities %u\n",
+> +				     num_tx, num_prio);
 
-[Severity: Low]
-The binding
-Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-lists xlnx,num-priorities (uint32, 2..8) in the required: list for the
-"xlnx,tsn-endpoint-ethernet-mac-3.0" node:
+[Severity: Medium]
+Can this equality check reject device trees that the in-tree binding
+accepts?  Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+describes the two properties completely independently:
 
   xlnx,num-priorities:
     $ref: /schemas/types.yaml#/definitions/uint32
     minimum: 2
     maximum: 8
 
-tsn_ip_probe() is the only driver matching that compatible here, and it
-does devm_kzalloc(), devm_clk_bulk_get(), clk_bulk_prepare_enable(),
-devm_add_action_or_reset() and devm_of_platform_populate() without any
-of_property_read_u32(), so the mandatory property is neither read nor
-range-checked.
+      dma-names:
+        minItems: 2
+        maxItems: 16
+        items:
+          pattern: "^(tx|rx)_chan[0-7]$"
 
-A later patch in this series ("net: xilinx: tsn: parse endpoint DMA
-channel configuration") does consume it from the parent IP node in
-xlnx_tsn_ep_probe():
+With that schema, dma-names = "tx_chan0", "rx_chan0" together with
+xlnx,num-priorities = <2> validates, but xlnx_tsn_ep_probe() now fails with
+"TX channel count 1 must equal num-priorities 2".  A 4 TX + 4 RX endpoint
+under xlnx,num-priorities = <8> fails the same way.
 
-  ret = of_property_read_u32(ip_np, "xlnx,num-priorities", &num_prio);
-  ...
-  if (num_tx != num_prio)
-          return dev_err_probe(dev, -EINVAL, ...);
+The queue node checks in ep_parse_tx_queue_config() add a second constraint
+that the schema does not express: exactly one queue<N> node per TX channel,
+with dense indices 0..num_tx-1.  The schema has no required queue children
+under tx-queues-config, so an empty
 
-so the binding/driver mismatch only exists between patches of this
-series.  Was leaving the property unconsumed by the wrapper itself
-intentional?
+  tx-queues-config {
+  };
 
-> +
-> +static const struct of_device_id tsn_of_match[] = {
-> +	{ .compatible = "xlnx,tsn-endpoint-ethernet-mac-3.0" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, tsn_of_match);
+is schema-valid and gets "tx-config: described 0 queues but expected N",
+and sparse names such as queue0/queue1/queue2/queue7 with 4 TX channels get
+"tx-config: invalid queue node queue7 (have 4 queues)".
+
+Because the endpoint MAC is the DSA conduit referenced by
+port@0 { ethernet = <&ep_mac>; }, a probe failure here also takes away the
+three-port switch, not just the ep0 netdev.
+
+Semantically these look like different things: xlnx,num-priorities is an
+IP-wide traffic class count on the parent node, while dma-names describes
+host-side MCDMA wiring on the endpoint node, and the binding's own example
+uses an arbitrary queueN -> tx_chanM permutation.  num_prio is read here for
+no other purpose than this comparison.
+
+Should the binding encode the coupling (required queue children and a
+dma-names/num-priorities relation), or should the driver accept every
+topology the binding advertises?
+
+The YAML is unchanged by this patch and by the remainder of the series, and
+only the 8 TX / 8 RX, xlnx,num-priorities = <8> example in the binding
+satisfies the driver, so dt_binding_check does not surface the mismatch.
+
+Could the commit message body state these new device tree requirements?
+Right now they appear only in the below-the-line v2 changelog:
+
+  - Require one queue node per tx_chan and num-priorities equal to the TX
+    channel count.
 
 [ ... ]
 
