@@ -4,93 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251AFC88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 19:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9CCC88E53
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Sep 2026 19:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AaS2W86AtkX5bjhTKY8jGngBhIYNaOT+HF7QmT5cMk=; b=j8rh4OXYUUvKBgfyC5VgPOoG/T
-	zj4/Tx6exrPysJ+d8+x37Ivs/XpcppkeKRFKrC2lBu/9hxAjpsQbwm9l2RIHnw1RMuU4ePQOyuqiv
-	1m/Rdxf34/CQnAilAeCI90Iu/Ti7UQBC9zdFIrUaTIMs2w8q9x8K52ubRyYE8syFeKid3nMujy4GD
-	ByN6Op/ds2Gi8RBnWGLVcZsCgh3u4d9MUYxBgGsnb8L0GLkkiM9eS2fcrWGGz4v8GkgYxdLdaqZLO
-	zO2gRr3pf4kZPbJboPRN7yjm6mH4pKsn51isZLi0472/uZYtABZzcoV0GSHCq0QU6Nqbu9T4++l+d
-	yIgEEO2w==;
+	bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=; b=wgz4rpnIch2ycNzEbDFL9JZEg9
+	P2JoXjC9IbnD2rYOzcrhQnySDs+nEQy1Q80qflXA1SUlxnEtAWWm1v/X6+dxeAkrXnRPLf4YFywDh
+	gNkwuv4xcveipbmlE8WKYf5GN94I6dejgO/GCl/0qylheWsxiBKeOWFD3D4gJvpantihzFqhH9ivX
+	Ns4bX7hrO4gxc1p978G/npL6jBCkqy6AgigRGAZaHVBjo3d/m85MUedPhAKYt/oyYsSCWyDI6Eqfz
+	CClz9UzF2mpI4ZMvIw+e4FbLDmMxmFBtn9sw7O7CSbtlavobY82HeYyBp4AyB528ui6/cMTl8BHp0
+	NF23HQxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5SyN-000000015IM-3uzu;
-	Sat, 12 Sep 2026 19:01:11 +0000
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
+	id 1x5T4v-000000015UF-2doi;
+	Sat, 12 Sep 2026 19:07:57 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5SyJ-000000015Hd-0MNp
+	id 1x5T4q-000000015Td-1NUW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Sep 2026 19:01:10 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfcb5cb3so9532576d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 12:01:06 -0700 (PDT)
+	Sat, 12 Sep 2026 19:07:55 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-857ff9fef54so16191667b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 12:07:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789240070; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JAccX6jtIdJlpo16RsHchinn3MJM5n3n3kj3l0eDAWi/ulzlAps+igm3HL43vNkESC
+         J3wP2Eag9pKbGaSHGA4giH3tXYypGuPoDrr6nhl0t91sQm1sMwfAV3zNYzTMKFfB1j/g
+         7qkFiE3Cy6SuMpW8CuuC8f0mn6Tcng4YVH6VJLzYqWH1wBimDEhML1bHMKNfgeFpOTDJ
+         7o/bf2V96UYitv6j1vrVYUr3t32lKQ1sjNrVIGdIV3cSuy8jpxd60EM1VOsxMPan9C55
+         P/uDOBEqkd04gT1cklqy4QPOesyd/X7VXQcRyYtWDZ2tItU7K1h+a9No2OgtqYBC+fjh
+         O22w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
+        fh=i4cu+CGEdUQygsjaBW4OYUEZY9+bChs7oL8QZUR0xjo=;
+        b=hecVQqtKoYA/YWRGAotU+h7PcDhQ76Dexlg6wDlQTEFB4zl1X6R7EwR8XhgyfnUE9t
+         xWyC+ZN9kgQshLjsAwA5BtRNn3a0Go7tBgJrvEQIwAsaj34XJCz4zyyTHvL6ePW7G+/j
+         KFKzXz/9EUQUhHK/ATSyvaQI6K9CvAZzn86GMo1aALHfpWPKD05Avtw30KL+9dRj9lMH
+         eOP39iwTzIoIZ8LzDAgzChgGWy6pifaDaA5KpIwVuNisZV12OKbkf/1vO+N2iUIUnzuy
+         bEDmByRl2FWVsKlqwfUTJVUpiD1Y0MhpUeik6ni3NKO1DQGud1OJYZ27unqCvsnafidv
+         5H0w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789239666; x=1789844466; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4AaS2W86AtkX5bjhTKY8jGngBhIYNaOT+HF7QmT5cMk=;
-        b=klCSjIdDFzD803DH9w7a4mAYuJe3rCr4bACVWpcfBl3tiHl6k3k8mR2ITcDntbGy8E
-         F6udQQe3p3JaRmRK3QTFBoTbupPCvhLtQRICWyzwifDiqa2afRRZs4ghR1i78zz60tEm
-         2vBtkm9CLeavrLUMQKte9bEN8Ku9OX5hCcMPA86MesCuOpTUsHwQ4wf9orr0gCBnc3nd
-         RLBFdpUhO1n7jpC6hnXnC3DR1LhIw4INfbmketMbnTp8VkSd0eNDAbwujgl22GdpXTST
-         ASdO4dJWqZnnnftLVwDxaJPYzmdsgOgESBDxHXQfCjA7iquSsQ3g6q0D61V6uL5CR0j4
-         Zsjg==
+        d=gmail.com; s=20251104; t=1789240070; x=1789844870; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
+        b=qCv8c04Q4NbLcBTBB8PD1Xnx+cnTZH5DyLXZdQReL+VTB/x90uAblpll1CHIe87Rvn
+         c4LGBNbn80UqIg0A9QYb0jBAtN8MAIm1gEtUqKgVtS3Je08ZvsGWV+kb29Sjgk2T7iOM
+         SM4l4+ZpxjCRkKF9hEfzGiuavifx6lxAOdAUrR9hbMCZdFezlWeskwJb8AJBtY5TXNEF
+         ngEO7WroZ860219zZqjN6NIPgAEETUfY5zz85mE3KaZ9FS67ZxT6PuKlDD7cWy94jJue
+         sDOC0FXRExUM88bqpMlaltnmB3D7/aQqq58eLMdbRa9anFiPmFfJZecRDUAgSDhvKLQb
+         Ir4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789239666; x=1789844466;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4AaS2W86AtkX5bjhTKY8jGngBhIYNaOT+HF7QmT5cMk=;
-        b=QPhXZqOOdU59sXUpnw6CZsec5qUVbPumCWK5Zw5ATPBH/xIifwJZ5IaXhQYORz9FUx
-         CU4t6bKFAjPQhAX0w+nBQ6E9OuYCBElJDsNKOzbnD2EaY+IYSvCP/Sxczg6ODx8x0hD6
-         HucbWEQ5yR6lga+OmheYhSksdxzADuSnI9Q/yR7yP2CnaKkQDzht4yObiUYJFMotzkfx
-         NPIne34k3V+t63LcOijGsoePy32P7fWMM/+8LXti1Ry3Idb8wKUlU/8clEpj6slOsGbA
-         egrrrLaX/JKbr94GQkxcLbXDkdq8o5pK/W6vRMUSM8fRc9jWXy+9ONfmpFv4GdxzKdKs
-         M8sg==
-X-Forwarded-Encrypted: i=1; AKwUvBww6lKTto0NqInQwpbO6M7m/FfphlocQAXgECcwG2+Atwbc+iMBp8xb2Lfxg5UqmlRf0utR1qpCR/rdPUvW86k6@lists.infradead.org
-X-Gm-Message-State: AFuF++lMdSF7w4fKj4SkFH5cbj61INbWFpskFY6V4xBkOACRGEFIlWU1
-	MoqtL+4OIF/JTuatOwLfEh7ojrWFw6cvIBPQjbTwDSpv7qSEBdFa574=
-X-Gm-Gg: AYBFou057sK2diDxcRAmazzFc0lKLKMQOhuxJ/2BN2cgKNEw53LyNBzuhBEBOOctcWK
-	k6pGI5MmoFb1x5yS3EhRTftQD/tUYtRLYOenJLvxzAYVpqYI/YliMDdSt9hHS3P2zfT3++/wrNy
-	WPQBmjYVEg3x1aNPVkuHcjMu3W0MeDcg4yx4hmyahCa1DpK5KNfpLssmdubvbGIroRtlDdHr6PA
-	gCeOvGbAx3eRatBt5PrVP+fnNLhhsXTrKnOzWNCRRymZfiIVsi/NtDgmWqaKsyI/aWxYdrU9oyr
-	zQ7EFJHOQcqpUicIO/WEijL6VXeahlGBBlGsoo35NIU5uX8rf/k6aI0iL8kJ9zi35VlkxEJWMqq
-	OyRR6JlWuq7oFZ7CYhFBang4SYIEtjrQ+OLwZT2Uzrc2A+Ba9SQi1gkQuXYj6sAoslNFFZ9Gz7H
-	kn5VqHDAA5wqR7anLPLRQPrjwv2oLE8zTSy53eLMVJt7KYySbmr2xtS+9F0jdq0YgOou9RW+5oL
-	K3V6ehg2I00heYWQM6epuMRrDy6qE88uHxAm5jhE68J8EVQ0TqfwO2vGG0pft96Kl+3sBPJVkDm
-	mgGHz5vAy/o5P1FStRzhMFDehmFHKnQwmw==
-X-Received: by 2002:a05:6214:3983:b0:90e:96a9:4c5d with SMTP id 6a1803df08f44-9121d91c1famr77743116d6.15.1789239665588;
-        Sat, 12 Sep 2026 12:01:05 -0700 (PDT)
-Received: from localhost.localdomain ([104.39.73.78])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9120f45f1fdsm52597396d6.16.2026.09.12.12.01.04
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 12 Sep 2026 12:01:04 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH v2] spi: rockchip-sfc: skip DMA cleanup in PIO mode
-Date: Sat, 12 Sep 2026 15:00:56 -0400
-Message-ID: <20260912190056.42192-1-mhun512@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <aqRM17TZ0-5pd6Y0@sirena.org.uk>
-References: <aqRM17TZ0-5pd6Y0@sirena.org.uk>
+        d=1e100.net; s=20251104; t=1789240070; x=1789844870;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=frZxPsvBVeqqB8BxzOhZbWb1UNk2/xKGtRE4rwWtWZ0=;
+        b=boJKqtodyeXbSj4vQ4cItQhcxE31lgDURpJbcESSsdTVLAg5yJrHReWthv/t+kbvt7
+         zShpKgBfABAl4Mf4Ddp2ajs6TwDN+hd8DmAxKfPbBlXRl4EF+XC5LCQ2sCHYopuifAFm
+         j7cLMV+LG/Etka3sOY90X0ZvLfZSjz6LYiOLgCmKvK+YeBGhVqtKF+HhXhhzlD1c49i0
+         8t3KbsNwxb6aGiF4DAXh2uy+4NWTQx3B3yXRpl2dYoBH5O82yiPjiTKDOVIqUvFhqabM
+         ISxIm14UVjeDIebGClX8l/ntwyzqp7ltxIzhAiPsDA3ioVT6K+0YJiBHLmbyciBPDT7+
+         MqTw==
+X-Forwarded-Encrypted: i=1; AKwUvBz55UBSOtMpNjJeImUa8nQtNtkDLJkxwkfRVrQ27EufpaH0mgr0lOGifFAOo3Esb+VPkO6V5OVEYXoJD94jM2H4@lists.infradead.org
+X-Gm-Message-State: AFuF++nLAM3vZez/UoyPb8+wBn31/GRuA80+1uRLKA3TYc0f91PylvAD
+	ee1VzOG+4o4UEz99NzIU0vXUnJw66qgGRRQadhFmKhWc7xz0tZPLUfzsdSBkXdPv1u/3RrMdbTH
+	aWxoyQlbDW2K5IGAP6HtANCJcgAa48Xo=
+X-Gm-Gg: AYBFou2TBlnTumSd1ExHPR3BiwnnipRD13WIxwC4PyPuj9oT7jonstXBe4SXyIKcqIA
+	tQQHceI4V3UqgrcWy2RFqnYCoEOMV5odz3Mhgt+/r+8/E1Pskllh42az3XwrSDuk9Yzg2MmWo4R
+	e0gm1X9aD56f7D4fdWzcEAJ3onjwxYgkNeSA1YPDZrObMuxs9aTdbGU1FEpOf1XCk6IugQOOy3l
+	l8U0SsPA3mz3KOsPezNvH1oralcswMHbvVnLzQVaCpPjoebPO3QA4MiJoSV1BkJT1tcOVtlEyuR
+	2Mv7GbzpWJYg+yZPstPwsg+TvTQk/VPvnA6T/+mhKjTA+ngtH2h7
+X-Received: by 2002:a05:690c:a790:b0:873:5bb2:6c0a with SMTP id
+ 00721157ae682-884b6f29b6bmr21177167b3.52.1789240070580; Sat, 12 Sep 2026
+ 12:07:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260906061755.5103-1-sumeet4linux@gmail.com> <20260906061755.5103-5-sumeet4linux@gmail.com>
+ <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
+In-Reply-To: <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
+From: Sumeet Pawnikar <sumeet4linux@gmail.com>
+Date: Sun, 13 Sep 2026 00:37:38 +0530
+X-Gm-Features: AcwNN1XqTP8GoNHaMkR4dokovXZ0UiUGTDkYaF2EyUFt2qLbm2siHwKKSL9BVhQ
+Message-ID: <CAJ9orWStxJLN-0Dk2LqmyxEagC_nH-veS7wWrN_kXvb6WEUWiw@mail.gmail.com>
+Subject: Re: [PATCH 4/5] devfreq: Use %pe to print error pointers symbolically
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: rafael@kernel.org, amit.kachhap@gmail.com, daniel.lezcano@kernel.org, 
+	thara.gopinath@gmail.com, talel@amazon.com, hayashi.kunihiko@socionext.com, 
+	mhiramat@kernel.org, mmayer@broadcom.com, viresh.kumar@linaro.org, 
+	sumitg@nvidia.com, peter.griffin@linaro.org, myungjoo.ham@samsung.com, 
+	kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, sven@kernel.org, j@jannau.net, 
+	marcan@marcan.st, casey.connolly@linaro.org, sre@kernel.org, wens@kernel.org, 
+	t.schramm@manjaro.org, bcm-kernel-feedback-list@broadcom.com, 
+	linux-samsung-soc@vger.kernel.org, kernel@pengutronix.de, imx@lists.linux.dev, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_120109_404694_1038FA3B 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260912_120752_408437_6DC527DC 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +129,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With rockchip,sfc-no-dma, probe skips allocating and mapping the transfer
-buffer. However, controller registration failure and driver removal still
-call dma_unmap_single() for that nonexistent mapping.
+On Sun, Sep 6, 2026 at 12:00=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 06/09/2026 08:17, Sumeet Pawnikar wrote:
+> >               ret =3D -EPROBE_DEFER;
+> > -             dev_err(dev, "failed to add devfreq device: %ld\n",
+> > -                     PTR_ERR(drv->devfreq));
+> > +             dev_err(dev, "failed to add devfreq device: %pe\n",
+> > +                     drv->devfreq);
+>
+> Instead you should use dev_err_probe and drop the last argument.
+>
+Sure. I'll do this suggested usage of dev_err_probe in different patch
+series for *_probe() functions update.
 
-Guard the DMA mapping and buffer cleanup with use_dma. Keep the existing
-cleanup for allocation and mapping failures on the DMA path.
+Planning to post V2 for this original series to use %pe to print the
+error pointers symbolically, reverting the change for dev_err under
+*_porbe() function.
 
-This issue was identified during our ongoing static-analysis research while
-reviewing kernel code.
+Thanks,
+Sumeet.
 
-Fixes: ee795e82e101 ("spi: rockchip-sfc: Fix DMA-API usage")
-Assisted-by: OpenAI:GPT-5.6
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
----
-Changes in v2:
-- Guard the cleanup calls directly instead of jumping between error labels,
-  as suggested by Mark Brown.
-
- drivers/spi/spi-rockchip-sfc.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
-index 662a994da60beca33358dc6af09017e88771d017..bc5537aee449e0c33c2d6ecf9d57205d432ec7b6 100644
---- a/drivers/spi/spi-rockchip-sfc.c
-+++ b/drivers/spi/spi-rockchip-sfc.c
-@@ -719,10 +719,12 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
- 
- 	return 0;
- err_register:
--	dma_unmap_single(dev, sfc->dma_buffer, sfc->max_iosize,
--			 DMA_BIDIRECTIONAL);
-+	if (sfc->use_dma)
-+		dma_unmap_single(dev, sfc->dma_buffer, sfc->max_iosize,
-+				 DMA_BIDIRECTIONAL);
- err_dma_map:
--	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
-+	if (sfc->use_dma)
-+		free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
- err_dma:
- 	pm_runtime_get_sync(dev);
- 	pm_runtime_put_noidle(dev);
-@@ -743,9 +745,11 @@ static void rockchip_sfc_remove(struct platform_device *pdev)
- 	struct spi_controller *host = sfc->host;
- 
- 	spi_unregister_controller(host);
--	dma_unmap_single(&pdev->dev, sfc->dma_buffer, sfc->max_iosize,
--			 DMA_BIDIRECTIONAL);
--	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
-+	if (sfc->use_dma) {
-+		dma_unmap_single(&pdev->dev, sfc->dma_buffer, sfc->max_iosize,
-+				 DMA_BIDIRECTIONAL);
-+		free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
-+	}
- 
- 	clk_disable_unprepare(sfc->clk);
- 	clk_disable_unprepare(sfc->hclk);
--- 
-2.53.0
+>
+> Best regards,
+> Krzysztof
 
