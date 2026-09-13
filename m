@@ -4,171 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2FBCC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 15:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B57C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 15:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FLaf1HpsbFEigBp+e/WS2nwEzUY21Uxl9Fi5G55VjiQ=; b=05FH0x5kexMJnCF25YupnTSvM3
-	+kCZ0E1RWds6Ih9yp+z/GUoAWObzf/lhZnyQlkgJRbVeyIrQ/zTN81YFkONDxqTgn0ooiWuyoCRBT
-	+DgJJ0GLgr46u96LpPKP1ppi5kiYqWPfiwjgXZPiiPljUvTH0LG7+WZXdR6UnoYJTlQWZL/s6mWpc
-	UlcR9G3RGQJndFcHITAcifLKT1V+g07yDFSeQHK5IolCNZH/0s1WW/CWFlJTQy2mqoNqoyt7XoseC
-	Idq4xSd0tzuEboiAsFKMt0HNDWeqDUm8UHQXefSJkHIlWoFYcEuyUdG2ehUOASvyyvoDWmyx1nrSu
-	Htk9i8dw==;
+	bh=i6FKqhHGMKbN+g1kF5qjdCbk6ZlE4yPuWZmPTrF4npY=; b=cpxVkCXYPzYsiiShH00cCdxKLd
+	asXgntCwvTzahIiucnxN4bF0VjORwiwUPKJMdYrRa8VhgUgiMG6yqEBA1UWO3fzXqLx7MV4x2UsGX
+	tLhXB2TXUTsXBTg3zV0XAQOv2YsWFORjk5FJG5RhkaRtnAxiYsRE37WX89XC9Ch7BJmdy0M4KWqh3
+	pLcVLLA959OZX6qTGg16yrsY8JEl1WhIRTkgs6BRNhBYDaqk1+q7ZTe1JvuupNQEWq9zar3tGgr8O
+	VwKDPp51s8bodSIUiV5DI3iqYslnQW35A/oaNva2LJ9ZetnrI0oQo5h+03IF9Feg3h1CXWpyDdPqA
+	zxgSXqXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5lmK-00000001lSq-19BA;
-	Sun, 13 Sep 2026 15:06:00 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1x5lsI-00000001ldg-0O5x;
+	Sun, 13 Sep 2026 15:12:10 +0000
+Received: from mail-ej2-x06.google.com ([2a00:1450:4864:34::6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5lmG-00000001lSM-0eyg
+	id 1x5lsE-00000001lcX-3IzO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 15:05:58 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68DE1DM13285980;
-	Sun, 13 Sep 2026 10:05:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=FLaf1HpsbFEigBp+e/WS2nwEzUY21Uxl9Fi5G55Vj
-	iQ=; b=UGk9HiGoUMHCKZJPijv6lICMctVD+6h3mbvD/Cid+Su6XbUGhZdwU6hvi
-	tDmxpTrWPk/O88vGfecU+4W6Rkmm7rxeEdIzIkmRQlBDI089mOHd3cmzyD1qhjhN
-	lK49HT5/n8wRComcMNIK4RFCotoLXkee28szP0mK31WxqQRaVEnIALNOMEDTh4rW
-	NOxYI3a/Fdx/+5+kQSS8hjAbstsvAdtS2hbsSNJeJ4h0NrXRg+Tx/7+Uf3owUnIx
-	D5jEqlab8CTPQHPe67qsCd7Rx2Z2vEBQ3j2oP4BbB+aR8nG3NMSADgFdc3aT12rN
-	4bY7cZ2IRTs4yHy4k9Zzb3ymOZYKQ==
-Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011049.outbound.protection.outlook.com [40.93.194.49])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gnp45smd9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 13 Sep 2026 10:05:48 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tGvVxkFdcgf82HXlNE/l0xBeF/8W/DFiE7f9C50FbL64UICLTKVHCwhRIXhioV4K5uKHprp9u9oO4FJ26z4fuVnP3CD2hd3NXtm8Dx86RAmV8u1BdvDyKBb8201JBGf0mNiphUsN4RFGF0wRJg3so0J1RMZsPY2Bd+zZJFsQ8HANOMc8mHNHIXptf5CtXMdR/yBnfwv09zay0fVBrZAt8mvXbFy+rxikljf2lXsrJHA8zXq99cfpHu/Lqo3VvBRHIVc2CkfhX+58ZsEVR+J0BZiSOndhO+uV3xEayWmSvh4sGCcout3UgCLhhHEJ2Ql8682LU1mbLD7CqGNQeyaMzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FLaf1HpsbFEigBp+e/WS2nwEzUY21Uxl9Fi5G55VjiQ=;
- b=lUlDc0blU1OIGXUnRRafNTF1l1DhOaAM92i2K+qYeLBuEJTtX2M8/ExjAmHITvZHFAABDD9arjWfA1rv8h05ySpsWwUT/uuhDQWEjE9OHykP5FI7r1bUn49yg8ji1jhOt9w3I/Zt7VOSGjEPh5NUAuWoYayxx00p/vrGajNyPGrY/NMcnI98PdRQNbaiXAWvWgeIWx4PW+KOOFqanVv2WgDBgbJ3DClxO/JX0K09cU/HAnP1rSwCYJX5iPienTZ/eLfbSB4ngYn0UaCY/yZLkKJ6LvkAX1WaFkkeXdScI+y9h87NPuon3WWDPL+/9/Z2iwp75XCJQdKzoQG5vo90zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FLaf1HpsbFEigBp+e/WS2nwEzUY21Uxl9Fi5G55VjiQ=;
- b=mht+pDe4hevUeOf2utqTxeBlR3ueFFtsqYZ5zmZSZ9fTinTsPAWqBudG8QjPTVPCuEXCGTP/gjx487kniLvq9jjK3AFbdczq4v/m0MEUOYHpe2rBnsBneSRZPGWzeh+dEExJHxhEUNehr+jfp1HVAkEKcUcJdn6Y26o9s4RN5EI=
-Received: from SJ0PR03CA0014.namprd03.prod.outlook.com (2603:10b6:a03:33a::19)
- by DS0PR10MB8152.namprd10.prod.outlook.com (2603:10b6:8:1fd::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Sun, 13 Sep
- 2026 15:05:46 +0000
-Received: from SJ1PEPF000037B9.namprd05.prod.outlook.com
- (2603:10b6:a03:33a:cafe::3c) by SJ0PR03CA0014.outlook.office365.com
- (2603:10b6:a03:33a::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Sun,
- 13 Sep 2026 15:05:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ1PEPF000037B9.mail.protection.outlook.com (10.167.244.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.7 via Frontend Transport; Sun, 13 Sep 2026 15:05:44 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 13 Sep
- 2026 10:05:02 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 13 Sep
- 2026 10:05:01 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sun, 13 Sep 2026 10:05:01 -0500
-Received: from [10.249.141.59] ([10.249.141.59])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68DF4ueH3739714;
-	Sun, 13 Sep 2026 10:04:57 -0500
-Message-ID: <589b873d-f7b7-45d3-bee4-a7b090a26b0a@ti.com>
-Date: Sun, 13 Sep 2026 20:34:55 +0530
+	Sun, 13 Sep 2026 15:12:08 +0000
+Received: by mail-ej2-x06.google.com with SMTP id a640c23a62f3a-c29440ee0e7so98638266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 08:12:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789312325; cv=none;
+        d=google.com; s=arc-20260327;
+        b=o58C2Bj77BsmJ7BtziU4KfYVE72PlpiF9bs23j5qgOzD3bdhbxny/uau0wGlA7e/ok
+         HHtz7+oz5Z6BT/cVqXGaJoDfHOhXwa5wbLj0pokB69ttS5qxPvP4Oj/pnVlN2pVwJgcA
+         5kJtMtiwUSWB8yjLHEZjJmTUxApStSfaQ6TV7C79avYeb0sTxHDDP9z1/mHDzUeWxQp7
+         TDGhmUak3Vxkk0QzEBB6QS3ywekCb51zT+GNAlHeWVKo1cXp6yixso0QOBYCsQn2Mfnq
+         iHkjqZ+bTbGJygcoWJyigiYE1RweJCug1BmBYYnJuNYJ/ayScPYPaKVsqQbUvJTIsO8f
+         WySw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=i6FKqhHGMKbN+g1kF5qjdCbk6ZlE4yPuWZmPTrF4npY=;
+        fh=vOiPeDI5GMdlDVyXRD7DPyyU2ZkpkaTHCgEXg6CBwxs=;
+        b=mF1ppuL4O1+gr+V8zv687ODvkWLg30J0YaXXeURvi1CypKARWjFhKngoXaGokL0UaL
+         dRddKEcwuyBqAUm7SZcNOr1fK4oMLiKX2RgjKrcvGDOX4y2x1lk9F4PFxh+BnsolMaOV
+         6LGYNSw8us8o7JA0UIMnvUHu9xhfYN/7r4yFuo8Q8UDdgqy238SFh801qm28RT0fOs6H
+         Syr1VH3WE2Fh8KZ7/sCHd5p0U7QmQEiEq72lGm8jsXcC3ALILX0o9RrBS8JMHF05y7iG
+         kgcWQYWM7+3E+LFJFEUEfeB9oId90O+XshksQ3cYEx6tFwW7lFyocB4+uvwxNDUBNrSS
+         ZgyA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789312325; x=1789917125; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i6FKqhHGMKbN+g1kF5qjdCbk6ZlE4yPuWZmPTrF4npY=;
+        b=dpcKrjkdMNNvLT3rrWxIBGBb4kh7r6V+X2U/C+PYxyzxNbp3D3udRFAO7y1iD0epwu
+         taPhsLW1fwMFqB94rKACZBwA+yxaYGsGX/0F/QHa+IlMdyVII0m3AlnFUDy7R3LqRLxv
+         QUkxxl8u9VSKly6dZavTeARZp8AC0m70ku416Ir6WubTmWL81Ns9waVjb2jT1DUYklXW
+         JsyIk6RPMyhMxrqhe4ve3kemlBbEME8DFL/ULnKQNs0qmMniDkkhqUrlIMjLVtInt77d
+         bRYGuFJCF9+pPAe2sG4WVZhNgZi/463nvip+qwPbD798WBhzayh0qEW3vKtNqGJb1IZm
+         c5zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789312325; x=1789917125;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i6FKqhHGMKbN+g1kF5qjdCbk6ZlE4yPuWZmPTrF4npY=;
+        b=mQFbl7/bPIz5CupyPZp07iebsep5S4Id6BEGlMP2QwbcTow/kIlV0o+e+LNkgnPllt
+         QcJJ0YGJmuSk6DfEaNeNeJP18aUrC+fAdETBkHPW+ak0fAzgRKXPK+cJhvKYAMFMJZcP
+         /XDDvyqFKuPLYrNQj87Z5lBSJ0m9p6jCEvDCCjS8ww8xHvHTZxaZA727wLmRFdZ/WGr7
+         0KkvVQP/btIolc5NRl4m6e+ELf4CtMzL1j5IQTiitB4YUYyKWLVMeGrnAuRujk6h6GwP
+         WyZLaRT1RDiKR/Ltz0kLnpYQ3mssDBM1sOtv396UGJ3u7niJcu24uiu6cdvaYMjIQtSg
+         I00Q==
+X-Forwarded-Encrypted: i=1; AKwUvBygpflJ+hLTtBCdQh6kcMB5SaBE/F4su+MHCRSev4NomK9bovNfibobte6GyCoK8XB+GL4yIhXNF1/UqrjhDqj2@lists.infradead.org
+X-Gm-Message-State: AFuF++mgfYVt93BSamfYpSPKDR5unSyZ1vp0y81Y6hcoYOzSBS8H2ZZs
+	TTbq9XCVY25wKrLULEWLoAuBqEoBLz599+gKsRURfGDIHLbXUeL8sEeMxy6OTIshlDti02lcpbG
+	7jtvpU6cAjvxOhx52h0CnAK7T7kAD/8s=
+X-Gm-Gg: AYBFou0D4wc7lizEZ+KMi5kGE3UGCJMvrGBsPH3pZ1ru0wuJWJxmdvNXx5JV+MPM5hR
+	d6NAKiUXP/+cAiG6j4J+F9aRFG3EUsaF2kPTRdQqjtqAwbDlRwvmJqWbK51XUFcUrE14TeuHtzq
+	XI6tUEStJ3tva55rQbvWXRfTcE4QgQoQ3SdP1L6Mi33a6zMarkJK+EiexOpZg+zcV6E2OW04czz
+	wWs/OojetKFGr+zfDnDNMTVc7wDdBtMCjLa63DJPgNwIAPqbwHwwW2sbvXk/AtLKZgQf78RbhhW
+	Jo11GhCih1NgB5nrN1mxPBUKnmQupu+Z2nRM+Qv3oHWJ6RPYYnXDEFFbfw==
+X-Received: by 2002:a17:907:c48d:b0:c25:8eb7:f388 with SMTP id
+ a640c23a62f3a-c2966732b44mr1279507266b.17.1789312324376; Sun, 13 Sep 2026
+ 08:12:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add DSS support for AM62L SoC
-To: "Kumar, Udit" <u-kumar1@ti.com>,
-        Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, <nm@ti.com>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devarsht@ti.com>, <praneeth@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20260811130822.2324438-1-s-jain1@ti.com>
- <5727ba42-4469-4a12-ab70-9f85089dc6c1@ideasonboard.com>
- <25d22caf-c971-4a6b-887a-7770a0bfb6c4@ti.com>
- <f49852ba-c484-4703-9f5a-457443bd4942@ti.com>
-Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <f49852ba-c484-4703-9f5a-457443bd4942@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000037B9:EE_|DS0PR10MB8152:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc98bdf3-ad13-45ab-af19-08df11a87c2e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|1800799024|82310400026|4143699003|56012099006|3023799007|10067099003|13003099007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 8x0P1/m9lR6/bT065MFJavYu5w8VwAKbO+fz3QHNEZefuFURKerFCR2qTQFIY/2rTLr7oNGnfFN5z1Lqnw/I79+a7MdO+bOrXbmICE+oyb/DON3cfYNbQTBNymz6h9kWY9fidJQdNHkR+UHxnf5bt3R4eqkOZLc/NPzm2pzwQ70uyq2/FEKtwqtHitRrA0ZLmok8oyUwuDIB7gIwqbvujt0R8teenn8CKO8lGBttoEiIZizFWrBGhZrzs4r0eS7M+kMYkH4vpK9ZSKrHlCH65r9i3rRWDj9m0564N47yEsBlEHrplAux4ZSBwPbLqtACXTzgo2qsWMhqBC1EijlSU6zhYX8xTIVkte/WrL0OA4KPD+4b0Obm/0+yKqo1wQvXkTPxfRGKsqOBZ9i++UAFlgSdU97yowL1RP0MNJbzKSgzTDAR708HOdR6+QDk01QZQsCYMFO1w4IFaSGyiKfhBcO4q2jp/GEwytiy9bRIlQ7v7XwnY1Xi8cIuZy1ho3Ve3sHldN7GtIi3cVi5sN+JUYvkfXA29s/uTdlOv+G/qR1MtbUF2/YYxuh0q8Uj9i7DfBCj9iNtLkkvRA8rW6N3cbRVaOU4eNAqBPSuL16klWuUY3qFStC9Lxs+0shAkNGAZeirBN4cbNIOxz3QK7IU+mcY7RmpUONE3sYNgUuHLfroSK9YLimL8dLmoLRxM9RsV3q9UJ97nLK1CObAMJ3WZg==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(1800799024)(82310400026)(4143699003)(56012099006)(3023799007)(10067099003)(13003099007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: B0Zk8aQkOT8tuw1KgrC+kcksn22rggk4+Cngi1gSEo9wL73GdCApmYQWitFOTAzwKxczTbNB3sAK5FdNyBvtZmmif5RFIVQ0ynPi8MbEyVBV6gWpQC9XaioE1F5vpIz91bG2w5sO2/yPu8l2pVPK14dyf30DW1G2ZENTTksdzv2nlNlODOv8K/9p9AiYUFrkDNPYroKZH3QhhVcBasUQC32VWQfM8VLrXjSXqwL6pBWXZjRzsNYZfx9M0/WIVkNlY8SqtKwRSoDj7blX8if55Jrc+0ppU+OdJ67sCAOUpmuruDboudgapBH0+0nqU+Gch6KmJDDDqo7DWX0sHVH8AqrjMnNJ6kGdYtgfkXLVCID8Wuv2mCoM/rUjzV3+QPwXGfLEua+ELnH66tZJHG7tcjQZg1H5hxHI/N9Jkm8rBPCSzgIFJwz+JuB7VzngDtDy
-X-Exchange-RoutingPolicyChecked: WsrCGu9dqIpwj1VKkBT047L2CPBLpB1d7BUhhxo6UktKgTU/t6DUnFPtfx6Xm9PJVzWwb+ldbCw+uE1Ve19poCrH2PHrhYKWvyQ8VUBXpPWyxGrjkm+3GNHC7e3XAsHDmKVDEfK6vmm4OnchshgOs+8uxoeQ17pT2sAjcLluskUedvto13oWE20DZr8QLddZwnouycMXxGApkaCYlrZi+VE55QJ1KsOHNdZTuKYE0ZLH6g4P+r5DiNLZH/o2fsSLmlxFFLLkXG4ywSo0daMryyRHAISap/nhYTQiqe+KmN1BLBTPsJG3Yj7avF8FCubU53DMRRsWH4Ib+tPQsX9kFw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Sep 2026 15:05:44.4187
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc98bdf3-ad13-45ab-af19-08df11a87c2e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000037B9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8152
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEzMDIxNSBTYWx0ZWRfX+9GTQCDGmNSu
- 4CljkvBRkqzg5ng3nAoq0y955kQxCrZ3cMHoaiPU1M5Q9b4puVOu4wrydy9yjRUMm+m/vKmb+qy
- r2S/ueTXk1NCPFPmmRu9Ajr2OktHv4U=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEzMDIxNSBTYWx0ZWRfX+3S50A1J7XQC
- Xrao8KwBsataHfM2mYJZSwhm39V8VUN6QGNTvHp4jx4jsqc8UTObsm7GryKBuEJrcQcMzXk4sOp
- 2jt4QNWWn/U8/vtZN7xxavwxPfEMIM934sM9GOaglWNVuyboI59NbJ6ruSBWXWI8fxc8Yt2E5+Y
- l1b8TIf1ntRHoCHn6XvBEQLofsPZQNhQyZJmH6LQSvni8FzR8MUbYcc3xVmlLJS8Qf54mJ44wpi
- rku8ZQS0+kIMNNLlocXU3CM7IILlPgzfpTHHm9/NTKgdIfMxEp4zS+rvbKrItMZ3Fc4RRVT9FA/
- uXAkWFZs8h35sKRZUfBR/+TXnjW94671swBrtXj0geaT5vm6yxFDsoXtiC+AseGcHCFz29EBJ8D
- sQLhlmd4KhtBwQIW/SH+4ZRqE2NvgOlzDi5BBqtEQXwajrbU0BH1LOv56NAlcHE7c1+CTALG+hj
- VDyOM4tGzzbjdLYNz4A==
-X-Authority-Analysis: v=2.4 cv=Jq5kP84C c=1 sm=1 tr=0 ts=6aa6bbcd cx=c_pps
- a=LWr4lAA3g636x20Wckjs+g==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
- a=GFGnnxxPwZrJ3szhfAsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: 5ZI1hLUuCWqnxmq0CzwtQSg7I45wCfhu
-X-Proofpoint-ORIG-GUID: 5ZI1hLUuCWqnxmq0CzwtQSg7I45wCfhu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-13_05,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 suspectscore=0
- clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609130215
+References: <20260907153713.2572547-5-coiaprant@gmail.com> <20260912201322.126940-1-kuba@kernel.org>
+In-Reply-To: <20260912201322.126940-1-kuba@kernel.org>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Sun, 13 Sep 2026 23:11:52 +0800
+X-Gm-Features: AcwNN1XiM26q-ovJF_4CrXhU4nIDQ7WEDIwpgpUZziGAyddbfl9wQtAk49btimU
+Message-ID: <CALj3r0jVNnwhT1odBn_7Fg4hqC5covyQTsw0B3wiNQhiciFTEg@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 03/10] phy: rockchip: naneng-combphy: add
+ SGMII MAC selection for RK3568
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	heiko@sntech.de, vkoul@kernel.org, maxime.chevallier@bootlin.com, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com, romain.gantois@bootlin.com, 
+	hkallweit1@gmail.com, neil.armstrong@linaro.org, linux@armlinux.org.uk, 
+	shawn.lin@rock-chips.com, david@ixit.cz, netdev@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_080556_477186_A57E21D4 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260913_081206_922508_4F4CF838 
+X-CRM114-Status: GOOD (  49.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,50 +127,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8813=E6=97=
+=A5=E5=91=A8=E6=97=A5 04:13=E5=86=99=E9=81=93=EF=BC=9A
+>
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+>
+> This adds a "rockchip,sgmii-mac-sel" DT property to the RK3568 combphy
+> driver so the SGMII interface can be routed to GMAC0 or GMAC1 through the
+> pipe GRF pipe_sgmii_mac_sel bit. The value defaults to 1 (GMAC1) when the
+> property is absent, and is written during PHY_TYPE_SGMII configuration.
+>
+> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TR=
+M%20Part1%20V1.1-20210301.pdf (Page 229)
+>
+> A few questions below.
+>
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drive=
+rs/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > index 7843356a4dd47..919bb97a4b182 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+>
+> [ ... ]
+>
+> > @@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
+> >       bool enable_ssc;
+> >       bool ext_refclk;
+> >       struct clk *refclk;
+> > +     u32 sgmii_mac_sel;
+> >  };
+> >
+> >  static void rockchip_combphy_updatel(struct rockchip_combphy_priv *pri=
+v,
+> > @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device =
+*dev, struct rockchip_combphy
+> >
+> >       priv->ext_refclk =3D device_property_present(dev, "rockchip,ext-r=
+efclk");
+> >
+> > +     priv->sgmii_mac_sel =3D 1;
+> > +     device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sg=
+mii_mac_sel);
+> > +
+>
+> [Severity: Medium]
+> Since the return value of device_property_read_u32() is discarded here,
+> rockchip_combphy_parse_dt() cannot distinguish "the DT asked for GMAC1"
+> from "the DT said nothing about the mux".
+>
+> The result is that rk3568_combphy_cfg() writes PIPE_GRF 0x0040 bit 1 on
+> every PHY_TYPE_SGMII bring-up, including for device trees that do not hav=
+e
+> the new property. Before this patch that bit was never touched, so whatev=
+er
+> routing the SoC reset or the boot firmware established was left alone.
+>
+> The commit message states:
+>
+>   "The hardware reset value is GMAC1 (1). If the property is set to 0,
+>   the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
+>   remains at GMAC1."
+>
+> The "or omitted" case now depends entirely on that reset value being 1. I=
+f
+> the reset value is actually 0, or if firmware routed SGMII to GMAC0 on a
+> board wired that way and its DT lacks the property, does phy_init() still
+> return success while the XPCS ends up attached to the wrong MAC, giving a
+> link that never comes up and no message explaining why?
+>
+> Would it make sense to only write the bit when the property is actually
+> present, for example:
+>
+>         if (!device_property_read_u32(dev, "rockchip,sgmii-mac-sel",
+>                                       &priv->sgmii_mac_sel))
+>                 priv->sgmii_mac_sel_valid =3D true;
+>
+> so that omitting the property leaves the mux untouched?
 
+SGMII has never been functional on RK3568 in mainline before this
+series. There is no existing user that relies on the old behaviour,
+and no in-tree device tree enables SGMII. Boards that have the SGMII
+routing configured in their bootloader were never able to use it with
+a mainline kernel, because the driver did not support it.
 
-On 06-09-2026 19:08, Kumar, Udit wrote:
-> 
-> 
-> On 9/3/2026 2:46 PM, Swamil Jain wrote:
->> Hi Tomi,
->>
->> On 8/21/26 14:32, Tomi Valkeinen wrote:
->>> Hi,
->>>
->>> On 11/08/2026 16:08, Swamil Jain wrote:
->>>> This series:
->>>> - Adds base support to enable Display on TI AM62L[1] SoCs
->>>> - Adds base support for DSI output
->>>> - Enbales HDMI output out-of-box
->>>>
->>>> [1]: https://www.ti.com/product/AM62L
->>
->> Thanks for reviewing the patch.
->>
->>> Do we really need bootph-all? In any case:
->>>
->>
->> We need it to enable splash-screen.
->>
-> 
-> Then you should have in ports too
+Given that, unconditionally writing the MAC-select bit (with a default
+of GMAC1, which matches the hardware reset value) is reasonable. It
+makes the driver's behaviour explicit and deterministic rather than
+depending on whatever the bootloader happened to leave behind.
 
-Thanks Udit, will add the property to ports too and respin the series.
+I'll keep the current logic, but I'll make the commit message clearer
+about the hardware reset value and the fact that SGMII is new in
+mainline.
 
-Regards,
-Swamil.
+> >       priv->phy_rst =3D devm_reset_control_get_exclusive(dev, "phy");
+> >       /* fallback to old behaviour */
+> >       if (PTR_ERR(priv->phy_rst) =3D=3D -ENOENT)
+> > @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combp=
+hy_priv *priv)
+> >               break;
+> >
+> >       case PHY_TYPE_SGMII:
+> > +             rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_s=
+gmii_mac_sel,
+> > +                                     priv->sgmii_mac_sel > 0);
+>
+> [Severity: Low]
+> The binding added in the preceding patch of this series declares the
+> property as:
+>
+>   rockchip,sgmii-mac-sel:
+>     $ref: /schemas/types.yaml#/definitions/uint32
+>     enum: [0, 1]
+>     default: 1
+>
+> but "priv->sgmii_mac_sel > 0" collapses the value to a boolean, and
+> rockchip_combphy_parse_dt() does no range check.
+>
+> Does that mean a device tree setting the property to 2 or 0xffffffff is
+> silently treated as GMAC1 rather than rejected? Similarly, a
+> present-but-malformed property (wrong length or type) makes
+> device_property_read_u32() fail, and the pre-seeded default of 1 is used
+> with no diagnostic.
+>
+> dtschema only validates in-tree device trees, so for bootloader-supplied
+> DTs or overlays the driver is the only place the enum can be enforced.
+> Would checking the value against {0, 1} and returning an error, or
+> alternatively documenting the property as a plain flag, close that gap?
 
-> 
->> Regards,
->> Swamil
->>
->>
->>> Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->>>
->>>    Tomi
->>>
->>
-> 
+The property is validated by dtschema. For in-tree device trees, values
+other than 0 or 1 are rejected at build time. I don't think the driver
+needs to duplicate this check.
 
+> [Severity: Low]
+> The mux write is only added to the PHY_TYPE_SGMII case. The adjacent
+> PHY_TYPE_QSGMII case in rk3568_combphy_cfg() programs the same pipe-grf
+> register (pipe_xpcs_phy_ready at offset 0x0040 bit 2) but never touches
+> the MAC-select bit:
+>
+>         case PHY_TYPE_QSGMII:
+>                 rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_x=
+pcs_phy_ready, true);
+>                 ...
+>
+> The binding gates the property on the compatible only, not on the PHY
+> type, and rockchip_combphy_parse_dt() runs at probe time before the PHY
+> type is known from rockchip_combphy_xlate().
+>
+> If a device tree sets rockchip,sgmii-mac-sel on a combphy that a consumer
+> later claims with PHY_TYPE_QSGMII, is the requested routing simply droppe=
+d
+> with no warning? If the property is meant to be SGMII-only, would
+> rejecting or warning about it for other PHY types make that explicit?
+
+You're right that the property is SGMII-only. For QSGMII, the hardware
+routes to both MACs internally, so there is no MAC-selection bit to
+program. We have not found any QSGMII device that exists outside of
+OEM SDK EVB code, and mainline XPCS does not support QSGMII, so this
+case is not currently reachable. I'll leave it as is.
+
+> >               rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_x=
+pcs_phy_ready, true);
+> >               rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_ph=
+ymode_sel, true);
+> >               rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_se=
+l_qsgmii, true);
+> > @@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_=
+combphy_grfcfgs =3D {
+> >       .con3_for_sata          =3D { 0x000c, 15, 0, 0x00, 0x4407 },
+> >       /* pipe-grf */
+> >       .pipe_con0_for_sata     =3D { 0x0000, 15, 0, 0x00, 0x2220 },
+> > +     .pipe_sgmii_mac_sel     =3D { 0x0040, 1, 1, 0x00, 0x01 },
+> >       .pipe_xpcs_phy_ready    =3D { 0x0040, 2, 2, 0x00, 0x01 },
+> >       .u3otg0_port_en         =3D { 0x0104, 15, 0, 0x0181, 0x1100 },
+> >       .u3otg1_port_en         =3D { 0x0144, 15, 0, 0x0181, 0x1100 },
+>
+> For reference on the first two comments: this disable/enable encoding
+> ({ 0x0040, 1, 1, 0x00, 0x01 }) is what maps the DT value onto GMAC0/GMAC1=
+,
+> and rockchip_combphy_param_write() always sets the write-enable mask:
+>
+>         tmp =3D en ? reg->enable : reg->disable;
+>         mask =3D GENMASK(reg->bitend, reg->bitstart);
+>         val =3D (tmp << reg->bitstart) | (mask << BIT_WRITEABLE_SHIFT);
+>
+> so the bit is committed to hardware on every SGMII bring-up regardless of
+> whether the device tree expressed a preference. Could the TRM bit polarit=
+y
+> and the claimed reset value of 1 be confirmed in the commit message?
+>
+> Note that no in-tree Rockchip device tree requests PHY_TYPE_SGMII before
+> this series, and the only user (rk3568-photonicat.dts) is added later in
+> the series, so nothing in-tree changes behaviour today.
+
+You're right, the commit message should state this explicitly. I'll
+update it to describe both the bit polarity and the hardware reset
+value.
+
+From the RK3568 TRM Part1 (Page 229), the PIPE_GRF_XPCS_CON0 register
+bit 1 is pipe_sgmii_mac_sel:
+
+    0: SGMII interface is routed to GMAC0
+    1: SGMII interface is routed to GMAC1
+
+The hardware reset value is 1 (GMAC1). This matches the default I use
+when the property is absent.
+
+I'll include this in the commit message and the binding description so
+that reviewers can verify the behaviour against the TRM.
+
+Regarding the unconditional write: as I mentioned, SGMII has never been
+functional on RK3568 in mainline before this series, and no in-tree
+device tree enables it. So writing the bit on every SGMII bring-up does
+not change behaviour for any existing user.
+
+Thanks,
+Coia
 
