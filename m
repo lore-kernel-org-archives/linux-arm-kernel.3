@@ -4,103 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1738AC88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3268DC88E66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ojm3inVGHkUK0yBRj0L32h8BiK2OtTXiQ8B+T74NBtE=; b=QHvwWXyP2N5HjtLl/MIsb8tER9
-	RWOyZIR0eRthXtetfWSfwIsnsJX30gR4ynJT49qkeDvhFXTlRYQGZsfpflZHs/ejYhj4ElijWKCV9
-	m7sbSzQ/bpjMMp9dLcmnWcq7o8oL4NaXeOBdF7kZd8fcwEtFTm3i33Phg/uHDxjCgn8Shih5CY9ix
-	R7/mBaLVmQq0yIRJOv5Ni2UtKFzxsRwrY12/rEBOP4+xPZXbKnfseUIq7PM0fyTqNFmfFBZO2coso
-	to9UJLFfTc2JOp1YaziYZCyZmtmjmHubAQJkmj58XdRzPpHPlM4vARbYEyv0d2FhSJjbm+Z/59KrA
-	anXPu+pw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ifs86+3yzusOqbHusfFJjo1uLj4OkYHhXzsQhWXXtVA=; b=nIYsxlqE16yP/03vNmEwBr7Na6
+	YiBCYd0AyALtyAhSMymw/a2k1vE3/B9yWOLm1KyBBdBO+iXlCYAP7KUhI/95Ub/XydQVRoDtosBzX
+	2Mtkz50efkSsXIx8Wj8/c5ojwpGDTLM37QbFJbQL17ffiK8ODi4CK4YgtVzpRdUz3QjUkSVPzs7cD
+	5bW4Y1SgJG6+Yo6sseiWi+l27emBvz6gwv1+ybzRAuG75hR77dpk6EY01qtuYyyJZd6O/mT3FAYeC
+	ZYaiDCpRnobDP+72b47sNQyZi4ngdhgq/Byuy+cFt5QmUEPGgyp/lnBZRVMNXOK6vflK5WLqzYBt9
+	p6NAvm7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ldm-00000001k5A-1LuB;
-	Sun, 13 Sep 2026 14:57:10 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1x5lfr-00000001kKi-2Q3x;
+	Sun, 13 Sep 2026 14:59:19 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ldj-00000001k42-07AK
+	id 1x5lfp-00000001kKL-0vv2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 14:57:08 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id 41be03b00d2f7-cc4c08393dfso797616a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 07:57:06 -0700 (PDT)
+	Sun, 13 Sep 2026 14:59:18 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-39b350c6920so868353a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 07:59:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789311426; x=1789916226; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ojm3inVGHkUK0yBRj0L32h8BiK2OtTXiQ8B+T74NBtE=;
-        b=av3+H89ZLkXjR0jb0EtcUf7PSZ5fSoV47+dVfr3PCpeZ4EODQZPd8CmEkjvzNzT3Op
-         1pMdDCbzO588cz7H/tH4fE2jSkfHrcJKgzI7B99OtDGe4k2NufGBO0TcZUiSCU9YtRHl
-         Z3JQIz3PGmxuXdYX+g1UTxxLGo+noRdJHc+Rf0Hh5aUIipezP1Zm29D22xs3DEZVc9IK
-         sdbiZnI/QN0w6EgXHnjERYNjVvncYMTRqi2w5ZbJ8R4FRvEHuMy0XTp8HNuxbrQvskwU
-         aJK8oGwEk7KpP0gqwBdMaafXa4q0tmO391A69JGpurCPfeA4EAuqhQ7CM5iS9Aq/RNro
-         Psjg==
+        d=gmail.com; s=20251104; t=1789311556; x=1789916356; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ifs86+3yzusOqbHusfFJjo1uLj4OkYHhXzsQhWXXtVA=;
+        b=aNGAgf4vdT1hcj6jzFUC4oKk5YUVA+kXbGxeXUHdKjByVkQzlwrKFwB7AVr9LtoWGJ
+         jJHP6pya5ySyu7OpkFeztnJEPJxcP8lTvWmLUys+RRSvdpTQ59UY4biq0dHJ63WLSgXa
+         bf5Yh4KJlAXEojM5oK7fPlx+0evoWBaU/MCXb/NWSYGdLHi4Epaa8GcTffleJivad6E1
+         GXFSOcDMZbmOPNos/USkP1Rmn3HtvDmSbfpqlvq9bkXIaKJcEQKg+7eGPjTrArp9JFw6
+         y8H5kgr8lBXP8n6Zuh0aaalS09u70OEs9yTAtOjE0aCdEL34mqtKad3n7SS2xQvZkoOR
+         XoeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789311426; x=1789916226;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ojm3inVGHkUK0yBRj0L32h8BiK2OtTXiQ8B+T74NBtE=;
-        b=a2GoVuBfPbxlDu1RyzRR8gqpBKiAQCRJAh97xlV9QgtoaBUwf6iPfaE2OwnV2VRXaF
-         AlJcU4OMDJ96WkJuZRYKyCz+/NxiU+8a6yrK/12bExEdXZZfZrJhBxTieSOTcNK+t/Fe
-         dtNKcBSvhQ7Ht5t52UELRxSd7n0AULuY0SU6DaZFM1PF5V3rs49OCLUU8PrJGLVCPaHj
-         momRSSjewhW9nLH/oPjzQNwQKczRbnpvQVXbsZOjiqnbrTqqxu4R4JKhOncefZHCo8O8
-         nt9SNhvx/OsmgNlS6QhJr2w8Pf0WxHwYH0Yz4CQHwJBgPGAlR00KQB7GSUD30PvDENQv
-         yBCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy7V7inTdL25d3loCyTt2cmRJoHo6RDS2lvN0gUzZp/JTRHZReAxeCPRpDnz47cYAWZYjlTu4FuoE/WaVk0C8EL@lists.infradead.org
-X-Gm-Message-State: AFuF++lON3mHjDFRa9u/fpty7A06TdadqcNd8hPBw0Ktz+L4fPuhbhA1
-	8du9zD6qP5FTgm+XyAGyEXvIoMPKD8j5R9kBreldMiIxdv+lS5ktq9LG
-X-Gm-Gg: AYBFou2i2zI3nx8gpqhfuKUkulkp70eeb3Iol3lOrlB0IBplwBw707uIHrsKxIZqgP1
-	r2LpuErjfRE1hjn8D1V3WbsbJRu9mEX1FP01Ec2hNJdtDJF6gbTAT252vfMnIT9ZgRyTtgad/BV
-	DY8IbRxYo/vKS1fSmwY/hrqafizFfz7MFgZj42vIHch1M7ddZ39gv3Gi3UQqdzhiRn22WkVWpi1
-	JqFlhrz4yfhEmbFPiIxyDwtSUdwx9l7mnCY0jV+WHjE0kl1sPP7cfnKieoto+YtC+Z+HVCNx/1t
-	nEMvYnwl3MiIQaYfRnyhxiBej1lGXkn3MTu2W/0P7um/bWarclB1n0T3DSOBWaQRM+0kb/cSBMX
-	pBK12QXn1e6RNKv98SEarOzU5Q06smNi9Bz0wo5mFI/lV34Ifhf8iY5ZpK9w7/rbsR0IP3rMW1p
-	5tsg/fk06W1+JTwk71r0B8iwJqGzbblDB82JQAOjYMK421VdE8+ND1puFglYrhsdQX
-X-Received: by 2002:a05:6300:83:b0:3da:755f:a031 with SMTP id adf61e73a8af0-3db0e1440cdmr14771539637.12.1789311426035;
-        Sun, 13 Sep 2026 07:57:06 -0700 (PDT)
-Received: from archlinux ([207.90.239.231])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba7a9bb56sm21467366eec.31.2026.09.13.07.56.52
+        d=1e100.net; s=20251104; t=1789311556; x=1789916356;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ifs86+3yzusOqbHusfFJjo1uLj4OkYHhXzsQhWXXtVA=;
+        b=QyhsC220imYBwgTa0Ax9BGt6YR+uLE8sPQwDg8saD2+UGkImwBYt/XDclWMrXYYDxy
+         4K/W5X/diREueTbf+nLeJe6rWJZX4zsTk/ss3oH5zfkEjbGzfPfo1SmivwfUdW0zcxdR
+         acsXcDs3aSQMkUpZQUSvrTzPfOXCHkBqcG+Plp1SRMfCgrRM03PS8ZajuvBVHZeunYBL
+         DJtxxN91nrMTNQz2U7WTAasVe1O3rIbmuOtgg5xXlkqEgKO1IJ2MDKzWa4mEV6fS0YR7
+         /XqdzREJAoY5qfMM88+FTZ9pnXmMONcdXTUz4f9GdPzzkH4FOjfBzCueLTXyAwDUAN3O
+         nG1w==
+X-Forwarded-Encrypted: i=1; AKwUvBynqxu/XSlk1J/P31gvwpe/CEj7LvPvrJzJLz+gjnCHBSAGAxZbYSP4gZ1/tJaU7McEQIUNiDg5DpYT9oTQdGQj@lists.infradead.org
+X-Gm-Message-State: AFuF++ln0rG/rKS0MzqhwfZ07XJ/8RTMQXBSzRExhyUNUoxY2eYBjHGH
+	WAmoGoBITQW/w1rOER/51t516AALtbIm4NdaCguYwC9TGWCd8pZk7jjc
+X-Gm-Gg: AYBFou2M9IplCre8F3lO5M1uyeyLJR7Ek0ry01VrcEw8lZrs3NBlIHGEYKKEDX2w3JR
+	GwEqcyHNwiyA3Bg9CFDEA52tIVqAZbjQdgUwcfhbzO6SS9nbH1Vpmv0PNmfTZjDazUDw9niki5M
+	dPETE4w82tHmiE7aQNRuImn7bfI9iPVZPiFq4ZZ+53UMxefoRsRnhiDjzS66FORRLgbnCZKNsXO
+	/J2aMHoJcn6mAKSdn9lgKw5PrcPQmd4gNaz4s3gVrtWs/QozAWBrHop/RoPF62pcBnCcliqXR2K
+	91ylDY9ya57dftUKQ0KSvXSbkjWRW+aoSX+/HOFQ0RmTwDudJaAZIebAtscPwwECxcErUUWlx+5
+	8HLh1vxvqRGtVm+ye/5h7JXZ2YCmeqApd8v1UyX/DTSTrer63Ba2pgFfkygGrfm8o7P4AOmVmu/
+	RAScnsOz3+L/eN4O2qkB6Xx81xy0bshpQ7OlCM3HpLEvJZynxIjigXwPS7nVZ7r0QFrbpLwCYxv
+	mn5Lv9SvmQ=
+X-Received: by 2002:a17:90b:258c:b0:396:4c63:7193 with SMTP id 98e67ed59e1d1-39dbc1d79aamr13876016a91.11.1789311556047;
+        Sun, 13 Sep 2026 07:59:16 -0700 (PDT)
+Received: from archl-rock5b ([45.112.0.180])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365b8f1f7sm17536306c88.11.2026.09.13.07.59.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 07:57:05 -0700 (PDT)
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
-To: Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
+        Sun, 13 Sep 2026 07:59:15 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Daniel Lezcano <daniel.lezcano@kernel.org>,
 	Zhang Rui <rui.zhang@intel.com>,
 	Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v6 5/5] arm64: dts: allwinner: sun55i: add thermal sensors
-Date: Sun, 13 Sep 2026 22:55:27 +0800
-Message-ID: <20260913145527.18148-6-iuncuim@gmail.com>
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-pm@vger.kernel.org (open list:THERMAL),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
+Subject: [PATCH v9 0/9] Exynos Thermal code improvement
+Date: Sun, 13 Sep 2026 20:28:28 +0530
+Message-ID: <20260913145905.9404-1-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260913145527.18148-1-iuncuim@gmail.com>
-References: <20260913145527.18148-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_075707_081285_7645EB35 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260913_075917_267122_895D162E 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,285 +105,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
+Hi All,
 
-The A523 processor has two temperature controllers, THS0 and THS1.
-THS0 has only one temperature sensor, which is located in the DRAM
-controller.
+This series performs a number of cleanups and refactoring changes to the
+Samsung Exynos TMU driver.
 
-THS1 does have 4 sensors:
-ths1_0 - "big" cores
-ths1_1 - "little" cores
-ths1_2 - gpu
-ths1_3 - npu
+The series starts with clock lifecycle and interrupt handling cleanups,
+followed by improvements to triminfo clock handling and correction of
+the Exynos5420 efuse trimming range.
 
-Add the thermal sensor configuration and the thermal zones.
-Trips temperature, polling-delay and sustainable-power parameters are
-derived from the manufacturer's BSP.
+The later patches simplify the TMU register mapping and refactor the
+SoC-specific configuration into static variant data selected through
+the device tree match table. Thermal zone operations are also moved
+into the variant data, allowing the thermal zone registration to use
+the SoC-specific configuration directly.
 
-Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
----
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 172 ++++++++++++++++++
- 1 file changed, 172 insertions(+)
+v8: Refactor SoC-specific configuration to new exynos_tmu_soc_config
+    structure which help clean up the callbacks.
+    dropped the IRQ clean up patches, with new approach 
+    it will be much eaasy for new SoC to be integrated
+    and the code will be much better way managed in the future.
+v7: Integrated my RFC patch which improves the IRQ framework
+    for all the SoC link below.
+v6: Add new patch to use devm_clk_get_enabled
+    and Fix few typo in subject as suggested by Daniel.
+v5: Drop the guard mutex patch
+v4: Tried to address Lukasz review comments.
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 85ef492ff..ced544154 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
- #include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
- #include <dt-bindings/power/allwinner,sun55i-a523-pck-600.h>
-+#include <dt-bindings/thermal/thermal.h>
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -26,6 +27,7 @@ cpu0: cpu@0 {
- 			device_type = "cpu";
- 			reg = <0x000>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu1: cpu@100 {
-@@ -33,6 +35,7 @@ cpu1: cpu@100 {
- 			device_type = "cpu";
- 			reg = <0x100>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu2: cpu@200 {
-@@ -40,6 +43,7 @@ cpu2: cpu@200 {
- 			device_type = "cpu";
- 			reg = <0x200>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu3: cpu@300 {
-@@ -47,6 +51,7 @@ cpu3: cpu@300 {
- 			device_type = "cpu";
- 			reg = <0x300>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu4: cpu@400 {
-@@ -54,6 +59,7 @@ cpu4: cpu@400 {
- 			device_type = "cpu";
- 			reg = <0x400>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu5: cpu@500 {
-@@ -61,6 +67,7 @@ cpu5: cpu@500 {
- 			device_type = "cpu";
- 			reg = <0x500>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu6: cpu@600 {
-@@ -68,6 +75,7 @@ cpu6: cpu@600 {
- 			device_type = "cpu";
- 			reg = <0x600>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu7: cpu@700 {
-@@ -75,6 +83,7 @@ cpu7: cpu@700 {
- 			device_type = "cpu";
- 			reg = <0x700>;
- 			enable-method = "psci";
-+			#cooling-cells = <2>;
- 		};
- 	};
- 
-@@ -380,6 +389,30 @@ gpadc: adc@2009000 {
- 			status = "disabled";
- 		};
- 
-+		ths1: thermal-sensor@2009400 {
-+			compatible = "allwinner,sun55i-a523-ths1";
-+			reg = <0x02009400 0x400>;
-+			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC1>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_THS>;
-+			nvmem-cells = <&ths_calibration0>, <&ths_calibration1>;
-+			nvmem-cell-names = "calibration", "calibration-second-part";
-+			#thermal-sensor-cells = <1>;
-+		};
-+
-+		ths0: thermal-sensor@200a000 {
-+			compatible = "allwinner,sun55i-a523-ths0";
-+			reg = <0x0200a000 0x400>;
-+			interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC0>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_THS>;
-+			nvmem-cells = <&ths_calibration0>, <&ths_calibration1>;
-+			nvmem-cell-names = "calibration", "calibration-second-part";
-+			#thermal-sensor-cells = <0>;
-+		};
-+
- 		wdt: watchdog@2050000 {
- 			compatible = "allwinner,sun55i-a523-wdt";
- 			reg = <0x2050000 0x20>;
-@@ -611,6 +644,14 @@ sid: efuse@3006000 {
- 			reg = <0x03006000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
-+
-+			ths_calibration0: ths-calibration0@38 {
-+				reg = <0x38 0x8>;
-+			};
-+
-+			ths_calibration1: ths-calibration1@44 {
-+				reg = <0x44 0x8>;
-+			};
- 		};
- 
- 		gic: interrupt-controller@3400000 {
-@@ -1145,4 +1186,135 @@ npu: npu@7122000 {
- 			power-domains = <&ppu PD_NPU>;
- 		};
- 	};
-+
-+	thermal-zones {
-+		cpu0-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <1000>;
-+			thermal-sensors = <&ths1 1>;
-+			sustainable-power = <1200>;
-+
-+			trips {
-+				cpu-trip-0 {
-+					temperature = <70000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				cpu0_target: cpu-trip-1 {
-+					temperature = <90000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				cpu-trip-2 {
-+					temperature = <110000>;
-+					type = "critical";
-+					hysteresis = <0>;
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu0_target>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		cpu4-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <1000>;
-+			thermal-sensors = <&ths1 0>;
-+			sustainable-power = <1600>;
-+
-+			trips {
-+				cpu-trip-0 {
-+					temperature = <70000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				cpu4_target: cpu-trip-1 {
-+					temperature = <90000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				cpu-trip-2 {
-+					temperature = <110000>;
-+					type = "critical";
-+					hysteresis = <0>;
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu4_target>;
-+					cooling-device = <&cpu4 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu5 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu6 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu7 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		gpu-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <1000>;
-+			thermal-sensors = <&ths1 2>;
-+			sustainable-power = <2400>;
-+
-+			trips {
-+				gpu-trip-0 {
-+					temperature = <60000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				gpu-trip-1 {
-+					temperature = <90000>;
-+					type = "passive";
-+					hysteresis = <0>;
-+				};
-+
-+				gpu-trip-2 {
-+					temperature = <110000>;
-+					type = "critical";
-+					hysteresis = <0>;
-+				};
-+			};
-+		};
-+
-+		npu-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <1000>;
-+			thermal-sensors = <&ths1 3>;
-+
-+			trips {
-+				npu-trip-0 {
-+					temperature = <110000>;
-+					type = "critical";
-+					hysteresis = <0>;
-+				};
-+			};
-+		};
-+
-+		ddr-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&ths0>;
-+
-+			trips {
-+				ddr-trip-0 {
-+					temperature = <110000>;
-+					type = "critical";
-+					hysteresis = <0>;
-+				};
-+			};
-+		};
-+	};
- };
+I dont have any Arm64 device the test and verify
+Tested on 32 bit Arch Odroid U3 amd XU4 SoC boards.
+
+Please share the feedback on this.
+
+[8] https://lore.kernel.org/all/20260214181930.238981-1-linux.amoon@gmail.com/
+[7] https://lore.kernel.org/all/20250813131007.343402-1-linux.amoon@gmail.com/
+[6] https://lore.kernel.org/all/20250616163831.8138-1-linux.amoon@gmail.com/
+[5] https://lore.kernel.org/all/20250430123306.15072-1-linux.amoon@gmail.com/
+[4] https://lore.kernel.org/all/20250410063754.5483-2-linux.amoon@gmail.com/
+[3] https://lore.kernel.org/all/20250310143450.8276-2-linux.amoon@gmail.com/
+[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
+[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
+[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
+
+Thanks
+-Anand
+
+Anand Moon (9):
+  thermal/drivers/exynos: Optimize clock lifecycle with devm helpers
+  thermal/drivers/exynos: Drop invalid IRQF_SHARED flag from TMU
+    interrupts
+  thermal/drivers/exynos: Handle optional triminfo clock correctly
+  thermal/drivers/exynos: Fixed the efuse min max value for exynos5420
+  thermal/drivers/exynos: Remove redundant base_second register resource
+  thermal/drivers/exynos: Use SoC-specific variant data to TMU
+    configuration
+  thermal/drivers/exynos: Move thermal zone ops to variant data
+  thermal/drivers/exynos: Add missing drvdata assignment in Exynos TMU
+    probe
+  thermal/drivers/exynos: Select thermal emulation support
+
+ drivers/thermal/samsung/Kconfig      |   1 +
+ drivers/thermal/samsung/exynos_tmu.c | 640 +++++++++++++++------------
+ 2 files changed, 348 insertions(+), 293 deletions(-)
+
+
+base-commit: 2f0c1cf72f4682178506f513bbf015e591b1aa4a
 -- 
 2.55.0
 
