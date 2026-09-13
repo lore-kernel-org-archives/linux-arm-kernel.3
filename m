@@ -4,107 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8C3C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC63C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nj1Sc2FSNN6ZhJZTa8LiP2iCAf/RUsi5xVB8DoPPUN8=; b=Jn0pwE55Isvtesjpi5uMwfkeL7
-	jTCehXfT+1nHe9LtbNUdvznNyIzqOu0DoSmXBr0C6e8OEz1VaWd9JV44PSkZ4qKA2QmBpOKrzf3If
-	l/MwxKRu2Q4GUHWzkh9tzeV6hTUQMErB0cbO6ufmuyio+fQPGRvftBS2DC/NZQb/DUG2mefpeMVEF
-	43qqlnv36BiPBdo+aUCkqOiZ+MYJfXcYLh5bDTQrfaIyKxRUsTZ6Hsgzi5KHYuYLutkEZ9nbhPD3N
-	/5E/Dm/ttAvqkFr0ecH5c/XGGIwHPxBoQ+OsV+2zpIO9RzupiRcOwLyJsLY6z4uxrysJQ/v6Ud+sU
-	M2YHqa8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CCyNmu1S4QSxghM5bhyr4PoubfLL8i9XAe0yigjLH6Y=; b=jR5NmXuvZrGY2UTWDeWQSrtx/z
+	cPplkI/pn4nRW/UXRjbBNWvx93bW4Rf3eYVEjQmFvm5z2oy96Hz55KUJzpd7RZdZh4Bi7H89zl4WZ
+	Hcj+7Cx1MLk6ApwKOFPMUYkawKKOb1TlIzHDyFPZ0z8hot9gVNWQIM7sblBYIkQpvH+//9Iv2HvON
+	WNevfu8ohRyw1EaNHuC7gPL0L7VvNOK3u8We+F99ADBxzPLG58gm67Yw/EdOPcajTRi8w/OqqMJHW
+	gnTuZs4GPBxqSDEATrkHqhkwmNDOnLbCLCXuHiJp/BCIuda/asRbNK7P/6ZEL1ApjrwgPfnYP55nk
+	7WZWcPDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5hL6-00000001a2G-0OEn;
-	Sun, 13 Sep 2026 10:21:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5hQ8-00000001aEY-3Igj;
+	Sun, 13 Sep 2026 10:26:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5hL4-00000001a2A-33N6
+	id 1x5hQ6-00000001aER-3ytS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 10:21:34 +0000
+	Sun, 13 Sep 2026 10:26:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB1C960DD4;
-	Sun, 13 Sep 2026 10:21:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 597FA1F000FF;
-	Sun, 13 Sep 2026 10:21:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F1194118A;
+	Sun, 13 Sep 2026 10:26:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E9A1F000FF;
+	Sun, 13 Sep 2026 10:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789294893;
-	bh=Nj1Sc2FSNN6ZhJZTa8LiP2iCAf/RUsi5xVB8DoPPUN8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eB5Nfplt65+eHzqIV29cFpdR+4YyBzlZxMdHjkFTXjrjx26YIlBVbGwURHtCZ1nGI
-	 YEtDcebU5jThAgIuqx9s8Q9YHN8QLAhr7Oby7pIhDm1sC8pXQUC8wBiowxIm8QTvvv
-	 yv2YIXRlkeE1zy41hIheOv3HvJX2GpLQoX8kyO3T/FeX6FlGdKOBS+Jf+1YGtSgEyN
-	 g08EJ9G6UCBuuwrUj22q6Q1wNA6Mre0uwA5Vt2nFvEcJW00ygSnHq8I7bc4iPZ6G8H
-	 7PUGEAWJdl7dh7+L0DCixL7/W/aXCCYAjBbdKfFxEDBByA3ZCtR0EFIQuvcDe4UhW/
-	 28kORmTQQJrag==
-Message-ID: <882f2529-1d57-4911-b924-d05fd88a58bd@kernel.org>
-Date: Sun, 13 Sep 2026 12:21:28 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: exynos: Add initial support for Samsung
- Galaxy A21s (SM-A217F)
-To: Thomas Turner <tturner@lineageos.org>, semen.protsenko@linaro.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- peter.griffin@linaro.org
-Cc: alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas_turner@talktalk.net,
- alexey.klimov@linaro.org
-References: <20260913101331.198835-1-tturner@lineageos.org>
- <20260913101331.198835-3-tturner@lineageos.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260913101331.198835-3-tturner@lineageos.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1789295206;
+	bh=CCyNmu1S4QSxghM5bhyr4PoubfLL8i9XAe0yigjLH6Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HxcoM8ZXxZaNZrIj6+HVVWW1vHAG6K1S39AqGPxOTk0cJ2yrto7ofHs/WDrKv30n0
+	 8qd9TV37KTpXM9g/QdqQlp/GQAbfxi3l3g2wvy/BZJLOQoGHNHjJmzdWMtb4bZFs7J
+	 N2tR268wkupaNarLFzulRr8hj1RAXL2Zk/WC+rc0+EoKYwYoPf4NtNLY7NRdX2MdZP
+	 tpyk8+nh8A+CQ2+mWVHf1IZog4NM7nEra4hS5sjJVE1cZjNPoBXMbVgaNujyFAgeu/
+	 v5roWW+0X+HDJLoyS3Qo+5xqSw6PUbD6uR46WaLCcuak1FhJ0py0M5tWiJLVGQJc8I
+	 aZENK3W1L1Svw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x5hQ3-00000008GZK-37Ow;
+	Sun, 13 Sep 2026 10:26:43 +0000
+Date: Sun, 13 Sep 2026 11:26:43 +0100
+Message-ID: <867bkp78gs.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com
+Subject: Re: [PATCH v17 05/20] KVM: arm64: Add vcpu load/put call backs for flavors
+In-Reply-To: <20260908162223.1683432-6-suzuki.poulose@arm.com>
+References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
+	<20260908162223.1683432-6-suzuki.poulose@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,127 +100,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/09/2026 12:13, Thomas Turner wrote:
-> Add initial support for the Samsung Galaxy A21s (a21s) phone. It was
-> launched in 2020, and it's based on the Exynos 850 SoC. It has multiple
-> RAM configurations: 3GB, 4GB and 6GB.
+On Tue, 08 Sep 2026 17:22:08 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> Since our bootloader does not set up memory nodes beforehand, default to
-> the 3GB variant. Custom bootloaders can be used to initialise other
-> nodes per RAM configuration.
+> Add VM flavor specific handlers for VCPU load/put, in an effort to make it
+> easier to follow the code.
 > 
-> The Exynos DPU clocks required by simple-framebuffer are not kept
-> enabled during boot. Add the DECON, DMA, DPP, PPMU and SSMU DPU clocks
-> to the simple-framebuffer node so simpledrm maintains references to
-> them. Without these clocks, the framebuffer fails to remain operational
-> further into boot.
+> Based on a patch by Marc Zyngier
 > 
-> This device tree adds support for the following:
-> 
-> - SimpleFB
-> - 3GB RAM
-> - Buttons
-> - Ramoops
-> - MMC
-> - USB
-> - Watchdog
-> 
-> Signed-off-by: Thomas Turner <tturner@lineageos.org>
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->  arch/arm64/boot/dts/exynos/Makefile           |   1 +
->  .../arm64/boot/dts/exynos/exynos850-a217f.dts | 193 ++++++++++++++++++
->  arch/arm64/boot/dts/exynos/exynos850.dtsi     |   2 +-
->  3 files changed, 195 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynos850-a217f.dts
+>  arch/arm64/include/asm/kvm_host.h |   6 ++
+>  arch/arm64/kvm/arm.c              | 156 ++++++++++++++++++++++--------
+>  2 files changed, 123 insertions(+), 39 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-> index 76cc23acb9b2..f197f8eb633b 100644
-> --- a/arch/arm64/boot/dts/exynos/Makefile
-> +++ b/arch/arm64/boot/dts/exynos/Makefile
-> @@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
->  	exynos7870-j7xelte.dtb		\
->  	exynos7870-on7xelte.dtb		\
->  	exynos7885-jackpotlte.dtb	\
-> +	exynos850-a217f.dtb		\
->  	exynos850-e850-96.dtb		\
->  	exynos8895-dreamlte.dtb		\
->  	exynos9810-starlte.dtb		\
-> diff --git a/arch/arm64/boot/dts/exynos/exynos850-a217f.dts b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-> new file mode 100644
-> index 000000000000..f1d11f91a353
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-> @@ -0,0 +1,193 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Samsung Galaxy A21s (a21s/SM-A217F) device tree source
-> + *
-> + * Copyright (c) 2026, Thomas Turner <tturner@lineageos.org>
-> + */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index d0dccc9ad6aa8..b2e99c5cb1cd3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -150,6 +150,11 @@ struct kvm_vmid {
+>  	atomic64_t id;
+>  };
+>  
+> +struct kvm_vcpu_ops {
+> +	void (*vcpu_load)(struct kvm_vcpu *vcpu, int cpu);
+> +	void (*vcpu_put)(struct kvm_vcpu *vcpu);
+> +};
 > +
-> +/dts-v1/;
-> +#include "exynos850.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
+>  struct kvm_s2_mmu {
+>  	struct kvm_vmid vmid;
+>  
+> @@ -854,6 +859,7 @@ struct vncr_tlb;
+>  
+>  struct kvm_vcpu_arch {
+>  	struct kvm_cpu_context ctxt;
+> +	const struct kvm_vcpu_ops *vcpu_ops;
+>  
+>  	/*
+>  	 * Guest floating point state
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 51fc651267157..9af3bbb2f8c24 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -74,6 +74,8 @@ struct kvm_ioctl_cap_map {
+>  	long ext;
+>  };
+>  
+> +static const struct kvm_vcpu_ops *arm64_vcpu_ops[VM_FLAVOR_MAX];
 > +
-> +/ {
-> +	model = "Samsung Galaxy A21s";
-> +	compatible = "samsung,a217f", "samsung,exynos850";
+>  /* Make KVM_CAP_NR_VCPUS the reference for features we always supported */
+>  #define KVM_CAP_ARM_BASIC	KVM_CAP_NR_VCPUS
+>  
+> @@ -569,6 +571,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>  	mutex_unlock(&vcpu->mutex);
+>  #endif
+>  
+> +	vcpu->arch.vcpu_ops = arm64_vcpu_ops[vcpu->kvm->arch.vm_flavor];
 > +
-> +	chosen {
-> +		#address-cells = <2>;
-> +		#size-cells = <1>;
-> +		ranges;
+>  	/* Force users to call KVM_ARM_VCPU_INIT */
+>  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>  
+> @@ -738,36 +742,72 @@ static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
+>  		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+>  }
+>  
+> +static void vhe_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+> +{
+> +	vcpu_prepare_mmu(vcpu);
+> +	/*
+> +	 * The timer must be loaded before the vgic to correctly set up physical
+> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
+> +	 */
+> +	kvm_timer_vcpu_load(vcpu);
+> +	kvm_vgic_load(vcpu);
+> +	kvm_vcpu_load_debug(vcpu);
+> +	kvm_vcpu_load_fgt(vcpu);
+> +	kvm_vcpu_load_vhe(vcpu);
+> +	kvm_arch_vcpu_load_fp(vcpu);
+> +	kvm_vcpu_pmu_restore_guest(vcpu);
 > +
-> +		framebuffer0: framebuffer@fa000000 {
-> +			compatible = "simple-framebuffer";
-> +			reg = <0x0 0xfa000000 (720 * 1600 * 4)>;
-> +			width = <720>;
-> +			height = <1600>;
-> +			stride = <(720 * 4)>;
-> +			format = "a8r8g8b8";
-> +			clocks = <&cmu_dpu CLK_GOUT_DPU_DECON0_ACLK>,
-> +				 <&cmu_dpu CLK_GOUT_DPU_DMA_ACLK>,
-> +				 <&cmu_dpu CLK_GOUT_DPU_DPP_ACLK>,
-> +				 <&cmu_dpu CLK_GOUT_DPU_PPMU_ACLK>,
-> +				 <&cmu_dpu CLK_GOUT_DPU_PPMU_PCLK>,
-> +				 <&cmu_dpu CLK_GOUT_DPU_SMMU_CLK>;
-> +		};
-> +	};
+> +	vcpu_load_pvtime(vcpu);
+> +	vcpu_set_wfx_traps(vcpu);
+> +	vcpu_set_pauth_traps(vcpu);
+> +}
 > +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x3c900000>,
-> +		      <0x0 0xc0000000 0x20000000>,
-> +		      <0x0 0xe0d00000 0x1f300000>,
-> +		      <0x8 0x80000000 0x20000000>,
-> +		      <0x8 0xa0000000 0x20000000>;
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&key_voldown &key_volup>;
-> +
-> +		voldown-key {
-> +			label = "Volume Down";
-> +			linux,code = <KEY_VOLUMEDOWN>;
-> +			gpios = <&gpa1 0 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		volup-key {
-> +			label = "Volume Up";
-> +			linux,code = <KEY_VOLUMEUP>;
-> +			gpios = <&gpa0 7 GPIO_ACTIVE_LOW>;
+> +static void nvhe_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+> +{
+> +	vcpu_prepare_mmu(vcpu);
+> +	/*
+> +	 * The timer must be loaded before the vgic to correctly set up physical
+> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
+> +	 */
 
+This comment makes no sense here -- it is strictly for VHE, which is
+the only mode to implement NV. Same thing for the pKVM vcpu_load().
 
-linux,code goes to the end.
+> +	kvm_timer_vcpu_load(vcpu);
+> +	kvm_vgic_load(vcpu);
+> +	kvm_vcpu_load_debug(vcpu);
+> +	kvm_vcpu_load_fgt(vcpu);
+> +	kvm_arch_vcpu_load_fp(vcpu);
+> +	kvm_vcpu_pmu_restore_guest(vcpu);
+> +
+> +	vcpu_load_pvtime(vcpu);
+> +	vcpu_set_wfx_traps(vcpu);
+> +	vcpu_set_pauth_traps(vcpu);
+> +}
+> +
+> +static void pkvm_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+> +{
+> +	/*
+> +	 * The timer must be loaded before the vgic to correctly set up physical
+> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
+> +	 */
+> +	kvm_timer_vcpu_load(vcpu);
+> +	kvm_vgic_load(vcpu);
+> +	kvm_vcpu_load_debug(vcpu);
+> +	kvm_vcpu_load_fgt(vcpu);
+> +	kvm_arch_vcpu_load_fp(vcpu);
+> +	kvm_vcpu_pmu_restore_guest(vcpu);
+> +
+> +	vcpu_load_pvtime(vcpu);
+> +	vcpu_set_wfx_traps(vcpu);
+> +
+> +	kvm_call_hyp_nvhe(__pkvm_vcpu_load,
+> +			  vcpu->kvm->arch.pkvm.handle,
+> +			  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
+> +	kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
+> +		     &vcpu->arch.vgic_cpu.vgic_v3);
 
-You can run dt-check-style from
-https://github.com/krzk/linux/tree/b4/dts-style-checker-blank-lines in
-"--mode strict".
+This can also be turned into a kvm_call_hyp_nvhe().
 
+> +}
+> +
+>  void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  {
+> -	if (!is_protected_kvm_enabled())
+> -		vcpu_prepare_mmu(vcpu);
+> -
+>  	vcpu->cpu = cpu;
+> -	/*
+> -	 * The timer must be loaded before the vgic to correctly set up physical
+> -	 * interrupt deactivation in nested state (e.g. timer interrupt).
+> -	 */
+> -	kvm_timer_vcpu_load(vcpu);
+> -	kvm_vgic_load(vcpu);
+> -	kvm_vcpu_load_debug(vcpu);
+> -	kvm_vcpu_load_fgt(vcpu);
+> -	if (has_vhe())
+> -		kvm_vcpu_load_vhe(vcpu);
+> -	kvm_arch_vcpu_load_fp(vcpu);
+> -	kvm_vcpu_pmu_restore_guest(vcpu);
+> -
+> -	vcpu_load_pvtime(vcpu);
+> -	vcpu_set_wfx_traps(vcpu);
+> -	vcpu_set_pauth_traps(vcpu);
+> -
+> -	if (is_protected_kvm_enabled()) {
+> -		kvm_call_hyp_nvhe(__pkvm_vcpu_load,
+> -				  vcpu->kvm->arch.pkvm.handle,
+> -				  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
+> -		kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
+> -			     &vcpu->arch.vgic_cpu.vgic_v3);
+> -	}
+> +	vcpu->arch.vcpu_ops->vcpu_load(vcpu, cpu);
+>  
+>  	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
+>  		vcpu_set_on_unsupported_cpu(vcpu);
+> @@ -775,28 +815,44 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  	vcpu->arch.pid = pid_nr(vcpu->pid);
+>  }
+>  
+> -void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+> +static void vhe_vcpu_put(struct kvm_vcpu *vcpu)
+>  {
+> -	if (is_protected_kvm_enabled()) {
+> -		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
+> -		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+> -
+> -		/* __pkvm_vcpu_put implies a sync of the state */
+> -		if (!kvm_vm_is_protected(vcpu->kvm))
+> -			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> -	}
+> -
+>  	kvm_vcpu_put_debug(vcpu);
+>  	kvm_arch_vcpu_put_fp(vcpu);
+> -	if (has_vhe())
+> -		kvm_vcpu_put_vhe(vcpu);
+> +	kvm_vcpu_put_vhe(vcpu);
+>  	kvm_timer_vcpu_put(vcpu);
+>  	kvm_vgic_put(vcpu);
+>  	kvm_vcpu_pmu_restore_host(vcpu);
+>  	if (vcpu_has_nv(vcpu))
+>  		kvm_vcpu_put_hw_mmu(vcpu);
+>  	kvm_arm_vmid_clear_active();
+> +}
+>  
+> +static void nvhe_vcpu_put(struct kvm_vcpu *vcpu)
+> +{
+> +	kvm_vcpu_put_debug(vcpu);
+> +	kvm_arch_vcpu_put_fp(vcpu);
+> +	kvm_timer_vcpu_put(vcpu);
+> +	kvm_vgic_put(vcpu);
+> +	kvm_vcpu_pmu_restore_host(vcpu);
+> +	kvm_arm_vmid_clear_active();
+> +}
+> +
+> +static void pkvm_vcpu_put(struct kvm_vcpu *vcpu)
+> +{
+> +	kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
 
-Best regards,
-Krzysztof
+Same thing here about kvm_call_hyp_nvhe().
+
+> +	kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+> +
+> +	/* __pkvm_vcpu_put implies a sync of the state */
+> +	if (!kvm_vm_is_protected(vcpu->kvm))
+> +		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> +
+> +	nvhe_vcpu_put(vcpu);
+
+I'm not overly fond of this. Yes, that was in my original patch. But
+for example, we end-up calling kvm_arm_vmid_clear_active() for pKVM.
+This is harmless, but conceptually wrong.
+
+I'd rather you expand the whole thing.
+
+> +}
+> +
+> +void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+> +{
+> +	vcpu->arch.vcpu_ops->vcpu_put(vcpu);
+>  	vcpu_clear_on_unsupported_cpu(vcpu);
+>  	vcpu->cpu = -1;
+>  }
+> @@ -2136,6 +2192,28 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>  	}
+>  }
+>  
+> +static const struct kvm_vcpu_ops vhe_vcpu_ops = {
+> +	.vcpu_load = vhe_vcpu_load,
+> +	.vcpu_put = vhe_vcpu_put,
+> +};
+> +
+> +static const struct kvm_vcpu_ops nvhe_vcpu_ops = {
+> +	.vcpu_load = nvhe_vcpu_load,
+> +	.vcpu_put = nvhe_vcpu_put,
+> +};
+> +
+> +static const struct kvm_vcpu_ops pkvm_vcpu_ops = {
+> +	.vcpu_load = pkvm_vcpu_load,
+> +	.vcpu_put = pkvm_vcpu_put,
+> +};
+> +
+> +static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
+> +	[VM_VHE] = &vhe_vcpu_ops,
+> +	[VM_NVHE] = &nvhe_vcpu_ops,
+> +	[VM_PKVM] = &pkvm_vcpu_ops,
+> +	[VM_PROTECTED_PKVM] = &pkvm_vcpu_ops,
+
+nit: my OCD-self wants to align all the '=' signs vertically...
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
