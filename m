@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A3AC88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB4AC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhzoAzdU7CmBYcfp6mL1Ifuo2y1CgJrgv3i2FzMU4lk=; b=MSdIl77xK/3KEiXRgjM8akS50R
-	sIn+ue0fd133FY+IDMULUk64Jh0E7KOm/7/4Rt0VgvNwDYM6JyyXhfYMV2wN5F+M2k65l24Mkzk73
-	zfM7zTbDvjgxkMcdkcRti6U42O+Pdoyan6ho9LS8NJWwYoGD6GsX5VwecCQv1vmho86QisGDB21B5
-	M1+2qLvxsq/JRrtXWF94ShfKa16aIFMXvk0mp+ngSKbi+LrEFfndUvN68//0G+FODLYYT3gi5Yxgx
-	+1L8nugrMhUJfIJ68yRlZyqxdKc6p8bmtZsZIAknXjjQS5PhQwksflxxHoS0yWcZ3AEtqOfp5jz4Z
-	IaLUXdLQ==;
+	bh=yUhB/Xmeg30XhsREq6iJc4tei3Cw+4oVMaJgqTQh/Fc=; b=J6Owv8FnIi6bzWtUuEBY0uiHQy
+	JamSsUZEnel/6riKOOa/Le1g5dArQ9VA8JJVddzSFBSdoIUfezVeFOVlaLPTUm9V9U2pWHmqUCekO
+	S7kksLBcxmFoKvRo0bnD8CWeNtqbfyPZ46nSZa3pwfP42R9bG669LfIno6w6LevHiHztcwKW0ucXS
+	frIwkAKBOvfi/A6i2M7ABoNhGy5W8GrQ5FZKf+z6sgz6ApOdaG7KjJIXh/TBlmNPemPiTLWy0Cag3
+	DNRgT2wnrt8TrzLIxv3J4ZUCJg6xx7g/MKrj2Nsp7uQ8dbJVPwFfgQhzAYlpDzJjPGzqOU6SmQvr8
+	lytJGqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5gk8-00000001YtE-08yI;
-	Sun, 13 Sep 2026 09:43:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5h0i-00000001ZBJ-27FY;
+	Sun, 13 Sep 2026 10:00:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5gk7-00000001Yt8-36yQ
+	id 1x5h0g-00000001ZBC-0ZIp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 09:43:23 +0000
+	Sun, 13 Sep 2026 10:00:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 317DA60DBD;
-	Sun, 13 Sep 2026 09:43:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E84E1F000FF;
-	Sun, 13 Sep 2026 09:43:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BE9B60A98;
+	Sun, 13 Sep 2026 10:00:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E47681F000FF;
+	Sun, 13 Sep 2026 10:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789292602;
-	bh=YhzoAzdU7CmBYcfp6mL1Ifuo2y1CgJrgv3i2FzMU4lk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RmlH6tMsbBxSE1YKcpXsPIAUEaku18W9kekwmFuSfzHL0zy6BUFc0tpmWpmVXjc+1
-	 fIDirXVXc96dC2DELbLH250OLey8gFQBIQMxX3mpIugcoE1cYY8FOb+gyU1TqRynQZ
-	 cqnQZ23uPkU0JH7OR6dxKAg2fJ3B4rfqli8GWEI6oEtGXVso3qzJl9zQUaWsVxOuhF
-	 Um6lZ678hA8cUJ3t4cWlD0IXZLS4gJ6kOToGTOYe5zzi03EswtUF8cvbY/3dwrP8+J
-	 Xl7MalC3nd2vwO7BTqpPLXiykNeXddOqmSl1Z71BZQWC3+2yS7HSREG7+fqgC/7N4W
-	 yZdLytjdhG8KQ==
-Date: Sun, 13 Sep 2026 11:43:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vincent Jardin <vjardin@free.fr>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/3] dt-bindings: arm: fsl: add Free Mobile Nodebox v3
- CPU Module
-Message-ID: <20260913-granite-toucan-of-drizzle-cf4b2f@quoll>
-References: <20260912-for-upstream-nbxv3-dts-v5-0-ead604dba61b@free.fr>
- <20260912-for-upstream-nbxv3-dts-v5-2-ead604dba61b@free.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260912-for-upstream-nbxv3-dts-v5-2-ead604dba61b@free.fr>
+	s=k20260515; t=1789293628;
+	bh=yUhB/Xmeg30XhsREq6iJc4tei3Cw+4oVMaJgqTQh/Fc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Uc6NE47JoD/TgSICJzC9SdlxuYriLqEXrEj0yirkshjjUGO6AHRmOAQjrGSAmHuQs
+	 OW1o6PG5y9h2o+0vr708O/w9wlf+IYDBHfH0+me2FHMjD5AdpIVzuGI2NsPsfslrC0
+	 riPzzTtYiGDNn8ml/Q6kbT9ApTq92plRWS73gaNWOyt83mO2Yi5l3BVoEZ03ilITWF
+	 NHUfCiUsMdsPzoQOo3rUdrHiRsgeNK0qPMjgTTVIKNi8S8YSqvpVAEph9NQAs7k/Vv
+	 Sm4OPvzPQxllggLz4EKAPOVzRuKxZtOPxmZxHaPunPtYl0HZEOYq9Ix7BbYvTheHQQ
+	 M/lqZ1qsO1E4A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x5h0c-00000008GHI-39tq;
+	Sun, 13 Sep 2026 10:00:26 +0000
+Date: Sun, 13 Sep 2026 11:00:26 +0100
+Message-ID: <868q5579ol.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Xi Ruoyao <xry111@xry111.site>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
+In-Reply-To: <20260911104715.307500-1-fuad.tabba@linux.dev>
+References: <20260911104715.307500-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, ben.horgan@arm.com, xry111@xry111.site, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, gshan@redhat.com, yaoyuan@linux.alibaba.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +95,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 12, 2026 at 03:32:37PM +0200, Vincent Jardin wrote:
-> Add DT compatible string for the Free Mobile Nodebox v3 CPU Module, an
-> NXP LX2160A based board.
+On Fri, 11 Sep 2026 11:47:15 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> finalise_el2_state() clears the EL2 MPAM traps whenever the ID
+> registers advertise MPAM, while KVM sets them only under ARM64_MPAM,
+> which also requires MPAMEN. Without EL3 nothing sets that enable, so a
+> guest reaches the MPAM registers while ID_AA64PFR0_EL1.MPAM reads 0
+> for it.
+> 
+> Gate on what finalise_el2_state() tests instead: this CPU's ID
+> registers with the arm64.nompam override applied, and its
+> MPAMIDR_EL1.HAS_HCR before writing MPAMHCR_EL2, which is UNDEFINED
+> without it. MPAMEN isn't a term in any MPAM accessor, so the traps
+> take effect without it.
+> 
+> Fixes: 31ff96c38ea3 ("KVM: arm64: Fix missing traps of guest accesses to the MPAM registers")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 656f2596e1d5..baff4f4159b2 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1937,6 +1937,12 @@ properties:
->                - fsl,lx2162a-qds
->            - const: fsl,lx2160a
+> Notes:
+>     Changes since v2:
+>      - A per-CPU flag in kvm_host_data, set at KVM's CPU init from the ID
+>        registers with the override applied, instead of a third cpucap
+>        (Will). The probe checks presence only, since MPAM3_EL3.TRAPLOWER
+>        can't be read at EL2.
+>      - The MPAMHCR_EL2 branch reads this CPU's MPAMIDR_EL1 rather than the
+>        sanitised ARM64_MPAM_HCR, which would otherwise have been the one
+>        system-wide test left in a per-CPU function.
+>      - Fixes: names the KVM commit that left this case open, rather than
+>        the head.S commit that cleared the traps.
+>      - Yuan's Reviewed-by dropped, since the mechanism changed.
+>     
+>     v2: https://lore.kernel.org/all/20260908145651.2828597-1-fuad.tabba@linux.dev/
+>     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
+> 
+>  arch/arm64/include/asm/kvm_host.h       |  1 +
+>  arch/arm64/kvm/arm.c                    |  7 +++++++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 13 ++++++++-----
+>  3 files changed, 16 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7a..98ca2d9b9e18d 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -755,6 +755,7 @@ struct kvm_host_data {
+>  #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
+>  #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
+>  #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
+> +#define KVM_HOST_DATA_FLAG_HAS_MPAM			7
+>  	unsigned long flags;
 >  
-> +      - description: Free Mobile LX2160A based Boards
+>  	struct kvm_cpu_context host_ctxt;
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8b080804bc90b..fde75a63cf045 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2281,9 +2281,16 @@ static void cpu_set_hyp_vector(void)
+>  
+>  static void cpu_hyp_init_context(void)
+>  {
+> +	u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
+> +	u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
+> +
 
-Why this cannot be part of "LX2160A based Boards"? And what other boards
-are based on Free Mobile LX2160A?
+Why not directly read_sysreg(id_aa64pfr0_el1) and co?
+__read_sysreg_by_encoding() is useful when the encoding comes from a
+variable, but it looks odd in the case of a literal sysreg.
 
+>  	kvm_init_host_cpu_context(host_data_ptr(host_ctxt));
+>  	kvm_init_host_debug_data();
+>  
+> +	/* The traps take effect without MPAMEN, which ARM64_MPAM requires. */
+> +	if (id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1))
+> +		host_data_set_flag(HAS_MPAM);
+> +
+>  	if (!is_kernel_in_hyp_mode())
+>  		cpu_init_hyp_mode();
+>  }
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 1ce7130e25490..2cb611e2bd69b 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  	u64 clr = MPAM2_EL2_EnMPAMSM;
+>  	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>  
+> -	if (!system_supports_mpam())
+> +	if (!host_data_test_flag(HAS_MPAM))
+>  		return;
+>  
+>  	/* trap guest access to MPAMIDR_EL1 */
+> -	if (system_supports_mpam_hcr()) {
+> +	if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR) {
 
-Best regards,
-Krzysztof
+This is going to suck under NV. The host hypervisor is of course going
+to set MPAMHCR_EL2.TRAP_MPAMIDR_EL1, and we're in for a recursive trap
+on the hottest possible path in KVM. Which is silly as the actual
+write to MPAMHCR_EL2 is free (it lands in NVMem[]).
 
+This really should be replaced by a flag called HAS_MPAM_HCR, just
+like you have HAS_MPAM.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
