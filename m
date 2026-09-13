@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0B8C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 08:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AABC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 08:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8WurlmhkA4e6m6wqPDqGz0fYjsjwdZG3YnLtCKxAOg=; b=KQ2H1HVenYIE4owdtR3I2XuHRr
-	H9DzaLjSB7xyuPJthAzhG+CyZGk3wEORW6LQF+14VJllChAZ09sIA8M8teUI1L+u04hDdezu6VYip
-	4+nOKZsWB38T74JLjhcRn4XIgDXmJPdVMXjtRg9Q6UoNLGVPntT8VbkmsTTLLDcvmYo449OnBV86x
-	LLqdoyVGgFjX1lKIph9Zovnn4p/XoPdaHuWopqPofAL5nXbJIp/+3B9mS6cwcN0Xjv3NOXAYjL3Ij
-	rAt/F6rM7Gaql8O+OOJdBuEe/hTNqQR6ugqULqvO7Fvq93rJgpVUfooarmKldubdKHiDOfq+8LG3o
-	k/kqo18g==;
+	bh=1iYZQpYj6ALduOuqAJTduI2u3Vut2aTKr0l8zVHBH5A=; b=kB6tV82fkIvdtRGDXPnddW/ntQ
+	SI3MnuZw/JqRdaTRIsTNtN3kBgIDdvM97wgLQPNcRIKTdm3IW5uxqtmhla+jGqjVrpcpR5E4xyNYk
+	/hCv8qVNXM1nK/3rjJSNJche9eLE4qK+jqGeL4JCfRcRdXzkRBCjKpDfB/I8lXqVGpI0KcrBzyATR
+	/R9roh2QCdvmQdkDhKpO8JH1JymzkFy93SCRUTfRZHtKhH9YvZ+7B9sWCaiU8OJqIYpF2xZRSGzvq
+	wHxx7c9vm2Skoo8htPleMnnLgY782rv78NBICWIG9B/1yg78x2A93rgSiCXJBuGtPPmih6haur/UH
+	bsxI/+8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5fhA-00000001WZr-07qQ;
-	Sun, 13 Sep 2026 08:36:16 +0000
+	id 1x5g1R-00000001WzO-34Js;
+	Sun, 13 Sep 2026 08:57:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5fh8-00000001WZd-1BOD;
-	Sun, 13 Sep 2026 08:36:14 +0000
+	id 1x5g1Q-00000001WzI-1Wr5
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Sep 2026 08:57:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5318C433C3;
-	Sun, 13 Sep 2026 08:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0959D1F000FF;
-	Sun, 13 Sep 2026 08:36:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C4DAC4076B;
+	Sun, 13 Sep 2026 08:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A41C1F000FF;
+	Sun, 13 Sep 2026 08:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789288573;
-	bh=d8WurlmhkA4e6m6wqPDqGz0fYjsjwdZG3YnLtCKxAOg=;
+	s=k20260515; t=1789289831;
+	bh=1iYZQpYj6ALduOuqAJTduI2u3Vut2aTKr0l8zVHBH5A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YAj2JaJjtipqC9sZ5QQPmMWXy2aHSiCBhyK7zDQ6fMiC8WHqiryZrWSgKSgzNEJF9
-	 Q9+ULcFDj+lHGgaMb74R6N/SbSmXnrYjI59pxm8Qrdskdltmw+3aqk2OZSfi8mYggI
-	 drjJfatC3GtB7P2Z898f8ECyFKlhpoZOo6uPmVlO8h3JTMs/3yXv9ZfqlSvEupLkzI
-	 gPgrQcaOnmNxdV7QMef2MZNI/lE2dWpftedqR4jSDMkHllIDnn0fke7IBeTV/DRIdF
-	 qinLfQZiLb+DymQUDpb2Wi6HRA/n7txhXsLIbfCey5HfKxrHodUJ7RDZhLrzl5aFCV
-	 FdU0FCfXCq5gQ==
-Date: Sun, 13 Sep 2026 10:36:09 +0200
+	b=bivupdBC/Edl3m1mbbY+hVxRNnNcnTlgJ4eWTlfD1lwJ7BTntcLdzAyBpJfuu2nwT
+	 JceUeVFmzjxa59nn+e9EveKjbuZyIIEYYnX52VHShNeaVxA39fdNG19+PMM7eqh/BD
+	 qayzvYe8noiW+ZrlGaGRjUiSkk0OvwV/B63m30Cq0J+S1UqgnWvLhRTGhQGCB/bX/l
+	 HyZPMJhmufEWAQ6EV7IjH6jl/IEI/fEUqeN5Lwj1jxAkg+X0bOPQ7bPVZllq9YIR5Y
+	 wsqj3J4lgA/Op+2iEO1zZpb+PORuVgNK7kZgcln/1lkF2W4T60LFCwgqO+lsL9NdYv
+	 JSjVOx/EtRJbQ==
+Date: Sun, 13 Sep 2026 10:57:09 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+To: Judith Mendez <jm@ti.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 6/8] dt-bindings: reset: Add mmsys reset ids for mt8167
-Message-ID: <20260913-moth-of-wondrous-order-4cb0ff@quoll>
-References: <20260908174259.9009-1-l.scorcia@gmail.com>
- <20260908174259.9009-7-l.scorcia@gmail.com>
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] nvmem: uniphier-efuse: Add ti,am62p-efuse
+ compatible
+Message-ID: <20260913-cocky-angelic-cougar-1961db@quoll>
+References: <20260910155509.1425682-1-jm@ti.com>
+ <20260910155509.1425682-4-jm@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260908174259.9009-7-l.scorcia@gmail.com>
+In-Reply-To: <20260910155509.1425682-4-jm@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 07:38:33PM +0200, Luca Leonardo Scorcia wrote:
-> According to the SoC data sheet mt8167 has 28 mmsys resets. Add the IDs
-> that can be used in device trees to identify subsystem resets.
+On Thu, Sep 10, 2026 at 10:55:09AM -0500, Judith Mendez wrote:
+> Add ti,am62p-efuse compatible to uniphier-efuse. Leverage the
+> nvmem provider to supply silicon revision information from GP_SW
+> efuse registers on AM62p device.
 > 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> Reviewed-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 > ---
->  .../dt-bindings/reset/mediatek,mt8167-mmsys.h | 35 +++++++++++++++++++
->  1 file changed, 35 insertions(+)
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8167-mmsys.h
+> Changes since v2:
+> - Add Kunihiko's review tag
+> ---
+>  drivers/nvmem/uniphier-efuse.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/nvmem/uniphier-efuse.c b/drivers/nvmem/uniphier-efuse.c
+> index 85f9372fb97ca..d0953b99d7e18 100644
+> --- a/drivers/nvmem/uniphier-efuse.c
+> +++ b/drivers/nvmem/uniphier-efuse.c
+> @@ -59,6 +59,7 @@ static int uniphier_efuse_probe(struct platform_device *pdev)
+>  
+>  static const struct of_device_id uniphier_efuse_of_match[] = {
+>  	{ .compatible = "socionext,uniphier-efuse",},
+> +	{ .compatible = "ti,am62p-efuse",},
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Why do you need this change?
 
 Best regards,
 Krzysztof
