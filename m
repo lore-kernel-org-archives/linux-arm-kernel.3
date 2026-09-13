@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED21C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102AFC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWXg89SCX5L6br3CBQV2TN+5fImn2NEu6Y4SwCzRCyc=; b=cmIz6ev1Dk1nlIMn2qOdgaObNI
-	5hQcAv+p92zxZg3moOAbXY2W/dw9owUGeCX1faH8xhLGpj66f5KpqJLjWgyTuZITtJ3yLG47Z0ovM
-	4WyIzMWT2E8A6/svrVfMNqQoI3P/fRoji5SJiU7YOkMnMnXMv1MCXRwLHGT0TWnoPcM9eapNP/9LZ
-	kw4eNoOrb72uIs3LRG2nY/05UHo87x+P+LZ+FajPegCS/oI3iq8V1E2qp8VhfnkboDJFhlpZyaGob
-	GWXnoz6r4N56YA12PJXp0G5Djs0O53t3JoG+w+dchbwLwAy/ECfaI8Fw5jt1OPMolo6hb6CwfSgRJ
-	4udiWrQQ==;
+	bh=HOCVCoUbZ3n/ApxFbJdyqu/tiiYlAtevu9P9fyqmEWo=; b=23+tEqmJllYtCnTqqacMPSNJfF
+	0CSnVB0GVn1HXASLayRTNV9rpRAaezUfClJQtmPjMm7E+J5Crja1iLhIlGbE1rCS2TyNuSSgcmnUA
+	jxPW38f/EkFchQ7Q3r4dimEclhmFM41o+kqSr9K+c9Bzn7wScmBay3FrwQSdhmMdO37rYm9DcXc+1
+	Xuxg+b+BPG+ljzXLsU+GiuZUJPqYqfS/d7/qTh8aBVEfyRrSlx+EULelUkC64KAFhWEImI9Xvefaf
+	u4QhJ9fx/XAmeYJdmbKH+TaABjXEpoDbiYIvwP73XCgfHsadA1YSyxPqpTnUW8sUGnCTQPCMHv9EP
+	W9ahZ+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5g4s-00000001XIH-1TRM;
-	Sun, 13 Sep 2026 09:00:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5g7y-00000001XOJ-3ZHH;
+	Sun, 13 Sep 2026 09:03:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5g4q-00000001XIB-40WE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 09:00:45 +0000
+	id 1x5g7w-00000001XO6-088h;
+	Sun, 13 Sep 2026 09:03:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 55B0960DB4;
-	Sun, 13 Sep 2026 09:00:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937171F000FF;
-	Sun, 13 Sep 2026 09:00:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7564543C0B;
+	Sun, 13 Sep 2026 09:03:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDE8C1F000FF;
+	Sun, 13 Sep 2026 09:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789290043;
-	bh=cWXg89SCX5L6br3CBQV2TN+5fImn2NEu6Y4SwCzRCyc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=UthaF+gfDFLyjbEmY3JRQ1UC7jN925nsfud1Ntl7n/JxdjV+vZVmgNKEN1XJtOQtB
-	 z0bGAI2NOg0NgvGWeyI1mjO/93cl7EyvjdajNgeBDUAmDnw79WY9WL4mekZro6dCYJ
-	 b+9qxxLNgWiOtmHehD3InPorFDqz8lLCTLSI1W5prDSaLtJp6kM7ABZ3fEnE0lXqN0
-	 ZNZ1+KD5Bhw9eobYCk4LZckyyTCF7UFB2EmW/pBDoGHl+c7P+1/EFbMJrRo+GLlZPp
-	 eqKpEcbNMJyFgd79mMBgbgsIe9/TG7F+BVkoFRjz34F76XaGmapalNwzyqN1F5i83J
-	 pjdXecmVyvogw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x5g4n-00000008FjX-0nU0;
-	Sun, 13 Sep 2026 09:00:41 +0000
-Date: Sun, 13 Sep 2026 10:00:40 +0100
-Message-ID: <86bja17cg7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/5] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-In-Reply-To: <20260901171558.2674031-2-leo.bras@arm.com>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
-	<20260901171558.2674031-2-leo.bras@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, rananta@google.com, zhengtian10@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789290235;
+	bh=HOCVCoUbZ3n/ApxFbJdyqu/tiiYlAtevu9P9fyqmEWo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DA8LP5lleW298yNT/I3q4vqLVtG60kVYWFGIdHbGeitPHZw3N5aKTd5JB7sIfLcjd
+	 23xpU5kKtO2bqa3Ln4h+0HEQUHddp8GSNcvJ7kvJ9n+TiCkKQmKdLrkuWRU+LduKiN
+	 0/P4yuP1kiB1cmlamRZbZQme2JRS7tIKOU+1wrPhzCRtpLfJh/28vGKBk3drZPkHlR
+	 jqjza0d7Hs/rVd7dLsmqmDPuvVeAMHLze7SEp+fOJJvTly682/m6scTeR5d/V3GYNt
+	 YJ5A0ytlK0m1B6rCm1CrazlfXBX8yMXN04s39tCVkE8LpMcFplVkQ6JMAlpx1FPeXb
+	 ci2rgPu86TapQ==
+Date: Sun, 13 Sep 2026 11:03:52 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 01/10] dt-bindings: soc: amlogic: Add compatible to
+ support more SoCs
+Message-ID: <20260913-resilient-terrier-of-sympathy-e50c85@quoll>
+References: <20260911-more-socs-to-support-clk_measure-v1-0-940e269aa52f@amlogic.com>
+ <20260911-more-socs-to-support-clk_measure-v1-1-940e269aa52f@amlogic.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260911-more-socs-to-support-clk_measure-v1-1-940e269aa52f@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,193 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Sep 2026 18:15:52 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
+On Fri, Sep 11, 2026 at 04:28:28PM +0800, Chuan Liu wrote:
+> Add clk-measure compatible for amlogic A5, A4, S7, S7D, S6 and A9 SoCs.
 > 
-> As a first step of changing the encoding for the Stage2 PTE descriptor,
-> introduce the DBM bit, and adapt every usage of writable to use the DBM bit
-> (51) instead of S2AP[1]/Dirty bit (7).
+> Although the clk-measure IP itself has little hardware difference across
+> SoCs, the clock inputs connected to the clk-measure block vary between
+> SoCs. Therefore, it is difficult to fall back to the configuration used
+> by previous SoCs.
 > 
-> For this step, we convert usages of RW(Dirty) -> WD(DBM|Dirty).
-> 
-> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 > ---
->  arch/arm64/include/asm/kvm_pgtable.h | 3 +++
->  arch/arm64/kvm/hyp/pgtable.c         | 8 +++++---
->  arch/arm64/kvm/nested.c              | 4 +++-
->  arch/arm64/kvm/ptdump.c              | 4 ++--
->  4 files changed, 13 insertions(+), 6 deletions(-)
+>  .../bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml          | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 41a8687938eb..37baa86d6fd8 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -86,24 +86,27 @@ typedef u64 kvm_pte_t;
->  #define KVM_PTE_LEAF_ATTR_HI		GENMASK(63, 50)
->  
->  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
->  
->  #define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
->  #define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
->  #define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
->  
->  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
->  
-> +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
-> +
->  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
->  
->  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
->  					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
-> +					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
->  					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
->  
->  /* pKVM invalid pte encodings */
->  #define KVM_INVALID_PTE_TYPE_MASK	GENMASK(63, 60)
->  #define KVM_INVALID_PTE_ANNOT_MASK	~(KVM_PTE_VALID | \
->  					  KVM_INVALID_PTE_TYPE_MASK)
->  
->  enum kvm_invalid_pte_type {
->  	/*
->  	 * Used to indicate a pte for which a 'break-before-make'
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index b74dd5ce1efd..ca49f1bd7c34 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -725,42 +725,43 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
->  	}
->  
->  	r = stage2_set_xn_attr(prot, &attr);
->  	if (r)
->  		return r;
->  
->  	if (prot & KVM_PGTABLE_PROT_R)
->  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
->  
->  	if (prot & KVM_PGTABLE_PROT_W)
-> -		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> +		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+> index b1200e6940ac..125be01e3b2c 100644
+> --- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+> +++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+> @@ -26,6 +26,12 @@ properties:
+>        - amlogic,s4-clk-measure
+>        - amlogic,a1-clk-measure
+>        - amlogic,t7-clk-measure
+> +      - amlogic,a5-clk-measure
 
-What makes it acceptable to always set DBM? This is an optional
-feature, and I'm not exactly comfortable setting bits that are
-supposed to be RES0. Yes, the HW should ignore it. But we have also
-seen quite a few broken designs in this area...
+Why is a5 after a1? Are you all adding here to the end of the list all
+the time?
 
-> +
->
+Best regards,
+Krzysztof
 
-Spurious newline.
-
->  	if (!kvm_lpa2_is_enabled())
->  		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
->  
->  	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
->  	attr |= prot & KVM_PTE_LEAF_ATTR_HI_SW;
->  	*ptep = attr;
->  
->  	return 0;
->  }
-
-I don't know how you have configured git on your end, but there is *a
-lot* of context...
-
->  
->  enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte)
->  {
->  	enum kvm_pgtable_prot prot = pte & KVM_PTE_LEAF_ATTR_HI_SW;
->  
->  	if (!kvm_pte_valid(pte))
->  		return prot;
->  
->  	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R)
->  		prot |= KVM_PGTABLE_PROT_R;
-> -	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W)
-> +	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM)
->  		prot |= KVM_PGTABLE_PROT_W;
->  
->  	switch (FIELD_GET(KVM_PTE_LEAF_ATTR_HI_S2_XN, pte)) {
->  	case 0b00:
->  		prot |= KVM_PGTABLE_PROT_PX | KVM_PGTABLE_PROT_UX;
->  		break;
->  	case 0b01:
->  		prot |= KVM_PGTABLE_PROT_UX;
->  		break;
->  	case 0b11:
-> @@ -1281,20 +1282,21 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
->  		*orig_pte = data.pte;
->  
->  	if (level)
->  		*level = data.level;
->  	return 0;
->  }
->  
->  int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  {
->  	return stage2_update_leaf_attrs(pgt, addr, size, 0,
-> +					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
->  					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
->  					NULL, NULL,
->  					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
->  }
->  
->  void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
->  				enum kvm_pgtable_walk_flags flags)
->  {
->  	int ret;
->  
-> @@ -1361,21 +1363,21 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
->  	s8 level;
->  	int ret;
->  
->  	if (prot & KVM_PTE_LEAF_ATTR_HI_SW)
->  		return -EINVAL;
->  
->  	if (prot & KVM_PGTABLE_PROT_R)
->  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
->  
->  	if (prot & KVM_PGTABLE_PROT_W)
-> -		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> +		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->  
->  	if (prot & KVM_PGTABLE_PROT_X) {
->  		ret = stage2_set_xn_attr(prot, &xn);
->  		if (ret)
->  			return ret;
->  
->  		set |= xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
->  		clr |= ~xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
->  	}
->  
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 17123f0b6dab..eb8dfffc32c7 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -379,21 +379,23 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
->  	}
->  
->  	addr_bottom += contiguous_bit_shift(desc, wi, level);
->  
->  	/* Calculate and return the result */
->  	paddr = (desc & GENMASK_ULL(47, addr_bottom)) |
->  		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
->  	out->output = paddr;
->  	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
->  	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-> -	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> +	/* Takes care of both RO/RW and RO/WC/WD encodings */
-> +	out->writable = desc & (KVM_PTE_LEAF_ATTR_HI_S2_DBM |
-> +				KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W);
-
-Absolutely NOT. For a start, NV doesn't support FEAT_HAFDBS. But even
-if it did, you are now actively corrupting memory by turning a RO
-mapping with a spurious DBM bit set into a writable mapping.
-VTCR_EL2.HD exists for a reason.
-
-Do you see why your blanket approach of equating DBM with writable is
-plain wrong?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
