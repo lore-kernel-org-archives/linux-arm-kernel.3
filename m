@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FEF0C88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 13:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D3C88E66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+NWO1Hub6RBRUSQmKYFmH/2juClvSCDZCkaUOtzmRRo=; b=hQ9E6MZQUqjdt3xZhBcCr2KDIG
-	OGIB53XcERPm+GPObrUCdKNA+tOh18QIZg5HL3fuPVzeeo6Klp0n/ToMqu0b2TJPQ168890+pasvv
-	D8BO48XUYhIPJg1A92zOw2wn7mNsiUVn1gcJ4c0TymeO3hKgATu3wj9jU0GH0riF2GYyANuDQPT9W
-	zTXrh6UclXwZXqfMDtJIouNEpB7SyTUy5rb2eNeUPKfSN+2q/tO5/BcDtbwGdp5ryW6odAdJkkh1N
-	Ks/BftXW9c18EsYdl+yVhbpycIbWmeP+IQRTUTdbnhgBiAaemPu8sizeRmek0peWIuHu70TbXREgc
-	oWMgTy+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/FolRGNwV32g+HDDqmcEuEqeqSAhKnzy/VVhQSphPs=; b=UyiOmbj3SXAQ3dYS16xmRxDXui
+	d4I7F2ni6yUdaOx3m47MrbmMHcQewa+FlpE2xCHHVbUjkZ10yCnxDasJYbe+ZZHrmcmhvp9UnLFX+
+	pQmsRXjUjXh19RZ6pxfTVKIR5JgoK+EyreD+FTfzl4OGG1YWnfRd7HX7nmZYKUGqdHKqfFADt9CXU
+	LDtIFqGF82mD/qgrtCMiXCnYD8wKRUi+zE2u18MrXpDTSGgMOg4uf6qy4XKpRgK54BSwzSPj6d54E
+	zM9wnoqRpkmlGRY4Sf6/xRCYAcoCf5ng5fYjPAF0YtZ6yz7TtRJg1EdPnDegPpDuxWfRW4HgKmtBK
+	speL1AVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5kQF-00000001hDr-0vxm;
-	Sun, 13 Sep 2026 13:39:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x5krS-00000001hkx-24m1;
+	Sun, 13 Sep 2026 14:07:14 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5kQB-00000001hD9-44x2
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 13:39:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789306742;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+NWO1Hub6RBRUSQmKYFmH/2juClvSCDZCkaUOtzmRRo=;
-	b=GtvClwykDCdunRoZQk3c6bB18g/Z7NynasxYD06J8o2OfZ5Moh15o0URi00WOWku2WBk9k
-	dOB0ld597toBRN/Qo57/X+g5Oa876LNlm+1WDyg6T06gwJBEFZFss19MaAFiTEnz7fm/kM
-	jfmR3C8eg+CTgUIpU5QrP8mbPorOJQQ=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-477-TX1bL66jPCuDfPA-yerwnA-1; Sun,
- 13 Sep 2026 09:37:19 -0400
-X-MC-Unique: TX1bL66jPCuDfPA-yerwnA-1
-X-Mimecast-MFC-AGG-ID: TX1bL66jPCuDfPA-yerwnA_1789306637
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 17026195423D;
-	Sun, 13 Sep 2026 13:37:17 +0000 (UTC)
-Received: from F43 (unknown [10.64.240.27])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8DC82180049F;
-	Sun, 13 Sep 2026 13:37:12 +0000 (UTC)
-From: Juhee Kang <juhee.kang@redhat.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Dustin Black <dblack@redhat.com>,
-	stable@vger.kernel.org,
-	Juhee Kang <juhee.kang@redhat.com>
-Subject: [PATCH] clocksource/drivers/nxp-stm: Register sched_clock once
-Date: Sun, 13 Sep 2026 22:36:45 +0900
-Message-ID: <20260913133645.1102997-1-juhee.kang@redhat.com>
+	id 1x5krP-00000001hkX-1WNH;
+	Sun, 13 Sep 2026 14:07:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=From:To:Subject:Date:Message-ID; t=1789308422; bh=d/FolRGNwV32g+HDDqmcEuE
+	qeqSAhKnzy/VVhQSphPs=; b=Dfq0amYD7lqUXWfFx93w4ioc3qhc+HEuljkNQpRBpXb4Ixfms3
+	yqh/Sdety5Q+OHNvY8dPP+DRbzt4j9INnUML2CM4vPlMJuCw01bbtbHbRyJci5PiAfteBa9o480
+	f/J/BaAlSabfFZdDsPOgQ4jZdWGSjuo5ES8rgYzc1CGcLiPIf3tTh4agQKoCQy4AbqQ4qZkdruG
+	ZFj4n2zEHkibItCLSVFcfd+QPWgqHGS/wXnKLvDyii2oLo6bX8z2elT/UgJOMsPmw7oRVZs9wey
+	HWoCnsOaPABY+GaajFK/AShljO1TAVrRwtfCRcR8MZof9uXZt6/fFs+1+r4/Mx8OyyQ==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=From:To:Subject:Date:Message-ID; t=1789308422; bh=d/FolRGNwV32g+HDDqmcEuE
+	qeqSAhKnzy/VVhQSphPs=; b=XvtL4TNdgfsTIiFHDl2M1wEhabYb8ybL7dnap4Ui7FyTxyTJWE
+	e7DggnBYSjnYrV0PgOAaTNI8N7/xVUTAKYBw==;
+Message-ID: <0c8527cc-2ed9-444f-b113-223f117e635b@mainlining.org>
+Date: Sun, 13 Sep 2026 17:07:00 +0300
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: aYMngoxGSZqcefhWVLB0zc8h2nkntPJKxiT79EPdPxA_1789306637
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
+To: Ryan Brue <ryanbrue.dev@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
+Content-Language: ru-RU, en-US
+From: Nickolay Goppen <setotau@mainlining.org>
+In-Reply-To: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_063904_090329_47418017 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260913_070711_571393_3302CB31 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each probe updates stm_sched_clock before calling sched_clock_register()
-again. The call then subtracts the counter value saved during the
-previous registration from the new STM's counter. If the new counter is
-smaller, the subtraction wraps and the timestamp jumps forward.
-(e.g. from 0.4 to 32.9 seconds below)
 
-  [    0.403653] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every 16243448316ns
-  [    0.404056] clocksource: timer@40120000: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 14456668980 ns
-  [   32.890509] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every 16243448316ns
-  [   32.890882] clocksource: timer@40124000: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 14456668980 ns
+12.09.2026 21:22, Ryan Brue wrote:
+> This series depends on the following series:
+> [PATCH v2 0/3] Novatek NT51021 DSI panel IC driver
+> https://lore.kernel.org/all/20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org/
+>
+> The BOE TV101WUM-NM0 is a 10.1" panel present in the Amazon Fire HD 10
+> (2017) tablet. It differs from the BOE panels in the dependent series in
+> key ways:
+>
+> - The pin count is 51 instead of 46
+> - The vendor asks for SYNC_EVENT_VDO_MODE with cont_clock=1 instead of
+> burst mode.
+> - Different timings and flags expected.
+>
+> The init sequence, flags and timings are mostly adapted straight from
+> Amazon's vendor kernel.
+>
+> Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
+> at 62.5 Hz across a cold boot, display off and on cycles and a
+> suspend/resume, with the MIPI TX PLL reading back at the intended rate
+> every time.
+>
+> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> ---
+> Ryan Brue (2):
+>        dt-bindings: display: panel: add the BOE TV101WUM-NM0
+>        drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
+>
+>   .../bindings/display/panel/novatek,nt51021.yaml    |  1 +
+>   drivers/gpu/drm/panel/panel-novatek-nt51021.c      | 66 +++++++++++++++++++++-
+>   2 files changed, 65 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 5e036ce12de91c6fd674dad33b169c6150be2a7a
+> change-id: 20260912-add-boe-tv101wum-nm0-da01c4474db6
+> prerequisite-message-id: <20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org>
+> prerequisite-patch-id: d8b58f07dc5c9e1fcf7c51a14b48eddca2e09090
+> prerequisite-patch-id: 79dfdac7b7fa79f7d05a5f3849909c9a7f956398
+> prerequisite-patch-id: 79c01de4e67563772dde152cd4c4d0c568b14d17
+>
+> Best regards,
+> --
+> Ryan Brue <ryanbrue.dev@gmail.com>
+I will incorporate this series into my series and add Co-developed-by to 
+the patches and your name and email to maintainers.
 
-To fix this, register sched_clock once at the end of the first
-successful probe. Clocksource and per-CPU clockevent registration
-remain unchanged.
-
-Fixes: cec32ac75827 ("clocksource/drivers/nxp-timer: Add the System Timer Module for the s32gx platforms")
-Reported-by: Dustin Black <dblack@redhat.com>
-Signed-off-by: Juhee Kang <juhee.kang@redhat.com>
----
- drivers/clocksource/timer-nxp-stm.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
-index 6fe098a4a33f..7572cd20732f 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -211,10 +211,6 @@ static int nxp_stm_clocksource_init(struct device *dev, struct stm_timer *stm_ti
- 	if (ret)
- 		return ret;
- 
--	stm_sched_clock = stm_timer;
--
--	sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
--
- 	dev_dbg(dev, "Registered clocksource %s\n", name);
- 
- 	return 0;
-@@ -473,6 +469,11 @@ static int nxp_stm_timer_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
-+	if (!stm_sched_clock) {
-+		stm_sched_clock = stm_timer;
-+		sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
-+	}
-+
- 	return 0;
- }
- 
 -- 
-2.55.0
-
+Best regards,
+Nickolay
 
