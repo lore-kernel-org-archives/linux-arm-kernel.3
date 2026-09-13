@@ -4,112 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395D5C88E63
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 19:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793C1C88E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 19:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=; b=xjHIL3Dlhlo9lMdJ0QdJ9eorwC
-	5pANYD8P65Rwi2kzv8TGlXq5+4YJfBUp+X3qBAbF3Zi4+7yh5aqp1vXZthRjct6SFAuo2hvLlp3GX
-	RqtNwnBupDhllVoJl1Ccs4W0dXkCY9gFJdg1V9p0buKSglp0t+WxZiojGdJ8QlOb9LJM4Gwm3XW9i
-	V4E/ywWk7F2ApVs9MKDWnLLGNU2NpTtbejWiMJxnvQb1aLoawCSXf46MUhw6wHZbhR+1wWPlX09cD
-	KVGzo3fazHs0Y40WCNRdYHJRxMV8I4l0i7pX01Mc6waMcQDmRZH+1Ut/EOvb/IZ/etx7jauvOT+Al
-	sWE6OP4w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8sFKNO7az1ksH2fsKhgDozSxLoIS44WxW5mHIfc4ieo=; b=btc823aWRNt7pBLiCdTDYeUpz7
+	gc++fSbQK5NAiEvoemq9p0B0lbmcqR7vDpUHS+i6bMsRIH5tIFuiLZE88ALqjqnSpjZm9p/nwVw1z
+	BdmSNFGI/SP12Gl78+yIp9sCB4Qv/SAA2bbPdsOQxnIENaAULHj7O19LhJUJIYKnmIQxn3sEsgwXY
+	PixizzfoUHjgTZ4VhSx0dAV9cqQnqatGnkeDB7p4fCoI+FxtgCWNWlHwlocODlrfR+EMC0t2FeEiK
+	+a+c2EFIVMBpxwk8/SVjOtFBGlslcZoKk8DGSL+grCLZD1WjUKwFn6stRtI087HSutp8K3mUfD1Iu
+	4ut45I4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5pQr-00000001wpi-0QxC;
-	Sun, 13 Sep 2026 19:00:05 +0000
-Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
+	id 1x5qBO-000000020Oa-2ePc;
+	Sun, 13 Sep 2026 19:48:10 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5pQn-00000001wmI-2H3q
+	id 1x5qBN-000000020OB-0QL9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 19:00:04 +0000
-Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2d952ac253dso15530845ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 12:00:01 -0700 (PDT)
+	Sun, 13 Sep 2026 19:48:10 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3964e480f76so3603878a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 12:48:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789326001; x=1789930801; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=;
-        b=XKiHiArtGJ7IiF/7LbOoqAywiQnj4GCehasrPWuKyk99HStqW7pS9qJPSFiyaPbojT
-         +t6UUTRd4Qmz51DjSyoVgOmEa9SVd2lic4MuL8w96C6yMcgXHnun05//uwnV54egVtKu
-         7Lu+iCSX/RdkTYAufwUK4jeFiF3OB16/69Gkb/vEmv/JGfq/xXaBi6iwBtzKo8Ai9wcM
-         l6hNmHDgSVGNyM5RtxP3HXldiCy0EELdrociXIy23GAhZlC0yvGmRICMtTzaet+fgM3h
-         DIO69iPhqDyGNF3OIGnmuxJcJiwBY/Tlzmkkcr2eklvIXUhFZp/mtjTUgIcE7qrE4gna
-         UUxQ==
+        d=gmail.com; s=20251104; t=1789328886; x=1789933686; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8sFKNO7az1ksH2fsKhgDozSxLoIS44WxW5mHIfc4ieo=;
+        b=qxV5TzuYjyvcCVUB0ooC9i165Efg0Vl3S5j7yCIDG4OFwxcOo2X/1UGMesBWtfFs5Y
+         9UHiROq0g18YbNPqGjgvludo1uyx/HE5R09aUnPOt3nQcJXmikYfkyIklSRpzAa9Ocs1
+         CXebffc5Uugzx4AoJlvrg0LgYgmbsSCvd/+pbC7ZU+ody4kwYYNI4QoP0m2UlkNJgm2b
+         HaJg5UHCBQSAxrXCVQMmXrP/oSgRUskkwixSVyJBc/73fdnosrJH68/80ldcLD+qZ6Hy
+         Pj7XPRzqC/4GrS4F+0dT+xIxuOmRJz8FQ9NMMcojPFxjWyQWIeUOFfFb0jHIr4pQY9UO
+         at7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789326001; x=1789930801;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NfuBhi93xftDhshvbIutU6M31n4jH/ZjDQQ4jx2k6og=;
-        b=Pkmcchf57QGCMmpU4Pu5N9HmgxO0hqL0yLq6FyMkxa7Z7pJhKy38vh0XliRw+7nT3q
-         0QK4e8cL9FdVJirtRiSzTfcNDWYc+SEYjW98xMS6XR/TRmR3P8OUO/l3dGJMmFFTHTJ5
-         jZyjO9ot1oILD/DQzTdyfVWP23dCUXzsSkTOadyYyMwlgfkllLLCCGbIS/ZpRPMeo8bD
-         D98g6xgB2gf6MHb9Og08i2jwS9SvBlunnvPzQ7oHELR7BpHDVs6TdLMTFXSgiq1tLy9a
-         DFrYWuAKjd3bp0X6mFFGEXhjiSz+NC/w+P/h2RxvwR8PnnPEBqwB+fr8SoyU8xsMbKzh
-         Bk3g==
-X-Forwarded-Encrypted: i=1; AKwUvBxPxoZCv6ghup0QPb4zdt2jilYDY7CN1oU7zM3rPd3d+pbzksO9NzsPAl3R9N1JJLcsdf2VLe1Ougaxb4AQqEGa@lists.infradead.org
-X-Gm-Message-State: AFuF++lvOr0RU8hvMQDIeWuKv9LvELbl1b0iaurjz/PLJhTkSGoi4e6m
-	Xh3oQuRsp8UsFFVbvK4py61XYysZt9Fcot2Vr9trtTL2x25yV+p6lMMW
-X-Gm-Gg: AYBFou1gE9r2qUNaGTxqo5x8uHKjPKILM1igEIqe/ffm/q8WDdQIruHdeV6JxyTreiF
-	XytYmjBIp3QGhDBvgF+NkzIuKlHa34eu3Tf2VSqyhobRaPzCn2/pbJTd0EaLtQ1eCNPPhBsKcMU
-	Xh4t6ia0vN4U90GmvYO/dwQaAF4xZa67PsjTtDJp4ZOmlXoDZdYIddST12rI7hljIccDpVg01x3
-	rKsskSR6thubUXxlU6nPcLr4jWxh2sDfdYp6O7850aMxKKiWDdcrkuboIWaRmWZEJg/Zz0ZdG3X
-	UFp+3ZHe5I7au1k7IEJGnIgG8j00bGolIrayAISBouupVm26tfbfze4z2zydf0WXuDYuoZU/yoY
-	agvjYS22jzpqZc9FzH3Ze+BMkpqMWUz3b/lEmw193Dl4CliMuCz97GS6Khx77Wwh5AH76Nduq+f
-	f7tYz4UCxOxva3KlhMyGISd1fXrwe7SIVEPqblsl1AE17mmgU/1oG3BT682ok+PJykjRQ0yA==
-X-Received: by 2002:a17:902:ef4d:b0:2d9:3850:2741 with SMTP id d9443c01a7336-2dd4ba93866mr153810795ad.0.1789326000804;
-        Sun, 13 Sep 2026 12:00:00 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cca6b7bsm36808655ad.3.2026.09.13.11.59.52
+        d=1e100.net; s=20251104; t=1789328886; x=1789933686;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8sFKNO7az1ksH2fsKhgDozSxLoIS44WxW5mHIfc4ieo=;
+        b=EbJV+Y7ZTb6fdiwgzsYSvKkqbKsUbtTRwSMBdDgAzIFBAWikFS2uFooVogXdgP8xCv
+         rPYTtdLsPv77gdN+s/bLm2wexKd07ocDSip8dj9SDKsU0dCo6DErSiahM9IMquVXw+2Z
+         7aZhV/nkRBuPrcbQ+CtEPl388CHfY8h0ATM+yr0RBzPE7amGVUxJg1JQ4MRsRVrTtvwn
+         ned2n6GJqHo51jx0ddS9q6fb/DUbTfFdb/zKCYOnddnsQ2sOIKdyubIATvpc/lxZp7X2
+         QOFubF2bm0zo/1MgTljj7C8691g6dzLqDH/+ANLXB1meHzcIqoVtHZooz06G/3ZKS3w8
+         CT0g==
+X-Forwarded-Encrypted: i=1; AKwUvBzGaX0kQVB0H4h+X8Zjsk4EDlMQGoz3JUkxBGBhpHjmE0jXBie3SK5JNHCp8bEDDX+dkc73Io/JwdEw+sq1tlPN@lists.infradead.org
+X-Gm-Message-State: AFuF++ku/wLn+gUuXKGrtxEugsrgMhBH9anx+qkAPgQdADCym0HrKBy0
+	mfIN+cH5rQs5//BRGO5EBTcTzKD27VoRLnKiPS2sqYfzsvYfiZY0qA70
+X-Gm-Gg: AYBFou0/jbOmwOFQ6drIQI24aKCutihsaMLDzHR8eRv1HCwa3JOA/RfCIZVEYSeY6BZ
+	R+d2E+kPbTlc8+0vsczq+n84O0+gO5SZvq53yAbnpvUpJVw2oEj+3yTJ5XsFbFyku8mwmCU1Mrr
+	jKziS8VlFSuUdlT2SSYllo4oYmhukR6L0davi7CJT8/od5pdL7p+9Ux+iC3giQYT5q2mruz5ol9
+	iSZuecI0gdGI8/UCdeiB01CONSsn37HuYmqQRLHDCtw7Tjo42V6xbyKRk/SynsDT9vr0N+/v/MX
+	Ni5BHNv9KFfqcwLq/P+yab1bbZOUgeQfOuGk+2GbLWzvcwSaUTfHAYWK68w9oHauSM9h+D+RIRY
+	HBEDdbZSq5suA25voXywv9XLXSU4BCr5ib8PmaHtsNPh3wj+3cpeRbQ64feGczt7VdzLQ1Ggbum
+	N2G/JqyOva2l8W7Fh4PCx0HmHs6Q17zhP6tYWlyNpmNSRWjU55onxpWqKPHcF3b9L9RNqIrA3m2
+	qxwrDHqJIMSKdIOfUSX0h81W9H1Wqu4Gji++om4SdVDhN2fVGb/VRRqizMA4FTdJf0zx6vUeXG/
+	HuKKbt0SGDX4MnhpV2lwXD6OgxKPnFpisYMbmB8Xb899Ej19
+X-Received: by 2002:a17:90b:390d:b0:39b:370e:c807 with SMTP id 98e67ed59e1d1-39d9c1fcb7cmr24523582a91.17.1789328886230;
+        Sun, 13 Sep 2026 12:48:06 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39db996bde4sm10689651a91.7.2026.09.13.12.48.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 11:59:59 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v5 03/11] phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
-Date: Mon, 14 Sep 2026 02:58:38 +0800
-Message-ID: <20260913185849.907479-4-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260913185849.907479-1-coiaprant@gmail.com>
-References: <20260913185849.907479-1-coiaprant@gmail.com>
+        Sun, 13 Sep 2026 12:48:05 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
+Subject: [PATCHv2] dmaengine: bestcomm: make gen_bd init helpers static
+Date: Sun, 13 Sep 2026 12:48:04 -0700
+Message-ID: <20260913194804.39939-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_120001_645149_89F19861 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260913_124809_148997_7750F33C 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,79 +101,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3568, the SGMII interface can be routed to either GMAC0 or
-GMAC1 via the GRF register pipe_sgmii_mac_sel.
+bcom_gen_bd_rx_init() and bcom_gen_bd_tx_init() are only called from
+the PSC wrapper functions in gen_bd.c, so make them static, drop
+their now-unneeded exports, and remove the corresponding header
+declarations.
 
-Add support for this selection by introducing
-the "rockchip,sgmii-mac-sel" DT property.
+These had use before commit 7d3ee229ea51
+("powerpc: Drop MPC5200 LocalPlus bus FIFO driver")
 
-From the RK3568 TRM (Part1, Page 229), the PIPE_GRF_XPCS_CON0
-bit 1 (pipe_sgmii_mac_sel) is defined as:
-
-    0: SGMII routed to GMAC0
-    1: SGMII routed to GMAC1
-
-The hardware reset value is 1 (GMAC1). If the property is set to 0,
-the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-remains at GMAC1.
-
-This is necessary for boards such as the Ariaboard Photonicat, which
-uses the SGMII interface connected to GMAC0.
-
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+Assisted-by: LLM
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ v2: mention driver removal that made them unused.
+ drivers/dma/bestcomm/gen_bd.c       | 6 ++----
+ include/linux/fsl/bestcomm/gen_bd.h | 8 --------
+ 2 files changed, 2 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index 7843356a4dd47..7b867e7520064 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -186,6 +186,7 @@ struct rockchip_combphy_grfcfg {
- 	struct combphy_reg pipe_xpcs_phy_ready;
- 	struct combphy_reg pipe_pcie1l0_sel;
- 	struct combphy_reg pipe_pcie1l1_sel;
-+	struct combphy_reg pipe_sgmii_mac_sel;
- 	struct combphy_reg u3otg0_port_en;
- 	struct combphy_reg u3otg1_port_en;
+diff --git a/drivers/dma/bestcomm/gen_bd.c b/drivers/dma/bestcomm/gen_bd.c
+index 61b5746e1a97..b5093f7445cb 100644
+--- a/drivers/dma/bestcomm/gen_bd.c
++++ b/drivers/dma/bestcomm/gen_bd.c
+@@ -81,7 +81,7 @@ struct bcom_gen_bd_priv {
+ /* Task support code                                                        */
+ /* ======================================================================== */
+ 
+-struct bcom_task *
++static struct bcom_task *
+ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+ 			int initiator, int ipr, int maxbufsize)
+ {
+@@ -108,7 +108,6 @@ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+ 
+ 	return tsk;
+ }
+-EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_init);
+ 
+ int
+ bcom_gen_bd_rx_reset(struct bcom_task *tsk)
+@@ -166,7 +165,7 @@ bcom_gen_bd_rx_release(struct bcom_task *tsk)
+ EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_release);
+ 
+ 
+-extern struct bcom_task *
++static struct bcom_task *
+ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+ 			int initiator, int ipr)
+ {
+@@ -192,7 +191,6 @@ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+ 
+ 	return tsk;
+ }
+-EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_init);
+ 
+ int
+ bcom_gen_bd_tx_reset(struct bcom_task *tsk)
+diff --git a/include/linux/fsl/bestcomm/gen_bd.h b/include/linux/fsl/bestcomm/gen_bd.h
+index aeb312a1cd00..7253d308d77a 100644
+--- a/include/linux/fsl/bestcomm/gen_bd.h
++++ b/include/linux/fsl/bestcomm/gen_bd.h
+@@ -16,10 +16,6 @@ struct bcom_gen_bd {
  };
-@@ -212,6 +213,7 @@ struct rockchip_combphy_priv {
- 	bool enable_ssc;
- 	bool ext_refclk;
- 	struct clk *refclk;
-+	u32 sgmii_mac_sel;
- };
  
- static void rockchip_combphy_updatel(struct rockchip_combphy_priv *priv,
-@@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
  
- 	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+-extern struct bcom_task *
+-bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+-			int initiator, int ipr, int maxbufsize);
+-
+ extern int
+ bcom_gen_bd_rx_reset(struct bcom_task *tsk);
  
-+	priv->sgmii_mac_sel = 1;
-+	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
-+
- 	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
- 	/* fallback to old behaviour */
- 	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-@@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
- 		break;
+@@ -27,10 +23,6 @@ extern void
+ bcom_gen_bd_rx_release(struct bcom_task *tsk);
  
- 	case PHY_TYPE_SGMII:
-+		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-+					     priv->sgmii_mac_sel > 0);
- 		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
- 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-@@ -984,6 +991,7 @@ static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
- 	.con3_for_sata		= { 0x000c, 15, 0, 0x00, 0x4407 },
- 	/* pipe-grf */
- 	.pipe_con0_for_sata	= { 0x0000, 15, 0, 0x00, 0x2220 },
-+	.pipe_sgmii_mac_sel	= { 0x0040, 1, 1, 0x00, 0x01 },
- 	.pipe_xpcs_phy_ready	= { 0x0040, 2, 2, 0x00, 0x01 },
- 	.u3otg0_port_en		= { 0x0104, 15, 0, 0x0181, 0x1100 },
- 	.u3otg1_port_en		= { 0x0144, 15, 0, 0x0181, 0x1100 },
+ 
+-extern struct bcom_task *
+-bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+-			int initiator, int ipr);
+-
+ extern int
+ bcom_gen_bd_tx_reset(struct bcom_task *tsk);
+ 
 -- 
-2.47.3
+2.55.0
 
 
