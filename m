@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB5EC88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 06:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F7DC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 06:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=; b=w8uWAwZcbmo3LCCC97HW9p9Cwh
-	duYzWAl5LwxmxXFSlBlXD0vxylxhNZ6NxGgkh6/LXSAt91xbipkdRXshpFGDU94zvsUj7XFo19eYE
-	niYUS+oHtcvgEUOabLCKkvuFuvdbS8BO44WHp9aLPsFacyRknHnd4J0g/nkSmbvPoNfXexvHuh4GW
-	uHwvchXiFR0Jilykqgu+7kchPCuxp4ggDRWGx8XSNIAr5HBV1+kZUzTqjlDbI+RuCeoTF7MDNvOTa
-	Uzo6xi4pSfawFCXoO3lrKjNqxdHL+tn5qXgz4IWM4QMbKsiXzFagggneaWc+IIyIRK7wIEBLAXn0O
-	brqZc/Ew==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XE0FAIY1dIyIhNWdzfvXZWvPYm623Zb2EGWRdg2QQio=; b=dxAZtBhrcrEDun9EarESdvfNNl
+	NzPD7frg645AKFxHSIju7U8ocEEufipmTK9+O6SMgv/36SBACMYrpx6pH4/s2yRVm0GKOqNPqgTGr
+	xJAbHCqvldPMf1o4iXG74KP6hUd0xcouEM0PCYHbr/FdqjYNVcEm+qA93+wLCTbKCxtlb0vaGS0RR
+	xSmXIb0uczVAHkjbhKAnsNZnz1bAI6g7RjzVZzWp9HHbIDcKM4+krJgoHR8RmdFZtV2Wb3/v9rVLa
+	e8YGpfCZTC9ZLMbzRzDIgBKnv9uEeX+sS4piS8J+BnTA07HhIzVZVDaGeqDmJ+1yKteLaJuuGzkFL
+	OhPrXX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5dIn-00000001Rs9-2NXM;
-	Sun, 13 Sep 2026 06:02:57 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x5dWs-00000001SBY-3lpw;
+	Sun, 13 Sep 2026 06:17:30 +0000
+Received: from mail-m128212.netease.com ([103.209.128.212])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5dIl-00000001Rrj-0DAL
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 06:02:56 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2db18fe459dso3611735ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 23:02:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789279374; x=1789884174; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=;
-        b=Wj2j2vTl4PReUKLxoyxb+Kntiyf3BuDhoRBxkfUFeaMe32g49YTLwcIHyJxA7liMvI
-         Y5nwgZxF/pytRFxO/tVNSecxD5LVVbYgOG1Ru98/5ZlKls/RpfIQ/r5g+uUeOdTGGx1O
-         Nnsq5eiuAaWwYotyR+MhwUBDquVQvOXyem4T6OTobmBlUd4c24EMaj3Ew4t8wt41K7bk
-         ovps+WQNMsyrC/D2tg6t5zPvTZmlTIcUuxd9jWrYWEVCRm5FXmu0numMr9hHbqyASRnq
-         mGOffjy2qllnnwDvJqQ/Nuq/THw//k9uuTHf3zQmtWXvIW1N0/aNQyFXRRkCTRnOCwDl
-         lzNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789279374; x=1789884174;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=;
-        b=aqHiT3UWSsITljtBITViB3OZpPmFIUnRetWwjuLVDyzldiW0OjI6Q5gMvt/35IzvMk
-         s+eys+UoeO+YKKLoHdcRu3GPBOFYzi2RGc+jPZ/FpjNK50Sn34W8lNFgsZI47tWRi3Vg
-         JDJ25QH1/hee9NAmYq4pOQlgooP7YBPqKqK99tisL/5gOVT7s7ePr4ILNQZLVYYR5kdF
-         /meR2T2WgMhNY5fBFtW/43tYz6ADOshUV+FuIxaRotr0XdIV6dvyXLzQcZMvgN6RqF1L
-         L5QHhurSy9tG5reJ0q52vDzFuUrTjzSUWNWmSDtgjmiO0S+iERBPw4QR/bjcGtyp5LYl
-         VqvA==
-X-Forwarded-Encrypted: i=1; AKwUvBzZjEeQgf+oCxaSwHYAfKDo95fJst+l1Lr9gpPVRSIl9QXWd8Ijy+di336zzXiF+LAbittFM3/NFlfM1SQBmVCr@lists.infradead.org
-X-Gm-Message-State: AFuF++l/NidyMKxD8YK5L3N6Z9BkSIZhxWrFoIFkzcQkUAaMilCr7eRG
-	Y4Eeyx9icGnZKzu4YHs0Cq/Qf1FenSG8j6+939SAB6TSzNcoxD8r4+hp
-X-Gm-Gg: AYBFou1CRDZ3yPhUx1+/iL/jDWF/Ykyq4ZMLCQNgeE63IdkgIaKmRb4mC1f2219QTTU
-	xUBaAty3UB13YCenXtirRpiOKJ9yIHrqGEVtJMLQeZaDimOyetqDwVVWDdWIMbdE+YcikthXhBZ
-	KjHocYHrCHG1YqQZB0Qo/CZhWnBN1/3ucXRcsfyw/EF2+NnShKI6jRmptek5ZocQetrO68O8UWs
-	umIK1OnG/NaoCdCwjhP3tuIhXF4QHhK9eBDlvwNFMDKQxGEcGjD5Ej0o//ZQ9yKkYMBfZJ6NDbu
-	Y5bxLk5VAXeXmcRLlc9C/HkZHsDcVBPljT/AHYSu2+7dQLe6HXKPEATwRbQJZOUfrYkaQfkVj8j
-	HqDnleoS3Gk0CkIYiR0K7HlYLWVu3uCLcv1hFGUuPkshhaSRhDf0oPHi5dKCiYGTGpg+gjcL2pB
-	XGDi5G6KK5TnkZnKLYngBwnz7LmEmZBhCwF0u5WDmm0ehRRKoDYnABLA==
-X-Received: by 2002:a17:902:c947:b0:2d8:d4d3:3fc0 with SMTP id d9443c01a7336-2dd4bdaf9bfmr98050145ad.20.1789279374119;
-        Sat, 12 Sep 2026 23:02:54 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1002::de93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd3f0faf19sm23811575ad.12.2026.09.12.23.02.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 23:02:53 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Eddie James <eajames@linux.ibm.com>,
-	Ninad Palsule <ninad@linux.ibm.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Alistair Popple <alistair@popple.id.au>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-fsi@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] fsi: aspeed: fix memory leak on remove
-Date: Sun, 13 Sep 2026 14:02:42 +0800
-Message-ID: <20260913060242.1426845-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x5dWm-00000001SAs-3V0Q;
+	Sun, 13 Sep 2026 06:17:28 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d8d80e68;
+	Sun, 13 Sep 2026 14:17:08 +0800 (GMT+08:00)
+Message-ID: <5f5a3210-44e1-4d56-ab44-aea2fe3cabae@rock-chips.com>
+Date: Sun, 13 Sep 2026 14:17:00 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] drm/rockchip: dsi: Add maximum per lane bit rate
+ calculation
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chaoyi Chen <kernel@airkyi.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260812073002.328-1-kernel@airkyi.com>
+ <20260812073002.328-2-kernel@airkyi.com> <9674763.CDJkKcVGEf@phil>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <9674763.CDJkKcVGEf@phil>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa09969941d03a7kunm769b3eaa96f912
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTEsfVhlCTUkZSh4dH05LGlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=GAJ5dMwy21VmCnJabb1L9TQt7b2IDU9Uq/uVBCd3W1ZJPdjMZOkOHgn5LiqAgg3GA0pHy4C3q4EUx4G7Hz1skBBdZLC9AW8rueILzdxDsEfhB5+YqQqTqewhPSW77CuWLWUJinCQ0Gmq7MLqHcATbjzdyKYT8nT+8AEEL8AngmA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=XE0FAIY1dIyIhNWdzfvXZWvPYm623Zb2EGWRdg2QQio=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_230255_104221_5204D87E 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260912_231726_297337_B87AEA88 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fsi_master_aspeed_probe() takes an extra reference to master.dev with
-get_device() after registering the FSI master so that the aspeed object
-remains valid while the remove path performs its cleanup.
+Hi Heiko,
 
-However, fsi_master_aspeed_remove() never drops this extra reference.
-After fsi_master_unregister() releases the reference held by device
-registration, the extra reference remains and prevents the device
-release callback from being invoked. As a result,
-aspeed_master_release() is never called and the fsi_master_aspeed
-object is leaked.
+On 9/12/2026 8:32 PM, Heiko Stuebner wrote:
+> Am Mittwoch, 12. August 2026, 09:30:00 Mitteleuropäische Sommerzeit schrieb Chaoyi Chen:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> Different chips have varying support for the maximum bit rate per lane.
+>>
+>> Add calculation for the maximum per lane bit rate for various chip
+>> platforms.
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> [...]
+> 
+>> @@ -573,6 +574,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
+>>  	unsigned long _fbdiv, best_fbdiv;
+>>  	unsigned long min_delta = ULONG_MAX;
+>>  
+>> +	max_mbps = dsi->cdata->max_bit_rate_per_lane / USEC_PER_SEC;
+> 
+> As the value is called max_bit_rate_per_lane, I guess Sashiko
+> is correct in that the max_mbps check should use "<=" ?
+> 
 
-Drop the extra device reference with put_device() after the clock has
-been disabled. This allows the reference count to reach zero and
-aspeed_master_release() to free the aspeed object.
+Thanks for pointing this out. I'll fix it in v5.
 
-This issue was found by manual code inspection.
+> 
+> Heiko
 
-Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/fsi/fsi-master-aspeed.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
-index aa1380cdff33..d21d06b44350 100644
---- a/drivers/fsi/fsi-master-aspeed.c
-+++ b/drivers/fsi/fsi-master-aspeed.c
-@@ -652,6 +652,7 @@ static void fsi_master_aspeed_remove(struct platform_device *pdev)
- 
- 	fsi_master_unregister(&aspeed->master);
- 	clk_disable_unprepare(aspeed->clk);
-+	put_device(&aspeed->master.dev);
- }
- 
- static const struct of_device_id fsi_master_aspeed_match[] = {
 -- 
-2.43.0
+Best, 
+Chaoyi
 
 
