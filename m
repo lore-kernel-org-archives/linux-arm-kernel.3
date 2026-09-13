@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA70C88E65
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34267C88E66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/z4QNBtUdI4E15ZNXPZtkbjaHvGmUhKoMr+O5uGaIE=; b=SX8niGnpXNVcMqcr5xCBMBvRcY
-	LojO27v0Sx4cdAB00Ica5+byEiC924nTdhWGs4SIdvzhGH+7oag4phx/hvfzkY19oIt10vy7FpQdh
-	zAumEE/1OK/HJB33dq99h3GGv4tkgRiAAUoeS5qNdRz8DINBgUCcr9k0pa+zTAOzUthFm9Gw1JPsL
-	PQoo0OOS7wYK6yjb/gcdXmn8w0eGEp/JEYzdh/1UUBjcGS93cZWLfSfldyb18swi0/YkC3hcATbxL
-	+MrhuNiJXmee66+Lx4KjISftIBXlNS5wACVij75nses2L/rAIsTrrn5UVHa/Eu5C9IRS1RWQwKAXu
-	cPNd1AGQ==;
+	bh=VAFG6OrHDCLtY8RoJ0lJqtavylNBVWsmbDH0jNrFE9U=; b=lRXW/oGY5zKKZVFhAdMiVa1syx
+	Ukl1h0Nkw74p7Bn9PIT6gmEIvtqVIVF+ibrGIvNpjgoLHHw7iKu9ppL1SHN1hxodvIceNonQqlSp3
+	vXHC6GX8PNWRhTckfBMVlDluBRYK8YKTOzL2GnN821sr2CTF3dEWgZCD/ficYTpr6XaV1ibwCCUu+
+	5MqhOts9v1OI7VDAatuHhjSCcwe/vkiMVosM6i3qTy5ffTjodXQatFfLq06ojEZQwEZj41hMEvYIJ
+	+EIqKXqwswqndTCYQRlTEfJxB+pUm1pMPAWwDseMyQX3JtfK6pzeipAHJUVfc4f5aOQFXIdCedZNq
+	n7SGNThQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5lcp-00000001jmG-2HPd;
-	Sun, 13 Sep 2026 14:56:11 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1x5ld2-00000001jq6-2s1p;
+	Sun, 13 Sep 2026 14:56:24 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5lcn-00000001jlX-1kiL
+	id 1x5ld0-00000001jpC-41Pn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 14:56:10 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-86a25369f16so1869670b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 07:56:09 -0700 (PDT)
+	Sun, 13 Sep 2026 14:56:24 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2dd1dcdcf95so18420055ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 07:56:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789311368; x=1789916168; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789311382; x=1789916182; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=z/z4QNBtUdI4E15ZNXPZtkbjaHvGmUhKoMr+O5uGaIE=;
-        b=naBna1aZixZxJUjidLAWWz5tUkcoWYXJOyuKh5VS6q89haPcdeovOHVPsUo3rIfQ5c
-         2xrdET75ag3EkuDTB3V2KRWbYKRsoDQz584j7iSbqRlo9B0sDVeWeiXDvJiYWmWX0SbJ
-         k4NKaWy5kgf4Da3qoQ4pyo/30VTQ4RBNXEuZ81th1QOCtkIx2WDzPrFJzI7hVtLJcGlJ
-         2FmvlYp5subPqW2yNPBofMJ1tgsjv349pb/k0LGq8iMIMx+8hn2KVU1NaiO0KszjxMLm
-         t+HKTmQMuL66tXwQS25SR+rFeLNsfjpMdKl5YwJu/fJlumRFy/mxGq/k+4y2WA+2laE9
-         7yVg==
+        bh=VAFG6OrHDCLtY8RoJ0lJqtavylNBVWsmbDH0jNrFE9U=;
+        b=LGINj8Z64osaqjl4PQ+FSOwGvr0JHlkVoWVAXQNDrZrR9xoDVNOXVpUm/WDqqGidIs
+         NOT6A0NDOSPzjiZylBwHQ5U8YmlAmIYmGtsNnSsls6SVoBW+ieIA/9ksx0+IL3B2yHvT
+         pK33KlglUpCXIwJGQRJzGwf3tJokADaOajy7n8h+B35Z9IORGc68dIfbq73GaPr7vxlJ
+         gnU79/exZgdIQfhf0XyyAXOT+HertJ8mDUu9Oy7vgJKC4s2xwyMlwcBH7EUbrwoziOAy
+         KJnsZei3TAcJO3oSKQNeNTAvO9WnuoAzvNwI62GTImYkjivORjNbROOGphiZtJgjR++1
+         Znuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789311368; x=1789916168;
+        d=1e100.net; s=20251104; t=1789311382; x=1789916182;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z/z4QNBtUdI4E15ZNXPZtkbjaHvGmUhKoMr+O5uGaIE=;
-        b=IFBWlF5Vzb4O1VLiXiZ+/ZfsTPL4Sos2yYxqM21M3dpH9610Vl9z0lsouApHhCXX27
-         Y3HcOkJP/tEvgNgausCkpnN5lARVj0cKS3riYaPvpEaazQ/yBzAQQPNiqEHOBAv4q7nS
-         0W4YHtzsFown5f5EF57+jCTT9/avYh3SaW2QRGSgmOPJVHLvrOey282vRXuQtCk+rQcU
-         IpGS3RCllcLNuEw5RgNxM/Y3bTrm2l5oMf/qnWikBK29R+iA6pSqnrEP1CDE/UEhV3VZ
-         3GcSbeRH23woabuYASw0h8zK+M5kp2rvasrfU4jRwr9KP5RwIMz93lwQkcQEyHHIilfd
-         IuHQ==
-X-Forwarded-Encrypted: i=1; AKwUvByOAM40LutNzRCSdffUwVlINKHxO+9MMwN03fk4i+nxkz0ZA2ILKgvlhbOV/mJcwuDd9Ydzj2m6Rgce7q8efEPr@lists.infradead.org
-X-Gm-Message-State: AFuF++nRGbm1nfVv6zX/5ywW2JLQy2boOGDhA2JQjknTrfCdh+XAZpHy
-	CIyvDJKhmralzJeDCSnLSoPWkg3jkYqKsjrbELRcZL+8Uev7S3w+pFu3
-X-Gm-Gg: AYBFou3m86YQh9M1L4JiQKUp3kf2Eo8NJd0DjHwumg/ylr65ZCam1X4EnhXVye+TCO3
-	WJD0NPyBPPH+dTsCdRwdaPpJALzPunQRQ6+4h3+3O8KY1GyWAiWlHaAmsHfvIkEjmKNDAH2zvGo
-	BTTA1dRR80XYP1rkRTDhOUPLWJzAsnD3a7MrlZsx2+gbbBP1rBPfjj19rNVjSf6SGVxC3XSrwRF
-	Di6enToF9VOsymBi5pax3AKst37mTQd8Xw1tfmcIOgwsrvrFPDcXiLTlJq7Sw19NFAF8Qug54Sj
-	kjdoTjfXdxom2DucAzZFLGvJkU/VNd0BGWDGcRvs0+T4zV1hS1Ih7aHJytAvzRyey/JM4s2rMxd
-	XHJuIagm8HD3/193xN90qeN7RdPuB10sCDhjT/342UGXONqERXyjeuGUCYRIfJzkRynjOqH9TKb
-	rD4tr6sU7DxfG+YkoYchUb4qVn6k1euJnfXlk0nvO2UHQNzBJA3ujU9++L40csby4B
-X-Received: by 2002:a05:6a21:46c5:b0:3d1:60d3:99f8 with SMTP id adf61e73a8af0-3daed46ad42mr25849990637.5.1789311368455;
-        Sun, 13 Sep 2026 07:56:08 -0700 (PDT)
+        bh=VAFG6OrHDCLtY8RoJ0lJqtavylNBVWsmbDH0jNrFE9U=;
+        b=NCVRoSRU1QwLHt5LlZgsxXwhKLSaVkfFUP3tyniFmsur6XO4t7xmZ9PFPFQFdLHZVD
+         kgfDaKb3PsO7msoMLqaoHl4cmhVayb6CsC8AKeKaOB27B2V0dnmRogJRywGF4qTPDMF3
+         l7t7AAXRF6atvNaf1H7PnVpHw3HGbuVH83jdlfk1sCWxAhE/RDfg1ODQ8flk89BdtGxl
+         jpHnY8rsMb6O0BoE7CB/1RUL9tTy43e/pv/jiZFQDs9L6hOBne+RYwM8/liWAwwjtkx/
+         F9+HRJLVttlPFvk6bW7uj6AvBeJGG85FevCUgxiMW4B+cZBN6NcCzDJqvg2Hb/WDeutD
+         Cj6w==
+X-Forwarded-Encrypted: i=1; AKwUvBwAuFjgGx4q/moPmxBLXnYd2v9bvMrmRPbVeV+bboBrLFgGqSds6fHtwBAhBW2E393vvWJeBSVk9WbYY3rOgWfn@lists.infradead.org
+X-Gm-Message-State: AFuF++ln2/vBpUjqDc9S4rks6BMMnU2BefTiUlEecP4iwoPshPpJrcHW
+	nPV5x++eLQQrPDlW8akOLjaK7pDJkWHlka4dmNJHQDy/A3qWXD5c8U+h
+X-Gm-Gg: AYBFou3//cSrJv/b3keiD8I7I9vR0cw5Pir4GRuldffGjYWTRUmGfg6Au+/0Sroh7T0
+	nYfL9y56+W2tYXiJTuEx5MRxwrPmYBQLNToSvalaF+isVIeGUDSTvY0Y9QzIsr0nsb+SENOtD9M
+	z+xp4u02GyolwNpJiEM1tbYQTt0aVs/KOIXPyAvwaNfmAXV6IZ1Zxi/OeGAxUUJqfi7K9m/NqWE
+	w+C9LXuKxTq6RfjKnIxJQqSOvQiUCJj+j39xI7OrS6wKooqU+hQ6vbiIDdiJ2qSDbk9zm9reyOW
+	gF8Sd6BubEbG6JRPsqL1OU/BuCk2x3aMHyLCg2iO2Um+xJPXaG/rrAH/Mq01gVEW2AJoUITm8EG
+	I/ib31LADST9XH2ClRd2rUU5rCF0ZZTO3sA3JaK4U3C98DPDmK8VS1wMBH2sixHWKTGtYe8IyLN
+	+Xp9po/kKveio8u/8tbEK5aprFK7JZdza7nql3CB1mU7XkF6dNnImlAnykvp58HA5E
+X-Received: by 2002:a17:902:f786:b0:2d8:d4d2:d138 with SMTP id d9443c01a7336-2dd5f1bc196mr31924865ad.20.1789311382058;
+        Sun, 13 Sep 2026 07:56:22 -0700 (PDT)
 Received: from archlinux ([207.90.239.231])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba7a9bb56sm21467366eec.31.2026.09.13.07.55.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba7a9bb56sm21467366eec.31.2026.09.13.07.56.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 07:56:08 -0700 (PDT)
+        Sun, 13 Sep 2026 07:56:21 -0700 (PDT)
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 To: Vasily Khoruzhick <anarsoul@gmail.com>,
 	Yangtao Li <tiny.windzz@gmail.com>,
@@ -90,17 +90,17 @@ Cc: linux-pm@vger.kernel.org,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v6 1/5] dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
-Date: Sun, 13 Sep 2026 22:55:23 +0800
-Message-ID: <20260913145527.18148-2-iuncuim@gmail.com>
+Subject: [PATCH v6 2/5] thermal/drivers/sun8i: replace devm_reset_control_get to devm_reset_control_get_shared_deasserted
+Date: Sun, 13 Sep 2026 22:55:24 +0800
+Message-ID: <20260913145527.18148-3-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260913145527.18148-1-iuncuim@gmail.com>
 References: <20260913145527.18148-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_075609_465254_FF299E77 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20260913_075623_003166_F5FDB1F1 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,87 +117,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-Add dt-bindings description of the thermal sensors in the A523 processor.
-
-The calibration data for both thermal controllers (THS0, THS1) is split
-across two nvmem cells at different offsets, requiring the two cells
-to be read and merged. To maintain backward compatibility, the name of
-the old cell remains "calibration" and the new cell is named
-"calibration-second-part".
+The A523 processor has two temperature controllers, but they share a
+common reset line. Make it shared with the shared variant of
+devm_reset_control_get(), and also simplify the driver by switching to
+devm_reset_control_get_shared_deasserted().
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
- .../thermal/allwinner,sun8i-a83t-ths.yaml     | 34 +++++++++++++++++--
- 1 file changed, 31 insertions(+), 3 deletions(-)
+ drivers/thermal/sun8i_thermal.c | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-index 3e61689f6..792081af5 100644
---- a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-+++ b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-@@ -24,6 +24,8 @@ properties:
-       - allwinner,sun50i-h5-ths
-       - allwinner,sun50i-h6-ths
-       - allwinner,sun50i-h616-ths
-+      - allwinner,sun55i-a523-ths0
-+      - allwinner,sun55i-a523-ths1
+diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
+index 284684137..1412bce63 100644
+--- a/drivers/thermal/sun8i_thermal.c
++++ b/drivers/thermal/sun8i_thermal.c
+@@ -341,11 +341,6 @@ static int sun8i_ths_calibrate(struct ths_device *tmdev)
+ 	return ret;
+ }
  
-   clocks:
-     minItems: 1
-@@ -47,11 +49,16 @@ properties:
-     maxItems: 1
+-static void sun8i_ths_reset_control_assert(void *data)
+-{
+-	reset_control_assert(data);
+-}
+-
+ static struct regmap *sun8i_ths_get_sram_regmap(struct device_node *node)
+ {
+ 	struct platform_device *sram_pdev;
+@@ -388,19 +383,10 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
+ 		return PTR_ERR(tmdev->regmap);
  
-   nvmem-cells:
--    maxItems: 1
--    description: Calibration data for thermal sensors
-+    minItems: 1
-+    items:
-+      - description: Calibration data for thermal sensors
-+      - description: Additional cell in case of separate calibration data
+ 	if (tmdev->chip->has_bus_clk_reset) {
+-		tmdev->reset = devm_reset_control_get(dev, NULL);
++		tmdev->reset = devm_reset_control_get_shared_deasserted(dev, NULL);
+ 		if (IS_ERR(tmdev->reset))
+ 			return PTR_ERR(tmdev->reset);
  
-   nvmem-cell-names:
--    const: calibration
-+    minItems: 1
-+    items:
-+      - const: calibration
-+      - const: calibration-second-part
- 
-   allwinner,sram:
-     maxItems: 1
-@@ -107,6 +114,7 @@ allOf:
-             enum:
-               - allwinner,sun8i-h3-ths
-               - allwinner,sun20i-d1-ths
-+              - allwinner,sun55i-a523-ths0
- 
-     then:
-       properties:
-@@ -132,6 +140,26 @@ allOf:
-         - clock-names
-         - resets
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun55i-a523-ths0
-+              - allwinner,sun55i-a523-ths1
-+    then:
-+      properties:
-+        nvmem-cells:
-+          minItems: 2
-+        nvmem-cell-names:
-+          minItems: 2
-+    else:
-+      properties:
-+        nvmem-cells:
-+          maxItems: 1
-+        nvmem-cell-names:
-+          maxItems: 1
-+
- required:
-   - compatible
-   - reg
+-		ret = reset_control_deassert(tmdev->reset);
+-		if (ret)
+-			return ret;
+-
+-		ret = devm_add_action_or_reset(dev, sun8i_ths_reset_control_assert,
+-					       tmdev->reset);
+-		if (ret)
+-			return ret;
+-
+ 		tmdev->bus_clk = devm_clk_get_enabled(&pdev->dev, "bus");
+ 		if (IS_ERR(tmdev->bus_clk))
+ 			return PTR_ERR(tmdev->bus_clk);
 -- 
 2.55.0
 
