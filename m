@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC63C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11268C88E5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCyNmu1S4QSxghM5bhyr4PoubfLL8i9XAe0yigjLH6Y=; b=jR5NmXuvZrGY2UTWDeWQSrtx/z
-	cPplkI/pn4nRW/UXRjbBNWvx93bW4Rf3eYVEjQmFvm5z2oy96Hz55KUJzpd7RZdZh4Bi7H89zl4WZ
-	Hcj+7Cx1MLk6ApwKOFPMUYkawKKOb1TlIzHDyFPZ0z8hot9gVNWQIM7sblBYIkQpvH+//9Iv2HvON
-	WNevfu8ohRyw1EaNHuC7gPL0L7VvNOK3u8We+F99ADBxzPLG58gm67Yw/EdOPcajTRi8w/OqqMJHW
-	gnTuZs4GPBxqSDEATrkHqhkwmNDOnLbCLCXuHiJp/BCIuda/asRbNK7P/6ZEL1ApjrwgPfnYP55nk
-	7WZWcPDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+nditHmexPW/lqQ+6UzeYP/gHiOGs4Gndjs9rnADJZE=; b=YIOQjOVJb/dkQ9xbL9g1S7Pcnv
+	6a6pPFpsav+lDKXenvgPMG7a4zng6Rng9ICmXzHEXR3ntAwT9ZdAGJPyBAqX55tHgT9F/9YH9JTIs
+	gEw9fmwNtArWuxxAeGpencaA3hxvxx3pHYbYA7xriG3mkHXAJpYOPIjaUPbhqv3gAbAB06EGakH+d
+	8jiPqzNKTFYDHqKqNcSKG1wNila7eWFqtTZe0hv1fVDzyaYYSiD8eVw5n0kuzjfj1DdxTfZcU6gUa
+	uxmOlgB6VRXy+breUb6oehzAq8PZfpnBELCxQgskBxle32fr8sJLO+4iMaWL7qPmy/mGsKs4nnXXz
+	v0wkQDdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5hQ8-00000001aEY-3Igj;
-	Sun, 13 Sep 2026 10:26:48 +0000
+	id 1x5hhA-00000001b8m-16Nk;
+	Sun, 13 Sep 2026 10:44:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5hQ6-00000001aER-3ytS
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 10:26:47 +0000
+	id 1x5hh8-00000001b83-2x0c;
+	Sun, 13 Sep 2026 10:44:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F1194118A;
-	Sun, 13 Sep 2026 10:26:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E9A1F000FF;
-	Sun, 13 Sep 2026 10:26:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DFC24483B;
+	Sun, 13 Sep 2026 10:44:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4DA51F00893;
+	Sun, 13 Sep 2026 10:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789295206;
-	bh=CCyNmu1S4QSxghM5bhyr4PoubfLL8i9XAe0yigjLH6Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HxcoM8ZXxZaNZrIj6+HVVWW1vHAG6K1S39AqGPxOTk0cJ2yrto7ofHs/WDrKv30n0
-	 8qd9TV37KTpXM9g/QdqQlp/GQAbfxi3l3g2wvy/BZJLOQoGHNHjJmzdWMtb4bZFs7J
-	 N2tR268wkupaNarLFzulRr8hj1RAXL2Zk/WC+rc0+EoKYwYoPf4NtNLY7NRdX2MdZP
-	 tpyk8+nh8A+CQ2+mWVHf1IZog4NM7nEra4hS5sjJVE1cZjNPoBXMbVgaNujyFAgeu/
-	 v5roWW+0X+HDJLoyS3Qo+5xqSw6PUbD6uR46WaLCcuak1FhJ0py0M5tWiJLVGQJc8I
-	 aZENK3W1L1Svw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x5hQ3-00000008GZK-37Ow;
-	Sun, 13 Sep 2026 10:26:43 +0000
-Date: Sun, 13 Sep 2026 11:26:43 +0100
-Message-ID: <867bkp78gs.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com
-Subject: Re: [PATCH v17 05/20] KVM: arm64: Add vcpu load/put call backs for flavors
-In-Reply-To: <20260908162223.1683432-6-suzuki.poulose@arm.com>
-References: <20260908162223.1683432-1-suzuki.poulose@arm.com>
-	<20260908162223.1683432-6-suzuki.poulose@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789296261;
+	bh=+nditHmexPW/lqQ+6UzeYP/gHiOGs4Gndjs9rnADJZE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=OLgZxZ2O8sGhl/Of1OwzeV77kksP/bNeBpBJc6Zpugxgem7Q59jWQMn4UBZq0MaoW
+	 sOLAjgeT48gkLiHYp2A4mmUhuLtMhskGe12Nbf19nEhg6z2pgmUTh2Nztw4gL8Eq1/
+	 M77JPDzqYZHSmF7zYeGQ88l/vBO71MN/zTPuBkqWOsH2QjxvI+SjnJfWJuZR9RMACN
+	 KTP5IUHmirvUQzywEhhN3RkY2J+LF+cNiVHcCx89CWWBpV43Igiznsa629PU87eayl
+	 qrDZ2OQ1+oV4VLmzlysLsBCD00gM/bQiJYzuoVfSnsDlVMLBVNUQ1JOFLlpMLNBUOQ
+	 FMpjtNyJiIHfg==
+From: Vinod Koul <vkoul@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunfeng.yun@mediatek.com, p.zabel@pengutronix.de, 
+ chunkuang.hu@kernel.org, neil.armstrong@linaro.org, matthias.bgg@gmail.com, 
+ granquet@baylibre.com, justin.yeh@mediatek.com, 
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com
+In-Reply-To: <20260911074015.9994-1-angelogioacchino.delregno@collabora.com>
+References: <20260911074015.9994-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 0/2] MediaTek MT8195 HDMI PHY Fixes
+Message-Id: <178929625740.194170.3391606721825248662.b4-ty@kernel.org>
+Date: Sun, 13 Sep 2026 16:14:17 +0530
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,272 +72,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 17:22:08 +0100,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+
+On Fri, 11 Sep 2026 09:40:13 +0200, AngeloGioacchino Del Regno wrote:
+> Changes in v2:
+>  - Fixed commit description of patch [2/2] (Mani)
 > 
-> Add VM flavor specific handlers for VCPU load/put, in an effort to make it
-> easier to follow the code.
+> This series adds two fixes for the MT8195-class HDMI PHY, found in
+> MT8195, MT8188 and Genio variants.
 > 
-> Based on a patch by Marc Zyngier
+> This is fixing PLL calculation, and TMDS clock dividers, to achieve
+> all of the modes requiring data rates higher than 3.4Gbps, with the
+> successfully tested target being 3840x2160@60Hz.
 > 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h |   6 ++
->  arch/arm64/kvm/arm.c              | 156 ++++++++++++++++++++++--------
->  2 files changed, 123 insertions(+), 39 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index d0dccc9ad6aa8..b2e99c5cb1cd3 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -150,6 +150,11 @@ struct kvm_vmid {
->  	atomic64_t id;
->  };
->  
-> +struct kvm_vcpu_ops {
-> +	void (*vcpu_load)(struct kvm_vcpu *vcpu, int cpu);
-> +	void (*vcpu_put)(struct kvm_vcpu *vcpu);
-> +};
-> +
->  struct kvm_s2_mmu {
->  	struct kvm_vmid vmid;
->  
-> @@ -854,6 +859,7 @@ struct vncr_tlb;
->  
->  struct kvm_vcpu_arch {
->  	struct kvm_cpu_context ctxt;
-> +	const struct kvm_vcpu_ops *vcpu_ops;
->  
->  	/*
->  	 * Guest floating point state
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 51fc651267157..9af3bbb2f8c24 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -74,6 +74,8 @@ struct kvm_ioctl_cap_map {
->  	long ext;
->  };
->  
-> +static const struct kvm_vcpu_ops *arm64_vcpu_ops[VM_FLAVOR_MAX];
-> +
->  /* Make KVM_CAP_NR_VCPUS the reference for features we always supported */
->  #define KVM_CAP_ARM_BASIC	KVM_CAP_NR_VCPUS
->  
-> @@ -569,6 +571,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->  	mutex_unlock(&vcpu->mutex);
->  #endif
->  
-> +	vcpu->arch.vcpu_ops = arm64_vcpu_ops[vcpu->kvm->arch.vm_flavor];
-> +
->  	/* Force users to call KVM_ARM_VCPU_INIT */
->  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
->  
-> @@ -738,36 +742,72 @@ static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
->  		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
->  }
->  
-> +static void vhe_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +	vcpu_prepare_mmu(vcpu);
-> +	/*
-> +	 * The timer must be loaded before the vgic to correctly set up physical
-> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
-> +	 */
-> +	kvm_timer_vcpu_load(vcpu);
-> +	kvm_vgic_load(vcpu);
-> +	kvm_vcpu_load_debug(vcpu);
-> +	kvm_vcpu_load_fgt(vcpu);
-> +	kvm_vcpu_load_vhe(vcpu);
-> +	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_pmu_restore_guest(vcpu);
-> +
-> +	vcpu_load_pvtime(vcpu);
-> +	vcpu_set_wfx_traps(vcpu);
-> +	vcpu_set_pauth_traps(vcpu);
-> +}
-> +
-> +static void nvhe_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +	vcpu_prepare_mmu(vcpu);
-> +	/*
-> +	 * The timer must be loaded before the vgic to correctly set up physical
-> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
-> +	 */
+> [...]
 
-This comment makes no sense here -- it is strictly for VHE, which is
-the only mode to implement NV. Same thing for the pKVM vcpu_load().
+Applied, thanks!
 
-> +	kvm_timer_vcpu_load(vcpu);
-> +	kvm_vgic_load(vcpu);
-> +	kvm_vcpu_load_debug(vcpu);
-> +	kvm_vcpu_load_fgt(vcpu);
-> +	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_pmu_restore_guest(vcpu);
-> +
-> +	vcpu_load_pvtime(vcpu);
-> +	vcpu_set_wfx_traps(vcpu);
-> +	vcpu_set_pauth_traps(vcpu);
-> +}
-> +
-> +static void pkvm_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> +{
-> +	/*
-> +	 * The timer must be loaded before the vgic to correctly set up physical
-> +	 * interrupt deactivation in nested state (e.g. timer interrupt).
-> +	 */
-> +	kvm_timer_vcpu_load(vcpu);
-> +	kvm_vgic_load(vcpu);
-> +	kvm_vcpu_load_debug(vcpu);
-> +	kvm_vcpu_load_fgt(vcpu);
-> +	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_pmu_restore_guest(vcpu);
-> +
-> +	vcpu_load_pvtime(vcpu);
-> +	vcpu_set_wfx_traps(vcpu);
-> +
-> +	kvm_call_hyp_nvhe(__pkvm_vcpu_load,
-> +			  vcpu->kvm->arch.pkvm.handle,
-> +			  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
-> +	kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
-> +		     &vcpu->arch.vgic_cpu.vgic_v3);
+[1/2] phy: mediatek: phy-mtk-hdmi-mt8195: Fix PLL calc divisor overflow
+      commit: de7f29a1fe1dc2864d8a47f8c39d508442cae167
+[2/2] phy: mediatek: phy-mtk-hdmi-mt8195: Fix TMDS clk bit ratio setting
+      commit: 486a70ef848264dcf9a57f0bb0452848db9537de
 
-This can also be turned into a kvm_call_hyp_nvhe().
-
-> +}
-> +
->  void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  {
-> -	if (!is_protected_kvm_enabled())
-> -		vcpu_prepare_mmu(vcpu);
-> -
->  	vcpu->cpu = cpu;
-> -	/*
-> -	 * The timer must be loaded before the vgic to correctly set up physical
-> -	 * interrupt deactivation in nested state (e.g. timer interrupt).
-> -	 */
-> -	kvm_timer_vcpu_load(vcpu);
-> -	kvm_vgic_load(vcpu);
-> -	kvm_vcpu_load_debug(vcpu);
-> -	kvm_vcpu_load_fgt(vcpu);
-> -	if (has_vhe())
-> -		kvm_vcpu_load_vhe(vcpu);
-> -	kvm_arch_vcpu_load_fp(vcpu);
-> -	kvm_vcpu_pmu_restore_guest(vcpu);
-> -
-> -	vcpu_load_pvtime(vcpu);
-> -	vcpu_set_wfx_traps(vcpu);
-> -	vcpu_set_pauth_traps(vcpu);
-> -
-> -	if (is_protected_kvm_enabled()) {
-> -		kvm_call_hyp_nvhe(__pkvm_vcpu_load,
-> -				  vcpu->kvm->arch.pkvm.handle,
-> -				  vcpu->vcpu_idx, vcpu->arch.hcr_el2);
-> -		kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
-> -			     &vcpu->arch.vgic_cpu.vgic_v3);
-> -	}
-> +	vcpu->arch.vcpu_ops->vcpu_load(vcpu, cpu);
->  
->  	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
->  		vcpu_set_on_unsupported_cpu(vcpu);
-> @@ -775,28 +815,44 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  	vcpu->arch.pid = pid_nr(vcpu->pid);
->  }
->  
-> -void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> +static void vhe_vcpu_put(struct kvm_vcpu *vcpu)
->  {
-> -	if (is_protected_kvm_enabled()) {
-> -		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
-> -		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
-> -
-> -		/* __pkvm_vcpu_put implies a sync of the state */
-> -		if (!kvm_vm_is_protected(vcpu->kvm))
-> -			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-> -	}
-> -
->  	kvm_vcpu_put_debug(vcpu);
->  	kvm_arch_vcpu_put_fp(vcpu);
-> -	if (has_vhe())
-> -		kvm_vcpu_put_vhe(vcpu);
-> +	kvm_vcpu_put_vhe(vcpu);
->  	kvm_timer_vcpu_put(vcpu);
->  	kvm_vgic_put(vcpu);
->  	kvm_vcpu_pmu_restore_host(vcpu);
->  	if (vcpu_has_nv(vcpu))
->  		kvm_vcpu_put_hw_mmu(vcpu);
->  	kvm_arm_vmid_clear_active();
-> +}
->  
-> +static void nvhe_vcpu_put(struct kvm_vcpu *vcpu)
-> +{
-> +	kvm_vcpu_put_debug(vcpu);
-> +	kvm_arch_vcpu_put_fp(vcpu);
-> +	kvm_timer_vcpu_put(vcpu);
-> +	kvm_vgic_put(vcpu);
-> +	kvm_vcpu_pmu_restore_host(vcpu);
-> +	kvm_arm_vmid_clear_active();
-> +}
-> +
-> +static void pkvm_vcpu_put(struct kvm_vcpu *vcpu)
-> +{
-> +	kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
-
-Same thing here about kvm_call_hyp_nvhe().
-
-> +	kvm_call_hyp_nvhe(__pkvm_vcpu_put);
-> +
-> +	/* __pkvm_vcpu_put implies a sync of the state */
-> +	if (!kvm_vm_is_protected(vcpu->kvm))
-> +		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-> +
-> +	nvhe_vcpu_put(vcpu);
-
-I'm not overly fond of this. Yes, that was in my original patch. But
-for example, we end-up calling kvm_arm_vmid_clear_active() for pKVM.
-This is harmless, but conceptually wrong.
-
-I'd rather you expand the whole thing.
-
-> +}
-> +
-> +void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> +{
-> +	vcpu->arch.vcpu_ops->vcpu_put(vcpu);
->  	vcpu_clear_on_unsupported_cpu(vcpu);
->  	vcpu->cpu = -1;
->  }
-> @@ -2136,6 +2192,28 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->  	}
->  }
->  
-> +static const struct kvm_vcpu_ops vhe_vcpu_ops = {
-> +	.vcpu_load = vhe_vcpu_load,
-> +	.vcpu_put = vhe_vcpu_put,
-> +};
-> +
-> +static const struct kvm_vcpu_ops nvhe_vcpu_ops = {
-> +	.vcpu_load = nvhe_vcpu_load,
-> +	.vcpu_put = nvhe_vcpu_put,
-> +};
-> +
-> +static const struct kvm_vcpu_ops pkvm_vcpu_ops = {
-> +	.vcpu_load = pkvm_vcpu_load,
-> +	.vcpu_put = pkvm_vcpu_put,
-> +};
-> +
-> +static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
-> +	[VM_VHE] = &vhe_vcpu_ops,
-> +	[VM_NVHE] = &nvhe_vcpu_ops,
-> +	[VM_PKVM] = &pkvm_vcpu_ops,
-> +	[VM_PROTECTED_PKVM] = &pkvm_vcpu_ops,
-
-nit: my OCD-self wants to align all the '=' signs vertically...
-
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+~Vinod
+
+
 
