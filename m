@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DF0C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C224EC88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3swnm2ads6waESiNi1EorXP+dQ0y/SxGczDUkiwUru8=; b=GiEioj2dTNHsJGWrsc0x5tg6Va
-	neitwxLEBV2yDkA+ZHJ5MlOmJLMzba1bLhDtslt0sd8WVQrA604u6A9TRBOdPXUUrv3UPxGJd9mgy
-	CD3ty8hr17n8TNtBEht7eYJljo2pxQryg9Y8eLvU/GN9AOZfWNRJhzM1x7xMOiTfQBcT8/sFTspeR
-	5KIBaMHobZlpMqGDEaWhP+4NxG1DBBHuZXEvR5Co2nvF/1TPbk2hKi6ptbuNjXdfRvIz4oGRe5Te+
-	EJBo8i/XQBOp/TUEw6f5KprUG4bTvL95bmx1pW+WETWdmJChiIQDneGGIDJoLKFBkzjyfHYghvdQT
-	dKFa9QHA==;
+	bh=VXU0FpJrrfRxjV/9XuJ2ILsuuq4iDXIkX/VBK1uBhLU=; b=2B3YShacg60Dea/1BK/XGo2vwT
+	q4AcbXKaxDQyh8ymthVCb0BiRJTnF7akqHsn0iz8mvhA+xVDYwiBLmdmPKnAFGgZr5HmIo5ISiAnk
+	4BZXh335gajyRcJw5t8ead0gcTVbSAKwnTAxOSXizADG0VTf+uj6fLeJX1SBBYlv2UEKV2DA1/N4W
+	6PRPmCNJxaQVu0FTO6XIc+jAGNDUFwgU21A9H9mE4WYh/RluYc7v054N9b8l1kPLBzpgdaC4V5DR9
+	IJiaHuha0bNW2L8WPpU0v/coHfs2NC11SxNqyKAPPuZpdJsGVhZd+7PDZ4KvsblfBsE66IKn4Qozj
+	DKjUtbTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ht6-00000001bZ9-3ulG;
-	Sun, 13 Sep 2026 10:56:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5htD-00000001bbv-11cg;
+	Sun, 13 Sep 2026 10:56:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ht5-00000001bYW-0okY;
-	Sun, 13 Sep 2026 10:56:43 +0000
+	id 1x5htC-00000001bbO-1JTa;
+	Sun, 13 Sep 2026 10:56:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A579160DEA;
-	Sun, 13 Sep 2026 10:56:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E22FA1F00898;
-	Sun, 13 Sep 2026 10:56:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 14FAF404DC;
+	Sun, 13 Sep 2026 10:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8AA81F000FF;
+	Sun, 13 Sep 2026 10:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789297002;
-	bh=3swnm2ads6waESiNi1EorXP+dQ0y/SxGczDUkiwUru8=;
+	s=k20260515; t=1789297010;
+	bh=VXU0FpJrrfRxjV/9XuJ2ILsuuq4iDXIkX/VBK1uBhLU=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=RSlaG9NvRsJEivnVKrbQT0ZibS/3tBev0grAaK1uMlK0Oyhzz2QLu83NhUau+oE4a
-	 +WtVNV2lMM7scAOi8ARfS7mm+489GHD2nb3m0OwwxPDq5cERuqi0vKWLXXCBZbt2ui
-	 P0wPUM1GFplE3v+bIylhSQk2W8GQZi6Lzt4PdjSRseW7e4Mism6Ynni1Q6n3u2TlCE
-	 0sZaURx6AEygSaP9t27sCcou2AP1sbEZKO2/rfOypqitKsbOxTSRrYOhRdVuMOFXxu
-	 tANmjRbIalLcCEwPgJvK+3/L4UtauiGaLKhWQOqyJQCjQiClG2D1p0LArNNy67uJ7l
-	 TCqr3rCXjlQsg==
+	b=CbwG19Dr90iyMGAdA2iqv+xEBM5hdQaSqY1VBIEMQPUHoihasv8p6VcXDuOhHrI+r
+	 Snc3eyxofnfD1/cPR7gqDRJlIDNI/arGd7yq0VR/zm+do0ylZ0LkcjR/btIzome9Vg
+	 13vADLnO1b1tj3Vz0Q9rkEgA4CYFgli+wSZn+9XXEE7mIwkequTsMOdISaQ3UwaeB8
+	 Uj53cty5/gx7TT/yUvZ+u+mhg55UG83glAzJUkRMXkz4eOL56L0DpetjNn4Aqd9QYt
+	 s0cG1Q5yJ73Nf3517+24w1F1ddbQM9YcGVLlLS2xiMTDDD0V+cqKRAO5fM51ExInig
+	 it0vWP8u0oHWA==
 From: Vinod Koul <vkoul@kernel.org>
 To: linux-phy@lists.infradead.org, Rosen Penev <rosenp@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, asahi@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260304041602.7539-1-rosenp@gmail.com>
-References: <20260304041602.7539-1-rosenp@gmail.com>
-Subject: Re: [PATCH] phy: uniphier-usb3: no devm for nvmem_cell_get
-Message-Id: <178929699949.215437.8291797123848780958.b4-ty@kernel.org>
-Date: Sun, 13 Sep 2026 16:26:39 +0530
+In-Reply-To: <20260909220810.52310-1-rosenp@gmail.com>
+References: <20260909220810.52310-1-rosenp@gmail.com>
+Subject: Re: [PATCHv2] phy: apple: atc: remove stale kernel-doc for removed
+ struct members
+Message-Id: <178929700630.215437.14303908364654670254.b4-ty@kernel.org>
+Date: Sun, 13 Sep 2026 16:26:46 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -71,16 +72,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 03 Mar 2026 20:16:02 -0800, Rosen Penev wrote:
-> There is absolutely no reason to extend the lifetime of nvmem_cell_get
-> to after removal of the driver. Use and free right after use.
+On Wed, 09 Sep 2026 15:08:10 -0700, Rosen Penev wrote:
+> The @sw and @mux members were never present in struct apple_atcphy,
+> causing kernel-doc warnings.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] phy: uniphier-usb3: no devm for nvmem_cell_get
-      commit: b2d5ad12d78a1070553f4cb6bf3315105a3b3da3
+[1/1] phy: apple: atc: remove stale kernel-doc for removed struct members
+      commit: 44e2000fe44bce2397b5be89cdafc28ee1bb0e66
 
 Best regards,
 -- 
