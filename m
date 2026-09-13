@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102AFC88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98955C88E56
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOCVCoUbZ3n/ApxFbJdyqu/tiiYlAtevu9P9fyqmEWo=; b=23+tEqmJllYtCnTqqacMPSNJfF
-	0CSnVB0GVn1HXASLayRTNV9rpRAaezUfClJQtmPjMm7E+J5Crja1iLhIlGbE1rCS2TyNuSSgcmnUA
-	jxPW38f/EkFchQ7Q3r4dimEclhmFM41o+kqSr9K+c9Bzn7wScmBay3FrwQSdhmMdO37rYm9DcXc+1
-	Xuxg+b+BPG+ljzXLsU+GiuZUJPqYqfS/d7/qTh8aBVEfyRrSlx+EULelUkC64KAFhWEImI9Xvefaf
-	u4QhJ9fx/XAmeYJdmbKH+TaABjXEpoDbiYIvwP73XCgfHsadA1YSyxPqpTnUW8sUGnCTQPCMHv9EP
-	W9ahZ+lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4caHLEBEOxtFSlC57AtIBBtI8i1ci+K6n0fqXOkiksY=; b=xPhJqqQHBV9AdYR4HsxlAtB6NO
+	6z2iYbKkt5gnwOSHKbHMSfFg323QqMto1ERJrd3SQXdMbRNZA1DT8XyRmNt+snYjGo1KRd7Itw1cd
+	eYcFiRsU+3HSiyxt/+vABHTLxmVbfp3nc0h8VsEVQ0Qlp4ojNDEZkm3rDJrSiInrRfmV01V4VUToB
+	ICteKcUKXZjKzfn6AGiVdyFUDcNkKQExPTau0HrGqTcdKYI1up4Nn+XccHDAmchKvIVO6uYt+8Qob
+	A7/kkjvJwYqGYgLBqkmX9pG5i9UA3YS8q9uSz7Rop6pL0x7epPmM1OomWJ0raTvytrKEF1qpiikUa
+	bsQ7kO7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5g7y-00000001XOJ-3ZHH;
-	Sun, 13 Sep 2026 09:03:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x5gCW-00000001Xcj-1xQX;
+	Sun, 13 Sep 2026 09:08:40 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5g7w-00000001XO6-088h;
-	Sun, 13 Sep 2026 09:03:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7564543C0B;
-	Sun, 13 Sep 2026 09:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDE8C1F000FF;
-	Sun, 13 Sep 2026 09:03:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789290235;
-	bh=HOCVCoUbZ3n/ApxFbJdyqu/tiiYlAtevu9P9fyqmEWo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DA8LP5lleW298yNT/I3q4vqLVtG60kVYWFGIdHbGeitPHZw3N5aKTd5JB7sIfLcjd
-	 23xpU5kKtO2bqa3Ln4h+0HEQUHddp8GSNcvJ7kvJ9n+TiCkKQmKdLrkuWRU+LduKiN
-	 0/P4yuP1kiB1cmlamRZbZQme2JRS7tIKOU+1wrPhzCRtpLfJh/28vGKBk3drZPkHlR
-	 jqjza0d7Hs/rVd7dLsmqmDPuvVeAMHLze7SEp+fOJJvTly682/m6scTeR5d/V3GYNt
-	 YJ5A0ytlK0m1B6rCm1CrazlfXBX8yMXN04s39tCVkE8LpMcFplVkQ6JMAlpx1FPeXb
-	 ci2rgPu86TapQ==
-Date: Sun, 13 Sep 2026 11:03:52 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 01/10] dt-bindings: soc: amlogic: Add compatible to
- support more SoCs
-Message-ID: <20260913-resilient-terrier-of-sympathy-e50c85@quoll>
-References: <20260911-more-socs-to-support-clk_measure-v1-0-940e269aa52f@amlogic.com>
- <20260911-more-socs-to-support-clk_measure-v1-1-940e269aa52f@amlogic.com>
+	id 1x5gCU-00000001Xbr-1GNC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Sep 2026 09:08:39 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4843e397f74so1348154f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 02:08:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789290516; x=1789895316; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4caHLEBEOxtFSlC57AtIBBtI8i1ci+K6n0fqXOkiksY=;
+        b=GymC0Hhu9vM/BStQXlX1G0rIlI/2qSMAC0kGqf75Gm4GwuuI50tkaqy2tm3YZgB0QZ
+         7/RwGlZYXK5uHVpN6z5oxORnicW3YdPaH/UPsFKHcaSq14ujOAWctss8dz62x+nf7Wki
+         y3aQVj+GBEip5awDc0TzZhKddLMDrnDyhTW7UMrAOCjjP/UszIIndXzqVUSuWXITKXM4
+         f6VyIwMMTsrCTxdbHmLE36h1txt8hlNM7lCBleMt4oWdtMaXbQE2ye3cEr0GHBeAky8u
+         zbyOpldFEot37Gkld9299+D2fTYeET6ZnKFhp+n4+ogG+Y/+jTk1AmrggajJoAQhdKmN
+         mJRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789290516; x=1789895316;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4caHLEBEOxtFSlC57AtIBBtI8i1ci+K6n0fqXOkiksY=;
+        b=VT0wlLm5g775owNyF9cYTAB21bFlnLFGZjlII/LgpZtqMQjiW8Z7a7+zjpj4wtTSzi
+         ecqLB3KsDVFLrUWF5zlnRCKOYd2UZq/v9b0E1ZnCXXQSWD6xdX9c/Csw2ca/TCa1mr0Y
+         gXfb7mzt38PGTQX80bLMkdF+A+4luufTWvAyWEjpUMm4yt6Hz87dYqTNTxgsLjpAcI21
+         NVzvouFkvmtr62p3JQUalpBpKXS7RoTq7s/24erDN/8g9iRS5C+iYT1vvaky47GuIc89
+         SwG2gdOoZ2YbFTjtkb2rBnbtXpdaI6xK5sW5O1SXzVwJBdNYK3wjT3pTY7ShWaR7vbWe
+         KWVA==
+X-Forwarded-Encrypted: i=1; AKwUvByMo91PFw2X9+ZkIq1G6vmv8MArhzzji9o4D/Vp5snDXMIMrvEnp0VKLml1kQnqHIgOpzSEwdE1zJX4vLe7TJjS@lists.infradead.org
+X-Gm-Message-State: AFuF++kQZjNiAkxJrvwcTQmLNzpATmjEjQ4+gvaE3ozsfOYIySdCGS5j
+	Nb8P36ArF/wsf0N+/RuaF6l5HJLGE/+fT2fQMbxeC2tc036BlG+yqu+y
+X-Gm-Gg: AYBFou3sDYzVhIa4jppu/G4b5v7JEiwbQkj5/qQ1t3NWM6StCdXNJg3rmbCRpyOB0xP
+	WCi8GZtdyqB6KKfX2W4xTsqHa6DoKjjJjITVHYWEkhkjQsYVivwxxFXPDy97hLyTzLvi9qrCCTL
+	pnKGTAXZYNlKh15XFNLCvqtzMX1pMfLZNVujfIgz9yw0TPekxOtPEH5j5nD2fVITUav5PNrvfNn
+	PJmwSSqGf4wsWcCzDbfwAa5WFszYFpYoWZRp/aOP4vqUKs6NtL7N0TMXtS8v8ETa4GhvMpUofGL
+	HMPF2X/TKMo+kdxsw8mYiJGOKr2f0mJ4wdprzZjA3pcFYYWF/CUzfI7/bgNPPTSf599Sc5mflkU
+	x3icZAHUCcAZalgOuZnqnoPp4qybV5354SeUzER0ZS+7QMgn7D7d8xG6DPxpFLcJsHnldNhwqnk
+	DPxFAbq15lQYNKcMCEGhozlIphEAqBp8cU7heoPj18PIFjfKqhs+4ZOQ2iFRoNSQ==
+X-Received: by 2002:a05:6000:18ab:b0:486:f1b2:cf44 with SMTP id ffacd0b85a97d-486fc955e0cmr1787905f8f.3.1789290515586;
+        Sun, 13 Sep 2026 02:08:35 -0700 (PDT)
+Received: from cachyos ([2a02:8070:6286:900::a57c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb350686sm19704385f8f.27.2026.09.13.02.08.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Sep 2026 02:08:35 -0700 (PDT)
+From: Cristian Fleischer <cristian.fleischer@gmail.com>
+To: Junjie Cao <junjie.cao@intel.com>,
+	Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Huy Nguyen Dinh Quang <huynguyendinhquang@gmail.com>,
+	Devin Wittmayer <lucid_duck@justthetip.ca>,
+	linux-wireless@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH wireless] wifi: mt76: mt792x: treat 0xff ACPI SAR entries as no limit
+Date: Sun, 13 Sep 2026 11:06:27 +0200
+Message-ID: <20260913090744.316095-1-cristian.fleischer@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <acb947435fc78d5c06039c7bd5609c735468b0ee.1789002236.git.junjie.cao@intel.com>
+References: <acb947435fc78d5c06039c7bd5609c735468b0ee.1789002236.git.junjie.cao@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260911-more-socs-to-support-clk_measure-v1-1-940e269aa52f@amlogic.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_020838_359982_4DC71999 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +110,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 04:28:28PM +0800, Chuan Liu wrote:
-> Add clk-measure compatible for amlogic A5, A4, S7, S7D, S6 and A9 SoCs.
-> 
-> Although the clk-measure IP itself has little hardware difference across
-> SoCs, the clock inputs connected to the clk-measure block vary between
-> SoCs. Therefore, it is difficult to fall back to the configuration used
-> by previous SoCs.
-> 
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->  .../bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml          | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-> index b1200e6940ac..125be01e3b2c 100644
-> --- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-> +++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-> @@ -26,6 +26,12 @@ properties:
->        - amlogic,s4-clk-measure
->        - amlogic,a1-clk-measure
->        - amlogic,t7-clk-measure
-> +      - amlogic,a5-clk-measure
+On Thu, 10 Sep 2026 09:23:00 +0800, Junjie Cao wrote:
+> Some ASUS firmware includes 0xff values in MTGS power slots.
 
-Why is a5 after a1? Are you all adding here to the end of the list all
-the time?
+Same failure on an ASUS Vivobook S 16 M5606WA (MT7922, mt7921e, BIOS
+M5606WA.316), kernel 7.2.4 with this patch applied on top.
 
-Best regards,
-Krzysztof
+The DSDT carries MTCL version 2, MTDS with two identical tables
+(1A 19 17 11 15 10 12 12 12 12 10) and MTGS version 4 with pwr 0xff in
+every slot (offset 0x00 in entry 1, 0xff in entries 2-6). Region ETSI.
 
+Before, txpower_sku showed tmac 3 for every OFDM/HT/VHT/HE rate on every
+channel; the AP never answered auth frames from a few rooms away and TX
+sat at 6 Mbit/s with ~3 retries per frame once associated.
+
+After:
+  5 GHz ch 36/80 MHz: tmac 29, TX/RX 866 Mbit/s VHT-MCS 9, 7 retries in
+  776 frames, association succeeds from the spot that used to fail.
+  2.4 GHz ch 11:      tmac 30, TX 117 / RX 104 Mbit/s.
+
+Tested-by: Cristian Fleischer <cristian.fleischer@gmail.com>
 
