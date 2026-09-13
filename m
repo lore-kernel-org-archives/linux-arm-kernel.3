@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B39C88E56
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B08C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 09:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTmi2IHALfHOiCA8eB+C5FrDQSC6nFg/q9Xm5fb4/JQ=; b=hjtr0f8iR60Nn4OhpODJvu6XmB
-	12csTBVkJi+nGjEvXqizjEfvJRI3M/y1gXiCwopzUCeJ259ujk3eFR4t1NVDgtYoLZIfRYu24wIro
-	zX1eUuyJQpwsQf1YLS1A/izIGA2TF7vHzom9tWeIfiMvmd3jhNDhdTKQzNpTOigDL8I/bYkIGpqxu
-	n9n+GCcnYNdU2dRGC2ypeyaINvf8HTrYQ9TMmc3zDwNF2P1php9AcT0vf8vmiU+HsMf2N9dSAme1J
-	tQFzGhXtN/1Fo/RedJ51uIOIpmSSY1bvztVLB0dUD+nldexqHH68CtiEiIqHG3i6fVhf98BFbi8R7
-	uWA5qBKw==;
+	bh=ZR8/XvZpu6CEn400z/4mVVRkUpepYVnx7Lvac3s0vvM=; b=z7JF9XQ28/m2iEh5TxNVyd2yjr
+	GnmC7t7D7fyOcu90uZaUoYGVi7nL4H9sKZwyqjwuoKk35s603plHUj2bKYKDo2otX9ER3jIJSqMqm
+	BXsT5qbqcxj8ikq/uGuEjFtbJh5TfUdsOPJlfIKrOYQ1JQzNMh/ZYvJTqevhGbEC1I8zM8KCYqF7J
+	xpB1JP3gQjXDUUXdZCRDVb75IUg+w6tW2d1lkPTu1lH0Jz62jvFGENPlfFyb2KEDNyOKKKGXOU7fA
+	dNraNcKRpAq8V39hF6vXOJnnPwTHOafhWw0DUk1aVa3etFwW0JFTzHoaM78RDMgbsEmsJBrmCGmJL
+	a7HyxcNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5gDK-00000001Xgu-3S7Z;
-	Sun, 13 Sep 2026 09:09:30 +0000
+	id 1x5gfd-00000001YVR-1bNB;
+	Sun, 13 Sep 2026 09:38:45 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5gDJ-00000001Xgn-3nCw
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 09:09:29 +0000
+	id 1x5gfc-00000001YV7-03Py;
+	Sun, 13 Sep 2026 09:38:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1286D60DC1;
-	Sun, 13 Sep 2026 09:09:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9AD91F000FF;
-	Sun, 13 Sep 2026 09:09:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 361D160AAB;
+	Sun, 13 Sep 2026 09:38:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243121F000FF;
+	Sun, 13 Sep 2026 09:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789290568;
-	bh=ZTmi2IHALfHOiCA8eB+C5FrDQSC6nFg/q9Xm5fb4/JQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EdhSwkpKJ1cRV6H6TwLDvi9cCY6J2W9/OperZcaGIUfH7etLYtRyBPzkdklJR+SzC
-	 Hsv/NpC+95NHhvj2dupvIXXAElt2vzfUQAvaz6O2bBIufiS9k2LfqcdFELDR+aDDff
-	 sSQO3RC/CETc+Cdv3PVBpfC49cPqh20bTRjjDwge5KdFhz3KDnwUx1e37fiVs4iZ9m
-	 eUl0CMsT+xGG23poOa9j2EoQGlva0Y6BZFeCe+Y9V+iXRhyFhgX5nbga2Kjt5h/U/p
-	 80x3ny9LKEkGt4j6w1V/k+HlflTRMMhQ31Uf95V3PaEqfR4LRL0VSaNcu+Ci/qbjXC
-	 9q0eSdAaHRbYg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x5gDG-00000008Fr0-1n0k;
-	Sun, 13 Sep 2026 09:09:26 +0000
-Date: Sun, 13 Sep 2026 10:09:25 +0100
-Message-ID: <86a4pl7c1m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 2/5] KVM: arm64: Add KVM_PGTABLE_PROT_DIRTY
-In-Reply-To: <20260901171558.2674031-3-leo.bras@arm.com>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
-	<20260901171558.2674031-3-leo.bras@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, rananta@google.com, zhengtian10@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1789292322;
+	bh=ZR8/XvZpu6CEn400z/4mVVRkUpepYVnx7Lvac3s0vvM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QJmaS8OG0bH7S2h3wqWn9dtxr8SOpQ/+1/1NLiaXS2NWnK2JrqYGm2rbzaifGM8p5
+	 iX4acB3B6f96E/kHzvxLTZJD7Gao4XLu/MNKF5CYD7CH2xdHFO5Z58Lwpf0kb02sSE
+	 Pe+QHtniBCzc/2I/P99ibYawHmkFl4CIdX4Wihu0/g9JuzJ4LsWL+tmLl5uF6SsIsY
+	 i0mBzLGuyYUDkzMk58xCwN2Q03TJ6VT0pqYvDQHQL4rG1efuamOMNB+Bzo69DzOqvo
+	 bGUBJLI5zjiSoBwzRSTkCfa+OzrgFUU0t1W9AknLtxT7i24RhUT0QuVqYLSXnv0Xhr
+	 swPWCjDGoFxhA==
+Date: Sun, 13 Sep 2026 11:38:39 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Valerio Setti <vsetti@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] dt-bindings: sound: amlogic: add schemas for audin
+ components
+Message-ID: <20260913-sophisticated-musical-grebe-6e7e42@quoll>
+References: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
+ <20260912-audin-v1-1-7fbefe928711@baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260912-audin-v1-1-7fbefe928711@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,23 +74,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Sep 2026 18:15:53 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
+On Sat, Sep 12, 2026 at 12:14:31AM +0200, Valerio Setti wrote:
+> Add schemas for "amlogic,meson-gx-audin" and "amlogic,meson-gx-audin-fifo".
+> They provide I2S audio input support to the Meson GX platforms (GXBB/GXL).
 > 
-> Second step of changing the encoding for the Stage2 PTE descriptor,
-> introduce the concept of dirty page, so we can have a writable but not
-> dirty (WC) page, and a writable and dirty (WD) page.
 
-Why should we care about *setting* the dirty bit in the PTE? Under
-what circumstance do we want to establish a mapping as being dirty?
+A nit, subject: drop second/last, redundant "schemas for". The
+"dt-bindings" prefix is already stating that these are bindings so
+schemas.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
 
-The whole point of DBM is to only set something dirty when it is
-written to, and this patch breaks this invariant.
+OTOH, subject prefix is incorrect.
 
-Maybe you have a good reason to do so, but that's not explained.
+Please use subject prefixes matching the subsystem. You can get them for
+example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-	M.
+> Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+> ---
+>  .../sound/amlogic,meson-gx-audin-fifo.yaml         | 52 ++++++++++++
+>  .../bindings/sound/amlogic,meson-gx-audin.yaml     | 96 ++++++++++++++++++++++
+>  2 files changed, 148 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/amlogic,meson-gx-audin-fifo.yaml b/Documentation/devicetree/bindings/sound/amlogic,meson-gx-audin-fifo.yaml
+> new file mode 100644
+> index 000000000000..a01fe22b9786
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/amlogic,meson-gx-audin-fifo.yaml
+> @@ -0,0 +1,52 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/amlogic,meson-gx-audin-fifo.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Amlogic GX AUDIN FIFO controller
+> +
+> +maintainers:
+> +  - Valerio Setti <vsetti@baylibre.com>
+> +
+> +description: |-
 
--- 
-Without deviation from the norm, progress is not possible.
+Drop |-
+
+> +  AUDIN FIFO receives audio data from backend interfaces (ex: I2S, SPDIF),
+> +  stores them into a FIFO in a configurable way and then bulk copies all the
+> +  data in RAM when the FIFO is full.
+> +
+> +allOf:
+> +  - $ref: dai-common.yaml#
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^audio-controller@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - amlogic,meson-gxbb-audin-fifo
+> +          - amlogic,meson-gxl-audin-fifo
+> +      - const: amlogic,meson-gx-audin-fifo
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#sound-dai-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#sound-dai-cells"
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    audio-controller@80 {
+> +      compatible = "amlogic,meson-gxbb-audin-fifo",
+> +                   "amlogic,meson-gx-audin-fifo";
+
+What sort of Spc is amlogic,meson-gx? git grep gives me zero (and family
+names are not allowed, see writing bindings).
+
+> +      reg = <0x80 0x1c>;
+
+Are you sure a few registers are a separate device? No other resources
+here and this is child of audin, so really does not look like a
+separate device.
+
+
+Best regards,
+Krzysztof
+
 
