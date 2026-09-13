@@ -4,104 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717E3C88E63
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 21:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF675C88E63
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 21:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LiFj+YViXnUILO1Xl8u0yjE4yvh4W8pLQubMdsa1jkQ=; b=1uT27uBe3SdOa+2k9DLZbTSHSY
-	FRUJc3p4f9yDPyxJRNzboO89zhAsIUcRsncbyp7hlPzS942ENBUgNEB3nf5mc3sD/twFd9OvO8b9l
-	OJbx+Noqc+QUnSf9Zxzn61+Xq1XJEM2r6RNdy3vdYar7/AQO+lbEuJSuUQS5IHSoOe/B9BW3xawv3
-	AIIIkigtyYpfm8WRRG1XO3s1/7viU+MfA14M8zKHh4WMMgQUEipkh8m8ZxFzDNf8ENWk6uHf7cWcI
-	hvNne3kNcAvfuCDvv4nvYZ5ipKtc2nLIABIHVW/mFZTWSGPi8cW+h4xeoU3C9WLeBFxPE5tr1AmXG
-	NmtXS77w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Cc:To:References:In-Reply-To:Message-ID:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fRoVtCxPXlE2WTj7/cuKQLp9U1WSy4uS8DQXyNSJ1GI=; b=mL6lpSCxcajTcdCIl+DEtjfq36
+	IU0hSaK5k/kefOkyAbMbIBF1xEgxSzyJ9ygJ12aBN9rIiMQ+tbzw0XpbUu7EagHPdidHnKTVktJ+T
+	RS1Yc1YrGU9f9stkFQ2HTONBW8rYrkHaz5aR5B8NrMtWM8imo35oCi8/szGsrG1JCr0iDGoVM3fqs
+	A2ck3p1KKChJGMzjcmAQFDoVcnkEpjnWF7nBhdZN2MBNMQwH8zm7IDCQbfTb5LwrZEmcIXtO2XCwv
+	tX1UUh62/o+1FUXVaUS7YKWIRjjuTLYzToJc5uBeEd+Voz2i9pAaz9Zm0dhrc/N53w829BDblmHVu
+	oWhumEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5s3U-000000023j1-0rs5;
-	Sun, 13 Sep 2026 21:48:08 +0000
-Received: from mail-oo2-x07.google.com ([2607:f8b0:4864:31::7])
+	id 1x5s9T-000000023sg-1Y6t;
+	Sun, 13 Sep 2026 21:54:19 +0000
+Received: from mx0b-00364e01.pphosted.com ([148.163.139.74])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5s3P-000000023hh-2bSL
+	id 1x5s9P-000000023sI-1q75
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 21:48:05 +0000
-Received: by mail-oo2-x07.google.com with SMTP id 006d021491bc7-6b1bebb3ae8so1099792eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 14:48:03 -0700 (PDT)
+	Sun, 13 Sep 2026 21:54:17 +0000
+Received: from pps.filterd (m0167073.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68DKXfRh652193
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 17:54:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=fRoV
+	tCxPXlE2WTj7/cuKQLp9U1WSy4uS8DQXyNSJ1GI=; b=a707JlvKtuC6saMFXszo
+	48RTvnQk78GeFs5uHDcT6SKuA7eDW6+BrVTEhXs3jwE8cnNkDDD2dAWusohAzO3g
+	HlznYoK2KnQND9jw4Taf1Pu8L5w/OZ7FP7tA9OXIDq363SIXMe0YGXkTzGg2nP/o
+	SpeidmZI56MZiDB+5A0i0qzhEyjZ/AezDp1zgezSUBtVPC+zb8K26Delw4+zyxSi
+	8a+aYiorEI9/lr7viJuNv23x1bUrvMToi6Gp546Kh9pYXNwC77vvO0qWR2yM46n1
+	Ell5m+zd6BNAs2dmgp0+pMHiQbDoy5T8z2vJsVoGNU3MNp1BbZl+CkSkZJEoHi3M
+	wQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4gp2mjgaxb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 17:54:09 -0400 (EDT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-939062ecda9so415127985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 14:54:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789336082; x=1789940882; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LiFj+YViXnUILO1Xl8u0yjE4yvh4W8pLQubMdsa1jkQ=;
-        b=BEboUwQBh5r89AkJFf3H0kxEiisC/i6C76MXq/xq0d9t6ikARt36w6DNG/8LDTdbqx
-         +qhJQwG1Pue6s5oCsWKEZ6VTQIkadZMxxHDWz3EvEn31BtfoHwMGlUUjf1xiQkGbpfLN
-         HIp3KvN29u/AiDsASc7i/Y+WkprCuoAq+Ta6fr85IIYvMzwNxzwaJw/5WEfWHezrtCvP
-         1L7wX/FZJvZs1ZRWYSEnDKYSZMRsyT3D2kEtroqTgsMoIWaKNapDRc2uv/0heo9Joopa
-         P460VCW0/tQRCFJsW3Jr7PYKb8zX9f7Ur77JNBn6447UTkaPs1DjvLX+D94iMJqg77Xi
-         4taw==
+        d=columbia.edu; s=lionmail; t=1789336448; x=1789941248; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:cc:to
+         :references:in-reply-to:message-id:subject:date:from:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=fRoVtCxPXlE2WTj7/cuKQLp9U1WSy4uS8DQXyNSJ1GI=;
+        b=Z6uqS9QiBg2M946yUrKAPir2iGqA6iHOzHI87hIRCTrCqLva/KK3W3eKrBP4iKDF4F
+         h/7z8H+JNpNYnOafXtKBYZEZDFmicJtMw2KuitVepzg71wGaH2MqG0WlhchEUXU0sZFD
+         jN6VRxGAfLSPrDymQ9tPKfETlfSchz5EQIRBQlvN69wFbcdDndXj9yv6KhMGksXn5X3D
+         HGXbybDSOyNYuCIcLSZFiqsAGINCw6kS8x2h2mTtvLF2PjgdmhdbmpMChhixUre9U8xu
+         pkYdgbAKvII+q6/4Guw70iGCX7I13M1OE5CbPun/6wp1Jlx7LeQ2wqgOlirEgmltNLyo
+         Kq7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789336082; x=1789940882;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=LiFj+YViXnUILO1Xl8u0yjE4yvh4W8pLQubMdsa1jkQ=;
-        b=WNZA238+T7n6pQ+lK4JKr9BpLXAmju4pw2VbN9AOiprlGt6/xmeJAe/4N4u17HAfzp
-         SBuIProAbX6OD9BNxO1kqcfnJ9u5jOGOEEvlcMJAQAJ2t+eqTLKvf5Men20nP2rOauP4
-         oERz02Wfqh40/EPgbNxCnQsrIvwIqPrdxbtP+ajeyyvOT7dyTo4G3zDLqFEFEfxYJg/3
-         jet+p+BGpnwbw3ODrLteIe2uUPu75QcVrehSp86i0jQf4wXzg6bBuUyV8FRgPIJIB0X3
-         +/yIuolgIUhTbEgNFaWFZRl7QlxTkSEb1vRBCkcAzLQHPBHZVxhlPoIi6gF8W/VPLck6
-         CHxg==
-X-Forwarded-Encrypted: i=1; AKwUvBycUFfYjQGHFZ4E5VBQr1blOdfCEgQsqn2O8CvDb3tVpt/yExQXkSV38BxFdEXb3fVtrAl1pRicNH1WBOd8gwJe@lists.infradead.org
-X-Gm-Message-State: AFuF++kHiBTctkmotN7Gnffl1Js7wammGC3SsrNb6d6LCZbwr9spPrZo
-	MA122pRPMykH+wfGDuEKq59Fsh5AdavYeQtD3q6bx7gnjbhvDHx7sCye
-X-Gm-Gg: AYBFou1lHEEjZWdibZYzHsSrDqTMwdZI3aw3bv9MqV5MtgKj0GcUMWXzzAoFmrJP/gq
-	R+c3SeL/Hbre6wUUoItPMApYzhYIhgsbEfiqP+LZErSWTRpXRQ63ZStjUc4NcZ+E80Ueod0kxDP
-	EewHf2taRvDDw603GOkh/XJl3D1Wm6DYvJKqt0b8RdgrMcR+1UPxbaafA2VvPNpI0A0LOLQg34I
-	0SaN/q14VNJ+vv27epjw2qb5ujoBy17KSCHeFQgpers7E5B7sIiYx9nvkOVoy6787UXG5ARwq6C
-	PEqdaXh2QU+zpYPJyWaIaZZZ7AXFFp0OS5QZaU82xIfdhLYa3RVDcaYXJdkbjR4vHdTQP4ocD2+
-	0yk5iBvkgK2DUCVWTP5RxMROuZyhOmiJlfI1RYOv7kJ46Usk5RRxhs2khYce2H4vNjQuZu9WrZn
-	LwdejeTY90du9oHWbSxtHC+cslK4SMLaE0fGHPmPuLw6diLLltAo+axulrbTqyDiwyN/BF3r7fg
-	Og2b5Y=
-X-Received: by 2002:a05:6820:2213:b0:6c2:5e92:b599 with SMTP id 006d021491bc7-6c25e92c715mr7185528eaf.4.1789336082388;
-        Sun, 13 Sep 2026 14:48:02 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::b712])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6c0990cc05fsm8928296eaf.3.2026.09.13.14.47.59
+        d=1e100.net; s=20251104; t=1789336448; x=1789941248;
+        h=content-transfer-encoding:content-type:mime-version:cc:to
+         :references:in-reply-to:message-id:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fRoVtCxPXlE2WTj7/cuKQLp9U1WSy4uS8DQXyNSJ1GI=;
+        b=SEwMkTfqIkNh8Fwmtqj6bFJVzDfbTRCgm1gmb11Jnlw7neUXf+fldTYZHkRwKp9Y1w
+         ZHf73maM5tlSJ4Gb5lUB5i23COmON3fm47WnGnsnCKoYMwiI/80aR8f/pZuSPmLJXihE
+         A+hLwXyhkTvyc4Lyo7/AORzcEqWx3bmYNId95prGAtyjacNhlj1t+d1btOyhsEjU3pfL
+         GodOGZ7Hy8AiWrVUk2/8A3mNGUbzy3J+Zudux5u8D1F6wzrTqsfKwcA7v1mwftY9CKV+
+         jVpWKrGaOPXCknrnDyi1fElIb7Fd8QEpJSHVWmArUh37UQuj8vF87Cc0a4DYBAgc17n7
+         ZYYg==
+X-Forwarded-Encrypted: i=1; AKwUvBymOQhSxUQ+tNGAZ3u1kYriPcyec9Obx1QeCHtB+v9cvK1CAKtTuiWtGUqhnNI8v5B5gRkiBHKIEtIuA07yILJt@lists.infradead.org
+X-Gm-Message-State: AFuF++k+6ZkYlzaft2FA0+1RpazTmYMOlmDXvfumvJ4yeeNlRPY9l15w
+	3iuk3oh4K99QukGrUzMkQzYFuLVbCZZcq0g8JoRCb+Aav7OiV/FVMU5v6foRUTMBjEXJmQVtVqE
+	TSzvWVHOqkSoEwSJovkvWwM+wpzL++odmtbMp4YhATTfx/8z8XwCnqcDBlSTDXRwGjWyVUktJ
+X-Gm-Gg: AYBFou3Zc3OdlVyxpKqVrkT0548KiqkKHPUAr3mJIXIxbYDywJc+mys7lMrDROxWwwX
+	ObhRomM/F7RhaYlykTBrhJb5rlbPz5X2+77amfY1KGKinbyl1ZtI1/2IZPDS9eyZHBzfah7l0QV
+	VUIMxUaqT+tw+mvBMone2JJMzhQniXJp/teQUL4f1+9d4qu/kr9/talrojyJu5ArAJSKEo3W6sU
+	NFe5f2q/z84xz1ovoi1igzTOd34pNHbvt5VoWRuugfK4JBlMnJdmw4wQTiNLee7b7iRsE1hmUZH
+	SKptxr8OQjwc6cr4GnqeKuQ+XVBQwMpzC0D3ifAnm1vDEzIsu2Aa3u2yfFZuNf4SwVXdnJy+lE8
+	JRecY7snfpec/wHmeYmwc82Fy0XbUUF18CCntPUMdJcUbX6hE0I1Q6Q==
+X-Received: by 2002:a05:620a:2a04:b0:937:372a:b97 with SMTP id af79cd13be357-93a297fc791mr2911185a.17.1789336448484;
+        Sun, 13 Sep 2026 14:54:08 -0700 (PDT)
+X-Received: by 2002:a05:620a:2a04:b0:937:372a:b97 with SMTP id af79cd13be357-93a297fc791mr2907585a.17.1789336447954;
+        Sun, 13 Sep 2026 14:54:07 -0700 (PDT)
+Received: from [127.0.1.1] (nat-128-59-179-215.net.columbia.edu. [128.59.179.215])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-939ecc38105sm762619485a.4.2026.09.13.14.54.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2026 14:48:01 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Sun, 13 Sep 2026 16:47:53 -0500
-Subject: [PATCH v2] clk: mediatek: mt8173-mfgtop: do not use the clk API
- from power_on
+        Sun, 13 Sep 2026 14:54:07 -0700 (PDT)
+From: Tal Zussman <tz2294@columbia.edu>
+Date: Sun, 13 Sep 2026 17:52:28 -0400
+Subject: Re: [PATCH v2 1/8] mm/swap: add folio_swap_entry() and
+ folio_page_swap_entry()
+Message-ID: <20260913-folio_swap_entry-doc-fix-1@columbia.edu>
+In-Reply-To: <2b0a6809-bd88-4133-a002-7a9acb2a973e@kernel.org>
+References: <20260908-folio_swap_entry-v2-0-ee6d01dfa5e1@columbia.edu>
+ <20260908-folio_swap_entry-v2-1-ee6d01dfa5e1@columbia.edu>
+ <2b0a6809-bd88-4133-a002-7a9acb2a973e@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
+        Kairui Song <kasong@tencent.com>,
+        Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+        Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+        Youngjun Park <youngjun.park@lge.com>,
+        David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        "Liam R. Howlett" <liam@infradead.org>,
+        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+        Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>,
+        Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+        Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
+        Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
+        Jann Horn <jannh@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
+        Yosry Ahmed <yosry@kernel.org>,
+        Chengming Zhou <chengming.zhou@linux.dev>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Tal Zussman <tz2294@columbia.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260913-mfgtop-no-clk-api-power-on-v2-1-b84771a3d5bd@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ6CMBAAv0J6dg1tRaIn/mE4lLLAKnSbFlFD+
- LuAH/A4yWRmFhEDYRTXZBYBJ4rEbgV1SITtjGsRqF5ZqFSd04tUMDTtyB4cg+0fYDyB5xcGYAc
- mw9Roc9KV1mIN+IANvff4rfxxfFZ3tONW3IyO4sjhs98nuXl/jSYJEmpsZJabWqo8L9rBUH+0P
- IhyWZYvjqeF0tYAAAA=
-X-Change-ID: 20260912-mfgtop-no-clk-api-power-on-a5e0a3a43b33
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789336079; l=6274;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=nfq4xKN/U3UCWCePBLPoeRZgNdv9ADYvF1h2MfVGoe0=;
- b=vmOHX9MbkBdVuDpyVXNrpAACjzRmh8NFH++7aqIkxLDNaUdOwDwWdteL6obQKE5zRwy2+rwS/
- aywx2+gD5K0DV1qhZwo9lOccQKn78Ow5Vp+8xyhd3YiddwHrJZXr6wv
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+X-Authority-Analysis: v=2.4 cv=NfpzRGD4 c=1 sm=1 tr=0 ts=6aa71b81 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=2jelXx5xVcRIF5zNctN5Qg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=jHxIr1HyPKZ_Q5_91PL3:22
+ a=02raouAbq-PgjEkgBGoA:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEzMDMxMiBTYWx0ZWRfX6QWLV4MDfTeB
+ Ikx5AhdAf1a43CzsAC/Z0yw4CM0+u8ol9fIZcYR7sdjvpuKYrO6H0SAtjRutkG0J0M/hvMEUAHM
+ OSAtHyix9p9IJrGouOuIQurY4ZNH6/lPNprL9m3WVdnqfHmBbQoqedeKxt9z/J2YWZXU4DD5A2O
+ J8wTErIELfXADoIT37UYlMUnc/vOkdeelvfNYgtYOCfjyqLYfg5UVH5zoh6IA0WbBD4soBP9Gyo
+ 2fTECEyM038DHjMN6A3SkXB4JwuKCtRthqjajUj9aRIm5aTTol49lKE5BwXurXDEyHe5zPIKUo7
+ K88lYdpmTfe+9NOcklCNgzxnPFzWH79dwP7l30Q5JgUW8YndqoO+LBmpF/x8SmPsA1tN5paqoAO
+ fN2HBR0ZAR0Vih/pjzKslZtv2NL2wquchzBw+05xRc9KxEnz9BF8XC6OQFYLLnpUix2XHdIHMu+
+ V2VCoGJme5LSk9xvy4g==
+X-Proofpoint-GUID: qZPR48T2SVjd60G7NqY6N47vQMfPy5iR
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEzMDMxMiBTYWx0ZWRfXwOzDlTC7CK3F
+ q2Eb/PoR5jVdWp17PkLZRgzKSYiF9m9SpnlKSf4N+8/0X/Ymv2RbSuOtFTSMJpOSnAgSPCBxSn+
+ X6sO3q3BgdggWs1jGtW7Pl8Zfrgt+jE0NToh3CIfOg+5X1vFcMeV
+X-Proofpoint-ORIG-GUID: qZPR48T2SVjd60G7NqY6N47vQMfPy5iR
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11904
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=10 suspectscore=0 malwarescore=0 spamscore=0 bulkscore=10
+ clxscore=1015 adultscore=0 lowpriorityscore=10 priorityscore=1501
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609130312
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_144803_688617_45386333 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20260913_145415_609346_B782D4E6 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,157 +165,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk_mt8173_mfgtop_power_on() calls clk_prepare_enable() on the mfg_26m gate
-that this same driver provides. That is a layering inversion which cannot
-work: clk_core_prepare() calls clk_pm_runtime_get() on the clock provider
--- this driver's own device -- and genpd power transitions run at _noirq
-time, where runtime PM is disabled and pm_runtime_resume_and_get() returns
--EACCES.
+Andrew, could you please apply this as a fix patch?
 
-Measured on mt8173 (amazon-suez) during resume from suspend-to-RAM,
-immediately after the secondary CPUs come back up:
+-- >8 --
+Subject: [PATCH] mm/swap: adjust the folio_swap_entry() kerneldoc summary
 
-  clk-mt8173-mfgtop 13fff000.clock-controller: 26 MHz clock enable failed: -13
-
-The failure is not survivable, because genpd_sync_power_on() ignores what
-power_on() returns and marks the domain on regardless. The clock is then
-left ungated-but-unprepared, and the next power_off() underflows its
-refcount:
-
-  mfg_26m already disabled
-  mfg_26m already unprepared
-  WARNING: drivers/clk/clk.c:1048 at clk_core_unprepare
-  Workqueue: pm genpd_power_off_work_fn
-    clk_unprepare / clk_mt8173_mfgtop_power_off / _genpd_power_off
-
-Gate the bit with a direct regmap write instead. The vendor driver
-(mtk_mfgsys.c) also drives the four MFG CG bits with raw register writes
-from its power sequencing. The runtime-PM path was never affected, only the
-_noirq transitions of system suspend and resume. mfg_26m stays registered
-as a clock for any consumer that wants it; nothing currently does.
-
-Because the gate is now driven from the domain callbacks, its enable count
-in the clock framework stays 0 while the domain is on. Mark it
-CLK_IGNORE_UNUSED so that clk_disable_unused() does not gate the 26 MHz
-clock under an already-powered domain when a consumer probes before late
-init; the domain callbacks are the only writers.
-
-Fixes: ebd0b73d2137 ("clk: mediatek: Add mt8173-mfgtop driver")
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 ---
-Changes in v2:
-- Mark mfg_26m CLK_IGNORE_UNUSED: with the gate driven from the domain
-  callbacks its CCF enable count stays 0, so clk_disable_unused() would gate
-  the 26 MHz clock under an already-powered domain if a consumer probed
-  before late init (reported by the Sashiko review of v1). Verified on the
-  Fire HD 10: the gate follows the domain (hardware Y with the GPU active, N
-  after unbind) while the enable count stays 0, and the GPU keeps working.
-- Link to v1: https://patch.msgid.link/20260912-mfgtop-no-clk-api-power-on-v1-1-def157ad1277@gmail.com
----
- drivers/clk/mediatek/clk-mt8173-mfgtop.c | 29 +++++++++++------------------
- 1 file changed, 11 insertions(+), 18 deletions(-)
+ include/linux/swap.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt8173-mfgtop.c b/drivers/clk/mediatek/clk-mt8173-mfgtop.c
-index 5669ca9954dc..53918ad7f402 100644
---- a/drivers/clk/mediatek/clk-mt8173-mfgtop.c
-+++ b/drivers/clk/mediatek/clk-mt8173-mfgtop.c
-@@ -30,6 +30,8 @@ static const struct mtk_gate_regs mfg_cg_regs = {
- 	.set_ofs = 0x0004,
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index 78974da6810e..43155e122b5c 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -273,7 +273,7 @@ struct swap_info_struct {
  };
  
-+#define MFG_CG_26M	BIT(3)
-+
- #define GATE_MFG(_id, _name, _parent, _shift, _flags)	\
- 	GATE_MTK_FLAGS(_id, _name, _parent, &mfg_cg_regs, _shift, &mtk_clk_gate_ops_setclr, _flags)
- 
-@@ -38,7 +40,8 @@ static const struct mtk_gate mfg_clks[] = {
- 	GATE_MFG(CLK_MFG_AXI, "mfg_axi", "axi_mfg_in_sel", 0, CLK_SET_RATE_PARENT),
- 	GATE_MFG(CLK_MFG_MEM, "mfg_mem", "mem_mfg_in_sel", 1, CLK_SET_RATE_PARENT),
- 	GATE_MFG(CLK_MFG_G3D, "mfg_g3d", "mfg_sel", 2, CLK_SET_RATE_PARENT),
--	GATE_MFG(CLK_MFG_26M, "mfg_26m", "clk26m", 3, 0),
-+	/* Driven by the power domain callbacks, not by a clk consumer */
-+	GATE_MFG(CLK_MFG_26M, "mfg_26m", "clk26m", 3, CLK_IGNORE_UNUSED),
- };
- 
- struct mt8173_mfgtop_data {
-@@ -46,7 +49,6 @@ struct mt8173_mfgtop_data {
- 	struct regmap *regmap;
- 	struct generic_pm_domain genpd;
- 	struct of_phandle_args parent_pd, child_pd;
--	struct clk *clk_26m;
- };
- 
- /* Delay count in clock cycles */
-@@ -66,12 +68,12 @@ struct mt8173_mfgtop_data {
- static int clk_mt8173_mfgtop_power_on(struct generic_pm_domain *domain)
- {
- 	struct mt8173_mfgtop_data *data = container_of(domain, struct mt8173_mfgtop_data, genpd);
--	int ret;
- 
--	/* drives internal power management */
--	ret = clk_prepare_enable(data->clk_26m);
--	if (ret)
--		return ret;
-+	/*
-+	 * Drives internal power management. Written directly: the clk API
-+	 * needs runtime PM, which is disabled during _noirq transitions.
-+	 */
-+	regmap_write(data->regmap, mfg_cg_regs.clr_ofs, MFG_CG_26M);
- 
- 	/* Power on/off delays for various signals */
- 	regmap_write(data->regmap, MFG_ACTIVE_POWER_CON0,
-@@ -103,7 +105,7 @@ static int clk_mt8173_mfgtop_power_off(struct generic_pm_domain *domain)
- 	regmap_write(data->regmap, 0xec, 0);
- 
- 	/* drives internal power management */
--	clk_disable_unprepare(data->clk_26m);
-+	regmap_write(data->regmap, mfg_cg_regs.set_ofs, MFG_CG_26M);
- 
- 	return 0;
- }
-@@ -155,16 +157,10 @@ static int clk_mt8173_mfgtop_probe(struct platform_device *pdev)
- 		goto put_pm_runtime;
- 	}
- 
--	data->clk_26m = clk_hw_get_clk(data->clk_data->hws[CLK_MFG_26M], "26m");
--	if (IS_ERR(data->clk_26m)) {
--		ret = dev_err_probe(dev, PTR_ERR(data->clk_26m), "Failed to get 26 MHz clock\n");
--		goto unregister_clks;
--	}
--
- 	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, data->clk_data);
- 	if (ret) {
- 		dev_err_probe(dev, ret, "Failed to add clk OF provider\n");
--		goto put_26m_clk;
-+		goto unregister_clks;
- 	}
- 
- 	data->genpd.name = "mfg-top";
-@@ -197,8 +193,6 @@ static int clk_mt8173_mfgtop_probe(struct platform_device *pdev)
- 	pm_genpd_remove(&data->genpd);
- del_clk_provider:
- 	of_clk_del_provider(node);
--put_26m_clk:
--	clk_put(data->clk_26m);
- unregister_clks:
- 	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
- put_pm_runtime:
-@@ -217,7 +211,6 @@ static void clk_mt8173_mfgtop_remove(struct platform_device *pdev)
- 	of_genpd_del_provider(node);
- 	pm_genpd_remove(&data->genpd);
- 	of_clk_del_provider(node);
--	clk_put(data->clk_26m);
- 	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
- 	of_node_put(data->parent_pd.np);
- }
+ /**
+- * folio_swap_entry - Return the swap entry for a page within a folio.
++ * folio_swap_entry - Return the swap entry at a page index within a folio.
+  * @folio: The folio.
+  * @idx: The index of the page within the folio.
+  *
+-- 
+2.39.5
 
----
-base-commit: df2908090cda368b01ff43709f51890076c56157
-change-id: 20260912-mfgtop-no-clk-api-power-on-a5e0a3a43b33
-
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
 
 
