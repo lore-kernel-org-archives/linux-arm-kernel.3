@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9278DC88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 12:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BB0C88E67
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 12:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u38Y4MoVcXG+fMHlnZeSS+uFlb5f35gSI775Bu9SViU=; b=m6fEycnEykZ6qhv+O9/0tAGmO9
-	58FQIVk4JWLeprSwAMuOXj0Vxn7W9IDEKj0yWYuE/Zx7hf+H/a0pvq0O73tGTOcEbbtsvMDKRZ8pN
-	zxMY2wr03TFjyODXFGtNOd0Dlbp+O1AcGjuuEGFOjtrOcUwQLInZiPt0KNZnK4OD1mlR2+IaFyXPX
-	mKuiy+KxV7nApQG5uR3u/n/bIR/GuOce9qWnT3s6U2zQbexWy8TF8ZTefkagDG80QSdCJwkkJ1kyf
-	8y+H8DrPuFeXq3Oqnk8M2X6UN04POcy7YfHHiMz4js4XRY0AHB9GXMhxFYnmhOMWFjS595H7Kyzog
-	CBw2UMLQ==;
+	bh=C9vbUExTnSfxpeKoDbrmG4gAzUATjo+nnHLBYfJpQBc=; b=kFt2rT7i3uBUVyVitkxJ7+oEJ6
+	4akgQ/AgqMuzTBLhYHLKOyOhTftzSnw31VtYdNTf0aA73k4NXdWvRNdPSwAkGF41gmAAdc4XmTcGk
+	s/BZW31M2zmlmL4d3FnL3C3DNh23uOa0NYm+c4ZSahjvFmT1XgJK2T75LqNHFvYUVsyLnZveLNfj3
+	6a0dp1Z0e94o9I2nnmEfQNFS5PARY0kX6jRiFccaCQ6jmJFOEJFJFeutLaTL4IEpg9W8HJ2gOe5Qk
+	/zrY7roQwCvrE21Yin4dUR40uW5rcZz/hvrp0xvVkyt1Qdt4EG0O0v4VpDy3H74OOJnstk+WKBxk5
+	EE/86Wrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5jT6-00000001fFu-27L7;
+	id 1x5jT6-00000001fGC-3J1L;
 	Sun, 13 Sep 2026 12:38:00 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5jSz-00000001fDx-2ANg
+	id 1x5jT1-00000001fEH-1dRj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 12:37:55 +0000
+	Sun, 13 Sep 2026 12:37:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-2eefaa527c;
- t=1789303072; bh=u38Y4MoVcXG+fMHlnZeSS+uFlb5f35gSI775Bu9SViU=;
- b=kxQaAE04j8IA37tP8HebFSs6OF0/8X5GoTeYucIfKY/+OSv4S3P+PPckJSf+dMKPnqj9zDVJH
- muG/CeUTRFX9GE1sJvRh+Ujk0LJaHPJM18NEtkwvPR8N6704TsWDb7xIplfIfmJQqg9ufkZmXHi
- vrByV+Px78O81woQUCcJPGs=
-X-Forward-Email-ID: 6aa6991e53bb319e9d04cb24
+ t=1789303073; bh=C9vbUExTnSfxpeKoDbrmG4gAzUATjo+nnHLBYfJpQBc=;
+ b=CNf5bk4v9fMql7NBrVe/asEYbiGF5UdEk+MZDGxkgl4V2GPCcH1XI5gOpxtXOL32cIZeoZspB
+ U8LGuOJSAZPl1trHPzLta3sZKnVFaB3UURFL6w9Y4kZPLpxiPzfkiW/hwhwp/6WOhpoL5YAwjiW
+ VhywO0mL92LG6uzM+Wk3Fb0=
+X-Forward-Email-ID: 6aa6991b53bb319e9d04cad9
 X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
- smtp.forwardemail.net, 121.127.44.73
+ smtp.forwardemail.net, 149.28.215.223
 X-Forward-Email-Version: 2.14.2
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -55,17 +55,18 @@ Cc: alim.akhtar@samsung.com,
 	linux-kernel@vger.kernel.org,
 	thomas_turner@talktalk.net,
 	alexey.klimov@linaro.org
-Subject: [PATCH v2 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy A21s (SM-A217F)
-Date: Sun, 13 Sep 2026 13:37:40 +0100
-Message-ID: <20260913123740.203698-3-tturner@lineageos.org>
+Subject: [PATCH v2 1/2] dt-bindings: arm: samsung: Add compatible for Samsung Galaxy A21s (SM-A217F)
+Date: Sun, 13 Sep 2026 13:37:39 +0100
+Message-ID: <20260913123740.203698-2-tturner@lineageos.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260913123740.203698-1-tturner@lineageos.org>
 References: <20260913123740.203698-1-tturner@lineageos.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_053754_302730_6A0F2CD2 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260913_053755_438654_D7A05C89 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,266 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Galaxy A21s (a21s) phone. It was
-launched in 2020, and it's based on the Exynos 850 SoC. It has multiple
-RAM configurations: 3GB, 4GB and 6GB.
-
-Since our bootloader does not set up memory nodes beforehand, default to
-the 3GB variant. Custom bootloaders can be used to initialise other
-nodes per RAM configuration.
-
-The Exynos DPU clocks required by simple-framebuffer are not kept
-enabled during boot. Add the DECON, DMA, DPP, PPMU and SSMU DPU clocks
-to the simple-framebuffer node so simpledrm maintains references to
-them. Without these clocks, the framebuffer fails to remain operational
-further into boot.
-
-This device tree adds support for the following:
-
-- SimpleFB
-- 3GB RAM
-- Buttons
-- Ramoops
-- MMC
-- USB
-- Watchdog
+Add binding for the Samsung Galaxy A21s (SM-A217F) board, which is
+based on the Samsung Exynos850 SoC.
 
 Signed-off-by: Thomas Turner <tturner@lineageos.org>
 ---
 Changes in v2:
- - Re-order properties/nodes to pass dt-check-style --mode strict
+ - Sort via alphabetical order
 
- arch/arm64/boot/dts/exynos/Makefile           |   1 +
- .../arm64/boot/dts/exynos/exynos850-a217f.dts | 194 ++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos850.dtsi     |   2 +-
- 3 files changed, 196 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos850-a217f.dts
+ .../devicetree/bindings/arm/samsung/samsung-boards.yaml          | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index 76cc23acb9b2..f197f8eb633b 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos7870-j7xelte.dtb		\
- 	exynos7870-on7xelte.dtb		\
- 	exynos7885-jackpotlte.dtb	\
-+	exynos850-a217f.dtb		\
- 	exynos850-e850-96.dtb		\
- 	exynos8895-dreamlte.dtb		\
- 	exynos9810-starlte.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos850-a217f.dts b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-new file mode 100644
-index 000000000000..8e5cf81b9e12
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos850-a217f.dts
-@@ -0,0 +1,194 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Samsung Galaxy A21s (a21s/SM-A217F) device tree source
-+ *
-+ * Copyright (c) 2026, Thomas Turner <tturner@lineageos.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos850.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Samsung Galaxy A21s";
-+	compatible = "samsung,a217f", "samsung,exynos850";
-+
-+	chosen {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		framebuffer0: framebuffer@fa000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0xfa000000 (720 * 1600 * 4)>;
-+			width = <720>;
-+			height = <1600>;
-+			stride = <(720 * 4)>;
-+			format = "a8r8g8b8";
-+			clocks = <&cmu_dpu CLK_GOUT_DPU_DECON0_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_DMA_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_DPP_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_PPMU_ACLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_PPMU_PCLK>,
-+				 <&cmu_dpu CLK_GOUT_DPU_SMMU_CLK>;
-+		};
-+	};
-+
-+	/*
-+	 * RTC clock (XrtcXTI); external, must be 32.768 kHz.
-+	 *
-+	 * TODO: Remove this once RTC clock is implemented properly as part of
-+	 *       PMIC driver.
-+	 */
-+	rtcclk: clock-rtcclk {
-+		compatible = "fixed-clock";
-+		clock-output-names = "rtcclk";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-0 = <&key_voldown &key_volup>;
-+		pinctrl-names = "default";
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			gpios = <&gpa1 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEDOWN>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			gpios = <&gpa0 7 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEUP>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3c900000>,
-+		      <0x0 0xc0000000 0x20000000>,
-+		      <0x0 0xe0d00000 0x1f300000>,
-+		      <0x8 0x80000000 0x20000000>,
-+		      <0x8 0xa0000000 0x20000000>;
-+	};
-+
-+	/* TODO: Remove this once PMIC is implemented  */
-+	reg_dummy: regulator-0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dummy_reg";
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		ramoops@f0000000 {
-+			compatible = "ramoops";
-+			reg = <0x0 0xf0000000 0x200000>;
-+			record-size = <0x20000>;
-+			console-size = <0x20000>;
-+			ftrace-size = <0x100000>;
-+			pmsg-size = <0x20000>;
-+		};
-+
-+		cont_splash_mem: framebuffer@fa000000 {
-+			reg = <0x0 0xfa000000 (720 * 1600 * 4)>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&cmu_hsi {
-+	clocks = <&oscclk>, <&rtcclk>,
-+		 <&cmu_top CLK_DOUT_HSI_BUS>,
-+		 <&cmu_top CLK_DOUT_HSI_MMC_CARD>,
-+		 <&cmu_top CLK_DOUT_HSI_USB20DRD>;
-+	clock-names = "oscclk", "rtcclk", "dout_hsi_bus",
-+		      "dout_hsi_mmc_card", "dout_hsi_usb20drd";
-+};
-+
-+&mmc_0 {
-+	compatible = "samsung,exynos7-dw-mshc";
-+	mmc-hs200-1_8v;
-+	mmc-hs400-1_8v;
-+	cap-mmc-highspeed;
-+	non-removable;
-+	mmc-hs400-enhanced-strobe;
-+	card-detect-delay = <200>;
-+	clock-frequency = <800000000>;
-+	bus-width = <8>;
-+
-+	pinctrl-0 = <&sd0_clk_pins &sd0_cmd_pins &sd0_rdqs_pins &sd0_nreset_pins
-+		     &sd0_bus1_pins &sd0_bus4_pins &sd0_bus8_pins>;
-+	pinctrl-names = "default";
-+
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 4>;
-+	samsung,dw-mshc-ddr-timing = <2 4>;
-+	samsung,dw-mshc-hs400-timing = <0 2>;
-+
-+	status = "okay";
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa1-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-7";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+};
-+
-+&rtc {
-+	clocks = <&cmu_apm CLK_GOUT_RTC_PCLK>, <&rtcclk>;
-+	clock-names = "rtc", "rtc_src";
-+
-+	status = "disabled";
-+};
-+
-+&timer {
-+	/*
-+	 * Non-updatable, broken stock Samsung bootloader does not
-+	 * configure CNTFRQ_EL0
-+	 */
-+	clock-frequency = <26000000>;
-+};
-+
-+&usbdrd {
-+	vdd10-supply = <&reg_dummy>;
-+	vdd33-supply = <&reg_dummy>;
-+
-+	status = "okay";
-+};
-+
-+&usbdrd_dwc3 {
-+	dr_mode = "otg";
-+	maximum-speed = "high-speed";
-+};
-+
-+&usbdrd_phy {
-+	status = "okay";
-+};
-+
-+&watchdog_cl0 {
-+	status = "okay";
-+};
-+
-+&watchdog_cl1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index 3881f573ec08..8de135807aa7 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -147,7 +147,7 @@ psci {
- 		method = "smc";
- 	};
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index 753b3ba1b607..021250497da9 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -232,6 +232,7 @@ properties:
+       - description: Exynos850 based boards
+         items:
+           - enum:
++              - samsung,a217f                   # Samsung Galaxy A21s (SM-A217F)
+               - winlink,e850-96                 # WinLink E850-96
+           - const: samsung,exynos850
  
--	timer {
-+	timer: timer {
- 		compatible = "arm,armv8-timer";
- 		/* Hypervisor Virtual Timer interrupt is not wired to GIC */
- 		interrupts =
 -- 
 2.47.3
 
