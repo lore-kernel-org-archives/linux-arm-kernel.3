@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D3C88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA2DC88E65
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 14:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/FolRGNwV32g+HDDqmcEuEqeqSAhKnzy/VVhQSphPs=; b=UyiOmbj3SXAQ3dYS16xmRxDXui
-	d4I7F2ni6yUdaOx3m47MrbmMHcQewa+FlpE2xCHHVbUjkZ10yCnxDasJYbe+ZZHrmcmhvp9UnLFX+
-	pQmsRXjUjXh19RZ6pxfTVKIR5JgoK+EyreD+FTfzl4OGG1YWnfRd7HX7nmZYKUGqdHKqfFADt9CXU
-	LDtIFqGF82mD/qgrtCMiXCnYD8wKRUi+zE2u18MrXpDTSGgMOg4uf6qy4XKpRgK54BSwzSPj6d54E
-	zM9wnoqRpkmlGRY4Sf6/xRCYAcoCf5ng5fYjPAF0YtZ6yz7TtRJg1EdPnDegPpDuxWfRW4HgKmtBK
-	speL1AVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqVXt31LO79+0/rE01UndB6JpscPweGQAa513BFX6ko=; b=NwS5myoUKMwns6oDq6YUT5VK+P
+	XKL1f7Tfv1otpuiPtxCETyNJGNLGKa99tLoWHo4kRC0zSzh8/JUyv+DuS2OA/19CHkc7Vt/Cb98Wc
+	mO7kr4gG3g5Ju7YtkT7NaeWpliP8pEmMXhscMALC3ol3Ri2y+UEv50qWQ9NLYassMWdWT2Vi5BO1t
+	3z2I1UEuMb0SBDo1/wzHmHnnt9zERiSlFKU0c3Ikz6qVV+36QpbHks5W1hTgYaFUYC0r5++4tjf/I
+	jHe3N2vOSjqvXCWRk7r+Jhm4yU1hOQnqNB3OIZsOt75nSh6IGo0B12oz5sp8ddgvJxivsYOi4joIp
+	qFv4gKOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5krS-00000001hkx-24m1;
-	Sun, 13 Sep 2026 14:07:14 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1x5lBY-00000001i8x-0WpZ;
+	Sun, 13 Sep 2026 14:28:00 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5krP-00000001hkX-1WNH;
-	Sun, 13 Sep 2026 14:07:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=From:To:Subject:Date:Message-ID; t=1789308422; bh=d/FolRGNwV32g+HDDqmcEuE
-	qeqSAhKnzy/VVhQSphPs=; b=Dfq0amYD7lqUXWfFx93w4ioc3qhc+HEuljkNQpRBpXb4Ixfms3
-	yqh/Sdety5Q+OHNvY8dPP+DRbzt4j9INnUML2CM4vPlMJuCw01bbtbHbRyJci5PiAfteBa9o480
-	f/J/BaAlSabfFZdDsPOgQ4jZdWGSjuo5ES8rgYzc1CGcLiPIf3tTh4agQKoCQy4AbqQ4qZkdruG
-	ZFj4n2zEHkibItCLSVFcfd+QPWgqHGS/wXnKLvDyii2oLo6bX8z2elT/UgJOMsPmw7oRVZs9wey
-	HWoCnsOaPABY+GaajFK/AShljO1TAVrRwtfCRcR8MZof9uXZt6/fFs+1+r4/Mx8OyyQ==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=From:To:Subject:Date:Message-ID; t=1789308422; bh=d/FolRGNwV32g+HDDqmcEuE
-	qeqSAhKnzy/VVhQSphPs=; b=XvtL4TNdgfsTIiFHDl2M1wEhabYb8ybL7dnap4Ui7FyTxyTJWE
-	e7DggnBYSjnYrV0PgOAaTNI8N7/xVUTAKYBw==;
-Message-ID: <0c8527cc-2ed9-444f-b113-223f117e635b@mainlining.org>
-Date: Sun, 13 Sep 2026 17:07:00 +0300
+	id 1x5lBV-00000001i8Y-1XrC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Sep 2026 14:27:58 +0000
+DKIM-Signature: a=rsa-sha256; b=b2nxA8lkJz+ylAO3olfTufX8539NJ1KPfrZeno5qK17Rudx6PuyCXEq8FvzfR0y4hN9fQwbf2KVDi1ITRuPav9vQzriJusDTD3jNIYs3p5zVHv2jEPymHaurpTfa1m12UPo/Cyvp06gJ67FeCK+UtXWy/X/AvRU2b1Mh3dBuK9iLAXa3ceAt8a0qIPN3yNmw2p+0iLizCaM60sbwx6tHjznWyzP2ePDEBhaWFsf6vs4wxe74cPF34SAcYMGRuLu7Cc6RFVpEtK3YVKuDnsVnjC2DGSyTCZFXZEmSlnHmFFhubgEnQvBE/vzbXCM/Nz/IdQ7y/Z4OLnY5gOIDuJsHSQ==; s=purelymail1; d=purelymail.com; v=1; bh=Zj5EWEqAaCDZeeY56pguDf9MrushLq46Zr2FoXK63UM=; h=Feedback-ID:Received:Received:From:To:Subject:Date;
+Feedback-ID: 21632:4007:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1692820451;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sun, 13 Sep 2026 14:27:45 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.98.2)
+	(envelope-from <peter@korsgaard.com>)
+	id 1x5lBH-0000000FW2f-2czl;
+	Sun, 13 Sep 2026 16:27:43 +0200
+From: Peter Korsgaard <peter@korsgaard.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org,  Conor Dooley
+ <conor+dt@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Michal
+ Simek <michal.simek@amd.com>,  Rob Herring <robh@kernel.org>,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
+In-Reply-To: <fdf07bc2-428f-4055-97fa-61a302f57a6b@nabladev.com> (Marek
+	Vasut's message of "Fri, 11 Sep 2026 16:49:59 +0200")
+References: <20260909182641.165383-1-marex@nabladev.com>
+	<20260909182641.165383-2-marex@nabladev.com>
+	<874ifwjff2.fsf@dell.be.48ers.dk>
+	<fdf07bc2-428f-4055-97fa-61a302f57a6b@nabladev.com>
+Date: Sun, 13 Sep 2026 16:27:43 +0200
+Message-ID: <87wlspb50g.fsf@dell.be.48ers.dk>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
-To: Ryan Brue <ryanbrue.dev@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
-Content-Language: ru-RU, en-US
-From: Nickolay Goppen <setotau@mainlining.org>
-In-Reply-To: <20260912-add-boe-tv101wum-nm0-v1-0-3057a08e8b80@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_070711_571393_3302CB31 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260913_072757_490200_D09ADAC4 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +72,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+>>>>> "Marek" == Marek Vasut <marex@nabladev.com> writes:
 
-12.09.2026 21:22, Ryan Brue wrote:
-> This series depends on the following series:
-> [PATCH v2 0/3] Novatek NT51021 DSI panel IC driver
-> https://lore.kernel.org/all/20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org/
->
-> The BOE TV101WUM-NM0 is a 10.1" panel present in the Amazon Fire HD 10
-> (2017) tablet. It differs from the BOE panels in the dependent series in
-> key ways:
->
-> - The pin count is 51 instead of 46
-> - The vendor asks for SYNC_EVENT_VDO_MODE with cont_clock=1 instead of
-> burst mode.
-> - Different timings and flags expected.
->
-> The init sequence, flags and timings are mostly adapted straight from
-> Amazon's vendor kernel.
->
-> Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
-> at 62.5 Hz across a cold boot, display off and on cycles and a
-> suspend/resume, with the MIPI TX PLL reading back at the intended rate
-> every time.
->
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
-> ---
-> Ryan Brue (2):
->        dt-bindings: display: panel: add the BOE TV101WUM-NM0
->        drm/panel: novatek-nt51021: add the BOE TV101WUM-NM0
->
->   .../bindings/display/panel/novatek,nt51021.yaml    |  1 +
->   drivers/gpu/drm/panel/panel-novatek-nt51021.c      | 66 +++++++++++++++++++++-
->   2 files changed, 65 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 5e036ce12de91c6fd674dad33b169c6150be2a7a
-> change-id: 20260912-add-boe-tv101wum-nm0-da01c4474db6
-> prerequisite-message-id: <20260911-qcom-novatek-nt51021-panels-v2-0-135e3190a7fb@mainlining.org>
-> prerequisite-patch-id: d8b58f07dc5c9e1fcf7c51a14b48eddca2e09090
-> prerequisite-patch-id: 79dfdac7b7fa79f7d05a5f3849909c9a7f956398
-> prerequisite-patch-id: 79c01de4e67563772dde152cd4c4d0c568b14d17
->
-> Best regards,
-> --
-> Ryan Brue <ryanbrue.dev@gmail.com>
-I will incorporate this series into my series and add Co-developed-by to 
-the patches and your name and email to maintainers.
+Hi,
+
+ >> > +	chosen {
+ >> > +		bootargs = "clk_ignore_unused";
+ >> Why?
+
+ > This can be dropped, thanks.
+
+Good.
+
+ >> > +	gpio-line-names =
+ >> > +		/* GPIO 0 - 77 */
+ >> > +		"", "", "", "", "", "", "", "", "", "",	"", "", "", "", "", "",
+ >> > +		"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+ >> > +		"", "", "", "", "",
+ >> > +		"ifm_device_info_eeprom_wp",
+ >> NIT: The dts references a number of other GPIOs, any specific reason
+ >> to
+ >> only name this one?
+ > The legacy userspace tooling used to depend on it, used libgpiod to
+ > look up this GPIO by name.
+
+OK, but why not add all the referenced GPIOs if you fill out
+gpio-line-names anyway?
 
 -- 
-Best regards,
-Nickolay
+Bye, Peter Korsgaard
 
