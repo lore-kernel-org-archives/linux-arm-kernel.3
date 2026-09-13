@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8813C88E63
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 18:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9621C88E63
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 18:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVD5gFDBWDGN0X6QVeDbX5tNYhDXBkX15MX3Yd3diVU=; b=kC+iDPg2mNC398u2PUranwBoz2
-	sNIxxoyZVkySU6n+XE1PuTjTKbCSlemRHWUV1eV7qEXOEmdKB3tU4/cjxk81/FGnuyfHZBsl0/Fdg
-	MyGeM6XVC0GfUBM/bBc37zLYnYgjk7jnCWqLFIowILCk5I/99ggz0co+30GtXlAC2p+l31C3i3wT/
-	vkuT6pnUWMCtTpIpXx+++PZiYzCL1i7U5MXGQKM4RS8+a6xKZaBpD6nr7Rwk23F/lJMZBbuV08YWB
-	mSxmH69RIhOlyON6b1xmq7VETT8YgfBDe7HMTieVM95GNHX4cVjIwhFMTDrvm3SjE4oFdIIG6JbQd
-	t1x8jg+w==;
+	bh=9dER/J/8MdqEP/M3Ls+38r00y1seRCBppFrIe7sL3Ak=; b=m/vVQYatCXNMe78olf0f69Iito
+	O6xGgzqDU1KmDmh06X6mehSDtbeAQEdkPojc6ot9TMi4vWDKOkOtrH3EkcYtUXTOPNIQMxFHgVv2T
+	n5Ay2uYFaXkOCTscTUuYtEOYrLKWhdTv7oG9tuu62F+LF10zBOaerwrLz6e48XnTWQACRDDNo3Lhp
+	GEexKQKcOeEXqQTSSA8TBZpUtwQbGzWUlWN73lkKJnR6O0GBI9CyDHd/Hv35eO79VdQUKkuGiBDU/
+	656OEBgJwqzTiowfQ9ku4sNBKij/6dQb/OWgelX6fbyUS+s11esgrep9rdv+ROsTsSqxvDq5JcHti
+	fr5XPfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ooC-00000001uAQ-1AF9;
-	Sun, 13 Sep 2026 18:20:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5ozR-00000001uum-2HZV;
+	Sun, 13 Sep 2026 18:31:45 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ooB-00000001uAK-0FJV
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 18:20:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40B0360F86;
-	Sun, 13 Sep 2026 18:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1B411F000FF;
-	Sun, 13 Sep 2026 18:20:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789323606;
-	bh=NVD5gFDBWDGN0X6QVeDbX5tNYhDXBkX15MX3Yd3diVU=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=mJ27Jmv/mJW2LDKw6I+T6hZEXq/ZvlwdOOJIHR64P4TERWpoC7uE4AYU4tWeybXKS
-	 IhEEGOMy0Mt1H/gMxVqeZRc1xjWs0hG72HL8fR9lzWZCJc+s6AutqyHSEJpptygnro
-	 0ujyQ1jCJ2NdnkjiFiXL8AbMmC7IeFuaFqdm2wUUxnfYQ0605UquUF6v3IpXy6Hh9K
-	 ExMw4X6yCJv4rFys9evu9uD9jNFtrK5cQCDs3clrr7SgfUfCJke6/bv86T4a0uTWDQ
-	 s4J25tAJVZdbivSXe28DjPBWF9KgO0IoG9LWXGLAfbcUZYrE/yT1BmJCadTMNrOycI
-	 H5sJ25eSRm+gQ==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 53A0ACE107B; Sun, 13 Sep 2026 11:20:05 -0700 (PDT)
-Date: Sun, 13 Sep 2026 11:20:05 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Juergen Gross <jgross@suse.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH RFC v2 08/15] bpf, x86: Maintain Tasks RCU trampoline
- nesting in the BPF trampoline
-Message-ID: <e88514c6-296f-431f-a7bc-7429967b01a9@paulmck-laptop>
-References: <20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com>
- <20260911-b4-rcu-tasks-preempt-qs-v2-8-eaaa61ed2da4@toxicpanda.com>
- <DLD0OHX8C4ME.VNR49VC2UYH4@gmail.com>
- <14cb8a91-497d-49f5-aa20-c6cb8b9a27fc@paulmck-laptop>
- <DLDICNLENSRI.2R6EJ0ZFJE45T@gmail.com>
- <8c51a669-eb6b-455b-a829-b537da5209f8@paulmck-laptop>
- <20260912221400.4045198b@pumpkin>
- <ffffa178-c475-4249-a609-c5d222704987@paulmck-laptop>
- <20260913122859.4d5067cd@pumpkin>
+	id 1x5ozP-00000001urZ-0HaC;
+	Sun, 13 Sep 2026 18:31:45 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id AAD2ACF9C9;
+	Sun, 13 Sep 2026 21:31:33 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro AAD2ACF9C9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1789324295;
+	bh=9dER/J/8MdqEP/M3Ls+38r00y1seRCBppFrIe7sL3Ak=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=YcbeyvW7sSnnTfZTr/uCbcnFTlenGpzO6ymRZncRXn46x5A4ETMeyTu1u76htinxb
+	 HNHqDW2pA2lRL/+B2wINBujBetFK7t8nC33MvgFUaud2K1lH65XirYDPGFGST8KBg0
+	 P/Yqj8zKBqNjaNnkjfdpGsyVrylFggefTJykvBAdpRuuzNA/ZzXuia19AL3vHJvZ+R
+	 ehkm+GzmviHEaV5QJJM2J4q7lpReWTj/n+ksNLXKSwgzFCTpHC3oyE9Ncbl2b0ADvv
+	 7B4ICR/9eRUXKwBAvUdwCoetgsY8bJI3OLvb7LsQISqBExAXXfOQSHi6iCtfeyMRox
+	 2WGKHRSqJDAsQ==
+Message-ID: <159c52926a01c84a24d039b234bd1d3450fe5a9c.camel@rendec.net>
+Subject: Re: [PATCH 02/14] irqchip: fix typos in comments
+From: Radu Rendec <radu@rendec.net>
+To: Hemanth Selam <hemanth.selam@gmail.com>, Thomas Gleixner
+ <tglx@kernel.org>,  Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,  Paul
+ Walmsley	 <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
+ Linus Walleij	 <linusw@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
+Date: Sun, 13 Sep 2026 14:31:32 -0400
+In-Reply-To: <20260907065328.32009-1-hemanth.selam@gmail.com>
+References: <20260907065328.32009-1-hemanth.selam@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260913122859.4d5067cd@pumpkin>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_113143_289585_5D96CC90 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +71,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 13, 2026 at 12:28:59PM +0100, David Laight wrote:
-> On Sat, 12 Sep 2026 15:31:24 -0700
-> "Paul E. McKenney" <paulmck@kernel.org> wrote:
-> 
-> > On Sat, Sep 12, 2026 at 10:14:00PM +0100, David Laight wrote:
-> > > On Sat, 12 Sep 2026 11:03:34 -0700
-> > > "Paul E. McKenney" <paulmck@kernel.org> wrote:
-> > >   
-> > > > In the old kernels, yes, we have current->trc_reader_nesting++.
-> > > > In the newer kernels, Tasks Trace RCU is instead implemented in terms
-> > > > of SRCU-fast, which instead increments per-CPU counters.  Which among
-> > > > other thins is a bit faster and does not need to hook into the scheduler.  
-> > > 
-> > > Isn't that rather architecture dependant?
-> > > It is fine on x86, but on arm incrementing a per-cpu variable is
-> > > significantly expensive.  
-> > 
-> > Last I heard, slow ARM increments of per-CPU variables were to be a
-> > transitory phenomemon.  Plus changes late last year greatly sped up the
-> > per-CPU increment operations.
-> 
-> There are some unapplied patches to improve per-cpu operations for both
-> arm64 and s390.
-> Without those preemption has to be disabled (in current->xxx) which requires
-> a conditional call in the preempt enable path.
+On Mon, 2026-09-07 at 12:23 +0530, Hemanth Selam wrote:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.=C2=A0 Only touches comments, no=
+ code
+> changes.
+>=20
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> ---
+> =C2=A0drivers/irqchip/irq-mtk-cirq.c=C2=A0=C2=A0=C2=A0 | 2 +-
+> =C2=A0drivers/irqchip/irq-sifive-plic.c | 2 +-
+> =C2=A0drivers/irqchip/irq-vic.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 | 2 +-
+> =C2=A03 files changed, 3 insertions(+), 3 deletions(-)
 
-These are on top of the patches that provided an order of magnitude
-improvement late last year?  Very cool if so!
+The changes look good, but in my opinion should be split into 3
+different patches, one per driver, and grouped into a series. Not that
+it matters too much in this particular case (where only comments are
+touched), but it's common practice in the Linux kernel development.
 
-							Thanx, Paul
+There are multiple reasons. The main one is that different drivers can
+be reviewed/maintained by different people, and patches to them may be
+picked up via different (Git) maintainer trees. Also, some companies
+selectively port patches against specific drivers to the kernel trees
+they maintain.
 
-> David
-> 
-> > Plus this change removed some hundreds
-> > of lines of RCU code.
-> > 
-> > 							Thanx, Paul
-> > 
-> 
+> diff --git a/drivers/irqchip/irq-mtk-cirq.c b/drivers/irqchip/irq-mtk-cir=
+q.c
+> index 914d1d639fe3..d30c34ce0f56 100644
+> --- a/drivers/irqchip/irq-mtk-cirq.c
+> +++ b/drivers/irqchip/irq-mtk-cirq.c
+> @@ -247,7 +247,7 @@ static int mtk_cirq_suspend(void *data)
+> =C2=A0		writel_relaxed(mask, reg);
+> =C2=A0	}
+> =C2=A0
+> -	/* set edge_only mode, record edge-triggerd interrupts */
+> +	/* set edge_only mode, record edge-triggered interrupts */
+> =C2=A0	/* enable cirq */
+> =C2=A0	reg =3D mtk_cirq_reg(cirq_data, CIRQ_CONTROL);
+> =C2=A0	value =3D readl_relaxed(reg);
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifi=
+ve-plic.c
+> index 5b0dac104814..a7cddadddf40 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -452,7 +452,7 @@ static irq_hw_number_t cp100_get_hwirq(struct plic_ha=
+ndler *handler, void __iome
+> =C2=A0		return 0;
+> =C2=A0
+> =C2=A0	/*
+> -	 * Interrupts delievered to hardware still become pending, but only
+> +	 * Interrupts delivered to hardware still become pending, but only
+> =C2=A0	 * interrupts that are both pending and enabled can be claimed.
+> =C2=A0	 * Clearing the enable bit for all interrupts but the first pendin=
+g
+> =C2=A0	 * one avoids a hardware bug that occurs during read from the clai=
+m
+> diff --git a/drivers/irqchip/irq-vic.c b/drivers/irqchip/irq-vic.c
+> index e38104c5064e..607e3284f700 100644
+> --- a/drivers/irqchip/irq-vic.c
+> +++ b/drivers/irqchip/irq-vic.c
+> @@ -478,7 +478,7 @@ static void __init __vic_init(void __iomem *base, int=
+ parent_irq, int irq_start,
+> =C2=A0/**
+> =C2=A0 * vic_init() - initialise a vectored interrupt controller
+> =C2=A0 * @base: iomem base address
+> - * @irq_start: starting interrupt number, must be muliple of 32
+> + * @irq_start: starting interrupt number, must be multiple of 32
+> =C2=A0 * @vic_sources: bitmask of interrupt sources to allow
+> =C2=A0 * @resume_sources: bitmask of interrupt sources to allow for resum=
+e
+> =C2=A0 */
 
