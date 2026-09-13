@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A64C88E5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 10:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226EFC88E5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 11:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk6Bx5863L5VZWI386ImEYX8oEoGZMlDrpaQMRb0xOA=; b=I2HihWwoxnrgeVrPInJqkOlAh0
-	k4iwiMQ7fGmCbuS8fRKZjrTbQXXJfEnJyFmQ2kAxv9XBrhJ/o2w/uuc4g1w8Hiq242PlGXE/jMLpV
-	NM7xfMbG5mW4uEEKsfwZVd06kyyKMA2KJbNjTDTFDD8VfHDKwGXDGSt67whwBAEywvoGgl+6R/cn+
-	XQcpenyMU/VRQ90sv54A3zIkG+3idmv17hicoPl92x+s9Ts0jLH1dZcbjVzfom/3rAcmxFX2Z2nnh
-	bgNte0Xm4/2tTg/vTy7QHMXIt85AdQEKX5AUtkGl9W9fsAAc3w/Eg2C8YC8xvTcBKYJE+OgF5id0H
-	l++qBQWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y44+A28Y3BNV9Kwrp3SpasZ4quyu/gVpv3kXvPsZ3r4=; b=kZl3vX1ke2t0Vgeh1NuCekGxBl
+	6bWvvR/roNaVewSdrSkegF3ZIKJBKErU4B7cw5eOCfGicBm96ioqjlBRAQTZXEoaIDJ9Cdp44Odq0
+	/dNYPLZ2nHWVLN3c/ThFIe0o6/yJ7c7WbIpZfLwOGzF/+ecXkhG0207YLdtURziQAeURmIAPUkK/g
+	PFOzAKIycnTDX0YSaSiXS+lNgpHce7fPej3PzMw5xrFSrJ4FEUO+Vdavl8qw+c4AsvgV2M5D21Wq2
+	wWhvBQ+KH3pofJyYSWfLZV+jxj+phuwzqlDKDrK6jT6yD24b/U7Vc9wQd/bx7W1t7tnpa/8+ialfw
+	mKofwutA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5htV-00000001bjc-2nbl;
-	Sun, 13 Sep 2026 10:57:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x5i6Z-00000001cBJ-0M9Y;
+	Sun, 13 Sep 2026 11:10:40 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5htR-00000001bi1-2Vsy;
-	Sun, 13 Sep 2026 10:57:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AA41444F1;
-	Sun, 13 Sep 2026 10:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD5C1F000FF;
-	Sun, 13 Sep 2026 10:57:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789297025;
-	bh=yk6Bx5863L5VZWI386ImEYX8oEoGZMlDrpaQMRb0xOA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=PbfIeS+v8bhDF9i2Dlp10MWv+rMH5mQeNziX38SXYA7VePYBUV4drNB4nHfcXnM0C
-	 7BkUHvBda7JmWsuCSiPFCT30HirKNDUWxSbaPmI7oiD6BSf/CymObfYcaEKSUPVtbX
-	 q5fdw/TI5018U6ugPBMnxUWlJovYIq+0pSgFtMpzAc7EPTH6EdPpmJQwocSuc//ZEX
-	 efbL5jsmVMRqgwY/49UwmhLKW++3J6PtCbMCg0r7RNF0wjCEjfhMzFOImrln05DTrt
-	 TqrzG4irL3AfvYNuK7Rv3EXXyjwW9dm5KCkrfPcJDc/XzuqCX6EozC7R7SPFyVSmcB
-	 CiIQyTwDKxFGw==
-From: Vinod Koul <vkoul@kernel.org>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260701-mt8189-dt-bindings-tphy-v1-1-5848a2be8303@collabora.com>
-References: <20260701-mt8189-dt-bindings-tphy-v1-1-5848a2be8303@collabora.com>
-Subject: Re: [PATCH] dt-bindings: phy: mediatek,tphy: Add support for
- MT8189 SoC
-Message-Id: <178929702027.215437.1601170548620063289.b4-ty@kernel.org>
-Date: Sun, 13 Sep 2026 16:27:00 +0530
+	id 1x5i6V-00000001cAw-0qbB
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Sep 2026 11:10:36 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id E7E5B1FB90;
+	Sun, 13 Sep 2026 13:10:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789297828;
+	bh=y44+A28Y3BNV9Kwrp3SpasZ4quyu/gVpv3kXvPsZ3r4=;
+	h=Received:Received:From:To:Subject;
+	b=T0VFBHWpT29SQ0+mCZ1RszeeutgP4OtMHS6BpRswhxVHUsxyKJAOjzTDWzV5t31Cj
+	 oMLwjimg1hEn9U5xEb6VE/5ryXcEuMq4KyehetNnTRjvZU29KcvxJTm05LFMX8IWTR
+	 jRFoEtP7vyDg4H+Be43YTOgQ+urDJEKOKh6Hjc4axSKzT16YQem3WuuAC/T+376yy5
+	 kuzu1QqNEvu+tNuvnVR13VcfqMdLn0rfP4jh8DfwtbQFVr//MEqZbDoehLRlcxsCMH
+	 tKbzxXunpmTKf3feVGyZ06Lt2p7XppYDszP849m/ZlFDzpWyGoFD0iMct6eQgtdG/c
+	 +VcqUgXh0btkQ==
+Received: from livingston (unknown [192.168.42.11])
+	by gaggiata.pivistrello.it (Postfix) with ESMTP id 81B107FA3F;
+	Sun, 13 Sep 2026 13:10:27 +0200 (CEST)
+Received: from pivi by livingston with local (Exim 4.98.2)
+	(envelope-from <francesco@dolcini.it>)
+	id 1x5i6N-000000002jM-1jMz;
+	Sun, 13 Sep 2026 13:10:27 +0200
+Date: Sun, 13 Sep 2026 13:10:27 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>
+Subject: Re: [PATCH v4 0/4] drm: mxsfb: Support LCDIF interface bus width
+Message-ID: <aqaEo1-aS7Srsgxv@livingston.pivistrello.it>
+References: <20260813092836.38367-1-francesco@dolcini.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260813092836.38367-1-francesco@dolcini.it>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_041035_426245_09EFD903 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +96,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
++ some more DRM maintainers/reviewers
 
-On Wed, 01 Jul 2026 17:36:49 +0200, Louis-Alexis Eyraud wrote:
-> Add a compatible string for the MediaTek MT8189 SoC, that integrates a
-> MediaTek generic T-PHY version 3.
+Hello,
+just a gentle ping to the DRM bridge maintainers.
+
+On Thu, Aug 13, 2026 at 11:28:30AM +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
+> The width of the physical LCDIF output bus can differ from the input bus
+> format advertised by the downstream panel or bridge.
 > 
+> Such a distinction is required when the LCDIF bus width does not match the
+> width of the downstream display interface. For example, an 18-bit or
+> 16-bit LCDIF bus can drive a 24-bit display by wiring the available color
+> bits to the appropriate display inputs. Configuring LCDIF solely from the
+> display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
+> mode, changing the color-bit assignment on the LCD_DATA pins and resulting
+> in incorrect colors.
+> 
+> Use the common OF graph endpoint bus-width property to describe the width
+> of the physical LCDIF output bus. Make the mxsfb driver derive the
+> corresponding media bus format from this property and use it in preference
+> to the format reported by the downstream display. When the property is
+> absent, the existing behavior is preserved.
+> 
+> Set the endpoint bus width for the Colibri iMX6ULL and Colibri iMX7 boards,
+> which route an 18-bit LCD interface.
 
-Applied, thanks!
+The first two patches in this series should go through drm-misc-next.
+Please let me know if any changes are still needed. Otherwise, could they be
+picked up?
 
-[1/1] dt-bindings: phy: mediatek,tphy: Add support for MT8189 SoC
-      commit: 29dd1189fa167c5374027502ddeafa8300dfa871
-
-Best regards,
--- 
-~Vinod
-
+Thanks,
+Francesco
 
 
