@@ -4,102 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC167C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 04:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB5EC88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 06:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvHpZ4p+GIyvL8ZBW88R4SfXXqB8aP1HME4Kv/dMBls=; b=kaSMz3cpWFnPG0bCvKoZhRwN60
-	9VrLtVLd9G5fnMRpUG8FsYa9Cz1khueEjbCh2cILW69myI5ZI2nB8gOdzhldysb3eJvVMKXTs0SKa
-	VfS6pvgwFbEI0dqXHEhdj4/81a6sMx8CzSVmbzqmXmSB8Xi4rT9C/aB1macoGigmXK1l2k6wQaZ0X
-	U7Gwaeo9lmJAExafCqrZwoC2X9J23epOOrgqptptR+Y+KbwFOM6EcXzuWQ1fCcDyWpCc4ew4BzgPc
-	1O/Rp7cSmJhw82dFIyZPsAqxl/lXerA3HT7MWtKjhho/gyQYYKmgMzy58LBG23OzplEqu3hvXjLwp
-	DvITGUCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=; b=w8uWAwZcbmo3LCCC97HW9p9Cwh
+	duYzWAl5LwxmxXFSlBlXD0vxylxhNZ6NxGgkh6/LXSAt91xbipkdRXshpFGDU94zvsUj7XFo19eYE
+	niYUS+oHtcvgEUOabLCKkvuFuvdbS8BO44WHp9aLPsFacyRknHnd4J0g/nkSmbvPoNfXexvHuh4GW
+	uHwvchXiFR0Jilykqgu+7kchPCuxp4ggDRWGx8XSNIAr5HBV1+kZUzTqjlDbI+RuCeoTF7MDNvOTa
+	Uzo6xi4pSfawFCXoO3lrKjNqxdHL+tn5qXgz4IWM4QMbKsiXzFagggneaWc+IIyIRK7wIEBLAXn0O
+	brqZc/Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5bTC-00000001Mfw-1iAe;
-	Sun, 13 Sep 2026 04:05:34 +0000
-Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
+	id 1x5dIn-00000001Rs9-2NXM;
+	Sun, 13 Sep 2026 06:02:57 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5bSt-00000001MEK-4B1I
+	id 1x5dIl-00000001Rrj-0DAL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 04:05:19 +0000
-Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-495b27007d0so2155707b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 21:05:15 -0700 (PDT)
+	Sun, 13 Sep 2026 06:02:56 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2db18fe459dso3611735ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Sep 2026 23:02:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789272315; x=1789877115; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qvHpZ4p+GIyvL8ZBW88R4SfXXqB8aP1HME4Kv/dMBls=;
-        b=TimLfmeaTdHUXgsymS0HqmAvI/1fa9yAm/7FsBwahs8wJvTh9bZkVHyliG+VtVlTAN
-         bEiNvmI/Q1AI3vmnFmqxdZB+VuG+I5vQae7LrX/NkeZhXMqNoQgbeCDEjDHxp/+FEWgk
-         z4Bh5xebAAVzEf0E/esXMpe2WiRQ+xiHtQm5YWwCy9LMWEaMXdeF/RtPFt/do4fOD7vo
-         rlG8PGgJLe1RpjQbZG1zEsdqTM4eji+QA1c3Ie+SyuqHPYt/ZRxHdRRLjwWApIMPf00H
-         Lv0Exu5Jvtrla7x0qntvoKdWnTcM5YWVdjOhiMVqygDSOSnP2xr012vChFRQTx5EcQCi
-         ctTQ==
+        d=gmail.com; s=20251104; t=1789279374; x=1789884174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=;
+        b=Wj2j2vTl4PReUKLxoyxb+Kntiyf3BuDhoRBxkfUFeaMe32g49YTLwcIHyJxA7liMvI
+         Y5nwgZxF/pytRFxO/tVNSecxD5LVVbYgOG1Ru98/5ZlKls/RpfIQ/r5g+uUeOdTGGx1O
+         Nnsq5eiuAaWwYotyR+MhwUBDquVQvOXyem4T6OTobmBlUd4c24EMaj3Ew4t8wt41K7bk
+         ovps+WQNMsyrC/D2tg6t5zPvTZmlTIcUuxd9jWrYWEVCRm5FXmu0numMr9hHbqyASRnq
+         mGOffjy2qllnnwDvJqQ/Nuq/THw//k9uuTHf3zQmtWXvIW1N0/aNQyFXRRkCTRnOCwDl
+         lzNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789272315; x=1789877115;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qvHpZ4p+GIyvL8ZBW88R4SfXXqB8aP1HME4Kv/dMBls=;
-        b=WSqQ0h4/Yt+9f8YrDAjHY/7UJ2IK7PKmEvTX+p3Zir4yMzvX5fM7ppdJ9tEujimqfS
-         Ut+nTfubJ7Gv+Qm8YtXF0TVTAT8VNlZddGid2I9Vd8QVNfers6Ohg3PTWwpP+zYLJrLW
-         l06jKrdZ3vaDseguDpxD4+fft6WpHk4BAJEWjYVytjmUjF3hE2EonRomAYttHjqwY6i2
-         P7sPncXtnDpZs/7v05aCMLlKD5bQT0PeieH5L8VS/htiSfagrY64koCXEOUGitSgkKoH
-         eZ+j1mpZzOELWref2LuWgPzboIuexvxJp2UWBt1pmrjlQ31VeYukkhiPetC7xNqV5VFr
-         Ah0g==
-X-Forwarded-Encrypted: i=1; AKwUvBxPJvoveKpHRqJ7zUJYZHzMzlweTGxJr442vjrHj0oXwWyPdjrQQUM/aPh56q9QBNsJBJHHkqbWo9++zHwXhYBu@lists.infradead.org
-X-Gm-Message-State: AFuF++kJ9Qn03kytlh5KL9TFZbjCBsheAgiP0nn+csCZI6KqifiJ34eh
-	uS5r/RCkHOm6DdNnLm9HOcExtLOydj8029O7Kw/MnvDq6Zd7ysv0Sk0B3BkNgQ==
-X-Gm-Gg: AYBFou0pLZBZ/8W3+AMGLm34zDpRZmL0+0aZTYwiWeAjzaYB4VI2OahjZwXA4D922Mp
-	NDXItY5L1fYeQci6jEK2i5fA2PAAojBtUstmHZfKVtg9zGmWabhsB3Q4Qbwnxrbwt9mtbkdf6gh
-	L7WfPPrSp3HPi0vf6V0+Vyh6Ab5HQyoDjOgOibNG18VJHzFW+ywBcDqWXm7+UNyysELJwjo0i4S
-	2Lv6FISu86By5S/5Z5M1VpqfDCiS7nHgiJJJRReujcfRhSoHi3fsjs8/of+6SZBLvRchlBMyGOb
-	Yn4JKnw6h9pp67nbkZubPWFfyHTdQtw+23AAw7W3Mi8fFBZwDOBh6Tjgy+HjMFk6aUIfJTyyfRk
-	P6J8DI0Pyl2bS2P8palqspwa5b+qtoa/hgMr1ZpOJatFgVn/LMPjHJXFxHK+u3F949tq1YZvSSl
-	43FeWNEdHaP8P4XLreBRsvX+MrvLB3Gru+QGuHaX9mUQafx7M6AwDA2HdQ+wHU4xVujGqIjSg+p
-	OWzCyC9SKAZ14pB9yJgrojV1b+CImQYVMNe3HhaLG5i6hISACIjrcdOjILCxxGoAP0/seW1vH4g
-	q/d62R4uPdNTpGxCk6/7SPz8iyS3g4DmbuQuxy9Mi6/G5t+KWY7oLUeGWqV9l5m3eg51EsuNb2/
-	l+DpK6vUO9bovC8KmskDcUJ99pUFPDA==
-X-Received: by 2002:a05:6808:d4c:b0:4b9:e5fa:8907 with SMTP id 5614622812f47-4c31b4c5e8amr7737916b6e.26.1789272314888;
-        Sat, 12 Sep 2026 21:05:14 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-157-145.hlrn.qwest.net. [184.96.157.145])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-47df8699647sm6011535fac.5.2026.09.12.21.05.13
+        d=1e100.net; s=20251104; t=1789279374; x=1789884174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QgMX8CiibWPEaVVcLSm85/QfWicxIoxBAscuNI56DwY=;
+        b=aqHiT3UWSsITljtBITViB3OZpPmFIUnRetWwjuLVDyzldiW0OjI6Q5gMvt/35IzvMk
+         s+eys+UoeO+YKKLoHdcRu3GPBOFYzi2RGc+jPZ/FpjNK50Sn34W8lNFgsZI47tWRi3Vg
+         JDJ25QH1/hee9NAmYq4pOQlgooP7YBPqKqK99tisL/5gOVT7s7ePr4ILNQZLVYYR5kdF
+         /meR2T2WgMhNY5fBFtW/43tYz6ADOshUV+FuIxaRotr0XdIV6dvyXLzQcZMvgN6RqF1L
+         L5QHhurSy9tG5reJ0q52vDzFuUrTjzSUWNWmSDtgjmiO0S+iERBPw4QR/bjcGtyp5LYl
+         VqvA==
+X-Forwarded-Encrypted: i=1; AKwUvBzZjEeQgf+oCxaSwHYAfKDo95fJst+l1Lr9gpPVRSIl9QXWd8Ijy+di336zzXiF+LAbittFM3/NFlfM1SQBmVCr@lists.infradead.org
+X-Gm-Message-State: AFuF++l/NidyMKxD8YK5L3N6Z9BkSIZhxWrFoIFkzcQkUAaMilCr7eRG
+	Y4Eeyx9icGnZKzu4YHs0Cq/Qf1FenSG8j6+939SAB6TSzNcoxD8r4+hp
+X-Gm-Gg: AYBFou1CRDZ3yPhUx1+/iL/jDWF/Ykyq4ZMLCQNgeE63IdkgIaKmRb4mC1f2219QTTU
+	xUBaAty3UB13YCenXtirRpiOKJ9yIHrqGEVtJMLQeZaDimOyetqDwVVWDdWIMbdE+YcikthXhBZ
+	KjHocYHrCHG1YqQZB0Qo/CZhWnBN1/3ucXRcsfyw/EF2+NnShKI6jRmptek5ZocQetrO68O8UWs
+	umIK1OnG/NaoCdCwjhP3tuIhXF4QHhK9eBDlvwNFMDKQxGEcGjD5Ej0o//ZQ9yKkYMBfZJ6NDbu
+	Y5bxLk5VAXeXmcRLlc9C/HkZHsDcVBPljT/AHYSu2+7dQLe6HXKPEATwRbQJZOUfrYkaQfkVj8j
+	HqDnleoS3Gk0CkIYiR0K7HlYLWVu3uCLcv1hFGUuPkshhaSRhDf0oPHi5dKCiYGTGpg+gjcL2pB
+	XGDi5G6KK5TnkZnKLYngBwnz7LmEmZBhCwF0u5WDmm0ehRRKoDYnABLA==
+X-Received: by 2002:a17:902:c947:b0:2d8:d4d3:3fc0 with SMTP id d9443c01a7336-2dd4bdaf9bfmr98050145ad.20.1789279374119;
+        Sat, 12 Sep 2026 23:02:54 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1002::de93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd3f0faf19sm23811575ad.12.2026.09.12.23.02.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Sep 2026 21:05:13 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sat, 12 Sep 2026 22:04:56 -0600
-Subject: [PATCH v4 05/17] mtd: rawnand: sunxi: select the pattern ID for
- the current ECC step
+        Sat, 12 Sep 2026 23:02:53 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Eddie James <eajames@linux.ibm.com>,
+	Ninad Palsule <ninad@linux.ibm.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Alistair Popple <alistair@popple.id.au>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-fsi@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] fsi: aspeed: fix memory leak on remove
+Date: Sun, 13 Sep 2026 14:02:42 +0800
+Message-ID: <20260913060242.1426845-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260912-submit-sunxi-nand-vendor-oob-layout-v1-v4-5-4a64bed94229@gmail.com>
-References: <20260912-submit-sunxi-nand-vendor-oob-layout-v1-v4-0-4a64bed94229@gmail.com>
-In-Reply-To: <20260912-submit-sunxi-nand-vendor-oob-layout-v1-v4-0-4a64bed94229@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Brian Norris <computersforpeace@gmail.com>
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_210518_394896_C922BFD0 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260912_230255_104221_5204D87E 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,39 +106,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pattern ID register has one bit per hardware ECC step, distinguishing
-all-zero from all-ones data. The correction helper checks the current
-step's pattern-found bit but always reads pattern ID bit zero.
+fsi_master_aspeed_probe() takes an extra reference to master.dev with
+get_device() after registering the FSI master so that the aspeed object
+remains valid while the remove path performs its cleanup.
 
-PIO reuses hardware step zero, so this works there. DMA processes several
-steps at once: a later all-ones step can be filled with zeros and reported
-as a successful read if pattern ID bit zero is clear. Conversely, a later
-all-zero step can be treated as erased when bit zero is set.
+However, fsi_master_aspeed_remove() never drops this extra reference.
+After fsi_master_unregister() releases the reference held by device
+registration, the extra reference remains and prevents the device
+release callback from being invoked. As a result,
+aspeed_master_release() is never called and the fsi_master_aspeed
+object is leaked.
 
-Use the current hardware step's pattern ID bit, matching the error and
-pattern-found bits already checked by the helper.
+Drop the extra device reference with put_device() after the clock has
+been disabled. This allows the reference count to reach zero and
+aspeed_master_release() to free the aspeed object.
 
-Fixes: 614049a8d904 ("mtd: nand: sunxi: add support for DMA assisted operations")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+This issue was found by manual code inspection.
+
+Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/fsi/fsi-master-aspeed.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 5d88ad3b8f70..3f506d0666a1 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1117,7 +1117,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
- 	if (pattern_found & BIT(step)) {
- 		u8 pattern;
+diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
+index aa1380cdff33..d21d06b44350 100644
+--- a/drivers/fsi/fsi-master-aspeed.c
++++ b/drivers/fsi/fsi-master-aspeed.c
+@@ -652,6 +652,7 @@ static void fsi_master_aspeed_remove(struct platform_device *pdev)
  
--		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & 0x1))) {
-+		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & BIT(step)))) {
- 			pattern = 0x0;
- 		} else {
- 			pattern = 0xff;
-
+ 	fsi_master_unregister(&aspeed->master);
+ 	clk_disable_unprepare(aspeed->clk);
++	put_device(&aspeed->master.dev);
+ }
+ 
+ static const struct of_device_id fsi_master_aspeed_match[] = {
 -- 
-2.53.0
+2.43.0
 
 
