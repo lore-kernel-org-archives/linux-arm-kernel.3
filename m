@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5BCC88E66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 12:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B4FC88E66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 12:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eBO6SffKp663hVRNkIfFT8s2g2QggGSwKkRITL4bOqY=; b=JdlQqTGdIKEE+RDsLqu2vE1BUk
-	X9PFeLawenPYmZtqvvn5/V/60PpiGbD8Kh8Q2HO1jS8Ke6uNrHSIwMgpeubOM29Yc2QDgyBugFx5/
-	b6LzaUqbcM1RvZNAGVdKw+8FZDXx1DCS4WHvD7c1CEq6huym+xh7U5PDzqqmCZTjzmCNnTS82AF/v
-	GxDUtNpS6k6ow4zsvduqhP3tEcpsGO+vEkhQpR2ZfKCilr7XcPDB+AZb0xYtxQaJZEYZxMQL+2J7v
-	tqlFAtCPTpeCOmI9/Bx4bPO/ZpFF4Ig81Xg3JTE+CU7zols23CkZg2CJWnhSHcrBCpMvlL1ciF8uB
-	F64TbSew==;
+	bh=zneXk2zvxhOJsgdPO+EexwvyQ2vdihR/t5cnjfiXPTE=; b=N45jyYpfw23xmKv9LxjazZsCQA
+	+lwlBINufknqup4SZ+v7EIscWc1xoWZCzcnZV75QFZwWyRDi5JaINDGhdApbXGtZu+lscTMlvKBLS
+	yYloVM54lFpRs7wD37vl07t4SyDMdgjMDKKNqzsCb9TBQlOsgkLtYdi+9oWox/OZxd3OiLfnsu3Dh
+	75nOm8QbnE+B6/JRObBHPdDiI63M+y6dZcec0QPCgQnrt8R1X4pvRlEtKWNaJAHynFbZoNXq4bE51
+	rVrNa/3jkE5n3SUBka4AIkD9i9RGY2K7fd/4bY4g9r9kOzjgpMTPpzzdLd9Oq2krv4h91muuVne0R
+	vRGPPlyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5jgd-00000001fku-1gXu;
-	Sun, 13 Sep 2026 12:51:59 +0000
-Received: from [101.71.155.101] (helo=mail-m155101.qiye.163.com)
+	id 1x5jhC-00000001frc-2O5n;
+	Sun, 13 Sep 2026 12:52:34 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5jgV-00000001fj7-18YD;
-	Sun, 13 Sep 2026 12:51:53 +0000
+	id 1x5jh9-00000001fqT-0AZn;
+	Sun, 13 Sep 2026 12:52:33 +0000
 Received: from seu.edu.cn (unknown [58.241.16.34])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4d907a3d7;
-	Sun, 13 Sep 2026 20:51:34 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4d907a3f9;
+	Sun, 13 Sep 2026 20:52:27 +0800 (GMT+08:00)
 From: Slavin Liu <bolin.liu@seu.edu.cn>
-To: sven@kernel.org,
-	j@jannau.net,
-	kbusch@kernel.org,
-	axboe@kernel.dk,
-	hch@lst.de,
-	sagi@grimberg.me
-Cc: neal@gompa.dev,
-	asahi@lists.linux.dev,
+To: jacopo.mondi@ideasonboard.com,
+	mchehab@kernel.org,
+	florian.fainelli@broadcom.com
+Cc: kernel-list@raspberrypi.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bolin.liu@seu.edu.cn
-Subject: [PATCH] nvme: apple: tolerate missing power-domain arrays during cleanup
-Date: Sun, 13 Sep 2026 20:51:33 +0800
-Message-Id: <20260913125133.109849-1-bolin.liu@seu.edu.cn>
+Subject: [PATCH] media: pispbe: check configuration buffer CPU mappings
+Date: Sun, 13 Sep 2026 20:52:24 +0800
+Message-Id: <20260913125224.110051-1-bolin.liu@seu.edu.cn>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa09ad2b1bc03a1kunm9c0a61b5251170
+X-HM-Tid: 0aa09ad37f2803a1kunm913aef5425120d
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSEhLVh1JGkkdSx1OQxhMQ1YeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQhlLVkNKGh1PGExNQkxLGFYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlOQ1VJT0pVSk1VSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhOQ0
 	NVSktLVUtZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=ackSGboRSNuCuZ57sJ91HEbURwSUaVnCkWycMJT+AREczh5LIlb8KI25ixXy76OOTVDw4Gq+f9PKqqWhuhXEozzGvSknBczTyWIgtHekveabGeyQYP11Q/Dn+ymwhj3Uy07l8mxlt30MGhac2Hk4Asvgya0gqUKSwtlh67jUU5g=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
-	bh=eBO6SffKp663hVRNkIfFT8s2g2QggGSwKkRITL4bOqY=;
+	b=Dagyz37SunneW4iPEWr7VosuEqqD4oMyF1/h+LUo0AbEk627gU9+e57qlXP18NS2C7Rxd9i9lsPadoE/LT0QdZIUUO4muLGh1KQ8abLNZleFJxEq60fwE8RFp5TsbxjHpFskqPgwERSVCsw4N7nspm1w3jWm9LNG+BT6TBSVvF8=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
+	bh=zneXk2zvxhOJsgdPO+EexwvyQ2vdihR/t5cnjfiXPTE=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_055151_951608_3B5F0BD3 
-X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-CacheID: sfid-20260913_055232_046777_8A39004C 
+X-CRM114-Status: UNSURE (   7.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,33 +74,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pd_count is set before either backing array is allocated. A failed
-array allocation can therefore reach cleanup with a positive count but
-a NULL array. Check each array before indexing it.
+vb2_plane_vaddr() can return NULL when a DMA-BUF exporter cannot
+provide a CPU mapping, even when the buffer's DMA mapping succeeded.
+pispbe_node_buffer_prepare() unconditionally copies the configuration
+from that address.
+
+Reject the buffer with -ENOMEM before copying or validating the
+configuration if no CPU mapping is available. No buffer is queued or
+hardware operation started on this failure path.
 
 Detected by static analysis and reviewed with AI-assisted source auditing.
 
-Fixes: eefa72a15ea0 ("apple-nvme: Release power domains when probe fails")
+Fixes: 12187bd5d4f8 ("media: raspberrypi: Add support for PiSP BE")
 Assisted-by: LLM
 Signed-off-by: Slavin Liu <bolin.liu@seu.edu.cn>
 ---
- drivers/nvme/host/apple.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/media/platform/raspberrypi/pisp_be/pisp_be.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index c63e28c75766..b7835e736d82 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -1398,9 +1398,9 @@ static void apple_nvme_detach_genpd(struct apple_nvme *anv)
- 		return;
+diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+index d60d92d2ffa1..56bcf69d70f8 100644
+--- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
++++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+@@ -839,6 +839,9 @@ static int pispbe_node_buffer_prepare(struct vb2_buffer *vb)
+ 		void *dst = &node->pispbe->config[vb->index];
+ 		void *src = vb2_plane_vaddr(vb, 0);
  
- 	for (i = anv->pd_count - 1; i >= 0; i--) {
--		if (anv->pd_link[i])
-+		if (anv->pd_link && anv->pd_link[i])
- 			device_link_del(anv->pd_link[i]);
--		if (!IS_ERR_OR_NULL(anv->pd_dev[i]))
-+		if (anv->pd_dev && !IS_ERR_OR_NULL(anv->pd_dev[i]))
- 			dev_pm_domain_detach(anv->pd_dev[i], true);
- 	}
- }
++		if (!src)
++			return -ENOMEM;
++
+ 		memcpy(dst, src, sizeof(struct pisp_be_tiles_config));
+ 
+ 		return pisp_be_validate_config(pispbe, dst);
 
