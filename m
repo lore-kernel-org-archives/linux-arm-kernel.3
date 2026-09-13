@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414A6C88E63
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 20:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C733C88E63
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 20:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=; b=RgLAkwJewCsOH9OT5GbkIrzQ34
-	EG7OyqRLX62vGyk+RyMBXtsdLJNMbcW8n1uceR81XuGIKnyMCjiJslWFMEv2bMaoljmw+Jritk4hN
-	al4Ih5E8S0+tuOGa8V9776HYGRJTx2gnC4zHt98I5z6qDl5AwW1W+ghRDNpeb40DSBRta+zRebWaF
-	SyJuwtNblDMz8wAmr3aGD7VpXy4+GIgwQtHakOi2YNJh3cOu4H6JyCqbEovgHe49rdPtX6V3OsPQG
-	TzSbGcKwkNODCWwpBlWe26j9gDHJe3F3PShne0YhvowS9kHgSUsG3B1dvh7iZr9Q0teGoL0FsMmxo
-	FlMOCr1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YqPuY8bjxg2PMPBTTRCR7VVhfztLYnhGPDT7UUbH0mI=; b=WdOumwl8VY74JFI/5NHcCc4bqh
+	ZRS8/jO9mORCreB3uWKc4X0uVESjp3UXR6hd+2qMd0dCxMPM9ZBVjpXSWmS95NeZMy6Jn5FVWEuGY
+	KOm5On/NS/QejFqONG9f4HMV6KEhsFiMRHLN++lYRHGwTP0V6S3iwB/zuuTzKZcD8wujPXzN3dS31
+	ZNY57f3VFsEHacey296FWxEHrz+6Uc8BfP7CHc7ITUHa2DGNWNWRzNMxUMU3W966szfLJm5Qn0thv
+	pa/funOB/vaVU0Tw3QpF2nQ42oYK1L0MCTlHqSf3YmwCQkSyzGEdl4a+PAofVoLyYYGn/iJ7hHECe
+	1uWeXoLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5qr7-000000021W7-0jWj;
-	Sun, 13 Sep 2026 20:31:17 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1x5qro-000000021cm-1vvv;
+	Sun, 13 Sep 2026 20:32:00 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5qr5-000000021Vb-2Lde
+	id 1x5qrm-000000021bO-1xu7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Sep 2026 20:31:16 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49e6ba4abdfso13757115e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 13:31:12 -0700 (PDT)
+	Sun, 13 Sep 2026 20:31:59 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c2949ed8cc3so430192666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 13:31:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789331516; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cqKD45QRgLLJIFXueMvbaXynWgNy0tQOGHdfjohq9gwPaRYIb5OodCQaYtc6FnYSPM
+         bROkiV5L5r+3pTdiTzTnAnReY4aoqxL2xSb/1XcvLwogmzO+148eXQ0owyhobdslVgCB
+         TmdSWJI7zJT7xO4pKVywdZuCMMjhnOzx+lomt6ZzZDqvpEXjH3C1a779Tymy705H+mMd
+         9w4kRD/D+2f//XOfOPZX+UzE/nYfIb6riJbcz+wXCmRS2ecH84FZhjcnweyqrzYc7pcM
+         3TYX2WAh6dIzAQXXURytbCYbNxx3ieEqswdxOkrOpkiln8bhuLXtkx1L+VkaF1MRCg/P
+         GXew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YqPuY8bjxg2PMPBTTRCR7VVhfztLYnhGPDT7UUbH0mI=;
+        fh=BZZQ9l0TW5bhKeS7W9czDuEOe92McLm9woDvmEdn7y4=;
+        b=olfRKddteS5pZwLaTVJAVWuE9mtiMLFCo1m5OI4oUa7zsnUaK/P3Un/yvEHCto0PRi
+         0sRNmrd774xh8dy1T5y1IK0pXRMLlcn7HiObIcjQl3ERyxhP2WJT/WZUndz9TkRAPcxL
+         +XkwL44eyynyU6Ax0cDr/wlG8DFUumSN6uL45zTf65aQpTrbJJFk0H4MRuQWWqsWiQ0N
+         jOiZpEnwOiKdLjScpJVBVAWPKEQ9epZjAXNLQiIdIU0/O6cphZ79L89mzD1b0ezPx3ZK
+         5PnQ70ODV2srpH5EAnr2EeV57qiAmhIZ6ptKeOEWsu95ofEHoEmEKoM6SFvai1rAbd9s
+         MPrQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789331471; x=1789936271; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=;
-        b=wKHajyd7DLvsotdDsYdMJHnLjSnGDtxDJFFEqHCk8HQ19aF6vAN9ijcTihkX1fUfg7
-         nRBFCHLVAd8LbJGQRSHBLCS0gqNssC3DJMUM2SHUHuypMS6xPNdBB6UtSpC7szpZtYv1
-         Kb99dMYUm80hGzA6v2DAJmzDGRvEm8zCziT7oQ1Q3X/iaeuQutWkHVSz0svKkMLkgDWx
-         cXsjlQYwxUQExUamiiO14nqZa32jbTl3Eh8Hg/CCC44BF2wxItiSYs54q05GFewXCMXn
-         ZlGAxnlUWoDcppJYREl60A/Unk3FbeHGcaNFEmPArqDDYTrcCk/QsLBo63skgXtyKfPM
-         WUsg==
+        d=gmail.com; s=20251104; t=1789331516; x=1789936316; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YqPuY8bjxg2PMPBTTRCR7VVhfztLYnhGPDT7UUbH0mI=;
+        b=ik4vo+spq3uYEhWz4ls9Gp7mZIM70gBUYWRQfP6dvaDRyHYAjwlZWF7AECEEojkdJo
+         5ANGXUES2M696t+7UlfYIZ7ASPoIxXVkZWZGrydqnauFMhlIrfwouZk9+DvrhMHGhFYQ
+         Y3QmcJEYbyynFsWm2zxRiFveR4cRdnziXQyIi3diWk4W9Z+8x97pYZ5BI42wPS9mMiiE
+         VDUwa9dNU/I4ejFlI1OMRdjsUw4+h/QgENMKSExfYXHebah8v9CN2jNfnUDBVpsvDWgx
+         Kq7npd8Od1Ge+gZ4P/Hg/xMc7lGbstYPLopNOufA/LjuyVRrT5bu/mTZyv0+DmwSVtd7
+         7HIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789331471; x=1789936271;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20251104; t=1789331516; x=1789936316;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=;
-        b=qqgDgyf9mMDD/Ryr4u7Vd3wQ1IJaLb+jfObD4EbhWEFPEOnfEgU9cZNoGwDtGOXdjZ
-         tR+rMk53FWGdfnNxwZuW1Xbv0CnodRa4284VAPUOj1kU96gCrutkNNJYmDCcfmbtP4fD
-         mP2fKXay2UofpMtH+2pmf5cF3C18EZmeNQMwoibp4wpmpNzY0qusAj+7EB/NFGhegjlN
-         gXpFzC/+5mqCt5RAlhuEKEj7W9rP1JinKbXCnfyEUx9LYqZZujDOhCCiIlcDi6VjfVDw
-         +nLEgBr4/95ZU0/fIxWj+wA2OK3XWdyNZYUOuWQynilnPcMjMDTKzC+DmnBCCIHt/Z5v
-         6pig==
-X-Forwarded-Encrypted: i=1; AKwUvByp7LFd0pFiIWuZyxjWQZB85MjOjivICiuVD5GMjttJ4qJtszuzNG7XBKqoALQJek3FOBSM2DBPsaDkVPDNBD5r@lists.infradead.org
-X-Gm-Message-State: AFuF++kQflBhUZDeJwBd/NJLYEtq8tPikbBAIWFlorzsr8def/Akek3Y
-	L5gWb4AlK3bZ3HaPdAgXZvBonNeBJagJ4NbdD69eeYOiiPLJkwLT3R6FXEaBbhmlf4AxfRDxWdN
-	/4byixS/YGFxu6zztm2o2ww==
-X-Received: from wmcq22.prod.google.com ([2002:a05:600c:c116:b0:49e:6bc5:85ce])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:8411:b0:49d:1e09:694a with SMTP id 5b1f17b1804b1-49e619f5049mr328748215e9.11.1789331471258;
- Sun, 13 Sep 2026 13:31:11 -0700 (PDT)
-Date: Sun, 13 Sep 2026 21:31:08 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
-Message-ID: <20260913203108.3343404-1-vdonnefort@google.com>
-Subject: [PATCH v1] KVM: arm64: Advertise MMFR0 TGRAN for pVMs
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, 
-	Vincent Donnefort <vdonnefort@google.com>
+        bh=YqPuY8bjxg2PMPBTTRCR7VVhfztLYnhGPDT7UUbH0mI=;
+        b=kXaSzVFghXJ9Rn18mycxujmJGRbZo81gOxlMXOYKshuWodMYw/hVvAZ0jujewC55mi
+         D/+334wDWWlM9z0nsVp1UMQfrt1vpFHffjvBGx5OwsKkAw0ceZGV6CCH2tB95pM3XX2+
+         /gyDJn3D51AwNs/JSiO+ntmtEQB3o90VP+W+cmYHbR4qg53q7+zq/9uKBRAig8eD6ohu
+         wofq49fyUi+XR57Ug6KT/nP0a+VxHjZbkgpdpwXp6ifTMy7GRDcpUfnNzOErm4ktsNjr
+         MZQAeUMb6B4rEBuboqG4D3+TpFJZYUSJa2Nn8gfN+mclzf4JAAaGz7dA6m6tGRDpqcSB
+         WSBg==
+X-Forwarded-Encrypted: i=1; AKwUvByGsSC9TdZWRzrMCcm0ssuxWITwhbwxrhktn8jeo4JHNLmrGF/CDeAcfvHdTo9+yKdHMiIuzGfDoPR3MUl3x4qD@lists.infradead.org
+X-Gm-Message-State: AFuF++lR85SsKlGjErzkLHTIB6kDU0O+XXCWXzUdgFrvyir2yhzq1gRx
+	BY6BYtopj0tn0jgp4a+YzkwApnfyeSpXkC+ec4ji87wX4tSQI7UNadRaWN7F86Qlz13a+yLiej7
+	Iawce2PzGijWiE33vHGrsU16qkLxBAg==
+X-Gm-Gg: AYBFou1CuDJRACuc/sU0IDva++EPzhoXonQ5Rce1aPAsn4T4TagE0tahI2hRPREit1E
+	tCJkxvp+7P4t0r3Lzgv8adiqxXjYZEamqwGYxDqSdOmpuX9st2DeNm7QWecmrdMPEXEqievD0cu
+	E4BEnX54N4KVFUl4aujpdJdB97y2W51q3Jzl+TSYHW31dJkqDvJptSY5ync9/ro2KLNi1/wg5hc
+	5c8unJ+EplWoYHGZpurMP/oMQ5IvucozVieVHUdpZrf4AZVcqYDV/crZD6AuhgIpGxYae+XpVWK
+	ps9T7IyBC/FBWaQoNGUyLnFo75UIEC9nilN2cezJuWMVbdbFAnhhUnd72+/tQU4aD08DKLlPw0q
+	dHcSyydCKSekNXinKL/LSH0hzZeS2ijbabhzT7iIoVpzybuvAcmNwFR/sw0hstw+M9w==
+X-Received: by 2002:a17:906:c143:b0:c29:4204:8dbf with SMTP id
+ a640c23a62f3a-c2966559aadmr741799066b.7.1789331515865; Sun, 13 Sep 2026
+ 13:31:55 -0700 (PDT)
+MIME-Version: 1.0
+References: <aqRM17TZ0-5pd6Y0@sirena.org.uk> <20260912190056.42192-1-mhun512@gmail.com>
+ <aqaKPEFt7fQe8QQp@sirena.org.uk>
+In-Reply-To: <aqaKPEFt7fQe8QQp@sirena.org.uk>
+From: Myeonghun Pak <mhun512@gmail.com>
+Date: Sun, 13 Sep 2026 16:31:43 -0400
+X-Gm-Features: AcwNN1XzcLLgpV1RUYtG_pNLmmim_sFz6TTENWG2NHxxEf0dq49kcafrryEazGg
+Message-ID: <CAGEsz8Gy5=4msSzPjvRAS88EEbZ0eRvpocu6iHQWv8-48J0dkA@mail.gmail.com>
+Subject: Re: [PATCH v2] spi: rockchip-sfc: skip DMA cleanup in PIO mode
+To: Mark Brown <broonie@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-spi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Ijae Kim <ae878000@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_133115_635515_53B3203B 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260913_133158_519533_488972CD 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +121,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Protected VMs can support granules bigger than 4K. Advertise TGRAN16 and
-TGRAN64. TGRAN4 wasn't advertised as it is enabled by default (supported
-when 0). Add it as well for consistence.
+Sorry about that. I'll send future revisions as new threads.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 8758c6801776..ec469d96516a 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -121,6 +121,9 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr0[] = {
- 	MAX_FEAT(ID_AA64MMFR0_EL1, SNSMEM, IMP),
- 	MAX_FEAT(ID_AA64MMFR0_EL1, BIGENDEL0, IMP),
- 	MAX_FEAT(ID_AA64MMFR0_EL1, EXS, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN4, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN16, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN64, IMP),
- 	FEAT_END
- };
- 
-
-base-commit: df2908090cda368b01ff43709f51890076c56157
--- 
-2.55.0.1007.g17ff1f9808-goog
-
+2026=EB=85=84 9=EC=9B=94 13=EC=9D=BC (=EC=9D=BC) =EC=98=A4=EC=A0=84 7:34, M=
+ark Brown <broonie@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> On Sat, Sep 12, 2026 at 03:00:56PM -0400, Myeonghun Pak wrote:
+> > With rockchip,sfc-no-dma, probe skips allocating and mapping the transf=
+er
+> > buffer. However, controller registration failure and driver removal sti=
+ll
+> > call dma_unmap_single() for that nonexistent mapping.
+>
+> Please don't send new patches in reply to old patches or serieses, this
+> makes it harder for both people and tools to understand what is going
+> on - it can bury things in mailboxes and make it difficult to keep track
+> of what current patches are, both for the new patches and the old ones.
 
