@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E371C88E40
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 08:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0B8C88E40
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 08:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MxVsQHt0PD/AoS3HnL1w++8paOmcsm0rJPQZ5P/iM5w=; b=pAOgpbzeRLTdg0OslR4WB4dVHw
-	Yr4OVjyJGYakwQ1dvzouPduoKhEG8uGPA8t/JW+ese+hskIoW+wP8Ig13kONdDQ09f+AHkbuo7M29
-	50DUcoMLQ3dIjnLoZ+GOUIIXvjn6OsUS0oGSmWwzbq6+8LoKNUIoswZ1TzfK5VZkbYkNgl3LWglXJ
-	NDQ1M60+IWeMYUQTHkr/d3+zOchnvwTZyNVvB72AtEy66yCe7X/K4uTIti2KhtZlpRmrb3ubmOcnb
-	Kq+qW8lsCzn1mkPFNnwSYu6S1fTZ6qTd1bRdVc7mhrGf2z/sM9V9QWEjtOjltBxs+AKBCBIZ/KW6g
-	1jM+b8pw==;
+	bh=d8WurlmhkA4e6m6wqPDqGz0fYjsjwdZG3YnLtCKxAOg=; b=KQ2H1HVenYIE4owdtR3I2XuHRr
+	H9DzaLjSB7xyuPJthAzhG+CyZGk3wEORW6LQF+14VJllChAZ09sIA8M8teUI1L+u04hDdezu6VYip
+	4+nOKZsWB38T74JLjhcRn4XIgDXmJPdVMXjtRg9Q6UoNLGVPntT8VbkmsTTLLDcvmYo449OnBV86x
+	LLqdoyVGgFjX1lKIph9Zovnn4p/XoPdaHuWopqPofAL5nXbJIp/+3B9mS6cwcN0Xjv3NOXAYjL3Ij
+	rAt/F6rM7Gaql8O+OOJdBuEe/hTNqQR6ugqULqvO7Fvq93rJgpVUfooarmKldubdKHiDOfq+8LG3o
+	k/kqo18g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5fgq-00000001WV6-24Bm;
-	Sun, 13 Sep 2026 08:35:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5fhA-00000001WZr-07qQ;
+	Sun, 13 Sep 2026 08:36:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5fgn-00000001WUn-1Ng1;
-	Sun, 13 Sep 2026 08:35:53 +0000
+	id 1x5fh8-00000001WZd-1BOD;
+	Sun, 13 Sep 2026 08:36:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78BF26022C;
-	Sun, 13 Sep 2026 08:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0221F000FF;
-	Sun, 13 Sep 2026 08:35:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5318C433C3;
+	Sun, 13 Sep 2026 08:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0959D1F000FF;
+	Sun, 13 Sep 2026 08:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789288551;
-	bh=MxVsQHt0PD/AoS3HnL1w++8paOmcsm0rJPQZ5P/iM5w=;
+	s=k20260515; t=1789288573;
+	bh=d8WurlmhkA4e6m6wqPDqGz0fYjsjwdZG3YnLtCKxAOg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ckfEgG1xnIugOq10gUjrGBEhKdAjNkT74xq0yXlikBeybfgW4fsyVnnbUUgrDOZIH
-	 blAn+WgZtLEv1Z8wRd3aryKg/VBkGPqcFkQODhWZ7OcjlbT2Iprm964nzN6z4qEe1S
-	 +oHALBd4HSAR+x1MakMiJy34qOrpHuHKItmssvhEIOxyDx2BgSZVI09bNjkGEgfwz8
-	 x4Ckk29IeEAi1kPjEtpQE1t+NsPG7+uYBo5BX9YASSeEIPSsRqKdj4c+St5lPWD1Mb
-	 mgN8ZClfWKWgAfoOuY0WV/Ghugdj4hy+fYE9d2feHNoHVBhddaBNuJ5rq8vEr23zqo
-	 mRR5y9Wq8b3LQ==
-Date: Sun, 13 Sep 2026 10:35:47 +0200
+	b=YAj2JaJjtipqC9sZ5QQPmMWXy2aHSiCBhyK7zDQ6fMiC8WHqiryZrWSgKSgzNEJF9
+	 Q9+ULcFDj+lHGgaMb74R6N/SbSmXnrYjI59pxm8Qrdskdltmw+3aqk2OZSfi8mYggI
+	 drjJfatC3GtB7P2Z898f8ECyFKlhpoZOo6uPmVlO8h3JTMs/3yXv9ZfqlSvEupLkzI
+	 gPgrQcaOnmNxdV7QMef2MZNI/lE2dWpftedqR4jSDMkHllIDnn0fke7IBeTV/DRIdF
+	 qinLfQZiLb+DymQUDpb2Wi6HRA/n7txhXsLIbfCey5HfKxrHodUJ7RDZhLrzl5aFCV
+	 FdU0FCfXCq5gQ==
+Date: Sun, 13 Sep 2026 10:36:09 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 Cc: linux-mediatek@lists.infradead.org, 
@@ -51,15 +51,14 @@ Cc: linux-mediatek@lists.infradead.org,
 	Matthias Brugger <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
 	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 3/8] dt-bindings: watchdog: Add compatible for
- MediaTek mt8167
-Message-ID: <20260913-octopus-of-incredible-gallantry-4ba15d@quoll>
+Subject: Re: [PATCH v5 6/8] dt-bindings: reset: Add mmsys reset ids for mt8167
+Message-ID: <20260913-moth-of-wondrous-order-4cb0ff@quoll>
 References: <20260908174259.9009-1-l.scorcia@gmail.com>
- <20260908174259.9009-4-l.scorcia@gmail.com>
+ <20260908174259.9009-7-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260908174259.9009-4-l.scorcia@gmail.com>
+In-Reply-To: <20260908174259.9009-7-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,23 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 07:38:30PM +0200, Luca Leonardo Scorcia wrote:
-> Currently mt8167 inherits its watchdog from the included mt8516 dtsi,
-> which in turn falls back on mt6589-wdt. However according to the data
-> sheet mt8167 toprgu is not actually compatible with mt6589 (it has 14 sw
-> resets instead of 12, and its reset bit map table is different from
-> mt6589).
-> 
-> Update the mtk-wdt binding to add a dedicated compatible for mt8167 and
-> add the IDs that can be used in device trees to identify subsystem resets.
+On Tue, Sep 08, 2026 at 07:38:33PM +0200, Luca Leonardo Scorcia wrote:
+> According to the SoC data sheet mt8167 has 28 mmsys resets. Add the IDs
+> that can be used in device trees to identify subsystem resets.
 > 
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../bindings/watchdog/mediatek,mtk-wdt.yaml   |  1 +
->  .../dt-bindings/reset/mediatek,mt8167-wdt.h   | 21 +++++++++++++++++++
->  2 files changed, 22 insertions(+)
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8167-wdt.h
+>  .../dt-bindings/reset/mediatek,mt8167-mmsys.h | 35 +++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/mediatek,mt8167-mmsys.h
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
