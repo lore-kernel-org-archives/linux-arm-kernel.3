@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4268C88E63
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 19:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414A6C88E63
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Sep 2026 20:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxeU5Su/M8erJsaUWOmS2EmM0zS643DtJmSk63z/Z00=; b=03sLVtKJjBSFHZELfCk8WAxrHS
-	5HhYjWANo5mPdPL2S5eP73gFMSkrjAIX8ZN+L+xSbAmd3AZC6tHLS9rtgBjLvXNMoLO+emEeJoZbO
-	jP4KemD9gUcLf3fmukDGWIXJTFrfLmz2t9l2jpadbvfIIcJ4WtwylHHXqdewDHNv+wtNNMpJ+0P9H
-	BbH0i4fbxXO7jVf/6GBtkMVYKfu7igX+OI4pcwMxoWUs4AmVpsJoNOmh9ImCzXi0xjuDxNHj6I4HM
-	/j3H2pfnEQlNC4dbJjfCt+oZ8esnpVBDdf8+UQMrQlzgubnwGxhNKrnDDP/TLEbjS26r4efF4y+VK
-	9T8RZZ7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=; b=RgLAkwJewCsOH9OT5GbkIrzQ34
+	EG7OyqRLX62vGyk+RyMBXtsdLJNMbcW8n1uceR81XuGIKnyMCjiJslWFMEv2bMaoljmw+Jritk4hN
+	al4Ih5E8S0+tuOGa8V9776HYGRJTx2gnC4zHt98I5z6qDl5AwW1W+ghRDNpeb40DSBRta+zRebWaF
+	SyJuwtNblDMz8wAmr3aGD7VpXy4+GIgwQtHakOi2YNJh3cOu4H6JyCqbEovgHe49rdPtX6V3OsPQG
+	TzSbGcKwkNODCWwpBlWe26j9gDHJe3F3PShne0YhvowS9kHgSUsG3B1dvh7iZr9Q0teGoL0FsMmxo
+	FlMOCr1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5qGc-000000020X6-0rT3;
-	Sun, 13 Sep 2026 19:53:34 +0000
-Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
+	id 1x5qr7-000000021W7-0jWj;
+	Sun, 13 Sep 2026 20:31:17 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5qGa-000000020WM-0yzs;
-	Sun, 13 Sep 2026 19:53:33 +0000
-Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id B5817CD5BC;
-	Sun, 13 Sep 2026 22:53:23 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro B5817CD5BC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1789329207;
-	bh=OxeU5Su/M8erJsaUWOmS2EmM0zS643DtJmSk63z/Z00=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=bPrxv5ZxzllOQiy2krKFOjC+n45BHyruI8wXJWW2dWXRr4DcLu0qSRf6d6pHLDx2g
-	 jWcfuKvfm4R5fkihNP2bYAGlMPiEKu2EReiVm/sDrL/7gpXNRKBB7aWno9BxyE0PIx
-	 eJ2WBtrgtJF/6pZnjqFQwwsDO/KmzOaIx0fkVSU/CK9rK96UEIEpRCrZ3RBw/9RO7M
-	 dIG3X6gzczLJWO2ggvEASF+KnDy8M/wU/ZXNb4/e4nVlCj9JFDbH5mUjxdeheYhNPH
-	 IQWdrYEJBtqEOV1SW3KVrCuI7RGRLTeehLAl+p9Cvbyg6Rh5mmTzHhmbRZNO4iAJKh
-	 MCi83qnwm1Cog==
-Message-ID: <81f0bf10b41dff85872487ab68c750471b7c2f89.camel@rendec.net>
-Subject: Re: [PATCH v2 0/6] riscv: Make IPI_MAX visible and use it
- consistently
-From: Radu Rendec <radu@rendec.net>
-To: Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti	 <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas
- Gleixner	 <tglx@kernel.org>, Anup Patel <anup@brainfault.org>, Tiffany Lin	
- <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, Minghsiu Tsai
- <minghsiu.tsai@mediatek.com>, Houlong Wei	 <houlong.wei@mediatek.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,  Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, "tip-bot2 for GUO Ren (XuanTie)"
-	 <tip-bot2@linutronix.de>, Nathan Chancellor <nathan@kernel.org>
-Date: Sun, 13 Sep 2026 15:53:22 -0400
-In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+	id 1x5qr5-000000021Vb-2Lde
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Sep 2026 20:31:16 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49e6ba4abdfso13757115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 13:31:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789331471; x=1789936271; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=;
+        b=wKHajyd7DLvsotdDsYdMJHnLjSnGDtxDJFFEqHCk8HQ19aF6vAN9ijcTihkX1fUfg7
+         nRBFCHLVAd8LbJGQRSHBLCS0gqNssC3DJMUM2SHUHuypMS6xPNdBB6UtSpC7szpZtYv1
+         Kb99dMYUm80hGzA6v2DAJmzDGRvEm8zCziT7oQ1Q3X/iaeuQutWkHVSz0svKkMLkgDWx
+         cXsjlQYwxUQExUamiiO14nqZa32jbTl3Eh8Hg/CCC44BF2wxItiSYs54q05GFewXCMXn
+         ZlGAxnlUWoDcppJYREl60A/Unk3FbeHGcaNFEmPArqDDYTrcCk/QsLBo63skgXtyKfPM
+         WUsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789331471; x=1789936271;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nkInFxMRft8SM/EsWMHnh5CKtPWKT4sSAWgTUnaMbe4=;
+        b=qqgDgyf9mMDD/Ryr4u7Vd3wQ1IJaLb+jfObD4EbhWEFPEOnfEgU9cZNoGwDtGOXdjZ
+         tR+rMk53FWGdfnNxwZuW1Xbv0CnodRa4284VAPUOj1kU96gCrutkNNJYmDCcfmbtP4fD
+         mP2fKXay2UofpMtH+2pmf5cF3C18EZmeNQMwoibp4wpmpNzY0qusAj+7EB/NFGhegjlN
+         gXpFzC/+5mqCt5RAlhuEKEj7W9rP1JinKbXCnfyEUx9LYqZZujDOhCCiIlcDi6VjfVDw
+         +nLEgBr4/95ZU0/fIxWj+wA2OK3XWdyNZYUOuWQynilnPcMjMDTKzC+DmnBCCIHt/Z5v
+         6pig==
+X-Forwarded-Encrypted: i=1; AKwUvByp7LFd0pFiIWuZyxjWQZB85MjOjivICiuVD5GMjttJ4qJtszuzNG7XBKqoALQJek3FOBSM2DBPsaDkVPDNBD5r@lists.infradead.org
+X-Gm-Message-State: AFuF++kQflBhUZDeJwBd/NJLYEtq8tPikbBAIWFlorzsr8def/Akek3Y
+	L5gWb4AlK3bZ3HaPdAgXZvBonNeBJagJ4NbdD69eeYOiiPLJkwLT3R6FXEaBbhmlf4AxfRDxWdN
+	/4byixS/YGFxu6zztm2o2ww==
+X-Received: from wmcq22.prod.google.com ([2002:a05:600c:c116:b0:49e:6bc5:85ce])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:8411:b0:49d:1e09:694a with SMTP id 5b1f17b1804b1-49e619f5049mr328748215e9.11.1789331471258;
+ Sun, 13 Sep 2026 13:31:11 -0700 (PDT)
+Date: Sun, 13 Sep 2026 21:31:08 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.1007.g17ff1f9808-goog
+Message-ID: <20260913203108.3343404-1-vdonnefort@google.com>
+Subject: [PATCH v1] KVM: arm64: Advertise MMFR0 TGRAN for pVMs
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_125332_454579_DD9480F6 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260913_133115_635515_53B3203B 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-09-11 at 03:27 +0000, Guo Ren wrote:
-> This series removes the implicit assumption that RISC-V supports exactly
-> eight IPI message types.
->=20
-> Currently, the SBI, CLINT and ACLINT SSWI IPI providers use
-> BITS_PER_BYTE when sizing the generic IPI mux, while IMSIC carries a
-> separate IMSIC_NR_IPI definition set to 8. These values happen to match
-> IPI_MAX today, but neither is the proper source of truth for the number
-> of RISC-V IPI message types.
->=20
-> Move enum ipi_message_type to asm/smp.h so IPI providers can use IPI_MAX
-> directly, then replace the BITS_PER_BYTE and IMSIC_NR_IPI uses with
-> IPI_MAX.
->=20
-> This also makes adding future RISC-V IPI message types independent of
-> the current eight-entry assumption.
->=20
-> A follow-up patch renames the MediaTek VPU mailbox terminator from
-> IPI_MAX to IPI_VPU_MAX. That token belongs to the VPU firmware IPI id
-> enum and should follow the same prefixed convention as IPI_VPU_INIT
-> (and SCP_IPI_MAX on the SCP side), instead of reusing the generic
-> IPI_MAX name.
->=20
-> ---
-> GUO Ren (XuanTie) (4):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocksource: clint: Use IPI_MAX for IPI mu=
-xing
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 irqchip/aclint-sswi: Use IPI_MAX for IPI m=
-uxing
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 irqchip/imsic: Use IPI_MAX instead of IMSI=
-C_NR_IPI
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: mtk-vpu: rename IPI_MAX to IPI_VPU_=
-MAX
->=20
-> tip-bot2 for GUO Ren (XuanTie) (2):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 riscv: smp: Move enum ipi_message_type to =
-asm/smp.h
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 riscv: sbi: Use IPI_MAX for SBI IPI muxing
+Protected VMs can support granules bigger than 4K. Advertise TGRAN16 and
+TGRAN64. TGRAN4 wasn't advertised as it is enabled by default (supported
+when 0). Add it as well for consistence.
 
-I am confused. Thomas merged your entire v1 series a week before (see
-the individual replies from=C2=A0tip-bot2@linutronix.de). Why are you
-sending v2?
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Patch 6 was not included in v1 (but it's clearly related), so perhaps
-you meant to send only this one as a separate patch?
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 8758c6801776..ec469d96516a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -121,6 +121,9 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr0[] = {
+ 	MAX_FEAT(ID_AA64MMFR0_EL1, SNSMEM, IMP),
+ 	MAX_FEAT(ID_AA64MMFR0_EL1, BIGENDEL0, IMP),
+ 	MAX_FEAT(ID_AA64MMFR0_EL1, EXS, IMP),
++	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN4, IMP),
++	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN16, IMP),
++	MAX_FEAT(ID_AA64MMFR0_EL1, TGRAN64, IMP),
+ 	FEAT_END
+ };
+ 
 
-Also:
- * The cover letter should include a changelog, indicating what changes
-   were made in each version compared to the previous one.
- * Patches 1 and 2 carry a "From:" tag that attributes authorship to
-   tip-bot2, which is wrong (if these patches were to be applied).
+base-commit: df2908090cda368b01ff43709f51890076c56157
+-- 
+2.55.0.1007.g17ff1f9808-goog
 
->=20
-> =C2=A0arch/riscv/include/asm/smp.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 12 ++++++=
-++++++
-> =C2=A0arch/riscv/kernel/sbi-ipi.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 4 ++--
-> =C2=A0arch/riscv/kernel/smp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 12 ------------
-> =C2=A0drivers/clocksource/timer-clint.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ++--
-> =C2=A0drivers/irqchip/irq-aclint-sswi.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ++--
-> =C2=A0drivers/irqchip/irq-riscv-imsic-early.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 4 ++--
-> =C2=A0drivers/irqchip/irq-riscv-imsic-state.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 1 -
-> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.c | 12 ++++++------
-> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.h |=C2=A0 4 ++--
-> =C2=A09 files changed, 28 insertions(+), 29 deletions(-)
-> ---
-> base-commit: 08df884136f1c1197bab2a27814404fd329d9aac
-> change-id: 20260911-ipi_max-ff71eeadf6fd
->=20
-> Best regards,
-> --=C2=A0=20
-> GUO Ren (XuanTie) <guoren@kernel.org>
 
