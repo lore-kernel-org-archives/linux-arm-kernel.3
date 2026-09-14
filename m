@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD2AC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CD5C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 13:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PF9u7DYv9qFIslukP9LwzISVHtIb3gYuRnqxZlxFypM=; b=Neh/NgJTzieUsU7jd1XYFgqmPO
-	QW6Z65Sf/497WEFesCRrgBMlhLzsFiIEAmCRFf0iQLXjDuE1vFTYXsSmlNO2U0S+/X9HhGG6pUqqW
-	AnmpAWD5C5p5vPLwV1rHIK5hLC+NYzH7u+gqHgso36k49EP8EVhgkYzCbG/+Gwcat7gTtmpfi/vw5
-	Fy6C9TVJ2eWLm8Gel4UT+CrTU+Uvs+CAV+Iob+/aKavKuhAVHy2EcZ927UMeuJ0LPELnyFbnPgIfF
-	+FhO0zq9acUpiufGuF2z+yAtsAXAsi2BLvZxQhSTq7uSJvVs/1ivz7rvLWf8FpRb4Ud6OXW0tJ3jp
-	I8BwT57Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3WBC3Qhi6LC3B/AKsGEXTe4dyfzOiu8QKTBhNnnPjMY=; b=ST+G2W/KsqTiJIzHkKcVFKZblE
+	mNuOsSAaNkYk0l2Fe1LDBWJKc87Tt5/+zZh1N2efY8ykx7MOVIondWs0Hzdgst8sGXIhC3JfPOE/P
+	W55zuTVzf7GULB7TS07fSqEeFI2PEmWP0NxHAcJ/kAmVW2YKxWWFAcL/iWAlk0v2aFpjwa9uAg8v1
+	/U4pmfJkdQie4+CeyxShbCQVeJUjXfnxF+1FI6KJINCupyGDVWgOn9P8v81l6ZJzkp+9/dZjQe44I
+	yn3XPueBuQtIPTI7QtqEsWukKvIlSWQ7irX6FbkehHA3yRo2nW33o3EwnjNtz/RXFwuot8NFjMVv7
+	ec2Dycjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66Wh-00000003iYp-2ZOG;
-	Mon, 14 Sep 2026 13:15:15 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x66We-00000003iWT-16wv
+	id 1x66Zp-00000003j6z-4Bmu;
+	Mon, 14 Sep 2026 13:18:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x66Zo-00000003j6L-1O5E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 13:15:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D0C051A0635;
-	Mon, 14 Sep 2026 13:15:09 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9AC9960323;
-	Mon, 14 Sep 2026 13:15:09 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C548511C7AFC3;
-	Mon, 14 Sep 2026 15:14:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789391704; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=PF9u7DYv9qFIslukP9LwzISVHtIb3gYuRnqxZlxFypM=;
-	b=SxKPjlumrmLPx8G3OPdJHMCjg0uhorZ9JkemWkvjRbh/+4NYUgGLeeGxaJXWTAgXjj381l
-	wN98FXQvXyHgS7I7CXFu4LgpgQBVEJ0ksOP37XPWW+oSLq4bP1+qGzbM1kAnIiY5cvjoy/
-	4Psslo9bZ/mXq6obNaRJfY3P/dV6SuZmcRHDMcCaKajDrJR7gqLOpYFK5ifAg9dNSgGusi
-	E8BAgOXPKZjkdkyTFgyZQ6745i8p5rXVMscORBPbJEQlatC9lO3IJsKryQ87Lv/VPNBOrQ
-	svYncYsx6cis7MVfbq/gwgmw83VWLwBsbIlA5Jb8Vdv5IJKAD/YmVbqnn54eAQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jacky Huang <ychuang3@nuvoton.com>
-Cc: Shan-Chun Hung <schung@nuvoton.com>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Brian Masney
- <bmasney@redhat.com>,  Richard Cochran <richardcochran@gmail.com>,  Arnd
- Bergmann <arnd@arndb.de>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  netdev@vger.kernel.org,
-  stable@vger.kernel.org
-Subject: Re: [PATCH] clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
-In-Reply-To: <20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com>
-	(Miquel Raynal's message of "Thu, 13 Aug 2026 09:28:10 +0200")
-References: <20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Mon, 14 Sep 2026 15:14:59 +0200
-Message-ID: <87o6e0nfe4.fsf@bootlin.com>
+	Mon, 14 Sep 2026 13:18:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77D071576;
+	Mon, 14 Sep 2026 06:18:23 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8721F3F59E;
+	Mon, 14 Sep 2026 06:18:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789391907; bh=4fFSBQUmiQmXrYe1XA04TLaJwyz/YyMUQosBL+4T7Qk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cd1LGj1/mJ4u+1418F6iLq38fn956rgDEzm4+0FMnSL3Bu+3xHQy/239mqTq0dLOP
+	 kmRwuZN8+mzhQt7yFew5Xx3tEBNwknVxKOKb1VnOIWECWioIAaVpgwCk7CFUSXtKkp
+	 9vSlYv4HgfIxWUS7qlNb2HRQTHJv+lS+FfQu/QFM=
+Date: Mon, 14 Sep 2026 14:18:19 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v11 3/7] firmware: arm_rmm: Move RSI support out of
+ arch/arm64
+Message-ID: <aqf0G2j_t7wlW0DP@arm.com>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+ <20260914060511.277948-4-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260914060511.277948-4-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_061512_448416_D5DECA8A 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_061828_413869_149DE7BC 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Mon, Sep 14, 2026 at 11:35:07AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The RSI SMCCC function IDs describe a firmware ABI and are not arm64
+> architecture specific definitions. Follow-up changes need to use them from
+> non-arch code, including drivers/firmware/smccc and the Arm CCA guest
+> driver.
+> 
+> Move the complete Realm Service Interface (RSI) implementation from
+> arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
+> command helpers are also moved to include/linux so they can be shared by
+> architecture code and firmware or driver code. This also keeps the
+> firmware interface outside architecture code, as requested [1].
+> 
+> [1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-On 13/08/2026 at 09:28:10 +02, Miquel Raynal <miquel.raynal@bootlin.com> wr=
-ote:
+The patch looks alright but always wondered why this and the following
+two patches are not first in the series. They look like some almost
+independent cleanup randomly in the middle of the SMCCC bus series.
 
-> The MA35D1 clock provider registers its muxes with parent data
-> structures filling .fw_name. This is not the ideal approach since that
-> would require a massive amount of internal clock names declaration in
-> the DT. Since the DT does not play the game of exposing all these names,
-> none of the parent lookups performed when instantiating the muxes
-> succeed. As a result, these muxes get registered as root clocks, leading
-> to a sadly flat clock tree and no frequency assigned to most of the
-> peripheral clocks:
+Otherwise,
 
-Jacky, this is an actual fix which is a month old now, the SPI
-controller (and maybe other blocks as well) does not work without this
-patch. Would you mind giving this a bit of feedback?
-
-> Fixes: f50a000b4219 ("clk: nuvoton: Use clk_parent_data instead of string=
- for parent clock")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-
-Thanks,
-Miqu=C3=A8l
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
