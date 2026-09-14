@@ -4,65 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C51C88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5985C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 14:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tYq7J+liZPfE6vz/gYfQT62bcUz+PZLbDbl9s0i8mss=; b=rw2VanWyh4IjdVXMdv61K+EsHf
-	47Am10Cf3GPb4pZSmtZpQNH5AB6LvxfL+H4tSc7kKBenLfg6JzC2/ZqL8z+mI8qahabI3KIYCAsSI
-	x0+sN1nzGBjGlyZIsKx7jE9g4pjUsP6dKidp/qTkGqITH1bLaN47wkJFEsHI8FQzCePGYxcibalqQ
-	mRXgmIVgakP3eQkayX+wjmdzPjr5pMuHeB3cU5WvMAuBekayJcOTe42z1H+Vb9OZ+xwsvuQdn4NUa
-	vPbUg2VhsL6bwdBb74JugTFqYm0S1HtSrSrFViiiIsEEoQx7S5mHqXfw138gjyOsVlmaVOJMWKx8F
-	+d76tugg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AxY9y3EQEIjKYAmPGHB2pQQqgQdeImm4yoZg62jB/x4=; b=hGLlbs99fm1FAdt4q/em75Ya6w
+	ORhxyDBKAFNBhitlaymvVompK2z8jT/SUmrXAyV2YaR1GT7Iuvq8i7fJF4XS69vAt6IrnG3WsKT/H
+	r0bAhlJ4TYhL297CyjRIsfMjLsV7FlON9H4pIMLm2gt192Y+DyPorEyM/vRCRt+TY04o+Ze46osxj
+	qRvMIQh44wT3/6HoEz0hXdqUcb3ow7XyCemWAy7RIizoDbekjeIzjEg6zviMBks2A7kZivo8U1ze2
+	DTo1ZrLdvArkW7CyrwLhWRl7qGb2EhiBzwbSYHrYpkbvt7G5ZlSp2Nc+jSjIPE8elZP/oRCnNkLJB
+	5YJyT7jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67Ya-00000003y2A-3q48;
-	Mon, 14 Sep 2026 14:21:16 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x67au-00000003yMx-1BQv;
+	Mon, 14 Sep 2026 14:23:40 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67YY-00000003y1Z-2O7N;
-	Mon, 14 Sep 2026 14:21:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789395672;
-	bh=RUjuEURudxuA62FC/3YKgFX+Jca+QNqEHhjwHbSSvWI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OKzWNuKv9eEo3SSOjHFmQr9Bdku02etUWBv5Bzlg0UYBJQsSanvY2FACiBdq1/ErQ
-	 xs4tgeVjObiq3UV/hni6D8ZRtdQ4WEb1BcPUeNesTRH7VTAwxWP2LmjonUl1SLwZpe
-	 thZ98FgfrFYOAAecbBjCorcITBFhoCICwQz8C1qyqmVqqxQLrzA7tdJncgkeQjDOmB
-	 j0VtmUuYK6L/3ro+pDVVgJXb74HxoDa+IBaf0Xm64VtRAIYxkeNDOiWILh8bZpychz
-	 Eqh3CS8OzMrDXjWOwK6W11KwVO9UJeBEX8v4zuGbC+pP1kx6qJ9W32fvLjHqR8aub+
-	 oWNa1LlSk9lzA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 43F4817E0075;
-	Mon, 14 Sep 2026 16:21:12 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: bmasney@redhat.com
-Cc: sboyd@kernel.org,
-	jbrunet+clk@baylibre.com,
-	linux-clk@vger.kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] MAINTAINERS: Add Angelo as MediaTek Clock Drivers submaintainer
-Date: Mon, 14 Sep 2026 16:20:39 +0200
-Message-ID: <20260914142039.31654-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
+	id 1x67ar-00000003yMc-3WTh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Sep 2026 14:23:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OywDmd9uij8nh43ls8GfvXltaBj7Fgw/ym4c6jyqFNwkW42sYOinajPf/5ogSYcYE94b3daxK+99J1ivwCWB/9rD3xAK/CXBEwhsMFixv3ZmSc/TEA8mGcwJjF+w8RZsgetogDgQhhvl6gvu3ch+U2+L4dwUS8zPsJ6N32uLdH8SHf/ogAee+pUhTsrVHUfev9B6VUbMfU2ennjQbwSkRU4Iuh5rYVlNGxrOokJgU1NWNpUEm2v+7RkskaXwlQhPasWoN9Br9B2+4s2VSeVzJ+NaDBii1giAV358UrxhdBwt1ZQysk80NweJbq7XjaRnjn7/OAy4ThM+tdKr9zpslQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AxY9y3EQEIjKYAmPGHB2pQQqgQdeImm4yoZg62jB/x4=;
+ b=nPd4JXUd0ZsHqDAgtDapMM375NKDcJXQHWqTvvNbfuJ/5kBdk2yacUeX5m3J3nHwZ1K6Xlb7XqMVU1EPD75XcbbJUkSXweJp5nz4mZzugZyALq0gaNXDntM6MiyP+pmjpUdYBx/ws4P8VJ0t66+gmuojdduPmrTpDNjMmZ/IjlHZukHO8H+AAZfTlTAVtN/Ax5DQwmqkbKRyyZo2MF2QF83de3aKR6jpkkuKcLaAINS+OTIlUc0wY0r5RQ78sNXph8uuxvdPW6N6IbJXVXUTaeMcIusRHDbc8JUzVLhfXyUrB+NBbAA4q+j52+vowLAwkpoWCViHHqmAXZmHzeERdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AxY9y3EQEIjKYAmPGHB2pQQqgQdeImm4yoZg62jB/x4=;
+ b=G+bau7qm90qwrqsKcojDVet4x9Te93qrPnJDyUizHwRo5BpcdEFm6W/To5U/gHK+gB9BDzfiXgKaUPo6pEHAm6a+M2j4MJ53yG3ZRW+yqWRRXdkbzlc9Gz6LRcft3nqqZ/yXRgarPcokeSZdRSCj0mjG2elKdjzF8ZX2TNXI+0GzuqOPrbvx2S2j6AymIzjNny4ixyJvtjLQHze3stMdNsdfWcoGBAw7L9SKmBlSpTTusw0pSG6GeRI0i00bRdJ6rVdjFKgyJ+fwoyjdgcAwzO3id7c02hQSsTYKYdY6HOen6tirFPAIOl6ENOIIgLTT+F0q1m/kJpitMNcODz/HiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8540.eurprd04.prod.outlook.com (2603:10a6:20b:437::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 14:23:32 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 14:23:32 +0000
+Date: Mon, 14 Sep 2026 09:23:22 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:FREESCALE SOC DRIVERS" <linuxppc-dev@lists.ozlabs.org>,
+	"moderated list:FREESCALE SOC DRIVERS" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCHv2] dmaengine: bestcomm: make gen_bd init helpers static
+Message-ID: <aqgDWhGqkYki03F2@SMW015318>
+References: <20260913194804.39939-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260913194804.39939-1-rosenp@gmail.com>
+X-ClientProxiedBy: PH8PR05CA0024.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8540:EE_
+X-MS-Office365-Filtering-Correlation-Id: 207d4fdd-aace-4b6d-620c-08df126bc126
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|19092799006|6133799003|18002099003|22082099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: AG/wtdGvgB8tfGQgXkmwcgyegXQkdaiavFSBT5gHVWSvBXZTb6dZbFg+5lAcVa0Oe3LgOtdIYo5P55rDSX8aNf7f0XYViZC+olEHKTcz0LbuGFw9ofW7a26YwSvImKsYxwRIujEKFZHh2y/qUDxW94Woq87na8clhH+yCXiZ6iCnPu7iBpnqAuQmwJjeOA/MDsSTNyAT8xDKwS6xvQ7s4sCZdOLR7Wj8veI40OR2tWJ38SrhfFXZ0Rjy6437fdJUSatzomA0vWxbcUaa+DYZgBYNCqM4ny9ZdLl8gH2rvC+NVMyIRFdPioBI+sGn+fcvI40AfMhSsfS2pXmFUJGDu5hcT/CbH8QJkG9fsEei8UQX5HyvRpspN5DZDBWfB9PwDt+ufEBh46TZB0dXgnXS1hirHUJB7JNsX0WjL1Md5THtv71wpnlfVCMSqAeNaj563YpcUZUweu2Ba8zwsQzs2rHVvDuetyyouDQ9UwQX773FYqI1WpdaCy4fXD+cH8ybgyGKRh0TIHomsmdHmRSRm+tvWjf3z5AkU2Nh0vpkAASTgQ8TuzBssUsJVcOLGx5fnbE6aApU+/wzKpJvWZO2ZUsh5hfgX3XESKkQHp4U0Q53eB8K0CW+JW9ew3YpKDL4BLJxfWhQDHTGDGnERHpBKoqlalH2DoYl8yskz4iuGpw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(19092799006)(6133799003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dJY9r7zUDs5pl3zyrG1Bwcg27eGp69wTgUw9fhxhpnAH5As9pRjkjfYtyhi7?=
+ =?us-ascii?Q?PZjbWw5uZSSInMgrmdfZGhz5K12iwL4kP9cK3+1aNPCrC4vDDWdqY0XmlLGJ?=
+ =?us-ascii?Q?CVxOA5iWrhPwhMWaDdsnZFB2/Lh/pt0j5o2+4ai3gEtd2DDnSeS3JrOgwjyp?=
+ =?us-ascii?Q?kOOqqCOJ+xM6i2yOvl5GYvo2fKoWHg83WGxMQv+TKjpmCxEJqxxSxL5ag/OD?=
+ =?us-ascii?Q?6MsfDPGoxco5HVw3C/bIW2/p4jza0g9lXUATnjfHul6BxCRd+tbzMqwdvm0F?=
+ =?us-ascii?Q?465b3S+/rwg6t5CWxjaXXqD9LRaXkEDS3x/bFiVXS3y8hIt6TAJGh1hwAGf1?=
+ =?us-ascii?Q?IMUU6pbpV85w+gw6ELsuKkStvqy+t2/uDfPVsLy63+V2VcrdaWa/3ZozExy0?=
+ =?us-ascii?Q?qva33q4+l/XGIoyA1OlMUBBhsJtAj8JIkzSsKrtn4Xhl5nkVKYveDGL1uBM3?=
+ =?us-ascii?Q?F0RY3BONNHRHg9ouYxmHoJPNAJjt66UWIiAwZp3oQelI9e26Zq+Y/9ytwHL8?=
+ =?us-ascii?Q?6pYI8HEO+KkyShA+hS53Os4LwVev6p6qFWN6bxKlI+5GMuIYz3ln3xhR0YUj?=
+ =?us-ascii?Q?88QSGpNN3pD0/joU/fMwItBJWJDbtS05dKzvsLiykTka3ooaj5E0W5PiL4da?=
+ =?us-ascii?Q?Zgol9QCH6LyjB+v2tBaOQOuOyqCJ+5DX5OdXHtHuwOulXYjQNM6DL2Jpi3H3?=
+ =?us-ascii?Q?fvnslciXy9Ez2Wjw4wY/xBwbdl07YIJRHyubZjg7oJ7aLT92Ly7cfuwHykft?=
+ =?us-ascii?Q?aVh6N+QdOFOsb9PUwvDqkuRQwVewV/Mu7PSAF6ItgqN8XRThlisy6Um/QPiR?=
+ =?us-ascii?Q?pleTmj92VxYecCcXF0T1tKLlI562s4CPd4ZSlqbhlEGBSV6g3rqiVit0PH9y?=
+ =?us-ascii?Q?zY1UKLo/hgpbJ3Y7E2nTGPK/jvDNSobctRSF/2c7LE2qEu9x72MBevfqOO83?=
+ =?us-ascii?Q?AZg9+xIZzBt4kapKN0c4b2hJnn4UeXQjanukDxeYmZum+DZJBr6D4xvFIZDS?=
+ =?us-ascii?Q?4H7kSjmL7SO+a7h2/TjwM/KSoaRYUxs5SHvFTS2Ys1aIzxNHm5LkI8m6VVUH?=
+ =?us-ascii?Q?ZuwPsEhjj5vsKV7gbnPRCLZcx/cMHuB/OZf0Qe/JgeJcfEzuZIA0dh47zome?=
+ =?us-ascii?Q?9rTAOBjZLqWom3aotCX0qfBbJVzPT/civps4BJc7uJMLGgq/6wOuNhHsAPlE?=
+ =?us-ascii?Q?BWqBM3QlzRf2bayq+hfUupYijk1eVO+tkhlxem1S8a/2ZT0ScXRWd80lAoPT?=
+ =?us-ascii?Q?a7JDhhAeLKx9IC/qxrgFfUx/wvc7auW5GUX/QmFklvlgpu6frh/ZHeZPa9ut?=
+ =?us-ascii?Q?gqNYtPA/7b3dK1fvHqmvI5yHpLu3wsPA0A7YWE4EwJx1q/6v6lqF9TywSUd2?=
+ =?us-ascii?Q?Q1P4Uh+Fld/9IWMtJEYEgnZTWw8sF7vgd1lTJnPZCnJoFpPqs0Ujr/Kn9jOZ?=
+ =?us-ascii?Q?dXtYCQBH7ydiQM3jQhU8bd+Z6q7egOf7MAWotQNEN2f5NHvEO0WIUlACE+vk?=
+ =?us-ascii?Q?FG9BtO5XTXU3VrB5MXOd9qQwiC4fP9f0fiLHiaAZ4L7+dhgppvUDdI4hD0DI?=
+ =?us-ascii?Q?eFBwOe8wdjD+PQFSQETNVRkD+1u3pxDWCrf7IXV+f0SuXMQG2WVQGzgpoV02?=
+ =?us-ascii?Q?fl/4lJTxnSPK/Ik1BExm4e7TvV7GvCPsy1f1kjfyblAbONYKcP4LBjoMFUgx?=
+ =?us-ascii?Q?yHXUQabtvrqUdF51zzvxhb1wSskJY3f9k3Fqfo+4jqWb5Ds0ZZvcf5WOgFK5?=
+ =?us-ascii?Q?KzhHzctYoDEeaXU/8MYe1u0LL54wCNF7iV1iD6AUAvkY0ukLWOBl?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 207d4fdd-aace-4b6d-620c-08df126bc126
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 14:23:32.4663
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hOg9A71/jX/NUKRP+iPbj2s6l7Zcai2i3gWeCuNR1soaLJ9tb+mPs8BUg/gbuonPHwf8vqfmxstH1uP7zFo6W8I1U56jcrbvWYP46Tj6aog2mK30PcZE7wkv56WRs55c
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8540
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_072114_752757_C2D933BD 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260914_072337_880472_1D2C05F9 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +139,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As asked multiple times by both Stephen Boyd and Brian Masney,
-add an entry for MediaTek Clock Drivers with myself as the
-submaintainer.
+On Sun, Sep 13, 2026 at 12:48:04PM -0700, Rosen Penev wrote:
+> bcom_gen_bd_rx_init() and bcom_gen_bd_tx_init() are only called from
+> the PSC wrapper functions in gen_bd.c, so make them static, drop
+> their now-unneeded exports, and remove the corresponding header
+> declarations.
+>
+> These had use before commit 7d3ee229ea51
+> ("powerpc: Drop MPC5200 LocalPlus bus FIFO driver")
+>
+> Assisted-by: LLM
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- MAINTAINERS | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7dd93f200d51..881ada7b2af9 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16722,6 +16722,17 @@ M:	Sean Wang <sean.wang@mediatek.com>
- S:	Maintained
- F:	drivers/media/rc/mtk-cir.c
- 
-+MEDIATEK CLOCK DRIVERS
-+M:	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+L:	linux-clk@vger.kernel.org
-+L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git
-+F:	Documentation/devicetree/bindings/clock/mediatek,*
-+F:	drivers/clk/mediatek/
-+F:	include/dt-bindings/clock/mediatek,*.h
-+F:	include/dt-bindings/clock/mt*-clk.h
-+
- MEDIATEK DMA DRIVER
- M:	Sean Wang <sean.wang@mediatek.com>
- L:	dmaengine@vger.kernel.org
--- 
-2.55.0
-
+>  v2: mention driver removal that made them unused.
+>  drivers/dma/bestcomm/gen_bd.c       | 6 ++----
+>  include/linux/fsl/bestcomm/gen_bd.h | 8 --------
+>  2 files changed, 2 insertions(+), 12 deletions(-)
+>
+> diff --git a/drivers/dma/bestcomm/gen_bd.c b/drivers/dma/bestcomm/gen_bd.c
+> index 61b5746e1a97..b5093f7445cb 100644
+> --- a/drivers/dma/bestcomm/gen_bd.c
+> +++ b/drivers/dma/bestcomm/gen_bd.c
+> @@ -81,7 +81,7 @@ struct bcom_gen_bd_priv {
+>  /* Task support code                                                        */
+>  /* ======================================================================== */
+>
+> -struct bcom_task *
+> +static struct bcom_task *
+>  bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+>  			int initiator, int ipr, int maxbufsize)
+>  {
+> @@ -108,7 +108,6 @@ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+>
+>  	return tsk;
+>  }
+> -EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_init);
+>
+>  int
+>  bcom_gen_bd_rx_reset(struct bcom_task *tsk)
+> @@ -166,7 +165,7 @@ bcom_gen_bd_rx_release(struct bcom_task *tsk)
+>  EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_release);
+>
+>
+> -extern struct bcom_task *
+> +static struct bcom_task *
+>  bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+>  			int initiator, int ipr)
+>  {
+> @@ -192,7 +191,6 @@ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+>
+>  	return tsk;
+>  }
+> -EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_init);
+>
+>  int
+>  bcom_gen_bd_tx_reset(struct bcom_task *tsk)
+> diff --git a/include/linux/fsl/bestcomm/gen_bd.h b/include/linux/fsl/bestcomm/gen_bd.h
+> index aeb312a1cd00..7253d308d77a 100644
+> --- a/include/linux/fsl/bestcomm/gen_bd.h
+> +++ b/include/linux/fsl/bestcomm/gen_bd.h
+> @@ -16,10 +16,6 @@ struct bcom_gen_bd {
+>  };
+>
+>
+> -extern struct bcom_task *
+> -bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
+> -			int initiator, int ipr, int maxbufsize);
+> -
+>  extern int
+>  bcom_gen_bd_rx_reset(struct bcom_task *tsk);
+>
+> @@ -27,10 +23,6 @@ extern void
+>  bcom_gen_bd_rx_release(struct bcom_task *tsk);
+>
+>
+> -extern struct bcom_task *
+> -bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
+> -			int initiator, int ipr);
+> -
+>  extern int
+>  bcom_gen_bd_tx_reset(struct bcom_task *tsk);
+>
+> --
+> 2.55.0
+>
 
