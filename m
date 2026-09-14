@@ -4,93 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF91AC88E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590B6C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZYe0H/DkNs3S1y5Hj6oAegp5W2rxwzj7DXdbHt4+9Y=; b=3TBvsQhCWySv3zLe3Cpuw/RztA
-	jWHV0U5lP19nC+QXwDRnmfyLNxnWlak5h7rkIy0gIrmjixaQt1fq/bC4lgyk7jZciFfZwCGgxd0V0
-	+GpFD7diBfquSCvDbFIm1g/vNEXMGs4cKDb4qf3/fj5qm5P4zSSoNvrlWARN5QOZVJMtGY0irbGyv
-	1QRtnW7yCkvc0V1mvkham69dSDL28pBFpGFd782VWYW5ZS7nYw6/ORh8oSYb+LMO5nvJMn5Aj0icc
-	2fo5cq+LrQQCQJo7noSjcDtwuFZTFIr5f8awCWu/sYxoFJBF/d360QuJYJzQpuHEquziqSESepUdF
-	XbLJgNPA==;
+	bh=7a2/ibp36NrABheYol3LAYhLxpjLT2pX3v2Uyuz4AvE=; b=V7T/XeAm6mR8To8grD8+b4sQRC
+	qJB7E6dRIanfj9NvWa1BembYsMtTLVZEO9jGV5lzZkpgwJkbBnXrUS560WiHKMYbZHKcH+NFN4860
+	0vuZgcMQRcKf/fTmKcfS3HklVGN7cRskZ6dXbrxvoXSfllvR/fMS5GMoKAMrwZRIEEf7A4xHuIf2N
+	5pr3BO2mxsiIkcXrcJVF+HTbQOTkYiWWdWoGq7uuEZY5u7BEeD+ldiwu+8L/KKh0B8OTfQOZ668zf
+	hfDoGUQlg2B/4c3V4tSXPBbInsGoj0orTfnWy87Auzme3XuGZvgHC8wQSRAWc0xU+hOj+4Df1dTv1
+	LI8Z/BUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62GN-00000002not-3IdP;
-	Mon, 14 Sep 2026 08:42:07 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x62Ie-00000002oMe-1zC3;
+	Mon, 14 Sep 2026 08:44:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62GA-00000002nc0-201q
+	id 1x62Ic-00000002oMU-1gYA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:41:59 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso8983475e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 01:41:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789375311; x=1789980111; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IZYe0H/DkNs3S1y5Hj6oAegp5W2rxwzj7DXdbHt4+9Y=;
-        b=XBlTFRKLuw1hULU+Xc3kdOytYxc+jmDqJVOeKpbC04TLO66lQMRU1m5WPKnGoCy8zy
-         9qLBAnqCeGNA885Qvc6SGQ0Ym376E33FLloTUqmcckjDsE86UwTgcmEeHlBWPe/zk0Oo
-         cCmtvLWP84E0wTwzl2Z24cfdlwAut1zqE54jfJxRIrJxoRxUH4qH+HGGUccFlmYlpBwE
-         DKCGyr9HqAmt+9L3Td7noofB3ZIEmrP0JTtQmKoh9lJr9RPCWPqmukGEIQ8oj5EoGxke
-         CNDOukq/jZuopcSXqf4mkP8Fa1DEGvb92cAURtKfVSph5ffURmtGBhqT/dZW+tpiIPzf
-         nQzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789375311; x=1789980111;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IZYe0H/DkNs3S1y5Hj6oAegp5W2rxwzj7DXdbHt4+9Y=;
-        b=cKhgW/40ZJ9sOiv4j959P9D7v6/0L7XspOjmZKwWuuwKKqPMAMnTWEB4otrOYgAmZm
-         e4pL5UBWuocFcP2P7LDTosslSSycEbjALtR+Yd/UtCb0tJG18/Y+oUP+33iOzG409rKe
-         lM6rCzFnuED4kpOlngkgxuXkDZTwVL8HgfNGm/lPHfng1q4EbUEsS+hO/Ebf8SFE7RAt
-         qAbEd8ZdebbN39vFXapRN/gcDMIdOZS5pXP7zsxlxCnIYy6dj/H71qiI8kCCNc5v9z6X
-         wSSgWUVOqgh3R8cBUK936Uoh+kKo24poCP9y/l22gC1jUtAxsWe8HKIQPaVJC1tXkuz7
-         zcAQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxgo40jPmYr1vDXjHRkZxPZuj/icVefl8CEltFVmSpzI1W/yKAIfYiJ2kJY5/ebuGIuxntcozruepcFGFe/jOjr@lists.infradead.org
-X-Gm-Message-State: AFuF++lcq8Uluw5FAXmJL1jnkHRERtdUK9oO5Bw4Y/1ma2TZZfPaBBkR
-	tpDtEVK1C0XAmb9tIe62fosLtRKfyN4/VTN1pBmth7hH/acgQJGNED2/2OpuSS9ajQ==
-X-Gm-Gg: AYBFou25LhRgCn2nmZc+lIX4/Y1A0PPv+I7iI0gsAaLg2q0RFIVh4yQW7DAtZC0mujA
-	j4iOavZUtQZTAPp2pwLj7hP0DOsnHCoFGTx1nH+0YiGLXXHC3PwTy6csBLFWae9RTSjjMfwc8Aa
-	PjQbmaA5fpmZ1MLe4gzquCNMaOCYHAWlG4ThML7/OHDwxC+ISV6bMKt/+pDmYSGW38BAE0Mp6VY
-	y98jhtF2fHok53Y1Jt15/1qq6om4Ei+I3CCWEJ+GLHv+z9Y5isHDbQHphfbGCnIzkGQ65KwpnyN
-	Ouf6q9cZLXY/N/cccawTvlD1XatzhtJ4B2x+wGBNu3FgvWjRUB5ysle0O3tcyvAl4OGIYENEDFp
-	c2G/9hS+nJnBGAt5m96kk8ti4WS5Ut1XdccSm1d3lHG154hLJHZ9bXJ3W+sTpvmXO9Rsyft+1Ss
-	/29VsiWtoNSNPNTpxZ9MMmUTwJZJ73BxFzgeG25Odqjyr1sXuxralhMSP2IIlETL6extq5jQ1Nt
-	tm7q2r5ETv+dBzqGBDj27cZK/Np6myo6k6JZr2GDVs=
-X-Received: by 2002:a05:600c:3b9a:b0:49c:ffde:45ff with SMTP id 5b1f17b1804b1-49e7a66b656mr16287655e9.17.1789375310790;
-        Mon, 14 Sep 2026 01:41:50 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb35bed0sm25945683f8f.32.2026.09.14.01.41.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 01:41:50 -0700 (PDT)
-Date: Mon, 14 Sep 2026 09:41:46 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	fuad.tabba@linux.dev, qperret@google.com
-Subject: Re: [PATCH v2] KVM: arm64: Fix protected VM fault on system with
- pages larger than 4K
-Message-ID: <aqezSgNz55DzInH0@google.com>
-References: <20260914075839.4019904-1-vdonnefort@google.com>
- <864ifs6xn4.wl-maz@kernel.org>
+	Mon, 14 Sep 2026 08:44:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 8C5684382C;
+	Mon, 14 Sep 2026 08:44:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E1D461F000FF;
+	Mon, 14 Sep 2026 08:44:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789375465;
+	bh=7a2/ibp36NrABheYol3LAYhLxpjLT2pX3v2Uyuz4AvE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Rwj4HuiQtNd14esUdf/Qvv6aPhmoQbFJ5UaoSQmWStFL9SLmR5fdBryWldc9drqLk
+	 QWiGN58TXw15pyRwxaEGxoF0rNFbGJFPP+mKkEF2ae6xNGG63XxBSNE1oaFHToO/NB
+	 EMPwopGEl4KU/hS9vipQRcDFedNZt2V393FN3qitUdunL1/nStuR6a3U/+wuADZiDx
+	 v76HU2pRpti6w+2kCHhenVVhmkLgcCqjQ7uUOVKwy2bAJrhWetPeva8LOoqW5x3JK/
+	 1w8Kgq2Q2CsIamelzJNL4BcA5QC1s6uiGbHhhS6vSyNAVy88/0/ouOcgcUQs3mQR9o
+	 ITFRaQkcWAYRg==
+Date: Mon, 14 Sep 2026 10:44:22 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v5 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
+Message-ID: <aqexDgkF7Nqp-fML@monoceros>
+References: <20260721062308.536947-1-cwweng.linux@gmail.com>
+ <20260721062308.536947-3-cwweng.linux@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gj7lpiutmh7njnbh"
 Content-Disposition: inline
-In-Reply-To: <864ifs6xn4.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_014154_566941_898E9CF8 
-X-CRM114-Status: GOOD (  33.98  )
+In-Reply-To: <20260721062308.536947-3-cwweng.linux@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,90 +71,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:32:47AM +0100, Marc Zyngier wrote:
-> On Mon, 14 Sep 2026 08:58:39 +0100,
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> > 
-> > Just like commit 08f97454b7fa ("KVM: arm64: Fix protected mode handling
-> > of pages larger than 4kB") fixed the boot of non-protected VMs on system
-> > larger than 4K pages, align the fault IPA down to the page-size for
-> > protected VMs.
-> > 
-> > To paraphrase Marc, pkvm_pgtable_stage2_map() assumes the address passed
-> > as a parameter is aligned to the size of the intended mapping, while
-> > HPFAR_EL2 gives the IPA minus the bottom 12 bits, regardless of the
-> > system page size configuration.
-> > 
-> > Add a check at the start of pkvm_pgtable_stage2_map() as we do not
-> > support !PAGE_ALIGNED arguments and use the gfn as an argument in all
-> > callers.
-> > 
-> > Fixes: ea03466e806f ("KVM: arm64: Handle aborts from protected VMs")
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > ---
-> > 
-> > Changelog:
-> > 
-> > v2:
-> >   - Use gfn_to_gpa(gfn)
-> >   - Drop "phys" from the PAGE_ALIGNED check, it isn't a requirement.
-> >   - Fix gmem_abort() as well (Sashiko)
-> > 
-> > v1: https://lore.kernel.org/all/20260913173516.3122436-1-vdonnefort@google.com/
-> > 
-> >  arch/arm64/kvm/mmu.c  | 7 ++++---
-> >  arch/arm64/kvm/pkvm.c | 3 +++
-> >  2 files changed, 7 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 9ba86450fe4a..ee78201a44df 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1672,10 +1672,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
-> >  		 * PTE, which will be preserved.
-> >  		 */
-> 
-> Context:
-> 
-> 	if (s2fd->nested)
-> 		gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
-> 	else
-> 		gfn = s2fd->fault_ipa >> PAGE_SHIFT;
-> 
-> [...]
-> 
-> >  		prot &= ~KVM_NV_GUEST_MAP_SZ;
-> > -		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
-> > +		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
-> >  								 prot, flags);
-> >  	} else {
-> > -		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
-> > +		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), PAGE_SIZE,
-> >  							 __pfn_to_phys(pfn), prot,
-> >  							 memcache, flags);
-> 
-> So 'gfn' is not related to the faulting IPA in the nested case, but is
-> the output address of the guest's own S2. You probably end-up with a
-> livelock handling the same fault forever, or worse.
-> 
-> It is a bit annoying that neither gmem nor pkvm are using
-> kvm_s2_fault_vma_info, which has the ability to reports all the
-> important stuff, as it would avoid this sort of bugs.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
 
-Using kvm_s2_fault_vma_info would surely help the THP support for protected VMs
-[1]. I am thinking now about bringing it as part of that series.
+--gj7lpiutmh7njnbh
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v5 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
+MIME-Version: 1.0
 
-However for a fix, that's a bit much?
+Hello,
 
-[1] https://lore.kernel.org/all/20260911135053.146435-23-vdonnefort@google.com/
+On Tue, Jul 21, 2026 at 02:23:08PM +0800, Chi-Wen Weng wrote:
+> +static int nuvoton_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+> +			     const struct pwm_state *state)
+> +{
+> +	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
+> +	unsigned int ch = pwm->hwpwm;
+> +	u64 duty_cycles, period_cycles;
+> +	u64 divisor;
+> +	u32 cmpdat, period, prescale;
+> +	int ret;
+> +
+> +	if (!state->enabled) {
+> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
+> +				MA35D1_PWM_POEN_EN(ch), 0);
 
--- 
-Vincent
+Does this mean the output pin goes High-Z on disable?
+
+> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
+> +				MA35D1_PWM_CNTEN_EN(ch), 0);
+> +
+> +		return 0;
+> +	}
+> +
+> +	prescale = nuvoton_pwm_get_prescale(nvtpwm, ch);
+> +	divisor = (u64)NSEC_PER_SEC * (prescale + 1);
+> +
+> +	period_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
+> +					    state->period, divisor);
+> +	if (!period_cycles)
+> +		return -EINVAL;
+> +
+> +	if (period_cycles > MA35D1_PWM_MAX_CYCLES)
+> +		period_cycles = MA35D1_PWM_MAX_CYCLES;
+> +
+> +	duty_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
+> +					  state->duty_cycle, divisor);
+> +	if (duty_cycles > period_cycles)
+> +		duty_cycles = period_cycles;
+> +
+> +	ret = nuvoton_pwm_config_channel(nvtpwm, ch);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (state->polarity == PWM_POLARITY_NORMAL)
+> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
+> +				MA35D1_PWM_POLCTL_INV(ch), 0);
+> +	else
+> +		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
+> +				MA35D1_PWM_POLCTL_INV(ch),
+> +				MA35D1_PWM_POLCTL_INV(ch));
+> +
+> +	/*
+> +	 * In up-counting mode the counter counts from 0 to PERIOD inclusive.
+> +	 * With zero point high and compare-up point low actions:
+> +	 * - CMPDAT = 0 produces 0% duty.
+> +	 * - CMPDAT > PERIOD produces 100% duty.
+> +	 *
+> +	 * period_cycles is limited to 0xffff, so PERIOD is at most 0xfffe
+> +	 * and a 100% duty cycle can be represented by CMPDAT = 0xffff.
+> +	 */
+> +	period = period_cycles - 1;
+> +	cmpdat = duty_cycles;
+> +
+> +	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_PERIOD(ch), period);
+> +	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch), cmpdat);
+
+This is racy, right? (i.e. if a period end happens between these two
+writes, we see (probably) one period with the new period length and the
+old duty_cycle.
+
+The result of the two questions should be a comment describing the
+behaviour, otherwise the code looks fine on a quick glance.
+
+Best regards
+Uwe
+
+--gj7lpiutmh7njnbh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqns+QACgkQj4D7WH0S
+/k5FSwf+Nk29Si7VT23M1ciM84MTOv3o0aAx6Syxa/FAYB/wGsbfOQfdrahzYO6y
+/0gU4Zjql0+4nu6sNrz9e9AJWqSljze9z/j1zdZQ1qAqlKH0Vfph85hrqW2CnJrA
+CwZiYCffuIHrITmJXG7ACtd2jTcdY8/YeUJQ3MuQlT4O67As/9VF+6RW+DUW4iFA
+L9vWx4Y7hhWGz4+TozTipkFBAX3ResmC/fPpPr15T1NxLYiFZrZS0Mh8bHbj//7Y
+5GmgHeuNqdiWWod/DN9iCDh9X1r8pu4ZewvCF+kDPYsQtZEgNZgi9I3QgadzaD1L
+rihEHMMi/YGrk/xiXD4TragJYmBS6A==
+=B1Dh
+-----END PGP SIGNATURE-----
+
+--gj7lpiutmh7njnbh--
 
