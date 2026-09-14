@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC91C88E70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 680A7C88E71
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 11:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Z+2zo/uHLpAWrlQD4KkWCSip6n6CBKdqF6AyBBk6GM=; b=rakOkjb8ZhS1iUy/FIQzmo2j0Z
-	qKL/loWqiJlEMwbZBIql4/UeHlBglxTon3yBGMnxLeT7L9Qx2+i9iTFSRJ3VZjJxco9FChY3hgwt4
-	W3ZJiueqFf/xeyx8DQO//h4la1ApCEfDAplTxZpbiE4O2XTrCQdpy2F6NzWt/jGOzKteUvVduaxGq
-	WmXQxW/edQKEU3iXyAp83dNzUbTvOKnnuQKkUX79gqKdp+gJezNaD5ZvEzH2UGBOpiH6dKj9fRjFf
-	dAarKrKFZc0vAS2W4E2B+Xo2ZfMt9lgg0EibMdeES0UTU+1dIAicsgmd1xLsYoNkWKiX/bOEYGZp3
-	Ydzveqcg==;
+	bh=3PNs48/hw6gOs+rnx8SOZCN8AN4K92Hm86xbJ3bLbk0=; b=2Vu6ddiBQknYhqLKESNNHuHzJu
+	6bPc88sZeMQasFfAfc6wzuOyKeGX6mrF/Y73+Q3oaX1hmoev1iFn+Dn/HfdDxjIoIcz/ZkasZLpe0
+	+PBn/KXk8vhhfdIQNjJXYFGgR9GRL8Hx6Fxdl2DRLuemFl1IlGGnUDVe1gsG7Xq5Et39rPPwaZsob
+	K2zmeA8aE7/sYOhHmcFufGbdOxF1vFiQFl4L8J0DDDZZLK164wPfehhhxu5Sp3wpMHX4pkOGLGQ33
+	ij3MwA3q+qxYwH30/9uzI3lDLLLwvF4gQutzY+wvLBhX/IOzeOKtIZLe7jOp/9dXeGvdWkPu2Ao3b
+	xPdVTROw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65IU-00000003Pca-032b;
-	Mon, 14 Sep 2026 11:56:30 +0000
+	id 1x65IT-00000003PbM-0pJn;
+	Mon, 14 Sep 2026 11:56:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65I1-00000003PGc-2YSP
+	id 1x65Ho-00000003P45-35ts
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 11:56:08 +0000
+	Mon, 14 Sep 2026 11:55:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E4304136C;
-	Mon, 14 Sep 2026 11:56:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 669671F00893;
-	Mon, 14 Sep 2026 11:55:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C6F0419C9;
+	Mon, 14 Sep 2026 11:55:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 754911F000FF;
+	Mon, 14 Sep 2026 11:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789386961;
-	bh=4Z+2zo/uHLpAWrlQD4KkWCSip6n6CBKdqF6AyBBk6GM=;
+	s=k20260515; t=1789386948;
+	bh=3PNs48/hw6gOs+rnx8SOZCN8AN4K92Hm86xbJ3bLbk0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Fawsoxt+MWnstAMEz+Elq9OO82rQr4t2DjbrUudeWjkKpJ8LZQfcy0KmTkQGAWyKD
-	 zeszTYH2k8yGXD02pi3sdMgqh6BW38nKLhPK43/jZPWpU7YIncnDfTxy7NZ1dr8p2n
-	 kLch/To2jhLRI39EQNj2acKfOscVRO8JuUKsJG/i2OU8QRTrGYWwD6pFwLpru4mni3
-	 wWOeiKwvct0qgip4Z8KuLARRI7O/kewRa/pPqtzqIy7VKxNzTnJt44VzKFjKsebEGe
-	 E3vDFYnBH6lNKTBz5P3oxL4m8KwIwwn5U91wZmfXIOsTPiRz+Pj6Yj+e5bfO/o5Q3B
-	 Uc3U6nQdAx+XQ==
+	b=M6A2CgF5LeVspIkbMUzyMNRTzo3zI5acgJNPp6J8qHbkjnFodyAozM0TBm6bDebt/
+	 bnQHMhwq8gT5xIeQl5BvXABoHeCoQWGbDMBZcIEYvcEhaLKbF6fr+MeZS/EBRQVLvc
+	 TEkxlcxLaCyzX5RciK3LhCX9pBRk6xRZdfm27nJDMAwVn1mfr1jMlG/CcgxZqYNUPl
+	 R3+LQXrc6vjYJAQzf1amSpkM7E8obbmPc7TTto6Z8i2B/M/uY5d1x4q3OXqms8SMcC
+	 OpEyZojv1bKj15/NRCS7GZF5bBNs25nIlPrtXnOE106fN13Dkk6JvSOVHNcWST4skC
+	 UIwTqRJIzYJJA==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 14 Sep 2026 13:54:48 +0200
-Subject: [PATCH v2 20/20] ARM: dts: ux500: Remove DB8500 EPOD regulators
+Date: Mon, 14 Sep 2026 13:54:45 +0200
+Subject: [PATCH v2 17/20] dmaengine: ste_dma40: Use power domain for LCLA
+ SRAM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-ux500-power-domains-v7-1-v2-20-9d0c17e1f816@kernel.org>
+Message-Id: <20260914-ux500-power-domains-v7-1-v2-17-9d0c17e1f816@kernel.org>
 References: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 In-Reply-To: <20260914-ux500-power-domains-v7-1-v2-0-9d0c17e1f816@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,7 +62,8 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
+ Frank Li <Frank.li@oss.nxp.com>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,170 +79,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Delete the obsolete DB8500 EPOD regulator nodes.
+Replace the LCLA ESRAM regulator with runtime PM.
 
-Keep the VAPE and VSMPS2 compatibility regulators.
+Use the SRAM device that owns the ESRAM34 power domain.
 
+Hold that domain while DMA transfers are active. The DMA controller is
+runtime PM IRQ-safe, so keep taking explicit LCLA runtime PM references
+from the descriptor preparation path instead of relying on a runtime PM
+device link from the atomic transfer path.
+
+Add a stateless device link so system PM keeps the DMA controller ordered
+after the LCLA SRAM supplier.
+
+Suggested-by: Frank Li <Frank.li@oss.nxp.com>
 Assisted-by: LLM
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/st/ste-dbx5x0.dtsi | 92 ------------------------------------
- 1 file changed, 92 deletions(-)
+ drivers/dma/ste_dma40.c | 130 ++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 88 insertions(+), 42 deletions(-)
 
-diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-index afba6bee42af..ef5e7b3cefea 100644
---- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-+++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-@@ -675,95 +675,15 @@ thermal: thermal@801573c0 {
- 				#thermal-sensor-cells = <0>;
- 			};
+diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
+index eda3f91741ed..2841af5b160b 100644
+--- a/drivers/dma/ste_dma40.c
++++ b/drivers/dma/ste_dma40.c
+@@ -21,8 +21,8 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_dma.h>
++#include <linux/of_platform.h>
+ #include <linux/amba/bus.h>
+-#include <linux/regulator/consumer.h>
  
--			/*
--			 * TODO: Delete these bogus regulators and replace with power
--			 * domains.
--			 */
- 			db8500-prcmu-regulators {
- 				compatible = "stericsson,db8500-prcmu-regulator";
+ #include "dmaengine.h"
+ #include "ste_dma40.h"
+@@ -383,6 +383,7 @@ struct d40_lli_pool {
+  * @node: List entry.
+  * @is_in_client_list: true if the client owns this descriptor.
+  * @cyclic: true if this is a cyclic job
++ * @lcla_pm_active: LCLA SRAM power domain is held for this descriptor.
+  *
+  * This descriptor is used for both logical and physical transfers.
+  */
+@@ -402,6 +403,7 @@ struct d40_desc {
  
--				// DB8500_REGULATOR_VAPE
- 				db8500_vape_reg: db8500_vape {
- 					regulator-always-on;
- 				};
+ 	bool				 is_in_client_list;
+ 	bool				 cyclic;
++	bool				 lcla_pm_active;
+ };
  
--				// DB8500_REGULATOR_VARM
--				db8500_varm_reg: db8500_varm {
--				};
--
--				// DB8500_REGULATOR_VMODEM
--				db8500_vmodem_reg: db8500_vmodem {
--				};
--
--				// DB8500_REGULATOR_VPLL
--				db8500_vpll_reg: db8500_vpll {
--				};
--
--				// DB8500_REGULATOR_VSMPS1
--				db8500_vsmps1_reg: db8500_vsmps1 {
--				};
--
--				// DB8500_REGULATOR_VSMPS2
- 				db8500_vsmps2_reg: db8500_vsmps2 {
- 				};
--
--				// DB8500_REGULATOR_VSMPS3
--				db8500_vsmps3_reg: db8500_vsmps3 {
--				};
--
--				// DB8500_REGULATOR_VRF1
--				db8500_vrf1_reg: db8500_vrf1 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAMMDSP
--				db8500_sva_mmdsp_reg: db8500_sva_mmdsp {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAMMDSPRET
--				db8500_sva_mmdsp_ret_reg: db8500_sva_mmdsp_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAPIPE
--				db8500_sva_pipe_reg: db8500_sva_pipe {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAMMDSP
--				db8500_sia_mmdsp_reg: db8500_sia_mmdsp {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAMMDSPRET
--				db8500_sia_mmdsp_ret_reg: db8500_sia_mmdsp_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAPIPE
--				db8500_sia_pipe_reg: db8500_sia_pipe {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SGA
--				db8500_sga_reg: db8500_sga {
--					vin-supply = <&db8500_vape_reg>;
--				};
--
--				// DB8500_REGULATOR_SWITCH_B2R2_MCDE
--				db8500_b2r2_mcde_reg: db8500_b2r2_mcde {
--					vin-supply = <&db8500_vape_reg>;
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM12
--				db8500_esram12_reg: db8500_esram12 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM12RET
--				db8500_esram12_ret_reg: db8500_esram12_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM34
--				db8500_esram34_reg: db8500_esram34 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM34RET
--				db8500_esram34_ret_reg: db8500_esram34_ret {
--				};
- 			};
- 		};
+ /**
+@@ -571,7 +573,8 @@ struct d40_gen_dmac {
+  * to phy_chans entries.
+  * @plat_data: Pointer to provided platform_data which is the driver
+  * configuration.
+- * @lcpa_regulator: Pointer to hold the regulator for the esram bank for lcla.
++ * @lcla_dev: SRAM device for the ESRAM bank used by LCLA.
++ * @lcla_link: Device link to keep system PM ordered against LCLA.
+  * @phy_res: Vector containing all physical channels.
+  * @lcla_pool: lcla pool settings and data.
+  * @lcpa_base: The virtual mapped address of LCPA.
+@@ -606,7 +609,8 @@ struct d40_base {
+ 	struct d40_chan			**lookup_log_chans;
+ 	struct d40_chan			**lookup_phy_chans;
+ 	struct stedma40_platform_data	 *plat_data;
+-	struct regulator		 *lcpa_regulator;
++	struct device			 *lcla_dev;
++	struct device_link		 *lcla_link;
+ 	/* Physical half channels */
+ 	struct d40_phy_res		 *phy_res;
+ 	struct d40_lcla_pool		  lcla_pool;
+@@ -628,6 +632,36 @@ static struct device *chan2dev(struct d40_chan *d40c)
+ 	return &d40c->chan.dev->device;
+ }
  
-@@ -1121,8 +1041,6 @@ msp0: msp@80123000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80123000 0x1000>;
- 			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
++static void d40_transfer_runtime_get(struct d40_base *base)
++{
++	pm_runtime_get_sync(base->dev);
++}
++
++static int d40_lcla_runtime_get(struct d40_base *base)
++{
++	if (!base->lcla_dev)
++		return 0;
++
++	return pm_runtime_resume_and_get(base->lcla_dev);
++}
++
++static void d40_desc_lcla_runtime_put(struct d40_chan *d40c,
++				      struct d40_desc *d40d)
++{
++	struct d40_base *base = d40c->base;
++
++	if (!d40d->lcla_pm_active)
++		return;
++
++	d40d->lcla_pm_active = false;
++	pm_runtime_put(base->lcla_dev);
++}
++
++static void d40_transfer_runtime_put(struct d40_base *base)
++{
++	pm_runtime_put_autosuspend(base->dev);
++}
++
+ static bool chan_is_physical(struct d40_chan *chan)
+ {
+ 	return chan->log_num == D40_PHY_CHAN;
+@@ -818,6 +852,7 @@ static void d40_desc_free(struct d40_chan *d40c, struct d40_desc *d40d)
  
- 			dmas = <&dma 31 0 0x12>, /* Logical - DevToMem - HighPrio */
-@@ -1140,8 +1058,6 @@ msp1: msp@80124000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80124000 0x1000>;
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
+ 	d40_pool_lli_free(d40c, d40d);
+ 	d40_lcla_free_all(d40c, d40d);
++	d40_desc_lcla_runtime_put(d40c, d40d);
+ 	kmem_cache_free(d40c->base->desc_slab, d40d);
+ }
  
- 			/* This DMA channel only exist on DB8500 v1 */
-@@ -1160,8 +1076,6 @@ msp2: msp@80117000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80117000 0x1000>;
- 			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
+@@ -1516,7 +1551,7 @@ static struct d40_desc *d40_queue_start(struct d40_chan *d40c)
+ 	if (d40d != NULL) {
+ 		if (!d40c->busy) {
+ 			d40c->busy = true;
+-			pm_runtime_get_sync(d40c->base->dev);
++			d40_transfer_runtime_get(d40c->base);
+ 		}
  
- 			dmas = <&dma 14 0 0x12>, /* Logical  - DevToMem - HighPrio */
-@@ -1180,8 +1094,6 @@ msp3: msp@80125000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80125000 0x1000>;
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
+ 		/* Remove from queue */
+@@ -1535,6 +1570,7 @@ static struct d40_desc *d40_queue_start(struct d40_chan *d40c)
+ 			d40_desc_remove(d40d);
+ 			d40_desc_free(d40c, d40d);
+ 			d40c->busy = false;
++			d40_transfer_runtime_put(d40c->base);
+ 			return ERR_PTR(err);
+ 		}
+ 	}
+@@ -1583,7 +1619,7 @@ static void dma_tc_handle(struct d40_chan *d40c)
+ 		if (d40_queue_start(d40c) == NULL) {
+ 			d40c->busy = false;
  
- 			/* This DMA channel only exist on DB8500 v2 */
-@@ -1225,8 +1137,6 @@ gpu@a0300000 {
- 			clocks = <&prcmu_clk PRCMU_ACLK>, <&prcmu_clk PRCMU_SGACLK>;
- 			clock-names = "bus", "core";
- 			power-domains = <&pm_domains DOMAIN_SGA>;
--			/* TODO: delete and replace with power-domain handling */
--			mali-supply = <&db8500_sga_reg>;
- 		};
+-			pm_runtime_put_autosuspend(d40c->base->dev);
++			d40_transfer_runtime_put(d40c->base);
+ 		}
  
- 		mcde@a0350000 {
-@@ -1234,8 +1144,6 @@ mcde@a0350000 {
- 			reg = <0xa0350000 0x1000>;
- 			interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
- 			power-domains = <&pm_domains DOMAIN_B2R2_MCDE>;
--			/* TODO: delete and replace with power-domain handling */
--			epod-supply = <&db8500_b2r2_mcde_reg>;
- 			clocks = <&prcmu_clk PRCMU_MCDECLK>, /* Main MCDE clock */
- 				 <&prcmu_clk PRCMU_LCDCLK>, /* LCD clock */
- 				 <&prcmu_clk PRCMU_PLLDSI>; /* HDMI clock */
+ 		d40_desc_remove(d40d);
+@@ -1637,6 +1673,7 @@ static void dma_tasklet(struct tasklet_struct *t)
+ 		} else if (!d40d->is_in_client_list) {
+ 			d40_desc_remove(d40d);
+ 			d40_lcla_free_all(d40c, d40d);
++			d40_desc_lcla_runtime_put(d40c, d40d);
+ 			list_add_tail(&d40d->node, &d40c->client);
+ 			d40d->is_in_client_list = true;
+ 		}
+@@ -2067,7 +2104,7 @@ static int d40_free_dma(struct d40_chan *d40c)
+ 		d40c->base->lookup_phy_chans[phy->num] = NULL;
+ 
+ 	if (d40c->busy)
+-		pm_runtime_put_autosuspend(d40c->base->dev);
++		d40_transfer_runtime_put(d40c->base);
+ 
+ 	d40c->busy = false;
+ 	d40c->phy_chan = NULL;
+@@ -2246,6 +2283,7 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
+ 	dma_addr_t dst_dev_addr;
+ 	struct d40_desc *desc;
+ 	unsigned long flags;
++	bool got_lcla_pm = false;
+ 	int ret;
+ 
+ 	if (!chan->phy_chan) {
+@@ -2255,11 +2293,20 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
+ 
+ 	d40_set_runtime_config_write(dchan, &chan->slave_config, direction);
+ 
++	ret = d40_lcla_runtime_get(chan->base);
++	if (ret) {
++		chan_err(chan, "Failed to enable LCLA power domain\n");
++		return NULL;
++	}
++	got_lcla_pm = !!chan->base->lcla_dev;
++
+ 	spin_lock_irqsave(&chan->lock, flags);
+ 
+ 	desc = d40_prep_desc(chan, sg_src, sg_len, dma_flags);
+ 	if (desc == NULL)
+ 		goto unlock;
++	desc->lcla_pm_active = got_lcla_pm;
++	got_lcla_pm = false;
+ 
+ 	if (sg_next(&sg_src[sg_len - 1]) == sg_src)
+ 		desc->cyclic = true;
+@@ -2297,6 +2344,8 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
+ 	d40_desc_free(chan, desc);
+  unlock:
+ 	spin_unlock_irqrestore(&chan->lock, flags);
++	if (got_lcla_pm)
++		pm_runtime_put(chan->base->lcla_dev);
+ 	return NULL;
+ }
+ 
+@@ -2628,7 +2677,7 @@ static int d40_terminate_all(struct dma_chan *chan)
+ 	d40_term_all(d40c);
+ 	pm_runtime_put_autosuspend(d40c->base->dev);
+ 	if (d40c->busy)
+-		pm_runtime_put_autosuspend(d40c->base->dev);
++		d40_transfer_runtime_put(d40c->base);
+ 	d40c->busy = false;
+ 
+ 	spin_unlock_irqrestore(&d40c->lock, flags);
+@@ -2931,29 +2980,11 @@ static int __init d40_dmaengine_init(struct d40_base *base,
+ #ifdef CONFIG_PM_SLEEP
+ static int dma40_suspend(struct device *dev)
+ {
+-	struct d40_base *base = dev_get_drvdata(dev);
+-	int ret;
+-
+-	ret = pm_runtime_force_suspend(dev);
+-	if (ret)
+-		return ret;
+-
+-	if (base->lcpa_regulator)
+-		ret = regulator_disable(base->lcpa_regulator);
+-	return ret;
++	return pm_runtime_force_suspend(dev);
+ }
+ 
+ static int dma40_resume(struct device *dev)
+ {
+-	struct d40_base *base = dev_get_drvdata(dev);
+-	int ret = 0;
+-
+-	if (base->lcpa_regulator) {
+-		ret = regulator_enable(base->lcpa_regulator);
+-		if (ret)
+-			return ret;
+-	}
+-
+ 	return pm_runtime_force_resume(dev);
+ }
+ #endif
+@@ -3509,7 +3540,10 @@ static int __init d40_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct device_node *np_lcpa;
++	struct device_node *np_lcla;
++	struct device_node *np_lcla_parent;
+ 	struct d40_base *base;
++	struct platform_device *lcla_pdev;
+ 	struct resource *res;
+ 	struct resource res_lcpa;
+ 	int num_reserved_chans;
+@@ -3610,21 +3644,32 @@ static int __init d40_probe(struct platform_device *pdev)
+ 	irq_requested = true;
+ 
+ 	if (base->plat_data->use_esram_lcla) {
++		np_lcla = of_parse_phandle(np, "sram", 1);
++		if (!np_lcla) {
++			dev_err(dev, "no LCLA SRAM node\n");
++			ret = -EINVAL;
++			goto destroy_cache;
++		}
+ 
+-		base->lcpa_regulator = regulator_get(base->dev, "lcla_esram");
+-		if (IS_ERR(base->lcpa_regulator)) {
+-			d40_err(dev, "Failed to get lcpa_regulator\n");
+-			ret = PTR_ERR(base->lcpa_regulator);
+-			base->lcpa_regulator = NULL;
++		np_lcla_parent = of_get_parent(np_lcla);
++		of_node_put(np_lcla);
++		if (!np_lcla_parent) {
++			dev_err(dev, "no LCLA SRAM parent node\n");
++			ret = -EINVAL;
+ 			goto destroy_cache;
+ 		}
+ 
+-		ret = regulator_enable(base->lcpa_regulator);
+-		if (ret) {
+-			d40_err(dev,
+-				"Failed to enable lcpa_regulator\n");
+-			regulator_put(base->lcpa_regulator);
+-			base->lcpa_regulator = NULL;
++		lcla_pdev = of_find_device_by_node(np_lcla_parent);
++		of_node_put(np_lcla_parent);
++		if (!lcla_pdev) {
++			ret = -EPROBE_DEFER;
++			goto destroy_cache;
++		}
++		base->lcla_dev = &lcla_pdev->dev;
++		base->lcla_link = device_link_add(dev, base->lcla_dev,
++						  DL_FLAG_STATELESS);
++		if (!base->lcla_link) {
++			ret = -ENODEV;
+ 			goto destroy_cache;
+ 		}
+ 	}
+@@ -3663,16 +3708,17 @@ static int __init d40_probe(struct platform_device *pdev)
+ 				 SZ_1K * base->num_phy_chans,
+ 				 DMA_TO_DEVICE);
+ 
+-	if (!base->lcla_pool.base_unaligned && base->lcla_pool.base)
++	if (!base->lcla_pool.base_unaligned && base->lcla_pool.base &&
++	    base->lcla_pool.pages)
+ 		free_pages((unsigned long)base->lcla_pool.base,
+ 			   base->lcla_pool.pages);
+ 
+ 	kfree(base->lcla_pool.base_unaligned);
+ 
+-	if (base->lcpa_regulator) {
+-		regulator_disable(base->lcpa_regulator);
+-		regulator_put(base->lcpa_regulator);
+-	}
++	if (base->lcla_link)
++		device_link_del(base->lcla_link);
++	if (base->lcla_dev)
++		put_device(base->lcla_dev);
+ 	if (irq_requested)
+ 		free_irq(base->irq, base);
+ 	if (runtime_pm_enabled)
 
 -- 
 2.55.0
