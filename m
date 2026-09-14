@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0A7C88E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E6FC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYmLbrJKIZxgwGEiZIbHSY9qUwUWxupEK6wMeeExcEQ=; b=RKbn2x+OmxYdfz3kW+K0WIddek
-	yC9ys6wtsxIn9U2mp9O8VTFmQggbdTsmhZDWiO/ru2hT6jriZ31xFcBK6Q38B8eaaPy4ZgBDpLISF
-	gekzfqc7lvgIqKaKg014rdLtJ7FDx3XpM97I1XATs3ZNiHY+uH/EQG5x/ZZfRhNqnTER5HcqyNwtt
-	DbJ3L0Ewq+070VR3ktcsEOEz7N5avYO1MZIwBBqsn6z8sBhslttFbfv/lmwk9T012jqlB5AT9vjdM
-	uaQFzArNQIpYsGuEvPHe0Fx+TrInd8f37Q/CEdhSGJhTGGEu0UX2rkNEB0ZfHYTIBsi4vOclU+mbB
-	59gfFmkQ==;
+	bh=KKSIBT+jPeW8pejlbEWHl5sVzP1rg7BJWTH4v/8qNGY=; b=Yw2JMSJ3R/8je05MHHNPRowh8e
+	/T8dl9vVECQiCxsyPQBYttghYIVEXLZSqMXgyrsKOnOpOu0XYGLAtSFxMXHEhoWJweFV+R79SUW3a
+	uyw5MMP+oDO1dDV29k5dn/LjtojkCTSbeYpA6fBzmHVDSwv2EyLIyvhGzURjlsrfxkDdCz58F2xJm
+	Zz1ixII9vZmwN3AhOGYeCPrPLPQGbvnYZNdH5lns3AYyafhHMV2Tyw4x0pYFA5xS0xL1qpif3mxjq
+	wy/r6x+dtLtypEre6T7Ks5w6qWk57+HL0H/ZyjPmf9HC7Kr035BakqKZto1BoGIVcOHQsmka7sMBs
+	0zDkjyZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69cU-00000004IYC-1Jcw;
-	Mon, 14 Sep 2026 16:33:26 +0000
-Received: from out-226.mta0.migadu.com ([2001:41d0:1004:224b::e2] helo=mta0.migadu.com)
+	id 1x69TP-00000004HNm-2DKh;
+	Mon, 14 Sep 2026 16:24:03 +0000
+Received: from out-84.mta0.migadu.com ([2001:41d0:1004:224b::54] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x69cP-00000004IVt-1Rbq
+	id 1x69TM-00000004HN2-1Jk2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 16:33:25 +0000
+	Mon, 14 Sep 2026 16:24:01 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=W5+NjNc2Yvil7nhmREpSKhaOG865kOQghRODVtnSokk=;
+DKIM-Signature: a=rsa-sha256; bh=+462xxdyeMC1GN/R2WQFu0vf/hv5y4sjHsNqOzNci58=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789403599; v=1; x=1790008399;
- b=BoHdHkuOKTjYYTC+fUMYCygbMU2KtrBvqWYjKnVaE8UZUiVUXre+1LEbGilV1t6SiC5S2xYS
- vxZWo8Kl4tHX2XTPGG8tuPvwD3GNk0FbJ/lsNH6OzqzU8A5cFhwPHtRsu8DzglLAIi11IIiRRbo
- ANA4vtjsHyZAHLcb+V4gXkxw=
+ t=1789403037; v=1; x=1790007837;
+ b=ffaY/ToM5HK499t24w0ukSoj7is2AMn/UjUbdEpdwC0eDXjk+I2iI4AQa/O8+KE991LYW7tF
+ 51kFw7GoyS9WrPi0pai5cWjKzyOxz7ejPJz3PMM5pNSN7PKWc5KDa6xcofBhz5WTQcYXWajzDw0
+ Rn0Y9m7/GJZCOzOpyABnuxCg=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f7abb67a740cca37;
-	Mon, 14 Sep 2026 16:33:09 +0000
-X-Mizu-Trace-ID: f7abb67a740cca37
+Received: by smtp.migadu.com with ESMTPS id cc250bccb71943b3;
+	Mon, 14 Sep 2026 16:23:57 +0000
+X-Mizu-Trace-ID: cc250bccb71943b3
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b78e073980so9651e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:33:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx52pRe7Fc/OijOcz+J1HwJc2kTtL/259eV0X2gRXJbWSfXzKmAjrkB/K2FQfvqZQO2TyAqteoZgrkpZlSSKpEw@lists.infradead.org
-X-Gm-Message-State: AFuF++kqYzGnXbCeGHacwVgoxbdc97eTpWbfKxsFdb0TqrlOQVVSqmVH
-	hWa5AXEU2K5OaijalB21kXloqfKEPgLmS0nL3aFWGVNCBUwhownEvtw341CKpmoDuM+4z/8DsEf
-	QhEpM8NntEryiqB86kgd8hXI5+j8I+BPP3jeXMY5y
-X-Received: by 2002:a05:6512:b2a:b0:5b1:4fd9:ac with SMTP id
- 2adb3069b0e04-5b8af7a5112mr81906e87.3.1789403588069; Mon, 14 Sep 2026
- 09:33:08 -0700 (PDT)
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so9852e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:23:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy1BGhfYpMowLt1VKN6O/AeWijIIiQlenJpzaHNVftkMhb1i5fopIBXHKTDQzxWB7BZ1AF9um8SX0lCcz54utSs@lists.infradead.org
+X-Gm-Message-State: AFuF++mv8o2myh/uwZHT55J6guHdfYDxK44//s4vwWopDbwmUQfipxe9
+	VRkJj9jptUopaLAbX+UeoxOYTF5iSNBLnDaKmYYmB0OqXD3EK9HFhcwZ1Gaz2Up7mmdPzvVj2Ee
+	KYmGZvpdUpYS0BwMhk5hsBDT8JxmQb/NZkijeEG7T
+X-Received: by 2002:ac2:5681:0:b0:5ae:b1b3:145a with SMTP id
+ 2adb3069b0e04-5b8ae4c4829mr98689e87.6.1789403036316; Mon, 14 Sep 2026
+ 09:23:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260830-host-direct-messages-v7-0-45f6e6db72c2@google.com> <20260830-host-direct-messages-v7-2-45f6e6db72c2@google.com>
-In-Reply-To: <20260830-host-direct-messages-v7-2-45f6e6db72c2@google.com>
+References: <20260830-host-direct-messages-v7-0-45f6e6db72c2@google.com> <20260830-host-direct-messages-v7-1-45f6e6db72c2@google.com>
+In-Reply-To: <20260830-host-direct-messages-v7-1-45f6e6db72c2@google.com>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 14 Sep 2026 17:32:31 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwCrh3SXggD4p9BD0A4tUe0Xc9bPREw94uAwrEizgygeA@mail.gmail.com>
-X-Gm-Features: AcwNN1U-PrGVaJ7CGsoLsa0purDu4_JoU58bTFRJLLpJ0ZCVxT7qQm_pkVz-m_s
-Message-ID: <CA+EHjTwCrh3SXggD4p9BD0A4tUe0Xc9bPREw94uAwrEizgygeA@mail.gmail.com>
-Subject: Re: [PATCH v7 2/3] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
+Date: Mon, 14 Sep 2026 17:23:19 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx54xunFQxmAo_Ub+C4ZhhPvhixdkenfWV4rkF0jPCNsA@mail.gmail.com>
+X-Gm-Features: AcwNN1X2uetrRmFIoGYENcfcuU7e1BdSXNmH8r5ZduL9wOubCa5NrjEj-eVtpTM
+Message-ID: <CA+EHjTx54xunFQxmAo_Ub+C4ZhhPvhixdkenfWV4rkF0jPCNsA@mail.gmail.com>
+Subject: Re: [PATCH v7 1/3] KVM: arm64: Block host-initiated FF-A direct responses
 To: perlarsen@google.com
 Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
@@ -69,8 +68,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_093323_531144_5340407E 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260914_092400_497643_296340C7 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Per, Seb,
+Hi Per,
 
 On Mon, 31 Aug 2026 at 00:08, Per Larsen via B4 Relay
 <devnull+perlarsen.google.com@kernel.org> wrote:
-[...]
-> Allow direct messages to be forwarded from the host. The host should
-> not be sending framework messages so they are filtered out.
+...
+> @@ -686,8 +686,10 @@ static bool ffa_call_supported(u64 func_id)
+>   case FFA_MSG_SEND:
+>   case FFA_MSG_POLL:
+>   case FFA_MSG_WAIT:
+> - /* 32-bit variants of 64-bit calls */
+> + /* The host is never the target of a direct request */
+>   case FFA_MSG_SEND_DIRECT_RESP:
+> + case FFA_FN64_MSG_SEND_DIRECT_RESP:
+> + /* 32-bit variants of 64-bit calls */
+>   case FFA_RXTX_MAP:
+>   case FFA_MEM_DONATE:
+>   case FFA_MEM_RETRIEVE_REQ:
 
-The patch also rejects a sender ID that isn't HOST_FFA_ID, which the
-message doesn't mention. Could you add a line for it?
+Sashiko asked whether the interfaces it listed should be added to the
+blocklist too. For FFA_FN64_NOTIFICATION_INFO_GET the answer looks
+like yes: FFA_FN_NATIVE() is FFA_FN64_##name on arm64, and
+ffa_notification_info_get() is the only in-tree caller, so the 32-bit
+entry a few lines below never matches what the host sends. Could you
+add it here?
 
-[...]
-
-> + if (upper_32_bits(endp) ||
-> +    FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != HOST_FFA_ID) {
-
-Rejecting a non-zero high half of x1 makes sense to me, since EL2
-checks bits 31:16 and then forwards the whole register to EL3, and
-handle_host_smc() already does the same for x0. x3 to x17 reach EL3 as
-the host wrote them though. Was the intent to stop at the registers
-this function reads?
-
-[...]
-
-> + struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-
-This relies on struct arm_smccc_1_2_regs fitting in the 31 entries of
-regs[], which holds today at 18. Could it take a BUILD_BUG_ON, like
-do_ffa_mem_xfer() has for its fids?
+The other three aren't the same case. FFA_RX_RELEASE has to keep going
+through, since the host's release is what frees the hypervisor's RX
+buffer after do_ffa_part_get().
 
 Cheers,
 /fuad
