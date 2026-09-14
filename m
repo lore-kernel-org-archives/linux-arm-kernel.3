@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3832DC88E6A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525C6C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 09:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vUAgjTs6GdjG01KZPCc5Vh53pfUq/UJYtzOr24zdMQ=; b=wMrkHYy3sUUJclAwkNMKXZ7mG3
-	lWFHg2bK9lPwz+UiRlw//swlFd9h0O7VYy6rsxQ9K4SnQKg3BbwbNCQ147+ZLVDfT1NcCsaficzZX
-	uemOtlxx0POm/YLnwZ/x9TCN+jYDitc38OpGYNACEV3zMBuc8tG209UtclhEChBSKLCO1AdJvhKhM
-	Rb9LtKXLqUCIokcpJPuPkoeOiVB6rXae4KOlGUBiB/mXoPyjAMzOquvW2NPVm+WAlgAjdHZF/eNii
-	O9/gUncv5y6xGttP7zPoq3onZwfBaKdcaUDtnFlk8vb0dRKreapEg/25xqZ/oz7j2k7Qtw24cRYk6
-	PuyV0y5g==;
+	bh=O1aFOPIm665Eiw+j6TUvQPtIt8QoHRt8HSXrKrg0cGs=; b=YuAA2YPdcFK+PCeWvs40sh7IJ7
+	E17Xa/gjlNwA8UkRuriCv9d2z6FdiQKLWsxfwRg4UHHpF8AcLS70TStfxGuXiYLR4dl23Lqx8yrDS
+	/kGd5JA3YGrNwyJLZTfjRxuQ6yY9pGvoGYFbYAHf7VQ3qa6yS+sPedUMBYVSyYaY6Exsjzs1/pjGC
+	3CPFHAk4gmVCTAaY8flblLa6KOj7waGUHXsJxXEHt1Pvt3wiH3zLVuS90aCZbnCTyDOQ9NIsP+sCO
+	SwxCl98V5VAvaQWCcWvkBayZaepIWSebTd2hF5GGullXWVJekg8MoFR3IJXw+fb2GiW178I5Y41Ia
+	f0QlMpww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Wo-00000002qer-06gr;
-	Mon, 14 Sep 2026 08:59:06 +0000
-Received: from out-61.mta0.migadu.com ([2001:41d0:1004:224b::3d] helo=mta0.migadu.com)
+	id 1x62d7-00000002rRA-3G5t;
+	Mon, 14 Sep 2026 09:05:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Wl-00000002qdQ-1iCL
+	id 1x62d6-00000002rQy-2kR8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:59:05 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=g6znYCCn3/yoIa4DdoJwc9F7KKna78UvWYBm5/Hagk4=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789376339; v=1; x=1789981139;
- b=MRCLqk/ltyx2C0g5pRAKsZtm0iJXn9FdB5sUR+T1MnXCemAG26tqvbnbbddaf9RktEnzOt9X
- TSLxHSlYVsVIjbLYi5uXv6WKgVq0AKwacGgwccAXFTttdo0UPTHO8QEQKpmoBx1lXyZLeG5px5v
- kknGEyoBsgSXy6p8rGUpCJrMsqagq6RD/75wJU1tzuDqorV13kb47SteqvdSmhnZh7tE26U7xty
- DjohuNK0lmEYta8feJoc4bXJtTZTY2xT5ZO1a76AT7oRcL7AFMad1522r1nPPaaiyAw18PBhtO/
- 0/534V5NzQwNmzkHbYfFB92CgWxPXN7/PnVsACG+tMzqA==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b1d13efd5afab658;
-	Mon, 14 Sep 2026 08:58:49 +0000
-X-Mizu-Trace-ID: b1d13efd5afab658
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
+	Mon, 14 Sep 2026 09:05:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0086D601EF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:05:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96DDD1F008A6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:05:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789376735;
+	bh=O1aFOPIm665Eiw+j6TUvQPtIt8QoHRt8HSXrKrg0cGs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=J89Iz0koAqOnjzK0pkFz60RQBdV9uLL3PzTizp1q54dlHbB8m5kxR/jEBgyNcnPGr
+	 o41oMrc+ZEeaMA6gdGuiG4bhEhmubQFkL7bSEWtYffRfZS59SmRTFLDsKFA4iKwuNi
+	 5plNydnXgiAvG63mvvFTY659e78HvUJ4uL50Tg0W0JW7Jxq4iBgq7uBCW24rrIzpr4
+	 H93mN0zBZudKDCpKchVKvUwdcX1eYDorV6zxla9uLS5akvn4DEY+NsQngsHG5CF30Y
+	 QkYKyRr34MDvtpETel86OkqJ/7vaDZDALxlGdEkdbuKDs0hOYuZLpTKbtnFKV21vae
+	 yoLgbfzsqz0qQ==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f16f15so1981043e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 02:05:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwQF7nFYfD7UaUOoVg/jSnao6zbdB1mNp+fLulZacrIPYMonyUiJjAFqkb7yT+OzR1zmvf0KG7yfnYL6gBIwUaB@lists.infradead.org
+X-Gm-Message-State: AFuF++ln39E1XnZC0c8ON5hkuAkn0eXqn3UR1BtCrweFwDvlwvNOeSpt
+	USul4f2Vkrmh27JFAts1hGt5h7yNfMp9YgmMSWrXuI/11IHMSLVjP5ygsqFZY8yYQ8JfEDZm/0v
+	wZ7blDbPO5cBpBPVB8hmj3wOZlEFDkF4=
+X-Received: by 2002:a05:6512:668d:20b0:5b8:afd2:c17b with SMTP id
+ 2adb3069b0e04-5b8afd2c4cbmr300055e87.11.1789376734252; Mon, 14 Sep 2026
+ 02:05:34 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260829194203.108240-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260829194203.108240-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 14 Sep 2026 11:05:22 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmT1brMi8qd2jyV4_=u50i2NEQO88unv0wq1er0RQdERA@mail.gmail.com>
+X-Gm-Features: AcwNN1URGziW8FcEeLQAwIn_mJYzQfGjAW4RUBIvo-J7yMS0ni6UqDbXdjuNGSI
+Message-ID: <CAD++jLmT1brMi8qd2jyV4_=u50i2NEQO88unv0wq1er0RQdERA@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: pinctrl: fsl: Replace tabs with spaces
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
+	Giulio Benetti <giulio.benetti@benettiengineering.com>, 
+	Jesse Taube <Mr.Bossman075@gmail.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 14 Sep 2026 10:58:44 +0200
-Message-Id: <DLEWYVCME40R.L2IMBIU3ILG1@cknow-tech.com>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Chukun Pan" <amadeus@jmu.edu.cn>, "Jonas Karlman" <jonas@kwiboo.se>,
- "jensen" <jensenhuang@friendlyarm.com>, "Andrey Korshunov"
- <razor1702@gmail.com>, "Diederik de Haas" <diederik@cknow-tech.com>, "Conor
- Dooley" <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 0/4] arm64: dts: rockchip: Add FriendlyElec NanoPi
- R28S
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: <HystericalDragons@proton.me>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-X-Mailer: aerc 0.22.0-9-ge948bb7230f4
-References: <20260914-r28s-upstream-v5-0-7409c498e8dc@proton.me>
-In-Reply-To: <20260914-r28s-upstream-v5-0-7409c498e8dc@proton.me>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_015903_807503_0A72036C 
-X-CRM114-Status: GOOD (  37.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,148 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Sep 14, 2026 at 10:24 AM CEST, =E5=AE=89=E5=AE=B9 via B4 Relay wrote=
-:
-> The NanoPi R28S is a dual gigabit Ethernet router board based on the
-> Rockchip RK3528 SoC:
->
->   https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R28S
->
-> It is closely related to the already supported NanoPi Zero2, sharing
-> most of its power tree and peripheral routing. Patch 2 therefore moves
-> the common parts into rk3528-nanopi.dtsi, and patch 3 adds the board on
-> top of it. The split leaves the NanoPi Zero2 dtb unchanged; I verified
-> this by comparing the node and property sets of the dtb before and after
-> the split, which differ only in node order and phandle numbering. Patch
-> 4 is a coding style cleanup in the shared devicetree and the NanoPi
-> Zero2 devicetree.
->
-> The devicetree was derived from the vendor tree:
->
->   https://github.com/friendlyarm/kernel-rockchip/commit/ee640c5344b13a0a3=
-17436e2357df01af8268ce7
->
-> but with many changes to make it suitable for mainline.
->
-> Tested on a metal-case unit without the optional onboard eMMC: boots
-> from microSD, both Ethernet ports link up at 1000 Mbps, the HYM8563 RTC
-> registers, and all three LEDs are functional. The USB Type-C connector
-> registers as a DWC3 UDC in peripheral mode; gadget enumeration against
-> a USB host was not completed, because that connector is also the 5V
-> input and a PC port cannot power the board.
->
-> The bootloader was U-Boot 2026.07 with a board specific R28S target,
-> which releases the RGMII PHY reset before Linux starts, so the reset
-> description in the PHY node is all the kernel needs.
->
-> Two things I did not do, because my hardware cannot verify them:
->
-> - The AICSemi AIC8800D80 WiFi chip on sdio0 has no upstream driver, so
->   only the SDIO controller is described.
-> - The eMMC is described as HS200 rather than the vendor's HS400 with
->   enhanced strobe, since the board at hand has an unpopulated eMMC
->   footprint and the faster modes could not be verified.
->
-> ---
-> Changes in v5:
-> - Dropped the pinctrl-0 before pinctrl-names reordering from the coding
->   style patch and used the order the rest of the rockchip devicetrees
->   use, pinctrl-names first, in the new devicetree as well. The strict
->   mode of scripts/dtc/dt-check-style asks for the alphabetical order,
->   but it does so for many other properties that no rockchip devicetree
->   sorts that way either (Chukun Pan).
+On Sat, Aug 29, 2026 at 9:42=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-Then you can also just drop patch 4 as (by far) most rockchip devicetrees
-do not have a blank line before ``status =3D <okay>;``
+> YAML files do not use spaces, even within the values in DTS.  No
+> functional change, although dt-style-check will warn about it
+> ("[tab-in-yaml] tab character not allowed in DTS example").
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> - Moved the SYS LED, which the NanoPi R28S shares with the NanoPi Zero2,
->   and the led1 and led_sys pin configurations into rk3528-nanopi.dtsi.
->   Both boards now only add their own LEDs to &leds (Chukun Pan).
-> - Renamed the NanoPi R28S LED nodes to led-1 and led-2, to use the
->   led-[0-9] node naming (Chukun Pan).
-> - Changed the user button from KEY_RESTART to BTN_1. It is a general
->   purpose button on this board, not a reset button (Chukun Pan).
-> - Link to v4: https://patch.msgid.link/20260911-r28s-upstream-v4-0-fb6c85=
-f226d4@proton.me
->
-> Changes in v4:
-> - Dropped the patch that moved the NanoPi Zero2 RGMII PHY reset to the
->   MDIO bus. GPIO4_C2 resets the PHY, not the bus, so describing it on
->   &mdio1 is not a description of the hardware. It would also break
->   Ethernet in U-Boot, which reads reset-gpios, reset-assert-us and
->   reset-deassert-us from the PHY node and has no support for a bus
->   level reset. The nanopi-zero2-rk3528 U-Boot target releases the PHY
->   reset before Linux starts; the failure I reported was seen with the
->   generic-rk3528 target, which carries no board devicetree. Pointed out
->   by Chukun Pan, and by Jonas Karlman in the same discussion for the
->   HINLINK H28K:
->   https://lore.kernel.org/lkml/1e8da54f-ef87-4d31-9a0a-17c0ff66bee0@kwibo=
-o.se/
->   My own R28S has in fact been running a board specific U-Boot target
->   all along, with the PHY node description this series now keeps, so
->   the reset ordering problem I described does not arise there.
-> - Reworded the coding style patch to state the coding style violation
->   itself as the reason, rather than the tool that found it (Diederik de
->   Haas).
-> - Link to v3: https://patch.msgid.link/20260909-r28s-upstream-v3-0-ee3e1a=
-34a353@proton.me
->
-> Changes in v3:
-> - New patch 1: describe the NanoPi Zero2 RGMII PHY reset on the MDIO
->   bus rather than in the PHY node, so that it is applied before the PHY
->   ID is read. A PHY held in reset by the bootloader was otherwise never
->   probed, leaving the port dead. Reported by Andrey Korshunov, who
->   proposed the deprecated snps,reset-gpio properties on the MAC; the
->   bus level reset-gpios in mdio.yaml fixes the same ordering without a
->   deprecated property.
-> - New patch 5: follow the DTS coding style in the three NanoPi RK3528
->   devicetrees, as found by scripts/dtc/dt-check-style --mode=3Dstrict:
->   pinctrl-0 before pinctrl-names, and a blank line before status.
->   Suggested by Diederik de Haas.
-> - Picked up Conor Dooley's Acked-by on the binding.
-> - Link to v2: https://patch.msgid.link/20260907-r28s-upstream-v2-0-21ab57=
-0fc91c@proton.me
->
-> Changes in v2:
-> - Split the parts shared with the NanoPi Zero2 into a new
->   rk3528-nanopi.dtsi (new patch 2). The NanoPi Zero2 dtb is unchanged.
-> - Name the pinctrl labels after the nets in the schematic: usr_btn,
->   led1, led2, led_sys, pwr_wf and pcie_eth_perstb.
-> - Rename the button node to button-user and its label to "USER".
-> - Link to v1: https://patch.msgid.link/20260905-r28s-upstream-v1-0-f68d53=
-89269a@proton.me
->
-> ---
-> =E5=AE=89=E5=AE=B9 (4):
->       dt-bindings: arm: rockchip: Add FriendlyElec NanoPi R28S
->       arm64: dts: rockchip: Split out the common NanoPi RK3528 parts
->       arm64: dts: rockchip: Add devicetree for the FriendlyElec NanoPi R2=
-8S
->       arm64: dts: rockchip: Follow the DTS coding style in the NanoPi RK3=
-528 devicetrees
->
->  .../devicetree/bindings/arm/rockchip.yaml          |   5 +
->  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
->  .../arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts | 127 +++++++++
->  .../boot/dts/rockchip/rk3528-nanopi-zero2.dts      | 306 +--------------=
------
->  arch/arm64/boot/dts/rockchip/rk3528-nanopi.dtsi    | 314 +++++++++++++++=
-++++++
->  5 files changed, 456 insertions(+), 297 deletions(-)
-> ---
-> base-commit: 32e0f64640d558a0f5410ac5cdd8ebf371c5e6a6
-> change-id: 20260905-r28s-upstream-e212e27d6165
->
-> Best regards,
-> -- =20
-> =E5=AE=89=E5=AE=B9 <HystericalDragons@proton.me>
->
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+Patch applied, sorry for the slowness.
 
-
+Yours,
+Linus Walleij
 
