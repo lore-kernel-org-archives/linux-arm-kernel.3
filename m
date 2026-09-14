@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC6BC88E73
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FC2C88E72
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dV48M+3JE0VY/bF+CPkH7qMlBx1w6Neo/WMv+TNH3YM=; b=lC+ayuBvTQr1OkDy8GVXHeLJsS
-	7VHscNxXZTouk3BURFahmRPHGHw0UiYilJwmBbYvnwofhPPIyEqUIPzsGOI+OlHEX5tZxS6FKutVF
-	awlE//x/deVbBtuvx6N/ejxGFUFx+LNXkWu6l+3YuEgliZnEWDjvOhP5kp1/6IjInMk1Ku7VCSjmY
-	M7jmCZbL08o8JWYCaLypoXpJFCLEE/DABHmsbzeQU0tsUshfmIBI//qaU4SDNRFDllhe9Of7yiH1g
-	qiDHVqA1EHg1ZaB9KxPAk6kT5xh+h0N/51D6dqgCbr699Q2j5k6/i+nPl9XHeqiENLkfMNUJ+JHlx
-	WJfBuq2Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rVlDR9iO9xzNSL/ayRFSNBQcAYg5eJCcJuC+js2w0wM=; b=SXWP/bmxtbm4GQ
+	QVXZIih8tYVXPl/YVNAsKg6W/460asL24nSsQ0Q/dYpk1NgAdS3ZLUcF+Xd7juCwhLPWtb3gfnEwP
+	V3tQtnWIm53CbLwph5ZddRFOEMZB/cNN8+5QSGf+rMUXF+WaIq7/oriSb8x7gRztgaH+3rW0yS4LW
+	Yi6rF11tWTNEl+V/FH9lLTvzzeftAte8KiOvATq4OETHQxH2Lq8d/MYeQCKkQ93BPY9RDOJ5C897u
+	le0hH+f3W3ff52b/r28xphrvUHR2wQnv3W+NwjcZaAo2ptIt4M8SO2jLcMbbPogsIeaLE6MbMKVib
+	vHu+EwYtKQIp042wtexA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6A17-00000004LYa-0h9m;
+	id 1x6A16-00000004LXz-1Spe;
 	Mon, 14 Sep 2026 16:58:53 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6A12-00000004LWu-2Qmd
+	id 1x6A12-00000004LWt-06IS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 16:58:51 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4858303de5dso3617270f8f.2
+	Mon, 14 Sep 2026 16:58:50 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f633cd80so985582f8f.2
         for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:58:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google; t=1789405126; x=1790009926; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dV48M+3JE0VY/bF+CPkH7qMlBx1w6Neo/WMv+TNH3YM=;
-        b=rBIhpHpvZ3tYop060oHEXHgbMMScT3dnZwv0As4bJcRT7Titoi/vc41sgdj//VguYm
-         uqNrJtPHXM/Rh3ca3rRNKUbipTxNK8sYaV4JgnqkUqiicHXesmU2zZoJyfm/E1ZzzCoU
-         5CqjJUFSBGl6Y1C7IphIN7Kc8Le3fuIYyA/YxDDF1986IVJB4ehWNRiwuEoBRzxv+CeG
-         tnYF7gMZ0Ql0sdcDyQ/0Z4aR1SJNuF0L56TtwyyTV3kWq8Rd2wtE/iRM+Jkoebe8al89
-         NZVTJASIxxo6YKyosrTW96FVV72InnTz/VsQI1pH6j3nn4q+G+d14Qf6dlqaxgxXezi/
-         kqlw==
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rVlDR9iO9xzNSL/ayRFSNBQcAYg5eJCcJuC+js2w0wM=;
+        b=bn5tms0inqdvmXRq3izRZ1KVqJNpI46Sxyzi0WDZ1O6tCauD1dxI9pSvn0FWuKVE5O
+         F7//wG8iAtJY8Rr2cxkMh4ynoBmRDKy3LwrW7ccCM/KN3MZ21SMMM6dzK8h5dEDesmD8
+         ryHz/JfjzCgUsI6OD07d3/Fn6wohEK5z5QnwLGzxCA4e4ibh+JAC0p+g+855atF12V1t
+         dvTDZLo/f0zR0a5kGcPx+uwdfEvX+I159JayAhqMMFOXsovVr0ixVpgE3gdBDfzfv3yI
+         rJJKNasiLmU6SMX3sEIm/l6tGVW1cpJ5cNOZO01YapQv7XdrL3Ald6uM0CKFmeS2j3FJ
+         w/+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789405127; x=1790009927;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dV48M+3JE0VY/bF+CPkH7qMlBx1w6Neo/WMv+TNH3YM=;
-        b=Cj5f4dJ0MjMyYW3P5nAxveFxpefet+h6aYHBhACIDfzOpmmn1q/y5+J29yk4g3zF4J
-         NQO/kz1p7jwfjuNdiQk8lPOtkUM/fOaS1qlx3l+TaN9Gy4Y2vGO86QZ2cPECGFfked2h
-         CuWMpsV3mtoAEIQFZi7gNxDlEIquH38roikm0Pv32E+V9hT/nsNdDSVVKP2Cf5uLK/ny
-         wNdCkks/sdpe6ypS3wMOuCTKktCDx05PiuNB3ViVbFln5DjPkxnqeZPdvYXryRYL1A9B
-         8DF+LzGeKGXxWUDrRkgIB27YrWIsup+FKA8LPapqjLIwG3zebR/X9gR4G9az1vz4jcqa
-         f/lg==
-X-Forwarded-Encrypted: i=1; AKwUvByMRaZtOblaucl8EjEQMXneTeckqBp2bvWQB7THI72/QNvoow6geJ/kD2Tjy/k66GyFHSMG2/8uw+4Ix1Z6D/Sl@lists.infradead.org
-X-Gm-Message-State: AFuF++m0iDB2xHUMx7sr1xqfasf/rFwNF6lbnwwU5mjbdkZTntEiunQZ
-	wgK92cozn+pNj125W2Dqv1HP3rSPw9LkRdlbUr8RW/pGko1z50VcC0Z1tcQy1vTdqAk=
-X-Gm-Gg: AYBFou3gPYYIIWwihMwRsKTh7BeUMEJptXaD6WqtSC+Go1+Hh314giSyD0VyKfHcowR
-	R+fyUsmldR3Ak476wTzOOm4xh5y2ArQlX95ZdqZRZXlzYdYfzCCLLw3VF6qZBfqqzGDP4rtMML0
-	pMLocNKUP7K8BgAwjEk+hPCiYYo02qc0Wx2tM8o3HSGsAI8qcNYqyYTTJKvJ4uU+3BubvJontON
-	jc2+Q/R5ZSWcIkKQe/hzb4QrQc+R91EdlEdyNXbGBHGOfz8KlWod+lx1r5EipGOqFpQNoO2/Kmo
-	/Jltn7ncUUkHL8VieVGwDnckW2n+YPgUAaX0NwZ5H3bTutGJv9S2erWBtxioVA/wjXL3teYmpou
-	soGHZMzFpJpvkXoFcnQ0CTqZYRV3bymhBHYqIiAmAY1rLNu03d921qYgmFn//AH2oQC3ktad6WM
-	hgQubY0Un1sU43U6TkplCsUH/X1Aj0pEzP/U+/CQE2jUG94GRtW7s83Kc/z/vln9n1doTn20mvz
-	oHbWslfq8zRVbNZ7e6FbNRzfLqR78/N7nYhVwXE3BqqP7SeoRJ77R2t3A/S8qY=
-X-Received: by 2002:a05:6000:2685:b0:484:4880:449d with SMTP id ffacd0b85a97d-48702aceed7mr5488987f8f.3.1789405126615;
-        Mon, 14 Sep 2026 09:58:46 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1789405126; x=1790009926;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rVlDR9iO9xzNSL/ayRFSNBQcAYg5eJCcJuC+js2w0wM=;
+        b=qAzidR3p/GFUHuyfHjmr3K+vv0XJOXJRpmoz2qqSW3f2oWFrSXHICm7pdkTmkohJiW
+         xZ7iCJRbd+kW4sV9vZaeOhH2PZBLP1g/ZDTOVYV0RUDfAfhBQsw/td/vaEH3vxC50v9X
+         DtFpRRE+D0MGJ5an7lSlkAkAxi440y7Fzt26zU2WjuD2Ma6SS0ZftBOfWHXpjTXyiO0L
+         Kw08iMVXmDbzfOUwZFeZHbXhfPV4KcgTnAgLWHIR/GpB0k32D7dq7IH6wI7gEpma5vYr
+         Gp6C3k7LdzcIrcPki2dEOUFsppcSjDe6wFuvAffCNJtkC3gl7mWIPjXijE3WrVN8vBO/
+         oTNA==
+X-Forwarded-Encrypted: i=1; AKwUvByyWLSPPppebUbz2LGwRWoUQhvoU/MaUAobq3vZQ5SLZYa01VWD9jj9pdQlI15Of3f7VnV1lRdzyHgGsy9GQOTH@lists.infradead.org
+X-Gm-Message-State: AFuF++mUVrB7YWVwu6MUcrscT3YVtbZBeXBVj9vAtyMBVEb/HPO9zbFc
+	UgNt88gtcP97Q1iXxYNKPo579ivLPAjvgRk/HTy/CCOeCXva3KMYfT5ISy4d6q8XD4U=
+X-Gm-Gg: AYBFou3kaKWX3jRhcLYwu9SGqGFVC8XfDnir+IHZWc8pCTtEkSnkY62W3vPOSQvQOKu
+	VLJkcJyhYsOEJ7EpvqDw6ULb0DUKz0dbPT9jvBJvt5Pb1LnZZkJjXFc1NCIgBvuFee3Ez1jX57Y
+	mK4GtD0xwKWVmalcg8lVAIJHzAs246fYUhNmGhaAGrlQIcqjlfSPmhM89XHDd7GCy9k9Lpikn35
+	+teJlw04eXcsde4rAZ1pzXukhZlR4f5u/+NI46Ft7AkRmcIjIReHgliSq0Wxqxagi8s80sDYHod
+	TQgJ5C5gCu+/YCCgoqEmPQuUCvDRtfzWqu07haOWKEWUeKlegbECHBXv4C5mAGn+H49Z592tipp
+	o37nVvokOt/3e3EnJNf6wfkMZBMOZPKW/iAMuB2wHDhq5ckzShiBB+9zgQlvDr289BcMWPfYsHf
+	QuwS6ZTxgftwBVrp2vsNfXWfDqKGFnm5z/T6f/LZ6RbD3Q5tUkjZsJNGBIY96e7Uzrn216RJlVG
+	ZOuZ+fyaS9k/0Rx6kQwNU1Guobl3c6P+sfSivIoTk4QMOTrBUHXHABTArLpZLQ=
+X-Received: by 2002:a05:6000:25f4:b0:486:f9ea:796f with SMTP id ffacd0b85a97d-48702b5b1efmr4480960f8f.41.1789405125646;
+        Mon, 14 Sep 2026 09:58:45 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.85.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb32e81asm29636198f8f.7.2026.09.14.09.58.45
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb32e81asm29636198f8f.7.2026.09.14.09.58.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 09:58:46 -0700 (PDT)
+        Mon, 14 Sep 2026 09:58:45 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Mon, 14 Sep 2026 17:58:44 +0100
-Subject: [PATCH v4 1/2] dt-bindings: sram: Document
- samsung,exynos850-acpm-sram
+Subject: [PATCH v4 0/2] Exynos850 ACPM SRAM devicetree node
+Date: Mon, 14 Sep 2026 17:58:43 +0100
+Message-Id: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-exynos850_sram-v4-1-253871de0f61@linaro.org>
-References: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org>
-In-Reply-To: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMMnqGoC/3XM0QqCMBiG4VuRHbfYfqfbOuo+ImLqrw5qiy1EE
+ e+96UmFdPh98LwziRgsRnLKZhJwsNF6l4Y4ZKTujeuQ2iZtAgxKJnhOcZycj6pgtxjMg9aGA2O
+ V1qiAJPQM2NpxC16uafc2vnyYtv7A1/dvauCUU9k2pqhkW8lGnO/WmeCPPnRkbQ3w8RL2Hiijt
+ Ra6VFhAK2Dn828vdz5PXpUgjdBcKax//LIsb910RkwtAQAA
+X-Change-ID: 20260413-exynos850_sram-ca1200b99e82
 To: Sam Protsenko <semen.protsenko@linaro.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>
@@ -92,8 +93,8 @@ Cc: Conor Dooley <conor+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_095848_636797_4D27EBF9 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260914_095848_109027_E182D6AB 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +109,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document "samsung,exynos850-acpm-sram" which represents an SRAM region used
-for ACPM communication on Samsung-based SoCs.
+Hi all,
 
-The SRAM is consumed as a whole, is not split up using child nodes and
-properties related to this are not required, that is why "mmio-sram"
-compatible can't be used for ACPM purposes because it requires child nodes
-to be declared, which are not needed and make no sense in case of ACPM.
+this is a small series that adds sram node required for ACPM communication.
+Bindings update adds new compatible "samsung,exynos850-acpm-sram" there and
+excludes it from having child nodes and not required properties.
+The node becomes a simple one:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+apm_sram: sram@2039000 {
+	compatible = "samsung,exynos850-acpm-sram";
+	reg = <0x2039000 0x40000>;
+}
+
+The ACPM driver will just continue to parse shmem phandle, so
+as far as I can see no updates there are required.
+
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
+Changes in v4:
+- extended/added a bit more explanation in the commit message of patch 1/2
+  as Sam suggested;
+- fixed size of sram apm node (thanks to Sam for noticing!);
+- Link to v3: https://lore.kernel.org/r/20260727-exynos850_sram-v3-0-8627a49188ec@linaro.org
+
+Changes in v3:
+- sram node moved to the beginning of SoC section in DT change,
+  reg property updated to match section requirement address-cells=1;
+- updated trailers;
+- Link to v2: https://lore.kernel.org/r/20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org
+
+Changes in v2:
+- small update of the initial commit message
+  "Add SRAM node" -> "Add acpm SRAM node"
+- new commit, updates dt bindings to exclude sram node to have child nodes
+  and related properties, this adds new compatible
+  samsung,exynos850-acpm-sram
+- Link to v1: https://lore.kernel.org/r/20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org
+
+---
+Alexey Klimov (2):
+      dt-bindings: sram: Document samsung,exynos850-acpm-sram
+      arm64: dts: exynos850: Add acpm SRAM node
+
  Documentation/devicetree/bindings/sram/sram.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/exynos/exynos850.dtsi        | 5 +++++
+ 2 files changed, 7 insertions(+)
+---
+base-commit: 1a1de54f7369cd2b5bac0f265910e60ad3a6b4c3
+change-id: 20260413-exynos850_sram-ca1200b99e82
 
-diff --git a/Documentation/devicetree/bindings/sram/sram.yaml b/Documentation/devicetree/bindings/sram/sram.yaml
-index b83fc6831947..b9c4d4f3199b 100644
---- a/Documentation/devicetree/bindings/sram/sram.yaml
-+++ b/Documentation/devicetree/bindings/sram/sram.yaml
-@@ -43,6 +43,7 @@ properties:
-         - qcom,rpm-msg-ram
-         - qcom,shikra-imem
-         - rockchip,rk3288-pmu-sram
-+        - samsung,exynos850-acpm-sram
- 
-   reg:
-     maxItems: 1
-@@ -159,6 +160,7 @@ if:
-           enum:
-             - qcom,rpm-msg-ram
-             - rockchip,rk3288-pmu-sram
-+            - samsung,exynos850-acpm-sram
- then:
-   required:
-     - "#address-cells"
-
+Best regards,
 -- 
-2.51.0
+Alexey Klimov <alexey.klimov@linaro.org>
 
 
