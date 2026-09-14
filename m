@@ -4,181 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A1BC88E75
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE8AC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 15:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Smp0o/axeCKh7gTnLsclVW0hzeB9izP0oaDpCHlcSqA=; b=3fct8L4t4pjDv0RHEex1rgzmVQ
-	SNHN3O4oRd542Xw5ygNmdeE+1P/5Hv/VzUnxZSKVutS741uu1xCTlWfh2zdFnBJ+izlEfwf0w4dl0
-	ynrmd7BK0NwK87bzKllz93p7KBgRo4ZKQkHUI6FJjwUY9vMjH6QJDtZ5dCyqBbn1V4DkG+aUVUZjE
-	SsLwlfrY/ufZbVtYlwGmxoAZQZ4w3IkdIqnkV5kZWAfVJVbSc5+oJglL8palBJEzH1kroaAMYwShs
-	PfCrhfuFfnLIgT2L7l1cL3UqFI0H+MppaIGufd0MIOkF7Zca7NUOUzMRYk1kXuihaQlZseyNZgfUu
-	BQxORTxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WfeSSIGEMf5/K70d7iHCjKsPLBWa2a40x5/XuD7ShWA=; b=Tqzy0fTaD6cQueRe90fFHCeLYe
+	VM9NG/W89XEX6iOWixq5+tX8hlwWS7W5wRQoVzbRnZOGQeaDYhaGSGMJnsg5ySA4Y8kAN28IMlzuG
+	3FTZhPQhzbY6SQjHyWQjHYjhgTB7olB+KhYETVcCXer5A2U/LzoL1ze4rDEP1/31piHHBemdz9K1A
+	Mov6p/P2hWk5Sf/WBk0f6ERiuOf5MXBqVm0S+zM9vZCsiNmteFkq4d0JGv9JoG6laiM42QRqyv7wd
+	qdf8AG+rVKEsVp5QRWCp+Wqr5Fyl8+6BFyG4mv4fQu7Hc+xjxguz/GUiUu9H2HPlPd7JWHoOHhiYL
+	Wouruxpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Qj-000000048ZZ-1beI;
-	Mon, 14 Sep 2026 15:17:13 +0000
-Received: from mgamail.intel.com ([192.198.163.6])
+	id 1x68aG-000000049js-49PN;
+	Mon, 14 Sep 2026 15:27:04 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Qh-000000048YN-0j16
+	id 1x68aD-000000049ie-345L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 15:17:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789399031; x=1820935031;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1UhLq7Bb/qohR8YKCsXKfSoinQEtkJrAnERvgdj7uD0=;
-  b=PYQMjcUqJQwlUj9xOPJ6ks30SoG6Y1QRAvExxeHnbMSl70zt79z0/3ih
-   MlSkN5QmukxyDQeFTrMxy7IkMoJOWVuh0JcWZafPKjFoBWtvQksLvS/EZ
-   1Xz15cjtHuPpDAdzq5snu7cK/IeTLyU83cSqkqvZh70FiLumCC94mTkwy
-   B/NWzsj42wMSS2UA6p0et+59A62We9NEEG0kaWNqhUBjVnK+5X2trsEmI
-   iwLrlDS/x9sIUihfgsWVRQ80zkKLOdjGaWrRvB9lUQd2StjczDaMnlZNn
-   3Xo1z5ETBt7U63mhhYR1mAYuF2NauHWgrv6G97hd1FlE18OL42lFKjA4Z
-   w==;
-X-CSE-ConnectionGUID: yP2v06Q7S2CbWu/r/EX7BA==
-X-CSE-MsgGUID: ed5t8b/fTiCbln8b6HIYFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="260774"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="260774"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa116.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 08:17:10 -0700
-X-CSE-ConnectionGUID: 5NZby68JTvSfDjMKSt0+Ng==
-X-CSE-MsgGUID: +l+yDhbjRHyRPUA1IrkeMg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="271243954"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 08:17:10 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 14 Sep 2026 08:17:09 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Mon, 14 Sep 2026 08:17:09 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.46)
- by edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 14 Sep 2026 08:17:08 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xO19kSlOqXOHII1cEZ+SrMlFDOfNvN1Factx1N/I6i6thg7sBJ8RWWXBRpnoEKA+lD3t/YReUDs9mM8/LzBiidti2iyoqC9HC191r7oHXIWwu7dRhigVayTxdQkiweWxA/n0gTnr8EQutSBW0r4Fu3q4Syqrqmx2EfdyYkfN1/SH2FRYs/13JlpDcx9lD9rGLtnrzHFRkj7d5Af64SnGfNj3yba2wXaQorOplQqPLPp2p7rVoxfEeHsPlBa20OwpGlMSb0LwLFqatKrFCu9ssSiPm0MHdg78RR1/kS7zE5syZDYRBVu7eCI349CLG2b2ZpqdUHZPTfvd+4xVHIVJ+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Smp0o/axeCKh7gTnLsclVW0hzeB9izP0oaDpCHlcSqA=;
- b=EvMu1SKQ76sBKeiqmQBS2IHzwCw+ImTm5I5KFjcW6KQTjp7Axx6U6EE088LGzVbEsWJ5aBAwwQWkHhN+ix/H9xdvtg7euLlghIXhl72V0j5y38YNt5J329EPFPmgy3++xBWIRskRw05cZd0RDYeU86vhD7xcd8w7zipARvrF1b3egyaDgmcwiESLIIA4olvLddyzkuW4b4qn0LKbfEpXLnXvs7orUwRLj3gAVRCEj74HQ46WP1s81Wdr3cK5+tOFhaLNstEv1GOeivgEop17SOxenLTnGMW4DJkfXNhG7UmJtQ2uASB9zXA5CIPcNQsxYqZJoESqhy+7Rv84W+6Row==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by DM3PPFD5EE188BF.namprd11.prod.outlook.com (2603:10b6:f:fc00::f53) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 15:17:00 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 15:16:55 +0000
-Message-ID: <3595fe1b-0621-4599-b94d-a027336a2ce4@intel.com>
-Date: Mon, 14 Sep 2026 08:16:53 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
-To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <babu.moger@amd.com>, <yu.c.chen@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<patches@lists.linux.dev>
-References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
- <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
- <a492ffb3-c12e-4986-8f36-c907382c67e5@intel.com>
- <96eda554-64a1-4f1e-9608-98cd106b00da@arm.com>
- <a3cf9362-007d-4c6c-8f6f-1c9b8b41b1b9@intel.com>
- <ad1f8ed5-266a-4d79-91ef-ad8ab3febfb8@arm.com>
- <26e294a0-76a6-4ec0-9df8-021a76bf8ed9@intel.com>
- <86603611-b20d-4a0a-a247-8cebb11b3432@arm.com>
- <071d3dc6-6c18-4287-af26-719b89304058@intel.com>
- <d403b92c-aae8-499f-8c73-933a2d757fba@arm.com>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <d403b92c-aae8-499f-8c73-933a2d757fba@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0385.namprd04.prod.outlook.com
- (2603:10b6:303:81::30) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Mon, 14 Sep 2026 15:27:03 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68ED0cRO511056
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:27:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=WfeSSIGEMf5/K70d7iHCjK
+	sPLBWa2a40x5/XuD7ShWA=; b=gLCzAzr2kq9jO7ZYOIbNv771/R6UdSWd30fMAJ
+	b3DSelcmoBTj3NGUrVgZv1MmE1pvByqygVwQ4U4HhYN1u8VhOLB1CL/j19Cq13T0
+	M796Klv/AcAQvZjo5kYkIJaKQLZR0bbag9mA1FaEFldzjNE2wEw36OxTFJ4YBcEn
+	UCnDMZAZ41B+cKjGZEDUbpTmY19tbFJdlt2V57hoSxjTcuLVqYZeenSlwTomwo0U
+	mTWSJgFkixquL7v0y4u9jwKhhZoeVVrIs3AC5c1c3K+0GMV5ERFQWgLwzM6RslzX
+	RKz+0Civ/38spjxahafJk8wIqgbWpsFCiL81tXTjoBe2uXKg==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gpgvtgr1h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 15:27:00 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-6751db2792dso703475137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 08:27:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789399620; x=1790004420; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=WfeSSIGEMf5/K70d7iHCjKsPLBWa2a40x5/XuD7ShWA=;
+        b=ZN7NVo1Z0GuZ2LmeTnxcGowYnRau1yANCwQ5dROb5q5pDOnJ0xpjRHWfSARWfm3vN+
+         hV9gZRGrfiBG85Zrsof/6Bc3oRxRKWBouJYf1VzgW1p0mDQhduvMzy91aWVtE1QSd59M
+         OBf2g9duJmc6jUonj7scmCz1Fr2zvdDoXw/PuObjkJ/KCPztNsGtyWL1MiprVfqoeICr
+         uhB1BPJY1YKFp6jwW7oPH7jUnVYqeiN/6hVVf/6cadNQO41Gy/tgWGOgpGOGC2EO81g0
+         qvqyXT/POhgwRXiQbeXZpP0L0ELOh6ukcXCekbncgS+L7zjhbOV2yLWyOfCFVgIOTTO1
+         Itqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789399620; x=1790004420;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=WfeSSIGEMf5/K70d7iHCjKsPLBWa2a40x5/XuD7ShWA=;
+        b=YTLVe6yN3FrqyKP8QVD7nTcL3UVGg0SxWRzXIm33h9Prr5eMTVOl7KyVXf20YHpQsg
+         ukbZ69eZOL02Fe+iQIG45DtJOyvVMYXbvWCHp4FcqlgXt7ULXheN+CZxYDc9kMz92YNW
+         cH4kSUIUgJ36iX6+/lC13xYhyjks1xyq0FTGbNTo+LnVv5iM49AHmQ/z2yzmQ4U+PX6g
+         4Pkc3iNts8Sqk0zg4VizihsOE5ED9Y3a6lCtTdklhE3I0k7o0nsO8Of24Cmr0WJ7Of5h
+         c5ISFhLVEW1SpioPaB5Mnh7D7LC1yid4RzW8rwumeeX2NtMqlTsdY8hQjxYo/nKWD/UA
+         hyNg==
+X-Forwarded-Encrypted: i=1; AKwUvByINNaR1J4pSTB3LbgUnBtoPnf017t7z08znKJ3cWMSmCrfeM6qoUZxWzA+5kQbvL1QTOnZg9LiRZSFvqIWposU@lists.infradead.org
+X-Gm-Message-State: AFuF++lNWc/ROKi1dkYE9/LQVAFPYhCD9n+YWhLOiff9dzyxjFqXrWmv
+	l+a6BuP0G8EINp3XnNgQgret11v2bq9WPdw/qltU2CIIbqAJAOQRKv4621/CtJf+s/6E03sLHzH
+	bsesxjO90xkPkZtPXNw7cII/sKdkiiJ6KC1dRHQTPDYHifn5xgTl1+bm5hGr7drD3d0CxkCWTsD
+	Ur+w==
+X-Gm-Gg: AYBFou02oWYUHbKa/ZkQCMiBF8hk4/7ctX/KzNK6BLmrEv12bbo4ABOCdPCr/n4wXJP
+	n9zglfnEzJ7ymMnebxupIE0rWe1F/exW15KdYcdizyb2hZrtCj4D+0ObMVGZg8FsjQpr2dbIWnM
+	QyoSJKe6ofNAZDS6mmB3g7tHdBd3f8kSxmOoGh6Ek0XwDfsimDoVor4n0hlBgw4i9FP1W1NfDxz
+	4cM2py8Nlet44rcsqK4JDv2U2omuiQ1vSfwkWAyU9JhDjMEC8L/FyROAgL01/iLwb97J5MLIGd0
+	QaFm6M0KCg5rF48SZMDBPBEyoG9+qL4HNV+NP6Lxz7z2C/Vfv0916snFQw7iaHW+PyFgV8L9i3v
+	cWOLEAJ6l21+pxA==
+X-Received: by 2002:a05:6102:80a3:b0:796:9525:ac63 with SMTP id ada2fe7eead31-79b5adb9951mr3385070137.9.1789399619243;
+        Mon, 14 Sep 2026 08:26:59 -0700 (PDT)
+X-Received: by 2002:a05:6102:80a3:b0:796:9525:ac63 with SMTP id ada2fe7eead31-79b5adb9951mr3384908137.9.1789399618486;
+        Mon, 14 Sep 2026 08:26:58 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49e7d2915d6sm4926985e9.4.2026.09.14.08.26.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 08:26:57 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 14 Sep 2026 17:26:44 +0200
+Subject: [PATCH net v5] net: stmmac: propagate PTP init failures in
+ __stmmac_open() and stmmac_resume()
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|DM3PPFD5EE188BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cd50266-9ef2-46ab-b1f1-08df1273366f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|4143699003|11063799006|5023799004|6133799003|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: bcpjofBeO/0XnxycKdtASfrXeYYfW6+ZRuuQBgLL+PTyMJXtZfzkYoWzaQTNlg1jpiXbEfolpp+6CyCzoYNn2fXLRxoVAAn9eQGx8VPN+9zhAghlxia3qker6ZAUFIpZijCWQ2HSP4RrP13R6Qo0M6MPmGpVlyVWQyIxJUS0hk6K9GDMmKZ94TDqzkhtfHYbdfqstWw1p4vLW+ZKCT63ORQv8lkyM/hDKGivIohUrwTitGwmaNNSIU0IQDuAyzszmwpAPLXCjgF/IIJP1d9eGh/L5+19iqB7jbk3MD+q3CRlov1I9Qzwij1IuKlLCbSj0q7ECCwyeDt0expOaGq6hMK3yMyN6EVHyaBSACzxDkGMptkLAs9kMYby47l1hzsXOYwD9c+zEvobbUCorYfb10kt4Sq0ZUwS254scCqh9ZVrYxku738Bdq8dmZGqdYELSaf9rhE5+xgxZ7DXoMV365dypfqMvcMviwEHw429BBTMuk1z7ZmPyBSP7tAxoGXIslaEM8DicM8YvV5fP8CBkOUlq/NsQDBhX4Cw7MQqmP4xw6ppo1TCFiOsd6dW3L0jxn04bpg/2dWLMjJKBPOLmCdQkoAGbzm1oj0tQWQL9uq71ruc+EuSsZkc49TfLiZQ3dXxn21cSIcq5uF/DVaoTYgrc2NRuupVdLl5Ykm/z98=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(4143699003)(11063799006)(5023799004)(6133799003)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WXJsQlBORExMWGNQaG52UVlUYWswMHVMZkpRdy9DK0swN21YelRvKzM4L0Ri?=
- =?utf-8?B?ZmlrSWRFZlQzOVQzNE1xU1NPL0t6WEV1SmhWQU5icm9ZeFM4TFBpVUdoUnBq?=
- =?utf-8?B?eHJuS2pkRlZ3V3BXWEticEl6eDhXUkY1YjNDdFBxbkovNGhJa2ludk1SM293?=
- =?utf-8?B?M3JTaFZldU8reXdwS1d6djNiS3hvb09Wcm15QWRBRWVwdFFIUkpBbHRmdVNV?=
- =?utf-8?B?VHdPL1AxMHJJMkdWV1ZIQ2ZaRU9LSXdUSFd4YVZVQURPL0lNMStNYnBFZU5S?=
- =?utf-8?B?UnVvd0MzN3FxWXJZVDhKT3paSm5rMEcrdzdSbEFiM1ZndnYzQ2MyMzdLbk5B?=
- =?utf-8?B?SGRkNncxTTJPbjJ0VFhabFJZNXd6TjBIVDVnbVNpU1JJUTU4ZlJqdUJUWXls?=
- =?utf-8?B?b1VjeDNRMGpUaW9wNzZyZ1pLMnF5SEdPSHE2czN3d3RFMDlxOWQ4K0I3Um1O?=
- =?utf-8?B?a1lueEZTdG0yTXhyd1ZnQ3R1VmNNZC9KSlVUb1lRcE5LWklNUk4zNXZML0Nm?=
- =?utf-8?B?NWtQYUVjZnFHK0IwbnFZOGdIajhSNjgrSEhJT2w1ck1RbFVpdEVhcHRYUW5p?=
- =?utf-8?B?amRtamU4TXNEMTk1ajJUWk9telRrQ3FKUTU2bytsN2F6L1ZIT29yT0o5NmtO?=
- =?utf-8?B?TXBjZUVjcG9JZUJ6K3ptcE1hRGR0RkVNSUhFaFV0bnN4a0R3RlVVcnYyT3E3?=
- =?utf-8?B?SVY5V2RFN2p4UCtrMjNqSGZubElYM0h2cFRIWmx2RFhraVZUWGlKTEJqalRH?=
- =?utf-8?B?Wml3SFh1RXhDNnVUN3IxdnRRMVRYM1BEK0MvaFdYVFNmejI1U0Y1b2VVdFhI?=
- =?utf-8?B?SFAyRkVwS0pGNVhkbzg1Tm12R2JRM1NtL2RiaW1OeitmZGVFcGZHTHV4WFRN?=
- =?utf-8?B?VDRHQktRc3cwMVk3bWQ2WTdZVGR3cGZUVXRGUHQvVFQ3NjFabmtGQ0NKMEN2?=
- =?utf-8?B?TVBhWWpDU05Dd09OdE5yY291UkV1MmRRUnFwSGplWjdwTUxoRTVtZUlySkZK?=
- =?utf-8?B?ZXg3WlEzT3o3ek0xMVJYQUlDeDNYcmgzc0pURWtFVkFZbzZJRmN2QmpqRzA2?=
- =?utf-8?B?T0tOYXFnRUxXOGxlaGNsRlgxVnNEdnQrZCtFbkhLK3ExcitUMnlnRDBnOW1j?=
- =?utf-8?B?dzMwYUY2QjFpNEVKQkZpUXJoeDFOdzhlSkZpUDVlMFhPcW43VE5HSHE1ZEd3?=
- =?utf-8?B?LzRiOWR4SHRaZDRyQnJrVlNEQXkyNWJza09UcHJlMkZBcWNCRldENVVJWXRS?=
- =?utf-8?B?Nm9MRncwa2xrdkE1QWRGWGZ5MHVQMlhWeGFTUk1IdmRDVkZ1WjBvaS94QmpV?=
- =?utf-8?B?ZUpwNWszR2pPeUY4N1duYmlhcUtzcklQUk5sdGFqQnpLaTBKZWY5MS9oRUg4?=
- =?utf-8?B?WGQ0dldPVXpxSlptbkhxZ1VBU2x6N1lZcDFqZmtpcnRpM2RlNldrYUppOERQ?=
- =?utf-8?B?LzFzRzdTZjkrakF5NGdCREloaHBabjlyM01ScDNiWVFOYjFKVnNBUWNHZy9B?=
- =?utf-8?B?Z2Q5eXhjeFd5OHlOTHByejJ6QmNqOUR6NEZ6U2JVem5qMWVhNXArbXRodEtM?=
- =?utf-8?B?c2c5dXpzWlNvTVZSV1ZZNEVjcnZ6ZGR5aC9qVVMzRlFnQkZGM05PSTE1U1pU?=
- =?utf-8?B?TUQ5RjAzcXVmSFF1NnNqNTJDVnkxcHlYb1hseCtYY1JRT0RvVmcvYzRMZG1q?=
- =?utf-8?B?aFdKZlg3djUrRDIwSG44NjFadndiYm5uOGU4MUdNVzBsaDBwcnJrZDVYdklh?=
- =?utf-8?B?UkZsVzFTZFh6WEJiRFNGeDIweXVuSnRnSnFzYUhtTDloYjNWR1hVODhBMWJm?=
- =?utf-8?B?MC9wcWxwdGtzMnZPTWJ1Y2thb0hsbjlFVWVRS3VlUitjODlCV2lTS2dCM3Z6?=
- =?utf-8?B?OXVlY2V1b0szNGluUUFmUmpyV2dhRC9DcUNjaVc4QTEzNjRTUHdvSFphOVRs?=
- =?utf-8?B?S1RrbVk0L0t4VGVyazJuLzd3N25pSm9jS0g0OGpTMzZ1VDFxS1RqOUZJb3Jt?=
- =?utf-8?B?bGxvMzZaWVhMbytTZW9YL05vWFF0WkhLZGp3VFlCa2U3UmUwM1ZVU1B0NmZo?=
- =?utf-8?B?TXVoSm1NWS92WUF3MVJmRWFYMEFVS25NYm5pYzR5K01ncnh2NmV3ZWQxQ0hG?=
- =?utf-8?B?dXZuKzBFRm1IbTBDdVQ3WE5mREpaMW1waUdnMllPSGFPbXRYa1ViRURnOUpO?=
- =?utf-8?B?KzgyZGg2eDJiVCtxc3lyVk54RElTV2pVRXJQNWh3TDJ4U2VseFczNEkyNjJS?=
- =?utf-8?B?RG9kUEdLdElXSWVqd0gyWXlpVUJEU29xdWhpU3R6bnlMVmdxWk52TlBJakV6?=
- =?utf-8?B?L1lZaFVYdkJzK1FpVHRTbnFhNGNNZC9tUDdmTzRpRVlHNXE2b2V2WmhRZUxD?=
- =?utf-8?Q?vtwsUUF7igyIjh1k=3D?=
-X-Exchange-RoutingPolicyChecked: XZcULR/3lJLwt+TJR+zz/EhNkvyIhSgAy700MAUV0zYl4XT/NHuUy1akgyvw19+DKWjy64mJWBvP9MdVeCeDE8jTlRbgKYBTCst1eFnXLpChSH/YDfDN8Z0mZEOzXS5DRNDSTCPykSjV2ZaYmGhyD7VQip/SeEzv+nl1QgB1Z+MMsYanMGh6d50oWpsqlPPEuK3aX44E/ognOSoPn61HzX0UlyKGZRaHxKHugyJYknE4vaoVxidCV9wsS1sxov/q41bqJg3bDm4Oz0bdOxhiXE42Udqb9/Wo48iFTwqkVQk+Xvou34/JMZUPSr6FuRI3NrYQBl/QQwIS558QAM7YsA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cd50266-9ef2-46ab-b1f1-08df1273366f
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 15:16:55.6745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y6YMeZyO16kO0b5uwq3c0hI0MaDtBjDa/sYNwLGQH9ost26M6G4IvCYoClMLPnNwaxE5Dm7EXhH5AM3vsh9LXSkeMTDvJE1bwM95/gO+iow=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFD5EE188BF
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260914-stmmac-ptp-error-propagate-v5-1-81149897e65d@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NTW7CMBAF4Ksgr2s0/sFxuuo9KhYTMwFLTezaJ
+ mqFcndMVllAxGak9570zY1lSp4y+9zdWKLJZx/GGg4fO+YuOJ6J+1PNTII00ILmuQwDOh5L5JR
+ SSDymEPGMhbhxIHTTaUeyZRWIiXr/t+DfbKTCjrW8+FxC+l8eTmKZ3rEnwQW30IPoQJ2wx6+Q8
+ /73ij8uDMO+nkWf5FpsNkVZRY2SLGlB1sALUa1EAZuieoi9soasPJjOvBD1WlSboq4itrpBR+h
+ aaZ+I8zzfARxh7ejGAQAA
+X-Change-ID: 20260904-stmmac-ptp-error-propagate-6c0147b4ce29
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>,
+        Thierry Reding <treding@nvidia.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Joakim Zhang <qiangqing.zhang@nxp.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=c/0+0h9l c=1 sm=1 tr=0 ts=6aa81244 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=P-IC7800AAAA:8 a=DHtdb9-wNaOo6L0ygOcA:9
+ a=QEXdDO2ut3YA:10 a=gYDTvv6II1OnSo0itH1n:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE0MDIyMiBTYWx0ZWRfXxPc1Hgw3ia25
+ Drd2MYU21GVwatYtMPyhJoXDcv3tyjwqKIySJiPn912LXmNiaIhNA2+yLvo9BhILIUpbjqgtxJs
+ 60cY2S0yjSp3Wv0gquzTDZzGO3viCZdlojfZmX2iKXaPUCcfCnVWuTi+BODIepJVaV5EfCukc2w
+ zKjjg/NALzO8yulW0/EW2HS5w32QsIptgGQh6vgz+7HEUx6dAmy7ULvyp/vs6Co3O7lhFuBMpsB
+ I0m3rRl53/BeFPNvZgsE10VsjvSdlzB8c8e5BlhD2u2uYXOTxyPOuvkD4qjeftwV+96AGi6X0aT
+ klXkJIIzPkUvq7w/prXiYXm1pVyon/b/iz6Zj0TTuUzHioEJrc64ALCMIetTJ6FYoTr2KgKMUDL
+ mk2noL4OF5Thf+1M9zgqkwcSbiMMoZa09eE8vgiWea8JdOND6VBjStEmhJz80k/gWP1GrAp6J1r
+ QpXy/b8vBisdEB3sHkA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE0MDIyMiBTYWx0ZWRfXzrPmYtr4ksaG
+ W2S+9LABgEd6qyLgPAWigypH2dCdq55FOSowVAcANX/b5mCz4fgCvpNhXQ/QTzmrUGy+Vv+/sdw
+ 3nLr5RDtgF16GMT6TkSRfSy3y4vUJhs=
+X-Proofpoint-ORIG-GUID: dqL1DY1NS_pKKwSXKmtDq5Q3gBQbPLuY
+X-Proofpoint-GUID: dqL1DY1NS_pKKwSXKmtDq5Q3gBQbPLuY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-14_03,2026-09-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0 clxscore=1015
+ adultscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609140222
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_081711_293522_E2C22410 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20260914_082701_900381_6EF1236E 
+X-CRM114-Status: GOOD (  30.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,68 +162,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+stmmac_setup_ptp() returns void and swallows both PTP setup errors:
+the PTP reference clock enable and stmmac_init_timestamping()
+failures are logged but never propagated. When they fail, the MAC
+system time counter is left in its post-reset, non-running state,
+while the driver keeps operating as if timestamping were up.
+This matters for TAPRIO/EST qdisc offloading, which derives the EST
+base time from the hardware timestamp counter: arming the gate list
+against a non-advancing time base would leave the schedule permanently
+stuck.
 
-On 9/11/26 1:56 AM, Ben Horgan wrote:
-> On 10/09/2026 19:10, Reinette Chatre wrote:
+Make stmmac_setup_ptp() return an error code and propagate the
+failure in __stmmac_open(), stopping the DMA engines when PTP setup
+fails. In stmmac_resume(), re-initialise timestamping only when the
+PTP clock was registered before suspend, re-apply the platform clock
+rate configuration, and stop the DMA engines if re-initialisation
+fails.
 
->>
->> Do (admittedly crude) guardrails like below capture the existing driver requirements?
->>
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 9d223057953a..dbd06371890c 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -1681,11 +1681,18 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
->>  				continue;       // dummy resource
->>  
->>  			mon_comp = find_component(mon->class, cpu);
->> +			if (!mon_comp) {
->> +				WARN_ON_ONCE(0);
->> +				err = -EFAULT;
->> +				goto offline_ctrl_domain;
->> +			}
->>  			dom->mon_comp[eventid] = mon_comp;
->> -			if (mon_comp)
->> -				any_mon_comp = mon_comp;
->> +			any_mon_comp = mon_comp;
-> 
-> This first part which ensures that if there is a class for the monitor then a component can always
-> be found for the given CPU.
-> 
->>  		}
->> -		if (!any_mon_comp) {
-> 
-> The any_mon_comp check could still be useful to confirm that if r->mon_capable then there is a
-> component for at least one of the events.
+While at it, factor the hardware timestamping capability check into a
+stmmac_check_timestamp_cap() helper and apply it to the hwtstamp get
+path and the ethtool ts_info path. stmmac_setup_ptp() now enables the
+PTP reference clock and runs the platform ptp_clk_freq_config()
+callback before validating the resulting clock rate; if no valid rate
+is available, it disables the clock and returns success without
+registering the PTP clock. This keeps the interface operational on
+platforms with PTP-capable silicon but an unconfigured PTP clock,
+where timestamping cannot be enabled: instead of failing, the driver
+proceeds without setting up timestamping. Extend the timestamping gate
+on the set path (which keeps testing the core's basic/advanced
+timestamping capability) and the devlink registration with the PTP
+reference clock rate requirement.
 
-resctrl fs does not handle such scenario. r->mon_capable guides whether the resource
-supports monitoring and if it is then all domains belonging to the resource is expected to
-support all monitoring events associated with the resource. resctrl fs will expose all the
-monitoring event files based on r->mon_capable and which monitoring events are enabled, there
-is no finer grained support to expose/hide events per domain.
+Gate the PTP reference clock enable/disable in the platform noirq
+suspend/resume callbacks on priv->ptp_enabled, keeping the clock
+reference balanced against the new early return in
+stmmac_release_ptp().
 
-If any_mon_comp is true while one of the mon_comp is NULL then resctrl will still expose the
-event to user space and pass attempts to read the data to MPAM driver.
+Fixes: 92ba6888510c ("stmmac: add the support for PTP hw clock driver")
+Fixes: 276aae377206 ("net: stmmac: fix system hang caused by eee_ctrl_timer during suspend/resume")
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+Changes in v5:
+- Introduce stmmac_init_ptp_clk_freq() routine to configure ptp clock
+  frequency.
+- Update commit message.
+- Update stmmac_init_timestamping kernel-doc.
+- Link to v4: https://lore.kernel.org/r/20260913-stmmac-ptp-error-propagate-v4-1-a947aceac928@oss.qualcomm.com
 
-Is this a scenario that the MPAM driver needs to support? That is, users will see event files
-but reading the data will succeed in some domains but fail in others? 
->> +
->> +		/* hack */
->> +		if (!cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
->> +				   &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity)) {
-> 
-> There doesn't necessary need to be a monitoring class associated with any particular event. If there
-> are classes and so components for each of the two supported events then this check looks correct.
-> You could ensure that by checking existence:
-> 
-> if (dom->mon_comp[QOS_L3_OCCUP_EVENT_ID] && dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID] &&
->     !cpumask_equal(&dom->mon_comp[QOS_L3_OCCUP_EVENT_ID]->affinity,
-> 	           &dom->mon_comp[QOS_L3_MBM_TOTAL_EVENT_ID]->affinity))
+Changes in v4:
+- Drop stmmac_restore_subsecond_increment() and
+  stmmac_update_subsecond_increment() changes for the moment.
+- Add ptp_enabled check in stmmac_pltfr_noirq_suspend() and
+  stmmac_pltfr_noirq_resume().
+- Link to v3: https://lore.kernel.org/r/20260910-stmmac-ptp-error-propagate-v3-1-4f386e8256b6@oss.qualcomm.com
 
-Right thanks, this needs to be more robust. Essentially this is the finer grained check that
-ensures that if the domain supports both events then the backing components have the same "shape".
+Changes in v3:
+- Rebase on top of net main branch.
+- Link to v2: https://lore.kernel.org/r/20260907-stmmac-ptp-error-propagate-v2-1-4a2e8e41e860@oss.qualcomm.com
 
-Reinette
+Changes in v2:
+- Check clk_ptp_rate value in stmmac_check_timestamp_cap().
+- Return error code in stmmac_update_subsecond_increment() and
+  stmmac_init_tstamp_counter().
+- Rely on stmmac_check_timestamp_cap() in stmmac_hwtstamp_set() and
+  stmmac_hwtstamp_get().
+- Link to v1: https://lore.kernel.org/r/20260904-stmmac-ptp-error-propagate-v1-1-80f01b03dafa@oss.qualcomm.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   7 ++
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 114 +++++++++++++++------
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |   6 +-
+ 4 files changed, 95 insertions(+), 35 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 7582fca63741..4fc96b317d79 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -329,6 +329,8 @@ struct stmmac_priv {
+ 	struct kernel_hwtstamp_config tstamp_config;
+ 	struct ptp_clock *ptp_clock;
+ 	struct ptp_clock_info ptp_clock_ops;
++	bool ptp_enabled;
++
+ 	unsigned int default_addend;
+ 	u32 sub_second_inc;
+ 	u32 systime_flags;
+@@ -419,6 +421,11 @@ int stmmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+ 
+ struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev);
+ 
++static inline bool stmmac_check_timestamp_cap(struct stmmac_priv *priv)
++{
++	return priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp;
++}
++
+ static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
+ {
+ 	return !!priv->xdp_prog;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 154cc0c7623d..7758b854700a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -1007,8 +1007,7 @@ static int stmmac_get_ts_info(struct net_device *dev,
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 
+-	if ((priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
+-
++	if (stmmac_check_timestamp_cap(priv)) {
+ 		info->so_timestamping = SOF_TIMESTAMPING_TX_SOFTWARE |
+ 					SOF_TIMESTAMPING_TX_HARDWARE |
+ 					SOF_TIMESTAMPING_RX_HARDWARE |
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 62c3441911e7..0cc6eafa19a3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -653,7 +653,8 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
+ 	u32 ts_master_en = 0;
+ 	u32 ts_event_en = 0;
+ 
+-	if (!(priv->dma_cap.time_stamp || priv->adv_ts)) {
++	if (!priv->plat->clk_ptp_rate ||
++	    !(priv->dma_cap.time_stamp || priv->adv_ts)) {
+ 		NL_SET_ERR_MSG_MOD(extack, "No support for HW time stamping");
+ 		priv->hwts_tx_en = 0;
+ 		priv->hwts_rx_en = 0;
+@@ -843,7 +844,7 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 
+-	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
++	if (!stmmac_check_timestamp_cap(priv))
+ 		return -EOPNOTSUPP;
+ 
+ 	*config = priv->tstamp_config;
+@@ -866,11 +867,6 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ {
+ 	struct timespec64 now;
+ 
+-	if (!priv->plat->clk_ptp_rate) {
+-		netdev_err(priv->dev, "Invalid PTP clock rate");
+-		return -EINVAL;
+-	}
+-
+ 	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+ 	priv->systime_flags = systime_flags;
+ 
+@@ -885,26 +881,37 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 	return 0;
+ }
+ 
++static int stmmac_init_ptp_clk_freq(struct stmmac_priv *priv)
++{
++	if (priv->plat->ptp_clk_freq_config)
++		priv->plat->ptp_clk_freq_config(priv);
++
++	if (!priv->plat->clk_ptp_rate) {
++		netdev_info(priv->dev, "PTP clock rate not configured\n");
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ /**
+  * stmmac_init_timestamping - initialise timestamping
+  * @priv: driver private structure
+- * Description: this is to verify if the HW supports the PTPv1 or PTPv2.
+- * This is done by looking at the HW cap. register.
+- * This function also registers the ptp driver.
++ *
++ * Description: initialise the hardware timestamping counter, reset the
++ * timestamping configuration and derive the advanced timestamping flags from
++ * the HW capabilities. The caller must have ensured a valid PTP reference
++ * clock rate (see stmmac_init_ptp_clk_freq()); the configured state is valid
++ * as long as the interface is open and not suspended, and this function is
++ * re-run on resume.
++ *
++ * Return: 0 on success, a negative errno otherwise.
+  */
+ static int stmmac_init_timestamping(struct stmmac_priv *priv)
+ {
+ 	bool xmac = dwmac_is_xmac(priv->plat->core_type);
+ 	int ret;
+ 
+-	if (priv->plat->ptp_clk_freq_config)
+-		priv->plat->ptp_clk_freq_config(priv);
+-
+-	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp)) {
+-		netdev_info(priv->dev, "PTP not supported by HW\n");
+-		return -EOPNOTSUPP;
+-	}
+-
+ 	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
+ 					       PTP_TCR_TSCFUPDT);
+ 	if (ret) {
+@@ -937,24 +944,48 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
+ 	return 0;
+ }
+ 
+-static void stmmac_setup_ptp(struct stmmac_priv *priv)
++static int stmmac_setup_ptp(struct stmmac_priv *priv)
+ {
+ 	int ret;
+ 
++	if (!stmmac_check_timestamp_cap(priv)) {
++		netdev_info(priv->dev, "PTP not supported\n");
++		return 0;
++	}
++
+ 	ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
+-	if (ret < 0)
++	if (ret < 0) {
+ 		netdev_warn(priv->dev,
+ 			    "failed to enable PTP reference clock: %pe\n",
+ 			    ERR_PTR(ret));
++		return ret;
++	}
+ 
+-	if (stmmac_init_timestamping(priv) == 0)
+-		stmmac_ptp_register(priv);
++	if (stmmac_init_ptp_clk_freq(priv)) {
++		clk_disable_unprepare(priv->plat->clk_ptp_ref);
++		return 0;
++	}
++
++	ret = stmmac_init_timestamping(priv);
++	if (ret) {
++		clk_disable_unprepare(priv->plat->clk_ptp_ref);
++		return ret;
++	}
++
++	stmmac_ptp_register(priv);
++	priv->ptp_enabled = true;
++
++	return 0;
+ }
+ 
+ static void stmmac_release_ptp(struct stmmac_priv *priv)
+ {
++	if (!priv->ptp_enabled)
++		return;
++
+ 	stmmac_ptp_unregister(priv);
+ 	clk_disable_unprepare(priv->plat->clk_ptp_ref);
++	priv->ptp_enabled = false;
+ }
+ 
+ static void stmmac_legacy_serdes_power_down(struct stmmac_priv *priv)
+@@ -4161,10 +4192,12 @@ static int __stmmac_open(struct net_device *dev,
+ 	ret = stmmac_hw_setup(dev);
+ 	if (ret < 0) {
+ 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+-		goto init_error;
++		return ret;
+ 	}
+ 
+-	stmmac_setup_ptp(priv);
++	ret = stmmac_setup_ptp(priv);
++	if (ret)
++		goto ptp_error;
+ 
+ 	stmmac_init_coalesce(priv);
+ 
+@@ -4189,7 +4222,10 @@ static int __stmmac_open(struct net_device *dev,
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+ 
+ 	stmmac_release_ptp(priv);
+-init_error:
++ptp_error:
++	stmmac_stop_all_dma(priv);
++	stmmac_mac_set(priv, priv->ioaddr, false);
++
+ 	return ret;
+ }
+ 
+@@ -7740,8 +7776,7 @@ static int stmmac_register_devlink(struct stmmac_priv *priv)
+ 	/* For now, what is exposed over devlink is only relevant when
+ 	 * timestamping is available and we have a valid ptp clock rate
+ 	 */
+-	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp) ||
+-	    !priv->plat->clk_ptp_rate)
++	if (!stmmac_check_timestamp_cap(priv) || !priv->plat->clk_ptp_rate)
+ 		return 0;
+ 
+ 	priv->devlink = devlink_alloc(&stmmac_devlink_ops, sizeof(*dl_priv),
+@@ -8346,14 +8381,19 @@ int stmmac_resume(struct device *dev)
+ 	ret = stmmac_hw_setup(ndev);
+ 	if (ret < 0) {
+ 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+-		stmmac_legacy_serdes_power_down(priv);
+-		mutex_unlock(&priv->lock);
+-		rtnl_unlock();
+-		return ret;
++		goto error_unlock;
+ 	}
+ 
+-	stmmac_init_timestamping(priv);
++	if (priv->ptp_enabled) {
++		if (stmmac_init_ptp_clk_freq(priv))
++			goto init_coalesce;
+ 
++		ret = stmmac_init_timestamping(priv);
++		if (ret)
++			goto error_stop_dma;
++	}
++
++init_coalesce:
+ 	stmmac_init_coalesce(priv);
+ 	phylink_rx_clk_stop_block(priv->phylink);
+ 	stmmac_set_rx_mode(ndev);
+@@ -8376,6 +8416,16 @@ int stmmac_resume(struct device *dev)
+ 	netif_device_attach(ndev);
+ 
+ 	return 0;
++
++error_stop_dma:
++	stmmac_stop_all_dma(priv);
++	stmmac_mac_set(priv, priv->ioaddr, false);
++error_unlock:
++	stmmac_legacy_serdes_power_down(priv);
++	mutex_unlock(&priv->lock);
++	rtnl_unlock();
++
++	return ret;
+ }
+ EXPORT_SYMBOL_GPL(stmmac_resume);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 6128ed1bd521..19d481554499 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -959,7 +959,8 @@ static int __maybe_unused stmmac_pltfr_noirq_suspend(struct device *dev)
+ 
+ 	if (!priv->wolopts) {
+ 		/* Disable clock in case of PWM is off */
+-		clk_disable_unprepare(priv->plat->clk_ptp_ref);
++		if (priv->ptp_enabled)
++			clk_disable_unprepare(priv->plat->clk_ptp_ref);
+ 
+ 		ret = pm_runtime_force_suspend(dev);
+ 		if (ret)
+@@ -984,6 +985,9 @@ static int __maybe_unused stmmac_pltfr_noirq_resume(struct device *dev)
+ 		if (ret)
+ 			return ret;
+ 
++		if (!priv->ptp_enabled)
++			return 0;
++
+ 		ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
+ 		if (ret < 0) {
+ 			netdev_warn(priv->dev,
+
+---
+base-commit: e6b6078ea1731b05b3b552497b3bce4bf8b014ae
+change-id: 20260904-stmmac-ptp-error-propagate-6c0147b4ce29
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
 
