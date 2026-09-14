@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7258C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 16:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C53C88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 17:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eFndhQmJL2HLUXXHwE0V3+xvGtq4NGEK5ul7Tv7r5I=; b=hgQdP2envlxOOOdPMs/4SgCX9B
-	YCuaPnYYohN6CCnMCQ20Q845lJfnz6neGNepLkjVOm94djOv3aw+SikuBfYsT/jgDU5gwKPWl5rKB
-	aBm/kPgezk/v8g8BqZRc6Y9lR+feVdjdPbNnksOUwhqtY2+xZ9sPpHnqEqHbKj/SjzZiZLrQWEaxM
-	0bJ0zXaHk9M502Qd3oVPyfPlBgFU0460zvIkoVb6kofD7LDAUkuSNVsN0LsC5JYNrDdLlPPpOGBao
-	yMwX1Uad3gpA3JBRxzJOy7xg89q2DMgN3Vvy9eJjDmrYGZENH2S7UotsQyZy/+4ipvkjJbJ39BmRJ
-	/KrYNITw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uqWAug7PIA7vvHXFXzzJ6C7IaIzD7MK50jLrp6AsEY8=; b=q4FEITYHdmRGnkcckjf0JnhsBw
+	eVkKwdLvsR5wR5jEa0nFVZ8TJ9xWbpJVWwTovFJo+GJj7SpxrUorsGMz/74QiebJJajq45LyuzDcq
+	JN1SO44UqLa7OEqfHgq4NoqvXRcsa6vOVa7R3F77jInJXsZakegHoz9Le6G6QTIzBofXr0Twnx2z+
+	YXl3iFDDWdl+7WhMGt/6Po5qPKNvyt+a3tl0RXGD2sdfe+1RUfDJjqkKnWID2EnYPfoXoH/QwWE6a
+	HdRWscM65MxlFT71rPfAUWuQ6oPrl/LU70d5hkKX3KPfBA3xKuGSKTeO8tQqPnhVT5qEqUevknvYI
+	DIe+xcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6A1F-00000004Laq-1BuN;
-	Mon, 14 Sep 2026 16:59:01 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1x6Ah8-00000004Oh8-3Ix4;
+	Mon, 14 Sep 2026 17:42:19 +0000
+Received: from out-32.mta0.migadu.com ([2001:41d0:1004:224b::20] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6A13-00000004LX8-218L
+	id 1x6Ah4-00000004Ogb-45qs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 16:58:51 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48702adb1c9so767322f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 09:58:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1789405127; x=1790009927; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/eFndhQmJL2HLUXXHwE0V3+xvGtq4NGEK5ul7Tv7r5I=;
-        b=n736RnRAKH7YNhx0jz4r8e0coFyD8qw1Ws+1VzJ2j/C5OnIlandgmFy+vqyQhIMCn8
-         raKJ30sg89UQ0zAG9ryg73l5m4UBNjr6bEC90swnjcNrhHz6kJ2gf13q1vWQkjZ4QIAM
-         ZMtIZyIKckvRm2g48daIttOsL0vvv1RRJUnuwD6a8THFBV3fwhDrPFsO1RmNUxGip74T
-         k+j2s1kb8bQqtqzf9VPzDA7HGuB8/v2HtX2Ace5ZBp9U+duJC8CHwi9zyCMV3k+7FPJG
-         sCIQus29uUlrKNdG7JgVIhuSGkPPHq6ecQXZzrLknCPx6RzdCVa87t+invQuhxuTXgdz
-         uXlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789405127; x=1790009927;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/eFndhQmJL2HLUXXHwE0V3+xvGtq4NGEK5ul7Tv7r5I=;
-        b=c8FAkDkBhzl1yg6FRlEvzCYHBZgtPd81NM5LyOYi/IDnAgWPYRtLWhqrIr9irJdtS5
-         O0puXryp2eA17MU6yOZG1HpN/ekjHPt1AVgz94ybgZK0AkI0Eu8Xk15YyqP6/RAb00vz
-         t3dettbWguNezCR42xHKLCyI+U2zQqIduRXPCdqmDOOipTH8MZ9Na2Hw3HE0EV5J+JfN
-         08fUS52zUwO3n+XN87hbdemjkAYdt60fW9jwGWCzj4r7MFdJWCrCqVFiPvsBHA6Cs74e
-         hrWy41MrbCk0k6/3UEBieU/YDCRFk5tZXK1tYIpe/sA1XE6ekVRM625vDK8yKSNyuspO
-         2ySw==
-X-Forwarded-Encrypted: i=1; AKwUvBxQMxkOiN2yBFqDiujxuoKyObgxmrwc7P4hwRDYqnkxh9YbL/8ZMyLhrTNO6Kj0Kf5aer42TDz2vquFhoup3pRm@lists.infradead.org
-X-Gm-Message-State: AFuF++kla7rO+p+oTb+AqzYBqO95niEtAIS0bkdn30yRBLlV7/PEvzuw
-	zrSagVuh9zoqEgAQp+asGZ8ZG7UJ9e4CmTvdLVhKnW+NaP88c+w6KzuhQz+/lik9mbg=
-X-Gm-Gg: AYBFou281VoquDjTnxdbJrPtvY2dTuOhPU+tKX7BoV9FfKLSsXtfx1E9WjkoeuNiQVG
-	NcMhHxllIgjPclGqJlFSkvisU1ujALTUnyGw6kvkeJoqGQVhZHzxoH5dqZFqjucBPTsO0QvyZJ6
-	cfp/+Jw1zyGjDkpSZbLkCWLD9iTqJ6XXJvMNrjaYI2shT1F64/kotSb+1KO9U+AzIbL6lEVsgzR
-	gZRayXhoHJeEchMPhpNKJ+tS043VOh624HxBPmnJpk2Em2nw7DP8HTh3KeXg0fvO8yJ1MX32crW
-	NkOxcZJ8Tz7jwjTajjXlTmmyDA+S8jjRYjIqRIDoU8dv68ACPxElYY6O1U6mwomwqGTJEaYJurF
-	HAc0keu7h5aZyfBH/PZBJLXVwinh+VG85uqTjQs80riSrOszhu0RLs+M1hr3Xyvq2PV5jDnGIuH
-	6nvX2hanAXEY2VDXysa0Xb9dpNrF/udwbPxHTPBzaPhvJ7eoDzdeVvyyumJNUqZHc00mQEiPY1+
-	2H1mlSXf17uxG/+HNlouaPAj5apUk8jerdYq2gmN8df9Rqdk2Hmi6lyuJ5xG9s=
-X-Received: by 2002:a05:6000:471a:b0:486:f506:2fa8 with SMTP id ffacd0b85a97d-48702ac2429mr4455498f8f.18.1789405127590;
-        Mon, 14 Sep 2026 09:58:47 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.85.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-486eb32e81asm29636198f8f.7.2026.09.14.09.58.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 09:58:47 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Mon, 14 Sep 2026 17:58:45 +0100
-Subject: [PATCH v4 2/2] arm64: dts: exynos850: Add acpm SRAM node
+	Mon, 14 Sep 2026 17:42:17 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=H3NkHegXyGUlyjvPCAtBxAqpQZBuP5a+mlCVvVxrsTg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789407732; v=1; x=1790012532;
+ b=LF2EXt3sn4I8J2IqH7lKoPkNDgzSHNIBCufAC4obfwBl2w7tlhPBylLFYGCSPknWLTIoZu+R
+ dU1U5Zq9NiTKEKgDx1ZGFQFN/QbJeNldLYc2GwvFHVigJUoU+WQKLoltZGf/joJJ6WFAHJktbIt
+ TTpRuIJ939L3h0TvDvQZQw8k=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id be952ab7f5db3e16;
+	Mon, 14 Sep 2026 17:42:12 +0000
+X-Mizu-Trace-ID: be952ab7f5db3e16
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so10825e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 10:42:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzOlJ+JcY7uvuo3RLWOZbsTxZ/PhmfphLNspZLoGooXyi+yRkz+VdGCNyHr7OjFccajaWMD4qOSGpF5Dt8ld6UD@lists.infradead.org
+X-Gm-Message-State: AFuF++k2vJRooFFQJRSqGGn74WLLEj79Jh7k0XDGuDASrq7Ii0eUL39n
+	kYiPJ7c07AZVspIP4tj53HNeqyCdr8i0+oxQdpHk4NoBr3etjkOcyvWmTgkpPYIrPAbChx9xnWU
+	BLrlDsBsLvEDJGP/ZEu8icpVzv6P5QsdTC+hOyRo7
+X-Received: by 2002:ac2:5b83:0:b0:5b1:571f:715f with SMTP id
+ 2adb3069b0e04-5b8b2d5efccmr7429e87.3.1789407727631; Mon, 14 Sep 2026 10:42:07
+ -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-exynos850_sram-v4-2-253871de0f61@linaro.org>
-References: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org>
-In-Reply-To: <20260914-exynos850_sram-v4-0-253871de0f61@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
+References: <20260830-host-direct-messages-v7-0-45f6e6db72c2@google.com> <20260830-host-direct-messages-v7-3-45f6e6db72c2@google.com>
+In-Reply-To: <20260830-host-direct-messages-v7-3-45f6e6db72c2@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 14 Sep 2026 18:41:31 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzqCTc_8Y3jmR2R4c=SfBCpJ0pDy+4MCO-UHLbaxNW8rQ@mail.gmail.com>
+X-Gm-Features: AcwNN1WgO8h5j0RDDssCnFHMWznF85XnD9prWGY6qwmWeeRWnJoBTvrMxsiCagc
+Message-ID: <CA+EHjTzqCTc_8Y3jmR2R4c=SfBCpJ0pDy+4MCO-UHLbaxNW8rQ@mail.gmail.com>
+Subject: Re: [PATCH v7 3/3] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
+To: perlarsen@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Sebastien Ene <sebastianene@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_095850_242582_E8A9B9F1 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260914_104215_633375_B057BB7A 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SRAM is used by the ACPM protocol to retrieve the ACPM channels
-information and configuration data. Add the SRAM node.
+Hi Per,
 
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+On Mon, 31 Aug 2026 at 00:08, Per Larsen via B4 Relay
+<devnull+perlarsen.google.com@kernel.org> wrote:
+...
+> -static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+> +static void do_ffa_direct_msg(const u64 func_id,
+> +                             struct arm_smccc_1_2_regs *res,
+>                               struct kvm_cpu_context *ctxt)
+>  {
+>         DECLARE_REG(u64, endp, ctxt, 1);
+> @@ -894,8 +896,12 @@ static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+>                 return;
+>         }
+>
+> -       /* filter out framework messages and validate SBZ/MBZ bits */
+> -       if (flags) {
+> +       /*
+> +        * filter out framework messages and validate SBZ/MBZ flag bits.
+> +        * FFA_MSG_SEND_DIRECT_REQ2 implies flag-less partition message.
+> +        */
+> +       if ((func_id == FFA_MSG_SEND_DIRECT_REQ ||
+> +            func_id == FFA_FN64_MSG_SEND_DIRECT_REQ) && flags) {
+>                 ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
+>                 return;
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index 911643008b9f..2128749d7647 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -176,6 +176,11 @@ soc: soc@0 {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x0 0x0 0x20000000>;
- 
-+		apm_sram: sram@2039000 {
-+			compatible = "samsung,exynos850-acpm-sram";
-+			reg = <0x2039000 0x30000>;
-+		};
-+
- 		chipid@10000000 {
- 			compatible = "samsung,exynos850-chipid";
- 			reg = <0x10000000 0x100>;
+flags holds x2, which on the REQ2 path is the UUID's low half, so the
+name reads as if REQ2 flags had been checked and found zero. Could it
+be w2 instead?
 
--- 
-2.51.0
+Cheers,
+/fuad
 
+
+>         }
+> @@ -961,15 +967,20 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+>         case FFA_PARTITION_INFO_GET:
+>                 do_ffa_part_get(&res, host_ctxt);
+>                 goto out_handled;
+> +       case FFA_MSG_SEND_DIRECT_REQ2:
+> +               if (!ffa_call_supported(func_id))
+> +                       goto out_not_supported;
+> +               fallthrough;
+>         case FFA_MSG_SEND_DIRECT_REQ:
+>         case FFA_FN64_MSG_SEND_DIRECT_REQ:
+> -               do_ffa_direct_msg(&res, host_ctxt);
+> +               do_ffa_direct_msg(func_id, &res, host_ctxt);
+>                 goto out_handled;
+>         }
+>
+>         if (ffa_call_supported(func_id))
+>                 return false; /* Pass through */
+>
+> +out_not_supported:
+>         ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+>  out_handled:
+>         ffa_set_retval(host_ctxt, &res);
+>
+> --
+> 2.55.0.897.gb25b4bd76c-goog
+>
+>
 
