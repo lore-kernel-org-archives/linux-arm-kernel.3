@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817BDC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D351C88E50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 06:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B5zIRBsJq6iQL3X+P2GGrZuJeAwviBSya5l0KqfhnHY=; b=nVLdwnyXmWaepy6JGDqWgUwSyY
-	wA6b1AOQvG7APyCHwHYpDYSFo0j/LdolhZkJlUu1NnrdtMJwNezR6nkwtyBswKeHhE86ZM9nayxBd
-	GsOilp9Izz/WP/712QIIXL0lAJERGYXE9/M0nULEvxvy4OBAjtD888ouqKH7U6tRtzQAGjd3oYvPo
-	+nhI0fEcSKnY0VblSrMj8vXFAlYKU/rx8AD6ilxiOaq9Br3/kNDsagH3JrYaz4QcecLFze31Sd3Y2
-	zDyfLIejO+zhJ49aPuN7mYau5t1o2UBXrNy7bh6L2Sv3sGpYp8/qmB2fp56B6hmWC4pRyqa/cv6o3
-	GXXCh71w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZcIQ/j6jngQU4pqR+oILh/o4b2CteWgR3HPJyPNCyfU=; b=pOT3FzPWLLhuY+8w//8Brl2X5F
+	1v4Q/ELTzBXUZ61zW8CKRHHvb5a0HRQLI+QMseVgAIqwzON2UdioUa4sZx4vR//w4Ck/WVF3YLlWX
+	+/0HsHipiuRsr0FdHvD3meqdAovAp0nZwEK9HeBBctSDgf1o51uzgbK5xATSXLTWWZKSrFq2e7eo1
+	xtrZxGd1lBkRR5Y4I7RYYQiqr3hiJTfSs924iZGzMJdDP63lDUwBP1NIDclWONhBioOxleB9c33+Y
+	C60lRCEKYhytVMcdyASj+SubnmR8PC7XHUMPhLhJGhlaLkX2K1RKmvlZq+u9zWDaRCB0TG5lPwma3
+	XkYVIK3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zoh-00000002P5V-3ZPT;
-	Mon, 14 Sep 2026 06:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x5zon-00000002P6K-3zYi;
+	Mon, 14 Sep 2026 06:05:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5zog-00000002P5P-3MKr
+	id 1x5zon-00000002P6D-1N9c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 06:05:22 +0000
+	Mon, 14 Sep 2026 06:05:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 355CF4017C;
+	by sea.source.kernel.org (Postfix) with ESMTP id D1E5742DF2;
+	Mon, 14 Sep 2026 06:05:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D33321F00893;
 	Mon, 14 Sep 2026 06:05:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941491F000FF;
-	Mon, 14 Sep 2026 06:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789365922;
-	bh=B5zIRBsJq6iQL3X+P2GGrZuJeAwviBSya5l0KqfhnHY=;
-	h=From:To:Cc:Subject:Date;
-	b=SgPMKeXL1kKUhB4vKYSP6NmqhQ5x3v84ssV0eSqkTjgcHP6h5vMs68UPCRUpCIvJ8
-	 2P13PTIMoR1FkgM5w6FSz9G99Ua/yCLWkRbrCj/xztBYARfzDh3lDoI44ni+JjYJO7
-	 CLdvQJjoplfHJv48RV5NM4t5VH9O13L8OhPYf5B18Fyi8urdQkPVwg83H5Yrgi05yz
-	 ABqdXZWOvHNPaa4sOO9axRy/cB3uKG5Mam1h3hG+0vs0EaX2BMr8PSHNTU71e0qwll
-	 9MjAxlNQ6EaF10lVp4b91qFl/xkl2o3A44366jtWSvSCaxawfb5SsOfTG2cy1moyeU
-	 y/IkLsRAMdrvg==
+	s=k20260515; t=1789365928;
+	bh=ZcIQ/j6jngQU4pqR+oILh/o4b2CteWgR3HPJyPNCyfU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=oZOBHATM+mcPoxMX8iMxvr0SRTskmiMeOaXwIsh4sAbIDf3AK+r2v7f6qQpV7SAKR
+	 LHtCAzmI8L7ui9SS3iHYASV1js4RKjy5cHQ/5crhXtyd956+peGuurWooaOxSFnXf0
+	 5XssmRQwrf03Y+WdvdAqX1utBBYy7Bf1tSrpxX/mZJ6Nr1gNhGXBZM8iHkSjIx6aRu
+	 bJsT7l4zkQBQPFaJlqrgAv5gO1jMMgw5RyGRVsGSZWmo8tapFlV2k2oUFDnMfdKjb4
+	 c8swGYcZ6da6kxioW++4GKx40GN7OZCqYqXYaQflfCDBM0N5gJRioRawDTSV3AtPWT
+	 vVLxujuLghymw==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,11 +58,14 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v11 0/7] Switch Arm SMCCC firmware services to an SMCCC bus
-Date: Mon, 14 Sep 2026 11:35:04 +0530
-Message-ID: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v11 1/7] firmware: smccc: Add an Arm SMCCC bus
+Date: Mon, 14 Sep 2026 11:35:05 +0530
+Message-ID: <20260914060511.277948-2-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260914060511.277948-1-aneesh.kumar@kernel.org>
+References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,166 +82,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As discussed here:
-https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
+SMCCC-discovered firmware services are currently represented by separate
+platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
+represent independent DT/ACPI-described platform resources; they are
+features of the SMCCC firmware interface.
 
-The earlier CCA guest support used an arm-cca-dev platform device as a pure
-software anchor for the TSM class device. That platform device did not
-correspond to a DT/ACPI described device, MMIO range, interrupt, or other
-platform resource; it existed only to make the CCA guest driver bind and to
-place the resulting TSM device in the driver model. The same pattern also
-exists for smccc_trng. Creating separate platform devices for such
-SMCCC-discovered features is misleading, because those features are not
-independent platform devices.
+Add an Arm SMCCC bus for services discovered through the SMCCC firmware
+interface. The bus provides SMCCC device and driver registration helpers,
+name-based matching, modalias generation, and a sysfs modalias attribute so
+SMCCC service drivers can bind to discovered firmware services and autoload
+as modules.
 
-This series adds an Arm SMCCC bus for services discovered through the SMCCC
-firmware interface. The bus provides SMCCC device and driver registration
-helpers, SMCCC function id based matching, uevent modalias generation, and
-a sysfs modalias attribute. SMCCC service drivers can use
-MODULE_DEVICE_TABLE(arm_smccc, ...) to emit arm_smccc:f<functionid>
-aliases, allowing userspace to autoload service drivers when the SMCCC core
-registers matching firmware-service devices.
+Follow-up changes can then register SMCCC firmware services as arm-smccc
+devices instead of creating independent per-feature platform devices.
 
-The series then moves SMCCC TRNG and the Arm CCA guest RSI service off the
-platform bus. When the SMCCC core discovers the corresponding firmware
-service, it registers an arm-smccc device for that service. The hwrng
-arm_smccc_trng driver and the Arm CCA guest TSM provider are converted to
-SMCCC drivers that bind to those discovered devices.
+Based on arm_ffa code
 
-The old arm-cca-dev platform device has also been used by userspace as a Realm
-guest indicator. Removing it without a replacement would leave userspace
-depending on an internal driver-binding device. This series therefore adds
-/sys/firmware/cca/realm_guest as a stable, architecture-provided ABI for
-detecting whether the kernel is running as an Arm CCA Realm guest, and then
-removes the dummy arm-cca-dev platform-device registration.
-
-Changes from v10:
-https://lore.kernel.org/all/20260904095000.1184861-1-aneesh.kumar@kernel.org
-* Collect Reviewed-by tags.
-* Add the missing linux/types.h include.
-* Update the arm_smccc_1_1_invoke() call to pass 0 as the input value for x1-x7.
-
-Changes from v9:
-https://lore.kernel.org/all/20260805063255.1638614-1-aneesh.kumar@kernel.org
-* Rename CONFIG_ARM_RMM to CONFIG_ARM_RMM_RSI to make the Kconfig option RSI-specific.
-* Update the modalias to use the SMCCC function ID.
-* Don't issue SMC64 SMCCC calls on arm32.
-* Drop the IDA usage.
-
-Changes from v8:
-https://lore.kernel.org/all/20260707081351.1680209-1-aneesh.kumar@kernel.org
-* Rebase onto the arm64 for-next/core branch.
-* Move the RSI code from arch/arm64 to drivers/firmware/arm_rmm in patch 3.
-* Add a new patch to move the Realm memory-encryption operations to the RSI code.
-* Drop the Reviewed-by tag from patch 3.
-
-Changes from v7:
-https://lore.kernel.org/all/20260611130429.295516-1-aneesh.kumar@kernel.org
-* Rebase to latest kernel
-* Add id_table check in arm_smccc_driver_register
-* Add smccc device name check in arm_smccc_device_register
-* Drop driver_data from struct arm_smccc_device_id
-
-Changes from v6:
-https://lore.kernel.org/all/20260527100233.428018-1-aneesh.kumar@kernel.org
-* Move SMCCC bus-related code to bus.c.
-* Remove CONFIG_ARM64 #ifdefs and switch device creation to use the generic function-ID support framework.
-* Move version-specific checks and other conditionals to the device driver probe routines.
-* Move RSI definitions to include/linux/arm-smccc-rsi.h.
-* Split the file and variable renames into a separate patch.
-
-Changes from v5:
-https://lore.kernel.org/all/20260514094030.42495-1-aneesh.kumar@kernel.org
-* Replace the arm-smccc platform-device plus auxiliary-child model with a
-  dedicated Arm SMCCC bus.
-* Add SMCCC module alias support so SMCCC service drivers can use
-  MODULE_DEVICE_TABLE(arm_smccc, ...) and autoload through arm_smccc:<name>
-  aliases.
-* Convert smccc_trng from a platform driver to an SMCCC driver.
-* Convert the Arm CCA guest TSM provider from the arm-cca-dev platform device
-  to an SMCCC driver bound to the discovered RSI service.
-* Add /sys/firmware/cca/realm_guest before removing the old arm-cca-dev dummy
-  platform device.
-
-Changes from v4:
-https://lore.kernel.org/all/20260427061615.905018-1-aneesh.kumar@kernel.org
-* Add /sys/firmware/cca/realm_guest for detecting realm guest
-* Convert smccc_trng to auxiliary device from platform device
-
-Changes from v3:
-https://lore.kernel.org/all/20260309100507.2303361-1-aneesh.kumar@kernel.org
-* Rebased onto the latest kernel
-* Drop pr_fmt() from drivers/firmware/smccc/rmm.c
-
-Cc: Jason Gunthorpe <jgg@nvidia.com> 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>
-Cc: Jeremy Linton <jeremy.linton@arm.com>
-Cc: Jonathan Cameron <jic23@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Steven Price <steven.price@arm.com>
-Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Cc: Andre Przywara <andre.przywara@arm.com>
-
-Aneesh Kumar K.V (Arm) (7):
-  firmware: smccc: Add an Arm SMCCC bus
-  firmware: hwrng: arm_smccc_trng: Register as an SMCCC device
-  firmware: arm_rmm: Move RSI support out of arch/arm64
-  arm64: realm: Move Realm memory encryption ops to RSI code
-  virt: coco: arm-cca-guest: Rename TSM report source file
-  firmware: smccc: arm-cca-guest: Bind the TSM provider to an SMCCC
-    device
-  coco: guest: arm64: Replace dummy CCA device with sysfs ABI
-
- Documentation/ABI/testing/sysfs-firmware-cca  |  10 ++
- arch/arm/include/asm/archrandom.h             |   2 +-
- arch/arm64/Kconfig                            |   1 +
- arch/arm64/include/asm/archrandom.h           |   2 +-
- arch/arm64/include/asm/io.h                   |   2 +-
- arch/arm64/include/asm/mem_encrypt.h          |   5 +-
- arch/arm64/include/asm/pgtable-prot.h         |   2 +-
- arch/arm64/include/asm/rsi.h                  |  70 --------
- arch/arm64/kernel/Makefile                    |   2 +-
- arch/arm64/kernel/setup.c                     |   2 +-
- arch/arm64/mm/init.c                          |   3 +-
- arch/arm64/mm/pageattr.c                      |  38 +----
- drivers/char/hw_random/arm_smccc_trng.c       |  32 ++--
- drivers/firmware/Kconfig                      |   1 +
- drivers/firmware/Makefile                     |   1 +
- drivers/firmware/arm_rmm/Kconfig              |  17 ++
- drivers/firmware/arm_rmm/Makefile             |   2 +
- .../kernel => drivers/firmware/arm_rmm}/rsi.c |  78 +++++++--
- drivers/firmware/smccc/Makefile               |   2 +-
- drivers/firmware/smccc/bus.c                  | 151 ++++++++++++++++++
- drivers/firmware/smccc/smccc.c                |  68 ++++++--
- drivers/virt/coco/arm-cca-guest/Kconfig       |   3 +-
- drivers/virt/coco/arm-cca-guest/Makefile      |   2 +
- .../arm-cca-guest/{arm-cca-guest.c => main.c} |  55 +++----
- .../linux/arm-rsi-cmds.h                      |  76 ++++++++-
- include/linux/arm-smccc-bus.h                 |  48 ++++++
- .../linux/arm-smccc-rsi.h                     |   6 +-
- include/linux/device-id/arm_smccc.h           |  19 +++
- include/linux/mod_devicetable.h               |   1 +
- scripts/mod/devicetable-offsets.c             |   3 +
- scripts/mod/file2alias.c                      |   8 +
- 31 files changed, 523 insertions(+), 189 deletions(-)
- create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
- delete mode 100644 arch/arm64/include/asm/rsi.h
- create mode 100644 drivers/firmware/arm_rmm/Kconfig
- create mode 100644 drivers/firmware/arm_rmm/Makefile
- rename {arch/arm64/kernel => drivers/firmware/arm_rmm}/rsi.c (70%)
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ drivers/firmware/smccc/Makefile     |   2 +-
+ drivers/firmware/smccc/bus.c        | 151 ++++++++++++++++++++++++++++
+ include/linux/arm-smccc-bus.h       |  48 +++++++++
+ include/linux/device-id/arm_smccc.h |  19 ++++
+ include/linux/mod_devicetable.h     |   1 +
+ scripts/mod/devicetable-offsets.c   |   3 +
+ scripts/mod/file2alias.c            |   8 ++
+ 7 files changed, 231 insertions(+), 1 deletion(-)
  create mode 100644 drivers/firmware/smccc/bus.c
- rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => main.c} (82%)
- rename arch/arm64/include/asm/rsi_cmds.h => include/linux/arm-rsi-cmds.h (69%)
  create mode 100644 include/linux/arm-smccc-bus.h
- rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (98%)
  create mode 100644 include/linux/device-id/arm_smccc.h
 
-
-base-commit: 704340f1cd0dcef829eb62f5b48ae95a2ce17bdf
+diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+index 40d19144a860..68bbff1407b8 100644
+--- a/drivers/firmware/smccc/Makefile
++++ b/drivers/firmware/smccc/Makefile
+@@ -1,4 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+-obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
++obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= bus.o smccc.o kvm_guest.o
+ obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
+new file mode 100644
+index 000000000000..caba1a03c997
+--- /dev/null
++++ b/drivers/firmware/smccc/bus.c
+@@ -0,0 +1,151 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Arm Limited
++ */
++
++#include <linux/arm-smccc-bus.h>
++#include <linux/slab.h>
++
++static int arm_smccc_bus_match(struct device *dev,
++		const struct device_driver *drv)
++{
++	const struct arm_smccc_device_id *id_table;
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	id_table = to_arm_smccc_driver(drv)->id_table;
++	if (!id_table)
++		return 0;
++
++	while (id_table->func_id) {
++		if (smccc_dev->func_id == id_table->func_id)
++			return 1;
++		id_table++;
++	}
++
++	return 0;
++}
++
++static int arm_smccc_bus_probe(struct device *dev)
++{
++	struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(dev->driver);
++
++	return smccc_drv->probe(to_arm_smccc_device(dev));
++}
++
++static void arm_smccc_bus_remove(struct device *dev)
++{
++	struct arm_smccc_driver *smcc_drv = to_arm_smccc_driver(dev->driver);
++
++	if (smcc_drv->remove)
++		smcc_drv->remove(to_arm_smccc_device(dev));
++}
++
++static int arm_smccc_bus_uevent(const struct device *dev,
++		struct kobj_uevent_env *env)
++{
++	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	return add_uevent_var(env, "MODALIAS=" ARM_SMCCC_MODULE_PREFIX "f%08X",
++			      smccc_dev->func_id);
++}
++
++static ssize_t modalias_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	return sysfs_emit(buf, ARM_SMCCC_MODULE_PREFIX "f%08X\n",
++			  smccc_dev->func_id);
++}
++static DEVICE_ATTR_RO(modalias);
++
++static struct attribute *arm_smccc_device_attrs[] = {
++	&dev_attr_modalias.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(arm_smccc_device);
++
++const struct bus_type arm_smccc_bus_type = {
++	.name = "arm_smccc",
++	.match = arm_smccc_bus_match,
++	.probe = arm_smccc_bus_probe,
++	.remove = arm_smccc_bus_remove,
++	.uevent = arm_smccc_bus_uevent,
++	.dev_groups = arm_smccc_device_groups,
++};
++EXPORT_SYMBOL_GPL(arm_smccc_bus_type);
++
++int arm_smccc_driver_register(struct arm_smccc_driver *driver,
++		struct module *owner, const char *mod_name)
++{
++	if (!driver->probe || !driver->id_table)
++		return -EINVAL;
++
++	driver->driver.bus = &arm_smccc_bus_type;
++	driver->driver.name = driver->name;
++	driver->driver.owner = owner;
++	driver->driver.mod_name = mod_name;
++
++	return driver_register(&driver->driver);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_driver_register);
++
++void arm_smccc_driver_unregister(struct arm_smccc_driver *driver)
++{
++	driver_unregister(&driver->driver);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_driver_unregister);
++
++static void arm_smccc_release_device(struct device *dev)
++{
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	kfree(smccc_dev);
++}
++
++struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
++{
++	int ret;
++	struct arm_smccc_device *smccc_dev;
++
++	if (!name)
++		return ERR_PTR(-EINVAL);
++
++	smccc_dev = kzalloc_obj(*smccc_dev);
++	if (!smccc_dev)
++		return ERR_PTR(-ENOMEM);
++
++	smccc_dev->func_id = func_id;
++	smccc_dev->dev.bus = &arm_smccc_bus_type;
++	smccc_dev->dev.release = arm_smccc_release_device;
++
++	ret = dev_set_name(&smccc_dev->dev, "%s", name);
++	if (ret) {
++		kfree(smccc_dev);
++		return ERR_PTR(ret);
++	}
++
++	ret = device_register(&smccc_dev->dev);
++	if (ret) {
++		put_device(&smccc_dev->dev);
++		return ERR_PTR(ret);
++	}
++
++	return smccc_dev;
++}
++EXPORT_SYMBOL_GPL(arm_smccc_device_register);
++
++void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
++{
++	if (!smccc_dev)
++		return;
++
++	device_unregister(&smccc_dev->dev);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
++
++static int __init arm_smccc_bus_init(void)
++{
++	return bus_register(&arm_smccc_bus_type);
++}
++subsys_initcall(arm_smccc_bus_init);
+diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
+new file mode 100644
+index 000000000000..cde268fc2930
+--- /dev/null
++++ b/include/linux/arm-smccc-bus.h
+@@ -0,0 +1,48 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 Arm Limited
++ */
++#ifndef __LINUX_ARM_SMCCC_BUS_H
++#define __LINUX_ARM_SMCCC_BUS_H
++
++#include <linux/device.h>
++#include <linux/device-id/arm_smccc.h>
++#include <linux/module.h>
++
++struct arm_smccc_device {
++	struct device dev;
++	u32 func_id;
++};
++
++#define to_arm_smccc_device(d) container_of(d, struct arm_smccc_device, dev)
++
++struct arm_smccc_driver {
++	struct device_driver driver;
++
++	const char *name;
++	int (*probe)(struct arm_smccc_device *sdev);
++	void (*remove)(struct arm_smccc_device *sdev);
++	const struct arm_smccc_device_id *id_table;
++};
++
++#define to_arm_smccc_driver(d) \
++	container_of_const(d, struct arm_smccc_driver, driver)
++
++int arm_smccc_driver_register(struct arm_smccc_driver *driver,
++		struct module *owner, const char *mod_name);
++void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
++struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id);
++void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
++
++#define arm_smccc_register(driver) \
++	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
++#define arm_smccc_unregister(driver) \
++	arm_smccc_driver_unregister(driver)
++
++#define module_arm_smccc_driver(__arm_smccc_driver) \
++	module_driver(__arm_smccc_driver, arm_smccc_register, \
++		      arm_smccc_unregister)
++
++extern const struct bus_type arm_smccc_bus_type;
++
++#endif /* __LINUX_ARM_SMCCC_BUS_H */
+diff --git a/include/linux/device-id/arm_smccc.h b/include/linux/device-id/arm_smccc.h
+new file mode 100644
+index 000000000000..a8579832fc1c
+--- /dev/null
++++ b/include/linux/device-id/arm_smccc.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __LINUX_DEVICE_ID_ARM_SMCCC_H
++#define __LINUX_DEVICE_ID_ARM_SMCCC_H
++
++#ifdef __KERNEL__
++#include <linux/types.h>
++#endif
++
++#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
++
++/**
++ * struct arm_smccc_device_id - Arm SMCCC bus device identifier
++ * @func_id: SMCCC function identifier
++ */
++struct arm_smccc_device_id {
++	__u32 func_id;
++};
++
++#endif /* __LINUX_DEVICE_ID_ARM_SMCCC_H */
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index a397213bedac..318c4b5c3451 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
+@@ -16,6 +16,7 @@
+ #include "device-id/amba.h"
+ #include "device-id/ap.h"
+ #include "device-id/apr.h"
++#include "device-id/arm_smccc.h"
+ #include "device-id/auxiliary.h"
+ #include "device-id/bcma.h"
+ #include "device-id/ccw.h"
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index b4178c42d08f..1492e9fdc7cb 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
+@@ -254,6 +254,9 @@ int main(void)
+ 	DEVID(auxiliary_device_id);
+ 	DEVID_FIELD(auxiliary_device_id, name);
+ 
++	DEVID(arm_smccc_device_id);
++	DEVID_FIELD(arm_smccc_device_id, func_id);
++
+ 	DEVID(ssam_device_id);
+ 	DEVID_FIELD(ssam_device_id, match_flags);
+ 	DEVID_FIELD(ssam_device_id, domain);
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 8d36c74dec2d..980d7da456bb 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -1349,6 +1349,13 @@ static void do_auxiliary_entry(struct module *mod, void *symval)
+ 	module_alias_printf(mod, false, AUXILIARY_MODULE_PREFIX "%s", *name);
+ }
+ 
++static void do_arm_smccc_entry(struct module *mod, void *symval)
++{
++	DEF_FIELD(symval, arm_smccc_device_id, func_id);
++
++	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "f%08X", func_id);
++}
++
+ /*
+  * Looks like: ssam:dNcNtNiNfN
+  *
+@@ -1519,6 +1526,7 @@ static const struct devtable devtable[] = {
+ 	{"mhi", SIZE_mhi_device_id, do_mhi_entry},
+ 	{"mhi_ep", SIZE_mhi_device_id, do_mhi_ep_entry},
+ 	{"auxiliary", SIZE_auxiliary_device_id, do_auxiliary_entry},
++	{"arm_smccc", SIZE_arm_smccc_device_id, do_arm_smccc_entry},
+ 	{"ssam", SIZE_ssam_device_id, do_ssam_entry},
+ 	{"dfl", SIZE_dfl_device_id, do_dfl_entry},
+ 	{"ishtp", SIZE_ishtp_device_id, do_ishtp_entry},
 -- 
 2.43.0
 
