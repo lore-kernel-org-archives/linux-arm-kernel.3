@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6072C88E64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA846C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F31O+RltZ0fO6BL62Rqu7TnU/yLJYGXGDr/vzomNmRg=; b=nEv0UlDbVB0BTrhE7d1wvSJsZQ
-	bsQezBlmR7W20E+f+TTkXFgKLqKOwyM5aVlaHtYAM4foRn/WMAs3jNTX6mFVtrRARzNkyE5uUh88b
-	KYWslgDjeNK+KKk1yjTCu2t1on/WokLLyqf/Q2SJ0F8neSLrub6EXj2uDKsmmzXr7/WfjoTrG3KjX
-	E1GsdWSod+AxObtl13j+bZwJ+2zN+nFdJ0TVfGy+tqXq0v1CXU2yUnVKXAk77R/qpRi4tGdk/ahuY
-	BpJq0FeZITYKRcFHXwVZxz5fGlI3Lj8B5DcuRiS8AiFIC+nCDJMTa4iJ6qYBCaOc2yD6BBYpYWLA9
-	uUXSoGdw==;
+	bh=mxWVUmc11VAuMb98JEcrRy5LaCy7oNaR1GBH/UYSiQ0=; b=vWEFbeeqQ+nOuETMA6r5mklPOe
+	vm4Tk7b7CS87dVUZr2Xq5+qTD22TRzad+nQuRcjaG/m/NbTCxF3BC6ZMDf2X3ySclzXyLvPfJLn+F
+	xpZ1bbKe8zfCtx7gPnXcptU8MT0PShusrCgnCxTe+dvFZMN29l3XEGCyXaru/dqYAfMSgMfp73II4
+	ae0ifhbOJQe6dHX7bUaP6NmOVjkkOIl7Q2Ka16NnpwGTN8+GxJJpMKzEqUxmQvQeZDlxIxbnjDJ7y
+	WOTG/rftylbSQJxmnS/aG06Zz+B0IHKlYA8JRYOK4DZ9QFrJieIMaoZNWCPU43dg+kaR7R4D4HhEM
+	hGn6jfNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61A9-00000002ZuQ-0NK1;
-	Mon, 14 Sep 2026 07:31:39 +0000
-Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
+	id 1x61Ac-00000002Zy3-21hr;
+	Mon, 14 Sep 2026 07:32:06 +0000
+Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x619i-00000002Zoi-48P4
+	id 1x619o-00000002ZqU-3Wub
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:31:23 +0000
+	Mon, 14 Sep 2026 07:32:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789371071; x=1820907071;
+  t=1789371076; x=1820907076;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=mjC5aEg0jr+yXeG0sa/LeF7keN1owrxkWF90cvUI0lo=;
-  b=mqBo1k6vV8KkGKj0dAkLDVRKHtHzaV1cGn9KXop8hG1/TwgRSqXDcJpI
-   k8NrIQNNudtB/YxbEg8YX/wJdtl9pvvw8fIvYDl1Pyj7vYlK17m9qU51z
-   mrO9/JXWQRj+4vL3gC74Gh2sdPTtqm6TrTCy7R0FcT8XHtHhjzmI8TXH3
-   CHiQvSCS5XOVMkSMrNQ2KqjCT3lI94ofEXR0BCSngBE1fsgnbHbKGL/by
-   GD1ToAf9HTgg888jqpbeYE4jCsfnnGQGXJGiFdHwq2yvVEfsxTs1yGKZ1
-   gb5EGXuDha00ugynl78QFDbwUM1MyUcP7zJHwn1iV4BWSspjeNk87Q5aO
+  bh=womlNSebg8YA4nRh21CzpVYFz8+Hr298oHktq30HrIc=;
+  b=SF7jbX3ABAtfuFjzuVLXIH/eLbQXu6fNLWk3QAITZv2sspmiKCuJ5PKZ
+   uvEsS5Xr9qlmjE4msxiOW1QgZvaUtW/gZEjnV3yWOk6K07YE3VUr2MJbv
+   aFQkLAcDAAcmDT4uZWikx8kW+JpPc4CE9SAWAXnwnREpHQDwHFETUwpQ6
+   fa/dr1iAo+scRaqvxSbvxxTutYv2uyLncpaFIKZXYqsog5OEAjFawbAXT
+   iZ4ge9aZdUTfPfAyD1ZfVlku7GIXpm4t5XKcbRWXwTouRmQfJgntq1bBs
+   FNG9Q1q+MuAhM93k2Dn27Q1GDW9AVwveel8fuYYQLEE0UBjWsVYpUi1zo
    A==;
-X-CSE-ConnectionGUID: TwlgBwTJSByx2PF7JMkeUw==
-X-CSE-MsgGUID: icG9PNSBRhK+bukrs4sEcg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11904"; a="258731112"
+X-CSE-ConnectionGUID: 9ZhBNs60TQCLLfzOwzkOGw==
+X-CSE-MsgGUID: BU8zi37wT22N2qGlz0FkDg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11904"; a="232694151"
 X-IronPort-AV: E=Sophos;i="6.27,102,1786978800"; 
-   d="scan'208";a="258731112"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 16:31:09 +0900
-Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
+   d="scan'208";a="232694151"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 16:31:14 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id E675F1002B99
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:08 +0000 (UTC)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 41229100036D
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:14 +0000 (UTC)
 Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 9A0AB1400601
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:08 +0000 (UTC)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id E79B1C00D6F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:13 +0000 (UTC)
 Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id C44B118002FD;
-	Mon, 14 Sep 2026 07:31:02 +0000 (UTC)
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id 2ED2718005CF;
+	Mon, 14 Sep 2026 07:31:07 +0000 (UTC)
 From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Date: Mon, 14 Sep 2026 16:30:44 +0900
-Subject: [PATCH v2 1/3] KVM: arm64: selftests: Support five-level stage-1
- page tables
+Date: Mon, 14 Sep 2026 16:30:45 +0900
+Subject: [PATCH v2 2/3] KVM: arm64: selftests: Add 52-bit VA guest modes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-arm64-52bit-va-v2-1-3911cb9d4ad4@fujitsu.com>
+Message-Id: <20260914-arm64-52bit-va-v2-2-3911cb9d4ad4@fujitsu.com>
 References: <20260914-arm64-52bit-va-v2-0-3911cb9d4ad4@fujitsu.com>
 In-Reply-To: <20260914-arm64-52bit-va-v2-0-3911cb9d4ad4@fujitsu.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
@@ -83,16 +82,16 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
  Takayuki Okamoto <tokamoto@fujitsu.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789371056; l=4541;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789371056; l=7290;
  i=itaru.kitayama@fujitsu.com; s=20260825; h=from:subject:message-id;
- bh=mjC5aEg0jr+yXeG0sa/LeF7keN1owrxkWF90cvUI0lo=;
- b=7DfFUkA8aXGMtM/DD1jgfw6RcVdnLoUN1N2f+Gph7TODeSPeczCqvGITFCrwbSXP0Q82ddjs5
- 9kdbQI1rnOoA3MR8zsljCryu3P+Bnkrq1SgP+zofWwoU+upUoMsOOu+
+ bh=womlNSebg8YA4nRh21CzpVYFz8+Hr298oHktq30HrIc=;
+ b=wTuHb/dS7hr29G0OtUzlZDfl79+46Cbk0yFnl9e4puuQrjhbhmUbzlNa/yy6l6LdB6ryEMc9l
+ 7YLLQPUCnwRCJ+gNyMBWNgdlyM+KM2lepReJ+JlYGbd6yfyiOcIfAaU
 X-Developer-Key: i=itaru.kitayama@fujitsu.com; a=ed25519;
  pk=g9bTnr9giRP7JwNSZHy+OMLQZBEUtSE9tUnXso0hH1Y=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_003111_318864_207DEE88 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260914_003118_654697_647DEB4B 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,132 +106,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for populating and walking five-level stage-1 page tables.
-A five-level translation starts at architectural level -1, so extend
-the page-table helpers and level validation accordingly.
+Add guest modes for 52-bit VA operation with the 4K, 16K, and 64K
+translation granules, using five, four, and three page-table levels,
+respectively.
 
-This enables the page-table infrastructure required by 52-bit VA
-configurations using the 4K translation granule.
+Extend the existing guest-mode capability probe to read
+ID_AA64MMFR2_EL1 from the same probe vCPU. Use VARange only when
+determining 52-bit VA support for the 64K granule.
 
 Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 Reviewed-by: Takayuki Okamoto <tokamoto@fujitsu.com>
 ---
- .../selftests/kvm/include/arm64/processor.h        |  1 +
- tools/testing/selftests/kvm/lib/arm64/processor.c  | 45 +++++++++++++++++++---
- 2 files changed, 41 insertions(+), 5 deletions(-)
+ tools/testing/selftests/kvm/include/arm64/processor.h |  2 +-
+ tools/testing/selftests/kvm/include/kvm_util.h        |  3 +++
+ tools/testing/selftests/kvm/lib/arm64/processor.c     | 15 ++++++++++++++-
+ tools/testing/selftests/kvm/lib/guest_modes.c         |  7 +++++--
+ tools/testing/selftests/kvm/lib/kvm_util.c            | 11 +++++++++++
+ 5 files changed, 34 insertions(+), 4 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index b8a902ba8573..7457503df956 100644
+index 7457503df956..4ab00a7e6efb 100644
 --- a/tools/testing/selftests/kvm/include/arm64/processor.h
 +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -113,6 +113,7 @@
+@@ -169,7 +169,7 @@ enum {
+ 			   (v) == VECTOR_SYNC_LOWER_32)
  
- #define PTE_VALID		BIT(0)
- #define PGD_TYPE_TABLE		BIT(1)
-+#define P4D_TYPE_TABLE		BIT(1)
- #define PUD_TYPE_TABLE		BIT(1)
- #define PMD_TYPE_TABLE		BIT(1)
- #define PTE_TYPE_PAGE		BIT(1)
+ void aarch64_get_supported_page_sizes(u32 ipa, u32 *ipa4k,
+-				      u32 *ipa16k, u32 *ipa64k);
++				      u32 *ipa16k, u32 *ipa64k, u32 *va64k);
+ 
+ void vm_init_descriptor_tables(struct kvm_vm *vm);
+ void vcpu_init_descriptor_tables(struct kvm_vcpu *vcpu);
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 5a7a455b5387..1c268fa994aa 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -184,6 +184,9 @@ enum vm_guest_mode {
+ 	VM_MODE_P52V48_4K,
+ 	VM_MODE_P52V48_16K,
+ 	VM_MODE_P52V48_64K,
++	VM_MODE_P52V52_4K,
++	VM_MODE_P52V52_16K,
++	VM_MODE_P52V52_64K,
+ 	VM_MODE_P48V48_4K,
+ 	VM_MODE_P48V48_16K,
+ 	VM_MODE_P48V48_64K,
 diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 01325bf4d36f..b589368bf822 100644
+index b589368bf822..9915f25f0287 100644
 --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
 +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -29,13 +29,25 @@ static u64 pgd_index(struct kvm_vm *vm, gva_t gva)
- 	return (gva >> shift) & mask;
+@@ -356,12 +356,14 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+ 	case VM_MODE_PXXVYY_4K:
+ 		TEST_FAIL("AArch64 does not support 4K sized pages "
+ 			  "with ANY-bit physical address ranges");
++	case VM_MODE_P52V52_64K:
+ 	case VM_MODE_P52V48_64K:
+ 	case VM_MODE_P48V48_64K:
+ 	case VM_MODE_P40V48_64K:
+ 	case VM_MODE_P36V48_64K:
+ 		tcr_el1 |= TCR_TG0_64K;
+ 		break;
++	case VM_MODE_P52V52_16K:
+ 	case VM_MODE_P52V48_16K:
+ 	case VM_MODE_P48V48_16K:
+ 	case VM_MODE_P40V48_16K:
+@@ -369,6 +371,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+ 	case VM_MODE_P36V47_16K:
+ 		tcr_el1 |= TCR_TG0_16K;
+ 		break;
++	case VM_MODE_P52V52_4K:
+ 	case VM_MODE_P52V48_4K:
+ 	case VM_MODE_P48V48_4K:
+ 	case VM_MODE_P40V48_4K:
+@@ -383,6 +386,9 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+ 
+ 	/* Configure output size */
+ 	switch (vm->mode) {
++	case VM_MODE_P52V52_4K:
++	case VM_MODE_P52V52_16K:
++	case VM_MODE_P52V52_64K:
+ 	case VM_MODE_P52V48_4K:
+ 	case VM_MODE_P52V48_16K:
+ 	case VM_MODE_P52V48_64K:
+@@ -614,7 +620,7 @@ static u32 max_ipa_for_page_size(u32 vm_ipa, u32 gran,
  }
  
-+static u64 p4d_index(struct kvm_vm *vm, gva_t gva)
-+{
-+	unsigned int shift = 3 * (vm->page_shift - 3) + vm->page_shift;
-+	u64 mask = (1UL << (vm->page_shift - 3)) - 1;
-+
-+	TEST_ASSERT(vm->mmu.pgtable_levels == 5,
-+		    "Mode %d does not have 5 page table levels", vm->mode);
-+
-+	return (gva >> shift) & mask;
-+}
-+
- static u64 pud_index(struct kvm_vm *vm, gva_t gva)
+ void aarch64_get_supported_page_sizes(u32 ipa, u32 *ipa4k,
+-				      u32 *ipa16k, u32 *ipa64k)
++				      u32 *ipa16k, u32 *ipa64k, u32 *va64k)
  {
- 	unsigned int shift = 2 * (vm->page_shift - 3) + vm->page_shift;
- 	u64 mask = (1UL << (vm->page_shift - 3)) - 1;
+ 	struct kvm_vcpu_init preferred_init;
+ 	int kvm_fd, vm_fd, vcpu_fd, err;
+@@ -652,6 +658,13 @@ void aarch64_get_supported_page_sizes(u32 ipa, u32 *ipa4k,
+ 	*ipa16k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN16_NI,
+ 					ID_AA64MMFR0_EL1_TGRAN16_52_BIT);
  
--	TEST_ASSERT(vm->mmu.pgtable_levels == 4,
--		"Mode %d does not have 4 page table levels", vm->mode);
-+	TEST_ASSERT(vm->mmu.pgtable_levels >= 4,
-+		    "Mode %d does not have >= 4 page table levels",
-+		    vm->mode);
- 
- 	return (gva >> shift) & mask;
- }
-@@ -147,6 +159,12 @@ static void _virt_pg_map(struct kvm_vm *vm, gva_t gva, gpa_t gpa,
- 				 PGD_TYPE_TABLE | PTE_VALID);
- 
- 	switch (vm->mmu.pgtable_levels) {
-+	case 5:
-+		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + p4d_index(vm, gva) * 8;
-+		if (!*ptep)
-+			*ptep = addr_pte(vm, vm_alloc_page_table(vm),
-+					 P4D_TYPE_TABLE | PTE_VALID);
-+		/* fall through */
- 	case 4:
- 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pud_index(vm, gva) * 8;
- 		if (!*ptep)
-@@ -163,7 +181,7 @@ static void _virt_pg_map(struct kvm_vm *vm, gva_t gva, gpa_t gpa,
- 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pte_index(vm, gva) * 8;
- 		break;
- 	default:
--		TEST_FAIL("Page table levels must be 2, 3, or 4");
-+		TEST_FAIL("Page table levels must be 2, 3, 4, or 5");
- 	}
- 
- 	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
-@@ -182,18 +200,35 @@ void virt_arch_pg_map(struct kvm_vm *vm, gva_t gva, gpa_t gpa)
- 
- u64 *virt_get_pte_hva_at_level(struct kvm_vm *vm, gva_t gva, int level)
- {
-+	int start_level = 4 - vm->mmu.pgtable_levels;
- 	u64 *ptep;
- 
-+	TEST_ASSERT(level >= start_level && level <= 3,
-+		    "Invalid translation level %d, valid range is %d-3",
-+		    level, start_level);
++	reg.id = KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1);
++	err = ioctl(vcpu_fd, KVM_GET_ONE_REG, &reg);
++	TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_GET_ONE_REG, err));
 +
- 	if (!vm->mmu.pgd_created)
- 		goto unmapped_gva;
++	*va64k = FIELD_GET(ID_AA64MMFR2_EL1_VARange, val) >=
++		ID_AA64MMFR2_EL1_VARange_52 ? 52 : 48;
++
+ 	close(vcpu_fd);
+ 	close(vm_fd);
+ 	close(kvm_fd);
+diff --git a/tools/testing/selftests/kvm/lib/guest_modes.c b/tools/testing/selftests/kvm/lib/guest_modes.c
+index 7a96c43b5704..8d2748145f8f 100644
+--- a/tools/testing/selftests/kvm/lib/guest_modes.c
++++ b/tools/testing/selftests/kvm/lib/guest_modes.c
+@@ -20,11 +20,14 @@ void guest_modes_append_default(void)
+ #ifdef __aarch64__
+ 	{
+ 		unsigned int limit = kvm_check_cap(KVM_CAP_ARM_VM_IPA_SIZE);
+-		u32 ipa4k, ipa16k, ipa64k;
++		u32 ipa4k, ipa16k, ipa64k, va64k;
+ 		int i;
  
- 	ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pgd_index(vm, gva) * 8;
- 	if (!ptep)
- 		goto unmapped_gva;
--	if (level == 0)
-+	/*
-+	 * Stage-1 translation starts at level -1 for a five-level page
-+	 * table, and at levels 0, 1, or 2 for four-, three-, or two-level
-+	 * page tables, respectively.
-+	 */
-+	if (level == start_level)
- 		return ptep;
+-		aarch64_get_supported_page_sizes(limit, &ipa4k, &ipa16k, &ipa64k);
++		aarch64_get_supported_page_sizes(limit, &ipa4k, &ipa16k, &ipa64k, &va64k);
  
- 	switch (vm->mmu.pgtable_levels) {
-+	case 5:
-+		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + p4d_index(vm, gva) * 8;
-+		if (!ptep)
-+			goto unmapped_gva;
-+		if (level == 0)
-+			break;
-+		/* fall through */
- 	case 4:
- 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pud_index(vm, gva) * 8;
- 		if (!ptep)
-@@ -214,7 +249,7 @@ u64 *virt_get_pte_hva_at_level(struct kvm_vm *vm, gva_t gva, int level)
- 			goto unmapped_gva;
++		guest_mode_append(VM_MODE_P52V52_4K, ipa4k >= 52);
++		guest_mode_append(VM_MODE_P52V52_16K, ipa16k >= 52);
++		guest_mode_append(VM_MODE_P52V52_64K, ipa64k >= 52 && va64k >= 52);
+ 		guest_mode_append(VM_MODE_P52V48_4K, ipa4k >= 52);
+ 		guest_mode_append(VM_MODE_P52V48_16K, ipa16k >= 52);
+ 		guest_mode_append(VM_MODE_P52V48_64K, ipa64k >= 52);
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 9ddc047d5c27..bc3ed034e203 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -203,6 +203,9 @@ const char *vm_guest_mode_string(u32 i)
+ 		[VM_MODE_P52V48_4K]	= "PA-bits:52,  VA-bits:48,  4K pages",
+ 		[VM_MODE_P52V48_16K]	= "PA-bits:52,  VA-bits:48, 16K pages",
+ 		[VM_MODE_P52V48_64K]	= "PA-bits:52,  VA-bits:48, 64K pages",
++		[VM_MODE_P52V52_4K]	= "PA-bits:52,  VA-bits:52,  4K pages",
++		[VM_MODE_P52V52_16K]	= "PA-bits:52,  VA-bits:52, 16K pages",
++		[VM_MODE_P52V52_64K]	= "PA-bits:52,  VA-bits:52, 64K pages",
+ 		[VM_MODE_P48V48_4K]	= "PA-bits:48,  VA-bits:48,  4K pages",
+ 		[VM_MODE_P48V48_16K]	= "PA-bits:48,  VA-bits:48, 16K pages",
+ 		[VM_MODE_P48V48_64K]	= "PA-bits:48,  VA-bits:48, 64K pages",
+@@ -239,6 +242,9 @@ const struct vm_guest_mode_params vm_guest_mode_params[] = {
+ 	[VM_MODE_P52V48_4K]	= { 52, 48,  0x1000, 12 },
+ 	[VM_MODE_P52V48_16K]	= { 52, 48,  0x4000, 14 },
+ 	[VM_MODE_P52V48_64K]	= { 52, 48, 0x10000, 16 },
++	[VM_MODE_P52V52_4K]	= { 52, 52,  0x1000, 12 },
++	[VM_MODE_P52V52_16K]	= { 52, 52,  0x4000, 14 },
++	[VM_MODE_P52V52_64K]	= { 52, 52, 0x10000, 16 },
+ 	[VM_MODE_P48V48_4K]	= { 48, 48,  0x1000, 12 },
+ 	[VM_MODE_P48V48_16K]	= { 48, 48,  0x4000, 14 },
+ 	[VM_MODE_P48V48_64K]	= { 48, 48, 0x10000, 16 },
+@@ -306,10 +312,14 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+ 
+ 	/* Setup mode specific traits. */
+ 	switch (vm->mode) {
++	case VM_MODE_P52V52_4K:
++		vm->mmu.pgtable_levels = 5;
++		break;
+ 	case VM_MODE_P52V48_4K:
+ 		vm->mmu.pgtable_levels = 4;
  		break;
- 	default:
--		TEST_FAIL("Page table levels must be 2, 3, or 4");
-+		TEST_FAIL("Page table levels must be 2, 3, 4, or 5");
- 	}
- 
- 	return ptep;
+ 	case VM_MODE_P52V48_64K:
++	case VM_MODE_P52V52_64K:
+ 		vm->mmu.pgtable_levels = 3;
+ 		break;
+ 	case VM_MODE_P48V48_4K:
+@@ -330,6 +340,7 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+ 	case VM_MODE_P48V48_16K:
+ 	case VM_MODE_P40V48_16K:
+ 	case VM_MODE_P36V48_16K:
++	case VM_MODE_P52V52_16K:
+ 		vm->mmu.pgtable_levels = 4;
+ 		break;
+ 	case VM_MODE_P47V47_16K:
 
 -- 
 2.43.0
