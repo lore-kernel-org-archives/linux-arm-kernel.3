@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC90C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF60C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 08:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q7ra92S2TxTnRNeXWfAmnmJxMYA9//0DIsg+DFwp27U=; b=rXQm4i9ENTx0SCTQy4H7ecSrGM
-	DsLHng53KnB+KVGJZNs5FlQLqUiQp+gCD9+ef/J5p6dZApwa4Vv5pd7pTqMv+FCZc5Hv5+zELpwat
-	EBSFe5TEyftmwM+MKFxF5MhrWVZn3AlGjneiHqB3FF/rVjFrTDDAkWG3LYKp1mDwVmtJS69zyaX0D
-	YTZdEl+LOAA7XNx9LegGYP79bQbwClIS7NrJt6B3AzfL3H2hiLAEU8WpU60Y0+ALRbiTXflIlZ+uU
-	YfpSKnXRoeZZLjkxOQUKCM5Y+XKovw8+qWvAbtVNdY2ch6RyS8C+R95AsGLtfvZLE5wrMYx9+W4LO
-	klZR/7kg==;
+	bh=tO9EcZ8BtVFdBOVE4Ud6o8SU3U1Oo4QfM/ULdz0DwKA=; b=RpVbG214L9/W/9fazZ266OVBSz
+	dQ+67cgYYeH2yRuJ4eLoWV1yrKh8B91c/nOy5nc6TW+AAstf8WlSWhgTPiRNh+yS+VfY4rpadp+Yw
+	oGMSg1IR+XvQ6Kd4bxtyBng4CNeRrQHGlHPwnomq9XPFgvL1k/QdH4lHmTBu44BB1o9RJCGUIisk1
+	sDKy3xtovN148gcxLK5CXTQF5XaBU5CVGCLiMhmIHEDrr7BjLrZdtaNWQZcg/h9CukF4GfSbnPRbk
+	AfJi3pWmnix/7INHGwgkDR8O+eo/xwrevT/F6q1UNkk0S1E7tfIuLlIQm1MlnZkyPLjyiV/dOTRbc
+	5WYhftlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61p2-00000002gjO-0l4e;
-	Mon, 14 Sep 2026 08:13:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61oz-00000002gi8-2cnW
+	id 1x61pc-00000002grM-1RP3;
+	Mon, 14 Sep 2026 08:14:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x61pb-00000002grE-2gze
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 08:13:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 294771570;
-	Mon, 14 Sep 2026 01:13:42 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 65B693F7B4;
-	Mon, 14 Sep 2026 01:13:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789373625; bh=IUx9npSbM6aOGbT981H4LjgrA0kKmEs/fDvfjpfynoU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ie0F5Yrzn4+JUTJXdJ59qKHeSnntkVs/evhaYFzCMI5fXmKYH+ALw+LAaNOIZflIx
-	 cchmn6Qw7oauzbwstdIZIrMFDU5g5YkP0LZS323YQUWkpNicFH6hRlQqRd42sDydXD
-	 VqDiywdnOT+pXi0AJXMsRgbNU6Aemrf8+CG/mmpE=
-Date: Mon, 14 Sep 2026 09:13:43 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: James Clark <james.clark@linaro.org>,
+	Mon, 14 Sep 2026 08:14:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 53016413B1;
+	Mon, 14 Sep 2026 08:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34F1B1F000FF;
+	Mon, 14 Sep 2026 08:14:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789373667;
+	bh=tO9EcZ8BtVFdBOVE4Ud6o8SU3U1Oo4QfM/ULdz0DwKA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dk0xkJ/YuswTBFb+B7oeHafGMukZnGVYfXdb/BWBs2UN4GCxzDbeTHugLoQ12vuMZ
+	 hNByWIZ/RAT6pij/dPFfcr5gWqkTe8YbuMg3a5ATiWMA3nfHVc/bsgM0MI/tHFSkQA
+	 BTK80o29a9NNNhN/Qm+ZRDlG8I66IKCwxHhClLee1y6g2tlN5AbKX5Hy1f29lt4ELg
+	 9LX9TUiTQEF6ZwHiMHgmT/h/nKPq7PhC+w2DBF4b0ZjBjd3vwhq82zeMA1JNjzkrLR
+	 /rR6efiFyraMGeX0il4caWACSz7KAWvdCrSgyaV2P60ZuZDE8bIEKo97u6TiBaP3Rq
+	 jeC3YvlRqkg/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x61pY-00000008UjF-3kD0;
+	Mon, 14 Sep 2026 08:14:25 +0000
+Date: Mon, 14 Sep 2026 09:14:24 +0100
+Message-ID: <865x086yhr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Wang Han
+ <wanghan@linux.alibaba.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Leo Yan <leo.yan@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 00/14] perf cs-etm: Per-thread mode fixes and snapshot
- wrap support
-Message-ID: <20260914081343.GF200420@e132581.arm.com>
-References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
- <aqdL33fw9AoxTrPq@x2>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aqdL33fw9AoxTrPq@x2>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_011349_701145_F4319B6C 
-X-CRM114-Status: GOOD (  14.01  )
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH 0/4] KVM: arm64: Reduce overhead of full S2 teardown
+In-Reply-To: <8bf3f266-06fd-49e0-8de8-33c7a044e997@linux.alibaba.com>
+References: <20260912104834.3093878-1-maz@kernel.org>
+	<8bf3f266-06fd-49e0-8de8-33c7a044e997@linux.alibaba.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: xueshuai@linux.alibaba.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, weilin.chang@arm.com, wanghan@linux.alibaba.com, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +90,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnaldo,
-
-On Sun, Sep 13, 2026 at 10:20:31PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Tue, Aug 11, 2026 at 04:30:03PM +0100, James Clark wrote:
-> > Fix a few issues with per-thread mode:
-> >   - With TRBE, thread migrations hit a queue without a decoder assert
-> >   - On nVHE, everything looks like guest trace instead of host
-> >   - Tracing multiple threads didn't really work
+On Mon, 14 Sep 2026 07:44:15 +0100,
+Shuai Xue <xueshuai@linux.alibaba.com> wrote:
 > 
-> This series applies cleanly to perf-tools-next but has no Reviewed-by
-> nor was processed by Sashiko.
 > 
-> Can somebody from the ARM camp take a look at it, please?
+> 
+> On 9/12/26 6:48 PM, Marc Zyngier wrote:
+> > Tearing down a full S2 is a pretty involved process, resulting in a
+> > lot of TLB invalidation. These TLBIs are either on a per leaf basis if
+> > the HW doesn't support range invalidation, or by top-level range if it
+> > does. Amusingly, the latter occurs even when nothing has been
+> > unmapped.
+> > 
+> > Things are made worse with NV, as we have a bucket-load of shadow S2s,
+> > and the need to invalidate them all on the back of an MMU notifier.
+> > The latter will eventually be solved by the reverse-map tracking that
+> > Wei-Lin is working on, but we need to be better at full-S2 teardown.
+> > 
+> > This small series adds a "no TLBI" unmapping primitive, which allows
+> > the caller to then whack the TLBs using a VMID-wide invalidation. This
+> > results in far fewer TLBIs, and a better recursive virtualisation as
+> > we get far fewer traps as a consequence.
+> > 
+> > This applies on top of my shadow-s2 lifetime fixes, and is expected to
+> > be a prefix to Wei-Lin's series.
+> > 
+> > Marc Zyngier (4):
+> >    KVM: arm64: pgtable: Add Stage-2 unmap without TLBI primitive
+> >    KVM: arm64: MMU: Add kvm_stage2_unmap_all() helper
+> >    KVM: arm64: nv: Move full s2_mmu unmap over to kvm_stage2_unmap_all()
+> >    KVM: arm64: nv: Move TLBI VMALLS12E1* emulation over to
+> >      kvm_stage2_unmap_all()
+> > 
+> >   arch/arm64/include/asm/kvm_mmu.h     |  1 +
+> >   arch/arm64/include/asm/kvm_pgtable.h | 17 +++++++++++++
+> >   arch/arm64/include/asm/kvm_pkvm.h    |  1 +
+> >   arch/arm64/kvm/hyp/pgtable.c         | 38 +++++++++++++++++++++-------
+> >   arch/arm64/kvm/mmu.c                 | 15 +++++++++++
+> >   arch/arm64/kvm/nested.c              |  4 +--
+> >   arch/arm64/kvm/pkvm.c                |  2 ++
+> >   arch/arm64/kvm/sys_regs.c            | 18 ++++++-------
+> >   8 files changed, 75 insertions(+), 21 deletions(-)
+> > 
+> 
+> 
+> Hi Marc,
+> 
+> Thanks for putting this series together. I reviewed the four patches
+> and revisited the traces from my earlier Marc-only tests.
+> 
+> I have a correctness concern about child page-table reclamation.
+>
 
-James has sent v2 [1] and I gave some words on it. Adrian also has one
-comment for snapshot callbacks refactoring.
+You? Or your AI model? I'd really expect you to explain *your*
+perception of the problem rather than dumping the result of your AI in
+an email.
 
-Sashiko also sent out review on the series.
+> 1. Child page-table reclamation before the final TLBI
+> 
+> In patch 1, SKIP_S2_TLBI suppresses invalidation for both leaf and table
+> descriptors, while stage2_unmap_walker() still immediately releases
+> empty child tables.
 
-Thanks,
-Leo
+What is a "child" table?
 
-[1] https://lore.kernel.org/linux-perf-users/20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org/
+> 
+> For a child table with page_count(childp) == 1, the sequence is:
+> 
+>   stage2_unmap_walker()
+>     stage2_unmap_put_pte()
+>       clear the parent table descriptor
+>       skip its TLBI
+>     mm_ops->put_page(childp)
+>       kvm_s2_put_page()
+>         put_page()              /* drop the child's last reference */
+> 
+>   ... process the remaining address ranges ...
+> 
+>   __kvm_tlb_flush_vmid()         /* final invalidation in patch 2 */
+> 
+> This path does not use the free_unlinked_table()/call_rcu() deferred
+> reclamation mechanism. The existing deferred-range-TLBI path still
+> invalidates table descriptors immediately; the new flag skips that
+> invalidation too.
+
+And? What is the actual problem here?
+
+> 
+> Patch 4 provides a caller operating on active shadow MMUs:
+> kvm_s2_mmu_iterate_by_vmid() holds mmu_lock for write and visits valid
+> matching shadow MMUs, but does not require refcnt == 0 or wait for
+> other vCPUs using the MMU to exit.
+
+Of course it doesn't, since this is simply emulating an instruction
+local to that vcpu. How would the actual HW "wait" for another CPU to
+stop using a set of translation?
+
+> 
+> Another vCPU can therefore still use that shadow S2. The write lock
+> excludes software page-table updates, not hardware table walks.
+> The following interleaving is allowed:
+> 
+>   vCPU B / hardware walker        vCPU A
+>   ------------------------        ----------------------------
+>   Holds an old reference to T
+>                                   Clears parent, skips TLBI
+>                                   Drops T's last reference
+>                                   T is reused by the allocator
+>   Accesses T via the old reference
+>                                   Performs final VMID-wide TLBI
+>
+> The final flush barriers cannot retroactively protect a table that
+> has already been freed and reused.
+
+T is a shadow page-table page on the host. How can vcpu B hold a
+reference on that page? It isn't even in the same address space.
+
+Now, I can see that B could have a VA that *translate through* T, and
+that's rather annoying.
+
+I'll have a think.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
