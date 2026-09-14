@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A20FC88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25AEC88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 07:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPxySZczGSklo6sItWGCoBKraOEj6tEcXZ+MDWoS6tc=; b=cbN/gI1RREnv29xae5bPH1rbx/
-	edIeGoM2sUiJ8cOucgZCM8ZViu+yEHD44tVL9W9qDBW6QaP1sIVeJmO+1pfQM/dKcDp/OdEJaLn/D
-	I8xQ8JMRNeCD5hcfyIzOrIfZ7ZjuPE32fsR1p5c0BW77gdQxKuELx4rUWpR/0hxCy6bw0PDc8hd1U
-	fWnpBLQfw3wDe+eTC8aDEo9h/kdGTbjhxTN8KNE+mYWEU84ijeL0qOCduTkDl7/pJTIPcP8vFJN7p
-	kXNIyHuQIbuVTPpJOYkBaD7+gs98BsBCzAXaqFmRqOohxVb6SrRp1rqjx896kfr4xsSiHO2go9pOZ
-	6zwS1YKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=; b=x4UkXskEj5J3JW4KBLoNC4VpQe
+	veTJuZjCSezSHPytcmkrTrRW4M8+dhDta56TxP3vppdjUimRyTDRpGkHfMQOAyp26yMluLVKEsaiy
+	p5on30UIPpWrIwdM2br1vbppusWGgG2TcSZSTL3zZ+LqMEHzod6KNOnJFYxwkz2SeSUSWqSJEUlYb
+	iA4KNkLtqpPvGyd/XjPyDXOo3VmsMe1TmSDvdfwLI5VbjSyKwzSSPSdMSKAi12Ub1JpSTQmQMr/VN
+	+hS2jbckTScDTWV6JVu2r2cmVPDWj9DykDYVZJfk2KcIl65ewUC0pnH/Cz+54VXZuNjfFPqiJoZkm
+	FqFhT01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61Ac-00000002Zxg-1UqD;
-	Mon, 14 Sep 2026 07:32:06 +0000
-Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
+	id 1x61Bw-00000002aGe-1HxQ;
+	Mon, 14 Sep 2026 07:33:28 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x619t-00000002ZrI-11Em
+	id 1x61Bt-00000002aFh-0pZY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 07:31:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1789371081; x=1820907081;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=D/w0Nd7mMBMXBwcmirCSoGgamOmcMh+0zKgJNohHTyU=;
-  b=JbgYu0lxkTvxebDMPDMggUJEpZvFIXEAL9LWJaNtfFsE/K6o1GMhpYN0
-   gYf3AXyHJoCagm6lcgxtjekNNIAPo16xnabZ3o2WghBX7gIodxKJnj7pz
-   +JiLB8TmynXFU6CZ8zHsSF44ShkDKt6aZKA8JkksTStvFTu3TCepi9Jqz
-   /roq0YMFD8h3YdDt8FEeEgyUSgpHXHCDPkUgO34t6pbHGqKIRjgqP5mH3
-   /ix80YDUCz60Pg3N3a7K765VvpqMe//3G1qkC8v2Lz3pfuTF8l0d7UPqS
-   NJas+uC4bx+R4mWxUFWgl5+GPc0YMbszvDCozpaQ2cuPcibjTl5pzPLV/
-   w==;
-X-CSE-ConnectionGUID: SBrGTWPlSj2PDFuZWqFOqg==
-X-CSE-MsgGUID: Rnjo5Qk8Sli0XNu1bqQTNw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11904"; a="232694194"
-X-IronPort-AV: E=Sophos;i="6.27,102,1786978800"; 
-   d="scan'208";a="232694194"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2026 16:31:19 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id A13A51C00083
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:19 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 4E4AE1800EBA
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 07:31:19 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id 90E2A180012C;
-	Mon, 14 Sep 2026 07:31:13 +0000 (UTC)
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Date: Mon, 14 Sep 2026 16:30:46 +0900
-Subject: [PATCH v2 3/3] KVM: arm64: selftests: Test 52-bit guest virtual
- addresses
+	Mon, 14 Sep 2026 07:33:26 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485933b2522so1420312f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Sep 2026 00:33:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1789371203; x=1789976003; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=;
+        b=e/bZpOdaiQLqSVBaG8IWyYyTWz5SjayhFwRfKIUJnivMDE5Ovtf3KEV127/sRdps5K
+         YmsIP/gbc1BnG4ugSdqq1MvxfCvKo4CwNRTFdyfkgAkITluOW6/lrh+d1wXJSOMW1+0+
+         OI5aYYtc+/f88pnEx7MA8LraQyXQAEls5Mh4g3s3iObW34g6mxATB3RSmyGnv2HFP0uP
+         7vBDNGAx65L92cYFGkNhTwtBabE3op+PLiItOa3Ua9SXWQHe09AJoly0DXONIS3/RxjS
+         f08z2xQU/EzW+PM1+rJo+IJ4yGPl38zg1zg7X5gmx8iHnYjQEz5X7ba5wGb401dP00yx
+         tJqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789371203; x=1789976003;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aZr2FikKI33KDHEnzqoeN/VTnNw+pox/jCxpOuAG6zQ=;
+        b=WGAlwrFwZAXALsF7+fNglYmE6LyIET1NDeyx+DASR4GD17J1lD9UhiKaD/7kOzE1zS
+         6XPVInRZaeFFQRanOXYUre3PGSPJdbhN1wXZoljs0QssaSuKYQjCULLTKmJ1Dq8gJjL6
+         p0n1IFNpYpQ7CiwZ6QPubD3Iibk3/N/lTQ2Q9lf0zV+20IZf+jxjpO9jpqb4XJZEAgOj
+         i2ldb1pp5aEPV+pypBS1Jf7FMuogTLnAVsGJKLMYuce7dIX5411p0/8XKVRszQhPGnxV
+         cPx5cHsUMPLug61s5nFCMvKHwfF8Bwiw3u4vPiZpfdVFzn4cQBDUZ9rUOe+DpdKIVzDT
+         x6gQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwhRvikpZX/r9cv1ucw0s9aL2lU20rGUaiKhGBtnR/ZzPze+WTHMv5Xy5zgiU0R35KCHYcAffsD0cqMw5Q5JIru@lists.infradead.org
+X-Gm-Message-State: AFuF++lnbaWnG1wpg/JfPzxPRtiwteozurYZpFR7VY6dTShqYtyvSFrH
+	53E0044AVoJb7cr+BZKf660qcJcz9nZ68TWmNyb8/jhPohVhgkWk1xGlzc81MZ1CP5s=
+X-Gm-Gg: AYBFou18XNvFOLLw1UR5Z8r6jq0s2eBCwXdlchFzdcFbAGYYg15YYmwNXPyM4NHrr7n
+	8VVom8cRUqRYKOVRFaSDm2Y3LySvXH+nAJqERZq+/HYeU3MBs0FpxEmxEX4EKunwzN+HL+7R6bO
+	zMj9dhFbeJ/tNv/OpxkzRtNp4meEVecDKQjFg+7axtpNTUhrIo7hPdvewpHjVzveyj8J8r6aL35
+	OucPdqL5oLOUSbA9snFffsqfiLQvoL+VYvyFqBmUptDqafGFb2x7K6Gbbf95WUbVzIhEg2T8x1p
+	Xv5W3WjuqDKd/4QKBDngOmMvrqoi9ujBp68DaX4a34TOmSDfwJf0Mk0rW624eFQuKelro5/1qkW
+	wqsWB3AQrMWZV8AJ6KDOQcR8HRqNpKFh3iuqtPv0oBqHu1um+6cNjlWSrRz3RZ9VPPiQmN8q5KV
+	NdLi9BKqHBu/B0KtXbVw+VhT5L3QNyAqQ40yNkev2+bBZMQccX0gjKyqKwxuIFRqGJ8+8YqQy9q
+	kUQOd1/l8gCRaohT2+rCVG9FT8G9mwJgOd0rDLA6wgvLiPaqTN1dnZjsvzq36ISl34xiVOe
+X-Received: by 2002:a05:6000:470c:b0:486:f770:9e87 with SMTP id ffacd0b85a97d-48702aacef4mr2464666f8f.5.1789371202652;
+        Mon, 14 Sep 2026 00:33:22 -0700 (PDT)
+Received: from localhost (p200300f65f19a904d5c06a7863c841d4.dip0.t-ipconnect.de. [2003:f6:5f19:a904:d5c0:6a78:63c8:41d4])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-486eb2ed106sm24129793f8f.1.2026.09.14.00.33.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 00:33:21 -0700 (PDT)
+Date: Mon, 14 Sep 2026 09:33:20 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Valerio Setti <vsetti@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
+Message-ID: <aqeiUfIyeW2mapm_@monoceros>
+References: <20260912-audin-v1-0-7fbefe928711@baylibre.com>
+ <20260912-audin-v1-2-7fbefe928711@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260914-arm64-52bit-va-v2-3-3911cb9d4ad4@fujitsu.com>
-References: <20260914-arm64-52bit-va-v2-0-3911cb9d4ad4@fujitsu.com>
-In-Reply-To: <20260914-arm64-52bit-va-v2-0-3911cb9d4ad4@fujitsu.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>, Sean Christopherson <seanjc@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
- Takayuki Okamoto <tokamoto@fujitsu.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789371056; l=4315;
- i=itaru.kitayama@fujitsu.com; s=20260825; h=from:subject:message-id;
- bh=D/w0Nd7mMBMXBwcmirCSoGgamOmcMh+0zKgJNohHTyU=;
- b=VA0ne9nO2NfJtWMm9NxCz3CmVr9fkGlNn8NDYp2vGUuIDTaOEeAvCHVW02A5c5d5QN+mOmvw6
- P533nSEpYopCtjYRq6O4Pb1k4WBfmehGom4eFkGDD9Sp51UzYxkxnBf
-X-Developer-Key: i=itaru.kitayama@fujitsu.com; a=ed25519;
- pk=g9bTnr9giRP7JwNSZHy+OMLQZBEUtSE9tUnXso0hH1Y=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4kuywhcc5gf5klas"
+Content-Disposition: inline
+In-Reply-To: <20260912-audin-v1-2-7fbefe928711@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_003125_073515_CD7D247A 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260914_003325_255028_9771A42E 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,161 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exercise reads and writes through low and high guest virtual addresses
-in the 52-bit VA modes with 4K, 16K and 64K pages. Verify that mappings
-to the same GPA share data and mappings to distinct GPAs remain
-independent.
 
-Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
----
- tools/testing/selftests/kvm/Makefile.kvm     |   1 +
- tools/testing/selftests/kvm/arm64/lpa_test.c | 124 +++++++++++++++++++++++++++
- 2 files changed, 125 insertions(+)
+--4kuywhcc5gf5klas
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH 2/6] ASoC: meson: add audin main module and I2S formatter
+MIME-Version: 1.0
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 96bab7002d39..1e9d059ffb24 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -179,6 +179,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-+TEST_GEN_PROGS_arm64 += arm64/lpa_test
- TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
-diff --git a/tools/testing/selftests/kvm/arm64/lpa_test.c b/tools/testing/selftests/kvm/arm64/lpa_test.c
-new file mode 100644
-index 000000000000..8fe6f254db28
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/lpa_test.c
-@@ -0,0 +1,124 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Higher virtual addresses read/write test
-+ */
-+#include <test_util.h>
-+
-+#include "kvm_syscalls.h"
-+#include "kvm_util.h"
-+#include "ucall_common.h"
-+#include "guest_modes.h"
-+#include "processor.h"
-+
-+#define LOW_GVA		0xc0000000
-+#define HIGH_GVA (LOW_GVA | BIT(48))
-+
-+static void guest_code(void)
-+{
-+	u64 *low = (u64 *)LOW_GVA;
-+	u64 *high = (u64 *)HIGH_GVA;
-+
-+	WRITE_ONCE(*low, 1);
-+	GUEST_ASSERT_EQ(READ_ONCE(*high), 1);
-+	WRITE_ONCE(*high, 2);
-+	GUEST_ASSERT_EQ(READ_ONCE(*low), 2);
-+
-+	GUEST_SYNC(0);
-+
-+	asm volatile("dsb sy\n\t"
-+		     "tlbi vmalle1is\n\t"
-+		     "dsb sy\n\t"
-+		     "isb"
-+		     : : : "memory");
-+
-+	GUEST_SYNC(1); /* Host installs HIGH_GVA -> gpa_b. */
-+
-+	asm volatile("dsb sy\n\t"
-+		     "isb\n\t"
-+		     : : : "memory");
-+
-+	/* low and high map to different GPAs. */
-+	WRITE_ONCE(*low,  1);
-+	WRITE_ONCE(*high, 2);
-+
-+	/* Check both after both writes to detect accidental aliasing. */
-+	GUEST_ASSERT_EQ(READ_ONCE(*low),  1);
-+	GUEST_ASSERT_EQ(READ_ONCE(*high), 2);
-+
-+	/* Updating the low mapping must not change the high mapping. */
-+	WRITE_ONCE(*low, 3);
-+
-+	GUEST_ASSERT_EQ(READ_ONCE(*low),  3);
-+	GUEST_ASSERT_EQ(READ_ONCE(*high), 2);
-+
-+	GUEST_DONE();
-+}
-+
-+static void run_test(enum vm_guest_mode mode, void *arg)
-+{
-+	unsigned int *nr_tests = arg;
-+	struct kvm_vcpu_init init;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	struct ucall uc;
-+
-+	if (mode != VM_MODE_P52V52_4K &&
-+	    mode != VM_MODE_P52V52_16K &&
-+	    mode != VM_MODE_P52V52_64K)
-+		return;
-+
-+	vm = __vm_create(VM_SHAPE(mode), 1, 0);
-+	kvm_get_default_vcpu_target(vm, &init);
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpu);
-+
-+	u64 gpa_a = vm_phy_pages_alloc(vm, 1, 0, 0);
-+	u64 gpa_b = vm_phy_pages_alloc(vm, 1, 0, 0);
-+
-+	virt_pg_map(vm, LOW_GVA, gpa_a);
-+	virt_pg_map(vm, HIGH_GVA, gpa_a);
-+
-+	for (;;) {
-+		vcpu_run(vcpu);
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_DONE:
-+			goto done;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_SYNC:
-+			switch (uc.args[1]) {
-+			case 0:
-+				WRITE_ONCE(*virt_get_pte_hva(vm, HIGH_GVA), 0);
-+				break;
-+			case 1:
-+				virt_pg_map(vm, HIGH_GVA, gpa_b);
-+				break;
-+			default:
-+				TEST_FAIL("Unexpected sync stage: %lu\n", uc.args[1]);
-+			}
-+			/* Complete the host's PTE store before resuming the guest. */
-+			asm volatile("dsb sy" : : : "memory");
-+			break;
-+		default:
-+			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
-+		}
-+	}
-+
-+done:
-+	kvm_vm_free(vm);
-+	(*nr_tests)++;
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	unsigned int nr_tests = 0;
-+
-+	for_each_guest_mode(run_test, &nr_tests);
-+	if (!nr_tests)
-+		ksft_exit_skip("No supported 52-bit VA guest mode; skipping test\n");
-+	return 0;
-+}
+Hello Valerio,
 
--- 
-2.43.0
+On Sat, Sep 12, 2026 at 12:14:32AM +0200, Valerio Setti wrote:
+> +#include <linux/clk.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
 
+Please rely on <linux/platform_device.h> to provide of_device_id and
+drop the include for <linux/mod_devicetable.h>. That latter header is
+supposed to go away soon and injects a lot of build dependencies into
+your driver.
+
+If you want to go full iwyn, please use <linux/device-id/of.h> instead.
+
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+> +#include <sound/soc.h>
+> [...]
+> +static const struct of_device_id meson_gx_audin_of_match[] = {
+> +	{ .compatible = "amlogic,meson-gxbb-audin" },
+> +	{ .compatible = "amlogic,meson-gxl-audin" },
+> +	{}
+> +};
+
+It seems to be subjective, but I think most nit-pickers in the kernel
+prefer { } over {} to match the spacing in the non-empty initializers.
+
+Best regards
+Uwe
+
+--4kuywhcc5gf5klas
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqnoz4ACgkQj4D7WH0S
+/k6wBgf/VDlnoO5+iXo8tNZhitG0NPObCWmA3qnUxY31Go2pWwo5D7mENYe58DQf
+LbOjfyHM3rG5ajmQJpNpoxoWanM8pHm1pbf7WjzZXg8WxLPnc6Y6QmjA5rC1Rsoe
+OaAlq3aB/SmDTaIo9WzaLTYU/UhsFNVrWjtqGWhRXgGod17Q1r4iEW6LZadLjsyw
+8xYNabxMGbQJVZK8cXM2tJCC9n1O51+z8w01tQyZ4ze4J3Xw7v8uRXbDezOIqIee
+/+z7LE3HPZKG04IMtzYplulwe4dmSdjkf81QWxDR5SFxRrlxNaSuxE12LKJ4DSS4
+GL20Mp6Pvdl/Kqd1PwrNPdwUx4BNlw==
+=LwSM
+-----END PGP SIGNATURE-----
+
+--4kuywhcc5gf5klas--
 
