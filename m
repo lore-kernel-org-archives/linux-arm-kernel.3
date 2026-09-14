@@ -4,167 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017C2C88E50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F03FC88E70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 12:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGAjaTYW9+9pgn++AOoLz4Ni470k5ZTJydWoPlVjGtw=; b=2KY/1oQzV5CHiaiIQQL64S6Ei7
-	kW2fJxC/TInF2JAc/uba3gxycM1oLsAaG8MP9AXktBdr04CiKur2X2dLxMpoQnV3MeOmpk0BZ9CSv
-	KXinefZKaX54HpE637nzgGHvgqP6zuINlpLDYu9DUKUE2LzVY/fXVhU6ZHzJ3zS3d2WJnd65YO05B
-	IAhbfuDBx1jTaJ2HRKZZVc+1XV8HTJ1Le9SFlwUz2rIcyo2wBS0eN9G2mE5Y9V79lMhgd3sBVBUHu
-	Pk/n/Ss58oiNJ8ygWs/lL6e5xcMMkw2qZJ6c4PLyevkKjY675v9Yod6LYpvoQ/qol/EOLLqSOUyJr
-	VwALXAGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DBIyEjoXBaobETsgAMeXtIzUVA7oeIsr3UWXgIqqGc=; b=wcmC+rrdvAVS1THmqYwW7cRVkX
+	FUt8aJzlagWF+yLPTR9RO/f0iTwwZwq0BDOBbUvr2qO3Vsu9ZUUppTHPf/5Fde0SwVjE2W9KbnCwW
+	vC3OUUJK7SriEIT94TmT4b7Amb4iFyPqDi0L12U3l1lcOYEk9i1VdTCfLoreYExxR5PrV/ShLMsm2
+	zycKlh3yH3EZN8YlC/7INj0fivNTgJUPpI2lbcdxZBm7fKpseeRhh+34br1FHVHApKs331HsxEr5X
+	F0lCTEmX4wMiWOfSs57gHvrts+W0vcJVxmeTrvK7PPzYVWhhFgW3+zq3cd5ExkiilPpWbu1EglY9x
+	SRr11BwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65QM-00000003TBl-3Jh5;
-	Mon, 14 Sep 2026 12:04:38 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1x65Rp-00000003U3u-2ius;
+	Mon, 14 Sep 2026 12:06:09 +0000
+Received: from mail-westeuropeazon11011010.outbound.protection.outlook.com ([52.101.70.10] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Q1-00000003Sxk-40sq
+	id 1x65RJ-00000003TwL-3Bw0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 12:04:19 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id C998C21CB3;
-	Mon, 14 Sep 2026 12:04:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789387451; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oGAjaTYW9+9pgn++AOoLz4Ni470k5ZTJydWoPlVjGtw=;
-	b=s/8xx6Phz3C7iM/cwG9s8JXgPeKzTtz4W6E9+Uhp6s9Gs/q4fMObgrEZD/4NxhHiFsdcf2
-	ZM6Qh/tVSkNxYVtWGvCqBcxrhMdAFYPiSEMCYMZJMlDj0tz/5VUQ+bZH8pksfb2JVTG+5w
-	FfgjqwkQnXAe+9Pxe4TxSaAh9X5JSww=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789387451;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oGAjaTYW9+9pgn++AOoLz4Ni470k5ZTJydWoPlVjGtw=;
-	b=2aIGkYQw+Hgr38Ip6uo267G6WZ91VP7Dxuxusffo6tKuVt3zNSusGXVLwZxJU/AZQyjlmC
-	6f5pD3OuLxnFrEAQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Skls9UdH;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=VcjQ+Hdk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1789387447; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oGAjaTYW9+9pgn++AOoLz4Ni470k5ZTJydWoPlVjGtw=;
-	b=Skls9UdHYfdXyf1+XvkwS6SIvprCy3p2rJCF1FKee5E3K2ZBAldyVbo19v4UyM2suOo0hX
-	K1Un2SuqyTqASEvDn26RzJnN3TfWDLVGzrBodBbs+iYxanHJ5/zGZ4PWWdHYpkFSSMovwZ
-	Rfv6uXQrwIIC4TLWe35YbO0yxYhEw08=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1789387447;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oGAjaTYW9+9pgn++AOoLz4Ni470k5ZTJydWoPlVjGtw=;
-	b=VcjQ+HdkXxscPpMhk3xwqyl+LRC6Nrunw9/MnWxAoModxunwDKnTQyOJaYV9MteRSadyKe
-	8Hi/lZQaLkSsc5Bw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 220F513693;
-	Mon, 14 Sep 2026 12:04:06 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 7pSXO7bip2ooAgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 14 Sep 2026 12:04:06 +0000
-Message-ID: <b422004f-870c-4622-95c3-536798bb14ab@suse.de>
-Date: Mon, 14 Sep 2026 14:04:06 +0200
-MIME-Version: 1.0
+	Mon, 14 Sep 2026 12:05:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f6T0IFs+RmubWbV9I8Se6sIzTXVeNPyqlZxRBffTkjKnopcKqKOdX5EKcMQEJ6FfQWJjQJcCMG5c9z1xkhSA18UelCFRXZw/rFbD8n/xwiYNF8oIT4o/AB5fg19hmpJi0L3z8dmQjxvHvpLpOySzdAWk/NauwduXjsdDAo7n3XMbg5D6RrAIcso59MMZw6R+F+njMEPK7s5T60GnDlif6O66zvbABNar+kaEU+zwk8bfDWM9LTu5PPXz29MXBk+T9FuacjO2Tbz7Gh7CqPggi0aGk+6NRQv+L35ztzQqjvAy8re9PS8+alIprV8dp2vOc3fq1g5PLVZgBB4R82GQsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9DBIyEjoXBaobETsgAMeXtIzUVA7oeIsr3UWXgIqqGc=;
+ b=hj/35DH9maSynr5DAACOe71oOyhaWwJWkIGYP1upr+dRhyX/YxYHI3yn8vfx9QbfOFJkaynn3cjZkS8FUMxGWP+9yYLlYEFUj1k7Ie1ulwIIxNAmNnsKYDev2Sv3LZBhhNJDnXidS9MMnCf7jS7b/jTF+wwTWHx4lAiYn6vxK2weYIRIjZZFcfh3nz+e+Qjjt0xuqzeVxSS08vTlST+XIYFe79KYo6Wm2Skm93/1gZfaYM/5MXD0a2Ka52SKBCZ2l8q+DLPJLcHJmBytMl3cBqZvwUJu8DEC/jwB+WkAWRv5d7FiJ7NJYruznvT7Vfp7P8QeyHZqHVd2vj8/e9PnpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9DBIyEjoXBaobETsgAMeXtIzUVA7oeIsr3UWXgIqqGc=;
+ b=wdPcLP9wxmZ9GrFKJ5SjcCHT2HWE63VPh6XAlRjXadw29h02LUCF5lcLQmm8V49pL3AXc+nWn5MfubjnXm4Qgb9/WJ3qUC2xRVQt+ZRFxJBNCNhRewV/aXtM/y4SyAIwmAFHpRSzQJY5N7pljPtbnHpCP/p/rvMus2WqCy/xKea8osUoBu4YYhP6dxFal0/jOjywxX1W5FkyuckODMMuYSdtSEESTKSQQvYcx7Qn8MSepcRPNHdtOGAFhJ8Rna2qNsEAGxjFJPd/b+TrDV4K3kA27RqsBBb/i9rV6PZZXptqxjP+EUYtQhaxWXij3jEe1ktHcowRqxpBEP7xlvwO+Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by DBBPR04MB8044.eurprd04.prod.outlook.com
+ (2603:10a6:10:1e5::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
+ 2026 12:05:29 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
+ 12:05:29 +0000
+Message-ID: <cceb8f7e-2ff0-43d2-979c-6ddea98f4bea@oss.nxp.com>
+Date: Mon, 14 Sep 2026 15:05:24 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] drm: replace simple display pipe users with atomic
- helpers
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
+Subject: Re: [PATCH 06/10] dt-bindings: ufs: Add compatibles for S32N79 Host
+ Controller platform driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
  Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260727-drm-simple-kms-removal-v3-0-cd5dc89858c6@oss.qualcomm.com>
+ Fabio Estevam <festevam@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
+ aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+ <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
+ <20260828-dark-foamy-guillemot-0b60be@quoll>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260727-drm-simple-kms-removal-v3-0-cd5dc89858c6@oss.qualcomm.com>
+From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
+In-Reply-To: <20260828-dark-foamy-guillemot-0b60be@quoll>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: C998C21CB3
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[qualcomm.com:email,suse.de:dkim,suse.de:email,suse.de:mid,suse.com:url,msgid.link:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR5P281CA0058.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f0::14) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DBBPR04MB8044:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8e39ca0-f920-4ba0-449a-08df12587840
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|19092799006|7416014|10067099003|4143699003|6133799003|3023799007|22082099003|18002099003|56012099006|11063799006|5023799004;
+X-Microsoft-Antispam-Message-Info: 3NH2IsWrm/TJdNhbVWLWXqE3BUKidlMcYcDJ077eltYp2BT65k8wuc6xu2sKSLLWq1DKxsgnwdcSjgH//L5q4O5t3dTSi7FusyZq+MFEqGXf1vE6/LD/6IlmNoOs3JhYsSFTTaepVUKVLQaiEHiveDFwe67QYdhy3M9vanRY2jc4S9yw19DgBRw6FY9jJE+wJCc6WJvj9Hwy3qi7gkjXt9THJ+vUc1JfawINZ9n/DAW6gEMoLO+G5ez99rjARPyj7jBBdLWZIe/7XfyDHR5rr4GfmfeUQ62+qDHwtHbffUr4vtnWV9xy/WUTku70RRTATMWm0q7F+vVyASMqHCL99IH7YoqANJqHfay0AC2p6nOVe/+YClRt8nzLNLJHmQqjLBbwNeK+DKVAj7OJO4KfOewrglX+Nd86aaU62i++LyrEjm2CY/QlIzmCYdKq8EDgSOuhuFi+NL/DFp37SLpTMxvt2tWIZ4SiM8creSriZUlDOT3hH661qg4MhEov7QvGtZcsmzs5V5HNTPVZiAT8vQcXVnhqLApHB3IPEcPl1qFYKo3GppSov8poLKm9e+DgZm1K4rJQ3GhlMaGrYxN97216us9IjW2chEGKoO/IbdmVyoOSxCVZqCSS31FW+Hl3mBaoSK/dFrlYRAAaYdUYy2KsPRLaJFC+0nIhDCu0Kys=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(19092799006)(7416014)(10067099003)(4143699003)(6133799003)(3023799007)(22082099003)(18002099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVZDY082eHo3NnZNMzVWWXdDTmlxMkV6Ymc3ZGNMMXdJclJUSk91UXBxYTlB?=
+ =?utf-8?B?V2JiK05aanJQNGFSelNyWDgyZ2d1N0JVVG44bVkzZ1Vqb3FVaEozcUhETTAw?=
+ =?utf-8?B?SEQ3dWYxOHNkcFMyN0JOMVVXVmh4Q2hCNjdmWUR3VGkxOW9QWEdWeHVPKy9w?=
+ =?utf-8?B?OHlxUXRKNkFvUUpKNmxRR3NLajZueTdpOE1YcXIrK2M1T3NMc0ZPRTQwSVgv?=
+ =?utf-8?B?cStNZUwvSGJDd2ZDeGZ3L25nczEzS3paOWwyd0dIM0tzc2s2aWZVeU5uditS?=
+ =?utf-8?B?dm1BcWNoRy9QYjlDUDRUUDY2ZlYzU3oxSjN4TzRmUGJXRWM4c0F6WWYxQTls?=
+ =?utf-8?B?QzFNTmR5MWZJZG1Wa1NOU3BqRWsxSXdEN3lKZUNoeWtxS3dGaVpxazQwN3BS?=
+ =?utf-8?B?bDZsSlhCZHFkWVRJTzZqT0VMSWhGNDVMLzg1cllNcEFTZnJpNmNwczh5SWF0?=
+ =?utf-8?B?OVI2NGxZeEtrNW5VQXhIaHNhcWFOajdGMjQ4ak9XM09kQzVRSHAwOFhUM0hp?=
+ =?utf-8?B?MzFmLzRLcmxPYUJtNVh3UXBUNXhDN21pVURNNFRyVzJLUmluY3dqYXZ1SjJs?=
+ =?utf-8?B?U2xyaWtPTmlicHNyWm1xQ0FJLzRxL1VwWjVTbzYzMldCVmFLdUYzUWFnRDNs?=
+ =?utf-8?B?UDlPeXhKUE1ZQ3VTaFNONWFUNldVYXJWdGpSVEpueXNvdHpXSHRwVXpiNjln?=
+ =?utf-8?B?cldJYkVnbEFWUDlaV21uaDNqME9ySVZiTWRKSWJXY3NidFpscjVpTm93MmNi?=
+ =?utf-8?B?QTIybXN3YjdLeHdkNVBFOVhFKzM0VVdmUDhOWEZBbjN2OW1VSmVYdGRGZFhx?=
+ =?utf-8?B?ZXpySDF0OU8yUVFsM0tQU2llZzRQV0tzTWxINzRwZE1JZks2M2Y0Lzkvd3do?=
+ =?utf-8?B?Nks3cHJXY3lmNUFjcW0wWEdrZitJQ3l5aEszR2RuNVZiNjlHdnRxS2VLT0Fo?=
+ =?utf-8?B?SVQ1aHJlTklZVUJxMWltRUIwN0VaeFlPMDNtVW5yMzE3bTRHNURpMUhvSjNB?=
+ =?utf-8?B?bS81L2R5WHdBWERhOCtsNVJKMWl4TVBZOXhIYzVieHFwU2dhclRRUWJYU0dw?=
+ =?utf-8?B?bWRYc042MVRISHp2ZDk1S0xuMXRpMWt3MFplOFF6WlluOElJSWU4K0s2QUIr?=
+ =?utf-8?B?TWR3TytnV0pWOEYzTmREZ014aDh5UW80ejJSaXJ1dHNsUmNrSDZReTkyZzFZ?=
+ =?utf-8?B?OVEvVVVtMnNaZ2FKM0xFbEtzb21zQkRHRUE2a21NemVpVEorblkwQ2U1eDlL?=
+ =?utf-8?B?MldlczlMQkZ5aWJ2RjU4OVJyRngyWjNaVXBLZ0d5NUlpN2ZUN1JwTFJtLytV?=
+ =?utf-8?B?MlV0YU96S0svYVBXczNLOENsbUNhcm5XV1JCN0YxaVdPdXRrRitSODV3MXJ6?=
+ =?utf-8?B?UmUvVnBlNUJwZDhDS01pZ1g2OFk2REFHN25DeDZMZEdsb0tGSWs2MFNZRkxy?=
+ =?utf-8?B?OE9BanFnbmFaalk1TkliQnVybUkyTlJKMVRBaXdZdmN5UC9wakIvSThESk5Q?=
+ =?utf-8?B?NVo1cE5aTzNxSDBPNnpZRlhqNkJzMFFlUXhkbHh1VkVpaWlGMUNJZzd6QUJn?=
+ =?utf-8?B?bm9BeXcvbDYvQ2NPbU9ic08zSVUzb0FyUEV2R29TS1Z3U3p2bG0wZHhkbVpi?=
+ =?utf-8?B?WDJGNk8wdUVQdEp1SEtIdFV1ZlM2S1lEcGJPd3d3dEJMaDE4cDlBZm4vVnhY?=
+ =?utf-8?B?bnorS1hPVmtCMk5KcEtuVEVHa0xzM3JQVzNLVk50OHl6enBaSHExTGJqMTNh?=
+ =?utf-8?B?VjFueUNWUWFLcnF6bzZmUC83OEMvVDlJc2JRTGVwR3FvSlNaRHpjYVZ5ZEFk?=
+ =?utf-8?B?cEJqMnpxUkpOdnA1QmpJOVBnRldzeHFySmtpK1J2MGRuQTlOeGlaOWdmS1JC?=
+ =?utf-8?B?RnUyYURIVE5BMzdWYWZTeEh5aTZkMWdrTzg5ZE95eTVua1RaS2NKc3lDR094?=
+ =?utf-8?B?NjhXVGNCUElCUk5MMU1GVXVOZFJ3cFdodmh2K052OFlkSmFHWjhJbko3Nmlv?=
+ =?utf-8?B?UHpobys1eHZQRSsycWczMHlkQTE3WmFPL2hjWmRqMnVmS1ZxOTRaWndXMzZr?=
+ =?utf-8?B?RzU3a0NNcXMyTkJEcUNQOEM4M0hZa1lkNm9CRWNZMnUvanFzbEFMQUxHRmhn?=
+ =?utf-8?B?T2c2YkQzVmphVHQwOThwaDkzWWZWYkxVNzdwbmRUc1BLNG9lMTNYb3JRWVJz?=
+ =?utf-8?B?ak9qazR0eG9ydHVUQTB3L1lyZDZKQkw2U29tbmxXMmp5TFBQeDFCTW55MitC?=
+ =?utf-8?B?OUpZZ21FTVEzNmhlSHMyRXhwbFpxNUZGOHZOOUlHUFdDY0h1OEViRzlIaG1o?=
+ =?utf-8?B?RndoQ1VDeHNjS0gvT2YzRmpXMy9kV2dWSkxMM1IyeGhpaTZXYW9rMXFBQkE3?=
+ =?utf-8?Q?ZgoPAgQ+aKDFAsd8=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8e39ca0-f920-4ba0-449a-08df12587840
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 12:05:29.7025
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JX091Z/gelT4IWCTDHC9adUctmbCFoLin/7DOQFU2Dq/HG6bX+wOnwaQGIrTbQBCj0oVV+OwlY8dS7SI2tr8TA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_050418_315659_71A7BC90 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20260914_050537_873337_A2781759 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,139 +167,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On 8/28/2026 1:28 PM, Krzysztof Kozlowski wrote:
+> On Wed, Aug 26, 2026 at 03:40:44PM +0200, Larisa Grigore wrote:
+>> +  clocks:
+>> +    maxItems: 1
+>> +    description: UFS core clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: core_clk
+> 
+> _clk is redundant, just "core". Or skip names, not really useful in this
+> case.
+> 
+Thank you for the review Krzysztof! I will remove clock-names.
+>> +
+>> +  nxp,mphy-boot-mode:
+>> +    description: |
+>> +      MPHY initialization mode. Defines how the MPHY firmware should be
+>> +      initialized and executed during UFS controller startup.
+>> +      If this property is not specified, MPHY initialization will be skipped.
+> 
+> Isn't this implied by the compatible?
 
-Am 26.07.26 um 21:45 schrieb Ze Huang:
-> struct drm_simple_display_pipe was meant to simplify simple DRM
-> drivers, but instead adds an extra wrapper around normal DRM atomic
-> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
-> should be converted to regular atomic helpers and stop depending on the
-> simple-KMS interfaces.
->
-> This series converts the following drivers:
->
->    - arcpgu
->    - aspeed
->    - mcde
->    - repaper
->    - tve200
->    - xen frontend
+Thank you! I will drop this property.
 
-For these drivers:
+>> +    $ref: /schemas/types.yaml#/definitions/string
+>> +    enum:
+>> +      - rom
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +allOf:
+>> +  - $ref: ufs-common.yaml
+>> +  - if:
+>> +      required:
+>> +        - nxp,mphy-boot-mode
+>> +    then:
+>> +      properties:
+>> +        reg:
+>> +          minItems: 2
+>> +        reg-names:
+>> +          minItems: 2
+>> +      required:
+>> +        - reg-names
+>> +        - clocks
+>> +        - clock-names
+>> +    else:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 1
+>> +        reg-names:
+>> +          maxItems: 1
+> 
+> I don't get why for the SAME device diffeernt initialization means
+> device has different address space or clocks. It's the same device, same
+> wiring, same hardware setup.
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Thank you, that makes sense.
 
-I've taken the rest of the series into drm-misc-next. We had 2 drivers 
-tested and the others are variants of the same.
+My initial intention was to distinguish between two ownership models: 
+one where Linux performs the complete UFS/MPHY initialization, and 
+another where the UFS subsystem has already been initialized by firmware 
+and Linux is not expected to configure the clocks or access the SCM 
+registers.
 
-Best regards
-Thomas
+Looking at it again, this does not seem to describe a property of the 
+hardware itself. In the firmware-managed case, Linux would not be 
+expected to touch the SCM area at all, so representing it via a DT 
+property is probably not appropriate.
 
+A separate compatible describing the firmware-managed interface may be a 
+better fit. What do you think?
 
->
-> Each patch replaces drm_simple_display_pipe_init() with explicit
-> primary plane, CRTC and encoder setup, and moves the old simple-pipe
-> callbacks into regular plane and CRTC helper callbacks named according
-> to local driver conventions.
->
-> The conversions preserve helper behavior that used to be implicit in
-> drm_simple_kms_helper.c, including plane-state validation, CRTC
-> primary-plane checks, affected-plane propagation, framebuffer prepare
-> handling, and existing event/vblank flow where applicable.
->
-> Result is less helper indirection and more explicit driver-side atomic
-> wiring, with no remaining simple-KMS dependency in these drivers.
->
-> Except for gm12u320, no hardware testing was performed.
->
-> This series is based on drm-next-2026-06-27.
->
-> AI usage disclosure:
-> - I wrote the first two commits myself. The remaining patches were completed
->    with assistance from AI tools.
-> - AI tools were also used to review the code and suggest code changes for
->    the DRM atomic conversion.
->
-> Thanks,
-> Ze Huang
->
-> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
-> ---
-> Changes in v3:
-> - Use atomic state from the commit path consistently in converted helpers:
->    fetch new CRTC/plane state from the commit in enable/update/flush paths, and
->    use drm_atomic_get_crtc_state() with PTR_ERR() handling in plane atomic_check
->    hooks before drm_atomic_helper_check_plane_state().
-> - Move MCDE one-shot flow start from plane atomic_update() to CRTC
->    atomic_flush(), after pending vblank event handling.
-> - Fix repaper damage update path to skip updates unless CRTC is active.
-> - Fix arcpgu missing remote encoder node handling and lock CRTC state access in
->    debugfs.
-> - Make container helpers static inline.
-> - Link to v2: https://lore.kernel.org/r/20260716-drm-simple-kms-removal-v2-0-1133a8fc3785@oss.qualcomm.com
->
-> Changes in v2:
-> - common changes:
-> - create upcast helpers
-> - use 'commit' as name of struct drm_atomic_commit in atomic helpers
-> - improve control flow in *_crtc_helper_atomic_check() and
->    *_plane_helper_atomic_check()
-> - Moved page-flip/vblank event handling out of plane update paths and into
->    CRTC atomic_flush(), using atomic_flush and disable paths for mcde,
->    pl111 and tve200
-> - arcpgu:
->      - remove reduntant mod_supported helper
->      - change obsolete mode field to crtc->state->mode
-> - mcde:
->      - drop attach of unused encoder
-> - tve200:
->      - reorder connector/bridge attach
-> - xen:
->      - change possible_crtcs mask to 0
-> - Link to v1: https://patch.msgid.link/20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com
->
-> ---
-> Ze Huang (8):
->        drm/arcpgu: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/aspeed: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/mcde: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/pl111: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/gm12u320: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/repaper: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/tve200: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/xen: replace struct drm_simple_display_pipe with regular atomic helpers
->
->   drivers/gpu/drm/aspeed/aspeed_gfx.h      |  11 +-
->   drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c | 203 ++++++++++++++++++-------
->   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c  |   3 +-
->   drivers/gpu/drm/mcde/mcde_display.c      | 248 ++++++++++++++++++++-----------
->   drivers/gpu/drm/mcde/mcde_drm.h          |  12 +-
->   drivers/gpu/drm/mcde/mcde_drv.c          |   3 +-
->   drivers/gpu/drm/pl111/pl111_display.c    | 199 ++++++++++++++++++-------
->   drivers/gpu/drm/pl111/pl111_drm.h        |   5 +-
->   drivers/gpu/drm/pl111/pl111_drv.c        |   3 +-
->   drivers/gpu/drm/tiny/arcpgu.c            | 201 +++++++++++++++++++------
->   drivers/gpu/drm/tiny/gm12u320.c          | 138 +++++++++++++----
->   drivers/gpu/drm/tiny/repaper.c           | 138 +++++++++++++----
->   drivers/gpu/drm/tve200/tve200_display.c  | 219 ++++++++++++++++++---------
->   drivers/gpu/drm/tve200/tve200_drm.h      |   6 +-
->   drivers/gpu/drm/tve200/tve200_drv.c      |  12 +-
->   drivers/gpu/drm/xen/xen_drm_front.h      |   6 +-
->   drivers/gpu/drm/xen/xen_drm_front_kms.c  | 188 ++++++++++++++++-------
->   17 files changed, 1155 insertions(+), 440 deletions(-)
-> ---
-> base-commit: 3696d07837d1df13a5603d77f667685e7dfb3c53
-> change-id: 20260704-drm-simple-kms-removal-01a031c6a129
->
+Best regards,
+Larisa
+
 > Best regards,
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
+> Krzysztof
+> 
 
 
