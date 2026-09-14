@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5ECC88E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 01:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03F0C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Sep 2026 01:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cjQJOduHqAwj6o7DipSItmVFnQfPwlvihYn4mDcpUD0=; b=Mwrgpa0okPEqCR9pU1FEyMJlDd
-	05+VUrPb13cCWu5ao2xkTrWUhzMVbgvDIAzZr4PW4SoT1P3yMimOwJS8sYVyGHPYxFA/VlEUgIouF
-	XxoNNA3vwUph10ZcJReOz+PWXrF6Fi4YhcI4X1D3x5dU1aN8uoY3qFQ4CHju+U4T9lzfpvCU4zsFT
-	BEBcyuzIwHFaxEI+8/qpzbZ9KG/2wZ765O6K6ng0Si2o8i2zU7ILa6nuEr0uUqImqEolznbjCrVMA
-	kEMR77zX4TX0m60oMGz55R41OFwgP9o66f1SqhhKVc5HWXEQUbh0OcMgDnQ818Qi6pSVTH4tZp8Qj
-	kiwO+nWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hB6oGUDhB7NpBPwBSAbY4P+UYTTTI5VBvn+Ldw600iI=; b=ighQeorAQGymsRMnhWceL6Lt/N
+	JnAm2N6Y/Ju/qkgXxgueq3MHSIETHBwfBT7n6jqoBFTDOh7jZ46QK2MuCQyeQTj61zMpFgkIRwiMJ
+	BXn6VbHGZ20L52CveI49BC+WG5apv/Gt7nlPb3J72lXEThPv3qJ5d8e0rs0U+ODcr0kaXoBJUsuef
+	PZEotwjFFlHR+jWqkjv8CHoMz2XLF/md3QD2A9h41Ba/2YsftU0HtJIFNG5oTXTOosNu4qWHFmVfp
+	xAangCOmaFyZMp+NgguXLsGts13YaNMbjaZRyQhhZ+xPRmZ6V7FPGOA0mj3mUKTDOmY4IPObCcQgw
+	XpMH0XhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5vN8-000000028oq-3U9u;
-	Mon, 14 Sep 2026 01:20:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x5vNq-000000028tR-49PK;
+	Mon, 14 Sep 2026 01:21:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5vN6-000000028ok-3N4z
+	id 1x5vNn-000000028sz-3uey
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Sep 2026 01:20:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA57261057;
-	Mon, 14 Sep 2026 01:20:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF0F1F000FF;
-	Mon, 14 Sep 2026 01:20:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789348835;
-	bh=cjQJOduHqAwj6o7DipSItmVFnQfPwlvihYn4mDcpUD0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kq24UEU3HqY8/TTUrb1EXUbWdo5ZauWVeW/Z5ll7ftQHqY4sVATatElsiAsoBMR6q
-	 D+d8stydFiSSF70rz4XefQXbO/yl93pWYgxUwmcVaIY7qkMn86/thfoU+Vdz8H3D9p
-	 /59xH3aSNtdc27ZV6rpmcEWnxftOSsxILMWWvfXL5tkRE3apKASq2hSI6iP9hjQUla
-	 FglS3eUuU8hbp/h41PmnY583lhfq8P3L9lapGAriHK4U+RmWUAD2zcigPP9bkIp5AT
-	 7RxBcSDSqSM6zvdg3OBqzg1ZBLcLhbHpCwpjPSh11u9fSqDLT6dveM0/K4Ln7FmtqZ
-	 DenlbWQmZFsjw==
-Date: Sun, 13 Sep 2026 22:20:31 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Leo Yan <leo.yan@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 00/14] perf cs-etm: Per-thread mode fixes and snapshot
- wrap support
-Message-ID: <aqdL33fw9AoxTrPq@x2>
-References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
+	Mon, 14 Sep 2026 01:21:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789348878;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hB6oGUDhB7NpBPwBSAbY4P+UYTTTI5VBvn+Ldw600iI=;
+	b=BpKoTWrJGKSqPnkuKj64SpPdjmHi6vb0fq7ug8gjilpsQHHRRyK2DtBY6909RFVz8hD9ti
+	2y/1OzQVl8Qbwc4VXxl7Wmj7izsqH0nbeFQdlYhIK6BgN0vg7V4OGTbxm6I0Ji8JcE4DZX
+	zC3L3j36WDVYbmGt5ap455EE2xSCtUo=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-686-87gPw0_sN0KS2kix1swb7Q-1; Sun, 13 Sep 2026 21:21:15 -0400
+X-MC-Unique: 87gPw0_sN0KS2kix1swb7Q-1
+X-Mimecast-MFC-AGG-ID: 87gPw0_sN0KS2kix1swb7Q_1789348874
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-398dc3d8f0fso4048244a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Sep 2026 18:21:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789348874; x=1789953674;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hB6oGUDhB7NpBPwBSAbY4P+UYTTTI5VBvn+Ldw600iI=;
+        b=de9vuTIwA0ZuJtu8qGE8dfk4fW4vzPFs7BOAvImyMT7W0dD15NfXGrWhllVd3WBMmU
+         LbECaNVFRkNTMoamYGnZccsJhK8QrMSnUGtKp4lKrBNZI0ffJXKbEzVfLYk9WWCE4xP/
+         +4C2GVZ5xI9Zr39ZMUK1TM1REjsei1+A/3td5n92rHIKXiKbHfkeUYt9jueumPOw+i61
+         X52ELFvQJWPp6ZbD38ypWEInQnE5J3bXrJ5UV+e5ypHHLBdZ0zUChKOGhwaRtDTpVRQY
+         jW5/C9ayB95oPffV0kzpmYQ8+zBkZib8uzCwSnJTmXArvq9zeJg5qn+sdDWu0zeddopc
+         IaMA==
+X-Forwarded-Encrypted: i=1; AKwUvBze9kUZFV0UHGz9mCgnWCX+G10AVRmSn1EV+RnBFyESxN/VmIDj3HLutHWRMQQjv7ZwCr4imWaO9Bwk24gzYchT@lists.infradead.org
+X-Gm-Message-State: AFuF++lLT/zPVixVdq9vWdDFZpEO/GAjHlTQSsg4OMTuAf9MEDdwU3W5
+	+wUOHLGKbTjBHYPgJlIJey18bVPT0ZvTfnm5VYqL0hJhkw/cx8kAH0z2srmutrB8qpbhWsFC/+6
+	d4iyW7fmt/4CPjun/rxwE64sHjOv/XUkJHVLBu2ukJ4tmhTBFHEjjLgLXoh0XFWLUPBYasW4EIk
+	hh
+X-Gm-Gg: AYBFou3/g8jNvnMzwJetGtowKjOKWMXFiCrx/WyePmHfIQgDwGg8pyCdAmzCKKug8fw
+	KPnkjfTVhmLK+5Dp8wuOcZ1odO8TY7N7CWVXPnNe61bIxhaAcxqrxDubkW1PjWAKmEWLylK5IMi
+	9HjGSQKMadPs0vUbpZNFeb3LNfRu9lFl6Wl/YqA40jLyK5vfumg9nIhC7LY03RakN5ukvfLXKwg
+	4xqmLeH11//oGV+ihRLBYbdWt5B1cfS9EJFxsyK/fCELsVj4Z6nODnBclh3v/ZuarUtbKUaU9tA
+	VcmkArSJIezdjDfEuNdzGis+r4SbYYoiYXWu+aVsr6vPqzifWz9SU5quWz2S+enAencSCnhNOSR
+	rzypAYl95/yq6UViwa6KY6liD+PkCtWPRqcCuGTSFqQ==
+X-Received: by 2002:a17:90a:1041:b0:39d:edfc:26a0 with SMTP id 98e67ed59e1d1-39dedfc3adamr55101a91.1.1789348873749;
+        Sun, 13 Sep 2026 18:21:13 -0700 (PDT)
+X-Received: by 2002:a17:90a:1041:b0:39d:edfc:26a0 with SMTP id 98e67ed59e1d1-39dedfc3adamr55067a91.1.1789348873263;
+        Sun, 13 Sep 2026 18:21:13 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39db090dfa5sm4045013a91.4.2026.09.13.18.21.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 13 Sep 2026 18:21:12 -0700 (PDT)
+Message-ID: <6d204c05-1338-4ee5-9ac9-5d9447e329ee@redhat.com>
+Date: Mon, 14 Sep 2026 11:21:01 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 3/7] firmware: arm_rmm: Configure the RMM with the
+ host's page size
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-4-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260912083611.2513845-4-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: WHcv3kIAeR3vMbEOanjOb-estb7aOuOFxaEPXIgQr0w_1789348874
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_182120_052817_62BB1992 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +119,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 04:30:03PM +0100, James Clark wrote:
-> Fix a few issues with per-thread mode:
->   - With TRBE, thread migrations hit a queue without a decoder assert
->   - On nVHE, everything looks like guest trace instead of host
->   - Tracing multiple threads didn't really work
+On 9/12/26 6:36 PM, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
+> 
+> RMM v2.0 brings the ability to set the RMM's granule size. Check the
+> feature registers and configure the RMM so that it matches the host's
+> page size. This means that operations can be done with a granularity
+> equal to PAGE_SIZE.
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>   Changes since v17:
+>    * Move rmi_config_set() out of the header file.
+>    * Print the error message for rmi_config_set if it fails
+>   Changes since v15:
+>    * Actually check the feature register for the host's page-size support.
+>   Changes since v14:
+>    * Move the implementation into drivers/firmware/arm_rmm.
+>   Changes since v13:
+>    * Moved out of KVM.
+> ---
+>   drivers/firmware/arm_rmm/rmi.c | 79 ++++++++++++++++++++++++++++++++++
+>   1 file changed, 79 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index 2fd538c937dca..5b0e342ce3d58 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -35,6 +35,25 @@ static int rmi_features(unsigned long index, unsigned long *out)
+>   	return args.a0;
+>   }
+>   
+> +/**
+> + * rmi_rmm_config_set() - Configure the RMM
+> + * @cfg_ptr: PA of a struct rmm_config
+> + *
+> + * Sets configuration options on the RMM.
+> + *
+> + * Return: RMI return code
+> + */
+> +static int rmi_rmm_config_set(unsigned long cfg_ptr)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_RMM_CONFIG_SET, cfg_ptr,
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs);
+> +
+> +	return regs.a0;
+> +}
+> +
 
-This series applies cleanly to perf-tools-next but has no Reviewed-by
-nor was processed by Sashiko.
+The comments for rmi_rmm_config_set() can be dropped since its logic is simply enough and
+the code is self-explainning. Besides, I would move this right before its only caller
+rmi_configure().
 
-Can somebody from the ARM camp take a look at it, please?
+I would suggest drop this function by combining its logics into the only caller
+rmi_configure(), seeing below for more details.
+
+>   unsigned long rmi_feat_reg(unsigned long index)
+>   {
+>   	if (WARN_ON(index >= RMI_FEAT_REG_COUNT))
+> @@ -98,6 +117,62 @@ static int rmi_read_features(void)
+>   	return 0;
+>   }
+>   
+> +static int rmi_configure(void)
+> +{
+> +	unsigned long granule_feature;
+> +	unsigned long granule_size;
+> +	int ret = 0;
+> +	struct rmm_config *config;
+> +
+> +	switch (PAGE_SIZE) {
+> +	case SZ_4K:
+> +		granule_size = RMI_GRANULE_SIZE_4KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
+> +		break;
+> +	case SZ_16K:
+> +		granule_size = RMI_GRANULE_SIZE_16KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
+> +		break;
+> +	case SZ_64K:
+> +		granule_size = RMI_GRANULE_SIZE_64KB;
+> +		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
+> +		break;
+> +	default:
+> +		BUILD_BUG();
+> +	}
+> +
+> +	if (!(rmi_feat_reg(1) & granule_feature)) {
+> +		pr_err("RMM does not support %luKB granules\n",
+> +		       PAGE_SIZE >> 10);
+> +		return -ENXIO;
+> +	}
+> +
+> +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+> +	if (!config) {
+> +		pr_err("Unable to allocate memory for RMM config\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	config->rmi_granule_size = granule_size;
+> +
+> +	/*
+> +	 * For now we set the tracking_region_size to 0 which is the only option
+> +	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
+> +	 * TODO: Support other tracking sizes via Kconfig option for other
+> +	 * PAGE_SIZES
+> +	 */
+> +	config->tracking_region_size = 0;
+> +
+> +	ret = rmi_rmm_config_set(virt_to_phys(config));
+> +	if (ret) {
+> +		pr_err("RMM config set failed (%d)\n", ret);
+> +		ret = -EINVAL;
+> +	}
+> +
+
+I would suggest to drop rmi_rmm_config_set() by combining its logic to rmi_configure().
+
+	struct arm_smccc_1_2_regs args = { SMC_RMI_RMM_CONFIG_SET };
+
+	args.a1 = virt_to_phys(config);
+	rmi_smccc_invoke(&args);
+	if (args.a0 != RMI_SUCCESS) {
+		pr_err("RMM config set failed (%ld)\n", args.a0);
+		ret = -EINVAL;
+	}
+	
+
+> +	free_page((unsigned long)config);
+> +	return ret;
+> +}
+> +
+>   static int __init arm64_init_rmi(void)
+>   {
+>   	int ret;
+> @@ -111,6 +186,10 @@ static int __init arm64_init_rmi(void)
+>   	if (ret)
+>   		return ret;
+>   
+> +	ret = rmi_configure();
+> +	if (ret)
+> +		return ret;
+> +
+>   	return 0;
+>   }
+>   
 
 Thanks,
+Gavin
 
-- Arnaldo
- 
-> After adding a tests for those, it turns out there were some snapshot
-> bugs not picked up by the other snapshot tests. That showed that the
-> different snapshot searches for Intel BTS and Arm SPE were inconsistent
-> and I think all tracers can benefit from using the same pointer fixup
-> logic, so that gets refactored into the common auxtrace.c. Then SPE can
-> just share the Intel BTS search as it was obviously copied from it
-> originally. IntelPT keeps the more advanced duplicate data search, but
-> in the future that could probably be made the common one and all tracers
-> would benefit from using it (except maybe BTS if it always has a very
-> small buffer, but I doubt the overhead of the duplicate search would be
-> an issue). For now this is more of a refactor rather than behavioral
-> change so don't do that yet.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
-> James Clark (14):
->       perf cs-etm: Fix nVHE per-thread decoding
->       perf cs-etm: Warn for invalid timestamp option
->       perf cs-etm: Turn on context packet timestamps in per-thread mode
->       perf cs-etm: Use per-CPU queues for per-thread mode
->       perf cs-etm: Increase default timestamp generation period
->       perf auxtrace: Turn Intel BTS snapshot search into a generic one
->       perf arm-spe: Use generic snapshot search
->       perf auxtrace: intel-pt: Use new snapshot_has_wrapped callback
->       perf cs-etm: Queue partial AUX records
->       perf cs-etm: Don't print missing buffers in snapshot mode
->       perf auxtrace: cs-etm: Capture wrapped snapshots
->       perf test: Allow infinite named_thread loops
->       perf test: Add test for per-thread mode
->       perf cs-etm: Test multiple per-thread threads
-> 
->  Documentation/userspace-api/perf_ring_buffer.rst   |   6 +-
->  tools/perf/Documentation/perf-test.txt             |   2 +-
->  tools/perf/arch/arm/util/cs-etm.c                  |  30 ++++-
->  tools/perf/arch/arm64/util/arm-spe.c               | 147 +--------------------
->  tools/perf/arch/x86/util/intel-bts.c               | 115 +---------------
->  tools/perf/arch/x86/util/intel-pt.c                |  58 +++-----
->  .../perf/tests/shell/coresight/per-thread-multi.sh |  78 +++++++++++
->  tools/perf/tests/shell/coresight/per-thread.sh     |  48 +++++++
->  .../perf/tests/shell/coresight/raw_dump_stress.sh  |   5 -
->  tools/perf/tests/workloads/named_threads.c         |   7 +-
->  tools/perf/util/auxtrace.c                         | 136 +++++++++++++++++--
->  tools/perf/util/auxtrace.h                         |  20 ++-
->  tools/perf/util/cs-etm.c                           |  98 ++++++++++----
->  13 files changed, 382 insertions(+), 368 deletions(-)
-> ---
-> base-commit: bf10e6ee2ac3034c9068e03eed418fd16961984e
-> change-id: 20260605-james-cs-unformatted-per-thread-fix-50e723aa7f0e
-> 
-> Best regards,
-> --  
-> James Clark <james.clark@linaro.org>
 
